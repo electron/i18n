@@ -1,4 +1,4 @@
-# Official Guides
+# Officiële Handleidingen
 
 Wees er zeker van dat je de documenten gebruikt die overeenkomen met jouw Electron versie. Het versienummer moet deel uitmaken van de URL van de pagina. Als dit niet zo is, gebruik je mogelijk de documentatie van een ontwikkelingstak die mogelijk API veranderingen bevat die niet compatibel zijn met jouw Electron versie. Om oudere versies van de documentatie te tonen, kun je [op tag bladeren](https://github.com/electron/electron/tree/v1.4.0) op GitHub door de "Switch branches/tags" dropdown te openen en de tag te selecteren die overeenkomt met jouw versie.
 
@@ -8,17 +8,17 @@ Er zijn vragen die vaak gesteld worden. Kijk hier voor je een nieuw probleem inv
 
 * [Electron FAQ](faq.md)
 
-## Guides and Tutorials
+## Handleidingen en Tutorials
 
-* [Setting up the Development Environment](tutorial/development-environment.md) 
-  * [Setting up macOS](tutorial/development-environment.md#setting-up-macos)
-  * [Setting up Windows](tutorial/development-environment.md#setting-up-windows)
-  * [Setting up Linux](tutorial/development-environment.md#setting-up-linux)
-  * [Choosing an Editor](tutorial/development-environment.md#a-good-editor)
-* [Creating your First App](tutorial/first-app.md) 
-  * [Installing Electron](tutorial/first-app.md#installing-electron)
-  * [Electron Development in a Nutshell](tutorial/first-app.md#electron-development-in-a-nutshell)
-  * [Running Your App](tutorial/first-app.md#running-your-app)
+* [Een Ontwikkelingsomgeving opzetten](tutorial/development-environment.md) 
+  * [MacOS instellen](tutorial/development-environment.md#setting-up-macos)
+  * [Windows instellen](tutorial/development-environment.md#setting-up-windows)
+  * [Linux instellen](tutorial/development-environment.md#setting-up-linux)
+  * [Een tekstbewerker kiezen](tutorial/development-environment.md#a-good-editor)
+* [Maak je eerste App](tutorial/first-app.md) 
+  * [Electron installeren](tutorial/first-app.md#installing-electron)
+  * [Electron Development in een notendop](tutorial/first-app.md#electron-development-in-a-nutshell)
+  * [Je App starten](tutorial/first-app.md#running-your-app)
 * [Boilerplates and CLIs](tutorial/boilerplates-and-clis.md) 
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
