@@ -1,9 +1,9 @@
 # شئ تراکنش
 
-* `transactionIdentifier` String
+* `شناسه تراکنش`
 * `تاریخ تراکنش`
 * `شناسه اصلی تراکنش`
-* `transactionState` String - The transaction sate (`"purchasing"`, `"purchased"`, `"failed"`, `"restored"`, or `"deferred"`)
+* `وضعیت تراکنش`رشته - وضعیت تراکنش(`"خرید"`، `"خریداری شده"`، `"ناموفق"`، `"بازیابی شده"`، یا `"معوق"`)
 * `کد خطا`
 * `پیغام خطا`
 * `پرداخت` شئ 
