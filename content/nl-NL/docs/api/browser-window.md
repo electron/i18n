@@ -1187,4 +1187,4 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 Returns `BrowserView | null` - an attached BrowserView. Returns `null` if none is attached.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**Let op:** De BrowserView API is momenteel experimenteel en kan mogelijk veranderen of verwijderd worden in toekomstige Electron uitgaves.
