@@ -1,11 +1,11 @@
-# Transaction Object
+# شئ تراکنش
 
 * `transactionIdentifier` String
-* `transactionDate` String
-* `originalTransactionIdentifier` String
+* `تاریخ تراکنش`
+* `شناسه اصلی تراکنش`
 * `transactionState` String - The transaction sate (`"purchasing"`, `"purchased"`, `"failed"`, `"restored"`, or `"deferred"`)
-* `errorCode` Integer
-* `errorMessage` String
-* `payment` Object 
-  * `productIdentifier` String
-  * `quantity` Integer
+* `کد خطا`
+* `پیغام خطا`
+* `پرداخت` شئ 
+  * `شناسه محصول`
+  * `مقدار`
