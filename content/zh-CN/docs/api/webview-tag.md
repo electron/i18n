@@ -437,8 +437,8 @@ Opens the DevTools for the service worker context present in the guest page.
 ### `<webview>.findInPage(text[, options])`
 
 * `text` String - 要搜索的内容，必须非空。
-* `选项` Object (可选) 
-  * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
+* `options` Object (可选) 
+  * `forward` Boolean (可选) -向前或向后搜索，默认为 `true`。
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
   * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
@@ -459,7 +459,7 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
 
 ### `<webview>.print([options])`
 
-* `选项` Object (可选) 
+* `options` Object (可选) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
