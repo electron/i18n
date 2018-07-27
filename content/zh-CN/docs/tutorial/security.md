@@ -203,13 +203,13 @@ session
   })
 ```
 
-## 5) Do Not Disable WebSecurity
+## 5) 不要禁用WebSecurity
 
-*Recommendation is Electron's default*
+*Electron的默认值就是建议值。*
 
-You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`WebView`](../api/web-view.md)) disables crucial security features.
+你也需已经猜到在渲染进程([`BrowserWindow`](../api/browser-window.md)，[`BrowserView`](../api/browser-view.md)，[`WebView`](../api/web-view.md)) 禁用`webSecurity`属性相当于禁用了至关重要的安全特性。
 
-Do not disable `webSecurity` in production applications.
+不要再生产环境中禁用`webSecurity`
 
 ### 为什么？
 
@@ -301,7 +301,7 @@ window.eval = global.eval = function () {
 
 ## 8) Do Not Set `allowRunningInsecureContent` to `true`
 
-*Recommendation is Electron's default*
+*Electron的默认值就是建议值。*
 
 By default, Electron will not allow websites loaded over `HTTPS` to load and execute scripts, CSS, or plugins from insecure sources (`HTTP`). Setting the property `allowRunningInsecureContent` to `true` disables that protection.
 
@@ -329,7 +329,7 @@ const mainWindow = new BrowserWindow({})
 
 ## 9) Do Not Enable Experimental Features
 
-*Recommendation is Electron's default*
+*Electron的默认值就是建议值。*
 
 Advanced users of Electron can enable experimental Chromium features using the `experimentalFeatures` and `experimentalCanvasFeatures` properties.
 
@@ -357,7 +357,7 @@ const mainWindow = new BrowserWindow({})
 
 ## 10) Do Not Use `enableBlinkFeatures`
 
-*Recommendation is Electron's default*
+*Electron的默认值就是建议值。*
 
 Blink is the name of the rendering engine behind Chromium. As with `experimentalFeatures`, the `enableBlinkFeatures` property allows developers to enable features that have been disabled by default.
 
@@ -383,7 +383,7 @@ const mainWindow = new BrowserWindow()
 
 ## 11) Do Not Use `allowpopups`
 
-*Recommendation is Electron's default*
+*Electron的默认值就是建议值。*
 
 If you are using [`WebViews`](../api/web-view.md), you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`](../api/browser-window.md) using the `window.open()` method. `WebViews` are otherwise not allowed to create new windows.
 
