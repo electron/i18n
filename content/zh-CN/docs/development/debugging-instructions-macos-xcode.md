@@ -27,7 +27,7 @@ $ ./script/build.py -c D --libcc
 
 This will build debug electron with debug version of libchromiumcontent.
 
-### Generate xcode project for debugging sources (cannot build code from xcode)
+### 为调试源代码生成Xcode项目（无法从Xcode构建代码）
 
 Run the update script with the --xcode argument.
 
@@ -35,10 +35,10 @@ Run the update script with the --xcode argument.
 $ ./script/update.py --xcode
 ```
 
-This will generate the electron.ninjs.xcworkspace. You will have to open this workspace to set breakpoints and inspect.
+这会生成electron.ninjs.xcworkspace。 You will have to open this workspace to set breakpoints and inspect.
 
 ### 调试与断点
 
-Launch electron app after build. You can now open the xcode workspace created above and attach to the electron process through the Debug > Attach To Process > Electron debug menu. [Note: If you want to debug the renderer process, you need to attach to the Electron Helper as well.]
+构建后启动Electron应用。 You can now open the xcode workspace created above and attach to the electron process through the Debug > Attach To Process > Electron debug menu. [Note: If you want to debug the renderer process, you need to attach to the Electron Helper as well.]
 
 You can now set breakpoints in any of the indexed files. However, you will not be able to set breakpoints directly in the chromium source. To set break points in the chromium source, you can choose Debug > Breakpoints > Create Symbolic Breakpoint and set any function name as the symbol. This will set the breakpoint for all functions with that name, from all the classes if there are more than one. You can also do this step of setting break points prior to attaching the debugger, however, actual breakpoints for symbolic breakpoint functions may not show up until the debugger is attached to the app.
