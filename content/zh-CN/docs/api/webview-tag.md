@@ -296,23 +296,23 @@ Stops any pending navigation.
 
 ### `<webview>.goBack()`
 
-Makes the guest page go back.
+使访客页后退。
 
 ### `<webview>.goForward()`
 
-Makes the guest page go forward.
+使访客页前进。
 
 ### `<webview>.goToIndex(index)`
 
 * `index` Integer
 
-Navigates to the specified absolute index.
+定位到指定的绝对索引。
 
 ### `<webview>.goToOffset(offset)`
 
 * `offset` Integer
 
-Navigates to the specified offset from the "current entry".
+定位到相对于“当前入口”的指定的偏移。
 
 ### `<webview>.isCrashed()`
 
@@ -322,26 +322,26 @@ Returns `Boolean` - Whether the renderer process has crashed.
 
 * `userAgent` String
 
-Overrides the user agent for the guest page.
+覆盖访客页的用户代理。
 
 ### `<webview>.getUserAgent()`
 
-Returns `String` - The user agent for guest page.
+返回 `String` - 访客页的用户代理。
 
 ### `<webview>.insertCSS(css)`
 
 * `css` String
 
-Injects CSS into the guest page.
+向访客页注入CSS。
 
 ### `<webview>.executeJavaScript(code[, userGesture, callback])`
 
 * `code` String
-* `userGesture` Boolean (optional) - Default `false`.
-* `callback` Function (optional) - Called after script has been executed. 
+* `userGesture` Boolean (可选) - 默认为 `false`。
+* `callback` Function (可选) - 在脚本被执行后被调用。 
   * `result` Any
 
-评估页面中的 `code`。 如果设置了`userGesture`，它将在页面中创建用户手势上下文。 像 `requestFullScreen` 这样的需要用户操作的HTML API可以利用这个选项来实现自动化。
+在页面中执行 `code`。 如果设置了`userGesture`，它将在页面中创建用户手势上下文。 像 `requestFullScreen` 这样的需要用户操作的HTML API可以利用这个选项来实现自动化。
 
 ### `<webview>.openDevTools()`
 
@@ -374,59 +374,59 @@ Opens the DevTools for the service worker context present in the guest page.
 
 * `muted` Boolean
 
-Set guest page muted.
+设置访客页是否静音。
 
 ### `<webview>.isAudioMuted()`
 
-Returns `Boolean` - Whether guest page has been muted.
+返回 `Boolean` - 访客页是否被静音。
 
 ### `<webview>.undo()`
 
-Executes editing command `undo` in page.
+在页面中执行编辑命令 `undo`。
 
 ### `<webview>.redo()`
 
-Executes editing command `redo` in page.
+在页面中执行编辑命令 `redo`。
 
 ### `<webview>.cut()`
 
-Executes editing command `cut` in page.
+在页面中执行编辑命令 `cut`。
 
 ### `<webview>.copy()`
 
-Executes editing command `copy` in page.
+在页面中执行编辑命令 `copy`。
 
 ### `<webview>.paste()`
 
-Executes editing command `paste` in page.
+在页面中执行编辑命令 `paste`。
 
 ### `<webview>.pasteAndMatchStyle()`
 
-Executes editing command `pasteAndMatchStyle` in page.
+在页面中执行编辑命令 `pasteAndMatchStyle`。
 
 ### `<webview>.delete()`
 
-Executes editing command `delete` in page.
+在页面中执行编辑命令 `delete`。
 
 ### `<webview>.selectAll()`
 
-Executes editing command `selectAll` in page.
+在页面中执行编辑命令 `selectAll`。
 
 ### `<webview>.unselect()`
 
-Executes editing command `unselect` in page.
+在页面中执行编辑命令 `unselect`。
 
 ### `<webview>.replace(text)`
 
 * `text` String
 
-Executes editing command `replace` in page.
+在页面中执行编辑命令 `replace`。
 
 ### `<webview>.replaceMisspelling(text)`
 
 * `text` String
 
-Executes editing command `replaceMisspelling` in page.
+在页面中执行编辑命令 `replaceMisspelling`。
 
 ### `<webview>.insertText(text)`
 
@@ -436,7 +436,7 @@ Executes editing command `replaceMisspelling` in page.
 
 ### `<webview>.findInPage(text[, options])`
 
-* `text` String - Content to be searched, must not be empty.
+* `text` String - 要搜索的内容，必须非空。
 * `选项` Object (可选) 
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
