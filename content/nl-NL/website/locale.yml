@@ -13,7 +13,7 @@ nav:
   userland: Userland
 docs:
   title: Electron documentatie
-  description: Bekijk alle <a href="/docs/all">docs op 1 pagina</a> of bekijk de <a href="/docs/faq">FAQ</a>.
+  description: Bekijk alle <a href="/docs/all">documentatie op 1 pagina</a> of bekijk de <a href="/docs/faq">FAQ</a>.
   guides: Gidsen
   api_reference: API Verwijzing
   advanced: Geavanceerd
@@ -89,7 +89,7 @@ quick_start:
   dive_deeper: Of duik wat dieper en lees de <a href='/docs'>documentatie</a>.
 need_help:
   title: Hulp nodig?
-  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum or our <a href='http://atom-slack.herokuapp.com/'>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
+  description: Stel vragen op het <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum of op ons <a href='http://atom-slack.herokuapp.com/'>Slack</a> kanaal. Volg<a href="https://twitter.com/electronjs">@electronjs</a> op Twitter voor belangrijke mededelingen. Liever persoonlijk contact? E-mail naar <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
 headings:
   languages: Talen
 taglines:
@@ -118,19 +118,19 @@ pages:
     description: Apps gebouwd op Electron
   '/docs':
     title: Documentatie
-    description: Handleidingen en API referentie documentatie voor de laatste Electron release
+    description: Handleidingen en API-referentiedocumentatie voor de nieuwste Electron release
   '/docs/all':
     title: Alle Electron documentatie!
-    description: All of Electron's guides and API documentation on a single, searchable page.
+    description: Alle handleidingen van Electron en API documentatie op één enkele, doorzoekbare pagina.
   '/docs/api':
     title: API
-    description: API reference documentation for the latest Electron release
+    description: API-referentiedocumentatie voor de nieuwste versie van Electron
   '/docs/development':
     title: Ontwikkeling
     description: Ontwikkelen met Electron
   '/docs/tutorial':
     title: Handleiding
-    description: Guides and tutorials for the latest Electron release
+    description: Gidsen en tutorials voor de nieuwste Electron release
   '/blog':
     title: Electron Blog
     description: Al het laatste nieuws van het Electron team en de community.
@@ -147,7 +147,7 @@ pages:
     title: Userland
   '/devtron':
     title: Devtron
-    description: Devtron is an open source tool to help you inspect, monitor, and debug your Electron app. Built on top of the amazing Chrome Developer Tools.
+    description: Devtron is een open source-tool waarmee u uw Electron app kunt inspecteren, controleren en debuggen. Gebouwd bovenop de geweldige Chrome ontwikkelaarstools.
   '/spectron':
     title: Spectron
     description: Spectron is een open source framework voor het gemakkelijk schrijven van integraties tests voor uw elektron app. Gebouwd op basis van ChromeDriver en WebDriverIO.
@@ -156,7 +156,7 @@ pages:
 _404:
   page_not_found: Pagina niet gevonden.
 search:
-  description_all: Find Electron resources from <a href="/search/docs">documentation</a>, <a href="/search/npmPackages">npm packages</a>, and <a href="/search/repos">GitHub repos</a>.
+  description_all: Zoek Electron bronnen uit <a href="/search/docs">documentatie</a>, <a href="/search/npmPackages">npm packages</a>, en <a href="/search/repos">GitHub repos</a>.
   description_docs: Zoek Electron-bronnen uit documentatie.
   description_npm: Zoek Electron-bronnen uit npm packages.
   description_repos: Zoek Electron-bronnen uit GitHub-repos.
