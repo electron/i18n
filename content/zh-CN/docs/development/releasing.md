@@ -216,12 +216,12 @@ The Electron account's credentials are kept by GitHub. "Electron - NPM" for the 
 
 ```sh
 $ npm login
-Username: electron
-Password:
-Email: (this IS public) electron@github.com
+用户名: electron
+密码:
+电子邮件: (这是公共的) electron@github.com
 ```
 
-发布到npm。
+发布版本到npm。
 
 ```sh
 $ npm whoami
