@@ -140,7 +140,7 @@ Assigning `src` its own value will reload the current page.
 <webview src="https://electronjs.org" partition="electron"></webview>
 ```
 
-Sets the session used by the page. 如果 `partition` 以 `persist:`开头, 该页面将使用持续的 session，并在所有页面生效，且使用同一个`partition`. 如果没有 `persist:` 前缀, 页面将使用 in-memory session. 通过分配相同的 ` partition `, 多个页可以共享同一会话。 如果没有设置`partition`，app 将会使用默认的session。
+设置页面使用的会话。 如果 `partition` 以 `persist:`开头, 该页面将使用持续的 session，并在所有页面生效，且使用同一个`partition`. 如果没有 `persist:` 前缀, 页面将使用 in-memory session. 通过分配相同的 ` partition `, 多个页可以共享同一会话。 如果没有设置`partition`，app 将会使用默认的session。
 
 此值只能在第一次导航之前修改, 因为活动的渲染进程的会话无法更改。尝试修改该值将会失败, 并会出现一个 DOM 异常。
 
@@ -243,26 +243,26 @@ webview.addEventListener('dom-ready', () => {
   * `httpReferrer` String (可选) - HTTP来源网址
   * `userAgent` String (可选) - 发起请求的 userAgent.
   * `extraHeaders` String (可选) - 用 "\n" 分割的额外标题
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (optional) -
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (可选) -
   * `baseURLForDataURL` String (可选) - 要加载的数据文件的根 url(带有路径分隔符). 只有当指定的 `url`是一个数据 url 并需要加载其他文件时，才需要这样做。
 
 `webview` 中加载目标 url，url 地址必须包含协议前缀，例如：`http://` 或 `file://`。
 
 ### `<webview>.getURL()`
 
-Returns `String` - The URL of guest page.
+返回 `String` - 访客页的URL。
 
 ### `<webview>.getTitle()`
 
-Returns `String` - The title of guest page.
+返回 `String` - 访客页的标题。
 
 ### `<webview>.isLoading()`
 
-Returns `Boolean` - Whether guest page is still loading resources.
+返回 `Boolean` - 访客页是否仍然在加载资源。
 
 ### `<webview>.isWaitingForResponse()`
 
-Returns `Boolean` - 访客页面是否正在等待页面主资源的第一响应。
+返回 `Boolean` - 访客页面是否正在等待页面主资源的第一响应。
 
 ### `<webview>.stop()`
 
@@ -270,29 +270,29 @@ Stops any pending navigation.
 
 ### `<webview>.reload()`
 
-Reloads the guest page.
+刷新访客页。
 
 ### `<webview>.reloadIgnoringCache()`
 
-Reloads the guest page and ignores cache.
+刷新访客页并忽略缓存。
 
 ### `<webview>.canGoBack()`
 
-Returns `Boolean` - Whether the guest page can go back.
+返回 `Boolean` - 访客页能否后退。
 
 ### `<webview>.canGoForward()`
 
-Returns `Boolean` - Whether the guest page can go forward.
+返回 `Boolean` - 访客页能否前进。
 
 ### `<webview>.canGoToOffset(offset)`
 
 * `offset` Integer
 
-Returns `Boolean` - Whether the guest page can go to `offset`.
+返回 `Boolean` - 访客页能否前进到 `offset`。
 
 ### `<webview>.clearHistory()`
 
-Clears the navigation history.
+清除定位历史。
 
 ### `<webview>.goBack()`
 
