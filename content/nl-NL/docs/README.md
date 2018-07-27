@@ -19,7 +19,7 @@ Er zijn vragen die vaak gesteld worden. Kijk hier voor je een nieuw probleem inv
   * [Electron installeren](tutorial/first-app.md#installing-electron)
   * [Electron Development in een notendop](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [Je App starten](tutorial/first-app.md#running-your-app)
-* [Boilerplates and CLIs](tutorial/boilerplates-and-clis.md) 
+* [Boilerplates en CLIs](tutorial/boilerplates-and-clis.md) 
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
