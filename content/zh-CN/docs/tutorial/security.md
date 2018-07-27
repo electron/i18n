@@ -78,7 +78,7 @@ browserWindow. loadURL (' https://我的网站. com ')
 
 在各种渲染器 ([`BrowserWindow`](../api/browser-window.md)、[`BrowserView`](../api/browser-view.md)、或 [`WebView`](../api/web-view.md)) 中禁止Node.js集成远程内容是极为重要的。 其目的是限制您授予远程内容的权限, 从而使攻击者在您的网站上执行 JavaScript 时更难伤害您的用户。
 
-在此之后，你可以为指定的主机授予附加权限。 For example, if you are opening a BrowserWindow pointed at `https://my-website.com/", you can give that website exactly the abilities it needs, but no more.
+在此之后，你可以为指定的主机授予附加权限。 举例来说，如果你正在打开一个指向 "https://my-website.com/" 的 BrowserWindow，你可以给它正好所需的权限，无需再多。
 
 ### 为什么？
 
