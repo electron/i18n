@@ -71,17 +71,17 @@ $ git commit
 
 #### 提交代码说明的指导
 
-好的提交说明应描述更改的内容和原因。 The Electron project uses [semantic commit messages](https://conventionalcommits.org/) to streamline the release process.
+好的提交说明应描述更改的内容和原因。 Electron项目使用[语义化提交信息](https://conventionalcommits.org/)以精简发布过程。
 
 Before a pull request can be merged, it should include at least one semantic commit message, though it's not necessary for all commits in the pull request to be semantic. Alternatively, you can **update your pull request title** to start with a semantic prefix.
 
-Examples of commit messages with semantic prefixes:
+带有语义化前缀的提交信息的样例：
 
 * `fix: don't overwrite prevent_default if default wasn't prevented`
 * `feat: add app.isPackaged() method`
-* `docs: app.isDefaultProtocolClient is now available on Linux`
+* `docs: app.isDefaultProtocolClient 现在在Linux可用`
 
-Common prefixes:
+常见前缀：
 
     - fix: A bug fix
     - feat: A new feature
