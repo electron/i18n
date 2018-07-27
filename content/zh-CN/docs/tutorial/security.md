@@ -33,7 +33,7 @@
 这并不能完美的防御黑客的攻击，但至少，你应该遵循以下步骤来提升项目的安全性
 
 1. [只加载安全的内容](#1-only-load-secure-content)
-2. [Disable the Node.js integration in all renderers that display remote content](#2-disable-nodejs-integration-for-remote-content)
+2. [禁止在所有渲染器中使用Node.js集成显示远程内容](#2-disable-nodejs-integration-for-remote-content)
 3. [Enable context isolation in all renderers that display remote content](#3-enable-context-isolation-for-remote-content)
 4. [在所有加载远程内容的会话中使用 `ses.setPermissionRequestHandler()`.](#4-handle-session-permission-requests-from-remote-content)
 5. [不要禁用 ` webSecurity `](#5-do-not-disable-websecurity)
@@ -82,7 +82,7 @@ browserWindow. loadURL (' https://我的网站. com ')
 
 ### 为什么？
 
-A cross-site-scripting (XSS) attack is more dangerous if an attacker can jump out of the renderer process and execute code on the user's computer. Cross-site-scripting attacks are fairly common - and while an issue, their power is usually limited to messing with the website that they are executed on. Disabling Node.js integration helps prevent an XSS from being escalated into a so-called "Remote Code Execution" (RCE) attack.
+如果攻击者跳过渲染进程并在用户电脑上执行恶意代码，那么这种跨站脚本(XSS) 攻击的危害是非常大的。 Cross-site-scripting attacks are fairly common - and while an issue, their power is usually limited to messing with the website that they are executed on. Disabling Node.js integration helps prevent an XSS from being escalated into a so-called "Remote Code Execution" (RCE) attack.
 
 ### 怎么做？
 
