@@ -135,9 +135,9 @@ Electron使用了和Chromium相同的[Content Scripts](https://developer.chrome.
 
 上下文隔离使得每个运行在渲染器上的脚本无需担心改变JavaScript环境变量而与ElectronAPI或预加载脚本发生冲突。
 
-While still an experimental Electron feature, context isolation adds an additional layer of security. It creates a new JavaScript world for Electron APIs and preload scripts.
+做为一个仍为实验性质的Electron特性，内容隔离为安全性多加了一层保障。它为Electron API和预加载脚本创造了一个崭新的JavaScript世界。
 
-At the same time, preload scripts still have access to the `document` and `window` objects. In other words, you're getting a decent return on a likely very small investment.
+同时，预加载脚本依然能访问`document`和`window`对象。换个角度，就像你以很小的投入却得到双倍回报一样。
 
 ### 怎么做？
 
@@ -171,7 +171,7 @@ document.addEventListener('DOMContentLoaded', () => {
 })
 ```
 
-## 4) Handle Session Permission Requests From Remote Content
+## 4) 处理来自远程内容的会话许可请求
 
 You may have seen permission requests while using Chrome: They pop up whenever the website attempts to use a feature that the user has to manually approve ( like notifications).
 
