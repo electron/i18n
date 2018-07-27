@@ -5,7 +5,7 @@
 ## 决定从哪个版本发布
 
 - **如果发布beta版本，**请从`master`运行以下脚本。
-- **If releasing a stable version,** run the scripts below from the branch you're stabilizing.
+- **如果发布稳定版本，**请从你要试图稳定的分支运行下列脚本。
 
 ## 找出需要哪个版本更改
 
