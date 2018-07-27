@@ -62,31 +62,31 @@ Er zijn vragen die vaak gesteld worden. Kijk hier voor je een nieuw probleem inv
   * [Melden van beveiligingsproblemen](tutorial/security.md#reporting-security-issues)
   * [Chromium beveiligingsproblemen en upgrades](tutorial/security.md#chromium-security-issues-and-upgrades)
   * [Electron beveiligingswaarschuwingen](tutorial/security.md#electron-security-warnings)
-  * [Security Checklist](tutorial/security.md#checklist-security-recommendations)
+  * [Beveiligingschecklist](tutorial/security.md#checklist-security-recommendations)
 * [Updates](tutorial/updates.md) 
-  * [Deploying an Update Server](tutorial/updates.md#deploying-an-update-server)
-  * [Implementing Updates in Your App](tutorial/updates.md#implementing-updates-in-your-app)
-  * [Applying Updates](tutorial/updates.md#applying-updates)
+  * [Een Update Server implementeren](tutorial/updates.md#deploying-an-update-server)
+  * [Updates implementeren in uw App](tutorial/updates.md#implementing-updates-in-your-app)
+  * [Updates toepassen](tutorial/updates.md#applying-updates)
 
-## Detailed Tutorials
+## Gedetailleerde tutorials
 
-These individual tutorials expand on topics discussed in the guide above.
+Deze tutorials gaan dieper in op onderwerpen die in de bovenstaande gids worden besproken.
 
-* [In Detail: Installing Electron](tutorial/installation.md) 
+* [In detail: Electron installeren](tutorial/installation.md) 
   * [Proxies](tutorial/installation.md#proxies)
-  * [Custom Mirrors and Caches](tutorial/installation.md#custom-mirrors-and-caches)
-  * [Troubleshooting](tutorial/installation.md#troubleshooting)
-* [In Detail: Electron's Versioning Scheme](tutorial/electron-versioning.md) 
+  * [Custom Mirrors en Caches](tutorial/installation.md#custom-mirrors-and-caches)
+  * [Probleemoplossen](tutorial/installation.md#troubleshooting)
+* [In detail: Versie schema van Electron](tutorial/electron-versioning.md) 
   * [semver](tutorial/electron-versioning.md#semver)
   * [Stabilization Branches](tutorial/electron-versioning.md#stabilization-branches)
-  * [Beta Releases and Bug Fixes](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
+  * [Beta Releases en Bug Fixes](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
 * [In Detail: Packaging App Source Code with asar](tutorial/application-packaging.md) 
   * [Generating asar Archives](tutorial/application-packaging.md#generating-asar-archives)
   * [Using asar Archives](tutorial/application-packaging.md#using-asar-archives)
   * [Limitations](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Adding Unpacked Files to asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [In Detail: Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [In Detail: Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
+* [In detail: Het gebruik maken van Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
+* [In detail: Het gebruik maken van Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
 * [Offscreen Rendering](tutorial/offscreen-rendering.md)
 
 * * *
@@ -99,7 +99,7 @@ These individual tutorials expand on topics discussed in the guide above.
 * [Procesobject](api/process.md)
 * [Ondersteunde Chrome Command Line Switches](api/chrome-command-line-switches.md)
 * [Omgevingsvariabelen](api/environment-variables.md)
-* [Breaking API Changes](api/breaking-changes.md)
+* [Belangrijke API wijzigingen](api/breaking-changes.md)
 
 ### Aangepaste DOM-elementen:
 
@@ -147,4 +147,4 @@ These individual tutorials expand on topics discussed in the guide above.
 
 ## Ontwikkeling
 
-See <development/README.md>
+Zie <development/README.md>
