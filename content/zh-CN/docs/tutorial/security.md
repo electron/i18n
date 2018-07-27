@@ -76,9 +76,9 @@ browserWindow. loadURL (' https://我的网站. com ')
 
 ## 2) 禁止Node.js集成远程内容
 
-It is paramount that you disable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`WebView`](../api/web-view.md)) that loads remote content. 其目的是限制您授予远程内容的权限, 从而使攻击者在您的网站上执行 JavaScript 时更难伤害您的用户。
+在各种渲染器 ([`BrowserWindow`](../api/browser-window.md)、[`BrowserView`](../api/browser-view.md)、或 [`WebView`](../api/web-view.md)) 中禁止Node.js集成远程内容是极为重要的。 其目的是限制您授予远程内容的权限, 从而使攻击者在您的网站上执行 JavaScript 时更难伤害您的用户。
 
-从此以后，你可以为特殊主机授予附加的权限。 For example, if you are opening a BrowserWindow pointed at `https://my-website.com/", you can give that website exactly the abilities it needs, but no more.
+在此之后，你可以为指定的主机授予附加权限。 For example, if you are opening a BrowserWindow pointed at `https://my-website.com/", you can give that website exactly the abilities it needs, but no more.
 
 ### 为什么？
 
