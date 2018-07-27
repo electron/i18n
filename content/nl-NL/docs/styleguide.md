@@ -65,16 +65,16 @@ Onder de pagina titel moet een beschrijving zijn van één regel die begint met 
 Met `sessie` als voorbeeld:
 
 ```markdown
-# session
+# sessie
 
 > Manage browser sessions, cookies, cache, proxy settings, etc.
 ```
 
-### Module methods and events
+### Module methoden en events
 
-For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
+Voor modules die geen klassen zijn, moeten hun methoden en events hieronder worden vermeld in de hoofdstukken `## Methods` en `## Events`.
 
-Using `autoUpdater` as an example:
+Gebruik `autoUpdater` als voorbeeld:
 
 ```markdown
 # autoUpdater
@@ -88,10 +88,10 @@ Using `autoUpdater` as an example:
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 ```
 
-### Classes
+### Klassen
 
-* API classes or classes that are part of modules must be listed under a `## Class: TheClassName` chapter.
-* One page can have multiple classes.
+* API-klassen of klassen die deel uitmaken van modules moeten worden vermeld onder het hoofdstuk `## Class: TheClassName`.
+* Eén pagina kan meerdere klassen hebben.
 * Constructors must be listed with `###`-level titles.
 * [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) must be listed under a `### Static Methods` chapter.
 * [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
