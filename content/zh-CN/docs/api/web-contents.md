@@ -664,7 +664,7 @@ Navigates browser to the specified absolute web page index.
 
 * `offset` Integer
 
-Navigates to the specified offset from the "current entry".
+定位到相对于“当前入口”的指定的偏移。
 
 #### `contents.isCrashed()`
 
@@ -690,7 +690,7 @@ Overrides the user agent for this web page.
 
 * `code` String
 * `userGesture` Boolean (optional) - Default is `false`.
-* `callback` Function (optional) - Called after script has been executed. 
+* `callback` Function (可选) - 在脚本被执行后被调用。 
   * `result` Any
 
 Returns `Promise` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
@@ -827,7 +827,7 @@ Copy the image at the given position to the clipboard.
 
 #### `contents.findInPage(text[, options])`
 
-* `text` String - Content to be searched, must not be empty.
+* `text` String - 要搜索的内容，必须非空。
 * `选项` Object (可选) 
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
