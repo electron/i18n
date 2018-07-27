@@ -37,7 +37,7 @@
 3. [Enable context isolation in all renderers that display remote content](#3-enable-context-isolation-for-remote-content)
 4. [在所有加载远程内容的会话中使用 `ses.setPermissionRequestHandler()`.](#4-handle-session-permission-requests-from-remote-content)
 5. [不要禁用 ` webSecurity `](#5-do-not-disable-websecurity)
-6. [Define a `Content-Security-Policy`](#6-define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
+6. [定义一个`Content-Security-Policy`](#6-define-a-content-security-policy)并设置限制规则(如：`script-src 'self'`)
 7. [Override and disable `eval`](#7-override-and-disable-eval), which allows strings to be executed as code.
 8. [不要设置 ` allowRunningInsecureContent ` 为 true.](#8-do-not-set-allowrunninginsecurecontent-to-true)
 9. [不要开启实验性功能](#9-do-not-enable-experimental-features)
