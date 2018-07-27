@@ -69,7 +69,7 @@ Electron をインストールする手段は他にもあります。 プロキ�
 
 ## 3分くらいでわかるElectronアプリ開発
 
-Electron apps are developed in JavaScript using the same principles and methods found in Node.js development. Electron 内のすべてのAPIと機能は、他の Node.js モジュールと同じように必要に応じて `electron` オブジェクトを通してアクセスできます。
+Electron アプリは Node.js の開発にある原理や方法と同じものを使いながら JavaScript で開発されています。 Electron 内のすべてのAPIと機能は、他の Node.js モジュールと同じように必要に応じて `electron` オブジェクトを通してアクセスできます。
 
 ```javascript
 const electron = require('electron')
@@ -107,7 +107,7 @@ function createWindow () {
   // アプリの index.html を読み込む
   win.loadFile('index.html')
 
-  // Open the DevTools.
+  // 開発者ツールを開く
   win.webContents.openDevTools()
 
   // ウィンドウが閉じられた時に発火
