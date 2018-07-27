@@ -13,9 +13,9 @@ Electron 使用 [gyp](https://gyp.gsrc.io/) 来生成项目, 使用 [ninja](http
 
 ## 构建组件
 
-在 Chromium 还是一个相当大的项目的时候，最后链接阶段会花了好几分钟，这让开发变得很困难. 为了解决这个困难，Chromium 引入了 "component build" ，这让每个创建的组建都是分隔开的共享库，让链接更快，但是这浪费了文件大小和性能.
+在 Chromium 还是一个相当大的项目的时候，最后链接阶段会花了好几分钟，这让开发变得很困难。 为了解决这个困难，Chromium 引入了 "component build" ，这让每个创建的组建都是分隔开的共享库，让链接更快，但是这浪费了文件大小和性能。
 
-在 Electron 中，我们采用了一个非常相似的方法: 在创建 `Debug`, 二进制文件会被链接进入一个 Chromium 组件的共享版本库来达到快速链接; 在创建 `Release`, 二进制文件会被链接进入一个静态版本库, 所以我们可以有最小的二进制文件size和最佳的体验.
+在 Electron 中，我们采用了一个非常相似的方法：在创建 `Debug`，二进制文件会被链接进入一个 Chromium 组件的共享版本库来达到快速链接；在创建 `Release`，二进制文件会被链接进入一个静态版本库，所以我们可以有最小的二进制文件size和最佳的体验。
 
 ## 最小引导
 
@@ -62,7 +62,7 @@ $ npm test
 $ npm run build && npm test
 ```
 
-你可以通过分离特定的测试来让测试套件运行速度更快或阻止你目前正在使用摩卡的 [独占性测试](https://mochajs.org/#exclusive-tests)功能. Append `.only` to any `describe` or `it` function call:
+你可以通过分离特定的测试来让测试套件运行速度更快或阻止你目前正在使用摩卡的 [独占性测试](https://mochajs.org/#exclusive-tests)功能. 追加 `.only` 到任何 `describe` 或 `it` 函数调用：
 
 ```js
 describe.only('some feature', function () {
