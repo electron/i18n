@@ -52,7 +52,7 @@ Your best chance of getting this bug looked at quickly is to provide a REPOSITOR
 
 你可以克隆 https://github.com/electron/electron-quick-start 并包含一个到含有你更改的分支的链接。
 
-If you provide a URL, please list the commands required to clone/setup/run your repo e.g.
+如果您提供了一个URL，请列出克隆/设置/运行您的仓库所需要的命令，例如
 
   $ git clone $YOUR_URL -b $BRANCH
   $ npm install
@@ -63,7 +63,7 @@ If you provide a URL, please list the commands required to clone/setup/run your 
 
 如果你确信你发现了Electron中的漏洞，请尽力填这份表单。
 
-The two most important pieces of information needed to evaluate the report are a description of the bug and a simple test case to recreate it. 一个可以被重现的漏洞更容易被修复。
+要评估报告需要的两个最重要的部分是漏洞的描述和重现它的简单测试样例。 一个可以被重现的漏洞更容易被修复。
 
 参见 [如何创建一个最小的，完整的和可验证的例子](https://stackoverflow.com/help/mcve)。
 
