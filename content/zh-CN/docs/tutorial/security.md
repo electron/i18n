@@ -173,9 +173,9 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ## 4) 处理来自远程内容的会话许可请求
 
-You may have seen permission requests while using Chrome: They pop up whenever the website attempts to use a feature that the user has to manually approve ( like notifications).
+当你使用Chromes时，也许见过许可请求：每当网站尝试使用某个特性时，就会弹出让用户手动确认(如网站通知)
 
-The API is based on the [Chromium permissions API](https://developer.chrome.com/extensions/permissions) and implements the same types of permissions.
+此API基于[Chromium permissions API](https://developer.chrome.com/extensions/permissions)，并已实现对应的许可类型。
 
 ### 为什么？
 
@@ -192,12 +192,12 @@ session
     const url = webContents.getURL()
 
     if (permission === 'notifications') {
-      // Approves the permissions request
+      // 通过许可请求
       callback(true)
     }
 
     if (!url.startsWith('https://my-website.com')) {
-      // Denies the permissions request
+      // 拒绝许可请求
       return callback(false)
     }
   })
