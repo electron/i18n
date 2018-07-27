@@ -114,7 +114,7 @@ mainWindow.loadURL('https://my-website.com')
 
 当禁用Node.js集成时，你依然可以暴露API给你的站点以使用Node.js的模块功能或特性。 预加载脚本依然可以使用`require`等Node.js特性， 以使开发者可以暴露自定义API给远程加载内容。
 
-In the following example preload script, the later loaded website will have access to a `window.readConfig()` method, but no Node.js features.
+在下面的预加载脚本例子中，后加载的网站内容可以使用`window.readConfig()`方法，但不能使用Node.js特性。
 
 ```js
 const { readFileSync } = require('fs')
@@ -125,9 +125,9 @@ window.readConfig = function () {
 }
 ```
 
-## 3) Enable Context Isolation for Remote Content
+## 3) 为远程内容开启上下文隔离
 
-Context isolation is an Electron feature that allows developers to run code in preload scripts and in Electron APIs in a dedicated JavaScript context. In practice, that means that global objects like `Array.prototype.push` or `JSON.parse` cannot be modified by scripts running in the renderer process.
+上下文隔离是Electron的一个特性，它允许开发者在预加载脚本里运行代码，里面包含Electron API和专用的JavaScript上下文。 In practice, that means that global objects like `Array.prototype.push` or `JSON.parse` cannot be modified by scripts running in the renderer process.
 
 Electron uses the same technology as Chromium's [Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment) to enable this behavior.
 
