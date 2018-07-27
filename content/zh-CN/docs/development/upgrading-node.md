@@ -6,7 +6,7 @@ One upgrade issue is building all of Electron with a single copy of V8 to ensure
 
 升级节点比升级 libchromiumcontent 容易得多, 因此, 如果首先升级 libchromiumcontent, 然后选择最接近它的 V8 的上游节点版本, 就会发生较少的冲突。
 
-电子有它自己的 [ 节点叉 ](https://github.com/electron/node), 并对上面提到的 V8 生成细节进行修改, 并用于公开电子所需的 API。 一旦选择了上游节点释放, 它就被放置在一个分支的电子的节点叉和任何电子节点补丁在那里应用。
+Electron 有它自己的 [ Node 克隆](https://github.com/electron/node), 并对上面提到的 V8 生成细节进行修改, 并用于公开电子所需的 API。 一旦选择了上游节点释放, 它就被放置在一个分支的电子的节点叉和任何电子节点补丁在那里应用。
 
 另一个因素是节点项目修补其版本的 V8。如上所述, 电子用一个单一的 V8 来构建一切, 所以节点的 V8 补丁必须移植到该副本。
 
@@ -18,8 +18,8 @@ One upgrade issue is building all of Electron with a single copy of V8 to ensure
 
 1. 更新电子的节点叉到所需的版本
 2. Backport Node's V8 patches to our copy of V8
-3. 更新 Electron 的最新版本，用node 
-  - Update submodules
+3. 更新Electron以使用Node的新版本 
+  - 更新子模块
   - Update Node.js build configuration
 
 ## Updating Electron's Node [fork](https://github.com/electron/node)
