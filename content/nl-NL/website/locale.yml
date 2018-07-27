@@ -28,12 +28,12 @@ languages:
   current: huidige selectie
 community:
   title: Electron Community
-  description: Resources for connecting with people working on Electron.
+  description: Middelen om contact te leggen met mensen die werken aan Electron.
   channels:
-    get_started: "<a href='/docs/tutorial/first-app'><b>Get started</b></a> building an app by reading the <a href='/docs/tutorial/first-app'>quick-start guide</a>."
-    updates: "<a href='https://twitter.com/electronjs'><b>Stay up to date</b></a> by following <a href='https://twitter.com/electronjs'>@electronjs</a> on Twitter and subscribing to the <a href='/blog'>blog feed</a>."
-    localized_docs: "<a href='/languages'><b>Read docs in your native language</b></a> by visiting the <a href='/languages'>languages page</a>."
-    help: "<a href='http://atom-slack.herokuapp.com'><b>Get help and feedback</b></a> by joining the <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    get_started: "<a href='/docs/tutorial/first-app'><b>Aan de slag</b></a> bouwen van een app door te lezen van de <a href='/docs/tutorial/first-app'>Snelstart handleiding</a>."
+    updates: "<a href='https://twitter.com/electronjs'><b>Blijf op de hoogte</b></a> door <a href='https://twitter.com/electronjs'>@electronjs</a> te volgen op Twitter en te abonneren op de <a href='/blog'>blog feed</a>."
+    localized_docs: "<a href='/languages'><b>Lees de documentatie in je eigen taal</b></a> door naar de <a href='/languages'>taal pagina</a> te gaan."
+    help: "<a href='http://atom-slack.herokuapp.com'><b>Vraag hulp en feedback</b></a> door lid te worden van <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, plaats een bericht op <a href='https://discuss.atom.io/c/electron'>Discuss</a>, of door te gaan naar <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
     packages: "<a href='/search/npmPackages'><b>Vind handige npm packages</b></a> op de <a href='/search/npmPackages'>package zoek pagina</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Rapporteer bugs</b></a> door een issue te openen op de <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Functies aanvragen</b></a> door een issue te openen op de <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
@@ -77,7 +77,7 @@ get_started:
   description: Om te beginnen met Electron, bekijk de onderstaande bronnen. Leer hoe je je wep app met Electron inwikkelt, toegang hebt tot al de API's, en installaties genereert.
 explore:
   title: Verken de Electron API's
-  description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
+  description: "De <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> toont interactief de belangrijkste kenmerken van de Electron API. Bekijk wat mogelijk is met Electron door middel van voorbeeldcode en handige tips voor het bouwen van uw app."
 download_from_github: Downloaden van GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Toon alle releases</a> op GitHub
 quick_start:
@@ -93,7 +93,7 @@ need_help:
 headings:
   languages: Talen
 taglines:
-  languages: Localized content from our awesome global developer community.
+  languages: Gelokaliseerde inhoud van onze geweldige wereldwijde community voor ontwikkelaars.
 help_translate: "Help met vertalen"
 footer:
   see_the_faq: Bekijk de veelgestelde vragen
