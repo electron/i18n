@@ -97,7 +97,7 @@ Assigning `src` its own value will reload the current page.
 
 当有此属性时， `webview`中的访客页将有能力去使用浏览器的插件，Plugins 默认是禁用的。
 
-### `预加载`
+### `preload`
 
 ```html
 <webview src="https://www.github.com/" preload="./test.js"></webview>
