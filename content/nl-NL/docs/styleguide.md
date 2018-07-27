@@ -42,7 +42,7 @@ Voor de API-referenties zijn er uitzonderingen op deze regel.
 
 ## Markdown regels
 
-* Use `sh` instead of `cmd` in code blocks (due to the syntax highlighter).
+* Gebruik `sh` in plaats van `cmd` in codeblokken (vanwege de syntaxis highlighter).
 * Lijnen moeten worden verpakt in 80 kolommen.
 * Geen geneste lijsten meer dan 2 verdiepingen (vanwege de markdown renderer).
 * Alle `js` en `javascript` codeblokken zijn systeemlibraries met [standaard-markdown](http://npm.im/standard-markdown).
@@ -60,7 +60,7 @@ De volgende regels gelden alleen voor de documentatie van de API's.
 
 Elke pagina moet met de naam van het werkelijke object geretourneerd worden door `require('electron')` als de titel, zoals `BrowserWindow`, `autoUpdater`en `sessie`.
 
-Under the page title must be a one-line description starting with `>`.
+Onder de pagina titel moet een beschrijving zijn van één regel die begint met `>`.
 
 Met `sessie` als voorbeeld:
 
