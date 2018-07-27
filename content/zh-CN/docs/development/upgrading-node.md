@@ -100,7 +100,7 @@ We need to generate a patch file from each patch applied to V8.
 ## 注意：
 
 - libcc and V8 are treated as a single unit
-- Node maintains its own fork of V8 
+- Node维护它自己的V8的克隆 
   - They backport a small amount of things as needed
   - Documentation in node about how [they work with V8](https://nodejs.org/api/v8.html)
 - We update code such that we only use one copy of V8 across all of electron 
@@ -111,5 +111,5 @@ We need to generate a patch file from each patch applied to V8.
   - We sometimes have to wait for the next periodic Node release because it will sync more closely with the version of V8 in the new libcc
   - Electron keeps all its patches in libcc because it’s simpler than maintaining different repos for patches for each upstream project. 
     - Crashpad, node, libcc, etc. patches are all kept in the same place
-  - Building node: 
+  - 构建Node： 
     - There’s a chance we need to change our build configuration to match the build flags that node wants in `node/common.gypi`
