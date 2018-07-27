@@ -460,7 +460,7 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
 ### `<webview>.print([options])`
 
 * `options` Object (可选) 
-  * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
+  * `silent` Boolean (可选) - 不询问用户打印信息，默认为 `false`。
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
 
@@ -468,13 +468,13 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
 
 ### `<webview>.printToPDF(options, callback)`
 
-* `选项` Object 
+* `options` Object 
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
-* `callback` Function - 回调函数 
+* `callback` Function 
   * `error` Error
   * `data` Buffer
 
@@ -761,7 +761,7 @@ webview.send('ping')
 ```
 
 ```javascript
-// In guest page.
+// 在访客页。
 const {ipcRenderer} = require('electron')
 ipcRenderer.on('ping', () => {
   ipcRenderer.sendToHost('pong')
