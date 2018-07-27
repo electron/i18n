@@ -118,9 +118,9 @@ pages:
     description: Apps gebouwd op Electron
   '/docs':
     title: Documentatie
-    description: Guides and API reference documentation for the latest Electron release
+    description: Handleidingen en API referentie documentatie voor de laatste Electron release
   '/docs/all':
-    title: All the Electron Docs!
+    title: Alle Electron documentatie!
     description: All of Electron's guides and API documentation on a single, searchable page.
   '/docs/api':
     title: API
@@ -129,7 +129,7 @@ pages:
     title: Ontwikkeling
     description: Ontwikkelen met Electron
   '/docs/tutorial':
-    title: Tutorial
+    title: Handleiding
     description: Guides and tutorials for the latest Electron release
   '/blog':
     title: Electron Blog
@@ -157,6 +157,6 @@ _404:
   page_not_found: Pagina niet gevonden.
 search:
   description_all: Find Electron resources from <a href="/search/docs">documentation</a>, <a href="/search/npmPackages">npm packages</a>, and <a href="/search/repos">GitHub repos</a>.
-  description_docs: Find Electron resources from documentation.
-  description_npm: Find Electron resources from npm packages.
-  description_repos: Find Electron resources from GitHub repos.
+  description_docs: Zoek Electron-bronnen uit documentatie.
+  description_npm: Zoek Electron-bronnen uit npm packages.
+  description_repos: Zoek Electron-bronnen uit GitHub-repos.
