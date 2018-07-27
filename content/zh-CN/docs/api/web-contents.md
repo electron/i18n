@@ -889,7 +889,7 @@ Unregisters any ServiceWorker if present and returns a boolean as response to `c
 #### `contents.print([options], [callback])`
 
 * `选项` Object (可选) 
-  * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
+  * `silent` Boolean (可选) - 不询问用户打印信息，默认为 `false`。
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
 * `callback` Function (可选) 
