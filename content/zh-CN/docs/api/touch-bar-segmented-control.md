@@ -40,4 +40,4 @@ A `SegmentedControlSegment[]` array representing the segments in this control. �
 
 #### `touchBarSegmentedControl.selectedIndex`
 
-An `Integer` representing the currently selected segment. Changing this value immediately updates the control in the touch bar. User interaction with the touch bar will update this value automatically.
+An `Integer` representing the currently selected segment. Changing this value immediately updates the control in the touch bar. 使用touch bar的用户交互会自动更新这个值。
