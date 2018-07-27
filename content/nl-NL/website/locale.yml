@@ -3,7 +3,7 @@ nav:
   apps: Apps
   blog: Blog
   code_of_conduct: Gedragscode
-  community: Gemeenschap
+  community: Community
   contact: Contact
   docs: Documentatie
   donors: Donateurs
@@ -27,7 +27,7 @@ languages:
   translation_progress: Vooruitgang vertaling
   current: huidige selectie
 community:
-  title: Electron Gemeenschap
+  title: Electron Community
   description: Resources for connecting with people working on Electron.
   channels:
     get_started: "<a href='/docs/tutorial/first-app'><b>Get started</b></a> building an app by reading the <a href='/docs/tutorial/first-app'>quick-start guide</a>."
@@ -60,8 +60,8 @@ web_technologies:
   title: Web technologieën
   description: Electron gebruikt Chromium en Node.js zodat je je app kunt bouwen met HTML, CSS en JavaScript.
 open_source:
-  title: Open bron
-  description: Electron is een open bron project beheerd door GitHub en een actieve gemeenschap van bijdragers.
+  title: Open source
+  description: Electron is een open source project beheerd door GitHub en een actieve community van bijdragers.
 cross_platform:
   title: Cross Platform
   description: Compatibel met Mac, Windows en Linux, bouwt en beheert Electron apps op drie platformen.
@@ -133,14 +133,14 @@ pages:
     description: Guides and tutorials for the latest Electron release
   '/blog':
     title: Electron Blog
-    description: All the latest news from the Electron team and community.
+    description: Al het laatste nieuws van het Electron team en de community.
   '/community':
-    title: Gemeenschap
+    title: Community
   '/releases':
     title: Releases
   '/contact':
     title: Contact
-    description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
+    description: Neem contact op met het Electron team op Twitter, Slack, GitHub of via email.
   '/languages':
     title: Talen
   '/userland':
