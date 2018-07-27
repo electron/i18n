@@ -37,20 +37,20 @@ community:
     packages: "<a href='/search/npmPackages'><b>Find useful npm packages</b></a> on the <a href='/search/npmPackages'>package search page</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Report bugs</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Request features</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
-    code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Report Code of Conduct violations</b></a> by emailing <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
-    security: "<a href='mailto:security@electronjs.org'><b>Disclose security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
-    donations: "<a href='donors'><b>Donate</b></a> on our <a href='/donors'>OpenCollective page</a>."
-    other: "For all other inquiries, email <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
+    code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Meld overtredingen van de gedragscode</b></a> door te mailen naar <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
+    security: "<a href='mailto:security@electronjs.org'><b>Maak beveiligingsproblemen bekend</b></a> door te mailen naar <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
+    donations: "<a href='donors'><b>Doneer</b></a> op onze <a href='/donors'>OpenCollective pagina</a>."
+    other: "Voor alle overige vragen, stuur een email naar <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
   language_communities:
-    title: Language Communities
+    title: Taal Communities
     description: "The Electron community spans the globe, and English is not everyone's first language. Find <a href='/languages'>documentation in your language</a>, or join one of the language communities below:"
   tools: Hulpmiddelen
   boilerplates: Boilerplates
   components: Componenten
   videos: Video's
   meetups: Bijeenkomsten
-  awesome_notice: This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.
-  meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">make a pull request</a>.
+  awesome_notice: Deze lijst is gegenereerd van <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repository.<br> Mist er iets? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Maak een pull request</a>.
+  meetup_notice: Om een bijeenkomst toe te voegen, bewerk <code>data/meetups.json</code> en <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">maak een pull request</a>.
 releases: Releases
 electron_is_easy:
   title: Het is makkelijker dan je denkt
