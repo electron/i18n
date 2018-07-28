@@ -385,7 +385,7 @@ const mainWindow = new BrowserWindow()
 
 *Electron的默认值即是建议值。*
 
-If you are using [`WebViews`](../api/web-view.md), you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`](../api/browser-window.md) using the `window.open()` method. `WebViews` are otherwise not allowed to create new windows.
+如果你正在在使用[`WebViews`](../api/web-view.md)，为了打开一个新窗口，你也许需要在`<webview>`标签中加载页面或脚本。 The `allowpopups` attribute enables them to create new [`BrowserWindows`](../api/browser-window.md) using the `window.open()` method. `WebViews` are otherwise not allowed to create new windows.
 
 ### 为什么？
 
