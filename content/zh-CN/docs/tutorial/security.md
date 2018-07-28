@@ -259,7 +259,7 @@ Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 
 ### CSP HTTP头
 
-Electron respects the [`Content-Security-Policy` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) which can be set using Electron's [`webRequest.onHeadersReceived`](../api/web-request.md#webrequestonheadersreceivedfilter-listener) handler:
+Electron会识别[`Content-Security-Policy`HTTP头](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy)，并且可以在[`webRequest.onHeaderReceived`](../api/web-request.md#webrequestonheadersreceivedfilter-listener)中进行处理：
 
 ```javascript
 const {session} = require('electron')
@@ -269,7 +269,7 @@ session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
 })
 ```
 
-### CSP Meta Tag
+### CSP元标签
 
 CSP's preferred delivery mechanism is an HTTP header. It can be useful, however, to set a policy on a page directly in the markup using a `<meta>` tag:
 
