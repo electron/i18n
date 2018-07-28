@@ -285,7 +285,7 @@ CSP的首选生效机制是HTTP头。其虽然很有用，但也可以通过`<me
 
 ### 为什么？
 
-`eval()`的作用和明确： 将一系列字符串转化为JavaScript代码并执行。 不管你是否想转换执行那些未知代码，这个函数都是存在的。 While legitimate use cases exist, like any other code generators, `eval()` is difficult to harden.
+`eval()`的功能很明确： 将一系列字符串转化为JavaScript代码并执行。 不管你是否想转换执行那些未知代码，这个函数都是存在的。 While legitimate use cases exist, like any other code generators, `eval()` is difficult to harden.
 
 Generally speaking, it is easier to completely disable `eval()` than to make it bulletproof. Thus, if you do not need it, it is a good idea to disable it.
 
