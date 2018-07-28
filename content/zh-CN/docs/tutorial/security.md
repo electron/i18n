@@ -281,11 +281,11 @@ CSP的首选生效机制是HTTP头。其虽然很有用，但也可以通过`<me
 
 ## 7) 通过重写禁用`eval`
 
-`eval()` is a core JavaScript method that allows the execution of JavaScript from a string. Disabling it disables your app's ability to evaluate JavaScript that is not known in advance.
+`eval()` 是JavaScript的一个核心方法，它允许通过字符串直接执行JavaScript。禁用它相当于禁止你的应用执行不可知的JavaScript代码。
 
 ### 为什么？
 
-`eval()`的功能很明确： 将一系列字符串转化为JavaScript代码并执行。 不管你是否想转换执行那些未知代码，这个函数都是存在的。 就像其他代码生成器一样，`eval()`很难分辨哪些调用时合法的。
+`eval()`的功能很明确： 将一系列字符串转化为JavaScript代码并执行。 不管你是否想转换执行那些未知代码，这个函数都是存在的。 就像其他代码生成器一样，`eval()`很难分辨哪些调用是合法的。
 
 通常来说，完全禁用`eval()`比各处设防要更容易。所以，如果你不是特别需要，禁用它是个不错的办法。
 
