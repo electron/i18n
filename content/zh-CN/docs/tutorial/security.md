@@ -247,7 +247,7 @@ const mainWindow = new BrowserWindow()
 
 CSP允许Electron通过服务端内容对指定页面的资源加载进行约束与控制。 如果你定义`https://your-page.com`这个源，所属这个源的脚本都允许被加载，反之`https://evil.attacker.com`不会被允许加载运行。 对于提升你的应用安全性，设置CSP是个很方便的办法。
 
-The following CSP will allow Electron to execute scripts from the current website and from `apis.mydomain.com`.
+下面的CSP设置使得Electron只能执行自身站点和来自`apis.mydomain.com`的脚本。
 
 ```txt
 // 不推荐
@@ -257,7 +257,7 @@ Content-Security-Policy: '*'
 Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 ```
 
-### CSP HTTP Header
+### CSP HTTP头
 
 Electron respects the [`Content-Security-Policy` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) which can be set using Electron's [`webRequest.onHeadersReceived`](../api/web-request.md#webrequestonheadersreceivedfilter-listener) handler:
 
