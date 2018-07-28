@@ -173,13 +173,13 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ## 4) 处理来自远程内容的会话许可请求
 
-当你使用Chromes时，也许见过许可请求：每当网站尝试使用某个特性时，就会弹出让用户手动确认(如网站通知)
+当你使用Chromes时，也许见过这种许可请求：每当网站尝试使用某个特性时，就会弹出让用户手动确认(如网站通知)
 
 此API基于[Chromium permissions API](https://developer.chrome.com/extensions/permissions)，并已实现对应的许可类型。
 
 ### 为什么？
 
-By default, Electron will automatically approve all permission requests unless the developer has manually configured a custom handler. While a solid default, security-conscious developers might want to assume the very opposite.
+默认情况下，Electron将自动批准所有的许可请求，除非开发者手动配置一个自定义处理函数。 While a solid default, security-conscious developers might want to assume the very opposite.
 
 ### 怎么做？
 
@@ -411,11 +411,11 @@ const mainWindow = new BrowserWindow()
 
 一旦WebViews存在于DOM中，那么他们就可以被网站中的脚本创建，甚至不需要要关闭Node.js集成。
 
-Electron 可以让开发者关闭各种控制渲染进程的安全特性。 In most cases, developers do not need to disable any of those features - and you should therefore not allow different configurations for newly created [`<WebView>`](../api/web-view.md) tags.
+Electron 可以让开发者关闭各种控制渲染进程的安全特性。 通常情况下，开发者并不需要关闭他们中的任何一种 - 因此你不应该允许创建不同配置的[`<WebView>`](../api/web-view.md)标签
 
 ### 怎么做？
 
-Before a [`<WebView>`](../api/web-view.md) tag is attached, Electron will fire the `will-attach-webview` event on the hosting `webContents`. Use the event to prevent the creation of WebViews with possibly insecure options.
+在 [`<WebView>`](../api/web-view.md)标签生效前，Electron将产生一个`will-attach-webview`事件到`webContents`中。 利用这个事件阻止可能含有不安全选项的WebViews创建。
 
 ```js
 app.on('web-contents-created', (event, contents) => {
