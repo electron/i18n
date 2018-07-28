@@ -179,7 +179,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 ### 为什么？
 
-默认情况下，Electron将自动批准所有的许可请求，除非开发者手动配置一个自定义处理函数。 While a solid default, security-conscious developers might want to assume the very opposite.
+默认情况下，Electron将自动批准所有的许可请求，除非开发者手动配置一个自定义处理函数。 尽管默认如此，有安全意识的开发者可能希望默认反着来。
 
 ### 怎么做？
 
