@@ -335,14 +335,14 @@ Electron高级用户通过设置`experimentalFeatures`和`expeirmentalCavasFetau
 
 ### 为什么？
 
-Experimental features are, as the name suggests, experimental and have not been enabled for all Chromium users. Furthermore, their impact on Electron as a whole has likely not been tested.
+实验室特性，恰如其名，是实验性质且不对所有Chromium用户开启。更进一步说，这些特性对Electron的整体影响可能没有测试。
 
-Legitimate use cases exist, but unless you know what you are doing, you should not enable this property.
+尽管存在合理的使用场景，但是除非你知道你自己在干什么，否则你不应该开启这个属性。
 
 ### 怎么做？
 
 ```js
-// Bad
+// 不推荐
 const mainWindow = new BrowserWindow({
   webPreferences: {
     experimentalFeatures: true
@@ -355,11 +355,11 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## 10) Do Not Use `enableBlinkFeatures`
+## 10) 不要使用`enableBlinkFeatures`
 
-*Electron的默认值就是建议值。*
+*Electron的默认值即是建议值。*
 
-Blink is the name of the rendering engine behind Chromium. As with `experimentalFeatures`, the `enableBlinkFeatures` property allows developers to enable features that have been disabled by default.
+Blink是Chromium里的渲染引擎名称。 As with `experimentalFeatures`, the `enableBlinkFeatures` property allows developers to enable features that have been disabled by default.
 
 ### 为什么？
 
