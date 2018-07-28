@@ -389,7 +389,7 @@ const mainWindow = new BrowserWindow()
 
 ### 为什么？
 
-如果你不需要弹窗，最好使用默认值以关闭新[`BrowserWindows`](../api/browser-window.md)的创建。 This follows the principle of minimally required access: Don't let a website create new popups unless you know it needs that feature.
+如果你不需要弹窗，最好使用默认值以关闭新[`BrowserWindows`](../api/browser-window.md)的创建。 以下是最低的权限要求原则：若非必要，不要再网站中创建新窗口。
 
 ### 怎么做？
 
@@ -401,7 +401,7 @@ const mainWindow = new BrowserWindow()
 <webview src="page.html"></webview>
 ```
 
-## 12) Verify WebView Options Before Creation
+## 12) 创建WebView前确认其选项
 
 A WebView created in a renderer process that does not have Node.js integration enabled will not be able to enable integration itself. However, a WebView will always create an independent renderer process with its own `webPreferences`.
 
