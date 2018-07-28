@@ -245,7 +245,7 @@ const mainWindow = new BrowserWindow()
 
 ### 为什么？
 
-CSP allows the server serving content to restrict and control the resources Electron can load for that given web page. `https://your-page.com` should be allowed to load scripts from the origins you defined while scripts from `https://evil.attacker.com` should not be allowed to run. Defining a CSP is an easy way to improve your application's security.
+CSP允许Electron通过服务端内容对指定页面的资源加载进行约束与控制。 如果你定义`https://your-page.com`这个源，所属这个源的脚本都允许被加载，反之`https://evil.attacker.com`不会被允许加载运行。 Defining a CSP is an easy way to improve your application's security.
 
 The following CSP will allow Electron to execute scripts from the current website and from `apis.mydomain.com`.
 
