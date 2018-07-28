@@ -403,13 +403,13 @@ const mainWindow = new BrowserWindow()
 
 ## 12) 创建WebView前确认其选项
 
-A WebView created in a renderer process that does not have Node.js integration enabled will not be able to enable integration itself. However, a WebView will always create an independent renderer process with its own `webPreferences`.
+通过渲染进程创建的WebView是不开启Node.js集成的，且也不能由自身开启。 但是，WebView可以通过其`webPreferences`属性创建一个独立的渲染进程。
 
-It is a good idea to control the creation of new [`WebViews`](../api/web-view.md) from the main process and to verify that their webPreferences do not disable security features.
+通过控制主进程创建新[`WebViews`](../api/web-view.md)和确认其webPreferences没有禁用安全相关特性是个不错的办法。
 
 ### 为什么？
 
-Since WebViews live in the DOM, they can be created by a script running on your website even if Node.js integration is otherwise disabled.
+一旦WebViews存在于DOM中，那么他们就可以被网站中的脚本创建，甚至不需要要关闭Node.js集成。
 
 Electron enables developers to disable various security features that control a renderer process. In most cases, developers do not need to disable any of those features - and you should therefore not allow different configurations for newly created [`<WebView>`](../api/web-view.md) tags.
 
