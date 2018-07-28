@@ -271,7 +271,7 @@ session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
 
 ### CSP元标签
 
-CSP's preferred delivery mechanism is an HTTP header. It can be useful, however, to set a policy on a page directly in the markup using a `<meta>` tag:
+CSP的首选生效机制是HTTP头。其虽然很有用，但也可以通过`<meta>`标签直接设置策略：
 
 ```html
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'">
@@ -279,7 +279,7 @@ CSP's preferred delivery mechanism is an HTTP header. It can be useful, however,
 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
-## 7) Override and Disable `eval`
+## 7) 通过重写禁用`eval`
 
 `eval()` is a core JavaScript method that allows the execution of JavaScript from a string. Disabling it disables your app's ability to evaluate JavaScript that is not known in advance.
 
