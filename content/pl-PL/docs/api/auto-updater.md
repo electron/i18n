@@ -85,7 +85,7 @@ Returns `String` - The current update feed URL.
 
 ### `autoUpdater.checkForUpdates()`
 
-Asks the server whether there is an update. You must call `setFeedURL` before using this API.
+Pyta serwera czy istnieje aktualizacja. Należy wywołać `setFeedURL` przed użyciem tego API.
 
 ### `autoUpdater.quitAndInstall()`
 
