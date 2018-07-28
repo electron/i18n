@@ -385,11 +385,11 @@ const mainWindow = new BrowserWindow()
 
 *Electron的默认值即是建议值。*
 
-如果你正在在使用[`WebViews`](../api/web-view.md)，为了打开一个新窗口，你也许需要在`<webview>`标签中加载页面或脚本。 开启`allowpopups`属性将使得[`BrowserWindows`](../api/browser-window.md)可以通过`window.open()`方法创建。 `WebViews` are otherwise not allowed to create new windows.
+如果你正在在使用[`WebViews`](../api/web-view.md)，为了打开一个新窗口，你也许需要在`<webview>`标签中加载页面或脚本。 开启`allowpopups`属性将使得[`BrowserWindows`](../api/browser-window.md)可以通过`window.open()`方法创建。 `WebViews`不允许其他方法创建新窗口。
 
 ### 为什么？
 
-If you do not need popups, you are better off not allowing the creation of new [`BrowserWindows`](../api/browser-window.md) by default. This follows the principle of minimally required access: Don't let a website create new popups unless you know it needs that feature.
+如果你不需要弹窗，最好使用默认值以关闭新[`BrowserWindows`](../api/browser-window.md)的创建。 This follows the principle of minimally required access: Don't let a website create new popups unless you know it needs that feature.
 
 ### 怎么做？
 
