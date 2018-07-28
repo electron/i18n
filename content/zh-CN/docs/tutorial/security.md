@@ -411,7 +411,7 @@ const mainWindow = new BrowserWindow()
 
 一旦WebViews存在于DOM中，那么他们就可以被网站中的脚本创建，甚至不需要要关闭Node.js集成。
 
-Electron enables developers to disable various security features that control a renderer process. In most cases, developers do not need to disable any of those features - and you should therefore not allow different configurations for newly created [`<WebView>`](../api/web-view.md) tags.
+Electron 可以让开发者关闭各种控制渲染进程的安全特性。 In most cases, developers do not need to disable any of those features - and you should therefore not allow different configurations for newly created [`<WebView>`](../api/web-view.md) tags.
 
 ### 怎么做？
 
