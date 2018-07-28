@@ -301,7 +301,7 @@ window.eval = global.eval = function () {
 
 ## 8) 不要设置`allowRunningInsecureContent`为`true`
 
-*Electron的默认值就是建议值。*
+*Electron的默认值即是建议值。*
 
 默认情况下，Electron不允许网站在`HTTPS`中加载或执行非安全源(`HTTP`) 中的脚本代码、CSS或插件。 将`allowRunningInsecureContent`属性设为`true`将禁用这种保护。
 
@@ -309,7 +309,7 @@ window.eval = global.eval = function () {
 
 ### 为什么？
 
-Loading content over `HTTPS` assures the authenticity and integrity of the loaded resources while encrypting the traffic itself. See the section on [only displaying secure content](#1-only-load-secure-content) for more details.
+通过`HTTPS`加载会将该资源进行加密传输，以保证其真实性和完整性。 参看[只显示安全内容](#1-only-load-secure-content)这节以获得更多信息。
 
 ### 怎么做？
 
@@ -327,9 +327,9 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## 9) Do Not Enable Experimental Features
+## 9) 不要开启实验室特性
 
-*Electron的默认值就是建议值。*
+*Electron的默认值即是建议值。*
 
 Advanced users of Electron can enable experimental Chromium features using the `experimentalFeatures` and `experimentalCanvasFeatures` properties.
 
