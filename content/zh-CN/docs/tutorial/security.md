@@ -331,7 +331,7 @@ const mainWindow = new BrowserWindow({})
 
 *Electron的默认值即是建议值。*
 
-Advanced users of Electron can enable experimental Chromium features using the `experimentalFeatures` and `experimentalCanvasFeatures` properties.
+Electron高级用户通过设置`experimentalFeatures`和`expeirmentalCavasFetaures`属性开启Chromium的实验室特性。
 
 ### 为什么？
 
