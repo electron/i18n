@@ -472,7 +472,7 @@ Remove a DevTools extension by name.
 
 Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
 
-To check if a DevTools extension is installed you can run the following:
+Aby sprawdzić, czy jest zainstalowana wtyczka DevTools, można uruchomić poniższy kod:
 
 ```javascript
 const {BrowserWindow} = require('electron')
