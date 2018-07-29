@@ -10,7 +10,7 @@ Nie możesz użyć tego modułu, dopóki zdarzenie `ready` z modułu `app` nie z
 
 **Uwaga:** W module renderowania / DevTools, `window.screen` jest zarezerwowaną właściwością DOM, więc napisanie `let{screen} = require('electron')` nie będzie działać.
 
-Przykład tworzenia okna, która wypełnia cały ekran:
+Przykład tworzenia okna, które wypełnia cały ekran:
 
 ```javascript
 const electron = require('electron')
