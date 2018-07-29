@@ -34,7 +34,7 @@
 
 1. [只加载安全的内容](#1-only-load-secure-content)
 2. [禁止在所有渲染器中使用Node.js集成显示远程内容](#2-disable-nodejs-integration-for-remote-content)
-3. [Enable context isolation in all renderers that display remote content](#3-enable-context-isolation-for-remote-content)
+3. [做所有显示远程内容的渲染器中启用上下文隔离。](#3-enable-context-isolation-for-remote-content)
 4. [在所有加载远程内容的会话中使用 `ses.setPermissionRequestHandler()`.](#4-handle-session-permission-requests-from-remote-content)
 5. [不要禁用 ` webSecurity `](#5-do-not-disable-websecurity)
 6. [定义一个`Content-Security-Policy`](#6-define-a-content-security-policy)并设置限制规则(如：`script-src 'self'`)
