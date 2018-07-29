@@ -20,7 +20,7 @@ Electron은 가능한 한 빨리 새로운 버전의 Chromium을 지원하기 �
 
 원격 대상에서 코드를 수신하여 로컬에서 실행할 때는 항상 보안 문제가 존재합니다. 예를 들어, 원격 웹사이트가 [`BrowserWindow`](../api/browser-window.md)내부에 표시되는 경우를 고려합니다. 만약 공격자가 어떻게 든 콘텐츠를 변경하면(소스를 직접 공격하거나 앱과 실제 목적지 사이에 앉든), 사용자의 컴퓨터에서 native code를 실행할 수 있습니다.
 
-> :warning: 어떤 상황에서도 Node.js 통합을 사용하는 원격 코드를 로드하고 실행하지 않아야 합니다. 대신, Node.js 코드를 실행하기 위해 로컬 파일 (애플리케이션과 함께 패키지된) 만 사용하십시오. 원격 컨텐츠를 표시하시위해, [`webview`](../api/web-view.md) 태그를 사용하고 `nodeIntegration`을 비활성화 하십시오.
+> :warning: 어떤 상황에서도 Node.js 통합을 사용하는 원격 코드를 로드하고 실행하지 않아야 합니다. 대신, Node.js 코드를 실행하기 위해 로컬 파일 (애플리케이션과 함께 패키지된) 만 사용하십시오. 원격 컨텐츠를 표시하기 위해, [`webview`](../api/web-view.md) 태그를 사용하고 `nodeIntegration`을 비활성화 하십시오.
 
 ## Electron 보안 경고
 
@@ -114,9 +114,9 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     <webview src="page.html"></webview>
     ```
     
-    Node.js 통합을 비활성화해도, Node.js 모듈 또는 기능을 사용하는 웹 사이트에 API를 계속 노출 할 수 있습니다. 사전 로드 스크립트는 계속해서 `require` 및 다른 Node.js 기능에 액세스 할 수 있으며, 개발자는 원격에서 로드된 콘텐츠에 사용자 API의 노출을 허용할 수 있습니다.
+    Node.js 통합을 비활성화해도, Node.js 모듈 또는 기능을 사용하는 웹 사이트에 API를 계속 노출할 수 있습니다. 사전 로드 스크립트는 계속해서 `require` 및 다른 Node.js 기능에 액세스할 수 있으며, 개발자는 원격에서 로드된 콘텐츠에 사용자 API의 노출을 허용할 수 있습니다.
     
-    다음 예제의 preload 스크립트에서, 나중에로드 된 웹 사이트는 `window.readConfig()` 메소드에 액세스 할 수 있지만, Node.js 기능은 사용할 수 없습니다.
+    다음 예제의 preload 스크립트에서, 나중에 로드된 웹 사이트는 `window.readConfig()` 메소드에 액세스할 수 있지만, Node.js 기능은 사용할 수 없습니다.
     
     ```js
     const { readFileSync } = require('fs')
