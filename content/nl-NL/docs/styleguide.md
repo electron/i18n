@@ -92,9 +92,9 @@ Gebruik `autoUpdater` als voorbeeld:
 
 * API-klassen of klassen die deel uitmaken van modules moeten worden vermeld onder het hoofdstuk `## Class: TheClassName`.
 * Eén pagina kan meerdere klassen hebben.
-* Constructors must be listed with `###`-level titles.
-* [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) must be listed under a `### Static Methods` chapter.
-* [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
+* Constructors moeten worden vermeld met ` ### `-titels op niveau.
+* [Statische methoden](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) moeten worden vermeld onder een `### Static Methods` hoofdstuk.
+* [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) moeten worden vermeld onder een `### Instance Methods` hoofdstuk.
 * All methods that have a return value must start their description with "Returns `[TYPE]` - Return description" 
   * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
 * Instance Events must be listed under an `### Instance Events` chapter.
