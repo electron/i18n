@@ -152,22 +152,22 @@ De titel kan `###` of `####`-niveau zijn, afhankelijk van of het een methode van
 
 Voor modules is de `objectName` de naam van de module. Voor klassen moet het de naam van het exemplaar van de klasse zijn, en mag niet hetzelfde zijn als die van de module naam.
 
-For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
+De methoden van de sessie `Session` onder de module `session` moeten bijvoorbeeld `ses` gebruiken als de `objectName`.
 
-The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
+De optionele argumenten worden aangegeven door vierkante haakjes `[]` rondom het optionele argument evenals de vereiste komma als dit optionele argument volgt op een andere argument:
 
 ```sh
 required[, optional]
 ```
 
-Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
+Onder de methode is meer gedetailleerde informatie over elk van de argumenten. Het type van het argument wordt genoteerd door de gemeenschappelijke soorten:
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
 * [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 * [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-* Or a custom type like Electron's [`WebContent`](api/web-contents.md)
+* Of een aangepast type zoals Electron's [`WebContent`](api/web-contents.md)
 
 If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows` or `Linux`.
 
