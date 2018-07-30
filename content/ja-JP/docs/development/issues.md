@@ -10,7 +10,7 @@
 
 ## コントリビュートの仕方
 
-For any issue, there are fundamentally three ways an individual can contribute:
+問題に対してコントリビュートする方法が3つあります：
 
 1. By opening the issue for discussion: If you believe that you have found a new bug in Electron, you should report it by creating a new issue in the `electron/electron` issue tracker.
 2. By helping to triage the issue: You can do this either by providing assistive details (a reproducible test case that demonstrates a bug) or by providing suggestions to address the issue.
