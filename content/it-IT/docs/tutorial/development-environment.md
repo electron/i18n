@@ -10,7 +10,7 @@ Primo, installa una versione recente di Node.js. Ti raccomandiamo do installare 
 
 Una volta scaricato, esegui l'installatore e permetti di essere guidato per l'installazione.
 
-Una volta installato, conferma che tutto lavori come aspettato. Find the macOS `Terminal` application in your `/Applications/Utilities` folder (or by searching for the word `Terminal` in Spotlight). Apri il `Terminale` o un'altra linea di comando del client a tua scelta e conferma che sia `node` che `npm` siano disponibili:
+Una volta installato, conferma che tutto lavori come aspettato. Trova l'app `Terminale` nella tua cartella `/Applicazioni/Utilità` (o cercando la parola `Terminale` nello Spotlight). Apri il `Terminale` o un'altra linea di comando del client a tua scelta e conferma che sia `node` che `npm` siano disponibili:
 
 ```sh
 # Questo comando dovrebbe stampare la versione di Node.js
