@@ -95,13 +95,13 @@ Gebruik `autoUpdater` als voorbeeld:
 * Constructors moeten worden vermeld met ` ### `-titels op niveau.
 * [Statische methoden](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) moeten worden vermeld onder een `### Static Methods` hoofdstuk.
 * [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) moeten worden vermeld onder een `### Instance Methods` hoofdstuk.
-* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description" 
-  * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
-* Instance Events must be listed under an `### Instance Events` chapter.
-* Instance Properties must be listed under an `### Instance Properties` chapter. 
-  * Instance properties must start with "A [Property Type] ..."
+* Alle methoden die een waarde terug geven moeten hun beschrijving beginnen met "Returns `[TYPE]` - Return omschrijving" 
+  * Als de methode een `object` retourneert, kan de structuur worden opgegeven met een dubbele punt gevolgd door een nieuwe regel en vervolgens een ongeordende lijst met eigenschappen in dezelfde stijl als functieparameters.
+* Instantie events moeten vermeld worden onder een `### Instance Events` hoofdstuk.
+* Instantie Properties moeten worden vermeld onder een `### Instance Properties` hoofdstuk. 
+  * Instantie properties moeten beginnen met "A [Property Type] ..."
 
-Using the `Session` and `Cookies` classes as an example:
+Het gebruik van de `Session` en `Cookies` klassen in een voorbeeld:
 
 ```markdown
 # session
@@ -135,9 +135,9 @@ Using the `Session` and `Cookies` classes as an example:
 #### `cookies.get(filter, callback)`
 ```
 
-### Methods
+### Methoden
 
-The methods chapter must be in the following form:
+Het hoofdstuk Methoden moet de volgende vorm hebben:
 
 ```markdown
 ### `objectName.methodName(required[, optional]))`
@@ -148,9 +148,9 @@ The methods chapter must be in the following form:
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a method of a module or a class.
+De titel kan `###` of `####`-niveau zijn, afhankelijk van of het een methode van een module of een klasse.
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+Voor modules is de `objectName` de naam van de module. Voor klassen moet het de naam van het exemplaar van de klasse zijn, en mag niet hetzelfde zijn als die van de module naam.
 
 For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
 
