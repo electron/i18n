@@ -1,4 +1,4 @@
-# Bron Code Directory-structuur
+# Bron Code mappen structuur
 
 The source code of Electron is separated into a few parts, mostly following Chromium on the separation conventions.
 
