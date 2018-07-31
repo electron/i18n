@@ -743,7 +743,7 @@ Ritorna `Object`:
 * `wasOpenedAsHidden` Boolean *macOS* - `true` se l'app era stata aperta come un oggetto login nascosto. Questo indica che l'app non dovrebbe aprire alcuna finestra all'avvio. Questa opzione non è disponibile in [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 * `restoreState` Boolean *macOS* - `true` se l'app era stata aperta come un oggetto login che dovrebbe ripristinare lo stato della sessione precedente. Questo indica che l'app potrebbe ripristinare le finestre aperte l'ultima volta che l'app è stata chiusa. Questa opzione non è disponibile in [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 
-### `app.impostaImpostazioniElementoAccesso(impostazioni)` *macOS* *Windows*
+### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
 * `settings` Oggetto 
   * `openAtLogin` Boolean (opzionale) - `true` per aprire l'app all'accesso, `false` per rimuovere l'app come elemento di accesso. Di default a `false`.
@@ -770,7 +770,7 @@ app.setLoginItemSettings({
 })
 ```
 
-### `app.èAbilitatoSupportoAccessibilità()` *macOS* *Windows*
+### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
 Restituisci `Booleano` - `true` se il supporto d'accessibilità a Chrome è abilitato, `false` altrimenti. Questa API restituirà `true` se l'uso delle tecnologie d'assistenza, come il lettore schermo, sono state trovate. Vedi https://www.chromium.org/developers/design-documents/accessibility per altri dettagli.
 
@@ -782,7 +782,7 @@ Abilita manualmente il supporto accessibilità di Chrome permettendo di esporre 
 
 **Nota:** L'albero accessibilità del rendering può colpire significativamente la performance della tua app. Potrebbe non essere abilitato di default.
 
-### `app.impostaOpzioniCircaPannello(opzioni)` *macOS*
+### `app.setAboutPanelOptions(options)` *macOS*
 
 * `options` Oggetto 
   * `applicationName` String (opzionale) - Il nome dell'app.
