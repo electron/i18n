@@ -1,6 +1,6 @@
 # globalShortcut
 
-> Detect keyboard events when the application does not have keyboard focus.
+> Rileva eventi della tastiera quando l'applicazione non è in focus su di essa.
 
 Processo: [Main](../glossary.md#main-process)
 
