@@ -1,7 +1,7 @@
 # Bildirim Eylem Nesnesi
 
 * `type` String - Aksiyonun türü `button` olabilir.
-* `text` String (optional) - The label for the given action.
+* `text` String (isteğe bağlı) - Verilen aksiyon için etiket.
 
 ## Platform / Eylem Desteği
 
