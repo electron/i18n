@@ -699,15 +699,15 @@ Di default, Chromium disabilita le API 3D (come WebGL) fino al riavvio su una ba
 
 Questo metodo può essere chiamato solo prima che l'app sia pronta.
 
-### `app.ottieniMetricheApp()`
+### `app.getAppMetrics()`
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
+Restituisce [`ProcessMetric[]`](structures/process-metric.md): Array di oggetti `ProcessMetric` che corrispondono alle statistiche relative all'uso della memoria e della CPU di tutti i processi associati all'applicazione.
 
 ### `app.getGPUFeatureStatus()`
 
 Restituisce lo [`StatoFunzioneGPU`](structures/gpu-feature-status.md) - Lo Stato Funzioni Grafiche da `chrome://gpu/`.
 
-### `app.impostaContaBadge(conta)` *Linux* *macOS*
+### `app.setBadgeCount(conta)` *Linux* *macOS*
 
 * `count` Integer
 
@@ -719,15 +719,15 @@ Su macOS esso è mostrato sull'icona del dock. Su Linux lavora sol9 con il Launc
 
 **Nota:** Il launcher Unity richiede l'esistenza di un file `.desktop` per funzionare, per ulteriori informazioni leggere [Desktop Integrazione Ambiente](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
 
-### `app.ottieniContaBadge()` *Linux* *macOS*
+### `app.getBadgeCount()` *Linux* *macOS*
 
 Restituisce `Intero` - Il valore attuale è mostrato nel contatore di badge.
 
-### `app.èUnityEsecuzione()` *Linux*
+### `app.isUnityRunning()` *Linux*
 
 Restituisce `Booleano` - Se l'attuale ambiente desktop è il launcher Unity.
 
-### `app.ottieniImpostazioniElementiAccesso([options])` *macOS* *Windows*
+### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
 * `options` Object (opzionale) 
   * `path` String (opzionale) *Windows* - Il percorso eseguibile a comparazione. Di default è `process.execPath`.
