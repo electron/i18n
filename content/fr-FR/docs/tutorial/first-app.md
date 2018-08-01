@@ -121,7 +121,7 @@ function createWindow () {
 
 // Cette méthode sera appelée quant Electron aura fini
 // de s'initialiser et sera prêt à créer des fenêtres de navigation.
-// Certaines APIs peuvent être utilisées uniquement quant cet événement est émit.
+// Certaines APIs peuvent être utilisées uniquement quand cet événement est émit.
 app.on('ready', createWindow)
 
 // Quitte l'application quand toutes les fenêtres sont fermées.
