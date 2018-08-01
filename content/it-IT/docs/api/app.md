@@ -460,7 +460,7 @@ Aggiungi `percorso` alla lista documenti recenti.
 
 Questa lista è gestita dall'OS. Su Windows puoi visitare la lista dalla taskbar e su macOS la puoi visitare dal menu dock.
 
-### `app,clearRecentDocuments()` *macOS* *Windows*
+### `app.clearRecentDocuments()` *macOS* *Windows*
 
 Pulisce la lista documenti recenti.
 
@@ -699,15 +699,15 @@ Di default, Chromium disabilita le API 3D (come WebGL) fino al riavvio su una ba
 
 Questo metodo può essere chiamato solo prima che l'app sia pronta.
 
-### `app.ottieniMetricheApp()`
+### `app.getAppMetrics()`
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
+Restituisce [`ProcessMetric[]`](structures/process-metric.md): Array di oggetti `ProcessMetric` che corrispondono alle statistiche relative all'uso della memoria e della CPU di tutti i processi associati all'applicazione.
 
 ### `app.getGPUFeatureStatus()`
 
 Restituisce lo [`StatoFunzioneGPU`](structures/gpu-feature-status.md) - Lo Stato Funzioni Grafiche da `chrome://gpu/`.
 
-### `app.impostaContaBadge(conta)` *Linux* *macOS*
+### `app.setBadgeCount(conta)` *Linux* *macOS*
 
 * `count` Integer
 
@@ -719,15 +719,15 @@ Su macOS esso è mostrato sull'icona del dock. Su Linux lavora sol9 con il Launc
 
 **Nota:** Il launcher Unity richiede l'esistenza di un file `.desktop` per funzionare, per ulteriori informazioni leggere [Desktop Integrazione Ambiente](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
 
-### `app.ottieniContaBadge()` *Linux* *macOS*
+### `app.getBadgeCount()` *Linux* *macOS*
 
 Restituisce `Intero` - Il valore attuale è mostrato nel contatore di badge.
 
-### `app.èUnityEsecuzione()` *Linux*
+### `app.isUnityRunning()` *Linux*
 
 Restituisce `Booleano` - Se l'attuale ambiente desktop è il launcher Unity.
 
-### `app.ottieniImpostazioniElementiAccesso([options])` *macOS* *Windows*
+### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
 * `options` Object (opzionale) 
   * `path` String (opzionale) *Windows* - Il percorso eseguibile a comparazione. Di default è `process.execPath`.
@@ -738,16 +738,16 @@ Se hai fornito le opzioni di `percorso` e di `arg` a `app.impostaImpostazioniEle
 Ritorna `Object`:
 
 * `openAtLogin` Boolean - `true` se l'app è impostata a aperta all'accesso.
-* `openAsHidden` Boolean *macOS* - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
-* `wasOpenedAtLogin` Boolean *macOS* - `true` if the app was opened at login automatically. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
-* `wasOpenedAsHidden` Boolean *macOS* - `true` if the app was opened as a hidden login item. Questo indica che l'app potrebbe non aprire alcuna finestra all'avvio. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
-* `restoreState` Boolean *macOS* - `true` if the app was opened as a login item that should restore the state from the previous session. Questo indica che l'app potrebbe ripristinare le finestre aperte l'ultima volta che l'app è stata chiusa. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `openAsHidden` Boolean *macOS* - `true` se l'app è impostata per aprirsi come nascosta al login. Questa opzione non è disponibile in [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `wasOpenedAtLogin` Boolean *macOS* - `true` se l'app era stata aperta automaticamente al login. Questa opzione non è disponibile in [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `wasOpenedAsHidden` Boolean *macOS* - `true` se l'app era stata aperta come un oggetto login nascosto. Questo indica che l'app non dovrebbe aprire alcuna finestra all'avvio. Questa opzione non è disponibile in [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `restoreState` Boolean *macOS* - `true` se l'app era stata aperta come un oggetto login che dovrebbe ripristinare lo stato della sessione precedente. Questo indica che l'app potrebbe ripristinare le finestre aperte l'ultima volta che l'app è stata chiusa. Questa opzione non è disponibile in [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 
-### `app.impostaImpostazioniElementoAccesso(impostazioni)` *macOS* *Windows*
+### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
 * `settings` Oggetto 
   * `openAtLogin` Boolean (opzionale) - `true` per aprire l'app all'accesso, `false` per rimuovere l'app come elemento di accesso. Di default a `false`.
-  * `openAsHidden` Boolean (optional) *macOS* - `true` to open the app as hidden. Di default `false`. L'utente può editare questa impostazione dalle Preferenze di Sistema quindi `app.getLoginItemStatus().wasOpenedAsHidden` potrebbe essere controllato quando l'app è aperta per conoscere il valore attuale. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+  * `openAsHidden` Boolean (optional) *macOS* - `true` per aprirew l'app come nascosta. Di default `false`. L'utente può editare questa impostazione dalle Preferenze di Sistema quindi `app.getLoginItemStatus().wasOpenedAsHidden` potrebbe essere controllato quando l'app è aperta per conoscere il valore attuale. Questa opzione non è disponibile in [MAS builds](../tutorial/mac-app-store-submission-guide.md).
   * `path` String (opzionale) *Windows*. L'eseguibile al lancio all'accesso. Di default a `process.execPath`.
   * `args` String[] (opzionale) *Windows* - La linea di comando dell'argomento per passare all'eseguibile. Di default ad un insieme vuoto. Stai attento ad avvolgere i percorsi in quote.
 
@@ -770,7 +770,7 @@ app.setLoginItemSettings({
 })
 ```
 
-### `app.èAbilitatoSupportoAccessibilità()` *macOS* *Windows*
+### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
 Restituisci `Booleano` - `true` se il supporto d'accessibilità a Chrome è abilitato, `false` altrimenti. Questa API restituirà `true` se l'uso delle tecnologie d'assistenza, come il lettore schermo, sono state trovate. Vedi https://www.chromium.org/developers/design-documents/accessibility per altri dettagli.
 
@@ -782,7 +782,7 @@ Abilita manualmente il supporto accessibilità di Chrome permettendo di esporre 
 
 **Nota:** L'albero accessibilità del rendering può colpire significativamente la performance della tua app. Potrebbe non essere abilitato di default.
 
-### `app.impostaOpzioniCircaPannello(opzioni)` *macOS*
+### `app.setAboutPanelOptions(options)` *macOS*
 
 * `options` Oggetto 
   * `applicationName` String (opzionale) - Il nome dell'app.

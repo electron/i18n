@@ -97,7 +97,7 @@ Assigning `src` its own value will reload the current page.
 
 当有此属性时， `webview`中的访客页将有能力去使用浏览器的插件，Plugins 默认是禁用的。
 
-### `预加载`
+### `preload`
 
 ```html
 <webview src="https://www.github.com/" preload="./test.js"></webview>
@@ -140,7 +140,7 @@ Assigning `src` its own value will reload the current page.
 <webview src="https://electronjs.org" partition="electron"></webview>
 ```
 
-Sets the session used by the page. 如果 `partition` 以 `persist:`开头, 该页面将使用持续的 session，并在所有页面生效，且使用同一个`partition`. 如果没有 `persist:` 前缀, 页面将使用 in-memory session. 通过分配相同的 ` partition `, 多个页可以共享同一会话。 如果没有设置`partition`，app 将会使用默认的session。
+设置页面使用的会话。 如果 `partition` 以 `persist:`开头, 该页面将使用持续的 session，并在所有页面生效，且使用同一个`partition`. 如果没有 `persist:` 前缀, 页面将使用 in-memory session. 通过分配相同的 ` partition `, 多个页可以共享同一会话。 如果没有设置`partition`，app 将会使用默认的session。
 
 此值只能在第一次导航之前修改, 因为活动的渲染进程的会话无法更改。尝试修改该值将会失败, 并会出现一个 DOM 异常。
 
@@ -243,26 +243,26 @@ webview.addEventListener('dom-ready', () => {
   * `httpReferrer` String (可选) - HTTP来源网址
   * `userAgent` String (可选) - 发起请求的 userAgent.
   * `extraHeaders` String (可选) - 用 "\n" 分割的额外标题
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (optional) -
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (可选) -
   * `baseURLForDataURL` String (可选) - 要加载的数据文件的根 url(带有路径分隔符). 只有当指定的 `url`是一个数据 url 并需要加载其他文件时，才需要这样做。
 
 `webview` 中加载目标 url，url 地址必须包含协议前缀，例如：`http://` 或 `file://`。
 
 ### `<webview>.getURL()`
 
-Returns `String` - The URL of guest page.
+返回 `String` - 访客页的URL。
 
 ### `<webview>.getTitle()`
 
-Returns `String` - The title of guest page.
+返回 `String` - 访客页的标题。
 
 ### `<webview>.isLoading()`
 
-Returns `Boolean` - Whether guest page is still loading resources.
+返回 `Boolean` - 访客页是否仍然在加载资源。
 
 ### `<webview>.isWaitingForResponse()`
 
-Returns `Boolean` - 访客页面是否正在等待页面主资源的第一响应。
+返回 `Boolean` - 访客页面是否正在等待页面主资源的第一响应。
 
 ### `<webview>.stop()`
 
@@ -270,49 +270,49 @@ Stops any pending navigation.
 
 ### `<webview>.reload()`
 
-Reloads the guest page.
+刷新访客页。
 
 ### `<webview>.reloadIgnoringCache()`
 
-Reloads the guest page and ignores cache.
+刷新访客页并忽略缓存。
 
 ### `<webview>.canGoBack()`
 
-Returns `Boolean` - Whether the guest page can go back.
+返回 `Boolean` - 访客页能否后退。
 
 ### `<webview>.canGoForward()`
 
-Returns `Boolean` - Whether the guest page can go forward.
+返回 `Boolean` - 访客页能否前进。
 
 ### `<webview>.canGoToOffset(offset)`
 
 * `offset` Integer
 
-Returns `Boolean` - Whether the guest page can go to `offset`.
+返回 `Boolean` - 访客页能否前进到 `offset`。
 
 ### `<webview>.clearHistory()`
 
-Clears the navigation history.
+清除定位历史。
 
 ### `<webview>.goBack()`
 
-Makes the guest page go back.
+使访客页后退。
 
 ### `<webview>.goForward()`
 
-Makes the guest page go forward.
+使访客页前进。
 
 ### `<webview>.goToIndex(index)`
 
 * `index` Integer
 
-Navigates to the specified absolute index.
+定位到指定的绝对索引。
 
 ### `<webview>.goToOffset(offset)`
 
 * `offset` Integer
 
-Navigates to the specified offset from the "current entry".
+定位到相对于“当前入口”的指定的偏移。
 
 ### `<webview>.isCrashed()`
 
@@ -322,26 +322,26 @@ Returns `Boolean` - Whether the renderer process has crashed.
 
 * `userAgent` String
 
-Overrides the user agent for the guest page.
+覆盖访客页的用户代理。
 
 ### `<webview>.getUserAgent()`
 
-Returns `String` - The user agent for guest page.
+返回 `String` - 访客页的用户代理。
 
 ### `<webview>.insertCSS(css)`
 
 * `css` String
 
-Injects CSS into the guest page.
+向访客页注入CSS。
 
 ### `<webview>.executeJavaScript(code[, userGesture, callback])`
 
 * `code` String
-* `userGesture` Boolean (optional) - Default `false`.
-* `callback` Function (optional) - Called after script has been executed. 
+* `userGesture` Boolean (可选) - 默认为 `false`。
+* `callback` Function (可选) - 在脚本被执行后被调用。 
   * `result` Any
 
-评估页面中的 `code`。 如果设置了`userGesture`，它将在页面中创建用户手势上下文。 像 `requestFullScreen` 这样的需要用户操作的HTML API可以利用这个选项来实现自动化。
+在页面中执行 `code`。 如果设置了`userGesture`，它将在页面中创建用户手势上下文。 像 `requestFullScreen` 这样的需要用户操作的HTML API可以利用这个选项来实现自动化。
 
 ### `<webview>.openDevTools()`
 
@@ -374,59 +374,59 @@ Opens the DevTools for the service worker context present in the guest page.
 
 * `muted` Boolean
 
-Set guest page muted.
+设置访客页是否静音。
 
 ### `<webview>.isAudioMuted()`
 
-Returns `Boolean` - Whether guest page has been muted.
+返回 `Boolean` - 访客页是否被静音。
 
 ### `<webview>.undo()`
 
-Executes editing command `undo` in page.
+在页面中执行编辑命令 `undo`。
 
 ### `<webview>.redo()`
 
-Executes editing command `redo` in page.
+在页面中执行编辑命令 `redo`。
 
 ### `<webview>.cut()`
 
-Executes editing command `cut` in page.
+在页面中执行编辑命令 `cut`。
 
 ### `<webview>.copy()`
 
-Executes editing command `copy` in page.
+在页面中执行编辑命令 `copy`。
 
 ### `<webview>.paste()`
 
-Executes editing command `paste` in page.
+在页面中执行编辑命令 `paste`。
 
 ### `<webview>.pasteAndMatchStyle()`
 
-Executes editing command `pasteAndMatchStyle` in page.
+在页面中执行编辑命令 `pasteAndMatchStyle`。
 
 ### `<webview>.delete()`
 
-Executes editing command `delete` in page.
+在页面中执行编辑命令 `delete`。
 
 ### `<webview>.selectAll()`
 
-Executes editing command `selectAll` in page.
+在页面中执行编辑命令 `selectAll`。
 
 ### `<webview>.unselect()`
 
-Executes editing command `unselect` in page.
+在页面中执行编辑命令 `unselect`。
 
 ### `<webview>.replace(text)`
 
 * `text` String
 
-Executes editing command `replace` in page.
+在页面中执行编辑命令 `replace`。
 
 ### `<webview>.replaceMisspelling(text)`
 
 * `text` String
 
-Executes editing command `replaceMisspelling` in page.
+在页面中执行编辑命令 `replaceMisspelling`。
 
 ### `<webview>.insertText(text)`
 
@@ -436,9 +436,9 @@ Executes editing command `replaceMisspelling` in page.
 
 ### `<webview>.findInPage(text[, options])`
 
-* `text` String - Content to be searched, must not be empty.
-* `选项` Object (可选) 
-  * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
+* `text` String - 要搜索的内容，必须非空。
+* `options` Object (可选) 
+  * `forward` Boolean (可选) -向前或向后搜索，默认为 `true`。
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
   * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
@@ -459,8 +459,8 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
 
 ### `<webview>.print([options])`
 
-* `选项` Object (可选) 
-  * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
+* `options` Object (可选) 
+  * `silent` Boolean (可选) - 不询问用户打印信息，默认为 `false`。
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
 
@@ -468,13 +468,13 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
 
 ### `<webview>.printToPDF(options, callback)`
 
-* `选项` Object 
+* `options` Object 
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
-* `callback` Function - 回调函数 
+* `callback` Function 
   * `error` Error
   * `data` Buffer
 
@@ -761,7 +761,7 @@ webview.send('ping')
 ```
 
 ```javascript
-// In guest page.
+// 在访客页。
 const {ipcRenderer} = require('electron')
 ipcRenderer.on('ping', () => {
   ipcRenderer.sendToHost('pong')

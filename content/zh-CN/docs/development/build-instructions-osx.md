@@ -6,8 +6,8 @@
 
 - macOS >= 10.11.6
 - [Xcode](https://developer.apple.com/technologies/tools/) >= 8.2.1
-- [node.js](https://nodejs.org) (external)
-- Python 2.7 with support for TLS 1.2
+- [node.js](https://nodejs.org) (外部)
+- 包含TLS 1.2支持的Python2.7
 
 ## Python
 

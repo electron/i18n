@@ -40,7 +40,7 @@ Electronでは、Node.jsとChromiumで使用しているV8は単一インスタ�
 
 Electronのファイルサイズを小さく、そして依存とAPIを維持可能なものとするために、本プロジェクトの扱う領域は制限されます。
 
-For instance, Electron uses Chromium's rendering library rather than all of Chromium. これにより、使用しているChromiumのアップデートをしやすくしますが、Google Chromeにある機能のうちいくつかがElectronにはふくまれないことになります。
+例えば、ElectronはChromiumのすべてというよりも、Chromiumのレンダリングライブラリのみを使用するようになっています。 これにより、使用しているChromiumのアップデートをしやすくしますが、Google Chromeにある機能のうちいくつかがElectronにはふくまれないことになります。
 
 Electronに追加される新しい機能はネイティブAPIであるべきです。 独立したNode.jsモジュールとして機能可能なものはモジュールのままで問題ありません。 [コミュニティによって作成されたツール](https://electronjs.org/community) を参照してください。
 

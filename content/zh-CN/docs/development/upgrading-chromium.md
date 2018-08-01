@@ -8,9 +8,9 @@
 - 穿件libcc和Electron的内部编译本
 - 如有需要，请更新Electron文档
 
-## Upgrade `libcc` to a new Chromium version
+## 将`libcc`升级到新的Chromium版本
 
-1. Get the code and initialize the project: 
+1. 取得代码并初始化项目： 
       sh
       $ git clone git@github.com:electron/libchromiumcontent.git
       $ cd libchromiumcontent
@@ -21,11 +21,11 @@
     - This can be done manually by visiting OmahaProxy in a browser, or automatically:
     - One-liner for the latest stable mac version: `curl -so- https://omahaproxy.appspot.com/mac > VERSION`
     - One-liner for the latest win64 beta version: `curl -so- https://omahaproxy.appspot.com/all | grep "win64,beta" | awk -F, 'NR==1{print $3}' > VERSION`
-  - run `$ ./script/update` 
+  - 运行 `$ ./script/update` 
     - Brew some tea -- this may run for 30m or more.
     - It will probably fail applying patches.
 3. Fix `*.patch` files in the `patches/` and `patches-mas/` folders.
-4. (Optional) `script/update` applies patches, but if multiple tries are needed you can manually run the same script that `update` calls: `$ ./script/apply-patches` 
+4. （可选） `script/update` applies patches, but if multiple tries are needed you can manually run the same script that `update` calls: `$ ./script/apply-patches` 
   - There is a second script, `script/patch.py` that may be useful. Read `./script/patch.py -h` for more information.
 5. Run the build when all patches can be applied without errors 
   - `$ ./script/build`
@@ -61,7 +61,7 @@
   
   - https://chromium.googlesource.com/chromium/src.git/+/{VERSION}/tools/clang/scripts/update.py 
     - (Replace the `{VERSION}` placeholder in the url above to the Chromium version libcc uses.)
-6. Build Electron. 
+6. 构建Electron。 
   - Try to build Debug version first: `$ ./script/build.py -c D`
   - You will need it to run tests
 7. Fix compilation and linking errors
@@ -132,4 +132,4 @@ Electron 发行版的 `ffmpeg`，默认包括专有的编解码器 没有这些�
 
 - [Chrome 发布日程](https://www.chromium.org/developers/calendar)
 - [OmahaProxy](http://omahaproxy.appspot.com)
-- [Chromium Issue Tracker](https://bugs.chromium.org/p/chromium)
+- [Chromium 问题追踪器](https://bugs.chromium.org/p/chromium)

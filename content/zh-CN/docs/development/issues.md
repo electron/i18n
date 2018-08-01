@@ -14,11 +14,11 @@
 
 1. 通过新建（提出）问题进行讨论：如果您认为您在Electron中发现问题，您应该在`electron/electron`问题跟踪器中通过创建问题来提出。
 2. 通过帮助鉴定问题：您可以通过提供辅助信息（一种可以让漏洞被发现的情况）或提出解决问题的建议。
-3. By helping to resolve the issue: This can be done by demonstrating that the issue is not a bug or is fixed; but more often, by opening a pull request that changes the source in `electron/electron` in a concrete and reviewable manner.
+3. 通过帮助解决问题：这可以通过演示问题不是一个bug或已修复来完成；但更通常，打开一个通过一个具体和可审查的方式改变`electron/electron`中的源代码的拉取请求。
 
 ## 请求一般性的帮助
 
-["Finding Support"](../tutorial/support.md#finding-support) has a list of resources for getting programming help, reporting security issues, contributing, and more. Please use the issue tracker for bugs only!
+["Finding Support"](../tutorial/support.md#finding-support) has a list of resources for getting programming help, reporting security issues, contributing, and more. 请仅对漏洞使用问题追踪器！
 
 ## 提交漏洞报告
 
@@ -50,9 +50,9 @@
 
 Your best chance of getting this bug looked at quickly is to provide a REPOSITORY that can be cloned and run.
 
-You can fork https://github.com/electron/electron-quick-start and include a link to the branch with your changes.
+你可以克隆 https://github.com/electron/electron-quick-start 并包含一个到含有你更改的分支的链接。
 
-If you provide a URL, please list the commands required to clone/setup/run your repo e.g.
+如果您提供了一个URL，请列出克隆/设置/运行您的仓库所需要的命令，例如
 
   $ git clone $YOUR_URL -b $BRANCH
   $ npm install
@@ -61,11 +61,11 @@ If you provide a URL, please list the commands required to clone/setup/run your 
 -->
 ```
 
-如果你发现了Electron中的漏洞，请以你的能力填这份表单。
+如果你确信你发现了Electron中的漏洞，请尽力填这份表单。
 
-The two most important pieces of information needed to evaluate the report are a description of the bug and a simple test case to recreate it. It easier to fix a bug if it can be reproduced.
+要评估报告需要的两个最重要的部分是漏洞的描述和重现它的简单测试样例。 一个可以被重现的漏洞更容易被修复。
 
-See [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve).
+参见 [如何创建一个最小的，完整的和可验证的例子](https://stackoverflow.com/help/mcve)。
 
 ## 鉴定漏洞报告
 
@@ -77,4 +77,4 @@ See [How to create a Minimal, Complete, and Verifiable example](https://stackove
 
 ## 解决漏洞报告
 
-Most issues are resolved by opening a pull request. The process for opening and reviewing a pull request is similar to that of opening and triaging issues, but carries with it a necessary review and approval workflow that ensures that the proposed changes meet the minimal quality and functional guidelines of the Electron project.
+大部分的问题是通过打开拉取请求解决的。 The process for opening and reviewing a pull request is similar to that of opening and triaging issues, but carries with it a necessary review and approval workflow that ensures that the proposed changes meet the minimal quality and functional guidelines of the Electron project.

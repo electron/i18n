@@ -3,17 +3,17 @@ nav:
   apps: Apps
   blog: Blog
   code_of_conduct: Gedragscode
-  community: Gemeenschap
+  community: Community
   contact: Contact
   docs: Documentatie
-  donors: Donors
+  donors: Donateurs
   languages: Talen
   releases: Releases
-  search: Search
+  search: Zoeken
   userland: Userland
 docs:
   title: Electron documentatie
-  description: Bekijk alle <a href="/docs/all">docs op 1 pagina</a> of bekijk de <a href="/docs/faq">FAQ</a>.
+  description: Bekijk alle <a href="/docs/all">documentatie op 1 pagina</a> of bekijk de <a href="/docs/faq">FAQ</a>.
   guides: Gidsen
   api_reference: API Verwijzing
   advanced: Geavanceerd
@@ -27,30 +27,30 @@ languages:
   translation_progress: Vooruitgang vertaling
   current: huidige selectie
 community:
-  title: Electron Gemeenschap
-  description: Resources for connecting with people working on Electron.
+  title: Electron Community
+  description: Middelen om contact te leggen met mensen die werken aan Electron.
   channels:
-    get_started: "<a href='/docs/tutorial/first-app'><b>Get started</b></a> building an app by reading the <a href='/docs/tutorial/first-app'>quick-start guide</a>."
-    updates: "<a href='https://twitter.com/electronjs'><b>Stay up to date</b></a> by following <a href='https://twitter.com/electronjs'>@electronjs</a> on Twitter and subscribing to the <a href='/blog'>blog feed</a>."
-    localized_docs: "<a href='/languages'><b>Read docs in your native language</b></a> by visiting the <a href='/languages'>languages page</a>."
-    help: "<a href='http://atom-slack.herokuapp.com'><b>Get help and feedback</b></a> by joining the <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
-    packages: "<a href='/search/npmPackages'><b>Find useful npm packages</b></a> on the <a href='/search/npmPackages'>package search page</a>."
-    bugs: "<a href='https://github.com/electron/electron/issues'><b>Report bugs</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
-    feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Request features</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
-    code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Report Code of Conduct violations</b></a> by emailing <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
-    security: "<a href='mailto:security@electronjs.org'><b>Disclose security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
-    donations: "<a href='donors'><b>Donate</b></a> on our <a href='/donors'>OpenCollective page</a>."
-    other: "For all other inquiries, email <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
+    get_started: "<a href='/docs/tutorial/first-app'><b>Aan de slag</b></a> bouwen van een app door te lezen van de <a href='/docs/tutorial/first-app'>Snelstart handleiding</a>."
+    updates: "<a href='https://twitter.com/electronjs'><b>Blijf op de hoogte</b></a> door <a href='https://twitter.com/electronjs'>@electronjs</a> te volgen op Twitter en te abonneren op de <a href='/blog'>blog feed</a>."
+    localized_docs: "<a href='/languages'><b>Lees de documentatie in je eigen taal</b></a> door naar de <a href='/languages'>taal pagina</a> te gaan."
+    help: "<a href='http://atom-slack.herokuapp.com'><b>Vraag hulp en feedback</b></a> door lid te worden van <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, plaats een bericht op <a href='https://discuss.atom.io/c/electron'>Discuss</a>, of door te gaan naar <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    packages: "<a href='/search/npmPackages'><b>Vind handige npm packages</b></a> op de <a href='/search/npmPackages'>package zoek pagina</a>."
+    bugs: "<a href='https://github.com/electron/electron/issues'><b>Rapporteer bugs</b></a> door een issue te openen op de <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
+    feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Functies aanvragen</b></a> door een issue te openen op de <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
+    code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Meld overtredingen van de gedragscode</b></a> door te mailen naar <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
+    security: "<a href='mailto:security@electronjs.org'><b>Maak beveiligingsproblemen bekend</b></a> door te mailen naar <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
+    donations: "<a href='donors'><b>Doneer</b></a> op onze <a href='/donors'>OpenCollective pagina</a>."
+    other: "Voor alle overige vragen, stuur een email naar <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
   language_communities:
-    title: Language Communities
-    description: "The Electron community spans the globe, and English is not everyone's first language. Find <a href='/languages'>documentation in your language</a>, or join one of the language communities below:"
+    title: Taal Communities
+    description: "De Electron-community is verspreid over de hele wereld en Engels is niet de eerste taal van iedereen. Zoek <a href='/languages'> documentatie in uw taal </a> of neem deel aan een van de onderstaande taalcommunity's:"
   tools: Hulpmiddelen
   boilerplates: Boilerplates
   components: Componenten
   videos: Video's
   meetups: Bijeenkomsten
-  awesome_notice: This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.
-  meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">make a pull request</a>.
+  awesome_notice: Deze lijst is gegenereerd van <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repository.<br> Mist er iets? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Maak een pull request</a>.
+  meetup_notice: Om een bijeenkomst toe te voegen, bewerk <code>data/meetups.json</code> en <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">maak een pull request</a>.
 releases: Releases
 electron_is_easy:
   title: Het is makkelijker dan je denkt
@@ -60,8 +60,8 @@ web_technologies:
   title: Web technologieën
   description: Electron gebruikt Chromium en Node.js zodat je je app kunt bouwen met HTML, CSS en JavaScript.
 open_source:
-  title: Open bron
-  description: Electron is een open bron project beheerd door GitHub en een actieve gemeenschap van bijdragers.
+  title: Open source
+  description: Electron is een open source project beheerd door GitHub en een actieve community van bijdragers.
 cross_platform:
   title: Cross Platform
   description: Compatibel met Mac, Windows en Linux, bouwt en beheert Electron apps op drie platformen.
@@ -77,7 +77,7 @@ get_started:
   description: Om te beginnen met Electron, bekijk de onderstaande bronnen. Leer hoe je je wep app met Electron inwikkelt, toegang hebt tot al de API's, en installaties genereert.
 explore:
   title: Verken de Electron API's
-  description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
+  description: "De <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> toont interactief de belangrijkste kenmerken van de Electron API. Bekijk wat mogelijk is met Electron door middel van voorbeeldcode en handige tips voor het bouwen van uw app."
 download_from_github: Downloaden van GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Toon alle releases</a> op GitHub
 quick_start:
@@ -89,11 +89,11 @@ quick_start:
   dive_deeper: Of duik wat dieper en lees de <a href='/docs'>documentatie</a>.
 need_help:
   title: Hulp nodig?
-  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum or our <a href='http://atom-slack.herokuapp.com/'>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
+  description: Stel vragen op het <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum of op ons <a href='http://atom-slack.herokuapp.com/'>Slack</a> kanaal. Volg<a href="https://twitter.com/electronjs">@electronjs</a> op Twitter voor belangrijke mededelingen. Liever persoonlijk contact? E-mail naar <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
 headings:
   languages: Talen
 taglines:
-  languages: Localized content from our awesome global developer community.
+  languages: Gelokaliseerde inhoud van onze geweldige wereldwijde community voor ontwikkelaars.
 help_translate: "Help met vertalen"
 footer:
   see_the_faq: Bekijk de veelgestelde vragen
@@ -118,45 +118,45 @@ pages:
     description: Apps gebouwd op Electron
   '/docs':
     title: Documentatie
-    description: Guides and API reference documentation for the latest Electron release
+    description: Handleidingen en API-referentiedocumentatie voor de nieuwste Electron release
   '/docs/all':
-    title: All the Electron Docs!
-    description: All of Electron's guides and API documentation on a single, searchable page.
+    title: Alle Electron documentatie!
+    description: Alle handleidingen van Electron en API documentatie op één enkele, doorzoekbare pagina.
   '/docs/api':
     title: API
-    description: API reference documentation for the latest Electron release
+    description: API-referentiedocumentatie voor de nieuwste versie van Electron
   '/docs/development':
     title: Ontwikkeling
     description: Ontwikkelen met Electron
   '/docs/tutorial':
-    title: Tutorial
-    description: Guides and tutorials for the latest Electron release
+    title: Handleiding
+    description: Gidsen en tutorials voor de nieuwste Electron release
   '/blog':
     title: Electron Blog
-    description: All the latest news from the Electron team and community.
+    description: Al het laatste nieuws van het Electron team en de community.
   '/community':
-    title: Gemeenschap
+    title: Community
   '/releases':
     title: Releases
   '/contact':
     title: Contact
-    description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
+    description: Neem contact op met het Electron team op Twitter, Slack, GitHub of via email.
   '/languages':
     title: Talen
   '/userland':
     title: Userland
   '/devtron':
     title: Devtron
-    description: Devtron is an open source tool to help you inspect, monitor, and debug your Electron app. Built on top of the amazing Chrome Developer Tools.
+    description: Devtron is een open source-tool waarmee u uw Electron app kunt inspecteren, controleren en debuggen. Gebouwd bovenop de geweldige Chrome ontwikkelaarstools.
   '/spectron':
     title: Spectron
     description: Spectron is een open source framework voor het gemakkelijk schrijven van integraties tests voor uw elektron app. Gebouwd op basis van ChromeDriver en WebDriverIO.
   '/donors':
-    title: Donors
+    title: Donateurs
 _404:
   page_not_found: Pagina niet gevonden.
 search:
-  description_all: Find Electron resources from <a href="/search/docs">documentation</a>, <a href="/search/npmPackages">npm packages</a>, and <a href="/search/repos">GitHub repos</a>.
-  description_docs: Find Electron resources from documentation.
-  description_npm: Find Electron resources from npm packages.
-  description_repos: Find Electron resources from GitHub repos.
+  description_all: Zoek Electron bronnen uit <a href="/search/docs">documentatie</a>, <a href="/search/npmPackages">npm packages</a>, en <a href="/search/repos">GitHub repos</a>.
+  description_docs: Zoek Electron-bronnen uit documentatie.
+  description_npm: Zoek Electron-bronnen uit npm packages.
+  description_repos: Zoek Electron-bronnen uit GitHub-repos.

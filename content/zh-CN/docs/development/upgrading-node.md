@@ -6,7 +6,7 @@ One upgrade issue is building all of Electron with a single copy of V8 to ensure
 
 升级节点比升级 libchromiumcontent 容易得多, 因此, 如果首先升级 libchromiumcontent, 然后选择最接近它的 V8 的上游节点版本, 就会发生较少的冲突。
 
-电子有它自己的 [ 节点叉 ](https://github.com/electron/node), 并对上面提到的 V8 生成细节进行修改, 并用于公开电子所需的 API。 一旦选择了上游节点释放, 它就被放置在一个分支的电子的节点叉和任何电子节点补丁在那里应用。
+Electron 有它自己的 [ Node 克隆](https://github.com/electron/node), 并对上面提到的 V8 生成细节进行修改, 并用于公开电子所需的 API。 一旦选择了上游节点释放, 它就被放置在一个分支的电子的节点叉和任何电子节点补丁在那里应用。
 
 另一个因素是节点项目修补其版本的 V8。如上所述, 电子用一个单一的 V8 来构建一切, 所以节点的 V8 补丁必须移植到该副本。
 
@@ -18,24 +18,24 @@ One upgrade issue is building all of Electron with a single copy of V8 to ensure
 
 1. 更新电子的节点叉到所需的版本
 2. Backport Node's V8 patches to our copy of V8
-3. 更新 Electron 的最新版本，用node 
-  - Update submodules
-  - Update Node.js build configuration
+3. 更新Electron以使用Node的新版本 
+  - 更新子模块
+  - 更新 Node.js 构建配置
 
-## Updating Electron's Node [fork](https://github.com/electron/node)
+## 更新Electron的Node[克隆](https://github.com/electron/node)
 
 1. Ensure that `master` on `electron/node` has updated release tags from `nodejs/node`
-2. Create a branch in https://github.com/electron/node: `electron-node-vX.X.X` where the base that you're branching from is the tag for the desired update 
+2. 在https://github.com/electron/node创建一个分支 `electron-node-vX.X.X` where the base that you're branching from is the tag for the desired update 
   - `vX.X.X` Must use a version of node compatible with our current version of chromium
 3. Re-apply our commits from the previous version of node we were using (`vY.Y.Y`) to `v.X.X.X` 
   - Check release tag and select the range of commits we need to re-apply
   - Cherry-pick commit range: 
     1. Checkout both `vY.Y.Y` & `v.X.X.X`
     2. `git cherry-pick FIRST_COMMIT_HASH..LAST_COMMIT_HASH`
-  - Resolve merge conflicts in each file encountered, then: 
-    1. `git add <conflict-file>`
+  - 解决遇到的每个文件中的合并冲突，然后： 
+    1. `git add <冲突文件>`
     2. `git cherry-pick --continue`
-    3. Repeat until finished
+    3. 重复直到完成
 
 ## Updating [V8](https://github.com/electron/node/src/V8) Patches
 
@@ -43,21 +43,21 @@ We need to generate a patch file from each patch applied to V8.
 
 1. Get a copy of Electron's libcc fork 
   - `$ git clone https://github.com/electron/libchromiumcontent`
-2. Run `script/update` to get the latest libcc 
+2. 运行 `script/update` 以取得最新的libcc 
   - This will be time-consuming
 3. Remove our copies of the old Node v8 patches 
   - (In libchromiumcontent repo) Read `patches/v8/README.md` to see which patchfiles were created during the last update
   - Remove those files from `patches/v8/`: 
-    - `git rm` the patchfiles
-    - edit `patches/v8/README.md`
+    - `git rm` 补丁文件
+    - 编辑 `patches/v8/README.md`
     - commit these removals
-4. Inspect Node [repo](https://github.com/electron/node) to see what patches upstream Node used with their v8 after bumping its version 
+4. 检查Node [仓库](https://github.com/electron/node) to see what patches upstream Node used with their v8 after bumping its version 
   - `git log --oneline deps/V8`
 5. Create a checklist of the patches. This is useful for tracking your work and for having a quick reference of commit hashes to use in the `git diff-tree` step below.
-6. Read `patches/v8/README.md` to see which patchfiles came from the previous version of V8 and therefore need to be removed. 
-  - Delete each patchfile referenced in `patches/v8/README.md`
-7. For each patch, do: 
-  - (In node repo) `git diff-tree --patch HASH > ~/path_to_libchromiumcontent/patches/v8/xxx-patch_name.patch` 
+6. 阅读 `patches/v8/README.md` 以查看哪些补丁文件来自上一版 V8 并因此需要被移除。 
+  - 删除被 `patches/v8/README.md` 引用的每一个补丁文件。
+7. 对于每一个补丁，这样做： 
+  - （在Node仓库中） `git diff-tree --patch HASH > ~/path_to_libchromiumcontent/patches/v8/xxx-patch_name.patch` 
     - `xxx` is an incremented three-digit number (to force patch order)
     - `patch_name` should loosely match the node commit messages, e.g. `030-cherry_pick_cc55747,patch` if the Node commit message was "cherry-pick cc55747"
   - (remainder of steps in libchromium repo) Manually edit the `.patch` file to match upstream V8's directory: 
@@ -67,7 +67,7 @@ We need to generate a patch file from each patch applied to V8.
       - This is needed because upstream Node keeps its V8 files in a subdirectory
   - Ensure that local status is clean: `git status` to make sure there are no unstaged changes.
   - Confirm that the patch applies cleanly with `script/patch.py -r src/V8 -p patches/v8/xxx-patch_name.patch.patch`
-  - Create a new copy of the patch: 
+  - 创建补丁的一个新副本： 
     - `cd src/v8 && git diff > ../../test.patch && cd ../..`
     - This is needed because the first patch has Node commit checksums that we don't want
   - Confirm that checksums are the only difference between the two patches: 
@@ -100,7 +100,7 @@ We need to generate a patch file from each patch applied to V8.
 ## 注意：
 
 - libcc and V8 are treated as a single unit
-- Node maintains its own fork of V8 
+- Node维护它自己的V8的克隆 
   - They backport a small amount of things as needed
   - Documentation in node about how [they work with V8](https://nodejs.org/api/v8.html)
 - We update code such that we only use one copy of V8 across all of electron 
@@ -111,5 +111,5 @@ We need to generate a patch file from each patch applied to V8.
   - We sometimes have to wait for the next periodic Node release because it will sync more closely with the version of V8 in the new libcc
   - Electron keeps all its patches in libcc because it’s simpler than maintaining different repos for patches for each upstream project. 
     - Crashpad, node, libcc, etc. patches are all kept in the same place
-  - Building node: 
+  - 构建Node： 
     - There’s a chance we need to change our build configuration to match the build flags that node wants in `node/common.gypi`

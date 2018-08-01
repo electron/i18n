@@ -115,7 +115,7 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 
 * `code` String
 * `userGesture` Boolean (optional) - Default is `false`.
-* `callback` Function (optional) - Called after script has been executed. 
+* `callback` Function (可选) - 在脚本被执行后被调用。 
   * `result` Any
 
 Returns `Promise` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
@@ -129,7 +129,7 @@ Returns `Promise` - A promise that resolves with the result of the executed code
 * `worldId` Integer
 * `scripts` [WebSource[]](structures/web-source.md)
 * `userGesture` Boolean (optional) - Default is `false`.
-* `callback` Function (optional) - Called after script has been executed. 
+* `callback` Function (可选) - 在脚本被执行后被调用。 
   * `result` Any
 
 Work like `executeJavaScript` but evaluates `scripts` in isolated context.

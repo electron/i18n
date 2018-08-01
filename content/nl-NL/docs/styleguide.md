@@ -42,7 +42,7 @@ Voor de API-referenties zijn er uitzonderingen op deze regel.
 
 ## Markdown regels
 
-* Use `sh` instead of `cmd` in code blocks (due to the syntax highlighter).
+* Gebruik `sh` in plaats van `cmd` in codeblokken (vanwege de syntaxis highlighter).
 * Lijnen moeten worden verpakt in 80 kolommen.
 * Geen geneste lijsten meer dan 2 verdiepingen (vanwege de markdown renderer).
 * Alle `js` en `javascript` codeblokken zijn systeemlibraries met [standaard-markdown](http://npm.im/standard-markdown).
@@ -60,21 +60,21 @@ De volgende regels gelden alleen voor de documentatie van de API's.
 
 Elke pagina moet met de naam van het werkelijke object geretourneerd worden door `require('electron')` als de titel, zoals `BrowserWindow`, `autoUpdater`en `sessie`.
 
-Under the page title must be a one-line description starting with `>`.
+Onder de pagina titel moet een beschrijving zijn van één regel die begint met `>`.
 
 Met `sessie` als voorbeeld:
 
 ```markdown
-# session
+# sessie
 
 > Manage browser sessions, cookies, cache, proxy settings, etc.
 ```
 
-### Module methods and events
+### Module methoden en events
 
-For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
+Voor modules die geen klassen zijn, moeten hun methoden en events hieronder worden vermeld in de hoofdstukken `## Methods` en `## Events`.
 
-Using `autoUpdater` as an example:
+Gebruik `autoUpdater` als voorbeeld:
 
 ```markdown
 # autoUpdater
@@ -88,20 +88,20 @@ Using `autoUpdater` as an example:
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 ```
 
-### Classes
+### Klassen
 
-* API classes or classes that are part of modules must be listed under a `## Class: TheClassName` chapter.
-* One page can have multiple classes.
-* Constructors must be listed with `###`-level titles.
-* [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) must be listed under a `### Static Methods` chapter.
-* [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
-* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description" 
-  * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
-* Instance Events must be listed under an `### Instance Events` chapter.
-* Instance Properties must be listed under an `### Instance Properties` chapter. 
-  * Instance properties must start with "A [Property Type] ..."
+* API-klassen of klassen die deel uitmaken van modules moeten worden vermeld onder het hoofdstuk `## Class: TheClassName`.
+* Eén pagina kan meerdere klassen hebben.
+* Constructors moeten worden vermeld met ` ### `-titels op niveau.
+* [Statische methoden](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) moeten worden vermeld onder een `### Static Methods` hoofdstuk.
+* [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) moeten worden vermeld onder een `### Instance Methods` hoofdstuk.
+* Alle methoden die een waarde terug geven moeten hun beschrijving beginnen met "Returns `[TYPE]` - Return omschrijving" 
+  * Als de methode een `object` retourneert, kan de structuur worden opgegeven met een dubbele punt gevolgd door een nieuwe regel en vervolgens een ongeordende lijst met eigenschappen in dezelfde stijl als functieparameters.
+* Instantie events moeten vermeld worden onder een `### Instance Events` hoofdstuk.
+* Instantie Properties moeten worden vermeld onder een `### Instance Properties` hoofdstuk. 
+  * Instantie properties moeten beginnen met "A [Property Type] ..."
 
-Using the `Session` and `Cookies` classes as an example:
+Het gebruik van de `Session` en `Cookies` klassen in een voorbeeld:
 
 ```markdown
 # session
@@ -135,9 +135,9 @@ Using the `Session` and `Cookies` classes as an example:
 #### `cookies.get(filter, callback)`
 ```
 
-### Methods
+### Methoden
 
-The methods chapter must be in the following form:
+Het hoofdstuk Methoden moet de volgende vorm hebben:
 
 ```markdown
 ### `objectName.methodName(required[, optional]))`
@@ -148,26 +148,26 @@ The methods chapter must be in the following form:
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a method of a module or a class.
+De titel kan `###` of `####`-niveau zijn, afhankelijk van of het een methode van een module of een klasse.
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+Voor modules is de `objectName` de naam van de module. Voor klassen moet het de naam van het exemplaar van de klasse zijn, en mag niet hetzelfde zijn als die van de module naam.
 
-For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
+De methoden van de sessie `Session` onder de module `session` moeten bijvoorbeeld `ses` gebruiken als de `objectName`.
 
-The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
+De optionele argumenten worden aangegeven door vierkante haakjes `[]` rondom het optionele argument evenals de vereiste komma als dit optionele argument volgt op een andere argument:
 
 ```sh
 required[, optional]
 ```
 
-Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
+Onder de methode is meer gedetailleerde informatie over elk van de argumenten. Het type van het argument wordt genoteerd door de gemeenschappelijke soorten:
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
 * [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 * [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-* Or a custom type like Electron's [`WebContent`](api/web-contents.md)
+* Of een aangepast type zoals Electron's [`WebContent`](api/web-contents.md)
 
 If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows` or `Linux`.
 

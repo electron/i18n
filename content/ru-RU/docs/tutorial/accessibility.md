@@ -44,7 +44,7 @@ Electron приложения держат доступность отключе
 
 В приложениях на Electron можно включить проверку доспупности автоматически, когда обнаруживается Assistive Technology (Windows) or VoiceOver (macOS). Смотрите [документацию по доступности](https://www.chromium.org/developers/design-documents/accessibility#TOC-How-Chrome-detects-the-presence-of-Assistive-Technology) Chrome для дополнительных сведений.
 
-On macOS, third-party assistive technology can switch accessibility inside Electron applications by setting the attribute `AXManualAccessibility` programmatically:
+Сторонние вспомогательные утилиты на macOS могут включать средства доступности программным способом, изменяя параметр `AXManualAccessibility`:
 
 ```objc
 CFStringRef kAXManualAccessibility = CFSTR("AXManualAccessibility");

@@ -1,8 +1,8 @@
 # Certificaat Object
 
-* `data` String - PEM encoded data
-* `issuer` [CertificatePrincipal](certificate-principal.md) - Issuer principal
-* `issuerName` String - Issuer's Common Name
+* `data` String - PEM gecodeerde data
+* `emittent` [Certificaat opdrachtgever](certificate-principal.md) - Emittent opdrachtgever
+* `emittentName` String - Emittent Gemeenschappelijke Naam
 * `issuerCert` Certificate - Issuer certificate (if not self-signed)
 * `subject` [CertificatePrincipal](certificate-principal.md) - Subject principal
 * `subjectName` String - Subject's Common Name

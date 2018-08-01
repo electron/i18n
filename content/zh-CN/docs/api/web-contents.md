@@ -598,7 +598,7 @@ console.log(currentURL)
 
 #### `contents.focus()`
 
-Focuses the web page.
+页面聚焦
 
 #### `contents.isFocused()`
 
@@ -626,15 +626,15 @@ Stops any pending navigation.
 
 #### `contents.reloadIgnoringCache()`
 
-Reloads current page and ignores cache.
+忽略缓存强制刷新页面
 
 #### `contents.canGoBack()`
 
-Returns `Boolean` - Whether the browser can go back to previous web page.
+返回`Boolean`，是否可以返回到上一个页面
 
 #### `contents.canGoForward()`
 
-Returns `Boolean` - Whether the browser can go forward to next web page.
+返回`Boolean` ，是否可以进入下一个页面
 
 #### `contents.canGoToOffset(offset)`
 
@@ -664,7 +664,7 @@ Navigates browser to the specified absolute web page index.
 
 * `offset` Integer
 
-Navigates to the specified offset from the "current entry".
+定位到相对于“当前入口”的指定的偏移。
 
 #### `contents.isCrashed()`
 
@@ -674,7 +674,7 @@ Returns `Boolean` - Whether the renderer process has crashed.
 
 * `userAgent` String
 
-Overrides the user agent for this web page.
+重写该页面的user agent
 
 #### `contents.getUserAgent()`
 
@@ -690,7 +690,7 @@ Overrides the user agent for this web page.
 
 * `code` String
 * `userGesture` Boolean (optional) - Default is `false`.
-* `callback` Function (optional) - Called after script has been executed. 
+* `callback` Function (可选) - 在脚本被执行后被调用。 
   * `result` Any
 
 Returns `Promise` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
@@ -827,7 +827,7 @@ Copy the image at the given position to the clipboard.
 
 #### `contents.findInPage(text[, options])`
 
-* `text` String - Content to be searched, must not be empty.
+* `text` String - 要搜索的内容，必须非空。
 * `选项` Object (可选) 
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
@@ -889,7 +889,7 @@ Unregisters any ServiceWorker if present and returns a boolean as response to `c
 #### `contents.print([options], [callback])`
 
 * `选项` Object (可选) 
-  * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
+  * `silent` Boolean (可选) - 不询问用户打印信息，默认为 `false`。
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
 * `callback` Function (可选) 

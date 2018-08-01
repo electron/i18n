@@ -1,6 +1,6 @@
 # Compras integradas
 
-> In-app purchases on Mac App Store.
+> Compras In-app en Mac App Store.
 
 Process: [Main](../glossary.md#main-process)
 

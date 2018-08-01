@@ -8,7 +8,7 @@ Ce sont les lignes directrices pour la rédaction de la documentation d'Electron
 * Les chapitres dans la même pages doit avoir un niveau de titre `##`.
 * Les sous-chapitres doivent voir le nombre de `#` augmenter dans le titre selon leur niveau d'imbrication.
 * Tous les mots dans le titre de la page doivent être capitalisés, à l'exception des conjonctions comme « de » et « et ».
-* Seul le premier mot d'un titre de chapitre doit être capitalisé.
+* Seul le premier mot d'un titre de chapitre doit être en majuscule.
 
 Utilisez `Démarrage Rapide` comme exemple :
 
@@ -47,7 +47,7 @@ Pour les références de l'API, ce sont des exceptions à cette règle.
 * Les listes ne doivent pas dépasser 2 niveaux (à cause du formatage du markdown).
 * Tous les blocs de code `js` et `javascript` sont vérifiés avec le [standard-markdown](http://npm.im/standard-markdown).
 
-## Orthographie
+## Choix des mots
 
 * Utilisez "sera" au lieu de "devrait" pour décrire des résultats.
 * Préférez « dans le processus de ___ » au lieu de « sur ».
@@ -94,7 +94,7 @@ Si l'on utilise `autoUpdater` comme exemple :
 * Une page peut avoir plusieurs classes.
 * Les constructeurs doivent être listés avec un titre de niveau `###`.
 * Les [Méthodes Statiques](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) doivent être listés sous un chapitre `### Static Methods`.
-* Les [Méthodes d'instances](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) doivent être listés sous un chapitre `### Méthodes d'instance`.
+* Les [Méthodes d'instances](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) doivent être listées sous un chapitre `### Méthodes d'instance`.
 * Toutes les méthodes aillant une valeur de retour doivent commencer leur description avec « Retourne `[TYPE]` - Description du retour" 
   * Si la méthode retourne un `Objet`, sa structure peut être spécifiée à l'aide d'un signe deux-points suivi d'un saut de ligne puis d'une liste non ordonnée de propriétés dans le même style que les paramètres d'une fonction.
 * Les événements d'instances doivent être listés sous un chapitre `### Instance Events`.
@@ -154,7 +154,7 @@ Pour les modules, le `objectName` est le nom du module. Pour les classes, cela d
 
 Par exemple, les méthodes de la classe `Session` sous le module `session` doivent utiliser `ses` pour le `objectName`.
 
-Les arguments optionnels sont notées par les crochets `[]` entourant l'argument facultatif ainsi que la virgule nécessaire si cet argument facultatif suit un autre argument :
+Les arguments optionnels sont notés par les crochets `[]` entourant l'argument facultatif ainsi que la virgule nécessaire si cet argument facultatif suit un autre argument :
 
 ```sh
 required[, optional]

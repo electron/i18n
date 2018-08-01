@@ -169,7 +169,7 @@ app.on('activate', () => {
 
 ## 예제
 
-[`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) 레파지토리에서 소스를 clone 하여 소스안의 튜토리얼 코드를 실행합니다.
+[`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) 레파지토리에서 소스를 clone하여 소스 안의 튜토리얼 코드를 실행합니다.
 
 **주의**: 이 코드를 실행하려면 [Git](https://git-scm.com)이 필요합니다.
 

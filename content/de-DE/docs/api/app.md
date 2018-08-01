@@ -2,7 +2,7 @@
 
 > Überwache den Ereignisverlauf deiner Applikation.
 
-Prozess: [Haupt](../glossary.md#main-process)
+Prozess: [Main](../glossary.md#main-process)
 
 Das folgende Beispiel zeigt, wie die Applikation beendet wird, wenn das letzte Fenster geschlossen wurde:
 
@@ -29,7 +29,7 @@ Rückgabewert:
 
 * `launchInfo` Object *macOS*
 
-Wird nach der erfolgreichen Initialisierung von Electron ausgelöst. On macOS, `launchInfo` holds the `userInfo` of the `NSUserNotification` that was used to open the application, if it was launched from Notification Center. You can call `app.isReady()` to check if this event has already fired.
+Wird nach der erfolgreichen Initialisierung von Electron ausgelöst. Wenn die Anwendung in macOS über die Mitteilungszentrale gestartet wurde, hält `launchInfo` die `userInfo` von der `NSUserNotification`, die benutzt wurde um die Anwendung zu starten. Du kannst `app.isReady()` aufrufen, um zu prüfen, ob dieses Event bereits ausgelöst wurde.
 
 ### Ereignis: 'window-all-closed'
 
@@ -48,7 +48,7 @@ Rückgabewert:
 Durch einen Aufruf von <code>event.preventDefault()` wird die standardmäßige Aktion, welche das Beenden der App umfasst, deaktiviert.</p> 
   **Wichtig**: Wenn das Beenden der App durch einen Aufruf von `autoUpdater.quitAndInstall()` initiiert wurde, wird das `before-quit` Event *nach* nach der Auslösung aller `close` Events für alle Fenster ausgelöst und diese werden geschlossen.
   
-  **Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+  **Anmerkung:** Wenn die Anwendung unter Windows beendet wird, weil das System heruntergefahren oder neu gestartet wird oder der Benutzer sich abmeldet, wird dieses Ereignis nicht ausgelöst.
   
   ### Ereignis: 'before-quit'
   
@@ -61,7 +61,7 @@ Durch einen Aufruf von <code>event.preventDefault()` wird die standardmäßige A
 Durch einen Aufruf von <code>event.preventDefault()` wird die standardmäßige Aktion, welche das Beenden der App umfasst, deaktiviert.</p> 
     Schau dir die Beschreibung/Dokumentation des `window-all-closed` Events an um die Unterschiede zwischen dem `will-quit` und dem `window-all-closed` Event zu verstehen.
     
-    **Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+    **Anmerkung:** Wenn die Anwendung unter Windows beendet wird, weil das System heruntergefahren oder neu gestartet wird oder der Benutzer sich abmeldet, wird dieses Ereignis nicht ausgelöst.
     
     ### Ereignis: 'quit'
     
@@ -72,7 +72,7 @@ Durch einen Aufruf von <code>event.preventDefault()` wird die standardmäßige A
     
     Wird ausgelöst wenn die App beendet wird.
     
-    **Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+    **Anmerkung:** Wenn die Anwendung unter Windows beendet wird, weil das System heruntergefahren oder neu gestartet wird oder der Benutzer sich abmeldet, wird dieses Ereignis nicht ausgelöst.
     
     ### Ereignis: 'open-file' *macOS*
     
@@ -85,7 +85,7 @@ Durch einen Aufruf von <code>event.preventDefault()` wird die standardmäßige A
     
     Du musst `event.preventDefault()` aufrufen um dieses Event selbst zu nutzen.
     
-    On Windows, you have to parse `process.argv` (in the main process) to get the filepath.
+    In Windows musst du `process.argv` (im Hauptprozess) parsen, um den Dateipfad zu erhalten.
     
     ### Ereignis: 'open-url' *macOS*
     
@@ -98,7 +98,7 @@ Durch einen Aufruf von <code>event.preventDefault()` wird die standardmäßige A
 <p>Wird ausgelöst wenn der Nutzer versucht, eine URL mit der App zu öffnen. Die <code>Info.plist` Date muss das URL Schema mittels des `CFBundleURLTypes` Keys definieren und der `NSPrincipalClass` Key muss den Wert `AtomApplication` haben.</p> 
       Du musst `event.preventDefault()` aufrufen um dieses Event selbst zu nutzen.
       
-      ### Event: 'activate' *macOS*
+      ### Ereignis: 'activate' *macOS*
       
       Rückgabewert:
       
@@ -107,7 +107,7 @@ Durch einen Aufruf von <code>event.preventDefault()` wird die standardmäßige A
       
       Wird ausgelöst wenn die App aktiviert wird. Eine ganze Menge an Aktionen können dieses Event auslösen. So zum Beispiel das Starten der App zum ersten mal als solches, eine Wiederbenutzung der App während sie bereits läuft oder einfach ein Klick auf das Dock oder Tastbar Icon der App.
       
-      ### Event: 'continue-activity' *macOS*
+      ### Ereignis: 'continue-activity' *macOS*
       
       Rückgabewert:
       
@@ -119,7 +119,7 @@ Durch einen Aufruf von <code>event.preventDefault()` wird die standardmäßige A
       
       A user activity can be continued only in an app that has the same developer Team ID as the activity's source app and that supports the activity's type. Supported activity types are specified in the app's `Info.plist` under the `NSUserActivityTypes` key.
       
-      ### Event: 'will-continue-activity' *macOS*
+      ### Ereignis: 'will-continue-activity' *macOS*
       
       Rückgabewert:
       
@@ -128,7 +128,7 @@ Durch einen Aufruf von <code>event.preventDefault()` wird die standardmäßige A
       
       Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) before an activity from a different device wants to be resumed. You should call `event.preventDefault()` if you want to handle this event.
       
-      ### Event: 'continue-activity-error' *macOS*
+      ### Ereignis: 'continue-activity-error' *macOS*
       
       Rückgabewert:
       
@@ -138,7 +138,7 @@ Durch einen Aufruf von <code>event.preventDefault()` wird die standardmäßige A
       
       Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device fails to be resumed.
       
-      ### Event: 'activity-was-continued' *macOS*
+      ### Ereignis: 'activity-was-continued' *macOS*
       
       Rückgabewert:
       

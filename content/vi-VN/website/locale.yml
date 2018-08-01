@@ -6,7 +6,7 @@ nav:
   community: Cộng đồng
   contact: Liên hệ
   docs: Tài liệu
-  donors: Donors
+  donors: Người ủng hộ
   languages: Ngôn ngữ
   releases: Các phiên bản phát hành
   search: Tìm kiếm
@@ -28,9 +28,9 @@ languages:
   current: lựa chọn hiện tại
 community:
   title: Cộng đồng Electron
-  description: Resources for connecting with people working on Electron.
+  description: Những tài nguyên giúp kết nối với những người làm Electron.
   channels:
-    get_started: "<a href='/docs/tutorial/first-app'><b>Get started</b></a> building an app by reading the <a href='/docs/tutorial/first-app'>quick-start guide</a>."
+    get_started: "<a href='/docs/tutorial/first-app'><b>Bắt đầu</b></a> xây dựng một ứng dụng bằng cách đọc <a href='/docs/tutorial/first-app'> hướng dẫn nhanh</a>."
     updates: "<a href='https://twitter.com/electronjs'><b>Stay up to date</b></a> by following <a href='https://twitter.com/electronjs'>@electronjs</a> on Twitter and subscribing to the <a href='/blog'>blog feed</a>."
     localized_docs: "<a href='/languages'><b>Read docs in your native language</b></a> by visiting the <a href='/languages'>languages page</a>."
     help: "<a href='http://atom-slack.herokuapp.com'><b>Get help and feedback</b></a> by joining the <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
@@ -40,9 +40,9 @@ community:
     code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Report Code of Conduct violations</b></a> by emailing <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
     security: "<a href='mailto:security@electronjs.org'><b>Disclose security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     donations: "<a href='donors'><b>Donate</b></a> on our <a href='/donors'>OpenCollective page</a>."
-    other: "For all other inquiries, email <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
+    other: "Đối với những vấn đề khác, gửi email tới <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
   language_communities:
-    title: Language Communities
+    title: Cộng đồng ngôn ngữ
     description: "The Electron community spans the globe, and English is not everyone's first language. Find <a href='/languages'>documentation in your language</a>, or join one of the language communities below:"
   tools: Công cụ
   boilerplates: Boilerplates
@@ -64,7 +64,7 @@ open_source:
   description: Electron là một dự án mã nguồn mở được xây dựng và bảo trì bởi Github và cộng đồng những người đóng góp tích cực.
 cross_platform:
   title: Đa Nền Tảng
-  description: Tương thích với Mac, Windows và Linux, các ứng dụng Electron xây dựng và chạy trên được cả ba nền tảng.
+  description: Tương thích với Mac, Windows và Linux, các ứng dụng Electron xây dựng và chạy được trên cả ba nền tảng.
 benefits:
   hard_parts_made_easy: Phần cứng được thực hiện dễ dàng
   automatic_updates: Trình tự động cập nhật
@@ -150,13 +150,13 @@ pages:
     description: Devtron là một công cụ mã nguồn mở giúp bạn kiểm tra, giám sát và gỡ lỗi các ứng dụng Electron của bạn. Được xây dựng dựa trên công cụ tuyệt vời Chrome Developer Tools.
   '/spectron':
     title: Spectron
-    description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
+    description: Spectron là một bộ khung mã nguồn mở giúp viết các bộ kiểm thử tích hợp cho ứng dụng Electron của bạn một cách dễ dàng. Được xây dựng trên ChromeDriver và WebDriverIO.
   '/donors':
-    title: Donors
+    title: Người ủng hộ
 _404:
   page_not_found: Không tìm thấy trang.
 search:
-  description_all: Find Electron resources from <a href="/search/docs">documentation</a>, <a href="/search/npmPackages">npm packages</a>, and <a href="/search/repos">GitHub repos</a>.
-  description_docs: Find Electron resources from documentation.
-  description_npm: Find Electron resources from npm packages.
-  description_repos: Find Electron resources from GitHub repos.
+  description_all: Tìm tài nguyên Electron từ <a href="/search/docs">tài liệu hướng dẫn</a>, <a href="/search/npmPackages"> các gói npm</a>, và <a href="/search/repos"> các repo trên GitHub</a>.
+  description_docs: Tìm tài nguyên Electron từ tài liệu.
+  description_npm: Tìm tài nguyên Electron từ các gói npm.
+  description_repos: Tìm tài nguyên Electron từ các repo trên GitHub.

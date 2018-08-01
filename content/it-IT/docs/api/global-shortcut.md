@@ -1,66 +1,66 @@
 # globalShortcut
 
-> Detect keyboard events when the application does not have keyboard focus.
+> Rileva eventi della tastiera quando l'applicazione non è in focus su di essa.
 
 Processo: [Main](../glossary.md#main-process)
 
-The `globalShortcut` module can register/unregister a global keyboard shortcut with the operating system so that you can customize the operations for various shortcuts.
+Il modulo `globalShortcut` può registrare/eliminare una scorciatoia di tastiera con il sistema operativo in modo che tu possa personalizzare le operazioni con diverse scorciatoie.
 
-**Note:** The shortcut is global; it will work even if the app does not have the keyboard focus. You should not use this module until the `ready` event of the app module is emitted.
+**Nota:** La scorciatoia è globale; funzionerà anche se l'app non ha il focus sulla tastiera. Non dovresti utilizzare questo modulo finchè l'evento `ready` dell'app non è stato lanciato.
 
 ```javascript
 const {app, globalShortcut} = require('electron')
 
 app.on('ready', () => {
-  // Register a 'CommandOrControl+X' shortcut listener.
+  // Registra un listener per la combinazione 'CommandOrControl+X'.
   const ret = globalShortcut.register('CommandOrControl+X', () => {
-    console.log('CommandOrControl+X is pressed')
+    console.log('Hai premuto CommandOrControl+X')
   })
 
   if (!ret) {
-    console.log('registration failed')
+    console.log('Registrazione fallit')
   }
 
-  // Check whether a shortcut is registered.
+  // Controlla se una scorciatoia è già registrata.
   console.log(globalShortcut.isRegistered('CommandOrControl+X'))
 })
 
 app.on('will-quit', () => {
-  // Unregister a shortcut.
+  // Elimina una scorciatoia.
   globalShortcut.unregister('CommandOrControl+X')
 
-  // Unregister all shortcuts.
+  // Elimina tutte le scorciatoie.
   globalShortcut.unregisterAll()
 })
 ```
 
 ## Metodi
 
-The `globalShortcut` module has the following methods:
+Il modulo `globalShortcut` ha i seguenti metodi:
 
 ### `globalShortcut.register(accelerator, callback)`
 
 * `accelerator` [Accelerator](accelerator.md)
-* `callback` Function
+* `callback` Funzione
 
-Registers a global shortcut of `accelerator`. The `callback` is called when the registered shortcut is pressed by the user.
+Registra la scorciatoia di `accelerator`. Il `callback` viene chiamato quando la scorciatoia registrata viene premuta dall'utente.
 
-When the accelerator is already taken by other applications, this call will silently fail. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+Quando l'accelerator è già stato occupato da un'altra applicazione, fallirà silenziosamente. Questo comportamento è utilizzato dai sistemi operativi, dal momento che non vogliono che le applicazioni entrino in conflitto sulle scorciatoie globali.
 
 ### `globalShortcut.isRegistered(accelerator)`
 
 * `accelerator` [Accelerator](accelerator.md)
 
-Returns `Boolean` - Whether this application has registered `accelerator`.
+Restituisce `Boolean` - Se l'applicazione ha registrato l'`accelerator`.
 
-When the accelerator is already taken by other applications, this call will still return `false`. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+Quando l'accelerator è già preso da altre applicazioni, la funzione restituirà lo stesso `false`. Questo comportamento è utilizzato dai sistemi operativi, dal momento che non vogliono che le applicazioni entrino in conflitto sulle scorciatoie globali.
 
 ### `globalShortcut.unregister(accelerator)`
 
 * `accelerator` [Accelerator](accelerator.md)
 
-Unregisters the global shortcut of `accelerator`.
+Elimina la scorciatoia dell'`accelerator`.
 
 ### `globalShortcut.unregisterAll()`
 
-Unregisters all of the global shortcuts.
+Elimina tutti le scorciatoie.

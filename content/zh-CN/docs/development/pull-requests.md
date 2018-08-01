@@ -71,44 +71,44 @@ $ git commit
 
 #### 提交代码说明的指导
 
-好的提交说明应描述更改的内容和原因。 The Electron project uses [semantic commit messages](https://conventionalcommits.org/) to streamline the release process.
+好的提交说明应描述更改的内容和原因。 Electron项目使用[语义化提交信息](https://conventionalcommits.org/)以精简发布过程。
 
 Before a pull request can be merged, it should include at least one semantic commit message, though it's not necessary for all commits in the pull request to be semantic. Alternatively, you can **update your pull request title** to start with a semantic prefix.
 
-Examples of commit messages with semantic prefixes:
+带有语义化前缀的提交信息的样例：
 
 * `fix: don't overwrite prevent_default if default wasn't prevented`
 * `feat: add app.isPackaged() method`
-* `docs: app.isDefaultProtocolClient is now available on Linux`
+* `docs: app.isDefaultProtocolClient 现在在Linux可用`
 
-Common prefixes:
+常见前缀：
 
-    - fix: A bug fix
-    - feat: A new feature
-    - docs: Documentation changes
-    - test: Adding missing tests or correcting existing tests
-    - build: Changes that affect the build system
-    - ci: Changes to our CI configuration files and scripts
-    - perf: A code change that improves performance
-    - refactor: A code change that neither fixes a bug nor adds a feature
-    - style: Changes that do not affect the meaning of the code (linting)
+    - fix: 一个漏洞修复
+    - feat: 一个新功能
+    - docs: 文档更改
+    - test: 添加缺失的测试或更正已有的测试
+    - build: 影响构建系统的更改
+    - ci: 对我们的持续集成配置文件和脚本的更改
+    - perf: 提升性能的代码
+    - refactor: 既不修复漏洞也不添加功能的代码
+    - style: 不影响代码意义的改变（检查）
     
 
-Other things to keep in mind when writing a commit message:
+其他在写提交信息时需要留意的事情：
 
-1. 第一行应该是: 
-  * 包含一个对代码改变的简短说明 (最好是50个字符或更少, 不超过72个字符)
+1. 第一行应该: 
+  * 包含一个对代码改变的简短说明（最好少于或等于50个字符，最多不超过72个字符）
   * 完全使用小写, 除了适当的名词, 缩写, 和引用代码的单词, 如函数/变量名
 2. 将第二行留空。
 3. 每行文字在72列处换行。
 
-#### Breaking Changes
+#### 重大更改
 
-A commit that has the text `BREAKING CHANGE:` at the beginning of its optional body or footer section introduces a breaking API change (correlating with Major in semantic versioning). A breaking change can be part of commits of any type. e.g., a `fix:`, `feat:` & `chore:` types would all be valid, in addition to any other type.
+A commit that has the text `BREAKING CHANGE:` at the beginning of its optional body or footer section introduces a breaking API change (correlating with Major in semantic versioning). 一个重大更改可以是任何类型提交的一部分。 e.g., a `fix:`, `feat:` & `chore:` types would all be valid, in addition to any other type.
 
-See [conventionalcommits.org](https://conventionalcommits.org) for more details.
+参阅 [conventionalcommits.org](https://conventionalcommits.org) 以获得更多细节。
 
-### 步骤6: 合并分支
+### 步骤6：变基
 
 提交更改后, 最好使用 ` git rebase ` (而不是 ` git merge `) 将您的工作与主代码库同步。
 

@@ -221,7 +221,7 @@ win.on('resize', () => {
 })
 ```
 
-## Methods
+## Methoden
 
 The `webview` tag has the following methods:
 

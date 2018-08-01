@@ -1,22 +1,22 @@
-# Issues In Electron
+# エレクトロンの問題
 
-# Issues
+# 問題
 
-* [How to Contribute in Issues](#how-to-contribute-in-issues)
-* [Asking for General Help](#asking-for-general-help)
+* [コントリビュートの仕方](#how-to-contribute-in-issues)
+* [一般的なヘルプ](#asking-for-general-help)
 * [Submitting a Bug Report](#submitting-a-bug-report)
 * [Triaging a Bug Report](#triaging-a-bug-report)
 * [Resolving a Bug Report](#resolving-a-bug-report)
 
-## How to Contribute in Issues
+## コントリビュートの仕方
 
-For any issue, there are fundamentally three ways an individual can contribute:
+問題に対してコントリビュートする方法が3つあります：
 
 1. By opening the issue for discussion: If you believe that you have found a new bug in Electron, you should report it by creating a new issue in the `electron/electron` issue tracker.
 2. By helping to triage the issue: You can do this either by providing assistive details (a reproducible test case that demonstrates a bug) or by providing suggestions to address the issue.
 3. By helping to resolve the issue: This can be done by demonstrating that the issue is not a bug or is fixed; but more often, by opening a pull request that changes the source in `electron/electron` in a concrete and reviewable manner.
 
-## Asking for General Help
+## 一般的なヘルプ
 
 ["Finding Support"](../tutorial/support.md#finding-support) has a list of resources for getting programming help, reporting security issues, contributing, and more. Please use the issue tracker for bugs only!
 

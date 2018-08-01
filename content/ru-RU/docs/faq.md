@@ -1,4 +1,4 @@
-# ЧаВо по Electron
+# FAQ по Electron
 
 ## Проблемы, возникающие при установке Electron
 

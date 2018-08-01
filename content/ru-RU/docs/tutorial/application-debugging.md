@@ -4,7 +4,7 @@
 
 ## Процесс визуализации
 
-Наиболее полным инструментом для отладки отдельных процессов рендеринга является набор инструментов разработчика Chromium. It is available for all renderer processes, including instances of `BrowserWindow`, `BrowserView`, and `WebView`. Вы можете открыть их программно, вызывая API `openDevTools()` в `webContents` экземпляра:
+Наиболее полным инструментом для отладки отдельных процессов рендеринга является набор инструментов разработчика Chromium. Он доступен для всех процессов рендеринга, включая экземпляры таких объектов как `BrowserWindow`, `BrowserView`, и `WebView`. Вы можете открыть их программно, вызывая API `openDevTools()` в `webContents` экземпляра:
 
 ```javascript
 const { BrowserWindow } = require('electron')

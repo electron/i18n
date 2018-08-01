@@ -24,7 +24,7 @@ Voor het opzetten van een server om crashrapporten te accepteren en te verwerken
 
 Crashrapporten worden lokaal opgeslagen in een toepassingsspecifieke tijdelijke map. For a `productName` of `YourName`, crash reports will be stored in a folder named `YourName Crashes` inside the temp directory. You can customize this temp directory location for your app by calling the `app.setPath('temp', '/my/custom/temp')` API before starting the crash reporter.
 
-## Methods
+## Methoden
 
 The `crashReporter` module has the following methods:
 

@@ -40,7 +40,7 @@ process.once('loaded', () => {
 
 ### `process.noDeprecation`
 
-A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`. Setting this to `true` will silence deprecation warnings. 使用此属性代替 `-no-deprecation ` 命令行标志。
+`Boolean` 类型，用于控制弃用警告是否被打印到`stderr`。 将其设置为`true`将会禁用弃用警告。 使用此属性代替 `-no-deprecation ` 命令行标志。
 
 ### `process.resourcesPath`
 
@@ -48,15 +48,15 @@ A `Boolean` that controls whether or not deprecation warnings are printed to `st
 
 ### `process.throwDeprecation`
 
-`Boolean</ 0>类型，用于控制是否将弃用警告当做例外。 设置它为 <code>true` 时会抛出错误。 使用此属性而不是用 `--throw-deprecation ` 命令行标志。
+`Boolean`类型，用于控制是否将弃用警告当做例外。 设置它为 `true` 时会抛出错误。 使用此属性代替 `--throw-deprecation ` 命令行标志。
 
 ### `process.traceDeprecation`
 
-一个 ` Boolean `, 用于控制打印的 ` stderr ` 中是否包含其堆栈跟踪。 Setting this to `true` will print stack traces for deprecations. 此属性代替 `--trace-deprecation` 命令行标志。
+` Boolean `类型，用于控制打印到 ` stderr ` 的弃用中是否包含其堆栈跟踪。 将此设置为 ` true ` 将会打印对弃用的堆栈跟踪。 此属性代替 `--trace-deprecation` 命令行标志。
 
 ### `process.traceProcessWarnings`
 
-一个 ` Boolean `, 用于控制是否将进程的警告打印到包含堆栈跟踪的 ` stderr `中 。 Setting this to `true` will print stack traces for process warnings (including deprecations). This property is instead of the `--trace-warnings` command line flag.
+一个 ` Boolean `, 用于控制是否将进程的警告打印到包含堆栈跟踪的 ` stderr `中 。 将此设置为 `true` 将打印对进程警告的堆栈跟踪（包括弃用）。 此属性代替 `--trace-warnings` 命令行标志。
 
 ### `process.type`
 
