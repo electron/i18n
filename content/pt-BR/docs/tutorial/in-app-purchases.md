@@ -1,4 +1,4 @@
-# In-App Purchase (macOS)
+# Compra no app (macOS)
 
 ## Preparing
 
@@ -23,7 +23,7 @@ To test In-App Purchase in development with Electron you'll have to change the `
 <string>com.example.app</string>
 ```
 
-## Code example
+## Exemplo de código
 
 Here is an example that shows how to use In-App Purchases in Electron. You'll have to replace the product ids by the identifiers of the products created with iTunes Connect (the identifier of `com.example.app.product1` is `product1`). Note that you have to listen to the `transactions-updated` event as soon as possible in your app.
 
