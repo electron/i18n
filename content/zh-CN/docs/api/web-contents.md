@@ -598,7 +598,7 @@ console.log(currentURL)
 
 #### `contents.focus()`
 
-Focuses the web page.
+页面聚焦
 
 #### `contents.isFocused()`
 
@@ -626,15 +626,15 @@ Stops any pending navigation.
 
 #### `contents.reloadIgnoringCache()`
 
-Reloads current page and ignores cache.
+忽略缓存强制刷新页面
 
 #### `contents.canGoBack()`
 
-Returns `Boolean` - Whether the browser can go back to previous web page.
+返回`Boolean`，是否可以返回到上一个页面
 
 #### `contents.canGoForward()`
 
-Returns `Boolean` - Whether the browser can go forward to next web page.
+返回`Boolean` ，是否可以进入下一个页面
 
 #### `contents.canGoToOffset(offset)`
 
@@ -674,7 +674,7 @@ Returns `Boolean` - Whether the renderer process has crashed.
 
 * `userAgent` String
 
-Overrides the user agent for this web page.
+重写该页面的user agent
 
 #### `contents.getUserAgent()`
 
