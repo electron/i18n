@@ -8,7 +8,7 @@ Ce sont les lignes directrices pour la rédaction de la documentation d'Electron
 * Les chapitres dans la même pages doit avoir un niveau de titre `##`.
 * Les sous-chapitres doivent voir le nombre de `#` augmenter dans le titre selon leur niveau d'imbrication.
 * Tous les mots dans le titre de la page doivent être capitalisés, à l'exception des conjonctions comme « de » et « et ».
-* Seul le premier mot d'un titre de chapitre doit être capitalisé.
+* Seul le premier mot d'un titre de chapitre doit être en majuscule.
 
 Utilisez `Démarrage Rapide` comme exemple :
 
