@@ -33,7 +33,7 @@ crashReporter.start({
 * `options` Object 
   * `companyName` String (опционально)
   * `submitURL` String - URL, на который будет отправлен отчет POST запросом.
-  * `productName` String (optional) - Defaults to `app.getName()`.
+  * `productName` String (опционально) - Значением по умолчанию является `app.getName()`.
   * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server Default is `true`.
   * `ignoreSystemCrashHandler` Boolean (optional) - Default is `false`.
   * `extra` Object (optional) - An object you can define that will be sent along with the report. Only string properties are sent correctly. Nested objects are not supported and the property names and values must be less than 64 characters long.
