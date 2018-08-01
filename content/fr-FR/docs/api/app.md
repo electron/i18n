@@ -29,7 +29,7 @@ Retourne :
 
 * `launchInfo` Object *macOS*
 
-Émis lorsqu'Electron a terminé l’initialisation. Sur macOs, `launchInfo` détient le `userInfo` de `NSUserNotification` qui a été utilisé pour ouvrir l'application si elle a été lancée depuis le centre de notification. Vous pouvez appeler `app.isReady()` pour vérifier si cet événement a déjà été déclenchée.
+Émis lorsqu'Electron a terminé l’initialisation. Sur macOs, `launchInfo` détient le `userInfo` de `NSUserNotification` qui a été utilisé pour ouvrir l'application si elle a été lancée depuis le centre de notification. Vous pouvez appeler `app.isReady()` pour vérifier si cet événement a déjà été déclenché.
 
 ### Événement : 'window-all-closed'
 
@@ -613,7 +613,7 @@ Cette méthode fait de votre application une Application à Instance Unique : au
 
 L'exécution du `callback` est garantie après que l'évènement `ready` de l'`app` a été émis.
 
-This method returns `false` if your process is the primary instance of the application and your app should continue loading. And returns `true` if your process has sent its parameters to another instance, and you should immediately quit.
+La méthode retourne `false` si le processus est l'instance primaire de l'application et votre application devrait continuer à s'exécuter. And returns `true` if your process has sent its parameters to another instance, and you should immediately quit.
 
 On macOS the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the `open-file` and `open-url` events will be emitted for that. However when users start your app in command line the system's single instance mechanism will be bypassed and you have to use this method to ensure single instance.
 
