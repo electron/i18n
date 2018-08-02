@@ -32,7 +32,7 @@ crashReporter.start({
 
 * `options` Object 
   * `companyName` String (опционально)
-  * `submitURL` String - URL, на который будет отправлен отчет POST запросом.
+  * `submitURL` String - URL, на который будет отправлен отчет POST-запросом.
   * `productName` String (опционально) - Значением по умолчанию является `app.getName()`.
   * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server Default is `true`.
   * `ignoreSystemCrashHandler` Boolean (optional) - Default is `false`.
