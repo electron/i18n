@@ -37,7 +37,7 @@ crashReporter.start({
   * `uploadToServer` Boolean (опционально) - Будет ли отправлен отчет на сервер? Значение по умолчанию - `true`.
   * `ignoreSystemCrashHandler` Boolean (опционально) - Значение по умолчанию - `false`.
   * `extra` Object (опционально) - Определив этот объект, вы сможете отправить его вместе с отчетом. Только строковые свойства могут быть посланы корректно. Вложенные объекты не поддерживаются, длина значений и имен свойств должна быть менее чем 64 символа.
-  * `crashesDirectory` String (optional) - Directory to store the crashreports temporarily (only used when the crash reporter is started via `process.crashReporter.start`).
+  * `crashesDirectory` String (опционально) - Каталог временного хранения отчетов о сбоях (используется исключительно в ситуации, когда запущен процесс формирования отчетов через вызов `process.crashReporter.start`).
 
 You are required to call this method before using any other `crashReporter` APIs and in each process (main/renderer) from which you want to collect crash reports. You can pass different options to `crashReporter.start` when calling from different processes.
 
