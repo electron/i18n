@@ -4,7 +4,7 @@
 
 Process: [Main](../glossary.md#main-process)
 
-See [`Menu`](menu.md) for examples.
+Просмотрите [`Menu`](menu.md) для примеров использования.
 
 ### `new MenuItem(options)`
 
