@@ -99,7 +99,7 @@
 * [Объект процесса](api/process.md)
 * [Поддерживаемые параметры командной строки Chrome](api/chrome-command-line-switches.md)
 * [Переменные окружения](api/environment-variables.md)
-* [Breaking API Changes](api/breaking-changes.md)
+* [Критические изменения в API](api/breaking-changes.md)
 
 ### Пользовательские DOM-элементы:
 
