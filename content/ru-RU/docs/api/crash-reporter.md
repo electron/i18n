@@ -45,7 +45,7 @@ crashReporter.start({
 
 **Примечание:** Чтобы получить отчеты о сбоях от дочернего процесса в Windows, вам также необходимо добавить этот дополнительный код. Это запустит процесс, который будет отслеживать и отправлять отчеты. Замените `submitURL`, `productName` и `crashesDirectory` подходящими значениями.
 
-**Note:** If you need send additional/updated `extra` parameters after your first call `start` you can call `addExtraParameter` on macOS or call `start` again with the new/updated `extra` parameters on Linux and Windows.
+**Примечание:** Если вам нужно послать дополнительные/обновленные `extra` параметры после вашего первого вызова `start`, вы можете вызвать `addExtraParameter` в системе macOS или вызвать `start` вновь с новыми/обновленными `extra` параметрами в системах Linux и Windows.
 
 ```js
  const args = [
@@ -62,7 +62,7 @@ crashReporter.start({
  })
 ```
 
-**Note:** On macOS, Electron uses a new `crashpad` client for crash collection and reporting. If you want to enable crash reporting, initializing `crashpad` from the main process using `crashReporter.start` is required regardless of which process you want to collect crashes from. Once initialized this way, the crashpad handler collects crashes from all processes. You still have to call `crashReporter.start` from the renderer or child process, otherwise crashes from them will get reported without `companyName`, `productName` or any of the `extra` information.
+**Примечание:** В системе macOS Electron использует новый `crashpad` клиент для сбора сбоев и составления отчетов. If you want to enable crash reporting, initializing `crashpad` from the main process using `crashReporter.start` is required regardless of which process you want to collect crashes from. Once initialized this way, the crashpad handler collects crashes from all processes. You still have to call `crashReporter.start` from the renderer or child process, otherwise crashes from them will get reported without `companyName`, `productName` or any of the `extra` information.
 
 ### `crashReporter.getLastCrashReport()`
 
