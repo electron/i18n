@@ -10,11 +10,11 @@ El módulo `inAppPurchase` emite los siguientes eventos:
 
 ### Evento: 'transactions-updated'
 
-Emitted when one or more transactions have been updated.
+Emitido cuando una o más transacciones han sido actualizadas.
 
 Devuelve:
 
-* `event` Event
+* `event` Evento
 * `transactions` ([Transaction[]](structures/transaction.md) - Array of transactions.
 
 ## Métodos
