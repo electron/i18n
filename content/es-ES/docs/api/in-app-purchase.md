@@ -6,9 +6,9 @@ Process: [Main](../glossary.md#main-process)
 
 ## Eventos
 
-The `inAppPurchase` module emits the following events:
+El módulo `inAppPurchase` emite los siguientes eventos:
 
-### Event: 'transactions-updated'
+### Evento: 'transactions-updated'
 
 Emitted when one or more transactions have been updated.
 
@@ -30,7 +30,7 @@ The `inAppPurchase` module has the following methods:
 
 ### `inAppPurchase.canMakePayments()`
 
-Returns `Boolean`, whether a user can make a payment.
+Devuelve un `Boolean`, dependiendo si el usuario puede hacer un pago.
 
 ### `inAppPurchase.getReceiptURL()`
 
