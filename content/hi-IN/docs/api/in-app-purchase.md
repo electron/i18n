@@ -1,12 +1,12 @@
-# इनएप्पपरचेस
+# एेप में से खरीददारी
 
-> In-app purchases on Mac App Store.
+> एेप के अन्दर से ही मैक-स्टोर से खरीददारी
 
 Process: [Main](../glossary.md#main-process)
 
 ## इवेंट्स
 
-The `inAppPurchase` module emits the following events:
+`InAppPurchase` मौड्यूल से निम्नलिखित events भेजे जाते हैं
 
 ### Event: 'transactions-updated'
 
