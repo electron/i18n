@@ -21,37 +21,37 @@ Electron リリースを作成してアップロードするには、Electron S3
 
 ## prepare-release スクリプトを実行する
 
-prepare release スクリプトは、以下の処理を行います。 1. リリースがすでに処理中であるかどうかを確認し、リリースがあれば中止します。 2. リリースブランチを作成します。 3. バージョン番号をいくつかのファイルに上げます。 See [this bump commit](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) for an example. 4. Create a draft release on GitHub with auto-generated release notes. 5. Push the release branch. 6. Call the APIs to run the release builds.
+prepare release スクリプトは、以下の処理を行います。 1. リリースがすでに処理中であるかどうかを確認し、リリースがあれば中止します。 2. リリースブランチを作成します。 3. バージョン番号をいくつかのファイルで上げます。 例に [このバージョン上げコミット](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) を参照してください。 4. 自動生成されたリリースノートで GitHub 上にドラフトリリースを作成します。 5. リリースブランチをプッシュします。 6. リリースビルドを実行するために API を呼び出します。
 
-Once you have determined which type of version change is needed, run the `prepare-release` script with arguments according to your need: - `[major|minor|patch|beta]` to increment one of the version numbers, or - `--stable` to indicate this is a stable version
+必要なバージョン変更のタイプを決定したら、必要に応じて以下の引数を指定して `prepare-release` スクリプトを実行します。 - `[major|minor|patch|beta]` 増やすバージョン番号 - `--stable` これが安定版であることを示す
 
 例:
 
-### Major version change
+### メジャーバージョンの変更
 
 ```sh
 npm run prepare-release -- major
 ```
 
-### Minor version change
+### マイナーバージョンの変更
 
 ```sh
 npm run prepare-release -- minor
 ```
 
-### Patch version change
+### パッチバージョンの変更
 
 ```sh
 npm run prepare-release -- patch
 ```
 
-### Beta version change
+### ベータ版の変更
 
 ```sh
 npm run prepare-release -- beta
 ```
 
-### Promote beta to stable
+### ベータを安定版へ昇格
 
 ```sh
 npm run prepare-release -- --stable
