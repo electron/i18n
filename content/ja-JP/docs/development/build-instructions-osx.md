@@ -62,7 +62,7 @@ $ cd electron
 $ ./script/bootstrap.py -v
 ```
 
-If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
+言語サーバを基にした [JSON コンパイルデータベース](http://clang.llvm.org/docs/JSONCompilationDatabase.html) をサポートしているエディタを使用している場合、以下で生成できます。
 
 ```sh
 $ ./script/build.py --compdb
@@ -70,27 +70,27 @@ $ ./script/build.py --compdb
 
 ## ビルド
 
-Build both `Release` and `Debug` targets:
+以下で `Release` と `Debug` の両方をターゲットにしてビルドします。
 
 ```sh
 $ ./script/build.py
 ```
 
-You can also only build the `Debug` target:
+以下のように、`Debug` のみをターゲットにしてビルドすることもできます。
 
 ```sh
 $ ./script/build.py -c D
 ```
 
-After building is done, you can find `Electron.app` under `out/D`.
+ビルド完了後、`out/D` 下に `Electron.app` が見られます。
 
 ## 32 ビット OS のサポート
 
-Electron can only be built for a 64bit target on macOS and there is no plan to support 32bit macOS in the future.
+Electron は macOS 上では 64bit ターゲットしかビルドできず、今後 32bit macOS をサポートする予定はありません。
 
 ## クリーン
 
-To clean the build files:
+以下でビルドファイルをクリーンします。
 
 ```sh
 $ npm run clean
