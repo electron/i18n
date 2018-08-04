@@ -34,7 +34,7 @@ crashReporter.start({
   * `companyName` String (опционально)
   * `submitURL` String - URL, на который будет отправлен отчет POST-запросом.
   * `productName` String (опционально) - Значение по умолчанию - `app.getName()`.
-  * `uploadToServer` Boolean (опционально) - Будет ли отправлен отчет на сервер? Значение по умолчанию - `true`.
+  * `uploadToServer` Boolean (опционально) - Должны ли отчеты быть загружены на сервер. Значение по умолчанию - `true`.
   * `ignoreSystemCrashHandler` Boolean (опционально) - Значение по умолчанию - `false`.
   * `extra` Object (опционально) - Определив этот объект, вы сможете отправить его вместе с отчетом. Только строковые свойства могут быть посланы корректно. Вложенные объекты не поддерживаются, длина значений и имен свойств должна быть менее чем 64 символа.
   * `crashesDirectory` String (опционально) - Каталог временного хранения отчетов о сбоях (используется исключительно в ситуации, когда запущен процесс формирования отчетов через вызов `process.crashReporter.start`).
@@ -78,13 +78,13 @@ crashReporter.start({
 
 ### `crashReporter.getUploadToServer()` *Linux* *macOS*
 
-Возвращает `Boolean` - Должны ли отчеты быть загружены на сервер? Устанавливается через метод `start` или `setUploadToServer`.
+Возвращает `Boolean` - Должны ли отчеты быть загружены на сервер. Устанавливается через метод `start` или `setUploadToServer`.
 
 **Примечание:** Это АПИ можно вызвать только из главного процесса.
 
 ### `crashReporter.setUploadToServer(uploadToServer)` *Linux* *macOS*
 
-* `uploadToServer` Boolean *macOS* - Whether reports should be submitted to the server.
+* `uploadToServer` Boolean *macOS* - Должны ли отчеты быть загружены на сервер.
 
 This would normally be controlled by user preferences. This has no effect if called before `start` is called.
 
