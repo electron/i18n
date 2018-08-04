@@ -27,9 +27,9 @@ Si vous découvrez une erreur dans une [version supportée](#supported-versions)
 
 Les trois dernières branches de version sont supportées par l'équipe Electron. Par exemple, si la dernière version est la 2.0.x, alors les révisions 2-0-x sont supportées, ainsi que celles numérotées 1-7-x et 1-8-x, provenant des deux précédentes versions.
 
-Quand une branche de version arrive au terme de son cycle de support, les révisions associées sont rendues obsolètes dans NPM et une toute dernière révision de fin de support est mise à disposition. This release will add a warning to inform that an unsupported version of Electron is in use.
+Quand une branche de version arrive au terme de son cycle de support, les révisions associées sont rendues obsolètes dans NPM et une toute dernière révision de fin de support est mise à disposition. Cette révision signalera alors que la version d'Electron utilisée n'est plus supportée.
 
-These steps are to help app developers learn when a branch they're using becomes unsupported, but without being excessively intrusive to end users.
+Ces étapes permettent aux développeurs d'applications d'être informés que la branche qu'ils utilisent ne sera bientôt plus supportée, sans toutefois trop importuner l'utilisateur final.
 
 If an application has exceptional circumstances and needs to stay on an unsupported series of Electron, developers can silence the end-of-support warning by omitting the final release from the app's `package.json` `devDependencies`. For example, since the 1-6-x series ended with an end-of-support 1.6.18 release, developers could choose to stay in the 1-6-x series without warnings with `devDependency` of `"electron": 1.6.0 - 1.6.17`.
 
