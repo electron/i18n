@@ -28,7 +28,7 @@
 
 #### `touchBarScrubber.selectedStyle`
 
-Scrubber中被选择的物品需要有的，一个代表的样式的`String`。 改变这个值会立即影响到touch bar的控制。可选值：
+Scrubber中被选择的物品需要有的，一个代表的样式的`String`。 改变这个值会立刻刷新touch bar的控件。可选值：
 
 * `background` - 映射为`[NSScrubberSelectionStyle roundedBackgroundStyle]`
 * `outline` - 映射为`[NSScrubberSelectionStyle outlineOverlayStyle]`
@@ -36,7 +36,7 @@ Scrubber中被选择的物品需要有的，一个代表的样式的`String`。 
 
 #### `touchBarScrubber.overlayStyle`
 
-A `String` representing the style that selected items in the scrubber should have. This style is overlayed on top of the scrubber item instead of being placed behind it. Updating this value immediately updates the control in the touch bar. 可选值
+一个`String`，用来表示在scrubber内被选择的组件应有的样式。 该样式将会覆盖在scrubber组件之上而非其后。 改变这个值会立刻刷新touch bar的控件。 可选值：
 
 * `background` - 映射为`[NSScrubberSelectionStyle roundedBackgroundStyle]`
 * `outline` - 映射为`[NSScrubberSelectionStyle outlineOverlayStyle]`
