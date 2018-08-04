@@ -95,7 +95,7 @@ crashReporter.start({
 * `key` String - Параметр ключа должен содержать не более 64 символов.
 * `value` String - Значение параметра должно быть не более 64 символов.
 
-Set an extra parameter to be sent with the crash report. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
+Установите дополнительный параметр, который будет отправлен с отчетом о сбое. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
 
 ### `crashReporter.removeExtraParameter(key)` *macOS*
 
@@ -109,15 +109,15 @@ Set an extra parameter to be sent with the crash report. The values specified he
 
 ## Отчет о нагрузке
 
-The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
+Процесс отчетов о сбоях отправит следующие данные в `submitURL` как `multipart/form-data` `POST`:
 
-* `ver` String - The version of Electron.
-* `platform` String - e.g. 'win32'.
-* `process_type` String - e.g. 'renderer'.
-* `guid` String - e.g. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'.
-* `_version` String - The version in `package.json`.
-* `_productName` String - The product name in the `crashReporter` `options` object.
-* `prod` String - Name of the underlying product. In this case Electron.
-* `_companyName` String - The company name in the `crashReporter` `options` object.
-* `upload_file_minidump` File - The crash report in the format of `minidump`.
-* All level one properties of the `extra` object in the `crashReporter` `options` object.
+* `ver` String - Версия Electron.
+* `platform` String - например, 'win32'.
+* `process_type` String - например, 'renderer'.
+* `guid` String - например, '5e1286fc-da97-479e-918b-6bfb0c3d1c72'.
+* `_version` String - Версия в `package.json`.
+* `_productName` String - Имя продукта в `crashReporter` `options` объекте.
+* `prod` String - Название базового продукта. В этом случае Electron.
+* `_companyName` String - Имя компании в `crashReporter` `options` объекте.
+* `upload_file_minidump` File - Отчет о сбое в формате `minidump`.
+* Все свойства на уровне 1 объекта `extra` в объекте `crashReporter` `options`.
