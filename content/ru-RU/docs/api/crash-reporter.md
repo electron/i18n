@@ -68,19 +68,19 @@ crashReporter.start({
 
 Возвращает [`CrashReport`](structures/crash-report.md):
 
-Returns the date and ID of the last crash report. If no crash reports have been sent or the crash reporter has not been started, `null` is returned.
+Возвращает дату и ID последнего отчета о сбое. Если ни одного отчета не было отослано или процесс создания отчетов не был запущен, вернет `null`.
 
 ### `crashReporter.getUploadedReports()`
 
-Returns [`CrashReport[]`](structures/crash-report.md):
+Возвращает [`CrashReport[]`](structures/crash-report.md):
 
-Returns all uploaded crash reports. Each report contains the date and uploaded ID.
+Возвращает все загруженные отчеты. Каждый отчет содержит дату и ID.
 
 ### `crashReporter.getUploadToServer()` *Linux* *macOS*
 
-Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
+Возвращает `Boolean` - Должны ли отчеты быть загружены на сервер? Устанавливается через метод `start` или `setUploadToServer`.
 
-**Note:** This API can only be called from the main process.
+**Примечание:** Это АПИ можно вызвать только из главного процесса.
 
 ### `crashReporter.setUploadToServer(uploadToServer)` *Linux* *macOS*
 
@@ -88,7 +88,7 @@ Returns `Boolean` - Whether reports should be submitted to the server. Set throu
 
 This would normally be controlled by user preferences. This has no effect if called before `start` is called.
 
-**Note:** This API can only be called from the main process.
+**Примечание:** Это АПИ можно вызвать только из главного процесса.
 
 ### `crashReporter.addExtraParameter(key, value)` *macOS*
 
