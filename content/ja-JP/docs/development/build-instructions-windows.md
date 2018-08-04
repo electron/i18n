@@ -5,17 +5,17 @@ Windows 版 Electron のビルドについては、以下のガイドライン�
 ## 必要な環境
 
 * Windows 7 / Server 2008 R2 以上
-* Visual Studio 2017 - [download VS 2017 Community Edition for free](https://www.visualstudio.com/vs/)
+* Visual Studio 2017 - [VS 2017 Community Edition (無料) をダウンロード](https://www.visualstudio.com/vs/)
 * [Python 2.7](http://www.python.org/download/releases/2.7/)
 * [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
-* [Debugging Tools for Windows](https://msdn.microsoft.com/en-us/library/windows/hardware/ff551063.aspx) if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` files.
+* [Windows 向けデバッグツール](https://msdn.microsoft.com/en-us/library/windows/hardware/ff551063.aspx) - `.pdb` ファイルからシンボルストアを作成するために `symstore.exe` が使用されるため、フルディストリビューションを作成する予定がある場合に使用します。
 
-If you don't currently have a Windows installation, [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) has timebombed versions of Windows that you can use to build Electron.
+現在 Windows インストールを持っていない場合、[dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) に Electron をビルドするために使用できる Windows のバージョンがあります。
 
-Building Electron is done entirely with command-line scripts and cannot be done with Visual Studio. You can develop Electron with any editor but support for building with Visual Studio will come in the future.
+Electron のビルドは完全にコマンドラインスクリプトで行われ、Visual Studio では実行できません。 任意のエディタで Electron を開発できますが、将来 Visual Studio を使用したビルドがサポートされます。
 
-**Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
+**注釈:** Visual Studio はビルドに使用されていませんが、それが提供するビルドツールチェーンが必要なため、まだ **必要** です。
 
 ## コードを取得する
 
