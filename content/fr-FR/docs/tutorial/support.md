@@ -19,7 +19,7 @@ Si vous avez besoin d’aide pour la programmation, de réponses à vos question
 
 Si vous souhaitez contribuer sur Electron, lisez le [document de contribution](../../CONTRIBUTING.md).
 
-If you've found a bug in a [supported version](#supported-versions) of Electron, please report it with the [issue tracker](../development/issues.md).
+Si vous découvrez une erreur dans une [version supportée](#supported-versions) d'Electron, veuillez s’il vous plaît la signaler dans notre [suivi d'erreurs](../development/issues.md).
 
 [awesome-electron](https://github.com/sindresorhus/awesome-electron) is a community-maintained list of useful example apps, tools and resources.
 
