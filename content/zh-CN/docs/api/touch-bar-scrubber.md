@@ -24,7 +24,7 @@
 
 #### `touchBarScrubber.items`
 
-一个Scrubberitem[] 数组代表Scrubber里的所有物品。 改变数组里的值会立即改变到touch bar的控制。 Updating deep properties inside this array **does not update the touch bar**.
+一个Scrubberitem[] 数组代表Scrubber里的所有物品。 改变这个数组会立刻刷新touch bar内的控件。 然而改变数组某元素内的嵌套属性**不会刷新touch bar**。
 
 #### `touchBarScrubber.selectedStyle`
 
@@ -32,7 +32,7 @@ Scrubber中被选择的物品需要有的，一个代表的样式的`String`。 
 
 * `background` - 映射为`[NSScrubberSelectionStyle roundedBackgroundStyle]`
 * `outline` - 映射为`[NSScrubberSelectionStyle outlineOverlayStyle]`
-* `null` - Actually null, not a string, removes all styles.
+* `null` - 真实意义上的null，不是字符串且不含任何样式。
 
 #### `touchBarScrubber.overlayStyle`
 
@@ -40,7 +40,7 @@ A `String` representing the style that selected items in the scrubber should hav
 
 * `background` - 映射为`[NSScrubberSelectionStyle roundedBackgroundStyle]`
 * `outline` - 映射为`[NSScrubberSelectionStyle outlineOverlayStyle]`
-* `null` - Actually null, not a string, removes all styles.
+* `null` - 真实意义上的null，不是字符串且不含任何样式。
 
 #### `touchBarScrubber.showArrowButtons`
 
