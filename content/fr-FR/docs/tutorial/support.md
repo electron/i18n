@@ -25,13 +25,13 @@ Si vous découvrez une erreur dans une [version supportée](#supported-versions)
 
 ## Versions supportées
 
-Les trois dernières branches de version sont supportées par l'équipe Electron. Par exemple, si la dernière version est la 2.0.x, alors les révisions 2-0-x sont supportées, ainsi que celles numérotées 1-7-x et 1-8-x, provenant des deux précédentes versions.
+Les trois dernières branches de version sont supportées par l'équipe Electron. Par exemple, si la dernière version est la 2.0, alors les révisions 2.0.x sont supportées, ainsi que celles numérotées 1.7.x et 1.8.x, provenant des deux précédentes versions.
 
 Quand une branche de version arrive au terme de son cycle de support, les révisions associées sont rendues obsolètes dans NPM et une toute dernière révision de fin de support est mise à disposition. Cette révision signalera alors que la version d'Electron utilisée n'est plus supportée.
 
 Ces étapes permettent aux développeurs d'applications d'être informés que la branche qu'ils utilisent ne sera bientôt plus supportée, sans toutefois trop importuner l'utilisateur final.
 
-If an application has exceptional circumstances and needs to stay on an unsupported series of Electron, developers can silence the end-of-support warning by omitting the final release from the app's `package.json` `devDependencies`. For example, since the 1-6-x series ended with an end-of-support 1.6.18 release, developers could choose to stay in the 1-6-x series without warnings with `devDependency` of `"electron": 1.6.0 - 1.6.17`.
+Si, pour une raison exceptionnelle, une application nécessite de rester sur une version d'Electron qui n'est plus supportée, les développeurs peuvent désactiver l'avertissement de fin de support en omettant d'ajouter dans la collection `devDependencies` du fichier `package.json` la dernière révision de fin de support. For example, since the 1-6-x series ended with an end-of-support 1.6.18 release, developers could choose to stay in the 1-6-x series without warnings with `devDependency` of `"electron": 1.6.0 - 1.6.17`.
 
 ## Plateformes supportées
 
