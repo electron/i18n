@@ -21,7 +21,7 @@ Si vous souhaitez contribuer sur Electron, lisez le [document de contribution](.
 
 Si vous découvrez une erreur dans une [version supportée](#supported-versions) d'Electron, veuillez s’il vous plaît la signaler dans notre [suivi d'erreurs](../development/issues.md).
 
-[awesome-electron](https://github.com/sindresorhus/awesome-electron) is a community-maintained list of useful example apps, tools and resources.
+[awesome-electron](https://github.com/sindresorhus/awesome-electron) regroupe une liste d'exemples d'applications, d'outils et de ressources très utiles, maintenue par la Communauté.
 
 ## Versions supportées
 
