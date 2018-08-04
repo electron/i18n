@@ -46,21 +46,21 @@ $ python script\build.py
 $ python script\build.py -c D
 ```
 
-After building is done, you can find `electron.exe` under `out\D` (debug target) or under `out\R` (release target).
+ビルド完了後、`out/D` (Debug ターゲット) または `out/R` (Release ターゲット) 下に `electron.exe` が見られます。
 
 ## 32ビットビルド
 
-To build for the 32bit target, you need to pass `--target_arch=ia32` when running the bootstrap script:
+32ビットターゲットをビルドするには、ブートストラップスクリプトを実行するときに `--target_arch=ia32` を渡す必要があります。
 
 ```powershell
 $ python script\bootstrap.py -v --target_arch=ia32
 ```
 
-The other building steps are exactly the same.
+他のビルド手順は全く同じです。
 
 ## Visual Studio プロジェクト
 
-To generate a Visual Studio project, you can pass the `--msvs` parameter:
+Visual Studio プロジェクトを生成するには、`--msvs` 引数を渡します。
 
 ```powershell
 $ python script\bootstrap.py --msvs
@@ -68,33 +68,33 @@ $ python script\bootstrap.py --msvs
 
 ## クリーン
 
-To clean the build files:
+以下でビルドファイルをクリーンします。
 
 ```powershell
 $ npm run clean
 ```
 
-To clean only `out` and `dist` directories:
+以下で `out` と `dist` ディレクトリだけをクリーンします。
 
 ```sh
 $ npm run clean-build
 ```
 
-**Note:** Both clean commands require running `bootstrap` again before building.
+**注釈:** どちらのクリーンコマンドもビルド前に `ブートストラップ` を再度実行する必要があります。
 
 ## テスト
 
-See [Build System Overview: Tests](build-system-overview.md#tests)
+[ビルドシステム概要: テスト](build-system-overview.md#tests) を参照してください。
 
 ## トラブルシューティング
 
 ### Command xxxx not found
 
-If you encountered an error like `Command xxxx not found`, you may try to use the `VS2015 Command Prompt` console to execute the build scripts.
+`Command xxxx not found` のようなエラーに遭遇した場合、`開発者コマンド プロンプト for VS2015` コンソールを使用してビルドスクリプトを実行してみましょう。
 
 ### Fatal internal compiler error: C1001
 
-Make sure you have the latest Visual Studio update installed.
+最新の Visual Studio アップデートがインストールされていることを確認してください。
 
 ### Assertion failed: ((handle))->activecnt >= 0
 
