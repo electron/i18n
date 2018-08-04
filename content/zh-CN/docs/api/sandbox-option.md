@@ -6,13 +6,13 @@ Chromium主要的安全特征之一便是所有的blink渲染或者JavaScript代
 
 也就是说，在sandbox模式下，渲染器只能通过IPC委派任务给主进程来对操作系统进行更改。 [下述](https://www.chromium.org/developers/design-documents/sandbox)是有关sandbox更多的信息。
 
-自从在渲染进程中运行node.js成为electron的一个重要特性（可以更容易地使用Web技术创建桌面应用），沙箱在默认情况下被禁用。 这是因为大多数node.js API需要访问操作系统。 比如 ，要使用`require()`不可能没有文件系统权限，而该权限在沙箱环境下不是有效的。
+在渲染进程中运行node.js是electron的一个重要特性（可以更容易地使用Web技术创建桌面应用），因此沙箱在默认情况下被禁用。 这是因为大多数node.js API需要访问操作系统。 比如 ，要使用`require()`不可能没有文件系统权限，而该权限在沙箱环境下不是有效的。
 
 通常, 对于桌面应用程序来说, 这不是问题, 因为代码始终是受信任的, 但它使electron在显示Web内容时安全性不如chromium。 如果应用程序需要更多的安全性，`sandbox` 标记将使electron产生一个与沙箱兼容的经典chromium渲染器。
 
 一个沙箱环境下的渲染器没有node.js运行环境，并且没有对客户端代码暴露node.js JavaScript APIs。 唯一的例外是预加载脚本, 它可以访问electron渲染器 API 的一个子集。
 
-另一个区别是沙箱渲染器不修改任何默认的 JavaScript api。 Consequently, some APIs such as `window.open` will work as they do in chromium (i.e. they do not return a [`BrowserWindowProxy`](browser-window-proxy.md)).
+另一个区别是沙箱渲染器不修改任何默认的 JavaScript API。 因此，某些API（比如`window.open`）会像在chromium中一样工作；换言之，他们不会返回[`BrowserWindowProxy`](browser-window-proxy.md)。
 
 ## 示例
 
@@ -134,7 +134,7 @@ window.open = customWindowOpen
 
 请小心使用`sandbox`选项，它仍是一个实验性特性。 我们仍然不知道将某些 electron api 暴露给预加载脚本的安全性问题, 但在显示不受信任的内容之前, 需要考虑以下一些事项:
 
-- A preload script can accidentally leak privileged APIs to untrusted code.
+- 某个预加载脚本可能会意外把私有 API 暴露给不可信的代码。
 - V8 引擎中的某些 bug 可能允许恶意代码访问渲染器预加载 api, 从而有效地通过 ` remote ` 模块授予对系统的完全访问权限。
 
 由于在 electron 中渲染不受信任的内容仍然是未知的领域, 因此暴露在沙盒预加载脚本中的 api 应被认为比其他 electron api 更不稳定, 并且可能会破坏修复安全问题的更改。
