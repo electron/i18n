@@ -2,7 +2,7 @@
 
 > Définit des raccourcis clavier.
 
-Les accelerators sont des chaînes de caractères pouvant contenir plusieurs modificateurs et touches, combinés avec le caractère `+`. Ils sont utilisés pour définir des raccourcies clavier dans votre application.
+Les Accelerators sont des chaînes de caractères pouvant contenir plusieurs modificateurs et touches, combinés avec le caractère `+`. Ils sont utilisés pour définir des raccourcis clavier dans votre application.
 
 Exemples:
 
@@ -24,11 +24,11 @@ app.on('ready', () => {
 
 ## Remarques
 
-Sur Linux et Windows, la touche `Command` n'a aucun effet, donc utilisez `CommandOrControl` qui représente `Command` sur macOS et `Control` sur Linux et Windows, pour définir certains accelerators.
+Sur Linux et Windows, la touche `Command` n'a aucun effet, donc utilisez `CommandOrControl` qui représente `Command` sur macOS et `Control` sur Linux et Windows pour définir certains Accelerators.
 
 Utilisez `Alt` au lieu de `Option`. La touche `Option` n’existe que sur macOS, tandis que la touche `Alt` est disponible sur toutes les plateformes.
 
-La touche `Super` est mappée à la touche `Windows` sur Windows et Linux et `Cmd` sur macOS.
+La touche `Super` est associée à la touche `Windows` sur Windows et Linux et `Cmd` sur macOS.
 
 ## Modificateurs disponibles
 
