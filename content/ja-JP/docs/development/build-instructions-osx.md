@@ -96,14 +96,14 @@ Electron は macOS 上では 64bit ターゲットしかビルドできず、今
 $ npm run clean
 ```
 
-To clean only `out` and `dist` directories:
+以下で `out` と `dist` ディレクトリだけをクリーンします。
 
 ```sh
 $ npm run clean-build
 ```
 
-**Note:** Both clean commands require running `bootstrap` again before building.
+**注釈:** どちらのクリーンコマンドもビルド前に `ブートストラップ` を再度実行する必要があります。
 
 ## テスト
 
-See [Build System Overview: Tests](build-system-overview.md#tests)
+[ビルドシステム概要: テスト](build-system-overview.md#tests) を参照してください。
