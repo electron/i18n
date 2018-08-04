@@ -86,28 +86,28 @@ crashReporter.start({
 
 * `uploadToServer` Boolean *macOS* - Должны ли отчеты быть загружены на сервер.
 
-This would normally be controlled by user preferences. This has no effect if called before `start` is called.
+Обычно это контролируется пользовательскими настройками. Эффекта не будет, если вызов был до `start`.
 
 **Примечание:** Это АПИ можно вызвать только из главного процесса.
 
 ### `crashReporter.addExtraParameter(key, value)` *macOS*
 
-* `key` String - Parameter key, must be less than 64 characters long.
-* `value` String - Parameter value, must be less than 64 characters long.
+* `key` String - Параметр ключа должен содержать не более 64 символов.
+* `value` String - Значение параметра должно быть не более 64 символов.
 
 Set an extra parameter to be sent with the crash report. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
 
 ### `crashReporter.removeExtraParameter(key)` *macOS*
 
-* `key` String - Parameter key, must be less than 64 characters long.
+* `key` String - Параметр ключа должен содержать не более 64 символов.
 
-Remove a extra parameter from the current set of parameters so that it will not be sent with the crash report.
+Удалите дополнительный параметр из текущего набора параметров, чтобы он не отправлялся в отчете о сбое.
 
 ### `crashReporter.getParameters()`
 
-See all of the current parameters being passed to the crash reporter.
+Вызов для получения всех текущих параметров, передаваемых процессу по формированию отчета.
 
-## Crash Report Payload
+## Отчет о нагрузке
 
 The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
 
