@@ -31,7 +31,7 @@ Quand une branche de version arrive au terme de son cycle de support, les révis
 
 Ces étapes permettent aux développeurs d'applications d'être informés que la branche qu'ils utilisent ne sera bientôt plus supportée, sans toutefois trop importuner l'utilisateur final.
 
-Si, pour une raison exceptionnelle, une application nécessite de rester sur une version d'Electron qui n'est plus supportée, les développeurs peuvent désactiver l'avertissement de fin de support en omettant d'ajouter dans la collection `devDependencies` du fichier `package.json` la dernière révision de fin de support. For example, since the 1-6-x series ended with an end-of-support 1.6.18 release, developers could choose to stay in the 1-6-x series without warnings with `devDependency` of `"electron": 1.6.0 - 1.6.17`.
+Si, pour une raison exceptionnelle, une application nécessite de rester sur une version d'Electron qui n'est plus supportée, les développeurs peuvent désactiver l'avertissement de fin de support en omettant d'ajouter dans la collection `devDependencies` du fichier `package.json` la dernière révision de fin de support. Par exemple, comme la version 1.6 est clôturée par la révision de fin de support 1.6.18, les développeurs pourraient choisir de continuer à l'utiliser sans message d'avertissement en précisant, dans `devDependency`, `"electron": 1.6.0 - 1.6.17`.
 
 ## Plateformes supportées
 
