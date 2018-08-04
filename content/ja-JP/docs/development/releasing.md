@@ -74,7 +74,7 @@ $ ./script/bump-version.py --bump minor --dry-run
 
 リリースノートを書くことは、ビルドの実行中に自分自身を忙しくする良い方法です。 従来の開発については、[リリースページ](https://github.com/electron/electron/releases) の既存のリリースを参照してください。
 
-Tips: - Each listed item should reference a PR on electron/electron, not an issue, nor a PR from another repo like libcc. - No need to use link markup when referencing PRs. Strings like `#123` will automatically be converted to links on github.com. - To see the version of Chromium, V8, and Node in every version of Electron, visit [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
+ヒント: - リストされている各項目は issue ではなく、libcc のような別のリポジトリからのPRでもなく、 electron/electron 上のPRを参照する必要があります。 - PRを参照する際にリンクマークアップを使用する必要はありません。 Strings like `#123` will automatically be converted to links on github.com. - To see the version of Chromium, V8, and Node in every version of Electron, visit [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
 
 ### Patch releases
 
