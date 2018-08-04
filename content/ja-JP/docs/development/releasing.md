@@ -57,22 +57,22 @@ npm run prepare-release -- beta
 npm run prepare-release -- --stable
 ```
 
-Tip: You can test the new version number before running `prepare-release` with a dry run of the `bump-version` script with the same major/minor/patch/beta arguments, e.g.:
+ヒント: 以下のように、メジャー/マイナー/パッチ/ベータの同じ引数を持つ `bump-version` スクリプトのドライランで、`prepare-release` を実行する前に新しいバージョン番号をテストできます。
 
 ```sh
 $ ./script/bump-version.py --bump minor --dry-run
 ```
 
-## Wait for builds :hourglass_flowing_sand:
+## ビルドを待つ :hourglass_flowing_sand:
 
-The `prepare-release` script will trigger the builds via API calls. To monitor the build progress, see the following pages:
+`prepare-release` スクリプトは、API 呼び出しを介してビルドをトリガーします。 ビルドの進行状況をモニターするには、以下のページを参照してください。
 
-- [circleci.com/gh/electron/electron](https://circleci.com/gh/electron) for OS X and Linux
-- [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) for Windows
+- [circleci.com/gh/electron/electron](https://circleci.com/gh/electron) OS X と Linux 向け
+- [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) Windows 向け
 
 ## リリースノートをコンパイルする
 
-Writing release notes is a good way to keep yourself busy while the builds are running. For prior art, see existing releases on [the releases page](https://github.com/electron/electron/releases).
+リリースノートを書くことは、ビルドの実行中に自分自身を忙しくする良い方法です。 従来の開発については、[リリースページ](https://github.com/electron/electron/releases) の既存のリリースを参照してください。
 
 Tips: - Each listed item should reference a PR on electron/electron, not an issue, nor a PR from another repo like libcc. - No need to use link markup when referencing PRs. Strings like `#123` will automatically be converted to links on github.com. - To see the version of Chromium, V8, and Node in every version of Electron, visit [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
 
