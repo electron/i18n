@@ -16,7 +16,7 @@ C++ が Electron コーディングスタイルに準拠していることを確
 
 ## ユニットテスト
 
-すべてのユニットテストを実行するには、`npm run test` を実行します。 The unit tests are an Electron app (surprise!) that can be found in the `spec` folder. Note that it has its own `package.json` and that its dependencies are therefore not defined in the top-level `package.json`.
+すべてのユニットテストを実行するには、`npm run test` を実行します。 ユニットテストは `spec` フォルダにある Electron アプリ (ｵﾄﾞﾛｷ!) です。 その `package.json` もあり、その依存関係はトップレベルの `package.json` には定義されていないことに注意してください。
 
 To run only specific tests matching a pattern, run `npm run test --
 -g=PATTERN`, replacing the `PATTERN` with a regex that matches the tests you would like to run. As an example: If you want to run only IPC tests, you would run `npm run test -- -g ipc`.
