@@ -8,7 +8,7 @@ Electron's `process` 对象继承 [Node.js `process` object](https://nodejs.org/
 
 ## 事件
 
-### Event: 'loaded'
+### 事件: 'loaded'
 
 当Electron加载了它的内部初始化脚本并且是正要开始加载网页或主脚本时触发。
 
