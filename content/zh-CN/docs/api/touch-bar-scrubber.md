@@ -30,16 +30,16 @@
 
 Scrubber中被选择的物品需要有的，一个代表的样式的`String`。 改变这个值会立即影响到touch bar的控制。可选值：
 
-* `background` - Maps to `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
-* `outline` - Maps to `[NSScrubberSelectionStyle outlineOverlayStyle]`.
+* `background` - 映射为`[NSScrubberSelectionStyle roundedBackgroundStyle]`
+* `outline` - 映射为`[NSScrubberSelectionStyle outlineOverlayStyle]`
 * `null` - Actually null, not a string, removes all styles.
 
 #### `touchBarScrubber.overlayStyle`
 
 A `String` representing the style that selected items in the scrubber should have. This style is overlayed on top of the scrubber item instead of being placed behind it. Updating this value immediately updates the control in the touch bar. 可选值
 
-* `background` - Maps to `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
-* `outline` - Maps to `[NSScrubberSelectionStyle outlineOverlayStyle]`.
+* `background` - 映射为`[NSScrubberSelectionStyle roundedBackgroundStyle]`
+* `outline` - 映射为`[NSScrubberSelectionStyle outlineOverlayStyle]`
 * `null` - Actually null, not a string, removes all styles.
 
 #### `touchBarScrubber.showArrowButtons`
