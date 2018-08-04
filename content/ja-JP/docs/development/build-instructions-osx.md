@@ -29,23 +29,23 @@ Homebrew で提供される Python を使用している場合、以下の Pytho
 
 ## macOS SDK
 
-If you're developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
+Electron を開発していて独自の Electron ビルドを再配布する予定がない場合は、このセクションを飛ばして構いません。
 
-For certain features (e.g. pinch-zoom) to work properly, you must target the macOS 10.10 SDK.
+特定の機能 (ピンチズームなど) を正しく機能させるには、macOS 10.10 SDK をターゲットにする必要があります。
 
-Official Electron builds are built with [Xcode 8.2.1](http://adcdownload.apple.com/Developer_Tools/Xcode_8.2.1/Xcode_8.2.1.xip), which does not contain the 10.10 SDK by default. To obtain it, first download and mount the [Xcode 6.4](http://developer.apple.com/devcenter/download.action?path=/Developer_Tools/Xcode_6.4/Xcode_6.4.dmg) DMG.
+公式の Electron ビルドは、デフォルトで 10.10 SDK を含まない [Xcode 8.2.1](http://adcdownload.apple.com/Developer_Tools/Xcode_8.2.1/Xcode_8.2.1.xip) でビルドされています。 入手するには、まず [Xcode 6.4](http://developer.apple.com/devcenter/download.action?path=/Developer_Tools/Xcode_6.4/Xcode_6.4.dmg) ディスクイメージをダウンロードしてマウントしてください。
 
-Then, assuming that the Xcode 6.4 DMG has been mounted at `/Volumes/Xcode` and that your Xcode 8.2.1 install is at `/Applications/Xcode.app`, run:
+次に、Xcode 6.4 ディスクイメージが `/Volumes/Xcode` にマウントされ、Xcode 8.2.1 のインストールが `/Applications/Xcode.app` にあるとすると、以下を実行します。
 
 ```sh
 cp -r /Volumes/Xcode/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/
 ```
 
-You will also need to enable Xcode to build against the 10.10 SDK:
+更に 10.10 SDK に対してビルドするには、以下の手順で Xcode を有効にする必要があります。
 
-- Open `/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Info.plist`
-- Set the `MinimumSDKVersion` to `10.10`
-- Save the file
+- `/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Info.plist` を開く
+- `MinimumSDKVersion` を `10.10` にセットする
+- ファイルを保存する
 
 ## コードを取得する
 
@@ -55,7 +55,7 @@ $ git clone https://github.com/electron/electron
 
 ## ブートストラップ
 
-ブートストラップスクリプトはビルドに必要な全ての依存関係をダウンロードし、ビルドプロジェクトファイルを作成します。 Notice that we're using [ninja](https://ninja-build.org/) to build Electron so there is no Xcode project generated.
+ブートストラップスクリプトはビルドに必要な全ての依存関係をダウンロードし、ビルドプロジェクトファイルを作成します。 なお、Electron のビルドには [ninja](https://ninja-build.org/) を用いているため、Xcode プロジェクトが生成されないことに注意してください。
 
 ```sh
 $ cd electron
