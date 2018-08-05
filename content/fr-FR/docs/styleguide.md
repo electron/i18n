@@ -60,7 +60,7 @@ Les règles suivantes s'appliquent uniquement à la documentation des APIs.
 
 Chaque page doivent utiliser le nom de l'objet retourné par `require('electron')` comme titre, par exemple `BrowserWindow`, `autoUpdater` et `session`.
 
-Il doit y avoir une ligne de description commençant par `>` en dessous du titre de la page.
+Le titre de la page doit être suivi par une ligne de description commençant par `>`.
 
 Si l'on utilise `session` par exemple, cela donne :
 
