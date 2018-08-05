@@ -648,9 +648,9 @@ Libère tous les verrous qui ont été créés par `makeSingleInstance`. Cela pe
 
 * `type` String - Identifie de façon unique l'activité. Mappé sur [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object - État spécifique de l'application à stocker pour une utilisation par un autre périphérique.
-* `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
+* `webpageURL` String (facultatif) - La page web à charger dans un navigateur si aucune application appropriée n'est installée sur l'autre périphérique de reprise. Le protocole doit être `http` ou `https`.
 
-Créée un `NSUserActivity` et le défini en tant qu'activité courante. The activity is eligible for [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) to another device afterward.
+Créée un `NSUserActivity` et le défini en tant qu'activité courante. Après cela, l'activité devient éligible à la fonction [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) sur l'autre périphérique.
 
 ### `app.getCurrentActivityType()` *macOS*
 
