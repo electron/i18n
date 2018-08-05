@@ -53,9 +53,9 @@
   
   - libcc サブモジュール (`vendor/libchromiumcontent`) が正しいリビジョンを指していることを確認します
 
-4. Set `CLANG_REVISION` in `script/update-clang.sh` to match the version Chromium is using.
+4. `script/update-clang.sh` 内の `CLANG_REVISION` を Chromium が使用しているバージョンに一致するようにセットします。
   
-  - Located in `electron/libchromiumcontent/src/tools/clang/scripts/update.py`
+  - `electron/libchromiumcontent/src/tools/clang/scripts/update.py` にあります。
 
 5. Checkout Chromium if you haven't already:
   
