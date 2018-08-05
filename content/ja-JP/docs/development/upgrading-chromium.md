@@ -37,7 +37,7 @@
 
 ## Electron のコードを更新する
 
-1. コードを取得する。 
+1. コードを取得します。 
       sh
       $ git clone git@github.com:electron/electron.git
       $ cd electron
@@ -62,19 +62,19 @@
   - https://chromium.googlesource.com/chromium/src.git/+/{VERSION}/tools/clang/scripts/update.py 
     - (上記 URL の `{VERSION}` プレースホルダを libcc が使用する Chromium のバージョンに置き換えてください。)
 6. Electron をビルドします。 
-  - Try to build Debug version first: `$ ./script/build.py -c D`
-  - You will need it to run tests
-7. Fix compilation and linking errors
-8. Ensure that Release build can be built too 
+  - まずはじめにこれで Debug 版のビルドを試してください。`$ ./script/build.py -c D`
+  - テストを実行するのに必要です。
+7. コンパイルエラーとリンクエラーを修正します
+8. Release ビルドでもビルドできることを確認します 
   - `$ ./script/build.py -c R`
-  - Often the Release build will have different linking errors that you'll need to fix.
-  - Some compilation and linking errors are caused by missing source/object files in the libcc `dist`
-9. Update `./script/create-dist` in the libcc repo, recreate a `dist`, and run Electron bootstrap script once again.
+  - 多くの場合、リリースビルドには修正が必要な異なるリンクエラーがあります。
+  - いくつかのコンパイルエラーとリンクエラーは、libcc の `dist` 内のソースファイルやオブジェクトファイルが見つからないことが原因です。
+9. libcc レポジトリ内の `./script/create-dist` を更新し、`dist` を再作成して Electron ブートストラップスクリプトをもう一度実行してください。
 
-### Tips for fixing compilation errors
+### コンパイルエラー修正のヒント
 
-- Fix build config errors first
-- Fix fatal errors first, like missing files and errors related to compiler flags or defines
+- ビルドコンフィグエラーを第一に修正します
+- ファイルの欠損やコンパイラーのフラグと定義に関するエラーのような、致命的なエラーを優先して修正します。
 - Try to identify complex errors as soon as possible. 
   - Ask for help if you're not sure how to fix them
 - Disable all Electron features, fix the build, then enable them one by one
