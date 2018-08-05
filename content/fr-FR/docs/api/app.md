@@ -667,7 +667,7 @@ Invalide l'activité [Handoff](https://developer.apple.com/library/ios/documenta
 * `type` String - Identifie de façon unique l'activité. Mappé sur [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object - État spécifique de l'application à stocker pour une utilisation par un autre périphérique.
 
-Updates the current activity if its type matches `type`, merging the entries from `userInfo` into its current `userInfo` dictionary.
+Modifie l'activité en cours si son type correspond à `type`, en fusionnant les entrées de `userInfo` dans son dictionnaire `userInfo` courant.
 
 ### `app.setAppUserModelId(id)` *Windows*
 
@@ -683,7 +683,7 @@ Change le [Application User Model ID](https://msdn.microsoft.com/en-us/library/w
 * `callback` Function 
   * `result` Integer - Résultat de l'importation.
 
-Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `0` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Importe le certificat au format pkcs12 dans l'entrepôt de certificats de la plateforme. `callback` is called with the `result` of import operation, a value of `0` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
 ### `app.disableHardwareAcceleration()`
 
