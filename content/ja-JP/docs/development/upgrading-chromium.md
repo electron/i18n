@@ -57,7 +57,7 @@
   
   - `electron/libchromiumcontent/src/tools/clang/scripts/update.py` にあります。
 
-5. Checkout Chromium if you haven't already:
+5. まだチェックアウトしていない場合は Chromium をチェックアウトしてください。
   
   - https://chromium.googlesource.com/chromium/src.git/+/{VERSION}/tools/clang/scripts/update.py 
     - (Replace the `{VERSION}` placeholder in the url above to the Chromium version libcc uses.)
