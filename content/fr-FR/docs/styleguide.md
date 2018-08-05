@@ -42,7 +42,7 @@ Dans le cas de références API, il existe des exceptions à cette règle.
 
 ## Règles pour le markdown
 
-* Utilisez `sh` au lieu de `cmd` dans les blocs de code (en raison du surligneur de syntaxe).
+* Utilisez `sh` au lieu de `cmd` dans les blocs de code (en raison de l'outil de coloration syntaxique).
 * La longueur des lignes ne devrait pas dépasser 80 caractères.
 * Les listes ne doivent pas dépasser 2 niveaux (à cause du formatage du markdown).
 * Tous les blocs de code `js` et `javascript` sont vérifiés avec le [standard-markdown](http://npm.im/standard-markdown).
