@@ -55,7 +55,7 @@ Istnieje kilka pytań, które są bardzo często zadawane. Przeglądnij je, zani
   * [Code Signing](tutorial/code-signing.md)
 * [Dystrybucja](tutorial/application-distribution.md) 
   * [Wsparcie](tutorial/support.md)
-  * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
+  * [Sklep App Store](tutorial/mac-app-store-submission-guide.md)
   * [Sklep Windows](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
 * [Bezpieczeństwo](tutorial/security.md) 
