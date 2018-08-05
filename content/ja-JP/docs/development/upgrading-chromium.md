@@ -75,26 +75,26 @@
 
 - ビルドコンフィグエラーを第一に修正します
 - ファイルの欠損やコンパイラーのフラグと定義に関するエラーのような、致命的なエラーを優先して修正します。
-- Try to identify complex errors as soon as possible. 
-  - Ask for help if you're not sure how to fix them
-- Disable all Electron features, fix the build, then enable them one by one
-- Add more build flags to disable features in build-time.
+- 複雑なエラーをできるだけ早く特定するようにします。 
+  - どうやって修正するのかがわからない場合は助けを求めてください。
+- すべての Electron の機能を無効にし、ビルドを修正してから、それを1つずつ有効にします
+- ビルド時の機能を無効にするビルドフラグを追加します。
 
-When a Debug build of Electron succeeds, run the tests: `$ ./script/test.py` Fix the failing tests.
+Electron の Debug ビルドが成功したならば、以下のとおりテストを実行してください。 `$ ./script/test.py` テストの失敗を修正します。
 
-Follow all the steps above to fix Electron code on all supported platforms.
+上記のすべての手順に従って、サポートされているすべてのプラットフォームで Electron のコードを修正してください。
 
-## Updating Crashpad
+## Crashpad の更新
 
-If there are any compilation errors related to the Crashpad, it probably means you need to update the fork to a newer revision. See [Upgrading Crashpad](upgrading-crashpad.md) for instructions on how to do that.
+Crashpad に関連するコンパイルエラーがある場合は、フォークを新しいリビジョンに更新する必要がある可能性があります。 このやり方については、[Crashpad の更新](upgrading-crashpad.md) を参照してください。
 
-## Updating NodeJS
+## NodeJS の更新
 
-Upgrade `vendor/node` to the Node release that corresponds to the v8 version used in the new Chromium release. See the v8 versions in Node on
+`vendor/node` を、新しい Chromium リリースで使用される v8 バージョンに対応する Node リリースにアップグレードします。 Node 上の v8 バージョンを参照してください。
 
-See [Upgrading Node](upgrading-node.md) for instructions on this.
+これについては、[Node の更新](upgrading-node.md) を参照してください。
 
-## Verify ffmpeg support
+## ffmpeg サポートの確認
 
 Electron ships with a version of `ffmpeg` that includes proprietary codecs by default. A version without these codecs is built and distributed with each release as well. Each Chrome upgrade should verify that switching this version is still supported.
 
