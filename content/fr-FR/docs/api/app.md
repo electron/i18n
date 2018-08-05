@@ -683,7 +683,7 @@ Change le [Application User Model ID](https://msdn.microsoft.com/en-us/library/w
 * `callback` Function 
   * `result` Integer - Résultat de l'importation.
 
-Importe le certificat au format pkcs12 dans l'entrepôt de certificats de la plateforme. `callback` is called with the `result` of import operation, a value of `0` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Importe le certificat au format pkcs12 dans l'entrepôt de certificats de la plateforme. `callback` est appelé avec le retour `result` de l'opération d'import, une valeur `0` indique un succès alors que toute autre valeur signale un problème, telle que décrite par la [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) de Chromium.
 
 ### `app.disableHardwareAcceleration()`
 
