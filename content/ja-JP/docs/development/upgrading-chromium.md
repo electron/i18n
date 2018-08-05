@@ -96,7 +96,7 @@ Crashpad に関連するコンパイルエラーがある場合は、フォー�
 
 ## ffmpeg サポートの確認
 
-Electron ships with a version of `ffmpeg` that includes proprietary codecs by default. A version without these codecs is built and distributed with each release as well. Each Chrome upgrade should verify that switching this version is still supported.
+Electron はデフォルトで独自のコーデックを含む `ffmpeg` のバージョンを提供しています。 これらのコーデックのないバージョンも、各リリースでビルドされて配布されます。 各 Chrome のアップグレードでは、このバージョンの切り替えが引き続きサポートされていることを確認する必要があります。
 
 You can verify Electron's support for multiple `ffmpeg` builds by loading the following page. It should work with the default `ffmpeg` library distributed with Electron and not work with the `ffmpeg` library built without proprietary codecs.
 
