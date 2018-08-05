@@ -29,15 +29,15 @@
   - もう一つ有用なスクリプト `script/patch.py` があります。 より詳しくは `./script/patch.py -h` を読んでください。
 5. すべてのパッチをエラーなく適用できれば、ビルドを実行します 
   - `$ ./script/build`
-  - If some patches are no longer compatible with the Chromium code, fix compilation errors.
-6. When the build succeeds, create a `dist` for Electron 
+  - 一部のパッチが Chromium コードと互換性がなくなった場合は、コンパイルエラーを修正してください。
+6. ビルドに成功すれば、Electron に `dist` を作成します 
   - `$ ./script/create-dist --no_zip` 
-    - It will create a `dist/main` folder in the libcc repo's root. You will need this to build Electron.
-7. (Optional) Update script contents if there are errors resulting from files that were removed or renamed. (`--no_zip` prevents script from create `dist` archives. You don't need them.)
+    - libcc リポジトリのルートに `dist/main` フォルダが作成されます。 Electron をビルドするには、これが必要です。
+7. (任意) 削除または名前を変更したファイルが原因でエラーがある場合は、スクリプトの内容を更新します。 (`--no-zip` はスクリプトが `dist` アーカイブを作成するのを防ぎます。 このアーカイブは必要ありません。)
 
-## Update Electron's code
+## Electron のコードを更新する
 
-1. Get the code: 
+1. コードを取得する。 
       sh
       $ git clone git@github.com:electron/electron.git
       $ cd electron
