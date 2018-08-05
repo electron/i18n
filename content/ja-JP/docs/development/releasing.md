@@ -174,7 +174,7 @@ under the `beta` tag and can be installed via `npm install electron@beta`.
 3. 安定版を公開する場合は、ベータ版がないか確認し、`prerelease` チェックボックスを外します。
 4. Save draft (ドラフトを保存)をクリックします。 **'Publish release' はクリックしないでください！**
 5. 続行する前に全ビルドがパスするのを待ちます。
-6. In the `release` branch, verify that the release's files have been created:
+6. `release` ブランチで、リリースのファイルが作成されていることを確認します。
 
 ```sh
 $ git rev-parse --abbrev-ref HEAD
@@ -182,17 +182,17 @@ release
 $ npm run release -- --validateRelease
 ```
 
-## Merge temporary branch (pre-2-0-x branches only)
+## 一時ブランチのマージ (2-0-x 以前のブランチ限定)
 
-Once the release builds have finished, merge the `release` branch back into the source release branch using the `merge-release` script. If the branch cannot be successfully merged back this script will automatically rebase the `release` branch and push the changes which will trigger the release builds again, which means you will need to wait for the release builds to run again before proceeding.
+リリースビルドが完了したら、`release` ブランチを `merge-release` スクリプトを使用してソースリリースブランチにマージします。 ブランチが正常にマージバックされない場合、このスクリプトは `release` ブランチを自動的にリベースし、リリースビルドをトリガする変更をプッシュします。これは、続行する前にリリースビルドが再び実行されるのを待つ必要があることを意味します。
 
-### Merging back into master
+### マスターにマージバックする
 
 ```sh
 npm run merge-release -- master
 ```
 
-### Merging back into old release branch
+### 旧リリースブランチにマージバックする
 
 ```sh
 npm run merge-release -- 1-7-x
@@ -200,7 +200,7 @@ npm run merge-release -- 1-7-x
 
 ## リリースを公開する
 
-Once the merge has finished successfully, run the `release` script via `npm run release` to finish the release process. This script will do the following: 1. Build the project to validate that the correct version number is being released. 2. Download the binaries and generate the node headers and the .lib linker used on Windows by node-gyp to build native modules. 3. Create and upload the SHASUMS files stored on S3 for the node files. 4. Create and upload the SHASUMS256.txt file stored on the GitHub release. 5. Validate that all of the required files are present on GitHub and S3 and have the correct checksums as specified in the SHASUMS files. 6. Publish the release on GitHub 7. Delete the `release` branch.
+マージが正常に終了したら、`npm run release` を介して `release` スクリプトを実行してリリースプロセスを終了します。 このスクリプトは、以下の処理を行います。 1. プロジェクトをビルドして、正しいバージョン番号がリリースされていることを検証します。 2. バイナリをダウンロードし、ネイティブモジュールをビルドするためにnode-gypによってWindows上で使用されるnodeヘッダと.libリンカーを生成します。 3. Create and upload the SHASUMS files stored on S3 for the node files. 4. Create and upload the SHASUMS256.txt file stored on the GitHub release. 5. Validate that all of the required files are present on GitHub and S3 and have the correct checksums as specified in the SHASUMS files. 6. Publish the release on GitHub 7. Delete the `release` branch.
 
 ## Publish to npm
 
