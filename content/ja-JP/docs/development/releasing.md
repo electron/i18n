@@ -213,7 +213,7 @@ Removing old .npmrc (default)
 Activating .npmrc "electron"
 ```
 
-The Electron account's credentials are kept by GitHub. "Electron - NPM" for the URL "https://www.npmjs.com/login".
+Electron アカウントの証明書はGitHubによって保持されます。 "Electron - NPM" の URL は "https://www.npmjs.com/login".
 
 ```sh
 $ npm login
@@ -222,7 +222,7 @@ Password:
 Email: (this IS public) electron@github.com
 ```
 
-Publish the release to npm.
+npm にリリースを公開します。
 
 ```sh
 $ npm whoami
@@ -230,30 +230,30 @@ electron
 $ npm run publish-to-npm
 ```
 
-Note: In general you should be using the latest Node during this process; however, older versions of the `publish-to-npm` script may have trouble with Node 7 or higher. If you have trouble with this in an older branch, try running with an older version of Node, e.g. a 6.x LTS.
+注意: 一般的に、このプロセスでは最新の Node を使用する必要があります。 しかし、`publish-to-npm` スクリプトの古いバージョンでは、Node 7 以上で問題が発生する可能性があります。 古いブランチで問題が発生した場合は、Node の以前のバージョン、たとえば 6.x LTS で実行してみてください。
 
-## Fix missing binaries of a release manually
+## 手動でリリースの欠けたバイナリを修正する
 
-In the case of a corrupted release with broken CI machines, we might have to re-upload the binaries for an already published release.
+CI マシンが壊れてリリースが破損した場合、既に公開されているリリースのバイナリを再アップロードする必要があります。
 
-The first step is to go to the [Releases](https://github.com/electron/electron/releases) page and delete the corrupted binaries with the `SHASUMS256.txt` checksum file.
+最初のステップは、[リリース](https://github.com/electron/electron/releases) ページに行き、`SHASUMS256.txt` チェックサムファイルで破損したバイナリを削除することです。
 
-Then manually create distributions for each platform and upload them:
+次に以下のように各プラットフォームの配布を手動で作成してアップロードします。
 
 ```sh
-# Checkout the version to re-upload.
+# 再アップロードするバージョンをチェックアウトします
 git checkout vTHE.RELEASE.VERSION
 
-# Do release build, specifying one target architecture.
+# ひとつのターゲットを指定してリリースビルドをします。
 ./script/bootstrap.py --target_arch [arm|x64|ia32]
 ./script/build.py -c R
 ./script/create-dist.py
 
-# Explicitly allow overwritting a published release.
+# 公開されたリリースを上書きすることを明示的に許可します。
 ./script/upload.py --overwrite
 ```
 
-After re-uploading all distributions, publish again to upload the checksum file:
+すべてのディストリビューションを再アップロードした後、チェックサムファイルをアップロードするために再度公開します。
 
 ```sh
 npm run release
