@@ -38,7 +38,7 @@ Utilisez `Démarrage Rapide` comme exemple :
 ...
 ```
 
-Dans le cas de références API, il existe des exceptions à cette règle.
+Dans le cas de références de l'API, il existe des exceptions à cette règle.
 
 ## Règles pour le markdown
 
