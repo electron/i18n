@@ -74,11 +74,11 @@ $ ./script/bump-version.py --bump minor --dry-run
 
 リリースノートを書くことは、ビルドの実行中に自分自身を忙しくする良い方法です。 従来の開発については、[リリースページ](https://github.com/electron/electron/releases) の既存のリリースを参照してください。
 
-ヒント: - リストされている各項目は issue ではなく、libcc のような別のリポジトリからのPRでもなく、 electron/electron 上のPRを参照する必要があります。 - PRを参照する際にリンクマークアップを使用する必要はありません。 Strings like `#123` will automatically be converted to links on github.com. - To see the version of Chromium, V8, and Node in every version of Electron, visit [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
+ヒント: - リストされている各項目は issue ではなく、libcc のような別のリポジトリからのPRでもなく、 electron/electron 上のPRを参照する必要があります。 - PRを参照する際にリンクマークアップを使用する必要はありません。 `#123` のような文字列は自動的に github.com のリンクに変換されます。 - それぞれの Electron のバージョンで Chromium、V8、Node のバージョンを確認するには、[atom.io/download/electron/index.json](https://atom.io/download/electron/index.json) を参照してください。
 
-### Patch releases
+### パッチリリース
 
-For a `patch` release, use the following format:
+`パッチ` リリースでは、以下の形式を使用します。
 
 ```sh
 ## Bug Fixes
@@ -98,9 +98,9 @@ For a `patch` release, use the following format:
 * Fixed a Windows thing. #1234
 ```
 
-### Minor releases
+### マイナーリリース
 
-For a `minor` release, e.g. `1.8.0`, use this format:
+`1.8.0` などの `マイナー` リリースでは、以下の形式を使用します。
 
 ```sh
 ## Upgrades
@@ -124,7 +124,7 @@ For a `minor` release, e.g. `1.8.0`, use this format:
 * Changed a Windows thing. #123
 ```
 
-### Major リリース
+### メジャーリリース
 
 ```sh
 ## Upgrades
@@ -155,7 +155,7 @@ For a `minor` release, e.g. `1.8.0`, use this format:
 
 ### ベータリリース
 
-Use the same formats as the ones suggested above, but add the following note at the beginning of the changelog:
+上記のフォーマットと同じフォーマットを使用しますが、変更履歴の冒頭に次の注記を追加してください。
 
 ```sh
 **Note:** This is a beta release and most likely will have have some
@@ -169,11 +169,11 @@ under the `beta` tag and can be installed via `npm install electron@beta`.
 
 ## リリースのドラフトを編集する
 
-1. Visit [the releases page](https://github.com/electron/electron/releases) and you'll see a new draft release with placeholder release notes.
+1. [リリースページ](https://github.com/electron/electron/releases) にアクセスすると、プレースホルダリリースノートを含む新しいドラフトリリースが表示されます。
 2. リリースを編集し、リリースノートを追加します。
-3. Uncheck the `prerelease` checkbox if you're publishing a stable release; leave it checked for beta releases.
+3. 安定版を公開する場合は、ベータ版がないか確認し、`prerelease` チェックボックスを外します。
 4. Save draft (ドラフトを保存)をクリックします。 **'Publish release' はクリックしないでください！**
-5. Wait for all builds to pass before proceeding.
+5. 続行する前に全ビルドがパスするのを待ちます。
 6. In the `release` branch, verify that the release's files have been created:
 
 ```sh
