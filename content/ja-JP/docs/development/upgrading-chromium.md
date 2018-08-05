@@ -98,7 +98,7 @@ Crashpad に関連するコンパイルエラーがある場合は、フォー�
 
 Electron はデフォルトで独自のコーデックを含む `ffmpeg` のバージョンを提供しています。 これらのコーデックのないバージョンも、各リリースでビルドされて配布されます。 各 Chrome のアップグレードでは、このバージョンの切り替えが引き続きサポートされていることを確認する必要があります。
 
-You can verify Electron's support for multiple `ffmpeg` builds by loading the following page. It should work with the default `ffmpeg` library distributed with Electron and not work with the `ffmpeg` library built without proprietary codecs.
+複数の `ffmpeg` ビルドに対する Electron のサポートを確認するには、次のページをロードします。 これは Electron と共に配布されているデフォルトの `ffmpeg` ライブラリで動作し、独自のコーデックなしで構築された `ffmpeg` ライブラリでは動作しません。
 
 ```html
 <!DOCTYPE html>
@@ -128,8 +128,8 @@ You can verify Electron's support for multiple `ffmpeg` builds by loading the fo
 </html>
 ```
 
-## Useful links
+## 役に立つリンク
 
 - [Chrome のリリース スケジュール](https://www.chromium.org/developers/calendar)
 - [OmahaProxy](http://omahaproxy.appspot.com)
-- [Chromium Issue Tracker](https://bugs.chromium.org/p/chromium)
+- [Chromium Issue トラッカー](https://bugs.chromium.org/p/chromium)
