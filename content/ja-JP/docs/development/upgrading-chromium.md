@@ -25,7 +25,7 @@
     - お茶でも淹れましょう。これは30分以上かかります。
     - おそらく、パッチ適用には失敗するでしょう。
 3. `patches/` と `patches-mas/` フォルダの `*.patch` ファイルを修正します。
-4. (任意) `script/update` applies patches, but if multiple tries are needed you can manually run the same script that `update` calls: `$ ./script/apply-patches` 
+4. (任意) `script/update` はパッチを適用しますが、複数の試行が必要な場合は呼び出しを `update` する同じスクリプトをこのように手動で実行できます。 `$ ./script/apply-patches` 
   - There is a second script, `script/patch.py` that may be useful. Read `./script/patch.py -h` for more information.
 5. Run the build when all patches can be applied without errors 
   - `$ ./script/build`
