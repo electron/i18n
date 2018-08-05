@@ -615,7 +615,7 @@ L'exécution du `callback` est garantie après que l'évènement `ready` de l'`a
 
 La méthode retourne `false` si le processus est l'instance primaire de l'application et votre application devrait continuer à s'exécuter. Et retourne `true` si votre processus a envoyé ses paramètres à une autre instance et qu'il doit se terminer immédiatement.
 
-Sur macOS, dans Finder, le système impose automatiquement l'unicité de l'instance de votre application lorsqu'un utilisateur tente d'en ouvrir une deuxième, et les événements `open-file` et `open-url` sont ainsi émis. However when users start your app in command line the system's single instance mechanism will be bypassed and you have to use this method to ensure single instance.
+Sur macOS, dans Finder, le système impose automatiquement l'unicité de l'instance de votre application lorsqu'un utilisateur tente d'en ouvrir une deuxième, et les événements `open-file` et `open-url` sont ainsi émis. Cependant, quand l'utilisateur démarre votre application en ligne de commandes, le mécanisme d'unicité d'instance est contourné et vous devez alors utiliser cette méthode pour l'imposer.
 
 Un exemple d'activation de la fenêtre de l'instance primaire lorsqu'une seconde instance démarre :
 
@@ -642,7 +642,7 @@ app.on('ready', () => {
 
 ### `app.releaseSingleInstance()`
 
-Releases all locks that were created by `makeSingleInstance`. This will allow multiple instances of the application to once again run side by side.
+Libère tous les verrous qui ont été créés par `makeSingleInstance`. Cela permettra à plusieurs instances de l'application de s'exécuter à ce moment.
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
