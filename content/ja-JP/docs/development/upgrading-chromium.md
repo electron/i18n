@@ -60,8 +60,8 @@
 5. まだチェックアウトしていない場合は Chromium をチェックアウトしてください。
   
   - https://chromium.googlesource.com/chromium/src.git/+/{VERSION}/tools/clang/scripts/update.py 
-    - (Replace the `{VERSION}` placeholder in the url above to the Chromium version libcc uses.)
-6. Build Electron. 
+    - (上記 URL の `{VERSION}` プレースホルダを libcc が使用する Chromium のバージョンに置き換えてください。)
+6. Electron をビルドします。 
   - Try to build Debug version first: `$ ./script/build.py -c D`
   - You will need it to run tests
 7. Fix compilation and linking errors
