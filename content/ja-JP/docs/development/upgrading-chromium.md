@@ -42,16 +42,16 @@
       $ git clone git@github.com:electron/electron.git
       $ cd electron
 
-2. If you have libcc built on your machine in its own repo, tell Electron to use it: 
+2. マシン上に独自のリポジトリで libcc をビルドしている場合は、以下のように Electron にそれを使用するよう伝えてください。 
       sh
       $ ./script/bootstrap.py -v \
         --libcc_source_path <libcc_folder>/src \
         --libcc_shared_library_path <libcc_folder>/shared_library \
         --libcc_static_library_path <libcc_folder>/static_library
 
-3. If you haven't yet built libcc but it's already supposed to be upgraded to a new Chromium, bootstrap Electron as usual `$ ./script/bootstrap.py -v`
+3. まだ libcc をビルドしていないのにすでに新しい Chromium にアップグレードする予定がある場合は、いつものように Electron をブートストラップしてください。`$ ./script/bootstrap.py -v`
   
-  - Ensure that libcc submodule (`vendor/libchromiumcontent`) points to the right revision
+  - libcc サブモジュール (`vendor/libchromiumcontent`) が正しいリビジョンを指していることを確認します
 
 4. Set `CLANG_REVISION` in `script/update-clang.sh` to match the version Chromium is using.
   
