@@ -200,11 +200,11 @@ npm run merge-release -- 1-7-x
 
 ## リリースを公開する
 
-マージが正常に終了したら、`npm run release` を介して `release` スクリプトを実行してリリースプロセスを終了します。 このスクリプトは、以下の処理を行います。 1. プロジェクトをビルドして、正しいバージョン番号がリリースされていることを検証します。 2. バイナリをダウンロードし、ネイティブモジュールをビルドするためにnode-gypによってWindows上で使用されるnodeヘッダと.libリンカーを生成します。 3. Create and upload the SHASUMS files stored on S3 for the node files. 4. Create and upload the SHASUMS256.txt file stored on the GitHub release. 5. Validate that all of the required files are present on GitHub and S3 and have the correct checksums as specified in the SHASUMS files. 6. Publish the release on GitHub 7. Delete the `release` branch.
+マージが正常に終了したら、`npm run release` を介して `release` スクリプトを実行してリリースプロセスを終了します。 このスクリプトは、以下の処理を行います。 1. プロジェクトをビルドして、正しいバージョン番号がリリースされていることを検証します。 2. バイナリをダウンロードし、ネイティブモジュールをビルドするために node-gyp によって Windows 上で使用される node ヘッダと .lib リンカーを生成します。 3. S3 に保存された SHASUMS ファイルを作成し、node ファイル用にアップロードします。 4. GitHub リリースに格納される SHASUMS256.txt ファイルを作成してアップロードします。 5. すべての必要なファイルが GitHub と S3 に存在し、SHASUMS ファイルで指定されている正しいチェックサムを持っていることを検証します。 6. GitHub 上でリリースを公開します。 7. `release` ブランチを削除します。
 
-## Publish to npm
+## npm に公開
 
-Before publishing to npm, you'll need to log into npm as Electron. Optionally, you may find [npmrc](https://www.npmjs.com/package/npmrc) to be a useful way to keep Electron's profile side-by-side with your own:
+npm に公開する前に、Electron として npm にログインする必要があります。 任意ですが、[npmrc](https://www.npmjs.com/package/npmrc) は Electron のプロファイルを自分自身と並べて維持するのに便利な方法でしょう。
 
 ```sh
 $ sudo npm install -g npmrc
