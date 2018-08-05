@@ -27,7 +27,7 @@
 3. `patches/` と `patches-mas/` フォルダの `*.patch` ファイルを修正します。
 4. (任意) `script/update` はパッチを適用しますが、複数の試行が必要な場合は呼び出しを `update` する同じスクリプトをこのように手動で実行できます。 `$ ./script/apply-patches` 
   - もう一つ有用なスクリプト `script/patch.py` があります。 より詳しくは `./script/patch.py -h` を読んでください。
-5. Run the build when all patches can be applied without errors 
+5. すべてのパッチをエラーなく適用できれば、ビルドを実行します 
   - `$ ./script/build`
   - If some patches are no longer compatible with the Chromium code, fix compilation errors.
 6. When the build succeeds, create a `dist` for Electron 
