@@ -94,14 +94,14 @@ En prenant `autoUpdater` comme exemple :
 * Une page peut avoir plusieurs classes.
 * Les constructeurs doivent être listés avec un titre de niveau `###`.
 * Les [Méthodes Statiques](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) doivent être listées sous un chapitre `### Static Methods`.
-* Les [Méthodes d'instance](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) doivent être listées sous un chapitre `### Méthodes d'instance`.
+* Les [Méthodes d'instance](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) doivent être listées sous un chapitre `### Instance Methods`.
 * Toutes les méthodes ayant une valeur de retour doivent commencer leur description avec « Retourne `[TYPE]` - Description du retour" 
   * Si la méthode retourne un `Objet`, sa structure peut être décrite à l'aide d'un deux-points suivi d'un saut de ligne et d'une liste non ordonnée de propriétés dans le même style que les paramètres d'une fonction.
 * Les événements d'instance doivent être listés sous un chapitre `### Instance Events`.
 * Les propriétés d'instances doivent être listés sous un chapitre `### Instance Properties` . 
   * Les propriétés d'instance doivent commencer par "[Type de la propriété] ..."
 
-Si l'on utilise les classes `Session` et `Cookies` comme exemple :
+En prenant les classes `Session` et `Cookies` comme exemple :
 
 ```markdown
 # session
@@ -137,7 +137,7 @@ Si l'on utilise les classes `Session` et `Cookies` comme exemple :
 
 ### Méthodes
 
-Le chapitre sur les méthodes doit être sous la forme suivante :
+Le chapitre sur les méthodes doit respecter la forme suivante :
 
 ```markdown
 ### `objectName.methodName(required[, optional]))`
@@ -148,7 +148,7 @@ Le chapitre sur les méthodes doit être sous la forme suivante :
 ...
 ```
 
-Le titre peut être de niveau `###` ou `#####` si c'est une méthode d'un module ou d'une classe.
+Le titre peut être de niveau `###` ou `#####` dépendant du fait qu'il s'agisse d'une méthode de module ou de classe.
 
 Pour les modules, le `objectName` est le nom du module. Pour les classes, cela doit être le nom de l'instance de la classe et ne doit pas être le même que celui du module.
 
