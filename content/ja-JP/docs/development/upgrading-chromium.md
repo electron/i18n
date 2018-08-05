@@ -1,23 +1,23 @@
-# Upgrading Chromium
+# Chromium のアップグレード
 
-This is an overview of the steps needed to upgrade Chromium in Electron.
+これは、Electron で Chromium をアップグレードするために必要な手順の概要です。
 
-- Upgrade libcc to a new Chromium version
-- Make Electron code compatible with the new libcc
-- Update Electron dependencies (crashpad, NodeJS, etc.) if needed
-- Make internal builds of libcc and electron
-- Update Electron docs if necessary
+- 新しい Chromium バージョンへ libcc をアップグレードする
+- Electron のコードに新しい libcc との互換性を持たせる
+- 必要に応じて Electron の依存ファイルを更新する (crashpad、NodeJS、etc.)。
+- libcc と electron の内部ビルドを作る
+- 必要であれば Electron ドキュメントを更新する
 
-## Upgrade `libcc` to a new Chromium version
+## 新しい Chromium バージョンへ `libcc` をアップグレードする
 
-1. Get the code and initialize the project: 
+1. コードを取得してプロジェクトを初期化します。 
       sh
       $ git clone git@github.com:electron/libchromiumcontent.git
       $ cd libchromiumcontent
       $ ./script/bootstrap -v
 
-2. Update the Chromium snapshot 
-  - Choose a version number from [OmahaProxy](https://omahaproxy.appspot.com/) and update the `VERSION` file with it 
+2. Chromium スナップショットを更新します 
+  - [OmahaProxy](https://omahaproxy.appspot.com/) からバージョン番号を選択して `VERSION` ファイルを更新します 
     - This can be done manually by visiting OmahaProxy in a browser, or automatically:
     - One-liner for the latest stable mac version: `curl -so- https://omahaproxy.appspot.com/mac > VERSION`
     - One-liner for the latest win64 beta version: `curl -so- https://omahaproxy.appspot.com/all | grep "win64,beta" | awk -F, 'NR==1{print $3}' > VERSION`
