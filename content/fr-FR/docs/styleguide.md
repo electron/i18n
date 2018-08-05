@@ -62,19 +62,19 @@ Chaque page doivent utiliser le nom de l'objet retourné par `require('electron'
 
 Le titre de la page doit être suivi par une ligne de description commençant par `>`.
 
-Si l'on utilise `session` par exemple, cela donne :
+En prenant `session` comme exemple :
 
 ```markdown
 # session
 
-> Gère les sessions du navigateur, les cookies, le cache, les paramètres de proxy, etc..
+> Gère les sessions, les cookies, le cache, les paramètres de proxy, etc. du navigateur.
 ```
 
 ### Événements et méthodes des modules
 
-Pour les modules qui ne sont pas des classes, leurs méthodes et événements doivent figurer sous le sous-titre `## Methods` et les chapitres `## Events`.
+Pour les modules qui ne sont pas des classes, leurs méthodes et événements doivent figurer sous les chapitres `## Methods` et `## Events`.
 
-Si l'on utilise `autoUpdater` comme exemple :
+En prenant `autoUpdater` comme exemple :
 
 ```markdown
 # autoUpdater
