@@ -1,10 +1,10 @@
 # Electron FAQ
 
-## Dlaczego mam problemy z zainstalowaniem elektronu?
+## Dlaczego mam problemy z instalacją Electrona?
 
-Wywołując polecenie `npm install electron`, niektórzy użytkownicy napotykają na błąd instalacji.
+Wywołując polecenie `npm install electron`, niektórzy użytkownicy napotykają okazjonalne błędy instalacji.
 
-W więkoszośći pzypadków, błędy te mogą być efektem problemów z połączeniem internetowym, a nie błędem pakietu `electron`. Błędy typu `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, i`ETIMEDOUT` są efeketem problemów z połączeniem internetowym. Najlepszym rozwiązanie jest próba zmiany sieci lub odczekania chwili i ponowienia próby instalacji.
+W więkoszości przypadków, błędy są efektem problemów z połączeniem internetowym, a nie błędami pakietu `electron`. Błędy typu `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, i`ETIMEDOUT` są efeketem problemów z połączeniem internetowym. Najlepszym rozwiązanie jest próba zmiany sieci lub odczekania chwili i ponowienia próby instalacji.
 
 Możesz także spróbować pobrać Electrona bezpośrednio z [electron/electron/releases](https://github.com/electron/electron/releases), jeśli instalacja poprzez `npm` zawodzi.
 
