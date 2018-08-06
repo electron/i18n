@@ -26,7 +26,7 @@ Edytor metod wprowadzania. Program, który umożliwia użytkownikom wprowadzanie
 
 ### IDL
 
-Interfejs Opisujący Język (Interface description language). Zapisuje funkcje sygnatury i typów danych w formacie, który może być używany do generwoania interfejsów w językach takich jak np. Java, C++, JavaScript, itp.
+Interfejs Opisujący Język (Interface description language). Zapisuje funkcje sygnatury i typy danych w formacie, który może być używany do generowania interfejsów w językach takich jak np. Java, C++, JavaScript, itp.
 
 ### IPC
 
@@ -40,9 +40,9 @@ Wspólna biblioteka zawierająca [moduł zawartości Chromium](https://www.chrom
 
 ### główny proces
 
-Proces główny, zazwyczaj plik nazwany `main.js`, jest punktem wejścia do każdej aplikacji Electron'u. Kontroluje życie aplikacji, od otwarcia do zamknięcia. To również zarządza natywnymi elementami takimi jak Menu, Pasek Menu, Dock, Tray, itd. Główny proces odpowiada za tworzenie każdego nowego procesu renderowania w aplikacji. Pełny Node API jest wbudowany.
+Proces główny, zazwyczaj plik nazwany `main.js`, jest punktem wejścia do każdej aplikacji Electron'u. Kontroluje życie aplikacji, od otwarcia do zamknięcia. Zarządza on również natywnymi elementami takimi jak Menu, Menu Bar, Dock, Tray, itd. Główny proces odpowiada za tworzenie każdego nowego procesu renderowania w aplikacji. Pełny Node API jest wbudowany.
 
-Plik głównego procesu każdej aplikacji jest określony we właściwości `main` w `package.json`. W ten sposób `electron .` wie co należy wykonać podczas uruchamiania.
+Plik głównego procesu każdej aplikacji jest określony we właściwości `main` w `package.json`. W ten sposób `electron .` wie jaki plik należy uruchomić.
 
 W Chromium proces ten jest określany jako "proces przeglądarki". W Electronie jego nazwa jest zmieniona by nie pomylić go z procesami renderowania.
 
@@ -50,7 +50,7 @@ Zobacz też: [process](#process), [renderer process](#renderer-process)
 
 ### MAS
 
-Akronim od Apple Mac App Store. Szczegółowe informacje odnośnie przesyłania aplikacji do MAS znajdziesz w [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
+Akronim od Mac App Store. Szczegółowe informacje odnośnie przesyłania aplikacji do MAS znajdziesz w [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
 
 ### Mojo
 
