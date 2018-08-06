@@ -51,22 +51,22 @@ Istnieją pytania, które są bardzo często zadawane. Przeglądnij je, zanim st
   * [Testowanie na Systemach CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Rozszerzenie DevTools](tutorial/devtools-extension.md)
   * [Automatyczne testowania z pomocą niestandardowego sterownika](tutorial/automated-testing-with-a-custom-driver.md)
-* Packaging 
-  * [Code Signing](tutorial/code-signing.md)
+* Pakowanie 
+  * [Podpisywanie kodu](tutorial/code-signing.md)
 * [Dystrybucja](tutorial/application-distribution.md) 
   * [Wsparcie](tutorial/support.md)
   * [Sklep App Store](tutorial/mac-app-store-submission-guide.md)
   * [Sklep Windows](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
 * [Bezpieczeństwo](tutorial/security.md) 
-  * [Zgłaszanie Błędów Bezpieczeństwa](tutorial/security.md#reporting-security-issues)
-  * [Bezpieczeństwa i uaktualnienia Chrominum](tutorial/security.md#chromium-security-issues-and-upgrades)
+  * [Zgłaszanie Problemów z Bezpieczeństwem](tutorial/security.md#reporting-security-issues)
+  * [Problemy z Bezpieczeństwem i Aktualizacje Chromium](tutorial/security.md#chromium-security-issues-and-upgrades)
   * [Ostrzeżenia bezpieczeństwa Electrona](tutorial/security.md#electron-security-warnings)
   * [Lista kontrolna zabezpieczeń](tutorial/security.md#checklist-security-recommendations)
 * [Aktualizacje](tutorial/updates.md) 
-  * [Wdrażanie aktualizacji serwera](tutorial/updates.md#deploying-an-update-server)
+  * [Wdrażanie serwera aktualizacji](tutorial/updates.md#deploying-an-update-server)
   * [Wdrażanie aktualizacji do twojej aplikacji](tutorial/updates.md#implementing-updates-in-your-app)
-  * [Stosowanie aktualizacji](tutorial/updates.md#applying-updates)
+  * [Wdrażanie aktualizacji](tutorial/updates.md#applying-updates)
 
 ## Szczegółowe poradniki
 
@@ -93,10 +93,10 @@ Te poszczególne poradniki rozwijają tematy omówione w przewodniku powyżej.
 
 * [Słownik Terminów](glossary.md)
 
-## API
+## Referencje API
 
 * [Streszczenie](api/synopsis.md)
-* [Obiekt Process](api/process.md)
+* [Process Object](api/process.md)
 * [Wspierane Zmienne Konsoli Chrome](api/chrome-command-line-switches.md)
 * [Zmienne Środowiskowe](api/environment-variables.md)
 * [Istotne zmiany w API](api/breaking-changes.md)
