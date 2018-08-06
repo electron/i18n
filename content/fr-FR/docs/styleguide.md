@@ -5,9 +5,9 @@ Ce sont les lignes directrices pour la rédaction de la documentation d'Electron
 ## Titres
 
 * Chaque page doit avoir un seul titre de niveau `#` au début de la page.
-* Les chapitres dans la même pages doit avoir un niveau de titre `##`.
+* Les chapitres dans la même page doivent avoir un niveau de titre `##`.
 * Les sous-chapitres doivent voir le nombre de `#` augmenter dans le titre selon leur niveau d'imbrication.
-* Tous les mots dans le titre de la page doivent être capitalisés, à l'exception des conjonctions comme « de » et « et ».
+* Tous les mots dans le titre de la page doivent être mis en majuscule, à l'exception des conjonctions comme « de » et « et ».
 * Seul le premier mot d'un titre de chapitre doit être en majuscule.
 
 Utilisez `Démarrage Rapide` comme exemple :
@@ -38,11 +38,11 @@ Utilisez `Démarrage Rapide` comme exemple :
 ...
 ```
 
-Pour les références de l'API, ce sont des exceptions à cette règle.
+Dans le cas de références de l'API, il existe des exceptions à cette règle.
 
 ## Règles pour le markdown
 
-* Utilisez `sh` au lieu de `cmd` dans les blocs de code (en raison du surligneur de syntaxe).
+* Utilisez `sh` au lieu de `cmd` dans les blocs de code (en raison de l'outil de coloration syntaxique).
 * La longueur des lignes ne devrait pas dépasser 80 caractères.
 * Les listes ne doivent pas dépasser 2 niveaux (à cause du formatage du markdown).
 * Tous les blocs de code `js` et `javascript` sont vérifiés avec le [standard-markdown](http://npm.im/standard-markdown).
@@ -60,21 +60,21 @@ Les règles suivantes s'appliquent uniquement à la documentation des APIs.
 
 Chaque page doivent utiliser le nom de l'objet retourné par `require('electron')` comme titre, par exemple `BrowserWindow`, `autoUpdater` et `session`.
 
-Il doit y avoir une ligne de description commençant par `>` en dessous du titre de la page.
+Le titre de la page doit être suivi par une ligne de description commençant par `>`.
 
-Si l'on utilise `session` par exemple, cela donne :
+En prenant `session` comme exemple :
 
 ```markdown
 # session
 
-> Gère les sessions du navigateur, les cookies, le cache, les paramètres de proxy, etc..
+> Gère les sessions, les cookies, le cache, les paramètres de proxy, etc. du navigateur.
 ```
 
 ### Événements et méthodes des modules
 
-Pour les modules qui ne sont pas des classes, leurs méthodes et événements doivent figurer sous le sous-titre `## Methods` et les chapitres `## Events`.
+Pour les modules qui ne sont pas des classes, leurs méthodes et événements doivent figurer sous les chapitres `## Methods` et `## Events`.
 
-Si l'on utilise `autoUpdater` comme exemple :
+En prenant `autoUpdater` comme exemple :
 
 ```markdown
 # autoUpdater
@@ -90,18 +90,18 @@ Si l'on utilise `autoUpdater` comme exemple :
 
 ### Classes
 
-* Les classes de l'API ou les classes faisant partie des modules doivent être listés sous un chapitre `## Class: TheClassName`.
+* Les classes de l'API ou les classes faisant partie des modules doivent être listées sous un chapitre `## Class: TheClassName`.
 * Une page peut avoir plusieurs classes.
 * Les constructeurs doivent être listés avec un titre de niveau `###`.
-* Les [Méthodes Statiques](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) doivent être listés sous un chapitre `### Static Methods`.
-* Les [Méthodes d'instances](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) doivent être listées sous un chapitre `### Méthodes d'instance`.
-* Toutes les méthodes aillant une valeur de retour doivent commencer leur description avec « Retourne `[TYPE]` - Description du retour" 
-  * Si la méthode retourne un `Objet`, sa structure peut être spécifiée à l'aide d'un signe deux-points suivi d'un saut de ligne puis d'une liste non ordonnée de propriétés dans le même style que les paramètres d'une fonction.
-* Les événements d'instances doivent être listés sous un chapitre `### Instance Events`.
+* Les [Méthodes Statiques](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) doivent être listées sous un chapitre `### Static Methods`.
+* Les [Méthodes d'instance](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) doivent être listées sous un chapitre `### Instance Methods`.
+* Toutes les méthodes ayant une valeur de retour doivent commencer leur description avec « Retourne `[TYPE]` - Description du retour" 
+  * Si la méthode retourne un `Objet`, sa structure peut être décrite à l'aide d'un deux-points suivi d'un saut de ligne et d'une liste non ordonnée de propriétés dans le même style que les paramètres d'une fonction.
+* Les événements d'instance doivent être listés sous un chapitre `### Instance Events`.
 * Les propriétés d'instances doivent être listés sous un chapitre `### Instance Properties` . 
-  * Les propriétés d'instances doivent commencer par "[Type de la propriété] ..."
+  * Les propriétés d'instance doivent commencer par "[Type de la propriété] ..."
 
-Si l'on utilise les classes `Session` et `Cookies` comme exemple :
+En prenant les classes `Session` et `Cookies` comme exemple :
 
 ```markdown
 # session
@@ -137,7 +137,7 @@ Si l'on utilise les classes `Session` et `Cookies` comme exemple :
 
 ### Méthodes
 
-Le chapitre sur les méthodes doit être sous la forme suivante :
+Le chapitre sur les méthodes doit respecter la forme suivante :
 
 ```markdown
 ### `objectName.methodName(required[, optional]))`
@@ -148,7 +148,7 @@ Le chapitre sur les méthodes doit être sous la forme suivante :
 ...
 ```
 
-Le titre peut être de niveau `###` ou `#####` si c'est une méthode d'un module ou d'une classe.
+Le titre peut être de niveau `###` ou `#####` dépendant du fait qu'il s'agisse d'une méthode de module ou de classe.
 
 Pour les modules, le `objectName` est le nom du module. Pour les classes, cela doit être le nom de l'instance de la classe et ne doit pas être le même que celui du module.
 

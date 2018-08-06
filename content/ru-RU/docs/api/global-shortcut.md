@@ -1,35 +1,35 @@
 # globalShortcut
 
-> Обнаружение событий клавиатуры в то время когда приложение не имеет фокуса клавиатуры.
+> Отслеживает действия на клавиатуре, когда она не сфокусирована на приложении.
 
 Process: [Main](../glossary.md#main-process)
 
-The `globalShortcut` module can register/unregister a global keyboard shortcut with the operating system so that you can customize the operations for various shortcuts.
+Модуль `globalShortcut` может регистрировать/отменять регистрацию глобальных сочетаний клавиш, так что вы можете настраивать задачи для различных сочетаний клавиш.
 
-**Note:** The shortcut is global; it will work even if the app does not have the keyboard focus. You should not use this module until the `ready` event of the app module is emitted.
+**Примечание:** Сочетания клавиш являются глобальными, они будут работать, даже если ваше приложение не акцентирует внимание на клавиатуре. **Примечание:** Вам не следует использовать данный модуль до тех пор, пока событие `ready` приложения не произошло.
 
 ```javascript
 const {app, globalShortcut} = require('electron')
 
 app.on('ready', () => {
-  // Register a 'CommandOrControl+X' shortcut listener.
+  // Регистрируем слушатель для сочетания клавиш 'CommandOrControl+X'.
   const ret = globalShortcut.register('CommandOrControl+X', () => {
     console.log('CommandOrControl+X is pressed')
   })
 
   if (!ret) {
-    console.log('registration failed')
+    console.log('ошибка регистрации')
   }
 
-  // Check whether a shortcut is registered.
+  // Проверяем, было ли сочетание зарегистрировано.
   console.log(globalShortcut.isRegistered('CommandOrControl+X'))
 })
 
 app.on('will-quit', () => {
-  // Unregister a shortcut.
+  // Отменяем регистрацию сочетания клавиш.
   globalShortcut.unregister('CommandOrControl+X')
 
-  // Unregister all shortcuts.
+  // Отменяем регистрацию всех сочетаний.
   globalShortcut.unregisterAll()
 })
 ```

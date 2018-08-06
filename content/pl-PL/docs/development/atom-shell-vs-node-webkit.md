@@ -20,9 +20,9 @@ W celu uniknięcia złożoności budowania całego Chromium, Electron używa [`l
 
 **3. Integracja node'a**
 
-In NW.js, the Node integration in web pages requires patching Chromium to work, while in Electron we chose a different way to integrate the libuv loop with each platform's message loop to avoid hacking Chromium. Zobacz kod [`node_bindings`](https://github.com/electron/electron/tree/master/atom/common) jak to się stało.
+W przypadku NW.js, integracja Node dla stron internetowych wymaga patchowania Chromium, w celu prawidłowego działania. W Electronie zastosowaliśmy inny sposób integtacji pętli libuv dla każdej platformy, aby zapobiec dodatkowemu patchowaniu Chromium. Zobacz kod [`node_bindings`](https://github.com/electron/electron/tree/master/atom/common) jak to się stało.
 
-**4. Multi-context**
+**4. Multi-kontekst**
 
 If you are an experienced NW.js user, you should be familiar with the concept of Node context and web context. These concepts were invented because of how NW.js was implemented.
 

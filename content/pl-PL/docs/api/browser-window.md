@@ -1,11 +1,11 @@
 # BrowserWindow
 
-> Twórz i kontroluj okna wyszukiwarki.
+> Twórz i kontroluj okna przeglądarki.
 
 Proces: [Main](../glossary.md#main-process)
 
 ```javascript
-// In the main process.
+// W procesie głównym.
 const {BrowserWindow} = require('electron')
 
 // Or use `remote` from the renderer process.

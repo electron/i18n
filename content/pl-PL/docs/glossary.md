@@ -22,7 +22,7 @@ Obraz dysku Apple jest to format pakowania używany przez macOS. Pliki DMG są p
 
 ### Edytor IME
 
-Edytor metod wprowadzania. Program, który umożliwia użytkownikom wprowadzanie znaków i symboli, których nie można odnaleźć na klawiaturze. Na przykład pozwala to na wprowadzanie znaków chińskich, japońskich, koreańskich i indyjskich.
+Edytor metod wprowadzania. Program, który umożliwia użytkownikom wprowadzanie znaków i symboli, których nie można odnaleźć na klawiaturze. Na przykład pozwala to na wprowadzanie znaków chińskich, japońskich, koreańskich i hinduskich.
 
 ### IDL
 
@@ -30,7 +30,7 @@ Interfejs Opisujący Język (Interface description language). Zapisuje funkcje s
 
 ### IPC
 
-IPC jest skrótem od Inter-Process Communication (Między-Procesowa Komunikacja). Electron używa IPC do wysyłania serializowanych wiadomości pomiędzy procesami [main](#main-process) i [renderer](#renderer-process).
+IPC jest skrótem od Inter-Process Communication (Komunikacja między procesami). Electron używa IPC do wysyłania serializowanych wiadomości pomiędzy procesami [main](#main-process) i [renderer](#renderer-process).
 
 ### libchromiumcontent
 

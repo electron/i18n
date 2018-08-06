@@ -102,7 +102,7 @@ apps:
   description: Electron 让你为你的公司或想法创建桌面端应用变得很简单。最初为 GitHub 的 <a href='https://atom.io' target='_blank'> Atom 编辑器</a> 开发，Electron 已被像微软、 Facebook、 Slack和Docker 这样的公司用于创建应用程序了。
   view_more: 查看更多应用
   submit_your_own: 提交你的应用
-  something_missing: 是否缺少什么？
+  something_missing: 少了点什么？
   edit_this_app: 编辑此应用程序。
 clipboard:
   copy: Copy

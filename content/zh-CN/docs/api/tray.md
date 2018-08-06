@@ -255,7 +255,7 @@ The `position` is only available on Windows, and it is (0, 0) by default.
 
 * `menu` Menu
 
-Sets the context menu for this icon.
+设置这个图标的内容菜单
 
 #### `tray.getBounds()` *macOS* *Windows*
 

@@ -1,4 +1,4 @@
-tagline: ابني تطبيقات سطح المكتب متعدد المنصات باستخدام JavaScript ،HTML، و CSS
+tagline: ابن تطبيقات سطح المكتب متعدد المنصات باستخدام JavaScript ،HTML، و CSS
 nav:
   apps: التطبيقات
   blog: المدونة
@@ -28,22 +28,22 @@ languages:
   current: الاختيار الحالي
 community:
   title: مجتمع Electron
-  description: موارد للتوصل مع العاملين في إلكترون.
+  description: موارد للتواصل مع العاملين في Electron.
   channels:
     get_started: "<a href='/docs/tutorial/first-app'><b>لنبدأ</b></a> في تطوير تطبيق عبر قراءة <a href='/docs/tutorial/first-app'>دليل البدء السريع</a>."
-    updates: "<a href='https://twitter.com/electronjs'><b>إبقى على إطلاع</b></a> من خلال متابعتنا <a href='https://twitter.com/electronjs'>@electronjs</a> في تويتر والإشتراك في <a href='/blog'>المدونة</a>."
-    localized_docs: "<a href='/languages'><b>إطلع على التوثيقات بلغتك الأم</b></a> من خلال زيارة <a href='/languages'>صفحة اللغات</a>."
-    help: "<a href='http://atom-slack.herokuapp.com'><b>احصل على المساعدة والردود</b></a> بالإنظمام إلى <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, بالنشر على <a href='https://discuss.atom.io/c/electron'>Discuss</a>, أو بزيارة <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
-    packages: "<a href='/search/npmPackages'><b>أحصل على حزم مفيدة</b></a> من خلال <a href='/search/npmPackages'>package search page</a>."
-    bugs: "<a href='https://github.com/electron/electron/issues'><b>بلغ عن الأخطاء البرمجية</b></a> من خلال فتح تذكرة في <a href='https://github.com/electron/electron/issues'>electron/electron</a> مستودع."
-    feature_requests: "<a href='https://github.com/electron/electron/issues'><b>أطلب تحسينات </b></a> من خلال فتح مذكرة في <a href='https://github.com/electron/electron/issues'>electron/electron</a> مستودع."
-    code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>أبلغ عن انتهاكات المدونة السلوكية</b></a> بمراسلتنا على <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
+    updates: "<a href='https://twitter.com/electronjs'><b>ابق على اطلاع</b></a> من خلال متابعتنا <a href='https://twitter.com/electronjs'>@electronjs</a> في تويتر والاشتراك في <a href='/blog'>المدونة</a>."
+    localized_docs: "<a href='/languages'><b>اطلع على التوثيقات بلغتك الأم</b></a> من خلال زيارة <a href='/languages'>صفحة اللغات</a>."
+    help: "<a href='http://atom-slack.herokuapp.com'><b>احصل على المساعدة والردود</b></a> بالإنضمام إلى <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, بالنشر على <a href='https://discuss.atom.io/c/electron'>Discuss</a>, أو زيارة <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    packages: "<a href='/search/npmPackages'><b>احصل على حزم مفيدة</b></a> من خلال <a href='/search/npmPackages'>صفحة البحث عن المكتبات</a>."
+    bugs: "<a href='https://github.com/electron/electron/issues'><b>بلغ عن الأخطاء البرمجية</b></a> من خلال فتح تذكرة في مستودع <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
+    feature_requests: "<a href='https://github.com/electron/electron/issues'><b>اطلب تحسينات </b></a> من خلال فتح مذكرة في مستودع <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
+    code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>ابلغ عن انتهاكات المدونة السلوكية</b></a> بمراسلتنا على <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
     security: "<a href='mailto:security@electronjs.org'><b>بلغ عن الثغرات الأمنية</b></a> بإرسال رسالة بريد إلكتروني إلى <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
-    donations: "<a href='donors'><b>تبرع </b></a> في حسابنا على <a href='/donors'>OpenCollective page</a>."
-    other: "لجميع الإستفسارات الأخرى ، بريد إلكتروني <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
+    donations: "<a href='donors'><b>تبرع </b></a> لحسابنا على <a href='/donors'>OpenCollective page</a>."
+    other: "لمزيد من الإستفسارات الأخرى، قم بزيارة بريد إلكتروني <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
   language_communities:
     title: مجتمعات اللغات
-    description: "يمتد مجتمع الإلكترون عبر العالم ، واللغة الإنجليزية ليست اللغة الأم للجميع. إبحث عن <a href='/languages'>التوثيقات بلغتك</a>، أو إنضم إلى إحدى متجتمعات اللغات أدناه:"
+    description: "يمتد مجتمع Electron عبر العالم ، واللغة الإنجليزية ليست اللغة الأم للجميع. ابحث عن <a href='/languages'>التوثيقات بلغتك</a>، أو انضم إلى إحدى مجتمعات اللغات أدناه:"
   tools: الأدوات
   boilerplates: القوالب
   components: المكونات

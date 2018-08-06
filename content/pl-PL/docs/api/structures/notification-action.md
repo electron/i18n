@@ -1,13 +1,13 @@
 # Obiekt NotificationAction
 
 * `type` String - rodzaj działania, może być `button`.
-* `text` String (optional) - The label for the given action.
+* `text` String (opcjonalny) - Etykieta danego działania.
 
-## Platformy / wsparcie działań
+## Platformy / Wsparcie Działań
 
 | Typ czynności | Wspierane platformy | Użycie `text`                   | Domyślny `text`                                                                             | Ograniczenia                                                                                                                                                                                                                                                                      |
 | ------------- | ------------------- | ------------------------------- | ------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `przycisk`    | macOS               | Używana jako etykieta przycisku | "Show" (or a localized string by system default if first of such `button`, otherwise empty) | Wykorzystywany jest tylko pierwszy. If multiple are provided, those beyond the first will be listed as additional actions (displayed when mouse active over the action button). Any such action also is incompatible with `hasReply` and will be ignored if `hasReply` is `true`. |
+| `button`      | macOS               | Używana jako etykieta przycisku | "Show" (or a localized string by system default if first of such `button`, otherwise empty) | Wykorzystywany jest tylko pierwszy. If multiple are provided, those beyond the first will be listed as additional actions (displayed when mouse active over the action button). Any such action also is incompatible with `hasReply` and will be ignored if `hasReply` is `true`. |
 
 ### Przycisk wsparcia na macOS
 

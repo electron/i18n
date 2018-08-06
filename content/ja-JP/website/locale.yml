@@ -6,7 +6,7 @@ nav:
   community: コミュニティ
   contact: お問い合わせ
   docs: ドキュメント
-  donors: 寄付
+  donors: 寄贈者
   languages: 言語
   releases: リリース
   search: 検索
@@ -105,10 +105,10 @@ apps:
   something_missing: 何か見つかりませんか？
   edit_this_app: アプリを編集する
 clipboard:
-  copy: Copy
+  copy: コピー
   copy_to_clipboard: クリップボードにコピー
   copied: コピーしました
-or: or
+or: または
 pages:
   '/':
     title: Electron | JavaScript, HTML, CSSによるクロスプラットフォームなデスクトップアプリ開発

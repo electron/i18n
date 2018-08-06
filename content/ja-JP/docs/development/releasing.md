@@ -2,83 +2,83 @@
 
 このドキュメントでは、Electronの新しいバージョンをリリースするプロセスについて説明します。
 
-## Determine which branch to release from
+## リリースするブランチを決定する
 
-- **If releasing beta,** run the scripts below from `master`.
-- **If releasing a stable version,** run the scripts below from the branch you're stabilizing.
+- **ベータをリリースする場合、**`master` から以下のスクリプトを実行してください。
+- **安定版をリリースする場合、**その安定しているブランチから以下のスクリプトを実行してください。
 
-## Find out what version change is needed
+## どのバージョンの変更が必要かを知る
 
-Run `npm run prepare-release -- --notesOnly` to view auto generated release notes. The notes generated should help you determine if this is a major, minor, patch, or beta version change. Read the [Version Change Rules](../tutorial/electron-versioning.md#semver) for more information.
+`npm run prepare-release -- --notesOnly` を実行すると自動生成されたリリースノートが表示されます。 生成されたノートはこれがメジャー、マイナー、パッチ、またはベータ版の変更であるかどうかを判断するのに役立ちます。 より詳しい情報については、[バージョン変更ルール](../tutorial/electron-versioning.md#semver) を読んで下さい。
 
-**NB:** If releasing from a branch, e.g. 1-8-x, check out the branch with `git checkout 1-8-x` rather than `git checkout -b remotes/origin/1-8-x`. The scripts need `git rev-parse --abbrev-ref HEAD` to return a short name, e.g. no `remotes/origin/`
+**注意:** ブランチ (1-8-xなど) からリリースする場合、ブランチを `git checkout -b remotes/origin/1-8-x` ではなく `git checkout 1-8-x` でチェックアウトします。 スクリプトが `remotes/origin/` などでない短い名前を返すには、`git rev-parse --abbrev-ref HEAD` が必要です。
 
-## Set your tokens and environment variables
+## トークンと環境変数をセットする
 
-You'll need Electron S3 credentials in order to create and upload an Electron release. Contact a team member for more information.
+Electron リリースを作成してアップロードするには、Electron S3 認証が必要です。 より詳しくはチームメンバーにお問い合わせください。
 
-There are a handful of `*_TOKEN` environment variables needed by the release scripts. Once you've generated these per-user tokens, you may want to keep them in a local file that you can `source` when starting a release. * `ELECTRON_GITHUB_TOKEN`: Create as described at https://github.com/settings/tokens/new, giving the token repo access scope. * `APPVEYOR_TOKEN`: Create a token from https://windows-ci.electronjs.org/api-token If you don't have an account, ask a team member to add you. * `CIRCLE_TOKEN`: Create a token from "Personal API Tokens" at https://circleci.com/account/api
+リリーススクリプトが必要とする環境変数は、`*_TOKEN` です。 これらユーザーごとのトークンを生成したら、リリースを開始するときに `明示` できるローカルファイルにそれらを保持するとよいでしょう。 * `ELECTRON_GITHUB_TOKEN`: https://github.com/settings/tokens/new で説明されているように作成し、トークンレポジトリアクセススコープを与えます。 * `APPVEYOR_TOKEN`: https://windows-ci.electronjs.org/api-token からトークンを作成します。 アカウントをお持ちでない場合は、チームメンバーにあなたの追加を依頼してください。 * `CIRCLE_TOKEN`: https://circleci.com/account/api の "Personal API Tokens" からトークンを作ります。
 
-## Run the prepare-release script
+## prepare-release スクリプトを実行する
 
-The prepare release script will do the following: 1. Check if a release is already in process and if so it will halt. 2. Create a release branch. 3. Bump the version number in several files. See [this bump commit](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) for an example. 4. Create a draft release on GitHub with auto-generated release notes. 5. Push the release branch. 6. Call the APIs to run the release builds.
+prepare release スクリプトは、以下の処理を行います。 1. リリースがすでに処理中であるかどうかを確認し、リリースがあれば中止します。 2. リリースブランチを作成します。 3. バージョン番号をいくつかのファイルで上げます。 例に [このバージョン上げコミット](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) を参照してください。 4. 自動生成されたリリースノートで GitHub 上にドラフトリリースを作成します。 5. リリースブランチをプッシュします。 6. リリースビルドを実行するために API を呼び出します。
 
-Once you have determined which type of version change is needed, run the `prepare-release` script with arguments according to your need: - `[major|minor|patch|beta]` to increment one of the version numbers, or - `--stable` to indicate this is a stable version
+必要なバージョン変更のタイプを決定したら、必要に応じて以下の引数を指定して `prepare-release` スクリプトを実行します。 - `[major|minor|patch|beta]` 増やすバージョン番号 - `--stable` これが安定版であることを示す
 
 例:
 
-### Major version change
+### メジャーバージョンの変更
 
 ```sh
 npm run prepare-release -- major
 ```
 
-### Minor version change
+### マイナーバージョンの変更
 
 ```sh
 npm run prepare-release -- minor
 ```
 
-### Patch version change
+### パッチバージョンの変更
 
 ```sh
 npm run prepare-release -- patch
 ```
 
-### Beta version change
+### ベータ版の変更
 
 ```sh
 npm run prepare-release -- beta
 ```
 
-### Promote beta to stable
+### ベータを安定版へ昇格
 
 ```sh
 npm run prepare-release -- --stable
 ```
 
-Tip: You can test the new version number before running `prepare-release` with a dry run of the `bump-version` script with the same major/minor/patch/beta arguments, e.g.:
+ヒント: 以下のように、メジャー/マイナー/パッチ/ベータの同じ引数を持つ `bump-version` スクリプトのドライランで、`prepare-release` を実行する前に新しいバージョン番号をテストできます。
 
 ```sh
 $ ./script/bump-version.py --bump minor --dry-run
 ```
 
-## Wait for builds :hourglass_flowing_sand:
+## ビルドを待つ :hourglass_flowing_sand:
 
-The `prepare-release` script will trigger the builds via API calls. To monitor the build progress, see the following pages:
+`prepare-release` スクリプトは、API 呼び出しを介してビルドをトリガーします。 ビルドの進行状況をモニターするには、以下のページを参照してください。
 
-- [circleci.com/gh/electron/electron](https://circleci.com/gh/electron) for OS X and Linux
-- [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) for Windows
+- [circleci.com/gh/electron/electron](https://circleci.com/gh/electron) OS X と Linux 向け
+- [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) Windows 向け
 
 ## リリースノートをコンパイルする
 
-Writing release notes is a good way to keep yourself busy while the builds are running. For prior art, see existing releases on [the releases page](https://github.com/electron/electron/releases).
+リリースノートを書くことは、ビルドの実行中に自分自身を忙しくする良い方法です。 従来の開発については、[リリースページ](https://github.com/electron/electron/releases) の既存のリリースを参照してください。
 
-Tips: - Each listed item should reference a PR on electron/electron, not an issue, nor a PR from another repo like libcc. - No need to use link markup when referencing PRs. Strings like `#123` will automatically be converted to links on github.com. - To see the version of Chromium, V8, and Node in every version of Electron, visit [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
+ヒント: - リストされている各項目は issue ではなく、libcc のような別のリポジトリからのPRでもなく、 electron/electron 上のPRを参照する必要があります。 - PRを参照する際にリンクマークアップを使用する必要はありません。 `#123` のような文字列は自動的に github.com のリンクに変換されます。 - それぞれの Electron のバージョンで Chromium、V8、Node のバージョンを確認するには、[atom.io/download/electron/index.json](https://atom.io/download/electron/index.json) を参照してください。
 
-### Patch releases
+### パッチリリース
 
-For a `patch` release, use the following format:
+`パッチ` リリースでは、以下の形式を使用します。
 
 ```sh
 ## Bug Fixes
@@ -98,9 +98,9 @@ For a `patch` release, use the following format:
 * Fixed a Windows thing. #1234
 ```
 
-### Minor releases
+### マイナーリリース
 
-For a `minor` release, e.g. `1.8.0`, use this format:
+`1.8.0` などの `マイナー` リリースでは、以下の形式を使用します。
 
 ```sh
 ## Upgrades
@@ -124,7 +124,7 @@ For a `minor` release, e.g. `1.8.0`, use this format:
 * Changed a Windows thing. #123
 ```
 
-### Major リリース
+### メジャーリリース
 
 ```sh
 ## Upgrades
@@ -155,7 +155,7 @@ For a `minor` release, e.g. `1.8.0`, use this format:
 
 ### ベータリリース
 
-Use the same formats as the ones suggested above, but add the following note at the beginning of the changelog:
+上記のフォーマットと同じフォーマットを使用しますが、変更履歴の冒頭に次の注記を追加してください。
 
 ```sh
 **Note:** This is a beta release and most likely will have have some
@@ -169,12 +169,12 @@ under the `beta` tag and can be installed via `npm install electron@beta`.
 
 ## リリースのドラフトを編集する
 
-1. Visit [the releases page](https://github.com/electron/electron/releases) and you'll see a new draft release with placeholder release notes.
+1. [リリースページ](https://github.com/electron/electron/releases) にアクセスすると、プレースホルダリリースノートを含む新しいドラフトリリースが表示されます。
 2. リリースを編集し、リリースノートを追加します。
-3. Uncheck the `prerelease` checkbox if you're publishing a stable release; leave it checked for beta releases.
+3. 安定版を公開する場合は、ベータ版がないか確認し、`prerelease` チェックボックスを外します。
 4. Save draft (ドラフトを保存)をクリックします。 **'Publish release' はクリックしないでください！**
-5. Wait for all builds to pass before proceeding.
-6. In the `release` branch, verify that the release's files have been created:
+5. 続行する前に全ビルドがパスするのを待ちます。
+6. `release` ブランチで、リリースのファイルが作成されていることを確認します。
 
 ```sh
 $ git rev-parse --abbrev-ref HEAD
@@ -182,17 +182,17 @@ release
 $ npm run release -- --validateRelease
 ```
 
-## Merge temporary branch (pre-2-0-x branches only)
+## 一時ブランチのマージ (2-0-x 以前のブランチ限定)
 
-Once the release builds have finished, merge the `release` branch back into the source release branch using the `merge-release` script. If the branch cannot be successfully merged back this script will automatically rebase the `release` branch and push the changes which will trigger the release builds again, which means you will need to wait for the release builds to run again before proceeding.
+リリースビルドが完了したら、`release` ブランチを `merge-release` スクリプトを使用してソースリリースブランチにマージします。 ブランチが正常にマージバックされない場合、このスクリプトは `release` ブランチを自動的にリベースし、リリースビルドをトリガする変更をプッシュします。これは、続行する前にリリースビルドが再び実行されるのを待つ必要があることを意味します。
 
-### Merging back into master
+### マスターにマージバックする
 
 ```sh
 npm run merge-release -- master
 ```
 
-### Merging back into old release branch
+### 旧リリースブランチにマージバックする
 
 ```sh
 npm run merge-release -- 1-7-x
@@ -200,11 +200,11 @@ npm run merge-release -- 1-7-x
 
 ## リリースを公開する
 
-Once the merge has finished successfully, run the `release` script via `npm run release` to finish the release process. This script will do the following: 1. Build the project to validate that the correct version number is being released. 2. Download the binaries and generate the node headers and the .lib linker used on Windows by node-gyp to build native modules. 3. Create and upload the SHASUMS files stored on S3 for the node files. 4. Create and upload the SHASUMS256.txt file stored on the GitHub release. 5. Validate that all of the required files are present on GitHub and S3 and have the correct checksums as specified in the SHASUMS files. 6. Publish the release on GitHub 7. Delete the `release` branch.
+マージが正常に終了したら、`npm run release` を介して `release` スクリプトを実行してリリースプロセスを終了します。 このスクリプトは、以下の処理を行います。 1. プロジェクトをビルドして、正しいバージョン番号がリリースされていることを検証します。 2. バイナリをダウンロードし、ネイティブモジュールをビルドするために node-gyp によって Windows 上で使用される node ヘッダと .lib リンカーを生成します。 3. S3 に保存された SHASUMS ファイルを作成し、node ファイル用にアップロードします。 4. GitHub リリースに格納される SHASUMS256.txt ファイルを作成してアップロードします。 5. すべての必要なファイルが GitHub と S3 に存在し、SHASUMS ファイルで指定されている正しいチェックサムを持っていることを検証します。 6. GitHub 上でリリースを公開します。 7. `release` ブランチを削除します。
 
-## Publish to npm
+## npm に公開
 
-Before publishing to npm, you'll need to log into npm as Electron. Optionally, you may find [npmrc](https://www.npmjs.com/package/npmrc) to be a useful way to keep Electron's profile side-by-side with your own:
+npm に公開する前に、Electron として npm にログインする必要があります。 任意ですが、[npmrc](https://www.npmjs.com/package/npmrc) は Electron のプロファイルを自分自身と並べて維持するのに便利な方法でしょう。
 
 ```sh
 $ sudo npm install -g npmrc
@@ -213,7 +213,7 @@ Removing old .npmrc (default)
 Activating .npmrc "electron"
 ```
 
-The Electron account's credentials are kept by GitHub. "Electron - NPM" for the URL "https://www.npmjs.com/login".
+Electron アカウントの証明書はGitHubによって保持されます。 "Electron - NPM" の URL は "https://www.npmjs.com/login".
 
 ```sh
 $ npm login
@@ -222,7 +222,7 @@ Password:
 Email: (this IS public) electron@github.com
 ```
 
-Publish the release to npm.
+npm にリリースを公開します。
 
 ```sh
 $ npm whoami
@@ -230,30 +230,30 @@ electron
 $ npm run publish-to-npm
 ```
 
-Note: In general you should be using the latest Node during this process; however, older versions of the `publish-to-npm` script may have trouble with Node 7 or higher. If you have trouble with this in an older branch, try running with an older version of Node, e.g. a 6.x LTS.
+注意: 一般的に、このプロセスでは最新の Node を使用する必要があります。 しかし、`publish-to-npm` スクリプトの古いバージョンでは、Node 7 以上で問題が発生する可能性があります。 古いブランチで問題が発生した場合は、Node の以前のバージョン、たとえば 6.x LTS で実行してみてください。
 
-## Fix missing binaries of a release manually
+## 手動でリリースの欠けたバイナリを修正する
 
-In the case of a corrupted release with broken CI machines, we might have to re-upload the binaries for an already published release.
+CI マシンが壊れてリリースが破損した場合、既に公開されているリリースのバイナリを再アップロードする必要があります。
 
-The first step is to go to the [Releases](https://github.com/electron/electron/releases) page and delete the corrupted binaries with the `SHASUMS256.txt` checksum file.
+最初のステップは、[リリース](https://github.com/electron/electron/releases) ページに行き、`SHASUMS256.txt` チェックサムファイルで破損したバイナリを削除することです。
 
-Then manually create distributions for each platform and upload them:
+次に以下のように各プラットフォームの配布を手動で作成してアップロードします。
 
 ```sh
-# Checkout the version to re-upload.
+# 再アップロードするバージョンをチェックアウトします
 git checkout vTHE.RELEASE.VERSION
 
-# Do release build, specifying one target architecture.
+# ひとつのターゲットを指定してリリースビルドをします。
 ./script/bootstrap.py --target_arch [arm|x64|ia32]
 ./script/build.py -c R
 ./script/create-dist.py
 
-# Explicitly allow overwritting a published release.
+# 公開されたリリースを上書きすることを明示的に許可します。
 ./script/upload.py --overwrite
 ```
 
-After re-uploading all distributions, publish again to upload the checksum file:
+すべてのディストリビューションを再アップロードした後、チェックサムファイルをアップロードするために再度公開します。
 
 ```sh
 npm run release
