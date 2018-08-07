@@ -14,11 +14,11 @@ Brightray [był](https://github.com/electron-archive/brightray) statyczną bibli
 
 ### CRT
 
-Biblioteka C Run-time (CRT) jest częścią standardowej biblioteki C++, która zawiera standardową bibliotekę ISO C99. Wizualne biblioteki C++, które implementują CRT obsługują tworzenie kodu natywnego, jak i zarówno mieszanego natywnego i zarządzanego kodu oraz czysto zarządzanego kody dla developmentu .NET.
+Biblioteka C Run-time (CRT) jest częścią standardowej biblioteki C++, która zawiera standardową bibliotekę ISO C99. Wizualne biblioteki C++, które implementują CRT obsługują tworzenie kodu natywnego, jak i zarówno mieszanego natywnego i zarządzanego kodu oraz czysto zarządzanego kody dla platformy .NET.
 
 ### DMG
 
-Obraz dysku Apple jest to format pakowania używany przez macOS. Pliki DMG są powszechnie używane do dystrybucji "instalatorów" aplikacji. [electron-builder](https://github.com/electron-userland/electron-builder) wspiera `dmg` jako docelowy format kompilacji.
+Obraz dysku, używany przez macOS. Pliki DMG są powszechnie używane do dystrybucji "instalatorów" aplikacji. [electron-builder](https://github.com/electron-userland/electron-builder) wspiera `dmg` jako docelowy format kompilacji.
 
 ### Edytor IME
 
@@ -54,13 +54,13 @@ Akronim od Mac App Store. Szczegółowe informacje odnośnie przesyłania aplika
 
 ### Mojo
 
-System IPC do komunikowania się wewnątrz- lub między-procesami, i jest to ważne ponieważ Chrome jest w stanie podzielić swoją prace na oddzielne procesy lub nie, w zależności od ograniczenia pamięci itp.
+System IPC do komunikowania się wewnątrz- lub między-procesami, jest to ważne ponieważ Chrome jest w stanie podzielić swoją prace na oddzielne procesy lub nie, w zależności od ograniczenia pamięci itp.
 
 Zobacz https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
 ### natywne moduły
 
-Natywne moduły (nazywane również [dodatkami](https://nodejs.org/api/addons.html) w Node.js) są modułami napisanymi w C lub C++, które mogą być załadowane do Node.js lub Electrona za pomocą funkcji require() i używane tak, jakby były zwyczajnymi modułami Node.js. Używane są głównie w celu zapewnienia interfejsu między uruchomionym w Node.js JavaScript s bibliotekami C/C++.
+Natywne moduły (nazywane również [dodatkami](https://nodejs.org/api/addons.html) w Node.js) są modułami napisanymi w C lub C++, które mogą być załadowane do Node.js lub Electrona za pomocą funkcji require() i używane tak, jakby były zwyczajnymi modułami Node.js. Używane są głównie w celu zapewnienia interfejsu między JavaScriptem uruchomionym w Node.js, a bibliotekami C/C++.
 
 Natywne moduły Node są obsługiwane przez Electrona, ale ponieważ Electron często używa innej wersji V8 od Node binary zainstalowanej na twoim systemie, musisz ręcznie określić lokalizację nagłówków Electrona podczas budowania modułów natywnych.
 
