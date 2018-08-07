@@ -1,14 +1,14 @@
 # Architektura aplikacji Electron
 
-Before we can dive into Electron's APIs, we need to discuss the two process types available in Electron. They are fundamentally different and important to understand.
+Zanim zagłębimy się w Electron API, musimy omówić dwa typy procesów dostępnych w Electronie. Różnią się one od siebie całkowicie i ważnym jest, by je dobrze zrozumieć.
 
 ## Proces główny i renderer
 
-W Electronie proces, który wykonuje skrypt `main` z pliku `package.json` nazywa się **proces główny**. The script that runs in the main process can display a GUI by creating web pages. An Electron app always has one main process, but never more.
+W Electronie proces, który wykonuje skrypt `main` z pliku `package.json` nazywa się **procesem głównym**. Skrypt który uruchamia proces główny, wyświetla GUI przez tworzenie kolejnych stron HTML. Aplikacja korzystająca z Electrona zawsze ma tylko jeden proces główny.
 
-Ponieważ Electron używa Chromium do wyświetlania stron internetowych, wykorzystywana jest również wielo-procesowa architektura Chromium. Każda strona internetowa w Electronie działa w swoim własnym procesie, który nazywa się **proces renderowania**.
+Ponieważ Electron używa Chromium do wyświetlania stron internetowych, wykorzystywana jest również wielo-procesowa architektura Chromium. Każda strona internetowa w Electronie działa w swoim własnym procesie, który nazywa się **procesem renderowania**.
 
-W normalnych przeglądarkach, strony internetowe zazwyczaj są zazwyczaj uruchamiane w środowisku piaskownicy i nie posiadają dostępu do zasobów natywnych. Użytkownicy Electron mają jednak możliwość użycia interfejsów API Node.js na stronach internetowych, co pozwala na interakcje systemu operacyjnego na niższym poziomie.
+W normalnych przeglądarkach, strony internetowe zazwyczaj są uruchamiane w tzw. sandboxie i nie posiadają dostępu do zasobów natywnych. Użytkownicy Electron mają jednak możliwość użycia interfejsów API Node.js na stronach internetowych, co pozwala na interakcje z systemem operacyjnym.
 
 ### Różnice Pomiędzy Procesem Głównym i Procesem Renderowania
 
