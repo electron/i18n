@@ -728,10 +728,10 @@ Retourne `Boolean` - Si l'environnement de bureau actuel est Unity launcher.
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
 * `options` Object (facultatif) 
-  * `path` String (facultatif) *Windows* - Le chemin de l'exécutable à comparer. La valeur par défaut est `process.execPath`.
-  * `args` String[] (optional) *Windows* - The command-line arguments to compare against. Defaults to an empty array.
+  * `path` String (facultatif) *Windows* - Le chemin de l'exécutable à comparer. `process.execPath` par défaut.
+  * `args` String[] (facultatif) *Windows* - Les arguments de la ligne de commandes à comparer. Un tableau vide par défaut.
 
-If you provided `path` and `args` options to `app.setLoginItemSettings` then you need to pass the same arguments here for `openAtLogin` to be set correctly.
+Si les options `path` et `args` sont fournies à `app.setLoginItemSettings` alors les mêmes arguments doivent être passés à `openAtLogin` pour être correctement initialisés.
 
 Retourne `Object`:
 
