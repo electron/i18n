@@ -746,7 +746,7 @@ Retourne `Object`:
 * `settings` Objet 
   * `openAtLogin` Boolean (facultatif) - `true` pour ouvrir l'application à la connexion, `false` pour retirer l'application de la liste des programmes démarrés à la connexion. `false` par défaut.
   * `openAsHidden` Boolean (facultatif) *macOS* - `true` pour ouvrir l’application comme cachée. `false` par défaut. The user can edit this setting from the System Preferences so `app.getLoginItemStatus().wasOpenedAsHidden` should be checked when the app is opened to know the current value. Ce paramètre n'est pas disponible sur les [MAS builds](../tutorial/mac-app-store-submission-guide.md).
-  * `path` String (optional) *Windows* - The executable to launch at login. Defaults to `process.execPath`.
+  * `path` String (optional) *Windows* - L'exécutable à lancer à la connexion. `process.execPath` par défaut.
   * `args` String[] (optional) *Windows* - The command-line arguments to pass to the executable. Defaults to an empty array. Take care to wrap paths in quotes.
 
 Set the app's login item settings.
