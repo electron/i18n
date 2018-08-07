@@ -739,7 +739,7 @@ Retourne `Object`:
 * `openAsHidden` Boolean *macOS* - `true` si l'application est configurée pour s'ouvrir comme cachée lors de la connexion. Ce paramètre n'est pas disponible lors du [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 * `wasOpenedAtLogin` Boolean *macOS* - `true` si l'application est automatiquement ouverte à la connexion. Ce paramètre n'est pas disponible lors du [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 * `wasOpenedAsHidden` Boolean *macOS* - `true` si l'application est ouverte comme un élément caché à la connexion. Cela indique que l'application ne devrait pas ouvrir la moindre fenêtre au démarrage. Ce paramètre n'est pas disponible lors du [MAS builds](../tutorial/mac-app-store-submission-guide.md).
-* `restoreState` Boolean *macOS* - `true` if the app was opened as a login item that should restore the state from the previous session. This indicates that the app should restore the windows that were open the last time the app was closed. Ce paramètre n'est pas disponible lors du [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `restoreState` Boolean *macOS* - `true` si l'application est ouverte comme un élément qui devrait restaurer l'état de la session précédente à la connexion. This indicates that the app should restore the windows that were open the last time the app was closed. Ce paramètre n'est pas disponible lors du [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
