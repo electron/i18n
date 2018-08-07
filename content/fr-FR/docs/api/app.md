@@ -693,13 +693,13 @@ Cette méthode peut seulement être appelée avant que app soit prêt.
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
-By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour.
+Par défaut, Chromium désactive, jusqu'au prochain démarrage, les APIs 3D (comme WebGL) par domaine si les processus GPU plantent trop souvent. Cette fonction désactive ce comportement.
 
 Cette méthode peut seulement être appelée avant que app soit prêt.
 
 ### `app.getAppMetrics()`
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
+Retourne [`ProcessMetric[]`](structures/process-metric.md): un tableau d'objets `ProcessMetric` qui correspondent aux statistiques d'usage de la mémoire et du processeur par chacun des processus associé à l'application.
 
 ### `app.getGPUFeatureStatus()`
 
