@@ -736,7 +736,7 @@ Si les options `path` et `args` sont fournies à `app.setLoginItemSettings` alor
 Retourne `Object`:
 
 * `openAtLogin` Boolean - `true` si l'application est configurée pour s'ouvrir à la connexion.
-* `openAsHidden` Boolean *macOS* - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+* `openAsHidden` Boolean *macOS* - `true` si l'application est configurée pour s'ouvrir comme cachée lors de la connexion. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 * `wasOpenedAtLogin` Boolean *macOS* - `true` if the app was opened at login automatically. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 * `wasOpenedAsHidden` Boolean *macOS* - `true` if the app was opened as a hidden login item. This indicates that the app should not open any windows at startup. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 * `restoreState` Boolean *macOS* - `true` if the app was opened as a login item that should restore the state from the previous session. This indicates that the app should restore the windows that were open the last time the app was closed. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
