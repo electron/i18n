@@ -6,11 +6,11 @@ Sur macOS le système peut détecter tout changement apporté à l'application, 
 
 Sur Windows le système assigne un niveau de confiance à votre certificat de signature de code qui, selon que vous n'en ayez pas ou que son niveau de confiance est trop bas, fera apparaître des messages de sécurité lorsque les utilisateurs démarreront votre application. Le niveau de confiance évoluant jour après jour, il est recommandé d'utiliser la signature de code le plus tôt possible.
 
-While it is possible to distribute unsigned apps, it is not recommended. For example, here's what macOS users see when attempting to start an unsigned app:
+Bien qu'il reste possible de distribuer des applications non signées, cela n'est pas recommandé. Par exemple, voici ce que les utilisateurs macOS voient lorsqu'ils tentent de démarrer une application non signée :
 
 ![unsigned app warning on macOS](https://user-images.githubusercontent.com/2289/39488937-bdc854ba-4d38-11e8-88f8-7b3c125baefc.png)
 
-> App can't be opened because it is from an unidentified developer
+> L'application ne peut être ouverte parce qu'elle provient d'un développeur non identifié
 
 If you are building an Electron app that you intend to package and distribute, it should be code signed. The Mac and Windows app stores do not allow unsigned apps.
 
