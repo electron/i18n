@@ -26,7 +26,7 @@ Nowe funkcje Node.js są zazwyczaj wdrażane przez aktualizacje silnika V8, dlat
 
 Aby udostępniać dane między stronami internetowymi (procesy renderowania) najlepiej jest użyć HTML5 API, które są dostępne w przeglądarkach. Dobrymi kandydatami są [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage),[`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), i [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
 
-Lub możesz użyć systemu IPC, wyszczególnionego dla Electronu, aby przechowywać obiekty w głównym procesie jako zmienna globalna, a potem by uzyskać do nich dostęp z renderowania za pomocą modułu `zdalna`właściwość`electron`:
+Możesz również użyć systemu IPC, wyszczególnionego dla Electronu, aby przechowywać obiekty w głównym procesie jako zmienna globalna, a potem uzyskać do nich dostęp w procesie renderowania za pomocą `remote` property of `electron` module:
 
 ```javascript
 // W procesie głównym.
@@ -54,7 +54,7 @@ Jeśli wystąpi ten problem, poniższe artykuły mogą okazać się pomocne:
 * [Zarządzanie pamięcią](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
 * [Zakres Zmiennej](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
-Jeśli chcesz szybkiej naprawy, możesz zglobalizować zmienne poprzez zmianę kodu z tego:
+Jeśli chcesz szybkiej łatki, możesz zglobalizować zmienne poprzez zmianę kodu z tego:
 
 ```javascript
 const {app, Tray} = require('electron')
@@ -75,11 +75,11 @@ app.on('ready', () => {
 })
 ```
 
-## Nie mogę użyć jQuery/RequireJS/Meteor/AngularJS w Electron-ie.
+## Nie mogę użyć jQuery/RequireJS/Meteor/AngularJS w Electronie.
 
-Ze względu na integrację Node.js z Electron, występują pewne dodatkowe symbole wstawione do modelu DOM, takie jak `module`, `exports`, `require`. To tworzy problemy dla niektórych bibliotek ponieważ chcą one wstawić symbole z tymi samymi nazwami.
+Ze względu na integrację Node.js z Electron, występują pewne dodatkowe symbole wstawione do modelu DOM, takie jak `module`, `exports`, `require`. Tworzy to problemy dla niektórych bibliotek ponieważ chcą one wstawić symbole z tymi samymi nazwami.
 
-Aby to rozwiązać, możesz wyłączyć integrację node w Electron:
+Aby to rozwiązać, możesz wyłączyć integrację node w Electronie:
 
 ```javascript
 // W głównym procesie.
@@ -92,7 +92,7 @@ let win = new BrowserWindow({
 win.show()
 ```
 
-Lecz jeśli chcesz zachować możliwości używania Node.js i Electron API, musisz zmienić nazwę symboli na stronie zanim zawrzesz inne biblioteki:
+Lecz jeśli chcesz zachować możliwości używania Node.js i Electron API, musisz zmienić nazwę symboli na stronie zanim dodasz inne biblioteki:
 
 ```html
 <head>
@@ -115,21 +115,21 @@ Gdy używasz wbudowanego modułu Electron możesz spotkać się z takim błędem
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-Jest tak ponieważ zainstalowany jest [npm `electron` module](https://www.npmjs.com/package/electron) albo lokalnie, albo globalnie, co przejmuje pierwszeństwo nad wbudowanymi modułami Electronu.
+Dzieje się tak, gdyż moduł [npm `electron`](https://www.npmjs.com/package/electron) jest zainstalowany albo lokalnie, albo globalnie, co nadpisuje wbudowany moduł Electrona.
 
-Aby zweryfikować to, czy używasz właściwego modułu wbudowanego, możesz wydrukować ścieżkę modułu `electron`:
+Aby zweryfikować, czy używasz właściwego modułu wbudowanego, możesz wydrukować ścieżkę modułu `electron`:
 
 ```javascript
 console.log(require.resolve('electron'))
 ```
 
-a następnie sprawdź, czy występuje w następującej postaci:
+a następnie sprawdzić, czy występuje w następującej postaci:
 
 ```sh
 "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
 ```
 
-Jeśli jest to coś takiego jak `node_modules/electron/index.js`, to musisz albo usunąć moduł npm `electron`, albo zmienić jego nazwę.
+Jeżeli widzisz coś takiego jak `node_modules/electron/index.js`,musisz albo usunąć moduł npm `electron`, albo zmienić jego nazwę.
 
 ```sh
 npm uninstall electron
