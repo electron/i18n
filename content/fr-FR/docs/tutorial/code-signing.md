@@ -12,7 +12,7 @@ Bien qu'il reste possible de distribuer des applications non signées, cela n'es
 
 > L'application ne peut être ouverte parce qu'elle provient d'un développeur non identifié
 
-If you are building an Electron app that you intend to package and distribute, it should be code signed. The Mac and Windows app stores do not allow unsigned apps.
+Si vous développez une application Electron destinée à être empaquetée et distribuée, son code devrait être signé. Les Stores Mac et Windows n'acceptent pas les applications non signées.
 
 # Signing macOS builds
 
