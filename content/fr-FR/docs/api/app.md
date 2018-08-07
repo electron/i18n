@@ -735,7 +735,7 @@ Si les options `path` et `args` sont fournies à `app.setLoginItemSettings` alor
 
 Retourne `Object`:
 
-* `openAtLogin` Boolean - `true` si l'application est configurée pour s'ouvrir à la connexion.
+* `openAtLogin` Boolean - `true` si l'application est configurée pour s'ouvrir à l'ouverture de session.
 * `openAsHidden` Boolean *macOS* - `true` si l'application est configurée pour s'ouvrir comme cachée lors de la connexion. Ce paramètre n'est pas disponible sur les [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 * `wasOpenedAtLogin` Boolean *macOS* - `true` si l'application est automatiquement ouverte à la connexion. Ce paramètre n'est pas disponible sur les [MAS builds](../tutorial/mac-app-store-submission-guide.md).
 * `wasOpenedAsHidden` Boolean *macOS* - `true` si l'application est ouverte comme un programme caché à la connexion. Cela indique que l'application ne devrait pas ouvrir la moindre fenêtre au démarrage. Ce paramètre n'est pas disponible sur les [MAS builds](../tutorial/mac-app-store-submission-guide.md).
@@ -744,12 +744,12 @@ Retourne `Object`:
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
 * `settings` Objet 
-  * `openAtLogin` Boolean (facultatif) - `true` pour ouvrir l'application à la connexion, `false` pour retirer l'application de la liste des programmes démarrés à la connexion. `false` par défaut.
+  * `openAtLogin` Boolean (facultatif) - `true` pour ouvrir l'application à l'ouverture de session, `false` pour retirer l'application de la liste des programmes démarrés à l'ouverture de session. `false` par défaut.
   * `openAsHidden` Boolean (facultatif) *macOS* - `true` pour ouvrir l’application comme cachée. `false` par défaut. The user can edit this setting from the System Preferences so `app.getLoginItemStatus().wasOpenedAsHidden` should be checked when the app is opened to know the current value. Ce paramètre n'est pas disponible sur les [MAS builds](../tutorial/mac-app-store-submission-guide.md).
-  * `path` String (optional) *Windows* - L'exécutable à lancer à la connexion. `process.execPath` par défaut.
+  * `path` String (optional) *Windows* - L'exécutable à lancer à l'ouverture de session. `process.execPath` par défaut.
   * `args` String[] (facultatif) *Windows* - Les arguments de la ligne de commandes à passer à l'exécutable. Un tableau vide par défaut. Veiller à protéger les chemins par des guillemets.
 
-Set the app's login item settings.
+Configurer les paramètres de l'application lors de l'ouverture de session.
 
 To work with Electron's `autoUpdater` on Windows, which uses [Squirrel](https://github.com/Squirrel/Squirrel.Windows), you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. Par exemple :
 
