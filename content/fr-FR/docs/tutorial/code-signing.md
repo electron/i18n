@@ -1,6 +1,6 @@
 # Signature de code
 
-Code signing is a security technology that you use to certify that an app was created by you.
+La signature de code est une technologie de sécurité que vous utilisez pour certifier qu'une application a bien été créée par vous.
 
 On macOS the system can detect any change to the app, whether the change is introduced accidentally or by malicious code.
 
