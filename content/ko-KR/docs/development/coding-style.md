@@ -4,7 +4,7 @@
 
 `npm run lint`를 실행하여 `cpplint`와 `eslint`를 통해 어떤 코딩 스타일 이슈를 확인할 수 있습니다.
 
-## General Code
+## 일반적인 코드
 
 * End files with a newline.
 * Place requires in the following order: 
