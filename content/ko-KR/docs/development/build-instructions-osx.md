@@ -62,7 +62,7 @@ $ cd electron
 $ ./script/bootstrap.py -v
 ```
 
-If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
+만약 [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) 에 기반한 언어 서버를 지원하는 편집기를 사용중이라면 생성할 수 있습니다.
 
 ```sh
 $ ./script/build.py --compdb
