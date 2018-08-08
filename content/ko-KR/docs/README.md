@@ -121,7 +121,7 @@ Electron 버전과 일치하는 문서를 보고있는지 확인하세요. 페�
 * [Menu](api/menu.md)
 * [MenuItem](api/menu-item.md)
 * [net](api/net.md)
-* [netLog](api/netLog.md)
+* [netLog](api/net-log.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)
