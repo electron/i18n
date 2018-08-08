@@ -137,7 +137,7 @@ Crea una nuova Finestra `BrowserWindow` con proprietà native come da `options`.
   * `focusable` Boolean (opzionale) - Se la finestra è focalizzabile. Di default è `true`. Su Windows impostando `focusable: false` implica anche l'impostazione `skipTaskbar: true`. Su Linux, impostando `focusable: false` blocca l'interazione della finestra con il wm, così la finestra resterà sempre in primo piano rispetto alle aree di lavoro.
   * `alwaysOnTop` Boolean (opzionale) - Se la finestra dovrebbe sempre rimanere al top delle altre finestre. Di default è `false`.
   * `fullscreen` Boolean (opzionale) - Se la finestra dovrebbe mostrarsi a schermo intero. Quando esplicitamente impostati a `false` il pulsante schermo intero sarà nascosto o disabilitato su macOS. Di default è `false`.
-  * `fullscreenable` Boolean (opzionale) - Se la finestra è impostabile in modalità schermo intero. Su macOS, anche se il pulsante massimizza/ingrandisci potrebbe impostare la modalità schermo intero o massimizza finestra. Di default `true`.
+  * `fullscreenable` Boolean (opzionale) - Se la finestra è impostabile in modalità schermo intero. Su macOS, anche se il pulsante massimizza/ingrandisci potrebbe impostare la modalità schermo intero o massimizza finestra. Il valore predefinito è `true`.
   * `simpleFullscreen` Boolean (opzionale) - Modalità a schermo intero su macOS pre-Lion. Default è `false`.
   * `skipTaskbar` Boolean (opzionale) - Se mostrare la finestra nella taskbar. Di default è `false`.
   * `kiosk` Boolean (opzionale) - Modalità kiosk. Di default è `false`.
@@ -175,7 +175,7 @@ Crea una nuova Finestra `BrowserWindow` con proprietà native come da `options`.
     * `sandbox` Boolean (opzionale) - Se impostato, questo renderà sandbox il renderer associato alla finestra, rendendolo compatibile con Chromium Sandbox a livello di sistema operativo e disabilita il motore di Node.js. Questo non è uguale all'opzione `nodeIntegration` e le API disponibili per lo script di precaricamento sono più limitati. Maggiori informazioni sull'opzione [qui](sandbox-option.md). **Nota:** Questa opzione è attualmente sperimentale e potrebbe cambiare o essere rimossa nelle versioni future di Electron.
     * `session` [Session](session.md#class-session) (opzionale) - Imposta la sessione utilizzata dalla pagina. Invece di passare direttamente l'oggetto Session, puoi anche scegliere di usare l'opzione ` partition `, che accetta una stringa di partizione. Quando sia la `session` sia la `partition` sono fornite, la `session` sarà preferita. Di default è la default session.
     * `partition` String (opzionale) - Imposta la sessione utilizzata dalla pagina in base alla stringa di partizione della sessione. Se `partition` inizia con `persist:`, la pagina userà una sessione persistente disponibile per tutte le pagine dell'app con la stessa `partition`. Se non c'è un prefisso `persist: `, la pagina userà una sessione in memoria. Assegnando la stessa `partition`, è possibile condividere per più pagine la stessa sessione. Di default è la default session.
-    * ` affinity ` String (opzionale) - Se specificato, le pagine web con lo stesso ` affinity ` verranno eseguite nello stesso processo di rendering. Si noti che a causa del riutilizzo il processo di rendering, anche alcune opzioni ` webPreferences ` saranno condivise tra le pagine Web anche quando hai specificato valori diversi per loro, inclusi, ma non limitati da ` preload`, ` sandbox ` e ` nodeIntegration `. Pertanto, si consiglia di utilizzare esattamente le stesse ` WebPreferences` per le pagine Web con la stessa `affinity`.
+    * ` affinity ` String (opzionale) - Se specificato, le pagine web con lo stesso ` affinity ` verranno eseguite nello stesso processo di rendering. Si noti che a causa del riutilizzo il processo di rendering, anche alcune opzioni ` webPreferences ` saranno condivise tra le pagine Web anche quando hai specificato valori diversi per loro, inclusi, ma non limitati da ` preload`, ` sandbox ` e ` nodeIntegration `. Pertanto, si consiglia di utilizzare esattamente le stesse ` WebPreferences` per le pagine Web con la stessa `affinity`. *This property is experimental*
     * `zoomFactor` Number (opzionale) - Il fattore di zoom predefinito della pagina, ` 3.0 ` rappresenta il ` 300%`. L'impostazione predefinita è ` 1.0 `.
     * ` javascript ` Boolean (opzionale) - Abilita il supporto JavaScript. L'impostazione predefinita è ` true `.
     * ` webSecurity ` Boolean (opzionale) - Quando è ` false `, esso disabiliterà la politica della stessa origine (di solito utilizzando siti Web di test da parte di persone), e impostata ` allowRunningInsecureContent ` a ` true ` se questa opzione non è stata impostata dall'utente. Il valore predefinito è `true`.
@@ -848,7 +848,7 @@ The native type of the handle is `HWND` on Windows, `NSView*` on macOS, and `Win
 #### `win.hookWindowMessage(message, callback)` *Windows*
 
 * `message` Integer
-* `callback` Function
+* `callback` Funzione
 
 Hooks a windows message. The `callback` is called when the message is received in the WndProc.
 
@@ -970,7 +970,7 @@ On Windows, a mode can be passed. Accepted values are `none`, `normal`, `indeter
 
 #### `win.setOverlayIcon(overlay, description)` *Windows*
 
-* `overlay` [NativeImage](native-image.md) - the icon to display on the bottom right corner of the taskbar icon. If this parameter is `null`, the overlay is cleared
+* `overlay` [NativeImage](native-image.md) | null - the icon to display on the bottom right corner of the taskbar icon. If this parameter is `null`, the overlay is cleared
 * `description` String - a description that will be provided to Accessibility screen readers
 
 Sets a 16 x 16 pixel overlay onto the current taskbar icon, usually used to convey some sort of application status or to passively notify the user.
