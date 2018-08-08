@@ -894,7 +894,7 @@ Windows上句柄类型为 `HWND`，macOS 上为 `NSView*`，Linux 上为`Window`
 #### `win.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (可选) - 捕获的区域
-* `callback` Function - 回调函数 
+* `callback` Function 
   * `image` [NativeImage](native-image.md)
 
 和 `webContents.capturePage([rect, ]callback)` 相同.
@@ -902,7 +902,7 @@ Windows上句柄类型为 `HWND`，macOS 上为 `NSView*`，Linux 上为`Window`
 #### `win.loadURL(url[, options])`
 
 * `url` String
-* `选项` Object (可选) 
+* `options` Object (可选) 
   * `httpReferrer` String (可选) - HTTP来源网址
   * `userAgent` String (可选) - 发起请求的 userAgent.
   * `extraHeaders` String (可选) - 用 "\n" 分割的额外标题
@@ -956,7 +956,7 @@ win.loadURL('http://localhost:8000/post', {
 #### `win.setProgressBar(progress[, options])`
 
 * `progress` Double
-* `选项` Object (可选) 
+* `options` Object (可选) 
   * `mode` String *Windows* - 进度条的模式. 可以为 `none`, `normal`, `indeterminate`, `error`, 或 `paused`.
 
 设置进度栏中的进度值。有效范围是 [0, 1.0]。
@@ -1037,7 +1037,7 @@ win.loadURL('http://localhost:8000/post', {
 
 #### `win.setAppDetails(options)` *Windows*
 
-* `选项` Object 
+* `options` Object 
   * `appId` String (可选) - 窗口的 [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). 该项必须设置, 否则其他选项将没有效果.
   * `appIconPath` String (可选) -窗口的 [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
   * `appIconIndex` Integer (可选) - `appIconPath` 中的图标索引. 当`appIconPath` 没设置时则忽略. 默认值为`0`.
@@ -1097,7 +1097,7 @@ win.loadURL('http://localhost:8000/post', {
 #### `win.setIgnoreMouseEvents(ignore[, options])`
 
 * `ignore` Boolean
-* `选项` Object (可选) 
+* `options` Object (可选) 
   * `forward` Boolean (可选) *Windows* - 如果为 true, 则转发鼠标移动 消息发送到 Chromium，启用与鼠标有关的事件，如` mouseleave </ 0>。
 仅当<code> ignore </ 0>为 true 时才被使用。 如果 <code>ignore` 为 false, 转发始终是禁用的，不管这个值是什么。
 
