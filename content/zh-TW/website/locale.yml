@@ -9,7 +9,6 @@ nav:
   donors: 贊助者
   languages: 語言
   releases: 版本發佈
-  search: 搜尋
   userland: 使用者園地
 docs:
   title: Electron 文件
@@ -155,8 +154,3 @@ pages:
     title: 贊助者
 _404:
   page_not_found: 找不到頁面。
-search:
-  description_all: 從 <a href="/search/docs">文件</a>、<a href="/search/npmPackages">npm 套件</a> 及 <a href="/search/repos">GitHub 儲存庫</a> 尋找 Electron 資源。
-  description_docs: 從文件中尋找 Electron 資源。
-  description_npm: 從 npm 套件中尋找 Electron 資源。
-  description_repos: 從 GitHub 儲存庫中尋找 Electron 資源。
