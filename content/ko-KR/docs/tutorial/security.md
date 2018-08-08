@@ -12,7 +12,7 @@ Electron의 보안 취약점을 공개하는 방법은 [SECURITY.md](https://git
 
 ## Chromium 보안 문제와 업그레이드
 
-Electron은 가능한 한 빨리 새로운 버전의 Chromium을 지원하기 위해 노력하지만, 개발자는 업그레이드가 수십 또는 수백 개의 파일을 수작업으로 편집하는 작업이 포함되는 중요한 사업임을 인지해야합니다. 현재 사용할 수 있는 자원과 기여를 감안할 때, Electron은 종종 Chromium의 가장 최신 버전을 사용하지 않고, 며칠 또는 몇 주 뒤의 지연된 버전을 사용합니다.
+Electron은 가능한 한 빨리 새로운 버전의 Chromium을 지원하기 위해 노력하지만, 개발자는 업그레이드가 수십 또는 수백 개의 파일을 수작업으로 편집하는 작업이 포함되는 중요한 사업임을 인지해야합니다. Given the resources and contributions available today, Electron will often not be on the very latest version of Chromium, lagging behind by several weeks or a few months.
 
 우리의 현재 크로니움 컴포넌트 업그레이드 시스템이 우리가 사용할 수 있는 자원과 프레임 워크 위에 구축 된 대부분의 애플리케이션의 요구 사이에서 적절한 균형을 유지한다는 인상을 받고 있습니다. 우리는 Electron을 기반으로 무엇인가를 개발중인 사람들의 특별한 use case에 관해 더 듣고싶습니다. 이 노력을 지지하는 Pull 요청과 기여는 언제나 환영합니다.
 
@@ -20,7 +20,7 @@ Electron은 가능한 한 빨리 새로운 버전의 Chromium을 지원하기 �
 
 원격 대상에서 코드를 수신하여 로컬에서 실행할 때는 항상 보안 문제가 존재합니다. 예를 들어, 원격 웹사이트가 [`BrowserWindow`](../api/browser-window.md)내부에 표시되는 경우를 고려합니다. 만약 공격자가 어떻게 든 콘텐츠를 변경하면(소스를 직접 공격하거나 앱과 실제 목적지 사이에 앉든), 사용자의 컴퓨터에서 native code를 실행할 수 있습니다.
 
-> :warning: 어떤 상황에서도 Node.js 통합을 사용하는 원격 코드를 로드하고 실행하지 않아야 합니다. 대신, Node.js 코드를 실행하기 위해 로컬 파일 (애플리케이션과 함께 패키지된) 만 사용하십시오. 원격 컨텐츠를 표시하기 위해, [`webview`](../api/web-view.md) 태그를 사용하고 `nodeIntegration`을 비활성화 하십시오.
+> :warning: 어떤 상황에서도 Node.js 통합을 사용하는 원격 코드를 로드하고 실행하지 않아야 합니다. 대신, Node.js 코드를 실행하기 위해 로컬 파일 (애플리케이션과 함께 패키지된) 만 사용하십시오. To display remote content, use the [`<webview>`](../api/webview-tag.md) tag and make sure to disable the `nodeIntegration`.
 
 ## Electron 보안 경고
 
@@ -43,8 +43,10 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     - [`allowRunningInsecureContent`을 `true`로 설정하지 마세요.](#8-do-not-set-allowrunninginsecurecontent-to-true)
     - [실험적인 기능들을 활성화 하지 마세요.](#9-do-not-enable-experimental-features)
     - [`enableBlinkFeatures`을 사용하지 마세요.](#10-do-not-use-enableblinkfeatures)
-    - [WebViews: `allowpopups`를 사용하지 마세요.](#11-do-not-use-allowpopups)
-    - [WebViews: 옵션과 모든 `<webview>` 태그의 매개 변수 확인](#12-verify-webview-options-before-creation)</ol> 
+    - [`<webview>`: Do not use `allowpopups`](#11-do-not-use-allowpopups)
+    - [`<webview>`: Verify options and params](#12-verify-webview-options-before-creation)
+    - [Disable or limit navigation](#13-disable-or-limit-navigation)
+    - [Disable or limit creation of new windows](#13-disable-or-limit-creation-of-new-windows)</ol> 
     
     ## 1) 안전한 콘텐츠만 로드하세요.
     
@@ -78,7 +80,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     
     ## 2) 원격 콘텐츠에 대한 Node.js 통합 비활성화
     
-    원격 콘텐츠를 로드하는 어떤 렌더러([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), 또는 [`WebView`](../api/web-view.md))에서라도 Node.js 통합을 비활성화하는 것이 가장 중요합니다. 목적은, 원격 콘텐츠에 부여하는 권한을 제한하여, 공격자가 웹 사이트에서 JavaScript를 실행할 수 있는 사용자를 해치는 것이 훨씬 더 어려워 지도록 합니다.
+    It is paramount that you disable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) that loads remote content. 목적은, 원격 콘텐츠에 부여하는 권한을 제한하여, 공격자가 웹 사이트에서 JavaScript를 실행할 수 있는 사용자를 해치는 것이 훨씬 더 어려워 지도록 합니다.
     
     그 후, 특별한 호스트를 위해 추가적인 권한을 부여할 수 있습니다. 예를 들면, 만약 `https://my-website.com/ '을 가르키는 BrowserWindow를 여는 경우, 해당 웹 사이트에 필요한 정확한 권한을 줄 수 있지만, 그 이상은 필요 없습니다.
     
@@ -209,7 +211,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     
     *추천 값은 Electron의 기본값입니다.*
     
-    이미 짐작 하듯이, 렌더러 프로세스에서([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), 또는 [`WebView`](../api/web-view.md)) `webSecurity` 속성을 비활성화하면, 중요한 보안 기능이 비활성화 됩니다.
+    You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) disables crucial security features.
     
     애플리케이션 제품에서 `webSecurity`을 비활성화 하지 마세요.
     
@@ -333,7 +335,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     
     *추천 값은 Electron의 기본값입니다.*
     
-    Electron의 고급 사용자는 `experimentalFeatures` 와 `experimentalCanvasFeatures`를 사용해서 Chromium의 실험적인 기능을 활성화할 수 있습니다.
+    Advanced users of Electron can enable experimental Chromium features using the `experimentalFeatures` property.
     
     ### 왜냐구요?
     
@@ -387,7 +389,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     
     *추천 값은 Electron의 기본값입니다.*
     
-    [`WebViews`](../api/web-view.md)를 사용하는 경우, 새 창을 열려면 `<webview>`태그에 로드된 페이지와 스크립트가 필요할 수 있습니다. `allowpopups` 속성을 사용하면 `window.open()`메서드를 사용하여 새 [`BrowserWindows`](../api/browser-window.md)를 생성할 수 있습니다. 그렇지 않으면 `WebViews`는 새 창을 만들 수 없습니다.
+    If you are using [`<webview>`](../api/webview-tag.md), you might need the pages and scripts loaded in your `<webview>` tag to open new windows. `allowpopups` 속성을 사용하면 `window.open()`메서드를 사용하여 새 [`BrowserWindows`](../api/browser-window.md)를 생성할 수 있습니다. `<webview>` tags are otherwise not allowed to create new windows.
     
     ### 왜냐구요?
     
@@ -407,17 +409,17 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     
     Node.js 통합이 활성화되지 않은 렌더러 프로세스에서 생성된 WebView는 통합 자체를 활성화 할 수 없습니다. 하지만, WebView는 항상 자체 `webPreferences`를 사용하여 독립적인 렌더러 프로세스를 생성합니다.
     
-    메인 프로세스에서 새로운 [`WebViews`](../api/web-view.md)를 생성하는 것이 좋습니다, 그리고 WebPreferences가 보안 기능을 비활성화하지 않는지 확인하는 것이 좋습니다.
+    It is a good idea to control the creation of new [`<webview>`](../api/webview-tag.md) tags from the main process and to verify that their webPreferences do not disable security features.
     
     ### 왜냐구요?
     
-    WebViews가 DOM에 종속되어 있기 때문에, 비록 Node.js 통합이 비활성화 된 경우에도 웹 사이트에서 실행되는 스크립트로 만들 수 있습니다.
+    Since `<webview>` live in the DOM, they can be created by a script running on your website even if Node.js integration is otherwise disabled.
     
-    Electron는 개발자가 렌더러 프로세스를 제어하는 다양한 보안 기능을 비활성화 할 수 있도록 합니다. 대부분의 경우, 개발자는 이러한 기능을 비활성화 할 필요가 없으므로 - 새롭게 만든 [`<WebView>`](../api/web-view.md) 태그에 대해 별도의 구성을 허용해서는 안됩니다.
+    Electron는 개발자가 렌더러 프로세스를 제어하는 다양한 보안 기능을 비활성화 할 수 있도록 합니다. In most cases, developers do not need to disable any of those features - and you should therefore not allow different configurations for newly created [`<webview>`](../api/webview-tag.md) tags.
     
     ### 어떻게 하나요?
     
-    Electron은 [`<WebView>`](../api/web-view.md) 태그가 붙기 전에 호스팅중인 `webContents`에서 `will-attach-webview`이벤트를 시작합니다. 이 이벤트를 사용하여 안전하지 않은 옵션으로 WebView를 만들지 않도록하십시오.
+    Before a [`<webview>`](../api/webview-tag.md) tag is attached, Electron will fire the `will-attach-webview` event on the hosting `webContents`. Use the event to prevent the creation of `webViews` with possibly insecure options.
     
     ```js
     app.on('web-contents-created', (event, contents) => {
@@ -438,3 +440,61 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     ```
     
     다시 말하지만, 이 목록은 위험을 최소화하고 제거하지는 않습니다. 만약 목표가 웹 사이트를 표시하는 것이라면 브라우저가 더 안전한 옵션이됩니다.
+    
+    ## 13) Disable or limit navigation
+    
+    If your app has no need to navigate or only needs to navigate to known pages, it is a good idea to limit navigation outright to that known scope, disallowing any other kinds of navigation.
+    
+    ### 왜냐구요?
+    
+    Navigation is a common attack vector. If an attacker can convince your app to navigate away from its current page, they can possibly force your app to open web sites on the Internet. Even if your `webContents` are configured to be more secure (like having `nodeIntegration` disabled or `contextIsolation` enabled), getting your app to open a random web site will make the work of exploiting your app a lot easier.
+    
+    A common attack pattern is that the attacker convinces your app's users to interact with the app in such a way that it navigates to one of the attacker's pages. This is usually done via links, plugins, or other user-generated content.
+    
+    ### 어떻게 하나요?
+    
+    If your app has no need for navigation, you can call `event.preventDefault()` in a [`will-navigate`](../api/web-contents#event-will-navigate) handler. If you know which pages your app might navigate to, check the URL in the event handler and only let navigation occur if it matches the URLs you're expecting.
+    
+    We recommend that you use Node's parser for URLs. Simple string comparisons can sometimes be fooled - a `startsWith('https://google.com')` test would let `https://google.com.attacker.com` through.
+    
+    ```js
+    const URL = require('url')
+    
+    app.on('web-contents-created', (event, contents) => {
+      contents.on('will-navigate', (event, navigationUrl) => {
+        const parsedUrl = new URL(navigationUrl)
+    
+        if (url.hostname !== 'my-own-server.com') {
+          event.preventDefault()
+        }
+      })
+    })
+    ```
+    
+    ## 14) Disable or limit creation of new windows
+    
+    If you have a known set of windows, it's a good idea to limit the creation of additional windows in your app.
+    
+    ### 왜냐구요?
+    
+    Much like navigation, the creation of new `webContents` is a common attack vector. Attackers attempt to convince your app to create new windows, frames, or other renderer processes with more privileges than they had before; or with pages opened that they couldn't open before.
+    
+    If you have no need to create windows in addition to the ones you know you'll need to create, disabling the creation buys you a little bit of extra security at no cost. This is commonly the case for apps that open one `BrowserWindow` and do not need to open an arbitrary number of additional windows at runtime.
+    
+    ### 어떻게 하나요?
+    
+    [`webContents`](../api/web-contents.md) will emit the [`new-window`](../api/web-contents#event-new-window) event before creating new windows. That event will be passed, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you use the event to scrutinize the creation of windows, limiting it to only what you need.
+    
+    ```js
+    const { shell } = require('electron')
+    
+    app.on('web-contents-created', (event, contents) => {
+      contents.on('new-window', (event, navigationUrl) => {
+        // In this example, we'll ask the operating system
+        // to open this event's url in the default browser.
+        event.preventDefault()
+    
+        shell.openExternal(navigationUrl)
+      })
+    })
+    ```
