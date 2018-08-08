@@ -20,7 +20,7 @@ En páginas web, llamar APIs nativas relacionadas a GUI no está permitido porqu
 
 > #### A un lado: Comunicación entre Procesos
 > 
-> En Electron, tenemos varias maneras de comunicarnos entre el proceso principal y el proceso visualizador. Como [`ipcRenderer`](../api/ipc-renderer.md) y módulos [`ipcMain`](../api/ipc-main.md) para enviar mensajes, y el módulo [remote](../api/remote.md) para una comunicación de estilo RPC. Existe también una entrada de FAQ en [como compartir data entre páginas web](../faq.md#how-to-share-data-between-web-pages).
+> In Electron, we have several ways to communicate between the main process and renderer processes, such as [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
 
 ## Usando APIs de Electron
 
