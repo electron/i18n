@@ -48,7 +48,7 @@ Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spe
 | Node.js major version updates      | Node.js minor version updates          | Node.js patch version updates |
 | क्रोमियम संस्करण अपडेटस            |                                        | त्रुटी-सुधार क्रोमियम पैच     |
 
-ध्यान दें कि ज्यादातर क्रोमियम अपडेटस ब्रेकिंग माने जायेंगे | सुधार जिन्हें बैकपोर्ट किया जा सके, उन्हीं में से कुछ के पैच के तौर पर चुने जाने की संभावना है |
+Note that most Chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
 
 # स्थिरीकरण शाखायें
 
@@ -128,13 +128,13 @@ For each major and minor bump, you should expect to see something like the follo
 
 हमारा लक्ष्य अपडेट और रिलीज़ प्रक्रिया के हर स्तर पर पारदर्शिता बढ़ाना है | `2.0.0` से शुरुआत करते हुए, हमे सभी पुल रिक्वेस्ट [कन्वेंशनल कम्मिट्स](https://conventionalcommits.org/) स्पेक का पालन करने वाली चाहिये होंगी, जिनका सारांश निम्नलिखित है:
 
-- कम्मिट्स जिनका परिणाम सेमवर **मुख्य** बढ़त होगा, वे `BREAKING CHANGE:` से शुरू होने चाहियें |
+- Commits that would result in a semver **major** bump must start their body with `BREAKING CHANGE:`.
 - कम्मिट्स जिनका परिणाम सेमवर **लघु** बढ़त होगा, वे `feat:` से शुरू होने चाहियें |
 - कम्मिट्स जिनका परिणाम सेमवर **पैच** बढ़त होगा, वे `fix:` से शुरू होने चाहियें |
 
 - हम कम्मिट्स के स्क्वाशिंग की अनुमति देते हैं, बस स्क्वाशड सन्देश ऊपर दिए गये सन्देश फॉर्मेट का पालन करता हो |
 
-- एक पुल अनुरोध में मौज़ूद कुछ कम्मिट्स अगर एक सिमेंटिक प्रीफिक्स को शामिल नहीं करती तो इसकी भी तब तक अनुमति है, जब तक कि उसी पुल अनुरोध में बाद वाली कमिट एक अर्थपूर्ण सिमेंटिक सन्देश शामिल करती हो |
+- It is acceptable for some commits in a pull request to not include a semantic prefix, as long as the pull request title contains a meaningful encompassing semantic message.
 
 # संस्करण बिना `मास्टर`
 
