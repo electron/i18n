@@ -42,8 +42,8 @@ Electron
 |       └── api/ - Javascript API 구현 코드.
 ├── native_mate/ - A fork of Chromium's gin library that makes it easier to marshal
 |                  types between C++ and JavaScript.
-├── spec/ - Automatic tests.
-├── electron.gyp - Building rules of Electron.
+├── spec/ - 자동화 테스트.
+├── electron.gyp - Electron의 빌드 규칙.
 └── common.gypi - Compiler specific settings and building rules for other
                   components like `node` and `breakpad`.
 ```
