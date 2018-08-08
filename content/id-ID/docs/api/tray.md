@@ -225,16 +225,16 @@ Menyetel teks hover untuk ikon baki ini.
   
   #### `tray.setContextMenu (menu)`
   
-  * `menu` Menu
-  
-  Menetapkan menu konteks untuk ikon ini.
-  
-  #### `tray.getBounds()` *macOS * * Windows*
-  
-  Kembali [`Rectangle`](structures/rectangle.md)
-  
-  `Batas` dari ikon baki ini sebagai `Objek`.
-  
-  #### `tray.isDestroyed()`
-  
-  Mengembalikan `Boolean` - Apakah ikon baki rusak.
+  * ` menu </ 0> Menu</li>
+</ul>
+
+<p>Menetapkan menu konteks untuk ikon ini.</p>
+
+<h4><code>tray.getBounds()` *macOS * * Windows*</h4> 
+    Kembali [`Rectangle`](structures/rectangle.md)
+    
+    `Batas` dari ikon baki ini sebagai `Objek`.
+    
+    #### `tray.isDestroyed()`
+    
+    Mengembalikan `Boolean` - Apakah ikon baki rusak.
