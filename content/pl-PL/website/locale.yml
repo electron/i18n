@@ -9,12 +9,11 @@ nav:
   donors: Darczyńcy
   languages: Języki
   releases: Wydania
-  search: Szukaj
   userland: Strefa użytkowników
 docs:
   title: Dokumentacja Electron'a
   description: Zobacz całą <a href="/docs/all">dokumentację na jednej stronie</a> lub sprawdź <a href="/docs/faq">FAQ</a>.
-  guides: Przewodniki
+  guides: Poradniki
   api_reference: API
   advanced: Zaawansowane
   footer:
@@ -155,8 +154,3 @@ pages:
     title: Darczyńcy
 _404:
   page_not_found: Nie znaleziono strony.
-search:
-  description_all: Znajdź zasoby Electron'a w <a href="/search/docs"> dokumentacji</a>, <a href="/search/npmPackages"> pakietów npm</a> oraz <a href="/search/repos"> repozytoriach GitHub</a>.
-  description_docs: Szukaj zasobów Electron'a w dokumentacji.
-  description_npm: Szukaj zasobów Electron'a w paczkach npm.
-  description_repos: Szukaj zasobów Electron'a w repozytoriach GitHub.
