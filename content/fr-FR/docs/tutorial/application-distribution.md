@@ -114,7 +114,7 @@ Vous aurez besoin de forker Electron quand vous avez du code C++ à intégrer di
 2. Créez un nouveau bucket S3 et créez la structure de répertoire vide suivante :
     
     ```sh
-    - atom-shell/
+    - electron/
       - symbols/
       - dist/
     ```
@@ -122,7 +122,7 @@ Vous aurez besoin de forker Electron quand vous avez du code C++ à intégrer di
 3. Définir les Variables d’environnement suivantes :
 
 * `ELECTRON_GITHUB_TOKEN` - un jeton qui peut créer des releases sur GitHub
-* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - l’endroit où vous allez envoyer les en-têtes node.js comme symboles
+* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload Node.js headers as well as symbols
 * `ELECTRON_RELEASE` - Définit à `true` et l’upload s’exécutera, sinon `surf-build` va juste faire des contrôles de type CI, adaptés à être exécuté lors de chaque pull request.
 * `CI` - définir à `true` sinon il ne fonctionnera pas
 * `GITHUB_TOKEN` - mettre la même chose que `ELECTRON_GITHUB_TOKEN`
