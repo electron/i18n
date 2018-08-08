@@ -30,7 +30,7 @@ C++ 코드는 많은 Chromium의 추상화와 타입을 사용합니다. 따라�
 
 ## 문서
 
-* Write [remark](https://github.com/remarkjs/remark) markdown style
+* Write [remark](https://github.com/remarkjs/remark) markdown style.
 
 You can run `npm run lint-docs` to ensure that your documentation changes are formatted correctly.
 
