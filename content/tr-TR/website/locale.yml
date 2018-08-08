@@ -9,7 +9,6 @@ nav:
   donors: Donors
   languages: Diller
   releases: Sürümler
-  search: Ara
   userland: Kullanıcı alanı
 docs:
   title: Electron Dokümanları
@@ -155,8 +154,3 @@ pages:
     title: Donors
 _404:
   page_not_found: Sayfa bulunamadı.
-search:
-  description_all: Elektron Kaynaklarını <a href="/search/docs">belgelerden</a>, <a href="/search/npmPackages">npm paketlerinden</a>, ve <a href="/search/repos">GitHub repolarından</a> bulun.
-  description_docs: Elektron Kaynaklarını belgelerden bulun.
-  description_npm: Elektron Kaynaklarını npm paketlerinden bulun.
-  description_repos: Elektron Kaynaklarını GitHub repo larından bulun.
