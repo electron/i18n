@@ -9,7 +9,6 @@ nav:
   donors: Donateurs
   languages: Talen
   releases: Releases
-  search: Zoeken
   userland: Userland
 docs:
   title: Electron documentatie
@@ -155,8 +154,3 @@ pages:
     title: Donateurs
 _404:
   page_not_found: Pagina niet gevonden.
-search:
-  description_all: Zoek Electron bronnen uit <a href="/search/docs">documentatie</a>, <a href="/search/npmPackages">npm packages</a>, en <a href="/search/repos">GitHub repos</a>.
-  description_docs: Zoek Electron-bronnen uit documentatie.
-  description_npm: Zoek Electron-bronnen uit npm packages.
-  description_repos: Zoek Electron-bronnen uit GitHub-repos.
