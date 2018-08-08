@@ -4,7 +4,7 @@ These guides are intended for people working on the Electron project itself. For
 
 * [จรรยาบรรณ](../../CODE_OF_CONDUCT.md)
 * [Contributing to Electron](../../CONTRIBUTING.md)
-* [Issues](issues.md)
+* [ปัญหา](issues.md)
 * [Pull Requests](pull-requests.md)
 * [เอกสารประกอบแนวทางลักษณะ](coding-style.md#documentation)
 * [โครงสร้างของไดเรกทอรี่ของรหัสต้นฉบับ](source-code-directory-structure.md)
@@ -16,7 +16,7 @@ These guides are intended for people working on the Electron project itself. For
 * [คำแนะนำการสร้าง (Linux)](build-instructions-linux.md)
 * [การพัฒนาโครเมี่ยม](chromium-development.md)
 * [การพัฒนา V8](v8-development.md)
-* [Testing](testing.md)
+* [ทดสอบ](testing.md)
 * [Debugging on Windows](debug-instructions-windows.md)
 * [Debugging on macOS](debugging-instructions-macos.md)
 * [Setting Up Symbol Server in Debugger](setting-up-symbol-server.md)
