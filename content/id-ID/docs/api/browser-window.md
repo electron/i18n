@@ -913,13 +913,13 @@ bar will become gray when set to <code>true`.</p>
 <p>Sama seperti <code>webContents.capturePage ([rect,]callback)`.</p> 
                               #### `win.loadURL (url [, options])`
                               
-                              * `url` String
-                              * `pilihan` Objek (opsional) 
-                                * `httpReferrer` String (opsional) - url perujuk HTTP.
-                                * `userAgent` String (opsional) - agen pengguna berasal permintaan.
+                              * ` url </ 0> String</li>
+<li><code>pilihan` Objek (opsional) 
+                                * ` httpReferrer </ 0>  String (opsional) - url Referrer HTTP.</li>
+<li><code>userAgent` String (opsional) - agen pengguna berasal permintaan.
                                 * ` extraHeaders ` String (opsional) - Header ekstra yang dipisahkan oleh " \n "
                                 * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
-                                * `baseURLForDataURL` String (opsional) - url dasar (dengan trailing pemisah path) untuk file yang akan diambil oleh data url. Hal ini diperlukan hanya jika ditentukan `url` data url dan perlu memuat file lainnya.
+                                * ` baseURLForDataURL </ 0>  String (opsional) - URL dasar (dengan pemisah jalur trailing) untuk file yang akan dimuat oleh url data. Hal ini diperlukan hanya jika ditentukan <code>url` data url dan perlu memuat file lainnya.
                               
                               Sama seperti ` webContents.loadURL (url [, options]) `.
                               
