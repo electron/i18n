@@ -112,7 +112,7 @@ Anda perlu Fork electron ketika anda memiliki kustom kode C++ yang telah anda pa
 2. Buat bucket S3 baru dan buat struktur direktori kosong berikut:
     
     ```sh
-    - atom-shell/
+    - electron/
       - symbols/
       - dist/
     ```
@@ -120,7 +120,7 @@ Anda perlu Fork electron ketika anda memiliki kustom kode C++ yang telah anda pa
 3. Tetapkan variabel lingkungan berikut:
 
 * `ELECTRON_GITHUB_TOKEN` - token untuk membuat releases pada GitHub
-* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - merupakan tempat dimana anda akan mengunggah header node.js juga sebagai symbol
+* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload Node.js headers as well as symbols
 * `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will do CI-type checks, appropriate to run for every pull request.
 * `CI` - Atur ke `true` atau lainnya akan gagal
 * `GITHUB_TOKEN` - atur sama seperti `ELECTRON_GITHUB_TOKEN`
