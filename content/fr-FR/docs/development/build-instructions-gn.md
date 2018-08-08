@@ -22,7 +22,7 @@ Also, on windows open:
 
 and add a system variable `DEPOT_TOOLS_WIN_TOOLCHAIN` with value `0`. This tells `depot_tools` to use your locally installed version of Visual Studio (by default, `depot_tools` will try to use a google-internal version).
 
-## Obtenir le code
+## Obtenir le Code
 
 ```sh
 $ mkdir electron-gn && cd electron-gn
