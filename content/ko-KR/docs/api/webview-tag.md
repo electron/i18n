@@ -726,7 +726,7 @@ Emitted when an in-page navigation happened.
 
 When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
 
-### Event: 'close'
+### 이벤트: 'close'
 
 Fired when the guest page attempts to close itself.
 
