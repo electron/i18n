@@ -436,7 +436,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 #### `BrowserWindow.removeExtension(name)`
 
-* اسم الجهاز
+* `name` سلسلة نصية
 
 Remove a Chrome extension by name.
 
@@ -462,7 +462,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 #### `BrowserWindow.removeDevToolsExtension(name)`
 
-* اسم الجهاز
+* `name` سلسلة نصية
 
 Remove a DevTools extension by name.
 
