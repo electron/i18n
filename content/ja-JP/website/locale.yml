@@ -151,6 +151,6 @@ pages:
     title: Spectron
     description: Spectron は、 Electron アプリのインテグレーションテスト用コードを手軽に書くためのオープンソースフレームワークです。ChromeDriver と WebDriverIO を利用して構成されています。
   '/donors':
-    title: 寄付
+    title: 寄贈者
 _404:
   page_not_found: ページが見つかりません。
