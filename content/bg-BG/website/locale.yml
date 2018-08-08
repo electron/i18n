@@ -9,7 +9,6 @@ nav:
   donors: Донори
   languages: Езици
   releases: Издания
-  search: Търсене
   userland: Потребителска страна
 docs:
   title: Документация за Electron
@@ -155,8 +154,3 @@ pages:
     title: Донори
 _404:
   page_not_found: Страницата не е намерена.
-search:
-  description_all: Намери Електрон ресурси от <a href="/search/docs"> документация</a>, <a href="/search/npmPackages"> npm пакети</a> и <a href="/search/repos"> GitHub хранилища</a>.
-  description_docs: Намери Електрон ресурси от документацията.
-  description_npm: Намери Електрон ресурси от npm пакети.
-  description_repos: Намери Електрон ресурси от GitHub хранилища.
