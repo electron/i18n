@@ -2,11 +2,25 @@
 
 可以参考以下方法来运用实验中的GN方式来构建Electron程序。
 
-> **提示**：GN构建系统处于*实验*阶段，目前仅可在macOS系统和Linux系统中进行组件构建的调试
+> **NOTE**: The GN build system is in *experimental* status, and currently only works on macOS, Linux and Windows.
 
 ## 基本要求
 
-系统需求，请参考[macOS](build-instructions-osx.md#prerequisites)或[Linux](build-instructions-linux.md#prerequisites)构建指南。 此外，你还需要安装[`depot_tools`](http://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up)，这是一个用于获取Chromium，及其相关依赖工具。
+Check the build prerequisites for your platform before proceeding
+
+- [macOS](build-instructions-osx.md#prerequisites)
+- [Linux](build-instructions-linux.md#prerequisites)
+- [Windows](build-instructions-windows.md#prerequisites)
+
+## Install `depot_tools`
+
+You'll need to install [`depot_tools`](http://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up), the toolset used for fetching Chromium and its dependencies.
+
+Also, on windows open:
+
+`Control Panel → System and Security → System → Advanced system settings`
+
+and add a system variable `DEPOT_TOOLS_WIN_TOOLCHAIN` with value `0`. This tells `depot_tools` to use your locally installed version of Visual Studio (by default, `depot_tools` will try to use a google-internal version).
 
 ## 获取代码
 
@@ -30,46 +44,69 @@ $ gclient sync --with_branch_heads --with_tags
 ```sh
 $ cd src
 $ export CHROMIUM_BUILDTOOLS_PATH=`pwd`/buildtools
-$ gn gen out/Default --args='root_extra_deps=["//electron"] is_electron_build=true is_component_build=true use_jumbo_build=true v8_promise_internal_field_count=1 v8_typed_array_max_size_in_heap=0'
+$ gn gen out/Default --args='import("//electron/build/args/debug.gn")'
 ```
 
-以上代码，会生成构建所需的所有ninja文件。 如果你想改变构建参数，可以通过运行`gn
-args out/Default`来将参数带入编辑器，而无需再次运行`gn run`命令。
+This will generate a build directory `out/Default` under `src/` with debug build configuration. You can replace `Default` with another name, but it should be a subdirectory of `out`. Also, to know the list of available configuration options, run `gn args out/Default --list`. Also you shouldn't have to run `gn gen` again—if you want to change the build arguments, you can run `gn args out/Default` to bring up an editor.
 
-想要构建`electron:electron_app`项目，可以按照下面的方式运行`ninja`命令：
+**For generating Debug/Component build config of Electron:**
+
+```sh
+$ gn gen out/Default --args='import("//electron/build/args/debug.gn")'
+```
+
+**For generating Release/Non-Component build config of Electron:**
+
+```sh
+$ gn gen out/Default --args='import("//electron/build/args/release.gn")'
+```
+
+**To build, run `ninja` with the `electron:electron_app` target:**
 
 ```sh
 $ ninja -C out/Default electron:electron_app
-# 这个过程也比较费时，而且运行成本可能比较高
+# This will also take a while and probably heat up your lap.
 ```
 
-这个过程会构建 'libchromiumcontent' 里的所有内容，(如` chromium`中的`content`，及其依赖（包括Webkit 和 V8）)。因此，这个构建过程会比较费时。
+This will build all of what was previously 'libchromiumcontent' (i.e. the `content/` directory of `chromium` and its dependencies, incl. WebKit and V8), so it will take a while.
 
-你可以使用[sccache](https://github.com/mozilla/sccache)命令来提高后面的构建过程。 你可以通过运行`gn args out/Default`命令，把这个GN参数`cc_wrapper="sccache"`带入编辑器。
+To speed up subsequent builds, you can use [sccache](https://github.com/mozilla/sccache). Add the GN arg `cc_wrapper="sccache"` by running `gn args out/Default` to bring up an editor.
 
-构建需要在`./out/Default`文件下执行：
+The built executable will be under `./out/Default`:
 
 ```sh
 $ ./out/Default/Electron.app/Contents/MacOS/Electron
-# Linux机下
+# or, on Linux
 $ ./out/Default/electron
 ```
 
-## 测试
+### Cross-compiling
 
-在运行测试之前，你首先需要新建与node.js版本相同的测试模块，不过这些模块在构建过程中已经生成。因此，你可以通过执行以下命令来实现。
+To compile for a platform that isn't the same as the one you're building on, set the `target_cpu` GN argument. For example, to compile a windows x86 target from an x64 host, specify `target_cpu = "x86"` in `gn args`.
 
 ```sh
-$ (cd electron/spec && npm i --nodedir=../../third_party/electron_node)
+$ gn gen out/Default-x86 --args='... target_cpu = "x86"'
 ```
 
-接着，通过`electron/spec`命令来运行Electron：
+Not all combinations of source and target CPU/OS are supported by Chromium. Only cross-compiling Windows 32-bit from Windows 64-bit has been tested in Electron. If you test other combinations and find them to work, please update this document :)
+
+## 测试
+
+To run the tests, you'll first need to build the test modules against the same version of Node.js that was built as part of the build process. To generate build headers for the modules to compile against, run the following under `src/` directory.
+
+```sh
+$ ninja -C out/Default electron/build/node:headers
+# Install the test modules with the generated headers
+$ (cd electron/spec && npm i --nodedir=../../out/Default/gen/node_headers)
+```
+
+Then, run Electron with `electron/spec` as the argument:
 
 ```sh
 $ ./out/Default/Electron.app/Contents/MacOS/Electron electron/spec
 ```
 
-可以通过增加其它标记来调试程序，例如：
+If you're debugging something, it can be helpful to pass some extra flags to the Electron binary:
 
 ```sh
 $ ./out/Default/Electron.app/Contents/MacOS/Electron electron/spec \
