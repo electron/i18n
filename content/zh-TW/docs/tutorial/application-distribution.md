@@ -112,7 +112,7 @@ MyApp.app/Contents
 2. 建立新的 S3 Bucket，並建立以下空目錄:
     
     ```sh
-    - atom-shell/
+    - electron/
       - symbols/
       - dist/
     ```
@@ -120,7 +120,7 @@ MyApp.app/Contents
 3. 設定以下環境變數:
 
 * `ELECTRON_GITHUB_TOKEN` - 能在 GitHub 建立 Release 的 Token。
-* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - 要上傳 Node.js 標頭檔及符號檔的地方
+* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload Node.js headers as well as symbols
 * `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will do CI-type checks, appropriate to run for every pull request.
 * `CI` - 設為 `true`，否則會失敗
 * `GITHUB_TOKEN` - 設成跟 `ELECTRON_GITHUB_TOKEN` 一樣
