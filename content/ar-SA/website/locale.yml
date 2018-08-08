@@ -111,7 +111,7 @@ or: أو
 pages:
   '/':
     title: إلكترون | اصنع تطبيقات سطح المكتب تعمل على منصات متعددة باستخدام JavaScript ،HTML، و CSS.
-    description: 'اصنع تطبيقات سطح المكتب تعمل على منصات متعددة باستخدام JavaScript ،HTML، و CSS.'
+    description: 'ابن تطبيقات سطح المكتب متعدد المنصات باستخدام JavaScript ،HTML، و CSS.'
   '/apps':
     title: تطبيقات إلكترون
     description: تطبيقات مبنية على إلكترون
@@ -138,7 +138,7 @@ pages:
   '/releases':
     title: اﻹصدارات
   '/contact':
-    title: تواصل معنا
+    title: تواصل
     description: تواصل مع فريق إلكترون عبر تويتر، Slack، Github، والبريد اﻹلكتروني.
   '/languages':
     title: اللغات
