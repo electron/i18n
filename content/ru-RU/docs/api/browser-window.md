@@ -176,7 +176,7 @@ Process: [Main](../glossary.md#main-process)
       
       * `session` [Сессия](session.md#class-session) (необязательна) - отсылает сессию используемую на странице. Вместо передачи объекта Session напрямую, вы можете также выбрать использование `partition` опции вместо которой принимает строку раздела. Когда оба `session` и `partition` определены, `session` будет приоритентней. По умолчанию используется session по умолчанию.
       * `partition` String (необязательно) - Устанавливает сеанс, используемый страницей в соответствии со строкой раздела сессии. Если `partition` начинается с `persist:`, страница будет использовать постоянную сессию доступная всем страницам в приложении с некоторыми `partition`. Если нет `persist:` префикса, страница будет использовать сеанс в памяти. При присваивании одинаковой `partition`, разные страницы могут иметь одинаковую сессию. По умолчанию используется session по умолчанию.
-      * `affinity` String (optional) - When specified, web pages with the same `affinity` will run in the same renderer process. Note that due to reusing the renderer process, certain `webPreferences` options will also be shared between the web pages even when you specified different values for them, including but not limited to `preload`, `sandbox` and `nodeIntegration`. So it is suggested to use exact same `webPreferences` for web pages with the same `affinity`.
+      * `affinity` String (optional) - When specified, web pages with the same `affinity` will run in the same renderer process. Note that due to reusing the renderer process, certain `webPreferences` options will also be shared between the web pages even when you specified different values for them, including but not limited to `preload`, `sandbox` and `nodeIntegration`. So it is suggested to use exact same `webPreferences` for web pages with the same `affinity`. *This property is experimental*
       * `zoomFactor` Number (optional) - The default zoom factor of the page, `3.0` represents `300%`. Default is `1.0`.
       * `javascript` Boolean (optional) - Enables JavaScript support. Default is `true`.
       * `webSecurity` Boolean (optional) - When `false`, it will disable the same-origin policy (usually using testing websites by people), and set `allowRunningInsecureContent` to `true` if this options has not been set by user. По умолчанию - `true`.
@@ -433,7 +433,7 @@ Process: [Main](../glossary.md#main-process)
       
       The method will also not return if the extension's manifest is missing or incomplete.
       
-      **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+      **Примечание:** Этот метод должен вызываться только после события `ready` модуля `app`.
       
       #### `BrowserWindow.removeExtension(name)`
       
@@ -441,13 +441,13 @@ Process: [Main](../glossary.md#main-process)
       
       Удаляет расширение Chrome с указанным именем.
       
-      **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+      **Примечание:** Этот метод должен вызываться только после события `ready` модуля `app`.
       
       #### `BrowserWindow.getExtensions()`
       
       Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
       
-      **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+      **Примечание:** Этот метод должен вызываться только после события `ready` модуля `app`.
       
       #### `BrowserWindow.addDevToolsExtension(path)`
       
@@ -459,7 +459,7 @@ Process: [Main](../glossary.md#main-process)
       
       The method will also not return if the extension's manifest is missing or incomplete.
       
-      **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+      **Примечание:** Этот метод должен вызываться только после события `ready` модуля `app`.
       
       #### `BrowserWindow.removeDevToolsExtension(name)`
       
@@ -482,7 +482,7 @@ Process: [Main](../glossary.md#main-process)
       console.log(installed)
       ```
       
-      **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+      **Примечание:** Этот метод должен вызываться только после события `ready` модуля `app`.
       
       ### Свойства экземпляра
       
@@ -971,7 +971,7 @@ Process: [Main](../glossary.md#main-process)
       
       #### `win.setOverlayIcon(overlay, description)` *Windows*
       
-      * `overlay` [NativeImage](native-image.md) - the icon to display on the bottom right corner of the taskbar icon. If this parameter is `null`, the overlay is cleared
+      * `overlay` [NativeImage](native-image.md) | null - the icon to display on the bottom right corner of the taskbar icon. If this parameter is `null`, the overlay is cleared
       * `description` String - a description that will be provided to Accessibility screen readers
       
       Sets a 16 x 16 pixel overlay onto the current taskbar icon, usually used to convey some sort of application status or to passively notify the user.
