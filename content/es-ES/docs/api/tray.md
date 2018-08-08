@@ -123,7 +123,7 @@ Emitido cuando los archivos arrastrados son dejados en el icono de la bandeja.
 
 #### Evento: 'drop-text' *macOS*
 
-* `event` Event
+* `evento` Evento
 * `text` Cadena - la cadena del texto dejado.
 
 Emitido cuando el texto arrastrado es arrojado en el icono de bandeja.
@@ -189,7 +189,7 @@ Configura la `image` asociada con este icono de bandeja.
 
 #### `tray.setPressedImage(image)` *macOS*
 
-* `image` [NativeImage](native-image.md)
+* `image` ([NativeImage](native-image.md) | String)
 
 En macOS, configura la `image` asociada con este icono de bandeja cuando se presiona.
 
