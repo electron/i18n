@@ -85,13 +85,13 @@ The `prepare-release` script will trigger the builds via API calls. To monitor t
 
 ## 릴리즈 노트 컴파일
 
-Writing release notes is a good way to keep yourself busy while the builds are running. For prior art, see existing releases on [the releases page](https://github.com/electron/electron/releases).
+릴리스 노트 작성은 빌드가 실행되는 동안 작업을 계속해서 유지하는 좋은 방법입니다. 또는 선행 기술의 경우, [릴리스 페이지](https://github.com/electron/electron/releases)의 기존 릴리스를 참조하십시오.
 
-Tips: - Each listed item should reference a PR on electron/electron, not an issue, nor a PR from another repo like libcc. - No need to use link markup when referencing PRs. Strings like `#123` will automatically be converted to links on github.com. - To see the version of Chromium, V8, and Node in every version of Electron, visit [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json).
+Tips: - Each listed item should reference a PR on electron/electron, not an issue, nor a PR from another repo like libcc. - No need to use link markup when referencing PRs. Strings like `#123` will automatically be converted to links on github.com. - Electron의 모든 버전에서 Chromium, V8 및 Node의 버전을 보려면 [atom.io/download/electron/index.json](https://atom.io/download/electron/index.json)을 방문하십시오.
 
 ### 패치 릴리즈
 
-For a `patch` release, use the following format:
+`패치` 릴리스의 경우 다음 형식을 사용하십시오.
 
 ```sh
 ## Bug Fixes
@@ -184,8 +184,8 @@ under the `beta` tag and can be installed via `npm install electron@beta`.
 
 1. Visit [the releases page](https://github.com/electron/electron/releases) and you'll see a new draft release with placeholder release notes.
 2. 릴리즈를 편집하고 릴리즈 노트를 추가하세요.
-3. Click 'Save draft'. **Do not click 'Publish release'!**
-4. Wait for all builds to pass before proceeding.
+3. 'Save draft' 를 클릭하세요. **'Publish release' 를 누르면 안됩니다!**
+4. 모든 빌드가 통과할 때 까지 기다리세요.
 5. In the branch, verify that the release's files have been created:
 
 ```sh
@@ -194,7 +194,7 @@ $ npm run release -- --validateRelease
 
 Note, if you need to run `--validateRelease` more than once to check the assets, run it as above the first time, then `node ./script/release.js --validateRelease` for subsequent calls so that you don't have to rebuild each time you want to check the assets.
 
-## Publish the release
+## 릴리즈 게시
 
 Once the merge has finished successfully, run the `release` script via `npm run release` to finish the release process. This script will do the following: 1. Build the project to validate that the correct version number is being released. 2. Download the binaries and generate the node headers and the .lib linker used on Windows by node-gyp to build native modules. 3. Create and upload the SHASUMS files stored on S3 for the node files. 4. Create and upload the SHASUMS256.txt file stored on the GitHub release. 5. Validate that all of the required files are present on GitHub and S3 and have the correct checksums as specified in the SHASUMS files. 6. Publish the release on GitHub
 
