@@ -9,7 +9,6 @@ nav:
   donors: Người ủng hộ
   languages: Ngôn ngữ
   releases: Các phiên bản phát hành
-  search: Tìm kiếm
   userland: Không gian người dùng
 docs:
   title: Tài liệu Electron
@@ -155,8 +154,3 @@ pages:
     title: Người ủng hộ
 _404:
   page_not_found: Không tìm thấy trang.
-search:
-  description_all: Tìm tài nguyên Electron từ <a href="/search/docs">tài liệu hướng dẫn</a>, <a href="/search/npmPackages"> các gói npm</a>, và <a href="/search/repos"> các repo trên GitHub</a>.
-  description_docs: Tìm tài nguyên Electron từ tài liệu.
-  description_npm: Tìm tài nguyên Electron từ các gói npm.
-  description_repos: Tìm tài nguyên Electron từ các repo trên GitHub.
