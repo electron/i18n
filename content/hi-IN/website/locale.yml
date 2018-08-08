@@ -9,7 +9,6 @@ nav:
   donors: दाताओं
   languages: भाषायें
   releases: रिलीज़स
-  search: खोजें
   userland: यूजरलैंड
 docs:
   title: इलेक्ट्रान दस्तावेज़ीकरण
@@ -155,8 +154,3 @@ pages:
     title: दाताओं
 _404:
   page_not_found: पेज नहीं मिला
-search:
-  description_all: <a href="/search/docs">दस्तावेज़ीकरण </a>, <a href="/search/npmPackages">नपम पैकेजेस</a>, और <a href="/search/repos">गिटहब रेपो</a> से इलेक्ट्रॉन संसाधनों का पता लगाएं ।
-  description_docs: दस्तावेज़ीकरण से इलेक्ट्रॉन संसाधनों का पता लगाएं ।
-  description_npm: नपम पैकेजेस से इलेक्ट्रॉन संसाधनों का पता लगाएं ।
-  description_repos: गिटहब रेपो से इलेक्ट्रॉन संसाधनों का पता लगाएं ।
