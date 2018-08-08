@@ -4,7 +4,7 @@ Follow the guidelines below for building Electron with the experimental GN build
 
 > **NOTE**: The GN build system is in *experimental* status, and currently only works on macOS, Linux and Windows.
 
-## Prerequisites
+## المتطلبات الأساسية
 
 Check the build prerequisites for your platform before proceeding
 
