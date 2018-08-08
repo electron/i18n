@@ -43,7 +43,7 @@ Electron
 ├── native_mate/ - A fork of Chromium's gin library that makes it easier to marshal
 |                  types between C++ and JavaScript.
 ├── spec/ - Automatic tests.
-├── electron.gyp - Building rules of Electron.
+├── electron.gyp - normas de construcción del Electron.
 └── common.gypi - Compiler specific settings and building rules for other
                   components like `node` and `breakpad`.
 ```
