@@ -20,7 +20,7 @@ Electron 运行 `package.json` 的 `main` 脚本的进程被称为**主进程**�
 
 > #### 题外话：进程间通讯
 > 
-> 在 Electron 中, 我们有几种方法可以在主进程和渲染进程之间进行通信。 例如使用[`ipcRenderer`](../api/ipc-renderer.md)和[`ipcMain`](../api/ipc-main.md)模块发送消息，或使用[remote](../api/remote.md)模块进行 RPC 方式的通信。 这里也有一个常见问题解答：[web页面间如何共享数据](../faq.md#how-to-share-data-between-web-pages)。
+> In Electron, we have several ways to communicate between the main process and renderer processes, such as [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
 
 ## 使用Electron的API
 
