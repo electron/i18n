@@ -2,13 +2,27 @@
 
 Siga las pautas a continuación para compilar Electron con el compilador GN experimental.
 
-> **NOTA**: El sistema de compilación GN está en estado *experimental*, y actualmente solo funciona en macOS y Linux, en modo debug, tratándose como un compilador de componentes.
+> **NOTE**: The GN build system is in *experimental* status, and currently only works on macOS, Linux and Windows.
 
 ## Pre-requisitos
 
-Ver las instrucciones de compilación de [ macOS ](build-instructions-osx.md#prerequisites) o [ Linux ](build-instructions-linux.md#prerequisites) según su plataforma. Además, necesitarás instalar [` depot_tools `](http://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up), el conjunto de herramientas utilizado para enlazar Chromium y su dependencias.
+Check the build prerequisites for your platform before proceeding
 
-## Obteniendo el código
+- [macOS](build-instructions-osx.md#prerequisites)
+- [Linux](build-instructions-linux.md#prerequisites)
+- [Windows](build-instructions-windows.md#prerequisites)
+
+## Install `depot_tools`
+
+You'll need to install [`depot_tools`](http://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up), the toolset used for fetching Chromium and its dependencies.
+
+Also, on windows open:
+
+`Control Panel → System and Security → System → Advanced system settings`
+
+and add a system variable `DEPOT_TOOLS_WIN_TOOLCHAIN` with value `0`. This tells `depot_tools` to use your locally installed version of Visual Studio (by default, `depot_tools` will try to use a google-internal version).
+
+## Obteniendo Código
 
 ```sh
 $ mkdir electron-gn && cd electron-gn
@@ -30,13 +44,24 @@ $ gclient sync --with_branch_heads --with_tags
 ```sh
 $ cd src
 $ export CHROMIUM_BUILDTOOLS_PATH=`pwd`/buildtools
-$ gn gen out/Default --args='root_extra_deps=["//electron"] is_electron_build=true is_component_build=true use_jumbo_build=true v8_promise_internal_field_count=1 v8_typed_array_max_size_in_heap=0'
+$ gn gen out/Default --args='import("//electron/build/args/debug.gn")'
 ```
 
-Esto generará todos los archivos ninja necesarios para la compilación. No deberías tener que ejecutar ` gn gen ` nuevamente; si deseas cambiar los argumentos de compilación, puedes ejecutar ` gn
-args out / Default ` para mostrar un editor.
+This will generate a build directory `out/Default` under `src/` with debug build configuration. You can replace `Default` with another name, but it should be a subdirectory of `out`. Also, to know the list of available configuration options, run `gn args out/Default --list`. Also you shouldn't have to run `gn gen` again—if you want to change the build arguments, you can run `gn args out/Default` to bring up an editor.
 
-Para compilar, ejecute ` ninja ` con el enfoque` electron: electron_app `:
+**For generating Debug/Component build config of Electron:**
+
+```sh
+$ gn gen out/Default --args='import("//electron/build/args/debug.gn")'
+```
+
+**For generating Release/Non-Component build config of Electron:**
+
+```sh
+$ gn gen out/Default --args='import("//electron/build/args/release.gn")'
+```
+
+**Para compilar, ejecute ` ninja ` con el enfoque` electron: electron_app `:**
 
 ```sh
 $ ninja -C out/Default electron:electron_app
@@ -55,12 +80,24 @@ $ ./out/Default/Electron.app/Contents/MacOS/Electron
 $ ./out/Default/electron
 ```
 
-## Verificación
+### Cross-compiling
 
-Para ejecutar las pruebas, primero deberás compilar los módulos de prueba en la misma versión de node.js en la que se creó el proceso de compilación.
+To compile for a platform that isn't the same as the one you're building on, set the `target_cpu` GN argument. For example, to compile a windows x86 target from an x64 host, specify `target_cpu = "x86"` in `gn args`.
 
 ```sh
-$ (cd electron/spec && npm i --nodedir=../../third_party/electron_node)
+$ gn gen out/Default-x86 --args='... target_cpu = "x86"'
+```
+
+Not all combinations of source and target CPU/OS are supported by Chromium. Only cross-compiling Windows 32-bit from Windows 64-bit has been tested in Electron. If you test other combinations and find them to work, please update this document :)
+
+## Verificación
+
+To run the tests, you'll first need to build the test modules against the same version of Node.js that was built as part of the build process. To generate build headers for the modules to compile against, run the following under `src/` directory.
+
+```sh
+$ ninja -C out/Default electron/build/node:headers
+# Install the test modules with the generated headers
+$ (cd electron/spec && npm i --nodedir=../../out/Default/gen/node_headers)
 ```
 
 Luego, ejecuta Electron con `electron/spec` como el argumento:
