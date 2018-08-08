@@ -114,7 +114,7 @@ Creando un tenedor personalizado de Electron seguramente no es algo que tendrá 
 * Cree un nuevo depósito S3 y cree la siguiente estructura de directorio vacía:
     
     ```sh
-    - atom-shell/
+    - electron/
       - symbols/
       - dist/
     ```
@@ -122,7 +122,7 @@ Creando un tenedor personalizado de Electron seguramente no es algo que tendrá 
 * Establezca las siguientes variables de entorno:</ol> 
 
 * `ELECTRON_GITHUB_TOKEN` - Un token que puede crear versiones en GitHub
-* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - el lugar donde se cargan tanto encabezados node.js como símbolos
+* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload Node.js headers as well as symbols
 * `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will do CI-type checks, appropriate to run for every pull request.
 * `CI` - Configurar a `true` o algo distinto hará que falle
 * `GITHUB_TOKEN` - configurarlo como `ELECTRON_GITHUB_TOKEN`
