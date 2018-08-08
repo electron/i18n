@@ -2,6 +2,8 @@
 
 Jika Anda mengalami crash atau masalah di Electron yang Anda percaya tidak disebabkan oleh Anda JavaScript aplikasi, melainkan oleh elektron itu sendiri, debugging bisa menjadi sedikit rumit, terutama untuk pengembang tidak digunakan untuk native / C ++ debugging. However, using Visual Studio, GitHub's hosted Electron Symbol Server, and the Electron source code, you can enable step-through debugging with breakpoints inside Electron's source code.
 
+**See also**: There's a wealth of information on debugging Chromium, much of which also applies to Electron, on the Chromium developers site: [Debugging Chromium on Windows](https://www.chromium.org/developers/how-tos/debugging-on-windows).
+
 ## Persyaratan
 
 * **Sebuah membangun debug Elektron**: Cara termudah biasanya membangun sendiri, menggunakan alat dan prasyarat yang tercantum dalam [membangun petunjuk untuk Windows](build-instructions-windows.md). While you can attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
@@ -12,7 +14,7 @@ Jika Anda mengalami crash atau masalah di Electron yang Anda percaya tidak diseb
 
 ## Melekat dan Debugging Electron
 
-Untuk memulai sesi debugging, membuka PowerShell / CMD dan melaksanakan debug membangun Anda Elektron , menggunakan aplikasi untuk membuka sebagai parameter.
+To start a debugging session, open up PowerShell/CMD and execute your debug build of Electron, using the application to open as a parameter.
 
 ```powershell
 $ ./out/D/electron.exe ~/my-electron-app/
@@ -20,24 +22,24 @@ $ ./out/D/electron.exe ~/my-electron-app/
 
 ### Pengaturan Breakpoints
 
-Kemudian, membuka Visual Studio. Elektron tidak dibangun dengan Visual Studio dan karenanya tidak berisi file project - namun Anda dapat membuka file kode sumber "Sebagai File", yang berarti bahwa Visual Studio akan membuka mereka sendiri. Anda masih dapat mengatur breakpoints - Visual Studio secara otomatis akan mengetahui bahwa kode sumber sesuai dengan kode yang berjalan dalam proses melekat dan istirahat sesuai.
+Then, open up Visual Studio. Electron is not built with Visual Studio and hence does not contain a project file - you can however open up the source code files "As File", meaning that Visual Studio will open them up by themselves. You can still set breakpoints - Visual Studio will automatically figure out that the source code matches the code running in the attached process and break accordingly.
 
 File kode yang relevan dapat ditemukan di `./atom/` serta dalam Brightray, ditemukan di `./brightray/browser` dan `./brightray/common`.
 
 ### melampirkan
 
-Anda dapat melampirkan Visual Studio debugger untuk proses yang berjalan pada lokal komputer atau remote. Setelah proses ini berjalan, klik Debug / Lampirkan untuk Proses (atau tekan `CTRL+ALT+P`) untuk membuka "Lampirkan untuk Proses" kotak dialog. Anda dapat menggunakan kemampuan ini untuk debug aplikasi yang berjalan pada lokal komputer atau remote, beberapa proses men-debug secara bersamaan.
+You can attach the Visual Studio debugger to a running process on a local or remote computer. After the process is running, click Debug / Attach to Process (or press `CTRL+ALT+P`) to open the "Attach to Process" dialog box. You can use this capability to debug apps that are running on a local or remote computer, debug multiple processes simultaneously.
 
-Jika Elektron berjalan di bawah account pengguna yang berbeda, pilih `Tampilkan proses dari semua pengguna` kotak centang. Perhatikan bahwa tergantung pada berapa banyak BrowserWindows aplikasi dibuka, Anda akan melihat beberapa proses. Sebuah aplikasi satu-jendela khas akan menghasilkan Visual Studio menyajikan Anda dengan dua `Electron.exe` entri - satu untuk proses utama dan satu untuk proses penyaji. Karena daftar hanya memberikan nama, saat ini tidak ada cara yang dapat diandalkan untuk mencari tahu yang mana.
+If Electron is running under a different user account, select the `Show processes from all users` check box. Notice that depending on how many BrowserWindows your app opened, you will see multiple processes. A typical one-window app will result in Visual Studio presenting you with two `Electron.exe` entries - one for the main process and one for the renderer process. Since the list only gives you names, there's currently no reliable way of figuring out which is which.
 
 ### Proses Yang Harus Saya Lampirkan ke?
 
-Kode dieksekusi dalam proses utama (yaitu, kode yang ditemukan di atau akhirnya dijalankan oleh utama Anda JavaScript file) serta kode yang disebut menggunakan remote (`require('electron').remote`) akan dijalankan di dalam proses utama, sementara kode lainnya akan mengeksekusi dalam proses penyaji masing-masing.
+Code executed within the main process (that is, code found in or eventually run by your main JavaScript file) as well as code called using the remote (`require('electron').remote`) will run inside the main process, while other code will execute inside its respective renderer process.
 
-Anda dapat dilampirkan ke beberapa program ketika Anda debugging, tetapi hanya satu program yang aktif di debugger setiap saat. Anda dapat mengatur program aktif dalam `Debug Lokasi` toolbar atau `Proses window`.
+You can be attached to multiple programs when you are debugging, but only one program is active in the debugger at any time. You can set the active program in the `Debug Location` toolbar or the `Processes window`.
 
 ## Menggunakan ProcMon untuk Amati Proses sebuah
 
-Sementara Visual Studio fantastis untuk memeriksa jalur kode tertentu, kekuatan ProcMon adalah benar-benar dalam mengamati segala aplikasi Anda lakukan dengan sistem operasi - menangkap File, Registry, Jaringan, Proses, dan rincian Profiling proses. Ia mencoba untuk log **all** peristiwa yang terjadi dan dapat cukup besar, tetapi jika Anda berusaha untuk memahami apa dan bagaimana aplikasi Anda lakukan untuk sistem operasi, dapat menjadi sumber daya berharga.
+While Visual Studio is fantastic for inspecting specific code paths, ProcMon's strength is really in observing everything your application is doing with the operating system - it captures File, Registry, Network, Process, and Profiling details of processes. It attempts to log **all** events occurring and can be quite overwhelming, but if you seek to understand what and how your application is doing to the operating system, it can be a valuable resource.
 
-Untuk pengenalan dasar dan lanjutan fitur debugging ProcMon ini, pergi memeriksa [ini video tutorial](https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor) disediakan oleh Microsoft.
+For an introduction to ProcMon's basic and advanced debugging features, go check out [this video tutorial](https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor) provided by Microsoft.
