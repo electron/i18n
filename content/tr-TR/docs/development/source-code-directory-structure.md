@@ -40,8 +40,8 @@ Kaynak kodu daha iyi anlamak için [krom'ın çok süreç mimarisi](https://dev.
 |       └── API / - Javascript API uygulama.
 ├── native_mate/ - A fork of Chromium's gin library that makes it easier to marshal
 |                  types between C++ and JavaScript.
-├── spec/ - Automatic tests.
-├── electron.gyp - Building rules of Electron.
+├── spec / - otomatik testler.
+├── electron.gyp - elektron yapı kuralları.
 └── common.gypi - Compiler specific settings and building rules for other
                   components like `node` and `breakpad`.
 ```
