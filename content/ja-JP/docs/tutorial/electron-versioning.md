@@ -48,7 +48,7 @@ git のブランチ動作の仕組み、npm のタグ付けの仕組み、開発
 | Node.js のメジャーバージョン更新    | Node.js のマイナーバージョン更新      | Node.js のパッチバージョン更新 |
 | Chromium のバージョン更新       |                           | Chromium パッチの修正関連   |
 
-ほとんどの Chromium の更新は互換性を破るとみなされることに注意してください。 バックポート可能な修正は、パッチとして cherry-pick される可能性が高いです。
+Note that most Chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
 
 # 安定ブランチ
 
@@ -128,13 +128,13 @@ We reconcile flagged code with our versioning strategy as follows:
 
 We seek to increase clarity at all levels of the update and releases process. Starting with `2.0.0` we will require pull requests adhere to the [Conventional Commits](https://conventionalcommits.org/) spec, which can be summarized as follows:
 
-- Commits that would result in a semver **major** bump must start with `BREAKING CHANGE:`.
+- Commits that would result in a semver **major** bump must start their body with `BREAKING CHANGE:`.
 - Commits that would result in a semver **minor** bump must start with `feat:`.
 - Commits that would result in a semver **patch** bump must start with `fix:`.
 
 - We allow squashing of commits, provided that the squashed message adheres the the above message format.
 
-- It is acceptable for some commits in a pull request to not include a semantic prefix, as long as a later commit in the same pull request contains a meaningful encompassing semantic message.
+- It is acceptable for some commits in a pull request to not include a semantic prefix, as long as the pull request title contains a meaningful encompassing semantic message.
 
 # Versionless `master`
 
