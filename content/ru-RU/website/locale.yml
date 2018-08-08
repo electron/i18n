@@ -9,7 +9,6 @@ nav:
   donors: Спонсоры
   languages: Языки
   releases: Релизы
-  search: Поиск
   userland: Пользовательское пространство
 docs:
   title: Документация Electron
@@ -155,8 +154,3 @@ pages:
     title: Спонсоры
 _404:
   page_not_found: Страница не найдена.
-search:
-  description_all: Найти ресурсы Electron из <a href="/search/docs"> документации</a>, <a href="/search/npmPackages"> npm пакетов</a> и <a href="/search/repos"> GitHub репозиториев</a>.
-  description_docs: Найти ресурсы Electron из документации.
-  description_npm: Найти ресурсы Electron из npm пакетов.
-  description_repos: Найти ресурсы Electron из GitHub репозиториев.
