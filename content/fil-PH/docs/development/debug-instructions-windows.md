@@ -14,7 +14,7 @@ Kung ikaw ay nakararanas ng mga pag-crash o may nagaganap na di tama sa Electron
 
 ## Pagkakabit at Pagde-debug sa Electron
 
-To start a debugging session, open up PowerShell/CMD and execute your debug build of Electron, using the application to open as a parameter.
+Sa pagsisimula ng debugging session, buksan ang PowerShell/CMD at paganahin ang debug na gawa ng Electron gamit ang application upang magbukas ito bilang parameter.
 
 ```powershell
 $ ./out/D/electron.exe ~/my-electron-app/
@@ -22,24 +22,24 @@ $ ./out/D/electron.exe ~/my-electron-app/
 
 ### Pagtatakda ng mga Breakpoint
 
-Then, open up Visual Studio. Electron is not built with Visual Studio and hence does not contain a project file - you can however open up the source code files "As File", meaning that Visual Studio will open them up by themselves. You can still set breakpoints - Visual Studio will automatically figure out that the source code matches the code running in the attached process and break accordingly.
+Buksan ang Visual Studio. Ang Electron ay di gawa gamit ang Visual Studio kung kaya naman ito ay di naglalaman ng project file - ganoon pa man, ikaw ay maaaring magbukas ng source code files bilang "As File", ibig sabihin ang Visual Studio ay magbubukas lamang gamit ang kanyang sarili. Maaari ka pa ring magtakda ng mga breakpoint - ang Visual Studio ay kusang hahanap ng source code na tutugma sa code running ayon sa attached process at break nito.
 
 Ang mga may kaugnayang mga code file ay matatagpuan sa `./atom/` pati na rin sa Brightray na matatagpuan sa `./brightray/browser` at `./brightray/common`.
 
 ### Pagkakabit (Attaching)
 
-You can attach the Visual Studio debugger to a running process on a local or remote computer. After the process is running, click Debug / Attach to Process (or press `CTRL+ALT+P`) to open the "Attach to Process" dialog box. You can use this capability to debug apps that are running on a local or remote computer, debug multiple processes simultaneously.
+Maaari mong ikabit ang Visual Studio debugger sa running process sa lokal o remote computer. Matapos paganahin ang process, pindutin ang Debug / Attach to Process (o pindutin ang `CTRL+ALT+P`) para mabuksan ang "Attach to Process" na dialog box. Maaaring kakayahang ito para ma-debug ang mga apps na gumagana sa lokal o remote computer, pagsabay-sabaying i-debug ang lahat na nagpo-proseso.
 
-If Electron is running under a different user account, select the `Show processes from all users` check box. Notice that depending on how many BrowserWindows your app opened, you will see multiple processes. A typical one-window app will result in Visual Studio presenting you with two `Electron.exe` entries - one for the main process and one for the renderer process. Since the list only gives you names, there's currently no reliable way of figuring out which is which.
+Kung ang Electron ay gumagana sa ilalim ng iba't-ibang user account, piliin ang check box na `Show processes from all users`. Nakadepende sa dami ng BrowserWindows ang nakabukas na app, makikita mo ang karamihan sa mga nagpo-proseso. Ang karaniwang one-window app ay magreresulta sa Visual Studio na nagpapakita ng dalawang entry na `Electron.exe` - isa para sa main process at isa para sa renderer process. Sa kasalukuyan, walang ibang paraan upang malaman ang pagkakaiba dahil mga pangalan lang ang ibinibigay sa listahan.
 
 ### Alin sa mga proseso ang dapat ikabit?
 
-Code executed within the main process (that is, code found in or eventually run by your main JavaScript file) as well as code called using the remote (`require('electron').remote`) will run inside the main process, while other code will execute inside its respective renderer process.
+Maipapalabas ang code sa loob ng main process ( ito ay ang code na matatagpuan o sa kalaunan ay mapapagana gamit ang file ng main JavaScript) tulad ng code na tinatawag na gamit ang remote (`require('electron').remote`) na gagana sa loob ng main process habang ang isang code naman ay gagana sa loob ng renderer process.
 
-You can be attached to multiple programs when you are debugging, but only one program is active in the debugger at any time. You can set the active program in the `Debug Location` toolbar or the `Processes window`.
+Ito ay maaaring ikabit sa karamihan ng programs kapag isinasagawa ang debugging, ngunit para sa anumang oras, isang program lang ang maaaring gumana sa debugger. Maaaring itakda ang program na gumagana sa toolbar na `Debug Location` o ang `Processes window`.
 
 ## Pagmasdan ang Proseso Gamit ang ProcMon
 
-While Visual Studio is fantastic for inspecting specific code paths, ProcMon's strength is really in observing everything your application is doing with the operating system - it captures File, Registry, Network, Process, and Profiling details of processes. It attempts to log **all** events occurring and can be quite overwhelming, but if you seek to understand what and how your application is doing to the operating system, it can be a valuable resource.
+Kung ang Visual Studio ang pinakamagandang gamitin upang siyasatin ang code paths, ang ProcMon naman ang pinakamagandang gamitin upang maobserbahan ang lahat ginagawa ng iyong application gamit ang operating system - ito ay kumukuha ng File, Registry, Network, Process at Profiling details ng processes. Ito ay sinusubukang mag-log **all** ng mga nangyayari at maaaring ito ay maging hindi madali, ngunit kung pag-aaralan ng mabuti kung ano at paano ang iyong application ay gumagana sa operating system, ito ay maaaring maging mahalagang pinagkukunan.
 
-For an introduction to ProcMon's basic and advanced debugging features, go check out [this video tutorial](https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor) provided by Microsoft.
+Para sa panimula ng pundasyon ng ProcMon at advanced debugging features nito, puntahan at tingnan ang [this video tutorial](https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor) na gawa ng Microsoft.
