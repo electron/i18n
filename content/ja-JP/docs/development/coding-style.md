@@ -30,7 +30,7 @@ C++ コードは多くの Chromium の抽象クラスと型を使用している
 
 ## ドキュメント
 
-* [remark](https://github.com/remarkjs/remark) のマークダウン形式で記述します
+* [remark](https://github.com/remarkjs/remark) のマークダウン形式で記述します.
 
 `npm run lint-docs` を実行して、ドキュメントの変更が正しくフォーマットされていることを確認できます。
 
