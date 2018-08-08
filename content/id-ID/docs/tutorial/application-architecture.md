@@ -53,7 +53,7 @@ const { BrowserWindow } = remote
 const win = new BrowserWindow()
 ```
 
-## Using Node.js APIs
+## Menggunakan API Node.js
 
 Electron exposes full access to Node.js both in the main and the renderer process. This has two important implications:
 
