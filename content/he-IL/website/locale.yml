@@ -9,7 +9,6 @@ nav:
   donors: תורמים
   languages: שפות
   releases: הפצות
-  search: חיפוש
   userland: Userland
 docs:
   title: תיעוד Electron
@@ -155,8 +154,3 @@ pages:
     title: תורמים
 _404:
   page_not_found: הדף לא נמצא.
-search:
-  description_all: חפש משאבים בתיעוד <a href="/search/docs"></a>, <a href="/search/npmPackages">npm בחבילות</a>וב- <a href="/search/repos">GitHub repos</a>.
-  description_docs: חפש משאבים בתיעוד.
-  description_npm: חפש משאבים בחבילות npm.
-  description_repos: חפש משאבים ב-GitHub.
