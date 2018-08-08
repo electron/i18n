@@ -112,7 +112,7 @@ MyApp.app/Contents
 2. Создайте новый S3 bucket и создайте следующую структуру пустых каталогов:
     
     ```sh
-    - atom-shell/
+    - electron/
       - symbols/
       - dist/
     ```
@@ -120,7 +120,7 @@ MyApp.app/Contents
 3. Установите следующие переменные среды:
 
 * `ELECTRON_GITHUB_TOKEN` - токен, который может создавать релизы на GitHub
-* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - место, куда вы будете отправлять node.js заголовки, а также символы
+* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload Node.js headers as well as symbols
 * `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will do CI-type checks, appropriate to run for every pull request.
 * `CI` - установите в `true` или иначе произойдет сбой
 * `GITHUB_TOKEN` - установите его так же, как `ELECTRON_GITHUB_TOKEN`
