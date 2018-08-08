@@ -9,7 +9,9 @@ Kaynak kodu daha iyi anlamak için [krom'ın çok süreç mimarisi](https://dev.
 ```diff
 ├── atom/ - C++ kaynak kodu.
 |   ├── app / - Sistem giriş kodu.
-|   ├── tarayıcı / - ana penceresinde, kullanıcı Arabirimi ve tüm dahil önyüz |   |   ana süreç işler. Bu web sayfaları yönetmek için Oluşturucu için görüşmeler.
+|   ├── browser/ - The frontend including the main window, UI, and all of the
+|   |   |          main process things. This talks to the renderer to manage web
+|   |   |          pages.
 |   |   ├── UI / - UI uygulama şeyler farklı platformlar için.
 |   |   |   ├── kakao / - kakao özel kaynak kodu.
 |   |   |   ├── win/ - Windows GUI özel kaynak kodu.
@@ -20,11 +22,15 @@ Kaynak kodu daha iyi anlamak için [krom'ın çok süreç mimarisi](https://dev.
 |   |   └── kaynakları / - simgeler, platforma bağımlı dosyaları, vb.
 |   ├── Oluşturucu / - kod Oluşturucu işlemi o çalışır.
 |   |   └── API / - işleyici uygulanması süreç API'leri.
-|   └── ortak / - ana ve işleyici işlemler tarafından kullanılan kod |       bazı yardımcı programı işlevleri ve düğümün mesaj tümleştirmek için kod da dahil olmak üzere |       Krom'ın ileti döngüsü döngüsü.
-|       └── API / - ortak API'leri ve temelleri |           Elektron'ın dahili modülleri.
+|   └── common/ - Code that used by both the main and renderer processes,
+|       |         including some utility functions and code to integrate node's
+|       |         message loop into Chromium's message loop.
+|       └── api/ - The implementation of common APIs, and foundations of
+|                  Electron's built-in modules.
 ├── brightray/ - Thin shim over libcc that makes it easier to use.
 ├── chromium_src / - kaynak kodu krom kopyalanır. Aşağıya bakınız.
-├── default_app / - varsayılan sayfa olmadan elektron başladığında göstermek için |   bir app-mek şartıyla.
+├── default_app/ - The default page to show when Electron is started without
+|                  providing an app.
 ├── Dokümanlar / - belgeleri.
 ├── lib / - JavaScript kaynak kodu.
 |   ├── tarayıcı / - Javascript ana süreç başlatma kodu.
@@ -32,9 +38,12 @@ Kaynak kodu daha iyi anlamak için [krom'ın çok süreç mimarisi](https://dev.
 |   ├── ortak / - JavaScript kullanılan ana ve işleyici işlemler tarafından |   |   └── API / - Javascript API uygulama.
 |   └── Oluşturucu / - Javascript işleyici işlemi başlatma kodu.
 |       └── API / - Javascript API uygulama.
-├── spec / - otomatik testler.
-├── electron.gyp - elektron yapı kuralları.
-└── common.gypi - derleyici belirli ayarları ve diğer bileşenlerle 'düğümü' ve 'breakpad' gibi binanın kuralları.
+├── native_mate/ - A fork of Chromium's gin library that makes it easier to marshal
+|                  types between C++ and JavaScript.
+├── spec/ - Automatic tests.
+├── electron.gyp - Building rules of Electron.
+└── common.gypi - Compiler specific settings and building rules for other
+                  components like `node` and `breakpad`.
 ```
 
 ## `/chromium_src`
