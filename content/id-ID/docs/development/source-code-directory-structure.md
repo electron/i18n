@@ -10,8 +10,9 @@ Anda mungkin perlu terbiasa dengan [multi-proses Chromium's arsitektur](https://
 Electron
 ├── atom/ - C++ sumber kode.
 |   ├── app / - Sistem daftar kode.
-|   ├── browser/ -  Frontend termasuk jendela utama, UI, dan semua
-|   |   hal proses utama. Ini berbicara kepada renderer untuk mengelola halaman web.
+|   ├── browser/ - The frontend including the main window, UI, and all of the
+|   |   |          main process things. This talks to the renderer to manage web
+|   |   |          pages.
 |   |   ├── ui/ - Implementasi barang UI untuk platform yang berbeda.
 |   |   |   ├── cocoa/ - Kode sumber spesifik kakao.
 |   |   |   ├── win/ - Windows GUI sumber kode spesifik.
@@ -22,15 +23,15 @@ Electron
 |   |   └── resources/ - Ikon, file yang bergantung pada platform, dll.
 |   ├── renderer/ - Kode yang berjalan dalam proses renderer.
 |   |   └── api/ - Implementasi proses renderer APIs.
-|   └── common/ - Kode yang digunakan oleh proses utama dan renderer,
-|       termasuk beberapa fungsi utilitas dan kode untuk mengintegrasikan pesan node
-|       loop ke loop pesan Chromium.
-|       └── api/ - Pelaksanaan API umum, dan yayasan
-|           Modul built-in Electron.
+|   └── common/ - Code that used by both the main and renderer processes,
+|       |         including some utility functions and code to integrate node's
+|       |         message loop into Chromium's message loop.
+|       └── api/ - The implementation of common APIs, and foundations of
+|                  Electron's built-in modules.
 ├── brightray / - Thin shim over libcc yang membuatnya lebih mudah digunakan.
 ├── chromium_src / - Sumber kode disalin dari Chromium. Lihat di bawah.
-├── default_app / - Halaman default untuk ditampilkan saat Electron dimulai tanpa
-|   menyediakan sebuah aplikasi.
+├── default_app/ - The default page to show when Electron is started without
+|                  providing an app.
 ├── docs/ - Dokumentasi.
 ├── lib/ - Sumber kode JavaScript.
 |   ├── browser/ - kode inisialisasi proses utama javascript.
@@ -39,10 +40,12 @@ Electron
 |   |   └── api/ - Implementasi API Javascript.
 |   └── renderer/ - Kode inisialisasi proses renderer utama javascript.
 |       └── api/ - Implementasi API Javascript.
-├── spec / - tes otomatis.
-├── electron.gyp - Aturan pembangunan electron.
-└── common.gypi - Pengaturan spesifik Compiler dan aturan bangunan untuk lainnya
-     komponen seperti `node` dan` breakpad`.
+├── native_mate/ - A fork of Chromium's gin library that makes it easier to marshal
+|                  types between C++ and JavaScript.
+├── spec/ - Automatic tests.
+├── electron.gyp - Building rules of Electron.
+└── common.gypi - Compiler specific settings and building rules for other
+                  components like `node` and `breakpad`.
 ```
 
 ## `/chromium_src`
