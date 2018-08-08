@@ -189,7 +189,7 @@ Sets the `image` associated with this tray icon.
 
 #### `tray.setPressedImage(image)` *macOS*
 
-* `image` [NativeImage](native-image.md)
+* `immagine` ([ImmagineNativa](native-image.md) | Stringa)
 
 Sets the `image` associated with this tray icon when pressed on macOS.
 
