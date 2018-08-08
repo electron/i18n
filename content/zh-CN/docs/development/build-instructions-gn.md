@@ -61,22 +61,22 @@ $ gn gen out/Default --args='import("//electron/build/args/debug.gn")'
 $ gn gen out/Default --args='import("//electron/build/args/release.gn")'
 ```
 
-**To build, run `ninja` with the `electron:electron_app` target:**
+**想要构建`electron:electron_app`项目，可以按照下面的方式运行`ninja`命令：**
 
 ```sh
 $ ninja -C out/Default electron:electron_app
-# This will also take a while and probably heat up your lap.
+# 这个过程也比较费时，而且运行成本可能比较高
 ```
 
-This will build all of what was previously 'libchromiumcontent' (i.e. the `content/` directory of `chromium` and its dependencies, incl. WebKit and V8), so it will take a while.
+这个过程会构建 'libchromiumcontent' 里的所有内容，(如` chromium`中的`content`，及其依赖（包括Webkit 和 V8）)。因此，这个构建过程会比较费时。
 
-To speed up subsequent builds, you can use [sccache](https://github.com/mozilla/sccache). Add the GN arg `cc_wrapper="sccache"` by running `gn args out/Default` to bring up an editor.
+你可以使用[sccache](https://github.com/mozilla/sccache)命令来提高后面的构建过程。 你可以通过运行`gn args out/Default`命令，把这个GN参数`cc_wrapper="sccache"`带入编辑器。
 
-The built executable will be under `./out/Default`:
+构建需要在`./out/Default`文件下执行：
 
 ```sh
 $ ./out/Default/Electron.app/Contents/MacOS/Electron
-# or, on Linux
+# Linux机下
 $ ./out/Default/electron
 ```
 
@@ -100,13 +100,13 @@ $ ninja -C out/Default electron/build/node:headers
 $ (cd electron/spec && npm i --nodedir=../../out/Default/gen/node_headers)
 ```
 
-Then, run Electron with `electron/spec` as the argument:
+接着，通过`electron/spec`命令来运行Electron：
 
 ```sh
 $ ./out/Default/Electron.app/Contents/MacOS/Electron electron/spec
 ```
 
-If you're debugging something, it can be helpful to pass some extra flags to the Electron binary:
+可以通过增加其它标记来调试程序，例如：
 
 ```sh
 $ ./out/Default/Electron.app/Contents/MacOS/Electron electron/spec \
