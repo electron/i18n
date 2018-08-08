@@ -48,7 +48,7 @@ Berikut adalah tabel yang secara eksplisit memetakan jenis perubahan pada katego
 | Node.js major version updates  | Node.js minor version updates       | Node.js patch version updates     |
 | Pembaruan versi kromium        |                                     | memperbaiki kromium terkait patch |
 
-Perhatikan bahwa kebanyakan update kromium akan dianggap melanggar. Perbaikan yang bisa di-backport kemungkinan akan dipilih ceri sebagai tambalan.
+Note that most Chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
 
 # Cabang Stabilisasi
 
@@ -129,13 +129,13 @@ Kami mendamaikan kode yang ditandai dengan strategi versi kami sebagai berikut:
 
 Kami berusaha untuk meningkatkan kejelasan di semua tingkat proses update dan release. Dimulai dengan `2.0.0` kami akan meminta permintaan tarik sesuai dengan spesifikasi [Konvensional ](https://conventionalcommits.org/), yang dapat diringkas sebagai berikut:
 
-- Komitmen yang akan menghasilkan tiang utama **utama** harus dimulai dengan `BREAKING CHANGE:`.
+- Commits that would result in a semver **major** bump must start their body with `BREAKING CHANGE:`.
 - Komitmen yang akan menghasilkan titik semintang **minor** harus dimulai dengan `feat:`.
 - Perintah yang akan menghasilkan tambatan semver **patch** harus dimulai dengan `fix:`.
 
 - Kami mengizinkan meremas commit, asalkan berpegang pesan terjepit di atas format pesan.
 
-- Hal ini dapat diterima untuk beberapa commit dalam permintaan tarik untuk tidak memasukkan awalan semantik, asalkan komit kemudian dalam permintaan tarik sama berisi pesan semantik bermakna mencakup.
+- It is acceptable for some commits in a pull request to not include a semantic prefix, as long as the pull request title contains a meaningful encompassing semantic message.
 
 # Versionless `master`
 
