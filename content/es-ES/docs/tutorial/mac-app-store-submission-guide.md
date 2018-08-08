@@ -195,21 +195,11 @@ Vea la [documentación sobre la habilitación del acceso del usuario a archivos 
 
 Vea la [documentación sobre la habilitación del acceso del usuario a archivos seleccionados](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) para más información.
 
-## Problemas conocidos
+## Cryptographic Algorithms Used by Electron
 
-### `shell.openItem(filePath)`
+Depending on the country and region you are located, Mac App Store may require documenting the cryptographic algorithms used in your app, and even ask you to submit a copy of U.S. Encryption Registration (ERN) approval.
 
-Esto fallará cuando la aplicación sea firmada para distribución en la Mac App Store. Subscrita a [#9005](https://github.com/electron/electron/issues/9005) para actualizaciones.
-
-#### Soluciones
-
-`shell.openExternal('file://' + filePath)` Abrirá el archivo en la aplicación por defecto siempre y cuando la extensión esté asociada con la aplicación instalada.
-
-## Algoritmos criptográficos utilizados por Electron
-
-Dependiendo del país y región en el que se encuentre, la Mac App Store puede requerir la documentación de los algoritmo criptográficos en su aplicación, e incluso pedirle que presente una copia de la aprobación registro de encriptación de EEUU (ERN).
-
-Electron usa los siguientes algoritmos criptográficos:
+Electron uses following cryptographic algorithms:
 
 * AES - [NIST SP 800-38A](https://csrc.nist.gov/publications/nistpubs/800-38a/sp800-38a.pdf), [NIST SP 800-38D](https://csrc.nist.gov/publications/nistpubs/800-38D/SP-800-38D.pdf), [RFC 3394](https://www.ietf.org/rfc/rfc3394.txt)
 * HMAC - [FIPS 198-1](https://csrc.nist.gov/publications/fips/fips198-1/FIPS-198-1_final.pdf)
@@ -235,4 +225,4 @@ Electron usa los siguientes algoritmos criptográficos:
 * RC5 - http://people.csail.mit.edu/rivest/Rivest-rc5rev.pdf
 * RIPEMD - [ISO/IEC 10118-3](https://webstore.ansi.org/RecordDetail.aspx?sku=ISO%2FIEC%2010118-3:2004)
 
-Sobre como obtener la aprobación ERN, puede referenciar el artículo: [How to legally submit an app to Apple’s App Store when it uses encryption (or how to obtain an ERN)](https://carouselapps.com/2015/12/15/legally-submit-app-apples-app-store-uses-encryption-obtain-ern/).
+On how to get the ERN approval, you can reference the article: [How to legally submit an app to Apple’s App Store when it uses encryption (or how to obtain an ERN)](https://carouselapps.com/2015/12/15/legally-submit-app-apples-app-store-uses-encryption-obtain-ern/).
