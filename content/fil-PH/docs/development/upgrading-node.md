@@ -46,42 +46,19 @@ Kailangan natin bumuo ng patch file mula sa bawat patch na inilapat sa V8.
 2. Tumakbo `script/updatescript/update` para makakuha ng panibagong libcc 
   - Kinakailangan ito ng mahabang oras
 3. Tanggalin ang lumang kopya ng ating Node v8 patches 
-  - (Sa libchromiumcontent repo) Basahin ang `patches/v8/README.md` upang makita kung anong patchfiles ang nilikha sa nakaraang update
-  - Tanggalin lahat ng files mula sa `patches/v8/`: 
+  - (In libchromiumcontent repo) Read `patches/common/v8/README.md` to see which patchfiles were created during the last update
+  - Tanggalin lahat ng files mula sa `patches/common/v8/`: 
     - `git rm` ang patchfiles
-    - i-edit ang mga `patches/v8/README.md`
+    - edit `patches/common/v8/README.md`
     - isagawa lahat ng mga pagtatanggal
 4. Inspeksyunin ang Node [repo](https://github.com/electron/node) para makita kung anong patches upstream Node ang gumamit ng kanilang sariling V8 pagkatapos makasira ito sa bersyon 
-  - `git log --oneline deps/V8`
+  - `git log --oneline "deps/v8"`
 5. Gumawa ng listahan para sa patches. Ito ay nakakatulong para sa pagsubaybay sa iyong gawain at para may mabilis na kasanggunian ng commit hashes na magagamit sa `git diff-tree` mga hakbang na nasa ibaba.
-6. Basahin ang `patches/v8/README.md` para makita kung aling patchfiles galing sa nakaraang bersyon sa V8 at kinakailangang tanggalin. 
-  - Tanggalin bawat patchfile na binanggit sa `patches/v8/README.md`
-7. Para sa bawat patch, gawin ang mga sumusunod: 
-  - (Sa node repo) `git diff-tree --patch HASH > ~/path_to_libchromiumcontent/patches/v8/xxx-patch_name.patch` 
-    - `xxx` ay isang three-digit incremented na numero (para pilitin ang kaayusan ng patch)
-    - `patch_name` dapat ay maluwag na tugma sa node commit messages e.g. `030-cherry_pick_cc55747,patch` kung ang Node commit message ay "cherry-pick cc55747"
-  - (mga natitirang hakbang sa libchromium repo) Mano-manong i-edit ang `.patch` file para itugma sa upstream V8's direktoryo: 
-    - Kung ang diff na seksyon ay walang mga pagkakataon ng `deps/V8`, tanggalin ito lahat ng sabay. 
-      - Hindi natin kailangan yung mga patches na iyon kasi nagpa-patch lang tayo sa V8.
-    - Palitan ang mga pagkakataon ng `a/deps/v8/filename.ext` na may `a/filename.ext` 
-      - Ito'y kailangan dahil ang upstream Node ay nagpapanatili sa V8 file sa isang subdirectory
-  - Tiyakin na ang lokal na status ay malinis: `git status` upang tiyakin na walang unstaged na mga pagbabago.
-  - Kumpirmahin na ang patch ay angkop at malinis sa `script/patch.py -r src/V8 -p patches/v8/xxx-patch_name.patch.patch`
-  - Lumikha ng bagong kopya ng patch: 
-    - `cd src/v8 && git diff > ../../test.patch && cd ../..`
-    - Ito ay kailangan dahil ang unang patch ay may Node commit checksums na hindi natin kailangan
-  - Kumpirmahin na ang checksums lang ang tanging pinagkaiba ng dalawang patches: 
-    - `diff -u test.patch patches/v8/xxx-patch_name.patch`
-  - Palitan ang lumang patch ng bago: 
-    - `mv test.patch patches/v8/xxx-patch_name.patch`
-  - Ilagay ang patched code sa index *na walang* gumawa: 
-    - `cd src/v8 && git add . && cd ../..`
-    - Hindi natin kailangan gumawa ng pagbabago(naka-save sila sa patchfiles) pero kailangan sila locally para hindi magpakita ng kasunod na diffs habang nagi-iterate sa pamamagitan ng higit pang patches
-  - Ilagay ang patchfile sa index: 
-    - `git add a patches/v8/`
-  - (Opsyonal) gumawa ng back up sa bawat patch file para siguraduhin kung ikaw ay magkamali: 
-    - `git commit patches/v8/`
-8. I-update `patches/v8/README.md` kasama ang mga references sa lahat ng bagong patches na nailagay para malaman ng susunod na tao kung alin ang tatanggalin.
+6. Basahin ang `patches/common/v8/README.md` para makita kung aling patchfiles galing sa nakaraang bersyon sa V8 at kinakailangang tanggalin. 
+  - Delete each patchfile referenced in `patches/common/v8/README.md`
+7. Apply all patches with the [`get-patch` script](https://github.com/electron/libchromiumcontent/blob/master/script/README.md#get-patch): 
+  - `./script/get-patch --repo src/v8 --output-dir patches/v8 --commit abc123 def456 ...`
+8. Update `patches/common/v8/README.md` with references to all new patches that have been added so that the next person will know which need to be removed.
 9. I-update ang mga Elektron's submodule references: 
       sh
       $ cd electron/vendor/node
@@ -92,8 +69,8 @@ Kailangan natin bumuo ng patch file mula sa bawat patch na inilapat sa V8.
       electron/vendor/libchromiumcontent$ git checkout upgrade-to-chromium-X
       electron/vendor/libchromiumcontent$ cd ../..
       electron$ git add vendor
-      electron$ git commit -m "update submodule referefences for node and libc"
-      electron$ git pso upgrade-to-chromium-62
+      electron$ git commit -m "update submodule references for node and libcc"
+      electron$ git push origin upgrade-to-chromium-<VERSION>
       electron$ script/bootstrap.py -d
       electron$ script/build.py -c -D
 
