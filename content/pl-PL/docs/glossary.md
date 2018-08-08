@@ -102,9 +102,9 @@ Tak jak Node, Electron jest skupiony na posiadaniu małego zestawu interfejsów 
 
 ### V8
 
-V8 to silnik JavaScript typu open source Google'a. Napisany jest w C++ i używany jedynie w Google Chrome. V8 może działać samodzielnie, lub być osadzony w dowolnej aplikacji C++.
+V8 to otwarto-źródłowy silnik JavaScript od Google. Napisany jest w C++ i używany w Google Chrome. V8 może działać samodzielnie, lub być osadzony w dowolnej aplikacji C++.
 
-Electron buduje V8 jako część Chromium, a następnie wskazuje to V8 Node'owi podczas jego budowy.
+Electron buduje V8 jako część Chromium, a następnie wskazuje go Node'owi podczas jego budowy.
 
 Numery wersji V8 zawsze odpowiadają tym z Google Chrome. Chrome 59 zawiera V8 5.9, Chrome 58 obejmuje V8 5.8, itd.
 
