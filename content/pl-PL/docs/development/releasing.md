@@ -18,12 +18,12 @@ There are a handful of `*_TOKEN` environment variables needed by the release scr
 
 Once you've generated these tokens, put them in a `.env` file in the root directory of the project. This file is gitignored, and will be loaded into the environment by the release scripts.
 
-## Determine which branch to release from
+## Ustala, z której gałęzi wypuścić
 
 - **If releasing beta,** run the scripts below from `master`.
 - **If releasing a stable version,** run the scripts below from the branch you're stabilizing.
 
-## Find out what version change is needed
+## Dowiedz się jaka zmiana wersji jest potrzebna
 
 Run `npm run prepare-release -- --notesOnly` to view auto generated release notes. The notes generated should help you determine if this is a major, minor, patch, or beta version change. Read the [Version Change Rules](../tutorial/electron-versioning.md#semver) for more information.
 
