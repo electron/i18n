@@ -14,7 +14,7 @@ Se experimentar falhas ou problemas no Electron que acredita que não são causa
 
 ## Anexar e depurar o Electron
 
-To start a debugging session, open up PowerShell/CMD and execute your debug build of Electron, using the application to open as a parameter.
+Para iniciar uma sessão de depuração, abrá CMD/PowerShell e execute a sua compilação para depuração do Electron, usando o aplicativo para abrir como um parâmetro.
 
 ```powershell
 $ ./out/D/electron.exe ~/my-electron-app/
@@ -22,7 +22,7 @@ $ ./out/D/electron.exe ~/my-electron-app/
 
 ### Definir pontos de interrupção
 
-Then, open up Visual Studio. Electron is not built with Visual Studio and hence does not contain a project file - you can however open up the source code files "As File", meaning that Visual Studio will open them up by themselves. You can still set breakpoints - Visual Studio will automatically figure out that the source code matches the code running in the attached process and break accordingly.
+Em seguida, abra o Visual Studio. Electron is not built with Visual Studio and hence does not contain a project file - you can however open up the source code files "As File", meaning that Visual Studio will open them up by themselves. You can still set breakpoints - Visual Studio will automatically figure out that the source code matches the code running in the attached process and break accordingly.
 
 Relevant code files can be found in `./atom/` as well as in Brightray, found in `./brightray/browser` and `./brightray/common`.
 
