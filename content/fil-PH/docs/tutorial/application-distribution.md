@@ -112,15 +112,15 @@ Kailangan mong mag fork Electron kapag ikaw ay mag pasadyang C++ na kodigo na iy
 2. Gumawa ng bagong S3 bucket at gumawa ng sumusunod na walang laman na direktoryong istraktura:
     
     ```sh
-    - atom-shell/
-      - simbolo/
+    - electron/
+      - symbols/
       - dist/
     ```
 
 3. Itakda ang mga sumusunod na baryabol ng kapaligiran:
 
 * `ELECTRON_GITHUB_TOKEN` - ay isang token na maaring lumikha ng mga release sa GitHub
-* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - ang lugar kung saan maari kang mag-upload ng mga header sa node.js pati na rin ang mga simbolo
+* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload Node.js headers as well as symbols
 * `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will do CI-type checks, appropriate to run for every pull request.
 * `CI` - Itakda sa `tama` o kung hindi ito ay mabibigo
 * `GITHUB_TOKEN` - itakda ito sa kaparehong `ELECTRON_GITHUB_TOKEN`
