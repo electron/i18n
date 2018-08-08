@@ -50,7 +50,7 @@ Below is a table explicitly mapping types of changes to their corresponding cate
 
 Note that most Chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
 
-# Stabilization Branches
+# Stabilisatie branches
 
 Stabilization branches are branches that run parallel to master, taking in only cherry-picked commits that are related to security or stability. These branches are never merged back to master.
 
@@ -62,7 +62,7 @@ We allow for multiple stabilization branches to exist simultaneously, and intend
 
 Older lines will not be supported by GitHub, but other groups can take ownership and backport stability and security fixes on their own. We discourage this, but recognize that it makes life easier for many app developers.
 
-# Beta Releases and Bug Fixes
+# Beta Releases en Bug Fixes
 
 Developers want to know which releases are *safe* to use. Even seemingly innocent features can introduce regressions in complex applications. At the same time, locking to a fixed version is dangerous because you’re ignoring security patches and bug fixes that may have come out since your version. Our goal is to allow the following standard semver ranges in `package.json` :
 
