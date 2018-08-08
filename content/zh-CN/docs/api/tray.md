@@ -189,7 +189,7 @@ The `Tray` class has the following methods:
 
 #### `tray.setPressedImage(image)` *macOS*
 
-* `image` [NativeImage](native-image.md)
+* `image` ([NativeImage](native-image.md) | String)
 
 Sets the `image` associated with this tray icon when pressed on macOS.
 
