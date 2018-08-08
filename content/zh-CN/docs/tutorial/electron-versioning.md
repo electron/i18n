@@ -48,7 +48,7 @@ npm install --save-dev electron@latest
 | Node.js 重大版本更新      | Node.js 次要版本更新       | Node.js patch 版本更新 |
 | Chromium 版本更新       |                      | 修复相关的 chromium 补丁  |
 
-请注意，大多数 chromium 更新将被视为突破性更新。 可以被回溯的修复可能会被修补为修补程序。
+Note that most Chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
 
 # 稳定分支
 
@@ -128,13 +128,13 @@ GitHub不支持旧线路，但是其他分组可以自行获取所有权和返�
 
 我们力求在更新和发布过程的各个层面提高清晰度。 从 ` 2.0.0 ` 开始, 我们将要求遵循 [ 常规提交 ](https://conventionalcommits.org/) 规范的拉请求, 可以概括如下:
 
-- 提交会导致 semver **major** 必须以 `BREAKING CHANGE:` 开头。
+- Commits that would result in a semver **major** bump must start their body with `BREAKING CHANGE:`.
 - 提交会导致 semver **minor** 必须以 `feat:` 开头。
 - 提交会导致 semver ** patch ** 必须以 ` fix:` 开头。
 
 - 我们允许压缩提交，只要压缩的消息符合上述消息格式。
 
-- 只要稍后在相同的拉取请求中提交包含有意义的包含语义消息，拉取请求中的一些提交就不包括语义前缀是可接受的。
+- It is acceptable for some commits in a pull request to not include a semantic prefix, as long as the pull request title contains a meaningful encompassing semantic message.
 
 # 无版本的 `master`
 
