@@ -30,7 +30,7 @@ Il codice C ++ utilizza molte delle astrazioni e dei tipi di Chromium, quindi è
 
 ## Documentazione
 
-* Write [remark](https://github.com/remarkjs/remark) markdown style
+* Write [remark](https://github.com/remarkjs/remark) markdown style.
 
 You can run `npm run lint-docs` to ensure that your documentation changes are formatted correctly.
 
