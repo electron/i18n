@@ -4,7 +4,7 @@ Ang Elektron ay sumusuporta sa Pepper Flash plugin. Sa paggamit ng Pepper Flash 
 
 ## Maghanda ng Kopya ng Flash Plugin
 
-Sa macOS at Linux, ang mga detalye ng Pepper Flash plugin ay matatagpuan sa pamamagitan ng pag-navigate sa `chrome://plugins` sa Chrome browser. Itong lokasyon at bersyon ay mapapakinabangan para sa Electron's Pepper Flash support. Maaari mo ring kopyahin ito sa ibang lokasyon.
+On macOS and Linux, the details of the Pepper Flash plugin can be found by navigating to `chrome://flash` in the Chrome browser. Itong lokasyon at bersyon ay mapapakinabangan para sa Electron's Pepper Flash support. Maaari mo ring kopyahin ito sa ibang lokasyon.
 
 ## Dagdagan ng Electron Switch
 
