@@ -207,7 +207,7 @@ session
 
 ## 5) 不要禁用WebSecurity
 
-*Electron的默认值就是建议值。*
+*Electron的默认值即是建议值。*
 
 You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) disables crucial security features.
 
