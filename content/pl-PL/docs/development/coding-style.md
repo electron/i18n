@@ -31,7 +31,7 @@ Dla C++ i Pythona, podążamy za [stylem kodowania Chromium](https://www.chromiu
 <h2>Dokumentacja</h2>
 
 <ul>
-<li>Write <a href="https://github.com/remarkjs/remark">remark</a> markdown style</li>
+<li>Write <a href="https://github.com/remarkjs/remark">remark</a> markdown style.</li>
 </ul>
 
 <p>You can run <code>npm run lint-docs` to ensure that your documentation changes are formatted correctly.
