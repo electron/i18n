@@ -184,7 +184,7 @@ Nagseset sa `image` na may kaugnayan sa tray icon na ito.
 
 #### `tray.setPressedImage(image)` *macOS*
 
-* `image` [NativeImage](native-image.md)
+* `image` [NativeImage](native-image.md) (String)
 
 Nagseset sa `image`na may kaugnayan sa tray icon kapag pinindot ang macOS.
 
