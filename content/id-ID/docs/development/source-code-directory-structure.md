@@ -42,8 +42,8 @@ Electron
 |       └── api/ - Implementasi API Javascript.
 ├── native_mate/ - A fork of Chromium's gin library that makes it easier to marshal
 |                  types between C++ and JavaScript.
-├── spec/ - Automatic tests.
-├── electron.gyp - Building rules of Electron.
+├── spec / - tes otomatis.
+├── electron.gyp - Aturan pembangunan electron.
 └── common.gypi - Compiler specific settings and building rules for other
                   components like `node` and `breakpad`.
 ```
