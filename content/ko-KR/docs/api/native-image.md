@@ -27,7 +27,7 @@ console.log(appIcon)
 
 ## Supported Formats
 
-Currently `PNG` and `JPEG` image formats are supported. `PNG` is recommended because of its support for transparency and lossless compression.
+현재 `PNG` 와 `JPEG` 이미지 형식들이 지원되고 있습니다. 투명성있고 무손실한 압축을 위해 `PNG` 형식을 추천합니다.
 
 On Windows, you can also load `ICO` icons from file paths. For best visual quality it is recommended to include at least the following sizes in the:
 
@@ -45,7 +45,7 @@ On Windows, you can also load `ICO` icons from file paths. For best visual quali
 
 Check the *Size requirements* section in [this article](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx).
 
-## High Resolution Image
+## 고해상도 이미지
 
 On platforms that have high-DPI support such as Apple Retina displays, you can append `@2x` after image's base filename to mark it as a high resolution image.
 
