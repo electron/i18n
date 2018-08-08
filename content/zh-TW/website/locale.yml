@@ -111,7 +111,7 @@ or: or
 pages:
   '/':
     title: Electron | 使用 JavaScript、HTML 和 CSS 打造跨平臺桌面應用程式。
-    description: '使用 JavaScript、HTML 和 CSS 打造跨平臺桌面應用程式.'
+    description: '使用 JavaScript、HTML 和 CSS 建構跨平台桌面應用程式.'
   '/apps':
     title: Electron 應用程式
     description: 用 Electron 打造的應用程式
