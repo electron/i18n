@@ -904,7 +904,7 @@ Rückgabewert:
   #### `win.loadURL(url[, options])`
   
   * ` URL </ 0>  Zeichenfolge</li>
-<li><code>options` Objekt (optional) 
+<li><code>optionen` Objekt (optional) 
     * `httpReferrer` String (optional) - A HTTP Referrer url.
     * `userAgent` String (optional) - A user agent originating the request.
     * `extraHeaders` String (optional) - Extra headers separated by "\n"
@@ -958,7 +958,7 @@ Rückgabewert:
   #### `win.setProgressBar(progress[, options])`
   
   * `progress` Double
-  * `options` Objekt (optional) 
+  * `optionen` Objekt (optional) 
     * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error` or `paused`.
   
   Sets progress value in progress bar. Valid range is [0, 1.0].
@@ -1038,7 +1038,7 @@ Rückgabewert:
   
   #### `win.setAppDetails(options)` *Windows*
   
-  * `options` Object 
+  * `optionen` Object 
     * `appId` String (optional) - Window's [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). It has to be set, otherwise the other options will have no effect.
     * `appIconPath` String (optional) - Window's [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
     * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. Default is `0`.
