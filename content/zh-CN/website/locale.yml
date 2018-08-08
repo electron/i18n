@@ -9,7 +9,6 @@ nav:
   donors: 捐赠者
   languages: 语言
   releases: 版本发布
-  search: 搜索
   userland: 用户生态
 docs:
   title: Electron 文档
@@ -155,8 +154,3 @@ pages:
     title: 捐赠者
 _404:
   page_not_found: 页面找不到了。
-search:
-  description_all: 从 <a href="/search/docs">文档</a>、<a href="/search/npmPackages">npm 包</a> 和 <a href="/search/repos">GitHub 存储库</a>中查找 Electron 资源。
-  description_docs: 从文档中查找 Electron 资源。
-  description_npm: 从 npm 包中查找 Electron 资源。
-  description_repos: 从 GitHub 存储库中查找 Electron 资源。
