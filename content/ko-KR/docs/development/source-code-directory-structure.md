@@ -10,7 +10,9 @@ Electron의 소스 코드는 몇 개의 파트로 분리되어 있습니다. 그
 Electron
 ├── atom/ - C++ 소스 코드.
 |   ├── app/ - 시스템 엔트리 코드.
-|   ├── browser/ - 주 윈도우를 포함한 프론트엔드, UI, 그리고 메인 프로세스에 관련된 코드와 렌더러 및 웹 페이지 관리 관련 코드.
+|   ├── browser/ - The frontend including the main window, UI, and all of the
+|   |   |          main process things. This talks to the renderer to manage web
+|   |   |          pages.
 |   |   ├── ui/ - 서로 다른 플랫폼에 대한 UI 관련 구현 코드.
 |   |   |   ├── cocoa/ - Cocoa 특정 소스 코드.
 |   |   |   ├── win/ - Windows GUI 특정 소스 코드.
@@ -21,12 +23,15 @@ Electron
 |   |   └── resources/ - 아이콘들, 플랫폼 의존성 파일들, 기타 등등..
 |   |   └── resources/ - 아이콘들, 플랫폼 의존성 파일들, 기타 등등..
 |   |   └── api/ - 렌더러 프로세스 API의 구현.
-|   └── common/ - 메인과 렌더러 프로세스에서 모두 사용하는 코드, 몇가지 유틸리티
-|       함수들이 포함되어 있고 node의 메시지 루프와 Chromium의 메시지 루프를 통합.
-|       └── api/ - 공통 API 구현들, 기초 Electron 빌트-인 모듈들.
+|   └── common/ - Code that used by both the main and renderer processes,
+|       |         including some utility functions and code to integrate node's
+|       |         message loop into Chromium's message loop.
+|       └── api/ - The implementation of common APIs, and foundations of
+|                  Electron's built-in modules.
 ├── brightray/ - Thin shim over libcc that makes it easier to use.
 ├── chromium_src/ - Source code copied from Chromium. See below.
-├── default_app/ - Electron에 앱이 제공되지 않았을 때 보여지는 기본 페이지.
+├── default_app/ - The default page to show when Electron is started without
+|                  providing an app.
 ├── docs/ - 참조 문서.
 ├── lib/ - JavaScript 소스 코드.
 |   ├── browser/ - Javascript 메인 프로세스 초기화 코드.
@@ -35,10 +40,12 @@ Electron
 |   |   └── api/ - Javascript API 구현 코드.
 |   └── renderer/ - Javascript 렌더러 프로세스 초기화 코드.
 |       └── api/ - Javascript API 구현 코드.
-├── spec/ - 자동화 테스트.
-├── electron.gyp - Electron의 빌드 규칙.
-└── common.gypi - 컴파일러 설정 및 `node` 와 `breakpad` 등의 구성요소를 위한 빌드
-    규칙.
+├── native_mate/ - A fork of Chromium's gin library that makes it easier to marshal
+|                  types between C++ and JavaScript.
+├── spec/ - Automatic tests.
+├── electron.gyp - Building rules of Electron.
+└── common.gypi - Compiler specific settings and building rules for other
+                  components like `node` and `breakpad`.
 ```
 
 ## `/chromium_src`
