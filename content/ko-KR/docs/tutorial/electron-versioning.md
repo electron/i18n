@@ -48,7 +48,7 @@ git 브랜치 동작 방법, npm 태깅 동작 방식, 개발자가 보고 싶�
 | Node.js 메이저 버전 업데이트 | Node.js 마이너 버전 업데이트  | Node.js 패치 버전 업데이트 |
 | Chromium 버전 업데이트    |                      | 수정 관련 chromium 패치  |
 
-대부분의 chromium 업데이트는 큰 변화로 인식된다는 점을 기억하세요. 백포트 가능한 수정사항은 패치로 체리-피크(cherry-pick)할 수 있습니다.
+Note that most Chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
 
 # 안정화 브랜치
 
@@ -128,13 +128,13 @@ git 브랜치 동작 방법, npm 태깅 동작 방식, 개발자가 보고 싶�
 
 저희는 업데이트와 출시 과정의 모든 단계에서 명확성이 향상되길 원합니다. `2.0.0` 버전을 기점으로, 모든 pull request는 [관례적인 커밋](https://conventionalcommits.org/) 스펙에 따라 작성되어야 하며, 커밋 스펙을 요약하면 다음과 같습니다:
 
-- semver **메이저** 버전 증가로 이어지는 커밋은 `BREAKING CHANGE:`로 시작해야 합니다.
+- Commits that would result in a semver **major** bump must start their body with `BREAKING CHANGE:`.
 - semver **마이너** 버전 증가로 이어지는 커밋은 `feat:` 로 시작해야 합니다.
 - semver **패치** 버전 증가로 이어지는 커밋은 `fix:`로 시작해야 합니다.
 
 - 커밋 스쿼싱(sqaushing)은 허용되며, 스쿼시된 메시지는 앞에서 언급한 메시지 포맷을 따라야 합니다.
 
-- 같은 pull request 에서 나중에 위치한 커밋에 시맨틱 메시지가 포함되어 있는 커밋이 있다면, 시맨틱 prefix(feat:, fix: 등)가 포함되지 않은 pull request 커밋도 허용됩니다.
+- It is acceptable for some commits in a pull request to not include a semantic prefix, as long as the pull request title contains a meaningful encompassing semantic message.
 
 # 버전 정보가 없는 `master` 브랜치
 
