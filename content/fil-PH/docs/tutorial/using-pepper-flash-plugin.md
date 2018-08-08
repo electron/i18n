@@ -1,4 +1,4 @@
-# Gamit ang Pepper Flash Plugin
+# Paggamit ng ekstensyong Pepper Flash
 
 Ang Elektron ay sumusuporta sa Pepper Flash plugin. Sa paggamit ng Pepper Flash plugin sa Elektron, kinakaylangan mong tuunan ng pansin ang lokasyon ng Pepper Flash plugin at paganahin ito sa iyong aplikasyon.
 
@@ -10,7 +10,7 @@ On macOS and Linux, the details of the Pepper Flash plugin can be found by navig
 
 Kaya mong direktang magdagdag ng `--ppapi-flash-landas` at `– ppapi-flash version` sa linya ng utos ng Electron o sa pamamagitan ng paggamit ng `app.commandLine.appendSwitch` paraan bago ang app handa sa pangyayari. Saka, buksan ang `plugin` opsyon sa `BrowserWindow`.
 
-For example:
+Halimbawa:
 
 ```javascript
 const {app, BrowserWindow} = kaylangan('elektron') const path = kaylangan('path') 
@@ -57,7 +57,7 @@ Magdagdag ng `plugins` katangian sa `<webview>`tag.
 <webview src="https://www.adobe.com/software/flash/about/" plugins></webview>
 ```
 
-## Pag-aayos
+## Paghahanap ng ProblemaPaghahanap ng Problema
 
 Maaari mo ring suriin kung Pepper Flash plugin ay karga ng pagsusuri ang `navigator.plugins` sa console ng devtools (kahit na hindi mo alam kung tama ang plugin path).
 
