@@ -2,6 +2,8 @@
 
 JavaScriptアプリケーションによらないと思われるクラッシュや問題がElectron上で起こった場合、デバッグは少し複雑になります。ネイティブ/C++の経験がない場合には得にそうでしょう。 However, using Visual Studio, GitHub's hosted Electron Symbol Server, and the Electron source code, you can enable step-through debugging with breakpoints inside Electron's source code.
 
+**See also**: There's a wealth of information on debugging Chromium, much of which also applies to Electron, on the Chromium developers site: [Debugging Chromium on Windows](https://www.chromium.org/developers/how-tos/debugging-on-windows).
+
 ## 要件
 
 * **Electronのデバッグビルド**: 最も簡単な方法は、[ビルド手順 (Windows) ](build-instructions-windows.md)にリストされているツールと必要な環境を使って、自分でビルドをする方法です。 While you can attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
