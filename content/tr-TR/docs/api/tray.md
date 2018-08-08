@@ -189,7 +189,7 @@ Bu tepsi simgesiyle ilişkili `image` 'i ayarlar.
 
 #### `tray.setPressedImage(image)` *macOS*
 
-* `image` [NativeImage](native-image.md)
+* `image` ([NativeImage](native-image.md) | String)
 
 MacOS üzerine basıldığında bu tepsi simgesiyle ilişkili `image`'i ayarlar.
 
