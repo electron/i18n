@@ -450,7 +450,7 @@ Navigation is a common attack vector. If an attacker can convince your app to na
 
 A common attack pattern is that the attacker convinces your app's users to interact with the app in such a way that it navigates to one of the attacker's pages. This is usually done via links, plugins, or other user-generated content.
 
-### ¿Cómo?
+### ¿Còmo?
 
 If your app has no need for navigation, you can call `event.preventDefault()` in a [`will-navigate`](../api/web-contents#event-will-navigate) handler. If you know which pages your app might navigate to, check the URL in the event handler and only let navigation occur if it matches the URLs you're expecting.
 
@@ -480,7 +480,7 @@ Much like navigation, the creation of new `webContents` is a common attack vecto
 
 If you have no need to create windows in addition to the ones you know you'll need to create, disabling the creation buys you a little bit of extra security at no cost. This is commonly the case for apps that open one `BrowserWindow` and do not need to open an arbitrary number of additional windows at runtime.
 
-### ¿Cómo?
+### ¿Còmo?
 
 [`webContents`](../api/web-contents.md) will emit the [`new-window`](../api/web-contents#event-new-window) event before creating new windows. That event will be passed, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you use the event to scrutinize the creation of windows, limiting it to only what you need.
 
