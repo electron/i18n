@@ -184,7 +184,7 @@ under the `beta` tag and can be installed via `npm install electron@beta`.
 
 1. Visit [the releases page](https://github.com/electron/electron/releases) and you'll see a new draft release with placeholder release notes.
 2. Chỉnh sửa bản phát hành và thêm ghi chú phát hành.
-3. Click 'Save draft'. **Do not click 'Publish release'!**
+3. Nhấn vào 'Save draft'. **Lòng không nhấn vào 'Publish'!**
 4. Wait for all builds to pass before proceeding.
 5. In the branch, verify that the release's files have been created:
 
@@ -194,7 +194,7 @@ $ npm run release -- --validateRelease
 
 Note, if you need to run `--validateRelease` more than once to check the assets, run it as above the first time, then `node ./script/release.js --validateRelease` for subsequent calls so that you don't have to rebuild each time you want to check the assets.
 
-## Publish the release
+## Công bố việc phát hành
 
 Once the merge has finished successfully, run the `release` script via `npm run release` to finish the release process. This script will do the following: 1. Build the project to validate that the correct version number is being released. 2. Download the binaries and generate the node headers and the .lib linker used on Windows by node-gyp to build native modules. 3. Create and upload the SHASUMS files stored on S3 for the node files. 4. Create and upload the SHASUMS256.txt file stored on the GitHub release. 5. Validate that all of the required files are present on GitHub and S3 and have the correct checksums as specified in the SHASUMS files. 6. Publish the release on GitHub
 
