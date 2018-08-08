@@ -9,7 +9,6 @@ nav:
   donors: Donateurs
   languages: Langues
   releases: Mise à jour
-  search: Rechercher
   userland: Userland
 docs:
   title: Documentation d'Electron
@@ -155,8 +154,3 @@ pages:
     title: Donateurs
 _404:
   page_not_found: Page non trouvée.
-search:
-  description_all: Retrouvez les ressources d'Electron depuis la <a href="/search/docs">documentation</a>, <a href="/search/npmPackages">paquets npm</a> et <a href="/search/repos">repos GitHub</a>.
-  description_docs: Retrouvez les ressources d'Electron depuis la documentation.
-  description_npm: Retrouvez les ressources d'Electron depuis les paquets npm.
-  description_repos: Retrouvez les ressources d'Electron depuis les repos GitHub.
