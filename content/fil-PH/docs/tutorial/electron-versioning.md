@@ -48,7 +48,7 @@ Ang nasa ibaba ay isang talahanayan ng iba't-ibang uri ng pagmamapa sa mga pagba
 | Node.js major version updates                             | Node.js minor version updates                    | Node.js patch version updates                    |
 | Mga updates sa Chromium version                           |                                                  | pagsasaayos ng may kaugnayan sa chromium patches |
 
-Tandaan na karamihan sa chromium updates ay itinuturing nakakasira. Ang pagsasaayos na pwedeng i-backport ay maaring maging cherry-picked na patches.
+Note that most Chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
 
 # Pagpapapanatag ng mga Branch
 
@@ -128,13 +128,13 @@ Pinagkasundo namin ang flagged code sa aming bersyoning na istratehiya gaya ng s
 
 Hangad nating madagdagan ang kalinawan sa lahat ng antas ng proseso sa updeyt at release. Simula sa `2.0.0` kinakailangan natin hilahin ang mga request para umayon sa [Conventional Commits](https://conventionalcommits.org/) spec, na pwedeng ibuod sa sumusunod:
 
-- Ang mga commits na magreresulta sa semver ang **major** bump ay dapat nagsisimula sa `BREAKING CHANGE:`.
+- Commits that would result in a semver **major** bump must start their body with `BREAKING CHANGE:`.
 - Ang mga commits na magreresulta sa semver ang **minor** bump ay dapat nagsisimula sa `feat:`.
 - Ang mga commits na magreresulta sa semver ang **patch** bump ay dapat nagsisimula sa `fix:`.
 
 - Pumapayag kami sa squashing ng commits, ngunit dapat ang squashed na mensahe ay sumusunod sa format na nasa itaas.
 
-- Ito ay katanggap-tanggap para sa ilang commits sa isang pull request upang hindi isama ang semantikong panlapi, hangga't ang commit ay nasa parehong pull request na may makahulugang nakapalibot na semantik na mensahe.
+- It is acceptable for some commits in a pull request to not include a semantic prefix, as long as the pull request title contains a meaningful encompassing semantic message.
 
 # Walang pagbabago sa bersyon ng `master`
 
