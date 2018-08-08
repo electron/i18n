@@ -9,7 +9,6 @@ nav:
   donors: الجهات المانحة
   languages: اللغات
   releases: اﻹصدارات
-  search: بحث
   userland: مساحة المستخدم
 docs:
   title: مستندات إلكترون
@@ -155,8 +154,3 @@ pages:
     title: الجهات المانحة
 _404:
   page_not_found: الصفحة غير موجودة.
-search:
-  description_all: أعثر على موارد للإلكترون من خلال <a href="/search/docs">التوثيقات</a>, <a href="/search/npmPackages">npm حزم</a>, و<a href="/search/repos">GitHub مستودع</a>.
-  description_docs: أحصل على موارد إلكترون من خلال التوثيقات.
-  description_npm: أحصل على موارد إلكترون من خلال حزم npm.
-  description_repos: أحصل على موارد إلكترون من خلال مستودع GitHub.
