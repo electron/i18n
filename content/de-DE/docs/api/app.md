@@ -751,7 +751,7 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         Set the app's login item settings.
         
-        To work with Electron's `autoUpdater` on Windows, which uses [Squirrel](https://github.com/Squirrel/Squirrel.Windows), you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. For example:
+        To work with Electron's `autoUpdater` on Windows, which uses [Squirrel](https://github.com/Squirrel/Squirrel.Windows), you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. Ein Beispiel:
         
         ```javascript
         const appFolder = path.dirname(process.execPath)
