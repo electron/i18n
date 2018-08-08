@@ -176,17 +176,17 @@ Process: [Main](../glossary.md#main-process)
       
       * `session` [Сессия](session.md#class-session) (опционально) - отсылает сессию используемую на странице. Вместо передачи объекта Session напрямую, вы можете также выбрать использование `partition` опции вместо которой принимает строку раздела. Когда оба `session` и `partition` определены, `session` будет приоритентней. По умолчанию используется session по умолчанию.
       * `partition` String (опционально) - Устанавливает сеанс, используемый страницей в соответствии со строкой раздела сессии. Если `partition` начинается с `persist:`, страница будет использовать постоянную сессию доступная всем страницам в приложении с некоторыми `partition`. Если нет `persist:` префикса, страница будет использовать сеанс в памяти. При присваивании одинаковой `partition`, разные страницы могут иметь одинаковую сессию. По умолчанию используется session по умолчанию.
-      * `affinity` String (опционально) - Когда определено, веб страницы с одинаковыми `affinity` будут работать в том же процессе рендеринга. Обратите внимание, что из-за повторного использования процесса рендеринга, некоторые параметры `webPreferences` также будут доступны между веб-страницами, даже если вы указали для них разные значения, включая, но не ограничиваясь, `preload`, `sandbox` и `nodeIntegration`. Поэтому рекомендуется использовать те же `webPreferences` для веб-страниц с таким же `affinity`. *This property is experimental*
-      * `zoomFactor` Number (optional) - The default zoom factor of the page, `3.0` represents `300%`. Default is `1.0`.
-      * `javascript` Boolean (optional) - Enables JavaScript support. Default is `true`.
-      * `webSecurity` Boolean (optional) - When `false`, it will disable the same-origin policy (usually using testing websites by people), and set `allowRunningInsecureContent` to `true` if this options has not been set by user. По умолчанию - `true`.
-      * `allowRunningInsecureContent` Boolean (optional) - Allow an https page to run JavaScript, CSS or plugins from http URLs. Default is `false`.
-      * `images` Boolean (optional) - Enables image support. Default is `true`.
-      * `textAreasAreResizable` Boolean (optional) - Make TextArea elements resizable. Default is `true`.
-      * `webgl` Boolean (optional) - Enables WebGL support. Default is `true`.
-      * `webaudio` Boolean (optional) - Enables WebAudio support. Default is `true`.
-      * `plugins` Boolean (optional) - Whether plugins should be enabled. Default is `false`.
-      * `experimentalFeatures` Boolean (optional) - Enables Chromium's experimental features. Default is `false`.
+      * `affinity` String (опционально) - Когда определено, веб страницы с одинаковыми `affinity` будут работать в том же процессе рендеринга. Обратите внимание, что из-за повторного использования процесса рендеринга, некоторые параметры `webPreferences` также будут доступны между веб-страницами, даже если вы указали для них разные значения, включая, но не ограничиваясь, `preload`, `sandbox` и `nodeIntegration`. Поэтому рекомендуется использовать те же `webPreferences` для веб-страниц с таким же `affinity`. *Это экспериментальное свойство*
+      * `zoomFactor` Number (опционально) - Коэффициент масштабирования на странице, `3.0` означает `300%`. По умолчанию `1.0`.
+      * `javascript` Boolean (опционально) - Включает поддержку JavaScript. По умолчанию `true`.
+      * `webSecurity` Boolean (опционально) - Когда `false`, отключается политика same-origin (обычно используется при тестировании вебсайтов людьми), и устанавливается `allowRunningInsecureContent` в `true`, если параметр не был установлен пользователем. По умолчанию - `true`.
+      * `allowRunningInsecureContent` Boolean (опционально) - Позволяет https страницам запускать JavaScript, CSS или плагины из http URLs. По умолчанию `false`.
+      * `images` Boolean (опционально) - Включает поддержку изображений. По умолчанию `true`.
+      * `textAreasAreResizable` Boolean (опционально) - Позволяет изменять размер у TextArea элементов. По умолчанию `true`.
+      * `webgl` Boolean (опционально) - Включает поддержку WebGL. По умолчанию `true`.
+      * `webaudio` Boolean (optional) - Включает поддержку WebAudio. По умолчанию `true`.
+      * `plugins` Boolean (опционально) - Включает поддержку плагинов. По умолчанию `false`.
+      * `experimentalFeatures` Boolean (опционально) - Включает экспериментальные возможности Chromium. По умолчанию `false`.
       * `experimentalCanvasFeatures` Boolean (optional) - Enables Chromium's experimental canvas features. Default is `false`.
       * `scrollBounce` Boolean (optional) - Enables scroll bounce (rubber banding) effect on macOS. Default is `false`.
       * `blinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to enable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/runtime_enabled_features.json5?l=70) file.
