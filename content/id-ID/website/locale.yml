@@ -9,6 +9,7 @@ nav:
   donors: Penyumbang
   languages: Bahasa
   releases: Rilis
+  search: pencarian
   userland: Userland
 docs:
   title: Dokumentasi Electron
