@@ -9,6 +9,7 @@ nav:
   donors: Darczyńcy
   languages: Języki
   releases: Wydania
+  search: Szukaj
   userland: Strefa użytkowników
 docs:
   title: Dokumentacja Electron'a
