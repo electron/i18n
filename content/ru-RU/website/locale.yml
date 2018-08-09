@@ -9,6 +9,7 @@ nav:
   donors: Спонсоры
   languages: Языки
   releases: Релизы
+  search: Поиск
   userland: Пользовательское пространство
 docs:
   title: Документация Electron
