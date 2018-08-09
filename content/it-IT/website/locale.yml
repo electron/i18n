@@ -9,6 +9,7 @@ nav:
   donors: Donatori
   languages: Lingue
   releases: Versioni
+  search: Cerca
   userland: Userland
 docs:
   title: Documentazione di Electron
