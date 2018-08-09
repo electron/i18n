@@ -9,6 +9,7 @@ nav:
   donors: Donors
   languages: Mga Lengwahe
   releases: Paglalabas
+  search: Search
   userland: Userland
 docs:
   title: Dokumentasyon ng Electron
