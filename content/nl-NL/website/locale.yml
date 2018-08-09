@@ -9,6 +9,7 @@ nav:
   donors: Donateurs
   languages: Talen
   releases: Releases
+  search: Zoeken
   userland: Userland
 docs:
   title: Electron documentatie
