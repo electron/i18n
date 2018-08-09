@@ -9,6 +9,7 @@ nav:
   donors: Người ủng hộ
   languages: Ngôn ngữ
   releases: Các phiên bản phát hành
+  search: Tìm kiếm
   userland: Không gian người dùng
 docs:
   title: Tài liệu Electron
