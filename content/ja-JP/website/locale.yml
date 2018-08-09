@@ -9,6 +9,7 @@ nav:
   donors: 寄贈者
   languages: 言語
   releases: リリース
+  search: 検索
   userland: ユーザーランド
 docs:
   title: Electron ドキュメント
