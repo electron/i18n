@@ -292,7 +292,7 @@ Process: [Main](../glossary.md#main-process)
       
       #### Событие: 'ready-to-show'
       
-      Emitted when the web page has been rendered (while not being shown) and window can be displayed without a visual flash.
+      Вызывается, когда веб-страница была отрендерена (пока не отображена) и окно может быть отображено без визуальной вспышки.
       
       #### Событие: 'maximize'
       
@@ -300,11 +300,11 @@ Process: [Main](../glossary.md#main-process)
       
       #### Событие: 'unmaximize'
       
-      Emitted when the window exits from a maximized state.
+      Вызывается, когда окно выходит из максимизированного состояния.
       
       #### Событие: 'minimize'
       
-      Emitted when the window is minimized.
+      Вызывается, когда окно было свёрнуто.
       
       #### Событие: 'restore'
       
