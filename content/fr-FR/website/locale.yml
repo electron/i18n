@@ -9,6 +9,7 @@ nav:
   donors: Donateurs
   languages: Langues
   releases: Mise à jour
+  search: Rechercher
   userland: Userland
 docs:
   title: Documentation d'Electron
