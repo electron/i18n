@@ -9,6 +9,7 @@ nav:
   donors: 贊助者
   languages: 語言
   releases: 版本發佈
+  search: 搜尋
   userland: 使用者園地
 docs:
   title: Electron 文件
