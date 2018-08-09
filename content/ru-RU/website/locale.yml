@@ -31,7 +31,7 @@ community:
   description: Средства для связи с людьми, работающими на Electron.
   channels:
     get_started: "<a href='/docs/tutorial/first-app'><b>Начните</b></a> создание приложения с прочтения <a href='/docs/tutorial/first-app'>инструкции по началу работы</a>."
-    updates: "<a href='https://twitter.com/electronjs'><b>Будьте в курсе</b></a> отслеживая нас<a href='https://twitter.com/electronjs'>@electronjs</a> на Twitter и подпиской на<a href='/blog'>блог</a>."
+    updates: "<a href='https://twitter.com/electronjs'><b>Будьте в курсе</b></a>, отслеживая <a href='https://twitter.com/electronjs'>@electronjs</a> на Twitter и подписавшись на <a href='/blog'>блог</a>."
     localized_docs: "<a href='/languages'><b>Читайте документацию на родном языке</b></a> посетив <a href='/languages'>языковую страницу</a>."
     help: "<a href='http://atom-slack.herokuapp.com'><b>Помогите нам, оставив отзыв</b></a> присоединившись к <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, размещая на <a href='https://discuss.atom.io/c/electron'>Discuss</a>, или посетив <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
     packages: "<a href='/search/npmPackages'><b>Находите полезные npm пакеты</b></a> на <a href='/search/npmPackages'>странице поиска пакетов</a>."
