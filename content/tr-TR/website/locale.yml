@@ -9,6 +9,7 @@ nav:
   donors: Donors
   languages: Diller
   releases: Sürümler
+  search: Ara
   userland: Kullanıcı alanı
 docs:
   title: Electron Dokümanları
