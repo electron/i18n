@@ -9,6 +9,7 @@ nav:
   donors: 후원자
   languages: 언어
   releases: 출시
+  search: 검색
   userland: 사용자 공간
 docs:
   title: Electron 문서
