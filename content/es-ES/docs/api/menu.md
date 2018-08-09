@@ -54,8 +54,8 @@ El objeto`menu` tiene los siguientes métodos de instancia:
 
 * `opciones` Object 
   * `window` [BrowserWindow](browser-window.md) (opcional) - Default es la ventana seleccionada.
-  * `x` Número (opcional) - Por defecto es la posición actual del cursor del ratón. Debe declararse si `y` se declara primero.
-  * `y` Número (opcional) - Por defecto es la posición actual del cursor del ratón. Debe declararse si `y` se declara primero.
+  * `x` Number (opcional) - Por defecto es la posición actual del cursor del ratón. Debe declararse si `y` es declarada.
+  * `y` Number (opcional) - Por defecto es la posición actual del cursor del ratón. Debe declararse si `y` es declarada.
   * `positioningItem` Número (opcional) *macOS* - El índice del elemento de menú está colocado por debajo del cursor del ratón en las coordenadas específicas. Por defecto es -1.
   * `callback` Function (optional) - Called when menu is closed.
 
