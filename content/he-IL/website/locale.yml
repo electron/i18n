@@ -9,6 +9,7 @@ nav:
   donors: תורמים
   languages: שפות
   releases: הפצות
+  search: חיפוש
   userland: Userland
 docs:
   title: תיעוד Electron
