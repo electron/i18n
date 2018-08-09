@@ -308,7 +308,7 @@ Process: [Main](../glossary.md#main-process)
       
       #### Событие: 'restore'
       
-      Emitted when the window is restored from a minimized state.
+      Вызывается, когда окно восстанавливается из свёрнутого состояния.
       
       #### Событие: 'resize'
       
@@ -316,7 +316,7 @@ Process: [Main](../glossary.md#main-process)
       
       #### Событие: 'move'
       
-      Emitted when the window is being moved to a new position.
+      Вызывается, когда окно перемещено на новое место.
       
       **Note**: На macOS это событие лишь псевдоним для `moved`.
       
@@ -347,7 +347,7 @@ Process: [Main](../glossary.md#main-process)
       * `event` Event
       * `command` String
       
-      Emitted when an [App Command](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx) is invoked. These are typically related to keyboard media keys or browser commands, as well as the "Back" button built into some mice on Windows.
+      Вызывается, когда вызван [App Command](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx). These are typically related to keyboard media keys or browser commands, as well as the "Back" button built into some mice on Windows.
       
       Commands are lowercased, underscores are replaced with hyphens, and the `APPCOMMAND_` prefix is stripped off. e.g. `APPCOMMAND_BROWSER_BACKWARD` is emitted as `browser-backward`.
       
