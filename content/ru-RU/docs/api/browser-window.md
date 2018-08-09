@@ -232,7 +232,7 @@ Process: [Main](../glossary.md#main-process)
       * `event` Event
       * `title` String
       
-      Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing.
+      Вызывается, когда документ меняет свой заголовок, вызов `event.preventDefault()` предотвратит изменение заголовка родного окна.
       
       #### Событие: 'close'
       
@@ -240,7 +240,7 @@ Process: [Main](../glossary.md#main-process)
       
       * `event` Event
       
-      Вызывается при закрытии окна. It's emitted before the `beforeunload` and `unload` event of the DOM. Calling `event.preventDefault()` will cancel the close.
+      Вызывается при закрытии окна. Оно вызывается перед событиями `beforeunload` и `unload` в DOM. Вызов `event.preventDefault()` предотвратит закрытие.
       
       Usually you would want to use the `beforeunload` handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than `undefined` would cancel the close. Например:
       
