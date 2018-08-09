@@ -242,21 +242,21 @@ Process: [Main](../glossary.md#main-process)
       
       Вызывается при закрытии окна. Оно вызывается перед событиями `beforeunload` и `unload` в DOM. Вызов `event.preventDefault()` предотвратит закрытие.
       
-      Usually you would want to use the `beforeunload` handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than `undefined` would cancel the close. Например:
+      Скорее всего, вы захотите использовать обработчик `beforeunload` чтобы решить, когда окно должно быть закрыто, который также будет вызываться, когда окно перезагружается. В Electron, возврат любого значения, отличного от `undefined` предотвратит закрытие. Например:
       
       ```javascript
       window.onbeforeunload = (e) => {
-        console.log('I do not want to be closed')
+        console.log('Я не хочу быть закрыт')
       
-        // Unlike usual browsers that a message box will be prompted to users, returning
-        // a non-void value will silently cancel the close.
-        // It is recommended to use the dialog API to let the user confirm closing the
-        // application.
-        e.returnValue = false // equivalent to `return false` but not recommended
+        // В отличие от браузеров, пользователю будет показано окно с сообщением.
+        // Возврат любого значения незаметно отменит закрытие.
+        // Рекомендуется использовать dialog API чтобы дать пользователям
+        // возможность подтвердить закрытие приложения.
+        e.returnValue = false // идентично `return false`, но в использовании не рекомендуется
       }
       ```
       
-      ***Note**: There is a subtle difference between the behaviors of `window.onbeforeunload = handler` and `window.addEventListener('beforeunload', handler)`. It is recommended to always set the `event.returnValue` explicitly, instead of just returning a value, as the former works more consistently within Electron.*
+      ***Примечание**: Существует тонкая разница между поведением `window.onbeforeunload = handler` и `window.addEventListener('beforeunload', handler)`. It is recommended to always set the `event.returnValue` explicitly, instead of just returning a value, as the former works more consistently within Electron.*
       
       #### Событие: 'closed'
       
