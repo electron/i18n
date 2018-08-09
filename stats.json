@@ -237,14 +237,14 @@
     "name": "Russian",
     "code": "ru",
     "phrases": "9495",
-    "translated": "4926",
+    "translated": "4948",
     "approved": "977",
     "words": "87562",
-    "words_translated": "34112",
+    "words_translated": "34379",
     "words_approved": "7508",
-    "translated_progress": 38,
+    "translated_progress": 39,
     "approved_progress": 8,
-    "qa_issues": "1408"
+    "qa_issues": "1417"
   },
   {
     "name": "Spanish",
