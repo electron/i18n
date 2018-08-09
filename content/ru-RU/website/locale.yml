@@ -40,7 +40,7 @@ community:
     code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Сообщите о нарушении правил поведения</b></a>, написав нам на почту <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
     security: "<a href='mailto:security@electronjs.org'><b>Раскрыть проблемы безопасности</b></a> по электронной почте <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     donations: "<a href='donors'><b>Поддержите</b></a> нас на нашей странице <a href='/donors'>OpenCollective</a>."
-    other: "По всем другим вопросам, email <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
+    other: "По всем другим вопросам, пишите на <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
   language_communities:
     title: Языковые сообщества
     description: "Сообщество Electron охватывает весь земной шар, и английский язык не является первым. Ищите <a href='/languages'>документацию на Вашем языке</a>, или присоединяйтесь к одному из языковых сообществ ниже:"
