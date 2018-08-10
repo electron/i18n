@@ -2,12 +2,12 @@
 
 * `name` String
 * `description` String
-* `status` Número
+* `status` Number
 * `isDefault` Boolean
 
 ## Ejemplo
 
-A continuación está un ejemplo de algunas de las opciones adicionales que pueden ser establecidas que pueden ser diferentes en cada plataforma.
+A continuación hay un ejemplo de algunas de las opciones adicionales que pueden ser establecidas, las cuales pueden ser diferentes en cada plataforma.
 
 ```javascript
 {
