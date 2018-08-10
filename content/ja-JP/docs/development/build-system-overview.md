@@ -38,25 +38,25 @@ $ ./script/build.py -c D
 
 ## ターゲット名
 
-Electron以外のほとんどのプロジェクトで`Release`, `Debug`をビルドターゲットメイトして使用していると思います。が、Electron では`R` と `D`を代わりに使用しています。 This is because `gyp` randomly crashes if there is only one `Release` or `Debug` build configuration defined, and Electron only has to generate one target at a time as stated above.
+Electron以外のほとんどのプロジェクトで`Release`, `Debug`をビルドターゲットメイトして使用していると思います。が、Electron では`R` と `D`を代わりに使用しています。 これは、`Release` または `Debug`ビルドのどちらかのみが定義されているときに、`gyp`がランダムにクラッシュするためであり、またEletronは上記で示したように一度には一つだけのビルドターゲットを生成するためです。
 
-This only affects developers, if you are building Electron for rebranding you are not affected.
+この挙動は(Electronの) 開発者のみに影響があることであり、Electronでアプリを開発する方は気にしなくてかまいません。
 
 ## テスト
 
-Test your changes conform to the project coding style using:
+プロジェクトのコードのスタイルを確認するためには：
 
 ```sh
 $ npm run lint
 ```
 
-Test functionality using:
+機能テストを行うには：
 
 ```sh
 $ npm test
 ```
 
-Whenever you make changes to Electron source code, you'll need to re-run the build before the tests:
+Electronのソースコードを変更して、再ビルドとテストを行うには：
 
 ```sh
 $ npm run build && npm test
