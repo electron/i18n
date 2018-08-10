@@ -5,7 +5,7 @@
 ## Требования
 
 * Windows 10 / Server 2012 R2 или выше
-* Visual Studio 2017 15.7.2 или выше - [download VS 2017 Community Edition for free](https://www.visualstudio.com/vs/)
+* Visual Studio 2017 15.7.2 или выше - [скачать VS Community Edition бесплатно](https://www.visualstudio.com/vs/)
 * [Python 2.7](http://www.python.org/download/releases/2.7/)
 * [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
