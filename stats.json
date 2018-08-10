@@ -172,14 +172,14 @@
     "name": "Japanese",
     "code": "ja",
     "phrases": "9496",
-    "translated": "8279",
+    "translated": "8314",
     "approved": "338",
     "words": "87563",
-    "words_translated": "70452",
+    "words_translated": "70944",
     "words_approved": "1752",
-    "translated_progress": 80,
+    "translated_progress": 81,
     "approved_progress": 2,
-    "qa_issues": "266"
+    "qa_issues": "269"
   },
   {
     "name": "Korean",
@@ -251,13 +251,13 @@
     "code": "es-ES",
     "phrases": "9496",
     "translated": "8323",
-    "approved": "314",
+    "approved": "328",
     "words": "87563",
     "words_translated": "73482",
-    "words_approved": "2677",
+    "words_approved": "2785",
     "translated_progress": 83,
     "approved_progress": 3,
-    "qa_issues": "3171"
+    "qa_issues": "3166"
   },
   {
     "name": "Tagalog",
