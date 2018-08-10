@@ -62,7 +62,7 @@ Electronのソースコードを変更して、再ビルドとテストを行う
 $ npm run build && npm test
 ```
 
-You can make the test suite run faster by isolating the specific test or block you're currently working on using Mocha's [exclusive tests](https://mochajs.org/#exclusive-tests) feature. Append `.only` to any `describe` or `it` function call:
+Mochaの[限定テスト (exclusive tests)](https://mochajs.org/#exclusive-tests)機能を使用することで、特定のテストやブロックを切り離すことが出来、一連のテストを早く終わらせることが出来ます。 `.only`を`describe` や `it` に追加してください。
 
 ```js
 describe.only('some feature', function () {
@@ -70,15 +70,15 @@ describe.only('some feature', function () {
 })
 ```
 
-Alternatively, you can use mocha's `grep` option to only run tests matching the given regular expression pattern:
+その他の方法としては、Mochaの`grep` オプションを使用して、特定のテストのみを実行することが出来ます。
 
 ```sh
 $ npm test -- --grep child_process
 ```
 
-Tests that include native modules (e.g. `runas`) can't be executed with the debug build (see [#2558](https://github.com/electron/electron/issues/2558) for details), but they will work with the release build.
+`runas` といったネイティブモジュールを含んだテストは、デバッグビルドでは実行できず(詳細に関しては[#2558](https://github.com/electron/electron/issues/2558)を参照のこと)、リリースビルドのみで動作します。
 
-To run the tests with the release build use:
+リリースビルドでテストを行うには、以下のようにしてください：
 
 ```sh
 $ npm test -- -R
