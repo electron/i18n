@@ -1,6 +1,6 @@
 # ネイティブのNodeモジュールを使用する
 
-Electronは、ネイティブのNodeモジュールをサポートしていますが、システム上にインストールされたNodeとは異なるV8バージョンを使用しているので、ネイティブモジュールでビルドする時、Electronのヘッダーの場所を手動で指定する必要があります。
+Electronは、ネイティブのNodeモジュールをサポートしていますが、システム上にインストールされたNodeとは異なるV8バージョンを使用しているので、ネイティブモジュールをビルドする時、Electronのヘッダーの場所を手動で指定する必要があります。
 
 ## ネイティブモジュールのインストール方法
 
@@ -13,18 +13,18 @@ Electronは、ネイティブのNodeモジュールをサポートしていま�
 Electronにすべての依存モジュールをインストールする例
 
 ```sh
-# Electron's version.
+# Electronのバージョン
 export npm_config_target=1.2.3
-# The architecture of Electron, can be ia32 or x64.
+# アーキテクチャタイプ (ia32 or x64)
 export npm_config_arch=x64
 export npm_config_target_arch=x64
-# Download headers for Electron.
+# Electronのヘッダファイルをダウンロード
 export npm_config_disturl=https://atom.io/download/electron
-# Tell node-pre-gyp that we are building for Electron.
+# node-pre-gyp にElectronのビルドであることを知らせる
 export npm_config_runtime=electron
-# Tell node-pre-gyp to build module from source code.
+# node-pre-gypにソースコードからのビルドであることを知らせる
 export npm_config_build_from_source=true
-# Install all dependencies, and store cache to ~/.electron-gyp.
+# すべての依存をインストールし、キャッシュを~/.electron-gypに保存する
 HOME=~/.electron-gyp npm install
 ```
 
@@ -60,12 +60,12 @@ HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https
 もしネイティブモジュールがインストールされているがうまく動いていないことが分かった場合は、下記のことを確認してみてください：
 
 * The architecture of the module has to match Electron's architecture (ia32 or x64).
-* After you upgrade Electron, you usually need to rebuild the modules.
+* Electron のアップグレード語は、モジュールの再ビルドが必要になります。
 * 何かおかしいと思ったら、まず`electron-rebuild`を走らせてみてください。
 
 ## `prebuild`を使用したモジュール
 
-[`prebuild`](https://github.com/mafintosh/prebuild) provides a way to publish native Node modules with prebuilt binaries for multiple versions of Node and Electron.
+[`prebuild`](https://github.com/mafintosh/prebuild) は、ネイティブNodeモジュールをいろいろなNodeとElectronのバージョン用のビルド済みバイナリとともにパブリッシュする方法を提供します。
 
 もしモジュールがElectronで使用するためのバイナリを提供しているなら、ビルド済みのバイナリを最大限活用できるように、`--build-from-source`と `npm_config_build_from_source`環境変数が外されていることを確認してください。
 
