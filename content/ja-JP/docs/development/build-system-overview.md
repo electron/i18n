@@ -15,22 +15,22 @@ Electronは、プロジェクト生成に[gyp](https://gyp.gsrc.io/)を用いて
 
 Chromiumはとても巨大なプロジェクトですので、最終的なリンクの段階でかなりの時間を要し、それが開発を難しくしてしまいます。 これを解決するために、Chromiumはそれぞれのコンポーネントを別々の共有ライブラリとしてビルドを行う、「コンポーネントビルド」を採用しており、これによりファイルサイズとパフォーマンスを犠牲にすることでビルドを高速で行っています。
 
-In Electron we took a very similar approach: for `Debug` builds, the binary will be linked to a shared library version of Chromium's components to achieve fast linking time; for `Release` builds, the binary will be linked to the static library versions, so we can have the best possible binary size and performance.
+Electronでも同様のアプローチを取っています。`デバッグ`ビルドでは、ライブラリはリンク時間を節約するために、Chromiumのコンポーネントの共有ライブラリにバイナリがリンクされます。`リリースビルドでは`バイナリは静的ライブラリにリンクされますので、良いファイルサイズとパフォーマンスを得ることが出来る可能性があります。
 
 ## Minimal Bootstrapping
 
-All of Chromium's prebuilt binaries (`libchromiumcontent`) are downloaded when running the bootstrap script. By default both static libraries and shared libraries will be downloaded and the final size should be between 800MB and 2GB depending on the platform.
+すべてのChromiumのプレビルド版バイナリ(`libchromiumcontent`) は、ブートストラップスクリプトの実行時にダウンロードされます。 標準では、静的ライブラリと共有ライブラリがダウンロードされますので、最終的なサイズは、環境にも寄りますが、800MBから2GBです。
 
-By default, `libchromiumcontent` is downloaded from Amazon Web Services. If the `LIBCHROMIUMCONTENT_MIRROR` environment variable is set, the bootstrap script will download from it. [`libchromiumcontent-qiniu-mirror`](https://github.com/hokein/libchromiumcontent-qiniu-mirror) is a mirror for `libchromiumcontent`. If you have trouble in accessing AWS, you can switch the download address to it via `export LIBCHROMIUMCONTENT_MIRROR=http://7xk3d2.dl1.z0.glb.clouddn.com/`
+標準では、`libchromiumcontent` はAmazon Web Servicesからダウンロードされます。 もし `LIBCHROMIUMCONTENT_MIRROR` 環境変数が設定されていたら、ブートストラップスクリプトはそちらからのダウンロードを行います。 [`libchromiumcontent-qiniu-mirror`](https://github.com/hokein/libchromiumcontent-qiniu-mirror) は `libchromiumcontent` のミラーサイトです。 AWSへのアクセスで困ったことがあるのであれば、 `export LIBCHROMIUMCONTENT_MIRROR=http://7xk3d2.dl1.z0.glb.clouddn.com/`と指定することで、ダウンロードアドレスを変更できます。
 
-If you only want to build Electron quickly for testing or development, you can download the shared library versions by passing the `--dev` parameter:
+テスト・開発のためにElectronをビルドしたいだけなら、`--dev`オプションを指定することで、共有ライブラリ版のみをダウンロードすることが出来ます。
 
 ```sh
 $ ./script/bootstrap.py --dev
 $ ./script/build.py -c D
 ```
 
-## Two-Phase Project Generation
+## 2段階のプロジェクト生成
 
 Electron links with different sets of libraries in `Release` and `Debug` builds. `gyp`, however, doesn't support configuring different link settings for different configurations.
 
