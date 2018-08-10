@@ -17,7 +17,7 @@ Chromiumはとても巨大なプロジェクトですので、最終的なリン
 
 Electronでも同様のアプローチを取っています。`デバッグ`ビルドでは、ライブラリはリンク時間を節約するために、Chromiumのコンポーネントの共有ライブラリにバイナリがリンクされます。`リリースビルドでは`バイナリは静的ライブラリにリンクされますので、良いファイルサイズとパフォーマンスを得ることが出来る可能性があります。
 
-## Minimal Bootstrapping
+## 最低限のブートストラップ
 
 すべてのChromiumのプレビルド版バイナリ(`libchromiumcontent`) は、ブートストラップスクリプトの実行時にダウンロードされます。 標準では、静的ライブラリと共有ライブラリがダウンロードされますので、最終的なサイズは、環境にも寄りますが、800MBから2GBです。
 
@@ -32,13 +32,13 @@ $ ./script/build.py -c D
 
 ## 2段階のプロジェクト生成
 
-Electron links with different sets of libraries in `Release` and `Debug` builds. `gyp`, however, doesn't support configuring different link settings for different configurations.
+エレクトロンは`Release` と `Debug`ビルドでそれぞれ別々のライブラリとリンクされます。 しかし、`gyp`は、設定を変えてリンクの方法を変えることには対応していません。
 
-To work around this Electron uses a `gyp` variable `libchromiumcontent_component` to control which link settings to use and only generates one target when running `gyp`.
+そのため、Electron では `gyp` 変数の `libchromiumcontent_component` を使用して、`gyp`実行時にどのリンクの設定を使用するかを制御しています。
 
 ## ターゲット名
 
-Unlike most projects that use `Release` and `Debug` as target names, Electron uses `R` and `D` instead. This is because `gyp` randomly crashes if there is only one `Release` or `Debug` build configuration defined, and Electron only has to generate one target at a time as stated above.
+Electron以外のほとんどのプロジェクトで`Release`, `Debug`をビルドターゲットメイトして使用していると思います。が、Electron では`R` と `D`を代わりに使用しています。 This is because `gyp` randomly crashes if there is only one `Release` or `Debug` build configuration defined, and Electron only has to generate one target at a time as stated above.
 
 This only affects developers, if you are building Electron for rebranding you are not affected.
 
