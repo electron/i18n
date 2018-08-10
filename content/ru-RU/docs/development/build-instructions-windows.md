@@ -13,9 +13,9 @@
 
 Если у вас нет установщика Windows, то [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) имеет версии Windows, которые вы можете использовать для сборки Electron.
 
-Building Electron is done entirely with command-line scripts and cannot be done with Visual Studio. You can develop Electron with any editor but support for building with Visual Studio will come in the future.
+Сборка Electron осуществляется исключительно через скрипты командной строки, и не может быть осуществлена в Visual Studio. Вы можете разрабатывать Electron в любом редакторе, но в будущем будет поддержка сборки в Visual Studio.
 
-**Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
+**Примечание:** Даже если Visual Studio не используется для сборки, он всё ещё **требуется**, потому что нам нужны средства сборки, которые он предоставляет.
 
 ## Получение кода
 
@@ -25,7 +25,7 @@ $ git clone https://github.com/electron/electron.git
 
 ## Самонастройка
 
-Скрипт bootstrap скачает все необходимые зависимые сборки и построит файлы проекта. Notice that we're using `ninja` to build Electron so there is no Visual Studio project generated.
+Скрипт bootstrap скачает все необходимые зависимые сборки и построит файлы проекта. Обратите внимание, что мы используем `ninja` для сборки Electron, поэтому проект в Visual Studio не создается.
 
 ```powershell
 $ cd electron
@@ -46,19 +46,19 @@ $ python script\build.py
 $ python script\build.py -c D
 ```
 
-After building is done, you can find `electron.exe` under `out\D` (debug target) or under `out\R` (release target).
+Как только сборка завершена, вы можете найти `electron.exe` в папке `out\D` (для отладки) или в `out\R` (для релиза).
 
 ## 32bit Build
 
-To build for the 32bit target, you need to pass `--target_arch=ia32` when running the bootstrap script:
+Для сборки 32-битного проекта, вам требуется указать `--target_arch=ia32` когда вы запускаете скрипт bootstrap:
 
 ```powershell
 $ python script\bootstrap.py -v --target_arch=ia32
 ```
 
-The other building steps are exactly the same.
+Все остальные инструкции по сборке идентичны.
 
-## Visual Studio проект
+## Проект Visual Studio
 
 To generate a Visual Studio project, you can pass the `--msvs` parameter:
 
