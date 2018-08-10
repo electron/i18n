@@ -60,7 +60,7 @@ $ python script\bootstrap.py -v --target_arch=ia32
 
 ## Проект Visual Studio
 
-To generate a Visual Studio project, you can pass the `--msvs` parameter:
+Для генерации проекта в Visual Studio, вы должны указать параметр `--msvs`:
 
 ```powershell
 $ python script\bootstrap.py --msvs
@@ -88,17 +88,17 @@ $ npm run clean-build
 
 ## Устранение проблем
 
-### Command xxxx not found
+### Команда xxxx не найдена
 
-If you encountered an error like `Command xxxx not found`, you may try to use the `VS2015 Command Prompt` console to execute the build scripts.
+Если вы столкнулись с ошибкой по типу `Команда xxxx не найдена`, вы можете попробовать использовать `VS2015 Command Prompt` консоль для выполнения скриптов сборки.
 
 ### Fatal internal compiler error: C1001
 
-Make sure you have the latest Visual Studio update installed.
+Убедитесь, что у вас установлена последняя версия Visual Studio.
 
 ### Assertion failed: ((handle))->activecnt >= 0
 
-If building under Cygwin, you may see `bootstrap.py` failed with following error:
+Если выполнять сборку через Cygwin, вы можете увидеть, что `bootstrap.py` не выполнился с такой ошибкой:
 
 ```sh
 Assertion failed: ((handle))->activecnt >= 0, file src\win\pipe.c, line 1430
@@ -115,7 +115,7 @@ Traceback (most recent call last):
 subprocess.CalledProcessError: Command '['npm.cmd', 'install']' returned non-zero exit status 3
 ```
 
-This is caused by a bug when using Cygwin Python and Win32 Node together. The solution is to use the Win32 Python to execute the bootstrap script (assuming you have installed Python under `C:\Python27`):
+Это вызвано ошибкой во время совместного использования Cygwin Python и Win32 Node. Решением является: использование Win32 Python для выполнения скрипта bootstrap (при условии, что вы установили Python в директорию `C:\Python27`):
 
 ```powershell
 $ /cygdrive/c/Python27/python.exe script/bootstrap.py
@@ -127,7 +127,7 @@ $ /cygdrive/c/Python27/python.exe script/bootstrap.py
 
 ### Error: ENOENT, stat 'C:\Users\USERNAME\AppData\Roaming\npm'
 
-Creating that directory [should fix the problem](https://stackoverflow.com/a/25095327/102704):
+Создание директории по данному пути [должно исправить проблему](https://stackoverflow.com/a/25095327/102704):
 
 ```powershell
 $ mkdir ~\AppData\Roaming\npm
@@ -135,11 +135,11 @@ $ mkdir ~\AppData\Roaming\npm
 
 ### node-gyp is not recognized as an internal or external command
 
-You may get this error if you are using Git Bash for building, you should use PowerShell or VS2015 Command Prompt instead.
+Вы можете столкнуться с этой ошибкой, если вы используете Git Bash для сборки, вместо этого, вы должны использовать PowerShell или командную строку Visual Code.
 
 ### cannot create directory at '...': Filename too long
 
-node.js has some [extremely long pathnames](https://github.com/electron/node/tree/electron/deps/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/node_modules/is-arrayish), and by default git on windows doesn't handle long pathnames correctly (even though windows supports them). This should fix it:
+node.js имеет несколько [слишком длинных путей](https://github.com/electron/node/tree/electron/deps/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/node_modules/is-arrayish), и по стандарту, git на windows не обрабатывает длинные пути корректно (даже если windows их поддерживает). Это должно помочь:
 
 ```sh
 $ git config --system core.longpaths true
