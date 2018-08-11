@@ -25,7 +25,7 @@ $ git clone https://github.com/electron/electron.git
 
 ## Самонастройка
 
-Скрипт bootstrap скачает все необходимые зависимые сборки и построит файлы проекта. Обратите внимание, что мы используем `ninja` для сборки Electron, поэтому проект в Visual Studio не создается.
+Скрипт bootstrap скачает все необходимые зависимые сборки и соберёт файлы проекта. Обратите внимание, что мы используем `ninja` для сборки Electron, поэтому проект в Visual Studio не создается.
 
 ```powershell
 $ cd electron
@@ -34,13 +34,13 @@ $ python script\bootstrap.py -v
 
 ## Сборка
 
-Построить обе Release и Debug цели:
+Собрать обе Release и Debug цели:
 
 ```powershell
 $ python script\build.py
 ```
 
-Вы можете построить только Debug:
+Вы можете собрать только Debug:
 
 ```powershell
 $ python script\build.py -c D
