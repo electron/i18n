@@ -48,7 +48,7 @@ $ python script\build.py -c D
 
 Как только сборка завершена, вы можете найти `electron.exe` в папке `out\D` (для отладки) или в `out\R` (для релиза).
 
-## 32bit Build
+## 32-битная сборка
 
 Для сборки 32-битного проекта, вам требуется указать `--target_arch=ia32` когда вы запускаете скрипт bootstrap:
 
@@ -80,7 +80,7 @@ $ npm run clean
 $ npm run clean-build
 ```
 
-**Примечание:** Обе команды очистки требуют запуска `bootstrap` снова перед построением.
+**Примечание:** Обе команды очистки требуют запуска `bootstrap` снова перед сборкой.
 
 ## Тестирование
 
@@ -123,7 +123,7 @@ $ /cygdrive/c/Python27/python.exe script/bootstrap.py
 
 ### LNK1181: cannot open input file 'kernel32.lib'
 
-Попробуйте переустановить 32х битный Node.js.
+Попробуйте переустановить 32-х битный Node.js.
 
 ### Error: ENOENT, stat 'C:\Users\USERNAME\AppData\Roaming\npm'
 
