@@ -10,7 +10,7 @@ Suivez les indications ci-dessous pour compiler Electron sur Linux.
     Veuillez vérifier que votre système et votre version de Python supporte au moins le TLS 1.2 ou une version supérieure. Pour un test rapide, exécutez le script suivant:
     
     ```sh
-    $ python ./script/tls.py
+    $ npm run check-tls
     ```
     
     Si le script renvoie que votre configuration utilise un protocole de sécurité obsolète, utilisez le Gestionnaire de paquets de votre système afin de mettre à jour vers la dernière version dans la branche 2.7.x de Python. Vous pouvez également visiter https://www.python.org/downloads/ pour plus de détails.
@@ -60,9 +60,18 @@ $ git clone https://github.com/electron/electron
 
 Le script d'amorçage téléchargera toutes les dépendances nécessaires et créera les fichiers de compilation. Vous devez avoir Python 2.7.x pour le bon fonctionnement du script. Le téléchargement de certains fichiers peut prendre un certain temps. Pour information, nous utilisons`ninja` pour compiler Electron, donc il n’y a aucun `Makefile` généré.
 
+To bootstrap for a static, non-developer build, run:
+
 ```sh
 $ cd electron
-$ ./script/bootstrap.py --verbose
+$ npm run bootstrap
+```
+
+Or to bootstrap for a development session that builds faster by not statically linking:
+
+```sh
+$ cd electron
+$ npm run bootstrap:dev
 ```
 
 Si votre éditeur supporte un serveur de langage basé sur une [base de données de compilation JSON](http://clang.llvm.org/docs/JSONCompilationDatabase.html), vous pouvez la générer:
@@ -98,7 +107,7 @@ $ ./script/bootstrap.py -v --target_arch=arm
 Compiler une version `Release` et une version `Debug` :
 
 ```sh
-$ ./script/build.py
+$ npm run build
 ```
 
 Ce script créera un lourd exécutable d'Electron dans le répertoire `out/R`. La taille du fichier est supérieure à 1.3 gigaoctets. Cela se produit parce que la version binaire Release contient des symboles de débogage. Pour réduire la taille du fichier, exécutez le script de `create-dist.py` :
@@ -109,10 +118,14 @@ $ ./script/create-dist.py
 
 Cela mettra un espace de travail avec des fichier beaucoup plus petits dans le répertoire `dist`. Après avoir exécuté le script `create-dist.py`, vous pouvez supprimer le fichier binaire de 1.3 + gigaoctets se trouvant toujours dans `out/R`.
 
-Vous pouvez également compiler seulement une version `Debug` :
+You can also build either the `Debug` or `Release` target on its own:
 
 ```sh
-$ ./script/build.py -c D
+$ npm run build:dev
+```
+
+```sh
+$ npm run build:release
 ```
 
 Une fois la compilation terminée, vous trouverez un binaire de debug `Electron` dans `out/D`.
