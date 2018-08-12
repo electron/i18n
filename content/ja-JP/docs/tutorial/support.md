@@ -11,13 +11,13 @@
 * AtomのSlack上の[`Electron`](https://atom-slack.herokuapp.com) チャネル
 * [`electron-ru`](https://telegram.me/electron_ru) *(ロシア)*
 * [`electron-br`](https://electron-br.slack.com) *(ブラジルポルトガル語)*
-* [`electron-kr`](https://electron-kr.github.io/electron-kr) *(Korean)*
-* [`electron-jp`](https://electron-jp.slack.com) *(Japanese)*
-* [`electron-tr`](https://electron-tr.herokuapp.com) *(Turkish)*
-* [`electron-id`](https://electron-id.slack.com) *(Indonesia)*
-* [`electron-pl`](https://electronpl.github.io) *(Poland)*
+* [`electron-kr`](https://electron-kr.github.io/electron-kr) *(韓国語)*
+* [`electron-jp`](https://electron-jp.slack.com) *(日本語)*
+* [`electron-tr`](https://electron-tr.herokuapp.com) *(トルコ語)*
+* [`electron-id`](https://electron-id.slack.com) *(インドネシア語)*
+* [`electron-pl`](https://electronpl.github.io) *(ポーランド語)*
 
-If you'd like to contribute to Electron, see the [contributing document](../../CONTRIBUTING.md).
+Electronにコントリビュートしたい場合は、[コントリビューティングドキュメント](../../CONTRIBUTING.md)をご参照ください。
 
 If you've found a bug in a [supported version](#supported-versions) of Electron, please report it with the [issue tracker](../development/issues.md).
 
