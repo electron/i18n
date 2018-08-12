@@ -2,7 +2,7 @@
 
 Electron te permite crear aplicaciones de escritorio con JavaScript puro proporcionando un sistema de tiempo de ejecución con poderosas APIs nativas (sistema operativo). Puedes verlo como una variante del sistema de tiempo de ejecución Node.js enfocada en aplicaciones de escritorio en lugar de servidores web.
 
-Esto no significa que Electron es una vinculación (binding) de JavaScript a librerías de Interfaces Gráficas. En cambio, Electron usa páginas web como su Interfaz Gráfica, así que también puedes verlo como un navegador Chromium minimal, controlado por JavaScript.
+Esto no significa que Electron sea una vinculación (binding) de JavaScript a librerías de Interfaces Gráficas de Usuario (GUI). En cambio, Electron usa páginas web a modo de Interfaz Gráfica, así que también puedes verlo como un navegador Chromium mínimo, controlado por JavaScript.
 
 Nota: Este ejemplo también esta disponible como repositorio que puedes descargar y ejecutar inmediatamente.
 
