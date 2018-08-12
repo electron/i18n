@@ -15,7 +15,7 @@ Sundin ang mga alituntunin sa ibaba para sa pagbuo ng Elektron sa macOS.
     Please also ensure that your system and Python version support at least TLS 1.2. This depends on both your version of macOS and Python. For a quick test, run:
     
     ```sh
-    $ python ./script/tls.py
+    $ npm run check-tls
     ```
     
     If the script returns that your configuration is using an outdated security protocol, you can either update macOS to High Sierra or install a new version of Python 2.7.x. To upgrade Python, use [Homebrew](https://brew.sh/):
@@ -58,9 +58,18 @@ Sundin ang mga alituntunin sa ibaba para sa pagbuo ng Elektron sa macOS.
     
     Ang "bootstrap" skrip ay "dina-download" ang lahat ng kailangang "build dependencies" at nililikha ang "build project files". Pansinin na tayo'y gumagamit ng [ninja](https://ninja-build.org/) upang makabuo ng Elektron upang sa gayon ay walang proyekto ng Xcode ang mabuo.
     
+    To bootstrap for a static, non-developer build, run:
+    
     ```sh
     $ cd electron
-    $ ./script/bootstrap.py -v
+    $ npm run bootstrap
+    ```
+    
+    Or to bootstrap for a development session that builds faster by not statically linking:
+    
+    ```sh
+    $ cd electron
+    $ npm run bootstrap:dev
     ```
     
     If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
@@ -71,16 +80,20 @@ Sundin ang mga alituntunin sa ibaba para sa pagbuo ng Elektron sa macOS.
     
     ## Ang Pagbubuo
     
-    Bumuo pareho ng `Release` at `Debug`:
+    To build both `Release` and `Debug` targets:
     
     ```sh
-    $ ./script/build.py
+    $ npm run build
     ```
     
-    Maaari rin namang bumuo lamang ng `Debug`:
+    You can also build either the `Debug` or `Release` target on its own:
     
     ```sh
-    $ ./script/build.py -c D
+    $ npm run build:dev
+    ```
+    
+    ```sh
+    $ npm run build:release
     ```
     
     Pagkatapos bumuo, maaari nang hanapin ang `Electron.app` sa ilalim ng `out/D`.
@@ -107,4 +120,4 @@ Sundin ang mga alituntunin sa ibaba para sa pagbuo ng Elektron sa macOS.
 
 <h2>Mga Pagsusuri</h2>
 
-<p>Tingnan ang <a href="build-system-overview.md#tests">Buod ng Pagbuo ng Sistema: Mga Pagsusuri</a></p>
+<p>Tingnan ang <a href="build-system-overview.md#tests"> Buod ng Pagbuo ng Sistema: Mga Pagsusuri </a></p>
