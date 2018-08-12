@@ -10,7 +10,7 @@
     Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
     
     ```sh
-    $ python ./script/tls.py
+    $ npm run check-tls
     ```
     
     If the script returns that your configuration is using an outdated security protocol, use your system's package manager to update Python to the latest version in the 2.7.x branch. Alternatively, visit https://www.python.org/downloads/ for detailed instructions.
@@ -60,9 +60,18 @@ $ git clone https://github.com/electron/electron
 
 Скрипт bootstrap скачает все необходимые зависимые сборки и построит файлы проекта. У вас должен быть Python 2.7.x для успешной работы этого скрипта. Загрузка некоторых файлов может занять много времени. Обратите внимание, что мы используем `ninja` для сборки Electron, поэтому `Makefile` не создается.
 
+To bootstrap for a static, non-developer build, run:
+
 ```sh
 $ cd electron
-$ ./script/bootstrap.py --verbose
+$ npm run bootstrap
+```
+
+Or to bootstrap for a development session that builds faster by not statically linking:
+
+```sh
+$ cd electron
+$ npm run bootstrap:dev
 ```
 
 If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
@@ -98,7 +107,7 @@ $ ./script/bootstrap.py -v --target_arch=arm
 Если вы хотите собрать `Release` и `Debug` версии:
 
 ```sh
-$ ./script/build.py
+$ npm run build
 ```
 
 Скрипт соберет очень большой исполняемый файл Electron в директорию `out/R`. Размер файла превышает 1,3 Гб. Это происходит из-за того что Release версия бинарного файла содержит отладочные символы. Чтобы уменьшить размер файла, запустите `create-dist.py`:
@@ -109,10 +118,14 @@ $ ./script/create-dist.py
 
 Оно создаст дистрибутив с гораздо меньшим размером файлов в директорию `dist`. После запуска `create-dist.py`, вероятно, вы захотите удалить 1.3+ Гб бинарный файл, который все еще находится в `out/R`.
 
-Также вы можете собрать только `Debug` версию:
+You can also build either the `Debug` or `Release` target on its own:
 
 ```sh
-$ ./script/build.py -c D
+$ npm run build:dev
+```
+
+```sh
+$ npm run build:release
 ```
 
 After building is done, you can find the `electron` debug binary under `out/D`.
@@ -131,7 +144,7 @@ $ npm run clean
 $ npm run clean-build
 ```
 
-**Примечание:** Обе команды очистки требуют запуска `bootstrap` снова перед построением.
+**Примечание:** Обе команды очистки требуют запуска `bootstrap` снова перед сборкой.
 
 ## Устранение проблем
 
