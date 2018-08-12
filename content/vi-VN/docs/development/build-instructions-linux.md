@@ -10,7 +10,7 @@ Làm theo hướng dẫn dưới đây để xây dựng Electron trên Linux.
     Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
     
     ```sh
-    $ python ./script/tls.py
+    $ npm run check-tls
     ```
     
     If the script returns that your configuration is using an outdated security protocol, use your system's package manager to update Python to the latest version in the 2.7.x branch. Alternatively, visit https://www.python.org/downloads/ for detailed instructions.
@@ -60,9 +60,18 @@ $ git clone https://github.com/electron/electron
 
 Mã khởi tạo dự án sẽ tải tất cả các file phụ thuộc cần thiết và tạo các file dự án. Bạn phải có Python 2.7.x để chạy được mã khởi tạo. Quá trình tải một số file có thể mất nhiều thời gian. Chú ý, chúng tôi sử dụng `ninja` để build Electron, do đó không có `Makefile` được tạo ra.
 
+To bootstrap for a static, non-developer build, run:
+
 ```sh
 $ cd electron
-$ ./script/bootstrap.py --verbose
+$ npm run bootstrap
+```
+
+Or to bootstrap for a development session that builds faster by not statically linking:
+
+```sh
+$ cd electron
+$ npm run bootstrap:dev
 ```
 
 If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
@@ -98,7 +107,7 @@ $ ./script/bootstrap.py -v --target_arch=arm
 Nếu bạn nhắm tới mong muốn xây dựng cả hai phiên bản là `Bản phát hành chính thức` và `Bản debug`:
 
 ```sh
-$ ./script/build.py
+$ npm run build
 ```
 
 Sau khi chạy file code này sẽ tạo ra file thực thi Electron rất lớn trong thư mục `out/R`. Kích thước file vượt 1,3 GB. Đó là do file thực thi Release cũng chứa thông tin debug. Để giảm kích thước file, hãy chạy `create-dist.py`:
@@ -109,10 +118,14 @@ $ ./script/create-dist.py
 
 Nó sẽ giúp đặt các file phụ thuộc có kích thước nhỏ hơn nhiều vào thư mục `dist`. Sau khi chạy `create-dist.py`, bạn có thể xóa file thực thi nặng hơn 1,3GB vẫn còn nằm trong thư mục `out/R`.
 
-Bạn cũng có thể chỉ build `bản Debug` như sau:
+You can also build either the `Debug` or `Release` target on its own:
 
 ```sh
-$ ./script/build.py -c D
+$ npm run build:dev
+```
+
+```sh
+$ npm run build:release
 ```
 
 Sau khi build xong, bạn sẽ tìm thấy file thực thi debug `electron` trong `out/D`.
