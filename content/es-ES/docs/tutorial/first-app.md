@@ -165,22 +165,22 @@ Finalmente el archivo `index.html` es la página web tu quieres mostrar:
 
 ## Ejecutar su aplicación
 
-Once you've created your initial `main.js`, `index.html`, and `package.json` files, you can try your app by running `npm start` from your application's directory.
+Una vez que hayas creado tus ficheros iniciales `main.js`, `index.html` y `package.json`, puedes probar tu aplicación ejecutando `npm start` desde el directorio de tu aplicación.
 
-## Trying this Example
+## Probando este ejemplo
 
-Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
+Clona y ejecuta el código de este tutorial usando el repositorio [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start).
 
-**Note**: Running this requires [Git](https://git-scm.com).
+**Nota**: Para ejecutar los siguientes comandos se necesita disponer de [Git](https://git-scm.com).
 
 ```sh
-# Clonar el repositorio
+# Clona el repositorio
 $ git clone https://github.com/electron/electron-quick-start
-# ir al repositorio
+# ve al repositorio
 $ cd electron-quick-start
-# instalar dependencias
+# instala las dependencias
 $ npm install
-# ejecute la aplicación
+# ejecuta la aplicación
 $ npm start
 ```
 
