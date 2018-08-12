@@ -144,8 +144,8 @@ After these steps, you can [submit your app for review](https://developer.apple.
 
 In order to satisfy all requirements for app sandboxing, the following modules have been disabled in the MAS build:
 
-* `crashReporter`
-* `autoAggiornatore`
+* `riportatorecrash`
+* `autoUpdater`
 
 and the following behaviors have been changed:
 
@@ -194,16 +194,6 @@ See the [Enabling User-Selected File Access documentation](https://developer.app
 ```
 
 See the [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) for more details.
-
-## Known issues
-
-### `shell.openItem(filePath)`
-
-This will fail when the app is signed for distribution in the Mac App Store. Subscribe to [#9005](https://github.com/electron/electron/issues/9005) for updates.
-
-#### Workaround
-
-`shell.openExternal('file://' + filePath)` will open the file in the default application as long as the extension is associated with an installed app.
 
 ## Cryptographic Algorithms Used by Electron
 

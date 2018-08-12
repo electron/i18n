@@ -89,7 +89,7 @@ quick_start:
   dive_deeper: Ou você pode ir mais fundo e ler a <a href='/docs'>documentação</a>.
 need_help:
   title: Precisa de Ajuda?
-  description: Faça perguntas no fórum <a href='https://discuss.atom.io/c/electron'>Discuss</a> ou no nosso canal do <a href='http://atom-slack.herokuapp.com/'>Slack</a>. Siga <a href="https://twitter.com/electronjs">@electronjs</a> no Twitter para anúncios importantes. Precisa falar em particular? Mande um e-mail para <a href="mailto:info@electronjs.org">nfo@electronjs.org</a>.
+  description: Faça perguntas no fórum <a href='https://discuss.atom.io/c/electron'>Discuss</a> ou no nosso canal do <a href='http://atom-slack.herokuapp.com/'>Slack</a>. Siga <a href="https://twitter.com/electronjs">@electronjs</a> no Twitter para anúncios importantes. Precisa falar em particular? Mande um e-mail para <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
 headings:
   languages: Idiomas
 taglines:
@@ -155,8 +155,3 @@ pages:
     title: Doadores
 _404:
   page_not_found: Página não encontrada.
-search:
-  description_all: Encontre recursos para o Electron na <a href="/search/docs">documentação</a>, nos <a href="/search/npmPackages">pacotes npm</a> e nos <a href="/search/repos">repositórios do GitHub</a>.
-  description_docs: Encontre recursos para o Electron na documentação.
-  description_npm: Encontre recursos para o Electron em pacotes no npm.
-  description_repos: Encontre recursos para o Electron em repositórios no GitHub.

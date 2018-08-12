@@ -155,8 +155,3 @@ pages:
     title: Donaciones
 _404:
   page_not_found: Página no encontrada.
-search:
-  description_all: Encuentre recursos de la <a href="/search/docs">documentación</a> de Electron, de los <a href="/search/npmPackages">paquetes npm</a>, y de los <a href="/search/repos">repositorios de GitHub</a>.
-  description_docs: Encuentre recursos de la documentación.
-  description_npm: Encuentre recursos de los paquetes npm de Electron.
-  description_repos: Encuentra recursos de Electron en los repositorios de GitHub.

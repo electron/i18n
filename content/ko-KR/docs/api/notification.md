@@ -62,7 +62,7 @@ Emitted when the notification is shown to the user, note this could be fired mul
 
 Emitted when the notification is clicked by the user.
 
-#### Event: 'close'
+#### 이벤트: 'close'
 
 Returns:
 

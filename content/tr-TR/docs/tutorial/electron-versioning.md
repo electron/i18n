@@ -50,7 +50,7 @@ Aşağıda, değişiklik türlerini ilgili semver kategorilerine (örn. Majör, 
 | Node.js major version updates     | Node.js minor version updates        | Node.js patch version updates |
 | Chromium sürümü güncellemeleri    |                                      | fix-related chromium yamaları |
 
-Çoğu krom güncellemesinin kırılma olarak değerlendirileceğini unutmayın. Geri gönderilebilecek düzeltmeler muhtemelen kiraz yamalar olarak seçilecek.
+Note that most Chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
 
 # Dengeleme Dalları
 
@@ -135,13 +135,12 @@ Gelecekteki değerlendirmelerde, aşağıdakilerden birini veya her ikisini birl
 Biz güncelleme ve serbest bırakma sürecinin her düzeyinde netliği arttırmaya çalışıyoruz. ` 2.0.0 </ 0> ile başlayarak, aşağıdaki gibi özetlenebilecek olan <a href="https://conventionalcommits.org/"> Konvansiyonel Karar Verme </ 1> spesifikasyonuna uymak için çekme talepleri isteyeceğiz:</p>
 
 <ul>
-<li>Semver ile sonuçlanan <strong>major</strong> tümseği ile başlamalıdır <code>BREAKING CHANGE:`.</li> 
+<li>Commits that would result in a semver <strong>major</strong> bump must start their body with <code>BREAKING CHANGE:`.</li> 
 
 - Semver ile sonuçlanan **minor** tümseği ile başlamalıdır `feat:`.
 - Semver ** yamasına yol açacak komitelerin </ 0> bump'ı ` fix: </ 1> ile başlamalıdır.</p></li>
 <li><p>Sıkıştırılmış mesajın yukarıdaki ileti biçimine uyması koşuluyla, taahhütlerin ezilmesine izin veririz.</p></li>
-<li>Çekme isteğinde bulunan bazı taahhütlerin semantik önek içermemesi, 
-aynı çekme isteğinden daha sonra yapılan bir taahhüt anlamlı bir mesaj içerdiği sürece kabul edilebilir.</li>
+<li>It is acceptable for some commits in a pull request to not include a semantic prefix, as long as the pull request title contains a meaningful encompassing semantic message.</li>
 </ul>
 
 <h1>Versionless <code>master`</h1> 

@@ -1,10 +1,10 @@
-# Oficialny Poradnik
+# Oficjalne Poradniki
 
-Upewnij się, że dokumentacja dotyczy twojej wersji Electrona. Numer wersji powinien być zawarty w URL tej strony. Jeżeli nie jest, prawdopodobnie przeglądasz dokumentację gałęzi deweloperskiej, która może zawierać zmiany w API, które nie są kompatybilne z twoją wersją Electrona. Aby przeglądać starsze wersje dokumentacji, możesz [przeglądać tagami](https://github.com/electron/electron/tree/v1.4.0) na GitHubie, rozwijając pole "Zmień gałąź/tagi" oraz wybierając tag, który odpowiada twojej wersji.
+Upewnij się, że dokumentacja dotyczy twojej wersji Electrona. Numer wersji powinien być zawarty w adresie URL tej strony. Jeżeli nie jest, prawdopodobnie przeglądasz dokumentację gałęzi deweloperskiej, która może zawierać zmiany w API, które nie są kompatybilne z twoją wersją Electrona. Aby przeglądać starsze wersje dokumentacji, możesz [przeglądać tagami](https://github.com/electron/electron/tree/v1.4.0) na GitHubie, rozwijając pole "Zmień gałąź/tagi" oraz wybierając tag, który odpowiada twojej wersji.
 
 ## FAQ
 
-Istnieje kilka pytań, które są bardzo często zadawane. Przeglądnij je, zanim stworzysz zapytanie:
+Istnieją pytania, które są bardzo często zadawane. Przeglądnij je, zanim stworzysz zapytanie:
 
 * [Electron FAQ](faq.md)
 
@@ -19,54 +19,54 @@ Istnieje kilka pytań, które są bardzo często zadawane. Przeglądnij je, zani
   * [Instalowanie Electrona](tutorial/first-app.md#installing-electron)
   * [Rozwój Electrona w pigułce](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [Uruchamianie Twojej aplikacji](tutorial/first-app.md#running-your-app)
-* [Standardowe teksty i CLI](tutorial/boilerplates-and-clis.md) 
-  * [Teskt standardowy vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
+* [Boilerplates i CLI](tutorial/boilerplates-and-clis.md) 
+  * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
-  * [Inne narzędzia i teksty standardowe](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
+  * [Inne narzędzia i boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
 * [Architektura aplikacji](tutorial/application-architecture.md) 
   * [Proces główny i renderer](tutorial/application-architecture.md#main-and-renderer-processes)
-  * [Używanie z API Electrona](tutorial/application-architecture.md#using-electron-apis)
-  * [Używanie z API Node.js](tutorial/application-architecture.md#using-nodejs-apis)
+  * [Używanie API Electrona](tutorial/application-architecture.md#using-electron-apis)
+  * [Używanie API Node.js](tutorial/application-architecture.md#using-nodejs-apis)
   * [Używanie Natywnych Modułów Node.js](tutorial/using-native-node-modules.md)
-* Dodawanie funkcji do aplikacji 
+* Dodawanie funkcji do twojej aplikacji 
   * [Powiadomienia](tutorial/notifications.md)
   * [Ostatnie dokumenty](tutorial/desktop-environment-integration.md#recent-documents)
   * [Postęp aplikacji](tutorial/progress-bar.md)
-  * [Niestandardowe Menu Docka](tutorial/macos-dock.md)
+  * [Niestandardowe Dock Menu](tutorial/macos-dock.md)
   * [Niestandardowy Pasek Zadań systemu Windows](tutorial/windows-taskbar.md)
-  * [Custom Linux Desktop Actions](tutorial/linux-desktop-actions.md)
+  * [Niestandardowe akcje pulpitu w systemie Linux](tutorial/linux-desktop-actions.md)
   * [Skróty Klawiszowe](tutorial/keyboard-shortcuts.md)
-  * [Wykrywanie trybu offline/Online](tutorial/online-offline-events.md)
-  * [Reprezentacja Plików dla macOS BrowserWindows](tutorial/represented-file.md)
-  * [Natywne przeciąganie i upuszczanie plików](tutorial/native-file-drag-drop.md)
+  * [Wykrywanie trybu offline/online](tutorial/online-offline-events.md)
+  * [Reprezentowany plik dla macOS BrowserWindows](tutorial/represented-file.md)
+  * [Natywne przeciąganie & upuszczanie plików](tutorial/native-file-drag-drop.md)
 * [Dostępność](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [Włączanie ułatwień dostępu](tutorial/accessibility.md#enabling-accessibility)
 * [Testowania i debugowanie](tutorial/application-debugging.md) 
-  * [Debugowanie Głównego Wątku](tutorial/debugging-main-process.md)
+  * [Debugowanie w Procesie Głównym](tutorial/debugging-main-process.md)
   * [Używanie Selenium oraz WebDriver](tutorial/using-selenium-and-webdriver.md)
-  * [Testowanie na Systemach Beznagłówkowych (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
+  * [Testowanie na Systemach CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Rozszerzenie DevTools](tutorial/devtools-extension.md)
-  * [Automatyczne testowania za pomocą Custom Driver](tutorial/automated-testing-with-a-custom-driver.md)
-* Packaging 
-  * [Code Signing](tutorial/code-signing.md)
+  * [Automatyczne testowania z pomocą niestandardowego sterownika](tutorial/automated-testing-with-a-custom-driver.md)
+* Pakowanie 
+  * [Podpisywanie kodu](tutorial/code-signing.md)
 * [Dystrybucja](tutorial/application-distribution.md) 
   * [Wsparcie](tutorial/support.md)
   * [Sklep App Store](tutorial/mac-app-store-submission-guide.md)
   * [Sklep Windows](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
 * [Bezpieczeństwo](tutorial/security.md) 
-  * [Zgłaszanie Błędów Bezpieczeństwa](tutorial/security.md#reporting-security-issues)
-  * [Bezpieczeństwa i uaktualnienia Chrominum](tutorial/security.md#chromium-security-issues-and-upgrades)
+  * [Zgłaszanie Problemów z Bezpieczeństwem](tutorial/security.md#reporting-security-issues)
+  * [Problemy z Bezpieczeństwem i Aktualizacje Chromium](tutorial/security.md#chromium-security-issues-and-upgrades)
   * [Ostrzeżenia bezpieczeństwa Electrona](tutorial/security.md#electron-security-warnings)
   * [Lista kontrolna zabezpieczeń](tutorial/security.md#checklist-security-recommendations)
 * [Aktualizacje](tutorial/updates.md) 
-  * [Wdrażanie aktualizacji serwera](tutorial/updates.md#deploying-an-update-server)
+  * [Wdrażanie serwera aktualizacji](tutorial/updates.md#deploying-an-update-server)
   * [Wdrażanie aktualizacji do twojej aplikacji](tutorial/updates.md#implementing-updates-in-your-app)
-  * [Stosowanie aktualizacji](tutorial/updates.md#applying-updates)
+  * [Wdrażanie aktualizacji](tutorial/updates.md#applying-updates)
 
 ## Szczegółowe poradniki
 
@@ -93,10 +93,10 @@ Te poszczególne poradniki rozwijają tematy omówione w przewodniku powyżej.
 
 * [Słownik Terminów](glossary.md)
 
-## API
+## Referencje API
 
 * [Streszczenie](api/synopsis.md)
-* [Obiekt Process](api/process.md)
+* [Process Object](api/process.md)
 * [Wspierane Zmienne Konsoli Chrome](api/chrome-command-line-switches.md)
 * [Zmienne Środowiskowe](api/environment-variables.md)
 * [Istotne zmiany w API](api/breaking-changes.md)
@@ -121,7 +121,7 @@ Te poszczególne poradniki rozwijają tematy omówione w przewodniku powyżej.
 * [Menu](api/menu.md)
 * [MenuItem](api/menu-item.md)
 * [net](api/net.md)
-* [netLog](api/netLog.md)
+* [netLog](api/net-log.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)
@@ -137,7 +137,7 @@ Te poszczególne poradniki rozwijają tematy omówione w przewodniku powyżej.
 * [remote](api/remote.md)
 * [webFrame](api/web-frame.md)
 
-### Moduły wspólne obu procesów:
+### Moduły wspólne dla obu procesów:
 
 * [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)

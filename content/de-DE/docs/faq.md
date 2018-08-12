@@ -45,7 +45,7 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## Mein App Fenster/Brett verschwand nach ein paar Minuten.
+## Das Fenster/Icon meiner App verschwindet nach ein paar Minuten.
 
 Dies geschieht, wenn die Variable, die verwendet wird, um das Fenster/Fach zu speichern, nur Unsinn aufnimmt.
 

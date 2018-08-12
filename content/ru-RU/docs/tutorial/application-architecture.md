@@ -20,7 +20,7 @@
 
 > #### Примечание: взаимодействие между процессами
 > 
-> В Electron иммется несколько способов взамимодействия между основным процессом и процессами визуализации. Например, модули для отправки сообщений: [`ipcRenderer`](../api/ipc-renderer.md), [`ipcMain`](../api/ipc-main.md) и модуль для вызова удаленных процедур(RPC) - [remote](../api/remote.md). Так же доступен FAQ о [том, как обмениваться данными между веб-страницами](../faq.md#how-to-share-data-between-web-pages).
+> In Electron, we have several ways to communicate between the main process and renderer processes, such as [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. Так же доступен FAQ о [том, как обмениваться данными между веб-страницами](../faq.md#how-to-share-data-between-web-pages).
 
 ## Использование API Electron
 

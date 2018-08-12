@@ -99,7 +99,7 @@ Ces tutoriels individuels développent les sujets abordés dans le guide ci-dess
 * [Process Object](api/process.md)
 * [Commandes Chromes Supportées](api/chrome-command-line-switches.md)
 * [Variables d'environnement](api/environment-variables.md)
-* [Breaking API Changes](api/breaking-changes.md)
+* [Modifications importantes de l'API](api/breaking-changes.md)
 
 ### Éléments DOM Personnalisé :
 
@@ -121,7 +121,7 @@ Ces tutoriels individuels développent les sujets abordés dans le guide ci-dess
 * [Menu](api/menu.md)
 * [MenuItem](api/menu-item.md)
 * [net](api/net.md)
-* [netLog](api/netLog.md)
+* [netLog](api/net-log.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)

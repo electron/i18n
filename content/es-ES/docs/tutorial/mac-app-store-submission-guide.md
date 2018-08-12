@@ -195,16 +195,6 @@ Vea la [documentación sobre la habilitación del acceso del usuario a archivos 
 
 Vea la [documentación sobre la habilitación del acceso del usuario a archivos seleccionados](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) para más información.
 
-## Problemas conocidos
-
-### `shell.openItem(filePath)`
-
-Esto fallará cuando la aplicación sea firmada para distribución en la Mac App Store. Subscrita a [#9005](https://github.com/electron/electron/issues/9005) para actualizaciones.
-
-#### Soluciones
-
-`shell.openExternal('file://' + filePath)` Abrirá el archivo en la aplicación por defecto siempre y cuando la extensión esté asociada con la aplicación instalada.
-
 ## Algoritmos criptográficos utilizados por Electron
 
 Dependiendo del país y región en el que se encuentre, la Mac App Store puede requerir la documentación de los algoritmo criptográficos en su aplicación, e incluso pedirle que presente una copia de la aprobación registro de encriptación de EEUU (ERN).

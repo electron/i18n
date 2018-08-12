@@ -2,6 +2,22 @@
 
 このドキュメントでは、Electronの新しいバージョンをリリースするプロセスについて説明します。
 
+## トークンと環境変数をセットする
+
+Electron リリースを作成してアップロードするには、Electron S3 認証が必要です。 より詳しくはチームメンバーにお問い合わせください。
+
+There are a handful of `*_TOKEN` environment variables needed by the release scripts:
+
+- `ELECTRON_GITHUB_TOKEN`: Create this by visiting https://github.com/settings/tokens/new?scopes=repo
+- `APPVEYOR_TOKEN`: Create a token from https://windows-ci.electronjs.org/api-token If you don't have an account, ask a team member to add you.
+- `CIRCLE_TOKEN`: Create a token from "Personal API Tokens" at https://circleci.com/account/api
+- `VSTS_TOKEN`: Create a Personal Access Token at https://github.visualstudio.com/_usersSettings/tokens or https://github.visualstudio.com/_details/security/tokens with the scope of `Build (read and execute)`.
+- `ELECTRON_S3_BUCKET`:
+- `ELECTRON_S3_ACCESS_KEY`:
+- `ELECTRON_S3_SECRET_KEY`: If you don't have these, ask a team member to help you.
+
+Once you've generated these tokens, put them in a `.env` file in the root directory of the project. This file is gitignored, and will be loaded into the environment by the release scripts.
+
 ## リリースするブランチを決定する
 
 - **ベータをリリースする場合、**`master` から以下のスクリプトを実行してください。
@@ -12,12 +28,6 @@
 `npm run prepare-release -- --notesOnly` を実行すると自動生成されたリリースノートが表示されます。 生成されたノートはこれがメジャー、マイナー、パッチ、またはベータ版の変更であるかどうかを判断するのに役立ちます。 より詳しい情報については、[バージョン変更ルール](../tutorial/electron-versioning.md#semver) を読んで下さい。
 
 **注意:** ブランチ (1-8-xなど) からリリースする場合、ブランチを `git checkout -b remotes/origin/1-8-x` ではなく `git checkout 1-8-x` でチェックアウトします。 スクリプトが `remotes/origin/` などでない短い名前を返すには、`git rev-parse --abbrev-ref HEAD` が必要です。
-
-## トークンと環境変数をセットする
-
-Electron リリースを作成してアップロードするには、Electron S3 認証が必要です。 より詳しくはチームメンバーにお問い合わせください。
-
-リリーススクリプトが必要とする環境変数は、`*_TOKEN` です。 これらユーザーごとのトークンを生成したら、リリースを開始するときに `明示` できるローカルファイルにそれらを保持するとよいでしょう。 * `ELECTRON_GITHUB_TOKEN`: https://github.com/settings/tokens/new で説明されているように作成し、トークンレポジトリアクセススコープを与えます。 * `APPVEYOR_TOKEN`: https://windows-ci.electronjs.org/api-token からトークンを作成します。 アカウントをお持ちでない場合は、チームメンバーにあなたの追加を依頼してください。 * `CIRCLE_TOKEN`: https://circleci.com/account/api の "Personal API Tokens" からトークンを作ります。
 
 ## prepare-release スクリプトを実行する
 
@@ -42,7 +52,7 @@ npm run prepare-release -- minor
 ### パッチバージョンの変更
 
 ```sh
-npm run prepare-release -- patch
+npm run prepare-release -- patch --stable
 ```
 
 ### ベータ版の変更
@@ -67,8 +77,11 @@ $ ./script/bump-version.py --bump minor --dry-run
 
 `prepare-release` スクリプトは、API 呼び出しを介してビルドをトリガーします。 ビルドの進行状況をモニターするには、以下のページを参照してください。
 
-- [circleci.com/gh/electron/electron](https://circleci.com/gh/electron) OS X と Linux 向け
-- [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) Windows 向け
+- [electron-release-mas-x64](https://github.visualstudio.com/electron/_build/index?context=allDefinitions&path=%5C&definitionId=19&_a=completed) for MAS builds.
+- [electron-release-osx-x64](https://github.visualstudio.com/electron/_build/index?context=allDefinitions&path=%5C&definitionId=18&_a=completed) for OSX builds.
+- [circleci.com/gh/electron/electron](https://circleci.com/gh/electron) for Linux builds.
+- [windows-ci.electronjs.org/project/AppVeyor/electron-39ng6](https://windows-ci.electronjs.org/project/AppVeyor/electron-39ng6) for Windows 32-bit builds.
+- [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) for Windows 64-bit builds.
 
 ## リリースノートをコンパイルする
 
@@ -171,36 +184,19 @@ under the `beta` tag and can be installed via `npm install electron@beta`.
 
 1. [リリースページ](https://github.com/electron/electron/releases) にアクセスすると、プレースホルダリリースノートを含む新しいドラフトリリースが表示されます。
 2. リリースを編集し、リリースノートを追加します。
-3. 安定版を公開する場合は、ベータ版がないか確認し、`prerelease` チェックボックスを外します。
-4. Save draft (ドラフトを保存)をクリックします。 **'Publish release' はクリックしないでください！**
-5. 続行する前に全ビルドがパスするのを待ちます。
-6. `release` ブランチで、リリースのファイルが作成されていることを確認します。
+3. Save draft (ドラフトを保存)をクリックします。 **'Publish release' はクリックしないでください！**
+4. 続行する前に全ビルドがパスするのを待ちます。
+5. In the branch, verify that the release's files have been created:
 
 ```sh
-$ git rev-parse --abbrev-ref HEAD
-release
 $ npm run release -- --validateRelease
 ```
 
-## 一時ブランチのマージ (2-0-x 以前のブランチ限定)
-
-リリースビルドが完了したら、`release` ブランチを `merge-release` スクリプトを使用してソースリリースブランチにマージします。 ブランチが正常にマージバックされない場合、このスクリプトは `release` ブランチを自動的にリベースし、リリースビルドをトリガする変更をプッシュします。これは、続行する前にリリースビルドが再び実行されるのを待つ必要があることを意味します。
-
-### マスターにマージバックする
-
-```sh
-npm run merge-release -- master
-```
-
-### 旧リリースブランチにマージバックする
-
-```sh
-npm run merge-release -- 1-7-x
-```
+Note, if you need to run `--validateRelease` more than once to check the assets, run it as above the first time, then `node ./script/release.js --validateRelease` for subsequent calls so that you don't have to rebuild each time you want to check the assets.
 
 ## リリースを公開する
 
-マージが正常に終了したら、`npm run release` を介して `release` スクリプトを実行してリリースプロセスを終了します。 このスクリプトは、以下の処理を行います。 1. プロジェクトをビルドして、正しいバージョン番号がリリースされていることを検証します。 2. バイナリをダウンロードし、ネイティブモジュールをビルドするために node-gyp によって Windows 上で使用される node ヘッダと .lib リンカーを生成します。 3. S3 に保存された SHASUMS ファイルを作成し、node ファイル用にアップロードします。 4. GitHub リリースに格納される SHASUMS256.txt ファイルを作成してアップロードします。 5. すべての必要なファイルが GitHub と S3 に存在し、SHASUMS ファイルで指定されている正しいチェックサムを持っていることを検証します。 6. GitHub 上でリリースを公開します。 7. `release` ブランチを削除します。
+マージが正常に終了したら、`npm run release` を介して `release` スクリプトを実行してリリースプロセスを終了します。 このスクリプトは、以下の処理を行います。 1. プロジェクトをビルドして、正しいバージョン番号がリリースされていることを検証します。 2. バイナリをダウンロードし、ネイティブモジュールをビルドするために node-gyp によって Windows 上で使用される node ヘッダと .lib リンカーを生成します。 3. S3 に保存された SHASUMS ファイルを作成し、node ファイル用にアップロードします。 4. GitHub リリースに格納される SHASUMS256.txt ファイルを作成してアップロードします。 5. すべての必要なファイルが GitHub と S3 に存在し、SHASUMS ファイルで指定されている正しいチェックサムを持っていることを検証します。 6. GitHub 上でリリースを公開します。
 
 ## npm に公開
 
@@ -230,7 +226,56 @@ electron
 $ npm run publish-to-npm
 ```
 
-注意: 一般的に、このプロセスでは最新の Node を使用する必要があります。 しかし、`publish-to-npm` スクリプトの古いバージョンでは、Node 7 以上で問題が発生する可能性があります。 古いブランチで問題が発生した場合は、Node の以前のバージョン、たとえば 6.x LTS で実行してみてください。
+After publishing, you can check the `latest` release:
+
+```sh
+$ npm dist-tag ls electron
+```
+
+If for some reason `npm run publish-to-npm` fails, you can tag the release manually:
+
+```sh
+$ npm dist-tag add electron@<version> <tag>
+```
+
+e.g.:
+
+```sh
+$ npm dist-tag add electron@2.0.0 latest
+```
+
+# トラブルシューティング
+
+## Rerun broken builds
+
+If a release build fails for some reason, you can use `script/ci-release-build.js` to rerun a release build:
+
+### Rerun all linux builds:
+
+```sh
+node script/ci-release-build.js --ci=CircleCI --ghRelease TARGET_BRANCH
+(TARGET_BRANCH) is the branch you are releasing from.
+```
+
+### Rerun all macOS builds:
+
+```sh
+node script/ci-release-build.js --ci=VSTS --ghRelease TARGET_BRANCH
+(TARGET_BRANCH) is the branch you are releasing from.
+```
+
+### Rerun all Windows builds:
+
+```sh
+node script/ci-release-build.js --ci=AppVeyor --ghRelease TARGET_BRANCH
+(TARGET_BRANCH) is the branch you are releasing from.
+```
+
+Additionally you can pass a job name to the script to run an individual job, eg:
+
+```sh
+node script/ci-release-build.js --ci=AppVeyor --ghRelease --job=electron-x64 TARGET_BRANCH
+```
 
 ## 手動でリリースの欠けたバイナリを修正する
 

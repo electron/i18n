@@ -194,16 +194,6 @@ Tingnan ang [Enabling User-Selected File Access documentation](https://developer
 
 Tingnan ang [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) para sa higit pang mga detalye.
 
-## Kilalang mga isyu
-
-### `shell.openItem(filePath)`
-
-Mabibigo ito kapag nilagdaan ang app para sa pamamahagi sa Mac App Store. Mag-subscribe sa [#9005](https://github.com/electron/electron/issues/9005) para sa mga update.
-
-#### Workaround
-
-Bubuksan ng `shell.openExternal('file: //' + filePath)` ang file sa default na aplikasyon hangga't ang extension ay nauugnay sa isang naka-install na app.
-
 ## Mga Cryptographic Algorithm na Ginamit ng Electron
 
 Depende sa bansa at rehiyon kung saan ka matatagpuan, maaaring kailanganin ng Mac App Store ang pagdodokumento ng mga cryptographic algorithm na ginamit sa iyong app, at posibleng hilingin kang magsumite ng kopya ng pag-apruba ng U.S. Encryption Registration (ERN).

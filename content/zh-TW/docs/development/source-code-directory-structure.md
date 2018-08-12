@@ -10,8 +10,9 @@ Electron 的原始碼可分成幾個部分，主要是對照到 Chromium 模組�
 Electron
 ├── atom/ - C++ 原始碼。
 |   ├── app/ - 系統入口點程式碼。
-|   ├── browser/ - 前端程式碼，包含主視窗、UI 及所有主處理序的東西。
-|   |    跟畫面轉譯器溝通以管理頁面。
+|   ├── browser/ - The frontend including the main window, UI, and all of the
+|   |   |          main process things. This talks to the renderer to manage web
+|   |   |          pages.
 |   |   ├── ui/ - 不用平臺的 UI 實作。
 |   |   |   ├── cocoa/ - Cocoa 專用原始碼。
 |   |   |   ├── win/ - Windows GUI 專用原始碼。
@@ -22,12 +23,15 @@ Electron
 |   |   └── resources/ - 圖示等跨平臺的東西。
 |   ├── renderer/ - 在畫面轉譯處理序中執行的程式碼。
 |   |   └── api/ - 畫面轉譯處理序 API 的實作。
-|   └── common/ - 主處理序及畫面轉譯處理序期用的程式碼。包含一些工具函式，
-|       以及將 Node 訊息迴圈整合進 Chromium 訊息迴圈的程式碼。
-|       └── api/ - 共用 API 實作、Electron 內建模組的基礎架構。
+|   └── common/ - Code that used by both the main and renderer processes,
+|       |         including some utility functions and code to integrate node's
+|       |         message loop into Chromium's message loop.
+|       └── api/ - The implementation of common APIs, and foundations of
+|                  Electron's built-in modules.
 ├── brightray/ - 方便使用 libcc 的填充碼。
 ├── chromium_src/ - 由 Chromium 複製過來的原始碼。 參考下方說明。
-├── default_app/ - Electron 沒有指定 app 啟動時使用的預設頁面。
+├── default_app/ - The default page to show when Electron is started without
+|                  providing an app.
 ├── docs/ - 文件。
 ├── lib/ - JavaScript 原始碼。
 |   ├── browser/ - JavaScript 主處理序初始化程式碼。
@@ -36,9 +40,12 @@ Electron
 |   |   └── api/ - JavaScript API 實作。
 |   └── renderer/ - JavaScript 畫面轉譯處理序初始化程式碼。
 |       └── api/ - JavaScript API 實作。
+├── native_mate/ - A fork of Chromium's gin library that makes it easier to marshal
+|                  types between C++ and JavaScript.
 ├── spec/ - 自動測試案例。
 ├── electron.gyp - Electron 建置規則。
-└── common.gypi - 供 `node` 及 `breakpad` 等其他元件使用的編譯器設定及建置規則。
+└── common.gypi - Compiler specific settings and building rules for other
+                  components like `node` and `breakpad`.
 ```
 
 ## `/chromium_src`

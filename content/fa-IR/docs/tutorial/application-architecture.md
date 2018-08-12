@@ -2,7 +2,7 @@
 
 Before we can dive into Electron's APIs, we need to discuss the two process types available in Electron. They are fundamentally different and important to understand.
 
-## Main and Renderer Processes
+## فرآیندهای اصلی و رندرینگ
 
 در الکترون، پروسه ها با صدا کردن اسکریپت اصلی package.json اجرا می شوند. The script that runs in the main process can display a GUI by creating web pages. An Electron app always has one main process, but never more.
 
@@ -20,7 +20,7 @@ The main process manages all web pages and their corresponding renderer processe
 
 > #### Aside: Communication Between Processes
 > 
-> In Electron, we have several ways to communicate between the main process and renderer processes. Like [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
+> In Electron, we have several ways to communicate between the main process and renderer processes, such as [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
 
 ## Using Electron APIs
 
@@ -53,7 +53,7 @@ const { BrowserWindow } = remote
 const win = new BrowserWindow()
 ```
 
-## Using Node.js APIs
+## استفاده از API های Node.js
 
 Electron exposes full access to Node.js both in the main and the renderer process. This has two important implications:
 

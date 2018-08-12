@@ -155,8 +155,3 @@ pages:
     title: Spender
 _404:
   page_not_found: Seite nicht gefunden.
-search:
-  description_all: Find Electron Ressourcen aus der<a href="/search/docs">Dokumentation</a>, <a href="/search/npmPackages">npm Paketen</a>, und <a href="/search/repos">GitHub Repositories</a>.
-  description_docs: Finde Electron Ressourcen aus der Dokumentation.
-  description_npm: Finde Electron Ressourcen aus NPM Paketen.
-  description_repos: Finde Electron Ressourcen aus GitHub Repositories.

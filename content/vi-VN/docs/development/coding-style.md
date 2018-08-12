@@ -30,7 +30,7 @@ The C++ code uses a lot of Chromium's abstractions and types, so it's recommende
 
 ## Tài liệu
 
-* Write [remark](https://github.com/remarkjs/remark) markdown style
+* Write [remark](https://github.com/remarkjs/remark) markdown style.
 
 You can run `npm run lint-docs` to ensure that your documentation changes are formatted correctly.
 

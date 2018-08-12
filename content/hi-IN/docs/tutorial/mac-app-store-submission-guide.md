@@ -195,16 +195,6 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 
 ज्यादा जानकारी के लिए [उपयोगकर्ता-चयनित फाइल पहुँच कैसे इनेबल करें](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) पढ़ें |
 
-## ज्ञात समस्यायें
-
-### `shell.openItem(filePath)`
-
-मैक एप्पल स्टोर में जब वितरण के लिए एप्प पर हस्ताक्षर किया जायेगा तो यह विफल हो जायेगा | अपडेटस के लिए [#9005](https://github.com/electron/electron/issues/9005) को सब्सक्राइब करें |
-
-#### वैकल्पिक हल
-
-जब तक एक्सटेंशन एक इन्सटाल्ड एप्प के साथ जुड़ी रहे, तब तक `shell.openExternal('file://' + filePath)` फाइल को एक डिफ़ॉल्ट एप्लीकेशन में खोलेगा |
-
 ## इलेक्ट्रॉन द्वारा इस्तेमाल क्रिप्टोग्राफ़िक अल्गोरिथ्म्स
 
 आप जहाँ रह रहे हैं उस देश और क्षेत्र पर निर्भर करते हुए, मैक एप्प स्टोर आपकी एप्प में इस्तेमाल हुए क्रिप्टोग्राफ़िक अल्गोरिथम का दस्तावेज़ीकरण मांग सकता है, और वह आपको U.S. Encryption Registration (ERN) approval की एक कॉपी जमा कराने के लिए भी कह सकता है |

@@ -144,16 +144,6 @@ Lihat [Mengaktifkan dokumentasi Akses Berkas yang Dipilih Pengguna](https://deve
 
 Lihat [Mengaktifkan dokumentasi Akses Berkas yang Dipilih Pengguna](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) untuk lebih jelasnya.
 
-## Masalah dikenal
-
-### `shell.openItem(filePath)`
-
-Ini akan gagal saat aplikasi masuk untuk didistribusikan di Mac App Store. Berlangganan [#9005](https://github.com/electron/electron/issues/9005) untuk pembaruan.
-
-#### Solusi
-
-`shell.openExternal('file://' + filePath)` akan membuka file dalam aplikasi default selama ekstensi dikaitkan dengan aplikasi yang terpasang.
-
 ## Algoritma Kriptografi yang Digunakan oleh Elektron
 
 Tergantung pada negara dan wilayah yang Anda berada, Mac App Store mungkin memerlukan mendokumentasikan algoritma kriptografi yang digunakan dalam aplikasi Anda, dan bahkan meminta Anda untuk mengirimkan salinan persetujuan US enkripsi pendaftaran (ERN).

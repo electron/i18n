@@ -2,6 +2,22 @@
 
 Ang dokumentong ito ay nagpapakita ng proseso ng pagpapalabas ng isang bagong bersyon ng Electron.
 
+## Set your tokens and environment variables
+
+You'll need Electron S3 credentials in order to create and upload an Electron release. Contact a team member for more information.
+
+There are a handful of `*_TOKEN` environment variables needed by the release scripts:
+
+- `ELECTRON_GITHUB_TOKEN`: Create this by visiting https://github.com/settings/tokens/new?scopes=repo
+- `APPVEYOR_TOKEN`: Create a token from https://windows-ci.electronjs.org/api-token If you don't have an account, ask a team member to add you.
+- `CIRCLE_TOKEN`: Create a token from "Personal API Tokens" at https://circleci.com/account/api
+- `VSTS_TOKEN`: Create a Personal Access Token at https://github.visualstudio.com/_usersSettings/tokens or https://github.visualstudio.com/_details/security/tokens with the scope of `Build (read and execute)`.
+- `ELECTRON_S3_BUCKET`:
+- `ELECTRON_S3_ACCESS_KEY`:
+- `ELECTRON_S3_SECRET_KEY`: If you don't have these, ask a team member to help you.
+
+Once you've generated these tokens, put them in a `.env` file in the root directory of the project. This file is gitignored, and will be loaded into the environment by the release scripts.
+
 ## Alamin kung mula sa aling sangay maglalabas
 
 - **Kapag naglalabas ng isang beta,** paganahin ang skrip sa ibaba mula sa `master`.
@@ -12,12 +28,6 @@ Ang dokumentong ito ay nagpapakita ng proseso ng pagpapalabas ng isang bagong be
 Paganahin ang `npm run prepare-release -- --notesOnly` para makita ang awtomatikong nalikhang mga kopya sa paglalabas. Ang mga kopyang nabuo ay makakatulong upang matukoy kung ito ay major, minor, patch, o kaya beta na pagbabago ng bersyon. Basahin ang [Mga Patakaran sa Pagbabago ng Bersyon](../tutorial/electron-versioning.md#semver) para sa karagdagang impormasyon.
 
 **NB:** If releasing from a branch, e.g. 1-8-x, check out the branch with `git checkout 1-8-x` rather than `git checkout -b remotes/origin/1-8-x`. The scripts need `git rev-parse --abbrev-ref HEAD` to return a short name, e.g. no `remotes/origin/`
-
-## Set your tokens and environment variables
-
-You'll need Electron S3 credentials in order to create and upload an Electron release. Contact a team member for more information.
-
-There are a handful of `*_TOKEN` environment variables needed by the release scripts. Once you've generated these per-user tokens, you may want to keep them in a local file that you can `source` when starting a release. * `ELECTRON_GITHUB_TOKEN`: Create as described at https://github.com/settings/tokens/new, giving the token repo access scope. * `APPVEYOR_TOKEN`: Create a token from https://windows-ci.electronjs.org/api-token If you don't have an account, ask a team member to add you. * `CIRCLE_TOKEN`: Create a token from "Personal API Tokens" at https://circleci.com/account/api
 
 ## Paganahing ang prepare-release na skrip
 
@@ -42,7 +52,7 @@ npm run prepare-release -- minor
 ### Patch na pagbabago sa bersyon
 
 ```sh
-npm run prepare-release -- patch
+npm run prepare-release -- patch --stable
 ```
 
 ### Beta na pagbabago sa bersyon
@@ -67,8 +77,11 @@ $ ./script/bump-version.py --bump minor --dry-run
 
 Ang `prepare-release` na skrip ay magti-trigger sa mga build sa pamamagitan ng mga API na tawag. Upang masubaybayan ang estado ng pagbubuo, tingnan ang mga sumusunod na pahina:
 
-- [circleci.com/gh/electron/electron](https://circleci.com/gh/electron) for OS X and Linux
-- [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) para sa Windows
+- [electron-release-mas-x64](https://github.visualstudio.com/electron/_build/index?context=allDefinitions&path=%5C&definitionId=19&_a=completed) for MAS builds.
+- [electron-release-osx-x64](https://github.visualstudio.com/electron/_build/index?context=allDefinitions&path=%5C&definitionId=18&_a=completed) for OSX builds.
+- [circleci.com/gh/electron/electron](https://circleci.com/gh/electron) for Linux builds.
+- [windows-ci.electronjs.org/project/AppVeyor/electron-39ng6](https://windows-ci.electronjs.org/project/AppVeyor/electron-39ng6) for Windows 32-bit builds.
+- [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) for Windows 64-bit builds.
 
 ## Tipunin ang mga kopya ng lathala
 
@@ -171,36 +184,19 @@ under the `beta` tag and can be installed via `npm install electron@beta`.
 
 1. Visit [the releases page](https://github.com/electron/electron/releases) and you'll see a new draft release with placeholder release notes.
 2. Baguhin ang lathala at magdagdag ng mga kopya ng lathala.
-3. Uncheck the `prerelease` checkbox if you're publishing a stable release; leave it checked for beta releases.
-4. Pindutin ang 'Save draft'. **Huwag pindutin ang 'Publish release'!**
-5. Hintayin ang lahat ng build na pumasa bago magpatuloy.
-6. In the `release` branch, verify that the release's files have been created:
+3. Pindutin ang 'Save draft'. **Huwag pindutin ang 'Publish release'!**
+4. Hintayin ang lahat ng build na pumasa bago magpatuloy.
+5. In the branch, verify that the release's files have been created:
 
 ```sh
-$ git rev-parse --abbrev-ref HEAD
-release
 $ npm run release -- --validateRelease
 ```
 
-## Merge temporary branch (pre-2-0-x branches only)
-
-Kapag ang release builds ay tapus na. Pagsamahin ang `release` pabalik sa pinang galingang sangay ng release gamit ang `merge-release` script. Kung branch hindi maging matagumpay nagsanib muli ang script na ito ay awtomatikong rebase ang `release ng` branch at itulak ang mga pagbabago na kung saan ay mag-trigger ang release builds muli, na ibig sabihin ay kailangan mong maghintay para sa release build na gumana muli bago magpatuloy.
-
-### Pagsamasamahin pabalik sa master
-
-```sh
-npm paganahin ang merge-release -- master
-```
-
-### Pagsamasamahin pabalik sa lumang sangay ng release
-
-```sh
-npm paganahin ang merge-release -- 1-7-x
-```
+Note, if you need to run `--validateRelease` more than once to check the assets, run it as above the first time, then `node ./script/release.js --validateRelease` for subsequent calls so that you don't have to rebuild each time you want to check the assets.
 
 ## Ilathala ang release
 
-Kapag ang pagsasama ay matagumpay na natapos. paganahin ang `release` script sa pamamagitan ng `npm run release` upang tapusin ang proseso ng release. Ang iskrip na ito ay gagawin ang mga sumusunod: 1. Itayo ang proyekto para patunayan na tama ang numero ng bersyon na inilalabas. 2. I download ang binaries at i-generate ang node ng headers at ang .lib linker gamitin sa window sa pamamagitan ng node-gyp para mabuo ang negatibong modyul. 3. Gumawa at i-upload ang SHASUMS na mga file na inipon sa S3 para sa mga node na file. 4. Gumawa at i-upload ang SHASUMS256.txt file na nakatabi sa GitHub release. 5. Patunayan na ang lahat ng kinakailangang mga file na prinisinta sa GitHub at S3 at magkaroon ng tamang checksums gaya ng tinutukoy sa SHASUMS files. 6. Ilathala ang release sa GitHub 7. Tanggalin ang `release` na sangay.
+Kapag ang pagsasama ay matagumpay na natapos. paganahin ang `release` script sa pamamagitan ng `npm run release` upang tapusin ang proseso ng release. Ang iskrip na ito ay gagawin ang mga sumusunod: 1. Itayo ang proyekto para patunayan na tama ang numero ng bersyon na inilalabas. 2. I download ang binaries at i-generate ang node ng headers at ang .lib linker gamitin sa window sa pamamagitan ng node-gyp para mabuo ang negatibong modyul. 3. Gumawa at i-upload ang SHASUMS na mga file na inipon sa S3 para sa mga node na file. 4. Gawin at i-upload ang SHASUMS256.txt file na inipon sa GitHub na lathala. 5. Patunayan na ang lahat ng kinakailangang mga file na ay nasa GitHub at S3 at may mga tamang checksum gaya ng tinutukoy sa SHASUMS na mga file. 6. Ilathala ang release sa GitHub
 
 ## Ilathala sa npm
 
@@ -230,15 +226,64 @@ electron
 $ npm run publish-to-npm
 ```
 
-Note: In general you should be using the latest Node during this process; however, older versions of the `publish-to-npm` script may have trouble with Node 7 or higher. If you have trouble with this in an older branch, try running with an older version of Node, e.g. a 6.x LTS.
+After publishing, you can check the `latest` release:
+
+```sh
+$ npm dist-tag ls electron
+```
+
+If for some reason `npm run publish-to-npm` fails, you can tag the release manually:
+
+```sh
+$ npm dist-tag add electron@<version> <tag>
+```
+
+e.g.:
+
+```sh
+$ npm dist-tag add electron@2.0.0 latest
+```
+
+# Paghahanap ng ProblemaPaghahanap ng Problema
+
+## Rerun broken builds
+
+If a release build fails for some reason, you can use `script/ci-release-build.js` to rerun a release build:
+
+### Rerun all linux builds:
+
+```sh
+node script/ci-release-build.js --ci=CircleCI --ghRelease TARGET_BRANCH
+(TARGET_BRANCH) is the branch you are releasing from.
+```
+
+### Rerun all macOS builds:
+
+```sh
+node script/ci-release-build.js --ci=VSTS --ghRelease TARGET_BRANCH
+(TARGET_BRANCH) is the branch you are releasing from.
+```
+
+### Rerun all Windows builds:
+
+```sh
+node script/ci-release-build.js --ci=AppVeyor --ghRelease TARGET_BRANCH
+(TARGET_BRANCH) is the branch you are releasing from.
+```
+
+Additionally you can pass a job name to the script to run an individual job, eg:
+
+```sh
+node script/ci-release-build.js --ci=AppVeyor --ghRelease --job=electron-x64 TARGET_BRANCH
+```
 
 ## Ayusin ang mga nawawalang binary ng isang lathala nang mano-mano
 
-Sa kaso ng isang nasirang release na may sirang CI na mga makina, maaari nating muling i-upload ang mga binary para sa isang nailathalang release.
+Sa kaso ng isang nasirang release na may sirang CI machines, maaari nating muling i-upload ang binary para sa isang nailathalang release.
 
 Ang unang hakbang ay pumunta sa [Mga Lathala](https://github.com/electron/electron/releases) na pahina at tanggalin ang nasirang mga binary kasama ang `SHASUMS256.txt` na checksum file.
 
-Pagkatapos ay manu-manong gawin ang distribusyon para sa bawat plataporma at i-upload ang mga ito:
+Pagkatapos ay imanu-manong gawin ang pag-distribusyon para sa bawat platform at i-upload ang mga ito:
 
 ```sh
 # Tingnan ang bersyon na muling i-upload.
@@ -251,7 +296,7 @@ git checkout vTHE.RELEASE.VERSION # gawin ang release build, pagtukoy ng isang t
 ./script/upload.py --overwrite
 ```
 
-Matapos ng muling pag-upload ng lahat ng mga distribusyon, ilathala muli upang ma-upload ang checksum na file:
+Matapos muling pag-upload ang lahat distribusyon, ilathala muli upang mag-upload ang checksum:
 
 ```sh
 npm paganahin ang release

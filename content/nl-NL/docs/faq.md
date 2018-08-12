@@ -49,7 +49,7 @@ console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 
 This happens when the variable which is used to store the window/tray gets garbage collected.
 
-If you encounter this problem, the following articles may prove helpful:
+Wanneer je dit probleem tegenkomt, zullen de volgende artikelen misschien van pas komen:
 
 * [Geheugenbeheer](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
 * [Variable Scope](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)

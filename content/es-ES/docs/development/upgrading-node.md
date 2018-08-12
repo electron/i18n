@@ -46,42 +46,19 @@ Necesitamos generar un archivo de parche para cada uno de los parches aplicados 
 2. Ejecute `script/actualización` para obtener el último libcc 
   - Esto te consumirá mucho tiempo
 3. Remueve nuestras copias del viejo parche del Nodo V8 
-  - (En el repo de libchromiumcontent) Lee `patches/v8/README.md`para ver cuáles archivos de parches fueron creados durante la última actualización
-  - Remueve esos archivos de `parches/v8/`: 
+  - (In libchromiumcontent repo) Read `patches/common/v8/README.md` to see which patchfiles were created during the last update
+  - Remueve esos archivos de `patches/common/v8/`: 
     - `git rm` los parches de archivos
-    - edita `patches/v8/README.md`
+    - edit `patches/common/v8/README.md`
     - cometer estas eliminaciones
 4. Inspecciona Nodo [repo](https://github.com/electron/node) para ver qué parches del Nodo ascendente usados con sus V8 luego de botar su versión 
-  - `git log --oneline deps/V8`
+  - `git log --oneline "deps/v8"`
 5. Crea una lista de los parches. Esto es bastante útil para seguir tu trabajo y para tener una rápida referencia de realizar hashes que usar en el siguiente paso `git diff-tree`.
-6. Lee `patches/v8/README.md` para ver cuáles archivos de parches de la anterior versión de V8 y, por lo tanto, necesitan ser removidos. 
-  - Elimina cada archivo de parche de `patches/v8/README.md`
-7. Para cada parche, realice: 
-  - (En el repo del nodo) `git diff-tree --patch HASH > ~/path_to_libchromiumcontent/patches/v8/xxx-patch_name.patch` 
-    - `xxx` es un número de tres dígitos incrementado (para forzar el orden del parche)
-    - `patch_name`debería coincidir con los mensajes realizados del nodo, e.g. `030-cherry_pick_cc55747,patch` si los mensajes realizados del nodo eran "cherry-pick cc55747"
-  - (recordatorio de los pasos en libchromium repo) Edita manualmente el `.parche` archivo para que coincida con el directorio V8 ascendente: 
-    - Si una sección de diff no tiene instancias de `deps/V8`, elimínalo todo. 
-      - No queremos esos parches porque solo estamos usando el parche V8.
-    - Reemplaza instancias de `a/deps/v8/filename.ext` con `a/filename.ext` 
-      - Esto es necesario porque el nodo ascendente mantiene sus archivos V8 en un subdirectorio
-  - Asegura que el estatus local esté limpio: `git status` para asegurarse de que no haya cambios.
-  - Confirma que el parche se aplique limpiamente con `script/patch.py -r src/V8 -p patches/v8/xxx-patch_name.patch.patch`
-  - Crea una nueva copia del parche: 
-    - `cd src/v8 && git diff > ../../test.patch && cd ../..`
-    - Esto es necesario debido a que el primer parche ha realizado sumas de comprobación en el Nodo que no queremos
-  - Confirma que las sumas de comprobación son la única diferencia entre dos parches: 
-    - `diff -u test.patch patches/v8/xxx-patch_name.patch`
-  - Reemplaza el viejo parce con el nuevo: 
-    - `mv test.patch patches/v8/xxx-patch_name.patch`
-  - Agrega el código con el parche al índice *sin* realizar: 
-    - `cd src/v8 && git add . && cd ../..`
-    - No queremos realizar cambios (estos se mantienen en el archivo de los parches) pero se necesitan localmente para que no se aparezcan de manera subsecuente mientras que interactuamos a través de más parches
-  - Agrega el archivo de parches al índice: 
-    - `git agregar a patches/v8/`
-  - (Opcionalmente) realiza cada archivo de parche para asegurar que puedes respaldar si te equivocas en algún paso: 
-    - `git realizar patches/v8/`
-8. Actualiza `patches/v8/README.md` con referencias a todos los nuevos parches que han sido agregados para que la siguiente persona sepa cuál debe ser eliminado.
+6. Lee `patches/common/v8/README.md` para ver cuáles archivos de parches de la anterior versión de V8 y, por lo tanto, necesitan ser removidos. 
+  - Delete each patchfile referenced in `patches/common/v8/README.md`
+7. Apply all patches with the [`get-patch` script](https://github.com/electron/libchromiumcontent/blob/master/script/README.md#get-patch): 
+  - `./script/get-patch --repo src/v8 --output-dir patches/v8 --commit abc123 def456 ...`
+8. Update `patches/common/v8/README.md` with references to all new patches that have been added so that the next person will know which need to be removed.
 9. Actualiza los submódulos de referencia de Electron: 
       h
       $ cd electron/vendor/node
@@ -92,8 +69,8 @@ Necesitamos generar un archivo de parche para cada uno de los parches aplicados 
       electron/vendor/libchromiumcontent$ git checkout upgrade-to-chromium-X
       electron/vendor/libchromiumcontent$ cd ../..
       electron$ git add vendor
-      electron$ git commit -m "update submodule referefences for node and libc"
-      electron$ git pso upgrade-to-chromium-62
+      electron$ git commit -m "update submodule references for node and libcc"
+      electron$ git push origin upgrade-to-chromium-<VERSION>
       electron$ script/bootstrap.py -d
       electron$ script/build.py -c -D
 

@@ -121,7 +121,7 @@ Mga indibidwal na tutorial patungkol sa mga naulat na gabay sa itaas.
 * [Talaulaman](api/menu.md)
 * [Menultem](api/menu-item.md)
 * [ang net](api/net.md)
-* [netLog](api/netLog.md)
+* [netLog](api/net-log.md)
 * [ang powerMonitor](api/power-monitor.md)
 * [ang powerSaveBlocker](api/power-save-blocker.md)
 * [ang protokol](api/protocol.md)

@@ -4,8 +4,8 @@ Sundin ang mga sumusunod na patnubuay para sa pagbuo ng Elektron sa "Windows".
 
 ## Mga Pangunahing Kailangan
 
-* Windows 7 / Server 2008 R2 o mas mataas pa
-* Visual Studio 2017 - [download VS 2017 Community Edition for free](https://www.visualstudio.com/vs/)
+* Windows 10 / Server 2012 R2 o mas mataas pa
+* Visual Studio 2017 15.7.2 or higher - [download VS 2017 Community Edition for free](https://www.visualstudio.com/vs/)
 * [Python 2.7](http://www.python.org/download/releases/2.7/)
 * [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
@@ -136,3 +136,11 @@ $ mkdir ~\AppData\Roaming\npm
 ### node-gyp ay 'di kinikilala bilang panloob o panlabas na "command"
 
 Maaaring makuha ang maling ito kapag ikaw ay gumagamit ng "Git Bash" para sa pagbuo, sa halip, dapat gamitin ang PowerShell o VS2015 Command Prompt.
+
+### cannot create directory at '...': Filename too long
+
+node.js has some [extremely long pathnames](https://github.com/electron/node/tree/electron/deps/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/node_modules/is-arrayish), and by default git on windows doesn't handle long pathnames correctly (even though windows supports them). This should fix it:
+
+```sh
+$ git config --system core.longpaths true
+```

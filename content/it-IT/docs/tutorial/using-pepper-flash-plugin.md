@@ -4,7 +4,7 @@ Electron supporta il plugin Flash Pepper. Per utilizzare il plugin Flash Pepper 
 
 ## Prepara una copia del Plugin Flash
 
-Su macOS e Linux, i dettagli del plugin Flash Pepper possono essere trovati navigando a `chrome://plugins` nel browser Chrome. La sua posizione e versione sono utili per il supporto di Flash Pepper in Electron. È anche possibile copiarlo in un'altra posizione.
+On macOS and Linux, the details of the Pepper Flash plugin can be found by navigating to `chrome://flash` in the Chrome browser. La sua posizione e versione sono utili per il supporto di Flash Pepper in Electron. È anche possibile copiarlo in un'altra posizione.
 
 ## Aggiungere uno Switch Electron
 

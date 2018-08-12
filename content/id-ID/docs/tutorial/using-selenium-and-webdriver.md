@@ -156,4 +156,4 @@ Context | Request Context
 
 To test your application without rebuilding Electron, [place](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) your app source into Electron's resource directory.
 
-Sebagai alternatif, berikan argumen untuk dijalankan dengan biner elektron Anda yang ditunjukkan folder aplikasi Anda Ini menghilangkan kebutuhan untuk menyalin-tempel aplikasi Anda Direktori sumber elektron.
+Alternatively, pass an argument to run with your Electron binary that points to your app's folder. This eliminates the need to copy-paste your app into Electron's resource directory.

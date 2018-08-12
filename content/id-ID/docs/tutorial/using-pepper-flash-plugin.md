@@ -4,7 +4,7 @@ Elektron mendukung plugin Pepper Flash. Untuk menggunakan plugin Pepper Flash di
 
 ## Mempersiapkan salinan Flash Plugin
 
-Di macos dan Linux, rincian plugin Pepper Flash dapat ditemukan oleh navigasikan ke ` chrome: // plugins ` di browser Chrome. Lokasi dan versinya berguna untuk dukungan Flash pepper Elektron. Anda juga bisa menyalinnya ke lokasi yang lain.
+On macOS and Linux, the details of the Pepper Flash plugin can be found by navigating to `chrome://flash` in the Chrome browser. Lokasi dan versinya berguna untuk dukungan Flash pepper Elektron. Anda juga bisa menyalinnya ke lokasi yang lain.
 
 ## Tambahkan Sakelar Elektronika
 

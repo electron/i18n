@@ -30,7 +30,7 @@ Kode C ++ menggunakan banyak abstraksi dan tipe Chromium, jadi disarankan untuk 
 
 ## Dokumentasi
 
-* Write [remark](https://github.com/remarkjs/remark) markdown style
+* Write [remark](https://github.com/remarkjs/remark) markdown style.
 
 You can run `npm run lint-docs` to ensure that your documentation changes are formatted correctly.
 

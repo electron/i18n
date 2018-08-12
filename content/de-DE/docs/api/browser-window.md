@@ -175,7 +175,7 @@ Es erzeugt ein neues `BrowserWindow` mit nativen Eigenschaften die durch `option
     * `sandbox` Boolean (optional) - If set, this will sandbox the renderer associated with the window, making it compatible with the Chromium OS-level sandbox and disabling the Node.js engine. This is not the same as the `nodeIntegration` option and the APIs available to the preload script are more limited. Read more about the option [here](sandbox-option.md). **Note:** This option is currently experimental and may change or be removed in future Electron releases.
     * `session` [Session](session.md#class-session) (optional) - Sets the session used by the page. Instead of passing the Session object directly, you can also choose to use the `partition` option instead, which accepts a partition string. When both `session` and `partition` are provided, `session` will be preferred. Default is the default session.
     * `partition` String (optional) - Sets the session used by the page according to the session's partition string. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. If there is no `persist:` prefix, the page will use an in-memory session. By assigning the same `partition`, multiple pages can share the same session. Default is the default session.
-    * `affinity` String (optional) - When specified, web pages with the same `affinity` will run in the same renderer process. Note that due to reusing the renderer process, certain `webPreferences` options will also be shared between the web pages even when you specified different values for them, including but not limited to `preload`, `sandbox` and `nodeIntegration`. So it is suggested to use exact same `webPreferences` for web pages with the same `affinity`.
+    * `affinity` String (optional) - When specified, web pages with the same `affinity` will run in the same renderer process. Note that due to reusing the renderer process, certain `webPreferences` options will also be shared between the web pages even when you specified different values for them, including but not limited to `preload`, `sandbox` and `nodeIntegration`. So it is suggested to use exact same `webPreferences` for web pages with the same `affinity`. *This property is experimental*
     * `zoomFactor` Number (optional) - The default zoom factor of the page, `3.0` represents `300%`. Default is `1.0`.
     * `javascript` Boolean (optional) - Enables JavaScript support. Default is `true`.
     * `webSecurity` Boolean (optional) - When `false`, it will disable the same-origin policy (usually using testing websites by people), and set `allowRunningInsecureContent` to `true` if this options has not been set by user. Standard ist `true`.
@@ -242,7 +242,7 @@ Rückgabewert:
 
 <p>Emitted when the window is going to be closed. It's emitted before the
 <code>beforeunload` and `unload` event of the DOM. Calling `event.preventDefault()` will cancel the close.</p> 
-  Usually you would want to use the `beforeunload` handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than `undefined` would cancel the close. For example:
+  Usually you would want to use the `beforeunload` handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than `undefined` would cancel the close. Ein Beispiel:
   
   ```javascript
   window.onbeforeunload = (e) => {
@@ -437,7 +437,7 @@ Rückgabewert:
   
   #### `BrowserWindow.removeExtension(name)`
   
-  * `name` Zeichenfolge
+  * `name` String
   
   Remove a Chrome extension by name.
   
@@ -463,7 +463,7 @@ Rückgabewert:
   
   #### `BrowserWindow.removeDevToolsExtension(name)`
   
-  * `name` Zeichenfolge
+  * `name` String
   
   Remove a DevTools extension by name.
   
@@ -904,7 +904,7 @@ Rückgabewert:
   #### `win.loadURL(url[, options])`
   
   * ` URL </ 0>  Zeichenfolge</li>
-<li><code>options` Objekt (optional) 
+<li><code>optionen` Objekt (optional) 
     * `httpReferrer` String (optional) - A HTTP Referrer url.
     * `userAgent` String (optional) - A user agent originating the request.
     * `extraHeaders` String (optional) - Extra headers separated by "\n"
@@ -958,7 +958,7 @@ Rückgabewert:
   #### `win.setProgressBar(progress[, options])`
   
   * `progress` Double
-  * `options` Objekt (optional) 
+  * `optionen` Objekt (optional) 
     * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error` or `paused`.
   
   Sets progress value in progress bar. Valid range is [0, 1.0].
@@ -971,7 +971,7 @@ Rückgabewert:
   
   #### `win.setOverlayIcon(overlay, description)` *Windows*
   
-  * `overlay` [NativeImage](native-image.md) - the icon to display on the bottom right corner of the taskbar icon. If this parameter is `null`, the overlay is cleared
+  * `overlay` [NativeImage](native-image.md) | null - the icon to display on the bottom right corner of the taskbar icon. If this parameter is `null`, the overlay is cleared
   * `description` String - a description that will be provided to Accessibility screen readers
   
   Sets a 16 x 16 pixel overlay onto the current taskbar icon, usually used to convey some sort of application status or to passively notify the user.
@@ -1038,7 +1038,7 @@ Rückgabewert:
   
   #### `win.setAppDetails(options)` *Windows*
   
-  * `options` Object 
+  * `optionen` Object 
     * `appId` String (optional) - Window's [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). It has to be set, otherwise the other options will have no effect.
     * `appIconPath` String (optional) - Window's [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
     * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. Default is `0`.

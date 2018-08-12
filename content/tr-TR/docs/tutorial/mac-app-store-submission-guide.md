@@ -195,16 +195,6 @@ Daha fazla bilgi için [Enabling User-Selected File Access documentation](https:
 
 Daha fazla detay için [Ağ Erişimini Etkinleştirme belgelerine](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) bakın.
 
-## Bilinen sorunlar
-
-### `shell.openItem(filePath)`
-
-Mac App Store'da dağıtım için imzalandığı takdirde bu işlem hata verecektir. Daha fazla bilgi ve güncellemeler için [#9005](https://github.com/electron/electron/issues/9005)'e abone olun.
-
-#### Geçici çözümler
-
-`shell.openExternal('file://' + filePath)` uzantısı yüklü bir uygulama ile ilişkili olduğu sürece dosyayı varsayılan uygulamada açacaktır.
-
 ## Electron Tarafından Kullanılan Kriptografi Algoritmaları
 
 Bulunduğunuz ülke ve bölgeye bağlı olarak, Mac App Store uygulamasında kullanılan şifreleme algoritmalarını belgelemeniz istenilebilir ve hatta ABD şifreleme kaydı (ERN) onayının bir kopyasını göndermeniz istenilebilir.

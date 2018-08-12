@@ -30,7 +30,7 @@ El código de C ++ utiliza una gran cantidad de abstracciones y tipos de Chromiu
 
 ## Documentación
 
-* Write [remark](https://github.com/remarkjs/remark) markdown style
+* Write [remark](https://github.com/remarkjs/remark) markdown style.
 
 You can run `npm run lint-docs` to ensure that your documentation changes are formatted correctly.
 

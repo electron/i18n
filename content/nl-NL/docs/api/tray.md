@@ -2,7 +2,7 @@
 
 > Add icons and context menus to the system's notification area.
 
-Process: [Main](../glossary.md#main-process)
+Proces: [Main](../glossary.md#main-process)
 
 `Tray` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -189,7 +189,7 @@ Sets the `image` associated with this tray icon.
 
 #### `tray.setPressedImage(image)` *macOS*
 
-* `image` [NativeImage](native-image.md)
+* `image` ([NativeImage](native-image.md) | String)
 
 Sets the `image` associated with this tray icon when pressed on macOS.
 

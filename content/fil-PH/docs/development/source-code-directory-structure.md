@@ -10,8 +10,9 @@ Kinakailangan mong maging pamilyar sa [Chromium's multi-process architecture](ht
 Electron
 ├── atom/ - C++ source code.
 |   ├── app/ - System entry code.
-|   ├── browser/ - Ang "frontend" kasama ang pangunahing window, UI, at ang lahat ng
-|   |   mga bagay na pangunahing pinoproseso. Ito ang kumakausap sa "renderer" para pamahalaan ang mga pahina ng "web".
+|   ├── browser/ - The frontend including the main window, UI, and all of the
+|   |   |          main process things. This talks to the renderer to manage web
+|   |   |          pages.
 |   |   ├── ui/ - Pagpapatupad ng "UI stuff" para sa iba't-ibang "platform".
 |   |   |   ├── cocoa/ - "Cocoa" espisipikong "source code".
 |   |   |   ├── win/ - Windows GUI espisipikong: source code".
@@ -22,12 +23,15 @@ Electron
 |   |   └── resources/ - Icons, platform-dependent files, at iba pa.
 |   ├── renderer/ - Ang "code" na pinapatakbo ng proseso ng "renderer".
 |   |   └── api/ - Ang pagpapatupad ng proseso ng "renderer" ng "APIs".
-|   └── common/ - Ang parehong pangunahin at mga proseso ng "renderer" ay gumamit ng "code", |       kasama ang ilang "utility functions" at "code" para maisama sa mensahe ng "node" |       umiikot sa loob ng "Chromium's message loop".
-|       └── api/ - Ang pagpapatupad ng parehong APIs, ang mga pundasyon ng |           mga modyul na "built-in" sa Elektron.
+|   └── common/ - Code that used by both the main and renderer processes,
+|       |         including some utility functions and code to integrate node's
+|       |         message loop into Chromium's message loop.
+|       └── api/ - The implementation of common APIs, and foundations of
+|                  Electron's built-in modules.
 ├── brightray/ - Thin shim over libcc that makes it easier to use.
 ├── chromium_src/ - Ang "source code" na kinokopya galing sa Chromium. Tingnan sa ibaba.
-├── default_app/ - Ang pahina na "default" ay nagpapakita kapag ang Elektron ay nag-umpisa nang walang
-|   binibigay na "app".
+├── default_app/ - The default page to show when Electron is started without
+|                  providing an app.
 ├── docs/ - Mga Dokumentasyon.
 ├── lib/ - Ang "source code" ng "JavaScript".
 |   ├── browser/ - Ang pangunahing proseso ng inisyalisasyon ng "Javascript code".
@@ -36,9 +40,12 @@ Electron
 |   |   └── api/ - Ang pagpapatupad ng "Javascript API".
 |   └── renderer/ - Ang "Javascript renderer" pinoproseso ang inisyalisasyon ng "code".
 |       └── api/ - Ang pagpapatupad ng "Javascript API".
+├── native_mate/ - A fork of Chromium's gin library that makes it easier to marshal
+|                  types between C++ and JavaScript.
 ├── spec/ - Kusang pagsubok.
 ├── electron.gyp - Ang pagbuo ng mga panuntunan ng Elektron.
-└── common.gypi - Ang tiyak na pagsasaayos ng kompayler at pagbuo ng mga panuntunan para sa ibang mga bahagi tulad `node` at `breakpad`.
+└── common.gypi - Compiler specific settings and building rules for other
+                  components like `node` and `breakpad`.
 ```
 
 ## `/chromium_src`

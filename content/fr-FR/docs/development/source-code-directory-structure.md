@@ -10,8 +10,9 @@ Vous devrez peut-être vous familiariser avec l'[architecture multi-processus de
 Electron
 ├── atom/ - Code Source C++.
 |   ├── app/ - Code d'entrée du système.
-|   ├── browser/ - L'interface incluant la fenêtre principale, l'UI, et toutes les
-|   |   principales opérations. Cela permet au moteur de rendu de gérer les pages Web.
+|   ├── browser/ - The frontend including the main window, UI, and all of the
+|   |   |          main process things. This talks to the renderer to manage web
+|   |   |          pages.
 |   |   ├── ui/ - Implementation de l'UI pour différentes plateformes.
 |   |   |   ├── cocoa/ - Code Source spécifique à Cocoa.
 |   |   |   ├── win/ - Code source spécifique pour le GUI Windows.
@@ -22,15 +23,15 @@ Electron
 |   |   └── resources/ - Icônes, fichiers dépendant de la plateforme, etc.
 |   ├── renderer/ - Code qui s'exécute dans le moteur de rendu.
 |   |   └── api/ - L'implementation des API de processus de rendu.
-|   └── common/ - Code utilisé par les processus principal et le moteur de rendu,
-|       comprenant certains fonctions utilitaires et le code pour intégrer la boucle de
-|       message de Node dans la boucle de message de Chromium.
-|       └── api/ - L'implementation d'API communes, et les fondations
-|           des modules intégrés d'Electron.
+|   └── common/ - Code that used by both the main and renderer processes,
+|       |         including some utility functions and code to integrate node's
+|       |         message loop into Chromium's message loop.
+|       └── api/ - The implementation of common APIs, and foundations of
+|                  Electron's built-in modules.
 ├── brightray/ - Shim mince au-dessus de la libcc qui facilite son utilisation.
 ├── chromium_src/ - Code Source copié depuis Chromium. Voir plus bas.
-├── default_app/ - La page par default a montrer quand Electron a démarré sans
-|   fournir une application.
+├── default_app/ - The default page to show when Electron is started without
+|                  providing an app.
 ├── docs/ - Documentations.
 ├── lib/ - Code Source JavaScript.
 |   ├── browser/ - Code d'initialisation du processus principal JavaScript.
@@ -39,10 +40,12 @@ Electron
 |   |   └── api/ - Implementation de l'API JavaScript.
 |   └── renderer/ - Code d'initialisation du moteur de rendu JavaScript.
 |       └── api/ - Implementation de l'API Javascript.
+├── native_mate/ - A fork of Chromium's gin library that makes it easier to marshal
+|                  types between C++ and JavaScript.
 ├── spec/ - Tests automatiques.
 ├── electron.gyp - Règles de build d'Electron.
-└── common.gypi - Paramètres spécifiques du compilateur et règles de construction pour d'autres
-    composants comme `node` et` breakpad`.
+└── common.gypi - Compiler specific settings and building rules for other
+                  components like `node` and `breakpad`.
 ```
 
 ## `/chromium_src`

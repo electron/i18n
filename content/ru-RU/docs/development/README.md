@@ -1,6 +1,6 @@
-# Developing Electron
+# Разработка Electron
 
-These guides are intended for people working on the Electron project itself. For guides on Electron app development, see [/docs/README.md](../README.md#guides-and-tutorials).
+Эти руководства предназначены для людей, которые работают над Electron самостоятельно. Для руководств по разработке приложения Electron, посетите [/docs/README.md](../README.md#guides-and-tutorials).
 
 * [Нормы поведения](../../CODE_OF_CONDUCT.md)
 * [Вклад в Elecetron](../../CONTRIBUTING.md)

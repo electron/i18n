@@ -46,42 +46,19 @@ V8'e uygulanan her düzeltme ekinden bir yama dosyası oluşturmamız gerekir.
 2. Çalıştır `komut/güncelleme` en yeni libcc 'yi almak için 
   - Bu biraz zaman alacaktır
 3. Eski Node v8 yamalarınızın kopyalarını kaldırın 
-  - (In libchromiumcontent repo) Son güncelleme sırasında hangi patchfile'lerin oluşturulduğunu görmek için `patches/v8/README.md` 'i okuyun
-  - Şu dosyaları kaldırın `patches/v8/`: 
+  - (In libchromiumcontent repo) Read `patches/common/v8/README.md` to see which patchfiles were created during the last update
+  - Şu dosyaları kaldırın `patches/common/v8/`: 
     - `git rm` düzeltme ek dosyaları
-    - değiştir `patches/v8/README.md`
+    - edit `patches/common/v8/README.md`
     - bu kaldırma işlemlerini tamamla
 4. Node 'u inceleyin [repo](https://github.com/electron/node) node'un versiyonuyla çakıştıktan sonra v8'lerinde hangi yamalar kullandığını görmek için 
-  - `git log --oneline deps/V8`
+  - `git log --oneline "deps/v8"`
 5. Yamalar için bir kontrol listesi oluşturun. Bu, çalışmalarınızı izlemek ve aşağıda kullanılacak `git diff-tree` tamamlama karmalarına hızlı bir referans sağlamak için kullanışlıdır.
-6. Oku `patches/v8/README.md` hangi düzeltme eki dosyalarının V8'in önceki sürümünden geldiğini ve bu nedenle kaldırılması gerektiğini görmek için. 
-  - `patches/v8/README.md` 'de başvurulan her bir düzeltme eki dosyasını silin
-7. Her yama için şunları yapın: 
-  - (In node repo) `git diff-tree --patch HASH > ~/path_to_libchromiumcontent/patches/v8/xxx-patch_name.patch` 
-    - `xxx` artan üç haneli bir sayıdır (yama sırasını güçlendirmek için)
-    - `patch_name` taahhüt edilen node iletileriyle biraz olsun eşleşmelidir, Node gönderme iletisi "cherry-pick cc55747" ise Ör. `030-cherry_pick_cc55747,patch`
-  - (libchromium repo'daki adımların geri kalan kısmı) `.patch` upstream V8 'in dosya eşleme rehberi: 
-    - Bir fark bölümünde örnek yoksa `deps/V8`, tamamen kaldırın. 
-      - Bu yamaları yapmak istemiyoruz çünkü yalnızca V8'e yama yapıyoruz.
-    - Örneklerini değiştir `a/deps/v8/filename.ext` ile `a/filename.ext` 
-      - Node upstream, V8 dosyalarını bir alt dizinde tutar, çünkü bu gereklidir
-  - Lokal durumun temiz olduğundan emin olun: aşamasız değişiklikler olmadığından emin olmak için `git status`.
-  - Yamanın `script/patch.py -r src/V8 -p patches/v8/xxx-patch_name.patch.patch` ile düzgün şekilde uygulandığını onaylayın
-  - Düzeltme ekinin yeni bir kopyasını oluşturun: 
-    - `cd src/v8 && git diff > ../../test.patch && cd ../..`
-    - İlk yamanın Node 'u istemediğimiz tamamlama sağlama toplamı olmaması için bu gereklidir
-  - Sağlama toplamlarının iki düzeltme eki arasındaki tek fark olduğunu doğrulayın: 
-    - `diff -u test.patch patches/v8/xxx-patch_name.patch`
-  - Eski yamayı yenisiyle değiştirin: 
-    - `mv test.patch patches/v8/xxx-patch_name.patch`
-  - Düzeltme eklenmiş kodu dizine ekleyin *işleme* olmadan: 
-    - `cd src/v8 && git add . && cd ../..`
-    - Değişiklikleri tamamlamak istemiyoruz (patchfile'lerde tutuluyorlar), ancak daha fazla yamayla iterasyon yaparken sonraki diff'lerde görünmemeleri için yerel olarak onlara ihtiyaç duyuyoruz
-  - Düzeltme eklenmiş kodu dizine ekleyin: 
-    - `git add a patches/v8/`
-  - (İsteğe bağlı olarak), Eğer bir adımda yanlış yaptıysanız, yedekleyebilmeniz için her düzeltme eki dosyasına taahhütte bulunun: 
-    - `git commit patches/v8/`
-8. Bir sonraki kişinin hangi yamanın kaldırılması gerektiğini bilmesi için, `patches/v8/README.md` 'yi eklenen tüm yeni yamalara yapılan başvuruları güncelleyin.
+6. Oku `patches/common/v8/README.md` hangi düzeltme eki dosyalarının V8'in önceki sürümünden geldiğini ve bu nedenle kaldırılması gerektiğini görmek için. 
+  - Delete each patchfile referenced in `patches/common/v8/README.md`
+7. Apply all patches with the [`get-patch` script](https://github.com/electron/libchromiumcontent/blob/master/script/README.md#get-patch): 
+  - `./script/get-patch --repo src/v8 --output-dir patches/v8 --commit abc123 def456 ...`
+8. Update `patches/common/v8/README.md` with references to all new patches that have been added so that the next person will know which need to be removed.
 9. Electron 'un alt modül başvurularını güncelleyin: 
       sh
       $ cd electron/vendor/node
@@ -92,8 +69,8 @@ V8'e uygulanan her düzeltme ekinden bir yama dosyası oluşturmamız gerekir.
       electron/vendor/libchromiumcontent$ git checkout upgrade-to-chromium-X
       electron/vendor/libchromiumcontent$ cd ../..
       electron$ git add vendor
-      electron$ git commit -m "update submodule referefences for node and libc"
-      electron$ git pso upgrade-to-chromium-62
+      electron$ git commit -m "update submodule references for node and libcc"
+      electron$ git push origin upgrade-to-chromium-<VERSION>
       electron$ script/bootstrap.py -d
       electron$ script/build.py -c -D
 

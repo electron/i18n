@@ -1,4 +1,4 @@
-## Class: BrowserWindowProxy
+## Classe: BrowserWindowProxy
 
 > Manipulate the child browser window
 

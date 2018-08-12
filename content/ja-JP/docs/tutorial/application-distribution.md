@@ -112,7 +112,7 @@ Electron のカスタムフォークを作成することは、"製品レベル"
 2. 新しい S3 バケットを作成し、以下の空のディレクトリ構造を作成します。
     
     ```sh
-    - atom-shell/
+    - electron/
       - symbols/
       - dist/
     ```
@@ -120,7 +120,7 @@ Electron のカスタムフォークを作成することは、"製品レベル"
 3. 以下の環境変数を設定します。
 
 * `ELECTRON_GITHUB_TOKEN` - GitHub 上でリリースを作成できるトークン
-* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - シンボルと同じように node.js ヘッダをアップロードする場所
+* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload Node.js headers as well as symbols
 * `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will do CI-type checks, appropriate to run for every pull request.
 * `CI` - Set to `true` or else it will fail
 * `GITHUB_TOKEN` - `ELECTRON_GITHUB_TOKEN` と同じに設定します

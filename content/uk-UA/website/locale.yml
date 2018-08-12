@@ -155,8 +155,3 @@ pages:
     title: Благодійники
 _404:
   page_not_found: Сторінку не знайдено.
-search:
-  description_all: Знайти ресурси Electron з <a href="/search/docs">документації</a>, <a href="/search/npmPackages">npm пакунків</a> і <a href="/search/repos">GitHub репозиторіїв</a>.
-  description_docs: Знайти ресурси Electron з документації.
-  description_npm: Знайти ресурси Electron з npm пакунків.
-  description_repos: Знайти ресурси Electron з GitHub репозиторіїв.

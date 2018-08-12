@@ -112,7 +112,7 @@ or: أو
 pages:
   '/':
     title: إلكترون | اصنع تطبيقات سطح المكتب تعمل على منصات متعددة باستخدام JavaScript ،HTML، و CSS.
-    description: 'اصنع تطبيقات سطح المكتب تعمل على منصات متعددة باستخدام JavaScript ،HTML، و CSS.'
+    description: 'ابن تطبيقات سطح المكتب متعدد المنصات باستخدام JavaScript ،HTML، و CSS.'
   '/apps':
     title: تطبيقات إلكترون
     description: تطبيقات مبنية على إلكترون
@@ -139,7 +139,7 @@ pages:
   '/releases':
     title: اﻹصدارات
   '/contact':
-    title: تواصل معنا
+    title: تواصل
     description: تواصل مع فريق إلكترون عبر تويتر، Slack، Github، والبريد اﻹلكتروني.
   '/languages':
     title: اللغات
@@ -155,8 +155,3 @@ pages:
     title: الجهات المانحة
 _404:
   page_not_found: الصفحة غير موجودة.
-search:
-  description_all: أعثر على موارد للإلكترون من خلال <a href="/search/docs">التوثيقات</a>, <a href="/search/npmPackages">npm حزم</a>, و<a href="/search/repos">GitHub مستودع</a>.
-  description_docs: أحصل على موارد إلكترون من خلال التوثيقات.
-  description_npm: أحصل على موارد إلكترون من خلال حزم npm.
-  description_repos: أحصل على موارد إلكترون من خلال مستودع GitHub.

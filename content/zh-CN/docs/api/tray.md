@@ -189,7 +189,7 @@ The `Tray` class has the following methods:
 
 #### `tray.setPressedImage(image)` *macOS*
 
-* `image` [NativeImage](native-image.md)
+* `image` ([NativeImage](native-image.md) | String)
 
 Sets the `image` associated with this tray icon when pressed on macOS.
 
@@ -235,7 +235,7 @@ win.on('hide', () => {
 
 #### `tray.displayBalloon(options)` *Windows*
 
-* `选项` Object 
+* `options` Object 
   * `icon` ([NativeImage](native-image.md) | String) (可选) -
   * `title` String
   * `content` String

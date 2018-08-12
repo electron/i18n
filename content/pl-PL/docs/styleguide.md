@@ -1,11 +1,11 @@
-# Poradnik Formatowania Dokumentacji Electron
+# Poradnik Formatowania Dokumentacji Electrona
 
-To są wytyczne do pisania dokumentacji Electron.
+Są to wytyczne do pisania dokumentacji Electrona.
 
 ## Tytuły
 
-* Każda strona musi zawierać pojedynczy `#`-poziomowy tytuł u góry.
-* Rozdziały na tej samej stronie muszą mieć `##`-poziomowe tytuły.
+* Każda strona musi zawierać pojedynczy, główny tytuł h1 u góry (`#`).
+* Rozdziały na tej samej stronie muszą mieć tytuły h2 (`##`).
 * Podrozdziały muszą zwiększyć swą liczbę `#` w tytule zgodnie z głębokością zagnieżdżenia.
 * Wszystkie słowa w tytule strony muszą być z wielkiej litery, poza spójnikami, takimi jak "i" oraz "z".
 * Tylko pierwsze słowo tytułu rozdziału musi być z wielkiej litery.
@@ -157,17 +157,17 @@ Na przykład, metody `sesji`klasy pod `sesją` modułu muszą używać `sesji`ja
 Opcjonalne argumenty są notowane w nawiasach `[]` otoczonych opcjonalnymi argumentami zarówno jak wymagane przecinki jeśli opcjonalny argument następuje następuje przed następnym:
 
 ```sh
-wymagane[. opcjonalnie]
+required[, optional]
 ```
 
 Poniżej metoda jest bardziej szczegółowa na każdym argumencie. Typ argumentu jest notowany przez każdy z powszechnych typów:
 
-* [`Ciąg tekstu`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
-* [`Numer`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
-* [`Obiekt`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
-* [`Tablica`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
-* [`Logiczny typ danych`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-* Lub wybrany tryp jak Electrony [`ZawartośćWitryny`](api/web-contents.md)
+* [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+* [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+* [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
+* [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+* [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
+* Or a custom type like Electron's [`WebContent`](api/web-contents.md)
 
 Jeśli argument lub metoda są unikalne dla poszczególnych platform, te platformy są oznaczone używając nieograniczonego miejsca wymieniając następujący typ danych używając kursywy. Wartościami mogą być `macOS`, `Windows` lub `Linux`.
 

@@ -4,7 +4,7 @@
 
 `npm run lint`를 실행하여 `cpplint`와 `eslint`를 통해 어떤 코딩 스타일 이슈를 확인할 수 있습니다.
 
-## General Code
+## 일반적인 코드
 
 * End files with a newline.
 * Place requires in the following order: 
@@ -30,7 +30,7 @@ C++ 코드는 많은 Chromium의 추상화와 타입을 사용합니다. 따라�
 
 ## 문서
 
-* Write [remark](https://github.com/remarkjs/remark) markdown style
+* Write [remark](https://github.com/remarkjs/remark) markdown style.
 
 You can run `npm run lint-docs` to ensure that your documentation changes are formatted correctly.
 

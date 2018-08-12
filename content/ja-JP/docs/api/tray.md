@@ -189,7 +189,7 @@ tray アイコンを即座に削除します。
 
 #### `tray.setPressedImage(image)` *macOS*
 
-* `image` [NativeImage](native-image.md)
+* `image` ([NativeImage](native-image.md) | String)
 
 macOS において、この tray アイコンが押されたときの関連付けられた `image` を設定します。
 

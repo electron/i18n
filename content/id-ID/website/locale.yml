@@ -155,8 +155,3 @@ pages:
     title: Penyumbang
 _404:
   page_not_found: Halaman tidak ditemukan.
-search:
-  description_all: Temukan sumber-sumber elektronik dari <a href="/search/docs"> daftar </a>, <a href="/search/npmPackages"> npm paket </a> dan <a href = "/ search / repos "> Repositori GitHub </a>.
-  description_docs: Temukan sumber elektron dari dokumentasi.
-  description_npm: Temukan sumber elektron dari dokumentasi.
-  description_repos: Temukan sumber elektron dari dokumentasi.

@@ -48,7 +48,7 @@ A continuación hay una tabla relacionado explícitamente los tipos de cambios c
 | Actualizaciones en la version major de Node.js | Actualizaciones en la version minor de Node.js | Actualizaciones en la version patch de Node.js               |
 | Actualización de versiones de Chromium         |                                                | parches de chromium relacionados con soluciones de problemas |
 
-Considere que la mayoría de las actualizaciones de chromium serán consideras como incompatibles. Los arreglos que puedan ser portados a versiones anteriores es probable que sean aplicados como parches.
+Note that most Chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
 
 # Ramas estabilizadoras
 
@@ -128,13 +128,13 @@ Nosotros reconciliamos el código con bandera con nuestras estrategias de versio
 
 Buscamos aumentar la claridad en todos los niveles del proceso de actualización y publicación. Comenzando con `2.0.0` necesitaremos retirar solicitudes adheridas a la especificación [Conventional Commits](https://conventionalcommits.org/), la cual se puede resumir como:
 
-- Commits that would result in a semver **major** bump must start with `BREAKING CHANGE:`.
+- Commits that would result in a semver **major** bump must start their body with `BREAKING CHANGE:`.
 - Commits that would result in a semver **minor** bump must start with `feat:`.
 - Commits that would result in a semver **patch** bump must start with `fix:`.
 
 - Permitimos el aplastamiento de commits, siempre que el mensaje aplastado se adhiera al formato de mensaje anterior.
 
-- Es aceptable que algunas confirmaciones en una solicitud de extracción no incluyan un prefijo semántico, siempre que una confirmación posterior en la misma solicitud de extracción contenga un mensaje semántico significativo que lo abarque.
+- It is acceptable for some commits in a pull request to not include a semantic prefix, as long as the pull request title contains a meaningful encompassing semantic message.
 
 # Versionless `master`
 

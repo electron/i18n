@@ -113,7 +113,7 @@ Electron의 커스텀 포크를 만드는 것은 거의 확실히 앱을 만드�
 2. 새로운 S3 bucket을 만들고 다음과 같은 빈 디렉토리 구조를 만듭니다:
     
     ```sh
-    - atom-shell/
+    - electron/
       - symbols/
       - dist/
     ```
@@ -121,7 +121,7 @@ Electron의 커스텀 포크를 만드는 것은 거의 확실히 앱을 만드�
 3. 다음의 환경 변수들을 설정합니다:
 
 * `ELECTRON_GITHUB_TOKEN` - GitHub에 릴리즈를 만들 수 있는 토큰.
-* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - node.js 헤더 뿐만 아니라 심볼을 업로드할 장소.
+* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload Node.js headers as well as symbols
 * `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will do CI-type checks, appropriate to run for every pull request.
 * `CI` -`true`또는 다른 것을 지정하면 실패합니다.
 * `GITHUB_TOKEN` - `ELECTRON_GITHUB_TOKEN`과 같게 설정

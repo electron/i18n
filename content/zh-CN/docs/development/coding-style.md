@@ -30,7 +30,7 @@ C++ 代码使用了大量 Chromium 的抽象和类型，因此建议您熟悉它
 
 ## 文档
 
-* 使用[remark](https://github.com/remarkjs/remark) Markdown样式
+* 使用[remark](https://github.com/remarkjs/remark) Markdown样式.
 
 You can run `npm run lint-docs` to ensure that your documentation changes are formatted correctly.
 

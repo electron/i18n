@@ -9,9 +9,9 @@ Chromium을 기반으로하는, Electron은 디스플레이 드라이버 작동�
 그런 다음, 가상 xvfb 화면을 만들고 이를 가리키는 DISPLAY라는 환경 변수를 내보냅니다. Electron의 Chromium은 자동으로 `$DISPLAY`를 검색하므로, 더이상 앱의 구성이 필요 없습니다. 이 단계는 Paul Betts의 [xvfb-maybe](https://github.com/paulcbetts/xvfb-maybe)를 사용하여 자동화 할 수 있습니다: `xvfb-maybe`를 사용하여 테스트 명령을 앞에두고 작은 도구가 현재 시스템에서 필요하면 xvfb를 자동으로 구성합니다. Windows 또는 macOS에서는, 아무 작업도 수행하지 않습니다.
 
 ```sh
-## On Windows or macOS, this invokes electron-mocha
-## On Linux, if we are in a headless environment, this will be equivalent
-## to xvfb-run electron-mocha ./test/*.js
+## Windows 나 macOS에서, 다음 명령은 electron-mocha 를 실행합니다
+## Linux에서, Ui없는 환경이라면
+## xvfb-run electron-mocha ./test/*.js 가 동일한 명령입니다.
 xvfb-maybe electron-mocha ./test/*.js
 ```
 

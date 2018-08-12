@@ -30,7 +30,7 @@ Le code C++ utilise beaucoup d’abstractions et de types de Chromium, il est do
 
 ## Documentation
 
-* Ecrivez les [remarques](https://github.com/remarkjs/remark) en markdown
+* Ecrivez les [remarques](https://github.com/remarkjs/remark) en markdown.
 
 Vous pouvez exécuter `npm run lint-docs` pour vous assurer que vos modifications de documentation sont formatés correctement.
 

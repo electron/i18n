@@ -2,11 +2,11 @@
 
 ### 使用生产版本的libchromiumcontent来构建测试版Electron
 
-你可以跟随[build instructions for macOS](build-instructions-osx.md)来构建一个测试版electron。 默认情况下，启动进程会下载生产版本的libchromiumcontent，所以你不能对chromium的源代码进行单步调试。
+You can create a debug build of Electron by following [build instructions for macOS](build-instructions-osx.md). The bootstrap process will download Release version of libchromiumcontent by default, so you will not be able to step through the Chromium source.
 
 ### 使用测试版本的libchromiumcontent来构建测试版Electron
 
-如果你相对libchromiumcontent进行除错并且单步调试，你需要对启动代码添加`--build_debug_libcc`参数。
+If you want to debug and step through libchromiumcontent, you will have to run the bootsrap script with the `--build_debug_libcc` argument.
 
 ```sh
 $ cd electron
@@ -25,7 +25,7 @@ Electron debug builds will use this shared library to link against.
 $ ./script/build.py -c D --libcc
 ```
 
-This will build debug electron with debug version of libchromiumcontent.
+This will build debug Electron with debug version of libchromiumcontent.
 
 ### 为调试源代码生成Xcode项目（无法从Xcode构建代码）
 
@@ -39,6 +39,6 @@ $ ./script/update.py --xcode
 
 ### 调试与断点
 
-构建后启动Electron应用。 You can now open the xcode workspace created above and attach to the electron process through the Debug > Attach To Process > Electron debug menu. [Note: If you want to debug the renderer process, you need to attach to the Electron Helper as well.]
+Launch Electron app after build. You can now open the xcode workspace created above and attach to the Electron process through the Debug > Attach To Process > Electron debug menu. [Note: If you want to debug the renderer process, you need to attach to the Electron Helper as well.]
 
-You can now set breakpoints in any of the indexed files. However, you will not be able to set breakpoints directly in the chromium source. To set break points in the chromium source, you can choose Debug > Breakpoints > Create Symbolic Breakpoint and set any function name as the symbol. This will set the breakpoint for all functions with that name, from all the classes if there are more than one. You can also do this step of setting break points prior to attaching the debugger, however, actual breakpoints for symbolic breakpoint functions may not show up until the debugger is attached to the app.
+You can now set breakpoints in any of the indexed files. However, you will not be able to set breakpoints directly in the Chromium source. To set break points in the Chromium source, you can choose Debug > Breakpoints > Create Symbolic Breakpoint and set any function name as the symbol. This will set the breakpoint for all functions with that name, from all the classes if there are more than one. You can also do this step of setting break points prior to attaching the debugger, however, actual breakpoints for symbolic breakpoint functions may not show up until the debugger is attached to the app.

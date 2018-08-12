@@ -73,7 +73,7 @@ Perhatikan bahwa commit yang bebeapa kali sering terjepit ketika commit tersebut
 
 Sebuah pesan commit yang bagus harus menjelaskan perubahan apa dan mengapa. The Electron project uses [semantic commit messages](https://conventionalcommits.org/) to streamline the release process.
 
-Before a pull request can be merged, it should include at least one semantic commit message, though it's not necessary for all commits in the pull request to be semantic. Alternatively, you can **update your pull request title** to start with a semantic prefix.
+Before a pull request can be merged, it **must** have a pull request title with a semantic prefix.
 
 Examples of commit messages with semantic prefixes:
 
@@ -92,6 +92,7 @@ Common prefixes:
     - perf: A code change that improves performance
     - refactor: A code change that neither fixes a bug nor adds a feature
     - style: Changes that do not affect the meaning of the code (linting)
+    - vendor: Bumping a dependency like libchromiumcontent or node
     
 
 Other things to keep in mind when writing a commit message:

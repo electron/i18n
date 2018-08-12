@@ -152,4 +152,4 @@ client
 
 To test your application without rebuilding Electron, [place](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) your app source into Electron's resource directory.
 
-या फिर, इलेक्ट्रॉन बाइनरी के साथ चलने के लिए एक आर्गुमेंट भेजें को कि आपकी एप्प के फोल्डर की तरफ इशारा करता हो | इससे अपनी एप्प को इलेक्ट्रॉन की रिसोर्स डायरेक्टरी में कॉपी-पेस्ट करने की आपको ज़रुरत ही नहीं पड़ेगी |
+Alternatively, pass an argument to run with your Electron binary that points to your app's folder. This eliminates the need to copy-paste your app into Electron's resource directory.

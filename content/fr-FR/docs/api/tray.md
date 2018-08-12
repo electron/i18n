@@ -189,7 +189,7 @@ Définit l’`image` associée à l'icône.
 
 #### `tray.setPressedImage(image)` *macOS*
 
-* `image` [NativeImage](native-image.md)
+* `image` ([NativeImage](native-image.md) | String)
 
 Définit l’`image` associée à l'icône quand elle est pressée sur macOS.
 

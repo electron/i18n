@@ -195,16 +195,6 @@ Voir la [documentation Activer les fichiers sélectionnés par l'utilisateur](ht
 
 Voir la [documentation Activer les fichiers sélectionnés par l'utilisateur](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) pour plus de détails.
 
-## Problèmes connus
-
-### `shell.openItem(filePath)`
-
-Cela échoue quand l'application est signée pour la distribution dans le Mac App Store. Abonnez-vous à [#9005](https://github.com/electron/electron/issues/9005) pour les prochaines informations.
-
-#### Solution de secours
-
-`shell.openExternal('file://' + filePath)` va ouvrir le fichier dans l'application par défaut tant que l'extension est associé à une application installée.
-
 ## Algorithmes de chiffrement utilisés par Electron
 
 Selon le pays et la région où vous vous situez, le Mac App Store peut exiger de documenter les algorithmes de chiffrement utilisés dans votre application, et même vous demander de fournir une copie de l'approbation de l'inscription de chiffrement US (ERN).

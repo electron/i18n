@@ -112,7 +112,7 @@ Sie müssen nur einen Fork von Electron erstellen, wenn Sie mit benutzerdefinier
 2. Erstellen Sie einen neuen S3 bucket und nutzen Sie die folgende leere Verzeichnis-Struktur:
     
     ```sh
-    - atom-shell/
+    - electron/
       - symbols/
       - dist/
     ```
@@ -120,7 +120,7 @@ Sie müssen nur einen Fork von Electron erstellen, wenn Sie mit benutzerdefinier
 3. Setzen Sie die folgenden Umgebungsvariablen:
 
 * `ELECTRON_GITHUB_TOKEN` - Ein Token das Veröffentlichungen auf GitHub erstellen kann
-* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - der Ort an dem Sie node.js header und Symbole hochladen werden
+* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload Node.js headers as well as symbols
 * `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will do CI-type checks, appropriate to run for every pull request.
 * `CI` - Auf `true` setzen, ansonsten erscheinen Fehler
 * `GITHUB_TOKEN` - auf das Gleiche wie `ELECTRON_GITHUB_TOKEN` setzen

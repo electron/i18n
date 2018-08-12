@@ -10,8 +10,9 @@ Electron 的源代码主要依据 Chromium 的拆分约定被拆成了许多部�
 Electron
 ├── atom/ - C++ 源代码.
 |   ├── app/ - 系统入口代码.
-|   ├── browser/ - 包含了主窗口,UI和所有主
-|   |   进程相关的东西. 它会告诉渲染进程如何管理页面.
+|   ├── browser/ - The frontend including the main window, UI, and all of the
+|   |   |          main process things. This talks to the renderer to manage web
+|   |   |          pages.
 |   |   ├── ui/ - 不同平台上 UI 部分的实现.
 |   |   |   ├── cocoa/ - Cocoa 部分的源代码.
 |   |   |   ├── win/ - Windows GUI 部分的源代码.
@@ -22,15 +23,15 @@ Electron
 |   |   └── resources/ - 图标，平台相关的文件等.
 |   ├── renderer/ - 运行在渲染进程中的代码.
 |   |   └── api/ - 渲染进程 API 的实现.
-|   └── common/ - 同时被主进程和渲染进程用到的代码,
-|       包括了一些用来将 node 的事件循环整合到 Chromium 的
-|       事件循环中时用到的工具函数和代码.
-|       └── api/ - 同时被主进程和渲染进程使用到的 API 的实现
-|           以及 Electron 内置模块的基础设施.
+|   └── common/ - Code that used by both the main and renderer processes,
+|       |         including some utility functions and code to integrate node's
+|       |         message loop into Chromium's message loop.
+|       └── api/ - The implementation of common APIs, and foundations of
+|                  Electron's built-in modules.
 ├── brightray/ - Thin shim over libcc that makes it easier to use.
 ├── chromium_src/ - 从 Chromium 项目中拷贝来的代码. 参见下文。
-├── default_app/ - 在没有提供应用程序的情况下
-|   启动 Electron 的默认页面.
+├── default_app/ - The default page to show when Electron is started without
+|                  providing an app.
 ├── docs/ - 文档.
 ├── lib/ - JavaScript 源代码.
 |   ├── browser/ - Javascript 主进程初始化代码.
@@ -39,10 +40,12 @@ Electron
 |   |   └── api/ - Javascript API 实现.
 |   └── renderer/ - Javascript 渲染器进程初始化代码.
 |       └── api/ - Javascript API 实现.
+├── native_mate/ - A fork of Chromium's gin library that makes it easier to marshal
+|                  types between C++ and JavaScript.
 ├── spec/ - 自动化测试.
 ├── electron.gyp - Electron 的构建规则.
-└── common.gypi - 为诸如 `node` 和 `breakpad` 等其它
-    组件准备的编译设置和构建规则.
+└── common.gypi - Compiler specific settings and building rules for other
+                  components like `node` and `breakpad`.
 ```
 
 ## `/chromium_src`

@@ -2,6 +2,22 @@
 
 Dokumen ini menjelaskan proses pelepasan versi baru Electron.
 
+## Set your tokens and environment variables
+
+You'll need Electron S3 credentials in order to create and upload an Electron release. Contact a team member for more information.
+
+There are a handful of `*_TOKEN` environment variables needed by the release scripts:
+
+- `ELECTRON_GITHUB_TOKEN`: Create this by visiting https://github.com/settings/tokens/new?scopes=repo
+- `APPVEYOR_TOKEN`: Create a token from https://windows-ci.electronjs.org/api-token If you don't have an account, ask a team member to add you.
+- `CIRCLE_TOKEN`: Create a token from "Personal API Tokens" at https://circleci.com/account/api
+- `VSTS_TOKEN`: Create a Personal Access Token at https://github.visualstudio.com/_usersSettings/tokens or https://github.visualstudio.com/_details/security/tokens with the scope of `Build (read and execute)`.
+- `ELECTRON_S3_BUCKET`:
+- `ELECTRON_S3_ACCESS_KEY`:
+- `ELECTRON_S3_SECRET_KEY`: If you don't have these, ask a team member to help you.
+
+Once you've generated these tokens, put them in a `.env` file in the root directory of the project. This file is gitignored, and will be loaded into the environment by the release scripts.
+
 ## Tentukan cabang mana yang akan dilepaskan
 
 - **Jika merilis beta,** jalankan skrip di bawah ini dari `master`.
@@ -12,12 +28,6 @@ Dokumen ini menjelaskan proses pelepasan versi baru Electron.
 Jalankan `npm run prepare-release -- --notesOnly` untuk melihat rilis yang dihasilkan secara otomatis catatan. Catatan yang dihasilkan akan membantu Anda menentukan apakah ini adalah masalah besar, kecil, patch, atau versi beta berubah. Membaca [Aturan Perubahan Versi](../tutorial/electron-versioning.md#semver) untuk informasi lebih lanjut.
 
 **NB:** If releasing from a branch, e.g. 1-8-x, check out the branch with `git checkout 1-8-x` rather than `git checkout -b remotes/origin/1-8-x`. The scripts need `git rev-parse --abbrev-ref HEAD` to return a short name, e.g. no `remotes/origin/`
-
-## Set your tokens and environment variables
-
-You'll need Electron S3 credentials in order to create and upload an Electron release. Contact a team member for more information.
-
-There are a handful of `*_TOKEN` environment variables needed by the release scripts. Once you've generated these per-user tokens, you may want to keep them in a local file that you can `source` when starting a release. * `ELECTRON_GITHUB_TOKEN`: Create as described at https://github.com/settings/tokens/new, giving the token repo access scope. * `APPVEYOR_TOKEN`: Create a token from https://windows-ci.electronjs.org/api-token If you don't have an account, ask a team member to add you. * `CIRCLE_TOKEN`: Create a token from "Personal API Tokens" at https://circleci.com/account/api
 
 ## Jalankan skrip persiapan-rilis
 
@@ -42,7 +52,7 @@ npm menjalankan mempersiapkan-release -- kecil
 ### Perubahan versi patch
 
 ```sh
-npm menjalankan mempersiapkan-release -- patch
+npm run prepare-release -- patch --stable
 ```
 
 ### Perubahan versi beta
@@ -67,8 +77,11 @@ $ ./script/bump-version.py --bump minor --dry-run
 
 Itu `persiapan-release` akan memicu pembuatan melalui panggilan API. Untuk memantau kemajuan pembuatan, lihat halaman berikut:
 
-- [circleci.com/gh/electron/electron](https://circleci.com/gh/electron) for OS X and Linux
-- [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) untuk Windows
+- [electron-release-mas-x64](https://github.visualstudio.com/electron/_build/index?context=allDefinitions&path=%5C&definitionId=19&_a=completed) for MAS builds.
+- [electron-release-osx-x64](https://github.visualstudio.com/electron/_build/index?context=allDefinitions&path=%5C&definitionId=18&_a=completed) for OSX builds.
+- [circleci.com/gh/electron/electron](https://circleci.com/gh/electron) for Linux builds.
+- [windows-ci.electronjs.org/project/AppVeyor/electron-39ng6](https://windows-ci.electronjs.org/project/AppVeyor/electron-39ng6) for Windows 32-bit builds.
+- [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) for Windows 64-bit builds.
 
 ## Kompilasi catatan rilis
 
@@ -171,36 +184,19 @@ under the `beta` tag and can be installed via `npm install electron@beta`.
 
 1. Visit [the releases page](https://github.com/electron/electron/releases) and you'll see a new draft release with placeholder release notes.
 2. Edit rilis dan tambahkan catatan rilis.
-3. Uncheck the `prerelease` checkbox if you're publishing a stable release; leave it checked for beta releases.
-4. Klik 'Simpan draf'. **Jangan klik 'Publikasikan rilis'!**
-5. Tunggu sampai semua bangunan berlalu sebelum melanjutkan.
-6. In the `release` branch, verify that the release's files have been created:
+3. Klik 'Simpan draf'. **Jangan klik 'Publikasikan rilis'!**
+4. Tunggu sampai semua bangunan berlalu sebelum melanjutkan.
+5. In the branch, verify that the release's files have been created:
 
 ```sh
-$ git rev-parse --abbrev-ref HEAD
-release
 $ npm run release -- --validateRelease
 ```
 
-## Merge temporary branch (pre-2-0-x branches only)
-
-Setelah rilis selesai, gabungkan cabang `release` kembali cabang pelepasan sumber menggunakan `merge-release` naskah. Jika cabang tidak berhasil digabung kembali script ini akan otomatis rebase cabang `release` dan dorong perubahan yang akan memicu pelepasan membangun lagi, yang berarti Anda harus menunggu rilis dibangun untuk dijalankan lagi sebelum melanjutkan.
-
-### Bergabung kembali ke master
-
-```sh
-npm menjalankan mempersiapkan-release -- master
-```
-
-### Bergabung kembali ke cabang pelepasan lama
-
-```sh
-npm run merge-release -- 1-7-x
-```
+Note, if you need to run `--validateRelease` more than once to check the assets, run it as above the first time, then `node ./script/release.js --validateRelease` for subsequent calls so that you don't have to rebuild each time you want to check the assets.
 
 ## Publikasikan rilisnya
 
-Setelah penggabungan selesai dengan sukses, jalankan `release` naskah melalui `npm run release` untuk menyelesaikan proses pelepasan. Script ini akan melakukan berikut: 1. Bangun proyek untuk memvalidasi bahwa nomor versi yang benar sedang dilepaskan. 2. Download binari dan buat header simpul dan linker .lib yang digunakan pada Windows oleh node-gyp untuk membangun modul asli. 3. Buat dan upload file SHASUMS yang tersimpan di S3 untuk file simpul. 4. Buat dan upload file SHASUMS256.txt yang tersimpan di rilis GitHub. 5. Validasi semua file yang dibutuhkan ada di GitHub dan S3 dan miliki checksum yang benar seperti yang ditentukan dalam file SHASUMS. 6. Publikasikan rilis di GitHub 7. Menghapus `rilis` cabang.
+Setelah penggabungan selesai dengan sukses, jalankan `release` naskah melalui `npm run release` untuk menyelesaikan proses pelepasan. Script ini akan melakukan berikut: 1. Bangun proyek untuk memvalidasi bahwa nomor versi yang benar sedang dilepaskan. 2. Download binari dan buat header simpul dan linker .lib yang digunakan pada Windows oleh node-gyp untuk membangun modul asli. 3. Buat dan upload file SHASUMS yang tersimpan di S3 untuk file simpul. 4. Buat dan upload file SHASUMS256.txt yang tersimpan di rilis GitHub. 5. Validasi semua file yang dibutuhkan ada di GitHub dan S3 dan miliki checksum yang benar seperti yang ditentukan dalam file SHASUMS. 6. Publikasikan rilis di GitHub
 
 ## Publikasikan ke npm
 
@@ -230,7 +226,56 @@ electron
 $ npm run publish-to-npm
 ```
 
-Note: In general you should be using the latest Node during this process; however, older versions of the `publish-to-npm` script may have trouble with Node 7 or higher. If you have trouble with this in an older branch, try running with an older version of Node, e.g. a 6.x LTS.
+After publishing, you can check the `latest` release:
+
+```sh
+$ npm dist-tag ls electron
+```
+
+If for some reason `npm run publish-to-npm` fails, you can tag the release manually:
+
+```sh
+$ npm dist-tag add electron@<version> <tag>
+```
+
+e.g.:
+
+```sh
+$ npm dist-tag add electron@2.0.0 latest
+```
+
+# Penyelesaian masalah
+
+## Rerun broken builds
+
+If a release build fails for some reason, you can use `script/ci-release-build.js` to rerun a release build:
+
+### Rerun all linux builds:
+
+```sh
+node script/ci-release-build.js --ci=CircleCI --ghRelease TARGET_BRANCH
+(TARGET_BRANCH) is the branch you are releasing from.
+```
+
+### Rerun all macOS builds:
+
+```sh
+node script/ci-release-build.js --ci=VSTS --ghRelease TARGET_BRANCH
+(TARGET_BRANCH) is the branch you are releasing from.
+```
+
+### Rerun all Windows builds:
+
+```sh
+node script/ci-release-build.js --ci=AppVeyor --ghRelease TARGET_BRANCH
+(TARGET_BRANCH) is the branch you are releasing from.
+```
+
+Additionally you can pass a job name to the script to run an individual job, eg:
+
+```sh
+node script/ci-release-build.js --ci=AppVeyor --ghRelease --job=electron-x64 TARGET_BRANCH
+```
 
 ## Perbaiki binari yang hilang dari pelepasan secara manual
 

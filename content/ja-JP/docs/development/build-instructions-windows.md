@@ -4,8 +4,8 @@ Windows 版 Electron のビルドについては、以下のガイドライン�
 
 ## 必要な環境
 
-* Windows 7 / Server 2008 R2 以上
-* Visual Studio 2017 - [VS 2017 Community Edition (無料) をダウンロード](https://www.visualstudio.com/vs/)
+* Windows 10 / Server 2012 R2 以上
+* Visual Studio 2017 15.7.2 またはそれ以降 - [VS 2017 Community Edition (無料版) をダウンロード](https://www.visualstudio.com/vs/)
 * [Python 2.7](http://www.python.org/download/releases/2.7/)
 * [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
@@ -34,13 +34,13 @@ $ python script\bootstrap.py -v
 
 ## ビルド
 
-Release と Debug の両方をターゲットにしてビルドする場合、以下のコマンドを実行してください。
+以下で Release と Debug の両方をターゲットにしてビルドします。
 
 ```powershell
 $ python script\build.py
 ```
 
-また、以下のように、Debug のみをターゲットにしてビルドすることもできます。
+以下のように、Debug のみをターゲットにしてビルドすることもできます。
 
 ```powershell
 $ python script\build.py -c D
@@ -136,3 +136,11 @@ $ mkdir ~\AppData\Roaming\npm
 ### node-gyp is not recognized as an internal or external command
 
 ビルドに Git Bash を使用している場合は、代わりに PowerShell または 開発者コマンド プロンプト for VS2015 を使用する必要があります。
+
+### cannot create directory at '...': Filename too long
+
+node.jsに[長すぎるパス名](https://github.com/electron/node/tree/electron/deps/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/node_modules/is-arrayish)があるようです。標準では、Windows版のgitは、長いファイル名をきちんと処理できません。 この問題を解決するには以下のようにします：
+
+```sh
+$ git config --system core.longpaths true
+```

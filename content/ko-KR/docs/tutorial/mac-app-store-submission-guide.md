@@ -195,16 +195,6 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 
 자세한 내용은 [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6)를 참조하세요.
 
-## 알려진 이슈들
-
-### `shell.openItem(filePath)`
-
-앱이 Mac App Store에서 배포하도록 서명되면 실패합니다. 최신 업데이트 확인(  # 9005 </ 0>)</p> 
-
-#### 해결 방법
-
-`shell.openExternal('file://' + filePath)`은 확장이 설치된 앱과 연결되어있는 한 기본 애플리케이션에서 파일을 열것입니다.
-
 ## Electron에서 사용되는 암호화 알고리즘
 
 거주중인 국가 및 지역에 따라, Mac App Store에서 앱에 사용 된 암호화 알고리즘의 문서를 요청하고, 심지어 미국 암호화 등록 (ERN) 승인 사본을 제출하도록 요청할 수도 있습니다.

@@ -12,7 +12,7 @@
 
 * [配置开发环境](tutorial/development-environment.md) 
   * [MacOS开发环境配置](tutorial/development-environment.md#setting-up-macos)
-  * [Winodws开发环境配置](tutorial/development-environment.md#setting-up-windows)
+  * [Windows开发环境配置](tutorial/development-environment.md#setting-up-windows)
   * [Linux开发环境配置](tutorial/development-environment.md#setting-up-linux)
   * [选择一款编辑器](tutorial/development-environment.md#a-good-editor)
 * [创建你的第一个应用](tutorial/first-app.md) 
@@ -121,7 +121,7 @@
 * [Menu](api/menu.md)
 * [MenuItem](api/menu-item.md)
 * [net](api/net.md)
-* [netLog](api/netLog.md)
+* [netLog](api/net-log.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)

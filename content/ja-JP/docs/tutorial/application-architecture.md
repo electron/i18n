@@ -20,7 +20,7 @@ Electron はウェブページを表示するために Chromium を使用して�
 
 > #### 余談: プロセス間通信
 > 
-> Electron では、メインプロセスとレンダラープロセスの間で通信するのにいくつかの方法があります。 メッセージ送信用の [`ipcRenderer`](../api/ipc-renderer.md) および [`ipcMain`](../api/ipc-main.md) モジュールと、RPC スタイルの通信用の [remote](../api/remote.md) モジュールなどがあります。 また、[ウェブページ間でデータを共有する方法](../faq.md#how-to-share-data-between-web-pages) についての FAQ エントリもあります。
+> In Electron, we have several ways to communicate between the main process and renderer processes, such as [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. また、[ウェブページ間でデータを共有する方法](../faq.md#how-to-share-data-between-web-pages) についての FAQ エントリもあります。
 
 ## Electron API を使用する
 

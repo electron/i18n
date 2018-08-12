@@ -161,76 +161,76 @@ Mengatur `gambar` yang terkait dengan ikon baki ini.
 
 #### `tray.setPressedImage(gambar) ` *macos*
 
-* ` gambar </ 0>  <a href="native-image.md"> gambar asli </ 1></li>
-</ul>
+* `gambar` ([NativeImage](native-image.md) | String)
 
-<p>Mengatur <code> gambar ` yang terkait dengan ikon baki ini saat ditekan pada macOS.</p> 
-  #### `tray.setToolTip(toolTip)`
-  
-  * `toolTip` String
-  
-  Menyetel teks hover untuk ikon baki ini.
-  
-  #### `tray.setTitle(judul) ` *macos*
-  
-  * ` judul </ 0> String</li>
+Mengatur ` gambar ` yang terkait dengan ikon baki ini saat ditekan pada macOS.
+
+#### `tray.setToolTip(toolTip)`
+
+* `toolTip` String
+
+Menyetel teks hover untuk ikon baki ini.
+
+#### `tray.setTitle(judul) ` *macos*
+
+* ` judul </ 0> String</li>
 </ul>
 
 <p>Sets the title displayed aside of the tray icon in the status bar (Support ANSI colors).</p>
 
 <h4><code>tray.setHighlightMode(mode)` * macos*</h4> 
-    * `modus` String - Sorot mode dengan salah satu dari nilai berikut: 
-      * `selection` - Sorot ikon baki saat diklik dan juga kapan Menu konteksnya terbuka. Ini adalah defaultnya.
-      * `selalu` - Selalu sorot ikon baki.
-      * `tidak pernah` - Jangan menyorot ikon baki.
-    
-    Menyetel saat latar belakang ikon baki disorot (berwarna biru).
-    
-    **Catatan:** Anda dapat menggunakan `highlightMode` dengan [`BrowserWindow`](browser-window.md) dengan Toggling antara `'never'` dan `'always'` saat jendela melihat visibilitas berubah.
-    
-    ```javascript
-    const {BrowserWindow, Tray} = require ('electron')
-    
-    const win = new BrowserWindow ({width: 800, height: 600})
-    const tray = new Tray ('/ path / to / my / icon')
-    
-    tray.on ('klik', () = > {
-      win.isVisible ()? win.hide (): win.show ()
-    })
-    win.on ('show', () = > {
-      tray.setHighlightMode ('selalu')
-    })
-    win.on ('hide', () = > {
-      tray.setHighlightMode ('tidak pernah')
-    })
-    ```
-    
-    #### `tray.displayBalloon(options)` *Windows*
-    
-    * `pilihan` Obyek 
-      * `ikon` ([NativeImage](native-image.md) | String) (opsional) -
-      * ` judul </ 0> String</li>
+  * `modus` String - Sorot mode dengan salah satu dari nilai berikut: 
+    * `selection` - Sorot ikon baki saat diklik dan juga kapan Menu konteksnya terbuka. Ini adalah defaultnya.
+    * `selalu` - Selalu sorot ikon baki.
+    * `tidak pernah` - Jangan menyorot ikon baki.
+  
+  Menyetel saat latar belakang ikon baki disorot (berwarna biru).
+  
+  **Catatan:** Anda dapat menggunakan `highlightMode` dengan [`BrowserWindow`](browser-window.md) dengan Toggling antara `'never'` dan `'always'` saat jendela melihat visibilitas berubah.
+  
+  ```javascript
+  const {BrowserWindow, Tray} = require ('electron')
+  
+  const win = new BrowserWindow ({width: 800, height: 600})
+  const tray = new Tray ('/ path / to / my / icon')
+  
+  tray.on ('klik', () = > {
+    win.isVisible ()? win.hide (): win.show ()
+  })
+  win.on ('show', () = > {
+    tray.setHighlightMode ('selalu')
+  })
+  win.on ('hide', () = > {
+    tray.setHighlightMode ('tidak pernah')
+  })
+  ```
+  
+  #### `tray.displayBalloon(options)` *Windows*
+  
+  * `pilihan` Obyek 
+    * `ikon` ([NativeImage](native-image.md) | String) (opsional) -
+    * ` judul </ 0> String</li>
 <li><code>content` String
-    
-    Menampilkan balon baki.
-    
-    #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
-    
-    * ` teks ` String (opsional)
-    * `posisi` [Titik](structures/point.md) (opsional) - Posisi pop up.
-    
-    Punculkan menu konteks ikon baki. Saat `menu` dilewati, menu `` akan ditampilkan, bukan menu konteks baki ikon.
-    
-    Posisi `` hanya tersedia di Windows, dan ini adalah (0, 0) secara default.
-    
-    #### `tray.setContextMenu (menu)`
-    
-    * `menu` Menu
-    
-    Menetapkan menu konteks untuk ikon ini.
-    
-    #### `tray.getBounds()` *macOS * * Windows*
-    
+  
+  Menampilkan balon baki.
+  
+  #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
+  
+  * ` teks ` String (opsional)
+  * `posisi` [Titik](structures/point.md) (opsional) - Posisi pop up.
+  
+  Punculkan menu konteks ikon baki. Saat `menu` dilewati, menu `` akan ditampilkan, bukan menu konteks baki ikon.
+  
+  Posisi `` hanya tersedia di Windows, dan ini adalah (0, 0) secara default.
+  
+  #### `tray.setContextMenu (menu)`
+  
+  * ` menu </ 0> Menu</li>
+</ul>
+
+<p>Menetapkan menu konteks untuk ikon ini.</p>
+
+<h4><code>tray.getBounds()` *macOS * * Windows*</h4> 
     Kembali [`Rectangle`](structures/rectangle.md)
     
     `Batas` dari ikon baki ini sebagai `Objek`.

@@ -114,7 +114,7 @@ Doğrudan Elektron'a yamaladığınız özel C ++ kodunuz olduğunda, ya yukarı
 2. Yeni bir S3 kovası oluşturun ve boş dizin yapısını izleyin:
     
     ```sh
-    - atom-shell/
+    - electron/
       - symbols/
       - dist/
     ```
@@ -122,7 +122,7 @@ Doğrudan Elektron'a yamaladığınız özel C ++ kodunuz olduğunda, ya yukarı
 3. Aşağıdaki Ortam Değişkenlerini ayarlayın:
 
 * `ELECTRON_GITHUB_TOKEN` - GitHub'da sürümler oluşturabilen bir simge
-* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - node.js başlıklarını ve sembolleri yükleyeceğiniz yer
+* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload Node.js headers as well as symbols
 * `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will do CI-type checks, appropriate to run for every pull request.
 * `CI` ' ı `true` olarak değiştirin yoksa başarısız olur
 * `GITHUB_TOKEN` - aynı değerle ayarla `ELECTRON_GITHUB_TOKEN`

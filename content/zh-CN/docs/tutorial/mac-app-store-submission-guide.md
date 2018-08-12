@@ -195,16 +195,6 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 
 详情查看 [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6).
 
-## 已知问题
-
-### `shell.openItem(filePath)`
-
-当应用程序在Mac App Store中签署分发时，这将失败。 订阅[#9005](https://github.com/electron/electron/issues/9005) 获取更新。
-
-#### 解决方法
-
-只要扩展名与已安装的应用程序相关联，`shell.openExternal('file://' + filePath)` 将在默认应用程序中打开该文件。
-
 ## Electron 使用的加密算法
 
 取决于你所在地方的国家和地区，Mac App Store 或许需要记录你应用的加密算法，甚至要求你提交一个 U.S. 加密注册 (ERN) 许可的复印件。

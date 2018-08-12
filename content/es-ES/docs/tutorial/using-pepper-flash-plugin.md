@@ -4,7 +4,7 @@ Electron es compatible con el complemento de Pepper Flash. Para usar el compleme
 
 ## Prepare una copia del complemento Flash
 
-On macOS and Linux, the details of the Pepper Flash plugin can be found by navigating to `chrome://plugins` in the Chrome browser. Su ubicación y versión son útiles para el soporte de Pepper Flash de Electron. También puedes copiarlo a otro ubicación.
+On macOS and Linux, the details of the Pepper Flash plugin can be found by navigating to `chrome://flash` in the Chrome browser. Su ubicación y versión son útiles para el soporte de Pepper Flash de Electron. También puedes copiarlo a otro ubicación.
 
 ## Agregar interruptor de Electron
 
