@@ -1,6 +1,6 @@
 # Escribiendo tu primera App con Electron
 
-Electron te permite crear aplicaciones de escritorio con JavaScript puro proporcionando un sistema de tiempo de ejecución con poderosas APIs nativas (sistema operativo). Puedes verlo como una variante del sistema de tiempo de ejecución Node.js enfocada en aplicaciones de escritorio en lugar de servidores web.
+Electron te permite crear aplicaciones de escritorio con JavaScript puro proporcionando un sistema de tiempo de ejecución con poderosas APIs nativas (sistema operativo). Puedes verlo como una variante del sistema de tiempo de ejecución Node.js enfocada a aplicaciones de escritorio en lugar de servidores web.
 
 Esto no significa que Electron sea una vinculación (binding) de JavaScript a librerías de Interfaces Gráficas de Usuario (GUI). En cambio, Electron usa páginas web a modo de Interfaz Gráfica, así que también puedes verlo como un navegador Chromium mínimo, controlado por JavaScript.
 
@@ -21,7 +21,7 @@ Crea una carpeta vacía para tu nueva aplicación Electron. Abre tu cliente de l
 npm init
 ```
 
-npm te guiará para crear un fichero `package.json` básico. El script especificado por el campo `main` es el script de inicio de tu aplicación, que se encargará de ejecutar el proceso principal. Un ejemplo de tu paquete `package.json` podría tener el siguiente aspecto:
+npm te guiará en la creación de un fichero `package.json` básico. El script especificado por el campo `main` es el script de inicio de tu aplicación, que se encargará de ejecutar el proceso principal. Un ejemplo de tu fichero `package.json` podría tener el siguiente aspecto:
 
 ```json
 {
@@ -69,7 +69,7 @@ Existen otras formas de instalar Electron. Por favor, consulta la [guía de inst
 
 ## Desarrollo con Electron de un vistazo
 
-Las apps Electron se desarrollan en JavaScript usando los mismos principios y métodos utilizados en el desarrollo para Node.js. Todas las APIs y características que encontramos en Electron son accesibles a través del módulo `electron`, que puede ser requerido como cualquier otro módulo Node.js:
+Las aplicaciones Electron se desarrollan en JavaScript usando los mismos principios y métodos utilizados en el desarrollo para Node.js. Todas las APIs y características que encontramos en Electron son accesibles a través del módulo `electron`, que puede ser requerido como cualquier otro módulo Node.js:
 
 ```javascript
 const electron = require('electron')
@@ -135,17 +135,17 @@ app.on('window-all-closed', () => {
 
 app.on('activate', () => {
   // En macOS es común volver a crear una ventana en la aplicación cuando el
-  // icono del dock es clickeado y no hay otras ventanas abieras.
+  // icono del dock es clicado y no hay otras ventanas abiertas.
   if (win === null) {
     createWindow()
   }
 })
 
-// En este archivo tu puedes incluir el resto del código del proceso principal de
-// tu aplicación. Tu también puedes ponerlos en archivos separados y requerirlos aquí.
+// En este archivo puedes incluir el resto del código del proceso principal de
+// tu aplicación. También puedes ponerlos en archivos separados y requerirlos aquí.
 ```
 
-Finalmente el archivo `index.html` es la página web tu quieres mostrar:
+Finalmente el archivo `index.html` es la página web que quieres mostrar:
 
 ```html
 <!DOCTYPE html>
@@ -163,7 +163,7 @@ Finalmente el archivo `index.html` es la página web tu quieres mostrar:
 </html>
 ```
 
-## Ejecutar su aplicación
+## Ejecuta tu aplicación
 
 Una vez que hayas creado tus ficheros iniciales `main.js`, `index.html` y `package.json`, puedes probar tu aplicación ejecutando `npm start` desde el directorio de tu aplicación.
 
@@ -184,4 +184,4 @@ $ npm install
 $ npm start
 ```
 
-For a list of boilerplates and tools to kick-start your development process, see the [Boilerplates and CLIs documentation](./boilerplates-and-clis.md).
+Para tener una lista de boilerplates y herramientas para iniciar tu proceso de desarrollo, visita la [documentación de boilerplates y CLIs](./boilerplates-and-clis.md).
