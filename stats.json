@@ -3,14 +3,14 @@
     "name": "Arabic",
     "code": "ar",
     "phrases": "9496",
-    "translated": "685",
+    "translated": "687",
     "approved": "0",
     "words": "87620",
-    "words_translated": "4193",
+    "words_translated": "4205",
     "words_approved": "0",
     "translated_progress": 4,
     "approved_progress": 0,
-    "qa_issues": "279"
+    "qa_issues": "280"
   },
   {
     "name": "Bulgarian",
@@ -237,27 +237,27 @@
     "name": "Russian",
     "code": "ru",
     "phrases": "9496",
-    "translated": "4974",
-    "approved": "1028",
+    "translated": "4973",
+    "approved": "1091",
     "words": "87620",
-    "words_translated": "34716",
-    "words_approved": "8032",
+    "words_translated": "34684",
+    "words_approved": "8497",
     "translated_progress": 39,
     "approved_progress": 9,
-    "qa_issues": "1408"
+    "qa_issues": "1384"
   },
   {
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "9496",
-    "translated": "8319",
+    "translated": "8356",
     "approved": "328",
     "words": "87620",
-    "words_translated": "73411",
+    "words_translated": "73903",
     "words_approved": "2785",
-    "translated_progress": 83,
+    "translated_progress": 84,
     "approved_progress": 3,
-    "qa_issues": "3163"
+    "qa_issues": "3181"
   },
   {
     "name": "Tagalog",
