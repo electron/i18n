@@ -97,7 +97,7 @@ El fichero `main.js` debería crear las ventanas y manejar todos los eventos del
 const {app, BrowserWindow} = require('electron')
 
 // Mantén una referencia global del objeto window, si no lo haces, la ventana 
-// se cerrará automáticamente con el objeto cuando el objeto JavaScript sea eliminado por el recolector de basura.
+// se cerrará automáticamente cuando el objeto JavaScript sea eliminado por el recolector de basura.
 let win
 
 function createWindow () {
