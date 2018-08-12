@@ -4,24 +4,24 @@ Electron te permite crear aplicaciones de escritorio con JavaScript puro proporc
 
 Esto no significa que Electron sea una vinculación (binding) de JavaScript a librerías de Interfaces Gráficas de Usuario (GUI). En cambio, Electron usa páginas web a modo de Interfaz Gráfica, así que también puedes verlo como un navegador Chromium mínimo, controlado por JavaScript.
 
-Nota: Este ejemplo también esta disponible como repositorio que puedes descargar y ejecutar inmediatamente.
+**Nota**: Este ejemplo también esta disponible como un repositorio que puedes [descargar y ejecutar inmediatamente](#trying-this-example).
 
-As far as development is concerned, an Electron application is essentially a Node.js application. The starting point is a `package.json` that is identical to that of a Node.js module. A most basic Electron app would have the following folder structure:
+En lo que respecta al desarrollo, una aplicación Electron es esencialmente una aplicación Node.js. Comenzaríamos con un fichero `package.json` idéntico al que se usaría en un módulo Node.js. Una app muy básica de Electron podría tener la siguiente estructura de carpeta:
 
 ```text
-your-app/
+tu-app/
 ├── package.json
 ├── main.js
 └── index.html
 ```
 
-Crear una carpeta vacía para tu nueva aplicación en Electron. Abre tu línea de comando y ejecuta `npm init` en la misma carpeta.
+Crea una carpeta vacía para tu nueva aplicación Electron. Abre tu cliente de línea de comandos y ejecuta `npm init` desde esa misma carpeta.
 
 ```sh
 npm init
 ```
 
-npm will guide you through creating a basic `package.json` file. The script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+npm te guiará para crear un fichero `package.json` básico. The script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
 
 ```json
 {
