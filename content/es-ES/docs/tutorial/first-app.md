@@ -6,7 +6,7 @@ Esto no significa que Electron sea una vinculación (binding) de JavaScript a li
 
 **Nota**: Este ejemplo también esta disponible como un repositorio que puedes [descargar y ejecutar inmediatamente](#trying-this-example).
 
-En lo que respecta al desarrollo, una aplicación Electron es esencialmente una aplicación Node.js. Comenzaríamos con un fichero `package.json` idéntico al que se usaría en un módulo Node.js. Una app muy básica de Electron podría tener la siguiente estructura de carpeta:
+En lo que respecta al desarrollo, una aplicación Electron es esencialmente una aplicación Node.js. Comenzaríamos con un fichero `package.json` idéntico al que se usaría en un módulo Node.js. Una aplicación Electron muy básica podría tener la siguiente estructura de carpeta:
 
 ```text
 tu-app/
@@ -21,7 +21,7 @@ Crea una carpeta vacía para tu nueva aplicación Electron. Abre tu cliente de l
 npm init
 ```
 
-npm te guiará para crear un fichero `package.json` básico. El script especificado por el campo `main` es el script de inicio de tu app, que se encargará de ejecutar el proceso principal. Un ejemplo de tu paquete `package.json` podría tener el siguiente aspecto:
+npm te guiará para crear un fichero `package.json` básico. El script especificado por el campo `main` es el script de inicio de tu aplicación, que se encargará de ejecutar el proceso principal. Un ejemplo de tu paquete `package.json` podría tener el siguiente aspecto:
 
 ```json
 {
@@ -59,29 +59,29 @@ Convertir esta aplicación Node en una aplicación Electron es muy sencillo - no
 
 ## Instalando Electron
 
-En este momento, necesitarás instalar el propio `electron`. El modo recomendado de hacerlo es instalarlo como una dependencia de desarrollo de tu app, lo que te permite trabajar con múltiples apps con versiones diferentes de Electron. Para hacerlo, ejecuta el siguiente comando desde el directorio de tu app:
+En este momento, necesitarás instalar el propio `electron`. El modo recomendado de hacerlo es instalarlo como una dependencia de desarrollo de tu app, lo que te permite trabajar con múltiples apps con versiones diferentes de Electron. Para hacerlo, ejecuta el siguiente comando desde el directorio de tu aplicación:
 
 ```sh
 npm install --save-dev electron
 ```
 
-Existen otras formas de instalar Electron. Please consult the [installation guide](installation.md) to learn about use with proxies, mirrors, and custom caches.
+Existen otras formas de instalar Electron. Por favor, consulta la [guía de instalación](installation.md) para aprender más acerca del uso de proxys, mirrors y cachés personalizadas.
 
-## Electron Development in a Nutshell
+## Desarrollo con Electron de un vistazo
 
-Electron apps are developed in JavaScript using the same principles and methods found in Node.js development. All APIs and features found in Electron are accessible through the `electron` module, which can be required like any other Node.js module:
+Las apps Electron se desarrollan en JavaScript usando los mismos principios y métodos utilizados en el desarrollo para Node.js. Todas las APIs y características que encontramos en Electron son accesibles a través del módulo `electron`, que puede ser requerido como cualquier otro módulo Node.js:
 
 ```javascript
 const electron = require('electron')
 ```
 
-The `electron` module exposes features in namespaces. As examples, the lifecycle of the application is managed through `electron.app`, windows can be created using the `electron.BrowserWindow` class. A simple `main.js` file might wait for the application to be ready and open a window:
+El módulo `electron` expone características usando espacios de nombres (namespaces). Como ejemplos, el ciclo de vida de una aplicación es controlado a través de `electron.app` y las ventanas pueden crearse usando la clase `electron.BrowserWindow`. Un fichero `main.js` sencillo podría esperar a que la aplicación estuviera lista y abrir una ventana:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
 
 function createWindow () {
-  // Create the browser window.
+  // Crea la ventana del navegador.
   win = new BrowserWindow({width: 800, height: 600})
 
   // y carga el archivo index.html de la aplicación.
