@@ -10,7 +10,7 @@ Siga as instruções abaixo para configurar o Electron no Linux.
     Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
     
     ```sh
-    $ python ./script/tls.py
+    $ npm run check-tls
     ```
     
     If the script returns that your configuration is using an outdated security protocol, use your system's package manager to update Python to the latest version in the 2.7.x branch. Alternatively, visit https://www.python.org/downloads/ for detailed instructions.
@@ -60,9 +60,18 @@ $ git clone https://github.com/electron/electron
 
 O script de inicialização irá baixar todas as dependências necessárias e criar a compilação do projeto. Você deve ter o Python 2.7.x para que o script tenha sucesso. Pode levar algum tempo para baixar certos arquivos. Observe que estamos utilizando `ninja` para configurar o Electron, não existe nenhum `Makefile` gerado.
 
+To bootstrap for a static, non-developer build, run:
+
 ```sh
 $ cd electron
-$ ./script/bootstrap.py --verbose
+$ npm run bootstrap
+```
+
+Or to bootstrap for a development session that builds faster by not statically linking:
+
+```sh
+$ cd electron
+$ npm run bootstrap:dev
 ```
 
 If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
@@ -98,7 +107,7 @@ $ ./script/bootstrap.py -v --target_arch=arm
 Se você deseja de compilar tanto para `Release` e `Debug`:
 
 ```sh
-$ ./script/build.py
+$ npm run build
 ```
 
 O script irá gerar um executável do Electron muito grande para ser gravado no diretório `out/R`. O tamanho do arquivo é superior a 1.3 gigabytes. Isso acontece porque o binário contém sinais de depuração. Para reduzir o tamanho do arquivo, execute o script `create-dist.py`:
@@ -109,10 +118,14 @@ $ ./script/create-dist.py
 
 Com isso será gerado uma distribuição muito menor no diretório `dist`. Depois de the executar o script `create-dist.py`, você talvez queira remover os 1.3+ gigabytes gerados anteriormente no `out/R`.
 
-Você também pode compilar somente o `Debug`:
+You can also build either the `Debug` or `Release` target on its own:
 
 ```sh
-$ ./script/build.py -c D
+$ npm run build:dev
+```
+
+```sh
+$ npm run build:release
 ```
 
 Após a finalização, você pode encontrar o `electron` debug no diretório `out/D`.
