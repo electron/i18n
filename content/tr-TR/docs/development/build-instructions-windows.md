@@ -27,23 +27,36 @@ $ git clone https://github.com/electron/electron.git
 
 Ilk işleri halleden bootstrap betiği inşaa için gerekli olan bağımlılıkları indirir ve gerekli inşaa dosyalarını hazırlar. Dikkat ederseniz Electron'u inşaa etmek için `ninja` kullandığımız için herhangi bir Visual Studio projesi yaratılmıyor.
 
+To bootstrap for a static, non-developer build, run:
+
 ```powershell
 $ cd electron
-$ python script\bootstrap.py -v
+$ npm run bootstrap
+```
+
+Or to bootstrap for a development session that builds faster by not statically linking:
+
+```powershell
+$ cd electron
+$ npm run bootstrap:dev
 ```
 
 ## İnşaa
 
-Hem Dağıtım hem Hata Ayıklama hedefleri:
+Hem `Dağıtım` hem `Hata Ayıklama` hedefleri:
 
 ```powershell
-$ python script\build.py
+$ npm run build
 ```
 
-Sadece hata ayıklama hedeflenerek de inşaa mümkün:
+You can also build either the `Debug` or `Release` target on its own:
 
 ```powershell
-$ python script\build.py -c D
+$ npm run build:dev
+```
+
+```powershell
+$ npm run build:release
 ```
 
 İnşaa tamamlandıktan sonra, `electron.exe`'yi `out\D` (hata ayıklama hedefi) veya `out\R` (Sürüm hedefi) altında bulabilirsiniz.
