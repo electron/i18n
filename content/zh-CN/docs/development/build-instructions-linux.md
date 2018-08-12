@@ -10,7 +10,7 @@
     请确保您的系统和Python的版本至少支持TLS 1.2。 您可以运行下面这个脚本来测试：
     
     ```sh
-    $ python ./script/tls.py
+    $ npm run check-tls
     ```
     
     如果脚本反映你的设置使用过时的安全协议，请用系统的软件包管理器更新Python在2.7.x中的最高版本。 或者，您也可以访问ttps://www.python.org/downloads/，以获取更加详细的指导信息。
@@ -60,9 +60,18 @@ $ git clone https://github.com/electron/electron
 
 引导脚本将会下载全部必要的构建依赖，并创建和构建项目文件。 必须使用 Python 2.7.x 来让脚本成功执行. 正确下载文件会花费较长的时间. 注意我们使用的是 `ninja` 来构建 Electron，所以没有生成 `Makefile` 项目.
 
+To bootstrap for a static, non-developer build, run:
+
 ```sh
 $ cd electron
-$ ./script/bootstrap.py --verbose
+$ npm run bootstrap
+```
+
+Or to bootstrap for a development session that builds faster by not statically linking:
+
+```sh
+$ cd electron
+$ npm run bootstrap:dev
 ```
 
 If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
@@ -98,7 +107,7 @@ $ ./script/bootstrap.py -v --target_arch=arm
 如果你想要创建 `Release` 、 `Debug` 目标:
 
 ```sh
-$ ./script/build.py
+$ npm run build
 ```
 
 这个脚本也许会在目录 `out/R` 下创建一个巨大的可执行的 Electron. 文件大小或许会超过 1.3 G. 原因是释放的目标二进制文件包含了调试标识. 运行 `create-dist.py` 脚本来减小文件的大小:
@@ -109,10 +118,14 @@ $ ./script/create-dist.py
 
 这会在 `dist` 目录下创建一个有大量小文件的工作空间. 运行 `create-dist.py` 脚本后，您可能想要删除仍在 `out/R` 的 1.3+ GiB 的二进制文件。
 
-你可以只创建 `Debug` 目标:
+You can also build either the `Debug` or `Release` target on its own:
 
 ```sh
-$ ./script/build.py -c D
+$ npm run build:dev
+```
+
+```sh
+$ npm run build:release
 ```
 
 创建完毕, 可以在 `out/D`下面找到 `electron`.
