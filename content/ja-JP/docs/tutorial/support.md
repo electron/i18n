@@ -45,7 +45,7 @@ macOS向けには64bitバイナリのみが提供されます。対応するmacO
 
 Windows 7以降に対応しています。Vista以前のOSはサポートされておらず、動作もしません。
 
-Both `ia32` (`x86`) and `x64` (`amd64`) binaries are provided for Windows. Running Electron apps on Windows for ARM devices is possible by using the ia32 binary.
+Windows向けには`ia32` (`x86`) と`x64` (`amd64`) バイナリの両方が提供されています。 Running Electron apps on Windows for ARM devices is possible by using the ia32 binary.
 
 ### Linux
 
@@ -55,6 +55,6 @@ The prebuilt `ia32` (`i686`) and `x64` (`amd64`) binaries of Electron are built 
 
 Electronがどのディストリビューションで動作するかどうかは、ビルドプラットフォームでリンクされたライブラリが存在するかによりますので、Ubuntu 12.04 のみを動作保証していますが、次のプラットフォームについてもビルド済みのElectronバイナリを実行できるか検証しています：
 
-* Ubuntu 12.04 and newer
+* Ubuntu 12.04 以降
 * Fedora 21
 * Debian 8
