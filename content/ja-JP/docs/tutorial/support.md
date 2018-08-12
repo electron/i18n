@@ -1,6 +1,6 @@
 # Electronサポート
 
-## Finding Support
+## サポートを探す
 
 セキュリティに関心がある場合は、[セキュリティドキュメント](../../SECURITY.md)をご参照ください。
 
@@ -25,7 +25,7 @@ Electronにコントリビュートしたい場合は、[コントリビュー�
 
 ## サポートされているバージョン
 
-最新の3リリースブランチがElectronチームによってサポートされています。 For example, if the latest release is 2.0.x, then the 2-0-x series is supported, as are the two previous release series 1-7-x and 1-8-x.
+最新の3リリースブランチがElectronチームによってサポートされています。 例えば、最新リリースの2.0.xの場合、2-0-xシリーズと、2つ前のリリースシリーズである1-7-xと1-8-xも同様にはサポートされています。
 
 When a release branch reaches the end of its support cycle, the series will be deprecated in NPM and a final end-of-support release will be made. This release will add a warning to inform that an unsupported version of Electron is in use.
 
