@@ -27,40 +27,53 @@ $ git clone https://github.com/electron/electron.git
 
 Ang "bootstrap" skrip ay "dina-download" ang lahat ng kailangang "build dependencies" at nililikha ang "build project files". Pansinin ang ginagamit na `ninja` para sa pagbuo ng "Electron", ay humahadlang upang walang proyekto ng "Visual Studio" ang mabuo dito.
 
+To bootstrap for a static, non-developer build, run:
+
 ```powershell
 $ cd electron
-$ python script\bootstrap.py -v
+$ npm run bootstrap
+```
+
+Or to bootstrap for a development session that builds faster by not statically linking:
+
+```powershell
+$ cd electron
+$ npm run bootstrap:dev
 ```
 
 ## Ang Pagbubuo
 
-Bumuo pareho ng Release at Debug:
+Build both `Release` and `Debug` targets:
 
 ```powershell
-$ python script\build.py
+$ npm run build
 ```
 
-Maaari rin namang bumuo lamang ng Debug:
+You can also build either the `Debug` or `Release` target on its own:
 
 ```powershell
-$ python script\build.py -c D
+$ npm run build:dev
 ```
 
-Matapos mabuo ang mga ito, maaaring makita ang `electron.exe` sa ilalim ng `out\D` (debug target) o sa ilalim ng `out\R` (release target).
+```powershell
+$ npm run build:release
+```
+
+After building is done, you can find `electron.exe` under `out\D` (debug target) or under `out\R` (release target).
 
 ## Pagbuo ng 32bit
 
-Para mabuo ang pinupuntirya na 32bit, dapat daanan ang `--target_arch=ia32` kapag pinapatakbo ang iskrip na "bootstrap":
+To build for the 32bit target, you need to pass `--target_arch=ia32` when running the bootstrap script:
 
 ```powershell
 $ python script\bootstrap.py -v --target_arch=ia32
 ```
 
-Ang mga hakbang para sa iba pang pagbuo ay pareho lamang.
+The other building steps are exactly the same.
 
 ## Proyekto na "Visual Studio"
 
-Para makabuo ng proyekto ng "Visual Studio", maaaring idaan sa "parameter" na `--msvs`:
+To generate a Visual Studio project, you can pass the `--msvs` parameter:
 
 ```powershell
 $ python script\bootstrap.py --msvs
@@ -90,15 +103,15 @@ Paalala: Ang parehong codes para sa paglilinis ay kailangang muling pinatatakbo 
 
 <h3>"Command xxxx" ay 'di mahanap</h3>
 
-<p>Kung ikaw ay makatagpo ng mali tulad ng <code>Command xxxx not found`, maaaring gamitin ang "console" na `VS2015 Command Prompt` para mapalabas ang mga binubuong iskrip.
+<p>If you encountered an error like <code>Command xxxx not found`, you may try to use the `VS2015 Command Prompt` console to execute the build scripts.
 
 ### "Fatal internal compiler error": C1001
 
-Siguraduhin na mayroon kang "installed" na pinakabagong "Visual Studio update".
+Make sure you have the latest Visual Studio update installed.
 
 ### Assertion failed: ((handle))->activecnt >= 0
 
-Kung ang pagbuo ay sa ilalim ng Cygwin, maaaring makita ang nabigong `bootstrap.py` kasama ang mga sumusunod na mali:
+If building under Cygwin, you may see `bootstrap.py` failed with following error:
 
 ```sh
 Assertion failed: ((handle))->activecnt >= 0, file src\win\pipe.c, line 1430
@@ -115,7 +128,7 @@ Traceback (most recent call last):
 subprocess.CalledProcessError: Command '['npm.cmd', 'install']' returned non-zero exit status 3
 ```
 
-Ito ay sanhi ng "bug" kapag parehong gumagamit ng: Cygwin Python" at "Win32 Node". Ang solusyon ay ang paggamit ng "Win32 Python" para mapalabas ang iskrip na "bootstrap" (ipagpalagay na mayroon kang "installed Python" sa ilalim ng `C:\Python27`):
+This is caused by a bug when using Cygwin Python and Win32 Node together. The solution is to use the Win32 Python to execute the bootstrap script (assuming you have installed Python under `C:\Python27`):
 
 ```powershell
 $ /cygdrive/c/Python27/python.exe script/bootstrap.py
@@ -123,7 +136,7 @@ $ /cygdrive/c/Python27/python.exe script/bootstrap.py
 
 ### LNK1181: cannot open input file 'kernel32.lib'
 
-Subukang ang "reinstalling" ng "32bit Node.js".
+Try reinstalling 32bit Node.js.
 
 ### Error: ENOENT, stat 'C:\Users\USERNAME\AppData\Roaming\npm'
 
@@ -135,7 +148,7 @@ $ mkdir ~\AppData\Roaming\npm
 
 ### node-gyp ay 'di kinikilala bilang panloob o panlabas na "command"
 
-Maaaring makuha ang maling ito kapag ikaw ay gumagamit ng "Git Bash" para sa pagbuo, sa halip, dapat gamitin ang PowerShell o VS2015 Command Prompt.
+You may get this error if you are using Git Bash for building, you should use PowerShell or VS2015 Command Prompt instead.
 
 ### cannot create directory at '...': Filename too long
 
