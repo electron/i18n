@@ -43,7 +43,7 @@ $ npm run bootstrap:dev
 
 ## Ang Pagbubuo
 
-Build both `Release` and `Debug` targets:
+Bumuo pareho ng `Release` at `Debug`:
 
 ```powershell
 $ npm run build
@@ -59,21 +59,21 @@ $ npm run build:dev
 $ npm run build:release
 ```
 
-After building is done, you can find `electron.exe` under `out\D` (debug target) or under `out\R` (release target).
+Matapos mabuo ang mga ito, maaaring makita ang `electron.exe` sa ilalim ng `out\D` (debug target) o sa ilalim ng `out\R` (release target).
 
 ## Pagbuo ng 32bit
 
-To build for the 32bit target, you need to pass `--target_arch=ia32` when running the bootstrap script:
+Para mabuo ang pinupuntirya na 32bit, dapat daanan ang `--target_arch=ia32` kapag pinapatakbo ang iskrip na "bootstrap":
 
 ```powershell
 $ python script\bootstrap.py -v --target_arch=ia32
 ```
 
-The other building steps are exactly the same.
+Ang mga hakbang para sa iba pang pagbuo ay pareho lamang.
 
 ## Proyekto na "Visual Studio"
 
-To generate a Visual Studio project, you can pass the `--msvs` parameter:
+Para makabuo ng proyekto ng "Visual Studio", maaaring idaan sa "parameter" na `--msvs`:
 
 ```powershell
 $ python script\bootstrap.py --msvs
@@ -103,15 +103,15 @@ Paalala: Ang parehong codes para sa paglilinis ay kailangang muling pinatatakbo 
 
 <h3>"Command xxxx" ay 'di mahanap</h3>
 
-<p>If you encountered an error like <code>Command xxxx not found`, you may try to use the `VS2015 Command Prompt` console to execute the build scripts.
+<p>Kung ikaw ay makatagpo ng mali tulad ng <code>Command xxxx not found`, maaaring gamitin ang "console" na `VS2015 Command Prompt` para mapalabas ang mga binubuong iskrip.
 
 ### "Fatal internal compiler error": C1001
 
-Make sure you have the latest Visual Studio update installed.
+Siguraduhin na mayroon kang "installed" na pinakabagong "Visual Studio update".
 
 ### Assertion failed: ((handle))->activecnt >= 0
 
-If building under Cygwin, you may see `bootstrap.py` failed with following error:
+Kung ang pagbuo ay sa ilalim ng Cygwin, maaaring makita ang nabigong `bootstrap.py` kasama ang mga sumusunod na mali:
 
 ```sh
 Assertion failed: ((handle))->activecnt >= 0, file src\win\pipe.c, line 1430
@@ -128,7 +128,7 @@ Traceback (most recent call last):
 subprocess.CalledProcessError: Command '['npm.cmd', 'install']' returned non-zero exit status 3
 ```
 
-This is caused by a bug when using Cygwin Python and Win32 Node together. The solution is to use the Win32 Python to execute the bootstrap script (assuming you have installed Python under `C:\Python27`):
+Ito ay sanhi ng "bug" kapag parehong gumagamit ng: Cygwin Python" at "Win32 Node". Ang solusyon ay ang paggamit ng "Win32 Python" para mapalabas ang iskrip na "bootstrap" (ipagpalagay na mayroon kang "installed Python" sa ilalim ng `C:\Python27`):
 
 ```powershell
 $ /cygdrive/c/Python27/python.exe script/bootstrap.py
@@ -136,7 +136,7 @@ $ /cygdrive/c/Python27/python.exe script/bootstrap.py
 
 ### LNK1181: cannot open input file 'kernel32.lib'
 
-Try reinstalling 32bit Node.js.
+Subukang ang "reinstalling" ng "32bit Node.js".
 
 ### Error: ENOENT, stat 'C:\Users\USERNAME\AppData\Roaming\npm'
 
@@ -148,7 +148,7 @@ $ mkdir ~\AppData\Roaming\npm
 
 ### node-gyp ay 'di kinikilala bilang panloob o panlabas na "command"
 
-You may get this error if you are using Git Bash for building, you should use PowerShell or VS2015 Command Prompt instead.
+Maaaring makuha ang maling ito kapag ikaw ay gumagamit ng "Git Bash" para sa pagbuo, sa halip, dapat gamitin ang PowerShell o VS2015 Command Prompt.
 
 ### cannot create directory at '...': Filename too long
 
