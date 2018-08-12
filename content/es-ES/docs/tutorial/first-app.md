@@ -1,4 +1,4 @@
-# Esperando tu primera App. en Electron
+# Escribiendo tu primera App con Electron
 
 Electron te permite crear aplicaciones de escritorio con JavaScript puro proporcionando un sistema de tiempo de ejecución con poderosas APIs nativas (sistema operativo). Puedes verlo como una variante del sistema de tiempo de ejecución Node.js enfocada en aplicaciones de escritorio en lugar de servidores web.
 
