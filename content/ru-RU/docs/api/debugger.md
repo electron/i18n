@@ -4,7 +4,7 @@
 
 Process: [Main](../glossary.md#main-process)
 
-Инструменты разработчика Chrome имеют [специальную привязку](https://developer.chrome.com/devtools/docs/debugger-protocol) доступную во время выполнения JavaScript, что позволяет взаимодействовать со страницами и инструментарием.
+Инструменты разработчика Chrome имеют [специальную привязку](https://developer.chrome.com/devtools/docs/debugger-protocol) доступную во время выполнения JavaScript, что позволяет взаимодействовать со страницами и управлять ими.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -13,11 +13,11 @@ let win = new BrowserWindow()
 try {
   win.webContents.debugger.attach('1.1')
 } catch (err) {
-  console.log('Debugger attach failed : ', err)
+  console.log('Ошибка подключения Отладчика : ', err)
 }
 
 win.webContents.debugger.on('detach', (event, reason) => {
-  console.log('Debugger detached due to : ', reason)
+  console.log('Отладчик отключен по причине : ', reason)
 })
 
 win.webContents.debugger.on('message', (event, method, params) => {
