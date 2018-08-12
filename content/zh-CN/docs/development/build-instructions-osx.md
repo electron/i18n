@@ -14,7 +14,7 @@
 请确保你的运行系统和Python均支持TLS 1.2 及其以上版本。可以运行以下命令来快速检测python版本：
 
 ```sh
-$ python ./script/tls.py
+$ npm run check-tls
 ```
 
 如果以上命令的回调显示你正在使用过期的安全协议，你可以把macOS系统更新至High Sierra版，或者安装2.7.x版的Python。你可以使用[Homebrew](https://brew.sh/)来更新Python版本：
@@ -57,9 +57,18 @@ $ git clone https://github.com/electron/electron
 
 Bootstrap 脚本也是必须下载的构建依赖，来创建项目文件. 注意我们使用的是 [ninja](https://ninja-build.org/) 来构建 Electron，所以没有生成 Xcode 项目.
 
+To bootstrap for a static, non-developer build, run:
+
 ```sh
 $ cd electron
-$ ./script/bootstrap.py -v
+$ npm run bootstrap
+```
+
+Or to bootstrap for a development session that builds faster by not statically linking:
+
+```sh
+$ cd electron
+$ npm run bootstrap:dev
 ```
 
 If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
@@ -70,16 +79,20 @@ $ ./script/build.py --compdb
 
 ## 构建
 
-构建 `Release` 和 `Debug` 目标:
+To build both `Release` and `Debug` targets:
 
 ```sh
-$ ./script/build.py
+$ npm run build
 ```
 
-你也可以只构建 `Debug` 目标:
+You can also build either the `Debug` or `Release` target on its own:
 
 ```sh
-$ ./script/build.py -c D
+$ npm run build:dev
+```
+
+```sh
+$ npm run build:release
 ```
 
 完成后，你可以在 `out/D` 目录下找到 `Electron.app`.
