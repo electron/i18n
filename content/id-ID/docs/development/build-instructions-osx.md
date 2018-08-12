@@ -14,7 +14,7 @@ Ikuti panduan di bawah ini untuk membangun Elektron di Linux.
 Harap pastikan juga bahwa sistem dan versi Python Anda mendukung setidaknya TLS 1.2. Ini tergantung pada versi macOS dan Python Anda. Untuk tes cepat, jalankan:
 
 ```sh
-$ python ./script/tls.py
+$ npm run check-tls
 ```
 
 Jika skrip mengembalikan bahwa konfigurasi Anda menggunakan protokol keamanan yang sudah ketinggalan zaman, Anda dapat memperbarui macOS ke High Sierra atau memasang versi terbaru dari Python 2.7.x. Untuk meningkatkan Python, gunakan [Homebrew](https://brew.sh/):
@@ -57,9 +57,18 @@ $ git klon https://github.com/electron/electron
 
 Script bootstrap akan mendownload semua dependensi build yang diperlukan dan membuat file proyek build. Perhatikan bahwa kita menggunakan  ninja </ 0> untuk membangun Elektron sehingga tidak ada proyek Xcode yang dihasilkan.</p> 
 
+To bootstrap for a static, non-developer build, run:
+
 ```sh
-$ cd elektron
-$ ./script/bootstrap.py -v
+$ cd electron
+$ npm run bootstrap
+```
+
+Or to bootstrap for a development session that builds faster by not statically linking:
+
+```sh
+$ cd electron
+$ npm run bootstrap:dev
 ```
 
 If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
@@ -70,16 +79,20 @@ $ ./script/build.py --compdb
 
 ## Bangunan
 
-Jika Anda ingin membangun target ` Release ` dan ` Debug `:
+To build both `Release` and `Debug` targets:
 
 ```sh
-$ ./script/build.py
+$ npm run build
 ```
 
-Anda juga dapat membangun target ` Debug ` saja:
+You can also build either the `Debug` or `Release` target on its own:
 
 ```sh
-$ ./script/build.py -c R
+$ npm run build:dev
+```
+
+```sh
+$ npm run build:release
 ```
 
 Setelah selesai, Anda bisa menemukan biner debug ` elektron ` di bawah ` keluar / D `.
@@ -106,4 +119,4 @@ $ npm berjalan bersih-bangun
 
 ## Uji
 
-Lihat [ Bangun Ikhtisar Sistem: Pengujian ](build-system-overview.md#tests)
+Lihat [Bangun Gambaran Sistem: Pengujian](build-system-overview.md#tests)
