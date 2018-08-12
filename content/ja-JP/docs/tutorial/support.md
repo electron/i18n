@@ -2,7 +2,7 @@
 
 ## Finding Support
 
-If you have a security concern, please see the [security document](../../SECURITY.md).
+セキュリティに関心がある場合は、[セキュリティドキュメント](../../SECURITY.md)をご参照ください。
 
 If you're looking for programming help, for answers to questions, or to join in discussion with other developers who use Electron, you can interact with the community in these locations:
 
