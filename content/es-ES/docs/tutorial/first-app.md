@@ -21,21 +21,21 @@ Crea una carpeta vacía para tu nueva aplicación Electron. Abre tu cliente de l
 npm init
 ```
 
-npm te guiará para crear un fichero `package.json` básico. The script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+npm te guiará para crear un fichero `package.json` básico. El script especificado por el campo `main` es el script de inicio de tu app, que se encargará de ejecutar el proceso principal. Un ejemplo de tu paquete `package.json` podría tener el siguiente aspecto:
 
 ```json
 {
-  "name": "your-app",
+  "name": "tu-app",
   "version": "0.1.0",
   "main": "main.js"
 }
 ```
 
-**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does). If this was actually a simple Node application, you would add a `start` script that instructs `node` to execute the current package:
+**Nota**: Si el campo `main` no está presente en el fichero `package.json`, Electron intentará cargar un fichero `index.js` (como hace Node.js). Si ésta fuera una aplicación simple de Node, añadirías un script de inicio `start` que indicaría a `node` que ejecutase el paquete actual:
 
 ```json
 {
-  "name": "your-app",
+  "name": "tu-app",
   "version": "0.1.0",
   "main": "main.js",
   "scripts": {
@@ -44,11 +44,11 @@ npm te guiará para crear un fichero `package.json` básico. The script specifie
 }
 ```
 
-Turning this Node application into an Electron application is quite simple - we merely replace the `node` runtime with the `electron` runtime.
+Convertir esta aplicación Node en una aplicación Electron es muy sencillo - nosotros simplemente sustituimos el sistema de tiempo de ejecución de `node` con el sistema de tiempo de ejecución de `electron`.
 
 ```json
 {
-  "name": "your-app",
+  "name": "tu-app",
   "version": "0.1.0",
   "main": "main.js",
   "scripts": {
@@ -57,15 +57,15 @@ Turning this Node application into an Electron application is quite simple - we 
 }
 ```
 
-## Instalar Electron
+## Instalando Electron
 
-At this point, you'll need to install `electron` itself. The recommended way of doing so is to install it as a development dependency in your app, which allows you to work on multiple apps with different Electron versions. To do so, run the following command from your app's directory:
+En este momento, necesitarás instalar el propio `electron`. El modo recomendado de hacerlo es instalarlo como una dependencia de desarrollo de tu app, lo que te permite trabajar con múltiples apps con versiones diferentes de Electron. Para hacerlo, ejecuta el siguiente comando desde el directorio de tu app:
 
 ```sh
 npm install --save-dev electron
 ```
 
-Other means for installing Electron exist. Please consult the [installation guide](installation.md) to learn about use with proxies, mirrors, and custom caches.
+Existen otras formas de instalar Electron. Please consult the [installation guide](installation.md) to learn about use with proxies, mirrors, and custom caches.
 
 ## Electron Development in a Nutshell
 
