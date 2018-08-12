@@ -4,11 +4,11 @@
 
 セキュリティに関心がある場合は、[セキュリティドキュメント](../../SECURITY.md)をご参照ください。
 
-If you're looking for programming help, for answers to questions, or to join in discussion with other developers who use Electron, you can interact with the community in these locations:
+プログラミングの質問に対する回答を探している、またはElectronを使っている他の開発者との議論に参加したいのであれば、各ローケーションのコミュニティで対話できます。
 
-* [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
-* `#atom-shell` channel on Freenode
-* [`Electron`](https://atom-slack.herokuapp.com) channel on Atom's Slack
+* Atomフォーラム上の[`electron`](https://discuss.atom.io/c/electron)カテゴリ
+* Freenode上の`#atom-shell`チャネル
+* AtomのSlack上の[`Electron`](https://atom-slack.herokuapp.com) チャネル
 * [`electron-ru`](https://telegram.me/electron_ru) *(Russian)*
 * [`electron-br`](https://electron-br.slack.com) *(Brazilian Portuguese)*
 * [`electron-kr`](https://electron-kr.github.io/electron-kr) *(Korean)*
