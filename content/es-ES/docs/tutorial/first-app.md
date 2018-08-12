@@ -91,13 +91,13 @@ function createWindow () {
 app.on('ready', createWindow)
 ```
 
-The `main.js` should create windows and handle all the system events your application might encounter. A more complete version of the above example might open developer tools, handle the window being closed, or re-create windows on macOS if the user clicks on the app's icon in the dock.
+El fichero `main.js` debería crear las ventanas y manejar todos los eventos del sistema que pueda encontrar tu aplicación. Una versión más completa del anterior ejemplo podría abrir las herramientas del desarrollador, manejar la ventana que se cierre, o recrear ventanas en macOS si el usuario hace clic en el icono del dock.
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
+// Mantén una referencia global del objeto window, si no lo haces, la ventana 
+// se cerrará automáticamente con el objeto cuando el objeto JavaScript sea eliminado por el recolector de basura.
 let win
 
 function createWindow () {
@@ -107,24 +107,24 @@ function createWindow () {
   // y carga el archivo index.html de la aplicación.
   win.loadFile('index.html')
 
-  // Open the DevTools.
+  // Abre las herramientas de desarrollo (DevTools).
   win.webContents.openDevTools()
 
   // Emitido cuando la ventana es cerrada.
   win.on('closed', () => {
-    // Desreferencia el objeto ventana, usualmente tu guardarias ventanas
-    // en un arreglo si tu aplicación soporta multi ventanas, este es el momento
-    // cuando tu deberías borrar el elemento correspiente.
+    // Elimina la referencia al objeto window, normalmente  guardarías las ventanas
+    // en un vector si tu aplicación soporta múltiples ventanas, este es el momento
+    // en el que deberías borrar el elemento correspondiente.
     win = null
   })
 }
 
 // Este método será llamado cuando Electron haya terminado
 // la inicialización y esté listo para crear ventanas del navegador.
-// Algunas APIs pueden solamente ser usadas despues de que este evento ocurra.
+// Algunas APIs pueden usarse sólo después de que este evento ocurra.
 app.on('ready', createWindow)
 
-// Salir cuando todas las ventanas estén cerradas.
+// Sal cuando todas las ventanas hayan sido cerradas.
 app.on('window-all-closed', () => {
   // En macOS es común para las aplicaciones y sus barras de menú
   // que estén activas hasta que el usuario salga explicitamente con Cmd + Q
