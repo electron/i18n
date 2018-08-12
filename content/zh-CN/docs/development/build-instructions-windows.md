@@ -27,23 +27,36 @@ $ git clone https://github.com/electron/electron.git
 
 Bootstrap 脚本也是必须下载的构建依赖，来创建项目文件. 需要注意的是我们使用`ninja`创建 Electron，这样的话就不需要生成 Visual Studio 项目了。
 
+To bootstrap for a static, non-developer build, run:
+
 ```powershell
 $ cd electron
-$ python script\bootstrap.py -v
+$ npm run bootstrap
+```
+
+Or to bootstrap for a development session that builds faster by not statically linking:
+
+```powershell
+$ cd electron
+$ npm run bootstrap:dev
 ```
 
 ## 构建
 
-构建 Release 和 Debug 目标:
+构建 `Release` 和 `Debug` 目标:
 
 ```powershell
-$ python script\build.py
+$ npm run build
 ```
 
-你也可以只构建 Debug 目标:
+You can also build either the `Debug` or `Release` target on its own:
 
 ```powershell
-$ python script\build.py -c D
+$ npm run build:dev
+```
+
+```powershell
+$ npm run build:release
 ```
 
 完成构建后，你可在 `out\D` (调试目标) 或者在`out\R`(发布版本)找到`electron.exe`。
