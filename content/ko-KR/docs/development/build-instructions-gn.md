@@ -38,24 +38,23 @@ $ export CHROMIUM_BUILDTOOLS_PATH=`pwd`/buildtools
 $ gn gen out/Default --args='import("//electron/build/args/debug.gn")'
 ```
 
-This will generate a build directory `out/Default` under `src/` with debug build configuration. You can replace `Default` with another name, but it should be a subdirectory of `out`. Also you shouldn't have to run `gn gen` again—if you want to change the build arguments, you can run `gn args out/Default` to bring up an editor.
+이 명령어는 `src`폴더 아래에 디버그 빌드 설정을 사용해서 `out/Default` 빌드 디렉토리를 생성합니다. 여기에서 `Default`는 원하는 이름으로 바꾸어도 됩니다. 하지만 반드시 `out`의 하위 디렉토리여야 합니다. 또한 `gn gen`을 또 다시 실행하지 않도록 주의하십시오.—빌드 args를 바꾸고 싶은 경우, `gn args out/Default`를 사용해서 에디터를 실행해서 바꾸십시오.
 
-To see the list of available build configuration options, run `gn args
-out/Default --list`.
+사용 가능한 모든 빌드 설정의 목록을 확인하려면, `gn args out/Default --list` 명령어를 실행하십시오.
 
-**For generating Debug (aka "component" or "shared") build config of Electron:**
+**Electron의 디버그("component" 또는 "shared") 빌드 설정을 생성하려면 이 명령어를 실행하십시오:**
 
 ```sh
 $ gn gen out/Default --args='import("//electron/build/args/debug.gn")'
 ```
 
-**For generating Release (aka "non-component" or "static") build config of Electron:**
+**Electron의 배포("non-component" 또는 "static") 빌드 설정을 생성하려면 이 명령어를 실행하십시오:**
 
 ```sh
 $ gn gen out/Default --args='import("//electron/build/args/release.gn")'
 ```
 
-**To build, run `ninja` with the `electron:electron_app` target:**
+**빌드를 시작하려면 `electron:electron_app` 타겟으로 `ninja` 명령어를 실행하십시오.**
 
 ```sh
 $ ninja -C out/Default electron:electron_app
