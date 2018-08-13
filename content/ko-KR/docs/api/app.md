@@ -79,7 +79,7 @@ Electron이 초기화를 끝냈을 때 발생하는 이벤트입니다. macOS에
 * `event` Event
 * `path` String
 
-사용자가 파일을 열려 할 때 송출됩니다. 주로 `open-file` 이벤트는 OS가 이미 열려있는 파일을 재사용하려 할 때에 송출됩니다. `open-file` is also emitted when a file is dropped onto the dock and the application is not yet running. Make sure to listen for the `open-file` event very early in your application startup to handle this case (even before the `ready` event is emitted).
+사용자가 파일을 열려 할 때 송출됩니다. 주로 `open-file` 이벤트는 OS가 이미 열려있는 파일을 재사용하려 할 때에 송출됩니다. 또한, `open-file` 이벤트는 애플리케이션이 아직 실행되기 전에 파일을 드래그/드롭 했을 경우에도 발생합니다. 따라서 이러한 경우를 핸들링하기 위해서는 애플리케이션의 이른 초기화 단계에서 미리 `open-file` 이벤트를 구독하고 있어야 합니다. (`ready` 이벤트보다도 먼저 발생할 수 있습니다.)
 
 이 이벤트를 처리하려면 `event.preventDefault()`를 호출해야 합니다.
 
