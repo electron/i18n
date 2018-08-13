@@ -1,10 +1,10 @@
-# Electron Application Architecture
+# Архітектура Програми Electron
 
 Перед тим як ми зможемо зануритися в Electron's APIs, нам необхідно обговорити 2 типи процесів наявних в Electron. Вони є фундаментально різні та важливі для розуміння.
 
 ## Головний та Процес Рендерингу
 
-In Electron, the process that runs `package.json`'s `main` script is called **the main process**. The script that runs in the main process can display a GUI by creating web pages. An Electron app always has one main process, but never more.
+В Electron, процес що запускає `package.json`'s `main` скрипт що називається **the main process**. Скрипт що запускає main process може демонструвати GUI за допомогою створення веб сторінок. Застосунок Electron завжди має main process, і нічого більше.
 
 Since Electron uses Chromium for displaying web pages, Chromium's multi-process architecture is also used. Each web page in Electron runs in its own process, which is called **the renderer process**.
 
