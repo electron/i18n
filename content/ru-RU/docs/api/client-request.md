@@ -14,15 +14,15 @@ Process: [Main](../glossary.md#main-process)
   * `session` Object (необязательное) – Экземпляр [`Session`](session.md), с которым ассоциирован данный запрос.
   * `partition` String (необязательное) – Название [`partition`](session.md), с которым ассоциирован данный запрос. По умолчанию является пустой строкой. Опция `session` преобладает над опцией `partition`. Поэтому, если `session` указана, то `partition` игнорируется.
   * `protocol` String (необязательное) – Схема протокола в виде 'scheme:'. На текущий момент поддерживаются следующие значения: 'http:' или 'https:'. По умолчанию 'http:'.
-  * `host` String (optional) - The server host provided as a concatenation of the hostname and the port number 'hostname:port'.
+  * `host` String (optional) - Объединенное с номером порта доменное имя сервера 'hostname:port'.
   * `hostname` String (необязательное) – Доменное имя сервера.
   * `port` Integer (необязательное) – Номер порта сервера.
-  * `path` String (optional) - The path part of the request URL.
-  * `redirect` String (optional) - The redirect mode for this request. Should be one of `follow`, `error` or `manual`. Defaults to `follow`. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be deferred until [`request.followRedirect`](#requestfollowredirect) is invoked. Listen for the [`redirect`](#event-redirect) event in this mode to get more details about the redirect request.
+  * `path` String (optional) - Часть пути запроса URL.
+  * `redirect` String (необязательное) - Режим redirect для запроса. Should be one of `follow`, `error` or `manual`. Defaults to `follow`. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be deferred until [`request.followRedirect`](#requestfollowredirect) is invoked. Listen for the [`redirect`](#event-redirect) event in this mode to get more details about the redirect request.
 
 `options` properties such as `protocol`, `host`, `hostname`, `port` and `path` strictly follow the Node.js model as described in the [URL](https://nodejs.org/api/url.html) module.
 
-For instance, we could have created the same request to 'github.com' as follows:
+Например, мы могли бы создать такой же запрос к 'github.com" следующим образом:
 
 ```JavaScript
 const request = net.request({
