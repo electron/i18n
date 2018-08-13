@@ -2,7 +2,7 @@
 
 > Create and control views.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**Notatka** BrowserView jest eksperymentalną klasą API i może być zmieniona lub usunięta w przyszłych wersjach Electron`a.
 
 Proces: [Main](../glossary.md#main-process)
 
@@ -11,7 +11,7 @@ A `BrowserView` can be used to embed additional web content into a [`BrowserWind
 ## Przykład
 
 ```javascript
-// In the main process.
+//W głównym procesie.
 const {BrowserView, BrowserWindow} = require('electron')
 
 let win = new BrowserWindow({width: 800, height: 600})
@@ -38,7 +38,7 @@ view.webContents.loadURL('https://electronjs.org')
 
 #### `BrowserView.getAllViews()`
 
-Returns `BrowserView[]` - An array of all opened BrowserViews.
+Zwraca `BrowserView[]` - tablicę wszystkich otwartych okien BrowserViews.
 
 #### `BrowserView.fromWebContents(webContents)`
 
@@ -54,9 +54,9 @@ Returns `BrowserView` - The view with the given `id`.
 
 ### Właściwości instancji
 
-Objects created with `new BrowserView` have the following properties:
+Obiekt utworzony za pomocą `new BrowserView` posiada następujące właściwości:
 
-#### `view.webContents` *Experimental*
+#### `view.webContents` *Eksperymentalny*
 
 A [`WebContents`](web-contents.md) object owned by this view.
 
