@@ -20,7 +20,7 @@ Process: [Main](../glossary.md#main-process)
   * `path` String (optional) - Часть пути запроса URL.
   * `redirect` String (необязательное) - Режим redirect для запроса. Should be one of `follow`, `error` or `manual`. Defaults to `follow`. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be deferred until [`request.followRedirect`](#requestfollowredirect) is invoked. Listen for the [`redirect`](#event-redirect) event in this mode to get more details about the redirect request.
 
-`options` properties such as `protocol`, `host`, `hostname`, `port` and `path` strictly follow the Node.js model as described in the [URL](https://nodejs.org/api/url.html) module.
+Используя свойства `options` такие как `protocol`, `host`, `hostname`, `port` и `path` строго следуйте модели Node.js как описано в [URL](https://nodejs.org/api/url.html) модуле.
 
 Например, мы могли бы создать такой же запрос к 'github.com" следующим образом:
 
@@ -40,7 +40,7 @@ const request = net.request({
 
 Возвращает:
 
-* `response` IncomingMessage - An object representing the HTTP response message.
+* `response` IncomingMessage - Объект, представляющий ответ HTTP.
 
 #### Событие: 'login'
 
@@ -56,9 +56,9 @@ const request = net.request({
   * `username` String
   * `password` String
 
-Emitted when an authenticating proxy is asking for user credentials.
+Создается, когда прокси-сервер, выполняющий проверку подлинности, запрашивает учетные данные пользователя.
 
-The `callback` function is expected to be called back with user credentials:
+The `callback` ожидается, что функция будет вызвана с учетными данными пользователя:
 
 * `username` String
 * `password` String
@@ -69,7 +69,7 @@ request.on('login', (authInfo, callback) => {
 })
 ```
 
-Providing empty credentials will cancel the request and report an authentication error on the response object:
+Предоставление пустых учетных данных отменит запрос и сообщит о ошибке проверке подлинности в объекте ответа:
 
 ```JavaScript
 request.on('response', (response) => {
@@ -163,8 +163,8 @@ Sends the last chunk of the request data. Subsequent write or end operations wil
 
 #### `request.abort()`
 
-Cancels an ongoing HTTP transaction. If the request has already emitted the `close` event, the abort operation will have no effect. Otherwise an ongoing event will emit `abort` and `close` events. Additionally, if there is an ongoing response object,it will emit the `aborted` event.
+Отменяет текущую транзакцию HTTP. If the request has already emitted the `close` event, the abort operation will have no effect. Otherwise an ongoing event will emit `abort` and `close` events. Additionally, if there is an ongoing response object,it will emit the `aborted` event.
 
 #### `request.followRedirect()`
 
-Continues any deferred redirection request when the redirection mode is `manual`.
+Продолжает любой отложенный запрос перенаправления, когда режим перенаправления `manual`.
