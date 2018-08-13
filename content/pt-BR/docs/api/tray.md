@@ -23,7 +23,7 @@ app.on('ready', () => {
 })
 ```
 
-**Platform limitations:**
+**Limitações de plataforma:**
 
 * On Linux the app indicator will be used if it is supported, otherwise `GtkStatusIcon` will be used instead.
 * On Linux distributions that only have app indicator support, you have to install `libappindicator1` to make the tray icon work.
