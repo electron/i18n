@@ -1,8 +1,8 @@
-# Build Instructions (experimental GN build)
+# Инструкции по сборке (экспериментальная сборка GN)
 
-Follow the guidelines below for building Electron with the experimental GN build.
+Следуйте рекомендациям ниже для сборки Electron с экспериментальной сборкой GN.
 
-> **NOTE**: The GN build system is in *experimental* status.
+> **ВНИМАНИЕ**: Система сборки GN находится в *экспериментальном* состоянии.
 
 ## Требования
 
