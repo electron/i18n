@@ -11,7 +11,7 @@ const {clipboard} = require('electron')
 clipboard.writeText('Пример строки')
 ```
 
-On X Window systems, there is also a selection clipboard. To manipulate it you need to pass `selection` to each method:
+На системах X Window также есть буфер обмена. Чтобы им манипулировать, вам нужно передать `selection` каждому методу:
 
 ```javascript
 const {clipboard} = require('electron')
@@ -55,14 +55,14 @@ console.log(clipboard.readText('selection'))
 
 * `type` String (опционально)
 
-Returns [`NativeImage`](native-image.md) - The image content in the clipboard.
+Возвращает [`NativeImage`](native-image.md) - Содержимое изображения в буфере обмена.
 
 ### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
 * `type` String (опционально)
 
-Writes `image` to the clipboard.
+Записывает `image` в буфер обмена.
 
 ### `clipboard.readRTF([type])`
 
