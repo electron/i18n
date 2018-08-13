@@ -8,7 +8,7 @@ NW.js 처럼 Electron은 JavaScript와 HTML 그리고 Node 통합 환경을 제�
 
 **1. 애플리케이션의 엔트리 포인트**
 
-In NW.js the main entry point of an application is a web page or a JS script. You specify a html or js file in the `package.json` and it is opened in a browser window as the application's main window (in case of an html entrypoint) or the script is executed.
+NW.js로 만들어진 애플리케이션의 엔트리 포인트는 웹 페이지 또는 자바스크립트입니다. You specify a html or js file in the `package.json` and it is opened in a browser window as the application's main window (in case of an html entrypoint) or the script is executed.
 
 Electron에선 JavaScript를 엔트리 포인트로 사용합니다. URL을 직접 제공하는 대신 API를 사용하여 직접 브라우저 창과 HTML 파일을 로드할 수 있습니다. 또한 윈도우의 종료시기를 결정하는 이벤트를 리스닝해야 합니다.
 
