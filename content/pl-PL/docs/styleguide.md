@@ -6,7 +6,7 @@ Są to wytyczne do pisania dokumentacji Electrona.
 
 * Każda strona musi zawierać pojedynczy, główny tytuł h1 u góry (`#`).
 * Rozdziały na tej samej stronie muszą mieć tytuły h2 (`##`).
-* Podrozdziały muszą zwiększyć swą liczbę `#` w tytule zgodnie z głębokością zagnieżdżenia.
+* Podrozdziały muszą zwiększyć swą liczbę `#` w tytule zgodnie z głębokością rozmieszczenia.
 * Wszystkie słowa w tytule strony muszą być z wielkiej litery, poza spójnikami, takimi jak "i" oraz "z".
 * Tylko pierwsze słowo tytułu rozdziału musi być z wielkiej litery.
 
@@ -40,17 +40,17 @@ Używając `Quick Start` jako przykładu:
 
 Istnieją wyjątki od tej reguły dla odwołań do API.
 
-## Reguły Markdown
+## Reguły Formatowania Markdown
 
-* Używaj `sh` zamiast `cmd` w code blocks (z powodu podświetlacza składni).
+* Używaj `sh` zamiast `cmd` w blokach kodu (z powodu podświetlacza składni).
 * Linie powinny być zawinięte na 80 kolumnie.
-* Nie zagnieżdżaj więcej niż 2 poziomy listy. (we względu na moduł renderujący markdown).
-* Wszystkie bloki kodu `js` i `javascript` są-lintowane z [standard-markdown](http://npm.im/standard-markdown).
+* Nie twórz więcej niż 2 poziomów listy. (ze względu na moduł renderujący markdown).
+* Wszystkie bloki kodu `js` i `javascript` są sprawdzane pod względem zgodności ze stylem [standard-markdown](http://npm.im/standard-markdown).
 
 ## Wybieranie słów
 
 * Używaj "will" zamiast "would" kiedy opisujesz wyniki.
-* Preferuj "in the ___ process" poand "on".
+* Preferuj "in the ___ process" ponad "on".
 
 ## Odwołania API
 
@@ -58,16 +58,16 @@ Poniższe reguły zaliczają się tylko dla dokumentacji API.
 
 ### Tytuł strony
 
-Każda strona musi używać nazwę obiektu zwracaną przez `require('electron')` jako tytuł, jak na przykład `BrowserWindow`, `autoUpdater`, oraz `session`.
+Każda strona musi używać nazwę obiektu zwróconą przez `require('electron')` jako tytuł, na przykład `BrowserWindow`, `autoUpdater`, oraz `session`.
 
-Pod tytułem strony musi być jedno liniowy komentarz rozpoczynający się `>`.
+Pod tytułem strony musi być jedno liniowy komentarz rozpoczynający się od `>`.
 
 Używając `session` jako przykład:
 
 ```markdown
 # session
 
-> Zarządzaj sesjami przeglądarki, ciasteczkami, cache, ustawieniami proxy, itd.
+> Zarządzaj sesjami przeglądarki, ciasteczkami, cache, ustawieniami proxy itd.
 ```
 
 ### Metody i zdarzenia modułu
@@ -91,11 +91,11 @@ Używając `autoUpdater` jako przykładu:
 ### Klasy
 
 * Klasy API lub klasy które są częścią modułu muszą być wymienione pod rozdziałem `## Class: TheClassName`.
-* Jedna strona może mieć wiele klas.
-* Konstruktorzy muszą być wymienieni z`###`-tytułami poziomów.
+* Jedna strona może mieć zawierać klas.
+* Constructors must be listed with `###`-level titles.
 * [Statyczne metody](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static)muszą być wymienione pod`###Rozdziałem statycznych metod`.
 * [Metody instancji](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) muszą być wymienione pod`###Rozdziałem metod instancji`.
-* Wszystkie metody które mają wartość zwrotną muszą zacząć swój opis z "Zwrotami" `[TYPE]` - Przywróć opis" 
+* Wszystkie metody które mają wartość zwrotną muszą zaczynać swój opis z "Returns `[TYPE]` - Zwróć opis" 
   * Jeśli metoda przywróci `obiekt`, to jego struktura może być specyfikowana używając dwukropka następującego po nowej linii, gdzie znajduje się niezamówiona lista wartości w tym samym stylu jak funkcje parametrów.
 * Wydarzenia instancji muszą być wymienione pod `### Rozdział wydarzeń instancji `.
 * Właściwości instancji muszą być wymienione pod `### Właściwości instancji` rozdział. 
