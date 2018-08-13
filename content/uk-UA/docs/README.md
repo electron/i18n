@@ -99,7 +99,7 @@
 * [Обробка Об'єктів](api/process.md)
 * [Підтримувані Параметри Командного Рядка Chrome](api/chrome-command-line-switches.md)
 * [Змінні Середовища](api/environment-variables.md)
-* [Breaking API Changes](api/breaking-changes.md)
+* [Останні важливі зміни в API](api/breaking-changes.md)
 
 ### Користувацькі DOM Елементи:
 
