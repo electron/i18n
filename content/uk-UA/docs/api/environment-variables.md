@@ -1,6 +1,6 @@
 # Змінні Середовища
 
-> Control application configuration and behavior without changing code.
+> Контроль конфігурації програми і її поведінки без зміни коду.
 
 Certain Electron behaviors are controlled by environment variables because they are initialized earlier than the command line flags and the app's code.
 
@@ -70,6 +70,6 @@ This environment variable will not work if the `crashReporter` is started.
 
 ### `ELECTRON_DEFAULT_ERROR_MODE` *Windows*
 
-Shows the Windows's crash dialog when Electron crashes.
+Показує вікно Windows's crash коли Electron ламається.
 
-This environment variable will not work if the `crashReporter` is started.
+Ця змінна середовища не буде працювати якщо запущено `crashReporter`.
