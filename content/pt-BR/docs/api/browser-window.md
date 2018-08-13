@@ -120,11 +120,11 @@ O mesmo cria um novo `BrowserWindow` com propriedades nativas informadas como a 
 
 * `options` Objeto (opcional) 
   * `width` Integer (opcional) - A largura da janela em pixels. Por padrão é `800`.
-  * `height` Integer (optional) - Window's height in pixels. Default is `600`.
+  * `height` Integer (opcional) - A altura da janela em pixels. Por padrão é `600`.
   * `x` Integer (optional) (**required** if y is used) - Window's left offset from screen. Default is to center the window.
   * `y` Integer (optional) (**required** if x is used) - Window's top offset from screen. Default is to center the window.
   * `useContentSize` Boolean (optional) - The `width` and `height` would be used as web page's size, which means the actual window's size will include window frame's size and be slightly larger. Por padrão é `false`.
-  * `center` Boolean (optional) - Show window in the center of the screen.
+  * `center` Boolean (opcional) - Mostra a janela no centro da tela.
   * `minWidth` Integer (optional) - Window's minimum width. Default is `0`.
   * `minHeight` Integer (optional) - Window's minimum height. Default is `0`.
   * `maxWidth` Integer (optional) - Window's maximum width. Default is no limit.
