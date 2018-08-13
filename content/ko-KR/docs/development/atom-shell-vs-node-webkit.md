@@ -8,7 +8,7 @@ NW.js 처럼 Electron은 JavaScript와 HTML 그리고 Node 통합 환경을 제�
 
 **1. 애플리케이션의 엔트리 포인트**
 
-NW.js로 만들어진 애플리케이션의 엔트리 포인트는 웹 페이지 또는 자바스크립트입니다. You specify a html or js file in the `package.json` and it is opened in a browser window as the application's main window (in case of an html entrypoint) or the script is executed.
+NW.js로 만들어진 애플리케이션의 엔트리 포인트는 웹 페이지 또는 자바스크립트입니다. `package.json`에서 html 또는 js 파일을 지정할 수 있습니다. 그러면 브라우저 윈도우에서 열리고, 그 것이 애플리케이션의 메인 윈도우가 되거나(html을 엔트리 포인트로 지정한 경우) 스크립트가 즉시 실행됩니다.
 
 Electron에선 JavaScript를 엔트리 포인트로 사용합니다. URL을 직접 제공하는 대신 API를 사용하여 직접 브라우저 창과 HTML 파일을 로드할 수 있습니다. 또한 윈도우의 종료시기를 결정하는 이벤트를 리스닝해야 합니다.
 
@@ -24,8 +24,8 @@ NW.js는 웹 페이지에서 require를 사용할 수 있도록 Chromium을 패�
 
 **4. 다중 컨텍스트**
 
-만약 NW.js를 사용해본 적이 있다면 Node context와 Web context의 개념을 잘 알고 있을 겁니다. 이러한 개념은 NW.js가 구현되기 위해 만들어졌습니다.
+만약 NW.js를 사용해본 적이 있다면 Node용 컨텍스트와 Web용 컨텍스트의 개념을 잘 알고 있을 겁니다. 이러한 개념은 NW.js가 구현되기 위해 만들어졌습니다.
 
-By using the [multi-context](https://github.com/nodejs/node-v0.x-archive/commit/756b622) feature of Node, Electron doesn't introduce a new JavaScript context in web pages.
+반면 Electron은 Node의 [multi-context](https://github.com/nodejs/node-v0.x-archive/commit/756b622) 기능을 사용하기 때문에, 웹 페이지용 자바스크립트 컨텍스트를 따로 갖지 않습니다.
 
 참고: NW.js는 0.13 버전부터 선택적으로 다중 컨텍스트를 지원합니다.
