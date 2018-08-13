@@ -1,6 +1,6 @@
 ## Class: ClientRequest
 
-> Создает HTTP/HTTPS-запросы.
+> Создание HTTP/HTTPS-запроса.
 
 Process: [Main](../glossary.md#main-process)
 
