@@ -220,7 +220,7 @@ Sets when the tray's icon background becomes highlighted (in blue).
 const {BrowserWindow, Tray} = require('electron')
 
 const win = new BrowserWindow({width: 800, height: 600})
-const tray = new Tray('/path/to/my/icon')
+const tray = new Tray('/caminho/para/o/icone')
 
 tray.on('click', () => {
   win.isVisible() ? win.hide() : win.show()
@@ -249,7 +249,7 @@ Displays a tray balloon.
 
 Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
 
-The `position` is only available on Windows, and it is (0, 0) by default.
+`position` está apenas disponível no Windows, sendo (0, 0) por padrão.
 
 #### `tray.setContextMenu(menu)`
 
