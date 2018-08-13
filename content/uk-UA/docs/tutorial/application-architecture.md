@@ -6,13 +6,13 @@
 
 В Electron, процес що запускає `package.json`'s `main` скрипт що називається **the main process**. Скрипт що запускає main process може демонструвати GUI за допомогою створення веб сторінок. Застосунок Electron завжди має main process, і нічого більше.
 
-Since Electron uses Chromium for displaying web pages, Chromium's multi-process architecture is also used. Each web page in Electron runs in its own process, which is called **the renderer process**.
+Since Electron uses Chromium for displaying web pages, Chromium's multi-process architecture is also used. Кожна веб-сторінка в Electron запускається в процесі що стосується тільки її, що називається **the renderer process**.
 
 У нормальних браузерах, веб-сторінки зазвичай виконуються в тестових середовищах і не мають доступу до нативних ресурсів. Користувачі Electron, однак, мають змогу використовувати Node.js API на веб-сторінках, дозволяючи низькорівневу взаємодію з операційною системою.
 
-### Differences Between Main Process and Renderer Process
+### Різниця між Головним і Процесом рендерингу
 
-The main process creates web pages by creating `BrowserWindow` instances. Each `BrowserWindow` instance runs the web page in its own renderer process. When a `BrowserWindow` instance is destroyed, the corresponding renderer process is also terminated.
+Головний процес створює веб-сторінки, за допомогою створення `BrowserWindow`. Each `BrowserWindow` instance runs the web page in its own renderer process. When a `BrowserWindow` instance is destroyed, the corresponding renderer process is also terminated.
 
 The main process manages all web pages and their corresponding renderer processes. Each renderer process is isolated and only cares about the web page running in it.
 
