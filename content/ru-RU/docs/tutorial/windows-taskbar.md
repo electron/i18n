@@ -77,7 +77,7 @@ win.setThumbarButtons([
 ])
 ```
 
-To clean thumbnail toolbar buttons, just call `BrowserWindow.setThumbarButtons` with an empty array:
+Чтобы очистить кнопки панели инструментов эскизов, просто вызовите `BrowserWindow.setThumbarButtons` с пустым массивом:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -88,7 +88,7 @@ win.setThumbarButtons([])
 
 ## Icon Overlays in Taskbar
 
-On Windows a taskbar button can use a small overlay to display application status, as quoted from MSDN:
+В Windows кнопка панели задач может использовать небольшое наложение для отображения состояния приложения, как указано в MSDN:
 
 > Icon overlays serve as a contextual notification of status, and are intended to negate the need for a separate notification area status icon to communicate that information to the user. For instance, the new mail status in Microsoft Outlook, currently shown in the notification area, can now be indicated through an overlay on the taskbar button. Again, you must decide during your development cycle which method is best for your application. Overlay icons are intended to supply important, long-standing status or notifications such as network status, messenger status, or new mail. The user should not be presented with constantly changing overlays or animations.
 
@@ -96,7 +96,7 @@ On Windows a taskbar button can use a small overlay to display application statu
 
 ![Overlay on taskbar button](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
-To set the overlay icon for a window, you can use the [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) API:
+Чтобы установить значок наложения для окна, можно использовать [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) API:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -106,7 +106,7 @@ win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 
 ## Flash Frame
 
-On Windows you can highlight the taskbar button to get the user's attention. This is similar to bouncing the dock icon on macOS. From the MSDN reference documentation:
+В Windows вы можете выделить кнопку на панели задач, чтобы привлечь внимание пользователя. This is similar to bouncing the dock icon on macOS. From the MSDN reference documentation:
 
 > Typically, a window is flashed to inform the user that the window requires attention but that it does not currently have the keyboard focus.
 
