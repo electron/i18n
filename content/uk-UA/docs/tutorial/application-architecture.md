@@ -35,7 +35,7 @@ All Electron APIs are assigned a process type. Many of them can only be used fro
 A window in Electron is for instance created using the `BrowserWindow` class. It is only available in the main process.
 
 ```javascript
-// This will work in the main process, but be `undefined` in a
+// Це буде працювати в main process, але буде `undefined` в 
 // renderer process:
 const { BrowserWindow } = require('electron')
 
