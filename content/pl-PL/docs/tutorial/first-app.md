@@ -15,7 +15,7 @@ twoja-aplikacja
 └── index.html
 ```
 
-Create a new empty folder for your new Electron application. Open up your command line client and run `npm init` from that very folder.
+Stwórz nowy pusty folder dla twojej nowej aplikacji napisanej w Electron`ie. Otwórz twój wiersz poleceń i wpisz `npm init` ( ta operacja może być wykonana z każdego folderu).
 
 ```sh
 npm init
