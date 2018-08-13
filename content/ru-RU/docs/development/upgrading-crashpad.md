@@ -1,6 +1,6 @@
-# Upgrading Crashpad
+# Обновление Crashpad
 
-1. Get the version of crashpad that we're going to use.
+1. Получите версию crashpad, которую вы собираетесь использовать.
     
     - `libcc/src/third_party/crashpad/README.chromium` will have a line `Revision:` with a checksum
     - We need to check out the corresponding branch.
