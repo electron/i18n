@@ -1,6 +1,6 @@
 # screen
 
-> Retrieve information about screen size, displays, cursor position, etc.
+> Zwraca informację o wielkości ekranu, wyświetlaczach, pozycji kursora itd.
 
 Proces: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
