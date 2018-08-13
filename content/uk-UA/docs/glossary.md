@@ -58,7 +58,7 @@ An IPC system for communicating intra- or inter-process, and that's important be
 
 See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
-### нативні модулі
+### native modules
 
 Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used as if they were an ordinary Node.js module. Вони зазвичай використовуються для надання зв'язку JavaScript, який запущений в Node.js та C/C++ бібліотек.
 
