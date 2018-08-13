@@ -39,11 +39,11 @@ const { app } = require('electron')
 app.setUserTasks([])
 ```
 
-The user tasks will still show even after your application closes, so the icon and program path specified for a task should exist until your application is uninstalled.
+Задачи пользователя будут отображаться даже после закрытия приложения, поэтому значок и путь программы, указанный для задачи, должен существовать до тех пор, пока приложение не будет удалено.
 
 ## Thumbnail Toolbars
 
-On Windows you can add a thumbnail toolbar with specified buttons in a taskbar layout of an application window. It provides users a way to access to a particular window's command without restoring or activating the window.
+В Windows можно добавить панель эскизов с требуемыми кнопками на панели задач окна приложения. Она предоставляет пользователям доступ к команда конкретного окна без восстановления или активации окна.
 
 From MSDN, it's illustrated:
 
@@ -55,7 +55,7 @@ From MSDN, it's illustrated:
 
 ![player](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
-You can use [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows) to set thumbnail toolbar in your application:
+Можно использовать [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows) чтобы установить панель эскизов в приложении:
 
 ```javascript
 const { BrowserWindow } = require('electron')
