@@ -3,14 +3,14 @@
     "name": "Arabic",
     "code": "ar",
     "phrases": "9508",
-    "translated": "689",
+    "translated": "695",
     "approved": "0",
     "words": "87732",
-    "words_translated": "4207",
+    "words_translated": "4291",
     "words_approved": "0",
     "translated_progress": 4,
     "approved_progress": 0,
-    "qa_issues": "280"
+    "qa_issues": "282"
   },
   {
     "name": "Bulgarian",
@@ -211,14 +211,14 @@
     "name": "Polish",
     "code": "pl",
     "phrases": "9508",
-    "translated": "3592",
-    "approved": "319",
+    "translated": "3600",
+    "approved": "392",
     "words": "87732",
-    "words_translated": "19711",
-    "words_approved": "2320",
+    "words_translated": "19787",
+    "words_approved": "2896",
     "translated_progress": 22,
-    "approved_progress": 2,
-    "qa_issues": "962"
+    "approved_progress": 3,
+    "qa_issues": "950"
   },
   {
     "name": "Portuguese, Brazilian",
@@ -302,14 +302,14 @@
     "name": "Ukrainian",
     "code": "uk",
     "phrases": "9508",
-    "translated": "3700",
+    "translated": "3739",
     "approved": "165",
     "words": "87732",
-    "words_translated": "22643",
+    "words_translated": "23029",
     "words_approved": "732",
-    "translated_progress": 25,
+    "translated_progress": 26,
     "approved_progress": 0,
-    "qa_issues": "1441"
+    "qa_issues": "1464"
   },
   {
     "name": "Vietnamese",
