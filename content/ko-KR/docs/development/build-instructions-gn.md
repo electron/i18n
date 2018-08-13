@@ -1,8 +1,8 @@
 # Build Instructions (experimental GN build)
 
-Follow the guidelines below for building Electron with the experimental GN build.
+아래 설명은 Electron을 GN으로 빌드하는 방법에 대한 것입니다.
 
-> **NOTE**: The GN build system is in *experimental* status.
+> **노트**: GN 빌드 시스템은 *실험적인* 기능입니다.
 
 ## 빌드전 요구 사양
 
