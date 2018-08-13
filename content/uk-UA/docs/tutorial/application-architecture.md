@@ -14,7 +14,7 @@
 
 Головний процес створює веб-сторінки, за допомогою створення екземплярів`BrowserWindow`. Кожен екземпляр `BrowserWindow` запускає веб-сторінку у власному процесі рендерингу. Коли екземляр `BrowserWindow` знищено, процес рендерингу буде зупинено.
 
-The main process manages all web pages and their corresponding renderer processes. Кожний процес рендерінгу є ізольованим і слідкує за веб сторінкою що в ньому запущена.
+The main process manages all web pages and their corresponding renderer processes. Кожний процес рендерінгу є ізольованим і стосується веб сторінки що в ньому запущена.
 
 In web pages, calling native GUI related APIs is not allowed because managing native GUI resources in web pages is very dangerous and it is easy to leak resources. If you want to perform GUI operations in a web page, the renderer process of the web page must communicate with the main process to request that the main process perform those operations.
 
@@ -82,10 +82,10 @@ npm install --save aws-sdk
 Then, in your Electron app, require and use the module as if you were building a Node.js application:
 
 ```javascript
-// A ready-to-use S3 Client
+//Готове для використання S3 Client
 const S3 = require('aws-sdk/clients/s3')
 ```
 
 There is one important caveat: Native Node.js modules (that is, modules that require compilation of native code before they can be used) will need to be compiled to be used with Electron.
 
-The vast majority of Node.js modules are *not* native. Only 400 out of the ~650.000 modules are native. However, if you do need native modules, please consult [this guide on how to recompile them for Electron](./using-native-node-modules.md).
+The vast majority of Node.js modules are *not* native. Only 400 out of the ~650.000 modules are native. Проте якщо вам необхідні native modules, будь ласка гляньте [цей гайд про те як рекомпілювати їх для Electron](./using-native-node-modules.md).
