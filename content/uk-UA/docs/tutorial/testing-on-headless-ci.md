@@ -32,7 +32,7 @@ install:
 
 ### Jenkins
 
-For Jenkins, a [Xvfb plugin is available](https://wiki.jenkins-ci.org/display/JENKINS/Xvfb+Plugin).
+Для Jenkins [в наявності плагін Xvfb ](https://wiki.jenkins-ci.org/display/JENKINS/Xvfb+Plugin).
 
 ### Circle CI
 
@@ -40,4 +40,4 @@ Circle CI is awesome and has xvfb and `$DISPLAY` [already setup, so no further c
 
 ### AppVeyor
 
-AppVeyor runs on Windows, supporting Selenium, Chromium, Electron and similar tools out of the box - no configuration is required.
+AppVeyor запускається на Windows, підтримує Selenium, Chromium, Electron і їм подібні інструменти з коробки - ніякої конфігурації не потрібно.
