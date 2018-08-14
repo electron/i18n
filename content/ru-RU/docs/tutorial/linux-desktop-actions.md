@@ -1,7 +1,7 @@
 # Custom Linux Desktop Launcher Actions
 
 Во многих средах Linux вы можете добавлять пользовательские записи в свою программу запуска путем изменения файла `.desktop </ 0>. For Canonical's Unity documentation,
-see <a href="https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher">Adding Shortcuts to a Launcher</a>. Более подробную информацию об обобщенной реализации, см <a href="https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html"> freedesktop.org Спецификация </ 0>.</p>
+see <a href="https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher">Adding Shortcuts to a Launcher</a>. Для подробной информации про обобщенную реализацию смотрите: <a href="https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html">Спецификация freedesktop.org</a>.</p>
 
 <p><strong>Launcher shortcuts of Audacious:</strong></p>
 
