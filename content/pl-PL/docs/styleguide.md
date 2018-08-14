@@ -6,7 +6,7 @@ Są to wytyczne do pisania dokumentacji Electrona.
 
 * Każda strona musi zawierać pojedynczy, główny tytuł h1 u góry (`#`).
 * Rozdziały na tej samej stronie muszą mieć tytuły h2 (`##`).
-* Podrozdziały muszą zwiększyć swą liczbę `#` w tytule zgodnie z głębokością zagnieżdżenia.
+* Podrozdziały muszą zwiększyć swą liczbę `#` w tytule zgodnie z głębokością rozmieszczenia.
 * Wszystkie słowa w tytule strony muszą być z wielkiej litery, poza spójnikami, takimi jak "i" oraz "z".
 * Tylko pierwsze słowo tytułu rozdziału musi być z wielkiej litery.
 
@@ -40,17 +40,17 @@ Używając `Quick Start` jako przykładu:
 
 Istnieją wyjątki od tej reguły dla odwołań do API.
 
-## Reguły Markdown
+## Reguły Formatowania Markdown
 
-* Używaj `sh` zamiast `cmd` w code blocks (z powodu podświetlacza składni).
+* Używaj `sh` zamiast `cmd` w blokach kodu (z powodu podświetlacza składni).
 * Linie powinny być zawinięte na 80 kolumnie.
-* Nie zagnieżdżaj więcej niż 2 poziomy listy. (we względu na moduł renderujący markdown).
-* Wszystkie bloki kodu `js` i `javascript` są-lintowane z [standard-markdown](http://npm.im/standard-markdown).
+* Nie twórz więcej niż 2 poziomów listy. (ze względu na moduł renderujący markdown).
+* Wszystkie bloki kodu `js` i `javascript` są sprawdzane pod względem zgodności ze stylem [standard-markdown](http://npm.im/standard-markdown).
 
 ## Wybieranie słów
 
 * Używaj "will" zamiast "would" kiedy opisujesz wyniki.
-* Preferuj "in the ___ process" poand "on".
+* Preferuj "in the ___ process" ponad "on".
 
 ## Odwołania API
 
@@ -58,21 +58,21 @@ Poniższe reguły zaliczają się tylko dla dokumentacji API.
 
 ### Tytuł strony
 
-Każda strona musi używać nazwę obiektu zwracaną przez `require('electron')` jako tytuł, jak na przykład `BrowserWindow`, `autoUpdater`, oraz `session`.
+Każda strona musi używać nazwę obiektu zwróconą przez `require('electron')` jako tytuł, na przykład `BrowserWindow`, `autoUpdater`, oraz `session`.
 
-Pod tytułem strony musi być jedno liniowy komentarz rozpoczynający się `>`.
+Pod tytułem strony musi być jedno liniowy komentarz rozpoczynający się od `>`.
 
 Używając `session` jako przykład:
 
 ```markdown
 # session
 
-> Zarządzaj sesjami przeglądarki, ciasteczkami, cache, ustawieniami proxy, itd.
+> Zarządzaj sesjami przeglądarki, ciasteczkami, cache, ustawieniami proxy itd.
 ```
 
 ### Metody i zdarzenia modułu
 
-Metody i zdarzenia modułu, który nie jest klasą muszą być wypisane pod `## metody` oraz `## zdarzenia`.
+Metody i zdarzenia modułu, który nie jest klasą muszą być wypisane pod rozdziałami `## Metody` oraz `## Zdarzenia`.
 
 Używając `autoUpdater` jako przykładu:
 
@@ -91,17 +91,17 @@ Używając `autoUpdater` jako przykładu:
 ### Klasy
 
 * Klasy API lub klasy które są częścią modułu muszą być wymienione pod rozdziałem `## Class: TheClassName`.
-* Jedna strona może mieć wiele klas.
-* Konstruktorzy muszą być wymienieni z`###`-tytułami poziomów.
-* [Statyczne metody](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static)muszą być wymienione pod`###Rozdziałem statycznych metod`.
-* [Metody instancji](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) muszą być wymienione pod`###Rozdziałem metod instancji`.
-* Wszystkie metody które mają wartość zwrotną muszą zacząć swój opis z "Zwrotami" `[TYPE]` - Przywróć opis" 
-  * Jeśli metoda przywróci `obiekt`, to jego struktura może być specyfikowana używając dwukropka następującego po nowej linii, gdzie znajduje się niezamówiona lista wartości w tym samym stylu jak funkcje parametrów.
-* Wydarzenia instancji muszą być wymienione pod `### Rozdział wydarzeń instancji `.
+* Jedna strona może mieć zawierać klas.
+* Constructors must be listed with `###`-level titles.
+* [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static)muszą być wymienione pod rodzdziałem `### Statyczne Metody`.
+* [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
+* Wszystkie metody które mają wartość zwrotną muszą zaczynać swój opis z "Returns `[TYPE]` - Zwróć opis" 
+  * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
+* Instance Events must be listed under an `### Instance Events` chapter.
 * Właściwości instancji muszą być wymienione pod `### Właściwości instancji` rozdział. 
-  * Właściwości instancji muszą zaczynać się z "[Typ właściwości] ..."
+  * Właściwości instancji muszą zaczynać się z "A [Property Type] ..."
 
-Używając `Sesji` i <->Ciasteczek</code>klas jako przykład:
+Using the `Session` and `Cookies` classes as an example:
 
 ```markdown
 # session
@@ -148,19 +148,19 @@ Rozdział "Metody" musi zachować podaną niżej formę:
 ...
 ```
 
-Tytuł może być `###` lub `####` poziomowy zależnie od tego, czy jest to metoda modułu czy klasy.
+Tytuł może być `###` lub `####`-poziomowy zależnie od tego, czy jest to metoda modułu czy klasy.
 
-Dla modułów, `objectName` jest nazwą modułu. Dla klas, to musi być nazwa wystąpienia klasy oraz nie może być taka sama jak nazwa modułu.
+Dla modułów, `objectName` jest nazwą modułu. Dla klas, musi to być nazwa wystąpienia klasy oraz nie może być taka sama jak nazwa modułu.
 
-Na przykład, metody `sesji`klasy pod `sesją` modułu muszą używać `sesji`jako `Nazwa obiektu`.
+For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
 
-Opcjonalne argumenty są notowane w nawiasach `[]` otoczonych opcjonalnymi argumentami zarówno jak wymagane przecinki jeśli opcjonalny argument następuje następuje przed następnym:
+Opcjonalne argumenty są notowane w nawiasach `[]` otoczonych opcjonalnymi argumentami, zarówno jak wymagane przecinki jeśli opcjonalny argument następuje po następnym:
 
 ```sh
 required[, optional]
 ```
 
-Poniżej metoda jest bardziej szczegółowa na każdym argumencie. Typ argumentu jest notowany przez każdy z powszechnych typów:
+Metoda poniżej jest bardziej szczegółowa dla każdego argumentu. Typ argumentu jest notowany przez każdy z powszechnych typów:
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
@@ -172,12 +172,12 @@ Poniżej metoda jest bardziej szczegółowa na każdym argumencie. Typ argumentu
 Jeśli argument lub metoda są unikalne dla poszczególnych platform, te platformy są oznaczone używając nieograniczonego miejsca wymieniając następujący typ danych używając kursywy. Wartościami mogą być `macOS`, `Windows` lub `Linux`.
 
 ```markdown
-` ożywiony` Boolean (opcjonalnie) _macOS_ _Windows_ -Ożywić rzecz.
+* `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
 ```
 
-`Szyk` typ argumentów musi specyfikować co mają zawierać elementy szyku w poniższym opisie.
+`Array` type arguments must specify what elements the array may include in the description below.
 
-Opis dla `Funkcji`typ argumentów powinien wyjaśnić jak powinno się to nazywać oraz wymienić typy parametrów które będą do tego podane.
+The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
 
 ### Zdarzenia
 
@@ -193,7 +193,7 @@ Returns:
 ...
 ```
 
-Tytuł może być `###` lub `###` poziomowy zależnie od tego, czy jest to metoda modułu czy klasy.
+Tytuł może być `###` lub `###`-poziomowy zależnie od tego, czy jest to metoda modułu czy klasy.
 
 Argumenty wydarzenia muszą przestrzegać tych samych zasad co metody.
 
@@ -207,7 +207,7 @@ Rozdział własności musi być w podanej formie:
 ...
 ```
 
-Tytuł może być `###` lub `####`- poziomowy zależnie od tego, czy jest to metoda modułu czy klasy.
+Tytuł może być `###` lub `####`- poziomowy zależnie od tego, czy jest to własność modułu czy klasy.
 
 ## Tłumaczenia dokumentacji
 

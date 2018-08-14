@@ -6,7 +6,7 @@ To nie znaczy, że Electron jest powiązaniem JavaScript z bibliotekami graficzn
 
 **Uwaga**: Ten przykład jest dostępny także jako repozytorium przez co możesz [go pobrać i uruchomić od razu](#trying-this-example).
 
-As far as development is concerned, an Electron application is essentially a Node.js application. The starting point is a `package.json` that is identical to that of a Node.js module. A most basic Electron app would have the following folder structure:
+As far as development is concerned, an Electron application is essentially a Node.js application. The starting point is a `package.json` that is identical to that of a Node.js module. Najbardziej podstawowa aplikacja napisana za pomocą Electron`a ma następującą strukturę folderów:
 
 ```text
 twoja-aplikacja
@@ -15,7 +15,7 @@ twoja-aplikacja
 └── index.html
 ```
 
-Create a new empty folder for your new Electron application. Open up your command line client and run `npm init` from that very folder.
+Stwórz nowy pusty folder dla twojej nowej aplikacji napisanej w Electron`ie. Otwórz twój wiersz poleceń i wpisz `npm init` ( ta operacja może być wykonana z każdego folderu).
 
 ```sh
 npm init
@@ -95,9 +95,8 @@ The `main.js` should create windows and handle all the system events your applic
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
-
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
+// zapisz do zmiennej globalnej referencję window object, w przeciwnym razie 
+// zostanie ona zamknięta automatycznie kiedy  JavaScript
 let win
 
 function createWindow () {
@@ -167,7 +166,7 @@ Finally the `index.html` is the web page you want to show:
 
 Once you've created your initial `main.js`, `index.html`, and `package.json` files, you can try your app by running `npm start` from your application's directory.
 
-## Trying this Example
+## Spróbuj wykonać ten przykład
 
 Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
 

@@ -25,25 +25,38 @@ $ git clone https://github.com/electron/electron.git
 
 ## Самонастройка
 
-Скрипт bootstrap скачает все необходимые зависимые сборки и соберёт файлы проекта. Обратите внимание, что мы используем `ninja` для сборки Electron, поэтому проект в Visual Studio не создается.
+Скрипт bootstrap скачает все необходимые зависимые сборки и построит файлы проекта. Обратите внимание, что мы используем `ninja` для сборки Electron, поэтому проект в Visual Studio не создается.
+
+To bootstrap for a static, non-developer build, run:
 
 ```powershell
 $ cd electron
-$ python script\bootstrap.py -v
+$ npm run bootstrap
+```
+
+Or to bootstrap for a development session that builds faster by not statically linking:
+
+```powershell
+$ cd electron
+$ npm run bootstrap:dev
 ```
 
 ## Сборка
 
-Собрать обе Release и Debug цели:
+Построить обе `Release` и `Debug` цели:
 
 ```powershell
-$ python script\build.py
+$ npm run build
 ```
 
-Вы можете собрать только Debug:
+You can also build either the `Debug` or `Release` target on its own:
 
 ```powershell
-$ python script\build.py -c D
+$ npm run build:dev
+```
+
+```powershell
+$ npm run build:release
 ```
 
 Как только сборка завершена, вы можете найти `electron.exe` в папке `out\D` (для отладки) или в `out\R` (для релиза).
@@ -80,7 +93,7 @@ $ npm run clean
 $ npm run clean-build
 ```
 
-**Примечание:** Обе команды очистки требуют запуска `bootstrap` снова перед сборкой.
+**Примечание:** Обе команды очистки требуют запуска `bootstrap` снова перед построением.
 
 ## Тестирование
 

@@ -27,23 +27,36 @@ $ git clone https://github.com/electron/electron.git
 
 부트스트랩 스크립트는 필수적인 빌드 의존성 라이브러리들을 모두 다운로드하고 프로젝트 파일을 생성합니다. 참고로 Electron은 `ninja`를 빌드 툴체인으로 사용하므로 Visual Studio 프로젝트는 생성되지 않습니다.
 
+To bootstrap for a static, non-developer build, run:
+
 ```powershell
 $ cd electron
-$ python script\bootstrap.py -v
+$ npm run bootstrap
+```
+
+Or to bootstrap for a development session that builds faster by not statically linking:
+
+```powershell
+$ cd electron
+$ npm run bootstrap:dev
 ```
 
 ## 빌드하기
 
-Release 와 Debug 두 타겟 모두 빌드 합니다:
+`Release` 와 `Debug` 두 타겟 모두 빌드 합니다:
 
 ```powershell
-$ python script\build.py
+$ npm run build
 ```
 
-또는 Debug 타겟만 빌드 할 수 있습니다:
+You can also build either the `Debug` or `Release` target on its own:
 
 ```powershell
-$ python script\build.py -c D
+$ npm run build:dev
+```
+
+```powershell
+$ npm run build:release
 ```
 
 빌드가 모두 끝나면 `out/D` (디버그 타겟) 또는 `out/R` (릴리즈 타겟) 디렉터리에서 `electron.exe` 실행 파일을 찾을 수 있습니다.

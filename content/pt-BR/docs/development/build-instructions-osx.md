@@ -14,7 +14,7 @@ Siga as instruções abaixo para compilar o Electron no macOS.
 Please also ensure that your system and Python version support at least TLS 1.2. This depends on both your version of macOS and Python. For a quick test, run:
 
 ```sh
-$ python ./script/tls.py
+$ npm run check-tls
 ```
 
 If the script returns that your configuration is using an outdated security protocol, you can either update macOS to High Sierra or install a new version of Python 2.7.x. To upgrade Python, use [Homebrew](https://brew.sh/):
@@ -57,9 +57,18 @@ $ git clone https://github.com/electron/electron
 
 O script de inicialização irá baixar todas as dependências necessárias e criar a compilação do projeto. Observe que nós usamos o [ninja](https://ninja-build.org/) para compilar o Electron, mas não existe nenhum projeto Xcode gerado.
 
+To bootstrap for a static, non-developer build, run:
+
 ```sh
 $ cd electron
-$ ./script/bootstrap.py -v
+$ npm run bootstrap
+```
+
+Or to bootstrap for a development session that builds faster by not statically linking:
+
+```sh
+$ cd electron
+$ npm run bootstrap:dev
 ```
 
 If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
@@ -70,16 +79,20 @@ $ ./script/build.py --compdb
 
 ## Compilando
 
-Compilar `Release` e `Debug`:
+To build both `Release` and `Debug` targets:
 
 ```sh
-$ ./script/build.py
+$ npm run build
 ```
 
-Você pode também compilar somente o `Debug`:
+You can also build either the `Debug` or `Release` target on its own:
 
 ```sh
-$ ./script/build.py -c D
+$ npm run build:dev
+```
+
+```sh
+$ npm run build:release
 ```
 
 Após a finalização da compilação, você pode encontrar `Electron.app` no caminho `out/D`.

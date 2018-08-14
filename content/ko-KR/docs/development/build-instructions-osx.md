@@ -14,7 +14,7 @@
 Please also ensure that your system and Python version support at least TLS 1.2. This depends on both your version of macOS and Python. For a quick test, run:
 
 ```sh
-$ python ./script/tls.py
+$ npm run check-tls
 ```
 
 If the script returns that your configuration is using an outdated security protocol, you can either update macOS to High Sierra or install a new version of Python 2.7.x. To upgrade Python, use [Homebrew](https://brew.sh/):
@@ -57,9 +57,18 @@ $ git clone https://github.com/electron/electron
 
 부트스트랩 스크립트는 필수적인 빌드 의존성 라이브러리들을 모두 다운로드하고 프로젝트 파일을 생성합니다. Electron은 [ninja](https://ninja-build.org/) 를 빌드 툴체인으로 사용하므로 Xcode 프로젝트는 생성되지 않습니다.
 
+To bootstrap for a static, non-developer build, run:
+
 ```sh
 $ cd electron
-$ ./script/bootstrap.py -v
+$ npm run bootstrap
+```
+
+Or to bootstrap for a development session that builds faster by not statically linking:
+
+```sh
+$ cd electron
+$ npm run bootstrap:dev
 ```
 
 만약 [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) 에 기반한 언어 서버를 지원하는 편집기를 사용중이라면 생성할 수 있습니다.
@@ -70,16 +79,20 @@ $ ./script/build.py --compdb
 
 ## 빌드하기
 
-`Release` 와 `Debug` 두 타겟 모두 빌드 합니다:
+To build both `Release` and `Debug` targets:
 
 ```sh
-$ ./script/build.py
+$ npm run build
 ```
 
-또는 `Debug` 타겟만 빌드 할 수 있습니다:
+You can also build either the `Debug` or `Release` target on its own:
 
 ```sh
-$ ./script/build.py -c D
+$ npm run build:dev
+```
+
+```sh
+$ npm run build:release
 ```
 
 빌드가 모두 끝나면 `out/D` 디렉터리에서 `Electron.app` 실행 파일을 찾을 수 있습니다.

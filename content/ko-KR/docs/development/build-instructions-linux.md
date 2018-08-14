@@ -10,7 +10,7 @@
     Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
     
     ```sh
-    $ python ./script/tls.py
+    $ npm run check-tls
     ```
     
     If the script returns that your configuration is using an outdated security protocol, use your system's package manager to update Python to the latest version in the 2.7.x branch. 또는 https://www.python.org/downloads/ 에 방문하여 자세한 방법을 확인하십시오.
@@ -60,9 +60,18 @@ $ git clone https://github.com/electron/electron
 
 부트스트랩 스크립트는 필수적인 빌드 의존성 라이브러리들을 모두 다운로드하고 프로젝트 파일을 생성합니다. 스크립트가 정상적으로 작동하기 위해선 Python 2.7.x 버전이 필요합니다. 다운로드 작업이 상당히 많은 시간을 소요할 것입니다. 참고로 Electron은 `ninja`를 빌드 툴체인으로 사용하므로 `Makefile`은 생성되지 않습니다.
 
+To bootstrap for a static, non-developer build, run:
+
 ```sh
 $ cd electron
-$ ./script/bootstrap.py --verbose
+$ npm run bootstrap
+```
+
+Or to bootstrap for a development session that builds faster by not statically linking:
+
+```sh
+$ cd electron
+$ npm run bootstrap:dev
 ```
 
 만약 [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) 에 기반한 언어 서버를 지원하는 편집기를 사용중이라면 생성할 수 있습니다.
@@ -98,7 +107,7 @@ $ ./script/bootstrap.py -v --target_arch=arm
 `Release`와 `Debug` 두 타겟 모두 빌드 합니다:
 
 ```sh
-$ ./script/build.py
+$ npm run build
 ```
 
 이 스크립트는 `out/R` 디렉터리에 크기가 매우 큰 Electron 실행 파일을 배치합니다. 파일 크기는 1.3GB를 초과합니다. 이러한 문제가 발생하는 이유는 Release 타겟 바이너리가 디버그 심볼을 포함하기 때문입니다. 파일 크기를 줄이려면 `create-dist.py` 스크립트를 실행하세요:
@@ -109,10 +118,14 @@ $ ./script/create-dist.py
 
 이 스크립트는 매우 작은 배포판을 `dist` 디렉터리에 생성합니다. `create-dist.py` 스크립트를 실행한 이후부턴 1.3GB에 육박하는 공간을 차지하는 `out/R` 폴더의 바이너리는 삭제해도 됩니다.
 
-또는 `Debug` 타겟만 빌드 할 수 있습니다:
+You can also build either the `Debug` or `Release` target on its own:
 
 ```sh
-$ ./script/build.py -c D
+$ npm run build:dev
+```
+
+```sh
+$ npm run build:release
 ```
 
 빌드가 모두 끝나면 `out/D` 디렉터리에서 `electron` 디버그 바이너리를 찾을 수 있습니다.

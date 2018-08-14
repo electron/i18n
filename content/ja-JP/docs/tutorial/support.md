@@ -1,31 +1,31 @@
 # Electronサポート
 
-## Finding Support
+## サポートを探す
 
-If you have a security concern, please see the [security document](../../SECURITY.md).
+セキュリティに関心がある場合は、[セキュリティドキュメント](../../SECURITY.md)をご参照ください。
 
-If you're looking for programming help, for answers to questions, or to join in discussion with other developers who use Electron, you can interact with the community in these locations:
+プログラミングの質問に対する回答を探している、またはElectronを使っている他の開発者との議論に参加したいのであれば、各ローケーションのコミュニティで対話できます。
 
-* [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
-* `#atom-shell` channel on Freenode
-* [`Electron`](https://atom-slack.herokuapp.com) channel on Atom's Slack
-* [`electron-ru`](https://telegram.me/electron_ru) *(Russian)*
-* [`electron-br`](https://electron-br.slack.com) *(Brazilian Portuguese)*
-* [`electron-kr`](https://electron-kr.github.io/electron-kr) *(Korean)*
-* [`electron-jp`](https://electron-jp.slack.com) *(Japanese)*
-* [`electron-tr`](https://electron-tr.herokuapp.com) *(Turkish)*
-* [`electron-id`](https://electron-id.slack.com) *(Indonesia)*
-* [`electron-pl`](https://electronpl.github.io) *(Poland)*
+* Atomフォーラム上の[`electron`](https://discuss.atom.io/c/electron)カテゴリ
+* Freenode上の`#atom-shell`チャネル
+* AtomのSlack上の[`Electron`](https://atom-slack.herokuapp.com) チャネル
+* [`electron-ru`](https://telegram.me/electron_ru) *(ロシア)*
+* [`electron-br`](https://electron-br.slack.com) *(ブラジルポルトガル語)*
+* [`electron-kr`](https://electron-kr.github.io/electron-kr) *(韓国語)*
+* [`electron-jp`](https://electron-jp.slack.com) *(日本語)*
+* [`electron-tr`](https://electron-tr.herokuapp.com) *(トルコ語)*
+* [`electron-id`](https://electron-id.slack.com) *(インドネシア語)*
+* [`electron-pl`](https://electronpl.github.io) *(ポーランド語)*
 
-If you'd like to contribute to Electron, see the [contributing document](../../CONTRIBUTING.md).
+Electronにコントリビュートしたい場合は、[コントリビューティングドキュメント](../../CONTRIBUTING.md)をご参照ください。
 
-If you've found a bug in a [supported version](#supported-versions) of Electron, please report it with the [issue tracker](../development/issues.md).
+[サポートされているバージョン](#supported-versions)のElectronでバグを見つけた場合は、[issue tracker](../development/issues.md)にレポートをおお願いします。
 
-[awesome-electron](https://github.com/sindresorhus/awesome-electron) is a community-maintained list of useful example apps, tools and resources.
+[awesome-electron](https://github.com/sindresorhus/awesome-electron)はコミュニティで保守されている有益なサンプルアプリ、ツール、リソースのリストです。
 
-## Supported Versions
+## サポートされているバージョン
 
-The latest three release branches are supported by the Electron team. For example, if the latest release is 2.0.x, then the 2-0-x series is supported, as are the two previous release series 1-7-x and 1-8-x.
+最新の3リリースブランチがElectronチームによってサポートされています。 例えば、最新リリースの2.0.xの場合、2-0-xシリーズと、2つ前のリリースシリーズである1-7-xと1-8-xも同様にはサポートされています。
 
 When a release branch reaches the end of its support cycle, the series will be deprecated in NPM and a final end-of-support release will be made. This release will add a warning to inform that an unsupported version of Electron is in use.
 

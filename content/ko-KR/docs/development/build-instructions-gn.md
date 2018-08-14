@@ -1,23 +1,22 @@
-# Build Instructions (experimental GN build)
+# 빌드 개요 (GN 빌드는 실험적인 기능)
 
-Follow the guidelines below for building Electron with the experimental GN build.
+아래 설명은 Electron을 GN으로 빌드하는 방법에 대한 것입니다.
 
-> **NOTE**: The GN build system is in *experimental* status.
+> **노트**: GN 빌드 시스템은 *실험적인* 기능입니다.
 
 ## 빌드전 요구 사양
 
-Check the build prerequisites for your platform before proceeding
+더 진행하기 전에 플랫폼에 따른 요구 사양을 미리 확인하십시오.
 
 - [macOS](build-instructions-osx.md#prerequisites)
 - [Linux](build-instructions-linux.md#prerequisites)
 - [Windows](build-instructions-windows.md#prerequisites)
 
-## Install `depot_tools`
+## `depot_tools` 설치하기
 
-You'll need to install [`depot_tools`](http://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up), the toolset used for fetching Chromium and its dependencies.
+[`depot_tools`](http://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up)를 설치해야합니다. <0>depot_tools</0>는 Chromium과 필요 요구사양을 가져오는데 사용하는 도구모음입니다.
 
-Also, on Windows, you'll need to set the environment variable `DEPOT_TOOLS_WIN_TOOLCHAIN=0`. To do so, open `Control Panel` → `System and
-Security` → `System` → `Advanced system settings` and add a system variable `DEPOT_TOOLS_WIN_TOOLCHAIN` with value `0`. This tells `depot_tools` to use your locally installed version of Visual Studio (by default, `depot_tools` will try to download a Google-internal version that only Googlers have access to).
+윈도우 환경에서는 `DEPOT_TOOLS_WIN_TOOLCHAIN=0` 환경 변수를 지정해주어야 합니다. `제어판`→`시스템과 보안`→`시스템`→`고급 시스템 설정`으로 이동합니다. 환경 변수... 버튼을 클릭하고 `DEPOT_TOOLS_WIN_TOOLCHAIN` 환경 변수를 `0` 값으로 설정합니다. 이렇게 하면 `depot_tools`가 로컬에 설정된 버전의 비주얼 스튜디오를 사용하게 됩니다. (기본값으로 `depot_tools`는 구글 내부에서 사용하는 비주얼 스튜디오 버전을 다운로드를 시도합니다.)
 
 ## 코드 가져오기
 
@@ -39,24 +38,23 @@ $ export CHROMIUM_BUILDTOOLS_PATH=`pwd`/buildtools
 $ gn gen out/Default --args='import("//electron/build/args/debug.gn")'
 ```
 
-This will generate a build directory `out/Default` under `src/` with debug build configuration. You can replace `Default` with another name, but it should be a subdirectory of `out`. Also you shouldn't have to run `gn gen` again—if you want to change the build arguments, you can run `gn args out/Default` to bring up an editor.
+이 명령어는 `src`폴더 아래에 디버그 빌드 설정을 사용해서 `out/Default` 빌드 디렉토리를 생성합니다. 여기에서 `Default`는 원하는 이름으로 바꾸어도 됩니다. 하지만 반드시 `out`의 하위 디렉토리여야 합니다. 또한 `gn gen`을 또 다시 실행하지 않도록 주의하십시오.—빌드 args를 바꾸고 싶은 경우, `gn args out/Default`를 사용해서 에디터를 실행해서 바꾸십시오.
 
-To see the list of available build configuration options, run `gn args
-out/Default --list`.
+사용 가능한 모든 빌드 설정의 목록을 확인하려면, `gn args out/Default --list` 명령어를 실행하십시오.
 
-**For generating Debug (aka "component" or "shared") build config of Electron:**
+**Electron의 디버그("component" 또는 "shared") 빌드 설정을 생성하려면 이 명령어를 실행하십시오:**
 
 ```sh
 $ gn gen out/Default --args='import("//electron/build/args/debug.gn")'
 ```
 
-**For generating Release (aka "non-component" or "static") build config of Electron:**
+**Electron의 배포("non-component" 또는 "static") 빌드 설정을 생성하려면 이 명령어를 실행하십시오:**
 
 ```sh
 $ gn gen out/Default --args='import("//electron/build/args/release.gn")'
 ```
 
-**To build, run `ninja` with the `electron:electron_app` target:**
+**빌드를 시작하려면 `electron:electron_app` 타겟으로 `ninja` 명령어를 실행하십시오.**
 
 ```sh
 $ ninja -C out/Default electron:electron_app
@@ -94,7 +92,7 @@ See the GN reference for allowable values of [`target_os`](https://gn.googlesour
 To run the tests, you'll first need to build the test modules against the same version of Node.js that was built as part of the build process. To generate build headers for the modules to compile against, run the following under `src/` directory.
 
 ```sh
-$ ninja -C out/Default electron/build/node:headers
+$ ninja -C out/Default third_party/electron_node:headers
 # Install the test modules with the generated headers
 $ (cd electron/spec && npm i --nodedir=../../out/Default/gen/node_headers)
 ```

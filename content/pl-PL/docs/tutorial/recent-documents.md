@@ -4,7 +4,7 @@ Windows i macOS umożliwiają dostęp do listy ostatnich dokumentów, którą mo
 
 **JumpList:**
 
-![JumpList Recent Files](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
+![JumpList ostatnie pliki](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
 **Dock menu:**
 
@@ -24,12 +24,12 @@ const { app } = require('electron')
 app.clearRecentDocuments()
 ```
 
-## Windows Notes
+## Windows Notatki
 
 Aby móc skorzystać z tej funkcji w systemie Windows, twoja aplikacja musie być zarejestrowana jako moduł obsługi plików typu dokument, w przeciwnym wypadku plik nie pojawi się w JumpList nawet po ich dodaniu. Możesz znaleźć wszystko, po zarejestrowaniu swojej aplikacji w [Rejestracja Aplikacji](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx).
 
 Kiedy użytkownik kliknie na plik z JumpList, nowa instancja twojej aplikacji wystartuje ze ścieżki pliku dodajnej jako argument w wierszu poleceń.
 
-## macOS Notes
+## macOS notatki
 
 Gdy żądany jest plik z listy ostatnich dokumentów (dock menu), to emitowany jest event `open-file` z modułu `app`.

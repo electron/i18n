@@ -10,7 +10,7 @@ Sundin ang mga patnubay sa ibaba para sa pagbuo ng Electron sa Linux.
     Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
     
     ```sh
-    $ python ./script/tls.py
+    $ npm run check-tls
     ```
     
     If the script returns that your configuration is using an outdated security protocol, use your system's package manager to update Python to the latest version in the 2.7.x branch. Alternatively, visit https://www.python.org/downloads/ for detailed instructions.
@@ -60,9 +60,18 @@ $ git clone https://github.com/electron/electron
 
 Ang bootstrap script ay kinukuha (download) ang lahat ng mahahalagang dependencies at lumilikha ng pagbuo ng proyekto sa files. Para magtagumpay, dapat meron kang Python 2.7.x para sa skrip. Ang "pagda-download" ng mga tiyak na payl ay maaaring tumagal ang pagpoproseso. Kung papansinin, tayo'y gumagamit ng `ninja` upang buuin ang Electron para hindi magkaroon ng `Makefile`.
 
+To bootstrap for a static, non-developer build, run:
+
 ```sh
 $ cd electron
-$ ./script/bootstrap.py --verbose
+$ npm run bootstrap
+```
+
+Or to bootstrap for a development session that builds faster by not statically linking:
+
+```sh
+$ cd electron
+$ npm run bootstrap:dev
 ```
 
 If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
@@ -98,7 +107,7 @@ $ ./script/bootstrap.py -v --target_arch=arm
 Kung ang nais mo ay bumuo ng parehong `Release` at `Debug` "targets":
 
 ```sh
-$ ./script/build.py
+$ npm run build
 ```
 
 Ang skrip na ito ang magiging dahilan upang mapalabas o maipakita ang napakalaking Electron na ilalagay sa loob ng "directory" ng `out/R`. Ang sukat ng payl ay lalagpas sa "1.3 gigabytes". Ito ay mangyayari dahil ang "Release target binary" ay naglalaman ng mga simbolo ng "debugging". Upang mabawasan ang sukat ng payl, patakbuhin ang skrip na `create-dist.py`:
@@ -109,10 +118,14 @@ $ ./script/create-dist.py
 
 Itatakda nito ang "working distribution" na may mas maliit ng sukat ng payl sa loob ng "directory" ng `dist`. Matapos paganahin ang skrip na `create-dist.py`, maaaring mong tanggalin ang "1.3+ gigabyte binary" na nasa loob pa rin ng `out/R`.
 
-Maaari ka ring bumuo lamang ng "`Debug` target":
+You can also build either the `Debug` or `Release` target on its own:
 
 ```sh
-$ ./script/build.py -c D
+$ npm run build:dev
+```
+
+```sh
+$ npm run build:release
 ```
 
 Matapos itong buuin, hanapin ang "`electron` debug binary" sa ilalim ng `out/D`.

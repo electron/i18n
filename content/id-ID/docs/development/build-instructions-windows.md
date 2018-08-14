@@ -27,23 +27,36 @@ $ git klon https://github.com/electron/electron.git
 
 Script bootstrap akan mendownload semua dependensi build yang diperlukan dan membuat file proyek build. Perhatikan bahwa kita menggunakan `ninja` untuk membangun Electron sehingga tidak ada proyek Visual Studio yang dihasilkan.
 
+To bootstrap for a static, non-developer build, run:
+
 ```powershell
 $ cd electron
-$ python script\bootstrap.py -v
+$ npm run bootstrap
+```
+
+Or to bootstrap for a development session that builds faster by not statically linking:
+
+```powershell
+$ cd electron
+$ npm run bootstrap:dev
 ```
 
 ## Bangunan
 
-Jika Anda ingin membangun target Release dan Debug :
+Jika Anda ingin membangun target ` Release ` dan ` Debug `:
 
 ```powershell
-$ python script\build.py
+$ npm run build
 ```
 
-Anda juga dapat membangun target Debug saja:
+You can also build either the `Debug` or `Release` target on its own:
 
 ```powershell
-$ python script\build.py - c D
+$ npm run build:dev
+```
+
+```powershell
+$ npm run build:release
 ```
 
 Setelah pembangunan selesai, Anda dapat menemukan `electron.exe` dibawah `out\D` (debug target) atau di bawah `out\R` (rilis target).
@@ -68,7 +81,7 @@ $ python script\bootstrap.py --msvs
 
 ## Pembersihan
 
-Untuk membersihkan membangun file:
+Untuk membersihkan bangunan file:
 
 ```powershell
 $ npm bersih

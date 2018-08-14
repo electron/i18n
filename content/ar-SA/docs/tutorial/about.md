@@ -1,10 +1,10 @@
 # حول Electron
 
-[Electron](https://electronjs.org) هو مكتبة مفتوحة المصدر طوّرت بواسطة GitHub لبناء تطبيقات سطح المكتبة عابرة للمنصات باستخدام HTML و CSS و JavaScript. Electron accomplishes this by combining [Chromium](https://www.chromium.org/Home) and [Node.js](https://nodejs.org) into a single runtime and apps can be packaged for Mac, Windows, and Linux.
+[Electron](https://electronjs.org) هو مكتبة مفتوحة المصدر طوّرت بواسطة GitHub لبناء تطبيقات سطح المكتبة عابرة للمنصات باستخدام HTML و CSS و JavaScript. يحقق Electron هذا من خلال دمج [Chromium](https://www.chromium.org/Home) و [Node.js](https://nodejs.org) في إطار تشغيل واحد ويمكن حزم التطبيقات لأنظمة Mac، Windows و Linux.
 
-Electron began in 2013 as the framework on which [Atom](https://atom.io), GitHub's hackable text editor, would be built. The two were open sourced in the Spring of 2014.
+بدأ Electron في عام 2013 كالإطار الذي سيبنى عليه [Atom](https://atom.io) محرر نصوص GitHub القابل للإضافات. وقد صارا مفتوحي المصدر في ربيع عام 2014.
 
-It has since become a popular tool used by open source developers, startups, and established companies. [See who is building on Electron](https://electronjs.org/apps).
+ومنذ ذلك الحين ، أصبح أداة شائعة يستخدمها مطورو البرامج مفتوحة المصدر والشركات الناشئة والشركات التي تم تأسيسها. انظر من يقوم بالبناء على Electron.
 
 Read on to learn more about the contributors and releases of Electron or get started building with Electron in the [Quick Start Guide](quick-start.md).
 

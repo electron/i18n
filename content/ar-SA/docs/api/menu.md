@@ -1,12 +1,12 @@
 ## Class: Menu
 
-> Create native application menus and context menus.
+> إنشاء قوائم التطبيقات الأصلية وقوائم السياق.
 
 Process: [Main](../glossary.md#main-process)
 
 ### `new Menu()`
 
-Creates a new menu.
+إنشاء قائمة جديدة.
 
 ### Static Methods
 

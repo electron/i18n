@@ -27,23 +27,36 @@ $ git clone https://github.com/electron/electron.git
 
 Le script d'amorçage téléchargera toutes les dépendances nécessaires et créera les fichiers de compilation. Pour information, nous utilisons `ninja` pour compiler Electron, donc il n'y a aucun projet Visual Studio de généré.
 
+To bootstrap for a static, non-developer build, run:
+
 ```powershell
 $ cd electron
-$ python script\bootstrap.py -v
+$ npm run bootstrap
+```
+
+Or to bootstrap for a development session that builds faster by not statically linking:
+
+```powershell
+$ cd electron
+$ npm run bootstrap:dev
 ```
 
 ## Compilation
 
-Compiler une version Release et une version Debug :
+Compiler une version `Release` et une version `Debug` :
 
 ```powershell
-$ python script\build.py
+$ npm run build
 ```
 
-Vous pouvez également compiler seulement une version Debug :
+You can also build either the `Debug` or `Release` target on its own:
 
 ```powershell
-$ python script\build.py -c D
+$ npm run build:dev
+```
+
+```powershell
+$ npm run build:release
 ```
 
 Après la compilation terminée, vous pouvez trouver `electron.exe` dans le dossier `out\D` (version Debug) ou dans le dossier `out\R` (version Release).
@@ -80,7 +93,7 @@ Pour nettoyer uniquement les répertoires `out` et `dist` :
 $ npm run clean-build
 ```
 
-**Remarque :** Les deux commandes de nettoyage requière l’exécution de `bootstrap`.
+**Remarque :** Les deux commandes de nettoyage requièrent l’exécution de `bootstrap`.
 
 ## Tests
 

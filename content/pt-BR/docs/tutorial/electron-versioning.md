@@ -1,44 +1,44 @@
 # Versionamento do Electron
 
-> A detailed look at our versioning policy and implementation.
+> Uma visão detalhada da nossa política de versionamento e implementação.
 
-As of version 2.0.0, Electron follows [semver](#semver). The following command will install the most recent stable build of Electron:
+A partir da versão 2.0.0, o Electron segue o padrão de Versionamento Semântico ([semver](#semver)). O seguinte comando instalará a versão estável mais recente do Electron:
 
 ```sh
 npm install --save-dev electron
 ```
 
-To update an existing project to use the latest stable version:
+Para atualizar a versão do Electron de um projeto existente para a versão mais recente, use:
 
 ```sh
 npm install --save-dev electron@latest
 ```
 
-## Version 1.x
+## Versão 1.x
 
-Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spec: major versions corresponded to end-user API changes, minor versions corresponded to Chromium major releases, and patch versions corresponded to new features and bug fixes. While convenient for developers merging features, it creates problems for developers of client-facing applications. The QA testing cycles of major apps like Slack, Stride, Teams, Skype, VS Code, Atom, and Desktop can be lengthy and stability is a highly desired outcome. There is a high risk in adopting new features while trying to absorb bug fixes.
+As versões do Electron *< 2.0* estavam em desacordo com as especificações de [semver](https://semver.org/lang/pt-BR/): as versões maiores correspondiam a mudanças na API do usuário final, as versões menores correspondiam aos lançamentos maiores do Chromium e as versões de correção correspondiam a novos recursos e correções de bugs. Por mais que isso seja conveniente para que desenvolvedores do Electron mesclassem funcionalidades, isso cria problemas para desenvolvedores de aplicativos para o usuário final. Os ciclos de testes de QA de grandes aplicativos como Slack, Stride, Teams, Skype, VS Code, Atom e Desktop podem se tornar demorados, e a estabilidade é um resultado bastante desejado. Existe um alto risco ao se adotar novas funcionalidades ao mesmo tempo em que se tenta absorver correções de bugs.
 
-Here is an example of the 1.x strategy:
+Aqui está um exemplo da estratégia da era 1.x:
 
 ![](../images/versioning-sketch-0.png)
 
-An app developed with `1.8.1` cannot take the `1.8.3` bug fix without either absorbing the `1.8.2` feature, or by backporting the fix and maintaining a new release line.
+Um app desenvolvido com o Electron versão `1.8.1` não pode receber as correções de bugs da `1.8.3` sem antes ter que ou absorver a funcionalidade da `1.8.2` ou fazer o backport das correções e manter uma nova linha de lançamento.
 
-## Version 2.0 and Beyond
+## Versão 2.0 em diante
 
-There are several major changes from our 1.x strategy outlined below. Each change is intended to satisfy the needs and priorities of developers/maintainers and app developers.
+Muito da nossa estratégia das versões 1.x foi revisto. Abaixo você confere as mudanças realizadas. Cada uma delas foi feita na intenção de satisfazer as necessidades e prioridades dos desenvolvedores/mantenedores do Electron e de desenvolvedores de aplicativos.
 
-1. Strict use of semver
-2. Introduction of semver-compliant `-beta` tags
-3. Introduction of [conventional commit messages](https://conventionalcommits.org/)
-4. Well-defined stabilization branches
-5. The `master` branch is versionless; only stabilization branches contain version information
+1. Uso rigoroso do semver
+2. Uso de tags `-beta` em conformidade com o semver
+3. Uso de [mensagens de commit convencionais](https://conventionalcommits.org/)
+4. Branches de estabilização bem definidas
+5. A branch `master` não tem versão - apenas as branches de estabilização contêm informações de versão
 
-We will cover in detail how git branching works, how npm tagging works, what developers should expect to see, and how one can backport changes.
+Explicaremos em detalhes como funcionam o esquema de branches do git, o esquema de tags do npm, o que desenvolvedores devem esperar ver e como é possível fazer o backport de alterações.
 
 # semver
 
-From 2.0 onward, Electron will follow semver.
+Da versão 2.0 em diante, o Electron segue o padrão semver.
 
 Below is a table explicitly mapping types of changes to their corresponding category of semver (e.g. Major, Minor, Patch).
 

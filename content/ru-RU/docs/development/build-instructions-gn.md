@@ -1,20 +1,20 @@
-# Build Instructions (experimental GN build)
+# Инструкции по сборке (экспериментальная сборка GN)
 
-Follow the guidelines below for building Electron with the experimental GN build.
+Следуйте рекомендациям ниже для сборки Electron с экспериментальной сборкой GN.
 
-> **NOTE**: The GN build system is in *experimental* status.
+> **ВНИМАНИЕ**: Система сборки GN находится в *экспериментальном* состоянии.
 
 ## Требования
 
-Check the build prerequisites for your platform before proceeding
+Перед началом проверьте требования сборки для вашей системы
 
 - [macOS](build-instructions-osx.md#prerequisites)
 - [Linux](build-instructions-linux.md#prerequisites)
 - [Windows](build-instructions-windows.md#prerequisites)
 
-## Install `depot_tools`
+## Установка `depot_tools`
 
-You'll need to install [`depot_tools`](http://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up), the toolset used for fetching Chromium and its dependencies.
+Вам нужно будет установить [`depot_tools`](http://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up), набор инструментов, используемый для извлечения Chromium и его зависимостей.
 
 Also, on Windows, you'll need to set the environment variable `DEPOT_TOOLS_WIN_TOOLCHAIN=0`. To do so, open `Control Panel` → `System and
 Security` → `System` → `Advanced system settings` and add a system variable `DEPOT_TOOLS_WIN_TOOLCHAIN` with value `0`. This tells `depot_tools` to use your locally installed version of Visual Studio (by default, `depot_tools` will try to download a Google-internal version that only Googlers have access to).
@@ -28,7 +28,7 @@ $ gclient config \
     --unmanaged \
     https://github.com/electron/electron
 $ gclient sync --with_branch_heads --with_tags
-# This will take a while, go get a coffee.
+# Это займёт некоторое время, идите и налейте себе кофейку.
 ```
 
 ## Сборка
@@ -94,7 +94,7 @@ See the GN reference for allowable values of [`target_os`](https://gn.googlesour
 To run the tests, you'll first need to build the test modules against the same version of Node.js that was built as part of the build process. To generate build headers for the modules to compile against, run the following under `src/` directory.
 
 ```sh
-$ ninja -C out/Default electron/build/node:headers
+$ ninja -C out/Default third_party/electron_node:headers
 # Install the test modules with the generated headers
 $ (cd electron/spec && npm i --nodedir=../../out/Default/gen/node_headers)
 ```

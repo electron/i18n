@@ -1,20 +1,20 @@
-# Electron Application Architecture
+# Архітектура Програми Electron
 
-Before we can dive into Electron's APIs, we need to discuss the two process types available in Electron. They are fundamentally different and important to understand.
+Перед тим як ми зможемо зануритися в Electron's APIs, нам необхідно обговорити 2 типи процесів наявних в Electron. Вони є фундаментально різні та важливі для розуміння.
 
-## Головний та Процес Рендерингу
+## Main та Renderer Processes
 
-In Electron, the process that runs `package.json`'s `main` script is called **the main process**. The script that runs in the main process can display a GUI by creating web pages. An Electron app always has one main process, but never more.
+В Electron, процес що запускає `package.json`'s `main` скрипт що називається **the main process**. Скрипт що запускає main process може демонструвати GUI за допомогою створення веб сторінок. Застосунок Electron завжди має main process, і нічого більше.
 
-Since Electron uses Chromium for displaying web pages, Chromium's multi-process architecture is also used. Each web page in Electron runs in its own process, which is called **the renderer process**.
+Відтоді як Electron використовує Chromium для відображення веб-сторінок, багато процесна архітектураChromium також використовується. Кожна веб-сторінка в Electron запускається в процесі що стосується тільки її, що називається **the renderer process**.
 
 У нормальних браузерах, веб-сторінки зазвичай виконуються в тестових середовищах і не мають доступу до нативних ресурсів. Користувачі Electron, однак, мають змогу використовувати Node.js API на веб-сторінках, дозволяючи низькорівневу взаємодію з операційною системою.
 
-### Differences Between Main Process and Renderer Process
+### Різниця між Головним і Процесом рендерингу
 
-The main process creates web pages by creating `BrowserWindow` instances. Each `BrowserWindow` instance runs the web page in its own renderer process. When a `BrowserWindow` instance is destroyed, the corresponding renderer process is also terminated.
+Головний процес створює веб-сторінки, за допомогою створення екземплярів`BrowserWindow`. Кожен екземпляр `BrowserWindow` запускає веб-сторінку у власному процесі рендерингу. Коли екземляр `BrowserWindow` знищено, процес рендерингу буде зупинено.
 
-The main process manages all web pages and their corresponding renderer processes. Each renderer process is isolated and only cares about the web page running in it.
+The main process manages all web pages and their corresponding renderer processes. Кожний процес рендерінгу є ізольованим і стосується веб сторінки що в ньому запущена.
 
 In web pages, calling native GUI related APIs is not allowed because managing native GUI resources in web pages is very dangerous and it is easy to leak resources. If you want to perform GUI operations in a web page, the renderer process of the web page must communicate with the main process to request that the main process perform those operations.
 
@@ -22,7 +22,7 @@ In web pages, calling native GUI related APIs is not allowed because managing na
 > 
 > In Electron, we have several ways to communicate between the main process and renderer processes, such as [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
 
-## Using Electron APIs
+## Використання Electron APIs
 
 Electron offers a number of APIs that support the development of a desktop application in both the main process and the renderer process. In both processes, you'd access Electron's APIs by requiring its included module:
 
@@ -35,7 +35,7 @@ All Electron APIs are assigned a process type. Many of them can only be used fro
 A window in Electron is for instance created using the `BrowserWindow` class. It is only available in the main process.
 
 ```javascript
-// This will work in the main process, but be `undefined` in a
+// Це буде працювати в main process, але буде `undefined` в 
 // renderer process:
 const { BrowserWindow } = require('electron')
 
@@ -82,10 +82,10 @@ npm install --save aws-sdk
 Then, in your Electron app, require and use the module as if you were building a Node.js application:
 
 ```javascript
-// A ready-to-use S3 Client
+//Готове для використання S3 Client
 const S3 = require('aws-sdk/clients/s3')
 ```
 
 There is one important caveat: Native Node.js modules (that is, modules that require compilation of native code before they can be used) will need to be compiled to be used with Electron.
 
-The vast majority of Node.js modules are *not* native. Only 400 out of the ~650.000 modules are native. However, if you do need native modules, please consult [this guide on how to recompile them for Electron](./using-native-node-modules.md).
+The vast majority of Node.js modules are *not* native. Only 400 out of the ~650.000 modules are native. Проте якщо вам необхідні native modules, будь ласка гляньте [цей гайд про те як рекомпілювати їх для Electron](./using-native-node-modules.md).

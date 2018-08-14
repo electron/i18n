@@ -105,11 +105,11 @@ Criar um fork personalizado do Electron, na maioria dos casos, não é algo que 
 
 Você vai precisar criar um fork do Electron caso você tenha código C++ personalizado que você queira inserir diretamente no Electron e que não pode ser publicado/enviado ou foi rejeitado pela versão oficial. As maintainers of Electron, we very much would like to make your scenario work, so please try as hard as you can to get your changes into the official version of Electron, it will be much much easier on you, and we appreciate your help.
 
-#### Creating a Custom Release with surf-build
+#### Criando uma distribuição customizada com surf-build
 
-1. Install [Surf](https://github.com/surf-build/surf), via npm: `npm install -g surf-build@latest`
+1. Instale [Surf](https://github.com/surf-build/surf), via npm: `npm install -g surf-build@latest`
 
-2. Create a new S3 bucket and create the following empty directory structure:
+2. Crie um novo repositório de armazenamento na nuvem do tipo S3 bucket e, em seguida, crie a estrutura de diretórios conforme abaixo:
     
     ```sh
     - electron/
@@ -117,10 +117,10 @@ Você vai precisar criar um fork do Electron caso você tenha código C++ person
       - dist/
     ```
 
-3. Set the following Environment Variables:
+3. Defina as seguintes Variáveis de Ambiente:
 
-* `ELECTRON_GITHUB_TOKEN` - a token that can create releases on GitHub
-* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload Node.js headers as well as symbols
+* `ELECTRON_GITHUB_TOKEN` - token que pode criar distribuições no GitHub
+* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - definem a chave, o repositório e a chave secreta, respectivamente, para onde os arquivos serão carregados
 * `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will do CI-type checks, appropriate to run for every pull request.
 * `CI` - Set to `true` or else it will fail
 * `GITHUB_TOKEN` - set it to the same as `ELECTRON_GITHUB_TOKEN`

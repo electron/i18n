@@ -10,7 +10,7 @@ Ikuti panduan di bawah ini untuk membangun Elektron di Linux.
     Harap pastikan juga bahwa sistem dan versi Python Anda mendukung setidaknya TLS 1.2. Untuk tes cepat, jalankan skrip berikut:
     
     ```sh
-    $ python ./script/tls.py
+    $ npm run check-tls
     ```
     
     Jika skrip mengembalikan bahwa konfigurasi Anda menggunakan protokol keamanan yang ketinggalan jaman, gunakan manajer paket di sistem Anda untuk memperbarui Python ke versi yang terbaru di cabang 2.7.x. Atau, kunjungi https://www.python.org/downloads/ untuk instruksi yang lebih detail.
@@ -60,9 +60,18 @@ $ git klon https://github.com/electron/electron
 
 Skrip bootstrap akan men-download semua dependensi diperlukan membangun dan menciptakan membangun project file. Anda harus memiliki Python 2.7.x agar naskahnya berhasil. Mengunduh file tertentu bisa memakan waktu lama. Perhatikan bahwa kami menggunakan ` ninja ` untuk membangun Elektron sehingga tidak ada ` Makefile ` yang dihasilkan.
 
+To bootstrap for a static, non-developer build, run:
+
 ```sh
-$ cd elektron
-$ ./script/bootstrap.py --verbose
+$ cd electron
+$ npm run bootstrap
+```
+
+Or to bootstrap for a development session that builds faster by not statically linking:
+
+```sh
+$ cd electron
+$ npm run bootstrap:dev
 ```
 
 If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
@@ -98,7 +107,7 @@ $ ./script/bootstrap.py -v --target_arch=lengan
 Jika Anda ingin membangun target ` Release ` dan ` Debug `:
 
 ```sh
-$ ./script/build.py
+$ npm run build
 ```
 
 Script ini akan menyebabkan Elektron sangat besar dieksekusi untuk ditempatkan di direktori ` keluar / R `. Ukuran file lebih dari 1,3 gigabyte. Ini Terjadi karena biner target rilis berisi simbol debugging. Untuk mengurangi ukuran file, jalankan script ` create-dist.py `:
@@ -109,17 +118,21 @@ $ ./script/create-dist.py
 
 Ini akan menempatkan distribusi kerja dengan ukuran file yang jauh lebih kecil di direktori ` dist `. Setelah menjalankan script ` create-dist.py `, Anda mungkin ingin menghapus binari 1.3 + gigabyte yang masih di ` keluar / R `.
 
-Anda juga dapat membangun target ` Debug ` saja:
+You can also build either the `Debug` or `Release` target on its own:
 
 ```sh
-$ ./script/build.py
+$ npm run build:dev
+```
+
+```sh
+$ npm run build:release
 ```
 
 Setelah selesai, Anda bisa menemukan biner debug ` elektron ` di bawah ` keluar / D `.
 
 ## Membersihkan
 
-Untuk membersihkan bangunan file:
+Untuk membersihkan membangun file:
 
 ```sh
 $ npm bersih

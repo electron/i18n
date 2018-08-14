@@ -7,7 +7,7 @@ Proces: [Main](../glossary.md#main-process)
 `PobranyPrzedmiot` jest `EmitterWydarzeń` który reprezentuje pobrany przedmiot w Electron. It is used in `will-download` event of `Session` class, and allows users to control the download item.
 
 ```javascript
-// In the main process.
+//W głównym procesie.
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow()
 win.webContents.session.on('will-download', (event, item, webContents) => {

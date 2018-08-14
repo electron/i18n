@@ -27,23 +27,36 @@ $ git clone https://github.com/electron/electron.git
 
 El script bootstrap descargará todas las dependencias de compilacion necesarias y creará la estructura de archivos del proyecto. Fijese que estamos usando `ninja` para construir Electron así que no hay ningún proyecto de Visual Studio generado.
 
+To bootstrap for a static, non-developer build, run:
+
 ```powershell
 $ cd electron
-$ python script\bootstrap.py -v
+$ npm run bootstrap
+```
+
+Or to bootstrap for a development session that builds faster by not statically linking:
+
+```powershell
+$ cd electron
+$ npm run bootstrap:dev
 ```
 
 ## Compilando
 
-Compilar ambas versiones Release y Debug:
+Compilar ambos destinos `lanzamiento` y `Depuración`:
 
 ```powershell
-$ python script\build.py
+$ npm run build
 ```
 
-También puede solo construir la version Debug:
+You can also build either the `Debug` or `Release` target on its own:
 
 ```powershell
-$ python script\build.py -c D
+$ npm run build:dev
+```
+
+```powershell
+$ npm run build:release
 ```
 
 Después de que acabe la compilación, puede encontrar `electron.exe` en `out\D` (version debug) o en `out\R` (version release).
@@ -68,7 +81,7 @@ $ python script\bootstrap.py --msvs
 
 ## Limpieza
 
-Para limpiar los archivos construidos:
+Para limpiar los archivos de compilación:
 
 ```powershell
 $ npm run clean
@@ -80,11 +93,11 @@ Para limpiar solo los directorios `fuera` y `dist`:
 $ npm run clean-build
 ```
 
-**Nota:** Ambos comandos de limpieza requieren que se ejecute `bootstrap` antes de construir de nuevo.
+**Nota:** Ambos comandos limpios requieren un `arranque` de nuevo después de ser compilados.
 
 ## Verificación
 
-Vea [Build System Overview: Tests](build-system-overview.md#tests)
+Ver Resumen de sistema de [Build: Tests](build-system-overview.md#tests)
 
 ## Solución de problemas
 

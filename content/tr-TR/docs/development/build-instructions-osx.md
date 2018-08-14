@@ -14,7 +14,7 @@ Electron'u macOS üzerinde kurmak için aşağıdaki yönergeleri takip edin.
 Please also ensure that your system and Python version support at least TLS 1.2. This depends on both your version of macOS and Python. For a quick test, run:
 
 ```sh
-$ python ./script/tls.py
+$ npm run check-tls
 ```
 
 If the script returns that your configuration is using an outdated security protocol, you can either update macOS to High Sierra or install a new version of Python 2.7.x. To upgrade Python, use [Homebrew](https://brew.sh/):
@@ -57,9 +57,18 @@ $ git clone https://github.com/electron/electron
 
 Ilk işleri halleden bootstrap betiği inşaa için gerekli olan bağımlılıkları indirir ve gerekli inşaa dosyalarını hazırlar. Electron'u inşaa etmek içın [ninja](https://ninja-build.org/) kullaniyoruz, böylece Xcode projesi yaratmaya gerek yok.
 
+To bootstrap for a static, non-developer build, run:
+
 ```sh
 $ cd electron
-$ ./script/bootstrap.py -v
+$ npm run bootstrap
+```
+
+Or to bootstrap for a development session that builds faster by not statically linking:
+
+```sh
+$ cd electron
+$ npm run bootstrap:dev
 ```
 
 If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
@@ -70,16 +79,21 @@ $ ./script/build.py --compdb
 
 ## İnşaa
 
-Hem `Dağıtım` hem `Hata Ayıklama` hedefleri:
+To build both `Release` and `Debug` targets:
 
 ```sh
-$ ./script/build.py
+$ npm run build
 ```
 
-Aynı zamanda sadece `Hata Ayiklama<0> hedefleyebilirsiniz:</p>
+You can also build either the `Debug` or `Release` target on its own:
 
-<pre><code class="sh">$ ./script/build.py -c D
-`</pre> 
+```sh
+$ npm run build:dev
+```
+
+```sh
+$ npm run build:release
+```
 
 İnşaa tamalandığında, `Electron.app` dosyasını `out/D`. altında bulabilirsiniz.
 
@@ -105,4 +119,4 @@ $ npm run clean-build
 
 ## Testler
 
-[İnşaa Sistemi Genel Görünümü: Testler](build-system-overview.md#tests) sayfasını ziyaret edin
+Burayı ziyaret edin: [İnşaa Sistemi Genel Görünümü: Testler](build-system-overview.md#tests)

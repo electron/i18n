@@ -10,7 +10,7 @@ Siga las indicaciones a continuación para construir Electron en Linux.
     Por favor, verifica que tu sistema y la versión de Python soportan al menos TLS 1.2. Para una prueba rápida, haz correr el siguiente script:
     
     ```sh
-     python ./script/tls.py
+    $ npm run check-tls
     ```
     
     Si el script devuelve que tu configuración utiliza un protocolo de seguridad obsoletos, utilizar gestor de paquetes del sistema para actualizar Python con la última versión de la rama 2.7. Como alternativa, visita https://www.python.org/downloads/ para obtener instrucciones detalladas.
@@ -60,9 +60,18 @@ $ git clone https://github.com/electron/electron
 
 El script bootstrap descargará todas las dependencias de compilacion necesarias y creará la estructura de archivos del proyecto. Debe tener Python 2.7.x para que el comando funcione. Descargar ciertos archivos puede tomar mucho tiempo. Aviso que estamos usando `ninja` para compilar Electron no hay `Makefile` generado.
 
+To bootstrap for a static, non-developer build, run:
+
 ```sh
 $ cd electron
-$ ./script/bootstrap.py --verbose
+$ npm run bootstrap
+```
+
+Or to bootstrap for a development session that builds faster by not statically linking:
+
+```sh
+$ cd electron
+$ npm run bootstrap:dev
 ```
 
 Si el editor que usas soporta [JSON compilación la base de datos](http://clang.llvm.org/docs/JSONCompilationDatabase.html) basado en servidor de idioma, puedes generar:
@@ -98,7 +107,7 @@ $ ./script/bootstrap.py -v --target_arch=arm
 Si desea compilar metas `Release` y `Debug`:
 
 ```sh
-$ ./script/build.py
+$ npm run build
 ```
 
 Este script hará que un Electron muy grande ejecutable en el directorio `out/R`. El tamaño del archivo es 1.3 gigabytes en exceso. Esto pasa debido a que el objetivo de lanzamiento binario contiene símbolos de depuración. Para reducir el tamaño del archivo, ejecute el comando `create-dist.py`:
@@ -109,17 +118,21 @@ $ ./script/create-dist.py
 
 Esto pondrá una distribución de trabajo con archivos muchos más pequeños en el directorio `dist`. Después de ejecutar el comando `create-dist.py`, puede que desee remover el binario de 1.3+ gigabytes que todavía está en `out/R`.
 
-También puede construir solo el objetivo de `Depucación`:
+You can also build either the `Debug` or `Release` target on its own:
 
 ```sh
-$ ./script/build.py -c D
+$ npm run build:dev
+```
+
+```sh
+$ npm run build:release
 ```
 
 Después que la construcción está lista, también puede encontrar depurado binario `electron` con el nombre de `out/D`.
 
 ## Limpieza
 
-Para limpiar los archivos de compilación:
+Para limpiar los archivos construidos:
 
 ```sh
 $ npm run clean
@@ -131,7 +144,7 @@ Para limpiar solo los directorios `fuera` y `dist`:
 $ npm run clean-build
 ```
 
-**Nota:** Ambos comandos limpios requieren un `arranque` de nuevo después de ser compilados.
+**Nota:** Ambos comandos de limpieza requieren que se ejecute `bootstrap` antes de construir de nuevo.
 
 ## Problemas
 
@@ -145,7 +158,7 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 ## Verificación
 
-Ver Resumen de sistema de [Build: Tests](build-system-overview.md#tests)
+Vea [Build System Overview: Tests](build-system-overview.md#tests)
 
 ## Tópicos Avanzados
 

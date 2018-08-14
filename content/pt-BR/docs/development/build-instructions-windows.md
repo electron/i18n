@@ -27,23 +27,36 @@ $ git clone https://github.com/electron/electron.git
 
 O script de inicialização irá baixar todas as dependências necessárias e criar os arquivos de configuração do projeto. Observe que estamos utilizando o `ninja` para compilar o Electron, não existe nenhum projeto gerado pelo o Visual Studio.
 
+To bootstrap for a static, non-developer build, run:
+
 ```powershell
 $ cd electron
-$ python script\bootstrap.py -v
+$ npm run bootstrap
+```
+
+Or to bootstrap for a development session that builds faster by not statically linking:
+
+```powershell
+$ cd electron
+$ npm run bootstrap:dev
 ```
 
 ## Compilando
 
-Compilar Release e Debug:
+Compilar `Release` e `Debug`:
 
 ```powershell
-$ python script\build.py
+$ npm run build
 ```
 
-Você pode também compilar somente o Debug:
+You can also build either the `Debug` or `Release` target on its own:
 
 ```powershell
-$ python script\build.py -c D
+$ npm run build:dev
+```
+
+```powershell
+$ npm run build:release
 ```
 
 Após a finalização da compilação, você poderá ver o `electron.exe` na pasta `out\D`(debug) ou `out\R` (release).

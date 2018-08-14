@@ -1,4 +1,4 @@
 # Obiekt BluetoothDevice
 
-* `nazwaUrzadzenia` String
-* `idUrzadzenia` String
+* `deviceName` String
+* `deviceId` String

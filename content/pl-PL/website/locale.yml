@@ -10,37 +10,37 @@ nav:
   languages: Języki
   releases: Wydania
   search: Szukaj
-  userland: Strefa użytkowników
+  userland: Strefa użytkownika
 docs:
-  title: Dokumentacja Electron'a
+  title: Dokumentacja Electrona
   description: Zobacz całą <a href="/docs/all">dokumentację na jednej stronie</a> lub sprawdź <a href="/docs/faq">FAQ</a>.
   guides: Poradniki
   api_reference: API
   advanced: Zaawansowane
   footer:
-    propose_change: Ulepsz tę dokumentacje
+    propose_change: Ulepsz tę dokumentację
     version_history: Historia wersji
-    translate: Przetłumacz tę dokumentacje
-    view_all_docs: Wszystkie dokumenty na jednej stronie
+    translate: Przetłumacz tę dokumentację
+    view_all_docs: Cała dokumentacja na jednej stronie
 languages:
   choose_language: Wybierz język strony
   translation_progress: Postęp tłumaczenia
   current: aktualnie wybrano
 community:
   title: Społeczność Electrona
-  description: Materiały do ​​połączenia się z osobami pracującymi przy Electron.
+  description: Materiały do ​​kontaktu z osobami pracującymi przy Electronie.
   channels:
     get_started: "<a href='/docs/tutorial/first-app'><b>Zacznij</b></a> tworzyć aplikację, od przeczytania <a href='/docs/tutorial/first-app'>miniprzewodnika</a>."
-    updates: "<a href='https://twitter.com/electronjs'><b>Bądź na bieżąco</b></a> śledząc <a href='https://twitter.com/electronjs'>@electronjs</a> na Twitterze i subskrybując <a href='/blog'>blog</a>."
+    updates: "<a href='https://twitter.com/electronjs'><b>Bądź na bieżąco, </b></a> śledząc <a href='https://twitter.com/electronjs'>@electronjs</a> na Twitterze i subskrybując <a href='/blog'>naszego bloga</a>."
     localized_docs: "<a href='/languages'><b>Czytaj dokumentację w Twoim języku</b></a> odwiedzając <a href='/languages'>stronę wyboru języka</a>."
-    help: "<a href='http://atom-slack.herokuapp.com'><b>Uzyskaj pomoc i opinię</b></a> dołączając do <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, publikując na <a href='https://discuss.atom.io/c/electron'>Discuss</a>, lub odwiedzając <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    help: "<a href='http://atom-slack.herokuapp.com'><b>Uzyskaj pomoc i opinię</b></a> dołączając do <a href='http://atom-slack.herokuapp.com'>Slack'a atom.io</a>, publikując na <a href='https://discuss.atom.io/c/electron'>Forum Discuss</a>, lub odwiedzając <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
     packages: "<a href='/search/npmPackages'><b>Znajdź przydatne pakiety npm</b></a> na <a href='/search/npmPackages'>stronie wyszukiwania pakietów</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Zgłaszaj błędy</b></a> otwierając problemy w repozytorium <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Zaproponuj funkcjonalności</b></a> otwierając problem w repozytorium <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
     code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Zgłoś naruszenia Kodeksu Postępowania</b></a> wysyłając e-mail na adres <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
     security: "<a href='mailto:security@electronjs.org'><b>Ujawnij problemy związane z bezpieczeństwem</b></a>, wysyłając wiadomość e-mail na adres <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
-    donations: "<a href='donors'><b>Przekaż darowiznę</b></a> na naszej <a href='/donors'>stronie OpenCollective</a>."
-    other: "W przypadku wszystkich innych pytań wyślij e-mail na adres <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
+    donations: "<a href='donors'><b>Przekaż darowiznę</b></a> na naszym profilu <a href='/donors'>OpenCollective</a>."
+    other: "W przypadku wszelkich innych pytań, wyślij e-mail na adres <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
   language_communities:
     title: Społeczności językowe
     description: "Społeczność Electron'a obejmuje cały świat, a nie każdy zna język angielski. Znajdź <a href='/languages'> dokumentację w swoim języku </a> lub dołącz do jednej z poniższych społeczności językowych:"
@@ -64,9 +64,9 @@ open_source:
   description: Electron to otwartoźródłowy projekt współtworzony przez GitHub'a oraz aktywną społeczność.
 cross_platform:
   title: Wieloplatformowy
-  description: Kompatybilny z systemami MacOS, Windows oraz Linux.
+  description: Kompatybilny z systemami macOS, Windows oraz Linux.
 benefits:
-  hard_parts_made_easy: Trudne kwestie uczynione łatwymi
+  hard_parts_made_easy: Trudne kwestie uczyniono łatwymi
   automatic_updates: Automatyczne aktualizacje
   native_menus_and_notifications: Natywne menu oraz powiadomienia
   crash_reporting: Raportowanie błędów
@@ -74,10 +74,10 @@ benefits:
   windows_installers: Instalatory Windows
 get_started:
   title: Pierwsze kroki
-  description: Aby rozpocząć przygodę z Electronem, sprawdź linki podane poniżej. Dowiedz się, jak uzbroić swoją aplikację internetową w Electron, przeglądaj API i generuj instalatory.
+  description: Aby rozpocząć przygodę z Electronem, sprawdź linki podane poniżej. Dowiedz się, jak zmienić swoją aplikację internetową z Electronem, przeglądaj API i generuj instalatory.
 explore:
   title: Przeglądaj API Electrona
-  description: "<a href='https://github.com/electron/electron-api-demos'> Electron API dema aplikacji</a> w sposób interaktywny pokazują najważniejsze funkcje Electron'a. Zapoznaj się z przykładowym kodem i przydatnymi poradami dotyczącymi tworzenia aplikacji."
+  description: "<a href='https://github.com/electron/electron-api-demos'>Przykłady użycia API</a> w sposób interaktywny pokazują najważniejsze funkcje Electron'a. Zapoznaj się z przykładowym kodem i przydatnymi poradami dotyczącymi tworzenia aplikacji."
 download_from_github: Pobierz z GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Zobacz wszystkie wydania</a> na GitHub
 quick_start:
@@ -127,13 +127,13 @@ pages:
     description: Dokumentacja API dla najnowszej wersji Electrona
   '/docs/development':
     title: Rozwój
-    description: Praca z Electron
+    description: Praca z Electronem
   '/docs/tutorial':
     title: Poradnik
     description: Poradniki i tutoriale dla najnowszej wersji Electrona
   '/blog':
     title: Blog Electrona
-    description: Najnowsze wiadomości od teamu Electrona oraz społeczności.
+    description: Najnowsze wiadomości od zespołu Electrona oraz społeczności.
   '/community':
     title: Społeczność
   '/releases':
@@ -144,10 +144,10 @@ pages:
   '/languages':
     title: Języki
   '/userland':
-    title: Strefa użytkowników
+    title: Strefa użytkownika
   '/devtron':
     title: Devtron
-    description: Devtron to narzędzie open-source, które pomoże ci monitorować i debugować twoją aplikację stworzoną z Electron. Twórz na szczycie wspaniałych Narzędzi Programistycznych Chrome.
+    description: Devtron to otwartoźródłowe narzędzie, które pomoże ci monitorować i debugować twoją aplikację stworzoną z Electron. Twórz na szczycie wspaniałych Narzędzi Programistycznych Chrome.
   '/spectron':
     title: Spectron
     description: Spectron to otwartoźródłowy framework do łatwiejszego pisania testów integracyjnych dla twojej aplikacji stworzonej z Electron. Twórz na szczycie ChromeDriver i WebDriverIO.

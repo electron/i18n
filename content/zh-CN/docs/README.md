@@ -1,6 +1,6 @@
 # 官方指南
 
-请确认你所使用的文档与你的 Electron 版本匹配。 你可以在页面的 URL 中找到对应的版本号。 如果没有，你可能正在使用开发版本分支里的文档，这个分支可能包含了一些与你的 Electron 版本不兼容的 API。 如果想要访问旧版本的文档，你可以[浏览标签](https://github.com/electron/electron/tree/v1.4.0)： 通过在GitHub 中打开下拉菜单“Switch branches/tags”中选择与你的版本匹配的分支。
+请确认你所使用的文档与你的 Electron 版本匹配。 你可以在页面的 URL 中找到对应的版本号。 如果没有，你可能正在使用开发版本分支里的文档，这个分支可能包含了一些与你的 Electron 版本不兼容的 API。 如果想要访问旧版本的文档，你可以[浏览标签](https://github.com/electron/electron/tree/v1.4.0)： 通过在 GitHub 中打开下拉菜单“Switch branches/tags”中选择与你的版本匹配的分支。
 
 ## 常见问题 (FAQ)
 
@@ -11,9 +11,9 @@
 ## 指南和教程
 
 * [配置开发环境](tutorial/development-environment.md) 
-  * [MacOS开发环境配置](tutorial/development-environment.md#setting-up-macos)
-  * [Windows开发环境配置](tutorial/development-environment.md#setting-up-windows)
-  * [Linux开发环境配置](tutorial/development-environment.md#setting-up-linux)
+  * [macOS 开发环境配置](tutorial/development-environment.md#setting-up-macos)
+  * [Windows 开发环境配置](tutorial/development-environment.md#setting-up-windows)
+  * [Linux 开发环境配置](tutorial/development-environment.md#setting-up-linux)
   * [选择一款编辑器](tutorial/development-environment.md#a-good-editor)
 * [创建你的第一个应用](tutorial/first-app.md) 
   * [安装 Electron](tutorial/first-app.md#installing-electron)
@@ -28,7 +28,7 @@
 * [应用架构](tutorial/application-architecture.md) 
   * [主进程和渲染进程](tutorial/application-architecture.md#main-and-renderer-processes)
   * [使用 Electron 的 API](tutorial/application-architecture.md#using-electron-apis)
-  * [使用Node.js的API](tutorial/application-architecture.md#using-nodejs-apis)
+  * [使用 Node.js 的API](tutorial/application-architecture.md#using-nodejs-apis)
   * [使用原生 Node.js 模块](tutorial/using-native-node-modules.md)
 * 为你的应用添加功能 
   * [通知（Notifications）](tutorial/notifications.md)
@@ -39,7 +39,7 @@
   * [自定义 Linux 桌面动作](tutorial/linux-desktop-actions.md)
   * [键盘快捷键](tutorial/keyboard-shortcuts.md)
   * [离线/在线 侦测](tutorial/online-offline-events.md)
-  * [针对 macOS系统 BrowserWindows的展示文件](tutorial/represented-file.md)
+  * [针对 macOS 系统 BrowserWindows 的展示文件](tutorial/represented-file.md)
   * [原生文件拖放](tutorial/native-file-drag-drop.md)
 * [辅助功能](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
@@ -79,7 +79,7 @@
 * [深入: Electron 的版本控制方案](tutorial/electron-versioning.md) 
   * [semver](tutorial/electron-versioning.md#semver)
   * [稳定分支](tutorial/electron-versioning.md#stabilization-branches)
-  * [测试版和Bug修复](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
+  * [测试版和 Bug 修复](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
 * [深入: 用 asar 打包 App 源代码](tutorial/application-packaging.md) 
   * [生成 asar 档案](tutorial/application-packaging.md#generating-asar-archives)
   * [使用 asar 档案文件](tutorial/application-packaging.md#using-asar-archives)
