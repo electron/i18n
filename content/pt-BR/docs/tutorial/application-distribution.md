@@ -105,7 +105,7 @@ Criar um fork personalizado do Electron, na maioria dos casos, não é algo que 
 
 Você vai precisar criar um fork do Electron caso você tenha código C++ personalizado que você queira inserir diretamente no Electron e que não pode ser publicado/enviado ou foi rejeitado pela versão oficial. As maintainers of Electron, we very much would like to make your scenario work, so please try as hard as you can to get your changes into the official version of Electron, it will be much much easier on you, and we appreciate your help.
 
-#### Creating a Custom Release with surf-build
+#### Criando uma distribuição customizada com surf-build
 
 1. Install [Surf](https://github.com/surf-build/surf), via npm: `npm install -g surf-build@latest`
 
