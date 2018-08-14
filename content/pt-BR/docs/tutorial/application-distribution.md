@@ -109,7 +109,7 @@ Você vai precisar criar um fork do Electron caso você tenha código C++ person
 
 1. Instale [Surf](https://github.com/surf-build/surf), via npm: `npm install -g surf-build@latest`
 
-2. Create a new S3 bucket and create the following empty directory structure:
+2. Crie um novo repositório de armazenamento na nuvem do tipo S3 bucket e, em seguida, crie a estrutura de diretórios conforme abaixo:
     
     ```sh
     - electron/
@@ -117,9 +117,9 @@ Você vai precisar criar um fork do Electron caso você tenha código C++ person
       - dist/
     ```
 
-3. Set the following Environment Variables:
+3. Defina as seguintes Variáveis de Ambiente:
 
-* `ELECTRON_GITHUB_TOKEN` - a token that can create releases on GitHub
+* `ELECTRON_GITHUB_TOKEN` - token que pode criar distribuições no GitHub
 * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload Node.js headers as well as symbols
 * `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will do CI-type checks, appropriate to run for every pull request.
 * `CI` - Set to `true` or else it will fail
