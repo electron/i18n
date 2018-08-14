@@ -18,7 +18,7 @@ O processo principal gerencia todas as páginas web e seus processos de renderiz
 
 Em páginas web, chamar APIs nativas relacionadas à interface gráfica de usuário não é permitido, uma vez que o gerenciamento de recursos nativos em páginas web é muito perigoso e facilita a ocorrência de vazamento de recursos. Se você quiser executar operações de interface gráfica em uma página web, o processo de renderização da página deve estabelecer uma comunicação com o processo principal para requisitar que ele efetue essas operações.
 
-> #### Aparte: Comunicação Entre Processos
+> #### Aparte: Comunicação entre processos
 > 
 > No Electron, existem várias maneiras pelas quais o processo principal e os de renderização podem se comunicar, tais como os módulos [`ipcRenderer`](../api/ipc-renderer.md) e [`ipcMain`](../api/ipc-main.md), para enviar mensagens, e o módulo [remote](../api/remote.md), para comunicação no estilo RPC. Também existe um tópico de perguntas frequentes sobre [como compartilhar dados entre páginas web](../faq.md#how-to-share-data-between-web-pages).
 
