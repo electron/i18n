@@ -867,11 +867,11 @@ Bounces the Downloads stack if the filePath is inside the Downloads folder.
 
 * `text` String
 
-Sets the string to be displayed in the dock’s badging area.
+Dock 아이콘의 알림 배지(badge) 안에 표현될 텍스트를 설정합니다.
 
 ### `app.dock.getBadge()` *macOS*
 
-Returns `String` - The badge string of the dock.
+`String`을 반환 - Dock 아이콘의 알림 배지(badge) 안에 있는 문자열을 반환합니다.
 
 ### `app.dock.hide()` *macOS*
 
