@@ -1,6 +1,6 @@
-# Recent Documents (Windows & macOS)
+# Недавние документы (Windows & macOS)
 
-Windows and macOS provide access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
+Windows и macOS предоставляют легкий доступ к списку последних документов открытых приложением через JumpList или dock меню, соответственно.
 
 **JumpList:**
 
