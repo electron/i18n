@@ -331,7 +331,7 @@ Emitted when Chrome's accessibility support changes. This event fires when assis
 
 현재 인스턴스가 종료되면 앱을 다시 실행합니다.
 
-By default the new instance will use the same working directory and command line arguments with current instance. When `args` is specified, the `args` will be passed as command line arguments instead. When `execPath` is specified, the `execPath` will be executed for relaunch instead of current app.
+기본적으로 새로 실행될 인스턴스는 현재 아직 종료되지 않은 인스턴스와 동일한 실행 경로, 실행 명령의 인자값을 사용합니다. `args`가 지정된 경우, 기존 인스턴스의 실행 명령의 인자값 대신 `args`를 실행 명령의 매개변수로 넘겨줍니다. `execPath`가 지정된 경우, 앱이 재실행될 때 현재 앱의 경로 대신 `execPath`경로에 있는 앱이 실행됩니다.
 
 Note that this method does not quit the app when executed, you have to call `app.quit` or `app.exit` after calling `app.relaunch` to make the app restart.
 
