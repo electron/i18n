@@ -114,4 +114,4 @@ Numery wersji V8 zawsze odpowiadają tym z Google Chrome. Chrome 59 zawiera V8 5
 
 ### webview
 
-Tagi `webview` używane są do osadzania zawartości 'guest' (gościnnej, takiej jak zewnętrzne strony internetowe) w Twojej aplikacji Electron. Są podobne do `iframe`s, ale różnią się tym, że każde webview uruchomione jest w osobnym procesie. Nie posiada to tych samych uprawnień jak Twoja strona internetowa i wszystkie interakcje między Twoją aplikacją a osadzoną zawartością będą asynchroniczne. Ma to na celu ochronę Twojej aplikacji przed osadzoną zawartością.
+Tagi `webview` są używane do osadzania zawartości 'guest' (takiej jak np. zewnętrzne strony internetowe) w Twojej aplikacji. Są podobne do `iframe`'ów, ale różnią się tym, że każde webview uruchomione jest w osobnym procesie. Nie posiada to tych samych uprawnień jak Twoja strona internetowa i wszystkie interakcje między Twoją aplikacją a osadzoną zawartością będą asynchroniczne. Ma to na celu ochronę Twojej aplikacji przed osadzoną zawartością.
