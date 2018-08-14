@@ -325,11 +325,11 @@ Emitted when Chrome's accessibility support changes. This event fires when assis
 
 ### `app.relaunch([options])`
 
-* `options` Object (선택) 
+* `options` Object (optional) 
   * `args` String[] (optional)
   * `execPath` String (optional)
 
-Relaunches the app when current instance exits.
+현재 인스턴스가 종료되면 앱을 다시 실행합니다.
 
 By default the new instance will use the same working directory and command line arguments with current instance. When `args` is specified, the `args` will be passed as command line arguments instead. When `execPath` is specified, the `execPath` will be executed for relaunch instead of current app.
 
