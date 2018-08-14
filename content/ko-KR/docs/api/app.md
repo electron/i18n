@@ -311,17 +311,17 @@ Emitted when Chrome's accessibility support changes. This event fires when assis
 
 ### `app.quit()`
 
-모든 윈도우 닫기를 시도합니다. 첫번째로 `before-quit` 이벤트가 발생합니다. 만약 모든 윈도가 성공적으로 닫혔다면, `will-quit` 이벤트가 발생하고, 일반적으로 애플리케이션이 종료됩니다.
+모든 창을 닫는 것을 시도합니다. 첫번째로 `before-quit` 이벤트가 발생합니다. 만약 모든 창이 성공적으로 닫혔다면, `will-quit` 이벤트가 발생하고, 일반적으로 애플리케이션이 종료됩니다.
 
-이 메서드는 모든 `beforeunload` 와 `unload` 이벤트 핸들러가 올바르게 실행되는 것을 보장합니다. It is possible that a window cancels the quitting by returning `false` in the `beforeunload` event handler.
+이 메서드는 모든 `beforeunload` 와 `unload` 이벤트 핸들러가 올바르게 실행되는 것을 보장합니다. `beforeunload` 이벤트 핸들러에서 `false`를 반환하는 윈도우에 의해 종료 동작이 중단될 수 있습니다.
 
 ### `app.exit([exitCode])`
 
 * `exitCode` Integer (optional)
 
-Exits immediately with `exitCode`. `exitCode` defaults to 0.
+`exitCode`로 즉시 종료합니다. `exitCode`의 기본값은 0 입니다.
 
-All windows will be closed immediately without asking user and the `before-quit` and `will-quit` events will not be emitted.
+사용자에게 묻지 않고 모든 창이 즉시 닫히고, `before-quit` 이벤트와 `will-quit` 이벤트가 발생하지 않습니다.
 
 ### `app.relaunch([options])`
 
