@@ -92,7 +92,7 @@ See the GN reference for allowable values of [`target_os`](https://gn.googlesour
 To run the tests, you'll first need to build the test modules against the same version of Node.js that was built as part of the build process. To generate build headers for the modules to compile against, run the following under `src/` directory.
 
 ```sh
-$ ninja -C out/Default electron/build/node:headers
+$ ninja -C out/Default third_party/electron_node:headers
 # Install the test modules with the generated headers
 $ (cd electron/spec && npm i --nodedir=../../out/Default/gen/node_headers)
 ```
