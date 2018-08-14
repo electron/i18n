@@ -74,10 +74,10 @@ benefits:
   windows_installers: Instalatory Windows
 get_started:
   title: Pierwsze kroki
-  description: Aby rozpocząć przygodę z Electronem, sprawdź linki podane poniżej. Dowiedz się, jak uzbroić swoją aplikację internetową w Electron, przeglądaj API i generuj instalatory.
+  description: Aby rozpocząć przygodę z Electronem, sprawdź linki podane poniżej. Dowiedz się, jak zmienić swoją aplikację internetową z Electronem, przeglądaj API i generuj instalatory.
 explore:
   title: Przeglądaj API Electrona
-  description: "<a href='https://github.com/electron/electron-api-demos'> Electron API dema aplikacji</a> w sposób interaktywny pokazują najważniejsze funkcje Electron'a. Zapoznaj się z przykładowym kodem i przydatnymi poradami dotyczącymi tworzenia aplikacji."
+  description: "<a href='https://github.com/electron/electron-api-demos'>Przykłady użycia API</a> w sposób interaktywny pokazują najważniejsze funkcje Electron'a. Zapoznaj się z przykładowym kodem i przydatnymi poradami dotyczącymi tworzenia aplikacji."
 download_from_github: Pobierz z GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Zobacz wszystkie wydania</a> na GitHub
 quick_start:
@@ -127,13 +127,13 @@ pages:
     description: Dokumentacja API dla najnowszej wersji Electrona
   '/docs/development':
     title: Rozwój
-    description: Praca z Electron
+    description: Praca z Electronem
   '/docs/tutorial':
     title: Poradnik
     description: Poradniki i tutoriale dla najnowszej wersji Electrona
   '/blog':
     title: Blog Electrona
-    description: Najnowsze wiadomości od teamu Electrona oraz społeczności.
+    description: Najnowsze wiadomości od zespołu Electrona oraz społeczności.
   '/community':
     title: Społeczność
   '/releases':
@@ -144,10 +144,10 @@ pages:
   '/languages':
     title: Języki
   '/userland':
-    title: Strefa użytkowników
+    title: Strefa użytkownika
   '/devtron':
     title: Devtron
-    description: Devtron to narzędzie open-source, które pomoże ci monitorować i debugować twoją aplikację stworzoną z Electron. Twórz na szczycie wspaniałych Narzędzi Programistycznych Chrome.
+    description: Devtron to otwartoźródłowe narzędzie, które pomoże ci monitorować i debugować twoją aplikację stworzoną z Electron. Twórz na szczycie wspaniałych Narzędzi Programistycznych Chrome.
   '/spectron':
     title: Spectron
     description: Spectron to otwartoźródłowy framework do łatwiejszego pisania testów integracyjnych dla twojej aplikacji stworzonej z Electron. Twórz na szczycie ChromeDriver i WebDriverIO.
