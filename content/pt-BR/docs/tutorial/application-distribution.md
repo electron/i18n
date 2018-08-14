@@ -107,7 +107,7 @@ Você vai precisar criar um fork do Electron caso você tenha código C++ person
 
 #### Criando uma distribuição customizada com surf-build
 
-1. Install [Surf](https://github.com/surf-build/surf), via npm: `npm install -g surf-build@latest`
+1. Instale [Surf](https://github.com/surf-build/surf), via npm: `npm install -g surf-build@latest`
 
 2. Create a new S3 bucket and create the following empty directory structure:
     
