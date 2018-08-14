@@ -311,9 +311,9 @@ Emitted when Chrome's accessibility support changes. This event fires when assis
 
 ### `app.quit()`
 
-모든 윈도우 닫기를 시도합니다. 첫번째로 `before-quit` 이벤트가 발생합니다. If all windows are successfully closed, the `will-quit` event will be emitted and by default the application will terminate.
+모든 윈도우 닫기를 시도합니다. 첫번째로 `before-quit` 이벤트가 발생합니다. 만약 모든 윈도가 성공적으로 닫혔다면, `will-quit` 이벤트가 발생하고, 일반적으로 애플리케이션이 종료됩니다.
 
-This method guarantees that all `beforeunload` and `unload` event handlers are correctly executed. It is possible that a window cancels the quitting by returning `false` in the `beforeunload` event handler.
+이 메서드는 모든 `beforeunload` 와 `unload` 이벤트 핸들러가 올바르게 실행되는 것을 보장합니다. It is possible that a window cancels the quitting by returning `false` in the `beforeunload` event handler.
 
 ### `app.exit([exitCode])`
 
