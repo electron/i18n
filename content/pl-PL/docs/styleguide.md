@@ -160,7 +160,7 @@ Opcjonalne argumenty są notowane w nawiasach `[]` otoczonych opcjonalnymi argum
 required[, optional]
 ```
 
-Poniżej metoda jest bardziej szczegółowa na każdym argumencie. Typ argumentu jest notowany przez każdy z powszechnych typów:
+Metoda poniżej jest bardziej szczegółowa dla każdego argumentu. Typ argumentu jest notowany przez każdy z powszechnych typów:
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
@@ -172,12 +172,12 @@ Poniżej metoda jest bardziej szczegółowa na każdym argumencie. Typ argumentu
 Jeśli argument lub metoda są unikalne dla poszczególnych platform, te platformy są oznaczone używając nieograniczonego miejsca wymieniając następujący typ danych używając kursywy. Wartościami mogą być `macOS`, `Windows` lub `Linux`.
 
 ```markdown
-` ożywiony` Boolean (opcjonalnie) _macOS_ _Windows_ -Ożywić rzecz.
+* `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
 ```
 
-`Szyk` typ argumentów musi specyfikować co mają zawierać elementy szyku w poniższym opisie.
+`Array` type arguments must specify what elements the array may include in the description below.
 
-Opis dla `Funkcji`typ argumentów powinien wyjaśnić jak powinno się to nazywać oraz wymienić typy parametrów które będą do tego podane.
+The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
 
 ### Zdarzenia
 
@@ -193,7 +193,7 @@ Returns:
 ...
 ```
 
-Tytuł może być `###` lub `###` poziomowy zależnie od tego, czy jest to metoda modułu czy klasy.
+Tytuł może być `###` lub `###`-poziomowy zależnie od tego, czy jest to metoda modułu czy klasy.
 
 Argumenty wydarzenia muszą przestrzegać tych samych zasad co metody.
 
@@ -207,7 +207,7 @@ Rozdział własności musi być w podanej formie:
 ...
 ```
 
-Tytuł może być `###` lub `####`- poziomowy zależnie od tego, czy jest to metoda modułu czy klasy.
+Tytuł może być `###` lub `####`- poziomowy zależnie od tego, czy jest to własność modułu czy klasy.
 
 ## Tłumaczenia dokumentacji
 
