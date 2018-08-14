@@ -305,7 +305,7 @@ Emitted when Chrome's accessibility support changes. This event fires when assis
 
 ## 메소드
 
-The `app` object has the following methods:
+`app` 객체에서 사용할 수 있는 메서드입니다:
 
 **Note:** Some methods are only available on specific operating systems and are labeled as such.
 
