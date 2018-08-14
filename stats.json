@@ -211,27 +211,27 @@
     "name": "Polish",
     "code": "pl",
     "phrases": "9508",
-    "translated": "3600",
-    "approved": "480",
+    "translated": "3591",
+    "approved": "540",
     "words": "87732",
-    "words_translated": "19787",
-    "words_approved": "3601",
+    "words_translated": "19631",
+    "words_approved": "4166",
     "translated_progress": 22,
     "approved_progress": 4,
-    "qa_issues": "918"
+    "qa_issues": "888"
   },
   {
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "9508",
-    "translated": "4105",
+    "translated": "4119",
     "approved": "292",
     "words": "87732",
-    "words_translated": "29667",
+    "words_translated": "29902",
     "words_approved": "2058",
-    "translated_progress": 33,
+    "translated_progress": 34,
     "approved_progress": 2,
-    "qa_issues": "1245"
+    "qa_issues": "1251"
   },
   {
     "name": "Russian",
