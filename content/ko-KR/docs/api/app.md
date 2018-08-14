@@ -307,11 +307,11 @@ Emitted when Chrome's accessibility support changes. This event fires when assis
 
 `app` 객체에서 사용할 수 있는 메서드입니다:
 
-**Note:** Some methods are only available on specific operating systems and are labeled as such.
+**참고:** 몇몇 메서드는 특정 운영체제에서만 사용할 수 있습니다.
 
 ### `app.quit()`
 
-Try to close all windows. The `before-quit` event will be emitted first. If all windows are successfully closed, the `will-quit` event will be emitted and by default the application will terminate.
+모든 윈도우 닫기를 시도합니다. 첫번째로 `before-quit` 이벤트가 발생합니다. If all windows are successfully closed, the `will-quit` event will be emitted and by default the application will terminate.
 
 This method guarantees that all `beforeunload` and `unload` event handlers are correctly executed. It is possible that a window cancels the quitting by returning `false` in the `beforeunload` event handler.
 
