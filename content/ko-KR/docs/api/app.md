@@ -337,7 +337,7 @@ Emitted when Chrome's accessibility support changes. This event fires when assis
 
 `app.relaunch`가 여러번 호출되면, 현재 인스턴스가 종료된 후에 여러개의 인스턴스가 시작됩니다.
 
-An example of restarting current instance immediately and adding a new command line argument to the new instance:
+현재 인스턴스를 즉시 재시작하면서 실행 명령에 새로운 매개변수를 추가하는 예제입니다:
 
 ```javascript
 const {app} = require('electron')
@@ -843,7 +843,7 @@ No confirmation dialog will be presented by default, if you wish to allow the us
 
 ### `app.dock.bounce([type])` *macOS*
 
-* `type` String (optional) - Can be `critical` or `informational`. The default is `informational`
+* `type` String (optional) - `critical` 혹은 `informational`가 될 수 있습니다. 기본값은 `informational` 입니다.
 
 When `critical` is passed, the dock icon will bounce until either the application becomes active or the request is canceled.
 
@@ -895,4 +895,4 @@ Dock 아이콘을 표시합니다.
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Sets the `image` associated with this dock icon.
+`image` Dock 메뉴의 아이콘과 관련된 이미지를 설정합니다.
