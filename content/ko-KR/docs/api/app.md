@@ -156,7 +156,7 @@ Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/U
 
 Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise the operation will fail and `continue-activity-error` will be called.
 
-### Event: 'new-window-for-tab' *macOS*
+### 이벤트: 'new-window-for-tab' *macOS*
 
 반환:
 
@@ -164,7 +164,7 @@ Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/Use
 
 Emitted when the user clicks the native macOS new tab button. The new tab button is only visible if the current `BrowserWindow` has a `tabbingIdentifier`
 
-### Event: 'browser-window-blur'
+### 이벤트 'browser-window-blur'
 
 Returns:
 
@@ -228,7 +228,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 })
 ```
 
-### Event: 'select-client-certificate'
+### 이벤트: 'select-client-certificate'
 
 Returns:
 
@@ -285,7 +285,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 })
 ```
 
-### Event: 'gpu-process-crashed'
+### 이벤트: 'gpu-process-crashed'
 
 Returns:
 
@@ -294,7 +294,7 @@ Returns:
 
 Emitted when the gpu process crashes or is killed.
 
-### Event: 'accessibility-support-changed' *macOS* *Windows*
+### 이벤트: 'accessibility-support-changed' *macOS* *Windows*
 
 반환:
 
