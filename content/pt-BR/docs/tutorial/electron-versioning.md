@@ -22,13 +22,13 @@ Aqui está um exemplo da estratégia da era 1.x:
 
 ![](../images/versioning-sketch-0.png)
 
-An app developed with `1.8.1` cannot take the `1.8.3` bug fix without either absorbing the `1.8.2` feature, or by backporting the fix and maintaining a new release line.
+Um app desenvolvido com o Electron versão `1.8.1` não pode receber as correções de bugs da `1.8.3` sem antes ter que ou absorver a funcionalidade da `1.8.2` ou fazer o backport das correções e manter uma nova linha de lançamento.
 
-## Version 2.0 and Beyond
+## Versão 2.0 em diante
 
-There are several major changes from our 1.x strategy outlined below. Each change is intended to satisfy the needs and priorities of developers/maintainers and app developers.
+Muito da nossa estratégia das versões 1.x foi revisto. Abaixo você confere as mudanças realizadas. Cada uma delas foi feita na intenção de satisfazer as necessidades e prioridades dos desenvolvedores/mantenedores do Electron e de desenvolvedores de aplicativos.
 
-1. Strict use of semver
+1. Uso rigoroso do semver
 2. Introduction of semver-compliant `-beta` tags
 3. Introduction of [conventional commit messages](https://conventionalcommits.org/)
 4. Well-defined stabilization branches
