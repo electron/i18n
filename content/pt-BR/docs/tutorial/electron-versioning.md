@@ -1,22 +1,22 @@
 # Versionamento do Electron
 
-> A detailed look at our versioning policy and implementation.
+> Uma visão detalhada da nossa política de versionamento e implementação.
 
-As of version 2.0.0, Electron follows [semver](#semver). The following command will install the most recent stable build of Electron:
+A partir da versão 2.0.0, o Electron segue o padrão de Versionamento Semântico ([semver](#semver)). O seguinte comando instalará a versão estável mais recente do Electron:
 
 ```sh
 npm install --save-dev electron
 ```
 
-To update an existing project to use the latest stable version:
+Para atualizar a versão do Electron de um projeto existente para a versão mais recente, use:
 
 ```sh
 npm install --save-dev electron@latest
 ```
 
-## Version 1.x
+## Versão 1.x
 
-Electron versions *< 2.0* did not conform to the [semver](http://semver.org) spec: major versions corresponded to end-user API changes, minor versions corresponded to Chromium major releases, and patch versions corresponded to new features and bug fixes. While convenient for developers merging features, it creates problems for developers of client-facing applications. The QA testing cycles of major apps like Slack, Stride, Teams, Skype, VS Code, Atom, and Desktop can be lengthy and stability is a highly desired outcome. There is a high risk in adopting new features while trying to absorb bug fixes.
+As versões do Electron *< 2.0* estavam em desacordo com as especificações de [semver](https://semver.org/lang/pt-BR/): as versões maiores correspondiam a mudanças na API do usuário final, as versões menores correspondiam aos lançamentos maiores do Chromium e as versões de correção correspondiam a novos recursos e correções de bugs. While convenient for developers merging features, it creates problems for developers of client-facing applications. The QA testing cycles of major apps like Slack, Stride, Teams, Skype, VS Code, Atom, and Desktop can be lengthy and stability is a highly desired outcome. There is a high risk in adopting new features while trying to absorb bug fixes.
 
 Here is an example of the 1.x strategy:
 
