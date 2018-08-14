@@ -39,8 +39,8 @@ community:
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Zaproponuj funkcjonalności</b></a> otwierając problem w repozytorium <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
     code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Zgłoś naruszenia Kodeksu Postępowania</b></a> wysyłając e-mail na adres <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
     security: "<a href='mailto:security@electronjs.org'><b>Ujawnij problemy związane z bezpieczeństwem</b></a>, wysyłając wiadomość e-mail na adres <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
-    donations: "<a href='donors'><b>Przekaż darowiznę</b></a> na naszej <a href='/donors'>stronie OpenCollective</a>."
-    other: "W przypadku wszystkich innych pytań wyślij e-mail na adres <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
+    donations: "<a href='donors'><b>Przekaż darowiznę</b></a> na naszym profilu <a href='/donors'>OpenCollective</a>."
+    other: "W przypadku wszelkich innych pytań, wyślij e-mail na adres <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
   language_communities:
     title: Społeczności językowe
     description: "Społeczność Electron'a obejmuje cały świat, a nie każdy zna język angielski. Znajdź <a href='/languages'> dokumentację w swoim języku </a> lub dołącz do jednej z poniższych społeczności językowych:"
@@ -64,9 +64,9 @@ open_source:
   description: Electron to otwartoźródłowy projekt współtworzony przez GitHub'a oraz aktywną społeczność.
 cross_platform:
   title: Wieloplatformowy
-  description: Kompatybilny z systemami MacOS, Windows oraz Linux.
+  description: Kompatybilny z systemami macOS, Windows oraz Linux.
 benefits:
-  hard_parts_made_easy: Trudne kwestie uczynione łatwymi
+  hard_parts_made_easy: Trudne kwestie uczyniono łatwymi
   automatic_updates: Automatyczne aktualizacje
   native_menus_and_notifications: Natywne menu oraz powiadomienia
   crash_reporting: Raportowanie błędów
