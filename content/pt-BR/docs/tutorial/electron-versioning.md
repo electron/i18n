@@ -29,16 +29,16 @@ Um app desenvolvido com o Electron versão `1.8.1` não pode receber as correç�
 Muito da nossa estratégia das versões 1.x foi revisto. Abaixo você confere as mudanças realizadas. Cada uma delas foi feita na intenção de satisfazer as necessidades e prioridades dos desenvolvedores/mantenedores do Electron e de desenvolvedores de aplicativos.
 
 1. Uso rigoroso do semver
-2. Introduction of semver-compliant `-beta` tags
-3. Introduction of [conventional commit messages](https://conventionalcommits.org/)
-4. Well-defined stabilization branches
-5. The `master` branch is versionless; only stabilization branches contain version information
+2. Uso de tags `-beta` em conformidade com o semver
+3. Uso de [mensagens de commit convencionais](https://conventionalcommits.org/)
+4. Branches de estabilização bem definidas
+5. A branch `master` não tem versão - apenas as branches de estabilização contêm informações de versão
 
-We will cover in detail how git branching works, how npm tagging works, what developers should expect to see, and how one can backport changes.
+Explicaremos em detalhes como funcionam o esquema de branches do git, o esquema de tags do npm, o que desenvolvedores devem esperar ver e como é possível fazer o backport de alterações.
 
 # semver
 
-From 2.0 onward, Electron will follow semver.
+Da versão 2.0 em diante, o Electron segue o padrão semver.
 
 Below is a table explicitly mapping types of changes to their corresponding category of semver (e.g. Major, Minor, Patch).
 
