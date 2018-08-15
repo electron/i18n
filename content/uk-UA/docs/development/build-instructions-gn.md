@@ -95,7 +95,7 @@ To run the tests, you'll first need to build the test modules against the same v
 
 ```sh
 $ ninja -C out/Default third_party/electron_node:headers
-# Install the test modules with the generated headers
+#Встановіть тестові модулі з згенерованими заголовками
 $ (cd electron/spec && npm i --nodedir=../../out/Default/gen/node_headers)
 ```
 
