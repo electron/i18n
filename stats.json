@@ -238,10 +238,10 @@
     "code": "ru",
     "phrases": "9508",
     "translated": "4964",
-    "approved": "1095",
+    "approved": "1096",
     "words": "87731",
     "words_translated": "34566",
-    "words_approved": "8485",
+    "words_approved": "8486",
     "translated_progress": 39,
     "approved_progress": 9,
     "qa_issues": "1377"
@@ -302,14 +302,14 @@
     "name": "Ukrainian",
     "code": "uk",
     "phrases": "9508",
-    "translated": "3744",
+    "translated": "3745",
     "approved": "165",
     "words": "87731",
-    "words_translated": "23072",
+    "words_translated": "23099",
     "words_approved": "732",
     "translated_progress": 26,
     "approved_progress": 0,
-    "qa_issues": "1467"
+    "qa_issues": "1468"
   },
   {
     "name": "Vietnamese",
