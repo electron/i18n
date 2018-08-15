@@ -1,6 +1,6 @@
 ## Class: Cookies
 
-> Query and modify a session's cookies.
+> 세션 쿠키를 요청하거나 수정합니다.
 
 프로세스:[Main](../glossary.md#main-process)
 
