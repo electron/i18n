@@ -356,7 +356,7 @@ No Linux, foca na primeira janela visível. No macOS, torna o aplicativo a aplic
 
 ### `app.hide()` no *macOS*
 
-Oculta todas as janelas do aplicativo sem minimizar-las. 
+Oculta todas as janelas do aplicativo sem minimizar-las.
 
 ### `app.show()` no *macOS*
 
