@@ -119,7 +119,7 @@ Você vai precisar criar um fork do Electron caso você tenha código C++ person
 
 3. Defina as seguintes Variáveis de Ambiente:
 
-* `ELECTRON_GITHUB_TOKEN` - token que pode criar distribuições no GitHub
+* `ELECTRON_GITHUB_TOKEN` - token com permissão para criar distribuições no GitHub
 * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - definem a chave, o repositório e a chave secreta, respectivamente, para onde os arquivos serão carregados
 * `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will do CI-type checks, appropriate to run for every pull request.
 * `CI` - Set to `true` or else it will fail
