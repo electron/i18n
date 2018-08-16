@@ -50,7 +50,7 @@ Below is a table explicitly mapping types of changes to their corresponding cate
 
 Note that most Chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
 
-# Stabilizando Branches
+# Estabilizando Branches
 
 Stabilization branches are branches that run parallel to master, taking in only cherry-picked commits that are related to security or stability. These branches are never merged back to master.
 
