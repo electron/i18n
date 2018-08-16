@@ -31,7 +31,7 @@ session.defaultSession.cookies.set(cookie, (error) => {
 
 ### 인스턴스 이벤트
 
-The following events are available on instances of `Cookies`:
+아래의 이벤트들은 `Cookies` 인스턴스를 통해 사용할 수 있다.
 
 #### Event: 'changed'
 
