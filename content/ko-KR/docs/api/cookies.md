@@ -1,10 +1,10 @@
 ## Class: Cookies
 
-> 세션 쿠키를 요청하거나 수정합니다.
+> 세션 쿠키를 가져오거나 수정합니다.
 
 프로세스:[Main](../glossary.md#main-process)
 
-Instances of the `Cookies` class are accessed by using `cookies` property of a `Session`.
+`Cookies` 클래스는 `Session` 의`cookies` 속성을 이용해 접근합니다.
 
 예시:
 
