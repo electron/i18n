@@ -113,9 +113,9 @@ Os pacotes não podem ser modificados. Logo, nenhuma das APIs do Node que permit
 
 ### Diretórios de trabalho não pode ser setado como diretórios no pacote
 
-Como os pacotes `asar` são tratados como diretórios, não há nenhum diretório real nos arquivos de sistema, então você nunca poderá definir um diretório de trabalho como diretório nos pacotes `asar`. Passing them as the `cwd` option of some APIs will also cause errors.
+Como os pacotes `asar` são tratados como diretórios, não há nenhum diretório real nos arquivos de sistema, então você nunca poderá definir um diretório de trabalho como diretório nos pacotes `asar`. Ao informar a opção `cwd` algumas APIs podem apresentar erros.
 
-### Extra Unpacking on Some APIs
+### Desempacotando em algumas APIs
 
 Most `fs` APIs can read a file or get a file's information from `asar` archives without unpacking, but for some APIs that rely on passing the real file path to underlying system calls, Electron will extract the needed file into a temporary file and pass the path of the temporary file to the APIs to make them work. This adds a little overhead for those APIs.
 
