@@ -188,12 +188,12 @@ Process: [Main](../glossary.md#main-process)
     * `experimentalFeatures` Boolean (опционально) - Включает экспериментальные возможности Chromium. По умолчанию `false`.
     * `experimentalCanvasFeatures` Boolean (опционально) - Включает экспериментальные canvas возможности в Chromium. По умолчанию `false`.
     * `scrollBounce` Boolean (опционально) - Включает эффект отскока при прокрутке в macOS. По умолчанию `false`.
-    * `blinkFeatures` String (опционально) - Список функциональных строк, разделенных `','`, например `CSSVariables,KeyboardEventKey` для включения. Полный список функциональных строк можно найти в файле [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/runtime_enabled_features.json5?l=70).
-    * `disableBlinkFeatures` String (опционально) - Список функциональных строк, разделенных `','`, например `CSSVariables,KeyboardEventKey` для выключения. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/runtime_enabled_features.json5?l=70) file.
-    * `defaultFontFamily` Object (optional) - Sets the default font for the font-family. 
-      * `standard` String (optional) - Defaults to `Times New Roman`.
-      * `serif` String (optional) - Defaults to `Times New Roman`.
-      * `sansSerif` String (optional) - Defaults to `Arial`.
+    * `blinkFeatures` String (опционально) - Список функциональных возможностей для включения, разделяются `','`, например `CSSVariables,KeyboardEventKey`. Полный список можно найти в файле [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/runtime_enabled_features.json5?l=70).
+    * `disableBlinkFeatures` String (опционально) - Список функциональных возможностей для выключения, разделяются `','`, например `CSSVariables,KeyboardEventKey`. Полный список можно найти в файле [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/runtime_enabled_features.json5?l=70).
+    * `defaultFontFamily` Object (опционально) - Устанавливает шрифт по умолчанию для семейства шрифтов. 
+      * `standard` String (опционально) - По умолчанию `Times New Roman`.
+      * `serif` String (опционально) - По умолчанию `Times New Roman`.
+      * `sansSerif` String (опционально) - По умолчанию `Arial`.
       * `monospace` String (optional) - Defaults to `Courier New`.
       * `cursive` String (optional) - Defaults to `Script`.
       * `fantasy` String (optional) - Defaults to `Impact`.
