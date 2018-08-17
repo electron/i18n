@@ -30,12 +30,12 @@ console.log(dialog)
   * `defaultPath` String (optional)
   * `buttonLabel` String (optional) - 확인 버튼에 대한 사용자 지정 라벨입니다. 비워둘 경우 기본 라벨이 사용됩니다.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
-  * `properties` String[] (optional) - Contains which features the dialog should use. The following values are supported: 
-    * `openFile` - Allow files to be selected.
-    * `openDirectory` - Allow directories to be selected.
-    * `multiSelections` - Allow multiple paths to be selected.
-    * `showHiddenFiles` - Show hidden files in dialog.
-    * `createDirectory` *macOS* - Allow creating new directories from dialog.
+  * `properties` String[] (optional) - dialog가 어떤 요소를 사용할 지를 지정합니다. 아래의 값들을 사용할 수 있습니다. 
+    * `openFile` - 파일 선택 가능
+    * `openDirectory` - 폴더 선택 가능
+    * `multiSelections` - 경로 다중 선택 가능
+    * `showHiddenFiles` - 숨겨진 파일 표시
+    * `createDirectory` *macOS* - dialog에서 새 폴더 생성 가능
     * `promptToCreate` *Windows* - Prompt for creation if the file path entered in the dialog does not exist. This does not actually create the file at the path but allows non-existent paths to be returned that should be created by the application.
     * `noResolveAliases` *macOS* - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
     * `treatPackageAsDirectory` *macOS* - Treat packages, such as `.app` folders, as a directory instead of a file.
