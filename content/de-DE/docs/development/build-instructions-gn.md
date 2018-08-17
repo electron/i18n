@@ -21,6 +21,18 @@ Security` → `System` → `Advanced system settings` and add a system variable 
 
 ## Code erhalten
 
+### Using a Git cache (optional step)
+
+`gclient` fetches about 16G worth of repository data. If you plan on building more than once, consider using its cache feature to make future calls faster:
+
+```sh
+$ export GIT_CACHE_PATH="$HOME/.git_cache"
+$ mkdir -p "$GIT_CACHE_PATH"
+# This will take about 16G.
+```
+
+### Getting the code with gclient
+
 ```sh
 $ mkdir electron-gn && cd electron-gn
 $ gclient config \
