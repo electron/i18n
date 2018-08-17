@@ -49,20 +49,20 @@ console.log(dialog)
 
 `browserWindow` 인수는 대화 상자가 부모 창에 연결되어 모달 대화상자로써 표시될 수 있도록 해줍니다.
 
-The `filters` specifies an array of file types that can be displayed or selected when you want to limit the user to a specific type. For example:
+`filters` 값으로 표시하거나 선택할 수 있는 파일의 종류를 설정할 수 있습니다. 예를 들어,
 
 ```javascript
 {
   filters: [
-    {name: 'Images', extensions: ['jpg', 'png', 'gif']},
-    {name: 'Movies', extensions: ['mkv', 'avi', 'mp4']},
-    {name: 'Custom File Type', extensions: ['as']},
-    {name: 'All Files', extensions: ['*']}
+    {name: '사진', extensions: ['jpg', 'png', 'gif']},
+    {name: '동영상', extensions: ['mkv', 'avi', 'mp4']},
+    {name: '커스텀 파일 타입', extensions: ['as']},
+    {name: '모든 파일', extensions: ['*']}
   ]
 }
 ```
 
-The `extensions` array should contain extensions without wildcards or dots (e.g. `'png'` is good but `'.png'` and `'*.png'` are bad). To show all files, use the `'*'` wildcard (no other wildcard is supported).
+`extensions` 배열에서는 와일드카드 문자나 점 문자가 들어가지 않은 확장자의 값이 들어가야 합니다. (예시: `'png'` 는 가능하지만 `'.png'`나 `'*.png'`는 불가능합니다) 모든 파일을 표시하고 싶다면 `'*'` 와일드카드를 사용해주세요. (다른 와일드카드 값은 사용할 수 없습니다)
 
 If a `callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filenames)`.
 
