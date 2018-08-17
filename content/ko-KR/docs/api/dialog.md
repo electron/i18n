@@ -40,14 +40,14 @@ console.log(dialog)
     * `noResolveAliases` *macOS* - symlink로 설정된 파일 원본의 경로가 아니라 symlink의 경로를 직접 반환합니다.
     * `treatPackageAsDirectory` *macOS* - `.app` 폴더와 같은 macOS 패키지를 파일이 아니라 폴더로써 다룹니다
   * `message` String (optional) *macOS* - 입력 상자 상단에 들어갈 메시지를 설정합니다
-  * `securityScopedBookmarks` Boolean (optional) *masOS* *mas* - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
+  * `securityScopedBookmarks` Boolean (optional) *masOS* *mas* - Mac App Store 용으로 패키지 되었을때를 위한 [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16)를 만듭니다
 * `callback` Function (optional) 
-  * `filePaths` String[] - An array of file paths chosen by the user
-  * `bookmarks` String[] *macOS* *mas* - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` must be enabled for this to be populated.
+  * `filePaths` String[] - 사용자가 선택한 파일 경로들
+  * `bookmarks` String[] *macOS* *mas* - `filePaths` 배열과 매칭되는 base64로 변환된 security scoped bookmark 데이터. 이 값을 얻기 위해서는 `securityScopedBookmarks`를 반드시 설정해야 합니다.
 
 사용자가 선택한 파일 경로를 `String[]` 형태로 반환합니다. 만약 callback을 제공하였다면 `undefined`를 반환합니다.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+`browserWindow` 인수는 대화 상자가 부모 창에 연결되어 모달 대화상자로써 표시될 수 있도록 해줍니다.
 
 The `filters` specifies an array of file types that can be displayed or selected when you want to limit the user to a specific type. For example:
 
@@ -86,7 +86,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 
 Returns `String`, the path of the file chosen by the user, if a callback is provided it returns `undefined`.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+`browserWindow` 인수는 대화 상자가 부모 창에 연결되어 모달 대화상자로써 표시될 수 있도록 해줍니다.
 
 The `filters` specifies an array of file types that can be displayed, see `dialog.showOpenDialog` for an example.
 
@@ -116,7 +116,7 @@ Returns `Integer`, the index of the clicked button, if a callback is provided it
 
 Shows a message box, it will block the process until the message box is closed. It returns the index of the clicked button.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+`browserWindow` 인수는 대화 상자가 부모 창에 연결되어 모달 대화상자로써 표시될 수 있도록 해줍니다.
 
 If a `callback` is passed, the dialog will not block the process. The API call will be asynchronous and the result will be passed via `callback(response)`.
 
