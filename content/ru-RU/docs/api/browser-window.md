@@ -194,7 +194,7 @@ Process: [Main](../glossary.md#main-process)
       * `standard` String (опционально) - По умолчанию `Times New Roman`.
       * `serif` String (опционально) - По умолчанию `Times New Roman`.
       * `sansSerif` String (опционально) - По умолчанию `Arial`.
-      * `monospace` String (optional) - Defaults to `Courier New`.
+      * `monospace` String (опционально) - По умолчанию `Courier New`.
       * `cursive` String (optional) - Defaults to `Script`.
       * `fantasy` String (optional) - Defaults to `Impact`.
     * `defaultFontSize` Integer (optional) - Defaults to `16`.
