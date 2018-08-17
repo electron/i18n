@@ -1,6 +1,6 @@
 # dialog
 
-> 열기 및 파일 저장, 경고, 기타 등등에 대한 기본 시스템 대화 상자를 표시합니다.
+> 파일 열기와 저장, 경고, 기타 등등에 대한 기본 시스템 대화 상자를 표시합니다.
 
 프로세스:[Main](../glossary.md#main-process)
 
@@ -28,7 +28,7 @@ console.log(dialog)
 * `options` Object 
   * `title` String (optional)
   * `defaultPath` String (optional)
-  * `buttonLabel` String (optional) - Custom label for the confirmation button, when left empty the default label will be used.
+  * `buttonLabel` String (optional) - 확인 버튼에 대한 사용자 지정 라벨입니다. 비워둘 경우 기본 라벨이 사용됩니다.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
   * `properties` String[] (optional) - Contains which features the dialog should use. The following values are supported: 
     * `openFile` - Allow files to be selected.
@@ -74,7 +74,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 * `options` Object 
   * `title` String (optional)
   * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
-  * `buttonLabel` String (optional) - Custom label for the confirmation button, when left empty the default label will be used.
+  * `buttonLabel` String (optional) - 확인 버튼에 대한 사용자 지정 라벨입니다. 비워둘 경우 기본 라벨이 사용됩니다.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
   * `message` String (optional) *macOS* - Message to display above text fields.
   * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
