@@ -35,11 +35,11 @@ console.log(dialog)
     * `openDirectory` - 폴더 선택 가능
     * `multiSelections` - 경로 다중 선택 가능
     * `showHiddenFiles` - 숨겨진 파일 표시
-    * `createDirectory` *macOS* - dialog에서 새 폴더 생성 가능
+    * `createDirectory` *macOS* - dialog에서 새로운 폴더 생성 가능
     * `promptToCreate` *Windows* - 입력한 경로가 존재하지 않을 경우 프롬프트 생성. 실제로 해당 경로에 파일을 만들지는 않지만 존재하지 않는 파일에 대한 경로를 반환함으로써 애플리케이션에서 해당 파일을 생성할 수 있도록 합니다.
-    * `noResolveAliases` *macOS* - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
-    * `treatPackageAsDirectory` *macOS* - Treat packages, such as `.app` folders, as a directory instead of a file.
-  * `message` String (optional) *macOS* - Message to display above input boxes.
+    * `noResolveAliases` *macOS* - symlink로 설정된 파일 원본의 경로가 아니라 symlink의 경로를 직접 반환합니다.
+    * `treatPackageAsDirectory` *macOS* - `.app` 폴더와 같은 macOS 패키지를 파일이 아니라 폴더로써 다룹니다
+  * `message` String (optional) *macOS* - 입력 상자 상단에 들어갈 메시지를 설정합니다
   * `securityScopedBookmarks` Boolean (optional) *masOS* *mas* - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
 * `callback` Function (optional) 
   * `filePaths` String[] - An array of file paths chosen by the user
