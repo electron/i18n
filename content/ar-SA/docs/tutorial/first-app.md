@@ -2,7 +2,7 @@
 
 يمكنك الكترون من إنشاء تطبيقات مدهشة لأجهزة الحاسب المكتبي باستخدام منظومة الجافا اسكريبت و ذلك لأنه يحتوي على مكتبة غنية من النماذج المعدة و المهيئة للتعامل مع مختلف عمليات (نظام التشغيل) التي سوف يحتاجها تطبيقك. تستطيع القول أن الكيترون ما هو الا شكل آخر لمنظومة النود جافا سكريبت و لكن بدلا من استخدامها في انشاء تطبيقات الويب فانها متخصصة في انشاء تطبيقات الحاسب المكتبي خاصتا الغير متصلة بالانترنت.
 
-This doesn't mean Electron is a JavaScript binding to graphical user interface (GUI) libraries. Instead, Electron uses web pages as its GUI, so you could also see it as a minimal Chromium browser, controlled by JavaScript.
+هذا لا يعني أن Electron هو ربط جافا سكريبت لمكتبات واجهة المستخدم الرسومية (GUI). Instead, Electron uses web pages as its GUI, so you could also see it as a minimal Chromium browser, controlled by JavaScript.
 
 **Note**: This example is also available as a repository you can [download and run immediately](#trying-this-example).
 
