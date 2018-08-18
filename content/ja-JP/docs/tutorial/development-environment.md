@@ -1,6 +1,6 @@
 # 開発環境
 
-Electron の開発は基本的に Node.js 開発です。 オペレーティング システムを、Electron のデスクトップ アプリケーション開発環境に変えるには、Node.js、npm、好みのコード エディター、オペレーティング システムのコマンド ライン クライアントへの初歩的な理解が必要です。
+Electron の開発は基本的に Node.js 開発です。 オペレーティング システムを、Electron のデスクトップ アプリケーション開発環境に変えるには、Node.js、npm、好みのコード エディタ、オペレーティング システムのコマンドライン クライアントへの初歩的な理解が必要です。
 
 ## macOS のセットアップ
 
@@ -20,7 +20,7 @@ node -v
 npm -v
 ```
 
-両方のコマンドがバージョン番号を印刷すれば、準備完了です! 始める前に、JavaScript 開発に適した [コード エディター](#a-good-editor) をインストールするといいでしょう。
+両方のコマンドがバージョン番号を印刷すれば、準備完了です! 始める前に、JavaScript 開発に適した [コード エディタ](#a-good-editor) をインストールするといいでしょう。
 
 ## Windows のセットアップ
 
@@ -30,7 +30,7 @@ npm -v
 
 インストール構成の場面では、`Node.js runtime`、`npm package manager`、`Add to PATH` オプションを選択してください。
 
-インストールを完了したら、すべて正常に動作することを確認します。 Find the Windows PowerShell by opening the Start Menu and typing `PowerShell`. `PowerShell` か別のお好みのコマンド ライン クライアントを起動して、`node` と `npm` が利用できることを確認します:
+インストールを完了したら、すべて正常に動作することを確認します。 Find the Windows PowerShell by opening the Start Menu and typing `PowerShell`. `PowerShell` か別のお好みのコマンドライン クライアントを起動して、`node` と `npm` が利用できることを確認します:
 
 ```powershell
 # このコマンドで Node.js のバージョンが印刷される必要があります
@@ -40,7 +40,7 @@ node -v
 npm -v
 ```
 
-両方のコマンドがバージョン番号を印刷すれば、準備完了です! 始める前に、JavaScript 開発に適した [コード エディター](#a-good-editor) をインストールするといいでしょう。
+両方のコマンドがバージョン番号を印刷すれば、準備完了です! 始める前に、JavaScript 開発に適した [コード エディタ](#a-good-editor) をインストールするといいでしょう。
 
 ## Linux のセットアップ
 
@@ -48,7 +48,7 @@ npm -v
 
 まず、最新バージョンの Node.js をインストールします。 あなたの Linux ディストリビューション次第で、インストール手順が異なる場合があります。 `apt` や `pacman` のようなパッケージ マネージャーを使用し通常通りにソフトウェアをインストールすると想定して、公式の [Linux 上の Node.js インストール ガイダンス](https://nodejs.org/en/download/package-manager/) を利用します。
 
-Linux を実行しているので、コマンド ライン クライアントの操作方法はすでにご存知でしょう。 お好みのクライアントを起動して `node` と `npm` がグローバルに利用できることを確認します:
+Linux を実行しているので、コマンドライン クライアントの操作方法はすでにご存知でしょう。 お好みのクライアントを起動して `node` と `npm` がグローバルに利用できることを確認します:
 
 ```sh
 # このコマンドで Node.js のバージョンが印刷される必要があります
@@ -58,10 +58,10 @@ node -v
 npm -v
 ```
 
-両方のコマンドがバージョン番号を印刷すれば、準備完了です! 始める前に、JavaScript 開発に適した [コード エディター](#a-good-editor) をインストールするといいでしょう。
+両方のコマンドがバージョン番号を印刷すれば、準備完了です! 始める前に、JavaScript 開発に適した [コード エディタ](#a-good-editor) をインストールするといいでしょう。
 
-## 好ましいエディター
+## 好ましいエディタ
 
-私たちは Electron で構築された 2 つの無料の人気エディターをお勧めするでしょう。 GitHub の [Atom](https://atom.io/) と Microsoft の [Visual Studio Code](https://code.visualstudio.com/) です。 どちらも優れた JavaScript サポートを備えています。
+私たちは Electron で構築された 2 つの無料の人気エディタをお勧めするでしょう。 GitHub の [Atom](https://atom.io/) と Microsoft の [Visual Studio Code](https://code.visualstudio.com/) です。 どちらも優れた JavaScript サポートを備えています。
 
 If you are one of the many developers with a strong preference, know that virtually all code editors and IDEs these days support JavaScript.
