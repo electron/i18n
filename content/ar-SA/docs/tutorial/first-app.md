@@ -125,34 +125,33 @@ function createWindow () {
 
 // ستتم تسمية هذه الطريقة عندما ينتهي الإلكترون
 // التهيئة وجاهز لإنشاء نوافذ المتصفح.
-// Some APIs can only be used after this event occurs.
+// لا يمكن استخدام بعض APIs إلا بعد حدوث هذا الحدث.
 app.on('ready', createWindow)
 
-// Quit when all windows are closed.
+// قم بإنهاء عند إغلاق كافة الإطارات.
 app.on('window-all-closed', () => {
-  // On macOS it is common for applications and their menu bar
-  // to stay active until the user quits explicitly with Cmd + Q
+// على macOS من الشائع للتطبيقات وشريط القوائم
+   // للبقاء نشطًا حتى يتم إنهاء المستخدم بشكل صريح باستخدام Cmd + Q
   if (process.platform !== 'darwin') {
     app.quit()
   }
 })
 
 app.on('activate', () => {
-  // On macOS it's common to re-create a window in the app when the
-  // dock icon is clicked and there are no other windows open.
+  //على macOS من الشائع إعادة إنشاء نافذة في التطبيق عندما
+  //يتم النقر فوق رمز قفص الاتهام وليس هناك نوافذ أخرى مفتوحة.
   if (win === null) {
     createWindow()
   }
 })
 
-// In this file you can include the rest of your app's specific main process
-// code. You can also put them in separate files and require them here.
+// في هذا الملف ، يمكنك تضمين بقية العملية الرئيسية المحددة لتطبيقك
+// الشفرة. يمكنك أيضًا وضعها في ملفات منفصلة وطلبها هنا.
 `</pre> 
 
-Finally the `index.html` is the web page you want to show:
+وأخيرًا ، فإن ` index.html </ 0> هي صفحة الويب التي تريد إظهارها:</p>
 
-```html
-<!DOCTYPE html>
+<pre><code class="html"><!DOCTYPE html>
 <html>
   <head>
     <meta charset="UTF-8">
@@ -165,9 +164,9 @@ Finally the `index.html` is the web page you want to show:
     and Electron <script>document.write(process.versions.electron)</script>.
   </body>
 </html>
-```
+`</pre> 
 
-## Running Your App
+## تشغيل تطبيقك
 
 Once you've created your initial `main.js`, `index.html`, and `package.json` files, you can try your app by running `npm start` from your application's directory.
 
