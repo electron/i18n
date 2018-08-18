@@ -36,10 +36,10 @@ session.defaultSession.cookies.set(cookie, (error) => {
 #### Event: 'changed'
 
 * `event` Event
-* `cookie` [Cookie](structures/cookie.md) - The cookie that was changed.
-* `cause` String - The cause of the change with one of the following values: 
-  * `explicit` - The cookie was changed directly by a consumer's action.
-  * `overwrite` - The cookie was automatically removed due to an insert operation that overwrote it.
+* `cookie` [Cookie](structures/cookie.md) - 변경된 cookie 값
+* `cause` String - 다음의 값들 중 변경된 원인 
+  * `explicit` - 사용자의 행동에 의해 cookie가 직접 변경됨.
+  * `overwrite` - 덮어쓰기에 의해 자동으로 삭제됨
   * `expired` - The cookie was automatically removed as it expired.
   * `evicted` - The cookie was automatically evicted during garbage collection.
   * `expired-overwrite` - The cookie was overwritten with an already-expired expiration date.
