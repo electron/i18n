@@ -6,7 +6,7 @@ Electron にはmacOSドック中のアプリアイコンを設定するための
 
 **ターミナルアプリのDockメニュー**
 
-![Dock Menu](https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png)
+![Dockメニュー](https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png)
 
 カスタムDockメニューをセットするためにmacOSのみに提供されている`app.dock.setMenu` APIを使用できます。
 
