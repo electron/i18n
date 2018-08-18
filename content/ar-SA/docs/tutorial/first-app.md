@@ -75,21 +75,23 @@ npm install --save-dev electron
 const electron = require('electron')
 ```
 
-The `electron` module exposes features in namespaces. As examples, the lifecycle of the application is managed through `electron.app`, windows can be created using the `electron.BrowserWindow` class. A simple `main.js` file might wait for the application to be ready and open a window:
+تعرض الوحدة النمطية ` electron </ 0> ميزات في مساحات الأسماء. كأمثلة ، دورة الحياة
+يتم إدارة التطبيق من خلال <code> electron.app </ 0> ، يمكن إنشاء النوافذ
+باستخدام فئة <code> electron.BrowserWindow </ 0>. قد ينتظر ملف <code> main.js </ 0> بسيط
+لكي يكون التطبيق جاهزًا وفتح نافذة:</p>
 
-```javascript
-const {app, BrowserWindow} = require('electron')
-
-function createWindow () {
-  // Create the browser window.
-  win = new BrowserWindow({width: 800, height: 600})
-
-  // and load the index.html of the app.
+<pre><code class="javascript">const {app, BrowserWindow} = require('electron')
+  
+  function createWindow () {
+    // إنشاء نافذة طولها 800 وعرضها 600.
+      win = new BrowserWindow({width: 800, height: 600})
+  
+    // تحميل واستدعاء الملف index.html
   win.loadFile('index.html')
 }
 
 app.on('ready', createWindow)
-```
+`</pre> 
 
 The `main.js` should create windows and handle all the system events your application might encounter. A more complete version of the above example might open developer tools, handle the window being closed, or re-create windows on macOS if the user clicks on the app's icon in the dock.
 
@@ -102,9 +104,9 @@ let win
 
 function createWindow () {
   // Create the browser window.
-  win = new BrowserWindow({width: 800, height: 600})
-
-  // and load the index.html of the app.
+      win = new BrowserWindow({width: 800, height: 600})
+  
+    // تحميل واستدعاء الملف index.html
   win.loadFile('index.html')
 
   // Open the DevTools.
