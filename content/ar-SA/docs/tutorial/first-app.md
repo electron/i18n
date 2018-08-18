@@ -44,7 +44,7 @@ npm init
 }
 ```
 
-Turning this Node application into an Electron application is quite simple - we merely replace the `node` runtime with the `electron` runtime.
+تحويل تطبيق العقدة هذا إلى تطبيق إلكتروني بسيط للغاية - نحن فقط نستبدل `node` بــ `electron` 
 
 ```json
 {
@@ -59,17 +59,17 @@ Turning this Node application into an Electron application is quite simple - we 
 
 ## تثبيت إكترون
 
-في هذه المرحلة ، ستحتاج إلى تثبيت `electron` نفسه. The recommended way of doing so is to install it as a development dependency in your app, which allows you to work on multiple apps with different Electron versions. To do so, run the following command from your app's directory:
+في هذه المرحلة ، ستحتاج إلى تثبيت `electron` نفسه. والطريقة الموصى بها للقيام بذلك هي تثبيته كإعتماد على التطوير في تطبيقك ، مما يسمح لك بالعمل على تطبيقات متعددة بنسخ إلكترون مختلفة. للقيام بذلك ، قم بتشغيل الأمر التالي من دليل التطبيق الخاص بك:
 
 ```sh
 npm install --save-dev electron
 ```
 
-Other means for installing Electron exist. Please consult the [installation guide](installation.md) to learn about use with proxies, mirrors, and custom caches.
+توجد وسائل أخرى لتثبيت الكترون. يرجى الرجوع إلى </a>دليل التثبيت للتعرف على الاستخدام مع البروكسي والتخزين المؤقت المخصص.</p> 
 
-## Electron Development in a Nutshell
+## تطوير إلكترون باختصار
 
-Electron apps are developed in JavaScript using the same principles and methods found in Node.js development. All APIs and features found in Electron are accessible through the `electron` module, which can be required like any other Node.js module:
+يتم تطوير تطبيقات الإلكترون في جافا سكريبت باستخدام نفس المبادئ والأساليب الموجودة في تطوير Node.js. يمكن الوصول إلى جميع واجهات برمجة التطبيقات والميزات الموجودة في Electron من خلال `electron` الوحدة النمطية ، والتي يمكن أن تكون مطلوبة مثل أي وحدة Node.js أخرى:
 
 ```javascript
 const electron = require('electron')
