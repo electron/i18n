@@ -89,7 +89,7 @@ MyApp.app/Contents
 
 ## パッケージツール
 
-アプリのパッケージを手動で行う代わりに、サードパーティー製の自動パッケージツールを使用できます。
+アプリのパッケージを手動で行う代わりに、サードパーティ製の自動パッケージツールを使用できます。
 
 * [electron-forge](https://github.com/electron-userland/electron-forge)
 * [electron-builder](https://github.com/electron-userland/electron-builder)
