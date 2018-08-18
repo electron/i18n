@@ -4,7 +4,7 @@ Windows i macOS umożliwiają dostęp do listy ostatnich dokumentów, którą mo
 
 **JumpList:**
 
-![JumpList ostatnie pliki](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
+![Ostatnie pliki JumpList](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
 **Dock menu:**
 
@@ -32,4 +32,4 @@ Kiedy użytkownik kliknie na plik z JumpList, nowa instancja twojej aplikacji wy
 
 ## macOS Notes
 
-Gdy żądany jest plik z listy ostatnich dokumentów (dock menu), to emitowany jest event `open-file` z modułu `app`.
+Gdy żądany jest plik z listy ostatnich dokumentów (dock menu), emitowany jest event `open-file` z modułu `app`.
