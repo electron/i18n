@@ -3,14 +3,14 @@
     "name": "Arabic",
     "code": "ar",
     "phrases": "9513",
-    "translated": "695",
+    "translated": "699",
     "approved": "0",
     "words": "87780",
-    "words_translated": "4291",
+    "words_translated": "4356",
     "words_approved": "0",
     "translated_progress": 4,
     "approved_progress": 0,
-    "qa_issues": "282"
+    "qa_issues": "285"
   },
   {
     "name": "Bulgarian",
@@ -185,10 +185,10 @@
     "name": "Korean",
     "code": "ko",
     "phrases": "9513",
-    "translated": "4208",
+    "translated": "4212",
     "approved": "339",
     "words": "87780",
-    "words_translated": "36736",
+    "words_translated": "36779",
     "words_approved": "2992",
     "translated_progress": 41,
     "approved_progress": 3,
@@ -212,13 +212,13 @@
     "code": "pl",
     "phrases": "9513",
     "translated": "3592",
-    "approved": "540",
+    "approved": "624",
     "words": "87780",
     "words_translated": "19658",
-    "words_approved": "4166",
+    "words_approved": "4876",
     "translated_progress": 22,
-    "approved_progress": 4,
-    "qa_issues": "889"
+    "approved_progress": 5,
+    "qa_issues": "856"
   },
   {
     "name": "Portuguese, Brazilian",
