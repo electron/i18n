@@ -93,36 +93,38 @@ const electron = require('electron')
 app.on('ready', createWindow)
 `</pre> 
 
-The `main.js` should create windows and handle all the system events your application might encounter. A more complete version of the above example might open developer tools, handle the window being closed, or re-create windows on macOS if the user clicks on the app's icon in the dock.
+يجب أن تقوم ` main.js </ 0> بإنشاء النوافذ والتعامل مع جميع أحداث النظام الخاصة بك
+قد يواجه التطبيق. نسخة أكثر اكتمالا من المثال أعلاه
+قد يفتح أدوات مطوري البرامج أو يعالج النافذة المغلقة أو يعاد إنشاءها
+النوافذ على نظام MacOS إذا نقر المستخدم على رمز التطبيق في قفص الاتهام.</p>
 
-```javascript
-const {app, BrowserWindow} = require('electron')
+<pre><code class="javascript">const {app، BrowserWindow} = requires ('electron')
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
+// احتفظ بمرجع عمومي لكائن النافذة ، إذا لم تفعل ، فستقوم النافذة
+// يتم إغلاقه تلقائيًا عندما يكون كائن جافا سكريبت هو جمع البيانات المهملة.
 let win
 
 function createWindow () {
-  // Create the browser window.
+   // إنشاء نافذة المتصفح.
       win = new BrowserWindow({width: 800, height: 600})
   
     // تحميل واستدعاء الملف index.html
   win.loadFile('index.html')
 
-  // Open the DevTools.
+   // افتح DevTools.
   win.webContents.openDevTools()
 
-  // Emitted when the window is closed.
+  // المنبعث عندما تكون النافذة مغلقة.
   win.on('closed', () => {
-    // Dereference the window object, usually you would store windows
-    // in an array if your app supports multi windows, this is the time
-    // when you should delete the corresponding element.
+    // Dereference الكائن نافذة ، وعادة ما يمكنك تخزين النوافذ
+    // في مصفوفة إذا كان تطبيقك يدعم النوافذ المتعددة.
+    // عندما يجب عليك حذف العنصر المقابل.
     win = null
   })
 }
 
-// This method will be called when Electron has finished
-// initialization and is ready to create browser windows.
+// ستتم تسمية هذه الطريقة عندما ينتهي الإلكترون
+// التهيئة وجاهز لإنشاء نوافذ المتصفح.
 // Some APIs can only be used after this event occurs.
 app.on('ready', createWindow)
 
@@ -145,7 +147,7 @@ app.on('activate', () => {
 
 // In this file you can include the rest of your app's specific main process
 // code. You can also put them in separate files and require them here.
-```
+`</pre> 
 
 Finally the `index.html` is the web page you want to show:
 
