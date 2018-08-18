@@ -6,7 +6,7 @@
 
 **ملاحظة**: هذا المثال متاح أيضًا كمستودع يمكنك</a> تنزيله وتشغيله على الفور .</p> 
 
-وفيما يتعلق بالتطوير ، فإن تطبيق الإلكترون هو في الأساس تطبيق Node.js. نقطة البداية `package.json ` هي مماثلة لتلك الخاصة بوحدة Node.js. سيكون للتطبيق الإلكتروني الأكثر أساسية بنية المجلد التالية:
+وفيما يتعلق بالتطوير ، فإن تطبيق الإلكترون هو في الأساس تطبيق Node.js. نقطة البداية `package.json ` هي مماثلة لتلك الخاصة بوحدة Node.js. سيكون تطبيق الإلكترون على بنية المجلد التالية:
 
 ```text
 your-app/
@@ -15,13 +15,13 @@ your-app/
 └── index.html
 ```
 
-Create a new empty folder for your new Electron application. Open up your command line client and run `npm init` from that very folder.
+أنشئ مجلدًا فارغًا جديدًا لتطبيقك الإلكتروني الجديد. و إفتح موجه الأوامر الخاص بك وقم بتشغيله و أكتب فيه ` npm init ` من هذا المجلد.
 
 ```sh
 npm init
 ```
 
-npm will guide you through creating a basic `package.json` file. The script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+سوف يرشدك npm من خلال إنشاء `package.json` في الملف الأساسي . النص البرمجي المحدد بواسطة `main` الملف الأساسي لتشغيل تطبيقك ، والذي سيشغل العملية الرئيسية. An example of your `package.json` might look like this:
 
 ```json
 {
