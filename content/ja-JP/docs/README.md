@@ -37,7 +37,7 @@
   * [カスタム Dock メニュー](tutorial/macos-dock.md)
   * [カスタム Windows タスクバー](tutorial/windows-taskbar.md)
   * [カスタム Linux デスクトップアクション](tutorial/linux-desktop-actions.md)
-  * [キーボード ショート カット](tutorial/keyboard-shortcuts.md)
+  * [キーボード ショートカット](tutorial/keyboard-shortcuts.md)
   * [オフライン/オンライン検出](tutorial/online-offline-events.md)
   * [macOS の BrowserWindow の Represented File](tutorial/represented-file.md)
   * [ネイティブなファイルのドラッグ&ドロップ](tutorial/native-file-drag-drop.md)
