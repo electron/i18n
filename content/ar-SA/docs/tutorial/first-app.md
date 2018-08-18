@@ -168,13 +168,15 @@ app.on('activate', () => {
 
 ## تشغيل تطبيقك
 
-Once you've created your initial `main.js`, `index.html`, and `package.json` files, you can try your app by running `npm start` from your application's directory.
+بمجرد إنشائك الأولية ` main.js </ 0> ، <code> index.html </ 0> ، و <code> package.json </ 0>
+الملفات ، يمكنك تجربة التطبيق الخاص بك عن طريق تشغيل <code> npm start </ 0> من التطبيق الخاص بك
+دليل.</p>
 
-## Trying this Example
+<h2>جرب هذا المثال</h2>
 
-Clone and run the code in this tutorial by using the [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) repository.
+<p>استنساخ وتشغيل الكود في هذا البرنامج التعليمي باستخدام <a href="https://github.com/electron/electron-quick-start"><code>electron/electron-quick-start`</a> repository.
 
-**Note**: Running this requires [Git](https://git-scm.com).
+** ملاحظة </ 0>: يتطلب تشغيل هذا  Git </ 1>.</p> 
 
 ```sh
 # Clone the repository
@@ -187,4 +189,4 @@ $ npm install
 $ npm start
 ```
 
-For a list of boilerplates and tools to kick-start your development process, see the [Boilerplates and CLIs documentation](./boilerplates-and-clis.md).
+للحصول على قائمة بألواح الصفيح والأدوات لبدء عملية التطوير ، راجع [Boilerplates and CLIs documentation](./boilerplates-and-clis.md).
