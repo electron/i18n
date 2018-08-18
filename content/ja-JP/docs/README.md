@@ -14,7 +14,7 @@
   * [macOS をセット アップ](tutorial/development-environment.md#setting-up-macos)
   * [Windows をセットアップ](tutorial/development-environment.md#setting-up-windows)
   * [Linux をセットアップ](tutorial/development-environment.md#setting-up-linux)
-  * [エディターの選択](tutorial/development-environment.md#a-good-editor)
+  * [エディタの選択](tutorial/development-environment.md#a-good-editor)
 * [初めてのアプリ制作](tutorial/first-app.md) 
   * [Electronのインストール](tutorial/first-app.md#installing-electron)
   * [3分くらいでわかるElectronアプリ開発](tutorial/first-app.md#electron-development-in-a-nutshell)
