@@ -45,7 +45,7 @@ Web开发人员通常享有浏览器强大的网络安全特性，而自己的�
 11. [`<webview>`: Do not use `allowpopups`](#11-do-not-use-allowpopups)
 12. [`<webview>`: Verify options and params](#12-verify-webview-options-before-creation)
 13. [Disable or limit navigation](#13-disable-or-limit-navigation)
-14. [Disable or limit creation of new windows](#13-disable-or-limit-creation-of-new-windows)
+14. [Disable or limit creation of new windows](#14-disable-or-limit-creation-of-new-windows)
 
 ## 1) 仅加载安全内容
 
