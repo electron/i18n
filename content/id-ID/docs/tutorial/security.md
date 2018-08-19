@@ -49,7 +49,7 @@ tingkatkan keamanan aplikasi Anda.</p>
 - [`<webview>`: Do not use `allowpopups`](#11-do-not-use-allowpopups)
 - [`<webview>`: Verify options and params](#12-verify-webview-options-before-creation)
 - [Disable or limit navigation](#13-disable-or-limit-navigation)
-- [Disable or limit creation of new windows](#13-disable-or-limit-creation-of-new-windows)</ol> 
+- [Disable or limit creation of new windows](#14-disable-or-limit-creation-of-new-windows)</ol> 
 
 ## 1) Hanya memuat konten aman
 
@@ -363,7 +363,8 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-Baik const mainWindow = BrowserWindow() baru
+// Good
+const mainWindow = new BrowserWindow()
 ```
 
 ## 11) Jangan Gunakan ` allowpopups </ code></h2>
