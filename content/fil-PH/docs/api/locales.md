@@ -16,7 +16,7 @@ Ang Electron ay ginagamit ang `l1On_util` library ng Chromium para makuha ang lo
 | ang bn             | Ay Bengali                 |
 | ang br             | Ay Breton                  |
 | ang bs             | Ay Bosnian                 |
-| ang ca             | Ay Catalan                 |
+| 8571ang ca         | Ay Catalan                 |
 | ang co             | Ay Corsican                |
 | ang cs             | Ay Czech                   |
 | ang cy             | Ay Welsh                   |
@@ -38,7 +38,7 @@ Ang Electron ay ginagamit ang `l1On_util` library ng Chromium para makuha ang lo
 | ang es-419         | Ay Spanish (Latin America) |
 | ang et             | Ay Estonian                |
 | ang eu             | Ay Basque                  |
-| 7951ang fa         | Ay Persian                 |
+| ang fa             | Ay Persian                 |
 | ang fi             | Ay Finnish                 |
 | ang fil            | Ay Filipino                |
 | ang fo             | Ay Faroese                 |
@@ -107,7 +107,7 @@ Ang Electron ay ginagamit ang `l1On_util` library ng Chromium para makuha ang lo
 | ang sd             | Ay Sindhi                  |
 | ang sh             | Ay Serbo-Croatian          |
 | ang si             | Ay Sinhalese               |
-| 4423ang sk         | Ay Slovak                  |
+| 8586ang sk         | Ay Slovak                  |
 | ang sl             | Ay Slovenian               |
 | ang sn             | Ay Shona                   |
 | ang so             | Ay Somali                  |
