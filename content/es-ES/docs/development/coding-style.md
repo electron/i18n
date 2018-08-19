@@ -4,7 +4,7 @@ Estas son las pautas de estilo para la codificación en Electron.
 
 Para mostrar los problemas de estilo detectados por `cpplint` y `eslint`, puede ejecutar `npm run lint`.
 
-## General Code
+## Código general
 
 * End files with a newline.
 * Place requires in the following order: 
@@ -13,7 +13,7 @@ Para mostrar los problemas de estilo detectados por `cpplint` y `eslint`, puede 
   * Local Modules (using relative paths)
 * Place class properties in the following order: 
   * Class methods and properties (methods starting with a `@`)
-  * Instance methods and properties
+  * Instancia métodos y propiedades
 * Avoid platform-dependent code: 
   * Use `path.join()` to concatenate filenames.
   * Use `os.tmpdir()` rather than `/tmp` when you need to reference the temporary directory.
