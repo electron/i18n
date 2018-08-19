@@ -10,7 +10,7 @@ With that in mind, be aware that displaying arbitrary content from untrusted sou
 
 For information on how to properly disclose an Electron vulnerability, see [SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md)
 
-## Bezpieczeństwa i uaktualnienia Chrominum
+## Problemy z Bezpieczeństwem i Aktualizacje Chromium
 
 While Electron strives to support new versions of Chromium as soon as possible, developers should be aware that upgrading is a serious undertaking - involving hand-editing dozens or even hundreds of files. Given the resources and contributions available today, Electron will often not be on the very latest version of Chromium, lagging behind by several weeks or a few months.
 
@@ -45,7 +45,7 @@ This is not bulletproof, but at the least, you should follow these steps to impr
 11. [`<webview>`: Do not use `allowpopups`](#11-do-not-use-allowpopups)
 12. [`<webview>`: Verify options and params](#12-verify-webview-options-before-creation)
 13. [Disable or limit navigation](#13-disable-or-limit-navigation)
-14. [Disable or limit creation of new windows](#13-disable-or-limit-creation-of-new-windows)
+14. [Disable or limit creation of new windows](#14-disable-or-limit-creation-of-new-windows)
 
 ## 1) Only Load Secure Content
 
