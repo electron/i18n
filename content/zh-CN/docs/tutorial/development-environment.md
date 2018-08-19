@@ -30,7 +30,7 @@ npm -v
 
 在安装过程中的配置界面, 请勾选`Node.js runtime`、`npm package manager`和`Add to PATH`这三个选项。
 
-安装完成后，我们需要来确认Node.js是不是可以正常工作。 Find the Windows PowerShell by opening the Start Menu and typing `PowerShell`. 打开`PowerShell`或其他你喜欢的命令行客户端后，通过以下命令来确认 `node` 和 `npm`已经安装成功：
+安装完成后，我们需要来确认Node.js是不是可以正常工作。 点击 开始 按钮，输入`PowerShell`，找到Windows PowerShell。 打开`PowerShell`或其他你喜欢的命令行客户端后，通过以下命令来确认 `node` 和 `npm`已经安装成功：
 
 ```powershell
 # 下面这行的命令会打印出Node.js的版本信息
