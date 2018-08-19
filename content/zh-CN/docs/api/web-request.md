@@ -101,7 +101,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
   * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。
 * `listener` Function
 
-当HTTP请求得到相应头后，会通过调用 `listener(details, callback)`方法来触发`listener`。
+当HTTP请求接收到报头后，会通过调用 `listener(details, callback)`方法来触发`listener`。
 
 * `details` Object 
   * `id` Integer
@@ -116,7 +116,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 * `callback` Function - 回调函数 
   * `response` Object 
     * `cancel` Boolean
-    * `responseHeaders` Object (optional) - When provided, the server is assumed to have responded with these headers.
+    * ` responseHeaders ` Object (可选) - 当提供时，将使用这些报头处理返回。
     * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
 
 必须使用 `response` 对象调用` callback `。
