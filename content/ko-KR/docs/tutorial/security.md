@@ -46,7 +46,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     - [`<webview>`: Do not use `allowpopups`](#11-do-not-use-allowpopups)
     - [`<webview>`: Verify options and params](#12-verify-webview-options-before-creation)
     - [Disable or limit navigation](#13-disable-or-limit-navigation)
-    - [Disable or limit creation of new windows](#13-disable-or-limit-creation-of-new-windows)</ol> 
+    - [Disable or limit creation of new windows](#14-disable-or-limit-creation-of-new-windows)</ol> 
     
     ## 1) 안전한 콘텐츠만 로드하세요.
     
