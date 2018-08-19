@@ -101,7 +101,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
   * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。
 * `listener` Function
 
-The `listener` will be called with `listener(details, callback)` when HTTP response headers of a request have been received.
+当HTTP请求得到相应头后，会通过调用 `listener(details, callback)`方法来触发`listener`。
 
 * `details` Object 
   * `id` Integer
