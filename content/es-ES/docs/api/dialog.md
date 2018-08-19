@@ -1,8 +1,8 @@
 # dialog
 
-> Mostrar diálogos del sistema nativo para abrir y salvar archivos, alertas, etc.
+> Mostrar diálogos nativos del sistema para abrir y guardar archivos, alertas, etc.
 
-Process: [Main](../glossary.md#main-process)
+Proceso: [Principal](../glossary.md#main-process)
 
 Un ejemplo de mostrar un cuadro de diálogo para seleccionar múltiples archivos y directorios:
 
