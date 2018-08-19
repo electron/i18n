@@ -120,7 +120,7 @@ MyApp.app/Contents
 3. 设置以下环境变量：
 
 * `ELECTRON_GITHUB_TOKEN` - 一个在 GitHub 创建版本的 token
-* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload Node.js headers as well as symbols
+* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - 你将要上传的 Node.js 的 headers 以及 symbols 的位置
 * `ELECTRON_RELEASE` - 设置为 `true`，上传部分将运行，不设置 和 `surf-build` 只是做 CI-type 的检查，它只在每次发起拉取请求时运行。
 * `CI` - 设置为 `true` ，否则无效
 * `GITHUB_TOKEN` - 设置为与 `ELECTRON_GITHUB_TOKEN` 相同
