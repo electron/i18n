@@ -2,11 +2,11 @@
 
 > 打开一个无工具栏、边框、和其它图形化外壳的窗口。
 
-无边框窗口它不是完整的谷歌浏览器窗口，它只是窗口的一部分，像工具栏，它不是网页的一个部分 这些是 [` BrowserWindow`](browser-window.md) 类上的选项。
+无边框窗口是不带[外壳](https://developer.mozilla.org/en-US/docs/Glossary/Chrome)（包括窗口边框、工具栏等），只含有网页内容的窗口。 这些是 [` BrowserWindow`](browser-window.md) 类上的选项。
 
-## 创建无框窗口
+## 创建无边框窗口
 
-要创建无框窗口, 需要在 [ BrowserWindow ](browser-window.md) 的 ` options ` 中将 ` frame ` 设置为 ` false `:
+要创建无边框窗口，只需在 [ BrowserWindow ](browser-window.md) 的 ` options ` 中将 ` frame ` 设置为 ` false `：
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -14,9 +14,9 @@ let win = new BrowserWindow({width: 800, height: 600, frame: false})
 win.show()
 ```
 
-### MacOS 上的替代方案
+### macOS 上的其他方案
 
-在 macOS 10.9 Mavericks and newer, 有另一种方式来指定无窗口。 用禁用标题栏和窗口控件来代替将 ` frame ` 设置为 ` false `, you may want to have the title bar hidden and your content extend to the full window size ，但仍保留窗口控件 ("红绿灯") 作为标准窗口操作。 您可以通过指定 ` titleBarStyle ` 选项来完成此操作:
+在 macOS 10.9 Mavericks 及更新的版本中，有另一种方式来指定无边框窗口。 用禁用标题栏和窗口控件来代替将 ` frame ` 设置为 ` false `, you may want to have the title bar hidden and your content extend to the full window size ，但仍保留窗口控件 ("红绿灯") 作为标准窗口操作。 您可以通过指定 ` titleBarStyle ` 选项来完成此操作:
 
 #### `hidden`
 
