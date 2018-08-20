@@ -352,19 +352,19 @@ app.exit(0)
 
 ### `app.focus()`
 
-On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
+Linux에서는, visible상태인 윈도우 중 첫번째 창에 focus를 줍니다. macOS에서는 해당 일렉트론 애플리케이션 활성화합니다. Windows에서는 해당 일렉트론 애플리케이션 첫번째 윈도우에 focus를 줍니다.
 
 ### `app.hide()` *macOS*
 
-Hides all application windows without minimizing them.
+모든 애플리케이션의 창을 최소화하지 않고 숨깁니다.
 
 ### `app.show()` *macOS*
 
-Shows application windows after they were hidden. Does not automatically focus them.
+애플리케이션의 숨겨진 윈도우를 다시 보이도록 합니다. 자동으로 창이 포커스되지는 않습니다.
 
 ### `app.getAppPath()`
 
-Returns `String` - The current application directory.
+`String`을 반환 - 현재 애플리케이션 디렉토리.
 
 ### `app.getPath(name)`
 
