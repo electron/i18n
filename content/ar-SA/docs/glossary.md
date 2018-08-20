@@ -56,7 +56,7 @@
 
 <h3>Mojo</h3>
 
-<p>An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.</p>
+<p>نظام IPC للتواصل داخل أو أثناء العملية ، وهذا أمر مهم لأن Chrome حريص على قدرته على تقسيم عمله إلى عمليات منفصلة أو لا ، اعتمادًا على ضغوط الذاكرة وما إلى ذلك.</p>
 
 <p>أنظر https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md</p>
 
