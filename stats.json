@@ -3,14 +3,14 @@
     "name": "Arabic",
     "code": "ar",
     "phrases": "9513",
-    "translated": "817",
+    "translated": "820",
     "approved": "0",
     "words": "87781",
-    "words_translated": "5575",
+    "words_translated": "5615",
     "words_approved": "0",
     "translated_progress": 6,
     "approved_progress": 0,
-    "qa_issues": "342"
+    "qa_issues": "344"
   },
   {
     "name": "Bulgarian",
