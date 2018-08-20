@@ -69,7 +69,7 @@ win.show()
 
 ## 点击穿透窗口
 
-要创建一个点击穿透窗口, 例如：使窗口忽略所有鼠标事件, 可以调用 [ win. setIgnoreMouseEvents (ignore) ](browser-window.md#winsetignoremouseeventsignore) API:
+要创建一个点击穿透窗口，也就是使窗口忽略所有鼠标事件，可以调用 [ win.setIgnoreMouseEvents(ignore) ](browser-window.md#winsetignoremouseeventsignore) API：
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -96,7 +96,7 @@ el.addEventListener('mouseleave', () => {
 
 ## 可拖拽区
 
-默认情况下, 无框窗口是 non-draggable 的。 应用程序需要指定 `-webkit-app-region: drag` 在 CSS 中告诉Electron哪个区域是可拖拽的 (像 OS 的标准标题栏), 并且应用程序也可以使用 ` -webkit-app-region: no-drag ` 来排除 draggable region 中的 non-draggable 区域。 请注意, 当前只支持矩形形状。
+默认情况下, 无边框窗口是不可拖拽的。 应用程序需要在 CSS 中指定 `-webkit-app-region: drag` 来告诉 Electron 哪些区域是可拖拽的（如操作系统的标准标题栏），在可拖拽区域内部使用 ` -webkit-app-region: no-drag ` 则可以将其中部分区域排除。 请注意, 当前只支持矩形形状。
 
 注意: `-webkit-app-region: drag ` 在开发人员工具打开时会出现问题。 查看更多信息 (包括变通方法), 请参见此 [ GitHub 问题 ](https://github.com/electron/electron/issues/3647)。
 
@@ -107,7 +107,7 @@ el.addEventListener('mouseleave', () => {
 </body>
 ```
 
-请注意, 如果您已使整个窗口draggable, 则必须将按钮标记为 non-draggable, 否则用户将无法单击它们:
+请注意，如果您使整个窗口都可拖拽，则必须将其中的按钮标记为不可拖拽，否则用户将无法点击它们：
 
 ```css
 button {
@@ -115,7 +115,7 @@ button {
 }
 ```
 
-如果你设置自定义标题栏为 draggable, 你也需要标题栏中所有的按钮都设为 non-draggable。
+如果您只是将自定义标题栏区域设置为可拖拽，则其中的按钮也需被标记为不可拖拽。
 
 ## 文本选择
 
