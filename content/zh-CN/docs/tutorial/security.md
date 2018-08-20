@@ -259,7 +259,7 @@ Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 
 ### CSP HTTP头
 
-Electron respects the [`Content-Security-Policy` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) which can be set using Electron's [`webRequest.onHeadersReceived`](../api/web-request.md#webrequestonheadersreceivedfilter-listener) handler:
+Electron 会处理 [`Content-Security-Policy` HTTP 标头](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy)，它可以在 [`webRequest.onHeadersReceived`](../api/web-request.md#webrequestonheadersreceivedfilter-listener) 中进行设置：
 
 ```javascript
 const {session} = require('electron')
@@ -271,7 +271,7 @@ session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
 
 ### CSP元标签
 
-CSP's preferred delivery mechanism is an HTTP header. It can be useful, however, to set a policy on a page directly in the markup using a `<meta>` tag:
+CSP 建议的传送机制是通过 HTTP 标头。但也可以在页面上直接使用 `<meta>` 标签来设置内容安全策略：
 
 ```html
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'">
@@ -292,7 +292,7 @@ CSP's preferred delivery mechanism is an HTTP header. It can be useful, however,
 ### 怎么做？
 
 ```js
-// ESLint 对任何形式的eval()调用都会产生警告, 包括下面代码
+// ESLint 对任何形式的 eval() 引用都会产生警告，甚至包括以下代码
 // eslint-disable-next-line
 window.eval = global.eval = function () {
   throw new Error(`Sorry, this app does not support window.eval().`)
@@ -331,7 +331,7 @@ const mainWindow = new BrowserWindow({})
 
 *Electron的默认值即是建议值。*
 
-Advanced users of Electron can enable experimental Chromium features using the `experimentalFeatures` property.
+Electron 的熟练用户可以通过 ` experimentalFeatures` 属性来启用 Chromium 实验性功能。
 
 ### 为什么？
 
