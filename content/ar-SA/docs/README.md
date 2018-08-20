@@ -42,7 +42,7 @@
   * [Represented File for macOS BrowserWindows](tutorial/represented-file.md)
   * [Native File Drag & Drop](tutorial/native-file-drag-drop.md)
 * [Accessibility](tutorial/accessibility.md) 
-  * [Spectron](tutorial/accessibility.md#spectron)
+  * [سبيكترون](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [Enabling Accessibility](tutorial/accessibility.md#enabling-accessibility)
 * [Testing and Debugging](tutorial/application-debugging.md) 
