@@ -370,11 +370,11 @@ Linux에서는, visible상태인 윈도우 중 첫번째 창에 focus를 줍니�
 
 * `name` String
 
-Returns `String` - A path to a special directory or file associated with `name`. On failure an `Error` is thrown.
+`String` 반환 - `name`과 관련된 특정한 디렉토리 또는 연관된 파일까지의 경로. 실패 시 `Error`를 발생시킵니다.
 
-You can request the following paths by the name:
+아래와 같은 경로를 name에 넣어 함수를 호출할 수 있습니다.
 
-* `home` User's home directory.
+* `home` 유저의 home 디렉토리.
 * `appData` Per-user application data directory, which by default points to: 
   * `%APPDATA%` on Windows
   * `$XDG_CONFIG_HOME` or `~/.config` on Linux
