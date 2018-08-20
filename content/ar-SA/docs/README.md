@@ -81,7 +81,7 @@
   * [فروع التثبيت](tutorial/electron-versioning.md#stabilization-branches)
   * [إصدارات بيتا وإصلاحات الأخطاء](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
 * [بالتفاصيل: رمز مصدر تطبيق Packaging مع asar](tutorial/application-packaging.md) 
-  * [Generating asar Archives](tutorial/application-packaging.md#generating-asar-archives)
+  * [توليد ملفات asar](tutorial/application-packaging.md#generating-asar-archives)
   * [Using asar Archives](tutorial/application-packaging.md#using-asar-archives)
   * [Limitations](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Adding Unpacked Files to asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
