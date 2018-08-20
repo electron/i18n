@@ -368,7 +368,7 @@ Linux에서는, visible상태인 윈도우 중 첫번째 창에 focus를 줍니�
 
 ### `app.getPath(name)`
 
-* PrinterInfo Object
+* `name` String
 
 Returns `String` - A path to a special directory or file associated with `name`. On failure an `Error` is thrown.
 
