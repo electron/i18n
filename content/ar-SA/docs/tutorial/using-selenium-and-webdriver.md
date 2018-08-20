@@ -13,7 +13,7 @@ $ npm install --save-dev spectron
 ```
 
 ```javascript
-// A simple test to verify a visible window is opened with a title
+// يتم فتح اختبار بسيط للتحقق من نافذة مرئية بعنوان
 var Application = require('spectron').Application
 var assert = require('assert')
 
@@ -22,22 +22,22 @@ var app = new Application({
 })
 
 app.start().then(function () {
-  // Check if the window is visible
+  // تحقق مما إذا كانت النافذة مرئية
   return app.browserWindow.isVisible()
 }).then(function (isVisible) {
-  // Verify the window is visible
+ // تحقق من أن النافذة مرئية
   assert.equal(isVisible, true)
 }).then(function () {
-  // Get the window's title
+ // احصل على عنوان النافذة
   return app.client.getTitle()
 }).then(function (title) {
-  // Verify the window's title
+  // تحقق من عنوان النافذة
   assert.equal(title, 'My App')
 }).catch(function (error) {
-  // Log any failures
+// قم بتسجيل أي إخفاقات
   console.error('Test failed', error.message)
 }).then(function () {
-  // Stop the application
+  // أوقف التطبيق
   return app.stop()
 })
 ```
