@@ -374,19 +374,19 @@ Linux에서는, visible상태인 윈도우 중 첫번째 창에 focus를 줍니�
 
 아래와 같은 경로를 name에 넣어 함수를 호출할 수 있습니다.
 
-* `home` 유저의 home 디렉토리.
-* `appData` Per-user application data directory, which by default points to: 
-  * `%APPDATA%` on Windows
-  * `$XDG_CONFIG_HOME` or `~/.config` on Linux
-  * `~/Library/Application Support` on macOS
-* `userData` The directory for storing your app's configuration files, which by default it is the `appData` directory appended with your app's name.
-* `temp` Temporary directory.
-* `exe` The current executable file.
-* `module` The `libchromiumcontent` library.
-* `desktop` The current user's Desktop directory.
-* `documents` Directory for a user's "My Documents".
-* `downloads` Directory for a user's downloads.
-* `music` Directory for a user's music.
+* `home` User의 home 디렉토리.
+* `appData` /user 의 Application Data 디렉토리. 기본적으로 아래와 같은 경로를 가리킵니다: 
+  * Windows에서 `%APPDATA%`
+  * Linux에서 `$XDG_CONFIG_HOME` 또는 `~/.config`
+  * macOS에서 `~/Library/Application Support`
+* `userData` 기본적으로 `appData` 뒤에 어플리케이션의 이름이 붙은 형태인, 앱의 설정 파일을 저장할 디렉토리입니다.
+* `temp` Temp 디렉토리의 경로
+* `exe` 현재 실행파일의 경로.
+* `module` `libchromiumcontent` 라이브러리.
+* `desktop` 현재 User의 Desktop 경로.
+* `documents` User의 "My Documents" 폴더 경로.
+* `downloads` User의 downloads 폴더 경로.
+* `music` User의 music 폴더 경로.
 * `pictures` Directory for a user's pictures.
 * `videos` Directory for a user's videos.
 * `logs` Directory for your app's log folder.
