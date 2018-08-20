@@ -59,7 +59,7 @@ npm будет вести вас на протяжении создания ба
 
 ## Установка Electron
 
-Сейчас вам нужно будет установить сам `electron`. Рекомендуемым для этого путем является его установка вкачестве зависимости в вашем приложении, что позволяет вам работать с многими приложениями, используя разные версии Electron'а. Для этого вам нужно запустить следующую команду из директории вашего приложения:
+Сейчас вам нужно будет установить сам `electron`. Рекомендуемым для этого путем является его установка в качестве зависимости в вашем приложении, что позволяет вам работать с многими приложениями, используя разные версии Electron. Для этого вам нужно запустить следующую команду из директории вашего приложения:
 
 ```sh
 npm install --save-dev electron
@@ -69,22 +69,22 @@ npm install --save-dev electron
 
 ## Разработка Electron в двух словах
 
-Electron apps are developed in JavaScript using the same principles and methods found in Node.js development. Все особенности API и сам API Electron'а доступен через `electron` модуль, который может быть использован как и любой Node.js модуль:
+Разработка Electron приложения ведется на JavaScript, при использовании тех же принципов и методов, которые можно найти в разработке на Node.js. Все особенности API и сам API Electron'а доступен через `electron` модуль, который может быть использован как и любой Node.js модуль:
 
 ```javascript
 const electron = require('electron')
 ```
 
-Модуль `electron` предоставляет специальные особенности в пространство имен(namespaces). Например жизненный цикл приложения контролируется через `electron.app`, окна могут быть созданны пр использовании класса `electron.BrowserWindow`. A simple `main.js` file might wait for the application to be ready and open a window:
+Модуль `electron` предоставляет специальные особенности в пространство имен(namespaces). Например жизненный цикл приложения контролируется через `electron.app`, окна могут быть созданны пр использовании класса `electron.BrowserWindow`. Простой файл `main.js` может просто ждать пока приложение не будет готово и после этого открыть окно приложения:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
 
 function createWindow () {
-  // Create the browser window.
+  // Создаем окно браузера.
   win = new BrowserWindow({width: 800, height: 600})
 
-  // и загрузит index.html приложение.
+  // и загружаем index.html нашего приложения.
   win.loadFile('index.html')
 }
 
@@ -96,21 +96,21 @@ app.on('ready', createWindow)
 ```javascript
 const {app, BrowserWindow} = require('electron')
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
+// Храните глобальную ссылку на объект окна, если вы этого не сделаете, окно будет
+// автоматически закрываться, когда объект JavaScript собирает мусор.
 let win
 
 function createWindow () {
   // Создаёт окно браузера.
   win = new BrowserWindow({width: 800, height: 600})
 
-  // и загрузит index.html приложение.
+  // и загружает index.html приложения.
   win.loadFile('index.html')
 
-  // Open the DevTools.
+  // Открыть средства разработчика.
   win.webContents.openDevTools()
 
-  // Возникает, когда окно будет закрыто.
+  // Вызывается, когда окно будет закрыто.
   win.on('closed', () => {
     // Разбирает объект окна, обычно вы можете хранить окна     
     // в массиве, если ваше приложение поддерживает несколько окон в это время,
