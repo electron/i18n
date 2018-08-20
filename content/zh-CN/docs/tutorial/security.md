@@ -45,7 +45,7 @@ Web开发人员通常享有浏览器强大的网络安全特性，而自己的�
 11. [`<webview>`：不要使用 `allowpopups `](#11-do-not-use-allowpopups)
 12. [`<webview>`：验证选项与参数](#12-verify-webview-options-before-creation)
 13. [禁用或限制网页跳转](#13-disable-or-limit-navigation)
-14. [Disable or limit creation of new windows](#14-disable-or-limit-creation-of-new-windows)
+14. [禁用或限制新窗口创建](#14-disable-or-limit-creation-of-new-windows)
 
 ## 1) 仅加载安全内容
 
@@ -61,24 +61,24 @@ Web开发人员通常享有浏览器强大的网络安全特性，而自己的�
 
 ```js
 // 不推荐
-browserWindow loadURL (' http://我的网站. com ')
+browserWindow.loadURL ('http://my-website.com')
 // 推荐 
-browserWindow. loadURL (' https://我的网站. com ')
+browserWindow.loadURL ('https://my-website.com')
 ```
 
 ```html
-<!-- Bad -->
+<!-- 不推荐 -->
 <script crossorigin src="http://cdn.com/react.js"></script>
 <link rel="stylesheet" href="http://cdn.com/style.css">
 
-<!-- Good -->
+<!-- 推荐 -->
 <script crossorigin src="https://cdn.com/react.js"></script>
 <link rel="stylesheet" href="https://cdn.com/style.css">
 ```
 
 ## 2) 禁止Node.js集成远程内容
 
-It is paramount that you disable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) that loads remote content. 其目的是限制您授予远程内容的权限, 从而使攻击者在您的网站上执行 JavaScript 时更难伤害您的用户。
+加载远程内容时，不论是使用[`BrowserWindow`](../api/browser-window.md)，[`BrowserView`](../api/browser-view.md) 还是 [`<webview>`](../api/webview-tag.md)，首要任务都是禁用 Node.js 集成。 其目的是限制您授予远程内容的权限, 从而使攻击者在您的网站上执行 JavaScript 时更难伤害您的用户。
 
 在此之后，你可以为指定的主机授予附加权限。 举例来说，如果你正在打开一个指向 "https://my-website.com/" 的 BrowserWindow，你可以给它正好所需的权限，无需再多。
 
@@ -159,16 +159,14 @@ const mainWindow = new BrowserWindow({
 // 在页面加载前设置变量
 webFrame.executeJavaScript('window.foo = "foo";')
 
-// The loaded page will not be able to access this, it is only available
-// in this context
+// 这个变量仅限于当前上下文，被加载的页面将无权访问
 window.bar = 'bar'
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Will log out 'undefined' since window.foo is only available in the main
-  // context
+  // 结果为 'undefined'，因为 window.foo 仅在主上下文中可用
   console.log(window.foo)
 
-  // Will log out 'bar' since window.bar is available in this context
+  // 结果为 'bar'，因为 window.bar 定义在本上下文中
   console.log(window.bar)
 })
 ```
@@ -209,9 +207,9 @@ session
 
 *Electron的默认值即是建议值。*
 
-You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) disables crucial security features.
+在渲染进程（[`BrowserWindow`](../api/browser-window.md)、[`BrowserView`](../api/browser-view.md) 和 [`<webview>`](../api/webview-tag.md)）中禁用 `webSecurity` 将导致至关重要的安全性功能被关闭。
 
-不要再生产环境中禁用`webSecurity`
+不要在生产环境中禁用`webSecurity`。
 
 ### 为什么？
 
