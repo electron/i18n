@@ -16,11 +16,11 @@ win.show()
 
 ### macOS 上的其他方案
 
-在 macOS 10.9 Mavericks 及更新的版本中，有另一种方式来指定无边框窗口。 用禁用标题栏和窗口控件来代替将 ` frame ` 设置为 ` false `, you may want to have the title bar hidden and your content extend to the full window size ，但仍保留窗口控件 ("红绿灯") 作为标准窗口操作。 您可以通过指定 ` titleBarStyle ` 选项来完成此操作:
+在 macOS 10.9 Mavericks 及更新的版本中，有另一种方式来指定无边框窗口。 通过将 ` frame ` 设置为 ` false ` 得到的窗口在隐藏标题栏的同时也隐藏了窗口控制按钮（俗称“红绿灯”），而有时我们希望保留控制按钮以便对窗口进行操作，同时使内容扩充到整个窗口。 您可以通过指定 ` titleBarStyle ` 选项来完成此操作：
 
 #### `hidden`
 
-返回一个隐藏标题栏的全尺寸内容窗口，在标题栏的左上角仍然有标准的窗口控件(“交通灯”)。
+返回一个隐藏标题栏的全尺寸内容窗口，在左上角仍然有标准的窗口控制按钮（俗称“红绿灯”）。
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -30,7 +30,7 @@ win.show()
 
 #### `hiddenInset`
 
-返回一个隐藏了标题栏且可以选择外观的窗口，交通灯按钮在窗口边缘的内测
+返回一个另一种隐藏了标题栏的窗口，其中控制按钮到窗口边框的距离更大。
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -67,7 +67,7 @@ win.show()
 * 在 linux 上, 用户必须在命令行中设置 `--enable-transparent-visuals --disable-gpu ` 来禁用GPU, 启用 ARGB，用以实现窗体透明。 这是由一个上游的 bug 导致的, 即 [ 在Linux机上，透明度通道（alpha channel ）在一些英伟达的驱动（NVidia drivers）中无法运行](https://code.google.com/p/chromium/issues/detail?id=369209)。
 * 在 Mac 上, 原生窗口阴影不会在透明窗口中显示。
 
-## 点击穿透 window
+## 点击穿透窗口
 
 要创建一个点击穿透窗口, 例如：使窗口忽略所有鼠标事件, 可以调用 [ win. setIgnoreMouseEvents (ignore) ](browser-window.md#winsetignoremouseeventsignore) API:
 
