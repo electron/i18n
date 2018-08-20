@@ -120,22 +120,22 @@ function createWindow () {
 }
 
 // Этот метод будет вызываться, когда Electron закончит 
-// инициализацию и готова к созданию окон браузера.
+// инициализацию и готов к созданию окон браузера.
 // Некоторые интерфейсы API могут использоваться только после возникновения этого события.
 app.on('ready', createWindow)
 
 // Выйти, когда все окна будут закрыты.
 app.on('window-all-closed', () => {
-  // На macOS это обычно для приложений и их строки меню   
-  // оставаться активным до тех пор, пока пользователь не выйдет явно с помощью Cmd + Q
+  // Оставаться активным до тех пор, пока пользователь не выйдет полностью с помощью Cmd + Q,
+  // это обычное дело для приложений и их строки меню на macOS
   if (process.platform !== 'darwin') {
     app.quit()
   }
 })
 
 app.on('activate', () => {
-   // На MacOS это общее для того чтобы создать окно в приложении, когда значок 
-   // dock нажали и нет других открытых окон.
+   // На MacOS обычно пересоздают окно в приложении,
+   // после того, как на иконку в доке нажали, и других открытых окон нету.
   if (win === null) {
     createWindow()
   }
@@ -155,8 +155,8 @@ app.on('activate', () => {
     <title>Hello World!</title>
   </head>
   <body>
-    <h1>Hello World!</h1>
-    Мы используем node <script> document.write (process.versions.node)</script>,
+    <h1>Привет мир!</h1>
+    Мы используем Node <script> document.write (process.versions.node)</script>,
     Chrome <script>document.write (process.versions.chrome)</script>,
     и Electron<script>document.write (process.versions.electron)</script>.
   </body>
