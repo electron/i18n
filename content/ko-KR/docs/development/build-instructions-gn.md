@@ -4,7 +4,7 @@
 
 > **노트**: GN 빌드 시스템은 *실험적인* 기능입니다.
 
-## 빌드전 요구 사양
+## Platform prerequisites
 
 더 진행하기 전에 플랫폼에 따른 요구 사양을 미리 확인하십시오.
 
@@ -12,25 +12,34 @@
 - [Linux](build-instructions-linux.md#prerequisites)
 - [Windows](build-instructions-windows.md#prerequisites)
 
-## `depot_tools` 설치하기
+## GN prerequisites
 
 [`depot_tools`](http://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up)를 설치해야합니다. <0>depot_tools</0>는 Chromium과 필요 요구사양을 가져오는데 사용하는 도구모음입니다.
 
 윈도우 환경에서는 `DEPOT_TOOLS_WIN_TOOLCHAIN=0` 환경 변수를 지정해주어야 합니다. `제어판`→`시스템과 보안`→`시스템`→`고급 시스템 설정`으로 이동합니다. 환경 변수... 버튼을 클릭하고 `DEPOT_TOOLS_WIN_TOOLCHAIN` 환경 변수를 `0` 값으로 설정합니다. 이렇게 하면 `depot_tools`가 로컬에 설정된 버전의 비주얼 스튜디오를 사용하게 됩니다. (기본값으로 `depot_tools`는 구글 내부에서 사용하는 비주얼 스튜디오 버전을 다운로드를 시도합니다.)
 
-## 코드 가져오기
+## Cached builds (optional step)
 
-### Using a Git cache (optional step)
+### GIT_CACHE_PATH
 
-`gclient` fetches about 16G worth of repository data. If you plan on building more than once, consider using its cache feature to make future calls faster:
+If you plan on building Electron more than once, adding a git cache will speed up subsequent calls to `gclient`. To do this, set a `GIT_CACHE_PATH` environment variable:
 
 ```sh
-$ export GIT_CACHE_PATH="$HOME/.git_cache"
-$ mkdir -p "$GIT_CACHE_PATH"
-# This will take about 16G.
+$ export GIT_CACHE_PATH="${HOME}/.git_cache"
+$ mkdir -p "${GIT_CACHE_PATH}"
+# This will use about 16G.
 ```
 
-### Getting the code with gclient
+### sccache
+
+Thousands of files must be compiled to build Chromium and Electron. You can avoid much of the wait by reusing Electron CI's build output via [sccache](https://github.com/mozilla/sccache). This requires some optional steps (listed below) and these two environment variables:
+
+```sh
+export SCCACHE_BUCKET="electronjs-sccache"
+export SCCACHE_TWO_TIER=true
+```
+
+## Getting the code
 
 ```sh
 $ mkdir electron-gn && cd electron-gn
@@ -47,7 +56,9 @@ $ gclient sync --with_branch_heads --with_tags
 ```sh
 $ cd src
 $ export CHROMIUM_BUILDTOOLS_PATH=`pwd`/buildtools
-$ gn gen out/Default --args='import("//electron/build/args/debug.gn")'
+# this next line is needed only if building with sccache
+$ export GN_EXTRA_ARGS="${GN_EXTRA_ARGS} cc_wrapper=\"${PWD}/electron/external_binaries/sccache\""
+$ gn gen out/Default --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_ARGS"
 ```
 
 이 명령어는 `src`폴더 아래에 디버그 빌드 설정을 사용해서 `out/Default` 빌드 디렉토리를 생성합니다. 여기에서 `Default`는 원하는 이름으로 바꾸어도 됩니다. 하지만 반드시 `out`의 하위 디렉토리여야 합니다. 또한 `gn gen`을 또 다시 실행하지 않도록 주의하십시오.—빌드 args를 바꾸고 싶은 경우, `gn args out/Default`를 사용해서 에디터를 실행해서 바꾸십시오.
@@ -57,13 +68,13 @@ $ gn gen out/Default --args='import("//electron/build/args/debug.gn")'
 **Electron의 디버그("component" 또는 "shared") 빌드 설정을 생성하려면 이 명령어를 실행하십시오:**
 
 ```sh
-$ gn gen out/Default --args='import("//electron/build/args/debug.gn")'
+$ gn gen out/Default --args='import("//electron/build/args/debug.gn") $GN_EXTRA_ARGS'
 ```
 
 **Electron의 배포("non-component" 또는 "static") 빌드 설정을 생성하려면 이 명령어를 실행하십시오:**
 
 ```sh
-$ gn gen out/Default --args='import("//electron/build/args/release.gn")'
+$ gn gen out/Default --args="import(\"//electron/build/args/release.gn\") $GN_EXTRA_ARGS"
 ```
 
 **빌드를 시작하려면 `electron:electron_app` 타겟으로 `ninja` 명령어를 실행하십시오.**
