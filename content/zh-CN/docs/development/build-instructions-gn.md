@@ -2,11 +2,11 @@
 
 可以参考以下方法来运用实验中的GN方式来构建Electron程序。
 
-> **NOTE**: The GN build system is in *experimental* status.
+> **注意**: GN构建方式尚处于实验阶段。
 
 ## 基本要求
 
-Check the build prerequisites for your platform before proceeding
+各个平台所对应的构建要求如下：
 
 - [macOS](build-instructions-osx.md#prerequisites)
 - [Linux](build-instructions-linux.md#prerequisites)
