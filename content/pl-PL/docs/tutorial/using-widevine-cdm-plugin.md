@@ -1,6 +1,6 @@
 # Używanie Pluginu Widevine CDM
 
-Elektron pozwala Ci na wykorzystanie pluginu Widevine CDM dostarczonego z przeglądarką Chrome (chromium).
+Elektron pozwala Ci na wykorzystanie pluginu Widevine CDM dostarczonego z przeglądarką Chrome.
 
 ## Getting the plugin
 
