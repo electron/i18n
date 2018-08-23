@@ -212,26 +212,26 @@
     "code": "pl",
     "phrases": "9519",
     "translated": "3592",
-    "approved": "624",
+    "approved": "626",
     "words": "87846",
     "words_translated": "19669",
-    "words_approved": "4876",
+    "words_approved": "4897",
     "translated_progress": 22,
     "approved_progress": 5,
-    "qa_issues": "856"
+    "qa_issues": "855"
   },
   {
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "9519",
-    "translated": "4140",
+    "translated": "4150",
     "approved": "328",
     "words": "87846",
-    "words_translated": "30088",
+    "words_translated": "30116",
     "words_approved": "2509",
     "translated_progress": 34,
     "approved_progress": 2,
-    "qa_issues": "1243"
+    "qa_issues": "1250"
   },
   {
     "name": "Russian",
