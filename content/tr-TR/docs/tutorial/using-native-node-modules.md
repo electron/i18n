@@ -54,7 +54,7 @@ cd /path-to-module/ HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=
 
 `HOME=~/.electron-gyp` geliştirme başlıklarını nerede bulacağınızı değiştirir. `--target=1.2.3` Electron versiyonudur. `--dist-url=...` Başlıkların yükleneceği noktayı belirler. `--arch=x64`: Modül 64bit sistem için kurulmuştur.
 
-### Manually building for a custom build of Electron
+### Özel yapım bir Electron sürümü için elle kurulum
 
 To compile native Node addons against a custom build of Electron that doesn't match a public release, instruct `npm` to use the version of Node you have bundled with your custom build.
 
