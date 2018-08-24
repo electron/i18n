@@ -6,7 +6,7 @@ Quá trình: [Main](../glossary.md#main-process)
 
 ### `new Menu()`
 
-Creates a new menu.
+Tạo menu mới.
 
 ### Các phương thức chung
 
@@ -222,7 +222,7 @@ const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
 
-### Render process
+### Quá trình render
 
 Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
 
@@ -282,7 +282,7 @@ When an item is positioned, all un-positioned items are inserted after it until 
 
 ### Ví dụ
 
-Template:
+Mẫu:
 
 ```javascript
 [
@@ -304,7 +304,7 @@ Menu:
 - 5
 ```
 
-Template:
+Mẫu:
 
 ```javascript
 [
