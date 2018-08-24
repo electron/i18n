@@ -56,7 +56,7 @@ cd /path-to-module/ HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=
 
 ### Özel yapım bir Electron sürümü için elle kurulum
 
-To compile native Node addons against a custom build of Electron that doesn't match a public release, instruct `npm` to use the version of Node you have bundled with your custom build.
+Umumi sürümle eşlenmeyen özel Electron sürümlerine yerel Node eklentileri derlemek için `npm`'i paketlediğiniz özel Node'un sürüme ile çalışması için yapılandırın.
 
 ```sh
 npm rebuild --nodedir=$HOME/.../path/to/electron/vendor/node
