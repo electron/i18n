@@ -250,14 +250,14 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "9519",
-    "translated": "8350",
+    "translated": "8352",
     "approved": "315",
     "words": "87846",
-    "words_translated": "73863",
+    "words_translated": "73904",
     "words_approved": "2607",
     "translated_progress": 84,
     "approved_progress": 2,
-    "qa_issues": "3187"
+    "qa_issues": "3189"
   },
   {
     "name": "Tagalog",
@@ -289,14 +289,14 @@
     "name": "Turkish",
     "code": "tr",
     "phrases": "9519",
-    "translated": "8093",
+    "translated": "8110",
     "approved": "2",
     "words": "87846",
-    "words_translated": "69952",
+    "words_translated": "70118",
     "words_approved": "2",
     "translated_progress": 79,
     "approved_progress": 0,
-    "qa_issues": "3835"
+    "qa_issues": "3846"
   },
   {
     "name": "Ukrainian",
