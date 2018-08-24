@@ -55,6 +55,14 @@ HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https
 
 Perubahan `HOME=~/.electron-gyp` di mana menemukan header pengembangan. Itu `--target=1.2.3` adalah versi Elektron. `-dist-url =...` menentukan tempat untuk mendownload header. Modul `-arch=x64` mengatakan bahwa modul ini dibuat Sistem 64bit.
 
+### Manually building for a custom build of Electron
+
+To compile native Node addons against a custom build of Electron that doesn't match a public release, instruct `npm` to use the version of Node you have bundled with your custom build.
+
+```sh
+npm rebuild --nodedir=$HOME/.../path/to/electron/vendor/node
+```
+
 ## Penyelesaian masalah
 
 Jika Anda menginstal modul asli dan merasa tidak berfungsi, Anda perlu memeriksa hal berikut:
