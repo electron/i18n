@@ -6,7 +6,7 @@ Yerel düğüm modülleri Electron tarafından desteklenir , ancak Electron'un s
 
 Yerel modülleri kurmanın üç yolu:
 
-### `npm` kullanılıyor
+### `npm` kullanarak
 
 Birkaç ortam değişkenini ayarlayarak, `npm` değerini modülleri doğrudan yüklemek için kullanabilirsiniz.
 
@@ -72,7 +72,7 @@ Yerel bir modül yüklediyseniz ve çalışmadığını tespit ettiyseniz, aşa�
 </ul>
 
 <h2><code>prebuild`'e dayanan modüller</h2> 
-    [`prebuild`](https://github.com/mafintosh/prebuild) provides a way to publish native Node modules with prebuilt binaries for multiple versions of Node and Electron.
+    [`prebuild`](https://github.com/mafintosh/prebuild), Node ve Electron'un birçok sürümü için önceden oluşturulmuş umumi Node modüllerini kolayca yayınlamak için bir yol sağlar.
     
     Eğer modüller Electron'da kullanım için ikili dosyalar sağlıyorsa, önceden oluşturulmuş ikili dosyalardan tam avantaj sağlamak için `--build-from-source` ve `npm_config_build_from_source` ortam değişkenlerini dahil etmediğinizden emin olun.
     
