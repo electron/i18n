@@ -39,6 +39,6 @@ Bu "electron.ninjs.xcworkspace"i oluşturacaktır. Hata noktalarını bulmak ve 
 
 ### Hata noktaları ve hata ayıklama
 
-Derleme bittikten sonra Electron uygulamasını açın. Şimdi az önce oluşturduğunuz XCode workspace'ini açabilir ve Electron işlemini Hata Ayıklama > Süreci Ekle > Electron hata ayıklama menüsü'nü takip ederek iki işlemi ilişkilendirebilirsiniz. [Note: If you want to debug the renderer process, you need to attach to the Electron Helper as well.]
+Derleme bittikten sonra Electron uygulamasını açın. Şimdi az önce oluşturduğunuz XCode workspace'ini açabilir ve Electron işlemini Hata Ayıklama > Süreci Ekle > Electron hata ayıklama menüsü'nü takip ederek iki işlemi ilişkilendirebilirsiniz. [Nort: Eğer işleyici işlemine hata ayıklama yapmak istiyorsanız Electron Helper'ını da ilişkilendirmeniz gerek.]
 
 You can now set breakpoints in any of the indexed files. However, you will not be able to set breakpoints directly in the Chromium source. To set break points in the Chromium source, you can choose Debug > Breakpoints > Create Symbolic Breakpoint and set any function name as the symbol. This will set the breakpoint for all functions with that name, from all the classes if there are more than one. You can also do this step of setting break points prior to attaching the debugger, however, actual breakpoints for symbolic breakpoint functions may not show up until the debugger is attached to the app.
