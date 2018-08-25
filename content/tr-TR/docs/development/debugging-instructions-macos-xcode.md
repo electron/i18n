@@ -1,15 +1,15 @@
-## Debugging with XCode
+## XCode ile Hata Ayıklama
 
-### Build Debug Electron with Release libchromiumcontent
+### Libchromiumcontent sürümü ile Electron hata ayıklama sürümü oluşturmak
 
-You can create a debug build of Electron by following [build instructions for macOS](build-instructions-osx.md). The bootstrap process will download Release version of libchromiumcontent by default, so you will not be able to step through the Chromium source.
+[macOS kurulum talimatlarını](build-instructions-osx.md) izleyerek Electron'un hata ayıklama sürümünü oluşturabilirsiniz. Bootsrap aşaması otomatik olarak libchromiumcontent'ın son sürümünü yükleyecek, yani Chromium kaynak koduna erişiminiz olmayacak.
 
-### Build Debug Electron with Debug libchromiumcontent
+### Libchromiumcontent Debug ile Electron hata ayıklama sürümü oluşturmak
 
-If you want to debug and step through libchromiumcontent, you will have to run the bootsrap script with the `--build_debug_libcc` argument.
+Eğer libchromiumcontent erişmek ve hata ayıklama yapmak istiyorsanız, `--build_debug_libcc` argümanı ile bootsrap script'ini çalıştırmanız gerekecek.
 
 ```sh
-$ cd electron
+$ cd electron 
 $ ./script/bootstrap.py -v --build_debug_libcc
 ```
 
