@@ -289,14 +289,14 @@
     "name": "Turkish",
     "code": "tr",
     "phrases": "9522",
-    "translated": "8111",
+    "translated": "8136",
     "approved": "2",
     "words": "87895",
-    "words_translated": "70126",
+    "words_translated": "70457",
     "words_approved": "2",
-    "translated_progress": 79,
+    "translated_progress": 80,
     "approved_progress": 0,
-    "qa_issues": "3846"
+    "qa_issues": "3866"
   },
   {
     "name": "Ukrainian",
