@@ -43,19 +43,19 @@ session.defaultSession.cookies.set(cookie, (error) => {
   * `expired` - 기간 만료로 cookie가 자동으로 삭제되었음.
   * `evicted` - gabage collextion으로 인해 cookie가 자동으로 삭제되었음.
   * `expired-overwrite` - 이미 만료된 기간으로 cookie가 덮어 씌어졌음.
-* `removed` Boolean - `true` if the cookie was removed, `false` otherwise.
+* `removed` Boolean - cookie가 삭제되었으면 `true`이고, 그렇지 않으면, `false`이다.
 
-Emitted when a cookie is changed because it was added, edited, removed, or expired.
+Cookie가 추가, 수정, 삭제, 만료로 인해 변경된 경우 호출된다.
 
 ### 인스턴스 메서드
 
-The following methods are available on instances of `Cookies`:
+`Cookies` 인스턴스는 다음의 메서드를 사용할 수 있다.
 
 #### `cookies.get(filter, callback)`
 
 * `filter` Object 
-  * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all urls.
-  * `name` String (optional) - Filters cookies by name.
+  * `url` String (optional) - cookies에서 주어진 url에 관련된 정보를 조사한다. `url`을 공백으로 준 경우 모든 url에 대해서 조사한다.
+  * `name` String (optional) - name 기반으로 필터를 함.
   * `domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`.
   * `path` String (optional) - Retrieves cookies whose path matches `path`.
   * `secure` Boolean (optional) - Filters cookies by their Secure property.
