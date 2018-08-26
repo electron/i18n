@@ -55,14 +55,14 @@
     "name": "Czech",
     "code": "cs",
     "phrases": "9522",
-    "translated": "925",
+    "translated": "936",
     "approved": "0",
     "words": "87895",
-    "words_translated": "2402",
+    "words_translated": "2490",
     "words_approved": "0",
     "translated_progress": 2,
     "approved_progress": 0,
-    "qa_issues": "223"
+    "qa_issues": "226"
   },
   {
     "name": "Dutch",
@@ -185,14 +185,14 @@
     "name": "Korean",
     "code": "ko",
     "phrases": "9522",
-    "translated": "4233",
+    "translated": "4257",
     "approved": "339",
     "words": "87895",
-    "words_translated": "36950",
+    "words_translated": "37113",
     "words_approved": "2992",
     "translated_progress": 42,
     "approved_progress": 3,
-    "qa_issues": "1932"
+    "qa_issues": "1936"
   },
   {
     "name": "Persian",
