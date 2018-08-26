@@ -56,15 +56,15 @@ Cookie가 추가, 수정, 삭제, 만료로 인해 변경된 경우 호출된다
 * `filter` Object 
   * `url` String (optional) - cookies에서 주어진 url에 관련된 정보를 조사한다. `url`을 공백으로 준 경우 모든 url에 대해서 조사한다.
   * `name` String (optional) - name 기반으로 필터를 함.
-  * `domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`.
-  * `path` String (optional) - Retrieves cookies whose path matches `path`.
-  * `secure` Boolean (optional) - Filters cookies by their Secure property.
-  * `session` Boolean (optional) - Filters out session or persistent cookies.
+  * `domain` - String (optional) - `domains`과 같거나 subdomain을 cookies에서 찾는다.
+  * `path` String (optional) - `path`와 같은 경로를 갖는 cookies에서 찾는다.
+  * `secure` Boolean (optional) - Secure 속성으로 필터를 함.
+  * `session` Boolean (optional) - session 혹은 영구 cookies를 필터를 함.
 * `callback` 함수 
   * `error` Error
-  * `cookies` [Cookie[]](structures/cookie.md) - an array of cookie objects.
+  * `cookies` [Cookie[]](structures/cookie.md) - cookie 오브젝트 배열.
 
-Sends a request to get all cookies matching `filter`, `callback` will be called with `callback(error, cookies)` on complete.
+`filter`, `callback`이 매칭되는 모든 cookies를 얻기 위한 요청이 완료되면, `callback(error, cookies)`이 호출된다.
 
 #### `cookies.set(details, callback)`
 
