@@ -2,7 +2,7 @@
 
 Electron vám umožňuje vytvářet desktopové aplikace za pomocí čistého JavaScriptu s použitím bohaté nabídky nativních API (operačního systému). Lze to chápat jako variantu Node.js zaměřenou na vytváření desktopových aplikací namísto webových.
 
-This doesn't mean Electron is a JavaScript binding to graphical user interface (GUI) libraries. Instead, Electron uses web pages as its GUI, so you could also see it as a minimal Chromium browser, controlled by JavaScript.
+To neznamená, že Electron je JavaScript vázaný na knihovny grafického uživatelského rozhraní (GUI). Místo toho, Electron využívá webové stránky jako GUI, takže by jste to mohli vidět jako ořezaný prohlížeč Chromium kontrolovaný JavaScriptem.
 
 **Note**: This example is also available as a repository you can [download and run immediately](#trying-this-example).
 
