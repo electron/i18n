@@ -4,7 +4,7 @@ Electron vám umožňuje vytvářet desktopové aplikace za pomocí čistého Ja
 
 To neznamená, že Electron je JavaScript vázaný na knihovny grafického uživatelského rozhraní (GUI). Místo toho, Electron využívá webové stránky jako GUI, takže by jste to mohli vidět jako ořezaný prohlížeč Chromium kontrolovaný JavaScriptem.
 
-**Note**: This example is also available as a repository you can [download and run immediately](#trying-this-example).
+**Poznámka**: Tento příklad je také dostupný jako úložiště který si můžete [stáhnout a spustit ihned](#trying-this-example).
 
 As far as development is concerned, an Electron application is essentially a Node.js application. The starting point is a `package.json` that is identical to that of a Node.js module. A most basic Electron app would have the following folder structure:
 
