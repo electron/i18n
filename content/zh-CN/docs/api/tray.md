@@ -191,7 +191,7 @@ app.on('ready', () => {
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Sets the `image` associated with this tray icon when pressed on macOS.
+在 macOS 中，设置`image`作为托盘图标被按下时显示的图标
 
 #### `tray.setToolTip(toolTip)`
 
