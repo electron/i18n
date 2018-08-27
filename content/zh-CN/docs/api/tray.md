@@ -240,7 +240,7 @@ win.on('hide', () => {
   * `title` String
   * `content` String
 
-Displays a tray balloon.
+显示一个托盘气球通知.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
