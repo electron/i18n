@@ -117,28 +117,28 @@ app.on('ready', () => {
 #### Event: 'drop-files' *macOS*
 
 * `event` Event
-* `files` String[] - The paths of the dropped files.
+* `files` String[] - 拖至任务栏图标上的文件的路径。
 
-Emitted when dragged files are dropped in the tray icon.
+当有任何文件被拖到该任务栏图标上时，触发该事件。
 
 #### Event: 'drop-text' *macOS*
 
 * `event` Event
-* `text` String - the dropped text string.
+* `text` String - 拖至任务栏图标上的文字内容。
 
-Emitted when dragged text is dropped in the tray icon.
+当有任何文字被拖到该任务栏图标上时，触发该事件。
 
 #### Event: 'drag-enter' *macOS*
 
-Emitted when a drag operation enters the tray icon.
+当有任何拖动操作进入（拖动未结束）该任务栏图标时，触发该事件。
 
 #### Event: 'drag-leave' *macOS*
 
-Emitted when a drag operation exits the tray icon.
+当有任何拖动操作离开该任务栏图标时，触发该事件。
 
 #### Event: 'drag-end' *macOS*
 
-Emitted when a drag operation ends on the tray or ends at another location.
+当有任何拖动操作在托盘或其他地方结束时，触发该事件。
 
 #### Event: 'mouse-enter' *macOS*
 
@@ -149,7 +149,7 @@ Emitted when a drag operation ends on the tray or ends at another location.
   * `metaKey` Boolean
 * `position` [Point](structures/point.md) - 事件的位置信息。
 
-Emitted when the mouse enters the tray icon.
+当鼠标进入该任务栏图标时，触发该事件。
 
 #### Event: 'mouse-leave' *macOS*
 
@@ -160,7 +160,7 @@ Emitted when the mouse enters the tray icon.
   * `metaKey` Boolean
 * `position` [Point](structures/point.md) - 事件的位置信息。
 
-Emitted when the mouse exits the tray icon.
+当鼠标离开该任务栏图标时，触发该事件。
 
 #### Event: 'mouse-move' *macOS*
 
@@ -171,11 +171,11 @@ Emitted when the mouse exits the tray icon.
   * `metaKey` Boolean
 * `position` [Point](structures/point.md) - 事件的位置信息。
 
-Emitted when the mouse moves in the tray icon.
+当鼠标在该任务栏图标上移动时，触发该事件。
 
 ### 实例方法
 
-The `Tray` class has the following methods:
+`Tray` 类拥有以下方法:
 
 #### `tray.destroy()`
 
