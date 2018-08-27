@@ -138,7 +138,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `statusCode` Integer
     * `statusLine` String
 
-The `listener` will be called with `listener(details)` when first byte of the response body is received. For HTTP requests, this means that the status line and response headers are available.
+当收到响应体的第一个字节时， 将以 ` listener(details) ` 的形式来调用 ` listener`。 对于 HTTP 请求而言，这意味着此时 HTTP 状态行和回应头已经可以读取了。
 
 #### `webRequest.onBeforeRedirect([filter, ]listener)`
 
