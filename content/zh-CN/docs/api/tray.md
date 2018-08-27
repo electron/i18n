@@ -244,12 +244,12 @@ win.on('hide', () => {
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
-* `menu` Menu (optional)
-* `position` [Point](structures/point.md) (optional) - The pop up position.
+* `menu` Menu (可选)
+* `position` [Point](structures/point.md) (可选) - 菜单弹出的位置.
 
-Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
+弹出托盘图标的上下文菜单。如果传入了 `menu` 参数，将会弹出 `menu` 而不是托盘图标的上下文菜单
 
-The `position` is only available on Windows, and it is (0, 0) by default.
+参数 `position` 只在 Windows 上可用， 并拥有默认值 (0, 0)。
 
 #### `tray.setContextMenu(menu)`
 
