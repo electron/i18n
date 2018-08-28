@@ -15,7 +15,7 @@
     * `textured-square` - The control is displayed using the textured square style.
     * `capsule` - The control is displayed using the capsule style.
     * `small-square` - The control is displayed using the small square style.
-    * `separated` - The segments in the control are displayed very close to each other but not touching.
+    * 表示控件的当前段样式。更新此值会立即更新触摸栏中的控件。
   * `mode` String (可选) - 控件的选择模式： 
     * `single` - 默认的。只能选一项。选择后会取消选择之前选择的项。
     * `multiple` - 可以选多个项。
