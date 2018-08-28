@@ -13,7 +13,7 @@ let win = new BrowserWindow()
 win.webContents.openDevTools()
 ```
 
-Google은 [excellent documentation for their developer tools](https://developer.chrome.com/devtools)를 제공합니다. 그것들과 익숙해지길 권장합니다 - 그것들은 보통 Electron 개발자 도구들중 가장 강력한것들 중 하나입니다.
+Google은 [excellent documentation for their developer tools](https://developer.chrome.com/devtools)를 제공합니다. 도구들과 익숙해지길 권장합니다 - 이 도구들은 보통 Electron 가장 강력한 개발자 도구들중 하나입니다.
 
 ## 메인 프로세스
 
