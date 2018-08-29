@@ -68,7 +68,7 @@ $ gn gen out/Default --args="import(\"//electron/build/args/debug.gn\") $GN_EXTR
 **Electron의 디버그("component" 또는 "shared") 빌드 설정을 생성하려면 이 명령어를 실행하십시오:**
 
 ```sh
-$ gn gen out/Default --args='import("//electron/build/args/debug.gn") $GN_EXTRA_ARGS'
+$ gn gen out/Default --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_ARGS"
 ```
 
 **Electron의 배포("non-component" 또는 "static") 빌드 설정을 생성하려면 이 명령어를 실행하십시오:**
