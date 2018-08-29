@@ -27,8 +27,8 @@ A string `features` segue o formato padrão do navegador, mas cada feature deve 
 
 ### `window.opener.postMessage(message, targetOrigin)`
 
-* `message` String
-* `targetOrigin` String
+* `mensagem` String
+* `origemAlvo` String
 
 Envia uma mensagem para a janela pai com a origem especificada ou `*` para origem sem preferência.
 
