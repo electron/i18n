@@ -34,9 +34,9 @@ The following methods are available on instances of `WebRequest`:
 
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
-* `filtr` Obiekt (opcjonalne) 
+* `filter` Obiekt (opcjonalne) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `słuchacz` Function 
+* `listener` Funkcja 
   * `detale` Obiekt 
     * `id` Integer
     * `url` String
