@@ -212,13 +212,13 @@
     "code": "pl",
     "phrases": "9522",
     "translated": "3592",
-    "approved": "626",
+    "approved": "700",
     "words": "87895",
     "words_translated": "19669",
-    "words_approved": "4897",
+    "words_approved": "4996",
     "translated_progress": 22,
     "approved_progress": 5,
-    "qa_issues": "855"
+    "qa_issues": "847"
   },
   {
     "name": "Portuguese, Brazilian",
