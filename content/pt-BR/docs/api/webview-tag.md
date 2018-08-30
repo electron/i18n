@@ -628,7 +628,7 @@ Fired when page leaves fullscreen triggered by HTML API.
 Retorna:
 
 * `level` Integer
-* `mensagem` String
+* `message` String
 * `line` Integer
 * `sourceId` String
 
