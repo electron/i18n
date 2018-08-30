@@ -121,7 +121,7 @@ Você vai precisar criar um fork do Electron caso você tenha código C++ person
 
 * `ELECTRON_GITHUB_TOKEN` - token com permissão para criar distribuições no GitHub
 * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - definem a chave, o repositório e a chave secreta, respectivamente, para onde os arquivos serão carregados
-* `ELECTRON_RELEASE` - caso definido como `true` para definir se o valor será atualizado durante o upload. Deixe sem definir para que o `surf-build` faça a checagem CI-type a cada pull request.
+* `ELECTRON_RELEASE` - Definido como `true` para definir se o valor será atualizado durante o upload. Deixe sem definir para que o `surf-build` faça a checagem CI-type a cada pull request.
 * `CI` - definer como `true` ou então ele vai falhar
 * `GITHUB_TOKEN` - configure com o mesmo valor do `ELECTRON_GITHUB_TOKEN`
 * `SURF_TEMP` - definido como `C:\Temp` no Windows para evitar problemas de caminho muito longo
