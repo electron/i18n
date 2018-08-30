@@ -1,4 +1,4 @@
-## Classe: BrowserWindowProxy
+## Class: BrowserWindowProxy
 
 > Manipular a janela filha
 
@@ -32,10 +32,10 @@ Focuses the child window (brings the window to front).
 
 Invokes the print dialog on the child window.
 
-#### `win.postMessage(mensagem, origemAlvo)`
+#### `win.postMessage(message, targetOrigin)`
 
-* `mensagem` String
-* `origemAlvo` String
+* `message` String
+* `targetOrigin` String
 
 Sends a message to the child window with the specified origin or `*` for no origin preference.
 
