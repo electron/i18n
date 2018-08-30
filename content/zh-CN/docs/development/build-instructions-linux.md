@@ -60,7 +60,7 @@ $ git clone https://github.com/electron/electron
 
 引导脚本将会下载全部必要的构建依赖，并创建和构建项目文件。 必须使用 Python 2.7.x 来让脚本成功执行. 正确下载文件会花费较长的时间. 注意我们使用的是 `ninja` 来构建 Electron，所以没有生成 `Makefile` 项目.
 
-To bootstrap for a static, non-developer build, run:
+引导启动一个静态模块，无需开发者自己构建，运行：
 
 ```sh
 $ cd electron
