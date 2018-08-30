@@ -2,7 +2,7 @@
 
 Si usted tiene bloqueos o problemas en Electron que cree que no son causados ​​por la aplicación de JavaScript, sino por Electron, la depuración puede ser un poco difícil, especialmente para desarrolladores que no están acostumbrados a la depuración nativa/C++. Sin embargo, usndo Visual Studio, el Servidor de Símbolo Electrónico alojado de GitHub y el código fuente de Electron, puede habilitar step-through debugging con puntos de corte dentro del código fuente de Electron.
 
-**See also**: There's a wealth of information on debugging Chromium, much of which also applies to Electron, on the Chromium developers site: [Debugging Chromium on Windows](https://www.chromium.org/developers/how-tos/debugging-on-windows).
+**Vea también**: hay una gran cantidad de información sobre la depuración de Chromium, mucha de la cual también se aplica a Electron, en el sitio de desarrolladores de Chromium: [Debugging Chromium on Windows](https://www.chromium.org/developers/how-tos/debugging-on-windows).
 
 ## Requisitos
 
