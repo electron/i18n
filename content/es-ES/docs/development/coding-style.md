@@ -18,7 +18,7 @@ Para mostrar los problemas de estilo detectados por `cpplint` y `eslint`, puede 
   * Use `path.join()` to concatenate filenames.
   * Use `os.tmpdir()` rather than `/tmp` when you need to reference the temporary directory.
 * Using a plain `return` when returning explicitly at the end of a function. 
-  * Not `return null`, `return undefined`, `null` or `undefined`
+  * No `return null`, `return undefined`, `null` o `undefined`
 
 ## C++ y Python
 
@@ -30,9 +30,9 @@ El código de C ++ utiliza una gran cantidad de abstracciones y tipos de Chromiu
 
 ## Documentación
 
-* Write [remark](https://github.com/remarkjs/remark) markdown style.
+* Escribe [remark](https://github.com/remarkjs/remark) estilo markdown.
 
-You can run `npm run lint-docs` to ensure that your documentation changes are formatted correctly.
+Puede ejecutar `npm run lint-docs` para asegurarse de que los cambios en su documentación tengan el formato correcto.
 
 ## JavaScript
 
