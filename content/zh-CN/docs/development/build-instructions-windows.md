@@ -27,7 +27,7 @@ $ git clone https://github.com/electron/electron.git
 
 Bootstrap 脚本也是必须下载的构建依赖，来创建项目文件. 需要注意的是我们使用`ninja`创建 Electron，这样的话就不需要生成 Visual Studio 项目了。
 
-To bootstrap for a static, non-developer build, run:
+引导启动一个静态模块，无需开发者自己构建，运行：
 
 ```powershell
 $ cd electron
