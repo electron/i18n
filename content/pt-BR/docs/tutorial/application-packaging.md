@@ -115,9 +115,9 @@ Os pacotes não podem ser modificados. Logo, nenhuma das APIs do Node que permit
 
 Como os pacotes `asar` são tratados como diretórios, não há nenhum diretório real nos arquivos de sistema, então você nunca poderá definir um diretório de trabalho como diretório nos pacotes `asar`. Ao informar a opção `cwd` algumas APIs podem apresentar erros.
 
-### Desempacotando em algumas APIs
+### Desempacotando em Algumas APIs
 
-Muitas APIs podem ler um arquivo ou buscar informações de arquivos a partir dos arquivos do tipo `asar` sem necessariamente descompactar o arquivo. Electron irá extrair os arquivos necessários dentro de um arquivo temporário e passar o caminho do(s) arquivo(s) temporário(s) para algum(as) APIs funcionem. A seguir algumas informações sobre essas APIs.
+Maioria das APIs do `fs` podem ler um arquivo ou buscar informações de arquivos a partir dos arquivos do tipo `asar` sem necessariamente descompactar o arquivo. Electron irá extrair os arquivos necessários dentro de um arquivo temporário e passar o caminho do(s) arquivo(s) temporário(s) para algum(as) APIs funcionem. A seguir algumas informações sobre essas APIs.
 
 As APIs que necessitam descompactar alguns arquivos extras são:
 
