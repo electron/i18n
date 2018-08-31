@@ -57,7 +57,7 @@ El objeto`menu` tiene los siguientes métodos de instancia:
   * `x` Number (opcional) - Por defecto es la posición actual del cursor del ratón. Debe declararse si `y` es declarada.
   * `y` Number (opcional) - Por defecto es la posición actual del cursor del ratón. Debe declararse si `y` es declarada.
   * `positioningItem` Number (opcional) *macOS* - El índice del elemento de menú para posicionar por debajo del cursor del ratón en las coordenadas específicas. Por defecto es -1.
-  * `callback` Function (optional) - Called when menu is closed.
+  * `callback` Function (opcional) - Llamada cuando se cierra el menu.
 
 Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
 
@@ -88,7 +88,7 @@ Inserta el `menuItem` en la posición `pos` del menú.
 
 ### Eventos de Instancia
 
-Objects created with `new Menu` emit the following events:
+Los Objetos creados con `new Menu` emiten los siguientes eventos:
 
 **Nota:** Algunos eventos sólo están disponibles en sistemas operativos específicos y se etiquetan como tal.
 
@@ -98,7 +98,7 @@ Devuelve:
 
 * `event` Event
 
-Emitted when `menu.popup()` is called.
+Emitido cuando se llama a `menu.popup()`.
 
 #### Event: 'menu-will-close'
 
