@@ -30,7 +30,7 @@ Devuelve `Menu | null` - El menú de aplicación, si se creó, o `null` en caso 
 
 #### `Menu.sendActionToFirstResponder(action)` *macOS*
 
-* `action` Cadena
+* `action` String
 
 Envía la `action` al primer respondedor de la aplicación. Esto es usado para emular los comportamientos del menú macOS por defecto. Normalmente se usa la propiedad [`role`](menu-item.md#roles) de un [`MenuItem`](menu-item.md).
 
