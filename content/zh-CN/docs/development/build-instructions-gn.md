@@ -4,7 +4,7 @@
 
 > **注意**: GN构建方式尚处于实验阶段。
 
-## Platform prerequisites
+## 平台要求
 
 各个平台所对应的构建要求如下：
 
@@ -12,7 +12,7 @@
 - [Linux](build-instructions-linux.md#prerequisites)
 - [Windows](build-instructions-windows.md#prerequisites)
 
-## GN prerequisites
+## 前置知识
 
 You'll need to install [`depot_tools`](http://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up), the toolset used for fetching Chromium and its dependencies.
 
@@ -100,7 +100,7 @@ $ ./out/Default/electron.exe
 $ ./out/Default/electron
 ```
 
-### Cross-compiling
+### 交叉编译
 
 To compile for a platform that isn't the same as the one you're building on, set the `target_cpu` and `target_os` GN arguments. For example, to compile an x86 target from an x64 host, specify `target_cpu = "x86"` in `gn args`.
 
