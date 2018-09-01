@@ -797,13 +797,13 @@ Establece el panel de opciones. Esto anulará los valores definidos en el archiv
 Devuelve `Function` - Esta función **debe** ser llamado una vez que hayas terminado de acceder el archivo de ámbito de seguridad. If you do not remember to stop accessing the bookmark, [kernel resources will be leaked](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) and your app will lose its ability to reach outside the sandbox completely, until your app is restarted.
 
 ```js
-// Start accessing the file.
+// Empezar a acceder el archivo.
 const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
 // You can now access the file outside of the sandbox 
 stopAccessingSecurityScopedResource()
 ```
 
-Empezar a acceder un recurso de ámbito de seguridad. Con este método aplicaciones de electron que están empaquetado para el App Store de Mac pueden alcanzar afuera su entorno aislado para acceder archivos elegidos por el usuario. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
+Empezar a acceder un recurso de ámbito de seguridad. Con este método aplicaciones de electron que están empaquetado para el App Store de Mac pueden alcanzar afuera su entorno aislado para acceder archivos elegidos por el usuario. Ver a [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) por una descripción de cómo funciona este sistema.
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
@@ -830,7 +830,7 @@ Este método solo puede ser llamado después de iniciada la aplicación.
 
 ### `app.isInApplicationsFolder()` *macOS*
 
-Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
+Devuelve `Boolean` - Si la aplicación se está operando actualmente desde la carpeta Aplicación de sistemas. Utilizar en combinación con `app.moveToApplicationsFolder()`
 
 ### `app.moveToApplicationsFolder()` *macOS*
 
