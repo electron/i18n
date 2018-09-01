@@ -47,7 +47,7 @@ Emitido antes de a aplicação começar a fechar suas janelas. Chamar `event.pre
 
 **Nota:** Se o encerramento da aplicação foi iniciado por `autoUpdater.quitAndInstall()`, então `before-quit` é emitido *depois* de lançar o evento `close` em todas as janelas e fechá-las.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**Nota:** No Windows, este evento não será emitido se o aplicativo for fechado devido a um desligamento / reinício do sistema ou a um logout do usuário.
 
 ### Evento: 'will-quit'
 
@@ -59,7 +59,7 @@ Emitido quando todas as janelas foram fechadas e a aplicação irá encerrar. Ch
 
 Consulte a descrição do evento `window-all-closed` para as diferenças entre os eventos `will-quit` e `window-all-closed`.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**Nota:** No Windows, este evento não será emitido se o aplicativo for fechado devido a um desligamento / reinício do sistema ou a um logout do usuário.
 
 ### Evento: 'quit'
 
@@ -70,7 +70,7 @@ Retorna:
 
 Emitido quando a aplicação esta sendo encerrada(quitting).
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**Nota:** No Windows, este evento não será emitido se o aplicativo for fechado devido a um desligamento / reinício do sistema ou a um logout do usuário.
 
 ### Evento: 'open-file' *macOS*
 
