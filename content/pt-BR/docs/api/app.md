@@ -883,7 +883,7 @@ Mostra o ícone na Dock.
 
 ### `app.dock.isVisible()` no *macOS*
 
-Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call is asynchronous so this method might not return true immediately after that call.
+Retorna `Boolean` - Se o ícone do dock está visível. O `app.dock.show()` A chamada é assíncrona, portanto, esse método pode não retornar true imediatamente após a chamada.
 
 ### `app.dock.setMenu(menu)` no *macOS*
 
