@@ -803,7 +803,7 @@ const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedReso
 stopAccessingSecurityScopedResource()
 ```
 
-Start accessing a security scoped resource. Con este método aplicaciones de electron que están empaquetado para el App Store de Mac pueden alcanzar afuera su entorno aislado para acceder archivos elegidos por el usuario. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
+Empezar a acceder un recurso de ámbito de seguridad. Con este método aplicaciones de electron que están empaquetado para el App Store de Mac pueden alcanzar afuera su entorno aislado para acceder archivos elegidos por el usuario. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
