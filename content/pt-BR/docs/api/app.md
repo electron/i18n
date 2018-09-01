@@ -319,7 +319,7 @@ Este método garante que todos os manipuladores de vento `beforeunload` e `unloa
 
 * `exitCode` Integer (opcional)
 
-Exits immediately with `exitCode`. `exitCode` defaults to 0.
+Sai imediatamente com `exitCode`. `exitCode` padrão é 0.
 
 Todas as janelas serão fechadas imediatamente sem perguntar ao usuário e os eventos `before-quit` e `will-quit` não serão emitidos.
 
@@ -390,7 +390,7 @@ Você pode solicitar os seguintes caminhos pelo o nome:
 * `pictures` Diretório para as imagens de um usuário.
 * `videos` Diretório para os vídeos de um usuário.
 * `logs` Diretório que armazena os logs da aplicação.
-* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
+* `pepperFlashSystemPlugin` Caminho completo para a versão do sistema do plug-in do Pepper Flash.
 
 ### `app.getFileIcon(path[, options], callback)`
 
@@ -442,9 +442,9 @@ Sobrescreve o atual nome da aplicação.
 
 ### `app.getLocale()`
 
-Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+Retorna `String` A localidade do aplicativo atual. Valores de possíveis retornos são documentados [aqui](locales.md).
 
-To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
+Para definir a localidade, você vai querer usar um switch de linha de comando na inicialização do aplicativo, que pode ser encontrado [aqui](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
 
 **Nota:** Quando estiver distribuindo seu aplicativo, você também deve entregar a pasta `locales`.
 
@@ -699,7 +699,7 @@ Este método somente pode ser chamado antes do aplicativo estiver pronto.
 
 ### `app.getAppMetrics()`
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
+Retorna [`ProcessMetric[]`](structures/process-metric.md): Array de `ProcessMetric` objetos que correspondem a estatísticas de uso de memória e CPU de todos os processos associados ao aplicativo.
 
 ### `app.getGPUFeatureStatus()`
 
