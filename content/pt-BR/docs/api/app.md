@@ -442,7 +442,7 @@ Sobrescreve o atual nome da aplicação.
 
 ### `app.getLocale()`
 
-Retorna `String` A localidade do aplicativo atual. Valores de possíveis retornos são documentados [aqui](locales.md).
+Retorna `String` - A localidade do aplicativo atual. Valores de possíveis retornos são documentados [aqui](locales.md).
 
 Para definir a localidade, você vai querer usar um switch de linha de comando na inicialização do aplicativo, que pode ser encontrado [aqui](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
 
