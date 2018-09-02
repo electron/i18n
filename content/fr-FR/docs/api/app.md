@@ -774,7 +774,7 @@ Retourne `Boolean` - `true` si le support des fonctionnalités d'accessibilité 
 
 ### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
 
-* `enabled` Boolean - Enable or disable [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) rendering
+* `enabled` Boolean - Active ou désactive le rendu de [l'arbre d'accessibilité](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)
 
 Manually enables Chrome's accessibility support, allowing to expose accessibility switch to users in application settings. https://www.chromium.org/developers/design-documents/accessibility for more details. Disabled by default.
 
