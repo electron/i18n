@@ -789,7 +789,7 @@ Active manuellement le support de l'accessibilité de Chrome, permettant de mett
   * `credits` String (optional) - Information crédit.
   * `version` String (optional) - Numéro de version de l'application.
 
-Set the about panel options. This will override the values defined in the app's `.plist` file. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
+Configure les options de la fenêtre À propos de. Cela surchargera les valeurs définies dans le fichier `.plist` de l'application. Voir [la documentation Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) pour de plus amples informations.
 
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
 
