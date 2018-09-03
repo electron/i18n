@@ -214,7 +214,7 @@ app.on('ready', () => {
 
 设置托盘图标背景 (蓝色) 高亮的时机
 
-**Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
+**Note:** 当窗口可见状态变化时你可以在[`BrowserWindow`](browser-window.md)中使用 `highlightMode` 实现 `'never'` 和`'always'` 模式的切换
 
 ```javascript
 const {BrowserWindow, Tray} = require('electron')
@@ -261,7 +261,7 @@ win.on('hide', () => {
 
 返回 [`Rectangle`](structures/rectangle.md)
 
-The `bounds` of this tray icon as `Object`.
+以`Object`类型返回托盘图标的`bounds`
 
 #### `tray.isDestroyed()`
 
