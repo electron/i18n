@@ -29,14 +29,14 @@
     "name": "Chinese Simplified",
     "code": "zh-CN",
     "phrases": "9522",
-    "translated": "8676",
+    "translated": "8687",
     "approved": "32",
     "words": "87895",
-    "words_translated": "77487",
+    "words_translated": "77620",
     "words_approved": "158",
     "translated_progress": 88,
     "approved_progress": 0,
-    "qa_issues": "249"
+    "qa_issues": "250"
   },
   {
     "name": "Chinese Traditional",
@@ -224,14 +224,14 @@
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "9522",
-    "translated": "4180",
+    "translated": "4181",
     "approved": "395",
     "words": "87895",
-    "words_translated": "30365",
+    "words_translated": "30375",
     "words_approved": "2714",
     "translated_progress": 34,
     "approved_progress": 3,
-    "qa_issues": "1221"
+    "qa_issues": "1222"
   },
   {
     "name": "Russian",
