@@ -1,10 +1,10 @@
-# crashReporter
+# raportAwarii
 
-> Submit crash reports to a remote server.
+> Zgłoś raport wypadku zdalnemu serwerowi.
 
 Proces: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-The following is an example of automatically submitting a crash report to a remote server:
+To jest przykład automatycznego zgłaszania raportu awarii zdalnemu serwerowi:
 
 ```javascript
 const {crashReporter} = require('electron')
