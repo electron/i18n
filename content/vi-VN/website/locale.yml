@@ -6,16 +6,16 @@ nav:
   community: Cộng đồng
   contact: Liên hệ
   docs: Tài liệu
-  donors: Người ủng hộ
+  donors: Nhà Tài Trợ
   languages: Ngôn ngữ
-  releases: Các phiên bản phát hành
+  releases: Phát hành
   search: Tìm kiếm
   userland: Không gian người dùng
 docs:
-  title: Tài liệu Electron
-  description: Xem tất cả <a href="/docs/all">tài liệu trên một trang</a> hoặc điểm qua <a href="/docs/faq">FAQ</a>.
-  guides: Các hướng dẫn
-  api_reference: Tài liệu tham khảo về API
+  title: Tài liệu điện tử
+  description: Xem tất cả <a href="/docs/all"> tài liệu trên một trang </a> hoặc xem <a href="/docs/faq"> Câu hỏi thường gặp </a> .
+  guides: Hướng dẫn
+  api_reference: Tham Chiếu API
   advanced: Nâng cao
   footer:
     propose_change: Cải thiện tài liệu này
@@ -37,13 +37,13 @@ community:
     packages: "<a href='/search/npmPackages'> <b> Tìm gói npm hữu ích </ b> </a> trên <a href='/search/npmPackages'> trang tìm kiếm gói </a> ."
     bugs: "<a href='https://github.com/electron/electron/issues'> <b> Báo cáo lỗi </ b> </a> bằng cách mở các sự cố trên <a href = 'https: //github.com / electron / electron / vấn đề '> electron / electron </a> kho."
     feature_requests: "<a href='https://github.com/electron/electron/issues'> <b> Yêu cầu các tính năng </ b> </a> bằng cách mở các sự cố trên <a href = 'https: //github.com / electron / electron / vấn đề '> electron / electron </a> kho."
-    code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Report Code of Conduct violations</b></a> by emailing <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
-    security: "<a href='mailto:security@electronjs.org'><b>Disclose security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
-    donations: "<a href='donors'><b>Donate</b></a> on our <a href='/donors'>OpenCollective page</a>."
+    code_of_conduct: "<a href='mailto:vipchiase@gmail.com'> <b> Báo cáo vi phạm Quy tắc ứng xử </ b></a> bằng cách gửi email tới <a href='mailto:vipchiase@gmail.com'> vipchiase@gmail.com  </a> ."
+    security: "<a href='mailto:vipchiase@gmail.com'> <b> Tiết lộ vấn đề an ninh </ b> </a> bằng cách gửi email <a href='mailto:vipchiase@gmail.com'> vipchiase@gmail.com  < / a> ."
+    donations: "<a href='donors'> <b> Đóng góp </ b> </a> trên <a href='/donors'> trang OpenCollective </a> của chúng tôi ."
     other: "Đối với những vấn đề khác, gửi email tới <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
   language_communities:
     title: Cộng đồng ngôn ngữ
-    description: "The Electron community spans the globe, and English is not everyone's first language. Find <a href='/languages'>documentation in your language</a>, or join one of the language communities below:"
+    description: "Cộng đồng Electron trải rộng khắp thế giới và tiếng Anh không phải là ngôn ngữ đầu tiên của mọi người. Tìm <a href='/languages'> tài liệu bằng ngôn ngữ của bạn </a> hoặc tham gia một trong các cộng đồng ngôn ngữ bên dưới:"
   tools: Công cụ
   boilerplates: Boilerplates
   components: Components
@@ -77,7 +77,7 @@ get_started:
   description: Để bắt đầu với Electron, bạn có thể xem qua kho tài nguyên dưới đây. Tìm hiểu làm thể nào để đóng gói web app của bạn với Electron thành ứng dụng, và cách kết nối đến các API của Eletron cũng như việc tạo ra các file cài đặt cuối cùng cho ứng dụng của bạn đế các nền tảng.
 explore:
   title: Khám phá các API của Electron
-  description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
+  description: "Các <a href='https://github.com/electron/electron-api-demos'> Electron API Demo ứng dụng </a> tương tác thể hiện các tính năng quan trọng nhất của API Electron. Xem những gì có thể với Electron với mã mẫu và các mẹo hữu ích để tạo ứng dụng của bạn ."
 download_from_github: Tải về từ Github
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Xem tất cả phiên bản phát thành</a> trên Github
 quick_start:
@@ -89,7 +89,7 @@ quick_start:
   dive_deeper: Hoặc xem xét kĩ hơn bằng cách đọc <a href='/docs'>tài liệu</a>.
 need_help:
   title: Cần trợ giúp?
-  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum or our <a href='http://atom-slack.herokuapp.com/'>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
+  description: 'Đặt câu hỏi trong diễn đàn <a href=''https://discuss.atom.io/c/electron''> Thảo luận </a> hoặc <a href = ''http: //atom-slack.herokuapp.com/'' của chúng tôi > Slack </a> kênh. Theo dõi <a href="https://twitter.com/electronjs"> @electronjs </a> trên Twitter để biết các thông báo quan trọng. Bạn cần liên hệ riêng tư? Gửi email tới <a href="mailto:info@electronjs.org"> info@electronjs.org </a>.'
 headings:
   languages: Ngôn ngữ
 taglines:
@@ -130,7 +130,7 @@ pages:
     description: Lập trình với Electron
   '/docs/tutorial':
     title: Hướng dẫn
-    description: Guides and tutorials for the latest Electron release
+    description: Hướng dẫn và hướng dẫn cho bản phát hành Electron mới nhất
   '/blog':
     title: Blog Electron
     description: Tin tức mới nhất từ đội ngũ Electron và cộng đồng.
