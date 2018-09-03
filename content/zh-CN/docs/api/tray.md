@@ -197,7 +197,7 @@ app.on('ready', () => {
 
 * `toolTip` String
 
-Sets the hover text for this tray icon.
+设置鼠标指针在托盘图标上悬停时显示的文本
 
 #### `tray.setTitle(title)` *macOS*
 
