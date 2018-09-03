@@ -23,14 +23,14 @@ docs:
     translate: Dịch tài liệu này
     view_all_docs: Tất cả tài liệu trên một trang
 languages:
-  choose_language: Chọn ngôn ngữ
-  translation_progress: Tiến độ dịch thuật
+  choose_language: Chọn ngôn ngữ trang web của bạn
+  translation_progress: Tiến trình dịch thuật
   current: lựa chọn hiện tại
 community:
-  title: Cộng đồng Electron
+  title: Cộng đồng điện tử
   description: Những tài nguyên giúp kết nối với những người làm Electron.
   channels:
-    get_started: "<a href='/docs/tutorial/first-app'><b>Bắt đầu</b></a> xây dựng một ứng dụng bằng cách đọc <a href='/docs/tutorial/first-app'> hướng dẫn nhanh</a>."
+    get_started: "<a href='/docs/tutorial/first-app'> <b> Bắt đầu </ b> </a> xây dựng một  ứng dụng bằng cách đọc <a href='/docs/tutorial/first-app'> nhanh chóng hướng dẫn đầu tiên </a> .\n \n"
     updates: "<a href='https://twitter.com/electronjs'> <b> Luôn cập nhật </ b> </a> bằng cách theo dõi <a href='https://twitter.com/electronjs'> @ electronjs </a> trên Twitter và đăng ký <a href='/blog'> nguồn cấp dữ liệu blog </a> ."
     localized_docs: "<a href='/languages'> <b> Đọc tài liệu bằng ngôn ngữ mẹ đẻ của bạn </ b> </a> bằng cách truy cập <a href='/languages'> trang ngôn ngữ </a> .\n"
     help: "<a href='http://atom-slack.herokuapp.com'> <b> Nhận trợ giúp và phản hồi </ b> </a> bằng cách tham gia <a href = 'http: //atom-slack.herokuapp.com '> atomio Slack </a>, đăng trên <a href='https://discuss.atom.io/c/electron'> Thảo luận </a> hoặc truy cập <a href =' https: // stackoverflow.com/questions/tagged/electron '> Stack Overflow </a>."
@@ -45,32 +45,32 @@ community:
     title: Cộng đồng ngôn ngữ
     description: "Cộng đồng Electron trải rộng khắp thế giới và tiếng Anh không phải là ngôn ngữ đầu tiên của mọi người. Tìm <a href='/languages'> tài liệu bằng ngôn ngữ của bạn </a> hoặc tham gia một trong các cộng đồng ngôn ngữ bên dưới:"
   tools: Công cụ
-  boilerplates: Boilerplates
-  components: Components
+  boilerplates: Nồi hơi
+  components: Các thành phần
   videos: Video
   meetups: Meetups
-  awesome_notice: 'Danh sách này được tạo ra từ repository: <a href="https://github.com/sindresorhus/awesome-electron">Awesome Electron của @sindresorhus</a>. <br>Thấy thiếu cái gì đó? Hãy <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">tạo một pull request để thêm vào</a>.'
-  meetup_notice: Để thêm một meetup, chỉnh sửa <code>data/meetups.json</code> và sau đó <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">tạo một pull request</a>.
-releases: Các phiên bản phát hành
+  awesome_notice: Danh sách này được tạo từ kho lưu trữ <a href="https://github.com/sindresorhus/awesome-electron"> @ sindresorhus's Awesome Electron </a> . <br> Có điều gì đó bị thiếu? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md"> Hãy một yêu cầu kéo </a> .
+  meetup_notice: Để thêm một cuộc gặp gỡ, chỉnh sửa <code> dữ liệu / meetups.json </ code> và <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json"> làm một yêu cầu kéo </a> .
+releases: Phát Hành 
 electron_is_easy:
   title: Nó dễ hơn bạn nghĩ
   description: Nếu bạn có thể xây dựng một website thì cũng có thể xây dựng ứng dụng trên desktop. Electron là framework giúp xây dựng ứng dụng gốc với công nghệ web như JavaScript, HTML và CSS. Nó sẽ lo những phần khó nên bạn có thể tập trung vào cốt lõi của ứng dụng.
   video_link: Xem video
 web_technologies:
   title: Công nghệ lập trình Web
-  description: Electron sử dụng Chromium và Node.js, vì vậy bạn có thể xây dựng ứng dụng của bạn chỉ với HTML, CSS và Javascript.
+  description: Electron sử dụng Chromium và Node.js để bạn có thể tạo ứng dụng của mình bằng HTML, CSS và JavaScript.
 open_source:
   title: Mã nguồn mở
   description: Electron là một dự án mã nguồn mở được xây dựng và bảo trì bởi Github và cộng đồng những người đóng góp tích cực.
 cross_platform:
-  title: Đa Nền Tảng
+  title: Nền tảng chéo
   description: Tương thích với Mac, Windows và Linux, các ứng dụng Electron xây dựng và chạy được trên cả ba nền tảng.
 benefits:
-  hard_parts_made_easy: Phần cứng được thực hiện dễ dàng
-  automatic_updates: Trình tự động cập nhật
-  native_menus_and_notifications: Menu chính và thông báo
-  crash_reporting: Báo lỗi
-  debugging_and_profiling: Debug và profiling
+  hard_parts_made_easy: Các phần cứng được thực hiện dễ dàng
+  automatic_updates: Cập nhật tự động
+  native_menus_and_notifications: Menu và thông báo gốc
+  crash_reporting: Báo cáo sự cố
+  debugging_and_profiling: Gỡ lỗi & lược tả
   windows_installers: Các cài đặt cho Windows
 get_started:
   title: Bắt đầu
