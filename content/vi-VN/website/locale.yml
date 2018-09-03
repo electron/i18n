@@ -71,15 +71,15 @@ benefits:
   native_menus_and_notifications: Menu và thông báo gốc
   crash_reporting: Báo cáo sự cố
   debugging_and_profiling: Gỡ lỗi & lược tả
-  windows_installers: Các cài đặt cho Windows
+  windows_installers: Trình cài đặt Windows
 get_started:
   title: Bắt đầu
-  description: Để bắt đầu với Electron, bạn có thể xem qua kho tài nguyên dưới đây. Tìm hiểu làm thể nào để đóng gói web app của bạn với Electron thành ứng dụng, và cách kết nối đến các API của Eletron cũng như việc tạo ra các file cài đặt cuối cùng cho ứng dụng của bạn đế các nền tảng.
+  description: Để bắt đầu với Electron, hãy xem các tài nguyên bên dưới. Tìm hiểu cách bọc ứng dụng web của bạn với Electron, truy cập tất cả các API và tạo trình cài đặt.
 explore:
-  title: Khám phá các API của Electron
-  description: "Các <a href='https://github.com/electron/electron-api-demos'> Electron API Demo ứng dụng </a> tương tác thể hiện các tính năng quan trọng nhất của API Electron. Xem những gì có thể với Electron với mã mẫu và các mẹo hữu ích để tạo ứng dụng của bạn ."
-download_from_github: Tải về từ Github
-view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Xem tất cả phiên bản phát thành</a> trên Github
+  title: Khám phá các API điện tử
+  description: "Các <a href='https://github.com/electron/electron-api-demos'> Electron API Demo ứng dụng </a> tương tác thể hiện các tính năng quan trọng nhất của API Electron. Xem những gì có thể với Electron với mã mẫu và các mẹo hữu ích để tạo ứng dụng của bạn"
+download_from_github: Tải xuống từ GitHub
+view_all_releases_on_github: <a href="r://github.com/electron/electron-api-demos/releases">Xem tất cả phiên bản phát thành</a> trên Github
 quick_start:
   title: "Trở về ứng dụng <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> để xem các Electron hoạt động:"
   description: Một ứng dụng Electron nhỏ hữu ích.
