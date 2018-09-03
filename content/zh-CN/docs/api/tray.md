@@ -203,16 +203,16 @@ app.on('ready', () => {
 
 * `title` String
 
-Sets the title displayed aside of the tray icon in the status bar (Support ANSI colors).
+设置显示在状态栏中托盘图标旁边的标题 (支持ANSI色彩)
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
-* `mode` String - Highlight mode with one of the following values: 
-  * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
-  * `always` - Always highlight the tray icon.
-  * `never` - Never highlight the tray icon.
+* `mode` String - 高亮模式选项，以下为可选值 
+  * `selection` - 当托盘图标本点击或托盘的上下文菜单打开时高亮显示托盘图标，这是mode的默认值
+  * `always` - 总是高亮托盘图标
+  * `never` - 从不高亮托盘图标
 
-Sets when the tray's icon background becomes highlighted (in blue).
+设置托盘图标背景 (蓝色) 高亮的时机
 
 **Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
 
