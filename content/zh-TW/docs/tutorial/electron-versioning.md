@@ -121,7 +121,7 @@ As a future consideration, we may introduce one or both of the following:
 
 # 功能標記
 
-Feature flags are a common practice in Chromium, and are well-established in the web-development ecosystem. In the context of Electron, a feature flag or **soft branch** must have the following properties:
+功能標記是 Chromium 中常見的作法，也已經在網頁開發生態圈中根深蒂固。 In the context of Electron, a feature flag or **soft branch** must have the following properties:
 
 - it is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
 - it completely segments new and old code paths; refactoring old code to support a new feature *violates* the feature-flag contract
