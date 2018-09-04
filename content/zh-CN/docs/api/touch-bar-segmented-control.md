@@ -19,12 +19,12 @@
   * `mode` String (可选) - 控件的选择模式： 
     * `single` - 默认的。只能选一项。选择后会取消选择之前选择的项。
     * `multiple` - 可以选多个项。
-    * `buttons` - Make the segments act as buttons, each segment can be pressed and released but never marked as active.
-  * `segments` [SegmentedControlSegment[]](structures/segmented-control-segment.md) - An array of segments to place in this control.
-  * `selectedIndex` Integer (optional) - The index of the currently selected segment, will update automatically with user interaction. When the mode is multiple it will be the last selected item.
-  * `change` Function - Called when the user selects a new segment. 
-    * `selectedIndex` Integer - The index of the segment the user selected.
-    * `isSelected` Boolean - Whether as a result of user selection the segment is selected or not.
+    * `buttons` - 将段作为按钮使用, 每一段都可以被按下和释放但是不会被标记为激活状态
+  * `segments` [SegmentedControlSegment[]](structures/segmented-control-segment.md) - 被放到控件中的段的集合
+  * `selectedIndex` Integer (optional) - 当前选中的段的下标, 这个值会在用户交互时自动更改 当处于多选模式时，这个值是选中段中最后一个的下标
+  * `change` Function - 当用户点击某一个段时调用. 
+    * `selectedIndex` Integer - 用户选中的段的下标。
+    * `isSelected` Boolean - 当前段的选中状态
 
 ### 实例属性
 
