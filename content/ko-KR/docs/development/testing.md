@@ -1,8 +1,8 @@
 # 테스트
 
-We aim to keep the code coverage of Electron high. We ask that all pull request not only pass all existing tests, but ideally also add new tests to cover changed code and new scenarios. Ensuring that we capture as many code paths and use cases of Electron as possible ensures that we all ship apps with fewer bugs.
+우리는 Electron 코드의 테스트 커버리지를 높게 유지하려고 합니다. 우리는 모든 pull request에 대해서, 이미 작성된 테스트를 통과하는 것 뿐만 아니라, 변경된 코드에 대한 새로운 테스트와 새로운 시나리오를 함께 포함하도록 권장합니다. Electron의 코드 흐름과 사용법에 대해서 최대한 테스트하는 것은 우리의 앱을 배포할 때 버그를 최대한 없애기 위해서입니다.
 
-This repository comes with linting rules for both JavaScript and C++ – as well as unit and integration tests. To learn more about Electron's coding style, please see the [coding-style](coding-style.md) document.
+이 저장소는 JavaScript와 C++ 모두에 대해서 lint, 단위 테스트, 그리고 통합 테스트 규칙을 가지고 있습니다. Electron의 코딩 스타일에 대해 더 알아보려면 [coding-style](coding-style.md) 문서를 읽어주십시오.
 
 ## Linting
 
