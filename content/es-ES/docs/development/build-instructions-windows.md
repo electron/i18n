@@ -27,14 +27,14 @@ $ git clone https://github.com/electron/electron.git
 
 El script bootstrap descargará todas las dependencias de compilacion necesarias y creará la estructura de archivos del proyecto. Fijese que estamos usando `ninja` para construir Electron así que no hay ningún proyecto de Visual Studio generado.
 
-To bootstrap for a static, non-developer build, run:
+Para iniciar una compilación estática, no de desarrollador, ejecuta:
 
 ```powershell
 $ cd electron 
 $ npm run bootstrap
 ```
 
-Or to bootstrap for a development session that builds faster by not statically linking:
+O para iniciar una sesión de desarrollo que se compila más rápido al no usar enlazado estático:
 
 ```powershell
 $ cd electron
