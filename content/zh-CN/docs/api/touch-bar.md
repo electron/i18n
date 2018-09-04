@@ -22,11 +22,11 @@
 
 #### `touchBar.escapeItem`
 
-`TouchBarItem`设置的内容将替换掉触摸条中的“esc”按钮 将该项设为`null`以使用默认的"esc"按钮 修改这个值将立即更新触摸条中的返回按钮
+`TouchBarItem`设置的内容将替换掉Touch bar中的“esc”按钮 将该项设为`null`以使用默认的"esc"按钮 修改这个值将立即更新Touch bar中的返回按钮
 
 ## 示例
 
-Below is an example of a simple slot machine touch bar game with a button and some labels.
+下面是一个带有一个按钮和若干文本的简易Touch bar老虎机游戏示例
 
 ```javascript
 const {app, BrowserWindow, TouchBar} = require('electron')
@@ -56,4 +56,4 @@ const spin = new TouchBarButton({
 2. 通过 `npm install electron` 来安装 Electron
 3. 在 Electron 中运行示例：`./node_modules/.bin/electron touchbar.js`
 
-You should then see a new Electron window and the app running in your touch bar (or touch bar emulator).
+接下来这个应用会在你的Touch bar (或者Touch bar模拟器) 上运行，你将能看到一个Electron窗口
