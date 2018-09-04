@@ -75,10 +75,18 @@ Note that most Chromium updates will be considered breaking. Fixes that can be b
 
 프로세스는 다음과 같습니다:
 
-1. 모든 신규 메이저, 마이너 버전 출시 라인은 `-beta.N` 태그로 시작하고, `N >= 1` 이어야 합니다. 이 시점에서는, 기능과 관련된 부분은 **잠깁니다(locked)**. 이 출시 라인은 기능 추가는 허용되지 않으며, 보안과 안정성에만 초점을 맞추고 있습니다. 예. `2.0.0-beta.1`.
-2. 버그 수정, 회귀(regression) 수정, 보안 패치가 허용됩니다. 이를 위해 새로운 베타 버전은 `N` 을 증가시켜 출시합니다. 예. `2.0.0-beta.2`
-3. 특정 베타 출시 버전이 *일반적으로* 안정적이라고 여겨지면, 안정적인 빌드 버전으로 버전 정보만 수정해서 재출시될 것입니다. 예. `2.0.0`.
-4. 안정 버전이 출시된 이후에 버그 수정이나 보안 패치 등이 필요한 경우 *패치* 버전을 증가시킵니다 예. `2.0.1`.
+1. All new major and minor releases lines begin with a beta series indicated by semver prerelease tags of `beta.N`, e.g. `2.0.0-beta.1`. After the first beta, subsequent beta releases must meet all of the following conditions: 
+    1. The change is backwards API-compatible (deprecations are allowed)
+    2. The risk to meeting our stability timeline must be low.
+2. If allowed changes need to be made once a release is beta, they are applied and the prerelease tag is incremented, e.g. `2.0.0-beta.2`.
+3. If a particular beta release is *generally regarded* as stable, it will be re-released as a stable build, changing only the version information. e.g. `2.0.0`. After the first stable, all changes must be backwards-compatible bug or security fixes.
+4. If future bug fixes or security patches need to be made once a release is stable, they are applied and the *patch* version is incremented e.g. `2.0.1`.
+
+Specifically, the above means:
+
+1. Admitting non-breaking-API changes early in the beta cycle is okay, even if those changes have the potential to cause moderate side-affects
+2. Admitting feature-flagged changes, that do not otherwise alter existing code paths, at most points in the beta cycle is okay. Users can explicitly enable those flags in their apps.
+3. Admitting features of any sort very late in the beta cycle is 
 
 메이저, 마이너 버전이 증가하면 다음과 같은 버전 정보를 갖게 될 것입니다:
 
@@ -117,12 +125,7 @@ Note that most Chromium updates will be considered breaking. Fixes that can be b
 
 - 런타임 또는 빌드시 활성화/비활성화 할 수 있음; Electron에서는 요청 범위(request-scoped) 기능 플래그 개념은 지원하지 않음
 - 새로운 코드 경로와 예전 코드 경로는 완전히 분리됨; 새로운 기능을 지원하기 위해 예전 코드를 리팩토링하는 것은 기능 플래그 규칙을 *위반하는 것임*
-- 소프트 브랜치가 병합되고 나면 기능 플래그는 삭제됨
-
-저희는 버전 관리 전략과 플래그가 있는 코드를 다음과 같이 조화시켰습니다.
-
-1. 안정화 브랜치에서는 기능 플래그 코드가 반복되는 것을 원하지 않습니다; 신중하게 사용한 기능 플래그 코드일지라도 위험이 없는 것은 아닙니다.
-2. 기능 플래그가 있는 코드에서는 메이저 버전으로 증가시키지 않고도 API 규칙을 어길 수 있습니다. 플래그가 있는 코드는 semver 규칙을 따르지 않아도 됩니다.
+- feature flags are eventually removed after the feature is released
 
 # 시맨틱 커밋
 
