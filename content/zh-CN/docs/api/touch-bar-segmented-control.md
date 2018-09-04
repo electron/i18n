@@ -11,10 +11,10 @@
     * `automatic` - 默认的。分段控件的外观是通过窗口的类型和控件在窗口内呈现的位置自动确定的。
     * `rounded` - 控件的呈现使用圆形风格。
     * `textured-rounded` - 控件的呈现使用纹理圆形风格。
-    * `round-rect` - 控件的呈现使用圆角矩形样式。
-    * `textured-square` - The control is displayed using the textured square style.
-    * `capsule` - The control is displayed using the capsule style.
-    * `small-square` - The control is displayed using the small square style.
+    * `round-rect` - 以圆角矩形样式显示控件。
+    * `round-rect` - 以带纹理的矩形样式显示控件。
+    * `capsule` - 以胶囊样式的风格显示控件
+    * `small-square` - 以小尺寸的矩形样式显示控件
     * 表示控件的当前段样式。更新此值会立即更新触摸栏中的控件。
   * `mode` String (可选) - 控件的选择模式： 
     * `single` - 默认的。只能选一项。选择后会取消选择之前选择的项。
