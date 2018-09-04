@@ -146,10 +146,10 @@
     "name": "Indonesian",
     "code": "id",
     "phrases": "9522",
-    "translated": "8185",
+    "translated": "8186",
     "approved": "6",
     "words": "87895",
-    "words_translated": "70673",
+    "words_translated": "70677",
     "words_approved": "62",
     "translated_progress": 80,
     "approved_progress": 0,
@@ -211,14 +211,14 @@
     "name": "Polish",
     "code": "pl",
     "phrases": "9522",
-    "translated": "3592",
+    "translated": "3597",
     "approved": "700",
     "words": "87895",
-    "words_translated": "19669",
+    "words_translated": "19709",
     "words_approved": "4996",
     "translated_progress": 22,
     "approved_progress": 5,
-    "qa_issues": "847"
+    "qa_issues": "849"
   },
   {
     "name": "Portuguese, Brazilian",
@@ -315,13 +315,13 @@
     "name": "Vietnamese",
     "code": "vi",
     "phrases": "9522",
-    "translated": "1882",
+    "translated": "1895",
     "approved": "53",
     "words": "87895",
-    "words_translated": "9145",
+    "words_translated": "9451",
     "words_approved": "183",
     "translated_progress": 10,
     "approved_progress": 0,
-    "qa_issues": "511"
+    "qa_issues": "527"
   }
 ]
