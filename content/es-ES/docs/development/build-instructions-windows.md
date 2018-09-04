@@ -49,7 +49,7 @@ Compilar ambos destinos `lanzamiento` y `Depuración`:
 $ npm run build
 ```
 
-You can also build either the `Debug` or `Release` target on its own:
+También puede querer compilar los objetivos `Debug` o `Release` por separado:
 
 ```powershell
 $ npm run build:dev
