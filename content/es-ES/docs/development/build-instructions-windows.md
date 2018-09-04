@@ -30,7 +30,7 @@ El script bootstrap descargará todas las dependencias de compilacion necesarias
 To bootstrap for a static, non-developer build, run:
 
 ```powershell
-$ cd electron
+$ cd electron 
 $ npm run bootstrap
 ```
 
