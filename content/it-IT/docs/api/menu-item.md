@@ -34,7 +34,7 @@ It is best to specify `role` for any menu item that matches a standard role, rat
 
 The `label` and `accelerator` values are optional when using a `role` and will default to appropriate values for each platform.
 
-The `role` property can have following values:
+La proprietà `role` può avere i seguenti valori:
 
 * `undo`
 * `redo`
@@ -57,9 +57,9 @@ The `role` property can have following values:
 * `editMenu` - L'intero menu di default "Modifica" (Annulla, Copia, etc.).
 * `windowMenu` - L'intero menu di default "Finestra" (Riduci, Chiudi, etc.).
 
-The following additional roles are available on *macOS*:
+I seguenti valori sono disponibili per *macOS*:
 
-* `about` - Map to the `orderFrontStandardAboutPanel` action.
+* `about` - Mappa l'azione `orderFrontStandardAboutPanel`.
 * `hide` - Map to the `hide` action.
 * `hideOthers` - Map to the `hideOtherApplications` action.
 * `unhide` - Map to the `unhideAllApplications` action.
