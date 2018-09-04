@@ -39,23 +39,23 @@ The `role` property can have following values:
 * `undo`
 * `redo`
 * `cut`
-* `copia`
+* `copy`
 * `paste`
 * `pasteAndMatchStyle`
 * `selectAll`
-* `cancella`
-* `minimize` - Minimize current window.
-* `close` - Close current window.
-* `quit`- Quit the application.
-* `reload` - Reload the current window.
-* `forceReload` - Reload the current window ignoring the cache.
-* `toggleDevTools` - Toggle developer tools in the current window.
-* `toggleFullScreen`- Toggle full screen mode on the current window.
-* `resetZoom` - Reset the focused page's zoom level to the original size.
-* `zoomIn` - Zoom in the focused page by 10%.
-* `zoomOut` - Zoom out the focused page by 10%.
-* `editMenu` - Whole default "Edit" menu (Undo, Copy, etc.).
-* `windowMenu` - Whole default "Window" menu (Minimize, Close, etc.).
+* `delete`
+* `minimize` - Riduce la finestra corrente.
+* `close` - Chiude la finestra corrente.
+* `quit`- Chiude l'applicazione.
+* `reload` - Aggiorna la finestra corrente.
+* `forceReload` - Aggiorna la finestra corrente ignorando la cache.
+* `toggleDevTools` - Mostra/Nasconde la finestra per gli strumenti di sviluppo.
+* `toggleFullScreen`- Attiva/Disattiva la modalità a schermo intero per la finestra corrente.
+* `resetZoom` - Ripristina lo zoom al valore originario.
+* `zoomIn` - Aumenta lo zoom la pagina del 10%.
+* `zoomOut` - Riduce lo zoom della pagina del 10%.
+* `editMenu` - L'intero menu di default "Modifica" (Annulla, Copia, etc.).
+* `windowMenu` - L'intero menu di default "Finestra" (Riduci, Chiudi, etc.).
 
 The following additional roles are available on *macOS*:
 
