@@ -60,14 +60,14 @@ $ git clone https://github.com/electron/electron
 
 El script de inicialización (bootstrap) descargará todas las dependencias de compilacion necesarias y creará la estructura de archivos del proyecto. Debes tener Python 2.7.x para que el comando funcione. La descarga de ciertos archivos puede tomar mucho tiempo. Ten en cuenta que estamos usando `ninja` para compilar Electron por lo que no se genera un `Makefile`.
 
-To bootstrap for a static, non-developer build, run:
+Para iniciar una compilación estática, no de desarrollador, ejecuta:
 
 ```sh
 $ cd electron
 $ npm run bootstrap
 ```
 
-Or to bootstrap for a development session that builds faster by not statically linking:
+O para iniciar una sesión de desarrollo que se compila más rápido al no usar enlazado estático:
 
 ```sh
 $ cd electron
