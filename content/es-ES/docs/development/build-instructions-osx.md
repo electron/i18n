@@ -57,14 +57,14 @@ $ git clone https://github.com/electron/electron
 
 El comando de inicialización descargará el conjunto de archivos necesarios y creará archivos de proyecto. Tenga en cuenta que estamos usando [ninja](https://ninja-build.org/) para construir Electron por lo que no se genera ningún proyecto de Xcode.
 
-To bootstrap for a static, non-developer build, run:
+Para iniciar una compilación estática, no de desarrollador, ejecuta:
 
 ```sh
 $ cd electron 
 $ npm run bootstrap
 ```
 
-Or to bootstrap for a development session that builds faster by not statically linking:
+O para iniciar una sesión de desarrollo que se compila más rápido al no usar enlazado estático:
 
 ```sh
 $ cd electron 
