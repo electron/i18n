@@ -1,6 +1,6 @@
 # Разработка Chromium
 
-> A collection of resources for learning about Chromium and tracking its development
+> Список ресурсов для изучения Chromium и отслеживания его разработки
 
 - [chromiumdev](https://chromiumdev-slack.herokuapp.com) в Slack
 - [@ChromiumDev](https://twitter.com/ChromiumDev) в Twitter
@@ -11,7 +11,7 @@
 - [Development Calendar and Release Info](https://www.chromium.org/developers/calendar)
 - [Discussion Groups](http://www.chromium.org/developers/discussion-groups)
 
-See also [V8 Development](v8-development.md)
+Также смотрите [V8 Development](v8-development.md)
 
 # Chromium development with Electron
 
