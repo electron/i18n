@@ -1,8 +1,8 @@
 # Utilisation du clang-format pour du code C++
 
-[`Clang-format`](http://clang.llvm.org/docs/ClangFormat.html) est un outil pour formater le code C/C++/Objective-C, afin que les développeurs n’aient pas à se soucier des problèmes de style au cours de la révision du code.
+[`Clang-format`](http://clang.llvm.org/docs/ClangFormat.html) est un outil pour formater le code C/C++/Objective-C permettant aux développeurs de ne pas se soucier des problèmes de style au cours de la révision du code.
 
-Il est fortement recommandé de formater votre code C++ avant d'ouvrir des pull requests. Cela permet d'épargner du temps à vous et aux réviseurs.
+Il est fortement recommandé de formater votre code C++ avant d'ouvrir des pull requests afin de vous faire gagner du temps ainsi qu'aux réviseurs.
 
 Vous pouvez installer `clang-format` et `git-clang-format` via `npm install -g clang-format`.
 
