@@ -171,7 +171,7 @@ app.on('activate', () => {
 
 Склонируйте и запустите код, приведенный в данном обучающем посте, из [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) репозитория.
 
-**Примечание**: Для запуска потребуется [Git](https://git-scm.com).
+**Note**: Running this requires [Git](https://git-scm.com) and [npm](https://www.npmjs.com/).
 
 ```sh
 # Клонируем репозиторий
