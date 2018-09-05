@@ -56,10 +56,10 @@ $ find ~/.chromium-git-cache/ -type f -name '*.lock' -delete
 
 Возможно делиться этой директорией с другими машинами, экспортируя ее как SMB share на Linux, но лишь один процесс/машина могут использовать этот кэш одновременно. Блокировки, установленные скриптом git-cache попытаются предотвратить это, однако возможна нестабильная работа по сети.
 
-On Windows, SMBv2 has a directory cache that will cause problems with the git cache script, so it is necessary to disable it by setting the registry key
+На Windows, у SMBv2 есть кэш директорий, который будет создавать проблемы со скриптом git-cache, поэтому необходимо отключить его, установив ключ регистра
 
 ```sh
 HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Lanmanworkstation\Parameters\DirectoryCacheLifetime
 ```
 
-to 0. More information: https://stackoverflow.com/a/9935126
+больше информации: https://stackoverflow.com/a/9935126
