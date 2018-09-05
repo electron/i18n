@@ -1,6 +1,6 @@
-# In-App Purchase (macOS)
+# 應用程式內購(macOS)
 
-## Preparing
+## 準備中...
 
 ### Paid Applications Agreement
 
