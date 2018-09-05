@@ -30,7 +30,7 @@ HOME=~/.electron-gyp npm install
 
 ### Cài đặt các module và xây dựng lại cho Electron
 
-You can also choose to install modules like other Node projects, and then rebuild the modules for Electron with the [`electron-rebuild`](https://github.com/paulcbetts/electron-rebuild) package. This module can get the version of Electron and handle the manual steps of downloading headers and building native modules for your app.
+Bạn cũng có thể lựa chọn cài đặt các module như các project Node khác, và sau đó xây dựng lại các module cho Electron với gói [`electron-rebuild`](https://github.com/paulcbetts/electron-rebuild) . Module này có thể lấy phiên bản của Electron và xử lý các bước thủ công để tải xuống tiêu đề và tạo module gốc cho ứng dụng của bạn.
 
 An example of installing `electron-rebuild` and then rebuild modules with it:
 
