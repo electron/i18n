@@ -67,7 +67,7 @@ npm install --save-dev electron
 
 이 이외에도 여러 설치 방법이 있습니다. [설치 가이드](installation.md)를 방문하여 프록시, 미러, 커스텀 캐쉬 등을 알아보십시오.
 
-## 간단히 설명한 Electron 개발
+## Electron 개발 맛보기
 
 일랙트론 앱들은 Node.js 개발과 동일한 원칙 및 방법을 사용해 Javascript로 개발되었습니다. Electron에 있는 모든 API들과 기능들은 `electron` 모듈을 이용해 접근 할 수 있으며, 이것은 다른 Node.js 모듈처럼 사용이 가능 합니다:
 
@@ -171,7 +171,7 @@ app.on('activate', () => {
 
 [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) 레파지토리에서 소스를 clone하여 소스 안의 튜토리얼 코드를 실행합니다.
 
-**주의**: 이 코드를 실행하려면 [Git](https://git-scm.com)이 필요합니다.
+**Note**: Running this requires [Git](https://git-scm.com) and [npm](https://www.npmjs.com/).
 
 ```sh
 # Clone the repository
