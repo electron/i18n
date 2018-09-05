@@ -13,9 +13,9 @@
 
 Также смотрите [V8 Development](v8-development.md)
 
-# Chromium development with Electron
+# Разработка под Chromium с помощью Electron
 
-It is possible to debug Chromium with Electron by passing `--build_debug_libcc` to the bootstrap script:
+Отладка в Chromium с помощью Electron может осуществляться подачей `--build_debug_libcc` в загрузочный скрипт:
 
 ```sh
 $ ./script/bootstrap.py -d --build_debug_libcc
