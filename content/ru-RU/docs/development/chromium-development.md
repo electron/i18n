@@ -35,11 +35,11 @@ $ ./script/build.py -c D --libcc
 $ ./vendor/libchromiumcontent/src/build/gdb-add-index ./out/D/electron
 ```
 
-Building libchromiumcontent requires a powerful machine and takes a long time (though incremental rebuilding the shared library component is fast). With an 8-core/16-thread Ryzen 1700 CPU clocked at 3ghz, fast SSD and 32GB of RAM, it should take about 40 minutes. It is not recommended to build with less than 16GB of RAM.
+Для сборки libchromiumcontent необходимы большая вычислительная мощность и много времени (однако, последующие пересборки компонентов общей библиотеки происходят быстро). С 8-ядерным/16-поточным процессором Ryzen 1700 с частотой 3 Ггц,, быстрым SSD и 32 Гб оперативной памяти, это займет приблизительно 40 минут. Сборка при оперативной памяти менее чем 16 Гб не рекомендуется.
 
 ## Chromium git cache
 
-`depot_tools` has an undocumented option that allows the developer to set a global cache for all git objects of Chromium + dependencies. This option uses `git clone --shared` to save bandwidth/space on multiple clones of the same repositories.
+У `depot_tools` есть незадокументированная опция, которая позволяет разработчику установить глобальный кэш для всех git объектов Chromium + зависимостей. This option uses `git clone --shared` to save bandwidth/space on multiple clones of the same repositories.
 
 On electron/libchromiumcontent, this option is exposed through the `LIBCHROMIUMCONTENT_GIT_CACHE` environment variable. If you intend to have several libchromiumcontent build trees on the same machine(to work on different branches for example), it is recommended to set the variable to speed up the download of Chromium source. Например:
 
