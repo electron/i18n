@@ -29,7 +29,7 @@ $ ./script/bootstrap.py -d --build_debug_libcc
 $ ./script/build.py -c D --libcc
 ```
 
-При разработке под linux с gdb рекомендуется добавлять индекс gdb для ускорения загрузки symbols. This doesn't need to be executed on every build, but it is recommended to do it at least once to index most shared libraries:
+При разработке под linux с gdb рекомендуется добавлять индекс gdb для ускорения загрузки symbols. Выполнять эту команду при каждой сборке не обязательно, но рекомендуется сделать это хотя бы один раз для индексации большинства общих библиотек:
 
 ```sh
 $ ./vendor/libchromiumcontent/src/build/gdb-add-index ./out/D/electron
