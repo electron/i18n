@@ -25,19 +25,19 @@ Para testar las compras dentro de la App, tienes que cambiar el `CFBundleIdentif
 
 ## Ejemplo de código
 
-Aquí hay un ejemplo de como usar las compras dentro de la App en Electron. You'll have to replace the product ids by the identifiers of the products created with iTunes Connect (the identifier of `com.example.app.product1` is `product1`). Note that you have to listen to the `transactions-updated` event as soon as possible in your app.
+Aquí hay un ejemplo de como usar las compras dentro de la App en Electron. Tienes que reemplazar las IDs de los productos por los identificadores de los productos creados con iTunes Connect (el identificador de `com.example.app.product1` es `product1`). Nota que tienes que escuchar al evento `transactions-updated` tan pronto como sea posible en tu App.
 
 ```javascript
 const { inAppPurchase } = require('electron').remote
 const PRODUCT_IDS = ['id1', 'id2']
 
-// Listen for transactions as soon as possible.
+// Escucha las transacciones tan pronto com sea posible.
 inAppPurchase.on('transactions-updated', (event, transactions) => {
   if (!Array.isArray(transactions)) {
     return
   }
 
-  // Check each transaction.
+  // Verifica cada transacción.
   transactions.forEach(function (transaction) {
     var payment = transaction.payment
 
@@ -49,18 +49,18 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
 
         console.log(`${payment.productIdentifier} purchased.`)
 
-        // Get the receipt url.
+        // Obtén el recibo de pago.
         let receiptURL = inAppPurchase.getReceiptURL()
 
         console.log(`Receipt URL: ${receiptURL}`)
 
-        // Submit the receipt file to the server and check if it is valid.
+        // Envía el recibo al servidor y verifica si es válido.
         // @see https://developer.apple.com/library/content/releasenotes/General/ValidateAppStoreReceipt/Chapters/ValidateRemotely.html
         // ...
-        // If the receipt is valid, the product is purchased
+        // Si el recibo es válido, el producto es comprado
         // ...
 
-        // Finish the transaction.
+        // Acaba la transacción.
         inAppPurchase.finishTransactionByDate(transaction.transactionDate)
 
         break
@@ -68,7 +68,7 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
 
         console.log(`Failed to purchase ${payment.productIdentifier}.`)
 
-        // Finish the transaction.
+        // Acaba la transacción.
         inAppPurchase.finishTransactionByDate(transaction.transactionDate)
 
         break
@@ -88,7 +88,7 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
   })
 })
 
-// Check if the user is allowed to make in-app purchase.
+// Verifica si el usuario tiene permitido realizar la compra.
 if (!inAppPurchase.canMakePayments()) {
   console.log('The user is not allowed to make in-app purchase.')
 }
