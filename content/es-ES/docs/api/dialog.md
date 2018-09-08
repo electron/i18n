@@ -82,7 +82,7 @@ Si un `callback` es pasado, la llamada API será asincrónica y el resultado ser
   * `securityScopedBookmarks` Boolean (opcional) *macOS* *mas* - Crea [marcadores de seguridad](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) cuando se empacan para la Mac App Store. Si esta opción está activada y el fichero no existe todavía, se creará un fichero en blanco en la carpeta seleccionada.
 * `callback` Función (opcional) 
   * `filename` String
-  * `bookmark` String *macOS* *mas* - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present.
+  * `bookmark` String *macOS* *mas* - string Base64 codificado que contiene la información del marcador para el fichero grabado. `securityScopedBookmarks` deben estar activados para estar presentes.
 
 Devuelve `String`, el camino de archivos elegidos por el usuario, si la llamada de vuelta es dada, se devuelve `undefined`.
 
