@@ -93,25 +93,25 @@ if (!inAppPurchase.canMakePayments()) {
   console.log('The user is not allowed to make in-app purchase.')
 }
 
-// Retrieve and display the product descriptions.
+// Recupera y muestra las descripciones de los productos.
 inAppPurchase.getProducts(PRODUCT_IDS, (products) => {
-  // Check the parameters.
+  // Verifica los parámetros.
   if (!Array.isArray(products) || products.length <= 0) {
     console.log('Unable to retrieve the product informations.')
     return
   }
 
-  // Display the name and price of each product.
+  // Muestra el nombre y precio de cada producto.
   products.forEach((product) => {
     console.log(`The price of ${product.localizedTitle} is ${product.formattedPrice}.`)
   })
 
-  // Ask the user which product he/she wants to purchase.
+  // Pregunta as usuário que producto quiere comprar.
   // ...
   let selectedProduct = products[0]
   let selectedQuantity = 1
 
-  // Purchase the selected product.
+  // Compra el producto seleccionado.
   inAppPurchase.purchaseProduct(selectedProduct.productIdentifier, selectedQuantity, (isProductValid) => {
     if (!isProductValid) {
       console.log('The product is not valid.')
