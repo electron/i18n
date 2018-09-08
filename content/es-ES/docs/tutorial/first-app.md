@@ -67,7 +67,7 @@ npm install --save-dev electron
 
 Existen otras formas de instalar Electron. Por favor, consulta la [guía de instalación](installation.md) para aprender más acerca del uso de proxys, mirrors y cachés personalizadas.
 
-## Desarrollo con Electron de un vistazo
+## Desarrollo de Electron en pocas palabras
 
 Las aplicaciones Electron se desarrollan en JavaScript usando los mismos principios y métodos utilizados en el desarrollo para Node.js. Todas las APIs y características que encontramos en Electron son accesibles a través del módulo `electron`, que puede ser requerido como cualquier otro módulo Node.js:
 
@@ -171,7 +171,7 @@ Una vez que hayas creado tus ficheros iniciales `main.js`, `index.html` y `packa
 
 Clona y ejecuta el código de este tutorial usando el repositorio [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start).
 
-**Nota**: Para ejecutar los siguientes comandos se necesita disponer de [Git](https://git-scm.com).
+**Note**: Running this requires [Git](https://git-scm.com) and [npm](https://www.npmjs.com/).
 
 ```sh
 # Clona el repositorio

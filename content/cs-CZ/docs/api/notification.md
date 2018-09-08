@@ -2,7 +2,7 @@
 
 > Vytvořte desktopové notifikace
 
-Process: [Main](../glossary.md#main-process)
+Proces: [Main](../glossary.md#main-process)
 
 ## Using in the renderer process
 
@@ -12,7 +12,7 @@ Pokud chcete ukazovat notifikace z renderer procesu, měli byste použít [HTML5
 
 > Vytvořte desktopové notifikace
 
-Process: [Main](../glossary.md#main-process)
+Proces: [Main](../glossary.md#main-process)
 
 `Notification` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
 

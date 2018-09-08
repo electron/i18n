@@ -1,4 +1,4 @@
-## Class: MenuItem
+## Classe: MenuItem
 
 > Aggiungi elementi a menu e menu contestuali di applicazioni native.
 
@@ -34,55 +34,55 @@ It is best to specify `role` for any menu item that matches a standard role, rat
 
 The `label` and `accelerator` values are optional when using a `role` and will default to appropriate values for each platform.
 
-The `role` property can have following values:
+La proprietà `role` può avere i seguenti valori:
 
 * `undo`
 * `redo`
 * `cut`
-* `copia`
+* `copy`
 * `paste`
 * `pasteAndMatchStyle`
 * `selectAll`
-* `cancella`
-* `minimize` - Minimize current window.
-* `close` - Close current window.
-* `quit`- Quit the application.
-* `reload` - Reload the current window.
-* `forceReload` - Reload the current window ignoring the cache.
-* `toggleDevTools` - Toggle developer tools in the current window.
-* `toggleFullScreen`- Toggle full screen mode on the current window.
-* `resetZoom` - Reset the focused page's zoom level to the original size.
-* `zoomIn` - Zoom in the focused page by 10%.
-* `zoomOut` - Zoom out the focused page by 10%.
-* `editMenu` - Whole default "Edit" menu (Undo, Copy, etc.).
-* `windowMenu` - Whole default "Window" menu (Minimize, Close, etc.).
+* `delete`
+* `minimize` - Riduce la finestra corrente.
+* `close` - Chiude la finestra corrente.
+* `quit`- Chiude l'applicazione.
+* `reload` - Aggiorna la finestra corrente.
+* `forceReload` - Aggiorna la finestra corrente ignorando la cache.
+* `toggleDevTools` - Mostra/Nasconde la finestra per gli strumenti di sviluppo.
+* `toggleFullScreen`- Attiva/Disattiva la modalità a schermo intero per la finestra corrente.
+* `resetZoom` - Ripristina lo zoom al valore originario.
+* `zoomIn` - Aumenta lo zoom la pagina del 10%.
+* `zoomOut` - Riduce lo zoom della pagina del 10%.
+* `editMenu` - L'intero menu di default "Modifica" (Annulla, Copia, etc.).
+* `windowMenu` - L'intero menu di default "Finestra" (Riduci, Chiudi, etc.).
 
-The following additional roles are available on *macOS*:
+I seguenti valori sono disponibili per *macOS*:
 
-* `about` - Map to the `orderFrontStandardAboutPanel` action.
-* `hide` - Map to the `hide` action.
-* `hideOthers` - Map to the `hideOtherApplications` action.
-* `unhide` - Map to the `unhideAllApplications` action.
-* `startSpeaking` - Map to the `startSpeaking` action.
-* `stopSpeaking` - Map to the `stopSpeaking` action.
-* `front` - Map to the `arrangeInFront` action.
-* `zoom` - Map to the `performZoom` action.
-* `toggleTabBar` - Map to the `toggleTabBar` action.
-* `selectNextTab` - Map to the `selectNextTab` action.
-* `selectPreviousTab` - Map to the `selectPreviousTab` action.
-* `mergeAllWindows` - Map to the `mergeAllWindows` action.
-* `moveTabToNewWindow` - Map to the `moveTabToNewWindow` action.
-* `window` - The submenu is a "Window" menu.
-* `help` - The submenu is a "Help" menu.
-* `services` - The submenu is a "Services" menu.
-* `recentDocuments` - The submenu is an "Open Recent" menu.
-* `clearRecentDocuments` - Map to the `clearRecentDocuments` action.
+* `about` - Mappa l'azione `orderFrontStandardAboutPanel`.
+* `hide` - Mappa l'azione `hide`.
+* `hideOthers` - Mappa l'azione `hideOtherApplications`.
+* `unhide` - Mappa l'azione `unhideAllApplications`.
+* `startSpeaking` - Mappa l'azione `startSpeaking`.
+* `stopSpeaking` - Mappa l'azione `stopSpeaking`.
+* `front` - Mappa l'azione `arrangeInFront`.
+* `zoom` - Mappa l'azione `performZoom`.
+* `toggleTabBar` - Mappa l'azione `toggleTabBar`.
+* `selectNextTab` - Mappa l'azione `selectNextTab`.
+* `selectPreviousTab` - Mappa l'azione `selectPreviousTab`.
+* `mergeAllWindows` - Mappa l'azione `mergeAllWindows`.
+* `moveTabToNewWindow` - Mappa l'azione `moveTabToNewWindow`.
+* `window` - Il sottomenu è un menu "Window".
+* `help` - Il sottomenu è un menu "Help".
+* `services` - Il sottomenu è un menu "Services".
+* `recentDocuments` - Il sottomenu è un menu "Open Recent".
+* `clearRecentDocuments` - Mappa l'azione `clearRecentDocuments`.
 
 When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored. Lowercase `role`, e.g. `toggledevtools`, is still supported.
 
 ### Proprietà Istanze
 
-The following properties are available on instances of `MenuItem`:
+Le seguenti proprietà sono disponibili quando si istanzia la classe `MenuItem`:
 
 #### `menuItem.enabled`
 

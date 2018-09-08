@@ -4,7 +4,7 @@
 
 Most users will get this feature for free, since it's supported out of the box by [`electron-packager`](https://github.com/electron-userland/electron-packager), [`electron-forge`](https://github.com/electron-userland/electron-forge), and [`electron-builder`](https://github.com/electron-userland/electron-builder). 如果你没有使用这些工具中的任何一个，那么请继续阅读。
 
-## Generating `asar` Archives
+## 生成 `asar` 档案文件
 
 [asar](https://github.com/electron/asar) 是一种将多个文件合并成一个文件的类 tar 风格的归档格式。 Electron 可以无需解压整个文件，即可从其中读取任意文件内容。
 
@@ -137,7 +137,7 @@ Node 中有一些可以执行程序的 API，如 `child_process.exec`，`child_p
 
 因为 `exec` 和 `spawn` 允许 `command` 替代 `file` 作为输入，而 `command` 是需要在 shell 下执行的. 目前没有 可靠的方法来判断 command 中是否在操作一个 asar 包中的文件，而且即便可以判断，我们依旧无法保证可以在无任何 副作用的情况下替换 command 中的文件路径。
 
-## Adding Unpacked Files to `asar` Archives
+## 添加未打包的文件到 asar 档案
 
 As stated above, some Node APIs will unpack the file to the filesystem when called. Apart from the performance issues, various anti-virus scanners might be triggered by this behavior.
 

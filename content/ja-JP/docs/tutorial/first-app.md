@@ -173,7 +173,7 @@ app.on('activate', () => {
 
 このチュートリアルのコードを [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) リポジトリからクローンして、実行してみてください。
 
-**注意**: これを実行するには[Git](https://git-scm.com)が必要です。
+**Note**: Running this requires [Git](https://git-scm.com) and [npm](https://www.npmjs.com/).
 
 ```sh
 # リポジトリをクローン

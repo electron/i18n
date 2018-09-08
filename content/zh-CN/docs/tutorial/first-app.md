@@ -1,4 +1,4 @@
-# 打造你第一个 Electron 应用
+# 寫你第一個 Electron 應用程式
 
 Electron 可以让你使用纯 JavaScript 调用丰富的原生(操作系统) APIs 来创造桌面应用。 你可以把它看作一个专注于桌面应用的 Node. js 的变体，而不是 Web 服务器。
 
@@ -171,7 +171,7 @@ app.on('activate', () => {
 
 复制并运行这个库 [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start)。
 
-**注意**：您可能需要预先安装[Git](https://git-scm.com)环境
+**Note**: Running this requires [Git](https://git-scm.com) and [npm](https://www.npmjs.com/).
 
 ```sh
 # 克隆这仓库

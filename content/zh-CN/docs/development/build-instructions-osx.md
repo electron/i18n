@@ -57,7 +57,7 @@ $ git clone https://github.com/electron/electron
 
 Bootstrap 脚本也是必须下载的构建依赖，来创建项目文件. 注意我们使用的是 [ninja](https://ninja-build.org/) 来构建 Electron，所以没有生成 Xcode 项目.
 
-To bootstrap for a static, non-developer build, run:
+引导启动一个静态模块，无需开发者自己构建，运行：
 
 ```sh
 $ cd electron

@@ -65,7 +65,7 @@ win.show()
 * El filtro `blur` solo aplica a la página web, por lo que no hay manera de aplicar el efecto blur al contenido debajo de la ventana (por ejemplo, otras aplicaciones abiertas en el sistema del usuario).
 * En los sistemas operativos Windows, las ventanas transparentes no funcionarán cuando DWM está deshabilitado.
 * On Linux, users have to put `--enable-transparent-visuals --disable-gpu` in the command line to disable GPU and allow ARGB to make transparent window, this is caused by an upstream bug that [alpha channel doesn't work on some NVidia drivers](https://code.google.com/p/chromium/issues/detail?id=369209) on Linux.
-* On Mac, the native window shadow will not be shown on a transparent window.
+* En Mac, la sombra nativa no se mostrará en una ventana transparente.
 
 ## Ventana Click-through
 

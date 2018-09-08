@@ -25,7 +25,7 @@ $ git clone https://github.com/electron/electron.git
 
 ## Самонастройка
 
-Скрипт bootstrap скачает все необходимые зависимые сборки и построит файлы проекта. Обратите внимание, что мы используем `ninja` для сборки Electron, поэтому проект в Visual Studio не создается.
+Скрипт bootstrap скачает все необходимые зависимые сборки и соберёт файлы проекта. Обратите внимание, что мы используем `ninja` для сборки Electron, поэтому проект в Visual Studio не создается.
 
 To bootstrap for a static, non-developer build, run:
 

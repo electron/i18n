@@ -8,13 +8,13 @@ Process: [Main](../glossary.md#main-process)
 
 El módulo `inAppPurchase` emite los siguientes eventos:
 
-### Evento: 'transactions-updated'
+### Event: 'transactions-updated'
 
 Emitido cuando una o más transacciones han sido actualizadas.
 
 Devuelve:
 
-* `event` Evento
+* `event`
 * `transactions` ([Transaction[]](structures/transaction.md) - Array of transactions.
 
 ## Métodos

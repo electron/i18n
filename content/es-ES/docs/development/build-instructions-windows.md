@@ -27,14 +27,14 @@ $ git clone https://github.com/electron/electron.git
 
 El script bootstrap descargará todas las dependencias de compilacion necesarias y creará la estructura de archivos del proyecto. Fijese que estamos usando `ninja` para construir Electron así que no hay ningún proyecto de Visual Studio generado.
 
-To bootstrap for a static, non-developer build, run:
+Para iniciar una compilación estática, no de desarrollador, ejecuta:
 
 ```powershell
-$ cd electron
+$ cd electron 
 $ npm run bootstrap
 ```
 
-Or to bootstrap for a development session that builds faster by not statically linking:
+O para iniciar una sesión de desarrollo que se compila más rápido al no usar enlazado estático:
 
 ```powershell
 $ cd electron
@@ -49,7 +49,7 @@ Compilar ambos destinos `lanzamiento` y `Depuración`:
 $ npm run build
 ```
 
-You can also build either the `Debug` or `Release` target on its own:
+También puede querer compilar los objetivos `Debug` o `Release` por separado:
 
 ```powershell
 $ npm run build:dev
@@ -152,7 +152,7 @@ Debe obtener este error si está usando Git Bash para la compilación, en cambio
 
 ### cannot create directory at '...': Filename too long
 
-node.js has some [extremely long pathnames](https://github.com/electron/node/tree/electron/deps/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/node_modules/is-arrayish), and by default git on windows doesn't handle long pathnames correctly (even though windows supports them). This should fix it:
+node.js has some [extremely long pathnames](https://github.com/electron/node/tree/electron/deps/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/node_modules/is-arrayish), and by default git on windows doesn't handle long pathnames correctly (even though windows supports them). Esto debería arreglarlo:
 
 ```sh
 $ git config --system core.longpaths true

@@ -1,10 +1,10 @@
-# crashReporter
+# raportAwarii
 
-> Submit crash reports to a remote server.
+> Zgłoś raport wypadku zdalnemu serwerowi.
 
 Proces: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-The following is an example of automatically submitting a crash report to a remote server:
+To jest przykład automatycznego zgłaszania raportu awarii zdalnemu serwerowi:
 
 ```javascript
 const {crashReporter} = require('electron')
@@ -17,7 +17,7 @@ crashReporter.start({
 })
 ```
 
-For setting up a server to accept and process crash reports, you can use following projects:
+Podczas ustawy serwera, by akceptować i przetwarzać raporty awarii, możesz używać takich otóż projektów:
 
 * [socorro](https://github.com/mozilla/socorro)
 * [mini-breakpad-server](https://github.com/electron/mini-breakpad-server)
@@ -30,7 +30,7 @@ The `crashReporter` module has the following methods:
 
 ### `crashReporter.start(options)`
 
-* `options` Obiekt 
+* `opcje` Obiekt 
   * `companyName` String (optional)
   * `submitURL` String - URL that crash reports will be sent to as POST.
   * `productName` String (optional) - Defaults to `app.getName()`.

@@ -2,7 +2,7 @@
 
 > Control your application's event lifecycle.
 
-Process: [Main](../glossary.md#main-process)
+Proces: [Main](../glossary.md#main-process)
 
 Následující příklad zobrazuje jak ukončit aplikaci po zavření posledního okna:
 
@@ -348,7 +348,7 @@ app.exit(0)
 
 ### `app.isReady()`
 
-Returns `Boolean` - `true` if Electron has finished initializing, `false` otherwise.
+Vrací `Boolean` - `true` pokud Electron dokončil inicializaci, `false` v opačném případě.
 
 ### `app.focus()`
 

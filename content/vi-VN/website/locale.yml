@@ -6,16 +6,16 @@ nav:
   community: Cộng đồng
   contact: Liên hệ
   docs: Tài liệu
-  donors: Người ủng hộ
+  donors: Nhà Tài Trợ
   languages: Ngôn ngữ
-  releases: Các phiên bản phát hành
+  releases: Phát hành
   search: Tìm kiếm
   userland: Không gian người dùng
 docs:
-  title: Tài liệu Electron
-  description: Xem tất cả <a href="/docs/all">tài liệu trên một trang</a> hoặc điểm qua <a href="/docs/faq">FAQ</a>.
-  guides: Các hướng dẫn
-  api_reference: Tài liệu tham khảo về API
+  title: Tài liệu điện tử
+  description: Xem tất cả <a href="/docs/all"> tài liệu trên một trang </a> hoặc xem <a href="/docs/faq"> Câu hỏi thường gặp </a> .
+  guides: Hướng dẫn
+  api_reference: Tham Chiếu API
   advanced: Nâng cao
   footer:
     propose_change: Cải thiện tài liệu này
@@ -23,63 +23,63 @@ docs:
     translate: Dịch tài liệu này
     view_all_docs: Tất cả tài liệu trên một trang
 languages:
-  choose_language: Chọn ngôn ngữ
-  translation_progress: Tiến độ dịch thuật
+  choose_language: Chọn ngôn ngữ trang web của bạn
+  translation_progress: Tiến trình dịch thuật
   current: lựa chọn hiện tại
 community:
-  title: Cộng đồng Electron
+  title: Cộng đồng điện tử
   description: Những tài nguyên giúp kết nối với những người làm Electron.
   channels:
-    get_started: "<a href='/docs/tutorial/first-app'><b>Bắt đầu</b></a> xây dựng một ứng dụng bằng cách đọc <a href='/docs/tutorial/first-app'> hướng dẫn nhanh</a>."
-    updates: "<a href='https://twitter.com/electronjs'><b>Stay up to date</b></a> by following <a href='https://twitter.com/electronjs'>@electronjs</a> on Twitter and subscribing to the <a href='/blog'>blog feed</a>."
-    localized_docs: "<a href='/languages'><b>Read docs in your native language</b></a> by visiting the <a href='/languages'>languages page</a>."
-    help: "<a href='http://atom-slack.herokuapp.com'><b>Get help and feedback</b></a> by joining the <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
-    packages: "<a href='/search/npmPackages'><b>Find useful npm packages</b></a> on the <a href='/search/npmPackages'>package search page</a>."
-    bugs: "<a href='https://github.com/electron/electron/issues'><b>Report bugs</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
-    feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Request features</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
-    code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Report Code of Conduct violations</b></a> by emailing <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
-    security: "<a href='mailto:security@electronjs.org'><b>Disclose security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
-    donations: "<a href='donors'><b>Donate</b></a> on our <a href='/donors'>OpenCollective page</a>."
+    get_started: "<a href='/docs/tutorial/first-app'> <b> Bắt đầu </ b> </a> xây dựng một  ứng dụng bằng cách đọc <a href='/docs/tutorial/first-app'> nhanh chóng hướng dẫn đầu tiên </a> .\n \n"
+    updates: "<a href='https://twitter.com/electronjs'> <b> Luôn cập nhật </ b> </a> bằng cách theo dõi <a href='https://twitter.com/electronjs'> @ electronjs </a> trên Twitter và đăng ký <a href='/blog'> nguồn cấp dữ liệu blog </a> ."
+    localized_docs: "<a href='/languages'> <b> Đọc tài liệu bằng ngôn ngữ mẹ đẻ của bạn </ b> </a> bằng cách truy cập <a href='/languages'> trang ngôn ngữ </a> .\n"
+    help: "<a href='http://atom-slack.herokuapp.com'> <b> Nhận trợ giúp và phản hồi </ b> </a> bằng cách tham gia <a href = 'http: //atom-slack.herokuapp.com '> atomio Slack </a>, đăng trên <a href='https://discuss.atom.io/c/electron'> Thảo luận </a> hoặc truy cập <a href =' https: // stackoverflow.com/questions/tagged/electron '> Stack Overflow </a>."
+    packages: "<a href='/search/npmPackages'> <b> Tìm gói npm hữu ích </ b> </a> trên <a href='/search/npmPackages'> trang tìm kiếm gói </a> ."
+    bugs: "<a href='https://github.com/electron/electron/issues'> <b> Báo cáo lỗi </ b> </a> bằng cách mở các sự cố trên <a href = 'https: //github.com / electron / electron / vấn đề '> electron / electron </a> kho."
+    feature_requests: "<a href='https://github.com/electron/electron/issues'> <b> Yêu cầu các tính năng </ b> </a> bằng cách mở các sự cố trên <a href = 'https: //github.com / electron / electron / vấn đề '> electron / electron </a> kho."
+    code_of_conduct: "<a href='mailto:vipchiase@gmail.com'> <b> Báo cáo vi phạm Quy tắc ứng xử </ b></a> bằng cách gửi email tới <a href='mailto:vipchiase@gmail.com'> vipchiase@gmail.com  </a> ."
+    security: "<a href='mailto:vipchiase@gmail.com'> <b> Tiết lộ vấn đề an ninh </ b> </a> bằng cách gửi email <a href='mailto:vipchiase@gmail.com'> vipchiase@gmail.com  < / a> ."
+    donations: "<a href='donors'> <b> Đóng góp </ b> </a> trên <a href='/donors'> trang OpenCollective </a> của chúng tôi ."
     other: "Đối với những vấn đề khác, gửi email tới <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
   language_communities:
     title: Cộng đồng ngôn ngữ
-    description: "The Electron community spans the globe, and English is not everyone's first language. Find <a href='/languages'>documentation in your language</a>, or join one of the language communities below:"
+    description: "Cộng đồng Electron trải rộng khắp thế giới và tiếng Anh không phải là ngôn ngữ đầu tiên của mọi người. Tìm <a href='/languages'> tài liệu bằng ngôn ngữ của bạn </a> hoặc tham gia một trong các cộng đồng ngôn ngữ bên dưới:"
   tools: Công cụ
-  boilerplates: Boilerplates
-  components: Components
+  boilerplates: Nồi hơi
+  components: Các thành phần
   videos: Video
   meetups: Meetups
-  awesome_notice: 'Danh sách này được tạo ra từ repository: <a href="https://github.com/sindresorhus/awesome-electron">Awesome Electron của @sindresorhus</a>. <br>Thấy thiếu cái gì đó? Hãy <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">tạo một pull request để thêm vào</a>.'
-  meetup_notice: Để thêm một meetup, chỉnh sửa <code>data/meetups.json</code> và sau đó <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">tạo một pull request</a>.
-releases: Các phiên bản phát hành
+  awesome_notice: Danh sách này được tạo từ kho lưu trữ <a href="https://github.com/sindresorhus/awesome-electron"> @ sindresorhus's Awesome Electron </a> . <br> Có điều gì đó bị thiếu? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md"> Hãy một yêu cầu kéo </a> .
+  meetup_notice: Để thêm một cuộc gặp gỡ, chỉnh sửa <code> dữ liệu / meetups.json </ code> và <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json"> làm một yêu cầu kéo </a> .
+releases: Phát Hành 
 electron_is_easy:
   title: Nó dễ hơn bạn nghĩ
   description: Nếu bạn có thể xây dựng một website thì cũng có thể xây dựng ứng dụng trên desktop. Electron là framework giúp xây dựng ứng dụng gốc với công nghệ web như JavaScript, HTML và CSS. Nó sẽ lo những phần khó nên bạn có thể tập trung vào cốt lõi của ứng dụng.
   video_link: Xem video
 web_technologies:
   title: Công nghệ lập trình Web
-  description: Electron sử dụng Chromium và Node.js, vì vậy bạn có thể xây dựng ứng dụng của bạn chỉ với HTML, CSS và Javascript.
+  description: Electron sử dụng Chromium và Node.js để bạn có thể tạo ứng dụng của mình bằng HTML, CSS và JavaScript.
 open_source:
   title: Mã nguồn mở
   description: Electron là một dự án mã nguồn mở được xây dựng và bảo trì bởi Github và cộng đồng những người đóng góp tích cực.
 cross_platform:
-  title: Đa Nền Tảng
+  title: Nền tảng chéo
   description: Tương thích với Mac, Windows và Linux, các ứng dụng Electron xây dựng và chạy được trên cả ba nền tảng.
 benefits:
-  hard_parts_made_easy: Phần cứng được thực hiện dễ dàng
-  automatic_updates: Trình tự động cập nhật
-  native_menus_and_notifications: Menu chính và thông báo
-  crash_reporting: Báo lỗi
-  debugging_and_profiling: Debug và profiling
-  windows_installers: Các cài đặt cho Windows
+  hard_parts_made_easy: Các phần cứng được thực hiện dễ dàng
+  automatic_updates: Cập nhật tự động
+  native_menus_and_notifications: Menu và thông báo gốc
+  crash_reporting: Báo cáo sự cố
+  debugging_and_profiling: Gỡ lỗi & lược tả
+  windows_installers: Trình cài đặt Windows
 get_started:
   title: Bắt đầu
-  description: Để bắt đầu với Electron, bạn có thể xem qua kho tài nguyên dưới đây. Tìm hiểu làm thể nào để đóng gói web app của bạn với Electron thành ứng dụng, và cách kết nối đến các API của Eletron cũng như việc tạo ra các file cài đặt cuối cùng cho ứng dụng của bạn đế các nền tảng.
+  description: Để bắt đầu với Electron, hãy xem các tài nguyên bên dưới. Tìm hiểu cách bọc ứng dụng web của bạn với Electron, truy cập tất cả các API và tạo trình cài đặt.
 explore:
-  title: Khám phá các API của Electron
-  description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
-download_from_github: Tải về từ Github
-view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Xem tất cả phiên bản phát thành</a> trên Github
+  title: Khám phá các API điện tử
+  description: "Các <a href='https://github.com/electron/electron-api-demos'> Electron API Demo ứng dụng </a> tương tác thể hiện các tính năng quan trọng nhất của API Electron. Xem những gì có thể với Electron với mã mẫu và các mẹo hữu ích để tạo ứng dụng của bạn"
+download_from_github: Tải xuống từ GitHub
+view_all_releases_on_github: <a href="r://github.com/electron/electron-api-demos/releases">Xem tất cả phiên bản phát thành</a> trên Github
 quick_start:
   title: "Trở về ứng dụng <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> để xem các Electron hoạt động:"
   description: Một ứng dụng Electron nhỏ hữu ích.
@@ -89,7 +89,7 @@ quick_start:
   dive_deeper: Hoặc xem xét kĩ hơn bằng cách đọc <a href='/docs'>tài liệu</a>.
 need_help:
   title: Cần trợ giúp?
-  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum or our <a href='http://atom-slack.herokuapp.com/'>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
+  description: 'Đặt câu hỏi trong diễn đàn <a href=''https://discuss.atom.io/c/electron''> Thảo luận </a> hoặc <a href = ''http: //atom-slack.herokuapp.com/'' của chúng tôi > Slack </a> kênh. Theo dõi <a href="https://twitter.com/electronjs"> @electronjs </a> trên Twitter để biết các thông báo quan trọng. Bạn cần liên hệ riêng tư? Gửi email tới <a href="mailto:info@electronjs.org"> info@electronjs.org </a>.'
 headings:
   languages: Ngôn ngữ
 taglines:
@@ -130,7 +130,7 @@ pages:
     description: Lập trình với Electron
   '/docs/tutorial':
     title: Hướng dẫn
-    description: Guides and tutorials for the latest Electron release
+    description: Hướng dẫn và hướng dẫn cho bản phát hành Electron mới nhất
   '/blog':
     title: Blog Electron
     description: Tin tức mới nhất từ đội ngũ Electron và cộng đồng.

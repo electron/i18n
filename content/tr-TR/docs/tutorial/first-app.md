@@ -171,7 +171,7 @@ Kullandığınız Node'un sürümü: <script>document.write(process.versions.nod
 
 Klonlayın ve bu eğitimdeki kodu [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) deposunu (repository) kullanarak çalıştırın.
 
-**Not**: Bunu çalıştırmak [Git](https://git-scm.com)'i gerektirir.
+**Note**: Running this requires [Git](https://git-scm.com) and [npm](https://www.npmjs.com/).
 
 ```sh
 # Depoyı klonla

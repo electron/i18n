@@ -171,7 +171,7 @@ Once you've created your initial `main.js`, `index.html`, and `package.json` fil
 
 Clona ed esegui il codice mostrato in questo tutorial utilizzando il repository [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start).
 
-**Nota:** l'esecuzione di questi comandi richiede [Git](https://git-scm.com).
+**Note**: Running this requires [Git](https://git-scm.com) and [npm](https://www.npmjs.com/).
 
 ```sh
 # Clona la repository

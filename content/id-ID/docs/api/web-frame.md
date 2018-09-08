@@ -161,6 +161,7 @@ Set the content security policy of the isolated world.
   Mengembalikan `Objek`:
   
   * `gambar` [DetailPemakaianMemori](structures/memory-usage-details.md)
+  * `scripts` [MemoryUsageDetails](structures/memory-usage-details.md)
   * `cssStyleSheets` [DetailPemakaianMemori](structures/memory-usage-details.md)
   * `xslStyleSheets` [DetailPemakaianMemori](structures/memory-usage-details.md)
   * `Huruf` [DetailPemakaianMemori](structures/memory-usage-details.md)

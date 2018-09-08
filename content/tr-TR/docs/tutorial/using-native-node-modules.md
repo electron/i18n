@@ -6,7 +6,7 @@ Yerel düğüm modülleri Electron tarafından desteklenir , ancak Electron'un s
 
 Yerel modülleri kurmanın üç yolu:
 
-### `npm` kullanılıyor
+### `npm` kullanarak
 
 Birkaç ortam değişkenini ayarlayarak, `npm` değerini modülleri doğrudan yüklemek için kullanabilirsiniz.
 
@@ -54,6 +54,14 @@ cd /path-to-module/ HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=
 
 `HOME=~/.electron-gyp` geliştirme başlıklarını nerede bulacağınızı değiştirir. `--target=1.2.3` Electron versiyonudur. `--dist-url=...` Başlıkların yükleneceği noktayı belirler. `--arch=x64`: Modül 64bit sistem için kurulmuştur.
 
+### Özel yapım bir Electron sürümü için elle kurulum
+
+Umumi sürümle eşlenmeyen özel Electron sürümlerine yerel Node eklentileri derlemek için `npm`'i paketlediğiniz özel Node'un sürüme ile çalışması için yapılandırın.
+
+```sh
+npm rebuild --nodedir=$HOME/.../path/to/electron/vendor/node
+```
+
 ## Arıza giderme
 
 Yerel bir modül yüklediyseniz ve çalışmadığını tespit ettiyseniz, aşağıdaki hususları kontrol etmeniz gerekir:
@@ -64,7 +72,7 @@ Yerel bir modül yüklediyseniz ve çalışmadığını tespit ettiyseniz, aşa�
 </ul>
 
 <h2><code>prebuild`'e dayanan modüller</h2> 
-    [`prebuild`](https://github.com/mafintosh/prebuild) provides a way to publish native Node modules with prebuilt binaries for multiple versions of Node and Electron.
+    [`prebuild`](https://github.com/mafintosh/prebuild), Node ve Electron'un birçok sürümü için önceden oluşturulmuş umumi Node modüllerini kolayca yayınlamak için bir yol sağlar.
     
     Eğer modüller Electron'da kullanım için ikili dosyalar sağlıyorsa, önceden oluşturulmuş ikili dosyalardan tam avantaj sağlamak için `--build-from-source` ve `npm_config_build_from_source` ortam değişkenlerini dahil etmediğinizden emin olun.
     

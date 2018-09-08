@@ -58,16 +58,16 @@ $ git clone https://github.com/electron/electron
 
 ## Inicialización
 
-El script bootstrap descargará todas las dependencias de compilacion necesarias y creará la estructura de archivos del proyecto. Debe tener Python 2.7.x para que el comando funcione. Descargar ciertos archivos puede tomar mucho tiempo. Aviso que estamos usando `ninja` para compilar Electron no hay `Makefile` generado.
+El script de inicialización (bootstrap) descargará todas las dependencias de compilacion necesarias y creará la estructura de archivos del proyecto. Debes tener Python 2.7.x para que el comando funcione. La descarga de ciertos archivos puede tomar mucho tiempo. Ten en cuenta que estamos usando `ninja` para compilar Electron por lo que no se genera un `Makefile`.
 
-To bootstrap for a static, non-developer build, run:
+Para iniciar una compilación estática, no de desarrollador, ejecuta:
 
 ```sh
 $ cd electron
 $ npm run bootstrap
 ```
 
-Or to bootstrap for a development session that builds faster by not statically linking:
+O para iniciar una sesión de desarrollo que se compila más rápido al no usar enlazado estático:
 
 ```sh
 $ cd electron
@@ -118,7 +118,7 @@ $ ./script/create-dist.py
 
 Esto pondrá una distribución de trabajo con archivos muchos más pequeños en el directorio `dist`. Después de ejecutar el comando `create-dist.py`, puede que desee remover el binario de 1.3+ gigabytes que todavía está en `out/R`.
 
-You can also build either the `Debug` or `Release` target on its own:
+También puede querer compilar los objetivos `Debug` o `Release` por separado:
 
 ```sh
 $ npm run build:dev

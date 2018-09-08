@@ -29,7 +29,7 @@ This will build debug Electron with debug version of libchromiumcontent.
 
 ### 为调试源代码生成Xcode项目（无法从Xcode构建代码）
 
-Run the update script with the --xcode argument.
+使用 --xcode参数来更新脚本。
 
 ```sh
 $ ./script/update.py --xcode
