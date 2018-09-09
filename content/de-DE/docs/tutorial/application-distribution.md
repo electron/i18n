@@ -89,7 +89,7 @@ Unabhängig davon, Ihre App manuell zu packen, können Sie sich für Paket-Tools
 
 ## Änderung des Names durch Neukompilieren des Quellcodes von Electron
 
-Es ist weiterhin möglich Electron umzubennen in dem Sie den Produktnamen ändern und es erneut kompilieren. Um dies zu erreichen, modifizieren Sie die `atom.gyp`-Datei und rekompilieren das Projekt.
+It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to set the build argument corresponding to the product name (`electron_product_name = "YourProductName"`) in the `args.gn` file and rebuild.
 
 ### Erstellen eines angepassten Electron Forks
 
