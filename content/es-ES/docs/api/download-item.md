@@ -42,7 +42,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 Devuelve:
 
 * `event` Event
-* `state` String - Can be `progressing` or `interrupted`.
+* `state` String - Puede ser `en progresso` o `interrumpido`.
 
 Aparece cuando la descara ha sido actualizada y no está terminada.
 
