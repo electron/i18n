@@ -1,8 +1,6 @@
-# Instrucciones de Compilación (Compilación experimental GN)
+# Build Instructions
 
-Siga las pautas a continuación para compilar Electron con el compilador GN experimental.
-
-> **NOTE**: The GN build system is in *experimental* status.
+Follow the guidelines below for building Electron.
 
 ## Platform prerequisites
 
@@ -51,6 +49,37 @@ $ gclient config \
 $ gclient sync --with_branch_heads --with_tags
 # This will take a while, go get a coffee.
 ```
+
+### Caché de git de Chromium
+
+`depot_tools` has an option that allows the developer to set a global cache for all git objects of Chromium + dependencies. This option uses `git clone
+--shared` to save bandwidth/space on multiple clones of the same repositories.
+
+If you intend to have several Electron build trees on the same machine (to work on different versions of Electron for example), it is recommended to set use the git cache to speed up the download of Chromium source. Por ejemplo:
+
+```sh
+$ mkdir ~/.chromium-git-cache
+$ gclient config \
+    --name "src/electron" \
+    --unmanaged \
+    --cache_dir="$HOME/.chromium-git-cache" \
+    https://github.com/electron/electron
+$ gclient sync --with_branch_heads --with_tags
+```
+
+If the bootstrap script is interrupted while using the git cache, it will leave the cache locked. To remove the lock, pass the `--break_repo_locks` argument to `gclient sync`.
+
+#### Sharing the cache between multiple machines
+
+Es posible compartir este directorio con otras máquinas exportándolo como SMB share en Linux, pero solo un proceso/máquina puede usar la memoria caché a la vez. Los bloqueos creados por el script git-cache intentarán evitar esto, pero puede que no funcione perfectamente en una red.
+
+En Windows, SMBv2 tiene un caché de directorio que causará problemas con el script del git cache, por lo que es necesario desactivarlo configurando la clave de registro
+
+```sh
+HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Lanmanworkstation\Parameters\DirectoryCacheLifetime
+```
+
+to 0. More information: https://stackoverflow.com/a/9935126
 
 ## Compilando
 
