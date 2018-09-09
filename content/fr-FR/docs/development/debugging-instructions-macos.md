@@ -13,9 +13,9 @@ Si vous rencontrez des crash ou des problèmes dans Electron et que vous croyez 
 Pour démarrer une session de débogage, ouvrez terminal et lancez `lldb`, passez une version debug d'Electron en tant que paramètre.
 
 ```sh
-$ lldb ./out/D/Electron.app
-(lldb) target create "./out/D/Electron.app"
-Current executable set to './out/D/Electron.app' (x86_64).
+$ lldb ./out/Debug/Electron.app
+(lldb) target create "./out/Debug/Electron.app"
+Current executable set to './out/Debug/Electron.app' (x86_64).
 ```
 
 ### Définition de points d’arrêt
@@ -41,16 +41,17 @@ L’app sera immédiatement suspendu, puisque l’électron définit le nom de l
 
 ```sh
 (lldb) run
-Process 25244 launched: '/Users/fr/Code/electron/out/D/Electron.app/Contents/MacOS/Electron' (x86_64) Process 25244 stopped
+Process 25244 launched: '/Users/fr/Code/electron/out/Debug/Electron.app/Contents/MacOS/Electron' (x86_64)
+Process 25244 stopped
 * thread #1: tid = 0x839a4c, 0x0000000100162db4 Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 20 at browser.cc:118, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
-  frame #0: 0x0000000100162db4 Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 20 at browser.cc:118 
-  115 }
-  116
-  117 void Browser::SetName(const std::string& name) {
--> 118 name_override_ = name;
-  119 }
-  120
-  121 int Browser::GetBadgeCount() { 
+    frame #0: 0x0000000100162db4 Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 20 at browser.cc:118
+   115  }
+   116
+   117  void Browser::SetName(const std::string& name) {
+-> 118    name_override_ = name;
+   119  }
+   120
+   121  int Browser::GetBadgeCount() {
 (lldb)
 ```
 
