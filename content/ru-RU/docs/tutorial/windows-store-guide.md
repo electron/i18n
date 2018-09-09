@@ -67,13 +67,13 @@ electron-windows-store `
 
 После запуска инструмент начнет работу: он принимает ваше приложение как ввод, сжимая `node_modules`. Затем, он архивирует ваше приложение как `app.zip`. Используя установщик и Windows Container, он создает "расширенный" AppX пакет - включая Windows Application Manifest (`AppXManifest.xml`), а также виртуальные файловую систему и реестр внутри выходной папки.
 
-Once the expanded AppX files are created, the tool uses the Windows App Packager (`MakeAppx.exe`) to create a single-file AppX package from those files on disk. Finally, the tool can be used to create a trusted certificate on your computer to sign the new AppX package. With the signed AppX package, the CLI can also automatically install the package on your machine.
+После создания файлов расширенной AppX, инструмент использует упаковщик приложений Windows - Windows App Packager (`MakeAppx.exe`) - чтобы из всех файлов создать пакет AppX в одном файле. Наконец, инструмент может быть использован для создания доверенного сертификата на вашем компьютере, чтобы подписывать новые пакеты AppX. С подписанным AppX пакетом, CLI также может автоматически установить пакет на вашу машину.
 
-## Step 3: Using the AppX Package
+## Шаг 3: Использование AppX пакета
 
-In order to run your package, your users will need Windows 10 with the so-called "Anniversary Update" - details on how to update Windows can be found [here](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update).
+Чтобы запустить ваш пакет, вашим пользователям необходима Windows 10 с так называемым "Юбилейным обновлением" - дополнительная информация по обновлению Windows [здесь](https://blogs.windows.com/windowsexperience/2016/08/02/how-to-get-the-windows-10-anniversary-update).
 
-In opposition to traditional UWP apps, packaged apps currently need to undergo a manual verification process, for which you can apply [here](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge). In the meantime, all users will be able to install your package by double-clicking it, so a submission to the store might not be necessary if you're looking for an easier installation method. In managed environments (usually enterprises), the `Add-AppxPackage` [PowerShell Cmdlet can be used to install it in an automated fashion](https://technet.microsoft.com/en-us/library/hh856048.aspx).
+В отличие от традиционных UWP приложений, упакованные приложения должны пройти процесс ручной проверки, записаться на которую можно [здесь](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge). Тем временем, все пользователи смогут установить ваш пакет, кликнув по нему два раза, так что передача в магазин может быть не обязательной, если вы хотите более легкий способ установки. В управляемых средах (обычно на уровне предприятия), `Add-AppxPackage` [PowerShell Cmdlet может использоваться для установки в автоматическом режиме](https://technet.microsoft.com/en-us/library/hh856048.aspx).
 
 Another important limitation is that the compiled AppX package still contains a win32 executable - and will therefore not run on Xbox, HoloLens, or Phones.
 
