@@ -90,7 +90,7 @@ MyApp.app/Contents
 
 ## Electron 소스 코드를 다시 빌드하여 리소스 수정하기
 
-또한 Electron 소스 코드를 다시 빌드할 때 애플리케이션 이름을 변경할 수 있습니다. `atom.gyp` 파일을 수정하여 다음과 같이 다시 빌드할 수 있습니다:
+It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to set the build argument corresponding to the product name (`electron_product_name = "YourProductName"`) in the `args.gn` file and rebuild.
 
 ### Electron 커스텀 포크 만들기
 
