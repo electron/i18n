@@ -6,7 +6,7 @@ To neznamená, že Electron je JavaScript vázaný na knihovny grafického uživ
 
 **Poznámka**: Tento příklad je také dostupný jako úložiště který si můžete [stáhnout a spustit ihned](#trying-this-example).
 
-Pokud jde o vývoj, aplikace Elektronu je v podstatě Node.js aplikace. The starting point is a `package.json` that is identical to that of a Node.js module. A most basic Electron app would have the following folder structure:
+Pokud jde o vývoj, aplikace Elektronu je v podstatě Node.js aplikace. Začínající bod je soubor `package.json`, který je identický s tím, který vytváří Node.js. A most basic Electron app would have the following folder structure:
 
 ```text
 your-app/
