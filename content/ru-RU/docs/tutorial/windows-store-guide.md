@@ -75,17 +75,17 @@ electron-windows-store `
 
 В отличие от традиционных UWP приложений, упакованные приложения должны пройти процесс ручной проверки, записаться на которую можно [здесь](https://developer.microsoft.com/en-us/windows/projects/campaigns/desktop-bridge). Тем временем, все пользователи смогут установить ваш пакет, кликнув по нему два раза, так что передача в магазин может быть не обязательной, если вы хотите более легкий способ установки. В управляемых средах (обычно на уровне предприятия), `Add-AppxPackage` [PowerShell Cmdlet может использоваться для установки в автоматическом режиме](https://technet.microsoft.com/en-us/library/hh856048.aspx).
 
-Another important limitation is that the compiled AppX package still contains a win32 executable - and will therefore not run on Xbox, HoloLens, or Phones.
+Еще одним важным ограничением является то, что скомпилированный AppX пакет все еще содержит win32 запускаемый файл - как следствие, он не запустится на Xbox, Hololens или смартфонах.
 
-## Optional: Add UWP Features using a BackgroundTask
+## Опционально: Добавьте UWP функционал, используя BackgroundTask
 
-You can pair your Electron app up with an invisible UWP background task that gets to make full use of Windows 10 features - like push notifications, Cortana integration, or live tiles.
+Вы можете соединить свое приложение с невидимым фоновым UWP процессом, который будет использовать функционал Windows 10 на полную - push-уведомления, интеграция Кортаны или живые тайлы в меню Пуск.
 
-To check out how an Electron app that uses a background task to send toast notifications and live tiles, [check out the Microsoft-provided sample](https://github.com/felixrieseberg/electron-uwp-background).
+Чтобы проверить, как приложение на Electron использует этот процесс для отправки Toast-уведомлений и живых тайлов, [посмотрите на пример от Microsoft](https://github.com/felixrieseberg/electron-uwp-background).
 
-## Optional: Convert using Container Virtualization
+## Опционально: Конвертируйте с помощью виртуализации контейнера
 
-To generate the AppX package, the `electron-windows-store` CLI uses a template that should work for most Electron apps. However, if you are using a custom installer, or should you experience any trouble with the generated package, you can attempt to create a package using compilation with a Windows Container - in that mode, the CLI will install and run your application in blank Windows Container to determine what modifications your application is exactly doing to the operating system.
+Чтобы создать AppX пакет, `electron-windows-store` CLI использует шаблон, который должен подойти для большинства приложений на Electron. Однако, если вы используете кастомный установщик, или вы испытываете какие-либо проблемы с созданным пакетом, вы можете попытаться создать пакет с использованием компиляции с Windows контейнером, CLI установит и запустит ваше приложение в пустом Windows контейнере, чтобы определить, какие изменения ваше приложение вносит в операционную систему.
 
 Before running the CLI for the first time, you will have to setup the "Windows Desktop App Converter". This will take a few minutes, but don't worry - you only have to do this once. Download and Desktop App Converter from [here](https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-run-desktop-app-converter). You will receive two files: `DesktopAppConverter.zip` and `BaseImage-14316.wim`.
 
