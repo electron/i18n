@@ -89,7 +89,7 @@ MyApp.app/Contents
 
 ## 通过重编译源代码来进行重新定制
 
-通过修改产品名称并重编译源代码来更换 Electron 的名称也是可行的。 你需要修改 `atom.gyp` 文件并彻底重编译一次。
+It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to set the build argument corresponding to the product name (`electron_product_name = "YourProductName"`) in the `args.gn` file and rebuild.
 
 ### 创建一个自定义 Electron 分支
 
