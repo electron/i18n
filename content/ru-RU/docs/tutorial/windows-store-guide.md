@@ -2,13 +2,13 @@
 
 С выходом Windows 10, старый добрый исполнительный файл win32 обзавелся новым братом: универсальной платформой Windows (The Universal Windows Platform). Новый формат `.appx` не только позволяет применять различные новые API, как push-уведомления от Кортаны, но также значительно упрощает установку и обновления через Windows Store.
 
-Microsoft [developed a tool that compiles Electron apps as `.appx` packages](https://github.com/catalystcode/electron-windows-store), enabling developers to use some of the goodies found in the new application model. This guide explains how to use it - and what the capabilities and limitations of an Electron AppX package are.
+Microsoft разработали инструмент, который компилирует приложения на Electron как `.appx` пакеты, позволяя разработчикам использовать некоторые приятные нововведения от новой модели приложения. Этот гайд объясняет как его использовать - и какие возможности и ограничения присутствуют у пакета Electron AppX.
 
 ## Предыстория и требования
 
-Windows 10 "Anniversary Update" is able to run win32 `.exe` binaries by launching them together with a virtualized filesystem and registry. Both are created during compilation by running app and installer inside a Windows Container, allowing Windows to identify exactly which modifications to the operating system are done during installation. Pairing the executable with a virtual filesystem and a virtual registry allows Windows to enable one-click installation and uninstallation.
+"Юбилейное обновление" Windows 10 (Windows 10 "Anniversary Update") позволяет запускать win32 `.exe`-файлы, запуская их вместе с виртуализованными системой и реестром. Они оба создаются во время компиляции запуском приложения и установщика внутри контейнера Windows (Windows Container), позволяя Windows определить, какие именно изменения были внесены в операционную систему во время установки. Соединение исполнительного файла с виртуальными файловой системой и реестром позволяет Windows задействовать установку и деинсталляцию в одно касание (one-click installation / uninstallation).
 
-In addition, the exe is launched inside the appx model - meaning that it can use many of the APIs available to the Universal Windows Platform. To gain even more capabilities, an Electron app can pair up with an invisible UWP background task launched together with the `exe` - sort of launched as a sidekick to run tasks in the background, receive push notifications, or to communicate with other UWP applications.
+Вдобавок, exe-файл запускается внутри appx модели - это означает, что он может использовать множество API, доступных универсальной платформе Windows (Universal Windows Platform). To gain even more capabilities, an Electron app can pair up with an invisible UWP background task launched together with the `exe` - sort of launched as a sidekick to run tasks in the background, receive push notifications, or to communicate with other UWP applications.
 
 To compile any existing Electron app, ensure that you have the following requirements:
 
