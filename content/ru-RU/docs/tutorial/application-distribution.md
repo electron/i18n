@@ -89,7 +89,7 @@ MyApp.app/Contents
 
 ## Ребрендинг, перестроив Electron из источника
 
-Это также возможно для ребрендинга Electron, изменив название продукта и построение из источника. Для этого вам нужно изменить файл `atom.gyp` и иметь чистую среду ребилда.
+It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to set the build argument corresponding to the product name (`electron_product_name = "YourProductName"`) in the `args.gn` file and rebuild.
 
 ### Создание пользовательских Electron форков
 
