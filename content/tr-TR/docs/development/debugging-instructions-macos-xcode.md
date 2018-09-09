@@ -1,41 +1,16 @@
 ## XCode ile Hata Ayıklama
 
-### Libchromiumcontent sürümü ile Electron hata ayıklama sürümü oluşturmak
-
-[macOS kurulum talimatlarını](build-instructions-osx.md) izleyerek Electron'un hata ayıklama sürümünü oluşturabilirsiniz. Bootsrap aşaması otomatik olarak libchromiumcontent'ın son sürümünü yükleyecek, yani Chromium kaynak koduna erişiminiz olmayacak.
-
-### Libchromiumcontent Debug ile Electron hata ayıklama sürümü oluşturmak
-
-Eğer libchromiumcontent erişmek ve hata ayıklama yapmak istiyorsanız, `--build_debug_libcc` argümanı ile bootsrap script'ini çalıştırmanız gerekecek.
-
-```sh
-$ cd electron 
-$ ./script/bootstrap.py -v --build_debug_libcc
-```
-
-Bu işlem bütün libchromium kodunu derleyeceği için, kullandığınız makinaya bağlı olarak, uzun bir süre alabilir.
-
-Once, the lib is built, create a symlink to the built directory under download
-
-`ln -s vendor/libchromiumcontent/dist/main/shared_library vendor/download/libchromiumcontent/shared_library`
-
-Electron debug builds will use this shared library to link against.
-
-```sh
-$ ./script/build.py -c D --libcc
-```
-
-Bu işlem libchromiumcontent'un debug versiyonu ile Electron hata ayıklama versiyonunu derleyecek.
-
 ### Hata ayıklama kaynakları için XCode projesi oluşturmak (XCode'dan derlenemez)
 
---xcode argümanı ile script'i çalıştırın.
+Run `gn gen` with the --ide=xcode argument.
 
 ```sh
-$ ./script/update.py --xcode
+$ gn gen out/Debug --ide=xcode
 ```
 
-Bu "electron.ninjs.xcworkspace"i oluşturacaktır. Hata noktalarını bulmak ve incelemek için bu workspace'i açmanız gerekecek.
+This will generate the electron.ninja.xcworkspace. Hata noktalarını bulmak ve incelemek için bu workspace'i açmanız gerekecek.
+
+See `gn help gen` for more information on generating IDE projects with GN.
 
 ### Hata noktaları ve hata ayıklama
 
