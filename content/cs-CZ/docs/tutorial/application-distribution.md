@@ -89,7 +89,7 @@ Apart from packaging your app manually, you can also choose to use third party p
 
 ## Rebranding by Rebuilding Electron from Source
 
-It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to modify the `atom.gyp` file and have a clean rebuild.
+It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to set the build argument corresponding to the product name (`electron_product_name = "YourProductName"`) in the `args.gn` file and rebuild.
 
 ### Creating a Custom Electron Fork
 
