@@ -54,7 +54,7 @@ npm install -g electron-windows-store
 
 ## Шаг 2: Запуск electron-windows-store
 
-From an elevated PowerShell (run it "as Administrator"), run `electron-windows-store` with the required parameters, passing both the input and output directories, the app's name and version, and confirmation that `node_modules` should be flattened.
+Из под PowerShell с расширенными разрешениями (откройте как "Администратор"), запустите `electron-windows-store` с обязательными параметрами, подав как входные, так и выводные директории, имя приложения и версию, и подтверждение, что `node_modules` будут сжаты.
 
 ```powershell
 electron-windows-store `
@@ -65,7 +65,7 @@ electron-windows-store `
     --package-name myelectronapp
 ```
 
-Once executed, the tool goes to work: It accepts your Electron app as an input, flattening the `node_modules`. Then, it archives your application as `app.zip`. Using an installer and a Windows Container, the tool creates an "expanded" AppX package - including the Windows Application Manifest (`AppXManifest.xml`) as well as the virtual file system and the virtual registry inside your output folder.
+После запуска инструмент начнет работу: он принимает ваше приложение как ввод, сжимая `node_modules`. Затем, он архивирует ваше приложение как `app.zip`. Используя установщик и Windows Container, он создает "расширенный" AppX пакет - включая Windows Application Manifest (`AppXManifest.xml`), а также виртуальные файловую систему и реестр внутри выходной папки.
 
 Once the expanded AppX files are created, the tool uses the Windows App Packager (`MakeAppx.exe`) to create a single-file AppX package from those files on disk. Finally, the tool can be used to create a trusted certificate on your computer to sign the new AppX package. With the signed AppX package, the CLI can also automatically install the package on your machine.
 
