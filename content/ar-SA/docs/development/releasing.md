@@ -244,7 +244,7 @@ e.g.:
 $ npm dist-tag add electron@2.0.0 latest
 ```
 
-# Troubleshooting
+# اكتشاف الأخطاء وإصلاحها
 
 ## Rerun broken builds
 
