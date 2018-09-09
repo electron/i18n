@@ -46,7 +46,7 @@ Elimina todos los oyentes, o aquellos del `channel` especificado.
 
 Envíe un mensaje al proceso principal de forma asíncrona a través de `canal`, también puede enviar argumentos arbitrarios. Los argumentos se serializarán en JSON internamente y por lo tanto, no se incluirán funciones ni cadenas de prototipos.
 
-The main process handles it by listening for `channel` with [`ipcMain`](ipc-main.md) module.
+El proceso principal lo maneja escuchando `channel` con el módulo [`ipcMain`](ipc-main.md).
 
 ### `ipcRenderer.sendSync(channel[, arg1][, arg2][, ...])`
 
