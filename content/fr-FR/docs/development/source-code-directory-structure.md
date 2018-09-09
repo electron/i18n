@@ -43,9 +43,7 @@ Electron
 ├── native_mate/ - A fork of Chromium's gin library that makes it easier to marshal
 |                  types between C++ and JavaScript.
 ├── spec/ - Tests automatiques.
-├── electron.gyp - Règles de build d'Electron.
-└── common.gypi - Compiler specific settings and building rules for other
-                  components like `node` and `breakpad`.
+└── BUILD.gn - Building rules of Electron.
 ```
 
 ## `/chromium_src`
@@ -55,12 +53,12 @@ Les fichiers dans `/chromium_src` ont tendance à être des morceaux de Chromium
 ## Structure d'autres Dossiers
 
 * **script** - Scripts utilisés à des fins de développement comme le build, le packaging, les tests, etc.
-* **tools** - Scripts d'aide utilisés par les fichiers gyp, contrairement au `script`, les scripts mis ici ne devraient jamais être invoqué par les utilisateurs directement.
+* **tools** - Helper scripts used by GN files, unlike `script`, scripts put here should never be invoked by users directly.
 * **vendor** - Code Source des dependances tierces, nous n'utilisons pas `third_party` comme nom parce qu'on le confondrait avec le même dossier dans le Code Source de Chromium.
 * **node_modules** - Modules de Node tiers utilisés pour les builds.
 * **out** - Dossier de sortie temporaire de `ninja`.
 * **dist** - Dossier temporaire créé par `script/create-dist.py` lors de la création d'une distribution.
-* **external_binaries** - Les fichiers binaires téléchargés de frameworks tiers qui ne prennent pas en charge les builds avec `gyp`.
+* **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gn`.
 
 ## Garder les sous-modules Git à jour
 
@@ -69,8 +67,8 @@ Le repository d'Electron a quelques dépendances tierces, se trouvant dans le do
 ```sh
 $ git status
 
-    modified:   vendor/libchromiumcontent (new commits)
-    modified:   vendor/node (new commits)
+    modified:   vendor/depot_tools (new commits)
+    modified:   vendor/boto (new commits)
 ```
 
 Pour mettre à jour ces dependances tierces, exécutez cette commande:
