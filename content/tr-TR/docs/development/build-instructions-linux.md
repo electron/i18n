@@ -50,36 +50,6 @@ $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
 
 Diğer linux dağıtımları pacman gibi paket yöneticileri üzerinden benzer paketler sunuyor olabilir. Ya da kaynak kodtan derleyebilirsiniz.
 
-## Kodu almak
-
-```sh
-$ git clone https://github.com/electron/electron
-```
-
-## İlk işleri halletmek
-
-Ilk işleri halleden bootstrap betiği inşaa için gerekli olan bağımlılıkları indirir ve gerekli inşaa dosyalarını hazırlar. Bu betiğin çalışması içın Python 2.7.x'e sahip olmanız gerekir. Bağımlılıkları indirmek bir miktar zaman alabilir. Dikkat ederseniz, Electron'u inşaa etmek için `Makefile` yerine `ninja` kullanıyoruz.
-
-To bootstrap for a static, non-developer build, run:
-
-```sh
-$ cd electron
-$ npm run bootstrap
-```
-
-Or to bootstrap for a development session that builds faster by not statically linking:
-
-```sh
-$ cd electron
-$ npm run bootstrap:dev
-```
-
-If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
-
-```sh
-$ ./script/build.py --compdb
-```
-
 ### Başka sistemler için derleme
 
 Eğer `arm` üstüne inşaa etmek istiyorsanız aşağıdaki bağımlılıkları da indirmeniz gerekir:
@@ -96,57 +66,17 @@ $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
                        g++-aarch64-linux-gnu
 ```
 
-`arm<code> veya <code>ia32` hedefleri için derlerken, `bootstrap.py` betiğine <0>--target_arch</code> parametresi geçmelisiniz:
+And to cross-compile for `arm` or `ia32` targets, you should pass the `target_cpu` parameter to `gn gen`:
 
 ```sh
-$ ./script/bootstrap.py -v --target_arch=arm
+$ gn gen out/Debug --args='import(...) target_cpu="arm"'
 ```
 
 ## İnşaa
 
-Eğer hem `Dağıtım` hem `Hata ayıklama` hedeflerinde inşaa etmek isterseniz:
+See [Build Instructions: GN](build-instructions-gn.md)
 
-```sh
-$ npm run build
-```
-
-Bu betik `out/R` içerisinde oldukça büyük bir Electron çalıştırılabilir dosyası oluşturacaktır. Dosya boyu 1.3 gigabyte'ı geçebilir. Bunun sebebi, Dağıtım hedefli inşaa'nın hata ayıklama sembollerini içeriyor oluşudur. Dosya boyutunu düşürmek içın `create-dist.py` dosyasını çalıştırabilirsiniz:
-
-```sh
-$ ./script/create-dist.py
-```
-
-Bu betik çalışır bir dağıtımı çok daha ufak boyutlarda `dist`dizinine çıkarır. `create-dist.py` betiğini çalıştırdıktan sonra, hala `out/R` dizini içerisinde bulunan 1.3+ gigabyte'lık dosyayı silmek isteyebilirsiniz.
-
-You can also build either the `Debug` or `Release` target on its own:
-
-```sh
-$ npm run build:dev
-```
-
-```sh
-$ npm run build:release
-```
-
-İnşaa tamamlandıktan sonra, `electron` hata ayıklama ikilisini `out/D` dizini altında bulabilirsiniz.
-
-## Temizlik
-
-İnşaa dosyalarını temizlemek için:
-
-```sh
-$ npm run clean
-```
-
-Sadece `out` and `dist` dizinlerini temizlemek için:
-
-```sh
-$ npm run clean-build
-```
-
-**Not:** Her iki temizleme komutu inşaa öncesi `bootstrap` çalıştırılmasını şart koşar.
-
-## Arıza Giderme
+## Arıza giderme
 
 ### Hata mesajı: Error While Loading Shared Libraries: libtinfo.so.5
 
@@ -156,77 +86,20 @@ $ npm run clean-build
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 ```
 
-## Testler
-
-Burayı ziyaret edin: [İnşaa Sistemi Genel Görünümü: Testler](build-system-overview.md#tests)
-
 ## İleri düzey başlıklar
 
 Varsayılan inşaa konfigurasyon'u belli başlı Linux masaüstü dağıtımları içindir. Özel bir dağıtım veya cihaz için, aşağıdaki bilgiler işinize yarayabilir.
 
-### `libchromiumcontent`'i yerelinize inşaa etme
-
-` libchromiumcontent </ 0 > koduna ai önceden hazırlanmış ikili dosyaları kullanmaktan kaçınmak için, <code> libchromiumcontent </ 0> 'ı yerel olarak oluşturabilirsiniz. Bunu yapmak için şu adımları izleyin:</p>
-
-<ol>
-<li><a href="https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install">depot_tools</a>'u kurun</li>
-<li><a href="https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies">Ek inşaa bağımlılıklarını</a> kurun</li>
-<li>Git alt modullerini çekin:</li>
-</ol>
-
-<pre><code class="sh">$ git submodule update --init --recursive
-`</pre> 
-
-1. `--build_release_libcc` argümanını `bootstrap.py` betiğine geçin:
-
-```sh
-$ ./script/bootstrap.py -v --build_release_libcc
-```
-
-`shared_library` konfigurasyonu varsayılan durumda ekli değildir, yani bu modu kullanarak Electron'un sadece `Dağıtım` versiyonunu inşaa edebilirsiniz:
-
-```sh
-$ ./script/build.py -c R
-```
-
 ### İndirdiğıniz `clang` yerine sistem `clang`'ini kullanmak
 
-Varsayılan olarak önceden oluşturulmuş electron [`clang`](https://clang.llvm.org/get_started.html) tarafından sağlanan iki dosyalar chromium projesi. Eğer bir nedenden dolayı `clang` ile inşa etmek isterseniz sisteminize kurulu, `bootstrap.py` öğesinden `--clang_dir=<path>` öğesine geçin. Geçerek yapılan komut dosyası `clang` dillerin `<path>/bin/` içinde bulunduğu varsayılacaktır.
+Varsayılan olarak önceden oluşturulmuş electron [`clang`](https://clang.llvm.org/get_started.html) tarafından sağlanan iki dosyalar chromium projesi. If for some reason you want to build with the `clang` installed in your system, you can specify the `clang_base_path` argument in the GN args.
 
-Örneğin, `clang` 'ı `/user/local/bin/clang` dizinine yüklediyseniz:
+For example if you installed `clang` under `/usr/local/bin/clang`:
 
 ```sh
-$ ./script/bootstrap.py -v --build_release_libcc --clang_dir /usr/local
-$ ./script/build.py -c R
+$ gn gen out/Debug --args='import("//electron/build/args/debug.gn") clang_base_path = "/usr/local/bin"'
 ```
 
 ### `clang` dışında derleyicileri kullanarak
 
-`g++` gibi derleyicilerle Electron kurmak için öncelikle `-disable_clang` anahtarıyla `clang`'ı devre dışı bırakmanız ve ardından `CC` ve `CXX` çevre değişkenlerini istediğinize ayarlamanız gerekmektedir.
-
-Örneğin GCC araç zinciri ile oluşturma:
-
-```sh
-$ env CC=gcc CXX=g++ ./script/bootstrap.py -v --build_release_libcc --disable_clang
-$ ./script/build.py -c R
-```
-
-### Ortam Değişkenleri
-
-`CC` ve `CXX` dışında, inşaa konfigrasyonlarını özelleştirmek için aşağıdaki ortam değişkenlerini de ayarlayabilirsiniz:
-
-* `CPPFLAGS`
-* `CPPFLAGS_host`
-* `CFLAGS`
-* `CFLAGS_host`
-* `CXXFLAGS`
-* `CXXFLAGS_host`
-* `AR`
-* `AR_host`
-* `CC`
-* `CC_host`
-* `CXX`
-* `CXX_host`
-* `LDFLAGS`
-
-İlgili ortam değişkenleri `bootstrap.py` betiğini çalıştırırken ayarlanmalıdır, `build.py` betiğinin içerisinde çalışmayacaktır.
+Building Electron with compilers other than `clang` is not supported.
