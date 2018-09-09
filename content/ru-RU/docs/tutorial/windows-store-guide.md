@@ -87,10 +87,10 @@ electron-windows-store `
 
 Чтобы создать AppX пакет, `electron-windows-store` CLI использует шаблон, который должен подойти для большинства приложений на Electron. Однако, если вы используете кастомный установщик, или вы испытываете какие-либо проблемы с созданным пакетом, вы можете попытаться создать пакет с использованием компиляции с Windows контейнером, CLI установит и запустит ваше приложение в пустом Windows контейнере, чтобы определить, какие изменения ваше приложение вносит в операционную систему.
 
-Before running the CLI for the first time, you will have to setup the "Windows Desktop App Converter". This will take a few minutes, but don't worry - you only have to do this once. Download and Desktop App Converter from [here](https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-run-desktop-app-converter). You will receive two files: `DesktopAppConverter.zip` and `BaseImage-14316.wim`.
+Перед запуском CLI в первый раз, вам нужно настроить "Конвертер десктопных приложений Windows" ("Windows Desktop App Converter"). Этот процесс займет пару минут, но не беспокойтесь - его нужно запустить лишь один раз. Загрузите Desktop App Converter [здесь](https://docs.microsoft.com/en-us/windows/uwp/porting/desktop-to-uwp-run-desktop-app-converter). Вы получите два файла: `DesktopAppConverter.zip` и `BaseImage-14316.wim`.
 
-1. Unzip `DesktopAppConverter.zip`. From an elevated PowerShell (opened with "run as Administrator", ensure that your systems execution policy allows us to run everything we intend to run by calling `Set-ExecutionPolicy bypass`.
-2. Then, run the installation of the Desktop App Converter, passing in the location of the Windows base Image (downloaded as `BaseImage-14316.wim`), by calling `.\DesktopAppConverter.ps1 -Setup -BaseImage .\BaseImage-14316.wim`.
-3. If running the above command prompts you for a reboot, please restart your machine and run the above command again after a successful restart.
+1. Распакуйте `DesktopAppConverter.zip`. Из под PowerShell с расширенными разрешениями ("открыть как Администратор", убедитесь, что политика запуска на вашей системе позволяет нам запускать все, что потребуется, использовав ` обход Set-ExecutionPolicy`).
+2. Затем, запустите установку Desktop App Converter, указав место Windows base Image (загружено как `BaseImage-14316.wim`), вызвав `.\DesktopAppConverter.ps1 -Setup -BaseImage .\BaseImage-14316.wim`.
+3. Если запуск вышеуказанных команд потребует перезагрузки, пожалуйста, сделайте это и снова выполните эти команды после успешной перезагрузки.
 
-Once installation succeeded, you can move on to compiling your Electron app.
+После успешной установки вы можете перейти к компиляции вашего приложения.
