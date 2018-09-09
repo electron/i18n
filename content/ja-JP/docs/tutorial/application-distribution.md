@@ -89,7 +89,7 @@ MyApp.app/Contents
 
 ## ソースから Electron をリビルドして名称変更する
 
-ソースからプロダクト名を変更してビルドすることで、Electron を名称変更することも可能です。これを行うためには、`atom.gyp` を編集して、クリーンなリビルドを行う必要があります。
+It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to set the build argument corresponding to the product name (`electron_product_name = "YourProductName"`) in the `args.gn` file and rebuild.
 
 ### カスタム Electron フォークを作成する
 
