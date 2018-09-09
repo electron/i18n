@@ -15,8 +15,8 @@ Vea [`Menú`](menu.md) para obtener ejemplos.
     * `event` Event
   * `rol` String (opcional) - Define la acción del elemento del menú, cuando se especifica el `click` la propiedad será ignorada. Vea [roles](#roles).
   * `tipo` String (opcional) - Puede ser `normal`, `separador`, `submenu`, `checkbox` o `radio`.
-  * `label` String (optional)
-  * `sublabel` String (optional)
+  * `label` String (opcional)
+  * `sublabel` String (opcional)
   * `accelerator` [Accelerator](accelerator.md) (opcional)
   * `icon` ([NativeImage](native-image.md) | String) (opcional)
   * `enabled` Boolean (opcional) - Si es falso, el elemento de menú será gris y no se podrá hacer click en él.
