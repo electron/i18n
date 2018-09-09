@@ -89,7 +89,7 @@ Além de empacotar seu aplicativo manualmente, você também pode escolher usar 
 
 ## Personalizar a marca recompilando o Electron direto da fonte
 
-Também é possível personalizar a marca dos aplicativos alterando o nome do produto e compilando ele direto do código fonte. Para isso, você precisa modificar o arquivo `atom.gyp` executar uma recompilação limpa.
+It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to set the build argument corresponding to the product name (`electron_product_name = "YourProductName"`) in the `args.gn` file and rebuild.
 
 ### Criando um fork personalizado do Electron
 
