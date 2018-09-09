@@ -8,25 +8,25 @@ Microsoft разработали инструмент, который компи
 
 "Юбилейное обновление" Windows 10 (Windows 10 "Anniversary Update") позволяет запускать win32 `.exe`-файлы, запуская их вместе с виртуализованными системой и реестром. Они оба создаются во время компиляции запуском приложения и установщика внутри контейнера Windows (Windows Container), позволяя Windows определить, какие именно изменения были внесены в операционную систему во время установки. Соединение исполнительного файла с виртуальными файловой системой и реестром позволяет Windows задействовать установку и деинсталляцию в одно касание (one-click installation / uninstallation).
 
-Вдобавок, exe-файл запускается внутри appx модели - это означает, что он может использовать множество API, доступных универсальной платформе Windows (Universal Windows Platform). To gain even more capabilities, an Electron app can pair up with an invisible UWP background task launched together with the `exe` - sort of launched as a sidekick to run tasks in the background, receive push notifications, or to communicate with other UWP applications.
+Вдобавок, exe-файл запускается внутри appx модели - это означает, что он может использовать множество API, доступных универсальной платформе Windows (Universal Windows Platform). Для получения еще больших возможностей, приложение на Electron можно соединить с невидимым фоновым процессом UWP, запущенным вместе с `exe`-файлом - что-то типа напарника, который будет запускать фоновые процессы, получать push-уведомления или взаимодействовать с другими UWP приложениями.
 
-To compile any existing Electron app, ensure that you have the following requirements:
+Для компиляции любого существующего приложения на Electron, удостоверьтесь, что вы попадаете под следующие требования:
 
-* Windows 10 with Anniversary Update (released August 2nd, 2016)
-* The Windows 10 SDK, [downloadable here](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
-* At least Node 4 (to check, run `node -v`)
+* Windows 10 with Anniversary Update (выпущено 2-го Августа, 2016)
+* The Windows 10 SDK, [загрузить здесь](https://developer.microsoft.com/en-us/windows/downloads/windows-10-sdk)
+* Как минимум Node 4 (для проверки версии, запустите в терминале `node -v`)
 
-Then, go and install the `electron-windows-store` CLI:
+После этого, установите `electron-windows-store` CLI:
 
 ```sh
 npm install -g electron-windows-store
 ```
 
-## Step 1: Package Your Electron Application
+## 1 Шаг: Упакуйте ваше приложение
 
-Package the application using [electron-packager](https://github.com/electron-userland/electron-packager) (or a similar tool). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
+Упакуйте приложение, используя [electron-packager](https://github.com/electron-userland/electron-packager) (или подобный инструмент). Удостоверьтесь, что вы удалили `node_modules`, которые не понадобятся вам в финальной версии приложения, так как любой неиспользуемый модуль в конечном счете увеличит размер вашего приложения.
 
-The output should look roughly like this:
+Консольный вывод должен иметь примерный вид:
 
 ```text
 ├── Ghost.exe
@@ -39,20 +39,20 @@ The output should look roughly like this:
 ├── libEGL.dll
 ├── libGLESv2.dll
 ├── locales
-│   ├── am.pak
-│   ├── ar.pak
-│   ├── [...]
+│   ├── am.pak
+│   ├── ar.pak
+│   ├── [...]
 ├── natives_blob.bin
 ├── node.dll
 ├── resources
-│   ├── app
-│   └── atom.asar
+│   ├── app
+│   └── atom.asar
 ├── v8_context_snapshot.bin
 ├── squirrel.exe
 └── ui_resources_200_percent.pak
 ```
 
-## Step 2: Running electron-windows-store
+## Шаг 2: Запуск electron-windows-store
 
 From an elevated PowerShell (run it "as Administrator"), run `electron-windows-store` with the required parameters, passing both the input and output directories, the app's name and version, and confirmation that `node_modules` should be flattened.
 
