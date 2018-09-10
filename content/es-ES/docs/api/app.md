@@ -303,11 +303,28 @@ Devuelve:
 
 Es emitido cuando el soporte de accesibilidad de Chrome es modificado. Este evento se dispara cuando las tecnologías de asistencia, como un lector de pantalla, sin activados o desactivados. Vea https://www.chromium.org/developers/design-documents/accessibility para mas información.
 
+### Event: 'session-created'
+
+Devuelve:
+
+* `event` Event
+* `session` [Session](session.md)
+
+Emitted when Electron has created a new `session`.
+
+```javascript
+const {app} = require('electron')
+
+app.on('session-created', (event, session) => {
+  console.log(session)
+})
+```
+
 ## Métodos
 
 El objeto `app` tiene los siguientes métodos:
 
-**Note:** Algunos métodos solo están disponibles en sistemas operativos específicos y son etiquetados como tal.
+**Note:** Algunos métodos solo están disponibles es sistemas operativos específicos y son etiquetados como tal.
 
 ### `app.quit()`
 
@@ -317,7 +334,7 @@ Este método garantiza que todos los eventos de `beforeunload` y `unload` serán
 
 ### `app.exit([exitCode])`
 
-* `exitCode` Integer (opcional)
+* `exitCode` Íntegro (opcional)
 
 Sale inmediatamente con `exitCode`. `exitCode` por defecto es 0.
 
@@ -327,7 +344,7 @@ Tods las ventanas se cerrarán inmediatamente sin preguntar al usuarios y los ev
 
 * `opciones` Objecto (opcional) 
   * `args` String[] - (opcional)
-  * `execPath` String (opcional)
+  * `execPath` Cadena (opcional)
 
 Reinicia la aplicación cuando la instancia se cierra.
 
@@ -370,25 +387,25 @@ Devuelve `String` - al directorio de la aplicación actual.
 
 * `name` String
 
-Devuelve `String` - Una ruta a un directorio especial o a un archivo asociado con un `nombre`. Cuando hay una falla se lanza un `Error`.
+Devuelve `cadena` - Una ruta a un directorio especial o a un archivo asociado con un `nombre`. Cuando hay una falla se lanza un `Error`.
 
 Usted puede pedir las siguientes direcciones por nombre:
 
-* `home` Directorio personal del usuario.
-* `appData` Directorio de la información de aplicación por usuario, que lleva por defecto a: 
+* `Inicio` Directorio de inicio del usuario.
+* `appData` Directorio de la información de la aplicación por usuario, que lleva por defecto a: 
   * `%APPDATA%` en Windows
   * `$XDG_CONFIG_HOME` o `~/.config` en Linux
   * `~/Library/Application Support` en marcOS
-* `userData` El directorio para almacenar los archivos de configuración de su aplicación, que es por defecto, el directorio `appData` seguido del nombre de su aplicación.
+* `Información del usuario` El directorio para almacenar los archivos de la configuración de su aplicación, que es el directorio `appData` por defecto unida con el nombre de su aplicación.
 * `temp` Directorio temporal.
-* `exe` El archivo ejecutable actual.
-* `module` La librería `libchromiumcontent`.
-* `desktop` El escritorio actual del usuario.
-* `documents` Directorio "Mis documentos" del usuario.
-* `downloads` Directorio para las descargas del usuario.
-* `music` Directorio para la música del usuario.
-* `pictures` Directorio para las imágenes del usuario.
-* `videos` Directorio para los vídeos del usuario.
+* `exe` Archivo ejecutable en curso.
+* `module` la librería `libchromiumcontent`.
+* `escritorio` El directorio del escritorio del usuario en curso.
+* `documentos` Directorio para la carpeta "Mis documentos" del usuario.
+* `descargas` Directorio para las descargas del usuario.
+* `musica` Directorio para la música del usuario.
+* `imágenes` Directorio para las imágenes del usuario.
+* `videos` Directorio para las imágenes del usuario.
 * `logs` Directorio para los archivos de registro de la aplicación.
 * `pepperFlashSystemPlugin` Ruta completa a la versión del sistema del plugin Pepper Flash.
 
@@ -397,9 +414,9 @@ Usted puede pedir las siguientes direcciones por nombre:
 * `path` String
 * `opciones` Objecto (opcional) 
   * `size` String 
-    * `small` - 16x16
+    * `pequeño` - 16x16
     * `normal` - 32x32
-    * `large` - 48x48 en *Linux*, 32x32 en *Windows*, no soportado *macOS*.
+    * `grande` - 48x48 en *Linux*, 32x32 en *Windows*, no compatible en *macOS*.
 * `callback` Function 
   * `error` Error
   * `ícono` [NativeImage](native-image.md)
@@ -408,8 +425,8 @@ Busca un ícono asociado a la ruta.
 
 En *Windows*, Hay dos tipos de íconos:
 
-* Iconos asociados con cierta extensión de un archivo, como `.mp3`, `.png`, etc.
-* Iconos dentro del propio archivo, como `.exe`, `.dll`, `.ico`.
+* Íconos asociados con cierta extensión de un archivo, como `.mp3`, `.png`, etc.
+* Íconos dentro del archivo mismo, como `.exe`, `.dll`, `.ico`.
 
 En *Linux* y *macOS*, los íconos dependen de la aplicación asociada al tipo de archivo.
 
@@ -426,11 +443,11 @@ Por defecto, las cookies y el caché de una página web serán almacenados en el
 
 ### `app.getVersion()`
 
-Regresa `String` - La versión de la aplicación cargada. Si ninguna versión es encontrada en el archivo `package.json` de la aplicación, la versión del ejecutable se regresa.
+Regresa `Cadena` - La versión de la aplicación cargada. Si ninguna versión es encontrada en el archivo `package.json` de la aplicación, la versión del ejecutable se regresa.
 
 ### `app.getName()`
 
-Regresa `String` - El nombre actual de la aplicación, el cual es el nombre del archivo `package.json` de esta.
+Regresa `Cadena` - El nombre actual de la aplicación, el cual es el nombre del archivo `package.json` de esta.
 
 Usualmente el campo `nombre` de `package.json` es un nombre corto en minúscula, de acuerdo con las especificaciones del módulo npm. Generalmente debe especificar un `Nombre del producto` también, el cual es el nombre de su aplicación en mayúscula, y que será preferido por Electron sobre `nombre`.
 
@@ -464,9 +481,9 @@ Borra la lista de documentos recientes.
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
-* `protocolo` String - El nombre de su protocolo, sin el `://`. Si quiere que su aplicación maneje enlaces `electron://`, llame este método con `electron` como el parámetro.
+* `protocolo` Cadena - El nombre de su protocolo, sin el `://`. Si quiere que su aplicación maneje enlaces `electron://`, llame este método con `electron` como el parámetro.
 * `ruta` String (opcional) *Windows* - por defecto a `process.execPath`
-* `args` Cadena[] (opcional) *Windows* - por defecto a un arreglo vacío
+* `args` String[] (opcional) *Windows* - por defecto a un arreglo vacío
 
 Regresa `Boolean` - Siempre que el llamado fue exitoso.
 
@@ -490,9 +507,9 @@ Este método verifica si el ejecutable actual como el manejador por defecto para
 
 ### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
-* `protocolo` String - El nombre de su protocolo, sin el `://`.
-* `ruta` String (opcional) *Windows* - por defecto a `process.execPath`
-* `args` String[] (opcional) *Windows* - por defecto a un arreglo vacío
+* `protocolo` Cadena - El nombre de su protocolo, sin el `://`.
+* `ruta` Cadena (opcional) *Windows* - por defecto a `process.execPath`
+* `args` Cadena[] (opcional) *Windows* - por defecto a un arreglo vacío
 
 Devuelve `Boolean`
 
@@ -601,8 +618,8 @@ app.setJumpList([
 ### `app.makeSingleInstance(callback)`
 
 * `callback` Function 
-  * `argv` String[] - Un arreglo de las líneas de argumentos de comandos de segunda instancia
-  * `workingDirectory` String - El directorio de trabajo de segunda instancia
+  * `argv` Cadena[] - Un arreglo de las líneas de argumentos de comandos de segunda instancia
+  * `workingDirectory` Cadena - El directorio de trabajo de segunda instancia
 
 Devuelta `Boolean`.
 
@@ -647,7 +664,7 @@ Suelta todos los bloqueos que fueron creados por `makeSingleInstance`. Esto perm
 
 * `type` Caden - Raramente identifica la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Objeto - Específicos estados de aplicaciones de la tiendo para usar en otro dispositivo.
-* `webpageURL` String (opcional) - La página web a cargar en un buscador, si no es adecuada para aplicaciones, es instalada en el dispositivo a resumir. El esquema debe ser `http` o`https`.
+* `webpageURL` Cadena (opcional) - La página web a cargar en un buscador, si no es adecuada para aplicaciones, es instalada en el dispositivo a resumir. El esquema debe ser `http` o`https`.
 
 Crea un `NSUserActivity` y se establece como la actividad actual. La actividad es elegible para [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) a otro dispositivo luego.
 
@@ -670,15 +687,15 @@ Actualiza la actividad actual si su tipo coincide `type`, fusionando las entrada
 
 ### `app.setAppUserModelId(id)` *Windows*
 
-* `id` String
+* `id` Cadena
 
 Cambia el [Id Modelo de Usuario de la Aplicación](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) a `id`.
 
 ### `app.importCertificate(options, callback)` *LINUX*
 
 * `opciones` Object 
-  * `cetificado` String - camino para el archivo pkcs12.
-  * `contraseña` String - Frase clave para el certificado.
+  * `cetificado` Cadena - camino para el archivo pkcs12.
+  * `contraseña` Cadena - Frase clave para el certificado.
 * `callback` Function 
   * `resultado` Entero - Resultado del importe.
 
@@ -688,7 +705,7 @@ Importa el certificado en formato pkcs12 dentro del certificado de la plataforma
 
 Desactiva la aceleración por hardware para esta aplicación.
 
-Este método solo puede ser llamado después de iniciada la aplicación.
+Este método solo puede ser llamado despues de iniciada la aplicación.
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
@@ -727,14 +744,14 @@ Devuelve `Boolean` - Aunque el ambiente del escritorio actual sea un ejecutador 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
 * `opciones` Objecto (opcional) 
-  * `path` String (opcional) *Windows* - El camino ejecutable para comparar en contra. Por defecto a `process.execPath`.
-  * `args` String[] (opcional) *Windows* - La línea de argumentos de comando para comparar e contra. Por defecto, a un arreglo vacío.
+  * `path` Cadena (opcional) *Windows* - El camino ejecutable para comparar en contra. Por defecto a `process.execPath`.
+  * `args` Cadena[] (opcional) *Windows* - La línea de argumentos de comando para comparar e contra. Por defecto, a un arreglo vacío.
 
 Si tú has dado las opciones `path` y `args` a `app.setLoginItemSettings` entonces tú necesitas pasar los mismos argumentos aquí para `openAtLogin` para que se establezca correctamente.
 
-Devuelve `Objeto`:
+Devuelve `Objecto`:
 
-* `openAtLogin` Boolean - `true` si la aplicación es establecida para abrirse al login.
+* `openAtLogin` Boolean - `true` si la aplicación es establecida para abrirse al iniciar.
 * `openAsHidden` Boolean *macOS* - `true` si la aplicación es establecida para abrirse como oculta al login. Esta configuración no está disponible en [builds para la tienda de aplicaciones de MAC](../tutorial/mac-app-store-submission-guide.md).
 * `wasOpenedAtLogin` Boolean *macOS* - `true` si la aplicación fue abierto automáticamente al login. Esta configuración no está disponible en [builds para la tienda de aplicaciones de MAC](../tutorial/mac-app-store-submission-guide.md).
 * `wasOpenedAsHidden` Boolean *macOS* - `true` si la aplicación fue abierto como un artículo oculto de login. Esto indica que la aplicación no debería abrir ninguna ventana al inicio. Esta configuración no está disponible en [builds para la tienda de aplicaciones de MAC](../tutorial/mac-app-store-submission-guide.md).
@@ -746,7 +763,7 @@ Devuelve `Objeto`:
   * `openAtLogin` Boolean (opcional) - `true` para abrir la aplicación al iniciar, `false` para eliminar la aplicación como un objeto de inicio. Por defecto a `false`.
   * `openAsHidden` Boolean (optional) *macOS* - `true` abrirse la aplicación como oculta. Por defecto a `false`. El usuario puede editar este ajuste desde Preferencias del Sistema, así que `app.getLoginItemStatus().wasOpenedAsHidden` debería ser revisado cuando la aplicación sea abierta para saber el valor actual. Esta configuración no está disponible en [builds para la tienda de aplicaciones de MAC](../tutorial/mac-app-store-submission-guide.md).
   * `path` String (opcional) *Windows* - El ejecutable para iniciar al iniciar. Por defecto a `process.execPath`.
-  * `args` String[] (opcional) *Windows* - Los argumentos de líneas de comando para pasar al ejecutable. Por defecto a un arreglo vacío. Ten cuidado de envolver los caminos en las citas.
+  * `args` Cadena[] (opcional) *Windows* - Los argumentos de líneas de comando para pasar al ejecutable. Por defecto a un arreglo vacío. Ten cuidado de envolver los caminos en las citas.
 
 Establece los objetos de inicio de ajuste de la aplicación.
 
@@ -782,11 +799,11 @@ Manualmente habilita el soporte de accesibilidad de Chrome, lo que permite expon
 ### `app.setAboutPanelOptions(options)` *macOS*
 
 * `opciones` Object 
-  * `applicationName` String (opcional) - El nombre de la aplicación.
-  * `applicationVersion` String (opcional) - La versión de la aplicación.
-  * `copyright` String (opcional) - La información de Copyright.
-  * `credits` String (opcional) - Información de crédito.
-  * `version` String (opcional) - Este número de versión de construcción de la aplicación.
+  * `applicationName` Cadena (opcional) - El nombre de la aplicación.
+  * `applicationVersion` Cadena (opcional) - La versión de la aplicación.
+  * `copyright` Cadena (opcional) - La información de Copyright.
+  * `credits` Cadena (opcional) - Información de crédito.
+  * `version` Cadena (opcional) - Este número de versión de construcción de la aplicación.
 
 Establece el panel de opciones. Esto anulará los valores definidos en el archivo `.plist` de la aplicación. Ver el [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) para más detalles.
 
@@ -807,8 +824,8 @@ Empezar a acceder un recurso de ámbito de seguridad. Con este método aplicacio
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
-* `switch` String - Un cambio en la línea de comando
-* `value` String (opcional) - Un valor para el cambio dado
+* `switch` Cadena - Un cambio en la línea de comando
+* `value` Cadena (opcional) - Un valor para el cambio dado
 
 Adjuntar un cambio (con `valor` opcional) al comando de de línea de Chromium.
 
@@ -816,7 +833,7 @@ Adjuntar un cambio (con `valor` opcional) al comando de de línea de Chromium.
 
 ### `app.commandLine.appendArgument(value)`
 
-* `valor` String - El argumento a adjuntar a la línea de comando
+* `valor` Cadena - El argumento a adjuntar a la línea de comando
 
 Adjuntar un argumento a la línea de comando de Chromium. El argumento será citado correctamente.
 
@@ -836,13 +853,13 @@ Devuelve `Boolean` - Si la aplicación se está operando actualmente desde la ca
 
 Devuelve `Boolean` - Si el cambio de carpeta fue exitoso. Tenga en cuenta que si el cambio de carpeta fue exitoso su aplicación dejará de funcionar y se relanzará.
 
-Por defecto no se presentará un diálogo de confirmación, si prefiere que el usuario confirme la operación debe hacerlo usando la API [`dialog`](dialog.md).
+Por defecto no se presentará un díalogo de confirmación, si prefiere que el usuario confirme la operación debe hacerlo usando la API [`dialog`](dialog.md).
 
 **Nota:** Este método emite errores si algo que no sea el usuario provoca un error en el movimiento. Por consiguiente, si el usuario cancela el diálogo de autorización, este método devuelve falso. Si se produce un fallo al realizar la copia, este método emite un error. El mensaje de error debería ser descriptivo y advertir exactamente que ha fallado
 
 ### `app.dock.bounce([type])` *macOS*
 
-* `type` String (opcional) - Puede ser `critical` o `informational`. El por defecto es `informational`
+* `type` Cadena (opcional) - Puede ser `critical` o `informational`. El por defecto es `informational`
 
 Cuando `critical` es pasado, el ícono del punto rebotará hasta que la aplicación se vuelva activa o la petición sea cancelada.
 
@@ -870,7 +887,7 @@ Establece la cadena para ser mostrada en el área de insignia del punto.
 
 ### `app.dock.getBadge()` *macOS*
 
-Devuelve `String` - La insignia cadena del punto.
+Devuelve `Cadena` - La insignia cadena del punto.
 
 ### `app.dock.hide()` *macOS*
 
