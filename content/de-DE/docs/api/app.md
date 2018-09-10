@@ -799,7 +799,7 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         ### `app.setAboutPanelOptions(options)` *macOS*
         
-        * `options` Object 
+        * `optionen` Object 
           * `applicationName` String (optional) - The app's name.
           * `applicationVersion` String (optional) - The app's version.
           * `copyright` String (optional) - Copyright information.
