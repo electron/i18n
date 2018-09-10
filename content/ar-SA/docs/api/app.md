@@ -453,7 +453,7 @@ Usually the `name` field of `package.json` is a short lowercased name, according
 
 ### `app.setName(name)`
 
-* اسم الجهاز
+* `name` سلسلة نصية
 
 Overrides the current application's name.
 
@@ -688,7 +688,7 @@ Updates the current activity if its type matches `type`, merging the entries fro
 
 ### `app.setAppUserModelId(id)` *Windows*
 
-* `id` String
+* `id` سلسلة نصية
 
 Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) to `id`.
 
