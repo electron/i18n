@@ -1098,7 +1098,7 @@ Devuelve `Boolean` - Si la ventana es visible en todos los espacios de trabajo.
 #### `win.setIgnoreMouseEvents(ignore[, options])`
 
 * `ignore` Boolean
-* `opciones` Object (opcional) 
+* `opciones` Objecto (opcional) 
   * `forward` Boolean (opcional) *Windows* - Si es verdadero, reenvía los mensajes de movimiento del ratón a Chromium, activando los eventos de ratón como `mouseleave`. Solo se usa cuando `ignore` es verdadero. Si `ignore` es falso, el reenvío está simpre desactivado independientemente de este valor.
 
 Hace que la ventana ignore todos los eventos del ratón.
