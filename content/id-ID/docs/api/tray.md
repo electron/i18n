@@ -209,7 +209,7 @@ Menyetel teks hover untuk ikon baki ini.
   
   * `pilihan` Obyek 
     * `ikon` ([NativeImage](native-image.md) | String) (opsional) -
-    * ` judul </ 0> String</li>
+    * ` judul</ 0>  String</li>
 <li><code>content` String
   
   Menampilkan balon baki.
