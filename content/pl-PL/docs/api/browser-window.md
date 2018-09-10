@@ -895,7 +895,7 @@ Returns `Boolean` - Whether the window's document has been edited.
 #### `win.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
-* `callback` Function 
+* `callback` Funkcja 
   * `image` [NativeImage](native-image.md)
 
 Same as `webContents.capturePage([rect, ]callback)`.
@@ -903,7 +903,7 @@ Same as `webContents.capturePage([rect, ]callback)`.
 #### `win.loadURL(url[, options])`
 
 * `url` String
-* `options` Obiekt (opcjonalne) 
+* `opcje` Obiekt (opcjonalne) 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
@@ -957,7 +957,7 @@ Sets the `menu` as the window's menu bar, setting it to `null` will remove the m
 #### `win.setProgressBar(progress[, options])`
 
 * `progress` Double
-* `options` Obiekt (opcjonalne) 
+* `opcje` Obiekt (opcjonalne) 
   * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error` or `paused`.
 
 Sets progress value in progress bar. Valid range is [0, 1.0].
@@ -1038,7 +1038,7 @@ Sets the toolTip that is displayed when hovering over the window thumbnail in th
 
 #### `win.setAppDetails(options)` *Windows*
 
-* `options` Obiekt 
+* `opcje` Obiekt 
   * `appId` String (optional) - Window's [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). It has to be set, otherwise the other options will have no effect.
   * `appIconPath` String (optional) - Window's [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
   * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. Default is `0`.
@@ -1098,7 +1098,7 @@ Returns `Boolean` - Whether the window is visible on all workspaces.
 #### `win.setIgnoreMouseEvents(ignore[, options])`
 
 * `ignore` Boolean
-* `options` Obiekt (opcjonalne) 
+* `opcje` Obiekt (opcjonalne) 
   * `forward` Boolean (optional) *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Only used when `ignore` is true. If `ignore` is false, forwarding is always disabled regardless of this value.
 
 Makes the window ignore all mouse events.
@@ -1179,11 +1179,11 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 **Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
-#### `win.setBrowserView(browserView)` *Eksperymentalne*
+#### `win.setBrowserView(browserView)` *Eksperymentalny*
 
 * `browserView` [BrowserView](browser-view.md)
 
-#### `win.getBrowserView()` *Eksperymentalne*
+#### `win.getBrowserView()` *Eksperymentalny*
 
 Returns `BrowserView | null` - an attached BrowserView. Returns `null` if none is attached.
 
