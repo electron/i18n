@@ -253,7 +253,7 @@ win.on('hide', () => {
 
 #### `tray.setContextMenu(menu)`
 
-* `menu` Menu
+* `menu` Menu | null
 
 设置这个图标的内容菜单
 
