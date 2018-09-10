@@ -259,7 +259,7 @@ Dönüşler:
 * `event` Olay
 * `webContents` [webİçerikleri](web-contents.md)
 * `istek` Nesne 
-  * `method` Dizi
+  * `method` String
   * `url` URL
   * `referrer` URL
 * `authInfo` Nesne 
@@ -302,6 +302,23 @@ Dönüşler:
 * `accessibilitySupportEnabled` Boolean - `true` Chrome'un ulaşılabilirlik desteği etkinken, o zaman `false`.
 
 Chrome'un erişilebilirlik takviyesi değiştiğinde ortaya çıkar. Bu olay, ekran okuyucuları gibi yardımcı teknolojilerin etkinleştirilmesi veya devre dışı bırakılmasında tetiklenir. Daha detaylı bilgi için https://www.chromium.org/developers/design-documents/accessibility ziyaret edin.
+
+### Event: 'session-created'
+
+Dönüşler:
+
+* `event` Olay
+* `session` [Session](session.md)
+
+Emitted when Electron has created a new `session`.
+
+```javascript
+const {app} = require('electron')
+
+app.on('session-created', (event, session) => {
+  console.log(session)
+})
+```
 
 ## Metodlar
 
@@ -368,7 +385,7 @@ Gizlenmiş olan uygulama pencerelerini gösterir. Pencerelere otomatik olarak od
 
 ### `app.getPath(isim)`
 
-* `name` Dizi
+* `name` Satır
 
 `String` - olarak `name` ile ilişkilendirilmiş bir dosya veya dizgine yönelmiş yol dönütünü verir. Hata durumunda bir `Error` dönütü verir.
 
@@ -466,7 +483,7 @@ Yakın zamandaki dokümentasyon listesini temizler.
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
 * 71/5000 `protokol` String - `://` olmadan protokolünüzün adı: Uygulamanızın `electron://` bağlantılarını işlemesini isterseniz, bu yöntemi parametre olarak `electron` ile çağırın.
-* `yolu` Dize (isteğe bağlı) *Windows* - Varsayılan değer olarak `process.execPath`
+* `path` Dizi (isteğe bağlı) *Windows* - Varsayılana çevirir `process.execPath`
 * `args` Dizi[] (isteğe bağlı) *Windows* - Boş düzeni varsayılana ayarlar
 
 `Boolean` 'ı geri getirir - Çağrı başarılı olduğunda.
@@ -481,18 +498,18 @@ API dahili olarak Windows Kayıt Defteri ve LSSetDefaultHandlerForURLScheme kull
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
-* 71/5000 `protokol` String - `://` olmadan protokolünüzün adı:
-* `path` Dizi (isteğe bağlı) *Windows* - Varsayılana çevirir `process.execPath`
-* `args` Dizi [] (isteğe bağlı) *Windows* - Boş bir diziye varsayılan
+* 71/5000 `protokol` String - `://` olmadan protokolünüzün adı.
+* `yolu` Dize (isteğe bağlı) *Windows* - Varsayılan değer olarak `process.execPath`
+* `args` Dizi[] (isteğe bağlı) *Windows* - Boş düzeni varsayılana ayarlar
 
-`Boolean` 'ı geri getirir - Çağrı başarılı olduğunda.
+Aramanın başarılı olup olmadığı `Boole Değerine ` döndürür.
 
 Bu yöntem, geçerli yürütülebilir bir iletişim kuralı (aka URI şeması) için varsayılan işleyici olarak çalışıp çalışmadığını kontrol eder. Eğer öyleyse, varsayılan işleyici olarak uygulamayı kaldırır.
 
 ### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
 * 71/5000 `protokol` String - `://` olmadan protokolünüzün adı:
-* `yolu` Dize (isteğe bağlı) *Windows* - Varsayılan değer olarak `process.execPath`
+* `path` Dizi (isteğe bağlı) *Windows* - Varsayılana çevirir `process.execPath`
 * `args` Dizi[] (isteğe bağlı) *Windows* - Boş düzeni varsayılana ayarlar
 
 `Boole Değeri` döndürür
@@ -511,7 +528,7 @@ Windows'taki `tasks` kategorisini JumpList'teki [Görevler](https://msdn.microso
 
 `tasks`, [`görevler`](structures/task.md) nesenelerinin bir sırasıdır.
 
-`Boolean` 'ı geri getirir - Çağrı başarılı olduğunda.
+Aramanın başarılı olup olmadığı `Boole Değerine ` döndürür.
 
 **Not:** Eğer Jump List'i daha da çok özelleştirmek istiyorsanız yerine `app.setJumpList(categories)` kullanın.
 
@@ -714,7 +731,7 @@ app.on('ready', () => {
 <ul>
 <li><code>sayı` tam sayı</li> </ul> 
   
-  `Boolean` 'ı geri getirir - Çağrı başarılı olduğunda.
+  Aramanın başarılı olup olmadığı `Boole Değerine ` döndürür.
   
   Sayaç rozet sayısı `0` olarak ayarlandığında uygulama için geçerli ayarlar rozeti gizler.
   
