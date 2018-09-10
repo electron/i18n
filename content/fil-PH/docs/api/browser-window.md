@@ -850,7 +850,7 @@ Ang katutubong uri ng handle ay `HWND` sa Windows, `NSView*` sa macOS, at `Windo
 #### `win.hookWindowMessage(message, callback)` *Windows*
 
 * `mensahe` Integer
-* `callback` na Function
+* `baliktawag` ginagawa
 
 Ang mga hook ay isang mensahe ng window. Ang ` callback ` ay tinatawag kung kailan ang mensahe ay natanggap sa WndProc.
 
@@ -897,7 +897,7 @@ Ibinabalik ang `Boolean` - Kung saan ang mga dokumento ng window ay na-edit na.
 #### `win.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (opsyonal) - Para ma-makuha ang bounds
-* `callback` Function 
+* `callback` Punsyon 
   * `image` [NativeImage](native-image.md)
 
 Katulad nang `webContents.capturePage([rect, ]callback)`.
@@ -905,9 +905,9 @@ Katulad nang `webContents.capturePage([rect, ]callback)`.
 #### `win.loadURL(url[, mga pagpipilian])`
 
 * `url` Tali
-* `options` Na Bagay (opsyonal) 
+* `mga opsyon` Na Bagay (opsyonal) 
   * `httpReferrer` String(opsyonal) - Ang tagabigay ng HTTP url.
-  * `userAgent` Pisi (opsyonal) - Isang ahenteg gumagamit na nagmumula sa kahilingan.
+  * `userAgent` String(opsyonal) - Ang ahente na gumagamit ng pinagmumulan ng kahilingan.
   * `extraHeaders` Pisi (opsyonal) - Mga dagdag na header na pinaghihiwalay ng "\n"
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
   * `baseURLForDataURL` String(opsyonal) - Basi nag url (may tagapahiwalay sa landas ng separator) para sa mga dokumento na kakargahin sa pamamagitan ng datos ng url. Ito ay kinakailangan lamang kung ang tinutukoy na `url` ay isang url ng data at kailangang mag-load ng iba pang mga file.
