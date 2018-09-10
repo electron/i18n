@@ -303,6 +303,23 @@ Retorna:
 
 Emitido quando o suporte de acessibilidade do Chrome muda. Este evento é acionado quando a tecnologias assistivas, tais como leitores de tela, estão habilitadas ou desabilitadas. Veja https://www.chromium.org/developers/design-documents/accessibility para mais detalhes.
 
+### Event: 'session-created'
+
+Retorna:
+
+* `event` Event
+* `session` [Session](session.md)
+
+Emitted when Electron has created a new `session`.
+
+```javascript
+const {app} = require('electron')
+
+app.on('session-created', (event, session) => {
+  console.log(session)
+})
+```
+
 ## Métodos
 
 O objeto `app` tem os seguintes métodos:
@@ -356,7 +373,7 @@ No Linux, foca na primeira janela visível. No macOS, torna o aplicativo a aplic
 
 ### `app.hide()` no *macOS*
 
-Oculta todas as janelas do aplicativo sem minimizar-las.
+Oculta todas as janelas do aplicativo sem minimizar-las. 
 
 ### `app.show()` no *macOS*
 
