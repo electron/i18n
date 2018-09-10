@@ -1098,7 +1098,7 @@ Rückgabewert:
   #### `win.setIgnoreMouseEvents(ignore[, options])`
   
   * `ignore` Boolean
-  * `options` Objekt (optional) 
+  * `optionen` Objekt (optional) 
     * `forward` Boolean (optional) *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Only used when `ignore` is true. If `ignore` is false, forwarding is always disabled regardless of this value.
   
   Makes the window ignore all mouse events.
