@@ -303,6 +303,23 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 Відбуваєтсья коли змінюється підтримка спеціальних можливостей Chrome. Ця подія викликається коли допоміжні технології, такі як читач екрану, вмикаються або вимикаються. Дивись https://www.chromium.org/developers/design-documents/accessibility для більш детедбної інформації.
 
+### Event: 'session-created'
+
+Повертає:
+
+* `event` Event
+* `session` [Session](session.md)
+
+Emitted when Electron has created a new `session`.
+
+```javascript
+const {app} = require('electron')
+
+app.on('session-created', (event, session) => {
+  console.log(session)
+})
+```
+
 ## Методи
 
 Об'єкт `app` має наступні методи:
