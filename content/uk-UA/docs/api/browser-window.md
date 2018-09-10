@@ -1183,7 +1183,7 @@ Sets `parent` as current window's parent window, passing `null` will turn curren
 
 * `browserView` [BrowserView](browser-view.md)
 
-#### `win.getBrowserView()` *Експериментальний*
+#### `win.getBrowserView()` *Експериментальна*
 
 Повертає `BrowserView | null` - прикріплений BrowserView. Повертає `null`, якщо немає прикіпленого.
 
