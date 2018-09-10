@@ -303,6 +303,23 @@ Vrací:
 
 Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 
+### Event: 'session-created'
+
+Vrací:
+
+* `event` Event
+* `session` [Session](session.md)
+
+Emitted when Electron has created a new `session`.
+
+```javascript
+const {app} = require('electron')
+
+app.on('session-created', (event, session) => {
+  console.log(session)
+})
+```
+
 ## Metody
 
 The `app` object has the following methods:
@@ -348,7 +365,7 @@ app.exit(0)
 
 ### `app.isReady()`
 
-Vrací `Boolean` - `true` pokud Electron dokončil inicializaci, `false` v opačném případě.
+Returns `Boolean` - `true` if Electron has finished initializing, `false` otherwise.
 
 ### `app.focus()`
 
@@ -723,7 +740,7 @@ Returns `Integer` - The current value displayed in the counter badge.
 
 ### `app.isUnityRunning()` *Linux*
 
-Vrací Boolean - Kdykoliv kdy je aktuální prostředí plochy Unity spouštěč.
+Returns `Boolean` - Whether the current desktop environment is Unity launcher.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
