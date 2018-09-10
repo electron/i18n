@@ -206,7 +206,7 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
     * `contextIsolation` Boolean(opcional) - Para ejecutar las APIs de Electron y el script especificado `preload` en un contexto JavaScript independiente. Por defecto es `false`. El contexto que ejecuta el script `preload` tendrá acceso completo a los globales `document` y a `window` pero utilizará su propia configuración integrada de JavaScript (`Array`, `Object`, `JSON`, etc.) y estará apartada de cualquier cambio que se le haga al contexto global por la página cargada. El API Electron solo estará disponible en el script `preload` y no en la página cargada. Esta opción debe utilizarse cuando se carga contenido remoto potencialmente dañino para asegurar que el contenido cargado no pueda modificar el script `preload` o cualquier API de Electron en uso. Esta opción utiliza la misma técnica utilizada por [Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment). Se puede acceder a este contexto en las herramientas de desarrollo al seleccionar la entrada 'Electron Isolated Context' en el cuadro combo en la parte superior de la pestaña de la Consola. **Nota:** actualmente esta opción es experimental y puede cambiar o ser eliminada en las futuras versiones de Electron.
     * `nativeWindowOpen` Boolean (opcional) - Si se utiliza el `window.open()` nativo. Por defecto es `false`. **Nota:** Actualmente esta opción es experimental.
     * `webviewTag` Boolean (opcional) - Si se habilita o no el [`<webview>` tag](webview-tag.md). Por defecto tiene el valor de la opción `nodeIntegration`. **Nota:** El script `preload` configurado para el `<webview>`tendrá la integración de nodos habilitada cuando se ejecuta por lo que hay que asegurarse que el contenido remoto o posiblemente dañino no sea capaz de crear una etiqueta de `<webview>`con un script `preload` posiblemente malicioso. Puede utilizarse el evento `will-attach-webview` en [webContents](web-contents.md) para quitar el script `preload` y validar o alterar la configuración inicial de `<webview>`.
-    * `additionArguments` String[] (opcional) - Una lista de strings que serán anexados a `process.argv` en el proceso de renderizado de esta aplicación. Útil para pasar cantidades de datos pequeñas a los scripts de precarga del proceso de renderizado.
+    * `additionalArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app. Useful for passing small bits of data down to renderer process preload scripts.
 
 Cuando se configura el tamaño máximo o mínimo de la ventana con `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, solo limita a los usuarios. No impide pasar de un tamaño que no sigue las restricciones de tamaño a`setBounds`/`setSize` o al constructor de `BrowserWindow`.
 
@@ -686,7 +686,7 @@ Devuelve `Integer[]` - Contiene la anchura y altura mínima de la ventana.
 #### `win.setMaximumSize(width, height)`
 
 * `width` Integer
-* `alto` Integer
+* `alto` Entero
 
 Establece el tamaño máximo de la ventana a `width`y `height`.
 
@@ -905,7 +905,7 @@ Es igual a `webContents.capturePage([rect, ]callback)`.
 * `url` String
 * `opciones` Objecto (opcional) 
   * `httpReferrer` Cadena (opcional) - Un url de HTTP referencial.
-  * `userAgent` String (opcional) - Un agente de usuario originando la solicitud.
+  * `userAgent` Cadena (opcional) - Un agente de usuario originando el pedido.
   * `extraHeaders` String (opcional) - Encabezados extras separadas por "\n"
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (opcional)
   * `baseURLForDataURL` String (opcional) - Url base (con separadores de ruta arrastrables) para archivos que se cargan por el url de datos. Esto es necesario únicamente si el `url` especificado es un url de datos y necesita cargar otros archivos.
