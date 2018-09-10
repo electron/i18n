@@ -303,6 +303,23 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 Возникает при изменении Chrome поддержки специальных возможностей. Это событие срабатывает, когда вспомогательные технологии, такие как устройства чтения с экрана, включены или отключены. Смотрите https://www.chromium.org/developers/design-documents/accessibility для подробностей.
 
+### Event: 'session-created'
+
+Возвращает:
+
+* `event` Event
+* `session` [Session](session.md)
+
+Emitted when Electron has created a new `session`.
+
+```javascript
+const {app} = require('electron')
+
+app.on('session-created', (event, session) => {
+  console.log(session)
+})
+```
+
 ## Методы
 
 Объект `app` имеет следующие методы:
@@ -385,8 +402,8 @@ app.exit(0)
 * `module` библиотека `libchromiumcontent`.
 * `desktop` каталог рабочего стола, текущего пользователя.
 * `documents` каталог пользователя "My Documents".
-* `downloads` Каталог пользователя "Загрузки".
-* `music` каталог пользователя "Музыка".
+* `downloads` Каталог пользователя "Downloads".
+* `music` каталог пользователя "Music".
 * `pictures` каталог пользователя для фотографии.
 * `videos` каталог пользователя для видео.
 * `logs` директория для логов вашего приложения.
@@ -800,7 +817,7 @@ app.setLoginItemSettings({
 ```js
 // Начало доступа к файлу.
 const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
-// Теперь вы можете получить доступ к файлу вне песочницы 
+// You can now access the file outside of the sandbox 
 stopAccessingSecurityScopedResource()
 ```
 
