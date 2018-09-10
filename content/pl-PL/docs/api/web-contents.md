@@ -241,11 +241,11 @@ Zwraca:
 
 Emitted when a plugin process has crashed.
 
-#### Event: 'destroyed'
+#### Zdarzenie: 'destroyed'
 
 Emitted when `webContents` is destroyed.
 
-#### Event: 'before-input-event'
+#### Zdarzenie: 'before-input-event'
 
 Zwraca:
 
@@ -276,19 +276,19 @@ win.webContents.on('before-input-event', (event, input) => {
 })
 ```
 
-#### Event: 'devtools-opened'
+#### Zdarzenie: 'devtools-opened'
 
 Emitted when DevTools is opened.
 
-#### Event: 'devtools-closed'
+#### Zdarzenie: 'devtools-closed'
 
 Emitted when DevTools is closed.
 
-#### Event: 'devtools-focused'
+#### Zdarzenie: 'devtools-focused'
 
 Emitted when DevTools is focused / opened.
 
-#### Event: 'certificate-error'
+#### Zdarzenie: 'certificate-error'
 
 Zwraca:
 
@@ -303,7 +303,7 @@ Emitted when failed to verify the `certificate` for `url`.
 
 The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
 
-#### Event: 'select-client-certificate'
+#### Zdarzenie: 'select-client-certificate'
 
 Zwraca:
 
@@ -317,7 +317,7 @@ Emitowane, kiedy certyfikat klienta jest wymagany.
 
 The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
-#### Wydarzenie: 'login'
+#### Zdarzenie: 'login'
 
 Zwraca:
 
@@ -340,7 +340,7 @@ Emitowane gdy `webContents` żąda podstawowej autoryzacji.
 
 The usage is the same with [the `login` event of `app`](app.md#event-login).
 
-#### Event: 'found-in-page'
+#### Zdarzenie: 'found-in-page'
 
 Zwraca:
 
@@ -354,15 +354,15 @@ Zwraca:
 
 Emitted when a result is available for [`webContents.findInPage`] request.
 
-#### Event: 'media-started-playing'
+#### Zdarzenie: 'media-started-playing'
 
 Emitted when media starts playing.
 
-#### Event: 'media-paused'
+#### Zdarzenie: 'media-paused'
 
 Emitted when media is paused or done playing.
 
-#### Event: 'did-change-theme-color'
+#### Zdarzenie: 'did-change-theme-color'
 
 Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
 
@@ -375,7 +375,7 @@ Zwraca:
 * `event` Event
 * `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
 
-#### Event: 'update-target-url'
+#### Zdarzenie: 'update-target-url'
 
 Zwraca:
 
@@ -384,7 +384,7 @@ Zwraca:
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
-#### Event: 'cursor-changed'
+#### Zdarzenie: 'cursor-changed'
 
 Zwraca:
 
@@ -399,7 +399,7 @@ Emitted when the cursor's type changes. The `type` parameter can be `default`, `
 
 If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a [`NativeImage`](native-image.md), and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
 
-#### Event: 'context-menu'
+#### Zdarzenie: 'context-menu'
 
 Zwraca:
 
@@ -441,7 +441,7 @@ Zwraca:
 
 Emitted when there is a new context menu that needs to be handled.
 
-#### Event: 'select-bluetooth-device'
+#### Zdarzenie: 'select-bluetooth-device'
 
 Zwraca:
 
@@ -471,7 +471,7 @@ app.on('ready', () => {
 })
 ```
 
-#### Event: 'paint'
+#### Zdarzenie: 'paint'
 
 Zwraca:
 
@@ -491,11 +491,11 @@ win.webContents.on('paint', (event, dirty, image) => {
 win.loadURL('http://github.com')
 ```
 
-#### Event: 'devtools-reload-page'
+#### Zdarzenie: 'devtools-reload-page'
 
 Emitted when the devtools window instructs the webContents to reload
 
-#### Event: 'will-attach-webview'
+#### Zdarzenie: 'will-attach-webview'
 
 Zwraca:
 
@@ -509,7 +509,7 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 **Note:** The specified `preload` script option will be appear as `preloadURL` (not `preload`) in the `webPreferences` object emitted with this event.
 
-#### Event: 'did-attach-webview'
+#### Zdarzenie: 'did-attach-webview'
 
 Zwraca:
 
@@ -518,7 +518,7 @@ Zwraca:
 
 Emitted when a `<webview>` has been attached to this web contents.
 
-#### Event: 'console-message'
+#### Zdarzenie: 'console-message'
 
 Zwraca:
 
