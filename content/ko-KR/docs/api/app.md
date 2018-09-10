@@ -51,7 +51,7 @@ Electron이 초기화를 끝냈을 때 발생하는 이벤트입니다. macOS에
 
 ### 이벤트: 'will-quit'
 
-반환:
+Returns:
 
 * `event` Event
 
@@ -74,7 +74,7 @@ Electron이 초기화를 끝냈을 때 발생하는 이벤트입니다. macOS에
 
 ### 이벤트: 'open-file' *macOS*
 
-반환:
+Returns:
 
 * `event` Event
 * `path` String
@@ -98,7 +98,7 @@ Electron이 초기화를 끝냈을 때 발생하는 이벤트입니다. macOS에
 
 ### 이벤트: 'activate' *macOS*
 
-Returns:
+반환:
 
 * `event` Event
 * `hasVisibleWindows` Boolean
@@ -138,7 +138,7 @@ Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/U
 
 ### Event: 'activity-was-continued' *macOS*
 
-반환:
+Returns:
 
 * `event` Event
 * `type` String - 활동을 식별하는 문자열. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)와 맵핑됩니다.
@@ -166,7 +166,7 @@ Emitted when the user clicks the native macOS new tab button. The new tab button
 
 ### 이벤트 'browser-window-blur'
 
-Returns:
+반환:
 
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
@@ -175,7 +175,7 @@ Returns:
 
 ### 이벤트: 'browser-window-focus'
 
-반환:
+Returns:
 
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
@@ -193,7 +193,7 @@ Returns:
 
 ### 이벤트: 'web-contents-created'
 
-Returns:
+반환:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -303,6 +303,23 @@ Emitted when the gpu process crashes or is killed.
 
 Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 
+### Event: 'session-created'
+
+Returns:
+
+* `event` Event
+* `session` [Session](session.md)
+
+Emitted when Electron has created a new `session`.
+
+```javascript
+const {app} = require('electron')
+
+app.on('session-created', (event, session) => {
+  console.log(session)
+})
+```
+
 ## 메소드
 
 `app` 객체에서 사용할 수 있는 메서드입니다:
@@ -325,7 +342,7 @@ Emitted when Chrome's accessibility support changes. This event fires when assis
 
 ### `app.relaunch([options])`
 
-* `options` Object (optional) 
+* `options` Object (선택) 
   * `args` String[] (optional)
   * `execPath` String (optional)
 
@@ -368,7 +385,7 @@ Linux에서는, visible상태인 윈도우 중 첫번째 창에 focus를 줍니�
 
 ### `app.getPath(name)`
 
-* `name` String
+* PrinterInfo Object
 
 `String` 반환 - `name`과 관련된 특정한 디렉토리 또는 연관된 파일까지의 경로. 실패 시 `Error`를 발생시킵니다.
 
