@@ -818,21 +818,21 @@ properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> 
             * `switch` String - Sakelar baris perintah
             * `value` String (opsional) - Nilai untuk saklar yang diberikan
             
-            Append a switch (with optional `value`) to Chromium's command line.
+            Tambahkan peralihan (dengan `nilai opsional`) ke baris perintah Chromium.
             
-            **Note:** This will not affect `process.argv`, and is mainly used by developers to control some low-level Chromium behaviors.
+            **Catatan:** Ini tidak akan mempengaruhi `process.argv`, dan terutama digunakan oleh pengembang untuk mengontrol perilaku Kromium beberapa tingkat rendah.
             
-            ### `app.commandLine.appendArgument(value)`
+            ### `app.commandLine.appendArgument(nilai)`
             
-            * `value` String - The argument to append to the command line
+            * `nilai` String - argumen untuk menambahkan ke baris perintah
             
-            Append an argument to Chromium's command line. The argument will be quoted correctly.
+            Tambahkan argumen ke baris perintah Chromium. Argumen akan dikutip dengan benar.
             
-            **Note:** This will not affect `process.argv`.
+            **Catatan:** Ini tidak akan mempengaruhi `process.argv`.
             
-            ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
+            ### `app.enableMixedSandbox()` *macOS* *Windows*
             
-            Enables mixed sandbox mode on the app.
+            Mengaktifkan mode kotak pasir campuran di aplikasi.
             
             Metode ini hanya bisa dipanggil sebelum aplikasi sudah siap.
             
@@ -848,58 +848,58 @@ properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> 
             
             **NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog this method returns false. If we fail to perform the copy then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
             
-            ### `app.dock.bounce([type])` *macOS*
+            ### `app.dock.bounce()` *macOS*
             
-            * `type` String (optional) - Can be `critical` or `informational`. The default is `informational`
+            * `jenis` String (opsional) - dapat `kritis` atau `informasi`. Default adalah `informasi`
             
-            When `critical` is passed, the dock icon will bounce until either the application becomes active or the request is canceled.
+            Ketika `kritis` dilewatkan, ikon dermaga akan terpental sampai aplikasi menjadi aktif atau permintaan dibatalkan.
             
-            When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
+            Ketika `informasi` dilewatkan, ikon dermaga akan bangkit untuk satu detik. Namun, permintaan tetap aktif sampai aplikasi menjadi aktif atau permintaan dibatalkan.
             
-            Returns `Integer` an ID representing the request.
+            Mengembalikan `Integer` ID yang mewakili permintaan.
             
-            ### `app.dock.cancelBounce(id)` *macOS*
+            ### `app.dock.cancelBounce(id)` Linux *macOS*
             
             * `identitas` Integer
             
-            Cancel the bounce of `id`.
+            Membatalkan bouncing `id`.
             
-            ### `app.dock.downloadFinished(filePath)` *macOS*
+            ### `app.dock.downloadFinished(filePath)` *Windows*
             
             * `fullPath` String
             
-            Bounces the Downloads stack if the filePath is inside the Downloads folder.
+            Memantapkan Download stack jika filePath ada di dalam folder Downloads.
             
-            ### `app.dock.setBadge(text)` *macOS*
+            ### `app.dock.setBadge (teks)` *macOS*
             
             * `teks` String
             
-            Sets the string to be displayed in the dock’s badging area.
+            Menetapkan string yang akan ditampilkan di area badging dermaga.
             
-            ### `app.dock.getBadge()` *macOS*
+            ### `app.dock.getBadge()` *macos*
             
-            Returns `String` - The badge string of the dock.
+            Mengembalikan `String` - String badge dari dok.
             
             ### `app.dock.hide()` *macOS*
             
-            Hides the dock icon.
+            Sembunyikan ikon dok.
             
-            ### `app.dock.show()` *macOS*
+            ### `app.dock.show()` *macos*
             
-            Shows the dock icon.
+            Tampilkan ikon dok.
             
-            ### `app.dock.isVisible()` *macOS*
+            ### `app.dock.isVisible()` *macos*
             
-            Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call is asynchronous so this method might not return true immediately after that call.
+            Mengembalikan `Boolean` - Apakah ikon dermaga terlihat. Panggilan `app.dock.show()` bersifat asinkron sehingga metode ini mungkin tidak kembali benar segera setelah panggilan itu.
             
-            ### `app.dock.setMenu(menu)` *macOS*
+            ### `app.dock.setMenu(menu)` *macos*
             
             * `menu` [Menu](menu.md)
             
-            Sets the application's [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103).
+            Mengatur aplikasi [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103).
             
-            ### `app.dock.setIcon(image)` *macOS*
+            ### `app.dock.setIcon(gambar)` *macOS*
             
             * `gambar` ([NativeImage](native-image.md) | String)
             
-            Sets the `image` associated with this dock icon.
+            Menetapkan `gambar` yang terkait dengan ikon dermaga ini.
