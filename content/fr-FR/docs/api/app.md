@@ -256,7 +256,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `webContents` [WebContents](web-contents.md)
 * `request` Objet 
   * `method` String
@@ -302,6 +302,23 @@ Retourne :
 * `accessibilitySupportEnabled` Boolean - `true` quand le support de l'accessibilité de Chrome est activé, sinon `false`.
 
 Émis lorsque le support de l’accessibilité du Chrome change. Cet événement se déclenche lorsque les technologies d’assistance, tels que les lecteurs d’écran sont activés ou désactivés. Voir https://www.chromium.org/developers/design-documents/accessibility pour plus de détails.
+
+### Event: 'session-created'
+
+Retourne :
+
+* `event` Event
+* `session` [Session](session.md)
+
+Emitted when Electron has created a new `session`.
+
+```javascript
+const {app} = require('electron')
+
+app.on('session-created', (event, session) => {
+  console.log(session)
+})
+```
 
 ## Méthodes
 
