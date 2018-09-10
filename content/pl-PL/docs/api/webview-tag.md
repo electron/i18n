@@ -643,7 +643,7 @@ webview.addEventListener('console-message', (e) => {
 })
 ```
 
-### Event: 'found-in-page'
+### Zdarzenie: 'found-in-page'
 
 Zwraca:
 
@@ -789,15 +789,15 @@ Fired when a plugin process is crashed.
 
 Fired when the WebContents is destroyed.
 
-### Event: 'media-started-playing'
+### Zdarzenie: 'media-started-playing'
 
 Emitted when media starts playing.
 
-### Event: 'media-paused'
+### Zdarzenie: 'media-paused'
 
 Emitted when media is paused or done playing.
 
-### Event: 'did-change-theme-color'
+### Zdarzenie: 'did-change-theme-color'
 
 Zwraca:
 
@@ -809,7 +809,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 <meta name='theme-color' content='#ff0000'>
 ```
 
-### Event: 'update-target-url'
+### Zdarzenie: 'update-target-url'
 
 Zwraca:
 
@@ -817,14 +817,14 @@ Zwraca:
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
-### Event: 'devtools-opened'
+### Zdarzenie: 'devtools-opened'
 
 Emitted when DevTools is opened.
 
-### Event: 'devtools-closed'
+### Zdarzenie: 'devtools-closed'
 
 Emitted when DevTools is closed.
 
-### Event: 'devtools-focused'
+### Zdarzenie: 'devtools-focused'
 
 Emitted when DevTools is focused / opened.
