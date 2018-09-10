@@ -673,7 +673,7 @@ Pencerenin istemci alanını yeniden boyutlandırır (e.g. the web page) to `wid
 
 #### `win.setMinimumSize(width, height)`
 
-* `width` Tamsayı
+* `width` Integer
 * `height` Tamsayı
 
 Pencerenin minimum boyutunu `genişlik` ve `yükseklik` olarak ayarlar.
