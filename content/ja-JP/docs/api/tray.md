@@ -253,7 +253,7 @@ tray アイコンのコンテキストメニューをポップアップします
 
 #### `tray.setContextMenu(menu)`
 
-* `menu` Menu
+* `menu` Menu | null
 
 このアイコンのコンテキストメニューを設定します。
 
