@@ -85,8 +85,8 @@ Mga indibidwal na tutorial patungkol sa mga naulat na gabay sa itaas.
   * [Paggamit ng mga Archives ng asar](tutorial/application-packaging.md#using-asar-archives)
   * [Mga limitasyon](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Pagdaragdag ng mga naka-unpack na mga file sa asar na mga Archive](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
+* [In Detail: Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
 * [Detalyadong paggamit ng Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [Detalyadong paggamit ng Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
 * [Labas sa iskrin na pagproseso](tutorial/offscreen-rendering.md)
 
 * * *
@@ -125,7 +125,7 @@ Mga indibidwal na tutorial patungkol sa mga naulat na gabay sa itaas.
 * [ang powerMonitor](api/power-monitor.md)
 * [ang powerSaveBlocker](api/power-save-blocker.md)
 * [ang protokol](api/protocol.md)
-* [session](api/session.md)
+* [sesyon](api/session.md)
 * [systemPreferences](api/system-preferences.md)
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
