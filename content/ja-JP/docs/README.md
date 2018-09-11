@@ -54,7 +54,7 @@
 * パッケージ化 
   * [コード署名](tutorial/code-signing.md)
 * [配布方法](tutorial/application-distribution.md) 
-  * [サポート](tutorial/support.md)
+  * [Support（サポート）](tutorial/support.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows Store](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
@@ -85,8 +85,8 @@
   * [asar アーカイブを使用する](tutorial/application-packaging.md#using-asar-archives)
   * [制限事項](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [asar アーカイブへパックされていないファイルを追加](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
+* [In Detail: Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
 * [詳解: Pepper Flash Plugin を使う](tutorial/using-pepper-flash-plugin.md)
-* [詳解: Widevine CDM Plugin を使う](tutorial/using-widevine-cdm-plugin.md)
 * [オフスクリーンレンダリング](tutorial/offscreen-rendering.md)
 
 * * *
