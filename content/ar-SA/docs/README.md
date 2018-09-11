@@ -16,9 +16,9 @@
   * [اعداد نظام لينكس (Linux)](tutorial/development-environment.md#setting-up-linux)
   * [اختيار محرر الكود](tutorial/development-environment.md#a-good-editor)
 * [انشاء تطبيقك الأول](tutorial/first-app.md) 
-  * [تنصيب إلكترون (Electron)](tutorial/first-app.md#installing-electron)
-  * [اسلوب تطوير إلكترون باختصار](tutorial/first-app.md#electron-development-in-a-nutshell)
-  * [تشغيل تطبيقك الأول](tutorial/first-app.md#running-your-app)
+  * [تثبيت إكترون](tutorial/first-app.md#installing-electron)
+  * [تطوير إلكترون باختصار](tutorial/first-app.md#electron-development-in-a-nutshell)
+  * [تشغيل تطبيقك](tutorial/first-app.md#running-your-app)
 * [Boilerplates و CLIs](tutorial/boilerplates-and-clis.md) 
   * [Boilerplate مقابل CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
@@ -85,8 +85,8 @@
   * [Using asar Archives](tutorial/application-packaging.md#using-asar-archives)
   * [Limitations](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Adding Unpacked Files to asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
+* [In Detail: Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
 * [In Detail: Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [In Detail: Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
 * [Offscreen Rendering](tutorial/offscreen-rendering.md)
 
 * * *
