@@ -85,8 +85,8 @@ These individual tutorials expand on topics discussed in the guide above.
   * [使用 asar 封存檔](tutorial/application-packaging.md#using-asar-archives)
   * [限制](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [將無法封存的檔案與 asar 封存檔整合](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
+* [In Detail: Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
 * [深入: 使用 Pepper Flash 外掛程式](tutorial/using-pepper-flash-plugin.md)
-* [深入: 使用 Widevine CDM 外掛程式](tutorial/using-widevine-cdm-plugin.md)
 * [螢幕外畫面轉譯](tutorial/offscreen-rendering.md)
 
 * * *
