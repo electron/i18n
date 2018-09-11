@@ -26,7 +26,7 @@
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Інші Інструменти та Шаблони Коду](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
 * [Архітектура Застосунків](tutorial/application-architecture.md) 
-  * [Головний та Процес Рендерингу](tutorial/application-architecture.md#main-and-renderer-processes)
+  * [Main та Renderer Processes](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Використання API Electron](tutorial/application-architecture.md#using-electron-apis)
   * [Використання API Node.js](tutorial/application-architecture.md#using-nodejs-apis)
   * [Використання Нативних Модулів Node.js](tutorial/using-native-node-modules.md)
@@ -85,8 +85,8 @@
   * [Використання asar Архівів](tutorial/application-packaging.md#using-asar-archives)
   * [Обмеження](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Додавання Нерозпакований Файлів в asar Архів](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
+* [In Detail: Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
 * [Детальніше: Використання Плагіну Pepper Flash](tutorial/using-pepper-flash-plugin.md)
-* [Детальніше: Використання Плагіну Widevine CDM](tutorial/using-widevine-cdm-plugin.md)
 * [Закадровий Рендеринг](tutorial/offscreen-rendering.md)
 
 * * *
