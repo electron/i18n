@@ -11,25 +11,25 @@ Processo: [Main](../glossary.md#main-process)
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow()
 win.webContents.session.on('will-download', (event, item, webContents) => {
-  // Set the save path, making Electron not to prompt a save dialog.
+  // Imposta il percorso di salvataggio, evitando l'apertura della finestra di salvataggio.
   item.setSavePath('/tmp/save.pdf')
 
   item.on('updated', (event, state) => {
     if (state === 'interrupted') {
-      console.log('Download is interrupted but can be resumed')
+      console.log('Il Download è interrotto ma può essere continuato')
     } else if (state === 'progressing') {
       if (item.isPaused()) {
-        console.log('Download is paused')
+        console.log('Download in pausa')
       } else {
-        console.log(`Received bytes: ${item.getReceivedBytes()}`)
+        console.log(`Bytes ricevuti: ${item.getReceivedBytes()}`)
       }
     }
   })
   item.once('done', (event, state) => {
     if (state === 'completed') {
-      console.log('Download successfully')
+      console.log('Download riuscito')
     } else {
-      console.log(`Download failed: ${state}`)
+      console.log(`Download fallito: ${state}`)
     }
   })
 })
@@ -37,12 +37,12 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 ### Eventi dell'istanza
 
-#### Event: 'updated'
+#### Evento: 'updated'
 
 Restituisce:
 
 * `event` Event
-* `state` String - Can be `progressing` or `interrupted`.
+* `state` String - Può essere `progressing` o `interrupted`.
 
 Emesso quando il download è stato aggiornato e non viene eseguito.
 
@@ -56,7 +56,7 @@ Lo `state` può essere uno dei seguenti:
 Restituisce:
 
 * `event` Event
-* `state` String - Can be `completed`, `cancelled` or `interrupted`.
+* `state` String - Può essere `completed`, `cancelled` o `interrupted`.
 
 Emesso quando il download è in uno stato terminale. Questo include un download completato, un download annullato (tramite `downloadItem.cancel()`), e download interrotto che non può essere ripreso.
 
@@ -70,7 +70,7 @@ Lo `state` può essere uno dei seguenti:
 
 L'oggetto `downloadItem` ha i seguenti metodi:
 
-#### `downloadItem.setSavePath(path)`
+#### `downloadItem.setSavePath(percorso)`
 
 * `path` String - Imposta il percorso del file salvato dell'elemento scaricato.
 
@@ -96,23 +96,23 @@ Riprende il download che è stato messo in pausa.
 
 #### `downloadItem.canResume()`
 
-Returns `Boolean` - Whether the download can resume.
+Restituisce `Boolean` - Quando il download può essere ripreso.
 
 #### `downloadItem.cancel()`
 
-Cancels the download operation.
+Annulla l'operazione di download.
 
 #### `downloadItem.getURL()`
 
-Returns `String` - The origin url where the item is downloaded from.
+Restituisce `String` - L'url originario da cui si è scaricato l'elemento.
 
 #### `downloadItem.getMimeType()`
 
-Returns `String` - The files mime type.
+Restituisce `String` - Mime type the file.
 
 #### `downloadItem.hasUserGesture()`
 
-Returns `Boolean` - Whether the download has user gesture.
+Restituisce `Boolean` - Se il download ha una user gesture.
 
 #### `downloadItem.getFilename()`
 
