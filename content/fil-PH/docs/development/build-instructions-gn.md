@@ -56,37 +56,6 @@ $ gclient sync --with_branch_heads --with_tags
 # This will take a while, go get a coffee.
 ```
 
-### Chromium git cache
-
-`depot_tools` has an option that allows the developer to set a global cache for all git objects of Chromium + dependencies. This option uses `git clone
---shared` to save bandwidth/space on multiple clones of the same repositories.
-
-If you intend to have several Electron build trees on the same machine (to work on different versions of Electron for example), it is recommended to set use the git cache to speed up the download of Chromium source. Halimbawa:
-
-```sh
-$ mkdir ~/.chromium-git-cache
-$ gclient config \
-    --name "src/electron" \
-    --unmanaged \
-    --cache_dir="$HOME/.chromium-git-cache" \
-    https://github.com/electron/electron
-$ gclient sync --with_branch_heads --with_tags
-```
-
-If the bootstrap script is interrupted while using the git cache, it will leave the cache locked. To remove the lock, pass the `--break_repo_locks` argument to `gclient sync`.
-
-#### Sharing the cache between multiple machines
-
-Maaaring maibahagi ang directory sa iba pang mga makina sa pamamagitan ng paglabas nito bilang bahagi ng SMB sa linux, ngunit isang proseso/makina lamang ang maaaring gamitin. Ang mga lock na nilikha ng git-cache script ay susubukang maiwasan ito, pero maaari pa rin itong di gumana ng maayos sa network.
-
-Sa Windows, ang SMBv2 ay mayroong directory cache na maaaring maging sanhi ng problema gamit ang git cache script, kaya naman kailangan itong ihinto gamit ang setting sa registry key
-
-```sh
-HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Lanmanworkstation\Parameters\DirectoryCacheLifetime
-```
-
-to 0. More information: https://stackoverflow.com/a/9935126
-
 ## Pagbuo
 
 ```sh
@@ -174,3 +143,21 @@ If you're debugging something, it can be helpful to pass some extra flags to the
 $ ./out/Default/Electron.app/Contents/MacOS/Electron electron/spec \
   --ci --enable-logging -g 'BrowserWindow module'
 ```
+
+## Sharing the git cache between multiple machines
+
+It is possible to share the gclient git cache with other machines by exporting it as SMB share on linux, but only one process/machine can be using the cache at a time. Ang mga lock na nilikha ng git-cache script ay susubukang maiwasan ito, pero maaari pa rin itong di gumana ng maayos sa network.
+
+Sa Windows, ang SMBv2 ay mayroong directory cache na maaaring maging sanhi ng problema gamit ang git cache script, kaya naman kailangan itong ihinto gamit ang setting sa registry key
+
+```sh
+HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Lanmanworkstation\Parameters\DirectoryCacheLifetime
+```
+
+to 0. More information: https://stackoverflow.com/a/9935126
+
+## Paghahanap ng ProblemaPaghahanap ng Problema
+
+### Stale locks in the git cache
+
+If `gclient sync` is interrupted while using the git cache, it will leave the cache locked. To remove the lock, pass the `--break_repo_locks` argument to `gclient sync`.
