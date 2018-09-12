@@ -1,6 +1,6 @@
 # dialog
 
-> Mostrar diálogos nativos del sistema para abrir y guardar archivos, alertas, etc.
+> Muestra diálogos nativos del sistema para abrir y guardar archivos, alertas, etc.
 
 Proceso: [Principal](../glossary.md#main-process)
 
