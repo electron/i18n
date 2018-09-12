@@ -18,15 +18,15 @@ Si tu estas haciendo una aplicación Electron que tu quieres empaquetar y distri
 
 Antes de Firmar aplicaciones macOS, debes hacer lo siguiente:
 
-1. Enroll in the [Apple Developer Program](https://developer.apple.com/programs/) (requires an annual fee)
-2. Download and install [Xcode](https://developer.apple.com/xcode)
-3. Generate, download, and install [signing certificates](https://github.com/electron-userland/electron-osx-sign/wiki/1.-Getting-Started#certificates)
+1. Afiliate en el [Apple Developer Program](https://developer.apple.com/programs/) (requiere un pago anual)
+2. Descarga e instala [Xcode](https://developer.apple.com/xcode)
+3. Genera, descarga e instala [signing certificates](https://github.com/electron-userland/electron-osx-sign/wiki/1.-Getting-Started#certificates)
 
 There are a number of tools for signing your packaged app:
 
-- [`electron-osx-sign`] is a standalone tool for signing macOS packages.
-- [`electron-packager`] bundles `electron-osx-sign`. If you're using `electron-packager`, pass the `--osx-sign=true` flag to sign your build. 
-    - [`electron-forge`] uses `electron-packager` internally, you can set the `osxSign` option in your forge config.
+- [`electron-osx-sign`] Es una herramienta independiente para firmar paquetes macOS.
+- [`electron-packager`] en conjunto con `electron-osx-sign`. Si tu no estas usando`electron-packager`, pasa la bandera `--osx-sign=true` para firmar tu compilación. 
+    - [`electron-forge`] usa `electron-packager` internamente, tu puede colocar la opción `osxSign` en tu configuración.
 - [`electron-builder`] has built-in code-signing capabilities. See [electron.build/code-signing](https://www.electron.build/code-signing)
 
 For more info, see the [Mac App Store Submission Guide](mac-app-store-submission-guide.md).
