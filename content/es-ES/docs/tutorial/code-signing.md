@@ -1,12 +1,12 @@
 # Firma de código
 
-Code signing is a security technology that you use to certify that an app was created by you.
+Firma de código es una tecnología de seguridad que usas para certificar que una aplicación fue creada por ti.
 
-On macOS the system can detect any change to the app, whether the change is introduced accidentally or by malicious code.
+En macOS el sistema puede detectar algún cambio en la aplicación, si el cambio es introducido accidentalmente o por código malicioso.
 
-On Windows the system assigns a trust level to your code signing certificate which if you don't have, or if your trust level is low will cause security dialogs to appear when users start using your application. Trust level builds over time so it's better to start code signing as early as possible.
+En Windows el sistema asigna un nivel de confianza a tu certificado de firma de código, si tu nivel de confianza es bajo o no tienes, se mostrará un dialogo de seguridad que aparecerá cuando el usuario comience a usar tu aplicación. El nivel de confianza aumenta con el tiempo, por lo que es mejor iniciar la firma del código lo antes posible.
 
-While it is possible to distribute unsigned apps, it is not recommended. For example, here's what macOS users see when attempting to start an unsigned app:
+Si bien es posible distribuir aplicaciones sin firmar, no es recomendable. Por ejemplo, esto es lo que los usuarios de macOS ven cuando intentan iniciar una aplicación sin firmar:
 
 ![unsigned app warning on macOS](https://user-images.githubusercontent.com/2289/39488937-bdc854ba-4d38-11e8-88f8-7b3c125baefc.png)
 
