@@ -23,10 +23,10 @@ See [Build Instructions: GN](build-instructions-gn.md)
 
 ## 32 비트 빌드
 
-32비트를 타겟으로 빌드 하려면 부트스트랩 스크립트를 실행할 때 `--target_arch=ia32` 인수를 같이 넘겨주면 됩니다:
+To build for the 32bit target, you need to pass `target_cpu = "x86"` as a GN arg. You can build the 32bit target alongside the 64bit target by using a different output directory for GN, e.g. `out/Release-x86`, with different arguments.
 
 ```powershell
-$ python script\bootstrap.py -v --target_arch=ia32
+$ gn gen out/Release-x86 --args="import(\"//electron/build/args/release.gn\") target_cpu=\"x86\""
 ```
 
 다른 빌드 단계도 정확하게 같습니다.
