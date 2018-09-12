@@ -10,13 +10,13 @@ Si bien es posible distribuir aplicaciones sin firmar, no es recomendable. Por e
 
 ![unsigned app warning on macOS](https://user-images.githubusercontent.com/2289/39488937-bdc854ba-4d38-11e8-88f8-7b3c125baefc.png)
 
-> App can't be opened because it is from an unidentified developer
+> La aplicación no puede ser abierta porque es de un desarrollador no identificado
 
-If you are building an Electron app that you intend to package and distribute, it should be code signed. The Mac and Windows app stores do not allow unsigned apps.
+Si tu estas haciendo una aplicación Electron que tu quieres empaquetar y distribuir, debería ser de código firmado. Las tiendas de aplicaciones de Mac y Windows no permiten aplicaciones no firmadas.
 
-# Signing macOS builds
+# Firmando aplicaciones Mac
 
-Before signing macOS builds, you must do the following:
+Antes de Firmar aplicaciones macOS, debes hacer lo siguiente:
 
 1. Enroll in the [Apple Developer Program](https://developer.apple.com/programs/) (requires an annual fee)
 2. Download and install [Xcode](https://developer.apple.com/xcode)
