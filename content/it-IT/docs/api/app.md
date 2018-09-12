@@ -304,14 +304,14 @@ Restituisce:
 
 Emesso quando cambia il supporto accessibilità di Chrome. Questo evento avviene quando le tecnologie d'assistenza, come lettore schermo, sono abilitate o disabilitate. Vedi https://www.chromium.org/developers/design-documents/accessibility per altri dettagli.
 
-### Event: 'session-created'
+### Evento: 'session-created'
 
 Restituisce:
 
 * `event` Event
 * `session` [Session](session.md)
 
-Emitted when Electron has created a new `session`.
+Emesso quando Electron ha creato una nuova `sessione`.
 
 ```javascript
 const {app} = require('electron')
@@ -814,10 +814,10 @@ Puoi richiedere i seguenti percorsi dal nome:
     
     * `bookmarkData` String - The base64 encoded security scoped bookmark data returned by the `dialog.showOpenDialog` or `dialog.showSaveDialog` methods.
     
-    Returns `Function` - This function **must** be called once you have finished accessing the security scoped file. If you do not remember to stop accessing the bookmark, [kernel resources will be leaked](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) and your app will lose its ability to reach outside the sandbox completely, until your app is restarted.
+    Restituisce `Function` - Questa funzione **deve** essere chiamata una volta che hai finito d'accede ad un file ad ambito protetto. If you do not remember to stop accessing the bookmark, [kernel resources will be leaked](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) and your app will lose its ability to reach outside the sandbox completely, until your app is restarted.
     
     ```js
-    // Start accessing the file.
+    // Inizio accesso al file.
     const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
     // You can now access the file outside of the sandbox 
     stopAccessingSecurityScopedResource()
