@@ -23,10 +23,10 @@ See [Build Instructions: GN](build-instructions-gn.md)
 
 ## 32bit İnşaa
 
-32bit hedefleyerek inşaa etmek için, `--target_arch=ia32` parametresini bootstrap betiğine geçmeniz gerekir:
+To build for the 32bit target, you need to pass `target_cpu = "x86"` as a GN arg. You can build the 32bit target alongside the 64bit target by using a different output directory for GN, e.g. `out/Release-x86`, with different arguments.
 
 ```powershell
-$ python script\bootstrap.py -v --target_arch=ia32
+$ gn gen out/Release-x86 --args="import(\"//electron/build/args/release.gn\") target_cpu=\"x86\""
 ```
 
 Diğer inşaa adımları aynı bu şekilde.
