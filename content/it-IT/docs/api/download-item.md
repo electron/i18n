@@ -116,42 +116,42 @@ Restituisce `Boolean` - Se il download ha una user gesture.
 
 #### `downloadItem.getFilename()`
 
-Returns `String` - The file name of the download item.
+Restituisce `String` - Nome del file scaricato.
 
-**Note:** The file name is not always the same as the actual one saved in local disk. If user changes the file name in a prompted download saving dialog, the actual name of saved file will be different.
+**Nota:** Il nome del file non sempre è lo stesso di quello effettivamente salvato su disco locale. Se l'utente cambia il nome del file proposto nella finestra di salvataggio, l'attuale nome del file sarà differente.
 
 #### `downloadItem.getTotalBytes()`
 
-Returns `Integer` - The total size in bytes of the download item.
+Restituisce `Integer` - La dimensione totale in byte del download.
 
-If the size is unknown, it returns 0.
+Se la dimensione è sconosciuta, restituirà 0.
 
 #### `downloadItem.getReceivedBytes()`
 
-Returns `Integer` - The received bytes of the download item.
+Restituisce `Integer` - I byte ricevuti del download.
 
 #### `downloadItem.getContentDisposition()`
 
-Returns `String` - The Content-Disposition field from the response header.
+Restituisce `String` - Campo Content-Disposition ottenuta dall'intestazione della risposta.
 
 #### `downloadItem.getState()`
 
-Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
+Restituisce `String` - Lo stato corrente. Può essere `progressing`, `completed`, `cancelled` o `interrupted`.
 
-**Note:** The following methods are useful specifically to resume a `cancelled` item when session is restarted.
+**Nota:** I seguenti metodi sono utili specificatamente per riprendere un elemento in stato `cancelled` quando la sessione è riavviata.
 
 #### `downloadItem.getURLChain()`
 
-Returns `String[]` - The complete url chain of the item including any redirects.
+Restituisce `String[]` - La catena completa degli url inclusi ogni redirect.
 
 #### `downloadItem.getLastModifiedTime()`
 
-Returns `String` - Last-Modified header value.
+Restituisce `String` - Valore dell'instestazione Last-Modified.
 
 #### `downloadItem.getETag()`
 
-Returns `String` - ETag header value.
+Restituisce `String` - Valore dell'intestazione ETag.
 
 #### `downloadItem.getStartTime()`
 
-Returns `Double` - Number of seconds since the UNIX epoch when the download was started.
+Restituisce `Double` - Numero di secondi dall'epoca UNIX da quando il download è stato avviato.
