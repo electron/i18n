@@ -30,12 +30,12 @@ console.log(dialog)
   * `defaultPath` String (опционально)
   * `buttonLabel` String(опционально) - Альтернативный текст для кнопки подтверждения. Если оставить пустым будет использован стандартный текст.
   * `filters` [FileFilter[]](structures/file-filter.md) (опционально)
-  * `properties` String[] (optional) - Свойства, которые будут использованы диалогом. Возможны следующие значения: 
+  * `properties` String[] (опционально) - Свойства, которые будут использованы диалогом. Возможны следующие значения: 
     * `openFile` - позволяет выбирать файлы.
     * `openDirectory` - позволяет выбирать папки.
     * `multiSelections` - позволяет выбрать несколько объектов.
     * `showHiddenFiles` - отображает в диалоге скрытые файлы.
-    * `createDirectory` *macOS* - Allow creating new directories from dialog.
+    * `createDirectory` *macOS* - Позволяет создавать новые директории из диалога.
     * `promptToCreate` *Windows* - Prompt for creation if the file path entered in the dialog does not exist. Это на самом деле не приводит к тому что создается новый файл по указанному пути, но позволяет возвращать из диалога несуществующий путь, новый файл должен быть создан приложением после выхода из диалога.
     * `noResolveAliases` *macOS* - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
     * `treatPackageAsDirectory` *macOS* - Treat packages, such as `.app` folders, as a directory instead of a file.
