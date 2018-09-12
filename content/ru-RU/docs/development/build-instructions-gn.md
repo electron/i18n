@@ -56,37 +56,6 @@ $ gclient sync --with_branch_heads --with_tags
 # Это займёт некоторое время, идите и налейте себе кофейку.
 ```
 
-### Chromium git cache
-
-`depot_tools` has an option that allows the developer to set a global cache for all git objects of Chromium + dependencies. This option uses `git clone
---shared` to save bandwidth/space on multiple clones of the same repositories.
-
-If you intend to have several Electron build trees on the same machine (to work on different versions of Electron for example), it is recommended to set use the git cache to speed up the download of Chromium source. Например:
-
-```sh
-$ mkdir ~/.chromium-git-cache
-$ gclient config \
-    --name "src/electron" \
-    --unmanaged \
-    --cache_dir="$HOME/.chromium-git-cache" \
-    https://github.com/electron/electron
-$ gclient sync --with_branch_heads --with_tags
-```
-
-If the bootstrap script is interrupted while using the git cache, it will leave the cache locked. To remove the lock, pass the `--break_repo_locks` argument to `gclient sync`.
-
-#### Sharing the cache between multiple machines
-
-Возможно делиться этой директорией с другими машинами, экспортируя ее как SMB share на Linux, но лишь один процесс/машина могут использовать этот кэш одновременно. Блокировки, установленные скриптом git-cache попытаются предотвратить это, однако возможна нестабильная работа по сети.
-
-На Windows, у SMBv2 есть кэш директорий, который будет создавать проблемы со скриптом git-cache, поэтому необходимо отключить его, установив ключ регистра
-
-```sh
-HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Lanmanworkstation\Parameters\DirectoryCacheLifetime
-```
-
-to 0. More information: https://stackoverflow.com/a/9935126
-
 ## Сборка
 
 ```sh
@@ -174,3 +143,21 @@ If you're debugging something, it can be helpful to pass some extra flags to the
 $ ./out/Default/Electron.app/Contents/MacOS/Electron electron/spec \
   --ci --enable-logging -g 'BrowserWindow module'
 ```
+
+## Sharing the git cache between multiple machines
+
+It is possible to share the gclient git cache with other machines by exporting it as SMB share on linux, but only one process/machine can be using the cache at a time. Блокировки, установленные скриптом git-cache попытаются предотвратить это, однако возможна нестабильная работа по сети.
+
+На Windows, у SMBv2 есть кэш директорий, который будет создавать проблемы со скриптом git-cache, поэтому необходимо отключить его, установив ключ регистра
+
+```sh
+HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Lanmanworkstation\Parameters\DirectoryCacheLifetime
+```
+
+to 0. More information: https://stackoverflow.com/a/9935126
+
+## Устранение проблем
+
+### Stale locks in the git cache
+
+If `gclient sync` is interrupted while using the git cache, it will leave the cache locked. To remove the lock, pass the `--break_repo_locks` argument to `gclient sync`.
