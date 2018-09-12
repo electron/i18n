@@ -8,7 +8,7 @@ En Windows el sistema asigna un nivel de confianza a tu certificado de firma de 
 
 Si bien es posible distribuir aplicaciones sin firmar, no es recomendable. Por ejemplo, esto es lo que los usuarios de macOS ven cuando intentan iniciar una aplicación sin firmar:
 
-![unsigned app warning on macOS](https://user-images.githubusercontent.com/2289/39488937-bdc854ba-4d38-11e8-88f8-7b3c125baefc.png)
+![advertencia de aplicación sin firma en macOS](https://user-images.githubusercontent.com/2289/39488937-bdc854ba-4d38-11e8-88f8-7b3c125baefc.png)
 
 > La aplicación no puede ser abierta porque es de un desarrollador no identificado
 
@@ -49,8 +49,8 @@ Hay una serie de herramientas para firmar su aplicación empaquetada:
 
 - [` electron-winstaller </ 0>] generará un instalador para Windows y lo firmará</li>
 <li>[<code> electron-forge </ 0>] puede firmar los instaladores generados por Squirrel.Windows o MSI.</li>
-<li>[<code>electron-builder`] can sign some of its windows targets
+<li>[<code>electron-builder`] puede firmar algunos de los empaques instaladores de windows
 
 ## Windows Store
 
-See the [Windows Store Guide](windows-store-guide.md).
+Mira la [guía de la Windows Store](windows-store-guide.md).
