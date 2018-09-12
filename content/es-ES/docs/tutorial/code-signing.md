@@ -14,7 +14,7 @@ Si bien es posible distribuir aplicaciones sin firmar, no es recomendable. Por e
 
 Si tu estas haciendo una aplicación Electron que tu quieres empaquetar y distribuir, debería ser de código firmado. Las tiendas de aplicaciones de Mac y Windows no permiten aplicaciones no firmadas.
 
-# Firmando aplicaciones Mac
+# Firmando compilaciones Mac
 
 Antes de Firmar aplicaciones macOS, debes hacer lo siguiente:
 
@@ -22,7 +22,7 @@ Antes de Firmar aplicaciones macOS, debes hacer lo siguiente:
 2. Descarga e instala [Xcode](https://developer.apple.com/xcode)
 3. Genera, descarga e instala [signing certificates](https://github.com/electron-userland/electron-osx-sign/wiki/1.-Getting-Started#certificates)
 
-Hay un numero de herramientas para firmar tu aplicación empaquetada:
+Hay una serie de herramientas para firmar su aplicación empaquetada:
 
 - [`electron-osx-sign`] Es una herramienta independiente para firmar paquetes macOS.
 - [`electron-packager`] en conjunto con `electron-osx-sign`. Si tu no estas usando`electron-packager`, pasa la bandera `--osx-sign=true` para firmar tu compilación. 
@@ -31,25 +31,25 @@ Hay un numero de herramientas para firmar tu aplicación empaquetada:
 
 Para mas información, mira la [ Guia de envio de la Mac App Store ](mac-app-store-submission-guide.md).
 
-# Signing Windows builds
+# Firmando compilaciones Windows
 
-Before signing Windows builds, you must do the following:
+Antes de Firmar Compilaciones Windows, tu debes hacer lo siguiente:
 
-1. Get a Windows Authenticode code signing certificate
-2. Install Visual Studio 2015/2017 (to get the signing utility)
+1. Obtenga un certificado de firma de código de Windows Authenticode
+2. Instala Visual Studio 2015/2017 (para obtener la utilidad de firmado)
 
-You can get a code signing certificate from a lot of resellers, popular ones include:
+Puede obtener un certificado de firma de código de muchos revendedores, los más populares incluyen:
 
 - [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
 - [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)
 - [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
-- Amongst others, please shop around to find one that suits your needs, Google is your friend :)
+- Entre otros, compare para encontrar uno que se adapte a sus necesidades, Google es tu amigo :)
 
-Hay un numero de herramientas para firmar tu aplicación empaquetada:
+Hay una serie de herramientas para firmar su aplicación empaquetada:
 
-- [`electron-winstaller`] will generate an installer for windows and sign it for you
-- [`electron-forge`] can sign installers it generates through the Squirrel.Windows or MSI targets.
-- [`electron-builder`] can sign some of its windows targets
+- [` electron-winstaller </ 0>] generará un instalador para Windows y lo firmará</li>
+<li>[<code> electron-forge </ 0>] puede firmar los instaladores generados por Squirrel.Windows o MSI.</li>
+<li>[<code>electron-builder`] can sign some of its windows targets
 
 ## Windows Store
 
