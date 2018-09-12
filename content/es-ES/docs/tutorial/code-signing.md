@@ -22,14 +22,14 @@ Antes de Firmar aplicaciones macOS, debes hacer lo siguiente:
 2. Descarga e instala [Xcode](https://developer.apple.com/xcode)
 3. Genera, descarga e instala [signing certificates](https://github.com/electron-userland/electron-osx-sign/wiki/1.-Getting-Started#certificates)
 
-There are a number of tools for signing your packaged app:
+Hay un numero de herramientas para firmar tu aplicación empaquetada:
 
 - [`electron-osx-sign`] Es una herramienta independiente para firmar paquetes macOS.
 - [`electron-packager`] en conjunto con `electron-osx-sign`. Si tu no estas usando`electron-packager`, pasa la bandera `--osx-sign=true` para firmar tu compilación. 
     - [`electron-forge`] usa `electron-packager` internamente, tu puede colocar la opción `osxSign` en tu configuración.
-- [`electron-builder`] has built-in code-signing capabilities. See [electron.build/code-signing](https://www.electron.build/code-signing)
+- [`electron-builder`] tiene incorporada capacidades de firma de código. Mira [electron.build/code-signing](https://www.electron.build/code-signing)
 
-For more info, see the [Mac App Store Submission Guide](mac-app-store-submission-guide.md).
+Para mas información, mira la [ Guia de envio de la Mac App Store ](mac-app-store-submission-guide.md).
 
 # Signing Windows builds
 
@@ -45,7 +45,7 @@ You can get a code signing certificate from a lot of resellers, popular ones inc
 - [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
 - Amongst others, please shop around to find one that suits your needs, Google is your friend :)
 
-There are a number of tools for signing your packaged app:
+Hay un numero de herramientas para firmar tu aplicación empaquetada:
 
 - [`electron-winstaller`] will generate an installer for windows and sign it for you
 - [`electron-forge`] can sign installers it generates through the Squirrel.Windows or MSI targets.
