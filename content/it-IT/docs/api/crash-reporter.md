@@ -26,12 +26,12 @@ Crash reports are saved locally in an application-specific temp directory folder
 
 ## Metodi
 
-The `crashReporter` module has the following methods:
+Il modulo `crashReporter` ha i seguenti metodi:
 
-### `crashReporter.start(options)`
+### `crashReporter.start(opzioni)`
 
 * `options` Oggetto 
-  * `companyName` String (optional)
+  * `companyName` String (opzionale)
   * `submitURL` String - URL that crash reports will be sent to as POST.
   * `productName` String (optional) - Defaults to `app.getName()`.
   * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server Default is `true`.
