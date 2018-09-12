@@ -1,24 +1,24 @@
 # Variabili di ambiente
 
-> Control application configuration and behavior without changing code.
+> Controllo della configurazione applicativa e comportamentali senza cambiare codice.
 
-Certain Electron behaviors are controlled by environment variables because they are initialized earlier than the command line flags and the app's code.
+Alcuni comportamenti di Electron sono controllati da variabili d'ambiente perché sono inizializzati prima dei parametri a riga di comando e del codice dell'app.
 
-POSIX shell example:
+Esempio shell POSIX:
 
 ```sh
 $ export ELECTRON_ENABLE_LOGGING=true
 $ electron
 ```
 
-Windows console example:
+Esempio Windows console:
 
 ```powershell
 > set ELECTRON_ENABLE_LOGGING=true
 > electron
 ```
 
-## Production Variables
+## Variabili di produzione
 
 The following environment variables are intended primarily for use at runtime in packaged Electron applications.
 
@@ -36,19 +36,19 @@ By default, a newly generated Google API key may not be allowed to make geocodin
 
 ### `ELECTRON_NO_ASAR`
 
-Disables ASAR support. This variable is only supported in forked child processes and spawned child processes that set `ELECTRON_RUN_AS_NODE`.
+Disabilita il supporto ASAR. Questa variabile è supportata solo in processi figli e relativi processi generati che hanno impostato `ELECTRON_RUN_AS_NODE`.
 
 ### `ELECTRON_RUN_AS_NODE`
 
-Starts the process as a normal Node.js process.
+Esegue il processo come un normale processo Node.js.
 
 ### `ELECTRON_NO_ATTACH_CONSOLE` *Windows*
 
-Don't attach to the current console session.
+Non collega l'attuale sessione console.
 
 ### `ELECTRON_FORCE_WINDOW_MENU_BAR` *Linux*
 
-Don't use the global menu bar on Linux.
+Non usa la barra del menu globale su Linux.
 
 ## Development Variables
 
