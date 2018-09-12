@@ -20,7 +20,7 @@ Esempio Windows console:
 
 ## Variabili di produzione
 
-The following environment variables are intended primarily for use at runtime in packaged Electron applications.
+Le seguenti variabili d'ambiente sono principalmente destinati per l'uso a runtime in un'applicazione Electron pacchettizzata.
 
 ### `GOOGLE_API_KEY`
 
