@@ -62,44 +62,45 @@ $ cd src
 $ export CHROMIUM_BUILDTOOLS_PATH=`pwd`/buildtools
 # this next line is needed only if building with sccache
 $ export GN_EXTRA_ARGS="${GN_EXTRA_ARGS} cc_wrapper=\"${PWD}/electron/external_binaries/sccache\""
-$ gn gen out/Default --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_ARGS"
+$ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_ARGS"
 ```
 
-이 명령어는 `src`폴더 아래에 디버그 빌드 설정을 사용해서 `out/Default` 빌드 디렉토리를 생성합니다. 여기에서 `Default`는 원하는 이름으로 바꾸어도 됩니다. 하지만 반드시 `out`의 하위 디렉토리여야 합니다. 또한 `gn gen`을 또 다시 실행하지 않도록 주의하십시오.—빌드 args를 바꾸고 싶은 경우, `gn args out/Default`를 사용해서 에디터를 실행해서 바꾸십시오.
+This will generate a build directory `out/Debug` under `src/` with debug build configuration. You can replace `Debug` with another name, but it should be a subdirectory of `out`. Also you shouldn't have to run `gn gen` again—if you want to change the build arguments, you can run `gn args out/Debug` to bring up an editor.
 
-사용 가능한 모든 빌드 설정의 목록을 확인하려면, `gn args out/Default --list` 명령어를 실행하십시오.
+To see the list of available build configuration options, run `gn args
+out/Debug --list`.
 
 **Electron의 디버그("component" 또는 "shared") 빌드 설정을 생성하려면 이 명령어를 실행하십시오:**
 
 ```sh
-$ gn gen out/Default --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_ARGS"
+$ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_ARGS"
 ```
 
 **Electron의 배포("non-component" 또는 "static") 빌드 설정을 생성하려면 이 명령어를 실행하십시오:**
 
 ```sh
-$ gn gen out/Default --args="import(\"//electron/build/args/release.gn\") $GN_EXTRA_ARGS"
+$ gn gen out/Debug --args="import(\"//electron/build/args/release.gn\") $GN_EXTRA_ARGS"
 ```
 
-**빌드를 시작하려면 `electron:electron_app` 타겟으로 `ninja` 명령어를 실행하십시오.**
+**To build, run `ninja` with the `electron` target:**
 
 ```sh
-$ ninja -C out/Default electron:electron_app
+$ ninja -C out/Debug electron
 # This will also take a while and probably heat up your lap.
 ```
 
 This will build all of what was previously 'libchromiumcontent' (i.e. the `content/` directory of `chromium` and its dependencies, incl. WebKit and V8), so it will take a while.
 
-To speed up subsequent builds, you can use [sccache](https://github.com/mozilla/sccache). Add the GN arg `cc_wrapper = "sccache"` by running `gn args out/Default` to bring up an editor and adding a line to the end of the file.
+To speed up subsequent builds, you can use [sccache](https://github.com/mozilla/sccache). Add the GN arg `cc_wrapper = "sccache"` by running `gn args out/Debug` to bring up an editor and adding a line to the end of the file.
 
-The built executable will be under `./out/Default`:
+The built executable will be under `./out/Debug`:
 
 ```sh
-$ ./out/Default/Electron.app/Contents/MacOS/Electron
+$ ./out/Debug/Electron.app/Contents/MacOS/Electron
 # or, on Windows
-$ ./out/Default/electron.exe
+$ ./out/Debug/electron.exe
 # or, on Linux
-$ ./out/Default/electron
+$ ./out/Debug/electron
 ```
 
 ### Cross-compiling
@@ -107,7 +108,7 @@ $ ./out/Default/electron
 To compile for a platform that isn't the same as the one you're building on, set the `target_cpu` and `target_os` GN arguments. For example, to compile an x86 target from an x64 host, specify `target_cpu = "x86"` in `gn args`.
 
 ```sh
-$ gn gen out/Default-x86 --args='... target_cpu = "x86"'
+$ gn gen out/Debug-x86 --args='... target_cpu = "x86"'
 ```
 
 Not all combinations of source and target CPU/OS are supported by Chromium. Only cross-compiling Windows 32-bit from Windows 64-bit and Linux 32-bit from Linux 64-bit have been tested in Electron. If you test other combinations and find them to work, please update this document :)
@@ -119,26 +120,26 @@ See the GN reference for allowable values of [`target_os`](https://gn.googlesour
 To run the tests, you'll first need to build the test modules against the same version of Node.js that was built as part of the build process. To generate build headers for the modules to compile against, run the following under `src/` directory.
 
 ```sh
-$ ninja -C out/Default third_party/electron_node:headers
+$ ninja -C out/Debug third_party/electron_node:headers
 # Install the test modules with the generated headers
-$ (cd electron/spec && npm i --nodedir=../../out/Default/gen/node_headers)
+$ (cd electron/spec && npm i --nodedir=../../out/Debug/gen/node_headers)
 ```
 
 Then, run Electron with `electron/spec` as the argument:
 
 ```sh
 # on Mac:
-$ ./out/Default/Electron.app/Contents/MacOS/Electron electron/spec
+$ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec
 # on Windows:
-$ ./out/Default/electron.exe electron/spec
+$ ./out/Debug/electron.exe electron/spec
 # on Linux:
-$ ./out/Default/electron electron/spec
+$ ./out/Debug/electron electron/spec
 ```
 
 If you're debugging something, it can be helpful to pass some extra flags to the Electron binary:
 
 ```sh
-$ ./out/Default/Electron.app/Contents/MacOS/Electron electron/spec \
+$ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec \
   --ci --enable-logging -g 'BrowserWindow module'
 ```
 
