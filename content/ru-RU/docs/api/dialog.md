@@ -37,12 +37,12 @@ console.log(dialog)
     * `showHiddenFiles` - отображает в диалоге скрытые файлы.
     * `createDirectory` *macOS* - Позволяет создавать новые директории из диалога.
     * `promptToCreate`*Windows* - предупреждает, если путь указанный в диалоге не существует. Это, на самом деле, не приводит к тому, что создается новый файл по указанному пути, но позволяет возвращать из диалога несуществующий путь, новый файл должен быть создан приложением после выхода из диалога.
-    * `noResolveAliases` *macOS* - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
-    * `treatPackageAsDirectory` *macOS* - Treat packages, such as `.app` folders, as a directory instead of a file.
-  * `message` String (optional) *macOS* - Message to display above input boxes.
-  * `securityScopedBookmarks` Boolean (optional) *masOS* *mas* - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
-* `callback` Function (optional) 
-  * `filePaths` String[] - An array of file paths chosen by the user
+    * `noResolveAliases` *macOS* - Отключает автоматическую обработку cимволических ссылок (symlink). Все symlink-и теперь вернут свой путь, а не ее целевой путь.
+    * `treatPackageAsDirectory` *macOS* - Открывает пакеты, такие как папки `.app`, как директорию, а не как файл.
+  * `message` String (опционально) *macOS* - Сообщение, которое будет показан над блоками ввода.
+  * `securityScopedBookmarks` Boolean (опционально) *masOS* *mas* - Создает [защищенные закладки](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16), когда создается пакет для Mac App Store.
+* `callback` Function (опционально) 
+  * `filePaths` String[] - Массив файлов, которые выбрал пользователь
   * `bookmarks` String[] *macOS* *mas* - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` must be enabled for this to be populated.
 
 Returns `String[]`, an array of file paths chosen by the user, if the callback is provided it returns `undefined`.
