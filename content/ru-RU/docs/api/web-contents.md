@@ -37,11 +37,11 @@ console.log(webContents)
 
 * `id` Integer
 
-Returns `WebContents` - A WebContents instance with the given ID.
+Возвращает `WebContents` - экземпляр WebContents по заданному ID.
 
 ## Класс: WebContents
 
-> Render and control the contents of a BrowserWindow instance.
+> Рендерит и управляет контент экземпляра BrowserWindow.
 
 Process: [Main](../glossary.md#main-process)
 
