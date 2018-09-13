@@ -63,45 +63,45 @@ $ cd src
 $ export CHROMIUM_BUILDTOOLS_PATH=`pwd`/buildtools
 # this next line is needed only if building with sccache
 $ export GN_EXTRA_ARGS="${GN_EXTRA_ARGS} cc_wrapper=\"${PWD}/electron/external_binaries/sccache\""
-$ gn gen out/Default --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_ARGS"
+$ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_ARGS"
 ```
 
-This will generate a build directory `out/Default` under `src/` with debug build configuration. You can replace `Default` with another name, but it should be a subdirectory of `out`. Also you shouldn't have to run `gn gen` again—if you want to change the build arguments, you can run `gn args out/Default` to bring up an editor.
+This will generate a build directory `out/Debug` under `src/` with debug build configuration. You can replace `Debug` with another name, but it should be a subdirectory of `out`. Also you shouldn't have to run `gn gen` again—if you want to change the build arguments, you can run `gn args out/Debug` to bring up an editor.
 
 To see the list of available build configuration options, run `gn args
-out/Default --list`.
+out/Debug --list`.
 
 **For generating Debug (aka "component" or "shared") build config of Electron:**
 
 ```sh
-$ gn gen out/Default --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_ARGS"
+$ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_ARGS"
 ```
 
 **For generating Release (aka "non-component" or "static") build config of Electron:**
 
 ```sh
-$ gn gen out/Default --args="import(\"//electron/build/args/release.gn\") $GN_EXTRA_ARGS"
+$ gn gen out/Debug --args="import(\"//electron/build/args/release.gn\") $GN_EXTRA_ARGS"
 ```
 
-**想要构建`electron:electron_app`项目，可以按照下面的方式运行`ninja`命令：**
+**To build, run `ninja` with the `electron` target:**
 
 ```sh
-$ ninja -C out/Default electron:electron_app
-# 这个过程也比较费时，而且运行成本可能比较高
+$ ninja -C out/Debug electron
+# This will also take a while and probably heat up your lap.
 ```
 
 这个过程会构建 'libchromiumcontent' 里的所有内容，(如` chromium`中的`content`，及其依赖（包括Webkit 和 V8）)。因此，这个构建过程会比较费时。
 
-你可以使用[sccache](https://github.com/mozilla/sccache)命令来提高后面的构建过程。 Add the GN arg `cc_wrapper = "sccache"` by running `gn args out/Default` to bring up an editor and adding a line to the end of the file.
+你可以使用[sccache](https://github.com/mozilla/sccache)命令来提高后面的构建过程。 Add the GN arg `cc_wrapper = "sccache"` by running `gn args out/Debug` to bring up an editor and adding a line to the end of the file.
 
-构建需要在`./out/Default`文件下执行：
+The built executable will be under `./out/Debug`:
 
 ```sh
-$ ./out/Default/Electron.app/Contents/MacOS/Electron
+$ ./out/Debug/Electron.app/Contents/MacOS/Electron
 # or, on Windows
-$ ./out/Default/electron.exe
+$ ./out/Debug/electron.exe
 # or, on Linux
-$ ./out/Default/electron
+$ ./out/Debug/electron
 ```
 
 ### 交叉编译
@@ -109,7 +109,7 @@ $ ./out/Default/electron
 To compile for a platform that isn't the same as the one you're building on, set the `target_cpu` and `target_os` GN arguments. For example, to compile an x86 target from an x64 host, specify `target_cpu = "x86"` in `gn args`.
 
 ```sh
-$ gn gen out/Default-x86 --args='... target_cpu = "x86"'
+$ gn gen out/Debug-x86 --args='... target_cpu = "x86"'
 ```
 
 Not all combinations of source and target CPU/OS are supported by Chromium. Only cross-compiling Windows 32-bit from Windows 64-bit and Linux 32-bit from Linux 64-bit have been tested in Electron. If you test other combinations and find them to work, please update this document :)
@@ -121,26 +121,26 @@ See the GN reference for allowable values of [`target_os`](https://gn.googlesour
 To run the tests, you'll first need to build the test modules against the same version of Node.js that was built as part of the build process. To generate build headers for the modules to compile against, run the following under `src/` directory.
 
 ```sh
-$ ninja -C out/Default third_party/electron_node:headers
+$ ninja -C out/Debug third_party/electron_node:headers
 # Install the test modules with the generated headers
-$ (cd electron/spec && npm i --nodedir=../../out/Default/gen/node_headers)
+$ (cd electron/spec && npm i --nodedir=../../out/Debug/gen/node_headers)
 ```
 
 接着，通过`electron/spec`命令来运行Electron：
 
 ```sh
 # on Mac:
-$ ./out/Default/Electron.app/Contents/MacOS/Electron electron/spec
+$ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec
 # on Windows:
-$ ./out/Default/electron.exe electron/spec
+$ ./out/Debug/electron.exe electron/spec
 # on Linux:
-$ ./out/Default/electron electron/spec
+$ ./out/Debug/electron electron/spec
 ```
 
 可以通过增加其它标记来调试程序，例如：
 
 ```sh
-$ ./out/Default/Electron.app/Contents/MacOS/Electron electron/spec \
+$ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec \
   --ci --enable-logging -g 'BrowserWindow module'
 ```
 
