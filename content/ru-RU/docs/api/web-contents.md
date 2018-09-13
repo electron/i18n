@@ -4,7 +4,7 @@
 
 Process: [Main](../glossary.md#main-process)
 
-`webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). It is responsible for rendering and controlling a web page and is a property of the [`BrowserWindow`](browser-window.md) object. An example of accessing the `webContents` object:
+`webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Он ответственен за рендер и управление веб-страницы и является свойством объекта [`BrowserWindow`](browser-window.md). Пример доступа к объекту `webContents`:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -18,7 +18,7 @@ console.log(contents)
 
 ## Методы
 
-These methods can be accessed from the `webContents` module:
+Эти методы доступны из модуля `webContents`:
 
 ```javascript
 const {webContents} = require('electron')
@@ -27,11 +27,11 @@ console.log(webContents)
 
 ### `webContents.getAllWebContents()`
 
-Returns `WebContents[]` - An array of all `WebContents` instances. This will contain web contents for all windows, webviews, opened devtools, and devtools extension background pages.
+Возвращает `WebContents` - массив всех экземпляров `WebContents`. Этот массив содержит веб-контент всех окон, webviews, открытых инструментов разработчика и расширений инструментов разработчика на фоновых страницах.
 
 ### `webContents.getFocusedWebContents()`
 
-Returns `WebContents` - The web contents that is focused in this application, otherwise returns `null`.
+Возвращает `WebContents` - веб-контент, который сейчас активен в этом приложении, в ином случае возвращает `null`.
 
 ### `webContents.fromId(id)`
 
