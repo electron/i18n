@@ -43,13 +43,13 @@ console.log(dialog)
   * `securityScopedBookmarks` Boolean (опционально) *masOS* *mas* - Создает [защищенные закладки](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16), когда создается пакет для Mac App Store.
 * `callback` Function (опционально) 
   * `filePaths` String[] - Массив файлов, которые выбрал пользователь
-  * `bookmarks` String[] *macOS* *mas* - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` must be enabled for this to be populated.
+  * `bookmarks` String[] *macOS* *mas* - Base64 - шифрованный массив, который соответствует массиву `filePaths`, который содержит защищенные закладки. `securityScopedBookmarks` должны быть активированы, чтобы массив был создан.
 
-Returns `String[]`, an array of file paths chosen by the user, if the callback is provided it returns `undefined`.
+Возвращает `String[]`, массив путей файлов, выбранных пользователем. Если был получен callback, возвращает `undefined`.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+Аргумент `browserWindow` позволяет диалогу прикреплять себя к родительскому окну, что делает его модальным.
 
-The `filters` specifies an array of file types that can be displayed or selected when you want to limit the user to a specific type. For example:
+Аргумент `filters` указывает массив типов файлов, которые могут быть показаны или выбраны, если вы хотите ограничить пользователя на определенном типе файла. Например:
 
 ```javascript
 {
@@ -86,7 +86,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 
 Returns `String`, the path of the file chosen by the user, if a callback is provided it returns `undefined`.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+Аргумент `browserWindow` позволяет диалогу прикреплять себя к родительскому окну, что делает его модальным.
 
 The `filters` specifies an array of file types that can be displayed, see `dialog.showOpenDialog` for an example.
 
@@ -116,7 +116,7 @@ Returns `Integer`, the index of the clicked button, if a callback is provided it
 
 Shows a message box, it will block the process until the message box is closed. It returns the index of the clicked button.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+Аргумент `browserWindow` позволяет диалогу прикреплять себя к родительскому окну, что делает его модальным.
 
 If a `callback` is passed, the dialog will not block the process. The API call will be asynchronous and the result will be passed via `callback(response)`.
 
