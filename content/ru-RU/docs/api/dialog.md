@@ -36,7 +36,7 @@ console.log(dialog)
     * `multiSelections` - позволяет выбрать несколько объектов.
     * `showHiddenFiles` - отображает в диалоге скрытые файлы.
     * `createDirectory` *macOS* - Позволяет создавать новые директории из диалога.
-    * `promptToCreate` *Windows* - Prompt for creation if the file path entered in the dialog does not exist. Это на самом деле не приводит к тому что создается новый файл по указанному пути, но позволяет возвращать из диалога несуществующий путь, новый файл должен быть создан приложением после выхода из диалога.
+    * `promptToCreate`*Windows* - предупреждает, если путь указанный в диалоге не существует. Это, на самом деле, не приводит к тому, что создается новый файл по указанному пути, но позволяет возвращать из диалога несуществующий путь, новый файл должен быть создан приложением после выхода из диалога.
     * `noResolveAliases` *macOS* - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
     * `treatPackageAsDirectory` *macOS* - Treat packages, such as `.app` folders, as a directory instead of a file.
   * `message` String (optional) *macOS* - Message to display above input boxes.
