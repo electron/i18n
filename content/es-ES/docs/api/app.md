@@ -156,7 +156,7 @@ Devuelve:
 
 Emitido cuando [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) va a ser reanudado en otro artefacto. Si necesita actualizar el estado que se transferirá, debe llamar a `event.preventDefault ()` inmediatamente, crear un nuevo diccionario `userInfo` y llamar a `app.updateCurrentActiviy()` de manera oportuna. De otra forma, la operación fallará y se llamará a `continue-activity-error`.
 
-### Event: 'new-window-for-tab' *macOS*
+### Evento: 'new-window-for-tab' *macOS*
 
 Devuelve:
 
@@ -164,7 +164,7 @@ Devuelve:
 
 Emitido cuando el usuario hace click en el nuevo botón nativo de madOS. El nuevo botón es visible solamente si el `BrowserWindow` actual tiene `tabbingIdentifier`
 
-### Event: 'browser-window-blur'
+### Evento: 'browser-window-blur'
 
 Devuelve:
 
@@ -173,7 +173,7 @@ Devuelve:
 
 Emitido cuando el [browserWindow](browser-window.md) está borroso.
 
-### Event: 'browser-window-focus'
+### Evento: 'browser-window-focus'
 
 Devuelve:
 
@@ -252,7 +252,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 })
 ```
 
-### Event:'login'
+### Evento: 'login'
 
 Devuelve:
 
@@ -285,7 +285,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 })
 ```
 
-### Event: 'gpu-process-crashed'
+### Evento: 'gpu-process-crashed'
 
 Devuelve:
 
@@ -303,14 +303,14 @@ Devuelve:
 
 Es emitido cuando el soporte de accesibilidad de Chrome es modificado. Este evento se dispara cuando las tecnologías de asistencia, como un lector de pantalla, sin activados o desactivados. Vea https://www.chromium.org/developers/design-documents/accessibility para mas información.
 
-### Event: 'session-created'
+### Evento: 'session-created'
 
 Devuelve:
 
 * `event` Event
 * `session` [Session](session.md)
 
-Emitted when Electron has created a new `session`.
+Emitido cuando Electron ha creado una nueva `session`.
 
 ```javascript
 const {app} = require('electron')
