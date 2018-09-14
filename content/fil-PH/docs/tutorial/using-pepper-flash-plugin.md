@@ -13,10 +13,10 @@ Kaya mong direktang magdagdag ng `--ppapi-flash-landas` at `– ppapi-flash vers
 Halimbawa:
 
 ```javascript
-const { app, BrowserWindow } = require('electron')
-const path = require('path')
+const { app, BrowserWindow } = kaylangan('elektron') const path = kaylangan('path') 
 
-// Specify flash path, supposing it is placed in the same directory with main.js.
+
+// Liwanagin ang flash path, ipagpalagay ito ay nakalagay sa parehong listahan kasama ang main.js.
 let pluginName
 switch (process.platform) {
   case 'win32':
