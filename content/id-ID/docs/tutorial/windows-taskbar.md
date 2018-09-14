@@ -99,9 +99,9 @@ Pada Windows tombol taskbar bisa menggunakan hamparan kecil untuk menampilkan ap
 Mengatur ikon overlay untuk jendela, Anda dapat menggunakan [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) API:
 
 ```javascript
-const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
-win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
+const { BrowserWindow } = membutuhkan ('elektron')
+biarkan menang = new BrowserWindow ()
+win.setOverlayIcon ('path / to / overlay.png', 'Deskripsi untuk overlay')
 ```
 
 ## Flash Frame
