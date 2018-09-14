@@ -51,32 +51,32 @@ La propiedad `role` puede tener los siguientes valores:
 * `forceReload` - Recargar la ventana actual ignorando la caché.
 * `toggleDevTools` - Alternar herramientas de desarrollador en la ventana actual.
 * `toggleFullScreen`- Alternar el modo de pantalla completa en la ventana actual.
-* `resetZoom` - Reset the focused page's zoom level to the original size.
-* `zoomIn` - Zoom in the focused page by 10%.
-* `zoomOut` - Zoom out the focused page by 10%.
+* `resetZoom` - Restablece el nivel de zoom de la página enfocada al tamaño original.
+* `zoomIn` - Zoom en la página enfocada en un 10%.
+* `zoomOut` - Aleja la página enfocada en un 10%.
 * `editMenu` - Grupo por defecto de un menú "Edit" (Deshacer, Copiar, etc.).
 * `windowMenu` - Grupo por defecto de un menú "Window" (Minimizar, Cerrar, etc.).
 
-The following additional roles are available on *macOS*:
+Los siguientes roles adicionales están disponibles en *macOS*:
 
 * `about` - Enlace a la acción `orderFrontStandardAboutPanel`.
 * `hide` - Enlace a la acción `hide`.
-* `hideOthers` - Map to the `hideOtherApplications` action.
+* `hideothers` - Enlace a la acción `hideOtherApplications`.
 * `unhide` - Enlace a la acción `unhideAllApplications`.
-* `startSpeaking` - Map to the `startSpeaking` action.
-* `stopSpeaking` - Map to the `stopSpeaking` action.
+* `startspeaking` - Enlace a la acción `startSpeaking`.
+* `stopspeaking` - Enlace a la acción `stopSpeaking`.
 * `front` - Enlace a la acción `arrangeInFront`.
 * `zoom` - Enlace a la acción `performZoom`.
-* `toggleTabBar` - Map to the `toggleTabBar` action.
-* `selectNextTab` - Map to the `selectNextTab` action.
-* `selectPreviousTab` - Map to the `selectPreviousTab` action.
-* `mergeAllWindows` - Map to the `mergeAllWindows` action.
-* `moveTabToNewWindow` - Map to the `moveTabToNewWindow` action.
-* `window` - The submenu is a "Window" menu.
-* `help` - The submenu is a "Help" menu.
-* `services` - The submenu is a "Services" menu.
-* `recentDocuments` - The submenu is an "Open Recent" menu.
-* `clearRecentDocuments` - Map to the `clearRecentDocuments` action.
+* `toggletabbar` - Enlace a la acción `toggleTabBar`.
+* `selectnexttab` - Enlace a la acción `selectNextTab`.
+* `selectprevioustab` - Enlace a la acción `selectPreviousTab`.
+* `mergeallwindows` - Enlace a la acción `mergeAllWindows`.
+* `movetabtonewwindow` - Enlace a la acción `moveTabToNewWindow`.
+* `window` - El submenú es un menú "Ventana".
+* `help` - El submenú es un menú "Ayuda".
+* `services` - El submenú es un menú "Servicios".
+* `recentDocuments` - El submenú es un menú "Abrir reciente".
+* `clearRecentDocuments` - Enlace a la acción `clearRecentDocuments`.
 
 When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored. Lowercase `role`, e.g. `toggledevtools`, is still supported.
 
