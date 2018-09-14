@@ -7,7 +7,7 @@
 आप [मेन्यु](../api/menu.md) मोड्यूल का इस्तेमाल कर कीबोर्ड शोर्टकट्स को कॉन्फ़िगर कर सकते हैं जो तभी शुरू होंगी जब एप्प केन्द्रित होगी | ऐसा करने के लिए, एक [`accelerator`] प्रॉपर्टी निर्दिष्ट करें जब आप एक [MenuItem](../api/menu-item.md) का निर्माण कर रहे हों |
 
 ```js
-const {Menu, MenuItem} = require('electron')
+const { Menu, MenuItem } = require('electron')
 const menu = new Menu()
 
 menu.append(new MenuItem({
@@ -30,7 +30,7 @@ You can configure different key combinations based on the user's operating syste
 आप [globalShortcut](../api/global-shortcut.md) मोड्यूल का इस्तेमाल कर कीबोर्ड इवेंट्स का पता लगा सकते हैं, तब भी जब एप्लीकेशन के पास कीबोर्ड का ध्यान केन्द्रित न हो |
 
 ```js
-const {app, globalShortcut} = require('electron')
+const { app, globalShortcut } = require('electron')
 
 app.on('ready', () => {
   globalShortcut.register('CommandOrControl+X', () => {
