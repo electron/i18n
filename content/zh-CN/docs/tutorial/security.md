@@ -262,10 +262,10 @@ Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 Electron 会处理 [`Content-Security-Policy` HTTP 标头](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy)，它可以在 [`webRequest.onHeadersReceived`](../api/web-request.md#webrequestonheadersreceivedfilter-listener) 中进行设置：
 
 ```javascript
-const {session} = require('electron')
+const { session } = require('electron')
 
 session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
-  callback({responseHeaders: `default-src 'none'`})
+  callback({ responseHeaders: `default-src 'none'` })
 })
 ```
 
