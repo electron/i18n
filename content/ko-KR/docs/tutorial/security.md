@@ -266,10 +266,10 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     Electron respects the [`Content-Security-Policy` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) which can be set using Electron's [`webRequest.onHeadersReceived`](../api/web-request.md#webrequestonheadersreceivedfilter-listener) handler:
     
     ```javascript
-    const {session} = require('electron')
+    const { session } = require('electron')
     
     session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
-      callback({responseHeaders: `default-src 'none'`})
+      callback({ responseHeaders: `default-src 'none'` })
     })
     ```
     
