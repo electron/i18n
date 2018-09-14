@@ -22,7 +22,7 @@ Vea [`Menú`](menu.md) para obtener ejemplos.
   * `enabled` Boolean (opcional) - Si es falso, el elemento de menú será gris y no se podrá hacer click en él.
   * `visible` Boolean (opcional) - Si es falso, el elemento del menú será totalmente invisible.
   * `checked` Boolean (opcional) - Solo debe especificarse para elementos del menú tipo `checkbox` o `radio`.
-  * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. Si `submenu` es especificado, el `tipo: 'submenu'` puede ser omitido. If the value is not a [`Menu`](menu.md) then it will be automatically converted to one using `Menu.buildFromTemplate`.
+  * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (opcional) - Debe ser especificado para elementos del menú tipo `submenu`. Si `submenu` es especificado, el `tipo: 'submenu'` puede ser omitido. If the value is not a [`Menu`](menu.md) then it will be automatically converted to one using `Menu.buildFromTemplate`.
   * `id` String (opcional) - Único dentro de un menú concreto. Si se define, entonces puede usarse como referencia a este elemento mediante el atributo de posición.
   * `position` String (opcional) - Este campo permite una definición granular de la posición específica dentro de un menú concreto.
 
@@ -78,7 +78,7 @@ Los siguientes roles adicionales están disponibles en *macOS*:
 * `recentDocuments` - El submenú es un menú "Abrir reciente".
 * `clearRecentDocuments` - Enlace a la acción `clearRecentDocuments`.
 
-When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored. Lowercase `role`, e.g. `toggledevtools`, is still supported.
+Al especificar un `role` en macOS, `label` y `accelerator` son las únicas opciones que afectarán el elemento del menú. Todas las demás opciones serán ignoradas. Los `role` en minúscula, por ejemplo, `toggledevtools`, todavía son soportados.
 
 ### Propiedades de la instancia
 
