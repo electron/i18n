@@ -13,32 +13,33 @@ $ npm install --save-dev spectron
 ```
 
 ```javascript
-// दृश्य विंडो एक शीर्षक के साथ खुली है, यह जाँचने के लिए एक सरल परिक्षण 
-var Application = require('spectron').Application 
-var assert = require('assert') 
+// A simple test to verify a visible window is opened with a title
+var Application = require('spectron').Application
+var assert = require('assert')
 
-var app = new Application({   
- path: '/Applications/MyApp.app/Contents/MacOS/MyApp'
+var app = new Application({
+  path: '/Applications/MyApp.app/Contents/MacOS/MyApp'
 })
+
 app.start().then(function () {
-   // विंडोज दृश्य है या नहीं, यह जाँचें
-   return app.browserWindow.isVisible()
- }).then(function (isVisible) {
-   // विंडोज दृश्य है, यह सत्यापित करें
-   assert.equal(isVisible, true)
- }).then(function () {
-   // विंडोज का शीर्षक पायें
-   return app.client.getTitle()
- }).then(function (title) {
-   // विंडोज के शीर्षक को सत्यापित करें
-   assert.equal(title, 'My App')
- }).catch(function (error) {
-   // विफलताओं का लोग बनायें
-   console.error('Test failed', error.message)
- }).then(function () {   
-// एप्लीकेशन रोकें
-   return app.stop()
- })
+  // Check if the window is visible
+  return app.browserWindow.isVisible()
+}).then(function (isVisible) {
+  // Verify the window is visible
+  assert.strictEqual(isVisible, true)
+}).then(function () {
+  // Get the window's title
+  return app.client.getTitle()
+}).then(function (title) {
+  // Verify the window's title
+  assert.strictEqual(title, 'My App')
+}).catch(function (error) {
+  // Log any failures
+  console.error('Test failed', error.message)
+}).then(function () {
+  // Stop the application
+  return app.stop()
+})
 ```
 
 ## वेबड्राईवर जेएस सेटअप करना
@@ -125,12 +126,12 @@ $ npm install webdriverio
 const webdriverio = require('webdriverio')
 const options = {
   host: 'localhost', // Use localhost as chrome driver server
-  port: 9515, // "9515" क्रोम ड्राईवर द्वारा खोला गया पोर्ट है |
+  port: 9515, // "9515" is the port opened by chrome driver.
   desiredCapabilities: {
     browserName: 'chrome',
     chromeOptions: {
       binary: '/Path-to-Your-App/electron', // आपकी इलेक्ट्रॉन बाइनरी तक पथ |
-      args: [/* cli arguments */]           // वैकल्पिक, शायद 'app=' + /path/to/your/app/
+      args: [/* cli arguments */] // Optional, perhaps 'app=' + /path/to/your/app/
     }
   }
 }
