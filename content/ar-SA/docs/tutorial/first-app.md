@@ -80,11 +80,11 @@ const electron = require('electron')
 باستخدام فئة <code> electron.BrowserWindow </ 0>. قد ينتظر ملف <code> main.js </ 0> بسيط
 لكي يكون التطبيق جاهزًا وفتح نافذة:</p>
 
-<pre><code class="javascript">const {app, BrowserWindow} = require('electron')
+<pre><code class="javascript">const { app, BrowserWindow } = require('electron')
   
   function createWindow () {
     // إنشاء نافذة طولها 800 وعرضها 600.
-      win = new BrowserWindow({width: 800, height: 600})
+      win = new BrowserWindow({ width: 800, height: 600 })
   
     // تحميل واستدعاء الملف index.html
   win.loadFile('index.html')
@@ -98,15 +98,15 @@ app.on('ready', createWindow)
 قد يفتح أدوات مطوري البرامج أو يعالج النافذة المغلقة أو يعاد إنشاءها
 النوافذ على نظام MacOS إذا نقر المستخدم على رمز التطبيق في قفص الاتهام.</p>
 
-<pre><code class="javascript">const {app، BrowserWindow} = requires ('electron')
+<pre><code class="javascript">const { app, BrowserWindow } = require('electron')
 
-// احتفظ بمرجع عمومي لكائن النافذة ، إذا لم تفعل ، فستقوم النافذة
-// يتم إغلاقه تلقائيًا عندما يكون كائن جافا سكريبت هو جمع البيانات المهملة.
+// Keep a global reference of the window object, if you don't, the window will
+// be closed automatically when the JavaScript object is garbage collected.
 let win
 
 function createWindow () {
    // إنشاء نافذة المتصفح.
-      win = new BrowserWindow({width: 800, height: 600})
+      win = new BrowserWindow({ width: 800, height: 600 })
   
     // تحميل واستدعاء الملف index.html
   win.loadFile('index.html')
