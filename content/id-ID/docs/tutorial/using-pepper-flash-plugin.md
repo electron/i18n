@@ -15,10 +15,10 @@ sebelum acara app dimulai. Juga, aktifkan <code> plugin ` pilihan ` BrowserWindo
 Sebagai contoh:
 
 ```javascript
-const {app, BrowserWindow} = membutuhkan ('elektron')
-const path = require ('path')
+const { app, BrowserWindow } = require('electron')
+const path = require('path')
 
-// Tentukan jalur flash, seandainya itu ditempatkan di direktori yang sama dengan main.js.
+// Specify flash path, supposing it is placed in the same directory with main.js.
 let pluginName
 switch (process.platform) {
   case 'win32':
