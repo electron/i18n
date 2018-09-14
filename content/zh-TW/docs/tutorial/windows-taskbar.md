@@ -101,7 +101,7 @@ win.setThumbarButtons([])
 ```javascript
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
-win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
+win.setOverlayIcon('path/to/overlay.png', 'Overlay 的說明')
 ```
 
 ## Flash Frame
