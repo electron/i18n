@@ -51,7 +51,7 @@ Emitida quando o download foi atualizado e ainda não terminou.
 * `progressing` - O download está em andamento.
 * `interrupted` - O download foi interrompido e pode ser retomado.
 
-#### Event: 'done'
+#### Evento: 'done'
 
 Retorna:
 
