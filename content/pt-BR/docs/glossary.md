@@ -26,7 +26,7 @@ Editor de Método de Entrada. Um programa que permite os usuários inserir carac
 
 ### IDL
 
-Interface description language. Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
+Linguagem de descrição da interface. Escreva assinaturas de funções e tipos de dados em um formato que pode ser usado para gerar interfaces em Java, C++, JavaScript, etc.
 
 ### IPC
 
@@ -56,7 +56,7 @@ Acrônimo para Mac App Store da Apple. Para obter detalhes sobre a apresentaçã
 
 An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.
 
-See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
+Veja https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
 ### native modules
 
