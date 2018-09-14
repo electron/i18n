@@ -7,7 +7,7 @@
 Yalnızca uygulama üzerinde odaklanıldığında çalışacak klavye kısayollarını [Menü](../api/menu.md) modülünü kullanarak yapılandırabilirsiniz. Bunu yapmak için, bir [MenuItem](../api/menu-item.md) oluştururken [`accelerator`] belirleyin.
 
 ```js
-const {Menu, MenuItem} = require('electron')
+const { Menu, MenuItem } = require('electron')
 const menu = new Menu()
 
 menu.append(new MenuItem({
@@ -30,7 +30,7 @@ You can configure different key combinations based on the user's operating syste
 Uygulama klavye odaklanmadığında bile sen [globalShortcut](../api/global-shortcut.md) modülünü klavye olaylarını araştırmak için kullanabilirsin.
 
 ```js
-const {app, globalShortcut} = require('electron')
+const { app, globalShortcut } = require('electron')
 
 app.on('ready', () => {
   globalShortcut.register('CommandOrControl+X', () => {
