@@ -1,4 +1,4 @@
-# Chromium のアップグレード
+# Chromiumをアップグレードする
 
 これは、Electron で Chromium をアップグレードするために必要な手順の概要です。
 
@@ -25,7 +25,7 @@
     - お茶でも淹れましょう。これは30分以上かかります。
     - おそらく、パッチ適用には失敗するでしょう。
 3. `patches/` と `patches-mas/` フォルダの `*.patch` ファイルを修正します。
-4. (任意) `script/update` はパッチを適用しますが、複数の試行が必要な場合は呼び出しを `update` する同じスクリプトをこのように手動で実行できます。 `$ ./script/apply-patches` 
+4. (任意) `script/update を実行します` はパッチを適用しますが、複数の試行が必要な場合は呼び出しを `update` する同じスクリプトをこのように手動で実行できます。 `$ ./script/apply-patches` 
   - もう一つ有用なスクリプト `script/patch.py` があります。 より詳しくは `./script/patch.py -h` を読んでください。
 5. すべてのパッチをエラーなく適用できれば、ビルドを実行します 
   - `$ ./script/build`
@@ -113,7 +113,7 @@ Electron はデフォルトで独自のコーデックを含む `ffmpeg` のバ�
     <video style="display:none" src="http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4" autoplay></video>
     <script>
       const video = document.querySelector('video')
-      video.addEventListener('error', ({target}) => {
+      video.addEventListener('error', ({ target }) => {
         if (target.error.code === target.error.MEDIA_ERR_SRC_NOT_SUPPORTED) {
           document.querySelector('#outcome').textContent = 'Not using proprietary codecs, video emitted source not supported error event.'
         } else {
