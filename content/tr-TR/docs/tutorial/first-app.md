@@ -78,11 +78,11 @@ const electron = require('electron')
 The `electron` module exposes features in namespaces. As examples, the lifecycle of the application is managed through `electron.app`, windows can be created using the `electron.BrowserWindow` class. A simple `main.js` file might wait for the application to be ready and open a window:
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
   // Create the browser window.
-  win = new BrowserWindow({width: 800, height: 600})
+  win = new BrowserWindow({ width: 800, height: 600 })
 
   // ve uygulamanın index.html'sini yükle.
   win.loadFile('index.html')
@@ -94,7 +94,7 @@ app.on('ready', createWindow)
 `main.js` pencereleri oluşturmalı ve uygulamanızın karşılaşabileceği bütün sistem olaylarını işlemelidir. Üstteki örneğin daha tamamlanmış hali geliştirici araçlarını açabilmeli, pencerenin kapanmasını işleyebilmeli veya macOS'de eğer kullanıcı araç çubuğunda uygulamanın ikonuna basarsa pencereyi tekrardan oluşturabilmelidir.
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -102,7 +102,7 @@ let win
 
 function createWindow () {
   // Tarayıcı penceresini oluştur.
-  win = new BrowserWindow({width: 800, height: 600})
+  win = new BrowserWindow({ width: 800, height: 600 })
 
   // ve uygulamanın index.html'sini yükle.
   win.loadFile('index.html')
