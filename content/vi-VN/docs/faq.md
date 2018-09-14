@@ -57,7 +57,7 @@ Nếu bạn gặp vấn đề này, bài viết sau đây có thể hữu ích:
 Nếu bạn chỉ muốn một sửa lỗi này nhanh chóng, bạn có thể tạo ra các biến toàn cầu bằng cách thay đổi code của bạn từ:
 
 ```javascript
-const {app, Tray} = require('electron')
+const { app, Tray } = require('electron')
 app.on('ready', () => {
   const tray = new Tray('/path/to/icon.png')
   tray.setTitle('hello world')
@@ -67,7 +67,7 @@ app.on('ready', () => {
 thành:
 
 ```javascript
-const {app, Tray} = require('electron')
+const { app, Tray } = require('electron')
 let tray = null
 app.on('ready', () => {
   tray = new Tray('/path/to/icon.png')
@@ -83,7 +83,7 @@ Do Node.js được tích hợp trong Electron, do đó có một số symbol b�
 
 ```javascript
 // Trong main process.
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
     nodeIntegration: false
