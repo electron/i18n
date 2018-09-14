@@ -22,7 +22,7 @@ A security issue exists whenever you receive code from a remote destination and 
 
 > :warning: Under no circumstances should you load and execute remote code with Node.js integration enabled. Instead, use only local files (packaged together with your application) to execute Node.js code. To display remote content, use the [`<webview>`](../api/webview-tag.md) tag and make sure to disable the `nodeIntegration`.
 
-## Electron Security Warnings
+## تحذيرات أمنية إلكترون
 
 From Electron 2.0 on, developers will see warnings and recommendations printed to the developer console. They only show up when the binary's name is Electron, indicating that a developer is currently looking at the console.
 
