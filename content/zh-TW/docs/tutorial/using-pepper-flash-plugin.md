@@ -16,7 +16,7 @@ For example:
 const { app, BrowserWindow } = require('electron')
 const path = require('path')
 
-// Specify flash path, supposing it is placed in the same directory with main.js.
+// 指定 Flash 路徑，假設它跟 main.js 放在同一個目錄下。
 let pluginName
 switch (process.platform) {
   case 'win32':
