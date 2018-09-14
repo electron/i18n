@@ -78,13 +78,13 @@ const electron = require('electron')
 Модуль `electron` предоставляет специальные особенности в пространство имен(namespaces). Например жизненный цикл приложения контролируется через `electron.app`, окна могут быть созданны пр использовании класса `electron.BrowserWindow`. Простой файл `main.js` может просто ждать пока приложение не будет готово и после этого открыть окно приложения:
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
   // Создаем окно браузера.
-  win = new BrowserWindow({width: 800, height: 600})
+  win = new BrowserWindow({ width: 800, height: 600 })
 
-  // и загружаем index.html нашего приложения.
+  // и загрузит index.html приложение.
   win.loadFile('index.html')
 }
 
@@ -94,7 +94,7 @@ app.on('ready', createWindow)
 Файл `main.js` должен создавать окна и перехватывать все события системы, с которыми ваше приложение может столкнуться. Более сложная версия примера выше должна открывать инструменты разработчика, ждать когда окно будет закрыто или открыто заново на macOS если пользователь кликнул на иконку приложения.
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 // Храните глобальную ссылку на объект окна, если вы этого не сделаете, окно будет
 // автоматически закрываться, когда объект JavaScript собирает мусор.
@@ -102,9 +102,9 @@ let win
 
 function createWindow () {
   // Создаёт окно браузера.
-  win = new BrowserWindow({width: 800, height: 600})
+  win = new BrowserWindow({ width: 800, height: 600 })
 
-  // и загружает index.html приложения.
+  // и загрузит index.html приложение.
   win.loadFile('index.html')
 
   // Открыть средства разработчика.
