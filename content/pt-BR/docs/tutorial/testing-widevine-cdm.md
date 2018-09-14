@@ -23,7 +23,7 @@ After getting the library files, you should pass the path to the file with `--wi
 Example code:
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 // You have to pass the directory that contains widevine library here, it is
 // * `libwidevinecdm.dylib` on macOS,
