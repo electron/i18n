@@ -13,10 +13,10 @@ On macOS and Linux, the details of the Pepper Flash plugin can be found by navig
 उदाहरण के लिए:
 
 ```javascript
-const { app, BrowserWindow } = require('electron')
-const path = require('path')
+const { app, BrowserWindow } = require('electron') 
+const path = require('path') 
 
-// Specify flash path, supposing it is placed in the same directory with main.js.
+// फ़्लैश पथ निर्दिष्ट करें, यह मान कर कि वह मेन.जेएस के साथ उसी डायरेक्टरी में है |
 let pluginName 
 switch (process.platform) {   
  case 'win32':
