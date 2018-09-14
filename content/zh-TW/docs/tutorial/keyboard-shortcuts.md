@@ -11,9 +11,9 @@ const { Menu, MenuItem } = require('electron')
 const menu = new Menu()
 
 menu.append(new MenuItem({
-  label: 'Print',
+  label: '列印',
   accelerator: 'CmdOrCtrl+P',
-  click: () => { console.log('time to print stuff') }
+  click: () => { console.log('是時候印點東西了') }
 }))
 ```
 
@@ -34,7 +34,7 @@ const { app, globalShortcut } = require('electron')
 
 app.on('ready', () => {
   globalShortcut.register('CommandOrControl+X', () => {
-    console.log('CommandOrControl+X is pressed')
+    console.log('按了 CommandOrControl+X')
   })
 })
 ```
