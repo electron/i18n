@@ -2,12 +2,12 @@
 
 [Online ve offline etkinlik](https://developer.mozilla.org/en-US/docs/Online_and_offline_events) algılama, standart HTML5 API'sinin bir parçası olan [`navigator.onLine`](http://html5index.org/Offline%20-%20NavigatorOnLine.html) özelliğini kullanarak oluşturucu işleminde uygulanabilir. Herhangi bir ağ isteğinin başarısız olması garantileniyorsa, yani kesinlikle çevrimdışıysa (ağ bağlantısının kesilmesi) `navigator.onLine` özelliği, `false` olarak döner. Tüm diğer durumlarda `true` olarak döner. Diğer tüm koşullar `true` olarak döndüğünden, yanlış pozitiflik almamak için dikkatli olmalısınız, çünkü `true` değerinin Electron'un kesinlikle internete eriştiğine kanaat getiremeyiz. Bilgisayarda, her zaman "bağlı" olan sanal eternet bağdaştırıcılarına sahip bir sanallaştırma yazılımı çalıştırıldığı gibi durumlarda, gerçekten Electron'un internet erişim durumunu belirlemek istiyorsanız, kontrol için ek araçlar geliştirmelisiniz.
 
-Örneğin:
+Örnek:
 
 *main.js*
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 let onlineStatusWindow
 
@@ -42,7 +42,7 @@ Ana süreçteki bu olaylara da cevap vermek istediğiniz durumlar olabilmektedir
 *main.js*
 
 ```javascript
-const {app, BrowserWindow, ipcMain} = require('electron')
+const { app, BrowserWindow, ipcMain } = require('electron')
 let onlineStatusWindow
 
 app.on('ready', () => {
@@ -62,7 +62,7 @@ ipcMain.on('online-status-changed', (event, status) => {
 <html>
 <body>
 <script>
-  const {ipcRenderer} = require('electron')
+  const { ipcRenderer } = require('electron')
   const updateOnlineStatus = () => {
     ipcRenderer.send('online-status-changed', navigator.onLine ? 'online' : 'offline')
   }
