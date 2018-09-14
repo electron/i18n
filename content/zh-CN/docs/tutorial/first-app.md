@@ -80,11 +80,11 @@ const electron = require('electron')
 ```javascript
 const { app, BrowserWindow } = require('electron')
 
-function createWindow () {
-  // Create the browser window.
+function createWindow () {   
+  // 创建浏览器窗口
   win = new BrowserWindow({ width: 800, height: 600 })
 
-  // and load the index.html of the app.
+  // 然后加载应用的 index.html。
   win.loadFile('index.html')
 }
 
@@ -104,7 +104,7 @@ function createWindow () {
   // 创建浏览器窗口。
   win = new BrowserWindow({ width: 800, height: 600 })
 
-  // and load the index.html of the app.
+  // 然后加载应用的 index.html。
   win.loadFile('index.html')
 
   // 打开开发者工具
