@@ -13,7 +13,7 @@ $ npm install --save-dev spectron
 ```
 
 ```javascript
-// Açılan pencerenin başlığını kontrol eden ufak bir uyglama
+// A simple test to verify a visible window is opened with a title
 var Application = require('spectron').Application
 var assert = require('assert')
 
@@ -22,26 +22,24 @@ var app = new Application({
 })
 
 app.start().then(function () {
-  // Pencerenin görünürlüğünü kontrol et
+  // Check if the window is visible
   return app.browserWindow.isVisible()
 }).then(function (isVisible) {
-  // Pencere görünür durumda mı, doğrula.
-  assert.equal(isVisible, true)
+  // Verify the window is visible
+  assert.strictEqual(isVisible, true)
 }).then(function () {
-  // Pencere başlığını al
+  // Get the window's title
   return app.client.getTitle()
 }).then(function (title) {
-  // Pencere başlığını doğrula
-  assert.equal(title, 'My App')
+  // Verify the window's title
+  assert.strictEqual(title, 'My App')
 }).catch(function (error) {
-  // Hataları kayıt et
+  // Log any failures
   console.error('Test failed', error.message)
 }).then(function () {
-  // Uygulamayı durdur
+  // Stop the application
   return app.stop()
 })
- 
-Context | Request Context
 ```
 
 ## WebDriverjs'yi Ayarlama
@@ -128,13 +126,13 @@ $ npm install webdriverio
 ```javascript
 const webdriverio = require('webdriverio')
 const options = {
-  host: 'localhost', // chrome driver sunucusu olarak localhost kullan
-  port: 9515,        // "9515" chrome driver tarafından açılan port numarası.
+  host: 'localhost', // Use localhost as chrome driver server
+  port: 9515, // "9515" is the port opened by chrome driver.
   desiredCapabilities: {
     browserName: 'chrome',
     chromeOptions: {
       binary: '/UygulamaDizini/electron', // Electron binary dosyasına giden dizin.
-      args: [/* cli arguments */]           // Opsiyonel.  şöyle de olabilir: 'app=' + /path/to/your/app/
+      args: [/* cli arguments */] // Optional, perhaps 'app=' + /path/to/your/app/
     }
   }
 }
