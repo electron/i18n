@@ -82,7 +82,7 @@ app.on('ready', () => {
 要解決這個問題，可以停用 Electron 的 Node 整合功能:
 
 ```javascript
-// In the main process.
+// 在主處理序裡。
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
