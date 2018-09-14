@@ -57,7 +57,7 @@ console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 もし簡単に修正したい場合は、コードを以下のように修正して変数をグローバルにすると良いでしょう。以下の部分を
 
 ```javascript
-const {app, Tray} = require('electron')
+const { app, Tray } = require('electron')
 app.on('ready', () => {
   const tray = new Tray('/path/to/icon.png')
   tray.setTitle('hello world')
@@ -67,7 +67,7 @@ app.on('ready', () => {
 以下のように変更します。
 
 ```javascript
-const {app, Tray} = require('electron')
+const { app, Tray } = require('electron')
 let tray = null
 app.on('ready', () => {
   tray = new Tray('/path/to/icon.png')
@@ -83,7 +83,7 @@ Electronに組み込まれているNode.jsの影響で、`module`, `exports`, `r
 
 ```javascript
 // メインプロセス内
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
     nodeIntegration: false
