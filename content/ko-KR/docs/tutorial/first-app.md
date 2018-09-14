@@ -78,13 +78,13 @@ const electron = require('electron')
 `electron` 모듈은 네임 스페이스의 기능을 노출합니다. 에를 들어, 애플리케이션의 수명주기는 `electron.app`를 통해 관리되며, `electron.BrowserWindow` 클래스를 통해 창들이 생성합니다. 심플한 `main.js` 파일은 응용 프로그램이 준비되고 창을 열 때까지 기다릴 것입니다.
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
   // Create the browser window.
-  win = new BrowserWindow({width: 800, height: 600})
+  win = new BrowserWindow({ width: 800, height: 600 })
 
-  // index.html을 불러옵니다
+  // and load the index.html of the app.
   win.loadFile('index.html')
 }
 
@@ -94,7 +94,7 @@ app.on('ready', createWindow)
 `main.js`는 창들을 생성하고 너의 애플리케이션이 발생시키는 모든 시스템 이벤트를 처리합니다. 위의 예제보다 더 완벽한 버전의 예제에서는 개발자 도구를 열거나, 창이 닫힐때의 처리, 혹은 macOS상에서 사용자가 dock의 app의 아이콘을 클릭했을때 창을 다시 만드는 등의 처리를 보여줍니다.
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -102,7 +102,7 @@ let win
 
 function createWindow () {
   // Create the browser window.
-  win = new BrowserWindow({width: 800, height: 600})
+  win = new BrowserWindow({ width: 800, height: 600 })
 
   // and load the index.html of the app.
   win.loadFile('index.html')
