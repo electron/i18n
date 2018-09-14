@@ -7,13 +7,13 @@
 你可以使用 [Menu](../api/menu.md) 模組來設定鍵盤快速鍵，這些快速鍵只有在你的應用程式被 focus 到時才會觸發。 要這麼做，請在建立 [MenuItem](../api/menu-item.md) 時指定 [`accelerator`] 屬性。
 
 ```js
-const {Menu, MenuItem} = require('electron')
+const { Menu, MenuItem } = require('electron')
 const menu = new Menu()
 
 menu.append(new MenuItem({
-  label: '列印',
+  label: 'Print',
   accelerator: 'CmdOrCtrl+P',
-  click: () => { console.log('是時候印點東西了') }
+  click: () => { console.log('time to print stuff') }
 }))
 ```
 
@@ -30,11 +30,11 @@ You can configure different key combinations based on the user's operating syste
 你可以使用 [globalShortcut](../api/global-shortcut.md) 模組來偵測鍵盤事件，就算目 focus 並不在你的應用程式中也能作用。
 
 ```js
-const {app, globalShortcut} = require('electron')
+const { app, globalShortcut } = require('electron')
 
 app.on('ready', () => {
   globalShortcut.register('CommandOrControl+X', () => {
-    console.log('按了 CommandOrControl+X')
+    console.log('CommandOrControl+X is pressed')
   })
 })
 ```
