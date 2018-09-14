@@ -224,27 +224,27 @@
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "9371",
-    "translated": "4069",
-    "approved": "378",
+    "translated": "4094",
+    "approved": "397",
     "words": "86265",
-    "words_translated": "29218",
-    "words_approved": "2618",
-    "translated_progress": 33,
+    "words_translated": "29631",
+    "words_approved": "2652",
+    "translated_progress": 34,
     "approved_progress": 3,
-    "qa_issues": "1191"
+    "qa_issues": "1203"
   },
   {
     "name": "Russian",
     "code": "ru",
     "phrases": "9371",
-    "translated": "4986",
+    "translated": "4987",
     "approved": "1096",
     "words": "86265",
-    "words_translated": "35593",
+    "words_translated": "35598",
     "words_approved": "8573",
     "translated_progress": 41,
     "approved_progress": 9,
-    "qa_issues": "1411"
+    "qa_issues": "1412"
   },
   {
     "name": "Spanish",
