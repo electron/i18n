@@ -34,15 +34,15 @@ const request = net.request({
 })
 ```
 
-### Wydarzenia instancji
+### Zdarzenia instancji
 
-#### Wydarzenie: 'odpowiedź'
+#### Zdarzenie: 'response'
 
 Zwraca:
 
 * `odpowiedź` Przychodzące wiadomości - Obiekt reprezentujący komunikat odpowiedzi HTTP. 
 
-#### Wydarzenie: 'login'
+#### Zdarzenie: 'login'
 
 Zwraca:
 
@@ -83,15 +83,15 @@ request.on('login', (authInfo, callback) => {
 })
 ```
 
-#### Event: 'finish'
+#### Zdarzenie: 'finish'
 
 Emitted just after the last chunk of the `request`'s data has been written into the `request` object.
 
-#### Event: 'abort'
+#### Zdarzenie: 'abort'
 
 Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
 
-#### Event: 'error'
+#### Zdarzenie: 'error'
 
 Zwraca:
 
@@ -103,7 +103,7 @@ Emitted when the `net` module fails to issue a network request. Typically when t
 
 Emitted as the last event in the HTTP request-response transaction. The `close` event indicates that no more events will be emitted on either the `request` or `response` objects.
 
-#### Event: 'redirect'
+#### Zdarzenie: 'redirect'
 
 Zwraca:
 
