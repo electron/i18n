@@ -92,7 +92,7 @@ Objects created with `new Menu` emit the following events:
 
 **Note:** Some events are only available on specific operating systems and are labeled as such.
 
-#### Event: 'menu-will-show'
+#### Zdarzenie: 'menu-will-show'
 
 Zwraca:
 
@@ -100,7 +100,7 @@ Zwraca:
 
 Emitted when `menu.popup()` is called.
 
-#### Event: 'menu-will-close'
+#### Zdarzenie: 'menu-will-close'
 
 Zwraca:
 
