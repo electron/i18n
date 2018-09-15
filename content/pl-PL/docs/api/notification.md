@@ -72,7 +72,7 @@ Emitted when the notification is closed by manual intervention from the user.
 
 This event is not guaranteed to be emitted in all cases where the notification is closed.
 
-#### Event: 'reply' *macOS*
+#### Zdarzenie: 'reply' *macOS*
 
 Zwraca:
 
@@ -81,7 +81,7 @@ Zwraca:
 
 Emitted when the user clicks the "Reply" button on a notification with `hasReply: true`.
 
-#### Event: 'action' *macOS*
+#### Zdarzenie: 'action' *macOS*
 
 Zwraca:
 
