@@ -13,20 +13,20 @@ console.log(systemPreferences.isDarkMode())
 
 The `systemPreferences` object emits the following events:
 
-### Event: 'accent-color-changed' *Windows*
+### Zdarzenie: 'accent-color-changed' *Windows*
 
 Zwraca:
 
 * `event` Event
 * `newColor` String - The new RGBA color the user assigned to be their system accent color.
 
-### Event: 'color-changed' *Windows*
+### Zdarzenie: 'color-changed' *Windows*
 
 Zwraca:
 
 * `event` Event
 
-### Event: 'inverted-color-scheme-changed' *Windows*
+### Zdarzenie: 'inverted-color-scheme-changed' *Windows*
 
 Zwraca:
 
