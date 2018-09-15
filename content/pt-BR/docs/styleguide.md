@@ -40,7 +40,7 @@ Usado o `Inicio Rápido` como exemplo:
 
 For API references, there are exceptions to this rule.
 
-## Markdown rules
+## Funcionalidades Markdown
 
 * Use `sh` instead of `cmd` in code blocks (due to the syntax highlighter).
 * Lines should be wrapped at 80 columns.
