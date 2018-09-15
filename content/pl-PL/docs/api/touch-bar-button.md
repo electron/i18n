@@ -1,4 +1,4 @@
-## Class: TouchBarButton
+## Klasa: TouchBarButton
 
 > Create a button in the touch bar for native macOS applications
 
