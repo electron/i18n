@@ -67,7 +67,7 @@ npm install --save-dev electron
 
 이 이외에도 여러 설치 방법이 있습니다. [설치 가이드](installation.md)를 방문하여 프록시, 미러, 커스텀 캐쉬 등을 알아보십시오.
 
-## 간단히 설명한 Electron 개발
+## Electron 개발 맛보기
 
 일랙트론 앱들은 Node.js 개발과 동일한 원칙 및 방법을 사용해 Javascript로 개발되었습니다. Electron에 있는 모든 API들과 기능들은 `electron` 모듈을 이용해 접근 할 수 있으며, 이것은 다른 Node.js 모듈처럼 사용이 가능 합니다:
 
@@ -78,13 +78,13 @@ const electron = require('electron')
 `electron` 모듈은 네임 스페이스의 기능을 노출합니다. 에를 들어, 애플리케이션의 수명주기는 `electron.app`를 통해 관리되며, `electron.BrowserWindow` 클래스를 통해 창들이 생성합니다. 심플한 `main.js` 파일은 응용 프로그램이 준비되고 창을 열 때까지 기다릴 것입니다.
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
   // Create the browser window.
-  win = new BrowserWindow({width: 800, height: 600})
+  win = new BrowserWindow({ width: 800, height: 600 })
 
-  // index.html을 불러옵니다
+  // and load the index.html of the app.
   win.loadFile('index.html')
 }
 
@@ -94,7 +94,7 @@ app.on('ready', createWindow)
 `main.js`는 창들을 생성하고 너의 애플리케이션이 발생시키는 모든 시스템 이벤트를 처리합니다. 위의 예제보다 더 완벽한 버전의 예제에서는 개발자 도구를 열거나, 창이 닫힐때의 처리, 혹은 macOS상에서 사용자가 dock의 app의 아이콘을 클릭했을때 창을 다시 만드는 등의 처리를 보여줍니다.
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -102,7 +102,7 @@ let win
 
 function createWindow () {
   // Create the browser window.
-  win = new BrowserWindow({width: 800, height: 600})
+  win = new BrowserWindow({ width: 800, height: 600 })
 
   // and load the index.html of the app.
   win.loadFile('index.html')
@@ -171,7 +171,7 @@ app.on('activate', () => {
 
 [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) 레파지토리에서 소스를 clone하여 소스 안의 튜토리얼 코드를 실행합니다.
 
-**주의**: 이 코드를 실행하려면 [Git](https://git-scm.com)이 필요합니다.
+**참고**: 실행하기 위해선 [Git](https://git-scm.com)과 [npm](https://www.npmjs.com/)이 필요합니다.
 
 ```sh
 # Clone the repository
