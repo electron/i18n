@@ -13,7 +13,7 @@ You can directly add `--ppapi-flash-path` and `--ppapi-flash-version` to the Ele
 例:
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 const path = require('path')
 
 // Specify flash path, supposing it is placed in the same directory with main.js.
