@@ -253,7 +253,7 @@ Pops up the context menu of the tray icon. When `menu` is passed, the `menu` wil
 
 #### `tray.setContextMenu(menu)`
 
-* `menu` Menu
+* `menu` Menu | null
 
 Sets the context menu for this icon.
 
