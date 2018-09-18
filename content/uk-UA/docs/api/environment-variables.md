@@ -66,7 +66,7 @@ When Electron reads from an ASAR file, log the read offset and file path to the 
 
 Prints the stack trace to the console when Electron crashes.
 
-This environment variable will not work if the `crashReporter` is started.
+Ця змінна середовища не буде працювати якщо запущено `crashReporter`.
 
 ### `ELECTRON_DEFAULT_ERROR_MODE` *Windows*
 
