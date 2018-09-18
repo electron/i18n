@@ -44,7 +44,7 @@ Set a custom locale.
 
 ## --js-flags=`флаги`
 
-Specifies the flags passed to the Node JS engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
+Указывает флаги, поданные движку Node JS. Обязателен при запуске Electron если вы хотите задействовать `flags` в основном процессе.
 
 ```sh
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
