@@ -14,7 +14,7 @@ Emitted when one or more transactions have been updated.
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `transactions` Transaction[] - Array of [`Transaction`](structures/transaction.md) objects.
 
 ## Metodlar
