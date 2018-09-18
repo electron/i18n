@@ -99,7 +99,7 @@ win.setThumbarButtons([])
 要設定視窗的圖示重疊，可以使用 [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) API:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.setOverlayIcon('path/to/overlay.png', 'Overlay 的說明')
 ```
@@ -113,7 +113,7 @@ On Windows you can highlight the taskbar button to get the user's attention. Thi
 要讓 BrowserWindow 工作列按鈕閃爍，可以使用 [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) API:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
