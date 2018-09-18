@@ -4,7 +4,7 @@
 
 Processo: [Main](../glossary.md#main-process)
 
-**Puoi trovare una guida dettagliata su come impementare gli aggiornamenti nella tua applicazione [qui](../tutorial/updates.md).**
+**See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
 
 ## Avvisi Piattaforma
 
@@ -66,31 +66,37 @@ Emesso quando un aggiornamento è stato scaricato.
 
 Solo su Windows `rilascioNome` è disponibile.
 
+### Event: 'before-quit-for-update'
+
+This event is emitted after a user calls `quitAndInstall()`.
+
+When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
+
 ## Metodi
 
-L'oggetto `autoAggiornatore` ha i seguenti metodi:
+The `autoUpdater` object has the following methods:
 
-### `autoUpdater.setFeedURL(opzioni)`
+### `autoUpdater.setFeedURL(options)`
 
 * `opzioni` Oggetto 
   * `url` Stringa
   * `headers` Oggetto (opzionale) *macOS* - HTTP header della richiesta.
   * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
-Imposta l'`url` e inizializza l'auto aggiornatore.
+Sets the `url` and initialize the auto updater.
 
-### `autoAggiornatore.ottieniFeedURL()`
+### `autoUpdater.getFeedURL()`
 
-Restituisci `Stringa` 'L'attuale feed URL di aggiornamento.
+Returns `String` - The current update feed URL.
 
-### `autoAggiornatore.controllaPerAggiornamenti()`
+### `autoUpdater.checkForUpdates()`
 
-Chiedi il server se c'è un aggiornamento. Devi chiamare `impostaFeedURL` prima di usare questa API.
+Asks the server whether there is an update. You must call `setFeedURL` before using this API.
 
-### `autoaAggiornatore.esciEInstalla()`
+### `autoUpdater.quitAndInstall()`
 
-Riavvia l'app ed installa l'aggiornamento dopo che è stato scaricato. Potrebbe solo essere chiamato dopo l'emissione di `aggiornamento-scaricato.</p>
+Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
 
-<p>Under the hood calling <code>autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
+Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
 
 **Note:** If the application is quit without calling this API after the `update-downloaded` event has been emitted, the application will still be replaced by the updated one on the next run.
