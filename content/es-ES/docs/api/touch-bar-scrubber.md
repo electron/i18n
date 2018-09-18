@@ -2,7 +2,7 @@
 
 > Crear un depurador (un selector de desplazamiento)
 
-Proceso: [Main](../tutorial/quick-start.md#main-process)
+Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `Nuevo depurador de la barra táctil(opciones)` *Experimental*
 
