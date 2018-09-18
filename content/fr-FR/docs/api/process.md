@@ -6,6 +6,20 @@ Processus : [Main](../glossary.md#main-process), [Renderer](../glossary.md#rende
 
 L'objet `process` d'Electron une extension de l'[objet `process` de Node.js](https://nodejs.org/api/process.html). Cela ajoute les événements, propriétés et méthodes suivantes :
 
+## Sandbox
+
+In sandboxed renderers the `process` object contains only a subset of the APIs:
+
+* `crash()`
+* `hang()`
+* `getHeapStatistics()`
+* `getProcessMemoryInfo()`
+* `getSystemMemoryInfo()`
+* `argv`
+* `execPath`
+* `env`
+* `platform`
+
 ## Événements
 
 ### Événement : 'loaded'
@@ -64,11 +78,11 @@ A `String` representing the current process's type, can be `"browser"` (i.e. mai
 
 ### `process.versions.chrome`
 
-Un `String` représentant la version de Chrome.
+A `String` representing Chrome's version string.
 
 ### `process.versions.electron`
 
-Un `String` représentant la version d'Electron.
+A `String` representing Electron's version string.
 
 ### `process.windowsStore`
 
@@ -76,7 +90,7 @@ A `Boolean`. If the app is running as a Windows Store app (appx), this property 
 
 ## Méthodes
 
-L'objet `process` dispose des méthodes suivantes :
+The `process` object has the following methods:
 
 ### `process.crash()`
 
@@ -84,11 +98,27 @@ Causes the main thread of the current process crash.
 
 ### `process.getCPUUsage()`
 
-Retourne [`CPUUsage`](structures/cpu-usage.md)
+Returns [`CPUUsage`](structures/cpu-usage.md)
 
 ### `process.getIOCounters()` *Windows* *Linux*
 
-Retourne [`IOCounters`](structures/io-counters.md)
+Returns [`IOCounters`](structures/io-counters.md)
+
+### `process.getHeapStatistics()`
+
+Retourne `Object`:
+
+* `totalHeapSize` Integer
+* `totalHeapSizeExecutable` Integer
+* `totalPhysicalSize` Integer
+* `totalAvailableSize` Integer
+* `usedHeapSize` Integer
+* `heapSizeLimit` Integer
+* `mallocedMemory` Integer
+* `peakMallocedMemory` Integer
+* `doesZapGarbage` Boolean
+
+Returns an object with V8 heap statistics. Note that all statistics are reported in Kilobytes.
 
 ### `process.getProcessMemoryInfo()`
 
@@ -97,7 +127,7 @@ Retourne `Object`:
 * `workingSetSize` Integer - The amount of memory currently pinned to actual physical RAM.
 * `peakWorkingSetSize` Integer - The maximum amount of memory that has ever been pinned to actual physical RAM.
 * `privateBytes` Integer - La quantité de mémoire non partagée par d'autres processus, tel que des empilements de JS ou du contenu HTML.
-* `sharedBytes` Integer - La quantité de mémoire partagée entre processus, généralement la mémoire consommée par Electron lui-même.
+* `sharedBytes` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself.
 
 Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes.
 
