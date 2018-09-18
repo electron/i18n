@@ -1,4 +1,4 @@
-# 打造你第一个 Electron 应用
+# 寫你第一個 Electron 應用程式
 
 Electron 可以让你使用纯 JavaScript 调用丰富的原生(操作系统) APIs 来创造桌面应用。 你可以把它看作一个专注于桌面应用的 Node. js 的变体，而不是 Web 服务器。
 
@@ -78,11 +78,11 @@ const electron = require('electron')
 `electron` 模块所提供的功能都是通过命名空间暴露出来的。 比如说： `electron.app`负责管理Electron 应用程序的生命周期， `electron.BrowserWindow`类负责创建窗口。 下面是一个简单的`main.js`文件，它将在应用程序准备就绪后打开一个窗口：
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 function createWindow () {   
   // 创建浏览器窗口
-  win = new BrowserWindow({width: 800, height: 600})
+  win = new BrowserWindow({ width: 800, height: 600 })
 
   // 然后加载应用的 index.html。
   win.loadFile('index.html')
@@ -94,7 +94,7 @@ app.on('ready', createWindow)
 您应当在 `main.js` 中创建窗口，并处理程序中可能遇到的所有系统事件。 下面我们将完善上述例子，添加以下功能：打开开发者工具、处理窗口关闭事件、在macOS用户点击dock上图标时重建窗口，添加后，main. js 就像下面这样：
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -102,7 +102,7 @@ let win
 
 function createWindow () {
   // 创建浏览器窗口。
-  win = new BrowserWindow({width: 800, height: 600})
+  win = new BrowserWindow({ width: 800, height: 600 })
 
   // 然后加载应用的 index.html。
   win.loadFile('index.html')
@@ -171,7 +171,7 @@ app.on('activate', () => {
 
 复制并运行这个库 [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start)。
 
-**注意**：您可能需要预先安装[Git](https://git-scm.com)环境
+**Note**: Running this requires [Git](https://git-scm.com) and [npm](https://www.npmjs.com/).
 
 ```sh
 # 克隆这仓库
