@@ -16,4 +16,4 @@
 * Приложението е подписано
 * App has it's `NSUserNotificationAlertStyle` set to `alert` in the `Info.plist`.
 
-Ако някое от тези критерии не е изпълнен, бутона просто няма да се появи.
+If either of these requirements are not met the button won't appear.
