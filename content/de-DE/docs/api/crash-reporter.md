@@ -27,7 +27,7 @@ Or use a 3rd party hosted solution:
 * [Backtrace I/O](https://backtrace.io/electron/)
 * [Sentry](https://docs.sentry.io/clients/electron)
 
-Crash reports are saved locally in an application-specific temp directory folder. For a `productName` of `YourName`, crash reports will be stored in a folder named `YourName Crashes` inside the temp directory. You can customize this temp directory location for your app by calling the `app.setPath('temp', '/my/custom/temp')` API before starting the crash reporter.
+Crash Reports werden local im application-specific temp Verzeichniss Ordner gepeichert For a `productName` of `YourName`, crash reports will be stored in a folder named `YourName Crashes` inside the temp directory. You can customize this temp directory location for your app by calling the `app.setPath('temp', '/my/custom/temp')` API before starting the crash reporter.
 
 ## Methoden
 
