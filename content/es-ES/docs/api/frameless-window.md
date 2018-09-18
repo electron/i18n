@@ -64,12 +64,12 @@ win.show()
 * Las ventanas transparentes no son redimensionables. Configurar `resizable` a `true` puede hacer que una ventana transparente deje de funcionar en algunas plataformas.
 * El filtro `blur` solo aplica a la página web, por lo que no hay manera de aplicar el efecto blur al contenido debajo de la ventana (por ejemplo, otras aplicaciones abiertas en el sistema del usuario).
 * En los sistemas operativos Windows, las ventanas transparentes no funcionarán cuando DWM está deshabilitado.
-* On Linux, users have to put `--enable-transparent-visuals --disable-gpu` in the command line to disable GPU and allow ARGB to make transparent window, this is caused by an upstream bug that [alpha channel doesn't work on some NVidia drivers](https://code.google.com/p/chromium/issues/detail?id=369209) on Linux.
-* On Mac, the native window shadow will not be shown on a transparent window.
+* En Linux, los usuarios tienen que poner `--enable-transparent-visuals --disable-gpu` en la línea de comandos para deshabilitar el GPU y permitir ARGB para hacer transparente la ventana, esto es causado por un bug ascendente donde [el canal alfa no funciona en algunos controladores NVidia](https://code.google.com/p/chromium/issues/detail?id=369209) en Linux.
+* En Mac, la sombra nativa no se mostrará en una ventana transparente.
 
 ## Ventana Click-through
 
-Para crear una ventana click-through, por ejemplo hacer que la ventana ignore todos los eventos del ratón, puedes llamar la API [win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore):
+To create a click-through window, i.e. making the window ignore all mouse events, you can call the [win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore-options) API:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -115,7 +115,7 @@ button {
 }
 ```
 
-Si se configura una barra de título personalizada como desplazable, también es necesario hacer que todos los botones de la barra de título sean no desplazables.
+If you're only setting a custom titlebar as draggable, you also need to make all buttons in titlebar non-draggable.
 
 ## Selección de texto
 
