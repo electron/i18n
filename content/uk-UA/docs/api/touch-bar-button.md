@@ -2,7 +2,7 @@
 
 > Створює кнопку на Touch Bar для нативних macOS додатків
 
-Процес: [Main](../tutorial/quick-start.md#main-process)
+Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new TouchBarButton(options)` *Експериментальний*
 
