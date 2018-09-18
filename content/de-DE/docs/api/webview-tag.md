@@ -197,7 +197,7 @@ webview.addEventListener('dom-ready', () => {
 ### `<webview>.loadURL(url[, options])`
 
 * `url` URL
-* `options` Objekt (optional) 
+* `optionen` Objekt (optional) 
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
@@ -294,7 +294,7 @@ Injects CSS into the guest page.
 
 ### `<webview>.executeJavaScript(code[, userGesture, callback])`
 
-* `code` String
+* `code` Zeichenkette
 * `userGesture` Boolean (optional) - Default `false`.
 * `callback` Function (optional) - Called after script has been executed. 
   * `result` Any
@@ -395,7 +395,7 @@ Inserts `text` to the focused element.
 ### `<webview>.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `options` Objekt (optional) 
+* `optionen` Objekt (optional) 
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -717,7 +717,7 @@ are clicked or when the DOM <code>hashchange` event is triggered.</p>
       
       Rückgabewert:
       
-      * `name` Zeichenfolge
+      * `name` String
       * `version` String
       
       Fired when a plugin process is crashed.
