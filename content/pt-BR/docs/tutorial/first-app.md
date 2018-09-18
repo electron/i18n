@@ -1,6 +1,6 @@
 # Escrevendo Seu Primeiro Aplicativo com Electron
 
-Electron permite criar aplicações desktop com JavaScript puro, fornecendo em tempo de execução uma API rica e nativa do sistema operacional. Você pode ver como uma variação da runtime do Node.js com foco em aplicações de desktop em vez de servidores web.
+Electron permite criar aplicações desktop com JavaScript puro, fornecendo em tempo de execução uma API rica e nativa do sistema operacional. Você pode vê-lo como uma variação da runtime do Node.js com foco em aplicações de desktop em vez de servidores web.
 
 Isso não significa que o Electron é uma ligação de Javascript a bibliotecas de interface gráfica de usuário (GUI). Pelo contrário, o Electron utiliza páginas web como sua interface gráfica, de modo que você pode vê-lo como um simples navegador Chromium, controlado por Javascript.
 
@@ -78,11 +78,11 @@ const electron = require('electron')
 O módulo de `electron` expõe recursos em namespaces. Como exemplos, o ciclo de vida da aplicação é gerenciado pelo `electron.app`, janelas podem ser criadas utilizando a classe `electron.BrowserWindow`. Um simples arquivo `main.js` que espera a aplicação estar pronta para então abrir uma janela:
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
   // Create the browser window.
-  win = new BrowserWindow({width: 800, height: 600})
+  win = new BrowserWindow({ width: 800, height: 600 })
 
   // e carrega index.html do app.
   win.loadFile('index.html')
@@ -94,7 +94,7 @@ app.on('ready', createWindow)
 The `main.js` should create windows and handle all the system events your application might encounter. A more complete version of the above example might open developer tools, handle the window being closed, or re-create windows on macOS if the user clicks on the app's icon in the dock.
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
@@ -102,7 +102,7 @@ let win
 
 function createWindow () {
   // Criar uma janela de navegação.
-  win = new BrowserWindow({width: 800, height: 600})
+  win = new BrowserWindow({ width: 800, height: 600 })
 
   // e carrega index.html do app.
   win.loadFile('index.html')
@@ -171,7 +171,7 @@ Depois de criar seus arquivos iniciais `main.js`,`index.html` e `package.json`, 
 
 Clone e execute o código nesse tutorial utilizando o repositório [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start).
 
-**Nota**: A execução desse exemplo requer [Git](https://git-scm.com).
+**Note**: Running this requires [Git](https://git-scm.com) and [npm](https://www.npmjs.com/).
 
 ```sh
 # Clone o repositório
