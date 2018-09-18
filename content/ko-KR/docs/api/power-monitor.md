@@ -4,7 +4,7 @@
 
 프로세스:[Main](../glossary.md#main-process)
 
-You cannot require or use this module until the `ready` event of the `app` module is emitted.
+이모듈을 이용 하시려면 `app`의`ready`이벤트가 방사돼기를 기다려야 합니다.
 
 예시:
 
