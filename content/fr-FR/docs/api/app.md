@@ -531,48 +531,48 @@ Retourne `Boolean`
 
 Cette méthode vérifie si l'exécutable courant est le gestionnaire par défaut d'un protocole (par exemple le modèle URI). Si c'est le cas, il retournera true. Sinon, il retournera false.
 
-**Remarque:** Sur macOS, vous pouvez utiliser cette méthode pour vérifier si l'application a bien été enregistré comme gestionnaire de protocole par défaut pour un protocole. Vous pouvez également confirmer cela en vérifiant `~/Library/Preferences/com.apple.LaunchServices.plist` sur votre machine macOS. Please refer to [Apple's documentation](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) for details.
+**Remarque:** Sur macOS, vous pouvez utiliser cette méthode pour vérifier si l'application a bien été enregistré comme gestionnaire de protocole par défaut pour un protocole. Vous pouvez également confirmer cela en vérifiant `~/Library/Preferences/com.apple.LaunchServices.plist` sur votre machine macOS. Veuillez vous référer à la [documentation d'Apple](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme) pour plus de détails.
 
-The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internally.
+L'API utilise en interne le registre de Windows ainsi que LSCopyDefaultHandlerForURLScheme.
 
 ### `app.setUserTasks(tasks)` *Windows*
 
-* `tasks` [Task[]](structures/task.md) - Array of `Task` objects
+* `tasks` [Task[]](structures/task.md) - Tableau d'objets `Task`
 
-Adds `tasks` to the [Tasks](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) category of the JumpList on Windows.
+Ajoute `tasks` dans la catégorie [Tasks](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) de la JumpList sur Windows.
 
-`tasks` is an array of [`Task`](structures/task.md) objects.
+`tasks` est un tableau d’objets [`Task`](structures/task.md).
 
 Returns `Boolean` - Si l'appel a réussi.
 
-**Note:** If you'd like to customize the Jump List even more use `app.setJumpList(categories)` instead.
+**Remarque :** Si vous souhaitez personnaliser encore plus la JumpList, utilisez `app.setJumpList(categories)` à la place.
 
 ### `app.getJumpListSettings()` *Windows*
 
 Retourne `Object`:
 
-* `minItems` Integer - The minimum number of items that will be shown in the Jump List (for a more detailed description of this value see the [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
-* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. These items must not be re-added to the Jump List in the **next** call to `app.setJumpList()`, Windows will not display any custom category that contains any of the removed items.
+* `minItems` Integer - Le nombre minimum d'éléments qui seront affichés dans la JumpList (pour une description plus détaillée de cette valeur, voir les [documentations MSDN](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
+* `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Tableau d'objets `JumpListItem` qui correspondent à des éléments que l'utilisateur a explicitement retirés des catégories personnalisées de la JumpList. Ces éléments ne doivent pas être ajoutés de nouveau à la JumpList dans l'appel **suivant** à `app.setJumpList()`, Windows n'affichera aucune catégorie personnalisée qui contient les éléments supprimés.
 
 ### `app.setJumpList(categories)` *Windows*
 
-* `categories` [JumpListCategory[]](structures/jump-list-category.md) or `null` - Array of `JumpListCategory` objects.
+* `categories` [JumpListCategory[]](structures/jump-list-category.md) ou `null` - Tableau d'objets `JumpListCategory`.
 
-Sets or removes a custom Jump List for the application, and returns one of the following strings:
+Définit ou supprime une JumpList personnalisée pour l'application et renvoie l'une des chaînes de caractères suivantes :
 
-* `ok` - Nothing went wrong.
-* `error` - One or more errors occurred, enable runtime logging to figure out the likely cause.
-* `invalidSeparatorError` - An attempt was made to add a separator to a custom category in the Jump List. Separators are only allowed in the standard `Tasks` category.
-* `fileTypeRegistrationError` - An attempt was made to add a file link to the Jump List for a file type the app isn't registered to handle.
-* `customCategoryAccessDeniedError` - Custom categories can't be added to the Jump List due to user privacy or group policy settings.
+* `ok` - Tout s'est bien passé.
+* `error` - Une ou plusieurs erreurs se sont produites, activez la journalisation de la durée d'exécution pour déterminer la cause probable.
+* `invalidSeparatorError` - Une tentative d'ajout d'un séparateur à une catégorie personnalisée dans la JumpList. Les séparateurs ne sont autorisés que dans la catégorie standard `Tasks`.
+* `fileTypeRegistrationError` - Tentative d'ajout d'un lien de fichier dans la JumpList pour un type de fichier que l'application n'est pas enregistrée pour gérer.
+* `customCategoryAccessDeniedError` - Les catégories personnalisées ne peuvent pas être ajoutées à la JumpList en raison de la confidentialité de l'utilisateur ou des paramètres de politique de groupe.
 
-If `categories` is `null` the previously set custom Jump List (if any) will be replaced by the standard Jump List for the app (managed by Windows).
+Si `cetagories` est `null`, la JumpList personnalisée précédemment définie (si existante) sera remplacée par la JumpList standard de l'application (gérée par Windows).
 
 **Remarque :** Si un objet `JumpListCategory` n'a ni de `type` ni de propriété `name` de défini, alors le `type` est assumé être `tasks`. Si la propriété `name` est définie mais que le `type` est omis, alors le `type` est assumé être `custom`.
 
-**Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Any attempt to re-add a removed item to a custom category earlier than that will result in the entire custom category being omitted from the Jump List. The list of removed items can be obtained using `app.getJumpListSettings()`.
+**Remarque :** Les utilisateurs peuvent supprimer des éléments des catégories personnalisées, et Windows n'autorisera pas l'ajout d'un élément supprimé dans une catégorie personnalisée avant le **prochain** appel réussi à `app.setJumpList(categories)`. Toute tentative de réajouter un élément supprimé à une catégorie personnalisée plus tôt, cela entraînera l'omission de toute la catégorie personnalisée dans la JumpList. La liste des éléments supprimés peut être obtenue à l'aide de `app.getJumpListSettings()`.
 
-Here's a very simple example of creating a custom Jump List:
+Voici un exemple très simple de la création d'une JumpList personnalisé :
 
 ```javascript
 const {app} = require('electron')
@@ -636,15 +636,15 @@ app.setJumpList([
 
 Retourne `Boolean`
 
-This method makes your application a Single Instance Application - instead of allowing multiple instances of your app to run, this will ensure that only a single instance of your app is running, and other instances signal this instance and exit.
+Cette méthode fait de votre application une Application à Instance Unique : au lieu d'autoriser plusieurs instances parallèles de votre application, cela permet de s'assurer qu'une seule est active, et les autres instances envoient un signal à celle-ci puis se terminent.
 
 The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock you can assume that another instance of your application is already running with the lock and exit immediately.
 
 I.e. This method returns `true` if your process is the primary instance of your application and your app should continue loading. It returns `false` if your process should immediately quit as it has sent its parameters to another instance that has already acquired the lock.
 
-On macOS the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the `open-file` and `open-url` events will be emitted for that. However when users start your app in command line the system's single instance mechanism will be bypassed and you have to use this method to ensure single instance.
+Sur macOS, dans Finder, le système impose automatiquement l'unicité de l'instance de votre application lorsqu'un utilisateur tente d'en ouvrir une deuxième, et les événements `open-file` et `open-url` sont ainsi émis. Cependant, quand l'utilisateur démarre votre application en ligne de commandes, le mécanisme d'unicité d'instance est contourné et vous devez alors utiliser cette méthode pour l'imposer.
 
-An example of activating the window of primary instance when a second instance starts:
+Un exemple d'activation de la fenêtre de l'instance primaire lorsqu'une seconde instance démarre :
 
 ```javascript
 const {app} = require('electron')
@@ -685,30 +685,30 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 * `userInfo` Object - État spécifique de l'application à stocker pour une utilisation par un autre périphérique.
 * `webpageURL` String (facultatif) - La page web à charger dans un navigateur si aucune application appropriée n'est installée sur l'autre périphérique de reprise. Le protocole doit être `http` ou `https`.
 
-Creates an `NSUserActivity` and sets it as the current activity. The activity is eligible for [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) to another device afterward.
+Créée un `NSUserActivity` et le défini en tant qu'activité courante. Après cela, l'activité devient éligible à la fonction [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) sur l'autre périphérique.
 
 ### `app.getCurrentActivityType()` *macOS*
 
-Returns `String` - The type of the currently running activity.
+Retourne `String` - le type de l’activité en cours d’exécution.
 
 ### `app.invalidateCurrentActivity()` *macOS*
 
 * `type` String - Identifie de façon unique l'activité. Mappé sur [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 
-Invalidates the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity.
+Invalide l'activité [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) courante de l'utilisateur.
 
 ### `app.updateCurrentActivity(type, userInfo)` *macOS*
 
 * `type` String - Identifie de façon unique l'activité. Mappé sur [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object - État spécifique de l'application à stocker pour une utilisation par un autre périphérique.
 
-Updates the current activity if its type matches `type`, merging the entries from `userInfo` into its current `userInfo` dictionary.
+Modifie l'activité en cours si son type correspond à `type`, en fusionnant les entrées de `userInfo` dans son dictionnaire `userInfo` courant.
 
 ### `app.setAppUserModelId(id)` *Windows*
 
 * `id` String
 
-Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) to `id`.
+Change le [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) à `id`.
 
 ### `app.importCertificate(options, callback)` *LINUX*
 
@@ -718,27 +718,27 @@ Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library
 * `callback` Function 
   * `result` Integer - Résultat de l'importation.
 
-Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `0` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Importe le certificat au format pkcs12 dans l'entrepôt de certificats de la plateforme. `callback` est appelé avec le retour `result` de l'opération d'import, une valeur `0` indique un succès alors que toute autre valeur signale un problème, telle que décrite par la [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) de Chromium.
 
 ### `app.disableHardwareAcceleration()`
 
-Disables hardware acceleration for current app.
+Désactive l'accélération matérielle pour l'application courante.
 
-This method can only be called before app is ready.
+Cette méthode peut seulement être appelée avant que app soit prêt.
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
-By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour.
+Par défaut, Chromium désactive, jusqu'au prochain démarrage, les APIs 3D (comme WebGL) par domaine si les processus GPU plantent trop souvent. Cette fonction désactive ce comportement.
 
-This method can only be called before app is ready.
+Cette méthode peut seulement être appelée avant que app soit prêt.
 
 ### `app.getAppMetrics()`
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
+Retourne [`ProcessMetric[]`](structures/process-metric.md): un tableau d'objets `ProcessMetric` qui correspondent aux statistiques d'usage de la mémoire et du processeur par chacun des processus associé à l'application.
 
 ### `app.getGPUFeatureStatus()`
 
-Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Feature Status from `chrome://gpu/`.
+Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - L'état des fonctions graphiques de `chrome://gpu/`.
 
 ### `app.setBadgeCount(count)` *Linux* *macOS*
 
@@ -746,19 +746,19 @@ Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Fe
 
 Returns `Boolean` - Si l'appel a réussi.
 
-Sets the counter badge for current app. Setting the count to `0` will hide the badge.
+Définit le badge du compteur pour l'application courante. Régler le compte à `0>0` masquera le badge.
 
-On macOS it shows on the dock icon. On Linux it only works for Unity launcher,
+Sous macOS, il apparaît sur l'icône du dock. Sous Linux, il ne fonctionne que pour le launcher Unity.
 
 **Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
-Returns `Integer` - The current value displayed in the counter badge.
+Retourne `Integer` - La valeur actuelle affichée sur le badge du compteur.
 
 ### `app.isUnityRunning()` *Linux*
 
-Returns `Boolean` - Whether the current desktop environment is Unity launcher.
+Retourne `Boolean` - Si l'environnement de bureau actuel est Unity launcher.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
@@ -766,7 +766,7 @@ Returns `Boolean` - Whether the current desktop environment is Unity launcher.
   * `path` String (facultatif) *Windows* - Le chemin de l'exécutable à comparer. `process.execPath` par défaut.
   * `args` String[] (facultatif) *Windows* - Les arguments de la ligne de commandes à comparer. Un tableau vide par défaut.
 
-If you provided `path` and `args` options to `app.setLoginItemSettings` then you need to pass the same arguments here for `openAtLogin` to be set correctly.
+Si les options `path` et `args` sont fournies à `app.setLoginItemSettings` alors les mêmes arguments doivent être passés à `openAtLogin` pour être correctement initialisés.
 
 Retourne `Object`:
 
@@ -784,9 +784,9 @@ Retourne `Object`:
   * `path` String (optional) *Windows* - L'exécutable à lancer à l'ouverture de session. `process.execPath` par défaut.
   * `args` String[] (facultatif) *Windows* - Les arguments de la ligne de commandes à passer à l'exécutable. Un tableau vide par défaut. Veillez à protéger les chemins par des guillemets.
 
-Set the app's login item settings.
+Configurer les paramètres de l'application lors de l'ouverture de session.
 
-To work with Electron's `autoUpdater` on Windows, which uses [Squirrel](https://github.com/Squirrel/Squirrel.Windows), you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. Par exemple :
+Pour fonctionner avec `autoUpdater` d'Electron sur Windows, qui utilise [Squirrel](https://github.com/Squirrel/Squirrel.Windows), vous aurez besoin de configurer le chemin de démarrage de Update.exe et de lui passer les arguments qui définissent le nom de votre application. Par exemple :
 
 ```javascript
 const appFolder = path.dirname(process.execPath)
@@ -805,15 +805,15 @@ app.setLoginItemSettings({
 
 ### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
-Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false` otherwise. This API will return `true` if the use of assistive technologies, such as screen readers, has been detected. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+Retourne `Boolean` - `true` si le support des fonctionnalités d'accessibilité de Chrome est activé, `false` sinon. Cette API retournera `true` si les technologies d'assistance, comme les lecteurs d'écran, sont détectées. Voir https://www.chromium.org/developers/design-documents/accessibility pour de plus amples informations.
 
 ### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
 
 * `enabled` Boolean - Active ou désactive le rendu de [l'arbre d'accessibilité](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)
 
-Manually enables Chrome's accessibility support, allowing to expose accessibility switch to users in application settings. https://www.chromium.org/developers/design-documents/accessibility for more details. Disabled by default.
+Active manuellement le support de l'accessibilité de Chrome, permettant de mettre à disposition des utilisateurs les commutateurs d'accessibilité dans les paramètres de l'application. Voir https://www.chromium.org/developers/design-documents/accessibility pour de plus amples informations. Désactivé par défaut.
 
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+**Note:** Le rendu de l'arbre d'accessibilité peut affecter de manière significative les performances de votre application. Il ne devrait pas être activé par défaut.
 
 ### `app.setAboutPanelOptions(options)` *macOS*
 
@@ -824,9 +824,9 @@ Manually enables Chrome's accessibility support, allowing to expose accessibilit
   * `credits` String (optional) - Information crédit.
   * `version` String (optional) - Numéro de version de l'application.
 
-Set the about panel options. This will override the values defined in the app's `.plist` file. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
+Configure les options de la fenêtre À propos de. Cela surchargera les valeurs définies dans le fichier `.plist` de l'application. Voir [la documentation Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) pour de plus amples informations.
 
-### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
+### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS*
 
 * `bookmarkData` String - The base64 encoded security scoped bookmark data returned by the `dialog.showOpenDialog` or `dialog.showSaveDialog` methods.
 
@@ -856,13 +856,13 @@ Append a switch (with optional `value`) to Chromium's command line.
 
 Append an argument to Chromium's command line. The argument will be quoted correctly.
 
-**Note:** This will not affect `process.argv`.
+**Note:** Ceci n'affecte pas `process.argv`.
 
 ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
 
 Enables mixed sandbox mode on the app.
 
-This method can only be called before app is ready.
+Cette méthode peut seulement être appelée avant que app soit prêt.
 
 ### `app.isInApplicationsFolder()` *macOS*
 
@@ -880,45 +880,45 @@ No confirmation dialog will be presented by default, if you wish to allow the us
 
 * `type` String (facultatif) - Peut être `critical` ou `informational`. Par défaut : `informational`
 
-When `critical` is passed, the dock icon will bounce until either the application becomes active or the request is canceled.
+Lorsque la `critical` est passé, l’icône du dock rebondira jusqu'à ce que l’application redevienne active ou que la requête est annulée.
 
-When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
+Lorsque `informationnal` est passé, l’icône du dock rebondira pendant une seconde. Toutefois, la requête reste active jusqu'à ce que l’application redevienne active ou que la demande est annulée.
 
-Returns `Integer` an ID representing the request.
+Retourne `Integer` un ID représentant la requête.
 
 ### `app.dock.cancelBounce(id)` *macOS*
 
 * `id` Integer
 
-Cancel the bounce of `id`.
+Annule le rebond de l'`id`.
 
 ### `app.dock.downloadFinished(filePath)` *macOS*
 
 * `filePath` String
 
-Bounces the Downloads stack if the filePath is inside the Downloads folder.
+Fait rebondir la pile de téléchargements si le chemin d'accès se trouve le dossier Téléchargements.
 
 ### `app.dock.setBadge(text)` *macOS*
 
 * `text` String
 
-Sets the string to be displayed in the dock’s badging area.
+Définit la chaîne de caractères à afficher dans la zone du badge du dock.
 
 ### `app.dock.getBadge()` *macOS*
 
-Returns `String` - The badge string of the dock.
+Retourne `String` - Le texte du badge du dock.
 
 ### `app.dock.hide()` *macOS*
 
-Hides the dock icon.
+Masque l’icône du dock.
 
 ### `app.dock.show()` *macOS*
 
-Shows the dock icon.
+Affiche l’icône du dock.
 
 ### `app.dock.isVisible()` *macOS*
 
-Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call is asynchronous so this method might not return true immediately after that call.
+Retourne `Boolean` - Si l'icône du dock est visible. L'appel `app.dock.show()` est asynchrone, donc cette méthode peut ne pas retourner true immédiatement après cet appel.
 
 ### `app.dock.setMenu(menu)` *macOS*
 
@@ -930,7 +930,7 @@ Sets the application's [dock menu](https://developer.apple.com/macos/human-inter
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Sets the `image` associated with this dock icon.
+Définit l’`image` associée à l'icône du dock.
 
 ## Propriétés
 
