@@ -2,7 +2,7 @@
 
 > Crea un botón en la barra táctil para aplicaciones macOS nativas
 
-Proceso: [principal](../tutorial/quick-start.md#main-process)
+Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `nuevo botón en la barra tactil(opciones)` *Experimental*
 
