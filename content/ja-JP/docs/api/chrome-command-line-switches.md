@@ -148,6 +148,6 @@ Chromiumが隠れたページのレンダラープロセスの優先順位を下
 
 `--v` で指定された値を上書きするモジュール単位の最大のVログレベルを指定します。 例えば、`my_module=2,foo*=3` は、`my_module.*` と `foo*.*` のソースファイルにあるすべてのコードのログレベルを変更します。
 
-スラッシュまたはバックスラッシュを含むパターンは、モジュールにだけでなく、全体のパス名に対してテストされます。 例えば、`*/foo/bar/*=2` は、`foo/bar` ディレクトリの下にあるソースファイルのすべてのコードのログレベルを変更します。
+Any pattern containing a forward or backward slash will be tested against the whole pathname and not only the module. 例えば、`*/foo/bar/*=2` は、`foo/bar` ディレクトリの下にあるソースファイルのすべてのコードのログレベルを変更します。
 
 このスイッチは、`--enable-logging` が一緒に渡されたときのみ機能します。
