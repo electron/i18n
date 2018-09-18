@@ -4,7 +4,7 @@
 
 参见： [process](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) process
 
-在发出 ` app ` 模块的 ` ready ` 事件之前, 您不能 `require` 或使用此模块。
+在 ` app ` 模块发出 ` ready ` 事件之前, 您不能引用或者使用此模块。
 
 `screen` 是一个 [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -93,23 +93,23 @@ app.on('ready', () => {
 
 ### `screen.getPrimaryDisplay()`
 
-Returns [`Display`](structures/display.md) - The primary display.
+返回主窗口[`Display`](structures/display.md)
 
 ### `screen.getAllDisplays()`
 
-Returns [`Display[]`](structures/display.md) - An array of displays that are currently available.
+返回一个窗口数组[`Display[]`](structures/display.md)，表示当前可用的窗口。
 
 ### `screen.getDisplayNearestPoint(point)`
 
 * `point` [Point](structures/point.md)
 
-Returns [`Display`](structures/display.md) - The display nearest the specified point.
+返回离指定点最近的一个窗口[`Display`](structures/display.md)
 
 ### `screen.getDisplayMatching(rect)`
 
 * `rect` [Rectangle](structures/rectangle.md)
 
-Returns [`Display`](structures/display.md) - The display that most closely intersects the provided bounds.
+返回离指定的图形最密切相交一个窗口[`Display`](structures/display.md)
 
 ### `screen.screenToDipPoint(point)` *Windows*
 
