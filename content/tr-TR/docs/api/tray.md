@@ -253,7 +253,7 @@ Tepsi simgesininİçerik menüsünü açar. `menu` geçildiğinde, `menu` tepsi 
 
 #### `tray.setContextMenu(menu)`
 
-* `menu` Menü
+* `menu` Menü | boş
 
 Bu simgenin bağlam menüsünü ayarlar.
 
