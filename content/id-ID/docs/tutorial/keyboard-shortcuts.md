@@ -6,7 +6,7 @@
 
 Anda dapat menggunakan modul  Menu </ 0> untuk mengkonfigurasi cara pintas keyboard yang hanya akan dipicu saat aplikasi difokuskan. Untuk melakukannya, tentukan properti [ ` akselerator </ 0> ] saat membuat <a href="../api/menu-item.md"> MenuItem </ 1> .</p>
 
-<pre><code class="js">const {Menu, MenuItem} = require ('electron') const menu = new Menu () menu.append (menu baruT ({
+<pre><code class="js">const { Menu, MenuItem } = require ('electron') const menu = new Menu () menu.append (menu baruT ({
    label: 'Cetak',
    akselerator: 'CmdOrCtrl + P',
    klik: () = & gt; { console.log ('waktu untuk mencetak barang')}}))
@@ -23,7 +23,7 @@ You can configure different key combinations based on the user's operating syste
 Anda dapat menggunakan modul  globalShortcut </ 0> untuk mendeteksi kejadian keyboard meskipun aplikasi tidak memiliki fokus pada keyboard.</p> 
 
 ```js
-const {app, globalShortcut} = require('electron')
+const { app, globalShortcut } = require('electron')
 
 app.on('ready', () => {
   globalShortcut.register('CommandOrControl+X', () => {
