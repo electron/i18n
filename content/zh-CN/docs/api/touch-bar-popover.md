@@ -6,7 +6,7 @@ Process: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
 
 ### `new TouchBarSlider(options)` *实验功能*
 
-* `options` Object 
+* `参数` 对象 
   * ` label `String (可选) 弹出按钮文本。
   * `icon` ([NativeImage](native-image.md) | String) (可选) - 弹出按钮图标。
   * `items` [TouchBar](touch-bar.md) (可选) -弹出中展示的元素。
