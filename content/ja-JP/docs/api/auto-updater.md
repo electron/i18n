@@ -74,7 +74,7 @@ When this API is called, the `before-quit` event is not emitted before all windo
 
 ## メソッド
 
-The `autoUpdater` object has the following methods:
+`autoUpdater` オブジェクトには以下のメソッドがあります
 
 ### `autoUpdater.setFeedURL(options)`
 
@@ -83,20 +83,20 @@ The `autoUpdater` object has the following methods:
   * `headers` Object (任意) *macOS* - HTTP リクエストヘッダ。
   * `serverType` String (任意) *macOS* - `json` または `default` のいずれかの詳細については、[Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README を参照してください。
 
-Sets the `url` and initialize the auto updater.
+`url` を設定して自動更新を初期化します。
 
 ### `autoUpdater.getFeedURL()`
 
-Returns `String` - The current update feed URL.
+戻り値 `String` - 現在の更新フィードURL。
 
 ### `autoUpdater.checkForUpdates()`
 
-Asks the server whether there is an update. You must call `setFeedURL` before using this API.
+更新プログラムがあるかどうかをサーバーに要求します。この API を使用する前に `setFeedURL` を呼び出す必要があります。
 
 ### `autoUpdater.quitAndInstall()`
 
-Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
+更新プログラムがダウンロードされた後でアプリを再起動し、更新プログラムをインストールします。`update-downloaded` が発生した後でしか呼び出さないようにしてください。
 
-Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
+`autoUpdater.quitAndInstall()` を呼ぶと、この中では最初にすべてのアプリケーションウィンドウを閉じ、すべてのウィンドウが閉じられた後に自動的に `app.quit()` を呼び出します。
 
-**Note:** If the application is quit without calling this API after the `update-downloaded` event has been emitted, the application will still be replaced by the updated one on the next run.
+**注釈:** `update-downloaded` イベントが発行された後にこの API を呼び出さずにアプリケーションを終了した場合でも、アプリケーションは次の実行時に更新されたものに置き換えられます。
