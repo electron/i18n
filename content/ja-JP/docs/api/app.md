@@ -303,6 +303,23 @@ GPUプロセスがクラッシュしたり、強制終了されたりしたと�
 
 Chromeのユーザ補助機能が変更されると発生します。 このイベントはスクリーンリーダーのような支援技術が有効にされたり、無効にされたりしたときに発火します。 詳細については、https://www.chromium.org/developers/design-documents/accessibility を参照してください。
 
+### Event: 'session-created'
+
+戻り値:
+
+* `event` Event
+* `session` [Session](session.md)
+
+Emitted when Electron has created a new `session`.
+
+```javascript
+const {app} = require('electron')
+
+app.on('session-created', (event, session) => {
+  console.log(session)
+})
+```
+
 ## メソッド
 
 `app` オブジェクトには以下のメソッドがあります。
@@ -317,7 +334,7 @@ Chromeのユーザ補助機能が変更されると発生します。 このイ�
 
 ### `app.exit([exitCode])`
 
-* `exitCode` Integer (任意)
+* `exitCode` Integer (optional)
 
 `exitCode` ですぐに終了します。`exitCode` の省略値は0です。
 
@@ -327,7 +344,7 @@ Chromeのユーザ補助機能が変更されると発生します。 このイ�
 
 * `options` Object (任意) 
   * `args` String[] (任意)
-  * `execPath` String (任意)
+  * `execPath` String (optional)
 
 現在のインスタンスが終了したときに、アプリを再起動します。
 
@@ -504,7 +521,7 @@ Windowsの場合、オプションのパラメータを指定することがで�
 
 ### `app.setUserTasks(tasks)` *Windows*
 
-* `tasks` [Task[]](structures/task.md) - `Task` オブジェクトの配列
+* `tasks` [Task[]](structures/task.md) - `Task`オブジェクトの配列
 
 Windowsでジャンプリストの [タスク](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) カテゴリに `tasks` を追加します。
 
@@ -823,7 +840,7 @@ Chromiumのコマンドラインに引数を追加します。引数は正しく
 
 **注:** これは`process.argv` に影響を与えません。
 
-### `app.enableMixedSandbox()` *実験的* *macOS* *Windows*
+### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
 
 アプリで混在サンドボックスモードを有効にします。
 
