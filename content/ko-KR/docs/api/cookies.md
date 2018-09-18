@@ -1,10 +1,10 @@
 ## Class: Cookies
 
-> 세션 쿠키를 요청하거나 수정합니다.
+> 세션 쿠키를 가져오거나 수정합니다.
 
 프로세스:[Main](../glossary.md#main-process)
 
-Instances of the `Cookies` class are accessed by using `cookies` property of a `Session`.
+`Cookies` 클래스는 `Session` 의`cookies` 속성을 이용해 접근합니다.
 
 예시:
 
@@ -31,40 +31,40 @@ session.defaultSession.cookies.set(cookie, (error) => {
 
 ### 인스턴스 이벤트
 
-The following events are available on instances of `Cookies`:
+아래의 이벤트들은 `Cookies` 인스턴스를 통해 사용할 수 있다.
 
 #### Event: 'changed'
 
 * `event` Event
-* `cookie` [Cookie](structures/cookie.md) - The cookie that was changed.
-* `cause` String - The cause of the change with one of the following values: 
-  * `explicit` - The cookie was changed directly by a consumer's action.
-  * `overwrite` - The cookie was automatically removed due to an insert operation that overwrote it.
-  * `expired` - The cookie was automatically removed as it expired.
-  * `evicted` - The cookie was automatically evicted during garbage collection.
-  * `expired-overwrite` - The cookie was overwritten with an already-expired expiration date.
-* `removed` Boolean - `true` if the cookie was removed, `false` otherwise.
+* `cookie` [Cookie](structures/cookie.md) - 변경된 cookie 값
+* `cause` String - 변경 원인은 다음 항목들 중 하나임. 
+  * `explicit` - 사용자가 의도적으로 cookie를 변경하였음.
+  * `overwrite` - 덮어쓰기에 의해 cookie가 자동으로 삭제되었음.
+  * `expired` - 기간 만료로 cookie가 자동으로 삭제되었음.
+  * `evicted` - gabage collextion으로 인해 cookie가 자동으로 삭제되었음.
+  * `expired-overwrite` - 이미 만료된 기간으로 cookie가 덮어 씌어졌음.
+* `removed` Boolean - cookie가 삭제되었으면 `true`이고, 그렇지 않으면, `false`이다.
 
-Emitted when a cookie is changed because it was added, edited, removed, or expired.
+Cookie가 추가, 수정, 삭제, 만료로 인해 변경된 경우 호출된다.
 
 ### 인스턴스 메서드
 
-The following methods are available on instances of `Cookies`:
+`Cookies` 인스턴스는 다음의 메서드를 사용할 수 있다.
 
 #### `cookies.get(filter, callback)`
 
 * `filter` Object 
-  * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all urls.
-  * `name` String (optional) - Filters cookies by name.
-  * `domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`.
-  * `path` String (optional) - Retrieves cookies whose path matches `path`.
-  * `secure` Boolean (optional) - Filters cookies by their Secure property.
-  * `session` Boolean (optional) - Filters out session or persistent cookies.
+  * `url` String (optional) - cookies에서 주어진 url에 관련된 정보를 조사한다. `url`을 공백으로 준 경우 모든 url에 대해서 조사한다.
+  * `name` String (optional) - name 기반으로 필터를 함.
+  * `domain` - String (optional) - `domains`과 같거나 subdomain을 cookies에서 찾는다.
+  * `path` String (optional) - `path`와 같은 경로를 갖는 cookies에서 찾는다.
+  * `secure` Boolean (optional) - Secure 속성으로 필터를 함.
+  * `session` Boolean (optional) - session 혹은 영구 cookies를 필터를 함.
 * `callback` 함수 
   * `error` Error
-  * `cookies` [Cookie[]](structures/cookie.md) - an array of cookie objects.
+  * `cookies` [Cookie[]](structures/cookie.md) - cookie 오브젝트 배열.
 
-Sends a request to get all cookies matching `filter`, `callback` will be called with `callback(error, cookies)` on complete.
+`filter`, `callback`이 매칭되는 모든 cookies를 얻기 위한 요청이 완료되면, `callback(error, cookies)`이 호출된다.
 
 #### `cookies.set(details, callback)`
 
