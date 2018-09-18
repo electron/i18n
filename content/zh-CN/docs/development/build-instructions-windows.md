@@ -17,87 +17,27 @@
 
 **注意:** 即使 Visual Studio 不用于构建，但是仍然**需要**，因为我们需要它提供的构建工具链。
 
-## 获取代码
-
-```powershell
-$ git clone https://github.com/electron/electron.git
-```
-
-## 引导
-
-Bootstrap 脚本也是必须下载的构建依赖，来创建项目文件. 需要注意的是我们使用`ninja`创建 Electron，这样的话就不需要生成 Visual Studio 项目了。
-
-To bootstrap for a static, non-developer build, run:
-
-```powershell
-$ cd electron
-$ npm run bootstrap
-```
-
-Or to bootstrap for a development session that builds faster by not statically linking:
-
-```powershell
-$ cd electron
-$ npm run bootstrap:dev
-```
-
 ## 构建
 
-构建 `Release` 和 `Debug` 目标:
-
-```powershell
-$ npm run build
-```
-
-You can also build either the `Debug` or `Release` target on its own:
-
-```powershell
-$ npm run build:dev
-```
-
-```powershell
-$ npm run build:release
-```
-
-完成构建后，你可在 `out\D` (调试目标) 或者在`out\R`(发布版本)找到`electron.exe`。
+See [Build Instructions: GN](build-instructions-gn.md)
 
 ## 32 位构建
 
-要为32位目标构建，运行引导脚本时需要传递 `--target_arch = ia32`：
+To build for the 32bit target, you need to pass `target_cpu = "x86"` as a GN arg. You can build the 32bit target alongside the 64bit target by using a different output directory for GN, e.g. `out/Release-x86`, with different arguments.
 
 ```powershell
-$ python script\bootstrap.py -v --target_arch=ia32
+$ gn gen out/Release-x86 --args="import(\"//electron/build/args/release.gn\") target_cpu=\"x86\""
 ```
 
 其他构建步骤完全一样。
 
 ## Visual Studio 项目
 
-要生成 Visual Studio 项目，可以传递 `--msvs` 参数：
+To generate a Visual Studio project, you can pass the `--ide=vs2017` parameter to `gn gen`:
 
 ```powershell
-$ python script\bootstrap.py --msvs
+$ gn gen out/Debug --ide=vs2017
 ```
-
-## 清理
-
-清理构建文件:
-
-```powershell
-$ npm run clean
-```
-
-清理 `out` 和 `dist` 目录:
-
-```sh
-$ npm run clean-build
-```
-
-**注意:** 两个清理命令都需要在构建之前再次运行 `bootstrap`。
-
-## 测试
-
-查看 [构建系统概述: 测试](build-system-overview.md#tests)
 
 ## 故障排查
 
@@ -108,31 +48,6 @@ $ npm run clean-build
 ### Fatal internal compiler error: C1001
 
 确保你已经安装了 Visual Studio 的最新安装包.
-
-### Assertion failed: ((handle))->activecnt >= 0
-
-如果在 Cygwin 下构建的，你可能会看到 `bootstrap.py` 失败并且附带下面错误:
-
-```sh
-Assertion failed: ((handle))->activecnt >= 0, file src\win\pipe.c, line 1430
-
-Traceback (most recent call last):
-  File "script/bootstrap.py", line 87, in <module>
-    sys.exit(main())
-  File "script/bootstrap.py", line 22, in main
-    update_node_modules('.')
-  File "script/bootstrap.py", line 56, in update_node_modules
-    execute([NPM, 'install'])
-  File "/home/zcbenz/codes/raven/script/lib/util.py", line 118, in execute
-    raise e
-subprocess.CalledProcessError: Command '['npm.cmd', 'install']' returned non-zero exit status 3
-```
-
-这是由同时使用 Cygwin Python 和 Win32 Node 造成的 bug. 解决办法就是使用 Win32 Python 执行 bootstrap 脚本 (假定你已经在目录 `C:\Python27` 下安装了 Python):
-
-```powershell
-$ /cygdrive/c/Python27/python.exe script/bootstrap.py
-```
 
 ### LNK1181: cannot open input file 'kernel32.lib'
 
