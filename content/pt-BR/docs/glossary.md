@@ -26,7 +26,7 @@ Editor de Método de Entrada. Um programa que permite os usuários inserir carac
 
 ### IDL
 
-Interface description language. Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
+Linguagem de descrição da interface. Escreva assinaturas de funções e tipos de dados em um formato que pode ser usado para gerar interfaces em Java, C++, JavaScript, etc.
 
 ### IPC
 
@@ -54,13 +54,13 @@ Acrônimo para Mac App Store da Apple. Para obter detalhes sobre a apresentaçã
 
 ### Mojo
 
-An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.
+Um sistema IPC para a comunicação intra- ou inter-process (Entre Processos), e isso é importante porque o Chrome está interessado em ser capaz de dividir seu trabalho em processos separados ou de não dependência das pressões de memória, etc.
 
-See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
+Veja https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
 ### native modules
 
-Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used as if they were an ordinary Node.js module. Eles são usados principalmente para fornecer uma interface entre o JavaScript em execução em bibliotecas de Node.js e C/C++.
+Módulos nativos (também chamados [addons](https://nodejs.org/api/addons.html) em Node.Js) são módulos escritos em C ou C++ que pode ser carregado em Node.js ou Electron usando a função require() e fazer o uso de modo como se fossem um módulo comum de Node.js. Eles são usados principalmente para fornecer uma interface entre o JavaScript em execução em bibliotecas de Node.js e C/C++.
 
 Os módulos nativos do Node são suportados pelo Electron, mas considerando que o Electron provavelmente irá utilizar uma versão do V8 dos binários do Node instalados no seu sistema, você deve especificar manualmente a localização dos headers do Electron quando for copilar módulos nativos.
 
@@ -96,17 +96,17 @@ Squirrel é um framework de código aberto que permite que aplicativos de elétr
 
 ### userland
 
-This term originated in the Unix community, where "userland" or "userspace" referred to programs that run outside of the operating system kernel. More recently, the term has been popularized in the Node and npm community to distinguish between the features available in "Node core" versus packages published to the npm registry by the much larger "user" community.
+Este termo originou-se da comunidade Unix, onde "userland" ou "userspace" refere-se a programas que são executados fora da kernel do sistema operacional. Mais recentemente, o termo foi popularizado na comunidade Node e Npm para distinguir entre os recursos disponíveis em "Node core" de pacotes publicado no registro do Npm pela maior comunidade "user" (Usuários).
 
-Like Node, Electron is focused on having a small set of APIs that provide all the necessary primitives for developing multi-platform desktop applications. This design philosophy allows Electron to remain a flexible tool without being overly prescriptive about how it should be used. Userland enables users to create and share tools that provide additional functionality on top of what is available in "core".
+Como Node, o Electron é focado em ter um pequeno conjunto de APIs que fornecem todos os primitivos necessários para o desenvolvimento de aplicativos de multi-plataformas desktop. Esta filosofia do projeto permite que o Electron permaneça uma ferramenta flexível sem ser excesivamente prescritiva sobre como deve ser usado. Userland permite que os usuários criar e compartilhar ferramentas que fornecem funcionalidade adicional em cima do que é disponível no "Núcleo".
 
 ### V8
 
-V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
+V8 é o motor de JavaScript Open Source do Google. Ele está escrito em C++ e é usado no Google Chrome. V8 pode executar de modo autônomo, ou pode ser incorporado em qualquer aplicativo C++.
 
-Electron builds V8 as part of Chromium and then points Node to that V8 when building it.
+Electron forma o V8 como parte do Chromium e em seguida, aponta o Node ao V8 quando construindo.
 
-V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
+Os números de versão V8 sempre correspondem aos do Google Chrome. Chrome 59 inclui V8 5.9, cromo 58 inclui V8 5.8 e etc.
 
 - [developers.google.com/v8](https://developers.google.com/v8)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
@@ -114,4 +114,4 @@ V8's version numbers always correspond to those of Google Chrome. Chrome 59 incl
 
 ### webview
 
-`webview` tags are used to embed 'guest' content (such as external web pages) in your Electron app. They are similar to `iframe`s, but differ in that each webview runs in a separate process. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content.
+`webview` são tags são usadas para incorporar conteúdo 'convidado' (como páginas de web externas) seu aplicativo de Electron. Eles são semelhantes a `iframe`s, mas diferem em que cada WebView é executado em um processo separado. Ele não tem a mesma permissões como sua página web e todas as interações entre seu aplicativo e conteúdo incorporado será assíncrono. Isso mantém seu aplicativo seguro do conteúdo incorporado.
