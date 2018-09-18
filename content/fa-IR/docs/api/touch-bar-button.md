@@ -6,7 +6,7 @@ Process: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
 
 ### `new TouchBarButton(options)` *Experimental*
 
-* `options` Object 
+* `options` شئ 
   * `label` String (optional) - Button text.
   * `backgroundColor` String (optional) - Button background color in hex format, i.e `#ABCDEF`.
   * `icon` [NativeImage](native-image.md) (optional) - Button icon.
