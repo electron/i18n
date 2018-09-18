@@ -65,10 +65,18 @@ Ketika Elektron membaca dari file ASAR , log membaca mengimbangi dan jalankan fi
 
 Mencetak tumpukan jejak ke konsol saat Electron crash.
 
-Variabel lingkungan ini tidak akan bekerja jika  crashReporter </ 0> dimulai.</p>
+Variabel lingkungan ini tidak akan bekerja jika ` crashReporter </ 0> dimulai.</p>
 
 <h3><code> ELECTRON_DEFAULT_kesalahan_mode </ 0>  <em> jendela </ 1></h3>
 
 <p>Menunjukkan dialog crash Windows saat Electron crash.</p>
 
 <p>Variabel lingkungan ini tidak akan bekerja jika <code> crashReporter </ 0> dimulai.</p>
+
+<h3><code>ELECTRON_OVERRIDE_DIST_PATH`</h3> 
+
+When running from the `electron` package, this variable tells the `electron` command to use the specified build of Electron instead of the one downloaded by `npm install`. Usage:
+
+```sh
+export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/D
+```
