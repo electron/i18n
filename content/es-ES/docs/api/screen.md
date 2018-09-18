@@ -4,7 +4,7 @@
 
 Proceso: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-No puedes requerir o usar este módulo hasta que el evento `ready` de el módulo `app` sea emitido.
+No se puede solicitar o usar este módulo hasta que el evento `ready` del módulo `app` sea emitido.
 
 `screen` es un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -57,7 +57,7 @@ El módulo `screen` emite los siguientes eventos:
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `newDisplay` [Display](structures/display.md)
 
 Emitido cuando `newDisplay` ha sido añadido.
@@ -93,23 +93,23 @@ La actual y absoluta posición del cursor del mouse.
 
 ### `screen.getPrimaryDisplay()`
 
-Returns [`Display`](structures/display.md) - The primary display.
+Devuelve [`Display`](structures/display.md) - La muestra primaria.
 
 ### `screen.getAllDisplays()`
 
-Returns [`Display[]`](structures/display.md) - An array of displays that are currently available.
+Devuelve [`Display[]`](structures/display.md) - Un arreglo de muestras que son actualmente disponibles.
 
 ### `screen.getDisplayNearestPoint(point)`
 
 * `point` [Point](structures/point.md)
 
-Returns [`Display`](structures/display.md) - The display nearest the specified point.
+Devuelve [`Display`](structures/display.md) - La muestra más cerca del punto especificado.
 
 ### `screen.getDisplayMatching(rect)`
 
 * `rect` [Rectangle](structures/rectangle.md)
 
-Returns [`Display`](structures/display.md) - The display that most closely intersects the provided bounds.
+Devuelve [`Display`](structures/display.md) - La muestra que es más cercana intersecta a las bandas dadas.
 
 ### `screen.screenToDipPoint(point)` *Windows*
 
