@@ -4,7 +4,7 @@
 
 프로세스:[Main](../glossary.md#main-process)
 
-**You can find a detailed guide about how to implement updates into your application [here](../tutorial/updates.md).**
+**See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
 
 ## Platform Notices
 
@@ -54,7 +54,7 @@ Squirrel.Mac과 다르게, Windows는 S3 또는 다른 static file host에서 ho
 
 ### Event: 'update-downloaded'
 
-반환:
+Returns:
 
 * `event` Event
 * `releaseNotes` String
@@ -65,6 +65,12 @@ Squirrel.Mac과 다르게, Windows는 S3 또는 다른 static file host에서 ho
 업데이트의 다운로드가 완료되었을 때 발생하는 이벤트입니다.
 
 Windows에서는 `releaseName`만 사용이 가능합니다.
+
+### Event: 'before-quit-for-update'
+
+This event is emitted after a user calls `quitAndInstall()`.
+
+When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
 
 ## 메소드
 
