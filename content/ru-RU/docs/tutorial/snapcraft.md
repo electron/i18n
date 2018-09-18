@@ -26,11 +26,11 @@ The module works like [`electron-winstaller`](https://github.com/electron/window
 npm install --save-dev electron-installer-snap
 ```
 
-### Step 1: Package Your Electron Application
+### 1 Шаг: Упакуйте ваше приложение
 
 Package the application using [electron-packager](https://github.com/electron-userland/electron-packager) (or a similar tool). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
 
-The output should look roughly like this:
+Консольный вывод должен иметь примерный вид:
 
 ```text
 .
