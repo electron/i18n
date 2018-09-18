@@ -259,7 +259,7 @@ Emitted when a plugin process has crashed.
 
 Emitted when `webContents` is destroyed.
 
-#### Event: 'before-input-event'
+#### Событие: 'before-input-event'
 
 Возвращает:
 
@@ -398,7 +398,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
-#### Event: 'cursor-changed'
+#### Событие: 'cursor-changed'
 
 Возвращает:
 
@@ -413,7 +413,7 @@ Emitted when the cursor's type changes. The `type` parameter can be `default`, `
 
 If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a [`NativeImage`](native-image.md), and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
 
-#### Event: 'context-menu'
+#### Событие: 'context-menu'
 
 Возвращает:
 
@@ -455,7 +455,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 Emitted when there is a new context menu that needs to be handled.
 
-#### Event: 'select-bluetooth-device'
+#### Событие: 'select-bluetooth-device'
 
 Возвращает:
 
@@ -488,7 +488,7 @@ app.on('ready', () => {
 })
 ```
 
-#### Event: 'paint'
+#### Событие: 'paint'
 
 Возвращает:
 
@@ -508,11 +508,11 @@ win.webContents.on('paint', (event, dirty, image) => {
 win.loadURL('http://github.com')
 ```
 
-#### Event: 'devtools-reload-page'
+#### Событие: 'devtools-reload-page'
 
 Emitted when the devtools window instructs the webContents to reload
 
-#### Event: 'will-attach-webview'
+#### Событие: 'will-attach-webview'
 
 Возвращает:
 
@@ -541,7 +541,7 @@ Emitted when a `<webview>` has been attached to this web contents.
 
 * `event` Event
 * `level` Integer
-* `message` String
+* Строка `message`
 * `line` Integer
 * `sourceId` String
 
@@ -726,7 +726,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *Экспериментально*
 
 * `ignore` Логическое значение
 
@@ -910,7 +910,7 @@ Returns [`PrinterInfo[]`](structures/printer-info.md).
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
-* `callback` Function (optional) 
+* `callback` Function (опционально) 
   * `success` Boolean - Indicates success of the print call.
 
 Prints window's web page. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
@@ -1304,4 +1304,4 @@ A `WebContents` of DevTools for this `WebContents`.
 
 #### `contents.debugger`
 
-A [Debugger](debugger.md) instance for this webContents.
+Экземпляр [Отладчика](debugger.md) для webContents.
