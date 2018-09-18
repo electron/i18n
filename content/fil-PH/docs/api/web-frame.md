@@ -84,7 +84,7 @@ Resources will be loaded from this `scheme` regardless of the current page's Con
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
 * `scheme` na String
-* `pagpipilian` Bagay (opsyonal) 
+* `mga opsyon` Na Bagay (opsyonal) 
   * `secure` Boolean (optional) - Default true.
   * `bypassCSP` Boolean (optional) - Default true.
   * `allowServiceWorkers` Boolean (optional) - Default true.
@@ -102,9 +102,9 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 
 ### `webFrame.insertText(text)`
 
-* `text` String
+* `text` String 
 
-Ipasok ang `teksto` sa nakatutok na elemento.
+Pagsingit `text` para sa nakapukos na elemento.
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
@@ -152,7 +152,7 @@ Set the security origin of the isolated world.
 
 ### `webFrame.getResourceUsage()`
 
-Returns `Object`:
+Nagbabalik ng mga `bagay`:
 
 * `images` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `scripts` [MemoryUsageDetails](structures/memory-usage-details.md)
