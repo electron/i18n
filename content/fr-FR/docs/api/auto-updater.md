@@ -34,7 +34,7 @@ L'objet `autoUpdater` émet les événements suivants :
 
 ### Événement : 'error'
 
-Renvoie :
+Retourne :
 
 * `error` Error
 
@@ -74,7 +74,7 @@ When this API is called, the `before-quit` event is not emitted before all windo
 
 ## Méthodes
 
-The `autoUpdater` object has the following methods:
+L'objet `autoUpdater` dispose des méthodes suivantes :
 
 ### `autoUpdater.setFeedURL(options)`
 
@@ -83,20 +83,20 @@ The `autoUpdater` object has the following methods:
   * `headers` Objet (facultatif) *macOS* - en-têtes de requête HTTP.
   * `serverType` String (facultatif) *macOS* - Soit `json` ou `default`, voir le README [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) pour plus d’informations.
 
-Sets the `url` and initialize the auto updater.
+Définit l'`url` et initialise l'auto updater.
 
 ### `autoUpdater.getFeedURL()`
 
-Returns `String` - The current update feed URL.
+Retourne `String` - L'URL de flux des mises à jour.
 
 ### `autoUpdater.checkForUpdates()`
 
-Asks the server whether there is an update. You must call `setFeedURL` before using this API.
+Demande au serveur s’il y a une mise à jour. Vous devez appeler `setFeedURL` avant d’utiliser cette API.
 
 ### `autoUpdater.quitAndInstall()`
 
-Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
+Redémarre l'application et installe la mise à jour après qu'elle soit téléchargée. Cette méthode doit être appelé seulement après que `update-downloaded` soit émis.
 
-Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
+Derrière l'appel de `autoUpdater.quitAndInstall()` fermera toutes les applications windows en premier, appellera automatiquement `app.quit()` après que toutes les fenêtres aient été fermées.
 
-**Note:** If the application is quit without calling this API after the `update-downloaded` event has been emitted, the application will still be replaced by the updated one on the next run.
+**Remarque :** Si l’application est fermée sans que cette API soit appelée après que l’événement `update-downloaded` ait été émis, l’application sera toujours remplacée par celle mise à jour lors de la prochaine exécution.
