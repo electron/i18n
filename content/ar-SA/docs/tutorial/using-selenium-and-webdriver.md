@@ -4,9 +4,9 @@ From [ChromeDriver - WebDriver for Chrome](https://sites.google.com/a/chromium.o
 
 > WebDriver is an open source tool for automated testing of web apps across many browsers. It provides capabilities for navigating to web pages, user input, JavaScript execution, and more. ChromeDriver is a standalone server which implements WebDriver's wire protocol for Chromium. It is being developed by members of the Chromium and WebDriver teams.
 
-## Setting up Spectron
+## وضع Spectron
 
-[Spectron](https://electronjs.org/spectron) is the officially supported ChromeDriver testing framework for Electron. It is built on top of [WebdriverIO](http://webdriver.io/) and has helpers to access Electron APIs in your tests and bundles ChromeDriver.
+</> Spectron </ 0> هو إطار اختبار ChromeDriver المدعوم رسميًا للإلكترون. It is built on top of [WebdriverIO](http://webdriver.io/) and has helpers to access Electron APIs in your tests and bundles ChromeDriver.
 
 ```sh
 $ npm install --save-dev spectron
@@ -26,13 +26,13 @@ app.start().then(function () {
   return app.browserWindow.isVisible()
 }).then(function (isVisible) {
   // Verify the window is visible
-  assert.equal(isVisible, true)
+  assert.strictEqual(isVisible, true)
 }).then(function () {
   // Get the window's title
   return app.client.getTitle()
 }).then(function (title) {
   // Verify the window's title
-  assert.equal(title, 'My App')
+  assert.strictEqual(title, 'My App')
 }).catch(function (error) {
   // Log any failures
   console.error('Test failed', error.message)
@@ -125,12 +125,12 @@ $ npm install webdriverio
 const webdriverio = require('webdriverio')
 const options = {
   host: 'localhost', // Use localhost as chrome driver server
-  port: 9515,        // "9515" is the port opened by chrome driver.
+  port: 9515, // "9515" is the port opened by chrome driver.
   desiredCapabilities: {
     browserName: 'chrome',
     chromeOptions: {
       binary: '/Path-to-Your-App/electron', // Path to your Electron binary.
-      args: [/* cli arguments */]           // Optional, perhaps 'app=' + /path/to/your/app/
+      args: [/* cli arguments */] // Optional, perhaps 'app=' + /path/to/your/app/
     }
   }
 }
