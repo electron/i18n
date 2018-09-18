@@ -2,7 +2,7 @@
 
 > Создает метку на тач-панели, для найтивного macOS-приложения
 
-Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+Процесс: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new TouchBarLabel(options)` *Экспериментально*
 
