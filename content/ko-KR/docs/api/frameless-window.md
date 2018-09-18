@@ -74,7 +74,7 @@ win.show()
 
 ## 클릭을 통과하는 윈도우
 
-To create a click-through window, i.e. making the window ignore all mouse events, you can call the [win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore) API:
+To create a click-through window, i.e. making the window ignore all mouse events, you can call the [win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore-options) API:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -120,7 +120,7 @@ button {
 }
 ```
 
-If you're setting just a custom titlebar as draggable, you also need to make all buttons in titlebar non-draggable.
+If you're only setting a custom titlebar as draggable, you also need to make all buttons in titlebar non-draggable.
 
 ## 텍스트 선택
 
