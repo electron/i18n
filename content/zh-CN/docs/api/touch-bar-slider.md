@@ -6,7 +6,7 @@ Process: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
 
 ### `new TouchBarSlider(options)` *实验功能*
 
-* `选项` 对象 
+* `参数` 对象 
   * `label` String (可选) - 标签文本.
   * `value` Integer (可选) - 选中值.
   * ` minValue ` Integer (可选) - 最小值.
