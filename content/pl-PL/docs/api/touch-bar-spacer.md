@@ -6,7 +6,7 @@ Process: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
 
 ### `new TouchBarSpacer(options)` *Eksperymentalne*
 
-* `options` Object 
+* `opcje` Object 
   * `size` String (optional) - Size of spacer, possible values are: 
     * `small` - Small space between items.
     * `large` - Large space between items.
