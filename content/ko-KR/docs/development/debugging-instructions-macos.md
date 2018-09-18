@@ -13,9 +13,9 @@
 디버깅 작업을 시작하려면, Terminal 을 열고 디버그 빌드 상태의 Electron 을 전달하여 `lldb` 를 시작합니다.
 
 ```sh
-$ lldb ./out/D/Electron.app
-(lldb) target create "./out/D/Electron.app"
-Current executable set to './out/D/Electron.app' (x86_64).
+$ lldb ./out/Debug/Electron.app
+(lldb) target create "./out/Debug/Electron.app"
+Current executable set to './out/Debug/Electron.app' (x86_64).
 ```
 
 ### 중단점 설정
@@ -41,17 +41,17 @@ Electron 이 시작시에 앱의 이름을 설정하기때문에, 앱은 즉시 
 
 ```sh
 (lldb) run
-Process 25244 launched: '/Users/fr/Code/electron/out/D/Electron.app/Contents/MacOS/Electron' (x86_64)
+Process 25244 launched: '/Users/fr/Code/electron/out/Debug/Electron.app/Contents/MacOS/Electron' (x86_64)
 Process 25244 stopped
 * thread #1: tid = 0x839a4c, 0x0000000100162db4 Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 20 at browser.cc:118, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
     frame #0: 0x0000000100162db4 Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 20 at browser.cc:118
-   115 	}
+   115  }
    116
-   117 	void Browser::SetName(const std::string& name) {
--> 118 	  name_override_ = name;
-   119 	}
+   117  void Browser::SetName(const std::string& name) {
+-> 118    name_override_ = name;
+   119  }
    120
-   121 	int Browser::GetBadgeCount() {
+   121  int Browser::GetBadgeCount() {
 (lldb)
 ```
 
