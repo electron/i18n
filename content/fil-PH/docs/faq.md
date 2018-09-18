@@ -54,7 +54,7 @@ Kung nakatagpo ka ng problemang ito, maaaring makatulong ang mga sumusunod na ar
 Kung gusto mo ng isang mabilis na ayusin, maaari mong gawin ang mga variable global sa pamamagitan ng pagpapalit ng iyong code mula dito:
 
 ```javascript
-const {app, Tray} =kailangan ('electron')
+const { app, Tray } =kailangan ('electron')
 app.on('ready', () => {
   const tray = new Tray('/path/to/icon.png')
   tray.setTitle('hello world')
@@ -64,7 +64,7 @@ app.on('ready', () => {
 sa ganito:
 
 ```javascript
-const {app, Tray} = kailangan('electron')
+const { app, Tray } = kailangan('electron')
 hayaan ang tray = wala
 app.on('ready', () => {
   tray = new Tray('/path/to/icon.png')
@@ -80,7 +80,7 @@ Upang malutas ito, maaari mong i-off ang pagsasama ng node sa Electron:
 
 ```javascript
 // Sa pangunahing proseso. 
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
     nodeIntegration: false
