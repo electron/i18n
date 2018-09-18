@@ -16,4 +16,4 @@ Afin que les boutons dans les notifications fonctionnent sur macOS, votre applic
 * L'application est signée
 * L'application a `NSUserNotificationAlertStyle` défini à `alert` dans le `info.plist`.
 
-Si l'une de ces exigences n'est pas remplie, alors le bouton n'apparaîtra pas tout simplement.
+If either of these requirements are not met the button won't appear.
