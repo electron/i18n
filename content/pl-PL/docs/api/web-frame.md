@@ -56,8 +56,8 @@ Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
 
 * `language` String
 * `autoCorrectWord` Boolean
-* `provider` Obiekt 
-  * `spellCheck` Function - Returns `Logiczny typ danych`. 
+* `provider` Object 
+  * `spellCheck` Function - Returns `Boolean`. 
     * `text` String
 
 Sets a provider for spell checking in input fields and text areas.
@@ -84,7 +84,7 @@ Resources will be loaded from this `scheme` regardless of the current page's Con
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
 * `schemat` String
-* `options` Obiekt (opcjonalne) 
+* `opcje` Obiekt (opcjonalne) 
   * `secure` Boolean (optional) - Default true.
   * `bypassCSP` Boolean (optional) - Default true.
   * `allowServiceWorkers` Boolean (optional) - Default true.
@@ -168,7 +168,7 @@ const {webFrame} = require('electron')
 console.log(webFrame.getResourceUsage())
 ```
 
-This will generate:
+To wygeneruje:
 
 ```javascript
 {
