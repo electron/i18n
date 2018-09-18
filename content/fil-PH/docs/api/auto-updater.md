@@ -74,7 +74,7 @@ When this API is called, the `before-quit` event is not emitted before all windo
 
 ## Pamamaraan
 
-The `autoUpdater` object has the following methods:
+Ang `autoUpdater` na gamit ay mayroong ibat-ibang pamamaraan:
 
 ### `autoUpdater.setFeedURL(options)`
 
@@ -83,19 +83,19 @@ The `autoUpdater` object has the following methods:
   * `headers` Object (optional) *macOS* - HTTP request headers.
   * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
-Sets the `url` and initialize the auto updater.
+Tinatakda ang `url` at nagpapasimula ng auto-updater.
 
 ### `autoUpdater.getFeedURL()`
 
-Returns `String` - The current update feed URL.
+Bumalik `String` - Ang kasalukuyang update feed URL.
 
 ### `autoUpdater.checkForUpdates()`
 
-Asks the server whether there is an update. You must call `setFeedURL` before using this API.
+Itanong sa server kung merong bago. Kaylangan mong tumawag `setFeedURL` bago gamitin itong API.
 
 ### `autoUpdater.quitAndInstall()`
 
-Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
+Uulitin ang app at iinstall ang mga update pagkatapos itong ma download. Ito ay dapat lamang tawagin pagkatapos ng `update-downloaded` ay lumabas na.
 
 Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
 
