@@ -50,7 +50,7 @@ Generally, the `template` is an array of `options` for constructing a [MenuItem]
 
 Anda juga bisa melampirkan bidang lain ke elemen `template` dan mereka akan menjadi properti dari item menu yang dibangun.
 
-### Metode Instance
+### Metode Contoh
 
 The `menu` object has the following instance methods:
 
@@ -90,7 +90,7 @@ Returns `MenuItem` the item with the specified `id`
 
 Sisipkan `menuItem` ke posisi `pos` pada menu.
 
-### Contoh peristiwa
+### Perihal contoh
 
 Objects created with `new Menu` emit the following events:
 
