@@ -60,7 +60,7 @@ If you want to keep exact same behaviors on all platforms, you should not rely o
 
 Tworzy nową ikonę skojarzoną z `image`.
 
-### Wydarzenia instancji
+### Zdarzenia instancji
 
 Moduł `Tray` emituje następujące zdarzenia:
 
@@ -247,12 +247,12 @@ Returns `Boolean` - Whether double click events will be ignored.
 
 #### `tray.displayBalloon(options)` *Windows*
 
-* `options` Object 
+* `opcje` Object 
   * `icon` ([NativeImage](native-image.md) | String) (optional) -
   * `title` String
   * `content` String
 
-Displays a tray balloon.
+Wyświetla dymek w zasobniku systemowym.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
