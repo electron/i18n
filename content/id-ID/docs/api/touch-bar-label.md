@@ -2,15 +2,15 @@
 
 > Buat label di bilah sentuh untuk aplikasi macOS asli
 
-Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+Proses: [utama](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `TouchBarLabel baru (pilihan)` *Eksperimental*
 
-* `pilihan` Sasaran 
+* `pilihan` Benda 
   * `label` String (opsional) - Teks untuk ditampilkan.
   * `textColor` String (opsional) - Hex warna teks, i.e `#ABCDEF`.
 
-### Instance Properties
+### Contoh properti
 
 Properti berikut tersedia pada contoh `TouchBarLabel`:
 
