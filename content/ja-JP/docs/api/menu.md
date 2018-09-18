@@ -281,7 +281,7 @@ By default, items will be inserted in the order they exist in the template unles
 
 ### サンプル
 
-Template:
+テンプレート:
 
 ```javascript
 [
@@ -301,7 +301,7 @@ Menu:
 - 4
 ```
 
-Template:
+テンプレート:
 
 ```javascript
 [
@@ -325,7 +325,7 @@ Menu:
 - 2
 ```
 
-Template:
+テンプレート:
 
 ```javascript
 [
