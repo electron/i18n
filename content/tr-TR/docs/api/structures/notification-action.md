@@ -16,4 +16,4 @@ Ek bildirim düğmelerinin macOS'ta çalışabilmesi için uygulamanızın aşa�
 * İmzalı uygulama
 * App has it's `NSUserNotificationAlertStyle` set to `alert` in the `Info.plist`.
 
-Bu gerekliliklerden herhangi biri karşılanmazsa düğme görünmez.
+If either of these requirements are not met the button won't appear.
