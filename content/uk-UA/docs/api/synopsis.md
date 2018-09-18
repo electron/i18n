@@ -34,7 +34,7 @@ app.on('ready', () => {
 </html>
 ```
 
-To run your app, read [Run your app](../tutorial/first-app.md#running-your-app).
+Для того, щоб запустити ваш додаток, прочитайте [Запуск додатка](../tutorial/first-app.md#running-your-app).
 
 ## Призначення деструктуризації
 
