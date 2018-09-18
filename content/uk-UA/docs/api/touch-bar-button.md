@@ -2,7 +2,7 @@
 
 > Створює кнопку на Touch Bar для нативних macOS додатків
 
-Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+Процес: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new TouchBarButton(options)` *Експериментальний*
 
@@ -13,7 +13,7 @@ Process: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
   * `iconPosition` String (необов'язково) - Може бути `left`, `right` або `overlay`.
   * `click` Function (необов'язково) - Функція для виклику, коли кнопка натискається.
 
-### Instance Properties
+### Властивості Екземпляра
 
 Наступні властивості доступні в екземплярах `TouchBarButton`:
 
