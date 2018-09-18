@@ -219,34 +219,34 @@ Menyetel teks hover untuk ikon baki ini.
   
   #### `tray.displayBalloon(options)` *Windows*
   
-  * `pilihan` Sasaran 
-    * `icon` ([NativeImage](native-image.md) | String) (optional) -
-    * ` judul</ 0>  String</li>
+  * `pilihan` Obyek 
+    * `ikon` ([NativeImage](native-image.md) | String) (opsional) -
+    * ` judul </ 0> String</li>
 <li><code>content` String
   
-  Displays a tray balloon.
+  Menampilkan balon baki.
   
   #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
   
-  * `menu` Menu (optional)
-  * `position` [Point](structures/point.md) (optional) - The pop up position.
+  * ` teks ` String (opsional)
+  * `posisi` [Titik](structures/point.md) (opsional) - Posisi pop up.
   
-  Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
+  Punculkan menu konteks ikon baki. Saat `menu` dilewati, menu `` akan ditampilkan, bukan menu konteks baki ikon.
   
-  The `position` is only available on Windows, and it is (0, 0) by default.
+  Posisi `` hanya tersedia di Windows, dan ini adalah (0, 0) secara default.
   
-  #### `tray.setContextMenu(menu)`
+  #### `tray.setContextMenu (menu)`
   
   * `menu` Menu | batal
   
-  Sets the context menu for this icon.
+  Menetapkan menu konteks untuk ikon ini.
   
-  #### `tray.getBounds()` *macOS* *Windows*
+  #### `tray.getBounds()` *macOS * * Windows*
   
   Kembali [`Rectangle`](structures/rectangle.md)
   
-  The `bounds` of this tray icon as `Object`.
+  `Batas` dari ikon baki ini sebagai `Objek`.
   
   #### `tray.isDestroyed()`
   
-  Returns `Boolean` - Whether the tray icon is destroyed.
+  Mengembalikan `Boolean` - Apakah ikon baki rusak.
