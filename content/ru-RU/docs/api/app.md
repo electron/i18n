@@ -21,7 +21,7 @@ app.on('window-all-closed', () => {
 
 Происходит когда приложение заканчивает основной запуск. На Windows и Linux событие `will-finish-launching` подобно событию `ready`; на macOS это событие представляет собой уведомление `applicationWillFinishLaunching` объекта `NSApplication`. Обычно настраивают слушателей для `open-file` и `open-url` событий, и запускают репортер сбоев и автообновления.
 
-В большинстве случаев вы просто должны сделать все в обработчике событий `ready`.
+In most cases, you should do everything in the `ready` event handler.
 
 ### Событие: 'ready'
 
@@ -320,6 +320,18 @@ app.on('session-created', (event, session) => {
 })
 ```
 
+### Event: 'second-instance'
+
+Возвращает:
+
+* `event` Event
+* `argv` String [] - массив аргументов командной строки вторичных экземпляров
+* `workingDirectory` String - рабочий каталог вторичных экземпляров
+
+This event will be emitted inside the primary instance of your application when a second instance has been executed. `argv` является массивом аргументов командной строки вторичных экземпляров, а `workingDirectory` является его текущим рабочим каталогом. Обычно приложения реагируют на это, делая их основное окно сфокусированным и не свернутым.
+
+This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
+
 ## Методы
 
 Объект `app` имеет следующие методы:
@@ -366,6 +378,10 @@ app.exit(0)
 ### `app.isReady()`
 
 Возвращает `Boolean` - `true,` если Electron завершил инициализацию, `false` в противном случае.
+
+### `app.whenReady()`
+
+Returns `Promise` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
 
 ### `app.focus()`
 
@@ -505,7 +521,7 @@ API использует внутренний реестр Windows и LSSetDefau
 
 Этот метод проверяет, является ли текущий исполняемый файл, как обработчик протокола по умолчанию (так называемая схема URI). Если является, то убирает приложение, как обработчик по умолчанию.
 
-### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
+### `app.isDefaultProtocolClient(protocol[, path, args])`
 
 * `protocol` String - имя вашего протокола, без `://`.
 * `path` String (optional) *Windows* - по умолчанию `process.execPath`
@@ -616,21 +632,15 @@ app.setJumpList([
 ])
 ```
 
-### `app.makeSingleInstance(callback)`
+### `app.requestSingleInstanceLock()`
 
-* `callback` Function 
-  * `argv` String [] - массив аргументов командной строки вторичных экземпляров
-  * `workingDirectory` String - рабочий каталог вторичных экземпляров
-
-Возвращает `Boolean`.
+Возвращает `Boolean`
 
 Этот метод делает ваше приложение одним экземпляром приложения, и не позволяет запускать несколько экземпляров вашего приложения, это гарантирует, что только один экземпляр вашего приложения запущен, а другие экземпляры сигнализируют об этом и завершаются.
 
-`callback` будет вызван первым экземпляром из `callback(argv, workingDirectory)`, когда второй экземпляр выполнен. `argv` является массивом аргументов командной строки вторичных экземпляров, а `workingDirectory` является его текущим рабочим каталогом. Обычно приложения реагируют на это, делая их основное окно сфокусированным и не свернутым.
+The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock you can assume that another instance of your application is already running with the lock and exit immediately.
 
-`callback` гарантированно выполняется после события `ready` получаемое из `app`.
-
-Этот метод возвращает `false`, если Ваш процесс является основным экземпляром приложения и Вашему приложению следует продолжить загрузку. И возвращает `true`, если Ваш процесс направил свои параметры в другой экземпляр, и вы должны немедленно выйти.
+I.e. This method returns `true` if your process is the primary instance of your application and your app should continue loading. It returns `false` if your process should immediately quit as it has sent its parameters to another instance that has already acquired the lock.
 
 На macOS система обеспечивает один экземпляр автоматически, когда пользователи пытаются открыть второй экземпляр приложения в Finder, для этого будут выделяться события `open-file` и `open-url`. Однако при запуске Вашего приложения в командной строке, системный механизм одного экземпляра будет обойден, и Вы должны использовать этот метод для обеспечения одного экземпляра.
 
@@ -640,26 +650,34 @@ app.setJumpList([
 const {app} = require('electron')
 let myWindow = null
 
-const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
-// Кто-то пытался запустить второй экземпляр, мы должны сфокусироваться на нашем окне.
-  if (myWindow) {
-    if (myWindow.isMinimized()) myWindow.restore()
-    myWindow.focus()
-  }
-})
+const gotTheLock = app.requestSingleInstanceLock()
 
-if (isSecondInstance) {
+if (!gotTheLock) {
   app.quit()
-}
+} else {
+  app.on('second-instance', (commandLine, workingDirectory) => {
+    // Someone tried to run a second instance, we should focus our window.
+    if (myWindow) {
+      if (myWindow.isMinimized()) myWindow.restore()
+      myWindow.focus()
+    }
+  })
 
-// Создать myWindow, загрузить rest из app, etc...
-app.on('ready', () => {
-})
+  // Create myWindow, load the rest of the app, etc...
+  app.on('ready', () => {
+  })
+}
 ```
 
-### `app.releaseSingleInstance()`
+### `app.hasSingleInstanceLock()`
 
-Освобождает все блокировки, которые были созданы `makeSingleInstance`. Это позволит нескольким экземплярам приложения снова работать бок о бок.
+Возвращает `Boolean`
+
+This method returns whether or not this instance of your app is currently holding the single instance lock. You can request the lock with `app.requestSingleInstanceLock()` and release with `app.releaseSingleInstanceLock()`
+
+### `app.releaseSingleInstanceLock()`
+
+Releases all locks that were created by `requestSingleInstanceLock`. This will allow multiple instances of the application to once again run side by side.
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
@@ -732,7 +750,7 @@ app.on('ready', () => {
 
 В macOS показывает на значке в dock. На Linux это работает только для Unity.
 
-**Примечание:** Unity требует существования файла `.desktop` для работы, для получения дополнительной информации, пожалуйста, прочитайте [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
+**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
@@ -906,10 +924,16 @@ stopAccessingSecurityScopedResource()
 
 * `menu` [Menu](menu.md)
 
-Задает приложению [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103).
+Sets the application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
 
 ### `app.dock.setIcon(image)` *macOS*
 
 * `image` ([NativeImage](native-image.md) | String)
 
 Задает `image`, связывает со значком в dock.
+
+## Свойства
+
+### `app.isPackaged`
+
+A `Boolean` property that returns `true` if the app is packaged, `false` otherwise. For many apps, this property can be used to distinguish development and production environments.
