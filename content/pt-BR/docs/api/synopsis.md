@@ -34,7 +34,7 @@ O processo de renderização não é diferente de uma página web normal, com ex
 </html>
 ```
 
-To run your app, read [Run your app](../tutorial/first-app.md#running-your-app).
+Para executar o seu aplicativo, leia [executar seu aplicativo](../tutorial/first-app.md#running-your-app).
 
 ## Atribuição de desestruturação
 
