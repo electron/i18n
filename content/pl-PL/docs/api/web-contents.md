@@ -45,7 +45,7 @@ Returns `WebContents` - A WebContents instance with the given ID.
 
 Proces: [Main](../glossary.md#main-process)
 
-### Wydarzenia instancji
+### Zdarzenia instancji
 
 #### Zdarzenie: 'did-finish-load'
 
@@ -259,7 +259,7 @@ Emitted when a plugin process has crashed.
 
 Emitted when `webContents` is destroyed.
 
-#### Event: 'before-input-event'
+#### Zdarzenie: 'before-input-event'
 
 Zwraca:
 
@@ -336,11 +336,11 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 Zwraca:
 
 * `event` Event
-* `żądanie` Obiekt 
+* `żądanie` Object 
   * `method` String
   * `url` URL
   * `referrer` URL
-* `authInfo` Obiekt 
+* `authInfo` Object 
   * `isProxy` Boolean
   * `schemat` String
   * `host` String
@@ -359,7 +359,7 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 Zwraca:
 
 * `event` Event
-* `wynik` Obiekt 
+* `wynik` Object 
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
   * `matches` Integer - Number of Matches.
@@ -398,7 +398,7 @@ Zwraca:
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
-#### Event: 'cursor-changed'
+#### Zdarzenie: 'cursor-changed'
 
 Zwraca:
 
@@ -413,12 +413,12 @@ Emitted when the cursor's type changes. The `type` parameter can be `default`, `
 
 If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a [`NativeImage`](native-image.md), and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
 
-#### Event: 'context-menu'
+#### Zdarzenie: 'context-menu'
 
 Zwraca:
 
 * `event` Event
-* `params` Obiekt 
+* `params` Object 
   * `x` Integer - x coordinate.
   * `y` Integer - y coordinate.
   * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
@@ -455,13 +455,13 @@ Zwraca:
 
 Emitted when there is a new context menu that needs to be handled.
 
-#### Event: 'select-bluetooth-device'
+#### Zdarzenie: 'select-bluetooth-device'
 
 Zwraca:
 
 * `event` Event
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
-* `callback` Function 
+* `callback` Funkcja 
   * `deviceId` String
 
 Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
@@ -488,7 +488,7 @@ app.on('ready', () => {
 })
 ```
 
-#### Event: 'paint'
+#### Zdarzenie: 'paint'
 
 Zwraca:
 
@@ -508,11 +508,11 @@ win.webContents.on('paint', (event, dirty, image) => {
 win.loadURL('http://github.com')
 ```
 
-#### Event: 'devtools-reload-page'
+#### Zdarzenie: 'devtools-reload-page'
 
 Emitted when the devtools window instructs the webContents to reload
 
-#### Event: 'will-attach-webview'
+#### Zdarzenie: 'will-attach-webview'
 
 Zwraca:
 
@@ -526,7 +526,7 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 **Note:** The specified `preload` script option will be appear as `preloadURL` (not `preload`) in the `webPreferences` object emitted with this event.
 
-#### Event: 'did-attach-webview'
+#### Zdarzenie: 'did-attach-webview'
 
 Zwraca:
 
@@ -535,7 +535,7 @@ Zwraca:
 
 Emitted when a `<webview>` has been attached to this web contents.
 
-#### Event: 'console-message'
+#### Zdarzenie: 'console-message'
 
 Zwraca:
 
@@ -552,7 +552,7 @@ Emitted when the associated window logs a console message. Will not be emitted f
 #### `contents.loadURL(url[, options])`
 
 * `url` String
-* `options` Obiekt (opcjonalne) 
+* `opcje` Obiekt (opcjonalne) 
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n".
@@ -644,7 +644,7 @@ Reloads the current web page.
 
 #### `contents.reloadIgnoringCache()`
 
-Reloads current page and ignores cache.
+Przeładowuje obecną stronę i ignoruje cache.
 
 #### `contents.canGoBack()`
 
@@ -726,7 +726,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *Eksperymentalny*
 
 * `ignore` Boolean
 
@@ -736,7 +736,7 @@ Ignore application menu shortcuts while this web contents is focused.
 
 * `muted` Boolean
 
-Mute the audio on the current web page.
+Wycisza audio na obecnej stronie internetowej.
 
 #### `contents.isAudioMuted()`
 
@@ -750,7 +750,7 @@ Changes the zoom factor to the specified factor. Zoom factor is zoom percent div
 
 #### `contents.getZoomFactor(callback)`
 
-* `callback` Function 
+* `callback` Funkcja 
   * `zoomFactor` Number
 
 Sends a request to get current zoom factor, the `callback` will be called with `callback(zoomFactor)`.
@@ -763,7 +763,7 @@ Changes the zoom level to the specified level. The original size is 0 and each i
 
 #### `contents.getZoomLevel(callback)`
 
-* `callback` Function 
+* `callback` Funkcja 
   * `zoomLevel` Number
 
 Sends a request to get current zoom level, the `callback` will be called with `callback(zoomLevel)`.
@@ -846,7 +846,7 @@ Inserts `text` to the focused element.
 #### `contents.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `options` Obiekt (opcjonalne) 
+* `opcje` Obiekt (opcjonalne) 
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -879,21 +879,21 @@ console.log(requestId)
 #### `contents.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
-* `callback` Function 
+* `callback` Funkcja 
   * `image` [NativeImage](native-image.md)
 
 Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
 
 #### `contents.hasServiceWorker(callback)`
 
-* `callback` Function 
+* `callback` Funkcja 
   * `hasWorker` Boolean
 
 Checks if any ServiceWorker is registered and returns a boolean as response to `callback`.
 
 #### `contents.unregisterServiceWorker(callback)`
 
-* `callback` Function 
+* `callback` Funkcja 
   * `success` Boolean
 
 Unregisters any ServiceWorker if present and returns a boolean as response to `callback` when the JS promise is fulfilled or false when the JS promise is rejected.
@@ -906,7 +906,7 @@ Returns [`PrinterInfo[]`](structures/printer-info.md).
 
 #### `contents.print([options], [callback])`
 
-* `options` Obiekt (opcjonalne) 
+* `opcje` Obiekt (opcjonalne) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
@@ -921,13 +921,13 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
 
 #### `contents.printToPDF(options, callback)`
 
-* `options` Obiekt 
+* `opcje` Object 
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
-* `callback` Function 
+* `callback` Funkcja 
   * `error` Error
   * `data` Buffer
 
@@ -1050,7 +1050,7 @@ app.once('ready', () => {
 
 #### `contents.openDevTools([options])`
 
-* `options` Obiekt (opcjonalne) 
+* `opcje` Obiekt (opcjonalne) 
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
 
 Opens the devtools.
@@ -1124,7 +1124,7 @@ app.on('ready', () => {
 
 #### `contents.enableDeviceEmulation(parameters)`
 
-* `parametry` Obiekt 
+* `parametry` Object 
   * `screenPosition` String - Specify the screen type to emulate (default: `desktop`): 
     * `desktop` - Desktop screen type.
     * `mobile` - Mobile screen type.
@@ -1142,7 +1142,7 @@ Disable device emulation enabled by `webContents.enableDeviceEmulation`.
 
 #### `contents.sendInputEvent(event)`
 
-* `wydarzenie` Obiekt 
+* `wydarzenie` Object 
   * `type` String (**required**) - The type of the event, can be `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel`, `mouseMove`, `keyDown`, `keyUp` or `char`.
   * `modifiers` String[] - An array of modifiers of the event, can include `shift`, `control`, `alt`, `meta`, `isKeypad`, `isAutoRepeat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsLock`, `numLock`, `left`, `right`.
 
@@ -1177,7 +1177,7 @@ For the `mouseWheel` event, the `event` object also have following properties:
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
 * `onlyDirty` Boolean (optional) - Defaults to `false`.
-* `callback` Function 
+* `callback` Funkcja 
   * `image` [NativeImage](native-image.md)
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
@@ -1193,7 +1193,7 @@ End subscribing for frame presentation events.
 
 #### `contents.startDrag(item)`
 
-* `produkt` Obiekt 
+* `produkt` Object 
   * `file` String or `files` Array - The path(s) to the file(s) being dragged.
   * `icon` [NativeImage](native-image.md) - The image must be non-empty on macOS.
 
@@ -1206,7 +1206,7 @@ Sets the `item` as dragging item for current drag-drop operation, `file` is the 
   * `HTMLOnly` - Save only the HTML of the page.
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
-* `callback` Function - `(error) => {}`. 
+* `callback` Funkcja - `(error) => {}`. 
   * `error` Error
 
 Returns `Boolean` - true if the process of saving page has been initiated successfully.
@@ -1266,9 +1266,9 @@ Returns `String` - Returns the WebRTC IP Handling Policy.
 
 #### `contents.setWebRTCIPHandlingPolicy(policy)`
 
-* `policy` String - Specify the WebRTC IP Handling Policy. 
+* `polityka` String - Specify the WebRTC IP Handling Policy. 
   * `default` - Exposes user's public and local IPs. This is the default behavior. When this policy is used, WebRTC has the right to enumerate all interfaces and bind them to discover public interfaces.
-  * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. When this policy is used, WebRTC should only use the default route used by http. This doesn't expose any local addresses.
+  * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. When this policy is used, WebRTC should only use the default route used by http. To nie odkrywa żadnych lokalnych adresów.
   * `default_public_and_private_interfaces` - Exposes user's public and local IPs. When this policy is used, WebRTC should only use the default route used by http. This also exposes the associated default private address. Default route is the route chosen by the OS on a multi-homed endpoint.
   * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
 
