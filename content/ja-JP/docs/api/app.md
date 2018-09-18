@@ -860,65 +860,65 @@ Chromiumのコマンドラインに引数を追加します。引数は正しく
 
 ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
 
-Enables mixed sandbox mode on the app.
+アプリで混在サンドボックスモードを有効にします。
 
 このメソッドはアプリが ready になる前だけでしか呼び出すことができません。
 
 ### `app.isInApplicationsFolder()` *macOS*
 
-Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
+戻り値 `Boolean` - アプリケーションが現在、システムのアプリケーションフォルダから実行されているかどうか。`app.moveToApplicationsFolder()` と組み合わせて使ってください。
 
 ### `app.moveToApplicationsFolder()` *macOS*
 
-Returns `Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.
+戻り値 `Boolean` - 移動が成功したかどうか。 移動が成功した場合、アプリケーションは終了し、再起動されることに注意してください。
 
-No confirmation dialog will be presented by default, if you wish to allow the user to confirm the operation you may do so using the [`dialog`](dialog.md) API.
+既定では、確認ダイアログは表示されません。ユーザに操作の確認をさせたい場合は、[`dialog`](dialog.md) APIを使うと実現できます。
 
-**NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog this method returns false. If we fail to perform the copy then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
+**注:** このメソッドはユーザ以外が移動の失敗を引き起こした場合にもエラーをスローします。 例えば、ユーザが承認ダイアログをキャンセルした場合、このメソッドは false を返します。 コピーの実行に失敗した場合、このメソッドはエラーをスローします。 エラーのメッセージは意味の分かるものにする必要があり、何が間違っているのかを正確に知らせるようにしてください。
 
 ### `app.dock.bounce([type])` *macOS*
 
 * `type` String (任意) - `critical` もしくは `informational`。省略値は `informational` です。
 
-When `critical` is passed, the dock icon will bounce until either the application becomes active or the request is canceled.
+`critical` が渡された場合、ドックのアイコンはアプリケーションがアクティブになるか、リクエストがキャンセルされるまでバウンスします。
 
-When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
+`informational` が渡された場合、ドックのアイコンが1秒間、バウンスします。ただし、アプリケーションがアクティブになるか、リクエストがキャンセルされるまでリクエストはアクティブなままです。
 
-Returns `Integer` an ID representing the request.
+戻り値 `Integer` - このリクエストを表すID。
 
 ### `app.dock.cancelBounce(id)` *macOS*
 
 * `id` Integer
 
-Cancel the bounce of `id`.
+`id` のバウンスをキャンセルします。
 
 ### `app.dock.downloadFinished(filePath)` *macOS*
 
 * `filePath` String
 
-Bounces the Downloads stack if the filePath is inside the Downloads folder.
+filePath がダウンロードフォルダの中の場合、ダウンロードのスタックをバウンスさせます。
 
 ### `app.dock.setBadge(text)` *macOS*
 
 * `text` String
 
-Sets the string to be displayed in the dock’s badging area.
+ドックのバッジ領域に表示される文字列を設定します。
 
 ### `app.dock.getBadge()` *macOS*
 
-Returns `String` - The badge string of the dock.
+戻り値 `String` - ドックのバッジ文字列。
 
 ### `app.dock.hide()` *macOS*
 
-Hides the dock icon.
+ドックのアイコンを非表示にする
 
 ### `app.dock.show()` *macOS*
 
-Shows the dock icon.
+ドックのアイコンを表示する
 
 ### `app.dock.isVisible()` *macOS*
 
-Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call is asynchronous so this method might not return true immediately after that call.
+戻り値 `Boolean` - ドックアイコンが表示されているかどうか。 `app.dock.show()` の呼出は非同期のため、その呼出の直後は、このメソッドから true が返却されない可能性があります。
 
 ### `app.dock.setMenu(menu)` *macOS*
 
@@ -930,7 +930,7 @@ Sets the application's [dock menu](https://developer.apple.com/macos/human-inter
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Sets the `image` associated with this dock icon.
+このドックアイコンに関連付けられた `image` を設定します。
 
 ## プロパティ
 
