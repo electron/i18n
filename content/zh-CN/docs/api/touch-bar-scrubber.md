@@ -2,7 +2,7 @@
 
 > 创建一个scrubber (可滚动的选择程序)
 
-进程：[主进程](../tutorial/quick-start.md#main-process)
+Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new TouchBarScrubber(options)` *实验功能*
 
