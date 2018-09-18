@@ -2,7 +2,7 @@
 
 > 为本地mac os创建一个触控条组
 
-线程：[主线程](../tutorial/quick-start.md#main-process)
+Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new TouchBarGroup(可选)` * 实验功能 *
 
