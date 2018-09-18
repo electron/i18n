@@ -17,7 +17,7 @@
 Для запуска сеанса отладки, откройте PowerShell/CMD и запустите отладочную сборку Electron, указав приложение в качестве параметра.
 
 ```powershell
-$ ./out/D/electron.exe ~/my-electron-app/
+$ ./out/Debug/electron.exe ~/my-electron-app/
 ```
 
 ### Задание точек останова
