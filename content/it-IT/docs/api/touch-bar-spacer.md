@@ -2,7 +2,7 @@
 
 > Crea uno spaziatore tra due elementi nella barra touch per applicazioni macOS native
 
-Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+Processo: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new TouchBarSpacer(options)` *Experimental*
 
