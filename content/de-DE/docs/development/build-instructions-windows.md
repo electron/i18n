@@ -17,87 +17,27 @@ Building Electron is done entirely with command-line scripts and cannot be done 
 
 **Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
 
-## Code erhalten
-
-```powershell
-$ git clone https://github.com/electron/electron.git
-```
-
-## Bootstrapping
-
-The bootstrap script will download all necessary build dependencies and create the build project files. Notice that we're using `ninja` to build Electron so there is no Visual Studio project generated.
-
-To bootstrap for a static, non-developer build, run:
-
-```powershell
-$ cd electron
-$ npm run bootstrap
-```
-
-Or to bootstrap for a development session that builds faster by not statically linking:
-
-```powershell
-$ cd electron
-$ npm run bootstrap:dev
-```
-
 ## Building
 
-Build both `Release` and `Debug` targets:
-
-```powershell
-$ npm run build
-```
-
-You can also build either the `Debug` or `Release` target on its own:
-
-```powershell
-$ npm run build:dev
-```
-
-```powershell
-$ npm run build:release
-```
-
-After building is done, you can find `electron.exe` under `out\D` (debug target) or under `out\R` (release target).
+See [Build Instructions: GN](build-instructions-gn.md)
 
 ## 32-Bit-Build
 
-To build for the 32bit target, you need to pass `--target_arch=ia32` when running the bootstrap script:
+To build for the 32bit target, you need to pass `target_cpu = "x86"` as a GN arg. You can build the 32bit target alongside the 64bit target by using a different output directory for GN, e.g. `out/Release-x86`, with different arguments.
 
 ```powershell
-$ python script\bootstrap.py -v --target_arch=ia32
+$ gn gen out/Release-x86 --args="import(\"//electron/build/args/release.gn\") target_cpu=\"x86\""
 ```
 
 The other building steps are exactly the same.
 
 ## Visual Studio project
 
-To generate a Visual Studio project, you can pass the `--msvs` parameter:
+To generate a Visual Studio project, you can pass the `--ide=vs2017` parameter to `gn gen`:
 
 ```powershell
-$ python script\bootstrap.py --msvs
+$ gn gen out/Debug --ide=vs2017
 ```
-
-## Cleaning
-
-Um die Build-Dateien aufzuräumen:
-
-```powershell
-$ npm run clean
-```
-
-To clean only `out` and `dist` directories:
-
-```sh
-$ npm run clean-build
-```
-
-**Note:** Both clean commands require running `bootstrap` again before building.
-
-## Tests
-
-See [Build System Overview: Tests](build-system-overview.md#tests)
 
 ## Problemlösungen
 
@@ -108,31 +48,6 @@ If you encountered an error like `Command xxxx not found`, you may try to use th
 ### Fatal internal compiler error: C1001
 
 Stellen Sie sicher, dass Sie die neueste Visual Studio Version installiert haben.
-
-### Assertion failed: ((handle))->activecnt >= 0
-
-If building under Cygwin, you may see `bootstrap.py` failed with following error:
-
-```sh
-Assertion failed: ((handle))->activecnt >= 0, file src\win\pipe.c, line 1430
-
-Traceback (most recent call last):
-  File "script/bootstrap.py", line 87, in <module>
-    sys.exit(main())
-  File "script/bootstrap.py", line 22, in main
-    update_node_modules('.')
-  File "script/bootstrap.py", line 56, in update_node_modules
-    execute([NPM, 'install'])
-  File "/home/zcbenz/codes/raven/script/lib/util.py", line 118, in execute
-    raise e
-subprocess.CalledProcessError: Command '['npm.cmd', 'install']' returned non-zero exit status 3
-```
-
-This is caused by a bug when using Cygwin Python and Win32 Node together. The solution is to use the Win32 Python to execute the bootstrap script (assuming you have installed Python under `C:\Python27`):
-
-```powershell
-$ /cygdrive/c/Python27/python.exe script/bootstrap.py
-```
 
 ### LNK1181: cannot open input file 'kernel32.lib'
 
