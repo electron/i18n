@@ -96,7 +96,7 @@ Objects created with `new Menu` emit the following events:
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 
 Emitted when `menu.popup()` is called.
 
@@ -281,7 +281,7 @@ By default, items will be inserted in the order they exist in the template unles
 
 ### Exemples
 
-Template:
+Modèle :
 
 ```javascript
 [
@@ -292,7 +292,7 @@ Template:
 ]
 ```
 
-Menu:
+Menu :
 
 ```sh
 <br />- 1
@@ -301,7 +301,7 @@ Menu:
 - 4
 ```
 
-Template:
+Modèle :
 
 ```javascript
 [
@@ -314,7 +314,7 @@ Template:
 ]
 ```
 
-Menu:
+Menu :
 
 ```sh
 <br />- 3
@@ -325,7 +325,7 @@ Menu:
 - 2
 ```
 
-Template:
+Modèle :
 
 ```javascript
 [
@@ -335,7 +335,7 @@ Template:
 ]
 ```
 
-Menu:
+Menu :
 
 ```sh
 <br />- ---
