@@ -189,14 +189,14 @@ Konteks | Permintaan Konteks. Jika diset ke <code> false </ 0>, tidak dapat meng
       * `minimumFontSize` Integer (opsional) - Default ke `0`.
       * `defaultEncoding` String (opsional) - Default ke `ISO-8859-1`.
       * `backgroundThrottling` Boolean (opsional) - Apakah akan mencekik animasi dan timer? Saat halaman menjadi background. This also affects the [Page Visibility API](#page-visibility). Default ke ` true </ 0> .</li>
-<li><code> offscreen </ 0>  Boolean (opsional) - Apakah akan mengaktifkan rendering offscreen untuk jendela browser. Default ke <code> false </ 0>. Lihat
+<li><code> offscreen </ 0>  Boolean (opsional) - Apakah akan mengaktifkan rendering offscreen untuk jendela browser. Default ke <code> false </ 0> . Lihat
  tutorial rendering <a href="../tutorial/offscreen-rendering.md"> offscreen </ 0> untuk lebih jelasnya.</li>
 <li><code> contextIsolation </ 0>  Boolean (opsional) - Apakah akan menjalankan API Elektron dan skrip <code> preload </ 0> yang ditentukan dalam konteks JavaScript yang terpisah . Default ke <code> false </ 0> . Konteks script <code> preload ` berjalan masih akan memiliki akses penuh ke jendela ` document `dan` window` namun akan menggunakan set sendiri JavaScript builtins ( `Array`, `Objek`, `JSON`, dll.) Dan akan diisolasi dari perubahan yang dilakukan pada lingkungan global oleh laman yang dimuat. The Electron API hanya akan tersedia di ` preload </ 0> naskah dan bukan halaman dimuat. Opsi ini harus digunakan saat memuat konten remote yang berpotensi tidak tepercaya untuk memastikan konten yang dimuat tidak dapat merusak skrip <code> preload </ 0> dan setiap API Elektron yang digunakan.
 Opsi ini menggunakan teknik yang sama yang digunakan oleh <a href="https://developer.chrome.com/extensions/content_scripts#execution-environment"> Chrome Content Scripts </ 0> .
 Anda dapat mengakses konteks ini di alat dev dengan memilih entri ' Elektron Isolated Context' di kotak kombo di bagian atas tab Konsol. <strong> Catatan: </ 0> Ini pilihan saat ini eksperimental dan dapat berubah atau dihapus di masa Elektron rilis.</li>
 <li><code>nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. Defaults to `false`. **Note:** This option is currently experimental.
       * ` webviewTag ` Boolean (opsional) - Apakah untuk mengaktifkan[`<webview>`tag](webview-tag.md). Default untuk nilai ` nodeIntegration ` option . ** Catatan: ** ` preload ` Script dikonfigurasi untuk `<webview>` akan memiliki simpul integrasi diaktifkan ketika dieksekusi sehingga Anda harus memastikan remote / konten yang tidak dipercaya tidak mampu menciptakan `<webview>` tag dengan mungkin ` preload ` script. Anda dapat menggunakan `akan melampirkan tampilan web` acara di [webContents](web-contents.md) untuk mengupas dengan` preload` naskah dan untuk memvalidasi atau mengubah `<webview>` 's pengaturan awal.
-      * `additionArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app. Useful for passing small bits of data down to renderer process preload scripts.
+      * `additionalArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app. Useful for passing small bits of data down to renderer process preload scripts.
   
   When setting minimum or maximum window size with `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, it only constrains the users. Ini tidak akan mencegah Anda melewati ukuran yang tidak mengikuti batasan ukuran pada ` setBounds `/`setSize` atau ke konstruktor `BrowserWindow`.
   
@@ -510,15 +510,15 @@ misal <code> APPCOMMAND_BROWSER_BACKWARD </ 0> dipancarkan sebagai <code> browse
               
               Angkatan menutup jendela, ` membongkar </ 0> dan <code> beforeunload </ 0>  event tidak akan dipancarkan untuk halaman web, dan <code> dekat </ 0>  acara juga tidak akan dipancarkan untuk jendela ini, tetapi menjamin <code> ditutup </ 0>  acara akan dipancarkan.</p>
 
-<h4><code>win.close ()`</h4> 
+<h4><code>win.close()`</h4> 
               
               Cobalah untuk menutup jendela. Ini memiliki efek yang sama dengan pengguna yang secara manual mengklik tombol tutup jendela. Halaman web bisa membatalkan close sekalipun. Lihat  acara tutup </ 0> .</p> 
               
-              #### `win.focus ()`
+              #### `win.focus()`
               
               Berfokus pada jendela.
               
-              #### `win.blur ()`
+              #### `win.blur()`
               
               Berfokus pada jendela.
               
@@ -917,7 +917,7 @@ bar will become gray when set to <code>true`.</p>
 <li><code>pilihan` Objek (opsional) 
                                 * ` httpReferrer </ 0>  String (opsional) - url Referrer HTTP.</li>
 <li><code>userAgent` String (opsional) - agen pengguna berasal permintaan.
-                                * ` extraHeaders ` String (opsional) - Header ekstra yang dipisahkan oleh " \n "
+                                * `extraHeaders` String (opsional) - header tambahan yang dipisahkan oleh "\n"
                                 * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
                                 * ` baseURLForDataURL </ 0>  String (opsional) - URL dasar (dengan pemisah jalur trailing) untuk file yang akan dimuat oleh url data. Hal ini diperlukan hanya jika ditentukan <code>url` data url dan perlu memuat file lainnya.
                               
