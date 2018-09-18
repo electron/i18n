@@ -117,28 +117,28 @@ app.on('ready', () => {
 #### Event: 'drop-files' *macOS*
 
 * `event` Event
-* `files` String[] - The paths of the dropped files.
+* `files` String[] - 拖至任务栏图标上的文件的路径。
 
-Emitted when dragged files are dropped in the tray icon.
+当有任何文件被拖到该任务栏图标上时，触发该事件。
 
 #### Event: 'drop-text' *macOS*
 
 * `event` Event
-* `text` String - the dropped text string.
+* `text` String - 拖至任务栏图标上的文字内容。
 
-Emitted when dragged text is dropped in the tray icon.
+当有任何文字被拖到该任务栏图标上时，触发该事件。
 
 #### Event: 'drag-enter' *macOS*
 
-Emitted when a drag operation enters the tray icon.
+当有任何拖动操作进入（拖动未结束）该任务栏图标时，触发该事件。
 
 #### Event: 'drag-leave' *macOS*
 
-Emitted when a drag operation exits the tray icon.
+当有任何拖动操作离开该任务栏图标时，触发该事件。
 
 #### Event: 'drag-end' *macOS*
 
-Emitted when a drag operation ends on the tray or ends at another location.
+当有任何拖动操作在托盘或其他地方结束时，触发该事件。
 
 #### Event: 'mouse-enter' *macOS*
 
@@ -149,7 +149,7 @@ Emitted when a drag operation ends on the tray or ends at another location.
   * `metaKey` Boolean
 * `position` [Point](structures/point.md) - 事件的位置信息。
 
-Emitted when the mouse enters the tray icon.
+当鼠标进入该任务栏图标时，触发该事件。
 
 #### Event: 'mouse-leave' *macOS*
 
@@ -160,7 +160,7 @@ Emitted when the mouse enters the tray icon.
   * `metaKey` Boolean
 * `position` [Point](structures/point.md) - 事件的位置信息。
 
-Emitted when the mouse exits the tray icon.
+当鼠标离开该任务栏图标时，触发该事件。
 
 #### Event: 'mouse-move' *macOS*
 
@@ -171,11 +171,11 @@ Emitted when the mouse exits the tray icon.
   * `metaKey` Boolean
 * `position` [Point](structures/point.md) - 事件的位置信息。
 
-Emitted when the mouse moves in the tray icon.
+当鼠标在该任务栏图标上移动时，触发该事件。
 
 ### 实例方法
 
-The `Tray` class has the following methods:
+`Tray` 类拥有以下方法:
 
 #### `tray.destroy()`
 
@@ -191,30 +191,30 @@ The `Tray` class has the following methods:
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Sets the `image` associated with this tray icon when pressed on macOS.
+在 macOS 中，设置`image`作为托盘图标被按下时显示的图标
 
 #### `tray.setToolTip(toolTip)`
 
 * `toolTip` String
 
-Sets the hover text for this tray icon.
+设置鼠标指针在托盘图标上悬停时显示的文本
 
 #### `tray.setTitle(title)` *macOS*
 
 * `title` String
 
-Sets the title displayed aside of the tray icon in the status bar (Support ANSI colors).
+设置显示在状态栏中托盘图标旁边的标题 (支持ANSI色彩)
 
 #### `tray.setHighlightMode(mode)` *macOS*
 
-* `mode` String - Highlight mode with one of the following values: 
-  * `selection` - Highlight the tray icon when it is clicked and also when its context menu is open. This is the default.
-  * `always` - Always highlight the tray icon.
-  * `never` - Never highlight the tray icon.
+* `mode` String - 高亮模式选项，以下为可选值 
+  * `selection` - 当托盘图标本点击或托盘的上下文菜单打开时高亮显示托盘图标，这是mode的默认值
+  * `always` - 总是高亮托盘图标
+  * `never` - 从不高亮托盘图标
 
-Sets when the tray's icon background becomes highlighted (in blue).
+设置托盘图标背景 (蓝色) 高亮的时机
 
-**Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
+**Note:** 当窗口可见状态变化时你可以在[`BrowserWindow`](browser-window.md)中使用 `highlightMode` 实现 `'never'` 和`'always'` 模式的切换
 
 ```javascript
 const {BrowserWindow, Tray} = require('electron')
@@ -240,20 +240,20 @@ win.on('hide', () => {
   * `title` String
   * `content` String
 
-Displays a tray balloon.
+显示一个托盘气球通知.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
-* `menu` Menu (optional)
-* `position` [Point](structures/point.md) (optional) - The pop up position.
+* `menu` Menu (可选)
+* `position` [Point](structures/point.md) (可选) - 菜单弹出的位置.
 
-Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
+弹出托盘图标的上下文菜单。如果传入了 `menu` 参数，将会弹出 `menu` 而不是托盘图标的上下文菜单
 
-The `position` is only available on Windows, and it is (0, 0) by default.
+参数 `position` 只在 Windows 上可用， 并拥有默认值 (0, 0)。
 
 #### `tray.setContextMenu(menu)`
 
-* `menu` Menu
+* `menu` Menu | null
 
 设置这个图标的内容菜单
 
@@ -261,7 +261,7 @@ The `position` is only available on Windows, and it is (0, 0) by default.
 
 返回 [`Rectangle`](structures/rectangle.md)
 
-The `bounds` of this tray icon as `Object`.
+以`Object`类型返回托盘图标的`bounds`
 
 #### `tray.isDestroyed()`
 
