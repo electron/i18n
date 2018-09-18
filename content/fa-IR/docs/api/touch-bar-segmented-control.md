@@ -6,7 +6,7 @@ Process: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
 
 ### `new TouchBarSegmentedControl(options)` *Experimental*
 
-* `options` Object 
+* `options` شئ 
   * `segmentStyle` String (optional) - Style of the segments: 
     * `automatic` - Default. The appearance of the segmented control is automatically determined based on the type of window in which the control is displayed and the position within the window.
     * `rounded` - The control is displayed using the rounded style.
