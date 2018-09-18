@@ -2,7 +2,7 @@
 
 > Submit crash reports to a remote server.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Процеси: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 The following is an example of automatically submitting a crash report to a remote server:
 
@@ -35,7 +35,7 @@ The `crashReporter` module has the following methods:
 
 ### `crashReporter.start(options)`
 
-* `options` Об'єкт 
+* `options` Object 
   * `companyName` String (optional)
   * `submitURL` String - URL that crash reports will be sent to as POST.
   * `productName` String (optional) - Defaults to `app.getName()`.
