@@ -13,7 +13,7 @@ Process: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
   * `iconPosition` String (optional) - Can be `left`, `right` or `overlay`.
   * `click` Function (optional) - Function to call when the button is clicked.
 
-### Instance Properties
+### Các Thuộc Tính
 
 The following properties are available on instances of `TouchBarButton`:
 
