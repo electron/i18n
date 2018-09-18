@@ -74,29 +74,29 @@ When this API is called, the `before-quit` event is not emitted before all windo
 
 ## Metodi
 
-The `autoUpdater` object has the following methods:
+L'oggetto `autoAggiornatore` ha i seguenti metodi:
 
-### `autoUpdater.setFeedURL(options)`
+### `autoUpdater.setFeedURL(opzioni)`
 
 * `opzioni` Oggetto 
   * `url` Stringa
   * `headers` Oggetto (opzionale) *macOS* - HTTP header della richiesta.
   * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
-Sets the `url` and initialize the auto updater.
+Imposta l'`url` e inizializza l'auto aggiornatore.
 
-### `autoUpdater.getFeedURL()`
+### `autoAggiornatore.ottieniFeedURL()`
 
-Returns `String` - The current update feed URL.
+Restituisci `Stringa` 'L'attuale feed URL di aggiornamento.
 
-### `autoUpdater.checkForUpdates()`
+### `autoAggiornatore.controllaPerAggiornamenti()`
 
-Asks the server whether there is an update. You must call `setFeedURL` before using this API.
+Chiedi il server se c'è un aggiornamento. Devi chiamare `impostaFeedURL` prima di usare questa API.
 
-### `autoUpdater.quitAndInstall()`
+### `autoaAggiornatore.esciEInstalla()`
 
-Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
+Riavvia l'app ed installa l'aggiornamento dopo che è stato scaricato. Potrebbe solo essere chiamato dopo l'emissione di `aggiornamento-scaricato.</p>
 
-Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
+<p>Under the hood calling <code>autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
 
 **Note:** If the application is quit without calling this API after the `update-downloaded` event has been emitted, the application will still be replaced by the updated one on the next run.
