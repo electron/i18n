@@ -78,11 +78,11 @@ A `String` representing the current process's type, can be `"browser"` (i.e. mai
 
 ### `process.versions.chrome`
 
-A `String` representing Chrome's version string.
+Un `String` représentant la version de Chrome.
 
 ### `process.versions.electron`
 
-A `String` representing Electron's version string.
+Un `String` représentant la version d'Electron.
 
 ### `process.windowsStore`
 
@@ -90,7 +90,7 @@ A `Boolean`. If the app is running as a Windows Store app (appx), this property 
 
 ## Méthodes
 
-The `process` object has the following methods:
+L'objet `process` dispose des méthodes suivantes :
 
 ### `process.crash()`
 
@@ -98,11 +98,11 @@ Causes the main thread of the current process crash.
 
 ### `process.getCPUUsage()`
 
-Returns [`CPUUsage`](structures/cpu-usage.md)
+Retourne [`CPUUsage`](structures/cpu-usage.md)
 
 ### `process.getIOCounters()` *Windows* *Linux*
 
-Returns [`IOCounters`](structures/io-counters.md)
+Retourne [`IOCounters`](structures/io-counters.md)
 
 ### `process.getHeapStatistics()`
 
@@ -127,7 +127,7 @@ Retourne `Object`:
 * `workingSetSize` Integer - The amount of memory currently pinned to actual physical RAM.
 * `peakWorkingSetSize` Integer - The maximum amount of memory that has ever been pinned to actual physical RAM.
 * `privateBytes` Integer - La quantité de mémoire non partagée par d'autres processus, tel que des empilements de JS ou du contenu HTML.
-* `sharedBytes` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself.
+* `sharedBytes` Integer - La quantité de mémoire partagée entre processus, généralement la mémoire consommée par Electron lui-même.
 
 Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes.
 
