@@ -59,7 +59,7 @@ someProperty)
 अगर आप एक तेज़ उपाय चाहते हैं, तो आप वेरिएबल्स को वैश्विक बना सकते हैं, अपने कोड में बदलाव कर इससे:
 
 ```javascript
-const {app, Tray} = require('electron')
+const { app, Tray } = require('electron')
 app.on('ready', () => {
   const tray = new Tray('/path/to/icon.png')
   tray.setTitle('hello world') 
@@ -69,7 +69,7 @@ app.on('ready', () => {
 इसमें:
 
 ```javascript
-const {app, Tray} = require('electron') 
+const { app, Tray } = require('electron') 
 let tray = null 
 app.on('ready', () => {   
 tray = new Tray('/path/to/icon.png')  
@@ -85,7 +85,7 @@ tray.setTitle('hello world')
 
 ```javascript
 // मुख्य प्रक्रिया में | 
-const {BrowserWindow} = require('electron') 
+const { BrowserWindow } = require('electron') 
 let win = new BrowserWindow({
    webPreferences: {     
       nodeIntegration: false   
