@@ -34,7 +34,7 @@ Proses renderer tidak berbeda dengan halaman web biasa, kecuali untuk kemampuan 
 </ 0>
 ```
 
-To run your app, read [Run your app](../tutorial/first-app.md#running-your-app).
+Untuk menjalankan aplikasi Anda, baca  Jalankan aplikasi Anda </ 0>.</p> 
 
 ## Penataan ulang tugas
 
