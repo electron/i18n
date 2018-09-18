@@ -6,7 +6,7 @@ When working with Electron, it is important to understand that Electron is not a
 
 With that in mind, be aware that displaying arbitrary content from untrusted sources poses a severe security risk that Electron is not intended to handle. In fact, the most popular Electron apps (Atom, Slack, Visual Studio Code, etc) display primarily local content (or trusted, secure remote content without Node integration) – if your application executes code from an online source, it is your responsibility to ensure that the code is not malicious.
 
-## Reporting Security Issues
+## الإبلاغ عن المشكلات الأمنية
 
 For information on how to properly disclose an Electron vulnerability, see [SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md)
 
@@ -22,7 +22,7 @@ A security issue exists whenever you receive code from a remote destination and 
 
 > :warning: Under no circumstances should you load and execute remote code with Node.js integration enabled. Instead, use only local files (packaged together with your application) to execute Node.js code. To display remote content, use the [`<webview>`](../api/webview-tag.md) tag and make sure to disable the `nodeIntegration`.
 
-## Electron Security Warnings
+## تحذيرات أمنية إلكترون
 
 From Electron 2.0 on, developers will see warnings and recommendations printed to the developer console. They only show up when the binary's name is Electron, indicating that a developer is currently looking at the console.
 
@@ -45,7 +45,7 @@ This is not bulletproof, but at the least, you should follow these steps to impr
 11. [`<webview>`: Do not use `allowpopups`](#11-do-not-use-allowpopups)
 12. [`<webview>`: Verify options and params](#12-verify-webview-options-before-creation)
 13. [Disable or limit navigation](#13-disable-or-limit-navigation)
-14. [Disable or limit creation of new windows](#13-disable-or-limit-creation-of-new-windows)
+14. [Disable or limit creation of new windows](#14-disable-or-limit-creation-of-new-windows)
 
 ## 1) Only Load Secure Content
 
@@ -265,10 +265,10 @@ Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 Electron respects the [`Content-Security-Policy` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) which can be set using Electron's [`webRequest.onHeadersReceived`](../api/web-request.md#webrequestonheadersreceivedfilter-listener) handler:
 
 ```javascript
-const {session} = require('electron')
+const { session } = require('electron')
 
 session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
-  callback({responseHeaders: `default-src 'none'`})
+  callback({ responseHeaders: `default-src 'none'` })
 })
 ```
 
@@ -457,13 +457,13 @@ If your app has no need for navigation, you can call `event.preventDefault()` in
 We recommend that you use Node's parser for URLs. Simple string comparisons can sometimes be fooled - a `startsWith('https://google.com')` test would let `https://google.com.attacker.com` through.
 
 ```js
-const URL = require('url')
+const URL = require('url').URL
 
 app.on('web-contents-created', (event, contents) => {
   contents.on('will-navigate', (event, navigationUrl) => {
     const parsedUrl = new URL(navigationUrl)
 
-    if (parsedUrl.hostname !== 'my-own-server.com') {
+    if (parsedUrl.origin !== 'https://my-own-server.com') {
       event.preventDefault()
     }
   })
