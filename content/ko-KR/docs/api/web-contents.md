@@ -53,7 +53,7 @@ Emitted when the navigation is done, i.e. the spinner of the tab has stopped spi
 
 #### Event: 'did-fail-load'
 
-Returns:
+반환:
 
 * `event` Event
 * `errorCode` Integer
@@ -146,7 +146,7 @@ Calling `event.preventDefault()` will prevent the navigation.
 
 #### Event: 'did-start-navigation'
 
-반환:
+Returns:
 
 * `url` String
 * `isInPlace` Boolean
@@ -158,7 +158,7 @@ Emitted when any frame (including main) starts navigating. `isInplace` will be `
 
 #### Event: 'did-navigate'
 
-반환:
+Returns:
 
 * `event` Event
 * `url` String
@@ -261,7 +261,7 @@ Emitted when `webContents` is destroyed.
 
 #### Event: 'before-input-event'
 
-반환:
+Returns:
 
 * `event` Event
 * `input` Object - Input properties. 
@@ -308,7 +308,7 @@ Emitted when DevTools is focused / opened.
 
 * `event` Event
 * `url` String
-* `error` String - The error code.
+* `error` String - 에러 코드.
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` 함수 
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
@@ -356,7 +356,7 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 
 #### Event: 'found-in-page'
 
-반환:
+Returns:
 
 * `event` Event
 * `result` Object 
@@ -391,7 +391,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 #### Event: 'update-target-url'
 
-반환:
+Returns:
 
 * `event` Event
 * `url` String
@@ -415,7 +415,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 #### Event: 'context-menu'
 
-반환:
+Returns:
 
 * `event` Event
 * `params` Object 
@@ -457,7 +457,7 @@ Emitted when there is a new context menu that needs to be handled.
 
 #### Event: 'select-bluetooth-device'
 
-반환:
+Returns:
 
 * `event` Event
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
@@ -514,7 +514,7 @@ Emitted when the devtools window instructs the webContents to reload
 
 #### Event: 'will-attach-webview'
 
-반환:
+Returns:
 
 * `event` Event
 * `webPreferences` Object - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
@@ -528,7 +528,7 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 #### Event: 'did-attach-webview'
 
-반환:
+Returns:
 
 * `event` Event
 * `webContents` WebContents - The guest web contents that is used by the `<webview>`.
