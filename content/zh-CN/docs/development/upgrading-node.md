@@ -2,13 +2,13 @@
 
 ## 讨论
 
-One upgrade issue is building all of Electron with a single copy of V8 to ensure compatibility. 这一点很重要, 因为上游节点和 [ libchromiumcontent ](upgrading-chromium.md) 都使用自己的 V8 版本。
+一个升级中要考虑的问题是为了确保兼容性，Electron的所有内容是用同样的一份V8副本来构建的。 这一点很重要, 因为上游Node和 [ libchromiumcontent ](upgrading-chromium.md) 都使用自己的 V8 版本。
 
-升级节点比升级 libchromiumcontent 容易得多, 因此, 如果首先升级 libchromiumcontent, 然后选择最接近它的 V8 的上游节点版本, 就会发生较少的冲突。
+升级Node比升级 libchromiumcontent 容易得多, 因此, 如果首先升级 libchromiumcontent, 然后选择最接近它的 V8 的上游Node版本, 就会发生较少的冲突。
 
-Electron 有它自己的 [ Node 克隆](https://github.com/electron/node), 并对上面提到的 V8 生成细节进行修改, 并用于公开电子所需的 API。 一旦选择了上游节点释放, 它就被放置在一个分支的电子的节点叉和任何电子节点补丁在那里应用。
+Electron 有它自己的 [ Node 克隆](https://github.com/electron/node), 并对上面提到的 V8 构建细节进行修改, 并用于暴露Electron所需的 API。 一旦选择了一个上游Node的发布版本, 它就被放置在Electron的Node克隆的一个分支中，并且任何Electron Node的补丁会被应用在那里。
 
-另一个因素是节点项目修补其版本的 V8。如上所述, 电子用一个单一的 V8 来构建一切, 所以节点的 V8 补丁必须移植到该副本。
+另一个因素是Node只给其自己版本的 V8打补丁。如上所述, Electron用一份 V8 副本来构建一切, 所以Node的 V8 补丁必须被移植到该副本。
 
 一旦所有电子的依赖建立和使用相同的副本 V8, 下一步是修复任何电子代码问题引起的节点升级。
 
