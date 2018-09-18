@@ -91,26 +91,56 @@ app.on('ready', () => {
 
 当前鼠标的绝对位置。
 
-### `screen.getMenuBarHeight()` *macOS*
-
-返回`Integer`，表示菜单栏的高度 (单位：像素)
-
 ### `screen.getPrimaryDisplay()`
 
-返回主窗口[`Display`](structures/display.md)
+Returns [`Display`](structures/display.md) - The primary display.
 
 ### `screen.getAllDisplays()`
 
-返回一个窗口数组[`Display[]`](structures/display.md)，表示当前可用的窗口。
+Returns [`Display[]`](structures/display.md) - An array of displays that are currently available.
 
 ### `screen.getDisplayNearestPoint(point)`
 
 * `point` [Point](structures/point.md)
 
-返回离指定点最近的一个窗口[`Display`](structures/display.md)
+Returns [`Display`](structures/display.md) - The display nearest the specified point.
 
 ### `screen.getDisplayMatching(rect)`
 
 * `rect` [Rectangle](structures/rectangle.md)
 
-返回离指定的图形最密切相交一个窗口[`Display`](structures/display.md)
+Returns [`Display`](structures/display.md) - The display that most closely intersects the provided bounds.
+
+### `screen.screenToDipPoint(point)` *Windows*
+
+* `point` [Point](structures/point.md)
+
+返回 [`Point`](structures/point.md)
+
+Converts a screen physical point to a screen DIP point. The DPI scale is performed relative to the display containing the physical point.
+
+### `screen.dipToScreenPoint(point)` *Windows*
+
+* `point` [Point](structures/point.md)
+
+返回 [`Point`](structures/point.md)
+
+Converts a screen DIP point to a screen physical point. The DPI scale is performed relative to the display containing the DIP point.
+
+### `screen.screenToDipRect(window, rect)` *Windows*
+
+* `window` [BrowserWindow](browser-window.md) | null
+* `rect` [Rectangle](structures/rectangle.md)
+
+返回 [`Rectangle`](structures/rectangle.md)
+
+Converts a screen physical rect to a screen DIP rect. The DPI scale is performed relative to the display nearest to `window`. If `window` is null, scaling will be performed to the display nearest to `rect`.
+
+### `screen.dipToScreenRect(window, rect)` *Windows*
+
+* `window` [BrowserWindow](browser-window.md) | null
+* `rect` [Rectangle](structures/rectangle.md)
+
+返回 [`Rectangle`](structures/rectangle.md)
+
+Converts a screen DIP rect to a screen physical rect. The DPI scale is performed relative to the display nearest to `window`. If `window` is null, scaling will be performed to the display nearest to `rect`.
