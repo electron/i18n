@@ -66,7 +66,24 @@ APP_PATH ="/path/to/YourApp.app" # Jalan ke lokasi yang ingin Anda gunakan untuk
 RESULT_PATH="~/Desktop/$APP.pkg"
 # Nama sertifikat yang Anda minta.
 APP_KEY ="Aplikasi Pengembang Mac Pihak ke-3: Nama Perusahaan (APPIDENTITY)" INSTALLER_KEY="Installer Pengembang Mac Pihak Ketiga: Nama Perusahaan (APPIDENTITY)" # Jalan file plist anda.
-CHILD_PLIST="/path/to/Child.plist" PARENT_PLIST="/path/to/parent.plist" LOGINHELPER_PLIST="/path/to/loginhelper.plist" $FRAMEWORKS_PATH = "$APP_PATH/isi/kerangka" codesign -s "$APP_KEY" -f--hak "$CHILD_PLIST" "123_16 _3_321/elektron kerangka Framework.framework/Versions/A/Electron"codesign -s"$APP_KEY"-f--hak"$CHILD_PLIST""$FRAMEWORKS_PATH/elektron Framework.framework/Versions/A/Libraries/libffmpeg.dylib"codesign -s"$APP_KEY"-f-- hak "$CHILD_PLIST" "$FRAMEWORKS_PATH/elektron Framework.framework/Versions/A/Libraries/libnode.dylib" codesign -s "$APP_KEY" -f--hak "$CHILD_PLIST" "$FRAMEWORKS_PATH/elektron Framework.framework" codesign -s "$APP_KEY" -f--hak "$CHILD_PLIST" "$FRAMEWORKS_PATH/$APP Helper.app/Contents/MacOS/$APP penolong" codesign -s "$APP_KEY" -f--hak "$CHILD_PLIST" "$FRAMEWORKS_PATH/$APP Helper.app/" codesign -s "$APP_KEY" -f-- hak "$CHILD_PLIST" codesign "$FRAMEWORKS_PATH/$APP penolong penolong EH.app/Contents/MacOS/$APP EH" -s "$APP_KEY" -f--hak "$CHILD_PLIST" "$FRAMEWORKS_PATH/$APP penolong EH.app/" codesign -s "$APP_KEY" -f --hak "$CHILD_PLIST" "penolong penolong NP.app/Contents/MacOS/$APP NP $FRAMEWORKS_PATH/$APP" codesign -s "$APP_KEY" -f--hak "$CHILD_PLIST" "$FRAMEWORKS_PATH/$APP penolong NP.app/" codesign -s "$APP_KEY" -f--hak "$LOGINHELPER_PLIST" "$APP_PATH/isi/Perpustakaan/LoginItems/$APP Login Helper.app/Contents/MacOS/$APP Login penolong" codesign -s "$APP_KEY" -f--hak "$LOGINHELPER_PLIST" $APP_PATH/isi/Perpustakaan" / Helper.app/ Login LoginItems/$APP "codesign -s"$APP_KEY"-f--hak"$CHILD_PLIST"" $APP_PATH/Isi/MacOS/$APP"codesign -s"$APP_KEY"-f--hak"$PARENT_PLIST""$APP_PATH"productbuild-- komponen "$APP_PATH" /Applications--menandatangani "$INSTALLER_KEY" "$RESULT_PATH"
+CHILD_PLIST="/path/to/child.plist"
+PARENT_PLIST="/path/to/parent.plist"
+LOGINHELPER_PLIST="/path/to/loginhelper.plist"
+
+FRAMEWORKS_PATH="$APP_PATH/Contents/Frameworks"
+
+codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/Electron Framework.framework/Versions/A/Electron Framework"
+codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/Electron Framework.framework/Versions/A/Libraries/libffmpeg.dylib"
+codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/Electron Framework.framework/Versions/A/Libraries/libnode.dylib"
+codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/Electron Framework.framework"
+codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/$APP Helper.app/Contents/MacOS/$APP Helper"
+codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$FRAMEWORKS_PATH/$APP Helper.app/"
+codesign -s "$APP_KEY" -f --entitlements "$LOGINHELPER_PLIST" "$APP_PATH/Contents/Library/LoginItems/$APP Login Helper.app/Contents/MacOS/$APP Login Helper"
+codesign -s "$APP_KEY" -f --entitlements "$LOGINHELPER_PLIST" "$APP_PATH/Contents/Library/LoginItems/$APP Login Helper.app/"
+codesign -s "$APP_KEY" -f --entitlements "$CHILD_PLIST" "$APP_PATH/Contents/MacOS/$APP"
+codesign -s "$APP_KEY" -f --entitlements "$PARENT_PLIST" "$APP_PATH"
+
+productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RESULT_PATH"
 ```
 
 Jika Anda baru mengenal aplikasi sandboxing di bawah macos, Anda juga harus membaca Apple's [Mengaktifkan App Sandbox ](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html) untuk memiliki ide dasar, tambahkan kunci untuk izin yang dibutuhkan oleh aplikasi Anda ke file hak.
