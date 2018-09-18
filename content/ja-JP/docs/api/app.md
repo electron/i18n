@@ -21,7 +21,7 @@ app.on('window-all-closed', () => {
 
 アプリケーションが基本的な起動処理を完了したときに発生します。 WindowsとLinuxでは、`will-finish-launching` イベントは `ready` イベントと同じですが、macOSでは、このイベントは、`NSApplication` の `applicationWillFinishLaunching` 通知に相当します。 通常、ここでは、`open-file` や `open-url` イベントのリスナーを設定したり、クラッシュレポーターや自動アップデーターを開始したりします。
 
-ほとんどの場合、`ready` イベントハンドラーですべてのことを行うようにするべきです。
+In most cases, you should do everything in the `ready` event handler.
 
 ### イベント: 'ready'
 
@@ -320,6 +320,18 @@ app.on('session-created', (event, session) => {
 })
 ```
 
+### Event: 'second-instance'
+
+戻り値:
+
+* `event` Event
+* `argv` String[] - 2番目のインスタンスのコマンドライン引数の配列
+* `workingDirectory` String - 2番目のインスタンスの作業ディレクトリ
+
+This event will be emitted inside the primary instance of your application when a second instance has been executed. `argv` は2番目のインスタンスのコマンドライン引数の配列で、`workingDirectory` はその現在の作業ディレクトリです。 通常、アプリケーションはこれに対して1番目のウインドウにフォーカスを当て、最小化しないように対応します。
+
+This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
+
 ## メソッド
 
 `app` オブジェクトには以下のメソッドがあります。
@@ -366,6 +378,10 @@ app.exit(0)
 ### `app.isReady()`
 
 戻り値 `Boolean` - Electronの初期化が完了している場合、`true`、そうでない場合、`false`。
+
+### `app.whenReady()`
+
+Returns `Promise` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
 
 ### `app.focus()`
 
@@ -505,7 +521,7 @@ Windowsの場合、オプションのパラメータを指定することがで�
 
 このメソッドは現在の実行可能ファイルがプロトコル (別名URIスキーム) の既定のハンドラーであるかをチェックします。もしそうである場合、アプリを既定のハンドラから外します。
 
-### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
+### `app.isDefaultProtocolClient(protocol[, path, args])`
 
 * `protocol` String - `://` を除くプロトコルの名前。
 * `path` String (任意) *Windows* - 省略値は `process.execPath`
@@ -616,21 +632,15 @@ app.setJumpList([
 ])
 ```
 
-### `app.makeSingleInstance(callback)`
+### `app.requestSingleInstanceLock()`
 
-* `callback` Function 
-  * `argv` String[] - 2番目のインスタンスのコマンドライン引数の配列
-  * `workingDirectory` String - 2番目のインスタンスの作業ディレクトリ
-
-戻り値 `Boolean`。
+戻り値 `Boolean`
 
 このメソッドはアプリケーションをシングルインスタンスのアプリケーションにします。複数のインスタンスでのアプリ実行を許可する代わりに、これはアプリの単一のインスタンスだけが実行されていることを保証します。そして、他のインスタンスはこのインスタンスに通知し、終了します。
 
-2番目のインスタンスを実行すると、`callback(argv, workingDirectory)` で、`callback` が最初のインスタンスによって呼び出されます。 `argv` は2番目のインスタンスのコマンドライン引数の配列で、`workingDirectory` はその現在の作業ディレクトリです。 通常、アプリケーションはこれに対して1番目のウインドウにフォーカスを当て、最小化しないように対応します。
+The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock you can assume that another instance of your application is already running with the lock and exit immediately.
 
-`callback` は `app` の `ready` のイベントが発生した後で実行されることが保証されます。
-
-このメソッドは、プロセスがアプリケーションの1番目のインスタンスで、アプリがロード処理を続行する必要がある場合、`false` を返します。 そして、プロセスが別のインスタンスにパラメータを送信し、すぐに終了する必要がある場合、`true` を返します。
+I.e. This method returns `true` if your process is the primary instance of your application and your app should continue loading. It returns `false` if your process should immediately quit as it has sent its parameters to another instance that has already acquired the lock.
 
 macOSの場合、ユーザがFinderでアプリの2番目のインスタンスを開こうとしたとき、システムは自動的にシングルインスタンスになるようにし、`open-file` と `open-url` イベントが発生します。 ただし、ユーザがアプリをコマンドラインで開始する場合、シングルインスタンスを強制するシステムの仕組みが迂回されるため、シングルインスタンスであることを保証するには、このメソッドを使う必要があります。
 
@@ -640,26 +650,34 @@ macOSの場合、ユーザがFinderでアプリの2番目のインスタンス�
 const {app} = require('electron')
 let myWindow = null
 
-const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
-  // 誰かが2番目のインスタンスを実行しようとした場合、今のウインドウにフォーカスを当てる必要があります。
-  if (myWindow) {
-    if (myWindow.isMinimized()) myWindow.restore()
-    myWindow.focus()
-  }
-})
+const gotTheLock = app.requestSingleInstanceLock()
 
-if (isSecondInstance) {
+if (!gotTheLock) {
   app.quit()
-}
+} else {
+  app.on('second-instance', (commandLine, workingDirectory) => {
+    // Someone tried to run a second instance, we should focus our window.
+    if (myWindow) {
+      if (myWindow.isMinimized()) myWindow.restore()
+      myWindow.focus()
+    }
+  })
 
-// myWindowを生成したり、アプリの残りのロード処理をしたりするなど...
-app.on('ready', () => {
-})
+  // Create myWindow, load the rest of the app, etc...
+  app.on('ready', () => {
+  })
+}
 ```
 
-### `app.releaseSingleInstance()`
+### `app.hasSingleInstanceLock()`
 
-`makeSingleInstance` によって作成されたすべてのロックを解放します。これでもう一度、アプリケーションを並列で実行するための複数インスタンスが許可されます。
+戻り値 `Boolean`
+
+This method returns whether or not this instance of your app is currently holding the single instance lock. You can request the lock with `app.requestSingleInstanceLock()` and release with `app.releaseSingleInstanceLock()`
+
+### `app.releaseSingleInstanceLock()`
+
+Releases all locks that were created by `requestSingleInstanceLock`. This will allow multiple instances of the application to once again run side by side.
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
@@ -732,7 +750,7 @@ app.on('ready', () => {
 
 macOSでは、ドックアイコンに表示されます。Linuxでは、Unityランチャーでしか機能しません。
 
-**注:** 機能させるには、Unityランチャーは、`.desktop` ファイルの存在を必要とします。詳細は [デスクトップ環境への統合](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux) をお読みください。
+**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
@@ -842,74 +860,80 @@ Chromiumのコマンドラインに引数を追加します。引数は正しく
 
 ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
 
-アプリで混在サンドボックスモードを有効にします。
+Enables mixed sandbox mode on the app.
 
 このメソッドはアプリが ready になる前だけでしか呼び出すことができません。
 
 ### `app.isInApplicationsFolder()` *macOS*
 
-戻り値 `Boolean` - アプリケーションが現在、システムのアプリケーションフォルダから実行されているかどうか。`app.moveToApplicationsFolder()` と組み合わせて使ってください。
+Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
 
 ### `app.moveToApplicationsFolder()` *macOS*
 
-戻り値 `Boolean` - 移動が成功したかどうか。 移動が成功した場合、アプリケーションは終了し、再起動されることに注意してください。
+Returns `Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.
 
-既定では、確認ダイアログは表示されません。ユーザに操作の確認をさせたい場合は、[`dialog`](dialog.md) APIを使うと実現できます。
+No confirmation dialog will be presented by default, if you wish to allow the user to confirm the operation you may do so using the [`dialog`](dialog.md) API.
 
-**注:** このメソッドはユーザ以外が移動の失敗を引き起こした場合にもエラーをスローします。 例えば、ユーザが承認ダイアログをキャンセルした場合、このメソッドは false を返します。 コピーの実行に失敗した場合、このメソッドはエラーをスローします。 エラーのメッセージは意味の分かるものにする必要があり、何が間違っているのかを正確に知らせるようにしてください。
+**NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog this method returns false. If we fail to perform the copy then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
 
 ### `app.dock.bounce([type])` *macOS*
 
 * `type` String (任意) - `critical` もしくは `informational`。省略値は `informational` です。
 
-`critical` が渡された場合、ドックのアイコンはアプリケーションがアクティブになるか、リクエストがキャンセルされるまでバウンスします。
+When `critical` is passed, the dock icon will bounce until either the application becomes active or the request is canceled.
 
-`informational` が渡された場合、ドックのアイコンが1秒間、バウンスします。ただし、アプリケーションがアクティブになるか、リクエストがキャンセルされるまでリクエストはアクティブなままです。
+When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
 
-戻り値 `Integer` - このリクエストを表すID。
+Returns `Integer` an ID representing the request.
 
 ### `app.dock.cancelBounce(id)` *macOS*
 
 * `id` Integer
 
-`id` のバウンスをキャンセルします。
+Cancel the bounce of `id`.
 
 ### `app.dock.downloadFinished(filePath)` *macOS*
 
 * `filePath` String
 
-filePath がダウンロードフォルダの中の場合、ダウンロードのスタックをバウンスさせます。
+Bounces the Downloads stack if the filePath is inside the Downloads folder.
 
 ### `app.dock.setBadge(text)` *macOS*
 
 * `text` String
 
-ドックのバッジ領域に表示される文字列を設定します。
+Sets the string to be displayed in the dock’s badging area.
 
 ### `app.dock.getBadge()` *macOS*
 
-戻り値 `String` - ドックのバッジ文字列。
+Returns `String` - The badge string of the dock.
 
 ### `app.dock.hide()` *macOS*
 
-ドックのアイコンを非表示にする
+Hides the dock icon.
 
 ### `app.dock.show()` *macOS*
 
-ドックのアイコンを表示する
+Shows the dock icon.
 
 ### `app.dock.isVisible()` *macOS*
 
-戻り値 `Boolean` - ドックアイコンが表示されているかどうか。 `app.dock.show()` の呼出は非同期のため、その呼出の直後は、このメソッドから true が返却されない可能性があります。
+Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call is asynchronous so this method might not return true immediately after that call.
 
 ### `app.dock.setMenu(menu)` *macOS*
 
 * `menu` [Menu](menu.md)
 
-アプリケーションの[ドックメニュー](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103)を設定します。
+Sets the application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
 
 ### `app.dock.setIcon(image)` *macOS*
 
 * `image` ([NativeImage](native-image.md) | String)
 
-このドックアイコンに関連付けられた `image` を設定します。
+Sets the `image` associated with this dock icon.
+
+## プロパティ
+
+### `app.isPackaged`
+
+A `Boolean` property that returns `true` if the app is packaged, `false` otherwise. For many apps, this property can be used to distinguish development and production environments.
