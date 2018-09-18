@@ -4,7 +4,7 @@ Web开发人员通常享有浏览器强大的网络安全特性，而自己的�
 
 当使用 Electron 时，很重要的一点是要理解 Electron 不是一个 Web 浏览器。 它允许您使用熟悉的 Web 技术构建功能丰富的桌面应用程序，但是您的代码具有更强大的功能。 JavaScript 可以访问文件系统，用户 shell 等。 这允许您构建更高质量的本机应用程序，但是内在的安全风险会随着授予您的代码的额外权力而增加。
 
-考虑到这一点，请注意，展示任意来自不受信任源的内容都将会带来严重的安全风险，而这种风险Electron也没打算处理。 事实上，最流行的 Electron 应用程序(Atom，Slack，Visual Studio Code 等) 主要显示本地内容(或没有集成Node的可信的、安全的远程内容) - 如果您的应用程序要运行在线的源代码，那么您需要确保源代码不是恶意的。
+考虑到这一点，请注意，展示任意来自不受信任源的内容都将会带来严重的安全风险，而这种风险Electron也没打算处理。 事实上，最流行的 Electron 应用程序(Atom，Slack，Visual Studio Code 等) 主要显示本地内容(即使有远程内容也是无 Node 的、受信任的、安全的内容) - 如果您的应用程序要运行在线的源代码，那么您需要确保源代码不是恶意的。
 
 ## 报告安全问题
 
@@ -12,7 +12,7 @@ Web开发人员通常享有浏览器强大的网络安全特性，而自己的�
 
 ## Chromium 安全问题和升级
 
-尽管 Electron 努力尽快支持新版本的 Chromium，但开发人员应该意识到，升级是一项严肃的工作 - 涉及手动编辑几十个甚至几百个文件。 Given the resources and contributions available today, Electron will often not be on the very latest version of Chromium, lagging behind by several weeks or a few months.
+尽管 Electron 努力尽快支持新版本的 Chromium，但开发人员应该意识到，升级是一项严肃的工作 - 涉及手动编辑几十个甚至几百个文件。 受限于当前可用的资源与贡献，Electron 通常不能保持使用最新版本的 Chromium，可能落后几周或几个月。
 
 我们认为，我们当前的更新 Chromium 组件的系统在我们可用的资源和构建在框架之上的大多数应用程序的需求之间取得了适当的平衡。 我们绝对有兴趣听听更多关于在 Electron 上构建事物的人的具体用例。 非常欢迎提出请求并且捐助支持我们的努力。
 
@@ -20,11 +20,11 @@ Web开发人员通常享有浏览器强大的网络安全特性，而自己的�
 
 每当您从远程目标收到代码并在本地执行它时，就会存在安全问题。 例如在[`BrowserWindow`](../api/browser-window.md)中显示一个远程网站. 如果攻击者有办法改变网站的内容(可能是直接攻击来源，也可能是作为你的应用和真实服务器的中间人)，他们就可以在用户的机器上执行原生代码。
 
-> :warning:无论如何，在启用Node.js集成的情况下，你都不该加载并执行远程代码。 相反，只使用本地文件（和您的应用打包在一起）来执行Node.js代码 To display remote content, use the [`<webview>`](../api/webview-tag.md) tag and make sure to disable the `nodeIntegration`.
+> :warning:无论如何，在启用Node.js集成的情况下，你都不该加载并执行远程代码。 相反，只使用本地文件（和您的应用打包在一起）来执行Node.js代码 要显示远程内容，请使用 [`<webview>`](../api/webview-tag.md) 标签并确保禁用了 `nodeIntegration `。
 
 ## Electron 安全警告
 
-从Electron 2.0版本开始，开发者将会在开发者控制台看到打印的警告和建议。 当你正在查看控制台时，二进制名为Electron的警告才会出现
+从Electron 2.0版本开始，开发者将会在开发者控制台看到打印的警告和建议。 这些警告仅在可执行文件名为 Electron 时才会为开发者显示。
 
 你可以通过在`process.env` 或 `window`对象上配置`ELECTRON_ENABLE_SECURITY_WARNINGS` 或`ELECTRON_DISABLE_SECURITY_WARNINGS`来强制开启或关闭这些警告。
 
@@ -42,10 +42,10 @@ Web开发人员通常享有浏览器强大的网络安全特性，而自己的�
 8. [不要设置 ` allowRunningInsecureContent ` 为 true.](#8-do-not-set-allowrunninginsecurecontent-to-true)
 9. [不要开启实验性功能](#9-do-not-enable-experimental-features)
 10. [不要使用`enableBlinkFeatures`](#10-do-not-use-enableblinkfeatures)
-11. [`<webview>`: Do not use `allowpopups`](#11-do-not-use-allowpopups)
-12. [`<webview>`: Verify options and params](#12-verify-webview-options-before-creation)
-13. [Disable or limit navigation](#13-disable-or-limit-navigation)
-14. [Disable or limit creation of new windows](#13-disable-or-limit-creation-of-new-windows)
+11. [`<webview>`：不要使用 `allowpopups `](#11-do-not-use-allowpopups)
+12. [`<webview>`：验证选项与参数](#12-verify-webview-options-before-creation)
+13. [禁用或限制网页跳转](#13-disable-or-limit-navigation)
+14. [禁用或限制新窗口创建](#14-disable-or-limit-creation-of-new-windows)
 
 ## 1) 仅加载安全内容
 
@@ -61,24 +61,24 @@ Web开发人员通常享有浏览器强大的网络安全特性，而自己的�
 
 ```js
 // 不推荐
-browserWindow loadURL (' http://我的网站. com ')
+browserWindow.loadURL ('http://my-website.com')
 // 推荐 
-browserWindow. loadURL (' https://我的网站. com ')
+browserWindow.loadURL ('https://my-website.com')
 ```
 
 ```html
-<!-- Bad -->
+<!-- 不推荐 -->
 <script crossorigin src="http://cdn.com/react.js"></script>
 <link rel="stylesheet" href="http://cdn.com/style.css">
 
-<!-- Good -->
+<!-- 推荐 -->
 <script crossorigin src="https://cdn.com/react.js"></script>
 <link rel="stylesheet" href="https://cdn.com/style.css">
 ```
 
 ## 2) 禁止Node.js集成远程内容
 
-It is paramount that you disable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) that loads remote content. 其目的是限制您授予远程内容的权限, 从而使攻击者在您的网站上执行 JavaScript 时更难伤害您的用户。
+加载远程内容时，不论是使用[`BrowserWindow`](../api/browser-window.md)，[`BrowserView`](../api/browser-view.md) 还是 [`<webview>`](../api/webview-tag.md)，首要任务都是禁用 Node.js 集成。 其目的是限制您授予远程内容的权限, 从而使攻击者在您的网站上执行 JavaScript 时更难伤害您的用户。
 
 在此之后，你可以为指定的主机授予附加权限。 举例来说，如果你正在打开一个指向 "https://my-website.com/" 的 BrowserWindow，你可以给它正好所需的权限，无需再多。
 
@@ -159,16 +159,14 @@ const mainWindow = new BrowserWindow({
 // 在页面加载前设置变量
 webFrame.executeJavaScript('window.foo = "foo";')
 
-// The loaded page will not be able to access this, it is only available
-// in this context
+// 这个变量仅限于当前上下文，被加载的页面将无权访问
 window.bar = 'bar'
 
 document.addEventListener('DOMContentLoaded', () => {
-  // Will log out 'undefined' since window.foo is only available in the main
-  // context
+  // 结果为 'undefined'，因为 window.foo 仅在主上下文中可用
   console.log(window.foo)
 
-  // Will log out 'bar' since window.bar is available in this context
+  // 结果为 'bar'，因为 window.bar 定义在本上下文中
   console.log(window.bar)
 })
 ```
@@ -209,9 +207,9 @@ session
 
 *Electron的默认值即是建议值。*
 
-You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) disables crucial security features.
+在渲染进程（[`BrowserWindow`](../api/browser-window.md)、[`BrowserView`](../api/browser-view.md) 和 [`<webview>`](../api/webview-tag.md)）中禁用 `webSecurity` 将导致至关重要的安全性功能被关闭。
 
-不要再生产环境中禁用`webSecurity`
+不要在生产环境中禁用`webSecurity`。
 
 ### 为什么？
 
@@ -261,19 +259,19 @@ Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 
 ### CSP HTTP头
 
-Electron respects the [`Content-Security-Policy` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) which can be set using Electron's [`webRequest.onHeadersReceived`](../api/web-request.md#webrequestonheadersreceivedfilter-listener) handler:
+Electron 会处理 [`Content-Security-Policy` HTTP 标头](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy)，它可以在 [`webRequest.onHeadersReceived`](../api/web-request.md#webrequestonheadersreceivedfilter-listener) 中进行设置：
 
 ```javascript
-const {session} = require('electron')
+const { session } = require('electron')
 
 session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
-  callback({responseHeaders: `default-src 'none'`})
+  callback({ responseHeaders: `default-src 'none'` })
 })
 ```
 
 ### CSP元标签
 
-CSP's preferred delivery mechanism is an HTTP header. It can be useful, however, to set a policy on a page directly in the markup using a `<meta>` tag:
+CSP 建议的传送机制是通过 HTTP 标头。但也可以在页面上直接使用 `<meta>` 标签来设置内容安全策略：
 
 ```html
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'">
@@ -294,7 +292,7 @@ CSP's preferred delivery mechanism is an HTTP header. It can be useful, however,
 ### 怎么做？
 
 ```js
-// ESLint 对任何形式的eval()调用都会产生警告, 包括下面代码
+// ESLint 对任何形式的 eval() 引用都会产生警告，甚至包括以下代码
 // eslint-disable-next-line
 window.eval = global.eval = function () {
   throw new Error(`Sorry, this app does not support window.eval().`)
@@ -333,7 +331,7 @@ const mainWindow = new BrowserWindow({})
 
 *Electron的默认值即是建议值。*
 
-Advanced users of Electron can enable experimental Chromium features using the `experimentalFeatures` property.
+Electron 的熟练用户可以通过 ` experimentalFeatures` 属性来启用 Chromium 实验性功能。
 
 ### 为什么？
 
@@ -456,13 +454,13 @@ If your app has no need for navigation, you can call `event.preventDefault()` in
 We recommend that you use Node's parser for URLs. Simple string comparisons can sometimes be fooled - a `startsWith('https://google.com')` test would let `https://google.com.attacker.com` through.
 
 ```js
-const URL = require('url')
+const URL = require('url').URL
 
 app.on('web-contents-created', (event, contents) => {
   contents.on('will-navigate', (event, navigationUrl) => {
     const parsedUrl = new URL(navigationUrl)
 
-    if (parsedUrl.hostname !== 'my-own-server.com') {
+    if (parsedUrl.origin !== 'https://my-own-server.com') {
       event.preventDefault()
     }
   })
