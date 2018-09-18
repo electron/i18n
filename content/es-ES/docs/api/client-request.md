@@ -171,7 +171,7 @@ Sigue cualquier solicitud de redirección diferida cuando el modo de redirecció
 
 #### `request.getUploadProgress()`
 
-Devuelve `Objecto`:
+Devuelve `Objeto`:
 
 * `active` Boolean - Whether the request is currently active. If this is false no other properties will be set
 * `started` Boolean - Whether the upload has started. If this is false both `current` and `total` will be set to 0.
