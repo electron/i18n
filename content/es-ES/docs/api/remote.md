@@ -100,7 +100,7 @@ El módulo `remote` tiene los siguientes métodos:
 
 Devuelve `any` - El objeto devuelto por `require(module)` en el proceso principal. Los módulos especificados por su ruta relativa se resolverán en relación al punto de entrada del proceso principal.
 
-por ejemplo.
+p.e.
 
 ```sh
 project/
@@ -136,16 +136,16 @@ Devuelve [`BrowserWindow`](browser-window.md) - La ventana a la cual pertenece e
 
 ### `remote.getCurrentWebContents()`
 
-Returns [`WebContents`](web-contents.md) - The web contents of this web page.
+Devuelve [`WebContents`](web-contents.md) - Los contenidos web de esta página web.
 
 ### `remote.getGlobal(name)`
 
 * `name` Cadena
 
-Returns `any` - The global variable of `name` (e.g. `global[name]`) in the main process.
+Devuelve `any` - La variable global de `name` (por ejemplo `global[name]`) en el proceso principal.
 
 ## Propiedades
 
 ### `remote.process`
 
-The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
+El objeto `process` en el proceso principal. Este es igual a `remote.getGlobal('process')` pero está almacenado en caché.
