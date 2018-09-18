@@ -13,7 +13,7 @@ $ npm install --save-dev spectron
 ```
 
 ```javascript
-// 簡單的測試案例，驗證指定標題的視窗有正常顯示出來
+// A simple test to verify a visible window is opened with a title
 var Application = require('spectron').Application
 var assert = require('assert')
 
@@ -22,22 +22,22 @@ var app = new Application({
 })
 
 app.start().then(function () {
-  // 檢查視窗是可視的
+  // Check if the window is visible
   return app.browserWindow.isVisible()
 }).then(function (isVisible) {
-  // 驗證視窗是可視的
-  assert.equal(isVisible, true)
+  // Verify the window is visible
+  assert.strictEqual(isVisible, true)
 }).then(function () {
-  // 取得視窗標題
+  // Get the window's title
   return app.client.getTitle()
 }).then(function (title) {
-  // 驗證視窗標題
-  assert.equal(title, 'My App')
+  // Verify the window's title
+  assert.strictEqual(title, 'My App')
 }).catch(function (error) {
-  // 將錯誤記錄下來
-  console.error('測試失敗', error.message)
+  // Log any failures
+  console.error('Test failed', error.message)
 }).then(function () {
-  // 停止應用程式
+  // Stop the application
   return app.stop()
 })
 ```
@@ -124,13 +124,13 @@ $ npm install webdriverio
 ```javascript
 const webdriverio = require('webdriverio')
 const options = {
-  host: 'localhost', // 使用 localhost 的 Chromes 驅動程式伺服器
-  port: 9515,        // "9515" 是由 Chrome 驅動程式開的連接埠。
+  host: 'localhost', // Use localhost as chrome driver server
+  port: 9515, // "9515" is the port opened by chrome driver.
   desiredCapabilities: {
     browserName: 'chrome',
     chromeOptions: {
       binary: '/Path-to-Your-App/electron', // Electron 執行檔的路徑。
-      args: [/* cli arguments */]           // 非必填，可能是 'app=' + /path/to/your/app/
+      args: [/* cli arguments */] // Optional, perhaps 'app=' + /path/to/your/app/
     }
   }
 }
