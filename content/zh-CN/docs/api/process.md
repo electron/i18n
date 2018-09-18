@@ -107,8 +107,8 @@ process.once('loaded', () => {
 
 * `total` Integer - 系统可用的物理内存总量(Kb)。
 * `free` Integer - 应用程序或磁盘缓存未使用的内存总量。
-* `swapTotal` Integer *Windows* *Linux* - The total amount of swap memory in Kilobytes available to the system.
-* `swapFree` Integer *Windows* *Linux* - The free amount of swap memory in Kilobytes available to the system.
+* `swapTotal` Integer *Windows* *Linux* - 系统交换内存容量（单位：千字节）。
+* `swapFree` Integer *Windows* *Linux* - 系统可用交换内存大小（单位：千字节）。
 
 返回一个对象, 它提供有关当前进程的内存使用情况统计信息。请注意, 所有统计信息都以千字节为单位报告。
 
