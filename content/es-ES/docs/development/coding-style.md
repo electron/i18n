@@ -4,7 +4,7 @@ Estas son las pautas de estilo para la codificación en Electron.
 
 Para mostrar los problemas de estilo detectados por `cpplint` y `eslint`, puede ejecutar `npm run lint`.
 
-## General Code
+## Código general
 
 * End files with a newline.
 * Place requires in the following order: 
@@ -13,12 +13,12 @@ Para mostrar los problemas de estilo detectados por `cpplint` y `eslint`, puede 
   * Local Modules (using relative paths)
 * Place class properties in the following order: 
   * Class methods and properties (methods starting with a `@`)
-  * Instance methods and properties
+  * Instancia métodos y propiedades
 * Avoid platform-dependent code: 
   * Use `path.join()` to concatenate filenames.
   * Use `os.tmpdir()` rather than `/tmp` when you need to reference the temporary directory.
 * Using a plain `return` when returning explicitly at the end of a function. 
-  * Not `return null`, `return undefined`, `null` or `undefined`
+  * No `return null`, `return undefined`, `null` o `undefined`
 
 ## C++ y Python
 
@@ -30,9 +30,9 @@ El código de C ++ utiliza una gran cantidad de abstracciones y tipos de Chromiu
 
 ## Documentación
 
-* Write [remark](https://github.com/remarkjs/remark) markdown style.
+* Escribe [remark](https://github.com/remarkjs/remark) estilo markdown.
 
-You can run `npm run lint-docs` to ensure that your documentation changes are formatted correctly.
+Puede ejecutar `npm run lint-docs` para asegurarse de que los cambios en su documentación tengan el formato correcto.
 
 ## JavaScript
 
@@ -48,9 +48,9 @@ You can run `npm run lint-docs` to ensure that your documentation changes are fo
 
 Las API de Electron utilizan el esquema de capitalización usado en Node.js:
 
-* When the module itself is a class like `BrowserWindow`, use `PascalCase`.
-* When the module is a set of APIs, like `globalShortcut`, use `camelCase`.
+* Cuando el módulo en sí es una clase similar a `BrowserWindow`, use `PascalCase`.
+* Cuando el módulo es un conjunto de APIs, similar a `globalShortcut`, use `camelCase`.
 * Cuando la API es una propiedad de objeto, y es lo suficientemente compleja para estar en un capítulo separado como `win.webContents`, utilice `mixedCase`.
-* For other non-module APIs, use natural titles, like `<webview> Tag` or `Process Object`.
+* Para otras APIs que no sean módulos, utilice títulos naturales, similar a `<webview> Tag` o `Process Object`.
 
 Cuando se crea una nueva API, se prefiere utilizar captadores y establecedores en lugar del estilo one-function de JQuery. Por ejemplo, se prefiere `.getText()` y `.setText(text)`, en lugar de `.text([text])`. Hay una [discussion](https://github.com/electron/electron/issues/46) sobre esto.
