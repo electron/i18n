@@ -2,7 +2,7 @@
 
 > 画面サイズ、ディスプレイ、カーソルの位置などについての情報を取得します。
 
-プロセス: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+プロセス: [メイン](../glossary.md#main-process), [レンダラー](../glossary.md#renderer-process)
 
 `app` モジュールの `ready` イベントが発生するまでは、このモジュールを require、または使用できません。
 
@@ -93,23 +93,23 @@ app.on('ready', () => {
 
 ### `screen.getPrimaryDisplay()`
 
-Returns [`Display`](structures/display.md) - The primary display.
+戻り値 [`Display`](structures/display.md) - 主要なディスプレイ。
 
 ### `screen.getAllDisplays()`
 
-Returns [`Display[]`](structures/display.md) - An array of displays that are currently available.
+戻り値 [`Display[]`](structures/display.md) - 現在利用可能な display の配列。
 
 ### `screen.getDisplayNearestPoint(point)`
 
 * `point` [Point](structures/point.md)
 
-Returns [`Display`](structures/display.md) - The display nearest the specified point.
+戻り値 [`Display`](structures/display.md) - 指定した point に最も近い display。
 
 ### `screen.getDisplayMatching(rect)`
 
 * `rect` [Rectangle](structures/rectangle.md)
 
-Returns [`Display`](structures/display.md) - The display that most closely intersects the provided bounds.
+戻り値 [`Display`](structures/display.md) - 指定した矩形に最も近い display。
 
 ### `screen.screenToDipPoint(point)` *Windows*
 
