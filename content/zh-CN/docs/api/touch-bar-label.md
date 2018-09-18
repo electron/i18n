@@ -6,7 +6,7 @@ Process: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
 
 ### `new TouchBarLabel(options)` *实验功能*
 
-* `options` Object 
+* `参数` 对象 
   * `label` String (可选) - 显示的文本.
   * `textColor` String（可选） - 文本的十六进制颜色，例如#ABCDEF。
 
