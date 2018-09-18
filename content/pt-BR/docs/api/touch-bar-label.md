@@ -2,7 +2,7 @@
 
 > Create a label in the touch bar for native macOS applications
 
-Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+Processo: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new TouchBarLabel(options)` *Experimental*
 
@@ -10,7 +10,7 @@ Process: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
   * `label` String (optional) - Text to display.
   * `textColor` String (optional) - Hex color of text, i.e `#ABCDEF`.
 
-### Propriedades da Instância
+### Propriedades de Instância
 
 The following properties are available on instances of `TouchBarLabel`:
 
