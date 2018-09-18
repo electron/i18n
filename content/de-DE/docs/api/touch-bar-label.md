@@ -10,7 +10,7 @@ Process: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
   * `label` String (optional) - Text to display.
   * `textColor` String (optional) - Hex color of text, i.e `#ABCDEF`.
 
-### Instance Properties
+### Instanz Eigenschaften
 
 The following properties are available on instances of `TouchBarLabel`:
 
