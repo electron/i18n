@@ -233,36 +233,48 @@ win.on('hide', () => {
 })
 ```
 
+#### `tray.setIgnoreDoubleClickEvents(ignore)` *macOS*
+
+* `ignore` Boolean
+
+Sets the option to ignore double click events. Ignoring these events allows you to detect every individual click of the tray icon.
+
+This value is set to false by default.
+
+#### `tray.getIgnoreDoubleClickEvents()` *macOS*
+
+Returns `Boolean` - Whether double click events will be ignored.
+
 #### `tray.displayBalloon(options)` *Windows*
 
-* `opciones` Object 
-  * `icon` ([NativeImage](native-image.md) | String) (opcional) -
-  * `title` Cadena
+* `options` Objeto 
+  * `icon` ([NativeImage](native-image.md) | String) (optional) -
+  * `title` String
   * `content` String
 
-Muestra un globo de la bandeja.
+Displays a tray balloon.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
-* `menu` Menu (opcional)
-* `position` [Point](structures/point.md) (optional) - La posición del elemento emergente.
+* `menu` Menu (optional)
+* `position` [Point](structures/point.md) (optional) - The pop up position.
 
-Aparece el menú de contexto del icono de la bandeja. Cuando se pasa `menu`, el `menu` se mostrará en lugar el menú de contexto del icono de la bandeja.
+Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
 
-La `position` solo está disponible en Windows, y por defecto es (0, 0).
+The `position` is only available on Windows, and it is (0, 0) by default.
 
 #### `tray.setContextMenu(menu)`
 
-* `menu` Menu
+* `menu` Menu | null
 
-Configura el menú de contexto para este icono.
+Sets the context menu for this icon.
 
 #### `tray.getBounds()` *macOS* *Windows*
 
 Devuelve [`Rectangle`](structures/rectangle.md)
 
-Los `bounds` de este icono de la bandeja como `Object`.
+The `bounds` of this tray icon as `Object`.
 
 #### `tray.isDestroyed()`
 
-Devuelve `Boolean` - Si el icono de la bandeja es destruido o no.
+Returns `Boolean` - Whether the tray icon is destroyed.
