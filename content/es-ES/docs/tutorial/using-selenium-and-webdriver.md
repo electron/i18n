@@ -13,7 +13,7 @@ $ npm install --save-dev spectron
 ```
 
 ```javascript
-// Un test simple para verificar si una ventana está abierta con un título
+// A simple test to verify a visible window is opened with a title
 var Application = require('spectron').Application
 var assert = require('assert')
 
@@ -22,22 +22,22 @@ var app = new Application({
 })
 
 app.start().then(function () {
-  // Comprueba que la ventana está abierta
+  // Check if the window is visible
   return app.browserWindow.isVisible()
 }).then(function (isVisible) {
-  // Verifica que la ventana sea visible
-  assert.equal(isVisible, true)
+  // Verify the window is visible
+  assert.strictEqual(isVisible, true)
 }).then(function () {
-  // obtiene el título de la página
+  // Get the window's title
   return app.client.getTitle()
 }).then(function (title) {
-  // Verifica el título de la página
-  assert.equal(title, 'My App')
+  // Verify the window's title
+  assert.strictEqual(title, 'My App')
 }).catch(function (error) {
-  // Registra cualquier falla
+  // Log any failures
   console.error('Test failed', error.message)
 }).then(function () {
-  // Detiene la aplicación
+  // Stop the application
   return app.stop()
 })
 ```
@@ -124,13 +124,13 @@ $ npm install webdriverio
 ```javascript
 const webdriverio = require('webdriverio')
 const options = {
-  host: 'localhost', // Use localhot como servidor de drivers de Chrome
-  port: 9515,        // "9515" es el puerto abierto por el driver de Chrome.
+  host: 'localhost', // Use localhost as chrome driver server
+  port: 9515, // "9515" is the port opened by chrome driver.
   desiredCapabilities: {
     browserName: 'chrome',
     chromeOptions: {
       binary: '/Path-to-Your-App/electron', // Dirección a su electrón binario.
-      args: [/* cli arguments */]           // opcional 'app=' + /path/to/your/app/
+      args: [/* cli arguments */] // Optional, perhaps 'app=' + /path/to/your/app/
     }
   }
 }
