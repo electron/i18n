@@ -69,14 +69,6 @@ MyApp.app/Contents
 ├── MacOS/
 │   └── MyApp
 └── Frameworks/
-    ├── MyApp Helper EH.app
-    |   ├── Info.plist
-    |   └── MacOS/
-    |       └── MyApp Helper EH
-    ├── MyApp Helper NP.app
-    |   ├── Info.plist
-    |   └── MacOS/
-    |       └── MyApp Helper NP
     └── MyApp Helper.app
         ├── Info.plist
         └── MacOS/
@@ -97,7 +89,7 @@ MyApp.app/Contents
 
 ## 由原始碼開始客製品牌
 
-也可以從原始碼修改 Electron 產品名稱再建置，達到品牌客製化的目的。為此，你需要修改 `atom.gyp` 檔，清楚先前建置產出的檔案後再重新建置。
+It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to set the build argument corresponding to the product name (`electron_product_name = "YourProductName"`) in the `args.gn` file and rebuild.
 
 ### 建立客製化的 Electron 分支
 
