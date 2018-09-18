@@ -4,7 +4,7 @@
 
 فرآیند: [اصلی](../glossary.md#main-process)
 
-**You can find a detailed guide about how to implement updates into your application [here](../tutorial/updates.md).**
+**See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
 
 ## Platform Notices
 
@@ -66,13 +66,19 @@ Emitted when an update has been downloaded.
 
 On Windows only `releaseName` is available.
 
+### Event: 'before-quit-for-update'
+
+This event is emitted after a user calls `quitAndInstall()`.
+
+When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
+
 ## Methods
 
 The `autoUpdater` object has the following methods:
 
 ### `autoUpdater.setFeedURL(options)`
 
-* `options` Object 
+* `options` شئ 
   * `url` String
   * `headers` Object (optional) *macOS* - HTTP request headers.
   * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
