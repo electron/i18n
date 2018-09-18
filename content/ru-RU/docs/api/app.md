@@ -303,6 +303,23 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 Возникает при изменении Chrome поддержки специальных возможностей. Это событие срабатывает, когда вспомогательные технологии, такие как устройства чтения с экрана, включены или отключены. Смотрите https://www.chromium.org/developers/design-documents/accessibility для подробностей.
 
+### Event: 'session-created'
+
+Возвращает:
+
+* `event` Event
+* `session` [Session](session.md)
+
+Emitted when Electron has created a new `session`.
+
+```javascript
+const {app} = require('electron')
+
+app.on('session-created', (event, session) => {
+  console.log(session)
+})
+```
+
 ## Методы
 
 Объект `app` имеет следующие методы:
@@ -385,8 +402,8 @@ app.exit(0)
 * `module` библиотека `libchromiumcontent`.
 * `desktop` каталог рабочего стола, текущего пользователя.
 * `documents` каталог пользователя "My Documents".
-* `downloads` Каталог пользователя "Загрузки".
-* `music` каталог пользователя "Музыка".
+* `downloads` Каталог пользователя "Downloads".
+* `music` каталог пользователя "Music".
 * `pictures` каталог пользователя для фотографии.
 * `videos` каталог пользователя для видео.
 * `logs` директория для логов вашего приложения.
@@ -444,7 +461,7 @@ app.exit(0)
 
 Возвращает `String` - текущего языка приложения. Описаны возможные возвращаемые значения [здесь](locales.md).
 
-To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
+Для установки языка вам потребуется использовать переключатель командной строки во время запуска приложения, который можно найти [здесь](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
 
 **Примечание:** При распространении упакованного приложения, нужно также добавить папку `locales`.
 
