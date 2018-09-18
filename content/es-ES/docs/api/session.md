@@ -25,7 +25,7 @@ El módulo `sesión` tiene los siguientes métodos:
 ### `session.fromPartition(partition[, options])`
 
 * `partition` String
-* `opciones` Objecto (opcional) 
+* `opciones` Object (opcional) 
   * `cache` Boolean - En el caso de activar la memoria cache.
 
 Regresa `Session` - Una instancia de session de la cadena `partition`. Cuando hay una `Session` existente con la misma `partition`, se devolverá la misma; de otra manera, una nueva instancia `Session` será creada con `options`.
@@ -99,7 +99,7 @@ Borra la memoria caché del HTTP de la sesión.
 
 #### `ses.clearStorageData([options, callback])`
 
-* `options` Object (opcional) 
+* `options` Objecto (opcional) 
   * `origin` String (optional) - Should follow `window.location.origin`’s representation `scheme://host:port`.
   * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
   * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
