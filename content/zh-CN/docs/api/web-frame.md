@@ -89,7 +89,7 @@ Registers the `scheme` as secure scheme.
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
 * `scheme` String
-* `选项` Object (可选) 
+* `options` Object (可选) 
   * `secure` Boolean (optional) - Default true.
   * `bypassCSP` Boolean (optional) - Default true.
   * `allowServiceWorkers` Boolean (optional) - Default true.
@@ -120,7 +120,7 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 
 Returns `Promise` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
 
-评估页面中的 `code`。
+在页面中执行 `code`。
 
 在浏览器窗口中，一些HTML API（如` requestFullScreen `）只能是 由来自用户的手势调用。 将 ` userGesture ` 设置为 ` true ` 将删除此限制。
 
@@ -157,9 +157,10 @@ Set the security origin of the isolated world.
 
 ### `webFrame.getResourceUsage()`
 
-返回 `Object`:
+返回 ` Object `:
 
 * `images` [MemoryUsageDetails](structures/memory-usage-details.md)
+* `scripts` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `cssStyleSheets` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `xslStyleSheets` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `fonts` [MemoryUsageDetails](structures/memory-usage-details.md)
