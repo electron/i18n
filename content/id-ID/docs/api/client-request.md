@@ -152,3 +152,14 @@ Membatalkan transaksi HTTP yang sedang berlangsung. Jika permintaan telah sudah 
 #### `request.followRedirect()`
 
 Terus ditangguhkan pengalihan permintaan ketika pengalihan modus `manual`.
+
+#### `request.getUploadProgress()`
+
+Mengembalikan `Objek`:
+
+* `active` Boolean - Whether the request is currently active. If this is false no other properties will be set
+* `started` Boolean - Whether the upload has started. If this is false both `current` and `total` will be set to 0.
+* `current` Integer - The number of bytes that have been uploaded so far
+* `total` Integer - The number of bytes that will be uploaded this request
+
+You can use this method in conjunction with `POST` requests to get the progress of a file upload or other data transfer.
