@@ -7,7 +7,7 @@
 您可以使用 [Menu] 模块来配置快捷键，只有在 app 处于焦点状态时才可以触发快捷键。 为此，在创建 [MenuItem](../api/menu-item.md)时必须指定一个 [`accelerator`] 属性。
 
 ```js
-const {Menu, MenuItem} = require('electron')
+const { Menu, MenuItem } = require('electron')
 const menu = new Menu()
 
 menu.append(new MenuItem({
@@ -30,7 +30,7 @@ menu.append(new MenuItem({
 当应用程序不处于焦点状态时，你可以使用 [globalShortcut](../api/global-shortcut.md) 模块来检测键盘事件，
 
 ```js
-const {app, globalShortcut} = require('electron')
+const { app, globalShortcut } = require('electron')
 
 app.on('ready', () => {
   globalShortcut.register('CommandOrControl+X', () => {
