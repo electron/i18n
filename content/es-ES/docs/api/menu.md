@@ -281,7 +281,7 @@ By default, items will be inserted in the order they exist in the template unles
 
 ### Ejemplos
 
-Template:
+Plantilla:
 
 ```javascript
 [
@@ -292,7 +292,7 @@ Template:
 ]
 ```
 
-Menu:
+Menú:
 
 ```sh
 <br />- 1
@@ -301,7 +301,7 @@ Menu:
 - 4
 ```
 
-Template:
+Plantilla:
 
 ```javascript
 [
@@ -314,7 +314,7 @@ Template:
 ]
 ```
 
-Menu:
+Menú:
 
 ```sh
 <br />- 3
@@ -325,7 +325,7 @@ Menu:
 - 2
 ```
 
-Template:
+Plantilla:
 
 ```javascript
 [
@@ -335,7 +335,7 @@ Template:
 ]
 ```
 
-Menu:
+Menú:
 
 ```sh
 <br />- ---
