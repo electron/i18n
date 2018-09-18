@@ -2,16 +2,16 @@
 
 Este documento describe el proceso de publicación de una nueva versión de Electron.
 
-## Set your tokens and environment variables
+## Configura tus tokens y variables de entorno
 
-You'll need Electron S3 credentials in order to create and upload an Electron release. Contact a team member for more information.
+Necesitarás las credenciales de Electron S3 para crear y cargar una versión de Electron. Póngase en contacto con un miembro del equipo para obtener más información.
 
-There are a handful of `*_TOKEN` environment variables needed by the release scripts:
+Hay un puñado de variables de entorno `*_TOKEN` que necesitan los scripts de lanzamiento:
 
-- `ELECTRON_GITHUB_TOKEN`: Create this by visiting https://github.com/settings/tokens/new?scopes=repo
-- `APPVEYOR_TOKEN`: Create a token from https://windows-ci.electronjs.org/api-token If you don't have an account, ask a team member to add you.
-- `CIRCLE_TOKEN`: Create a token from "Personal API Tokens" at https://circleci.com/account/api
-- `VSTS_TOKEN`: Create a Personal Access Token at https://github.visualstudio.com/_usersSettings/tokens or https://github.visualstudio.com/_details/security/tokens with the scope of `Build (read and execute)`.
+- `ELECTRON_GITHUB_TOKEN`: Crea esto visitando https://github.com/settings/tokens/new?scopes=repo
+- `APPVEYOR_TOKEN`: Crea un token desde https://windows-ci.electronjs.org/api-token Si no tienes una cuenta, pídele a un miembro del equipo que te agregue.
+- `CIRCLE_TOKEN`: Crea un token desde "Personal API Tokens" en https://circleci.com/account/api
+- `VSTS_TOKEN`: Cree un Token de Acceso Personal en https://github.visualstudio.com/_usersSettings/tokens o https://github.visualstudio.com/_details/security/tokens con el alcance de `Build (leer y ejecutar)`.
 - `ELECTRON_S3_BUCKET`:
 - `ELECTRON_S3_ACCESS_KEY`:
 - `ELECTRON_S3_SECRET_KEY`: If you don't have these, ask a team member to help you.
