@@ -31,18 +31,18 @@ Crash reports are saved locally in an application-specific temp directory folder
 
 ## Metodi
 
-The `crashReporter` module has the following methods:
+Il modulo `crashReporter` ha i seguenti metodi:
 
 ### `crashReporter.start(opzioni)`
 
-* `options` Oggetto 
-  * `companyName` String (optional)
-  * `submitURL` String - URL that crash reports will be sent to as POST.
-  * `productName` String (optional) - Defaults to `app.getName()`.
-  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server Default is `true`.
-  * `ignoreSystemCrashHandler` Boolean (optional) - Default is `false`.
-  * `extra` Object (optional) - An object you can define that will be sent along with the report. Only string properties are sent correctly. Nested objects are not supported and the property names and values must be less than 64 characters long.
-  * `crashesDirectory` String (optional) - Directory to store the crashreports temporarily (only used when the crash reporter is started via `process.crashReporter.start`).
+* `opzioni` Oggetto 
+  * `companyName` String (opzionale)
+  * `submitURL` String - URL a cui verrà inviato il crash report come POST.
+  * `productName` String (opzionale) - Di default è `app.getName()`.
+  * `uploadToServer` Boolean (opzionale) - Se il crash report deve essere inviato al server Di default è `true`.
+  * `ignoreSystemCrashHandler` Boolean (opzionale) - Di default è `false`.
+  * `extra` Object (opzionale) - Un oggetto che puoi definire che verrà inviato insieme al report. Solo proprietà di tipo string saranno inviate correttamente. Oggetti innestati non sono supportati ed i nomi delle proprietà e valori devono essere lunghi meno di 64 caratteri.
+  * `crashesDirectory` String (opzionale) - Cartella in cui salvare temporaneamente i crash report (usato solo quando il crash reporter è avviato tramite `process.crashReporter.start`).
 
 You are required to call this method before using any other `crashReporter` APIs and in each process (main/renderer) from which you want to collect crash reports. You can pass different options to `crashReporter.start` when calling from different processes.
 
