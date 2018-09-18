@@ -75,7 +75,7 @@ Variabel lingkungan ini tidak akan bekerja jika ` crashReporter </ 0> dimulai.</
 
 <h3><code>ELECTRON_OVERRIDE_DIST_PATH`</h3> 
 
-When running from the `electron` package, this variable tells the `electron` command to use the specified build of Electron instead of the one downloaded by `npm install`. Usage:
+When running from the `electron` package, this variable tells the `electron` command to use the specified build of Electron instead of the one downloaded by `npm install`. Pemakaian:
 
 ```sh
 export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/D
