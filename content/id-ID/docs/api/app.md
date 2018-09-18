@@ -21,7 +21,7 @@ Objek `aplikasi` memancarkan kejadian-kejadian berikut:
 
 Dipancarkan saat aplikasi telah menyelesaikan proses awal mula dasar. Pada Windows dan Linux, kejadian `will-finish-launching` sama dengan kejadian `ready`; di macOS, kejadian ini mewakili pemberitahuan `applicationWillFinishLaunching` dari `NSApplication`. Anda biasanya akan menyiapkan pendengar untuk kejadian `open-file` dan `open-url` di sini, dan memulai pelapor crash dan pemutakhir otomatis.
 
-Dalam kebanyakan kasus, Anda mestinya hanya melakukan semuanya dalam pemroses kejadian `ready`.
+In most cases, you should do everything in the `ready` event handler.
 
 ### Kejadian: 'ready'
 
@@ -332,6 +332,18 @@ event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan 
     })
     ```
     
+    ### Event: 'second-instance'
+    
+    Pengembalian:
+    
+    * `acara` Acara
+    * `argv` String[] - Sebuah array dari argumen baris perintah kedua
+    * `workingDirectory` String - Direktori kerja contoh kedua
+    
+    This event will be emitted inside the primary instance of your application when a second instance has been executed. `argv` adalah argumen argumen baris kedua dari Array, dan `workingDirectory` adalah direktori kerja saat ini. Biasanya aplikasi merespon hal ini dengan membuat jendela utama mereka fokus dan tidak diminimalisir.
+    
+    This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
+    
     ## Metode
     
     The `aplikasi` objek memiliki metode berikut:
@@ -375,6 +387,10 @@ event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan 
     ### `app.isReady()`
     
     Mengembalikan `Boolean` - `true` jika Elektron selesai menginisialisasi, `false` sebaliknya.
+    
+    ### `app.whenReady()`
+    
+    Returns `Promise` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
     
     ### `app.focus()`
     
@@ -513,7 +529,7 @@ event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan 
             
             Metode ini memeriksa apakah saat ini dapat dieksekusi sebagai pengendali default untuk sebuah protokol (alias skema URI). Jika demikian, itu akan menghapus aplikasi sebagai penangan default.
             
-            ### `app.isDefaultProtocolClient(protokol[, path, args])` *macOS* *Windows*
+            ### `app.isDefaultProtocolClient(protocol[, path, args])`
             
             * `protocol` String - Nama protokol Anda, tanpa `://`.
             * `path` String (opsional) *Windows* - Default ke `process.execPath`
@@ -621,40 +637,52 @@ properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> 
             ])
             ```
             
-            ### `app.makeSingleInstance(callback)`
+            ### `app.requestSingleInstanceLock()`
             
-            * `callback` Fungsi 
-              * `argv` String[] - Sebuah array dari argumen baris perintah kedua
-              * `workingDirectory` String - Direktori kerja contoh kedua
-            
-            Mengembalikan `Boolean`.
+            Mengembalikan `Boolean`
             
             Metode ini membuat aplikasi Anda menjadi Aplikasi Instan Tunggal - alih-alih membiarkan beberapa contoh aplikasi Anda berjalan, ini akan memastikan bahwa hanya satu contoh aplikasi Anda yang berjalan, dan contoh lainnya memberi isyarat contoh ini dan keluar.
             
-            `callback` akan dipanggil oleh instance pertama dengan `callback(argv, workingDirectory)` ketika instance kedua telah dieksekusi. `argv` adalah argumen argumen baris kedua dari Array, dan `workingDirectory` adalah direktori kerja saat ini. Biasanya aplikasi merespon hal ini dengan membuat jendela utama mereka fokus dan tidak diminimalisir.
+            The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock you can assume that another instance of your application is already running with the lock and exit immediately.
             
-            The `callback` dijamin akan dieksekusi setelah `siap` acara dari `aplikasi` akan dipancarkan.
-            
-            Metode ini mengembalikan `false` jika proses Anda adalah contoh utama aplikasi dan aplikasi Anda harus terus dimuat. Dan mengembalikan `true` jika proses Anda telah mengirimkan parameternya ke instance lain, dan Anda harus segera berhenti.
+            I.e. This method returns `true` if your process is the primary instance of your application and your app should continue loading. It returns `false` if your process should immediately quit as it has sent its parameters to another instance that has already acquired the lock.
             
             Pada macOS sistem memberlakukan instance tunggal secara otomatis saat pengguna mencoba membuka instance kedua aplikasi Anda di Finder, dan acara `open-file` dan `open-url` akan dipancarkan untuk bahwa. Namun saat pengguna memulai aplikasi Anda di jalur perintah mekanisme contoh tunggal sistem akan dilewati dan Anda harus menggunakan metode ini untuk memastikan satu contoh.
             
             Contoh mengaktifkan jendela contoh utama saat instance kedua dimulai:
             
             ```javascript
-            const {app} = require('electron') biarkan myWindow = null const isSecondInstance = app.makeSingleInstance ((commandLine, workingDirectory) => {
-               // Seseorang mencoba untuk menjalankan instance kedua, kita harus memusatkan jendela kita.
-              jika (myWindow) {
-                 if (myWindow.isMinimized()) myWindow.restore()
-                 myWindow.focus()
-               }}) if (isSecondInstance) {
-               app.quit()} // buat myWindow, muat sisa aplikasi, dll...
-            app.on('siap', () => {})
+            const {app} = require('electron')
+            let myWindow = null
+            
+            const gotTheLock = app.requestSingleInstanceLock()
+            
+            if (!gotTheLock) {
+              app.quit()
+            } else {
+              app.on('second-instance', (commandLine, workingDirectory) => {
+                // Someone tried to run a second instance, we should focus our window.
+                if (myWindow) {
+                  if (myWindow.isMinimized()) myWindow.restore()
+                  myWindow.focus()
+                }
+              })
+            
+              // Create myWindow, load the rest of the app, etc...
+              app.on('ready', () => {
+              })
+            }
             ```
             
-            ### `app.releaseSingleInstance()`
+            ### `app.hasSingleInstanceLock()`
             
-            Rilis semua kunci yang diciptakan oleh `makeSingleInstance`. Ini akan memungkinkan beberapa contoh aplikasi sekali lagi berjalan berdampingan.
+            Mengembalikan `Boolean`
+            
+            This method returns whether or not this instance of your app is currently holding the single instance lock. You can request the lock with `app.requestSingleInstanceLock()` and release with `app.releaseSingleInstanceLock()`
+            
+            ### `app.releaseSingleInstanceLock()`
+            
+            Releases all locks that were created by `requestSingleInstanceLock`. This will allow multiple instances of the application to once again run side by side.
             
             ### `app.setUserAktivitas(ketik, userInfo[, webpageURL])` *macOS*
             
@@ -727,7 +755,7 @@ properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> 
             
             Di macOS itu terlihat di ikon dermaga. Di Linux hanya bekerja untuk Unity launcher,
             
-            **Note:** Unity launcher mensyaratkan adanya a `.desktop` file untuk bekerja, untuk informasi lebih lanjut silahkan baca [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
+            **Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
             
             ### `app.getBadgeCount()` *Linux* *macOS*
             
@@ -896,10 +924,16 @@ properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> 
             
             * `menu` [Menu](menu.md)
             
-            Mengatur aplikasi [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103).
+            Sets the application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
             
             ### `app.dock.setIcon(gambar)` *macOS*
             
             * `gambar` ([NativeImage](native-image.md) | String)
             
             Menetapkan `gambar` yang terkait dengan ikon dermaga ini.
+            
+            ## properti
+            
+            ### `app.isPackaged`
+            
+            A `Boolean` property that returns `true` if the app is packaged, `false` otherwise. For many apps, this property can be used to distinguish development and production environments.
