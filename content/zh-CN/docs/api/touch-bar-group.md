@@ -6,5 +6,5 @@ Process: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
 
 ### `new TouchBarGroup(可选)` * 实验功能 *
 
-* `参数` Object 
+* `参数` 对象 
   * `items` [TouchBar](touch-bar.md) - 以分组的方式显示元素.
