@@ -6,7 +6,7 @@ Process: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
 
 ### `new TouchBarSlider(options)` *Experimental*
 
-* `options` Object 
+* `options` شئ 
   * `label` String (optional) - Label text.
   * `value` Integer (optional) - Selected value.
   * `minValue` Integer (optional) - Minimum value.
