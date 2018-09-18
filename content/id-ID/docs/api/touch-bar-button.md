@@ -2,18 +2,18 @@
 
 > Buat tombol di panel sentuh untuk aplikasi macOS asli
 
-Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+Proses: [utama](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `TouchBarButtonbaru(pilihan)`*Eksperimental*
 
-* `pilihan` Objek 
+* `pilihan` Benda 
   * `label` String (opsional) - Teks tombol.
   * `backgroundColor` String (opsional) - Tombol warna latar dalam format hex, i.e `#ABCDEF`.
   * `ikon `[ NativeImage ](native-image.md) (opsional) - Ikon tombol.
   * `iconPosition`String (opsional) - Bisa jadi `left`,` right`atau`overlay`.
   * `klik`Fungsi (opsional) - Fungsi untuk memanggil saat tombol diklik.
 
-### Instance Properties
+### Contoh properti
 
 Properti berikut tersedia pada contoh `TouchBarButton`:
 
