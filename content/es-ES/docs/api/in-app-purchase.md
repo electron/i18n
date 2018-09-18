@@ -25,7 +25,7 @@ El módulo `inAppPurchase` tiene los siguientes métodos:
 
 * `productID` String - The identifiers of the product to purchase. (The identifier of `com.example.app.product1` is `product1`).
 * `quantity` Integer (opcional) - El número de objetos que el usuario quiere comprar.
-* `callback` Function (optional) - The callback called when the payment is added to the PaymentQueue. 
+* `callback` Función (opcional) - El callback llama cuando el pago se añade a la cola de pagos (PaymentQueue). 
     * `isProductValid` Boleano - Determina si el producto es válido e se añade a la cola de pagos.
 
 You should listen for the `transactions-updated` event as soon as possible and certainly before you call `purchaseProduct`.
@@ -40,11 +40,11 @@ Retrieves the product descriptions.
 
 ### `inAppPurchase.canMakePayments()`
 
-Returns `Boolean`, whether a user can make a payment.
+Devuelve un `Boolean`, dependiendo si el usuario puede hacer un pago.
 
 ### `inAppPurchase.getReceiptURL()`
 
-Returns `String`, the path to the receipt.
+Devuelve un `String`, que la ruta/dirección del recibo.
 
 ### `inAppPurchase.finishAllTransactions()`
 
