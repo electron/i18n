@@ -90,7 +90,7 @@ Ipinapasok ang `menuItem` sa posisyon ng`pos` ng menu.
 
 Objects created with `new Menu` emit the following events:
 
-**Note:** Ang ilang mga event ay magagamit lamang sapartikular na mga operating system at ay tinatakan tulad nito.
+**Tandaan:** Ang ilang mga kaganapan ay magagamit lamang sa partikular na mga operating system at na may label na.
 
 #### Event: 'menu-will-show'
 
@@ -108,7 +108,7 @@ Ibinabalik ang:
 
 Emitted when a popup is closed either manually or with `menu.closePopup()`.
 
-### Katangian ng pagkakataon
+### Mga Katangian ng Instance
 
 Ang mga bagay sa `menu` ay mayroon ding mga sumusunod na katangian:
 
@@ -279,9 +279,9 @@ You can make use of `before`, `after`, `beforeGroupContaining`, `afterGroupConta
 
 By default, items will be inserted in the order they exist in the template unless one of the specified positioning keywords is used.
 
-### Mga Halimbawa
+### Halimbawa
 
-Template:
+Ang Template:
 
 ```javascript
 [
@@ -292,7 +292,7 @@ Template:
 ]
 ```
 
-Menu:
+Ang Menu:
 
 ```sh
 <br />- 1
@@ -301,7 +301,7 @@ Menu:
 - 4
 ```
 
-Template:
+Ang Template:
 
 ```javascript
 [
@@ -314,7 +314,7 @@ Template:
 ]
 ```
 
-Menu:
+Ang Menu:
 
 ```sh
 <br />- 3
@@ -325,7 +325,7 @@ Menu:
 - 2
 ```
 
-Template:
+Ang Template:
 
 ```javascript
 [
@@ -335,7 +335,7 @@ Template:
 ]
 ```
 
-Menu:
+Ang Menu:
 
 ```sh
 <br />- ---
