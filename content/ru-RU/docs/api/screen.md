@@ -57,7 +57,7 @@ app.on('ready', () => {
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `newDisplay` [Display](structures/display.md)
 
 Emitted when `newDisplay` has been added.
