@@ -164,8 +164,8 @@ the <code>window.location` object is changed or a user clicks a link in the page
   Rückgabewert:
   
   * ` Ereignis </ 0>  Ereignis</li>
-<li><code>url` String
-  * `httpResponseCode` Integer - -1 for non HTTP navigations
+<li><code> URL </ 0>  Zeichenfolge</li>
+<li><code>httpResponseCode` Integer - -1 for non HTTP navigations
   * `httpStatusText` String - empty for non HTTP navigations
   
   Emitted when a main frame navigation is done.
@@ -253,7 +253,7 @@ the <code>window.location` object is changed or a user clicks a link in the page
     Rückgabewert:
     
     * ` Ereignis </ 0>  Ereignis</li>
-<li><code>name` Zeichenfolge
+<li><code>name` String
     * `version` String
     
     Emitted when a plugin process has crashed.
@@ -466,7 +466,7 @@ the <code>window.location` object is changed or a user clicks a link in the page
     * ` Ereignis </ 0>  Ereignis</li>
 <li><code>devices` [BluetoothDevice[]](structures/bluetooth-device.md)
     * `callback` Funktion 
-      * `GeräteID` String
+      * `deviceId` String
     
     Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
     
@@ -556,7 +556,7 @@ the <code>window.location` object is changed or a user clicks a link in the page
     #### `contents.loadURL(url[, options])`
     
     * ` URL </ 0>  Zeichenfolge</li>
-<li><code>options` Objekt (optional) 
+<li><code>optionen` Objekt (optional) 
       * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
       * `userAgent` String (optional) - A user agent originating the request.
       * `extraHeaders` String (optional) - Extra headers separated by "\n".
@@ -710,7 +710,7 @@ the <code>window.location` object is changed or a user clicks a link in the page
       
       #### `contents.executeJavaScript(code[, userGesture, callback])`
       
-      * `code` String
+      * `code` Zeichenkette
       * `userGesture` Boolean (optional) - Default is `false`.
       * `callback` Function (optional) - Called after script has been executed. 
         * `result` Any
@@ -730,7 +730,7 @@ the <code>window.location` object is changed or a user clicks a link in the page
         })
       ```
       
-      #### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
+      #### `contents.setIgnoreMenuShortcuts(ignore)` *Experimentell*
       
       * `ignore` Boolean
       
@@ -1054,7 +1054,7 @@ the <code>window.location` object is changed or a user clicks a link in the page
       
       #### `contents.openDevTools([options])`
       
-      * `optionen` Objekt (optional) 
+      * `options` Objekt (optional) 
         * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
       
       Opens the devtools.
