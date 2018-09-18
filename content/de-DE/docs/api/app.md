@@ -471,9 +471,9 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         ### `app.setName(name)`
         
-        * `name` Zeichenfolge
+        * `name` String
         
-        Overrides the current application's name.
+        Überschreibt den Namen der aktuellen Anwendung.
         
         ### `app.getLocale()`
         
