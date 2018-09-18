@@ -253,7 +253,7 @@ La `position` n’est disponible que sur Windows, et c’est (0, 0) par défaut.
 
 #### `tray.setContextMenu(menu)`
 
-* `menu` Menu
+* `menu` Menu | null
 
 Définit le menu contextuel de l'icône.
 
