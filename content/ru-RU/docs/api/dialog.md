@@ -24,32 +24,32 @@ console.log(dialog)
 
 ### `dialog.showOpenDialog([browserWindow, ]options[, callback])`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional)
+* `browserWindow` [BrowserWindow](browser-window.md) (опционально)
 * `options` Object 
-  * `title` String (optional)
-  * `defaultPath` String (optional)
-  * `buttonLabel` String (optional) - Custom label for the confirmation button, when left empty the default label will be used.
-  * `filters` [FileFilter[]](structures/file-filter.md) (optional)
-  * `properties` String[] (optional) - Contains which features the dialog should use. The following values are supported: 
+  * `title` String (опционально)
+  * `defaultPath` String (опционально)
+  * `buttonLabel` String(опционально) - Альтернативный текст для кнопки подтверждения. Если оставить пустым будет использован стандартный текст.
+  * `filters` [FileFilter[]](structures/file-filter.md) (опционально)
+  * `properties` String[] (опционально) - Свойства, которые будут использованы диалогом. Возможны следующие значения: 
     * `openFile` - позволяет выбирать файлы.
     * `openDirectory` - позволяет выбирать папки.
     * `multiSelections` - позволяет выбрать несколько объектов.
     * `showHiddenFiles` - отображает в диалоге скрытые файлы.
-    * `createDirectory` *macOS* - Allow creating new directories from dialog.
-    * `promptToCreate` *Windows* - Prompt for creation if the file path entered in the dialog does not exist. Это на самом деле не приводит к тому что создается новый файл по указанному пути, но позволяет возвращать из диалога несуществующий путь, новый файл должен быть создан приложением после выхода из диалога.
-    * `noResolveAliases` *macOS* - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
-    * `treatPackageAsDirectory` *macOS* - Treat packages, such as `.app` folders, as a directory instead of a file.
-  * `message` String (optional) *macOS* - Message to display above input boxes.
-  * `securityScopedBookmarks` Boolean (optional) *masOS* *mas* - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
-* `callback` Function (optional) 
-  * `filePaths` String[] - An array of file paths chosen by the user
-  * `bookmarks` String[] *macOS* *mas* - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` must be enabled for this to be populated.
+    * `createDirectory` *macOS* - Позволяет создавать новые директории из диалога.
+    * `promptToCreate`*Windows* - предупреждает, если путь указанный в диалоге не существует. Это, на самом деле, не приводит к тому, что создается новый файл по указанному пути, но позволяет возвращать из диалога несуществующий путь, новый файл должен быть создан приложением после выхода из диалога.
+    * `noResolveAliases` *macOS* - Отключает автоматическую обработку cимволических ссылок (symlink). Все symlink-и теперь вернут свой путь, а не ее целевой путь.
+    * `treatPackageAsDirectory` *macOS* - Открывает пакеты, такие как папки `.app`, как директорию, а не как файл.
+  * `message` String (опционально) *macOS* - Сообщение, которое будет показан над блоками ввода.
+  * `securityScopedBookmarks` Boolean (опционально) *masOS* *mas* - Создает [защищенные закладки](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16), когда создается пакет для Mac App Store.
+* `callback` Function (опционально) 
+  * `filePaths` String[] - Массив файлов, которые выбрал пользователь
+  * `bookmarks` String[] *macOS* *mas* - Base64 - шифрованный массив, который соответствует массиву `filePaths`, который содержит защищенные закладки. `securityScopedBookmarks` должны быть активированы, чтобы массив был создан.
 
-Returns `String[]`, an array of file paths chosen by the user, if the callback is provided it returns `undefined`.
+Возвращает `String[]`, массив путей файлов, выбранных пользователем. Если был получен callback, возвращает `undefined`.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+Аргумент `browserWindow` позволяет диалогу прикреплять себя к родительскому окну, что делает его модальным.
 
-The `filters` specifies an array of file types that can be displayed or selected when you want to limit the user to a specific type. For example:
+Аргумент `filters` указывает массив типов файлов, которые могут быть показаны или выбраны, если вы хотите ограничить пользователя на определенном типе файла. Например:
 
 ```javascript
 {
@@ -62,19 +62,19 @@ The `filters` specifies an array of file types that can be displayed or selected
 }
 ```
 
-The `extensions` array should contain extensions without wildcards or dots (e.g. `'png'` is good but `'.png'` and `'*.png'` are bad). To show all files, use the `'*'` wildcard (no other wildcard is supported).
+Массив `extentions` должен содержать расширения файлов без шаблонов поиска или точек (например, `png` - это верно, а `.png` и `*.png` - неверно). Для того, чтобы показать все фалы, можно использовать шаблон поиска `'*'` (другие шаблоны не поддерживаются).
 
-If a `callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filenames)`.
+Если был передан `callback`, вызов API будет асинхронным и результат будет передан через `callback(filenames)`.
 
-**Note:** On Windows and Linux an open dialog can not be both a file selector and a directory selector, so if you set `properties` to `['openFile', 'openDirectory']` on these platforms, a directory selector will be shown.
+**Заметка:** на Windows и Linux открытый диалог не может одновременно выбирать и файлы и директории, так что, если вы установили `properties` в `['openFile', 'openDirectory']` на этих платформах, то показан будет только выбор директорий.
 
 ### `dialog.showSaveDialog([browserWindow, ]options[, callback])`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional)
+* `browserWindow` [BrowserWindow](browser-window.md) (опционально)
 * `options` Object 
   * `title` String (optional)
   * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
-  * `buttonLabel` String (optional) - Custom label for the confirmation button, when left empty the default label will be used.
+  * `buttonLabel` String(опционально) - Альтернативный текст для кнопки подтверждения. Если оставить пустым будет использован стандартный текст.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
   * `message` String (optional) *macOS* - Message to display above text fields.
   * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
@@ -86,7 +86,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 
 Returns `String`, the path of the file chosen by the user, if a callback is provided it returns `undefined`.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+Аргумент `browserWindow` позволяет диалогу прикреплять себя к родительскому окну, что делает его модальным.
 
 The `filters` specifies an array of file types that can be displayed, see `dialog.showOpenDialog` for an example.
 
@@ -94,7 +94,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 
 ### `dialog.showMessageBox([browserWindow, ]options[, callback])`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional)
+* `browserWindow` [BrowserWindow](browser-window.md) (опционально)
 * `options` Object 
   * `type` String (optional) - Can be `"none"`, `"info"`, `"error"`, `"question"` or `"warning"`. On Windows, `"question"` displays the same icon as `"info"`, unless you set an icon using the `"icon"` option. On macOS, both `"warning"` and `"error"` display the same warning icon.
   * `buttons` String[] (optional) - Array of texts for buttons. On Windows, an empty array will result in one button labeled "OK".
@@ -116,7 +116,7 @@ Returns `Integer`, the index of the clicked button, if a callback is provided it
 
 Shows a message box, it will block the process until the message box is closed. It returns the index of the clicked button.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+Аргумент `browserWindow` позволяет диалогу прикреплять себя к родительскому окну, что делает его модальным.
 
 If a `callback` is passed, the dialog will not block the process. The API call will be asynchronous and the result will be passed via `callback(response)`.
 
@@ -131,7 +131,7 @@ This API can be called safely before the `ready` event the `app` module emits, i
 
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options, callback)` *macOS* *Windows*
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional)
+* `browserWindow` [BrowserWindow](browser-window.md) (опционально)
 * `options` Object 
   * `certificate` [Certificate](structures/certificate.md) - The certificate to trust/import.
   * `message` String - The message to display to the user.
