@@ -4,7 +4,7 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-**アプリケーションに自動更新を実装する方法についての詳細なガイドは [ここ](../tutorial/updates.md) にあります。**
+**See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
 
 ## プラットフォームに関する注意事項
 
@@ -66,9 +66,15 @@ Squirrel.Macとは違って、Windowsでは、S3やその他の静的ファイ�
 
 Windowsでは `releaseName` のみ利用可能です。
 
+### Event: 'before-quit-for-update'
+
+This event is emitted after a user calls `quitAndInstall()`.
+
+When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
+
 ## メソッド
 
-`autoUpdater` オブジェクトには以下のメソッドがあります
+The `autoUpdater` object has the following methods:
 
 ### `autoUpdater.setFeedURL(options)`
 
@@ -77,20 +83,20 @@ Windowsでは `releaseName` のみ利用可能です。
   * `headers` Object (任意) *macOS* - HTTP リクエストヘッダ。
   * `serverType` String (任意) *macOS* - `json` または `default` のいずれかの詳細については、[Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README を参照してください。
 
-`url` を設定して自動更新を初期化します。
+Sets the `url` and initialize the auto updater.
 
 ### `autoUpdater.getFeedURL()`
 
-戻り値 `String` - 現在の更新フィードURL。
+Returns `String` - The current update feed URL.
 
 ### `autoUpdater.checkForUpdates()`
 
-更新プログラムがあるかをサーバーに問い合わせます。このAPIを使用する前に `setFeedURL` を呼び出さなければなりません。
+Asks the server whether there is an update. You must call `setFeedURL` before using this API.
 
 ### `autoUpdater.quitAndInstall()`
 
-更新プログラムがダウンロードされた後でアプリを再起動し、更新プログラムをインストールします。`update-downloaded` が発生した後でしか呼び出さないようにしてください。
+Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
 
-`autoUpdater.quitAndInstall()` を呼ぶと、この中では最初にすべてのアプリケーションウィンドウを閉じ、すべてのウィンドウが閉じられた後に自動的に `app.quit()` を呼び出します。
+Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
 
-**注釈:** `update-downloaded` イベントが発行された後にこの API を呼び出さずにアプリケーションを終了した場合でも、アプリケーションは次の実行時に更新されたものに置き換えられます。
+**Note:** If the application is quit without calling this API after the `update-downloaded` event has been emitted, the application will still be replaced by the updated one on the next run.
