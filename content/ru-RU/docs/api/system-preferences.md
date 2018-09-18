@@ -57,6 +57,13 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 
 Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
+### `systemPreferences.postWorkspaceNotification(event, userInfo)` *macOS*
+
+* `event` String
+* `userInfo` Object
+
+Posts `event` as native notifications of macOS. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
+
 ### `systemPreferences.subscribeNotification(event, callback)` *macOS*
 
 * `event` String
@@ -75,12 +82,6 @@ Under the hood this API subscribes to `NSDistributedNotificationCenter`, example
 * `AppleColorPreferencesChangedNotification`
 * `AppleShowScrollBarsSettingChanged`
 
-### `systemPreferences.unsubscribeNotification(id)` *macOS*
-
-* `id` Integer
-
-Removes the subscriber with `id`.
-
 ### `systemPreferences.subscribeLocalNotification(event, callback)` *macOS*
 
 * `event` String
@@ -90,11 +91,32 @@ Removes the subscriber with `id`.
 
 Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults. This is necessary for events such as `NSUserDefaultsDidChangeNotification`.
 
+### `systemPreferences.subscribeWorkspaceNotification(event, callback)` *macOS*
+
+* `event` String
+* `callback` Function 
+  * `event` String
+  * `userInfo` Object
+
+Same as `subscribeNotification`, but uses `NSWorkspace.sharedWorkspace.notificationCenter`. This is necessary for events such as `NSWorkspaceDidActivateApplicationNotification`.
+
+### `systemPreferences.unsubscribeNotification(id)` *macOS*
+
+* `id` Integer
+
+Removes the subscriber with `id`.
+
 ### `systemPreferences.unsubscribeLocalNotification(id)` *macOS*
 
 * `id` Integer
 
 Same as `unsubscribeNotification`, but removes the subscriber from `NSNotificationCenter`.
+
+### `systemPreferences.unsubscribeWorkspaceNotification(id)` *macOS*
+
+* `id` Integer
+
+Same as `unsubscribeNotification`, but removes the subscriber from `NSWorkspace.sharedWorkspace.notificationCenter`.
 
 ### `systemPreferences.registerDefaults(defaults)` *macOS*
 
@@ -107,7 +129,7 @@ Add the specified defaults to your application's `NSUserDefaults`.
 * `key` String
 * `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
 
-Возвращает `any` - Значение `key` в `NSUserDefaults`.
+Returns `any` - The value of `key` in `NSUserDefaults`.
 
 Самые популярные `key` и `type`:
 
@@ -122,10 +144,10 @@ Add the specified defaults to your application's `NSUserDefaults`.
 ### `systemPreferences.setUserDefault(key, type, value)` *macOS*
 
 * `key` String
-* `type` String - See [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos].
+* `type` String - See [`getUserDefault`](#systempreferencesgetuserdefaultkey-type-macos).
 * `value` String
 
-Устанавливает значение `key` в `NSUserDefaults`.
+Set the value of `key` in `NSUserDefaults`.
 
 Note that `type` should match actual type of `value`. An exception is thrown if they don't.
 
@@ -212,8 +234,8 @@ const alpha = color.substr(6, 2) // "dd"
   * `window-frame` - Window frame.
   * `window-text` - Text in windows.
 
-Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`). Смотрите [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) для получения более подробной информации.
+Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) for more details.
 
 ### `systemPreferences.isInvertedColorScheme()` *Windows*
 
-Возвращает ` Boolean ` - ` true `, если инвертированная цветовая схема, например тема с высоким контрастом, активна, ` false ` в противном случае.
+Returns `Boolean` - `true` if an inverted color scheme, such as a high contrast theme, is active, `false` otherwise.
