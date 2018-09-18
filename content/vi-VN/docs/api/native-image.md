@@ -82,7 +82,7 @@ Following suffixes for DPI are also supported:
 
 ## Template Image
 
-Template images consist of black and clear colors (and an alpha channel). Template images are not intended to be used as standalone images and are usually mixed with other content to create the desired final appearance.
+Template images consist of black and an alpha channel. Template images are not intended to be used as standalone images and are usually mixed with other content to create the desired final appearance.
 
 The most common case is to use template images for a menu bar icon so it can adapt to both light and dark menu bars.
 
@@ -156,7 +156,7 @@ This means that `[-1, 0, 1]` will make the image completely white and `[-1, 1, 0
 
 > Natively wrap images such as tray, dock, and application icons.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Tiến trình: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 ### Các phương thức riêng
 
