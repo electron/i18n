@@ -209,7 +209,7 @@ Menyetel teks hover untuk ikon baki ini.
   
   * `pilihan` Obyek 
     * `ikon` ([NativeImage](native-image.md) | String) (opsional) -
-    * ` judul </ 0> String</li>
+    * ` judul</ 0>  String</li>
 <li><code>content` String
   
   Menampilkan balon baki.
@@ -225,16 +225,16 @@ Menyetel teks hover untuk ikon baki ini.
   
   #### `tray.setContextMenu (menu)`
   
-  * ` menu </ 0> Menu</li>
-</ul>
-
-<p>Menetapkan menu konteks untuk ikon ini.</p>
-
-<h4><code>tray.getBounds()` *macOS * * Windows*</h4> 
-    Kembali [`Rectangle`](structures/rectangle.md)
-    
-    `Batas` dari ikon baki ini sebagai `Objek`.
-    
-    #### `tray.isDestroyed()`
-    
-    Mengembalikan `Boolean` - Apakah ikon baki rusak.
+  * `menu` Menu | batal
+  
+  Menetapkan menu konteks untuk ikon ini.
+  
+  #### `tray.getBounds()` *macOS * * Windows*
+  
+  Kembali [`Rectangle`](structures/rectangle.md)
+  
+  `Batas` dari ikon baki ini sebagai `Objek`.
+  
+  #### `tray.isDestroyed()`
+  
+  Mengembalikan `Boolean` - Apakah ikon baki rusak.
