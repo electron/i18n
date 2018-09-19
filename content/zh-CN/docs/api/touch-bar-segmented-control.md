@@ -2,7 +2,7 @@
 
 > 创建一个分段控件（按钮组），其中一个按钮具有选定状态
 
-Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+Process: [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarSegmentedControl(options)` *实验功能*
 
