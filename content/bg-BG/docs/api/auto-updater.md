@@ -4,7 +4,7 @@
 
 Процеса: [Main](../glossary.md#main-process)
 
-**You can find a detailed guide about how to implement updates into your application [here](../tutorial/updates.md).**
+**Може да намерите подробно ръководство, за това как да добавите обновявания във вашето приложение [here](../tutorial/updates.md).**
 
 ## Известия от платформата
 
@@ -68,7 +68,7 @@
 
 ## Методи
 
-The `autoUpdater` object has the following methods:
+Обектът `autoUpdater` има следните методи:
 
 ### `autoUpdater.setFeedURL(options)`
 
@@ -77,19 +77,19 @@ The `autoUpdater` object has the following methods:
   * `headers` Object (optional) *macOS* - HTTP request headers.
   * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
-Sets the `url` and initialize the auto updater.
+Поставя `url` и инициализира автоматичното обновяване.
 
 ### `autoUpdater.getFeedURL()`
 
-Returns `String` - The current update feed URL.
+Връща `String` - Текущият URL на обновяването.
 
 ### `autoUpdater.checkForUpdates()`
 
-Asks the server whether there is an update. You must call `setFeedURL` before using this API.
+Пита сървъра за налично обновяване. Трябва да извикате `setFeedURL` преди да използвате този API.
 
 ### `autoUpdater.quitAndInstall()`
 
-Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
+Връща приложението и инсталира обновяването, след като е било свалено. Може да бъде извикано само след като `update-downloaded` е било излъчено.
 
 Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
 
