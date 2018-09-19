@@ -2,7 +2,7 @@
 
 > Gumawa ng isang pipindutin sa touch bar para sa katutubong aplikasyon para sa macOS
 
-Proseso: [Pangunahing](../tutorial/application-architecture.md#main-and-renderer-processes)
+Process: [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarButton(options)` *Experimental*
 
