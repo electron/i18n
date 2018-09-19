@@ -93,15 +93,15 @@ Bieżącą pozycję bezwzględną wskaźnika myszy.
 
 ### `screen.getMenuBarHeight()` *macOS*
 
-Returns `Integer` - The height of the menu bar in pixels.
+Zwraca `Integer` - wysokość paska menu w pikselach.
 
 ### `screen.getPrimaryDisplay()`
 
-Returns [`Display`](structures/display.md) - The primary display.
+Zwraca [`Display`](structures/display.md) - ekran główny.
 
 ### `screen.getAllDisplays()`
 
-Returns [`Display[]`](structures/display.md) - An array of displays that are currently available.
+Zwraca [`Display[]`](structures/display.md) - tablicę obiektów Display, które są obecnie dostępne.
 
 ### `screen.getDisplayNearestPoint(point)`
 
