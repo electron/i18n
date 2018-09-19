@@ -8,7 +8,7 @@
 
 ## Mesaj gönderiliyor
 
-Ana işlemden yan işleme mesaj göndermek mümkündür, daha fazla bilgi için [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) komutuna bakınız.
+Ana işlemden yan işleme mesaj göndermek mümkündür, daha fazla bilgi için [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) komutuna bakınız.
 
 * Bir mesaj gönderirken, etkinlik adı `channel`.
 * Eşzamanlı bir mesaja cevap vermek için, `event.returnValue`yi ayarlamak gereklidir.
@@ -55,7 +55,7 @@ ipcRenderer.send('asynchronous-message', 'ping')
 ### `ipcMain.once(kanal, dinleyici)`
 
 * `channel` Dizesi
-* `listener` Function
+* `listener` fonksiyon
 
 Olay için bir kerelik `listener` işlevi eklenir. Bu `listener` yalnızca bir mesajın `channel` adresine gönderilmesinden sonra kaldırılır.
 
@@ -82,4 +82,4 @@ Bunu, zaman uyumlu bir mesajda iade edilecek değere ayarlayınız.
 
 ### `event.sender`
 
-İletiyi gönderen `webContents` değerini döndürür, eşzamansız iletiyi yanıtlamak için `event.sender.send`' i arayabilir, daha fazla bilgi için [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-)' e bakabilirsiniz.
+İletiyi gönderen `webContents` değerini döndürür, eşzamansız iletiyi yanıtlamak için `event.sender.send`' i arayabilir, daha fazla bilgi için [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-)' e bakabilirsiniz.
