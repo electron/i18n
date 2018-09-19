@@ -17,4 +17,4 @@
 * برنامه حضور داشته باشد
 * برنامه `NSUserNotificationAlertStyle` را به `alert` در `info.plist` تنظیم کرده است.
 
-If either of these requirements are not met the button won't appear.
+If either of these requirements are not met the button simply won't appear.
