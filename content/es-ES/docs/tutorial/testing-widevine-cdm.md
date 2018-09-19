@@ -1,22 +1,22 @@
-# Testing Widevine CDM
+# Prueba CDM Widevine
 
-In Electron you can use the Widevine CDM library shipped with Chrome browser.
+En Electron usted puede usar la librería de Widevine CDM conectado con el navegador Chrome.
 
-## Getting the library
+## Obtener la librería
 
-Open `chrome://components/` in Chrome browser, find `Widevine Content Decryption Module` and make sure it is up to date, then you can find the library files from the application directory.
+Abre `chrome://components/` en el navegador Chrome, encuentra `Widevine Content Decryption Module` y asegúrese de que esté actualizado, luego puede encontrar los archivos de la biblioteca desde el directorio de la aplicación.
 
 ### En Windows
 
 The library file `widevinecdm.dll` will be under `Program Files(x86)/Google/Chrome/Application/CHROME_VERSION/WidevineCdm/_platform_specific/win_(x86|x64)/` directory.
 
-### On MacOS
+### En MacOS
 
 The library file `libwidevinecdm.dylib` will be under `/Applications/Google Chrome.app/Contents/Versions/CHROME_VERSION/Google Chrome Framework.framework/Versions/A/Libraries/WidevineCdm/_platform_specific/mac_(x86|x64)/` directory.
 
 **Note:** Make sure that chrome version used by Electron is greater than or equal to the `min_chrome_version` value of Chrome's widevine cdm component. The value can be found in `manifest.json` under `WidevineCdm` directory.
 
-## Using the library
+## Usando la librería
 
 After getting the library files, you should pass the path to the file with `--widevine-cdm-path` command line switch, and the library's version with `--widevine-cdm-version` switch. The command line switches have to be passed before the `ready` event of `app` module gets emitted.
 
@@ -25,9 +25,9 @@ Código de ejemplo:
 ```javascript
 const { app, BrowserWindow } = require('electron')
 
-// You have to pass the directory that contains widevine library here, it is
-// * `libwidevinecdm.dylib` on macOS,
-// * `widevinecdm.dll` on Windows.
+// Tienes que pasar el directorio que contiene la biblioteca de widevine aquí, es
+// * `libwidevinecdm.dylib` en macOS,
+// * `widevinecdm.dll` en Windows.
 app.commandLine.appendSwitch('widevine-cdm-path', '/path/to/widevine_library')
 // The version of plugin can be got from `chrome://plugins` page in Chrome.
 app.commandLine.appendSwitch('widevine-cdm-version', '1.4.8.866')
