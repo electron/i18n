@@ -1,14 +1,20 @@
 # `<webview>`标签
 
+## Warning
+
+Electron's `webview` tag is based on [Chromium's `webview`](https://developer.chrome.com/apps/tags/webview), which is undergoing dramatic architectural changes. This impacts the stability of `webviews`, including rendering, navigation, and event routing. We currently recommend to not use the `webview` tag and to consider alternatives, like `iframe`, Electron's `BrowserView`, or an architecture that avoids embedded content altogether.
+
+## Overview
+
 > 在一个独立的 frame 和进程里显示外部 web 内容。
 
-进程: [ Renderer](../tutorial/quick-start.md#renderer-process)
+进程: [ Renderer](../glossary.md#renderer-process)
 
 使用 ` webview ` 标签在Electron 应用中嵌入 "外来" 内容 (如 网页)。外来"内容包含在 ` webview ` 容器中。 应用中的嵌入页面可以控制外来内容的布局和重绘。
 
 与 ` iframe ` 不同, ` webview ` 在与应用程序不同的进程中运行。它与您的网页没有相同的权限, 应用程序和嵌入内容之间的所有交互都将是异步的。 这将保证你的应用对于嵌入的内容的安全性。 ** 注意: **从宿主页上调用 webview 的方法大多数都需要对主进程进行同步调用。
 
-## 例子
+## 示例
 
 若要在应用程序中嵌入网页, 请将 ` webview ` 标签添加到应用程序的被嵌入页面中 (这是将显示外来内容的应用程序页)。 在最简单的例子中, ` webview ` 标签包括网页的 ` src ` 和控制 ` webview ` 容器外观的 css 样式:
 
@@ -38,24 +44,19 @@
 </script>
 ```
 
+## Internal implementation
+
+Under the hood `webview` is implemented with [Out-of-Process iframes (OOPIFs)](https://www.chromium.org/developers/design-documents/oop-iframes). The `webview` tag is essentially a custom element using shadow DOM to wrap an `iframe` element inside it.
+
+So the behavior of `webview` is very similar to a cross-domain `iframe`, as examples:
+
+* When clicking into a `webview`, the page focus will move from the embedder frame to `webview`.
+* You can not add keyboard event listeners to `webview`.
+* All reactions between the embedder frame and `webview` are asynchronous.
+
 ## CSS 样式说明
 
-请注意，`webview` 标签的样式使用 `display:flex;` 来确保 ` 子元素 `在传统和弹性盒布局（自v0.36.11以来）一起使用的情况下填充其webview容器的全部高度和宽度。 请不要覆盖重写默认的 `display:flex;` CSS 样式，除了用` display:inline-flex; ` 来做内联布局
-
-`webview` 在使用 `hidden`或`display: none;` 来做隐藏时会出现一些问题。 它会引起其子 ` browserplugin ` 对象的一些异常渲染，即当 `webview` 回到非隐藏状态（un-hidden）时，网页将被重新加载。 建议的方法是使用 ` visibility: hidden ` 来隐藏 ` webview `。
-
-```html
-<style>
-  webview {
-    display:inline-flex;
-    width:640px;
-    height:480px;
-  }
-  webview.hide {
-    visibility: hidden;
-  }
-</style>
-```
+Please note that the `webview` tag's style uses `display:flex;` internally to ensure the child `iframe` element fills the full height and width of its `webview` container when used with traditional and flexbox layouts. Please do not overwrite the default `display:flex;` CSS property, unless specifying `display:inline-flex;` for inline layout.
 
 ## 标签属性
 
@@ -162,13 +163,13 @@ Assigning `src` its own value will reload the current page.
 
 该字符串的格式与 ` window.open ` 中的功能字符串( the features string )相同。 只有自己名字的将被赋予 `true` 布尔值。 可以通过 `=` 来赋予其他值。 `yes` 和 `1` 会被解析成 `true`，而 `no` 和 `0` 解析为 `false`。
 
-### `blinkfeatures`
+### `enableblinkfeatures`
 
 ```html
-<webview src="https://www.github.com/" blinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
+<webview src="https://www.github.com/" enableblinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-A list of strings which specifies the blink features to be enabled separated by `,`. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) file.
+A list of strings which specifies the blink features to be enabled separated by `,`. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) file.
 
 ### `disableblinkfeatures`
 
@@ -176,50 +177,7 @@ A list of strings which specifies the blink features to be enabled separated by 
 <webview src="https://www.github.com/" disableblinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-A list of strings which specifies the blink features to be disabled separated by `,`. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) file.
-
-### `guestinstance`
-
-```html
-<webview src="https://www.github.com/" guestinstance="3"></webview>
-```
-
-将 instance 链接到特定 webContents 的值。 当 instance 第一次加载新的 webContents 时, 该属性将被设置为其实例标识符。 在新的或现有的 webview 上设置此属性，将关联到当前渲染在其他 webview 中的现有 webContents。
-
-现有的 webview 将会看到 ` destroy ` 事件, 然后在加载新的 url 时创建新的 webContents。
-
-### `disableguestresize`
-
-```html
-<webview src="https://www.github.com/" disableguestresize></webview>
-```
-
-当此属性存在时, 当 ` webview ` 元素本身调整大小时, 将禁止 ` webview ` 内容调整大小。
-
-这可以与 [` webContents. setSize `](web-contents.md#contentssetsizeoptions) 结合使用, 以便手动调整 web 内容的大小, 以响应窗口大小的更改。 与依赖 web 元素边界自动调整内容大小相比, 这可以使调整速度更快。
-
-```javascript
-const {webContents} = require('electron')
-
-// We assume that `win` points to a `BrowserWindow` instance containing a
-// `<webview>` with `disableguestresize`.
-
-win.on('resize', () => {
-  const [width, height] = win.getContentSize()
-  for (let wc of webContents.getAllWebContents()) {
-    // Check if `wc` belongs to a webview in the `win` window.
-    if (wc.hostWebContents &&
-        wc.hostWebContents.id === win.webContents.id) {
-      wc.setSize({
-        normal: {
-          width: width,
-          height: height
-        }
-      })
-    }
-  }
-})
-```
+A list of strings which specifies the blink features to be disabled separated by `,`. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) file.
 
 ## 方法
 
@@ -239,11 +197,11 @@ webview.addEventListener('dom-ready', () => {
 ### `<webview>.loadURL(url[, options])`
 
 * `url` URL
-* `选项` Object (可选) 
-  * `httpReferrer` String (可选) - HTTP来源网址
+* `options` Object (可选) 
+  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
   * `userAgent` String (可选) - 发起请求的 userAgent.
   * `extraHeaders` String (可选) - 用 "\n" 分割的额外标题
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (可选) -
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
   * `baseURLForDataURL` String (可选) - 要加载的数据文件的根 url(带有路径分隔符). 只有当指定的 `url`是一个数据 url 并需要加载其他文件时，才需要这样做。
 
 `webview` 中加载目标 url，url 地址必须包含协议前缀，例如：`http://` 或 `file://`。
@@ -474,7 +432,7 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
-* `callback` Function 
+* `callback` Function - 回调函数 
   * `error` Error
   * `data` Buffer
 
@@ -569,32 +527,7 @@ Corresponds to the points in time when the spinner of the tab starts spinning.
 
 Corresponds to the points in time when the spinner of the tab stops spinning.
 
-### Event: 'did-get-response-details'
-
-返回:
-
-* `status` Boolean
-* `newURL` String
-* `originalURL` String
-* `httpResponseCode` Integer
-* `requestMethod` String
-* `referrer` String
-* `headers` Object
-* `resourceType` String
-
-Fired when details regarding a requested resource is available. `status` indicates socket connection to download the resource.
-
-### Event: 'did-get-redirect-request'
-
-返回:
-
-* `oldURL` String
-* `newURL` String
-* `isMainFrame` Boolean
-
-Fired when a redirect was received while requesting a resource.
-
-### Event: 'dom-ready'
+### 事件: 'dom-ready'
 
 Fired when document in the given frame is loaded.
 
@@ -611,7 +544,7 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 
 返回:
 
-* `favicons` String[] - Array of URLs.
+* `favicons` String[] - 由连接组成的数组。
 
 Fired when page receives favicon urls.
 
@@ -748,7 +681,7 @@ webview.addEventListener('close', () => {
 
 Fired when the guest page has sent an asynchronous message to embedder page.
 
-With `sendToHost` method and `ipc-message` event you can easily communicate between guest page and embedder page:
+With `sendToHost` method and `ipc-message` event you can communicate between guest page and embedder page:
 
 ```javascript
 // In embedder page.
