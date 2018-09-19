@@ -8,7 +8,7 @@
 
 ## 메시지 보내기
 
-main 프로세스에서 renderer 프로세스로 메시지를 보내는 것도 가능한데 자세한 내용은 [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-)를 보세요.
+It is also possible to send messages from the main process to the renderer process, see [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) for more information.
 
 * 메시지를 보낼 때 이벤트 이름은 `channel`입니다.
 * 동기 메시지에 회신 하려면 `event.returnValue`를 설정 해야 합니다.
@@ -82,4 +82,4 @@ ipcRenderer.send('asynchronous-message', 'ping')
 
 ### `event.sender`
 
-메시지를 보낸 `webContents`를 반환합니다. 비동기 메시지에 응답하기 위해 `event.sender.send`를 호출할 수 있습니다. 자세한 내용은 [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) 를 참조하세요.
+Returns the `webContents` that sent the message, you can call `event.sender.send` to reply to the asynchronous message, see [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) for more information.
