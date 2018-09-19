@@ -21,7 +21,7 @@ app.on('window-all-closed', () => {
 
 Відбувається коли застосунок закінчує основний запуск. На Windows і Linux, подія `will-finish-launching` те саме що і подія `ready`; на macOS, ця подія представляє `NSApplication` повідомлення `applicationWillFinishLaunching`. Зазвичай ви будете налаштовувати тут слухачі на `open-file` та `open-url` події, запускати репортер збоїв та автооновлювач.
 
-In most cases, you should do everything in the `ready` event handler.
+В більшості випадків, ви повинні робити все в хендлері події `ready`.
 
 ### Подія: 'ready'
 
@@ -320,18 +320,6 @@ app.on('session-created', (event, session) => {
 })
 ```
 
-### Event: 'second-instance'
-
-Повертає:
-
-* `event` Event
-* `argv` String[] - Масив параметрів командного рядка другого екземпляру
-* `workingDirectory` String - Робоча директорія другого екземпляру
-
-This event will be emitted inside the primary instance of your application when a second instance has been executed. `argv` це масив з аргументами командного рядку другого екземпляру, а `workingDirectory` ця поточна робоча директорія. Зазвичай застосунок відповідає на це, розгортаючи головне вікно на перводячи на нього фокус.
-
-This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
-
 ## Методи
 
 Об'єкт `app` має наступні методи:
@@ -378,10 +366,6 @@ app.exit(0)
 ### `app.isReady()`
 
 Повертає `Boolean` - `true` якщо Electron завершив ініціалізацію, `false` в іншому випадку.
-
-### `app.whenReady()`
-
-Returns `Promise` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
 
 ### `app.focus()`
 
@@ -521,7 +505,7 @@ API всередині використовує реєстр Windows та LSSetD
 
 Цей метод перевіряє чи поточний виконуваний файл є обробником для протоколу (він же URI схема). Якщо так, він видалить застосунок як обробник за замовчуванням.
 
-### `app.isDefaultProtocolClient(protocol[, path, args])`
+### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
 * `protocol` String - Назва вашого протоколу, без `://`.
 * `path` String (опціонально) *Windows* - За замовчуванням `process.execPath`
@@ -632,15 +616,21 @@ app.setJumpList([
 ])
 ```
 
-### `app.requestSingleInstanceLock()`
+### `app.makeSingleInstance(callback)`
 
-Повертає `Boolean`
+* `callback` Function 
+  * `argv` String[] - Масив параметрів командного рядка другого екземпляру
+  * `workingDirectory` String - Робоча директорія другого екземпляру
+
+Повертає `Boolean`.
 
 Цей метод робить ваш застосунок "Застосунком Єдиного Екземпляру" - на відміну від дозволу запуску декількох екземплярів вашого застосунку, це буде гарантувати, що запущено тільки один екземпляр, а інші передають інформацію та припиняють роботу.
 
-The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock you can assume that another instance of your application is already running with the lock and exit immediately.
+`callback` буде викликано першим екзкмпляром з `callback(argv, workingDirectory)` після закінчення роботи другого екземпяру. `argv` це масив з аргументами командного рядку другого екземпляру, а `workingDirectory` ця поточна робоча директорія. Зазвичай застосунок відповідає на це, розгортаючи головне вікно на перводячи на нього фокус.
 
-I.e. This method returns `true` if your process is the primary instance of your application and your app should continue loading. It returns `false` if your process should immediately quit as it has sent its parameters to another instance that has already acquired the lock.
+`callback` гарантовано виконується після потго як відбудеться подія `ready` застосунку.
+
+Цей метод повертає `false` якщо ваш процес це головний екземпляр застосунку і він повинен продовжувати завантаження. І повертає `true` якщо ваш процес переслав свої переметри іншому екземпляру, і має негайно припинити роботу.
 
 На macOS система застосовує єдиний екземпляр автоматично, коли користувач намагається відкрити інший екземпляр вашого застосунку в Finder, і події `open-file` та `open-url` викличуться для цього. Однак коли користувач запускає ваш застосунок з командного рядка система уникне механізму єдиного екземпляру і вам доведеться використовувати цей метод для його забезпечення.
 
@@ -650,34 +640,26 @@ I.e. This method returns `true` if your process is the primary instance of your 
 const {app} = require('electron')
 let myWindow = null
 
-const gotTheLock = app.requestSingleInstanceLock()
+const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
+  // Хтось пробує запустити другий єкземпляр, ми маємо надати фокус нашому вікну.
+  if (myWindow) {
+    if (myWindow.isMinimized()) myWindow.restore()
+    myWindow.focus()
+  }
+})
 
-if (!gotTheLock) {
+if (isSecondInstance) {
   app.quit()
-} else {
-  app.on('second-instance', (commandLine, workingDirectory) => {
-    // Someone tried to run a second instance, we should focus our window.
-    if (myWindow) {
-      if (myWindow.isMinimized()) myWindow.restore()
-      myWindow.focus()
-    }
-  })
-
-  // Create myWindow, load the rest of the app, etc...
-  app.on('ready', () => {
-  })
 }
+
+// Створюємо myWindow, завантажуємо решту застосунку, тощо...
+app.on('ready', () => {
+})
 ```
 
-### `app.hasSingleInstanceLock()`
+### `app.releaseSingleInstance()`
 
-Повертає `Boolean`
-
-This method returns whether or not this instance of your app is currently holding the single instance lock. You can request the lock with `app.requestSingleInstanceLock()` and release with `app.releaseSingleInstanceLock()`
-
-### `app.releaseSingleInstanceLock()`
-
-Releases all locks that were created by `requestSingleInstanceLock`. This will allow multiple instances of the application to once again run side by side.
+Знищує всі замки створені `makeSingleInstance`. Це дозволить декілька екземплярів застосунку.
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
@@ -750,7 +732,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 
 На macOS показує на піктограмі в панелі задач. На Linux працює тільки для з Unity,
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+**Примітка:** Unity вимагає існування файлу `.desktop` для роботи, для детальнішої інформації прочитайте [Інтеграція в Середовище Робочого Столу](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
@@ -924,16 +906,10 @@ Start accessing a security scoped resource. За допомогою цієї ф�
 
 * `menu` [Menu](menu.md)
 
-Sets the application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
+Встановлює [меню панелі задач](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103) застосунку.
 
 ### `app.dock.setIcon(image)` *macOS*
 
 * `image` ([NativeImage](native-image.md) | String)
 
 Встановлює `image`, що відповідає панелі задач.
-
-## Властивості (Properties)
-
-### `app.isPackaged`
-
-A `Boolean` property that returns `true` if the app is packaged, `false` otherwise. For many apps, this property can be used to distinguish development and production environments.
