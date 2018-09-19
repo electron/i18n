@@ -55,7 +55,7 @@ The `screen` module emits the following events:
 
 ### Event: 'display-added'
 
-Returns:
+반환:
 
 * `event` Event
 * `newDisplay` [Display](structures/display.md)
