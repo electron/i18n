@@ -16,4 +16,4 @@
 * Приложение подписано
 * Свойство `NSUserNotificationAlertStyle` установлено в `alert` в файле `info.plist`.
 
-If either of these requirements are not met the button won't appear.
+Если одно из этих требований не будет выполнено, кнопка просто не появится.
