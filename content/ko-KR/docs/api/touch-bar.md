@@ -2,7 +2,7 @@
 
 > Create TouchBar layouts for native macOS applications
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+프로세스:[Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBar(options)` *Experimental*
 
