@@ -2,18 +2,18 @@
 
 > Yerel macOS uygulamaları için dokunmatik çubukta bir düğme oluşturun
 
-Süreç: [Ana](../tutorial/quick-start.md#main-process)
+İşlem: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new TouchBarButton(options)` *Deneysel*
 
-* `options` Nesnesi 
+* `seçenekler` Nesnesi 
   * `label` String (İsteğe bağlı) - Görüntülenecek metin.
   * `backgroundColor` String (isteğe bağlı) - Düğme arkaplan rengi hex formatında, i.e `#ABCDEF`.
   * `icon` [NativeImage](native-image.md) (isteğe bağlı) - Buton simgesi.
   * `iconPosition` String (isteğe bağlı) - `left`, `right` yada `overlay` olabilir.
   * `click` Fonksiyon (isteğe bağlı) - Tuşa tıklandığında aranan fonksiyon.
 
-### Örnek özellikleri
+### Örnek Özellikler
 
 Aşağıdaki özellikler `TouchBar` örneklerinde mevcuttur:
 
