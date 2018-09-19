@@ -2,7 +2,7 @@
 
 > Membuat slider di bar sentuhan untuk aplikasi asli macOS
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+Proses: [utama](../tutorial/quick-start.md#main-process)
 
 ### `baru TouchBarSlider(options)` *Experimental*
 
