@@ -2,7 +2,7 @@
 
 > Buat label di bilah sentuh untuk aplikasi macOS asli
 
-Proses: [utama](../tutorial/application-architecture.md#main-and-renderer-processes)
+Process: [Main](../tutorial/quick-start.md#main-process)
 
 ### `TouchBarLabel baru (pilihan)` *Eksperimental*
 
