@@ -60,8 +60,6 @@ Devuelve:
 * `errorDescription` String
 * `validatedURL` String
 * `EsElFramePrincipal` Boolean
-* `frameProcessId` Integer
-* `frameRoutingId` Integer
 
 Este evento es como `did-finish-load` pero emitido cuando la carga falló o fue cancelada, e.g `window.stop()`. La lista completa de errores de código y su significado está disponible [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
@@ -71,8 +69,6 @@ Devuelve:
 
 * `event` Event
 * `EsElFramePrincipal` Boolean
-* `frameProcessId` Integer
-* `frameRoutingId` Integer
 
 Emite cuando un frame ha terminado la navegación.
 
@@ -83,6 +79,37 @@ Corresponde a los puntos en el tiempo cuando el girador de la pestaña comenzó 
 #### Evento: 'did-stop-loading'
 
 Corresponde a los puntos en tiempo cuando el girador del tabulador terminó de girar.
+
+#### Evento: 'did-get-response-details'
+
+Devuelve:
+
+* `event` Event
+* `status` Boolean
+* `newURL` String
+* `originalURL` String
+* `httpResponseCode` Entero
+* `requestMethod` String
+* `referrer` String
+* `headers` Objeto
+* `resourceType` String
+
+Emite cuando los detalles acerca de un recurso solicitado está disponible. `estado` indica la toma de conexión para descargar el recurso.
+
+#### Evento: 'did-get-redirect-request'
+
+Devuelve:
+
+* `event` Event
+* `viejoURL` String
+* `nuevoURL` String
+* `EsElFramePrincipal` Boolean
+* `httpResponseCode` Entero
+* `requestMethod` String
+* `referencia` String
+* `headers` Objeto
+
+Se emite cuando se recibe una redirección mientras se solicita un recurso.
 
 #### Evento: 'dom-ready'
 
@@ -97,7 +124,7 @@ Emitido cuando el documento en el frame dado es cargado.
 Devuelve:
 
 * `event` Event
-* `favicons` String[] - matriz de URLs.
+* `favicons` Cadena[] - Arreglo para URLs.
 
 Emite cuando la página recibe urls de favicon.
 
@@ -111,7 +138,6 @@ Devuelve:
 * `disposition` String - Puede ser `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 * `options` Object - The options which will be used for creating the new [`BrowserWindow`](browser-window.md).
 * `additionalFeatures` String[] - Las características no estándar (características no manejadas por Chromium o Electron) pasadas a `window.open()`.
-* `referrer` [Referrer](structures/referrer.md) - The referrer that will be passed to the new window. May or may not result in the `Referer` header being sent, depending on the referrer policy.
 
 Emite cuando la página solicita abrir una nueva ventana para una `url`. Podría ser solicitada por `window.open` or an external link like `<a target='_blank'>`.
 
@@ -134,7 +160,7 @@ myBrowserWindow.webContents.on('new-window', (event, url) => {
 Devuelve:
 
 * `event` Event
-* `url` String
+* `url` Cadena
 
 Emitido cuando un usuario o la página quiere iniciar la navegación. Puede suceder cuando el objeto `window.location` es cambiado o un usuario hace click en un link de la página.
 
@@ -144,44 +170,14 @@ Tampoco es emitido para las navegaciones en la página, como hacerle click a lin
 
 Llamando `event.preventDefault()` evitará la navegación.
 
-#### Event: 'did-start-navigation'
-
-Devuelve:
-
-* `url` String
-* `isInPlace` Boolean
-* `isMainFrame` Boolean
-* `frameProcessId` Integer
-* `frameRoutingId` Integer
-
-Emitted when any frame (including main) starts navigating. `isInplace` will be `true` for in-page navigations.
-
 #### Evento: 'did-navigate'
 
 Devuelve:
 
 * `event` Event
-* `url` Cadena
-* `httpResponseCode` Integer - -1 for non HTTP navigations
-* `httpStatusText` String - empty for non HTTP navigations
-
-Emitted when a main frame navigation is done.
-
-Este evento no es emitido para navegaciones dentro de la página, como hacerle click a links o actualizando `window.location.hash`. Usa el evento `did-navigate-in-page` para este propósito.
-
-#### Event: 'did-frame-navigate'
-
-Devuelve:
-
-* `event` Event
 * `url` String
-* `httpResponseCode` Integer - -1 for non HTTP navigations
-* `httpStatusText` String - empty for non HTTP navigations,
-* `isMainFrame` Boolean
-* `frameProcessId` Integer
-* `frameRoutingId` Integer
 
-Emitted when any frame navigation is done.
+Emitido cuando la navegación es finalizada.
 
 Este evento no es emitido para navegaciones dentro de la página, como hacerle click a links o actualizando `window.location.hash`. Usa el evento `did-navigate-in-page` para este propósito.
 
@@ -192,12 +188,10 @@ Devuelve:
 * `event` Event
 * `url` String
 * `EsElFramePrincipal` Boolean
-* `frameProcessId` Integer
-* `frameRoutingId` Integer
 
-Emitted when an in-page navigation happened in any frame.
+Emitido cuando una navegación dentro de la página sucede.
 
-Cuando una navegación dentro de la página sucede, el URL de la página cambia, pero no causa una navegación fuera de la página. Ejemplos de esto ocurriendo son cuando los links son clickeados o cuando el evento DOM `hashchange` es activado.
+Cuando una navegación dentro de la página sucede, el URL de la página cambia, pero no causa una navegación fuera de la página. Ejemplos de ésto ocurriendo son cuando los links son clickeados o cuando el evento DOM `hashchange` es activado.
 
 #### Evento: 'will-prevent-unload'
 
@@ -236,14 +230,6 @@ Devuelve:
 * `killed` Booleano
 
 Emitido cuando el proceso se crashea o es terminado.
-
-#### Evento: "unresponsive"
-
-Aparece cuando la página web deja de responder.
-
-#### Evento: "responsive"
-
-Aparece cuando la página web que no responde vuelve a responder.
 
 #### Evento: 'plugin-crashed'
 
@@ -467,14 +453,11 @@ Devuelve:
 Emite cuando el dispositivo bluetooth necesita ser seleccionado en la llamada `navigator.bluetooth.requestDevice`. Para usar `navigator.bluetooth` api `webBluetooth` debe ser activada. Si no se llama `event.preventDefault` el primer dispositivo disponible será seleccionado. `callback` puede ser llamado con `deviceId` ser seleccionado,.
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
-
-let win = null
-app.commandLine.appendSwitch('enable-experimental-web-platform-features')
+const {app, webContents} = require('electron')
+app.commandLine.appendSwitch('enable-web-bluetooth')
 
 app.on('ready', () => {
-  win = new BrowserWindow({width: 800, height: 600})
-  win.webContents.on('select-bluetooth-device', (event, deviceList, callback) => {
+  webContents.on('select-bluetooth-device', (event, deviceList, callback) => {
     event.preventDefault()
     let result = deviceList.find((device) => {
       return device.deviceName === 'test'
@@ -539,7 +522,6 @@ Emitido cuando se ha adjuntado un `<webview>` a este contenido web.
 
 Devuelve:
 
-* `event` Event
 * `level` Íntegro
 * `message` String
 * `line` Íntegro
@@ -553,10 +535,10 @@ Emitido cuando la ventana asociada registra un mensaje de consola. No se emite p
 
 * `url` String
 * `opciones` Object (opcional) 
-  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
+  * `httpReferrer` String (opcional) - Un url de HTTP referencial.
   * `userAgent` Cadena (opcional) - Un agente de usuario originando el pedido.
   * `extraHeaders` String (opcional) - Encabezados extras separadas por "\n".
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (opcional)
   * `baseURLForDataURL` String (opcional) - Url base (con separadores de ruta arrastrables) para archivos que se cargan por el url de datos. Esto es necesario únicamente si el `url` especificado es un url de datos y necesita cargar otros archivos.
 
 Carga el `url` en la ventana. El `url` debe contener el prefijo de protocolo. Por ejemplo `http://` o `file://`. Si la carga debe omitir el caché http entonces hay que utilizar el encabezado `pragma` para lograrlo.
@@ -662,7 +644,7 @@ Devuelve `Boolean` - Si la página web puede ir a `offset`.
 
 #### `contents.clearHistory()`
 
-Borra el historial de navegación.
+Limpia el historial de navegación.
 
 #### `contents.goBack()`
 
@@ -682,7 +664,7 @@ Navigates browser to the specified absolute web page index.
 
 * `offset` Íntegro
 
-Navega hacia el offset especificado desde "la entrada actual".
+Navega a la compensación especifica desde la "entrada actual".
 
 #### `contents.isCrashed()`
 
@@ -713,9 +695,9 @@ Inserta CSS en la página web actual.
 
 Devolver `Promesa`: una promesa se resuelve con el resultado del código ejecutado o se rechaza si el resultado del código es una promesa rechazada.
 
-Evalúa el `code` en la página.
+Evalúa el `código` en la página.
 
-En la ventana del buscador, algunas APIs HTML como `requestFullScreen` solo pueden ser invocadas por un gesto del usuario. Establecer `userGesture` a `true` eliminará esta limitación.
+En la ventana del navegador, algunas API HTML como `requestFullScreen` solo pueden invocarse con un gesto del usuario. Establecer `userGesture` a `true` eliminará esta limitación.
 
 If the result of the executed code is a promise the callback result will be the resolved value of the promise. We recommend that you use the returned Promise to handle code that results in a Promise.
 
@@ -841,7 +823,7 @@ Ejecuta el comando de edición `replaceMisspelling` en página web.
 
 * `texto` String
 
-Inserta `text` al elemento enfocado.
+Inserta `texto` en el elemento enfocado.
 
 #### `contents.findInPage(text[, options])`
 
@@ -1178,14 +1160,14 @@ Para el evento `mouseWheel`, el objeto `evento` también tiene las siguientes pr
 
 * `onlyDirty` Boolean (opcional) - Por defecto es `false`.
 * `callback` Function 
-  * `image` [NativeImage](native-image.md)
+  * `frameBuffer` Buffer
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
-Begin subscribing for presentation events and captured frames, the `callback` will be called with `callback(image, dirtyRect)` when there is a presentation event.
+Empieza por suscribir eventos y fotogramas capturados para la presentación. El `callback` será llamado con `callback(frameBuffer, dirtyRect)` cuando haya un evento de presentación.
 
-The `image` is an instance of [NativeImage](native-image.md) that stores the captured frame.
+El `frameBuffer` es un `Buffer` que contiene la información de pixeles sin procesar. En la mayoría de las máquinas, los datos de píxeles se almacenan efectivamente en formato BGRA de 32 bits, pero la representación real depende del endianness del procesador (la mayoría de los procesadores modernos son little-endian, en máquinas con procesadores big-endian los datos están en formato ARGB de 32 bits).
 
-El `dirtyRect` es un objeto con propiedades `x, y, width, height` que describe cual parte de la página fue pintada de nuevo. If `onlyDirty` is set to `true`, `image` will only contain the repainted area. `onlyDirty` defaults to `false`.
+El `dirtyRect` es un objeto con propiedades `x, y, width, height` que describe cual parte de la página fue pintada de nuevo. Si se configura `onlyDirty` a `true`, `frameBuffer` solo va a contener el área repintada. `onlyDirty` por defecto es `false`.
 
 #### `contents.endFrameSubscription()`
 
@@ -1226,7 +1208,17 @@ win.webContents.on('did-finish-load', () => {
 
 #### `contents.showDefinitionForSelection()` *macOS*
 
-Muestra un diccionario que busca la palabra seleccionada en la página.
+Muestra el diccionario pop-up que busca la palabra seleccionada en la página.
+
+#### `contents.setSize(options)`
+
+Configura el tamaño de la página. Esto sólo es compatible con el `<webview>` contenido de invitado.
+
+* `opciones` Object 
+  * `enableAutoSize` Boolean (optional) - true to make the webview container automatically resize within the bounds specified by the attributes normal, min and max.
+  * `normal` [Size](structures/size.md) (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
+  * `min` [Size](structures/size.md) (optional) - Minimum size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
+  * `max` [Size](structures/size.md) (optional) - Maximium size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
 
 #### `contents.isOffscreen()`
 
@@ -1276,11 +1268,7 @@ Setting the WebRTC IP handling policy allows you to control which IPs are expose
 
 #### `contents.getOSProcessId()`
 
-Returns `Integer` - The operating system `pid` of the associated renderer process.
-
-#### `contents.getProcessId()`
-
-Returns `Integer` - The chromium internal `pid` of the associated renderer. Can be compared to the `frameProcessId` passed by frame specific navigation events (e.g. `did-frame-navigate`)
+Returns `Integer` - The `pid` of the associated renderer process.
 
 ### Propiedades de Instancia
 
