@@ -59,11 +59,11 @@ El objeto`menu` tiene los siguientes métodos de instancia:
   * `positioningItem` Number (opcional) *macOS* - El índice del elemento de menú para posicionar por debajo del cursor del ratón en las coordenadas específicas. Por defecto es -1.
   * `callback` Function (opcional) - Llamada cuando se cierra el menu.
 
-Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
+Este menú aparece como un menú contextual en el [`BrowserWindow`](browser-window.md).
 
 #### `menu.closePopup([browserWindow])`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
+* `browserWindow` [BrowserWindow](browser-window.md) (opcional) - Por defecto es la ventana seleccionada.
 
 Cierra el menú de contexto en la `browserWindow`.
 
@@ -92,7 +92,7 @@ Los Objetos creados con `new Menu` emiten los siguientes eventos:
 
 **Nota:** Algunos eventos sólo están disponibles en sistemas operativos específicos y se etiquetan como tal.
 
-#### Event: 'menu-will-show'
+#### Evento: 'menu-will-show'
 
 Devuelve:
 
@@ -100,13 +100,13 @@ Devuelve:
 
 Emitido cuando se llama a `menu.popup()`.
 
-#### Event: 'menu-will-close'
+#### Evento: 'menu-will-close'
 
 Devuelve:
 
 * `event` Event
 
-Emitted when a popup is closed either manually or with `menu.closePopup()`.
+Se emite cuando una ventana emergente se cierra manualmente o con `menu.closePopup()`.
 
 ### Propiedades de Instancia
 
@@ -120,13 +120,13 @@ Cada `Menu` se compone de múltiples [`MenuItem`](menu-item.md) y cada `MenuItem
 
 ### Eventos de Instancia
 
-Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
+Objetos creados con `new Menu` o retornados por `Menu.buildFromTemplate` emiten los siguientes eventos:
 
 ## Ejemplos
 
 La clase `Menu` solo está disponible en el proceso principal, pero también se puede usar en el proceso de renderizado a través del módulo [`remote`](remote.md).
 
-### Main process
+### Proceso principal
 
 Ejemplo de la creación del menú de la aplicación en el proceso principal con la API de plantilla:
 
@@ -233,7 +233,7 @@ const {remote} = require('electron')
 const {Menu, MenuItem} = remote
 
 const menu = new Menu()
-menu.append(new MenuItem({label: 'MenuItem1', click() { console.log('item 1 clicked') }}))
+menu.append(new MenuItem({label: 'MenuItem1', click() { console.log('item 1 clickeado') }}))
 menu.append(new MenuItem({type: 'separator'}))
 menu.append(new MenuItem({label: 'MenuItem2', type: 'checkbox', checked: true}))
 
