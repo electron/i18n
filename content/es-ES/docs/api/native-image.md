@@ -202,7 +202,7 @@ Observe que el puntero devuelto es un puntero debil a la imagen nativa subyacent
 
 #### `image.isEmpty()`
 
-Returns `Boolean` - Whether the image is empty.
+Devuelve `Boolean` - Si la imagen está vacía.
 
 #### `image.getSize()`
 
@@ -226,7 +226,7 @@ Devuelve `NativeImage` - La imagen recortada.
 
 #### `image.resize(options)`
 
-* `options` Objeto * `width` Entero (opcional) - Por defecto es el ancho de la imagen. * `height` Integer (optional) - Defaults to the image's height. * `quality` String (optional) - The desired quality of the resize image. Los valores posibles son `good`, `better` or `best`. Por defecto es `best`. Estos valores expresan una compensación de calidad/velocidad deseada. Son traducidas dentro de un método de algoritmo específico que depende de las capacidades (CPU, GPU) de la plataforma subyacente. Es posible asignar los tres métodos con el mismo algoritmo en una plataforma determinada.
+* `options` Objeto * `width` Entero (opcional) - Por defecto es el ancho de la imagen. * `height` Entero (opcional) - El valor predeterminado es la altura de la imagen. * `quality` String (optional) - The desired quality of the resize image. Los valores posibles son `good`, `better` or `best`. Por defecto es `best`. Estos valores expresan una compensación de calidad/velocidad deseada. Son traducidas dentro de un método de algoritmo específico que depende de las capacidades (CPU, GPU) de la plataforma subyacente. Es posible asignar los tres métodos con el mismo algoritmo en una plataforma determinada.
 
 Devuelve `NativeImage` - La imagen redimensionada.
 
