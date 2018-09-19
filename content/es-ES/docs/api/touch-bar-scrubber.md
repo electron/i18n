@@ -24,15 +24,15 @@ Las siguientes propiedades está disponibles en instancias del `depurador de bar
 
 #### `touchBarScrubber.items`
 
-Un array de `Elemento a depurar[]` representando los elementos en este depurador. Actualizar este valor actualiza inmediatamente el control en la barra táctil. Mientras se actualicen las propiedades profundas dentro de este arreglo **no se actualiza la barra táctil**.
+Un array de `ScrubberItem[]` representando los elementos en este depurador. Actualizar este valor actualiza inmediatamente el control en la barra táctil. Mientras se actualicen las propiedades profundas dentro de este arreglo **no se actualiza la barra táctil**.
 
 #### `touchBarScrubber.selectedStyle`
 
 Un `String` representando el estilo que deben tener los elementos en el depurador. Actualizar este valor inmediatamente actualiza el control en la barra táctil. Valores positivos:
 
-* `fondo` - mapas a `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
-* `fuera de linea` - Mapa a `[NSScrubberSelectionStyle outlineOverlayStyle]`.
-* `nulo` - Actualiza nulo, no una cadena, remueve todos los estilos.
+* `background` - Mapa a `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
+* `outline` - Mapa a `[NSScrubberSelectionStyle outlineOverlayStyle]`.
+* `null` - Actualiza nulo, no una cadena, remueve todos los estilos.
 
 #### `touchBarScrubber.overlayStyle`
 
