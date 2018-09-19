@@ -22,28 +22,28 @@ crashReporter.start({
 * [socorro](https://github.com/mozilla/socorro)
 * [mini-breakpad-server](https://github.com/electron/mini-breakpad-server)
 
-Crash reports are saved locally in an application-specific temp directory folder. For a `productName` of `YourName`, crash reports will be stored in a folder named `YourName Crashes` inside the temp directory. You can customize this temp directory location for your app by calling the `app.setPath('temp', '/my/custom/temp')` API before starting the crash reporter.
+충돌 보고서는 애플리케이션 지정 temp 디렉터리에 로컬로 저장됩니다. `productName`이 `YourName`인 경우에는 temp 디렉터리 안에 `YourName Crashes`의 폴더에 저장됩니다. 충돌 제보기를 실행하기 전에 API `app.setPath('temp', '/my/custom/temp')`를 호출하여 이 temp 디렉터리 위치를 수정할 수 있습니다.
 
 ## 메서드
 
-The `crashReporter` module has the following methods:
+`CrashReporter` 모듈은 다음과 같은 메서드를 가지고 있습니다:
 
 ### `crashReporter.start(options)`
 
 * `options` Object 
-  * `companyName` String (optional)
-  * `submitURL` String - URL that crash reports will be sent to as POST.
-  * `productName` String (optional) - Defaults to `app.getName()`.
-  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server Default is `true`.
-  * `ignoreSystemCrashHandler` Boolean (optional) - Default is `false`.
-  * `extra` Object (optional) - An object you can define that will be sent along with the report. Only string properties are sent correctly. Nested objects are not supported and the property names and values must be less than 64 characters long.
+  * `companyName` String (선택)
+  * `submitURL` String - POST로 보낼 충돌 보고서 URL 입니다.
+  * `productName` String (선택) - 기본 값은 `app.getName()` 입니다.
+  * `uploadToServer` Boolean (선택) - 충돌 보고서가 서버로 전송될지를 결정합니다. 기본값은 `true` 입니다.
+  * `ignoreSystemCrashHandler` Boolean (선택) - 기본값은 `false` 입니다.
+  * `extra` Object (선택) - 보고서와 함께 보낼 객체를 정의할 수 있습니다. 오직 문자열 속성들만 제대로 보내집니다. 중첩된 객체는 지원되지 않고, 속성 이름과 값은 64글자보다 작아야 합니다.
   * `crashesDirectory` String (optional) - Directory to store the crashreports temporarily (only used when the crash reporter is started via `process.crashReporter.start`).
 
-You are required to call this method before using any other `crashReporter` APIs and in each process (main/renderer) from which you want to collect crash reports. You can pass different options to `crashReporter.start` when calling from different processes.
+다른 `crashReporter` API 혹은 각각의 프로세스 (메인/렌더러) 에서 충돌 보고서를 수집을 사용하기 전에, 이 메서드를 호출해야 합니다. 서로 다른 프로세스에서 호출할 때 다른 옵션을 `crashReporter.start`로 전달할 수 있습니다.
 
-**Note** Child processes created via the `child_process` module will not have access to the Electron modules. Therefore, to collect crash reports from them, use `process.crashReporter.start` instead. Pass the same options as above along with an additional one called `crashesDirectory` that should point to a directory to store the crash reports temporarily. You can test this out by calling `process.crash()` to crash the child process.
+**참고** `child_process` 모듈로 생성된 자식 프로세스는 Electron 모듈에 접근할 수 없습니다. 그러므로, 그것들에서 충돌 정보를 수집하려면, `process.crashReporter.start`를 대신 사용하세요. 위와 똑같은 옵션에 추가로 충돌 보고서를 임시로 저장하는 디렉터리를 가리키는 `crashesDirectory` 값과 함께 전달합니다. `process.crash()`를 호출하여 자식 프로세스를 충돌시켜서 실험해볼 수 있습니다.
 
-**Note:** To collect crash reports from child process in Windows, you need to add this extra code as well. This will start the process that will monitor and send the crash reports. Replace `submitURL`, `productName` and `crashesDirectory` with appropriate values.
+**참고:** Windows에서 자식 프로세스의 충돌 보고서를 수집하려면, 이 코드를 추가해야 합니다. 이 코드는 계속 감시하고 충돌 보고서를 보내는 프로세스를 시작합니다. `submitURL`, `productName` 와 `crashesDirectory`를 적절한 값으로 교체하세요.
 
 **Note:** If you need send additional/updated `extra` parameters after your first call `start` you can call `addExtraParameter` on macOS or call `start` again with the new/updated `extra` parameters on Linux and Windows.
 
@@ -62,62 +62,62 @@ You are required to call this method before using any other `crashReporter` APIs
  })
 ```
 
-**Note:** On macOS, Electron uses a new `crashpad` client for crash collection and reporting. If you want to enable crash reporting, initializing `crashpad` from the main process using `crashReporter.start` is required regardless of which process you want to collect crashes from. Once initialized this way, the crashpad handler collects crashes from all processes. You still have to call `crashReporter.start` from the renderer or child process, otherwise crashes from them will get reported without `companyName`, `productName` or any of the `extra` information.
+**참고:** macOS에서는, Electron은 새 `crashpad` 클라이언트를 사용하여 충돌 수집과 보고서를 작성합니다. 충돌 보고를 사용 하려면, 주 프로세스에서 `crashReporter.start`를 사용하여, `crashpad`를 초기화 하는것이 어느 프로세스에서 충돌 수집을 하든 필요합니다. 이 방법으로 한번 초기화 되면, crashpad 핸들러가 모든 프로세스에서 충돌을 수집합니다. 아직 `crashReporter.start`를 렌더러나 자식 프로세스에서 호출하는 것이 필요합니다, 그렇지 않으면 `companyName`, `productName` 혹은 어느 `extra` 정보가 포함되지 않은 보고서가 제보될 것입니다.
 
 ### `crashReporter.getLastCrashReport()`
 
-Returns [`CrashReport`](structures/crash-report.md):
+[`CrashReport`](structures/crash-report.md)를 반환합니다:
 
-Returns the date and ID of the last crash report. If no crash reports have been sent or the crash reporter has not been started, `null` is returned.
+마지막 충돌 보고서의 날짜와 ID를 반환합니다. 충돌 보고서가 전송되지 않았거나 충돌 제보기가 시작되지 않았으면, `null`이 반환됩니다.
 
 ### `crashReporter.getUploadedReports()`
 
-Returns [`CrashReport[]`](structures/crash-report.md):
+[`CrashReport[]`](structures/crash-report.md)를 반환합니다:
 
-Returns all uploaded crash reports. Each report contains the date and uploaded ID.
+업로드된 모든 충돌 보고서를 반환합니다. 각자의 보고서는 날짜와 업로드 ID를 포함합니다.
 
 ### `crashReporter.getUploadToServer()` *Linux* *macOS*
 
 Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
 
-**Note:** This API can only be called from the main process.
+**참고:** 이 API는 주 프로세스에서만 호출될 수 있습니다.
 
 ### `crashReporter.setUploadToServer(uploadToServer)` *Linux* *macOS*
 
 * `uploadToServer` Boolean *macOS* - Whether reports should be submitted to the server.
 
-This would normally be controlled by user preferences. This has no effect if called before `start` is called.
+주로 유저 설정에 의해 제어됩니다. `start`가 호출 되기 전에는 효과가 없습니다.
 
-**Note:** This API can only be called from the main process.
+**참고:** 이 API는 주 프로세스에서만 호출될 수 있습니다.
 
 ### `crashReporter.addExtraParameter(key, value)` *macOS*
 
 * `key` String - 매개 변수 키, 64글자보다 작아야 합니다.
-* `value` String - Parameter value, must be less than 64 characters long.
+* `value` String - 매개 변수 키, 64글자보다 작아야 합니다.
 
-Set an extra parameter to be sent with the crash report. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
+충돌 보고와 함께 보낼 추가 매개 변수를 지정합니다. 여기에 지정된 값은 `start`가 호출 됐을때 `extra` 옵션으로 지정한 값이 추가로 전송됩니다. 이 API는 macOS에서만 사용 가능합니다. `start`를 호출한 뒤에 매개 변수를 Linux 나 Windows에서 추가 및 수정하려면 수정된 `extra` 옵션으로 `start`를 다시 호출할 수 있습니다.
 
 ### `crashReporter.removeExtraParameter(key)` *macOS*
 
 * `key` String - 매개 변수 키, 64글자보다 작아야 합니다.
 
-Remove a extra parameter from the current set of parameters so that it will not be sent with the crash report.
+현재 매개 변수 집합에서 추가 매개 변수가 제거되고 충돌 보고서와 같이 전송되지 않게 합니다.
 
 ### `crashReporter.getParameters()`
 
-See all of the current parameters being passed to the crash reporter.
+충돌 보고서에 넘겨진 모든 매개 변수를 보여줍니다.
 
 ## 충돌 보고서 탑재 내용
 
-The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
+충돌 보고서는 데이터를 `submitURL`에 `multipart/form-data` 형식으로 `POST` 방식의 요청을 보냅니다.
 
-* `ver` String - The version of Electron.
-* `platform` String - e.g. 'win32'.
-* `process_type` String - e.g. 'renderer'.
+* `ver` String - Electron의 버전입니다.
+* `platform` String - 예를 들어 'win32' 같은 값입니다.
+* `process_type` String - 예를 들어 'renderer' 같은 값입니다.
 * `guid` String - e.g. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'.
-* `_version` String - The version in `package.json`.
-* `_productName` String - The product name in the `crashReporter` `options` object.
-* `prod` String - Name of the underlying product. In this case Electron.
-* `_companyName` String - The company name in the `crashReporter` `options` object.
-* `upload_file_minidump` File - The crash report in the format of `minidump`.
-* All level one properties of the `extra` object in the `crashReporter` `options` object.
+* `_version` String - `package.json`의 버전입니다.
+* `_productName` String - `crashReporter` `options` 객체의 애플리케이션 이름입니다.
+* `prod` String - 기본 애플리케이션 이름 입니다. 이 경우엔 Electron입니다.
+* `_companyName` String - `crashReporter` `options` 객체의 조직 이름 입니다.
+* `upload_file_minidump` File - `minidump` 형식의 충돌 보고서입니다.
+* `crashReporter` `options` 객체안의 `extra` 객체의 모든 한 속성들이 포함됩니다.
