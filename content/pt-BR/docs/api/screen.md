@@ -91,7 +91,7 @@ Returns [`Point`](structures/point.md)
 
 The current absolute position of the mouse pointer.
 
-### `screen.getMenuBarHeight()` *macOS*
+### `screen.getMenuBarHeight()` no *macOS*
 
 Returns `Integer` - The height of the menu bar in pixels.
 
