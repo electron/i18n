@@ -1,4 +1,4 @@
-## Class: WebRequest
+## Clase: WebRequest
 
 > Interceptar y modificar el contenido de una solicitud en varias etapas de su ciclo de vida.
 
