@@ -69,7 +69,7 @@ win.show()
 
 ## Tıklama penceresi
 
-Bir tıklama penceresi oluşturmak, diğer bir deyişle, pencereyi tüm fare hareketlerinden yok saymak için, [ win.setIgnoreMouseEvents (ignore)](browser-window.md#winsetignoremouseeventsignore-options)'ı çağırabilirsiniz. API:
+Bir tıklama penceresi oluşturmak, diğer bir deyişle, pencereyi tüm fare hareketlerinden yok saymak için, [ win.setIgnoreMouseEvents (ignore)](browser-window.md#winsetignoremouseeventsignore)'ı çağırabilirsiniz. API:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -114,7 +114,7 @@ button {
 }
 ```
 
-If you're only setting a custom titlebar as draggable, you also need to make all buttons in titlebar non-draggable.
+Yalnızca özel bir başlık çubuğunu sürüklenebilir olarak ayarlıyorsanız, başlık çubuğundaki tüm düğmeleri sürüklenemez yapmanız gerekiyor.
 
 ## Metin seçimi
 
