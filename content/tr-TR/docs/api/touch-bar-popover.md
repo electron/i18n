@@ -2,7 +2,7 @@
 
 > Dokunmatik çubukta yerel macOS uygulamaları için bir popover oluşturun
 
-İşlem: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+İşlem: [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarPopover(options)` *Experimental*
 
