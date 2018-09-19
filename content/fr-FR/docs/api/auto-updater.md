@@ -4,7 +4,7 @@
 
 Processus : [Principal](../glossary.md#main-process)
 
-**See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
+**Vous trouverez un guide détaillé sur la façon d'implémenter des mises à jour dans votre application [ici](../tutorial/updates.md).**
 
 ## Avertissement sur les plateformes
 
@@ -56,7 +56,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `releaseNotes` String
 * `releaseName` String
 * `releaseDate` Date
@@ -65,12 +65,6 @@ Retourne :
 Émis lorsqu'une mise à jour a été téléchargée.
 
 Sur Windows, seulement `releaseName` est disponible.
-
-### Event: 'before-quit-for-update'
-
-This event is emitted after a user calls `quitAndInstall()`.
-
-When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
 
 ## Méthodes
 
