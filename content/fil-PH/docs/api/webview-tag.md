@@ -1,28 +1,22 @@
 # `<webview>` Pananda
 
-## Warning
-
-Electron's `webview` tag is based on [Chromium's `webview`](https://developer.chrome.com/apps/tags/webview), which is undergoing dramatic architectural changes. This impacts the stability of `webviews`, including rendering, navigation, and event routing. We currently recommend to not use the `webview` tag and to consider alternatives, like `iframe`, Electron's `BrowserView`, or an architecture that avoids embedded content altogether.
-
-## Overview
-
 > Ipakita ang panlabas na nilalaman ng web sa mga liblib na anyu at proseso.
 
-Mga proseso: [Renderer](../glossary.md#renderer-process)
+Process: [Renderer](../tutorial/quick-start.md#renderer-process)
 
-Gumamit ng `webview` tag sa embed na 'panauhin' nilalaman(tulad ng pahina sa web) sa iyong Electron app. Ang nilalaman ng panauhin ay may nakalagay sa loob ng container na `webview`. Ang naka-embed na pahina sa loob ng iyong app kontrol kung paano ang nilalaman ng panauhin ay nailatag at naibigay.
+Use the `webview` tag to embed 'guest' content (such as web pages) in your Electron app. The guest content is contained within the `webview` container. An embedded page within your app controls how the guest content is laid out and rendered.
 
-Hindi tulad ng `iframe`, ang `webview` ay tumatakbo sa hiwalay na proseso kaysa ginagamit mong app. Ito ay walang parehang pahintulot tulad ng web na pahina at ang lahat ng mga interaskyon pagitan sa iyong app ang naka-embed na nilalaman ay magiging asinkrunos. Ito ay pinapanatili ang iyong app na ligtas sa mga naka-embed na nilalaman. **Paalala:** Lahat ng paraan ay tinatawag sa webview galing sa unang pahina na nangangailangan a asinkrunos na tawag papunta sa pangunahing proseso.
+Unlike an `iframe`, the `webview` runs in a separate process than your app. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content. **Note:** Most methods called on the webview from the host page require a synchronous call to the main process.
 
 ## Mga halimbawa
 
-Para i-embed ang pahina ng web sa iyong app, Idagdag ang `webview` tag sa iyong app's na taga-embed na pahina (Ito ang app na pahina na makikita sa panauhin na nilalaman). Sa kanyang pinakasimpleng porma, ang `webview` tag kasama ang `src` sa pahina ng web at css na estilo na ikontrol ang itsura ng `webview` container:
+To embed a web page in your app, add the `webview` tag to your app's embedder page (this is the app page that will display the guest content). In its simplest form, the `webview` tag includes the `src` of the web page and css styles that control the appearance of the `webview` container:
 
 ```html
 <webview id="foo" src="https://www.github.com/" style="display:inline-flex; width:640px; height:480px"></webview>
 ```
 
-Kung gusto mong ikontrol ang nilalaman ng panauhin sa anumang paraan, maari kang sumulat sa JavaScript na nakikinig para `webview` pangyayari at tumutugon sa mga pangyayari gamit ang `webview` na pamamaraan. Ito ang mga halimbawang kod na may dalawang tagapakinig na pangyayari: isa na nakikinig sa pahina ng web upang simulan ang pagloloding, ang isa naman sa pahina ng web na patigilin ang pag loloding, at nagpapakita ng "loding..." na mensahe habang sa lod taym:
+If you want to control the guest content in any way, you can write JavaScript that listens for `webview` events and responds to those events using the `webview` methods. Here's sample code with two event listeners: one that listens for the web page to start loading, the other for the web page to stop loading, and displays a "loading..." message during the load time:
 
 ```html
 <script>
@@ -44,23 +38,28 @@ Kung gusto mong ikontrol ang nilalaman ng panauhin sa anumang paraan, maari kang
 </script>
 ```
 
-## Internal implementation
+## CSS Styling Notes
 
-Under the hood `webview` is implemented with [Out-of-Process iframes (OOPIFs)](https://www.chromium.org/developers/design-documents/oop-iframes). The `webview` tag is essentially a custom element using shadow DOM to wrap an `iframe` element inside it.
+Please note that the `webview` tag's style uses `display:flex;` internally to ensure the child `object` element fills the full height and width of its `webview` container when used with traditional and flexbox layouts (since v0.36.11). Please do not overwrite the default `display:flex;` CSS property, unless specifying `display:inline-flex;` for inline layout.
 
-So the behavior of `webview` is very similar to a cross-domain `iframe`, as examples:
+`webview` has issues being hidden using the `hidden` attribute or using `display: none;`. It can cause unusual rendering behaviour within its child `browserplugin` object and the web page is reloaded when the `webview` is un-hidden. The recommended approach is to hide the `webview` using `visibility: hidden`.
 
-* When clicking into a `webview`, the page focus will move from the embedder frame to `webview`.
-* You can not add keyboard event listeners to `webview`.
-* All reactions between the embedder frame and `webview` are asynchronous.
+```html
+<style>
+  webview {
+    display:inline-flex;
+    width:640px;
+    height:480px;
+  }
+  webview.hide {
+    visibility: hidden;
+  }
+</style>
+```
 
-## Mga pamamaraan ng CSS notes
+## Tag Attributes
 
-Please note that the `webview` tag's style uses `display:flex;` internally to ensure the child `iframe` element fills the full height and width of its `webview` container when used with traditional and flexbox layouts. Please do not overwrite the default `display:flex;` CSS property, unless specifying `display:inline-flex;` for inline layout.
-
-## Katangian ng Tag
-
-Ang `webview` na tag ay may sumusunod na katangian:
+The `webview` tag has the following attributes:
 
 ### `src`
 
@@ -68,11 +67,11 @@ Ang `webview` na tag ay may sumusunod na katangian:
 <webview src="https://www.github.com/"></webview>
 ```
 
-Ibinabalik ang makikitang URL. Pagsulat sa mga katangian ang nagsimula ng top-lebel nabigasyon.
+Returns the visible URL. Writing to this attribute initiates top-level navigation.
 
-Pag-aatas `src` sa kanyang sariling balyu ay pagreload ng kasalukuyang pahina.
+Assigning `src` its own value will reload the current page.
 
-Ang `src` katangian ay maaring ding tumanggap ng mga datos sa URL, tulad ng `datos:text/plain,Hello,world!`.
+The `src` attribute can also accept data URLs, such as `data:text/plain,Hello, world!`.
 
 ### `autosize`
 
@@ -80,7 +79,7 @@ Ang `src` katangian ay maaring ding tumanggap ng mga datos sa URL, tulad ng `dat
 <webview src="https://www.github.com/" autosize minwidth="576" minheight="432"></webview>
 ```
 
-Habang ang katangian na ito ay naroroon sa `webview` kontayner ay magiging awtomatikong magbago ng laki sa loob ng hangganan na tinutukoy sa mga katangian `minwidth`, `minheight`. `maxwidth`, at `maxheight`. Mga limitasong hindi makakaapekto sa `webview` maliban `autosize` ay pinagana. Habang ang `autosize` ay pinagana, ang `webview` kontayner na laki ay hindi maging mababa kaysa sa minimum na balyos o hindi tataas sa pinakamataas.
+When this attribute is present the `webview` container will automatically resize within the bounds specified by the attributes `minwidth`, `minheight`, `maxwidth`, and `maxheight`. These constraints do not impact the `webview` unless `autosize` is enabled. When `autosize` is enabled, the `webview` container size cannot be less than the minimum values or greater than the maximum.
 
 ### `nodeintegration`
 
@@ -88,7 +87,7 @@ Habang ang katangian na ito ay naroroon sa `webview` kontayner ay magiging awtom
 <webview src="http://www.google.com/" nodeintegration></webview>
 ```
 
-Kapag itong katangian ay mayroon sa pahina ng panauhin sa `webview` ay magkakaroon ng integrasyon sa nod ang maaring maggamit sa node APIs tulad `require` at `process` para maka-access sa maliliit na lebel sa antas ng sistema. Integarason sa node ay hindi pinagana batay sa default ng pahina nag panauhin.
+When this attribute is present the guest page in `webview` will have node integration and can use node APIs like `require` and `process` to access low level system resources. Node integration is disabled by default in the guest page.
 
 ### `plugins`
 
@@ -96,7 +95,7 @@ Kapag itong katangian ay mayroon sa pahina ng panauhin sa `webview` ay magkakaro
 <webview src="https://www.github.com/" plugins></webview>
 ```
 
-Habang ang katangian na ito ay mayroon sa pahina ng panauhin sa `webview` ay maaring maggamit samga browser plugins. Plugins ay hindi pinagana sa default.
+When this attribute is present the guest page in `webview` will be able to use browser plugins. Plugins are disabled by default.
 
 ### `preload`
 
@@ -104,11 +103,11 @@ Habang ang katangian na ito ay mayroon sa pahina ng panauhin sa `webview` ay maa
 <webview src="https://www.github.com/" preload="./test.js"></webview>
 ```
 
-Tinutukoy ang isang iskrip ma makakarga bago ang ibang iskrips na tumakbo sa pahina ng panauhin. Ang protokol ng iskrips URL ay dapat maging `file:` or `asar:`, dahil ito ay makakarga sa `require` sa pahina ng panauhin sa ilalim ng hood.
+Specifies a script that will be loaded before other scripts run in the guest page. The protocol of script's URL must be either `file:` or `asar:`, because it will be loaded by `require` in guest page under the hood.
 
-Habang ang pahina ng panauhin ay walang integrasyon na node ang iskrip na ito ay maari paring maka-access sa lahat ng Node APIs, pero gobal na objeks ay naka-injek kay Node at ito ay matatangal pagkatapos ng iskrip na matapos ang ginagawa.
+When the guest page doesn't have node integration this script will still have access to all Node APIs, but global objects injected by Node will be deleted after this script has finished executing.
 
-**Paalala:** Ang opsyon na ito ay maaring lumitaw bilang `preloadURL`(hindi `preload`) sa `webPreferences` na tumutukoy sa `will-attach-webview` na pangyayari.
+**Note:** This option will be appear as `preloadURL` (not `preload`) in the `webPreferences` specified to the `will-attach-webview` event.
 
 ### `httpreferrer`
 
@@ -116,7 +115,7 @@ Habang ang pahina ng panauhin ay walang integrasyon na node ang iskrip na ito ay
 <webview src="https://www.github.com/" httpreferrer="http://cheng.guru"></webview>
 ```
 
-Nagtatakda ng referral na URL para sa pahina ng mga panauhin.
+Sets the referrer URL for the guest page.
 
 ### `useragent`
 
@@ -124,7 +123,7 @@ Nagtatakda ng referral na URL para sa pahina ng mga panauhin.
 <webview src="https://www.github.com/" useragent="Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; AS; rv:11.0) like Gecko"></webview>
 ```
 
-Nagtatakda sa mga gumagamit na ahente para sa pahina ng panauhin bago i-navigate sa pahina. Kapag ang pahina ay nakarga na, gamitin and `setUserAgent` na paraan para palitan ang ahente ang gumagamit.
+Sets the user agent for the guest page before the page is navigated to. Once the page is loaded, use the `setUserAgent` method to change the user agent.
 
 ### `disablewebsecurity`
 
@@ -132,7 +131,7 @@ Nagtatakda sa mga gumagamit na ahente para sa pahina ng panauhin bago i-navigate
 <webview src="https://www.github.com/" disablewebsecurity></webview>
 ```
 
-Habang itong katangian mayroon ang pahina ng panauhin hindi pinagana ang seguridad sa web. Ang seguridad sa web ay pinagana sa default.
+When this attribute is present the guest page will have web security disabled. Web security is enabled by default.
 
 ### `partition`
 
@@ -141,9 +140,9 @@ Habang itong katangian mayroon ang pahina ng panauhin hindi pinagana ang segurid
 <webview src="https://electronjs.org" partition="electron"></webview>
 ```
 
-Itakda ang sesyon na ginamit sa pahina. Kapag `partition` ay nagsimula sa `persist:`, ang pahina ay gagamit ng masugid na sesyon na magagamit sa lahat ng pahina sa app na may kaparihang `partition`. kung wala naman `persist:` na panlapi, ang pahina ay gagamit na in-memory na sesyon. Sa pag-aatas ng kaparehong `partition`, maramihang mga pahina ang maaaring magsalo-salo sa magkaparehong sesyon. Kung ang `partition` ay di pa na set pagkatapos ang default na sesyon ng app ay magagamit.
+Sets the session used by the page. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. Sa pag-aatas ng kaparehong `partition`, maramihang mga pahina ang maaaring magsalo-salo sa magkaparehong sesyon. If the `partition` is unset then default session of the app will be used.
 
-Itong balyo lang ang pwede mabago bago ang unang nabigasyon, mula sa sesyon sa aktibong tagabahagi ang proseso ay di magbabago. Kasunod na pagtatangka na baguhin ang balyo ay mabibigo na may DOM eksepsyon.
+This value can only be modified before the first navigation, since the session of an active renderer process cannot change. Subsequent attempts to modify the value will fail with a DOM exception.
 
 ### `allowpopups`
 
@@ -151,7 +150,7 @@ Itong balyo lang ang pwede mabago bago ang unang nabigasyon, mula sa sesyon sa a
 <webview src="https://www.github.com/" allowpopups></webview>
 ```
 
-Habang itong katangian ay mayroon ang pahina ng panauhin ay maaring buksan ang mga bagong bintana. Popups ay hindi pinagana sa default.
+When this attribute is present the guest page will be allowed to open new windows. Popups are disabled by default.
 
 ### `webpreferences`
 
@@ -159,17 +158,17 @@ Habang itong katangian ay mayroon ang pahina ng panauhin ay maaring buksan ang m
 <webview src="https://github.com" webpreferences="allowRunningInsecureContent, javascript=no"></webview>
 ```
 
-Isang listahan mg mga string na tumutukoy sa web preferencies na iiset sa webview, pinaghihiwaly ng `,`. Ang buong listahan ay supportado ng preference strings na makikita sa [BrowserWindow](browser-window.md#new-browserwindowoptions).
+A list of strings which specifies the web preferences to be set on the webview, separated by `,`. The full list of supported preference strings can be found in [BrowserWindow](browser-window.md#new-browserwindowoptions).
 
-Ang string sumusunod sa kapareihang pormat bilang sa katangian ng string sa `window.open`. Ang pangalan ay ibinigay mismo ng `true` bollean balyo. Isang preference ay maaring mag takda ng ibang balyo kabilang ang `=`, kasunod ng balyo. Tumutukoy sa balyo na `yes` at `1` ay inerterprit sa `true`, habang `no` at `0` ay binigyang-kahulugan ng `false`.
+The string follows the same format as the features string in `window.open`. A name by itself is given a `true` boolean value. A preference can be set to another value by including an `=`, followed by the value. Special values `yes` and `1` are interpreted as `true`, while `no` and `0` are interpreted as `false`.
 
-### `enableblinkfeatures`
+### `blinkfeatures`
 
 ```html
-<webview src="https://www.github.com/" enableblinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
+<webview src="https://www.github.com/" blinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-Ang lishtahan ng mga pisi na tumutukoy sa blink na katangian na pinagana ay pinaghihiwalay ng `,`. Ang buong listahan ng supportadong katangian ng pisi ay makikita sa [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) na fayl.
+A list of strings which specifies the blink features to be enabled separated by `,`. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) file.
 
 ### `disableblinkfeatures`
 
@@ -177,15 +176,58 @@ Ang lishtahan ng mga pisi na tumutukoy sa blink na katangian na pinagana ay pina
 <webview src="https://www.github.com/" disableblinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-Ang listahan ng strings na tumutukoy sa blink na katangian ay maaring di-pinagana sa paghihiwalay ng `,`. Ang buong listahan ng supportadong katangian ng pisi ay makikita sa [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) na fayl.
+A list of strings which specifies the blink features to be disabled separated by `,`. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) file.
+
+### `guestinstance`
+
+```html
+<webview src="https://www.github.com/" guestinstance="3"></webview>
+```
+
+A value that links the webview to a specific webContents. When a webview first loads a new webContents is created and this attribute is set to its instance identifier. Setting this attribute on a new or existing webview connects it to the existing webContents that currently renders in a different webview.
+
+The existing webview will see the `destroy` event and will then create a new webContents when a new url is loaded.
+
+### `disableguestresize`
+
+```html
+<webview src="https://www.github.com/" disableguestresize></webview>
+```
+
+When this attribute is present the `webview` contents will be prevented from resizing when the `webview` element itself is resized.
+
+This can be used in combination with [`webContents.setSize`](web-contents.md#contentssetsizeoptions) to manually resize the webview contents in reaction to a window size change. This can make resizing faster compared to relying on the webview element bounds to automatically resize the contents.
+
+```javascript
+const {webContents} = require('electron')
+
+// We assume that `win` points to a `BrowserWindow` instance containing a
+// `<webview>` with `disableguestresize`.
+
+win.on('resize', () => {
+  const [width, height] = win.getContentSize()
+  for (let wc of webContents.getAllWebContents()) {
+    // Check if `wc` belongs to a webview in the `win` window.
+    if (wc.hostWebContents &&
+        wc.hostWebContents.id === win.webContents.id) {
+      wc.setSize({
+        normal: {
+          width: width,
+          height: height
+        }
+      })
+    }
+  }
+})
+```
 
 ## Mga Paraan
 
-Nag `webview` na tag ay may mga susmusunod na pamamaraan:
+The `webview` tag has the following methods:
 
-**Paalala:** Ang webview na elemento ay dapat makarga bago gamitin ang mga pamamaraan.
+**Note:** The webview element must be loaded before using the methods.
 
-**Halimbawa**
+**Mga halimbawa**
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -196,31 +238,31 @@ webview.addEventListener('dom-ready', () => {
 
 ### `<webview>.loadURL(url[, options])`
 
-* `url` Ang URL
-* `mga opsyon` Na Bagay (opsyonal) 
-  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
-  * `userAgent` Pisi (opsyonal) - Isang ahenteg gumagamit na nagmumula sa kahilingan.
-  * `extraHeaders` String(opsyonal) - Sobrang ulunan ay pinaghihiwalay sa "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
-  * `baseURLForDataURL` Pisi (opsyonal) - Base url (na may trailing path separator) para sa mga dokumento na mai-load ng url ng data. Ito ay kinakailangan lamang kung ang tinutukoy na `url` ay isang url ng data at kailangang mag-load ng iba pang mga file.
+* `url` na URL
+* `pagpipilian` Bagay (opsyonal) 
+  * `httpReferrer` String (optional) - A HTTP Referrer url.
+  * `userAgent` String(opsyonal) - Ang ahente na gumagamit ng pinagmumulan ng kahilingan.
+  * `extraHeaders` Pisi (opsyonal) - Mga dagdag na header na pinaghihiwalay ng "\n"
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (optional) -
+  * `baseURLForDataURL` String(opsyonal) - Basi nag url (may tagapahiwalay sa landas ng separator) para sa mga dokumento na kakargahin sa pamamagitan ng datos ng url. Ito ay kinakailangan lamang kung ang tinutukoy na `url` ay isang url ng data at kailangang mag-load ng iba pang mga file.
 
-Kakargahin ang `url` sa webview, ang `url` ay dapat magkaroon ng protokol na panlapi, e.g ang `http://` or `file://`.
+Loads the `url` in the webview, the `url` must contain the protocol prefix, e.g. the `http://` or `file://`.
 
 ### `<webview>.getURL()`
 
-Nagbabalik `String` - Ang URL ng pahina ng panauhin.
+Returns `String` - The URL of guest page.
 
 ### `<webview>.getTitle()`
 
-Nagbabalik `String` - Ang titulo ng pahina ng panauhin.
+Returns `String` - The title of guest page.
 
 ### `<webview>.isLoading()`
 
-Nagbabalik `Boolean` - Kung ang pahina ng panauhin ay nakakarga pa rin.
+Returns `Boolean` - Whether guest page is still loading resources.
 
 ### `<webview>.isWaitingForResponse()`
 
-Nagbabalik `Boolean` - Kung ang pahina ng panauhin ay naghihintay ng unang-sagot para sa pangunahing mapagkukunan ng pahina.
+Returns `Boolean` - Whether the guest page is waiting for a first-response for the main resource of the page.
 
 ### `<webview>.stop()`
 
@@ -228,25 +270,25 @@ Hinihinto ang anumang nakabinbing nabigasyon.
 
 ### `<webview>.reload()`
 
-Ikarga muli ang pahina ng panauhin.
+Reloads the guest page.
 
 ### `<webview>.reloadIgnoringCache()`
 
-Ikarga muli ang pahina ng panauhin at ang hindi napansin na cache.
+Reloads the guest page and ignores cache.
 
 ### `<webview>.canGoBack()`
 
-Nagbabalik `Boolean` - Kung ang pahina ng panauhin ay hindi makabalik.
+Returns `Boolean` - Whether the guest page can go back.
 
 ### `<webview>.canGoForward()`
 
-Nagbabalik `Boolean` - Kung ang pahina ng panauhin ay makaka-abanti.
+Returns `Boolean` - Whether the guest page can go forward.
 
 ### `<webview>.canGoToOffset(offset)`
 
 * `offset` Integer
 
-Nagbabalik `Boolean` - Kung ang pahina ng panauhin ay makakapunta sa `offset`.
+Returns `Boolean` - Whether the guest page can go to `offset`.
 
 ### `<webview>.clearHistory()`
 
@@ -254,17 +296,17 @@ Linisin ang kasaysayan ng nabigasyon.
 
 ### `<webview>.goBack()`
 
-Gawin na ang pahina ng panauhin na bumalik.
+Makes the guest page go back.
 
 ### `<webview>.goForward()`
 
-Gawin ang pahina ng panauhin na sumulong.
+Makes the guest page go forward.
 
 ### `<webview>.goToIndex(index)`
 
 * `index` Integer
 
-Ang nabigasyon sa tinutukoy na lubos na index.
+Navigates to the specified absolute index.
 
 ### `<webview>.goToOffset(offset)`
 
@@ -280,17 +322,17 @@ Ibinabalik `Boolean` - Kapag ang proseso ng tagapag-render ay nawasak.
 
 * `userAgent` na String
 
-Pumupatong sa gumagamit na ahente para sa pahina ng panauhin.
+Overrides the user agent for the guest page.
 
 ### `<webview>.getUserAgent()`
 
-Nagbabalik `String` - Ang gumagamit na ahente para sa pahina ng panauhin.
+Returns `String` - The user agent for guest page.
 
 ### `<webview>.insertCSS(css)`
 
-* `css` String
+* `css` Pisi
 
-Paglagay ng CSS sa pahina ng panauhin.
+Injects CSS into the guest page.
 
 ### `<webview>.executeJavaScript(code[, userGesture, callback])`
 
@@ -299,92 +341,92 @@ Paglagay ng CSS sa pahina ng panauhin.
 * `callback` Function (opsyonal) - Tinawagan pagkatapos na maisakatuparan ang iskrip. 
   * `result` Any
 
-Sinusuri ang mga `code` sa pahina. Kung `userGesture` ay nakatakda, ito ay lilikha ng konteksto ng kilos ng gugamit sa pahina. HTML APIs tulad ng `requestFullScreen`, na nangangailangan ng aksyon sa gugamit, ay maaring kumuha ng kalamangan para sa opsyon ng otomasyon.
+Sinusuri ang mga `code` sa pahina. If `userGesture` is set, it will create the user gesture context in the page. HTML APIs like `requestFullScreen`, which require user action, can take advantage of this option for automation.
 
 ### `<webview>.openDevTools()`
 
-Ang pagbukas ng DevTools na bintana para sa pahina ng panauhin.
+Opens a DevTools window for guest page.
 
 ### `<webview>.closeDevTools()`
 
-Ang pagsirado ng DevTools na bintana para sa pahina ng panauhin.
+Closes the DevTools window of guest page.
 
 ### `<webview>.isDevToolsOpened()`
 
-Nagbabalik `Boolean` - Kung saan ang pahina ng panauhin ay mayroong DevTools na may bintana na nakalagay.
+Returns `Boolean` - Whether guest page has a DevTools window attached.
 
 ### `<webview>.isDevToolsFocused()`
 
-Nagbabalik `Boolean` - Kung saan ang bintana ng DevTools ay ang pahina ng panauhin ay nakatuon.
+Returns `Boolean` - Whether DevTools window of guest page is focused.
 
 ### `<webview>.inspectElement(x, y)`
 
 * `x` Integer
 * `y` Integer
 
-Naguumpisa sa pagsusi sa mga elemnto sa posisyon (`x`, `y`) sa pahina ng panauhin.
+Starts inspecting element at position (`x`, `y`) of guest page.
 
 ### `<webview>.inspectServiceWorker()`
 
-Ang pagbukas ng DevTools para sa konteksto sa serbisyo ng trabahanti ay naroroon sa pahina ng panauhin.
+Opens the DevTools for the service worker context present in the guest page.
 
 ### `<webview>.setAudioMuted(muted)`
 
 * `muted` Boolean
 
-Ang pagtakda nag pahina sa panauhin na naka tahimik.
+Set guest page muted.
 
 ### `<webview>.isAudioMuted()`
 
-Nagbabalik `Boolean` - Kung saan ang pahina ng panauhin ay naka tahimik.
+Returns `Boolean` - Whether guest page has been muted.
 
 ### `<webview>.undo()`
 
-Paggawa ng pag-edit na utos `undo` sa pahina.
+Executes editing command `undo` in page.
 
 ### `<webview>.redo()`
 
-Ang paggawa ng pag-edit sa utos na `redo` sa pahina.
+Executes editing command `redo` in page.
 
 ### `<webview>.cut()`
 
-Paggawa ng pag-edit na utos na `cut` sa pahina.
+Executes editing command `cut` in page.
 
 ### `<webview>.copy()`
 
-Paggawa ng pag-edit sa utos na `copy` sa pahina.
+Executes editing command `copy` in page.
 
 ### `<webview>.paste()`
 
-Paggawa ng pag-edit sa utos na `paste` sa pahina.
+Executes editing command `paste` in page.
 
-### `<webview>.pasteAnd MatchStyle()`
+### `<webview>.pasteAndMatchStyle()`
 
-Paggawa ng pag-edit sa utos na `pasteAndMatchStyle` sa pahina.
+Executes editing command `pasteAndMatchStyle` in page.
 
 ### `<webview>.delete()`
 
-Paggawa ng pag-edit sa utos na `delete` sa pahina.
+Executes editing command `delete` in page.
 
 ### `<webview>.selectAll()`
 
-Paggawa ng pag-edit sa utos na `selectAll` sa pahina.
+Executes editing command `selectAll` in page.
 
 ### `<webview>.unselect()`
 
-Paggawa ng pag-edit sa utos na `unselect` sa pahina.
+Executes editing command `unselect` in page.
 
 ### `<webview>.replace(text)`
 
 * `text` String
 
-Paggawa ng pag-edit sa utos na `replace` sa pahina.
+Executes editing command `replace` in page.
 
 ### `<webview>.replaceMisspelling(text)`
 
 * `text` String
 
-Paggawa ng pag-edit sa utos na `replaceMisspelling` sa pahina.
+Executes editing command `replaceMisspelling` in page.
 
 ### `<webview>.insertText(text)`
 
@@ -395,7 +437,7 @@ Pagsingit `text` para sa nakapukos na elemento.
 ### `<webview>.findInPage(text[, options])`
 
 * `teksto` String - Ang nilalaman na hahanapin, ay hindi dapat walang laman.
-* `options` Na Bagay (opsyonal) 
+* `pagpipilian` Bagay (opsyonal) 
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -404,25 +446,25 @@ Pagsingit `text` para sa nakapukos na elemento.
 
 Ibinabalik `Integer` - Ang kahilingang id na ginagamit para sa kahilingan.
 
-Magsisimula ng isang kahilingan upang mahanap ang lahat ng mga tugma para sa `text` sa pahina ng web. Ang resulta ng kahilingan ay maaaring makuha sa pamamagitan ng pag-subscribe sa [`found-in-page`](webview-tag.md#event-found-in-page) kaganapan.
+Magsisimula ng isang kahilingan upang mahanap ang lahat ng mga tugma para sa `text` sa pahina ng web. The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
 
 ### `<webview>.stopFindInPage(action)`
 
-* `aksyon` String - Tinitiyak ang aksyon na mangyayari sa katapusan [`<webview>.findInPage`](#webviewfindinpagetext-options) hiling. 
+* `aksyon` String - Specifies the action to take place when ending [`<webview>.findInPage`](#webviewfindinpagetext-options) request. 
   * `clearSelection` - Tanggalin ang mga napili.
-  * `keepSelection` - I-translate ang mga napili para maging normal.
+  * `keepSelection` - Isalin ang seleksyon sa isang normal na seleksyon.
   * `activateSelect` - Tumuon at i-click ang node ng pagpili.
 
-Itigil ang anumang `findInPage` na hinihiling para sa `webview` na may kaukulang `aksyon`.
+Stops any `findInPage` request for the `webview` with the provided `action`.
 
 ### `<webview>.print([options])`
 
-* `mga opsyon` Na Bagay (opsyonal) 
+* `pagpipilian` Bagay (opsyonal) 
   * `silent` Boolean (opsyonal) - Huwag itanong sa user sa mga setting sa pagpapaimprinta. Ang naka-default ay `false`.
   * `printBackground` Boolean (opsyonal) - Iniimprinta rin ang kulay ng background at ang mukha ng web page. Ang naka-default ay `false`.
   * `deviceName` String (opsyonal) - Itakda ang pangalan ng gagamiting printer na gagamitin. Ang naka-default ay `"`.
 
-Inimprinta ang web page ng `webview`. Pareho sa `webContents.print([options])`.
+Prints `webview`'s web page. Same as `webContents.print([options])`.
 
 ### `<webview>.printToPDF(options, callback)`
 
@@ -436,15 +478,15 @@ Inimprinta ang web page ng `webview`. Pareho sa `webContents.print([options])`.
   * `error` Error
   * `data` Buffer
 
-Iniimprinta ang web page ng `webview` bilang PDF, Pareho sa `webContents.printToPDF(options, callback)`.
+Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, callback)`.
 
 ### `<webview>.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (opsyonal) - Ang kabuuan ng page na kukuhanin.
-* `callback` Function 
+* `callback` Punsyon 
   * `image` [NativeImage](native-image.md)
 
-Kumukuha ng larawan sa page ng `webview`. Pareho sa `webContents.capturePage([rect, ]callback)`.
+Captures a snapshot of the `webview`'s page. Same as `webContents.capturePage([rect, ]callback)`.
 
 ### `<webview>.send(channel[, arg1][, arg2][, ...])`
 
@@ -453,15 +495,15 @@ Kumukuha ng larawan sa page ng `webview`. Pareho sa `webContents.capturePage([re
 
 Magpadala ng mensahe na asynchronous para maisagawa ang proseso sa pamamagitan ng `channel`. pwede mo ring ipadala ang mga argumento na arbitraryo. The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
 
-Tignan ang [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) bilang mga halimbawa.
+See [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for examples.
 
 ### `<webview>.sendInputEvent(event)`
 
-* `event` Objek
+* `event` Object
 
 Nagpapadala ng input na `event` sa page.
 
-Tignan ang [webContents.sendInputEvent](web-contents.md#contentssendinputeventevent) para sa mga detalyadong paglalarawan ng objek na `event`.
+See [webContents.sendInputEvent](web-contents.md#contentssendinputeventevent) for detailed description of `event` object.
 
 ### `<webview>.setZoomFactor(factor)`
 
@@ -475,61 +517,86 @@ Binabago ang factor ng pag-zoom sa tinukoy na factor. Ang factor ng pag-zoom ay 
 
 Binabago ang antas ng pag-zoom para sa tinitiyak na antas. Ang orihinal na laki ng 0 at bawat isa Ang pagdagdag sa pagtaas o sa pagbaba ay kumakatawan sa pag-zooming ng 20% na mas malaki o mas maliit sa default mga limitasyon ng 300% at 50% ng orihinal na laki, ayon sa pagkakabanggit.
 
-### `.showDefinitionForSelection()` *macOS*
+### `<webview>.showDefinitionForSelection()` *macOS*
 
 Pinapakita ang pop-up na diksyonaryo na naghahanap ng mga napiling salita sa page.
 
 ### `<webview>.getWebContents()`
 
-Bumalik sa [`WebContents`](web-contents.md) - Ang laman ng web ay naka-ugnay sa `webview`.
+Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
 
-## Mga event ng DOM
+## DOM events
 
-Ang mga sumusunod na event ng DOM ay nasa tanda ng `webview`:
+The following DOM events are available to the `webview` tag:
 
 ### Event: 'load-commit'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `url` Tali
-* `ay pangunahing kuwadro` Boolean
+* `isMainFrame` Boolean
 
-Itinitigil agad kapag nacommit ang load. Sinasama nito ang nabigasyon na nasa kasalukuyang dokumento pati na ang mga load ng subframe na nasa lebel ng dokumento, pero di kasama ang mga load ng asynchronous resource.
+Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
 
-### Kaganapan: 'ginawa-tapusin-dala'
+### Event: 'did-finish-load'
 
-Itigil kapag natapos na ang nabigasyon, i.e. ang taga-ikot ng tab ay huminto sa pag-ikot, at ang event na `onload` ay na-dispatch.
+Fired when the navigation is done, i.e. the spinner of the tab will stop spinning, and the `onload` event is dispatched.
 
 ### Event: 'did-fail-load'
 
 Ibinabalik ang:
 
 * `errorCode` Integer
-* `Paglalarawan ng pagkakamali`tali
-* `napatunayan sa Url`tali
-* `ay pangunahing kuwadro` Boolean
+* `errorDescription` String
+* `validatedURL` String
+* `isMainFrame` Boolean
 
-Ang event na ito ay tulad ng `did-finish-load`, pero natigil nung nag-fail ang load o nakansela, e.g. `window.stop()` ay na-invoke.
+This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
 
-### Kaganapan: 'ginawa-frame-finish-load'
+### Event: 'did-frame-finish-load'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `isMainFrame` Boolean
 
-Itigil kapag natapos na ang nabigasyon ng frame.
+Fired when a frame has done navigation.
 
-### Kaganapan: 'did-start-loading'
+### Event: 'did-start-loading'
 
-Tumutugon sa mga puntos ng oras kung kailan nagsimulang umikot ang taga-ikot ng tab.
+Corresponds to the points in time when the spinner of the tab starts spinning.
 
 ### Event: 'did-stop-loading'
 
-Tumutugon sa mga puntos ng oras kung kailan huminto sa pag-ikot ang taga-ikot ng tab.
+Corresponds to the points in time when the spinner of the tab stops spinning.
+
+### Event: 'did-get-response-details'
+
+Pagbabalik:
+
+* `status` Boolean
+* `newURL` String
+* `originalURL` String
+* `httpResponseCode` Integer
+* `requestMethod` String
+* `referer` String
+* `headers` Objek
+* `resourceType` Tali
+
+Fired when details regarding a requested resource is available. `status` indicates socket connection to download the resource.
+
+### Event: 'did-get-redirect-request'
+
+Pagbabalik:
+
+* `oldURL` String
+* `newURL` String
+* `isMainFrame` Boolean
+
+Fired when a redirect was received while requesting a resource.
 
 ### Kaganapan: 'dom-ready'
 
-Itigil kapag ang dokumento ng sinasabing frame ay na-load.
+Fired when document in the given frame is loaded.
 
 ### Event: 'page-title-updated'
 
@@ -538,36 +605,36 @@ Ibinabalik ang:
 * `title` String
 * `explicitSet` Boolean
 
-Itigil kapag ang titulo ng page ay naitakdang habang naka-nabigasyon. Ang `explicitSet` ay di totoo kapag ang titulo ay nabuo mula sa file url.
+Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
 
 ### Kaganapan: 'pahina-favicon-updated'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `favicons` String[] - Hanay ng mga URL.
 
-Itigil kapag nakatanggap ang page ng mga url na favicon.
+Fired when page receives favicon urls.
 
 ### Event: 'enter-html-full-screen'
 
-Itigil kapag ang page ay naka-fullscreen na dulot ng HTML API.
+Fired when page enters fullscreen triggered by HTML API.
 
 ### Event: 'leave-html-full-screen'
 
-Itigil kapag ang page ay hindi na naka-fullscreen na dulot ng HTML API.
+Fired when page leaves fullscreen triggered by HTML API.
 
 ### Event: 'console-message'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `level` Integer
-* `mensahe` Pisi
+* `message` String
 * `linya` Integer
 * `sourceId` Pisi
 
-Itigil kapag ang guest window ay nagtalaga ng mensahe na konsol.
+Fired when the guest window logs a console message.
 
-Ang mga sumunod na halimbawa na mga code ay pinapasa ang lahat ng mga mensaheng nakatalaga sa konsol ng embedder na hindi nakapaloob sa nakatalagang lebel o iba pang mga katangian.
+The following example code forwards all log messages to the embedder's console without regard for log level or other properties.
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -578,16 +645,16 @@ webview.addEventListener('console-message', (e) => {
 
 ### Event: 'found-in-page'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `resulta` Bagay 
   * `requestId` Integer
-  * `activeMatchOrdinal` Integer - Posisyon ng aktibong tugma.
-  * `tugma` Integer - Bilang ng Mga Tugma.
-  * `selectionArea` Layunin - Coordinates ng unang rehiyon ng pagtutugma.
+  * `activeMatchOrdinal` Integer - Posisyon ng aktibong katugma.
+  * `matches` Integer - Bilang ng mga Tugma.
+  * `selectionArea` Objek - Mga coordinate ng unang tugmang parte.
   * `finalUpdate` Boolean
 
-Itigil kung meron ng resulta sa hinihingi ng [`webview.findInPage`](#webviewfindinpagetext-options).
+Fired when a result is available for [`webview.findInPage`](#webviewfindinpagetext-options) request.
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -601,16 +668,16 @@ console.log(requestId)
 
 ### Kaganapan: 'bagong-bintana'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `url` Tali
 * `frameName` Pisi
 * `Disposisyon` String - Maaaring `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` at `iba pang`.
 * `options` Object - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
 
-Itigil kapag ang guest page ay sinusubukang magbukas ng bagong browser window.
+Fired when the guest page attempts to open a new browser window.
 
-Ang mga sumusunod na halimbawa na code ay nagbubukas ng bagong url sa nakadefault na browser sa sistema.
+The following example code opens the new url in system's default browser.
 
 ```javascript
 const {shell} = require('electron')
@@ -626,21 +693,21 @@ webview.addEventListener('new-window', (e) => {
 
 ### Event: 'will-navigate'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `url` Tali
 
 Napalabas kapag nais ng isang user o ng pahina na magsimulang mag-navigate. Maaari itong mangyari kung kailan ang bagay na `bintana.lokasyon` ay nagbago o ang isang gumagamit ay nag-click ng isang link sa pahina.
 
-Itong event na ito ay hindi ilalabas kapag ang nabigasyon ay na-istart na ang gamit ay programa na may mga API tulad ng `<webview>.loadURL` and `<webview>.back`.
+This event will not emit when the navigation is started programmatically with APIs like `<webview>.loadURL` and `<webview>.back`.
 
-Ito ay hindi rin ilalabas habang nasa nabigasyon sa loog ng page, gaya ng pag-click sa naka-ankor na mga link o naka-update ang `window.location.hash`. Gamitin ang event na `did-navigate-in-page` para sa layuning ito.
+It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
-Tinatawag ang `event.preventDefault()` na may **NOT** mga epekto.
+Calling `event.preventDefault()` does **NOT** have any effect.
 
 ### Kaganapan: 'ginawa-navigate'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `url` Tali
 
@@ -650,20 +717,20 @@ Ang kaganapang ito ay hindi ipinapalabas para sa pag-navigate sa pahina, tulad n
 
 ### Event: 'did-navigate-in-page'
 
-Ibinabalik ang:
+Pagbabalik:
 
-* `ay pangunahing kuwadro` Boolean
+* `isMainFrame` Boolean
 * `url` Tali
 
 Ilalabas kapag nangyari ang nabigasyon sa loob ng page.
 
 Kapag nangyari ang nabigasyon sa loob ng page, ang URL ng page ay nababago pero hindi ito magiging dahilan sa pag-nanavigate sa labas ng page. Mga halimbawa ng mga pangyayaring ito ay kapag ang naka-ankor na mga link ay naclick o kung ang mga na DOM na `hashchange` ay natrigger.
 
-### Event: 'close'
+### Event: 'isara'
 
-Itigil kung ang guest page ay sinubukang isara ang sarili.
+Fired when the guest page attempts to close itself.
 
-Ang mga sumusunod na halimbawa na mga code ay ninanavigate ang `webview` sa `about:blank` kapag ang bisita ay sinubukang isara ang sarili.
+The following example code navigates the `webview` to `about:blank` when the guest attempts to close itself.
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -674,14 +741,14 @@ webview.addEventListener('close', () => {
 
 ### Event: 'ipc-message'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `channel` String
 * `args` Array
 
-Itigil kapag ang guest page ay nagpadala ng mensahe na asynchronous sa embedder page.
+Fired when the guest page has sent an asynchronous message to embedder page.
 
-With `sendToHost` method and `ipc-message` event you can communicate between guest page and embedder page:
+With `sendToHost` method and `ipc-message` event you can easily communicate between guest page and embedder page:
 
 ```javascript
 // In embedder page.
@@ -701,26 +768,26 @@ ipcRenderer.on('ping', () => {
 })
 ```
 
-### Kaganapan: 'nag-crash'
+### Event: 'crashed'
 
-Itigil kapag ang nag-crash ang proseso na nagsumite.
+Fired when the renderer process is crashed.
 
 ### Event: 'gpu-crashed'
 
-Itigil kapag ang ang proseso ng gpu ay nag-crash.
+Fired when the gpu process is crashed.
 
 ### Kaganapan: 'plugin-nag-crash'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `name` String
-* `Bersyon` Pisi
+* `version` String
 
-Itigil kapag ang proseso na plug-in ay nagcrash.
+Fired when a plugin process is crashed.
 
 ### Kaganapan: 'nawasak'
 
-Itigil kapag ang nasira ang mga WebContent.
+Fired when the WebContents is destroyed.
 
 ### Kaganapan: 'media-started-playing'
 
@@ -732,11 +799,11 @@ Naipalalabas kapag ang media ay naka-nakahinto o tapos na ang pag-play.
 
 ### Kaganapan: 'ginawa-baguhin-tema-kulay'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `themeColor` String
 
-Ilabas kung ang kulay ng tema ng page ay nabago. Ito ay kadalasang dahil sa na-icounter ang tanda na meta:
+Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
@@ -744,7 +811,7 @@ Ilabas kung ang kulay ng tema ng page ay nabago. Ito ay kadalasang dahil sa na-i
 
 ### Kaganapan: 'update-target-url'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `url` Tali
 
