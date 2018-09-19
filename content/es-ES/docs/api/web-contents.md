@@ -1086,7 +1086,7 @@ app.on('ready', () => {
   win = new BrowserWindow({width: 800, height: 600})
   win.loadURL(`file://${__dirname}/index.html`)
   win.webContents.on('did-finish-load', () => {
-    win.webContents.send('ping', 'whoooooooh!')
+    win.webContents.send('ping', '¡Suuuuuuuuuuuuuu!')
   })
 })
 ```
@@ -1097,7 +1097,7 @@ app.on('ready', () => {
 <body>
   <script>
     require('electron').ipcRenderer.on('ping', (event, message) => {
-      console.log(message) // Prints 'whoooooooh!'
+      console.log(message) // Imprime '¡Suuuuuuuuuuuuuu!'
     })
   </script>
 </body>
