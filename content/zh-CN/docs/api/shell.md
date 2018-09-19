@@ -36,7 +36,7 @@ shell.openExternal('https://github.com')
 
 ### `shell.openExternal(url[, options, callback])`
 
-* `url` String - Max 2081 characters on windows, or the function returns false.
+* `url` String - max 2081 characters on windows, or the function returns false.
 * `选项` Object (可选) *macOS* 
   * `activate` Boolean - ` true `将打开的应用程序置于前台. 默认值为 `true`.
 * `callback` Function (可选) *macOS* Function (可选) - 如果设定该回调函数，那么该回调函数以异步的方式执行。 
