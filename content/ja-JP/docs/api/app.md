@@ -21,7 +21,7 @@ app.on('window-all-closed', () => {
 
 アプリケーションが基本的な起動処理を完了したときに発生します。 WindowsとLinuxでは、`will-finish-launching` イベントは `ready` イベントと同じですが、macOSでは、このイベントは、`NSApplication` の `applicationWillFinishLaunching` 通知に相当します。 通常、ここでは、`open-file` や `open-url` イベントのリスナーを設定したり、クラッシュレポーターや自動アップデーターを開始したりします。
 
-In most cases, you should do everything in the `ready` event handler.
+ほとんどの場合、`ready` イベントハンドラーですべてのことを行うようにするべきです。
 
 ### イベント: 'ready'
 
@@ -320,18 +320,6 @@ app.on('session-created', (event, session) => {
 })
 ```
 
-### Event: 'second-instance'
-
-戻り値:
-
-* `event` Event
-* `argv` String[] - 2番目のインスタンスのコマンドライン引数の配列
-* `workingDirectory` String - 2番目のインスタンスの作業ディレクトリ
-
-This event will be emitted inside the primary instance of your application when a second instance has been executed. `argv` は2番目のインスタンスのコマンドライン引数の配列で、`workingDirectory` はその現在の作業ディレクトリです。 通常、アプリケーションはこれに対して1番目のウインドウにフォーカスを当て、最小化しないように対応します。
-
-This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
-
 ## メソッド
 
 `app` オブジェクトには以下のメソッドがあります。
@@ -378,10 +366,6 @@ app.exit(0)
 ### `app.isReady()`
 
 戻り値 `Boolean` - Electronの初期化が完了している場合、`true`、そうでない場合、`false`。
-
-### `app.whenReady()`
-
-Returns `Promise` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
 
 ### `app.focus()`
 
@@ -521,7 +505,7 @@ Windowsの場合、オプションのパラメータを指定することがで�
 
 このメソッドは現在の実行可能ファイルがプロトコル (別名URIスキーム) の既定のハンドラーであるかをチェックします。もしそうである場合、アプリを既定のハンドラから外します。
 
-### `app.isDefaultProtocolClient(protocol[, path, args])`
+### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
 * `protocol` String - `://` を除くプロトコルの名前。
 * `path` String (任意) *Windows* - 省略値は `process.execPath`
@@ -632,15 +616,21 @@ app.setJumpList([
 ])
 ```
 
-### `app.requestSingleInstanceLock()`
+### `app.makeSingleInstance(callback)`
 
-戻り値 `Boolean`
+* `callback` Function 
+  * `argv` String[] - 2番目のインスタンスのコマンドライン引数の配列
+  * `workingDirectory` String - 2番目のインスタンスの作業ディレクトリ
+
+戻り値 `Boolean`。
 
 このメソッドはアプリケーションをシングルインスタンスのアプリケーションにします。複数のインスタンスでのアプリ実行を許可する代わりに、これはアプリの単一のインスタンスだけが実行されていることを保証します。そして、他のインスタンスはこのインスタンスに通知し、終了します。
 
-The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock you can assume that another instance of your application is already running with the lock and exit immediately.
+2番目のインスタンスを実行すると、`callback(argv, workingDirectory)` で、`callback` が最初のインスタンスによって呼び出されます。 `argv` は2番目のインスタンスのコマンドライン引数の配列で、`workingDirectory` はその現在の作業ディレクトリです。 通常、アプリケーションはこれに対して1番目のウインドウにフォーカスを当て、最小化しないように対応します。
 
-I.e. This method returns `true` if your process is the primary instance of your application and your app should continue loading. It returns `false` if your process should immediately quit as it has sent its parameters to another instance that has already acquired the lock.
+`callback` は `app` の `ready` のイベントが発生した後で実行されることが保証されます。
+
+このメソッドは、プロセスがアプリケーションの1番目のインスタンスで、アプリがロード処理を続行する必要がある場合、`false` を返します。 そして、プロセスが別のインスタンスにパラメータを送信し、すぐに終了する必要がある場合、`true` を返します。
 
 macOSの場合、ユーザがFinderでアプリの2番目のインスタンスを開こうとしたとき、システムは自動的にシングルインスタンスになるようにし、`open-file` と `open-url` イベントが発生します。 ただし、ユーザがアプリをコマンドラインで開始する場合、シングルインスタンスを強制するシステムの仕組みが迂回されるため、シングルインスタンスであることを保証するには、このメソッドを使う必要があります。
 
@@ -650,34 +640,26 @@ macOSの場合、ユーザがFinderでアプリの2番目のインスタンス�
 const {app} = require('electron')
 let myWindow = null
 
-const gotTheLock = app.requestSingleInstanceLock()
+const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
+  // 誰かが2番目のインスタンスを実行しようとした場合、今のウインドウにフォーカスを当てる必要があります。
+  if (myWindow) {
+    if (myWindow.isMinimized()) myWindow.restore()
+    myWindow.focus()
+  }
+})
 
-if (!gotTheLock) {
+if (isSecondInstance) {
   app.quit()
-} else {
-  app.on('second-instance', (commandLine, workingDirectory) => {
-    // Someone tried to run a second instance, we should focus our window.
-    if (myWindow) {
-      if (myWindow.isMinimized()) myWindow.restore()
-      myWindow.focus()
-    }
-  })
-
-  // Create myWindow, load the rest of the app, etc...
-  app.on('ready', () => {
-  })
 }
+
+// myWindowを生成したり、アプリの残りのロード処理をしたりするなど...
+app.on('ready', () => {
+})
 ```
 
-### `app.hasSingleInstanceLock()`
+### `app.releaseSingleInstance()`
 
-戻り値 `Boolean`
-
-This method returns whether or not this instance of your app is currently holding the single instance lock. You can request the lock with `app.requestSingleInstanceLock()` and release with `app.releaseSingleInstanceLock()`
-
-### `app.releaseSingleInstanceLock()`
-
-Releases all locks that were created by `requestSingleInstanceLock`. This will allow multiple instances of the application to once again run side by side.
+`makeSingleInstance` によって作成されたすべてのロックを解放します。これでもう一度、アプリケーションを並列で実行するための複数インスタンスが許可されます。
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
@@ -750,7 +732,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 
 macOSでは、ドックアイコンに表示されます。Linuxでは、Unityランチャーでしか機能しません。
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+**注:** 機能させるには、Unityランチャーは、`.desktop` ファイルの存在を必要とします。詳細は [デスクトップ環境への統合](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux) をお読みください。
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
@@ -924,16 +906,10 @@ filePath がダウンロードフォルダの中の場合、ダウンロード�
 
 * `menu` [Menu](menu.md)
 
-Sets the application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
+アプリケーションの[ドックメニュー](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103)を設定します。
 
 ### `app.dock.setIcon(image)` *macOS*
 
 * `image` ([NativeImage](native-image.md) | String)
 
 このドックアイコンに関連付けられた `image` を設定します。
-
-## プロパティ
-
-### `app.isPackaged`
-
-A `Boolean` property that returns `true` if the app is packaged, `false` otherwise. For many apps, this property can be used to distinguish development and production environments.
