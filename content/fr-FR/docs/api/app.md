@@ -21,7 +21,7 @@ L'objet `app` émet les événements suivants :
 
 Émis lorsque l'application a terminé son démarrage de base. Sur Windows et Linux, l'événement `will-finish-launching` est le même que l'événement `ready`. Sur macOS, cet événement représente la notification `applicationWillFinishLaunching` de `NSApplication`. Vous allez habituellement mettre en place des listeners pour les événements `open-file` et `open-url` ici, et lancer le reporteur d'incident et la mise à jour automatique.
 
-In most cases, you should do everything in the `ready` event handler.
+Dans la plupart des cas, vous devriez tout faire dans le contrôleur de l'événement `ready`.
 
 ### Événement : 'ready'
 
@@ -320,18 +320,6 @@ app.on('session-created', (event, session) => {
 })
 ```
 
-### Event: 'second-instance'
-
-Retourne :
-
-* `event` Événement
-* `argv` String[] - un tableau d’arguments de la deuxième instance de la ligne de commande
-* `workingDirectory` String - Le répertoire de travail de la deuxième instance
-
-This event will be emitted inside the primary instance of your application when a second instance has been executed. `argv` est un tableau d’arguments de ligne de commande de la deuxième instance, et `workingDirectory` est son répertoire de travail courant. Les applications répondent habituellement à cela en faisant de leur fenêtre principale, une fenêtre centrée et non réduite au minimum.
-
-This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
-
 ## Méthodes
 
 L'objet `app` dispose des méthodes suivantes :
@@ -378,10 +366,6 @@ app.exit(0)
 ### `app.isReady()`
 
 Retourne `Boolean` - `true` si Electron a fini de s'initialiser, `false` sinon.
-
-### `app.whenReady()`
-
-Returns `Promise` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
 
 ### `app.focus()`
 
@@ -521,7 +505,7 @@ Returns `Boolean` - Si l'appel a réussi.
 
 Cette méthode vérifie si l'application actuel est l'application par défaut pour un protocole (par exemple le modèle URI). Si c'est le cas, il retirera l’application comme application par défaut.
 
-### `app.isDefaultProtocolClient(protocol[, path, args])`
+### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
 * `protocol` String - Le nom de votre protocole, sans le préfixe `://`.
 * `path` String (facultatif) *Windows* - `process.execPath` par défaut
@@ -632,15 +616,21 @@ app.setJumpList([
 ])
 ```
 
-### `app.requestSingleInstanceLock()`
+### `app.makeSingleInstance(callback)`
 
-Retourne `Boolean`
+* `callback` Function 
+  * `argv` String[] - un tableau d’arguments de la deuxième instance de la ligne de commande
+  * `workingDirectory` String - Le répertoire de travail de la deuxième instance
+
+Retourne `Boolean`.
 
 Cette méthode fait de votre application une Application à Instance Unique : au lieu d'autoriser plusieurs instances parallèles de votre application, cela permet de s'assurer qu'une seule est active, et les autres instances envoient un signal à celle-ci puis se terminent.
 
-The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock you can assume that another instance of your application is already running with the lock and exit immediately.
+`callback` sera appelé par la première instance avec `callback(argv, workingDirectory)` lorsqu'une deuxième instance a été exécutée. `argv` est un tableau d’arguments de ligne de commande de la deuxième instance, et `workingDirectory` est son répertoire de travail courant. Les applications répondent habituellement à cela en faisant de leur fenêtre principale, une fenêtre centrée et non réduite au minimum.
 
-I.e. This method returns `true` if your process is the primary instance of your application and your app should continue loading. It returns `false` if your process should immediately quit as it has sent its parameters to another instance that has already acquired the lock.
+L'exécution du `callback` est garantie après que l'évènement `ready` de l'`app` a été émis.
+
+La méthode retourne `false` si le processus est l'instance primaire de l'application et votre application devrait continuer à s'exécuter. Et retourne `true` si votre processus a envoyé ses paramètres à une autre instance et qu'il doit se terminer immédiatement.
 
 Sur macOS, dans Finder, le système impose automatiquement l'unicité de l'instance de votre application lorsqu'un utilisateur tente d'en ouvrir une deuxième, et les événements `open-file` et `open-url` sont ainsi émis. Cependant, quand l'utilisateur démarre votre application en ligne de commandes, le mécanisme d'unicité d'instance est contourné et vous devez alors utiliser cette méthode pour l'imposer.
 
@@ -650,34 +640,26 @@ Un exemple d'activation de la fenêtre de l'instance primaire lorsqu'une seconde
 const {app} = require('electron')
 let myWindow = null
 
-const gotTheLock = app.requestSingleInstanceLock()
+const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
+  // Quelqu'un a essayé de lancer une deuxième instance, nous devrions focaliser notre fenêtre.
+  if (myWindow) {
+    if (myWindow.isMinimized()) myWindow.restore()
+    myWindow.focus()
+  }
+})
 
-if (!gotTheLock) {
+if (isSecondInstance) {
   app.quit()
-} else {
-  app.on('second-instance', (commandLine, workingDirectory) => {
-    // Someone tried to run a second instance, we should focus our window.
-    if (myWindow) {
-      if (myWindow.isMinimized()) myWindow.restore()
-      myWindow.focus()
-    }
-  })
-
-  // Create myWindow, load the rest of the app, etc...
-  app.on('ready', () => {
-  })
 }
+
+// Créer myWindow, charge le reste d'app, etc...
+app.on('ready', () => {
+})
 ```
 
-### `app.hasSingleInstanceLock()`
+### `app.releaseSingleInstance()`
 
-Retourne `Boolean`
-
-This method returns whether or not this instance of your app is currently holding the single instance lock. You can request the lock with `app.requestSingleInstanceLock()` and release with `app.releaseSingleInstanceLock()`
-
-### `app.releaseSingleInstanceLock()`
-
-Releases all locks that were created by `requestSingleInstanceLock`. This will allow multiple instances of the application to once again run side by side.
+Libère tous les verrous qui ont été créés par `makeSingleInstance`. Cela permettra à plusieurs instances de l'application de s'exécuter à ce moment.
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
@@ -750,7 +732,7 @@ Définit le badge du compteur pour l'application courante. Régler le compte à 
 
 Sous macOS, il apparaît sur l'icône du dock. Sous Linux, il ne fonctionne que pour le launcher Unity.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+**Note :** le launcher Unity requiert la présence d'un fichier `.desktop` pour fonctionner, pour de plus amples informations, lisez le document [Intégration de l'environnement de bureau](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
@@ -924,16 +906,10 @@ Retourne `Boolean` - Si l'icône du dock est visible. L'appel `app.dock.show()` 
 
 * `menu` [Menu](menu.md)
 
-Sets the application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
+Définit le [menu du dock](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103) de l'application.
 
 ### `app.dock.setIcon(image)` *macOS*
 
 * `image` ([NativeImage](native-image.md) | String)
 
 Définit l’`image` associée à l'icône du dock.
-
-## Propriétés
-
-### `app.isPackaged`
-
-A `Boolean` property that returns `true` if the app is packaged, `false` otherwise. For many apps, this property can be used to distinguish development and production environments.
