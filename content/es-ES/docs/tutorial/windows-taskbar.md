@@ -1,6 +1,6 @@
 # Barra de tareas de Windows
 
-Electron tiene APIs para configurar el icono de la aplicación en la barra de tareas de Windows. Supported are the [creation of a `JumpList`](#jumplist), [custom thumbnails and toolbars](#thumbnail-toolbars), [icon overlays](#icon-overlays-in-taskbar), and the so-called ["Flash Frame" effect](#flash-frame), but Electron also uses the app's dock icon to implement cross-platform features like [recent documents](./recent-documents.md) and [application progress](./progress-bar.md).
+Electron tiene APIs para configurar el icono de la aplicación en la barra de tareas de Windows. Se soporta la [creación de `JumpList`](#jumplist), [miniaturas personalizadas y barras de herramientas](#thumbnail-toolbars), [encubrimiento de íconos](#icon-overlays-in-taskbar) y el efecto llamado ["Flash Frame"](#flash-frame), pero Electron también utiliza el icono del dock de la aplicación para implementar funciones multiplataforma como [documentos recientes](./recent-documents.md) y el [progreso de la aplicación](./progress-bar.md).
 
 ## JumpList
 
