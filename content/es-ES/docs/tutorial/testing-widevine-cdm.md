@@ -14,11 +14,11 @@ El archivo de la librería `widevinecdm.dll` estará en el directorio `Program F
 
 El archivo de la librería `libwidevinecdm.dylib` estará en el directorio `/Applications/Google Chrome.app/Contents/Versions/VERSIÓN_DE_CHROME/Google Chrome Framework.framework/Versions/A/Libraries/WidevineCdm/_platform_specific/mac_(x86|x64)/`.
 
-**Nota:** Asegúrese de que la versión de Chrome utilizada por Electron sea mayor o igual que el valor `min_chrome_version` del componente Widevine CDM de Chrome. The value can be found in `manifest.json` under `WidevineCdm` directory.
+**Nota:** Asegúrese de que la versión de Chrome utilizada por Electron sea mayor o igual que el valor `min_chrome_version` del componente Widevine CDM de Chrome. El valor puede ser encontrado en `manifest.json` en el directorio `WidevineCdm`.
 
 ## Usando la librería
 
-After getting the library files, you should pass the path to the file with `--widevine-cdm-path` command line switch, and the library's version with `--widevine-cdm-version` switch. The command line switches have to be passed before the `ready` event of `app` module gets emitted.
+Después de obtener los archivos de la librería, usted debe pasar la ruta del archivo con el comando `--widevine-cdm-path` y la versión de la librería con `--widevine-cdm-version`. Los comandos deben ser pasados antes de que se emita el evento `ready` del módulo `app`.
 
 Código de ejemplo:
 
