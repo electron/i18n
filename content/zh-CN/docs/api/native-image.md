@@ -82,7 +82,7 @@ console.log(appIcon)
 
 ## 模板图片
 
-Template images consist of black and an alpha channel. Template images are not intended to be used as standalone images and are usually mixed with other content to create the desired final appearance.
+Template images consist of black and clear colors (and an alpha channel). Template images are not intended to be used as standalone images and are usually mixed with other content to create the desired final appearance.
 
 最常见的情况是使用模板图片的菜单栏图标, 使它可以适应浅色和深色菜单栏。
 
