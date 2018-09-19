@@ -240,29 +240,29 @@ win.on('hide', () => {
   * `title` String
   * `content` String
 
-Displays a tray balloon.
+Affiche une bulle dans la barre d'État.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
-* `menu` Menu (optional)
-* `position` [Point](structures/point.md) (optional) - The pop up position.
+* `menu` Menu (facultatif)
+* `position` [Point](structures/point.md) (facultatif) - Position du menu.
 
-Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
+Ouvre le menu contextuel de l’icône. Lorsque le `menu` est passé, le `menu` s’affichera au lieu du menu contextuel de l’icône de la barre d’État.
 
-The `position` is only available on Windows, and it is (0, 0) by default.
+La `position` n’est disponible que sur Windows, et c’est (0, 0) par défaut.
 
 #### `tray.setContextMenu(menu)`
 
 * `menu` Menu | null
 
-Sets the context menu for this icon.
+Définit le menu contextuel de l'icône.
 
 #### `tray.getBounds()` *macOS* *Windows*
 
 Retourne [`Rectangle`](structures/rectangle.md)
 
-The `bounds` of this tray icon as `Object`.
+Les `limites` de l'icône de la barre d’État en tant qu'`Objet`.
 
 #### `tray.isDestroyed()`
 
-Returns `Boolean` - Whether the tray icon is destroyed.
+Retourne `Boolean` - si l’icône est détruite.
