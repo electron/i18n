@@ -73,11 +73,3 @@ process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
 当Electron崩溃时显示 Windows 的崩溃对话框。
 
 如果 ` crashReporter `已经启动了, 则此环境变量将不起作用。
-
-### `ELECTRON_OVERRIDE_DIST_PATH`
-
-When running from the `electron` package, this variable tells the `electron` command to use the specified build of Electron instead of the one downloaded by `npm install`. 用法:
-
-```sh
-export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/D
-```
