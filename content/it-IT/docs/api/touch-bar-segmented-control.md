@@ -2,7 +2,7 @@
 
 > Create a segmented control (a button group) where one button has a selected state
 
-Processo: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+Process: [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarSegmentedControl(options)` *Experimental*
 
