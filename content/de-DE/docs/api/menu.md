@@ -293,7 +293,7 @@ Rückgabewert:
     ]
     ```
     
-    Menu:
+    Menü:
     
     ```sh
     <br />- 1
@@ -316,7 +316,7 @@ Rückgabewert:
     ]
     ```
     
-    Menu:
+    Menü:
     
     ```sh
     <br />- ---
