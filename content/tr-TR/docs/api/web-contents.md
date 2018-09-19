@@ -60,8 +60,6 @@ Dönüşler:
 * `errorDescription` Koşul
 * `validatedURL` Koşul
 * `isMainFrame` Boolean
-* `frameProcessId` Integer
-* `frameRoutingId` Integer
 
 Bu etkinlik, `did-finish-load` gibidir ancak yük başarısız olduğunda veya iptal edildiğinde yayınlanır, örneğin; `window.stop()` çağrılır. Hata kodlarının tam listesi ve anlamları [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) mevcuttur.
 
@@ -71,8 +69,6 @@ Dönüşler:
 
 * `event` Event
 * `isMainFrame` Boolean
-* `frameProcessId` Integer
-* `frameRoutingId` Integer
 
 Bir çerçeve aramayı bitirdiğinde ortaya çıkar.
 
@@ -84,11 +80,42 @@ Sekmenin döngüsü dönmeye başladığında puanlara karşılık gelir.
 
 Sekmenin döngüsü dönmeye başladığında puanlara karşılık gelir.
 
-#### Olay: 'dom-ready'
+#### Olay: 'did-get-response-details'
 
 Dönüşler:
 
 * `event` Olay
+* `status` Boolean
+* `newURL` Dize
+* `originalURL` Dize
+* `httpResponseCode` Tamsayı
+* `requestMethod` Dize
+* `referrer` Dize
+* `headers` Nesne
+* `resourceType` Dize
+
+İstenen bir kaynakla ilgili ayrıntılar mevcut olduğunda yayımlanır. `status` kaynağı indirmek için soket bağlantısını gösterir.
+
+#### Olay: 'did-get-redirect-request'
+
+Dönüşler:
+
+* `event` Event
+* `oldURL` Dize
+* `newURL` Dize
+* `isMainFrame` Boolean
+* `httpResponseCode` Tamsayı
+* `requestMethod` Dize
+* `referrer` Dize
+* `headers` Nesne
+
+Bir kaynak talep ederken yönlendirme alındığında yayınlanır.
+
+#### Olay: 'dom-ready'
+
+Dönüşler:
+
+* `event` Event
 
 Belirli bir çerçevedeki belge yüklendiğinde çıkar.
 
@@ -97,7 +124,7 @@ Belirli bir çerçevedeki belge yüklendiğinde çıkar.
 Dönüşler:
 
 * `event` Event
-* `favicons` Dize[] - URL dizisi.
+* `favicons` String[] - URL'lerin dizilişleri.
 
 Sayfa sık kullanılan simge Url'lerini aldığında yayınlanır.
 
@@ -105,13 +132,12 @@ Sayfa sık kullanılan simge Url'lerini aldığında yayınlanır.
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `url` Dize
 * `frameName` Dize
 * `disposition` Dize - `default`, `foreground-tab`, `background-tab`, `new-window`, `ave-to-disk` ve `other` olabilir.
 * `options` Object - The options which will be used for creating the new [`BrowserWindow`](browser-window.md).
 * `additionalFeatures` Dize[] - `window.open()` için verilen standart olmayan özellikler (Chromium veya Electron tarafından ele alınmayan özellikler).
-* `referrer` [Referrer](structures/referrer.md) - The referrer that will be passed to the new window. May or may not result in the `Referer` header being sent, depending on the referrer policy.
 
 Sayfa, bir `url` için yeni bir pencere açmayı istediğinde ortaya çıkar. `window.open` veya `<a target='_blank'>` gibi harici bir bağlantıyla istenebilir.
 
@@ -144,44 +170,14 @@ Ayrıca, bağlı linkleri tıklama veya `window.location.hash` öğesini güncel
 
 `event.preventDefault()` öğesinin çağırılması gezinmeyi engeller.
 
-#### Event: 'did-start-navigation'
-
-Dönüşler:
-
-* `url` Dize
-* `isInPlace` Boolean
-* `isMainFrame` Boolean
-* `frameProcessId` Integer
-* `frameRoutingId` Integer
-
-Emitted when any frame (including main) starts navigating. `isInplace` will be `true` for in-page navigations.
-
 #### Olay: 'did-navigate'
 
 Dönüşler:
 
 * `event` Event
 * `url` Dize
-* `httpResponseCode` Integer - -1 for non HTTP navigations
-* `httpStatusText` String - empty for non HTTP navigations
 
-Emitted when a main frame navigation is done.
-
-Ayrıca, bağlı linkleri tıklama veya `window.location.hash` öğesini güncelleme gibi sayfa içi gezinmeler için de yayımlanmaz. Bu amaçla `did-navigate-in-page` etkinliğini kullanın.
-
-#### Event: 'did-frame-navigate'
-
-Dönüşler:
-
-* `event` Event
-* `url` Dize
-* `httpResponseCode` Integer - -1 for non HTTP navigations
-* `httpStatusText` String - empty for non HTTP navigations,
-* `isMainFrame` Boolean
-* `frameProcessId` Integer
-* `frameRoutingId` Integer
-
-Emitted when any frame navigation is done.
+Bir gezinme yapıldığında ortaya çıkar.
 
 Ayrıca, bağlı linkleri tıklama veya `window.location.hash` öğesini güncelleme gibi sayfa içi gezinmeler için de yayımlanmaz. Bu amaçla `did-navigate-in-page` etkinliğini kullanın.
 
@@ -192,16 +188,14 @@ Dönüşler:
 * `event` Olay
 * `url` Dize
 * `isMainFrame` Boolean
-* `frameProcessId` Integer
-* `frameRoutingId` Integer
 
-Emitted when an in-page navigation happened in any frame.
+Sayfa içi gezinme gerçekleştiğinde ortaya çıktı.
 
 Sayfa içi gezinme gerçekleştiğinde, sayfa URL'si değişir, ancak sayfanın dışına çıkmasına neden olmaz. Bu gerçekleşen örnekler, bağlı link bağlantıları tıklandığında veya DOM `hashchange` olayı tetiklendiğinde görülür.
 
 #### Olay: 'will-prevent-unload'
 
-Dönüşler:
+Dönütler:
 
 * `event` Event
 
@@ -236,14 +230,6 @@ Dönüşler:
 * `killed` Boolean
 
 Oluşturucu işlemi çöker veya yok olduğunda yayımlanır.
-
-#### Etkinlik: 'tepkisiz'
-
-Web sayfası tepkisiz kaldığında yayımlanır.
-
-#### Etkinlik: 'duyarlılık'
-
-Yanıt vermeyen internet sayfası tekrar yanıt verdiğinde ortaya çıkmaktadır.
 
 #### Event: 'plugin-crashed'
 
@@ -467,14 +453,11 @@ Dönüşler:
 Bluetooth aygıtı `navigator.bluetooth.requestDevice` çağrı için seçilmesi gerektiğinde sinyal başlar. `navigator.bluetooth` api'sini kullanmak `webBluetooth`'u etkinleştirmelidir. Eğer `event.preventDefault` çağırılmazsa ilk bağlanılabilen alet seçilecektir. ` callback`, seçilecek `deviceId` ile çağırılmalıdır, `callback`'e boş string göndermek isteği iptal edecektir.
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
-
-let win = null
-app.commandLine.appendSwitch('enable-experimental-web-platform-features')
+const {app, webContents} = require('electron')
+app.commandLine.appendSwitch('enable-web-bluetooth')
 
 app.on('ready', () => {
-  win = new BrowserWindow({width: 800, height: 600})
-  win.webContents.on('select-bluetooth-device', (event, deviceList, callback) => {
+  webContents.on('select-bluetooth-device', (event, deviceList, callback) => {
     event.preventDefault()
     let result = deviceList.find((device) => {
       return device.deviceName === 'test'
@@ -539,7 +522,6 @@ Emitted when a `<webview>` has been attached to this web contents.
 
 Dönüşler:
 
-* `event` Event
 * `level` Integer
 * `message` String
 * `line` Integer
@@ -553,10 +535,10 @@ Emitted when the associated window logs a console message. Will not be emitted f
 
 * `url` Dize
 * `seçenekler` Obje (opsiyonel) 
-  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
+  * `httpReferrer` Dizgi (isteğe bağlı) - Bir HTTP başvuru bağlantısı.
   * `userAgent` Dizgi (isteğe bağlı) - İsteğin kaynağını oluşturan bir kullanıcı aracı.
   * `extraHeaders` String (optional) - Extra headers separated by "\n".
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
   * `baseURLForDataURL` Dizgi (isteğe bağlı) - Veri bağlantıları tarafından dosyaların yükleneceği (Dizin ayracına sahip) temel bağlantı. Buna, sadece belirtilen `url` bir veri bağlantısıysa ve başka dosyalar yüklemesi gerekiyorsa, gerek duyulur.
 
 `url`'yi pencereye yükler. `url` bir protokol önadı içermek zorundadır, Örneğin `http://` veya `file://`. Eğer yüklemenin http önbelleğini atlaması gerekiyorsa, atlatmak için `pragma` başlığını kullanın.
@@ -636,7 +618,7 @@ Web sayfasına odaklanır.
 
 #### `contents.stop()`
 
-Bekleyen gezinmeleri durdurur.
+Bekleyen gezinmeyi durdurur.
 
 #### `contents.reload()`
 
@@ -662,7 +644,7 @@ Yürürlükteki sayfayı yeniden yükler ve önbelleği yoksayar.
 
 #### `contents.clearHistory()`
 
-Gezinme geçmişini temizler.
+Gezinme geçmişini temizle.
 
 #### `contents.goBack()`
 
@@ -682,7 +664,7 @@ Tarayıcıyı belirtilmiş salt web sayfası dizinine (indeksine) yönlendirir.
 
 * `offset` Tamsayı
 
-"Yürürlükteki girdi"den belirtilmiş göreli konuma (offsete) gider.
+"Geçerli girişten" belirtilen aralıkta gezinir.
 
 #### `contents.isCrashed()`
 
@@ -708,14 +690,14 @@ Yürürlükteki web sayfasına CSS ekler.
 
 * `code` String
 * `userGesture` Boolean (isteğe bağlı) - Varsayılan `false`'dır.
-* `geri aramak` Function (isteğe bağlı) - Script çalıştıktan sonra çağırılır. 
+* `geri aramak` Fonksiyon (isteğe bağlı) - Betik tamamlandıktan sonra çağrılır. 
   * `result` Any
 
-`Promise` döner - Çalıştırılan kodun sonucuyla çözülen veya eğer kod sonucu promise reddedildiyse reddedilen bir promise.
+`Promise` döndürür - çalışan kodun sonucuyla çözülen bir söz veya kodun sonucu reddedilen bir söz ise reddedilir.
 
 Sayfadaki `code`'u ölçer.
 
-Tarayıcı penceresinde, `requestFullScreen` gibi bazı HTML API'leri yalnızca kullanıcıdan gelen bir hareket ile çağrılmaktadır. `userGesture`'ü `true` olarak ayarlamak bu kısıtlamayı kaldırır.
+Tarayıcı penceresinde `requestFullScreen` gibi bazı HTML arayüzleri (APIs) sadece kullanıcıdan gelen bir işaretle çağrılabilir. `userGesture` ayarını `true` olarak ayarladığınızda bu sınırlama kaldırılır.
 
 If the result of the executed code is a promise the callback result will be the resolved value of the promise. We recommend that you use the returned Promise to handle code that results in a Promise.
 
@@ -800,8 +782,8 @@ Maksimum ve minimum layout-tabanlı (yani görsel olmayan) yakınlaştırma düz
 
 #### `contents.copyImageAt(x, y)`
 
-* `x` Integer
-* `x` Integer
+* `x` Tamsayı
+* `y` Tamsayı
 
 Verilen pozisyondaki görüntüyü panoya kopyalar.
 
@@ -841,7 +823,7 @@ Verilen pozisyondaki görüntüyü panoya kopyalar.
 
 * `text` Dizi
 
-Odaklanılan ögeye `text`'i ekler.
+Odaklanmış öğeye `metin` ekler.
 
 #### `contents.findInPage(text[, options])`
 
@@ -1089,7 +1071,7 @@ Servis işçisisi bağlamı için geliştirici araçları açar.
 * `channel` Dizesi
 * `...args` herhangi[]
 
-İşleyiciye ` kanal ` üzerinden eşzamansız bir ileti gönder, keyfi argümanlar da gönderebilirsiniz. Bağımsız değişkenler dahili olarak JSON'da seri hale getirilecek ve dolayısıyla hiçbir işlev veya prototip zinciri dahil edilmeyecektir.
+İşleyiciye `channel` aracılığıyla bir asenkron mesaj yollayın, aynı zamanda rastgele argümanlar da yollayabilirsiniz. Bağımsız değişkenler dahili olarak JSON'da seri hale getirilecek ve dolayısıyla hiçbir işlev veya prototip zinciri dahil edilmeyecektir.
 
 The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
@@ -1178,14 +1160,14 @@ Fare olayları için, `event` nesnesi aşağıdaki özellikleri de alacaktır:
 
 * `onlyDirty` Boolean (İsteğe bağlı) - Varsayılan olarak `false`'tur.
 * `geri aramak` Function 
-  * `image` [NativeImage](native-image.md)
+  * `frameBuffer` Buffer
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
-Begin subscribing for presentation events and captured frames, the `callback` will be called with `callback(image, dirtyRect)` when there is a presentation event.
+Olayların ve yakalanan çerçevelerin sunulması için sürdürümcü olur; Bir sunum olayı olduğunda `callback` , `callback(frameBuffer,dirtyRect)` ile birlikte çağrılacaktır.
 
-The `image` is an instance of [NativeImage](native-image.md) that stores the captured frame.
+`frameBuffer` işlenmemiş piksel verilerini içeren bir `Buffer`'dır. Çoğu makine üzerinde piksel verileri etkili bir şekilde 32 bit BGRA formatında saklanır, ancak gerçek gösterim işlemcinin endianına bağlıdır (en modern işlemciler little-endian, big-endian işlemcili makinelerde veri 32 bit ARGB formatındadır).
 
-`dirtyRect`, sayfanın hangi bölümlerinin yeniden boyandığını tanımlayan `x, y, width, height` özelliklerini barındıran bir nesnedir. If `onlyDirty` is set to `true`, `image` will only contain the repainted area. `onlyDirty` defaults to `false`.
+`dirtyRect`, sayfanın hangi bölümlerinin yeniden boyandığını tanımlayan `x, y, width, height` özelliklerini barındıran bir nesnedir. Eğer `onlyDirty`, `true`'ya ayarlandıysa, `frameBuffer` sadece yeniden boyanan alanları içerecektir. `onlyDirty` varsayılanı `false`'tur.
 
 #### `contents.endFrameSubscription()`
 
@@ -1227,6 +1209,16 @@ win.webContents.on('did-finish-load', () => {
 #### `contents.showDefinitionForSelection()` *macOS*
 
 Sayfadaki seçili sözcüğü arayan pop-up sözlüğünü gösterir.
+
+#### `contents.setSize(options)`
+
+Sayfanın boyutunu ayarlayın. Bu yalnızca `<webview>` konuk içerikler için desteklenmektedir.
+
+* `seçenekler` Nesne 
+  * `enableAutoSize` Boolean (optional) - true to make the webview container automatically resize within the bounds specified by the attributes normal, min and max.
+  * `normal` [Size](structures/size.md) (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
+  * `min` [Size](structures/size.md) (optional) - Minimum size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
+  * `max` [Size](structures/size.md) (optional) - Maximium size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
 
 #### `contents.isOffscreen()`
 
@@ -1276,11 +1268,7 @@ Setting the WebRTC IP handling policy allows you to control which IPs are expose
 
 #### `contents.getOSProcessId()`
 
-Returns `Integer` - The operating system `pid` of the associated renderer process.
-
-#### `contents.getProcessId()`
-
-Returns `Integer` - The chromium internal `pid` of the associated renderer. Can be compared to the `frameProcessId` passed by frame specific navigation events (e.g. `did-frame-navigate`)
+`Integer` döner- İlgili işleyici işleminin `pid`'si.
 
 ### Örnek Özellikleri
 
