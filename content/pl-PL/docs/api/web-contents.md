@@ -60,8 +60,6 @@ Zwraca:
 * `errorDescription` String
 * `validatedURL` String
 * `isMainFrame` Boolean
-* `frameProcessId` Integer
-* `frameRoutingId` Integer
 
 This event is like `did-finish-load` but emitted when the load failed or was cancelled, e.g. `window.stop()` is invoked. The full list of error codes and their meaning is available [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
@@ -71,8 +69,6 @@ Zwraca:
 
 * `event` Event
 * `isMainFrame` Boolean
-* `frameProcessId` Integer
-* `frameRoutingId` Integer
 
 Emitted when a frame has done navigation.
 
@@ -83,6 +79,37 @@ Corresponds to the points in time when the spinner of the tab started spinning.
 #### Zdarzenie: 'did-stop-loading'
 
 Corresponds to the points in time when the spinner of the tab stopped spinning.
+
+#### Event: 'did-get-response-details'
+
+Zwraca:
+
+* `event` Event
+* `status` Boolean
+* `newURL` String
+* `originalURL` String
+* `httpResponseCode` Integer
+* `requestMethod` String
+* `referrer` String
+* `headers` Object
+* `resourceType` String
+
+Emitted when details regarding a requested resource are available. `status` indicates the socket connection to download the resource.
+
+#### Event: 'did-get-redirect-request'
+
+Zwraca:
+
+* `event` Event
+* `oldURL` String
+* `newURL` String
+* `isMainFrame` Boolean
+* `httpResponseCode` Integer
+* `requestMethod` String
+* `referrer` String
+* `headers` Object
+
+Emitted when a redirect is received while requesting a resource.
 
 #### Zdarzenie: 'dom-ready'
 
@@ -111,7 +138,6 @@ Zwraca:
 * `disposition` String - Can be `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 * `options` Object - The options which will be used for creating the new [`BrowserWindow`](browser-window.md).
 * `additionalFeatures` String[] - The non-standard features (features not handled by Chromium or Electron) given to `window.open()`.
-* `referrer` [Referrer](structures/referrer.md) - The referrer that will be passed to the new window. May or may not result in the `Referer` header being sent, depending on the referrer policy.
 
 Emitted when the page requests to open a new window for a `url`. It could be requested by `window.open` or an external link like `<a target='_blank'>`.
 
@@ -144,44 +170,14 @@ It is also not emitted for in-page navigations, such as clicking anchor links or
 
 Calling `event.preventDefault()` will prevent the navigation.
 
-#### Event: 'did-start-navigation'
-
-Zwraca:
-
-* `url` String
-* `isInPlace` Boolean
-* `isMainFrame` Boolean
-* `frameProcessId` Integer
-* `frameRoutingId` Integer
-
-Emitted when any frame (including main) starts navigating. `isInplace` will be `true` for in-page navigations.
-
 #### Zdarzenie: 'did-navigate'
 
 Zwraca:
 
 * `event` Event
 * `url` String
-* `httpResponseCode` Integer - -1 for non HTTP navigations
-* `httpStatusText` String - empty for non HTTP navigations
 
-Emitted when a main frame navigation is done.
-
-This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
-
-#### Event: 'did-frame-navigate'
-
-Zwraca:
-
-* `event` Event
-* `url` String
-* `httpResponseCode` Integer - -1 for non HTTP navigations
-* `httpStatusText` String - empty for non HTTP navigations,
-* `isMainFrame` Boolean
-* `frameProcessId` Integer
-* `frameRoutingId` Integer
-
-Emitted when any frame navigation is done.
+Emitted when a navigation is done.
 
 This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
@@ -192,10 +188,8 @@ Zwraca:
 * `event` Event
 * `url` String
 * `isMainFrame` Boolean
-* `frameProcessId` Integer
-* `frameRoutingId` Integer
 
-Emitted when an in-page navigation happened in any frame.
+Emitted when an in-page navigation happened.
 
 When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
 
@@ -237,14 +231,6 @@ Zwraca:
 
 Emitted when the renderer process crashes or is killed.
 
-#### Zdarzenie: 'unresponsive'
-
-Emitted when the web page becomes unresponsive.
-
-#### Zdarzenie: 'responsive'
-
-Emitted when the unresponsive web page becomes responsive again.
-
 #### Zdarzenie: 'plugin-crashed'
 
 Zwraca:
@@ -259,7 +245,7 @@ Emitted when a plugin process has crashed.
 
 Emitted when `webContents` is destroyed.
 
-#### Zdarzenie: 'before-input-event'
+#### Event: 'before-input-event'
 
 Zwraca:
 
@@ -398,7 +384,7 @@ Zwraca:
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
-#### Zdarzenie: 'cursor-changed'
+#### Event: 'cursor-changed'
 
 Zwraca:
 
@@ -413,7 +399,7 @@ Emitted when the cursor's type changes. The `type` parameter can be `default`, `
 
 If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a [`NativeImage`](native-image.md), and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
 
-#### Zdarzenie: 'context-menu'
+#### Event: 'context-menu'
 
 Zwraca:
 
@@ -455,7 +441,7 @@ Zwraca:
 
 Emitted when there is a new context menu that needs to be handled.
 
-#### Zdarzenie: 'select-bluetooth-device'
+#### Event: 'select-bluetooth-device'
 
 Zwraca:
 
@@ -467,14 +453,11 @@ Zwraca:
 Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
-
-let win = null
-app.commandLine.appendSwitch('enable-experimental-web-platform-features')
+const {app, webContents} = require('electron')
+app.commandLine.appendSwitch('enable-web-bluetooth')
 
 app.on('ready', () => {
-  win = new BrowserWindow({width: 800, height: 600})
-  win.webContents.on('select-bluetooth-device', (event, deviceList, callback) => {
+  webContents.on('select-bluetooth-device', (event, deviceList, callback) => {
     event.preventDefault()
     let result = deviceList.find((device) => {
       return device.deviceName === 'test'
@@ -488,7 +471,7 @@ app.on('ready', () => {
 })
 ```
 
-#### Zdarzenie: 'paint'
+#### Event: 'paint'
 
 Zwraca:
 
@@ -508,11 +491,11 @@ win.webContents.on('paint', (event, dirty, image) => {
 win.loadURL('http://github.com')
 ```
 
-#### Zdarzenie: 'devtools-reload-page'
+#### Event: 'devtools-reload-page'
 
 Emitted when the devtools window instructs the webContents to reload
 
-#### Zdarzenie: 'will-attach-webview'
+#### Event: 'will-attach-webview'
 
 Zwraca:
 
@@ -526,7 +509,7 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 **Note:** The specified `preload` script option will be appear as `preloadURL` (not `preload`) in the `webPreferences` object emitted with this event.
 
-#### Zdarzenie: 'did-attach-webview'
+#### Event: 'did-attach-webview'
 
 Zwraca:
 
@@ -539,7 +522,6 @@ Emitted when a `<webview>` has been attached to this web contents.
 
 Zwraca:
 
-* `event` Event
 * `level` Integer
 * `message` String
 * `line` Integer
@@ -553,10 +535,10 @@ Emitted when the associated window logs a console message. Will not be emitted f
 
 * `url` String
 * `opcje` Obiekt (opcjonalne) 
-  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
+  * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n".
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
   * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
 
 Loads the `url` in the window. The `url` must contain the protocol prefix, e.g. the `http://` or `file://`. If the load should bypass http cache then use the `pragma` header to achieve it.
@@ -644,7 +626,7 @@ Reloads the current web page.
 
 #### `contents.reloadIgnoringCache()`
 
-Przeładowuje obecną stronę i ignoruje cache.
+Reloads current page and ignores cache.
 
 #### `contents.canGoBack()`
 
@@ -726,7 +708,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Eksperymentalny*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
 
 * `ignore` Boolean
 
@@ -736,7 +718,7 @@ Ignore application menu shortcuts while this web contents is focused.
 
 * `muted` Boolean
 
-Wycisza audio na obecnej stronie internetowej.
+Mute the audio on the current web page.
 
 #### `contents.isAudioMuted()`
 
@@ -1178,14 +1160,14 @@ For the `mouseWheel` event, the `event` object also have following properties:
 
 * `onlyDirty` Boolean (optional) - Defaults to `false`.
 * `callback` Funkcja 
-  * `image` [NativeImage](native-image.md)
+  * `frameBuffer` Buffer
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
-Begin subscribing for presentation events and captured frames, the `callback` will be called with `callback(image, dirtyRect)` when there is a presentation event.
+Begin subscribing for presentation events and captured frames, the `callback` will be called with `callback(frameBuffer, dirtyRect)` when there is a presentation event.
 
-The `image` is an instance of [NativeImage](native-image.md) that stores the captured frame.
+The `frameBuffer` is a `Buffer` that contains raw pixel data. On most machines, the pixel data is effectively stored in 32bit BGRA format, but the actual representation depends on the endianness of the processor (most modern processors are little-endian, on machines with big-endian processors the data is in 32bit ARGB format).
 
-The `dirtyRect` is an object with `x, y, width, height` properties that describes which part of the page was repainted. If `onlyDirty` is set to `true`, `image` will only contain the repainted area. `onlyDirty` defaults to `false`.
+The `dirtyRect` is an object with `x, y, width, height` properties that describes which part of the page was repainted. If `onlyDirty` is set to `true`, `frameBuffer` will only contain the repainted area. `onlyDirty` defaults to `false`.
 
 #### `contents.endFrameSubscription()`
 
@@ -1228,6 +1210,16 @@ win.webContents.on('did-finish-load', () => {
 
 Shows pop-up dictionary that searches the selected word on the page.
 
+#### `contents.setSize(options)`
+
+Set the size of the page. This is only supported for `<webview>` guest contents.
+
+* `options` Object 
+  * `enableAutoSize` Boolean (optional) - true to make the webview container automatically resize within the bounds specified by the attributes normal, min and max.
+  * `normal` [Size](structures/size.md) (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
+  * `min` [Size](structures/size.md) (optional) - Minimum size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
+  * `max` [Size](structures/size.md) (optional) - Maximium size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
+
 #### `contents.isOffscreen()`
 
 Returns `Boolean` - Indicates whether *offscreen rendering* is enabled.
@@ -1266,9 +1258,9 @@ Returns `String` - Returns the WebRTC IP Handling Policy.
 
 #### `contents.setWebRTCIPHandlingPolicy(policy)`
 
-* `polityka` String - Specify the WebRTC IP Handling Policy. 
+* `policy` String - Specify the WebRTC IP Handling Policy. 
   * `default` - Exposes user's public and local IPs. This is the default behavior. When this policy is used, WebRTC has the right to enumerate all interfaces and bind them to discover public interfaces.
-  * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. When this policy is used, WebRTC should only use the default route used by http. To nie odkrywa żadnych lokalnych adresów.
+  * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. When this policy is used, WebRTC should only use the default route used by http. This doesn't expose any local addresses.
   * `default_public_and_private_interfaces` - Exposes user's public and local IPs. When this policy is used, WebRTC should only use the default route used by http. This also exposes the associated default private address. Default route is the route chosen by the OS on a multi-homed endpoint.
   * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
 
@@ -1276,11 +1268,7 @@ Setting the WebRTC IP handling policy allows you to control which IPs are expose
 
 #### `contents.getOSProcessId()`
 
-Returns `Integer` - The operating system `pid` of the associated renderer process.
-
-#### `contents.getProcessId()`
-
-Returns `Integer` - The chromium internal `pid` of the associated renderer. Can be compared to the `frameProcessId` passed by frame specific navigation events (e.g. `did-frame-navigate`)
+Returns `Integer` - The `pid` of the associated renderer process.
 
 ### Właściwości instancji
 
