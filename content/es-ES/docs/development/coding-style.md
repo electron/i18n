@@ -17,7 +17,7 @@ Para mostrar los problemas de estilo detectados por `cpplint` y `eslint`, puede 
 * Avoid platform-dependent code: 
   * Use `path.join()` to concatenate filenames.
   * Use `os.tmpdir()` rather than `/tmp` when you need to reference the temporary directory.
-* Using a plain `return` when returning explicitly at the end of a function. 
+* Using a plain `regresar` when returning explicitly at the end of a function. 
   * No `return null`, `return undefined`, `null` o `undefined`
 
 ## C++ y Python
