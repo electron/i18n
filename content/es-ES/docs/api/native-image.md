@@ -226,7 +226,7 @@ Devuelve `NativeImage` - La imagen recortada.
 
 #### `image.resize(options)`
 
-* `options` Objeto * `width` Entero (opcional) - Por defecto es el ancho de la imagen. * `height` Entero (opcional) - El valor predeterminado es la altura de la imagen. * `quality` String (optional) - The desired quality of the resize image. Los valores posibles son `good`, `better` or `best`. Por defecto es `best`. Estos valores expresan una compensación de calidad/velocidad deseada. Son traducidas dentro de un método de algoritmo específico que depende de las capacidades (CPU, GPU) de la plataforma subyacente. Es posible asignar los tres métodos con el mismo algoritmo en una plataforma determinada.
+* `options` Objeto * `width` Entero (opcional) - Por defecto es el ancho de la imagen. * `height` Entero (opcional) - El valor predeterminado es la altura de la imagen. * `quality` String (opcional) - La calidad deseada para el cambio de tamaño de imagen. Los valores posibles son `good`, `better` or `best`. Por defecto es `best`. Estos valores expresan una compensación de calidad/velocidad deseada. Son traducidas dentro de un método de algoritmo específico que depende de las capacidades (CPU, GPU) de la plataforma subyacente. Es posible asignar los tres métodos con el mismo algoritmo en una plataforma determinada.
 
 Devuelve `NativeImage` - La imagen redimensionada.
 
