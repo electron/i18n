@@ -2,7 +2,7 @@
 
 > 为macOS原生应用在触摸栏中创建一个弹出控件
 
-Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+Process: [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarSlider(options)` *实验功能*
 
