@@ -22,11 +22,6 @@ For setting up a server to accept and process crash reports, you can use followi
 * [socorro](https://github.com/mozilla/socorro)
 * [mini-breakpad-server](https://github.com/electron/mini-breakpad-server)
 
-Or use a 3rd party hosted solution:
-
-* [Backtrace I/O](https://backtrace.io/electron/)
-* [Sentry](https://docs.sentry.io/clients/electron)
-
 Crash reports are saved locally in an application-specific temp directory folder. For a `productName` of `YourName`, crash reports will be stored in a folder named `YourName Crashes` inside the temp directory. You can customize this temp directory location for your app by calling the `app.setPath('temp', '/my/custom/temp')` API before starting the crash reporter.
 
 ## 方法
@@ -36,7 +31,7 @@ The `crashReporter` module has the following methods:
 ### `crashReporter.start(options)`
 
 * `options` Object 
-  * `companyName` String (選用)
+  * `companyName` String (optional)
   * `submitURL` String - URL that crash reports will be sent to as POST.
   * `productName` String (optional) - Defaults to `app.getName()`.
   * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server Default is `true`.
@@ -85,7 +80,7 @@ Returns all uploaded crash reports. Each report contains the date and uploaded I
 
 Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
 
-**注意:** 這個 API 只能在主處理序中使用。
+**Note:** This API can only be called from the main process.
 
 ### `crashReporter.setUploadToServer(uploadToServer)` *Linux* *macOS*
 
@@ -93,7 +88,7 @@ Returns `Boolean` - Whether reports should be submitted to the server. Set throu
 
 This would normally be controlled by user preferences. This has no effect if called before `start` is called.
 
-**注意:** 這個 API 只能在主處理序中使用。
+**Note:** This API can only be called from the main process.
 
 ### `crashReporter.addExtraParameter(key, value)` *macOS*
 
