@@ -32,7 +32,7 @@ Retourne `Menu | null` - Le menu de l’application, si défini, ou `null`, si n
 
 * `action` String
 
-Envoie `action` au premier répondant de l'application. Ceci est utilisé pour émuler les comportements du menu de macOS par défaut. Usually you would just use the [`role`](menu-item.md#roles) property of a [`MenuItem`](menu-item.md).
+Envoie `action` au premier répondant de l'application. Ceci est utilisé pour émuler les comportements du menu de macOS par défaut. Habituellement, vous utiliseriez simplement la propriété [`role`](menu-item.md#roles) d’un [`MenuItem`](menu-item.md).
 
 Voir le [Guide de gestion des événements Cocoa de macOS](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7) pour plus d'informations sur les actions natives de macOS.
 
@@ -42,7 +42,7 @@ Voir le [Guide de gestion des événements Cocoa de macOS](https://developer.app
 
 Retourne `Menu`
 
-Generally, the `template` is just an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
+En règle générale, le `template` est juste un tableau d'`options` pour la construction d’un [MenuItem](menu-item.md). L’utilisation peut être référencée ci-dessus.
 
 Vous pouvez également attacher d'autres champs à l'élément du `template` et ils deviendront des propriétés des éléments de menu construits.
 
@@ -104,7 +104,7 @@ Emitted when `menu.popup()` is called.
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 
 Emitted when a popup is closed either manually or with `menu.closePopup()`.
 
@@ -282,7 +282,7 @@ When an item is positioned, all un-positioned items are inserted after it until 
 
 ### Exemples
 
-Template:
+Modèle :
 
 ```javascript
 [
@@ -294,7 +294,7 @@ Template:
 ]
 ```
 
-Menu:
+Menu :
 
 ```sh
 <br />- 1
@@ -304,7 +304,7 @@ Menu:
 - 5
 ```
 
-Template:
+Modèle :
 
 ```javascript
 [
@@ -317,7 +317,7 @@ Template:
 ]
 ```
 
-Menu:
+Menu :
 
 ```sh
 <br />- ---
