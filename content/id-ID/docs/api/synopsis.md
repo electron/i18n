@@ -8,7 +8,7 @@ Elektron juga menyediakan beberapa modul built-in tambahan untuk pengembangan na
 
 Aturan dasarnya adalah: jika sebuah modul  GUI </ 0> atau sistem tingkat rendah terkait, maka seharusnya hanya tersedia dalam proses utama. You need to be familiar with the concept of main process vs. proses renderer </ 0> skrip untuk bisa menggunakan modul tersebut.</p> 
 
-The main process script is like a normal Node.js script:
+The main process script is just like a normal Node.js script:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -34,7 +34,7 @@ Proses renderer tidak berbeda dengan halaman web biasa, kecuali untuk kemampuan 
 </ 0>
 ```
 
-Untuk menjalankan aplikasi Anda, baca  Jalankan aplikasi Anda </ 0>.</p> 
+To run your app, read [Run your app](../tutorial/quick-start.md#run-your-app).
 
 ## Penataan ulang tugas
 
