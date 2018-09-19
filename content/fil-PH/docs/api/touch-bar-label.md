@@ -2,7 +2,7 @@
 
 > Gumawa ng label sa touch bar para sa mga applikasyon ng katutubong macOS
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+Proseso: [Pangunahing](../tutorial/quick-start.md#main-process)
 
 ### `bagong TouchBarLabel(options)`*Pangeksperimento *
 
