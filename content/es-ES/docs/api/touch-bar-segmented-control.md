@@ -7,7 +7,7 @@ Proceso: [Main](../tutorial/quick-start.md#main-process)
 ### `nuevo TouchBarSegmentedControl(options)` *Experimental*
 
 * `opciones` Object 
-  * `segmentStyle` String (optional) - Style of the segments: 
+  * `segmentStyle` String (opcional) - Estilo de los segmentos: 
     * `automatic` - Por defecto. La apariencia del control segmentados se determina basado en el tipo de ventana en la cual el control se muestra y en la posición dentro de la ventana.
     * `rounded` - El control se muestra utilizando el estilo redondeado.
     * `textured-rounded` - El control se muestra utilizando el estilo de textura redondeado.
@@ -16,7 +16,7 @@ Proceso: [Main](../tutorial/quick-start.md#main-process)
     * `capsule` - El control se muestra utilizando el estilo de cápsula.
     * `small-square` - El control se muestra utilizando el estilo de cuadrado pequeño.
     * `separated` - Los segmentos en el control se muestran muy cerca del otro pero sin llegar a tocarse.
-  * `mode` String (optional) - The selection mode of the control: 
+  * `mode` String (opcional) - El modo de selección del control: 
     * `single` - Por defecto. Uno de los elementos seleccionados a la vez. Al seleccionar uno se anula la selección del elemento previamente seleccionado.
     * `multiple` - Elementos múltiples pueden ser seleccionados a la vez.
     * `buttons` - Hace que los segmentos actúen como botones. Cada segmento puede ser presionado y liberado pero nunca ser marcado como activo.
@@ -32,7 +32,7 @@ Las siguientes propiedades están disponibles en instancias de `TouchBarSegmente
 
 #### `touchBarSegmentedControl.segmentStyle`
 
-A `String` representing the controls current segment style. Updating this value immediately updates the control in the touch bar.
+Una `String` que representa el estilo actual de segmento de los controles. Actualizar este valor actualiza inmediatamente el control en la barra táctil.
 
 #### `touchBarSegmentedControl.segments`
 
