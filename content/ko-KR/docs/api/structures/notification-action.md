@@ -16,4 +16,4 @@ macOS에서 추가 알림 버튼을 사용하려면 앱에서 다음과 같은 �
 * 앱이 서명됨
 * 앱이 `Info.plist`에서 `NSUserNotificationAlertStyle`이 `alert`로 설정되어 있음
 
-If either of these requirements are not met the button won't appear.
+If either of these requirements are not met the button simply won't appear.
