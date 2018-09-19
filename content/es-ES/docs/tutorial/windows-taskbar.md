@@ -101,12 +101,12 @@ Para configurar el encubrimiento de un ícono para una ventana tiene que usar el
 ```javascript
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
-win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
+win.setOverlayIcon('path/to/overlay.png', 'Descripción del overlay')
 ```
 
 ## Flash Frame
 
-On Windows you can highlight the taskbar button to get the user's attention. This is similar to bouncing the dock icon on macOS. From the MSDN reference documentation:
+En Windows, puede resaltar el botón de la barra de tareas para llamar la atención del usuario. Esto es similar al rebote del ícono en el dock de macOS. De la documentación de referencia de MSDN:
 
 > Por lo general, una ventana está iluminada para informar al usuario que la ventana requiere atención pero este no está concentrado en el teclado en el momento.
 
