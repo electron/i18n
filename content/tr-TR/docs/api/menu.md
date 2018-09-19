@@ -32,7 +32,7 @@ Döner `Menu | null` - Uygulama menüsü, ayarlanmışsa veya `null` ayarlanmam�
 
 * `action` Dizisi
 
-`action` ilk yanıtın sahibine gönderir. Bu, varsayılan macOS menü davranışlarını taklit etmek için kullanılır. Genellikle sadece [`MenuItem`](menu-item.md) [`role`](menu-item.md#roles) özelliğini kullanırsınız.
+`action` ilk yanıtın sahibine gönderir. Bu, varsayılan macOS menü davranışlarını taklit etmek için kullanılır. Usually you would use the [`role`](menu-item.md#roles) property of a [`MenuItem`](menu-item.md).
 
 MacOS'un yerel eylemleri hakkında daha fazla bilgi için macOS [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7) bakın.
 
@@ -42,7 +42,7 @@ MacOS'un yerel eylemleri hakkında daha fazla bilgi için macOS [macOS Cocoa Eve
 
 `Menu` 'ye Dön
 
-Genellikle `template` yalnızca bir [MenuItem](menu-item.md) oluşturmak için bir dizi `option` 'dur. Kullanım, yukarıdaki referanslar olabilir.
+Generally, the `template` is an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
 
 Ayrıca, `template` elementlerine başka alanlar da ekleyebilirsiniz ve bunlar oluşturulan menü öğelerinin özellikleri olacaktır.
 
@@ -86,7 +86,7 @@ Belirtilen `MenuItem`'ye sahip öğeyi `id` döndürür
 
 `menuItem` 'ı menünün `pos` konumuna yerleştirir.
 
-### Örnek Olaylar
+### Örnek Events
 
 Objects created with `new Menu` emit the following events:
 
@@ -96,7 +96,7 @@ Objects created with `new Menu` emit the following events:
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 
 Emitted when `menu.popup()` is called.
 
@@ -108,7 +108,7 @@ Dönüşler:
 
 Emitted when a popup is closed either manually or with `menu.closePopup()`.
 
-### Örnek Özellikleri
+### Örnek özellikleri
 
 `menu` nesneleri aşağıdaki özelliklere de sahiptir:
 
@@ -270,15 +270,14 @@ Tarayıcı pencerelerinin [`setMenu` method](https://github.com/electron/electro
 
 ## Menü Öğesi Konumu
 
-`Menu.buildFromTemplate` ile bir menü oluştururken öğenin nasıl yerleştirileceğini kontrol etmek için `position` ve `id` kullanabilirsiniz.
+You can make use of `before`, `after`, `beforeGroupContaining`, `afterGroupContaining` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
 
-`MenuItem` `position` özniteliği `[placement]=[id]` formundadır; burada `placement`, `before`, `after` veya `endof` ve `id` 'den biridir, menüdeki mevcut bir öğenin benzersiz kimliğidir:
+* `before` - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
+* `after` - Inserts this item after the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
+* `beforeGroupContaining` - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
+* `afterGroupContaining` - Provides a means for a single context menu to declare the placement of their containing group after the containing group of the item with the specified label.
 
-* `before` - Bu öğeyi kimliği belirtilen maddeden önce ekler. Başvurulan öğe yoksa, öğe menünün sonuna eklenir.
-* `after` - Bu öğeyi, kimliği belirtilen öğenin üzerine ekler. Başvurulan öğe yoksa, öğe menünün sonuna eklenir.
-* `endof` - Bu öğeyi kimliği referanslı öğeyi içeren mantıksal grubun sonuna ekler (gruplar ayırıcı öğeler tarafından oluşturulur). Başvurulan öğe yoksa, verilen bir kimliği kullanarak yeni bir ayırıcı grubu oluşturulur ve bu öğe bu ayırıcıdan sonra eklenir.
-
-Bir öğe konumlandırıldığında, konumlandırılmamış tüm öğeler, yeni bir öğe yerleştirilene kadar arkaya eklenir. Dolayısıyla, bir grup menü öğesini aynı konuma yerleştirmek istiyorsanız, yalnızca ilk öğe için bir konum belirtmeniz yeterlidir.
+By default, items will be inserted in the order they exist in the template unless one of the specified positioning keywords is used.
 
 ### Örnekler
 
@@ -286,11 +285,10 @@ Bir öğe konumlandırıldığında, konumlandırılmamış tüm öğeler, yeni 
 
 ```javascript
 [
-  {label: '4', id: '4'},
-  {label: '5', id: '5'},
-  {label: '1', id: '1', position: 'before=4'},
-  {label: '2', id: '2'},
-  {label: '3', id: '3'}
+  { id: '1', label: 'one' },
+  { id: '2', label: 'two' },
+  { id: '3', label: 'three' },
+  { id: '4', label: 'four' }
 ]
 ```
 
@@ -301,19 +299,39 @@ Menü:
 - 2
 - 3
 - 4
-- 5
 ```
 
 Şablonlar:
 
 ```javascript
 [
-  {label: 'a', position: 'endof=letters'},
-  {label: '1', position: 'endof=numbers'},
-  {label: 'b', position: 'endof=letters'},
-  {label: '2', position: 'endof=numbers'},
-  {label: 'c', position: 'endof=letters'},
-  {label: '3', position: 'endof=numbers'}
+  { id: '1', label: 'one' },
+  { type: 'separator' },
+  { id: '3', label: 'three', beforeGroupContaining: ['1'] },
+  { id: '4', label: 'four', afterGroupContaining: ['2'] },
+  { type: 'separator' },
+  { id: '2', label: 'two' }
+]
+```
+
+Menü:
+
+```sh
+<br />- 3
+- 4
+- ---
+- 1
+- ---
+- 2
+```
+
+Şablonlar:
+
+```javascript
+[
+  { id: '1', label: 'one', after: ['3'] },
+  { id: '2', label: 'two', before: ['1'] },
+  { id: '3', label: 'three' }
 ]
 ```
 
@@ -321,11 +339,7 @@ Menü:
 
 ```sh
 <br />- ---
-- a
-- b
-- c
-- ---
-- 1
-- 2
 - 3
+- 2
+- 1
 ```
