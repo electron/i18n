@@ -82,7 +82,7 @@ Os seguintes sufixos para DPI são também suportados:
 
 ## Modelo de Imagem
 
-Template images consist of black and clear colors (and an alpha channel). Template images are not intended to be used as standalone images and are usually mixed with other content to create the desired final appearance.
+Imagens padrão consistem de cores claras e pretas (e um canal alfa). Imagens padrão não são destinadas a serem usadas sozinhas, e geralmente são acompanhadas por outros conteúdos para criar a aparência final desejada.
 
 O caso mais comum é usar imagens padrão em ícones de barra de menu assim podendo se adaptar tanto para barras de menus claras quanto escuras.
 
