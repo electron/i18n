@@ -9,8 +9,7 @@ Proses: [Main](../glossary.md#main-process)
 
 <h2>Mengirim Pesan</h2>
 
-<p>It is also possible to send messages from the main process to the renderer
-process, see <a href="web-contents.md#webcontentssendchannel-arg1-arg2-">webContents.send</a> for more information.</p>
+<p>Hal ini juga memungkinkan untuk mengirim pesan dari proses utama ke proses renderer, lihat <a href="web-contents.md#webcontentssendchannel-arg1-arg2-"> isi web.kirim</ 0> untuk informasi lebih lanjut.</p>
 
 <ul>
 <li>Saat mengirim pesan, nama acara adalah <code> saluran </ 0> .</li>
@@ -87,4 +86,6 @@ Modul ` ipcMain </ 0> memiliki metode berikut untuk mendengarkan acara:</p>
                 
                 ### `acara.pengirim`
                 
-                Returns the `webContents` that sent the message, you can call `event.sender.send` to reply to the asynchronous message, see [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) for more information.
+                Mengembalikan isi web </ 0> yang mengirim pesan, Anda dapat memanggil
+ <code> acara.pengirim.kirim </ 0> untuk membalas pesan asinkron, lihat
+ <a href="web-contents.md#webcontentssendchannel-arg1-arg2-"> isis web.kirim</ 1> untuk lebih informasi.</p>
