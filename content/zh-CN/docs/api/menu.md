@@ -32,7 +32,7 @@ menu类有以下静态方法：
 
 * `action` String
 
-将 ` action ` 发送到应用程序的第一个响应方。 这用于模拟默认的 macOS 菜单行为。 Usually you would just use the [`role`](menu-item.md#roles) property of a [`MenuItem`](menu-item.md).
+将 ` action ` 发送到应用程序的第一个响应方。 这用于模拟默认的 macOS 菜单行为。 通常, 您只用到 [` MenuItem `](menu-item.md) 的 [` role `](menu-item.md#roles) 属性。
 
 有关 macOS 的本地操作的详细信息, 请参阅 [ macOS Cocoa Event Handling Guide ](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7)。
 
@@ -42,7 +42,7 @@ menu类有以下静态方法：
 
 返回 ` Menu `
 
-Generally, the `template` is just an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
+通常, ` template ` 只是 ` option ` 的一选项, 用于构造 [ MenuItem ](menu-item.md)。可以在上面引用该用法。
 
 还可以将其他字段附加到 ` template ` 的元素中, 它们将成为构造的菜单项的属性。
 
@@ -385,27 +385,27 @@ window.addEventListener('contextmenu', (e) =&gt; {
 </h2>
 
 <p>
-  You can make use of <code>position</code> and <code>id</code> to control how the item will be placed when building a menu with <code>Menu.buildFromTemplate</code>.
+  您在使用<code>Menu.buildFromTemplate  </code>生成菜单时，可以用<code> position </code> 和 <code> id </code> 来控制定位菜单项的位置。
 </p>
 
 <p>
-  The <code>position</code> attribute of <code>MenuItem</code> has the form <code>[placement]=[id]</code>, where <code>placement</code> is one of <code>before</code>, <code>after</code>, or <code>endof</code> and <code>id</code> is the unique ID of an existing item in the menu:
+  <code>MenuItem</code>中的<code>[placement]=[id]</code>属性，其中<code> placement</code>值可以是<code> before</code>、<code>after</code>、和 <code>endof</code>之一，<code>id</code>值则是现有菜单项的唯一ID
 </p>
 
 <ul>
   <li>
-    <code>before</code> - Inserts this item before the id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
+    <code> before </code>-在匹配的菜单项id 之前插入此项。如果匹配的项不存在, 则将在菜单的末尾插入该项。
   </li>
   <li>
-    <code>after</code> - Inserts this item after id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
+    <code> after </code>-在匹配菜单项id 之后插入此项。如果匹配的项不存在, 则将在菜单的末尾插入该项。
   </li>
   <li>
-    <code>endof</code> - Inserts this item at the end of the logical group containing the id referenced item (groups are created by separator items). If the referenced item doesn't exist, a new separator group is created with the given id and this item is inserted after that separator.
+    <code> endof </code>-在匹配的菜单项id 的逻辑组的末尾插入此项 (由分隔符项创建组)。 如果匹配的项不存在, 则使用给定 id 创建新的分隔符组, 并在该分隔符之后插入此项。
   </li>
 </ul>
 
 <p>
-  When an item is positioned, all un-positioned items are inserted after it until a new item is positioned. So if you want to position a group of menu items in the same location you only need to specify a position for the first item.
+  当在菜单项中有一项有位置信息, 其后面所有未定位的项将紧跟其后, 直到后面出现新的菜单项有的位置。 因此, 如果要在同一位置放置一组菜单项, 则只需指定第一项的位置信息。
 </p>
 
 <h3>
@@ -413,7 +413,7 @@ window.addEventListener('contextmenu', (e) =&gt; {
 </h3>
 
 <p>
-  Template:
+  模板：
 </p>
 
 <pre><code class="javascript">[
@@ -426,7 +426,7 @@ window.addEventListener('contextmenu', (e) =&gt; {
 </code></pre>
 
 <p>
-  Menu:
+  菜单:
 </p>
 
 <pre><code class="sh">&lt;br />- 1
@@ -437,7 +437,7 @@ window.addEventListener('contextmenu', (e) =&gt; {
 </code></pre>
 
 <p>
-  Template:
+  模板：
 </p>
 
 <pre><code class="javascript">[
@@ -451,7 +451,7 @@ window.addEventListener('contextmenu', (e) =&gt; {
 </code></pre>
 
 <p>
-  Menu:
+  菜单:
 </p>
 
 <pre><code class="sh">&lt;br />- ---
