@@ -8,7 +8,7 @@ Process: [Main](../glossary.md#main-process)
 
 ## Отправка сообщений
 
-Кроме того, существует возможность пересылать сообщения из главного процесса в процессы рендеринга. Более подробно это описано в [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-).
+Кроме того, существует возможность пересылать сообщения из главного процесса в процессы рендеринга. Более подробно это описано в [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-).
 
 * При отправке сообщения, событие именуется `channel`.
 * Чтобы ответить на синхронное сообщение, нужно задать `event.returnValue`.
@@ -82,4 +82,4 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
 
 ### `event.sender`
 
-Возвращает `webContents` который послал сообщение. Вы можете вызвать `event.sender.send` чтобы ответить на асинхронное сообщение, [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) для дополнительной информации.
+Возвращает `webContents` который послал сообщение. Вы можете вызвать `event.sender.send` чтобы ответить на асинхронное сообщение, [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) для дополнительной информации.
