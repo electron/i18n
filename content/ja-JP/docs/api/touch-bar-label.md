@@ -2,7 +2,7 @@
 
 > ネイティブ macOS アプリケーション用のタッチバー内にラベルを作成する
 
-プロセス: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+Process: [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarLabel(options)` *実験的*
 
