@@ -6,21 +6,7 @@ Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer
 
 Electron's `process` object is extended from the [Node.js `process` object](https://nodejs.org/api/process.html). It adds the following events, properties, and methods:
 
-## Sandbox
-
-In sandboxed renderers the `process` object contains only a subset of the APIs:
-
-* `crash()`
-* `hang()`
-* `getHeapStatistics()`
-* `getProcessMemoryInfo()`
-* `getSystemMemoryInfo()`
-* `argv`
-* `execPath`
-* `env`
-* `platform`
-
-## Events
+## أحداث
 
 ### الحدث: "تحميل"
 
@@ -38,7 +24,7 @@ process.once('loaded', () => {
 })
 ```
 
-## Properties
+## الخصائص
 
 ### `process.defaultApp`
 
@@ -88,9 +74,9 @@ A `String` representing Electron's version string.
 
 A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
 
-## Methods
+## المنهجية
 
-الطرق
+The `process` object has the following methods:
 
 ### `process.crash()`
 
@@ -104,22 +90,6 @@ Returns [`CPUUsage`](structures/cpu-usage.md)
 
 Returns [`IOCounters`](structures/io-counters.md)
 
-### `process.getHeapStatistics()`
-
-Returns `Object`:
-
-* `totalHeapSize` Integer
-* `totalHeapSizeExecutable` Integer
-* `totalPhysicalSize` Integer
-* `totalAvailableSize` Integer
-* `usedHeapSize` Integer
-* `heapSizeLimit` Integer
-* `mallocedMemory` Integer
-* `peakMallocedMemory` Integer
-* `doesZapGarbage` Boolean
-
-Returns an object with V8 heap statistics. Note that all statistics are reported in Kilobytes.
-
 ### `process.getProcessMemoryInfo()`
 
 Returns `Object`:
@@ -127,7 +97,7 @@ Returns `Object`:
 * `workingSetSize` Integer - The amount of memory currently pinned to actual physical RAM.
 * `peakWorkingSetSize` Integer - The maximum amount of memory that has ever been pinned to actual physical RAM.
 * `privateBytes` عدد صحيح - مقدار الذاكرة التي لا يتم مشاركتها مع العمليات الأخرى ، كـ JS heap أو محتوى HTML.
-* `sharedBytes` عدد صحيح - مقدار الذاكرة المشتركة بين العمليات ، عادة الذاكرة المستهلكة بواسطة شفرة Electron نفسها.
+* `sharedBytes` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself.
 
 Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes.
 
@@ -146,7 +116,7 @@ Returns an object giving memory usage statistics about the entire system. Note t
 
 Causes the main thread of the current process hang.
 
-### ماك أوس لينكس
+### `process.setFdLimit(maxDescriptors)` *macOS* *Linux*
 
 * `maxDescriptors` Integer
 
