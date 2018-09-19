@@ -2,7 +2,7 @@
 
 > Crea un gruppo nella barra di tocco per applicazioni macOS native
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+Processo: [Main](../tutorial/quick-start.md#main-process)
 
 ### `nuovo GruppoBarraTocco(opzioni)` *Sperimentale*
 
