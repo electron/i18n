@@ -336,7 +336,7 @@ Injects CSS into the guest page.
 
 ### `<webview>.executeJavaScript(code[, userGesture, callback])`
 
-* `code` String
+* `code` Zeichenkette
 * `userGesture` Boolean (optional) - Default `false`.
 * `callback` Function (optional) - Called after script has been executed. 
   * `result` Any
@@ -533,8 +533,8 @@ The following DOM events are available to the `webview` tag:
 
 Rückgabewert:
 
-* ` URL </ 0>  Zeichenfolge</li>
-<li><code>isMainFrame` Boolean
+* `URL` Zeichenfolge
+* `isMainFrame` Boolean
 
 Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
 
