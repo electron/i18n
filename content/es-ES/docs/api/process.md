@@ -40,7 +40,7 @@ Un `Booleano` que controla el apoyo ASAR dentro de tu aplicación. Ajustando est
 
 ### `proceso.noDepreación`
 
-A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`. Setting this to `true` will silence deprecation warnings. Esta propiedad es usada en lugar de la linea de comando `--no-degradación`.
+Un `Boolean` que controla si las advertencias de desaprobación se imprimen o no a `stderr`. Establecer esto en `true` silenciará las advertencias de obsolescencia. Esta propiedad es usada en lugar de la linea de comando `--no-degradación`.
 
 ### `proceso.Rutaderecursos`
 
@@ -52,11 +52,11 @@ Un `Booleano` que controla si las advertencias de degradación son consideradas 
 
 ### `proceso.ubicarDegradación`
 
-Un `Booleano` que controla si las degradaciones son enviadas a `stderr` incluyen su proceso de ubicación. Setting this to `true` will print stack traces for deprecations. Esta propiedad es en vez de la linea de comando `--trace-deprecation`.
+Un `Booleano` que controla si las degradaciones son enviadas a `stderr` incluyen su proceso de ubicación. Ajustando este como `true` se enviarán ubicaciones de pila por degradaciones. Esta propiedad es en vez de la linea de comando `--trace-deprecation`.
 
 ### `proceso.ubicarAdvertenciasdeProcesos`
 
-Un `Booleano` que controla si las advertencias de procesos son enviadas a `stderr` incluyen su proceso de ubicación. Setting this to `true` will print stack traces for process warnings (including deprecations). This property is instead of the `--trace-warnings` command line flag.
+Un `Booleano` que controla si las advertencias de procesos son enviadas a `stderr` incluyen su proceso de ubicación. Ajustando este como `verdad` se enviarán ubicaciones de pila para advertencias de procesos (incluyendo degradaciones). Esta propiedad es en vez de la línea de comando `--trace-warnings`.
 
 ### `proceso.tipo`
 
@@ -107,8 +107,8 @@ Devuelve el `Objecto`:
 
 * `total` Entero - La cantidad total de memoria física en kilobytes de la que dispone el sistema.
 * `libre` entero - La cantidad de memoria que no está siendo usada por aplicaciones o caché de disco.
-* `swapTotal` Integer *Windows* *Linux* - The total amount of swap memory in Kilobytes available to the system.
-* `swapFree` Integer *Windows* *Linux* - The free amount of swap memory in Kilobytes available to the system.
+* `swapTotal` Integer *Windows* *Linux* - La cantidad total de memoria de swap en Kilobytes disponible para el sistema.
+* `swapFree` Integer *Windows* *Linux* - La cantidad libre de memoria de swap en Kilobytes disponible para el sistema.
 
 Devuelve un objeto que contiene las estadísticas de la memoria usada por el sistema completo. Note que todas las estadísticas están reportadas en kilobytes.
 
