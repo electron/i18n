@@ -21,7 +21,7 @@ El objeto `app` emite los siguientes eventos:
 
 Emitido cuando la aplicación ha terminado su iniciación básica. En windows y Linux el evento `will-finish-launching` es el mismo que el evento `ready`; en macOS este evento representa la notificación `applicationWillFinishLaunching` de `NSApplication`. Normalmente configurará aquí los receptores para los eventos `open-file` y `open-url`, e iniciará el informador de errores y el actualizador automático.
 
-In most cases, you should do everything in the `ready` event handler.
+En la mayoría de los casos, debería hacerse todo en el controlador del evento `ready`.
 
 ### Evento: 'ready'
 
@@ -320,18 +320,6 @@ app.on('session-created', (event, session) => {
 })
 ```
 
-### Event: 'second-instance'
-
-Devuelve:
-
-* `event` Event
-* `argv` Cadena[] - Un arreglo de las líneas de argumentos de comandos de segunda instancia
-* `workingDirectory` Cadena - El directorio de trabajo de segunda instancia
-
-This event will be emitted inside the primary instance of your application when a second instance has been executed. `argv` es un arreglo de las líneas de argumentos de segunda instancia, y `workingDirectory` es su directorio de trabajo actual. Usualmente las aplicaciones responden a esto haciendo su ventana principal concentrada y no minimizada.
-
-This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
-
 ## Métodos
 
 El objeto `app` tiene los siguientes métodos:
@@ -379,10 +367,6 @@ app.exit(0)
 
 Devuelve `Boolean` - `true` Si Electron se ha inicializado correctamente, de lo contrario `false`.
 
-### `app.whenReady()`
-
-Returns `Promise` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
-
 ### `app.focus()`
 
 En Linux, el foco se tiene en la primera ventana visible. En macOS, hace que la aplicación se active. En Windows, el foco se tiene en la primera ventana de la aplicación.
@@ -428,7 +412,7 @@ Usted puede pedir las siguientes direcciones por nombre:
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `opciones` Objecto (opcional) 
+* `opciones` Object (opcional) 
   * `size` String 
     * `pequeño` - 16x16
     * `normal` - 32x32
@@ -498,7 +482,7 @@ Borra la lista de documentos recientes.
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
 * `protocolo` Cadena - El nombre de su protocolo, sin el `://`. Si quiere que su aplicación maneje enlaces `electron://`, llame este método con `electron` como el parámetro.
-* `ruta` String (opcional) *Windows* - por defecto a `process.execPath`
+* `ruta` Cadena (opcional) *Windows* - por defecto a `process.execPath`
 * `args` String[] (opcional) *Windows* - por defecto a un arreglo vacío
 
 Regresa `Boolean` - Siempre que el llamado fue exitoso.
@@ -514,14 +498,14 @@ El API usa el registro de Windows y LSSetDefaultHandlerForURLScheme internamente
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
 * `protocolo` Cadena - El nombre de su protocolo, sin el `://`.
-* `ruta` Cadena (opcional) *Windows* - por defecto a `process.execPath`
-* `args` Cadena[] (opcional) *Windows* - por defecto a un arreglo vacío
+* `ruta` String (opcional) *Windows* - por defecto a `process.execPath`
+* `args` String[] (opcional) *Windows* - por defecto a un arreglo vacío
 
 Regresa `Boolean` - Siempre que el llamado fue exitoso.
 
 Este método verifica si el ejecutable actual como el manejador por defecto para un protocolo (aka Esquema URI). Si es así, removerá la aplicación como el manejador por defecto.
 
-### `app.isDefaultProtocolClient(protocol[, path, args])`
+### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
 * `protocolo` Cadena - El nombre de su protocolo, sin el `://`.
 * `ruta` Cadena (opcional) *Windows* - por defecto a `process.execPath`
@@ -631,15 +615,21 @@ app.setJumpList([
 ])
 ```
 
-### `app.requestSingleInstanceLock()`
+### `app.makeSingleInstance(callback)`
 
-Devuelve `Boolean`
+* `callback` Function 
+  * `argv` Cadena[] - Un arreglo de las líneas de argumentos de comandos de segunda instancia
+  * `workingDirectory` Cadena - El directorio de trabajo de segunda instancia
+
+Devuelta `Boolean`.
 
 Este método hace de tu aplicación una de segunda instancia - además de permitir que tu aplicación se ejecuta de muchas instancias, esto asegurará que solo una instancia única de tu aplicación se esté ejecutando, y otras señales de instancias a esta instancia y sale.
 
-The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock you can assume that another instance of your application is already running with the lock and exit immediately.
+`callback` será llamado por la primera instancia con `callback(argv, workingDirectory)` cuando una segunda instancia ha sido ejecutada. `argv` es un arreglo de las líneas de argumentos de segunda instancia, y `workingDirectory` es su directorio de trabajo actual. Usualmente las aplicaciones responden a esto haciendo su ventana principal concentrada y no minimizada.
 
-I.e. This method returns `true` if your process is the primary instance of your application and your app should continue loading. It returns `false` if your process should immediately quit as it has sent its parameters to another instance that has already acquired the lock.
+El `callback` está garantizado de ser ejecutado luego del evento `ready` de `app` sea emitido.
+
+Este método devuelve `false` si tu proceso es la instancia primaria de la aplicación y tu aplicación debería continuar cargando. Y devuelve `true` si tu proceso ha enviado sus parámetros otra instancia y debería retirarse inmediatamente.
 
 En macOS, el sistema fuerza instancias únicas automáticamente cuando los usuarios intentan abrir una segunda instancia de tu aplicación en Finder, y los eventos `open-file` y `open-url` serán emitidos por eso. Como sea, cuando los usuarios inicien tu aplicación en línea de comando, los mecanismos de instancia única del sistema serán puenteados y tendrás que usar este método para asegurar la única instancia.
 
@@ -649,34 +639,26 @@ Un ejemplo de activar la ventana de la instancia primaria cuando una de segunda 
 const {app} = require('electron')
 let myWindow = null
 
-const gotTheLock = app.requestSingleInstanceLock()
+const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
+  // Alguien ha intentado correr a segunda instancia, deberíamos enfocarnos en nuestra ventana.
+  if (myWindow) {
+    if (myWindow.isMinimized()) myWindow.restore()
+    myWindow.focus()
+  }
+})
 
-if (!gotTheLock) {
+if (isSecondInstance) {
   app.quit()
-} else {
-  app.on('second-instance', (commandLine, workingDirectory) => {
-    // Someone tried to run a second instance, we should focus our window.
-    if (myWindow) {
-      if (myWindow.isMinimized()) myWindow.restore()
-      myWindow.focus()
-    }
-  })
-
-  // Create myWindow, load the rest of the app, etc...
-  app.on('ready', () => {
-  })
 }
+
+// Crear myWindow, cargar el resto de la aplicación, etc...
+app.on('ready', () => {
+})
 ```
 
-### `app.hasSingleInstanceLock()`
+### `app.releaseSingleInstance()`
 
-Devuelve `Boolean`
-
-This method returns whether or not this instance of your app is currently holding the single instance lock. You can request the lock with `app.requestSingleInstanceLock()` and release with `app.releaseSingleInstanceLock()`
-
-### `app.releaseSingleInstanceLock()`
-
-Releases all locks that were created by `requestSingleInstanceLock`. This will allow multiple instances of the application to once again run side by side.
+Suelta todos los bloqueos que fueron creados por `makeSingleInstance`. Esto permitirá que múltiples instancias de la aplicación se ejecuten nuevamente de lado a lado.
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
@@ -749,7 +731,7 @@ Establece el distintivo en contra para la aplicación actual. Establecer la cuen
 
 En macOS se mostrará en el icono del muelle. En Linux solo funciona para los ejecutadores de Unity
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+**Nota:** El ejecutador de Unity requiere de la existencia de un archivo `.desktop` para hacerlo funcionar, para más información por favor leer [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
@@ -923,16 +905,10 @@ Devuelve `Boolean` - Aunque el icono del punto sea visible. El llamado `app.dock
 
 * `menu` [Menu](menu.md)
 
-Sets the application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
+Establece el [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103) de la aplicación.
 
 ### `app.dock.setIcon(image)` *macOS*
 
 * `image` ([NativeImage](native-image.md) | String)
 
 Establece la `image` asociada con el ícono del punto.
-
-## Propiedades
-
-### `app.isPackaged`
-
-A `Boolean` property that returns `true` if the app is packaged, `false` otherwise. For many apps, this property can be used to distinguish development and production environments.
