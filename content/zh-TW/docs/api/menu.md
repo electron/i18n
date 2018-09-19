@@ -294,7 +294,7 @@ Template:
 ]
 ```
 
-Menu:
+選單:
 
 ```sh
 <br />- 1
@@ -317,7 +317,7 @@ Template:
 ]
 ```
 
-Menu:
+選單:
 
 ```sh
 <br />- ---
