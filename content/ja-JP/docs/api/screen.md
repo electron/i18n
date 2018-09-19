@@ -93,24 +93,24 @@ app.on('ready', () => {
 
 ### `screen.getMenuBarHeight()` *macOS*
 
-Returns `Integer` - The height of the menu bar in pixels.
+戻り値 `Integer` - メニューバーのピクセル単位の高さ。
 
 ### `screen.getPrimaryDisplay()`
 
-Returns [`Display`](structures/display.md) - The primary display.
+戻り値 [`Display`](structures/display.md) - 主要なディスプレイ。
 
 ### `screen.getAllDisplays()`
 
-Returns [`Display[]`](structures/display.md) - An array of displays that are currently available.
+戻り値 [`Display[]`](structures/display.md) - 現在利用可能な display の配列。
 
 ### `screen.getDisplayNearestPoint(point)`
 
 * `point` [Point](structures/point.md)
 
-Returns [`Display`](structures/display.md) - The display nearest the specified point.
+戻り値 [`Display`](structures/display.md) - 指定した point に最も近い display。
 
 ### `screen.getDisplayMatching(rect)`
 
 * `rect` [Rectangle](structures/rectangle.md)
 
-Returns [`Display`](structures/display.md) - The display that most closely intersects the provided bounds.
+戻り値 [`Display`](structures/display.md) - 指定した矩形に最も近い display。
