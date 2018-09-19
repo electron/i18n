@@ -233,26 +233,14 @@ win.on('hide', () => {
 })
 ```
 
-#### `tray.setIgnoreDoubleClickEvents(ignore)` *macOS*
-
-* `ignore` Boolean
-
-Sets the option to ignore double click events. Ignoring these events allows you to detect every individual click of the tray icon.
-
-This value is set to false by default.
-
-#### `tray.getIgnoreDoubleClickEvents()` *macOS*
-
-Returns `Boolean` - Whether double click events will be ignored.
-
 #### `tray.displayBalloon(options)` *Windows*
 
-* `opcje` Object 
+* `options` Object 
   * `icon` ([NativeImage](native-image.md) | String) (optional) -
   * `title` String
   * `content` String
 
-Wyświetla dymek w zasobniku systemowym.
+Displays a tray balloon.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
