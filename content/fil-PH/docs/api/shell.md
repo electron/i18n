@@ -36,7 +36,7 @@ Buksan ang binigay na payl sa dati nitong aspeto ng "desktop".
 
 ### `shell.openExternal(url[, options, callback])`
 
-* `url` String - Max 2081 characters on windows, or the function returns false.
+* `url` String - max 2081 characters on windows, or the function returns false.
 * `mga opsyon` Na Bagay (opsyonal) *macOS* 
   * `activate` Boolean - `true` para maipadala ang nakabukas na "application" sa importante nitong posisyon. Ang "default" ay `true`.
 * `callback` Function (opsyonal) *macOS* - If specified will perform the open asynchronously. 
