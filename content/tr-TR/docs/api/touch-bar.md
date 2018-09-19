@@ -2,7 +2,7 @@
 
 > Yerel macOS uygulamaları için TouchBar düzenlemeleri oluşturun
 
-İşlem: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+İşlem: [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBar(seçenekler)` *Experimental*
 
