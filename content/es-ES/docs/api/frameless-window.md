@@ -69,7 +69,7 @@ win.show()
 
 ## Ventana Click-through
 
-Para crear una ventana click-through, por ejemplo hacer que la ventana ignore todos los eventos del ratón, puedes llamar la API [win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore-options):
+Para crear una ventana click-through, por ejemplo hacer que la ventana ignore todos los eventos del ratón, puedes llamar la API [win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore):
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -115,7 +115,7 @@ button {
 }
 ```
 
-If you're only setting a custom titlebar as draggable, you also need to make all buttons in titlebar non-draggable.
+Si se configura una barra de título personalizada como desplazable, también es necesario hacer que todos los botones de la barra de título sean no desplazables.
 
 ## Selección de texto
 
