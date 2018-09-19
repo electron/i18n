@@ -15,7 +15,7 @@
 返回:
 
 * `event` Event
-* `transactions` Transaction[] - Array of [`Transaction`](structures/transaction.md) objects.
+* `transactions` ([Transaction[]](structures/transaction.md) - Array of transactions.
 
 ## 方法
 
@@ -23,35 +23,15 @@
 
 ### `inAppPurchase.purchaseProduct(productID, quantity, callback)`
 
-* `productID` String - The identifiers of the product to purchase. (The identifier of `com.example.app.product1` is `product1`).
+* `productID` String - The id of the product to purchase. (the id of `com.example.app.product1` is `product1`).
 * `quantity` Integer (可选) - 用户所要购买的商品数量.
-* `callback` Function (可选) - 当购买事件被推到 PaymentQueue中时触发这个回调函数. 
-    * `isProductValid` Boolean - 用来表示商品是否已经添加到支付队列中。
-
-You should listen for the `transactions-updated` event as soon as possible and certainly before you call `purchaseProduct`.
-
-### `inAppPurchase.getProducts(productIDs, callback)`
-
-* `productIDs` String[] - The identifiers of the products to get.
-* `callback` Function - The callback called with the products or an empty array if the products don't exist. 
-    * `products` Product[] - Array of [`Product`](structures/product.md) objects
-
-Retrieves the product descriptions.
+* `callback` Function (optional) - The callback called when the payment is added to the PaymentQueue. (You should add a listener with `inAppPurchase.addTransactionsListener` to get the transaction status). 
+  * `isProductValid` Boolean - 用来表示商品是否已经添加到支付队列中。
 
 ### `inAppPurchase.canMakePayments()`
 
-返回 `Boolean`, 用来判断用户是否可以发起支付.
+Returns `Boolean`, whether a user can make a payment.
 
 ### `inAppPurchase.getReceiptURL()`
 
-返回 `String`, 指收据路径.
-
-### `inAppPurchase.finishAllTransactions()`
-
-Completes all pending transactions.
-
-### `inAppPurchase.finishTransactionByDate(date)`
-
-* `date` String - The ISO formatted date of the transaction to finish.
-
-Completes the pending transactions corresponding to the date.
+Returns `String`, the path to the receipt.
