@@ -129,11 +129,11 @@ $ (cd electron/spec && npm i --nodedir=../../out/Debug/gen/node_headers)
 Luego, ejecuta Electron con `electron/spec` como el argumento:
 
 ```sh
-# on Mac:
+# En Mac:
 $ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec
-# on Windows:
+# En Windows:
 $ ./out/Debug/electron.exe electron/spec
-# on Linux:
+# En Linux:
 $ ./out/Debug/electron electron/spec
 ```
 
