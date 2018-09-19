@@ -21,7 +21,7 @@ Das `app` Objekt stellt folgende Ereignisse zur Verfügung:
 
 Wird ausgelöst wenn die Anwendung den grundlegenenden Start abgeschlossen hat. Unter Windows und Linux, hat das `will-finish-launching`-Ereignis das gleiche Verhalten wie das `ready`-Ereignis; unter macOS, repräsentiert dieses Ereignis die `applicationWillFinishLaunching`-Benachrichtung von `NSApplication`. In der Regel würden hier Listener für die Ereignisse `open-file` und `open-url` registriert und der Crash Reporter und Auto-Updater gestartet werden.
 
-In most cases, you should do everything in the `ready` event handler.
+In den meisten Fällen, sollte man alles im `ready` Eventhandler machen.
 
 ### Ereignis: 'ready'
 
@@ -323,18 +323,6 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         })
         ```
         
-        ### Event: 'second-instance'
-        
-        Rückgabewert:
-        
-        * ` Ereignis </ 0>  Ereignis</li>
-<li><code>argv` String[] - An array of the second instance's command line arguments
-        * `workingDirectory` String - The second instance's working directory
-        
-        This event will be emitted inside the primary instance of your application when a second instance has been executed. `argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Usually applications respond to this by making their primary window focused and non-minimized.
-        
-        This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
-        
         ## Methoden
         
         Das `app` Objekt enthält die folgenden Methoden:
@@ -382,10 +370,6 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         Returns `Boolean` - `true` if Electron has finished initializing, `false` otherwise.
         
-        ### `app.whenReady()`
-        
-        Returns `Promise` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
-        
         ### `app.focus()`
         
         On Linux, focuses on the first visible window. On macOS, makes the application the active app. On Windows, focuses on the application's first window.
@@ -430,7 +414,7 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         ### `app.getFileIcon(path[, options], callback)`
         
         * `path` String
-        * `options` Objekt (optional) 
+        * `optionen` Objekt (optional) 
           * `size` String 
             * `small` - 16x16
             * `normal` - 32x32
@@ -523,7 +507,7 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
         
-        ### `app.isDefaultProtocolClient(protocol[, path, args])`
+        ### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
         
         * `protocol` String - The name of your protocol, without `://`.
         * `path` String (optional) *Windows* - Defaults to `process.execPath`
@@ -633,15 +617,21 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         ])
         ```
         
-        ### `app.requestSingleInstanceLock()`
+        ### `app.makeSingleInstance(callback)`
         
-        Returns `Boolean`
+        * `callback` Funktion 
+          * `argv` String[] - An array of the second instance's command line arguments
+          * `workingDirectory` String - The second instance's working directory
+        
+        Returns `Boolean`.
         
         This method makes your application a Single Instance Application - instead of allowing multiple instances of your app to run, this will ensure that only a single instance of your app is running, and other instances signal this instance and exit.
         
-        The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock you can assume that another instance of your application is already running with the lock and exit immediately.
+        `callback` will be called by the first instance with `callback(argv, workingDirectory)` when a second instance has been executed. `argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Usually applications respond to this by making their primary window focused and non-minimized.
         
-        I.e. This method returns `true` if your process is the primary instance of your application and your app should continue loading. It returns `false` if your process should immediately quit as it has sent its parameters to another instance that has already acquired the lock.
+        The `callback` is guaranteed to be executed after the `ready` event of `app` gets emitted.
+        
+        This method returns `false` if your process is the primary instance of the application and your app should continue loading. And returns `true` if your process has sent its parameters to another instance, and you should immediately quit.
         
         On macOS the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the `open-file` and `open-url` events will be emitted for that. However when users start your app in command line the system's single instance mechanism will be bypassed and you have to use this method to ensure single instance.
         
@@ -651,34 +641,26 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         const {app} = require('electron')
         let myWindow = null
         
-        const gotTheLock = app.requestSingleInstanceLock()
+        const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
+          // Someone tried to run a second instance, we should focus our window.
+          if (myWindow) {
+            if (myWindow.isMinimized()) myWindow.restore()
+            myWindow.focus()
+          }
+        })
         
-        if (!gotTheLock) {
+        if (isSecondInstance) {
           app.quit()
-        } else {
-          app.on('second-instance', (commandLine, workingDirectory) => {
-            // Someone tried to run a second instance, we should focus our window.
-            if (myWindow) {
-              if (myWindow.isMinimized()) myWindow.restore()
-              myWindow.focus()
-            }
-          })
-        
-          // Create myWindow, load the rest of the app, etc...
-          app.on('ready', () => {
-          })
         }
+        
+        // Create myWindow, load the rest of the app, etc...
+        app.on('ready', () => {
+        })
         ```
         
-        ### `app.hasSingleInstanceLock()`
+        ### `app.releaseSingleInstance()`
         
-        Returns `Boolean`
-        
-        This method returns whether or not this instance of your app is currently holding the single instance lock. You can request the lock with `app.requestSingleInstanceLock()` and release with `app.releaseSingleInstanceLock()`
-        
-        ### `app.releaseSingleInstanceLock()`
-        
-        Releases all locks that were created by `requestSingleInstanceLock`. This will allow multiple instances of the application to once again run side by side.
+        Releases all locks that were created by `makeSingleInstance`. This will allow multiple instances of the application to once again run side by side.
         
         ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
         
@@ -751,7 +733,7 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         On macOS it shows on the dock icon. On Linux it only works for Unity launcher,
         
-        **Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+        **Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
         
         ### `app.getBadgeCount()` *Linux* *macOS*
         
@@ -924,16 +906,10 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         * `menu` [Menu](menu.md)
         
-        Sets the application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
+        Sets the application's [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103).
         
         ### `app.dock.setIcon(image)` *macOS*
         
         * `image` ([NativeImage](native-image.md) | String)
         
         Sets the `image` associated with this dock icon.
-        
-        ## Eigenschaften
-        
-        ### `app.isPackaged`
-        
-        A `Boolean` property that returns `true` if the app is packaged, `false` otherwise. For many apps, this property can be used to distinguish development and production environments.
