@@ -2,7 +2,7 @@
 
 > Display external web content in an isolated frame and process.
 
-Process: [Renderer](../tutorial/quick-start.md#renderer-process)
+Processo: [Renderer](../tutorial/quick-start.md#renderer-process)
 
 Use the `webview` tag to embed 'guest' content (such as web pages) in your Electron app. The guest content is contained within the `webview` container. An embedded page within your app controls how the guest content is laid out and rendered.
 
@@ -140,7 +140,7 @@ When this attribute is present the guest page will have web security disabled. W
 <webview src="https://electronjs.org" partition="electron"></webview>
 ```
 
-Sets the session used by the page. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. Assegnando la stessa `partition`, è possibile condividere per più pagine la stessa sessione. If the `partition` is unset then default session of the app will be used.
+Sets the session used by the page. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. se non c'è un prefisso `persist: `, la pagina userà una sessione in memoria. Assegnando la stessa `partition`, è possibile condividere per più pagine la stessa sessione. If the `partition` is unset then default session of the app will be used.
 
 This value can only be modified before the first navigation, since the session of an active renderer process cannot change. Subsequent attempts to modify the value will fail with a DOM exception.
 
@@ -336,7 +336,7 @@ Injects CSS into the guest page.
 
 ### `<webview>.executeJavaScript(code[, userGesture, callback])`
 
-* `codice` Stringa
+* `code` Stringa
 * `userGesture` Boolean (optional) - Default `false`.
 * `callback` Function (optional) - Called after script has been executed. 
   * `result` Any
@@ -468,17 +468,17 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
 
 ### `<webview>.printToPDF(options, callback)`
 
-* `options` Oggetto 
+* `options` Object 
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String (optional) - Specify page size of the generated PDF. Può essere `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un oggetto contenente `height`(altezza) e la `width`(larghezza) in micron.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
 * `callback` Function 
-  * `errore` Errore
+  * `error` Error
   * `data` Buffer - contiene il pdf generato
 
-Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, callback)`.
+Stampa la pagina web del `webview` in formato PDF, questo metodo è identico a `webContents.printToPDF(options, callback)`.
 
 ### `<webview>.capturePage([rect, ]callback)`
 
