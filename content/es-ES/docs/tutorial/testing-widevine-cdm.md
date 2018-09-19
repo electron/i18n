@@ -1,4 +1,4 @@
-# Prueba CDM Widevine
+# Probando Widevine CDM
 
 En Electron usted puede usar la librería de Widevine CDM conectado con el navegador Chrome.
 
@@ -29,7 +29,7 @@ const { app, BrowserWindow } = require('electron')
 // * `libwidevinecdm.dylib` en macOS,
 // * `widevinecdm.dll` en Windows.
 app.commandLine.appendSwitch('widevine-cdm-path', '/path/to/widevine_library')
-// The version of plugin can be got from `chrome://plugins` page in Chrome.
+// La versión del plugin puede ser obtenida desde la página `chrome://plugins` en el navegador Chrome.
 app.commandLine.appendSwitch('widevine-cdm-version', '1.4.8.866')
 
 let win = null
@@ -39,9 +39,9 @@ app.on('ready', () => {
 })
 ```
 
-## Verifying Widevine CDM support
+## Verificando la compatibilidad de Widevine CDM
 
-To verify whether widevine works, you can use following ways:
+Para verificar si Widevine funciona, puede usar los siguientes métodos:
 
 * Abrir https://shaka-player-demo.appspot.com/ y cargar un manifiesto que use `Widevine`.
 * Abrir http://www.dash-player.com/demo/drm-test-area/, confirmar que la página diga `bitdash usa Widevine en su navegador`, luego reproducir el video.
