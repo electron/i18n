@@ -90,7 +90,7 @@ Resources will be loaded from this `scheme` regardless of the current page's Con
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
 * `schemat` String
-* `options` Obiekt (opcjonalne) 
+* `opcje` Obiekt (opcjonalne) 
   * `secure` Boolean (optional) - Default true.
   * `bypassCSP` Boolean (optional) - Default true.
   * `allowServiceWorkers` Boolean (optional) - Default true.
@@ -174,7 +174,7 @@ const {webFrame} = require('electron')
 console.log(webFrame.getResourceUsage())
 ```
 
-This will generate:
+To wygeneruje:
 
 ```javascript
 {
