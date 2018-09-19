@@ -2,7 +2,7 @@
 
 > ネイティブ macOS アプリケーション用のタッチバー内にボタンを作成する
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+プロセス: [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarButton(options)` *実験的*
 
