@@ -2,7 +2,7 @@
 
 > Create a scrubber (a scrollable selector)
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+프로세스:[Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarScrubber(options)` *Experimental*
 
