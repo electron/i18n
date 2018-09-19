@@ -1,14 +1,8 @@
 # `<webview>`Etiket
 
-## Warning
-
-Electron's `webview` tag is based on [Chromium's `webview`](https://developer.chrome.com/apps/tags/webview), which is undergoing dramatic architectural changes. This impacts the stability of `webviews`, including rendering, navigation, and event routing. We currently recommend to not use the `webview` tag and to consider alternatives, like `iframe`, Electron's `BrowserView`, or an architecture that avoids embedded content altogether.
-
-## Overview
-
 > Harici web içeriğini yalıtılmış bir çerçeve ve işlemde görüntüleme.
 
-İşlem: [Renderer](../glossary.md#renderer-process)
+Süreç: [Render etme](../tutorial/quick-start.md#renderer-process)
 
 'Misafir' içeriğini (web sayfaları gibi) Electron uygulamanıza gömmek için `webview` etiketini kullanın. Misafir içeriği, `webview` kapsayıcısı tarafından kapsanır. Uygulamanızdaki gömülmüş bir sayfa, konuk içeriğinin nasıl düzenlendiğini ve oluşturulduğunu denetler.
 
@@ -44,19 +38,24 @@ Misafir içeriğini herhangi bir şekilde kontrol etmek isterseniz JavaScript'i 
 </script>
 ```
 
-## Internal implementation
-
-Under the hood `webview` is implemented with [Out-of-Process iframes (OOPIFs)](https://www.chromium.org/developers/design-documents/oop-iframes). The `webview` tag is essentially a custom element using shadow DOM to wrap an `iframe` element inside it.
-
-So the behavior of `webview` is very similar to a cross-domain `iframe`, as examples:
-
-* When clicking into a `webview`, the page focus will move from the embedder frame to `webview`.
-* You can not add keyboard event listeners to `webview`.
-* All reactions between the embedder frame and `webview` are asynchronous.
-
 ## CSS stil notları
 
-Please note that the `webview` tag's style uses `display:flex;` internally to ensure the child `iframe` element fills the full height and width of its `webview` container when used with traditional and flexbox layouts. Please do not overwrite the default `display:flex;` CSS property, unless specifying `display:inline-flex;` for inline layout.
+Ürünün tam yüksekliğini ve genişliğini doldurmasını sağlamak için `display:flex;` `object` `webview` etiket stilini kullanır `webview` kapsayıcısı geleneksel sürüm ve flexbox planları birlikte kullanıldığında (v0.36.11'den beri) dahili olarak bulunduğunu lütfen dikkate alın. Lütfen varsayılanın üzerine yazma `display:flex;` Belirtilmediği sürece, CSS özelliği için düzen `display:inline-flex;`.
+
+`webview` 'un `hidden` veya `display: none;` sembolü kullanımı sırasında gizleniyor olmasıyla alakalı sorunlar vardır. Bu durum, içinde olan `browserplugin` nesnelerinin ve `webview` gizli değilken web sitesinin yüklenmesi olağan dışı kaplama tutumlarına neden olabilir. Önerilen yaklaşım, `webview` gizlemektir. `visibility: hidden`.
+
+```html
+<style>
+  webview {
+    display:inline-flex;
+    width:640px;
+    height:480px;
+  }
+  webview.hide {
+    visibility: hidden;
+  }
+</style>
+```
 
 ## Etiket özellikleri
 
@@ -163,13 +162,13 @@ Web görünümünde ayarlanacak web tercihlerinde `, ` ile ayrılmış olarak be
 
 Dize, içindeki özelliklerin türü ile aynı biçimi izler `window.open`. Bir ismin başına `true` boolean değeri verilir. Bir seçenek, izlediği değere `=` dahil edilerek başka bir değere dönüştürülebilir. `yes` ve `1` şeklinde özel değerler `true`, `no` ve `0` şeklindeki özel değerler de `false` olarak yorumlanır.
 
-### `enableblinkfeatures`
+### `yanıp sönme özellikleri`
 
 ```html
-<webview src="https://www.github.com/" enableblinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
+<webview src="https://www.github.com/" blinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-Yanıp sönme özelliklerini belirten dizi listeleri `,` ayrılarak etkinleştirilir. Desteklenen özellik dizilerinin tam listesi [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) dosyasında bulunabilir.
+Yanıp sönme özelliklerini belirten dizi listeleri `,` ayrılarak etkinleştirilir. Desteklenen özellik dizilerinin tam listesi [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) dosyasında bulunabilir.
 
 ### `yanıp sönme özelliklerini devre dışı bırak`
 
@@ -177,7 +176,50 @@ Yanıp sönme özelliklerini belirten dizi listeleri `,` ayrılarak etkinleştir
 <webview src="https://www.github.com/" disableblinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-Yanıp sönme özelliklerini belirten dizilerin listesi `,` ayrılarak devre dışı bırakılabilir. Desteklenen özellik dizilerinin tam listesi [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) dosyasında bulunabilir.
+Yanıp sönme özelliklerini belirten dizilerin listesi `,` ayrılarak devre dışı bırakılabilir. Desteklenen özellik dizilerinin tam listesi [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) dosyasında bulunabilir.
+
+### `guestinstance`
+
+```html
+<webview src="https://www.github.com/" guestinstance="3"></webview>
+```
+
+Web görüntülemeyi belirli bir web içeriğine bağlayan bir değer. Bir webview ilk defa yüklenildiğinde, yeni bir webContents yaratılır ve bu nitelik onun durum tanımlayıcısına ayarlanır. Bu niteliği yeni ya da var olan bir webview üzerine ayarlamak, onu o anki farklı bir webview haline getiren mevcut webContents'e bağlar.
+
+Var olan webview `destroy` etkinliğini görecektir ve bu durumda yeni bir url yüklendiğinde yeni bir webContents oluşturacaktır.
+
+### `disableguestresize`
+
+```html
+<webview src="https://www.github.com/" disableguestresize></webview>
+```
+
+Bu nitelik `webview`'ü sunduğunda, içeriklerinin boyutlandırılmalarını, `webview` öğesinin kendisini boyutlandırması durumunda engeller.
+
+Bu, [`webContents.setSize`](web-contents.md#contentssetsizeoptions) ile kombinasyonlu bir şekilde manuel olarak webview içeriklerini pencere büyüklüğüne boyutlandırmada kullanılabilir. Bu, içerikleri otomatik olarak yeniden boyutlandırmak için webview öğesi sınırlarına dayanmakla karşılaştırıldığında daha hızlı yeniden boyutlandırma yapabilir.
+
+```javascript
+const {webContents} = require('electron')
+
+// We assume that `win` points to a `BrowserWindow` instance containing a
+// `<webview>` with `disableguestresize`.
+
+win.on('resize', () => {
+  const [width, height] = win.getContentSize()
+  for (let wc of webContents.getAllWebContents()) {
+    // Check if `wc` belongs to a webview in the `win` window.
+    if (wc.hostWebContents &&
+        wc.hostWebContents.id === win.webContents.id) {
+      wc.setSize({
+        normal: {
+          width: width,
+          height: height
+        }
+      })
+    }
+  }
+})
+```
 
 ## Metodlar
 
@@ -198,11 +240,11 @@ webview.addEventListener('dom-ready', () => {
 
 * `url` URL
 * `seçenekler` Obje (opsiyonel) 
-  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
+  * `httpReferrer` Dizgi (isteğe bağlı) - Bir HTTP başvuru bağlantısı.
   * `userAgent` Dizgi (isteğe bağlı) - İsteğin kaynağını oluşturan bir kullanıcı aracı.
   * `extraHeaders` Dizgi (isteğe bağlı) - "\n" ile ayrılan ek sayfa başlıkları
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
-  * `baseURLForDataURL` Dizgi (isteğe bağlı) - Veri bağlantıları tarafından dosyaların yükleneceği (Dizin ayracına sahip) temel bağlantı. Buna, sadece belirtilen `url` bir veri bağlantısıysa ve başka dosyalar yüklemesi gerekiyorsa, gerek duyulur.
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (optional) -
+  * `baseURLForDataURL` Dizgi (isteğe bağlı) - Veri bağlantıları tarafından dosyaların yükleneceği (Dizin ayracına sahip) temel bağlantı. Bu, yalnızca belirtilen `url` veri url'si ve diğer dosyaları yüklemek gerekiyorsa gereklidir.
 
 Webview'ün içinde `url`'i yükler, `url` prefix protokolünü içermelidir, örneğin: `http://` ya da `file://`.
 
@@ -224,7 +266,7 @@ Returns `Boolean` - Misafir sayfası, sayfanın ana kaynağından gelecek bir il
 
 ### `<webview>.dur()`
 
-Bekleyen gezinmeleri durdurur.
+Bekleyen gezinmeyi durdurur.
 
 ### `<webview>.yeniden yükle()`
 
@@ -294,9 +336,9 @@ CSS'i misafir sayfasının içine yerleştirir.
 
 ### `<webview>.executeJavaScript(code[, userGesture, callback])`
 
-* `code` String
+* `code` Dizi
 * `userGesture` Boolean (optional) - Default `false`.
-* `geri aramak` Fonksiyon (isteğe bağlı) - Betik tamamlandıktan sonra çağrılır. 
+* `geri arama` Fonksiyon (isteğe bağlı) - Komut dosyası çalıştırıldıktan sonra çağrılır. 
   * `result` Any
 
 Sayfadaki `code`'u ölçer. `userGesture` kuruluysa, sayfada kullanıcı hareketleri bağlamını yaratır. `requestFullScreen` gibi kullanıcı hareketi gerektiren HTML API'ları, otomasyon için olan bu ayardan avantaj sağlayabilir.
@@ -320,7 +362,7 @@ Returns `Boolean` - Misafir sayfasının DevTools penceresine odaklanıldığın
 ### `<webview>.inspectElement(x, y)`
 
 * `x` Integer
-* `y` Tamsayı
+* `x` Integer
 
 Misafir sayfasının inceleyici öğesini (`x`, `y`) başlatır.
 
@@ -376,7 +418,7 @@ Sayfada düzenleme komutu olan `unselect`'i yerine getirir.
 
 ### `<webview>.replace(text)`
 
-* `text` Dizi
+* `text` String
 
 Sayfada düzenleme komutu olan `replace`'i yerine getirir.
 
@@ -390,11 +432,11 @@ Sayfada düzenleme komutu olan `replaceMisspelling`'i yerine getirir.
 
 * `text` Dizi
 
-Odaklanmış öğeye `metin` ekler.
+Odaklanılan öğeye `text`'i yerleştirir.
 
 ### `<webview>.findInPage(text[, options])`
 
-* `text` Dizgi - Araştırılacak içerik, boş bırakılmaması zorunludur.
+* `text` Dizi - Aranacak içerik; boş olmamalıdır.
 * `seçenekler` Obje (opsiyonel) 
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
@@ -408,18 +450,18 @@ Web sayfasındaki `metin` ile tüm eşleşenleri bulmak için bir istek başlat�
 
 ### `<webview>.stopFindInPage(action)`
 
-* `hareket` String - Bitişte, yerini alacak olayı belirtir [`<webview>.findInPage`](#webviewfindinpagetext-options) istek. 
+* `eylem` String - Bitişte, yerini alacak olayı belirtir [`<webview>.findInPage`](#webviewfindinpagetext-options) istek. 
   * `clearSelection` - Seçimi silin.
-  * `keepSelection` - Seçimi normal bir seçime çevirir.
-  * `activateSelection` - Odaklanır ve seçim ağına (node'a) tıklar.
+  * `keepSelection` - Seçimi, normal bir seçime tercüme eder.
+  * `activateSelection` - Seçim node'una odaklanır ve tıklar.
 
 `action` ile sağlanan `webview` için herhangi `findInPage` isteğini durdurur.
 
 ### `<webview>.print([options])`
 
 * `seçenekler` Obje (opsiyonel) 
-  * `silent` Boolean (isteğe bağlı) - Kullanıcıya yazdırma seçeneklerini sormaz. Varsayılan olarak `false`'tur.
-  * `printBackground` Boolean (isteğe bağlı) - Ek olarak arkaplan rengini ve web sayfasının görüntüsünü de yazdırır. Varsayılan olarak `false`'tur.
+  * `silent` Boolean (isteğe bağlı) - Kullanıcıya yazdırma seçeneklerini sorma, `false` varsayılandır.
+  * `printBackground` Boolean (isteğe bağlı) - Ayrıca arka plan rengini ve web sayfasının görüntüsünü yazdırır. `false` varsayılandır.
   * `deviceName` String (isteğe bağlı) - Kullanılacak yazıcının ismini ayarla. `''` varsayılandır.
 
 `webview`'ün web sayfasını yazdırır. Tıpkı `webContents.print([options])` gibi.
@@ -451,7 +493,7 @@ Web sayfasındaki `metin` ile tüm eşleşenleri bulmak için bir istek başlat�
 * `channel` Dizesi
 * `...args` herhangi[]
 
-İşleyiciye `channel` aracılığıyla bir asenkron mesaj yollayın, aynı zamanda rastgele argümanlar da yollayabilirsiniz. The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
+İşleyiciye ` kanal ` üzerinden eşzamansız bir ileti gönder, keyfi argümanlar da gönderebilirsiniz. The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
 
 Örnekler için [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) 'i ziyaret edin.
 
@@ -465,7 +507,7 @@ Web sayfasındaki `metin` ile tüm eşleşenleri bulmak için bir istek başlat�
 
 ### `<webview>.setZoomFactor(factor)`
 
-* `factor` Number - Yakınlaştırma faktörü.
+* `factor` Number - Yakınlaştırma fakötrü.
 
 Yakınlaştırma faktörünü belirtilen faktöre değiştirir. Yakınlaştırma faktörü yakınlaştırma yüzdesinin 100'e bölünmüşüdür, böylece % 300 = 3.0 olur.
 
@@ -477,7 +519,7 @@ Yakınlaştırma düzeyini belirtilen seviyeye değiştirir. Orijinal boyut 0'd�
 
 ### `<webview>.showDefinitionForSelection()` *macOS*
 
-Sayfadan seçilen sözcüğü arayan bir pop-up sözlük gösterir.
+Sayfadaki seçili sözcüğü arayan pop-up sözlüğünü gösterir.
 
 ### `<webview>.getWebContents()`
 
@@ -526,6 +568,31 @@ Sekmenin döndürücüsünün dönmeye başladığı andaki noktalara karşılı
 ### Olay: 'did-stop-loading'
 
 Sekmenin döndürücüsünün dönmeyi durdurduğu andaki noktalara karşılık gelir.
+
+### Olay: 'did-get-response-details'
+
+Dönüşler:
+
+* `status` Boolean
+* `newURL` Dize
+* `originalURL` Dize
+* `httpResponseCode` Tamsayı
+* `requestMethod` Dize
+* `referrer` Dize
+* `headers` Nesne
+* `resourceType` Dize
+
+İstenen bir kaynağın geçerli olduğuyla ilgili ayrıntılar geldiğinde tetiklenir. `status` kaynağı yüklemek için olan soket bağlantısını belirtir.
+
+### Olay: 'did-get-redirect-request'
+
+Dönüşler:
+
+* `oldURL` Dize
+* `newURL` Dize
+* `isMainFrame` Boolean
+
+Bir kaynak sorgulanırken yönlendirme alınırsa tetiklenir.
 
 ### Olay: 'dom-ready'
 
@@ -584,7 +651,7 @@ Dönüşler:
   * `requestId` Tamsayı
   * `activeMatchOrdinal` Integer - Etkin olan eşleşmenin konumu.
   * `matches` Integer - Eşleşmelerin sayısı.
-  * `selectionArea` Obje - Eşleşme bölgesinin koordinatları.
+  * `selectionArea` Object - İlk eşleşme alanının koordinatları.
   * `finalUpdate` Boolean
 
 Bir sonuç [`webview.findInPage`](#webviewfindinpagetext-options) isteği için geçerli hale geldiğinde tetiklenir.
@@ -659,7 +726,7 @@ Sayfa içi gezinme gerçekleştiğinde ortaya çıktı.
 
 Sayfa içi gezinme gerçekleştiğinde, sayfa URL'si değişir, ancak sayfanın dışına çıkmasına neden olmaz. Bu gerçekleşen örnekler, bağlı link bağlantıları tıklandığında veya DOM `hashchange` olayı tetiklendiğinde görülür.
 
-### Etkinlik: 'kapalı'
+### Etkinlik: 'kapat'
 
 Misafir sayfası kendisini kapatmaya çalıştığında tetiklenir.
 
@@ -681,7 +748,7 @@ Dönüşler:
 
 Ziyaretçi sayfası, katıştırıcı sayfasına bir eşzamansız mesaj gönderdiğinde tetiklenir.
 
-With `sendToHost` method and `ipc-message` event you can communicate between guest page and embedder page:
+`sendToHost` yöntemi ve `ipc-message` etkinliği ile misafir sayfa ve gömülü sayfa arasında kolayca geçiş yapabilirsiniz:
 
 ```javascript
 // In embedder page.
@@ -724,11 +791,11 @@ WebContents işlemi çöktüğünde tetiklenir.
 
 ### Olay: Medya oynamaya başladı
 
-Medya oynatılmaya başladığında yayınlanır.
+Medya oynamaya başladığında belirir.
 
 ### Etkinlik: 'medya-duraklatıldı'
 
-Medya duraklatıldığında veya oynatıldığında yaydır.
+Medya duraklatıldığında veya oynatma süresi bittiğinde belirir.
 
 ### Olay: tema rengi değiştirildi
 
