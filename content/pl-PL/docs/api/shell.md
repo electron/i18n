@@ -36,7 +36,7 @@ Otwiera dany plik w normalnym sposobie komputera.
 
 ### `shell.openExternal(url[, options, callback])`
 
-* `url` String - Max 2081 characters on windows, or the function returns false.
+* `url` String - max 2081 characters on windows, or the function returns false.
 * `opcje` Obiekt (opcjonalne) *macOS* 
   * `activate` Boolean - `true` to bring the opened application to the foreground. The default is `true`.
 * `callback` Funkcja (opcjonalne) *macOS* - If specified will perform the open asynchronously. 
