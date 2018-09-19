@@ -98,14 +98,14 @@ Al igual que `unsubscribeNotification`, pero remueveal subscritor de `NSNotifica
 
 ### `systemPreferences.registerDefaults(defaults)` *macOS*
 
-* `defaults` Object - a dictionary of (`key: value`) user defaults 
+* `defaults` Object -un diccionario de valores predeterminados de usuario (`key: value`) 
 
-Add the specified defaults to your application's `NSUserDefaults`.
+Agregue los valores predeterminados especificados a `NSUserDefaults` de su aplicación.
 
 ### `systemPreferences.getUserDefault(key, type)` *macOS*
 
-* `llave` Cadena
-* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
+* `key` String
+* `type` String - Puede ser `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` o `dictionary`.
 
 Devuelve `any` - El valor de `Key` en `NSUserDefaults`.
 
