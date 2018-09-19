@@ -4,7 +4,7 @@
 
 Proses:[Renderer](../glossary.md#renderer-process)
 
-An example of zooming current page to 200%.
+Contoh dari halaman saat ini pembesaran 200%.
 
 ```javascript
 const {webFrame} = require('electron')
@@ -14,7 +14,7 @@ webFrame.setZoomFactor(2)
 
 ## Methods
 
-The `webFrame` module has the following methods:
+Modul `webBingkai` memiliki metode berikut:
 
 ### `webBingkai.tetapkanFaktorZoom(faktor)`
 
@@ -24,7 +24,7 @@ Mengubah faktor pembesaran ke faktor yang ditentukan. Faktor zoom adalah zoom pe
 
 ### `webBingkai.tetapkanFaktorZoom()`
 
-Returns `Number` - The current zoom factor.
+Kembali `nomor` - faktor zoom saat ini.
 
 ### `webBingkai.tetapkanFaktorZoom(level)`
 
@@ -34,7 +34,7 @@ Mengubah tingkat zoom ke tingkat tertentu. Ukuran aslinya adalah 0 dan masing-ma
 
 ### `webBingkai.dapatkanLevelZoom()`
 
-Returns `Number` - The current zoom level.
+Kembali `nomor` - tingkat zoom saat ini.
 
 ### `webBingkai.setBatasLevelVisualZoom(minimalLevel, maksimalLevel)`
 
@@ -58,11 +58,11 @@ Menetapkan tingkat zoom maksimal dan minimal berbasis tata letak (yaitu bukan-vi
   * `cekEjaan` Fungsi - kembali `boolean`. 
     * `teks` String
 
-Sets a provider for spell checking in input fields and text areas.
+Menetapkan penyedia pemeriksaan ejaan di bidang masukan dan area teks.
 
-The `provider` must be an object that has a `spellCheck` method that returns whether the word passed is correctly spelled.
+Dengan `penyedia` harus menjadi objek yang memiliki metode `cekEjaan`yang kembali apakah kata yang dilewati benar dieja.
 
-An example of using [node-spellchecker](https://github.com/atom/node-spellchecker) as provider:
+Contoh menggunakan [node-cekEjaan](https://github.com/atom/node-spellchecker) sebagai penyedia:
 
 ```javascript
 const {webFrame} = require('electron')
@@ -77,29 +77,29 @@ webFrame.setSpellCheckProvider('en-US', true, {
 
 * `skema` String
 
-Registers the `scheme` as secure scheme.
+Register `skema` sebagai skema aman.
 
-Secure schemes do not trigger mixed content warnings. For example, `https` and `data` are secure schemes because they cannot be corrupted by active network attackers.
+Skema yang aman tidak memicu peringatan konten campuran. Misalnya, `https` dan `data` adalah skema aman karena tidak dapat rusak oleh jaringan aktif penyerang.
 
 ### `webFrame.registerURLSchemeAsBypassingCSP(scheme)`
 
 * `skema` String
 
-Resources will be loaded from this `scheme` regardless of the current page's Content Security Policy.
+Sumber daya akan dimuat dari skema `ini` terlepas dari halaman sekarang Kebijakan Keamanan Konten.
 
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
 * `skema` String
-* `pilihan` Objek (pilihan) 
+* `pilihan` Objek (opsional) 
   * `secure` Boolean (optional) - Default true.
   * `bypassCSP` Boolean (optional) - Default true.
   * `allowServiceWorkers` Boolean (optional) - Default true.
   * `supportFetchAPI` Boolean (optional) - Default true.
   * `corsEnabled` Boolean (optional) - Default true.
 
-Registers the `scheme` as secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
+Mendaftarkan `skema` sebagai aman, bypass kebijakan keamanan konten untuk sumber daya, memungkinkan mendaftarkan ServiceWorker dan mendukung pengambilan API.
 
-Specify an option with the value of `false` to omit it from the registration. An example of registering a privileged scheme, without bypassing Content Security Policy:
+Tentukan pilihan dengan nilai `palsu` untuk menghilangkan itu dari pendaftaran. Contoh mendaftar skema istimewa, tanpa melewati Kebijakan Keamanan Konten:
 
 ```javascript
 const {webFrame} = require('electron')
@@ -160,21 +160,21 @@ Set the content security policy of the isolated world.
   
   Mengembalikan `Objek`:
   
-  * `images` [MemoryUsageDetails](structures/memory-usage-details.md)
+  * `gambar` [DetailPemakaianMemori](structures/memory-usage-details.md)
   * `scripts` [MemoryUsageDetails](structures/memory-usage-details.md)
-  * `cssStyleSheets` [MemoryUsageDetails](structures/memory-usage-details.md)
-  * `xslStyleSheets` [MemoryUsageDetails](structures/memory-usage-details.md)
-  * `fonts` [MemoryUsageDetails](structures/memory-usage-details.md)
-  * `other` [MemoryUsageDetails](structures/memory-usage-details.md)
+  * `cssStyleSheets` [DetailPemakaianMemori](structures/memory-usage-details.md)
+  * `xslStyleSheets` [DetailPemakaianMemori](structures/memory-usage-details.md)
+  * `Huruf` [DetailPemakaianMemori](structures/memory-usage-details.md)
+  * `lain` [DetailPemakaianMemori](structures/memory-usage-details.md)
   
-  Returns an object describing usage information of Blink's internal memory caches.
+  Mengembalikan objek yang menjelaskan informasi penggunaan memori internal Blink cache.
   
   ```javascript
   onst {webFrame} = require('electron')
   console.log(webFrame.getResourceUsage())
   ```
   
-  This will generate:
+  Ini akan menghasilkan:
   
   ```javascript
   {
@@ -192,6 +192,6 @@ Set the content security policy of the isolated world.
   
   ### `webFrame.clearCache()`
   
-  Attempts to free memory that is no longer being used (like images from a previous navigation).
+  Upaya untuk membebaskan memori yang tidak lagi digunakan (seperti gambar dari a navigasi sebelumnya).
   
-  Note that blindly calling this method probably makes Electron slower since it will have to refill these emptied caches, you should only call it if an event in your app has occurred that makes you think your page is actually using less memory (i.e. you have navigated from a super heavy page to a mostly empty one, and intend to stay there).
+  Perhatikan bahwa secara membabi buta memanggil metode ini mungkin membuat Electron lebih lambat sejak itu harus mengisi ulang cache yang dikosongkan ini, sebaiknya Anda hanya menelponnya jika sebuah acara di aplikasi Anda telah terjadi yang membuat Anda menganggap halaman Anda benar-benar menggunakan lebih sedikit memori (yaitu Anda telah menavigasi dari halaman super berat ke yang kebanyakan kosong, dan berniat untuk tinggal di sana).
