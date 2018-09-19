@@ -168,14 +168,3 @@ request.on('login', (authInfo, callback) => {
 #### `request.followRedirect()`
 
 当重定向模式为 ` manual 手动 ` 时, 将继续延迟的重定向请求。
-
-#### `request.getUploadProgress()`
-
-返回 ` Object `:
-
-* `active` Boolean - Whether the request is currently active. If this is false no other properties will be set
-* `started` Boolean - Whether the upload has started. If this is false both `current` and `total` will be set to 0.
-* `current` Integer - The number of bytes that have been uploaded so far
-* `total` Integer - The number of bytes that will be uploaded this request
-
-You can use this method in conjunction with `POST` requests to get the progress of a file upload or other data transfer.
