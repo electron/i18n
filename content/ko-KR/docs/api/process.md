@@ -6,7 +6,7 @@
 
 Electron's `process` object is extended from the [Node.js `process` object](https://nodejs.org/api/process.html). It adds the following events, properties, and methods:
 
-## Events
+## 이벤트
 
 ### Event: 'loaded'
 
