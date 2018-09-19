@@ -6,9 +6,9 @@ Lahat ng [built-in na mga modyul ng Node.js](https://nodejs.org/api/) ay makikit
 
 Ang Electron ay nagbibigay din ng ilang sobrang built-in na mga modyul para sa pagbubuo ng native na mga aplikasyong pang-desktop. Ang ibang mga modyul ay magagamit lamang sa pangunahing mga proseso, ang iba ay nasa prosesong renderer lamang (web na pahina), ang iba ay pwedeng gamitin sa dalawang proseso.
 
-Ang mahalagang patakaran ay: kung ang isang modyul ay [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) o nauugnay sa mababang antas na sistema, dapat ay makikita lamang ito sa pangunahing proseso. You need to be familiar with the concept of [main process vs. prosesong renderer](../tutorial/application-architecture.md#main-and-renderer-processes) na mga script upang maaaring gamitin ang mga modyul na iyon.
+Ang mahalagang patakaran ay: kung ang isang modyul ay [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) o nauugnay sa mababang antas na sistema, dapat ay makikita lamang ito sa pangunahing proseso. You need to be familiar with the concept of [main process vs. prosesong renderer](../tutorial/quick-start.md#main-process) na mga script upang maaaring gamitin ang mga modyul na iyon.
 
-The main process script is like a normal Node.js script:
+The main process script is just like a normal Node.js script:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -34,7 +34,7 @@ Ang prosesong renderer ay hindi iba sa isang normal na pahina, maliban na lang s
 </html>
 ```
 
-Upang mapagana ang iyong app, basahin ang [Paganahin ang iyong app](../tutorial/first-app.md#running-your-app).
+To run your app, read [Run your app](../tutorial/quick-start.md#run-your-app).
 
 ## Ang Destructuring Assignment
 
