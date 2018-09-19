@@ -52,7 +52,7 @@ The `menu` object has the following instance methods:
 
 #### `menu.popup(options)`
 
-* `options` Object 
+* `optionen` Object 
   * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
   * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
   * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
@@ -75,7 +75,7 @@ Appends the `menuItem` to the menu.
 
 #### `menu.getMenuItemById(id)`
 
-* `id` Zeichenfolge
+* `id` String
 
 Returns `MenuItem` the item with the specified `id`
 
@@ -293,7 +293,7 @@ Rückgabewert:
     ]
     ```
     
-    Menü:
+    Menu:
     
     ```sh
     <br />- 1
@@ -316,7 +316,7 @@ Rückgabewert:
     ]
     ```
     
-    Menü:
+    Menu:
     
     ```sh
     <br />- ---

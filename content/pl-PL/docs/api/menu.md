@@ -52,7 +52,7 @@ The `menu` object has the following instance methods:
 
 #### `menu.popup(options)`
 
-* `options` Obiekt 
+* `opcje` Object 
   * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
   * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
   * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
@@ -86,13 +86,13 @@ Returns `MenuItem` the item with the specified `id`
 
 Inserts the `menuItem` to the `pos` position of the menu.
 
-### Wydarzenia instancji
+### Zdarzenia instancji
 
 Objects created with `new Menu` emit the following events:
 
 **Note:** Some events are only available on specific operating systems and are labeled as such.
 
-#### Event: 'menu-will-show'
+#### Zdarzenie: 'menu-will-show'
 
 Zwraca:
 
@@ -100,7 +100,7 @@ Zwraca:
 
 Emitted when `menu.popup()` is called.
 
-#### Event: 'menu-will-close'
+#### Zdarzenie: 'menu-will-close'
 
 Zwraca:
 
@@ -118,7 +118,7 @@ A `MenuItem[]` array containing the menu's items.
 
 Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
 
-### Wydarzenia instancji
+### Zdarzenia instancji
 
 Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
 
@@ -282,7 +282,7 @@ When an item is positioned, all un-positioned items are inserted after it until 
 
 ### Przykłady
 
-Szablon:
+Template:
 
 ```javascript
 [
@@ -304,7 +304,7 @@ Menu:
 - 5
 ```
 
-Szablon:
+Template:
 
 ```javascript
 [

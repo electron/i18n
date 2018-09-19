@@ -236,7 +236,7 @@ Emitted when the renderer process crashes or is killed.
 Returns:
 
 * `event` Event
-* اسم الجهاز
+* `name` سلسلة نصية
 * `version` String
 
 Emitted when a plugin process has crashed.
@@ -448,7 +448,7 @@ Returns:
 * `event` Event
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
 * `callback` Function 
-  * هوية الجهاز
+  * `deviceId` String (هوية الجهاز)
 
 Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
 

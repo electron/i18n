@@ -17,87 +17,27 @@ A configuração do Electron é feita totalmente por linha de comando, não é p
 
 **Note:** Mesmo que o Visual Studio não seja utilizado para desenvolver com Electron, ainda é preciso ter instalado. **required** Porque é necessário a toolchains fornecida.
 
-## Obtendo o Código Fonte
-
-```powershell
-$ git clone https://github.com/electron/electron.git
-```
-
-## Inicialização
-
-O script de inicialização irá baixar todas as dependências necessárias e criar os arquivos de configuração do projeto. Observe que estamos utilizando o `ninja` para compilar o Electron, não existe nenhum projeto gerado pelo o Visual Studio.
-
-To bootstrap for a static, non-developer build, run:
-
-```powershell
-$ cd electron
-$ npm run bootstrap
-```
-
-Or to bootstrap for a development session that builds faster by not statically linking:
-
-```powershell
-$ cd electron
-$ npm run bootstrap:dev
-```
-
 ## Compilando
 
-Compilar `Release` e `Debug`:
-
-```powershell
-$ npm run build
-```
-
-You can also build either the `Debug` or `Release` target on its own:
-
-```powershell
-$ npm run build:dev
-```
-
-```powershell
-$ npm run build:release
-```
-
-Após a finalização da compilação, você poderá ver o `electron.exe` na pasta `out\D`(debug) ou `out\R` (release).
+See [Build Instructions: GN](build-instructions-gn.md)
 
 ## Compilação 32bit
 
-Para compilar para 32bit, é necessário informar o parâmetro `--target_arch=ia32` ao executar o script de inicialização:
+To build for the 32bit target, you need to pass `target_cpu = "x86"` as a GN arg. You can build the 32bit target alongside the 64bit target by using a different output directory for GN, e.g. `out/Release-x86`, with different arguments.
 
 ```powershell
-$ python script\bootstrap.py -v --target_arch=ia32
+$ gn gen out/Release-x86 --args="import(\"//electron/build/args/release.gn\") target_cpu=\"x86\""
 ```
 
 Os outros passos para a compilação são os mesmos.
 
 ## Projeto Visual Studio
 
-Para você gerar o projeto no Visual Studio, é necessário informar o parâmetro `--msvs`:
+To generate a Visual Studio project, you can pass the `--ide=vs2017` parameter to `gn gen`:
 
 ```powershell
-$ python script\bootstrap.py --msvs
+$ gn gen out/Debug --ide=vs2017
 ```
-
-## Excluindo
-
-Para excluir os arquivos de compilação:
-
-```powershell
-$ npm run clean
-```
-
-Para excluir somente os diretórios `out` e `dist`:
-
-```sh
-$ npm run clean-build
-```
-
-**Nota:** Os dois comandos exigem que seja executado o `bootstrap` novamente antes da compilação.
-
-## Testes
-
-Veja [Visão Geral do Sistema: Testes](build-system-overview.md#tests)
 
 ## Solução de Problemas
 
@@ -108,31 +48,6 @@ Se você encontrar um erro parecido com `Command xxxx not found`, você pode ten
 ### Erro fatal do compilador interno: C1001
 
 Verifique se você tem a atualização mais recente do Visual Studio instalada.
-
-### Assertion failed: ((handle))->activecnt >= 0
-
-Se estiver fazendo build pelo Cygwin, você poderá ter uma falha no `bootstrap.py` com a seguinte mensagem de erro:
-
-```sh
-Assertion failed: ((handle))->activecnt >= 0, file src\win\pipe.c, line 1430
-
-Traceback (most recent call last):
-  File "script/bootstrap.py", line 87, in <module>
-    sys.exit(main())
-  File "script/bootstrap.py", line 22, in main
-    update_node_modules('.')
-  File "script/bootstrap.py", line 56, in update_node_modules
-    execute([NPM, 'install'])
-  File "/home/zcbenz/codes/raven/script/lib/util.py", line 118, in execute
-    raise e
-subprocess.CalledProcessError: Command '['npm.cmd', 'install']' returned non-zero exit status 3
-```
-
-Isso é causado por um bug ao usar o Cygwin Python e Win32 juntos. A solução ao usar o Python Win32 para executar o script de inicialização (supondo que você tenha instalado o Python em `C:\Python27`):
-
-```powershell
-$ /cygdrive/c/Python27/python.exe script/bootstrap.py
-```
 
 ### LNK1181: não é possível abrir o arquivo 'kernel32.lib'
 

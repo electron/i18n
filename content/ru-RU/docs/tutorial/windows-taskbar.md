@@ -99,7 +99,7 @@ win.setThumbarButtons([])
 Чтобы установить значок наложения для окна, можно использовать [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) API:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 ```
@@ -113,7 +113,7 @@ win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 To flash the BrowserWindow taskbar button, you can use the [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) API:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)

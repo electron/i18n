@@ -1,8 +1,8 @@
 # Depuración en Windows
 
-Si usted tiene bloqueos o problemas en Electron que cree que no son causados ​​por la aplicación de JavaScript, sino por Electron, la depuración puede ser un poco difícil, especialmente para desarrolladores que no están acostumbrados a la depuración nativa/C++. However, using Visual Studio, GitHub's hosted Electron Symbol Server, and the Electron source code, you can enable step-through debugging with breakpoints inside Electron's source code.
+Si usted tiene bloqueos o problemas en Electron que cree que no son causados ​​por la aplicación de JavaScript, sino por Electron, la depuración puede ser un poco difícil, especialmente para desarrolladores que no están acostumbrados a la depuración nativa/C++. Sin embargo, usndo Visual Studio, el Servidor de Símbolo Electrónico alojado de GitHub y el código fuente de Electron, puede habilitar step-through debugging con puntos de corte dentro del código fuente de Electron.
 
-**See also**: There's a wealth of information on debugging Chromium, much of which also applies to Electron, on the Chromium developers site: [Debugging Chromium on Windows](https://www.chromium.org/developers/how-tos/debugging-on-windows).
+**Vea también**: hay una gran cantidad de información sobre la depuración de Chromium, mucha de la cual también se aplica a Electron, en el sitio de desarrolladores de Chromium: [Debugging Chromium on Windows](https://www.chromium.org/developers/how-tos/debugging-on-windows).
 
 ## Requisitos
 
@@ -17,7 +17,7 @@ Si usted tiene bloqueos o problemas en Electron que cree que no son causados ​
 Para iniciar una sesión de depuración, abra PowerShell/CMD y ejecute su versión de depuración de Electron, usando la aplicación para abrir como parámetro.
 
 ```powershell
-$ ./out/D/electron.exe ~/my-electron-app/
+$ ./out/Debug/electron.exe ~/my-electron-app/
 ```
 
 ### Establecer puntos de interrupción
@@ -40,6 +40,6 @@ Puede estar conectado a varios programas cuando se está depurando, pero solamen
 
 ## Usando ProcMon para Observar un Proceso
 
-Mientras que Visual Studio es fantástico para inspeccionar rutas de código específicas, la fortaleza de ProcMon está realmente en observar todo lo que su aplicación está haciendo con el sistema operativo: captura los detalles de archivo, registro, red, proceso y perfil detallado de los procesos. It attempts to log **all** events occurring and can be quite overwhelming, but if you seek to understand what and how your application is doing to the operating system, it can be a valuable resource.
+Mientras que Visual Studio es fantástico para inspeccionar rutas de código específicas, la fortaleza de ProcMon está realmente en observar todo lo que su aplicación está haciendo con el sistema operativo: captura los detalles de archivo, registro, red, proceso y perfil detallado de los procesos. Intenta registrar **todos** los eventos que se producen y puede ser bastante abrumador, pero si intenta comprender qué y cómo está trabajando su aplicación en el sistema operativo, puede ser un recurso valioso.
 
 Para obtener una introducción a las funciones de depuración básicas y avanzadas de ProcMon, consulte el video proveído por Microsoft [this video tutorial](https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor).

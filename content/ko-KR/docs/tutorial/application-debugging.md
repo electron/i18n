@@ -4,7 +4,7 @@ Electron 응용 프로그램이 원하는 방식으로 작동하지 않을 때�
 
 ## 렌더러 프로세스
 
-개별 렌더러 프로세스를 디버깅 하는 가장 포괄적인 도구는 크롬 개발자 도구 집합입니다. 그것은 `BrowserWindow`, `BrowserView` 및 `WebView`의 인스턴스를 포함 하여 모든 렌더러 프로세스에 사용할 수 있습니다. 당신은 `webContents`의 `openDevTools()` API를 호출 하여 프로그래밍적으로 그들을 열 수 있습니다.
+개별 렌더러 프로세스를 디버깅 하는 가장 포괄적인 도구는 크롬 개발자 도구 집합입니다. 그것은 `BrowserWindow`, `BrowserView` 및 `WebView`의 인스턴스를 포함 하여 모든 렌더러 프로세스에 사용할 수 있습니다. `webContents`의 `openDevTools()` API를 호출 하여 프로그래밍적으로 그들을 열 수 있습니다.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -13,7 +13,7 @@ let win = new BrowserWindow()
 win.webContents.openDevTools()
 ```
 
-Google는 [excellent documentation for their developer tools](https://developer.chrome.com/devtools)를 제공합니다. 그것들과 익숙해지길 권장합니다 - 그것들은 보통 Electron 개발자 도구들중 가장 강력한것들 중 하나입니다.
+Google은 [excellent documentation for their developer tools](https://developer.chrome.com/devtools)를 제공합니다. 도구들과 익숙해지길 권장합니다 - 이 도구들은 보통 Electron 가장 강력한 개발자 도구들중 하나입니다.
 
 ## 메인 프로세스
 

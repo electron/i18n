@@ -67,20 +67,12 @@ Ang istraktura na pinalitang pangalan ng app ay magiging tulad ng:
 MyApp.app/Contents
 ├── Info.plist
 ├── MacOS/
-│   └── MyApp
+│   └── MyApp
 └── Frameworks/
-    ├── MyApp Helper EH.app
-    |   ├── Info.plist
-    |   └── MacOS/
-    |       └── MyApp Helper EH
-    ├── MyApp Helper NP.app
-    |   ├── Info.plist
-    |   └── MacOS/
-    |       └── MyApp Helper NP
     └── MyApp Helper.app
         ├── Info.plist
         └── MacOS/
-            └── MyApp Helper
+            └── MyApp Helper
 ```
 
 ### Linux
@@ -97,7 +89,7 @@ Bukod sa pagmano mano ng packaging sa iyong app, pwede ka ring pumili para gumam
 
 ## Rebranding sa pamamagitan ng pagbubuo muli ng Elekron mula sa pinagmulan
 
-Posible rin ito na i-rebrand ang elektron sa pamamagitan ng pagbabago ng pangalan sa produkto at binuong ito mula sa pinagmulan. Upang magawa ito kailangan mong baguhin ang `atom.gyp` ng file at malinis itong binubuo ulit.
+It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to set the build argument corresponding to the product name (`electron_product_name = "YourProductName"`) in the `args.gn` file and rebuild.
 
 ### Lumikha ng Pasadyang Elektron Fork
 

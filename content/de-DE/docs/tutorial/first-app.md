@@ -78,11 +78,11 @@ const electron = require('electron')
 Das Modul `electron` stellt Funktionen in Namensbereichen zur Verfügung. Beispielsweise wird der Lebenszyklus der Anwendung über `electron.app` verwaltet, Fenster können mit der Klasse `electron.BrowserWindow` erstellt werden. Eine einfache `main.js` Datei könnte warten, bis die Anwendung fertig ist und anschließend ein Fenster öffnen:
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
   // Erstelle das Browser-Fenster.
-  win = new BrowserWindow({width: 800, height: 600})
+  win = new BrowserWindow({ width: 800, height: 600 })
 
   // und Laden der index.html der App.
   win.loadFile('index.html')
@@ -94,7 +94,7 @@ app.on('ready', createWindow)
 Die `main.js` sollte Fenster erzeugen und alle Systemereignisse behandeln, auf die Ihre Anwendung reagieren könnte. Eine ausführlichere Version des obigen Beispiels kann Entwicklertools öffnen, das Fenster, das geschlossen wird, behandeln oder Fenster unter MacOS neu erstellen, wenn der Benutzer auf das Symbol der Anwendung im Dock klickt.
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 // Behalten Sie eine globale Referenz auf das Fensterobjekt. 
 // Wenn Sie dies nicht tun, wird das Fenster automatisch geschlossen, 
@@ -104,7 +104,7 @@ let win
 
 function createWindow () {
   // Erstellen des Browser-Fensters.
-  win = new BrowserWindow({width: 800, height: 600})
+  win = new BrowserWindow({ width: 800, height: 600 })
 
   // und Laden der index.html der App.
   win.loadFile('index.html')
@@ -174,7 +174,7 @@ Sobald Sie Ihre ersten `main.js`, `index.html` und `package.json` Dateien erstel
 
 Klonen und führen sie den Code für dieses Tutorial mithilfe folgendem Repository aus: [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start).
 
-**Hinweis**: Das Ausführen erfordert [Git](https://git-scm.com).
+**Note**: Running this requires [Git](https://git-scm.com) and [npm](https://www.npmjs.com/).
 
 ```sh
 # Klonen des Repositorys

@@ -458,7 +458,7 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
 
 ### `<webview>.print([options])`
 
-* `options` 物件 (選用) 
+* `options` Object (選用) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
@@ -610,7 +610,7 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 
 回傳:
 
-* `favicons` String[] - URL 陣列.
+* `favicons` String[] - URL 陣列。
 
 Fired when page receives favicon urls.
 

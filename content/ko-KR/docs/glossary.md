@@ -14,7 +14,7 @@ Brightray는 애플리케이션에서 [libchromiumcontent](#libchromiumcontent)�
 
 ### CRT
 
-C 런타임 라이브러리 (CRT) 는 ISO C99 표준 라이브러리를 통합하는 C++ 표준 라이브러리의 한 부분입니다. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
+C 런타임 라이브러리 (CRT) 는 ISO C99 표준 라이브러리를 통합하는 C++ 표준 라이브러리의 한 부분입니다. Visual C++ 라이브러리는 CRT를 네이티브 코드 개발 구현 및 네이티브코드와 관리되는 코드의 CRT를 구현하는 Visual C ++ 라이브러리는 네이티브 코드 개발, 네이티브 및 작성된 코드의 혼합, 순수하게 작성된 .NET 코드를 지원합니다.
 
 ### DMG
 

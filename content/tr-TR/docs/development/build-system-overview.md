@@ -1,48 +1,24 @@
 # Sistem Genel Bakışı Oluşturma
 
-Electron proje üretimi için [gyp](https://gyp.gsrc.io/) ve inşa etmek için [ninja](https://ninja-build.org/) kullanır. Proje yapılandırmaları `.gyp` ve `.gypi` dosyaları içinde bulunabilir.
+Electron uses [GN](https://gn.googlesource.com/gn) for project generation and [ninja](https://ninja-build.org/) for building. Project configurations can be found in the `.gn` and `.gni` files.
 
-## Gyp Dosyaları
+## GN Files
 
-Aşağıdaki `gyp` dosyaları Electron oluşturmanın ana kurallarını içerir:
+The following `gn` files contain the main rules for building Electron:
 
-* `electron.gyp` Electron 'un kendisinin nasıl inşa edildiğini tanımlar.
-* `common.gypi` Node yapılandırmalarının oluşumunu Chromium ile birlikte oluşmasını ayarlar.
-* `brightray/brightray.gyp` `brightray` 'nin nasıl oluştuğunu ve Chromium ile bağlanmak için varsayılan yapılandırmaları nasıl içerdiğini tanımlar.
-* `brightray/brightray.gypi` inşa etmekle ilgili genel yapı konfigürasyonlarını içerir.
+* `BUILD.gn` defines how Electron itself is built.
+* `brightray/BUILD.gn` defines how `brightray` is built and includes the default configurations for linking with Chromium.
+* `build/args/{debug,release,all}.gn` contain the default build arguments for building Electron.
 
 ## Eleman Oluşturma
 
 Chromium oldukça büyük bir proje olduğu için son bağlama aşaması ilerlemeyi zorlaştıran bir kaç dakika alabilir. Bunu gidermek için, Chromium her elemanı ortak kitaplıkta ayıran, bağlantıları çok hızlandıran ama dosya boyut ve performansını feda eden '' eleman oluştur'' u sundu.
 
-Electron'da çok benzer bir yaklaşım izledik: `Debug` için, ikili hızlı bağlanma süresine ulaşmak için, bir Chromium bileşenlerinin paylaşılan kitaplık versiyonuna bağlantı oluşturur, `Release` için, ikili statik kitaplık versiyonuna bağlanır, ki böylece olası en iyi ikili boyutu ve performansına sahip olabiliriz.
-
-## Kısa Ön yükleme
-
-Chromium'un önceden oluşturulmuş ikili dosyalarının tümü (`libchromiumcontent`) önyükleme komut dosyası çalışıyorken indirilir. Varsayılan olarak, Statik kitaplık ve paylaşılan kitaplığın ikisi de yüklenir, ve son boyut platforma bağlı olarak 800 Mb ve 2 Gb arasında olmalı.
-
-Varsayılan olarak, `libchromiumcontent` Amazon Web Servisleri'nden yüklenir. Eğer `LIBCHROMIUMCONTENT_MIRROR` ortamı değişken olarak ayarlanırsa, önyükleme komut dosyası oradan yüklenir. [`libchromiumcontent-qiniu-mirror`](https://github.com/hokein/libchromiumcontent-qiniu-mirror) `libchromiumcontent` için bir yansımadır. Eğer AWS erişiminde sorun yaşıyorsanız, indirme adresini `export LIBCHROMIUMCONTENT_MIRROR=http://7xk3d2.dl1.z0.glb.clouddn.com/` üzerinden değiştirebilisiniz
-
-If you only want to build Electron quickly for testing or development, you can download the shared library versions by passing the `--dev` parameter:
-
-```sh
-$ ./script/bootstrap.py --dev
-$ ./script/build.py -c D
-```
-
-## İki Aşamalı Proje Üretimi
-
-Electron `Release` ve `Debug` yapılarındaki farklı kitaplık kurulumları ile bağlantı sağlar. Ancak, `gyp`, farklı yapılandırmalar için farklı bağlantı kurulumlarının yapılandırmalarını desteklemez.
-
-Bunun etrafında çalışmak amacıyla Electron hangi bağlantı ayarlarını kullanacağını kontrol etmek için `libchromiumcontent_component` değişkeni bir `gyp` kullanır ve `gyp`'i çalıştırırken sadece bir hedef üretir.
-
-## Hedef İsimler
-
-`Release` ve `Debug` 'ı hedef isim olarak kullanan çoğu projenin aksine, Electron hedef isim olarak `R` ve `D` 'ı kullanır. Bunun sebebi, eğer sadece bir `Release` veya `Debug` inşa yapılandırması tanımlı ise `gyp` rastgele çöker ve Electron yukarıda belirtildiği gibi belli bir zamanda sadece bir hedef üretir.
-
-This only affects developers, if you are building Electron for rebranding you are not affected.
+Electron inherits this build option from Chromium. In `Debug` builds, the binary will be linked to a shared library version of Chromium's components to achieve fast linking time; for `Release` builds, the binary will be linked to the static library versions, so we can have the best possible binary size and performance.
 
 ## Testler
+
+**NB** *this section is out of date and contains information that is no longer relevant to the GN-built electron.*
 
 Değişikliklerinizin proje kodlama stiline uyumunu test etmek için kullandığı:
 

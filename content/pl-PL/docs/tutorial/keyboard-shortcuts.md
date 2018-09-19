@@ -7,7 +7,7 @@
 Możesz użyć modułu [Menu](../api/menu.md), aby skonfigurować skróty klawiszowe, które zostaną wyzwolone tylko, gdy aplikacja jest aktywna. Aby to zrobić, zdefiniuj właściwośc [`accelerator`] podczas tworzenia obiektu [MenuItem](../api/menu-item.md).
 
 ```js
-const {Menu, MenuItem} = require('electron')
+const { Menu, MenuItem } = require('electron')
 const menu = new Menu()
 
 menu.append(new MenuItem({
@@ -30,7 +30,7 @@ Możesz skonfigurować inne kombinacje klawiszy bazując na systemie operacyjnym
 Możesz użyć modułu [globalShortcuts](../api/global-shortcut.md), aby wykrywać skróty klawiszowe nawet, gdy aplikacja nie jest aktywna (na pierwszym planie).
 
 ```js
-const {app, globalShortcut} = require('electron')
+const { app, globalShortcut } = require('electron')
 
 app.on('ready', () => {
   globalShortcut.register('CommandOrControl+X', () => {

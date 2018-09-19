@@ -6,4 +6,4 @@
 * `privateBytes` Integer - Ilość pamięci, która nie jest współdzielona przez inne procsery, takie jak JS heap albo zawartość HTML.
 * `sharedBytes` Integer - Ilość pamięci, która jest współdzielona przez procesy, zazwyczaj pamięć zużywana przez kod Electron'a
 
-Proszę zauważyć że nie wszystkie statystyki są raportowane w jednostce kilobajtów.
+Proszę zauważyć, że nie wszystkie statystyki są raportowane w jednostce kilobajtów.

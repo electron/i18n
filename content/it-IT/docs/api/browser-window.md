@@ -188,8 +188,8 @@ Crea una nuova Finestra `BrowserWindow` con proprietà native come da `options`.
     * ` experimentalFeatures ` Boolean (opzionale): abilita le funzionalità sperimentali di Chromium. Il valore predefinito è ` false`.
     * ` experimentalCanvasFeatures ` Boolean (facoltativo): abilita i canvas sperimentali di Chromium. Il valore predefinito è ` false`.
     * ` scrollBounce ` Boolean (opzionale) - Abilita l'effetto bounce di scorrimento (effetto gomma) su macOS. Il valore predefinito è ` false`.
-    * ` BlinkFeatures ` String (opzionale) - Un elenco di stringhe di feature separate da `,`, come ` CSSVariables, KeyboardEventKey ` da abilitare. L'elenco completo delle stringe supportate si possono trovare nel file [ RuntimeEnabledFeatures.json5 ](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/runtime_enabled_features.json5?l=70).
-    * ` disableBlinkFeatures ` String (opzionale) - Un elenco di stringhe di feature separate da `, `, come ` CSSVariables, KeyboardEventKey ` da disabilitare. L'elenco completo delle stringe supportate si possono trovare nel file [ RuntimeEnabledFeatures.json5 ](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/runtime_enabled_features.json5?l=70).
+    * `blinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to enable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/runtime_enabled_features.json5?l=70) file.
+    * ` disableBlinkFeatures ` String (opzionale) - Un elenco di stringhe di feature separate da `, `, come ` CSSVariables, KeyboardEventKey ` da disabilitare. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/runtime_enabled_features.json5?l=70) file.
     * `defaultFontFamily` Object (opzionale) - Imposta il font predefinito per il font-family. 
       * `standard` String (opzionale) - Il valore predefinito è il `Times New Roman`.
       * `serif` String (opzionale) -Il valore predefinito è il `Times New Roman`.
@@ -206,7 +206,7 @@ Crea una nuova Finestra `BrowserWindow` con proprietà native come da `options`.
     * ` contextIsolation ` Boolean (opzionale): esegue le API Electron e lo script ` preload` specificato in un contesto JavaScript separato. Il valore predefinito è `false`. Il contesto in cui viene eseguito lo script ` preload ` continuerà ad avere accesso completo ai ` documenti ` e ` finestre `, ma verrà utilizzato il suo insieme di builtin JavaScript (` Array`, ` Object`, ` JSON `, ecc.) e sarà isolato da eventuali modifiche apportate all'ambiente globale dalla pagina caricata. Le API Electron saranno disponibili solo nello script ` preload` e non nella pagina caricata. Questa opzione dovrebbe essere usata quando il caricamento dei contenuti remoti sono potenzialmente non attendibili per garantire il contenuto caricato non può manomettere lo script ` preload` e tutte le API Electron in uso. Questa opzione utilizza la stessa tecnica utilizzata da [ Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment). È possibile accedere a questo contesto negli strumenti di sviluppo selezionando La voce "Electron Isolated Context" nella casella combinata nella parte superiore della scheda Console. **Nota:** Questa opzione è attualmente sperimentale e potrebbe cambiare o essere rimossa nelle versioni future di Electron.
     * `nativeWindowOpen` Boolean (opzionale) - Permettere di usare la funzione nativa `window.open()`. Di default è `false`. **Nota:** Questa funzione è sperimentale.
     * `webviewTag` Boolean (opzionale) - Abilita il [`<webview>` tag](webview-tag.md). Il valore di default è come l'opzione di `nodeIntegration`. **Nota:** Lo script di `preload` configurato per la `<webview>` avrà la nodeIntegration abilitata quando viene eseguita, quindi è necessario garantire che il contenuto remoto/non attendibile non sia in grado di creare una `<webview>` con tag di `preload` potenzialmente dannosi. Puoi utilizzare l'evento `will-attach-webview ` su [webContents](web-contents.md) per rimuovere lo script ` preload` e per convalidare o modificare le impostazioni iniziali della `<webview>`.
-    * `additionArguments` String[] (opzionale) - Un elenco di stringhe che verranno aggiunte su ` process.argv ` nel renderer process di questa app. Utile per passare un piccolo quantitativo di dati fino al renderer process elaborano dagli script di preload.
+    * `additionalArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app. Useful for passing small bits of data down to renderer process preload scripts.
 
 When setting minimum or maximum window size with `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, it only constrains the users. It won't prevent you from passing a size that does not follow size constraints to `setBounds`/`setSize` or to the constructor of `BrowserWindow`.
 
@@ -646,7 +646,7 @@ Ritorna [`Rectangle`](structures/rectangle.md)
 
 * `enable` Boolean
 
-Disabilita o abilita la finestra.
+Disable or enable the window.
 
 #### `win.setSize(width, height[, animate])`
 
@@ -1010,7 +1010,7 @@ The number of buttons in thumbnail toolbar should be no greater than 7 due to th
 The `buttons` is an array of `Button` objects:
 
 * `Button` Oggetto 
-  * `icon` [NativeImage](native-image.md) - L'icona mostrata nella barra degli strumenti come anteprima.
+  * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
   * `click` Funzione
   * `tooltip` Stringa (opzionale) - Il testo del tooltip del pulsante.
   * `flags` Stringa[] (opzionale) - Controlla specifici comportamenti e comportamenti del pulsante. Di default è `['enabled']`.
@@ -1179,11 +1179,11 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 **Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
-#### `win.setBrowserView(browserView)` *Sperimentale*
+#### `win.setBrowserView(browserView)` *Experimental*
 
 * `browserView` [BrowserView](browser-view.md)
 
-#### `win.getBrowserView()` *Sperimentale*
+#### `win.getBrowserView()` *Experimental*
 
 Returns `BrowserView | null` - an attached BrowserView. Returns `null` if none is attached.
 

@@ -4,7 +4,7 @@
 
 Quando si esegue `npm install electron`, alcuni utenti occasionalmente si imbattono in errori di installazione.
 
-In quasi tutti i casi, questi errori sono il risultato di problemi di rete e non problemi reali con il pacchetto npm `electron`. Errori come `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` sono tutte indicazioni di un problemi di rete. The best resolution is to try switching networks, or wait a bit and try installing again.
+In quasi tutti i casi, questi errori sono il risultato di problemi di rete e non problemi reali con il pacchetto npm `electron`. Errori come `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` sono tutte indicazioni di un problemi di rete. La migliore soluzione è provare a cambiare rete, oppure attendere un po' di tempo e provare nuovamente ad eseguire l'installazione.
 
 Puoi anche provare a scaricare Electron direttamente da [electron/electron/releases](https://github.com/electron/electron/releases) se l'installazione tramite `npm` non funziona.
 
@@ -57,7 +57,7 @@ If you encounter this problem, the following articles may prove helpful:
 If you want a quick fix, you can make the variables global by changing your code from this:
 
 ```javascript
-const {app, Tray} = require('electron')
+const { app, Tray } = require('electron')
 app.on('ready', () => {
   const tray = new Tray('/path/to/icon.png')
   tray.setTitle('ciao mondo')
@@ -67,7 +67,7 @@ app.on('ready', () => {
 to this:
 
 ```javascript
-const {app, Tray} = require('electron')
+const { app, Tray } = require('electron')
 let tray = null
 app.on('ready', () => {
   tray = new Tray('/path/to/icon.png')
@@ -83,7 +83,7 @@ To solve this, you can turn off node integration in Electron:
 
 ```javascript
 // In the main process.
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
     nodeIntegration: false

@@ -104,12 +104,11 @@ is closed.</p>
 <p>Objek yang dibuat dengan <code> Notifikasi baru </ 0> memiliki metode contoh berikut:</p>
 
 <h4><code>pemberitahuan.menunjukkan ()`</h4> 
-  Segera tunjukkan notifikasi tersebut kepada pengguna, mohon perhatikan hal ini tidak seperti penerapan Pemberitahuan HTML5, cukup memberi contoh ` Notifikasi baru </ 0> tidak segera menunjukkannya kepada pengguna, Anda perlu memanggil metode ini sebelum OS akan ditampilkan. saya t.</p>
-
-<p>If the notification has been shown before, this method will dismiss the previously
-shown notification and create a new one with identical properties.</p>
-
-<h4><code>notification.close()`</h4> 
+  Immediately shows the notification to the user, please note this means unlike the HTML5 Notification implementation, simply instantiating a `new Notification` does not immediately show it to the user, you need to call this method before the OS will display it.
+  
+  If the notification has been shown before, this method will dismiss the previously shown notification and create a new one with identical properties.
+  
+  #### `notification.close()`
   
   Dismisses the notification.
   

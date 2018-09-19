@@ -2,7 +2,7 @@
 
 > Membuat scrubber (digulir pemilih)
 
-Proses: [utama](../tutorial/quick-start.md#main-process)
+Process: [Main](../tutorial/quick-start.md#main-process)
 
 ### `TouchBarScrubberbaru(pilihan) ` * Eksperimental *
 

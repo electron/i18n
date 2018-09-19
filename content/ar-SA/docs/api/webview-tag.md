@@ -221,7 +221,7 @@ win.on('resize', () => {
 })
 ```
 
-## Methods
+## المنهجية
 
 The `webview` tag has the following methods:
 
@@ -780,7 +780,7 @@ Fired when the gpu process is crashed.
 
 Returns:
 
-* اسم الجهاز
+* `name` سلسلة نصية
 * `version` String
 
 Fired when a plugin process is crashed.

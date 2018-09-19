@@ -1,4 +1,4 @@
-# キーボード ショート カット
+# キーボード ショートカット
 
 > ローカルおよびグローバルなキーボードショートカットを設定します。
 
@@ -7,7 +7,7 @@
 [Menu](../api/menu.md)モジュールを使用して、アプリケーションにフォーカスがあるときにのみ起動されるキーボードショートカットを設定できます。 これを行うには、[MenuItem](../api/menu-item.md)を作成するときは、[`accelerator`] プロパティを使用します。
 
 ```js
-const {Menu, MenuItem} = require('electron')
+const { Menu, MenuItem } = require('electron')
 const menu = new Menu()
 
 menu.append(new MenuItem({
@@ -30,7 +30,7 @@ You can configure different key combinations based on the user's operating syste
 アプリケーションからキーボードのフォーカスが外れている場合でも、 [globalShortcut](../api/global-shortcut.md) モジュールを使用すればキーボード操作を検出できます。
 
 ```js
-const {app, globalShortcut} = require('electron')
+const { app, globalShortcut } = require('electron')
 
 app.on('ready', () => {
   globalShortcut.register('CommandOrControl+X', () => {

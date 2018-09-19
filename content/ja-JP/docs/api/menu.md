@@ -32,7 +32,7 @@ macOSではアプリケーション メニューとして `menu` を設定しま
 
 * `action` String
 
-`action` をアプリケーションの最初のレスポンダーに送信します。 macOS メニューの既定の動作をエミュレートするために使用されます。 通常 [`MenuItem`](menu-item.md) の [`roll`](menu-item.md#roles) プロパティのみを使用します。
+`action` をアプリケーションの最初のレスポンダーに送信します。 macOS メニューの既定の動作をエミュレートするために使用されます。 Usually you would just use the [`role`](menu-item.md#roles) property of a [`MenuItem`](menu-item.md).
 
 macOSネイティブなアクションに関しては[macOS Cocoa Event Handling Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7)を参照してください。
 
@@ -42,7 +42,7 @@ macOSネイティブなアクションに関しては[macOS Cocoa Event Handling
 
 戻り値 `Menu`
 
-一般的に、`template` は [MenuItem](menu-item.md) を構築するための `options` の配列です。上記の使用方法を参照できます。
+Generally, the `template` is just an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
 
 `template` の要素に他のフィールドを付けることもでき、それらは構築されたメニューアイテムのプロパティになります。
 
@@ -270,19 +270,19 @@ macOS のアプリケーションメニューの最初のアイテムのラベ�
 
 ## メニューアイテムの位置
 
-`Menu.buildFromTemplate` でメニューを構築するとき、アイテムをどのように配置するかを制御するのに、`position` と `id` を使用できます。
+You can make use of `position` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
 
-`MenuItem` の `position` 属性は `[placement]=[id]` の形式を取っています。`placement` は `before`、`after`、`endof` のうちの一つで、`id` はアイテムがあるメニュー内の一意なIDです。
+The `position` attribute of `MenuItem` has the form `[placement]=[id]`, where `placement` is one of `before`, `after`, or `endof` and `id` is the unique ID of an existing item in the menu:
 
-* `before` - このアイテムをIDが指すアイテムの前に挿入する。IDが指すアイテムが存在しない場合、アイテムはメニューの最後に挿入される。
-* `after` - このアイテムをIDが指すアイテムの後に挿入する。IDが指すアイテムが存在しない場合、アイテムはメニューの最後に挿入される。
-* `endof` - このアイテムを、IDが指すアイテムを含んでいる論理グループの最後に挿入する (グループは区切りアイテムによって作成される)。 指定されたアイテムが存在しない場合は、そのIDを持つ新しいセパレータグループが作成され、このアイテムがそのセパレータの後ろに挿入される。
+* `before` - Inserts this item before the id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
+* `after` - Inserts this item after id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
+* `endof` - Inserts this item at the end of the logical group containing the id referenced item (groups are created by separator items). If the referenced item doesn't exist, a new separator group is created with the given id and this item is inserted after that separator.
 
-アイテムが position で配置されると、新しく position で配置されるまで、他の配置されていないアイテムはそのアイテムの後ろに挿入されます。 なので、同じ位置にメニューアイテムのグループを配置したい場合は、先頭の position を指定するだけで構いません。
+When an item is positioned, all un-positioned items are inserted after it until a new item is positioned. So if you want to position a group of menu items in the same location you only need to specify a position for the first item.
 
 ### サンプル
 
-テンプレート:
+Template:
 
 ```javascript
 [
@@ -304,7 +304,7 @@ Menu:
 - 5
 ```
 
-テンプレート:
+Template:
 
 ```javascript
 [

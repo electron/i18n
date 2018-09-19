@@ -1,8 +1,8 @@
-## Classe: BrowserWindowProxy
+## Class: BrowserWindowProxy
 
-> Manipulate the child browser window
+> Manipular a janela filha
 
-Process: [Renderer](../glossary.md#renderer-process)
+Processo: [Renderizador](../glossary.md#renderer-process)
 
 The `BrowserWindowProxy` object is returned from `window.open` and provides limited functionality with the child window.
 
@@ -12,11 +12,11 @@ The `BrowserWindowProxy` object has the following instance methods:
 
 #### `win.blur()`
 
-Removes focus from the child window.
+Remove o foco da janela filha.
 
 #### `win.close()`
 
-Forcefully closes the child window without calling its unload event.
+Forçadamente fecha a janela filha sem chamar o evento unload.
 
 #### `win.eval(code)`
 

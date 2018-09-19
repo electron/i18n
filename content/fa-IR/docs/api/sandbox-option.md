@@ -120,7 +120,7 @@ Currently the `require` function provided in the preload scope exposes the follo
 - `child_process`
 - `electron` 
   - `crashReporter`
-  - `remote`
+  - `از راه دور`
   - `ipcRenderer`
   - `webFrame`
 - `fs`

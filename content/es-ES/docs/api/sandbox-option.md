@@ -16,7 +16,7 @@ Otra diferencia es que los renderizadores en caja de arena no modifican ninguno 
 
 ## Ejemplo
 
-Para crear una ventana de caja de arena, simplemente pase `sandbox: true` a `webPreferences`:
+To create a sandboxed window, pass `sandbox: true` to `webPreferences`:
 
 ```js
 let win
@@ -53,7 +53,7 @@ electron --enable-sandbox app.js
 
 No es posible tener el OS caja de arena activo solo por algunos renderizadores, si `--enable-sandbox` está habilitado, no se puede crear una ventana normal de Electron.
 
-Si usted necesita mezclar renderizadores dentro y fuera de la caja de arena en una aplicación simplemente omita el argumento `--enable-sandbox`. Sin este argumento, ventanas creadas con `sandbox: true` todavía tendrán deshabilitado node.js y podrán comunicarse solo via IPC, que ya es una ganancia de seguridad POV en si misma.
+If you need to mix sandboxed and non-sandboxed renderers in one application, omit the `--enable-sandbox` argument. Sin este argumento, ventanas creadas con `sandbox: true` todavía tendrán deshabilitado node.js y podrán comunicarse solo via IPC, que ya es una ganancia de seguridad POV en si misma.
 
 ## Precarga
 

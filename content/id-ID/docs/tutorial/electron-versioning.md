@@ -75,10 +75,18 @@ Apapun yang anda pilih, secara berkala Anda harus menemukan versi ` package.json
 
 Prosesnya adalah sebagai berikut:
 
-1. Semua baris rilis utama dan minor baru dimulai dengan `-beta.N` tag untuk `N >= 1`. Pada saat itu, set fitur adalah **terkunci**. Baris rilis itu tidak mengakui fitur lebih lanjut, dan hanya berfokus pada keamanan dan stabilitas. misalnya `2.0.0-beta.1`.
-2. Perbaikan bug, perbaikan regresi, dan patch keamanan dapat diterima. Setelah melakukannya, beta baru dirilis `N`. Misalnya `2.0.0-beta.2`
-3. Jika rilis beta tertentu *dianggap* stabil, maka akan dirilis ulang sebagai bangunan yang stabil, hanya mengubah informasi versi. misalnya `2.0.0`.
-4. Jika perbaikan bug masa depan atau patch keamanan perlu dilakukan setelah rilis stabil, mereka menerapkannya dan versi *patch* bertambah misalnya `2.0.1`.
+1. All new major and minor releases lines begin with a beta series indicated by semver prerelease tags of `beta.N`, misalnya `2.0.0-beta.1`. After the first beta, subsequent beta releases must meet all of the following conditions: 
+    1. The change is backwards API-compatible (deprecations are allowed)
+    2. The risk to meeting our stability timeline must be low.
+2. If allowed changes need to be made once a release is beta, they are applied and the prerelease tag is incremented, e.g. `2.0.0-beta.2`.
+3. If a particular beta release is *generally regarded* as stable, it will be re-released as a stable build, changing only the version information. e.g. `2.0.0`. After the first stable, all changes must be backwards-compatible bug or security fixes.
+4. If future bug fixes or security patches need to be made once a release is stable, they are applied and the *patch* version is incremented e.g. `2.0.1`.
+
+Specifically, the above means:
+
+1. Admitting non-breaking-API changes early in the beta cycle is okay, even if those changes have the potential to cause moderate side-affects
+2. Admitting feature-flagged changes, that do not otherwise alter existing code paths, at most points in the beta cycle is okay. Users can explicitly enable those flags in their apps.
+3. Admitting features of any sort very late in the beta cycle is 
 
 For each major and minor bump, you should expect to see something like the following:
 
@@ -118,12 +126,7 @@ Bendera fitur adalah praktik umum di Chromium, dan mapan di ekosistem pengembang
 
 - it is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
 - itu benar-benar segmen jalur kode baru dan lama; refactoring kode lama untuk mendukung fitur baru *violates* kontrak bendera fitur
-- flag fitur akhirnya dihapus setelah soft-branch digabung
-
-Kami mendamaikan kode yang ditandai dengan strategi versi kami sebagai berikut:
-
-1. kami tidak mempertimbangkan iterasi pada kode yang diberi tanda bendera di cabang stabilitas; Bahkan penggunaan bendera fitur yang bijaksana bukan tanpa resiko
-2. anda dapat memecahkan kontrak API dalam kode yang diberi tanda bendera tanpa menabrak versi utama. Kode yang ditandai tidak mematuhi semver
+- feature flags are eventually removed after the feature is released
 
 # Semantic Commits
 

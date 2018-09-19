@@ -38,7 +38,7 @@ const request = net.request({
 
 #### Etkinlik: 'tepki'
 
-Dönüşler:
+Returns:
 
 * `response` IncomingMessage - HTTP yanıt mesajını temsil eden bir nesne.
 
@@ -48,7 +48,7 @@ Dönüşler:
 
 * `authInfo` Obje 
   * `isProxy` Boolean
-  * `scheme` String
+  * `scheme` Dizi
   * `host` Dizi
   * `port` Tamsayı
   * `realm` Dizi
@@ -114,7 +114,7 @@ Dönüşler:
 
 Bir yönlendirme ve mod `manual` olduğunda yayılır. [`request.followRedirect`](#requestfollowredirect)'i çağırmak yönlendirme ile devam edecektir.
 
-### Örnek özellikleri
+### Örnek Özellikleri
 
 #### `request.chunkedEncoding`
 
@@ -168,3 +168,14 @@ Devam eden bir HTTP işlemini iptal eder. Eğer istek `close` olayını önceden
 #### `request.followRedirect()`
 
 Yeniden yönlendirme modu `manuel olduğunda` ertelenen yeniden yönlendirme isteğini sürdürür.
+
+#### `request.getUploadProgress()`
+
+`Object` 'i geri getirir:
+
+* `active` Boolean - Whether the request is currently active. If this is false no other properties will be set
+* `started` Boolean - Whether the upload has started. If this is false both `current` and `total` will be set to 0.
+* `current` Integer - The number of bytes that have been uploaded so far
+* `total` Integer - The number of bytes that will be uploaded this request
+
+You can use this method in conjunction with `POST` requests to get the progress of a file upload or other data transfer.

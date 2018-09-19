@@ -89,7 +89,7 @@ Meminta server apakah ada update. Anda harus menghubungi `setFeedURL` sebelumnya
 
 ### `autoUpdater.quitAndInstall()`
 
-Menjalankan ulang app dan menginstall pembaharuan setelah selesai di unduh. hanya di gunakan setelah sinyal `update-downloaded` telah di kirimkan.
+Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
 
 Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
 

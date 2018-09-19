@@ -100,7 +100,7 @@ Windows에선 작업 표시줄 버튼에 애플리케이션의 상태를 표시�
 윈도우에 오버레이 아이콘을 설정하려면 [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) API를 사용할 수 있습니다:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 ```
@@ -114,7 +114,7 @@ Windows에서는 작업 표시 줄 단추를 강조 표시하여 사용자의 �
 the keyboard focus. BrowserWindow 작업표시줄 버튼을 깜빡이려면, [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) API 를 사용하면됩니다:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)

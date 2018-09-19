@@ -1,4 +1,4 @@
-# remote
+# از راه دور
 
 > Use main process modules from the renderer process.
 

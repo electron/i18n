@@ -57,7 +57,7 @@ If you encounter this problem, the following articles may prove helpful:
 If you want a quick fix, you can make the variables global by changing your code from this:
 
 ```javascript
-const {app, Tray} = require('electron')
+const { app, Tray } = require('electron')
 app.on('ready', () => {
   const tray = new Tray('/path/to/icon.png')
   tray.setTitle('hello world')
@@ -67,7 +67,7 @@ app.on('ready', () => {
 เป็นดังต่อไปนี้:
 
 ```javascript
-const {app, Tray} = require('electron')
+const { app, Tray } = require('electron')
 let tray = null
 app.on('ready', () => {
   tray = new Tray('/path/to/icon.png')
@@ -82,7 +82,7 @@ Due to the Node.js integration of Electron, there are some extra symbols inserte
 ในการแก้ไขปัญหานี้ คุณสามารถปิดการทำงานร่วมกันของ node ใน Electron
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
     nodeIntegration: false

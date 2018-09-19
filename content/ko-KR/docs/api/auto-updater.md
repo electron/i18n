@@ -54,7 +54,7 @@ Squirrel.Mac과 다르게, Windows는 S3 또는 다른 static file host에서 ho
 
 ### Event: 'update-downloaded'
 
-반환:
+Returns:
 
 * `event` Event
 * `releaseNotes` String

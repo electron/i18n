@@ -28,7 +28,7 @@ Crash reports are saved locally in an application-specific temp directory folder
 
 The `crashReporter` module has the following methods:
 
-### `crashReporter.start(options)`
+### `crashReporter.start(opzioni)`
 
 * `options` Oggetto 
   * `companyName` String (optional)

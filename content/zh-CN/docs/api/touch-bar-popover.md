@@ -2,11 +2,11 @@
 
 > 为macOS原生应用在触摸栏中创建一个弹出控件
 
-线程：[主线程](../tutorial/quick-start.md#main-process)
+Process: [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarSlider(options)` *实验功能*
 
-* `options` Object 
+* `参数` 对象 
   * ` label `String (可选) 弹出按钮文本。
   * `icon` ([NativeImage](native-image.md) | String) (可选) - 弹出按钮图标。
   * `items` [TouchBar](touch-bar.md) (可选) -弹出中展示的元素。

@@ -1,6 +1,6 @@
-# Developing Electron
+# Electron'u Geliştirmek
 
-These guides are intended for people working on the Electron project itself. For guides on Electron app development, see [/docs/README.md](../README.md#guides-and-tutorials).
+Bu rehberler Elecron projesinin kökü üzerinde çalışan kişiler içindir. Electon ile uygulama geliştirme rehberleri için [/docs/README.md](../README.md#guides-and-tutorials) kısmına göz atın.
 
 * [Davranış Kodu](../../CODE_OF_CONDUCT.md)
 * [Elektrona Katkıda Bulunmak](../../CONTRIBUTING.md)

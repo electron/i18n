@@ -8,7 +8,7 @@
 
 ### `new ClientRequest(options)`
 
-* `选项` (Object | String) -如果 `选项` 是一个String类型, 它被解释为请求的URL. 如果它是一个Object类型, 那么它可以通过以下属性指定一个HTTP请求: 
+* `参数` (Object | String) -如果 `选项` 是一个String类型, 它被解释为请求的URL. 如果它是一个Object类型, 那么它可以通过以下属性指定一个HTTP请求: 
   * `method` String (可选) - HTTP请求方法. 默认为GET方法.
   * `url` String (可选) - 请求的URL. 必须在指定了http或https的协议方案的独立表单中提供.
   * `session` Object (可选) - 与请求相关联的[`Session`](session.md)实例.

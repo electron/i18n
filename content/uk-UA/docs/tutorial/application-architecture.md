@@ -14,7 +14,7 @@
 
 Головний процес створює веб-сторінки, за допомогою створення екземплярів`BrowserWindow`. Кожен екземпляр `BrowserWindow` запускає веб-сторінку у власному процесі рендерингу. Коли екземляр `BrowserWindow` знищено, процес рендерингу буде зупинено.
 
-The main process manages all web pages and their corresponding renderer processes. Кожний процес рендерінгу є ізольованим і стосується веб сторінки що в ньому запущена.
+Головний процес керує всіма веб-сторінками і відповідними процесами для їх рендерінгу. Кожний процес рендерінгу є ізольованим і стосується веб сторінки що в ньому запущена.
 
 In web pages, calling native GUI related APIs is not allowed because managing native GUI resources in web pages is very dangerous and it is easy to leak resources. If you want to perform GUI operations in a web page, the renderer process of the web page must communicate with the main process to request that the main process perform those operations.
 

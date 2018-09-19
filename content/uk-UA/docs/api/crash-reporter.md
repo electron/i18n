@@ -2,7 +2,7 @@
 
 > Submit crash reports to a remote server.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Процеси: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 The following is an example of automatically submitting a crash report to a remote server:
 
@@ -21,6 +21,11 @@ For setting up a server to accept and process crash reports, you can use followi
 
 * [socorro](https://github.com/mozilla/socorro)
 * [mini-breakpad-server](https://github.com/electron/mini-breakpad-server)
+
+Or use a 3rd party hosted solution:
+
+* [Backtrace I/O](https://backtrace.io/electron/)
+* [Sentry](https://docs.sentry.io/clients/electron)
 
 Crash reports are saved locally in an application-specific temp directory folder. For a `productName` of `YourName`, crash reports will be stored in a folder named `YourName Crashes` inside the temp directory. You can customize this temp directory location for your app by calling the `app.setPath('temp', '/my/custom/temp')` API before starting the crash reporter.
 

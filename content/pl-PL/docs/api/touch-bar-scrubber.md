@@ -2,11 +2,11 @@
 
 > Create a scrubber (a scrollable selector)
 
-Proces: [Main](../tutorial/quick-start.md#main-process)
+Process: [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarScrubber(options)` *Experimental*
 
-* `options` Obiekt 
+* `opcje` Object 
   * `items` [ScrubberItem[]](structures/scrubber-item.md) - An array of items to place in this scrubber.
   * `wybierz` Function - Called when the user taps an item that was not the last tapped item. 
     * `selectedIndex` Integer - The index of the item the user selected.

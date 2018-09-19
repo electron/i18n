@@ -99,7 +99,7 @@ Windows'ta bir görev çubuğu düğmesi, MSDN'den aktarıldığı gibi uygulama
 [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) API: Bunu bir pencereye yer paylaşım simgesi ayarlamak için kullanabilirisiniz:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.setOverlayIcon('path/to/overlay.png', 'Overlay için açıklama')
 ```
@@ -113,7 +113,7 @@ On Windows you can highlight the taskbar button to get the user's attention. Thi
 BrowserWindow görev çubuğu düğmesine basmak için, BrowserWindow.flashFrame </ 0> API:</p> 
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)

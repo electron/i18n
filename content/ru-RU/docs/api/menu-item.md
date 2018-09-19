@@ -28,7 +28,7 @@ Process: [Main](../glossary.md#main-process)
 
 ### Роли
 
-Roles allow menu items to have predefined behaviors.
+Роли позволяют элементам класса menu иметь заранее определенные поведения.
 
 It is best to specify `role` for any menu item that matches a standard role, rather than trying to manually implement the behavior in a `click` function. The built-in `role` behavior will give the best native experience.
 

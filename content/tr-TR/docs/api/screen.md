@@ -1,10 +1,10 @@
-# ekran
+# screen
 
 > Ekran boyutu, ekranlar, imleç konumu vb. hakkında bilgi alın.
 
-İşlem: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+İşlem: [Ana](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-`uygulama` modülünün `hazır` olayı belirtilmeden bu modülü kullanamazsınız yada bu modüle gerek olmaz.
+`app` modülü `ready` yayınlanıncaya hazır olana kadar bu modülü kullanamazsınız.
 
 `screen` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -49,7 +49,7 @@ app.on('ready', () => {
 })
 ```
 
-## Events
+## Etkinlikler
 
 `ekran` modülü aşağıdaki olayları yayar:
 
@@ -66,7 +66,7 @@ Dönüşler:
 
 Dönüşler:
 
-* `event` Olay
+* `olay` Olay
 * `oldDisplay` [Display](structures/display.md)
 
 `oldDisplay` kaldırıldığında yayılır.
@@ -75,7 +75,7 @@ Dönüşler:
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `display` [Display](structures/display.md)
 * `changedMetrics` String[]
 
@@ -90,10 +90,6 @@ Bir veya daha fazla metrik `display` değiştiğinde yayılıyor. `changedMetric
 [`Point`](structures/point.md) geri alır
 
 Fare işaretçisinin geçerli mutlak konumu.
-
-### `screen.getMenuBarHeight()` *macOS*
-
-`Tamsayı` Dödürür - Menü çubuğunun piksel olarak yüksekliği.
 
 ### `screen.getPrimaryDisplay()`
 
@@ -114,3 +110,37 @@ Fare işaretçisinin geçerli mutlak konumu.
 * `dikdörtgen` [Dikdörtgen](structures/rectangle.md)
 
 [`Görüntü`](structures/display.md) - En yakından izlenen ekran verilen sınırları kesişir.
+
+### `screen.screenToDipPoint(point)` *Windows*
+
+* `nokta` [Nokta](structures/point.md)
+
+[`Point`](structures/point.md) geri alır
+
+Converts a screen physical point to a screen DIP point. The DPI scale is performed relative to the display containing the physical point.
+
+### `screen.dipToScreenPoint(point)` *Windows*
+
+* `nokta` [Nokta](structures/point.md)
+
+[`Point`](structures/point.md) geri alır
+
+Converts a screen DIP point to a screen physical point. The DPI scale is performed relative to the display containing the DIP point.
+
+### `screen.screenToDipRect(window, rect)` *Windows*
+
+* `window` [BrowserWindow](browser-window.md) | null
+* `dikdörtgen` [Dikdörtgen](structures/rectangle.md)
+
+[`Rectangle`](structures/rectangle.md) döndürür
+
+Converts a screen physical rect to a screen DIP rect. The DPI scale is performed relative to the display nearest to `window`. If `window` is null, scaling will be performed to the display nearest to `rect`.
+
+### `screen.dipToScreenRect(window, rect)` *Windows*
+
+* `window` [BrowserWindow](browser-window.md) | null
+* `dikdörtgen` [Dikdörtgen](structures/rectangle.md)
+
+[`Rectangle`](structures/rectangle.md) döndürür
+
+Converts a screen DIP rect to a screen physical rect. The DPI scale is performed relative to the display nearest to `window`. If `window` is null, scaling will be performed to the display nearest to `rect`.

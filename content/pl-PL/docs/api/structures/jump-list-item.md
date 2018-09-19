@@ -1,6 +1,6 @@
 # Obiekt JumpListItem
 
-* `typ` String (opcjonalny) - Jedno z poniższych: 
+* `type` String (opcjonalny) - Jedno z poniższych: 
   * `task` - zadanie uruchomi aplikację z określonymi parametrami.
   * `separator` - może służyć do oddzielania elementów standardowych kategorii `Tasks`.
   * `file` - link do pliku otworzy plik za pomocą aplikacji, która utworzyła Listę szybkiego dostępu, aby to zadziałało, aplikacja musi zostać zarejestrowana jako program obsługi dla danego typu pliku (chociaż nie musi to być domyślna procedura obsługi).

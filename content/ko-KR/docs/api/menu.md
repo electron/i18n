@@ -282,7 +282,7 @@ When an item is positioned, all un-positioned items are inserted after it until 
 
 ### 예시
 
-템플릿:
+Template:
 
 ```javascript
 [
@@ -294,7 +294,7 @@ When an item is positioned, all un-positioned items are inserted after it until 
 ]
 ```
 
-메뉴
+Menu:
 
 ```sh
 <br />- 1
@@ -304,7 +304,7 @@ When an item is positioned, all un-positioned items are inserted after it until 
 - 5
 ```
 
-템플릿:
+Template:
 
 ```javascript
 [
@@ -317,7 +317,7 @@ When an item is positioned, all un-positioned items are inserted after it until 
 ]
 ```
 
-메뉴
+Menu:
 
 ```sh
 <br />- ---

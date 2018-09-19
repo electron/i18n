@@ -64,25 +64,15 @@ Etkinlik İzleyicisinde `Electron Helper`'in görüntülenmesini engellemek içi
 Yeniden adlandırılan bir uygulamanın yapısı aşağıdaki gibi olur:
 
 ```text
-For Translation
-
 MyApp.app/Contents
 ├── Info.plist
 ├── MacOS/
-│   └── MyApp
+│   └── MyApp
 └── Frameworks/
-    ├── MyApp Helper EH.app
-    |   ├── Info.plist
-    |   └── MacOS/
-    |       └── MyApp Helper EH
-    ├── MyApp Helper NP.app
-    |   ├── Info.plist
-    |   └── MacOS/
-    |       └── MyApp Helper NP
     └── MyApp Helper.app
         ├── Info.plist
         └── MacOS/
-            └── MyApp Helper
+            └── MyApp Helper
 ```
 
 ### Linux
@@ -99,7 +89,7 @@ Uygulamanızı manuel olarak paketlemenin yanı sıra, üçüncü parti aracıla
 
 ## Elekctron'u Kaynaktan Yeniden Yapılandırma
 
-Electron'u, ürün adını değiştirerek yeniden markalamak da mümkündür. onu kaynaktan inşa etmek için ` atom.gyp ` dosyasını değiştirmeniz ve temiz bir yeniden yapılandırma gerekir.
+It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to set the build argument corresponding to the product name (`electron_product_name = "YourProductName"`) in the `args.gn` file and rebuild.
 
 ### Özel bir Electron Çatısı Oluşturma
 

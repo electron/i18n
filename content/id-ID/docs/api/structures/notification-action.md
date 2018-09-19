@@ -23,4 +23,4 @@ In order for extra notification buttons to work on macOS your app must meet the 
 * Aplikasi telah ditandatangani
 * App has it's `NSUserNotificationAlertStyle` set to `alert` in the `Info.plist`.
 
-Jika salah satu dari persyaratan ini tidak terpenuhi maka tombolnya tidak akan muncul.
+If either of these requirements are not met the button simply won't appear.

@@ -16,9 +16,9 @@ Zde jsou často pokládané otázky. Prosím zkontrolujte tento list před tím 
   * [Setting up Linux](tutorial/development-environment.md#setting-up-linux)
   * [Choosing an Editor](tutorial/development-environment.md#a-good-editor)
 * [Creating your First App](tutorial/first-app.md) 
-  * [Installing Electron](tutorial/first-app.md#installing-electron)
-  * [Electron Development in a Nutshell](tutorial/first-app.md#electron-development-in-a-nutshell)
-  * [Running Your App](tutorial/first-app.md#running-your-app)
+  * [Instalování Electronu](tutorial/first-app.md#installing-electron)
+  * [Vývoj pro Electron v kostce](tutorial/first-app.md#electron-development-in-a-nutshell)
+  * [Spuštění vaší aplikace](tutorial/first-app.md#running-your-app)
 * [Boilerplates and CLIs](tutorial/boilerplates-and-clis.md) 
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
@@ -85,8 +85,8 @@ These individual tutorials expand on topics discussed in the guide above.
   * [Using asar Archives](tutorial/application-packaging.md#using-asar-archives)
   * [Limitations](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Adding Unpacked Files to asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
+* [In Detail: Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
 * [In Detail: Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [In Detail: Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
 * [Offscreen vykreslování](tutorial/offscreen-rendering.md)
 
 * * *

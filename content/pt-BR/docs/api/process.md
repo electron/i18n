@@ -10,7 +10,7 @@ O objeto `process` do Electron estende do [objeto `process` do Node.js](https://
 
 ### Evento: 'loaded'
 
-Emitido quando o Electron já carregou seu script de inicialização interno e começa a carregar a página da web ou o script principal.
+Emitted when Electron has loaded its internal initialization script and is beginning to load the web page or the main script.
 
 It can be used by the preload script to add removed Node global symbols back to the global scope when node integration is turned off:
 
@@ -24,19 +24,19 @@ process.once('loaded', () => {
 })
 ```
 
-## Properties
+## Propriedades
 
 ### `process.defaultApp`
 
-Um `Boolean`. Quando o aplicativo é iniciado, sendo passado como parâmetro para o aplicativo padrão, essa propriedade é `true` no processo principal, caso contrário é `undefined`.
+A `Boolean`. When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
 
 ### `process.mas`
 
-Um `Boolean`. Para compilação para Mac App Store, esta propriedade é `true`, para outras compilações é `undefined`.
+A `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
 
 ### `process.noAsar`
 
-Um `Boolean` que controla suporte ASAR dentro de seu aplicativo. Definindo essa configuração para `true` irá desativar o suporte para arquivos de `asar` em módulos internos do Node.
+A `Boolean` that controls ASAR support inside your application. Setting this to `true` will disable the support for `asar` archives in Node's built-in modules.
 
 ### `process.noDeprecation`
 
@@ -97,7 +97,7 @@ Retorna `Object`:
 * `workingSetSize` Integer - The amount of memory currently pinned to actual physical RAM.
 * `peakWorkingSetSize` Integer - The maximum amount of memory that has ever been pinned to actual physical RAM.
 * `privateBytes` Inteiro - a quantidade de memória não compartilhada por outros processos, como JS heap ou conteúdo HTML.
-* `sharedBytes` Integer - A quantidade de memória compartilhada entre processos, normalmente é consumida pelo próprio código do Electron.
+* `sharedBytes` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself.
 
 Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes.
 

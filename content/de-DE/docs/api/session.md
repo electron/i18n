@@ -313,7 +313,7 @@ Returns `String` - The user agent for this session.
 
 #### `ses.createInterruptedDownload(options)`
 
-* `optionen` Object 
+* `options` Object 
   * `path` String - Absolute path of the download.
   * `urlChain` String[] - Complete URL chain for the download.
   * `mimeType` String (optional)

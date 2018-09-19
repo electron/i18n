@@ -16,7 +16,7 @@ Diğer bir fark da sanal alandaki oluşturucuların, varsayılan herhangi bir Ja
 
 ## Örnek
 
-Sandbox' lanmış bir pencere oluşturmak için, basitçe `sandbox: true` 'dan `webPreferences` 'a geçin:
+To create a sandboxed window, pass `sandbox: true` to `webPreferences`:
 
 ```js
 let win
@@ -53,7 +53,7 @@ electron --enable-sandbox app.js
 
 OS sandbox 'ı sadece bazı oluşturucular için aktifleştirmek mümkün değildir, eğer `--enable-sandbox` etkinse normal elektron pencereleri oluşturulamaz.
 
-Eğer sandbox 'lanmış ve sandbox 'lanmamış oluşturucuları bir uygulamada karıştırmanız gerekiyorsa, sadece `--enable-sandbox` argümanını atlayın. Bu argüman olmadan, `sandbox: true` ile oluşturulmuş pencereler inaktif node.js barındıracak ve sadece güvenlik POV 'undan edinilmiş IPC üzerinden bağlantı kuracaklar.
+If you need to mix sandboxed and non-sandboxed renderers in one application, omit the `--enable-sandbox` argument. Bu argüman olmadan, `sandbox: true` ile oluşturulmuş pencereler inaktif node.js barındıracak ve sadece güvenlik POV 'undan edinilmiş IPC üzerinden bağlantı kuracaklar.
 
 ## Önyükleme
 

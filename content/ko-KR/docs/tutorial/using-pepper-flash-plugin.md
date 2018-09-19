@@ -13,7 +13,7 @@ Electron 명령 행에 `--ppapi-flash-path` 및 `--ppapi-flash-version`을 직�
 예시:
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 const path = require('path')
 
 // Specify flash path, supposing it is placed in the same directory with main.js.

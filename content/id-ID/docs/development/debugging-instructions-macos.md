@@ -13,9 +13,9 @@ Jika Anda mengalami crash atau masalah di Electron yang Anda percaya tidak diseb
 Untuk memulai sesi debugging, membuka Terminal dan mulai `lldb`, melewati debug membangun Elektron sebagai parameter.
 
 ```sh
-$ lldb ./out/D/Electron.app
-(lldb) target create "./out/D/Electron.app"
-Current executable set to './out/D/Electron.app' (x86_64).
+$ lldb ./out/Debug/Electron.app
+(lldb) target create "./out/Debug/Electron.app"
+Current executable set to './out/Debug/Electron.app' (x86_64).
 ```
 
 ### Pengaturan Breakpoints
@@ -41,7 +41,7 @@ Aplikasi ini akan segera dihentikan sementara, karena Electron menetapkan nama a
 
 ```sh
 (lldb) run
-Process 25244 launched: '/Users/fr/Code/electron/out/D/Electron.app/Contents/MacOS/Electron' (x86_64)
+Process 25244 launched: '/Users/fr/Code/electron/out/Debug/Electron.app/Contents/MacOS/Electron' (x86_64)
 Process 25244 stopped
 * thread #1: tid = 0x839a4c, 0x0000000100162db4 Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 20 at browser.cc:118, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
     frame #0: 0x0000000100162db4 Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 20 at browser.cc:118

@@ -2,7 +2,7 @@
 
 > Bir kaydırıcı oluşturma (Kaydırılabilir seçici)
 
-İşlem: [Main](../tutorial/quick-start.md#main-process)
+İşlem: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `yeni DokunmatikYüzeyKaydırıcı(seçenekler)` *Deneysel*
 

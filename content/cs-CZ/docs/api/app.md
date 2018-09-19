@@ -2,7 +2,7 @@
 
 > Control your application's event lifecycle.
 
-Process: [Main](../glossary.md#main-process)
+Proces: [Main](../glossary.md#main-process)
 
 Následující příklad zobrazuje jak ukončit aplikaci po zavření posledního okna:
 
@@ -303,6 +303,23 @@ Vrací:
 
 Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 
+### Event: 'session-created'
+
+Vrací:
+
+* `event` Event
+* `session` [Session](session.md)
+
+Emitted when Electron has created a new `session`.
+
+```javascript
+const {app} = require('electron')
+
+app.on('session-created', (event, session) => {
+  console.log(session)
+})
+```
+
 ## Metody
 
 The `app` object has the following methods:
@@ -325,7 +342,7 @@ All windows will be closed immediately without asking user and the `before-quit`
 
 ### `app.relaunch([options])`
 
-* `options` Object (optional) 
+* `nastavení` Object (optional) 
   * `args` String[] (optional)
   * `execPath` String (optional)
 
@@ -348,7 +365,7 @@ app.exit(0)
 
 ### `app.isReady()`
 
-Returns `Boolean` - `true` if Electron has finished initializing, `false` otherwise.
+Vrací `Boolean` - `true` pokud Electron dokončil inicializaci, `false` v opačném případě.
 
 ### `app.focus()`
 
@@ -395,7 +412,7 @@ You can request the following paths by the name:
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `options` Object (optional) 
+* `nastavení` Object (optional) 
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
@@ -677,7 +694,7 @@ Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library
 
 ### `app.importCertificate(options, callback)` *LINUX*
 
-* `options` Object 
+* `nastavení` Object 
   * `certificate` String - Path for the pkcs12 file.
   * `password` String - Passphrase for the certificate.
 * `callback` Funkce 
@@ -723,11 +740,11 @@ Returns `Integer` - The current value displayed in the counter badge.
 
 ### `app.isUnityRunning()` *Linux*
 
-Vrací Boolean - Kdykoliv kdy je aktuální prostředí plochy Unity spouštěč.
+Returns `Boolean` - Whether the current desktop environment is Unity launcher.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `options` Object (optional) 
+* `nastavení` Object (optional) 
   * `path` String (optional) *Windows* - The executable path to compare against. Defaults to `process.execPath`.
   * `args` String[] (optional) *Windows* - The command-line arguments to compare against. Defaults to an empty array.
 
@@ -782,7 +799,7 @@ Manually enables Chrome's accessibility support, allowing to expose accessibilit
 
 ### `app.setAboutPanelOptions(options)` *macOS*
 
-* `options` Object 
+* `nastavení` Object 
   * `applicationName` String (optional) - The app's name.
   * `applicationVersion` String (optional) - The app's version.
   * `copyright` String (optional) - Copyright information.

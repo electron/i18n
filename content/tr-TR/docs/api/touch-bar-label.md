@@ -2,15 +2,15 @@
 
 > Dokunmatik çubukta yerel macOS uygulamaları için bir etiket oluşturun
 
-Süreç: [Ana](../tutorial/quick-start.md#main-process)
+İşlem: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `yeni DokunmatikÇubukEtiketi(seçenekler)` *Deneysel*
 
-* `seçenekler` Nesne 
+* `seçenekler` Nesnesi 
   * `label` Dize (opsiyonel) - Görüntülenecek metin.
   * `textColor` Dize (opsiyonel) - Metinin Hex rengi, örn `#ABCDEF`.
 
-### Örnek Özellikler
+### Örnek özellikleri
 
 Aşağıdaki özellikler `TouchBarLabel` örnekleri için uygundur:
 

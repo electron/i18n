@@ -2,11 +2,11 @@
 
 > 为mac os应用在touch bar中创建一个按钮组件
 
-进程：[主进程](../tutorial/quick-start.md#main-process)
+Process: [Main](../tutorial/quick-start.md#main-process)
 
 ### `new BrowserView(可选)` *实验功能*
 
-* `options` Object 
+* `参数` 对象 
   * ` label `String (可选) 按钮文本。
   * ` backgroundColor `String (可选) - 按钮背景颜色以十六进制格式，例如 ` #ABCDEF `。
   * `icon` [NativeImage](native-image.md) (可选)

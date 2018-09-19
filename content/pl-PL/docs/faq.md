@@ -57,7 +57,7 @@ Jeśli wystąpi ten problem, poniższe artykuły mogą okazać się pomocne:
 Jeśli chcesz szybkiej łatki, możesz zglobalizować zmienne poprzez zmianę kodu z tego:
 
 ```javascript
-const {app, Tray} = require('electron')
+const { app, Tray } = require('electron')
 app.on('ready', () => {
   const tray = new Tray('/path/to/icon.png')
   tray.setTitle('hello world')
@@ -67,7 +67,7 @@ app.on('ready', () => {
 do tego:
 
 ```javascript
-const {app, Tray} = require('electron')
+const { app, Tray } = require('electron')
 let tray = null
 app.on('ready', () => {
   tray = new Tray('/path/to/icon.png')
@@ -83,7 +83,7 @@ Aby to rozwiązać, możesz wyłączyć integrację node w Electronie:
 
 ```javascript
 // W głównym procesie.
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
     nodeIntegration: false

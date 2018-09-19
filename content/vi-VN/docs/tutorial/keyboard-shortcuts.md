@@ -7,7 +7,7 @@
 Bạn có thể sử dụng module [Menu](../api/menu.md) để cài đặt các phím tắt, điều đó sẽ kích hoạt các phím tắt khi cửa sổ của app được focus vào. Để làm điều này, chỉ cần cài thêm vô một [`accelerator`] khi tạo [MenuItem](../api/menu-item.md).
 
 ```js
-const {Menu, MenuItem} = require('electron')
+const { Menu, MenuItem } = require('electron')
 const menu = new Menu()
 
 menu.append(new MenuItem({
@@ -30,7 +30,7 @@ You can configure different key combinations based on the user's operating syste
 Bạn có thể sử dụng module [globalShortcut](../api/global-shortcut.md) để xác định các sự kiện trên bàn phím khi mà app không được focus.
 
 ```js
-const {app, globalShortcut} = require('electron')
+const { app, globalShortcut } = require('electron')
 
 app.on('ready', () => {
   globalShortcut.register('CommandOrControl+X', () => {

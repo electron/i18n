@@ -1,6 +1,6 @@
 # Depuración en macOS
 
-Si tiene accidentes o problemas en Electron que usted crea que no son causados por la aplicación de JavaScript, pero en cambio por el Electron sí mismo, de depuración puede ser un poco difícil, especialmente para los desarrolladores no se utiliza para depuración nativo c/c ++. However, using lldb, and the Electron source code, you can enable step-through debugging with breakpoints inside Electron's source code. You can also use [XCode for debugging](debugging-instructions-macos-xcode.md) if you prefer a graphical interface.
+Si tiene accidentes o problemas en Electron que usted crea que no son causados por la aplicación de JavaScript, pero en cambio por el Electron sí mismo, de depuración puede ser un poco difícil, especialmente para los desarrolladores no se utiliza para depuración nativo c/c ++. Sin embargo, usando lldb y el código fuente de Electron, puede habilitar la depuración paso a paso con puntos de interrupción dentro del código fuente de Electron. También puede usar [XCode for debugging](debugging-instructions-macos-xcode.md) si prefiere una interfaz gráfica.
 
 ## Requisitos
 
@@ -13,9 +13,9 @@ Si tiene accidentes o problemas en Electron que usted crea que no son causados p
 Para empezar una sesión de depuración, abra el terminal e inicie `lldb`, pasando al constructo de depuración de Electron como un parámetro.
 
 ```sh
-$ lldb ./out/D/Electron.app
-(lldb) target create "./out/D/Electron.app"
-Current executable set to './out/D/Electron.app' (x86_64).
+$ lldb ./out/Debug/Electron.app
+(lldb) target create "./out/Debug/Electron.app"
+Current executable set to './out/Debug/Electron.app' (x86_64).
 ```
 
 ### Establecer puntos de interrupción
@@ -41,7 +41,7 @@ La aplicación será pausada inmediatamente, mientras Electron configura el nomb
 
 ```sh
 (lldb) run
-Process 25244 launched: '/Users/fr/Code/electron/out/D/Electron.app/Contents/MacOS/Electron' (x86_64)
+Process 25244 launched: '/Users/fr/Code/electron/out/Debug/Electron.app/Contents/MacOS/Electron' (x86_64)
 Process 25244 stopped
 * thread #1: tid = 0x839a4c, 0x0000000100162db4 Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 20 at browser.cc:118, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
     frame #0: 0x0000000100162db4 Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 20 at browser.cc:118

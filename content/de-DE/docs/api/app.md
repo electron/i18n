@@ -306,6 +306,23 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
         
+        ### Event: 'session-created'
+        
+        Rückgabewert:
+        
+        * ` Ereignis </ 0>  Ereignis</li>
+<li><code>session` [Session](session.md)
+        
+        Emitted when Electron has created a new `session`.
+        
+        ```javascript
+        const {app} = require('electron')
+        
+        app.on('session-created', (event, session) => {
+          console.log(session)
+        })
+        ```
+        
         ## Methoden
         
         Das `app` Objekt enthält die folgenden Methoden:
@@ -371,7 +388,7 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         ### `app.getPath(name)`
         
-        * `name` Zeichenfolge
+        * `name` String
         
         Returns `String` - A path to a special directory or file associated with `name`. On failure an `Error` is thrown.
         
@@ -397,7 +414,7 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         ### `app.getFileIcon(path[, options], callback)`
         
         * `path` String
-        * `options` Objekt (optional) 
+        * `optionen` Objekt (optional) 
           * `size` String 
             * `small` - 16x16
             * `normal` - 32x32
@@ -417,7 +434,7 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         ### `app.setPath(name, path)`
         
-        * `name` Zeichenfolge
+        * `name` String
         * `path` String
         
         Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.
@@ -438,7 +455,7 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         ### `app.setName(name)`
         
-        * `name` Zeichenfolge
+        * `name` String
         
         Überschreibt den Namen der aktuellen Anwendung.
         
@@ -672,13 +689,13 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         ### `app.setAppUserModelId(id)` *Windows*
         
-        * `id` Zeichenfolge
+        * `id` String
         
         Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) to `id`.
         
         ### `app.importCertificate(options, callback)` *LINUX*
         
-        * `options` Object 
+        * `optionen` Object 
           * `certificate` String - Path for the pkcs12 file.
           * `password` String - Passphrase for the certificate.
         * `callback` Funktion 
@@ -782,7 +799,7 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         ### `app.setAboutPanelOptions(options)` *macOS*
         
-        * `optionen` Object 
+        * `options` Object 
           * `applicationName` String (optional) - The app's name.
           * `applicationVersion` String (optional) - The app's version.
           * `copyright` String (optional) - Copyright information.

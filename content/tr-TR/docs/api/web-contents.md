@@ -60,6 +60,8 @@ Dönüşler:
 * `errorDescription` Koşul
 * `validatedURL` Koşul
 * `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
 
 Bu etkinlik, `did-finish-load` gibidir ancak yük başarısız olduğunda veya iptal edildiğinde yayınlanır, örneğin; `window.stop()` çağrılır. Hata kodlarının tam listesi ve anlamları [here](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) mevcuttur.
 
@@ -69,6 +71,8 @@ Dönüşler:
 
 * `event` Event
 * `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
 
 Bir çerçeve aramayı bitirdiğinde ortaya çıkar.
 
@@ -79,37 +83,6 @@ Sekmenin döngüsü dönmeye başladığında puanlara karşılık gelir.
 #### Olay: 'did-stop-loading'
 
 Sekmenin döngüsü dönmeye başladığında puanlara karşılık gelir.
-
-#### Olay: 'did-get-response-details'
-
-Dönüşler:
-
-* `event` Olay
-* `status` Boolean
-* `newURL` Dize
-* `originalURL` Dize
-* `httpResponseCode` Tamsayı
-* `requestMethod` Dize
-* `referrer` Dize
-* `headers` Nesne
-* `resourceType` String
-
-İstenen bir kaynakla ilgili ayrıntılar mevcut olduğunda yayımlanır. `status` kaynağı indirmek için soket bağlantısını gösterir.
-
-#### Olay: 'did-get-redirect-request'
-
-Dönüşler:
-
-* `event` Event
-* `oldURL` Dize
-* `newURL` Dize
-* `isMainFrame` Boolean
-* `httpResponseCode` Tamsayı
-* `requestMethod` Dize
-* `referrer` Dize
-* `headers` Nesne
-
-Bir kaynak talep ederken yönlendirme alındığında yayınlanır.
 
 #### Olay: 'dom-ready'
 
@@ -124,7 +97,7 @@ Belirli bir çerçevedeki belge yüklendiğinde çıkar.
 Dönüşler:
 
 * `event` Event
-* `favicons` String[] - URL'lerin dizilişleri.
+* `favicons` Dize[] - URL dizisi.
 
 Sayfa sık kullanılan simge Url'lerini aldığında yayınlanır.
 
@@ -138,6 +111,7 @@ Dönüşler:
 * `disposition` Dize - `default`, `foreground-tab`, `background-tab`, `new-window`, `ave-to-disk` ve `other` olabilir.
 * `options` Object - The options which will be used for creating the new [`BrowserWindow`](browser-window.md).
 * `additionalFeatures` Dize[] - `window.open()` için verilen standart olmayan özellikler (Chromium veya Electron tarafından ele alınmayan özellikler).
+* `referrer` [Referrer](structures/referrer.md) - The referrer that will be passed to the new window. May or may not result in the `Referer` header being sent, depending on the referrer policy.
 
 Sayfa, bir `url` için yeni bir pencere açmayı istediğinde ortaya çıkar. `window.open` veya `<a target='_blank'>` gibi harici bir bağlantıyla istenebilir.
 
@@ -170,14 +144,44 @@ Ayrıca, bağlı linkleri tıklama veya `window.location.hash` öğesini güncel
 
 `event.preventDefault()` öğesinin çağırılması gezinmeyi engeller.
 
+#### Event: 'did-start-navigation'
+
+Dönüşler:
+
+* `url` Dize
+* `isInPlace` Boolean
+* `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
+
+Emitted when any frame (including main) starts navigating. `isInplace` will be `true` for in-page navigations.
+
 #### Olay: 'did-navigate'
 
 Dönüşler:
 
 * `event` Event
 * `url` Dize
+* `httpResponseCode` Integer - -1 for non HTTP navigations
+* `httpStatusText` String - empty for non HTTP navigations
 
-Bir gezinme yapıldığında ortaya çıkar.
+Emitted when a main frame navigation is done.
+
+Ayrıca, bağlı linkleri tıklama veya `window.location.hash` öğesini güncelleme gibi sayfa içi gezinmeler için de yayımlanmaz. Bu amaçla `did-navigate-in-page` etkinliğini kullanın.
+
+#### Event: 'did-frame-navigate'
+
+Dönüşler:
+
+* `event` Event
+* `url` Dize
+* `httpResponseCode` Integer - -1 for non HTTP navigations
+* `httpStatusText` String - empty for non HTTP navigations,
+* `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
+
+Emitted when any frame navigation is done.
 
 Ayrıca, bağlı linkleri tıklama veya `window.location.hash` öğesini güncelleme gibi sayfa içi gezinmeler için de yayımlanmaz. Bu amaçla `did-navigate-in-page` etkinliğini kullanın.
 
@@ -188,14 +192,16 @@ Dönüşler:
 * `event` Olay
 * `url` Dize
 * `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
 
-Sayfa içi gezinme gerçekleştiğinde ortaya çıktı.
+Emitted when an in-page navigation happened in any frame.
 
 Sayfa içi gezinme gerçekleştiğinde, sayfa URL'si değişir, ancak sayfanın dışına çıkmasına neden olmaz. Bu gerçekleşen örnekler, bağlı link bağlantıları tıklandığında veya DOM `hashchange` olayı tetiklendiğinde görülür.
 
 #### Olay: 'will-prevent-unload'
 
-Dönütler:
+Dönüşler:
 
 * `event` Event
 
@@ -230,6 +236,14 @@ Dönüşler:
 * `killed` Boolean
 
 Oluşturucu işlemi çöker veya yok olduğunda yayımlanır.
+
+#### Etkinlik: 'tepkisiz'
+
+Web sayfası tepkisiz kaldığında yayımlanır.
+
+#### Etkinlik: 'duyarlılık'
+
+Yanıt vermeyen internet sayfası tekrar yanıt verdiğinde ortaya çıkmaktadır.
 
 #### Event: 'plugin-crashed'
 
@@ -356,11 +370,11 @@ Dönüşler:
 
 #### Olay: Medya oynamaya başladı
 
-Medya oynamaya başladığında belirir.
+Medya oynatılmaya başladığında yayınlanır.
 
 #### Etkinlik: 'medya-duraklatıldı'
 
-Medya duraklatıldığında veya oynatma süresi bittiğinde belirir.
+Medya duraklatıldığında veya oynatıldığında yaydır.
 
 #### Olay: tema rengi değiştirildi
 
@@ -453,11 +467,14 @@ Dönüşler:
 Bluetooth aygıtı `navigator.bluetooth.requestDevice` çağrı için seçilmesi gerektiğinde sinyal başlar. `navigator.bluetooth` api'sini kullanmak `webBluetooth`'u etkinleştirmelidir. Eğer `event.preventDefault` çağırılmazsa ilk bağlanılabilen alet seçilecektir. ` callback`, seçilecek `deviceId` ile çağırılmalıdır, `callback`'e boş string göndermek isteği iptal edecektir.
 
 ```javascript
-const {app, webContents} = require('electron')
-app.commandLine.appendSwitch('enable-web-bluetooth')
+const {app, BrowserWindow} = require('electron')
+
+let win = null
+app.commandLine.appendSwitch('enable-experimental-web-platform-features')
 
 app.on('ready', () => {
-  webContents.on('select-bluetooth-device', (event, deviceList, callback) => {
+  win = new BrowserWindow({width: 800, height: 600})
+  win.webContents.on('select-bluetooth-device', (event, deviceList, callback) => {
     event.preventDefault()
     let result = deviceList.find((device) => {
       return device.deviceName === 'test'
@@ -522,6 +539,7 @@ Emitted when a `<webview>` has been attached to this web contents.
 
 Dönüşler:
 
+* `event` Event
 * `level` Integer
 * `message` String
 * `line` Integer
@@ -535,10 +553,10 @@ Emitted when the associated window logs a console message. Will not be emitted f
 
 * `url` Dize
 * `seçenekler` Obje (opsiyonel) 
-  * `httpReferrer` Dizgi (isteğe bağlı) - Bir HTTP başvuru bağlantısı.
+  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
   * `userAgent` Dizgi (isteğe bağlı) - İsteğin kaynağını oluşturan bir kullanıcı aracı.
   * `extraHeaders` String (optional) - Extra headers separated by "\n".
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
   * `baseURLForDataURL` Dizgi (isteğe bağlı) - Veri bağlantıları tarafından dosyaların yükleneceği (Dizin ayracına sahip) temel bağlantı. Buna, sadece belirtilen `url` bir veri bağlantısıysa ve başka dosyalar yüklemesi gerekiyorsa, gerek duyulur.
 
 `url`'yi pencereye yükler. `url` bir protokol önadı içermek zorundadır, Örneğin `http://` veya `file://`. Eğer yüklemenin http önbelleğini atlaması gerekiyorsa, atlatmak için `pragma` başlığını kullanın.
@@ -618,7 +636,7 @@ Web sayfasına odaklanır.
 
 #### `contents.stop()`
 
-Bekleyen gezinmeyi durdurur.
+Bekleyen gezinmeleri durdurur.
 
 #### `contents.reload()`
 
@@ -644,7 +662,7 @@ Yürürlükteki sayfayı yeniden yükler ve önbelleği yoksayar.
 
 #### `contents.clearHistory()`
 
-Gezinme geçmişini temizle.
+Gezinme geçmişini temizler.
 
 #### `contents.goBack()`
 
@@ -664,7 +682,7 @@ Tarayıcıyı belirtilmiş salt web sayfası dizinine (indeksine) yönlendirir.
 
 * `offset` Tamsayı
 
-"Geçerli girişten" belirtilen aralıkta gezinir.
+"Yürürlükteki girdi"den belirtilmiş göreli konuma (offsete) gider.
 
 #### `contents.isCrashed()`
 
@@ -693,11 +711,11 @@ Yürürlükteki web sayfasına CSS ekler.
 * `geri aramak` Function (isteğe bağlı) - Script çalıştıktan sonra çağırılır. 
   * `result` Any
 
-`Promise` döndürür - çalışan kodun sonucuyla çözülen bir söz veya kodun sonucu reddedilen bir söz ise reddedilir.
+`Promise` döner - Çalıştırılan kodun sonucuyla çözülen veya eğer kod sonucu promise reddedildiyse reddedilen bir promise.
 
 Sayfadaki `code`'u ölçer.
 
-Tarayıcı penceresinde `requestFullScreen` gibi bazı HTML arayüzleri (APIs) sadece kullanıcıdan gelen bir işaretle çağrılabilir. `userGesture`'ü `true` olarak ayarlamak bu kısıtlamayı kaldırır.
+Tarayıcı penceresinde, `requestFullScreen` gibi bazı HTML API'leri yalnızca kullanıcıdan gelen bir hareket ile çağrılmaktadır. `userGesture`'ü `true` olarak ayarlamak bu kısıtlamayı kaldırır.
 
 If the result of the executed code is a promise the callback result will be the resolved value of the promise. We recommend that you use the returned Promise to handle code that results in a Promise.
 
@@ -815,7 +833,7 @@ Verilen pozisyondaki görüntüyü panoya kopyalar.
 
 #### `contents.replaceMisspelling(text)`
 
-* `text` String
+* `text` Dizi
 
 `replaceMisspelling` düzenleme komutunu web sayfasında çalıştırır.
 
@@ -823,7 +841,7 @@ Verilen pozisyondaki görüntüyü panoya kopyalar.
 
 * `text` Dizi
 
-Odaklanmış öğeye `metin` ekler.
+Odaklanılan ögeye `text`'i ekler.
 
 #### `contents.findInPage(text[, options])`
 
@@ -833,7 +851,7 @@ Odaklanmış öğeye `metin` ekler.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
   * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
-  * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Diğer birtakım kelime-içi eşleşmeyi kabul eder, `false` varsayılan olur.
+  * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Diğer çeşitli alt kelime (intra-word) eşleşmelerini kabul eder, varsayılan olarak `false`'tur.
 
 `Integer` döndürür - İstek için kullanılan istek kimliği.
 
@@ -891,7 +909,7 @@ Sistemdeki yazıcıların listesini alır.
 * `seçenekler` Obje (opsiyonel) 
   * `silent` Boolean (isteğe bağlı) - Kullanıcıya yazdırma seçeneklerini sormaz. Varsayılan olarak `false`'tur.
   * `printBackground` Boolean (isteğe bağlı) - Ek olarak arkaplan rengini ve web sayfasının görüntüsünü de yazdırır. Varsayılan olarak `false`'tur.
-  * `deviceName` Dizgi (isteğe bağlı) - Kullanılacak cihaz ismini ayarlar. Varsayılan olarak `''`'tur.
+  * `deviceName` String (isteğe bağlı) - Kullanılacak yazıcının ismini ayarla. `''` varsayılandır.
 * `geri aramak` Fonksiyon (isteğe bağlı) 
   * `success` Boolean - Indicates success of the print call.
 
@@ -1058,7 +1076,7 @@ Geliştirme araçlarına geçiş yapar.
 #### `contents.inspectElement(x, y)`
 
 * `x` Integer
-* `x` Integer
+* `y` Tamsayı
 
 (`x`,`y`) pozisyonundaki ögeyi incelemeye başlar.
 
@@ -1160,14 +1178,14 @@ Fare olayları için, `event` nesnesi aşağıdaki özellikleri de alacaktır:
 
 * `onlyDirty` Boolean (İsteğe bağlı) - Varsayılan olarak `false`'tur.
 * `geri aramak` Function 
-  * `frameBuffer` Buffer
+  * `image` [NativeImage](native-image.md)
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
-Olayların ve yakalanan çerçevelerin sunulması için sürdürümcü olur; Bir sunum olayı olduğunda `callback` , `callback(frameBuffer,dirtyRect)` ile birlikte çağrılacaktır.
+Begin subscribing for presentation events and captured frames, the `callback` will be called with `callback(image, dirtyRect)` when there is a presentation event.
 
-`frameBuffer` işlenmemiş piksel verilerini içeren bir `Buffer`'dır. Çoğu makine üzerinde piksel verileri etkili bir şekilde 32 bit BGRA formatında saklanır, ancak gerçek gösterim işlemcinin endianına bağlıdır (en modern işlemciler little-endian, big-endian işlemcili makinelerde veri 32 bit ARGB formatındadır).
+The `image` is an instance of [NativeImage](native-image.md) that stores the captured frame.
 
-`dirtyRect`, sayfanın hangi bölümlerinin yeniden boyandığını tanımlayan `x, y, width, height` özelliklerini barındıran bir nesnedir. Eğer `onlyDirty`, `true`'ya ayarlandıysa, `frameBuffer` sadece yeniden boyanan alanları içerecektir. `onlyDirty` varsayılanı `false`'tur.
+`dirtyRect`, sayfanın hangi bölümlerinin yeniden boyandığını tanımlayan `x, y, width, height` özelliklerini barındıran bir nesnedir. If `onlyDirty` is set to `true`, `image` will only contain the repainted area. `onlyDirty` defaults to `false`.
 
 #### `contents.endFrameSubscription()`
 
@@ -1209,16 +1227,6 @@ win.webContents.on('did-finish-load', () => {
 #### `contents.showDefinitionForSelection()` *macOS*
 
 Sayfadaki seçili sözcüğü arayan pop-up sözlüğünü gösterir.
-
-#### `contents.setSize(options)`
-
-Sayfanın boyutunu ayarlayın. Bu yalnızca `<webview>` konuk içerikler için desteklenmektedir.
-
-* `seçenekler` Nesne 
-  * `enableAutoSize` Boolean (optional) - true to make the webview container automatically resize within the bounds specified by the attributes normal, min and max.
-  * `normal` [Size](structures/size.md) (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
-  * `min` [Size](structures/size.md) (optional) - Minimum size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
-  * `max` [Size](structures/size.md) (optional) - Maximium size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
 
 #### `contents.isOffscreen()`
 
@@ -1268,7 +1276,11 @@ Setting the WebRTC IP handling policy allows you to control which IPs are expose
 
 #### `contents.getOSProcessId()`
 
-`Integer` döner- İlgili işleyici işleminin `pid`'si.
+Returns `Integer` - The operating system `pid` of the associated renderer process.
+
+#### `contents.getProcessId()`
+
+Returns `Integer` - The chromium internal `pid` of the associated renderer. Can be compared to the `frameProcessId` passed by frame specific navigation events (e.g. `did-frame-navigate`)
 
 ### Örnek Özellikleri
 

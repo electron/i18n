@@ -6,7 +6,7 @@ Process: [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarButton(options)` *Experimental*
 
-* `options` Object 
+* `nastavení` Object 
   * `label` String (optional) - Button text.
   * `backgroundColor` String (optional) - Button background color in hex format, i.e `#ABCDEF`.
   * `icon` [NativeImage](native-image.md) (optional) - Button icon.

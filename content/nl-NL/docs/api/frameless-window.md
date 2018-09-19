@@ -58,7 +58,7 @@ let win = new BrowserWindow({transparent: true, frame: false})
 win.show()
 ```
 
-### Limitations
+### Limitaties
 
 * You can not click through the transparent area. We are going to introduce an API to set window shape to solve this, see [our issue](https://github.com/electron/electron/issues/1335) for details.
 * Transparent windows are not resizable. Setting `resizable` to `true` may make a transparent window stop working on some platforms.

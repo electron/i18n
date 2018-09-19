@@ -28,7 +28,7 @@ Returns `Boolean` - Whether or not desktop notifications are supported on the cu
 
 ### `new Notification([options])` *Experimental*
 
-* `options` Obiekt 
+* `opcje` Object 
   * `title` String - A title for the notification, which will be shown at the top of the notification window when it is shown.
   * `subtitle` String (optional) *macOS* - A subtitle for the notification, which will be displayed below the title.
   * `body` String - The body text of the notification, which will be displayed below the title or subtitle.
@@ -40,7 +40,7 @@ Returns `Boolean` - Whether or not desktop notifications are supported on the cu
   * `actions` [NotificationAction[]](structures/notification-action.md) (optional) *macOS* - Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation.
   * `closeButtonText` String (optional) *macOS* - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
 
-### Wydarzenia instancji
+### Zdarzenia instancji
 
 Objects created with `new Notification` emit the following events:
 
@@ -72,7 +72,7 @@ Emitted when the notification is closed by manual intervention from the user.
 
 This event is not guaranteed to be emitted in all cases where the notification is closed.
 
-#### Event: 'reply' *macOS*
+#### Zdarzenie: 'reply' *macOS*
 
 Zwraca:
 
@@ -81,7 +81,7 @@ Zwraca:
 
 Emitted when the user clicks the "Reply" button on a notification with `hasReply: true`.
 
-#### Event: 'action' *macOS*
+#### Zdarzenie: 'action' *macOS*
 
 Zwraca:
 

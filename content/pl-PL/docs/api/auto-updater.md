@@ -72,7 +72,7 @@ The `autoUpdater` object has the following methods:
 
 ### `autoUpdater.setFeedURL(options)`
 
-* `options` Obiekt 
+* `opcje` Obiekt 
   * `url` String
   * `headers` Object (optional) *macOS* - HTTP request headers.
   * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.

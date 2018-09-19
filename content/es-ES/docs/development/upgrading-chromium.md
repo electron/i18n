@@ -1,4 +1,4 @@
-# Actualizando Chomium
+# Actualizando Chrome
 
 Esto es un resumen de los pasos necesarios para actualizar Chormium en Electron.
 
@@ -21,11 +21,11 @@ Esto es un resumen de los pasos necesarios para actualizar Chormium en Electron.
     - Esto puede hacerse manualmente visitando OmahaProxy en un buscador, o automáticamente:
     - Una línea de la última versión estable para mac: `curl -so- https://omahaproxy.appspot.com/mac > VERSION`
     - Una línea para la última versión win64 beta `curl -so- https://omahaproxy.appspot.com/all | grep "win64,beta" | awk -F, 'NR==1{print $3}' > VERSION`
-  - ejecute `$ ./script/update` 
+  - ejecuta `$ ./script/update` 
     - Haga un te -- esto puede correr por 30m o más.
     - Probablemente falle aplicando parches.
 3. Arregle los archivos `*.patch` en el `patches/` y carpetas `patches-mas/`.
-4. (Opcional) `script/actualización` aplica parches, pero si se necesitan varios intentos puede correr manualmente el mismo escrito que `actualización` llamados: `$ ./script/apply-patches` 
+4. (Opcional) `script/update` aplica parches, pero si se necesitan varios intentos puede correr manualmente el mismo escrito que `actualización` llamados: `$ ./script/apply-patches` 
   - Hay un segundo script, `script/patch.py` que puede ser útil. Lea `./script/patch.py -h` para más información.
 5. Corra la estructura cuando todos los parches puedan ser aplicados sin errores 
   - `$ ./script/build`
@@ -101,10 +101,31 @@ Electron es entregado con una versión de `ffmpeg` que incluye el codecs del pro
 Usted puede verificar apoyo del Electron a `ffmpeg` múltiples se construye por la carga de la página siguiente. Debe trabajar con la librería por defecto `ffmpeg` distribuida con electron y no trabajar con la librería `ffmpeg` estructurada sin el codecs del propietario.
 
 ```html
-¡<! DOCTYPE html><html> <head> <meta charset="utf-8"> <title>Proprietary Codec Check</title> </head> <body> <p>Checking si Electron utiliza codecs propietarios cargando video de http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4</p> <p id="outcome"></p> <video style="display:none" src="http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4" autoplay></video> <script> const video = document.querySelector('video')
-      video.addEventListener ('error', ({target}) = > {si (target.error.code == target.error.MEDIA_ERR_SRC_NOT_SUPPORTED) {document.querySelector('#outcome').textContent = 'no usa codecs propietarios, fuente de vídeo emitida no admite el evento de error.'
-        } else {document.querySelector('#outcome').textContent = ' error inesperado: ${target.error.code}'}}) video.addEventListener ('jugar', () = > {document.querySelector('#outcome').textContent = 'Utilizando codecs propietarios, video comenzó a jugar.'
-     </html> de </body> de </script>})
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>Proprietary Codec Check</title>
+  </head>
+  <body>
+    <p>Checking if Electron is using proprietary codecs by loading video from http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4</p>
+    <p id="outcome"></p>
+    <video style="display:none" src="http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4" autoplay></video>
+    <script>
+      const video = document.querySelector('video')
+      video.addEventListener('error', ({ target }) => {
+        if (target.error.code === target.error.MEDIA_ERR_SRC_NOT_SUPPORTED) {
+          document.querySelector('#outcome').textContent = 'Not using proprietary codecs, video emitted source not supported error event.'
+        } else {
+          document.querySelector('#outcome').textContent = `Unexpected error: ${target.error.code}`
+        }
+      })
+      video.addEventListener('playing', () => {
+        document.querySelector('#outcome').textContent = 'Using proprietary codecs, video started playing.'
+      })
+    </script>
+  </body>
+</html>
 ```
 
 ## Enlaces útiles

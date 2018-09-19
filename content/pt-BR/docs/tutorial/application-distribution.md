@@ -69,14 +69,6 @@ MyApp.app/Contents
 ├── MacOS/
 │   └── MyApp
 └── Frameworks/
-    ├── MyApp Helper EH.app
-    |   ├── Info.plist
-    |   └── MacOS/
-    |       └── MyApp Helper EH
-    ├── MyApp Helper NP.app
-    |   ├── Info.plist
-    |   └── MacOS/
-    |       └── MyApp Helper NP
     └── MyApp Helper.app
         ├── Info.plist
         └── MacOS/
@@ -97,7 +89,7 @@ Além de empacotar seu aplicativo manualmente, você também pode escolher usar 
 
 ## Personalizar a marca recompilando o Electron direto da fonte
 
-Também é possível personalizar a marca dos aplicativos alterando o nome do produto e compilando ele direto do código fonte. Para isso, você precisa modificar o arquivo `atom.gyp` executar uma recompilação limpa.
+It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to set the build argument corresponding to the product name (`electron_product_name = "YourProductName"`) in the `args.gn` file and rebuild.
 
 ### Criando um fork personalizado do Electron
 
@@ -119,16 +111,16 @@ Você vai precisar criar um fork do Electron caso você tenha código C++ person
 
 3. Defina as seguintes Variáveis de Ambiente:
 
-* `ELECTRON_GITHUB_TOKEN` - token que pode criar distribuições no GitHub
+* `ELECTRON_GITHUB_TOKEN` - token com permissão para criar distribuições no GitHub
 * `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - definem a chave, o repositório e a chave secreta, respectivamente, para onde os arquivos serão carregados
-* `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will do CI-type checks, appropriate to run for every pull request.
-* `CI` - Set to `true` or else it will fail
-* `GITHUB_TOKEN` - set it to the same as `ELECTRON_GITHUB_TOKEN`
-* `SURF_TEMP` - set to `C:\Temp` on Windows to prevent path too long issues
-* `TARGET_ARCH` - set to `ia32` or `x64`
+* `ELECTRON_RELEASE` - Definido como `true` para definir se o valor será atualizado durante o upload. Deixe sem definir para que o `surf-build` faça a checagem CI-type a cada pull request.
+* `CI` - definer como `true` ou então ele vai falhar
+* `GITHUB_TOKEN` - configure com o mesmo valor do `ELECTRON_GITHUB_TOKEN`
+* `SURF_TEMP` - definido como `C:\Temp` no Windows para evitar problemas de caminho muito longo
+* `TARGET_ARCH` - escolha `ie32` ou `x64`
 
-1. In `script/upload.py`, you *must* set `ELECTRON_REPO` to your fork (`MYORG/electron`), especially if you are a contributor to Electron proper.
+1. Em `script/upload.py`, você *deve* definir `ELECTRON_REPO` para o seu fork (`MYORG/electron`), especialmente se você é um contribuinte para o Electro apropriado.
 
-2. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
+2. `surf-build -r https://github.com/MYORG/electron -s SEU_COMMIT -n 'surf-PLATFORM-ARCH'`
 
-3. Wait a very, very long time for the build to complete.
+3. Aguarde um tempo muito, muito longo para a compilação completar.

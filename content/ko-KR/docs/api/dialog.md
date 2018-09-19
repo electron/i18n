@@ -1,6 +1,6 @@
 # dialog
 
-> 열기 및 파일 저장, 경고, 기타 등등에 대한 기본 시스템 대화 상자를 표시합니다.
+> 파일 열기와 저장, 경고, 기타 등등에 대한 기본 시스템 대화 상자를 표시합니다.
 
 프로세스:[Main](../glossary.md#main-process)
 
@@ -28,41 +28,41 @@ console.log(dialog)
 * `options` Object 
   * `title` String (optional)
   * `defaultPath` String (optional)
-  * `buttonLabel` String (optional) - Custom label for the confirmation button, when left empty the default label will be used.
+  * `buttonLabel` String (optional) - 확인 버튼에 대한 사용자 지정 라벨입니다. 비워둘 경우 기본 라벨이 사용됩니다.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
-  * `properties` String[] (optional) - Contains which features the dialog should use. The following values are supported: 
-    * `openFile` - Allow files to be selected.
-    * `openDirectory` - Allow directories to be selected.
-    * `multiSelections` - Allow multiple paths to be selected.
-    * `showHiddenFiles` - Show hidden files in dialog.
-    * `createDirectory` *macOS* - Allow creating new directories from dialog.
-    * `promptToCreate` *Windows* - Prompt for creation if the file path entered in the dialog does not exist. This does not actually create the file at the path but allows non-existent paths to be returned that should be created by the application.
-    * `noResolveAliases` *macOS* - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
-    * `treatPackageAsDirectory` *macOS* - Treat packages, such as `.app` folders, as a directory instead of a file.
-  * `message` String (optional) *macOS* - Message to display above input boxes.
-  * `securityScopedBookmarks` Boolean (optional) *masOS* *mas* - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
+  * `properties` String[] (optional) - dialog가 어떤 요소를 사용할 지를 지정합니다. 아래의 값들을 사용할 수 있습니다. 
+    * `openFile` - 파일 선택 가능
+    * `openDirectory` - 폴더 선택 가능
+    * `multiSelections` - 경로 다중 선택 가능
+    * `showHiddenFiles` - 숨겨진 파일 표시
+    * `createDirectory` *macOS* - dialog에서 새로운 폴더 생성 가능
+    * `promptToCreate` *Windows* - 입력한 경로가 존재하지 않을 경우 프롬프트 생성. 실제로 해당 경로에 파일을 만들지는 않지만 존재하지 않는 파일에 대한 경로를 반환함으로써 애플리케이션에서 해당 파일을 생성할 수 있도록 합니다.
+    * `noResolveAliases` *macOS* - symlink로 설정된 파일 원본의 경로가 아니라 symlink의 경로를 직접 반환합니다.
+    * `treatPackageAsDirectory` *macOS* - `.app` 폴더와 같은 macOS 패키지를 파일이 아니라 폴더로써 다룹니다
+  * `message` String (optional) *macOS* - 입력 상자 상단에 들어갈 메시지를 설정합니다
+  * `securityScopedBookmarks` Boolean (optional) *masOS* *mas* - Mac App Store 용으로 패키지 되었을때를 위한 [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16)를 만듭니다
 * `callback` Function (optional) 
-  * `filePaths` String[] - An array of file paths chosen by the user
-  * `bookmarks` String[] *macOS* *mas* - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` must be enabled for this to be populated.
+  * `filePaths` String[] - 사용자가 선택한 파일 경로들
+  * `bookmarks` String[] *macOS* *mas* - `filePaths` 배열과 매칭되는 base64로 변환된 security scoped bookmark 데이터. 이 값을 얻기 위해서는 `securityScopedBookmarks`를 반드시 설정해야 합니다.
 
-사용자가 선택한 파일 경로를 `String[]`의 배열 형태로 반환합니다. 만약 callback이 제공되어 있다면 `undefined`을 반환합니다.
+사용자가 선택한 파일 경로를 `String[]` 형태로 반환합니다. 만약 callback을 제공하였다면 `undefined`를 반환합니다.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+`browserWindow` 인수는 대화 상자가 부모 창에 연결되어 모달 대화상자로써 표시될 수 있도록 해줍니다.
 
-The `filters` specifies an array of file types that can be displayed or selected when you want to limit the user to a specific type. For example:
+`filters` 값으로 표시하거나 선택할 수 있는 파일의 종류를 설정할 수 있습니다. 예를 들어,
 
 ```javascript
 {
   filters: [
-    {name: 'Images', extensions: ['jpg', 'png', 'gif']},
-    {name: 'Movies', extensions: ['mkv', 'avi', 'mp4']},
-    {name: 'Custom File Type', extensions: ['as']},
-    {name: 'All Files', extensions: ['*']}
+    {name: '사진', extensions: ['jpg', 'png', 'gif']},
+    {name: '동영상', extensions: ['mkv', 'avi', 'mp4']},
+    {name: '커스텀 파일 타입', extensions: ['as']},
+    {name: '모든 파일', extensions: ['*']}
   ]
 }
 ```
 
-The `extensions` array should contain extensions without wildcards or dots (e.g. `'png'` is good but `'.png'` and `'*.png'` are bad). To show all files, use the `'*'` wildcard (no other wildcard is supported).
+`extensions` 배열에서는 와일드카드 문자나 점 문자가 들어가지 않은 확장자의 값이 들어가야 합니다. (예시: `'png'` 는 가능하지만 `'.png'`나 `'*.png'`는 불가능합니다) 모든 파일을 표시하고 싶다면 `'*'` 와일드카드를 사용해주세요. (다른 와일드카드 값은 사용할 수 없습니다)
 
 If a `callback` is passed, the API call will be asynchronous and the result will be passed via `callback(filenames)`.
 
@@ -74,7 +74,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 * `options` Object 
   * `title` String (optional)
   * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
-  * `buttonLabel` String (optional) - Custom label for the confirmation button, when left empty the default label will be used.
+  * `buttonLabel` String (optional) - 확인 버튼에 대한 사용자 지정 라벨입니다. 비워둘 경우 기본 라벨이 사용됩니다.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
   * `message` String (optional) *macOS* - Message to display above text fields.
   * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
@@ -86,7 +86,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 
 Returns `String`, the path of the file chosen by the user, if a callback is provided it returns `undefined`.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+`browserWindow` 인수는 대화 상자가 부모 창에 연결되어 모달 대화상자로써 표시될 수 있도록 해줍니다.
 
 The `filters` specifies an array of file types that can be displayed, see `dialog.showOpenDialog` for an example.
 
@@ -116,7 +116,7 @@ Returns `Integer`, the index of the clicked button, if a callback is provided it
 
 Shows a message box, it will block the process until the message box is closed. It returns the index of the clicked button.
 
-The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
+`browserWindow` 인수는 대화 상자가 부모 창에 연결되어 모달 대화상자로써 표시될 수 있도록 해줍니다.
 
 If a `callback` is passed, the dialog will not block the process. The API call will be asynchronous and the result will be passed via `callback(response)`.
 

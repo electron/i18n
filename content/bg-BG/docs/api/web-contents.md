@@ -317,7 +317,7 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 
 The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
-#### Събитие: "вход"
+#### Събитие: 'login'
 
 Връща:
 
@@ -332,7 +332,7 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
   * `домакин` Низ
   * `порт` Цяло число
   * `царство` Низ
-* `обратно повикване` Функция 
+* `callback` Функция 
   * `потребителско име` Низ
   * `парола` Низ
 
@@ -861,7 +861,7 @@ console.log(requestId)
 #### `contents.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
-* `обратно повикване` Функция 
+* `callback` Функция 
   * `image` [NativeImage](native-image.md)
 
 Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
@@ -1159,7 +1159,7 @@ For the `mouseWheel` event, the `event` object also have following properties:
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
 * `onlyDirty` Boolean (optional) - Defaults to `false`.
-* `callback` Function 
+* `обратно повикване` Function 
   * `frameBuffer` Buffer
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
@@ -1188,7 +1188,7 @@ Sets the `item` as dragging item for current drag-drop operation, `file` is the 
   * `HTMLOnly` - Save only the HTML of the page.
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
-* `обратно повикване` Функция - `(error) => {}`. 
+* `callback` Функция - `(error) => {}`. 
   * `error` Error
 
 Returns `Boolean` - true if the process of saving page has been initiated successfully.

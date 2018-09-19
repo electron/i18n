@@ -13,7 +13,7 @@ On macOS and Linux, the details of the Pepper Flash plugin can be found by navig
 Ad esempio:
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 const path = require('path')
 / / Specifica il percorso al plugin flash, supponendo che sia collocato nella stessa directory di main.js.
 let pluginName

@@ -2,11 +2,11 @@
 
 > Crea un botón en la barra táctil para aplicaciones macOS nativas
 
-Proceso: [principal](../tutorial/quick-start.md#main-process)
+Proceso: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `nuevo botón en la barra tactil(opciones)` *Experimental*
 
-* `options` Object 
+* `opciones` Object 
   * `Etiqueta` cadena (opcional) - Texto del fondo.
   * `Color del fondo` Cadena (opcional) - Color del fondo en formato hex, ejemplo: `#ABCDEF`.
   * `icono` [imagen nativa](native-image.md) (opcional) - ícono en el fondo.

@@ -2,7 +2,7 @@
 
 > 在macOS 应用程序中，为触控栏创建拾色器
 
-进程：[主进程](../tutorial/quick-start.md#main-process)
+Process: [Main](../tutorial/quick-start.md#main-process)
 
 ### ` new TouchBarColorPicker(可选)` *实验功能*
 

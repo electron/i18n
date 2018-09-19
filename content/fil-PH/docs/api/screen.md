@@ -22,22 +22,22 @@ Isa pang halimbawa ng paglikha ng isang window sa panlabas na display:
 const elektron = rewuire('elektron') const {app, BrowserWindow} = require('elektron') let win app.on('ready',() => { let displays = elektron.screen.getAllDisplays() let externalDisplay = displays.find((display) = > { return display.bounds.x !== 0 || display.bounds.y!== 0 }) of (externalDisplay) { win = new BrowserWindow({ x: externalDisplay.bounds.x + 50, y: externalDisplay.bounds.y + 50 }) win.loadURL('https://github.com') } })
 ```
 
-## Pangyayari
+## Mga event
 
 Ang `screen` na modyul na naglalabas ng mga sumusunod na pangyayari:
 
 ### Pangyayari: 'display-added'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `newDisplay` [Display](structures/display.md)
 
 Naglalabas kapag `newDisplay` ay idinagdag na.
 
 ### Pangyayari: 'display-removed'
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `event` na Kaganapan
 * `oldDisplay` [Display](structures/display.md)
@@ -46,15 +46,15 @@ Naglalabas kapag `oldDisplay` ay idinagdag na.
 
 ### Pangyayari: 'display-metrics-changed'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `event` na Pangyayari
 * `display` [Display](structures/display.md)
 * `changedMetrics` String[]
 
 Naglalabas kapag ang isa o maraming panukat ay nagbago sa isang `display`. Ang `changedMetrics` ay isang array ng mga strings na naglalarawan ng mga pagbabago. Mga posiblen pagbabago sa `bounds`, `workArea`, `scaleFactor` at `rotation`.
 
-## Mga Paraan
+## Mga Pamamaraan
 
 Ang `screen` na modyul ay may mga sumusunod na mga paraan:
 
@@ -66,24 +66,24 @@ Ang kasalukuyang ganap na posisyon ng mouse pointer.
 
 ### `screen.getMenuBarHeight()` *macOS*
 
-Ibabalik sa `Integer` - Ang taas ng menu bar sa pixels.
+Returns `Integer` - The height of the menu bar in pixels.
 
 ### `screen.getPrimaryDisplay()`
 
-Ibabalik [`Display`](structures/display.md) - Ang pangunahing display.
+Returns [`Display`](structures/display.md) - The primary display.
 
 ### `screen.getAllDisplays()`
 
-Ibabalik sa [`Display[]`](structures/display.md) - Ang array sa display na kasalukuyang magagamit.
+Returns [`Display[]`](structures/display.md) - An array of displays that are currently available.
 
 ### `screen.getDisplayNearestPoint(point)`
 
 * `point` [Point](structures/point.md)
 
-Ibabalik sa [`Display`](structures/display.md) - Ang pinakamalapit na display sa isang tiyak na punto.
+Returns [`Display`](structures/display.md) - The display nearest the specified point.
 
 ### `screen.getDisplayMatching(rect)`
 
 * `rect` [Rectangle](structures/rectangle.md)
 
-Ibabalik sa [`Display`](structures/display.md) - Ang display na pinakamalapit na bumabalandra sa ibinibigay na hangganan.
+Returns [`Display`](structures/display.md) - The display that most closely intersects the provided bounds.

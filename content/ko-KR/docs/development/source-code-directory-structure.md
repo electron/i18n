@@ -43,9 +43,7 @@ Electron
 ├── native_mate/ - A fork of Chromium's gin library that makes it easier to marshal
 |                  types between C++ and JavaScript.
 ├── spec/ - 자동화 테스트.
-├── electron.gyp - Electron의 빌드 규칙.
-└── common.gypi - Compiler specific settings and building rules for other
-                  components like `node` and `breakpad`.
+└── BUILD.gn - Building rules of Electron.
 ```
 
 ## `/chromium_src`
@@ -55,12 +53,12 @@ The files in `/chromium_src` tend to be pieces of Chromium that aren't part of t
 ## 그외 디렉터리 구조
 
 * **script** - 개발목적으로 사용되는 빌드, 패키징, 테스트, 기타등을 실행하는 스크립트.
-* **tools** - gyp 파일에서 사용되는 헬퍼 스크립트 `script`와는 다르게 유저로부터 직접 실행되지 않는 스크립트들을 이곳에 넣습니다.
+* **tools** - Helper scripts used by GN files, unlike `script`, scripts put here should never be invoked by users directly.
 * **vendor** - 소스 코드의 서드파티 의존성 코드 소스 코드 디렉터리가 겹쳐 혼란을 일으킬 수 있기 때문에 `third_party`와 같은 Chromium 소스 코드 디렉터리에서 사용된 폴더 이름은 사용하지 않았습니다.
 * **node_modules** - 빌드에 사용되는 node 서드파티 모듈.
 * **out** - ninja의 임시 출력 디렉터리.
 * **dist** - 배포용 바이너리를 빌드할 때 사용하는 script/create-dist.py 스크립트로부터 만들어지는 임시 디렉터리.
-* **external_binaries** - `gyp` 빌드를 지원하지 않아 따로 다운로드된 서드파티 프레임워크 바이너리들.
+* **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gn`.
 
 ## Git 서브 모듈 최신 버전으로 유지
 
@@ -69,8 +67,8 @@ Electron 저장소는 몇 가지 외부 벤더 의존성을 가지고 있으며 
 ```sh
 $ git status
 
-	modified:   brightray (new commits)
-	modified:   vendor/node (new commits)
+    modified:   vendor/depot_tools (new commits)
+    modified:   vendor/boto (new commits)
 ```
 
 이 외부 의존성 모듈들을 업데이트 하려면, 다음 커맨드를 실행합니다:

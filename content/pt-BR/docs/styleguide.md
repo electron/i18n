@@ -10,37 +10,37 @@ Estas são as diretrizes para escrever a documentação do Electron.
 * Todas as palavras no títulos da página devem estar em letras maiúsculas, exceto conjunções como "de" e "e".
 * Somente a primeira palavra de um capítulo deve estar em letra maiúscula.
 
-Usado o `Inicio rápido` como exemplo:
+Usado o `Inicio Rápido` como exemplo:
 
 ```markdown
-# Quick Start
+# Início Rápido
 
 ...
 
-## Main process
+## Processo principal
 
 ...
 
-## Renderer process
+## Processo de renderização 
 
 ...
 
-## Run your app
+## Execute seu aplicativo
 
 ...
 
-### Run as a distribution
+### Executar como uma distribuição
 
 ...
 
-### Manually downloaded Electron binary
+### Baixando manualmente o binário do Electron
 
 ...
 ```
 
 For API references, there are exceptions to this rule.
 
-## Markdown rules
+## Funcionalidades Markdown
 
 * Use `sh` instead of `cmd` in code blocks (due to the syntax highlighter).
 * Lines should be wrapped at 80 columns.

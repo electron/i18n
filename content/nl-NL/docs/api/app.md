@@ -2,7 +2,7 @@
 
 > Control your application's event lifecycle.
 
-Process: [Main](../glossary.md#main-process)
+Proces: [Main](../glossary.md#main-process)
 
 The following example shows how to quit the application when the last window is closed:
 
@@ -302,6 +302,23 @@ Returns:
 * `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
 
 Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
+
+### Event: 'session-created'
+
+Returns:
+
+* `event` Event
+* `session` [Session](session.md)
+
+Emitted when Electron has created a new `session`.
+
+```javascript
+const {app} = require('electron')
+
+app.on('session-created', (event, session) => {
+  console.log(session)
+})
+```
 
 ## Methoden
 

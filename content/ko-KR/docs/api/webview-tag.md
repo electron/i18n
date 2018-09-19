@@ -2,7 +2,7 @@
 
 > Display external web content in an isolated frame and process.
 
-프로세스: [Renderer](../tutorial/quick-start.md#renderer-process)
+Process: [Renderer](../tutorial/quick-start.md#renderer-process)
 
 Use the `webview` tag to embed 'guest' content (such as web pages) in your Electron app. The guest content is contained within the `webview` container. An embedded page within your app controls how the guest content is laid out and rendered.
 
@@ -531,7 +531,7 @@ The following DOM events are available to the `webview` tag:
 
 ### Event: 'load-commit'
 
-Returns:
+반환:
 
 * `url` String
 * `isMainFrame` Boolean
@@ -571,7 +571,7 @@ Corresponds to the points in time when the spinner of the tab stops spinning.
 
 ### Event: 'did-get-response-details'
 
-Returns:
+반환:
 
 * `status` Boolean
 * `newURL` String
@@ -586,7 +586,7 @@ Fired when details regarding a requested resource is available. `status` indicat
 
 ### Event: 'did-get-redirect-request'
 
-Returns:
+반환:
 
 * `oldURL` String
 * `newURL` String
@@ -625,7 +625,7 @@ Fired when page leaves fullscreen triggered by HTML API.
 
 ### Event: 'console-message'
 
-Returns:
+반환:
 
 * `level` Integer
 * `message` String
@@ -645,7 +645,7 @@ webview.addEventListener('console-message', (e) => {
 
 ### Event: 'found-in-page'
 
-Returns:
+반환:
 
 * `result` Object 
   * `requestId` Integer
@@ -668,7 +668,7 @@ console.log(requestId)
 
 ### Event: 'new-window'
 
-Returns:
+반환:
 
 * `url` String
 * `frameName` String
@@ -707,7 +707,7 @@ Calling `event.preventDefault()` does **NOT** have any effect.
 
 ### Event: 'did-navigate'
 
-Returns:
+반환:
 
 * `url` String
 
@@ -717,7 +717,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 ### Event: 'did-navigate-in-page'
 
-Returns:
+반환:
 
 * `isMainFrame` Boolean
 * `url` String
@@ -741,7 +741,7 @@ webview.addEventListener('close', () => {
 
 ### Event: 'ipc-message'
 
-Returns:
+반환:
 
 * `channel` String
 * `args` Array
@@ -778,7 +778,7 @@ Fired when the gpu process is crashed.
 
 ### Event: 'plugin-crashed'
 
-Returns:
+반환:
 
 * PrinterInfo Object
 * `version` String
@@ -799,7 +799,7 @@ Emitted when media is paused or done playing.
 
 ### Event: 'did-change-theme-color'
 
-Returns:
+반환:
 
 * `themeColor` String
 

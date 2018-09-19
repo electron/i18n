@@ -17,122 +17,37 @@ Ang pagbuo ng Elektron ay nangyayari lamang sa "command-line scripts" at hindi m
 
 **Tandaan:** Kahit pa ang "Visual Studio" ay 'di ginagamit sa pagbuo ng Elektron, ito ay **kailangan** pa rin upang magamit ang kinakailangan na "toolchains" galing dito.
 
-## Ang Pagkuha ng "Code"
-
-```powershell
-$ git clone https://github.com/electron/electron.git
-```
-
-## "Bootstrapping"
-
-Ang "bootstrap" skrip ay "dina-download" ang lahat ng kailangang "build dependencies" at nililikha ang "build project files". Pansinin ang ginagamit na `ninja` para sa pagbuo ng "Electron", ay humahadlang upang walang proyekto ng "Visual Studio" ang mabuo dito.
-
-To bootstrap for a static, non-developer build, run:
-
-```powershell
-$ cd electron
-$ npm run bootstrap
-```
-
-Or to bootstrap for a development session that builds faster by not statically linking:
-
-```powershell
-$ cd electron
-$ npm run bootstrap:dev
-```
-
 ## Ang Pagbubuo
 
-Bumuo pareho ng `Release` at `Debug`:
-
-```powershell
-$ npm run build
-```
-
-You can also build either the `Debug` or `Release` target on its own:
-
-```powershell
-$ npm run build:dev
-```
-
-```powershell
-$ npm run build:release
-```
-
-Matapos mabuo ang mga ito, maaaring makita ang `electron.exe` sa ilalim ng `out\D` (debug target) o sa ilalim ng `out\R` (release target).
+See [Build Instructions: GN](build-instructions-gn.md)
 
 ## Pagbuo ng 32bit
 
-Para mabuo ang pinupuntirya na 32bit, dapat daanan ang `--target_arch=ia32` kapag pinapatakbo ang iskrip na "bootstrap":
+To build for the 32bit target, you need to pass `target_cpu = "x86"` as a GN arg. You can build the 32bit target alongside the 64bit target by using a different output directory for GN, e.g. `out/Release-x86`, with different arguments.
 
 ```powershell
-$ python script\bootstrap.py -v --target_arch=ia32
+$ gn gen out/Release-x86 --args="import(\"//electron/build/args/release.gn\") target_cpu=\"x86\""
 ```
 
 Ang mga hakbang para sa iba pang pagbuo ay pareho lamang.
 
 ## Proyekto na "Visual Studio"
 
-Para makabuo ng proyekto ng "Visual Studio", maaaring idaan sa "parameter" na `--msvs`:
+To generate a Visual Studio project, you can pass the `--ide=vs2017` parameter to `gn gen`:
 
 ```powershell
-$ python script\bootstrap.py --msvs
+$ gn gen out/Debug --ide=vs2017
 ```
 
-## Paglilinis
+## Paghahanap ng ProblemaPaghahanap ng Problema
 
-Upang malinis ang binubuong files:
+### "Command xxxx" ay 'di mahanap
 
-```powershell
-$ npm run clean
-```
-
-Na maglilinis lamang ng mga direktoryong `out` at `dist`:
-
-```sh
-$ npm run clean-build
-```
-
-Paalala: Ang parehong codes para sa paglilinis ay kailangang muling pinatatakbo ng `bootstrap</strong> bago mabuo.</p>
-
-<h2>Mga Pagsusuri</h2>
-
-<p>Tingnan ang <a href="build-system-overview.md#tests"> Buod ng Pagbuo ng Sistema: Mga Pagsusuri </a></p>
-
-<h2>Paghahanap ng ProblemaPaghahanap ng Problema</h2>
-
-<h3>"Command xxxx" ay 'di mahanap</h3>
-
-<p>Kung ikaw ay makatagpo ng mali tulad ng <code>Command xxxx not found`, maaaring gamitin ang "console" na `VS2015 Command Prompt` para mapalabas ang mga binubuong iskrip.
+Kung ikaw ay makatagpo ng mali tulad ng `Command xxxx not found`, maaaring gamitin ang "console" na `VS2015 Command Prompt` para mapalabas ang mga binubuong iskrip.
 
 ### "Fatal internal compiler error": C1001
 
 Siguraduhin na mayroon kang "installed" na pinakabagong "Visual Studio update".
-
-### Assertion failed: ((handle))->activecnt >= 0
-
-Kung ang pagbuo ay sa ilalim ng Cygwin, maaaring makita ang nabigong `bootstrap.py` kasama ang mga sumusunod na mali:
-
-```sh
-Assertion failed: ((handle))->activecnt >= 0, file src\win\pipe.c, line 1430
-
-Traceback (most recent call last):
-  File "script/bootstrap.py", line 87, in <module>
-    sys.exit(main())
-  File "script/bootstrap.py", line 22, in main
-    update_node_modules('.')
-  File "script/bootstrap.py", line 56, in update_node_modules
-    execute([NPM, 'install'])
-  File "/home/zcbenz/codes/raven/script/lib/util.py", line 118, in execute
-    raise e
-subprocess.CalledProcessError: Command '['npm.cmd', 'install']' returned non-zero exit status 3
-```
-
-Ito ay sanhi ng "bug" kapag parehong gumagamit ng: Cygwin Python" at "Win32 Node". Ang solusyon ay ang paggamit ng "Win32 Python" para mapalabas ang iskrip na "bootstrap" (ipagpalagay na mayroon kang "installed Python" sa ilalim ng `C:\Python27`):
-
-```powershell
-$ /cygdrive/c/Python27/python.exe script/bootstrap.py
-```
 
 ### LNK1181: cannot open input file 'kernel32.lib'
 

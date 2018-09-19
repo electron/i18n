@@ -50,36 +50,6 @@ $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
 
 Inne dystrybucje mogą oferować podobne paczki instalacji przez managery paczek takie jak pacman. Można też kompilować z kodu źródłowego.
 
-## Dostawanie kodu
-
-```sh
-$ git clone https://github.com/electron/electron
-```
-
-## Bootstrapping
-
-Skrypt bootstrap pobierze wszystkie konieczne zależności budowy i stworzy pliki projektu budowy. Musisz mieć Python 2.7.x, aby skrypt się powiódł. Pobieranie niektórych plików może zająć dużo czasu. Zauważ, że używamy `ninja` do budowy Electron'u, więc żaden `Makefile` nie jest generowany.
-
-To bootstrap for a static, non-developer build, run:
-
-```sh
-$ cd electron
-$ npm run bootstrap
-```
-
-Or to bootstrap for a development session that builds faster by not statically linking:
-
-```sh
-$ cd electron
-$ npm run bootstrap:dev
-```
-
-If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
-
-```sh
-$ ./script/build.py --compdb
-```
-
 ### Kompilacja międzyplatformowa
 
 Jeśli chcesz zbudować dla `arm` należy również zainstalować następujące zależności:
@@ -96,54 +66,15 @@ $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
                        g++-aarch64-linux-gnu
 ```
 
-I do międzyplatformowej kompilacji dla celów `arm` lub `ia32`, należy przekazać parametr `--target_arch` do skryptu `bootstrap.py`:
+And to cross-compile for `arm` or `ia32` targets, you should pass the `target_cpu` parameter to `gn gen`:
 
 ```sh
-$ ./script/bootstrap.py -v --target_arch=arm
+$ gn gen out/Debug --args='import(...) target_cpu="arm"'
 ```
 
 ## Kompilowanie
 
-Jeśli chcesz zbudować oba `Release` i `Debug` celów:
-
-```sh
-$ npm run build
-```
-
-This script will cause a very large Electron executable to be placed in the directory `out/R`. Rozmiar pliku to ponad 1,3 Gb. Dzieje się tak, ponieważ uwolnienie docelowego pliku binarnego zawiera symbole debugowania. Aby zmniejszyć rozmiar pliku, uruchom skrypt `create-dist.py<0>:</p>
-
-<pre><code class="sh">$ ./script/create-dist.py
-`</pre> 
-
-This will put a working distribution with much smaller file sizes in the `dist` directory. After running the `create-dist.py` script, you may want to remove the 1.3+ gigabyte binary which is still in `out/R`.
-
-You can also build either the `Debug` or `Release` target on its own:
-
-```sh
-$ npm run build:dev
-```
-
-```sh
-$ npm run build:release
-```
-
-After building is done, you can find the `electron` debug binary under `out/D`.
-
-## Czyszczenie
-
-Aby wyczyścić pliki kompilacji:
-
-```sh
-$ npm run clean
-```
-
-Aby oczyścić tylko `z` i `dist` katalogów:
-
-```sh
-$ npm run clean-build
-```
-
-**Note:** Both clean commands require running `bootstrap` again before building.
+See [Build Instructions: GN](build-instructions-gn.md)
 
 ## Rozwiązywanie problemów
 
@@ -155,76 +86,20 @@ Prekompilowany `clang` będzie próbował powiązać z `libtinfo.so.5`. W zależ
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 ```
 
-## Testy
-
-Zobacz [przegląd budowy systemu: Testy](build-system-overview.md#tests)
-
 ## Zaawansowane tematy
 
 Domyślne tworzenie konfiguracji jest celem dla głównej dystrybucji pulpitu Linux. Aby zbudować dla konkretnej dystrybucji lub urządzenia, następujące informacje mogą ci pomóc.
 
-### Budowanie `libchromiumcontent` lokalnie
-
-Aby uniknąć używania gotowych binarek `libchromiumcontent`, można zbudować `libchromiumcontent` lokalnie. Aby to zrobić, wykonaj następujące kroki:
-
-1. Instaluj [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install)
-2. Instaluj [dodatkowe zależności kompilacji](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies)
-3. Sprowadź submoduły z gita:
-
-```sh
-$ git submodule update --init --recursive
-```
-
-1. Pass the `--build_release_libcc` switch to `bootstrap.py` script:
-
-```sh
-$ ./script/bootstrap.py -v --build_release_libcc
-```
-
-Note that by default the `shared_library` configuration is not built, so you can only build `Release` version of Electron if you use this mode:
-
-```sh
-$ ./script/build.py -c R
-```
-
 ### Using system `clang` instead of downloaded `clang` binaries
 
-By default Electron is built with prebuilt [`clang`](https://clang.llvm.org/get_started.html) binaries provided by the Chromium project. If for some reason you want to build with the `clang` installed in your system, you can call `bootstrap.py` with `--clang_dir=<path>` switch. Przez pominięcie tego, skrypt budowy założy, że pliki binarne `clang` znajdują się w `<path>/bin/`.
+By default Electron is built with prebuilt [`clang`](https://clang.llvm.org/get_started.html) binaries provided by the Chromium project. If for some reason you want to build with the `clang` installed in your system, you can specify the `clang_base_path` argument in the GN args.
 
-Na przykład jeśli zainstalowałeś `clang` pod `/user/local/bin/clang`:
+For example if you installed `clang` under `/usr/local/bin/clang`:
 
 ```sh
-$ ./script/bootstrap.py -v --build_release_libcc --clang_dir /usr/local
-$ ./script/build.py -c R
+$ gn gen out/Debug --args='import("//electron/build/args/debug.gn") clang_base_path = "/usr/local/bin"'
 ```
 
 ### Używanie kompilatorów innych niż `clang`
 
-To build Electron with compilers like `g++`, you first need to disable `clang` with `--disable_clang` switch first, and then set `CC` and `CXX` environment variables to the ones you want.
-
-Na przykład budowanie z GCC toolchain:
-
-```sh
-$ env CC=gcc CXX=g++ ./script/bootstrap.py -v --build_release_libcc --disable_clang
-$ ./script/build.py -c R
-```
-
-### Zmienne Środowiskowe
-
-Apart from `CC` and `CXX`, you can also set the following environment variables to customise the build configuration:
-
-* `CPPFLAGS`
-* `CPPFLAGS_host`
-* `CFLAGS`
-* `CFLAGS_host`
-* `CXXFLAGS`
-* `CXXFLAGS_host`
-* `AR`
-* `AR_host`
-* `CC`
-* `CC_host`
-* `CXX`
-* `CXX_host`
-* `LDFLAGS`
-
-Zmienne środowiskowe muszą być ustawione podczas wykonywania skryptu `bootstrap.py`, to nie będzie działać w skrypcie `build.py`.
+Building Electron with compilers other than `clang` is not supported.

@@ -2,7 +2,7 @@
 
 > Crea un control segmentado (un conjunto de botones) donde un botón tiene un estado seleccionado
 
-Proceso: [Main](../tutorial/quick-start.md#main-process)
+Proceso: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `nuevo TouchBarSegmentedControl(options)` *Experimental*
 

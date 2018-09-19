@@ -303,6 +303,23 @@ Returns:
 
 Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 
+### Event: 'session-created'
+
+Returns:
+
+* `event` Event
+* `session` [Session](session.md)
+
+Emitted when Electron has created a new `session`.
+
+```javascript
+const {app} = require('electron')
+
+app.on('session-created', (event, session) => {
+  console.log(session)
+})
+```
+
 ## Methods
 
 The `app` object has the following methods:
@@ -368,7 +385,7 @@ Returns `String` - The current application directory.
 
 ### `app.getPath(name)`
 
-* اسم الجهاز
+* `name` سلسلة نصية
 
 Returns `String` - A path to a special directory or file associated with `name`. On failure an `Error` is thrown.
 
@@ -415,7 +432,7 @@ On *Linux* and *macOS*, icons depend on the application associated with file mim
 
 ### `app.setPath(name, path)`
 
-* اسم الجهاز
+* `name` سلسلة نصية
 * `path` String
 
 Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.
@@ -436,7 +453,7 @@ Usually the `name` field of `package.json` is a short lowercased name, according
 
 ### `app.setName(name)`
 
-* اسم الجهاز
+* `name` سلسلة نصية
 
 Overrides the current application's name.
 
@@ -671,7 +688,7 @@ Updates the current activity if its type matches `type`, merging the entries fro
 
 ### `app.setAppUserModelId(id)` *Windows*
 
-* `id` String
+* `id` سلسلة نصية
 
 Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) to `id`.
 

@@ -17,7 +17,7 @@
 要启动调试会话，请打开 PowerShell/CMD 并执行 Electron 的调试版本，使用应用程序作为参数打开。
 
 ```powershell
-$ ./out/D/electron.exe ~/my-electron-app/
+$ ./out/Debug/electron.exe ~/my-electron-app/
 ```
 
 ### 设置断点

@@ -41,9 +41,7 @@ Kaynak kodu daha iyi anlamak için [krom'ın çok süreç mimarisi](https://dev.
 ├── native_mate/ - A fork of Chromium's gin library that makes it easier to marshal
 |                  types between C++ and JavaScript.
 ├── spec / - otomatik testler.
-├── electron.gyp - elektron yapı kuralları.
-└── common.gypi - Compiler specific settings and building rules for other
-                  components like `node` and `breakpad`.
+└── BUILD.gn - Building rules of Electron.
 ```
 
 ## `/chromium_src`
@@ -53,21 +51,22 @@ The files in `/chromium_src` tend to be pieces of Chromium that aren't part of t
 ## Diğer Dizinlerin Yapısı
 
 * **komut dosyası** - komut bina, ambalaj, test, vb gibi geliştirme amaç için kullanılır.
-* **araçlar** - Gyp dosyaları tarafından kullanılan yardımcı komut dosyaları aksine `script`, komut dosyaları koy burada asla doğrudan kullanıcılar tarafından çağrılmamalıdır.
+* **tools** - Helper scripts used by GN files, unlike `script`, scripts put here should never be invoked by users directly.
 * **satıcı** - Üçüncü kişi bağımlılıklarının kaynak kodu, biz kullanmadık `üçüncü_party` çünkü aynı dizinde onu şaşırtacak Chromium'un kaynak kodu ağacı.
 * **düğüm_modülleri** - Bina için kullanılan üçüncü taraf düğüm modülleri.
 * **dışarı** - Geçici çıktı dizini `ninja`.
 * **dist** - Tarafından oluşturulan geçici dizin `script/create-dist.py` bir dağıtım oluştururken komut dosyası.
-* **harici_ikili** - Üçüncü parti çerçevelerin indirilen ikili dosyaları ile bina desteklemez `gyp`.
+* **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gn`.
 
 ## Git Submodules güncel tutma
 
 Electron deposunda birkaç satıcı bağımlılığı vardır. [/satıcı](https://github.com/electron/electron/tree/master/vendor) rehber. Bazen böyle bir mesaj görebilirsiniz. Koşarken `git durumu`:
 
 ```sh
-$ git durumu
-    değiştirilmiş:   satıcı/libchromium content (yeni taahhütler)
-    değiştirilmiş:   satıcı/düğüm (yeni taahhütler)
+$ git status
+
+    modified:   vendor/depot_tools (new commits)
+    modified:   vendor/boto (new commits)
 ```
 
 Bu satılan bağımlılıkları güncellemek için aşağıdaki komutu çalıştırın:

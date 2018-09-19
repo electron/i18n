@@ -2,7 +2,7 @@
 
 > Buat pemetik warna di bilah sentuh untuk aplikasi macOS asli
 
-Proses: [utama](../tutorial/quick-start.md#main-process)
+Process: [Main](../tutorial/quick-start.md#main-process)
 
 ### `TouchBarColorPicker baru (pilihan)`*Eksperimental*
 

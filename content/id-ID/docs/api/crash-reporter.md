@@ -15,35 +15,30 @@ Untuk menyiapkan server untuk menerima dan memproses laporan kerusakan, Anda dap
 * [socorro](https://github.com/mozilla/socorro)
 * [mini-istirahat pad-server](https://github.com/electron/mini-breakpad-server)
 
-Laporan kerusakan disimpan secara lokal di folder direktori khusus aplikasi. Untuk `nama produk </ 0> dari <code> nama kamu </ 0> , laporan kerusakan akan disimpan dalam folder bernama <code> nama Crash kamu </ 0> di dalam direktori temp. Anda dapat menyesuaikan lokasi direktori sementara ini untuk aplikasi Anda dengan memanggil <code> app.setPath ( 'temp', '/ my / custom / temp') </ 0> 
-API sebelum memulai reporter kecelakaan.</p>
+Crash reports are saved locally in an application-specific temp directory folder. For a `productName` of `YourName`, crash reports will be stored in a folder named `YourName Crashes` inside the temp directory. You can customize this temp directory location for your app by calling the `app.setPath('temp', '/my/custom/temp')` API before starting the crash reporter.
 
-<h2>Methods</h2>
+## Methods
 
-<p>The <code> kecelakaan Reporter </ 0> modul memiliki metode berikut:</p>
+The `crashReporter` module has the following methods:
 
-<h3><code>kecelakaan Reporter.mulai (pilihan)`</h3> 
+### `kecelakaan Reporter.mulai (pilihan)`
 
-* `pilihan` Obyek 
-  * ` nama perusahaan </ 0>  String (opsional)</li>
-<li><code> submitURL </ 0>  String - URL bahwa laporan kerusakan akan dikirim ke POST.</li>
-<li><code> nama product</ 0>  String (opsional) - Default ke <code> app.getName () </ 0> .</li>
-<li><code> ungkah ke Server </ 0>  Boolean (opsional) - Apakah laporan kerusakan harus dikirim ke server Default adalah <code> true </ 0> .</li>
-<li><code> mengabaikan Sistem jatuh Handler </ 0>  Boolean (opsional) - Default adalah <code> false </ 0> .</li>
-<li><code> ekstra </ 0> Objek (opsional) - Objek yang dapat Anda tentukan yang akan dikirim bersamaan dengan laporan. Hanya properti string yang dikirim dengan benar. Objek bersarang tidak didukung dan nama dan nilai properti harus panjangnya kurang dari 64 karakter.</li>
-<li><code>crashesDirectory` String (optional) - Directory to store the crashreports temporarily (only used when the crash reporter is started via `process.crashReporter.start`).
+* `pilihan` Sasaran 
+  * `companyName` String (optional)
+  * `submitURL` String - URL that crash reports will be sent to as POST.
+  * `productName` String (optional) - Defaults to `app.getName()`.
+  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server Default is `true`.
+  * `ignoreSystemCrashHandler` Boolean (optional) - Default is `false`.
+  * `extra` Object (optional) - An object you can define that will be sent along with the report. Only string properties are sent correctly. Nested objects are not supported and the property names and values must be less than 64 characters long.
+  * `crashesDirectory` String (optional) - Directory to store the crashreports temporarily (only used when the crash reporter is started via `process.crashReporter.start`).
 
-Anda diminta untuk memanggil metode ini sebelum menggunakan API ` crashReporter </ 0> lainnya dan dalam setiap proses (utama / perender) yang ingin Anda kumpulkan laporan kerusakan.
-Anda bisa melewati pilihan yang berbeda untuk <code> kecelakaan Reporter.mulai </ 0> saat memanggil dari berbagai proses.</p>
+You are required to call this method before using any other `crashReporter` APIs and in each process (main/renderer) from which you want to collect crash reports. You can pass different options to `crashReporter.start` when calling from different processes.
 
-<p><strong> Catatan </ 0> Proses anak yang dibuat melalui modul <code> child_process </ 1> tidak akan memiliki akses ke modul Elektron .
-Oleh karena itu, untuk mengumpulkan laporan kerusakan dari mereka, gunakan <code> process.crashReporter.start </ 0> . Lewati pilihan yang sama seperti di atas dan yang tambahan yang disebut <code> crash Direktori</ 0> yang seharusnya mengarah ke direktori untuk menyimpan laporan kerusakan sementara. Anda bisa menguji ini dengan memanggil <code> process.crash () </ 0> untuk menabrak proses anak.</p>
+**Note** Child processes created via the `child_process` module will not have access to the Electron modules. Therefore, to collect crash reports from them, use `process.crashReporter.start` instead. Pass the same options as above along with an additional one called `crashesDirectory` that should point to a directory to store the crash reports temporarily. You can test this out by calling `process.crash()` to crash the child process.
 
-<p><strong> Catatan: </ 0> Untuk mengumpulkan laporan kerusakan dari proses anak di Windows , Anda perlu menambahkan kode tambahan ini juga.
-Ini akan memulai proses yang akan memantau dan mengirim laporan kecelakaan. Ganti <code> submit Url </ 0> , <code> nama produk</ 0> 
-dan <code> crash Direktori</ 0> dengan nilai yang sesuai.</p>
+**Note:** To collect crash reports from child process in Windows, you need to add this extra code as well. This will start the process that will monitor and send the crash reports. Replace `submitURL`, `productName` and `crashesDirectory` with appropriate values.
 
-<p><strong>Note:</strong> If you need send additional/updated <code>extra` parameters after your first call `start` you can call `addExtraParameter` on macOS or call `start` again with the new/updated `extra` parameters on Linux and Windows.
+**Note:** If you need send additional/updated `extra` parameters after your first call `start` you can call `addExtraParameter` on macOS or call `start` again with the new/updated `extra` parameters on Linux and Windows.
 
 ```js
  const args = [
@@ -60,43 +55,41 @@ dan <code> crash Direktori</ 0> dengan nilai yang sesuai.</p>
   })
 ```
 
-** Catatan: </ 0> Pada macos , Electron menggunakan klien ` crashpad </ 1> baru untuk pengumpulan dan pelaporan kecelakaan.
-Jika Anda ingin mengaktifkan laporan kerusakan, menginisialisasi <code> crashpad </ 0> dari proses utama menggunakan <code> crashReporter.start </ 0> diperlukan terlepas dari proses mana yang ingin Anda kumpulkan. Setelah diinisialisasi dengan cara ini, pengendara crashpad mengumpulkan crash dari semua proses. Anda masih harus menghubungi <code> crashReporter.start </ 0> dari proses renderer atau child, jika tidak crash dari mereka akan dilaporkan tanpa <code> companyName </ 0> , <code> productName </ 0> atau salah satu dari informasi <code> ekstra </ 0> .</p>
+**Note:** On macOS, Electron uses a new `crashpad` client for crash collection and reporting. If you want to enable crash reporting, initializing `crashpad` from the main process using `crashReporter.start` is required regardless of which process you want to collect crashes from. Once initialized this way, the crashpad handler collects crashes from all processes. You still have to call `crashReporter.start` from the renderer or child process, otherwise crashes from them will get reported without `companyName`, `productName` or any of the `extra` information.
 
-<h3><code>kecelakaan Reporter.dapatkan terakhir kecelakaan Reporter ()`</h3> 
+### `kecelakaan Reporter.dapatkan terakhir kecelakaan Reporter ()`
 
-Mengembalikan ` kecelakaan Report </ 0> :</p>
+Returns [`CrashReport`](structures/crash-report.md):
 
-<p>Mengembalikan tanggal dan ID dari laporan kerusakan terakhir Jika tidak ada laporan kerusakan yang dikirim atau reporter kecelakaan belum dimulai, <code> null </ 0> dikembalikan.</p>
+Returns the date and ID of the last crash report. If no crash reports have been sent or the crash reporter has not been started, `null` is returned.
 
-<h3><code>kecelakaan reporter.dapatkan unggahan repoter ()`</h3> 
+### `kecelakaan reporter.dapatkan unggahan repoter ()`
 
-Mengembalikan ` kecelakaan Report [] </ 0> :</p>
+Returns [`CrashReport[]`](structures/crash-report.md):
 
-<p>Mengembalikan semua laporan kerusakan yang diupload. Setiap laporan berisi tanggal dan upload ID.</p>
+Returns all uploaded crash reports. Each report contains the date and uploaded ID.
 
-<h3><code>kecelakaan Reporter.dapatkan unggahan ke Server () </ 0>  <em> Linux </ 1>  <em> macos </ 1></h3>
+### `kecelakaan Reporter.dapatkan unggahan ke Server () </ 0>  <em> Linux </ 1>  <em> macos </ 1></h3>
 
 <p>Returns <code>Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.</p> 
 
-** Catatan: </ 0> Ini API hanya dapat dipanggil dari proses utama.</p> 
+**Note:** This API can only be called from the main process.
 
 ### ` kecelakaan Reporter.dapatkan unggahan ke Server () </ 0> <em> Linux </ 1> <em> macos </ 1></h3>
 
 <ul>
-<li><code> unggah ke Server </ 0>  Boolean  <em> macOS </ 1> - Apakah laporan harus diserahkan ke server.</li>
-</ul>
+<li><code>uploadToServer` Boolean *macOS* - Whether reports should be submitted to the server.</li> </ul> 
 
-<p>Ini biasanya dikendalikan oleh preferensi pengguna. Ini tidak berpengaruh jika dipanggil sebelum <code> mulai </ 0> dipanggil.</p>
+This would normally be controlled by user preferences. This has no effect if called before `start` is called.
 
-<p><strong> Catatan: </ 0> Ini API hanya dapat dipanggil dari proses utama.</p>
+**Note:** This API can only be called from the main process.
 
-<h3><code>crashReporter.addExtraParameter(key, value)` *macOS*
+### `crashReporter.addExtraParameter(key, value)` *macOS*
 
 * ` kunci </ 0>  String - Kunci parameter, harus panjangnya kurang dari 64 karakter.</li>
 <li><code>value` String - Parameter value, must be less than 64 characters long.
 
-Tetapkan parameter tambahan untuk dikirim dengan laporan kerusakan. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
+Set an extra parameter to be sent with the crash report. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
 
 ### `crashReporter.removeExtraParameter(key)` *macOS*
 
@@ -110,17 +103,15 @@ Tetapkan parameter tambahan untuk dikirim dengan laporan kerusakan. The values s
   
   ## Laporan Kecelakaan Payload
   
-  Reporter kecelakaan akan mengirimkan data berikut ke ` submitURL </ 0> sebagai <code> multipart / form-data </ 0>  <code> POST </ 0> :</p>
-
-<ul>
-<li><code> ver </ 0>  String - Versi Elektron .</li>
-<li><code> platform </ 0>  String - misal 'win32'.</li>
-<li><code> proses_tipe </ 0>  String - misalnya 'renderer'.</li>
-<li><code> guid </ 0>  String - misal '5e1286fc-da97-479e-918b-6bfb0c3d1c72'.</li>
-<li><code> _version </ 0>  String - Versi di <code> package.json </ 0> .</li>
-<li><code>_companyName` String - Nama perusahaan di opsi `crashReporter` `options` obyek. ok</li> 
+  The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
   
-  * `prod` String - Nama produk yang mendasarinya. Dalam hal ini Elektron.
-  * `_companyName` String - Nama perusahaan di opsi `crashReporter` `options` obyek.
-  * `upload_file_minidump` File - Laporan kerusakan dalam format `minidump`.
-  * Semua tingkat satu sifat objek `ekstra` di `crashReporter` `pilihan` objek.</ul>
+  * `ver` String - The version of Electron.
+  * `platform` String - e.g. 'win32'.
+  * `process_type` String - e.g. 'renderer'.
+  * `guid` String - e.g. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'.
+  * `_version` String - The version in `package.json`.
+  * `_productName` String - The product name in the `crashReporter` `options` object.
+  * `prod` String - Name of the underlying product. In this case Electron.
+  * `_companyName` String - The company name in the `crashReporter` `options` object.
+  * `upload_file_minidump` File - The crash report in the format of `minidump`.
+  * All level one properties of the `extra` object in the `crashReporter` `options` object.

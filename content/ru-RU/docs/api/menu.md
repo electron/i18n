@@ -32,7 +32,7 @@ Process: [Main](../glossary.md#main-process)
 
 * `action` String
 
-Посылает `action` первому ответчику приложения. Это используется для эмуляции поведения меню macOS. Обычно достаточно использовать параметр [`role`](menu-item.md#roles) из [`MenuItem`](menu-item.md).
+Посылает `action` первому ответчику приложения. Это используется для эмуляции поведения меню macOS. Usually you would use the [`role`](menu-item.md#roles) property of a [`MenuItem`](menu-item.md).
 
 Для дополнительной информации по нативным действиям в macOS смотрите [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7).
 
@@ -42,7 +42,7 @@ Process: [Main](../glossary.md#main-process)
 
 Возвращает `Menu`
 
-В общем случае, `template` просто массив, содержащий `options` и конструирующий [MenuItem](menu-item.md). Пример использования смотрите выше.
+Generally, the `template` is an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
 
 You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
 
@@ -270,15 +270,14 @@ The [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api
 
 ## Позиция элемента меню
 
-Вы можете использовать `position` и `id` для контроля того, как элемент будет размещен при создании меню с `Menu.buildFromTemplate`.
+You can make use of `before`, `after`, `beforeGroupContaining`, `afterGroupContaining` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
 
-The `position` attribute of `MenuItem` has the form `[placement]=[id]`, where `placement` is one of `before`, `after`, or `endof` and `id` is the unique ID of an existing item in the menu:
+* `before` - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
+* `after` - Inserts this item after the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
+* `beforeGroupContaining` - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
+* `afterGroupContaining` - Provides a means for a single context menu to declare the placement of their containing group after the containing group of the item with the specified label.
 
-* `before` - Inserts this item before the id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
-* `after` - Inserts this item after id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
-* `endof` - Inserts this item at the end of the logical group containing the id referenced item (groups are created by separator items). If the referenced item doesn't exist, a new separator group is created with the given id and this item is inserted after that separator.
-
-When an item is positioned, all un-positioned items are inserted after it until a new item is positioned. So if you want to position a group of menu items in the same location you only need to specify a position for the first item.
+By default, items will be inserted in the order they exist in the template unless one of the specified positioning keywords is used.
 
 ### Примеры
 
@@ -286,11 +285,10 @@ When an item is positioned, all un-positioned items are inserted after it until 
 
 ```javascript
 [
-  {label: '4', id: '4'},
-  {label: '5', id: '5'},
-  {label: '1', id: '1', position: 'before=4'},
-  {label: '2', id: '2'},
-  {label: '3', id: '3'}
+  { id: '1', label: 'one' },
+  { id: '2', label: 'two' },
+  { id: '3', label: 'three' },
+  { id: '4', label: 'four' }
 ]
 ```
 
@@ -301,19 +299,39 @@ When an item is positioned, all un-positioned items are inserted after it until 
 - 2
 - 3
 - 4
-- 5
 ```
 
 Шаблон:
 
 ```javascript
 [
-  {label: 'a', position: 'endof=letters'},
-  {label: '1', position: 'endof=numbers'},
-  {label: 'b', position: 'endof=letters'},
-  {label: '2', position: 'endof=numbers'},
-  {label: 'c', position: 'endof=letters'},
-  {label: '3', position: 'endof=numbers'}
+  { id: '1', label: 'one' },
+  { type: 'separator' },
+  { id: '3', label: 'three', beforeGroupContaining: ['1'] },
+  { id: '4', label: 'four', afterGroupContaining: ['2'] },
+  { type: 'separator' },
+  { id: '2', label: 'two' }
+]
+```
+
+Меню:
+
+```sh
+<br />- 3
+- 4
+- ---
+- 1
+- ---
+- 2
+```
+
+Шаблон:
+
+```javascript
+[
+  { id: '1', label: 'one', after: ['3'] },
+  { id: '2', label: 'two', before: ['1'] },
+  { id: '3', label: 'three' }
 ]
 ```
 
@@ -321,11 +339,7 @@ When an item is positioned, all un-positioned items are inserted after it until 
 
 ```sh
 <br />- ---
-- a
-- b
-- c
-- ---
-- 1
-- 2
 - 3
+- 2
+- 1
 ```

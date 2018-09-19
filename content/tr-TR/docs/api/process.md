@@ -6,7 +6,21 @@
 
 Elektron'un `process` nesnesi [Node.js `process` object](https://nodejs.org/api/process.html)'ten genişletilir. Aşağıdaki etkinlikleri, özellikleri ve yöntemleri ekler:
 
-## Olaylar
+## Sandbox
+
+In sandboxed renderers the `process` object contains only a subset of the APIs:
+
+* `crash()`
+* `hang()`
+* `getHeapStatistics()`
+* `getProcessMemoryInfo()`
+* `getSystemMemoryInfo()`
+* `argv`
+* `execPath`
+* `env`
+* `platform`
+
+## Events
 
 ### Etkinlik: 'yüklenen'
 
@@ -90,6 +104,22 @@ Geçerli işlemin ana iş parçacığının çökmesine neden olur.
 
 [`IOCounters`](structures/io-counters.md)'a döner
 
+### `process.getHeapStatistics()`
+
+`Object` 'i geri getirir:
+
+* `totalHeapSize` Integer
+* `totalHeapSizeExecutable` Integer
+* `totalPhysicalSize` Integer
+* `totalAvailableSize` Integer
+* `usedHeapSize` Integer
+* `heapSizeLimit` Integer
+* `mallocedMemory` Integer
+* `peakMallocedMemory` Integer
+* `doesZapGarbage` Boolean
+
+Returns an object with V8 heap statistics. Note that all statistics are reported in Kilobytes.
+
 ### `process.getProcessMemoryInfo()`
 
 `Object` 'i geri getirir:
@@ -103,7 +133,7 @@ Geçerli işlem hakkında bellek kullanımı istatistiklerini veren bir nesneye 
 
 ### `process.getSystemMemoryInfo()`
 
-`Object` döndürür:
+`Object` 'i geri getirir:
 
 * `total` Tamsayı - Sistemde kullanılabilir durumda olan fiziksel belleğin Kilobayt olarak toplam miktarı.
 * `free` Tamsayı - Uygulamalar ve disk önbelleği tarafından kullanılmayan belleğin toplam miktarı.

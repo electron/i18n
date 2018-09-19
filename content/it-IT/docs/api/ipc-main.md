@@ -8,7 +8,7 @@ Il modulo `ipcMain` è un'istanza della classe [EventEmitter](https://nodejs.org
 
 ## L'invio di messaggi
 
-È anche possibile inviare messaggi dal processo principale per il processo di rendering, vedere [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) per ulteriori informazioni.
+It is also possible to send messages from the main process to the renderer process, see [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) for more information.
 
 * Quando si invia un messaggio, il nome dell'evento è il `channel`(canale).
 * Per rispondere a un messaggio sincrono, è necessario impostare `event.returnValue`.
@@ -82,4 +82,4 @@ Imposta il valore da restituire in un messaggio sincrono.
 
 ### `event.sender`
 
-Restituisce il `webContents` che ha inviato il messaggio, è possibile chiamare `event.sender.send` per rispondere al messaggio asincrono, vedere [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) per ulteriori informazioni.
+Returns the `webContents` that sent the message, you can call `event.sender.send` to reply to the asynchronous message, see [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) for more information.

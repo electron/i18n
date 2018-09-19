@@ -99,7 +99,7 @@ Sa Windows, ang isang taskbar na pipindutin ay pwedeng gumamit ng maliit na over
 Upang itakda ang overlay icon para sa isang window, pwede mong gamitin ang [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) na API:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 ```
@@ -113,7 +113,7 @@ On Windows you can highlight the taskbar button to get the user's attention. Thi
 Upang ilabas ang BrowserWindow na pipindutin sa taskbar, pwede mong gamitin ang [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) na API:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)

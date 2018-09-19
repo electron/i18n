@@ -1,8 +1,8 @@
 # Unterstützte Chrome-Befehlszeilenoptionen
 
-> Command line switches supported by Electron.
+> Befehlszeilenoptionen unterstützt von Electron.
 
-You can use [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) to append them in your app's main script before the [ready](app.md#event-ready) event of the [app](app.md) module is emitted:
+[app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) kann benutzt werden um die Befehlszeilenoptionen zu dem Hauptskript der App, bevor das [ready](app.md#event-ready)-Ereignis des [app](app.md)-Moduls eintritt, hinzuzufügen:
 
 ```javascript
 const {app} = require('electron')

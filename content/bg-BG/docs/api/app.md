@@ -209,7 +209,7 @@ app.on('window-all-closed', () => {
 * `url` String
 * `error` String - Кодът на грешката
 * `certificate` [Certificate](structures/certificate.md)
-* `обратно повикване` Function 
+* `callback` Функция 
   * `isTrusted` Boolean - Показва дали може да се вярва на сертификата
 
 Излъчено, когато има проблем с потвърждението на `certificate` за конкретния `url`, за да вярвате на сертификата трябва да прекъснете държанието по подразбиране с `event.preventDefault()` и извикване на `callback(true)`.
@@ -236,7 +236,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 * `webContents` [WebContents](web-contents.md)
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Function 
+* `callback` Функция 
   * `certificate` [Certificate](structures/certificate.md) (по избор)
 
 Излъчено, когато е поискан клиентски сертификат.
@@ -302,6 +302,23 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 * `accessibilitySupportEnabled` Boolean - Когато допълнителната поддръжка на Chrome е включена, стойността на тази променлива е `true`, в противен случай е `false`.
 
 Излъчено, при промяна на допълнителната поддръжка на Chrome. Това събитие е излъчено, когато помощни технологии, като екранни четци, са разрешени или забранени. Вижте https://www.chromium.org/developers/design-documents/accessibility за повече подробности.
+
+### Event: 'session-created'
+
+Връща:
+
+* `event` Събитие
+* `session` [Session](session.md)
+
+Emitted when Electron has created a new `session`.
+
+```javascript
+const {app} = require('electron')
+
+app.on('session-created', (event, session) => {
+  console.log(session)
+})
+```
 
 ## Методи
 
@@ -400,7 +417,7 @@ app.exit(0)
     * `small` - 16x16
     * `normal` - 32x32
     * `large` - 48x48 на *Linux*, 32x32 на *Windows*, не се поддържа на *macOS*.
-* `callback` Функция 
+* `обратно повикване` Функция 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
@@ -601,7 +618,7 @@ app.setJumpList([
 
 ### `app.makeSingleInstance(callback)`
 
-* `callback` Function 
+* `callback` Функция 
   * `argv` String [] - Масив от аргументи на командния ред на втората инстанция
   * `workingDirectory` String - Работната директория на втората инстанция
 
@@ -680,7 +697,7 @@ app.on('ready', () => {
 * `опции` Object 
   * `certificate` String - Път към файла pkcs12.
   * `password` String - Паролата на сертификата.
-* `callback` Function 
+* `обратно повикване` Функция 
   * `result` Integer - Резултата на импортирането.
 
 Импортира сертификата в pkcs12 формат в хранилището за сертификати на платформата. `callback` е извикана с `result` от импортиращата операция, стойност от `0` показва успех, докато всяка друга стойност показва провал следващ chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
@@ -711,27 +728,27 @@ Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetr
 
 Връща `Boolean` - Показва дали извикването на функцията е завършило с успех.
 
-Записва брояча на текущото приложение. Записване на стойност `0` ще се погрижи за значката.
+Sets the counter badge for current app. Setting the count to `0` will hide the badge.
 
-На macOS бива показано в иконата на дока. На Linux бива показано сам под Unity launcher,
+On macOS it shows on the dock icon. On Linux it only works for Unity launcher,
 
-**Забележка:** Unity launcher изисква съществуването на файл `.desktop` да работи, за повече информация моля прочетете [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
+**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
-Връща `Integer` - Текущата стойност, която се показва като брояч в значката.
+Returns `Integer` - The current value displayed in the counter badge.
 
 ### `app.isUnityRunning()` *Linux*
 
-Връща `Boolean` - Показва дали текущата среда на работния плот е Unity launcher.
+Returns `Boolean` - Whether the current desktop environment is Unity launcher.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `options` Object (по избор) 
+* `опции` Object (по избор) 
   * `path` String (по избор) *Windows* - Изпълнимият път, който ще бъде ползван за сравнение. По подразбиране е `process.execPath`.
   * `args` String[] (по избор) *Windows* - Листът с аргументи от командния ред, с който ще се сравнява. По подразбиране е празен масив.
 
-Ако сте предоставили опциите `path` и `args` на `app.setLoginItemSettings` тогава трябва да изпратите същите аргументи и тук за `openAtLogin` да се определи правилно.
+If you provided `path` and `args` options to `app.setLoginItemSettings` then you need to pass the same arguments here for `openAtLogin` to be set correctly.
 
 Връща `Object`:
 
@@ -749,9 +766,9 @@ Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetr
   * `path` String (по избор) *Windows* - Изпълнимият път, който ще бъде стартиран при влизане. По подразбиране е `process.execPath`.
   * `args` String[] (по избор) *Windows* - Аргументите от командния ред, които ще бъдат изпратени към изпълнимия файл. По подразбиране е празен масив. Имайте в предвид да поставите пътя в кавички.
 
-Вижте настройките на приложението за елементи при влизане.
+Set the app's login item settings.
 
-За да работите с електрон в `autoUpdater` на Windows, който използва [Squirrel](https://github.com/Squirrel/Squirrel.Windows), вие ще трябва да зададете път до Update.exe, и да предадете аргументите, които ще определят името на вашето приложение. Например:
+To work with Electron's `autoUpdater` on Windows, which uses [Squirrel](https://github.com/Squirrel/Squirrel.Windows), you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. Например:
 
 ```javascript
 const appFolder = path.dirname(process.execPath)
@@ -770,15 +787,15 @@ app.setLoginItemSettings({
 
 ### `app.isAccessibilitySupportEnabled()` *macOS* *Windows*
 
-Връща `Boolean` - `true` ако разширената достъпност при Chrome е включена, `false` в противен случай. Този API ще върне `true`, ако използването на помощни технологии, като екранни четци, е била открита. Вижте https://www.chromium.org/developers/design-documents/accessibility за повече подробности.
+Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false` otherwise. This API will return `true` if the use of assistive technologies, such as screen readers, has been detected. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 
 ### `app.setAccessibilitySupportEnabled(enabled)` *macOS* *Windows*
 
 * `enabled` Boolean - Включено или изключено [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) рендиране
 
-Ръчно позволява на достъпна поддръжка при Chrome, което позволява да се изложи достъпност при превключване на потребители в настройките на приложението. https://www.chromium.org/developers/design-documents/accessibility за повече подробности. Изключено по подразбиране.
+Manually enables Chrome's accessibility support, allowing to expose accessibility switch to users in application settings. https://www.chromium.org/developers/design-documents/accessibility for more details. Disabled by default.
 
-**Забележка:** Рендирането на accessibility tree може осезаемо да повлияе на работата на вашето приложение. Не трябва да се активира по подразбиране.
+**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
 
 ### `app.setAboutPanelOptions(options)` *macOS*
 
@@ -789,7 +806,7 @@ app.setLoginItemSettings({
   * `credits` String (по избор) - Информация за авторите.
   * `version` String (по избор) - Номерът на изграждане на приложението.
 
-Вижте панелът с опции about. Това ще презапише стойностите, дефинирани в `.plist` файла на приложението. Вижте [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) за повече детайли.
+Set the about panel options. This will override the values defined in the app's `.plist` file. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
 
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
 
@@ -811,21 +828,21 @@ Start accessing a security scoped resource. With this method electron applicatio
 * `switch` String - Превключвате от командния ред
 * `value` String (по избор) - Стойност за дадения превключвател
 
-Добавете превключвател (с `value` по избор) към командния ред на Chromium.
+Append a switch (with optional `value`) to Chromium's command line.
 
-**Забележка:** Това няма да повлияе на `process.argv`, и е основно използвано от разработчици да контролират ниското ниво на държане на Chromium.
+**Note:** This will not affect `process.argv`, and is mainly used by developers to control some low-level Chromium behaviors.
 
 ### `app.commandLine.appendArgument(value)`
 
 * `value` String - Аргументът, който ще бъде добавен в командния ред
 
-Добави аргумент към командния ред на Chromium. Аргументът ще бъде коректно обграден с кавички.
+Append an argument to Chromium's command line. The argument will be quoted correctly.
 
-**Забележка:** Това няма да повлияе на `process.argv`.
+**Note:** This will not affect `process.argv`.
 
 ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
 
-Включва смесен тестови мод на приложението.
+Enables mixed sandbox mode on the app.
 
 Този метод може да бъде извикван само преди приложението да е готово.
 
@@ -837,62 +854,62 @@ Returns `Boolean` - Whether the application is currently running from the system
 
 Returns `Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.
 
-По подразбиране, няма да бъде представен диалог за потвърждение, ако желаете потребителя да потвърди операцията, ще трябва да го направите, използвайки [`dialog`](dialog.md) API.
+No confirmation dialog will be presented by default, if you wish to allow the user to confirm the operation you may do so using the [`dialog`](dialog.md) API.
 
-**Забележка:**Този метод хвърля грешка ако нещо различно от потребителя попречи на местенето. На пример, ако потребителя отхвърли диалога за оторизиране - този метод ще върне false. Ако ме можем да изпълним копирането, тогава този метод ще хвърли грешка. Съобщението в грешката би трябвало да е информативно и да ви каже точно какво се е случило
+**NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog this method returns false. If we fail to perform the copy then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
 
 ### `app.dock.bounce([type])` *macOS*
 
 * `type` String (по избор) - Може да бъде `critical` или `informational`. По подразбиране е `informational`
 
-Когато е изпратено `critical`, иконката на дока ще подскоча докато или приложението не стане активно или заявката не бъде спряна.
+When `critical` is passed, the dock icon will bounce until either the application becomes active or the request is canceled.
 
-Когато е изпратено `informational`, иконката на дока ще подскочи една секунда. Обаче, заявката остава активна докато или приложението не стане активно или заявката не бъде спряна.
+When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
 
-Връща `Integer` идентификационен номер, който представлява приложението.
+Returns `Integer` an ID representing the request.
 
 ### `app.dock.cancelBounce(id)` *macOS*
 
 * `id` Integer
 
-Спира подскачането на `id`.
+Cancel the bounce of `id`.
 
 ### `app.dock.downloadFinished(filePath)` *macOS*
 
 * `filePath` String
 
-Подскача Downloads ако е включен filePath в папката за сваляне.
+Bounces the Downloads stack if the filePath is inside the Downloads folder.
 
 ### `app.dock.setBadge(text)` *macOS*
 
 * `text` String
 
-Поставя низ, който да бъде показан в областта на дока.
+Sets the string to be displayed in the dock’s badging area.
 
 ### `app.dock.getBadge()` *macOS*
 
-Връща `String` - Низът от дока.
+Returns `String` - The badge string of the dock.
 
 ### `app.dock.hide()` *macOS*
 
-Скрива иконката на дока.
+Hides the dock icon.
 
 ### `app.dock.show()` *macOS*
 
-Показва иконката на дока.
+Shows the dock icon.
 
 ### `app.dock.isVisible()` *macOS*
 
-Връща `Boolean` - Показва дали иконката на дока е видима. Извикването на `app.dock.show()` е асинхронно, за това този метод може да не върне true веднага след извикване.
+Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call is asynchronous so this method might not return true immediately after that call.
 
 ### `app.dock.setMenu(menu)` *macOS*
 
 * `menu` [Menu](menu.md)
 
-[dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103) на приложението.
+Sets the application's [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103).
 
 ### `app.dock.setIcon(image)` *macOS*
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Слага `image` асоцииран с тази иконка на дока.
+Sets the `image` associated with this dock icon.

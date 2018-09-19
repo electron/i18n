@@ -57,7 +57,7 @@ Wenn dieses Problem auftritt, könnten die folgenden Artikel hilfreich sein:
 Wenn Sie eine schnelle Lösung bevorzugen, machen Sie die Variablen global, indem Sie Ihren Code
 
 ```javascript
-const {app, Tray} = require('electron')
+const { app, Tray } = require('electron')
 app.on('ready', () => {
  const tray = new Tray('/path/to/icon.png')
  tray.setTitle('hello world') 
@@ -67,7 +67,7 @@ app.on('ready', () => {
 wie folgt anpassen:
 
 ```javascript
-const {app, Tray} = require('electron') 
+const { app, Tray } = require('electron') 
 let tray = null
 app.on('ready', () => {
  tray = new Tray('/path/to/icon.png')
@@ -83,7 +83,7 @@ Um dies zu beheben können Sie die Node-Integration in Electron deaktivieren:
 
 ```javascript
 // Im Hauptprozess.
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
     nodeIntegration: false

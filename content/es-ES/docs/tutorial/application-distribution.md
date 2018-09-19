@@ -67,20 +67,12 @@ La estructura de una aplicación renombrada sería como:
 MyApp.app/Contents
 ├── Info.plist
 ├── MacOS/
-│   └── MyApp
+│   └── MyApp
 └── Frameworks/
-    ├── MyApp Helper EH.app
-    |   ├── Info.plist
-    |   └── MacOS/
-    |       └── MyApp Helper EH
-    ├── MyApp Helper NP.app
-    |   ├── Info.plist
-    |   └── MacOS/
-    |       └── MyApp Helper NP
     └── MyApp Helper.app
         ├── Info.plist
         └── MacOS/
-            └── MyApp Helper
+            └── MyApp Helper
 ```
 
 ### Linux
@@ -97,7 +89,7 @@ Además de empaquetar su aplicación manualmente, también puede elegir usar her
 
 ## Cambio de marca mediante la reconstrucción de la fuente de Electron
 
-También es posible cambiar la marca de Electron cambiando el nombre del producto y construirlo desde la fuente. Para hacer esto, necesita modificar el archivo `atom.gyp` y tener una reconstrucción limpia.
+It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to set the build argument corresponding to the product name (`electron_product_name = "YourProductName"`) in the `args.gn` file and rebuild.
 
 ### Crear un tenedor Electronico personalizado
 

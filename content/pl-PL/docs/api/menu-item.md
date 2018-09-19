@@ -1,4 +1,4 @@
-## Class: MenuItem
+## Klasa: MenuItem
 
 > Add items to native application menus and context menus.
 

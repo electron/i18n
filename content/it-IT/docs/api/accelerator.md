@@ -12,10 +12,11 @@ Esempi:
 Le scorciatoie sono registrate con il modulo [`Scorciatoiaglobale`](global-shortcut.md) usando il metodo [`registra`](global-shortcut.md#globalshortcutregisteraccelerator-callback).
 
 ```javascript
-const {app, globalShortcut} = richiedi('electron')
+const {app, globalShortcut} = require('electron')
+    
+    app.on('ready', () => {
+      // Register a 'CommandOrControl+Y' shortcut listener.
 
-App.on('pronto', () => {
- // Registra una scorciatoia d'ascolto 'ComandoOControllo+Y'.
   registro.Scorciatoiaglobale('ComandoOControllo+Y', () => {
    // Fai azioni con Y ed entrambi i Comando/Contollo premuti.
   })

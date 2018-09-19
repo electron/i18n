@@ -75,10 +75,18 @@ Anuman ang piliin mo, pana-panahon mo pa ring i-bump ang bersyon ng iyong `packa
 
 Ang mga sumusunod ay ang proseso:
 
-1. Lahat ng mga bagong release na maliit man o malaki ay nagsisimula sa isang `-beta.N` na tag para sa `N >= 1`. Sa puntong iyon, ang itinakdang tampok ay **naka-kandado**. Inaamin ng linyang tampok na iyon na walang higit pang mga tampok, at naka-focus lamang sa seguridad at estabilidad. hal. `2.0.0-beta.1`.
-2. Ang mga pagaayos ng bug, regression at seguridad ng patches ay maaring makapasok. Sa paggawa nito, ang isang bagong beta ay inilabas pataas `N`. hal. `2.0.0-beta.2`
-3. Kung ang partikyular na beta release ay *itinuturing pangkalahatan* na matatag, ito ay muling ilalabas bilang isang matatag na katayuan, papalitan lang ang impormasyon ng bersyon.
-4. Kung may mga pagsasaayos ng bug o para sa seguridad ng patches na kailangan pang gawin pero ang bagong labas ay matatag na, ang mga ito'y ilalapat at ang *patch* na bersyon ay pinapataas nang naaayon hal. `2.0.1`.
+1. All new major and minor releases lines begin with a beta series indicated by semver prerelease tags of `beta.N`, e.g. `2.0.0-beta.1`. After the first beta, subsequent beta releases must meet all of the following conditions: 
+    1. The change is backwards API-compatible (deprecations are allowed)
+    2. The risk to meeting our stability timeline must be low.
+2. If allowed changes need to be made once a release is beta, they are applied and the prerelease tag is incremented, e.g. `2.0.0-beta.2`.
+3. If a particular beta release is *generally regarded* as stable, it will be re-released as a stable build, changing only the version information. e.g. `2.0.0`. After the first stable, all changes must be backwards-compatible bug or security fixes.
+4. If future bug fixes or security patches need to be made once a release is stable, they are applied and the *patch* version is incremented e.g. `2.0.1`.
+
+Specifically, the above means:
+
+1. Admitting non-breaking-API changes early in the beta cycle is okay, even if those changes have the potential to cause moderate side-affects
+2. Admitting feature-flagged changes, that do not otherwise alter existing code paths, at most points in the beta cycle is okay. Users can explicitly enable those flags in their apps.
+3. Admitting features of any sort very late in the beta cycle is 
 
 For each major and minor bump, you should expect to see something like the following:
 
@@ -117,12 +125,7 @@ Ang mga tampok na bandila ay karaniwang kaugalian sa Chromium, at mahusay na iti
 
 - it is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
 - ito'y kumukumpleto sa bahagi ng bago at lumang landas ng kodigo para masuportahan ang bagong tampok na *lumalabag* sa kontrata ng tampok na bandila
-- natatanggal agad ang mga tampok na bandila pagkatapos isanib ang ang malambot na branch
-
-Pinagkasundo namin ang flagged code sa aming bersyoning na istratehiya gaya ng sumusunod:
-
-1. hindi namin isinasaalang-alang ang pag-uulit sa feature-flagged code sa stabilidad ng branch; kahit matalino ang paggamit sa mga tampok na bandila ay walang hindi mapanganib
-2. maari mong itigil ang API na kontrata sa feature-flagged code na walang pagbu-bump sa malaking bersyon. Dahil hindi umaayon ang flagged-code sa semver
+- feature flags are eventually removed after the feature is released
 
 # Mga Commit ng Semantiko
 

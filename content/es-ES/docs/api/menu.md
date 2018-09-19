@@ -30,9 +30,9 @@ Devuelve `Menu | null` - El menú de aplicación, si se creó, o `null` en caso 
 
 #### `Menu.sendActionToFirstResponder(action)` *macOS*
 
-* `action` Cadena
+* `action` String
 
-Envía la `action` al primer respondedor de la aplicación. Esto es usado para emular los comportamientos del menú macOS por defecto. Normalmente se usa la propiedad [`role`](menu-item.md#roles) de un [`MenuItem`](menu-item.md).
+Envía la `action` al primer respondedor de la aplicación. Esto es usado para emular los comportamientos del menú macOS por defecto. Usually you would use the [`role`](menu-item.md#roles) property of a [`MenuItem`](menu-item.md).
 
 Consulte la [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7) para más información sobre las acciones nativas de macOS.
 
@@ -42,7 +42,7 @@ Consulte la [macOS Cocoa Event Handling Guide](https://developer.apple.com/libra
 
 Devuelve `Menu`
 
-Generalmente, la `template` es sólo un arreglo de `options` para la construcción de un [MenuItem](menu-item.md). El uso hace referencia a lo anteriormente mencionado.
+Generally, the `template` is an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
 
 Se pueden anexar otros campos al elemento de la `template` y pueden convertirse en propiedades de los elementos del menú creado.
 
@@ -57,7 +57,7 @@ El objeto`menu` tiene los siguientes métodos de instancia:
   * `x` Number (opcional) - Por defecto es la posición actual del cursor del ratón. Debe declararse si `y` es declarada.
   * `y` Number (opcional) - Por defecto es la posición actual del cursor del ratón. Debe declararse si `y` es declarada.
   * `positioningItem` Number (opcional) *macOS* - El índice del elemento de menú para posicionar por debajo del cursor del ratón en las coordenadas específicas. Por defecto es -1.
-  * `callback` Function (optional) - Called when menu is closed.
+  * `callback` Function (opcional) - Llamada cuando se cierra el menu.
 
 Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
 
@@ -88,7 +88,7 @@ Inserta el `menuItem` en la posición `pos` del menú.
 
 ### Eventos de Instancia
 
-Objects created with `new Menu` emit the following events:
+Los Objetos creados con `new Menu` emiten los siguientes eventos:
 
 **Nota:** Algunos eventos sólo están disponibles en sistemas operativos específicos y se etiquetan como tal.
 
@@ -98,7 +98,7 @@ Devuelve:
 
 * `event` Event
 
-Emitted when `menu.popup()` is called.
+Emitido cuando se llama a `menu.popup()`.
 
 #### Event: 'menu-will-close'
 
@@ -270,15 +270,14 @@ El [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/
 
 ## La posición del elemento del menú
 
-Se puede hacer uso de `position` y `id` para controlar cómo el elemento será colocado cuando se cree un menú con `Menu.buildFromTemplate`.
+You can make use of `before`, `after`, `beforeGroupContaining`, `afterGroupContaining` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
 
-El atributo `position` del `MenuItem` tiene la forma `[placement]=[id]`, donde `placement` es uno de `before`, `after`, o `endof` y `id` es el ID único de un elemento existente en el menú:
+* `before` - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
+* `after` - Inserts this item after the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
+* `beforeGroupContaining` - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
+* `afterGroupContaining` - Provides a means for a single context menu to declare the placement of their containing group after the containing group of the item with the specified label.
 
-* `before` - Inserta este elemento antes del elemento al que hace referencia el id. Si el elemento al que hace referencia no existe, el elemento será insertado al final del menú.
-* `before` - Inserta este elemento despues del elemento al que hace referencia el id. Si el elemento al que hace referencia no existe, el elemento será insertado al final del menú.
-* `endof` - Inserta este elemento al final del grupo lógico que contiene el elemento al que hace referencia el id (los grupos son creados por los elementos separadores). Si el elemento al que se hace la referencia no existe, se crea un nuevo grupo separador con el id proporcionado y este elemento se inserta después del separador.
-
-Cuando se coloca un elemento, todos los elementos desubicados se insertan después hasta que se coloca un nuevo elemento. Entonces, si quieres posicionar un grupo de elementos de menú en la misma ubicación solo necesitas especificar una posición para el primer artículo.
+By default, items will be inserted in the order they exist in the template unless one of the specified positioning keywords is used.
 
 ### Ejemplos
 
@@ -286,11 +285,10 @@ Plantilla:
 
 ```javascript
 [
-  {label: '4', id: '4'},
-  {label: '5', id: '5'},
-  {label: '1', id: '1', position: 'before=4'},
-  {label: '2', id: '2'},
-  {label: '3', id: '3'}
+  { id: '1', label: 'one' },
+  { id: '2', label: 'two' },
+  { id: '3', label: 'three' },
+  { id: '4', label: 'four' }
 ]
 ```
 
@@ -301,19 +299,39 @@ Menú:
 - 2
 - 3
 - 4
-- 5
 ```
 
 Plantilla:
 
 ```javascript
 [
-  {label: 'a', position: 'endof=letters'},
-  {label: '1', position: 'endof=numbers'},
-  {label: 'b', position: 'endof=letters'},
-  {label: '2', position: 'endof=numbers'},
-  {label: 'c', position: 'endof=letters'},
-  {label: '3', position: 'endof=numbers'}
+  { id: '1', label: 'one' },
+  { type: 'separator' },
+  { id: '3', label: 'three', beforeGroupContaining: ['1'] },
+  { id: '4', label: 'four', afterGroupContaining: ['2'] },
+  { type: 'separator' },
+  { id: '2', label: 'two' }
+]
+```
+
+Menú:
+
+```sh
+<br />- 3
+- 4
+- ---
+- 1
+- ---
+- 2
+```
+
+Plantilla:
+
+```javascript
+[
+  { id: '1', label: 'one', after: ['3'] },
+  { id: '2', label: 'two', before: ['1'] },
+  { id: '3', label: 'three' }
 ]
 ```
 
@@ -321,11 +339,7 @@ Menú:
 
 ```sh
 <br />- ---
-- a
-- b
-- c
-- ---
-- 1
-- 2
 - 3
+- 2
+- 1
 ```

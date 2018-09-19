@@ -55,6 +55,14 @@ HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https
 
 El `HOME=~/.electron-gyp` cambia dónde encontrar los encabezados de desarrollo. El `--target=1.2.3` es la versión de Electron. El `--dist-url=...` especifica dónde descargar los encabezados. El `--arch=x64` dice que el módulo está diseñado para el sistema de 64 bits.
 
+### Manually building for a custom build of Electron
+
+To compile native Node addons against a custom build of Electron that doesn't match a public release, instruct `npm` to use the version of Node you have bundled with your custom build.
+
+```sh
+npm rebuild --nodedir=$HOME/.../path/to/electron/vendor/node
+```
+
 ## Problemas
 
 Si instaló un módulo nativo y descubrió que no estaba funcionando, debe verificar las siguientes cosas:

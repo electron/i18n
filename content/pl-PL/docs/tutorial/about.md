@@ -1,6 +1,6 @@
-# Electron
+# O Electronie
 
-[Electron](https://electronjs.org) jest otwartoźródłową biblioteką, stworzoną przez GitHub, aby umożliwić tworzenie multiplatformowych aplikacji z użyciem języków HTML, CSS oraz JavaScript. Electron osiąga to łącząc [Chromium](https://www.chromium.org/Home) oraz [Node.js](https://nodejs.org) w jednolite środowisko uruchomieniowe, którego aplikacje mogą być wydawane na MacOS, Windows oraz Linux.
+[Electron](https://electronjs.org) jest otwartoźródłową biblioteką, stworzoną przez GitHub’a, która umożliwia tworzenie wieloplatformowych aplikacji z użyciem języków HTML, CSS oraz JavaScript. Electron osiąga to łącząc [Chromium](https://www.chromium.org/Home) oraz [Node.js](https://nodejs.org) w jednolite środowisko uruchomieniowe, którego aplikacje mogą być wydawane na MacOS, Windows oraz Linux.
 
 Electron powstał w 2013 roku jako framework, z użyciem którego powstawał [Atom](https://atom.io), edytor tekstu GitHub'a. Źródła zarówno edytora jak i frameworku zostały upublicznione wiosną 2014 roku.
 

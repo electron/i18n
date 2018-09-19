@@ -142,12 +142,12 @@ Questa opzione non può essere utilizzata in `app.commandLine.appendSwitch` poic
 
 Fornisce il massimo livello di V-logging attivo predefinito; 0 è il valore predefinito. I valori di norma positivi vengono utilizzati per i livelli di registrazione V (*V-logging levels*).
 
-Questa opzione funziona solo quando viene anche eseguito il *--enable-logging*.
+Questa opzione funziona solo quando viene passato anche `--enable-logging`.
 
 ## --vmodule=`pattern`
 
 Fornisce i livelli massimi di V-logging per modulo, per sovrascrivere il valore fornito da `--v`. E.g. `my_module=2,foo*=3` would change the logging level for all code in source files `my_module.*` and `foo*.*`.
 
-Qualsiasi pattern contenente una barra avanti o indietro (forward e back slash) verrà testato rispetto all'intero percorso e non solo al modulo. Ad esempio. `*/foo/bar/*=2` cambierebbe il livello di logging per tutto il codice sorgente nei file all interno della directory `foo/bar`.
+Any pattern containing a forward or backward slash will be tested against the whole pathname and not just the module. Ad esempio. `*/foo/bar/*=2` cambierebbe il livello di logging per tutto il codice sorgente nei file all interno della directory `foo/bar`.
 
 Questa opzione funziona solo quando viene passato anche `--enable-logging`.

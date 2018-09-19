@@ -8,7 +8,7 @@ Proces: [Main](../glossary.md#main-process)
 
 ### `nowe ClientRequest(opcje)`
 
-* `options` (Object | String) - If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties: 
+* `opcje` (Object | String) - If `opcje` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties: 
   * `method` String (optional) - The HTTP request method. Defaults to the GET method.
   * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
   * `session` Object (optional) - The [`Session`](session.md) instance with which the request is associated.
@@ -34,15 +34,15 @@ const request = net.request({
 })
 ```
 
-### Wydarzenia instancji
+### Zdarzenia instancji
 
-#### Wydarzenie: 'odpowiedź'
+#### Zdarzenie: 'response'
 
 Zwraca:
 
 * `odpowiedź` Przychodzące wiadomości - Obiekt reprezentujący komunikat odpowiedzi HTTP. 
 
-#### Wydarzenie: 'login'
+#### Zdarzenie: 'login'
 
 Zwraca:
 
@@ -83,15 +83,15 @@ request.on('login', (authInfo, callback) => {
 })
 ```
 
-#### Event: 'finish'
+#### Zdarzenie: 'finish'
 
 Emitted just after the last chunk of the `request`'s data has been written into the `request` object.
 
-#### Event: 'abort'
+#### Zdarzenie: 'abort'
 
 Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
 
-#### Event: 'error'
+#### Zdarzenie: 'error'
 
 Zwraca:
 
@@ -103,7 +103,7 @@ Emitted when the `net` module fails to issue a network request. Typically when t
 
 Emitted as the last event in the HTTP request-response transaction. The `close` event indicates that no more events will be emitted on either the `request` or `response` objects.
 
-#### Event: 'redirect'
+#### Zdarzenie: 'redirect'
 
 Zwraca:
 

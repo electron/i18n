@@ -17,87 +17,27 @@ Electron のビルドは完全にコマンドラインスクリプトで行わ�
 
 **注釈:** Visual Studio はビルドに使用されていませんが、それが提供するビルドツールチェーンが必要なため、まだ **必要** です。
 
-## コードを取得する
-
-```powershell
-$ git clone https://github.com/electron/electron.git
-```
-
-## ブートストラップ
-
-ブートストラップスクリプトはビルドに必要な全ての依存関係をダウンロードし、ビルドプロジェクトファイルを作成します。 なお、Electron のビルドには `ninja` を用いるため、 Visual Studio のプロジェクトファイルが生成されないことにご留意ください。
-
-To bootstrap for a static, non-developer build, run:
-
-```powershell
-$ cd electron
-$ npm run bootstrap
-```
-
-Or to bootstrap for a development session that builds faster by not statically linking:
-
-```powershell
-$ cd electron
-$ npm run bootstrap:dev
-```
-
 ## ビルド
 
-以下で `Release` と `Debug` の両方をターゲットにしてビルドします。
-
-```powershell
-$ npm run build
-```
-
-You can also build either the `Debug` or `Release` target on its own:
-
-```powershell
-$ npm run build:dev
-```
-
-```powershell
-$ npm run build:release
-```
-
-ビルド完了後、`out/D` (Debug ターゲット) または `out/R` (Release ターゲット) 下に `electron.exe` が見られます。
+See [Build Instructions: GN](build-instructions-gn.md)
 
 ## 32ビットビルド
 
-32ビットターゲットをビルドするには、ブートストラップスクリプトを実行するときに `--target_arch=ia32` を渡す必要があります。
+To build for the 32bit target, you need to pass `target_cpu = "x86"` as a GN arg. You can build the 32bit target alongside the 64bit target by using a different output directory for GN, e.g. `out/Release-x86`, with different arguments.
 
 ```powershell
-$ python script\bootstrap.py -v --target_arch=ia32
+$ gn gen out/Release-x86 --args="import(\"//electron/build/args/release.gn\") target_cpu=\"x86\""
 ```
 
 他のビルド手順は全く同じです。
 
 ## Visual Studio プロジェクト
 
-Visual Studio プロジェクトを生成するには、`--msvs` 引数を渡します。
+To generate a Visual Studio project, you can pass the `--ide=vs2017` parameter to `gn gen`:
 
 ```powershell
-$ python script\bootstrap.py --msvs
+$ gn gen out/Debug --ide=vs2017
 ```
-
-## クリーン
-
-以下でビルドファイルをクリーンします。
-
-```powershell
-$ npm run clean
-```
-
-以下で `out` と `dist` ディレクトリだけをクリーンします。
-
-```sh
-$ npm run clean-build
-```
-
-**注釈:** どちらのクリーンコマンドもビルド前に `ブートストラップ` を再度実行する必要があります。
-
-## テスト
-
-[ビルドシステム概要: テスト](build-system-overview.md#tests) を参照してください。
 
 ## トラブルシューティング
 
@@ -108,31 +48,6 @@ $ npm run clean-build
 ### Fatal internal compiler error: C1001
 
 最新の Visual Studio アップデートがインストールされていることを確認してください。
-
-### Assertion failed: ((handle))->activecnt >= 0
-
-Cygwin 下でビルドしている場合、`bootstrap.py` は以下のようなエラーで失敗しているでしょう。
-
-```sh
-Assertion failed: ((handle))->activecnt >= 0, file src\win\pipe.c, line 1430
-
-Traceback (most recent call last):
-  File "script/bootstrap.py", line 87, in <module>
-    sys.exit(main())
-  File "script/bootstrap.py", line 22, in main
-    update_node_modules('.')
-  File "script/bootstrap.py", line 56, in update_node_modules
-    execute([NPM, 'install'])
-  File "/home/zcbenz/codes/raven/script/lib/util.py", line 118, in execute
-    raise e
-subprocess.CalledProcessError: Command '['npm.cmd', 'install']' returned non-zero exit status 3
-```
-
-これは、Cygwin Python とWin32 Node を一緒に使用するときのバグが原因です。 解決方法は、以下のように Win32 Python を使用してブートストラップスクリプトを実行することです (Python を `C:\Python27` の下にインストールしたと仮定します)。
-
-```powershell
-$ /cygdrive/c/Python27/python.exe script/bootstrap.py
-```
 
 ### LNK1181: cannot open input file 'kernel32.lib'
 

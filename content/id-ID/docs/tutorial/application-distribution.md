@@ -69,14 +69,6 @@ MyApp.app/Contents
 ├── MacOS/
 │   └── MyApp
 └── Frameworks/
-    ├── MyApp Helper EH.app
-    |   ├── Info.plist
-    |   └── MacOS/
-    |       └── MyApp Helper EH
-    ├── MyApp Helper NP.app
-    |   ├── Info.plist
-    |   └── MacOS/
-    |       └── MyApp Helper NP
     └── MyApp Helper.app
         ├── Info.plist
         └── MacOS/
@@ -97,7 +89,7 @@ Selain Kemasan aplikasi anda secara manual, Anda juga dapat memilih untuk menggu
 
 ## Rebranding dengan membangun kembali elektron dari sumber
 
-Anda juga dapat mengubah citra electron dengan mengubah nama produk dan membangunnya dari sumber. Untuk melakukan ini anda perlu memodifikasi file `atom.gyp` dan telah membangun kembali dari awal.
+It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to set the build argument corresponding to the product name (`electron_product_name = "YourProductName"`) in the `args.gn` file and rebuild.
 
 ### Membuat Custom Fork Electron
 

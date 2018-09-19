@@ -85,8 +85,8 @@ Electron 버전과 일치하는 문서를 보고있는지 확인하세요. 페�
   * [asar 아카이브 사용하기](tutorial/application-packaging.md#using-asar-archives)
   * [제한 사항](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [asar 아카이브에 압축 해제된 파일 추가하기](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
+* [In Detail: Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
 * [자세히 설명된 Pepper Flash 플러그인 사용하기](tutorial/using-pepper-flash-plugin.md)
-* [자세히 설명된 Widevine CDM 플러그인 사용하기](tutorial/using-widevine-cdm-plugin.md)
 * [오프 스크린 렌더링](tutorial/offscreen-rendering.md)
 
 * * *

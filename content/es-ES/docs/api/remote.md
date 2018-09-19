@@ -14,7 +14,7 @@ let win = new BrowserWindow({width: 800, height: 600})
 win.loadURL('https://github.com')
 ```
 
-**Nota:** Para realizar esta acción al revés (acceder al proceso de renderizado desde el proceso principal) se puede utilizar [webContents.executeJavascript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback).
+**Note:** For the reverse (access the renderer process from the main process), you can use [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback).
 
 ## Objetos Remotos
 
@@ -100,7 +100,7 @@ El módulo `remote` tiene los siguientes métodos:
 
 Devuelve `any` - El objeto devuelto por `require(module)` en el proceso principal. Los módulos especificados por su ruta relativa se resolverán en relación al punto de entrada del proceso principal.
 
-por ejemplo.
+p.e.
 
 ```sh
 project/
@@ -131,6 +131,8 @@ const foo = require('electron').remote.require('./foo') // bar
 ### `remote.getCurrentWindow()`
 
 Devuelve [`BrowserWindow`](browser-window.md) - La ventana a la cual pertenece esta página web.
+
+**Note:** Do not use `removeAllListeners` on [`BrowserWindow`](browser-window.md). Use of this can remove all [`blur`](https://developer.mozilla.org/en-US/docs/Web/Events/blur) listeners, disable click events on touch bar buttons, and other unintended consequences.
 
 ### `remote.getCurrentWebContents()`
 

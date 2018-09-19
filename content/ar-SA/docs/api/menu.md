@@ -75,7 +75,7 @@ Appends the `menuItem` to the menu.
 
 #### `menu.getMenuItemById(id)`
 
-* `id` String
+* `id` سلسلة نصية
 
 Returns `MenuItem` the item with the specified `id`
 

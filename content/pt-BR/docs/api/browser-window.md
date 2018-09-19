@@ -206,7 +206,7 @@ O mesmo cria um novo `BrowserWindow` com propriedades nativas informadas como a 
     * `contextIsolation` Boolean (optional) - Whether to run Electron APIs and the specified `preload` script in a separate JavaScript context. Defaults to `false`. The context that the `preload` script runs in will still have full access to the `document` and `window` globals but it will use its own set of JavaScript builtins (`Array`, `Object`, `JSON`, etc.) and will be isolated from any changes made to the global environment by the loaded page. The Electron API will only be available in the `preload` script and not the loaded page. This option should be used when loading potentially untrusted remote content to ensure the loaded content cannot tamper with the `preload` script and any Electron APIs being used. This option uses the same technique used by [Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment). You can access this context in the dev tools by selecting the 'Electron Isolated Context' entry in the combo box at the top of the Console tab. **Note:** This option is currently experimental and may change or be removed in future Electron releases.
     * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. Defaults to `false`. **Note:** This option is currently experimental.
     * `webviewTag` Boolean (optional) - Whether to enable the [`<webview>` tag](webview-tag.md). Defaults to the value of the `nodeIntegration` option. **Note:** The `preload` script configured for the `<webview>` will have node integration enabled when it is executed so you should ensure remote/untrusted content is not able to create a `<webview>` tag with a possibly malicious `preload` script. You can use the `will-attach-webview` event on [webContents](web-contents.md) to strip away the `preload` script and to validate or alter the `<webview>`'s initial settings.
-    * `additionArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app. Useful for passing small bits of data down to renderer process preload scripts.
+    * `additionalArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app. Useful for passing small bits of data down to renderer process preload scripts.
 
 When setting minimum or maximum window size with `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, it only constrains the users. It won't prevent you from passing a size that does not follow size constraints to `setBounds`/`setSize` or to the constructor of `BrowserWindow`.
 
@@ -868,23 +868,23 @@ Unhook the window message.
 
 Unhooks all of the window messages.
 
-#### `win.setRepresentedFilename(filename)` no *macOS*
+#### `win.setRepresentedFilename(filename)` *macOS*
 
 * `filename` String
 
 Sets the pathname of the file the window represents, and the icon of the file will show in window's title bar.
 
-#### `win.getRepresentedFilename()` no *macOS*
+#### `win.getRepresentedFilename()` *macOS*
 
 Returns `String` - The pathname of the file the window represents.
 
-#### `win.setDocumentEdited(edited)` no *macOS*
+#### `win.setDocumentEdited(edited)` *macOS*
 
 * `edited` Boolean
 
 Specifies whether the window’s document has been edited, and the icon in title bar will become gray when set to `true`.
 
-#### `win.isDocumentEdited()` no *macOS*
+#### `win.isDocumentEdited()` *macOS*
 
 Returns `Boolean` - Whether the window's document has been edited.
 
@@ -975,13 +975,13 @@ On Windows, a mode can be passed. Accepted values are `none`, `normal`, `indeter
 
 Sets a 16 x 16 pixel overlay onto the current taskbar icon, usually used to convey some sort of application status or to passively notify the user.
 
-#### `win.setHasShadow(hasShadow)` no *macOS*
+#### `win.setHasShadow(hasShadow)` *macOS*
 
 * `hasShadow` Boolean
 
 Sets whether the window should have a shadow. On Windows and Linux does nothing.
 
-#### `win.hasShadow()` no *macOS*
+#### `win.hasShadow()` *macOS*
 
 Returns `Boolean` - Whether the window has a shadow.
 
@@ -1010,7 +1010,7 @@ The number of buttons in thumbnail toolbar should be no greater than 7 due to th
 The `buttons` is an array of `Button` objects:
 
 * `Button` Object 
-  * `icon` [NativeImage](native-image.md) - O icone exibido na barra de ferramentas de miniaturas.
+  * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
   * `click` Function
   * `tooltip` String (opcional) - O texto do tooltip do botão.
   * `flags` String[] (opcional) - Controla estados específicos e comportamentos do botão. Por padrão é definido `['enabled']`.
@@ -1049,7 +1049,7 @@ Sets the properties for the window's taskbar button.
 
 **Note:** `relaunchCommand` and `relaunchDisplayName` must always be set together. If one of those properties is not set, then neither will be used.
 
-#### `win.showDefinitionForSelection()` no *macOS*
+#### `win.showDefinitionForSelection()` *macOS*
 
 Same as `webContents.showDefinitionForSelection()`.
 
@@ -1133,39 +1133,39 @@ Returns `BrowserWindow` - The parent window.
 
 Returns `BrowserWindow[]` - All child windows.
 
-#### `win.setAutoHideCursor(autoHide)` no *macOS*
+#### `win.setAutoHideCursor(autoHide)` *macOS*
 
 * `autoHide` Boolean
 
 Controls whether to hide cursor when typing.
 
-#### `win.selectPreviousTab()` no *macOS*
+#### `win.selectPreviousTab()` *macOS*
 
 Selects the previous tab when native tabs are enabled and there are other tabs in the window.
 
-#### `win.selectNextTab()` no *macOS*
+#### `win.selectNextTab()` *macOS*
 
 Selects the next tab when native tabs are enabled and there are other tabs in the window.
 
-#### `win.mergeAllWindows()` no *macOS*
+#### `win.mergeAllWindows()` *macOS*
 
 Merges all windows into one window with multiple tabs when native tabs are enabled and there is more than one open window.
 
-#### `win.moveTabToNewWindow()` no *macOS*
+#### `win.moveTabToNewWindow()` *macOS*
 
 Moves the current tab into a new window if native tabs are enabled and there is more than one tab in the current window.
 
-#### `win.toggleTabBar()` no *macOS*
+#### `win.toggleTabBar()` *macOS*
 
 Toggles the visibility of the tab bar if native tabs are enabled and there is only one tab in the current window.
 
-#### `win.addTabbedWindow(browserWindow)` no *macOS*
+#### `win.addTabbedWindow(browserWindow)` *macOS*
 
 * `browserWindow` BrowserWindow
 
 Adds a window as a tab on this window, after the tab for the window instance.
 
-#### `win.setVibrancy(type)` no *macOS*
+#### `win.setVibrancy(type)` *macOS*
 
 * `type` String - Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`. See the [macOS documentation](https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc) for more details.
 

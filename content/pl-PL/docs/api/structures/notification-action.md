@@ -16,4 +16,4 @@ W celu zgłoszenia dodatkowych przycisków do pracy na macOS aplikacja musi spe�
 * Aplikacja jest podpisana
 * App has it's `NSUserNotificationAlertStyle` set to `alert` in the `Info.plist`.
 
-Jeśli jedno z wymagań nie jest spełnione, to przycisk po prostu nie będzie wyświetlany.
+If either of these requirements are not met the button simply won't appear.

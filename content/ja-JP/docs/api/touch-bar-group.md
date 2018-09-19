@@ -2,7 +2,7 @@
 
 > ネイティブ macOS アプリケーション用のタッチバー内にグループを作成する
 
-プロセス: [Main](../tutorial/quick-start.md#main-process)
+Process: [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarGroup(options)` *実験的*
 

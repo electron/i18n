@@ -68,14 +68,14 @@ console.log(clipboard.readText('selection'))
 
 * `type` String (опционально)
 
-Returns `String` - The content in the clipboard as RTF.
+Возвращает `String` - содержимое в буфере обмена в виде RTF.
 
 ### `clipboard.writeRTF(text[, type])`
 
 * `text` String
 * `type` String (опционально)
 
-Writes the `text` into the clipboard in RTF.
+Записывает `text` в буфер обмена как RTF.
 
 ### `clipboard.readBookmark()` *macOS* *Windows*
 

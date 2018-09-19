@@ -75,10 +75,18 @@ Note that most Chromium updates will be considered breaking. Fixes that can be b
 
 इसकी प्रक्रिया निम्नलिखित है:
 
-1. सभी मुख्य और लघु रिलीज़िस पंक्तियाँ `-beta.N` से शुरू होंगी जहाँ `N >= 1` होगा | इस समय पर, सुविधा सेट **लॉक्ड** होगा | वह रिलीज़ पंक्ति और ज्यादा सुविधाओं को शामिल करने की अनुमति नहीं देती, और केवल सुरक्षा और स्थिरता पर केन्द्रित होती है | उदाहरण: `2.0.0-beta.1` |
-2. बग फिक्सेस, रिग्रेशन फिक्सेस और सुरक्षा पैच को अनुमति मिल सकती है | ऐसा करने पर, `N` को बढ़ा कर एक नया बीटा रिलीज़ किया जाता है | उदाहरण: `2.0.0-beta.2`
-3. अगर एक दी गयी बीटा रिलीज़ *सामान्यतः* स्थिर मानी जाती है, तो उसे एक स्थिर बिल्ड के रूप में दोबारा से रिलीज़ किया जायेगा, और केवल संस्करण जानकारी को बदला जायेगा | उदाहरण: `2.0.0` |
-4. अगर भविष्य में एक स्थिर रिलीज़ में बग फिक्सेस या सुरक्षा पैच शामिल करने हो, तो उन्हें शामिल करना होगा और उसकी अनुसार *पैच* संस्करण को बढ़ाना होगा उदाहरण: `2.0.1` |
+1. All new major and minor releases lines begin with a beta series indicated by semver prerelease tags of `beta.N`, e.g. `2.0.0-beta.1`. After the first beta, subsequent beta releases must meet all of the following conditions: 
+    1. The change is backwards API-compatible (deprecations are allowed)
+    2. The risk to meeting our stability timeline must be low.
+2. If allowed changes need to be made once a release is beta, they are applied and the prerelease tag is incremented, e.g. `2.0.0-beta.2`.
+3. If a particular beta release is *generally regarded* as stable, it will be re-released as a stable build, changing only the version information. e.g. `2.0.0`. After the first stable, all changes must be backwards-compatible bug or security fixes.
+4. If future bug fixes or security patches need to be made once a release is stable, they are applied and the *patch* version is incremented e.g. `2.0.1`.
+
+Specifically, the above means:
+
+1. Admitting non-breaking-API changes early in the beta cycle is okay, even if those changes have the potential to cause moderate side-affects
+2. Admitting feature-flagged changes, that do not otherwise alter existing code paths, at most points in the beta cycle is okay. Users can explicitly enable those flags in their apps.
+3. Admitting features of any sort very late in the beta cycle is 
 
 For each major and minor bump, you should expect to see something like the following:
 
@@ -117,12 +125,7 @@ For each major and minor bump, you should expect to see something like the follo
 
 - it is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
 - उसे नये और पुराने कोड पथों को बिल्कुल अलग रखना चाहिये; पुराने कोड को नये फीचर समर्थित के लिए बदलने से फीचर-ध्वज अनुबंध का *उल्लंघन * होता है
-- सॉफ्ट-शाखा के संयोजित होने के बाद फीचर ध्वज अंततः निकाल दिए जाते हैं
-
-हम फ्लैगड कोड को हमारी निम्नलिखित संस्करण रणनीति अनुसार संयोजित करते हैं:
-
-1. हम स्थिर शाखा में फीचर-ध्वज कोड को बढ़ाने का विचार नहीं करते; फीचर ध्वजों का न्यूनतम इस्तेमाल भी खतरे से खाली नहीं है
-2. फीचर-ध्वज कोड में आपसे ऐपीआई अनुबंध टूट सकते हैं, अगर आप मुख्य संस्करण को नहीं बढ़ाते| फ्लैगड कोड सेमवर का पालन नहीं करता|
+- feature flags are eventually removed after the feature is released
 
 # सिमेंटिक कम्मिट्स
 

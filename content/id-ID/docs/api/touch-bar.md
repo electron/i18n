@@ -2,7 +2,7 @@
 
 > Buatlah TouchBar layout untuk aplikasi asli macOS
 
-Proses: [utama](../tutorial/quick-start.md#main-process)
+Process: [Main](../tutorial/quick-start.md#main-process)
 
 ### `baru TouchBar(options)` *Experimental*
 

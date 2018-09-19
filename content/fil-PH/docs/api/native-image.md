@@ -82,7 +82,7 @@ Ang mga sumusunod na mga suffix ng DPI ay suportado rin:
 
 ## Template na Imahe
 
-Ang template na imahe ay binubuo ng itim at malinaw na mga kulay (at ang alpha na tsanel). Ang mga template na imahe ay hindi inilalaan para gamiting napag-iisang imahe at kadalasan ay inihahalo sa ibang nilalaman para bumuo ng nais na huling kaanyuan.
+Template images consist of black and clear colors (and an alpha channel). Template images are not intended to be used as standalone images and are usually mixed with other content to create the desired final appearance.
 
 Ang pinakakaraniwang kaso ay ang paggamit ng template na mga imahe para sa menu bar na icon upang maakma sa kapwa maliwanag at madilim na mga menu bar.
 

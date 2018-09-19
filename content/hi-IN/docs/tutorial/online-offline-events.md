@@ -7,7 +7,7 @@
 *main.js*
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 let onlineStatusWindow
 
@@ -44,7 +44,7 @@ status.html`)
 *main.js*
 
 ```javascript
-const {app, BrowserWindow, ipcMain} = require('electron')
+const { app, BrowserWindow, ipcMain } = require('electron')
 let onlineStatusWindow
 
 app.on('ready', () => {
@@ -65,7 +65,7 @@ ipcMain.on('online-status-changed', (event, status) => {
 <html>
 <body>
 <script>
-  const {ipcRenderer} = require('electron')
+  const { ipcRenderer } = require('electron')
   const updateOnlineStatus = () => {
     ipcRenderer.send('online-status-changed', navigator.onLine ? 'online' : 'offline')
   }

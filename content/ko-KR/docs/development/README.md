@@ -1,6 +1,6 @@
-# Developing Electron
+# Electron 개발하기
 
-These guides are intended for people working on the Electron project itself. For guides on Electron app development, see [/docs/README.md](../README.md#guides-and-tutorials).
+이 가이드는 Electron 프로젝트 자체에 대해 작업하는 사람들을 위해 작성되었습니다. Electron을 사용해서 앱을 개발하는 가이드에 대해서는 [/docs/README.md](../README.md#guides-and-tutorials) 문서를 읽어주십시오.
 
 * [행동 규칙](../../CODE_OF_CONDUCT.md)
 * [Electron에 기여하기](../../CONTRIBUTING.md)
@@ -21,6 +21,6 @@ These guides are intended for people working on the Electron project itself. For
 * [MacOS 에서 디버깅하기](debugging-instructions-macos.md)
 * [디버거에서 디버그 심볼 서버 설정](setting-up-symbol-server.md)
 * [Chromium 업그레이드](upgrading-chromium.md)
-* [Upgrading Crashpad](upgrading-crashpad.md)
+* [크래시패드 업그레이드](upgrading-crashpad.md)
 * [Node 업그레이드](upgrading-node.md)
 * [릴리즈](releasing.md)

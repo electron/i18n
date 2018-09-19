@@ -2,7 +2,7 @@
 
 > Create a slider in the touch bar for native macOS applications
 
-Prozess: [Haupt](../tutorial/quick-start.md#main-process)
+Process: [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarSlider(options)` *Experimental*
 

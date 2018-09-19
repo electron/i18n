@@ -85,8 +85,8 @@
   * [Използване на asar архиви](tutorial/application-packaging.md#using-asar-archives)
   * [Ограничения](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Добавяне на непакетирани файлове към asar архивите](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
+* [In Detail: Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
 * [Използване на Pepper Flash Plugin в детайли](tutorial/using-pepper-flash-plugin.md)
-* [Използване на Widevine CDM Plugin в детайли](tutorial/using-widevine-cdm-plugin.md)
 * [Рендиране извън екрана](tutorial/offscreen-rendering.md)
 
 * * *
