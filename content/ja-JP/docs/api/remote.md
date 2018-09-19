@@ -14,7 +14,7 @@ let win = new BrowserWindow({width: 800, height: 600})
 win.loadURL('https://github.com')
 ```
 
-**Note:** For the reverse (access the renderer process from the main process), you can use [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback).
+**Note:** For the reverse (access the renderer process from the main process), you can use [webContents.executeJavascript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback).
 
 ## リモートオブジェクト
 
@@ -132,20 +132,18 @@ const foo = require('electron').remote.require('./foo') // bar
 
 戻り値 [`BrowserWindow`](browser-window.md) - このウェブページが属するウインドウ。
 
-**Note:** Do not use `removeAllListeners` on [`BrowserWindow`](browser-window.md). Use of this can remove all [`blur`](https://developer.mozilla.org/en-US/docs/Web/Events/blur) listeners, disable click events on touch bar buttons, and other unintended consequences.
-
 ### `remote.getCurrentWebContents()`
 
-戻り値 [`WebContents`](web-contents.md) - このウェブページの webContents。
+Returns [`WebContents`](web-contents.md) - The web contents of this web page.
 
 ### `remote.getGlobal(name)`
 
 * `name` String
 
-戻り値 `any` - メインプロセス内の `name` (例: `global[name]`) のグローバル変数。
+Returns `any` - The global variable of `name` (e.g. `global[name]`) in the main process.
 
 ## プロパティ
 
 ### `remote.process`
 
-メインプロセス内の `process` オブジェクト。これは `remote.getGlobal('process')` と同じですが、キャッシュされます。
+The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
