@@ -100,9 +100,9 @@ Borra la memoria caché del HTTP de la sesión.
 #### `ses.clearStorageData([options, callback])`
 
 * `options` Objecto (opcional) 
-  * `origin` String (optional) - Should follow `window.location.origin`’s representation `scheme://host:port`.
-  * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`.
-  * `quotas` String[] (optional) - The types of quotas to clear, can contain: `temporary`, `persistent`, `syncable`.
+  * `origin` String (opcional) - Debe seguir la representación de `window.location.origin` `scheme://host:port`.
+  * `storages` String[] (opcional) - Los tipos de almacenaje a limpiar, puede contener: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`.
+  * `quotas` String[] (opcional) - El tipo de cuotas a limpiar, puede contener: `temporary`, `persistent`, `syncable`.
 * `callback` Function (opcional) - Invocada cuando la operación ha finalizado.
 
 Borra los datos de almacenamiento web.
@@ -141,7 +141,7 @@ Por ejemplo:
 * `socks4://foopy` - Usa SOCKS v4 proxy `foopy:1080` para todas las URLs.
 * `http=foopy,socks5://bar.com` - Usa HTTP proxy `foopy` para las URLs http, y falla para el proxy SOCKS5 `bar.com` si `foopy` no está disponible.
 * `http=foopy,direct://` - Usa el proxy HTTP `foopy` para URLs http, y no usa el proxy si `foopy` no está disponible.
-* `http=foopy;socks=foopy2` - Use HTTP proxy `foopy` for http URLs, and use `socks4://foopy2` for all other URLs.
+* `http=foopy;socks=foopy2` - Usa el proxy HTTP `foopy` para URLs HTTP, y usa `socks4://foopy2` para el resto de URLs.
 
 El `proxyBypassRules` es una lista separada por comas de las reglasa que se describen a continuación:
 
@@ -252,8 +252,8 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
   * `permiso` cadena - Enumeración de 'medios', 'geolocalización', 'notificaciones', 'midiSysex', 'bloque de puntero', 'Pantalla completa', 'Apertura externa'.
   * `callback` Function 
     * `permiso concedido` Booleano - Permiso o denegado de permiso.
-  * `details` Object - Some properties are only available on certain permission types. 
-    * `externalURL` String - The url of the `openExternal` request.
+  * `details` Object - Algunas propiedades solamente están disponibles en ciertos tipos de permisos. 
+    * `externalURL` String - La url de la solicitud `openExternal`.
 
 Configurar el controlador que será usado para responder las peticiones de permisos para la `sesión`. Llamando `callback(true)` se permitirá el permiso y `callback(false)` se rechazará. Para limpiar el manejador, llamar a `setPermissionRequestHandler(null)`.
 
@@ -276,7 +276,7 @@ Borra la caché de resolución de host.
 
 #### `ses.allowNTLMCredentialsForDomains(domains)`
 
-* `domains` String - A comma-separated list of servers for which integrated authentication is enabled.
+* `dominio` Cadena - Una lista separada por coma de servidores para los cuales la autenticación integrada está habilitada.
 
 Configura dinámicamente cada vez que se envíen credenciales para HTTP NTLM o negociaciones de autenticación.
 
@@ -334,13 +334,13 @@ Limpia caché de autenticación HTTP de la sesión.
 
 #### `ses.setPreloads(preloads)`
 
-* `preloads` String[] - An array of absolute path to preload scripts
+* `preloads` String[] - Un array de ruta absoluta para precargar scripts
 
-Adds scripts that will be executed on ALL web contents that are associated with this session just before normal `preload` scripts run.
+Agrega scripts que se ejecutarán en TODOS los contenidos web que están asociados con esta sesión justo antes de que se ejecuten los scripts de `preload` normales.
 
 #### `ses.getPreloads()`
 
-Returns `String[]` an array of paths to preload scripts that have been registered.
+Devuelve un array de rutas `String[]` para precargar guiones que han sido registrado.
 
 ### Propiedades de Instancia
 
