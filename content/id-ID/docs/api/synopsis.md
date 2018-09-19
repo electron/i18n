@@ -6,9 +6,9 @@ Semua modul built-in Node.js </ 0> tersedia di Elektron dan modul simpul pihak k
 
 Elektron juga menyediakan beberapa modul built-in tambahan untuk pengembangan native aplikasi desktop Beberapa modul hanya tersedia dalam proses utama, beberapa hanya tersedia dalam proses renderer (halaman web), dan beberapa dapat digunakan masuk keduanya proses.
 
-Aturan dasarnya adalah: jika sebuah modul  GUI </ 0> atau sistem tingkat rendah terkait, maka seharusnya hanya tersedia dalam proses utama. You need to be familiar with the concept of main process vs. proses renderer </ 0> skrip untuk bisa menggunakan modul tersebut.</p> 
+Aturan dasarnya adalah: jika sebuah modul  GUI </ 0> atau sistem tingkat rendah terkait, maka seharusnya hanya tersedia dalam proses utama. Anda harus akrab dengan konsep  proses utama vs. proses renderer </ 0> skrip untuk bisa menggunakan modul tersebut.</p> 
 
-The main process script is just like a normal Node.js script:
+Script proses utama seperti script Node.js biasa:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -34,7 +34,7 @@ Proses renderer tidak berbeda dengan halaman web biasa, kecuali untuk kemampuan 
 </ 0>
 ```
 
-To run your app, read [Run your app](../tutorial/quick-start.md#run-your-app).
+Untuk menjalankan aplikasi Anda, baca  Jalankan aplikasi Anda </ 0>.</p> 
 
 ## Penataan ulang tugas
 
