@@ -94,7 +94,7 @@ Objects created with `new Notification` have the following instance methods:
 
 #### `notification.show()`
 
-Immediately shows the notification to the user, please note this means unlike the HTML5 Notification implementation, simply instantiating a `new Notification` does not immediately show it to the user, you need to call this method before the OS will display it.
+Immediately shows the notification to the user, please note this means unlike the HTML5 Notification implementation, instantiating a `new Notification` does not immediately show it to the user, you need to call this method before the OS will display it.
 
 If the notification has been shown before, this method will dismiss the previously shown notification and create a new one with identical properties.
 
