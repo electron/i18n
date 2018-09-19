@@ -37,7 +37,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 ### Wydarzenia instancji
 
-#### Event: 'updated'
+#### Zdarzenie: 'updated'
 
 Zwraca:
 
@@ -51,7 +51,7 @@ The `state` can be one of following:
 * `progressing` - The download is in-progress.
 * `interrupted` - The download has interrupted and can be resumed.
 
-#### Event: 'done'
+#### Zdarzenie: 'done'
 
 Zwraca:
 
