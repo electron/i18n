@@ -2,7 +2,7 @@
 
 > Створіть групу в панелі дотику для нативних macOS застосунків
 
-Процес: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+Процес: [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarGroup(options)` *Експериментальний*
 
