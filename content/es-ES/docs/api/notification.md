@@ -30,13 +30,13 @@ Devuelve `Boolean` - Si las notificaciones de escritorio son soportadas o no en 
 
 * `opciones` Objeto 
   * `title` String - Un título para la notificación, el cual será mostrado en la parte superior de la ventana de notificación.
-  * `subtitle` String (optional) *macOS* - A subtitle for the notification, which will be displayed below the title.
+  * `subtitle` String (opcional) *macOS* - Un subtítulo para la notificación, la cual aparecerá debajo del título.
   * `body` String - El cuerpo del texto de la notificación, el cual aparecerá debajo del título o subtítulo.
-  * `silent` Boolean (optional) - Whether or not to emit an OS notification noise when showing the notification.
-  * `icon` (String | [NativeImage](native-image.md)) (optional) - An icon to use in the notification.
-  * `hasReply` Boolean (optional) *macOS* - Whether or not to add an inline reply option to the notification.
-  * `replyPlaceholder` String (optional) *macOS* - The placeholder to write in the inline reply input field.
-  * `sound` String (optional) *macOS* - The name of the sound file to play when the notification is shown.
+  * `silent` Boolean (opcional) - Si se emite o no un sonido de notificación del sistema operativo cuando aparece la notificación.
+  * `icon` (String | [NativeImage](native-image.md)) (opcional) - Icono para usar en la notificación.
+  * `hasReply` Boolean (opcional) *macOS* - Si se agrega o no una opción de respuesta insertada en la notificación.
+  * `replyPlaceholder` String (opcional) *macOS* - El marcador de posición para escribir en el campo insertado de entrada de respuesta.
+  * `sound` String (opcional) *macOS* - El nombre del archivo de sonido que se reproduce cuando se muestra la notificación.
   * `actions` [NotificationAction[]](structures/notification-action.md) (optional) *macOS* - Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation.
   * `closeButtonText` String (optional) *macOS* - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
 
