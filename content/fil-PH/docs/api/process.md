@@ -6,27 +6,13 @@ Proseso: [Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#re
 
 Ang `prosesong` bagay ng Electron ay pinalawak mula sa [Node.js `proseso` bagay](https://nodejs.org/api/process.html). Ito ay nagdaragdag ng mga sumusunod na pangyayari, katangian, at mga pamamaraan:
 
-## Sandbox
-
-In sandboxed renderers the `process` object contains only a subset of the APIs:
-
-* `crash()`
-* `hang()`
-* `getHeapStatistics()`
-* `getProcessMemoryInfo()`
-* `getSystemMemoryInfo()`
-* `argv`
-* `execPath`
-* `env`
-* `platform`
-
 ## Pangyayari
 
 ### Pangyayari: 'puno'
 
-Napalabas kapag na-load ng Electron ang kanyang panloob na inisyalisasyon iskrip at simulang mag load ang web page o sa pangunahin iskrip.
+Emitted when Electron has loaded its internal initialization script and is beginning to load the web page or the main script.
 
-Pwede rin itong magamit ng preload iskrip para magdagdag ang tinanggal na Node global na simbolo pabalik sa global scope kung ang integrasyon ng node ay nakapatay. 
+It can be used by the preload script to add removed Node global symbols back to the global scope when node integration is turned off:
 
 ```javascript
 // preload.js
@@ -42,112 +28,96 @@ process.once('loaded', () => {
 
 ### `proseso.defaultApp`
 
-Ang `Boolean`. Kung ang app ay nagsimula sa pamamagitan ng ipinapasa bilang parametro sa default app, ang katangiang ito ay `totoo` sa pangunahing proseso, kunghindiman ito ay `malabo`
+A `Boolean`. When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
 
 ### `proseso.mas`
 
-Ang `Boolean`. Para sa itinayo na Mac App Store, ang propyedad na ito ay `totoo`, para sa ibang initayo ito ay `malabo`.
+A `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
 
 ### `proseso.noAsar`
 
-Ang `Boolean` na nag kontrol ng ASAR ay nagsuporta sa loob ng iyong aplikasyon. Ang pag set nito sa `totoo` ay hindi mapapagana ang suporta para `asar`arkibos sa Node's built-in modyul.
+A `Boolean` that controls ASAR support inside your application. Setting this to `true` will disable the support for `asar` archives in Node's built-in modules.
 
 ### `proseso.noDeprecation`
 
-A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`. Setting this to `true` will silence deprecation warnings. Ang propeyedad na ito ai ginagamit sa halip na `--walang-deprecation` nagt-utos ng linya ng bandila.
+A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`. Setting this to `true` will silence deprecation warnings. This property is used instead of the `--no-deprecation` command line flag.
 
 ### `proseso.pinagkukunanPath`
 
-Ang `String` nag representa ng landas patungo sa pangunahing panuto.
+A `String` representing the path to the resources directory.
 
 ### `proseso.itaponDeprecation`
 
-Ang `Boolean` na kumokontrol kung o hindi ang mga babala sa deprecation ay matatapon bilang eskepsyon. Ang pagtatakda ng mga ito na `totoo` ay magtatapon ng mali para sa deprecations. Ang propeyedad na ito ay ginagamit sa halip na `--tapon-deprecation` naguutos sa bandilang linya.
+A `Boolean` that controls whether or not deprecation warnings will be thrown as exceptions. Setting this to `true` will throw errors for deprecations. This property is used instead of the `--throw-deprecation` command line flag.
 
 ### `proseso.bakasDeprecation`
 
-Ang `Boolean` na nagkontrol kung o hindi ang deprecation ay nakalimbag sa `stderr` isinama ng isinalansan na bakas. Setting this to `true` will print stack traces for deprecations. Ang propeyedad na ito ay sa halip na ang `--bakas-deprecation` naguutos ng linyang bandila.
+A `Boolean` that controls whether or not deprecations printed to `stderr` include their stack trace. Setting this to `true` will print stack traces for deprecations. This property is instead of the `--trace-deprecation` command line flag.
 
 ### `proseso.bakasProsesoBabala`
 
-Ang `Boolean` na nagkontrol kung o hindi na ang mga babalang proseso ay nakalimbag sa `stderr` isama sa isinalansan na bakas. Setting this to `true` will print stack traces for process warnings (including deprecations). This property is instead of the `--trace-warnings` command line flag.
+A `Boolean` that controls whether or not process warnings printed to `stderr` include their stack trace. Setting this to `true` will print stack traces for process warnings (including deprecations). This property is instead of the `--trace-warnings` command line flag.
 
 ### `proseso.uri`
 
-Ang `String` ay nagrepresenta sa kasalukuyang prosesong uri, pwede ring `"browser"`(i.e pangunahing proses) o `"gumawa"`.
+A `String` representing the current process's type, can be `"browser"` (i.e. main process) or `"renderer"`.
 
 ### `proseso.bersyon.chrome`
 
-Ang `String` nagrepresenta sa bersyon ng Chrome string.
+A `String` representing Chrome's version string.
 
 ### `proseso.bersyon.electron`
 
-Ang `String` nag representang bersyon ng Electron string.
+A `String` representing Electron's version string.
 
 ### `proseso.windowsStore`
 
-Ang `Boolean`. Kung ang app ay tumatakbo bilang Windows Store app (appx), ang propeyedad a `totoo`, para kung hindimna ito ay `malabo`.
+A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
 
 ## Mga Paraan
 
-Ang `proseso` na bagay ay may mga sumusunod na paraan:
+The `process` object has the following methods:
 
 ### `proseso.crash()`
 
-Ang mga dahilan ng pangunahing thread sa kasalukuyang proseso ay lumagpak.
+Causes the main thread of the current process crash.
 
 ### `proseso.getCPUUsage()`
 
-Pagbabalik [` CPUUsage `](structures/cpu-usage.md)
+Returns [`CPUUsage`](structures/cpu-usage.md)
 
 ### `process.getIOCounters()` *Windows* *Linux*
 
-Pagbabalik [`IOCounters`](structures/io-counters.md)
+Returns [`IOCounters`](structures/io-counters.md)
 
-### `process.getHeapStatistics()`
-
-Returns `Object`:
-
-* `totalHeapSize` Integer
-* `totalHeapSizeExecutable` Integer
-* `totalPhysicalSize` Integer
-* `totalAvailableSize` Integer
-* `usedHeapSize` Integer
-* `heapSizeLimit` Integer
-* `mallocedMemory` Integer
-* `peakMallocedMemory` Integer
-* `doesZapGarbage` Boolean
-
-Returns an object with V8 heap statistics. Note that all statistics are reported in Kilobytes.
-
-### `proseso.getProsesoMemoryaInfo()`
+### `process.getProcessMemoryInfo()`
 
 Returns `Object`:
 
-* `workingSetSize`Integer - Ang halaga ng memorya ay kasalukuyang naka-pin sa aktwal na pisikal na RAM.
-* `peakWorkingSetSize` Integer - Ang pinakamataas na halaga ng memorya na hindi pa nai-pin sa aktwal na pisikal RAM.
+* `workingSetSize` Integer - The amount of memory currently pinned to actual physical RAM.
+* `peakWorkingSetSize` Integer - The maximum amount of memory that has ever been pinned to actual physical RAM.
 * `privateBytes` Integer - Ang halaga ng memorya na hindi ibinahagi ng iba pang mga proseso, tulad ng tambakan ng JS o mga nilalaman ng HTML.
-* `sharedBytes` Integer - Ang halaga ng memorya na naibahagi sa bawat mga proseso, na kadalasan ay memoryang nagagamit ng mismong code ng Electron.
+* `sharedBytes` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself.
 
-Nagbabalik ng mga bagay at nagbibigay ng memoryang paggamit ng istatistika tungkol sa kasalukuyang proseso. Tandaan na ang lahat ng istatistik ay iniulat sa Kilobytes.
+Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes.
 
-### `proseso.getSystemMemoryInfo()`
+### `process.getSystemMemoryInfo()`
 
-Nagbabalik ng mga `bagay`:
+Returns `Object`:
 
-* `kabuuan` Integer - Ang kabuuang halaga ng pisikal na memorya sa Kilobytes na maggagamit sa sistema. 
-* `libre` Integer - Ang kabuuang halaga ng memorya na hindi nagagamit sa aplikasyon o disk cache.
+* `total` Integer - The total amount of physical memory in Kilobytes available to the system.
+* `free` Integer - The total amount of memory not being used by applications or disk cache.
 * `swapTotal` Integer *Windows* *Linux* - The total amount of swap memory in Kilobytes available to the system.
 * `swapFree` Integer *Windows* *Linux* - The free amount of swap memory in Kilobytes available to the system.
 
-Nagbabalik ng bagay at nagbibigay ng memoryang gamit na istatistika tungkol sa buong sistema. Tandaan na ang lahat ng istatistika ay inuulat sa Kilobytes.
+Returns an object giving memory usage statistics about the entire system. Note that all statistics are reported in Kilobytes.
 
-### `proseso.hang()`
+### `process.hang()`
 
-Dahilan na ang pangunahing thread sa kasalukuyang proseso sabit.
+Causes the main thread of the current process hang.
 
-### `proseso.setFdLimit(maxDescriptors)`macOS</em>*Linux*
+### `process.setFdLimit(maxDescriptors)` *macOS* *Linux*
 
 * `maxDescriptors` Integer
 
-Itakda ang file na tagapaglarawan sa mahinang limitasyon sa `maxDescriptors` o sa OS malakas na limitasyon, alinman ang mas mababa sa kasalukuyang proseso.
+Sets the file descriptor soft limit to `maxDescriptors` or the OS hard limit, whichever is lower for the current process.
