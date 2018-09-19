@@ -310,14 +310,14 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 * `event` Събитие
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
-* `обратно повикване` Function 
+* `callback` Function 
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list.
 
 Излъчено, когато е поискан клиентски сертификат.
 
 The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
-#### Събитие: 'login'
+#### Събитие: "вход"
 
 Връща:
 
@@ -447,7 +447,7 @@ Emitted when there is a new context menu that needs to be handled.
 
 * `event` Събитие
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
-* `обратно повикване` Функция 
+* `обратно повикване` Function 
   * `deviceId` String - Идентификационен номер на устройството
 
 Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
@@ -909,7 +909,7 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
-* `обратно повикване` Функция 
+* `обратно повикване` Function 
   * `error` Error
   * `data` Buffer
 
@@ -1188,7 +1188,7 @@ Sets the `item` as dragging item for current drag-drop operation, `file` is the 
   * `HTMLOnly` - Save only the HTML of the page.
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
-* `callback` Функция - `(error) => {}`. 
+* `callback` Function - `(error) => {}`. 
   * `error` Error
 
 Returns `Boolean` - true if the process of saving page has been initiated successfully.
