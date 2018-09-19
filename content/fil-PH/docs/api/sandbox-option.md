@@ -16,7 +16,7 @@ Ang isa pang pagkakaiba ay ang mga tagasalin ng sandbox ay hindi binabago ang al
 
 ## Mga halimbawa
 
-To create a sandboxed window, pass `sandbox: true` to `webPreferences`:
+To create a sandboxed window, simply pass `sandbox: true` to `webPreferences`:
 
 ```js
 let win
@@ -51,7 +51,7 @@ elektron --enable-sandbox app.js
 
 Ito ay hindi posible na magkaroon ng OS sandbox na aktibo lamang para sa ilang mga renderers, kung `--enable-sandbox` ay gumagana, ang normal na elektron windows ay hindi malilikha.
 
-If you need to mix sandboxed and non-sandboxed renderers in one application, omit the `--enable-sandbox` argument. Kung walang argumento ito, nilikha ang windows sa `sandbox: tama` ay magkakaroon parin nang node.js na hindi gumagana at kaugnayan lamang sa pamamagitan ng IPC, kung saan ito mismo makakuha mula sa seguridad POV.
+If you need to mix sandboxed and non-sandboxed renderers in one application, simply omit the `--enable-sandbox` argument. Kung walang argumento ito, nilikha ang windows sa `sandbox: tama` ay magkakaroon parin nang node.js na hindi gumagana at kaugnayan lamang sa pamamagitan ng IPC, kung saan ito mismo makakuha mula sa seguridad POV.
 
 ## Preload
 
