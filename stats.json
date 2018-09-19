@@ -211,14 +211,14 @@
     "name": "Polish",
     "code": "pl",
     "phrases": "9355",
-    "translated": "3884",
+    "translated": "3908",
     "approved": "776",
     "words": "86354",
-    "words_translated": "19993",
+    "words_translated": "20041",
     "words_approved": "5633",
     "translated_progress": 23,
     "approved_progress": 6,
-    "qa_issues": "877"
+    "qa_issues": "880"
   },
   {
     "name": "Portuguese, Brazilian",
@@ -250,14 +250,14 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "9355",
-    "translated": "8544",
+    "translated": "8593",
     "approved": "289",
     "words": "86354",
-    "words_translated": "75009",
+    "words_translated": "75548",
     "words_approved": "2382",
-    "translated_progress": 86,
+    "translated_progress": 87,
     "approved_progress": 2,
-    "qa_issues": "3318"
+    "qa_issues": "3354"
   },
   {
     "name": "Tagalog",
