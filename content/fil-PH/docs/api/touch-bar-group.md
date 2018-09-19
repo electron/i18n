@@ -2,7 +2,7 @@
 
 > Gumawa ng grupo sa touch bar para sa mga aplikasyon ng katutubong macOS
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+Proseso: [Pangunahing](../tutorial/quick-start.md#main-process)
 
 ### `bagong TouchBarGroup(options)` *Pangeksperimento*
 
