@@ -2,7 +2,7 @@
 
 > ネイティブ macOS アプリケーション用のタッチバー内にカラーピッカーを作成する
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+プロセス: [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarColorPicker(options)` *実験的*
 
