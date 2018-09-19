@@ -134,7 +134,7 @@ Returns [`BrowserWindow`](browser-window.md) - The window to which this web page
 
 ### `remote.getCurrentWebContents()`
 
-Returns [`WebContents`](web-contents.md) - The web contents of this web page.
+Zwraca [`WebContents`](web-contents.md) - Zawartość internetowa tej strony.
 
 ### `remote.getGlobal(name)`
 
