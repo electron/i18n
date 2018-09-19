@@ -148,6 +148,6 @@ Esta opción solo funciona cuando `--enable-logging` es también pasada.
 
 Permite que el nivel máximo por module de V-logging sobrepase el valor dado por `--v`. Por ejemplo `my_module=2,foo*=3` cambiaría el nivel de logging para todo el código fuente en los archivos `my_module.*` y `foo*.*`.
 
-Any pattern containing a forward or backward slash will be tested against the whole pathname and not only the module. Por ejemplo `*/foo/bar/*=2` cambiaría le nivel de logging para todo el código fuente en los ficheros contenidos en `foo/bar` directorio.
+Cualquier patrón conteniendo una barra o contrabarra sera verificada con todo la ruta y no solo el modulo. Por ejemplo `*/foo/bar/*=2` cambiaría le nivel de logging para todo el código fuente en los ficheros contenidos en `foo/bar` directorio.
 
 Esta opción solo funciona cuando `--enable-logging` es también pasada.
