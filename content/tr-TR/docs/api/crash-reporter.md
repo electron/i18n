@@ -22,6 +22,11 @@ Gelen çökme raporlarını kabul edip işleyen bir sunucu kurmak için aşağı
 * [socorro](https://github.com/mozilla/socorro)
 * [mini-breakpad-server](https://github.com/electron/mini-breakpad-server)
 
+Or use a 3rd party hosted solution:
+
+* [Backtrace I/O](https://backtrace.io/electron/)
+* [Sentry](https://docs.sentry.io/clients/electron)
+
 Çökme raporları uygulamaya özel bir geçici dizinde kaydedilir. `isminizin` `ürünü` için çökme raporları `İsminiz Crashes` dizinimde /temp dizini altında tutulacaktır. Bu geçici dizinin yolunu `app.setPath('temp', '/my/custom/temp')` şeklinde kendinize göre ayarlayabilirsiniz.
 
 ## Yöntemler
@@ -30,7 +35,7 @@ Gelen çökme raporlarını kabul edip işleyen bir sunucu kurmak için aşağı
 
 ### `crashReporter.start(options)`
 
-* `seçenekler` Object 
+* `options` Obje 
   * `companyName` Katar (opsiyonel)
   * `submitURL` Katar - Çökme raporlarının POST olarak yollanacağı URL.
   * `productName` Katar (opsiyonel) - Varsayılan olarak `app.getName()`.
@@ -121,4 +126,4 @@ Kilitlenme raporuyla birlikte gönderilemeyeceği için mevcut parametreler grub
 * `prod` Katar - Arkadaki temel ürünün ismi. Bu durum için Electron.
 * `_companyName` Katar - `crashReporter` `options` objesi içerisindeki şirket ismi.
 * `upload_file_minidump` Dosya - `minidump` formatında çökme raporu.
-* `extra` nesnesinin `crashReporter` `options` nesnesindeki tüm birincil düzey özellikleri.
+* `crashReporter``options` objesi içerisindeki `extra`'nın tüm birinci seviye özellikleri.
