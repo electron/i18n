@@ -35,18 +35,19 @@ Returns `Menu | null` - The application menu, if set, or `null`, if not set.
 <li><code> aksi </ 0>  Tali</li>
 </ul>
 
-<p>Mengirimkan <code> action </ 0> ke responder pertama dari aplikasi. Ini digunakan untuk meniru perilaku menu macos default. Usually you would just use the
-<a href="menu-item.md#roles"><code>role`</a> property of a [`MenuItem`](menu-item.md).</p> 
+<p>Mengirimkan <code> action </ 0> ke responder pertama dari aplikasi. Ini digunakan untuk meniru perilaku menu macos default. Biasanya Anda hanya akan menggunakan
+ <a href="menu-item.md#roles"><code> peran </ 0> properti dari <a href="menu-item.md"><code> MenuItem </ 1>.</p>
 
-Lihat  MacOS Kakao Acara Penanganan Panduan </ 0> untuk informasi lebih lanjut tentang MacOS tindakan asli '.</p> 
+<p>Lihat <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7"> MacOS Kakao Acara Penanganan Panduan </ 0> 
+untuk informasi lebih lanjut tentang MacOS tindakan asli '.</p>
 
-#### `Menu.membangun dari Template (template)`
+<h4><code>Menu.membangun dari Template (template)`
 
 * `template` MenuItemConstructorOptions[]
 
 Mengembalikan `menu`
 
-Generally, the `template` is just an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
+Umumnya, `template` hanyalah sebuah array dari `options` untuk membangun a [MenuItem](menu-item.md). Penggunaannya bisa diacu di atas.
 
 Anda juga bisa melampirkan bidang lain ke elemen `template` dan mereka akan menjadi properti dari item menu yang dibangun.
 
@@ -279,28 +280,22 @@ macos telah memberikan tindakan standar untuk beberapa item menu, seperti ` Tent
 
 ## Posisi Item Menu
 
-You can make use of `position` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
+Anda dapat menggunakan `posisi` dan `id` untuk mengontrol bagaimana item akan ditempatkan ketika membangun sebuah menu dengan `Menu.buildFromTemplate`.
 
-The `position` attribute of `MenuItem` has the form `[placement]=[id]`, where `placement` is one of `before`, `after`, or `endof` and `id` is the unique ID of an existing item in the menu:
+Atribut `posisi` dari `MenuItem` memiliki form ` [placement] = [id] `, di mana `penempatan` adalah salah satu dari `sebelum`, `setelah`, atau ` endof` dan` id ` adalah unik ID dari item yang ada di menu:
 
-* `before` - Inserts this item before the id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
-* `after` - Inserts this item after id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
-* `endof` - Inserts this item at the end of the logical group containing the id referenced item (groups are created by separator items). If the referenced item doesn't exist, a new separator group is created with the given id and this item is inserted after that separator.
+* `sebelum` - Menyisipkan item ini sebelum item yang diacu id. Jika Item yang direferensikan tidak ada barang akan disisipkan pada akhir menu.
+* `setelah` - Menyisipkan item ini setelah item id direferensikan. Jika direferensikan item tidak ada item akan disisipkan di akhir menu.
+* `endof` - Menyisipkan item ini di akhir kelompok logis yang berisi item yang diacu id (grup dibuat oleh item pemisah). Jika Item yang direferensikan tidak ada, grup pemisah baru dibuat dengan id yang diberikan dan item ini dimasukkan setelah pemisah tersebut.
 
-When an item is positioned, all un-positioned items are inserted after it until a new item is positioned. So if you want to position a group of menu items in the same location you only need to specify a position for the first item.
+Bila item diposisikan, semua item yang tidak diposisikan dimasukkan setelah item baru diposisikan. Jadi jika Anda ingin memposisikan sekelompok item menu di lokasi yang sama Anda hanya perlu menentukan posisi untuk item pertama.
 
 ### Contoh
 
 Template:
 
 ```javascript
-[
-  {label: '4', id: '4'},
-  {label: '5', id: '5'},
-  {label: '1', id: '1', position: 'before=4'},
-  {label: '2', id: '2'},
-  {label: '3', id: '3'}
-]
+[   {label: '4', id: '4'},   {label: '5', id: '5'},   {label: '1', id: '1', position: 'before=4'},   {label: '2', id: '2'},   {label: '3', id: '3'} ]
 ```
 
 Menu:
@@ -317,12 +312,12 @@ Template:
 
 ```javascript
 [
-  {label: 'a', position: 'endof=letters'},
-  {label: '1', position: 'endof=numbers'},
-  {label: 'b', position: 'endof=letters'},
-  {label: '2', position: 'endof=numbers'},
-  {label: 'c', position: 'endof=letters'},
-  {label: '3', position: 'endof=numbers'}
+  {label: 'a', posisi: 'endof = letters'},
+  {label: '1', posisi: 'endof = numbers'},
+  {label: 'b', posisi: 'endof = letters'},
+  {label: '2', posisi: 'endof = numbers'},
+  {label: 'c', posisi: 'endof = letters'},
+  {label: '3', posisi: 'endof = numbers'}
 ]
 ```
 
