@@ -2,7 +2,7 @@
 
 > ネイティブ macOS アプリケーション用のタッチバー内に2つのアイテム間のスペーサーを作成する
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+プロセス: [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarSpacer(options)` *実験的*
 
