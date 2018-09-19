@@ -1011,7 +1011,7 @@ Rückgabewert:
   The `buttons` is an array of `Button` objects:
   
   * `Button` Object 
-    * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
+    * ` Icon ` [ NativeImage ](native-image.md)-das Symbol zeigt in Thumbnail Leiste.
     * ` Klicken Sie auf ` Funktion
     * ` Tooltip ` String (optional)-der Text der Tooltip der Schaltfläche.
     * ` Flags ` String [] (optional)-Steuern Sie bestimmte Zustände und Verhaltensweisen der Schalt. Standardmäßig ist es ` [' Enabled '] `.
@@ -1038,7 +1038,7 @@ Rückgabewert:
   
   #### `win.setAppDetails(options)` *Windows*
   
-  * `options` Object 
+  * `optionen` Object 
     * `appId` String (optional) - Window's [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). It has to be set, otherwise the other options will have no effect.
     * `appIconPath` String (optional) - Window's [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
     * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. Default is `0`.
@@ -1098,7 +1098,7 @@ Rückgabewert:
   #### `win.setIgnoreMouseEvents(ignore[, options])`
   
   * `ignore` Boolean
-  * `options` Objekt (optional) 
+  * `optionen` Objekt (optional) 
     * `forward` Boolean (optional) *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Only used when `ignore` is true. If `ignore` is false, forwarding is always disabled regardless of this value.
   
   Makes the window ignore all mouse events.
@@ -1179,10 +1179,10 @@ Rückgabewert:
   
   **Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
   
-  #### `win.setBrowserView(browserView)` *Experimental*
+  #### `win.setBrowserView(browserView)` *Experimentell*
   
   * `browserView` [BrowserView](browser-view.md)
-  #### `win.getBrowserView()` *Experimental*
+  #### `win.getBrowserView()` *Experimentell*
   
   Returns `BrowserView | null` - an attached BrowserView. Returns `null` if none is attached.
   
