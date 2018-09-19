@@ -36,7 +36,7 @@ Abre el archivo determinado en el escritorio por defecto.
 
 ### `shell.openExternal(url[, options, callback])`
 
-* `url` String - Max 2081 characters on windows, or the function returns false.
+* `url` String - 2081 caracteres como máximo en windows, o la función devuelve falso.
 * `opciones` Object (opcional) *macOS* 
   * `activate` Booleano - `true` para traer la aplicación abierta al primer plano. Por defecto es `true`.
 * `callback` Function (opcional) *macOS* Si se especifica se abrirá de forma asincrónica. 
