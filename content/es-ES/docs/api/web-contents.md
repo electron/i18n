@@ -397,7 +397,7 @@ Devuelve:
 
 Emitido cuando el tipo del cursor cambia. El parámetro `type` puede ser `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing` or `custom`.
 
-If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a [`NativeImage`](native-image.md), and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
+Si el parámetro `type` es `custom`, el parámetro de la `image` mantendrá la imagen del cursor personalizado en un [`NativeImage`](native-image.md), `scale` y `size`, `hotpost` mantendrá información adicional sobre el cursor personalizado.
 
 #### Evento: 'context-menu'
 
@@ -420,7 +420,7 @@ Devuelve:
   * `misspelledWord` String - La palabra mal escrita bajo el cursor, si cualquiera.
   * `frameCharset` String - La codificación de carácteres de la estructura la cual el menú fue invocado.
   * `inputFieldType` Cadena - Si se invoca el menú de contexto en un campo de entrada, el tipo de ese campo. Los valores posibles son `none`, `plainText`, `password`, `other`.
-  * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch` or `touchMenu`.
+  * `menuSourceType` String - Fuente de entrada que invoca el menú contextual. Puede ser `none`, `mouse`, `keyboard`, `touch` o `touchMenu`.
   * `mediaFlags` Objeto - Las banderas para el elemento multimedia la cual el menú contextual fue invocado. 
     * `enError` Boolean - Si el elemento multimedia se ha dañado.
     * `estáPausado` Boolean - Si el elemento multimedia está pausado.
@@ -553,7 +553,7 @@ webContents.loadURL('https://github.com', options)
 
 * `filePath` String
 
-Loads the given file in the window, `filePath` should be a path to an HTML file relative to the root of your application. For instance an app structure like this:
+Carga el archivo dado en la ventana, `filePath` debe ser una ruta a un archivo HTML relativo a la raíz de su aplicación. Por ejemplo, una estructura de aplicación como esta:
 
 ```sh
 | root
@@ -563,7 +563,7 @@ Loads the given file in the window, `filePath` should be a path to an HTML file 
 |   - index.html
 ```
 
-Would require code like this
+Requeriría un código como este
 
 ```js
 win.loadFile('src/index.html')
@@ -658,7 +658,7 @@ Hace que el navegador avance a una página web.
 
 * `index` Íntegro
 
-Navigates browser to the specified absolute web page index.
+Navega al índice de página web absoluta especificado.
 
 #### `contents.goToOffset(offset)`
 
@@ -699,12 +699,12 @@ Evalúa el `código` en la página.
 
 En la ventana del navegador, algunas API HTML como `requestFullScreen` solo pueden invocarse con un gesto del usuario. Establecer `userGesture` a `true` eliminará esta limitación.
 
-If the result of the executed code is a promise the callback result will be the resolved value of the promise. We recommend that you use the returned Promise to handle code that results in a Promise.
+Si el resultado del código ejecutado es una promise, el callback será el valor resuelto de la promise. Recomendamos que utilice la Promise devuelta para manejar el código que da como resultado una Promise.
 
 ```js
 contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1").then(resp => resp.json())', true)
   .then((result) => {
-    console.log(result) // Will be the JSON object from the fetch call
+    console.log(result) // Será el objeto JSON de la fetch call
   })
 ```
 
@@ -741,7 +741,7 @@ Envía una solicitud para obtener el factor zoom actual. El `callback` será lla
 
 * `nivel` Número - Nivel de Zoom.
 
-Cambia el nivel de zoom al nivel especificado. El tamaño original es 0 y cada incremento por encima o por debajo representa un zoom del 20% mayor o menor a los límites predeterminados de 300% y 50% del tamaño original, respectivamente. The formula for this is `scale := 1.2 ^ level`.
+Cambia el nivel de zoom al nivel especificado. El tamaño original es 0 y cada incremento por encima o por debajo representa un zoom del 20% mayor o menor a los límites predeterminados de 300% y 50% del tamaño original, respectivamente. La fórmula para esto es `scale := 1.2 ^ level`.
 
 #### `contents.getZoomLevel(callback)`
 
@@ -829,7 +829,7 @@ Inserta `texto` en el elemento enfocado.
 
 * `text` String - El contenido para ser buscado, no debe quedar en blanco.
 * `opciones` Objecto (opcional) 
-  * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
+  * `forward` Boolean (opcional) - Ya sea para buscar hacia adelante o hacia atrás, el valor predeterminado es `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
   * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
@@ -947,7 +947,7 @@ win.webContents.on('did-finish-load', () => {
     if (error) throw error
     fs.writeFile('/tmp/print.pdf', data, (error) => {
       if (error) throw error
-      console.log('Write PDF successfully.')
+      console.log('PDF escrito con éxito.')
     })
   })
 })
@@ -1136,8 +1136,8 @@ Para eventos del teclado, el objeto `evento` también tiene las siguientes propi
 
 Para eventos del ratón, el objeto `evento` también tiene las siguientes propiedades:
 
-* `x` Integer (**required**)
-* `y` Integer (**required**)
+* `x` Integer (**requerido**)
+* `y` Integer (**requerido**)
 * `button` String - The button pressed, can be `left`, `middle`, `right`.
 * `globalX` Integer
 * `globalY` Integer
@@ -1201,7 +1201,7 @@ win.loadURL('https://github.com')
 
 win.webContents.on('did-finish-load', () => {
   win.webContents.savePage('/tmp/test.html', 'HTMLComplete', (error) => {
-    if (!error) console.log('Save page successfully')
+    if (!error) console.log('Página guardada exitosamente')
   })
 })
 ```
