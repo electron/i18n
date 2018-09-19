@@ -8,7 +8,7 @@ Proces: [Main](../glossary.md#main-process)
 
 ### `new ClientRequest(options)`
 
-* `options` (Object | String) - If `options` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties: 
+* `nastavení` (Object | String) - If `nastavení` is a String, it is interpreted as the request URL. If it is an object, it is expected to fully specify an HTTP request via the following properties: 
   * `method` String (optional) - The HTTP request method. Defaults to the GET method.
   * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
   * `session` Object (optional) - The [`Session`](session.md) instance with which the request is associated.
@@ -168,3 +168,14 @@ Cancels an ongoing HTTP transaction. If the request has already emitted the `clo
 #### `request.followRedirect()`
 
 Continues any deferred redirection request when the redirection mode is `manual`.
+
+#### `request.getUploadProgress()`
+
+Returns `Object`:
+
+* `active` Boolean - Whether the request is currently active. If this is false no other properties will be set
+* `started` Boolean - Whether the upload has started. If this is false both `current` and `total` will be set to 0.
+* `current` Integer - The number of bytes that have been uploaded so far
+* `total` Integer - The number of bytes that will be uploaded this request
+
+You can use this method in conjunction with `POST` requests to get the progress of a file upload or other data transfer.
