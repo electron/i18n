@@ -2,7 +2,7 @@
 
 > Створює палітру кольорів на Touch Bar для нативних macOS додатків
 
-Процес: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+Процес: [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarColorPicker(options)` *Експериментальний*
 
