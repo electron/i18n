@@ -4,7 +4,7 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-**See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
+**アプリケーションに自動更新を実装する方法についての詳細なガイドは [ここ](../tutorial/updates.md) にあります。**
 
 ## プラットフォームに関する注意事項
 
@@ -66,12 +66,6 @@ Squirrel.Macとは違って、Windowsでは、S3やその他の静的ファイ�
 
 Windowsでは `releaseName` のみ利用可能です。
 
-### Event: 'before-quit-for-update'
-
-This event is emitted after a user calls `quitAndInstall()`.
-
-When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
-
 ## メソッド
 
 `autoUpdater` オブジェクトには以下のメソッドがあります
@@ -91,7 +85,7 @@ When this API is called, the `before-quit` event is not emitted before all windo
 
 ### `autoUpdater.checkForUpdates()`
 
-更新プログラムがあるかどうかをサーバーに要求します。この API を使用する前に `setFeedURL` を呼び出す必要があります。
+更新プログラムがあるかをサーバーに問い合わせます。このAPIを使用する前に `setFeedURL` を呼び出さなければなりません。
 
 ### `autoUpdater.quitAndInstall()`
 
