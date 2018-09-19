@@ -821,72 +821,72 @@ win.setSheetOffset(toolbarRect.height)
 
 * `flag` Boolean
 
-Starts or stops flashing the window to attract user's attention.
+ユーザの注意を引きつけるためにウインドウの点滅を開始または停止します。
 
 #### `win.setSkipTaskbar(skip)`
 
 * `skip` Boolean
 
-Makes the window not show in the taskbar.
+ウインドウがタスクバーに表示されなくなります。
 
 #### `win.setKiosk(flag)`
 
 * `flag` Boolean
 
-Enters or leaves the kiosk mode.
+キオスクモードに入ったり、出たりします。
 
 #### `win.isKiosk()`
 
-Returns `Boolean` - Whether the window is in kiosk mode.
+戻り値 `Boolean` - ウインドウがキオスクモードであるかどうか。
 
 #### `win.getNativeWindowHandle()`
 
-Returns `Buffer` - The platform-specific handle of the window.
+戻り値 `Buffer` - ウインドウのプラットフォーム固有のハンドル。
 
-The native type of the handle is `HWND` on Windows, `NSView*` on macOS, and `Window` (`unsigned long`) on Linux.
+ハンドルのネイティブな型は、Windowsでは `HWND`、macOSでは `NSView*`、Linuxでは `Window` (`unsigned long`) です。
 
 #### `win.hookWindowMessage(message, callback)` *Windows*
 
 * `message` Integer
 * `callback` Function
 
-Hooks a windows message. The `callback` is called when the message is received in the WndProc.
+ウインドウメッセージをフックします。メッセージがWndProcで受信されると、`callback` が呼び出されます。
 
 #### `win.isWindowMessageHooked(message)` *Windows*
 
 * `message` Integer
 
-Returns `Boolean` - `true` or `false` depending on whether the message is hooked.
+戻り値 `Boolean` - メッセージがフックされているかどうかによって、`true` または `false` 。
 
 #### `win.unhookWindowMessage(message)` *Windows*
 
 * `message` Integer
 
-Unhook the window message.
+ウインドウメッセージのフックを解除します。
 
 #### `win.unhookAllWindowMessages()` *Windows*
 
-Unhooks all of the window messages.
+すべてのウインドウメッセージのフックを解除します。
 
 #### `win.setRepresentedFilename(filename)` *macOS*
 
 * `filename` String
 
-Sets the pathname of the file the window represents, and the icon of the file will show in window's title bar.
+ウインドウが表すファイルのパス名を設定します。ファイルのアイコンがウインドウのタイトルバーに表示されます。
 
 #### `win.getRepresentedFilename()` *macOS*
 
-Returns `String` - The pathname of the file the window represents.
+戻り値 `String` - ウインドウが表すファイルのパス名。
 
 #### `win.setDocumentEdited(edited)` *macOS*
 
 * `edited` Boolean
 
-Specifies whether the window’s document has been edited, and the icon in title bar will become gray when set to `true`.
+ウインドウのドキュメントが編集されたかどうかを指定します。`true` に設定すると、タイトルバーのアイコンがグレーになります。
 
 #### `win.isDocumentEdited()` *macOS*
 
-Returns `Boolean` - Whether the window's document has been edited.
+戻り値 `Boolean` - ウインドウのドキュメントが編集されたかどうか。
 
 #### `win.focusOnWebView()`
 
@@ -898,23 +898,23 @@ Returns `Boolean` - Whether the window's document has been edited.
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
-Same as `webContents.capturePage([rect, ]callback)`.
+`webContents.capturePage([rect, ]callback)` と同じです。
 
 #### `win.loadURL(url[, options])`
 
 * `url` String
 * `options` Object (任意) 
-  * `httpReferrer` String (optional) - A HTTP Referrer url.
+  * `httpReferrer` String (任意) - HTTPリファラのURL。
   * `userAgent` String (任意) - リクエスト元のユーザーエージェント。
   * `extraHeaders` String (任意) - "\n" で区切られた追加のヘッダー
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (任意)
   * `baseURLForDataURL` String (任意) - データURLによってロードされたファイルの (最後のパス区切り文字を含む) ベースURL。 これは指定された `url` がデータURLで、他のファイルをロードする必要がある場合のみ必要です。
 
-Same as `webContents.loadURL(url[, options])`.
+`webContents.loadURL(url[, options])` と同じです。
 
-The `url` can be a remote address (e.g. `http://`) or a path to a local HTML file using the `file://` protocol.
+`url` は、リモートアドレス (例えば、`http://`) または `file://` プロトコルを使ってローカルのHTMLファイルのパスにすることができます。
 
-To ensure that file URLs are properly formatted, it is recommended to use Node's [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) method:
+ファイルのURLが正しく構成されているようにするため、Nodeの [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) メソッドを使用することを推奨します。
 
 ```javascript
 let url = require('url').format({
@@ -926,7 +926,7 @@ let url = require('url').format({
 win.loadURL(url)
 ```
 
-You can load a URL using a `POST` request with URL-encoded data by doing the following:
+次のようにすることによって、URLエンコードされたデータで `POST` リクエストを使用してURLをロードすることができます。
 
 ```javascript
 win.loadURL('http://localhost:8000/post', {
@@ -942,17 +942,17 @@ win.loadURL('http://localhost:8000/post', {
 
 * `filePath` String
 
-Same as `webContents.loadFile`, `filePath` should be a path to an HTML file relative to the root of your application. See the `webContents` docs for more information.
+`webContents.loadFile` と同じで、`filePath` はアプリケーションのルートからの相対パスで指す HTML でなければいけません。詳細は `webContents` ドキュメントを参照してください。
 
 #### `win.reload()`
 
-Same as `webContents.reload`.
+`webContents.reload` と同じです。
 
 #### `win.setMenu(menu)` *Linux* *Windows*
 
 * `menu` Menu | null
 
-Sets the `menu` as the window's menu bar, setting it to `null` will remove the menu bar.
+`menu` をウインドウのメニューバーとして設定します。`null` を設定すると、メニューバーが削除されます。
 
 #### `win.setProgressBar(progress[, options])`
 
@@ -960,57 +960,57 @@ Sets the `menu` as the window's menu bar, setting it to `null` will remove the m
 * `options` Object (任意) 
   * `mode` String *Windows* - プログレスバーのモード。`none`、`normal`、`indeterminate`、`error` または `paused` にすることができます。
 
-Sets progress value in progress bar. Valid range is [0, 1.0].
+プログレスバーの進捗値を設定します。有効範囲は、[0, 1.0] です。
 
-Remove progress bar when progress < 0; Change to indeterminate mode when progress > 1.
+進捗 < 0 の場合、プログレスバーは削除されます。進捗 > 1 の場合、不確定モードに変更します。
 
-On Linux platform, only supports Unity desktop environment, you need to specify the `*.desktop` file name to `desktopName` field in `package.json`. By default, it will assume `app.getName().desktop`.
+Linuxプラットフォームでは、Unityデスクトップ環境のみがサポートされ、`package.json` の `desktopName` フィールドに `*.desktop` ファイル名を指定する必要があります。 既定では、`app.getName().desktop` であるとみなされます。
 
-On Windows, a mode can be passed. Accepted values are `none`, `normal`, `indeterminate`, `error`, and `paused`. If you call `setProgressBar` without a mode set (but with a value within the valid range), `normal` will be assumed.
+Windowsでは、モードを渡すことができます。 有効な値は、`none`、`normal`、`indeterminate`、`error` と `paused` です。 モードを設定せずに (ただし、有効範囲内の値で) `setProgressBar` を呼び出した場合、`normal` とみなされます。
 
 #### `win.setOverlayIcon(overlay, description)` *Windows*
 
 * `overlay` [NativeImage](native-image.md) | null - the icon to display on the bottom right corner of the taskbar icon. If this parameter is `null`, the overlay is cleared
 * `description` String - アクセシビリティスクリーンリーダーに提供される説明
 
-Sets a 16 x 16 pixel overlay onto the current taskbar icon, usually used to convey some sort of application status or to passively notify the user.
+現在のタスクバーアイコンの上に、通常、何らかのアプリケーションステータスを伝えたり、ユーザーに控えめに通知したりするのに使われる16 x 16ピクセルのオーバレイを設定します。
 
 #### `win.setHasShadow(hasShadow)` *macOS*
 
 * `hasShadow` Boolean
 
-Sets whether the window should have a shadow. On Windows and Linux does nothing.
+ウインドウに影を表示させるかどうかを設定します。WindowsとLinuxでは何もしません。
 
 #### `win.hasShadow()` *macOS*
 
-Returns `Boolean` - Whether the window has a shadow.
+戻り値 `Boolean` - ウインドウに影を表示させているかどうか。
 
-On Windows and Linux always returns `true`.
+WindowsとLinuxでは常に `true` を返します。
 
 #### `win.setOpacity(opacity)` *Windows* *macOS*
 
 * `opacity` Number - 0.0 (完全に透明) と 1.0 (完全に不透明) の間
 
-Sets the opacity of the window. On Linux does nothing.
+ウインドウの透明度を設定します。Linuxでは何もしません。
 
 #### `win.getOpacity()` *Windows* *macOS*
 
-Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque)
+戻り値 `Number` - 0.0 (完全に透明) と 1.0 (完全に不透明) の間
 
 #### `win.setThumbarButtons(buttons)` *Windows*
 
 * `buttons` [ThumbarButton[]](structures/thumbar-button.md)
 
-Returns `Boolean` - Whether the buttons were added successfully
+戻り値 `Boolean` - ボタンを追加するのに成功したかどうか
 
-Add a thumbnail toolbar with a specified set of buttons to the thumbnail image of a window in a taskbar button layout. Returns a `Boolean` object indicates whether the thumbnail has been added successfully.
+タスクバーボタンレイアウトのウインドウのサムネイルイメージに指定されたボタンのセットと一緒にサムネイルツールバーを追加します。 返却される `Boolean` オブジェクトは、サムネイルを追加するのに成功したかどうかを示します。
 
-The number of buttons in thumbnail toolbar should be no greater than 7 due to the limited room. Once you setup the thumbnail toolbar, the toolbar cannot be removed due to the platform's limitation. But you can call the API with an empty array to clean the buttons.
+限られた空間のため、サムネイルツールバーのボタン数は、7以下にしてください。 一度、サムネイルツールバーをセットアップすると、プラットフォームの制約のため、ツールバーを削除することはできません。 しかしながら、ボタンを取り除くためにAPIを空の配列で呼び出すことはできます。
 
-The `buttons` is an array of `Button` objects:
+`buttons` は、`Button` オブジェクトの配列です。
 
 * `Button` Object 
-  * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
+  * `icon` [NativeImage](native-image.md) - サムネイルツールバーで表示されるアイコン。
   * `click` Function
   * `tooltip` String (任意) - ボタンのツールチップのテキスト。
   * `flags` String[] (任意) - ボタンの特定の状態や動作を制御します。デフォルトでは、`['enabled']` です。
@@ -1026,165 +1026,165 @@ The `buttons` is an array of `Button` objects:
 
 #### `win.setThumbnailClip(region)` *Windows*
 
-* `region` [Rectangle](structures/rectangle.md) - Region of the window
+* `region` [Rectangle](structures/rectangle.md) - ウインドウの領域
 
-Sets the region of the window to show as the thumbnail image displayed when hovering over the window in the taskbar. You can reset the thumbnail to be the entire window by specifying an empty region: `{x: 0, y: 0, width: 0, height: 0}`.
+タスクバーのウインドウの上でホバリングするときに表示されるサムネイルイメージとして表示するウインドウの領域を設定します。 空の領域: `{x: 0, y: 0, width: 0, height: 0}` を指定することで、サムネイルをウインドウ全体にリセットすることができます。
 
 #### `win.setThumbnailToolTip(toolTip)` *Windows*
 
 * `toolTip` String
 
-Sets the toolTip that is displayed when hovering over the window thumbnail in the taskbar.
+タスクバーのウインドウサムネイルでホバリングするときに表示されるツールチップを設定します。
 
 #### `win.setAppDetails(options)` *Windows*
 
 * `options` Object 
-  * `appId` String (optional) - Window's [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). It has to be set, otherwise the other options will have no effect.
-  * `appIconPath` String (optional) - Window's [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
-  * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. Default is `0`.
-  * `relaunchCommand` String (optional) - Window's [Relaunch Command](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx).
-  * `relaunchDisplayName` String (optional) - Window's [Relaunch Display Name](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx).
+  * `appId` String (任意) - ウインドウの[アプリユーザーモデルID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx)。 設定されないと、他のオプションは無効です。
+  * `appIconPath` String (任意) - ウインドウの[再起動アイコン](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx)。
+  * `appIconIndex` Integer (任意) - `appIconPath` のアイコンのインデックス。 `appIconPath` が設定されないと無視されます。省略値は、`0` です。
+  * `relaunchCommand` String (任意) - ウインドウの[再起動コマンド](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx)。
+  * `relaunchDisplayName` String (任意) - ウインドウの[再起動表示名](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx)。
 
-Sets the properties for the window's taskbar button.
+ウインドウのタスクバーボタンのプロパティを設定します。
 
-**Note:** `relaunchCommand` and `relaunchDisplayName` must always be set together. If one of those properties is not set, then neither will be used.
+**注:** `relaunchCommand` と `relaunchDisplayName` は常に一緒に設定しなければなりません。もしこれらのプロパティの1つが設定されないと、どちらも使用されません。
 
 #### `win.showDefinitionForSelection()` *macOS*
 
-Same as `webContents.showDefinitionForSelection()`.
+`webContents.showDefinitionForSelection()` と同じです。
 
 #### `win.setIcon(icon)` *Windows* *Linux*
 
 * `icon` [NativeImage](native-image.md)
 
-Changes window icon.
+ウインドウのアイコンを変更します。
 
 #### `win.setAutoHideMenuBar(hide)`
 
 * `hide` Boolean
 
-Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single `Alt` key.
+ウインドウメニューバーを自動的に非表示にするかどうかを設定します。一度設定すると、メニューバーはユーザーが単独で `Alt` キーを押下したときだけ表示されます。
 
-If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
+メニューバーが既に表示されている場合、`setAutoHideMenuBar(true)` を呼び出してもすぐに非表示にはなりません。
 
 #### `win.isMenuBarAutoHide()`
 
-Returns `Boolean` - Whether menu bar automatically hides itself.
+戻り値 `Boolean` - メニューバーを自動的に非表示にするかどうか。
 
 #### `win.setMenuBarVisibility(visible)` *Windows* *Linux*
 
 * `visible` Boolean
 
-Sets whether the menu bar should be visible. If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
+メニューバーを表示するかどうかを設定します。メニューバーが自動的に非表示にされている場合でも、ユーザは単独で `Alt` キーを押下することで、依然としてメニューバーを表示させることができます。
 
 #### `win.isMenuBarVisible()`
 
-Returns `Boolean` - Whether the menu bar is visible.
+戻り値 `Boolean` - メニューバーを表示しているかどうか。
 
 #### `win.setVisibleOnAllWorkspaces(visible)`
 
 * `visible` Boolean
 
-Sets whether the window should be visible on all workspaces.
+ウインドウをすべてのワークスペースで表示させるかどうかを設定します。
 
-**Note:** This API does nothing on Windows.
+**注:** このAPIはWindowsでは何もしません。
 
 #### `win.isVisibleOnAllWorkspaces()`
 
-Returns `Boolean` - Whether the window is visible on all workspaces.
+戻り値 `Boolean` - ウインドウがすべてのワークスペースで表示されているかどうか。
 
-**Note:** This API always returns false on Windows.
+**注:** このAPIはWindowsの場合、常にfalseを返します。
 
 #### `win.setIgnoreMouseEvents(ignore[, options])`
 
 * `ignore` Boolean
 * `options` Object (任意) 
-  * `forward` Boolean (optional) *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Only used when `ignore` is true. If `ignore` is false, forwarding is always disabled regardless of this value.
+  * `forward` Boolean (任意) *Windows* - trueの場合、マウスの移動メッセージがChromiumに転送され、`mouseleave` のようなマウス関連のイベントが有効になります。 `ignore` がtrueのときだけ使用されます。 `ignore` がfalseの場合、この値に関わらず、転送は常に無効です。
 
-Makes the window ignore all mouse events.
+ウインドウがすべてのマウスイベントを無視するようにします。
 
-All mouse events happened in this window will be passed to the window below this window, but if this window has focus, it will still receive keyboard events.
+このウインドウで発生するすべてのマウスイベントは、このウインドウの下にあるウインドウに渡されますが、このウインドウにフォーカスがある場合、依然としてキーボードイベントは受信されます。
 
 #### `win.setContentProtection(enable)` *macOS* *Windows*
 
 * `enable` Boolean
 
-Prevents the window contents from being captured by other apps.
+他のアプリによってウインドウのコンテンツがキャプチャされるのを防止します。
 
-On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows it calls SetWindowDisplayAffinity with `WDA_MONITOR`.
+macOSでは、NSWindowのsharingTypeをNSWindowSharingNoneに設定します。Windowsでは、`WDA_MONITOR` でSetWindowDisplayAffinityを呼び出します。
 
 #### `win.setFocusable(focusable)` *Windows*
 
 * `focusable` Boolean
 
-Changes whether the window can be focused.
+ウインドウにフォーカスできるかどうかを変更します。
 
 #### `win.setParentWindow(parent)` *Linux* *macOS*
 
 * `parent` BrowserWindow
 
-Sets `parent` as current window's parent window, passing `null` will turn current window into a top-level window.
+現在のウインドウの親ウインドウとして `parent` を設定します。`null` を渡すと、現在のウインドウをトップレベルウインドウにします。
 
 #### `win.getParentWindow()`
 
-Returns `BrowserWindow` - The parent window.
+戻り値 `BrowserWindow` - 親ウインドウ。
 
 #### `win.getChildWindows()`
 
-Returns `BrowserWindow[]` - All child windows.
+戻り値 `BrowserWindow[]` - すべての子ウインドウ。
 
 #### `win.setAutoHideCursor(autoHide)` *macOS*
 
 * `autoHide` Boolean
 
-Controls whether to hide cursor when typing.
+タイプしているときにカーソルを非表示にするかどうかを制御します。
 
 #### `win.selectPreviousTab()` *macOS*
 
-Selects the previous tab when native tabs are enabled and there are other tabs in the window.
+ネイティブのタブが有効で、ウインドウに他のタブがあるとき、一つ前のタブを選択します。
 
 #### `win.selectNextTab()` *macOS*
 
-Selects the next tab when native tabs are enabled and there are other tabs in the window.
+ネイティブのタブが有効で、ウインドウに他のタブがあるとき、次のタブを選択します。
 
 #### `win.mergeAllWindows()` *macOS*
 
-Merges all windows into one window with multiple tabs when native tabs are enabled and there is more than one open window.
+ネイティブのタブが有効で複数の開いているウインドウがあるとき、すべてのウインドウを複数のタブで1つのウインドウにマージします。
 
 #### `win.moveTabToNewWindow()` *macOS*
 
-Moves the current tab into a new window if native tabs are enabled and there is more than one tab in the current window.
+ネイティブのタブが有効で現在のウインドウに複数のタブがあるとき、現在のタブを新しいウインドウに移動します。
 
 #### `win.toggleTabBar()` *macOS*
 
-Toggles the visibility of the tab bar if native tabs are enabled and there is only one tab in the current window.
+ネイティブのタブが有効で現在のウインドウにタブが1つだけしかないとき、タブバーを表示するかどうかを切り替えます。
 
 #### `win.addTabbedWindow(browserWindow)` *macOS*
 
 * `browserWindow` BrowserWindow
 
-Adds a window as a tab on this window, after the tab for the window instance.
+ウインドウインスタンスのタブの後ろに、このウインドウのタブとしてウインドウを追加します。
 
 #### `win.setVibrancy(type)` *macOS*
 
-* `type` String - Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`. See the [macOS documentation](https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc) for more details.
+* `type` String - `appearance-based`、`light`、`dark`、`titlebar`、`selection`、`menu`、`popover`、`sidebar`、`medium-light` または `ultra-dark` にすることができます。 詳細については、[macOSのドキュメント](https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc) を参照してください。
 
-Adds a vibrancy effect to the browser window. Passing `null` or an empty string will remove the vibrancy effect on the window.
+ブラウザウィンドウに曇りガラス効果を追加します。`null` または空文字を渡すと、ウインドウの曇りガラス効果が削除されます。
 
 #### `win.setTouchBar(touchBar)` *macOS* *Experimental*
 
 * `touchBar` TouchBar
 
-Sets the touchBar layout for the current window. Specifying `null` or `undefined` clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
+現在のウインドウのTouchBarレイアウトを設定します。 `null` または `undefined` を指定すると、TouchBarがクリアされます。 このメソッドはTouchBarがあって、macOS 10.12.1以上を実行しているマシンでのみ、有効です。
 
-**注:** 現在のところ、TouchBar APIは実験的な機能であり、将来のElectronのリリースで変更されたり、削除されたりする可能性があります。
+**注釈:** TouchBar API は現在実験的な機能で、将来の Electron リリースでは変更されたり削除されたりする可能性があります。
 
 #### `win.setBrowserView(browserView)` *Experimental*
 
 * `browserView` [BrowserView](browser-view.md)
 
-#### `win.getBrowserView()` *Experimental*
+#### `win.getBrowserView()` *実験的*
 
-Returns `BrowserView | null` - an attached BrowserView. Returns `null` if none is attached.
+戻り値 `BrowserView | null` - アタッチされたBrowserView。何もアタッチされていない場合、`null` を返します。
 
 **注:** 現在のところ、BrowserView APIは実験的な機能であり、将来のElectronのリリースで変更されたり、削除されたりする可能性があります。
