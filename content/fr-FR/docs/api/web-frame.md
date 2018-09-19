@@ -4,7 +4,7 @@
 
 Processus : [Renderer](../glossary.md#renderer-process)
 
-An example of zooming current page to 200%.
+Un exemple d'un zoom de 200% de la page actuelle.
 
 ```javascript
 const {webFrame} = require('electron')
@@ -14,7 +14,7 @@ webFrame.setZoomFactor(2)
 
 ## Méthodes
 
-The `webFrame` module has the following methods:
+Le module `webFrame` dispose des méthodes suivantes :
 
 ### `webFrame.setZoomFactor(factor)`
 
@@ -24,7 +24,7 @@ Change le facteur de zoom par le facteur spécifié. Le facteur de zoom est le p
 
 ### `webFrame.getZoomFactor()`
 
-Returns `Number` - The current zoom factor.
+Retourne `Number` - Le facteur de zoom actuel.
 
 ### `webFrame.setZoomLevel(level)`
 
@@ -34,7 +34,7 @@ Modifie le niveau de zoom jusqu'au niveau spécifié. La taille originale est de
 
 ### `webFrame.getZoomLevel()`
 
-Returns `Number` - The current zoom level.
+Retourne `Number` - Le niveau de zoom actuel.
 
 ### `webFrame.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
@@ -58,11 +58,11 @@ Définit le maximum et minimum du niveau de zoom axée sur la mise en page (c'es
   * `spellCheck` Function - Retourne `Boolean`. 
     * `text` String
 
-Sets a provider for spell checking in input fields and text areas.
+Définit un fournisseur pour la correction orthographique dans les champs de saisie et les zones de texte.
 
-The `provider` must be an object that has a `spellCheck` method that returns whether the word passed is correctly spelled.
+Le `provider` doit être un objet contenant la méthode `spellCheck` qui indiquera si le mot donné est correctement orthographié.
 
-An example of using [node-spellchecker](https://github.com/atom/node-spellchecker) as provider:
+Un exemple d'utilisation de [node-spellchecker](https://github.com/atom/node-spellchecker) comme fournisseur :
 
 ```javascript
 const {webFrame} = require('electron')
@@ -77,15 +77,15 @@ webFrame.setSpellCheckProvider('fr-FR', true, {
 
 * `scheme` String
 
-Registers the `scheme` as secure scheme.
+Enregistre le `scheme` comme schéma sécurisé.
 
-Secure schemes do not trigger mixed content warnings. For example, `https` and `data` are secure schemes because they cannot be corrupted by active network attackers.
+Les schémas sécurisés ne déclenchent pas d'avertissements de contenu mixtes. Par exemple, `https` et `data` sont des schémas sécurisés car il ne peuvent pas être altérées par des attaquants de réseau actif.
 
 ### `webFrame.registerURLSchemeAsBypassingCSP(scheme)`
 
 * `scheme` String
 
-Resources will be loaded from this `scheme` regardless of the current page's Content Security Policy.
+Des ressources seront chargées de ce `scheme` quelle que soit la politique de sécurité de la page courante.
 
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
@@ -97,9 +97,9 @@ Resources will be loaded from this `scheme` regardless of the current page's Con
   * `supportFetchAPI` Boolean (optional) - Default true.
   * `corsEnabled` Boolean (optional) - Default true.
 
-Registers the `scheme` as secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
+Enregistre le `scheme` comme étant sécurisé, contournant la politique de sécurité du contenu des ressources, permet d'enregistrer ServiceWorker et prend en charge l'API fetch.
 
-Specify an option with the value of `false` to omit it from the registration. An example of registering a privileged scheme, without bypassing Content Security Policy:
+Spécifier une option avec la valeur `false` afin de l'omettre de l'enregistrement. Un exemple d'enregistrement d'un schema prioritaire, sans contourner la politique de sécurité du contenu :
 
 ```javascript
 const {webFrame} = require('electron')
@@ -167,14 +167,14 @@ Retourne `Object`:
 * `fonts` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `other` [MemoryUsageDetails](structures/memory-usage-details.md)
 
-Returns an object describing usage information of Blink's internal memory caches.
+Retourne un objet décrivant les informations d'utilisation de caches de mémoire interne de Blink.
 
 ```javascript
 const {webFrame} = require('electron')
 console.log(webFrame.getResourceUsage())
 ```
 
-This will generate:
+Cela va générer :
 
 ```javascript
 {
@@ -192,6 +192,6 @@ This will generate:
 
 ### `webFrame.clearCache()`
 
-Attempts to free memory that is no longer being used (like images from a previous navigation).
+Tente de libérer de la mémoire qui n'est plus utilisée (comme les images d'une navigation précédente).
 
-Note that blindly calling this method probably makes Electron slower since it will have to refill these emptied caches, you should only call it if an event in your app has occurred that makes you think your page is actually using less memory (i.e. you have navigated from a super heavy page to a mostly empty one, and intend to stay there).
+Notez que le fait d'appeler aveuglément cette méthode rend probablement Electron plus lent car il devra remplir ces caches vides, vous ne devriez l'appeler que si un événement dans votre application s'est produit vous faisant penser que votre page utilise réellement moins mémoire (c. -à-d. que vous avez navigué d'une page super lourde à une page presque vide, et avez l'intention d'y rester).
