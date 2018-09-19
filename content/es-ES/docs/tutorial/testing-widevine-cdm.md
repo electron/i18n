@@ -8,13 +8,13 @@ Abre `chrome://components/` en el navegador Chrome, encuentra `Widevine Content 
 
 ### En Windows
 
-The library file `widevinecdm.dll` will be under `Program Files(x86)/Google/Chrome/Application/CHROME_VERSION/WidevineCdm/_platform_specific/win_(x86|x64)/` directory.
+El archivo de la librería `widevinecdm.dll` estará en el directorio `Program Files(x86)/Google/Chrome/Application/VERSIÓN_DE_CHROME/WidevineCdm/_platform_specific/win_(x86|x64)/`.
 
 ### En MacOS
 
-The library file `libwidevinecdm.dylib` will be under `/Applications/Google Chrome.app/Contents/Versions/CHROME_VERSION/Google Chrome Framework.framework/Versions/A/Libraries/WidevineCdm/_platform_specific/mac_(x86|x64)/` directory.
+El archivo de la librería `libwidevinecdm.dylib` estará en el directorio `/Applications/Google Chrome.app/Contents/Versions/VERSIÓN_DE_CHROME/Google Chrome Framework.framework/Versions/A/Libraries/WidevineCdm/_platform_specific/mac_(x86|x64)/`.
 
-**Note:** Make sure that chrome version used by Electron is greater than or equal to the `min_chrome_version` value of Chrome's widevine cdm component. The value can be found in `manifest.json` under `WidevineCdm` directory.
+**Nota:** Asegúrese de que la versión de Chrome utilizada por Electron sea mayor o igual que el valor `min_chrome_version` del componente Widevine CDM de Chrome. The value can be found in `manifest.json` under `WidevineCdm` directory.
 
 ## Usando la librería
 
