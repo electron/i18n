@@ -147,8 +147,8 @@ Crea una nueva instancia de `NativeImage` a partir de NSImage vinculada con el n
 El `hslShift` se aplica a la imagen con las siguientes reglas
 
 * `hsl_shift[0]` (tonalidad): El valor de tonalidad absoluto para la imagen - 0 y 1 se mapean a 0 y 360 en la rueda de tonalidad de color (rojo).
-* `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values: 0 = remove all color. 0.5 = leave unchanged. 1 = fully saturate the image.
-* `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values: 0 = remove all lightness (make all pixels black). 0.5 = leave unchanged. 1 = full lightness (make all pixels white).
+* `hsl_shift[1]` (saturación): Cambio en la saturación de la imagen, con las siguientes valores clave: 0 = eliminar todo el color. 0.5 = sin cambios. 1 = saturación completa de la imagen.
+* `hsl_shift[2]` (luminosidad): Un cambio de luminosidad para la imagen, con los siguientes valores clave: 0 = elimine toda la luminosidad (hace que todos los píxeles sean negros). 0.5 = Dejar sin cambios. 1 = Luminosidad total (hace que todos los píxeles sean blancos).
 
 Esto significa que `[-1, 0, 1]` hará la imagen completamente blanca y `[-1, 1, 0]` la hará completamente negra.
 
