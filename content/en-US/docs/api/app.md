@@ -26,7 +26,7 @@ this event represents the `applicationWillFinishLaunching` notification of
 `NSApplication`. You would usually set up listeners for the `open-file` and
 `open-url` events here, and start the crash reporter and auto updater.
 
-In most cases, you should do everything in the `ready` event handler.
+In most cases, you should just do everything in the `ready` event handler.
 
 ### Event: 'ready'
 
@@ -382,23 +382,6 @@ app.on('session-created', (event, session) => {
 })
 ```
 
-### Event: 'second-instance'
-
-Returns:
-
-* `event` Event
-* `argv` String[] - An array of the second instance's command line arguments
-* `workingDirectory` String - The second instance's working directory
-
-This event will be emitted inside the primary instance of your application
-when a second instance has been executed. `argv` is an Array of the second instance's
-command line arguments, and `workingDirectory` is its current working directory. Usually
-applications respond to this by making their primary window focused and
-non-minimized.
-
-This event is guaranteed to be emitted after the `ready` event of `app`
-gets emitted.
-
 ## Methods
 
 The `app` object has the following methods:
@@ -457,12 +440,6 @@ app.exit(0)
 ### `app.isReady()`
 
 Returns `Boolean` - `true` if Electron has finished initializing, `false` otherwise.
-
-### `app.whenReady()`
-
-Returns `Promise` - fulfilled when Electron is initialized.
-May be used as a convenient alternative to checking `app.isReady()`
-and subscribing to the `ready` event if the app is not ready yet.
 
 ### `app.focus()`
 
@@ -631,7 +608,7 @@ This method checks if the current executable as the default handler for a
 protocol (aka URI scheme). If so, it will remove the app as the default handler.
 
 
-### `app.isDefaultProtocolClient(protocol[, path, args])`
+### `app.isDefaultProtocolClient(protocol[, path, args])` _macOS_ _Windows_
 
 * `protocol` String - The name of your protocol, without `://`.
 * `path` String (optional) _Windows_ - Defaults to `process.execPath`
@@ -769,24 +746,32 @@ app.setJumpList([
 ])
 ```
 
-### `app.requestSingleInstanceLock()`
+### `app.makeSingleInstance(callback)`
 
-Returns `Boolean`
+* `callback` Function
+  * `argv` String[] - An array of the second instance's command line arguments
+  * `workingDirectory` String - The second instance's working directory
+
+Returns `Boolean`.
 
 This method makes your application a Single Instance Application - instead of
 allowing multiple instances of your app to run, this will ensure that only a
 single instance of your app is running, and other instances signal this
 instance and exit.
 
-The return value of this method indicates whether or not this instance of your
-application successfully obtained the lock.  If it failed to obtain the lock
-you can assume that another instance of your application is already running with
-the lock and exit immediately.
+`callback` will be called by the first instance with `callback(argv, workingDirectory)`
+when a second instance has been executed. `argv` is an Array of the second instance's
+command line arguments, and `workingDirectory` is its current working directory. Usually
+applications respond to this by making their primary window focused and
+non-minimized.
 
-I.e. This method returns `true` if your process is the primary instance of your
-application and your app should continue loading.  It returns `false` if your
-process should immediately quit as it has sent its parameters to another
-instance that has already acquired the lock.
+The `callback` is guaranteed to be executed after the `ready` event of `app`
+gets emitted.
+
+This method returns `false` if your process is the primary instance of the
+application and your app should continue loading. And returns `true` if your
+process has sent its parameters to another instance, and you should immediately
+quit.
 
 On macOS the system enforces single instance automatically when users try to open
 a second instance of your app in Finder, and the `open-file` and `open-url`
@@ -801,38 +786,27 @@ starts:
 const {app} = require('electron')
 let myWindow = null
 
-const gotTheLock = app.requestSingleInstanceLock()
+const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
+  // Someone tried to run a second instance, we should focus our window.
+  if (myWindow) {
+    if (myWindow.isMinimized()) myWindow.restore()
+    myWindow.focus()
+  }
+})
 
-if (!gotTheLock) {
+if (isSecondInstance) {
   app.quit()
-} else {
-  app.on('second-instance', (commandLine, workingDirectory) => {
-    // Someone tried to run a second instance, we should focus our window.
-    if (myWindow) {
-      if (myWindow.isMinimized()) myWindow.restore()
-      myWindow.focus()
-    }
-  })
-
-  // Create myWindow, load the rest of the app, etc...
-  app.on('ready', () => {
-  })
 }
+
+// Create myWindow, load the rest of the app, etc...
+app.on('ready', () => {
+})
 ```
 
-### `app.hasSingleInstanceLock()`
+### `app.releaseSingleInstance()`
 
-Returns `Boolean`
-
-This method returns whether or not this instance of your app is currently
-holding the single instance lock.  You can request the lock with
-`app.requestSingleInstanceLock()` and release with
-`app.releaseSingleInstanceLock()`
-
-### `app.releaseSingleInstanceLock()`
-
-Releases all locks that were created by `requestSingleInstanceLock`. This will
-allow multiple instances of the application to once again run side by side.
+Releases all locks that were created by `makeSingleInstance`. This will allow
+multiple instances of the application to once again run side by side.
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` _macOS_
 
@@ -1142,20 +1116,14 @@ Sets the application's [dock menu][dock-menu].
 
 Sets the `image` associated with this dock icon.
 
-## Properties
-
-### `app.isPackaged`
-
-A `Boolean` property that returns  `true` if the app is packaged, `false` otherwise. For many apps, this property can be used to distinguish development and production environments.
-
-[dock-menu]:https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/
+[dock-menu]:https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103
 [tasks]:https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks
 [app-user-model-id]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx
 [CFBundleURLTypes]: https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115
 [LSCopyDefaultHandlerForURLScheme]: https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme
 [handoff]: https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html
 [activity-type]: https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType
-[unity-requirement]: ../tutorial/desktop-environment-integration.md#unity-launcher
+[unity-requirement]: ../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux
 [mas-builds]: ../tutorial/mac-app-store-submission-guide.md
 [Squirrel-Windows]: https://github.com/Squirrel/Squirrel.Windows
 [JumpListBeginListMSDN]: https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx
