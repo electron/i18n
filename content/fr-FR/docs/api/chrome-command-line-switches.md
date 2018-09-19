@@ -147,6 +147,6 @@ Ce commutateur ne fonctionne que si `--enable-logging` est également fourni.
 
 Permet que les niveaux maximum par module de V-logging puisse dépasser la valeur donnée par `--v`. Par exemple `my_module=2,foo*=3` changera le niveau de logging pour tout le code source des fichiers `my_module.*` à 2 et `foo*.*` à 3.
 
-Any pattern containing a forward or backward slash will be tested against the whole pathname and not just the module. Par exemple `*/foo/bar/*=2` changera le niveau de log pour tout le code source des fichiers du dossier `foo/bar`.
+Tout modèle ayant un slash ou un antislash ("/" ou "\") sera comparé sur tout le chemin et non seulement le module. Par exemple `*/foo/bar/*=2` changera le niveau de log pour tout le code source des fichiers du dossier `foo/bar`.
 
 Ce commutateur ne fonctionne que si `--enable-logging` est également fourni.
