@@ -14,7 +14,7 @@ let win = new BrowserWindow({width: 800, height: 600})
 win.loadURL('https://github.com')
 ```
 
-**Note:** For the reverse (access the renderer process from the main process), you can use [webContents.executeJavascript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback).
+**Note:** Sa kabaligtaran (i-akses ang prosesong tagabigay mula sa pangunahing proseso) maaari mong gamitin ang [webContents.executeJavascript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback).
 
 ## Mga bagay ng Remote
 
@@ -134,16 +134,16 @@ Nagbabalik ang [`BrowserWindow`](browser-window.md) - Ang window na kung saan na
 
 ### `remote.getCurrentWebContents()`
 
-Returns [`WebContents`](web-contents.md) - The web contents of this web page.
+Nagbabalik ang [`WebContents`](web-contents.md) - Ang mga laman ng web ng pahina ng web na ito.
 
 ### `remote.getGlobal(name)`
 
 * `name` String
 
-Returns `any` - The global variable of `name` (e.g. `global[name]`) in the main process.
+Nagbabalik ang `any` - Ang global na pagbabago-bago ng `name` (hal. `global[name]`) sa mga pangunahing proseso.
 
 ## Mga Katangian
 
 ### `ang remote.process`
 
-The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
+Ang bagay ng `process` sa mga pangunahing proseso. Ito ay katulad ng `remote.getGlobal('process')` ngunit ito ay naka-cache.
