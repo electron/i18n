@@ -78,7 +78,7 @@ hindi pinagana.</li>
     
     ## Click-through window 
     
-    To create a click-through window, i.e. making the window ignore all mouse events, you can call the [win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore) API:
+    Upang lumikha ng isang click-through window, i.e. paggawa ng window huwag pansinin ang lahat ng mouse mga kaganapan, maaari mong tawagan ang  win.setIgnoreMouseEvents (ignore) </ 0> API:</p> 
     
     ```javascript
     const {BrowserWindow} = require('electron')
@@ -128,7 +128,7 @@ hindi pinagana.</li>
     }
     ```
     
-    If you're setting just a custom titlebar as draggable, you also need to make all buttons in titlebar non-draggable.
+    Kung ikaw ay nagtatakda lamang ng isang custom titlebar bilang draggable, kailangan mo ring gawin ang lahat mga pindutan sa titlebar non-draggable.
     
     ## Text selection 
     
