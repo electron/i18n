@@ -1,13 +1,13 @@
-# Electron Support
+# Soporte de Electron
 
-## Finding Support
+## Encontrar Soporte
 
-If you have a security concern, please see the [security document](../../SECURITY.md).
+Si tiene un problema de seguridad, consulte el [documento de seguridad](../../SECURITY.md).
 
-If you're looking for programming help, for answers to questions, or to join in discussion with other developers who use Electron, you can interact with the community in these locations:
+Si busca ayuda con la programación, respuestas a preguntas o conversaciones con otros desarrolladores que usan Electron, puede interactuar con la comunidad en estos lugares:
 
-* [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
-* `#atom-shell` channel on Freenode
+* Categoría [`electron`](https://discuss.atom.io/c/electron) en los foros de Atom
+* Canal `#atom-shell` en Freenode
 * Canal [`Electron`](https://atom-slack.herokuapp.com) en Atom's Slack
 * [`electron-ru`](https://telegram.me/electron_ru) *(Ruso)*
 * [`electron-br`](https://electron-br.slack.com) *(Portugués Brasileño)*
@@ -17,17 +17,17 @@ If you're looking for programming help, for answers to questions, or to join in 
 * [`electron-id`](https://electron-id.slack.com) *(Indonesio)*
 * [`electron-pl`](https://electronpl.github.io) *(Polaco)*
 
-If you'd like to contribute to Electron, see the [contributing document](../../CONTRIBUTING.md).
+Si desea contribuir a Electron, consulte el [documento contribuyente](../../CONTRIBUTING.md).
 
-If you've found a bug in a [supported version](#supported-versions) of Electron, please report it with the [issue tracker](../development/issues.md).
+Si has encontrado un error en una [versión soportada](#supported-versions) de Electron, infórmalo con el [rastreador de problemas](../development/issues.md).
 
-[awesome-electron](https://github.com/sindresorhus/awesome-electron) is a community-maintained list of useful example apps, tools and resources.
+[awesome-electron](https://github.com/sindresorhus/awesome-electron) es una lista mantenida por la comunidad de útiles ejemplos de aplicaciones, herramientas y recursos.
 
-## Supported Versions
+## Versiones Soportadas
 
-The latest three release branches are supported by the Electron team. For example, if the latest release is 2.0.x, then the 2-0-x series is supported, as are the two previous release series 1-7-x and 1-8-x.
+Las últimas tres ramas de publicación cuentan con el respaldo del equipo de Electron. Por ejemplo, si la última versión es 2.0.x, entonces la serie 2-0-x es compatible, al igual que las dos versiones anteriores de la serie 1-7-x y 1-8-x.
 
-When a release branch reaches the end of its support cycle, the series will be deprecated in NPM and a final end-of-support release will be made. This release will add a warning to inform that an unsupported version of Electron is in use.
+Cuando una rama de lanzamiento llega al final de su ciclo de soporte, la serie quedará obsoleta en NPM y se realizará una versión final de fin de soporte. This release will add a warning to inform that an unsupported version of Electron is in use.
 
 These steps are to help app developers learn when a branch they're using becomes unsupported, but without being excessively intrusive to end users.
 
