@@ -233,18 +233,6 @@ win.on('hide', () => {
 })
 ```
 
-#### `tray.setIgnoreDoubleClickEvents(ignore)` *macOS*
-
-* `ignore` Boolean
-
-Sets the option to ignore double click events. Ignoring these events allows you to detect every individual click of the tray icon.
-
-This value is set to false by default.
-
-#### `tray.getIgnoreDoubleClickEvents()` *macOS*
-
-Returns `Boolean` - Whether double click events will be ignored.
-
 #### `tray.displayBalloon(options)` *Windows*
 
 * `options` Objet 
@@ -252,29 +240,29 @@ Returns `Boolean` - Whether double click events will be ignored.
   * `title` String
   * `content` String
 
-Affiche une bulle dans la barre d'État.
+Displays a tray balloon.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
-* `menu` Menu (facultatif)
-* `position` [Point](structures/point.md) (facultatif) - Position du menu.
+* `menu` Menu (optional)
+* `position` [Point](structures/point.md) (optional) - The pop up position.
 
-Ouvre le menu contextuel de l’icône. Lorsque le `menu` est passé, le `menu` s’affichera au lieu du menu contextuel de l’icône de la barre d’État.
+Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
 
-La `position` n’est disponible que sur Windows, et c’est (0, 0) par défaut.
+The `position` is only available on Windows, and it is (0, 0) by default.
 
 #### `tray.setContextMenu(menu)`
 
 * `menu` Menu | null
 
-Définit le menu contextuel de l'icône.
+Sets the context menu for this icon.
 
 #### `tray.getBounds()` *macOS* *Windows*
 
 Retourne [`Rectangle`](structures/rectangle.md)
 
-Les `limites` de l'icône de la barre d’État en tant qu'`Objet`.
+The `bounds` of this tray icon as `Object`.
 
 #### `tray.isDestroyed()`
 
-Retourne `Boolean` - si l’icône est détruite.
+Returns `Boolean` - Whether the tray icon is destroyed.
