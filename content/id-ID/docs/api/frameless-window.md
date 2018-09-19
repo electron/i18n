@@ -66,7 +66,7 @@ win.show()
     
     ## Jendela klik-tayang
     
-    To create a click-through window, i.e. making the window ignore all mouse events, you can call the [win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore) API:
+    Untuk membuat jendela klik-tayang, yaitu membuat jendela mengabaikan semua peristiwa mouse, Anda dapat memanggil API  win.setIgnoreMouseEvents (ignore) </ 0> :</p> 
     
     ```javascript
     const {BrowserWindow} = require('electron')
@@ -111,7 +111,7 @@ win.show()
        -webkit-app-region: no-drag; }
     ```
     
-    If you're setting just a custom titlebar as draggable, you also need to make all buttons in titlebar non-draggable.
+    Jika Anda menetapkan hanya titlebar kustom sebagai draggable, Anda juga perlu membuat semua tombol di titlebar yang tidak dapat digeser.
     
     ## Pilihan teks
     
