@@ -2,7 +2,7 @@
 
 > Membuat spacer antara dua item di bar sentuhan untuk aplikasi asli macOS
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+Proses: [utama](../tutorial/quick-start.md#main-process)
 
 ### `baru TouchBarSpacer(options)` *Experimental*
 
