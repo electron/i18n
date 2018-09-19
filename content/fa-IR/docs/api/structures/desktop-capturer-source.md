@@ -3,4 +3,3 @@
 * `شناسه` رشته - مشخص کننده ی یک صفحه که می تواند به عنوان یک `منبع رسانه ای کروم` در هنگام فراخوانی استفاده شود. [`navigator.webkitGetUserMedia`]. فرمت شناسایی کننده `سایز صفحه` یا `سایز صفحه نمایش` خواهد بود در حالی که `سایز` یک عدد اتفاقی است.
 * `نام` رشته - یک منبع نمایش یا `صفحه نمایش کامل` یا `صفحه نمایش<index>` نامگذاری خواهد شد، ممکن است منبع پنجره و نام پنجره یکی باشند.
 * `بندانگشتی`[عکس اصلی](../native-image.md) - یک عکس بندانگشتی. **توجه:** هیچ تضمینی وجود ندارد که سایز تصویر بندانگشتی با `سایز بندانگشتی` که در `امکانات` که به `دریافت کننده‌ی دسکتاپ` فرستاده شده، یکی باشند. سایز واقعی به اندازه ی صفحه نمایش بستگی دارد.
-* `display_id` String - A unique identifier that will correspond to the `id` of the matching [Display](display.md) returned by the [Screen API](../screen.md). On some platforms, this is equivalent to the `XX` portion of the `id` field above and on others it will differ. It will be an empty string if not available.
