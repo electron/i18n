@@ -4,9 +4,7 @@
 
 プロセス: [Renderer](../glossary.md#renderer-process)
 
-`webFrame` export of the electron module is an instance of the `WebFrame` class representing the top frame of the current `BrowserWindow`. Sub-frames can be retrieved by certain properties and methods (e.g. `webFrame.firstChild`).
-
-現在のページを 200% にズームするサンプルです。
+An example of zooming current page to 200%.
 
 ```javascript
 const {webFrame} = require('electron')
@@ -16,7 +14,7 @@ webFrame.setZoomFactor(2)
 
 ## メソッド
 
-The `WebFrame` class has the following instance methods:
+The `webFrame` module has the following methods:
 
 ### `webFrame.setZoomFactor(factor)`
 
@@ -26,7 +24,7 @@ The `WebFrame` class has the following instance methods:
 
 ### `webFrame.getZoomFactor()`
 
-戻り値 `Number` - 現在の拡大率。
+Returns `Number` - The current zoom factor.
 
 ### `webFrame.setZoomLevel(level)`
 
@@ -36,7 +34,7 @@ The `WebFrame` class has the following instance methods:
 
 ### `webFrame.getZoomLevel()`
 
-戻り値 `Number` - 現在の拡大レベル。
+Returns `Number` - The current zoom level.
 
 ### `webFrame.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
@@ -60,11 +58,11 @@ The `WebFrame` class has the following instance methods:
   * `spellCheck` Function - 戻り値 `Boolean`. 
     * `text` String
 
-入力フィールドとテキストエリアのスペルチェックのプロバイダを設定します。
+Sets a provider for spell checking in input fields and text areas.
 
-`provider` は、渡された単語が正しいかどうかを返すメソッド `spellCheck` を持つオブジェクトでなければいけません。
+The `provider` must be an object that has a `spellCheck` method that returns whether the word passed is correctly spelled.
 
-[node-spellchecker](https://github.com/atom/node-spellchecker) をプロバイダとして使用するサンプルです。
+An example of using [node-spellchecker](https://github.com/atom/node-spellchecker) as provider:
 
 ```javascript
 const {webFrame} = require('electron')
@@ -75,25 +73,33 @@ webFrame.setSpellCheckProvider('en-US', true, {
 })
 ```
 
+### `webFrame.registerURLSchemeAsSecure(scheme)`
+
+* `scheme` String
+
+Registers the `scheme` as secure scheme.
+
+Secure schemes do not trigger mixed content warnings. For example, `https` and `data` are secure schemes because they cannot be corrupted by active network attackers.
+
 ### `webFrame.registerURLSchemeAsBypassingCSP(scheme)`
 
 * `scheme` String
 
-現在のページのコンテンツセキュリティポリシーに関係なく、この `scheme` からリソースが読み込まれます。
+Resources will be loaded from this `scheme` regardless of the current page's Content Security Policy.
 
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
 * `scheme` String
 * `options` Object (任意) 
-  * `secure` Boolean (任意) - 省略値は true。
-  * `bypassCSP` Boolean (任意) - 省略値は true。
-  * `allowServiceWorkers` Boolean (任意) - 省略値は true。
-  * `supportFetchAPI` Boolean (任意) - 省略値は true。
-  * `corsEnabled` Boolean (任意) - 省略値は true。
+  * `secure` Boolean (optional) - Default true.
+  * `bypassCSP` Boolean (optional) - Default true.
+  * `allowServiceWorkers` Boolean (optional) - Default true.
+  * `supportFetchAPI` Boolean (optional) - Default true.
+  * `corsEnabled` Boolean (optional) - Default true.
 
-`scheme` をセキュアとして登録し、リソースのコンテンツセキュリティポリシーをバイパスし、ServiceWorker の登録を許可し、フェッチ API をサポートします。
+Registers the `scheme` as secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
 
-`false` の値を指定してオプションを指定すると、その登録が省略されます。以下は Content Security Policy をバイパスすることなく、特権スキームを登録する例です。
+Specify an option with the value of `false` to omit it from the registration. An example of registering a privileged scheme, without bypassing Content Security Policy:
 
 ```javascript
 const {webFrame} = require('electron')
@@ -127,28 +133,28 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 * `callback` Function (任意) - スクリプトが実行されたあとに呼ばれる。 
   * `result` Any
 
-`executeJavaScript` のように動きますが、 `scripts` はイソレートコンテキスト内で評価します。
+Work like `executeJavaScript` but evaluates `scripts` in isolated context.
 
 ### `webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)`
 
 * `worldId` Integer
 * `csp` String
 
-イソレートコンテキストのコンテンツセキュリティポリシーを設定します。
+Set the content security policy of the isolated world.
 
 ### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)`
 
 * `worldId` Integer
 * `name` String
 
-イソレートコンテキストの名前を設定します。開発者向けツール内で活用できます。
+Set the name of the isolated world. Useful in devtools.
 
 ### `webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)`
 
 * `worldId` Integer
 * `securityOrigin` String
 
-イソレートコンテキストのセキュリティオリジンを設定します。
+Set the security origin of the isolated world.
 
 ### `webFrame.getResourceUsage()`
 
@@ -161,14 +167,14 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 * `fonts` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `other` [MemoryUsageDetails](structures/memory-usage-details.md)
 
-Blink の内部メモリキャッシュの使用情報を記述しているオブジェクトを返します。
+Returns an object describing usage information of Blink's internal memory caches.
 
 ```javascript
 const {webFrame} = require('electron')
 console.log(webFrame.getResourceUsage())
 ```
 
-これが生成されます。
+This will generate:
 
 ```javascript
 {
@@ -186,50 +192,6 @@ console.log(webFrame.getResourceUsage())
 
 ### `webFrame.clearCache()`
 
-以前使用していたメモリを解放しようとします (以前のナビゲーションの画像など)。
+Attempts to free memory that is no longer being used (like images from a previous navigation).
 
-このメソッドを盲目的に呼び出すと、空になったキャッシュを補充する必要があるため、Electron の処理速度が遅くなる可能性があることに注意してください。アプリ内のイベントが発生してページの実際のメモリ使用量が少なくなったと思われる場合にのみ呼び出すようにしてください (即ち、とても重いページから空のページへナビゲートし、そこにとどまるとき)。
-
-### `webFrame.getFrameForSelector(selector)`
-
-* `selector` String - CSS selector for a frame element.
-
-Returns `WebFrame` - The frame element in `webFrame's` document selected by `selector`, `null` would be returned if `selector` does not select a frame or if the frame is not in the current renderer process.
-
-### `webFrame.findFrameByName(name)`
-
-* `name` String
-
-Returns `WebFrame` - A child of `webFrame` with the supplied `name`, `null` would be returned if there's no such frame or if the frame is not in the current renderer process.
-
-### `webFrame.findFrameByRoutingId(routingId)`
-
-* `routingId` Integer - An `Integer` representing the unique frame id in the current renderer process. Routing IDs can be retrieved from `WebFrame` instances (`webFrame.routingId`) and are also passed by frame specific `WebContents` navigation events (e.g. `did-frame-navigate`)
-
-Returns `WebFrame` - that has the supplied `routingId`, `null` if not found.
-
-## プロパティ
-
-### `webFrame.top`
-
-A `WebFrame` representing top frame in frame hierarchy to which `webFrame` belongs, the property would be `null` if top frame is not in the current renderer process.
-
-### `webFrame.opener`
-
-A `WebFrame` representing the frame which opened `webFrame`, the property would be `null` if there's no opener or opener is not in the current renderer process.
-
-### `webFrame.parent`
-
-A `WebFrame` representing parent frame of `webFrame`, the property would be `null` if `webFrame` is top or parent is not in the current renderer process.
-
-### `webFrame.firstChild`
-
-A `WebFrame` representing the first child frame of `webFrame`, the property would be `null` if `webFrame` has no children or if first child is not in the current renderer process.
-
-### `webFrame.nextSibling`
-
-A `WebFrame` representing next sibling frame, the property would be `null` if `webFrame` is the last frame in its parent or if the next sibling is not in the current renderer process.
-
-### `webFrame.routingId`
-
-An `Integer` representing the unique frame id in the current renderer process. Distinct WebFrame instances that refer to the same underlying frame will have the same `routingId`.
+Note that blindly calling this method probably makes Electron slower since it will have to refill these emptied caches, you should only call it if an event in your app has occurred that makes you think your page is actually using less memory (i.e. you have navigated from a super heavy page to a mostly empty one, and intend to stay there).
