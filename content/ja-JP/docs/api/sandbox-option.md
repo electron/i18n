@@ -16,7 +16,7 @@ Electron の大きな特徴は、レンダラープロセスで Node.js を実�
 
 ## サンプル
 
-To create a sandboxed window, simply pass `sandbox: true` to `webPreferences`:
+サンドボックス化されたウインドウを作成するには、単に `webPreferences` へ `sandbox: true` を渡して下さい。
 
 ```js
 let win
@@ -53,7 +53,7 @@ electron --enable-sandbox app.js
 
 `--enable-sandbox` が有効の場合、通常の Electron ウィンドウを作成できず、一部のレンダラーに対してのみ OS サンドボックスをアクティブにすることはできません。
 
-If you need to mix sandboxed and non-sandboxed renderers in one application, simply omit the `--enable-sandbox` argument. この引数がなければ、`sandbox: true` で作成されたウインドウは Node.js を無効にし、IPC 経由でのみ通信します。それ自体で既にセキュリティ POV における利得です。
+サンドボックスレンダラーと非サンドボックスレンダラーを1つのアプリケーションで混在させる必要がある場合は、単に `--enable-sandbox` 引数を省略します。 この引数がなければ、`sandbox: true` で作成されたウインドウは Node.js を無効にし、IPC 経由でのみ通信します。それ自体で既にセキュリティ POV における利得です。
 
 ## Preload
 
