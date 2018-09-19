@@ -148,6 +148,6 @@ Switch ini hanya bekerja ketika `--enable-logging` ini juga dilalui.
 
 Memberikan setiap modul tingkat V-logging maksimal untuk menimpa nilai yang diberikan oleh `-v`. Misalnya `my_module = 2, foo * = 3` akan mengubah tingkat pendataan untuk semua kode dalam sumber file `my_module.*` dan `foo *. *`.
 
-Any pattern containing a forward or backward slash will be tested against the whole pathname and not just the module. Misalnya `* / foo/bar / * = 2` akan mengubah tingkat pendataan untuk semua kode dalam sumber file di bawah direktori `foo bar`.
+Setiap pola yang mengandung garis miring maju atau mundur akan diuji terhadap seluruh nama path dan tidak hanya modul. Misalnya `* / foo/bar / * = 2` akan mengubah tingkat pendataan untuk semua kode dalam sumber file di bawah direktori `foo bar`.
 
 Switch ini hanya bekerja ketika `--enable-logging` ini juga dilalui.
