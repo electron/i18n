@@ -148,6 +148,6 @@ Ang pagpapalit nato ay gagana lamang kapag ang `--enable-logging` ay tapos na.
 
 Binigyan ang kada-modyul ng mainam na antas ng V-logging para i-override ang halaga na binigay ng `--v`. E.g. `my_module=2,foo*=3` ibig baguhin ang antas ng logging sa lahat ng code sa pinagkunan ng file na `my_module.*` at `foo*.*`.
 
-Any pattern containing a forward or backward slash will be tested against the whole pathname and not just the module. E.g. `*/foo/bar/*=2` ay maaaring mabago ang antas ng logging sa lahat ng code na pinanggalingan ng files sa ilalim ng `foo/bar` directory.
+Ang anumang pattern na naglalaman ng isang pasulong o kaya paurong na slash ay susuriin laban sa lahat ng pathname at hindi lang ang modyul na ito. E.g. `*/foo/bar/*=2` ay maaaring mabago ang antas ng logging sa lahat ng code na pinanggalingan ng files sa ilalim ng `foo/bar` directory.
 
 Ang pagpapalit nato ay gagana lamang kapag ang `--enable-logging` ay tapos na.
