@@ -6,9 +6,9 @@
 
 Electron 还为开发原生桌面应用程序提供了一些额外的内置模块。 某些模块仅在主进程中可用, 有些仅在渲染进程 (web 页) 中可用, 而有些在这两个进程中都可以使用。
 
-基本规则是: 如果一个模块是 [ GUI ](https://en.wikipedia.org/wiki/Graphical_user_interface) 或底层系统相关的, 那么它应该只在主进程中可用。 You need to be familiar with the concept of [main process vs. ](../tutorial/quick-start.md#main-process)脚本的概念，才能使用这些模块。
+基本规则是: 如果一个模块是 [ GUI ](https://en.wikipedia.org/wiki/Graphical_user_interface) 或底层系统相关的, 那么它应该只在主进程中可用。 您需要熟悉 [主流程 vs 渲染流程 ](../tutorial/quick-start.md#main-process)脚本的概念，才能使用这些模块。
 
-The main process script is just like a normal Node.js script:
+主进程脚本就像一个普通的Node. js 脚本:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -34,7 +34,7 @@ app.on('ready', () => {
 </html>
 ```
 
-To run your app, read [Run your app](../tutorial/quick-start.md#run-your-app).
+要运行你的app, 请阅读 [ Run your app ](../tutorial/quick-start.md#run-your-app)。
 
 ## 解构赋值
 
