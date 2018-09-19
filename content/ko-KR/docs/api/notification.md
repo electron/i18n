@@ -64,7 +64,7 @@ Emitted when the notification is clicked by the user.
 
 #### 이벤트: 'close'
 
-Returns:
+반환:
 
 * `event` Event
 
