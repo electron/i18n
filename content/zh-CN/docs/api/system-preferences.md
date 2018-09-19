@@ -57,30 +57,29 @@ console.log(systemPreferences.isDarkMode())
 
 发送 `event` 作为macOS的原生通知。 `userInfo`是一个Object，它包含随通知一起发送的用户信息字典。
 
-### `systemPreferences.postWorkspaceNotification(event, userInfo)` *macOS*
-
-* `event` String
-* `userInfo` Object
-
-发送 `event` 作为macOS的原生通知。 `userInfo`是一个Object，它包含随通知一起发送的用户信息字典。
-
 ### `systemPreferences.subscribeNotification(event, callback)` *macOS*
 
 * `event` String
-* `callback` Function 
+* `callback` Function - 回调函数 
   * `event` String
   * `userInfo` Object
 
-订阅macOS的原生通知，当通信的 `event</ 0>发生时，将调用 <code>callback(event, userInfo)` 。 ` userInfo `是一个Object，它包含随通知一起发送的用户信息字典。
+Subscribes to native notifications of macOS, `callback` will be called with `callback(event, userInfo)` when the corresponding `event` happens. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
-返回订阅的 ` id `, 可用于取消该订阅的 `event`.
+The `id` of the subscriber is returned, which can be used to unsubscribe the `event`.
 
-在这个API下订阅` NSDistributedNotificationCenter `， `event` 的示例值为：
+Under the hood this API subscribes to `NSDistributedNotificationCenter`, example values of `event` are:
 
 * `AppleInterfaceThemeChangedNotification`
 * `AppleAquaColorVariantChanged`
 * `AppleColorPreferencesChangedNotification`
 * `AppleShowScrollBarsSettingChanged`
+
+### `systemPreferences.unsubscribeNotification(id)` *macOS*
+
+* `id` Integer
+
+Removes the subscriber with `id`.
 
 ### `systemPreferences.subscribeLocalNotification(event, callback)` *macOS*
 
@@ -91,45 +90,24 @@ console.log(systemPreferences.isDarkMode())
 
 与` subscribeNotification `相同，但使用` NSNotificationCenter `作为本地默认值。 这对于诸如` NSUserDefaultsDidChangeNotification `的事件是必需的.
 
-### `systemPreferences.subscribeWorkspaceNotification(event, callback)` *macOS*
-
-* `event` String
-* `callback` Function - 回调函数 
-  * `event` String
-  * `userInfo` Object
-
-Same as `subscribeNotification`, but uses `NSWorkspace.sharedWorkspace.notificationCenter`. This is necessary for events such as `NSWorkspaceDidActivateApplicationNotification`.
-
-### `systemPreferences.unsubscribeNotification(id)` *macOS*
-
-* `id` Integer
-
-使用 ` id ` 删除订阅。
-
 ### `systemPreferences.unsubscribeLocalNotification(id)` *macOS*
 
 * `id` Integer
 
-与` unsubscribeNotification `相同，但将订户从` NSNotificationCenter `中删除。
-
-### `systemPreferences.unsubscribeWorkspaceNotification(id)` *macOS*
-
-* `id` Integer
-
-Same as `unsubscribeNotification`, but removes the subscriber from `NSWorkspace.sharedWorkspace.notificationCenter`.
+Same as `unsubscribeNotification`, but removes the subscriber from `NSNotificationCenter`.
 
 ### `systemPreferences.registerDefaults(defaults)` *macOS*
 
-* `defaults` Object - 用户默认选项集 (`key: value`) 
+* `defaults` Object - a dictionary of (`key: value`) user defaults 
 
-在应用的`NSUserDefaults`配置项中添加其它默认设置。
+Add the specified defaults to your application's `NSUserDefaults`.
 
 ### `systemPreferences.getUserDefault(key, type)` *macOS*
 
 * `key` String
-* `type` String - 可以为 `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` 或 `dictionary`.
+* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
 
-返回 `any` - `NSUserDefaults` 中 `key` 的值.
+Returns `any` - The value of `key` in `NSUserDefaults`.
 
 常用的 `key` 和 `type` 的类型为:
 
@@ -144,12 +122,12 @@ Same as `unsubscribeNotification`, but removes the subscriber from `NSWorkspace.
 ### `systemPreferences.setUserDefault(key, type, value)` *macOS*
 
 * `key` String
-* `type` String - See [`getUserDefault`](#systempreferencesgetuserdefaultkey-type-macos).
+* `type` String - See [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos].
 * `value` String
 
-设置 `NSUserDefaults` 中 `key` 的值.
+Set the value of `key` in `NSUserDefaults`.
 
-请注意，`type`应与`value`的实际类型匹配。 如果不存在，则抛出异常。
+Note that `type` should match actual type of `value`. An exception is thrown if they don't.
 
 常用的 `key` 和 `type` 的类型为:
 
@@ -159,13 +137,13 @@ Same as `unsubscribeNotification`, but removes the subscriber from `NSWorkspace.
 
 * `key` String
 
-删除 `NSUserDefaults` 中的 `key`. 这可以用来恢复默认值或之前用 `setUserDefault` 设置的 `key`的全局值。
+Removes the `key` in `NSUserDefaults`. This can be used to restore the default or global value of a `key` previously set with `setUserDefault`.
 
 ### `systemPreferences.isAeroGlassEnabled()` *Windows*
 
-返回 `Boolean` - `true` 如果启用了 [DWM composition](https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx) (Aero Glass), 否则为 `false`.
+Returns `Boolean` - `true` if [DWM composition](https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx) (Aero Glass) is enabled, and `false` otherwise.
 
-使用它来确定是否应创建透明窗口的示例 (当禁用 DWM 组合时, 透明窗口无法正常工作):
+An example of using it to determine if you should create a transparent window or not (transparent windows won't work correctly when DWM composition is disabled):
 
 ```javascript
 const {BrowserWindow, systemPreferences} = require('electron')
@@ -191,7 +169,7 @@ if (browserOptions.transparent) {
 
 ### `systemPreferences.getAccentColor()` *Windows*
 
-返回 `String` - 用户当前系统偏好颜色，RGBA 十六进制形式.
+Returns `String` - The users current system wide accent color preference in RGBA hexadecimal form.
 
 ```js
 const color = systemPreferences.getAccentColor() // `"aabbccdd"`
@@ -203,40 +181,40 @@ const alpha = color.substr(6, 2) // "dd"
 
 ### `systemPreferences.getColor(color)` *Windows*
 
-* `color` String - 下列值之一: 
-  * `3d-dark-shadow` - 三维显示元素的暗阴影。
-  * `3d-face` - 面向三维显示元素和对话框背景的颜色。
-  * `3d-highlight` - 三维显示元素的高亮色.
-  * `3d-light` - 三维显示元素的亮色.
-  * `3d-shadow` - 三维显示元素的阴影颜色.
-  * `active-border` - 活动窗口边框。
-  * `active-caption` -活动窗口标题栏。 如果启用了渐变效果，则指定活动窗口标题栏的颜色渐变中的左侧颜色。
-  * `active-caption-gradient` - 活动窗口标题栏的颜色渐变中的右侧颜色。
-  * `app-workspace` - 多文档界面 (MDI) 应用程序的背景颜色。
-  * `button-text` - 按钮上的文本。
-  * `caption-text` - 标题，大小框和滚动条箭头框中的文本。
-  * `desktop` - 桌面的背景色。
-  * `disabled-text` - 灰色 (禁用的) 文字.
-  * `highlight` - 在控件中选择的项目。
-  * `highlight-text` - 在控件中选择的项目文本。
-  * `hotlight` - 超链接或热追踪项目的颜色。
-  * `inactive-border` - 非活动窗口边框。
-  * ` inactive-caption` -非活动窗口标题栏。 如果启用了渐变效果，则指定非活动窗口标题栏的颜色渐变中的左侧颜色。
-  * `inactive-caption-gradient` - 非活动窗口标题栏的颜色渐变中的右侧颜色。
-  * `inactive-caption-text` - 非活动标题中的文字颜色。
-  * `info-background` - 工具提示控件的背景颜色。
-  * `info-text` - 工具提示控件的文本颜色。
-  * `menu` - 菜单的背景色.
-  * `menu-highlight` - 当菜单显示为平面菜单时用于突出显示菜单项的颜色。
-  * `menubar` - 菜单显示为平面菜单时菜单栏的背景颜色。
-  * `menu-text` - 菜单的文字.
-  * `scrollbar` - 滚动条的灰色区域.
-  * `window` - 窗口的背景色.
-  * `window-frame` - 窗口框.
-  * `window-text` - 窗口的文字。
+* `color` String - One of the following values: 
+  * `3d-dark-shadow` - Dark shadow for three-dimensional display elements.
+  * `3d-face` - Face color for three-dimensional display elements and for dialog box backgrounds.
+  * `3d-highlight` - Highlight color for three-dimensional display elements.
+  * `3d-light` - Light color for three-dimensional display elements.
+  * `3d-shadow` - Shadow color for three-dimensional display elements.
+  * `active-border` - Active window border.
+  * `active-caption` - Active window title bar. Specifies the left side color in the color gradient of an active window's title bar if the gradient effect is enabled.
+  * `active-caption-gradient` - Right side color in the color gradient of an active window's title bar.
+  * `app-workspace` - Background color of multiple document interface (MDI) applications.
+  * `button-text` - Text on push buttons.
+  * `caption-text` - Text in caption, size box, and scroll bar arrow box.
+  * `desktop` - Desktop background color.
+  * `disabled-text` - Grayed (disabled) text.
+  * `highlight` - Item(s) selected in a control.
+  * `highlight-text` - Text of item(s) selected in a control.
+  * `hotlight` - Color for a hyperlink or hot-tracked item.
+  * `inactive-border` - Inactive window border.
+  * `inactive-caption` - Inactive window caption. Specifies the left side color in the color gradient of an inactive window's title bar if the gradient effect is enabled.
+  * `inactive-caption-gradient` - Right side color in the color gradient of an inactive window's title bar.
+  * `inactive-caption-text` - Color of text in an inactive caption.
+  * `info-background` - Background color for tooltip controls.
+  * `info-text` - Text color for tooltip controls.
+  * `menu` - Menu background.
+  * `menu-highlight` - The color used to highlight menu items when the menu appears as a flat menu.
+  * `menubar` - The background color for the menu bar when menus appear as flat menus.
+  * `menu-text` - Text in menus.
+  * `scrollbar` - Scroll bar gray area.
+  * `window` - Window background.
+  * `window-frame` - Window frame.
+  * `window-text` - Text in windows.
 
-返回 `String` -系统颜色设置为RGB十六进制格式 (`#ABCDEF`). 更多详细信息, 请查阅 [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) 。
+Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) for more details.
 
 ### `systemPreferences.isInvertedColorScheme()` *Windows*
 
-返回 `Boolean` - `true` 如果反转颜色方案（如高对比度主题）处于活动状态，否则为`false`
+Returns `Boolean` - `true` if an inverted color scheme, such as a high contrast theme, is active, `false` otherwise.
