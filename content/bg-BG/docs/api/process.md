@@ -6,20 +6,6 @@ Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer
 
 Electron's `process` object is extended from the [Node.js `process` object](https://nodejs.org/api/process.html). It adds the following events, properties, and methods:
 
-## Sandbox
-
-In sandboxed renderers the `process` object contains only a subset of the APIs:
-
-* `crash()`
-* `hang()`
-* `getHeapStatistics()`
-* `getProcessMemoryInfo()`
-* `getSystemMemoryInfo()`
-* `argv`
-* `execPath`
-* `env`
-* `platform`
-
 ## Събития
 
 ### Event: 'loaded'
@@ -104,22 +90,6 @@ Returns [`CPUUsage`](structures/cpu-usage.md)
 
 Returns [`IOCounters`](structures/io-counters.md)
 
-### `process.getHeapStatistics()`
-
-Връща `Object`:
-
-* `totalHeapSize` Integer
-* `totalHeapSizeExecutable` Integer
-* `totalPhysicalSize` Integer
-* `totalAvailableSize` Integer
-* `usedHeapSize` Integer
-* `heapSizeLimit` Integer
-* `mallocedMemory` Integer
-* `peakMallocedMemory` Integer
-* `doesZapGarbage` Boolean
-
-Returns an object with V8 heap statistics. Note that all statistics are reported in Kilobytes.
-
 ### `process.getProcessMemoryInfo()`
 
 Връща `Object`:
@@ -127,7 +97,7 @@ Returns an object with V8 heap statistics. Note that all statistics are reported
 * `workingSetSize` Integer - The amount of memory currently pinned to actual physical RAM.
 * `peakWorkingSetSize` Integer - The maximum amount of memory that has ever been pinned to actual physical RAM.
 * `privateBytes` Integer - Размерът на паметта, която никога няма да бъде споделена от други процеси, като например JS купчина/heap или HTML съдържание.
-* `sharedBytes` Integer - Размерът на паметта, споделена между процесите, обикновено памет, консумирана от самия Електрон.
+* `sharedBytes` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself.
 
 Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes.
 
