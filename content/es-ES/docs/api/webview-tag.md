@@ -1,14 +1,8 @@
 # `<webview>` Etiqueta
 
-## Warning
-
-Electron's `webview` tag is based on [Chromium's `webview`](https://developer.chrome.com/apps/tags/webview), which is undergoing dramatic architectural changes. This impacts the stability of `webviews`, including rendering, navigation, and event routing. We currently recommend to not use the `webview` tag and to consider alternatives, like `iframe`, Electron's `BrowserView`, or an architecture that avoids embedded content altogether.
-
-## Overview
-
 > Mostrar contenido externo de la web en un cuadro aislado y procesado.
 
-Proceso: [Renderer](../glossary.md#renderer-process)
+Proceso: [Renderer](../tutorial/quick-start.md#renderer-process)
 
 Usa el etiqueta de `webview` para incrustar contenido (tales como páginas web) en tu aplicación de Electron. El contenido de invitados se encuentra dentro del contenedor `webview<\0>.
 Una página incrustada dentro de los controles de tu aplicación como el contenido de invitado es dispuesto y renderizado.</p>
@@ -45,19 +39,24 @@ Si tú quieres controlar el contenido de invitado de cualquier manera, puedes es
 </script>
 ```
 
-## Internal implementation
-
-Under the hood `webview` is implemented with [Out-of-Process iframes (OOPIFs)](https://www.chromium.org/developers/design-documents/oop-iframes). The `webview` tag is essentially a custom element using shadow DOM to wrap an `iframe` element inside it.
-
-So the behavior of `webview` is very similar to a cross-domain `iframe`, as examples:
-
-* When clicking into a `webview`, the page focus will move from the embedder frame to `webview`.
-* You can not add keyboard event listeners to `webview`.
-* All reactions between the embedder frame and `webview` are asynchronous.
-
 ## Notas de Estilo CCS
 
-Please note that the `webview` tag's style uses `display:flex;` internally to ensure the child `iframe` element fills the full height and width of its `webview` container when used with traditional and flexbox layouts. Please do not overwrite the default `display:flex;` CSS property, unless specifying `display:inline-flex;` for inline layout.
+Por favor nota que el estilo de etiqueta `webview` usa `display:flex;` internamente para asegurar que el menor elemento de `object` llene el alto y ancho completo de su contenedor `webview` cuando se usa con diseños tradicionales y de flexbox (desde la v0.36.11). Por favor, no sobrescribir el por defecto propiedad de CSS `display:flex;`, a menos que se especifique `display:inline-flex;` para el diseño entre líneas.
+
+`webview` tiene problemas siendo escondido usando el atributo `hidden` o usando `display: none;`. Puede causar comportamiento de traducción inusual dentro de su menor objeto `browserplugin` y la página web es recargada cuando el `webview` no es escondido. El acercamiento recomendado es esconder el `webview` usando `visibility: hidden`.
+
+```html
+<style>
+  webview {
+    display:inline-flex;
+    width:640px;
+    height:480px;
+  }
+  webview.hide {
+    visibility: hidden;
+  }
+</style>
+```
 
 ## Atributos de Etiqueta
 
@@ -142,7 +141,7 @@ Cuando este atributo está presente, la página de invitado tendrá la seguridad
 <webview src="https://electronjs.org" partition="electron"></webview>
 ```
 
-Establece la sesión usada por la página. Si `partition` empieza con `persist:`, la página usará una sesión persistente disponible para todas las páginas en la aplicación con la misma `partition`. si no hay un prefijo `persist:`, la página usará una sesión en memoria. Al asignar la misma `partition`, las páginas múltiples pueden compartir la misma sesión. Si la `partition` no se establece entonces la sesión por defecto de la aplicación será usada.
+Establece la sesión usada por la página. Si `partition` empieza con `persist:`, la página usará una sesión persistente disponible para todas las páginas en la aplicación con la misma `partition`. si no hay un prefijo `persist:`, la página usará una sesión en memoria. Por asignar el mismo `partition`, múltiples páginas podrán compartir la misma sesión. Si la `partition` no se establece entonces la sesión por defecto de la aplicación será usada.
 
 Este valor solo puede ser modificado antes que la primera navegación, ya que la sesión de un proceso de renderizado activo no puede cambiar. Intentos subsecuentes de modificar el valor fallarán con la excepción de DOM.
 
@@ -164,13 +163,13 @@ Una lista de cuerdas que especifica la preferencias de la web para ser colocados
 
 La cuerda sigue el mismo formato que las cuerdas que aparecen en `window.open`. Un nombre por sí mismo es dado a `true` por valores booleanos. Una preferencia puede ser establecida por otro valor incluyendo un `=`, seguido por el valor. Valores especiales como `yes` y `1` son interpretados como `true`, mientras que `no` y `0` son interpretados como `false`.
 
-### `enableblinkfeatures`
+### `blinkfeatures`
 
 ```html
-<webview src="https://www.github.com/" enableblinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
+<webview src="https://www.github.com/" blinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-Una lista de cadenas que especifican las preferencias de blink para ser activadas, separadas por `,`. La lista completa de cadenas características soportadas puede ser encontrada en el archivo [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70).
+Una lista de cadenas que especifican las preferencias de blink para ser activadas, separadas por `,`. La lista completa de cadenas características soportadas puede ser encontrada en el archivo [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62).
 
 ### `disableblinkfeatures`
 
@@ -178,7 +177,50 @@ Una lista de cadenas que especifican las preferencias de blink para ser activada
 <webview src="https://www.github.com/" disableblinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-Una lista de cadenas que especifican las cadenas de blink para ser desactivadas, separadas por `,`. La lista completa de cadenas características soportadas puede ser encontrada en el archivo [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70).
+Una lista de cadenas que especifican las cadenas de blink para ser desactivadas, separadas por `,`. La lista completa de cadenas características soportadas puede ser encontrada en el archivo [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62).
+
+### `guestinstance`
+
+```html
+<webview src="https://www.github.com/" guestinstance="3"></webview>
+```
+
+Un valor que conecta el webview a un contenido de web especifico. Cuando una vista de web primero carga, un nuevo contenido de web es creado y este atributo está establecido para su identificador ejemplo. Ajustar este atributo en un nuevo o existente webview lo conecta a el contenido de web existente que actualmente renderiza en un webview diferente.
+
+El webview existente verá el evento `destruir` y entonces creará un nuevo contenido web cuando un nuevo url es cargado.
+
+### `disableguestresize`
+
+```html
+<webview src="https://www.github.com/" disableguestresize></webview>
+```
+
+Cuando este atributo es presentado, el contenido `webview` será prevenido de reajustarse cuando el elemento `webview` es reajustado por sí mismo.
+
+Esto puede ser usado en combinación con [`webContents.setSize`](web-contents.md#contentssetsizeoptions) para reajustar manualmente el contenido web en reacción con un cambio de tamaño de una cadena. Esto puede hacer que el reajuste sea más rápido en comparación a confiar en que el elemento del webview se reajuste automáticamente.
+
+```javascript
+const {webContents} = require('electron')
+
+// Asumimos que `ganar` apunta al ejemplo `BrowserWindow` conteniendo un 
+// `<webview>` con `disableguestresize`.
+
+win.on('resize', () => {
+  const [width, height] = win.getContentSize()
+  for (let wc of webContents.getAllWebContents()) {
+    // Revisa si `wc` pertenece a un webview en la ventana `ganar`.
+    si (wc.hostWebContents &&
+        wc.hostWebContents.id === win.webContents.id) {
+      wc.setSize({
+        normal: {
+          width: width,
+          height: height
+        }
+      })
+    }
+  }
+})
+```
 
 ## Métodos
 
@@ -199,11 +241,11 @@ webview.addEventListener('dom-ready', () => {
 
 * `url` URL
 * `opciones` Objecto (opcional) 
-  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
+  * `httpReferrer` Cadena (opcional) - Un url de HTTP referencial.
   * `userAgent` Cadena (opcional) - Un agente de usuario originando el pedido.
-  * `extraHeaders` String (opcional) - Encabezados extras separadas por "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
-  * `baseURLForDataURL` String (opcional) - Url base (con separadores de ruta arrastrables) para archivos que se cargan por el url de datos. Esto es necesario únicamente si el `url` especificado es un url de datos y necesita cargar otros archivos.
+  * `extraHeaders` Cadena (opcional) - Encabezados extras separados por "\n"
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (opcional) -
+  * `baseURLForDataURL` Cadena (opcional) - url base (con arrastrar separadores de camino) para archivos a ser cargados por la data del url. Esto es necesitado únicamente si el `url` especificado es data de url y necesia cargar otros archivos.
 
 Carga el `url` en el webview, el `url` debe contener el prefijo protocolo, e.g. el `http://` or `file://`.
 
@@ -295,12 +337,12 @@ Inyecta CSS en la página de invitado.
 
 ### `<webview>.executeJavaScript(code[, userGesture, callback])`
 
-* `code` Cadena de caracteres
+* `codigo` String
 * `userGesture` Boolean (optional) - Default `false`.
-* `callback` Function (opcional) - Es llamado luego de que se haya ejecutado el script. 
-  * `resultado` Cualquiera
+* `callback` Función (opcional) - La llamada luego del guión ha sido ejecutada. 
+  * `result` Cuaquiera
 
-Evalúa el `código` en la página. Si `userGesture` está establecido, creará el contexto de gesto del usuario en la página. APIs de HTML como `requestFullScreen`, los cuales requieren acciones de usuario, puede tomar ventaja de esta opción para automatización.
+Evaluar `code` en la página. Si `userGesture` está establecido, creará el contexto de gesto del usuario en la página. APIs de HTML como `requestFullScreen`, los cuales requieren acciones de usuario, puede tomar ventaja de esta opción para automatización.
 
 ### `<webview>.openDevTools()`
 
@@ -321,7 +363,7 @@ Devuelve `Boolean` - Aunque la ventana de DevTools de la página de invitado est
 ### `<webview>.inspectElement(x, y)`
 
 * `x` Íntegro
-* `y` Integer
+* `y` Íntegro
 
 Empieza inspeccionado elementos en posición (`x`, `y`) de la página de invitado.
 
@@ -395,7 +437,7 @@ Inserta `texto` al elemento centrado.
 
 ### `<webview>.findInPage(text[, options])`
 
-* `text` String - El contenido para ser buscado, no debe quedar en blanco.
+* `text` Cadena - Contenido para ser buscado, no debe ser vaciado.
 * `opciones` Object (opcional) 
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
@@ -412,16 +454,16 @@ Starts a request to find all matches for the `text` in the web page. The result 
 * `acción` Cadena - Especifica la acción que tendrá lugar al finalizar [`<webview>.findInPage`](#webviewfindinpagetext-options) pedido. 
   * `clearSelection` - Borrar la selección.
   * `keepSelection` - Traduce la selección en una selección normal.
-  * `activateSelection` - Enfoca y hace clic en el nodo de selección.
+  * `activateSelection` - Enfoque y haga click en el nodo de selección.
 
 Detiene cualquier solicitud `findInPage` para el `webview` con la `action` dada.
 
 ### `<webview>.print([options])`
 
 * `opciones` Objecto (opcional) 
-  * `silent` Boolean (opcional) - No le pide al usuario configurar la impresora. Por defecto es `false`.
+  * `silent` Boolean (opcional) - No le pide al usuario ajustes de impresión. Por defecto es `false`.
   * `printBackground` Boolean (opcional) - También imprime el color de fondo y la imagen de la página web. Por defecto es `false`.
-  * `deviceName` String (opcional) - Configura el nombre de la impresora que se va a usar. Por defecto es `''`.
+  * `deviceName` Cadena (opcional) - Establece el nombre del dispositivo de impresión a usar. Por defecto es `"`.
 
 Imprime la página web de `webview`. Al igual que `webContents.print([options])`.
 
@@ -450,7 +492,7 @@ Captura una instantánea de la página de `webview`. Al igual que `webContents.c
 ### `<webview>.send(channel[, arg1][, arg2][, ...])`
 
 * `channel` Cadena
-* `...args` any[]
+* `...args` cualquiera[]
 
 Envía un mensaje asincrónico al proceso de renderizado vía `channel`, también puedes mandar argumentos arbitrarios. The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
 
@@ -466,7 +508,7 @@ Ver [webContents.sendInputEvent](web-contents.md#contentssendinputeventevent) pa
 
 ### `<webview>.setZoomFactor(factor)`
 
-* `factor` Number - Zoom factor.
+* `factor` Número - Factor zoom.
 
 Cambia el factor de zoom al factor especificado. El factor de zoom es el porcentaje de zoom dividido por 100, por lo que 300% = 3.0.
 
@@ -478,7 +520,7 @@ Cambia el nivel de zoom al nivel especificado. El tamaño original es 0 y cada i
 
 ### `<webview>.showDefinitionForSelection()` *macOS*
 
-Muestra el diccionario pop-up que busca la palabra seleccionada en la página.
+Muestra un diccionario que busca la palabra seleccionada en la página.
 
 ### `<webview>.getWebContents()`
 
@@ -493,7 +535,7 @@ Los siguientes eventos DOM están disponibles en la etiqueta `webview`:
 Devuelve:
 
 * `url` String
-* `EsElFramePrincipal` Boolean
+* `isMainFrame` Boolean
 
 Disparado cuando una carga ha sido cometida, Esto incluye navegaciones dentro del documento actual así como cargas de documentos de bajo nivel, pero no incluye fuentes asincrónicas de cargas.
 
@@ -508,7 +550,7 @@ Devuelve:
 * `errorCode` Entero
 * `errorDescription` String
 * `validatedURL` String
-* `isMainFrame` Boolean
+* `EsElFramePrincipal` Boolean
 
 Este evento es como `did-finish-load`,pero disparado cuando la carga falla o es cancelada, e.g. `window.stop()` es involucrada.
 
@@ -516,7 +558,7 @@ Este evento es como `did-finish-load`,pero disparado cuando la carga falla o es 
 
 Devuelve:
 
-* `isMainFrame` Boolean
+* `EsElFramePrincipal` Boolean
 
 Disparado cuando un frame ha terminado la navegación.
 
@@ -528,11 +570,36 @@ Corresponde a los puntos en tiempo cuando el girador del tabulador empieza a gir
 
 Corresponde a los puntos en tiempo cuando el girador del tabulador termina de girar.
 
+### Evento: 'did-get-response-details'
+
+Devuelve:
+
+* `status` Boolean
+* `newURL` String
+* `originalURL` String
+* `httpResponseCode` Entero
+* `requestMethod` String
+* `referrer` Cadena
+* `headers` Objeto
+* `resourceType` String
+
+Disparado cuando los detalles que corresponden a una fuente pedida está disponible. `status` indica conexión de media para descargar la fuente.
+
+### Evento: 'did-get-redirect-request'
+
+Devuelve:
+
+* `viejoURL` String
+* `newURL` String
+* `EsElFramePrincipal` Boolean
+
+Disparado cuando una redirección fue recibida mientras se solicitaba una fuente.
+
 ### Evento: 'dom-ready'
 
 Disparado cuando el documento en el frame dado es cargado.
 
-### Evento: "page-title-updated"
+### Evento: 'page-title-updated'
 
 Devuelve:
 
@@ -549,11 +616,11 @@ Devuelve:
 
 Disparado cuando la página recibe urls de favicon.
 
-### Evento: "enter-html-full-screen"
+### Evento: 'enter-html-full-screen'
 
 Disparado cuando la página entra en pantalla entera i¿y es activado por HTML API.
 
-### Evento: "leave-html-full-screen"
+### Evento: 'leave-html-full-screen'
 
 Disparado cuando la página deja la pantalla completa activada por HTML API.
 
@@ -583,9 +650,9 @@ Devuelve:
 
 * `resultado` Object 
   * `requestId` Íntegro
-  * `activeMatchOrdinal` Integer - Posición de la coincidencia activa.
-  * `matches` Integer - Número de coincidencias.
-  * `selectionArea` Object - Coordenadas del lugar de la primera coincidencia.
+  * `activeMatchOrdinal` Íntegro - Posición de un partido activo.
+  * `matches` Íntegro - Número de Coincidencias.
+  * `selectionArea` Objeto - Coordinación de la primera región de casualidad.
   * `finalUpdate` Boolean
 
 Disparado cuando un resultado es disponible en la solicitud [`webview.findInPage`](#webviewfindinpagetext-options).
@@ -604,7 +671,7 @@ console.log(requestId)
 
 Devuelve:
 
-* `url` String
+* `url` Cadena
 * `frameName` Cadena
 * `disposition` String - Puede ser `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
 * `options` Object - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
@@ -629,7 +696,7 @@ webview.addEventListener('new-window', (e) => {
 
 Devuelve:
 
-* `url` Cadena
+* `url` String
 
 Emitido cuando un usuario o la página quiere iniciar la navegación. Puede suceder cuando el objeto `window.location` es cambiado o un usuario hace click en un link de la página.
 
@@ -660,7 +727,7 @@ Emitido cuando una navegación dentro de la página sucede.
 
 Cuando una navegación dentro de la página sucede, el URL de la página cambia, pero no causa una navegación fuera de la página. Ejemplos de ésto ocurriendo son cuando los links son clickeados o cuando el evento DOM `hashchange` es activado.
 
-### Evento: "close"
+### Evento: 'close'
 
 Disparado cuando la página de invitado intenta cerrarse.
 
@@ -682,7 +749,7 @@ Devuelve:
 
 Disparado cuando la página de invitado ha enviado un mensaje asincrónico a la página de embebido.
 
-With `sendToHost` method and `ipc-message` event you can communicate between guest page and embedder page:
+Con el método `sendToHost` y el evento `ipc-message` puedes comunicarte fácilmente entre la pagina de invitado y la de embebido:
 
 ```javascript
 // In embedder page.
