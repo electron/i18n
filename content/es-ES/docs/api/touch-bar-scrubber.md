@@ -1,4 +1,4 @@
-## Clase: depurador de la barra tactil
+## Clase: TouchBarScrubber
 
 > Crear un depurador (un selector de desplazamiento)
 
@@ -24,11 +24,11 @@ Las siguientes propiedades está disponibles en instancias del `depurador de bar
 
 #### `touchBarScrubber.items`
 
-Un arreglo de`Elemento a depurar[]` representando los elementos en este depurador. Actualizar este valor actualiza inmediatamente el control en la barra táctil. Mientras se actualicen las propiedades profundas dentro de este arreglo **no se actualiza la barra táctil**.
+Un array de `Elemento a depurar[]` representando los elementos en este depurador. Actualizar este valor actualiza inmediatamente el control en la barra táctil. Mientras se actualicen las propiedades profundas dentro de este arreglo **no se actualiza la barra táctil**.
 
 #### `touchBarScrubber.selectedStyle`
 
-A `String` representing the style that selected items in the scrubber should have. Updating this value immediately updates the control in the touch bar. Possible values:
+Un `String` representando el estilo que deben tener los elementos en el depurador. Actualizar este valor inmediatamente actualiza el control en la barra táctil. Valores positivos:
 
 * `fondo` - mapas a `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
 * `fuera de linea` - Mapa a `[NSScrubberSelectionStyle outlineOverlayStyle]`.
