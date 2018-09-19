@@ -439,7 +439,7 @@ Inserta `texto` al elemento centrado.
 
 * `text` Cadena - Contenido para ser buscado, no debe ser vaciado.
 * `opciones` Object (opcional) 
-  * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
+  * `forward` Boolean (opcional) - Ya sea para buscar hacia adelante o hacia atrás, el valor predeterminado es `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
   * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
