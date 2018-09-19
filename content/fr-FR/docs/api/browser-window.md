@@ -254,7 +254,7 @@ window.onbeforeunload = (e) => {   console.log('I do not want to be closed')
 }
 ```
 
-***Note**: Il y a une subtile différence entre le comportement de `window.onbeforeunload = handler` et `window.addEventListener('beforeunload', handler)`. It is recommended to always set the `event.returnValue` explicitly, instead of just returning a value, as the former works more consistently within Electron.*
+***Note**: Il y a une subtile différence entre le comportement de `window.onbeforeunload = handler` et `window.addEventListener('beforeunload', handler)`. Il est recommendé de toujours spécifier l' `event.returnValue` explicitement, plutôt que de seulement retourner une valeur, cette méthode fonctionne mieux avec Electron.*
 
 #### Événement : 'closed'
 
@@ -316,7 +316,7 @@ window.onbeforeunload = (e) => {   console.log('I do not want to be closed')
 
 Émis lorsque la fenêtre est déplacée vers une nouvelle position.
 
-**Note**: On macOS this event is just an alias of `moved`.
+**Note** : Sous macOS, cet événement est simplement un alias de `moved`.
 
 #### Événement : 'moved' *macOS*
 
@@ -624,7 +624,7 @@ Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look)
 * `bounds` [Rectangle](structures/rectangle.md)
 * `animate` Boolean (facultatif) *macOS*
 
-Resizes and moves the window to the supplied bounds
+Redimensionne et déplace la fenêtre vers les limites fournies
 
 #### `win.getBounds()`
 
@@ -697,7 +697,7 @@ Returns `Integer[]` - Contains the window's maximum width and height.
 
 * `resizable` Boolean
 
-Sets whether the window can be manually resized by user.
+Définit si la fenêtre peut être redimensionnée manuellement par l’utilisateur.
 
 #### `win.isResizable()`
 
@@ -707,7 +707,7 @@ Returns `Boolean` - Whether the window can be manually resized by user.
 
 * `movable` Boolean
 
-Sets whether the window can be moved by user. On Linux does nothing.
+Définit si la fenêtre peut être déplacée par l’utilisateur. Sous Linux, cela ne fait rien.
 
 #### `win.isMovable()` *macOS* *Windows*
 
@@ -753,7 +753,7 @@ Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen m
 
 * `closable` Boolean
 
-Sets whether the window can be manually closed by user. On Linux does nothing.
+Définit si la fenêtre peut être fermée manuellement par l’utilisateur. Sous Linux, cela ne fait rien.
 
 #### `win.isClosable()` *macOS* *Windows*
 
@@ -775,7 +775,7 @@ Returns `Boolean` - Whether the window is always on top of other windows.
 
 #### `win.center()`
 
-Moves window to the center of the screen.
+Déplace la fenêtre vers le centre de l’écran.
 
 #### `win.setPosition(x, y[, animate])`
 
@@ -831,7 +831,7 @@ Makes the window not show in the taskbar.
 
 * `flag` Boolean
 
-Enters or leaves the kiosk mode.
+Entre ou quitte le mode kiosk.
 
 #### `win.isKiosk()`
 
@@ -902,7 +902,7 @@ Same as `webContents.capturePage([rect, ]callback)`.
 
 * `url` String
 * `options` Object (facultatif) 
-  * `httpReferrer` String (optional) - A HTTP Referrer url.
+  * `httpReferrer` String (optionnel) - Une URL de référent HTTP.
   * `userAgent` String (optionnel) - Un agent utilisateur d'où provient la requête.
   * `extraHeaders` String (optionnel) - Headers supplémentaires séparés par "\n"
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
@@ -1008,7 +1008,7 @@ The number of buttons in thumbnail toolbar should be no greater than 7 due to th
 The `buttons` is an array of `Button` objects:
 
 * `Button` Objet 
-  * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
+  * `icon` [NativeImage](native-image.md) - L'icône s'affichant dans la miniature dans la barre d'outils.
   * `click` Function
   * `tooltip` String (facultatif) - Le texte dans l'info-bulle du bouton.
   * `flags` String[] (facultatif) - Contrôle les états et comportements spécifiques du bouton. `['enabled']` par défaut.
@@ -1024,7 +1024,7 @@ Le `flags` est un tableau pouvant inclure ces `String`s suivant :
 
 #### `win.setThumbnailClip(region)` *Windows*
 
-* `region` [Rectangle](structures/rectangle.md) - Region of the window
+* `region` [Rectangle](structures/rectangle.md) - La région de la fenêtre
 
 Sets the region of the window to show as the thumbnail image displayed when hovering over the window in the taskbar. You can reset the thumbnail to be the entire window by specifying an empty region: `{x: 0, y: 0, width: 0, height: 0}`.
 
@@ -1135,7 +1135,7 @@ Returns `BrowserWindow[]` - All child windows.
 
 * `autoHide` Boolean
 
-Controls whether to hide cursor when typing.
+Contrôle s'il faut masquer le curseur lors de la saisie.
 
 #### `win.selectPreviousTab()` *macOS*
 
