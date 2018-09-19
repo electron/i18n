@@ -2,7 +2,7 @@
 
 > Crea una notificación en la barra táctil para aplicaciones nativas macOS
 
-Proceso: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+Proceso: [Main](../tutorial/quick-start.md#main-process)
 
 ### `nueva notificación en la barra táctil(opciones)` *Experimental*
 
