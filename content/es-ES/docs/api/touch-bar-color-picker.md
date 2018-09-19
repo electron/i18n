@@ -2,7 +2,7 @@
 
 > Crea un seleccionador de color en la barra táctil para aplicaciones nativas de macOS
 
-Proceso: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+Proceso: [Main](../tutorial/quick-start.md#main-process)
 
 ### `Nuevo seleccionador de color de la barra táctil(opciones)` *Experimental*
 
