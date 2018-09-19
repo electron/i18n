@@ -31,7 +31,7 @@ Se emite cuando se suspende el sistema.
 
 Se emite cuando se reanuda el sistema.
 
-### Eventp: "on-ac" *Windows*
+### Evento: "on-ac" *Windows*
 
 Se emite cuando el sistema se cambia a la corriente alterna.
 
@@ -39,6 +39,6 @@ Se emite cuando el sistema se cambia a la corriente alterna.
 
 Se emite cuando el sistema se cambia a la energía de batería.
 
-### Event: 'shutdown' *Linux* *macOS*
+### Evento: 'shutdown' *Linux* *macOS*
 
-Emitted when the system is about to reboot or shut down. If the event handler invokes `e.preventDefault()`, Electron will attempt to delay system shutdown in order for the app to exit cleanly. If `e.preventDefault()` is called, the app should exit as soon as possible by calling something like `app.quit()`.
+Se emite cuando el sistema está a punto de reiniciarse o apagarse. Si el controlador de eventos invocó `e.preventDefault()`, Electron intentará retrasar el apagado del sistema para que la aplicación salga limpiamente. Si se llama a `e.preventDefault()`, la aplicación debe salir tan pronto como sea posible llamando a algo como `app.quit()`.
