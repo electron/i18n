@@ -4,7 +4,7 @@
 
 Proses: [Main](../glossary.md#main-process)
 
-**See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
+**Anda dapat menemukan petunjuk lebih lanjut mengenai penerapan pembaharuan ke dalam aplikasi anda [disini.](../tutorial/updates.md).**
 
 ## Platform Notices
 
@@ -66,12 +66,6 @@ Emitted saat update telah didownload.
 
 `releaseName` hanya tersedia pada Windows.
 
-### Event: 'before-quit-for-update'
-
-This event is emitted after a user calls `quitAndInstall()`.
-
-When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
-
 ## Metode
 
 Objek `autoUpdater` memiliki metode berikut:
@@ -95,7 +89,7 @@ Meminta server apakah ada update. Anda harus menghubungi `setFeedURL` sebelumnya
 
 ### `autoUpdater.quitAndInstall()`
 
-Aktifkan ulang aplikasi dan instal pembaruan setelah diunduh. Saya t seharusnya hanya dipanggil setelah `update-download` telah dipancarkan.
+Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
 
 Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
 
