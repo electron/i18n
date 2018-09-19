@@ -2,7 +2,7 @@
 
 > Crea un'etichetta nella barra di tocco per applicazioni native macOS
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+Processo: [Main](../tutorial/quick-start.md#main-process)
 
 ### `nuovo EtichettaBarraTocco(opzioni)` *Sperimentale*
 
