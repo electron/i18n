@@ -2,7 +2,7 @@
 
 > Dokunmatik çubukta yerel macOS uygulamaları için bir etiket oluşturun
 
-İşlem: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+İşlem: [Main](../tutorial/quick-start.md#main-process)
 
 ### `yeni DokunmatikÇubukEtiketi(seçenekler)` *Deneysel*
 
