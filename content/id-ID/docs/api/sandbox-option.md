@@ -16,7 +16,7 @@ Perbedaan lainnya adalah perender yang disanbox tidak memodifikasi API bawaan Ja
 
 ## Contoh
 
-To create a sandboxed window, pass `sandbox: true` to `webPreferences`:
+To create a sandboxed window, simply pass `sandbox: true` to `webPreferences`:
 
 ```js
 let win 
@@ -53,7 +53,7 @@ electron --enable-sandbox app.js
 
 Adalah tidak mungkin untuk memiliki OS sandbox yang aktif hanya untuk beberapa perender, jika `--enable-sandbox` diaktifkan, jendela elektron normal tidak dapat dibuat.
 
-If you need to mix sandboxed and non-sandboxed renderers in one application, omit the `--enable-sandbox` argument. Tanpa argumen ini, jendela yang dibuat dengan `sandbox: true` masih akan memiliki node.js yang dinonaktifkan dan berkomunikasi hanya melalui IPC, yang mana dengan sendirinya sudah mendapatkan keuntungan dari keamanan POV.
+If you need to mix sandboxed and non-sandboxed renderers in one application, simply omit the `--enable-sandbox` argument. Tanpa argumen ini, jendela yang dibuat dengan `sandbox: true` masih akan memiliki node.js yang dinonaktifkan dan berkomunikasi hanya melalui IPC, yang mana dengan sendirinya sudah mendapatkan keuntungan dari keamanan POV.
 
 ## Preload
 
