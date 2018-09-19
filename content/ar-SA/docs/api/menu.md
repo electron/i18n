@@ -32,7 +32,7 @@ Returns `Menu | null` - The application menu, if set, or `null`, if not set.
 
 * `action` String
 
-Sends the `action` to the first responder of application. This is used for emulating default macOS menu behaviors. Usually you would use the [`role`](menu-item.md#roles) property of a [`MenuItem`](menu-item.md).
+Sends the `action` to the first responder of application. This is used for emulating default macOS menu behaviors. Usually you would just use the [`role`](menu-item.md#roles) property of a [`MenuItem`](menu-item.md).
 
 See the [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7) for more information on macOS' native actions.
 
@@ -42,7 +42,7 @@ See the [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/m
 
 Returns `Menu`
 
-Generally, the `template` is an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
+Generally, the `template` is just an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
 
 You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
 
@@ -270,14 +270,15 @@ The [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api
 
 ## Menu Item Position
 
-You can make use of `before`, `after`, `beforeGroupContaining`, `afterGroupContaining` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
+You can make use of `position` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
 
-* `before` - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
-* `after` - Inserts this item after the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
-* `beforeGroupContaining` - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
-* `afterGroupContaining` - Provides a means for a single context menu to declare the placement of their containing group after the containing group of the item with the specified label.
+The `position` attribute of `MenuItem` has the form `[placement]=[id]`, where `placement` is one of `before`, `after`, or `endof` and `id` is the unique ID of an existing item in the menu:
 
-By default, items will be inserted in the order they exist in the template unless one of the specified positioning keywords is used.
+* `before` - Inserts this item before the id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
+* `after` - Inserts this item after id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
+* `endof` - Inserts this item at the end of the logical group containing the id referenced item (groups are created by separator items). If the referenced item doesn't exist, a new separator group is created with the given id and this item is inserted after that separator.
+
+When an item is positioned, all un-positioned items are inserted after it until a new item is positioned. So if you want to position a group of menu items in the same location you only need to specify a position for the first item.
 
 ### أمثلة
 
@@ -285,10 +286,11 @@ Template:
 
 ```javascript
 [
-  { id: '1', label: 'one' },
-  { id: '2', label: 'two' },
-  { id: '3', label: 'three' },
-  { id: '4', label: 'four' }
+  {label: '4', id: '4'},
+  {label: '5', id: '5'},
+  {label: '1', id: '1', position: 'before=4'},
+  {label: '2', id: '2'},
+  {label: '3', id: '3'}
 ]
 ```
 
@@ -299,39 +301,19 @@ Menu:
 - 2
 - 3
 - 4
+- 5
 ```
 
 Template:
 
 ```javascript
 [
-  { id: '1', label: 'one' },
-  { type: 'separator' },
-  { id: '3', label: 'three', beforeGroupContaining: ['1'] },
-  { id: '4', label: 'four', afterGroupContaining: ['2'] },
-  { type: 'separator' },
-  { id: '2', label: 'two' }
-]
-```
-
-Menu:
-
-```sh
-<br />- 3
-- 4
-- ---
-- 1
-- ---
-- 2
-```
-
-Template:
-
-```javascript
-[
-  { id: '1', label: 'one', after: ['3'] },
-  { id: '2', label: 'two', before: ['1'] },
-  { id: '3', label: 'three' }
+  {label: 'a', position: 'endof=letters'},
+  {label: '1', position: 'endof=numbers'},
+  {label: 'b', position: 'endof=letters'},
+  {label: '2', position: 'endof=numbers'},
+  {label: 'c', position: 'endof=letters'},
+  {label: '3', position: 'endof=numbers'}
 ]
 ```
 
@@ -339,7 +321,11 @@ Menu:
 
 ```sh
 <br />- ---
-- 3
-- 2
+- a
+- b
+- c
+- ---
 - 1
+- 2
+- 3
 ```
