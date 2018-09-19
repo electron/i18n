@@ -2,13 +2,13 @@
 
 > Display external web content in an isolated frame and process.
 
-Process: [Renderer](../tutorial/quick-start.md#renderer-process)
+Processus : [Renderer](../tutorial/quick-start.md#renderer-process)
 
 Use the `webview` tag to embed 'guest' content (such as web pages) in your Electron app. The guest content is contained within the `webview` container. An embedded page within your app controls how the guest content is laid out and rendered.
 
 Unlike an `iframe`, the `webview` runs in a separate process than your app. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content. **Note:** Most methods called on the webview from the host page require a synchronous call to the main process.
 
-## Exemple
+## Example
 
 To embed a web page in your app, add the `webview` tag to your app's embedder page (this is the app page that will display the guest content). In its simplest form, the `webview` tag includes the `src` of the web page and css styles that control the appearance of the `webview` container:
 
@@ -38,7 +38,7 @@ If you want to control the guest content in any way, you can write JavaScript th
 </script>
 ```
 
-## CSS Styling Notes
+## Note de style CSS
 
 Please note that the `webview` tag's style uses `display:flex;` internally to ensure the child `object` element fills the full height and width of its `webview` container when used with traditional and flexbox layouts (since v0.36.11). Please do not overwrite the default `display:flex;` CSS property, unless specifying `display:inline-flex;` for inline layout.
 
@@ -57,9 +57,9 @@ Please note that the `webview` tag's style uses `display:flex;` internally to en
 </style>
 ```
 
-## Tag Attributes
+## Attribut de balise
 
-The `webview` tag has the following attributes:
+La balise `webview` possède les attributs suivants :
 
 ### `src`
 
@@ -223,11 +223,11 @@ win.on('resize', () => {
 
 ## Méthodes
 
-The `webview` tag has the following methods:
+La balise `webview` possède les méthodes suivantes :
 
 **Note:** The webview element must be loaded before using the methods.
 
-**Exemple**
+**Example**
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -240,7 +240,7 @@ webview.addEventListener('dom-ready', () => {
 
 * `url` URL
 * `options` Object (facultatif) 
-  * `httpReferrer` String (optional) - A HTTP Referrer url.
+  * `httpReferrer` String (optionnel) - Une URL de référent HTTP.
   * `userAgent` String (optionnel) - Un agent utilisateur d'où provient la requête.
   * `extraHeaders` String (optionnel) - Headers supplémentaires séparés par "\n"
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (optional) -
@@ -525,11 +525,11 @@ Shows pop-up dictionary that searches the selected word on the page.
 
 Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
 
-## DOM events
+## Événements DOM
 
 The following DOM events are available to the `webview` tag:
 
-### Event: 'load-commit'
+### Événement : 'load-commit'
 
 Retourne :
 
@@ -569,7 +569,7 @@ Corresponds to the points in time when the spinner of the tab starts spinning.
 
 Corresponds to the points in time when the spinner of the tab stops spinning.
 
-### Event: 'did-get-response-details'
+### Événement : 'did-get-response-details'
 
 Retourne :
 
@@ -584,7 +584,7 @@ Retourne :
 
 Fired when details regarding a requested resource is available. `status` indicates socket connection to download the resource.
 
-### Event: 'did-get-redirect-request'
+### Événement : 'did-get-redirect-request'
 
 Retourne :
 
@@ -639,7 +639,7 @@ The following example code forwards all log messages to the embedder's console w
 ```javascript
 const webview = document.querySelector('webview')
 webview.addEventListener('console-message', (e) => {
-  console.log('Guest page logged a message:', e.message)
+  console.log('La page invité a envoyé un message :', e.message)
 })
 ```
 
@@ -739,7 +739,7 @@ webview.addEventListener('close', () => {
 })
 ```
 
-### Event: 'ipc-message'
+### Événement : 'ipc-message'
 
 Retourne :
 
@@ -761,7 +761,7 @@ webview.send('ping')
 ```
 
 ```javascript
-// In guest page.
+// Dans la page invité.
 const {ipcRenderer} = require('electron')
 ipcRenderer.on('ping', () => {
   ipcRenderer.sendToHost('pong')
@@ -772,9 +772,9 @@ ipcRenderer.on('ping', () => {
 
 Fired when the renderer process is crashed.
 
-### Event: 'gpu-crashed'
+### Événement : 'gpu-crashed'
 
-Fired when the gpu process is crashed.
+Déclenché lorsque le processus du gpu crash.
 
 ### Événement : 'plugin-crashed'
 
@@ -783,11 +783,11 @@ Retourne :
 * `name` String
 * `version` String
 
-Fired when a plugin process is crashed.
+Déclenché lorsqu’un processus de plugin crash.
 
 ### Événement : 'destroyed'
 
-Fired when the WebContents is destroyed.
+Déclenché lorsque le WebContents est détruit.
 
 ### Événement : 'media-started-playing'
 
@@ -803,7 +803,7 @@ Retourne :
 
 * `themeColor` String
 
-Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
+Émis lorsque le thème couleur de la page est changé. Il s’agit généralement de l'ajout d'une balise meta :
 
 ```html
 <meta name='theme-color' content='#ff0000'>
