@@ -2,11 +2,11 @@
 
 > 创建一个分段控件（按钮组），其中一个按钮具有选定状态
 
-进程：[主进程](../tutorial/quick-start.md#main-process)
+Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new TouchBarSegmentedControl(options)` *实验功能*
 
-* `选项` 对象 
+* `参数` 对象 
   * `segmentStyle` String (可选) - 分段的样式： 
     * `automatic` - 默认的。分段控件的外观是通过窗口的类型和控件在窗口内呈现的位置自动确定的。
     * `rounded` - 控件的呈现使用圆形风格。
