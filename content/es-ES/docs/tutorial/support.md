@@ -8,14 +8,14 @@ If you're looking for programming help, for answers to questions, or to join in 
 
 * [`electron`](https://discuss.atom.io/c/electron) category on the Atom forums
 * `#atom-shell` channel on Freenode
-* [`Electron`](https://atom-slack.herokuapp.com) channel on Atom's Slack
-* [`electron-ru`](https://telegram.me/electron_ru) *(Russian)*
-* [`electron-br`](https://electron-br.slack.com) *(Brazilian Portuguese)*
-* [`electron-kr`](https://electron-kr.github.io/electron-kr) *(Korean)*
-* [`electron-jp`](https://electron-jp.slack.com) *(Japanese)*
-* [`electron-tr`](https://electron-tr.herokuapp.com) *(Turkish)*
-* [`electron-id`](https://electron-id.slack.com) *(Indonesia)*
-* [`electron-pl`](https://electronpl.github.io) *(Poland)*
+* Canal [`Electron`](https://atom-slack.herokuapp.com) en Atom's Slack
+* [`electron-ru`](https://telegram.me/electron_ru) *(Ruso)*
+* [`electron-br`](https://electron-br.slack.com) *(Portugués Brasileño)*
+* [`electron-kr`](https://electron-kr.github.io/electron-kr) *(Coreano)*
+* [`electron-jp`](https://electron-jp.slack.com) *(Japonés)*
+* [`electron-tr`](https://electron-tr.herokuapp.com) *(Turco)*
+* [`electron-id`](https://electron-id.slack.com) *(Indonesio)*
+* [`electron-pl`](https://electronpl.github.io) *(Polaco)*
 
 If you'd like to contribute to Electron, see the [contributing document](../../CONTRIBUTING.md).
 
@@ -55,6 +55,6 @@ The prebuilt `ia32` (`i686`) and `x64` (`amd64`) binaries of Electron are built 
 
 Si el compilado binario puede correr en una distribución depende de que la distribución incluye las librerías a las que está ligada Electron en la plataforma construida, así que solo hay garantía de que Ubuntu 12.04 trabaje, pero las siguientes plataformas también están verificadas para correr el precompilado binario de Electron:
 
-* Ubuntu 12.04 and newer
+* Ubuntu 12.04 y posteriores
 * Fedora 21
 * Debian 8
