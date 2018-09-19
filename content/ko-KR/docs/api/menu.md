@@ -94,7 +94,7 @@ Objects created with `new Menu` emit the following events:
 
 #### Event: 'menu-will-show'
 
-Returns:
+반환:
 
 * `event` Event
 
@@ -102,7 +102,7 @@ Emitted when `menu.popup()` is called.
 
 #### Event: 'menu-will-close'
 
-Returns:
+반환:
 
 * `event` Event
 
@@ -282,7 +282,7 @@ When an item is positioned, all un-positioned items are inserted after it until 
 
 ### 예시
 
-Template:
+템플릿:
 
 ```javascript
 [
@@ -294,7 +294,7 @@ Template:
 ]
 ```
 
-Menu:
+메뉴
 
 ```sh
 <br />- 1
@@ -304,7 +304,7 @@ Menu:
 - 5
 ```
 
-Template:
+템플릿:
 
 ```javascript
 [
@@ -317,7 +317,7 @@ Template:
 ]
 ```
 
-Menu:
+메뉴
 
 ```sh
 <br />- ---
