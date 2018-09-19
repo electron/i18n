@@ -94,7 +94,7 @@ Returns ` Boolean `-当前系统是否支持桌面通知
 
 #### `notification.show()`
 
-Immediately shows the notification to the user, please note this means unlike the HTML5 Notification implementation, simply instantiating a `new Notification` does not immediately show it to the user, you need to call this method before the OS will display it.
+立即显示通知给用户，请注意这一点不同于 HTML5通知实现，只实例化一个 `new Notification` 不会马上显示给用户，你需要在OS将要显示它之前调用这个方法将显示它。
 
 如果以前已显示通知, 则此方法将忽略以前显示的通知，并创建具有相同属性的新通知
 
