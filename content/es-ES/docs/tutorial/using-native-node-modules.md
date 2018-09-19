@@ -57,7 +57,7 @@ El `HOME=~/.electron-gyp` cambia dónde encontrar los encabezados de desarrollo.
 
 ### Construcción manual para una compilación personalizada de Electron
 
-To compile native Node addons against a custom build of Electron that doesn't match a public release, instruct `npm` to use the version of Node you have bundled with your custom build.
+Para compilar complementos nativos de Node contra una compilación personalizada de Electron que no coincide con una publicación pública, solicite a `npm` que use la versión de Node que ha incluido con su compilación personalizada.
 
 ```sh
 npm rebuild --nodedir=$HOME/.../path/to/electron/vendor/node
