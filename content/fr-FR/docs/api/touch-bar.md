@@ -2,7 +2,7 @@
 
 > Créer une disposition TouchBar pour les applications natives macOS
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+Processus : [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBar(options)` *Experimental*
 
