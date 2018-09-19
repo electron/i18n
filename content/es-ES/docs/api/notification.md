@@ -37,8 +37,8 @@ Devuelve `Boolean` - Si las notificaciones de escritorio son soportadas o no en 
   * `hasReply` Boolean (opcional) *macOS* - Si se agrega o no una opción de respuesta insertada en la notificación.
   * `replyPlaceholder` String (opcional) *macOS* - El marcador de posición para escribir en el campo insertado de entrada de respuesta.
   * `sound` String (opcional) *macOS* - El nombre del archivo de sonido que se reproduce cuando se muestra la notificación.
-  * `actions` [NotificationAction[]](structures/notification-action.md) (optional) *macOS* - Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation.
-  * `closeButtonText` String (optional) *macOS* - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
+  * `actions` [NotificationAction[]](structures/notification-action.md) (opcional) *macOS* - Las acciones que se añaden a la notificación. Por favor lea las acciones disponibles y limitaciones en la documentación de `NotificationAction`.
+  * `closeButtonText` String (opcional) *macOS* - Un título personalizado para el botón de cerrar de una alerta. Una cadena vacía causará que se use el texto localizado predeterminado.
 
 ### Eventos de Instancia
 
