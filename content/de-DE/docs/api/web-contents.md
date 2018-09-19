@@ -712,7 +712,7 @@ the <code>window.location` object is changed or a user clicks a link in the page
         })
       ```
       
-      #### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
+      #### `contents.setIgnoreMenuShortcuts(ignore)` *Experimentell*
       
       * `ignore` Boolean
       
@@ -1218,7 +1218,7 @@ the <code>window.location` object is changed or a user clicks a link in the page
           
           Set the size of the page. This is only supported for `<webview>` guest contents.
           
-          * `options` Object 
+          * `optionen` Object 
             * `enableAutoSize` Boolean (optional) - true to make the webview container automatically resize within the bounds specified by the attributes normal, min and max.
             * `normal` [Size](structures/size.md) (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
             * `min` [Size](structures/size.md) (optional) - Minimum size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
