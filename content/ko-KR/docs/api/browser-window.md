@@ -1026,7 +1026,7 @@ The number of buttons in thumbnail toolbar should be no greater than 7 due to th
 The `buttons` is an array of `Button` objects:
 
 * `Button` Object 
-  * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
+  * `icon` [NativeImage](native-image.md) - 썸네일 도구 모음에 표시되는 아이콘입니다.
   * `click` Function
   * `tooltip` String (optional) - 버튼의 툴팁 텍스트
   * `flags` String[] (optional) - 버튼의 특정 상태 및 동작을 제어합니다. 디폴트면, `['enabled']`입니다.
