@@ -1026,7 +1026,7 @@ Rückgabewert:
   The `buttons` is an array of `Button` objects:
   
   * `Button` Object 
-    * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
+    * ` Icon ` [ NativeImage ](native-image.md)-das Symbol zeigt in Thumbnail Leiste.
     * ` Klicken Sie auf ` Funktion
     * ` Tooltip ` String (optional)-der Text der Tooltip der Schaltfläche.
     * ` Flags ` String [] (optional)-Steuern Sie bestimmte Zustände und Verhaltensweisen der Schalt. Standardmäßig ist es ` [' Enabled '] `.
@@ -1113,7 +1113,7 @@ Rückgabewert:
   #### `win.setIgnoreMouseEvents(ignore[, options])`
   
   * `ignore` Boolean
-  * `options` Objekt (optional) 
+  * `optionen` Objekt (optional) 
     * `forward` Boolean (optional) *macOS* *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Only used when `ignore` is true. If `ignore` is false, forwarding is always disabled regardless of this value.
   
   Makes the window ignore all mouse events.
@@ -1194,10 +1194,10 @@ Rückgabewert:
   
   **Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
   
-  #### `win.setBrowserView(browserView)` *Experimental*
+  #### `win.setBrowserView(browserView)` *Experimentell*
   
   * `browserView` [BrowserView](browser-view.md)
-  #### `win.getBrowserView()` *Experimental*
+  #### `win.getBrowserView()` *Experimentell*
   
   Returns `BrowserView | null` - an attached BrowserView. Returns `null` if none is attached.
   
