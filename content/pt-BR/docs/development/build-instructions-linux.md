@@ -27,7 +27,7 @@ $ sudo apt-get install build-essential clang libdbus-1-dev libgtk-3-dev \
                        libnotify-dev libgnome-keyring-dev libgconf2-dev \
                        libasound2-dev libcap-dev libcups2-dev libxtst-dev \
                        libxss1 libnss3-dev gcc-multilib g++-multilib curl \
-                       gperf bison
+                       gperf bison python-dbusmock
 ```
 
 No RHEL (Red Hat) / CentOS, é necessário instalar as seguintes bibliotecas:
@@ -36,7 +36,7 @@ No RHEL (Red Hat) / CentOS, é necessário instalar as seguintes bibliotecas:
 $ sudo yum install clang dbus-devel gtk3-devel libnotify-devel \
                    libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
                    cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
-                   GConf2-devel nss-devel
+                   GConf2-devel nss-devel python-dbusmock
 ```
 
 No Fedora, é necessário instalar as seguintes bibliotecas:
@@ -45,7 +45,7 @@ No Fedora, é necessário instalar as seguintes bibliotecas:
 $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
                    cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
-                   GConf2-devel nss-devel
+                   GConf2-devel nss-devel python-dbusmock
 ```
 
 Outras distribuições podem oferecer estas bibliotecas para serem instaladas através de gerenciadores de pacote, como o pacman. Ou você pode compilar o código fonte.
