@@ -248,33 +248,33 @@ Returns `Boolean` - Whether double click events will be ignored.
 #### `tray.displayBalloon(options)` *Windows*
 
 * `options` Object 
-  * `icon` ([NativeImage](native-image.md) | String) (optional) -
+  * `icon` ([NativeImage](native-image.md) | String) (任意) -
   * `title` String
   * `content` String
 
-Displays a tray balloon.
+tray のバルーンを表示します。
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
-* `menu` Menu (optional)
-* `position` [Point](structures/point.md) (optional) - The pop up position.
+* `menu` Menu (任意)
+* `position` [Point](structures/point.md) (任意) - ポップアップ位置。
 
-Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
+tray アイコンのコンテキストメニューをポップアップします。`menu` が渡されると、tray アイコンのコンテキストメニューの代わりに `menu` を表示します。
 
-The `position` is only available on Windows, and it is (0, 0) by default.
+`position` は Windows でのみ有効で、省略値は (0, 0) です。
 
 #### `tray.setContextMenu(menu)`
 
 * `menu` Menu | null
 
-Sets the context menu for this icon.
+このアイコンのコンテキストメニューを設定します。
 
 #### `tray.getBounds()` *macOS* *Windows*
 
 戻り値 [`Rectangle`](structures/rectangle.md)
 
-The `bounds` of this tray icon as `Object`.
+`Object` としてのこの tray アイコンの `bounds`。
 
 #### `tray.isDestroyed()`
 
-Returns `Boolean` - Whether the tray icon is destroyed.
+戻り値 `Boolean` - tray アイコンが破棄されたかどうか。
