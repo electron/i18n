@@ -6,6 +6,20 @@ Proceso: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer
 
 El objeto en `proceso` de Electron está comprendido entre [Node.js `proceso` objecto](https://nodejs.org/api/process.html). Este agrega los siguientes eventos, propiedades y métodos:
 
+## Sandbox
+
+In sandboxed renderers the `process` object contains only a subset of the APIs:
+
+* `crash()`
+* `hang()`
+* `getHeapStatistics()`
+* `getProcessMemoryInfo()`
+* `getSystemMemoryInfo()`
+* `argv`
+* `execPath`
+* `env`
+* `platform`
+
 ## Eventos
 
 ### Evento: "cargado"
@@ -90,9 +104,25 @@ Devuelve [`CPUUsage`](structures/cpu-usage.md)
 
 Devuelve [`IOCounters`](structures/io-counters.md)
 
+### `process.getHeapStatistics()`
+
+Devuelve `Objeto`:
+
+* `totalHeapSize` Integer
+* `totalHeapSizeExecutable` Integer
+* `totalPhysicalSize` Integer
+* `totalAvailableSize` Integer
+* `usedHeapSize` Integer
+* `heapSizeLimit` Integer
+* `mallocedMemory` Integer
+* `peakMallocedMemory` Integer
+* `doesZapGarbage` Boolean
+
+Returns an object with V8 heap statistics. Note that all statistics are reported in Kilobytes.
+
 ### `process.getProcessMemoryInfo()`
 
-Devuelve `Object`:
+Devuelve `Objeto`:
 
 * `workingSetSize` entero - La cantidad de memoria actualmente cubierta por la RAM física real.
 * `peakWorkingSetSize` Entero - La cantidad máxima de memoria que ha sido cubierta por la RAM física real.
@@ -103,7 +133,7 @@ Devuelve un objeto que contiene las estadísticas del uso de la memoria del proc
 
 ### `process.getSystemMemoryInfo()`
 
-Devuelve el `Objecto`:
+Devuelve `Objecto`:
 
 * `total` Entero - La cantidad total de memoria física en kilobytes de la que dispone el sistema.
 * `libre` entero - La cantidad de memoria que no está siendo usada por aplicaciones o caché de disco.
