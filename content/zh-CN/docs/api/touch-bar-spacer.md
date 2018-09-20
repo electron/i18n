@@ -2,7 +2,7 @@
 
 > 在mac os应用中，为touch bar中的相邻项之间留白
 
-进程：[主进程](../tutorial/quick-start.md#main-process)
+Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new BrowserView(可选)` *实验功能*
 
