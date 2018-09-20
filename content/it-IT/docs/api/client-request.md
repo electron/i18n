@@ -171,7 +171,7 @@ Continues any deferred redirection request when the redirection mode is `manual`
 
 #### `request.getUploadProgress()`
 
-Ritorna `Object`:
+Restituisci `Oggetto`:
 
 * `active` Boolean - Whether the request is currently active. If this is false no other properties will be set
 * `started` Boolean - Whether the upload has started. If this is false both `current` and `total` will be set to 0.
