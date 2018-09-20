@@ -6,9 +6,9 @@ Bütün [Node.js'in built-in modülleri](https://nodejs.org/api/) Electron'da ku
 
 Electron ayrıca yerli masaüstü uygulamaları üretiminin geliştirilmesi için ekstra yerleşik modüller de sağlamaktadır. Bazı modüller yalnızca ana süreçte bulunur; bazıları yalnızca işleyici sürecinde (internet sayfası) mevcuttur ve bazıları her iki işlemde de kullanılabilir.
 
-Temek kural şudur: eğer modül [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) yada düşük-seviyeli bir sistemle alakalı ise, o zaman sadece ana işlemde olmalıdır. main process vs. konsepti ile aşina olmalısınız. işleyici 1111 betiğini bu modülleri kullanabilmek içindir.</p> 
+Temek kural şudur: eğer modül [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) yada düşük-seviyeli bir sistemle alakalı ise, o zaman sadece ana işlemde olmalıdır. You need to be familiar with the concept of main process vs. işleyici 1111 betiğini bu modülleri kullanabilmek içindir.</p> 
 
-Ana işlem komut dosyası normal bir Node.js komut dosyası gibidir:
+The main process script is like a normal Node.js script:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -34,7 +34,7 @@ Oluşturma işlemi, düğüm modüllerini kullanmanın ekstra yeteneği haricind
 </html>
 ```
 
-Uygulamanızı çalıştırmak için,[Run your app](../tutorial/quick-start.md#run-your-app).
+Uygulamanızı çalıştırmak için,[Run your app](../tutorial/first-app.md#running-your-app).
 
 ## İmha Görevi
 
