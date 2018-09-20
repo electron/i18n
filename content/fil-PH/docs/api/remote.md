@@ -136,16 +136,16 @@ Nagbabalik ang [`BrowserWindow`](browser-window.md) - Ang window na kung saan na
 
 ### `remote.getCurrentWebContents()`
 
-Returns [`WebContents`](web-contents.md) - The web contents of this web page.
+Nagbabalik ang [`WebContents`](web-contents.md) - Ang mga laman ng web ng pahina ng web na ito.
 
 ### `remote.getGlobal(name)`
 
 * `name` String
 
-Returns `any` - The global variable of `name` (e.g. `global[name]`) in the main process.
+Nagbabalik ang `any` - Ang global na pagbabago-bago ng `name` (hal. `global[name]`) sa mga pangunahing proseso.
 
 ## Mga Katangian
 
 ### `ang remote.process`
 
-The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
+Ang bagay ng `process` sa mga pangunahing proseso. Ito ay katulad ng `remote.getGlobal('process')` ngunit ito ay naka-cache.
