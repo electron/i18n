@@ -2,7 +2,7 @@
 
 > Crea los diseños de la barra táctil para aplicaciones nativas de macOS
 
-Proceso: [Main](../tutorial/quick-start.md#main-process)
+Proceso: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new TouchBar(options)` *Experimental*
 
