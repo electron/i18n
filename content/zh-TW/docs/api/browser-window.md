@@ -1064,7 +1064,7 @@ Sets the properties for the window's taskbar button.
 
 #### `win.showDefinitionForSelection()` *macOS*
 
-Same as `webContents.showDefinitionForSelection()`.
+跟 `webContents.showDefinitionForSelection()` 一樣。
 
 #### `win.setIcon(icon)` *Windows* *Linux*
 
@@ -1111,7 +1111,7 @@ Returns `Boolean` - Whether the window is visible on all workspaces.
 #### `win.setIgnoreMouseEvents(ignore[, options])`
 
 * `ignore` Boolean
-* `options` 物件 (選用) 
+* `options` Object (選用) 
   * `forward` Boolean (optional) *macOS* *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Only used when `ignore` is true. If `ignore` is false, forwarding is always disabled regardless of this value.
 
 Makes the window ignore all mouse events.
@@ -1184,7 +1184,7 @@ Adds a window as a tab on this window, after the tab for the window instance.
 
 Adds a vibrancy effect to the browser window. Passing `null` or an empty string will remove the vibrancy effect on the window.
 
-#### `win.setTouchBar(touchBar)` *macOS* *Experimental*
+#### `win.setTouchBar(touchBar)` *macOS* *試驗中*
 
 * `touchBar` TouchBar
 
@@ -1192,11 +1192,11 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 **注意:** TouchBar API 目前還在實驗中，將來的 Electron 裡可能還會變動或是被直接移除。
 
-#### `win.setBrowserView(browserView)` *Experimental*
+#### `win.setBrowserView(browserView)` *試驗中*
 
 * `browserView` [BrowserView](browser-view.md)
 
-#### `win.getBrowserView()` *Experimental*
+#### `win.getBrowserView()` *試驗中*
 
 Returns `BrowserView | null` - an attached BrowserView. Returns `null` if none is attached.
 
