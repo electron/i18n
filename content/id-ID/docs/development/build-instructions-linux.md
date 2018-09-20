@@ -27,25 +27,25 @@ $ sudo apt-get install build-essential clang libdbus-1-dev libgtk-3-dev \
                        libnotify-dev libgnome-keyring-dev libgconf2-dev \
                        libasound2-dev libcap-dev libcups2-dev libxtst-dev \
                        libxss1 libnss3-dev gcc-multilib g++-multilib curl \
-                       gperf bison
+                       gperf bison python-dbusmock
 ```
 
 Pada RHEL / CentOS, instal pustaka berikut ini:
 
 ```sh
 $ sudo yum install clang dbus-devel gtk3-devel libnotify-devel \
-libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
-cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
-GConf2-devel nss-devel
+                   libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
+                   cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
+                   GConf2-devel nss-devel python-dbusmock
 ```
 
 Di Fedora, instal pustaka berikut ini:
 
 ```sh
-$ sudo yum install clang dbus-devel gtk3-devel libnotify-devel \
-libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
-cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
-GConf2-devel nss-devel
+$ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
+                   libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
+                   cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
+                   GConf2-devel nss-devel python-dbusmock
 ```
 
 Distribusi lainnya mungkin menawarkan paket yang serupa untuk instalasi melalui manajer paket seperti pacman. Atau seseorang bisa mengkompilasi dari source code.
