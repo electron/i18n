@@ -57,7 +57,7 @@ app.on('ready', () => {
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `newDisplay` [Display](structures/display.md)
 
 `newDisplay` eklendiğinde ortaya çıkar.
@@ -91,10 +91,6 @@ Bir veya daha fazla metrik `display` değiştiğinde yayılıyor. `changedMetric
 
 Fare işaretçisinin geçerli mutlak konumu.
 
-### `screen.getMenuBarHeight()` *macOS*
-
-`Tamsayı` Dödürür - Menü çubuğunun piksel olarak yüksekliği.
-
 ### `screen.getPrimaryDisplay()`
 
 [`Ekran`](structures/display.md) Dödürür - Birincil görüntü.
@@ -114,3 +110,37 @@ Fare işaretçisinin geçerli mutlak konumu.
 * `dikdörtgen` [Dikdörtgen](structures/rectangle.md)
 
 [`Görüntü`](structures/display.md) - En yakından izlenen ekran verilen sınırları kesişir.
+
+### `screen.screenToDipPoint(point)` *Windows*
+
+* `nokta` [Nokta](structures/point.md)
+
+[`Point`](structures/point.md) geri alır
+
+Converts a screen physical point to a screen DIP point. The DPI scale is performed relative to the display containing the physical point.
+
+### `screen.dipToScreenPoint(point)` *Windows*
+
+* `nokta` [Nokta](structures/point.md)
+
+[`Point`](structures/point.md) geri alır
+
+Converts a screen DIP point to a screen physical point. The DPI scale is performed relative to the display containing the DIP point.
+
+### `screen.screenToDipRect(window, rect)` *Windows*
+
+* `window` [BrowserWindow](browser-window.md) | null
+* `dikdörtgen` [Dikdörtgen](structures/rectangle.md)
+
+[`Rectangle`](structures/rectangle.md) döndürür
+
+Converts a screen physical rect to a screen DIP rect. The DPI scale is performed relative to the display nearest to `window`. If `window` is null, scaling will be performed to the display nearest to `rect`.
+
+### `screen.dipToScreenRect(window, rect)` *Windows*
+
+* `window` [BrowserWindow](browser-window.md) | null
+* `dikdörtgen` [Dikdörtgen](structures/rectangle.md)
+
+[`Rectangle`](structures/rectangle.md) döndürür
+
+Converts a screen DIP rect to a screen physical rect. The DPI scale is performed relative to the display nearest to `window`. If `window` is null, scaling will be performed to the display nearest to `rect`.
