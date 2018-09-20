@@ -4,7 +4,7 @@
 
 Processo: [Main](../glossary.md#main-process)
 
-**Puoi trovare una guida dettagliata su come impementare gli aggiornamenti nella tua applicazione [qui](../tutorial/updates.md).**
+**See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
 
 ## Avvisi Piattaforma
 
@@ -36,7 +36,7 @@ L'oggetto `autoAggiornatore` emette i seguenti eventi:
 
 Restituisce:
 
-* `errore` Errore
+* `error` Error
 
 Emesso quando avviene un errore in aggiornamento.
 
@@ -65,6 +65,12 @@ Restituisce:
 Emesso quando un aggiornamento è stato scaricato.
 
 Solo su Windows `rilascioNome` è disponibile.
+
+### Event: 'before-quit-for-update'
+
+This event is emitted after a user calls `quitAndInstall()`.
+
+When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
 
 ## Metodi
 
