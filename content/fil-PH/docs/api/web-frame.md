@@ -84,7 +84,7 @@ Resources will be loaded from this `scheme` regardless of the current page's Con
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
 * `scheme` na String
-* `pagpipilian` Bagay (opsyonal) 
+* `options` Na Bagay (opsyonal) 
   * `secure` Boolean (optional) - Default true.
   * `bypassCSP` Boolean (optional) - Default true.
   * `allowServiceWorkers` Boolean (optional) - Default true.
@@ -102,7 +102,7 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 
 ### `webFrame.insertText(text)`
 
-* `text` String
+* `text` String 
 
 Pagsingit `text` para sa nakapukos na elemento.
 
@@ -115,7 +115,7 @@ Pagsingit `text` para sa nakapukos na elemento.
 
 Ibinabalik ang mga `Pangako` - Ang isang pangako na lumulutas sa resulta ng naipatupad na code o tinanggihan kung ang resulta ng code ay isang tinanggihang pangako.
 
-Sinusuri `code` sa pahina.
+Sinusuri ang mga `code` sa pahina.
 
 Sa window ng browser ang ilang mga HTML API tulad ng `requestFullScreen` ay maaari lamang nananawagan ng kilos mula sa gumagamit. Ang pagtatakda ng `userGesture` sa `totoo` ay alisin ang limitasyon na ito.
 
@@ -152,7 +152,7 @@ Set the security origin of the isolated world.
 
 ### `webFrame.getResourceUsage()`
 
-Returns `Object`:
+Nagbabalik ng mga `bagay`:
 
 * `images` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `scripts` [MemoryUsageDetails](structures/memory-usage-details.md)
