@@ -127,7 +127,7 @@ Returns an object with V8 heap statistics. Note that all statistics are reported
 * `workingSetSize` Integer - The amount of memory currently pinned to actual physical RAM.
 * `peakWorkingSetSize` Integer - The maximum amount of memory that has ever been pinned to actual physical RAM.
 * `privateBytes` Integer - Размерът на паметта, която никога няма да бъде споделена от други процеси, като например JS купчина/heap или HTML съдържание.
-* `sharedBytes` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself.
+* `sharedBytes` Integer - Размерът на паметта, споделена между процесите, обикновено памет, консумирана от самия Електрон.
 
 Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes.
 
