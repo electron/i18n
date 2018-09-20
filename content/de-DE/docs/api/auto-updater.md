@@ -85,29 +85,29 @@ When this API is called, the `before-quit` event is not emitted before all windo
 
 ## Methoden
 
-The `autoUpdater` object has the following methods:
+Das Objekt ` autoUpdater </ 0> verfügt über die folgenden Methoden:</p>
 
-### `autoUpdater.setFeedURL(options)`
+<h3><code>autoUpdater.setFeedURL(options)`</h3> 
 
 * `optionen` Object 
   * ` URL </ 0>  Zeichenfolge</li>
 <li><code>headers` Object (optional) *macOS* - HTTP request headers.
   * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
-Sets the `url` and initialize the auto updater.
+Setzt die ` URL </ 0> und initialisiert den automatischen Updater.</p>
 
-### `autoUpdater.getFeedURL()`
+<h3><code>autoUpdater.getFeedURL ()`</h3> 
 
-Returns `String` - The current update feed URL.
+Gibt ` String </ 0> zurück - Die aktuelle URL des Aktualisierungsfeeds.</p>
 
-### `autoUpdater.checkForUpdates()`
+<h3><code>autoUpdater.checkForUpdates ()`</h3> 
 
-Asks the server whether there is an update. You must call `setFeedURL` before using this API.
+Fragt den Server, ob es ein Update gibt. Sie müssen ` setFeedURL </ 0> aufrufen, bevor Sie diese API verwenden .</p>
 
-### `autoUpdater.quitAndInstall()`
+<h3><code>autoUpdater.quitAndInstall ()`</h3> 
 
-Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
+Startet die App neu und installiert das Update nach dem Herunterladen. Es sollte nur aufgerufen werden, nachdem ` update-downloaded </ 0> ausgegeben wurde.</p>
 
-Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
+<p>Under the hood calling <code>autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
 
 **Note:** If the application is quit without calling this API after the `update-downloaded` event has been emitted, the application will still be replaced by the updated one on the next run.
