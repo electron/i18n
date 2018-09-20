@@ -2,7 +2,7 @@
 
 > Membuat sebuah popover pada palang sentuh (touch bar) untuk aplikasi asli macOs
 
-Proses: [utama](../tutorial/quick-start.md#main-process)
+Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### ` TouchBarPopover(pilihan) baru` *Eksperimental*
 
