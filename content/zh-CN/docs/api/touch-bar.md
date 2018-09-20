@@ -2,7 +2,7 @@
 
 > 为原生macOS应用创建TouchBar布局
 
-进程：[主进程](../tutorial/quick-start.md#main-process)
+Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new TouchBar(options)` *实验功能*
 
