@@ -6,11 +6,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Module",
     "slug": "app",
     "websiteUrl": "http://electron.atom.io/docs/api/app",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/app.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/app.md",
     "methods": [
       {
         "name": "quit",
@@ -66,6 +66,15 @@
           "type": "Boolean",
           "collection": false,
           "description": "true if Electron has finished initializing, false otherwise."
+        }
+      },
+      {
+        "name": "whenReady",
+        "signature": "()",
+        "returns": {
+          "type": "Promise",
+          "collection": false,
+          "description": "fulfilled when Electron is initialized. May be used as a convenient alternative to checking app.isReady() and subscribing to the ready event if the app is not ready yet."
         }
       },
       {
@@ -340,10 +349,6 @@
       {
         "name": "isDefaultProtocolClient",
         "signature": "(protocol[, path, args])",
-        "platforms": [
-          "macOS",
-          "Windows"
-        ],
         "description": "This method checks if the current executable is the default handler for a protocol (aka URI scheme). If so, it will return true. Otherwise, it will return false. Note: On macOS, you can use this method to check if the app has been registered as the default protocol handler for a protocol. You can also verify this by checking ~/Library/Preferences/com.apple.LaunchServices.plist on the macOS machine. Please refer to Apple's documentation for details. The API uses the Windows Registry and LSCopyDefaultHandlerForURLScheme internally.",
         "parameters": [
           {
@@ -440,43 +445,27 @@
         ]
       },
       {
-        "name": "makeSingleInstance",
-        "signature": "(callback)",
-        "description": "This method makes your application a Single Instance Application - instead of allowing multiple instances of your app to run, this will ensure that only a single instance of your app is running, and other instances signal this instance and exit. callback will be called by the first instance with callback(argv, workingDirectory) when a second instance has been executed. argv is an Array of the second instance's command line arguments, and workingDirectory is its current working directory. Usually applications respond to this by making their primary window focused and non-minimized. The callback is guaranteed to be executed after the ready event of app gets emitted. This method returns false if your process is the primary instance of the application and your app should continue loading. And returns true if your process has sent its parameters to another instance, and you should immediately quit. On macOS the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the open-file and open-url events will be emitted for that. However when users start your app in command line the system's single instance mechanism will be bypassed and you have to use this method to ensure single instance. An example of activating the window of primary instance when a second instance starts:",
-        "parameters": [
-          {
-            "name": "callback",
-            "type": "Function",
-            "collection": false,
-            "required": true,
-            "parameters": [
-              {
-                "name": "argv",
-                "type": "String",
-                "collection": true,
-                "description": "An array of the second instance's command line arguments",
-                "required": true
-              },
-              {
-                "name": "workingDirectory",
-                "type": "String",
-                "collection": false,
-                "description": "The second instance's working directory",
-                "required": true
-              }
-            ]
-          }
-        ],
+        "name": "requestSingleInstanceLock",
+        "signature": "()",
+        "description": "This method makes your application a Single Instance Application - instead of allowing multiple instances of your app to run, this will ensure that only a single instance of your app is running, and other instances signal this instance and exit. The return value of this method indicates whether or not this instance of your application successfully obtained the lock.  If it failed to obtain the lock you can assume that another instance of your application is already running with the lock and exit immediately. I.e. This method returns true if your process is the primary instance of your application and your app should continue loading.  It returns false if your process should immediately quit as it has sent its parameters to another instance that has already acquired the lock. On macOS the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the open-file and open-url events will be emitted for that. However when users start your app in command line the system's single instance mechanism will be bypassed and you have to use this method to ensure single instance. An example of activating the window of primary instance when a second instance starts:",
         "returns": {
           "type": "Boolean",
-          "collection": false,
-          "description": "."
+          "collection": false
         }
       },
       {
-        "name": "releaseSingleInstance",
+        "name": "hasSingleInstanceLock",
         "signature": "()",
-        "description": "Releases all locks that were created by makeSingleInstance. This will allow multiple instances of the application to once again run side by side."
+        "description": "This method returns whether or not this instance of your app is currently holding the single instance lock.  You can request the lock with app.requestSingleInstanceLock() and release with app.releaseSingleInstanceLock()",
+        "returns": {
+          "type": "Boolean",
+          "collection": false
+        }
+      },
+      {
+        "name": "releaseSingleInstanceLock",
+        "signature": "()",
+        "description": "Releases all locks that were created by requestSingleInstanceLock. This will allow multiple instances of the application to once again run side by side."
       },
       {
         "name": "setUserActivity",
@@ -989,7 +978,7 @@
     "events": [
       {
         "name": "will-finish-launching",
-        "description": "Emitted when the application has finished basic startup. On Windows and Linux, the will-finish-launching event is the same as the ready event; on macOS, this event represents the applicationWillFinishLaunching notification of NSApplication. You would usually set up listeners for the open-file and open-url events here, and start the crash reporter and auto updater. In most cases, you should just do everything in the ready event handler."
+        "description": "Emitted when the application has finished basic startup. On Windows and Linux, the will-finish-launching event is the same as the ready event; on macOS, this event represents the applicationWillFinishLaunching notification of NSApplication. You would usually set up listeners for the open-file and open-url events here, and start the crash reporter and auto updater. In most cases, you should do everything in the ready event handler."
       },
       {
         "name": "ready",
@@ -1604,9 +1593,41 @@
             "required": true
           }
         ]
+      },
+      {
+        "name": "second-instance",
+        "description": "This event will be emitted inside the primary instance of your application when a second instance has been executed. argv is an Array of the second instance's command line arguments, and workingDirectory is its current working directory. Usually applications respond to this by making their primary window focused and non-minimized. This event is guaranteed to be emitted after the ready event of app gets emitted.",
+        "returns": [
+          {
+            "name": "event",
+            "type": "Event",
+            "collection": false,
+            "required": true
+          },
+          {
+            "name": "argv",
+            "type": "String",
+            "collection": true,
+            "description": "An array of the second instance's command line arguments",
+            "required": true
+          },
+          {
+            "name": "workingDirectory",
+            "type": "String",
+            "collection": false,
+            "description": "The second instance's working directory",
+            "required": true
+          }
+        ]
       }
     ],
     "properties": [
+      {
+        "name": "isPackaged",
+        "description": "A Boolean property that returns  true if the app is packaged, false otherwise. For many apps, this property can be used to distinguish development and production environments.",
+        "type": "Boolean",
+        "collection": false
+      },
       {
         "name": "commandLine",
         "type": "Object",
@@ -1836,11 +1857,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Module",
     "slug": "auto-updater",
     "websiteUrl": "http://electron.atom.io/docs/api/auto-updater",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/auto-updater.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/auto-updater.md",
     "methods": [
       {
         "name": "setFeedURL",
@@ -1959,16 +1980,20 @@
             "required": true
           }
         ]
+      },
+      {
+        "name": "before-quit-for-update",
+        "description": "This event is emitted after a user calls quitAndInstall(). When this API is called, the before-quit event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to before-quit."
       }
     ]
   },
   {
     "name": "BluetoothDevice",
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Structure",
     "slug": "bluetooth-device",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/bluetooth-device",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/structures/bluetooth-device.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/structures/bluetooth-device.md",
     "properties": [
       {
         "name": "deviceName",
@@ -1993,11 +2018,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Class",
     "slug": "browser-view",
     "websiteUrl": "http://electron.atom.io/docs/api/browser-view",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/browser-view.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/browser-view.md",
     "staticMethods": [
       {
         "name": "getAllViews",
@@ -2175,11 +2200,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Class",
     "slug": "browser-window",
     "websiteUrl": "http://electron.atom.io/docs/api/browser-window",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/browser-window.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/browser-window.md",
     "staticMethods": [
       {
         "name": "getAllWindows",
@@ -2194,7 +2219,16 @@
         "name": "getFocusedWindow",
         "signature": "()",
         "returns": {
-          "type": "BrowserWindow",
+          "type": [
+            {
+              "typeName": "BrowserWindow",
+              "collection": false
+            },
+            {
+              "typeName": "null",
+              "collection": false
+            }
+          ],
           "collection": false,
           "description": "The window that is focused in this application, otherwise returns null."
         }
@@ -2856,7 +2890,7 @@
                   "required": false
                 },
                 {
-                  "name": "blinkFeatures",
+                  "name": "enableBlinkFeatures",
                   "type": "String",
                   "collection": false,
                   "description": "A list of feature strings separated by ,, like CSSVariables,KeyboardEventKey to enable. The full list of supported feature strings can be found in the file.",
@@ -2988,6 +3022,27 @@
                   "type": "String",
                   "collection": true,
                   "description": "A list of strings that will be appended to process.argv in the renderer process of this app. Useful for passing small bits of data down to renderer process preload scripts.",
+                  "required": false
+                },
+                {
+                  "name": "safeDialogs",
+                  "type": "Boolean",
+                  "collection": false,
+                  "description": "Whether to enable browser style consecutive dialog protection. Default is false.",
+                  "required": false
+                },
+                {
+                  "name": "safeDialogsMessage",
+                  "type": "String",
+                  "collection": false,
+                  "description": "The message to display when consecutive dialog protection is triggered. If not defined the default message would be used, note that currently the default message is in English and not localized.",
+                  "required": false
+                },
+                {
+                  "name": "navigateOnDragDrop",
+                  "type": "Boolean",
+                  "collection": false,
+                  "description": "Whether dragging and dropping a file or link onto the page causes a navigation. Default is false.",
                   "required": false
                 }
               ]
@@ -3163,7 +3218,7 @@
         "platforms": [
           "macOS"
         ],
-        "description": "This will make a window maintain an aspect ratio. The extra size allows a developer to have space, specified in pixels, not included within the aspect ratio calculations. This API already takes into account the difference between a window's size and its content size. Consider a normal window with an HD video player and associated controls. Perhaps there are 15 pixels of controls on the left edge, 25 pixels of controls on the right edge and 50 pixels of controls below the player. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and [ 40, 50 ]. The second argument doesn't care where the extra width and height are within the content view--only that they exist. Just sum any extra width and height areas you have within the overall content view.",
+        "description": "This will make a window maintain an aspect ratio. The extra size allows a developer to have space, specified in pixels, not included within the aspect ratio calculations. This API already takes into account the difference between a window's size and its content size. Consider a normal window with an HD video player and associated controls. Perhaps there are 15 pixels of controls on the left edge, 25 pixels of controls on the right edge and 50 pixels of controls below the player. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and [ 40, 50 ]. The second argument doesn't care where the extra width and height are within the content view--only that they exist. Sum any extra width and height areas you have within the overall content view. Calling this function with a value of 0 will remove any previously set aspect ratios.",
         "parameters": [
           {
             "name": "aspectRatio",
@@ -3635,6 +3690,15 @@
         }
       },
       {
+        "name": "moveTop",
+        "signature": "()",
+        "platforms": [
+          "macOS",
+          "Windows"
+        ],
+        "description": "Moves window to top(z-order) regardless of focus"
+      },
+      {
         "name": "center",
         "signature": "()",
         "description": "Moves window to the center of the screen."
@@ -3954,9 +4018,18 @@
             "properties": [
               {
                 "name": "httpReferrer",
-                "type": "String",
+                "type": [
+                  {
+                    "typeName": "String",
+                    "collection": false
+                  },
+                  {
+                    "typeName": "Referrer",
+                    "collection": false
+                  }
+                ],
                 "collection": false,
-                "description": "A HTTP Referrer url.",
+                "description": "An HTTP Referrer url.",
                 "required": false
               },
               {
@@ -3982,10 +4055,6 @@
                   },
                   {
                     "typeName": "UploadFile",
-                    "collection": true
-                  },
-                  {
-                    "typeName": "UploadFileSystem",
                     "collection": true
                   },
                   {
@@ -4189,6 +4258,25 @@
           "collection": false,
           "description": "between 0.0 (fully transparent) and 1.0 (fully opaque)"
         }
+      },
+      {
+        "name": "setShape",
+        "signature": "(rects)",
+        "platforms": [
+          "Windows",
+          "Linux",
+          "Experimental"
+        ],
+        "description": "Setting a window shape determines the area within the window where the system permits drawing and user interaction. Outside of the given region, no pixels will be drawn and no mouse events will be registered. Mouse events outside of the region will not be received by that window, but will fall through to whatever is behind the window.",
+        "parameters": [
+          {
+            "name": "rects",
+            "type": "Rectangle",
+            "collection": true,
+            "description": "Sets a shape on the window. Passing an empty list reverts the window to being rectangular.",
+            "required": true
+          }
+        ]
       },
       {
         "name": "setThumbarButtons",
@@ -4700,7 +4788,7 @@
       },
       {
         "name": "close",
-        "description": "Emitted when the window is going to be closed. It's emitted before the beforeunload and unload event of the DOM. Calling event.preventDefault() will cancel the close. Usually you would want to use the beforeunload handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than undefined would cancel the close. For example: Note: There is a subtle difference between the behaviors of window.onbeforeunload = handler and window.addEventListener('beforeunload', handler). It is recommended to always set the event.returnValue explicitly, instead of just returning a value, as the former works more consistently within Electron.",
+        "description": "Emitted when the window is going to be closed. It's emitted before the beforeunload and unload event of the DOM. Calling event.preventDefault() will cancel the close. Usually you would want to use the beforeunload handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than undefined would cancel the close. For example: Note: There is a subtle difference between the behaviors of window.onbeforeunload = handler and window.addEventListener('beforeunload', handler). It is recommended to always set the event.returnValue explicitly, instead of only returning a value, as the former works more consistently within Electron.",
         "returns": [
           {
             "name": "event",
@@ -4771,7 +4859,7 @@
       },
       {
         "name": "move",
-        "description": "Emitted when the window is being moved to a new position. Note: On macOS this event is just an alias of moved."
+        "description": "Emitted when the window is being moved to a new position. Note: On macOS this event is an alias of moved."
       },
       {
         "name": "moved",
@@ -4889,11 +4977,11 @@
       "main": false,
       "renderer": true
     },
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Class",
     "slug": "browser-window-proxy",
     "websiteUrl": "http://electron.atom.io/docs/api/browser-window-proxy",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/browser-window-proxy.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/browser-window-proxy.md",
     "instanceName": "win",
     "instanceMethods": [
       {
@@ -4960,11 +5048,11 @@
   },
   {
     "name": "Certificate",
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Structure",
     "slug": "certificate",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/certificate",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/structures/certificate.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/structures/certificate.md",
     "properties": [
       {
         "name": "data",
@@ -5040,11 +5128,11 @@
   },
   {
     "name": "CertificatePrincipal",
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Structure",
     "slug": "certificate-principal",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/certificate-principal",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/structures/certificate-principal.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/structures/certificate-principal.md",
     "properties": [
       {
         "name": "commonName",
@@ -5097,11 +5185,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Class",
     "slug": "client-request",
     "websiteUrl": "http://electron.atom.io/docs/api/client-request",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/client-request.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/client-request.md",
     "constructorMethod": {
       "signature": "(options)",
       "parameters": [
@@ -5382,6 +5470,45 @@
         "name": "followRedirect",
         "signature": "()",
         "description": "Continues any deferred redirection request when the redirection mode is manual."
+      },
+      {
+        "name": "getUploadProgress",
+        "signature": "()",
+        "description": "You can use this method in conjunction with POST requests to get the progress of a file upload or other data transfer.",
+        "returns": {
+          "type": "Object",
+          "collection": false,
+          "properties": [
+            {
+              "name": "active",
+              "type": "Boolean",
+              "collection": false,
+              "description": "Whether the request is currently active. If this is false no other properties will be set",
+              "required": true
+            },
+            {
+              "name": "started",
+              "type": "Boolean",
+              "collection": false,
+              "description": "Whether the upload has started. If this is false both current and total will be set to 0.",
+              "required": true
+            },
+            {
+              "name": "current",
+              "type": "Integer",
+              "collection": false,
+              "description": "The number of bytes that have been uploaded so far",
+              "required": true
+            },
+            {
+              "name": "total",
+              "type": "Integer",
+              "collection": false,
+              "description": "The number of bytes that will be uploaded this request",
+              "required": true
+            }
+          ]
+        }
       }
     ],
     "instanceProperties": [
@@ -5540,11 +5667,11 @@
       "main": true,
       "renderer": true
     },
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Module",
     "slug": "clipboard",
     "websiteUrl": "http://electron.atom.io/docs/api/clipboard",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/clipboard.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/clipboard.md",
     "methods": [
       {
         "name": "readText",
@@ -5965,11 +6092,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Module",
     "slug": "content-tracing",
     "websiteUrl": "http://electron.atom.io/docs/api/content-tracing",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/content-tracing.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/content-tracing.md",
     "methods": [
       {
         "name": "getCategories",
@@ -6165,11 +6292,11 @@
   },
   {
     "name": "Cookie",
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Structure",
     "slug": "cookie",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/cookie",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/structures/cookie.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/structures/cookie.md",
     "properties": [
       {
         "name": "name",
@@ -6243,11 +6370,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Class",
     "slug": "cookies",
     "websiteUrl": "http://electron.atom.io/docs/api/cookies",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/cookies.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/cookies.md",
     "instanceName": "cookies",
     "instanceMethods": [
       {
@@ -6516,11 +6643,11 @@
   },
   {
     "name": "CPUUsage",
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Structure",
     "slug": "cpu-usage",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/cpu-usage",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/structures/cpu-usage.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/structures/cpu-usage.md",
     "properties": [
       {
         "name": "percentCPUUsage",
@@ -6540,11 +6667,11 @@
   },
   {
     "name": "CrashReport",
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Structure",
     "slug": "crash-report",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/crash-report",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/structures/crash-report.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/structures/crash-report.md",
     "properties": [
       {
         "name": "date",
@@ -6569,11 +6696,11 @@
       "main": true,
       "renderer": true
     },
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Module",
     "slug": "crash-reporter",
     "websiteUrl": "http://electron.atom.io/docs/api/crash-reporter",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/crash-reporter.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/crash-reporter.md",
     "methods": [
       {
         "name": "start",
@@ -6745,11 +6872,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Class",
     "slug": "debugger",
     "websiteUrl": "http://electron.atom.io/docs/api/debugger",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/debugger.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/debugger.md",
     "instanceName": "debugger",
     "instanceMethods": [
       {
@@ -6881,11 +7008,11 @@
       "main": false,
       "renderer": true
     },
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Module",
     "slug": "desktop-capturer",
     "websiteUrl": "http://electron.atom.io/docs/api/desktop-capturer",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/desktop-capturer.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/desktop-capturer.md",
     "methods": [
       {
         "name": "getSources",
@@ -6942,11 +7069,11 @@
   },
   {
     "name": "DesktopCapturerSource",
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Structure",
     "slug": "desktop-capturer-source",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/desktop-capturer-source",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/structures/desktop-capturer-source.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/structures/desktop-capturer-source.md",
     "properties": [
       {
         "name": "id",
@@ -6968,6 +7095,13 @@
         "collection": false,
         "description": "A thumbnail image. There is no guarantee that the size of the thumbnail is the same as the thumbnailSize specified in the options passed to desktopCapturer.getSources. The actual size depends on the scale of the screen or window.",
         "required": true
+      },
+      {
+        "name": "display_id",
+        "type": "String",
+        "collection": false,
+        "description": "A unique identifier that will correspond to the id of the matching returned by the . On some platforms, this is equivalent to the XX portion of the id field above and on others it will differ. It will be an empty string if not available.",
+        "required": true
       }
     ]
   },
@@ -6978,11 +7112,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Module",
     "slug": "dialog",
     "websiteUrl": "http://electron.atom.io/docs/api/dialog",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/dialog.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/dialog.md",
     "methods": [
       {
         "name": "showOpenDialog",
@@ -7421,11 +7555,11 @@
   },
   {
     "name": "Display",
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Structure",
     "slug": "display",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/display",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/structures/display.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/structures/display.md",
     "properties": [
       {
         "name": "id",
@@ -7503,11 +7637,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Class",
     "slug": "download-item",
     "websiteUrl": "http://electron.atom.io/docs/api/download-item",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/download-item.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/download-item.md",
     "instanceName": "downloadItem",
     "instanceMethods": [
       {
@@ -7754,11 +7888,11 @@
   },
   {
     "name": "FileFilter",
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Structure",
     "slug": "file-filter",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/file-filter",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/structures/file-filter.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/structures/file-filter.md",
     "properties": [
       {
         "name": "name",
@@ -7783,11 +7917,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Module",
     "slug": "global-shortcut",
     "websiteUrl": "http://electron.atom.io/docs/api/global-shortcut",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/global-shortcut.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/global-shortcut.md",
     "methods": [
       {
         "name": "register",
@@ -7848,11 +7982,11 @@
   },
   {
     "name": "GPUFeatureStatus",
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Structure",
     "slug": "gpu-feature-status",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/gpu-feature-status",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/structures/gpu-feature-status.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/structures/gpu-feature-status.md",
     "properties": [
       {
         "name": "2d_canvas",
@@ -7954,21 +8088,22 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Module",
     "slug": "in-app-purchase",
     "websiteUrl": "http://electron.atom.io/docs/api/in-app-purchase",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/in-app-purchase.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/in-app-purchase.md",
     "methods": [
       {
         "name": "purchaseProduct",
         "signature": "(productID, quantity, callback)",
+        "description": "You should listen for the transactions-updated event as soon as possible and certainly before you call purchaseProduct.",
         "parameters": [
           {
             "name": "productID",
             "type": "String",
             "collection": false,
-            "description": "The id of the product to purchase. (the id of `com.example.app.product1` is `product1`).",
+            "description": "The identifiers of the product to purchase. (The identifier of `com.example.app.product1` is `product1`).",
             "required": true
           },
           {
@@ -7982,7 +8117,7 @@
             "name": "callback",
             "type": "Function",
             "collection": false,
-            "description": "The callback called when the payment is added to the PaymentQueue. (You should add a listener with `inAppPurchase.addTransactionsListener` to get the transaction status).",
+            "description": "The callback called when the payment is added to the PaymentQueue.",
             "required": false,
             "parameters": [
               {
@@ -7990,6 +8125,36 @@
                 "type": "Boolean",
                 "collection": false,
                 "description": "Determine if the product is valid and added to the payment queue.",
+                "required": true
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "getProducts",
+        "signature": "(productIDs, callback)",
+        "description": "Retrieves the product descriptions.",
+        "parameters": [
+          {
+            "name": "productIDs",
+            "type": "String",
+            "collection": true,
+            "description": "The identifiers of the products to get.",
+            "required": true
+          },
+          {
+            "name": "callback",
+            "type": "Function",
+            "collection": false,
+            "description": "The callback called with the products or an empty array if the products don't exist.",
+            "required": true,
+            "parameters": [
+              {
+                "name": "products",
+                "type": "Product",
+                "collection": true,
+                "description": "Array of objects",
                 "required": true
               }
             ]
@@ -8013,6 +8178,25 @@
           "collection": false,
           "description": ", the path to the receipt."
         }
+      },
+      {
+        "name": "finishAllTransactions",
+        "signature": "()",
+        "description": "Completes all pending transactions."
+      },
+      {
+        "name": "finishTransactionByDate",
+        "signature": "(date)",
+        "description": "Completes the pending transactions corresponding to the date.",
+        "parameters": [
+          {
+            "name": "date",
+            "type": "String",
+            "collection": false,
+            "description": "The ISO formatted date of the transaction to finish.",
+            "required": true
+          }
+        ]
       }
     ],
     "events": [
@@ -8030,7 +8214,7 @@
             "name": "transactions",
             "type": "Transaction",
             "collection": true,
-            "description": "Array of transactions.",
+            "description": "Array of objects.",
             "required": true
           }
         ]
@@ -8044,11 +8228,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Class",
     "slug": "incoming-message",
     "websiteUrl": "http://electron.atom.io/docs/api/incoming-message",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/incoming-message.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/incoming-message.md",
     "instanceName": "response",
     "instanceProperties": [
       {
@@ -8118,11 +8302,11 @@
   },
   {
     "name": "IOCounters",
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Structure",
     "slug": "io-counters",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/io-counters",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/structures/io-counters.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/structures/io-counters.md",
     "properties": [
       {
         "name": "readOperationCount",
@@ -8175,11 +8359,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Module",
     "slug": "ipc-main",
     "websiteUrl": "http://electron.atom.io/docs/api/ipc-main",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/ipc-main.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/ipc-main.md",
     "methods": [
       {
         "name": "on",
@@ -8260,11 +8444,11 @@
       "main": false,
       "renderer": true
     },
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Module",
     "slug": "ipc-renderer",
     "websiteUrl": "http://electron.atom.io/docs/api/ipc-renderer",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/ipc-renderer.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/ipc-renderer.md",
     "methods": [
       {
         "name": "on",
@@ -8427,11 +8611,11 @@
   },
   {
     "name": "JumpListCategory",
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Structure",
     "slug": "jump-list-category",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/jump-list-category",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/structures/jump-list-category.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/structures/jump-list-category.md",
     "properties": [
       {
         "name": "type",
@@ -8476,11 +8660,11 @@
   },
   {
     "name": "JumpListItem",
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Structure",
     "slug": "jump-list-item",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/jump-list-item",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/structures/jump-list-item.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/structures/jump-list-item.md",
     "properties": [
       {
         "name": "type",
@@ -8556,11 +8740,11 @@
   },
   {
     "name": "MemoryInfo",
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Structure",
     "slug": "memory-info",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/memory-info",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/structures/memory-info.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/structures/memory-info.md",
     "properties": [
       {
         "name": "pid",
@@ -8601,11 +8785,11 @@
   },
   {
     "name": "MemoryUsageDetails",
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Structure",
     "slug": "memory-usage-details",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/memory-usage-details",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/structures/memory-usage-details.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/structures/memory-usage-details.md",
     "properties": [
       {
         "name": "count",
@@ -8637,11 +8821,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Class",
     "slug": "menu",
     "websiteUrl": "http://electron.atom.io/docs/api/menu",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/menu.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/menu.md",
     "staticMethods": [
       {
         "name": "setApplicationMenu",
@@ -8690,7 +8874,7 @@
         "platforms": [
           "macOS"
         ],
-        "description": "Sends the action to the first responder of application. This is used for emulating default macOS menu behaviors. Usually you would just use the role property of a MenuItem. See the macOS Cocoa Event Handling Guide for more information on macOS' native actions.",
+        "description": "Sends the action to the first responder of application. This is used for emulating default macOS menu behaviors. Usually you would use the role property of a MenuItem. See the macOS Cocoa Event Handling Guide for more information on macOS' native actions.",
         "parameters": [
           {
             "name": "action",
@@ -8703,7 +8887,7 @@
       {
         "name": "buildFromTemplate",
         "signature": "(template)",
-        "description": "Generally, the template is just an array of options for constructing a MenuItem. The usage can be referenced above. You can also attach other fields to the element of the template and they will become properties of the constructed menu items.",
+        "description": "Generally, the template is an array of options for constructing a MenuItem. The usage can be referenced above. You can also attach other fields to the element of the template and they will become properties of the constructed menu items.",
         "parameters": [
           {
             "name": "template",
@@ -8880,11 +9064,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Class",
     "slug": "menu-item",
     "websiteUrl": "http://electron.atom.io/docs/api/menu-item",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/menu-item.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/menu-item.md",
     "constructorMethod": {
       "signature": "(options)",
       "parameters": [
@@ -9083,11 +9267,11 @@
   },
   {
     "name": "MimeTypedBuffer",
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Structure",
     "slug": "mime-typed-buffer",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/mime-typed-buffer",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/structures/mime-typed-buffer.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/structures/mime-typed-buffer.md",
     "properties": [
       {
         "name": "mimeType",
@@ -9112,11 +9296,11 @@
       "main": true,
       "renderer": true
     },
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Class",
     "slug": "native-image",
     "websiteUrl": "http://electron.atom.io/docs/api/native-image",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/native-image.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/native-image.md",
     "instanceName": "image",
     "instanceMethods": [
       {
@@ -9421,11 +9605,11 @@
       "main": true,
       "renderer": true
     },
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Module",
     "slug": "native-image",
     "websiteUrl": "http://electron.atom.io/docs/api/native-image",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/native-image.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/native-image.md",
     "methods": [
       {
         "name": "createEmpty",
@@ -9551,11 +9735,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Module",
     "slug": "net",
     "websiteUrl": "http://electron.atom.io/docs/api/net",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/net.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/net.md",
     "methods": [
       {
         "name": "request",
@@ -9587,17 +9771,82 @@
     ]
   },
   {
+    "name": "netLog",
+    "description": "Logging network events.",
+    "process": {
+      "main": true,
+      "renderer": false
+    },
+    "version": "3.0.0",
+    "type": "Module",
+    "slug": "net-log",
+    "websiteUrl": "http://electron.atom.io/docs/api/net-log",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/net-log.md",
+    "methods": [
+      {
+        "name": "startLogging",
+        "signature": "(path)",
+        "description": "Starts recording network events to path.",
+        "parameters": [
+          {
+            "name": "path",
+            "type": "String",
+            "collection": false,
+            "description": "File path to record network logs.",
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "stopLogging",
+        "signature": "([callback])",
+        "description": "Stops recording network events. If not called, net logging will automatically end when app quits.",
+        "parameters": [
+          {
+            "name": "callback",
+            "type": "Function",
+            "collection": false,
+            "required": false,
+            "parameters": [
+              {
+                "name": "path",
+                "type": "String",
+                "collection": false,
+                "description": "File path to which network logs were recorded.",
+                "required": true
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "properties": [
+      {
+        "name": "currentlyLogging",
+        "description": "A Boolean property that indicates whether network logs are recorded.",
+        "type": "Boolean",
+        "collection": false
+      },
+      {
+        "name": "currentlyLoggingPath",
+        "description": "A String property that returns the path to the current log file.",
+        "type": "String",
+        "collection": false
+      }
+    ]
+  },
+  {
     "name": "Notification",
     "description": "Create OS desktop notifications",
     "process": {
       "main": true,
       "renderer": false
     },
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Class",
     "slug": "notification",
     "websiteUrl": "http://electron.atom.io/docs/api/notification",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/notification.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/notification.md",
     "staticMethods": [
       {
         "name": "isSupported",
@@ -9706,7 +9955,7 @@
       {
         "name": "show",
         "signature": "()",
-        "description": "Immediately shows the notification to the user, please note this means unlike the HTML5 Notification implementation, simply instantiating a new Notification does not immediately show it to the user, you need to call this method before the OS will display it. If the notification has been shown before, this method will dismiss the previously shown notification and create a new one with identical properties."
+        "description": "Immediately shows the notification to the user, please note this means unlike the HTML5 Notification implementation, instantiating a new Notification does not immediately show it to the user, you need to call this method before the OS will display it. If the notification has been shown before, this method will dismiss the previously shown notification and create a new one with identical properties."
       },
       {
         "name": "close",
@@ -9798,11 +10047,11 @@
   },
   {
     "name": "NotificationAction",
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Structure",
     "slug": "notification-action",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/notification-action",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/structures/notification-action.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/structures/notification-action.md",
     "properties": [
       {
         "name": "type",
@@ -9827,11 +10076,11 @@
   },
   {
     "name": "Point",
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Structure",
     "slug": "point",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/point",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/structures/point.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/structures/point.md",
     "properties": [
       {
         "name": "x",
@@ -9856,11 +10105,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Module",
     "slug": "power-monitor",
     "websiteUrl": "http://electron.atom.io/docs/api/power-monitor",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/power-monitor.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/power-monitor.md",
     "events": [
       {
         "name": "suspend",
@@ -9891,6 +10140,22 @@
           "Linux",
           "macOS"
         ]
+      },
+      {
+        "name": "lock-screen",
+        "description": "Emitted when the system is about to lock the screen.",
+        "platforms": [
+          "macOS",
+          "Windows"
+        ]
+      },
+      {
+        "name": "unlock-screen",
+        "description": "Emitted as soon as the systems screen is unlocked.",
+        "platforms": [
+          "macOS",
+          "Windows"
+        ]
       }
     ]
   },
@@ -9901,11 +10166,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Module",
     "slug": "power-save-blocker",
     "websiteUrl": "http://electron.atom.io/docs/api/power-save-blocker",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/power-save-blocker.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/power-save-blocker.md",
     "methods": [
       {
         "name": "start",
@@ -9972,11 +10237,11 @@
   },
   {
     "name": "PrinterInfo",
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Structure",
     "slug": "printer-info",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/printer-info",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/structures/printer-info.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/structures/printer-info.md",
     "properties": [
       {
         "name": "name",
@@ -10015,11 +10280,11 @@
       "main": true,
       "renderer": true
     },
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Module",
     "slug": "process",
     "websiteUrl": "http://electron.atom.io/docs/api/process",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/process.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/process.md",
     "methods": [
       {
         "name": "crash",
@@ -10044,6 +10309,80 @@
         "returns": {
           "type": "IOCounters",
           "collection": false
+        }
+      },
+      {
+        "name": "getHeapStatistics",
+        "signature": "()",
+        "description": "Returns an object with V8 heap statistics. Note that all statistics are reported in Kilobytes.",
+        "returns": {
+          "type": "Object",
+          "collection": false,
+          "properties": [
+            {
+              "name": "totalHeapSize",
+              "type": "Integer",
+              "collection": false,
+              "description": "",
+              "required": true
+            },
+            {
+              "name": "totalHeapSizeExecutable",
+              "type": "Integer",
+              "collection": false,
+              "description": "",
+              "required": true
+            },
+            {
+              "name": "totalPhysicalSize",
+              "type": "Integer",
+              "collection": false,
+              "description": "",
+              "required": true
+            },
+            {
+              "name": "totalAvailableSize",
+              "type": "Integer",
+              "collection": false,
+              "description": "",
+              "required": true
+            },
+            {
+              "name": "usedHeapSize",
+              "type": "Integer",
+              "collection": false,
+              "description": "",
+              "required": true
+            },
+            {
+              "name": "heapSizeLimit",
+              "type": "Integer",
+              "collection": false,
+              "description": "",
+              "required": true
+            },
+            {
+              "name": "mallocedMemory",
+              "type": "Integer",
+              "collection": false,
+              "description": "",
+              "required": true
+            },
+            {
+              "name": "peakMallocedMemory",
+              "type": "Integer",
+              "collection": false,
+              "description": "",
+              "required": true
+            },
+            {
+              "name": "doesZapGarbage",
+              "type": "Boolean",
+              "collection": false,
+              "description": "",
+              "required": true
+            }
+          ]
         }
       },
       {
@@ -10239,11 +10578,11 @@
   },
   {
     "name": "ProcessMetric",
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Structure",
     "slug": "process-metric",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/process-metric",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/structures/process-metric.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/structures/process-metric.md",
     "properties": [
       {
         "name": "pid",
@@ -10276,17 +10615,83 @@
     ]
   },
   {
+    "name": "Product",
+    "version": "3.0.0",
+    "type": "Structure",
+    "slug": "product",
+    "websiteUrl": "http://electron.atom.io/docs/api/structures/product",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/structures/product.md",
+    "properties": [
+      {
+        "name": "productIdentifier",
+        "type": "String",
+        "collection": false,
+        "description": "The string that identifies the product to the Apple App Store.",
+        "required": true
+      },
+      {
+        "name": "localizedDescription",
+        "type": "String",
+        "collection": false,
+        "description": "A description of the product.",
+        "required": true
+      },
+      {
+        "name": "localizedTitle",
+        "type": "String",
+        "collection": false,
+        "description": "The name of the product.",
+        "required": true
+      },
+      {
+        "name": "contentVersion",
+        "type": "String",
+        "collection": false,
+        "description": "A string that identifies the version of the content.",
+        "required": true
+      },
+      {
+        "name": "contentLengths",
+        "type": "Number",
+        "collection": true,
+        "description": "The total size of the content, in bytes.",
+        "required": true
+      },
+      {
+        "name": "price",
+        "type": "Number",
+        "collection": false,
+        "description": "The cost of the product in the local currency.",
+        "required": true
+      },
+      {
+        "name": "formattedPrice",
+        "type": "String",
+        "collection": false,
+        "description": "The locale formatted price of the product.",
+        "required": true
+      },
+      {
+        "name": "downloadable",
+        "type": "Boolean",
+        "collection": false,
+        "description": "A Boolean value that indicates whether the App Store has downloadable content for this product.",
+        "required": true
+      }
+    ]
+  },
+  {
     "name": "protocol",
     "description": "Register a custom protocol and intercept existing protocol requests.",
     "process": {
       "main": true,
       "renderer": false
     },
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Module",
     "slug": "protocol",
     "websiteUrl": "http://electron.atom.io/docs/api/protocol",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/protocol.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/protocol.md",
     "methods": [
       {
         "name": "registerStandardSchemes",
@@ -11445,11 +11850,11 @@
   },
   {
     "name": "Rectangle",
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Structure",
     "slug": "rectangle",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/rectangle",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/structures/rectangle.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/structures/rectangle.md",
     "properties": [
       {
         "name": "x",
@@ -11482,17 +11887,67 @@
     ]
   },
   {
+    "name": "Referrer",
+    "version": "3.0.0",
+    "type": "Structure",
+    "slug": "referrer",
+    "websiteUrl": "http://electron.atom.io/docs/api/structures/referrer",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/structures/referrer.md",
+    "properties": [
+      {
+        "name": "url",
+        "type": "String",
+        "collection": false,
+        "description": "HTTP Referrer URL.",
+        "required": true
+      },
+      {
+        "name": "policy",
+        "type": "String",
+        "collection": false,
+        "description": "Can be default, unsafe-url, no-referrer-when-downgrade, no-referrer, origin, strict-origin-when-cross-origin, same-origin or strict-origin. See the for more details on the meaning of these values.",
+        "required": true,
+        "possibleValues": [
+          {
+            "value": "default"
+          },
+          {
+            "value": "unsafe-url"
+          },
+          {
+            "value": "no-referrer-when-downgrade"
+          },
+          {
+            "value": "no-referrer"
+          },
+          {
+            "value": "origin"
+          },
+          {
+            "value": "strict-origin-when-cross-origin"
+          },
+          {
+            "value": "same-origin"
+          },
+          {
+            "value": "strict-origin"
+          }
+        ]
+      }
+    ]
+  },
+  {
     "name": "remote",
     "description": "Use main process modules from the renderer process.",
     "process": {
       "main": false,
       "renderer": true
     },
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Module",
     "slug": "remote",
     "websiteUrl": "http://electron.atom.io/docs/api/remote",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/remote.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/remote.md",
     "methods": [
       {
         "name": "require",
@@ -11515,6 +11970,7 @@
       {
         "name": "getCurrentWindow",
         "signature": "()",
+        "description": "Note: Do not use removeAllListeners on BrowserWindow. Use of this can remove all blur listeners, disable click events on touch bar buttons, and other unintended consequences.",
         "returns": {
           "type": "BrowserWindow",
           "collection": false,
@@ -11557,11 +12013,11 @@
   },
   {
     "name": "RemoveClientCertificate",
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Structure",
     "slug": "remove-client-certificate",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/remove-client-certificate",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/structures/remove-client-certificate.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/structures/remove-client-certificate.md",
     "properties": [
       {
         "name": "type",
@@ -11581,11 +12037,11 @@
   },
   {
     "name": "RemovePassword",
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Structure",
     "slug": "remove-password",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/remove-password",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/structures/remove-password.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/structures/remove-password.md",
     "properties": [
       {
         "name": "type",
@@ -11652,11 +12108,11 @@
       "main": true,
       "renderer": true
     },
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Module",
     "slug": "screen",
     "websiteUrl": "http://electron.atom.io/docs/api/screen",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/screen.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/screen.md",
     "methods": [
       {
         "name": "getCursorScreenPoint",
@@ -11665,18 +12121,6 @@
         "returns": {
           "type": "Point",
           "collection": false
-        }
-      },
-      {
-        "name": "getMenuBarHeight",
-        "signature": "()",
-        "platforms": [
-          "macOS"
-        ],
-        "returns": {
-          "type": "Integer",
-          "collection": false,
-          "description": "The height of the menu bar in pixels."
         }
       },
       {
@@ -11729,6 +12173,116 @@
           "type": "Display",
           "collection": false,
           "description": "The display that most closely intersects the provided bounds."
+        }
+      },
+      {
+        "name": "screenToDipPoint",
+        "signature": "(point)",
+        "platforms": [
+          "Windows"
+        ],
+        "description": "Converts a screen physical point to a screen DIP point. The DPI scale is performed relative to the display containing the physical point.",
+        "parameters": [
+          {
+            "name": "point",
+            "type": "Point",
+            "collection": false,
+            "required": true
+          }
+        ],
+        "returns": {
+          "type": "Point",
+          "collection": false
+        }
+      },
+      {
+        "name": "dipToScreenPoint",
+        "signature": "(point)",
+        "platforms": [
+          "Windows"
+        ],
+        "description": "Converts a screen DIP point to a screen physical point. The DPI scale is performed relative to the display containing the DIP point.",
+        "parameters": [
+          {
+            "name": "point",
+            "type": "Point",
+            "collection": false,
+            "required": true
+          }
+        ],
+        "returns": {
+          "type": "Point",
+          "collection": false
+        }
+      },
+      {
+        "name": "screenToDipRect",
+        "signature": "(window, rect)",
+        "platforms": [
+          "Windows"
+        ],
+        "description": "Converts a screen physical rect to a screen DIP rect. The DPI scale is performed relative to the display nearest to window. If window is null, scaling will be performed to the display nearest to rect.",
+        "parameters": [
+          {
+            "name": "window",
+            "type": [
+              {
+                "typeName": "BrowserWindow",
+                "collection": false
+              },
+              {
+                "typeName": "null",
+                "collection": false
+              }
+            ],
+            "collection": false,
+            "required": true
+          },
+          {
+            "name": "rect",
+            "type": "Rectangle",
+            "collection": false,
+            "required": true
+          }
+        ],
+        "returns": {
+          "type": "Rectangle",
+          "collection": false
+        }
+      },
+      {
+        "name": "dipToScreenRect",
+        "signature": "(window, rect)",
+        "platforms": [
+          "Windows"
+        ],
+        "description": "Converts a screen DIP rect to a screen physical rect. The DPI scale is performed relative to the display nearest to window. If window is null, scaling will be performed to the display nearest to rect.",
+        "parameters": [
+          {
+            "name": "window",
+            "type": [
+              {
+                "typeName": "BrowserWindow",
+                "collection": false
+              },
+              {
+                "typeName": "null",
+                "collection": false
+              }
+            ],
+            "collection": false,
+            "required": true
+          },
+          {
+            "name": "rect",
+            "type": "Rectangle",
+            "collection": false,
+            "required": true
+          }
+        ],
+        "returns": {
+          "type": "Rectangle",
+          "collection": false
         }
       }
     ],
@@ -11797,11 +12351,11 @@
   },
   {
     "name": "ScrubberItem",
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Structure",
     "slug": "scrubber-item",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/scrubber-item",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/structures/scrubber-item.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/structures/scrubber-item.md",
     "properties": [
       {
         "name": "label",
@@ -11821,11 +12375,11 @@
   },
   {
     "name": "SegmentedControlSegment",
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Structure",
     "slug": "segmented-control-segment",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/segmented-control-segment",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/structures/segmented-control-segment.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/structures/segmented-control-segment.md",
     "properties": [
       {
         "name": "label",
@@ -11857,11 +12411,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Module",
     "slug": "session",
     "websiteUrl": "http://electron.atom.io/docs/api/session",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/session.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/session.md",
     "methods": [
       {
         "name": "fromPartition",
@@ -11913,11 +12467,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Class",
     "slug": "session",
     "websiteUrl": "http://electron.atom.io/docs/api/session",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/session.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/session.md",
     "instanceName": "ses",
     "instanceMethods": [
       {
@@ -11978,7 +12532,7 @@
                 "name": "storages",
                 "type": "String",
                 "collection": true,
-                "description": "The types of storages to clear, can contain: appcache, cookies, filesystem, indexdb, localstorage, shadercache, websql, serviceworkers.",
+                "description": "The types of storages to clear, can contain: appcache, cookies, filesystem, indexdb, localstorage, shadercache, websql, serviceworkers, cachestorage.",
                 "required": false
               },
               {
@@ -12537,11 +13091,11 @@
       "main": true,
       "renderer": true
     },
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Module",
     "slug": "shell",
     "websiteUrl": "http://electron.atom.io/docs/api/shell",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/shell.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/shell.md",
     "methods": [
       {
         "name": "showItemInFolder",
@@ -12588,7 +13142,7 @@
             "name": "url",
             "type": "String",
             "collection": false,
-            "description": "max 2081 characters on windows, or the function returns false.",
+            "description": "Max 2081 characters on windows, or the function returns false.",
             "required": true
           },
           {
@@ -12724,11 +13278,11 @@
   },
   {
     "name": "ShortcutDetails",
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Structure",
     "slug": "shortcut-details",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/shortcut-details",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/structures/shortcut-details.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/structures/shortcut-details.md",
     "properties": [
       {
         "name": "target",
@@ -12783,11 +13337,11 @@
   },
   {
     "name": "Size",
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Structure",
     "slug": "size",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/size",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/structures/size.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/structures/size.md",
     "properties": [
       {
         "name": "width",
@@ -12807,11 +13361,11 @@
   },
   {
     "name": "StreamProtocolResponse",
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Structure",
     "slug": "stream-protocol-response",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/stream-protocol-response",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/structures/stream-protocol-response.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/structures/stream-protocol-response.md",
     "properties": [
       {
         "name": "statusCode",
@@ -12844,11 +13398,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Module",
     "slug": "system-preferences",
     "websiteUrl": "http://electron.atom.io/docs/api/system-preferences",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/system-preferences.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/system-preferences.md",
     "methods": [
       {
         "name": "isDarkMode",
@@ -12919,12 +13473,112 @@
         ]
       },
       {
+        "name": "postWorkspaceNotification",
+        "signature": "(event, userInfo)",
+        "platforms": [
+          "macOS"
+        ],
+        "description": "Posts event as native notifications of macOS. The userInfo is an Object that contains the user information dictionary sent along with the notification.",
+        "parameters": [
+          {
+            "name": "event",
+            "type": "String",
+            "collection": false,
+            "required": true
+          },
+          {
+            "name": "userInfo",
+            "type": "Object",
+            "collection": false,
+            "required": true
+          }
+        ]
+      },
+      {
         "name": "subscribeNotification",
         "signature": "(event, callback)",
         "platforms": [
           "macOS"
         ],
         "description": "Subscribes to native notifications of macOS, callback will be called with callback(event, userInfo) when the corresponding event happens. The userInfo is an Object that contains the user information dictionary sent along with the notification. The id of the subscriber is returned, which can be used to unsubscribe the event. Under the hood this API subscribes to NSDistributedNotificationCenter, example values of event are:",
+        "parameters": [
+          {
+            "name": "event",
+            "type": "String",
+            "collection": false,
+            "required": true
+          },
+          {
+            "name": "callback",
+            "type": "Function",
+            "collection": false,
+            "required": true,
+            "parameters": [
+              {
+                "name": "event",
+                "type": "String",
+                "collection": false,
+                "description": "",
+                "required": true
+              },
+              {
+                "name": "userInfo",
+                "type": "Object",
+                "collection": false,
+                "description": "",
+                "required": true,
+                "properties": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "subscribeLocalNotification",
+        "signature": "(event, callback)",
+        "platforms": [
+          "macOS"
+        ],
+        "description": "Same as subscribeNotification, but uses NSNotificationCenter for local defaults. This is necessary for events such as NSUserDefaultsDidChangeNotification.",
+        "parameters": [
+          {
+            "name": "event",
+            "type": "String",
+            "collection": false,
+            "required": true
+          },
+          {
+            "name": "callback",
+            "type": "Function",
+            "collection": false,
+            "required": true,
+            "parameters": [
+              {
+                "name": "event",
+                "type": "String",
+                "collection": false,
+                "description": "",
+                "required": true
+              },
+              {
+                "name": "userInfo",
+                "type": "Object",
+                "collection": false,
+                "description": "",
+                "required": true,
+                "properties": []
+              }
+            ]
+          }
+        ]
+      },
+      {
+        "name": "subscribeWorkspaceNotification",
+        "signature": "(event, callback)",
+        "platforms": [
+          "macOS"
+        ],
+        "description": "Same as subscribeNotification, but uses NSWorkspace.sharedWorkspace.notificationCenter. This is necessary for events such as NSWorkspaceDidActivateApplicationNotification.",
         "parameters": [
           {
             "name": "event",
@@ -12974,51 +13628,28 @@
         ]
       },
       {
-        "name": "subscribeLocalNotification",
-        "signature": "(event, callback)",
-        "platforms": [
-          "macOS"
-        ],
-        "description": "Same as subscribeNotification, but uses NSNotificationCenter for local defaults. This is necessary for events such as NSUserDefaultsDidChangeNotification.",
-        "parameters": [
-          {
-            "name": "event",
-            "type": "String",
-            "collection": false,
-            "required": true
-          },
-          {
-            "name": "callback",
-            "type": "Function",
-            "collection": false,
-            "required": true,
-            "parameters": [
-              {
-                "name": "event",
-                "type": "String",
-                "collection": false,
-                "description": "",
-                "required": true
-              },
-              {
-                "name": "userInfo",
-                "type": "Object",
-                "collection": false,
-                "description": "",
-                "required": true,
-                "properties": []
-              }
-            ]
-          }
-        ]
-      },
-      {
         "name": "unsubscribeLocalNotification",
         "signature": "(id)",
         "platforms": [
           "macOS"
         ],
         "description": "Same as unsubscribeNotification, but removes the subscriber from NSNotificationCenter.",
+        "parameters": [
+          {
+            "name": "id",
+            "type": "Integer",
+            "collection": false,
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "unsubscribeWorkspaceNotification",
+        "signature": "(id)",
+        "platforms": [
+          "macOS"
+        ],
+        "description": "Same as unsubscribeNotification, but removes the subscriber from NSWorkspace.sharedWorkspace.notificationCenter.",
         "parameters": [
           {
             "name": "id",
@@ -13117,7 +13748,7 @@
             "name": "type",
             "type": "String",
             "collection": false,
-            "description": "See [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos].",
+            "description": "See .",
             "required": true
           },
           {
@@ -13386,11 +14017,11 @@
   },
   {
     "name": "Task",
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Structure",
     "slug": "task",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/task",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/structures/task.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/structures/task.md",
     "properties": [
       {
         "name": "program",
@@ -13438,11 +14069,11 @@
   },
   {
     "name": "ThumbarButton",
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Structure",
     "slug": "thumbar-button",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/thumbar-button",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/structures/thumbar-button.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/structures/thumbar-button.md",
     "properties": [
       {
         "name": "icon",
@@ -13482,11 +14113,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Class",
     "slug": "touch-bar",
     "websiteUrl": "http://electron.atom.io/docs/api/touch-bar",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/touch-bar.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/touch-bar.md",
     "staticProperties": [
       {
         "name": "TouchBarButton",
@@ -13495,11 +14126,11 @@
           "main": true,
           "renderer": false
         },
-        "version": "2.0.10",
+        "version": "3.0.0",
         "type": "Class",
         "slug": "touch-bar-button",
         "websiteUrl": "http://electron.atom.io/docs/api/touch-bar-button",
-        "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/touch-bar-button.md",
+        "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/touch-bar-button.md",
         "constructorMethod": {
           "signature": "(options)",
           "parameters": [
@@ -13589,11 +14220,11 @@
           "main": true,
           "renderer": false
         },
-        "version": "2.0.10",
+        "version": "3.0.0",
         "type": "Class",
         "slug": "touch-bar-color-picker",
         "websiteUrl": "http://electron.atom.io/docs/api/touch-bar-color-picker",
-        "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/touch-bar-color-picker.md",
+        "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/touch-bar-color-picker.md",
         "constructorMethod": {
           "signature": "(options)",
           "parameters": [
@@ -13660,11 +14291,11 @@
           "main": true,
           "renderer": false
         },
-        "version": "2.0.10",
+        "version": "3.0.0",
         "type": "Class",
         "slug": "touch-bar-group",
         "websiteUrl": "http://electron.atom.io/docs/api/touch-bar-group",
-        "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/touch-bar-group.md",
+        "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/touch-bar-group.md",
         "constructorMethod": {
           "signature": "(options)",
           "parameters": [
@@ -13694,11 +14325,11 @@
           "main": true,
           "renderer": false
         },
-        "version": "2.0.10",
+        "version": "3.0.0",
         "type": "Class",
         "slug": "touch-bar-label",
         "websiteUrl": "http://electron.atom.io/docs/api/touch-bar-label",
-        "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/touch-bar-label.md",
+        "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/touch-bar-label.md",
         "constructorMethod": {
           "signature": "(options)",
           "parameters": [
@@ -13749,11 +14380,11 @@
           "main": true,
           "renderer": false
         },
-        "version": "2.0.10",
+        "version": "3.0.0",
         "type": "Class",
         "slug": "touch-bar-popover",
         "websiteUrl": "http://electron.atom.io/docs/api/touch-bar-popover",
-        "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/touch-bar-popover.md",
+        "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/touch-bar-popover.md",
         "constructorMethod": {
           "signature": "(options)",
           "parameters": [
@@ -13818,11 +14449,11 @@
           "main": true,
           "renderer": false
         },
-        "version": "2.0.10",
+        "version": "3.0.0",
         "type": "Class",
         "slug": "touch-bar-scrubber",
         "websiteUrl": "http://electron.atom.io/docs/api/touch-bar-scrubber",
-        "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/touch-bar-scrubber.md",
+        "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/touch-bar-scrubber.md",
         "constructorMethod": {
           "signature": "(options)",
           "parameters": [
@@ -13957,11 +14588,11 @@
           "main": true,
           "renderer": false
         },
-        "version": "2.0.10",
+        "version": "3.0.0",
         "type": "Class",
         "slug": "touch-bar-segmented-control",
         "websiteUrl": "http://electron.atom.io/docs/api/touch-bar-segmented-control",
-        "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/touch-bar-segmented-control.md",
+        "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/touch-bar-segmented-control.md",
         "constructorMethod": {
           "signature": "(options)",
           "parameters": [
@@ -14103,11 +14734,11 @@
           "main": true,
           "renderer": false
         },
-        "version": "2.0.10",
+        "version": "3.0.0",
         "type": "Class",
         "slug": "touch-bar-slider",
         "websiteUrl": "http://electron.atom.io/docs/api/touch-bar-slider",
-        "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/touch-bar-slider.md",
+        "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/touch-bar-slider.md",
         "constructorMethod": {
           "signature": "(options)",
           "parameters": [
@@ -14200,11 +14831,11 @@
           "main": true,
           "renderer": false
         },
-        "version": "2.0.10",
+        "version": "3.0.0",
         "type": "Class",
         "slug": "touch-bar-spacer",
         "websiteUrl": "http://electron.atom.io/docs/api/touch-bar-spacer",
-        "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/touch-bar-spacer.md",
+        "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/touch-bar-spacer.md",
         "constructorMethod": {
           "signature": "(options)",
           "parameters": [
@@ -14359,52 +14990,69 @@
   },
   {
     "name": "Transaction",
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Structure",
     "slug": "transaction",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/transaction",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/structures/transaction.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/structures/transaction.md",
     "properties": [
       {
         "name": "transactionIdentifier",
         "type": "String",
         "collection": false,
-        "description": "",
+        "description": "A string that uniquely identifies a successful payment transaction.",
         "required": true
       },
       {
         "name": "transactionDate",
         "type": "String",
         "collection": false,
-        "description": "",
+        "description": "The date the transaction was added to the App Store’s payment queue.",
         "required": true
       },
       {
         "name": "originalTransactionIdentifier",
         "type": "String",
         "collection": false,
-        "description": "",
+        "description": "The identifier of the restored transaction by the App Store.",
         "required": true
       },
       {
         "name": "transactionState",
         "type": "String",
         "collection": false,
-        "description": "The transaction sate (\"purchasing\", \"purchased\", \"failed\", \"restored\", or \"deferred\")",
-        "required": true
+        "description": "The transaction state, can be purchasing, purchased, failed, restored or deferred.",
+        "required": true,
+        "possibleValues": [
+          {
+            "value": "purchasing"
+          },
+          {
+            "value": "purchased"
+          },
+          {
+            "value": "failed"
+          },
+          {
+            "value": "restored"
+          },
+          {
+            "value": "deferred"
+          }
+        ]
       },
       {
         "name": "errorCode",
         "type": "Integer",
         "collection": false,
-        "description": "",
+        "description": "The error code if an error occurred while processing the transaction.",
         "required": true
       },
       {
         "name": "errorMessage",
         "type": "String",
         "collection": false,
-        "description": "",
+        "description": "The error message if an error occurred while processing the transaction.",
         "required": true
       },
       {
@@ -14418,14 +15066,14 @@
             "name": "productIdentifier",
             "type": "String",
             "collection": false,
-            "description": "",
+            "description": "The identifier of the purchased product.",
             "required": true
           },
           {
             "name": "quantity",
             "type": "Integer",
             "collection": false,
-            "description": "",
+            "description": "The quantity purchased.",
             "required": true
           }
         ]
@@ -14439,11 +15087,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Class",
     "slug": "tray",
     "websiteUrl": "http://electron.atom.io/docs/api/tray",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/tray.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/tray.md",
     "constructorMethod": {
       "signature": "(image)",
       "parameters": [
@@ -14577,6 +15225,34 @@
             ]
           }
         ]
+      },
+      {
+        "name": "setIgnoreDoubleClickEvents",
+        "signature": "(ignore)",
+        "platforms": [
+          "macOS"
+        ],
+        "description": "Sets the option to ignore double click events. Ignoring these events allows you to detect every individual click of the tray icon. This value is set to false by default.",
+        "parameters": [
+          {
+            "name": "ignore",
+            "type": "Boolean",
+            "collection": false,
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "getIgnoreDoubleClickEvents",
+        "signature": "()",
+        "platforms": [
+          "macOS"
+        ],
+        "returns": {
+          "type": "Boolean",
+          "collection": false,
+          "description": "Whether double click events will be ignored."
+        }
       },
       {
         "name": "displayBalloon",
@@ -14931,11 +15607,11 @@
   },
   {
     "name": "UploadBlob",
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Structure",
     "slug": "upload-blob",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/upload-blob",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/structures/upload-blob.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/structures/upload-blob.md",
     "properties": [
       {
         "name": "type",
@@ -14955,11 +15631,11 @@
   },
   {
     "name": "UploadData",
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Structure",
     "slug": "upload-data",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/upload-data",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/structures/upload-data.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/structures/upload-data.md",
     "properties": [
       {
         "name": "bytes",
@@ -14986,11 +15662,11 @@
   },
   {
     "name": "UploadFile",
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Structure",
     "slug": "upload-file",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/upload-file",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/structures/upload-file.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/structures/upload-file.md",
     "properties": [
       {
         "name": "type",
@@ -15030,57 +15706,12 @@
     ]
   },
   {
-    "name": "UploadFileSystem",
-    "version": "2.0.10",
-    "type": "Structure",
-    "slug": "upload-file-system",
-    "websiteUrl": "http://electron.atom.io/docs/api/structures/upload-file-system",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/structures/upload-file-system.md",
-    "properties": [
-      {
-        "name": "type",
-        "type": "String",
-        "collection": false,
-        "description": "fileSystem.",
-        "required": true
-      },
-      {
-        "name": "filsSystemURL",
-        "type": "String",
-        "collection": false,
-        "description": "FileSystem url to read data for upload.",
-        "required": true
-      },
-      {
-        "name": "offset",
-        "type": "Integer",
-        "collection": false,
-        "description": "Defaults to 0.",
-        "required": true
-      },
-      {
-        "name": "length",
-        "type": "Integer",
-        "collection": false,
-        "description": "Number of bytes to read from offset. Defaults to 0.",
-        "required": true
-      },
-      {
-        "name": "modificationTime",
-        "type": "Double",
-        "collection": false,
-        "description": "Last Modification time in number of seconds since the UNIX epoch.",
-        "required": true
-      }
-    ]
-  },
-  {
     "name": "UploadRawData",
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Structure",
     "slug": "upload-raw-data",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/upload-raw-data",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/structures/upload-raw-data.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/structures/upload-raw-data.md",
     "properties": [
       {
         "name": "type",
@@ -15105,11 +15736,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Module",
     "slug": "web-contents",
     "websiteUrl": "http://electron.atom.io/docs/api/web-contents",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/web-contents.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/web-contents.md",
     "methods": [
       {
         "name": "getAllWebContents",
@@ -15155,11 +15786,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Class",
     "slug": "web-contents",
     "websiteUrl": "http://electron.atom.io/docs/api/web-contents",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/web-contents.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/web-contents.md",
     "instanceName": "contents",
     "instanceMethods": [
       {
@@ -15181,9 +15812,18 @@
             "properties": [
               {
                 "name": "httpReferrer",
-                "type": "String",
+                "type": [
+                  {
+                    "typeName": "String",
+                    "collection": false
+                  },
+                  {
+                    "typeName": "Referrer",
+                    "collection": false
+                  }
+                ],
                 "collection": false,
-                "description": "A HTTP Referrer url.",
+                "description": "An HTTP Referrer url.",
                 "required": false
               },
               {
@@ -15209,10 +15849,6 @@
                   },
                   {
                     "typeName": "UploadFile",
-                    "collection": true
-                  },
-                  {
-                    "typeName": "UploadFileSystem",
                     "collection": true
                   },
                   {
@@ -16334,7 +16970,7 @@
       {
         "name": "beginFrameSubscription",
         "signature": "([onlyDirty ,]callback)",
-        "description": "Begin subscribing for presentation events and captured frames, the callback will be called with callback(frameBuffer, dirtyRect) when there is a presentation event. The frameBuffer is a Buffer that contains raw pixel data. On most machines, the pixel data is effectively stored in 32bit BGRA format, but the actual representation depends on the endianness of the processor (most modern processors are little-endian, on machines with big-endian processors the data is in 32bit ARGB format). The dirtyRect is an object with x, y, width, height properties that describes which part of the page was repainted. If onlyDirty is set to true, frameBuffer will only contain the repainted area. onlyDirty defaults to false.",
+        "description": "Begin subscribing for presentation events and captured frames, the callback will be called with callback(image, dirtyRect) when there is a presentation event. The image is an instance of NativeImage that stores the captured frame. The dirtyRect is an object with x, y, width, height properties that describes which part of the page was repainted. If onlyDirty is set to true, image will only contain the repainted area. onlyDirty defaults to false.",
         "parameters": [
           {
             "name": "onlyDirty",
@@ -16350,8 +16986,8 @@
             "required": true,
             "parameters": [
               {
-                "name": "frameBuffer",
-                "type": "Buffer",
+                "name": "image",
+                "type": "NativeImage",
                 "collection": false,
                 "description": "",
                 "required": true
@@ -16465,49 +17101,6 @@
         "description": "Shows pop-up dictionary that searches the selected word on the page."
       },
       {
-        "name": "setSize",
-        "signature": "(options)",
-        "description": "Set the size of the page. This is only supported for <webview> guest contents.",
-        "parameters": [
-          {
-            "name": "options",
-            "type": "Object",
-            "collection": false,
-            "required": true,
-            "properties": [
-              {
-                "name": "enableAutoSize",
-                "type": "Boolean",
-                "collection": false,
-                "description": "true to make the webview container automatically resize within the bounds specified by the attributes normal, min and max.",
-                "required": false
-              },
-              {
-                "name": "normal",
-                "type": "Size",
-                "collection": false,
-                "description": "Normal size of the page. This can be used in combination with the attribute to manually resize the webview guest contents.",
-                "required": false
-              },
-              {
-                "name": "min",
-                "type": "Size",
-                "collection": false,
-                "description": "Minimum size of the page. This can be used in combination with the attribute to manually resize the webview guest contents.",
-                "required": false
-              },
-              {
-                "name": "max",
-                "type": "Size",
-                "collection": false,
-                "description": "Maximium size of the page. This can be used in combination with the attribute to manually resize the webview guest contents.",
-                "required": false
-              }
-            ]
-          }
-        ]
-      },
-      {
         "name": "isOffscreen",
         "signature": "()",
         "returns": {
@@ -16609,7 +17202,16 @@
         "returns": {
           "type": "Integer",
           "collection": false,
-          "description": "The pid of the associated renderer process."
+          "description": "The operating system pid of the associated renderer process."
+        }
+      },
+      {
+        "name": "getProcessId",
+        "signature": "()",
+        "returns": {
+          "type": "Integer",
+          "collection": false,
+          "description": "The chromium internal pid of the associated renderer. Can be compared to the frameProcessId passed by frame specific navigation events (e.g. did-frame-navigate)"
         }
       }
     ],
@@ -16683,6 +17285,18 @@
             "type": "Boolean",
             "collection": false,
             "required": true
+          },
+          {
+            "name": "frameProcessId",
+            "type": "Integer",
+            "collection": false,
+            "required": true
+          },
+          {
+            "name": "frameRoutingId",
+            "type": "Integer",
+            "collection": false,
+            "required": true
           }
         ]
       },
@@ -16701,6 +17315,18 @@
             "type": "Boolean",
             "collection": false,
             "required": true
+          },
+          {
+            "name": "frameProcessId",
+            "type": "Integer",
+            "collection": false,
+            "required": true
+          },
+          {
+            "name": "frameRoutingId",
+            "type": "Integer",
+            "collection": false,
+            "required": true
           }
         ]
       },
@@ -16711,120 +17337,6 @@
       {
         "name": "did-stop-loading",
         "description": "Corresponds to the points in time when the spinner of the tab stopped spinning."
-      },
-      {
-        "name": "did-get-response-details",
-        "description": "Emitted when details regarding a requested resource are available. status indicates the socket connection to download the resource.",
-        "returns": [
-          {
-            "name": "event",
-            "type": "Event",
-            "collection": false,
-            "required": true
-          },
-          {
-            "name": "status",
-            "type": "Boolean",
-            "collection": false,
-            "required": true
-          },
-          {
-            "name": "newURL",
-            "type": "String",
-            "collection": false,
-            "required": true
-          },
-          {
-            "name": "originalURL",
-            "type": "String",
-            "collection": false,
-            "required": true
-          },
-          {
-            "name": "httpResponseCode",
-            "type": "Integer",
-            "collection": false,
-            "required": true
-          },
-          {
-            "name": "requestMethod",
-            "type": "String",
-            "collection": false,
-            "required": true
-          },
-          {
-            "name": "referrer",
-            "type": "String",
-            "collection": false,
-            "required": true
-          },
-          {
-            "name": "headers",
-            "type": "Object",
-            "collection": false,
-            "required": true
-          },
-          {
-            "name": "resourceType",
-            "type": "String",
-            "collection": false,
-            "required": true
-          }
-        ]
-      },
-      {
-        "name": "did-get-redirect-request",
-        "description": "Emitted when a redirect is received while requesting a resource.",
-        "returns": [
-          {
-            "name": "event",
-            "type": "Event",
-            "collection": false,
-            "required": true
-          },
-          {
-            "name": "oldURL",
-            "type": "String",
-            "collection": false,
-            "required": true
-          },
-          {
-            "name": "newURL",
-            "type": "String",
-            "collection": false,
-            "required": true
-          },
-          {
-            "name": "isMainFrame",
-            "type": "Boolean",
-            "collection": false,
-            "required": true
-          },
-          {
-            "name": "httpResponseCode",
-            "type": "Integer",
-            "collection": false,
-            "required": true
-          },
-          {
-            "name": "requestMethod",
-            "type": "String",
-            "collection": false,
-            "required": true
-          },
-          {
-            "name": "referrer",
-            "type": "String",
-            "collection": false,
-            "required": true
-          },
-          {
-            "name": "headers",
-            "type": "Object",
-            "collection": false,
-            "required": true
-          }
-        ]
       },
       {
         "name": "dom-ready",
@@ -16919,6 +17431,13 @@
             "collection": true,
             "description": "The non-standard features (features not handled by Chromium or Electron) given to `window.open()`.",
             "required": true
+          },
+          {
+            "name": "referrer",
+            "type": "Referrer",
+            "collection": false,
+            "description": "The referrer that will be passed to the new window. May or may not result in the `Referer` header being sent, depending on the referrer policy.",
+            "required": true
           }
         ]
       },
@@ -16941,8 +17460,44 @@
         ]
       },
       {
+        "name": "did-start-navigation",
+        "description": "Emitted when any frame (including main) starts navigating. isInplace will be true for in-page navigations.",
+        "returns": [
+          {
+            "name": "url",
+            "type": "String",
+            "collection": false,
+            "required": true
+          },
+          {
+            "name": "isInPlace",
+            "type": "Boolean",
+            "collection": false,
+            "required": true
+          },
+          {
+            "name": "isMainFrame",
+            "type": "Boolean",
+            "collection": false,
+            "required": true
+          },
+          {
+            "name": "frameProcessId",
+            "type": "Integer",
+            "collection": false,
+            "required": true
+          },
+          {
+            "name": "frameRoutingId",
+            "type": "Integer",
+            "collection": false,
+            "required": true
+          }
+        ]
+      },
+      {
         "name": "did-navigate",
-        "description": "Emitted when a navigation is done. This event is not emitted for in-page navigations, such as clicking anchor links or updating the window.location.hash. Use did-navigate-in-page event for this purpose.",
+        "description": "Emitted when a main frame navigation is done. This event is not emitted for in-page navigations, such as clicking anchor links or updating the window.location.hash. Use did-navigate-in-page event for this purpose.",
         "returns": [
           {
             "name": "event",
@@ -16955,12 +17510,76 @@
             "type": "String",
             "collection": false,
             "required": true
+          },
+          {
+            "name": "httpResponseCode",
+            "type": "Integer",
+            "collection": false,
+            "description": "-1 for non HTTP navigations",
+            "required": true
+          },
+          {
+            "name": "httpStatusText",
+            "type": "String",
+            "collection": false,
+            "description": "empty for non HTTP navigations",
+            "required": true
+          }
+        ]
+      },
+      {
+        "name": "did-frame-navigate",
+        "description": "Emitted when any frame navigation is done. This event is not emitted for in-page navigations, such as clicking anchor links or updating the window.location.hash. Use did-navigate-in-page event for this purpose.",
+        "returns": [
+          {
+            "name": "event",
+            "type": "Event",
+            "collection": false,
+            "required": true
+          },
+          {
+            "name": "url",
+            "type": "String",
+            "collection": false,
+            "required": true
+          },
+          {
+            "name": "httpResponseCode",
+            "type": "Integer",
+            "collection": false,
+            "description": "-1 for non HTTP navigations",
+            "required": true
+          },
+          {
+            "name": "httpStatusText",
+            "type": "String",
+            "collection": false,
+            "description": "empty for non HTTP navigations,",
+            "required": true
+          },
+          {
+            "name": "isMainFrame",
+            "type": "Boolean",
+            "collection": false,
+            "required": true
+          },
+          {
+            "name": "frameProcessId",
+            "type": "Integer",
+            "collection": false,
+            "required": true
+          },
+          {
+            "name": "frameRoutingId",
+            "type": "Integer",
+            "collection": false,
+            "required": true
           }
         ]
       },
       {
         "name": "did-navigate-in-page",
-        "description": "Emitted when an in-page navigation happened. When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM hashchange event is triggered.",
+        "description": "Emitted when an in-page navigation happened in any frame. When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM hashchange event is triggered.",
         "returns": [
           {
             "name": "event",
@@ -16977,6 +17596,18 @@
           {
             "name": "isMainFrame",
             "type": "Boolean",
+            "collection": false,
+            "required": true
+          },
+          {
+            "name": "frameProcessId",
+            "type": "Integer",
+            "collection": false,
+            "required": true
+          },
+          {
+            "name": "frameRoutingId",
+            "type": "Integer",
             "collection": false,
             "required": true
           }
@@ -17011,6 +17642,14 @@
             "required": true
           }
         ]
+      },
+      {
+        "name": "unresponsive",
+        "description": "Emitted when the web page becomes unresponsive."
+      },
+      {
+        "name": "responsive",
+        "description": "Emitted when the unresponsive web page becomes responsive again."
       },
       {
         "name": "plugin-crashed",
@@ -17882,6 +18521,12 @@
         "description": "Emitted when the associated window logs a console message. Will not be emitted for windows with offscreen rendering enabled.",
         "returns": [
           {
+            "name": "event",
+            "type": "Event",
+            "collection": false,
+            "required": true
+          },
+          {
             "name": "level",
             "type": "Integer",
             "collection": false,
@@ -17916,11 +18561,11 @@
       "main": false,
       "renderer": true
     },
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Module",
     "slug": "web-frame",
     "websiteUrl": "http://electron.atom.io/docs/api/web-frame",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/web-frame.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/web-frame.md",
     "methods": [
       {
         "name": "setZoomFactor",
@@ -18046,19 +18691,6 @@
                 ]
               }
             ]
-          }
-        ]
-      },
-      {
-        "name": "registerURLSchemeAsSecure",
-        "signature": "(scheme)",
-        "description": "Registers the scheme as secure scheme. Secure schemes do not trigger mixed content warnings. For example, https and data are secure schemes because they cannot be corrupted by active network attackers.",
-        "parameters": [
-          {
-            "name": "scheme",
-            "type": "String",
-            "collection": false,
-            "required": true
           }
         ]
       },
@@ -18341,6 +18973,97 @@
         "name": "clearCache",
         "signature": "()",
         "description": "Attempts to free memory that is no longer being used (like images from a previous navigation). Note that blindly calling this method probably makes Electron slower since it will have to refill these emptied caches, you should only call it if an event in your app has occurred that makes you think your page is actually using less memory (i.e. you have navigated from a super heavy page to a mostly empty one, and intend to stay there)."
+      },
+      {
+        "name": "getFrameForSelector",
+        "signature": "(selector)",
+        "parameters": [
+          {
+            "name": "selector",
+            "type": "String",
+            "collection": false,
+            "description": "CSS selector for a frame element.",
+            "required": true
+          }
+        ],
+        "returns": {
+          "type": "WebFrame",
+          "collection": false,
+          "description": "The frame element in webFrame's document selected by selector, null would be returned if selector does not select a frame or if the frame is not in the current renderer process."
+        }
+      },
+      {
+        "name": "findFrameByName",
+        "signature": "(name)",
+        "parameters": [
+          {
+            "name": "name",
+            "type": "String",
+            "collection": false,
+            "required": true
+          }
+        ],
+        "returns": {
+          "type": "WebFrame",
+          "collection": false,
+          "description": "A child of webFrame with the supplied name, null would be returned if there's no such frame or if the frame is not in the current renderer process."
+        }
+      },
+      {
+        "name": "findFrameByRoutingId",
+        "signature": "(routingId)",
+        "parameters": [
+          {
+            "name": "routingId",
+            "type": "Integer",
+            "collection": false,
+            "description": "An `Integer` representing the unique frame id in the current renderer process. Routing IDs can be retrieved from `WebFrame` instances (`webFrame.routingId`) and are also passed by frame specific `WebContents` navigation events (e.g. `did-frame-navigate`)",
+            "required": true
+          }
+        ],
+        "returns": {
+          "type": "WebFrame",
+          "collection": false,
+          "description": "that has the supplied routingId, null if not found."
+        }
+      }
+    ],
+    "properties": [
+      {
+        "name": "top",
+        "description": "A WebFrame representing top frame in frame hierarchy to which webFrame belongs, the property would be null if top frame is not in the current renderer process.",
+        "type": "WebFrame",
+        "collection": false
+      },
+      {
+        "name": "opener",
+        "description": "A WebFrame representing the frame which opened webFrame, the property would be null if there's no opener or opener is not in the current renderer process.",
+        "type": "WebFrame",
+        "collection": false
+      },
+      {
+        "name": "parent",
+        "description": "A WebFrame representing parent frame of webFrame, the property would be null if webFrame is top or parent is not in the current renderer process.",
+        "type": "WebFrame",
+        "collection": false
+      },
+      {
+        "name": "firstChild",
+        "description": "A WebFrame representing the first child frame of webFrame, the property would be null if webFrame has no children or if first child is not in the current renderer process.",
+        "type": "WebFrame",
+        "collection": false
+      },
+      {
+        "name": "nextSibling",
+        "description": "A WebFrame representing next sibling frame, the property would be null if webFrame is the last frame in its parent or if the next sibling is not in the current renderer process.",
+        "type": "WebFrame",
+        "collection": false
+      },
+      {
+        "name": "routingId",
+        "description": "An Integer representing the unique frame id in the current renderer process. Distinct WebFrame instances that refer to the same underlying frame will have the same routingId.",
+        "type": "Integer",
+        "collection": false
       }
     ]
   },
@@ -18351,11 +19074,11 @@
       "main": true,
       "renderer": false
     },
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Class",
     "slug": "web-request",
     "websiteUrl": "http://electron.atom.io/docs/api/web-request",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/web-request.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/web-request.md",
     "instanceName": "webRequest",
     "instanceMethods": [
       {
@@ -19059,11 +19782,11 @@
   },
   {
     "name": "WebSource",
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Structure",
     "slug": "web-source",
     "websiteUrl": "http://electron.atom.io/docs/api/structures/web-source",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/structures/web-source.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/structures/web-source.md",
     "properties": [
       {
         "name": "code",
@@ -19095,11 +19818,11 @@
       "main": false,
       "renderer": true
     },
-    "version": "2.0.10",
+    "version": "3.0.0",
     "type": "Element",
     "slug": "webview-tag",
     "websiteUrl": "http://electron.atom.io/docs/api/webview-tag",
-    "repoUrl": "https://github.com/electron/electron/blob/v2.0.10/docs/api/webview-tag.md",
+    "repoUrl": "https://github.com/electron/electron/blob/v3.0.0/docs/api/webview-tag.md",
     "methods": [
       {
         "name": "loadURL",
@@ -19120,9 +19843,18 @@
             "properties": [
               {
                 "name": "httpReferrer",
-                "type": "String",
+                "type": [
+                  {
+                    "typeName": "String",
+                    "collection": false
+                  },
+                  {
+                    "typeName": "Referrer",
+                    "collection": false
+                  }
+                ],
                 "collection": false,
-                "description": "A HTTP Referrer url.",
+                "description": "An HTTP Referrer url.",
                 "required": false
               },
               {
@@ -19151,16 +19883,12 @@
                     "collection": true
                   },
                   {
-                    "typeName": "UploadFileSystem",
-                    "collection": true
-                  },
-                  {
                     "typeName": "UploadBlob",
                     "collection": true
                   }
                 ],
                 "collection": false,
-                "description": "-",
+                "description": "",
                 "required": false
               },
               {
@@ -19890,20 +20618,12 @@
         "description": "A list of strings which specifies the web preferences to be set on the webview, separated by ,. The full list of supported preference strings can be found in BrowserWindow. The string follows the same format as the features string in window.open. A name by itself is given a true boolean value. A preference can be set to another value by including an =, followed by the value. Special values yes and 1 are interpreted as true, while no and 0 are interpreted as false."
       },
       {
-        "name": "blinkfeatures",
+        "name": "enableblinkfeatures",
         "description": "A list of strings which specifies the blink features to be enabled separated by ,. The full list of supported feature strings can be found in the RuntimeEnabledFeatures.json5 file."
       },
       {
         "name": "disableblinkfeatures",
         "description": "A list of strings which specifies the blink features to be disabled separated by ,. The full list of supported feature strings can be found in the RuntimeEnabledFeatures.json5 file."
-      },
-      {
-        "name": "guestinstance",
-        "description": "A value that links the webview to a specific webContents. When a webview first loads a new webContents is created and this attribute is set to its instance identifier. Setting this attribute on a new or existing webview connects it to the existing webContents that currently renders in a different webview. The existing webview will see the destroy event and will then create a new webContents when a new url is loaded."
-      },
-      {
-        "name": "disableguestresize",
-        "description": "When this attribute is present the webview contents will be prevented from resizing when the webview element itself is resized. This can be used in combination with webContents.setSize to manually resize the webview contents in reaction to a window size change. This can make resizing faster compared to relying on the webview element bounds to automatically resize the contents."
       }
     ],
     "domEvents": [
@@ -19978,84 +20698,6 @@
       {
         "name": "did-stop-loading",
         "description": "Corresponds to the points in time when the spinner of the tab stops spinning."
-      },
-      {
-        "name": "did-get-response-details",
-        "description": "Fired when details regarding a requested resource is available. status indicates socket connection to download the resource.",
-        "returns": [
-          {
-            "name": "status",
-            "type": "Boolean",
-            "collection": false,
-            "required": true
-          },
-          {
-            "name": "newURL",
-            "type": "String",
-            "collection": false,
-            "required": true
-          },
-          {
-            "name": "originalURL",
-            "type": "String",
-            "collection": false,
-            "required": true
-          },
-          {
-            "name": "httpResponseCode",
-            "type": "Integer",
-            "collection": false,
-            "required": true
-          },
-          {
-            "name": "requestMethod",
-            "type": "String",
-            "collection": false,
-            "required": true
-          },
-          {
-            "name": "referrer",
-            "type": "String",
-            "collection": false,
-            "required": true
-          },
-          {
-            "name": "headers",
-            "type": "Object",
-            "collection": false,
-            "required": true
-          },
-          {
-            "name": "resourceType",
-            "type": "String",
-            "collection": false,
-            "required": true
-          }
-        ]
-      },
-      {
-        "name": "did-get-redirect-request",
-        "description": "Fired when a redirect was received while requesting a resource.",
-        "returns": [
-          {
-            "name": "oldURL",
-            "type": "String",
-            "collection": false,
-            "required": true
-          },
-          {
-            "name": "newURL",
-            "type": "String",
-            "collection": false,
-            "required": true
-          },
-          {
-            "name": "isMainFrame",
-            "type": "Boolean",
-            "collection": false,
-            "required": true
-          }
-        ]
       },
       {
         "name": "dom-ready",
@@ -20280,7 +20922,7 @@
       },
       {
         "name": "ipc-message",
-        "description": "Fired when the guest page has sent an asynchronous message to embedder page. With sendToHost method and ipc-message event you can easily communicate between guest page and embedder page:",
+        "description": "Fired when the guest page has sent an asynchronous message to embedder page. With sendToHost method and ipc-message event you can communicate between guest page and embedder page:",
         "returns": [
           {
             "name": "channel",
