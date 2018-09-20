@@ -331,7 +331,7 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 
 The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
-#### Събитие: 'login'
+#### Събитие: "вход"
 
 Връща:
 
@@ -346,7 +346,7 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
   * `домакин` Низ
   * `порт` Цяло число
   * `царство` Низ
-* `callback` Функция 
+* `callback` Function 
   * `потребителско име` Низ
   * `парола` Низ
 
@@ -893,7 +893,7 @@ Checks if any ServiceWorker is registered and returns a boolean as response to `
 
 #### `contents.unregisterServiceWorker(callback)`
 
-* `обратно повикване` Функция 
+* `callback` Функция 
   * `success` Boolean
 
 Unregisters any ServiceWorker if present and returns a boolean as response to `callback` when the JS promise is fulfilled or false when the JS promise is rejected.
