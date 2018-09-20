@@ -22,6 +22,11 @@ Para configurar un servidor que acepte y procese los informes de fallos, se pued
 * [socorro](https://github.com/mozilla/socorro)
 * [mini-breakpad-server](https://github.com/electron/mini-breakpad-server)
 
+Or use a 3rd party hosted solution:
+
+* [Backtrace I/O](https://backtrace.io/electron/)
+* [Sentry](https://docs.sentry.io/clients/electron)
+
 Los informes de fallos se guardan localmente en una carpeta temporal específica de la aplicación. Para un `productName` de `YourName`, los informes de fallos serán almacenados en una carpeta llamada `YourName Crashes` dentro del directorio temporal. Se puede personalizar esta ubicación del directorio temporal para la aplicación llamando a la API `app.setPath('temp', '/my/custom/temp')` antes de activar el informador de fallos.
 
 ## Métodos
@@ -30,7 +35,7 @@ El módulo `crashReporter` tiene los siguientes métodos:
 
 ### `crashReporter.start(options)`
 
-* `opciones` Object 
+* `options` Objeto 
   * `companyName` String (opcional)
   * `submitURL` String - URL a donde se enviarán los informes de errores como un POST.
   * `productName` String (opcional) - Por defecto es `app.getName()`.
@@ -112,11 +117,11 @@ Muestra todos los parámetros que se enviarán al informador de fallos.
 El informador de fallos enviará la siguiente información al `submitURL` como un `multipart/form-data` `POST`:
 
 * `ver` String - La versión de Electron.
-* `platform` String - por ejemplo, "win32".
+* `platform` Cadena - por ejemplo, "win32".
 * `process_type` String - por ejemplo, "renderer".
 * `guid` String - por ejemplo, "5e1286fc-da97-479e-918b-6bfb0c3d1c72".
-* `_version` String - La versión en `package.json`.
-* `_productName` String - El nombre del producto en el objeto `crashReporter` `options`.
+* `_version` Cadena - La versión en `package.json`.
+* `_productName` Cadena - El nombre del producto en el objeto `crashReporter` `options`.
 * `prod` String - El nombre del producto subyacente. En este caso, Electron.
 * `_companyName` String - El nombre de la empresa en el objeto `crashReporter` `options`.
 * `upload_file_minidump` File - El informe de fallos en el formato de `minidump`.
