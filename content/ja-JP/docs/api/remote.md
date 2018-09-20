@@ -136,16 +136,16 @@ const foo = require('electron').remote.require('./foo') // bar
 
 ### `remote.getCurrentWebContents()`
 
-Returns [`WebContents`](web-contents.md) - The web contents of this web page.
+戻り値 [`WebContents`](web-contents.md) - このウェブページの webContents。
 
 ### `remote.getGlobal(name)`
 
 * `name` String
 
-Returns `any` - The global variable of `name` (e.g. `global[name]`) in the main process.
+戻り値 `any` - メインプロセス内の `name` (例: `global[name]`) のグローバル変数。
 
 ## プロパティ
 
 ### `remote.process`
 
-The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
+メインプロセス内の `process` オブジェクト。これは `remote.getGlobal('process')` と同じですが、キャッシュされます。
