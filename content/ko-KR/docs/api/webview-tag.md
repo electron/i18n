@@ -14,7 +14,7 @@ Use the `webview` tag to embed 'guest' content (such as web pages) in your Elect
 
 Unlike an `iframe`, the `webview` runs in a separate process than your app. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content. **Note:** Most methods called on the webview from the host page require a synchronous call to the main process.
 
-## Example
+## 예시
 
 To embed a web page in your app, add the `webview` tag to your app's embedder page (this is the app page that will display the guest content). In its simplest form, the `webview` tag includes the `src` of the web page and css styles that control the appearance of the `webview` container:
 
@@ -185,7 +185,7 @@ The `webview` tag has the following methods:
 
 **Note:** The webview element must be loaded before using the methods.
 
-**Example**
+**예시**
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -502,7 +502,7 @@ Fired when the navigation is done, i.e. the spinner of the tab will stop spinnin
 
 ### Event: 'did-fail-load'
 
-반환:
+Returns:
 
 * `errorCode` Integer
 * `errorDescription` String
@@ -533,7 +533,7 @@ Fired when document in the given frame is loaded.
 
 ### Event: 'page-title-updated'
 
-반환:
+Returns:
 
 * `title` String
 * `explicitSet` Boolean
@@ -542,7 +542,7 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 
 ### Event: 'page-favicon-updated'
 
-반환:
+Returns:
 
 * `favicons` String[] - Array of URLs.
 
@@ -558,7 +558,7 @@ Fired when page leaves fullscreen triggered by HTML API.
 
 ### Event: 'console-message'
 
-Returns:
+반환:
 
 * `level` Integer
 * `message` String
@@ -578,7 +578,7 @@ webview.addEventListener('console-message', (e) => {
 
 ### Event: 'found-in-page'
 
-반환:
+Returns:
 
 * `result` Object 
   * `requestId` Integer
@@ -601,7 +601,7 @@ console.log(requestId)
 
 ### Event: 'new-window'
 
-반환:
+Returns:
 
 * `url` String
 * `frameName` String
@@ -674,7 +674,7 @@ webview.addEventListener('close', () => {
 
 ### Event: 'ipc-message'
 
-반환:
+Returns:
 
 * `channel` String
 * `args` Array
@@ -711,7 +711,7 @@ Fired when the gpu process is crashed.
 
 ### Event: 'plugin-crashed'
 
-반환:
+Returns:
 
 * PrinterInfo Object
 * `version` String
@@ -732,7 +732,7 @@ Emitted when media is paused or done playing.
 
 ### Event: 'did-change-theme-color'
 
-반환:
+Returns:
 
 * `themeColor` String
 
