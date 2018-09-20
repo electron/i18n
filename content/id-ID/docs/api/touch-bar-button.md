@@ -2,7 +2,7 @@
 
 > Buat tombol di panel sentuh untuk aplikasi macOS asli
 
-Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+Proses: [utama](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `TouchBarButtonbaru(pilihan)`*Eksperimental*
 
