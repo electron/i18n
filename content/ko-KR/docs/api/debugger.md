@@ -4,7 +4,7 @@
 
 프로세스:[Main](../glossary.md#main-process)
 
-Chrome Developer Tools has a [special binding](https://developer.chrome.com/devtools/docs/debugger-protocol) available at JavaScript runtime that allows interacting with pages and instrumenting them.
+Chrome 개발자 도구는 JavaScript 런타임에서 사용할 수있는 [special binding](https://developer.chrome.com/devtools/docs/debugger-protocol)을 가지고있어서 페이지와 상호 작용하고 이를 조작 할 수 있습니다
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -41,7 +41,7 @@ Attaches the debugger to the `webContents`.
 
 #### `debugger.isAttached()`
 
-Returns `Boolean` - Whether a debugger is attached to the `webContents`.
+Returns `Boolean` - 디버거가 `webContents` 에 연결되어 있는지 확인합니다.
 
 #### `debugger.detach()`
 
@@ -55,7 +55,7 @@ Detaches the debugger from the `webContents`.
   * `error` Object - Error message indicating the failure of the command.
   * `result` Any - Response defined by the 'returns' attribute of the command description in the remote debugging protocol.
 
-Send given command to the debugging target.
+명령을 디버깅 대상으로 전송합니다.
 
 ### 인스턴스 이벤트
 
