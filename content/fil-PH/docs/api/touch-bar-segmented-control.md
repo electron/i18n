@@ -2,7 +2,7 @@
 
 > Gumawa ng segmented control(isang button group) na kung saan ang isang button ay mayroong napiling kalagyan
 
-Proseso: [Pangunahing](../tutorial/quick-start.md#main-process)
+Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `bagong TouchBarSegmentedControl(options)` *Experimental*
 
