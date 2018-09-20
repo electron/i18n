@@ -16,4 +16,4 @@
 * Застосунок підписано
 * Застосунок має `NSUserNotificationAlertStyle` встановлений в `alert` в `Info.plist`.
 
-В іншому випадку кнопка просто не з'явиться.
+If either of these requirements are not met the button won't appear.
