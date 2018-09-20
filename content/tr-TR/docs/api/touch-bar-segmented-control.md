@@ -2,7 +2,7 @@
 
 > Bir butonun seçili olduğu durumda parçalı bir denetim (bir tuş grubu) oluşturun
 
-İşlem: [Main](../tutorial/quick-start.md#main-process)
+İşlem: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new TouchBarSegmentedControl(options)` *Experimental*
 
