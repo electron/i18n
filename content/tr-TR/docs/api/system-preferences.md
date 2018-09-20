@@ -57,6 +57,13 @@ Sayfalar arasında kaydırma ayarı açık olup olmadığına dair `Boolean` dö
 
 `event`'ı macOS'un yerel bildirimleriymiş gibi gönderir. `userInfo` bildirimle birlikte gönderilen kullanıcı bilgileri sözlüğünü içeren bir nesnedir.
 
+### `systemPreferences.postWorkspaceNotification(event, userInfo)` *macOS*
+
+* `event` String
+* `userInfo` Object
+
+`event`'ı macOS'un yerel bildirimleriymiş gibi gönderir. `userInfo` bildirimle birlikte gönderilen kullanıcı bilgileri sözlüğünü içeren bir nesnedir.
+
 ### `systemPreferences.subscribeNotification(event, callback)` *macOS*
 
 * `event` String
@@ -75,12 +82,6 @@ Bu başlığının altında API `NSDistributedNotificationCenter`'e abone olur, 
 * `AppleColorPreferencesChangedNotification`
 * `AppleShowScrollBarsSettingChanged`
 
-### `systemPreferences.unsubscribeNotification(id)` *macOS*
-
-* `id` tamsayı
-
-Aboneyi `id` ile kaldırır.
-
 ### `systemPreferences.subscribeLocalNotification(event, callback)` *macOS*
 
 * `event` String
@@ -90,11 +91,32 @@ Aboneyi `id` ile kaldırır.
 
 `subscribeNotification` gibidir fakat yerel varsayılanlar için `NSNotificationCenter` kullanır. Bu `NSUserDefaultsDidChangeNotification` gibi eventlar için gereklidir.
 
+### `systemPreferences.subscribeWorkspaceNotification(event, callback)` *macOS*
+
+* `event` String
+* `geri aramak` Function 
+  * `event` String
+  * `userInfo` Object
+
+Same as `subscribeNotification`, but uses `NSWorkspace.sharedWorkspace.notificationCenter`. This is necessary for events such as `NSWorkspaceDidActivateApplicationNotification`.
+
+### `systemPreferences.unsubscribeNotification(id)` *macOS*
+
+* `id` tamsayı
+
+Aboneyi `id` ile kaldırır.
+
 ### `systemPreferences.unsubscribeLocalNotification(id)` *macOS*
 
-* `id` Integer
+* `id` tamsayı
 
 `unsubscribeNotification` gibidir fakat aboneyi `NSNotificationCenter`'den çıkarır.
+
+### `systemPreferences.unsubscribeWorkspaceNotification(id)` *macOS*
+
+* `id` tamsayı
+
+Same as `unsubscribeNotification`, but removes the subscriber from `NSWorkspace.sharedWorkspace.notificationCenter`.
 
 ### `systemPreferences.registerDefaults(defaults)` *macOS*
 
@@ -122,7 +144,7 @@ Bazı popüler `key` ve `type`'ler:
 ### `systemPreferences.setUserDefault(key, type, value)` *macOS*
 
 * `key` String
-* `type` String - See [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos].
+* `type` String - See [`getUserDefault`](#systempreferencesgetuserdefaultkey-type-macos).
 * `value` String
 
 `NSUserDefaults`'de `key` değerini ayarlayın.
