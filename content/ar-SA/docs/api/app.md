@@ -932,7 +932,7 @@ Sets the application's [dock menu](https://developer.apple.com/macos/human-inter
 
 Sets the `image` associated with this dock icon.
 
-## الخصائص
+## Properties
 
 ### `app.isPackaged`
 
