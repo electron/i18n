@@ -21,7 +21,7 @@ Objek `aplikasi` memancarkan kejadian-kejadian berikut:
 
 Dipancarkan saat aplikasi telah menyelesaikan proses awal mula dasar. Pada Windows dan Linux, kejadian `will-finish-launching` sama dengan kejadian `ready`; di macOS, kejadian ini mewakili pemberitahuan `applicationWillFinishLaunching` dari `NSApplication`. Anda biasanya akan menyiapkan pendengar untuk kejadian `open-file` dan `open-url` di sini, dan memulai pelapor crash dan pemutakhir otomatis.
 
-In most cases, you should do everything in the `ready` event handler.
+Kebanyakan, Anda harus menggunakan (event handler) `ready`.
 
 ### (Event) Kejadian: 'ready'
 
