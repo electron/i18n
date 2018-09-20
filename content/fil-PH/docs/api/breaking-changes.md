@@ -146,7 +146,7 @@ screen.getMenuBarHeight()
 screen.getPrimaryDisplay().workArea
 ```
 
-## `sesyon`
+## `session`
 
 ```js
 // Deprecated
