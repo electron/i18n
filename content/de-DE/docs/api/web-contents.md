@@ -730,7 +730,7 @@ the <code>window.location` object is changed or a user clicks a link in the page
         })
       ```
       
-      #### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
+      #### `contents.setIgnoreMenuShortcuts(ignore)` *Experimentell*
       
       * `ignore` Boolean
       
