@@ -9,8 +9,7 @@ Proses: [Main](../glossary.md#main-process)
 
 <h2>Mengirim Pesan</h2>
 
-<p>It is also possible to send messages from the main process to the renderer
-process, see <a href="web-contents.md#contentssendchannel-arg1-arg2-">webContents.send</a> for more information.</p>
+<p>Hal ini juga memungkinkan untuk mengirim pesan dari proses utama ke proses renderer, lihat <a href="web-contents.md#contentssendchannel-arg1-arg2-"> isi web.kirim</ 0> untuk informasi lebih lanjut.</p>
 
 <ul>
 <li>Saat mengirim pesan, nama acara adalah <code> saluran </ 0> .</li>
@@ -73,18 +72,20 @@ Modul ` ipcMain </ 0> memiliki metode berikut untuk mendengarkan acara:</p>
 <p>Menghapus ditentukan <code> pendengar </ 0> dari array pendengar untuk <code> saluran </ 0> tertentu.</p>
 
 <h3><code>ipcMain.pendengar menghapus semua( [channel] )`</h3> 
-            * ` saluran </ 0>  String</li>
-</ul>
-
-<p>Menghapus pendengar yang ditentukan <code> saluran </ 0> .</p>
+            * `channel` String
+            
+            Menghapus pendengar yang ditentukan ` saluran </ 0> .</p>
 
 <h2>Objek acara</h2>
 
 <p><code> acara </ 0> objek diteruskan ke <code> callback </ 0> memiliki metode berikut:</p>
 
 <h3><code>acara.kembali di nilai`</h3> 
-                Atur ini ke nilai yang akan dikembalikan dalam pesan sinkron.
-                
-                ### `acara.pengirim`
-                
-                Returns the `webContents` that sent the message, you can call `event.sender.send` to reply to the asynchronous message, see [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for more information.
+            
+            Atur ini ke nilai yang akan dikembalikan dalam pesan sinkron.
+            
+            ### `acara.pengirim`
+            
+            Mengembalikan isi web </ 0> yang mengirim pesan, Anda dapat memanggil
+ <code> acara.pengirim.kirim </ 0> untuk membalas pesan asinkron, lihat
+ <a href="web-contents.md#contentssendchannel-arg1-arg2-"> isis web.kirim</ 1> untuk lebih informasi.</p>
