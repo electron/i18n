@@ -4,7 +4,7 @@
 
 Process: [Main](../glossary.md#main-process)
 
-**Podrá encontrar una guía detallada sobre como implementar actualizaciones en su aplicación [aquí](../tutorial/updates.md).**
+**See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
 
 ## Noticias de la plataforma
 
@@ -66,6 +66,12 @@ Aparece cuando se ha descargado una actualización.
 
 Solo esta disponible en Windows `releaseName`.
 
+### Event: 'before-quit-for-update'
+
+This event is emitted after a user calls `quitAndInstall()`.
+
+When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
+
 ## Métodos
 
 El objeto `autoUpdater` tiene los siguientes métodos:
@@ -77,11 +83,11 @@ El objeto `autoUpdater` tiene los siguientes métodos:
   * `headers` Object (opcional) *macOS* - Cabeceras de petición HTTP.
   * `serverType` String (opcional) *macOS* - Puede ser `json` or `default`, ver el README [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) para más información.
 
-Configura la `url` e inicializa la actualización automática.
+Configura el `url` e inicializa la actualización automática.
 
 ### `autoUpdater.getFeedURL()`
 
-Devuelve `String` - URL actual para la actualización.
+Devuelve `String` - La actualización actual provee el URL.
 
 ### `autoUpdater.checkForUpdates()`
 
