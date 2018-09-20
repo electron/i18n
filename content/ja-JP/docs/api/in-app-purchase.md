@@ -25,7 +25,7 @@
 
 * `productID` String - The identifiers of the product to purchase. (The identifier of `com.example.app.product1` is `product1`).
 * `quantity` Integer (任意) - ユーザーが購入しようとしている商品数。
-* `callback` Function (optional) - The callback called when the payment is added to the PaymentQueue. 
+* `callback` Function (任意) - PaymentQueueに支払い情報が追加されたときに呼び出されるコールバック。 
     * `isProductValid` Boolean - プロダクトが有効かつ支払いキューに追加されたかどうか決定する。
 
 You should listen for the `transactions-updated` event as soon as possible and certainly before you call `purchaseProduct`.
@@ -40,11 +40,11 @@ Retrieves the product descriptions.
 
 ### `inAppPurchase.canMakePayments()`
 
-Returns `Boolean`, whether a user can make a payment.
+戻り値 `Boolean` - ユーザが支払いできるかどうか。
 
 ### `inAppPurchase.getReceiptURL()`
 
-Returns `String`, the path to the receipt.
+戻り値 `String` - 領収書へのパス。
 
 ### `inAppPurchase.finishAllTransactions()`
 
