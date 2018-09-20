@@ -2,7 +2,7 @@
 
 > 在 macOS 原生應用程式中建立 Touch Bar 配置。
 
-Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+處理序: [主處理序](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new TouchBar(options)` *試驗中*
 
