@@ -2,7 +2,7 @@
 
 > Créer un scrubber (un sélecteur de défilement)
 
-Processus : [Main](../tutorial/quick-start.md#main-process)
+Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new TouchBarScrubber(options)` *Experimental*
 
