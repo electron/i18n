@@ -74,29 +74,29 @@ When this API is called, the `before-quit` event is not emitted before all windo
 
 ## 方法
 
-The `autoUpdater` object has the following methods:
+`autoUpdater` 对象具有以下方法:
 
-### `autoUpdater.setFeedURL(options)`
+### `autoUpdater.setFeedURL(选项)`
 
 * `options` Object 
   * `url` String
   * `headers` Object (可选) *macOS* - HTTP 请求头。
   * `serverType` String (可选) *macOS* - `json` 或者 `default`, 有关更多信息，请参考 [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) 的自述文件(README)。
 
-Sets the `url` and initialize the auto updater.
+设置检查更新的 `url`，并且初始化自动更新。
 
 ### `autoUpdater.getFeedURL()`
 
-Returns `String` - The current update feed URL.
+返回 `String` - 获取当前更新的 Feed 链接.
 
 ### `autoUpdater.checkForUpdates()`
 
-Asks the server whether there is an update. You must call `setFeedURL` before using this API.
+向服务端查询现在是否有可用的更新。在调用这个方法之前，必须要先调用 `setFeedURL`。
 
 ### `autoUpdater.quitAndInstall()`
 
-Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
+在下载完成后，重启当前的应用并且安装更新。这个方法应该仅在 `update-downloaded` 事件触发后被调用。
 
-Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
+在此机制下，调用 `autoUpdater.quitAndInstall()` 将首先关闭所有应用程序窗口，并且在所有窗口都关闭之后自动调用 `app.quit()`
 
-**Note:** If the application is quit without calling this API after the `update-downloaded` event has been emitted, the application will still be replaced by the updated one on the next run.
+**注意:** 如果在`update-downloaded` 事件触发后没有调用这个API 的情况下，应用程序已经退出，该程序在下次运行的时候还是会被替换更新。
