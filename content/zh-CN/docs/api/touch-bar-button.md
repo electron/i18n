@@ -2,7 +2,7 @@
 
 > 为mac os应用在touch bar中创建一个按钮组件
 
-进程：[主进程](../tutorial/quick-start.md#main-process)
+Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new BrowserView(可选)` *实验功能*
 
