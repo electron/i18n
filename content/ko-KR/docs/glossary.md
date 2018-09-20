@@ -40,7 +40,7 @@ IPC는 프로세스 간 통신의 약자입니다. Electron은 [주 프로세스
 
 ### 주 프로세스
 
-일반적으로 `main.js`라는 파일인 메인 프로세스는, 모든 Electron 앱의 진입점입니다. 열기에서 닫기까지 앱의 수명을 제어합니다. 또한 메뉴, 메뉴 막대, Dock, 트레이 같은 네이티브 요소를 관리합니다. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
+일반적으로 `main.js`라는 파일인 메인 프로세스는, 모든 Electron 앱의 진입점입니다. 열기에서 닫기까지 앱의 수명을 제어합니다. 또한 메뉴, 메뉴 막대, Dock, 트레이 같은 네이티브 요소를 관리합니다. 메인 프로세스는 앱에서 각각의 새로운 렌더러 프로세스를 생성합니다. 모든 Node API가 내장되어 있습니다.
 
 모든 앱의 메인 프로세스 파일은 `package.json` 파일의 `main` 속성에서 지정됩니다. 이것이 `electron .` 명령어를 사용할 때, 시작 시 어떤 파일을 사용할지를 아는 이유입니다.
 
@@ -50,7 +50,7 @@ Chroimum 에서는, 이 프로세스가 "브라우저 프로세스"라고도 불
 
 ### MAS
 
-Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
+Apple's Mac App Store의 약자입니다. MAS에 앱을 제출하는 방법에 대한 자세한 내용은 [ Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md)를 참조하십시오.
 
 ### Mojo
 
