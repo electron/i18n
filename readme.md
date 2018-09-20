@@ -18,8 +18,8 @@ The following languages are currently being translated, but we can
 [easily add more]((https://github.com/electron/i18n/issues/new?title=new%20language%20request)):
 
 <!-- start language-table -->
-- [Español (Spanish)](https://crowdin.com/project/electron/es-ES)
 - [中文 (Chinese Simplified)](https://crowdin.com/project/electron/zh-CN)
+- [Español (Spanish)](https://crowdin.com/project/electron/es-ES)
 - [日本語 (Japanese)](https://crowdin.com/project/electron/ja)
 - [Indonesian](https://crowdin.com/project/electron/id)
 - [Filipino](https://crowdin.com/project/electron/fil)
@@ -27,14 +27,14 @@ The following languages are currently being translated, but we can
 - [Français (French)](https://crowdin.com/project/electron/fr)
 - [한국어 (Korean)](https://crowdin.com/project/electron/ko)
 - [Русский (Russian)](https://crowdin.com/project/electron/ru)
-- [Italiano (Italian)](https://crowdin.com/project/electron/it)
 - [Português (Portuguese)](https://crowdin.com/project/electron/pt-BR)
+- [Italiano (Italian)](https://crowdin.com/project/electron/it)
 - [中文 (Chinese Traditional)](https://crowdin.com/project/electron/zh-TW)
-- [Українська (Ukrainian)](https://crowdin.com/project/electron/uk)
 - [język polski (Polish)](https://crowdin.com/project/electron/pl)
+- [Українська (Ukrainian)](https://crowdin.com/project/electron/uk)
 - [Deutsch (German)](https://crowdin.com/project/electron/de)
-- [български език (Bulgarian)](https://crowdin.com/project/electron/bg)
 - [हिन्दी (Hindi)](https://crowdin.com/project/electron/hi)
+- [български език (Bulgarian)](https://crowdin.com/project/electron/bg)
 - [Tiếng Việt (Vietnamese)](https://crowdin.com/project/electron/vi)
 - [اللغة العربية (Arabic)](https://crowdin.com/project/electron/ar)
 - [فارسی (Persian)](https://crowdin.com/project/electron/fa)
