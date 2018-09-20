@@ -148,6 +148,6 @@ Anahtar sadece `--enable-logging` işlemi tamamlandığında çalışır.
 
 Modül başına `--v` tarafından verilen değeri geçersiz kılmak için maksimal V-logging düzeylerini verir. Örneğin `my_module.*` ve `foo*.*` kaynak dosyaları içindeki tüm kodlar için `my_module=2,foo*=3` logging seviyelerini değiştirebilir.
 
-İleri veya geri eğik çizgi içeren herhangi bir desen sadece modüle karşı değil aynı zamanda bütün yol adına karşı test edilir. Örneğin `foo/bar` dizini altındaki kaynak dosyaları tüm kodlar için `*/foo/bar/*=2` ile logging seviyeleri değiştirilebilir.
+Any pattern containing a forward or backward slash will be tested against the whole pathname and not only the module. Örneğin `foo/bar` dizini altındaki kaynak dosyaları tüm kodlar için `*/foo/bar/*=2` ile logging seviyeleri değiştirilebilir.
 
 Anahtar sadece `--enable-logging` işlemi tamamlandığında çalışır.
