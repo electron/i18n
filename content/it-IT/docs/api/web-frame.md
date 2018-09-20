@@ -108,7 +108,7 @@ Inserts `text` to the focused element.
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
-* `codice` Stringa
+* `code` Stringa
 * `userGesture` Boolean (optional) - Default is `false`.
 * `callback` Function (optional) - Called after script has been executed. 
   * `result` Any
@@ -152,7 +152,7 @@ Set the security origin of the isolated world.
 
 ### `webFrame.getResourceUsage()`
 
-Ritorna `Object`:
+Restituisci `Oggetto`:
 
 * `images` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `scripts` [MemoryUsageDetails](structures/memory-usage-details.md)
