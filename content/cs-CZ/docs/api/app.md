@@ -354,7 +354,7 @@ All windows will be closed immediately without asking user and the `before-quit`
 
 ### `app.relaunch([options])`
 
-* `options` Object (optional) 
+* `nastavení` Object (optional) 
   * `args` String[] (optional)
   * `execPath` String (optional)
 
@@ -377,7 +377,7 @@ app.exit(0)
 
 ### `app.isReady()`
 
-Returns `Boolean` - `true` if Electron has finished initializing, `false` otherwise.
+Vrací `Boolean` - `true` pokud Electron dokončil inicializaci, `false` v opačném případě.
 
 ### `app.whenReady()`
 
@@ -428,7 +428,7 @@ You can request the following paths by the name:
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `options` Object (optional) 
+* `nastavení` Object (optional) 
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
@@ -758,7 +758,7 @@ Returns `Integer` - The current value displayed in the counter badge.
 
 ### `app.isUnityRunning()` *Linux*
 
-Returns `Boolean` - Whether the current desktop environment is Unity launcher.
+Vrací Boolean - Kdykoliv kdy je aktuální prostředí plochy Unity spouštěč.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
