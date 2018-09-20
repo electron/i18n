@@ -69,7 +69,7 @@ win.show()
 
 ## クリックスルーウインドウ
 
-To create a click-through window, i.e. making the window ignore all mouse events, you can call the [win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore-options) API:
+クリックスルーウインドウを作成する、すなわち、ウインドウにすべてのマウスイベントを無視させるには、[win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore-options) APIを呼び出して下さい。
 
 ```javascript
 const {BrowserWindow} = require('electron')
