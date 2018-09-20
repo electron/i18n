@@ -2,7 +2,7 @@
 
 > Crear un depurador (un selector de desplazamiento)
 
-Proceso: [Main](../tutorial/quick-start.md#main-process)
+Proceso: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `Nuevo depurador de la barra táctil(opciones)` *Experimental*
 
@@ -38,9 +38,9 @@ Un `String` representando el estilo que deben tener los elementos en el depurado
 
 Una `Cadena` que representa el estilo que deben tener los elementos seleccionados por el depurador. Este estilo es cubierto en la parte superior del elemento depurador en vez de posicionarse detrás de él. Actualizar este valor inmediatamente actualiza el control en la barra de herramientas. Posibles valores:
 
-* `fondo` - mapas a `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
-* `fuera de linea` - Mapa a `[NSScrubberSelectionStyle outlineOverlayStyle]`.
-* `nulo` - Actualiza nulo, no una cadena, remueve todos los estilos.
+* `background` - Mapa a `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
+* `outline` - Mapa a `[NSScrubberSelectionStyle outlineOverlayStyle]`.
+* `null` - Actualiza nulo, no una cadena, remueve todos los estilos.
 
 #### `touchBarScrubber.showArrowButtons`
 
