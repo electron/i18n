@@ -10,11 +10,11 @@
   * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[]
   * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md) | null) (optional)
 
-Creates a new touch bar with the specified items. Use `BrowserWindow.setTouchBar` to add the `TouchBar` to a window.
+지정된 항목으로 새 TouchBar를 만듭니다. Window에 `TouchBar`를 추가하려면 `BrowserWindow.setTouchBar`를 사용하십시오.
 
-**Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
+**Note:** TouchBar API는 현재 시험 단계에 있으며 향후 전자 릴리스에서 변경되거나 제거 될 수 있습니다.
 
-**Tip:** If you don't have a MacBook with Touch Bar, you can use [Touch Bar Simulator](https://github.com/sindresorhus/touch-bar-simulator) to test Touch Bar usage in your app.
+**Tip:** Touch Bar를 갖춘 MacBook이 없다면 [Touch Bar Simulator](https://github.com/sindresorhus/touch-bar-simulator)를 사용하여 앱에서 Touch Bar사용을 테스트 할수 있습니다.
 
 ### Instance Properties (인스턴스 속성)
 
