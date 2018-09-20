@@ -60,6 +60,8 @@ Returns `WebContents` - 给定 id 的 WebContents 实例。
 * `errorDescription` String
 * `validatedURL` String
 * `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
 
 这个事件类似于 `did-finish-load`, 不过是在加载失败或取消后触发，例如调用了 `window.stop()` 。 完整的错误码列表以及含义，[请看这](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h)
 
@@ -69,6 +71,8 @@ Returns `WebContents` - 给定 id 的 WebContents 实例。
 
 * `event` Event
 * `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
 
 当框架完成导航（navigation）时触发
 
@@ -80,44 +84,13 @@ Returns `WebContents` - 给定 id 的 WebContents 实例。
 
 当tab中的旋转指针（spinner）结束旋转时，就会触发该事件。
 
-#### Event: 'did-get-response-details'
-
-返回:
-
-* `event` Event
-* `status` Boolean
-* `newURL` String
-* `originalURL` String
-* `httpResponseCode` Integer
-* `requestMethod` String
-* `referrer` String
-* `headers` Object
-* `resourceType` String
-
-Emitted when details regarding a requested resource are available. `status` indicates the socket connection to download the resource.
-
-#### Event: 'did-get-redirect-request'
-
-返回:
-
-* `event` Event
-* `oldURL` String
-* `newURL` String
-* `isMainFrame` Boolean
-* `httpResponseCode` Integer
-* `requestMethod` String
-* `referrer` String
-* `headers` Object
-
-当接收到重定向请求时，触发该事件。
-
 #### 事件: 'dom-ready'
 
 返回:
 
 * `event` Event
 
-一个框架中的文本加载完成后触发该事件。
+Emitted when the document in the given frame is loaded.
 
 #### 事件: 'page-favicon-updated'
 
@@ -126,7 +99,7 @@ Emitted when details regarding a requested resource are available. `status` indi
 * `event` Event
 * `favicons` String[] - 由连接组成的数组。
 
-当页面获取到favicon的连接时，触发该事件。
+Emitted when page receives favicon urls.
 
 #### Event: 'new-window'
 
@@ -136,14 +109,15 @@ Emitted when details regarding a requested resource are available. `status` indi
 * `url` String
 * `frameName` String
 * `disposition` String - 可以被设置为 `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` 及 `other`.
-* `options` Object - 用于创建新的 [`BrowserWindow`](browser-window.md).
-* `additionalFeatures` String[] - 非标准功能(非标准功能是指这些功能不是由Chromium或Electron处理的功能)，这些功能默认指向`window.open()`.
+* `options` Object - The options which will be used for creating the new [`BrowserWindow`](browser-window.md).
+* `additionalFeatures` String[] - The non-standard features (features not handled by Chromium or Electron) given to `window.open()`.
+* `referrer` [Referrer](structures/referrer.md) - The referrer that will be passed to the new window. May or may not result in the `Referer` header being sent, depending on the referrer policy.
 
-当页面请求打开地址为 ` url ` 的新窗口时触发。可以通过 ` window.open ` 或外部链接 (如 `<a target='_blank'>`) 触发。
+Emitted when the page requests to open a new window for a `url`. It could be requested by `window.open` or an external link like `<a target='_blank'>`.
 
-默认情况下, 将为 ` url ` 创建新的 ` BrowserWindow `。
+By default a new `BrowserWindow` will be created for the `url`.
 
-调用`event.preventDefault()`事件，可以阻止Electron自动创建新的[`BrowserWindow`](browser-window.md)实例。 调用`event.preventDefault()` 事件后，你还可以手动创建新的[`BrowserWindow`](browser-window.md)实例，不过接下来你必须用`event.newGuest`方法来引用[`BrowserWindow`](browser-window.md)实例，如果你不这样做，则可能会产生异常。 例如：
+Calling `event.preventDefault()` will prevent Electron from automatically creating a new [`BrowserWindow`](browser-window.md). If you call `event.preventDefault()` and manually create a new [`BrowserWindow`](browser-window.md) then you must set `event.newGuest` to reference the new [`BrowserWindow`](browser-window.md) instance, failing to do so may result in unexpected behavior. 例如：
 
 ```javascript
 myBrowserWindow.webContents.on('new-window', (event, url) => {
@@ -168,7 +142,19 @@ This event will not emit when the navigation is started programmatically with AP
 
 It is also not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
-调用`event.preventDefault()`将阻止导航。
+Calling `event.preventDefault()` will prevent the navigation.
+
+#### Event: 'did-start-navigation'
+
+返回:
+
+* `url` String
+* `isInPlace` Boolean
+* `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
+
+Emitted when any frame (including main) starts navigating. `isInplace` will be `true` for in-page navigations.
 
 #### Event: 'did-navigate'
 
@@ -176,8 +162,26 @@ It is also not emitted for in-page navigations, such as clicking anchor links or
 
 * `event` Event
 * `url` String
+* `httpResponseCode` Integer - -1 for non HTTP navigations
+* `httpStatusText` String - empty for non HTTP navigations
 
-Emitted when a navigation is done.
+Emitted when a main frame navigation is done.
+
+This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+
+#### Event: 'did-frame-navigate'
+
+返回:
+
+* `event` Event
+* `url` String
+* `httpResponseCode` Integer - -1 for non HTTP navigations
+* `httpStatusText` String - empty for non HTTP navigations,
+* `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
+
+Emitted when any frame navigation is done.
 
 This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
@@ -188,8 +192,10 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 * `event` Event
 * `url` String
 * `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
 
-当发生页内导航时，触发该事件。
+Emitted when an in-page navigation happened in any frame.
 
 当发生页内导航时，虽然页面地址发生变化，但它并没有导航到其它页面。 例如，点击锚点链接，或者DOM的 `hashchange`事件被触发时，都会触发该事件。
 
@@ -229,7 +235,15 @@ win.webContents.on('will-prevent-unload', (event) => {
 * `event` Event
 * `killed` Boolean
 
-当渲染进程崩溃或被结束时触发
+Emitted when the renderer process crashes or is killed.
+
+#### 事件: 'unresponsive'
+
+网页变得未响应时触发
+
+#### 事件: 'responsive'
+
+未响应的页面变成响应时触发
 
 #### Event: 'plugin-crashed'
 
@@ -239,11 +253,11 @@ win.webContents.on('will-prevent-unload', (event) => {
 * `name` String
 * `version` String
 
-当有插件进程崩溃时触发
+Emitted when a plugin process has crashed.
 
 #### Event: 'destroyed'
 
-当`webContents`被销毁时，触发该事件。
+Emitted when `webContents` is destroyed.
 
 #### Event: 'before-input-event'
 
@@ -299,9 +313,9 @@ win.webContents.on('before-input-event', (event, input) => {
 * `callback` Function - 回调函数 
   * `isTrusted` Boolean - 用于显示证书是否可信。
 
-`证书`的`链接`验证失败时，触发该事件。
+Emitted when failed to verify the `certificate` for `url`.
 
-使用方式与[`app`的`certificate-error`](app.md#event-certificate-error)的事件相同。
+The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
 
 #### 事件: 'select-client-certificate'
 
@@ -315,7 +329,7 @@ win.webContents.on('before-input-event', (event, input) => {
 
 当一个客户证书被请求的时候发出。
 
-使用方式与[`app`的`select-client-certificate`](app.md#event-select-client-certificate)的事件相同。
+The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
 #### 事件: "login"
 
@@ -338,7 +352,7 @@ win.webContents.on('before-input-event', (event, input) => {
 
 当 ` webContents ` 要进行基本身份验证时触发。
 
-使用方式与[`app`的`login`](app.md#event-login)的事件相同。
+The usage is the same with [the `login` event of `app`](app.md#event-login).
 
 #### Event: 'found-in-page'
 
@@ -352,7 +366,7 @@ win.webContents.on('before-input-event', (event, input) => {
   * `selectionArea` Object - Coordinates of first match region.
   * `finalUpdate` Boolean
 
-如果调用[`webContents.findInPage`]有返回时，会触发这一事件。
+Emitted when a result is available for [`webContents.findInPage`] request.
 
 #### Event: 'media-started-playing'
 
@@ -395,7 +409,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 * `size` [Size](structures/size.md) (可选) - `image`大小。
 * `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot.
 
-当鼠标指针改变的时候触发。 Type参数值包含：`default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing` 或 `custom`.
+Emitted when the cursor's type changes. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing` or `custom`.
 
 If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a [`NativeImage`](native-image.md), and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
 
@@ -441,7 +455,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 Emitted when there is a new context menu that needs to be handled.
 
-#### 事件: 'select-bluetooth-device'
+#### Event: 'select-bluetooth-device'
 
 返回:
 
@@ -453,11 +467,14 @@ Emitted when there is a new context menu that needs to be handled.
 Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
 
 ```javascript
-const {app, webContents} = require('electron')
-app.commandLine.appendSwitch('enable-web-bluetooth')
+const {app, BrowserWindow} = require('electron')
+
+let win = null
+app.commandLine.appendSwitch('enable-experimental-web-platform-features')
 
 app.on('ready', () => {
-  webContents.on('select-bluetooth-device', (event, deviceList, callback) => {
+  win = new BrowserWindow({width: 800, height: 600})
+  win.webContents.on('select-bluetooth-device', (event, deviceList, callback) => {
     event.preventDefault()
     let result = deviceList.find((device) => {
       return device.deviceName === 'test'
@@ -493,7 +510,7 @@ win.loadURL('http://github.com')
 
 #### Event: 'devtools-reload-page'
 
-当在开发者工具中命令webContents重新加载时，触发该事件。
+Emitted when the devtools window instructs the webContents to reload
 
 #### Event: 'will-attach-webview'
 
@@ -516,12 +533,13 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 * `event` Event
 * `webContents` WebContents - The guest web contents that is used by the `<webview>`.
 
-当`<webview>`被挂载到页面内容中时，触发该事件。
+Emitted when a `<webview>` has been attached to this web contents.
 
 #### Event: 'console-message'
 
 返回:
 
+* `event` Event
 * `level` Integer
 * `message` String
 * `line` Integer
@@ -535,10 +553,10 @@ Emitted when the associated window logs a console message. Will not be emitted f
 
 * `url` String
 * `options` Object (可选) 
-  * `httpReferrer` String (可选) - HTTP来源网址
+  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
   * `userAgent` String (可选) - 发起请求的 userAgent.
   * `extraHeaders` String (optional) - Extra headers separated by "\n".
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (可选)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
   * `baseURLForDataURL` String (可选) - 要加载的数据文件的根 url(带有路径分隔符). 只有当指定的 `url`是一个数据 url 并需要加载其他文件时，才需要这样做。
 
 Loads the `url` in the window. The `url` must contain the protocol prefix, e.g. the `http://` or `file://`. If the load should bypass http cache then use the `pragma` header to achieve it.
@@ -563,7 +581,7 @@ Loads the given file in the window, `filePath` should be a path to an HTML file 
 |   - index.html
 ```
 
-需要运行以下代码：
+Would require code like this
 
 ```js
 win.loadFile('src/index.html')
@@ -577,7 +595,7 @@ Initiates a download of the resource at `url` without navigating. The `will-down
 
 #### `contents.getURL()`
 
-Returns `String` - 当前页面的URL.
+Returns `String` - The URL of the current web page.
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -590,23 +608,23 @@ console.log(currentURL)
 
 #### `contents.getTitle()`
 
-返回 `String` - 当前页面的标题.
+Returns `String` - The title of the current web page.
 
 #### `contents.isDestroyed()`
 
-返回 `Boolean` -判断页面是否被销毁
+Returns `Boolean` - Whether the web page is destroyed.
 
 #### `contents.focus()`
 
-页面聚焦
+Focuses the web page.
 
 #### `contents.isFocused()`
 
-返回 `Boolean` - 判断页面是否聚焦
+Returns `Boolean` - Whether the web page is focused.
 
 #### `contents.isLoading()`
 
-返回 `Boolean` - 判断页面是否正在加载资源
+Returns `Boolean` - Whether web page is still loading resources.
 
 #### `contents.isLoadingMainFrame()`
 
@@ -622,19 +640,19 @@ Stops any pending navigation.
 
 #### `contents.reload()`
 
-刷新当前页面
+Reloads the current web page.
 
 #### `contents.reloadIgnoringCache()`
 
-忽略缓存强制刷新页面
+Reloads current page and ignores cache.
 
 #### `contents.canGoBack()`
 
-返回`Boolean`，是否可以返回到上一个页面
+Returns `Boolean` - Whether the browser can go back to previous web page.
 
 #### `contents.canGoForward()`
 
-返回`Boolean` ，是否可以进入下一个页面
+Returns `Boolean` - Whether the browser can go forward to next web page.
 
 #### `contents.canGoToOffset(offset)`
 
@@ -644,15 +662,15 @@ Returns `Boolean` - Whether the web page can go to `offset`.
 
 #### `contents.clearHistory()`
 
-清除浏览器导航历史记录
+清除定位历史。
 
 #### `contents.goBack()`
 
-使浏览器回退到上一个页面。
+Makes the browser go back a web page.
 
 #### `contents.goForward()`
 
-使浏览器前进到下一个页面。
+Makes the browser go forward a web page.
 
 #### `contents.goToIndex(index)`
 
@@ -674,17 +692,17 @@ Returns `Boolean` - Whether the renderer process has crashed.
 
 * `userAgent` String
 
-重写该页面的user agent
+Overrides the user agent for this web page.
 
 #### `contents.getUserAgent()`
 
-返回 `String` - 当前页面的user agent.
+Returns `String` - The user agent for this web page.
 
 #### `contents.insertCSS(css)`
 
 * `css` String
 
-为当前页面注入样式
+Injects CSS into the current web page.
 
 #### `contents.executeJavaScript(code[, userGesture, callback])`
 
@@ -708,7 +726,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *实验功能*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
 
 * `ignore` Boolean
 
@@ -718,11 +736,11 @@ Ignore application menu shortcuts while this web contents is focused.
 
 * `muted` Boolean
 
-使当前页面音频静音
+Mute the audio on the current web page.
 
 #### `contents.isAudioMuted()`
 
-返回 `Boolean` -判断页面是否被静音
+Returns `Boolean` - Whether this page has been muted.
 
 #### `contents.setZoomFactor(factor)`
 
@@ -766,19 +784,19 @@ Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
 
 #### `contents.undo()`
 
-在页面中执行`undo`编辑命令。
+Executes the editing command `undo` in web page.
 
 #### `contents.redo()`
 
-在页面中执行` redo `编辑命令。
+Executes the editing command `redo` in web page.
 
 #### `contents.cut()`
 
-在页面中执行` cut `编辑命令。
+Executes the editing command `cut` in web page.
 
 #### `contents.copy()`
 
-在页面中执行` copy `编辑命令。
+Executes the editing command `copy` in web page.
 
 #### `contents.copyImageAt(x, y)`
 
@@ -789,35 +807,35 @@ Copy the image at the given position to the clipboard.
 
 #### `contents.paste()`
 
-在页面中执行` paste `编辑命令。
+Executes the editing command `paste` in web page.
 
 #### `contents.pasteAndMatchStyle()`
 
-在页面中执行` pasteAndMatchStyle `编辑命令。
+Executes the editing command `pasteAndMatchStyle` in web page.
 
 #### `contents.delete()`
 
-在页面中执行` delete `编辑命令。
+Executes the editing command `delete` in web page.
 
 #### `contents.selectAll()`
 
-在页面中执行` selectAll `编辑命令。
+Executes the editing command `selectAll` in web page.
 
 #### `contents.unselect()`
 
-在页面中执行` unselect `编辑命令。
+Executes the editing command `unselect` in web page.
 
 #### `contents.replace(text)`
 
 * `text` String
 
-在页面中执行` replace `编辑命令。
+Executes the editing command `replace` in web page.
 
 #### `contents.replaceMisspelling(text)`
 
 * `text` String
 
-在页面中执行` replaceMisspelling `编辑命令。
+Executes the editing command `replaceMisspelling` in web page.
 
 #### `contents.insertText(text)`
 
@@ -882,9 +900,9 @@ Unregisters any ServiceWorker if present and returns a boolean as response to `c
 
 #### `contents.getPrinters()`
 
-获取系统打印机列表
+Get the system printer list.
 
-返回 [`PrinterInfo[]`](structures/printer-info.md).
+Returns [`PrinterInfo[]`](structures/printer-info.md).
 
 #### `contents.print([options], [callback])`
 
@@ -1041,26 +1059,26 @@ When `contents` is a `<webview>` tag, the `mode` would be `detach` by default, e
 
 #### `contents.closeDevTools()`
 
-关闭开发者工具。
+Closes the devtools.
 
 #### `contents.isDevToolsOpened()`
 
-返回`Boolean` - 开发者工具是否处于开启状态。
+Returns `Boolean` - Whether the devtools is opened.
 
 #### `contents.isDevToolsFocused()`
 
-返回`Boolean` - 开发者工具是否处于当前执行状态。
+Returns `Boolean` - Whether the devtools view is focused .
 
 #### `contents.toggleDevTools()`
 
-切换开发工具
+Toggles the developer tools.
 
 #### `contents.inspectElement(x, y)`
 
 * `x` Integer
 * `y` Integer
 
-开始检查位于(`x`, `y`) 的元素。
+Starts inspecting element at position (`x`, `y`).
 
 #### `contents.inspectServiceWorker()`
 
@@ -1116,11 +1134,11 @@ app.on('ready', () => {
   * `viewSize` [Size](structures/size.md) - Set the emulated view size (empty means no override)
   * `scale` Float - Scale of emulated view inside available space (not in fit to view mode) (default: `1`).
 
-允许设备模拟给定参数。
+Enable device emulation with the given parameters.
 
 #### `contents.disableDeviceEmulation()`
 
-禁止`webContents.enableDeviceEmulation`允许的模拟设备
+Disable device emulation enabled by `webContents.enableDeviceEmulation`.
 
 #### `contents.sendInputEvent(event)`
 
@@ -1145,7 +1163,7 @@ For mouse events, the `event` object also have following properties:
 * `movementY` Integer
 * `clickCount` Integer
 
-`mouseWheel`事件的`event`对象还有下列属性：
+For the `mouseWheel` event, the `event` object also have following properties:
 
 * `deltaX` Integer
 * `deltaY` Integer
@@ -1160,14 +1178,14 @@ For mouse events, the `event` object also have following properties:
 
 * ` onlyDirty ` Boolean (可选) - 默认值为 ` false `.
 * `callback` Function - 回调函数 
-  * `frameBuffer` Buffer
+  * `image` [NativeImage](native-image.md)
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
-Begin subscribing for presentation events and captured frames, the `callback` will be called with `callback(frameBuffer, dirtyRect)` when there is a presentation event.
+Begin subscribing for presentation events and captured frames, the `callback` will be called with `callback(image, dirtyRect)` when there is a presentation event.
 
-The `frameBuffer` is a `Buffer` that contains raw pixel data. On most machines, the pixel data is effectively stored in 32bit BGRA format, but the actual representation depends on the endianness of the processor (most modern processors are little-endian, on machines with big-endian processors the data is in 32bit ARGB format).
+The `image` is an instance of [NativeImage](native-image.md) that stores the captured frame.
 
-The `dirtyRect` is an object with `x, y, width, height` properties that describes which part of the page was repainted. If `onlyDirty` is set to `true`, `frameBuffer` will only contain the repainted area. `onlyDirty` defaults to `false`.
+The `dirtyRect` is an object with `x, y, width, height` properties that describes which part of the page was repainted. If `onlyDirty` is set to `true`, `image` will only contain the repainted area. `onlyDirty` defaults to `false`.
 
 #### `contents.endFrameSubscription()`
 
@@ -1209,16 +1227,6 @@ win.webContents.on('did-finish-load', () => {
 #### `contents.showDefinitionForSelection()` *macOS*
 
 Shows pop-up dictionary that searches the selected word on the page.
-
-#### `contents.setSize(options)`
-
-Set the size of the page. This is only supported for `<webview>` guest contents.
-
-* `options` Object 
-  * `enableAutoSize` Boolean (optional) - true to make the webview container automatically resize within the bounds specified by the attributes normal, min and max.
-  * `normal` [Size](structures/size.md) (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
-  * `min` [Size](structures/size.md) (optional) - Minimum size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
-  * `max` [Size](structures/size.md) (optional) - Maximium size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
 
 #### `contents.isOffscreen()`
 
@@ -1268,13 +1276,17 @@ Setting the WebRTC IP handling policy allows you to control which IPs are expose
 
 #### `contents.getOSProcessId()`
 
-Returns `Integer` - The `pid` of the associated renderer process.
+Returns `Integer` - The operating system `pid` of the associated renderer process.
+
+#### `contents.getProcessId()`
+
+Returns `Integer` - The chromium internal `pid` of the associated renderer. Can be compared to the `frameProcessId` passed by frame specific navigation events (e.g. `did-frame-navigate`)
 
 ### 实例属性
 
 #### `contents.id`
 
-`Integer`类型，代表WebContents的唯一标识（unique ID）。
+A `Integer` representing the unique ID of this WebContents.
 
 #### `contents.session`
 
@@ -1292,4 +1304,4 @@ A `WebContents` of DevTools for this `WebContents`.
 
 #### `contents.debugger`
 
-WebContents的 [Debugger](debugger.md)实例。
+A [Debugger](debugger.md) instance for this webContents.
