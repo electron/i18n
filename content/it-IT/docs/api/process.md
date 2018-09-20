@@ -6,6 +6,20 @@ Vedi anche: [Principale](../glossary.md#main-process), [Rendering](../glossary.m
 
 Electron's `process` object is extended from the [Node.js `process` object](https://nodejs.org/api/process.html). It adds the following events, properties, and methods:
 
+## Sandbox
+
+In sandboxed renderers the `process` object contains only a subset of the APIs:
+
+* `crash()`
+* `hang()`
+* `getHeapStatistics()`
+* `getProcessMemoryInfo()`
+* `getSystemMemoryInfo()`
+* `argv`
+* `execPath`
+* `env`
+* `platform`
+
 ## Eventi
 
 ### Event: 'loaded'
@@ -90,6 +104,22 @@ Returns [`CPUUsage`](structures/cpu-usage.md)
 
 Returns [`IOCounters`](structures/io-counters.md)
 
+### `process.getHeapStatistics()`
+
+Ritorna `Object`:
+
+* `totalHeapSize` Integer
+* `totalHeapSizeExecutable` Integer
+* `totalPhysicalSize` Integer
+* `totalAvailableSize` Integer
+* `usedHeapSize` Integer
+* `heapSizeLimit` Integer
+* `mallocedMemory` Integer
+* `peakMallocedMemory` Integer
+* `doesZapGarbage` Boolean
+
+Returns an object with V8 heap statistics. Note that all statistics are reported in Kilobytes.
+
 ### `process.getProcessMemoryInfo()`
 
 Ritorna `Object`:
@@ -97,7 +127,7 @@ Ritorna `Object`:
 * `workingSetSize` Integer - The amount of memory currently pinned to actual physical RAM.
 * `peakWorkingSetSize` Integer - The maximum amount of memory that has ever been pinned to actual physical RAM.
 * `Byteprivati` Numero intero - La quantità di memoria non condivisa da altri processi, come i mucchi JS o i contenuti HTML.
-* `Bytecondivisi` Numero intero - La quantità di memoria condivisa tra i processi, tipicamente la memoria consumata dallo stesso codice Electron.
+* `sharedBytes` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself.
 
 Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes.
 
