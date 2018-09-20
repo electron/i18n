@@ -35,19 +35,18 @@ Returns `Menu | null` - The application menu, if set, or `null`, if not set.
 <li><code> aksi </ 0>  Tali</li>
 </ul>
 
-<p>Mengirimkan <code> action </ 0> ke responder pertama dari aplikasi. Ini digunakan untuk meniru perilaku menu macos default. Biasanya Anda hanya akan menggunakan
- <a href="menu-item.md#roles"><code> peran </ 0> properti dari <a href="menu-item.md"><code> MenuItem </ 1>.</p>
+<p>Mengirimkan <code> action </ 0> ke responder pertama dari aplikasi. Ini digunakan untuk meniru perilaku menu macos default. Usually you would use the
+<a href="menu-item.md#roles"><code>role`</a> property of a [`MenuItem`](menu-item.md).</p> 
 
-<p>Lihat <a href="https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7"> MacOS Kakao Acara Penanganan Panduan </ 0> 
-untuk informasi lebih lanjut tentang MacOS tindakan asli '.</p>
+Lihat  MacOS Kakao Acara Penanganan Panduan </ 0> untuk informasi lebih lanjut tentang MacOS tindakan asli '.</p> 
 
-<h4><code>Menu.membangun dari Template (template)`
+#### `Menu.membangun dari Template (template)`
 
 * `template` MenuItemConstructorOptions[]
 
 Mengembalikan `menu`
 
-Umumnya, `template` hanyalah sebuah array dari `options` untuk membangun a [MenuItem](menu-item.md). Penggunaannya bisa diacu di atas.
+Generally, the `template` is an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
 
 Anda juga bisa melampirkan bidang lain ke elemen `template` dan mereka akan menjadi properti dari item menu yang dibangun.
 
@@ -280,22 +279,26 @@ macos telah memberikan tindakan standar untuk beberapa item menu, seperti ` Tent
 
 ## Posisi Item Menu
 
-Anda dapat menggunakan `posisi` dan `id` untuk mengontrol bagaimana item akan ditempatkan ketika membangun sebuah menu dengan `Menu.buildFromTemplate`.
+You can make use of `before`, `after`, `beforeGroupContaining`, `afterGroupContaining` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
 
-Atribut `posisi` dari `MenuItem` memiliki form ` [placement] = [id] `, di mana `penempatan` adalah salah satu dari `sebelum`, `setelah`, atau ` endof` dan` id ` adalah unik ID dari item yang ada di menu:
+* `before` - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
+* `after` - Inserts this item after the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
+* `beforeGroupContaining` - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
+* `afterGroupContaining` - Provides a means for a single context menu to declare the placement of their containing group after the containing group of the item with the specified label.
 
-* `sebelum` - Menyisipkan item ini sebelum item yang diacu id. Jika Item yang direferensikan tidak ada barang akan disisipkan pada akhir menu.
-* `setelah` - Menyisipkan item ini setelah item id direferensikan. Jika direferensikan item tidak ada item akan disisipkan di akhir menu.
-* `endof` - Menyisipkan item ini di akhir kelompok logis yang berisi item yang diacu id (grup dibuat oleh item pemisah). Jika Item yang direferensikan tidak ada, grup pemisah baru dibuat dengan id yang diberikan dan item ini dimasukkan setelah pemisah tersebut.
-
-Bila item diposisikan, semua item yang tidak diposisikan dimasukkan setelah item baru diposisikan. Jadi jika Anda ingin memposisikan sekelompok item menu di lokasi yang sama Anda hanya perlu menentukan posisi untuk item pertama.
+By default, items will be inserted in the order they exist in the template unless one of the specified positioning keywords is used.
 
 ### Contoh
 
 Template:
 
 ```javascript
-[   {label: '4', id: '4'},   {label: '5', id: '5'},   {label: '1', id: '1', position: 'before=4'},   {label: '2', id: '2'},   {label: '3', id: '3'} ]
+[
+  { id: '1', label: 'one' },
+  { id: '2', label: 'two' },
+  { id: '3', label: 'three' },
+  { id: '4', label: 'four' }
+]
 ```
 
 Menu:
@@ -305,19 +308,39 @@ Menu:
 - 2
 - 3
 - 4
-- 5
 ```
 
 Template:
 
 ```javascript
 [
-  {label: 'a', posisi: 'endof = letters'},
-  {label: '1', posisi: 'endof = numbers'},
-  {label: 'b', posisi: 'endof = letters'},
-  {label: '2', posisi: 'endof = numbers'},
-  {label: 'c', posisi: 'endof = letters'},
-  {label: '3', posisi: 'endof = numbers'}
+  { id: '1', label: 'one' },
+  { type: 'separator' },
+  { id: '3', label: 'three', beforeGroupContaining: ['1'] },
+  { id: '4', label: 'four', afterGroupContaining: ['2'] },
+  { type: 'separator' },
+  { id: '2', label: 'two' }
+]
+```
+
+Menu:
+
+```sh
+<br />- 3
+- 4
+- ---
+- 1
+- ---
+- 2
+```
+
+Template:
+
+```javascript
+[
+  { id: '1', label: 'one', after: ['3'] },
+  { id: '2', label: 'two', before: ['1'] },
+  { id: '3', label: 'three' }
 ]
 ```
 
@@ -325,11 +348,7 @@ Menu:
 
 ```sh
 <br />- ---
-- a
-- b
-- c
-- ---
-- 1
-- 2
 - 3
+- 2
+- 1
 ```
