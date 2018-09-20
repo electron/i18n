@@ -2,7 +2,7 @@
 
 > Yerel Mac OS uygulamaları için dokunmatik çubuktaki iki öğe arasında bir aralayıcı oluşturun
 
-İşlem: [Main](../tutorial/quick-start.md#main-process)
+İşlem: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new TouchBarSpacer(seçenekler)` *Deneysel*
 
