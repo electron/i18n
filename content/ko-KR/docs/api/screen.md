@@ -64,7 +64,7 @@ Emitted when `newDisplay` has been added.
 
 ### Event: 'display-removed'
 
-Returns:
+반환:
 
 * `event` Event
 * `oldDisplay` [Display](structures/display.md)
