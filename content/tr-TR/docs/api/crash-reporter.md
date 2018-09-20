@@ -22,28 +22,33 @@ Gelen çökme raporlarını kabul edip işleyen bir sunucu kurmak için aşağı
 * [socorro](https://github.com/mozilla/socorro)
 * [mini-breakpad-server](https://github.com/electron/mini-breakpad-server)
 
-Çökme raporları uygulamaya özel bir geçici dizinde kaydedilir. `isminizin` `ürünü` için çökme raporları `İsminiz Crashes` dizinimde /temp dizini altında tutulacaktır. Bu geçici dizinin yolunu `app.setPath('temp', '/my/custom/temp')` şeklinde kendinize göre ayarlayabilirsiniz.
+Or use a 3rd party hosted solution:
+
+* [Backtrace I/O](https://backtrace.io/electron/)
+* [Sentry](https://docs.sentry.io/clients/electron)
+
+Crash reports are saved locally in an application-specific temp directory folder. For a `productName` of `YourName`, crash reports will be stored in a folder named `YourName Crashes` inside the temp directory. You can customize this temp directory location for your app by calling the `app.setPath('temp', '/my/custom/temp')` API before starting the crash reporter.
 
 ## Yöntemler
 
-`crashReporter` modülü aşağıdaki metodlara sahiptir:
+The `crashReporter` module has the following methods:
 
 ### `crashReporter.start(options)`
 
-* `seçenekler` Object 
-  * `companyName` Katar (opsiyonel)
-  * `submitURL` Katar - Çökme raporlarının POST olarak yollanacağı URL.
-  * `productName` Katar (opsiyonel) - Varsayılan olarak `app.getName()`.
-  * `uploadToServer` Boolean (opsiyonel) - Çökme raporları sunucuya yollansın mı? Varsayılan `true`.
-  * `ignoreSystemCrashHandler` Boolean (opsiyonel) - Varsayılan değeri `false`.
-  * `extra` Obje (opsiyonel) - Raporla beraber yollanabilir şekilde tanımlayabileceğiniz bir obje. Sadece katar tipinde özellikler düzgün şekilde yollanır. Iç içe objeler desteklenmez, özellik isimleri ve değerleri 64 karakterden küçük olmalıdır.
-  * `crashesDirectory` Dizge (isteğe bağlı) - Kilitleme raporlarını geçici olarak saklamak için dizin (yalnızca kilitlenme raporlayıcı `process.crashReporter.start` başlatıldığında kullanılır).
+* `seçenekler` Nesne 
+  * `companyName` String (optional)
+  * `submitURL` String - URL that crash reports will be sent to as POST.
+  * `productName` String (optional) - Defaults to `app.getName()`.
+  * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server Default is `true`.
+  * `ignoreSystemCrashHandler` Boolean (optional) - Default is `false`.
+  * `extra` Object (optional) - An object you can define that will be sent along with the report. Only string properties are sent correctly. Nested objects are not supported and the property names and values must be less than 64 characters long.
+  * `crashesDirectory` String (optional) - Directory to store the crashreports temporarily (only used when the crash reporter is started via `process.crashReporter.start`).
 
-`crashReporter` API'lerini kullanmak için ve süreçlerin çökme raporlarını almak için her süreçte (main/renderer) bu metodu çağırmalısınız. Farklı süreçlerden farklı opsiyonları `crashReporter.start`'a geçebilirsiniz.
+You are required to call this method before using any other `crashReporter` APIs and in each process (main/renderer) from which you want to collect crash reports. You can pass different options to `crashReporter.start` when calling from different processes.
 
-**Not** `child_process` tarafından yaratılmış çocuk süreçlerin Electron modüllerine erişimi olmaz. Bu yüzden, çocuk süreçlere ait raporları toplamak için `process.crashReporter.start` kullanın. Çökme raporlarını geçici olarak tutan dizini işaret eden `crashesDirectory` ile birlikte aynı opsiyonları geçin. `process.crash()` ile çocuk süreci çökerterek bunu test edebilirsiniz.
+**Note** Child processes created via the `child_process` module will not have access to the Electron modules. Therefore, to collect crash reports from them, use `process.crashReporter.start` instead. Pass the same options as above along with an additional one called `crashesDirectory` that should point to a directory to store the crash reports temporarily. You can test this out by calling `process.crash()` to crash the child process.
 
-**Not:** Çocuk süreçlerden çökme raporlarını toplamak için, bu ek kodu da eklemelisiniz. Bu çökmeleri dinleyen ve yollayan süreci başlatır. `submitURL`'i, `productName` ve `crashesDirectory`'i uygun değerlerle değiştirin.
+**Note:** To collect crash reports from child process in Windows, you need to add this extra code as well. This will start the process that will monitor and send the crash reports. Replace `submitURL`, `productName` and `crashesDirectory` with appropriate values.
 
 **Note:** If you need send additional/updated `extra` parameters after your first call `start` you can call `addExtraParameter` on macOS or call `start` again with the new/updated `extra` parameters on Linux and Windows.
 
@@ -62,63 +67,62 @@ Gelen çökme raporlarını kabul edip işleyen bir sunucu kurmak için aşağı
  })
 ```
 
-**Not:** macOS üzerinde Electron, çökme raporu toplama ve raporlama için `crashpad` istemcisi kullanır. Çökme raporlamayı aktif hale getirmek için, `crashpad<code>'i ana süreç içerisinden -hangi süreçten çökmeleri toplayacağınızdan bağımsız olarak-
- <0>crashReporter.start` ile başlatmanız gerekir. Bu şekilde başlatıldıktan sonra crashpad denetimcisi tüm süreçlerden çökmeleri toplar. Yine de `crashReporter.start`'ı renderer veya çoçuk süreçlerden çağırmanız gerekir, aksi halde çokmeler `companyName`, `productName` veya `ekstra` bilgiler olmadan toplanır.
+**Note:** On macOS, Electron uses a new `crashpad` client for crash collection and reporting. If you want to enable crash reporting, initializing `crashpad` from the main process using `crashReporter.start` is required regardless of which process you want to collect crashes from. Once initialized this way, the crashpad handler collects crashes from all processes. You still have to call `crashReporter.start` from the renderer or child process, otherwise crashes from them will get reported without `companyName`, `productName` or any of the `extra` information.
 
 ### `crashReporter.getLastCrashReport()`
 
-[`CrashReport`](structures/crash-report.md) döndürür:
+Returns [`CrashReport`](structures/crash-report.md):
 
-Son çökme raporunun numarasını ve tarihini döndürür. Eğer hiçbir rapor gönderilmediyse veya çökme raporlayıcı başlamadıysa, `null` döner.
+Returns the date and ID of the last crash report. If no crash reports have been sent or the crash reporter has not been started, `null` is returned.
 
 ### `crashReporter.getUploadedReports()`
 
-[`CrashReport[]`](structures/crash-report.md) döndürür:
+Returns [`CrashReport[]`](structures/crash-report.md):
 
-Tüm yüklenmiş çökme raporlarını döndürür. Her rapor ilgili tarih ve numarayı da içerir.
+Returns all uploaded crash reports. Each report contains the date and uploaded ID.
 
 ### `crashReporter.getUploadToServer()` *Linux* *macOS*
 
 Returns `Boolean` - Whether reports should be submitted to the server. Set through the `start` method or `setUploadToServer`.
 
-**Not:** Bu API sadece ana süreç tarafından çağrılabilir.
+**Note:** This API can only be called from the main process.
 
 ### `crashReporter.setUploadToServer(uploadToServer)` *Linux* *macOS*
 
-* `uploadToServer` Boolean *macOS* - Raporlar sunucuya gönderilsin mi.
+* `uploadToServer` Boolean *macOS* - Whether reports should be submitted to the server.
 
-Normalda bu kullanıcı seçeneklerinden kontrol edilir. Eğer daha önce `start` çağrılmışsa herhangi bir etkisi yoktur.
+This would normally be controlled by user preferences. This has no effect if called before `start` is called.
 
-**Not:** Bu API sadece ana süreç tarafından çağrılabilir.
+**Note:** This API can only be called from the main process.
 
 ### `crashReporter.addExtraParameter(key, value)` *macOS*
 
 * `key` Katar - Parametre anahtarı, 64 karakterden az olmak zorundadır.
-* `key` Dizge - Parametre anahtarı, 64 karakterden az olmak zorundadır.
+* `value` String - Parameter value, must be less than 64 characters long.
 
-Çökme raporu ile birlikte gönderilmesi için bir ek parametre girin. Burada belirtilen değerler, `start` çağrıldığında `extra` seçeneği ile belirlenen değerlere ek olarak gönderilir. Bu API yalnızca macOS'ta bulunur; `start`'e ilk kez telefon açtıktan sonra Linux ve Windows'ta ek parametrelerin eklenmesi / güncellenmesi gerekiyorsa `start`'yi güncellenmiş `extra` seçenekleri ile tekrar arayabilirsiniz.
+Set an extra parameter to be sent with the crash report. The values specified here will be sent in addition to any values set via the `extra` option when `start` was called. This API is only available on macOS, if you need to add/update extra parameters on Linux and Windows after your first call to `start` you can call `start` again with the updated `extra` options.
 
 ### `crashReporter.removeExtraParameter(key)` Linux *macOS*
 
 * `key` Katar - Parametre anahtarı, 64 karakterden az olmak zorundadır.
 
-Kilitlenme raporuyla birlikte gönderilemeyeceği için mevcut parametreler grubundan fazladan bir parametre kaldırın.
+Remove a extra parameter from the current set of parameters so that it will not be sent with the crash report.
 
 ### `crashReporter.getParameters()`
 
-Çökme raportörüne gönderilen şu anki parametrelerin tümünü görün.
+See all of the current parameters being passed to the crash reporter.
 
 ## Çökme Raporu Verisi
 
-Çökme raporlarlayıcısı aşağıdaki verileri `submitURL` adresine `multipart/form-data` `POST` olarak yollayacaktır:
+The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
 
-* `ver` Katar - Electron versiyonu.
-* `platform` Katar - örneğin. 'win32'.
-* `process_type` Katar - örneğin. 'renderer'.
-* `guid` Katar - örneğin. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'.
-* `_version` Katar - `package.json` içerisindeki versiyon.
-* `_productName` Katar - `crashReporter` `options` objesi içerisindeki ürün ismi.
-* `prod` Katar - Arkadaki temel ürünün ismi. Bu durum için Electron.
-* `_companyName` Katar - `crashReporter` `options` objesi içerisindeki şirket ismi.
-* `upload_file_minidump` Dosya - `minidump` formatında çökme raporu.
-* `extra` nesnesinin `crashReporter` `options` nesnesindeki tüm birincil düzey özellikleri.
+* `ver` String - The version of Electron.
+* `platform` String - e.g. 'win32'.
+* `process_type` String - e.g. 'renderer'.
+* `guid` String - e.g. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'.
+* `_version` String - The version in `package.json`.
+* `_productName` String - The product name in the `crashReporter` `options` object.
+* `prod` String - Name of the underlying product. In this case Electron.
+* `_companyName` String - The company name in the `crashReporter` `options` object.
+* `upload_file_minidump` File - The crash report in the format of `minidump`.
+* All level one properties of the `extra` object in the `crashReporter` `options` object.
