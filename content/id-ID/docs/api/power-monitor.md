@@ -51,7 +51,7 @@ Emitted when the system is about to lock the screen.
 
 Emitted as soon as the systems screen is unlocked.
 
-## Methods
+## Metode
 
 The `powerMonitor` module has the following methods:
 
