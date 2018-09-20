@@ -69,7 +69,7 @@ win.show()
 
 ## 点击穿透窗口
 
-要创建一个点击穿透窗口，也就是使窗口忽略所有鼠标事件，可以调用 [ win.setIgnoreMouseEvents(ignore) ](browser-window.md#winsetignoremouseeventsignore) API：
+To create a click-through window, i.e. making the window ignore all mouse events, you can call the [win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore-options) API:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -115,7 +115,7 @@ button {
 }
 ```
 
-如果您只是将自定义标题栏区域设置为可拖拽，则其中的按钮也需被标记为不可拖拽。
+If you're only setting a custom titlebar as draggable, you also need to make all buttons in titlebar non-draggable.
 
 ## 文本选择
 
