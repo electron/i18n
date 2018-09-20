@@ -101,7 +101,7 @@ Borra la memoria caché del HTTP de la sesión.
 
 * `options` Objecto (opcional) 
   * `origin` String (opcional) - Debe seguir la representación de `window.location.origin` `scheme://host:port`.
-  * `storages` String[] (opcional) - Los tipos de almacenaje a limpiar, puede contener: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`.
+  * `storages` String[] (optional) - The types of storages to clear, can contain: `appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage`.
   * `quotas` String[] (opcional) - El tipo de cuotas a limpiar, puede contener: `temporary`, `persistent`, `syncable`.
 * `callback` Function (opcional) - Invocada cuando la operación ha finalizado.
 
