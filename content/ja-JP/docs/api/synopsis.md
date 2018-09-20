@@ -34,7 +34,7 @@ app.on('ready', () => {
 </html>
 ```
 
-To run your app, read [Run your app](../tutorial/first-app.md#running-your-app).
+アプリを実行するには、[アプリを実行](../tutorial/first-app.md#running-your-app) 参照してください。
 
 ## 分割代入
 
