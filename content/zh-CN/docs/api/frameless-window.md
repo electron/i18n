@@ -69,7 +69,7 @@ win.show()
 
 ## 点击穿透窗口
 
-To create a click-through window, i.e. making the window ignore all mouse events, you can call the [win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore-options) API:
+要创建一个点击穿透窗口，也就是使窗口忽略所有鼠标事件，可以调用 [ win.setIgnoreMouseEvents(ignore) ](browser-window.md#winsetignoremouseeventsignore-options) API：
 
 ```javascript
 const {BrowserWindow} = require('electron')
