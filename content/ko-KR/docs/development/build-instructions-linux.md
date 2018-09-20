@@ -27,7 +27,7 @@ $ sudo apt-get install build-essential clang libdbus-1-dev libgtk-3-dev \
                        libnotify-dev libgnome-keyring-dev libgconf2-dev \
                        libasound2-dev libcap-dev libcups2-dev libxtst-dev \
                        libxss1 libnss3-dev gcc-multilib g++-multilib curl \
-                       gperf bison
+                       gperf bison python-dbusmock
 ```
 
 RHEL / CentOS를 사용하고 있다면 다음과 같이 라이브러리를 설치해야 합니다:
@@ -36,7 +36,7 @@ RHEL / CentOS를 사용하고 있다면 다음과 같이 라이브러리를 설�
 $ sudo yum install clang dbus-devel gtk3-devel libnotify-devel \
                    libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
                    cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
-                   GConf2-devel nss-devel
+                   GConf2-devel nss-devel python-dbusmock
 ```
 
 Fedora를 사용하고 있다면 다음과 같이 라이브러리를 설치해야 합니다:
@@ -45,7 +45,7 @@ Fedora를 사용하고 있다면 다음과 같이 라이브러리를 설치해�
 $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
                    cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
-                   GConf2-devel nss-devel
+                   GConf2-devel nss-devel python-dbusmock
 ```
 
 다른 배포판의 경우 pacman 같은 패키지 매니저를 통해 패키지를 설치 할 수 있습니다. 패키지의 이름은 대부분 위 예시와 비슷할 것입니다. 또는 소스 코드를 내려받아 직접 빌드하는 방법도 있습니다.
