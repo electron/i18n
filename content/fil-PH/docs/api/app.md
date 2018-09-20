@@ -21,7 +21,7 @@ Ang bagay ng `app` ay naglalabas ng mga sumusunod na mga event:
 
 Ay lalabas kapag ang aplikasyon ay natapos na karaniwang startup. Sa Windows at Linux, ang event ng `will-finish-launching` ay parehas ng event ng `ready`: sa macOS, ang event na ito ay nagrerepresenta ng `applicationWillFinishLaunching` na notipikasyon ng `NSApplication`. Karaniwan mong ise-set up ang mga tagapakinig para sa mga event ng`open-file` at `open-url` dito, at i-start ang crash repoter at auto updater.
 
-Sa karamihan, dapat mo lang gawin ang lahat sa mga `ready` handler ng event.
+In most cases, you should do everything in the `ready` event handler.
 
 ### Mga event: 'ready'
 
@@ -320,6 +320,18 @@ app.on('session-created', (event, session) => {
 })
 ```
 
+### Event: 'second-instance'
+
+Ibinabalik ang:
+
+* `kaganapan` Kaganapan
+* `argv` String[] - Isang hanay ng mga argumento sa linya ng command sa ikalawang pagkakataon
+* `workingDirectory` String - Ang working directory ng ikalawang pagkakataon
+
+This event will be emitted inside the primary instance of your application when a second instance has been executed. Ang `argv` ay isang Array ng mga command line argument ng ikalawang instance, at ang `workingDirectory` ay ang kasalukuyang working directory nito. Kadalasan ang mga application ay magrerespond nito sa pamamagitan ng pag-focus pag-non-minimize ng kanilang primary window.
+
+This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
+
 ## Mga Paraan
 
 Ang `app` na object ay maroong mga sumusunod na mga method:
@@ -367,6 +379,10 @@ app.exit(0)
 
 Returns `Boolean` - `true` kung ang Electron ay tapos na sa pagsisimula, `false` kung hindi man.
 
+### `app.whenReady()`
+
+Returns `Promise` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
+
 ### `app.focus()`
 
 Sa Linux, naka-pokus sa unang makikitang window. Sa macOS, ginagawa ang aplikasyon na aktibong app. Sa Windows, naka-pokus sa unang window ng aplikasyon.
@@ -412,7 +428,7 @@ Maaari mong hilingin ang mga sumusunod na landas sa pamamagitan ng pangalan:
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `options` Na Bagay (opsyonal) 
+* `mga opsyon` Na Bagay (opsyonal) 
   * `sukat` String 
     * `small` - 16x16
     * `normal` - 32x32
@@ -505,7 +521,7 @@ Returns `Boolean` - Kung ang tawag ay nagtagumpay.
 
 Ang mga paraan na ito ay sinusuri kung ang kasalukuyang naipapatupad bilang default handler para sa isang protocol (aka URI scheme), Kung gayon, tatanggalin nito ang app bilang default handler.
 
-### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows* Context | Request Context
+### `app.isDefaultProtocolClient(protocol[, path, args])`
 
 * `protocol` String - Ang pangalan ng iyong protocol, walang `://`.
 * `path` String (opsyonal) *Windows* - Magdedefault sa `process.execPath`
@@ -616,21 +632,15 @@ app.setJumpList([
 ])
 ```
 
-### `app.makeSingleInstance(callback)`
+### `app.requestSingleInstanceLock()`
 
-* `callback` Function 
-  * `argv` String[] - Isang hanay ng mga argumento sa linya ng command sa ikalawang pagkakataon
-  * `workingDirectory` String - Ang working directory ng ikalawang pagkakataon
-
-Magbabalik ng `Boolean`.
+Returns `Boolean`
 
 Sa method na ito, ang ang iyong application ay magiging isang Single Instance Application - sa halip na pinapayagan ang maraming mga instance ng iyong app na mag-run, sinisiguro nito na isang instance lang ng iyong app ang mag-rurun, at ang ibang mga instance ay sisignal sa instance na ito at mag-eexit.
 
-Ang `callback` ay tatawagin ng unang instance gamit ang `callback(argv, workingDirectory)` kung ang ikalawang instance ay na-execute na. Ang `argv` ay isang Array ng mga command line argument ng ikalawang instance, at ang `workingDirectory` ay ang kasalukuyang working directory nito. Kadalasan ang mga application ay magrerespond nito sa pamamagitan ng pag-focus pag-non-minimize ng kanilang primary window.
+The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock you can assume that another instance of your application is already running with the lock and exit immediately.
 
-Ang `callback` ay siguradong i-eexecute pagkatapos ibrobrodkast ang `ready` event ng `app`.
-
-Ang method na ito ay magbabalik ng `false` kung ang proseso mo ay ang primary instance ng application at ang iyong app ay dapat nag-concontinue magload. At magbabalik ng `true` kung ang iyong proseso ay nagpadala ng mga parameter nito sa ibang insance, at dapat mong agarang ihinto.
+I.e. This method returns `true` if your process is the primary instance of your application and your app should continue loading. It returns `false` if your process should immediately quit as it has sent its parameters to another instance that has already acquired the lock.
 
 Sa macOS ang system ay awtomatikong pipilitin na mag-single instance kung ang user ay magtatangkang magbukas na ikalawang instance ng iyong app sa Finder, at ang `open-file` at `open-url` na mga event ay ibrobrodkast para doon. Gayunpaman kapag ang mga user ay binuksan ang iyong app sa linya ng command ang isahang instansyang mekanismo ng sistema ay mababalewala at kailangan mong gamitin ang pamamaraang ito para masiguro ang isahang instansya.
 
@@ -640,26 +650,34 @@ Ang isang halimbawa ng pag-aktibeyt ng window ng pangunahing instansya ay kapag 
 const {app} = require('electron')
 let myWindow = null
 
-const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
-  // May isang tao na sinubukang paandarin ang ikalawang instansya, kailangan nating i-pokus ang ating window.
-  kung ang (myWindow) {
-    kung ang (myWindow.isMinimized()) myWindow.restore()
-    myWindow.focus()
-  }
-})
+const gotTheLock = app.requestSingleInstanceLock()
 
-kung ang (isSecondInstance) {
+if (!gotTheLock) {
   app.quit()
-}
+} else {
+  app.on('second-instance', (commandLine, workingDirectory) => {
+    // Someone tried to run a second instance, we should focus our window.
+    if (myWindow) {
+      if (myWindow.isMinimized()) myWindow.restore()
+      myWindow.focus()
+    }
+  })
 
-// Gumawa ng  myWindow, i-load ang natitira pang mga app, atbp...
-app.on('ready', () => {
-})
+  // Create myWindow, load the rest of the app, etc...
+  app.on('ready', () => {
+  })
+}
 ```
 
-### `app.releaseSingleInstance()`
+### `app.hasSingleInstanceLock()`
 
-Binuksan ang lahat ng mga trangka na ginawa ng `makeSingleInstance`. Pinapayagan nito ang maramihang mga instansya ng mga aplikasyon na gumanang muli ng magkakatabi.
+Returns `Boolean`
+
+This method returns whether or not this instance of your app is currently holding the single instance lock. You can request the lock with `app.requestSingleInstanceLock()` and release with `app.releaseSingleInstanceLock()`
+
+### `app.releaseSingleInstanceLock()`
+
+Releases all locks that were created by `requestSingleInstanceLock`. This will allow multiple instances of the application to once again run side by side.
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
@@ -732,7 +750,7 @@ Ang badge na tagabilang ay nai-set para sa kasalukuyang app. Itinatago ang badge
 
 Sa macOS ipinapakita ito sa dock icon. Sa Linux ito ay gumagalaw lamang para sa tagapaglunsad ng Unity,
 
-**Note:** Ang tagalunsad ng Unity ay nangangailangan ng pagkakaroon ng isang file na `.desktop` para gumana, para sa karagdagan impormasyon mangyaring basahin ang [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
+**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
@@ -744,13 +762,13 @@ Nagbabalik ang `Boolean` - Kung ang kasalukuyang kapaligiran ay tagalunsad ng Un
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `mga opsyon` Na Bagay (opsyonal) 
+* `mga opsyon` Bagay (opsyonal) 
   * `path` String (opsyonal) *Windows* - Ang maipapatupad na landas na ihahambing laban sa. Mga default sa `process.execPath`.
   * `args` String[] (opsyonal) *Windows* - Ang mga argumento ng command-line na ihahambing laban sa. Mga default sa isang hanay na walang laman.
 
 Kung ibinigay mo ang mga opsyon ng mga `path` at mga `args` sa `app.setLoginItemSettings` kung gayon dapat mong ipasa ang mga parehong argumento dito para mai-set ng tama ang `openAtLogin`.
 
-Returns `Object`:
+Nagbabalik ng mga `bagay`:
 
 * `openAtLogin` Boolean - `true` kung ang app ay naka-set na bumukas sa pag-login.
 * `openAsHidden` Boolean *macOS* - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
@@ -908,10 +926,16 @@ Nagbabalik ang `Boolean` - Kung ang mga icon sa dock ay nakikita. Ang tawag ng `
 
 * `menu` [Menu](menu.md)
 
-I-set ang [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103) ng aplikasyon.
+Sets the application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
 
 ### `app.dock.setIcon(image)` *macOS*
 
 * `image` [NativeImage](native-image.md) (String)
 
 I-set ang `image` na may kaugnayan sa dock icon na ito.
+
+## Mga Katangian
+
+### `app.isPackaged`
+
+A `Boolean` property that returns `true` if the app is packaged, `false` otherwise. For many apps, this property can be used to distinguish development and production environments.
