@@ -385,15 +385,15 @@ window.addEventListener('contextmenu', (e) =&gt; {
 </h2>
 
 <p>
-  You can make use of <code>before</code>, <code>after</code>, <code>beforeGroupContaining</code>, <code>afterGroupContaining</code> and <code>id</code> to control how the item will be placed when building a menu with <code>Menu.buildFromTemplate</code>.
+  你可以使用 <code>before</code>, <code>after</code>, <code>beforeGroupContaining</code>, <code>afterGroupContaining</code> 和 <code>id</code> 来控制由 <code>Menu.buildFromTemplate</code> 生成的菜单项的位置.
 </p>
 
 <ul>
   <li>
-    <code>before</code> - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
+    <code>before</code> - 在指定的标签之前插入菜单项。 如果引用值不存在，那么该菜单项会插在这个菜单的尾部。 这还意味着，菜单项应该被放置在与引用项相同的组中。
   </li>
   <li>
-    <code>after</code> - Inserts this item after the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
+    <code>after</code> - 在指定的标签之后插入菜单项。 如果引用值不存在，那么该菜单项会插在这个菜单的尾部。 这还意味着，菜单项应该被放置在与引用项相同的组中。
   </li>
   <li>
     <code>beforeGroupContaining</code> - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
@@ -404,7 +404,7 @@ window.addEventListener('contextmenu', (e) =&gt; {
 </ul>
 
 <p>
-  By default, items will be inserted in the order they exist in the template unless one of the specified positioning keywords is used.
+  默认情况下，除非有位置相关的属性，所有的菜单项会按照模板中的顺序排放。
 </p>
 
 <h3>
