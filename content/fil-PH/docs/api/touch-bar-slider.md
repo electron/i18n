@@ -2,7 +2,7 @@
 
 > Maglikha ng slider sa touch bar para sa likas na aplikasyong macOs
 
-Proseso: [Pangunahing](../tutorial/quick-start.md#main-process)
+Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `bagong TouchBarSlider(opsyon)` *Eksperimento*
 
