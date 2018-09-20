@@ -27,7 +27,7 @@ $ sudo apt-get install build-essential clang libdbus-1-dev libgtk-3-dev \
                        libnotify-dev libgnome-keyring-dev libgconf2-dev \
                        libasound2-dev libcap-dev libcups2-dev libxtst-dev \
                        libxss1 libnss3-dev gcc-multilib g++-multilib curl \
-                       gperf bison
+                       gperf bison python-dbusmock
 ```
 
 Sa RHEL / CentOS, "i-install" ang mga sumusunod na "library":
@@ -36,7 +36,7 @@ Sa RHEL / CentOS, "i-install" ang mga sumusunod na "library":
 $ sudo yum install clang dbus-devel gtk3-devel libnotify-devel \
                    libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
                    cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
-                   GConf2-devel nss-devel
+                   GConf2-devel nss-devel python-dbusmock
 ```
 
 Sa Fedora, "i-install" ang mga sumusunod na mga "library":
@@ -45,7 +45,7 @@ Sa Fedora, "i-install" ang mga sumusunod na mga "library":
 $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
                    cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
-                   GConf2-devel nss-devel
+                   GConf2-devel nss-devel python-dbusmock
 ```
 
 Ang ibang mga distribusyon ay maaaring ipagamit ang parehong "package" para sa "installation" gamit ang "package managers" tulad ng "pacman". Pwede ring ikompayl ang isa galing sa "source code".
