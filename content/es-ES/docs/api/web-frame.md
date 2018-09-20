@@ -4,7 +4,9 @@
 
 Proceso: [Renderer](../glossary.md#renderer-process)
 
-Un ejemplo de zoom de la página actual al 200%.
+`webFrame` export of the electron module is an instance of the `WebFrame` class representing the top frame of the current `BrowserWindow`. Sub-frames can be retrieved by certain properties and methods (e.g. `webFrame.firstChild`).
+
+An example of zooming current page to 200%.
 
 ```javascript
 const {webFrame} = require('electron')
@@ -14,7 +16,7 @@ webFrame.setZoomFactor(2)
 
 ## Métodos
 
-El módulo `webFrame` tiene los siguientes métodos:
+The `WebFrame` class has the following instance methods:
 
 ### `webFrame.setZoomFactor(factor)`
 
@@ -24,7 +26,7 @@ Cambia el factor de zoom al factor especificado. El factor de zoom es el porcent
 
 ### `webFrame.getZoomFactor()`
 
-Devuelve `Número` - El factor de zoom actual.
+Returns `Number` - The current zoom factor.
 
 ### `webFrame.setZoomLevel(nivel)`
 
@@ -34,7 +36,7 @@ Cambia el nivel de zoom al nivel especificado. El tamaño original es 0 y cada i
 
 ### `webFrame.getZoomLevel()`
 
-Devuelve `Número` - El nivel de zoom actual.
+Returns `Number` - The current zoom level.
 
 ### `webFrame.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
@@ -59,11 +61,11 @@ Establece el nivel de zoom máximo y mínimo basado en el diseño (es decir, no 
 ` Función - Devoluciones `Boolean`. 
     * `texto` String
 
-Establece un proveedor para la corrección ortográfica en campos de entrada y áreas de texto.
+Sets a provider for spell checking in input fields and text areas.
 
-El `proveedor` debe ser un objeto que tenga un método de `corrección ortográfica` que devuelva si la palabra aprobada está escrita correctamente.
+The `provider` must be an object that has a `spellCheck` method that returns whether the word passed is correctly spelled.
 
-Un ejemplo de uso de [node-spellchecker](https://github.com/atom/node-spellchecker) como proveedor:
+An example of using [node-spellchecker](https://github.com/atom/node-spellchecker) as provider:
 
 ```javascript
 const {webFrame} = require('electron')
@@ -74,55 +76,47 @@ webFrame.setSpellCheckProvider('en-US', true, {
 })
 ```
 
-### `webFrame.registerURLSchemeAsSecure(esquema)`
+### `webFrame.registerURLSchemeAsBypassingCSP(scheme)`
 
 * `scheme` String
 
-Registra el `esquema` como esquema seguro.
+Resources will be loaded from this `scheme` regardless of the current page's Content Security Policy.
 
-Los esquemas seguros no activan advertencias de contenido mixto. Por ejemplo, `https` y `datos` son esquemas seguros porque no pueden ser dañados por atacantes de red activos.
-
-### `webFrame.registerURLSchemeAsBypassingCSP(esquema)`
+### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
 * `scheme` String
-
-Los recursos se cargarán desde este `esquema` independientemente de la Política de Seguridad de Contenido de la página actual.
-
-### `webFrame.registerURLSchemeAsPrivileged(esquema[, opciones])`
-
-* `scheme` String
-* `opciones` Objecto (opcional) 
+* `options` Object (opcional) 
   * `secure` Boolean (optional) - Default true.
   * `bypassCSP` Boolean (optional) - Default true.
   * `allowServiceWorkers` Boolean (optional) - Default true.
   * `supportFetchAPI` Boolean (optional) - Default true.
   * `corsEnabled` Boolean (optional) - Default true.
 
-Registra el `esquema` como seguro, omite la política de seguridad de contenido para los recursos, permite el registro de ServiceWorker y admite la API de recuperación.
+Registers the `scheme` as secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
 
-Especifique una opción con el valor de `falso` para omitirla del registro. Un ejemplo de registro de un esquema con privilegios, sin eludir la Política de Seguridad de Contenido:
+Specify an option with the value of `false` to omit it from the registration. An example of registering a privileged scheme, without bypassing Content Security Policy:
 
 ```javascript
 const {webFrame} = require('electron')
 webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 ```
 
-### `webFrame.insertText(texto)`
+### `webFrame.insertText(text)`
 
 * `texto` String
 
-Inserta `texto` en el elemento enfocado.
+Inserta `texto` al elemento centrado.
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
-* `code` Cadena de caracteres
-* `userGesture` Boolean (opcional) - Predeterminado es `falso`.
+* `codigo` String
+* `userGesture` Boolean (opcional) - Por de `false`.
 * `callback` Function (opcional) - Es llamado luego de que se haya ejecutado el script. 
   * `resultado` Cualquiera
 
 Devolver `Promesa`: una promesa se resuelve con el resultado del código ejecutado o se rechaza si el resultado del código es una promesa rechazada.
 
-Evalúa el `code` en la página.
+Evaluar `code` en la página.
 
 En la ventana del navegador, algunas API HTML como `requestFullScreen` solo pueden invocarse con un gesto del usuario. Establecer `userGesture` a `true` eliminará esta limitación.
 
@@ -130,7 +124,7 @@ En la ventana del navegador, algunas API HTML como `requestFullScreen` solo pued
 
 * `worldId` Integer
 * `scripts` [WebSource[]](structures/web-source.md)
-* `userGesture` Boolean (opcional) - Predeterminado es `falso`.
+* `userGesture` Boolean (opcional) - Por de `false`.
 * `callback` Function (opcional) - Es llamado luego de que se haya ejecutado el script. 
   * `resultado` Cualquiera
 
@@ -146,7 +140,7 @@ Set the content security policy of the isolated world.
 ### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)`
 
 * `worldId` Integer
-* `name` String
+* `name` Cadena
 
 Set the name of the isolated world. Useful in devtools.
 
@@ -159,7 +153,7 @@ Set the security origin of the isolated world.
 
 ### `webFrame.getResourceUsage()`
 
-Devuelve `Objeto`:
+Devuelve `Objecto`:
 
 * `images` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `scripts` [MemoryUsageDetails](structures/memory-usage-details.md)
@@ -168,14 +162,14 @@ Devuelve `Objeto`:
 * `fonts` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `other` [MemoryUsageDetails](structures/memory-usage-details.md)
 
-Devuelve un objeto que describe la información de uso de las cachés de memoria interna de Blink.
+Returns an object describing usage information of Blink's internal memory caches.
 
 ```javascript
 const {webFrame} = requiere('electron')
 console.log(webFrame.getResourceUsage())
 ```
 
-Esto generará:
+This will generate:
 
 ```javascript
 {
@@ -193,6 +187,50 @@ Esto generará:
 
 ### `webFrame.clearCache()`
 
-Intenta liberar memoria que ya no se usa (como las imágenes de una navegación anterior).
+Attempts to free memory that is no longer being used (like images from a previous navigation).
 
-Tenga en cuenta que llamar ciegamente este método probablemente haga que Electron sea más lento, ya que tendrá que volver a llenar estos cachés vacíos, solo debe llamarlo si ha ocurrido un evento en su aplicación que le haga pensar que su página está usando menos memoria (es decir, ha navegado desde una página muy pesada a una casi vacía, y tiene la intención de permanecer allí).
+Note that blindly calling this method probably makes Electron slower since it will have to refill these emptied caches, you should only call it if an event in your app has occurred that makes you think your page is actually using less memory (i.e. you have navigated from a super heavy page to a mostly empty one, and intend to stay there).
+
+### `webFrame.getFrameForSelector(selector)`
+
+* `selector` String - CSS selector for a frame element.
+
+Returns `WebFrame` - The frame element in `webFrame's` document selected by `selector`, `null` would be returned if `selector` does not select a frame or if the frame is not in the current renderer process.
+
+### `webFrame.findFrameByName(name)`
+
+* `name` Cadena
+
+Returns `WebFrame` - A child of `webFrame` with the supplied `name`, `null` would be returned if there's no such frame or if the frame is not in the current renderer process.
+
+### `webFrame.findFrameByRoutingId(routingId)`
+
+* `routingId` Integer - An `Integer` representing the unique frame id in the current renderer process. Routing IDs can be retrieved from `WebFrame` instances (`webFrame.routingId`) and are also passed by frame specific `WebContents` navigation events (e.g. `did-frame-navigate`)
+
+Returns `WebFrame` - that has the supplied `routingId`, `null` if not found.
+
+## Propiedades
+
+### `webFrame.top`
+
+A `WebFrame` representing top frame in frame hierarchy to which `webFrame` belongs, the property would be `null` if top frame is not in the current renderer process.
+
+### `webFrame.opener`
+
+A `WebFrame` representing the frame which opened `webFrame`, the property would be `null` if there's no opener or opener is not in the current renderer process.
+
+### `webFrame.parent`
+
+A `WebFrame` representing parent frame of `webFrame`, the property would be `null` if `webFrame` is top or parent is not in the current renderer process.
+
+### `webFrame.firstChild`
+
+A `WebFrame` representing the first child frame of `webFrame`, the property would be `null` if `webFrame` has no children or if first child is not in the current renderer process.
+
+### `webFrame.nextSibling`
+
+A `WebFrame` representing next sibling frame, the property would be `null` if `webFrame` is the last frame in its parent or if the next sibling is not in the current renderer process.
+
+### `webFrame.routingId`
+
+An `Integer` representing the unique frame id in the current renderer process. Distinct WebFrame instances that refer to the same underlying frame will have the same `routingId`.
