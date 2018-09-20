@@ -6,7 +6,7 @@
 
 `webFrame` export of the electron module is an instance of the `WebFrame` class representing the top frame of the current `BrowserWindow`. Sub-frames can be retrieved by certain properties and methods (e.g. `webFrame.firstChild`).
 
-An example of zooming current page to 200%.
+Пример масштабирования текущей страницы до 200%.
 
 ```javascript
 const {webFrame} = require('electron')
@@ -26,7 +26,7 @@ The `WebFrame` class has the following instance methods:
 
 ### `webFrame.getZoomFactor()`
 
-Returns `Number` - The current zoom factor.
+Возвращает `Number` - текущего маштаба.
 
 ### `webFrame.setZoomLevel(level)`
 
@@ -36,7 +36,7 @@ Returns `Number` - The current zoom factor.
 
 ### `webFrame.getZoomLevel()`
 
-Returns `Number` - The current zoom level.
+Возвращает `Number` - текущего уровня маштаба.
 
 ### `webFrame.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
@@ -60,11 +60,11 @@ Returns `Number` - The current zoom level.
   * `spellCheck` Function - возвращает `Boolean`. 
     * `text` String
 
-Sets a provider for spell checking in input fields and text areas.
+Задает поставщика для проверки орфографии в полях ввода и текстовых областях.
 
-The `provider` must be an object that has a `spellCheck` method that returns whether the word passed is correctly spelled.
+`provider` должен быть объект, имеющий `spellCheck` метод, возвращающий, результат правильного написания слова.
 
-An example of using [node-spellchecker](https://github.com/atom/node-spellchecker) as provider:
+Пример использования [node-spellchecker](https://github.com/atom/node-spellchecker) как поставщик:
 
 ```javascript
 const {webFrame} = require('electron')
@@ -79,21 +79,21 @@ webFrame.setSpellCheckProvider('en-US', true, {
 
 * `scheme` String
 
-Resources will be loaded from this `scheme` regardless of the current page's Content Security Policy.
+Ресурсы будут загружены из этой `scheme` независимо от текущей страницы и политики безопасности контента.
 
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
 * `scheme` String
-* `options` Object (опиционально) 
+* `options` Object (опционально) 
   * `secure` Boolean (optional) - Default true.
   * `bypassCSP` Boolean (optional) - Default true.
   * `allowServiceWorkers` Boolean (optional) - Default true.
   * `supportFetchAPI` Boolean (optional) - Default true.
   * `corsEnabled` Boolean (optional) - Default true.
 
-Registers the `scheme` as secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
+Регистрирует `scheme` как безопасную, обходит политику безопасности контента для ресурсов, позволяет регистрировать ServiceWorker и поддерживает получение API.
 
-Specify an option with the value of `false` to omit it from the registration. An example of registering a privileged scheme, without bypassing Content Security Policy:
+Указав параметр со значением `false` - исключит его из регистрации. Пример регистрации привилегированной схемы, без обхода политики безопасности контента:
 
 ```javascript
 const {webFrame} = require('electron')
@@ -161,14 +161,14 @@ Set the security origin of the isolated world.
 * `fonts` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `other` [MemoryUsageDetails](structures/memory-usage-details.md)
 
-Returns an object describing usage information of Blink's internal memory caches.
+Возвращает объект, описывающий сведения об использовании Blink внутренней памяти кэшей.
 
 ```javascript
 const {webFrame} = require('electron')
 console.log(webFrame.getResourceUsage())
 ```
 
-This will generate:
+Это будет генерировать:
 
 ```javascript
 {
@@ -186,9 +186,9 @@ This will generate:
 
 ### `webFrame.clearCache()`
 
-Attempts to free memory that is no longer being used (like images from a previous navigation).
+Пытается освободить память, которая больше не используется (например, изображения из предыдущей навигации).
 
-Note that blindly calling this method probably makes Electron slower since it will have to refill these emptied caches, you should only call it if an event in your app has occurred that makes you think your page is actually using less memory (i.e. you have navigated from a super heavy page to a mostly empty one, and intend to stay there).
+Обратите внимание, что безрассудный вызов этого метода вероятно замедлит Electron, поскольку ему придется чистить кэши даже если они уже пустые, так что этот метод следует вызывать только в случае, когда вы уверены, что страница стала использовать меньше памяти (например, произошел переход с супер-тяжёлой страницы на лёгкую без ожидаемого возврата обратно на тяжёлую).
 
 ### `webFrame.getFrameForSelector(selector)`
 
