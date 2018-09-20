@@ -1,7 +1,7 @@
 # NotificationAction Object
 
 * `type</ 0>  String - Tipe tindakan, bisa dengan <code>button</ 0> .</li>
-<li><code>text` String (optional) - The label for the given action.
+<li><code>text` String (opsional) - Label yang diberikan untuk aksi.
 
 ## Platform / Action Support
 
@@ -21,6 +21,6 @@ Penggunaan ` teks </ 0></th>
 In order for extra notification buttons to work on macOS your app must meet the following criteria.
 
 * Aplikasi telah ditandatangani
-* App has it's `NSUserNotificationAlertStyle` set to `alert` in the `Info.plist`.
+* Aplikasi mempunyai `NSUserNotificationAlertStyle` set ke `alert` di bagian `info.plist`.
 
-If either of these requirements are not met the button won't appear.
+Jika salah satu dari persyaratan tidak terpenuhi maka tombol tidak akan muncul.
