@@ -32,7 +32,7 @@ Ibinabalik ang `Menu | null` - Ang menu ng aplikasyon, kapag naitakda, o `null` 
 
 * `action` na String
 
-Ipinapadala ang `aksyon` sa unang tagaresponde ng aplikasyon. Ito ay ginagamit para sa paggaya sa default na mga paggalaw ng macOS na menu. Kadalasan ginagamit mo lang ang katangiang [`role`](menu-item.md#roles) ng isang [`Menultem`](menu-item.md).
+Ipinapadala ang `aksyon` sa unang tagaresponde ng aplikasyon. Ito ay ginagamit para sa paggaya sa default na mga paggalaw ng macOS na menu. Usually you would use the [`role`](menu-item.md#roles) property of a [`MenuItem`](menu-item.md).
 
 Tingnan ang [Gabay sa Paghahawak ng Kaganapang macOS Cocoa](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7) para sa karagdagang impormasyon sa mga natibong aksyon ng macOS.
 
@@ -42,7 +42,7 @@ Tingnan ang [Gabay sa Paghahawak ng Kaganapang macOS Cocoa](https://developer.ap
 
 Ibinabalik ang `Menu`
 
-Sa pangkalahatan, ang `template` ay isang hanay lamang ng mga `pagpipilian` para sa paggawa ng isang [MenuItem](menu-item.md). Ang paggamit ay maaaring ibabatay sa itaas.
+Generally, the `template` is an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
 
 Mailalakip mo rin ang iba pang mga patlang sa mga elemento ng mga `template` at sila ay magiging mga katangian ng mga naggawang mga aytem ng menu.
 
@@ -270,62 +270,76 @@ Ang [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api
 
 ## Posisyon ng Item ng Menu
 
-Maaari kang gumamit ng `position` at `id` para makontrol kung paano ilalagay ang mga item kapag bumubuo ng isang menu sa pamamagitan ng `Menu.buildFromTemplate`.
+You can make use of `before`, `after`, `beforeGroupContaining`, `afterGroupContaining` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
 
-Ang katangian ng `position` ng `MenuItem` ay may anyo na `[placement]=[id]`, kung saan `placement` ay isa sa `before`, `after`, o `endof` at `id` ay ang natatanging ID ng isang umiiral na item sa menu:
+* `before` - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
+* `after` - Inserts this item after the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
+* `beforeGroupContaining` - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
+* `afterGroupContaining` - Provides a means for a single context menu to declare the placement of their containing group after the containing group of the item with the specified label.
 
-* `before` - Isisingit ang item na ito bago ang id ng isinangguning item. Kung ang isinangguning item ay hindi umiiral ang item ay ilalagay sa hulihan ng menu.
-* `after` - Isisingit ang item na ito pagkatapos ng id ng isinangguning item, Kung ang isinangguning item ay hindi umiiral ang item ay ilalagay sa hulihan ng menu.
-* `endof` - Isisingit ang item na ito sa hulihan ng lohikal na grupo na naglalaman ng id ng isinangguning item (ang mga grupo ay ginawa nang taga-hiwalay ng mga item). Kung ang isinangguning aytem ay hindi umiiral, isang bagong grupo ng taga-hiwalay ay lilikhain kasama ang ibinigay na id at ang aytem na ito ay ilalagay pagkatapos nang taga-hiwalay.
-
-Kapag ang aytem ay naka-posisyon na, lahat ng hindi naka-posisyon na mga aytem ay ilalagay pagkatapos nito hanggang ang isang bagong aytem ay nai-posisyon na. Kaya kung gusto mong i-posisyon ang isang grupo ng mga aytem ng menu sa kaparehas na lokasyon kailangan mo lang tukuyin ang posisyon para sa unang aytem.
+By default, items will be inserted in the order they exist in the template unless one of the specified positioning keywords is used.
 
 ### Halimbawa
 
-Ang Template:
+Template:
 
 ```javascript
 [
-  {label: '4', id: '4'},
-  {label: '5', id: '5'},
-  {label: '1', id: '1', posisyon: 'before=4'},
-  {label: '2', id: '2'},
-  {label: '3', id: '3'}
+  { id: '1', label: 'one' },
+  { id: '2', label: 'two' },
+  { id: '3', label: 'three' },
+  { id: '4', label: 'four' }
 ]
 ```
 
-Ang Menu:
+Menu:
 
 ```sh
 <br />- 1
 - 2
 - 3
 - 4
-- 5
 ```
 
-Ang Template:
+Template:
 
 ```javascript
 [
-  {label: 'a', position: 'endof=letters'},
-  {label: '1', position: 'endof=numbers'},
-  {label: 'b', position: 'endof=letters'},
-  {label: '2', position: 'endof=numbers'},
-  {label: 'c', position: 'endof=letters'},
-  {label: '3', position: 'endof=numbers'}
+  { id: '1', label: 'one' },
+  { type: 'separator' },
+  { id: '3', label: 'three', beforeGroupContaining: ['1'] },
+  { id: '4', label: 'four', afterGroupContaining: ['2'] },
+  { type: 'separator' },
+  { id: '2', label: 'two' }
 ]
 ```
 
-Ang Menu:
+Menu:
+
+```sh
+<br />- 3
+- 4
+- ---
+- 1
+- ---
+- 2
+```
+
+Template:
+
+```javascript
+[
+  { id: '1', label: 'one', after: ['3'] },
+  { id: '2', label: 'two', before: ['1'] },
+  { id: '3', label: 'three' }
+]
+```
+
+Menu:
 
 ```sh
 <br />- ---
-- a
-- b
-- c
-- ---
-- 1
-- 2
 - 3
+- 2
+- 1
 ```
