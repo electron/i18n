@@ -69,7 +69,7 @@ win.show()
 
 ## Tıklama penceresi
 
-To create a click-through window, i.e. making the window ignore all mouse events, you can call the [win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore-options) API:
+Bir tıklama penceresi oluşturmak, diğer bir deyişle, pencereyi tüm fare hareketlerinden yok saymak için, [ win.setIgnoreMouseEvents (ignore)](browser-window.md#winsetignoremouseeventsignore-options)'ı çağırabilirsiniz. API:
 
 ```javascript
 const {BrowserWindow} = require('electron')
