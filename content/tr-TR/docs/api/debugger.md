@@ -61,14 +61,14 @@ Verilen komutu hata ayıklama hedefine gönderin.
 
 #### Etkinlik: 'ayırmak'
 
-* `event` Olay
+* `event` Event
 * `reason` String - Hata ayıklayıcıyı ayırma nedeniniz.
 
 Hata ayıklama oturumu sona erdiğinde yayan. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
 
 #### Etkinlik: 'mesaj'
 
-* `event` Olay
+* `event` Event
 * `method` String - Yöntem adı.
 * `params` Object - Olay parametreleri 'parametreler' özniteliği uzaktan hata ayıklama protokolünde.
 
