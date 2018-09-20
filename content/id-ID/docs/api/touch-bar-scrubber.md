@@ -2,7 +2,7 @@
 
 > Membuat scrubber (digulir pemilih)
 
-Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+Proses: [utama](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `TouchBarScrubberbaru(pilihan) ` * Eksperimental *
 
@@ -18,7 +18,7 @@ Process: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
   * `modus` String - default untuk `gratis`.
   * `terus-menerus` Aljabar Boolean - default ke `true`.
 
-### Properti Instance
+### Instance Properties
 
 Properti berikut tersedia pada contoh-contoh dari `TouchBarScrubber`:
 
