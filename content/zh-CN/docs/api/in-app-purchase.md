@@ -25,7 +25,7 @@
 
 * `productID` String - The identifiers of the product to purchase. (The identifier of `com.example.app.product1` is `product1`).
 * `quantity` Integer (可选) - 用户所要购买的商品数量.
-* `callback` Function (optional) - The callback called when the payment is added to the PaymentQueue. 
+* `callback` Function (可选) - 当购买事件被推到 PaymentQueue中时触发这个回调函数. 
     * `isProductValid` Boolean - 用来表示商品是否已经添加到支付队列中。
 
 You should listen for the `transactions-updated` event as soon as possible and certainly before you call `purchaseProduct`.
@@ -40,11 +40,11 @@ Retrieves the product descriptions.
 
 ### `inAppPurchase.canMakePayments()`
 
-Returns `Boolean`, whether a user can make a payment.
+返回 `Boolean`, 用来判断用户是否可以发起支付.
 
 ### `inAppPurchase.getReceiptURL()`
 
-Returns `String`, the path to the receipt.
+返回 `String`, 指收据路径.
 
 ### `inAppPurchase.finishAllTransactions()`
 
