@@ -20,7 +20,7 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 * `env`
 * `platform`
 
-## Ereignisse
+## Veranstaltungen
 
 ### Event: 'loaded'
 
@@ -127,7 +127,7 @@ Gibt das `Object` zurück:
 * `workingSetSize` Integer - The amount of memory currently pinned to actual physical RAM.
 * `peakWorkingSetSize` Integer - The maximum amount of memory that has ever been pinned to actual physical RAM.
 * `privateBytes` Integer - Die Speichergrösse die nicht mit anderen Prozessen wie zB. JS heap oder HTML geteilt wird.
-* `sharedBytes` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself.
+* `sharedBytes` Integer - Die Speichergrösse die mit anderen Prozessen geteilt wird, typischerweise Speicher, der von Electron code selber gebraucht wird.
 
 Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes.
 
