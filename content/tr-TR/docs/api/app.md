@@ -21,7 +21,7 @@ app.on('window-all-closed', () => {
 
 Uygulama temel başlangıcını bitirdiği zaman ortaya çıkar. Windows ve Linux'ta, `bitiş başlatma` olayı, `hazır` etkinliği ile aynıdır; macOS'ta bu olay, `NSApplication` 'in `applicationWillFinishLaunching` bildirimini temsil eder. Genellikle, `açık dosya` ve `açık-url` olayları için dinleyicileri ayarlarsınız ve çökme muhabirini ve otomatik güncelleyiciyi başlatırsınız.
 
-Çoğu durumda, her şeyi yalnızca `hazır` olay işleyicisinde yapmalısınız.
+In most cases, you should do everything in the `ready` event handler.
 
 ### Etkinlik: 'hazır'
 
@@ -41,7 +41,7 @@ Bu etkinliğe abone değilseniz ve tüm pencereler kapalıysa, varsayılan davra
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 
 Uygulama pencerelerini kapatmaya başlamadan önce ortaya çıkar. `event.preventDefault()` öğesini çağırmak, uygulamayı sonlandıran varsayılan davranışı engelleyecektir.
 
@@ -307,7 +307,7 @@ Chrome'un erişilebilirlik takviyesi değiştiğinde ortaya çıkar. Bu olay, ek
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `session` [Session](session.md)
 
 Emitted when Electron has created a new `session`.
@@ -319,6 +319,18 @@ app.on('session-created', (event, session) => {
   console.log(session)
 })
 ```
+
+### Event: 'second-instance'
+
+Dönüşler:
+
+* `event` Event
+* `argv` Dizi[] - İkinci aşamanın komuta satırı argümanları sırası
+* `workingDirectory` Dizi - İkinci aşamanın çalışma dizini
+
+This event will be emitted inside the primary instance of your application when a second instance has been executed. `argv` ikinci örneğin komuta sırası argümanlarının dizilişidir, ve `workingDirectory` bunun şimdiki çalışma dizinidir. Genellikle uygulama, ana penceresinin odağını küçültecek ve odaklaştıracak şekilde yanıtlar.
+
+This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
 
 ## Metodlar
 
@@ -367,6 +379,10 @@ app.exit(0)
 
 Eğer Electron sıfırlamayı tamamladıysa `Boolean` - `true` dönütünü, tamamlamadıysa `false` dönütünü verir.
 
+### `app.whenReady()`
+
+Returns `Promise` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
+
 ### `app.focus()`
 
 Linux'ta görünebilen ilk pencereye odaklanır. macOS'ta uygulamayı aktif uygulama yapar. Windows'ta uygulamanın ilk penceresine odaklanır.
@@ -385,7 +401,7 @@ Gizlenmiş olan uygulama pencerelerini gösterir. Pencerelere otomatik olarak od
 
 ### `app.getPath(isim)`
 
-* `name` Satır
+* `name` Dizi
 
 `String` - olarak `name` ile ilişkilendirilmiş bir dosya veya dizgine yönelmiş yol dönütünü verir. Hata durumunda bir `Error` dönütü verir.
 
@@ -484,7 +500,7 @@ Yakın zamandaki dokümentasyon listesini temizler.
 
 * 71/5000 `protokol` String - `://` olmadan protokolünüzün adı: Uygulamanızın `electron://` bağlantılarını işlemesini isterseniz, bu yöntemi parametre olarak `electron` ile çağırın.
 * `yolu` Dize (isteğe bağlı) *Windows* - Varsayılan değer olarak `process.execPath`
-* `args` Dizi[] (isteğe bağlı) *Windows* - Boş düzeni varsayılana ayarlar
+* `args` Dizi [] (isteğe bağlı) *Windows* - Boş bir diziye varsayılan
 
 Aramanın başarılı olup olmadığı `Boole Değerine ` döndürür.
 
@@ -499,17 +515,17 @@ API dahili olarak Windows Kayıt Defteri ve LSSetDefaultHandlerForURLScheme kull
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
 * 71/5000 `protokol` String - `://` olmadan protokolünüzün adı.
-* `yolu` Dize (isteğe bağlı) *Windows* - Varsayılan değer olarak `process.execPath`
-* `args` Dizi [] (isteğe bağlı) *Windows* - Boş bir diziye varsayılan
+* `path` Dizi (isteğe bağlı) *Windows* - Varsayılana çevirir `process.execPath`
+* `args` Dizi[] (isteğe bağlı) *Windows* - Boş düzeni varsayılana ayarlar
 
-Aramanın başarılı olup olmadığı `Boole Değerine ` döndürür.
+`Boolean` 'ı geri getirir - Çağrı başarılı olduğunda.
 
 Bu yöntem, geçerli yürütülebilir bir iletişim kuralı (aka URI şeması) için varsayılan işleyici olarak çalışıp çalışmadığını kontrol eder. Eğer öyleyse, varsayılan işleyici olarak uygulamayı kaldırır.
 
-### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
+### `app.isDefaultProtocolClient(protocol[, path, args])`
 
-* 71/5000 `protokol` String - `://` olmadan protokolünüzün adı:
-* `path` Dizi (isteğe bağlı) *Windows* - Varsayılana çevirir `process.execPath`
+* 71/5000 `protokol` String - `://` olmadan protokolünüzün adı.
+* `yolu` Dize (isteğe bağlı) *Windows* - Varsayılan değer olarak `process.execPath`
 * `args` Dizi[] (isteğe bağlı) *Windows* - Boş düzeni varsayılana ayarlar
 
 `Boole Değeri` döndürür
@@ -528,7 +544,7 @@ Windows'taki `tasks` kategorisini JumpList'teki [Görevler](https://msdn.microso
 
 `tasks`, [`görevler`](structures/task.md) nesenelerinin bir sırasıdır.
 
-`Boolean` 'ı geri getirir - Çağrı başarılı olduğunda.
+Aramanın başarılı olup olmadığı `Boole Değerine ` döndürür.
 
 **Not:** Eğer Jump List'i daha da çok özelleştirmek istiyorsanız yerine `app.setJumpList(categories)` kullanın.
 
@@ -617,21 +633,15 @@ app.setJumpList([
 ])
 ```
 
-### `app.makeSingleInstance(callback)`
+### `app.requestSingleInstanceLock()`
 
-* `geri aramak` Function 
-  * `argv` Dizi[] - İkinci aşamanın komuta satırı argümanları sırası
-  * `workingDirectory` Dizi - İkinci aşamanın çalışma dizini
-
-`Boolean` 'i geri getirir.
+`Boole Değeri` döndürür
 
 Bu yöntem uygulamanızı bir Tek Örnek Uygulaması yapar - bunun yerine uygulamanızı çalıştırmak için birden çok örneğine izin vermek, bu uygulamanızın sadece tek bir örneğinin çalışmasını sağlayacaktır, ve diğer örnekler bu örneği işaret eder ve çıkar.
 
-`callback`, ikinci aşama işleme konulduğu zaman `callback(argv, workingDirectory)` ile ilk aşama olarak adlandırılır. `argv` ikinci örneğin komuta sırası argümanlarının dizilişidir, ve `workingDirectory` bunun şimdiki çalışma dizinidir. Genellikle uygulama, ana penceresinin odağını küçültecek ve odaklaştıracak şekilde yanıtlar.
+The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock you can assume that another instance of your application is already running with the lock and exit immediately.
 
-`app` etkinliğinin `ready` 'si çıkarıldıktan sonra `callback` garanti bir şekilde uygulanacaktır.
-
-Bu yöntem geri dönüş uygulamalarının birincil örnegidir `false` ve uygulamanız yüklenmeye devam etmelidir. Işleminizin parametreleri başka bir örneğe yönlendirildiyse geri döner `true` hemen çıkış yapmalısınız.
+I.e. This method returns `true` if your process is the primary instance of your application and your app should continue loading. It returns `false` if your process should immediately quit as it has sent its parameters to another instance that has already acquired the lock.
 
 macOS 'ta, kullanıcılar Finder'ın içindeki uygulamada ikinci bir aşamayı açmaya çalıştıklarında sistem otomatik olarak tek aşamaya zorlayacaktır, ve bunun için `open-file` ve `open-url` etkinlikleri çıkarılacaktır. Bununla birlikte, kullanıcılar komut satırında uygulamanıza başladığı zaman, sistemin tek örnek mekanizması atlanmış olur ve tek bir örnek sağlamak için bu yolu kullanmanız gerekmektedir.
 
@@ -641,26 +651,34 @@ macOS 'ta, kullanıcılar Finder'ın içindeki uygulamada ikinci bir aşamayı a
 const {app} = require('electron')
 let myWindow = null
 
-const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
-  // Birisi ikinci bir örneği çalıştırmayı denedi, penceremize odaklanmalıyız.
-  if (myWindow) {
-    if (myWindow.isMinimized()) myWindow.restore()
-    myWindow.focus()
-  }
-})
+const gotTheLock = app.requestSingleInstanceLock()
 
-if (isSecondInstance) {
+if (!gotTheLock) {
   app.quit()
-}
+} else {
+  app.on('second-instance', (commandLine, workingDirectory) => {
+    // Someone tried to run a second instance, we should focus our window.
+    if (myWindow) {
+      if (myWindow.isMinimized()) myWindow.restore()
+      myWindow.focus()
+    }
+  })
 
-// MyWindow'umu oluştur, uygulamanın geri kalanını yükle, vs ...
-app.on('ready', () => {
-})
+  // Create myWindow, load the rest of the app, etc...
+  app.on('ready', () => {
+  })
+}
 ```
 
-### `app.releaseSingleInstance()`
+### `app.hasSingleInstanceLock()`
 
-`makeSingleInstance`. tarafından oluşturulan bütün kilitleri serbest bırakır, Bu uygulamanın çoklu örneğinin yeniden ve aynı anda çalışmasına izin verecektir.
+`Boole Değeri` döndürür
+
+This method returns whether or not this instance of your app is currently holding the single instance lock. You can request the lock with `app.requestSingleInstanceLock()` and release with `app.releaseSingleInstanceLock()`
+
+### `app.releaseSingleInstanceLock()`
+
+Releases all locks that were created by `requestSingleInstanceLock`. This will allow multiple instances of the application to once again run side by side.
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
@@ -731,15 +749,15 @@ app.on('ready', () => {
 <ul>
 <li><code>sayı` tam sayı</li> </ul> 
   
-  Aramanın başarılı olup olmadığı `Boole Değerine ` döndürür.
+  `Boolean` 'ı geri getirir - Çağrı başarılı olduğunda.
   
   Sayaç rozet sayısı `0` olarak ayarlandığında uygulama için geçerli ayarlar rozeti gizler.
   
   MacOS'ta rıhtım simgesinin üzerinde gösterilir. Linux'ta sadece Birlik başlatıcısı için çalışır,
   
-  **Not:** Birlik Başlatıcısı çalışması için `. Masaüstü dosyasının olması gerekir. Daha fazla bilgi için lütfen <a href="../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux"> masaüstü ortamı entegrasyonu bölümünü okuyun</a>.</p>
-
-<h3><code>app.getBadgeCount()`Linux</em>*macOS*</h3> 
+  **Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+  
+  ### `app.getBadgeCount()`Linux</em>*macOS*
   
   Karşı rozette görüntülenen geçerli değer, `Tamsayı` Döndürür.
   
@@ -887,7 +905,7 @@ app.on('ready', () => {
       
       ### `app.dock.setBadge(text)` *macOS*
       
-      * `text` String
+      * `text` Dizi
       
       Dock'un rozetleme alanında gösterilecek satırı ayarlar.
       
@@ -911,10 +929,16 @@ app.on('ready', () => {
       
       * `menu` [Menü](menu.md)
       
-      Uygulamanın [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103) 'sünü ayarlar.
+      Sets the application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
       
       ### `app.dock.setIcon(image)` *macOS*
       
       * `image` ([NativeImage](native-image.md) | String)
       
       Dock simgesiyle ilişkilendirilmiş `image` 'ı ayarlar.
+      
+      ## Özellikler
+      
+      ### `app.isPackaged`
+      
+      A `Boolean` property that returns `true` if the app is packaged, `false` otherwise. For many apps, this property can be used to distinguish development and production environments.
