@@ -58,14 +58,14 @@ The `powerMonitor` module has the following methods:
 #### `powerMonitor.querySystemIdleState(idleThreshold, callback)`
 
 * `idleThreshold` Integer
-* `geri aramak` Fonksiyon 
+* `geri aramak` Function 
   * `idleState` String - Can be `active`, `idle`, `locked` or `unknown`
 
 Calculate the system idle state. `idleThreshold` is the amount of time (in seconds) before considered idle. `callback` will be called synchronously on some systems and with an `idleState` argument that describes the system's state. `locked` is available on supported systems only.
 
 #### `powerMonitor.querySystemIdleTime(callback)`
 
-* `geri aramak` Fonksiyon 
+* `geri aramak` Function 
   * `idleTime` Integer - Idle time in seconds
 
 Calculate system idle time in seconds.
