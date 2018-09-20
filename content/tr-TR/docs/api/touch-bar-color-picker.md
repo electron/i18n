@@ -2,7 +2,7 @@
 
 > MacOS uygulamaları için dokunmatik çubuk içinde bir renk seçici oluşturun
 
-İşlem: [Main](../tutorial/quick-start.md#main-process)
+İşlem: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new TouchBarColorPicker(options)` *Experimental*
 
