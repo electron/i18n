@@ -189,8 +189,8 @@ sa macOS. Ang default ay <code>false`.
     * `EkspirementongMgaTampok` Boolean (optional) - Pinapatakbo ang mga na-eksperimentong tampok ng Chromium. Ang default ay `mali`.
     * Ang `experimentalCanvasFeatures` Boolean (opsyonal) - Pinapagana ang in-eksperimentong kanbas na mga katangian ng Chromium. Ang default ay `false`.
     * Ang `scrollBounce` Boolean (opsyonal) - Pinapagana ang pag-scroll bouce (pagra-rubber band) na epekto sa macOS. Ang default ay `false`.
-    * `enableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to enable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) file.
-    * `disableBlinkFeatures` String (opsyonal) - Ang talaan ng mga tampok ng strings ay pinag-hiwalay ng `,`, katulad ng `CSSVariables,KeyboardEventKey` upang hindi mapagana. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) file.
+    * `enableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to enable. Ang buong listahan ng sinuportahang mga katangian ng string na maaaring matagpuan sa mga file ng [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70).
+    * `disableBlinkFeatures` String (opsyonal) - Ang talaan ng mga tampok ng strings ay pinag-hiwalay ng `,`, katulad ng `CSSVariables,KeyboardEventKey` upang hindi mapagana. Ang kabuoang listahan ng mga sinusuportahang tampok ng strings ay mahahanap sa [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) sa file.
     * `ang defaultFontFamily` Bagay (opsyonal) - Itinatakda ang default na font para sa pamilya ng font. 
       * Ang `standard` String (opsyonal) - Ang mga default para sa `Times New Roman`.
       * Ang `serif` String (opsyonal) - Ang mga default para sa `Times New Roman`.
@@ -620,18 +620,18 @@ Calling this function with a value of `0` will remove any previously set aspect 
 * `daan` String - Ang ganap na daan sa file upang i-ipakita gamit ang QuickLook. Ang mahalaga nito habang ginagamit ng Quick Look ang pangalan ng file at lawig ng file sa daan upang matukoy ang tipo ng nilalaman ng file upang buksan.
 * `Ang pagpakita sa pangalan` String (pag-pipilian) - Ang pangalan ng file na ipapakita sa Quick Look modal na tanaw. Ito ay ang malinis na viswal at hindi nakakaapekto sa nilalaman na uri ng file. Defaults sa `path`.
 
-Uses [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) to preview a file at a given path.
+Ginagamit ang [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) upang i-preview ang file sa ibinigay na landas.
 
 #### `win.closeFilePreview()` *macOS*
 
-Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) panel.
+Pagsara sa kasalukuyang nakabukas na [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) panel.
 
 #### `win.setBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
 * `animate` Boolean (opsyonal) *macOS*
 
-Resizes and moves the window to the supplied bounds
+Pag-resize ay paglipat ng window sa hangganan na ibinibigay
 
 #### `win.getBounds()`
 
@@ -642,7 +642,7 @@ Nagbabalik[`Rectangle`](structures/rectangle.md)
 * `bounds` [Rectangle](structures/rectangle.md)
 * `animate` Boolean (opsyonal) *macOS*
 
-Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
+Lumalawak at gumagalaw ang lugar ng kliyente ng window (e.g. the web page) ang itinustos na mga hangganan.
 
 #### `win.getContentBounds()`
 
@@ -660,11 +660,12 @@ Disable or enable the window.
 * `taas` Integer
 * `animate` Boolean (opsyonal) *macOS*
 
-Resizes the window to `width` and `height`.
+Lumalabas ang window sa `width` at `
+height`.
 
 #### `win.getSize()`
 
-Returns `Integer[]` - Contains the window's width and height.
+Ibinabalik `Integer[]` - Naglalaman ng lapad at taas ng window.
 
 #### `win.setContentSize(lapad, taas[, animate])`
 
@@ -672,101 +673,101 @@ Returns `Integer[]` - Contains the window's width and height.
 * `taas` Integer
 * `animate` Boolean (opsyonal) *macOS*
 
-Resizes the window's client area (e.g. the web page) to `width` and `height`.
+Lumalawak sa lugar ng kliyente ng window (e.g. the web page) to `width` and `height`.
 
 #### `win.getContentSize()`
 
-Returns `Integer[]` - Contains the window's client area's width and height.
+Binabalik ang `Integer[]` - Naglalaman ng window's client area's width and height.
 
 #### `win.setMinimumSize(lapad, taas)`
 
 * `lapad` Integer
 * `taas` Integer
 
-Sets the minimum size of window to `width` and `height`.
+Itinatakda ang minimum na laki ng window `width` and `height`.
 
 #### `win.getMinimumSize()`
 
-Returns `Integer[]` - Contains the window's minimum width and height.
+Ibinabalik `Integer[]` - Naglalaman ng lapad at taas ng window.
 
 #### `win.setMaximumSize(lapad, taas)`
 
 * `lapad` Integer
 * `taas` Integer
 
-Sets the maximum size of window to `width` and `height`.
+Itinatakda ang maximum na laki ng window `width` and `height`.
 
 #### `win.getMaximumSize()`
 
-Returns `Integer[]` - Contains the window's maximum width and height.
+Binabalik ang `Integer[]` - Naglalaman ng pinakamataas na lapad at taas ng windows.
 
 #### `win.setResizable(resizable)`
 
 * `resizable` Boolean
 
-Sets whether the window can be manually resized by user.
+Tinatakda kung ang window ay maaring i-manual na pag-bago sa gumagamit.
 
 #### `win.isResizable()`
 
-Returns `Boolean` - Whether the window can be manually resized by user.
+Ibinabalik ` Boolean ` - Kung ang window ay maaaring manu-manong napalitan ng user.
 
 #### `win.setMovable(movable)` *macOS* *Windows*
 
 * `movable` Boolean
 
-Sets whether the window can be moved by user. On Linux does nothing.
+Nagtatakda kung ang window ay maaaring ilipat ng gumagamit. Sa Linux ay walang ginagawa.
 
 #### `win.isMovable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be moved by user.
+Ibinabalik `Boolean` - Kung ang window ay maaring ilipat ng gumagamit.
 
-On Linux always returns `true`.
+Ang Linux ay palaging bumabalik `tama`.
 
 #### `win.setMinimizable(minimizable)` *macOS* *Windows*
 
 * `minimizable` Boolean
 
-Sets whether the window can be manually minimized by user. On Linux does nothing.
+Nagtatakda kung ang window ay maaring mapinaliit na manu-mano ng gugamit. Sa Linux ay walang nagawa.
 
 #### `win.isMinimizable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually minimized by user
+Ibalik ang `Boolean` - Kung manu-mano ang pinaliit na window ng taga-gamit
 
-On Linux always returns `true`.
+Ang Linux ay palaging bumabalik `tama`.
 
 #### `win.setMaximizable(maximizable)` *macOS* *Windows*
 
 * `maximizable` Boolean
 
-Sets whether the window can be manually maximized by user. On Linux does nothing.
+Nagtatakda kung ang window ay pweding manu-manong mapakinabangan ng taga-gamit. Sa Linux ay wala.
 
 #### `win.isMaximizable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually maximized by user.
+Ibalik ang `Boolean` - Kung ang manu-manong window ay pweding manu-mano-paliitin ng taga-gamit.
 
-On Linux always returns `true`.
+Ang Linux ay palaging bumabalik `tama`.
 
 #### `win.setFullScreenable(fullscreenable)`
 
 * `fullscreenable` Boolean
 
-Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+Nagtatakda kung ang pindutan ng window ng pag-papalaki/zoom ay lumilipat sa fullscreen na anyo o magpapakinabang sa window.
 
 #### `win.isFullScreenable()`
 
-Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+Ang pag-balik `Boolean` - Kung ang pindutan ng Pag-papalaki/zoom window ay i-toggle ang fullscreen na anyo o magpapakinabang sa window.
 
 #### `win.setClosable(closable)` *macOS* *Windows*
 
 * `closable` Boolean
 
-Sets whether the window can be manually closed by user. On Linux does nothing.
+Nagtatakda kung ang window ay maaring isara ng gumagamit na manu-mano. Sa linux walang ginagawa.
 
 #### `win.isClosable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually closed by user.
+Ibinabalik ang `Boolean` - Kung saan ang windows ay maaring isara ng manu-mano ng tagagamit.
 
-On Linux always returns `true`.
+Ang Linux ay palaging bumabalik `tama`.
 
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
@@ -774,11 +775,11 @@ On Linux always returns `true`.
 * `level` String (opsyonal) *macOS* -Mga balyu na kasali `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). Ang pag-default ay `floating`. Tignan ang [macOS docs](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) para sa maraming mga detalye.
 * `relativeLevel` Integer (optional) *macOS* - Ang dami ng suson ay mataas sa set itong window ay may kaugnayan sa ibinibigay `level`. Ang kawalan ay `0`. Tanda ng ansanas hinihikayat ang antas ng setting na mas mataas sa 1 na itataas `screen-saver`.
 
-Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
+Nagtatakda kung dapat magpakita palagi ang window sa itaas ng iba pang mga bintana. Pagkatapos setting na ito, ang window ay pa rin ng normal na window, hindi isang window ng toolbox na ay hindi maaaring nakatuon sa.
 
 #### `win.isAlwaysOnTop()`
 
-Returns `Boolean` - Whether the window is always on top of other windows.
+Nagbabalik `Boolean` - Kung ang window ay nakikita sa user.
 
 #### `win.moveTop()` *macOS* *Windows*
 
@@ -786,7 +787,7 @@ Moves window to top(z-order) regardless of focus
 
 #### `win.center()`
 
-Moves window to the center of the screen.
+Inililipat ang window sa gitna ng screen.
 
 #### `win.setPosition(x, y[, animate])`
 
@@ -794,30 +795,30 @@ Moves window to the center of the screen.
 * `y` Integer
 * `animate` Boolean (opsyonal) *macOS*
 
-Moves window to `x` and `y`.
+Ilipat ang window sa `x` and `y`.
 
 #### `win.getPosition()`
 
-Returns `Integer[]` - Contains the window's current position.
+Ibinibalik ang `Integer[]` - Naglalaman ng kasalukuyang posisyon ng window.
 
 #### `win.setTitle(title)`
 
 * `title` String
 
-Changes the title of native window to `title`.
+Binabago ang pamagat ng katutubong window sa `title`.
 
 #### `win.getTitle()`
 
-Returns `String` - The title of the native window.
+Bumabalik `String` - Ang pamagat ng katutubong window.
 
-**Note:** The title of web page can be different from the title of the native window.
+**Note:** Ang pamagat ng web page ay maaaring iba mula sa pamagat ng katutubo window.
 
 #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
 
 * `offsetY` Lumutang
 * `offsetX` Lumutang (optiona)
 
-Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. For example:
+Binabago ang punto ng attachment para sa mga sheet sa macOS. Bilang default, ang mga sheet ay naka-attach sa ibaba lamang ng window frame, ngunit maaaring gusto mong ipakita ang mga ito sa ilalim isang tool na nai-render na HTML. Halimbawa:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -831,72 +832,72 @@ win.setSheetOffset(toolbarRect.height)
 
 * `flag` Boolean
 
-Starts or stops flashing the window to attract user's attention.
+Magsisimula o tumitigil na kumikislap sa bintana upang maakit ang pansin ng gumagamit.
 
 #### `win.setSkipTaskbar(skip)`
 
 * `laktawan` Boolean
 
-Makes the window not show in the taskbar.
+Ginagawa ang window na hindi ipinapakita sa taskbar.
 
 #### `win.setKiosk(flag)`
 
 * `flag` Boolean
 
-Enters or leaves the kiosk mode.
+Nagpapasok o nag-iiwan ng kiosk mode.
 
 #### `win.isKiosk()`
 
-Returns `Boolean` - Whether the window is in kiosk mode.
+Bumalik `Boolean` - Kung ang window ay nasa kiosk mode.
 
 #### `win.getNativeWindowHandle()`
 
-Returns `Buffer` - The platform-specific handle of the window.
+Ibinabalik `Buffer` - Ang hawak ng tukoy na platform sa window.
 
-The native type of the handle is `HWND` on Windows, `NSView*` on macOS, and `Window` (`unsigned long`) on Linux.
+Ang katutubong uri ng handle ay `HWND` sa Windows, `NSView*` sa macOS, at `Window` (`unsigned long`) sa Linux.
 
 #### `win.hookWindowMessage(message, callback)` *Windows*
 
 * `mensahe` Integer
 * `baliktawag` ginagawa
 
-Hooks a windows message. The `callback` is called when the message is received in the WndProc.
+Ang mga hook ay isang mensahe ng window. Ang ` callback ` ay tinatawag kung kailan ang mensahe ay natanggap sa WndProc.
 
 #### `win.isWindowMessageHooked(message)` *Windows*
 
 * `mensahe` Integer
 
-Returns `Boolean` - `true` or `false` depending on whether the message is hooked.
+Ibinabalik ang ` Boolean ` - ` true ` o ` false ` depende kung ang mensahe ay naka-hook.
 
 #### `win.unhookWindowMessage(message)` *Windows*
 
 * `mensahe` Integer
 
-Unhook the window message.
+I-unhook ang mensahe sa window.
 
 #### `win.unhookAllWindowMessages()` *Windows*
 
-Unhooks all of the window messages.
+I-unhook ang lahat ng mensahe sa window.
 
 #### `win.setRepresentedFilename(filename)` *macOS*
 
 * `filename` String
 
-Sets the pathname of the file the window represents, and the icon of the file will show in window's title bar.
+Nagtatakda ng pathnamesa mga file na irepresenta sa window, at ang icon ng file ay ipapakita sa title bar ng window.
 
 #### `win.getRepresentedFilename()` *macOS*
 
-Returns `String` - The pathname of the file the window represents.
+Ibinibalik `String` - Ang pathname ng file na nakarepresenta sa window.
 
 #### `win.setDocumentEdited(edited)` *macOS*
 
 * `edited` Boolean
 
-Specifies whether the window’s document has been edited, and the icon in title bar will become gray when set to `true`.
+Tinutukoy kung ang dokumento ng window ay na-edit, at ang icon sa pamagat ng bar ay magiging gray kung itatakda sa `true`.
 
 #### `win.isDocumentEdited()` *macOS*
 
-Returns `Boolean` - Whether the window's document has been edited.
+Ibinabalik ang `Boolean` - Kung saan ang mga dokumento ng window ay na-edit na.
 
 #### `win.focusOnWebView()`
 
@@ -908,9 +909,9 @@ Returns `Boolean` - Whether the window's document has been edited.
 * `callback` Punsyon 
   * `image` [NativeImage](native-image.md)
 
-Same as `webContents.capturePage([rect, ]callback)`.
+Katulad nang `webContents.capturePage([rect, ]callback)`.
 
-#### `win.loadURL(url[, options])`
+#### `win.loadURL(url[, mga pagpipilian])`
 
 * `url` Tali
 * `mga opsyon` Na Bagay (opsyonal) 
@@ -920,11 +921,11 @@ Same as `webContents.capturePage([rect, ]callback)`.
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
   * `baseURLForDataURL` String(opsyonal) - Basi nag url (may tagapahiwalay sa landas ng separator) para sa mga dokumento na kakargahin sa pamamagitan ng datos ng url. Ito ay kinakailangan lamang kung ang tinutukoy na `url` ay isang url ng data at kailangang mag-load ng iba pang mga file.
 
-Same as `webContents.loadURL(url[, options])`.
+Tulad ng `webContents.loadURL(url[, options])`.
 
-The `url` can be a remote address (e.g. `http://`) or a path to a local HTML file using the `file://` protocol.
+Ang ` url ` ay maaaring maging isang remote address (hal. ` http: // `) o isang path sa isang lokal na HTML file gamit ang protocol na ` file: // `.
 
-To ensure that file URLs are properly formatted, it is recommended to use Node's [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) method:
+Upang matiyak na ang mga URL ng file ay maayos na nai-format, inirerekomendang gamitin ito Node's [` url.format `](https://nodejs.org/api/url.html#url_url_format_urlobject) na paraan:
 
 ```javascript
 let url = require('url').format({
@@ -935,7 +936,7 @@ let url = require('url').format({
 win.loadURL(url)
 ```
 
-You can load a URL using a `POST` request with URL-encoded data by doing the following:
+Maaari kang mag-load ng isang URL gamit ang isang ` POST ` na kahilingan gamit ang URL-naka-encode na data sa pamamagitan ng paggawa ang mga sumusunod:
 
 ```javascript
 win.loadURL('http://localhost:8000/post', {
@@ -955,13 +956,13 @@ Same as `webContents.loadFile`, `filePath` should be a path to an HTML file rela
 
 #### `win.reload()`
 
-Same as `webContents.reload`.
+Tulad ng `webContents.reload`.
 
 #### `win.setMenu(menu)` *Linux* *Windows*
 
 * `menu` Menu | null
 
-Sets the `menu` as the window's menu bar, setting it to `null` will remove the menu bar.
+Itinatakda ang ` menu ` bilang menu bar ng window, ang pagtatakda nito sa ` null ` ay aalisin ang menu bar.
 
 #### `win.setProgressBar(progress[, options])`
 
@@ -969,42 +970,42 @@ Sets the `menu` as the window's menu bar, setting it to `null` will remove the m
 * `mga opsyon` Na Bagay (opsyonal) 
   * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error` or `paused`.
 
-Sets progress value in progress bar. Valid range is [0, 1.0].
+Nagtatakda ng halaga ng pag-unlad sa progress bar. Ang wastong saklaw ay [0, 1.0].
 
-Remove progress bar when progress < 0; Change to indeterminate mode when progress > 1.
+Alisin ang progress bar kapag umuunlad<0; Baguhin sa indeterminate mode kapag umuunlad> 1.
 
-On Linux platform, only supports Unity desktop environment, you need to specify the `*.desktop` file name to `desktopName` field in `package.json`. By default, it will assume `app.getName().desktop`.
+Sa platform ng Linux, sinusuportahan lamang ng Unity desktop na environment, kailangan mong tukuyin ang pangalan ng `*.desktop` file name to `desktopName ` sa ` package.json `. Bilang default, ito ay ipinapalagay `app.getName().desktop`.
 
-On Windows, a mode can be passed. Accepted values are `none`, `normal`, `indeterminate`, `error`, and `paused`. If you call `setProgressBar` without a mode set (but with a value within the valid range), `normal` will be assumed.
+Sa windows, ang mode ay maaring makapasa. Tinatanggap na mga balyu ay `none`, `normal`, `indeterminate`, `error`, and `paused`. Kung tumawag ka ng ` setProgressBar ` nang walang isang mode set (ngunit may halaga sa loob ng wastong hanay), ipagpalagay na ` normal `.
 
 #### `win.setOverlayIcon(overlay, description)` *Windows*
 
 * `overlay` [NativeImage](native-image.md) | null - the icon to display on the bottom right corner of the taskbar icon. If this parameter is `null`, the overlay is cleared
 * `description` String - Ang deskripsyon na dapat maibigay pasa sa Accessibility screen readers
 
-Sets a 16 x 16 pixel overlay onto the current taskbar icon, usually used to convey some sort of application status or to passively notify the user.
+Nagtatakda ng 16 x 16 na pixel na overlay papunta sa kasalukuyang icon ng taskbar, kadalasang ginagamit sa ihatid ang ilang mga uri ng katayuan ng application o upang pasabihan ipagbigay-alam sa gumagamit.
 
 #### `win.setHasShadow(hasShadow)` *macOS*
 
 * `hasShadow` Boolean
 
-Sets whether the window should have a shadow. On Windows and Linux does nothing.
+Nagtatakda kung ang window ay dapat magkaroon ng anino. Sa Windows at Linux ay walang ginagawa.
 
 #### `win.hasShadow()` *macOS*
 
-Returns `Boolean` - Whether the window has a shadow.
+Ibinabalik ` Boolean` - Kung ang window ay may anino.
 
-On Windows and Linux always returns `true`.
+Palaging nagbabalik ang Windows at Linux `true`.
 
 #### `win.setOpacity(opacity)` *Windows* *macOS*
 
 * `opacity` Number - sa gitna ng 0.0 (fully transparent) at 1.0 (fully opaque)
 
-Sets the opacity of the window. On Linux does nothing.
+Nagtatakda ng opacity ng window. Sa Linux walang ginagawa.
 
 #### `win.getOpacity()` *Windows* *macOS*
 
-Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque)
+Ibinabalik ang `Number` - sa gitna ng 0.0 (fully transparent) at 1.0 (fully opaque)
 
 #### `win.setShape(rects)` *Windows* *Linux* *Experimental*
 
@@ -1016,16 +1017,16 @@ Setting a window shape determines the area within the window where the system pe
 
 * `buttons` [ThumbarButton[]](structures/thumbar-button.md)
 
-Returns `Boolean` - Whether the buttons were added successfully
+Ibinibalik ang `Boolean` - Kung saan ang mga buttons ay naidagdag ng matagumpay
 
-Add a thumbnail toolbar with a specified set of buttons to the thumbnail image of a window in a taskbar button layout. Returns a `Boolean` object indicates whether the thumbnail has been added successfully.
+Magdagdag ng isang thumbnail toolbar na may tinukoy na hilera ng mga pindutan sa thumbnail na larawan ng isang window sa isang layout ng pindutan ng taskbar. Ibinibalik ang ` Boolean ` kung ang thumbnail ay matagumpay na naidagdag.
 
-The number of buttons in thumbnail toolbar should be no greater than 7 due to the limited room. Once you setup the thumbnail toolbar, the toolbar cannot be removed due to the platform's limitation. But you can call the API with an empty array to clean the buttons.
+Ang bilang ng mga pindutan sa thumbnail toolbar ay dapat na hindi pa mas malaki kaysa sa 7 dahil sa ang limitadong kuwarto. Once you setup the thumbnail toolbar, the toolbar cannot be removed due to the platform's limitation. Ngunit maaari mong tawagan ang API na walang laman na array upang linisin ang mga pindutan.
 
-The `buttons` is an array of `Button` objects:
+Ang `buttons` ay isang array ng `Button` objects:
 
 * `Button` Bagay 
-  * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
+  * `icon` [NativeImage](native-image.md) - Ang icon na ipinapakita sa thumbnail ng toolbar.
   * `click` Function
   * `tooltip` String (opsyonal) - Ang teksto ng tooltip sa pindutan.
   * `flags` String[] (opsyonal) - Kontrolin ang tiyak na mga estado at katangian ng mga pindutan. Sa pamamagitan ng default, ito ay `['enabled']`.
@@ -1041,165 +1042,165 @@ Ang `flags` ay isang kaayusan na maaaring isama ang mga sumusunod `String`:
 
 #### `win.setThumbnailClip(region)` *Windows*
 
-* `region` [Rectangle](structures/rectangle.md) - Region of the window
+* `region` [Rectangle](structures/rectangle.md) - Rehiyon ng window
 
-Sets the region of the window to show as the thumbnail image displayed when hovering over the window in the taskbar. You can reset the thumbnail to be the entire window by specifying an empty region: `{x: 0, y: 0, width: 0, height: 0}`.
+Itinatakda ang rehiyon ng window upang ipakita kung kailan ipinapakita ang thumbnail na larawan na agaw sa window sa taskbar. Maaari mong i-reset ang thumbnail upang maging ang buong window sa pamamagitan ng pagtukoy ng walang laman na rehiyon: ` {x: 0, y: 0, lapad: 0, taas: 0} `.
 
 #### `win.setThumbnailToolTip(toolTip)` *Windows*
 
 * `toolTip` String
 
-Sets the toolTip that is displayed when hovering over the window thumbnail in the taskbar.
+Itakda ang toolTip na ipinapakita habang nag-hohover higit sa window ng thumbnail sa taskbar.
 
 #### `win.setAppDetails(options)` *Windows*
 
-* `pagpipilian` Bagay 
-  * `appId` String (optional) - Window's [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). It has to be set, otherwise the other options will have no effect.
+* `opsyon` Bagay 
+  * `appId` String (optional) - Window's [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). Ito ay dapat na itakda, kung hindi man ay ang ibang opsyon ay walang epekto.
   * `appIconPath` String (optional) - Window's [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
-  * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. Default is `0`.
+  * `appIconIndex` Integer (optional) - Ang index ng icon sa `appIconPath`. Hindi pinansin kung `appIconPath` hindi naitakda. Default ay `0`.
   * `relaunchCommand` String (optional) - Window's [Relaunch Command](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391571(v=vs.85).aspx).
   * `relaunchDisplayName` String (optional) - Window's [Relaunch Display Name](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391572(v=vs.85).aspx).
 
-Sets the properties for the window's taskbar button.
+Itakda ang ari-arian para sa window's taskbar na button.
 
-**Note:** `relaunchCommand` and `relaunchDisplayName` must always be set together. If one of those properties is not set, then neither will be used.
+**Note:** `relaunchCommand` at `relaunchDisplayName` dapat na palaging itakda nang sabay. Kung ang isang ari-arian ay hindi naitakda, pagkatapos ay hindi na ito magagamit.
 
 #### `win.showDefinitionForSelection()` *macOS*
 
-Same as `webContents.showDefinitionForSelection()`.
+Tulad nang`webContents.showDefinitionForSelection()`.
 
 #### `win.setIcon(icon)` *Windows* *Linux*
 
 * `icon` [NativeImage](native-image.md)
 
-Changes window icon.
+Pinagbabago ang window icon.
 
 #### `win.setAutoHideMenuBar(hide)`
 
 * `hide` Boolean
 
-Sets whether the window menu bar should hide itself automatically. Once set the menu bar will only show when users press the single `Alt` key.
+Itakda kung ang window menu bar ay dapat itago ang sarili na awtomatiko. Kapag naitakda na ang menu bar ay ipapakita lamang kung ang gumagamit ay pipindutin ang single na `Alt` key.
 
-If the menu bar is already visible, calling `setAutoHideMenuBar(true)` won't hide it immediately.
+Kpag ang menu bar ay kasalukuyang makikita, ang pag-tawag `setAutoHideMenuBar(true)` hindi ito kayang itago agad.
 
 #### `win.isMenuBarAutoHide()`
 
-Returns `Boolean` - Whether menu bar automatically hides itself.
+Ang mga pagbalik `Boolean` - kung ito ay awtomatikong itinatago ng menu bar.
 
 #### `win.setMenuBarVisibility(visible)` *Windows* *Linux*
 
 * `visible` Boolean
 
-Sets whether the menu bar should be visible. If the menu bar is auto-hide, users can still bring up the menu bar by pressing the single `Alt` key.
+I-takda kung saan ang menu bar ay maaring makita. kapag ang menu bar ay kusang nagtatago sa taga-gamit pwedi pa ring ilabas ang menu bar sa paraan ng solong pagpindut `Alt` key.
 
 #### `win.isMenuBarVisible()`
 
-Returns `Boolean` - Whether the menu bar is visible.
+Ibinabalik ang `Boolean` - Kung saan ang menu bar ay makikita.
 
 #### `win.setVisibleOnAllWorkspaces(visible)`
 
 * `visible` Boolean
 
-Sets whether the window should be visible on all workspaces.
+Itakda kung ang window ay dapat na makikita sa lahat ng workspaces.
 
-**Note:** This API does nothing on Windows.
+**Tandaan:** Ang API ay walang magagawa para sa windows.
 
 #### `win.isVisibleOnAllWorkspaces()`
 
-Returns `Boolean` - Whether the window is visible on all workspaces.
+Ibinabalik ang `Boolean` - Kung saan ang window ay dapay na makikita sa lahat ng workspaces.
 
-**Note:** This API always returns false on Windows.
+**Tandaan:** Itong API ay palaging ibinabalik na huwad para sa windows.
 
 #### `win.setIgnoreMouseEvents(ignore[, options])`
 
 * `huwag pansinin` Boolean
-* `pagpipilian` Bagay (opsyonal) 
-  * `forward` Boolean (optional) *macOS* *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Only used when `ignore` is true. If `ignore` is false, forwarding is always disabled regardless of this value.
+* `options` Bagay (opsyonal) 
+  * `forward` Boolean (optional) *macOS* *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Ginagamit lamang kung ang`ignore` ay tama. Kung ang `ignore` is mali, Pagsulong ay palaging hindi-pinagana sa anumang mga balyu.
 
-Makes the window ignore all mouse events.
+Ginagawa ang window na hindi pansinin ang lahat ng mouse na kaganapan.
 
-All mouse events happened in this window will be passed to the window below this window, but if this window has focus, it will still receive keyboard events.
+Lahat ng mouse na kaganapan dito sa window ay maaring dumaan para sa window sa ibaba ng window, pero kung ang window ay may focus, ito ay makakatanggap parin ng keyboard na kaganapan.
 
 #### `win.setContentProtection(enable)` *macOS* *Windows*
 
 * `enable` Boolean
 
-Prevents the window contents from being captured by other apps.
+Ang pag-pigil sa mga nilalaman ng window mula sa kumkuha ng iba pang apps.
 
-On macOS it sets the NSWindow's sharingType to NSWindowSharingNone. On Windows it calls SetWindowDisplayAffinity with `WDA_MONITOR`.
+Sa macOS itinatakda nito ang pagbabahagi ng NSWindow sa NSWindowSharingNone. Sa Windows tinatawagan nito ang SetWindowDisplayAffinity sa `WDA_MONITOR`.
 
 #### `win.setFocusable(focusable)` *Windows*
 
 * `focusable` Boolean
 
-Changes whether the window can be focused.
+Binabago kung ang window ay maaaring nakatuon.
 
 #### `win.setParentWindow(parent)` *Linux* *macOS*
 
 * `parent` BrowserWindow
 
-Sets `parent` as current window's parent window, passing `null` will turn current window into a top-level window.
+Ang mga pagtatakda`peyrent`bilang isang peyrent ng window, na dumadaan sa `null` babalik sa kasalukuyang window sa isang mataas na antas ng window.
 
 #### `win.getParentWindow()`
 
-Returns `BrowserWindow` - The parent window.
+Ibinabalik kung `BrowserWindow` - Ang magulang na window.
 
 #### `win.getChildWindows()`
 
-Returns `BrowserWindow[]` - All child windows.
+Ibinabalik kung `BrowserWindow[]` - Lahat ay anak windows.
 
 #### `win.setAutoHideCursor(autoHide)` *macOS*
 
 * `autoHide` Boolean
 
-Controls whether to hide cursor when typing.
+Kinokontrol kung ang cursor ay itatago kapag nag-type.
 
 #### `win.selectPreviousTab()` *macOS*
 
-Selects the previous tab when native tabs are enabled and there are other tabs in the window.
+Pinipili ang nakaraang tab kung ang pinagana ang native na mga tab at may iba pa mga tab sa window.
 
 #### `win.selectNextTab()` *macOS*
 
-Selects the next tab when native tabs are enabled and there are other tabs in the window.
+Pinipili ang susunod na tab kung ang pinagana ang mga native na tab at mayroong iba pa mga tab sa window.
 
 #### `win.mergeAllWindows()` *macOS*
 
-Merges all windows into one window with multiple tabs when native tabs are enabled and there is more than one open window.
+Pinagsama ang lahat ng mga window sa isang window na may maraming tab kapag ang mga native na tab ay gumagana at mayroong higit sa isang bukas na window.
 
 #### `win.moveTabToNewWindow()` *macOS*
 
-Moves the current tab into a new window if native tabs are enabled and there is more than one tab in the current window.
+Inililipat ang kasalukuyang tab sa isang bagong window kung pinagana ang mga native na tab at mayroong higit sa isang tab sa kasalukuyang window.
 
 #### `win.toggleTabBar()` *macOS*
 
-Toggles the visibility of the tab bar if native tabs are enabled and there is only one tab in the current window.
+Tina-toggle ang kakayahang makita ng tab na bar kung pinagana ang mga native na tab at mayroon lamang isang tab sa kasalukuyang window.
 
 #### `win.addTabbedWindow(browserWindow)` *macOS*
 
-* `browserWindow` BrowserWindow
+* `browserWindow` ang BrowserWindow
 
-Adds a window as a tab on this window, after the tab for the window instance.
+Nagdagdag ng window na isang tab sa window, pagkatapos ng tab para sa window instance.
 
 #### `win.setVibrancy(type)` *macOS*
 
-* `type` String - Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`. See the [macOS documentation](https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc) for more details.
+* `type` String - Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`. Tignan ang[macOS documentation](https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc) para sa ibang detalye.
 
-Adds a vibrancy effect to the browser window. Passing `null` or an empty string will remove the vibrancy effect on the window.
+Nadagdagan ng isang epekto sa pagkalantad sa window ng browser. Pagpasa `null` o ang isang walang laman na string ay tatangalin ang epekto ng pagkalantad sa window.
 
 #### `win.setTouchBar(touchBar)` *macOS* *Experimental*
 
 * `touchBar` TouchBar
 
-Sets the touchBar layout for the current window. Specifying `null` or `undefined` clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
+Itakda ang layout ng touchBar para sa kasalukuyang window. Tinutukoy ang `null` or `undefined` Nililinis ang touch bar. Ang paraan na ito lamang ang may epekto sa Ang makina ay merong nahahawakang bar at napapatakbo ito sa macOS 10.12.1+.
 
 **Note:** Ang TouchBar API ay kasalukuyang eksperimental at maaring mabago o pwedeng tangalin sa panghinaharap na pag-release ng Electron. 
 
-#### `win.setBrowserView(browserView)` *Experimental*
+#### `win.setBrowserView(browserView)` *Experimental* 
 
 * `browserView` [BrowserView](browser-view.md)
 
-#### `win.getBrowserView()` *Experimental*
+#### `win.getBrowserView()` *Experimental* 
 
-Returns `BrowserView | null` - an attached BrowserView. Returns `null` if none is attached.
+Ibinabalik ang `BrowserView | null` - an attached BrowserView. Returns `null` Kung walang nakakabit.
 
 **Note:** Ang BrowserView API ay kasalukuyang eksperimental at maaaring mabago o matanggal sa hinaharap na pag-release ng Electron.
