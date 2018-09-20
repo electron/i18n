@@ -302,7 +302,7 @@ Emitted when DevTools is closed.
 
 Emitted when DevTools is focused / opened.
 
-#### Evento: 'certificate-error'
+#### Evento: 'certificato-errore'
 
 Restituisce:
 
@@ -317,7 +317,7 @@ Emitted when failed to verify the `certificate` for `url`.
 
 The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
 
-#### Evento: 'select-client-certificate'
+#### Evento: 'selezione-certificato-client'
 
 Restituisce:
 
@@ -726,7 +726,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *Sperimentale*
 
 * `ignore` Boolean
 
@@ -917,7 +917,7 @@ Prints window's web page. When `silent` is set to `true`, Electron will pick the
 
 Calling `window.print()` in web page is equivalent to calling `webContents.print({silent: false, printBackground: false, deviceName: ''})`.
 
-Use `page-break-before: always;` CSS style to force to print to a new page.
+Usa la regola CSS `page-break-before: always;` per forzare per stampare su una nuova pagina.
 
 #### `contents.printToPDF(options, callback)`
 
@@ -931,13 +931,13 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
   * `error` Error - il valore é diverso da nulla se si verifica un qualunque errore durante la generazione del pdf
   * `data` Buffer - contiene il pdf generato
 
-Prints window's web page as PDF with Chromium's preview printing custom settings.
+Stampa la pagina web della finestra come PDF con le impostazioni di stampa personalizzate di Chromium.
 
-The `callback` will be called with `callback(error, data)` on completion. The `data` is a `Buffer` that contains the generated PDF data.
+Il `callback` verrà chiamato con `callback (error, data)` al completamento. I `data` è un `Buffer` che contiene i dati del PDF generato.
 
-The `landscape` will be ignored if `@page` CSS at-rule is used in the web page.
+Il `landscape` verrà ignorato se la regola CSS `@page` è utilizzato nella pagina web.
 
-By default, an empty `options` will be regarded as:
+Per impostazione predefinita, se l'oggetto `options` è vuoto verrà utilizzato il seguente:
 
 ```javascript
 {
@@ -948,9 +948,9 @@ By default, an empty `options` will be regarded as:
 }
 ```
 
-Use `page-break-before: always;` CSS style to force to print to a new page.
+Usa la regola CSS `page-break-before: always;` per forzare per stampare su una nuova pagina.
 
-An example of `webContents.printToPDF`:
+Un esempio di `webContents.printToPDF`:
 
 ```javascript
 const {BrowserWindow} = require('electron')
