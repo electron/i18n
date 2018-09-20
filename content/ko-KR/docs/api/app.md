@@ -21,7 +21,7 @@ app 객체는 다음과 같은 이벤트를 가지고 있습니다:
 
 애플리케이션이 기본적인 시작 준비를 마치면 발생하는 이벤트입니다. Windows, Linux 운영체제에서 `will-finish-launching` 이벤트는 `ready` 이벤트와 동일합니다. macOS에서 이벤트는 `NSApplication`의 `applicationWillFinishLaunching`에 대한 알림으로 표현됩니다. 대개 이곳에서 `open-file`과 `open-url` 이벤트 리스너를 설정하고 crash reporter와 auto updater를 시작합니다.
 
-대부분의 경우, 모든 것을 `ready` 이벤트 핸들러 안에서 해결해야 합니다.
+In most cases, you should do everything in the `ready` event handler.
 
 ### 이벤트: 'ready'
 
@@ -119,7 +119,7 @@ Returns:
 
 ### 이벤트: 'will-continue-activity' *macOS*
 
-Returns:
+반환:
 
 * `event` Event
 * `type` String - 활동을 식별하는 문자열. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)와 맵핑됩니다.
@@ -305,7 +305,7 @@ Emitted when Chrome's accessibility support changes. This event fires when assis
 
 ### Event: 'session-created'
 
-Returns:
+반환:
 
 * `event` Event
 * `session` [Session](session.md)
@@ -319,6 +319,18 @@ app.on('session-created', (event, session) => {
   console.log(session)
 })
 ```
+
+### Event: 'second-instance'
+
+반환:
+
+* `event` Event
+* `argv` String[] - An array of the second instance's command line arguments
+* `workingDirectory` String - The second instance's working directory
+
+This event will be emitted inside the primary instance of your application when a second instance has been executed. `argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Usually applications respond to this by making their primary window focused and non-minimized.
+
+This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
 
 ## 메소드
 
@@ -366,6 +378,10 @@ app.exit(0)
 ### `app.isReady()`
 
 `Boolean`을 반환 - 일렉트론이 초기화를 끝냈으면 `true`를, 그렇지 않으면 `false`를 반환합니다.
+
+### `app.whenReady()`
+
+Returns `Promise` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
 
 ### `app.focus()`
 
@@ -505,7 +521,7 @@ Returns `Boolean` - Whether the call succeeded.
 
 This method checks if the current executable as the default handler for a protocol (aka URI scheme). If so, it will remove the app as the default handler.
 
-### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
+### `app.isDefaultProtocolClient(protocol[, path, args])`
 
 * `protocol` String - The name of your protocol, without `://`.
 * `path` String (optional) *Windows* - Defaults to `process.execPath`
@@ -616,21 +632,15 @@ app.setJumpList([
 ])
 ```
 
-### `app.makeSingleInstance(callback)`
+### `app.requestSingleInstanceLock()`
 
-* `callback` 함수 
-  * `argv` String[] - An array of the second instance's command line arguments
-  * `workingDirectory` String - The second instance's working directory
-
-`Boolean`을 반환합니다.
+`Boolean`을 반환합니다
 
 This method makes your application a Single Instance Application - instead of allowing multiple instances of your app to run, this will ensure that only a single instance of your app is running, and other instances signal this instance and exit.
 
-`callback` will be called by the first instance with `callback(argv, workingDirectory)` when a second instance has been executed. `argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Usually applications respond to this by making their primary window focused and non-minimized.
+The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock you can assume that another instance of your application is already running with the lock and exit immediately.
 
-The `callback` is guaranteed to be executed after the `ready` event of `app` gets emitted.
-
-This method returns `false` if your process is the primary instance of the application and your app should continue loading. And returns `true` if your process has sent its parameters to another instance, and you should immediately quit.
+I.e. This method returns `true` if your process is the primary instance of your application and your app should continue loading. It returns `false` if your process should immediately quit as it has sent its parameters to another instance that has already acquired the lock.
 
 On macOS the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the `open-file` and `open-url` events will be emitted for that. However when users start your app in command line the system's single instance mechanism will be bypassed and you have to use this method to ensure single instance.
 
@@ -640,26 +650,34 @@ On macOS the system enforces single instance automatically when users try to ope
 const {app} = require('electron')
 let myWindow = null
 
-const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
-  // 뭔가가 두 번째 인스턴스를 실행했네요, 우리는 우리의 window에 집중합시다.
-  if (myWindow) {
-    if (myWindow.isMinimized()) myWindow.restore()
-    myWindow.focus()
-  }
-})
+const gotTheLock = app.requestSingleInstanceLock()
 
-if (isSecondInstance) {
+if (!gotTheLock) {
   app.quit()
-}
+} else {
+  app.on('second-instance', (commandLine, workingDirectory) => {
+    // Someone tried to run a second instance, we should focus our window.
+    if (myWindow) {
+      if (myWindow.isMinimized()) myWindow.restore()
+      myWindow.focus()
+    }
+  })
 
-// myWindow를 생성합니다, 앱 로드, 기타 등등...
-app.on('ready', () => {
-})
+  // Create myWindow, load the rest of the app, etc...
+  app.on('ready', () => {
+  })
+}
 ```
 
-### `app.releaseSingleInstance()`
+### `app.hasSingleInstanceLock()`
 
-Releases all locks that were created by `makeSingleInstance`. This will allow multiple instances of the application to once again run side by side.
+`Boolean`을 반환합니다
+
+This method returns whether or not this instance of your app is currently holding the single instance lock. You can request the lock with `app.requestSingleInstanceLock()` and release with `app.releaseSingleInstanceLock()`
+
+### `app.releaseSingleInstanceLock()`
+
+Releases all locks that were created by `requestSingleInstanceLock`. This will allow multiple instances of the application to once again run side by side.
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
@@ -732,7 +750,7 @@ Sets the counter badge for current app. Setting the count to `0` will hide the b
 
 On macOS it shows on the dock icon. On Linux it only works for Unity launcher,
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
+**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
@@ -906,10 +924,16 @@ Dock 아이콘을 표시합니다.
 
 * `menu` [Menu](menu.md)
 
-애플리케이션의 [dock 메뉴](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103)를 설정합니다.
+Sets the application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
 
 ### `app.dock.setIcon(image)` *macOS*
 
 * `image` ([NativeImage](native-image.md) | String)
 
 `image` Dock 메뉴의 아이콘과 관련된 이미지를 설정합니다.
+
+## 속성
+
+### `app.isPackaged`
+
+A `Boolean` property that returns `true` if the app is packaged, `false` otherwise. For many apps, this property can be used to distinguish development and production environments.
