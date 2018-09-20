@@ -412,7 +412,7 @@ window.addEventListener('contextmenu', (e) =&gt; {
 </h3>
 
 <p>
-  Template:
+  模板：
 </p>
 
 <pre><code class="javascript">[
@@ -424,7 +424,7 @@ window.addEventListener('contextmenu', (e) =&gt; {
 </code></pre>
 
 <p>
-  Menu:
+  菜单:
 </p>
 
 <pre><code class="sh">&lt;br />- 1
@@ -434,7 +434,7 @@ window.addEventListener('contextmenu', (e) =&gt; {
 </code></pre>
 
 <p>
-  Template:
+  模板：
 </p>
 
 <pre><code class="javascript">[
@@ -448,7 +448,7 @@ window.addEventListener('contextmenu', (e) =&gt; {
 </code></pre>
 
 <p>
-  Menu:
+  菜单:
 </p>
 
 <pre><code class="sh">&lt;br />- 3
@@ -460,7 +460,7 @@ window.addEventListener('contextmenu', (e) =&gt; {
 </code></pre>
 
 <p>
-  Template:
+  模板：
 </p>
 
 <pre><code class="javascript">[
@@ -471,7 +471,7 @@ window.addEventListener('contextmenu', (e) =&gt; {
 </code></pre>
 
 <p>
-  Menu:
+  菜单:
 </p>
 
 <pre><code class="sh">&lt;br />- ---
