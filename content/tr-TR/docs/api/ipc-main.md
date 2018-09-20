@@ -8,7 +8,7 @@
 
 ## Mesaj gönderiliyor
 
-Ana işlemden yan işleme mesaj göndermek mümkündür, daha fazla bilgi için [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) komutuna bakınız.
+It is also possible to send messages from the main process to the renderer process, see [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for more information.
 
 * Bir mesaj gönderirken, etkinlik adı `channel`.
 * Eşzamanlı bir mesaja cevap vermek için, `event.returnValue`yi ayarlamak gereklidir.
@@ -82,4 +82,4 @@ Bunu, zaman uyumlu bir mesajda iade edilecek değere ayarlayınız.
 
 ### `event.sender`
 
-İletiyi gönderen `webContents` değerini döndürür, eşzamansız iletiyi yanıtlamak için `event.sender.send`' i arayabilir, daha fazla bilgi için [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-)' e bakabilirsiniz.
+Returns the `webContents` that sent the message, you can call `event.sender.send` to reply to the asynchronous message, see [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for more information.
