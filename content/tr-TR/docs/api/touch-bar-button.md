@@ -2,7 +2,7 @@
 
 > Yerel macOS uygulamaları için dokunmatik çubukta bir düğme oluşturun
 
-İşlem: [Main](../tutorial/quick-start.md#main-process)
+İşlem: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new TouchBarButton(options)` *Deneysel*
 
