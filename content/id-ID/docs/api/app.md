@@ -23,7 +23,7 @@ Dipancarkan saat aplikasi telah menyelesaikan proses awal mula dasar. Pada Windo
 
 In most cases, you should do everything in the `ready` event handler.
 
-### Kejadian: 'ready'
+### (Event) Kejadian: 'ready'
 
 Mengembalikan:
 
