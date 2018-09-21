@@ -1,10 +1,10 @@
 # 應用程式 Debug
 
-Whenever your Electron application is not behaving the way you wanted it to, an array of debugging tools might help you find coding errors, performance bottlenecks, or optimization opportunities.
+每当 你编写的 Electron 应用程序没有按照你想要的方式运行时，一系列调试工具可能会帮助您发现编码错误、性能瓶颈或优化机会。
 
 ## 畫面轉譯處理序
 
-The most comprehensive tool to debug individual renderer processes is the Chromium Developer Toolset. It is available for all renderer processes, including instances of `BrowserWindow`, `BrowserView`, and `WebView`. You can open them programmatically by calling the `openDevTools()` API on the `webContents` of the instance:
+最广泛使用来调试指定渲染进程的工具是Chromium的开发者工具集。 它可以获取到所有的渲染进程，包括`BrowserWindow`的实例，`BrowserView`以及`WebView`。 您可以通过编程的方式在BrowserWindow的`webContents`中调用`openDevTool()`API来打开它们：
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -13,10 +13,10 @@ let win = new BrowserWindow()
 win.webContents.openDevTools()
 ```
 
-Google offers [excellent documentation for their developer tools](https://developer.chrome.com/devtools). We recommend that you make yourself familiar with them - they are usually one of the most powerful utilities in any Electron Developer's tool belt.
+谷歌为他们的开发者工具提供了[杰出的文档](https://developer.chrome.com/devtools) 我们建议您熟悉它们，它们对于任何Electron开发者来说通常都是工具包中最强大的工具之一。
 
 ## 主處理序
 
-Debugging the main process is a bit trickier, since you cannot open developer tools for them. The Chromium Developer Tools can [be used to debug Electron's main process](https://nodejs.org/en/docs/inspector/) thanks to a closer collaboration between Google / Chrome and Node.js, but you might encounter oddities like `require` not being present in the console.
+调试主进程有点棘手, 因为您不能简单地打开开发者工具来调试它们。 多亏了谷歌和Node.js的紧密合作，Chromium开发者工具可以[被用来调试Electron的主进程](https://nodejs.org/en/docs/inspector/)，否则你也许会遇到许多怪事就像`require`不能再控制台中显示。
 
-For more information, see the [Debugging the Main Process documentation](./debugging-main-process.md).
+如果想获取更多信息，可以看[调试主进程的文档](./debugging-main-process.md)
