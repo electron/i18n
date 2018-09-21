@@ -1,8 +1,8 @@
-# Build Instructions
+# Инструкции по сборке
 
-Follow the guidelines below for building Electron.
+Следуйте рекомендациям ниже для сборки Electron.
 
-## Platform prerequisites
+## Системные требования
 
 Перед началом проверьте требования сборки для вашей системы
 
@@ -10,7 +10,7 @@ Follow the guidelines below for building Electron.
 - [Linux](build-instructions-linux.md#prerequisites)
 - [Windows](build-instructions-windows.md#prerequisites)
 
-## GN prerequisites
+## Требования для GN
 
 Вам нужно будет установить [`depot_tools`](http://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up), набор инструментов, используемый для извлечения Chromium и его зависимостей.
 
