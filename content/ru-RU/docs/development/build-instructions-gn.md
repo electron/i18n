@@ -25,7 +25,7 @@
 ```sh
 $ export GIT_CACHE_PATH="${HOME}/.git_cache"
 $ mkdir -p "${GIT_CACHE_PATH}"
-# This will use about 16G.
+# Это будет использовать примерно 16 гигабайт.
 ```
 
 > **NOTE**: the git cache will set the `origin` of the `src/electron` repository to point to the local cache, instead of the upstream git repository. This is undesirable when running `git push`—you probably want to push to github, not your local cache. To fix this, from the `src/electron` directory, run:
@@ -43,7 +43,7 @@ export SCCACHE_BUCKET="electronjs-sccache"
 export SCCACHE_TWO_TIER=true
 ```
 
-## Getting the code
+## Получение кода
 
 ```sh
 $ mkdir electron-gn && cd electron-gn
