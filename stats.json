@@ -211,14 +211,14 @@
     "name": "Polish",
     "code": "pl",
     "phrases": "9593",
-    "translated": "3908",
-    "approved": "776",
+    "translated": "3909",
+    "approved": "811",
     "words": "88354",
-    "words_translated": "19686",
-    "words_approved": "5633",
+    "words_translated": "19683",
+    "words_approved": "5939",
     "translated_progress": 22,
     "approved_progress": 6,
-    "qa_issues": "839"
+    "qa_issues": "823"
   },
   {
     "name": "Portuguese, Brazilian",
