@@ -171,7 +171,7 @@ Depois de criar seus arquivos iniciais `main.js`,`index.html` e `package.json`, 
 
 Clone e execute o código nesse tutorial utilizando o repositório [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start).
 
-**Note**: Running this requires [Git](https://git-scm.com) and [npm](https://www.npmjs.com/).
+**Nota**: Executando as dependências [Git](https://git-scm.com) e [npm](https://www.npmjs.com/).
 
 ```sh
 # Clone o repositório
@@ -184,4 +184,4 @@ $ npm install
 $ npm start
 ```
 
-For a list of boilerplates and tools to kick-start your development process, see the [Boilerplates and CLIs documentation](./boilerplates-and-clis.md).
+Para uma lista de padrões e ferramentas para iniciar seu processo de desenvolvimento, consulte [Boilerplates e documentação CLI](./boilerplates-and-clis.md).
