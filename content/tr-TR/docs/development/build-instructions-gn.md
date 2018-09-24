@@ -1,10 +1,10 @@
-# Build Instructions
+# Kurulum Talimatları
 
-Follow the guidelines below for building Electron.
+Electron'u kurmak için aşağıdaki talimatları izleyin.
 
-## Platform prerequisites
+## Ön Koşullar
 
-Check the build prerequisites for your platform before proceeding
+Devam etmeden önce platformunuz için ön koşulları kontrol edin
 
 - [macOS](build-instructions-osx.md#prerequisites)
 - [Linux](build-instructions-linux.md#prerequisites)
