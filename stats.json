@@ -3,14 +3,14 @@
     "name": "Arabic",
     "code": "ar",
     "phrases": "9593",
-    "translated": "854",
+    "translated": "857",
     "approved": "0",
     "words": "88354",
-    "words_translated": "5485",
+    "words_translated": "5491",
     "words_approved": "0",
     "translated_progress": 6,
     "approved_progress": 0,
-    "qa_issues": "344"
+    "qa_issues": "348"
   },
   {
     "name": "Bulgarian",
@@ -289,14 +289,14 @@
     "name": "Turkish",
     "code": "tr",
     "phrases": "9593",
-    "translated": "7846",
+    "translated": "7854",
     "approved": "2",
     "words": "88354",
-    "words_translated": "66066",
+    "words_translated": "66136",
     "words_approved": "2",
     "translated_progress": 74,
     "approved_progress": 0,
-    "qa_issues": "3386"
+    "qa_issues": "3389"
   },
   {
     "name": "Ukrainian",
