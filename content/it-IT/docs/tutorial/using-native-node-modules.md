@@ -57,7 +57,7 @@ HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https
 
 ### Build manuale per una versione personalizzata di Electron
 
-To compile native Node addons against a custom build of Electron that doesn't match a public release, instruct `npm` to use the version of Node you have bundled with your custom build.
+Per compilare dei moduli aggiuntivi Node per una build personalizzata di Electron che non corrisponde ad un versione pubblica, bisogna indicare ad `npm` di usare la versione di Node che hai incluso nella tua build personalizzata.
 
 ```sh
 npm rebuild --nodedir=$HOME/.../path/to/electron/vendor/node
@@ -68,12 +68,12 @@ npm rebuild --nodedir=$HOME/.../path/to/electron/vendor/node
 Se hai installato un modulo nativo ed hai trovato che non fosse funzionante, devi controllare le seguenti cose:
 
 * L'architettura del modulo deve corrispondere con quella di Electron (ia32 o x64).
-* Dopo il tuo aggiornamento di Electron, dovrai spesso ricostruire i moduli.
-* Quando in dubbio, esegui prima `electron-rebuild`.
+* Dopo un aggiornamento di Electron, dovrai spesso ricostruire i moduli.
+* Quando sei in dubbio, esegui prima `electron-rebuild`.
 
 ## Moduli rilevanti su `prebuild`
 
-[`prebuild`](https://github.com/mafintosh/prebuild) provides a way to publish native Node modules with prebuilt binaries for multiple versions of Node and Electron.
+[`prebuild`](https://github.com/mafintosh/prebuild) fornisce un modo di pubblicare moduli nativi di Node con i binari già compilati per versioni multiple di Node ed Electron.
 
 Se i moduli forniscono binari per usarli in Electron, assicurati di omettere `--build-from-source` e l'ambiente variabile `npm_config_build_from_source` per prendere pieno vantaggio dai binari precostruiti.
 
@@ -81,6 +81,6 @@ Se i moduli forniscono binari per usarli in Electron, assicurati di omettere `--
 
 Lo [strumento `node-pre-gyp`](https://github.com/mapbox/node-pre-gyp) fornisce un modo per implementare i moduli nativi di Node con binari precostruiti e molti moduli popolari lo usano.
 
-Spesso questi moduli lavorano bene sotto Electron, ma a volte quando Electron usa una nuova versione di V8 e ci sono cambiamenti ABI, posso succedere brutte cose. Quindi in generale si raccomanda di costruire sempre moduli nativi dal codice risorsa.
+Spesso questi moduli lavorano bene sotto Electron, ma a volte quando Electron usa una nuova versione di V8 e ci sono cambiamenti ABI, posso succedere brutte cose. Quindi in generale si raccomanda di costruire sempre moduli nativi dal codice sorgente.
 
-Se stai seguendo il metodo di installazione moduli `npm`, questo sarà fatto di default, altrimenti devi passare `--build-from-source` a `npm` o impostare la variabile ambiente `npm_config_build_from_source`.
+Se stai installando moduli tramite `npm`, questo sarà fatto di default, altrimenti devi passare `--build-from-source` a `npm` o impostare la variabile ambiente `npm_config_build_from_source`.
