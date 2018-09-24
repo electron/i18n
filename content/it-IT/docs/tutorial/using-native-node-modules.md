@@ -1,6 +1,6 @@
 # Uso dei moduli nativi di Node
 
-I moduli nativi di Node sono supportati da Electron, che usa però una versione V8 differente dal Node binario installato nel tuo sistema, devi specificare manualmente la posizione delle intestazioni di Electron quando crei moduli nativi.
+I moduli nativi di Node sono supportati da Electron, ma dal momento che Electron usa una versione differente di V8 da quella presente nei binari Node installati nel tuo sistema, hai bisogno di specificare manualmente la posizione degli header di Electron quando esegui il build dei moduli nativi.
 
 ## Come installare moduli nativi
 
@@ -30,9 +30,9 @@ HOME=~/.electron-gyp npm installa
 
 ### Installando moduli e ricostruendo per Electron
 
-Puoi anche scegliere di installare moduli come altri progetti Node e poi ricostruire i moduli per Electron con il pacchetto [`electron-rebuild`](https://github.com/paulcbetts/electron-rebuild). Questo modulo può ottenere la versione di Electron e superare i passi manuali di download intestazioni e costruendo moduli nativi per la tua app.
+Puoi anche scegliere di installare moduli come altri progetti Node e poi ricostruire i moduli per Electron con il pacchetto [`electron-rebuild`](https://github.com/paulcbetts/electron-rebuild). Questo modulo può ottenere la versione di Electron ed occuparsi dei passi manuali di download degli headers e ricostruire i moduli nativi per la tua app.
 
-Un esempio di installazione di `electron-rebuild` e poi ricostruzione dei moduli con questo:
+Un esempio di installazione di `electron-rebuild` e ricostruzione dei moduli:
 
 ```sh
 npm install --save-dev electron-rebuild
@@ -44,18 +44,18 @@ npm install --save-dev electron-rebuild
 .\node_modules\.bin\electron-rebuild.cmd
 ```
 
-### Costruzione manuale per Electron
+### Build manuale per Electron
 
-Se stai sviluppando un modulo nativo e vuoi testarlo contro Electron, potresti voler ricostruire il modulo per Electron manualmente. Puoi usare direttamente `node-gyp` per costruire per Electron:
+Se stai sviluppando un modulo nativo e vuoi testarlo con Electron, potresti voler ricostruire il modulo per Electron manualmente. Puoi usare direttamente `node-gyp` per costruire per Electron:
 
 ```sh
 cd /path-to-module/
 HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https://atom.io/download/electron
 ```
 
-`HOME=~/.electron-gyp` cambia dove trovare le intestazioni di sviluppo. `--target=1.2.3` è la versione di Electron. `--dist-url=...` specifica dove scaricare le intestazioni. `--arch=x64` dice che il modulo è costruito per sistemi a 6 bit.
+`HOME=~/.electron-gyp` cambia dove trovare le intestazioni di sviluppo. `--target=1.2.3` è la versione di Electron. `--dist-url=...` specifica dove scaricare le intestazioni. `--arch=x64` dice che il modulo è costruito per sistemi a 64 bit.
 
-### Manually building for a custom build of Electron
+### Build manuale per una versione personalizzata di Electron
 
 To compile native Node addons against a custom build of Electron that doesn't match a public release, instruct `npm` to use the version of Node you have bundled with your custom build.
 
