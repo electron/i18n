@@ -10,12 +10,12 @@ Devam etmeden önce platformunuz için ön koşulları kontrol edin
 - [Linux](build-instructions-linux.md#prerequisites)
 - [Windows](build-instructions-windows.md#prerequisites)
 
-## GN prerequisites
+## GN önkoşulları
 
-You'll need to install [`depot_tools`](http://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up), the toolset used for fetching Chromium and its dependencies.
+Chromium'u ve bağımlılıklarını almak için kullanılan araç seti [`depot_tools`](http://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up)'u yüklemeniz gerekir.
 
-Also, on Windows, you'll need to set the environment variable `DEPOT_TOOLS_WIN_TOOLCHAIN=0`. To do so, open `Control Panel` → `System and
-Security` → `System` → `Advanced system settings` and add a system variable `DEPOT_TOOLS_WIN_TOOLCHAIN` with value `0`. This tells `depot_tools` to use your locally installed version of Visual Studio (by default, `depot_tools` will try to download a Google-internal version that only Googlers have access to).
+Ayrıca Windows'ta ortam değişkenini ayarlamanız gerekecek `DEPOT_TOOLS_WIN_TOOLCHAIN=0`. Bunun için, `Control Panel` → `System and
+Security` → `System` → `Advanced system settings` açın ve sistem değişkenini `DEPOT_TOOLS_WIN_TOOLCHAIN` "`0`" değeriyle birlikte ekleyin. This tells `depot_tools` to use your locally installed version of Visual Studio (by default, `depot_tools` will try to download a Google-internal version that only Googlers have access to).
 
 ## Cached builds (optional step)
 
