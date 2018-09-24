@@ -1,4 +1,4 @@
-# Запросы на слияние
+# Пулл реквесты
 
 * [Setting up your local environment](#setting-up-your-local-environment) 
   * [Step 1: Fork](#step-1-fork)
