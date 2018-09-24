@@ -209,20 +209,20 @@ Removing old .npmrc (default)
 Activating .npmrc "electron"
 ```
 
-The Electron account's credentials are kept by GitHub. "Electron - NPM" for the URL "https://www.npmjs.com/login".
+The Electron account's credentials are kept by GitHub in a password manager. You'll also need to have access to an 2FA authenticator app with the appropriate OTP generator code to log in.
 
 ```sh
 $ npm login
-Username: electron
-Password:
+Username: electron-nightly
+Password: <This can be found under NPM Electron Nightly on LastPass>
 Email: (this IS public) electron@github.com
 ```
 
-Publish the release to npm.
+Publish the release to npm. Before running this you'll need to have set `ELECTRON_NPM_OTP` as an environment variable using a code from the aforementioned 2FA authenticator app.
 
 ```sh
 $ npm whoami
-electron
+electron-nightly
 $ npm run publish-to-npm
 ```
 
@@ -287,17 +287,24 @@ Daha sonra elle her platform için dağıtımlar oluşturun ve yükleyin:
 
 ```sh
 # Yeniden yüklenecek sürümü kontrol edin.
-git checkout vYAYIMIN.VERSIYON.NUMARASI
+git checkout vX.Y.Z
 
-# Versiyonu ve altyapısı belirtilmiş yayımı indir.
-./script/bootstrap.py --target_arch [arm|x64|ia32]
-./script/build.py -c R
-./script/create-dist.py
+# Create release build
+gn gen out/Release --args="import(\"//electron/build/args/release.gn\") $GN_EXTRA_ARGS"
 
-# Çoktan yayımlanmış bir sürümün üstüne yazmaya izin verir.
+# To compile for specific arch, instead set
+gn gen out/Release-<TARGET_ARCH> --args='import(\"//electron/build/args/release.gn\") target_cpu = "[arm|x64|ia32]"'
+
+# Build by running ninja with the electron target
+ninja -C out/Release electron
+ninja -C out/Release electron:dist_zip
+
+# Explicitly allow overwriting a published release.
 ./script/upload.py --overwrite
 
 ```
+
+Allowable values for [target_cpu](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values) and [target_os](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values).
 
 Tüm dağıtımları yeniden yükledikten sonra, checksum dosyasını yüklemek için tekrar yayınlayın:
 
