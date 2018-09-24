@@ -80,14 +80,21 @@ $ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_
 **For generating Release (aka "non-component" or "static") build config of Electron:**
 
 ```sh
-$ gn gen out/Debug --args="import(\"//electron/build/args/release.gn\") $GN_EXTRA_ARGS"
+$ gn gen out/Release --args="import(\"//electron/build/args/release.gn\") $GN_EXTRA_ARGS"
 ```
 
-**To build, run `ninja` with the `electron` target:**
+**To build, run `ninja` with the `electron` target:** Nota Bene: This will also take a while and probably heat up your lap.
+
+For the debug configuration:
 
 ```sh
 $ ninja -C out/Debug electron
-# This will also take a while and probably heat up your lap.
+```
+
+For the release configuration:
+
+```sh
+$ ninja -C out/Release electron
 ```
 
 这个过程会构建 'libchromiumcontent' 里的所有内容，(如` chromium`中的`content`，及其依赖（包括Webkit 和 V8）)。因此，这个构建过程会比较费时。
