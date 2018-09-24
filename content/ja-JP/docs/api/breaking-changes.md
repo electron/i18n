@@ -2,11 +2,11 @@
 
 Breaking changes will be documented here, and deprecation warnings added to JS code where possible, at least [one major version](../tutorial/electron-versioning.md#semver) before the change is made.
 
-# `FIXME` comments
+# `FIXME` コメント
 
-The `FIXME` string is used in code comments to denote things that should be fixed for future releases. See https://github.com/electron/electron/search?q=fixme
+The `FIXME` string is used in code comments to denote things that should be fixed for future releases. （参照： https://github.com/electron/electron/search?q=fixme ）
 
-# Planned Breaking API Changes (4.0)
+# 計画されているAPIの破壊的変更（4.0）
 
 The following list includes the breaking API changes planned for Electron 4.0.
 
@@ -33,7 +33,7 @@ app.releaseSingleInstance()
 app.releaseSingleInstanceLock()
 ```
 
-# Breaking API Changes (3.0)
+# APIの破壊的変更（3.0）
 
 The following list includes the breaking API changes in Electron 3.0.
 
@@ -225,7 +225,7 @@ Deprecated: https://atom.io/download/atom-shell
 
 Replace with: https://atom.io/download/electron
 
-# Breaking API Changes (2.0)
+# APIの破壊的変更（2.0）
 
 The following list includes the breaking API changes made in Electron 2.0.
 
@@ -263,7 +263,7 @@ nativeImage.toJpeg()
 nativeImage.toJPEG()
 ```
 
-## `プロセス`
+## `process`
 
 * `process.versions.electron` and `process.version.chrome` will be made read-only properties for consistency with the other `process.versions` properties set by Node.
 
