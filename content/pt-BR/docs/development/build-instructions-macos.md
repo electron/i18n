@@ -7,7 +7,7 @@ Siga as instruções abaixo para compilar o Electron no macOS.
 - macOS => 10.11.6
 - [Xcode](https://developer.apple.com/technologies/tools/) >= 8.2.1
 - [node.js](https://nodejs.org) (externo)
-- Python 2.7 with support for TLS 1.2
+- Python 2.7 com suporte para TLS 1.2
 
 ## Python
 
@@ -29,7 +29,7 @@ If you are using Python as provided by Homebrew, you also need to install the fo
 
 ## macOS SDK
 
-If you're developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
+Se está desenvolvendo com Electron e não planeja redistribuir sua construção personalizada, pode pular essa seção.
 
 Para que algumas funcionalidades possam funcionar corretamente, por exemplo pinch-zoom. Você precisa utilizar o SDK 10.10 do macOS.
 
