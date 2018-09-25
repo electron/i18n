@@ -92,9 +92,9 @@ A configuração padrão para compilação é direcionado para as principais dis
 
 ### Usando o `clang` em vez de fazer o download dos binários de `clang`
 
-Por padrão o Electron é feito com código binário [`clang`](https://clang.llvm.org/get_started.html) pre-produzido e fornecido pelo projeto Chromium. If for some reason you want to build with the `clang` installed in your system, you can specify the `clang_base_path` argument in the GN args.
+Por padrão o Electron é feito com código binário [`clang`](https://clang.llvm.org/get_started.html) pre-produzido e fornecido pelo projeto Chromium. Se por alguma razão quer construir usando `clang` instalado no seu sistema, pode especificar o argumento `clang_base_path` nos argumentos do GN.
 
-For example if you installed `clang` under `/usr/local/bin/clang`:
+Por exemplo, se o `clang` estiver instalado em `/usr/local/bin/clang`:
 
 ```sh
 $ gn gen out/Debug --args='import("//electron/build/args/debug.gn") clang_base_path = "/usr/local/bin"'
@@ -102,4 +102,4 @@ $ gn gen out/Debug --args='import("//electron/build/args/debug.gn") clang_base_p
 
 ### Utilizando compiladores diferentes de `clang`
 
-Building Electron with compilers other than `clang` is not supported.
+Construir Electron com compiladores diferentes de `clang` não é suportado.
