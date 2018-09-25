@@ -19,7 +19,7 @@ A configuração do Electron é feita totalmente por linha de comando, não é p
 
 ## Compilando
 
-Veja [ Instruções de build: GN ](build-instructions-gn.md)
+Veja [Instruções de build: GN](build-instructions-gn.md)
 
 ## Compilação 32bit
 
