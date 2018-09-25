@@ -225,13 +225,13 @@
     "code": "pt-BR",
     "phrases": "9596",
     "translated": "4128",
-    "approved": "389",
+    "approved": "399",
     "words": "88462",
     "words_translated": "29499",
-    "words_approved": "2648",
+    "words_approved": "2781",
     "translated_progress": 33,
-    "approved_progress": 2,
-    "qa_issues": "1203"
+    "approved_progress": 3,
+    "qa_issues": "1200"
   },
   {
     "name": "Russian",
