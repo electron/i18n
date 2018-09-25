@@ -74,7 +74,7 @@ $ gn gen out/Debug --args='import(...) target_cpu="arm"'
 
 ## Compilando
 
-Veja [ Instruções de build: GN ](build-instructions-gn.md)
+Veja [Instruções de build: GN](build-instructions-gn.md)
 
 ## Solução de Problemas
 
