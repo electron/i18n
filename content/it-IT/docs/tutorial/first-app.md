@@ -59,13 +59,13 @@ Trasformare quest'applicazione Node in un'applicazione Electron è abbastanza se
 
 ## Installare Electron
 
-A questo punto, dovrai installare `electron` stesso. The recommended way of doing so is to install it as a development dependency in your app, which allows you to work on multiple apps with different Electron versions. To do so, run the following command from your app's directory:
+A questo punto, dovrai installare `electron` stesso. Il metodo consigliato per farlo è installare come dependency della tua app, che ti permette di lavorare su più applicazioni con versioni di Electron differenti. Per fare ciò, esegui il seguente comando dalla cartella della tua applicazione:
 
 ```sh
 npm install --save-dev electron
 ```
 
-Other means for installing Electron exist. Please consult the [installation guide](installation.md) to learn about use with proxies, mirrors, and custom caches.
+Esistono anche altri modi per installare Electron. Perfavore, consulta la [guida d'installazione](installation.md) per imparare come usare proxies, mirrors e caches personalizzate.
 
 ## Sviluppo Electron in breve
 
