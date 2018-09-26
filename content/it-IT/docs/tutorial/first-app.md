@@ -59,7 +59,7 @@ Trasformare quest'applicazione Node in un'applicazione Electron è abbastanza se
 
 ## Installare Electron
 
-At this point, you'll need to install `electron` itself. The recommended way of doing so is to install it as a development dependency in your app, which allows you to work on multiple apps with different Electron versions. To do so, run the following command from your app's directory:
+A questo punto, dovrai installare `electron` stesso. The recommended way of doing so is to install it as a development dependency in your app, which allows you to work on multiple apps with different Electron versions. To do so, run the following command from your app's directory:
 
 ```sh
 npm install --save-dev electron
@@ -81,7 +81,7 @@ The `electron` module exposes features in namespaces. As examples, the lifecycle
 const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
-  // Create the browser window.
+  // Create la finestra del browser
   win = new BrowserWindow({ width: 800, height: 600 })
 
   // e viene caricato il file index.html della nostra app.
@@ -96,8 +96,8 @@ The `main.js` should create windows and handle all the system events your applic
 ```javascript
 const { app, BrowserWindow } = require('electron')
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
+// Mantiene un riferimento globale all'oggetto window, se non lo fai, la finestra sarà
+// chiusa automaticamente quando l'oggetto JavaScript sarà garbage collected.
 let win
 
 function createWindow () {
@@ -107,7 +107,7 @@ function createWindow () {
   // e viene caricato il file index.html della nostra app.
   win.loadFile('index.html')
 
-  // Open the DevTools.
+  // Apre il Pannello degli Strumenti di Sviluppo.
   win.webContents.openDevTools()
 
   // Emesso quando la finestra viene chiusa.
@@ -165,13 +165,13 @@ Infine il file `index. html` è la pagina web che si desidera visualizzare:
 
 ## Esecuzione della tua App
 
-Once you've created your initial `main.js`, `index.html`, and `package.json` files, you can try your app by running `npm start` from your application's directory.
+Dopo aver creato il `main.js` iniziale, il file`index.html`, ed il `package.json`, puoi provare la tua app eseguendo il comando `npm start` dalla cartella della tua applicazione.
 
-## Trying this Example
+## Provando quest'esempio
 
 Clona ed esegui il codice mostrato in questo tutorial utilizzando il repository [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start).
 
-**Note**: Running this requires [Git](https://git-scm.com) and [npm](https://www.npmjs.com/).
+**Nota**: Avviare questo richiede [Git](https://git-scm.com) e [npm](https://www.npmjs.com/).
 
 ```sh
 # Clona la repository
@@ -184,4 +184,4 @@ $ npm install
 $ npm start
 ```
 
-For a list of boilerplates and tools to kick-start your development process, see the [Boilerplates and CLIs documentation](./boilerplates-and-clis.md).
+Per una lista degli standard e degli strumenti per iniziare il proprio processo di sviluppo, vedi la [Documentazione per gli Standard e le Command Line Interfaces](./boilerplates-and-clis.md).
