@@ -16,7 +16,7 @@ O recém-criado `BrowserWindow` herdará as opções da janela pai por padrão. 
 
 Retorna [`BrowserWindowProxy`](browser-window-proxy.md) - Cria uma nova janela e retorna uma instância da classe `BrowserWindowProxy`.
 
-The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options. These are the features you can set via `features` string: `zoomFactor`, `nodeIntegration`, `preload`, `javascript`, `contextIsolation`, `webviewTag`.
+A string `features` segue o formato padrão do navegador, mas cada feature deve ser um campo das opções de `BrowserWindow`. These are the features you can set via `features` string: `zoomFactor`, `nodeIntegration`, `preload`, `javascript`, `contextIsolation`, `webviewTag`.
 
 Como por exemplo:
 
@@ -24,7 +24,7 @@ Como por exemplo:
 window.open('https://github.com', '_blank', 'nodeIntegration=no')
 ```
 
-**Notes:**
+**Notas:**
 
 * Node integration will always be disabled in the opened `window` if it is disabled on the parent window.
 * Context isolation will always be enabled in the opened `window` if it is enabled on the parent window.
@@ -36,11 +36,11 @@ window.open('https://github.com', '_blank', 'nodeIntegration=no')
 * `message` String
 * `targetOrigin` String
 
-Sends a message to the parent window with the specified origin or `*` for no origin preference.
+Envia uma mensagem para a janela pai com a origem especificada ou `*` para origem sem preferência.
 
 ### Usando a implementação de `window.open()` do Chrome
 
-If you want to use Chrome's built-in `window.open()` implementation, set `nativeWindowOpen` to `true` in the `webPreferences` options object.
+Se você deseja usar a implementação built-in de `window.open()` do Chrome, defina `nativeWindowOpen` como `true` no objeto de opções `webPreferences`.
 
 Native `window.open()` allows synchronous access to opened windows so it is convenient choice if you need to open a dialog or a preferences window.
 
