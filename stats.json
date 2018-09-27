@@ -120,14 +120,14 @@
     "name": "Hebrew",
     "code": "he",
     "phrases": "9600",
-    "translated": "196",
+    "translated": "199",
     "approved": "0",
     "words": "88504",
-    "words_translated": "1449",
+    "words_translated": "1458",
     "words_approved": "0",
     "translated_progress": 1,
     "approved_progress": 0,
-    "qa_issues": "59"
+    "qa_issues": "61"
   },
   {
     "name": "Hindi",
@@ -244,7 +244,7 @@
     "words_approved": "8245",
     "translated_progress": 39,
     "approved_progress": 9,
-    "qa_issues": "1357"
+    "qa_issues": "1356"
   },
   {
     "name": "Spanish",
