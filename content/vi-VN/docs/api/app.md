@@ -182,7 +182,7 @@ Trả về:
 
 Emitted when a [browserWindow](browser-window.md) gets focused.
 
-### Event: 'browser-window-created'
+### Sự kiện: 'browser-window-created'
 
 Trả về:
 
@@ -191,14 +191,14 @@ Trả về:
 
 Emitted when a new [browserWindow](browser-window.md) is created.
 
-### Event: 'web-contents-created'
+### Sự kiện: 'web-contents-created'
 
 Trả về:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Emitted when a new [webContents](web-contents.md) is created.
+Phát ra khi một [webContents](web-contents.md) được tạo.
 
 ### Event: 'certificate-error'
 
@@ -228,7 +228,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 })
 ```
 
-### Event: 'select-client-certificate'
+### Sự kiện: 'select-client-certificate'
 
 Trả về:
 
@@ -237,7 +237,7 @@ Trả về:
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` Function 
-  * `certificate` [Certificate](structures/certificate.md) (optional)
+  * `certificate` [Certificate](structures/certificate.md) (tùy chọn)
 
 Emitted when a client certificate is requested.
 
