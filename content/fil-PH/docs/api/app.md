@@ -354,7 +354,7 @@ Ang lahat ng mga window ay kaagad na magsasara kahit walang pahintulot ng user a
 
 ### `app.relaunch([options])`
 
-* `options` Na Bagay (opsyonal) 
+* `options` Bagay (opsyonal) 
   * `args` String[] (optional)
   * `execPath` String (opsyonal)
 
@@ -428,7 +428,7 @@ Maaari mong hilingin ang mga sumusunod na landas sa pamamagitan ng pangalan:
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `mga opsyon` Na Bagay (opsyonal) 
+* `options` Na Bagay (opsyonal) 
   * `sukat` String 
     * `small` - 16x16
     * `normal` - 32x32
@@ -655,7 +655,7 @@ const gotTheLock = app.requestSingleInstanceLock()
 if (!gotTheLock) {
   app.quit()
 } else {
-  app.on('second-instance', (commandLine, workingDirectory) => {
+  app.on('second-instance', (event, commandLine, workingDirectory) => {
     // Someone tried to run a second instance, we should focus our window.
     if (myWindow) {
       if (myWindow.isMinimized()) myWindow.restore()
