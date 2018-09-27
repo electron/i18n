@@ -2,7 +2,7 @@
 
 > Klavye kısayolları tanımlamak.
 
-Hızlandırıcılar, uygulamanızda klavye kısayollarını tanımlamak için kullanılan, `+` karakteri ile birleştirilen birden çok değiştirici ve tuş kodu içerebilen dizelerdir. 
+Accelerators are Strings that can contain multiple modifiers and a single key code, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
 
 Örnekler:
 
