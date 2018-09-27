@@ -2,7 +2,7 @@
 
 > Визначте гарячі клавіші.
 
-Акселератори це стрічки, що можуть містити декілька модифікаторів і коди клавіш, поєднаних знаком `+`, використовуються для визначення гарячих клавіш у вашому застосунку.
+Accelerators are Strings that can contain multiple modifiers and a single key code, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
 
 Приклади:
 
