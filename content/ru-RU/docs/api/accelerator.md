@@ -2,7 +2,7 @@
 
 > Определить сочетания клавиш.
 
-Ускорители - это строки, которые могут содержать несколько модификаторов, коды клавиш и комбинироваться символом `+`, используются для определения сочетаний клавиш на протяжении всего приложения.
+Accelerators are Strings that can contain multiple modifiers and a single key code, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
 
 Примеры:
 
