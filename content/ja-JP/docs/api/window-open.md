@@ -16,9 +16,15 @@
 
 戻り値 [`BrowserWindowProxy`](browser-window-proxy.md) - 新しいウインドウを作成し、`BrowserWindowProxy` クラスのインスタンスを返します。
 
-`features` 文字列は、標準ブラウザの形式に従いますが、各機能は `BrowserWindow` のオプションのフィールドになっていければなりません。
+The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options. These are the features you can set via `features` string: `zoomFactor`, `nodeIntegration`, `preload`, `javascript`, `contextIsolation`, `webviewTag`.
 
-**注釈:**
+例:
+
+```js
+window.open('https://github.com', '_blank', 'nodeIntegration=no')
+```
+
+**Notes:**
 
 * Node integration は、親ウィンドウで無効になっている場合は、開いた `window` でも常に無効になります。
 * コンテキストイソレーションは、親ウィンドウで有効になっている場合は、開いた `window` で常に有効になります。
@@ -30,24 +36,24 @@
 * `message` String
 * `targetOrigin` String
 
-指定したオリジンか、オリジン未設定を意味する `*` で、親ウインドウにメッセージを送信します。
+Sends a message to the parent window with the specified origin or `*` for no origin preference.
 
 ### Chrome の `window.open()` 実装の使用
 
-Chrome の組み込み `window.open()` 実装を使用する場合は、`webPreferences` オプションオブジェクトで `nativeWindowOpen` を `true` に設定します。
+If you want to use Chrome's built-in `window.open()` implementation, set `nativeWindowOpen` to `true` in the `webPreferences` options object.
 
-ネイティブの `window.open()` は、開いたウィンドウに同期アクセスを許可するので、ダイアログや環境設定ウィンドウを開く必要がある場合に便利です。
+Native `window.open()` allows synchronous access to opened windows so it is convenient choice if you need to open a dialog or a preferences window.
 
-このオプションは `<webview>` タグでも設定できます。
+This option can also be set on `<webview>` tags as well:
 
 ```html
 <webview webpreferences="nativeWindowOpen=yes"></webview>
 ```
 
-`BrowserWindow` の作成は `WebContents` の `new-window` イベントを介してカスタマイズできます。
+The creation of the `BrowserWindow` is customizable via `WebContents`'s `new-window` event.
 
 ```javascript
-// メインプロセス
+// main process
 const mainWindow = new BrowserWindow({
   width: 800,
   height: 600,
@@ -57,7 +63,7 @@ const mainWindow = new BrowserWindow({
 })
 mainWindow.webContents.on('new-window', (event, url, frameName, disposition, options, additionalFeatures) => {
   if (frameName === 'modal') {
-    // モーダルとしてウインドウを開きます
+    // open window as modal
     event.preventDefault()
     Object.assign(options, {
       modal: true,
@@ -71,7 +77,7 @@ mainWindow.webContents.on('new-window', (event, url, frameName, disposition, opt
 ```
 
 ```javascript
-// レンダラープロセス (mainWindow)
+// renderer process (mainWindow)
 let modal = window.open('', 'modal')
 modal.document.write('<h1>Hello</h1>')
 ```
