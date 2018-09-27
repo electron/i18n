@@ -16,9 +16,15 @@ Yang baru dibuat ` BrowserWindow ` akan mewarisi pilihan jendela induk secara de
 
 Mengembalikan [` BrowserWindowProxy `](browser-window-proxy.md) - Membuat jendela baru dan mengembalikan sebuah instance dari kelas ` BrowserWindowProxy `.
 
-String `features` mengikuti format browser standar, namun masing-masing fitur harus berupa bidang `pilihan BrowserWindow`.
+The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options. These are the features you can set via `features` string: `zoomFactor`, `nodeIntegration`, `preload`, `javascript`, `contextIsolation`, `webviewTag`.
 
-**Catatan:**
+Sebagai contoh:
+
+```js
+window.open('https://github.com', '_blank', 'nodeIntegration=no')
+```
+
+**Notes:**
 
 * Integrasi node akan selalu dinonaktifkan di jendela ` yang terbuka ` jika dinonaktifkan pada jendela induk.
 * Isolasi konteks akan selalu diaktifkan di jendela ` yang terbuka ` jika diaktifkan pada jendela induk.
@@ -31,26 +37,47 @@ String `features` mengikuti format browser standar, namun masing-masing fitur ha
 <li><code> targetOrigin </ 0> String</li>
 </ul>
 
-<p>Mengirim pesan ke jendela induk dengan asal yang ditentukan atau <code>*` tanpa preferensi asal.</p> 
+<p>Sends a message to the parent window with the specified origin or <code>*` for no origin preference.</p> 
     ### Menggunakan penerapan `window.open()` Chrome
     
-    Jika Anda ingin menggunakan penerapan built-in `window.open()`, setel `nativeWindowOpen` ke `benar` di `webPreferences` pilihan objek
+    If you want to use Chrome's built-in `window.open()` implementation, set `nativeWindowOpen` to `true` in the `webPreferences` options object.
     
-    Native `window.open()` memungkinkan akses sinkron ke jendela yang terbuka sehingga pilihan yang tepat jika Anda perlu membuka dialog atau jendela preferensi.
+    Native `window.open()` allows synchronous access to opened windows so it is convenient choice if you need to open a dialog or a preferences window.
     
-    Opsi ini juga dapat disetel pada tag `<webview>` juga:
+    This option can also be set on `<webview>` tags as well:
     
     ```html
     <webview webpreferences="nativeWindowOpen=yes"></webview>
     ```
     
-    Pembuatan ` BrowserWindow ` dapat dikustomisasi melalui acara ` WebContents ` '`new-window`.
+    The creation of the `BrowserWindow` is customizable via `WebContents`'s `new-window` event.
     
     ```javascript
-    // main process 
-    const mainWindow = new BrowserWindow ({width: 800, height: 600, webPreferences: {nativeWindowOpen: true}}) mainWindow.webContents.on ('new-window', (event, url, frameName, disposition, options , AdditionalFeatures) = & gt; {if (frameName === 'modal') {//buka jendela sebagai modal event.preventDefault () Object.assign (opsi, {modal: true, parent: mainWindow, width: 100, height: 100}) event.newGuest = new BrowserWindow (pilihan)}})
+    // main process
+    const mainWindow = new BrowserWindow({
+      width: 800,
+      height: 600,
+      webPreferences: {
+        nativeWindowOpen: true
+      }
+    })
+    mainWindow.webContents.on('new-window', (event, url, frameName, disposition, options, additionalFeatures) => {
+      if (frameName === 'modal') {
+        // open window as modal
+        event.preventDefault()
+        Object.assign(options, {
+          modal: true,
+          parent: mainWindow,
+          width: 100,
+          height: 100
+        })
+        event.newGuest = new BrowserWindow(options)
+      }
+    })
     ```
     
     ```javascript
-    // renderer process (mainWindow) biarkan modal = window.open ('', 'modal') modal.document.write('<h1>Halo</h1>')
+    // renderer process (mainWindow)
+    let modal = window.open('', 'modal')
+    modal.document.write('<h1>Hello</h1>')
     ```
