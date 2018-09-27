@@ -16,9 +16,15 @@ The newly created `BrowserWindow` will inherit the parent window's options by de
 
 Returns [`BrowserWindowProxy`](browser-window-proxy.md) - Creates a new window and returns an instance of `BrowserWindowProxy` class.
 
-The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options.
+The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options. These are the features you can set via `features` string: `zoomFactor`, `nodeIntegration`, `preload`, `javascript`, `contextIsolation`, `webviewTag`.
 
-**備註:**
+For example:
+
+```js
+window.open('https://github.com', '_blank', 'nodeIntegration=no')
+```
+
+**Notes:**
 
 * Node integration will always be disabled in the opened `window` if it is disabled on the parent window.
 * Context isolation will always be enabled in the opened `window` if it is enabled on the parent window.
@@ -47,7 +53,7 @@ This option can also be set on `<webview>` tags as well:
 The creation of the `BrowserWindow` is customizable via `WebContents`'s `new-window` event.
 
 ```javascript
-// 主處理序
+// main process
 const mainWindow = new BrowserWindow({
   width: 800,
   height: 600,
@@ -57,7 +63,7 @@ const mainWindow = new BrowserWindow({
 })
 mainWindow.webContents.on('new-window', (event, url, frameName, disposition, options, additionalFeatures) => {
   if (frameName === 'modal') {
-    // 將視窗以強制回應方式開啟
+    // open window as modal
     event.preventDefault()
     Object.assign(options, {
       modal: true,
@@ -71,7 +77,7 @@ mainWindow.webContents.on('new-window', (event, url, frameName, disposition, opt
 ```
 
 ```javascript
-// 畫面轉譯處理序 (mainWindow)
+// renderer process (mainWindow)
 let modal = window.open('', 'modal')
-modal.document.write('<h1>你好</h1>')
+modal.document.write('<h1>Hello</h1>')
 ```
