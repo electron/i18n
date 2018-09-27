@@ -2,7 +2,7 @@
 
 > Definisci scorciatoie tastiera.
 
-Gli acceleratori sono stringhe che possono contenere modificatori multipli e codici chiave combinati dal carattere `+` ed usate per definire le scorciatoie della tastiera attraverso la tua applicazione.
+Accelerators are Strings that can contain multiple modifiers and a single key code, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
 
 Esempi:
 
