@@ -16,9 +16,15 @@ When `window.open` is called to create a new window in a web page, a new instanc
 
 Возвращает [`BrowserWindowProxy`](browser-window-proxy.md) - создает новое окно и возвращает экземпляр класса `BrowserWindowProxy`.
 
-The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options.
+The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options. These are the features you can set via `features` string: `zoomFactor`, `nodeIntegration`, `preload`, `javascript`, `contextIsolation`, `webviewTag`.
 
-**Замечания:**
+Например:
+
+```js
+window.open('https://github.com', '_blank', 'nodeIntegration=no')
+```
+
+**Notes:**
 
 * Node integration will always be disabled in the opened `window` if it is disabled on the parent window.
 * Context isolation will always be enabled in the opened `window` if it is enabled on the parent window.
@@ -47,7 +53,7 @@ This option can also be set on `<webview>` tags as well:
 The creation of the `BrowserWindow` is customizable via `WebContents`'s `new-window` event.
 
 ```javascript
-// основной процесс
+// main process
 const mainWindow = new BrowserWindow({
   width: 800,
   height: 600,
@@ -57,7 +63,7 @@ const mainWindow = new BrowserWindow({
 })
 mainWindow.webContents.on('new-window', (event, url, frameName, disposition, options, additionalFeatures) => {
   if (frameName === 'modal') {
-    // открыть окно как модальное
+    // open window as modal
     event.preventDefault()
     Object.assign(options, {
       modal: true,
@@ -71,7 +77,7 @@ mainWindow.webContents.on('new-window', (event, url, frameName, disposition, opt
 ```
 
 ```javascript
-// отрендерить процесс (mainWindow)
+// renderer process (mainWindow)
 let modal = window.open('', 'modal')
 modal.document.write('<h1>Hello</h1>')
 ```
