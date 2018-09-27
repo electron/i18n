@@ -35,10 +35,10 @@ const electron = require('electron')
 Electron中的窗口是使用`BrowserWindow`类型创建的一个实例， 它只能在主进程中使用。
 
 ```javascript
-// 这样写在主进程会有用，但是在渲染进程中会提示'未定义'
-const { BrowserWindow } = require('electron')
+//这样写在渲染进程中是行得通的，但是在主进程中是'未定义'
 
-const win = new BrowserWindow()
+const { BrowserWindow } = require('electron')
+const = remoteconst win = new BrowserWindow()
 ```
 
 因为进程之间的通信是被允许的, 所以渲染进程可以调用主进程来执行任务。 Electron通过`remote`模块暴露一些通常只能在主进程中获取到的API。 为了在渲染进程中创建一个`BrowserWindow`的实例，我们通常使用remote模块为中间件：
