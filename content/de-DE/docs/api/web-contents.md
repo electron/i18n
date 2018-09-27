@@ -242,11 +242,11 @@ the <code>window.location` object is changed or a user clicks a link in the page
     
     #### Event: 'unresponsive'
     
-    Emitted when the web page becomes unresponsive.
+    Ausgegeben wenn die Webseite nicht mehr antwortet.
     
     #### Event: 'responsive'
     
-    Emitted when the unresponsive web page becomes responsive again.
+    Ausgegeben wenn eine Webseite, die zuvor nicht mehr antwortete, wieder antwortet.
     
     #### Event: 'plugin-crashed'
     
