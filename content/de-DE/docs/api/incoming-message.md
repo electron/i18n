@@ -1,30 +1,30 @@
-## Class: IncomingMessage
+## Klasse: IncomingMessage
 
-> Handle responses to HTTP/HTTPS requests.
+> Behandelt Antworten zu HTTP/HTTPS Anfragen.
 
 Prozess: [Haupt](../glossary.md#main-process)
 
-`IncomingMessage` implements the [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) interface and is therefore an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`IncomingMessage` implementiert das [Readable Stream](https://nodejs.org/api/stream.html#stream_readable_streams) interface und ist somit ein [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-### Beispiel Events
+### Instanz Events
 
 #### Event: 'data'
 
 Rückgabewert:
 
-* `chunk` Buffer - A chunk of response body's data.
+* `chunk` Buffer - Ein Stück der Antwortdaten.
 
-The `data` event is the usual method of transferring response data into applicative code.
+Das `data` Event ist die gewöhnliche Methode um Antwortdaten in Anwendungscode zu transferieren.
 
 #### Event: 'end'
 
-Indicates that response body has ended.
+Gibt an dass der Body der Antwort endet.
 
 #### Event: 'aborted'
 
-Emitted when a request has been canceled during an ongoing HTTP transaction.
+Ausgegeben wenn eine Anfrage während einer laufenden HTTP Transaktion abgebrochen wurde.
 
-#### Ereignis : "Fehler
+#### Event: 'error'
 
 Rückgabewert:
 
