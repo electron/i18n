@@ -18,7 +18,7 @@ Prozess: [Haupt](../glossary.md#main-process)
   * `hostname` String (optional) - Der Server Host Name.
   * `port` Integer (optional) - Die Port Nummer des Servers.
   * `path` String (optional) - Der Pfad Teil der Anfrage URL.
-  * `redirect` String (optional) - Der Umleitungs-Modus für die Anfrage. Sollte eines der Folgenden sein: `follow`, `error` oder `manual`. Standardwert ist `follow`. Falls der Modus `error` ist, werden alle Weiterleitungen abgebrochen. Wenn der Modus `manual` ist, werden alle Weiterleitungen aufgeschoben bis [`request.followRedirect`](#requestfollowredirect) aufgerufen wird. Höre nach dem [`redirect`](#event-redirect) Event in diesem Modus um mehr Informationen über die Weiterleitungs-Anforderungen zu erhalten.
+  * `redirect` String (optional) - Der Umleitungs-Modus für die Anfrage. Sollte eines der Folgenden sein: `follow`, `error` oder `manual`. Standardwert ist `follow`. Falls der Modus `error` ist, werden alle Weiterleitungen abgebrochen. Wenn der Modus `manual` ist, werden alle Weiterleitungen aufgeschoben bis [`request.followRedirect`](#requestfollowredirect) aufgerufen wird. Warte in diesem Modus auf das [`redirect`](#event-redirect) Event um mehr Informationen über die Weiterleitungs-Anforderungen zu erhalten.
 
 `options` Eigenschaften wie zum Beispiel `protocol`, `host`, `hostname`, `port` und `path`, folgen strikt dem Node.js Modell, wie im [URL](https://nodejs.org/api/url.html) Modul beschrieben.
 
@@ -34,7 +34,7 @@ const request = net.request({
 })
 ```
 
-### Beispiel Events
+### Instanz Events
 
 #### Event: 'response'
 
@@ -58,7 +58,7 @@ Rückgabewert:
 
 Ausgegeben, wenn ein Authentifizierung Proxy die Benutzeranmeldeinformationen anfragt.
 
-The `callback` Funktion erwartet zurückgerufen zu werden mit den Benutzerdaten:
+Die `callback` Funktion erwartet mit den Benutzerdaten aufgerufen zu werden:
 
 * `username` String
 * `password` String
@@ -69,7 +69,7 @@ request.on('login', (authInfo, callback) => {
 })
 ```
 
-Das nicht angeben von Anmeldeinformationen wird die Anfrage abbrechen und einen Authentifizierungsfehler auf das Response-Objekt melden:
+Das nicht Angeben von Anmeldeinformationen wird die Anfrage abbrechen und dem Response-Objekt einen Authentifizierungsfehler melden:
 
 ```JavaScript
 request.on('response', (response) => {
@@ -91,11 +91,11 @@ Ausgesendet, direkt nachdem der letzte Block der `request` Daten in das `request
 
 Ausgesendet, wenn `request` abgebrochen wird. Das `abort` Event wird nicht ausgelöst, wenn `request` bereits geschlossen ist.
 
-#### Ereignis : "Fehler
+#### Event: 'error'
 
 Rückgabewert:
 
-* `error` Fehler - Ein Fehler Objekt, welches Informationen über den Fehler enthält.
+* `error` Error - Ein Error Objekt, welches Informationen über den Fehler enthält.
 
 Ausgegeben, wenn das `net` Modul es nicht schaft eine Netzwerkanfrage zu senden. In der Regel wenn das `request` Objekt ein `error` Event auslöst, folgt ein `close` Event und es wird kein response Objekt zur Verfügung gestellt.
 
