@@ -151,7 +151,7 @@ Es erzeugt ein neues `BrowserWindow` mit nativen Eigenschaften die durch `option
   * `disableAutoHideCursor` Boolean (optional) - Gibt an ob der Mauszeiger versteckt werden soll wenn getippt wird. Standard ist `false`.
   * `autoHideMenuBar` Boolean (optional) - Versteckt die Menüleiste wenn `Alt` Taste nicht gedrückt ist. Standard ist `false`.
   * `enableLargerThanScreen` Boolean (optional) - Erlaubt dem Fenster größer zu werden als der Bildschirm. Standard ist `false`.
-  * `backgroundColor` String (optional) - Die Hintergrundfarbe des Fensters als Hexadezimalwert, beispielsweise `#66CD00` oder `#FFF` oder `#80FFFFFF` (Alpha wird unterstützt). Standard ist `#FFF` (Weiss).
+  * `backgroundColor` String (optional) - Die Hintergrundfarbe des Fensters als Hexadezimalwert, beispielsweise `#66CD00` oder `#FFF` oder `#80FFFFFF` (Alpha wird unterstützt). Standard ist `#FFF` (Weiss). If `transparent` is set to `true`, only values with transparent (`#00-------`) or opaque (`#FF-----`) alpha values are respected.
   * `hasShadow` Boolean (optional) - Gibt an ob das Fenster einene Schatten hat. Nur unter macOS unterstützt. Standard ist `true`.
   * `opacity` Number (optional) - Setzt die anfängliche Opazität des Fensters. Zwischen 0,0 (vollständig transparent) und 1,0 (vollständig opak). Nur unter Windows und macOS unterstützt.
   * `darkTheme` Boolean (optional) - Erzwingt ein dunkles Farbschema. Funktioniert nur mit manchen GTK+3 Desktopumgebungen. Standard ist `false`.
