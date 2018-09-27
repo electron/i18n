@@ -12,7 +12,7 @@ nav:
   search: Tìm kiếm
   userland: Không gian người dùng
 docs:
-  title: Tài liệu điện tử
+  title: Tài liệu Electron
   description: Xem tất cả <a href="/docs/all"> tài liệu trên một trang </a> hoặc xem <a href="/docs/faq"> Câu hỏi thường gặp </a> .
   guides: Hướng dẫn
   api_reference: Tham Chiếu API
@@ -24,10 +24,10 @@ docs:
     view_all_docs: Tất cả tài liệu trên một trang
 languages:
   choose_language: Chọn ngôn ngữ trang web của bạn
-  translation_progress: Tiến trình dịch thuật
+  translation_progress: Tiến độ dịch thuật
   current: lựa chọn hiện tại
 community:
-  title: Cộng đồng điện tử
+  title: Cộng đồng Electron
   description: Những tài nguyên giúp kết nối với những người làm Electron.
   channels:
     get_started: "<a href='/docs/tutorial/first-app'> <b> Bắt đầu </ b> </a> xây dựng một  ứng dụng bằng cách đọc <a href='/docs/tutorial/first-app'> nhanh chóng hướng dẫn đầu tiên </a> .\n \n"
@@ -51,7 +51,7 @@ community:
   meetups: Meetups
   awesome_notice: Danh sách này được tạo từ kho lưu trữ <a href="https://github.com/sindresorhus/awesome-electron"> @ sindresorhus's Awesome Electron </a> . <br> Có điều gì đó bị thiếu? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md"> Hãy một yêu cầu kéo </a> .
   meetup_notice: Để thêm một cuộc gặp gỡ, chỉnh sửa <code> dữ liệu / meetups.json </ code> và <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json"> làm một yêu cầu kéo </a> .
-releases: Phát Hành 
+releases: Các phiên bản phát hành
 electron_is_easy:
   title: Nó dễ hơn bạn nghĩ
   description: Nếu bạn có thể xây dựng một website thì cũng có thể xây dựng ứng dụng trên desktop. Electron là framework giúp xây dựng ứng dụng gốc với công nghệ web như JavaScript, HTML và CSS. Nó sẽ lo những phần khó nên bạn có thể tập trung vào cốt lõi của ứng dụng.
