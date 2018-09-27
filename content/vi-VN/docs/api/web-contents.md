@@ -317,7 +317,7 @@ Emitted when failed to verify the `certificate` for `url`.
 
 The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
 
-#### Event: 'select-client-certificate'
+#### Sự kiện: 'select-client-certificate'
 
 Trả về:
 
