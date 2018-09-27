@@ -553,7 +553,7 @@ Puoi richiedere i seguenti percorsi dal nome:
     
     ### `app.ottieniImpostazioniJumpList` *Windows*
     
-    Ritorna `Object`:
+    Restituisci `Oggetto`:
     
     * `miniElementi` Numero intero - Il minimo numero di elementi che saranno mostrati nella JumpList (per una più dettagliata descrizione di questo valore vedere [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
     * `Elementirimossi` [ElementiJumpList[]](structures/jump-list-item.md) - Insieme degli oggetti `ElementiJumpList` che corrisponde agli elementi esplicitamente rimossi dall'utente dalle categorie modificate nella Jump List. Questi elementi non possono essere nuovamente aggiunti alla Jump List alla **prossima** chiamata a `app.impostaJumpList()`, Windows non mostrerà alcuna categoria personalizzata che contenga alcuni valori rimossi.
@@ -658,7 +658,7 @@ Puoi richiedere i seguenti percorsi dal nome:
     if (!gotTheLock) {
       app.quit()
     } else {
-      app.on('second-instance', (commandLine, workingDirectory) => {
+      app.on('second-instance', (event, commandLine, workingDirectory) => {
         // Someone tried to run a second instance, we should focus our window.
         if (myWindow) {
           if (myWindow.isMinimized()) myWindow.restore()
@@ -771,7 +771,7 @@ Puoi richiedere i seguenti percorsi dal nome:
     
     Se hai fornito le opzioni di `percorso` e di `arg` a `app.impostaImpostazioniElementiAccedi` dovrai passare gli stessi argomenti qui per `apriAdAccesso` per impostarlo correttamente.
     
-    Restituisci `Oggetto`:
+    Ritorna `Object`:
     
     * `apriAdAccesso` Booleano - `true` se l'app è impostata a aperta all'accesso.
     * `openAsHidden` Boolean *macOS* - `true` se l'app è impostata per aprirsi come nascosta al login. Questa opzione non è disponibile in [MAS builds](../tutorial/mac-app-store-submission-guide.md).
