@@ -298,7 +298,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `accessibilitySupportEnabled` Boolean - `true` quand le support de l'accessibilité de Chrome est activé, sinon `false`.
 
 Émis lorsque le support de l’accessibilité du Chrome change. Cet événement se déclenche lorsque les technologies d’assistance, tels que les lecteurs d’écran sont activés ou désactivés. Voir https://www.chromium.org/developers/design-documents/accessibility pour plus de détails.
@@ -324,7 +324,7 @@ app.on('session-created', (event, session) => {
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `argv` String[] - un tableau d’arguments de la deuxième instance de la ligne de commande
 * `workingDirectory` String - Le répertoire de travail de la deuxième instance
 
@@ -655,7 +655,7 @@ const gotTheLock = app.requestSingleInstanceLock()
 if (!gotTheLock) {
   app.quit()
 } else {
-  app.on('second-instance', (commandLine, workingDirectory) => {
+  app.on('second-instance', (event, commandLine, workingDirectory) => {
     // Someone tried to run a second instance, we should focus our window.
     if (myWindow) {
       if (myWindow.isMinimized()) myWindow.restore()
