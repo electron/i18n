@@ -2,7 +2,7 @@
 
 > Definiowanie skrótów klawiaturowych.
 
-Akceleratory są to ciągi znaków typu String, które mogą zawierać wiele modyfikatorów i kodów klawiszy, połączonych przez znak `+` i są używane do definiowania skrótów klawiaturowych w całej aplikacji.
+Accelerators are Strings that can contain multiple modifiers and a single key code, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
 
 Przykłady:
 
