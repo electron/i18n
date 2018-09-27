@@ -24,7 +24,7 @@ For example:
 window.open('https://github.com', '_blank', 'nodeIntegration=no')
 ```
 
-**Notes:**
+**備註:**
 
 * Node integration will always be disabled in the opened `window` if it is disabled on the parent window.
 * Context isolation will always be enabled in the opened `window` if it is enabled on the parent window.
@@ -53,7 +53,7 @@ This option can also be set on `<webview>` tags as well:
 The creation of the `BrowserWindow` is customizable via `WebContents`'s `new-window` event.
 
 ```javascript
-// main process
+// 主處理序
 const mainWindow = new BrowserWindow({
   width: 800,
   height: 600,
@@ -63,7 +63,7 @@ const mainWindow = new BrowserWindow({
 })
 mainWindow.webContents.on('new-window', (event, url, frameName, disposition, options, additionalFeatures) => {
   if (frameName === 'modal') {
-    // open window as modal
+    // 將視窗以強制回應方式開啟
     event.preventDefault()
     Object.assign(options, {
       modal: true,
@@ -77,7 +77,7 @@ mainWindow.webContents.on('new-window', (event, url, frameName, disposition, opt
 ```
 
 ```javascript
-// renderer process (mainWindow)
+// 畫面轉譯處理序 (mainWindow)
 let modal = window.open('', 'modal')
-modal.document.write('<h1>Hello</h1>')
+modal.document.write('<h1>你好</h1>')
 ```
