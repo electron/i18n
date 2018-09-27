@@ -16,9 +16,15 @@ Nowo utworzony obiekt `BrowserWindow` domyślnie dziedziczy opcje okna nadrzędn
 
 Zwraca [`BrowserWindowProxy`](browser-window-proxy.md) - tworzy nowe okno i zwraca wystąpienie klasy `BrowserWindowProxy`.
 
-The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options.
+The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options. These are the features you can set via `features` string: `zoomFactor`, `nodeIntegration`, `preload`, `javascript`, `contextIsolation`, `webviewTag`.
 
-**Uwagi:**
+Na przykład:
+
+```js
+window.open('https://github.com', '_blank', 'nodeIntegration=no')
+```
+
+**Notes:**
 
 * Node integration will always be disabled in the opened `window` if it is disabled on the parent window.
 * Context isolation will always be enabled in the opened `window` if it is enabled on the parent window.
@@ -30,15 +36,15 @@ The `features` string follows the format of standard browser, but each feature h
 * `message` String
 * `targetOrigin` String
 
-Wysyła komunikat do okna nadrzędnego określonego pochodzenia lub `*` w przypadku braku preferencji pochodzenia.
+Sends a message to the parent window with the specified origin or `*` for no origin preference.
 
 ### Using Chrome's `window.open()` implementation
 
 If you want to use Chrome's built-in `window.open()` implementation, set `nativeWindowOpen` to `true` in the `webPreferences` options object.
 
-Natywne wywołanie funkcji `window.open()` pozwala na synchroniczny dostęp do otwartych okien, dzięki temu jest to wygodny wybór, jeśli potrzebujesz otworzyć okno dialogowe lub okno Ustawień aplikacji.
+Native `window.open()` allows synchronous access to opened windows so it is convenient choice if you need to open a dialog or a preferences window.
 
-Tę opcję można również ustawić poprzez tag `<webview>`:
+This option can also be set on `<webview>` tags as well:
 
 ```html
 <webview webpreferences="nativeWindowOpen=yes"></webview>
@@ -47,7 +53,7 @@ Tę opcję można również ustawić poprzez tag `<webview>`:
 The creation of the `BrowserWindow` is customizable via `WebContents`'s `new-window` event.
 
 ```javascript
-// główny proces
+// main process
 const mainWindow = new BrowserWindow({
   width: 800,
   height: 600,
@@ -71,7 +77,7 @@ mainWindow.webContents.on('new-window', (event, url, frameName, disposition, opt
 ```
 
 ```javascript
-// proces renderowania (mainWindow)
+// renderer process (mainWindow)
 let modal = window.open('', 'modal')
 modal.document.write('<h1>Hello</h1>')
 ```
