@@ -657,7 +657,7 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
           app.quit()
         } else {
           app.on('second-instance', (event, commandLine, workingDirectory) => {
-            // Someone tried to run a second instance, we should focus our window.
+            // Someone tried to run a second instance, we should focus our window.{app}.
             if (myWindow) {
               if (myWindow.isMinimized()) myWindow.restore()
               myWindow.focus()
