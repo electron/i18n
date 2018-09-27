@@ -549,7 +549,7 @@ API 在内部使用 Windows 注册表和 LSSetDefaultHandlerForURLScheme。
 
 ### `app.getJumpListSettings()` *Windows*
 
-返回 `Object`:
+返回 ` Object `:
 
 * `minItems` Integer - 将在跳转列表中显示项目的最小数量(有关此值的更详细描述，请参阅 [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
 * `removedItems` [JumpListItem[]](structures/jump-list-item.md) - `JumpListItem` 对象组成的数组，对应用户在跳转列表中明确删除的项目。 这些项目不能在 **next** 调用 `app.setJumpList()` 时重新添加到跳转列表中, Windows不会显示任何包含已删除项目的自定义类别.
