@@ -184,7 +184,7 @@ Returns:
 
 ### 이벤트: 'browser-window-created'
 
-Returns:
+반환:
 
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
@@ -322,7 +322,7 @@ app.on('session-created', (event, session) => {
 
 ### Event: 'second-instance'
 
-반환:
+Returns:
 
 * `event` Event
 * `argv` String[] - An array of the second instance's command line arguments
@@ -655,7 +655,7 @@ const gotTheLock = app.requestSingleInstanceLock()
 if (!gotTheLock) {
   app.quit()
 } else {
-  app.on('second-instance', (commandLine, workingDirectory) => {
+  app.on('second-instance', (event, commandLine, workingDirectory) => {
     // Someone tried to run a second instance, we should focus our window.
     if (myWindow) {
       if (myWindow.isMinimized()) myWindow.restore()
