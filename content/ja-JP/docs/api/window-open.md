@@ -16,7 +16,7 @@
 
 戻り値 [`BrowserWindowProxy`](browser-window-proxy.md) - 新しいウインドウを作成し、`BrowserWindowProxy` クラスのインスタンスを返します。
 
-The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options. These are the features you can set via `features` string: `zoomFactor`, `nodeIntegration`, `preload`, `javascript`, `contextIsolation`, `webviewTag`.
+`features` 文字列は、標準ブラウザの形式に従いますが、各機能は `BrowserWindow` のオプションのフィールドになっていければなりません。 These are the features you can set via `features` string: `zoomFactor`, `nodeIntegration`, `preload`, `javascript`, `contextIsolation`, `webviewTag`.
 
 例:
 
@@ -24,7 +24,7 @@ The `features` string follows the format of standard browser, but each feature h
 window.open('https://github.com', '_blank', 'nodeIntegration=no')
 ```
 
-**Notes:**
+**注釈:**
 
 * Node integration は、親ウィンドウで無効になっている場合は、開いた `window` でも常に無効になります。
 * コンテキストイソレーションは、親ウィンドウで有効になっている場合は、開いた `window` で常に有効になります。
@@ -36,24 +36,24 @@ window.open('https://github.com', '_blank', 'nodeIntegration=no')
 * `message` String
 * `targetOrigin` String
 
-Sends a message to the parent window with the specified origin or `*` for no origin preference.
+指定したオリジンか、オリジン未設定を意味する `*` で、親ウインドウにメッセージを送信します。
 
 ### Chrome の `window.open()` 実装の使用
 
-If you want to use Chrome's built-in `window.open()` implementation, set `nativeWindowOpen` to `true` in the `webPreferences` options object.
+Chrome の組み込み `window.open()` 実装を使用する場合は、`webPreferences` オプションオブジェクトで `nativeWindowOpen` を `true` に設定します。
 
-Native `window.open()` allows synchronous access to opened windows so it is convenient choice if you need to open a dialog or a preferences window.
+ネイティブの `window.open()` は、開いたウィンドウに同期アクセスを許可するので、ダイアログや環境設定ウィンドウを開く必要がある場合に便利です。
 
-This option can also be set on `<webview>` tags as well:
+このオプションは `<webview>` タグでも設定できます。
 
 ```html
 <webview webpreferences="nativeWindowOpen=yes"></webview>
 ```
 
-The creation of the `BrowserWindow` is customizable via `WebContents`'s `new-window` event.
+`BrowserWindow` の作成は `WebContents` の `new-window` イベントを介してカスタマイズできます。
 
 ```javascript
-// main process
+// メインプロセス
 const mainWindow = new BrowserWindow({
   width: 800,
   height: 600,
@@ -63,7 +63,7 @@ const mainWindow = new BrowserWindow({
 })
 mainWindow.webContents.on('new-window', (event, url, frameName, disposition, options, additionalFeatures) => {
   if (frameName === 'modal') {
-    // open window as modal
+    // モーダルとしてウインドウを開きます
     event.preventDefault()
     Object.assign(options, {
       modal: true,
@@ -77,7 +77,7 @@ mainWindow.webContents.on('new-window', (event, url, frameName, disposition, opt
 ```
 
 ```javascript
-// renderer process (mainWindow)
+// レンダラープロセス (mainWindow)
 let modal = window.open('', 'modal')
 modal.document.write('<h1>Hello</h1>')
 ```
