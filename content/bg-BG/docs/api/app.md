@@ -433,7 +433,7 @@ Returns `Promise` - fulfilled when Electron is initialized. May be used as a con
     * `small` - 16x16
     * `normal` - 32x32
     * `large` - 48x48 на *Linux*, 32x32 на *Windows*, не се поддържа на *macOS*.
-* `callback` Функция 
+* `callback` Function 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
@@ -655,7 +655,7 @@ const gotTheLock = app.requestSingleInstanceLock()
 if (!gotTheLock) {
   app.quit()
 } else {
-  app.on('second-instance', (commandLine, workingDirectory) => {
+  app.on('second-instance', (event, commandLine, workingDirectory) => {
     // Someone tried to run a second instance, we should focus our window.
     if (myWindow) {
       if (myWindow.isMinimized()) myWindow.restore()
