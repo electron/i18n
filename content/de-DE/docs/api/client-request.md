@@ -4,21 +4,21 @@
 
 Prozess: [Haupt](../glossary.md#main-process)
 
-`ClientRequest` implementiert die [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams)-Schnittstelle und ist somit eine [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`ClientRequest` implementiert die [Writable Stream](https://nodejs.org/api/stream.html#stream_writable_streams)-Schnittstelle und ist somit ein [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-### `new ClientRequest(optionen)`
+### `new ClientRequest(options)`
 
 * `options` (Object | String) - Wenn `options` ein String ist, wird dieser als die request URL interpretiert. Wenn es ein Objekt ist, wird erwartet das dieses ein HTTP anfrage komplett spezifiziert, mittels den folgenden Eigenschaften: 
-  * `method` String (optional) - The HTTP anfrage Methode. Der Standardwert ist die GET Methode.
-  * `url` String (optional) - Die Angefragte URL. Muss in der absoluten Form angegeben werden, welche den Protokoll Schema von HTTP oder HTTPS entspricht.
-  * `session` Object (optional) - Der [`Session`](session.md) Fall, welcher mit der Anfrage zusammenhängt.
-  * `partition` String (optional) - Der name der [`partition`](session.md) mit welcher der Anfrage in Verbindung steht. Standard ist ein leerer String. Die `session` option überwiegt `partition`. Somit, falls eine `session` explizit angegeben wird, wird `partition` ignoriert.
-  * `protocol` String (optional) - Das Protokoll Schema im 'scheme' Formular:. Die momentan unterstützten Werte sind 'http:' oder 'https:' Der Standardwert ist 'http:'.
-  * `host` String (optional) - Der Server Host angegeben als eine Zusammensetzung von dem Hostnamen und der Port Nummer 'hostname:port'.
+  * `method` String (optional) - Die HTTP Anfrage Methode. Standardwert ist die GET Methode.
+  * `url` String (optional) - Die angefragte URL. Muss in der absoluten Form angegeben werden, welche dem Protokoll Schema von HTTP oder HTTPS entspricht.
+  * `session` Object (optional) - Die zur Anfrage gehörende [`Session`](session.md) Instanz.
+  * `partition` String (optional) - Der Name der zur Anfrage gehörenden [`partition`](session.md). Standard ist ein leerer String. Die `session` Option überwiegt `partition`. Somit, falls eine `session` explizit angegeben wird, wird `partition` ignoriert.
+  * `protocol` String (optional) - Das Protokoll Schema im 'scheme:' Format. Die momentan unterstützten Werte sind 'http:' oder 'https:'. Standardwert ist 'http:'.
+  * `host` String (optional) - Der Server Host angegeben als eine Zusammensetzung aus Hostnamen und der Port Nummer 'hostname:port'.
   * `hostname` String (optional) - Der Server Host Name.
   * `port` Integer (optional) - Die Port Nummer des Servers.
-  * `path` String (optional) - Der Pfad teil der URL Anfrage.
-  * `redirect` String (optional) - Der Umleitung-Modus für die Anfrage. Sollte eins der folgenden sein: `follow`, `error` or `manual`. Der Standardwert ist `follow`. Falls der Modus `error` ist, werden alle Weiterleitungen abgebrochen. Wenn der Modus `manual` ist, werden alle Weiterleitungen aufgeschoben bis [`request.followRedirect`](#requestfollowredirect) aufgerufen wird. Höre nach dem [`redirect`](#event-redirect) Event in diesem Modus um mehr Informationen über die Weiterleitungs-Anforderungen zu erhalten.
+  * `path` String (optional) - Der Pfad Teil der Anfrage URL.
+  * `redirect` String (optional) - Der Umleitungs-Modus für die Anfrage. Sollte eines der Folgenden sein: `follow`, `error` oder `manual`. Standardwert ist `follow`. Falls der Modus `error` ist, werden alle Weiterleitungen abgebrochen. Wenn der Modus `manual` ist, werden alle Weiterleitungen aufgeschoben bis [`request.followRedirect`](#requestfollowredirect) aufgerufen wird. Höre nach dem [`redirect`](#event-redirect) Event in diesem Modus um mehr Informationen über die Weiterleitungs-Anforderungen zu erhalten.
 
 `options` Eigenschaften wie zum Beispiel `protocol`, `host`, `hostname`, `port` und `path`, folgen strikt dem Node.js Modell, wie im [URL](https://nodejs.org/api/url.html) Modul beschrieben.
 
