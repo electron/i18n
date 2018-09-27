@@ -16,7 +16,7 @@
 
 Returns [`BrowserWindowProxy`](browser-window-proxy.md) - 创建一个新窗口，并返回一个 `BrowserWindowProxy` 类的实例。
 
-The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options. These are the features you can set via `features` string: `zoomFactor`, `nodeIntegration`, `preload`, `javascript`, `contextIsolation`, `webviewTag`.
+`features` 字符串遵循标准浏览器的格式，但每个 feature 必须是`BrowserWindow` 选项中的字段。 These are the features you can set via `features` string: `zoomFactor`, `nodeIntegration`, `preload`, `javascript`, `contextIsolation`, `webviewTag`.
 
 例如：
 
@@ -24,7 +24,7 @@ The `features` string follows the format of standard browser, but each feature h
 window.open('https://github.com', '_blank', 'nodeIntegration=no')
 ```
 
-**Notes:**
+**注意：**
 
 * 如果在父窗口中禁用了 Node integration, 则在打开的 `window ` 中将始终被禁用。
 * 如果在父窗口中启用了上下文隔离, 则在打开的 ` window ` 中将始终被启用。
@@ -36,21 +36,21 @@ window.open('https://github.com', '_blank', 'nodeIntegration=no')
 * `message` String
 * `targetOrigin` String
 
-Sends a message to the parent window with the specified origin or `*` for no origin preference.
+将消息发送给指定来源的父窗口，如果未指定来源则发送给`*`，即所有窗口。
 
 ### 使用 Chrome 的 `window.open()`
 
-If you want to use Chrome's built-in `window.open()` implementation, set `nativeWindowOpen` to `true` in the `webPreferences` options object.
+如果要使用 Chrome 的内置 `window.open()`，请在 `webPreferences` 选项中将 `nativeWindowOpen` 设置为 `true`。
 
-Native `window.open()` allows synchronous access to opened windows so it is convenient choice if you need to open a dialog or a preferences window.
+原生 ` window.open () ` 允许同步打开窗口, 因此可以方便的选择是对话框还是首选项窗口。
 
-This option can also be set on `<webview>` tags as well:
+该选项也可以设置在`<webview>`标签上：
 
 ```html
 <webview webpreferences="nativeWindowOpen=yes"></webview>
 ```
 
-The creation of the `BrowserWindow` is customizable via `WebContents`'s `new-window` event.
+` BrowserWindow `的创建可通过` WebContents ` 的 ` new-window `事件进行定制 。
 
 ```javascript
 // main process
