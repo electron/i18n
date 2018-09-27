@@ -16,7 +16,7 @@ Yeni oluşturulan `BrowserWindow`, varsayılan olarak ana pencerenin seçenekler
 
 [`BrowserWindowProxy`](browser-window-proxy.md) Döndürür - Yeni bir pencere oluşturur ve `BrowserWindowProxy` sınıfının bir örneğini döndürür.
 
-The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options. These are the features you can set via `features` string: `zoomFactor`, `nodeIntegration`, `preload`, `javascript`, `contextIsolation`, `webviewTag`.
+`features` karakter dizisi standart tarayıcının biçimi izler, fakat her bir özellik `BrowserWindow` seçeneğinin bir alanı olmalıdır. These are the features you can set via `features` string: `zoomFactor`, `nodeIntegration`, `preload`, `javascript`, `contextIsolation`, `webviewTag`.
 
 Örneğin:
 
@@ -24,7 +24,7 @@ The `features` string follows the format of standard browser, but each feature h
 window.open('https://github.com', '_blank', 'nodeIntegration=no')
 ```
 
-**Notes:**
+**Notlar:**
 
 * Ana pencerede devre dışı bırakılmış ise, açılan `window`'de Node entegrasyonu devre dışı bırakılacaktır.
 * Eğer Ortam izolasyonu, ana pencerede etkinleştirilmiş ise, açılan `window`'da daima etkinleştirilir.
@@ -36,24 +36,24 @@ window.open('https://github.com', '_blank', 'nodeIntegration=no')
 * `message` String
 * `targetOrigin` String
 
-Sends a message to the parent window with the specified origin or `*` for no origin preference.
+Belirtilen kaynak ile ana pencereye bir ileti gönderir veya `*` ile hiçbir kaynağa göndermez.
 
 ### Chrome' un `window.open()` uygulaması kullanılarak
 
-If you want to use Chrome's built-in `window.open()` implementation, set `nativeWindowOpen` to `true` in the `webPreferences` options object.
+Chrome'un dahili `window.open()` uygulamasını kullanmak istiyorsanız, `webPreferences` seçenekler nesnesinde `nativeWindowOpen` öğesini `true` olarak ayarlayın.
 
-Native `window.open()` allows synchronous access to opened windows so it is convenient choice if you need to open a dialog or a preferences window.
+Yerel `window.open()`, açılan pencerelere eşzamanlı erişime izin verir; Bir iletişim kutusu veya tercihler penceresi açmanız gerekiyorsa uygun bir seçim.
 
-This option can also be set on `<webview>` tags as well:
+Bu seçenek aynı zamanda `<webview>` etiketlerinde de ayarlanabilir:
 
 ```html
 <webview webpreferences="nativeWindowOpen=yes"></webview>
 ```
 
-The creation of the `BrowserWindow` is customizable via `WebContents`'s `new-window` event.
+`BrowserWindow`'un oluşturulması, `WebContents`'in `new-window` etkinliği aracılığıyla özelleştirilebilir.
 
 ```javascript
-// main process
+// ana süreç
 const mainWindow = new BrowserWindow({
   width: 800,
   height: 600,
@@ -63,7 +63,7 @@ const mainWindow = new BrowserWindow({
 })
 mainWindow.webContents.on('new-window', (event, url, frameName, disposition, options, additionalFeatures) => {
   if (frameName === 'modal') {
-    // open window as modal
+    // pencereyi modal olarak aç
     event.preventDefault()
     Object.assign(options, {
       modal: true,
@@ -77,7 +77,7 @@ mainWindow.webContents.on('new-window', (event, url, frameName, disposition, opt
 ```
 
 ```javascript
-// renderer process (mainWindow)
+// işleyici süreç (mainWindow)
 let modal = window.open('', 'modal')
 modal.document.write('<h1>Hello</h1>')
 ```
