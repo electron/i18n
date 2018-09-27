@@ -263,35 +263,35 @@ Rückgabewert:
   
   #### Event: 'closed'
   
-  Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
+  Ausgegeben wenn das Fenster geschlossen wird. Wenn sie dieses Event empfangen haben, sollten sie die Referenz auf dieses Fenster löschen und nicht weiter verwenden.
   
   #### Event: 'session-end' *Windows*
   
-  Emitted when window session is going to end due to force shutdown or machine restart or session log off.
+  Ausgegeben wenn die Fenstersitzung aufgrund von erzwungenem Abschalten, einem Neustart oder durch Abmelden enden wird.
   
   #### Event: 'unresponsive'
   
-  Emitted when the web page becomes unresponsive.
+  Ausgegeben wenn die Webseite nicht mehr antwortet.
   
   #### Event: 'responsive'
   
-  Emitted when the unresponsive web page becomes responsive again.
+  Ausgegeben wenn eine Webseite, die zuvor nicht mehr antwortete, wieder antwortet.
   
   #### Event: 'blur'
   
-  Emitted when the window loses focus.
+  Ausgegeben wenn das Fenster den Fokus verliert.
   
   #### Event: 'focus'
   
-  Emitted when the window gains focus.
+  Ausgegeben wenn das Fenster den Fokus erhält.
   
   #### Event: 'show'
   
-  Emitted when the window is shown.
+  Ausgegeben wenn das Fenster gezeigt wird.
   
   #### Event: 'hide'
   
-  Emitted when the window is hidden.
+  Ausgegeben wenn das Fenster versteckt wird.
   
   #### Event: 'ready-to-show'
   
@@ -384,7 +384,7 @@ Rückgabewert:
   * ` Ereignis </ 0>  Ereignis</li>
 <li><code>direction` String
   
-  Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
+  Ausgegeben bei 3-Finger Swipe. Mögliche Richtungen sind `up`, `right`, `down`, `left`.
   
   #### Event: 'sheet-begin' *macOS*
   
@@ -400,11 +400,11 @@ Rückgabewert:
   
   ### Static Methods
   
-  The `BrowserWindow` class has the following static methods:
+  Die `BrowserWindow` Klasse hat folgende statische Methoden:
   
   #### `BrowserWindow.getAllWindows()`
   
-  Returns `BrowserWindow[]` - An array of all opened browser windows.
+  Gibt `BrowserWindow[]` zurück - Ein Array aller geöffneten Browser Fenster.
   
   #### `BrowserWindow.getFocusedWindow()`
   
@@ -760,13 +760,13 @@ Rückgabewert:
   
   * `closable` Boolean
   
-  Sets whether the window can be manually closed by user. On Linux does nothing.
+  Gibt vor ob das Fenster manuell durch den Nutzer geschlossen werden kann. Unter Linux tut diese Option nichts.
   
   #### `win.isClosable()` *macOS* *Windows*
   
-  Returns `Boolean` - Whether the window can be manually closed by user.
+  Gibt `Boolean` zurück - Gibt an ob das Fenster durch den Nutzer manuell geschlossen werden kann.
   
-  On Linux always returns `true`.
+  Unter Linux wird immer `true` zurückgegeben.
   
   #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
   
