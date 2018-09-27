@@ -354,7 +354,7 @@ Tods las ventanas se cerrarán inmediatamente sin preguntar al usuarios y los ev
 
 ### `app.relaunch([options])`
 
-* `opciones` Objecto (opcional) 
+* `opciones` Object (opcional) 
   * `args` String[] - (opcional)
   * `execPath` Cadena (opcional)
 
@@ -654,7 +654,7 @@ const gotTheLock = app.requestSingleInstanceLock()
 if (!gotTheLock) {
   app.quit()
 } else {
-  app.on('second-instance', (commandLine, workingDirectory) => {
+  app.on('second-instance', (event, commandLine, workingDirectory) => {
     // Someone tried to run a second instance, we should focus our window.
     if (myWindow) {
       if (myWindow.isMinimized()) myWindow.restore()
