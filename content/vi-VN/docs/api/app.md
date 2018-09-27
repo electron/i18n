@@ -285,7 +285,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 })
 ```
 
-### Event: 'gpu-process-crashed'
+### Sự kiện: 'gpu-process-crashed'
 
 Trả về:
 
