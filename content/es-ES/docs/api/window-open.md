@@ -16,9 +16,15 @@ La recien creada `BrowserWindow` heredará las opciones de la ventana principal 
 
 Devuelve [`BrowserWindowProxy`](browser-window-proxy.md) - Crea una nueva ventana y devuelve una instancia de la clase`BrowserWindowProxy`.
 
-La cadena `features` sigue el formato del navegador estándar, pero cada característica tiene que ser un campo de las opciones de `BrowserWindow`.
+The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options. These are the features you can set via `features` string: `zoomFactor`, `nodeIntegration`, `preload`, `javascript`, `contextIsolation`, `webviewTag`.
 
-**Notas:**
+Por ejemplo:
+
+```js
+window.open('https://github.com', '_blank', 'nodeIntegration=no')
+```
+
+**Notes:**
 
 * La integración de nodo siempre estará deshabilitada en la `window` abierta si está deshabilitada en la ventana principal.
 * El aislamiento de contexto siempre estará habilitado en la `window` abierta si está habilitado en la ventana principal.
@@ -30,24 +36,24 @@ La cadena `features` sigue el formato del navegador estándar, pero cada caracte
 * `message` String
 * `targetOrigin` String
 
-Envía un mensaje a la ventana principal con el origen especificado o `*` sin origen de preferencia.
+Sends a message to the parent window with the specified origin or `*` for no origin preference.
 
 ### Utilizar la implementación `window.open()` de Chrome
 
-Si se quiere utilizar la implementación `window.open()` incorporada de Chrome, configura `nativeWindowOpen` a `true` en el objeto de opciones `webPreferences`.
+If you want to use Chrome's built-in `window.open()` implementation, set `nativeWindowOpen` to `true` in the `webPreferences` options object.
 
-El `window.open()` nativo permite el acceso sincrónico a las ventanas abiertas, por lo tanto es una opción conveniente si se necesita abrir el cuadro de diálogo o una ventana de preferencias.
+Native `window.open()` allows synchronous access to opened windows so it is convenient choice if you need to open a dialog or a preferences window.
 
-Esta opcion también puede ser configuradas en `<webview>`etiquetas:
+This option can also be set on `<webview>` tags as well:
 
 ```html
 <webview webpreferences="nativeWindowOpen=yes"></webview>
 ```
 
-La creación de la `BrowserWindow`es personalizable a través del evento `new-window` de `WebContents`.
+The creation of the `BrowserWindow` is customizable via `WebContents`'s `new-window` event.
 
 ```javascript
-// proceso principal
+// main process
 const mainWindow = new BrowserWindow({
   width: 800,
   height: 600,
@@ -57,7 +63,7 @@ const mainWindow = new BrowserWindow({
 })
 mainWindow.webContents.on('new-window', (event, url, frameName, disposition, options, additionalFeatures) => {
   if (frameName === 'modal') {
-    // abre una ventana modal
+    // open window as modal
     event.preventDefault()
     Object.assign(options, {
       modal: true,
@@ -71,7 +77,7 @@ mainWindow.webContents.on('new-window', (event, url, frameName, disposition, opt
 ```
 
 ```javascript
-// proceso renderizador(mainWindow)
+// renderer process (mainWindow)
 let modal = window.open('', 'modal')
 modal.document.write('<h1>Hello</h1>')
 ```
