@@ -34,7 +34,7 @@ $ git fetch upstream
 
 ビルド手順と依存関係は、オペレーティングシステムによって若干異なります。 Electron をローカルに構築する際は、これらの詳細なガイドを参照してください。
 
-* [macOS 上でビルド](https://electronjs.org/docs/development/build-instructions-osx)
+* [macOS 上でビルド](https://electronjs.org/docs/development/build-instructions-macos)
 * [Linux 上でビルド](https://electronjs.org/docs/development/build-instructions-linux)
 * [Windows 上でビルド](https://electronjs.org/docs/development/build-instructions-windows)
 
