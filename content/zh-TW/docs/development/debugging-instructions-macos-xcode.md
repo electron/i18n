@@ -1,6 +1,6 @@
-## Debugging with XCode
+## 使用Xcode 进行断点调试
 
-### Generate xcode project for debugging sources (cannot build code from xcode)
+### 生成用于源代码断点调试的xcode工程项目(不能使用xcode编译代码)
 
 Run `gn gen` with the --ide=xcode argument.
 
