@@ -80,7 +80,7 @@
 - すべての Electron の機能を無効にし、ビルドを修正してから、それを1つずつ有効にします
 - ビルド時の機能を無効にするビルドフラグを追加します。
 
-Electron の Debug ビルドが成功したならば、以下のとおりテストを実行してください。 `$ ./script/test.py` テストの失敗を修正します。
+When a Debug build of Electron succeeds, run the tests: `$ npm run test` Fix the failing tests.
 
 上記のすべての手順に従って、サポートされているすべてのプラットフォームで Electron のコードを修正してください。
 
