@@ -39,7 +39,7 @@
     "rimraf": "^2.6.2",
     "semantic-release": "^15.5.0",
     "simple-statistics": "^6.0.1",
-    "standard": "^11.0.1",
+    "standard": "^12.0.1",
     "travis-deploy-once": "^5.0.0",
     "walk-sync": "^0.3.2"
   },
