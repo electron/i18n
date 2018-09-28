@@ -80,7 +80,7 @@ Esto es un resumen de los pasos necesarios para actualizar Chormium en Electron.
 - Deshabilite las herramientas de Electro, corrija la estructura, luego habilitelas una por una
 - Añada más banderas de la estructura para deshabilitar características en el tiempo de la construcción.
 
-Cuando una depuración de una estructura de Electron tiene éxito, corra la prueba `$ ./script/test.py` arregle los pruebas faltantes.
+When a Debug build of Electron succeeds, run the tests: `$ npm run test` Fix the failing tests.
 
 Siga todas los pasos anteriores para corregir el código Electron en todas las plataformas soportadas.
 
