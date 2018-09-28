@@ -11,7 +11,7 @@ Te poradniki zostały stworzone dla ludzi współtworzących projekt Electron. P
 * [Styl Kodowania](coding-style.md)
 * [Używanie formatu clang w kodzie C++](clang-format.md)
 * [Przegląd Systemu Budowania](build-system-overview.md)
-* [Instrukcje Budowania (macOS)](build-instructions-osx.md)
+* [Instrukcje Budowania (macOS)](build-instructions-macos.md)
 * [Instrukcje Budowania (Windows)](build-instructions-windows.md)
 * [Instrukcje Budowania (Linux)](build-instructions-linux.md)
 * [Programowanie Chromium](chromium-development.md)
