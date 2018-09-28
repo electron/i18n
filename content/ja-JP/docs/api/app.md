@@ -381,7 +381,7 @@ app.exit(0)
 
 ### `app.whenReady()`
 
-Returns `Promise` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
+Returns `Promise` - Electron が初期化されたときに実行される Promise。 May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
 
 ### `app.focus()`
 
