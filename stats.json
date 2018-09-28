@@ -42,10 +42,10 @@
     "name": "Chinese Traditional",
     "code": "zh-TW",
     "phrases": "9600",
-    "translated": "4560",
+    "translated": "4562",
     "approved": "47",
     "words": "88507",
-    "words_translated": "23644",
+    "words_translated": "23658",
     "words_approved": "117",
     "translated_progress": 26,
     "approved_progress": 0,
@@ -172,14 +172,14 @@
     "name": "Japanese",
     "code": "ja",
     "phrases": "9600",
-    "translated": "8147",
+    "translated": "8236",
     "approved": "362",
     "words": "88507",
-    "words_translated": "68517",
+    "words_translated": "69740",
     "words_approved": "2039",
-    "translated_progress": 77,
+    "translated_progress": 78,
     "approved_progress": 2,
-    "qa_issues": "244"
+    "qa_issues": "242"
   },
   {
     "name": "Korean",
@@ -257,7 +257,7 @@
     "words_approved": "2400",
     "translated_progress": 83,
     "approved_progress": 2,
-    "qa_issues": "3011"
+    "qa_issues": "3013"
   },
   {
     "name": "Tagalog",
