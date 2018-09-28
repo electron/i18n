@@ -11,7 +11,7 @@ These guides are intended for people working on the Electron project itself. For
 * [Model coding](coding-style.md)
 * [Menggunakan dentang-format pada kode C++ Code](clang-format.md)
 * [Membangun sistem Tinjauan](build-system-overview.md)
-* [Membangun petunjuk (macOS)](build-instructions-osx.md)
+* [Membangun petunjuk (macOS)](build-instructions-macos.md)
 * [Membangun petunjuk (Windows)](build-instructions-windows.md)
 * [Membangun petunjuk (Linux)](build-instructions-linux.md)
 * [Kromium pengembangan](chromium-development.md)
