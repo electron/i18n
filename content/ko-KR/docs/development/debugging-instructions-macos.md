@@ -4,7 +4,7 @@
 
 ## 요구 사항
 
-* **Electron의 디버그 빌드**: 가장 쉬운 방법은 보통 [macOS용 빌드 설명서 ](build-instructions-osx.md)에 명시된 요구 사항과 툴을 사용하여 스스로 빌드하는 것입니다. While you can attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
+* **Electron의 디버그 빌드**: 가장 쉬운 방법은 보통 [macOS용 빌드 설명서 ](build-instructions-macos.md)에 명시된 요구 사항과 툴을 사용하여 스스로 빌드하는 것입니다. While you can attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
 
 * **Xcode**: Xcode 뿐만 아니라, Xcode 명령 줄 도구를 설치합니다. 이것은 LLDB, macOS Xcode 의 기본 디버거를 포함합니다. 그것은 데스크톱과 iOS 기기와 시뮬레이터에서 C, Objective-C, C++ 디버깅을 지원합니다.
 
