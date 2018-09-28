@@ -381,7 +381,7 @@ app.exit(0)
 
 ### `app.whenReady()`
 
-Returns `Promise` - Electron が初期化されたときに実行される Promise。 May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
+Returns `Promise` - Electron が初期化されるときに実行される Promise。 `app.isReady()` を確認してアプリの準備がまだできていないときに `ready` イベントに登録するための、便利な代替手段として使用できます。
 
 ### `app.focus()`
 
@@ -638,9 +638,9 @@ app.setJumpList([
 
 このメソッドはアプリケーションをシングルインスタンスのアプリケーションにします。複数のインスタンスでのアプリ実行を許可する代わりに、これはアプリの単一のインスタンスだけが実行されていることを保証します。そして、他のインスタンスはこのインスタンスに通知し、終了します。
 
-The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock you can assume that another instance of your application is already running with the lock and exit immediately.
+このメソッドの戻り値は、アプリケーションのこのインスタンスのロックが成功したかどうかを表します。 ロック状態にできなかった場合、アプリケーションの他のインスタンスが既にロックされており、ただちに終了すると想定できます。
 
-I.e. This method returns `true` if your process is the primary instance of your application and your app should continue loading. It returns `false` if your process should immediately quit as it has sent its parameters to another instance that has already acquired the lock.
+またこのメソッドは、プロセスがアプリケーションの1つ目のインスタンスで、アプリがロード処理を続行する必要がある場合も `false` を返します。 It returns `false` if your process should immediately quit as it has sent its parameters to another instance that has already acquired the lock.
 
 macOSの場合、ユーザがFinderでアプリの2番目のインスタンスを開こうとしたとき、システムは自動的にシングルインスタンスになるようにし、`open-file` と `open-url` イベントが発生します。 ただし、ユーザがアプリをコマンドラインで開始する場合、シングルインスタンスを強制するシステムの仕組みが迂回されるため、シングルインスタンスであることを保証するには、このメソッドを使う必要があります。
 
