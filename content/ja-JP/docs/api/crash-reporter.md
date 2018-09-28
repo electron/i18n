@@ -22,7 +22,7 @@ crashReporter.start({
 * [socorro](https://github.com/mozilla/socorro)
 * [mini-breakpad-server](https://github.com/electron/mini-breakpad-server)
 
-Or use a 3rd party hosted solution:
+また、サードパーティによる解決方法も使用できます。
 
 * [Backtrace I/O](https://backtrace.io/electron/)
 * [Sentry](https://docs.sentry.io/clients/electron)
