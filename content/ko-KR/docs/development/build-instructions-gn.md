@@ -6,7 +6,7 @@ Follow the guidelines below for building Electron.
 
 더 진행하기 전에 플랫폼에 따른 요구 사양을 미리 확인하십시오.
 
-- [macOS](build-instructions-osx.md#prerequisites)
+- [macOS](build-instructions-macos.md#prerequisites)
 - [Linux](build-instructions-linux.md#prerequisites)
 - [Windows](build-instructions-windows.md#prerequisites)
 
