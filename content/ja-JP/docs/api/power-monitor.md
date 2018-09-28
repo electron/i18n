@@ -43,11 +43,11 @@ app.on('ready', () => {
 
 システムが再起動またはシャットダウンしようとしているときに発生します。 イベントハンドラが `e.preventDefault()` を呼び出した場合、Electron は正常にアプリを終了するためにシステムのシャットダウンの遅延を試みます。 `e.preventDefault()` が呼ばれた場合、出来る限り `app.quit()` のようなものを呼ぶのと同じようにアプリを終了します。
 
-### Event: 'lock-screen' *macOS* *Windows*
+### イベント: 'lock-screen' *macOS* *Windows*
 
-Emitted when the system is about to lock the screen.
+システムがスクリーンをロックしようとしているときに発生します。
 
-### Event: 'unlock-screen' *macOS* *Windows*
+### イベント: 'unlock-screen' *macOS* *Windows*
 
 Emitted as soon as the systems screen is unlocked.
 
