@@ -640,11 +640,11 @@ app.setJumpList([
 
 このメソッドの戻り値は、アプリケーションのこのインスタンスのロックが成功したかどうかを表します。 ロック状態にできなかった場合、アプリケーションの他のインスタンスが既にロックされており、ただちに終了すると想定できます。
 
-またこのメソッドは、プロセスがアプリケーションの1つ目のインスタンスで、アプリがロード処理を続行する必要がある場合も `false` を返します。 It returns `false` if your process should immediately quit as it has sent its parameters to another instance that has already acquired the lock.
+またこのメソッドは、プロセスがアプリケーションの1つ目のインスタンスで、アプリがロード処理を続行する必要がある場合も `false` を返します。 既にロック状態にしたものとは別のインスタンスにパラメータを送信したためプロセスが直ちに終了する必要がある場合は、`false` を返します。
 
-macOSの場合、ユーザがFinderでアプリの2番目のインスタンスを開こうとしたとき、システムは自動的にシングルインスタンスになるようにし、`open-file` と `open-url` イベントが発生します。 ただし、ユーザがアプリをコマンドラインで開始する場合、シングルインスタンスを強制するシステムの仕組みが迂回されるため、シングルインスタンスであることを保証するには、このメソッドを使う必要があります。
+macOS の場合、ユーザが Finder でアプリの2つ目のインスタンスを開こうとしたとき、システムは自動的にシングルインスタンスになるようにし、`open-file` と `open-url` イベントが発生します。 ただし、ユーザがアプリをコマンドラインで開始する場合、シングルインスタンスを強制するシステムの仕組みが迂回されるため、シングルインスタンスであることを保証するには、このメソッドを使う必要があります。
 
-2番目のインスタンスが開始されたとき、1番目のインスタンスのウインドウをアクティブにする例:
+以下は、2つ目のインスタンスが開始されたときに1つ目のインスタンスのウインドウをアクティブにする例です。
 
 ```javascript
 const {app} = require('electron')
@@ -656,14 +656,14 @@ if (!gotTheLock) {
   app.quit()
 } else {
   app.on('second-instance', (event, commandLine, workingDirectory) => {
-    // Someone tried to run a second instance, we should focus our window.
+    // 誰かが2つ目のインスタンスを実行したとき、このウィンドウにフォーカスする
     if (myWindow) {
       if (myWindow.isMinimized()) myWindow.restore()
       myWindow.focus()
     }
   })
 
-  // Create myWindow, load the rest of the app, etc...
+  // myWindow を作成したり、アプリの残りをロードしたり、...
   app.on('ready', () => {
   })
 }
@@ -673,7 +673,7 @@ if (!gotTheLock) {
 
 戻り値 `Boolean`
 
-This method returns whether or not this instance of your app is currently holding the single instance lock. You can request the lock with `app.requestSingleInstanceLock()` and release with `app.releaseSingleInstanceLock()`
+このメソッドはアプリのこのインスタンスが現在シングルインスタンスロックをされているかどうかを返します。 `app.requestSingleInstanceLock()` でロックを要求し、`app.releaseSingleInstanceLock()` で解放できます。
 
 ### `app.releaseSingleInstanceLock()`
 
