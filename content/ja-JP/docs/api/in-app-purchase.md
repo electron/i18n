@@ -23,12 +23,12 @@
 
 ### `inAppPurchase.purchaseProduct(productID, quantity, callback)`
 
-* `productID` String - 購入する製品の識別子。 (The identifier of `com.example.app.product1` is `product1`).
+* `productID` String - 購入する製品の識別子。 (`com.example.app.product1` の識別子は `product1`)。
 * `quantity` Integer (任意) - ユーザーが購入しようとしている商品数。
 * `callback` Function (任意) - PaymentQueueに支払い情報が追加されたときに呼び出されるコールバック。 
     * `isProductValid` Boolean - プロダクトが有効かつ支払いキューに追加されたかどうか決定する。
 
-You should listen for the `transactions-updated` event as soon as possible and certainly before you call `purchaseProduct`.
+`purchaseProduct` を呼び出す前に、できるだけ早く `transactions-updated` イベントをリッスンする必要があります。
 
 ### `inAppPurchase.getProducts(productIDs, callback)`
 
