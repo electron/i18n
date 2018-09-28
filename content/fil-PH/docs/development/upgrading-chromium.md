@@ -80,7 +80,7 @@ Ito ay isang pangkalahatang-ideya ng mga hakbang na kinakailangan upang maipagan
 - Huwag paganahin ang lahat ng mga tampok ng Electron, ayusin ang build, pagkatapos paganahin ang mga ito ng isa-isa
 - Magdagdag pa ng mga flags ng build upang huwag paganahin ang mga tampok sa build-time.
 
-Kung ang Debug build ng Electron ay matagumpay, subukang patakbuhin: `$ ./script/test.py` Ayusing ang mga maling subok.
+When a Debug build of Electron succeeds, run the tests: `$ npm run test` Fix the failing tests.
 
 Sundin ang lahat ng mga hakbang sa itaas upang ayusin ang Electron kowd sa lahat ng mga sinusuportahang plataporma.
 
