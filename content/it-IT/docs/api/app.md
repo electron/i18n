@@ -659,14 +659,17 @@ Puoi richiedere i seguenti percorsi dal nome:
       app.quit()
     } else {
       app.on('second-instance', (event, commandLine, workingDirectory) => {
-        // Someone tried to run a second instance, we should focus our window.
-        if (myWindow) {
+        //Qualcuno ha provato ad avviare una seconda istanza, dobbiamo focalizzarci sulla nostra finestra.
+        app
+    
+    This is an Electron Module and should usually not be translated
+    if (myWindow) {
           if (myWindow.isMinimized()) myWindow.restore()
           myWindow.focus()
         }
       })
     
-      // Create myWindow, load the rest of the app, etc...
+      // Crea myWindow, carica il resto dell'app, ecc...
       app.on('ready', () => {
       })
     }
@@ -674,9 +677,9 @@ Puoi richiedere i seguenti percorsi dal nome:
     
     ### `app.hasSingleInstanceLock()`
     
-    Restituisci `Booleano`
+    Restituisce `Booleano`
     
-    This method returns whether or not this instance of your app is currently holding the single instance lock. You can request the lock with `app.requestSingleInstanceLock()` and release with `app.releaseSingleInstanceLock()`
+    Questo metodo restituisce se o meno questa istanza della tua app è al momento tenuta da una singola istanza bloccata. Puoi richiedere il blocco con `app.requestSingleInstanceLock()` e sbloccarla con `app.releaseSingleInstanceLock()`
     
     ### `app.releaseSingleInstanceLock()`
     
