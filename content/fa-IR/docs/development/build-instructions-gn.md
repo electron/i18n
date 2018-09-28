@@ -6,7 +6,7 @@ Follow the guidelines below for building Electron.
 
 Check the build prerequisites for your platform before proceeding
 
-- [مک‌اواس](build-instructions-osx.md#prerequisites)
+- [مک‌اواس](build-instructions-macos.md#prerequisites)
 - [لینوکس](build-instructions-linux.md#prerequisites)
 - [ویندوز](build-instructions-windows.md#prerequisites)
 
