@@ -4,7 +4,7 @@
 
 ## 要求
 
-* **Electron 的调试版本**: 最简单的方法是自己构建它，使用 [macOS 的构建说明](build-instructions-osx.md) 中列出的工具和先决条件要求。 While you can attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
+* **Electron 的调试版本**: 最简单的方法是自己构建它，使用 [macOS 的构建说明](build-instructions-macos.md) 中列出的工具和先决条件要求。 While you can attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
 
 * **Xcode**: 除了 Xcode，还安装 Xcode 命令行工具. 它们包括 LLDB，在 Mac OS X 的 Xcode 中的默认调试器。它支持在桌面和iOS设备和模拟器上调试 C，Objective-C 和 C++。
 
