@@ -49,17 +49,17 @@ app.on('ready', () => {
 
 ### イベント: 'unlock-screen' *macOS* *Windows*
 
-Emitted as soon as the systems screen is unlocked.
+システムスクリーンがアンロックされたときに発行されます。
 
 ## メソッド
 
-The `powerMonitor` module has the following methods:
+`powerMonitor` モジュールには以下のメソッドがあります。
 
 #### `powerMonitor.querySystemIdleState(idleThreshold, callback)`
 
 * `idleThreshold` Integer
 * `callback` Function 
-  * `idleState` String - Can be `active`, `idle`, `locked` or `unknown`
+  * `idleState` String - `active`, `idle`, `locked`, `unknown` にできます。
 
 Calculate the system idle state. `idleThreshold` is the amount of time (in seconds) before considered idle. `callback` will be called synchronously on some systems and with an `idleState` argument that describes the system's state. `locked` is available on supported systems only.
 
