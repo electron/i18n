@@ -11,7 +11,7 @@ Dieses Handbuch wendet sich an Entwickler des Electron Projekts. Guides zur App-
 * [Coding Style](coding-style.md)
 * [clang-format im C++ Code verwenden](clang-format.md)
 * [Build System Übersicht](build-system-overview.md)
-* [Build Anweisungen (macOS)](build-instructions-osx.md)
+* [Build Anweisungen (macOS)](build-instructions-macos.md)
 * [Build Anweisungen (Windows)](build-instructions-windows.md)
 * [Build Anweisungen (Linux)](build-instructions-linux.md)
 * [Chromium-Entwicklung](chromium-development.md)
