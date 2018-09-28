@@ -641,9 +641,9 @@ Puoi richiedere i seguenti percorsi dal nome:
     
     Questo metodo rende la tua app a Singola Istanza - invece di permettere istanze multiple della tua app da eseguire, questo assicurerà che solo una singola istanza della tua app sia in esecuzione e che le altre istanze segnino questa ed escano.
     
-    The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock you can assume that another instance of your application is already running with the lock and exit immediately.
+    Il valore restituito da questo metodo indica se o meno questa istanza della tua applicazione ha ottenuto con successo il blocco. Se non è riuscita a ottenere il blocco puoi presumere che l'altra istanza della tua applicazione è già in esecuzione con il blocco ed esca immediatamente.
     
-    I.e. This method returns `true` if your process is the primary instance of your application and your app should continue loading. It returns `false` if your process should immediately quit as it has sent its parameters to another instance that has already acquired the lock.
+    Es. Questo metodo restituisce `true` se il tuo processo è la prima istanza della tua applicazione e la tua app dovrebbe continuare il caricamento. Se restituisce `false`, se il tuo processo deve immediatamente chiudere come se avesse mandato i parametri ad un altra istanza che ha già acquisito il blocco.
     
     Su macOS il sistema fa rispettare l'istanza singola automaticamente quando l'utente prova ad aprirne un'altra della vostra app su Finder e per questo sono emessi gli eventi `apri-file` ed `apri-url`. Comunque quando un utente avvia la tua app nella linea di comando il meccanismo della singola istanza del sistema sarà bypassato e devi usare questo metodo per assicurare la singola istanza.
     
