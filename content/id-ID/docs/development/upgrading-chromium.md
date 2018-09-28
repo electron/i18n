@@ -80,7 +80,7 @@ Ini adalah ikhtisar langkah-langkah yang diperlukan untuk meningkatkan Chromium 
 - Nonaktifkan semua fitur Elektron, perbaiki build, lalu aktifkan satu per satu
 - Tambahkan lebih banyak flag untuk menonaktifkan fitur build-time.
 
-Ketika sebuah Debug membangun Electron berhasil, jalankan tesnya: `$ ./script/test.py` Perbaiki tes yang gagal.
+When a Debug build of Electron succeeds, run the tests: `$ npm run test` Fix the failing tests.
 
 Ikuti semua langkah di atas untuk memperbaiki kode Elektron pada semua platform yang didukung.
 
