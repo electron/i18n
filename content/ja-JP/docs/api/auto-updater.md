@@ -70,7 +70,7 @@ Windowsでは `releaseName` のみ利用可能です。
 
 このイベントは、ユーザが呼び出した `quitAndInstall()` の後に発火されます。
 
-この API が呼ばれた時、すべてのウィンドウが閉じられる前に `before-quit` イベントは発火されません。 As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
+この API が呼ばれた時、すべてのウィンドウが閉じられる前に `before-quit` イベントは発火されません。 結果として、プロセス終了時にウィンドウが閉じられる前にアクションを実行するために、`before-quit` をリッスンする場合は、このイベントも同様にリッスンする必要があります。
 
 ## メソッド
 
