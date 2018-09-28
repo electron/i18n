@@ -11,7 +11,7 @@ These guides are intended for people working on the Electron project itself. For
 * [Стиль Коду](coding-style.md)
 * [Використання clang-format в C++ Коді](clang-format.md)
 * [Огляд Системи Збірки](build-system-overview.md)
-* [Інструкція Збірки (macOS)](build-instructions-osx.md)
+* [Інструкція Збірки (macOS)](build-instructions-macos.md)
 * [Інструкція Збірки (Windows)](build-instructions-windows.md)
 * [Інструкція Збірки (Linux)](build-instructions-linux.md)
 * [Розробка Chromium](chromium-development.md)
