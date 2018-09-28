@@ -4,7 +4,7 @@ Kung ikaw ay nakararanas ng mga pag-crash o may nagaganap na di tama sa Electron
 
 ## Mga Kinakailangan
 
-* **Isang debug na build ng Elektron**: Ang pinakamadaling paraan ay kadalasan ang pagbuo mo nito mismo, gamit ang mga kagamitan at mga paunang kinakailangan na nasa [instruksyon sa pagbuo para sa Windows](build-instructions-osx.md). While you can attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
+* **Isang debug na build ng Elektron**: Ang pinakamadaling paraan ay kadalasan ang pagbuo mo nito mismo, gamit ang mga kagamitan at mga paunang kinakailangan na nasa [instruksyon sa pagbuo para sa Windows](build-instructions-macos.md). While you can attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
 
 * **Xcode**: Bilang karagdagan sa Xcode, i-install rin ang mga kagamitan sa Xcode na pang-utoss na linya. Isinasali nila ang LLDB, ang default na taga-debug sa Xcode sa Mac OS X. Sinusuportahan nito ang debugging C, Objective-C at C++ sa desktop at ios na mga kasangkapan at taga-simulate.
 
