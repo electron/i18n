@@ -11,7 +11,7 @@ These guides are intended for people working on the Electron project itself. For
 * [ลักษณะการเขียนโค้ด](coding-style.md)
 * [การใช้รูปแบบ clang ในโค้ด C++](clang-format.md)
 * [สร้างภาพรวมของระบบ](build-system-overview.md)
-* [คำแนะนำการสร้าง (macOS)](build-instructions-osx.md)
+* [คำแนะนำการสร้าง (macOS)](build-instructions-macos.md)
 * [คำแนะนำการสร้าง (Windows)](build-instructions-windows.md)
 * [คำแนะนำการสร้าง (Linux)](build-instructions-linux.md)
 * [การพัฒนาโครเมี่ยม](chromium-development.md)
