@@ -11,7 +11,7 @@ These guides are intended for people working on the Electron project itself. For
 * [Codeerstijl](coding-style.md)
 * [Het gebruik van clang-format op C++ Code](clang-format.md)
 * [Bouwen Systeemoverzicht](build-system-overview.md)
-* [Bouwen van instructies (macOS)](build-instructions-osx.md)
+* [Bouwen van instructies (macOS)](build-instructions-macos.md)
 * [Bouwen van instructies (Windows)](build-instructions-windows.md)
 * [Bouwen van instructies (Linux)](build-instructions-linux.md)
 * [Chromium ontwikkeling](chromium-development.md)
