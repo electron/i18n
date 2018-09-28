@@ -32,11 +32,11 @@
 
 ### `inAppPurchase.getProducts(productIDs, callback)`
 
-* `productIDs` String[] - The identifiers of the products to get.
-* `callback` Function - The callback called with the products or an empty array if the products don't exist. 
-    * `products` Product[] - Array of [`Product`](structures/product.md) objects
+* `productIDs` String[] - 取得する製品の識別子。
+* `callback` Function - コールバックは製品のリストで呼ばれます。製品が存在しない場合は空の配列です。 
+    * `products` Product[] - [`Product`](structures/product.md) オブジェクトの配列。
 
-Retrieves the product descriptions.
+製品説明を探します。
 
 ### `inAppPurchase.canMakePayments()`
 
@@ -48,10 +48,10 @@ Retrieves the product descriptions.
 
 ### `inAppPurchase.finishAllTransactions()`
 
-Completes all pending transactions.
+すべての保留中の取引を完了させます。
 
 ### `inAppPurchase.finishTransactionByDate(date)`
 
-* `date` String - The ISO formatted date of the transaction to finish.
+* `date` String - 取引を終える ISO 形式の日付。
 
-Completes the pending transactions corresponding to the date.
+日付に対応するすべての保留中の取引を完了させます。
