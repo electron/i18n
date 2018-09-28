@@ -6,7 +6,7 @@ Electron'u kurmak için aşağıdaki talimatları izleyin.
 
 Devam etmeden önce platformunuz için ön koşulları kontrol edin
 
-- [macOS](build-instructions-osx.md#prerequisites)
+- [macOS](build-instructions-macos.md#prerequisites)
 - [Linux](build-instructions-linux.md#prerequisites)
 - [Windows](build-instructions-windows.md#prerequisites)
 
