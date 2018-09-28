@@ -276,14 +276,14 @@
     "name": "Thai",
     "code": "th",
     "phrases": "9600",
-    "translated": "303",
+    "translated": "304",
     "approved": "5",
     "words": "88507",
-    "words_translated": "1576",
+    "words_translated": "1578",
     "words_approved": "62",
     "translated_progress": 1,
     "approved_progress": 0,
-    "qa_issues": "51"
+    "qa_issues": "52"
   },
   {
     "name": "Turkish",
