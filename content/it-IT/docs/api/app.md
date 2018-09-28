@@ -683,7 +683,7 @@ Puoi richiedere i seguenti percorsi dal nome:
     
     ### `app.releaseSingleInstanceLock()`
     
-    Releases all locks that were created by `requestSingleInstanceLock`. This will allow multiple instances of the application to once again run side by side.
+    Sblocca tutti i blocchi che sono stati creati da `requestSingleInstanceLock`. Questo permetterà alle istanze multiple dell'applicazione di essere eseguiti nuovamente affiancati.
     
     ### `app.impostaUtenteAttività(tipo, userInfo[, Urlpaginaweb])` *macOS*
     
