@@ -677,7 +677,7 @@ if (!gotTheLock) {
 
 ### `app.releaseSingleInstanceLock()`
 
-Releases all locks that were created by `requestSingleInstanceLock`. This will allow multiple instances of the application to once again run side by side.
+`requestSingleInstanceLock` によって作成されたすべてのロックを解放します。これで、並列実行するためのアプリケーションの複数インスタンスが再び許可されます。
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
@@ -750,7 +750,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 
 macOSでは、ドックアイコンに表示されます。Linuxでは、Unityランチャーでしか機能しません。
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+**注:** Unity ランチャーで機能させるには、`.desktop` ファイルが存在する必要があります。詳細は [デスクトップ環境への統合](../tutorial/desktop-environment-integration.md#unity-launcher) をお読みください。
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
@@ -924,7 +924,7 @@ filePath がダウンロードフォルダの中の場合、ダウンロード�
 
 * `menu` [Menu](menu.md)
 
-Sets the application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
+アプリケーションの [Dock メニュー](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/) を設定します。
 
 ### `app.dock.setIcon(image)` *macOS*
 
@@ -936,4 +936,4 @@ Sets the application's [dock menu](https://developer.apple.com/macos/human-inter
 
 ### `app.isPackaged`
 
-A `Boolean` property that returns `true` if the app is packaged, `false` otherwise. For many apps, this property can be used to distinguish development and production environments.
+アプリがパッケージされている場合は`true`、それ以外は `false` を返す `Boolean` プロパティ。 多くのアプリケーションでは、このプロパティを用いて開発版の環境と製品版の環境を区別できます。
