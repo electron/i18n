@@ -4,7 +4,7 @@ Si vous rencontrez des crash ou des problèmes dans Electron et que vous croyez 
 
 ## Spécifications requises
 
-* **Une compilation debug d'Electron** : le moyen le plus simple est généralement de le compiler vous-même, en utilisant les outils et prérequis énumérées dans les [instructions de compilation pour macOS](build-instructions-osx.md). Tandis que vous pouvez facilement déboguer Electron puisque vous pouvez le télécharger directement, vous trouverez qu’il est fortement optimisé, ce qui rend le débogage sensiblement plus difficile : le débogueur ne sera pas en mesure de vous montrer le contenu de toutes les variables et le chemin d’exécution peut sembler étrange à cause de l’inlining, liste des appels qui s’enchaînent et d'autres optimisations du compilateur.
+* **Une compilation debug d'Electron** : le moyen le plus simple est généralement de le compiler vous-même, en utilisant les outils et prérequis énumérées dans les [instructions de compilation pour macOS](build-instructions-macos.md). Tandis que vous pouvez facilement déboguer Electron puisque vous pouvez le télécharger directement, vous trouverez qu’il est fortement optimisé, ce qui rend le débogage sensiblement plus difficile : le débogueur ne sera pas en mesure de vous montrer le contenu de toutes les variables et le chemin d’exécution peut sembler étrange à cause de l’inlining, liste des appels qui s’enchaînent et d'autres optimisations du compilateur.
 
 * **Xcode**: En plus de Xcode, vous devez aussi installer les outils de ligne de commande de Xcode. Ils incluent LLDB, le débogueur par défaut dans Xcode sur Mac OS X. Il prend en charge le déboggage C, Objective-C et C++ sur les ordinateurs , les appareils iOS et simulateur.
 
