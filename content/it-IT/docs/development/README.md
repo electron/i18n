@@ -11,7 +11,7 @@ Queste guide sono destinate alle persone che lavorano al progetto stesso di Elec
 * [Stile del codice](coding-style.md)
 * [Uso di clang-format nel codice C++](clang-format.md)
 * [Panoramica sul sistema di compilazione](build-system-overview.md)
-* [Istruzioni per la compilazione (macOS)](build-instructions-osx.md)
+* [Istruzioni per la compilazione (macOS)](build-instructions-macos.md)
 * [Istruzioni per la compilazione (Windows)](build-instructions-windows.md)
 * [Istruzioni per la compilazione (Linux)](build-instructions-linux.md)
 * [Sviluppo di Chrome](chromium-development.md)
