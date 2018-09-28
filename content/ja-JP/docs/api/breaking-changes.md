@@ -1,23 +1,23 @@
 # API Contract
 
-Breaking changes will be documented here, and deprecation warnings added to JS code where possible, at least [one major version](../tutorial/electron-versioning.md#semver) before the change is made.
+破壊的な変更は変更の [一つ前のメジャーバージョン](../tutorial/electron-versioning.md#semver) についてここに文書化され、可能であれば非推奨の警告を JS コードに加えます。
 
 # `FIXME` コメント
 
-The `FIXME` string is used in code comments to denote things that should be fixed for future releases. （参照： https://github.com/electron/electron/search?q=fixme ）
+`FIXME` 文字列は将来のリリースで修正されるべきであることを意味するコードのコメントに用いられます。 （参照： https://github.com/electron/electron/search?q=fixme ）
 
-# 計画されているAPIの破壊的変更（4.0）
+# 予定されている破壊的なAPIの変更 (4.0)
 
-The following list includes the breaking API changes planned for Electron 4.0.
+以下のリストには Electron 4.0 で予定されている破壊的な API の変更が含まれています。
 
 ## `app.makeSingleInstance`
 
 ```js
-// Deprecated
+// 非推奨
 app.makeSingleInstance(function (argv, cwd) {
 
 })
-// Replace with
+// こちらに置換
 app.requestSingleInstanceLock()
 app.on('second-instance', function (argv, cwd) {
 
@@ -27,51 +27,51 @@ app.on('second-instance', function (argv, cwd) {
 ## `app.releaseSingleInstance`
 
 ```js
-// Deprecated
+// 非推奨
 app.releaseSingleInstance()
-// Replace with
+// こちらに置換
 app.releaseSingleInstanceLock()
 ```
 
 # APIの破壊的変更（3.0）
 
-The following list includes the breaking API changes in Electron 3.0.
+以下のリストには Electron 3.0 での破壊的な API の変更が含まれています。
 
 ## `app`
 
 ```js
-// Deprecated
+// 非推奨
 app.getAppMemoryInfo()
-// Replace with
+// こちらに置換
 app.getAppMetrics()
 
-// Deprecated
+// 非推奨
 const metrics = app.getAppMetrics()
 const {memory} = metrics[0]
-memory.privateBytes  // Deprecated property
-memory.sharedBytes  // Deprecated property
+memory.privateBytes  // 非推奨なプロパティ
+memory.sharedBytes  // 非推奨なプロパティ
 ```
 
 ## `BrowserWindow`
 
 ```js
-// Deprecated
+// 非推奨
 let optionsA = {webPreferences: {blinkFeatures: ''}}
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// こちらに置換
 let optionsB = {webPreferences: {enableBlinkFeatures: ''}}
 let windowB = new BrowserWindow(optionsB)
 
-// Deprecated
+// 非推奨
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
-    // do something
+    // なにかする
   }
 })
-// Replace with
+// こちらに置換
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
-    // do something
+    // なにかする
   }
 })
 ```
@@ -80,37 +80,37 @@ window.on('app-command', (e, cmd) => {
 `
 
 ```js
-// Deprecated
+// 非推奨
 clipboard.readRtf()
-// Replace with
+// こちらに置換
 clipboard.readRTF()
 
-// Deprecated
+// 非推奨
 clipboard.writeRtf()
-// Replace with
+// こちらに置換
 clipboard.writeRTF()
 
-// Deprecated
+// 非推奨
 clipboard.readHtml()
-// Replace with
+// こちらに置換
 clipboard.readHTML()
 
-// Deprecated
+// 非推奨
 clipboard.writeHtml()
-// Replace with
+// こちらに置換
 clipboard.writeHTML()
 ```
 
 ## `crashReporter`
 
 ```js
-// Deprecated
+// 非推奨
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// Replace with
+// こちらに置換
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -121,9 +121,9 @@ crashReporter.start({
 ## `nativeImage`
 
 ```js
-// Deprecated
+// 非推奨
 nativeImage.createFromBuffer(buffer, 1.0)
-// Replace with
+// こちらに置換
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
@@ -132,29 +132,29 @@ nativeImage.createFromBuffer(buffer, {
 ## `プロセス`
 
 ```js
-// Deprecated
+// 非推奨
 const info = process.getProcessMemoryInfo()
-const privateBytes = info.privateBytes // deprecated property
-const sharedBytes = info.sharedBytes // deprecated property
+const privateBytes = info.privateBytes // 非推奨なプロパティ
+const sharedBytes = info.sharedBytes // 非推奨なプロパティ
 ```
 
 ## `screen`
 
 ```js
-// Deprecated
+// 非推奨
 screen.getMenuBarHeight()
-// Replace with
+// こちらに置換
 screen.getPrimaryDisplay().workArea
 ```
 
 ## `session`
 
 ```js
-// Deprecated
+// 非推奨
 ses.setCertificateVerifyProc(function (hostname, certificate, callback) {
   callback(true)
 })
-// Replace with
+// こちらに置換
 ses.setCertificateVerifyProc(function (request, callback) {
   callback(0)
 })
@@ -163,41 +163,41 @@ ses.setCertificateVerifyProc(function (request, callback) {
 ## `Tray`
 
 ```js
-// Deprecated
+// 非推奨
 tray.setHighlightMode(true)
-// Replace with
+// こちらに置換
 tray.setHighlightMode('on')
 
-// Deprecated
+// 非推奨
 tray.setHighlightMode(false)
-// Replace with
+// こちらに置換
 tray.setHighlightMode('off')
 ```
 
 ## `webContents`
 
 ```js
-// Deprecated
+// 非推奨
 webContents.openDevTools({detach: true})
-// Replace with
+// こちらに置換
 webContents.openDevTools({mode: 'detach'})
 
-// Removed
+// 削除されました
 webContents.setSize(options)
-// There is no replacement for this API
+// この API は置換できません
 ```
 
 ## `webFrame`
 
 ```js
-// Deprecated
+// 非推奨
 webFrame.registerURLSchemeAsSecure('app')
-// Replace with
+// こちらに置換
 protocol.registerStandardSchemes(['app'], {secure: true})
 
-// Deprecated
+// 非推奨
 webFrame.registerURLSchemeAsPrivileged('app', {secure: true})
-// Replace with
+// こちらに置換
 protocol.registerStandardSchemes(['app'], {secure: true})
 ```
 
