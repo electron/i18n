@@ -6,7 +6,7 @@ Follow the guidelines below for building Electron.
 
 各个平台所对应的构建要求如下：
 
-- [macOS](build-instructions-osx.md#prerequisites)
+- [macOS](build-instructions-macos.md#prerequisites)
 - [Linux](build-instructions-linux.md#prerequisites)
 - [Windows](build-instructions-windows.md#prerequisites)
 
