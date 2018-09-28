@@ -6,7 +6,7 @@
 
 Перед началом проверьте требования сборки для вашей системы
 
-- [macOS](build-instructions-osx.md#prerequisites)
+- [macOS](build-instructions-macos.md#prerequisites)
 - [Linux](build-instructions-linux.md#prerequisites)
 - [Windows](build-instructions-windows.md#prerequisites)
 
