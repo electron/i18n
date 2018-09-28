@@ -80,7 +80,7 @@ Bu adımlar Electron'un Chromium 'u yükseltmek için gerekli genel taslağıdı
 - Tüm Electron özelliklerini devre dışı bırakın, yapıyı düzeltin, sonra özellikleri tek tek etkinleştirin
 - Oluşturma zamanında özellikleri devre dışı bırakmak için daha fazla yapı bayrağı ekleyin.
 
-Electron'un bir Hata Ayıklama derlemesi başarılı olduğunda, sınamaları çalıştırın: `$ ./script/test.py` Başarısız testleri düzeltin.
+When a Debug build of Electron succeeds, run the tests: `$ npm run test` Fix the failing tests.
 
 Desteklenen tüm platformlarda Electron kodunu düzeltmek için yukarıdaki adımları izleyin.
 
