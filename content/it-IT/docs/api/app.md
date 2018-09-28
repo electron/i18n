@@ -331,7 +331,7 @@ Restituisce:
 
 Questo evento verrà emesso all'interno della prima istanza della tua applicazione quando una seconda istanza è stata eseguita. `argv` è un insieme delle linee di comando degli argomenti della seconda istanza e la `Directoryfunzionante` è la sua attuale Directory funzionante. Di solito le app rispondono a questo focalizzando la loro finestra primaria e non minimizzata.
 
-This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
+Questo evento è garantito per essere emesso dopo che l'evento `ready` di `app` viene emesso.
 
 ## Metodi
 
@@ -377,13 +377,13 @@ app.relaunch({args: process.argv..slice(1).concat(['--relaunch'])})
 app.exit(0)
 ```
 
-### `app.isPronta()`
+### `app.isReady()`
 
 Restituisce `Booleano` - `true` se Electron ha finito l'inizializzazione, `falso` viceversa.
 
 ### `app.whenReady()`
 
-Returns `Promise` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
+Restituisce `Promise` - soddisfatta quando Electron è inizializzato. Può essere usata come alternativa conveniente per controllare `app.isReady()` e sottoscrivendo all'evento `ready` se l'applicazione non è ancora pronta.
 
 ### `app.focalizza()`
 
@@ -639,7 +639,7 @@ Puoi richiedere i seguenti percorsi dal nome:
     
     Restituisci `Booleano`
     
-    Questo metodo rende la tua app una app a Singola Istanza - invece di permettere multiple istanze della tua app da eseguire, questo assicurerà che solo una singola istanza della tua app sia in esecuzione e che le altre istanze segnino questa ed escano.
+    Questo metodo rende la tua app a Singola Istanza - invece di permettere istanze multiple della tua app da eseguire, questo assicurerà che solo una singola istanza della tua app sia in esecuzione e che le altre istanze segnino questa ed escano.
     
     The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock you can assume that another instance of your application is already running with the lock and exit immediately.
     
