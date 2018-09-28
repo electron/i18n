@@ -4,7 +4,7 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-**See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
+**こちらも参照: [アプリケーションを更新する](../tutorial/updates.md)**
 
 ## プラットフォームに関する注意事項
 
@@ -66,7 +66,7 @@ Squirrel.Macとは違って、Windowsでは、S3やその他の静的ファイ�
 
 Windowsでは `releaseName` のみ利用可能です。
 
-### Event: 'before-quit-for-update'
+### イベント: 'before-quit-for-update'
 
 This event is emitted after a user calls `quitAndInstall()`.
 
