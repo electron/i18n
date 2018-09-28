@@ -258,7 +258,7 @@ window.onbeforeunload = (e) => {
 }
 ```
 
-***注**: `window.onbeforeunload = handler` と `window.addEventListener('beforeunload', handler)` の動作には、微妙な違いがあります。 It is recommended to always set the `event.returnValue` explicitly, instead of only returning a value, as the former works more consistently within Electron.*
+***注**: `window.onbeforeunload = handler` と `window.addEventListener('beforeunload', handler)` の動作には、微妙な違いがあります。 値のみを返すのではなく、常に明示的に `event.returnValue` を設定するようにすることを推奨します。後者の方がElectron内でより一貫性のある動作をします。*
 
 #### イベント: 'closed'
 
@@ -320,7 +320,7 @@ Webページが (まだ表示されていないが) レンダリングされ、�
 
 ウインドウが新しい位置に移動されているときに発生します。
 
-**Note**: On macOS this event is an alias of `moved`.
+**注**: macOSでは、このイベントは `moved` のエイリアスです。
 
 #### イベント: 'moved' *macOS*
 
@@ -407,7 +407,7 @@ win.on('app-command', (e, cmd) => {
 
 #### `BrowserWindow.getFocusedWindow()`
 
-Returns `BrowserWindow | null` - The window that is focused in this application, otherwise returns `null`.
+戻り値 `BrowserWindow | null` - このアプリケーションでフォーカスされたウインドウ。それ以外は、`null` を返します。
 
 #### `BrowserWindow.fromWebContents(webContents)`
 
