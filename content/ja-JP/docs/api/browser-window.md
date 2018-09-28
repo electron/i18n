@@ -1010,7 +1010,7 @@ WindowsとLinuxでは常に `true` を返します。
 
 * `rects` [Rectangle[]](structures/rectangle.md) - ウィンドウの形を設定します。空のリストを渡すと矩形に戻ります。
 
-Setting a window shape determines the area within the window where the system permits drawing and user interaction. Outside of the given region, no pixels will be drawn and no mouse events will be registered. Mouse events outside of the region will not be received by that window, but will fall through to whatever is behind the window.
+ウィンドウの形を設定すると、システム内で描画とユーザ操作が許可されているウィンドウ内の領域が決まります。 与えられた領域の外側のピクセルでは描画されず、マウスイベントも登録されません。 領域外のマウスイベントはそのウィンドウでは受信されませんが、ウィンドウの後ろにあるものにそのイベントがフォールスルーします。
 
 #### `win.setThumbarButtons(buttons)` *Windows*
 
@@ -1114,7 +1114,7 @@ Setting a window shape determines the area within the window where the system pe
 
 * `ignore` Boolean
 * `options` Object (任意) 
-  * `forward` Boolean (optional) *macOS* *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. `ignore` がtrueのときだけ使用されます。 `ignore` がfalseの場合、この値に関わらず、転送は常に無効です。
+  * `forward` Boolean (任意) *macOS* *Windows* - trueの場合、マウスの移動メッセージが Chromium に転送され、`mouseleave` のようなマウス関連のイベントが有効になります。 `ignore` がtrueのときだけ使用されます。 `ignore` がfalseの場合、この値に関わらず、転送は常に無効です。
 
 ウインドウがすべてのマウスイベントを無視するようにします。
 
