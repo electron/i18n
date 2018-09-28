@@ -34,7 +34,7 @@ $ git fetch upstream
 
 根据您的操作系统, 项目构建步骤和依赖项稍有不同。 请参阅这些关于构建 Electron 项目的详细指南:
 
-* [在 MacOS 上构建](https://electronjs.org/docs/development/build-instructions-osx)
+* [在 MacOS 上构建](https://electronjs.org/docs/development/build-instructions-macos)
 * [在 Linux 上构建](https://electronjs.org/docs/development/build-instructions-linux)
 * [在 Windows 上构建](https://electronjs.org/docs/development/build-instructions-windows)
 
