@@ -756,7 +756,7 @@ Puoi richiedere i seguenti percorsi dal nome:
     
     Su macOS esso è mostrato sull'icona del dock. Su Linux lavora sol9 con il Launcher Unity,
     
-    **Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+    **Nota:**Il launcher Unity richiede l'esistenza di un file `.desktop` per funzionare, per più informazioni per favore leggi: [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
     
     ### `app.ottieniContaBadge()` *Linux* *macOS*
     
