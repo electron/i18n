@@ -11,7 +11,7 @@ Estes guias destinam-se a pessoas que trabalham no projeto Electron. Para guias 
 * [Estilo de Codificação](coding-style.md)
 * [Usando clang-format em Código C++](clang-format.md)
 * [Construir Resumo do Sistema](build-system-overview.md)
-* [Instruções de Compilação (macOS)](build-instructions-osx.md)
+* [Instruções de Compilação (macOS)](build-instructions-macos.md)
 * [Instruções para Configuração (Windows)](build-instructions-windows.md)
 * [Instruções para Configurar (Linux)](build-instructions-linux.md)
 * [Desenvolvimento do Chromium](chromium-development.md)
