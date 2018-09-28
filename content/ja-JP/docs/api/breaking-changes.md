@@ -33,7 +33,7 @@ app.releaseSingleInstance()
 app.releaseSingleInstanceLock()
 ```
 
-# APIの破壊的変更（3.0）
+# 破壊的な API の変更 (3.0)
 
 以下のリストには Electron 3.0 での破壊的な API の変更が含まれています。
 
@@ -204,38 +204,38 @@ protocol.registerStandardSchemes(['app'], {secure: true})
 ## `<webview>`
 
 ```js
-// Removed
+// 削除されました
 webview.setAttribute('disableguestresize', '')
-// There is no replacement for this API
+// この API は置換できません
 
-// Removed
+// 削除されました
 webview.setAttribute('guestinstance', instanceId)
-// There is no replacement for this API
+// この API は置換できません
 
-// Keyboard listeners no longer work on webview tag
+// webview タグ上ではキーボードリスナは動作しなくなります
 webview.onkeydown = () => { /* handler */ }
 webview.onkeyup = () => { /* handler */ }
 ```
 
 ## Node Headers URL
 
-This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
+これは `.npmrc` ファイル内の `disturl` か、ネイティブ Node モジュールをビルドするときの `--dist-url` コマンドライン引数で指定する URL です。
 
-Deprecated: https://atom.io/download/atom-shell
+非推奨: https://atom.io/download/atom-shell
 
-Replace with: https://atom.io/download/electron
+こちらに置換: https://atom.io/download/electron
 
-# APIの破壊的変更（2.0）
+# 破壊的な API の変更 (2.0)
 
-The following list includes the breaking API changes made in Electron 2.0.
+以下のリストには Electron 2.0 でなされた破壊的な API の変更が含まれています。
 
 ## `BrowserWindow`
 
 ```js
-// Deprecated
+// 非推奨
 let optionsA = {titleBarStyle: 'hidden-inset'}
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// こちらに置換
 let optionsB = {titleBarStyle: 'hiddenInset'}
 let windowB = new BrowserWindow(optionsB)
 ```
@@ -243,58 +243,58 @@ let windowB = new BrowserWindow(optionsB)
 ## `menu`
 
 ```js
-// Removed
+// 削除されました
 menu.popup(browserWindow, 100, 200, 2)
-// Replaced with
+// こちらに置換
 menu.popup(browserWindow, {x: 100, y: 200, positioningItem: 2})
 ```
 
 ## `nativeImage`
 
 ```js
-// Removed
+// 削除されました
 nativeImage.toPng()
-// Replaced with
+// こちらに置換
 nativeImage.toPNG()
 
-// Removed
+// 削除されました
 nativeImage.toJpeg()
-// Replaced with
+// こちらに置換
 nativeImage.toJPEG()
 ```
 
 ## `process`
 
-* `process.versions.electron` and `process.version.chrome` will be made read-only properties for consistency with the other `process.versions` properties set by Node.
+* `process.versions.electron` と `process.version.chrome` は、Node によって定められた他の `process.versions` プロパティと一貫性を持つために読み取り専用プロパティになりました。
 
 ## `webContents`
 
 ```js
-// Removed
+// 削除されました
 webContents.setZoomLevelLimits(1, 2)
-// Replaced with
+// こちらに置換
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## `webFrame`
 
 ```js
-// Removed
+// 削除されました
 webFrame.setZoomLevelLimits(1, 2)
-// Replaced with
+// こちらに置換
 webFrame.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## `<webview>`
 
 ```js
-// Removed
+// 削除されました
 webview.setZoomLevelLimits(1, 2)
-// Replaced with
+// こちらに置換
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-## Duplicate ARM Assets
+## 重複する ARM アセット
 
 Each Electron release includes two identical ARM builds with slightly different filenames, like `electron-v1.7.3-linux-arm.zip` and `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
 
