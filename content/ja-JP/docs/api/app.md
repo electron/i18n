@@ -21,7 +21,7 @@ app.on('window-all-closed', () => {
 
 アプリケーションが基本的な起動処理を完了したときに発生します。 WindowsとLinuxでは、`will-finish-launching` イベントは `ready` イベントと同じですが、macOSでは、このイベントは、`NSApplication` の `applicationWillFinishLaunching` 通知に相当します。 通常、ここでは、`open-file` や `open-url` イベントのリスナーを設定したり、クラッシュレポーターや自動アップデーターを開始したりします。
 
-In most cases, you should do everything in the `ready` event handler.
+ほとんどの場合、`ready` イベントハンドラーですべてのことを行うようにするべきです。
 
 ### イベント: 'ready'
 
@@ -303,14 +303,14 @@ GPUプロセスがクラッシュしたり、強制終了されたりしたと�
 
 Chromeのユーザ補助機能が変更されると発生します。 このイベントはスクリーンリーダーのような支援技術が有効にされたり、無効にされたりしたときに発火します。 詳細については、https://www.chromium.org/developers/design-documents/accessibility を参照してください。
 
-### Event: 'session-created'
+### イベント: 'session-created'
 
 戻り値:
 
 * `event` Event
 * `session` [Session](session.md)
 
-Emitted when Electron has created a new `session`.
+Electron が新しい `session` を作成したときに発生します。
 
 ```javascript
 const {app} = require('electron')
@@ -320,7 +320,7 @@ app.on('session-created', (event, session) => {
 })
 ```
 
-### Event: 'second-instance'
+### イベント: 'second-instance'
 
 戻り値:
 
@@ -328,9 +328,9 @@ app.on('session-created', (event, session) => {
 * `argv` String[] - 2番目のインスタンスのコマンドライン引数の配列
 * `workingDirectory` String - 2番目のインスタンスの作業ディレクトリ
 
-This event will be emitted inside the primary instance of your application when a second instance has been executed. `argv` は2番目のインスタンスのコマンドライン引数の配列で、`workingDirectory` はその現在の作業ディレクトリです。 通常、アプリケーションはこれに対して1番目のウインドウにフォーカスを当て、最小化しないように対応します。
+このイベントは、2つ目のインスタンスが実行されたときにアプリケーションの1つ目のインスタンス内で発火されます。 `argv` は2番目のインスタンスのコマンドライン引数の配列で、`workingDirectory` はその現在の作業ディレクトリです。 通常、アプリケーションはこれに対して1番目のウインドウにフォーカスを当て、最小化しないように対応します。
 
-This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
+このイベントは `app` の `ready` イベントが発生した後で実行されることが保証されます。
 
 ## メソッド
 
