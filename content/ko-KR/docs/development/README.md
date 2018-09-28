@@ -11,7 +11,7 @@
 * [코딩 스타일](coding-style.md)
 * [C++ 코드에서 clang 형식 사용하기](clang-format.md)
 * [빌드 시스템 개요](build-system-overview.md)
-* [빌드 명령 (macOS)](build-instructions-osx.md)
+* [빌드 명령 (macOS)](build-instructions-macos.md)
 * [빌드 명령 (윈도)](build-instructions-windows.md)
 * [빌드 명령 (Linux)](build-instructions-linux.md)
 * [크롬 개발](chromium-development.md)
