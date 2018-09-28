@@ -21,7 +21,7 @@ L'oggetto `app` emette i seguenti eventi:
 
 Emesso quando l'app ha finito l'avvio di base. Su Windows e Linux, l'evento `will-finish-launching` equivale all'evento `ready`; su macOS questo evento rappresenta la notifica `applicationWillFinishLaunching` di `NSApplication`. Potresti necessitare spesso di definire ascoltatori (listener) per gli eventi `open-file` e `open-url` ed avviare il reporter dei crash e l'aggiornamento automatico.
 
-In most cases, you should do everything in the `ready` event handler.
+Nella maggior parte dei casi, tu farai ogni cosa nel gestore degli eventi `ready`.
 
 ### Evento: 'ready'
 
