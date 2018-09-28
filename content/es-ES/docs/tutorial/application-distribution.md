@@ -5,7 +5,7 @@ Para distribuir su aplicación con Electron, debe descargar los [binarios precom
 En macOS:
 
 ```text
-electron/Electron.aplicaciones/Contenidos/Recursos/Aplicaciones/
+electron/Electron.app/Contents/Resources/app/
 ├── package.json
 ├── main.js
 └── index.html
