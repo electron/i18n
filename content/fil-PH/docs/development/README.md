@@ -11,7 +11,7 @@ These guides are intended for people working on the Electron project itself. For
 * [Paraan sa pagkukudigo](coding-style.md)
 * [Paggamit ng kumakalat na-format C++ Code](clang-format.md)
 * [Pagbuo ng Buod ng Sistema](build-system-overview.md)
-* [Pagbuo ng mga tagubilin (macOS)](build-instructions-osx.md)
+* [Pagbuo ng mga tagubilin (macOS)](build-instructions-macos.md)
 * ["Build Instructions" (Windows)](build-instructions-windows.md)
 * ["Build Instructions (Linux)"](build-instructions-linux.md)
 * [Pagpapaunlad ng Chromium](chromium-development.md)
