@@ -15,7 +15,7 @@
 戻り値:
 
 * `event` Event
-* `transactions` Transaction[] - Array of [`Transaction`](structures/transaction.md) objects.
+* `transactions` Transaction[] - [`Transaction`](structures/transaction.md) オブジェクトの配列。
 
 ## メソッド
 
@@ -23,7 +23,7 @@
 
 ### `inAppPurchase.purchaseProduct(productID, quantity, callback)`
 
-* `productID` String - The identifiers of the product to purchase. (The identifier of `com.example.app.product1` is `product1`).
+* `productID` String - 購入する製品の識別子。 (The identifier of `com.example.app.product1` is `product1`).
 * `quantity` Integer (任意) - ユーザーが購入しようとしている商品数。
 * `callback` Function (任意) - PaymentQueueに支払い情報が追加されたときに呼び出されるコールバック。 
     * `isProductValid` Boolean - プロダクトが有効かつ支払いキューに追加されたかどうか決定する。
