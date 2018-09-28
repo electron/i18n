@@ -173,9 +173,9 @@ Electronのプロセスメモリの中で内部的にバッファする代わり
 
 戻り値 `Object`:
 
-* `active` Boolean - Whether the request is currently active. If this is false no other properties will be set
-* `started` Boolean - Whether the upload has started. If this is false both `current` and `total` will be set to 0.
-* `current` Integer - The number of bytes that have been uploaded so far
-* `total` Integer - The number of bytes that will be uploaded this request
+* `active` Boolean - そのリクエストが現在アクティブかどうか。これが false の場合は他のプロパティにはセットされません。
+* `started` Boolean - アップロードが始まったかどうか。これが false の場合は `current` と `total` には 0 がセットされます。
+* `current` Integer - どのくらいアップロードしたかのバイト数。
+* `total` Integer - このリクエストでアップロードされるバイト数。
 
-You can use this method in conjunction with `POST` requests to get the progress of a file upload or other data transfer.
+このメソッドを `POST` リクエストと組み合わせて使用すると、ファイルのアップロードや他のデータ転送の進行状況を取得できます。
