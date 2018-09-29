@@ -5,9 +5,9 @@ Linux 版 Electron のビルドについては、以下のガイドラインに�
 ## 必要な環境
 
 * 最低 25 GB のストレージ空き容量と 8 GB以上の RAM。
-* Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.
+* Python 2.7.x。CentOS 6.xのようないくつかのディストリビューションでは Python 2.6.x を採用しています。そのため、`python -V`などでPythonのバージョンを確認してください。
     
-    Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
+    あなたのシステムと Python が少くとも TLS 1.2をサポートしていることを確認してください。 確認するには、次のスクリプトを実行します。:
     
     ```sh
     $ npm run check-tls
