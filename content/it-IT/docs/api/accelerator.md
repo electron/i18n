@@ -2,7 +2,7 @@
 
 > Definisci scorciatoie tastiera.
 
-Accelerators are Strings that can contain multiple modifiers and a single key code, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
+Gli Accelerators sono Stringhe che possono contenere modificatori multipli e una singola chiave, combinati dal carattere `+`, e sono usate per definire delle scorciatoie della tastiera per tutta la tua applicazione.
 
 Esempi:
 
