@@ -501,25 +501,25 @@ win.loadURL('https://github.com')
 
 Un oggetto `WebContents` che questa finestra possiede. Tutte le pagine web relative agli eventi e operazioni saranno fatte tramite questo.
 
-See the [`webContents` documentation](web-contents.md) for its methods and events.
+Vedi [Documentazione `webContents` ](web-contents.md) per i suoi metodi e eventi.
 
 #### `win.id`
 
-A `Integer` representing the unique ID of the window.
+Un `Integer` che rappresenta l'ID univoco della finestra.
 
 ### Metodi Istanza
 
-Objects created with `new BrowserWindow` have the following instance methods:
+Oggetti creati con `new BrowserWindow` hanno i seguenti metodi d'istanza:
 
 **Nota:** Alcuni metodi sono disponibili solo su sistemi operativi specifici e sono etichettati come tali.
 
 #### `win.destroy()`
 
-Force closing the window, the `unload` and `beforeunload` event won't be emitted for the web page, and `close` event will also not be emitted for this window, but it guarantees the `closed` event will be emitted.
+Forza la chiusura della finestra, gli eventi `unload` e `beforeunload` non verranno emessi per la pagina web, e l'evento `close` inoltre non verrà emesso per questa finestra, ma è garantito che l'evento `closed` verrà emesso.
 
-#### `win.chiudi()`
+#### `win.close()`
 
-Try to close the window. This has the same effect as a user manually clicking the close button of the window. The web page may cancel the close though. See the [close event](#event-close).
+Prova a chiudere la finestra. Questo ha lo stesso effetto come se un utente clicca manualmente il pulsante di chiusura della finestra. Anche se la pagina web può annullare la chiusura. Vedi [evento close](#event-close).
 
 #### `win.focus()`
 
@@ -571,7 +571,7 @@ Ritorna `Boolean` - se la finestra é stata ingrandita.
 
 #### `win.minimize()`
 
-Minimizes the window. On some platforms the minimized window will be shown in the Dock.
+Minimizza la finestra. Su alcune piattaforme la finestra minimizzata verrà mostrata nel Dock.
 
 #### `win.restore()`
 
