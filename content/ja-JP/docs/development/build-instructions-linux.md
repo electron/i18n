@@ -80,7 +80,7 @@ $ gn gen out/Debug --args='import(...) target_cpu="arm"'
 
 ### Error While Loading Shared Libraries: libtinfo.so.5
 
-Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
+プレビルドの`clang` は `libtinfo.so.5` へリンクしようとします。ホストのアーキテクチャにしたがって、適切な`libncurses`にシンボリックリンクしてください。:
 
 ```sh
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
@@ -90,16 +90,16 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
 
-### Using system `clang` instead of downloaded `clang` binaries
+### システムの`clang`をダウンロードした`clang`バイナリの代りに使う
 
 By default Electron is built with prebuilt [`clang`](https://clang.llvm.org/get_started.html) binaries provided by the Chromium project. If for some reason you want to build with the `clang` installed in your system, you can specify the `clang_base_path` argument in the GN args.
 
-For example if you installed `clang` under `/usr/local/bin/clang`:
+例えば `clang` が `/usr/local/bin/clang`にインストールされている場合：
 
 ```sh
 $ gn gen out/Debug --args='import("//electron/build/args/debug.gn") clang_base_path = "/usr/local/bin"'
 ```
 
-### Using compilers other than `clang`
+### `clang`以外のコンパイラの使用
 
-Building Electron with compilers other than `clang` is not supported.
+`clang`以外のコンパイラを用いたElectronのビルドはサポートされていません。
