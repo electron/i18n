@@ -1,4 +1,4 @@
 # Referrer Object
 
 * `url` String - HTTP Referrer URL.
-* `policy` String - Can be `default`, `unsafe-url`, `no-referrer-when-downgrade`, `no-referrer`, `origin`, `strict-origin-when-cross-origin`, `same-origin` or `strict-origin`. See the [Referrer-Policy spec](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) for more details on the meaning of these values.
+* `policy` String - Può essere `default`, `unsafe-url`, `no-referrer-when-downgrade`, `no-referrer`, `origin`, `strict-origin-when-cross-origin`, `same-origin` o `strict-origin`. Vedi [Specifiche Referrer-Policy](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) per più dettagli sul significato di questi valori.
