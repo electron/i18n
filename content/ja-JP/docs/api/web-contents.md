@@ -154,7 +154,7 @@ myBrowserWindow.webContents.on('new-window', (event, url) => {
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emitted when any frame (including main) starts navigating. `isInplace` will be `true` for in-page navigations.
+フレーム (メインを含む) がナビゲーションを始めているときに発生します。ページ内ナビゲーションの場合、`isInplace` は `true` になります。
 
 #### イベント: 'did-navigate'
 
@@ -162,26 +162,26 @@ Emitted when any frame (including main) starts navigating. `isInplace` will be `
 
 * `event` Event
 * `url` String
-* `httpResponseCode` Integer - -1 for non HTTP navigations
-* `httpStatusText` String - empty for non HTTP navigations
+* `httpResponseCode` Integer - HTTP ナビゲーションが無い場合は-1
+* `httpStatusText` String - HTTP ナビゲーションが無い場合は空
 
-Emitted when a main frame navigation is done.
+メインフレームのナビゲーションが完了したときに発生します。
 
 このイベントは、アンカーリンクのクリックや `window.location.hash` の更新のような、ページ内ナビゲーションでは発行されません。これを意図する場合は `did-navigate-in-page` を使用して下さい。
 
-#### Event: 'did-frame-navigate'
+#### イベント: 'did-frame-navigate'
 
 戻り値:
 
 * `event` Event
 * `url` String
-* `httpResponseCode` Integer - -1 for non HTTP navigations
-* `httpStatusText` String - empty for non HTTP navigations,
+* `httpResponseCode` Integer - HTTP ナビゲーションが無い場合は-1
+* `httpStatusText` String - HTTP ナビゲーションが無い場合は空。
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emitted when any frame navigation is done.
+フレームのナビゲーションが完了したときに発生します。
 
 このイベントは、アンカーリンクのクリックや `window.location.hash` の更新のような、ページ内ナビゲーションでは発行されません。これを意図する場合は `did-navigate-in-page` を使用して下さい。
 
@@ -195,7 +195,7 @@ Emitted when any frame navigation is done.
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emitted when an in-page navigation happened in any frame.
+フレームのページ内ナビゲーションが発生したときに発生します。
 
 ページ内ナビゲーションが行われるとき、ページのURLは変更されますがページ外でのナビゲーションは発生しません。 これが発生する例は、アンカーリンクがクリックされたときや、DOM の `hashchange` イベントがトリガーされたときです。
 
