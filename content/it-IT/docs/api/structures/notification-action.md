@@ -16,4 +16,4 @@ Per far funzionare i pulsanti di notifiche extra su macOS l'app deve rispettare 
 * L'App deve essere firmata;
 * L'App deve avere il parametro `NSUserNotificationAlertStyle` settato a `alert` nel `Info.plist`.
 
-If either of these requirements are not met the button won't appear.
+Se una di queste requisiti non sono soddisfatti il pulsante non apparirà.
