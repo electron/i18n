@@ -601,16 +601,16 @@ La modalità schermo intero semplice emula il comportamento nativo dello schermo
 
 #### `win.isSimpleFullScreen()` *macOS*
 
-Restituisce `Boolean` -Se la finestra è in modalità schermo intero semplice (prima di Lion).
+Restituisce `Boolean` - Se la finestra è in modalità schermo intero semplice (prima di Lion).
 
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
-* `aspectRatio` Float - Rapporto dell'aspetto da mantenere per certe porzioni della vista del contenuto.
-* `extraSize` [Size](structures/size.md) - The extra size not to be included while maintaining the aspect ratio.
+* `aspectRatio` Float - Rapporto aspetto da mantenere per certe porzioni della vista del contenuto.
+* `extraSize` [Size](structures/size.md) - La dimensione extra non inclusa mantenendo il rapporto aspetto.
 
-This will make a window maintain an aspect ratio. The extra size allows a developer to have space, specified in pixels, not included within the aspect ratio calculations. This API already takes into account the difference between a window's size and its content size.
+Questo farà si che la finestra manterrà un rapporto aspetto. La dimensione extra permette allo sviluppatore di avere spazio, specificata in pixel, non inclusa all'interno del calcolo del rapporto aspetto. Questa API già prende in considerazione la differenza tra la dimensione della finestra e la dimensione del suo contenuto.
 
-Consider a normal window with an HD video player and associated controls. Perhaps there are 15 pixels of controls on the left edge, 25 pixels of controls on the right edge and 50 pixels of controls below the player. In order to maintain a 16:9 aspect ratio (standard aspect ratio for HD @1920x1080) within the player itself we would call this function with arguments of 16/9 and [ 40, 50 ]. The second argument doesn't care where the extra width and height are within the content view--only that they exist. Sum any extra width and height areas you have within the overall content view.
+Considera una normale finestra con un riproduttore video HD e controlli associati. Probabilmente ci sono 15 pixels di controllo su bordo sinistro, 25 pixels di controllo sul bordo destro e 50 pixels di controllo al di sotto del riproduttore. In modo da mantenere un rapporto aspetto di 16:9 (rapporto aspetto standard per HD @1920x1080) all'interno del riproduttore stesso potremmo chiamare questa funzione con argomenti di 16/9 e [ 40, 50 ]. The second argument doesn't care where the extra width and height are within the content view--only that they exist. Sum any extra width and height areas you have within the overall content view.
 
 Calling this function with a value of `0` will remove any previously set aspect ratios.
 
