@@ -859,33 +859,33 @@ Il tipo nativo del gestore è `HWND` su Windows, `NSView*` su macOS, e `Window` 
 * `message` Integer
 * `callback` Function
 
-Hooks a windows message. The `callback` is called when the message is received in the WndProc.
+Aggancia un messaggio alla finestra. La `callback` è chiamata quando il messaggio è ricevuto in WndProc.
 
 #### `win.isWindowMessageHooked(message)` *Windows*
 
 * `message` Integer
 
-Returns `Boolean` - `true` or `false` depending on whether the message is hooked.
+Restituisce `Boolean` - `true` or `false` a seconda se il messaggio è agganciato.
 
 #### `win.unhookWindowMessage(message)` *Windows*
 
 * `message` Integer
 
-Unhook the window message.
+Sgancia il messaggio dalla finestra.
 
 #### `win.unhookAllWindowMessages()` *Windows*
 
-Unhooks all of the window messages.
+Sgancia tutti i messaggi dalla finestra.
 
 #### `win.setRepresentedFilename(filename)` *macOS*
 
 * `filename` String
 
-Sets the pathname of the file the window represents, and the icon of the file will show in window's title bar.
+Imposta il percorso del file che la finestra rappresenta, e l'icona del file che verrà mostrata sulla barra del titolo della finestra.
 
 #### `win.getRepresentedFilename()` *macOS*
 
-Returns `String` - The pathname of the file the window represents.
+Restituisce `String` - Il percorso del file che rappresenta la finestra.
 
 #### `win.setDocumentEdited(edited)` *macOS*
 
