@@ -617,35 +617,35 @@ Chiamando questa funzione con un valore di `0` rimuoverà qualsiasi precedente c
 #### `win.previewFile(path[, displayName])` *macOS*
 
 * `path` String - Il percorso assoluto al file per l'anteprima con QuickLook. Questo è importante in quanto Quick Look usa il nome del file e l'estensione sulla path per determinare il tipo di contenuto del file da aprire.
-* `displayName` String (opzionale) - Il nome del file da mostrare sulla vista modale di Quick Look. This is purely visual and does not affect the content type of the file. Defaults to `path`.
+* `displayName` String (opzionale) - Il nome del file da mostrare sulla vista modale di Quick Look. Questo è puramente visuale e non influisce sul tipo di contenuto del file. Valore predefinito è `path`.
 
-Uses [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) to preview a file at a given path.
+Usa [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) per l'anteprima di un file su un dato percorso.
 
 #### `win.closeFilePreview()` *macOS*
 
-Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) panel.
+Chiude il pannello attualmente aperto di [Quick Look](https://en.wikipedia.org/wiki/Quick_Look).
 
 #### `win.setBounds(bounds[, animate])`
 
-* `limiti` [Rettangolo](structures/rectangle.md)
-* `animate` Boolean (optional) *macOS*
+* `bounds` [Rectangle](structures/rectangle.md)
+* `animate` Boolean (opzionale) *macOS*
 
-Resizes and moves the window to the supplied bounds
+Ridimensiona e muove la finestra ai limiti forniti
 
 #### `win.getBounds()`
 
-Ritorna [`Rectangle`](structures/rectangle.md)
+Restituisce [`Rectangle`](structures/rectangle.md)
 
 #### `win.setContentBounds(bounds[, animate])`
 
-* `limiti` [Rettangolo](structures/rectangle.md)
-* `animate` Boolean (optional) *macOS*
+* `bounds` [Rectangle](structures/rectangle.md)
+* `animate` Boolean (opzionale) *macOS*
 
-Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
+Ridimensiona e muove l'area client della finestra (es. la pagina web) ai limiti forniti.
 
 #### `win.getContentBounds()`
 
-Ritorna [`Rectangle`](structures/rectangle.md)
+Restituisce [`Rectangle`](structures/rectangle.md)
 
 #### `win.setEnabled(enable)`
 
@@ -657,9 +657,9 @@ Disabilita o abilita la finestra.
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (opzionale) *macOS*
 
-Resizes the window to `width` and `height`.
+Ridimensiona la finestra con `width` e `height`.
 
 #### `win.getSize()`
 
@@ -669,7 +669,7 @@ Returns `Integer[]` - Contains the window's width and height.
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (opzionale) *macOS*
 
 Resizes the window's client area (e.g. the web page) to `width` and `height`.
 
@@ -791,7 +791,7 @@ Moves window to the center of the screen.
 
 * `x` Integer
 * `y` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (opzionale) *macOS*
 
 Moves window to `x` and `y`.
 
