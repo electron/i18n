@@ -70,7 +70,7 @@ Solo su Windows `rilascioNome` è disponibile.
 
 Questo evento è emesso dopo una chiamata utente `quitAndInstall()`.
 
-Quando questa API è chiamata, l'evento `before-quit` non è emesso finché tutte le finestre non sono state chiuse. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
+Quando questa API è chiamata, l'evento `before-quit` non è emesso finché tutte le finestre non sono state chiuse. Come risultato dovresti restare in ascolto di questo evento se desideri eseguire delle azioni prima che le finestre siano chiuse mentre un processo si sta chiudendo, così come restare in ascolto di `before-quit`.
 
 ## Metodi
 
@@ -81,7 +81,7 @@ L'oggetto `autoAggiornatore` ha i seguenti metodi:
 * `opzioni` Oggetto 
   * `url` Stringa
   * `headers` Oggetto (opzionale) *macOS* - HTTP header della richiesta.
-  * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
+  * `serverType` Stringa (opzionale) *macOS* - Uno tra `json` o `default`, Vedi anche [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README per più informazioni.
 
 Imposta l'`url` e inizializza l'auto aggiornatore.
 
