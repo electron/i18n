@@ -324,32 +324,32 @@ Emesso quando la finestra viene mossa verso una nuova posizione.
 
 #### Evento: 'moved' *macOS*
 
-Emitted once when the window is moved to a new position.
+Emesso una volta quando la finestra è stata spostata in una nuova posizione.
 
-#### Event: 'enter-full-screen'
+#### Evento: 'enter-full-screen'
 
-Emitted when the window enters a full-screen state.
+Emesso quando la finestra entra in uno stato full-screen.
 
-#### Event: 'leave-full-screen'
+#### Evento: 'leave-full-screen'
 
-Emitted when the window leaves a full-screen state.
+Emesso quando la finestra esce da uno stato full-screen.
 
-#### Event: 'enter-html-full-screen'
+#### Evento: 'enter-html-full-screen'
 
-Emitted when the window enters a full-screen state triggered by HTML API.
+Emesso quando la finestra entra in uno stato full-screen attivata da un API HTML.
 
-#### Event: 'leave-html-full-screen'
+#### Evento: 'leave-html-full-screen'
 
-Emitted when the window leaves a full-screen state triggered by HTML API.
+Emesso quando la finestra esce da uno stato full-screen attivata da un API HTML.
 
-#### Event: 'app-command' *Windows*
+#### Evento: 'app-command' *Windows*
 
 Restituisce:
 
 * `event` Event
 * `command` String
 
-Emitted when an [App Command](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx) is invoked. These are typically related to keyboard media keys or browser commands, as well as the "Back" button built into some mice on Windows.
+Emesso quando un [App Command](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx) è invocato. Queste sono tipicamente collegate ai tasti multimediali della tastiera o a comandi browser, così come il pulsante 'Indietro' integrato all'interno di alcuni mouse su Windows.
 
 Commands are lowercased, underscores are replaced with hyphens, and the `APPCOMMAND_` prefix is stripped off. e.g. `APPCOMMAND_BROWSER_BACKWARD` is emitted as `browser-backward`.
 
