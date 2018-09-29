@@ -1,4 +1,4 @@
-# NotificationAction 객체
+# NotificationAction Object
 
 * `type` String - 동작 유형, `button` 입니다.
 * `text` String (선택) 지정된 동작의 라벨입니다.
@@ -16,4 +16,4 @@ macOS에서 추가 알림 버튼을 사용하려면 앱에서 다음과 같은 �
 * 앱이 서명됨
 * 앱이 `Info.plist`에서 `NSUserNotificationAlertStyle`이 `alert`로 설정되어 있음
 
-If either of these requirements are not met the button won't appear.
+이러한 요구 사항 중 하나라도 충족되지 않으면 버튼이 나타나지 않습니다.
