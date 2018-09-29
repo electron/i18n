@@ -833,7 +833,7 @@ Set the about panel options. This will override the values defined in the app's 
 Returns `Function` - This function **must** be called once you have finished accessing the security scoped file. If you do not remember to stop accessing the bookmark, [kernel resources will be leaked](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) and your app will lose its ability to reach outside the sandbox completely, until your app is restarted.
 
 ```js
-// Start accessing the file.
+// 파일 접근을 시작합니다.
 const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
 // You can now access the file outside of the sandbox 
 stopAccessingSecurityScopedResource()
@@ -924,7 +924,7 @@ Dock 아이콘을 표시합니다.
 
 * `menu` [Menu](menu.md)
 
-Sets the application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
+애플리케이션의 [dock 메뉴](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/)를 설정합니다.
 
 ### `app.dock.setIcon(image)` *macOS*
 
