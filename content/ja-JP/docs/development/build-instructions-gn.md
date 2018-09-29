@@ -70,27 +70,27 @@ $ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_
 利用可能なビルド設定を一覧するには、`gn args
 out/Debug --list` を実行してください。
 
-**For generating Debug (aka "component" or "shared") build config of Electron:**
+**Electron の Debug (別名 "component" または "shared") ビルド設定は以下のとおりです。**
 
 ```sh
 $ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_ARGS"
 ```
 
-**For generating Release (aka "non-component" or "static") build config of Electron:**
+**Electron の Release (別名 "non-component" または "static") ビルド設定は以下のとおりです。**
 
 ```sh
 $ gn gen out/Release --args="import(\"//electron/build/args/release.gn\") $GN_EXTRA_ARGS"
 ```
 
-**To build, run `ninja` with the `electron` target:** Nota Bene: This will also take a while and probably heat up your lap.
+**ビルドするには、`ninja` を `electron` ターゲットで実行します。** 注意: これはさらなる時間を要し、パソコンも熱くなります。
 
-For the debug configuration:
+デバッグ構成は以下のとおりです。
 
 ```sh
 $ ninja -C out/Debug electron
 ```
 
-For the release configuration:
+リリース構成は以下のとおりです。
 
 ```sh
 $ ninja -C out/Release electron
