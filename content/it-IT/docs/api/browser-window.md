@@ -366,32 +366,32 @@ win.on('app-command', (e, cmd) => {
 
 #### Evento: 'scroll-touch-begin' *macOS*
 
-Emitted when scroll wheel event phase has begun.
+Emesso quando la fase dell'evento dello scorrimento per rotella è incominciato.
 
-#### Event: 'scroll-touch-end' *macOS*
+#### Evento: 'scroll-touch-end' *macOS*
 
-Emitted when scroll wheel event phase has ended.
+Emesso quando la fase di scorrimento della rotella è terminata.
 
-#### Event: 'scroll-touch-edge' *macOS*
+#### Evento: 'scroll-touch-edge' *macOS*
 
-Emitted when scroll wheel event phase filed upon reaching the edge of element.
+Emesso quando la fase dell'evento di scorrimento della rotella l'elemento ha raggiunto il bordo.
 
-#### Event: 'swipe' *macOS*
+#### Evento: 'swipe' *macOS*
 
 Restituisce:
 
 * `event` Event
 * `direction` String
 
-Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
+Emesso su uno swipe fatto con 3 dita. Le possibili direzioni sono `up`, `right`, `down`, `left`.
 
-#### Event: 'sheet-begin' *macOS*
+#### Evento: 'sheet-begin' *macOS*
 
-Emitted when the window opens a sheet.
+Emesso quando la finestra apre un foglio.
 
-#### Event: 'sheet-end' *macOS*
+#### Evento: 'sheet-end' *macOS*
 
-Emitted when the window has closed a sheet.
+Emesso quando la finestra ha chiuso un foglio.
 
 #### Evento: 'nuova-finestra-per-scheda' *macOS*
 
