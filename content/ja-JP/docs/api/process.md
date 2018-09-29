@@ -6,9 +6,9 @@
 
 Electron の `process` オブジェクトは、[Node.js `process` object](https://nodejs.org/api/process.html) から拡張されています。 以下のイベント、プロパティ、メソッドが追加されます。
 
-## Sandbox
+## サンドボックス
 
-In sandboxed renderers the `process` object contains only a subset of the APIs:
+サンドボックス化されたレンダラーでは、`process` オブジェクトは以下の API の部分のみを含んでいます。
 
 * `crash()`
 * `hang()`
@@ -118,7 +118,7 @@ Electron のバージョン文字列を表す `String`。
 * `peakMallocedMemory` Integer
 * `doesZapGarbage` Boolean
 
-Returns an object with V8 heap statistics. Note that all statistics are reported in Kilobytes.
+V8 ヒープ統計のオブジェクトを返します。統計はすべてキロバイト単位で報告されることに注意してください。
 
 ### `process.getProcessMemoryInfo()`
 
