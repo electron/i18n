@@ -1,17 +1,17 @@
-# Developing Electron
+# Electron ontwikkelen
 
-These guides are intended for people working on the Electron project itself. For guides on Electron app development, see [/docs/README.md](../README.md#guides-and-tutorials).
+Deze handleidingen zijn bedoeld voor mensen die aan het Electron project werken. Voor handleidingen over het maken van een Electron app, ga naar [/docs/README.md](../README.md#guides-and-tutorials).
 
 * [Gedragscode](../../CODE_OF_CONDUCT.md)
-* [Contributing to Electron](../../CONTRIBUTING.md)
-* [Issues](issues.md)
+* [Bijdragen aan Electron](../../CONTRIBUTING.md)
+* [Problemen](issues.md)
 * [Pull Requests](pull-requests.md)
 * [Documentatie Styleguide](coding-style.md#documentation)
 * [Bron Code mappen structuur](source-code-directory-structure.md)
 * [Codeerstijl](coding-style.md)
 * [Het gebruik van clang-format op C++ Code](clang-format.md)
-* [Bouwen Systeemoverzicht](build-system-overview.md)
-* [Bouwen van instructies (macOS)](build-instructions-macos.md)
+* [Bouw omgeving overzicht](build-system-overview.md)
+* [Bouwen van instructies (MacOS)](build-instructions-macos.md)
 * [Bouwen van instructies (Windows)](build-instructions-windows.md)
 * [Bouwen van instructies (Linux)](build-instructions-linux.md)
 * [Chromium ontwikkeling](chromium-development.md)
