@@ -220,7 +220,7 @@ console.log(webFrame.getResourceUsage())
 
 ### `webFrame.parent`
 
-A `WebFrame` representing parent frame of `webFrame`, the property would be `null` if `webFrame` is top or parent is not in the current renderer process.
+`webFrame` の親フレームを表す `WebFrame`。`webFrame` がトップフレームか現在のレンダラープロセスにない場合、プロパティは `null` になります。
 
 ### `webFrame.firstChild`
 
