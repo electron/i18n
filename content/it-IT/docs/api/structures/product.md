@@ -1,6 +1,6 @@
 # Product Object
 
-* `productIdentifier` String - The string that identifies the product to the Apple App Store.
+* `productIdentifier` String - La stringa che indentifica il prodotto dell'Apple App Store.
 * `localizedDescription` String - A description of the product.
 * `localizedTitle` String - The name of the product.
 * `contentVersion` String - A string that identifies the version of the content.
