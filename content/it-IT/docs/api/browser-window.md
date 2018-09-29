@@ -413,17 +413,17 @@ Restituisce `BrowserWindow | null` - La finestra che è focalizzata nell'applica
 
 * `webContents` [WebContents](web-contents.md)
 
-Returns `BrowserWindow` - The window that owns the given `webContents`.
+Restituisce `BrowserWindow` - La finestra che possiede i `webContents`.
 
 #### `BrowserWindow.fromBrowserView(browserView)`
 
 * `browserView` [BrowserView](browser-view.md)
 
-Returns `BrowserWindow | null` - The window that owns the given `browserView`. If the given view is not attached to any window, returns `null`.
+Restituisce `BrowserWindow | null` - La finestra che possiede la `browserView`. Se la vista data non è attaccata a nessuna finestra, restituisce `null`.
 
 #### `BrowserWindow.fromId(id)`
 
-* `id` Numero Intero
+* `id` Integer
 
 Returns `BrowserWindow` - The window with the given `id`.
 
