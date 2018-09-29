@@ -67,8 +67,8 @@ $ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_
 
 これはデバッグビルドの設定とともに `src/` 配下の `out/Debug` ビルドディレクトリに生成されます。 `Debug` は他の名前に置換できますが、`out` のサブディレクトリである必要があります。 更に `gn gen` を再び実行してはいけません。ビルド引数を変更したい場合、` gn args out/Debug` を実行してエディタを呼び出します。
 
-To see the list of available build configuration options, run `gn args
-out/Debug --list`.
+利用可能なビルド設定を一覧するには、`gn args
+out/Debug --list` を実行してください。
 
 **For generating Debug (aka "component" or "shared") build config of Electron:**
 
