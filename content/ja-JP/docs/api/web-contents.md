@@ -111,7 +111,7 @@ console.log(webContents)
 * `disposition` String - `default`、`foreground-tab`、`background-tab`、`new-window`、`save-to-disk`、`other` にできる。
 * `options` Object - 新しい [`BrowserWindow`](browser-window.md) を作成するのに使われるオプション。
 * `additionalFeatures` String[] - `window.open()` に与えられている、標準でない機能 (Chromium や Electron によって処理されない機能)。
-* `referrer` [Referrer](structures/referrer.md) - The referrer that will be passed to the new window. May or may not result in the `Referer` header being sent, depending on the referrer policy.
+* `referrer` [Referrer](structures/referrer.md) - 新しいウィンドウへ渡される Referrer。 Referrer のポリシーに依存しているので、`Referrer` ヘッダを送信されるようにしてもしなくてもかまいません。
 
 ページが `url` の新しいウインドウを開くリクエストをするときに発行されます。`window.open` か `<a target='_blank'>` のようなリンクによってリクエストされる可能があります。
 
@@ -144,7 +144,7 @@ myBrowserWindow.webContents.on('new-window', (event, url) => {
 
 `event.preventDefault()` を呼ぶとナビゲーションが阻害されます。
 
-#### Event: 'did-start-navigation'
+#### イベント: 'did-start-navigation'
 
 戻り値:
 
