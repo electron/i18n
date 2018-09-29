@@ -844,7 +844,7 @@ Puoi richiedere i seguenti percorsi dal nome:
     stopAccessingSecurityScopedResource()
     ```
     
-    Comincia con l'accesso ad una risorsa mirata sicura. With this method electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
+    Comincia con l'accesso ad una risorsa mirata sicura. Con questo metodo le applicazioni electron che sono impacchettate per il Mac App Store possono raggiungere l'esterno della loro sandbox per accedere ai file scelti dall'utente. Dai un'occhiata alla [documentazione Apple](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) per una descrizione su come questi sistemi funzionano.
     
     ### `app.Lineacomando.aggiungereInterruttore(interrutore[, valore])`
     
@@ -871,11 +871,11 @@ Puoi richiedere i seguenti percorsi dal nome:
     
     ### `app.isInApplicationsFolder()` *macOS*
     
-    Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
+    Restituisce `Booleano` - Se l'applicazione è attualmente in funzione dalla cartella Application dei sistemi. Usa in combinazione con `app.moveToApplicationsFolder()`
     
     ### `app.moveToApplicationsFolder()` *macOS*
     
-    Returns `Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.
+    Restituisce `Booleano` - Se lo spostamento è andato a buon fine. Per favore prendi nota che se lo spostamento ha avuto successo l'applicazione verrà chiusa e riavviata.
     
     Nessun dialogo di conferma sarà presentato di default, se vuoi permettere all'utente di confermare l'operazione potresti farlo usando l'API di [`dialog`](dialog.md).
     
@@ -929,7 +929,7 @@ Puoi richiedere i seguenti percorsi dal nome:
     
     * `menu` [Menu](menu.md)
     
-    Sets the application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
+    Imposta il [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/) nell'applicazione.
     
     ### `app.dock.impostaImmagine(immagine)` *macOS*
     
@@ -941,4 +941,4 @@ Puoi richiedere i seguenti percorsi dal nome:
     
     ### `app.isPackaged`
     
-    A `Boolean` property that returns `true` if the app is packaged, `false` otherwise. For many apps, this property can be used to distinguish development and production environments.
+    Una proprietà `Booleana` che restituisce `true` se l'applicazione è impacchettata, `false` vice versa. Per molte applicazioni, questa proprietà può essere usata per distinguere ambiente di sviluppo da quello di produzione.
