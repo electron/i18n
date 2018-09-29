@@ -88,11 +88,11 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 ## 高度なトピック
 
-The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
+デフォルトのビルド設定はメジャーナデスクトップLinuxディストリビューション向けになっています。特定のディストリビューションやデバイス向けにビルドする場合、以下の情報が助けになるかもしれません。
 
 ### システムの`clang`をダウンロードした`clang`バイナリの代りに使う
 
-By default Electron is built with prebuilt [`clang`](https://clang.llvm.org/get_started.html) binaries provided by the Chromium project. If for some reason you want to build with the `clang` installed in your system, you can specify the `clang_base_path` argument in the GN args.
+デフォルトでは、Electron のビルドは、Chromiumプロジェクトが提供する、プレビルドの[`clang`](https://clang.llvm.org/get_started.html)バイナリを使用します。 なんらかの理由であなたのシステムにインストールされた`clang`を使う場合、GNの引数の `clang_base_path` で指定します。
 
 例えば `clang` が `/usr/local/bin/clang`にインストールされている場合：
 
