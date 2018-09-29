@@ -117,7 +117,7 @@ app.on('ready', () => {
 
 戻り値 [`Point`](structures/point.md)
 
-Converts a screen physical point to a screen DIP point. The DPI scale is performed relative to the display containing the physical point.
+スクリーンの物理ポイントをスクリーンの DIP ポイントに変換します。DPI スケールは物理ポイントを含むディスプレイと相対的に計算されます。
 
 ### `screen.dipToScreenPoint(point)` *Windows*
 
@@ -125,7 +125,7 @@ Converts a screen physical point to a screen DIP point. The DPI scale is perform
 
 戻り値 [`Point`](structures/point.md)
 
-Converts a screen DIP point to a screen physical point. The DPI scale is performed relative to the display containing the DIP point.
+スクリーンの DIP ポイントをスクリーンの物理ポイントに変換します。DPI スケールは DIP ポイントを含むディスプレイと相対的に計算されます。
 
 ### `screen.screenToDipRect(window, rect)` *Windows*
 
@@ -134,7 +134,7 @@ Converts a screen DIP point to a screen physical point. The DPI scale is perform
 
 戻り値 [`Rectangle`](structures/rectangle.md)
 
-Converts a screen physical rect to a screen DIP rect. The DPI scale is performed relative to the display nearest to `window`. If `window` is null, scaling will be performed to the display nearest to `rect`.
+スクリーンの物理矩形をスクリーンのの DIP 矩形に変換します。 DPI スケールは `window` に近いディスプレイと相対的に計算されます。 `window` が null の場合、スケールは `rect` に近いディスプレイと相対的に計算されます。
 
 ### `screen.dipToScreenRect(window, rect)` *Windows*
 
@@ -143,4 +143,4 @@ Converts a screen physical rect to a screen DIP rect. The DPI scale is performed
 
 戻り値 [`Rectangle`](structures/rectangle.md)
 
-Converts a screen DIP rect to a screen physical rect. The DPI scale is performed relative to the display nearest to `window`. If `window` is null, scaling will be performed to the display nearest to `rect`.
+Converts a screen DIP rect to a screen physical rect. DPI スケールは `window` に近いディスプレイと相対的に計算されます。 `window` が null の場合、スケールは `rect` に近いディスプレイと相対的に計算されます。
