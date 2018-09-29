@@ -132,7 +132,7 @@ const foo = require('electron').remote.require('./foo') // bar
 
 戻り値 [`BrowserWindow`](browser-window.md) - このウェブページが属するウインドウ。
 
-**注:** [`BrowserWindow`](browser-window.md) 上で `removeAllListeners` を使用しないでください。 Use of this can remove all [`blur`](https://developer.mozilla.org/en-US/docs/Web/Events/blur) listeners, disable click events on touch bar buttons, and other unintended consequences.
+**注:** [`BrowserWindow`](browser-window.md) 上で `removeAllListeners` を使用しないでください。 これを使用すると、すべての [`blur`](https://developer.mozilla.org/en-US/docs/Web/Events/blur) リスナの削除、Touch Bar ボタン上のクリックイベントの無効化、その他意図しない結果が起こりえます。
 
 ### `remote.getCurrentWebContents()`
 
