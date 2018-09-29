@@ -28,7 +28,7 @@ export npm_config_build_from_source=true
 HOME=~/.electron-gyp npm install
 ```
 
-### 모듈을 설치하고 Electron용으로 다시 빌드
+### 모듈을 설치하고 Electron용으로 다시 빌드하기
 
 다른 Node 프로젝트처럼 설치할 모듈을 고른 다음, [`electron-rebuild`](https://github.com/paulcbetts/electron-rebuild)를 사용하여 모듈을 다시 빌드하세요. 이 모듈은 Electron의 버전을 가져오고 다운로드 헤더의 수동 절차를 처리하며 앱의 네이티브 모듈을 빌드합니다.
 
@@ -46,7 +46,7 @@ npm install --save-dev electron-rebuild
 
 ### 수동으로 빌드하기
 
-만약 네이티브 모듈을 개발하는 개발자이고 일랙트론에서 동작 테스트를 원한다면, 수동으로 일랙트론용모듈을 리빌드 하기를 원할 것이다. `node-gyp` 를 써서 일랙트론용으로 바로 빌드 할 수 있다.
+만약 네이티브 모듈을 개발하는 개발자이며 Electron에서 시험해 보고 싶을 때, 수동으로 Electron을 위한 모듈을 다시 빌드 하고 싶을 수도 있습니다. 직접 `node-gyp`를 사용하여 Electron을 빌드 할 수 있습니다:
 
 ```sh
 cd /path-to-module/
