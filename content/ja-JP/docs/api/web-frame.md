@@ -224,12 +224,12 @@ console.log(webFrame.getResourceUsage())
 
 ### `webFrame.firstChild`
 
-A `WebFrame` representing the first child frame of `webFrame`, the property would be `null` if `webFrame` has no children or if first child is not in the current renderer process.
+`webFrame` の最初の子フレームを表す `WebFrame`。`webFrame` に子フレームが存在しないか現在のレンダラープロセスにない場合、プロパティは `null` になります。
 
 ### `webFrame.nextSibling`
 
-A `WebFrame` representing next sibling frame, the property would be `null` if `webFrame` is the last frame in its parent or if the next sibling is not in the current renderer process.
+次の兄弟フレームを表す `WebFrame`。`webFrame` がその親の最後の子フレームか、次の兄弟フレームが現在のレンダラープロセスにない場合、プロパティは `null` になります。
 
 ### `webFrame.routingId`
 
-An `Integer` representing the unique frame id in the current renderer process. Distinct WebFrame instances that refer to the same underlying frame will have the same `routingId`.
+現在のレンダラープロセスの一意なフレーム ID を表す `Integer`。同じ基底フレームを参照する WebFrame インスタンスは、同じ `routingId` を持ちます。
