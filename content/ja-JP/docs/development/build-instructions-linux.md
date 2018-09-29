@@ -13,12 +13,12 @@ Linux 版 Electron のビルドについては、以下のガイドラインに�
     $ npm run check-tls
     ```
     
-    If the script returns that your configuration is using an outdated security protocol, use your system's package manager to update Python to the latest version in the 2.7.x branch. Alternatively, visit https://www.python.org/downloads/ for detailed instructions.
+    あなたの設定が時代遅れのセキュリティプロトコルを使用していると、このスクリプトが返した場合、あなたのシステムパッケージマネージャでPythonを2.7.xブランチまで更新してください。 または、https://www.python.org/downloads/ を参照して、詳細な情報を入手してください。
 
-* Node.js. There are various ways to install Node. You can download source code from [nodejs.org](https://nodejs.org) and compile it. Doing so permits installing Node on your own home directory as a standard user. Or try repositories such as [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
+* Node.js. Node はいろいろな方法でインストールできます。 [nodejs.org](https://nodejs.org)からソースコードをダウンロードしてコンパイルできます。 一般ユーザーのホームディレクトリに Node をインストールできます。 または[NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories)のようなリポジトリを試してください。
 
-* [clang](https://clang.llvm.org/get_started.html) 3.4 or later.
-* Development headers of GTK+ and libnotify.
+* [clang](https://clang.llvm.org/get_started.html) 3.4 またはそれ以降。
+* GTK+ と libnotify の開発ヘッダ
 
 Ubuntu では、以下のライブラリをインストールしてください
 
@@ -48,25 +48,25 @@ $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    GConf2-devel nss-devel python-dbusmock
 ```
 
-Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
+その他のディストリビューションも、例えば pacmanのようなパッケージマネージャーで同様のパッケージをインストールできるでしょう、またはソースコードからコンパイルする必要があるかもしれません。
 
-### Cross compilation
+### クロスコンパイル
 
-If you want to build for an `arm` target you should also install the following dependencies:
+`arm` ターゲットに向けてビルドする場合、次の依存パッケージをインストールしてください。:
 
 ```sh
 $ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
                        g++-arm-linux-gnueabihf
 ```
 
-Similarly for `arm64`, install the following:
+同様に `arm64` の場合以下をインストールします。:
 
 ```sh
 $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
                        g++-aarch64-linux-gnu
 ```
 
-And to cross-compile for `arm` or `ia32` targets, you should pass the `target_cpu` parameter to `gn gen`:
+`arm` または `ia32` ターゲット向けにクロスコンパイルする場合、`target_cpu` パラメーターで `gn gen`に情報を渡します。:
 
 ```sh
 $ gn gen out/Debug --args='import(...) target_cpu="arm"'
@@ -74,7 +74,7 @@ $ gn gen out/Debug --args='import(...) target_cpu="arm"'
 
 ## ビルド
 
-See [Build Instructions: GN](build-instructions-gn.md)
+[ビルド指示: GN](build-instructions-gn.md)を参照してください。
 
 ## トラブルシューティング
 
