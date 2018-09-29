@@ -4,7 +4,7 @@
 
 プロセス: [Renderer](../glossary.md#renderer-process)
 
-`webFrame` は現在の `BrowserWindow` のトップフレームで表示されている `WebFrame` クラスのインスタンスをエクスポートする Electron のモジュールです。 Sub-frames can be retrieved by certain properties and methods (e.g. `webFrame.firstChild`).
+`webFrame` は現在の `BrowserWindow` のトップフレームで表示されている `WebFrame` クラスのインスタンスをエクスポートする Electron のモジュールです。 サブフレームは特定のプロパティとメソッド (`webFrame.firstChild` など) によって取得されます。
 
 現在のページを 200% にズームするサンプルです。
 
@@ -16,7 +16,7 @@ webFrame.setZoomFactor(2)
 
 ## メソッド
 
-The `WebFrame` class has the following instance methods:
+`WebFrame`クラスには以下のメソッドがあります。
 
 ### `webFrame.setZoomFactor(factor)`
 
@@ -192,19 +192,19 @@ console.log(webFrame.getResourceUsage())
 
 ### `webFrame.getFrameForSelector(selector)`
 
-* `selector` String - CSS selector for a frame element.
+* `selector` String - フレーム要素の CSS セレクタ。
 
-Returns `WebFrame` - The frame element in `webFrame's` document selected by `selector`, `null` would be returned if `selector` does not select a frame or if the frame is not in the current renderer process.
+戻り値 `WebFrame` - `selector` によって選択された `webFrame` のドキュメント。`selector` がフレームを選択していないか現在のレンダラープロセスにそのフレームがない場合、`null` が返されます。
 
 ### `webFrame.findFrameByName(name)`
 
 * `name` String
 
-Returns `WebFrame` - A child of `webFrame` with the supplied `name`, `null` would be returned if there's no such frame or if the frame is not in the current renderer process.
+戻り値 `WebFrame` - 与えられた `name` である `webFrame` の子。そのようなフレームが存在しないか現在のレンダラープロセスにそのフレームがない場合、`null` が返されます。
 
 ### `webFrame.findFrameByRoutingId(routingId)`
 
-* `routingId` Integer - An `Integer` representing the unique frame id in the current renderer process. Routing IDs can be retrieved from `WebFrame` instances (`webFrame.routingId`) and are also passed by frame specific `WebContents` navigation events (e.g. `did-frame-navigate`)
+* `routingId` Integer - 現在のレンダラープロセスでの一意なフレーム ID を表す `Integer`。 Routing IDs can be retrieved from `WebFrame` instances (`webFrame.routingId`) and are also passed by frame specific `WebContents` navigation events (e.g. `did-frame-navigate`)
 
 Returns `WebFrame` - that has the supplied `routingId`, `null` if not found.
 
