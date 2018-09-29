@@ -237,13 +237,13 @@ win.on('hide', () => {
 
 * `ignore` Boolean
 
-Sets the option to ignore double click events. Ignoring these events allows you to detect every individual click of the tray icon.
+ダブルクリックイベントを無視するよう設定します。これらのイベントを無視することで tray アイコンそれぞれの独立したクリックを検知することを許可します。
 
-This value is set to false by default.
+この値はデフォルトで false にセットされます。
 
 #### `tray.getIgnoreDoubleClickEvents()` *macOS*
 
-Returns `Boolean` - Whether double click events will be ignored.
+戻り値 `Boolean` - ダブルクリックイベントが無視されているかどうか。
 
 #### `tray.displayBalloon(options)` *Windows*
 
