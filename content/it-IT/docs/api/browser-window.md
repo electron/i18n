@@ -759,18 +759,18 @@ Restituisce `Boolean` - Se il pulsante massimizza/ingrandisci alterna tra la mod
 
 * `closable` Boolean
 
-Sets whether the window can be manually closed by user. On Linux does nothing.
+Imposta se la finestra può essere manualmente chiusa dall'utente. Su Linux non fa niente.
 
 #### `win.isClosable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually closed by user.
+Restituisce `Boolean` - Se la finestra può essere manualmente chiusa dall'utente.
 
 Su Linux restituisce sempre `true`.
 
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
 * `flag` Boolean
-* `level` String (optional) *macOS* - Values include `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Deprecated). The default is `floating`. See the [macOS docs](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) for more details.
+* `level` String (opzionale) *macOS* - I valori includono `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, e ~~`dock`~~ (Deprecato). Il valore predefinito è `floating`. Vedi [Documentazione macOS](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) per maggiori dettagli.
 * `relativeLevel` Integer (optional) *macOS* - The number of layers higher to set this window relative to the given `level`. The default is `0`. Note that Apple discourages setting levels higher than 1 above `screen-saver`.
 
 Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
