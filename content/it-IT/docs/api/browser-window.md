@@ -270,59 +270,59 @@ Emesso quando la finestra in sessione sta per essere chiusa a causa di uno spegn
 
 #### Evento: 'unresponsive'
 
-Emitted when the web page becomes unresponsive.
+Emesso quando la pagina web diventa non responsive.
 
-#### Event: 'responsive'
+#### Evento: 'responsive'
 
-Emitted when the unresponsive web page becomes responsive again.
+Emesso quando la pagina web non responsive diventa responsive di nuovo.
 
-#### Event: 'blur'
+#### Evento: 'blur'
 
-Emitted when the window loses focus.
+Emesso quando la finestra perde il focus.
 
-#### Event: 'focus'
+#### Evento: 'focus'
 
-Emitted when the window gains focus.
+Emesso quando la finestra ottiene focus.
 
-#### Event: 'show'
+#### Evento: 'show'
 
-Emitted when the window is shown.
+Emesso quando la finestra è mostrata.
 
-#### Event: 'hide'
+#### Evento: 'hide'
 
-Emitted when the window is hidden.
+Emesso quando la finestra è nascosta.
 
-#### Event: 'ready-to-show'
+#### Evento: 'ready-to-show'
 
-Emitted when the web page has been rendered (while not being shown) and window can be displayed without a visual flash.
+Emesso quando la pagine web è stata renderizzata (mentre ancora non è mostrata) e la finestra può essere visualizzata senza un flash visuale.
 
-#### Event: 'maximize'
+#### Evento: 'maximize'
 
-Emitted when window is maximized.
+Emesso quando la finestra è massimizzata.
 
-#### Event: 'unmaximize'
+#### Evento: 'unmaximize'
 
-Emitted when the window exits from a maximized state.
+Emesso quando la finestra esce da uno stato ingrandito.
 
-#### Event: 'minimize'
+#### Evento: 'minimize'
 
-Emitted when the window is minimized.
+Emesso quando la finestra è minimizzata.
 
-#### Event: 'restore'
+#### Evento: 'restore'
 
-Emitted when the window is restored from a minimized state.
+Emesso quando la finestra è ripristinata da una stato minimizzato.
 
-#### Event: 'resize'
+#### Evento: 'resize'
 
-Emitted when the window is being resized.
+Emesso quando la finestra viene ridimensionata.
 
-#### Event: 'move'
+#### Evento: 'move'
 
-Emitted when the window is being moved to a new position.
+Emesso quando la finestra viene mossa verso una nuova posizione.
 
-**Note**: On macOS this event is an alias of `moved`.
+**Nota**: Su macOS questo evento è un alias di `moved`.
 
-#### Event: 'moved' *macOS*
+#### Evento: 'moved' *macOS*
 
 Emitted once when the window is moved to a new position.
 
