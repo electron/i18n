@@ -610,7 +610,7 @@ Restituisce `Boolean` - Se la finestra è in modalità schermo intero semplice (
 
 Questo farà si che la finestra manterrà un rapporto aspetto. La dimensione extra permette allo sviluppatore di avere spazio, specificata in pixel, non inclusa all'interno del calcolo del rapporto aspetto. Questa API già prende in considerazione la differenza tra la dimensione della finestra e la dimensione del suo contenuto.
 
-Considera una normale finestra con un riproduttore video HD e controlli associati. Probabilmente ci sono 15 pixels di controllo su bordo sinistro, 25 pixels di controllo sul bordo destro e 50 pixels di controllo al di sotto del riproduttore. In modo da mantenere un rapporto aspetto di 16:9 (rapporto aspetto standard per HD @1920x1080) all'interno del riproduttore stesso potremmo chiamare questa funzione con argomenti di 16/9 e [ 40, 50 ]. Il secondo argomento non importa dove la larghezza e lunghezza extra si trovano all'interno nella vista del contenuto--ma solo che esistano. Somma ogni area di larghezza e lunghezza extra che tu hai all'interno nella vista del contenuto.
+Considera una normale finestra con un riproduttore video HD e controlli associati. Probabilmente ci sono 15 pixels di controllo su bordo sinistro, 25 pixels di controllo sul bordo destro e 50 pixels di controllo al di sotto del riproduttore. In modo da mantenere un rapporto aspetto di 16:9 (rapporto aspetto standard per HD @1920x1080) all'interno del riproduttore stesso potremmo chiamare questa funzione con argomenti di 16/9 e [ 40, 50 ]. Il secondo argomento non importa dove la larghezza e lunghezza extra si trovano all'interno nella vista del contenuto--ma solo che esistano. Somma ogni area di larghezza e altezza extra che tu hai all'interno nella vista del contenuto.
 
 Chiamando questa funzione con un valore di `0` rimuoverà qualsiasi precedente configurazione del rapporto aspetto.
 
@@ -663,7 +663,7 @@ Ridimensiona la finestra con `width` e `height`.
 
 #### `win.getSize()`
 
-Returns `Integer[]` - Contains the window's width and height.
+Restituisce `Integer[]` - Contiene la larghezza e l'altezza della finestra.
 
 #### `win.setContentSize(width, height[, animate])`
 
@@ -671,67 +671,67 @@ Returns `Integer[]` - Contains the window's width and height.
 * `height` Integer
 * `animate` Boolean (opzionale) *macOS*
 
-Resizes the window's client area (e.g. the web page) to `width` and `height`.
+Ridimensiona l'area client della finestra (es. la pagina web) a `width` e `height`.
 
 #### `win.getContentSize()`
 
-Returns `Integer[]` - Contains the window's client area's width and height.
+Restituisce `Integer[]` - Contiene la larghezza e l'altezza dell'area client della finestra.
 
 #### `win.setMinimumSize(width, height)`
 
 * `width` Integer
 * `height` Integer
 
-Sets the minimum size of window to `width` and `height`.
+Imposta la dimensione minima della finestra a `width` e `height`.
 
 #### `win.getMinimumSize()`
 
-Returns `Integer[]` - Contains the window's minimum width and height.
+Restituisce `Integer[]` - Contiene la minima larghezza e altezza della finestra.
 
 #### `win.setMaximumSize(width, height)`
 
 * `width` Integer
 * `height` Integer
 
-Sets the maximum size of window to `width` and `height`.
+Imposta la dimensione massima della finestra a `width` e `height`.
 
 #### `win.getMaximumSize()`
 
-Returns `Integer[]` - Contains the window's maximum width and height.
+Restituisce `Integer[]` - Contiene la massima larghezza e altezza della finestra.
 
 #### `win.setResizable(resizable)`
 
 * `resizable` Boolean
 
-Sets whether the window can be manually resized by user.
+Imposta se la finestra può essere manualmente ridimensionata dall'utente.
 
 #### `win.isResizable()`
 
-Returns `Boolean` - Whether the window can be manually resized by user.
+Restituisce `Boolean` - Se la finestra può essere manualmente ridimensionata dall'utente.
 
 #### `win.setMovable(movable)` *macOS* *Windows*
 
 * `movable` Boolean
 
-Sets whether the window can be moved by user. On Linux does nothing.
+Imposta se la finestra può essere mossa dall'utente. Su Linux non fa niente.
 
 #### `win.isMovable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be moved by user.
+Restituisce `Boolean` - Se la finestra può essere mossa dall'utente.
 
-On Linux always returns `true`.
+Su Linux restituisce sempre `true`.
 
 #### `win.setMinimizable(minimizable)` *macOS* *Windows*
 
 * `minimizable` Boolean
 
-Sets whether the window can be manually minimized by user. On Linux does nothing.
+Imposta se la finestra può essere manualmente minimizzata dall'utente. Su Linux non fa niente.
 
 #### `win.isMinimizable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually minimized by user
+Restituisce `Boolean` - Se la finestra può essere manualmente minimizzata dall'utente
 
-On Linux always returns `true`.
+Su Linux restituisce sempre `true`.
 
 #### `win.setMaximizable(maximizable)` *macOS* *Windows*
 
@@ -743,7 +743,7 @@ Sets whether the window can be manually maximized by user. On Linux does nothing
 
 Returns `Boolean` - Whether the window can be manually maximized by user.
 
-On Linux always returns `true`.
+Su Linux restituisce sempre `true`.
 
 #### `win.setFullScreenable(fullscreenable)`
 
@@ -765,7 +765,7 @@ Sets whether the window can be manually closed by user. On Linux does nothing.
 
 Returns `Boolean` - Whether the window can be manually closed by user.
 
-On Linux always returns `true`.
+Su Linux restituisce sempre `true`.
 
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
