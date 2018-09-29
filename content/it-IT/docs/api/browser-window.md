@@ -431,25 +431,25 @@ Restituisce `BrowserWindow` - La finestra con l'`id` dato.
 
 * `path` String
 
-Adds Chrome extension located at `path`, and returns extension's name.
+Aggiunge estensioni Chrome situate in `path`, e restituisce il nome dell'estensione.
 
-The method will also not return if the extension's manifest is missing or incomplete.
+Questo metodo, inoltre, non restituirà se il manifesto dell'estensione manca o è incompleto.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**Nota:** Questa API non può essere chiamata prima che l'evento `ready` del modulo `app` viene emesso.
 
 #### `BrowserWindow.removeExtension(name)`
 
-* `name` Stringa
+* `name` String
 
-Remove a Chrome extension by name.
+Rimuove un'estensione Chrome per nome.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**Nota:** Questa API non può essere chiamata prima che l'evento `ready` del modulo `app` viene emesso.
 
 #### `BrowserWindow.getExtensions()`
 
 Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**Nota:** Questa API non può essere chiamata prima che l'evento `ready` del modulo `app` viene emesso.
 
 #### `BrowserWindow.addDevToolsExtension(path)`
 
@@ -459,9 +459,9 @@ Adds DevTools extension located at `path`, and returns extension's name.
 
 The extension will be remembered so you only need to call this API once, this API is not for programming use. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
 
-The method will also not return if the extension's manifest is missing or incomplete.
+Questo metodo, inoltre, non restituirà se il manifesto dell'estensione manca o è incompleto.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**Nota:** Questa API non può essere chiamata prima che l'evento `ready` del modulo `app` viene emesso.
 
 #### `BrowserWindow.removeDevToolsExtension(name)`
 
@@ -469,7 +469,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 Remove a DevTools extension by name.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**Nota:** Questa API non può essere chiamata prima che l'evento `ready` del modulo `app` viene emesso.
 
 #### `BrowserWindow.getDevToolsExtensions()`
 
@@ -484,7 +484,7 @@ let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
 console.log(installed)
 ```
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**Nota:** Questa API non può essere chiamata prima che l'evento `ready` del modulo `app` viene emesso.
 
 ### Proprietà Istanza
 
