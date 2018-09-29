@@ -36,14 +36,14 @@ $ git remote set-url origin https://github.com/electron/electron
 
 ### sccache
 
-Chromium と Electron をビルドするために幾千ものファイルをコンパイルしなければいけません。 You can avoid much of the wait by reusing Electron CI's build output via [sccache](https://github.com/mozilla/sccache). This requires some optional steps (listed below) and these two environment variables:
+Chromium と Electron をビルドするために幾千ものファイルをコンパイルしなければいけません。 [sccache](https://github.com/mozilla/sccache) を通して Electron CI のビルド出力を再利用することで待ち時間の多くを回避できます。 これにはいくつかの任意の手順 (下記リスト) と以下の2つの環境変数が必要です。
 
 ```sh
 export SCCACHE_BUCKET="electronjs-sccache"
 export SCCACHE_TWO_TIER=true
 ```
 
-## Getting the code
+## コードを取得
 
 ```sh
 $ mkdir electron-gn && cd electron-gn
@@ -52,7 +52,7 @@ $ gclient config \
     --unmanaged \
     https://github.com/electron/electron
 $ gclient sync --with_branch_heads --with_tags
-# This will take a while, go get a coffee.
+# これは時間がかかります。コーヒーでも淹れましょう。
 ```
 
 ## ビルド
