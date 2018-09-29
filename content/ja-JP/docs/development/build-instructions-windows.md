@@ -19,7 +19,7 @@ Electron のビルドは完全にコマンドラインスクリプトで行わ�
 
 ## ビルド
 
-See [Build Instructions: GN](build-instructions-gn.md)
+[ビルド指示: GN](build-instructions-gn.md)を参照してください。
 
 ## 32ビットビルド
 
