@@ -553,11 +553,11 @@ Emitted when the associated window logs a console message. Will not be emitted f
 
 * `url` Stringa
 * `options` Object (opzionale) 
-  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
-  * `userAgent` String (optional) - A user agent originating the request.
+  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (opzionale) - Un HTTP Referrer url.
+  * `userAgent` String (opzionale) - Un user agent originato dalla richiesta.
   * `extraHeaders` String (optional) - Extra headers separated by "\n".
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
-  * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (opzionale)
+  * `baseURLForDataURL` String (opzionale) - Url di base (con il separatore del percorso) per file da caricare dal data url. Questo è necessario solo se l'`url` specificato è un data url e necessita di carica altri file.
 
 Loads the `url` in the window. The `url` must contain the protocol prefix, e.g. the `http://` or `file://`. If the load should bypass http cache then use the `pragma` header to achieve it.
 
