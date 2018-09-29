@@ -1181,11 +1181,11 @@ app.on('ready', () => {
   * `image` [NativeImage](native-image.md)
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
-Begin subscribing for presentation events and captured frames, the `callback` will be called with `callback(image, dirtyRect)` when there is a presentation event.
+プレゼンテーションイベントとキャプチャされたフレームの監視を開始し、プレゼンテーションイベントがあれば、`callbabck` が `callback(image, dirtyRect)` で呼ばれます。
 
-The `image` is an instance of [NativeImage](native-image.md) that stores the captured frame.
+`image` はキャプチャされたフレームを格納する [NativeImage](native-image.md) のインスタンスです。
 
-`dirtyRect` は 再描画されたページの部分を示す `x, y, width, height` プロパティのオブジェクトです。 If `onlyDirty` is set to `true`, `image` will only contain the repainted area. `onlyDirty` defaults to `false`.
+`dirtyRect` は 再描画されたページの部分を示す `x, y, width, height` プロパティのオブジェクトです。 もし `onlyDirty` が `true` にセットされている場合、`image` は再描画された領域だけを含みます。 `onlyDirty` の省略値は `false` です。
 
 #### `contents.endFrameSubscription()`
 
@@ -1276,11 +1276,11 @@ WebRTC IP ハンドリングポリシーを設定すると、WebRTC を介して
 
 #### `contents.getOSProcessId()`
 
-Returns `Integer` - The operating system `pid` of the associated renderer process.
+戻り値 `Integer` - 関連するレンダラープロセスのオペレーティングシステムの `pid`。
 
 #### `contents.getProcessId()`
 
-Returns `Integer` - The chromium internal `pid` of the associated renderer. Can be compared to the `frameProcessId` passed by frame specific navigation events (e.g. `did-frame-navigate`)
+戻り値 `Integer` - 関連するレンダラーの Chromium 内部の `pid`。 フレーム特有のナビゲーションイベント (`did-frame-navigate` など) で渡される `frameProcessId` と比較できます。
 
 ### インスタンスプロパティ
 
