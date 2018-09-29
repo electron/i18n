@@ -575,17 +575,17 @@ Minimizza la finestra. Su alcune piattaforme la finestra minimizzata verrà most
 
 #### `win.restore()`
 
-Restores the window from minimized state to its previous state.
+Ripristina la finestra dallo stato minimizzato allo stato precedente.
 
 #### `win.isMinimized()`
 
-Returns `Boolean` - Whether the window is minimized.
+Restituire `Boolean` - Se la finestra è minimizzata.
 
 #### `win.setFullScreen(flag)`
 
 * `flag` Boolean
 
-Sets whether the window should be in fullscreen mode.
+Imposta se la finestra dovrebbe essere in modalità schermo intero.
 
 #### `win.isFullScreen()`
 
@@ -595,7 +595,7 @@ Ritorna `Boolean` - Se la finestra é a tutto schermo.
 
 * `flag` Boolean
 
-Enters or leaves simple fullscreen mode.
+Entra o esce in modalità schermo intero semplice.
 
 Simple fullscreen mode emulates the native fullscreen behavior found in versions of Mac OS X prior to Lion (10.7).
 
