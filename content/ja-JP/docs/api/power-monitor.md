@@ -61,7 +61,7 @@ app.on('ready', () => {
 * `callback` Function 
   * `idleState` String - `active`, `idle`, `locked`, `unknown` にできます。
 
-Calculate the system idle state. `idleThreshold` is the amount of time (in seconds) before considered idle. `callback` will be called synchronously on some systems and with an `idleState` argument that describes the system's state. `locked` is available on supported systems only.
+システムのアイドル状態を計算します。 `idleThreshold` は、アイドルとみなされるまでの時間 (秒) です。 `callback` はいくつかのシステムでは同期的に呼ばれ、`idleState` 引数はシステムの状態を表します。 `locked` はサポートしているシステムでのみ利用可能です。
 
 #### `powerMonitor.querySystemIdleTime(callback)`
 
