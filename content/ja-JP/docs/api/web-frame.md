@@ -4,7 +4,7 @@
 
 プロセス: [Renderer](../glossary.md#renderer-process)
 
-`webFrame` export of the electron module is an instance of the `WebFrame` class representing the top frame of the current `BrowserWindow`. Sub-frames can be retrieved by certain properties and methods (e.g. `webFrame.firstChild`).
+`webFrame` は現在の `BrowserWindow` のトップフレームで表示されている `WebFrame` クラスのインスタンスをエクスポートする Electron のモジュールです。 Sub-frames can be retrieved by certain properties and methods (e.g. `webFrame.firstChild`).
 
 現在のページを 200% にズームするサンプルです。
 
