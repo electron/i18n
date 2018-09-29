@@ -166,7 +166,7 @@ For a `minor` release, e.g. `1.8.0`, use this format:
 - 다른 변화. #123
 ```
 
-### Beta releases
+### 베타 릴리즈
 
 Use the same formats as the ones suggested above, but add the following note at the beginning of the changelog:
 
