@@ -31,7 +31,7 @@ Electron 버전 2.0 아래에서는 [semver](http://semver.org) 스펙을 따르
 1. 엄격한 semver 규칙 사용
 2. semver 규칙을 준수하는 `-beta` 태그 도입
 3. [관례적인 커밋 메시지](https://conventionalcommits.org/) 도입
-4. Well-defined stabilization branches
+4. 잘 정의된 안정화(stabilization) 브랜치
 5. `master` 브랜치는 버전 정보가 없음; 안정화 브랜치만 버전 정보를 가지고 있음
 
 git 브랜치 동작 방법, npm 태깅 동작 방식, 개발자가 보고 싶어하는 것, 백포트 방식으로 변경하는 방법에 대해서는 아래에서 자세히 다룰 예정입니다.
@@ -48,7 +48,7 @@ git 브랜치 동작 방법, npm 태깅 동작 방식, 개발자가 보고 싶�
 | Node.js 메이저 버전 업데이트 | Node.js 마이너 버전 업데이트  | Node.js 패치 버전 업데이트 |
 | Chromium 버전 업데이트    |                      | 수정 관련 chromium 패치  |
 
-Note that most Chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
+대부분의 Chromium 업데이트는 큰 변화로 인식된다는 점을 기억하세요. 백포트 가능한 수정사항은 패치로 체리-피크(cherry-pick) 할 수 있습니다.
 
 # 안정화 브랜치
 
