@@ -46,7 +46,7 @@ Objects created with `new Notification` emit the following events:
 
 **Nota:** Alcuni metodi sono disponibili solo su sistemi operativi specifici e sono etichettati come tali.
 
-#### Event: 'show'
+#### Evento: 'show'
 
 Restituisce:
 
