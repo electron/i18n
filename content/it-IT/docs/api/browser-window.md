@@ -351,20 +351,20 @@ Restituisce:
 
 Emesso quando un [App Command](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx) è invocato. Queste sono tipicamente collegate ai tasti multimediali della tastiera o a comandi browser, così come il pulsante 'Indietro' integrato all'interno di alcuni mouse su Windows.
 
-Commands are lowercased, underscores are replaced with hyphens, and the `APPCOMMAND_` prefix is stripped off. e.g. `APPCOMMAND_BROWSER_BACKWARD` is emitted as `browser-backward`.
+I comandi sono in lowercase style, under_score style sono rimpiazzati con trattini, e il prefisso `APPCOMMAND_` viene rimosso. es. `APPCOMMAND_BROWSER_BACKWARD` è emesso come `browser-backward`.
 
 ```javascript
 const {BrowserWindow} = require('electron')
 let win = new BrowserWindow()
 win.on('app-command', (e, cmd) => {
-  // Navigate the window back when the user hits their mouse back button
+  // Ritorna alla finestra precedente quando l'utente preme il pulsante indietro sul mouse
   if (cmd === 'browser-backward' && win.webContents.canGoBack()) {
     win.webContents.goBack()
   }
 })
 ```
 
-#### Event: 'scroll-touch-begin' *macOS*
+#### Evento: 'scroll-touch-begin' *macOS*
 
 Emitted when scroll wheel event phase has begun.
 
