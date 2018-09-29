@@ -13,7 +13,7 @@
 일랙트론에 대한 모든 종속성들을 설치하는 예
 
 ```sh
-# Electron's version.
+# Electron의 버전
 export npm_config_target=1.2.3
 # The architecture of Electron, can be ia32 or x64.
 export npm_config_arch=x64
