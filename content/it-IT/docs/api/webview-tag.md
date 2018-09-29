@@ -531,7 +531,7 @@ Corresponds to the points in time when the spinner of the tab stops spinning.
 
 Fired when document in the given frame is loaded.
 
-### Event: 'page-title-updated'
+### Evento: 'page-title-updated'
 
 Restituisce:
 
@@ -659,7 +659,7 @@ Emitted when an in-page navigation happened.
 
 When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
 
-### Event: 'close'
+### Evento: 'close'
 
 Fired when the guest page attempts to close itself.
 
