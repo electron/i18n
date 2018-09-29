@@ -850,7 +850,7 @@ Restituisce `Boolean` - Se la finestra è in modalità kiosk.
 
 #### `win.getNativeWindowHandle()`
 
-Returns `Buffer` - The platform-specific handle of the window.
+Restituisce `Buffer` - Il gestore della piattaforma specifica della finestra.
 
 The native type of the handle is `HWND` on Windows, `NSView*` on macOS, and `Window` (`unsigned long`) on Linux.
 
