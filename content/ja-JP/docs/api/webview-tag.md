@@ -56,7 +56,7 @@ Electron の `webview` タグは [Chromium の `webview`](https://developer.chro
 
 ## CSS スタイルの注意事項
 
-Please note that the `webview` tag's style uses `display:flex;` internally to ensure the child `iframe` element fills the full height and width of its `webview` container when used with traditional and flexbox layouts. Please do not overwrite the default `display:flex;` CSS property, unless specifying `display:inline-flex;` for inline layout.
+`webview` タグのスタイルでは、`webview` コンテナでの子の `iframe` 要素の高さと幅を完全に埋めるのに内部的に `display:flex;` を使用しているので、古典的かつフレックスボックスなレイアウトを使用するときは注意して下さい。 `display:inline-flex;` をインラインレイアウトに指定しない限り、デフォルトの`display:flex;` CSS プロパティを上書きしないでください。
 
 ## タグの属性
 
@@ -681,7 +681,7 @@ webview.addEventListener('close', () => {
 
 ゲストページが埋め込みページに非同期メッセージを送信したときに発生します。
 
-With `sendToHost` method and `ipc-message` event you can communicate between guest page and embedder page:
+`sendToHost` メソッドと `ipc-message` イベントを使用すると、ゲストページと埋め込みページの間で通信できます。
 
 ```javascript
 // 埋め込みページ。
