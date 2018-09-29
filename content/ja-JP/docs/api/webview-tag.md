@@ -46,13 +46,13 @@ Electron の `webview` タグは [Chromium の `webview`](https://developer.chro
 
 ## 内部実装
 
-内部では `webview` は [Out-of-Process iframe (OOPIF) ](https://www.chromium.org/developers/design-documents/oop-iframes) で実装されています。 The `webview` tag is essentially a custom element using shadow DOM to wrap an `iframe` element inside it.
+内部では `webview` は [Out-of-Process iframe (OOPIF) ](https://www.chromium.org/developers/design-documents/oop-iframes) で実装されています。 `webview` タグは本質的には、見えない DOM を用いてその内側に `iframe` 要素をラップしたカスタム要素です。
 
-So the behavior of `webview` is very similar to a cross-domain `iframe`, as examples:
+なので `webview` の動作はクロスドメイン `iframe` ととても似ています。例として、
 
-* When clicking into a `webview`, the page focus will move from the embedder frame to `webview`.
-* You can not add keyboard event listeners to `webview`.
-* All reactions between the embedder frame and `webview` are asynchronous.
+* `webview`をクリックしたとき、ページフォーカスが埋め込みフレームから `webview` に移動します。
+* `webview` にキーボードイベントリスナを追加することはできません。
+* 埋め込みフレームと `webview` 間のすべての反応は非同期です。
 
 ## CSS スタイルの注意事項
 
