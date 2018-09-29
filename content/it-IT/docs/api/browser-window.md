@@ -771,21 +771,21 @@ Su Linux restituisce sempre `true`.
 
 * `flag` Boolean
 * `level` String (opzionale) *macOS* - I valori includono `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, e ~~`dock`~~ (Deprecato). Il valore predefinito è `floating`. Vedi [Documentazione macOS](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) per maggiori dettagli.
-* `relativeLevel` Integer (optional) *macOS* - The number of layers higher to set this window relative to the given `level`. The default is `0`. Note that Apple discourages setting levels higher than 1 above `screen-saver`.
+* `relativeLevel` Integer (opzionale) *macOS* - Il numero di livelli più alto da impostare per finestra relativa dato un `livello`. Il valore di default è `0`. Nota che Apple scoraggia di impostare livelli più alti del 1 o al di sopra dello `screen-saver`.
 
-Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
+Imposta se la finestra finestra dovrebbe mostrarsi sempre più in alto delle altre finestre. Dopo averla impostata, la finestra è ancora una normale finestra, non una finestra degli strumenti la quale non può essere focalizzata.
 
 #### `win.isAlwaysOnTop()`
 
-Returns `Boolean` - Whether the window is always on top of other windows.
+Restituisce `Boolean` - Se la finestra è sempre più in alto delle altre finestre.
 
 #### `win.moveTop()` *macOS* *Windows*
 
-Moves window to top(z-order) regardless of focus
+Muove la finestra verso l'alto (ordine z) indipendentemente dal focus
 
 #### `win.center()`
 
-Moves window to the center of the screen.
+Muove la finestra al centro delle schermo.
 
 #### `win.setPosition(x, y[, animate])`
 
@@ -793,30 +793,30 @@ Moves window to the center of the screen.
 * `y` Integer
 * `animate` Boolean (opzionale) *macOS*
 
-Moves window to `x` and `y`.
+Move la finestra a `x` e `y`.
 
 #### `win.getPosition()`
 
-Returns `Integer[]` - Contains the window's current position.
+Restituisce `Integer[]` - Contiene la posizione corrente della finestra.
 
 #### `win.setTitle(title)`
 
-* `Titolo` Stringa
+* `title` String
 
-Changes the title of native window to `title`.
+Cambia il titolo della finestra nativa a `title`.
 
 #### `win.getTitle()`
 
-Returns `String` - The title of the native window.
+Restituisce `String` - Il titolo della finestra nativa.
 
-**Note:** The title of web page can be different from the title of the native window.
+**Nota:** Il titolo della pagina web potrebbe essere differente dal titolo della finestra nativa.
 
 #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
 
 * `offsetY` Float
-* `offsetX` Float (optional)
+* `offsetX` Float (opzionale)
 
-Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. For example:
+Cambia il punto di attacco per fogli su macOS. Di default, i fogli sono attaccati proprio sotto la cornice della finestra. ma tu potresti volerli visualizzare sotto una barra degli strumenti HTML. Per esempio:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -830,23 +830,23 @@ win.setSheetOffset(toolbarRect.height)
 
 * `flag` Boolean
 
-Starts or stops flashing the window to attract user's attention.
+Inizia o ferma di lampeggiare la finestra per attirare l'attenzione dell'utente.
 
 #### `win.setSkipTaskbar(skip)`
 
 * `skip` Boolean
 
-Makes the window not show in the taskbar.
+Fa si che la finestra non venga mostrata nella barra delle applicazioni.
 
 #### `win.setKiosk(flag)`
 
 * `flag` Boolean
 
-Enters or leaves the kiosk mode.
+Entra o esce in modalità kiosk.
 
 #### `win.isKiosk()`
 
-Returns `Boolean` - Whether the window is in kiosk mode.
+Restituisce `Boolean` - Se la finestra è in modalità kiosk.
 
 #### `win.getNativeWindowHandle()`
 
