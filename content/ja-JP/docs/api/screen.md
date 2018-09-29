@@ -143,4 +143,4 @@ app.on('ready', () => {
 
 戻り値 [`Rectangle`](structures/rectangle.md)
 
-Converts a screen DIP rect to a screen physical rect. DPI スケールは `window` に近いディスプレイと相対的に計算されます。 `window` が null の場合、スケールは `rect` に近いディスプレイと相対的に計算されます。
+スクリーンの DIP 矩形をスクリーンのの物理矩形に変換します。 DPI スケールは `window` に近いディスプレイと相対的に計算されます。 `window` が null の場合、スケールは `rect` に近いディスプレイと相対的に計算されます。
