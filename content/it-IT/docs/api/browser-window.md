@@ -737,11 +737,11 @@ Su Linux restituisce sempre `true`.
 
 * `maximizable` Boolean
 
-Sets whether the window can be manually maximized by user. On Linux does nothing.
+Imposta se la finestra può essere manualmente massimizzata dall'utente. Su Linux non fa niente.
 
 #### `win.isMaximizable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually maximized by user.
+Restituisce `Boolean` - Se la finestra può essere manualmente massimizzata dall'utente.
 
 Su Linux restituisce sempre `true`.
 
@@ -749,11 +749,11 @@ Su Linux restituisce sempre `true`.
 
 * `fullscreenable` Boolean
 
-Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+Imposta se il pulsante massimizza/ingrandisci alterna modalità schermo intero o massimizza la finestra.
 
 #### `win.isFullScreenable()`
 
-Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+Restituisce `Boolean` - Se il pulsante massimizza/ingrandisci alterna tra la modalità schermo intero o massimizza la finestra.
 
 #### `win.setClosable(closable)` *macOS* *Windows*
 
