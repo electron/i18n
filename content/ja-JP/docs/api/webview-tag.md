@@ -2,9 +2,9 @@
 
 ## Warning
 
-Electron の `webview` タグは [Chromium の `webview`](https://developer.chrome.com/apps/tags/webview) に基づきつつ、劇的に変更されています。 This impacts the stability of `webviews`, including rendering, navigation, and event routing. We currently recommend to not use the `webview` tag and to consider alternatives, like `iframe`, Electron's `BrowserView`, or an architecture that avoids embedded content altogether.
+Electron の `webview` タグは [Chromium の `webview`](https://developer.chrome.com/apps/tags/webview) に基づきつつ、劇的に変更されています。 これはレンダリング、ナビゲーション、イベントルーティングを含む `webview` の安定性に影響しています。 私たちは、`webview` タグを使用せずに、`iframe` や Electron の `BrowserView` 、埋め込みコンテンツを完全に避けるアーキテクチャといった代替案を検討することを推奨しています。
 
-## Overview
+## 概要
 
 > 分離したフレームとプロセスに外部ウェブコンテンツを表示します。
 
@@ -44,9 +44,9 @@ Electron の `webview` タグは [Chromium の `webview`](https://developer.chro
 </script>
 ```
 
-## Internal implementation
+## 内部実装
 
-Under the hood `webview` is implemented with [Out-of-Process iframes (OOPIFs)](https://www.chromium.org/developers/design-documents/oop-iframes). The `webview` tag is essentially a custom element using shadow DOM to wrap an `iframe` element inside it.
+内部では `webview` は [Out-of-Process iframe (OOPIF) ](https://www.chromium.org/developers/design-documents/oop-iframes) で実装されています。 The `webview` tag is essentially a custom element using shadow DOM to wrap an `iframe` element inside it.
 
 So the behavior of `webview` is very similar to a cross-domain `iframe`, as examples:
 
