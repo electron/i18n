@@ -891,11 +891,11 @@ Restituisce `String` - Il percorso del file che rappresenta la finestra.
 
 * `edited` Boolean
 
-Specifies whether the window’s document has been edited, and the icon in title bar will become gray when set to `true`.
+Specifica se il documento della finestra è stato modificato, e l'icona nella barra del titolo diventerà grigia quando viene impostato su `true`.
 
 #### `win.isDocumentEdited()` *macOS*
 
-Returns `Boolean` - Whether the window's document has been edited.
+Restituisce `Boolean` - Se il documento della finestra è stato modificato.
 
 #### `win.focusOnWebView()`
 
@@ -907,19 +907,19 @@ Returns `Boolean` - Whether the window's document has been edited.
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
-Same as `webContents.capturePage([rect, ]callback)`.
+Uguale a`webContents.capturePage([rect, ]callback)`.
 
-#### `win.loadURL(url[, options])`
+#### `win.loadURL(url[, opzioni])`
 
 * `url` Stringa
 * `options` Object (opzionale) 
-  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
-  * `userAgent` String (optional) - A user agent originating the request.
-  * `extraHeaders` String (optional) - Extra headers separated by "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
-  * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
+  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (opzionale) - Un HTTP Referrer url.
+  * `userAgent` String (opzionale) - Un user agent originato dalla richiesta.
+  * `extraHeaders` String (opzionale) - Extra headers separati da "\n"
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (opzionale)
+  * `baseURLForDataURL` String (opzionale) - Url di base (con il separatore del percorso) per file da caricare dal data url. Questo è necessario solo se l'`url` specificato è un data url e necessita di carica altri file.
 
-Same as `webContents.loadURL(url[, options])`.
+Uguale a `webContents.loadURL(url[, options])`.
 
 The `url` can be a remote address (e.g. `http://`) or a path to a local HTML file using the `file://` protocol.
 
