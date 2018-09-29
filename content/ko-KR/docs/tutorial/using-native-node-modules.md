@@ -15,22 +15,22 @@
 ```sh
 # Electron의 버전
 export npm_config_target=1.2.3
-# The architecture of Electron, can be ia32 or x64.
+# Electron의 아키텍처, ia32 나 x64가 될 수 있습니다.
 export npm_config_arch=x64
 export npm_config_target_arch=x64
-# Download headers for Electron.
+# Electron의 헤더 다운 받기
 export npm_config_disturl=https://atom.io/download/electron
-# Tell node-pre-gyp that we are building for Electron.
+# node-pre-gyp에게 Electron을 빌드하고 있다는 것을 알려줍니다.
 export npm_config_runtime=electron
-# Tell node-pre-gyp to build module from source code.
+# node-pre-gyp에 소스 코드로부터 모듈을 빌드하라고 알려줍니다.
 export npm_config_build_from_source=true
-#모든 종속성설치하고 ~/.electron-gyp 에 캐쉬 저장하기
+# 모든 종속성을 설치하고 ~/.electron-gyp에 캐시 저장하기
 HOME=~/.electron-gyp npm install
 ```
 
 ### 모듈 설치하고 일랙트론용으로 재빌드하기
 
-또한 다른 노드프로잭트들과 비슷하게 인스톨한 모듈을 선택한 다음. [`electron-rebuild`](https://github.com/paulcbetts/electron-rebuild) 을 가지고 그 모듈을 재빌드 한다. 이 모듈은 일랙트론의 버전을 얻어올수 있고 헤더를 다운로드 하는 단계들을 조율하여 당신의 앱을 위한 네이티브모듈을 빌드한다.
+다른 Node 프로젝트처럼 설치할 모듈을 고른 다음, [`electron-rebuild`](https://github.com/paulcbetts/electron-rebuild)를 사용하여 모듈을 다시 빌드하세요. 이 모듈은 일랙트론의 버전을 얻어올수 있고 헤더를 다운로드 하는 단계들을 조율하여 당신의 앱을 위한 네이티브모듈을 빌드한다.
 
 `electron-rebuild` 인스톨한다음 그것을 가지고 모듈 재빌드 하기 예
 
