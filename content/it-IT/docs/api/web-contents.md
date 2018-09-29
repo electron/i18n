@@ -237,13 +237,13 @@ Restituisce:
 
 Emitted when the renderer process crashes or is killed.
 
-#### Event: 'unresponsive'
+#### Evento: 'unresponsive'
 
-Emitted when the web page becomes unresponsive.
+Emesso quando la pagina web diventa non responsive.
 
-#### Event: 'responsive'
+#### Evento: 'responsive'
 
-Emitted when the unresponsive web page becomes responsive again.
+Emesso quando la pagina web non responsive diventa responsive di nuovo.
 
 #### Event: 'plugin-crashed'
 
