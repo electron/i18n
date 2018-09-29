@@ -395,23 +395,23 @@ Emesso quando la finestra ha chiuso un foglio.
 
 #### Evento: 'nuova-finestra-per-scheda' *macOS*
 
-Emitted when the native new tab button is clicked.
+Emesso quando il pulsante nativo di una tab è stata cliccata.
 
 ### Metodi Statici
 
-The `BrowserWindow` class has the following static methods:
+La classe `BrowserWindow` ha i seguenti metodi statici:
 
 #### `BrowserWindow.getAllWindows()`
 
-Returns `BrowserWindow[]` - An array of all opened browser windows.
+Restituisce `BrowserWindow[]` - Un array di tutte le finestre del browser aperte.
 
 #### `BrowserWindow.getFocusedWindow()`
 
-Returns `BrowserWindow | null` - The window that is focused in this application, otherwise returns `null`.
+Restituisce `BrowserWindow | null` - La finestra che è focalizzata nell'applicazione, altrimenti restituisce `null`.
 
 #### `BrowserWindow.fromWebContents(webContents)`
 
-* `ContenutiWeb` [ContenutiWeb](web-contents.md)
+* `webContents` [WebContents](web-contents.md)
 
 Returns `BrowserWindow` - The window that owns the given `webContents`.
 
