@@ -66,6 +66,6 @@ app.on('ready', () => {
 #### `powerMonitor.querySystemIdleTime(callback)`
 
 * `callback` Function 
-  * `idleTime` Integer - Idle time in seconds
+  * `idleTime` Integer - アイドルしている秒
 
-Calculate system idle time in seconds.
+システムのアイドル時間を計算します。
