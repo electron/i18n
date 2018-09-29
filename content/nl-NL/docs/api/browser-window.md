@@ -1,14 +1,14 @@
 # BrowserWindow
 
-> Create and control browser windows.
+> Creëer en bedien browser vensters.
 
 Proces: [Main](../glossary.md#main-process)
 
 ```javascript
-// In the main process.
+// In het main proces.
 const {BrowserWindow} = require('electron')
 
-// Or use `remote` from the renderer process.
+// Of gebruik `remote` vanuit het renderer proces.
 // const {BrowserWindow} = require('electron').remote
 
 let win = new BrowserWindow({width: 800, height: 600})
@@ -16,18 +16,18 @@ win.on('closed', () => {
   win = null
 })
 
-// Load a remote URL
+// Laad een remote URL
 win.loadURL('https://github.com')
 
-// Or load a local HTML file
+// Of laad een lokaal HTML bestand
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
-## Frameless window
+## Kaderloos venster
 
 To create a window without chrome, or a transparent window in arbitrary shape, you can use the [Frameless Window](frameless-window.md) API.
 
-## Showing window gracefully
+## Venster rustig weergeven
 
 When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
 
@@ -108,7 +108,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 ## Class: BrowserWindow
 
-> Create and control browser windows.
+> Creëer en bedien browser vensters.
 
 Proces: [Main](../glossary.md#main-process)
 
