@@ -852,12 +852,12 @@ Restituisce `Boolean` - Se la finestra è in modalità kiosk.
 
 Restituisce `Buffer` - Il gestore della piattaforma specifica della finestra.
 
-The native type of the handle is `HWND` on Windows, `NSView*` on macOS, and `Window` (`unsigned long`) on Linux.
+Il tipo nativo del gestore è `HWND` su Windows, `NSView*` su macOS, e `Window` (`unsigned long`) su Linux.
 
 #### `win.hookWindowMessage(message, callback)` *Windows*
 
 * `message` Integer
-* `callback` Funzione
+* `callback` Function
 
 Hooks a windows message. The `callback` is called when the message is received in the WndProc.
 
