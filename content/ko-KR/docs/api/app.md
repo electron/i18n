@@ -21,7 +21,7 @@ app 객체는 다음과 같은 이벤트를 가지고 있습니다:
 
 애플리케이션이 기본적인 시작 준비를 마치면 발생하는 이벤트입니다. Windows, Linux 운영체제에서 `will-finish-launching` 이벤트는 `ready` 이벤트와 동일합니다. macOS에서 이벤트는 `NSApplication`의 `applicationWillFinishLaunching`에 대한 알림으로 표현됩니다. 대개 이곳에서 `open-file`과 `open-url` 이벤트 리스너를 설정하고 crash reporter와 auto updater를 시작합니다.
 
-In most cases, you should do everything in the `ready` event handler.
+대부분의 경우, 모든 것을 `ready` 이벤트 핸들러 안에서 해결해야 합니다.
 
 ### 이벤트: 'ready'
 
@@ -134,25 +134,25 @@ Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/U
 * `type` String - 활동을 식별하는 문자열. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)와 맵핑됩니다.
 * `error` String - 에러의 변역된 설명 문자열
 
-Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device fails to be resumed.
+[Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) 도중에 다른 장치의 작업을 다시 시작할 수 없을 때 발생합니다.
 
-### Event: 'activity-was-continued' *macOS*
+### 이벤트: 'activity-was-continued' *macOS*
 
 Returns:
 
 * `event` Event
 * `type` String - 활동을 식별하는 문자열. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)와 맵핑됩니다.
-* `userInfo` Object - Contains app-specific state stored by the activity.
+* `userInfo` 객체 - 액티비티가 저장한 app-specific 상태를 가지고 있습니다.
 
 Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) after an activity from this device was successfully resumed on another one.
 
-### Event: 'update-activity-state' *macOS*
+### 이벤트: 'update-activity-state' *macOS*
 
 Returns:
 
 * `event` Event
 * `type` String - 활동을 식별하는 문자열. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType)와 맵핑됩니다.
-* `userInfo` Object - Contains app-specific state stored by the activity.
+* `userInfo` 객체 - 액티비티가 저장한 app-specific 상태를 가지고 있습니다.
 
 Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise the operation will fail and `continue-activity-error` will be called.
 
@@ -237,7 +237,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
 * `callback` 함수 
-  * `certificate` [Certificate](structures/certificate.md) (optional)
+  * `certificate` [Certificate](structures/certificate.md) (선택)
 
 Emitted when a client certificate is requested.
 
@@ -303,14 +303,14 @@ Returns:
 
 Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 
-### Event: 'session-created'
+### 이벤트: 'session-created'
 
 반환:
 
 * `event` Event
 * `session` [Session](session.md)
 
-Emitted when Electron has created a new `session`.
+Electron이 새 `session`을 만들었을 때 발생합니다.
 
 ```javascript
 const {app} = require('electron')
@@ -320,13 +320,13 @@ app.on('session-created', (event, session) => {
 })
 ```
 
-### Event: 'second-instance'
+### 이벤트: 'second-instance'
 
 Returns:
 
 * `event` Event
-* `argv` String[] - An array of the second instance's command line arguments
-* `workingDirectory` String - The second instance's working directory
+* `argv` String[] - 두 번째 instance의 명령줄 매개 변수의 Array입니다.
+* `workingDirectory` String - 두 번재 instance의 작업 디렉토리입니다.
 
 This event will be emitted inside the primary instance of your application when a second instance has been executed. `argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Usually applications respond to this by making their primary window focused and non-minimized.
 
@@ -493,7 +493,7 @@ This list is managed by the OS. On Windows you can visit the list from the task 
 
 ### `app.clearRecentDocuments()` *macOS* *Windows*
 
-Clears the recent documents list.
+최근 문서 목록을 비웁니다.
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
