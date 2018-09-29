@@ -219,32 +219,32 @@ I possibili valori e il comportamento dell'opzione `type` sono dipendenti dalla 
 * Su macOS, i possibili valori sono `desktop`, `textured`. 
   * Il tipo `textured` aggiunge un aspetto di gradiente metallico (`NSTexturedBackgroundWindowMask`).
   * Il tipo `desktop` posiziona la finestra al livello del background del desktop (`kCGDesktopWindowLevel - 1`). Nota che la finestra desktop non riceveranno focus, tastiera o eventi del mouse, ma puoi comunque usare `globalShortcut` per ricevere input con moderazione.
-* On Windows, possible type is `toolbar`.
+* Su Windows, il tipo possibile è `toolbar`.
 
 ### Eventi dell'istanza
 
-Objects created with `new BrowserWindow` emit the following events:
+Oggetti creati con `new BrowserWindow` emettono i seguente eventi:
 
 **Nota:** Alcuni metodi sono disponibili solo su sistemi operativi specifici e sono etichettati come tali.
 
-#### Event: 'page-title-updated'
+#### Evento: 'page-title-updated'
 
 Restituisce:
 
 * `event` Event
 * `Titolo` Stringa
 
-Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing.
+Emesso quando il documento cambia il suo titolo, chiamando `event.preventDefault()` impedirà al titolo della finestra nativa di cambiare.
 
-#### Event: 'close'
+#### Evento: 'close'
 
 Restituisce:
 
 * `event` Event
 
-Emitted when the window is going to be closed. It's emitted before the `beforeunload` and `unload` event of the DOM. Calling `event.preventDefault()` will cancel the close.
+Emesso quando la finestra sta per essere chiusa. E' emesso prima dell'evento `beforeunload` e `unload` del DOM. Chiamando `event.preventDefault()` cancellerà la chiusura.
 
-Usually you would want to use the `beforeunload` handler to decide whether the window should be closed, which will also be called when the window is reloaded. In Electron, returning any value other than `undefined` would cancel the close. Ad esempio:
+Solitamente tu vorresti usare l'handler `beforeunload` per decidere se la finestra deve essere chiusa, il quale verrà anche chiamato quando la finestra è ricaricata. Su Electron, restituendo qualsiasi altro valore da `undefined` annullerebbe la chiusura. Ad esempio:
 
 ```javascript
 window.onbeforeunload = (e) => {
