@@ -248,19 +248,19 @@ Solitamente tu vorresti usare l'handler `beforeunload` per decidere se la finest
 
 ```javascript
 window.onbeforeunload = (e) => {
-  console.log('I do not want to be closed')
+  console.log('Non voglio essere chiusa')
 
-  // Unlike usual browsers that a message box will be prompted to users, returning
-  // a non-void value will silently cancel the close.
-  // It is recommended to use the dialog API to let the user confirm closing the
-  // application.
-  e.returnValue = false // equivalent to `return false` but not recommended
+  // A differenza dei soliti browsers che stampano un messaggio in un box all'utente, restituendo
+  // un valore non-void silenziosamente annullerà la chiusura.
+  // E' raccomandato usare la API di dialogo per far confermare all'utente la chiusura
+// dell'applicazione.
+  e.returnValue = false // equivalente a `return false` ma non è raccomandato
 }
 ```
 
-***Note**: There is a subtle difference between the behaviors of `window.onbeforeunload = handler` and `window.addEventListener('beforeunload', handler)`. It is recommended to always set the `event.returnValue` explicitly, instead of only returning a value, as the former works more consistently within Electron.*
+***Nota**: C'è una sottile differenza tra il comportamento di `window.onbeforeunload = handler` e `window.addEventListener('beforeunload', handler)`. E' raccomandato settare sempre esplicitamente l' `event.returnValue`, invece di restituire soltanto un valore, così come il primo lavora più coerentemente con Electron.*
 
-#### Event: 'closed'
+#### Evento: 'closed'
 
 Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
 
