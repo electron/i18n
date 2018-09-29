@@ -2,7 +2,7 @@
 
 > 키보드 단축키를 정의합니다.
 
-Accelerators are Strings that can contain multiple modifiers and a single key code, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
+Accelerator 는 `+` 문자로 결합된 여러 수식어와 키 코드를 포함할 수 있는 문자열입니다. 그리고 애플리케이션의 키보드 단축키를 정의하는데 사용됩니다.
 
 예시:
 
