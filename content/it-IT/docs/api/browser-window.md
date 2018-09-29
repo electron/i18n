@@ -597,15 +597,15 @@ Ritorna `Boolean` - Se la finestra é a tutto schermo.
 
 Entra o esce in modalità schermo intero semplice.
 
-Simple fullscreen mode emulates the native fullscreen behavior found in versions of Mac OS X prior to Lion (10.7).
+La modalità schermo intero semplice emula il comportamento nativo dello schermo intero trovata nelle versioni di Mac OS X precedenti a Lion (10.7).
 
 #### `win.isSimpleFullScreen()` *macOS*
 
-Returns `Boolean` - Whether the window is in simple (pre-Lion) fullscreen mode.
+Restituisce `Boolean` -Se la finestra è in modalità schermo intero semplice (prima di Lion).
 
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
-* `aspectRatio` Float - The aspect ratio to maintain for some portion of the content view.
+* `aspectRatio` Float - Rapporto dell'aspetto da mantenere per certe porzioni della vista del contenuto.
 * `extraSize` [Size](structures/size.md) - The extra size not to be included while maintaining the aspect ratio.
 
 This will make a window maintain an aspect ratio. The extra size allows a developer to have space, specified in pixels, not included within the aspect ratio calculations. This API already takes into account the difference between a window's size and its content size.
