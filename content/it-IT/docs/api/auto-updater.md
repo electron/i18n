@@ -97,6 +97,6 @@ Chiedi il server se c'è un aggiornamento. Devi chiamare `impostaFeedURL` prima 
 
 Riavvia l'app ed installa l'aggiornamento dopo che è stato scaricato. Potrebbe solo essere chiamato dopo l'emissione di `aggiornamento-scaricato.</p>
 
-<p>Under the hood calling <code>autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
+<p>Sotto la chiamata <code>autoUpdater.quitAndInstall()` saranno prima chiuse tutte le finestre dell'applicazione, e automaticamente chiamata `app.quit()` dopo che tutte le finestre sono state chiuse.
 
-**Note:** If the application is quit without calling this API after the `update-downloaded` event has been emitted, the application will still be replaced by the updated one on the next run.
+**Nota:** Se l'applicazione è chiusa senza chiamare questa API dopo l'evento `update-downloaded` è stato emesso, l'applicazione sarà comunque sostituita da quella aggiornata al prossimo avvio.
