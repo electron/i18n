@@ -447,7 +447,7 @@ Rimuove un'estensione Chrome per nome.
 
 #### `BrowserWindow.getExtensions()`
 
-Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+Restituisce `Object` - Le chiavi sono i nomi dell'estensioni e ogni valore è un oggetto che contiene le proprietà `name` e `version`.
 
 **Nota:** Questa API non può essere chiamata prima che l'evento `ready` del modulo `app` viene emesso.
 
@@ -455,9 +455,9 @@ Returns `Object` - The keys are the extension names and each value is an Object 
 
 * `path` String
 
-Adds DevTools extension located at `path`, and returns extension's name.
+Aggiunge l'estensione DevTools situata in `path`, e restituisce il nome dell'estensione.
 
-The extension will be remembered so you only need to call this API once, this API is not for programming use. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
+L'estensione sarà memorizzata così devi chiamarla soltanto una volta questa API, questa API non ha un uso di programmazione. If you try to add an extension that has already been loaded, this method will not return and instead log a warning to the console.
 
 Questo metodo, inoltre, non restituirà se il manifesto dell'estensione manca o è incompleto.
 
@@ -473,7 +473,7 @@ Remove a DevTools extension by name.
 
 #### `BrowserWindow.getDevToolsExtensions()`
 
-Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
+Restituisce `Object` - Le chiavi sono i nomi dell'estensioni e ogni valore è un oggetto che contiene le proprietà `name` e `version`.
 
 To check if a DevTools extension is installed you can run the following:
 
