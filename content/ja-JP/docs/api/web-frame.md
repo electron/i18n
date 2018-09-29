@@ -204,19 +204,19 @@ console.log(webFrame.getResourceUsage())
 
 ### `webFrame.findFrameByRoutingId(routingId)`
 
-* `routingId` Integer - 現在のレンダラープロセスでの一意なフレーム ID を表す `Integer`。 Routing IDs can be retrieved from `WebFrame` instances (`webFrame.routingId`) and are also passed by frame specific `WebContents` navigation events (e.g. `did-frame-navigate`)
+* `routingId` Integer - 現在のレンダラープロセスでの一意なフレーム ID を表す `Integer`。 ルーティング ID は `WebFrame` インスタンス (`webFrame.routingId`) や、フレーム特有の `WebContents` ナビゲーションイベント (`did-frame-navigate` など) から取得できます。
 
-Returns `WebFrame` - that has the supplied `routingId`, `null` if not found.
+戻り値 `WebFrame` - 渡された `routingId` のもの。見つからなければ `null`。
 
 ## プロパティ
 
 ### `webFrame.top`
 
-A `WebFrame` representing top frame in frame hierarchy to which `webFrame` belongs, the property would be `null` if top frame is not in the current renderer process.
+`webFrame` が属するフレーム階層内のトップフレームを表す `WebFrame`。トップフレームが現在のレンダラープロセスにない場合、プロパティは `null` になります。
 
 ### `webFrame.opener`
 
-A `WebFrame` representing the frame which opened `webFrame`, the property would be `null` if there's no opener or opener is not in the current renderer process.
+`webFrame` が開かれたフレームを表す `WebFrame`。開いたフレームが存在しないか現在のレンダラープロセスにない場合、プロパティは `null` になります。
 
 ### `webFrame.parent`
 
