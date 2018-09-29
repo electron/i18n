@@ -262,13 +262,13 @@ window.onbeforeunload = (e) => {
 
 #### Evento: 'closed'
 
-Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
+Emesso quando la finestra è chiusa. Dopo che hai ricevuto questo evento dovresti rimuovere il riferimento alla finestra ed evitarne l'uso.
 
-#### Event: 'session-end' *Windows*
+#### Evento: 'session-end' *Windows*
 
-Emitted when window session is going to end due to force shutdown or machine restart or session log off.
+Emesso quando la finestra in sessione sta per essere chiusa a causa di uno spegnimento forzato o un riavvio della macchina o per una disconnessione.
 
-#### Event: 'unresponsive'
+#### Evento: 'unresponsive'
 
 Emitted when the web page becomes unresponsive.
 
