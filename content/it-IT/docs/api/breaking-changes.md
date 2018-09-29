@@ -8,7 +8,7 @@ La stringa `FIXME` è usata nei commenti del codice per denotare cose che dovreb
 
 # Planned Breaking API Changes (4.0)
 
-The following list includes the breaking API changes planned for Electron 4.0.
+La seguente lista include i cambiamenti delle API pianificati per Electron 4.0.
 
 ## `app.makeSingleInstance`
 
@@ -27,51 +27,51 @@ app.on('second-instance', function (argv, cwd) {
 ## `app.releaseSingleInstance`
 
 ```js
-// Deprecated
+// Deprecato
 app.releaseSingleInstance()
-// Replace with
+// Sostituire con
 app.releaseSingleInstanceLock()
 ```
 
-# Breaking API Changes (3.0)
+# Cambiamenti API (3.0)
 
-The following list includes the breaking API changes in Electron 3.0.
+La seguente lista include i cambiamenti delle API in Electron 3.0.
 
 ## `app`
 
 ```js
-// Deprecated
+// Deprecato
 app.getAppMemoryInfo()
-// Replace with
+// Sostituire con
 app.getAppMetrics()
 
-// Deprecated
+// Deprecato
 const metrics = app.getAppMetrics()
 const {memory} = metrics[0]
-memory.privateBytes  // Deprecated property
-memory.sharedBytes  // Deprecated property
+memory.privateBytes  // Proprietà deprecata
+memory.sharedBytes  // Proprietà deprecata
 ```
 
 ## `BrowserWindow`
 
 ```js
-// Deprecated
+// Deprecato
 let optionsA = {webPreferences: {blinkFeatures: ''}}
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// Sostituire con
 let optionsB = {webPreferences: {enableBlinkFeatures: ''}}
 let windowB = new BrowserWindow(optionsB)
 
-// Deprecated
+// Deprecato
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
-    // do something
+    // fai qualcosa
   }
 })
-// Replace with
+// Sostituire con
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
-    // do something
+    // fai qualcosa
   }
 })
 ```
@@ -131,10 +131,10 @@ nativeImage.createFromBuffer(buffer, {
 ## `process`
 
 ```js
-// Deprecated
+// Deprecato
 const info = process.getProcessMemoryInfo()
-const privateBytes = info.privateBytes // deprecated property
-const sharedBytes = info.sharedBytes // deprecated property
+const privateBytes = info.privateBytes // Proprietà deprecata
+const sharedBytes = info.sharedBytes // Proprietà deprecata
 ```
 
 ## `schermo`
@@ -176,14 +176,14 @@ tray.setHighlightMode('off')
 ## `contenutiWeb`
 
 ```js
-// Deprecated
+// Deprecato
 webContents.openDevTools({detach: true})
-// Replace with
+// Sostituire con
 webContents.openDevTools({mode: 'detach'})
 
-// Removed
+// Rimosso
 webContents.setSize(options)
-// There is no replacement for this API
+// Non c'è sostituzione per questa API
 ```
 
 ## `webFrame`
@@ -203,15 +203,15 @@ protocol.registerStandardSchemes(['app'], {secure: true})
 ## `<webview>`
 
 ```js
-// Removed
+// Rimosso
 webview.setAttribute('disableguestresize', '')
-// There is no replacement for this API
+// Non c'è sostituzione per questa API
 
-// Removed
+// Rimosso
 webview.setAttribute('guestinstance', instanceId)
-// There is no replacement for this API
+// Non c'è sostituzione per questa API
 
-// Keyboard listeners no longer work on webview tag
+// I listeners di tastiera non funzionano più sul tag webview
 webview.onkeydown = () => { /* handler */ }
 webview.onkeyup = () => { /* handler */ }
 ```
