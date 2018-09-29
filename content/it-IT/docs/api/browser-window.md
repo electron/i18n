@@ -425,7 +425,7 @@ Restituisce `BrowserWindow | null` - La finestra che possiede la `browserView`. 
 
 * `id` Integer
 
-Returns `BrowserWindow` - The window with the given `id`.
+Restituisce `BrowserWindow` - La finestra con l'`id` dato.
 
 #### `BrowserWindow.addExtension(path)`
 
