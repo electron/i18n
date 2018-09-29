@@ -4,13 +4,13 @@
 
 ## 네이티브 모듈들을 설치하는 방법
 
-네이티브 모듈을 설치하는 방법은 3가지가 있다.
+네이티브 모듈을 설치하는 방법은 3가지가 있습니다.
 
-### Npm 사용하기
+### `npm` 사용하기
 
-몇가지 환경변수를 세팅하는것으로 npm을 이용해서 모듈들을 바로 설치할 수 있다.
+몇 가지 환경 변수를 설정하여, `npm`을 이용하여 모듈을 바로 설치할 수 있습니다.
 
-일랙트론에 대한 모든 종속성들을 설치하는 예
+Electron의 모든 종속성 모듈을 설치하는 예:
 
 ```sh
 # Electron의 버전
@@ -28,19 +28,19 @@ export npm_config_build_from_source=true
 HOME=~/.electron-gyp npm install
 ```
 
-### 모듈 설치하고 일랙트론용으로 재빌드하기
+### 모듈을 설치하고 Electron용으로 다시 빌드
 
-다른 Node 프로젝트처럼 설치할 모듈을 고른 다음, [`electron-rebuild`](https://github.com/paulcbetts/electron-rebuild)를 사용하여 모듈을 다시 빌드하세요. 이 모듈은 일랙트론의 버전을 얻어올수 있고 헤더를 다운로드 하는 단계들을 조율하여 당신의 앱을 위한 네이티브모듈을 빌드한다.
+다른 Node 프로젝트처럼 설치할 모듈을 고른 다음, [`electron-rebuild`](https://github.com/paulcbetts/electron-rebuild)를 사용하여 모듈을 다시 빌드하세요. 이 모듈은 Electron의 버전을 가져오고 다운로드 헤더의 수동 절차를 처리하며 앱의 네이티브 모듈을 빌드합니다.
 
-`electron-rebuild` 인스톨한다음 그것을 가지고 모듈 재빌드 하기 예
+`electron-rebuild`의 설치와 electron-rebuild를 사용하여 모듈을 다시 빌드하는 예:
 
 ```sh
 npm install --save-dev electron-rebuild
 
-# Every time you run "npm install", run this:
+# "npm install"을 실행할 때마다, 이것을 실행하세요:
 ./node_modules/.bin/electron-rebuild
 
-# On Windows if you have trouble, try:
+# Windows에서 문제가 있다면, 이것을 시도해 보세요:
 .\node_modules\.bin\electron-rebuild.cmd
 ```
 
