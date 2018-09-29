@@ -29,7 +29,7 @@ Electron
 |       └── api/ - The implementation of common APIs, and foundations of
 |                  Electron's built-in modules.
 ├── brightray/ - Thin shim over libcc that makes it easier to use.
-├── chromium_src/ - Source code copied from Chromium. See below.
+├── chromium_src/ - Chromium에서 복사하여 가져온 소스 코드. 아래를 참조하세요.
 ├── default_app/ - The default page to show when Electron is started without
 |                  providing an app.
 ├── docs/ - 참조 문서.
@@ -43,7 +43,7 @@ Electron
 ├── native_mate/ - A fork of Chromium's gin library that makes it easier to marshal
 |                  types between C++ and JavaScript.
 ├── spec/ - 자동화 테스트.
-└── BUILD.gn - Building rules of Electron.
+└── BUILD.gn - Electron의 빌드 규칙.
 ```
 
 ## `/chromium_src`
