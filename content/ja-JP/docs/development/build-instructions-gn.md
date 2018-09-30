@@ -104,9 +104,9 @@ The built executable will be under `./out/Debug`:
 
 ```sh
 $ ./out/Debug/Electron.app/Contents/MacOS/Electron
-# or, on Windows
+# Windowsの場合
 $ ./out/Debug/electron.exe
-# or, on Linux
+# Linuxの場合
 $ ./out/Debug/electron
 ```
 
@@ -128,18 +128,18 @@ To run the tests, you'll first need to build the test modules against the same v
 
 ```sh
 $ ninja -C out/Debug third_party/electron_node:headers
-# Install the test modules with the generated headers
+# 生成ヘッダありでテストモジュールをインストールする場合
 $ (cd electron/spec && npm i --nodedir=../../out/Debug/gen/node_headers)
 ```
 
 Then, run Electron with `electron/spec` as the argument:
 
 ```sh
-# on Mac:
+# macOSの場合:
 $ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec
-# on Windows:
+# Windowsの場合:
 $ ./out/Debug/electron.exe electron/spec
-# on Linux:
+# Linuxの場合:
 $ ./out/Debug/electron electron/spec
 ```
 
