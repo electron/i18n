@@ -121,7 +121,7 @@ pages:
     description: 最新の Electron に関するガイドと API リファレンス
   '/docs/all':
     title: Electronに関する全てのドキュメント
-    description: All of Electron's guides and API documentation on a single, searchable page.
+    description: Electron のガイド、APIドキュメントは単一の検索可能なページにまとめています。
   '/docs/api':
     title: API
     description: 最新の Electron のための API リファレンス
@@ -140,14 +140,14 @@ pages:
     title: リリース
   '/contact':
     title: お問い合わせ
-    description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
+    description: Electron チームとは Twitter, Slack, GitHub または emailで連絡がとれます。
   '/languages':
     title: 言語
   '/userland':
     title: ユーザーランド
   '/devtron':
     title: Devtron
-    description: Devtron is an open source tool to help you inspect, monitor, and debug your Electron app. Built on top of the amazing Chrome Developer Tools.
+    description: Devtron はあなたのElectronアプリを インスペクト、モニタ、デバッグすることを支援するオープンソースのツールです。Chrome Developer Tools上にビルドされます。
   '/spectron':
     title: Spectron
     description: Spectron は、 Electron アプリのインテグレーションテスト用コードを手軽に書くためのオープンソースフレームワークです。ChromeDriver と WebDriverIO を利用して構成されています。
