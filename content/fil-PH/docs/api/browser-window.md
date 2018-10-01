@@ -152,7 +152,7 @@ sa macOS. Ang default ay <code>false`.
   * `disableAutoHideCursor` Boolean (opsyonal) - Kung itinago ang cursor kapag nagta-type. Ang default ay `false`.
   * `autoHideMenuBar` Boolean (opsyonal) - Awtomatikong itago ang bar ng menu maliban kung ang teklado ng `Alt` ay pinindot. Ang default ay `false`.
   * `enableLargerThanScreen` Boolean (opsyonal) - Paganahin ang window na palakihin ng mas malaki kaysa sa iskrin. Ang default ay `false`.
-  * `backgroundColor` String (optional) - Ang kulay ng Window's Background ay nasa hexadecimal na balyu, tulas ng `#66CD00` or `#FFF` or `#80FFFFFF` (ang alpha ay supportado). Ang default ay `#FFF` (puti).
+  * `backgroundColor` String (optional) - Ang kulay ng Window's Background ay nasa hexadecimal na balyu, tulas ng `#66CD00` or `#FFF` or `#80FFFFFF` (ang alpha ay supportado). Ang default ay `#FFF` (puti). If `transparent` is set to `true`, only values with transparent (`#00-------`) or opaque (`#FF-----`) alpha values are respected.
   * `hasShadow` Boolean (opsyonal) - Kung ang window ay mayroong anino. Ito ay ipinapatupad lamang sa macOS. Ang default ay `true`.
   * `opacity` Number (opsyonal) - Itakda ang paunang opacity sa bintana, sa gitna ng 0.0 (fully transparent) and 1.0 (fully opaque). Ito ay pinatutupad lamang sa Windows at macOS.
   * `darkTheme` Boolean (opsyonal) - Puwersahang gumagamit ng madilim na theme para sa window, gumagana lamang sa ilang mga kapaligiran ng GTK+3 desktop. Ang default ay `false`.
@@ -207,7 +207,7 @@ sa macOS. Ang default ay <code>false`.
     * `contextIsolation` Boolean (o[syonal) - Maging ang pagpapatakbo ng Electron APis at Ang pagtukoy `preload` Ang script sa magkakahiwalay na nilalaman ng JavaScript. Ang mga default para sa `false`. Ang nilalaman na iyon ang `preload` Ang script ay mayroong kabuuang access upang tumatakbo sa `dokumento` at `window` globals subalit gagamitin nito sarili nitong hilera ng pag-tatag ng JavaScript (`Array`, `Object`, `JSON`, etc.) at pinag-hihiwalay mula sa alinmang mga pagbabagong ginawa sa pandaigdigang kapaligiran sa paraan ng pag-karga ng pahina. Ang Electron API ay maaaring maging pwedi lamang sa `preload` ang script at hindi ang ikinargang pahina. Ang opsyon na ito ay kailangan magamit kapag Ang pagkakarga ng potensyal na hindi mapag-kakatiwalaan na nilalaman ng remote upang masiguro ang nilalaman ng pag-karga ay hindi pweding galawin ang `preload` Ang script at ang alinmang Electron APIs ay kasalukuyang ginagamit. Ang opsyon sa pag-gamit ng mag-katulad na estilo ay ginagamit ng [Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment). Pwedii mong i-access ang nilalamang ito sa mga tool ng dev sa parang pagpili sa Ang ipinasok na 'Electron Isolated Context' sa kombo kaahon sa itaas ng Tab ng Console. **Tandaan:** Ang opsyon na ito ay kasalukuyang pinag i-ekspirementohan at pweding baguhin o tanggalin sa hinaharap na mga pag-labas ng Electron.
     * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. Defaults to `false`. **Note:** This option is currently experimental.
     * Ang `webviewTag` Boolean (opsyonal) - Kung pagaganahin ang [`<webview>` tag](webview-tag.md). Ang mga default sa mgahalaga ng mga opsyon ng `nodeIntegration`. **Note:** Ang iskrip ng `preload` ay isinaayos para ang `<webview>` ay may pagsasama-sama ng node na pinagana kapag ito ay naisakatuparan kaya dapat mong siguraduhin na ang malayo/hindi mapagkakatiwalaang nilalaman ay hindi makakagawa ng isang tag`<webview>` na may isang posibleng malisyosong iskrip `preload`. Maaari mong gamitin ang kaganapan ng `will-attach-webview` sa [webContents](web-contents.md) para tanggalin ang iskrip ng `preload` at patunayan o pasubalian ang inisyal na mga pagtatakda sa `<webview>`.
-    * `additionArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app. Useful for passing small bits of data down to renderer process preload scripts.
+    * `additionalArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app. Useful for passing small bits of data down to renderer process preload scripts.
 
 Kapag nagtatakda ng minimum o maximum na laki ng window `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, pinipigilan lamang nito ang mga gumagamit. Hindi nito mapipigilan ka pagpasa ng isang sukat na hindi sumusunod sa mga hadlang sa laki `setBounds`/`setSize` o sa tagapagbuo ng `BrowserWindow`.
 
@@ -597,7 +597,7 @@ Pagpasok o pag-alis sa simpleng fullscreen na mode.
 
 Ang simpleng fullscreen mode ay nagpapalabas ng katutubong pag-uugali ng fullscreen na natagpuan sa mga bersyon ng Mac OS X bago ang Lion (10.7).
 
-#### `win.isSimpleFullScreen()` *macOS*
+#### `win.isSimpleFullScreen()` *macOS* 
 
 Binabalik ang `Boolean` - Kung saan ang window ay nasa simpleng(pre-Lion) na fullscreen mode.
 
@@ -617,7 +617,7 @@ Ang pag-sasa alang alang ng normal na window na may HD bidyo player at mga nauug
 
 Ginagamit ang [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) upang i-preview ang file sa ibinigay na landas.
 
-#### `win.closeFilePreview()` *macOS*
+#### `win.closeFilePreview()` *macOS* 
 
 Pagsara sa kasalukuyang nakabukas na [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) panel.
 
@@ -850,7 +850,7 @@ Ang katutubong uri ng handle ay `HWND` sa Windows, `NSView*` sa macOS, at `Windo
 #### `win.hookWindowMessage(message, callback)` *Windows*
 
 * `mensahe` Integer
-* `callback` na Function
+* `baliktawag` ginagawa
 
 Ang mga hook ay isang mensahe ng window. Ang ` callback ` ay tinatawag kung kailan ang mensahe ay natanggap sa WndProc.
 
@@ -876,7 +876,7 @@ I-unhook ang lahat ng mensahe sa window.
 
 Nagtatakda ng pathnamesa mga file na irepresenta sa window, at ang icon ng file ay ipapakita sa title bar ng window.
 
-#### `win.getRepresentedFilename()` *macOS*
+#### `win.getRepresentedFilename()` *macOS* 
 
 Ibinibalik `String` - Ang pathname ng file na nakarepresenta sa window.
 
@@ -886,7 +886,7 @@ Ibinibalik `String` - Ang pathname ng file na nakarepresenta sa window.
 
 Tinutukoy kung ang dokumento ng window ay na-edit, at ang icon sa pamagat ng bar ay magiging gray kung itatakda sa `true`.
 
-#### `win.isDocumentEdited()` *macOS*
+#### `win.isDocumentEdited()` *macOS* 
 
 Ibinabalik ang `Boolean` - Kung saan ang mga dokumento ng window ay na-edit na.
 
@@ -897,7 +897,7 @@ Ibinabalik ang `Boolean` - Kung saan ang mga dokumento ng window ay na-edit na.
 #### `win.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (opsyonal) - Para ma-makuha ang bounds
-* `callback` Function 
+* `callback` Punsyon 
   * `image` [NativeImage](native-image.md)
 
 Katulad nang `webContents.capturePage([rect, ]callback)`.
@@ -905,9 +905,9 @@ Katulad nang `webContents.capturePage([rect, ]callback)`.
 #### `win.loadURL(url[, mga pagpipilian])`
 
 * `url` Tali
-* `options` Na Bagay (opsyonal) 
-  * `httpReferrer` String(opsyonal) - Ang tagabigay ng HTTP url.
-  * `userAgent` Pisi (opsyonal) - Isang ahenteg gumagamit na nagmumula sa kahilingan.
+* `mga opsyon` Na Bagay (opsyonal) 
+  * `httpReferrer` Pisi (opsyonal) - Isang HTTP Referrer url.
+  * `userAgent` String(opsyonal) - Ang ahente na gumagamit ng pinagmumulan ng kahilingan.
   * `extraHeaders` Pisi (opsyonal) - Mga dagdag na header na pinaghihiwalay ng "\n"
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
   * `baseURLForDataURL` String(opsyonal) - Basi nag url (may tagapahiwalay sa landas ng separator) para sa mga dokumento na kakargahin sa pamamagitan ng datos ng url. Ito ay kinakailangan lamang kung ang tinutukoy na `url` ay isang url ng data at kailangang mag-load ng iba pang mga file.
@@ -955,7 +955,7 @@ Tulad ng `webContents.reload`.
 
 Itinatakda ang ` menu ` bilang menu bar ng window, ang pagtatakda nito sa ` null ` ay aalisin ang menu bar.
 
-#### `win.setProgressBar(progress[, options])`
+#### `win.setProgressBar(progress[, mga pagpipilian])`
 
 * `progress` Doble
 * `mga opsyon` Na Bagay (opsyonal) 
@@ -982,7 +982,7 @@ Nagtatakda ng 16 x 16 na pixel na overlay papunta sa kasalukuyang icon ng taskba
 
 Nagtatakda kung ang window ay dapat magkaroon ng anino. Sa Windows at Linux ay walang ginagawa.
 
-#### `win.hasShadow()` *macOS*
+#### `win.hasShadow()` *macOS* 
 
 Ibinabalik ` Boolean` - Kung ang window ay may anino.
 
@@ -1039,7 +1039,7 @@ Itakda ang toolTip na ipinapakita habang nag-hohover higit sa window ng thumbnai
 
 #### `win.setAppDetails(options)` *Windows*
 
-* `mga opsyon` Bagay 
+* `options` Bagay 
   * `appId` String (optional) - Window's [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). Ito ay dapat na itakda, kung hindi man ay ang ibang opsyon ay walang epekto.
   * `appIconPath` String (optional) - Window's [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
   * `appIconIndex` Integer (optional) - Ang index ng icon sa `appIconPath`. Hindi pinansin kung `appIconPath` hindi naitakda. Default ay `0`.
@@ -1050,7 +1050,7 @@ Itakda ang ari-arian para sa window's taskbar na button.
 
 **Note:** `relaunchCommand` at `relaunchDisplayName` dapat na palaging itakda nang sabay. Kung ang isang ari-arian ay hindi naitakda, pagkatapos ay hindi na ito magagamit.
 
-#### `win.showDefinitionForSelection()` *macOS*
+#### `win.showDefinitionForSelection()` *macOS* 
 
 Tulad nang`webContents.showDefinitionForSelection()`.
 
@@ -1099,7 +1099,7 @@ Ibinabalik ang `Boolean` - Kung saan ang window ay dapay na makikita sa lahat ng
 #### `win.setIgnoreMouseEvents(ignore[, options])`
 
 * `huwag pansinin` Boolean
-* `options` Na Bagay (opsyonal) 
+* `options` Bagay (opsyonal) 
   * `forward` Boolean (opsyonal) *Windows* -Kung totoo, Ang pagsulong ng mouse ay inilipat ang mga mensahe sa Chromium, Ang pag-pagana ng mouse related events ay `mouseleave`. Ginagamit lamang kung ang`ignore` ay tama. Kung ang `ignore` is mali, Pagsulong ay palaging hindi-pinagana sa anumang mga balyu.
 
 Ginagawa ang window na hindi pansinin ang lahat ng mouse na kaganapan.
@@ -1140,11 +1140,11 @@ Ibinabalik kung `BrowserWindow[]` - Lahat ay anak windows.
 
 Kinokontrol kung ang cursor ay itatago kapag nag-type.
 
-#### `win.selectPreviousTab()` *macOS*
+#### `win.selectPreviousTab()` *macOS* 
 
 Pinipili ang nakaraang tab kung ang pinagana ang native na mga tab at may iba pa mga tab sa window.
 
-#### `win.selectNextTab()` *macOS*
+#### `win.selectNextTab()` *macOS* 
 
 Pinipili ang susunod na tab kung ang pinagana ang mga native na tab at mayroong iba pa mga tab sa window.
 
@@ -1156,7 +1156,7 @@ Pinagsama ang lahat ng mga window sa isang window na may maraming tab kapag ang 
 
 Inililipat ang kasalukuyang tab sa isang bagong window kung pinagana ang mga native na tab at mayroong higit sa isang tab sa kasalukuyang window.
 
-#### `win.toggleTabBar()` *macOS*
+#### `win.toggleTabBar()` *macOS* 
 
 Tina-toggle ang kakayahang makita ng tab na bar kung pinagana ang mga native na tab at mayroon lamang isang tab sa kasalukuyang window.
 
@@ -1184,7 +1184,7 @@ Itakda ang layout ng touchBar para sa kasalukuyang window. Tinutukoy ang `null` 
 
 * `browserView` [BrowserView](browser-view.md)
 
-#### `win.getBrowserView()` *Experimental* 
+#### `win.getBrowserView()` *Experimental*
 
 Ibinabalik ang `BrowserView | null` - an attached BrowserView. Returns `null` Kung walang nakakabit.
 
