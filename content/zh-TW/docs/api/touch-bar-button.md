@@ -2,7 +2,7 @@
 
 > 在 macOS 原生應用程式中建立 Touch Bar 按鈕。
 
-Process: [Main](../tutorial/quick-start.md#main-process)
+Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new TouchBarButton(options)` *試驗中*
 
