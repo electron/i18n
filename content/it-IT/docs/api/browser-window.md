@@ -188,8 +188,8 @@ Crea una nuova Finestra `BrowserWindow` con proprietà native come da `options`.
     * ` experimentalFeatures ` Boolean (opzionale): abilita le funzionalità sperimentali di Chromium. Il valore predefinito è ` false`.
     * ` experimentalCanvasFeatures ` Boolean (facoltativo): abilita i canvas sperimentali di Chromium. Il valore predefinito è ` false`.
     * ` scrollBounce ` Boolean (opzionale) - Abilita l'effetto bounce di scorrimento (effetto gomma) su macOS. Il valore predefinito è ` false`.
-    * `blinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to enable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/runtime_enabled_features.json5?l=70) file.
-    * ` disableBlinkFeatures ` String (opzionale) - Un elenco di stringhe di feature separate da `, `, come ` CSSVariables, KeyboardEventKey ` da disabilitare. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/runtime_enabled_features.json5?l=70) file.
+    * `enableBlinkFeatures` String (opzionale) - Una lista di stringhe caratteristiche separate da `,`, come `CSSVariables,KeyboardEventKey` da abilitare. L'elenco completo delle stringe supportate si possono trovare nel file [ RuntimeEnabledFeatures.json5 ](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70).
+    * ` disableBlinkFeatures ` String (opzionale) - Un elenco di stringhe di feature separate da `, `, come ` CSSVariables, KeyboardEventKey ` da disabilitare. L'elenco completo delle stringe supportate si possono trovare nel file [ RuntimeEnabledFeatures.json5 ](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70).
     * `defaultFontFamily` Object (opzionale) - Imposta il font predefinito per il font-family. 
       * `standard` String (opzionale) - Il valore predefinito è il `Times New Roman`.
       * `serif` String (opzionale) -Il valore predefinito è il `Times New Roman`.
@@ -207,6 +207,9 @@ Crea una nuova Finestra `BrowserWindow` con proprietà native come da `options`.
     * `nativeWindowOpen` Boolean (opzionale) - Permettere di usare la funzione nativa `window.open()`. Di default è `false`. **Nota:** Questa funzione è sperimentale.
     * `webviewTag` Boolean (opzionale) - Abilita il [`<webview>` tag](webview-tag.md). Il valore di default è come l'opzione di `nodeIntegration`. **Nota:** Lo script di `preload` configurato per la `<webview>` avrà la nodeIntegration abilitata quando viene eseguita, quindi è necessario garantire che il contenuto remoto/non attendibile non sia in grado di creare una `<webview>` con tag di `preload` potenzialmente dannosi. Puoi utilizzare l'evento `will-attach-webview ` su [webContents](web-contents.md) per rimuovere lo script ` preload` e per convalidare o modificare le impostazioni iniziali della `<webview>`.
     * `additionalArguments` String[] (opzionale) - Una lista di stringhe che saranno appese al `process.argv` nel processo di render di questa app. Utile per passare piccole bit di dati agli script di precaricamento del processo di renderer.
+    * `safeDialogs` Boolean (opzionale): Se abilitata, attiva la protezione da dialog consecutivi stile browser. Il valore predefinito è `false`.
+    * `safeDialogsMessage` String (opzionale) - Setta il messaggio da visualizzare quando viene attivata la protezione da dialog consecutiva. Se non definito verrà usato il messaggio predefinito, notare che il messaggio predefinito è in Inglese e non localizzato.
+    * `navigateOnDragDrop` Boolean (opzionale) - Indica se trascinare e rilasciare un file o un collegamento sulla pagina causa una navigazione. Il valore predefinito è `false`.
 
 Quando si imposta la dimensione della finestra minima o massima con `minWidth` / `maxWidth ` / `minHeight` / `maxHeight`, limita l'utente. Non ti impedirà di farlo passando una dimensione che non segue vincoli dimensionali a `setBounds ` / ` setSize ` o al costruttore di `BrowserWindow `.
 
@@ -255,7 +258,7 @@ window.onbeforeunload = (e) => {
 }
 ```
 
-***Nota**: C'è una sottile differenza tra il comportamento di `window.onbeforeunload = handler` e `window.addEventListener('beforeunload', handler)`. It is recommended to always set the `event.returnValue` explicitly, instead of just returning a value, as the former works more consistently within Electron.*
+***Nota**: C'è una sottile differenza tra il comportamento di `window.onbeforeunload = handler` e `window.addEventListener('beforeunload', handler)`. E' raccomandato settare sempre esplicitamente l' `event.returnValue`, invece di restituire soltanto un valore, così come il primo lavora più coerentemente con Electron.*
 
 #### Evento: 'closed'
 
@@ -317,7 +320,7 @@ Emesso quando la finestra viene ridimensionata.
 
 Emesso quando la finestra viene mossa verso una nuova posizione.
 
-**Note**: On macOS this event is just an alias of `moved`.
+**Nota**: Su macOS questo evento è un alias di `moved`.
 
 #### Evento: 'moved' *macOS*
 
@@ -404,7 +407,7 @@ Restituisce `BrowserWindow[]` - Un array di tutte le finestre del browser aperte
 
 #### `BrowserWindow.getFocusedWindow()`
 
-Returns `BrowserWindow` - The window that is focused in this application, otherwise returns `null`.
+Restituisce `BrowserWindow | null` - La finestra che è focalizzata nell'applicazione, altrimenti restituisce `null`.
 
 #### `BrowserWindow.fromWebContents(webContents)`
 
@@ -607,36 +610,38 @@ Restituisce `Boolean` - Se la finestra è in modalità schermo intero semplice (
 
 Questo farà si che la finestra manterrà un rapporto aspetto. La dimensione extra permette allo sviluppatore di avere spazio, specificata in pixel, non inclusa all'interno del calcolo del rapporto aspetto. Questa API già prende in considerazione la differenza tra la dimensione della finestra e la dimensione del suo contenuto.
 
-Considera una normale finestra con un riproduttore video HD e controlli associati. Probabilmente ci sono 15 pixels di controllo su bordo sinistro, 25 pixels di controllo sul bordo destro e 50 pixels di controllo al di sotto del riproduttore. In modo da mantenere un rapporto aspetto di 16:9 (rapporto aspetto standard per HD @1920x1080) all'interno del riproduttore stesso potremmo chiamare questa funzione con argomenti di 16/9 e [ 40, 50 ]. Il secondo argomento non importa dove la larghezza e lunghezza extra si trovano all'interno nella vista del contenuto--ma solo che esistano. Just sum any extra width and height areas you have within the overall content view.
+Considera una normale finestra con un riproduttore video HD e controlli associati. Probabilmente ci sono 15 pixels di controllo su bordo sinistro, 25 pixels di controllo sul bordo destro e 50 pixels di controllo al di sotto del riproduttore. In modo da mantenere un rapporto aspetto di 16:9 (rapporto aspetto standard per HD @1920x1080) all'interno del riproduttore stesso potremmo chiamare questa funzione con argomenti di 16/9 e [ 40, 50 ]. Il secondo argomento non importa dove la larghezza e lunghezza extra si trovano all'interno nella vista del contenuto--ma solo che esistano. Somma ogni area di larghezza e altezza extra che tu hai all'interno nella vista del contenuto.
+
+Chiamando questa funzione con un valore di `0` rimuoverà qualsiasi precedente configurazione del rapporto aspetto.
 
 #### `win.previewFile(path[, displayName])` *macOS*
 
 * `path` String - Il percorso assoluto al file per l'anteprima con QuickLook. Questo è importante in quanto Quick Look usa il nome del file e l'estensione sulla path per determinare il tipo di contenuto del file da aprire.
 * `displayName` String (opzionale) - Il nome del file da mostrare sulla vista modale di Quick Look. Questo è puramente visuale e non influisce sul tipo di contenuto del file. Valore predefinito è `path`.
 
-Uses [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) to preview a file at a given path.
+Usa [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) per l'anteprima di un file su un dato percorso.
 
 #### `win.closeFilePreview()` *macOS*
 
-Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look) panel.
+Chiude il pannello attualmente aperto di [Quick Look](https://en.wikipedia.org/wiki/Quick_Look).
 
 #### `win.setBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
 * `animate` Boolean (opzionale) *macOS*
 
-Resizes and moves the window to the supplied bounds
+Ridimensiona e muove la finestra ai limiti forniti
 
 #### `win.getBounds()`
 
-Ritorna [`Rectangle`](structures/rectangle.md)
+Restituisce [`Rectangle`](structures/rectangle.md)
 
 #### `win.setContentBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
 * `animate` Boolean (opzionale) *macOS*
 
-Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
+Ridimensiona e muove l'area client della finestra (es. la pagina web) ai limiti forniti.
 
 #### `win.getContentBounds()`
 
@@ -646,7 +651,7 @@ Ritorna [`Rectangle`](structures/rectangle.md)
 
 * `enable` Boolean
 
-Disable or enable the window.
+Disabilita o abilita la finestra.
 
 #### `win.setSize(width, height[, animate])`
 
@@ -654,11 +659,11 @@ Disable or enable the window.
 * `height` Integer
 * `animate` Boolean (opzionale) *macOS*
 
-Resizes the window to `width` and `height`.
+Ridimensiona la finestra con `width` e `height`.
 
 #### `win.getSize()`
 
-Returns `Integer[]` - Contains the window's width and height.
+Restituisce `Integer[]` - Contiene la larghezza e l'altezza della finestra.
 
 #### `win.setContentSize(width, height[, animate])`
 
@@ -666,101 +671,101 @@ Returns `Integer[]` - Contains the window's width and height.
 * `height` Integer
 * `animate` Boolean (opzionale) *macOS*
 
-Resizes the window's client area (e.g. the web page) to `width` and `height`.
+Ridimensiona l'area client della finestra (es. la pagina web) a `width` e `height`.
 
 #### `win.getContentSize()`
 
-Returns `Integer[]` - Contains the window's client area's width and height.
+Restituisce `Integer[]` - Contiene la larghezza e l'altezza dell'area client della finestra.
 
 #### `win.setMinimumSize(width, height)`
 
 * `width` Integer
 * `height` Integer
 
-Sets the minimum size of window to `width` and `height`.
+Imposta la dimensione minima della finestra a `width` e `height`.
 
 #### `win.getMinimumSize()`
 
-Returns `Integer[]` - Contains the window's minimum width and height.
+Restituisce `Integer[]` - Contiene la minima larghezza e altezza della finestra.
 
 #### `win.setMaximumSize(width, height)`
 
 * `width` Integer
 * `height` Integer
 
-Sets the maximum size of window to `width` and `height`.
+Imposta la dimensione massima della finestra a `width` e `height`.
 
 #### `win.getMaximumSize()`
 
-Returns `Integer[]` - Contains the window's maximum width and height.
+Restituisce `Integer[]` - Contiene la massima larghezza e altezza della finestra.
 
 #### `win.setResizable(resizable)`
 
 * `resizable` Boolean
 
-Sets whether the window can be manually resized by user.
+Imposta se la finestra può essere manualmente ridimensionata dall'utente.
 
 #### `win.isResizable()`
 
-Returns `Boolean` - Whether the window can be manually resized by user.
+Restituisce `Boolean` - Se la finestra può essere manualmente ridimensionata dall'utente.
 
 #### `win.setMovable(movable)` *macOS* *Windows*
 
 * `movable` Boolean
 
-Sets whether the window can be moved by user. On Linux does nothing.
+Imposta se la finestra può essere mossa dall'utente. Su Linux non fa niente.
 
 #### `win.isMovable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be moved by user.
+Restituisce `Boolean` - Se la finestra può essere mossa dall'utente.
 
-On Linux always returns `true`.
+Su Linux restituisce sempre `true`.
 
 #### `win.setMinimizable(minimizable)` *macOS* *Windows*
 
 * `minimizable` Boolean
 
-Sets whether the window can be manually minimized by user. On Linux does nothing.
+Imposta se la finestra può essere manualmente minimizzata dall'utente. Su Linux non fa niente.
 
 #### `win.isMinimizable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually minimized by user
+Restituisce `Boolean` - Se la finestra può essere manualmente minimizzata dall'utente
 
-On Linux always returns `true`.
+Su Linux restituisce sempre `true`.
 
 #### `win.setMaximizable(maximizable)` *macOS* *Windows*
 
 * `maximizable` Boolean
 
-Sets whether the window can be manually maximized by user. On Linux does nothing.
+Imposta se la finestra può essere manualmente massimizzata dall'utente. Su Linux non fa niente.
 
 #### `win.isMaximizable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually maximized by user.
+Restituisce `Boolean` - Se la finestra può essere manualmente massimizzata dall'utente.
 
-On Linux always returns `true`.
+Su Linux restituisce sempre `true`.
 
 #### `win.setFullScreenable(fullscreenable)`
 
 * `fullscreenable` Boolean
 
-Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+Imposta se il pulsante massimizza/ingrandisci alterna modalità schermo intero o massimizza la finestra.
 
 #### `win.isFullScreenable()`
 
-Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+Restituisce `Boolean` - Se il pulsante massimizza/ingrandisci alterna tra la modalità schermo intero o massimizza la finestra.
 
 #### `win.setClosable(closable)` *macOS* *Windows*
 
 * `closable` Boolean
 
-Sets whether the window can be manually closed by user. On Linux does nothing.
+Imposta se la finestra può essere manualmente chiusa dall'utente. Su Linux non fa niente.
 
 #### `win.isClosable()` *macOS* *Windows*
 
-Returns `Boolean` - Whether the window can be manually closed by user.
+Restituisce `Boolean` - Se la finestra può essere manualmente chiusa dall'utente.
 
-On Linux always returns `true`.
+Su Linux restituisce sempre `true`.
 
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
@@ -768,15 +773,19 @@ On Linux always returns `true`.
 * `level` String (opzionale) *macOS* - I valori includono `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, e ~~`dock`~~ (Deprecato). Il valore predefinito è `floating`. Vedi [Documentazione macOS](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) per maggiori dettagli.
 * `relativeLevel` Integer (opzionale) *macOS* - Il numero di livelli più alto da impostare per finestra relativa dato un `livello`. Il valore di default è `0`. Nota che Apple scoraggia di impostare livelli più alti del 1 o al di sopra dello `screen-saver`.
 
-Sets whether the window should show always on top of other windows. After setting this, the window is still a normal window, not a toolbox window which can not be focused on.
+Imposta se la finestra finestra dovrebbe mostrarsi sempre più in alto delle altre finestre. Dopo averla impostata, la finestra è ancora una normale finestra, non una finestra degli strumenti la quale non può essere focalizzata.
 
 #### `win.isAlwaysOnTop()`
 
-Returns `Boolean` - Whether the window is always on top of other windows.
+Restituisce `Boolean` - Se la finestra è sempre più in alto delle altre finestre.
+
+#### `win.moveTop()` *macOS* *Windows*
+
+Muove la finestra verso l'alto (ordine z) indipendentemente dal focus
 
 #### `win.center()`
 
-Moves window to the center of the screen.
+Muove la finestra al centro delle schermo.
 
 #### `win.setPosition(x, y[, animate])`
 
@@ -784,30 +793,30 @@ Moves window to the center of the screen.
 * `y` Integer
 * `animate` Boolean (opzionale) *macOS*
 
-Moves window to `x` and `y`.
+Move la finestra a `x` e `y`.
 
 #### `win.getPosition()`
 
-Returns `Integer[]` - Contains the window's current position.
+Restituisce `Integer[]` - Contiene la posizione corrente della finestra.
 
 #### `win.setTitle(title)`
 
 * `title` String
 
-Changes the title of native window to `title`.
+Cambia il titolo della finestra nativa a `title`.
 
 #### `win.getTitle()`
 
-Returns `String` - The title of the native window.
+Restituisce `String` - Il titolo della finestra nativa.
 
-**Note:** The title of web page can be different from the title of the native window.
+**Nota:** Il titolo della pagina web potrebbe essere differente dal titolo della finestra nativa.
 
 #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
 
 * `offsetY` Float
 * `offsetX` Float (opzionale)
 
-Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. For example:
+Cambia il punto di attacco per fogli su macOS. Di default, i fogli sono attaccati proprio sotto la cornice della finestra. ma tu potresti volerli visualizzare sotto una barra degli strumenti HTML. Per esempio:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -821,72 +830,72 @@ win.setSheetOffset(toolbarRect.height)
 
 * `flag` Boolean
 
-Starts or stops flashing the window to attract user's attention.
+Inizia o ferma di lampeggiare la finestra per attirare l'attenzione dell'utente.
 
 #### `win.setSkipTaskbar(skip)`
 
 * `skip` Boolean
 
-Makes the window not show in the taskbar.
+Fa si che la finestra non venga mostrata nella barra delle applicazioni.
 
 #### `win.setKiosk(flag)`
 
 * `flag` Boolean
 
-Enters or leaves the kiosk mode.
+Entra o esce in modalità kiosk.
 
 #### `win.isKiosk()`
 
-Returns `Boolean` - Whether the window is in kiosk mode.
+Restituisce `Boolean` - Se la finestra è in modalità kiosk.
 
 #### `win.getNativeWindowHandle()`
 
-Returns `Buffer` - The platform-specific handle of the window.
+Restituisce `Buffer` - Il gestore della piattaforma specifica della finestra.
 
-The native type of the handle is `HWND` on Windows, `NSView*` on macOS, and `Window` (`unsigned long`) on Linux.
+Il tipo nativo del gestore è `HWND` su Windows, `NSView*` su macOS, e `Window` (`unsigned long`) su Linux.
 
 #### `win.hookWindowMessage(message, callback)` *Windows*
 
 * `message` Integer
 * `callback` Function
 
-Hooks a windows message. The `callback` is called when the message is received in the WndProc.
+Aggancia un messaggio alla finestra. La `callback` è chiamata quando il messaggio è ricevuto in WndProc.
 
 #### `win.isWindowMessageHooked(message)` *Windows*
 
 * `message` Integer
 
-Returns `Boolean` - `true` or `false` depending on whether the message is hooked.
+Restituisce `Boolean` - `true` or `false` a seconda se il messaggio è agganciato.
 
 #### `win.unhookWindowMessage(message)` *Windows*
 
 * `message` Integer
 
-Unhook the window message.
+Sgancia il messaggio dalla finestra.
 
 #### `win.unhookAllWindowMessages()` *Windows*
 
-Unhooks all of the window messages.
+Sgancia tutti i messaggi dalla finestra.
 
 #### `win.setRepresentedFilename(filename)` *macOS*
 
 * `filename` String
 
-Sets the pathname of the file the window represents, and the icon of the file will show in window's title bar.
+Imposta il percorso del file che la finestra rappresenta, e l'icona del file che verrà mostrata sulla barra del titolo della finestra.
 
 #### `win.getRepresentedFilename()` *macOS*
 
-Returns `String` - The pathname of the file the window represents.
+Restituisce `String` - Il percorso del file che rappresenta la finestra.
 
 #### `win.setDocumentEdited(edited)` *macOS*
 
 * `edited` Boolean
 
-Specifies whether the window’s document has been edited, and the icon in title bar will become gray when set to `true`.
+Specifica se il documento della finestra è stato modificato, e l'icona nella barra del titolo diventerà grigia quando viene impostato su `true`.
 
 #### `win.isDocumentEdited()` *macOS*
 
-Returns `Boolean` - Whether the window's document has been edited.
+Restituisce `Boolean` - Se il documento della finestra è stato modificato.
 
 #### `win.focusOnWebView()`
 
@@ -898,19 +907,19 @@ Returns `Boolean` - Whether the window's document has been edited.
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
-Same as `webContents.capturePage([rect, ]callback)`.
+Uguale a`webContents.capturePage([rect, ]callback)`.
 
-#### `win.loadURL(url[, options])`
+#### `win.loadURL(url[, opzioni])`
 
 * `url` Stringa
 * `options` Object (opzionale) 
-  * `httpReferrer` String (optional) - A HTTP Referrer url.
+  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (opzionale) - Un HTTP Referrer url.
   * `userAgent` String (opzionale) - Un user agent originato dalla richiesta.
   * `extraHeaders` String (opzionale) - Extra headers separati da "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (opzionale)
   * `baseURLForDataURL` String (opzionale) - Url di base (con il separatore del percorso) per file da caricare dal data url. Questo è necessario solo se l'`url` specificato è un data url e necessita di carica altri file.
 
-Same as `webContents.loadURL(url[, options])`.
+Uguale a `webContents.loadURL(url[, options])`.
 
 The `url` can be a remote address (e.g. `http://`) or a path to a local HTML file using the `file://` protocol.
 
@@ -954,7 +963,7 @@ Same as `webContents.reload`.
 
 Sets the `menu` as the window's menu bar, setting it to `null` will remove the menu bar.
 
-#### `win.setProgressBar(progress[, options])`
+#### `win.setProgressBar(progress[, opzioni])`
 
 * `progress` Double
 * `options` Object (opzionale) 
@@ -997,6 +1006,12 @@ Sets the opacity of the window. On Linux does nothing.
 
 Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque)
 
+#### `win.setShape(rects)` *Windows* *Linux* *Experimental*
+
+* `rects` [Rectangle[]](structures/rectangle.md) - Sets a shape on the window. Passing an empty list reverts the window to being rectangular.
+
+Setting a window shape determines the area within the window where the system permits drawing and user interaction. Outside of the given region, no pixels will be drawn and no mouse events will be registered. Mouse events outside of the region will not be received by that window, but will fall through to whatever is behind the window.
+
 #### `win.setThumbarButtons(buttons)` *Windows*
 
 * `buttons` [ThumbarButton[]](structures/thumbar-button.md)
@@ -1010,7 +1025,7 @@ The number of buttons in thumbnail toolbar should be no greater than 7 due to th
 The `buttons` is an array of `Button` objects:
 
 * `Button` Oggetto 
-  * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
+  * `icon` [NativeImage](native-image.md) - L'icona mostrata nella barra degli strumenti come anteprima.
   * `click` Funzione
   * `tooltip` Stringa (opzionale) - Il testo del tooltip del pulsante.
   * `flags` Stringa[] (opzionale) - Controlla specifici comportamenti e comportamenti del pulsante. Di default è `['enabled']`.
@@ -1095,11 +1110,11 @@ Returns `Boolean` - Whether the window is visible on all workspaces.
 
 **Note:** This API always returns false on Windows.
 
-#### `win.setIgnoreMouseEvents(ignore[, options])`
+#### `win.setIgnoreMouseEvents(ignore[, opzioni])`
 
 * `ignore` Boolean
 * `options` Object (opzionale) 
-  * `forward` Boolean (optional) *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Only used when `ignore` is true. If `ignore` is false, forwarding is always disabled regardless of this value.
+  * `forward` Boolean (optional) *macOS* *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Only used when `ignore` is true. If `ignore` is false, forwarding is always disabled regardless of this value.
 
 Makes the window ignore all mouse events.
 
@@ -1179,7 +1194,7 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 **Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
-#### `win.setBrowserView(browserView)` *Experimental*
+#### `win.setBrowserView(browserView)` *Sperimentale*
 
 * `browserView` [BrowserView](browser-view.md)
 
