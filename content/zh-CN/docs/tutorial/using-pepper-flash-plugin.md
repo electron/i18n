@@ -13,7 +13,7 @@ On macOS and Linux, the details of the Pepper Flash plugin can be found by navig
 例如：
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 const path = require('path')
 
 // 指定 flash 路径，假定它与 main.js 放在同一目录中。
