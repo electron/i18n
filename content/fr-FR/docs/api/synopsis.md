@@ -6,9 +6,9 @@ Tous les [modules intégrés de Node.js](https://nodejs.org/api/) sont disponibl
 
 Electron fournit également quelques modules supplémentaires intégrés pour le développement d'application de bureau natives. Certains modules sont seulement disponibles dans le processus main, d'autres sont seulement disponibles dans le processus renderer (page web), et certains peuvent être utilisés dans les deux processus.
 
-La règle de base est : si un module est une [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) ou un système de bas niveau est associé, il devrait être disponible dans le processus main. Vous devez être familier avec le concept de [processus main vs. processus renderer](../tutorial/quick-start.md#main-process) pour pouvoir utiliser ces modules.
+La règle de base est : si un module est une [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) ou un système de bas niveau est associé, il devrait être disponible dans le processus main. You need to be familiar with the concept of [main process vs. processus renderer](../tutorial/quick-start.md#main-process) pour pouvoir utiliser ces modules.
 
-Le script du processus main est simplement comme un script Node.js :
+The main process script is just like a normal Node.js script:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
@@ -34,7 +34,7 @@ Le processus renderer n'est pas différent d'une page web normale, à l'exceptio
 </html>
 ```
 
-Pour lancer votre app, lisez [Lancer votre application](../tutorial/quick-start.md#run-your-app).
+To run your app, read [Run your app](../tutorial/quick-start.md#run-your-app).
 
 ## Affectation par décomposition
 
