@@ -1,10 +1,10 @@
-# ekran
+# screen
 
 > Ekran boyutu, ekranlar, imleç konumu vb. hakkında bilgi alın.
 
-İşlem: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+İşlem: [Ana](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-`uygulama` modülünün `hazır` olayı belirtilmeden bu modülü kullanamazsınız yada bu modüle gerek olmaz.
+`app` modülü `ready` yayınlanıncaya hazır olana kadar bu modülü kullanamazsınız.
 
 `screen` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -49,7 +49,7 @@ app.on('ready', () => {
 })
 ```
 
-## Events
+## Etkinlikler
 
 `ekran` modülü aşağıdaki olayları yayar:
 
@@ -57,7 +57,7 @@ app.on('ready', () => {
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `newDisplay` [Display](structures/display.md)
 
 `newDisplay` eklendiğinde ortaya çıkar.
@@ -66,7 +66,7 @@ Dönüşler:
 
 Dönüşler:
 
-* `event` Olay
+* `olay` Olay
 * `oldDisplay` [Display](structures/display.md)
 
 `oldDisplay` kaldırıldığında yayılır.
@@ -75,7 +75,7 @@ Dönüşler:
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `display` [Display](structures/display.md)
 * `changedMetrics` String[]
 
@@ -93,24 +93,24 @@ Fare işaretçisinin geçerli mutlak konumu.
 
 ### `screen.getMenuBarHeight()` *macOS*
 
-`Tamsayı` Dödürür - Menü çubuğunun piksel olarak yüksekliği.
+Returns `Integer` - The height of the menu bar in pixels.
 
 ### `screen.getPrimaryDisplay()`
 
-[`Ekran`](structures/display.md) Dödürür - Birincil görüntü.
+Returns [`Display`](structures/display.md) - The primary display.
 
 ### `screen.getAllDisplays()`
 
-[`Görüntü[]`](structures/display.md) Dödürür - Şu anda mevcut ekran görüntüleri dizisi.
+Returns [`Display[]`](structures/display.md) - An array of displays that are currently available.
 
 ### `screen.getDisplayNearestPoint(point)`
 
 * `nokta` [Nokta](structures/point.md)
 
-[`Görüntü`](structures/display.md) Dödürür - Belirtilen noktaya en yakın ekran.
+Returns [`Display`](structures/display.md) - The display nearest the specified point.
 
 ### `screen.getDisplayMatching(rect)`
 
 * `dikdörtgen` [Dikdörtgen](structures/rectangle.md)
 
-[`Görüntü`](structures/display.md) - En yakından izlenen ekran verilen sınırları kesişir.
+Returns [`Display`](structures/display.md) - The display that most closely intersects the provided bounds.
