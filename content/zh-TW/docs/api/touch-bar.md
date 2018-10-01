@@ -2,7 +2,7 @@
 
 > 在 macOS 原生應用程式中建立 Touch Bar 配置。
 
-處理序: [主處理序](../tutorial/quick-start.md#main-process)
+Process: [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBar(options)` *試驗中*
 
