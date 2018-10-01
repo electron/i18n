@@ -53,15 +53,15 @@ To capture both audio and video from the entire desktop the constraints passed t
 const constraints = {
   audio: {
     mandatory: {
-      chromeMediaSource: 'desktop'
-    }
+      chromeMediaSource: 'desktop' 
+   }
   },
   video: {
     mandatory: {
       chromeMediaSource: 'desktop'
-    }
+   }
   }
-}
+ }
 ```
 
 ## Metody
