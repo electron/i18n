@@ -34,7 +34,7 @@ L'objet `autoUpdater` émet les événements suivants :
 
 ### Événement : 'error'
 
-Renvoie :
+Retourne :
 
 * `error` Error
 
@@ -56,7 +56,7 @@ Renvoie :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `releaseNotes` String
 * `releaseName` String
 * `releaseDate` Date
