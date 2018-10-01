@@ -720,7 +720,7 @@ Rückgabewert:
   
   Returns `Boolean` - Whether the window can be moved by user.
   
-  On Linux always returns `true`.
+  Unter Linux wird immer `true` zurückgegeben.
   
   #### `win.setMinimizable(minimizable)` *macOS* *Windows*
   
@@ -732,7 +732,7 @@ Rückgabewert:
   
   Returns `Boolean` - Whether the window can be manually minimized by user
   
-  On Linux always returns `true`.
+  Unter Linux wird immer `true` zurückgegeben.
   
   #### `win.setMaximizable(maximizable)` *macOS* *Windows*
   
@@ -744,7 +744,7 @@ Rückgabewert:
   
   Returns `Boolean` - Whether the window can be manually maximized by user.
   
-  On Linux always returns `true`.
+  Unter Linux wird immer `true` zurückgegeben.
   
   #### `win.setFullScreenable(fullscreenable)`
   
@@ -760,13 +760,13 @@ Rückgabewert:
   
   * `closable` Boolean
   
-  Sets whether the window can be manually closed by user. On Linux does nothing.
+  Gibt vor ob das Fenster manuell durch den Nutzer geschlossen werden kann. Unter Linux tut diese Option nichts.
   
   #### `win.isClosable()` *macOS* *Windows*
   
-  Returns `Boolean` - Whether the window can be manually closed by user.
+  Gibt `Boolean` zurück - Gibt an ob das Fenster durch den Nutzer manuell geschlossen werden kann.
   
-  On Linux always returns `true`.
+  Unter Linux wird immer `true` zurückgegeben.
   
   #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
   
@@ -1026,7 +1026,7 @@ Rückgabewert:
   The `buttons` is an array of `Button` objects:
   
   * `Button` Object 
-    * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
+    * ` Icon ` [ NativeImage ](native-image.md)-das Symbol zeigt in Thumbnail Leiste.
     * ` Klicken Sie auf ` Funktion
     * ` Tooltip ` String (optional)-der Text der Tooltip der Schaltfläche.
     * ` Flags ` String [] (optional)-Steuern Sie bestimmte Zustände und Verhaltensweisen der Schalt. Standardmäßig ist es ` [' Enabled '] `.
@@ -1194,7 +1194,7 @@ Rückgabewert:
   
   **Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
   
-  #### `win.setBrowserView(browserView)` *Experimental*
+  #### `win.setBrowserView(browserView)` *Experimentell*
   
   * `browserView` [BrowserView](browser-view.md)
   #### `win.getBrowserView()` *Experimental*
