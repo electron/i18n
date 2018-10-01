@@ -236,33 +236,33 @@ win.on('hide', () => {
 #### `tray.displayBalloon(options)` *Windows*
 
 * `seçenekler` Nesne 
-  * `icon` ([NativeImage](native-image.md) | String) (isteğe bağlı) -
+  * `icon` ([NativeImage](native-image.md) | String) (optional) -
   * `title` String
-  * `content` Dizge
+  * `content` String
 
-Bir tepsi balonunu görüntüler.
+Displays a tray balloon.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
-* `menu` Menü (İsteğe bağlı)
-* `position` [Point](structures/point.md) (İsteğe bağlı) - Pop up pozisyonu.
+* `menu` Menu (optional)
+* `position` [Point](structures/point.md) (optional) - The pop up position.
 
-Tepsi simgesininİçerik menüsünü açar. `menu` geçildiğinde, `menu` tepsi simgesi içerik menüsü yerine açılır.
+Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
 
-`position` yalnızca Windows'ta kullanılabilir ve varsayılan olarak (0, 0) değerindedir.
+The `position` is only available on Windows, and it is (0, 0) by default.
 
 #### `tray.setContextMenu(menu)`
 
-* `menu` Menü
+* `menu` Menü | boş
 
-Bu simgenin bağlam menüsünü ayarlar.
+Sets the context menu for this icon.
 
 #### `tray.getBounds()` *macOS* *Windows*
 
 [`Rectangle`](structures/rectangle.md) döndürür
 
-`bounds` tepsi simgesinin `Object`' i olarak belirtilir.
+The `bounds` of this tray icon as `Object`.
 
 #### `tray.isDestroyed()`
 
-Returns `Boolean` - Tepsi simgesinin yok edilip edilmediği.
+Returns `Boolean` - Whether the tray icon is destroyed.
