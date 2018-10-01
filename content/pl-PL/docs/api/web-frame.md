@@ -54,8 +54,8 @@ Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
 
 * `language` String
 * `autoCorrectWord` Boolean
-* `provider` Obiekt 
-  * `spellCheck` Function - Returns `Logiczny typ danych`. 
+* `provider` Object 
+  * `spellCheck` Function - Returns `Boolean`. 
     * `text` String
 
 Sets a provider for spell checking in input fields and text areas.
@@ -161,6 +161,7 @@ Set the security origin of the isolated world.
 Returns `Object`:
 
 * `images` [MemoryUsageDetails](structures/memory-usage-details.md)
+* `scripts` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `cssStyleSheets` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `xslStyleSheets` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `fonts` [MemoryUsageDetails](structures/memory-usage-details.md)
@@ -173,7 +174,7 @@ const {webFrame} = require('electron')
 console.log(webFrame.getResourceUsage())
 ```
 
-To wygeneruje:
+This will generate:
 
 ```javascript
 {
