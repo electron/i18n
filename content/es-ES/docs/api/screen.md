@@ -4,7 +4,7 @@
 
 Proceso: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-No puedes requerir o usar este módulo hasta que el evento `ready` de el módulo `app` sea emitido.
+No se puede solicitar o usar este módulo hasta que el evento `ready` del módulo `app` sea emitido.
 
 `screen` es un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -57,7 +57,7 @@ El módulo `screen` emite los siguientes eventos:
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `newDisplay` [Display](structures/display.md)
 
 Emitido cuando `newDisplay` ha sido añadido.
