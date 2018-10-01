@@ -1,9 +1,9 @@
-# Developing Electron
+# Desarrollando Electron
 
-These guides are intended for people working on the Electron project itself. For guides on Electron app development, see [/docs/README.md](../README.md#guides-and-tutorials).
+Estas guías están pensadas para gente que trabaja en el proyecto Electron. Para guías sobre el desarrollo de aplicaciones Electron, visita [/docs/README.md](../README.md#guides-and-tutorials).
 
 * [Código de conducta](../../CODE_OF_CONDUCT.md)
-* [Contributing to Electron](../../CONTRIBUTING.md)
+* [Contribuyendo a Electron](../../CONTRIBUTING.md)
 * [Problemas](issues.md)
 * [Pull Requests](pull-requests.md)
 * [Documentación guía de estilos](coding-style.md#documentation)
@@ -11,7 +11,7 @@ These guides are intended for people working on the Electron project itself. For
 * [Estilo de código](coding-style.md)
 * [Usar clang-format en código C++](clang-format.md)
 * [Resumen de compilación de sistemas](build-system-overview.md)
-* [Instrucciones de compilación (macOS)](build-instructions-osx.md)
+* [Instrucciones de compilación (macOS)](build-instructions-macos.md)
 * [Instrucciones de compilación (Windows)](build-instructions-windows.md)
 * [Instrucciones de compilación (Linux)](build-instructions-linux.md)
 * [Desarrollo de Chromium](chromium-development.md)
@@ -22,5 +22,5 @@ These guides are intended for people working on the Electron project itself. For
 * [Configuración del servidor de símbolos en el depurador](setting-up-symbol-server.md)
 * [Actualizando Chomium](upgrading-chromium.md)
 * [Actualización de Crashpad](upgrading-crashpad.md)
-* [Actualización del nodo](upgrading-node.md)
+* [Actualización de Node](upgrading-node.md)
 * [Publicar](releasing.md)
