@@ -2,17 +2,17 @@
 
 > Dokunmatik çubukta yerel macOS uygulamaları için bir popover oluşturun
 
-Süreç: [Ana](../tutorial/quick-start.md#main-process)
+Process: [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarPopover(options)` *Experimental*
 
-* `seçenekler` Nesne 
+* `seçenekler` Nesnesi 
   * `label` Dizge (isteğe bağlı) - açılır düğme metni.
   * `icon` [NativeImage](native-image.md) (isteğe bağlı) - Açılır düğme simgesi.
   * `items` [TouchBar](touch-bar.md) (isteğe bağlı) - Açılır pencerede görüntülenecek öğeler.
   * `showCloseButton` Mantıksal (isteğe bağlı) - açılır pencerenin solundaki kapat düğmesini görüntülemek için `true`, göstermek için `false`. Varsayılan `true`'tür.
 
-### Örnek özellikleri
+### Örnek Özellikler
 
 Aşağıdaki özellikler `TouchBarPover` örnekleri için uygundur:
 
