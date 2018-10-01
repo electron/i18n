@@ -2,7 +2,7 @@
 
 > Definisci scorciatoie tastiera.
 
-Gli acceleratori sono stringhe che possono contenere modificatori multipli e codici chiave combinati dal carattere `+` ed usate per definire le scorciatoie della tastiera attraverso la tua applicazione.
+Gli Accelerators sono Stringhe che possono contenere modificatori multipli e una singola chiave, combinati dal carattere `+`, e sono usate per definire delle scorciatoie della tastiera per tutta la tua applicazione.
 
 Esempi:
 
@@ -12,10 +12,11 @@ Esempi:
 Le scorciatoie sono registrate con il modulo [`Scorciatoiaglobale`](global-shortcut.md) usando il metodo [`registra`](global-shortcut.md#globalshortcutregisteraccelerator-callback).
 
 ```javascript
-const {app, globalShortcut} = richiedi('electron')
+const {app, globalShortcut} = require('electron')
+    
+    app.on('ready', () => {
+      // Register a 'CommandOrControl+Y' shortcut listener.
 
-App.on('pronto', () => {
- // Registra una scorciatoia d'ascolto 'ComandoOControllo+Y'.
   registro.Scorciatoiaglobale('ComandoOControllo+Y', () => {
    // Fai azioni con Y ed entrambi i Comando/Contollo premuti.
   })
