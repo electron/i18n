@@ -205,6 +205,18 @@ Menyetel teks hover untuk ikon baki ini.
   })
   ```
   
+  #### `tray.setIgnoreDoubleClickEvents(ignore)` *macOS*
+  
+  * `mengabaikan` Boolean
+  
+  Sets the option to ignore double click events. Ignoring these events allows you to detect every individual click of the tray icon.
+  
+  This value is set to false by default.
+  
+  #### `tray.getIgnoreDoubleClickEvents()` *macOS*
+  
+  Returns `Boolean` - Whether double click events will be ignored.
+  
   #### `tray.displayBalloon(options)` *Windows*
   
   * `pilihan` Sasaran 
