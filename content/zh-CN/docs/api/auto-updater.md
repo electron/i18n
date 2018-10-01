@@ -72,7 +72,7 @@
 
 ### `autoUpdater.setFeedURL(选项)`
 
-* `选项` Object 
+* `options` Object 
   * `url` String
   * `headers` Object (可选) *macOS* - HTTP 请求头。
   * `serverType` String (可选) *macOS* - `json` 或者 `default`, 有关更多信息，请参考 [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) 的自述文件(README)。
