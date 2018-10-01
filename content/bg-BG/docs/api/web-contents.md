@@ -331,7 +331,7 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 
 The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
-#### Събитие: 'login'
+#### Събитие: "вход"
 
 Връща:
 
