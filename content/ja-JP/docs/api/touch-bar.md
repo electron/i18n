@@ -2,7 +2,7 @@
 
 > ネイティブ macOS アプリ向けに、TouchBar レイアウトを作成します
 
-Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+プロセス: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new TouchBar(options)` *（実験的）*
 
