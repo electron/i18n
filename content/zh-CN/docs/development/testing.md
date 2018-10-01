@@ -4,7 +4,7 @@
 
 这个仓库为 JavaScript 和 C ++ 提供了linting 规则 - 以及单元和集成测试。 To learn more about Electron's coding style, please see the [coding-style](coding-style.md) document.
 
-## Linting
+## 提示
 
 为确保您的JavaScript符合Electron编码风格，请运行`npm run lint-js`，它将针对Electron本身以及单元运行`标准`测试。 如果您正在使用带有插件/插件系统的编辑器，则可能需要使用多个 [StandardJS插件](https://standardjs.com/#are-there-text-editor-plugins)之一来通知编码风格违规。
 
