@@ -69,7 +69,7 @@ win.show()
 
 ## クリックスルーウインドウ
 
-クリックスルーウインドウを作成する、すなわち、ウインドウにすべてのマウスイベントを無視させるには、[win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore) APIを呼び出して下さい。
+クリックスルーウインドウを作成する、すなわち、ウインドウにすべてのマウスイベントを無視させるには、[win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore-options) APIを呼び出して下さい。
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -115,7 +115,7 @@ button {
 }
 ```
 
-カスタムのタイトルバーだけをドラッグ可能に設定する場合、同時にタイトルバーのすべてのボタンをドラッグ不可にする必要があります。
+カスタムのタイトルバーをドラッグ可能に設定するだけの場合、同時にタイトルバーのすべてのボタンもドラッグ不可にする必要があります。
 
 ## テキストの選択
 
