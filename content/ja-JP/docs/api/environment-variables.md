@@ -73,3 +73,11 @@ Electronがクラッシュすると、コンソールにスタックトレース
 Electronがクラッシュすると、Windowsのクラッシュダイアログを表示します。
 
 `crashReporter` が開始されている場合、この環境変数は機能しません。
+
+### `ELECTRON_OVERRIDE_DIST_PATH`
+
+`electron` パッケージを実行しているとき、この変数は `npm install` によってダウンロードされた代わりの Electron の指定ビルドを使用するための `electron` コマンドを知らせます。 使い方:
+
+```sh
+export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/D
+```
