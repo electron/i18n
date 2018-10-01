@@ -2,7 +2,7 @@
 
 > Create and control browser windows.
 
-Process: [Main](../glossary.md#main-process)
+Proces: [Main](../glossary.md#main-process)
 
 ```javascript
 // In the main process.
@@ -110,7 +110,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 > Create and control browser windows.
 
-Process: [Main](../glossary.md#main-process)
+Proces: [Main](../glossary.md#main-process)
 
 `BrowserWindow` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
 
@@ -118,7 +118,7 @@ It creates a new `BrowserWindow` with native properties as set by the `options`.
 
 ### `new BrowserWindow([options])`
 
-* `options` Object (optional) 
+* `nastavení` Object (optional) 
   * `width` Integer (optional) - Window's width in pixels. Default is `800`.
   * `height` Integer (optional) - Window's height in pixels. Default is `600`.
   * `x` Integer (optional) (**required** if y is used) - Window's left offset from screen. Default is to center the window.
@@ -151,7 +151,7 @@ It creates a new `BrowserWindow` with native properties as set by the `options`.
   * `disableAutoHideCursor` Boolean (optional) - Whether to hide cursor when typing. Default is `false`.
   * `autoHideMenuBar` Boolean (optional) - Auto hide the menu bar unless the `Alt` key is pressed. Default is `false`.
   * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Default is `false`.
-  * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported). Default is `#FFF` (white).
+  * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported). Default is `#FFF` (white). If `transparent` is set to `true`, only values with transparent (`#00-------`) or opaque (`#FF-----`) alpha values are respected.
   * `hasShadow` Boolean (optional) - Whether window should have a shadow. This is only implemented on macOS. Default is `true`.
   * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
   * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Default is `false`.
@@ -206,7 +206,7 @@ It creates a new `BrowserWindow` with native properties as set by the `options`.
     * `contextIsolation` Boolean (optional) - Whether to run Electron APIs and the specified `preload` script in a separate JavaScript context. Defaults to `false`. The context that the `preload` script runs in will still have full access to the `document` and `window` globals but it will use its own set of JavaScript builtins (`Array`, `Object`, `JSON`, etc.) and will be isolated from any changes made to the global environment by the loaded page. The Electron API will only be available in the `preload` script and not the loaded page. This option should be used when loading potentially untrusted remote content to ensure the loaded content cannot tamper with the `preload` script and any Electron APIs being used. This option uses the same technique used by [Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment). You can access this context in the dev tools by selecting the 'Electron Isolated Context' entry in the combo box at the top of the Console tab. **Note:** This option is currently experimental and may change or be removed in future Electron releases.
     * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. Defaults to `false`. **Note:** This option is currently experimental.
     * `webviewTag` Boolean (optional) - Whether to enable the [`<webview>` tag](webview-tag.md). Defaults to the value of the `nodeIntegration` option. **Note:** The `preload` script configured for the `<webview>` will have node integration enabled when it is executed so you should ensure remote/untrusted content is not able to create a `<webview>` tag with a possibly malicious `preload` script. You can use the `will-attach-webview` event on [webContents](web-contents.md) to strip away the `preload` script and to validate or alter the `<webview>`'s initial settings.
-    * `additionArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app. Useful for passing small bits of data down to renderer process preload scripts.
+    * `additionalArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app. Useful for passing small bits of data down to renderer process preload scripts.
 
 When setting minimum or maximum window size with `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, it only constrains the users. It won't prevent you from passing a size that does not follow size constraints to `setBounds`/`setSize` or to the constructor of `BrowserWindow`.
 
@@ -903,7 +903,7 @@ Same as `webContents.capturePage([rect, ]callback)`.
 #### `win.loadURL(url[, options])`
 
 * `url` String
-* `options` Object (optional) 
+* `nastavení` Object (optional) 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
@@ -957,7 +957,7 @@ Sets the `menu` as the window's menu bar, setting it to `null` will remove the m
 #### `win.setProgressBar(progress[, options])`
 
 * `progress` Double
-* `options` Object (optional) 
+* `nastavení` Object (optional) 
   * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error` or `paused`.
 
 Sets progress value in progress bar. Valid range is [0, 1.0].
