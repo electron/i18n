@@ -7,7 +7,7 @@
 Puede usar el módulo [Menu](../api/menu.md) para configurar los accesos directos del teclado que serán disparados solo cuando la aplicación esté en foco. Para hacer eso, especifique un [`acelerador`] apropiadamente cuando cree un [Elemento del menú](../api/menu-item.md).
 
 ```js
-const {Menu, MenuItem} = require('electron')
+const { Menu, MenuItem } = require('electron')
 const menu = new Menu()
 
 menu.append(new MenuItem({
@@ -30,7 +30,7 @@ You can configure different key combinations based on the user's operating syste
 Puede usar el módulo [Acceso directo global](../api/global-shortcut.md) para detectar los eventos del teclado aún cuando la aplicación no tiene el foco de este.
 
 ```js
-const {app, globalShortcut} = require('electron')
+const { app, globalShortcut } = require('electron')
 
 app.on('ready', () => {
   globalShortcut.register('CommandOrControl+X', () => {
