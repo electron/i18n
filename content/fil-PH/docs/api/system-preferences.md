@@ -57,6 +57,13 @@ Naglalathala ng isang `event` bilang natibong paalala ng macOS. Ang `userInfo` a
 
 Inilalathala ang `event` bilang pansariling paalala ng macOS. Ang `userInfo` ay isang Object na naglalaman ng impormasyong diksyunaryo ng tagagamit na ipinapadala kasama ang paalala.
 
+### `systemPreferences.postWorkspaceNotification(event, userInfo)` *macOS*
+
+* `event` na String
+* `userInfo` na Object
+
+Naglalathala ng isang `event` bilang natibong paalala ng macOS. Ang `userInfo` ay isang object na naglalaman ng mga diksyunaryong impormasyon ng tagagamit na ipadala kasama ang paalala.
+
 ### `systemPreferences.subscribeNotification(event, callback)` *macOS*
 
 * `event` na String
@@ -75,12 +82,6 @@ Under the hood this API subscribes to `NSDistributedNotificationCenter`, example
 * `AppleColorPreferencesChangedNotification`
 * `AppleShowScrollBarsSettingChanged`
 
-### `systemPreferences.unsubscribeNotification(id)` *macOS*
-
-* `id` Integer
-
-Removes the subscriber with `id`.
-
 ### `systemPreferences.subscribeLocalNotification(event, callback)` *macOS*
 
 * `event` na String
@@ -90,11 +91,32 @@ Removes the subscriber with `id`.
 
 Kapareho ng `subscribeNotification`, pero gumagamit ng `NSNotificationCenter` para sa lokal na mga default. Kinakailangan ito para sa mga pangyayaring katulad ng `NSUserDefaultsDidChangeNotification`.
 
+### `systemPreferences.subscribeWorkspaceNotification(event, callback)` *macOS*
+
+* `event` na String
+* `callback` Punsyon 
+  * `event` na String
+  * `userInfo` na Object
+
+Same as `subscribeNotification`, but uses `NSWorkspace.sharedWorkspace.notificationCenter`. This is necessary for events such as `NSWorkspaceDidActivateApplicationNotification`.
+
+### `systemPreferences.unsubscribeNotification(id)` *macOS*
+
+* `id` Integer
+
+Removes the subscriber with `id`.
+
 ### `systemPreferences.unsubscribeLocalNotification(id)` *macOS*
 
 * `id` Integer
 
 Same as `unsubscribeNotification`, but removes the subscriber from `NSNotificationCenter`.
+
+### `systemPreferences.unsubscribeWorkspaceNotification(id)` *macOS*
+
+* `id` Integer
+
+Same as `unsubscribeNotification`, but removes the subscriber from `NSWorkspace.sharedWorkspace.notificationCenter`.
 
 ### `systemPreferences.registerDefaults(defaults)` *macOS*
 
@@ -122,7 +144,7 @@ Ang ilang mga sikat na `key` at `type` ay:
 ### `systemPreferences.setUserDefault(key, type, value)` *macOS*
 
 * `key` String
-* `type` String - See [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos].
+* `type` String - See [`getUserDefault`](#systempreferencesgetuserdefaultkey-type-macos).
 * `value` String
 
 Set the value of `key` in `NSUserDefaults`.
