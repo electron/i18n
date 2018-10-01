@@ -2,21 +2,21 @@
 
 > Harici web içeriğini yalıtılmış bir çerçeve ve işlemde görüntüleme.
 
-İşlem: [Renderer](../tutorial/quick-start.md#renderer-process)
+Process: [Renderer](../tutorial/quick-start.md#renderer-process)
 
-'Misafir' içeriğini (web sayfaları gibi) Electron uygulamanıza gömmek için `webview` etiketini kullanın. Misafir içeriği, `webview` kapsayıcısı tarafından kapsanır. Uygulamanızdaki gömülmüş bir sayfa, konuk içeriğinin nasıl düzenlendiğini ve oluşturulduğunu denetler.
+Use the `webview` tag to embed 'guest' content (such as web pages) in your Electron app. The guest content is contained within the `webview` container. An embedded page within your app controls how the guest content is laid out and rendered.
 
-Bir `iframe`'in aksine `webview`, uygulamanızdan ayrı bir süreçte çalışır. Web sayfanızla aynı izinlere sahip olmaz ve uygulamanız ile gömülmüş içerik arasındaki etkileşimler asenkrondur. Bu, gömülmüş içeriğe karşı uygulamanızı güvende tutar. **Not:** Ana sayfadan webview'de çağrılan yöntemlerin çoğu, ana işleme eş zamanlı olarak çağırılmasını gerektirir.
+Unlike an `iframe`, the `webview` runs in a separate process than your app. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content. **Note:** Most methods called on the webview from the host page require a synchronous call to the main process.
 
 ## Örnek
 
-Uygulamanıza bir web sayfası gömmek için, uygulamanızın gömücü sayfasına (misafir içeriğini görüntüleyen uygulama sayfasıdır) `webview` etiketini ekleyin. En basit biçiminde, `webview` etiketi, web sayfasının `src`'unu ve `webview` kapsayıcısının görünümünü denetleyen css stillerini içerir:
+To embed a web page in your app, add the `webview` tag to your app's embedder page (this is the app page that will display the guest content). In its simplest form, the `webview` tag includes the `src` of the web page and css styles that control the appearance of the `webview` container:
 
 ```html
 <webview id="foo" src="https://www.github.com/" style="display:inline-flex; width:640px; height:480px"></webview>
 ```
 
-Misafir içeriğini herhangi bir şekilde kontrol etmek isterseniz JavaScript'i yazabilirsiniz `webview` olaylarını görüntüler ve bu olaylar`webview` yöntemleridir. İki olay dinleyicisine sahip örnek kod: biri web sayfasını yüklemeye başlamak için dinlerken diğeri web sayfasının yüklemeyi durdurmasını dinler ve yükleme süresi boyunca bir "yükleme..." mesajı görüntüler:
+If you want to control the guest content in any way, you can write JavaScript that listens for `webview` events and responds to those events using the `webview` methods. Here's sample code with two event listeners: one that listens for the web page to start loading, the other for the web page to stop loading, and displays a "loading..." message during the load time:
 
 ```html
 <script>
@@ -38,11 +38,11 @@ Misafir içeriğini herhangi bir şekilde kontrol etmek isterseniz JavaScript'i 
 </script>
 ```
 
-## CSS stil notları
+## CSS Styling Notes
 
-Ürünün tam yüksekliğini ve genişliğini doldurmasını sağlamak için `display:flex;` `object` `webview` etiket stilini kullanır `webview` kapsayıcısı geleneksel sürüm ve flexbox planları birlikte kullanıldığında (v0.36.11'den beri) dahili olarak bulunduğunu lütfen dikkate alın. Lütfen varsayılanın üzerine yazma `display:flex;` Belirtilmediği sürece, CSS özelliği için düzen `display:inline-flex;`.
+Please note that the `webview` tag's style uses `display:flex;` internally to ensure the child `object` element fills the full height and width of its `webview` container when used with traditional and flexbox layouts (since v0.36.11). Please do not overwrite the default `display:flex;` CSS property, unless specifying `display:inline-flex;` for inline layout.
 
-`webview` 'un `hidden` veya `display: none;` sembolü kullanımı sırasında gizleniyor olmasıyla alakalı sorunlar vardır. Bu durum, içinde olan `browserplugin` nesnelerinin ve `webview` gizli değilken web sitesinin yüklenmesi olağan dışı kaplama tutumlarına neden olabilir. Önerilen yaklaşım, `webview` gizlemektir. `visibility: hidden`.
+`webview` has issues being hidden using the `hidden` attribute or using `display: none;`. It can cause unusual rendering behaviour within its child `browserplugin` object and the web page is reloaded when the `webview` is un-hidden. The recommended approach is to hide the `webview` using `visibility: hidden`.
 
 ```html
 <style>
@@ -57,9 +57,9 @@ Misafir içeriğini herhangi bir şekilde kontrol etmek isterseniz JavaScript'i 
 </style>
 ```
 
-## Etiket özellikleri
+## Tag Attributes
 
-`webview` etiketi aşağıdaki özellikleri destekler:
+The `webview` tag has the following attributes:
 
 ### `src`
 
@@ -67,11 +67,11 @@ Misafir içeriğini herhangi bir şekilde kontrol etmek isterseniz JavaScript'i 
 <webview src="https://www.github.com/"></webview>
 ```
 
-Görünür URL'yi döndürür. Bu özelliğe yazmak, üst düzey gezinimi başlatır.
+Returns the visible URL. Writing to this attribute initiates top-level navigation.
 
-`src` değerine kendi değerini atamak, mevcut sayfayı yeniden yükler.
+Assigning `src` its own value will reload the current page.
 
-`src` özelliği ayrıca `data:text/plain,Merhaba dünya!` gibi veri URL'lerini de kabul eder.
+The `src` attribute can also accept data URLs, such as `data:text/plain,Hello, world!`.
 
 ### `otomatik boyutlandır`
 
@@ -79,7 +79,7 @@ Görünür URL'yi döndürür. Bu özelliğe yazmak, üst düzey gezinimi başla
 <webview src="https://www.github.com/" autosize minwidth="576" minheight="432"></webview>
 ```
 
-Bu özellik varsa, `webview` `minwidth`, `minheight`, özellikleri tarafından belirtilen sınırlar içinde, kapsayıcısı otomatik olarak yeniden boyutlandırır `maxwidth` ve `maxheight`.</0>. Bu kısıtlamalar, `webview` `autosize` etkinleştirilmemişse. `autosize` etkinleştirildiğinde, `webview` dosya boyutu minimum değerlerden az veya maksimum değerden fazla olamaz.
+When this attribute is present the `webview` container will automatically resize within the bounds specified by the attributes `minwidth`, `minheight`, `maxwidth`, and `maxheight`. These constraints do not impact the `webview` unless `autosize` is enabled. When `autosize` is enabled, the `webview` container size cannot be less than the minimum values or greater than the maximum.
 
 ### `düğüm entegrasyonu`
 
@@ -87,7 +87,7 @@ Bu özellik varsa, `webview` `minwidth`, `minheight`, özellikleri tarafından b
 <webview src="http://www.google.com/" nodeintegration></webview>
 ```
 
-Bu özellik varsa, `webview` konuk sayfasında Node. js entegrasyona izin verir ve erişim için `require` ve `process` gibi Node. js API'lerini düşük seviyeli sistem kaynaklarına erişmek için kullanabilir. Node.js entegrasyon konuk sayfada varsayılan olarak devre dışıdır.
+When this attribute is present the guest page in `webview` will have node integration and can use node APIs like `require` and `process` to access low level system resources. Node integration is disabled by default in the guest page.
 
 ### `eklentiler`
 
@@ -95,7 +95,7 @@ Bu özellik varsa, `webview` konuk sayfasında Node. js entegrasyona izin verir 
 <webview src="https://www.github.com/" plugins></webview>
 ```
 
-Bu özellik bulunduğunda, `webview`'deki misafir sayfa tarayıcı eklentilerini kullanabilecektir. Eklentiler varsayılan olarak devre dışıdır.
+When this attribute is present the guest page in `webview` will be able to use browser plugins. Plugins are disabled by default.
 
 ### `önyükleme`
 
@@ -103,11 +103,11 @@ Bu özellik bulunduğunda, `webview`'deki misafir sayfa tarayıcı eklentilerini
 <webview src="https://www.github.com/" preload="./test.js"></webview>
 ```
 
-Konuk sayfasında diğer komut dosyaları çalıştırılmadan önce yüklenecek bir komut dosyasını belirtir. Komut dosyası URL'sinin protokolü, başlık altındaki misafir sayfasında `require` tarafından yükleneceğinden, `file:` veya `asar:` olmalıdır.
+Specifies a script that will be loaded before other scripts run in the guest page. The protocol of script's URL must be either `file:` or `asar:`, because it will be loaded by `require` in guest page under the hood.
 
-Konuk sayfasında hiçbir düğüm entegrasyonu yoksa, bu komut dosyası tüm Düğüm api'lerine yine de erişime sahip olacak, ama düğüm tarafından enjekte edilen genel nesneler, bu komut dosyası çalışmayı bitirdikten sonra silinecek.
+When the guest page doesn't have node integration this script will still have access to all Node APIs, but global objects injected by Node will be deleted after this script has finished executing.
 
-**Not:** Bu seçenek, `will-attach-webview` etkinliğinde belirtilmiş `webPreferences` içinde `preloadURL` olarak (`preload` olarak değil) görünecektir.
+**Note:** This option will be appear as `preloadURL` (not `preload`) in the `webPreferences` specified to the `will-attach-webview` event.
 
 ### `httpreferrer`
 
@@ -115,7 +115,7 @@ Konuk sayfasında hiçbir düğüm entegrasyonu yoksa, bu komut dosyası tüm D�
 <webview src="https://www.github.com/" httpreferrer="http://cheng.guru"></webview>
 ```
 
-Tüm sayfalar için yönlendiren URL'yi ayarlayın.
+Sets the referrer URL for the guest page.
 
 ### `kullanıcı temsilcisi`
 
@@ -123,7 +123,7 @@ Tüm sayfalar için yönlendiren URL'yi ayarlayın.
 <webview src="https://www.github.com/" useragent="Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; AS; rv:11.0) like Gecko"></webview>
 ```
 
-Sayfa gezinilmeden önce konuk sayfasının kullanıcı aracısını ayarlar. Bir kere sayfa yüklendiğinde, kullanıcı aracısını değiştirmek için `setUserAgent` yöntemini kullanın.
+Sets the user agent for the guest page before the page is navigated to. Once the page is loaded, use the `setUserAgent` method to change the user agent.
 
 ### `web güveliği devredışı`
 
@@ -131,7 +131,7 @@ Sayfa gezinilmeden önce konuk sayfasının kullanıcı aracısını ayarlar. Bi
 <webview src="https://www.github.com/" disablewebsecurity></webview>
 ```
 
-Bu özellik bulunduğunda, misafir sayfasında web güvenliği devre dışı bırakılacaktır. Web güvenliği varsayılan olarak etkindir.
+When this attribute is present the guest page will have web security disabled. Web security is enabled by default.
 
 ### `bölüm`
 
@@ -140,9 +140,9 @@ Bu özellik bulunduğunda, misafir sayfasında web güvenliği devre dışı bı
 <webview src="https://electronjs.org" partition="electron"></webview>
 ```
 
-Sayfanın kullandığı oturumu ayarlar. `partition` starts with `persist:`ile başlıyorsa, sayfa, uygulamanın aynı `partition` bölümüne sahip tüm sayfalar için kalıcı bir oturum kullanacaktır. hiçbir ` persist`: öneki yoksa, sayfa bellek içi oturumu. Aynı `partition`, değişkenine değer atayarak birden çok sayfada aynı oturumu paylaşabilirsiniz. `partition` ayıklanırsa, uygulamanın varsayılan oturumu kullanılır.
+Sets the session used by the page. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. Aynı `partition`, değişkenine değer atayarak birden çok sayfada aynı oturumu paylaşabilirsiniz. If the `partition` is unset then default session of the app will be used.
 
-Bu değer yalnızca ilk gezinmeden önce değiştirilebilir, çünkü oturum aktif bir oluşturucu sürecindeyken değiştiremezsiniz. Ardından, değeri bir DOM hatası ile başarısız olur.
+This value can only be modified before the first navigation, since the session of an active renderer process cannot change. Subsequent attempts to modify the value will fail with a DOM exception.
 
 ### `pop up'lara izin ver`
 
@@ -150,7 +150,7 @@ Bu değer yalnızca ilk gezinmeden önce değiştirilebilir, çünkü oturum akt
 <webview src="https://www.github.com/" allowpopups></webview>
 ```
 
-Bu özellik mevcut olduğunda tüm sayfaların yeni bir pencere açmasına izin verir. Açılır pencereler varsayılan olarak devre dışıdır.
+When this attribute is present the guest page will be allowed to open new windows. Popups are disabled by default.
 
 ### `web tercihleri`
 
@@ -158,17 +158,17 @@ Bu özellik mevcut olduğunda tüm sayfaların yeni bir pencere açmasına izin 
 <webview src="https://github.com" webpreferences="allowRunningInsecureContent, javascript=no"></webview>
 ```
 
-Web görünümünde ayarlanacak web tercihlerinde `, ` ile ayrılmış olarak belirten dizelerin bir listesi. Desteklenen tercih dizelerinin tam listesi şu adreste bulunabilir [BrowserWindow](browser-window.md#new-browserwindowoptions).
+A list of strings which specifies the web preferences to be set on the webview, separated by `,`. The full list of supported preference strings can be found in [BrowserWindow](browser-window.md#new-browserwindowoptions).
 
-Dize, içindeki özelliklerin türü ile aynı biçimi izler `window.open`. Bir ismin başına `true` boolean değeri verilir. Bir seçenek, izlediği değere `=` dahil edilerek başka bir değere dönüştürülebilir. `yes` ve `1` şeklinde özel değerler `true`, `no` ve `0` şeklindeki özel değerler de `false` olarak yorumlanır.
+The string follows the same format as the features string in `window.open`. A name by itself is given a `true` boolean value. A preference can be set to another value by including an `=`, followed by the value. Special values `yes` and `1` are interpreted as `true`, while `no` and `0` are interpreted as `false`.
 
-### `yanıp sönme özellikleri`
+### `blinkfeatures`
 
 ```html
 <webview src="https://www.github.com/" blinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-Yanıp sönme özelliklerini belirten dizi listeleri `,` ayrılarak etkinleştirilir. Desteklenen özellik dizilerinin tam listesi [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) dosyasında bulunabilir.
+A list of strings which specifies the blink features to be enabled separated by `,`. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) file.
 
 ### `yanıp sönme özelliklerini devre dışı bırak`
 
@@ -176,7 +176,7 @@ Yanıp sönme özelliklerini belirten dizi listeleri `,` ayrılarak etkinleştir
 <webview src="https://www.github.com/" disableblinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-Yanıp sönme özelliklerini belirten dizilerin listesi `,` ayrılarak devre dışı bırakılabilir. Desteklenen özellik dizilerinin tam listesi [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) dosyasında bulunabilir.
+A list of strings which specifies the blink features to be disabled separated by `,`. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) file.
 
 ### `guestinstance`
 
@@ -184,9 +184,9 @@ Yanıp sönme özelliklerini belirten dizilerin listesi `,` ayrılarak devre dı
 <webview src="https://www.github.com/" guestinstance="3"></webview>
 ```
 
-Web görüntülemeyi belirli bir web içeriğine bağlayan bir değer. Bir webview ilk defa yüklenildiğinde, yeni bir webContents yaratılır ve bu nitelik onun durum tanımlayıcısına ayarlanır. Bu niteliği yeni ya da var olan bir webview üzerine ayarlamak, onu o anki farklı bir webview haline getiren mevcut webContents'e bağlar.
+A value that links the webview to a specific webContents. When a webview first loads a new webContents is created and this attribute is set to its instance identifier. Setting this attribute on a new or existing webview connects it to the existing webContents that currently renders in a different webview.
 
-Var olan webview `destroy` etkinliğini görecektir ve bu durumda yeni bir url yüklendiğinde yeni bir webContents oluşturacaktır.
+The existing webview will see the `destroy` event and will then create a new webContents when a new url is loaded.
 
 ### `disableguestresize`
 
@@ -194,9 +194,9 @@ Var olan webview `destroy` etkinliğini görecektir ve bu durumda yeni bir url y
 <webview src="https://www.github.com/" disableguestresize></webview>
 ```
 
-Bu nitelik `webview`'ü sunduğunda, içeriklerinin boyutlandırılmalarını, `webview` öğesinin kendisini boyutlandırması durumunda engeller.
+When this attribute is present the `webview` contents will be prevented from resizing when the `webview` element itself is resized.
 
-Bu, [`webContents.setSize`](web-contents.md#contentssetsizeoptions) ile kombinasyonlu bir şekilde manuel olarak webview içeriklerini pencere büyüklüğüne boyutlandırmada kullanılabilir. Bu, içerikleri otomatik olarak yeniden boyutlandırmak için webview öğesi sınırlarına dayanmakla karşılaştırıldığında daha hızlı yeniden boyutlandırma yapabilir.
+This can be used in combination with [`webContents.setSize`](web-contents.md#contentssetsizeoptions) to manually resize the webview contents in reaction to a window size change. This can make resizing faster compared to relying on the webview element bounds to automatically resize the contents.
 
 ```javascript
 const {webContents} = require('electron')
@@ -223,9 +223,9 @@ win.on('resize', () => {
 
 ## Metodlar
 
-`webview` etiketi aşağıda yöntemlere sahiptir:
+The `webview` tag has the following methods:
 
-**Not:** Webview öğesi yöntemleri kullanmadan önce yüklenmiş olmalıdır.
+**Note:** The webview element must be loaded before using the methods.
 
 **Örnek**
 
@@ -239,80 +239,80 @@ webview.addEventListener('dom-ready', () => {
 ### `<webview>.loadURL(url[, options])`
 
 * `url` URL
-* `seçenekler` Obje (opsiyonel) 
+* `seçenekler` Nesne (isteğe bağlı) 
   * `httpReferrer` Dizgi (isteğe bağlı) - Bir HTTP başvuru bağlantısı.
   * `userAgent` Dizgi (isteğe bağlı) - İsteğin kaynağını oluşturan bir kullanıcı aracı.
   * `extraHeaders` Dizgi (isteğe bağlı) - "\n" ile ayrılan ek sayfa başlıkları
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (optional) -
   * `baseURLForDataURL` Dizgi (isteğe bağlı) - Veri bağlantıları tarafından dosyaların yükleneceği (Dizin ayracına sahip) temel bağlantı. Buna, sadece belirtilen `url` bir veri bağlantısıysa ve başka dosyalar yüklemesi gerekiyorsa, gerek duyulur.
 
-Webview'ün içinde `url`'i yükler, `url` prefix protokolünü içermelidir, örneğin: `http://` ya da `file://`.
+Loads the `url` in the webview, the `url` must contain the protocol prefix, e.g. the `http://` or `file://`.
 
 ### `<webview>.getURL()`
 
-Returns `String` - Misafir sayfasının URL'si.
+Returns `String` - The URL of guest page.
 
-### `<webview>.getURL()`
+### `<webview>.getTitle()`
 
-Returns `String` - Misafir sayfasının başlığı.
+Returns `String` - The title of guest page.
 
 ### `<webview>.isLoading()`
 
-Returns `Boolean` - Misafir sayfası hala kaynakları yüklüyorsa.
+Returns `Boolean` - Whether guest page is still loading resources.
 
 ### `<webview>.isWaitingForResponse()`
 
-Returns `Boolean` - Misafir sayfası, sayfanın ana kaynağından gelecek bir ilk-karşılığı bekliyorsa.
+Returns `Boolean` - Whether the guest page is waiting for a first-response for the main resource of the page.
 
-### `<webview>.dur()`
+### `<webview>.stop()`
 
 Bekleyen gezinmeleri durdurur.
 
-### `<webview>.yeniden yükle()`
+### `<webview>.reload()`
 
-Misafir sayfasını yeniden yükleyin.
+Reloads the guest page.
 
 ### `<webview>.reloadIgnoringCache()`
 
-Konuk sayfasını yeniden yükler ve önbellek yok sayılır.
+Reloads the guest page and ignores cache.
 
 ### `<webview>.canGoBack()`
 
-Döndür `Boolean` - Konuk sayfanın geri dönüp dönmeyeceğini belirtir.
+Returns `Boolean` - Whether the guest page can go back.
 
 ### `<webview>.canGoForward()`
 
-Returns `Boolean` - Misafir sayfası ilerleyebiliyorsa.
+Returns `Boolean` - Whether the guest page can go forward.
 
 ### `<webview>.canGoToOffset(offset)`
 
 * `offset` Tamsayı
 
-Returns `Boolean` - Misafir sayfası `offset`'e gidebiliyorsa.
+Returns `Boolean` - Whether the guest page can go to `offset`.
 
 ### `<webview>.clearHistory()`
 
-Gezinme geçmişini temizler.
+Gezinme geçmişini temizle.
 
 ### `<webview>.goBack()`
 
-Misafir sayfasını geri getirir.
+Makes the guest page go back.
 
 ### `<webview>.goForward()`
 
-Ziyaretçi sayfasını ilerletir.
+Makes the guest page go forward.
 
 ### `<webview>.goToIndex(index)`
 
 * `index` Tamsayı
 
-Belirtilen mutlak dizine gider.
+Navigates to the specified absolute index.
 
 ### `<webview>.goToOffset(offset)`
 
 * `offset` Tamsayı
 
-"Yürürlükteki girdi"den belirtilmiş göreli konuma (offsete) gider.
+"Geçerli girişten" belirtilen aralıkta gezinir.
 
 ### `<webview>.isCrashed()`
 
@@ -322,17 +322,17 @@ Belirtilen mutlak dizine gider.
 
 * `userAgent` Dizgi
 
-Konuk sayfasının kullanıcı aracısını geçersiz kılar.
+Overrides the user agent for the guest page.
 
 ### `<webview>.getUserAgent()`
 
-Returns `String` - Misafir sayfası için kullanıcı aracı.
+Returns `String` - The user agent for guest page.
 
 ### `<webview>.insertCSS(css)`
 
 * `css` Dizgi
 
-CSS'i misafir sayfasının içine yerleştirir.
+Injects CSS into the guest page.
 
 ### `<webview>.executeJavaScript(code[, userGesture, callback])`
 
@@ -341,103 +341,103 @@ CSS'i misafir sayfasının içine yerleştirir.
 * `geri aramak` Fonksiyon (isteğe bağlı) - Betik tamamlandıktan sonra çağrılır. 
   * `result` Any
 
-Sayfadaki `code`'u ölçer. `userGesture` kuruluysa, sayfada kullanıcı hareketleri bağlamını yaratır. `requestFullScreen` gibi kullanıcı hareketi gerektiren HTML API'ları, otomasyon için olan bu ayardan avantaj sağlayabilir.
+Sayfadaki `code`'u ölçer. If `userGesture` is set, it will create the user gesture context in the page. HTML APIs like `requestFullScreen`, which require user action, can take advantage of this option for automation.
 
 ### `<webview>.openDevTools()`
 
-Misafir sayfası için bir DevTools penceresi açar.
+Opens a DevTools window for guest page.
 
 ### `<webview>.closeDevTools()`
 
-Misafir sayfasının DevTools penceresini kapatır.
+Closes the DevTools window of guest page.
 
 ### `<webview>.isDevToolsOpened()`
 
-Returns `Boolean` - Misafir sayfasına DevTools penceresi sabitlenmişse.
+Returns `Boolean` - Whether guest page has a DevTools window attached.
 
 ### `<webview>.isDevToolsFocused()`
 
-Returns `Boolean` - Misafir sayfasının DevTools penceresine odaklanıldığında.
+Returns `Boolean` - Whether DevTools window of guest page is focused.
 
 ### `<webview>.inspectElement(x, y)`
 
 * `x` Integer
 * `x` Integer
 
-Misafir sayfasının inceleyici öğesini (`x`, `y`) başlatır.
+Starts inspecting element at position (`x`, `y`) of guest page.
 
 ### `<webview>.inspectServiceWorker()`
 
-Konuk sayfasında bulunan hizmet çalışanı içeriği için DevTools'u açar.
+Opens the DevTools for the service worker context present in the guest page.
 
 ### `<webview>.setAudioMuted(muted)`
 
 * `muted` Boolean
 
-Misafir sayfası sessiz.
+Set guest page muted.
 
 ### `<webview>.isAudioMuted()`
 
-Returns `Boolean` - Misafir sayfası sessize alınmışsa.
+Returns `Boolean` - Whether guest page has been muted.
 
-### `<webview>.geri almak()`
+### `<webview>.undo()`
 
-Sayfada düzenleme komutu olan `undo`'yu yerine getirir.
+Executes editing command `undo` in page.
 
-### `<webview>.yeniden yapmak()`
+### `<webview>.redo()`
 
-Sayfada düzenleme komutu olan `redo`'yu yerine getirir.
+Executes editing command `redo` in page.
 
-### `<webview>.kes()`
+### `<webview>.cut()`
 
-Sayfada düzenleme komutu olan `cut`'ı yerine getirir.
+Executes editing command `cut` in page.
 
-### `<webview>.kopyala()`
+### `<webview>.copy()`
 
-Sayfada düzenleme komutu olan `copy`'yi yerine getirir.
+Executes editing command `copy` in page.
 
 ### `<webview>.paste()`
 
-Sayfada düzenleme komutu olan `paste`'i yerine getirir.
+Executes editing command `paste` in page.
 
 ### `<webview>.pasteAndMatchStyle()`
 
-Sayfada düzenleme komutu olan `pasteAndMatchStyle`'ı yerine getirir.
+Executes editing command `pasteAndMatchStyle` in page.
 
 ### `<webview>.delete()`
 
-Sayfada düzenleme komutu olan `delete`'i yerine getirir.
+Executes editing command `delete` in page.
 
 ### `<webview>.selectAll()`
 
-Sayfada düzenleme komutu olan `selectAll`'ı yerine getirir.
+Executes editing command `selectAll` in page.
 
 ### `<webview>.unselect()`
 
-Sayfada düzenleme komutu olan `unselect`'i yerine getirir.
+Executes editing command `unselect` in page.
 
 ### `<webview>.replace(text)`
 
 * `text` String
 
-Sayfada düzenleme komutu olan `replace`'i yerine getirir.
+Executes editing command `replace` in page.
 
 ### `<webview>.replaceMisspelling(text)`
 
 * `text` Dizi
 
-Sayfada düzenleme komutu olan `replaceMisspelling`'i yerine getirir.
+Executes editing command `replaceMisspelling` in page.
 
 ### `<webview>.insertText(text)`
 
 * `text` Dizi
 
-Odaklanılan ögeye `text`'i ekler.
+Odaklanmış öğeye `metin` ekler.
 
 ### `<webview>.findInPage(text[, options])`
 
 * `text` Dizgi - Araştırılacak içerik, boş bırakılmaması zorunludur.
-* `seçenekler` Obje (opsiyonel) 
+* `seçenekler` Nesne (isteğe bağlı) 
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -450,35 +450,35 @@ Web sayfasındaki `metin` ile tüm eşleşenleri bulmak için bir istek başlat�
 
 ### `<webview>.stopFindInPage(action)`
 
-* `hareket` String - Bitişte, yerini alacak olayı belirtir [`<webview>.findInPage`](#webviewfindinpagetext-options) istek. 
-  * `clearSelection` - Seçimi temizler.
+* `hareket` String - Specifies the action to take place when ending [`<webview>.findInPage`](#webviewfindinpagetext-options) request. 
+  * `clearSelection` - Seçimi silin.
   * `keepSelection` - Seçimi normal bir seçime çevirir.
   * `activateSelection` - Odaklanır ve seçim ağına (node'a) tıklar.
 
-`action` ile sağlanan `webview` için herhangi `findInPage` isteğini durdurur.
+Stops any `findInPage` request for the `webview` with the provided `action`.
 
 ### `<webview>.print([options])`
 
-* `seçenekler` Obje (opsiyonel) 
+* `seçenekler` Nesne (isteğe bağlı) 
   * `silent` Boolean (isteğe bağlı) - Kullanıcıya yazdırma seçeneklerini sormaz. Varsayılan olarak `false`'tur.
   * `printBackground` Boolean (isteğe bağlı) - Ek olarak arkaplan rengini ve web sayfasının görüntüsünü de yazdırır. Varsayılan olarak `false`'tur.
-  * `deviceName` Dizgi (isteğe bağlı) - Kullanılacak cihaz ismini ayarlar. Varsayılan olarak `''`'tur.
+  * `deviceName` String (isteğe bağlı) - Kullanılacak yazıcının ismini ayarla. `''` varsayılandır.
 
-`webview`'ün web sayfasını yazdırır. Tıpkı `webContents.print([options])` gibi.
+Prints `webview`'s web page. Same as `webContents.print([options])`.
 
 ### `<webview>.printToPDF(options, callback)`
 
 * `seçenekler` Nesne 
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `pageSize` String (optional) - Specify page size of the generated PDF. `A3`, `A4`, `A%`, `Legal`, `Letter`, `Tabloid` veya mikron formatında `height` ve `width` içeren bir nesne olabilir.
+  * `pageSize` String (optional) - Specify page size of the generated PDF. `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` ya da micron olarak `height` ve `width` içeren bir nesne olabilir.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
-* `geri aramak` Function 
+* `geri aramak` Fonksiyon 
   * `error` Error
   * `data` Buffer
 
-`webview`'ün web sayfasını PDF olarak yazdırır, tıpkı `webContents.printToPDF(options, callback)` gibi.
+Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, callback)`.
 
 ### `<webview>.capturePage([rect, ]callback)`
 
@@ -486,16 +486,16 @@ Web sayfasındaki `metin` ile tüm eşleşenleri bulmak için bir istek başlat�
 * `geri aramak` Function 
   * `image` [NativeImage](native-image.md)
 
-`webview` sayfasının anlık görüntüsünü alır. Tıpkı `webContents.capturePage([rect, ]callback)` gibi.
+Captures a snapshot of the `webview`'s page. Same as `webContents.capturePage([rect, ]callback)`.
 
 ### `<webview>.send(channel[, arg1][, arg2][, ...])`
 
 * `channel` Dizesi
-* `...args` herhangi[]
+* `...args` any[]
 
 İşleyiciye ` kanal ` üzerinden eşzamansız bir ileti gönder, keyfi argümanlar da gönderebilirsiniz. The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
 
-Örnekler için [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) 'i ziyaret edin.
+See [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for examples.
 
 ### `<webview>.sendInputEvent(event)`
 
@@ -503,11 +503,11 @@ Web sayfasındaki `metin` ile tüm eşleşenleri bulmak için bir istek başlat�
 
 `event` girdisini sayfaya yollar.
 
-`event` nesnesinin detaylı açıklaması için [webContents.sendInputEvent](web-contents.md#contentssendinputeventevent) 'i ziyaret edin.
+See [webContents.sendInputEvent](web-contents.md#contentssendinputeventevent) for detailed description of `event` object.
 
 ### `<webview>.setZoomFactor(factor)`
 
-* `factor` Number - Yakınlaştırma faktörü.
+* `factor` Sayı - Yakınlaştırma değeri.
 
 Yakınlaştırma faktörünü belirtilen faktöre değiştirir. Yakınlaştırma faktörü yakınlaştırma yüzdesinin 100'e bölünmüşüdür, böylece % 300 = 3.0 olur.
 
@@ -523,24 +523,24 @@ Sayfadaki seçili sözcüğü arayan pop-up sözlüğünü gösterir.
 
 ### `<webview>.getWebContents()`
 
-Returns [`WebContents`](web-contents.md) - Web içerikleri `webview` ile ilişkilendirilmiştir.
+Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
 
-## DOM etkinlikleri
+## DOM events
 
-Aşağıdaki DOM etkinlikleri `webview` etiketinde kullanılabilir:
+The following DOM events are available to the `webview` tag:
 
-### Etkinlik: 'load-commit'
+### Event: 'load-commit'
 
 Dönüşler:
 
-* `url` Dize
+* `url` String
 * `isMainFrame` Boolean
 
-Bir yükleme işlendiğinde tetiklenir. Bu, subframe belge düzeyi yüklemeleri içinde olduğu kadar, mevcut belge içinde de gezinmeyi içerir, ancak eş zamanlı olmayan kaynak yüklemelerini içermez.
+Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
 
 ### Olay: 'did-finish-load'
 
-Gezinme bittiğinde tetiklenir, diğer bir ifadeyle sekmedeki topaç dönmeyi durduracaktır ve `onload` etkinliği gönderilecektir.
+Fired when the navigation is done, i.e. the spinner of the tab will stop spinning, and the `onload` event is dispatched.
 
 ### Olay: 'did-fail-load'
 
@@ -551,7 +551,7 @@ Dönüşler:
 * `validatedURL` Koşul
 * `isMainFrame` Boolean
 
-Bu etkinlik `did-finish-load` gibidir, fakat yükleme başarısız olduğunda veya iptal edildiğinde, örneğin: `window.stop()` çağrılır.
+This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
 
 ### Olay: 'did-frame-finish-load'
 
@@ -559,44 +559,44 @@ Dönüşler:
 
 * `isMainFrame` Boolean
 
-Bir kare, navigasyonunu tamamladığında tetiklenir.
+Fired when a frame has done navigation.
 
 ### Olay: 'did-start-loading'
 
-Sekmenin döndürücüsünün dönmeye başladığı andaki noktalara karşılık gelir.
+Corresponds to the points in time when the spinner of the tab starts spinning.
 
 ### Olay: 'did-stop-loading'
 
-Sekmenin döndürücüsünün dönmeyi durdurduğu andaki noktalara karşılık gelir.
+Corresponds to the points in time when the spinner of the tab stops spinning.
 
-### Olay: 'did-get-response-details'
+### Event: 'did-get-response-details'
 
 Dönüşler:
 
 * `status` Boolean
-* `newURL` Dize
-* `originalURL` Dize
-* `httpResponseCode` Tamsayı
-* `requestMethod` Dize
+* `newURL` String
+* `originalURL` String
+* `httpResponseCode` Integer
+* `requestMethod` String
 * `referrer` Dize
 * `headers` Nesne
 * `resourceType` Dize
 
-İstenen bir kaynağın geçerli olduğuyla ilgili ayrıntılar geldiğinde tetiklenir. `status` kaynağı yüklemek için olan soket bağlantısını belirtir.
+Fired when details regarding a requested resource is available. `status` indicates socket connection to download the resource.
 
-### Olay: 'did-get-redirect-request'
+### Event: 'did-get-redirect-request'
 
 Dönüşler:
 
-* `oldURL` Dize
-* `newURL` Dize
+* `oldURL` String
+* `newURL` String
 * `isMainFrame` Boolean
 
-Bir kaynak sorgulanırken yönlendirme alınırsa tetiklenir.
+Fired when a redirect was received while requesting a resource.
 
 ### Olay: 'dom-ready'
 
-Verilen karedeki belge yüklendiğinde tetiklenir.
+Fired when document in the given frame is loaded.
 
 ### Etkinlik: 'sayfa-başlığı-güncellendi'
 
@@ -605,23 +605,23 @@ Dönüşler:
 * `title` String
 * `explicitSet` Boolean
 
-Gezinme sırasında sayfa başlığı ayarlanırsa tetiklenir. Başlık dosya url'inden sentezlenmişse `explicitSet` yanlıştır.
+Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
 
 ### Olay: 'page-favicon-updated'
 
 Dönüşler:
 
-* `favicons` Dize[] - URL dizisi.
+* `favicons` String[] - URL'lerin dizilişleri.
 
-Sayfa favicon url'lerini aldığında tetiklenir.
+Fired when page receives favicon urls.
 
 ### Etkinlik: 'enter-html-full-screen'
 
-Tam ekran HTML API tarafından etkinleştirildiğinde ateşlenir.
+Fired when page enters fullscreen triggered by HTML API.
 
 ### Etkinlik: 'leave-html-full-screen'
 
-Tam ekran HTML API tarafından çıkıldığında ateşlenir.
+Fired when page leaves fullscreen triggered by HTML API.
 
 ### Etkinlik: 'console-message'
 
@@ -632,9 +632,9 @@ Dönüşler:
 * `line` Integer
 * `sourceId` String
 
-Misafir pencere konsol mesajı girdiğinde ateşlenir.
+Fired when the guest window logs a console message.
 
-Aşağıdaki örnek kod, günlük düzeyini veya diğer özellikleri dikkate almadan tüm günlük iletilerini karıştırıcının konsoluna iletir.
+The following example code forwards all log messages to the embedder's console without regard for log level or other properties.
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -649,12 +649,12 @@ Dönüşler:
 
 * `sonuç` Nesne 
   * `requestId` Tamsayı
-  * `activeMatchOrdinal` Tamsayı - Etkin eşleşmenin konumu.
-  * `matches` Tamsayı - Numaraların eşleştirilmesi.
-  * `selectionArea` Obje - Eşleşme bölgesinin koordinatları.
+  * `activeMatchOrdinal` Integer - Etkin olan eşleşmenin konumu.
+  * `matches` Integer - Eşleşmelerin sayısı.
+  * `selectionArea` Object - İlk eşleşme alanının koordinatları.
   * `finalUpdate` Boolean
 
-Bir sonuç [`webview.findInPage`](#webviewfindinpagetext-options) isteği için geçerli hale geldiğinde tetiklenir.
+Fired when a result is available for [`webview.findInPage`](#webviewfindinpagetext-options) request.
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -675,9 +675,9 @@ Dönüşler:
 * `disposition` Dize - `default`, `foreground-tab`, `background-tab`, `new-window`, `ave-to-disk` ve `other` olabilir.
 * `options` Object - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
 
-Misafir sayfası yeni bir tarayıcı penceresi açmaya çalıştığında tetiklenir.
+Fired when the guest page attempts to open a new browser window.
 
-Aşağıdaki örnek kod, sistemin varsayılan tarayıcısında yeni url'yi açar.
+The following example code opens the new url in system's default browser.
 
 ```javascript
 const {shell} = require('electron')
@@ -699,17 +699,17 @@ Dönüşler:
 
 Bir kullanıcı veya sayfa gezinme başlatmak istediğinde ortaya çıkar. `window.location` nesnesi değiştirildiğinde veya bir kullanıcı sayfadaki bir bağlantıyı tıklattığında olabilir.
 
-Bu olay navigasyon programlı bir şekilde `<webview>.loadURL` ve `<webview>.back` API gibi başlatıldığında sinyal yaymaz.
+This event will not emit when the navigation is started programmatically with APIs like `<webview>.loadURL` and `<webview>.back`.
 
-Sayfa içi navigasyon sırasında, çapa linklere tıklama ya da `window.location.hash` güncellendiğindede sinyal yaymaz. `did*navigate-in-page` olayını bu amaçla kullanınız.
+It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
-`event.preventDefault()` öğesinin çağırılmasının herhangi bir etkisi **yoktur**.
+Calling `event.preventDefault()` does **NOT** have any effect.
 
 ### Olay: 'did-navigate'
 
 Dönüşler:
 
-* `url` Dize
+* `url` String
 
 Bir gezinme yapıldığında ortaya çıkar.
 
@@ -720,7 +720,7 @@ Ayrıca, bağlı linkleri tıklama veya `window.location.hash` öğesini güncel
 Dönüşler:
 
 * `isMainFrame` Boolean
-* `url` Dize
+* `url` String
 
 Sayfa içi gezinme gerçekleştiğinde ortaya çıktı.
 
@@ -728,9 +728,9 @@ Sayfa içi gezinme gerçekleştiğinde, sayfa URL'si değişir, ancak sayfanın 
 
 ### Etkinlik: 'kapalı'
 
-Misafir sayfası kendisini kapatmaya çalıştığında tetiklenir.
+Fired when the guest page attempts to close itself.
 
-Misafir kapatmaya çalıştığında örnek kod `webview`, `about:blank` arasında dolaşmaya başlar.
+The following example code navigates the `webview` to `about:blank` when the guest attempts to close itself.
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -739,16 +739,16 @@ webview.addEventListener('close', () => {
 })
 ```
 
-### Etkinlik: 'ipc-message'
+### Event: 'ipc-message'
 
 Dönüşler:
 
 * `channel` Dizesi
 * `args` Array
 
-Ziyaretçi sayfası, katıştırıcı sayfasına bir eşzamansız mesaj gönderdiğinde tetiklenir.
+Fired when the guest page has sent an asynchronous message to embedder page.
 
-`sendToHost` yöntemi ve `ipc-message` etkinliği ile misafir sayfa ve gömülü sayfa arasında kolayca geçiş yapabilirsiniz:
+With `sendToHost` method and `ipc-message` event you can easily communicate between guest page and embedder page:
 
 ```javascript
 // In embedder page.
@@ -770,11 +770,11 @@ ipcRenderer.on('ping', () => {
 
 ### Etkinlik: 'çöktü'
 
-Renderer işlemi çöktüğünde tetiklenir.
+Fired when the renderer process is crashed.
 
-### Etkinlik: 'gpu-çöktü'
+### Event: 'gpu-crashed'
 
-Gpu işlemi çöktüğünde tetiklenir.
+Fired when the gpu process is crashed.
 
 ### Event: 'plugin-crashed'
 
@@ -783,19 +783,19 @@ Dönüşler:
 * `name` Dizi
 * `versiyon` String
 
-Plugin işlemi çöktüğünde tetiklenir.
+Fired when a plugin process is crashed.
 
 ### Etkinlik: 'yıkıldı'
 
-WebContents işlemi çöktüğünde tetiklenir.
+Fired when the WebContents is destroyed.
 
 ### Olay: Medya oynamaya başladı
 
-Medya oynatılmaya başladığında yayınlanır.
+Medya oynamaya başladığında belirir.
 
 ### Etkinlik: 'medya-duraklatıldı'
 
-Medya duraklatıldığında veya oynatma süresi bittiğinde belirir.
+Medya duraklatıldığında veya oynatıldığında yaydır.
 
 ### Olay: tema rengi değiştirildi
 
@@ -803,7 +803,7 @@ Dönüşler:
 
 * `themeColor` String
 
-Sayfanın tema rengi değiştiğinde belirtilir. Bu, genellikle bir meta etiketi ile karşılaşılmasından dolayıdır:
+Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
@@ -813,7 +813,7 @@ Sayfanın tema rengi değiştiğinde belirtilir. Bu, genellikle bir meta etiketi
 
 Dönüşler:
 
-* `url` Dize
+* `url` String
 
 Fare bir bağlantı üzerinden geçtiğinde veya klavyenin bir bağlantıya odaklamasını sağladığı zaman yayımlanır.
 
