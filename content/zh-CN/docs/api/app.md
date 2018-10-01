@@ -236,7 +236,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 * `webContents` [WebContents](web-contents.md)
 * `url` URL
 * `certificateList` [证书[]](structures/certificate.md)
-* `callback` Function - 回调函数 
+* `callback` Function 
   * `certificate` [证书](structures/certificate.md) (可选)
 
 当一个客户证书被请求的时候发出。
@@ -268,7 +268,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Function - 回调函数 
+* `callback` Function 
   * `username` String
   * `password` String
 
@@ -303,6 +303,23 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 当 Chrome 的辅助功能状态改变时触发。 当启用或禁用辅助技术时将触发此事件，例如屏幕阅读器 。 查看更多详情 https://www.chromium.org/developers/design-documents/accessibility
 
+### Event: 'session-created'
+
+返回:
+
+* `event` Event
+* `session` [Session](session.md)
+
+Emitted when Electron has created a new `session`.
+
+```javascript
+const {app} = require('electron')
+
+app.on('session-created', (event, session) => {
+  console.log(session)
+})
+```
+
 ## 方法
 
 ` app ` 对象具有以下方法:
@@ -325,7 +342,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 ### `app.relaunch([options])`
 
-* `选项` Object (可选) 
+* `options` Object (可选) 
   * `args` String[] (可选)
   * `execPath` String (可选)
 
@@ -395,12 +412,12 @@ app.exit(0)
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `选项` Object (可选) 
+* `options` Object (可选) 
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
     * `large` - *Linux*上是 48x48, *Windows* 上是 32x32, *macOS* 中无效
-* `callback` Function - 回调函数 
+* `callback` Function 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
@@ -516,7 +533,7 @@ API 在内部使用 Windows 注册表和 LSSetDefaultHandlerForURLScheme。
 
 ### `app.getJumpListSettings()` *Windows*
 
-返回 ` Object `:
+返回 `Object`:
 
 * `minItems` Integer - 将在跳转列表中显示项目的最小数量(有关此值的更详细描述，请参阅 [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
 * `removedItems` [JumpListItem[]](structures/jump-list-item.md) - `JumpListItem` 对象组成的数组，对应用户在跳转列表中明确删除的项目。 这些项目不能在 **next** 调用 `app.setJumpList()` 时重新添加到跳转列表中, Windows不会显示任何包含已删除项目的自定义类别.
@@ -601,7 +618,7 @@ app.setJumpList([
 
 ### `app.makeSingleInstance(callback)`
 
-* `callback` Function 
+* `callback` Function - 回调函数 
   * `argv` String[] - 第二个实例的命令行参数数组
   * `workingDirectory` String - 第二个实例的工作目录
 
@@ -677,7 +694,7 @@ app.on('ready', () => {
 
 ### `app.importCertificate(options, callback)` *LINUX*
 
-* `选项` Object 
+* `options` Object 
   * `certificate` String - pkcs12 文件的路径
   * `password` String - 证书的密码
 * `callback` Function - 回调函数 
@@ -715,7 +732,7 @@ app.on('ready', () => {
 
 在macOS系统中, 它展示在dock图标上。在Linux系统中, 它只适用于Unity启动器.
 
-** 注意: **Unity 启动器依赖于 `.desktop ` 文件, 获取更多信息, 请阅读 [ 桌面环境集成 ](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux)。
+** 注意: **Unity 启动器依赖于 `. desktop ` 文件, 获取更多信息, 请阅读 [ 桌面环境集成 ](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux)。
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
@@ -727,7 +744,7 @@ Returns `Boolean` - 当前桌面环境是否为 Unity 启动器
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `选项` Object (可选) 
+* `options` Object (可选) 
   * ` path `String (可选) * Windows *-要比较的可执行文件路径。默认为 ` process. execPath `。
   * ` 参数 `String [] (可选) * Windows *-要比较的命令行参数。默认为空数组。
 
@@ -783,14 +800,14 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
 
 ### `app.setAboutPanelOptions(options)` *macOS*
 
-* `选项` Object 
+* `options` Object 
   * `applicationName` String (可选) - 应用程序的名字
   * `applicationVersion` String (可选) - 应用程序版本
   * `copyright` String (可选) - 版权信息
   * `credits` String (可选) - 信用信息.
   * `version` String (可选) - 应用程序版本号
 
-设置 "关于" 面板选项。 这将覆盖应用程序的 `.plist ` 文件中定义的值。 更多详细信息, 请查阅 [ Apple 文档 ](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc)。
+设置 "关于" 面板选项。 这将覆盖应用程序的 `. plist ` 文件中定义的值。 更多详细信息, 请查阅 [ Apple 文档 ](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc)。
 
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
 
