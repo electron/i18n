@@ -30,7 +30,7 @@ El módulo `crashReporter` tiene los siguientes métodos:
 
 ### `crashReporter.start(options)`
 
-* `options` Object 
+* `opciones` Object 
   * `companyName` String (opcional)
   * `submitURL` String - URL a donde se enviarán los informes de errores como un POST.
   * `productName` String (opcional) - Por defecto es `app.getName()`.
