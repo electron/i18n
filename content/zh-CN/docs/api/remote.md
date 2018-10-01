@@ -137,16 +137,16 @@ const foo = require('electron').remote.require('./foo') // bar
 
 ### `remote.getCurrentWebContents()`
 
-Returns [`WebContents`](web-contents.md) - The web contents of this web page.
+返回 [`WebContents`](web-contents.md) - 此网页的 web 内容
 
 ### `remote.getGlobal(name)`
 
 * `name` String
 
-Returns `any` - The global variable of `name` (e.g. `global[name]`) in the main process.
+返回 ` any `-主进程中 ` name ` (例如 ` global[name]`) 的全局变量。
 
 ## 属性
 
 ### `remote.process`
 
-The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
+主进程中的 ` process ` 对象。这与 ` remote.getGlobal('process') ` 相同, 但已被缓存。
