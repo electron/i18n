@@ -2,7 +2,7 @@
 
 > Membuat kontrol tersegmentasi (tombol group) dimana satu tombol memiliki keadaan yang dipilih
 
-Proses: [ Utama](../tutorial/quick-start.md#main-process)
+Process: [Main](../tutorial/quick-start.md#main-process)
 
 ### ` TouchBarLabel baru (pilihan) </ 0> <em> Eksperimental </ 1></h3>
 
