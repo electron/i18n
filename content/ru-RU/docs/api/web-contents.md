@@ -4,7 +4,7 @@
 
 Process: [Main](../glossary.md#main-process)
 
-`webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). It is responsible for rendering and controlling a web page and is a property of the [`BrowserWindow`](browser-window.md) object. An example of accessing the `webContents` object:
+`webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Он ответственен за рендер и управление веб-страницы и является свойством объекта [`BrowserWindow`](browser-window.md). Пример доступа к объекту `webContents`:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -18,7 +18,7 @@ console.log(contents)
 
 ## Методы
 
-These methods can be accessed from the `webContents` module:
+Эти методы доступны из модуля `webContents`:
 
 ```javascript
 const {webContents} = require('electron')
@@ -27,21 +27,21 @@ console.log(webContents)
 
 ### `webContents.getAllWebContents()`
 
-Returns `WebContents[]` - An array of all `WebContents` instances. This will contain web contents for all windows, webviews, opened devtools, and devtools extension background pages.
+Возвращает `WebContents` - массив всех экземпляров `WebContents`. Этот массив содержит веб-контент всех окон, webviews, открытых инструментов разработчика и расширений инструментов разработчика на фоновых страницах.
 
 ### `webContents.getFocusedWebContents()`
 
-Returns `WebContents` - The web contents that is focused in this application, otherwise returns `null`.
+Возвращает `WebContents` - веб-контент, который сейчас активен в этом приложении, в ином случае возвращает `null`.
 
 ### `webContents.fromId(id)`
 
 * `id` Integer
 
-Returns `WebContents` - A WebContents instance with the given ID.
+Возвращает `WebContents` - экземпляр WebContents по заданному ID.
 
 ## Класс: WebContents
 
-> Render and control the contents of a BrowserWindow instance.
+> Рендерит и управляет контент экземпляра BrowserWindow.
 
 Process: [Main](../glossary.md#main-process)
 
@@ -80,7 +80,7 @@ Corresponds to the points in time when the spinner of the tab started spinning.
 
 Corresponds to the points in time when the spinner of the tab stopped spinning.
 
-#### Событие: 'did-get-response-details'
+#### Event: 'did-get-response-details'
 
 Возвращает:
 
@@ -96,7 +96,7 @@ Corresponds to the points in time when the spinner of the tab stopped spinning.
 
 Emitted when details regarding a requested resource are available. `status` indicates the socket connection to download the resource.
 
-#### Событие: 'did-get-redirect-request'
+#### Event: 'did-get-redirect-request'
 
 Возвращает:
 
@@ -245,7 +245,7 @@ Emitted when a plugin process has crashed.
 
 Emitted when `webContents` is destroyed.
 
-#### Событие: 'before-input-event'
+#### Event: 'before-input-event'
 
 Возвращает:
 
@@ -384,7 +384,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
-#### Событие: 'cursor-changed'
+#### Event: 'cursor-changed'
 
 Возвращает:
 
@@ -399,7 +399,7 @@ Emitted when the cursor's type changes. The `type` parameter can be `default`, `
 
 If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a [`NativeImage`](native-image.md), and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
 
-#### Событие: 'context-menu'
+#### Event: 'context-menu'
 
 Возвращает:
 
@@ -441,7 +441,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 Emitted when there is a new context menu that needs to be handled.
 
-#### Событие: 'select-bluetooth-device'
+#### Event: 'select-bluetooth-device'
 
 Возвращает:
 
@@ -471,7 +471,7 @@ app.on('ready', () => {
 })
 ```
 
-#### Событие: 'paint'
+#### Event: 'paint'
 
 Возвращает:
 
@@ -491,11 +491,11 @@ win.webContents.on('paint', (event, dirty, image) => {
 win.loadURL('http://github.com')
 ```
 
-#### Событие: 'devtools-reload-page'
+#### Event: 'devtools-reload-page'
 
 Emitted when the devtools window instructs the webContents to reload
 
-#### Событие: 'will-attach-webview'
+#### Event: 'will-attach-webview'
 
 Возвращает:
 
@@ -523,7 +523,7 @@ Emitted when a `<webview>` has been attached to this web contents.
 Возвращает:
 
 * `level` Integer
-* Строка `message`
+* `message` String
 * `line` Integer
 * `sourceId` String
 
@@ -708,7 +708,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Экспериментально*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
 
 * `ignore` Логическое значение
 
@@ -892,7 +892,7 @@ Returns [`PrinterInfo[]`](structures/printer-info.md).
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
-* `callback` Function (optional) 
+* `callback` Function (опционально) 
   * `success` Boolean - Indicates success of the print call.
 
 Prints window's web page. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
@@ -1292,4 +1292,4 @@ A `WebContents` of DevTools for this `WebContents`.
 
 #### `contents.debugger`
 
-Экземпляр [Отладчика](debugger.md) для webContents.
+A [Debugger](debugger.md) instance for this webContents.
