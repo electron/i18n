@@ -36,7 +36,7 @@ shell.openExternal('https://github.com')
 
 ### `shell.openExternal(url[, options, callback])`
 
-* `url` String - max 2081 characters on windows, or the function returns false.
+* `url` String - Windows では最大2081文字で、そうでないと関数は false を返します。
 * `options` Object (任意) *macOS* 
   * `activate` Boolean - `true` で開いたアプリケーションを前面に表示します。省略値は `true` です。
 * `callback` Function (任意) *macOS* - 指定されている場合は、非同期で開く処理を実行します。 
