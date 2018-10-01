@@ -34,7 +34,7 @@ Le processus renderer n'est pas différent d'une page web normale, à l'exceptio
 </html>
 ```
 
-To run your app, read [Run your app](../tutorial/first-app.md#running-your-app).
+Pour lancer votre app, lisez [Lancer votre application](../tutorial/first-app.md#running-your-app).
 
 ## Affectation par décomposition
 
