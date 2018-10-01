@@ -114,7 +114,7 @@ Inserts `text` to the focused element.
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
-* `code` Stringa
+* `codice` Stringa
 * `userGesture` Boolean (optional) - Default is `false`.
 * `callback` Function (optional) - Called after script has been executed. 
   * `result` Any
@@ -161,6 +161,7 @@ Set the security origin of the isolated world.
 Ritorna `Object`:
 
 * `images` [MemoryUsageDetails](structures/memory-usage-details.md)
+* `scripts` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `cssStyleSheets` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `xslStyleSheets` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `fonts` [MemoryUsageDetails](structures/memory-usage-details.md)
