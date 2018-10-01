@@ -81,12 +81,12 @@
   * [稳定分支](tutorial/electron-versioning.md#stabilization-branches)
   * [测试版和 Bug 修复](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
 * [深入: 用 asar 打包 App 源代码](tutorial/application-packaging.md) 
-  * [生成 asar 档案](tutorial/application-packaging.md#generating-asar-archives)
+  * [生成 asar 档案文件](tutorial/application-packaging.md#generating-asar-archives)
   * [使用 asar 档案文件](tutorial/application-packaging.md#using-asar-archives)
   * [局限性](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [添加未打包的文件到 asar 档案](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
+* [In Detail: Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
 * [深入: 使用 Pepper Flash 插件](tutorial/using-pepper-flash-plugin.md)
-* [深入: 使用 Widevine CDM 插件](tutorial/using-widevine-cdm-plugin.md)
 * [离屏渲染](tutorial/offscreen-rendering.md)
 
 * * *
