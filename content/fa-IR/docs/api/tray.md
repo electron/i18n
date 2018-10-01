@@ -235,7 +235,7 @@ win.on('hide', () => {
 
 #### `tray.displayBalloon(options)` *Windows*
 
-* `options` شئ 
+* `options` Object 
   * `icon` ([NativeImage](native-image.md) | String) (optional) -
   * `title` String
   * `content` String
@@ -253,7 +253,7 @@ The `position` is only available on Windows, and it is (0, 0) by default.
 
 #### `tray.setContextMenu(menu)`
 
-* `menu` Menu
+* `menu` Menu | null
 
 Sets the context menu for this icon.
 
