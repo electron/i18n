@@ -2,7 +2,7 @@
 
 > Lumikha nang tagapili ng kulay sa touch bar sa likas na macOS na mga aplikasyon
 
-Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+Proseso: [Pangunahing](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `bagong TouchBarColorPicker(options)` *Experimental*
 
