@@ -2,7 +2,7 @@
 
 > 在獨立的頁框及處理序中顯示外部網頁內容。
 
-處理序: [畫面轉譯器](../tutorial/quick-start.md#renderer-process)
+Process: [Renderer](../tutorial/quick-start.md#renderer-process)
 
 Use the `webview` tag to embed 'guest' content (such as web pages) in your Electron app. The guest content is contained within the `webview` container. An embedded page within your app controls how the guest content is laid out and rendered.
 
@@ -201,12 +201,13 @@ This can be used in combination with [`webContents.setSize`](web-contents.md#con
 ```javascript
 const {webContents} = require('electron')
 
-// 我們假設 `win` 指到包含 `disableguestresize` 的 `<webview>` 的 `BrowserWindow` 物件。
+// We assume that `win` points to a `BrowserWindow` instance containing a
+// `<webview>` with `disableguestresize`.
 
 win.on('resize', () => {
   const [width, height] = win.getContentSize()
   for (let wc of webContents.getAllWebContents()) {
-    // 檢查 `wc` 是否屬於 `win` 視窗中的 webview。
+    // Check if `wc` belongs to a webview in the `win` window.
     if (wc.hostWebContents &&
         wc.hostWebContents.id === win.webContents.id) {
       wc.setSize({
@@ -238,7 +239,7 @@ webview.addEventListener('dom-ready', () => {
 ### `<webview>.loadURL(url[, options])`
 
 * `url` URL
-* `options` Object (選用) 
+* `options` 物件 (選用) 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
@@ -436,7 +437,7 @@ Inserts `text` to the focused element.
 ### `<webview>.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `options` Object (選用) 
+* `options` 物件 (選用) 
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -524,11 +525,11 @@ Shows pop-up dictionary that searches the selected word on the page.
 
 Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
 
-## DOM 事件
+## DOM events
 
 The following DOM events are available to the `webview` tag:
 
-### 事件: 'load-commit'
+### Event: 'load-commit'
 
 回傳:
 
@@ -568,7 +569,7 @@ Corresponds to the points in time when the spinner of the tab starts spinning.
 
 Corresponds to the points in time when the spinner of the tab stops spinning.
 
-### 事件: 'did-get-response-details'
+### Event: 'did-get-response-details'
 
 回傳:
 
@@ -583,7 +584,7 @@ Corresponds to the points in time when the spinner of the tab stops spinning.
 
 Fired when details regarding a requested resource is available. `status` indicates socket connection to download the resource.
 
-### 事件: 'did-get-redirect-request'
+### Event: 'did-get-redirect-request'
 
 回傳:
 
@@ -610,7 +611,7 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 
 回傳:
 
-* `favicons` String[] - URL 陣列.
+* `favicons` String[] - URL 陣列。
 
 Fired when page receives favicon urls.
 
@@ -638,7 +639,7 @@ The following example code forwards all log messages to the embedder's console w
 ```javascript
 const webview = document.querySelector('webview')
 webview.addEventListener('console-message', (e) => {
-  console.log('訪客頁記了一筆訊息:', e.message)
+  console.log('Guest page logged a message:', e.message)
 })
 ```
 
@@ -738,7 +739,7 @@ webview.addEventListener('close', () => {
 })
 ```
 
-### 事件: 'ipc-message'
+### Event: 'ipc-message'
 
 回傳:
 
@@ -754,7 +755,7 @@ With `sendToHost` method and `ipc-message` event you can easily communicate betw
 const webview = document.querySelector('webview')
 webview.addEventListener('ipc-message', (event) => {
   console.log(event.channel)
-  // 列出 "pong"
+  // Prints "pong"
 })
 webview.send('ping')
 ```
@@ -771,7 +772,7 @@ ipcRenderer.on('ping', () => {
 
 Fired when the renderer process is crashed.
 
-### 事件: 'gpu-crashed'
+### Event: 'gpu-crashed'
 
 Fired when the gpu process is crashed.
 
