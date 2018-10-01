@@ -17,89 +17,29 @@ Electron'u inşaa etmek tamamen komut satırı betikleri üzerinden yapılır. V
 
 **Not:** Visual Studio inşaa için kullanılmasa da **gerekli** çünkü Visual Studio ile gelen inşaa yardımcılarını kullanıyoruz.
 
-## Kodu almak
-
-```powershell
-$ git clone https://github.com/electron/electron.git
-```
-
-## İlk işleri halletmek
-
-Ilk işleri halleden bootstrap betiği inşaa için gerekli olan bağımlılıkları indirir ve gerekli inşaa dosyalarını hazırlar. Dikkat ederseniz Electron'u inşaa etmek için `ninja` kullandığımız için herhangi bir Visual Studio projesi yaratılmıyor.
-
-To bootstrap for a static, non-developer build, run:
-
-```powershell
-$ cd electron
-$ npm run bootstrap
-```
-
-Or to bootstrap for a development session that builds faster by not statically linking:
-
-```powershell
-$ cd electron
-$ npm run bootstrap:dev
-```
-
 ## İnşaa
 
-Hem `Dağıtım` hem `Hata Ayıklama` hedefleri:
-
-```powershell
-$ npm run build
-```
-
-You can also build either the `Debug` or `Release` target on its own:
-
-```powershell
-$ npm run build:dev
-```
-
-```powershell
-$ npm run build:release
-```
-
-İnşaa tamamlandıktan sonra, `electron.exe`'yi `out\D` (hata ayıklama hedefi) veya `out\R` (Sürüm hedefi) altında bulabilirsiniz.
+See [Build Instructions: GN](build-instructions-gn.md)
 
 ## 32bit İnşaa
 
-32bit hedefleyerek inşaa etmek için, `--target_arch=ia32` parametresini bootstrap betiğine geçmeniz gerekir:
+To build for the 32bit target, you need to pass `target_cpu = "x86"` as a GN arg. You can build the 32bit target alongside the 64bit target by using a different output directory for GN, e.g. `out/Release-x86`, with different arguments.
 
 ```powershell
-$ python script\bootstrap.py -v --target_arch=ia32
+$ gn gen out/Release-x86 --args="import(\"//electron/build/args/release.gn\") target_cpu=\"x86\""
 ```
 
 Diğer inşaa adımları aynı bu şekilde.
 
 ## Visual Studio projesi
 
-Visual Studio projesi yaratmak için `--msvs` parametresini geçin:
+To generate a Visual Studio project, you can pass the `--ide=vs2017` parameter to `gn gen`:
 
 ```powershell
-$ python script\bootstrap.py --msvs
+$ gn gen out/Debug --ide=vs2017
 ```
 
-## Temizlik
-
-İnşaa dosyalarını temizlemek için:
-
-```powershell
-$ npm run clean
-```
-
-Sadece `out` and `dist` dizinlerini temizlemek için:
-
-```sh
-$ npm run clean-build
-```
-
-**Not:** Her iki temizleme komutu inşaa öncesi `bootstrap` çalıştırılmasını şart koşar.
-
-## Testler
-
-Burayı ziyaret edin: [İnşaa Sistemi Genel Görünümü: Testler](build-system-overview.md#tests)
-
-## Arıza giderme
+## Arıza Giderme
 
 ### Command xxxx not found
 
@@ -108,31 +48,6 @@ Burayı ziyaret edin: [İnşaa Sistemi Genel Görünümü: Testler](build-system
 ### Fatal internal compiler error: C1001
 
 Visual Studio'nun son sürümüne sahip olduğunuzdan emin olun.
-
-### Assertion failed: ((handle))->activecnt >= 0
-
-Cygwin altında inşaa deniyorsanız, `bootstrap.py`'nin şöyle bir hata çıkardığını görebilirsiniz:
-
-```sh
-Assertion failed: ((handle))->activecnt >= 0, file src\win\pipe.c, line 1430
-
-Traceback (most recent call last):
-  File "script/bootstrap.py", line 87, in <module>
-    sys.exit(main())
-  File "script/bootstrap.py", line 22, in main
-    update_node_modules('.')
-  File "script/bootstrap.py", line 56, in update_node_modules
-    execute([NPM, 'install'])
-  File "/home/zcbenz/codes/raven/script/lib/util.py", line 118, in execute
-    raise e
-subprocess.CalledProcessError: Command '['npm.cmd', 'install']' returned non-zero exit status 3
-```
-
-Bu hatanın sebebi Cygwin Python ve Win32 Node beraber kullanıldığında oluşan bir hatadır. Çözüm, Win32 Python ile boostrap betiğini çalıştırmaktır. (Python'u `C:\Python27` altına yüklediğinizi varsayarak):
-
-```powershell
-$ /cygdrive/c/Python27/python.exe script/bootstrap.py
-```
 
 ### LNK1181: cannot open input file 'kernel32.lib'
 
