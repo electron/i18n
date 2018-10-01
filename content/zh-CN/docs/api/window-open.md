@@ -2,7 +2,7 @@
 
 > 打开一个新窗口并加载 URL。
 
-When `window.open` is called to create a new window in a web page, a new instance of [`BrowserWindow`](browser-window.md) will be created for the `url` and a proxy will be returned to `window.open` to let the page have limited control over it.
+当调用 ` window.open` 以在网页中创建新窗口时，将为`url `创建一个新的[BrowserWindow](browser-window.md) 实例，并返回一个代理至 `window.open` 以让页面对其进行有限的控制。
 
 该代理具有有限的标准功能，与传统网页兼容。要完全控制新窗口，你应该直接创建一个` BrowserWindow `。
 
@@ -16,7 +16,13 @@ When `window.open` is called to create a new window in a web page, a new instanc
 
 Returns [`BrowserWindowProxy`](browser-window-proxy.md) - 创建一个新窗口，并返回一个 `BrowserWindowProxy` 类的实例。
 
-`features` 字符串遵循标准浏览器的格式，但每个 feature 必须是`BrowserWindow` 选项中的字段。
+`features` 字符串遵循标准浏览器的格式，但每个 feature 必须是`BrowserWindow` 选项中的字段。 These are the features you can set via `features` string: `zoomFactor`, `nodeIntegration`, `preload`, `javascript`, `contextIsolation`, `webviewTag`.
+
+例如：
+
+```js
+window.open('https://github.com', '_blank', 'nodeIntegration=no')
+```
 
 **注意：**
 
