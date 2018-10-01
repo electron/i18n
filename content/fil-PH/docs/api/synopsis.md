@@ -34,7 +34,7 @@ Ang prosesong renderer ay hindi iba sa isang normal na pahina, maliban na lang s
 </html>
 ```
 
-To run your app, read [Run your app](../tutorial/first-app.md#running-your-app).
+Upang mapagana ang iyong app, basahin ang [Paganahin ang iyong app](../tutorial/first-app.md#running-your-app).
 
 ## Ang Destructuring Assignment
 
