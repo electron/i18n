@@ -239,7 +239,7 @@ webview.addEventListener('dom-ready', () => {
 ### `<webview>.loadURL(url[, options])`
 
 * `url` URL
-* `optionen` Objekt (optional) 
+* `options` Objekt (optional) 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
@@ -437,7 +437,7 @@ Inserts `text` to the focused element.
 ### `<webview>.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `optionen` Objekt (optional) 
+* `options` Objekt (optional) 
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -533,8 +533,8 @@ The following DOM events are available to the `webview` tag:
 
 Rückgabewert:
 
-* `URL` Zeichenfolge
-* `isMainFrame` Boolean
+* ` URL </ 0>  Zeichenfolge</li>
+<li><code>isMainFrame` Boolean
 
 Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
 
@@ -784,7 +784,7 @@ are clicked or when the DOM <code>hashchange` event is triggered.</p>
       
       Rückgabewert:
       
-      * `name` Zeichenfolge
+      * `name` String
       * `version` String
       
       Fired when a plugin process is crashed.
