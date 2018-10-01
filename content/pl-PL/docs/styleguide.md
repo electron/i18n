@@ -101,7 +101,7 @@ Używając `autoUpdater` jako przykładu:
 * Właściwości instancji muszą być wymienione pod `### Właściwości instancji` rozdział. 
   * Właściwości instancji muszą zaczynać się z "A [Property Type] ..."
 
-Using the `Session` and `Cookies` classes as an example:
+Używając klas `Session` i `Cookies` jako przykładu:
 
 ```markdown
 # session
