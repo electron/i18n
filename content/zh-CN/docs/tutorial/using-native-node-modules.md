@@ -55,6 +55,14 @@ HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https
 
 `HOME=~/.electron-gyp` 设置去哪找开发时的 headers。 `--target=1.2.3` 设置了 Electron 的版本。 `--dist-url=...`设置了 Electron 的 headers 的下载地址。 `--arch=x64` 设置了该模块为适配64位操作系统而编译。
 
+### Manually building for a custom build of Electron
+
+To compile native Node addons against a custom build of Electron that doesn't match a public release, instruct `npm` to use the version of Node you have bundled with your custom build.
+
+```sh
+npm rebuild --nodedir=$HOME/.../path/to/electron/vendor/node
+```
+
 ## 故障排查
 
 如果你安装了一个原生模块并发现它不能工作，你需要检查 以下事项：
