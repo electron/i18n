@@ -80,7 +80,7 @@ Bu adımlar Electron'un Chromium 'u yükseltmek için gerekli genel taslağıdı
 - Tüm Electron özelliklerini devre dışı bırakın, yapıyı düzeltin, sonra özellikleri tek tek etkinleştirin
 - Oluşturma zamanında özellikleri devre dışı bırakmak için daha fazla yapı bayrağı ekleyin.
 
-Electron'un bir Hata Ayıklama derlemesi başarılı olduğunda, sınamaları çalıştırın: `$ ./script/test.py` Başarısız testleri düzeltin.
+When a Debug build of Electron succeeds, run the tests: `$ npm run test` Fix the failing tests.
 
 Desteklenen tüm platformlarda Electron kodunu düzeltmek için yukarıdaki adımları izleyin.
 
@@ -113,7 +113,7 @@ Sıradaki sayfayı yükleyerek çoklu `ffmpeg` yapıları için Electron desteğ
     <video style="display:none" src="http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4" autoplay></video>
     <script>
       const video = document.querySelector('video')
-      video.addEventListener('error', ({target}) => {
+      video.addEventListener('error', ({ target }) => {
         if (target.error.code === target.error.MEDIA_ERR_SRC_NOT_SUPPORTED) {
           document.querySelector('#outcome').textContent = 'Not using proprietary codecs, video emitted source not supported error event.'
         } else {
