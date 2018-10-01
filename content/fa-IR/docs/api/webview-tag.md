@@ -1,4 +1,4 @@
-# `<webview>` Tag
+# `<webview>` برچسب
 
 > Display external web content in an isolated frame and process.
 
@@ -546,7 +546,7 @@ Fired when the navigation is done, i.e. the spinner of the tab will stop spinnin
 
 Returns:
 
-* `errorCode` Integer
+* `کد خطا`
 * `errorDescription` String
 * `validatedURL` String
 * `isMainFrame` Boolean
