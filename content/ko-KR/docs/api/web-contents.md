@@ -158,7 +158,7 @@ Emitted when any frame (including main) starts navigating. `isInplace` will be `
 
 #### Event: 'did-navigate'
 
-반환:
+Returns:
 
 * `event` Event
 * `url` String
@@ -187,7 +187,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 #### Event: 'did-navigate-in-page'
 
-반환:
+Returns:
 
 * `event` Event
 * `url` String
@@ -201,7 +201,7 @@ When in-page navigation happens, the page URL changes but does not cause navigat
 
 #### Event: 'will-prevent-unload'
 
-반환:
+Returns:
 
 * `event` Event
 
@@ -230,7 +230,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 #### Event: 'crashed'
 
-반환:
+Returns:
 
 * `event` Event
 * `killed` Boolean
@@ -356,7 +356,7 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 
 #### Event: 'found-in-page'
 
-반환:
+Returns:
 
 * `event` Event
 * `result` Object 
@@ -391,7 +391,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 #### Event: 'update-target-url'
 
-반환:
+Returns:
 
 * `event` Event
 * `url` String
@@ -457,7 +457,7 @@ Emitted when there is a new context menu that needs to be handled.
 
 #### Event: 'select-bluetooth-device'
 
-반환:
+Returns:
 
 * `event` Event
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
@@ -514,7 +514,7 @@ Emitted when the devtools window instructs the webContents to reload
 
 #### Event: 'will-attach-webview'
 
-반환:
+Returns:
 
 * `event` Event
 * `webPreferences` Object - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
@@ -528,7 +528,7 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 #### Event: 'did-attach-webview'
 
-반환:
+Returns:
 
 * `event` Event
 * `webContents` WebContents - The guest web contents that is used by the `<webview>`.
@@ -537,7 +537,7 @@ Emitted when a `<webview>` has been attached to this web contents.
 
 #### Event: 'console-message'
 
-반환:
+Returns:
 
 * `event` Event
 * `level` Integer
