@@ -98,11 +98,11 @@ Causes the main thread of the current process crash.
 
 ### `process.getCPUUsage()`
 
-Returns [`CPUUsage`](structures/cpu-usage.md)
+回傳 [`CPUUsage`](structures/cpu-usage.md)
 
 ### `process.getIOCounters()` *Windows* *Linux*
 
-Returns [`IOCounters`](structures/io-counters.md)
+回傳 [`IOCounters`](structures/io-counters.md)
 
 ### `process.getHeapStatistics()`
 
