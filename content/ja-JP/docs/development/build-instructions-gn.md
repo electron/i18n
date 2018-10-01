@@ -1,25 +1,49 @@
-# Build Instructions (experimental GN build)
+# ビルド手順
 
-Follow the guidelines below for building Electron with the experimental GN build.
+Electron のビルドについては、以下のガイドラインに従ってください。
 
-> **NOTE**: The GN build system is in *experimental* status.
+## プラットフォーム要件
 
-## 必要な環境
+続行する前に、以下から各プラットフォームのビルド要件を確認してください。
 
-Check the build prerequisites for your platform before proceeding
-
-- [macOS](build-instructions-osx.md#prerequisites)
+- [macOS](build-instructions-macos.md#prerequisites)
 - [Linux](build-instructions-linux.md#prerequisites)
 - [Windows](build-instructions-windows.md#prerequisites)
 
-## Install `depot_tools`
+## GN 要件
 
-You'll need to install [`depot_tools`](http://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up), the toolset used for fetching Chromium and its dependencies.
+[`depot_tools`](http://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up) をインストールする必要があります。このツールセットは Chromium とその依存関係のダウンロードに使用されます。
 
-Also, on Windows, you'll need to set the environment variable `DEPOT_TOOLS_WIN_TOOLCHAIN=0`. To do so, open `Control Panel` → `System and
-Security` → `System` → `Advanced system settings` and add a system variable `DEPOT_TOOLS_WIN_TOOLCHAIN` with value `0`. This tells `depot_tools` to use your locally installed version of Visual Studio (by default, `depot_tools` will try to download a Google-internal version that only Googlers have access to).
+更に Windows では、`DEPOT_TOOLS_WIN_TOOLCHAIN=0` と環境変数を設定する必要があります。 これを行うには、`コントロール パネル` → `システムとセキュリティ` → `システム` → `システムの詳細設定` を開き、`DEPOT_TOOLS_WIN_TOOLCHAIN` 環境変数を追加して値を `0` にします。 これはローカルにインストールされているバージョンの Visual Studio を使用するように `depot_tools` に知らせます (デフォルトで `depot_tools` は Google 社員のみがアクセスできる Google 内部のバージョンをダウンロードしようとします) 。
 
-## コードを取得する
+## キャッシュからのビルド (任意の手順)
+
+### GIT\_CACHE\_PATH
+
+Electron を数回ビルドしようとしている場合、git キャッシュを追加することでその後の `gclient` の呼び出しを高速化できます。 これをするには、`GIT_CACHE_PATH` 環境変数を以下のように設定する必要があります。
+
+```sh
+$ export GIT_CACHE_PATH="${HOME}/.git_cache"
+$ mkdir -p "${GIT_CACHE_PATH}"
+# 16G ほどあります。
+```
+
+> **注**: git キャッシュは上流の git レポジトリの代わりに `src/electron` レポジトリの `origin` をローカルキャッシュに設定します。 これは、`git push` を実行しているときは望ましくありません。ローカルキャッシュではなくGithub にプッシュしたいと思うかもしれません。 これを修正するには、`src/electron` で以下を実行してください。
+
+```sh
+$ git remote set-url origin https://github.com/electron/electron
+```
+
+### sccache
+
+Chromium と Electron をビルドするために幾千ものファイルをコンパイルしなければいけません。 [sccache](https://github.com/mozilla/sccache) を通して Electron CI のビルド出力を再利用することで待ち時間の多くを回避できます。 これにはいくつかの任意の手順 (下記リスト) と以下の2つの環境変数が必要です。
+
+```sh
+export SCCACHE_BUCKET="electronjs-sccache"
+export SCCACHE_TWO_TIER=true
+```
+
+## コードを取得
 
 ```sh
 $ mkdir electron-gn && cd electron-gn
@@ -28,7 +52,7 @@ $ gclient config \
     --unmanaged \
     https://github.com/electron/electron
 $ gclient sync --with_branch_heads --with_tags
-# This will take a while, go get a coffee.
+# これは時間がかかります。コーヒーでも淹れましょう。
 ```
 
 ## ビルド
@@ -36,45 +60,54 @@ $ gclient sync --with_branch_heads --with_tags
 ```sh
 $ cd src
 $ export CHROMIUM_BUILDTOOLS_PATH=`pwd`/buildtools
-$ gn gen out/Default --args='import("//electron/build/args/debug.gn")'
+# this next line is needed only if building with sccache
+$ export GN_EXTRA_ARGS="${GN_EXTRA_ARGS} cc_wrapper=\"${PWD}/electron/external_binaries/sccache\""
+$ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_ARGS"
 ```
 
-This will generate a build directory `out/Default` under `src/` with debug build configuration. You can replace `Default` with another name, but it should be a subdirectory of `out`. Also you shouldn't have to run `gn gen` again—if you want to change the build arguments, you can run `gn args out/Default` to bring up an editor.
+これはデバッグビルドの設定とともに `src/` 配下の `out/Debug` ビルドディレクトリに生成されます。 `Debug` は他の名前に置換できますが、`out` のサブディレクトリである必要があります。 更に `gn gen` を再び実行してはいけません。ビルド引数を変更したい場合、` gn args out/Debug` を実行してエディタを呼び出します。
 
-To see the list of available build configuration options, run `gn args
-out/Default --list`.
+利用可能なビルド設定を一覧するには、`gn args
+out/Debug --list` を実行してください。
 
-**For generating Debug (aka "component" or "shared") build config of Electron:**
+**Electron の Debug (別名 "component" または "shared") ビルド設定は以下のとおりです。**
 
 ```sh
-$ gn gen out/Default --args='import("//electron/build/args/debug.gn")'
+$ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_ARGS"
 ```
 
-**For generating Release (aka "non-component" or "static") build config of Electron:**
+**Electron の Release (別名 "non-component" または "static") ビルド設定は以下のとおりです。**
 
 ```sh
-$ gn gen out/Default --args='import("//electron/build/args/release.gn")'
+$ gn gen out/Release --args="import(\"//electron/build/args/release.gn\") $GN_EXTRA_ARGS"
 ```
 
-**To build, run `ninja` with the `electron:electron_app` target:**
+**ビルドするには、`ninja` を `electron` ターゲットで実行します。** 注意: これはさらなる時間を要し、パソコンも熱くなります。
+
+デバッグ構成は以下のとおりです。
 
 ```sh
-$ ninja -C out/Default electron:electron_app
-# This will also take a while and probably heat up your lap.
+$ ninja -C out/Debug electron
+```
+
+リリース構成は以下のとおりです。
+
+```sh
+$ ninja -C out/Release electron
 ```
 
 This will build all of what was previously 'libchromiumcontent' (i.e. the `content/` directory of `chromium` and its dependencies, incl. WebKit and V8), so it will take a while.
 
-To speed up subsequent builds, you can use [sccache](https://github.com/mozilla/sccache). Add the GN arg `cc_wrapper = "sccache"` by running `gn args out/Default` to bring up an editor and adding a line to the end of the file.
+To speed up subsequent builds, you can use [sccache](https://github.com/mozilla/sccache). Add the GN arg `cc_wrapper = "sccache"` by running `gn args out/Debug` to bring up an editor and adding a line to the end of the file.
 
-The built executable will be under `./out/Default`:
+The built executable will be under `./out/Debug`:
 
 ```sh
-$ ./out/Default/Electron.app/Contents/MacOS/Electron
-# or, on Windows
-$ ./out/Default/electron.exe
-# or, on Linux
-$ ./out/Default/electron
+$ ./out/Debug/Electron.app/Contents/MacOS/Electron
+# Windowsの場合
+$ ./out/Debug/electron.exe
+# Linuxの場合
+$ ./out/Debug/electron
 ```
 
 ### Cross-compiling
@@ -82,7 +115,7 @@ $ ./out/Default/electron
 To compile for a platform that isn't the same as the one you're building on, set the `target_cpu` and `target_os` GN arguments. For example, to compile an x86 target from an x64 host, specify `target_cpu = "x86"` in `gn args`.
 
 ```sh
-$ gn gen out/Default-x86 --args='... target_cpu = "x86"'
+$ gn gen out/Debug-x86 --args='... target_cpu = "x86"'
 ```
 
 Not all combinations of source and target CPU/OS are supported by Chromium. Only cross-compiling Windows 32-bit from Windows 64-bit and Linux 32-bit from Linux 64-bit have been tested in Electron. If you test other combinations and find them to work, please update this document :)
@@ -94,25 +127,43 @@ See the GN reference for allowable values of [`target_os`](https://gn.googlesour
 To run the tests, you'll first need to build the test modules against the same version of Node.js that was built as part of the build process. To generate build headers for the modules to compile against, run the following under `src/` directory.
 
 ```sh
-$ ninja -C out/Default third_party/electron_node:headers
-# Install the test modules with the generated headers
-$ (cd electron/spec && npm i --nodedir=../../out/Default/gen/node_headers)
+$ ninja -C out/Debug third_party/electron_node:headers
+# 生成ヘッダありでテストモジュールをインストールする場合
+$ (cd electron/spec && npm i --nodedir=../../out/Debug/gen/node_headers)
 ```
 
 Then, run Electron with `electron/spec` as the argument:
 
 ```sh
-# on Mac:
-$ ./out/Default/Electron.app/Contents/MacOS/Electron electron/spec
-# on Windows:
-$ ./out/Default/electron.exe electron/spec
-# on Linux:
-$ ./out/Default/electron electron/spec
+# macOSの場合:
+$ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec
+# Windowsの場合:
+$ ./out/Debug/electron.exe electron/spec
+# Linuxの場合:
+$ ./out/Debug/electron electron/spec
 ```
 
 If you're debugging something, it can be helpful to pass some extra flags to the Electron binary:
 
 ```sh
-$ ./out/Default/Electron.app/Contents/MacOS/Electron electron/spec \
+$ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec \
   --ci --enable-logging -g 'BrowserWindow module'
 ```
+
+## Sharing the git cache between multiple machines
+
+It is possible to share the gclient git cache with other machines by exporting it as SMB share on linux, but only one process/machine can be using the cache at a time. The locks created by git-cache script will try to prevent this, but it may not work perfectly in a network.
+
+On Windows, SMBv2 has a directory cache that will cause problems with the git cache script, so it is necessary to disable it by setting the registry key
+
+```sh
+HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Lanmanworkstation\Parameters\DirectoryCacheLifetime
+```
+
+to 0. More information: https://stackoverflow.com/a/9935126
+
+## トラブルシューティング
+
+### Stale locks in the git cache
+
+If `gclient sync` is interrupted while using the git cache, it will leave the cache locked. To remove the lock, pass the `--break_repo_locks` argument to `gclient sync`.
