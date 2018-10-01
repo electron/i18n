@@ -86,7 +86,7 @@ Belirtilen `MenuItem`'ye sahip öğeyi `id` döndürür
 
 `menuItem` 'ı menünün `pos` konumuna yerleştirir.
 
-### Örnek Olaylar
+### Örnek Events
 
 Objects created with `new Menu` emit the following events:
 
@@ -96,7 +96,7 @@ Objects created with `new Menu` emit the following events:
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 
 Emitted when `menu.popup()` is called.
 
@@ -104,11 +104,11 @@ Emitted when `menu.popup()` is called.
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 
 Emitted when a popup is closed either manually or with `menu.closePopup()`.
 
-### Örnek Özellikleri
+### Örnek özellikleri
 
 `menu` nesneleri aşağıdaki özelliklere de sahiptir:
 
