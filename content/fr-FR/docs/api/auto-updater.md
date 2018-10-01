@@ -4,7 +4,7 @@
 
 Processus : [Principal](../glossary.md#main-process)
 
-**Vous trouverez un guide détaillé sur la façon d'implémenter des mises à jour dans votre application [ici](../tutorial/updates.md).**
+**See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
 
 ## Avertissement sur les plateformes
 
@@ -66,9 +66,15 @@ Retourne :
 
 Sur Windows, seulement `releaseName` est disponible.
 
+### Event: 'before-quit-for-update'
+
+This event is emitted after a user calls `quitAndInstall()`.
+
+When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
+
 ## Méthodes
 
-L'objet `autoUpdater` dispose des méthodes suivantes :
+The `autoUpdater` object has the following methods:
 
 ### `autoUpdater.setFeedURL(options)`
 
@@ -77,20 +83,20 @@ L'objet `autoUpdater` dispose des méthodes suivantes :
   * `headers` Objet (facultatif) *macOS* - en-têtes de requête HTTP.
   * `serverType` String (facultatif) *macOS* - Soit `json` ou `default`, voir le README [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) pour plus d’informations.
 
-Définit l'`url` et initialise l'auto updater.
+Sets the `url` and initialize the auto updater.
 
 ### `autoUpdater.getFeedURL()`
 
-Retourne `String` - L'URL de flux des mises à jour.
+Returns `String` - The current update feed URL.
 
 ### `autoUpdater.checkForUpdates()`
 
-Demande au serveur s’il y a une mise à jour. Vous devez appeler `setFeedURL` avant d’utiliser cette API.
+Asks the server whether there is an update. You must call `setFeedURL` before using this API.
 
 ### `autoUpdater.quitAndInstall()`
 
-Redémarre l'application et installe la mise à jour après qu'elle soit téléchargée. Cette méthode doit être appelé seulement après que `update-downloaded` soit émis.
+Restarts the app and installs the update after it has been downloaded. It should only be called after `update-downloaded` has been emitted.
 
-Derrière l'appel de `autoUpdater.quitAndInstall()` fermera toutes les applications windows en premier, appellera automatiquement `app.quit()` après que toutes les fenêtres aient été fermées.
+Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
 
-**Remarque :** Si l’application est fermée sans que cette API soit appelée après que l’événement `update-downloaded` ait été émis, l’application sera toujours remplacée par celle mise à jour lors de la prochaine exécution.
+**Note:** If the application is quit without calling this API after the `update-downloaded` event has been emitted, the application will still be replaced by the updated one on the next run.
