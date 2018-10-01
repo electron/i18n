@@ -60,7 +60,7 @@ If you want to keep exact same behaviors on all platforms, you should not rely o
 
 Creates a new tray icon associated with the `image`.
 
-### Beispiel Events
+### Instanz Events
 
 The `Tray` module emits the following events:
 
@@ -232,6 +232,18 @@ win.on('hide', () => {
   tray.setHighlightMode('never')
 })
 ```
+
+#### `tray.setIgnoreDoubleClickEvents(ignore)` *macOS*
+
+* `ignore` Boolean
+
+Sets the option to ignore double click events. Ignoring these events allows you to detect every individual click of the tray icon.
+
+This value is set to false by default.
+
+#### `tray.getIgnoreDoubleClickEvents()` *macOS*
+
+Returns `Boolean` - Whether double click events will be ignored.
 
 #### `tray.displayBalloon(options)` *Windows*
 
