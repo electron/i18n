@@ -66,7 +66,7 @@ win.show()
     
     ## Jendela klik-tayang
     
-    To create a click-through window, i.e. making the window ignore all mouse events, you can call the [win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore-options) API:
+    Untuk membuat jendela klik-tayang, yaitu membuat jendela mengabaikan semua peristiwa mouse, Anda dapat memanggil API  win.setIgnoreMouseEvents (ignore) </ 0> :</p> 
     
     ```javascript
     const {BrowserWindow} = require('electron')
