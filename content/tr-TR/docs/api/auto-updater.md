@@ -32,7 +32,7 @@ Squirrel.Mac'ten farklı olarak, Windows güncelleştirmeleri S3'te veya diğer 
 
 `autoUpdater` nesnesi aşağıdaki olaylarla ortaya çıkarır:
 
-### Olay: 'error'
+### Event: 'error'
 
 Dönüşler:
 
@@ -72,7 +72,7 @@ Windows üzerinde yalnızca `releaseName` kullanılabilir.
 
 ### `autoUpdater.setFeedURL(seçenekler)`
 
-* `seçenekler` Obje 
+* `options` Obje 
   * `url` Dize
   * `headers` Object (optional) *macOS* - HTTP request headers.
   * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
