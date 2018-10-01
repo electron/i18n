@@ -60,6 +60,8 @@ Returns `WebContents` - 给定 id 的 WebContents 实例。
 * `errorDescription` String
 * `validatedURL` String
 * `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
 
 这个事件类似于 `did-finish-load`, 不过是在加载失败或取消后触发，例如调用了 `window.stop()` 。 完整的错误码列表以及含义，[请看这](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h)
 
@@ -69,6 +71,8 @@ Returns `WebContents` - 给定 id 的 WebContents 实例。
 
 * `event` Event
 * `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
 
 当框架完成导航（navigation）时触发
 
@@ -79,37 +83,6 @@ Returns `WebContents` - 给定 id 的 WebContents 实例。
 #### Event: 'did-stop-loading'
 
 当tab中的旋转指针（spinner）结束旋转时，就会触发该事件。
-
-#### Event: 'did-get-response-details'
-
-返回:
-
-* `event` Event
-* `status` Boolean
-* `newURL` String
-* `originalURL` String
-* `httpResponseCode` Integer
-* `requestMethod` String
-* `referrer` String
-* `headers` Object
-* `resourceType` String
-
-Emitted when details regarding a requested resource are available. `status` indicates the socket connection to download the resource.
-
-#### Event: 'did-get-redirect-request'
-
-返回:
-
-* `event` Event
-* `oldURL` String
-* `newURL` String
-* `isMainFrame` Boolean
-* `httpResponseCode` Integer
-* `requestMethod` String
-* `referrer` String
-* `headers` Object
-
-Emitted when a redirect is received while requesting a resource.
 
 #### 事件: 'dom-ready'
 
@@ -138,6 +111,7 @@ Emitted when page receives favicon urls.
 * `disposition` String - 可以被设置为 `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` 及 `other`.
 * `options` Object - The options which will be used for creating the new [`BrowserWindow`](browser-window.md).
 * `additionalFeatures` String[] - The non-standard features (features not handled by Chromium or Electron) given to `window.open()`.
+* `referrer` [Referrer](structures/referrer.md) - The referrer that will be passed to the new window. May or may not result in the `Referer` header being sent, depending on the referrer policy.
 
 Emitted when the page requests to open a new window for a `url`. It could be requested by `window.open` or an external link like `<a target='_blank'>`.
 
@@ -170,14 +144,44 @@ It is also not emitted for in-page navigations, such as clicking anchor links or
 
 Calling `event.preventDefault()` will prevent the navigation.
 
+#### Event: 'did-start-navigation'
+
+返回:
+
+* `url` String
+* `isInPlace` Boolean
+* `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
+
+Emitted when any frame (including main) starts navigating. `isInplace` will be `true` for in-page navigations.
+
 #### Event: 'did-navigate'
 
 返回:
 
 * `event` Event
 * `url` String
+* `httpResponseCode` Integer - -1 for non HTTP navigations
+* `httpStatusText` String - empty for non HTTP navigations
 
-Emitted when a navigation is done.
+Emitted when a main frame navigation is done.
+
+This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+
+#### Event: 'did-frame-navigate'
+
+返回:
+
+* `event` Event
+* `url` String
+* `httpResponseCode` Integer - -1 for non HTTP navigations
+* `httpStatusText` String - empty for non HTTP navigations,
+* `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
+
+Emitted when any frame navigation is done.
 
 This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
@@ -188,8 +192,10 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 * `event` Event
 * `url` String
 * `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
 
-当发生页内导航时，触发该事件。
+Emitted when an in-page navigation happened in any frame.
 
 当发生页内导航时，虽然页面地址发生变化，但它并没有导航到其它页面。 例如，点击锚点链接，或者DOM的 `hashchange`事件被触发时，都会触发该事件。
 
@@ -230,6 +236,14 @@ win.webContents.on('will-prevent-unload', (event) => {
 * `killed` Boolean
 
 Emitted when the renderer process crashes or is killed.
+
+#### 事件: 'unresponsive'
+
+网页变得未响应时触发
+
+#### 事件: 'responsive'
+
+未响应的页面变成响应时触发
 
 #### Event: 'plugin-crashed'
 
@@ -453,11 +467,14 @@ Emitted when there is a new context menu that needs to be handled.
 Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
 
 ```javascript
-const {app, webContents} = require('electron')
-app.commandLine.appendSwitch('enable-web-bluetooth')
+const {app, BrowserWindow} = require('electron')
+
+let win = null
+app.commandLine.appendSwitch('enable-experimental-web-platform-features')
 
 app.on('ready', () => {
-  webContents.on('select-bluetooth-device', (event, deviceList, callback) => {
+  win = new BrowserWindow({width: 800, height: 600})
+  win.webContents.on('select-bluetooth-device', (event, deviceList, callback) => {
     event.preventDefault()
     let result = deviceList.find((device) => {
       return device.deviceName === 'test'
@@ -522,6 +539,7 @@ Emitted when a `<webview>` has been attached to this web contents.
 
 返回:
 
+* `event` Event
 * `level` Integer
 * `message` String
 * `line` Integer
@@ -535,10 +553,10 @@ Emitted when the associated window logs a console message. Will not be emitted f
 
 * `url` String
 * `options` Object (可选) 
-  * `httpReferrer` String (optional) - A HTTP Referrer url.
+  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
   * `userAgent` String (可选) - 发起请求的 userAgent.
   * `extraHeaders` String (optional) - Extra headers separated by "\n".
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
   * `baseURLForDataURL` String (可选) - 要加载的数据文件的根 url(带有路径分隔符). 只有当指定的 `url`是一个数据 url 并需要加载其他文件时，才需要这样做。
 
 Loads the `url` in the window. The `url` must contain the protocol prefix, e.g. the `http://` or `file://`. If the load should bypass http cache then use the `pragma` header to achieve it.
@@ -1160,14 +1178,14 @@ For the `mouseWheel` event, the `event` object also have following properties:
 
 * ` onlyDirty ` Boolean (可选) - 默认值为 ` false `.
 * `callback` Function - 回调函数 
-  * `frameBuffer` Buffer
+  * `image` [NativeImage](native-image.md)
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
-Begin subscribing for presentation events and captured frames, the `callback` will be called with `callback(frameBuffer, dirtyRect)` when there is a presentation event.
+Begin subscribing for presentation events and captured frames, the `callback` will be called with `callback(image, dirtyRect)` when there is a presentation event.
 
-The `frameBuffer` is a `Buffer` that contains raw pixel data. On most machines, the pixel data is effectively stored in 32bit BGRA format, but the actual representation depends on the endianness of the processor (most modern processors are little-endian, on machines with big-endian processors the data is in 32bit ARGB format).
+The `image` is an instance of [NativeImage](native-image.md) that stores the captured frame.
 
-The `dirtyRect` is an object with `x, y, width, height` properties that describes which part of the page was repainted. If `onlyDirty` is set to `true`, `frameBuffer` will only contain the repainted area. `onlyDirty` defaults to `false`.
+The `dirtyRect` is an object with `x, y, width, height` properties that describes which part of the page was repainted. If `onlyDirty` is set to `true`, `image` will only contain the repainted area. `onlyDirty` defaults to `false`.
 
 #### `contents.endFrameSubscription()`
 
@@ -1209,16 +1227,6 @@ win.webContents.on('did-finish-load', () => {
 #### `contents.showDefinitionForSelection()` *macOS*
 
 Shows pop-up dictionary that searches the selected word on the page.
-
-#### `contents.setSize(options)`
-
-Set the size of the page. This is only supported for `<webview>` guest contents.
-
-* `选项` Object - 过滤器对象，包含过滤参数 
-  * `enableAutoSize` Boolean (optional) - true to make the webview container automatically resize within the bounds specified by the attributes normal, min and max.
-  * `normal` [Size](structures/size.md) (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
-  * `min` [Size](structures/size.md) (optional) - Minimum size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
-  * `max` [Size](structures/size.md) (optional) - Maximium size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
 
 #### `contents.isOffscreen()`
 
@@ -1268,7 +1276,11 @@ Setting the WebRTC IP handling policy allows you to control which IPs are expose
 
 #### `contents.getOSProcessId()`
 
-Returns `Integer` - The `pid` of the associated renderer process.
+Returns `Integer` - The operating system `pid` of the associated renderer process.
+
+#### `contents.getProcessId()`
+
+Returns `Integer` - The chromium internal `pid` of the associated renderer. Can be compared to the `frameProcessId` passed by frame specific navigation events (e.g. `did-frame-navigate`)
 
 ### 实例属性
 
