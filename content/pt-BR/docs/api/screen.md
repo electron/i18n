@@ -66,7 +66,7 @@ Emitted when `newDisplay` has been added.
 
 Retorna:
 
-* `event` Event
+* Evento `event`
 * `oldDisplay` [Display](structures/display.md)
 
 Emitted when `oldDisplay` has been removed.
