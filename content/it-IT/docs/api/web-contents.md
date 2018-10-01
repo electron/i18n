@@ -288,7 +288,7 @@ Emitted when DevTools is closed.
 
 Emitted when DevTools is focused / opened.
 
-#### Evento: 'certificato-errore'
+#### Evento: 'certificate-error'
 
 Restituisce:
 
@@ -303,7 +303,7 @@ Emitted when failed to verify the `certificate` for `url`.
 
 The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
 
-#### Evento: 'selezione-certificato-client'
+#### Evento: 'select-client-certificate'
 
 Restituisce:
 
@@ -536,10 +536,10 @@ Emitted when the associated window logs a console message. Will not be emitted f
 * `url` Stringa
 * `options` Object (opzionale) 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
-  * `userAgent` String (optional) - A user agent originating the request.
+  * `userAgent` String (opzionale) - Un user agent originato dalla richiesta.
   * `extraHeaders` String (optional) - Extra headers separated by "\n".
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
-  * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
+  * `baseURLForDataURL` String (opzionale) - Url di base (con il separatore del percorso) per file da caricare dal data url. Questo è necessario solo se l'`url` specificato è un data url e necessita di carica altri file.
 
 Loads the `url` in the window. The `url` must contain the protocol prefix, e.g. the `http://` or `file://`. If the load should bypass http cache then use the `pragma` header to achieve it.
 
@@ -708,7 +708,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Sperimentale*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
 
 * `ignore` Boolean
 
@@ -899,7 +899,7 @@ Prints window's web page. When `silent` is set to `true`, Electron will pick the
 
 Calling `window.print()` in web page is equivalent to calling `webContents.print({silent: false, printBackground: false, deviceName: ''})`.
 
-Usa la regola CSS `page-break-before: always;` per forzare per stampare su una nuova pagina.
+Use `page-break-before: always;` CSS style to force to print to a new page.
 
 #### `contents.printToPDF(options, callback)`
 
@@ -913,13 +913,13 @@ Usa la regola CSS `page-break-before: always;` per forzare per stampare su una n
   * `error` Error - il valore é diverso da nulla se si verifica un qualunque errore durante la generazione del pdf
   * `data` Buffer - contiene il pdf generato
 
-Stampa la pagina web della finestra come PDF con le impostazioni di stampa personalizzate di Chromium.
+Prints window's web page as PDF with Chromium's preview printing custom settings.
 
-Il `callback` verrà chiamato con `callback (error, data)` al completamento. I `data` è un `Buffer` che contiene i dati del PDF generato.
+The `callback` will be called with `callback(error, data)` on completion. The `data` is a `Buffer` that contains the generated PDF data.
 
-Il `landscape` verrà ignorato se la regola CSS `@page` è utilizzato nella pagina web.
+The `landscape` will be ignored if `@page` CSS at-rule is used in the web page.
 
-Per impostazione predefinita, se l'oggetto `options` è vuoto verrà utilizzato il seguente:
+By default, an empty `options` will be regarded as:
 
 ```javascript
 {
@@ -930,9 +930,9 @@ Per impostazione predefinita, se l'oggetto `options` è vuoto verrà utilizzato 
 }
 ```
 
-Usa la regola CSS `page-break-before: always;` per forzare per stampare su una nuova pagina.
+Use `page-break-before: always;` CSS style to force to print to a new page.
 
-Un esempio di `webContents.printToPDF`:
+An example of `webContents.printToPDF`:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -1071,7 +1071,7 @@ Opens the developer tools for the service worker context.
 * `channel` String
 * `...args` any[]
 
-Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. Gli argomenti verranno serializzati internamenti in JSON e dunque le funzioni e la catena dei prototype non verrano inclusi.
+Send an asynchronous message to renderer process via `channel`, you can also send arbitrary arguments. Gli argomenti verranno serializzati internamente in JSON e dunque funzioni e catene di prototype non verrano incluse.
 
 The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
@@ -1189,7 +1189,7 @@ Sets the `item` as dragging item for current drag-drop operation, `file` is the 
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
 * `callback` Function - `(error) => {}`. 
-  * `errore` Errore
+  * `error` Error
 
 Returns `Boolean` - true if the process of saving page has been initiated successfully.
 
