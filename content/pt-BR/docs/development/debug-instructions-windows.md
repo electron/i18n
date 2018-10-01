@@ -17,7 +17,7 @@ Se experimentar falhas ou problemas no Electron que acredita que não são causa
 Para iniciar uma sessão de depuração, abrá CMD/PowerShell e execute a sua compilação para depuração do Electron, usando o aplicativo para abrir como um parâmetro.
 
 ```powershell
-$ ./out/D/electron.exe ~/my-electron-app/
+$ ./out/Debug/electron.exe ~/my-electron-app/
 ```
 
 ### Definir pontos de interrupção
