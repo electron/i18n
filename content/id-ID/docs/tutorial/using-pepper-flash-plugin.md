@@ -15,7 +15,7 @@ sebelum acara app dimulai. Juga, aktifkan <code> plugin ` pilihan ` BrowserWindo
 Sebagai contoh:
 
 ```javascript
-const {app, BrowserWindow} = membutuhkan ('elektron')
+const { app, BrowserWindow } = membutuhkan ('elektron')
 const path = require ('path')
 
 // Tentukan jalur flash, seandainya itu ditempatkan di direktori yang sama dengan main.js.
