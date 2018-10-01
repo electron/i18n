@@ -64,18 +64,18 @@ Retourne :
 
 ### Événement : 'display-removed'
 
-Retourne :
+Renvoie :
 
-* `event` Event
+* `event` Événement
 * `oldDisplay` [Display](structures/display.md)
 
 Émis lorsque `oldDisplay` a été retiré.
 
 ### Événement 'display-metrics-changed'
 
-Retourne :
+Renvoie :
 
-* `event` Event
+* `event` Événement
 * `display` [Display](structures/display.md)
 * `changedMetrics` String[]
 
@@ -93,24 +93,24 @@ La position absolue du pointeur de la souris.
 
 ### `screen.getMenuBarHeight()` *macOS*
 
-Retourne `Integer` - La hauteur de la barre de menu en pixels.
+Returns `Integer` - The height of the menu bar in pixels.
 
 ### `screen.getPrimaryDisplay()`
 
-Retourne [`Display`](structures/display.md) - L'écran principal.
+Returns [`Display`](structures/display.md) - The primary display.
 
 ### `screen.getAllDisplays()`
 
-Retourne [`Display[]`](structures/display.md) - Un tableau d'écrans qui sont actuellement disponibles.
+Returns [`Display[]`](structures/display.md) - An array of displays that are currently available.
 
 ### `screen.getDisplayNearestPoint(point)`
 
 * `point` [Point](structures/point.md)
 
-Retourne [`Display`](structures/display.md) - L'écran le plus proche du point spécifié.
+Returns [`Display`](structures/display.md) - The display nearest the specified point.
 
 ### `screen.getDisplayMatching(rect)`
 
 * `rect` [Rectangle](structures/rectangle.md)
 
-Retourne [`Display`](structures/display.md) - L'écran qui croise le plus les limites d'intersection données.
+Returns [`Display`](structures/display.md) - The display that most closely intersects the provided bounds.
