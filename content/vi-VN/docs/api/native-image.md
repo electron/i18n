@@ -156,7 +156,7 @@ This means that `[-1, 0, 1]` will make the image completely white and `[-1, 1, 0
 
 > Natively wrap images such as tray, dock, and application icons.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Tiến trình: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 ### Các phương thức riêng
 
