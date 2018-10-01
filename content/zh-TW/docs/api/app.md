@@ -303,6 +303,23 @@ Emitted when the gpu process crashes or is killed.
 
 Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 
+### Event: 'session-created'
+
+回傳:
+
+* `event` Event
+* `session` [Session](session.md)
+
+Emitted when Electron has created a new `session`.
+
+```javascript
+const {app} = require('electron')
+
+app.on('session-created', (event, session) => {
+  console.log(session)
+})
+```
+
 ## 方法
 
 The `app` object has the following methods:
@@ -438,7 +455,7 @@ Usually the `name` field of `package.json` is a short lowercased name, according
 
 * `name` String
 
-重寫當前應用程式的名稱。
+Overrides the current application's name.
 
 ### `app.getLocale()`
 
@@ -458,9 +475,9 @@ Adds `path` to the recent documents list.
 
 This list is managed by the OS. On Windows you can visit the list from the task bar, and on macOS you can visit it from dock menu.
 
-### `app.addRecentDocument(path)` *macOS* *Windows*
+### `app.clearRecentDocuments()` *macOS* *Windows*
 
-清除最近使用的文件清單。
+Clears the recent documents list.
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
@@ -624,7 +641,7 @@ const {app} = require('electron')
 let myWindow = null
 
 const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
-  // 有人試著重覆開啟應用程式，我們應該要突顯出我們現在的視窗。
+  // Someone tried to run a second instance, we should focus our window.
   if (myWindow) {
     if (myWindow.isMinimized()) myWindow.restore()
     myWindow.focus()
@@ -635,7 +652,7 @@ if (isSecondInstance) {
   app.quit()
 }
 
-// 建立 myWindow，載入應用程式的其他部分...
+// Create myWindow, load the rest of the app, etc...
 app.on('ready', () => {
 })
 ```
@@ -823,7 +840,7 @@ Append an argument to Chromium's command line. The argument will be quoted corre
 
 **Note:** This will not affect `process.argv`.
 
-### `app.enableMixedSandbox()` *試驗中* *macOS* *Windows*
+### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
 
 Enables mixed sandbox mode on the app.
 
