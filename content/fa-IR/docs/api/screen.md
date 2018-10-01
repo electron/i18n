@@ -1,4 +1,4 @@
-# screen
+# صفحه نمایش
 
 > Retrieve information about screen size, displays, cursor position, etc.
 
