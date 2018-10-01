@@ -17,7 +17,7 @@ Eğer Electron'da JavaScriptten kaynaklanmadığını düşündüğünüz Electr
 Bir hata ayıklama oturumu başlatmak için, Elektron yapımı, uygulamayı bir parametre olarak kullanarak, PowerShell / CMD'yi açın ve hata ayıklamasını çalıştırın.
 
 ```powershell
-$ ./out/D/electron.exe ~/my-electron-app/
+$ ./out/Debug/electron.exe ~/my-electron-app/
 ```
 
 ### Kesme noktalarını ayarlama
