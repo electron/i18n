@@ -6,6 +6,20 @@ Proseso: [Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#re
 
 Ang `prosesong` bagay ng Electron ay pinalawak mula sa [Node.js `proseso` bagay](https://nodejs.org/api/process.html). Ito ay nagdaragdag ng mga sumusunod na pangyayari, katangian, at mga pamamaraan:
 
+## Sandbox
+
+In sandboxed renderers the `process` object contains only a subset of the APIs:
+
+* `crash()`
+* `hang()`
+* `getHeapStatistics()`
+* `getProcessMemoryInfo()`
+* `getSystemMemoryInfo()`
+* `argv`
+* `execPath`
+* `env`
+* `platform`
+
 ## Pangyayari
 
 ### Pangyayari: 'puno'
@@ -89,6 +103,22 @@ Returns [`CPUUsage`](structures/cpu-usage.md)
 ### `process.getIOCounters()` *Windows* *Linux*
 
 Returns [`IOCounters`](structures/io-counters.md)
+
+### `process.getHeapStatistics()`
+
+Returns `Object`:
+
+* `totalHeapSize` Integer
+* `totalHeapSizeExecutable` Integer
+* `totalPhysicalSize` Integer
+* `totalAvailableSize` Integer
+* `usedHeapSize` Integer
+* `heapSizeLimit` Integer
+* `mallocedMemory` Integer
+* `peakMallocedMemory` Integer
+* `doesZapGarbage` Boolean
+
+Returns an object with V8 heap statistics. Note that all statistics are reported in Kilobytes.
 
 ### `process.getProcessMemoryInfo()`
 
