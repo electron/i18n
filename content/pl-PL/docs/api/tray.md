@@ -60,7 +60,7 @@ If you want to keep exact same behaviors on all platforms, you should not rely o
 
 Tworzy nową ikonę skojarzoną z `image`.
 
-### Wydarzenia instancji
+### Zdarzenia instancji
 
 Moduł `Tray` emituje następujące zdarzenia:
 
@@ -76,7 +76,7 @@ Moduł `Tray` emituje następujące zdarzenia:
 
 Emitted when the tray icon is clicked.
 
-#### Event: 'right-click' *macOS* *Windows*
+#### Zdarzenie: 'right-click' *macOS* *Windows*
 
 * `wydarzenie` Wydarzenie 
   * `altKey` Boolean
@@ -87,7 +87,7 @@ Emitted when the tray icon is clicked.
 
 Emitted when the tray icon is right clicked.
 
-#### Event: 'double-click' *macOS* *Windows*
+#### Zdarzenie: 'double-click' *macOS* *Windows*
 
 * `wydarzenie` Wydarzenie 
   * `altKey` Boolean
@@ -98,49 +98,49 @@ Emitted when the tray icon is right clicked.
 
 Emitted when the tray icon is double clicked.
 
-#### Event: 'balloon-show' *Windows*
+#### Zdarzenie: 'balloon-show'*Windows*
 
 Emitted when the tray balloon shows.
 
-#### Event: 'balloon-click' *Windows*
+#### Zdarzenie: 'balloon-click' *Windows*
 
 Emitted when the tray balloon is clicked.
 
-#### Event: 'balloon-closed' *Windows*
+#### Zdarzenie: 'balloon-closed' *Windows*
 
 Emitted when the tray balloon is closed because of timeout or user manually closes it.
 
-#### Event: 'drop' *macOS*
+#### Zdarzenie: 'drop' *macOS*
 
 Emitted when any dragged items are dropped on the tray icon.
 
-#### Event: 'drop-files' *macOS*
+#### Zdarzenie: 'drop-files' *macOS*
 
 * `event` Event
 * `files` String[] - The paths of the dropped files.
 
 Emitted when dragged files are dropped in the tray icon.
 
-#### Event: 'drop-text' *macOS*
+#### Zdarzenie: 'drop-text' *macOS*
 
 * `event` Event
 * `text` String - the dropped text string.
 
 Emitted when dragged text is dropped in the tray icon.
 
-#### Event: 'drag-enter' *macOS*
+#### Zdarzenie: 'drag-enter' *macOS*
 
 Emitted when a drag operation enters the tray icon.
 
-#### Event: 'drag-leave' *macOS*
+#### Zdarzenie: 'drag-leave' *macOS*
 
 Emitted when a drag operation exits the tray icon.
 
-#### Event: 'drag-end' *macOS*
+#### Zdarzenie: 'drag-end' *macOS*
 
 Emitted when a drag operation ends on the tray or ends at another location.
 
-#### Event: 'mouse-enter' *macOS*
+#### Zdarzenie: 'mouse-enter' *macOS*
 
 * `wydarzenie` Wydarzenie 
   * `altKey` Boolean
@@ -151,7 +151,7 @@ Emitted when a drag operation ends on the tray or ends at another location.
 
 Emitted when the mouse enters the tray icon.
 
-#### Event: 'mouse-leave' *macOS*
+#### Zdarzenie: 'mouse-leave' *macOS*
 
 * `wydarzenie` Wydarzenie 
   * `altKey` Boolean
@@ -162,7 +162,7 @@ Emitted when the mouse enters the tray icon.
 
 Emitted when the mouse exits the tray icon.
 
-#### Event: 'mouse-move' *macOS*
+#### Zdarzenie: 'mouse-move' *macOS*
 
 * `wydarzenie` Wydarzenie 
   * `altKey` Boolean
@@ -235,12 +235,12 @@ win.on('hide', () => {
 
 #### `tray.displayBalloon(options)` *Windows*
 
-* `options` Obiekt 
+* `options` Object 
   * `icon` ([NativeImage](native-image.md) | String) (optional) -
   * `title` String
   * `content` String
 
-Wyświetla dymek w zasobniku systemowym.
+Displays a tray balloon.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
@@ -253,7 +253,7 @@ The `position` is only available on Windows, and it is (0, 0) by default.
 
 #### `tray.setContextMenu(menu)`
 
-* `menu` Menu
+* `menu` Menu | null
 
 Sets the context menu for this icon.
 
