@@ -281,7 +281,7 @@ By default, items will be inserted in the order they exist in the template unles
 
 ### Przykłady
 
-Template:
+Szablon:
 
 ```javascript
 [
@@ -301,7 +301,7 @@ Menu:
 - 4
 ```
 
-Template:
+Szablon:
 
 ```javascript
 [
@@ -325,7 +325,7 @@ Menu:
 - 2
 ```
 
-Template:
+Szablon:
 
 ```javascript
 [
