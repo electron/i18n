@@ -20,7 +20,7 @@ Electron 运行 `package.json` 的 `main` 脚本的进程被称为**主进程**�
 
 > #### 题外话：进程间通讯
 > 
-> In Electron, we have several ways to communicate between the main process and renderer processes, such as [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. 这里也有一个常见问题解答：[web页面间如何共享数据](../faq.md#how-to-share-data-between-web-pages)。
+> Electron为主进程（ main process）和渲染器进程（renderer processes）通信提供了多种实现方式，如可以使用[`ipcRenderer`](../api/ipc-renderer.md) 和 [`ipcMain`](../api/ipc-main.md)模块发送消息，使用 [remote](../api/remote.md)模块进行RPC方式通信。 这里也有一个常见问题解答：[web页面间如何共享数据](../faq.md#how-to-share-data-between-web-pages)。
 
 ## 使用Electron的API
 
@@ -35,10 +35,10 @@ const electron = require('electron')
 Electron中的窗口是使用`BrowserWindow`类型创建的一个实例， 它只能在主进程中使用。
 
 ```javascript
-// 这样写在主进程会有用，但是在渲染进程中会提示'未定义'
-const { BrowserWindow } = require('electron')
+//这样写在渲染进程中是行得通的，但是在主进程中是'未定义'
 
-const win = new BrowserWindow()
+const { BrowserWindow } = require('electron')
+const = remoteconst win = new BrowserWindow()
 ```
 
 因为进程之间的通信是被允许的, 所以渲染进程可以调用主进程来执行任务。 Electron通过`remote`模块暴露一些通常只能在主进程中获取到的API。 为了在渲染进程中创建一个`BrowserWindow`的实例，我们通常使用remote模块为中间件：
