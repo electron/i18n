@@ -1,4 +1,4 @@
-# Обект CrashReport
+# Предмет CrashReport
 
-* `date` Date
-* `id` String
+* `date`Дата
+* `ид` String
