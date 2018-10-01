@@ -2,7 +2,7 @@
 
 > Display external web content in an isolated frame and process.
 
-Processus : [Renderer](../tutorial/quick-start.md#renderer-process)
+Process: [Renderer](../tutorial/quick-start.md#renderer-process)
 
 Use the `webview` tag to embed 'guest' content (such as web pages) in your Electron app. The guest content is contained within the `webview` container. An embedded page within your app controls how the guest content is laid out and rendered.
 
@@ -38,7 +38,7 @@ If you want to control the guest content in any way, you can write JavaScript th
 </script>
 ```
 
-## Note de style CSS
+## CSS Styling Notes
 
 Please note that the `webview` tag's style uses `display:flex;` internally to ensure the child `object` element fills the full height and width of its `webview` container when used with traditional and flexbox layouts (since v0.36.11). Please do not overwrite the default `display:flex;` CSS property, unless specifying `display:inline-flex;` for inline layout.
 
@@ -57,9 +57,9 @@ Please note that the `webview` tag's style uses `display:flex;` internally to en
 </style>
 ```
 
-## Attribut de balise
+## Tag Attributes
 
-La balise `webview` possède les attributs suivants :
+The `webview` tag has the following attributes:
 
 ### `src`
 
@@ -223,7 +223,7 @@ win.on('resize', () => {
 
 ## Méthodes
 
-La balise `webview` possède les méthodes suivantes :
+The `webview` tag has the following methods:
 
 **Note:** The webview element must be loaded before using the methods.
 
@@ -240,7 +240,7 @@ webview.addEventListener('dom-ready', () => {
 
 * `url` URL
 * `options` Object (facultatif) 
-  * `httpReferrer` String (optionnel) - Une URL de référent HTTP.
+  * `httpReferrer` String (optional) - A HTTP Referrer url.
   * `userAgent` String (optionnel) - Un agent utilisateur d'où provient la requête.
   * `extraHeaders` String (optionnel) - Headers supplémentaires séparés par "\n"
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (optional) -
@@ -525,11 +525,11 @@ Shows pop-up dictionary that searches the selected word on the page.
 
 Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
 
-## Événements DOM
+## DOM events
 
 The following DOM events are available to the `webview` tag:
 
-### Événement : 'load-commit'
+### Event: 'load-commit'
 
 Retourne :
 
@@ -569,7 +569,7 @@ Corresponds to the points in time when the spinner of the tab starts spinning.
 
 Corresponds to the points in time when the spinner of the tab stops spinning.
 
-### Événement : 'did-get-response-details'
+### Event: 'did-get-response-details'
 
 Retourne :
 
@@ -584,7 +584,7 @@ Retourne :
 
 Fired when details regarding a requested resource is available. `status` indicates socket connection to download the resource.
 
-### Événement : 'did-get-redirect-request'
+### Event: 'did-get-redirect-request'
 
 Retourne :
 
@@ -639,7 +639,7 @@ The following example code forwards all log messages to the embedder's console w
 ```javascript
 const webview = document.querySelector('webview')
 webview.addEventListener('console-message', (e) => {
-  console.log('La page invité a envoyé un message :', e.message)
+  console.log('Guest page logged a message:', e.message)
 })
 ```
 
@@ -739,7 +739,7 @@ webview.addEventListener('close', () => {
 })
 ```
 
-### Événement : 'ipc-message'
+### Event: 'ipc-message'
 
 Retourne :
 
@@ -761,7 +761,7 @@ webview.send('ping')
 ```
 
 ```javascript
-// Dans la page invité.
+// In guest page.
 const {ipcRenderer} = require('electron')
 ipcRenderer.on('ping', () => {
   ipcRenderer.sendToHost('pong')
@@ -772,9 +772,9 @@ ipcRenderer.on('ping', () => {
 
 Fired when the renderer process is crashed.
 
-### Événement : 'gpu-crashed'
+### Event: 'gpu-crashed'
 
-Déclenché lorsque le processus du gpu crash.
+Fired when the gpu process is crashed.
 
 ### Événement : 'plugin-crashed'
 
@@ -783,11 +783,11 @@ Retourne :
 * `name` String
 * `version` String
 
-Déclenché lorsqu’un processus de plugin crash.
+Fired when a plugin process is crashed.
 
 ### Événement : 'destroyed'
 
-Déclenché lorsque le WebContents est détruit.
+Fired when the WebContents is destroyed.
 
 ### Événement : 'media-started-playing'
 
@@ -803,7 +803,7 @@ Retourne :
 
 * `themeColor` String
 
-Émis lorsque le thème couleur de la page est changé. Il s’agit généralement de l'ajout d'une balise meta :
+Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
