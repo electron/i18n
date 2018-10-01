@@ -34,7 +34,7 @@ $ git fetch upstream
 
 Le type de système d'exploitation peut faire varier les étapes de construction et les dépendances. Reportez vous au guide dédié pour compiler Electron:
 
-* [Construire sous MacOS](https://electronjs.org/docs/development/build-instructions-osx)
+* [Construire sous MacOS](https://electronjs.org/docs/development/build-instructions-macos)
 * [Construire sous Linux](https://electronjs.org/docs/development/build-instructions-linux)
 * [Construire sous Windows](https://electronjs.org/docs/development/build-instructions-windows)
 
