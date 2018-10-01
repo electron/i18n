@@ -60,6 +60,8 @@ console.log(webContents)
 * `errorDescription` String
 * `validatedURL` String
 * `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
 
 このイベントは `did-finish-load` のようですが、ロードが失敗した、キャンセルされた、`window.stop()` が呼び出されたなどで、発行されます。 エラーコードとその意味のすべてのリストは [こちら](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) です。
 
@@ -69,6 +71,8 @@ console.log(webContents)
 
 * `event` Event
 * `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
 
 フレームのナビゲーションが終了したときに発行されます。
 
@@ -79,37 +83,6 @@ console.log(webContents)
 #### イベント: 'did-stop-loading'
 
 タブのくるくるが止まったタイミングに対応しています。
-
-#### Event: 'did-get-response-details'
-
-戻り値:
-
-* `event` Event
-* `status` Boolean
-* `newURL` String
-* `originalURL` String
-* `httpResponseCode` Integer
-* `requestMethod` String
-* `referrer` String
-* `headers` Object
-* `resourceType` String
-
-Emitted when details regarding a requested resource are available. `status` indicates the socket connection to download the resource.
-
-#### Event: 'did-get-redirect-request'
-
-戻り値:
-
-* `event` Event
-* `oldURL` String
-* `newURL` String
-* `isMainFrame` Boolean
-* `httpResponseCode` Integer
-* `requestMethod` String
-* `referrer` String
-* `headers` Object
-
-Emitted when a redirect is received while requesting a resource.
 
 #### イベント: 'dom-ready'
 
@@ -138,6 +111,7 @@ Emitted when page receives favicon urls.
 * `disposition` String - `default`、`foreground-tab`、`background-tab`、`new-window`、`save-to-disk`、`other` にできる。
 * `options` Object - The options which will be used for creating the new [`BrowserWindow`](browser-window.md).
 * `additionalFeatures` String[] - The non-standard features (features not handled by Chromium or Electron) given to `window.open()`.
+* `referrer` [Referrer](structures/referrer.md) - The referrer that will be passed to the new window. May or may not result in the `Referer` header being sent, depending on the referrer policy.
 
 Emitted when the page requests to open a new window for a `url`. It could be requested by `window.open` or an external link like `<a target='_blank'>`.
 
@@ -170,14 +144,44 @@ It is also not emitted for in-page navigations, such as clicking anchor links or
 
 Calling `event.preventDefault()` will prevent the navigation.
 
+#### Event: 'did-start-navigation'
+
+戻り値:
+
+* `url` String
+* `isInPlace` Boolean
+* `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
+
+Emitted when any frame (including main) starts navigating. `isInplace` will be `true` for in-page navigations.
+
 #### イベント: 'did-navigate'
 
 戻り値:
 
 * `event` Event
 * `url` String
+* `httpResponseCode` Integer - -1 for non HTTP navigations
+* `httpStatusText` String - empty for non HTTP navigations
 
-ナビゲーションが完了したときに発行されます。
+Emitted when a main frame navigation is done.
+
+このイベントは、アンカーリンクのクリックや `window.location.hash` の更新のような、ページ内ナビゲーションでは発行されません。これを意図する場合は `did-navigate-in-page` を使用して下さい。
+
+#### Event: 'did-frame-navigate'
+
+戻り値:
+
+* `event` Event
+* `url` String
+* `httpResponseCode` Integer - -1 for non HTTP navigations
+* `httpStatusText` String - empty for non HTTP navigations,
+* `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
+
+Emitted when any frame navigation is done.
 
 このイベントは、アンカーリンクのクリックや `window.location.hash` の更新のような、ページ内ナビゲーションでは発行されません。これを意図する場合は `did-navigate-in-page` を使用して下さい。
 
@@ -188,8 +192,10 @@ Calling `event.preventDefault()` will prevent the navigation.
 * `event` Event
 * `url` String
 * `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
 
-ページ内ナビゲーションが発生したときに発行されます。
+Emitted when an in-page navigation happened in any frame.
 
 ページ内ナビゲーションが行われるとき、ページのURLは変更されますがページ外でのナビゲーションは発生しません。 これが発生する例は、アンカーリンクがクリックされたときや、DOM の `hashchange` イベントがトリガーされたときです。
 
@@ -230,6 +236,14 @@ win.webContents.on('will-prevent-unload', (event) => {
 * `killed` Boolean
 
 Emitted when the renderer process crashes or is killed.
+
+#### イベント: 'unresponsive'
+
+Webページが応答しなくなるときに発生します。
+
+#### イベント: 'responsive'
+
+応答しないWebページが再び応答するようになるときに発生します。
 
 #### イベント: 'plugin-crashed'
 
@@ -453,11 +467,14 @@ Emitted when there is a new context menu that needs to be handled.
 Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
 
 ```javascript
-const {app, webContents} = require('electron')
-app.commandLine.appendSwitch('enable-web-bluetooth')
+const {app, BrowserWindow} = require('electron')
+
+let win = null
+app.commandLine.appendSwitch('enable-experimental-web-platform-features')
 
 app.on('ready', () => {
-  webContents.on('select-bluetooth-device', (event, deviceList, callback) => {
+  win = new BrowserWindow({width: 800, height: 600})
+  win.webContents.on('select-bluetooth-device', (event, deviceList, callback) => {
     event.preventDefault()
     let result = deviceList.find((device) => {
       return device.deviceName === 'test'
@@ -522,6 +539,7 @@ Emitted when a `<webview>` has been attached to this web contents.
 
 戻り値:
 
+* `event` Event
 * `level` Integer
 * `message` String
 * `line` Integer
@@ -535,10 +553,10 @@ Emitted when the associated window logs a console message. Will not be emitted f
 
 * `url` String
 * `options` Object (任意) 
-  * `httpReferrer` String (任意) - HTTPリファラのURL。
+  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (任意) - HTTPリファラのURL。
   * `userAgent` String (任意) - リクエスト元のユーザーエージェント。
   * `extraHeaders` String (任意) - "\n" で区切られた追加のヘッダー。
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (任意)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (任意)
   * `baseURLForDataURL` String (任意) - データURLによってロードされたファイルの (最後のパス区切り文字を含む) ベースURL。 これは指定された `url` がデータURLで、他のファイルをロードする必要がある場合のみ必要です。
 
 Loads the `url` in the window. The `url` must contain the protocol prefix, e.g. the `http://` or `file://`. If the load should bypass http cache then use the `pragma` header to achieve it.
@@ -1160,14 +1178,14 @@ For the `mouseWheel` event, the `event` object also have following properties:
 
 * `onlyDirty` Boolean (任意) - 省略値は `false`。
 * `callback` Function 
-  * `frameBuffer` Buffer
+  * `image` [NativeImage](native-image.md)
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
-Begin subscribing for presentation events and captured frames, the `callback` will be called with `callback(frameBuffer, dirtyRect)` when there is a presentation event.
+Begin subscribing for presentation events and captured frames, the `callback` will be called with `callback(image, dirtyRect)` when there is a presentation event.
 
-The `frameBuffer` is a `Buffer` that contains raw pixel data. On most machines, the pixel data is effectively stored in 32bit BGRA format, but the actual representation depends on the endianness of the processor (most modern processors are little-endian, on machines with big-endian processors the data is in 32bit ARGB format).
+The `image` is an instance of [NativeImage](native-image.md) that stores the captured frame.
 
-The `dirtyRect` is an object with `x, y, width, height` properties that describes which part of the page was repainted. If `onlyDirty` is set to `true`, `frameBuffer` will only contain the repainted area. `onlyDirty` defaults to `false`.
+The `dirtyRect` is an object with `x, y, width, height` properties that describes which part of the page was repainted. If `onlyDirty` is set to `true`, `image` will only contain the repainted area. `onlyDirty` defaults to `false`.
 
 #### `contents.endFrameSubscription()`
 
@@ -1209,16 +1227,6 @@ win.webContents.on('did-finish-load', () => {
 #### `contents.showDefinitionForSelection()` *macOS*
 
 ページ上の選択された単語を検索するポップアップ辞書を表示します。
-
-#### `contents.setSize(options)`
-
-Set the size of the page. This is only supported for `<webview>` guest contents.
-
-* `options` Object 
-  * `enableAutoSize` Boolean (optional) - true to make the webview container automatically resize within the bounds specified by the attributes normal, min and max.
-  * `normal` [Size](structures/size.md) (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
-  * `min` [Size](structures/size.md) (optional) - Minimum size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
-  * `max` [Size](structures/size.md) (optional) - Maximium size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
 
 #### `contents.isOffscreen()`
 
@@ -1268,7 +1276,11 @@ Setting the WebRTC IP handling policy allows you to control which IPs are expose
 
 #### `contents.getOSProcessId()`
 
-Returns `Integer` - The `pid` of the associated renderer process.
+Returns `Integer` - The operating system `pid` of the associated renderer process.
+
+#### `contents.getProcessId()`
+
+Returns `Integer` - The chromium internal `pid` of the associated renderer. Can be compared to the `frameProcessId` passed by frame specific navigation events (e.g. `did-frame-navigate`)
 
 ### インスタンスプロパティ
 
