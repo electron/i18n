@@ -84,11 +84,11 @@ Causes the main thread of the current process crash.
 
 ### `process.getCPUUsage()`
 
-回傳 [`CPUUsage`](structures/cpu-usage.md)
+Returns [`CPUUsage`](structures/cpu-usage.md)
 
 ### `process.getIOCounters()` *Windows* *Linux*
 
-回傳 [`IOCounters`](structures/io-counters.md)
+Returns [`IOCounters`](structures/io-counters.md)
 
 ### `process.getProcessMemoryInfo()`
 
