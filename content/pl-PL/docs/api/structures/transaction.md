@@ -6,6 +6,6 @@
 * `transactionState` String - The transaction sate (`"purchasing"`, `"purchased"`, `"failed"`, `"restored"`, or `"deferred"`)
 * `errorCode` Integer
 * `errorMessage` String
-* `payment` Obiekt 
+* `payment` Object 
   * `productIdentifier` String
   * `quantity` Integer
