@@ -99,7 +99,7 @@ Restituisce:
 
 Emitted when the `net` module fails to issue a network request. Typically when the `request` object emits an `error` event, a `close` event will subsequently follow and no response object will be provided.
 
-#### Event: 'close'
+#### Evento: 'close'
 
 Emitted as the last event in the HTTP request-response transaction. The `close` event indicates that no more events will be emitted on either the `request` or `response` objects.
 
@@ -118,7 +118,7 @@ Emitted when there is redirection and the mode is `manual`. Calling [`request.fo
 
 #### `request.chunkedEncoding`
 
-A `Boolean` specifying whether the request will use HTTP chunked transfer encoding or not. Defaults to false. The property is readable and writable, however it can be set only before the first write operation as the HTTP headers are not yet put on the wire. Trying to set the `chunkedEncoding` property after the first write will throw an error.
+A `Boolean` specifying whether the request will use HTTP chunked transfer encoding or not. Il valore predefinito è false. The property is readable and writable, however it can be set only before the first write operation as the HTTP headers are not yet put on the wire. Trying to set the `chunkedEncoding` property after the first write will throw an error.
 
 Using chunked encoding is strongly recommended if you need to send a large request body as data will be streamed in small chunks instead of being internally buffered inside Electron process memory.
 
