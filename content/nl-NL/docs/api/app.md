@@ -354,7 +354,7 @@ All windows will be closed immediately without asking user and the `before-quit`
 
 ### `app.relaunch([options])`
 
-* `options` Object (optional) 
+* `options` Object (optioneel) 
   * `args` String[] (optional)
   * `execPath` String (optional)
 
@@ -428,7 +428,7 @@ You can request the following paths by the name:
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `options` Object (optional) 
+* `options` Object (optioneel) 
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
