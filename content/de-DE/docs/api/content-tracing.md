@@ -55,7 +55,7 @@ Recording begins immediately locally and asynchronously on child processes as so
 
 `categoryFilter` is a filter to control what category groups should be traced. A filter can have an optional `-` prefix to exclude category groups that contain a matching category. Having both included and excluded category patterns in the same list is not supported.
 
-Beispiele
+Beispiele:
 
 * `test_MyTest*`,
 * `test_MyTest*,test_OtherStuff`,
