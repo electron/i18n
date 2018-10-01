@@ -45,16 +45,16 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [Erişilebilirliği Etkinleştirmek](tutorial/accessibility.md#enabling-accessibility)
-* [Testing and Debugging](tutorial/application-debugging.md) 
+* [Test ve Hata Ayıklama](tutorial/application-debugging.md) 
   * [Ana İşlem Hata Ayıklama](tutorial/debugging-main-process.md)
   * [Selenyum ve WebDriver Kullanma](tutorial/using-selenium-and-webdriver.md)
   * [Headless CI Sistemlerinde (Travis, Jenkins) Test Etme](tutorial/testing-on-headless-ci.md)
   * [DevTools Eklentisi](tutorial/devtools-extension.md)
-  * [Automated Testing with a Custom Driver](tutorial/automated-testing-with-a-custom-driver.md)
-* Packaging 
-  * [Code Signing](tutorial/code-signing.md)
-* [Distribution](tutorial/application-distribution.md) 
-  * [Support](tutorial/support.md)
+  * [Özel Bir Sürücü ile Otomatik Test](tutorial/automated-testing-with-a-custom-driver.md)
+* Paketleme 
+  * [Kod İmzalama](tutorial/code-signing.md)
+* [Yayınlama](tutorial/application-distribution.md) 
+  * [Destek](tutorial/support.md)
   * [Mac Uygulama Mağazası](tutorial/mac-app-store-submission-guide.md)
   * [Windows Mağaza](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
@@ -63,12 +63,12 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
   * [Chromium Güvenlik Sorunları ve Yükseltmeleri](tutorial/security.md#chromium-security-issues-and-upgrades)
   * [Electron Security Warnings](tutorial/security.md#electron-security-warnings)
   * [Güvenlik Kontrol Listesi](tutorial/security.md#checklist-security-recommendations)
-* [Updates](tutorial/updates.md) 
+* [Güncellemeler](tutorial/updates.md) 
   * [Deploying an Update Server](tutorial/updates.md#deploying-an-update-server)
   * [Implementing Updates in Your App](tutorial/updates.md#implementing-updates-in-your-app)
-  * [Applying Updates](tutorial/updates.md#applying-updates)
+  * [Güncellemeleri Uygulama](tutorial/updates.md#applying-updates)
 
-## Detailed Tutorials
+## Detaylı Öğreticiler
 
 These individual tutorials expand on topics discussed in the guide above.
 
@@ -85,8 +85,8 @@ These individual tutorials expand on topics discussed in the guide above.
   * [Arşivleri asar kullanma](tutorial/application-packaging.md#using-asar-archives)
   * [Kısıtlamalar](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Adding Unpacked Files to asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
+* [In Detail: Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
 * [In Detail: Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [In Detail: Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
 * [Ekran Dışı İşleme](tutorial/offscreen-rendering.md)
 
 * * *
@@ -147,4 +147,4 @@ These individual tutorials expand on topics discussed in the guide above.
 
 ## Geliştirme
 
-See <development/README.md>
+Bakınız <development/README.md>
