@@ -2,7 +2,7 @@
 
 > Use main process modules from the renderer process.
 
-Processo: [Renderer](../glossary.md#renderer-process)
+Processo: [Renderizador](../glossary.md#renderer-process)
 
 The `remote` module provides a simple way to do inter-process communication (IPC) between the renderer process (web page) and the main process.
 
