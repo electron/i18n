@@ -11,7 +11,7 @@ These guides are intended for people working on the Electron project itself. For
 * [कोडिंग शैली](coding-style.md)
 * [सी++ कोड पर क्लैंग-फॉर्मेट इस्तेमाल करना](clang-format.md)
 * [सिस्टम अवलोकन बिल्ड](build-system-overview.md)
-* [बिल्ड निर्देश (मैकओएस)](build-instructions-osx.md)
+* [बिल्ड निर्देश (मैकओएस)](build-instructions-macos.md)
 * [बिल्ड निर्देश (विंडोज)](build-instructions-windows.md)
 * [बिल्ड निर्देश (लिनक्स)](build-instructions-linux.md)
 * [क्रोमियम विकास](chromium-development.md)
