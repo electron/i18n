@@ -26,12 +26,12 @@ Crash reports are saved locally in an application-specific temp directory folder
 
 ## Méthodes
 
-Le module `crashReporter` dispose des méthodes suivantes :
+The `crashReporter` module has the following methods:
 
 ### `crashReporter.start(options)`
 
 * `options` Objet 
-  * `companyName` String (facultatif)
+  * `companyName` String (optional)
   * `submitURL` String - URL that crash reports will be sent to as POST.
   * `productName` String (optional) - Defaults to `app.getName()`.
   * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server Default is `true`.
@@ -66,13 +66,13 @@ You are required to call this method before using any other `crashReporter` APIs
 
 ### `crashReporter.getLastCrashReport()`
 
-Retourne [`CrashReport`](structures/crash-report.md) :
+Returns [`CrashReport`](structures/crash-report.md):
 
 Returns the date and ID of the last crash report. If no crash reports have been sent or the crash reporter has not been started, `null` is returned.
 
 ### `crashReporter.getUploadedReports()`
 
-Retourne [`CrashReport[]`](structures/crash-report.md) :
+Returns [`CrashReport[]`](structures/crash-report.md):
 
 Returns all uploaded crash reports. Each report contains the date and uploaded ID.
 
@@ -109,15 +109,15 @@ See all of the current parameters being passed to the crash reporter.
 
 ## Payload du Crash Report
 
-Le rapporteur de plantage enverra les données suivantes à `submitURL` comme un `POST` en `multipart/form-data` :
+The crash reporter will send the following data to the `submitURL` as a `multipart/form-data` `POST`:
 
-* `ver` String - La version d'Electron.
-* `platform` String - Par exemple 'win32'.
-* `process_type` String - Par exemple 'renderer'.
-* `guid` String - Par exemple '5e1286fc-da97-479e-918b-6bfb0c3d1c72'.
-* `_version` String - La version dans `package.json`.
-* `_productName` String - Le nom du produit dans l'objet `options` de `crashReporter`.
-* `prod` String - Nom du produit sous-jacent. Dans ce cas Electron.
-* `_companyName` String - Le nom de l'entreprise dans l'objet `options` de `crashReporter`.
-* `upload_file_minidump` File - Le rapport d'incident dans le format `minidump`.
-* Toutes les propriétés de niveau 1 de l'objet `extra` dans l'objet `options` de `crashReporter`.
+* `ver` String - The version of Electron.
+* `platform` String - e.g. 'win32'.
+* `process_type` String - e.g. 'renderer'.
+* `guid` String - e.g. '5e1286fc-da97-479e-918b-6bfb0c3d1c72'.
+* `_version` String - The version in `package.json`.
+* `_productName` String - The product name in the `crashReporter` `options` object.
+* `prod` String - Name of the underlying product. In this case Electron.
+* `_companyName` String - The company name in the `crashReporter` `options` object.
+* `upload_file_minidump` File - The crash report in the format of `minidump`.
+* All level one properties of the `extra` object in the `crashReporter` `options` object.
