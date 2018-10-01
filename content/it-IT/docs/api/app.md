@@ -21,7 +21,7 @@ L'oggetto `app` emette i seguenti eventi:
 
 Emesso quando l'app ha finito l'avvio di base. Su Windows e Linux, l'evento `will-finish-launching` equivale all'evento `ready`; su macOS questo evento rappresenta la notifica `applicationWillFinishLaunching` di `NSApplication`. Potresti necessitare spesso di definire ascoltatori (listener) per gli eventi `open-file` e `open-url` ed avviare il reporter dei crash e l'aggiornamento automatico.
 
-In gran parte dei casi, dovresti solo fare tutto nel gestore dell'evento `ready`.
+Nella maggior parte dei casi, tu farai ogni cosa nel gestore degli eventi `ready`.
 
 ### Evento: 'ready'
 
@@ -321,6 +321,18 @@ app.on('session-created', (event, session) => {
 })
 ```
 
+### Evento: 'second-instance'
+
+Restituisce:
+
+* `event` Event
+* `argv` Stringa[] - Un insieme della linea di comando d'argomento della seconda istanza
+* `Directoryfunzionante` Stringa - La directory funzionante della seconda istanza
+
+Questo evento verrà emesso all'interno della prima istanza della tua applicazione quando una seconda istanza è stata eseguita. `argv` è un insieme delle linee di comando degli argomenti della seconda istanza e la `Directoryfunzionante` è la sua attuale Directory funzionante. Di solito le app rispondono a questo focalizzando la loro finestra primaria e non minimizzata.
+
+Questo evento è garantito per essere emesso dopo che l'evento `ready` di `app` viene emesso.
+
 ## Metodi
 
 L'oggetto `app` ha i seguenti metodi:
@@ -368,6 +380,10 @@ app.exit(0)
 ### `app.isPronta()`
 
 Restituisce `Booleano` - `true` se Electron ha finito l'inizializzazione, `falso` viceversa.
+
+### `app.whenReady()`
+
+Restituisce `Promise` - soddisfatta quando Electron è inizializzato. Può essere usata come alternativa conveniente per controllare `app.isReady()` e sottoscrivendo all'evento `ready` se l'applicazione non è ancora pronta.
 
 ### `app.focalizza()`
 
@@ -422,7 +438,7 @@ Puoi richiedere i seguenti percorsi dal nome:
 </ul></li>
 </ul></li>
 <li><code>callback` Function 
-      * `errore` Errore
+      * `error` Error
       * `icona` [ImmagineNativa](native-image.md)
     
     Recupera un'icona associata al percorso.
@@ -509,7 +525,7 @@ Puoi richiedere i seguenti percorsi dal nome:
     
     Questo metodo controlla se l'eseguibile attuale è come un gestionale di default per un protocollo (o schema URI). Se sì, rimuoverà l'app come gestionale predefinito.
     
-    ### `app.isDefaultClientProtocollo(protocollo[, percorso, arg])` *macOS* *Windows*
+    ### `app.isDefaultProtocolClient(protocol[, path, args])`
     
     * `protocollo` Stringa - Il nome del tuo protocollo, senza `://`.
     * `percorso` Stringa (opzionale) *Windows* - Di default a `process.eseguiPercorso`
@@ -537,7 +553,7 @@ Puoi richiedere i seguenti percorsi dal nome:
     
     ### `app.ottieniImpostazioniJumpList` *Windows*
     
-    Restituisci `Oggetto`:
+    Ritorna `Object`:
     
     * `miniElementi` Numero intero - Il minimo numero di elementi che saranno mostrati nella JumpList (per una più dettagliata descrizione di questo valore vedere [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
     * `Elementirimossi` [ElementiJumpList[]](structures/jump-list-item.md) - Insieme degli oggetti `ElementiJumpList` che corrisponde agli elementi esplicitamente rimossi dall'utente dalle categorie modificate nella Jump List. Questi elementi non possono essere nuovamente aggiunti alla Jump List alla **prossima** chiamata a `app.impostaJumpList()`, Windows non mostrerà alcuna categoria personalizzata che contenga alcuni valori rimossi.
@@ -619,21 +635,15 @@ Puoi richiedere i seguenti percorsi dal nome:
     ])
     ```
     
-    ### `app.compiSingolaIstanza(callback)`
+    ### `app.requestSingleInstanceLock()`
     
-    * `callback` Function 
-      * `argv` Stringa[] - Un insieme della linea di comando d'argomento della seconda istanza
-      * `Directoryfunzionante` Stringa - La directory funzionante della seconda istanza
+    Restituisci `Booleano`
     
-    Restituisce `Booleano`.
+    Questo metodo rende la tua app a Singola Istanza - invece di permettere istanze multiple della tua app da eseguire, questo assicurerà che solo una singola istanza della tua app sia in esecuzione e che le altre istanze segnino questa ed escano.
     
-    Questo metodo rende la tua app una app a Singola Istanza - invece di permettere multiple istanze della tua app da eseguire, questo assicurerà che solo una singola istanza della tua app sia in esecuzione e che le altre istanze segnino questa ed escano.
+    Il valore restituito da questo metodo indica se o meno questa istanza della tua applicazione ha ottenuto con successo il blocco. Se non è riuscita a ottenere il blocco puoi presumere che l'altra istanza della tua applicazione è già in esecuzione con il blocco ed esca immediatamente.
     
-    `callback` sarà chiamato dalla prima istanza con `callback(argv, Directoryfunzionante` quando una seconda istanza è stata eseguita. `argv` è un insieme delle linee di comando degli argomenti della seconda istanza e la `Directoryfunzionante` è la sua attuale Directory funzionante. Di solito le app rispondono a questo focalizzando la loro finestra primaria e non minimizzata.
-    
-    Il `callback` è garantito essere eseguito dopo che l'evento `pronto` dell'app è stato emesso.
-    
-    Questo metodo restituisce `false` se il tuo processo è l'istanza primaria dell'applicazione e la tua app potrebbe continuare a caricare. E restituisce `true` se il tuo processo ha inviato i suoi parametri ad un'altra istanza e dovresti immediatamente uscire.
+    Es. Questo metodo restituisce `true` se il tuo processo è la prima istanza della tua applicazione e la tua app dovrebbe continuare il caricamento. Se restituisce `false`, se il tuo processo deve immediatamente chiudere come se avesse mandato i parametri ad un altra istanza che ha già acquisito il blocco.
     
     Su macOS il sistema fa rispettare l'istanza singola automaticamente quando l'utente prova ad aprirne un'altra della vostra app su Finder e per questo sono emessi gli eventi `apri-file` ed `apri-url`. Comunque quando un utente avvia la tua app nella linea di comando il meccanismo della singola istanza del sistema sarà bypassato e devi usare questo metodo per assicurare la singola istanza.
     
@@ -643,26 +653,37 @@ Puoi richiedere i seguenti percorsi dal nome:
     const {app} = require('electron')
     let myWindow = null
     
-    const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
-      // Qualcuno ha provato ad avviare una seconda istanza, dovremmo focalizzare la nostra finestra.
-      if (myWindow) {
-        if (myWindow.isMinimized()) myWindow.restore()
-        myWindow.focus()
-      }
-    })
+    const gotTheLock = app.requestSingleInstanceLock()
     
-    if (isSecondInstance) {
+    if (!gotTheLock) {
       app.quit()
-    }
+    } else {
+      app.on('second-instance', (event, commandLine, workingDirectory) => {
+        //Qualcuno ha provato ad avviare una seconda istanza, dobbiamo focalizzarci sulla nostra finestra.
+        app
     
-    // Crea myWindow, carica il resto dell'app, ecc...
-    app.on('ready', () => {
-    })
+    This is an Electron Module and should usually not be translated
+    if (myWindow) {
+          if (myWindow.isMinimized()) myWindow.restore()
+          myWindow.focus()
+        }
+      })
+    
+      // Crea myWindow, carica il resto dell'app, ecc...
+      app.on('ready', () => {
+      })
+    }
     ```
     
-    ### `app.rilasciaIstanzaSingola()`
+    ### `app.hasSingleInstanceLock()`
     
-    Rilascia tutti i blocchi creati da `faIstanzaSingola`. Permetterà alle istanze multiple dell'app di essere eseguite di nuovo al contempo.
+    Restituisci `Booleano`
+    
+    Questo metodo restituisce se o meno questa istanza della tua app è al momento tenuta da una singola istanza bloccata. Puoi richiedere il blocco con `app.requestSingleInstanceLock()` e sbloccarla con `app.releaseSingleInstanceLock()`
+    
+    ### `app.releaseSingleInstanceLock()`
+    
+    Sblocca tutti i blocchi che sono stati creati da `requestSingleInstanceLock`. Questo permetterà alle istanze multiple dell'applicazione di essere eseguiti nuovamente affiancati.
     
     ### `app.impostaUtenteAttività(tipo, userInfo[, Urlpaginaweb])` *macOS*
     
@@ -717,7 +738,7 @@ Puoi richiedere i seguenti percorsi dal nome:
     
     Questo metodo può essere chiamato solo prima che l'app sia pronta.
     
-    ### `app.getAppMetrics()`
+    ### `app.ottieniMetricheApp()`
     
     Restituisce [`ProcessMetric[]`](structures/process-metric.md): Array di oggetti `ProcessMetric` che corrispondono alle statistiche relative all'uso della memoria e della CPU di tutti i processi associati all'applicazione.
     
@@ -725,7 +746,7 @@ Puoi richiedere i seguenti percorsi dal nome:
     
     Restituisce lo [`StatoFunzioneGPU`](structures/gpu-feature-status.md) - Lo Stato Funzioni Grafiche da `chrome://gpu/`.
     
-    ### `app.setBadgeCount(count)` *Linux* *macOS*
+    ### `app.impostaContaBadge(conta)` *Linux* *macOS*
     
     * `conta` Numero Intero
     
@@ -735,17 +756,17 @@ Puoi richiedere i seguenti percorsi dal nome:
     
     Su macOS esso è mostrato sull'icona del dock. Su Linux lavora sol9 con il Launcher Unity,
     
-    **Nota:** Il launcher Unity richiede l'esistenza di un file `.desktop` per funzionare, per ulteriori informazioni leggere [Desktop Integrazione Ambiente](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
+    **Nota:**Il launcher Unity richiede l'esistenza di un file `.desktop` per funzionare, per più informazioni per favore leggi: [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
     
-    ### `app.getBadgeCount()` *Linux* *macOS*
+    ### `app.ottieniContaBadge()` *Linux* *macOS*
     
     Restituisce `Intero` - Il valore attuale è mostrato nel contatore di badge.
     
-    ### `app.isUnityRunning()` *Linux*
+    ### `app.èUnityEsecuzione()` *Linux*
     
     Restituisce `Booleano` - Se l'attuale ambiente desktop è il launcher Unity.
     
-    ### `app.getLoginItemSettings([options])` *macOS* *Windows*
+    ### `app.ottieniImpostazioniElementiAccesso([options])` *macOS* *Windows*
     
     * `options` Object (opzionale) 
       * `percorso` Stringa (opzionale) *Windows* - Il percorso eseguibile a comparazione. Di default è `processo.eseguiPercorso`.
@@ -760,7 +781,7 @@ Puoi richiedere i seguenti percorsi dal nome:
     * `wasOpenedAtLogin` Boolean *macOS* - `true` se l'app era stata aperta automaticamente al login. Questa opzione non è disponibile in [MAS builds](../tutorial/mac-app-store-submission-guide.md).
     * `wasOpenedAsHidden` Boolean *macOS* - `true` se l'app era stata aperta come un oggetto login nascosto. Questo indica che l'app potrebbe non aprire alcuna finestra all'avvio. Questa opzione non è disponibile in [MAS builds](../tutorial/mac-app-store-submission-guide.md).
     * `restoreState` Boolean *macOS* - `true` se l'app era stata aperta come un oggetto login che dovrebbe ripristinare lo stato della sessione precedente. Questo indica che l'app potrebbe ripristinare le finestre aperte l'ultima volta che l'app è stata chiusa. Questa opzione non è disponibile in [MAS builds](../tutorial/mac-app-store-submission-guide.md).
-    ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
+    ### `app.impostaImpostazioniElementoAccesso(impostazioni)` *macOS* *Windows*
     
     * `impostazioni` Oggetto 
       * `apriAdAccesso` Booleano (opzionale) - `true` per aprire l'app all'accesso, `false` per rimuovere l'app come elemento di accesso. Di default a `false`.
@@ -908,10 +929,16 @@ Puoi richiedere i seguenti percorsi dal nome:
     
     * `menu` [Menu](menu.md)
     
-    Imposta il [menu dock](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103) dell'applicazione.
+    Imposta il [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/) nell'applicazione.
     
     ### `app.dock.impostaImmagine(immagine)` *macOS*
     
     * `immagine` ([ImmagineNativa](native-image.md) | Stringa)
     
     Imposta l'`immagine` associata a questa icona del dock.
+    
+    ## Proprietà
+    
+    ### `app.isPackaged`
+    
+    Una proprietà `Booleana` che restituisce `true` se l'applicazione è impacchettata, `false` vice versa. Per molte applicazioni, questa proprietà può essere usata per distinguere ambiente di sviluppo da quello di produzione.
