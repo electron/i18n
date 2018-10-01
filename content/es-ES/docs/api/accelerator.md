@@ -2,7 +2,7 @@
 
 > Definir atajos del teclado.
 
-Los Aceleradores son cadenas de texto que pueden contener múltiples modificadores y claves, combinadas por el caracter `+`, y son usadas para definir Atajos de Teclado a través de tu aplicación.
+Accelerators are Strings that can contain multiple modifiers and a single key code, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
 
 Ejemplos:
 
