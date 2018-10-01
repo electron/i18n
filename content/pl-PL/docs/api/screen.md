@@ -93,11 +93,11 @@ Bieżącą pozycję bezwzględną wskaźnika myszy.
 
 ### `screen.getPrimaryDisplay()`
 
-Returns [`Display`](structures/display.md) - The primary display.
+Zwraca [`Display`](structures/display.md) - ekran główny.
 
 ### `screen.getAllDisplays()`
 
-Returns [`Display[]`](structures/display.md) - An array of displays that are currently available.
+Zwraca [`Display[]`](structures/display.md) - tablicę obiektów Display, które są obecnie dostępne.
 
 ### `screen.getDisplayNearestPoint(point)`
 
