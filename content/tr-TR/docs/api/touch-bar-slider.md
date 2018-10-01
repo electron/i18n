@@ -2,7 +2,7 @@
 
 > Dokunmatik çubukta yerel macOS uygulamaları için bir kaydırıcı oluşturun
 
-İşlem: [Main](../tutorial/quick-start.md#main-process)
+Process: [Main](../tutorial/quick-start.md#main-process)
 
 ### `yeni DokunmatikYüzeyKaydırıcı(seçenekler)` *Deneysel*
 
