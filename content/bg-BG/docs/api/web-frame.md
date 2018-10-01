@@ -89,7 +89,7 @@ Resources will be loaded from this `scheme` regardless of the current page's Con
 
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
-* `схема` Низ
+* `scheme` String
 * `опции` Object (по избор) 
   * `secure` Boolean (optional) - Default true.
   * `bypassCSP` Boolean (optional) - Default true.
@@ -130,7 +130,7 @@ In the browser window some HTML APIs like `requestFullScreen` can only be invoke
 * `worldId` Integer
 * `scripts` [WebSource[]](structures/web-source.md)
 * `userGesture` Boolean (optional) - Default is `false`.
-* `обратно повикване` Function (optional) - Called after script has been executed. 
+* `callback` Function (optional) - Called after script has been executed. 
   * `result` Any
 
 Work like `executeJavaScript` but evaluates `scripts` in isolated context.
@@ -161,6 +161,7 @@ Set the security origin of the isolated world.
 Връща `Object`:
 
 * `images` [MemoryUsageDetails](structures/memory-usage-details.md)
+* `scripts` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `cssStyleSheets` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `xslStyleSheets` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `fonts` [MemoryUsageDetails](structures/memory-usage-details.md)
