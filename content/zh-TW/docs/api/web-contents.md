@@ -80,7 +80,7 @@ Corresponds to the points in time when the spinner of the tab started spinning.
 
 Corresponds to the points in time when the spinner of the tab stopped spinning.
 
-#### 事件: 'did-get-response-details'
+#### Event: 'did-get-response-details'
 
 回傳:
 
@@ -96,7 +96,7 @@ Corresponds to the points in time when the spinner of the tab stopped spinning.
 
 Emitted when details regarding a requested resource are available. `status` indicates the socket connection to download the resource.
 
-#### 事件: 'did-get-redirect-request'
+#### Event: 'did-get-redirect-request'
 
 回傳:
 
@@ -245,7 +245,7 @@ Emitted when a plugin process has crashed.
 
 Emitted when `webContents` is destroyed.
 
-#### 事件: 'before-input-event'
+#### Event: 'before-input-event'
 
 回傳:
 
@@ -383,7 +383,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
-#### 事件: 'cursor-changed'
+#### Event: 'cursor-changed'
 
 回傳:
 
@@ -398,7 +398,7 @@ Emitted when the cursor's type changes. The `type` parameter can be `default`, `
 
 If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a [`NativeImage`](native-image.md), and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
 
-#### 事件: 'context-menu'
+#### Event: 'context-menu'
 
 回傳:
 
@@ -440,7 +440,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 Emitted when there is a new context menu that needs to be handled.
 
-#### 事件: 'select-bluetooth-device'
+#### Event: 'select-bluetooth-device'
 
 回傳:
 
@@ -470,7 +470,7 @@ app.on('ready', () => {
 })
 ```
 
-#### 事件: 'paint'
+#### Event: 'paint'
 
 回傳:
 
@@ -490,11 +490,11 @@ win.webContents.on('paint', (event, dirty, image) => {
 win.loadURL('http://github.com')
 ```
 
-#### 事件: 'devtools-reload-page'
+#### Event: 'devtools-reload-page'
 
 Emitted when the devtools window instructs the webContents to reload
 
-#### 事件: 'will-attach-webview'
+#### Event: 'will-attach-webview'
 
 回傳:
 
@@ -707,7 +707,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *試驗中*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
 
 * `ignore` Boolean
 
@@ -883,7 +883,7 @@ Unregisters any ServiceWorker if present and returns a boolean as response to `c
 
 Get the system printer list.
 
-回傳 [`PrinterInfo[]`](structures/printer-info.md).
+Returns [`PrinterInfo[]`](structures/printer-info.md).
 
 #### `contents.print([options], [callback])`
 
