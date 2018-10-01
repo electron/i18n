@@ -46,7 +46,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     - [`<webview>`: Do not use `allowpopups`](#11-do-not-use-allowpopups)
     - [`<webview>`: Verify options and params](#12-verify-webview-options-before-creation)
     - [Disable or limit navigation](#13-disable-or-limit-navigation)
-    - [Disable or limit creation of new windows](#13-disable-or-limit-creation-of-new-windows)</ol> 
+    - [Disable or limit creation of new windows](#14-disable-or-limit-creation-of-new-windows)</ol> 
     
     ## 1) 안전한 콘텐츠만 로드하세요.
     
@@ -266,10 +266,10 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     Electron respects the [`Content-Security-Policy` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) which can be set using Electron's [`webRequest.onHeadersReceived`](../api/web-request.md#webrequestonheadersreceivedfilter-listener) handler:
     
     ```javascript
-    const {session} = require('electron')
+    const { session } = require('electron')
     
     session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
-      callback({responseHeaders: `default-src 'none'`})
+      callback({ responseHeaders: `default-src 'none'` })
     })
     ```
     
@@ -458,13 +458,13 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     We recommend that you use Node's parser for URLs. Simple string comparisons can sometimes be fooled - a `startsWith('https://google.com')` test would let `https://google.com.attacker.com` through.
     
     ```js
-    const URL = require('url')
+    const URL = require('url').URL
     
     app.on('web-contents-created', (event, contents) => {
       contents.on('will-navigate', (event, navigationUrl) => {
         const parsedUrl = new URL(navigationUrl)
     
-        if (parsedUrl.hostname !== 'my-own-server.com') {
+        if (parsedUrl.origin !== 'https://my-own-server.com') {
           event.preventDefault()
         }
       })
