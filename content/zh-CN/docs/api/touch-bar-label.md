@@ -2,11 +2,11 @@
 
 > 在原生macOS应用程序的触摸栏中创建一个标签
 
-线程：[主线程](../tutorial/quick-start.md#main-process)
+Process: [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBarLabel(options)` *实验功能*
 
-* `options` Object 
+* `参数` 对象 
   * `label` String (可选) - 显示的文本.
   * `textColor` String（可选） - 文本的十六进制颜色，例如#ABCDEF。
 
