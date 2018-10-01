@@ -209,7 +209,7 @@ Ibinabalik ang:
 * `url` Tali
 * `error` String - Ang code ng error
 * `certificate` [Certificate](structures/certificate.md)
-* `callback` Function 
+* `callback` Punsyon 
   * `isTrusted` Boolean - Kung isinasa-alang-alang ang sertipiko bilang mapagkakatiwalaan
 
 Lalabas kapag nabigo ang pag-beripika ng `certificate` para sa `url`, para pagkatiwalaan ang sertipiko dapat mong pigilan ang default na aksyon gamit ang `event.preventDefalt()` at tawagin ang `callback(true)`.
@@ -236,7 +236,7 @@ Ibinabalik ang:
 * `webContents` [WebContents](web-contents.md)
 * `url` Ang URL
 * `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Function 
+* `callback` Punsyon 
   * `certificate` [Certificate](structures/certificate.md) (opsyonal)
 
 Lalabas kapag ang sertipiko ng kliyente ay hiniling.
@@ -268,7 +268,7 @@ Ibinabalik ang:
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Punsyon 
+* `callback` Function 
   * `username` String
   * `password` String
 
@@ -303,6 +303,23 @@ Ibinabalik ang:
 
 Lalabas kapag ang parating na suporta ng Chrome ay nabago. Ang event na ito ay sisimulan kapag ang assistive na teknologhiya, kagaya ng mga screen reader, ay naka-enable o hindi. Tingnan ang https://www.chromium.org/developers/design-documents/accessibility para sa iba pang mga detalye.
 
+### Event: 'session-created'
+
+Ibinabalik ang:
+
+* `kaganapan` Kaganapan
+* `session` [Session](session.md)
+
+Emitted when Electron has created a new `session`.
+
+```javascript
+const {app} = require('electron')
+
+app.on('session-created', (event, session) => {
+  console.log(session)
+})
+```
+
 ## Mga Paraan
 
 Ang `app` na object ay maroong mga sumusunod na mga method:
@@ -325,7 +342,7 @@ Ang lahat ng mga window ay kaagad na magsasara kahit walang pahintulot ng user a
 
 ### `app.relaunch([options])`
 
-* `options` Bagay (opsyonal) 
+* `mga opsyon` Na Bagay (opsyonal) 
   * `args` String[] (optional)
   * `execPath` String (opsyonal)
 
@@ -395,12 +412,12 @@ Maaari mong hilingin ang mga sumusunod na landas sa pamamagitan ng pangalan:
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `options` Na Bagay (opsyonal) 
+* `mga opsyon` Na Bagay (opsyonal) 
   * `sukat` String 
     * `small` - 16x16
     * `normal` - 32x32
     * `large` - 48x48 sa *Linux*, 32x32 sa *Windows*, hindi suportado sa *macOS*.
-* `callback` Function 
+* `callback` Punsyon 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
@@ -601,7 +618,7 @@ app.setJumpList([
 
 ### `app.makeSingleInstance(callback)`
 
-* `callback` Tungkulin 
+* `callback` Function 
   * `argv` String[] - Isang hanay ng mga argumento sa linya ng command sa ikalawang pagkakataon
   * `workingDirectory` String - Ang working directory ng ikalawang pagkakataon
 
@@ -656,7 +673,7 @@ Ay lumilikha ng isang `NSUserActivity` at ito ang nagtatakda bilang kasalukuyang
 
 Nagbabalik ang `String` - Ang uri ng kasalukuyang aktibidad na tumatakbo.
 
-### `app.invalidateCurrentActivity()` *macOS*
+### `app.invalidateCurrentActivity()` *macOS* 
 
 * `type` String - Kakaibang pagkakilala sa aktibidad. Mag-map sa [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 
@@ -727,7 +744,7 @@ Nagbabalik ang `Boolean` - Kung ang kasalukuyang kapaligiran ay tagalunsad ng Un
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `options` Bagay (opsyonal) 
+* `mga opsyon` Bagay (opsyonal) 
   * `path` String (opsyonal) *Windows* - Ang maipapatupad na landas na ihahambing laban sa. Mga default sa `process.execPath`.
   * `args` String[] (opsyonal) *Windows* - Ang mga argumento ng command-line na ihahambing laban sa. Mga default sa isang hanay na walang laman.
 
@@ -831,11 +848,11 @@ Ang pinaghalong paraan ng sandbox sa app ay pinagana.
 
 Ang pamamaraang ito ay maaari lamang matawag bago ang app ay handa na.
 
-### `app.isInApplicationsFolder()` *macOS*
+### `app.isInApplicationsFolder()` *macOS* 
 
 Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
 
-### `app.moveToApplicationsFolder()` *macOS*
+### `app.moveToApplicationsFolder()` *macOS* 
 
 Returns `Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.
 
