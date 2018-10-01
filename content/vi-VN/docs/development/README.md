@@ -11,7 +11,7 @@ These guides are intended for people working on the Electron project itself. For
 * [Phong cách lập trình](coding-style.md)
 * [Sử dụng clang-format trên Code C++](clang-format.md)
 * [Tổng qua về Hệ thống cần thiết để Build](build-system-overview.md)
-* [Hướng dẫn build (macOS)](build-instructions-osx.md)
+* [Hướng dẫn build (macOS)](build-instructions-macos.md)
 * [Hướng dẫn build (Windows)](build-instructions-windows.md)
 * [Hướng dẫn build (Linux)](build-instructions-linux.md)
 * [Chromium Development](chromium-development.md)
