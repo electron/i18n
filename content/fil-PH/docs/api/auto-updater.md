@@ -72,7 +72,7 @@ Ang `autoUpdater` na gamit ay mayroong ibat-ibang pamamaraan:
 
 ### `autoUpdater.setFeedURL(options)`
 
-* `options` Bagay 
+* `mga opsyon` Bagay 
   * `url` Tali
   * `headers` Object (optional) *macOS* - HTTP request headers.
   * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
