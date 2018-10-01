@@ -47,7 +47,7 @@ Emitido antes de a aplicação começar a fechar suas janelas. Chamar `event.pre
 
 **Nota:** Se o encerramento da aplicação foi iniciado por `autoUpdater.quitAndInstall()`, então `before-quit` é emitido *depois* de lançar o evento `close` em todas as janelas e fechá-las.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**Nota:** No Windows, este evento não será emitido se o aplicativo for fechado devido a um desligamento / reinício do sistema ou a um logout do usuário.
 
 ### Evento: 'will-quit'
 
@@ -59,7 +59,7 @@ Emitido quando todas as janelas foram fechadas e a aplicação irá encerrar. Ch
 
 Consulte a descrição do evento `window-all-closed` para as diferenças entre os eventos `will-quit` e `window-all-closed`.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**Nota:** No Windows, este evento não será emitido se o aplicativo for fechado devido a um desligamento / reinício do sistema ou a um logout do usuário.
 
 ### Evento: 'quit'
 
@@ -70,7 +70,7 @@ Retorna:
 
 Emitido quando a aplicação esta sendo encerrada(quitting).
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**Nota:** No Windows, este evento não será emitido se o aplicativo for fechado devido a um desligamento / reinício do sistema ou a um logout do usuário.
 
 ### Evento: 'open-file' *macOS*
 
@@ -303,6 +303,23 @@ Retorna:
 
 Emitido quando o suporte de acessibilidade do Chrome muda. Este evento é acionado quando a tecnologias assistivas, tais como leitores de tela, estão habilitadas ou desabilitadas. Veja https://www.chromium.org/developers/design-documents/accessibility para mais detalhes.
 
+### Event: 'session-created'
+
+Retorna:
+
+* `event` Event
+* `session` [Session](session.md)
+
+Emitted when Electron has created a new `session`.
+
+```javascript
+const {app} = require('electron')
+
+app.on('session-created', (event, session) => {
+  console.log(session)
+})
+```
+
 ## Métodos
 
 O objeto `app` tem os seguintes métodos:
@@ -319,7 +336,7 @@ Este método garante que todos os manipuladores de vento `beforeunload` e `unloa
 
 * `exitCode` Integer (opcional)
 
-Exits immediately with `exitCode`. `exitCode` defaults to 0.
+Sai imediatamente com `exitCode`. `exitCode` padrão é 0.
 
 Todas as janelas serão fechadas imediatamente sem perguntar ao usuário e os eventos `before-quit` e `will-quit` não serão emitidos.
 
@@ -390,7 +407,7 @@ Você pode solicitar os seguintes caminhos pelo o nome:
 * `pictures` Diretório para as imagens de um usuário.
 * `videos` Diretório para os vídeos de um usuário.
 * `logs` Diretório que armazena os logs da aplicação.
-* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
+* `pepperFlashSystemPlugin` Caminho completo para a versão do sistema do plug-in do Pepper Flash.
 
 ### `app.getFileIcon(path[, options], callback)`
 
@@ -442,9 +459,9 @@ Sobrescreve o atual nome da aplicação.
 
 ### `app.getLocale()`
 
-Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+Retorna `String` - A localidade do aplicativo atual. Valores de possíveis retornos são documentados [aqui](locales.md).
 
-To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
+Para definir a localidade, você vai querer usar um switch de linha de comando na inicialização do aplicativo, que pode ser encontrado [aqui](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
 
 **Nota:** Quando estiver distribuindo seu aplicativo, você também deve entregar a pasta `locales`.
 
@@ -699,7 +716,7 @@ Este método somente pode ser chamado antes do aplicativo estiver pronto.
 
 ### `app.getAppMetrics()`
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
+Retorna [`ProcessMetric[]`](structures/process-metric.md): Array de `ProcessMetric` objetos que correspondem a estatísticas de uso de memória e CPU de todos os processos associados ao aplicativo.
 
 ### `app.getGPUFeatureStatus()`
 
@@ -780,7 +797,7 @@ Ativa manualmente o suporte à acessibilidade do Chrome, permitindo expor uma op
 
 **Nota:** A renderização da árvore de acessibilidade pode afetar o desempenho do seu aplicativo de forma significativa. Ela não deve ser ativada por padrão.
 
-### `app.setAboutPanelOptions(options)` no *macOS*
+### `app.setAboutPanelOptions(options)` *macOS*
 
 * `options` Object 
   * `applicationName` String (opcional) - O nome do aplicativo.
@@ -851,19 +868,19 @@ When `informational` is passed, the dock icon will bounce for one second. Howeve
 
 Returns `Integer` an ID representing the request.
 
-### `app.dock.cancelBounce(id)` no *macOS*
+### `app.dock.cancelBounce(id)` *macOS*
 
 * `id` Inteiro
 
 Cancel the bounce of `id`.
 
-### `app.dock.downloadFinished(filePath)` no *macOS*
+### `app.dock.downloadFinished(filePath)` *macOS*
 
 * `filePath` String
 
 Bounces the Downloads stack if the filePath is inside the Downloads folder.
 
-### `app.dock.setBadge(text)` no *macOS*
+### `app.dock.setBadge(text)` *macOS*
 
 * `text` String
 
@@ -883,15 +900,15 @@ Mostra o ícone na Dock.
 
 ### `app.dock.isVisible()` no *macOS*
 
-Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call is asynchronous so this method might not return true immediately after that call.
+Retorna `Boolean` - Se o ícone do dock está visível. O `app.dock.show()` A chamada é assíncrona, portanto, esse método pode não retornar true imediatamente após a chamada.
 
-### `app.dock.setMenu(menu)` no *macOS*
+### `app.dock.setMenu(menu)` *macOS*
 
 * `menu` [Menu](menu.md)
 
 Define o [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103) da aplicação.
 
-### `app.dock.setIcon(image)` no *macOS*
+### `app.dock.setIcon(image)` *macOS*
 
 * `image` ([NativeImage](native-image.md) | String)
 
