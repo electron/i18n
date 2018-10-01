@@ -2,7 +2,7 @@
 
 > Membuat scrubber (digulir pemilih)
 
-Proses: [utama](../tutorial/quick-start.md#main-process)
+Process: [Main](../tutorial/quick-start.md#main-process)
 
 ### `TouchBarScrubberbaru(pilihan) ` * Eksperimental *
 
@@ -18,7 +18,7 @@ Proses: [utama](../tutorial/quick-start.md#main-process)
   * `modus` String - default untuk `gratis`.
   * `terus-menerus` Aljabar Boolean - default ke `true`.
 
-### Properti Instance
+### Instance Properties
 
 Properti berikut tersedia pada contoh-contoh dari `TouchBarScrubber`:
 
