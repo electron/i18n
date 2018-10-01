@@ -20,7 +20,7 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 * `env`
 * `platform`
 
-## أحداث
+## Events
 
 ### الحدث: "تحميل"
 
@@ -38,7 +38,7 @@ process.once('loaded', () => {
 })
 ```
 
-## الخصائص
+## Properties
 
 ### `process.defaultApp`
 
@@ -88,9 +88,9 @@ A `String` representing Electron's version string.
 
 A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
 
-## المنهجية
+## Methods
 
-The `process` object has the following methods:
+الطرق
 
 ### `process.crash()`
 
@@ -127,7 +127,7 @@ Returns `Object`:
 * `workingSetSize` Integer - The amount of memory currently pinned to actual physical RAM.
 * `peakWorkingSetSize` Integer - The maximum amount of memory that has ever been pinned to actual physical RAM.
 * `privateBytes` عدد صحيح - مقدار الذاكرة التي لا يتم مشاركتها مع العمليات الأخرى ، كـ JS heap أو محتوى HTML.
-* `sharedBytes` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself.
+* `sharedBytes` عدد صحيح - مقدار الذاكرة المشتركة بين العمليات ، عادة الذاكرة المستهلكة بواسطة شفرة Electron نفسها.
 
 Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes.
 
@@ -146,7 +146,7 @@ Returns an object giving memory usage statistics about the entire system. Note t
 
 Causes the main thread of the current process hang.
 
-### `process.setFdLimit(maxDescriptors)` *macOS* *Linux*
+### ماك أوس لينكس
 
 * `maxDescriptors` Integer
 
