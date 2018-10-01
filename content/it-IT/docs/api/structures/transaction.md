@@ -1,11 +1,11 @@
 # Oggetto Transaction
 
-* `transactionIdentifier` Stringa
-* `transactionDate` Stringa
-* `originalTransactionIdentifier` Stringa
-* `transactionState` Stringa - Lo stato della transazione (`"purchasing"`, `"purchased"`, `"failed"`, `"restored"`, oppure `"deferred"`)
+* `transactionIdentifier` String
+* `transactionDate` String
+* `originalTransactionIdentifier` String
+* `transactionState` String - The transaction sate (`"purchasing"`, `"purchased"`, `"failed"`, `"restored"`, or `"deferred"`)
 * `errorCode` Integer
-* `errorMessage` Stringa
+* `errorMessage` String
 * `payment` Oggetto 
-  * `productIdentifier` Stringa
+  * `productIdentifier` String
   * `quantity` Integer
