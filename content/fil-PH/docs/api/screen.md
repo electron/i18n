@@ -64,10 +64,6 @@ Pagbabalik [`Point`](structures/point.md)
 
 Ang kasalukuyang ganap na posisyon ng mouse pointer.
 
-### `screen.getMenuBarHeight()` *macOS*
-
-Returns `Integer` - The height of the menu bar in pixels.
-
 ### `screen.getPrimaryDisplay()`
 
 Returns [`Display`](structures/display.md) - The primary display.
@@ -87,3 +83,37 @@ Returns [`Display`](structures/display.md) - The display nearest the specified p
 * `rect` [Rectangle](structures/rectangle.md)
 
 Returns [`Display`](structures/display.md) - The display that most closely intersects the provided bounds.
+
+### `screen.screenToDipPoint(point)` *Windows*
+
+* `point` [Point](structures/point.md)
+
+Pagbabalik [`Point`](structures/point.md)
+
+Converts a screen physical point to a screen DIP point. The DPI scale is performed relative to the display containing the physical point.
+
+### `screen.dipToScreenPoint(point)` *Windows*
+
+* `point` [Point](structures/point.md)
+
+Pagbabalik [`Point`](structures/point.md)
+
+Converts a screen DIP point to a screen physical point. The DPI scale is performed relative to the display containing the DIP point.
+
+### `screen.screenToDipRect(window, rect)` *Windows*
+
+* `window` [BrowserWindow](browser-window.md) | null
+* `rect` [Rectangle](structures/rectangle.md)
+
+Nagbabalik[`Rectangle`](structures/rectangle.md)
+
+Converts a screen physical rect to a screen DIP rect. The DPI scale is performed relative to the display nearest to `window`. If `window` is null, scaling will be performed to the display nearest to `rect`.
+
+### `screen.dipToScreenRect(window, rect)` *Windows*
+
+* `window` [BrowserWindow](browser-window.md) | null
+* `rect` [Rectangle](structures/rectangle.md)
+
+Nagbabalik[`Rectangle`](structures/rectangle.md)
+
+Converts a screen DIP rect to a screen physical rect. The DPI scale is performed relative to the display nearest to `window`. If `window` is null, scaling will be performed to the display nearest to `rect`.
