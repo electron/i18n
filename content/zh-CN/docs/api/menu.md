@@ -32,7 +32,7 @@ menu类有以下静态方法：
 
 * `action` String
 
-将 ` action ` 发送到应用程序的第一个响应方。 这用于模拟默认的 macOS 菜单行为。 Usually you would just use the [`role`](menu-item.md#roles) property of a [`MenuItem`](menu-item.md).
+将 ` action ` 发送到应用程序的第一个响应方。 这用于模拟默认的 macOS 菜单行为。 Usually you would use the [`role`](menu-item.md#roles) property of a [`MenuItem`](menu-item.md).
 
 有关 macOS 的本地操作的详细信息, 请参阅 [ macOS Cocoa Event Handling Guide ](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7)。
 
@@ -42,7 +42,7 @@ menu类有以下静态方法：
 
 返回 ` Menu `
 
-Generally, the `template` is just an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
+Generally, the `template` is an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
 
 还可以将其他字段附加到 ` template ` 的元素中, 它们将成为构造的菜单项的属性。
 
@@ -385,27 +385,26 @@ window.addEventListener('contextmenu', (e) =&gt; {
 </h2>
 
 <p>
-  You can make use of <code>position</code> and <code>id</code> to control how the item will be placed when building a menu with <code>Menu.buildFromTemplate</code>.
-</p>
-
-<p>
-  The <code>position</code> attribute of <code>MenuItem</code> has the form <code>[placement]=[id]</code>, where <code>placement</code> is one of <code>before</code>, <code>after</code>, or <code>endof</code> and <code>id</code> is the unique ID of an existing item in the menu:
+  你可以使用 <code>before</code>, <code>after</code>, <code>beforeGroupContaining</code>, <code>afterGroupContaining</code> 和 <code>id</code> 来控制由 <code>Menu.buildFromTemplate</code> 生成的菜单项的位置.
 </p>
 
 <ul>
   <li>
-    <code>before</code> - Inserts this item before the id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
+    <code>before</code> - 在指定的标签之前插入菜单项。 如果引用值不存在，那么该菜单项会插在这个菜单的尾部。 这还意味着，菜单项应该被放置在与引用项相同的组中。
   </li>
   <li>
-    <code>after</code> - Inserts this item after id referenced item. If the referenced item doesn't exist the item will be inserted at the end of the menu.
+    <code>after</code> - 在指定的标签之后插入菜单项。 如果引用值不存在，那么该菜单项会插在这个菜单的尾部。 这还意味着，菜单项应该被放置在与引用项相同的组中。
   </li>
   <li>
-    <code>endof</code> - Inserts this item at the end of the logical group containing the id referenced item (groups are created by separator items). If the referenced item doesn't exist, a new separator group is created with the given id and this item is inserted after that separator.
+    <code>beforeGroupContaining</code> - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
+  </li>
+  <li>
+    <code>afterGroupContaining</code> - Provides a means for a single context menu to declare the placement of their containing group after the containing group of the item with the specified label.
   </li>
 </ul>
 
 <p>
-  When an item is positioned, all un-positioned items are inserted after it until a new item is positioned. So if you want to position a group of menu items in the same location you only need to specify a position for the first item.
+  默认情况下，除非有位置相关的属性，所有的菜单项会按照模板中的顺序排放。
 </p>
 
 <h3>
@@ -413,53 +412,70 @@ window.addEventListener('contextmenu', (e) =&gt; {
 </h3>
 
 <p>
-  Template:
+  模板：
 </p>
 
 <pre><code class="javascript">[
-  {label: '4', id: '4'},
-  {label: '5', id: '5'},
-  {label: '1', id: '1', position: 'before=4'},
-  {label: '2', id: '2'},
-  {label: '3', id: '3'}
+  { id: '1', label: 'one' },
+  { id: '2', label: 'two' },
+  { id: '3', label: 'three' },
+  { id: '4', label: 'four' }
 ]
 </code></pre>
 
 <p>
-  Menu:
+  菜单:
 </p>
 
 <pre><code class="sh">&lt;br />- 1
 - 2
 - 3
 - 4
-- 5
 </code></pre>
 
 <p>
-  Template:
+  模板：
 </p>
 
 <pre><code class="javascript">[
-  {label: 'a', position: 'endof=letters'},
-  {label: '1', position: 'endof=numbers'},
-  {label: 'b', position: 'endof=letters'},
-  {label: '2', position: 'endof=numbers'},
-  {label: 'c', position: 'endof=letters'},
-  {label: '3', position: 'endof=numbers'}
+  { id: '1', label: 'one' },
+  { type: 'separator' },
+  { id: '3', label: 'three', beforeGroupContaining: ['1'] },
+  { id: '4', label: 'four', afterGroupContaining: ['2'] },
+  { type: 'separator' },
+  { id: '2', label: 'two' }
 ]
 </code></pre>
 
 <p>
-  Menu:
+  菜单:
+</p>
+
+<pre><code class="sh">&lt;br />- 3
+- 4
+- ---
+- 1
+- ---
+- 2
+</code></pre>
+
+<p>
+  模板：
+</p>
+
+<pre><code class="javascript">[
+  { id: '1', label: 'one', after: ['3'] },
+  { id: '2', label: 'two', before: ['1'] },
+  { id: '3', label: 'three' }
+]
+</code></pre>
+
+<p>
+  菜单:
 </p>
 
 <pre><code class="sh">&lt;br />- ---
-- a
-- b
-- c
-- ---
-- 1
-- 2
 - 3
+- 2
+- 1
 </code></pre>
