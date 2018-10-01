@@ -46,7 +46,7 @@ Objects created with `new Notification` emit the following events:
 
 **Nota:** Alcuni metodi sono disponibili solo su sistemi operativi specifici e sono etichettati come tali.
 
-#### Event: 'show'
+#### Evento: 'show'
 
 Restituisce:
 
@@ -62,7 +62,7 @@ Restituisce:
 
 Emitted when the notification is clicked by the user.
 
-#### Event: 'close'
+#### Evento: 'close'
 
 Restituisce:
 
