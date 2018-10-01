@@ -1,4 +1,4 @@
-## Class: Cookies
+## Klasa: Cookies
 
 > Query and modify a session's cookies.
 
