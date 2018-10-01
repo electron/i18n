@@ -1,4 +1,4 @@
-# الأسئلة المتداولة حول إلكترون
+# إلكترون - الاسئلة الشائعة
 
 ## لماذا أواجه مشكلة في تثبيت إلكترون؟
 
@@ -57,7 +57,7 @@ If you encounter this problem, the following articles may prove helpful:
 If you want a quick fix, you can make the variables global by changing your code from this:
 
 ```javascript
-const {app, Tray} = require('electron')
+const { app, Tray } = require('electron')
 app.on('ready', () => {
   const tray = new Tray('/path/to/icon.png')
   tray.setTitle('hello world')
@@ -67,7 +67,7 @@ app.on('ready', () => {
 to this:
 
 ```javascript
-const {app, Tray} = require('electron')
+const { app, Tray } = require('electron')
 let tray = null
 app.on('ready', () => {
   tray = new Tray('/path/to/icon.png')
@@ -83,7 +83,7 @@ To solve this, you can turn off node integration in Electron:
 
 ```javascript
 // In the main process.
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
     nodeIntegration: false
@@ -117,23 +117,24 @@ Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 
 This is because you have the [npm `electron` module](https://www.npmjs.com/package/electron) installed either locally or globally, which overrides Electron's built-in module.
 
-To verify whether you are using the correct built-in module, you can print the path of the `electron` module:
+للتحقق مما إذا كنت تستخدم الوحدة النمطية المضمنة الصحيحة ، يمكنك طباعة مسار وحدة </> الكترون </ 0>:
 
 ```javascript
 console.log(require.resolve('electron'))
 ```
 
-and then check if it is in the following form:
+ثم تحقق مما إذا كان في النموذج التالي:
 
 ```sh
 "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
 ```
 
-If it is something like `node_modules/electron/index.js`, then you have to either remove the npm `electron` module, or rename it.
+إذا كان الأمر يشبه ` node_modules / electron / index.js </ 0> ، فيجب عليك
+إما إزالة وحدة npm <code> electron </ 0> أو إعادة تسميتها.</p>
 
-```sh
-npm uninstall electron
+<pre><code class="sh">npm uninstall electron
 npm uninstall -g electron
-```
+`</pre> 
 
-However if you are using the built-in module but still getting this error, it is very likely you are using the module in the wrong process. For example `electron.app` can only be used in the main process, while `electron.webFrame` is only available in renderer processes.
+ومع ذلك ، إذا كنت تستخدم الوحدة المضمنة ولكنك لا تزال تحصل على هذا الخطأ من المحتمل جدًا أنك تستخدم الوحدة في العملية الخاطئة. يمكن استخدام  electron.app </ 0> فقط في العملية الرئيسية ، بينما <>> electron.webFrame </ 0>
+متاح فقط في renderer processes.</p>
