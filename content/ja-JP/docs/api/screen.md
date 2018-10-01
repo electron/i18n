@@ -91,26 +91,56 @@ app.on('ready', () => {
 
 マウスポインタの現在の絶対位置。
 
-### `screen.getMenuBarHeight()` *macOS*
-
-Returns `Integer` - The height of the menu bar in pixels.
-
 ### `screen.getPrimaryDisplay()`
 
-Returns [`Display`](structures/display.md) - The primary display.
+戻り値 [`Display`](structures/display.md) - 主要なディスプレイ。
 
 ### `screen.getAllDisplays()`
 
-Returns [`Display[]`](structures/display.md) - An array of displays that are currently available.
+戻り値 [`Display[]`](structures/display.md) - 現在利用可能な display の配列。
 
 ### `screen.getDisplayNearestPoint(point)`
 
 * `point` [Point](structures/point.md)
 
-Returns [`Display`](structures/display.md) - The display nearest the specified point.
+戻り値 [`Display`](structures/display.md) - 指定した point に最も近い display。
 
 ### `screen.getDisplayMatching(rect)`
 
 * `rect` [Rectangle](structures/rectangle.md)
 
-Returns [`Display`](structures/display.md) - The display that most closely intersects the provided bounds.
+戻り値 [`Display`](structures/display.md) - 指定した矩形に最も近い display。
+
+### `screen.screenToDipPoint(point)` *Windows*
+
+* `point` [Point](structures/point.md)
+
+戻り値 [`Point`](structures/point.md)
+
+スクリーンの物理ポイントをスクリーンの DIP ポイントに変換します。DPI スケールは物理ポイントを含むディスプレイと相対的に計算されます。
+
+### `screen.dipToScreenPoint(point)` *Windows*
+
+* `point` [Point](structures/point.md)
+
+戻り値 [`Point`](structures/point.md)
+
+スクリーンの DIP ポイントをスクリーンの物理ポイントに変換します。DPI スケールは DIP ポイントを含むディスプレイと相対的に計算されます。
+
+### `screen.screenToDipRect(window, rect)` *Windows*
+
+* `window` [BrowserWindow](browser-window.md) | null
+* `rect` [Rectangle](structures/rectangle.md)
+
+戻り値 [`Rectangle`](structures/rectangle.md)
+
+スクリーンの物理矩形をスクリーンのの DIP 矩形に変換します。 DPI スケールは `window` に近いディスプレイと相対的に計算されます。 `window` が null の場合、スケールは `rect` に近いディスプレイと相対的に計算されます。
+
+### `screen.dipToScreenRect(window, rect)` *Windows*
+
+* `window` [BrowserWindow](browser-window.md) | null
+* `rect` [Rectangle](structures/rectangle.md)
+
+戻り値 [`Rectangle`](structures/rectangle.md)
+
+スクリーンの DIP 矩形をスクリーンのの物理矩形に変換します。 DPI スケールは `window` に近いディスプレイと相対的に計算されます。 `window` が null の場合、スケールは `rect` に近いディスプレイと相対的に計算されます。
