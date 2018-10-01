@@ -209,7 +209,7 @@ Zwraca:
 * `url` String
 * `error` String - The error code
 * `certificate` [Certificate](structures/certificate.md)
-* `callback` Function 
+* `callback` Funkcja 
   * `isTrusted` Boolean - Whether to consider the certificate as trusted
 
 Emitowany gdy nie powiedzie się weryfikacja certyfikatu `certificate` dla `url`, aby certyfikat przeszedł weryfikację powinieneś zapobiec domyślnemu zachowaniu aplikacji przy pomocy `event.preventDefault()` i wywołać `callback(true)`.
@@ -236,7 +236,7 @@ Zwraca:
 * `webContents` [WebContents](web-contents.md)
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Function 
+* `callback` Funkcja 
   * `certificate` [Certificate](structures/certificate.md) (optional)
 
 Emitowane, kiedy certyfikat klienta jest wymagany.
@@ -252,23 +252,23 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 })
 ```
 
-### Wydarzenie: 'login'
+### Zdarzenie: 'login'
 
 Zwraca:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
-* `żądanie` Obiekt 
+* `żądanie` Object 
   * `method` String
   * `url` URL
   * `referrer` URL
-* `authInfo` Obiekt 
+* `authInfo` Object 
   * `isProxy` Boolean
   * `schemat` String
   * `host` String
   * `port` Integer
   * `dziedzina` String
-* `callback` Function 
+* `callback` Funkcja 
   * `Nazwa użytkownika` String
   * `Hasło` String
 
@@ -303,6 +303,23 @@ Zwraca:
 
 Emitowany gdy zmieni się obsługa dostępu Chroma. Zdarzenie zostaje wywołane, gdy technologie wspomagające, takie jak czytniki ekranu, są włączone lub wyłączone. Zobacz https://www.chromium.org/developers/design-documents/accessibility, aby uzyskać więcej informacji.
 
+### Zdarzenie: 'session-created'
+
+Zwraca:
+
+* `event` Event
+* `session` [Session](session.md)
+
+Emitted when Electron has created a new `session`.
+
+```javascript
+const {app} = require('electron')
+
+app.on('session-created', (event, session) => {
+  console.log(session)
+})
+```
+
 ## Metody
 
 The `app` object has the following methods:
@@ -325,7 +342,7 @@ Wszystkie okna zostaną natychmiast zamknięte bez pytania się użytkownika ora
 
 ### `app.relaunch([options])`
 
-* `options` Obiekt (opcjonalne) 
+* `opcje` Obiekt (opcjonalne) 
   * `args` String[] (opcjonalne)
   * `execPath` String (opcjonalne)
 
@@ -395,12 +412,12 @@ Możesz poprosić o następujące ścieżki dostępu poprzez nazwę:
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `options` Obiekt (opcjonalne) 
-  * `size` Ciąg tekstu 
+* `opcje` Obiekt (opcjonalne) 
+  * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
     * `large` - 48x48 on *Linux*, 32x32 on *Windows*, brak wsparcia dla *macOS*.
-* `callback` Function 
+* `callback` Funkcja 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
@@ -535,7 +552,7 @@ Sets or removes a custom Jump List for the application, and returns one of the f
 
 If `categories` is `null` the previously set custom Jump List (if any) will be replaced by the standard Jump List for the app (managed by Windows).
 
-**Uwaga:** Jeśli obiekt `JumpListCategory` nie posiada ani zestawu właściwości `type` ani `name`, wtedy zakłada się że jego `type` jest `tasks`. Jeśli właściwość `name` jest ustawiona, ale pominięto `type` to zakłada się że `type` jest ustawiony na `custom`.
+**Uwaga:** Jeśli obiekt `JumpListCategory` nie posiada ani zestawu właściwości `type`, ani `name`, wtedy zakłada się że jego `type` jest równy `tasks`. Jeśli właściwość `name` jest ustawiona, ale pominięto `type` to zakłada się że `type` jest ustawiony na `custom`.
 
 **Note:** Users can remove items from custom categories, and Windows will not allow a removed item to be added back into a custom category until **after** the next successful call to `app.setJumpList(categories)`. Każda próba ponownego dodania usuniętego niestandardowego elementu do kategorii, spowoduje, że cała niestandardowa kategoria będzie pominięta na liście szybkiego dostępu. The list of removed items can be obtained using `app.getJumpListSettings()`.
 
@@ -601,7 +618,7 @@ app.setJumpList([
 
 ### `app.makeSingleInstance(callback)`
 
-* `callback` Function 
+* `callback` Funkcja 
   * `argv` String[] - An array of the second instance's command line arguments
   * `workingDirectory` String - The second instance's working directory
 
@@ -677,10 +694,10 @@ Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library
 
 ### `app.importCertificate(options, callback)` *LINUX*
 
-* `options` Obiekt 
+* `opcje` Object 
   * `certificate` String - Path for the pkcs12 file.
   * `password` String - Passphrase for the certificate.
-* `callback` Function 
+* `callback` Funkcja 
   * `result` Integer - Result of import.
 
 Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `0` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
@@ -727,7 +744,7 @@ Returns `Boolean` - Whether the current desktop environment is Unity launcher.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `options` Obiekt (opcjonalne) 
+* `opcje` Obiekt (opcjonalne) 
   * `path` String (optional) *Windows* - The executable path to compare against. Defaults to `process.execPath`.
   * `args` String[] (optional) *Windows* - The command-line arguments to compare against. Defaults to an empty array.
 
@@ -743,7 +760,7 @@ Returns `Object`:
 
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
-* `ustawienia` Obiekt 
+* `ustawienia` Object 
   * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Defaults to `false`.
   * `openAsHidden` Boolean (optional) *macOS* - `true` to open the app as hidden. Defaults to `false`. The user can edit this setting from the System Preferences so `app.getLoginItemStatus().wasOpenedAsHidden` should be checked when the app is opened to know the current value. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
   * `path` String (optional) *Windows* - The executable to launch at login. Defaults to `process.execPath`.
@@ -782,7 +799,7 @@ Manually enables Chrome's accessibility support, allowing to expose accessibilit
 
 ### `app.setAboutPanelOptions(options)` *macOS*
 
-* `options` Obiekt 
+* `opcje` Object 
   * `applicationName` String (optional) - The app's name.
   * `applicationVersion` String (optional) - The app's version.
   * `copyright` String (optional) - Copyright information.
