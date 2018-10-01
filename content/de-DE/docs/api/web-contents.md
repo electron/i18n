@@ -45,7 +45,7 @@ Returns `WebContents` - A WebContents instance with the given ID.
 
 Prozess: [Haupt](../glossary.md#main-process)
 
-### Beispiel Events
+### Instanz Events
 
 #### Event: 'did-finish-load'
 
@@ -730,7 +730,7 @@ the <code>window.location` object is changed or a user clicks a link in the page
         })
       ```
       
-      #### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
+      #### `contents.setIgnoreMenuShortcuts(ignore)` *Experimentell*
       
       * `ignore` Boolean
       
@@ -850,7 +850,7 @@ the <code>window.location` object is changed or a user clicks a link in the page
       #### `contents.findInPage(text[, options])`
       
       * `text` String - Content to be searched, must not be empty.
-      * `optionen` Objekt (optional) 
+      * `options` Objekt (optional) 
         * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
         * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
         * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -925,7 +925,7 @@ the <code>window.location` object is changed or a user clicks a link in the page
       
       #### `contents.printToPDF(options, callback)`
       
-      * `optionen` Object 
+      * `options` Object 
         * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
         * `pageSize` String (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
         * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
