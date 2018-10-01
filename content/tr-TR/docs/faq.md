@@ -57,7 +57,7 @@ Eğer bu problemle karşılaşılırsa, aşağıdaki makaleler yardımcı olabil
 Eğer hızlı çözüm istiyorsanız, değişkenlerinizi evrensel olarak değiştirebilirsiniz. Bu kodu:
 
 ```javascript
-const {app, Tray} = require('electron')
+const { app, Tray } = require('electron')
 app.on('ready', () => {
   const tray = new Tray('/path/to/icon.png')
   tray.setTitle('Merhaba dünya')
@@ -67,7 +67,7 @@ app.on('ready', () => {
 buna:
 
 ```javascript
-const {app, Tray} = require('electron')
+const { app, Tray } = require('electron')
 let tray = null
 app.on('ready', () => {
   tray = new Tray('/path/to/icon.png')
@@ -83,7 +83,7 @@ Bunu çözmek için Electron'daki node entegrasyonunu kapatabilirsiniz:
 
 ```javascript
 // Ana süreç içerisinde.
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
     nodeIntegration: false
