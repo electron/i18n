@@ -208,20 +208,20 @@ Removing old .npmrc (default)
 Activating .npmrc "electron"
 ```
 
-The Electron account's credentials are kept by GitHub. "Electron - NPM" for the URL "https://www.npmjs.com/login".
+The Electron account's credentials are kept by GitHub in a password manager. You'll also need to have access to an 2FA authenticator app with the appropriate OTP generator code to log in.
 
 ```sh
 $ npm login
-用户名: electron
-密码:
-电子邮件: (这是公共的) electron@github.com
+Username: electron-nightly
+Password: <This can be found under NPM Electron Nightly on LastPass>
+Email: (this IS public) electron@github.com
 ```
 
-发布版本到npm。
+Publish the release to npm. Before running this you'll need to have set `ELECTRON_NPM_OTP` as an environment variable using a code from the aforementioned 2FA authenticator app.
 
 ```sh
 $ npm whoami
-electron
+electron-nightly
 $ npm run publish-to-npm
 ```
 
@@ -286,16 +286,23 @@ node script/ci-release-build.js --ci=AppVeyor --ghRelease --job=electron-x64 TAR
 
 ```sh
 # 检出要重新上传的版本。
-git checkout vTHE.RELEASE.VERSION
+git checkout vX.Y.Z
 
-# 发布构建，指定一个目标体系结构。
-./script/bootstrap.py --target_arch [arm|x64|ia32]
-./script/build.py -c R
-./script/create-dist.py
+# Create release build
+gn gen out/Release --args="import(\"//electron/build/args/release.gn\") $GN_EXTRA_ARGS"
 
-# 明确允许覆盖已发布的版本.
+# To compile for specific arch, instead set
+gn gen out/Release-<TARGET_ARCH> --args='import(\"//electron/build/args/release.gn\") target_cpu = "[arm|x64|ia32]"'
+
+# Build by running ninja with the electron target
+ninja -C out/Release electron
+ninja -C out/Release electron:dist_zip
+
+# Explicitly allow overwriting a published release.
 ./script/upload.py --overwrite
 ```
+
+Allowable values for [target_cpu](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values) and [target_os](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values).
 
 重新上传所有发行版之后，再次发布以上载校验和文件：
 
