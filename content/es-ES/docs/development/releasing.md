@@ -2,16 +2,16 @@
 
 Este documento describe el proceso de publicación de una nueva versión de Electron.
 
-## Set your tokens and environment variables
+## Configura tus tokens y variables de entorno
 
-You'll need Electron S3 credentials in order to create and upload an Electron release. Contact a team member for more information.
+Necesitarás las credenciales de Electron S3 para crear y cargar una versión de Electron. Póngase en contacto con un miembro del equipo para obtener más información.
 
-There are a handful of `*_TOKEN` environment variables needed by the release scripts:
+Hay un puñado de variables de entorno `*_TOKEN` que necesitan los scripts de lanzamiento:
 
-- `ELECTRON_GITHUB_TOKEN`: Create this by visiting https://github.com/settings/tokens/new?scopes=repo
-- `APPVEYOR_TOKEN`: Create a token from https://windows-ci.electronjs.org/api-token If you don't have an account, ask a team member to add you.
-- `CIRCLE_TOKEN`: Create a token from "Personal API Tokens" at https://circleci.com/account/api
-- `VSTS_TOKEN`: Create a Personal Access Token at https://github.visualstudio.com/_usersSettings/tokens or https://github.visualstudio.com/_details/security/tokens with the scope of `Build (read and execute)`.
+- `ELECTRON_GITHUB_TOKEN`: Crea esto visitando https://github.com/settings/tokens/new?scopes=repo
+- `APPVEYOR_TOKEN`: Crea un token desde https://windows-ci.electronjs.org/api-token Si no tienes una cuenta, pídele a un miembro del equipo que te agregue.
+- `CIRCLE_TOKEN`: Crea un token desde "Personal API Tokens" en https://circleci.com/account/api
+- `VSTS_TOKEN`: Cree un Token de Acceso Personal en https://github.visualstudio.com/_usersSettings/tokens o https://github.visualstudio.com/_details/security/tokens con el alcance de `Build (leer y ejecutar)`.
 - `ELECTRON_S3_BUCKET`:
 - `ELECTRON_S3_ACCESS_KEY`:
 - `ELECTRON_S3_SECRET_KEY`: If you don't have these, ask a team member to help you.
@@ -209,20 +209,20 @@ Removing old .npmrc (default)
 Activating .npmrc "electron"
 ```
 
-The Electron account's credentials are kept by GitHub. "Electron - NPM" for the URL "https://www.npmjs.com/login".
+The Electron account's credentials are kept by GitHub in a password manager. You'll also need to have access to an 2FA authenticator app with the appropriate OTP generator code to log in.
 
 ```sh
 $ npm login
-Username: electron
-Password:
+Username: electron-nightly
+Password: <This can be found under NPM Electron Nightly on LastPass>
 Email: (this IS public) electron@github.com
 ```
 
-Publish the release to npm.
+Publish the release to npm. Before running this you'll need to have set `ELECTRON_NPM_OTP` as an environment variable using a code from the aforementioned 2FA authenticator app.
 
 ```sh
 $ npm whoami
-electron
+electron-nightly
 $ npm run publish-to-npm
 ```
 
@@ -287,16 +287,23 @@ Luego, cree manualmente distribuciones para cada plataforma y cárguelas:
 
 ```sh
 # Checkout the version to re-upload.
-git checkout vTHE.RELEASE.VERSION
+git checkout vX.Y.Z
 
-# Do release build, specifying one target architecture.
-./script/bootstrap.py --target_arch [arm|x64|ia32]
-./script/build.py -c R
-./script/create-dist.py
+# Create release build
+gn gen out/Release --args="import(\"//electron/build/args/release.gn\") $GN_EXTRA_ARGS"
 
-# Explicitly allow overwritting a published release.
+# To compile for specific arch, instead set
+gn gen out/Release-<TARGET_ARCH> --args='import(\"//electron/build/args/release.gn\") target_cpu = "[arm|x64|ia32]"'
+
+# Build by running ninja with the electron target
+ninja -C out/Release electron
+ninja -C out/Release electron:dist_zip
+
+# Explicitly allow overwriting a published release.
 ./script/upload.py --overwrite
 ```
+
+Allowable values for [target_cpu](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values) and [target_os](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values).
 
 Después de volver a cargar todas las distribuciones, vuelva a publicar para cargar la suma de comprobación de archivo:
 
