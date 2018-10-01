@@ -2,7 +2,7 @@
 
 > Display external web content in an isolated frame and process.
 
-Processo: [Renderer](../tutorial/quick-start.md#renderer-process)
+Process: [Renderer](../tutorial/quick-start.md#renderer-process)
 
 Use the `webview` tag to embed 'guest' content (such as web pages) in your Electron app. The guest content is contained within the `webview` container. An embedded page within your app controls how the guest content is laid out and rendered.
 
@@ -140,7 +140,7 @@ When this attribute is present the guest page will have web security disabled. W
 <webview src="https://electronjs.org" partition="electron"></webview>
 ```
 
-Sets the session used by the page. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. By assigning the same `partition`, multiple pages can share the same session. If the `partition` is unset then default session of the app will be used.
+Sets the session used by the page. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. Assegnando la stessa `partition`, è possibile condividere per più pagine la stessa sessione. If the `partition` is unset then default session of the app will be used.
 
 This value can only be modified before the first navigation, since the session of an active renderer process cannot change. Subsequent attempts to modify the value will fail with a DOM exception.
 
@@ -241,10 +241,10 @@ webview.addEventListener('dom-ready', () => {
 * `url` URL
 * `options` Object (opzionale) 
   * `httpReferrer` String (optional) - A HTTP Referrer url.
-  * `userAgent` String (optional) - A user agent originating the request.
-  * `extraHeaders` String (optional) - Extra headers separated by "\n"
+  * `userAgent` String (opzionale) - Un user agent originato dalla richiesta.
+  * `extraHeaders` String (opzionale) - Extra headers separati da "\n"
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (optional) -
-  * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
+  * `baseURLForDataURL` String (opzionale) - Url di base (con il separatore del percorso) per file da caricare dal data url. Questo è necessario solo se l'`url` specificato è un data url e necessita di carica altri file.
 
 Loads the `url` in the webview, the `url` must contain the protocol prefix, e.g. the `http://` or `file://`.
 
@@ -336,7 +336,7 @@ Injects CSS into the guest page.
 
 ### `<webview>.executeJavaScript(code[, userGesture, callback])`
 
-* `code` Stringa
+* `codice` Stringa
 * `userGesture` Boolean (optional) - Default `false`.
 * `callback` Function (optional) - Called after script has been executed. 
   * `result` Any
@@ -450,7 +450,7 @@ Starts a request to find all matches for the `text` in the web page. The result 
 
 ### `<webview>.stopFindInPage(action)`
 
-* `action` String - Specifies the action to take place when ending [`<webview>.findInPage`](#webviewfindinpagetext-options) richiesta. 
+* `action` String - Specifies the action to take place when ending [`<webview>.findInPage`](#webviewfindinpagetext-options) request. 
   * `clearSelection` - Clear the selection.
   * `keepSelection` - Translate the selection into a normal selection.
   * `activateSelection` - Focus and click the selection node.
@@ -468,17 +468,17 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
 
 ### `<webview>.printToPDF(options, callback)`
 
-* `options` Object 
+* `options` Oggetto 
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String (optional) - Specify page size of the generated PDF. Può essere `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un oggetto contenente `height`(altezza) e la `width`(larghezza) in micron.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
 * `callback` Function 
-  * `error` Error
+  * `errore` Errore
   * `data` Buffer - contiene il pdf generato
 
-Stampa la pagina web del `webview` in formato PDF, questo metodo è identico a `webContents.printToPDF(options, callback)`.
+Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, callback)`.
 
 ### `<webview>.capturePage([rect, ]callback)`
 
@@ -598,7 +598,7 @@ Fired when a redirect was received while requesting a resource.
 
 Fired when document in the given frame is loaded.
 
-### Event: 'page-title-updated'
+### Evento: 'page-title-updated'
 
 Restituisce:
 
@@ -615,11 +615,11 @@ Restituisce:
 
 Fired when page receives favicon urls.
 
-### Event: 'enter-html-full-screen'
+### Evento: 'enter-html-full-screen'
 
 Fired when page enters fullscreen triggered by HTML API.
 
-### Event: 'leave-html-full-screen'
+### Evento: 'leave-html-full-screen'
 
 Fired when page leaves fullscreen triggered by HTML API.
 
@@ -726,7 +726,7 @@ Emitted when an in-page navigation happened.
 
 When in-page navigation happens, the page URL changes but does not cause navigation outside of the page. Examples of this occurring are when anchor links are clicked or when the DOM `hashchange` event is triggered.
 
-### Event: 'close'
+### Evento: 'close'
 
 Fired when the guest page attempts to close itself.
 
