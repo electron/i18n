@@ -69,14 +69,6 @@ MyApp.app/Contents
 ├── MacOS/
 │   └── MyApp
 └── Frameworks/
-    ├── MyApp Helper EH.app
-    |   ├── Info.plist
-    |   └── MacOS/
-    |       └── MyApp Helper EH
-    ├── MyApp Helper NP.app
-    |   ├── Info.plist
-    |   └── MacOS/
-    |       └── MyApp Helper NP
     └── MyApp Helper.app
         ├── Info.plist
         └── MacOS/
@@ -89,7 +81,7 @@ MyApp.app/Contents
 
 ## パッケージツール
 
-アプリのパッケージを手動で行う代わりに、サードパーティー製の自動パッケージツールを使用できます。
+アプリのパッケージを手動で行う代わりに、サードパーティ製の自動パッケージツールを使用できます。
 
 * [electron-forge](https://github.com/electron-userland/electron-forge)
 * [electron-builder](https://github.com/electron-userland/electron-builder)
@@ -97,7 +89,7 @@ MyApp.app/Contents
 
 ## ソースから Electron をリビルドして名称変更する
 
-ソースからプロダクト名を変更してビルドすることで、Electron を名称変更することも可能です。これを行うためには、`atom.gyp` を編集して、クリーンなリビルドを行う必要があります。
+It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to set the build argument corresponding to the product name (`electron_product_name = "YourProductName"`) in the `args.gn` file and rebuild.
 
 ### カスタム Electron フォークを作成する
 
