@@ -24,7 +24,7 @@ process.once('loaded', () => {
 })
 ```
 
-## Properties
+## الخصائص
 
 ### `process.defaultApp`
 
@@ -74,9 +74,9 @@ A `String` representing Electron's version string.
 
 A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
 
-## Methods
+## المنهجية
 
-الطرق
+The `process` object has the following methods:
 
 ### `process.crash()`
 
@@ -96,7 +96,7 @@ Returns `Object`:
 
 * `workingSetSize` Integer - The amount of memory currently pinned to actual physical RAM.
 * `peakWorkingSetSize` Integer - The maximum amount of memory that has ever been pinned to actual physical RAM.
-* `privateBytes` Integer - The amount of memory not shared by other processes, such as JS heap or HTML content.
+* `privateBytes` عدد صحيح - مقدار الذاكرة التي لا يتم مشاركتها مع العمليات الأخرى ، كـ JS heap أو محتوى HTML.
 * `sharedBytes` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself.
 
 Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes.
@@ -116,7 +116,7 @@ Returns an object giving memory usage statistics about the entire system. Note t
 
 Causes the main thread of the current process hang.
 
-### ماك أوس لينكس
+### `process.setFdLimit(maxDescriptors)` *macOS* *Linux*
 
 * `maxDescriptors` Integer
 
