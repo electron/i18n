@@ -1,8 +1,8 @@
 # dialog
 
-> Mostrar diálogos del sistema nativo para abrir y salvar archivos, alertas, etc.
+> Muestra diálogos nativos del sistema para abrir y guardar archivos, alertas, etc.
 
-Process: [Main](../glossary.md#main-process)
+Proceso: [Principal](../glossary.md#main-process)
 
 Un ejemplo de mostrar un cuadro de diálogo para seleccionar múltiples archivos y directorios:
 
@@ -79,10 +79,10 @@ Si un `callback` es pasado, la llamada API será asincrónica y el resultado ser
   * `message` Cadena (opcional) *macOS* - Mensaje a mostrar por encima de los campos de texto.
   * `nameFieldLabel` Cadena (opcional) *macOS* - Etiqueta personalizada para el texto mostrado en frente al nombre del archivo del campo de texto.
   * `showsTagField` Boolean (opcional) *macOS* - Muestra las etiquetas de las cajas de entrada, por defecto a `true`.
-  * `securityScopedBookmarks` Boolean (optional) *masOS* *mas* - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. If this option is enabled and the file doesn't already exist a blank file will be created at the chosen path.
+  * `securityScopedBookmarks` Boolean (opcional) *macOS* *mas* - Crea [marcadores de seguridad](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) cuando se empacan para la Mac App Store. Si esta opción está activada y el fichero no existe todavía, se creará un fichero en blanco en la carpeta seleccionada.
 * `callback` Función (opcional) 
   * `filename` String
-  * `bookmark` String *macOS* *mas* - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present.
+  * `bookmark` String *macOS* *mas* - string Base64 codificado que contiene la información del marcador para el fichero grabado. `securityScopedBookmarks` deben estar activados para estar presentes.
 
 Devuelve `String`, el camino de archivos elegidos por el usuario, si la llamada de vuelta es dada, se devuelve `undefined`.
 
