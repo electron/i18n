@@ -1,12 +1,12 @@
 # 无边框窗口
 
-> 打开一个无工具栏、边框、和其它图形化界面的"谷歌浏览器"窗口
+> 打开一个无工具栏、边框、和其它图形化外壳的窗口。
 
-无边框窗口它不是完整的谷歌浏览器窗口，它只是窗口的一部分，像工具栏，它不是网页的一个部分 这些是 [` BrowserWindow`](browser-window.md) 类上的选项。
+无边框窗口是不带[外壳](https://developer.mozilla.org/en-US/docs/Glossary/Chrome)（包括窗口边框、工具栏等），只含有网页内容的窗口。 这些是 [` BrowserWindow`](browser-window.md) 类上的选项。
 
-## 创建无框窗口
+## 创建无边框窗口
 
-要创建无框窗口, 需要在 [ BrowserWindow ](browser-window.md) 的 ` options ` 中将 ` frame ` 设置为 ` false `:
+要创建无边框窗口，只需在 [ BrowserWindow ](browser-window.md) 的 ` options ` 中将 ` frame ` 设置为 ` false `：
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -14,13 +14,13 @@ let win = new BrowserWindow({width: 800, height: 600, frame: false})
 win.show()
 ```
 
-### MacOS 上的替代方案
+### macOS 上的其他方案
 
-在 macOS 10.9 Mavericks and newer, 有另一种方式来指定无窗口。 用禁用标题栏和窗口控件来代替将 ` frame ` 设置为 ` false `, you may want to have the title bar hidden and your content extend to the full window size ，但仍保留窗口控件 ("红绿灯") 作为标准窗口操作。 您可以通过指定 ` titleBarStyle ` 选项来完成此操作:
+在 macOS 10.9 Mavericks 及更新的版本中，有另一种方式来指定无边框窗口。 通过将 ` frame ` 设置为 ` false ` 得到的窗口在隐藏标题栏的同时也隐藏了窗口控制按钮（俗称“红绿灯”），而有时我们希望保留控制按钮以便对窗口进行操作，同时使内容扩充到整个窗口。 您可以通过指定 ` titleBarStyle ` 选项来完成此操作：
 
 #### `hidden`
 
-返回一个隐藏标题栏的全尺寸内容窗口，在标题栏的左上角仍然有标准的窗口控件(“交通灯”)。
+返回一个隐藏标题栏的全尺寸内容窗口，在左上角仍然有标准的窗口控制按钮（俗称“红绿灯”）。
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -30,7 +30,7 @@ win.show()
 
 #### `hiddenInset`
 
-返回一个隐藏了标题栏且可以选择外观的窗口，交通灯按钮在窗口边缘的内测
+返回一个另一种隐藏了标题栏的窗口，其中控制按钮到窗口边框的距离更大。
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -67,9 +67,9 @@ win.show()
 * 在 linux 上, 用户必须在命令行中设置 `--enable-transparent-visuals --disable-gpu ` 来禁用GPU, 启用 ARGB，用以实现窗体透明。 这是由一个上游的 bug 导致的, 即 [ 在Linux机上，透明度通道（alpha channel ）在一些英伟达的驱动（NVidia drivers）中无法运行](https://code.google.com/p/chromium/issues/detail?id=369209)。
 * 在 Mac 上, 原生窗口阴影不会在透明窗口中显示。
 
-## 点击穿透 window
+## 点击穿透窗口
 
-要创建一个点击穿透窗口, 例如：使窗口忽略所有鼠标事件, 可以调用 [ win. setIgnoreMouseEvents (ignore) ](browser-window.md#winsetignoremouseeventsignore) API:
+To create a click-through window, i.e. making the window ignore all mouse events, you can call the [win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore) API:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -96,7 +96,7 @@ el.addEventListener('mouseleave', () => {
 
 ## 可拖拽区
 
-默认情况下, 无框窗口是 non-draggable 的。 应用程序需要指定 `-webkit-app-region: drag` 在 CSS 中告诉Electron哪个区域是可拖拽的 (像 OS 的标准标题栏), 并且应用程序也可以使用 ` -webkit-app-region: no-drag ` 来排除 draggable region 中的 non-draggable 区域。 请注意, 当前只支持矩形形状。
+默认情况下, 无边框窗口是不可拖拽的。 应用程序需要在 CSS 中指定 `-webkit-app-region: drag` 来告诉 Electron 哪些区域是可拖拽的（如操作系统的标准标题栏），在可拖拽区域内部使用 ` -webkit-app-region: no-drag ` 则可以将其中部分区域排除。 请注意, 当前只支持矩形形状。
 
 注意: `-webkit-app-region: drag ` 在开发人员工具打开时会出现问题。 查看更多信息 (包括变通方法), 请参见此 [ GitHub 问题 ](https://github.com/electron/electron/issues/3647)。
 
@@ -107,7 +107,7 @@ el.addEventListener('mouseleave', () => {
 </body>
 ```
 
-请注意, 如果您已使整个窗口draggable, 则必须将按钮标记为 non-draggable, 否则用户将无法单击它们:
+请注意，如果您使整个窗口都可拖拽，则必须将其中的按钮标记为不可拖拽，否则用户将无法点击它们：
 
 ```css
 button {
@@ -115,7 +115,7 @@ button {
 }
 ```
 
-如果你设置自定义标题栏为 draggable, 你也需要标题栏中所有的按钮都设为 non-draggable。
+If you're setting just a custom titlebar as draggable, you also need to make all buttons in titlebar non-draggable.
 
 ## 文本选择
 
@@ -130,4 +130,4 @@ button {
 
 ## 右键菜单
 
-在某些平台上, 可拖拽区域将被视为non-client frame, 因此当您右键单击它时, 系统菜单将弹出。 要使上下文菜单在所有平台上都正确运行, 您永远也不要在可拖拽区域上使用自定义上下文菜单。
+在某些平台上，可拖拽区域不被视为窗口的实际内容，而是作为窗口边框处理，因此在右键单击时会弹出系统菜单。 要使上下文菜单在所有平台上都正确运行, 您永远也不要在可拖拽区域上使用自定义上下文菜单。
