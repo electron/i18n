@@ -38,7 +38,7 @@ const request = net.request({
 
 #### Etkinlik: 'tepki'
 
-Dönüşler:
+Returns:
 
 * `response` IncomingMessage - HTTP yanıt mesajını temsil eden bir nesne.
 
@@ -48,7 +48,7 @@ Dönüşler:
 
 * `authInfo` Obje 
   * `isProxy` Boolean
-  * `scheme` String
+  * `scheme` Dizi
   * `host` Dizi
   * `port` Tamsayı
   * `realm` Dizi
@@ -114,7 +114,7 @@ Dönüşler:
 
 Bir yönlendirme ve mod `manual` olduğunda yayılır. [`request.followRedirect`](#requestfollowredirect)'i çağırmak yönlendirme ile devam edecektir.
 
-### Örnek özellikleri
+### Örnek Özellikleri
 
 #### `request.chunkedEncoding`
 
