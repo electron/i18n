@@ -11,35 +11,34 @@ fungsi terbatas dengan jendela anak.</p>
 
 <p>Objek <code> BrowserWindowProxy </ 0> memiliki metode contoh berikut:</p>
 
-<h4><code>win.blur ()`</h4> 
+<h4><code>win.blur()`</h4> 
 
 Menghapus fokus dari jendela anak.
 
-#### `win.close ()`
+#### `win.close()`
 
 Memaksa menutup jendela anak tanpa memanggil acara bongkar muatnya.
 
-#### `win.eval (kode)`
+#### `win.eval(code)`
 
-* ` kode </ 0> String</li>
-</ul>
+* `code` String
 
-<p>Mengevaluasi kode di jendela anak.</p>
+Mengevaluasi kode di jendela anak.
 
-<h4><code>win.focus ()`</h4> 
-    Memfokuskan jendela anak (membawa jendela ke depan).
-    
-    #### `win.print ()`
-    
-    Meminta dialog cetak pada jendela anak.
-    
-    #### `win.postMessage (pesan, targetOrigin)`
-    
-    * ` pesan </ 0> String</li>
-<li><code> targetOrigin </ 0> String</li>
-</ul>
+#### `win.focus()`
 
-<p>Mengirim pesan ke jendela anak dengan asal yang ditentukan atau <code> * </ 0> untuk no
+Memfokuskan jendela anak (membawa jendela ke depan).
+
+#### `win.print()`
+
+Meminta dialog cetak pada jendela anak.
+
+#### `win.postMessage(message, targetOrigin)`
+
+* `message` String
+* `targetOrigin` String
+
+Mengirim pesan ke jendela anak dengan asal yang ditentukan atau ` * </ 0> untuk no
 preferensi asal</p>
 
 <p>Selain metode ini, jendela anak menerapkan objek <code> window.opener </ 0>
@@ -50,4 +49,5 @@ tanpa sifat dan metode tunggal.</p>
 <p>Objek <code> BrowserWindowProxy </ 0> memiliki properti contoh berikut:</p>
 
 <h4><code>menang`</h4> 
-        A  Boolean </ 0> yang disetel ke true setelah jendela anak ditutup.</p>
+
+A  Boolean </ 0> yang disetel ke true setelah jendela anak ditutup.</p>
