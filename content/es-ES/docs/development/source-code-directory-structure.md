@@ -43,9 +43,7 @@ Electron
 ├── native_mate/ - A fork of Chromium's gin library that makes it easier to marshal
 |                  types between C++ and JavaScript.
 ├── spec/ - Automatic tests.
-├── electron.gyp - normas de construcción del Electron.
-└── common.gypi - Compiler specific settings and building rules for other
-                  components like `node` and `breakpad`.
+└── BUILD.gn - Building rules of Electron.
 ```
 
 ## `/chromium_src`
@@ -55,12 +53,12 @@ Los archivos en `/chromium_src` tienden a ser piezas de Chromium que no son part
 ## Estructura de otros directorios
 
 * **Código** - Los códigos usados con propósitos de desarrollo como compilar, empacar, probar, etc.
-* **Herramientas** - Códigos de ayuda usados por archivos gto, a diferencia de `comandos`, los comandos puestos aquí nunca deben ser invocados por los usuarios directamente.
+* **tools** - Helper scripts used by GN files, unlike `script`, scripts put here should never be invoked by users directly.
 * **proveedor** - Código de fuente de las dependencias de terceros, nosotros no usamos `third_party` como un nombre debido a que se confundiría con el mismo directorio en el arbol de código de Chromium.
 * **Nodos de módulo** - Nodos de módulo de terceros usados para compilar.
 * **afuera** - temporalmente afuera del directorio de `ninja`.
 * **dist** - Directorio temporal creado por el comando `script/create-dist.py` cuando se crea una distribución.
-* **binarios externos** - Binarios descargados de entornos de trabajos de terceros los cuales no soportan la compilación con `gyp`.
+* **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gn`.
 
 ## Mantener los submódulos de Git actualizados
 
@@ -69,8 +67,8 @@ El repositorio Electronico tiene unas dependencias vendored, encontradas en el d
 ```sh
 $ git status
 
-    modified:   vendor/libchromiumcontent (new commits)
-    modified:   vendor/node (new commits)
+    modified:   vendor/depot_tools (new commits)
+    modified:   vendor/boto (new commits)
 ```
 
 Para actualizar estas dependencias independientes, ejecute el siguiente comando:
