@@ -16,7 +16,13 @@ When `window.open` is called to create a new window in a web page, a new instanc
 
 Возвращает [`BrowserWindowProxy`](browser-window-proxy.md) - создает новое окно и возвращает экземпляр класса `BrowserWindowProxy`.
 
-The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options.
+The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options. These are the features you can set via `features` string: `zoomFactor`, `nodeIntegration`, `preload`, `javascript`, `contextIsolation`, `webviewTag`.
+
+Например:
+
+```js
+window.open('https://github.com', '_blank', 'nodeIntegration=no')
+```
 
 **Замечания:**
 
