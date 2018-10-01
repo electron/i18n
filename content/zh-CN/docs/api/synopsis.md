@@ -34,7 +34,7 @@ app.on('ready', () => {
 </html>
 ```
 
-To run your app, read [Run your app](../tutorial/first-app.md#running-your-app).
+要运行你的app, 请阅读 [ Run your app ](../tutorial/first-app.md#running-your-app)。
 
 ## 解构赋值
 
