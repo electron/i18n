@@ -2,7 +2,7 @@
 
 > 讓 macOS 原生應用程式在 Touch Bar 中建立色彩選擇器。
 
-Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+處理序: [主處理序](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new TouchBarColorPicker(options)` *試驗中*
 
