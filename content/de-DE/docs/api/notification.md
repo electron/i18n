@@ -40,7 +40,7 @@ Returns `Boolean` - Whether or not desktop notifications are supported on the cu
   * `actions` [NotificationAction[]](structures/notification-action.md) (optional) *macOS* - Actions to add to the notification. Please read the available actions and limitations in the `NotificationAction` documentation.
   * `closeButtonText` String (optional) *macOS* - A custom title for the close button of an alert. An empty string will cause the default localized text to be used.
 
-### Beispiel Events
+### Instanz Events
 
 Objects created with `new Notification` emit the following events:
 
@@ -100,7 +100,7 @@ is closed.</p>
   
   #### `notification.show()`
   
-  Immediately shows the notification to the user, please note this means unlike the HTML5 Notification implementation, simply instantiating a `new Notification` does not immediately show it to the user, you need to call this method before the OS will display it.
+  Immediately shows the notification to the user, please note this means unlike the HTML5 Notification implementation, instantiating a `new Notification` does not immediately show it to the user, you need to call this method before the OS will display it.
   
   If the notification has been shown before, this method will dismiss the previously shown notification and create a new one with identical properties.
   
