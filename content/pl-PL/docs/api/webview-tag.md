@@ -2,7 +2,7 @@
 
 > Display external web content in an isolated frame and process.
 
-Proces: [Renderer](../tutorial/quick-start.md#renderer-process)
+Process: [Renderer](../tutorial/quick-start.md#renderer-process)
 
 Use the `webview` tag to embed 'guest' content (such as web pages) in your Electron app. The guest content is contained within the `webview` container. An embedded page within your app controls how the guest content is laid out and rendered.
 
@@ -274,7 +274,7 @@ Reloads the guest page.
 
 ### `<webview>.reloadIgnoringCache()`
 
-Przeładowuje stronę gościa i ignoruje cache.
+Reloads the guest page and ignores cache.
 
 ### `<webview>.canGoBack()`
 
@@ -345,11 +345,11 @@ Evaluates `code` in page. If `userGesture` is set, it will create the user gestu
 
 ### `<webview>.openDevTools()`
 
-Otwiera okno DevTools dla strony gościa.
+Opens a DevTools window for guest page.
 
 ### `<webview>.closeDevTools()`
 
-Zamyka okno DevTools strony gościa.
+Closes the DevTools window of guest page.
 
 ### `<webview>.isDevToolsOpened()`
 
@@ -450,7 +450,7 @@ Starts a request to find all matches for the `text` in the web page. The result 
 
 ### `<webview>.stopFindInPage(action)`
 
-* `czynność` String - Specifies the action to take place when ending [`<webview>.findInPage`](#webviewfindinpagetext-options) żądanie. 
+* `czynność` String - Specifies the action to take place when ending [`<webview>.findInPage`](#webviewfindinpagetext-options) request. 
   * `clearSelection` - Clear the selection.
   * `keepSelection` - Translate the selection into a normal selection.
   * `activateSelection` - Focus and click the selection node.
@@ -468,13 +468,13 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
 
 ### `<webview>.printToPDF(options, callback)`
 
-* `options` Obiekt 
+* `opcje` Object 
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
-* `callback` Function 
+* `callback` Funkcja 
   * `error` Error
   * `data` Buffer
 
@@ -538,11 +538,11 @@ Zwraca:
 
 Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
 
-### Event: 'did-finish-load'
+### Zdarzenie: 'did-finish-load'
 
 Fired when the navigation is done, i.e. the spinner of the tab will stop spinning, and the `onload` event is dispatched.
 
-### Event: 'did-fail-load'
+### Zdarzenie: 'did-fail-load'
 
 Zwraca:
 
@@ -553,7 +553,7 @@ Zwraca:
 
 This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
 
-### Event: 'did-frame-finish-load'
+### Zdarzenie: 'did-frame-finish-load'
 
 Zwraca:
 
@@ -561,11 +561,11 @@ Zwraca:
 
 Fired when a frame has done navigation.
 
-### Event: 'did-start-loading'
+### Zdarzenie: 'did-start-loading'
 
 Corresponds to the points in time when the spinner of the tab starts spinning.
 
-### Event: 'did-stop-loading'
+### Zdarzenie: 'did-stop-loading'
 
 Corresponds to the points in time when the spinner of the tab stops spinning.
 
@@ -594,7 +594,7 @@ Zwraca:
 
 Fired when a redirect was received while requesting a resource.
 
-### Event: 'dom-ready'
+### Zdarzenie: 'dom-ready'
 
 Fired when document in the given frame is loaded.
 
@@ -607,7 +607,7 @@ Zwraca:
 
 Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
 
-### Event: 'page-favicon-updated'
+### Zdarzenie: 'page-favicon-updated'
 
 Zwraca:
 
@@ -623,7 +623,7 @@ Fired when page enters fullscreen triggered by HTML API.
 
 Fired when page leaves fullscreen triggered by HTML API.
 
-### Event: 'console-message'
+### Zdarzenie: 'console-message'
 
 Zwraca:
 
@@ -643,11 +643,11 @@ webview.addEventListener('console-message', (e) => {
 })
 ```
 
-### Event: 'found-in-page'
+### Zdarzenie: 'found-in-page'
 
 Zwraca:
 
-* `wynik` Obiekt 
+* `wynik` Object 
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
   * `matches` Integer - Number of Matches.
@@ -666,7 +666,7 @@ const requestId = webview.findInPage('test')
 console.log(requestId)
 ```
 
-### Event: 'new-window'
+### Zdarzenie: 'new-window'
 
 Zwraca:
 
@@ -691,7 +691,7 @@ webview.addEventListener('new-window', (e) => {
 })
 ```
 
-### Event: 'will-navigate'
+### Zdarzenie: 'will-navigate'
 
 Zwraca:
 
@@ -705,7 +705,7 @@ It is also not emitted during in-page navigation, such as clicking anchor links 
 
 Calling `event.preventDefault()` does **NOT** have any effect.
 
-### Event: 'did-navigate'
+### Zdarzenie: 'did-navigate'
 
 Zwraca:
 
@@ -715,7 +715,7 @@ Emitted when a navigation is done.
 
 This event is not emitted for in-page navigations, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
 
-### Event: 'did-navigate-in-page'
+### Zdarzenie: 'did-navigate-in-page'
 
 Zwraca:
 
@@ -768,7 +768,7 @@ ipcRenderer.on('ping', () => {
 })
 ```
 
-### Event: 'crashed'
+### Zdarzenie: 'crashed'
 
 Fired when the renderer process is crashed.
 
@@ -776,7 +776,7 @@ Fired when the renderer process is crashed.
 
 Fired when the gpu process is crashed.
 
-### Event: 'plugin-crashed'
+### Zdarzenie: 'plugin-crashed'
 
 Zwraca:
 
@@ -785,19 +785,19 @@ Zwraca:
 
 Fired when a plugin process is crashed.
 
-### Event: 'destroyed'
+### Zdarzenie: 'destroyed'
 
 Fired when the WebContents is destroyed.
 
-### Event: 'media-started-playing'
+### Zdarzenie: 'media-started-playing'
 
 Emitted when media starts playing.
 
-### Event: 'media-paused'
+### Zdarzenie: 'media-paused'
 
 Emitted when media is paused or done playing.
 
-### Event: 'did-change-theme-color'
+### Zdarzenie: 'did-change-theme-color'
 
 Zwraca:
 
@@ -809,7 +809,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 <meta name='theme-color' content='#ff0000'>
 ```
 
-### Event: 'update-target-url'
+### Zdarzenie: 'update-target-url'
 
 Zwraca:
 
@@ -817,14 +817,14 @@ Zwraca:
 
 Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
-### Event: 'devtools-opened'
+### Zdarzenie: 'devtools-opened'
 
 Emitted when DevTools is opened.
 
-### Event: 'devtools-closed'
+### Zdarzenie: 'devtools-closed'
 
 Emitted when DevTools is closed.
 
-### Event: 'devtools-focused'
+### Zdarzenie: 'devtools-focused'
 
 Emitted when DevTools is focused / opened.
