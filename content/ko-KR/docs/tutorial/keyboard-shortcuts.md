@@ -7,7 +7,7 @@
 애플리케이션이 포커스 되어 있을 때만 사용되는 키보드 단축키를 설정하려면 [Menu](../api/menu.md) 모듈을 사용해야 합니다. 사용하기 위해선 [MenuItem](../api/menu-item.md)이 만들어질 때 [`accelerator`] 프로퍼티를 명기합니다.
 
 ```js
-const {Menu, MenuItem} = require('electron')
+const { Menu, MenuItem } = require('electron')
 const menu = new Menu()
 
 menu.append(new MenuItem({
@@ -30,7 +30,7 @@ You can configure different key combinations based on the user's operating syste
 애플리케이션이 키보드 포커스를 갖지 않을 때에도 키보드 이벤트를 감지하는 [globalShortcut](../api/global-shortcut.md) 모듈을 사용할 수 있습니다.
 
 ```js
-const {app, globalShortcut} = require('electron')
+const { app, globalShortcut } = require('electron')
 
 app.on('ready', () => {
   globalShortcut.register('CommandOrControl+X', () => {
