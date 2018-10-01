@@ -53,7 +53,7 @@ Emitted when the navigation is done, i.e. the spinner of the tab has stopped spi
 
 #### Event: 'did-fail-load'
 
-Returns:
+반환:
 
 * `event` Event
 * `errorCode` Integer
@@ -183,7 +183,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 #### Event: 'did-navigate-in-page'
 
-Returns:
+반환:
 
 * `event` Event
 * `url` String
@@ -233,7 +233,7 @@ Emitted when the renderer process crashes or is killed.
 
 #### Event: 'plugin-crashed'
 
-Returns:
+반환:
 
 * `event` Event
 * PrinterInfo Object
@@ -288,13 +288,13 @@ Emitted when DevTools is closed.
 
 Emitted when DevTools is focused / opened.
 
-#### Event: 'certificate-error'
+#### 이벤트: 'certificate-error'
 
 반환:
 
 * `event` Event
 * `url` String
-* `error` String - The error code.
+* `error` String - 에러 코드.
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` 함수 
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
@@ -303,7 +303,7 @@ Emitted when failed to verify the `certificate` for `url`.
 
 The usage is the same with [the `certificate-error` event of `app`](app.md#event-certificate-error).
 
-#### Event: 'select-client-certificate'
+#### 이벤트: 'select-client-certificate'
 
 반환:
 
@@ -377,7 +377,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 #### Event: 'update-target-url'
 
-Returns:
+반환:
 
 * `event` Event
 * `url` String
@@ -443,7 +443,7 @@ Emitted when there is a new context menu that needs to be handled.
 
 #### Event: 'select-bluetooth-device'
 
-Returns:
+반환:
 
 * `event` Event
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
@@ -473,7 +473,7 @@ app.on('ready', () => {
 
 #### Event: 'paint'
 
-Returns:
+반환:
 
 * `event` Event
 * `dirtyRect` [Rectangle](structures/rectangle.md)
@@ -511,7 +511,7 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 #### Event: 'did-attach-webview'
 
-Returns:
+반환:
 
 * `event` Event
 * `webContents` WebContents - The guest web contents that is used by the `<webview>`.
