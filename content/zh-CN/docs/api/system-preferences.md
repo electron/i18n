@@ -57,6 +57,13 @@ console.log(systemPreferences.isDarkMode())
 
 发送 `event` 作为macOS的原生通知。 `userInfo`是一个Object，它包含随通知一起发送的用户信息字典。
 
+### `systemPreferences.postWorkspaceNotification(event, userInfo)` *macOS*
+
+* `event` String
+* `userInfo` Object
+
+发送 `event` 作为macOS的原生通知。 `userInfo`是一个Object，它包含随通知一起发送的用户信息字典。
+
 ### `systemPreferences.subscribeNotification(event, callback)` *macOS*
 
 * `event` String
@@ -75,12 +82,6 @@ Under the hood this API subscribes to `NSDistributedNotificationCenter`, example
 * `AppleColorPreferencesChangedNotification`
 * `AppleShowScrollBarsSettingChanged`
 
-### `systemPreferences.unsubscribeNotification(id)` *macOS*
-
-* `id` Integer
-
-Removes the subscriber with `id`.
-
 ### `systemPreferences.subscribeLocalNotification(event, callback)` *macOS*
 
 * `event` String
@@ -90,11 +91,32 @@ Removes the subscriber with `id`.
 
 与` subscribeNotification `相同，但使用` NSNotificationCenter `作为本地默认值。 这对于诸如` NSUserDefaultsDidChangeNotification `的事件是必需的.
 
+### `systemPreferences.subscribeWorkspaceNotification(event, callback)` *macOS*
+
+* `event` String
+* `callback` Function - 回调函数 
+  * `event` String
+  * `userInfo` Object
+
+Same as `subscribeNotification`, but uses `NSWorkspace.sharedWorkspace.notificationCenter`. This is necessary for events such as `NSWorkspaceDidActivateApplicationNotification`.
+
+### `systemPreferences.unsubscribeNotification(id)` *macOS*
+
+* `id` Integer
+
+Removes the subscriber with `id`.
+
 ### `systemPreferences.unsubscribeLocalNotification(id)` *macOS*
 
 * `id` Integer
 
 Same as `unsubscribeNotification`, but removes the subscriber from `NSNotificationCenter`.
+
+### `systemPreferences.unsubscribeWorkspaceNotification(id)` *macOS*
+
+* `id` Integer
+
+Same as `unsubscribeNotification`, but removes the subscriber from `NSWorkspace.sharedWorkspace.notificationCenter`.
 
 ### `systemPreferences.registerDefaults(defaults)` *macOS*
 
@@ -122,7 +144,7 @@ Returns `any` - The value of `key` in `NSUserDefaults`.
 ### `systemPreferences.setUserDefault(key, type, value)` *macOS*
 
 * `key` String
-* `type` String - See [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos].
+* `type` String - See [`getUserDefault`](#systempreferencesgetuserdefaultkey-type-macos).
 * `value` String
 
 Set the value of `key` in `NSUserDefaults`.
