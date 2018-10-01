@@ -4,7 +4,7 @@
 
 Процеса: [Main](../glossary.md#main-process)
 
-**Може да намерите подробно ръководство, за това как да добавите обновявания във вашето приложение [here](../tutorial/updates.md).**
+**See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
 
 ## Известия от платформата
 
@@ -65,6 +65,12 @@
 Излъчено, когато обновяването е свалено.
 
 Само на Windows е налично `releaseName`.
+
+### Event: 'before-quit-for-update'
+
+This event is emitted after a user calls `quitAndInstall()`.
+
+When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
 
 ## Методи
 
