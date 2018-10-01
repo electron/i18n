@@ -81,7 +81,7 @@ The cache contains the version's official zip file as well as a checksum, stored
 ├── SHASUMS256.txt-1.8.2-beta.3
 ```
 
-## Troubleshooting
+## اكتشاف الأخطاء وإصلاحها
 
 When running `npm install electron`, some users occasionally encounter installation errors.
 
