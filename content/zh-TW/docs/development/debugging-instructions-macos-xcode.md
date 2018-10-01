@@ -1,41 +1,16 @@
-## Debugging with XCode
+## 使用Xcode 进行断点调试
 
-### Build Debug Electron with Release libchromiumcontent
+### 生成用于源代码断点调试的xcode工程项目(不能使用xcode编译代码)
 
-You can create a debug build of Electron by following [build instructions for macOS](build-instructions-osx.md). The bootstrap process will download Release version of libchromiumcontent by default, so you will not be able to step through the Chromium source.
-
-### Build Debug Electron with Debug libchromiumcontent
-
-If you want to debug and step through libchromiumcontent, you will have to run the bootsrap script with the `--build_debug_libcc` argument.
+Run `gn gen` with the --ide=xcode argument.
 
 ```sh
-$ cd electron
-$ ./script/bootstrap.py -v --build_debug_libcc
+$ gn gen out/Debug --ide=xcode
 ```
 
-This can take a significant amount of time depending on build machine as it has to build all of the libchromium source.
+This will generate the electron.ninja.xcworkspace. You will have to open this workspace to set breakpoints and inspect.
 
-Once, the lib is built, create a symlink to the built directory under download
-
-`ln -s vendor/libchromiumcontent/dist/main/shared_library vendor/download/libchromiumcontent/shared_library`
-
-Electron debug builds will use this shared library to link against.
-
-```sh
-$ ./script/build.py -c D --libcc
-```
-
-This will build debug Electron with debug version of libchromiumcontent.
-
-### Generate xcode project for debugging sources (cannot build code from xcode)
-
-Run the update script with the --xcode argument.
-
-```sh
-$ ./script/update.py --xcode
-```
-
-This will generate the electron.ninjs.xcworkspace. You will have to open this workspace to set breakpoints and inspect.
+See `gn help gen` for more information on generating IDE projects with GN.
 
 ### Debugging and breakpoints
 
