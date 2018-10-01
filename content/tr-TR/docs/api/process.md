@@ -6,7 +6,7 @@
 
 Elektron'un `process` nesnesi [Node.js `process` object](https://nodejs.org/api/process.html)'ten genişletilir. Aşağıdaki etkinlikleri, özellikleri ve yöntemleri ekler:
 
-## Olaylar
+## Etkinlikler
 
 ### Etkinlik: 'yüklenen'
 
@@ -92,11 +92,11 @@ Geçerli işlemin ana iş parçacığının çökmesine neden olur.
 
 ### `process.getProcessMemoryInfo()`
 
-`Object` 'i geri getirir:
+`Object`'e döner:
 
 * `workingSetSize` Tamsayı - O anda gerçek fiziksel RAM'e sabitlenmiş bellek miktarı.
 * `peakWorkingSetSize` Tamsayı - Gerçek fiziksel RAM'e sabitlenmiş maksimum bellek miktarı.
-* `privateBytes` Tam sayı - Diğer işlemler tarafından paylaşılmayan bellek miktarı, Js heap veya HTML içeriği gibi.
+* `privateBytes` Tamsayı - Diğer işlemlerle paylaşılmayan bellek miktarı, JS yığını ya da HTML içeriği gibi.
 * `sharedBytes` Tamsayı - İşlemler arasında paylaşılan bellek miktarı, genel olarak Elektron kodunun kendisi tarafından tüketilen bellek.
 
 Geçerli işlem hakkında bellek kullanımı istatistiklerini veren bir nesneye döner. Tüm istatistiklerin Kilobayt olarak raporlandığına dikkat edin.
