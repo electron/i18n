@@ -2,7 +2,7 @@
 
 > Lumikha ng pagitan sa gitna ng dalawang aytem sa pindutang bar para aplikasyon ng katutubong macOs
 
-Proseso: [Pangunahin](../tutorial/quick-start.md#main-process)
+Process: [Main](../tutorial/quick-start.md#main-process)
 
 ### `bagong diinangPagitangBar(pamimilian)`*Eksperimento*
 
