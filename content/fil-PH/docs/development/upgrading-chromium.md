@@ -80,7 +80,7 @@ Ito ay isang pangkalahatang-ideya ng mga hakbang na kinakailangan upang maipagan
 - Huwag paganahin ang lahat ng mga tampok ng Electron, ayusin ang build, pagkatapos paganahin ang mga ito ng isa-isa
 - Magdagdag pa ng mga flags ng build upang huwag paganahin ang mga tampok sa build-time.
 
-Kung ang Debug build ng Electron ay matagumpay, subukang patakbuhin: `$ ./script/test.py` Ayusing ang mga maling subok.
+When a Debug build of Electron succeeds, run the tests: `$ npm run test` Fix the failing tests.
 
 Sundin ang lahat ng mga hakbang sa itaas upang ayusin ang Electron kowd sa lahat ng mga sinusuportahang plataporma.
 
@@ -113,7 +113,7 @@ Maaaari mong i-verify ang suporta ng Electron para sa maramihang `ffmpeg` na mga
     <video style="display:none" src="http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4" autoplay></video>
     <script>
       const video = document.querySelector('video')
-      video.addEventListener('error', ({target}) => {
+      video.addEventListener('error', ({ target }) => {
         if (target.error.code === target.error.MEDIA_ERR_SRC_NOT_SUPPORTED) {
           document.querySelector('#outcome').textContent = 'Not using proprietary codecs, video emitted source not supported error event.'
         } else {
@@ -126,8 +126,6 @@ Maaaari mong i-verify ang suporta ng Electron para sa maramihang `ffmpeg` na mga
     </script>
   </body>
 </html>
- 
-Context | Request Context
 ```
 
 ## Mga kapakipakinabang na link
