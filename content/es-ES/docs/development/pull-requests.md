@@ -34,7 +34,7 @@ $ git fetch upstream
 
 Pasos de compilado y dependencias difieren ligeramente dependiendo de su sistema operativo. Ver estas guías detalladas en compilacion local de Electron:
 
-* [Compilado en MacOS](https://electronjs.org/docs/development/build-instructions-osx)
+* [Compilado en MacOS](https://electronjs.org/docs/development/build-instructions-macos)
 * [Compilado en Linux](https://electronjs.org/docs/development/build-instructions-linux)
 * [Compilado en Windows](https://electronjs.org/docs/development/build-instructions-windows)
 
