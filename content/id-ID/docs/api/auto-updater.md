@@ -73,8 +73,8 @@ Objek `autoUpdater` memiliki metode berikut:
 ### `autoUpdater.setFeedURL(options)`
 
 * `pilihan` Objek 
-  * `url` String
-  * `headers` Object (optional) *macOS* - HTTP request headers.
+  * ` url </ 0> String</li>
+<li><code>headers` Object (optional) *macOS* - HTTP request headers.
   * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
 Menetapkan `url` dan menginisialisasi updater otomatis.
