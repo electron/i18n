@@ -69,7 +69,7 @@ win.show()
 
 ## Fenêtre non cliquable
 
-To create a click-through window, i.e. making the window ignore all mouse events, you can call the [win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore-options) API:
+Pour créer une fenêtre non cliquable, c'est-à-dire faire en sorte que la fenêtre ignore tous les événements de la souris, vous pouvez appeler l'API [win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore-options) :
 
 ```javascript
 const {BrowserWindow} = require('electron')
