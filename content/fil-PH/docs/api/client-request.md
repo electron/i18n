@@ -121,7 +121,7 @@ Tinatanggal kapag mayroong redirection at ang mode ay `manual`. Pagtatawag sa [`
 
 #### `request.chunkedEncoding`
 
-Ang `Boolean` ay ang pagtitiyak kung ang request ay gagamit ng HTTP chunked transfer encoding o hindi. Naka-default sa false. Ang property ay nababasa at nasusulat, ngunit ito ay mai-set lamang kapag hindi pa nailagay sa wire ang first write operation bilang HTTP headers. Subukang i-set ang `chunkedEncoding` property matapos ang first write ay magiging isang error.
+Ang `Boolean` ay ang pagtitiyak kung ang request ay gagamit ng HTTP chunked transfer encoding o hindi. Ang default na mali. Ang property ay nababasa at nasusulat, ngunit ito ay mai-set lamang kapag hindi pa nailagay sa wire ang first write operation bilang HTTP headers. Subukang i-set ang `chunkedEncoding` property matapos ang first write ay magiging isang error.
 
 Ang paggamit ng chunked encoding ay mahalagang inirerekumenda kung kailangan mag-send ng large request body bilang data ay mai-steam sa small chunks sa halip na mag-buffer sa loob ng Electron process memory.
 
