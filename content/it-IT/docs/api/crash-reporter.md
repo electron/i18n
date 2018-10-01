@@ -22,6 +22,11 @@ Per impostare il server in modo che accetti e processi il report del crash, puoi
 * [socorro](https://github.com/mozilla/socorro)
 * [mini-breakpad-server](https://github.com/electron/mini-breakpad-server)
 
+Or use a 3rd party hosted solution:
+
+* [Backtrace I/O](https://backtrace.io/electron/)
+* [Sentry](https://docs.sentry.io/clients/electron)
+
 Crash reports are saved locally in an application-specific temp directory folder. For a `productName` of `YourName`, crash reports will be stored in a folder named `YourName Crashes` inside the temp directory. You can customize this temp directory location for your app by calling the `app.setPath('temp', '/my/custom/temp')` API before starting the crash reporter.
 
 ## Metodi
@@ -30,7 +35,7 @@ Il modulo `crashReporter` ha i seguenti metodi:
 
 ### `crashReporter.start(opzioni)`
 
-* `options` Oggetto 
+* `opzioni` Oggetto 
   * `companyName` String (opzionale)
   * `submitURL` String - URL a cui verrà inviato il crash report come POST.
   * `productName` String (opzionale) - Di default è `app.getName()`.
