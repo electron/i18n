@@ -4,7 +4,7 @@
 
 İşlem: [Ana](../glossary.md#main-process)
 
-**Uygulamanıza güncelleştirmeleri nasıl uygulayacağınız hakkında ayrıntılı bir rehberi [burada](../tutorial/updates.md) bulabilirsiniz.**
+**See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
 
 ## Platform Bildirimleri
 
@@ -65,6 +65,12 @@ Dönüşler:
 Bir güncelleme indirildiğinde ortaya çıkan.
 
 Windows üzerinde yalnızca `releaseName` kullanılabilir.
+
+### Event: 'before-quit-for-update'
+
+This event is emitted after a user calls `quitAndInstall()`.
+
+When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
 
 ## Metodlar
 
