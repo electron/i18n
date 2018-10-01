@@ -55,7 +55,7 @@ ipcRenderer.send('asynchronous-message', 'ping')
 ### `ipcMain.once(kanal, dinleyici)`
 
 * `channel` Dizesi
-* `listener` Function
+* `listener` fonksiyon
 
 Olay için bir kerelik `listener` işlevi eklenir. Bu `listener` yalnızca bir mesajın `channel` adresine gönderilmesinden sonra kaldırılır.
 
