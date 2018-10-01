@@ -99,7 +99,7 @@ Pada Windows tombol taskbar bisa menggunakan hamparan kecil untuk menampilkan ap
 Mengatur ikon overlay untuk jendela, Anda dapat menggunakan [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) API:
 
 ```javascript
-const {BrowserWindow} = membutuhkan ('elektron')
+const { BrowserWindow } = membutuhkan ('elektron')
 biarkan menang = new BrowserWindow ()
 win.setOverlayIcon ('path / to / overlay.png', 'Deskripsi untuk overlay')
 ```
@@ -113,7 +113,7 @@ On Windows you can highlight the taskbar button to get the user's attention. Thi
 Untuk flash tombol taskbar BrowserWindow, Anda bisa menggunakan [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) API:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
