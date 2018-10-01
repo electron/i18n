@@ -1,5 +1,6 @@
-# DesktopCapturerSource Object
+# MasaüstüYakalayiciKaynak Nesnesi
 
 * `id` Dizesi - [`navigator.webkitGetUserMedia`] çağırılırken bir `chromeMediaSourceId` sınırlayıcısı olarak kullanılabilen bir pencere ya da ekranın tanımlayıcısı. `XX` rastgele üretilmiş bir sayı olduğunda, tanımlayıcının formatı `window:XX` ya da `screen:XX` olacak.
 * `name` Dizesi - Bir pencere kaynağının ismi pencere başlığı ile uyuşurken, ekran kaynağı ya `Entire Screen` ya da `Screen <index>` olarak isimlendirilecek.
 * `thumbnail` [NativeImage](../native-image.md) - Bir küçük resim. **Note:** `desktopCapturer.getSources` 'e geçirilen `options` içinde belirtilen `thumbnailSize` ile küçük resmin boyutunun aynı olduğu garanti değildir. Gerçek boyut ekranın ya da pencerenin ölçeğine bağlıdır.
+* `display_id` String - A unique identifier that will correspond to the `id` of the matching [Display](display.md) returned by the [Screen API](../screen.md). On some platforms, this is equivalent to the `XX` portion of the `id` field above and on others it will differ. It will be an empty string if not available.
