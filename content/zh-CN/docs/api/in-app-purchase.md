@@ -15,7 +15,7 @@
 返回:
 
 * `event` Event
-* `transactions` ([Transaction[]](structures/transaction.md) - transactions数组.
+* `transactions` ([Transaction[]](structures/transaction.md) - Array of transactions.
 
 ## 方法
 
@@ -23,15 +23,15 @@
 
 ### `inAppPurchase.purchaseProduct(productID, quantity, callback)`
 
-* `productID` String - 所要购买商品的id. (`com.example.app.product1` 的id是 `product1`).
+* `productID` String - The id of the product to purchase. (the id of `com.example.app.product1` is `product1`).
 * `quantity` Integer (可选) - 用户所要购买的商品数量.
-* `callback` Function (可选) - 当购买事件被推到 PaymentQueue中时触发这个回调函数. (你可以通过添加一个 `inAppPurchase.addTransactionsListener` 监听器来获取 transaction的状态)。 
+* `callback` Function (optional) - The callback called when the payment is added to the PaymentQueue. (You should add a listener with `inAppPurchase.addTransactionsListener` to get the transaction status). 
   * `isProductValid` Boolean - 用来表示商品是否已经添加到支付队列中。
 
 ### `inAppPurchase.canMakePayments()`
 
-返回 `Boolean`, 用来判断用户是否可以发起支付.
+Returns `Boolean`, whether a user can make a payment.
 
 ### `inAppPurchase.getReceiptURL()`
 
-返回 `String`, 指收据路径.
+Returns `String`, the path to the receipt.
