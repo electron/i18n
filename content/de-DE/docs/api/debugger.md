@@ -57,7 +57,7 @@ Detaches the debugger from the `webContents`.
 
 Send given command to the debugging target.
 
-### Beispiel Events
+### Instanz Events
 
 #### Event: 'detach'
 
