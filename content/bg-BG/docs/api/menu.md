@@ -42,7 +42,7 @@ See the [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/m
 
 Returns `Menu`
 
-По принцип, `template` е просто масив от `options` за създаване на [MenuItem](menu-item.md). За употребата му вижте по-горе.
+Generally, the `template` is just an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
 
 You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
 
