@@ -24,7 +24,7 @@ console.log(dialog)
 
 ### `dialog.showOpenDialog([browserWindow, ]seçenekleri[, callback])`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional)
+* `browserWindow` [BrowserWindow](browser-window.md) (isteğe bağlı)
 * `options` Nesne 
   * `title` Dize (isteğe bağlı)
   * `defaultPath` dizi (isteğe bağlı)
@@ -35,7 +35,7 @@ console.log(dialog)
     * `openDirectory` - Dizinlerin seçilmesine izin ver.
     * `multiSelections` - Birden fazla yolun seçilmesine izin ver.
     * `showHiddenFiles` - Gizli dosyaları iletişim kutusuna gösterin.
-    * `createDirectory` *macOS* - Allow creating new directories from dialog.
+    * `createDirectory` *macOS* - Dialog modülünden yeni klasörler oluşturmaya izin verir.
     * `promptToCreate` *Windows* - Prompt for creation if the file path entered in the dialog does not exist. Bu, aslında belirtilen yolda yeni dosyanın oluşturulmasına neden olmaz ancak iletişim kutusundan var olmayan bir yolu döndürmenize izin verir, iletişim kutusundan çıktıktan sonra yeni dosya uygulama tarafından oluşturulmalıdır.
     * `noResolveAliases` *macOS* - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
     * `treatPackageAsDirectory` *macOS* - Treat packages, such as `.app` folders, as a directory instead of a file.
@@ -71,7 +71,7 @@ console.log(dialog)
 
 ### `dialog.showSaveDialog([browserWindow, ]seçenekleri[, callback])`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional)
+* `browserWindow` [BrowserWindow](browser-window.md) (isteğe bağlı)
 * `seçenekler` Nesne 
   * `title` Dize (isteğe bağlı)
   * `defaultPath`dizi (isteğe bağlı) -Varsayılan olarak kullanılacak mutlak dizin yolu, mutlak dosya yolu veya dosya adı.
@@ -95,7 +95,7 @@ Iade`dize`kullanıcı tarafından seçilen dosyanın yolu, bir geri arama sağla
 
 <h3><code>dialog.showMessageBox([browserWindow, ]seçenekleri[, callback])`</h3> 
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional)
+* `browserWindow` [BrowserWindow](browser-window.md) (isteğe bağlı)
 * `seçenekler` Nesne 
   * `tip` dize(isteğe bağlı) - olabilir `"yok"`, `"bilgi"`, `"hata"`, `"sorun"` ya da `"uyarı"`. Windows üzerinden,` "soru" </ 0>, <code> "bilgi" ` ile aynı simgeyi görüntüler, ` "simgesi" </ 0> seçeneğini kullanarak bir simge belirlemediğiniz sürece. MacOS üzerinden,<code>"uyarı"` ve `"hata"` her ikisi de aynı uyarı simgesini gösterir.
   * `düğmeleri` dize[] (isteğe bağlı) -Düğmeler için metin dizisi. Windows'ta, boş bir dizi, "Tamam" etiketli bir düğme ile sonuçlanır.
@@ -132,7 +132,7 @@ Bu API daha önce güvenli bir şekilde çağrılabilir `ready` event the `app` 
 
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options, callback)` *macOS* *Windows*
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional)
+* `browserWindow` [BrowserWindow](browser-window.md) (isteğe bağlı)
 * `seçenekler` Nesne 
   * `certificate` [Certificate](structures/certificate.md) - Sertifika için güven ve önemi belirtir.
   * `message` String - Kullanıcı tarafından görüntülenecek mesajı belirtir.
