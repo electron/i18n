@@ -4,7 +4,7 @@
 
 参见： [process](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) process
 
-在发出 ` app ` 模块的 ` ready ` 事件之前, 您不能 `require` 或使用此模块。
+在 ` app ` 模块发出 ` ready ` 事件之前, 您不能引用或者使用此模块。
 
 `screen` 是一个 [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -93,24 +93,24 @@ app.on('ready', () => {
 
 ### `screen.getMenuBarHeight()` *macOS*
 
-返回`Integer`，表示菜单栏的高度 (单位：像素)
+Returns `Integer` - The height of the menu bar in pixels.
 
 ### `screen.getPrimaryDisplay()`
 
-返回主窗口[`Display`](structures/display.md)
+Returns [`Display`](structures/display.md) - The primary display.
 
 ### `screen.getAllDisplays()`
 
-返回一个窗口数组[`Display[]`](structures/display.md)，表示当前可用的窗口。
+Returns [`Display[]`](structures/display.md) - An array of displays that are currently available.
 
 ### `screen.getDisplayNearestPoint(point)`
 
 * `point` [Point](structures/point.md)
 
-返回离指定点最近的一个窗口[`Display`](structures/display.md)
+Returns [`Display`](structures/display.md) - The display nearest the specified point.
 
 ### `screen.getDisplayMatching(rect)`
 
 * `rect` [Rectangle](structures/rectangle.md)
 
-返回离指定的图形最密切相交一个窗口[`Display`](structures/display.md)
+Returns [`Display`](structures/display.md) - The display that most closely intersects the provided bounds.
