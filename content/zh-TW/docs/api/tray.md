@@ -236,7 +236,7 @@ win.on('hide', () => {
 #### `tray.displayBalloon(options)` *Windows*
 
 * `options` Object 
-  * `icon` ([NativeImage](native-image.md) | String) (選用) -
+  * `icon` ([NativeImage](native-image.md) | String) (optional) -
   * `title` String
   * `content` String
 
@@ -244,7 +244,7 @@ Displays a tray balloon.
 
 #### `tray.popUpContextMenu([menu, position])` *macOS* *Windows*
 
-* `menu` Menu (選用)
+* `menu` Menu (optional)
 * `position` [Point](structures/point.md) (optional) - The pop up position.
 
 Pops up the context menu of the tray icon. When `menu` is passed, the `menu` will be shown instead of the tray icon's context menu.
@@ -253,7 +253,7 @@ The `position` is only available on Windows, and it is (0, 0) by default.
 
 #### `tray.setContextMenu(menu)`
 
-* `menu` Menu
+* `menu` Menu | null
 
 Sets the context menu for this icon.
 
