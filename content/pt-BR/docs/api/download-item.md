@@ -1,6 +1,6 @@
 ## Class: DownloadItem
 
-> Control file downloads from remote sources.
+> Controla o download de arquivos de fontes remotas.
 
 Processo: [Main](../glossary.md#main-process)
 
@@ -42,16 +42,16 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 Retorna:
 
 * `event` Event
-* `state` String - Can be `progressing` or `interrupted`.
+* `state` String - Pode ser `progressing` ou `interrupted`.
 
-Emitted when the download has been updated and is not done.
+Emitida quando o download foi atualizado e ainda não terminou.
 
-The `state` can be one of following:
+`state` pode ser um dos seguintes:
 
-* `progressing` - The download is in-progress.
-* `interrupted` - The download has interrupted and can be resumed.
+* `progressing` - O download está em andamento.
+* `interrupted` - O download foi interrompido e pode ser retomado.
 
-#### Event: 'done'
+#### Evento: 'done'
 
 Retorna:
 
@@ -60,7 +60,7 @@ Retorna:
 
 Emitted when the download is in a terminal state. This includes a completed download, a cancelled download (via `downloadItem.cancel()`), and interrupted download that can't be resumed.
 
-The `state` can be one of following:
+`state` pode ser um dos seguintes:
 
 * `completed` - The download completed successfully.
 * `cancelled` - The download has been cancelled.
