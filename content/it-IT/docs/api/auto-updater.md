@@ -4,7 +4,7 @@
 
 Processo: [Main](../glossary.md#main-process)
 
-**Puoi trovare una guida dettagliata su come impementare gli aggiornamenti nella tua applicazione [qui](../tutorial/updates.md).**
+**Vedi anche: [Una guida dettagliata su come implementare aggiornamenti nella tua applicazione](../tutorial/updates.md).**
 
 ## Avvisi Piattaforma
 
@@ -65,6 +65,12 @@ Restituisce:
 Emesso quando un aggiornamento è stato scaricato.
 
 Solo su Windows `rilascioNome` è disponibile.
+
+### Evento: 'before-quit-for-update'
+
+Questo evento è emesso dopo una chiamata utente `quitAndInstall()`.
+
+Quando questa API è chiamata, l'evento `before-quit` non è emesso finché tutte le finestre non sono state chiuse. Come risultato dovresti restare in ascolto di questo evento se desideri eseguire delle azioni prima che le finestre siano chiuse mentre un processo si sta chiudendo, così come restare in ascolto di `before-quit`.
 
 ## Metodi
 
