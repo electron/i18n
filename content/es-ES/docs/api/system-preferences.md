@@ -57,6 +57,13 @@ Publicaciones `eventos` como notificaciones nativas de macOS. El `userInfo` es u
 
 Publicaciones `eventos` como notificaciones nativas de macOS. El `userInfo` es un Objeto que contiene el diccionario de la información de usuario enviada junto a la notificación.
 
+### `systemPreferences.postWorkspaceNotification(event, userInfo)` *macOS*
+
+* `evento` Cadena
+* `userInfo` Objeto
+
+Publicaciones `eventos` como notificaciones nativas de macOS. El `userInfo` es un Objeto que contiene el diccionario de la información de usuario enviada junto a la notificación.
+
 ### `systemPreferences.subscribeNotification(event, callback)` *macOS*
 
 * `evento` Cadena
@@ -64,22 +71,16 @@ Publicaciones `eventos` como notificaciones nativas de macOS. El `userInfo` es u
   * `evento` Cadena
   * `userInfo` Objeto
 
-Subscribes to native notifications of macOS, `callback` will be called with `callback(event, userInfo)` when the corresponding `event` happens. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
+Subscriptores a notificaciones nativas de macOS, `callback` serán llamados con `callback(evento, userinfo)` cuando el `evento` correspondiente suceda. El `userInfo` es un Objeto que contiene el diccionario de la información de usuario enviado junto a las notificaciones.
 
-The `id` of the subscriber is returned, which can be used to unsubscribe the `event`.
+El `id` del subscriptor es devuelto, el cual puede ser usado para desuscribir el `evento`.
 
-Under the hood this API subscribes to `NSDistributedNotificationCenter`, example values of `event` are:
+Bajo de la capucha este API subscribe a `NSDistributedNotificationCenter`, valores de ejemplo de `evento` son:
 
 * `AppleInterfaceThemeChangedNotification`
 * `AppleAquaColorVariantChanged`
 * `AppleColorPreferencesChangedNotification`
 * `AppleShowScrollBarsSettingChanged`
-
-### `systemPreferences.unsubscribeNotification(id)` *macOS*
-
-* `id` Íntegro
-
-Removes the subscriber with `id`.
 
 ### `systemPreferences.subscribeLocalNotification(event, callback)` *macOS*
 
@@ -90,24 +91,45 @@ Removes the subscriber with `id`.
 
 Al igual que `subscribeNotification`, pero usa `NSNotificationCenter` para defectos locales. Esto es necesario para eventos como `NSUserDefaultsDidChangeNotification`.
 
+### `systemPreferences.subscribeWorkspaceNotification(event, callback)` *macOS*
+
+* `evento` Cadena
+* `callback` Function 
+  * `evento` Cadena
+  * `userInfo` Objeto
+
+Same as `subscribeNotification`, but uses `NSWorkspace.sharedWorkspace.notificationCenter`. This is necessary for events such as `NSWorkspaceDidActivateApplicationNotification`.
+
+### `systemPreferences.unsubscribeNotification(id)` *macOS*
+
+* `id` Íntegro
+
+Remueve el subscriptor con el `id`.
+
 ### `systemPreferences.unsubscribeLocalNotification(id)` *macOS*
 
 * `id` Íntegro
 
-Same as `unsubscribeNotification`, but removes the subscriber from `NSNotificationCenter`.
+Al igual que `unsubscribeNotification`, pero remueveal subscritor de `NSNotificationCenter`.
+
+### `systemPreferences.unsubscribeWorkspaceNotification(id)` *macOS*
+
+* `id` Íntegro
+
+Same as `unsubscribeNotification`, but removes the subscriber from `NSWorkspace.sharedWorkspace.notificationCenter`.
 
 ### `systemPreferences.registerDefaults(defaults)` *macOS*
 
-* `defaults` Object - a dictionary of (`key: value`) user defaults 
+* `defaults` Object -un diccionario de valores predeterminados de usuario (`key: value`) 
 
-Add the specified defaults to your application's `NSUserDefaults`.
+Agregue los valores predeterminados especificados a `NSUserDefaults` de su aplicación.
 
 ### `systemPreferences.getUserDefault(key, type)` *macOS*
 
-* `key` String
-* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
+* `llave` Cadena
+* `type` String - Puede ser `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` o `dictionary`.
 
-Returns `any` - The value of `key` in `NSUserDefaults`.
+Devuelve `any` - El valor de `Key` en `NSUserDefaults`.
 
 Algún `key` y `type`s populares:
 
@@ -121,13 +143,13 @@ Algún `key` y `type`s populares:
 
 ### `systemPreferences.setUserDefault(key, type, value)` *macOS*
 
-* `key` String
-* `type` String - See [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos].
-* `value` String
+* `llave` Cadena
+* `type` String - See [`getUserDefault`](#systempreferencesgetuserdefaultkey-type-macos).
+* `value` Cadena
 
-Set the value of `key` in `NSUserDefaults`.
+Establece el valor de `key` en `NSUserDefaults`.
 
-Note that `type` should match actual type of `value`. An exception is thrown if they don't.
+Nota que `type` debería coincidir el tipo actual de `value`. Una excepción es arrojada si no es así.
 
 Algún `key` y `type`s populares:
 
@@ -135,15 +157,15 @@ Algún `key` y `type`s populares:
 
 ### `systemPreferences.removeUserDefault(key)` *macOS*
 
-* `key` String
+* `llave` Cadena
 
-Removes the `key` in `NSUserDefaults`. This can be used to restore the default or global value of a `key` previously set with `setUserDefault`.
+Elimina el `key` en `NSUserDefaults`. Puede usarse para reestablecer el valor por defecto o el valor global de un `key` establecido previamente con `setUserDefault`.
 
 ### `systemPreferences.isAeroGlassEnabled()` *Windows*
 
-Returns `Boolean` - `true` if [DWM composition](https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx) (Aero Glass) is enabled, and `false` otherwise.
+Devuelve `Boolean` - `true` si [DWM composition](https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx) (Aero Glass) está habilitada, y `false` de lo contrario.
 
-An example of using it to determine if you should create a transparent window or not (transparent windows won't work correctly when DWM composition is disabled):
+Un ejemplo de usarlo para determinar si deberías crear una ventana transparente o no (las ventanas transparentes no funcionarán correctamente cuando la composición de DWM está deshabilitada):
 
 ```javascript
 onst {BrowserWindow, systemPreferences} = requiere('electron')
@@ -169,7 +191,7 @@ si (browserOptions.transparent) {
 
 ### `systemPreferences.getAccentColor()` *Windows*
 
-Returns `String` - The users current system wide accent color preference in RGBA hexadecimal form.
+Devuelve `Cadena` - El sistema actual de usuarios amplía el acento del color de preferencia en la forma hexadecimal de RGBA.
 
 ```js
 const color = systemPreferences.getAccentColor() // `"aabbccdd"`
@@ -181,40 +203,40 @@ const alpha = color.substr(6, 2) // "dd"
 
 ### `systemPreferences.getColor(color)` *Windows*
 
-* `color` String - One of the following values: 
-  * `3d-dark-shadow` - Dark shadow for three-dimensional display elements.
-  * `3d-face` - Face color for three-dimensional display elements and for dialog box backgrounds.
-  * `3d-highlight` - Highlight color for three-dimensional display elements.
-  * `3d-light` - Light color for three-dimensional display elements.
-  * `3d-shadow` - Shadow color for three-dimensional display elements.
-  * `active-border` - Active window border.
-  * `active-caption` - Active window title bar. Specifies the left side color in the color gradient of an active window's title bar if the gradient effect is enabled.
-  * `active-caption-gradient` - Right side color in the color gradient of an active window's title bar.
-  * `app-workspace` - Background color of multiple document interface (MDI) applications.
-  * `button-text` - Text on push buttons.
-  * `caption-text` - Text in caption, size box, and scroll bar arrow box.
-  * `desktop` - Desktop background color.
-  * `disabled-text` - Grayed (disabled) text.
-  * `highlight` - Item(s) selected in a control.
-  * `highlight-text` - Text of item(s) selected in a control.
-  * `hotlight` - Color for a hyperlink or hot-tracked item.
-  * `inactive-border` - Inactive window border.
-  * `inactive-caption` - Inactive window caption. Specifies the left side color in the color gradient of an inactive window's title bar if the gradient effect is enabled.
-  * `inactive-caption-gradient` - Right side color in the color gradient of an inactive window's title bar.
-  * `inactive-caption-text` - Color of text in an inactive caption.
-  * `info-background` - Background color for tooltip controls.
-  * `info-text` - Text color for tooltip controls.
-  * `menu` - Menu background.
-  * `menu-highlight` - The color used to highlight menu items when the menu appears as a flat menu.
-  * `menubar` - The background color for the menu bar when menus appear as flat menus.
-  * `menu-text` - Text in menus.
-  * `scrollbar` - Scroll bar gray area.
-  * `window` - Window background.
-  * `window-frame` - Window frame.
-  * `window-text` - Text in windows.
+* `color` Cadena - Uno de los siguientes valores: 
+  * `3d-dark-shadow` - Sombra oscura para elementos de tres dimensiones mostrados.
+  * `3d-face` - Color facial para elementos de tres dimensiones mostrados y para cuadro de fondos de las caja de diálogo.
+  * `3d-highlight` - Resalta color para elementos de tres dimensiones mostrados.
+  * `3d-light` - Color claro para elementos de tres dimensiones mostrados.
+  * `3d-shadow` - Color oscuro para elementos de tres dimensiones mostrados.
+  * `active-border` - Borde de ventana activo.
+  * `active-caption` - Título de barra de la ventana activo. Especifica el color del lado izquierdo en el tono del color de un título de barra de ventana activa si el efecto de tono está habilitado.
+  * `active-caption-gradient` - El color del lado derecho en el tono del color de un título de barra de una ventana activa.
+  * `app-workspace` - Color de fondo de múltiples documentos de aplicaciones de interfase.
+  * `button-text` - Texto en los botones de presión.
+  * `caption-text` - Textos en subtítulos, tamaño de la caja y la barra de desplazamiento de la caja de flecha.
+  * `desktop` - Color de fondo del escritorio.
+  * `disabled-text` - Gris (desactivado) texto.
+  * 0>highlight</code> - objeto(s) seleccionados en un control.
+  * `highlight-text` - Texto de objeto(s) seleccionados en un control.
+  * `hotlight` - Color para un hiperlink o un muy rastreado objeto.
+  * `inactive-border` - Borde de ventana inactivo.
+  * `inactive-caption` - Subtítulo de ventana inactivo. Especifica el color del lado izquierdo en el tono de color de una barra de título de una ventana inactiva si el efecto de tono está habilitado.
+  * `inactive-caption-gradient` - Color del lado derecho en el tono de color de un título de barra de una ventana inactiva.
+  * `inactive-caption-text` - Color del texto en un subtítulo inactivo.
+  * `info-background` - Color de fondo para control de información de herramientas.
+  * `info-text` - Color de texto para controles de información de herramientas.
+  * `menu` - Fondo del menú.
+  * `menu-highlight` - El color usado para resaltar los objetos del menú cuando el menú aparece como un menú plano.
+  * `menubar` - El color de fondo para la barra del menú cuando los menús aparecen como menús planos.
+  * `menu-text` - Textos en menús.
+  * `scrollbar` - Desplazar la barra en el área gris.
+  * `window` - Fondo de la ventana.
+  * `window-frame` - Cuadro de ventana.
+  * `window-text` - Texto en ventanas.
 
-Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) for more details.
+Devuelve `String` - El color del sistema ajustando en la forma hexadecimal de RGB (`#ABCDEF`). Ver el [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) para más detalles.
 
 ### `systemPreferences.isInvertedColorScheme()` *Windows*
 
-Returns `Boolean` - `true` if an inverted color scheme, such as a high contrast theme, is active, `false` otherwise.
+Devuelve `Boolean` - `true` si un esquema de color invertido, como un tema de alto contraste, es activo, `false` de lo contrario.
