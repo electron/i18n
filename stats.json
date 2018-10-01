@@ -94,27 +94,27 @@
     "name": "French",
     "code": "fr",
     "phrases": "9600",
-    "translated": "7082",
+    "translated": "7084",
     "approved": "42",
     "words": "88507",
-    "words_translated": "53827",
+    "words_translated": "53847",
     "words_approved": "163",
     "translated_progress": 60,
     "approved_progress": 0,
-    "qa_issues": "1925"
+    "qa_issues": "1927"
   },
   {
     "name": "German",
     "code": "de",
     "phrases": "9600",
-    "translated": "2790",
+    "translated": "2793",
     "approved": "35",
     "words": "88507",
-    "words_translated": "17429",
+    "words_translated": "17443",
     "words_approved": "66",
     "translated_progress": 19,
     "approved_progress": 0,
-    "qa_issues": "1059"
+    "qa_issues": "1060"
   },
   {
     "name": "Hebrew",
@@ -237,14 +237,14 @@
     "name": "Russian",
     "code": "ru",
     "phrases": "9600",
-    "translated": "5001",
+    "translated": "5008",
     "approved": "1058",
     "words": "88507",
-    "words_translated": "35352",
+    "words_translated": "35423",
     "words_approved": "8220",
-    "translated_progress": 39,
+    "translated_progress": 40,
     "approved_progress": 9,
-    "qa_issues": "1357"
+    "qa_issues": "1362"
   },
   {
     "name": "Spanish",
@@ -289,14 +289,14 @@
     "name": "Turkish",
     "code": "tr",
     "phrases": "9600",
-    "translated": "7851",
+    "translated": "7870",
     "approved": "2",
     "words": "88507",
-    "words_translated": "66069",
+    "words_translated": "66136",
     "words_approved": "2",
     "translated_progress": 74,
     "approved_progress": 0,
-    "qa_issues": "3388"
+    "qa_issues": "3390"
   },
   {
     "name": "Ukrainian",
