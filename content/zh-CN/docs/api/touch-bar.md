@@ -2,13 +2,13 @@
 
 > 为原生macOS应用创建TouchBar布局
 
-进程：[主进程](../tutorial/quick-start.md#main-process)
+Process: [Main](../tutorial/quick-start.md#main-process)
 
 ### `new TouchBar(options)` *实验功能*
 
-* `选项` 对象 
+* `参数` 对象 
   * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[]
-  * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md) | null) (optional)
+  * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md) | null) (可选的)
 
 用指定的项目创建一个新的触摸栏。 使用`BrowserWindow.setTouchBar`将 `TouchBar`添加到窗口。
 
@@ -18,15 +18,15 @@
 
 ### 实例属性
 
-The following properties are available on instances of `TouchBar`:
+在`TouchBar`的实例中有以下属性可用：
 
 #### `touchBar.escapeItem`
 
-A `TouchBarItem` that will replace the "esc" button on the touch bar when set. Setting to `null` restores the default "esc" button. Changing this value immediately updates the escape item in the touch bar.
+`TouchBarItem`设置的内容将替换掉Touch bar中的“esc”按钮 将该项设为`null`以使用默认的"esc"按钮 修改这个值将立即更新Touch bar中的返回按钮
 
 ## 示例
 
-Below is an example of a simple slot machine touch bar game with a button and some labels.
+下面是一个带有一个按钮和若干文本的简易Touch bar老虎机游戏示例
 
 ```javascript
 const {app, BrowserWindow, TouchBar} = require('electron')
@@ -56,4 +56,4 @@ const spin = new TouchBarButton({
 2. 通过 `npm install electron` 来安装 Electron
 3. 在 Electron 中运行示例：`./node_modules/.bin/electron touchbar.js`
 
-You should then see a new Electron window and the app running in your touch bar (or touch bar emulator).
+接下来这个应用会在你的Touch bar (或者Touch bar模拟器) 上运行，你将能看到一个Electron窗口
