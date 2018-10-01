@@ -2,7 +2,7 @@
 
 > スクラバー (スクロールできるセレクタ) を作成します。
 
-Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
+プロセス: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new TouchBarScrubber(options)` *実験的*
 
