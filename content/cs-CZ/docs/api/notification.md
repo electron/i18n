@@ -2,7 +2,7 @@
 
 > Vytvořte desktopové notifikace
 
-Process: [Main](../glossary.md#main-process)
+Proces: [Main](../glossary.md#main-process)
 
 ## Using in the renderer process
 
@@ -12,7 +12,7 @@ Pokud chcete ukazovat notifikace z renderer procesu, měli byste použít [HTML5
 
 > Vytvořte desktopové notifikace
 
-Process: [Main](../glossary.md#main-process)
+Proces: [Main](../glossary.md#main-process)
 
 `Notification` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
 
@@ -28,7 +28,7 @@ Returns `Boolean` - Whether or not desktop notifications are supported on the cu
 
 ### `new Notification([options])` *Experimental*
 
-* `options` Object 
+* `nastavení` Object 
   * `title` String - A title for the notification, which will be shown at the top of the notification window when it is shown.
   * `subtitle` String (optional) *macOS* - A subtitle for the notification, which will be displayed below the title.
   * `body` String - The body text of the notification, which will be displayed below the title or subtitle.
