@@ -227,16 +227,16 @@ const alpha = color.substr(6, 2) // "dd"
   * `info-background` - ツールチップコントロールの背景色。
   * `info-text` - ツールチップコントロールのテキスト色。
   * `menu` - メニューの背景色。
-  * `menu-highlight` - The color used to highlight menu items when the menu appears as a flat menu.
-  * `menubar` - The background color for the menu bar when menus appear as flat menus.
-  * `menu-text` - Text in menus.
-  * `scrollbar` - Scroll bar gray area.
-  * `window` - Window background.
-  * `window-frame` - Window frame.
-  * `window-text` - Text in windows.
+  * `menu-highlight` - メニューがフラットメニューとして表示されたときにメニュー項目をハイライト表示するために使用される色。
+  * `menubar` - メニューがフラットメニューとして表示されたときのメニューの背景色。
+  * `menu-text` - メニューのテキスト色。
+  * `scrollbar` - スクロールバーのグレーの領域の色。
+  * `window` - ウインドウの背景色。
+  * `window-frame` - ウインドウフレームの色。
+  * `window-text` - ウインドウ内のテキスト色。
 
-Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) for more details.
+戻り値 `String` - RGB の16進数形式 (`#ABCDEF`) のシステム色の設定。 詳細については、[Windows のドキュメント](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) を参照してください。
 
 ### `systemPreferences.isInvertedColorScheme()` *Windows*
 
-Returns `Boolean` - `true` if an inverted color scheme, such as a high contrast theme, is active, `false` otherwise.
+戻り値 `Boolean` - ハイコントラストテーマなどの反転したカラースキームがアクティブな場合は `true`、そうでない場合は `false` です。
