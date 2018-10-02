@@ -1,8 +1,8 @@
 # ビルドシステムの概要
 
-Electron uses [GN](https://gn.googlesource.com/gn) for project generation and [ninja](https://ninja-build.org/) for building. Project configurations can be found in the `.gn` and `.gni` files.
+Electronは、プロジェクト生成に[GN](https://gn.googlesource.com/gn)を用い、ビルドには [ninja](https://ninja-build.org/)を使用します。 プロジェクト設定は`.gn` と `.gni` ファイルを見てください。
 
-## GN Files
+## GN ファイル
 
 The following `gn` files contain the main rules for building Electron:
 
