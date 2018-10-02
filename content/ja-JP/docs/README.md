@@ -85,7 +85,7 @@
   * [asar アーカイブを使用する](tutorial/application-packaging.md#using-asar-archives)
   * [制限事項](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [asar アーカイブへパックされていないファイルを追加](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [In Detail: Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [詳解: Widevine CDM のテスト](tutorial/testing-widevine-cdm.md)
 * [詳解: Pepper Flash Plugin を使う](tutorial/using-pepper-flash-plugin.md)
 * [オフスクリーンレンダリング](tutorial/offscreen-rendering.md)
 
