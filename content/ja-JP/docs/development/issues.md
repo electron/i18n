@@ -4,9 +4,9 @@
 
 * [コントリビュートの仕方](#how-to-contribute-in-issues)
 * [一般的なヘルプ](#asking-for-general-help)
-* [Submitting a Bug Report](#submitting-a-bug-report)
-* [Triaging a Bug Report](#triaging-a-bug-report)
-* [Resolving a Bug Report](#resolving-a-bug-report)
+* [バグレポートの送信](#submitting-a-bug-report)
+* [バグレポートのトリアージュ](#triaging-a-bug-report)
+* [バグレポートの解決](#resolving-a-bug-report)
 
 ## コントリビュートの仕方
 
@@ -20,7 +20,7 @@
 
 ["Finding Support"](../tutorial/support.md#finding-support) has a list of resources for getting programming help, reporting security issues, contributing, and more. Please use the issue tracker for bugs only!
 
-## Submitting a Bug Report
+## バグレポートの送信
 
 When opening a new issue in the `electron/electron` issue tracker, users will be presented with a template that should be filled in.
 
@@ -68,7 +68,7 @@ The two most important pieces of information needed to evaluate the report are a
 
 See [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve).
 
-## Triaging a Bug Report
+## バグレポートのトリアージュ
 
 It's common for open issues to involve discussion. Some contributors may have differing opinions, including whether the behavior is a bug or feature. This discussion is part of the process and should be kept focused, helpful, and professional.
 
@@ -76,6 +76,6 @@ Terse responses that provide neither additional context nor supporting detail ar
 
 Contributors are encouraged to solve issues collaboratively and help one another make progress. If encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. By doing so, we can often reach the correct outcome faster.
 
-## Resolving a Bug Report
+## バグレポートの解決
 
 Most issues are resolved by opening a pull request. The process for opening and reviewing a pull request is similar to that of opening and triaging issues, but carries with it a necessary review and approval workflow that ensures that the proposed changes meet the minimal quality and functional guidelines of the Electron project.
