@@ -120,11 +120,11 @@ $ gn gen out/Debug-x86 --args='... target_cpu = "x86"'
 
 Not all combinations of source and target CPU/OS are supported by Chromium. Only cross-compiling Windows 32-bit from Windows 64-bit and Linux 32-bit from Linux 64-bit have been tested in Electron. If you test other combinations and find them to work, please update this document :)
 
-See the GN reference for allowable values of [`target_os`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values) and [`target_cpu`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values)
+[`target_os`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values) と [`target_cpu`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values) の許される値については、 GN リファレンスを参照してください。
 
 ## テスト
 
-To run the tests, you'll first need to build the test modules against the same version of Node.js that was built as part of the build process. To generate build headers for the modules to compile against, run the following under `src/` directory.
+このテストを実行するために、あなたは最初に、このビルドプロセスの一部としてビルドする Node.js と同じバージョンに対してテストモジュールをビルドする必要があります。 再びコンパイルするモジュールのためのビルドヘッダを生成するために、`src/`ディレクトリの下で以下のように実行します。
 
 ```sh
 $ ninja -C out/Debug third_party/electron_node:headers
@@ -132,7 +132,7 @@ $ ninja -C out/Debug third_party/electron_node:headers
 $ (cd electron/spec && npm i --nodedir=../../out/Debug/gen/node_headers)
 ```
 
-Then, run Electron with `electron/spec` as the argument:
+それから、`electron/spec` を引数にして Electronを実行します。
 
 ```sh
 # macOSの場合:
@@ -150,7 +150,7 @@ $ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec \
   --ci --enable-logging -g 'BrowserWindow module'
 ```
 
-## Sharing the git cache between multiple machines
+## 複数マシン間での gitのキャッシュの共有
 
 It is possible to share the gclient git cache with other machines by exporting it as SMB share on linux, but only one process/machine can be using the cache at a time. The locks created by git-cache script will try to prevent this, but it may not work perfectly in a network.
 
