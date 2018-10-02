@@ -90,11 +90,11 @@ For modules that are not classes, their methods and events must be listed under 
 
 ### クラス
 
-* API classes or classes that are part of modules must be listed under a `## Class: TheClassName` chapter.
-* One page can have multiple classes.
-* Constructors must be listed with `###`-level titles.
-* [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) must be listed under a `### Static Methods` chapter.
-* [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) must be listed under an `### Instance Methods` chapter.
+* モジュールの一部となるAPI クラスは`## Class: TheClassName` の章にリストアップしなければなりません。
+* 1ページに複数のクラスがあってもよい。
+* Constructors は`###`-レベルのタイトルでリストアップされなければなりません。
+* [静的メソッド](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static)は`### 静的メソッド`の章以下にリストアップしなければなりません。
+* [インスタンスメソッド](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods)は`### インスタンスメソッド`の章以下にリストアップしなければなりません。
 * All methods that have a return value must start their description with "Returns `[TYPE]` - Return description" 
   * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
 * Instance Events must be listed under an `### Instance Events` chapter.
@@ -137,7 +137,7 @@ Using the `Session` and `Cookies` classes as an example:
 
 ### メソッド
 
-The methods chapter must be in the following form:
+メソッドの章はつぎの形式でなければなません。
 
 ```markdown
 ### `objectName.methodName(required[, optional]))`
@@ -181,7 +181,7 @@ The description for `Function` type arguments should make it clear how it may be
 
 ### イベント
 
-The events chapter must be in following form:
+イベントの章はつぎの形式でなければなません。
 
 ```markdown
 ### Event: 'wake-up'
@@ -199,7 +199,7 @@ The arguments of an event follow the same rules as methods.
 
 ### プロパティ
 
-The properties chapter must be in following form:
+プロパティの章はつぎの形式でなければなません。
 
 ```markdown
 ### session.defaultSession
