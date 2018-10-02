@@ -212,23 +212,23 @@
     "code": "pl",
     "phrases": "9600",
     "translated": "3900",
-    "approved": "811",
+    "approved": "821",
     "words": "88507",
     "words_translated": "19629",
-    "words_approved": "5939",
+    "words_approved": "6060",
     "translated_progress": 22,
     "approved_progress": 6,
-    "qa_issues": "862"
+    "qa_issues": "859"
   },
   {
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "9600",
     "translated": "4114",
-    "approved": "397",
+    "approved": "396",
     "words": "88507",
     "words_translated": "29434",
-    "words_approved": "2777",
+    "words_approved": "2755",
     "translated_progress": 33,
     "approved_progress": 3,
     "qa_issues": "1202"
