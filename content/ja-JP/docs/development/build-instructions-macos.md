@@ -47,6 +47,6 @@ cp -r /Volumes/Xcode/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Deve
 - `MinimumSDKVersion` を `10.10` にセットする
 - ファイルを保存する
 
-## Building Electron
+## Electron のビルド
 
-See [Build Instructions: GN](build-instructions-gn.md).
+[ビルド指示: GN](build-instructions-gn.md)を参照してください。
