@@ -4,11 +4,11 @@ Electronは、プロジェクト生成に[GN](https://gn.googlesource.com/gn)を
 
 ## GN ファイル
 
-The following `gn` files contain the main rules for building Electron:
+以下の`gn`ファイルにはElectronのビルトのメインルールを含んでいます：
 
-* `BUILD.gn` defines how Electron itself is built.
-* `brightray/BUILD.gn` defines how `brightray` is built and includes the default configurations for linking with Chromium.
-* `build/args/{debug,release,all}.gn` contain the default build arguments for building Electron.
+* `BUILD.gn` は、Electronそのものをどのようにビルドするかを定義しています。
+* `brightray/BUILD.gn`は、`brightray`をどのようにビルドするかを定義し、Chromiumとリンクするデフォルト設定を含んでいます。
+* `build/args/{debug,release,all}.gn` には、Electronをビルドするためのデフォルトのビルド引数が含まれています。
 
 ## コンポーネントのビルド
 
