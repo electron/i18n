@@ -23,7 +23,7 @@ Electron のビルドは完全にコマンドラインスクリプトで行わ�
 
 ## 32ビットビルド
 
-32ビットターゲット用にビルドするには、引数として`target_cpu = "x86"` をGNに渡す必要があります。 You can build the 32bit target alongside the 64bit target by using a different output directory for GN, e.g. `out/Release-x86`, with different arguments.
+32ビットターゲット用にビルドするには、引数として`target_cpu = "x86"` をGNに渡す必要があります。 32ビットターゲットと共に64ビットターゲットをビルドできます。それには別の引数を使って、`out/Release-x86`のような別のディレクトリに出力させられます。
 
 ```powershell
 $ gn gen out/Release-x86 --args="import(\"//electron/build/args/release.gn\") target_cpu=\"x86\""
