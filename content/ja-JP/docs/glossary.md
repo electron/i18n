@@ -54,7 +54,7 @@ AppleのMac App Storeの略語です。MASへアプリを登録する際の詳�
 
 ### Mojo
 
-An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.
+イントラプロセスまたはインタープロセス通信のための IPC システム。これが重要なのは、Chromeが別々のプロセスで動作するかどうかを、メモリプレッシャーによって判断するようにに設計されているからです。
 
 （参照： https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md ）
 
