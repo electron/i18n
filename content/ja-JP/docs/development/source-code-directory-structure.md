@@ -55,14 +55,14 @@ The files in `/chromium_src` tend to be pieces of Chromium that aren't part of t
 * **script** - Scripts used for development purpose like building, packaging, testing, etc.
 * **tools** - Helper scripts used by GN files, unlike `script`, scripts put here should never be invoked by users directly.
 * **vendor** - Source code of third party dependencies, we didn't use `third_party` as name because it would confuse it with the same directory in Chromium's source code tree.
-* **node_modules** - Third party node modules used for building.
-* **out** - Temporary output directory of `ninja`.
-* **dist** - Temporary directory created by `script/create-dist.py` script when creating a distribution.
-* **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gn`.
+* **node_modules** - ビルドに使用する第三者のnodeモジュール。
+* **out** - `ninja`の一時的な出力用ディレクトリ。
+* **dist** - 配布用に作成したときに `script/create-dist.py` スクリプトが作成する一時的なディレクトリ。
+* **external_binaries** - `gn`によるビルドがサポートされていない第三者のフレームワークのバイナリでダウンロードしたもの。
 
-## Keeping Git Submodules Up to Date
+## Git Submodules を最新に保つ
 
-The Electron repository has a few vendored dependencies, found in the [/vendor](https://github.com/electron/electron/tree/master/vendor) directory. Occasionally you might see a message like this when running `git status`:
+このElectron リポジトリは、ベンダー関連の依存関係があり、それらは[/vendor](https://github.com/electron/electron/tree/master/vendor) ディレクトリにあります。 `git status`を実行したときに以下のようなメッセージが表示されるかもしれません。:
 
 ```sh
 $ git status
@@ -71,13 +71,13 @@ $ git status
     modified:   vendor/boto (new commits)
 ```
 
-To update these vendored dependencies, run the following command:
+これらのベンダー依存関係を更新するには次のコマンドを実行します。
 
 ```sh
 git submodule update --init --recursive
 ```
 
-If you find yourself running this command often, you can create an alias for it in your `~/.gitconfig` file:
+このコマンドを頻繁に実行している場合、`~/.gitconfig`にエイリアスを作成するといいでしょう。:
 
 ```sh
 [alias]
