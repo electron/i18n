@@ -13,12 +13,12 @@ Electron
 |   ├── browser/ - メインウィンドウを含むフロントエンド、UIと
 |   |   |          メインプロセスの全て。 これは、レンダーと会話してWEBページを
 |   |   |          管理します。
-|   |   ├── ui/ - Implementation of UI stuff for different platforms.
-|   |   |   ├── cocoa/ - Cocoa specific source code.
-|   |   |   ├── win/ - Windows GUI specific source code.
-|   |   |   └── x/ - X11 specific source code.
-|   |   ├── api/ - The implementation of the main process APIs.
-|   |   ├── net/ - Network related code.
+|   |   ├── ui/ - 別々のプラットフォームのためのUIスタッフの実装。
+|   |   |   ├── cocoa/ - Cocoa に関連したソースコード
+|   |   |   ├── win/ - Windows のGUIに関連したソースコード。
+|   |   |   └── x/ - X11 に関連したソースコード
+|   |   ├── api/ - メインプロセス APIの実装。
+|   |   ├── net/ - ネットワークに関連したコード。
 |   |   ├── mac/ - Mac specific Objective-C source code.
 |   |   └── resources/ - Icons, platform-dependent files, etc.
 |   ├── renderer/ - Code that runs in renderer process.
@@ -54,7 +54,7 @@ The files in `/chromium_src` tend to be pieces of Chromium that aren't part of t
 
 * **script** - Scripts used for development purpose like building, packaging, testing, etc.
 * **tools** - Helper scripts used by GN files, unlike `script`, scripts put here should never be invoked by users directly.
-* **vendor** - Source code of third party dependencies, we didn't use `third_party` as name because it would confuse it with the same directory in Chromium's source code tree.
+* **vendor** - 第三者の依存関係のソースコード。Chromiumのソースコードツリーと同じディレクトリがあると混乱しかねないため、`third_party`の名前を使用しません。
 * **node_modules** - ビルドに使用する第三者のnodeモジュール。
 * **out** - `ninja`の一時的な出力用ディレクトリ。
 * **dist** - 配布用に作成したときに `script/create-dist.py` スクリプトが作成する一時的なディレクトリ。
