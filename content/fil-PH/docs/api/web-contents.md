@@ -60,6 +60,8 @@ Ibinabalik ang:
 * `errorDescription` String
 * `validatedURL` String
 * `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
 
 Ang kaganapang ito ay tulad ng `did-finish-load` ngunit inilalabas kapag nabigo ang pag load o kinansela, hal. `window.stop() ` ay ginagamit. Ang buong listahan ng mga error code at ang kanilang mga kahulugan ay magagamit [dito](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
@@ -69,6 +71,8 @@ Ibinabalik ang:
 
 * `event` na Pangyayari
 * `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
 
 Napalabas kapag ang frame ay nagawa na ang nabigasyon.
 
@@ -80,64 +84,34 @@ Tumutugma sa mga puntos ng oras kapag ang spinner ng tab ay nagsimulang umikot.
 
 Tumutugma sa mga puntos ng oras kapag ang spinner ng tab ay tumigil sa pagikot.
 
-#### Event: 'did-get-response-details'
+#### Kaganapan: 'dom-ready'
 
 Ibinabalika ang:
-
-* `event` Event
-* `status` Boolean
-* `newURL` String
-* `originalURL` String
-* `httpResponseCode` Integer
-* `requestMethod` String
-* ang `referer` String
-* `headers` Objek
-* `resourceType` String
-
-Pinapalabas kapag may mga detalye tungkol sa hiniling na mapagkukunan at magagamit sa `katayuan` ay nagpapahiwatig sa socket connection upang i-download ang mapagkukunan.
-
-#### Event: 'did-get-redirect-request'
-
-Ibinabalik ang:
-
-* `kaganapan` Kaganapan
-* `oldURL` String
-* `newURL` String
-* `ay pangunahing kuwadro` Boolean
-* `httpResponseCode` Integer
-* `requestMethod` String
-* ang `referer` String
-* `headers` Objek
-
-Pinapalabas kapag natanggap ang pag-redirect habang humihiling ng mapagkukuhanan.
-
-#### Event: 'dom-ready'
-
-Ibinabalik ang:
 
 * `event` Event
 
 Napalabas kapag ang dokumento na ibinigay sa frame ay na-load.
 
-#### Event: 'page-favicon-updated'
+#### Kaganapan: 'pahina-favicon-updated'
 
 Ibinabalik ang:
 
-* `event` Event
+* `kaganapan` Kaganapan
 * `favicons` String[] - Hanay ng mga URL.
 
 Pinapalabas kapag natanggap ng pahina ang mga url ng favicon.
 
-#### Event: 'new-window'
+#### Kaganapan: 'bagong-bintana'
 
 Ibinabalik ang:
 
-* `kaganapan` kaganapan
+* `event` Event
 * `url` Tali
-* `frameName` String
-* `disposition` String- Pwedeng `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` and `other`.
+* `frameName` Pisi
+* `Disposisyon` String - Maaaring `default`, `foreground-tab`, `background-tab`, `new-window`, `save-to-disk` at `iba pang`.
 * `options` Object - The options which will be used for creating the new [`BrowserWindow`](browser-window.md).
 * `Mga karagdagang tampok` String [] - Ang di-karaniwang mga tampok (mga tampok na hindi hinahawakan sa pamamagitan ng Kromo o Elektron) na ibinigay sa `window.open()`.
+* `referrer` [Referrer](structures/referrer.md) - The referrer that will be passed to the new window. May or may not result in the `Referer` header being sent, depending on the referrer policy.
 
 Lumalabas kapag ang pahina ay humiling na magbukas ng bagong bintana para sa isang `url`. Maaaring ito ay hiniling ng `window.open` o isang panlabas na link tulad ng `<a target='_blank'>`.
 
@@ -155,14 +129,14 @@ myBrowserWindow.webContents.on('bagong-window', (event, url) => {
 })
 ```
 
-#### Event: 'will-navigate'
+#### Kaganapan: 'mag-navigate'
 
 Ibinabalik ang:
 
-* `kaganapan` kaganapan
+* `event` Event
 * `url` Tali
 
-Ilabas kapang ang user o ang mismong page ay gustong magsimula ng nabigasyon. Ito'y pwedeng mangyari kapag ang `window.location` ng objek ay nabago o ang kiniclick ng user ang link sa page.
+Napalabas kapag nais ng isang user o ng pahina na magsimulang mag-navigate. Maaari itong mangyari kung kailan ang bagay na `bintana.lokasyon` ay nagbago o ang isang gumagamit ay nag-click ng isang link sa pahina.
 
 Ang kaganapang ito ay hindi naglalabas kapag ang navigation ay nagsimula sa programming kasama ng mga API ay tulad ng `webContents.loadURL` at `webContents.back`.
 
@@ -170,16 +144,46 @@ Hindi rin ito nagpapalabas para sa pag-navigate sa pahina, tulad ng pag-click sa
 
 Ang pagtawag sa `kaganapan.preventDefault()` ay maiiwasan ang nabigasyon.
 
-#### Event: 'did-navigate'
+#### Event: 'did-start-navigation'
+
+Ibinabalik ang:
+
+* `url` Tali
+* `isInPlace` Boolean
+* `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
+
+Emitted when any frame (including main) starts navigating. `isInplace` will be `true` for in-page navigations.
+
+#### Kaganapan: 'ginawa-navigate'
+
+Ibinabalik ang:
+
+* `kaganapan` kaganapan
+* `url` Tali
+* `httpResponseCode` Integer - -1 for non HTTP navigations
+* `httpStatusText` String - empty for non HTTP navigations
+
+Emitted when a main frame navigation is done.
+
+Ang event na ito ay hindi ilalabas habang nasa nabigasyon sa loog ng page, gaya ng pag-click sa naka-ankor na mga link o naka-update ang `window.location.hash`. Gamitin ang event na `did-navigate-in-page` para sa layuning ito.
+
+#### Event: 'did-frame-navigate'
 
 Ibinabalik ang:
 
 * `kaganapan` Kaganapan
 * `url` Tali
+* `httpResponseCode` Integer - -1 for non HTTP navigations
+* `httpStatusText` String - empty for non HTTP navigations,
+* `ay pangunahing kuwadro` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
 
-Nilalabas kapag natapos na ang nabigasyon.
+Emitted when any frame navigation is done.
 
-Ang event na ito ay hindi ilalabas habang nasa nabigasyon sa loog ng page, gaya ng pag-click sa naka-ankor na mga link o naka-update ang `window.location.hash`. Gamitin ang event na `did-navigate-in-page` para sa layuning ito.
+Ang kaganapang ito ay hindi ipinapalabas para sa pag-navigate sa pahina, tulad ng pag-click sa mga link ng anchor o pag-update ng `bintana.lokasyon.hash`. Gamit ang `ginawa-navigate-sa-pahina` kaganapan para sa layuning ito.
 
 #### Event: 'did-navigate-in-page'
 
@@ -187,11 +191,13 @@ Ibinabalik ang:
 
 * `kaganapan` kaganapan
 * `url` Tali
-* `ay pangunahing kuwadro` Boolean
+* `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
 
-Ilalabas kapag nangyari ang nabigasyon sa loob ng page.
+Emitted when an in-page navigation happened in any frame.
 
-Kapag nangyari ang nabigasyon sa loob ng page, ang URL ng page ay nababago pero hindi ito magiging dahilan sa pag-nanavigate sa labas ng page. Mga halimbawa ng mga pangyayaring ito ay kapag ang naka-ankor na mga link ay naclick o kung ang mga na DOM na `hashchange` ay natrigger.
+Kapag nangyayari ang pag-navigate sa pahina, ang pahina ng URL ay nagbabago ngunit hindi ito magiging dahilan ng nabigasyon sa labas ng pahina. Ang mga halimbawa ng nangyari ay kapag ang mga anchor link ay na-click o kapag ang DOM `hashchange` at ang kaganapan ay na-trigger.
 
 #### Kaganapan: 'will-prevent-unload'
 
@@ -231,7 +237,15 @@ Ibinabalik ang:
 
 Lumalabas kapag ang proseso ng tagapag-render ay nasira o pinatay.
 
-#### Event: 'plugin-crashed'
+#### Kaganapan: 'hindi tumutugon'
+
+Ay lalabas kapag ang pahina ng web ay hindi tumutugon.
+
+#### Kaganapan: 'tumutugon'
+
+Ay lalabas kapag ang hindi tumutugon na pahina ng web ay tumutugon ulit.
+
+#### Kaganapan: 'plugin-nag-crash'
 
 Ibinabalik ang:
 
@@ -241,7 +255,7 @@ Ibinabalik ang:
 
 Lumalabas kapag ang proseso ng plugin ay nag-crash.
 
-#### Event: 'destroyed'
+#### Kaganapan: 'nawasak'
 
 Nagpapalabas kapag ang `webContents` ay nawasak.
 
@@ -276,17 +290,17 @@ manalo.webContents.on('bago-input-kaganapan', (kaganapan, input) => {
 })
 ```
 
-#### Event: 'devtools-opened'
+#### Kaganapan: 'devtools-binuksan'
 
-Ilabas kapag ang mga DevTool ay nabuksan.
+Nilalabas kapag ang DevTools ay nabuksan.
 
-#### Event: 'devtools-closed'
+#### Kaganapan: 'devtools-sarado'
 
-Ilabas kapag ang mga DevTool ay nasarado.
+Nilalabas kapag ang DevTools ay sarado.
 
-#### Event: 'devtools-focused'
+#### Kaganapan: 'devtools-nakatuon'
 
-Ilabas kapag ang mga DevTool ay napukos / nabuksan.
+Nilalabas kapag ang DevTools ay nakatuon/binuksan.
 
 #### Mga event: 'certificate-error'
 
@@ -354,15 +368,15 @@ Ibinabalik ang:
 
 Naipalalabas kapag ang resulta ay magagamit para sa [`webContents.findInPage`] humiling.
 
-#### Event: 'media-started-playing'
+#### Kaganapan: 'media-started-playing'
 
-Ilabas kapag ang medya ay nagsimula.
+Naipalalabas kapag nagsimula ng maglaro ang media.
 
-#### Event: 'media-paused'
+#### Kaganapan: 'media-paused'
 
-Ilabas kapag ang medya ay nahinto o natapos na.
+Naipalalabas kapag ang media ay naka-nakahinto o tapos na ang pag-play.
 
-#### Event: 'did-change-theme-color'
+#### Kaganapan: 'ginawa-baguhin-tema-kulay'
 
 Naipalalabas kapag nagbago ang kulay ng tema ng pahina. Ito ay kadalasan dahil sa nakakaharap ng isang meta tag:
 
@@ -375,7 +389,7 @@ Ibinabalik ang:
 * `kaganapan` Kaganapan
 * `kulay` (String | null) - Ang kulay ng tema ay nasa format na '#rrggbb'. Ito ay `null` kapag walang kulay ng tema na naka-set.
 
-#### Event: 'update-target-url'
+#### Kaganapan: 'update-target-url'
 
 Ibinabalik ang:
 
@@ -447,25 +461,28 @@ Ibinabalik ang:
 
 * `kaganapan` Kaganapan
 * `Mga aparato` [BluetoothDevice[]](structures/bluetooth-device.md)
-* `callback` Function 
+* `callback` Punsyon 
   * `deviceId` String
 
 Ipinalalabas kapag kailangang pumili ng bluetooth device sa tawag sa `navigator.bluetooth.requestDevice`. Upang gamitin ang `navigator.bluetooth` api `webBluetooth` ay dapat na paganahin. Kung ang `kaganapan.preventDefault` ay hindi tinatawag, Ang unang magagamit na aparato ang mapipili. `callback` ay dapat na tawagin `deviceId` na mapipili, magpasa ng walang laman na pisi sa `callback` ay kanselahin ang kahilingan.
 
 ```javascript
-const {app, webContents} = nangangailangan('elektron')
-app.commandLine.appendSwitch ('enable-web-bluetooth')
+const {app, BrowserWindow} = require('electron')
 
-app.on ('handa', () => {
-  webContents.on('select-bluetooth-device', (kaganapan, deviceList, callback) => {
-   kaganapan.preventDefault()
-    hayaan ang resulta = deviceList.find((device) => {
-      bumalik device.deviceName === 'test'
+let win = null
+app.commandLine.appendSwitch('enable-experimental-web-platform-features')
+
+app.on('ready', () => {
+  win = new BrowserWindow({width: 800, height: 600})
+  win.webContents.on('select-bluetooth-device', (event, deviceList, callback) => {
+    event.preventDefault()
+    let result = deviceList.find((device) => {
+      return device.deviceName === 'test'
     })
-    kung(!resulta) {
+    if (!result) {
       callback('')
     } else {
-      callback(resulta.deviceId)
+      callback(result.deviceId)
     }
   })
 })
@@ -517,14 +534,15 @@ Ibinabalik ang:
 
 Naipalalabas kapag ang isang `<webview>` ay naka-attach sa mga nilalaman ng web na ito.
 
-#### Kaganapan'console-mensahe'
+#### Event: 'console-message'
 
 Ibinabalik ang:
 
+* `kaganapan` Kaganapan
 * `level` Integer
-* `mensahe` Pisi
-* `linya` Integer
-* `sourceId` Pisi
+* `message` String
+* `line` Integer
+* `sourceId` String
 
 Pinapalabas kapag nag-log ang nauugnay na window sa isang mensahe ng console. Hindi ipapalabas para sa mga window na may *offscreen rendering* na pinapagana.
 
@@ -534,10 +552,10 @@ Pinapalabas kapag nag-log ang nauugnay na window sa isang mensahe ng console. Hi
 
 * `url` Tali
 * `options` Na Bagay (opsyonal) 
-  * `httpReferrer` Pisi (opsyonal) - Isang HTTP Referrer url.
-  * `userAgent` Pisi (opsyonal) - Isang ahenteg gumagamit na nagmumula sa kahilingan.
-  * `extraHeaders` Pisi (opsyonal) - Mga dagdag na header na pinaghihiwalay ng "\n".
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
+  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
+  * `userAgent` String(opsyonal) - Ang ahente na gumagamit ng pinagmumulan ng kahilingan.
+  * `extraHeaders` String(opsyonal) - Sobrang ulunan ay pinaghihiwalay sa "\n".
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
   * `baseURLForDataURL` String(opsyonal) - Basi nag url (may tagapahiwalay sa landas ng separator) para sa mga dokumento na kakargahin sa pamamagitan ng datos ng url. Ito ay kinakailangan lamang kung ang tinutukoy na `url` ay isang url ng data at kailangang mag-load ng iba pang mga file.
 
 Naglo-load ang `url` sa bintana. Ang `url` ay dapat naglalaman ng prefix ng protocol, hal. ang `http://` o `file://`. Kung ang load ay dapat mag-bypass http cache pagkatapos gamitin ang `pragma` header upang makamit ito.
@@ -617,7 +635,7 @@ Ibinabalik `Boolean` - Kung naghihintay ang pahina ng web para sa unang tugon mu
 
 #### `mga nilalaman.ihinto()`
 
-Hinihinto ang anumang nakabinbing nabigasyon.
+Nagtitigil ng anumang nakabingbing na nabigasyon.
 
 #### `mga nilalaman.reload()`
 
@@ -667,11 +685,11 @@ Ang nabigasyon sa tinutukoy na offset galing sa "kasalukuyang entri".
 
 #### `mga nilalaman.isCrashed()`
 
-Ibinabalik `Boolean` - Kapag ang proseso ng tagapag-render ay nawasak.
+Nagbabalik `Boolean` - Kung saan ang proseso ng tagapagbigay ay nasira.
 
 #### `mga nilalaman.setUserAgent(userAgent)`
 
-* `userAgent` na String
+* `userAgent` String
 
 Naka-override ang ahenteng gumagamit para sa pahina ng web na ito.
 
@@ -868,14 +886,14 @@ Kumukuha ng isang snapshot ng pahina sa loob ng `rect`. Sa oras na makumpleto `c
 
 #### `contents.hasServiceWorker(callback)`
 
-* `callback` Punsyon 
+* `callback` Function 
   * `hasWorker` Boolean
 
 Sinusuri kung ang anumang ServiceWorker ay nakarehistro at nagbabalik ng isang boolean bilang tugon sa `callback`.
 
 #### `contents.unregisterServiceWorker(callback)`
 
-* `callback` Function 
+* `callback` Punsyon 
   * `tagumpay` Boolean
 
 Unregister ang anumang ServiceWorker kung kasalukuyan at nagbabalik ng isang boolean bilang tugon sa `callback` kapag ang pangako ng JS ay natupad o hindi totoo kapag ang pangako ng JS ay tinanggihan.
@@ -888,7 +906,7 @@ Ibinabalik [`PrinterInfo[]`](structures/printer-info.md).
 
 #### `mga nilalaman.print([options], [callback])`
 
-* `options` Na Bagay (opsyonal) 
+* `mga opsyon` Bagay (opsyonal) 
   * `silent` Boolean (opsyonal) - Huwag itanong sa user sa mga setting sa pagpapaimprinta. Ang naka-default ay `false`.
   * `printBackground` Boolean (opsyonal) - Iniimprinta rin ang kulay ng background at ang mukha ng web page. Ang naka-default ay `false`.
   * `deviceName` String (opsyonal) - Itakda ang pangalan ng gagamiting printer na gagamitin. Ang naka-default ay `"`.
@@ -1032,7 +1050,7 @@ app.once('ready', () => {
 
 #### `contents.openDevTools([mga pagpipilian])`
 
-* `options` Na Bagay (opsyonal) 
+* `mga opsyon` Bagay (opsyonal) 
   * `mode` String - Binubuksan ang mga devtools na may tinukoy na estado ng dock, ay maaaring maging `kanan`, `ibaba`, `undocked`, `detach`. Mga Default na huling ginagamit sa estado ng dock. Sa `undocked` mode posible na i-dock pabalik. Sa `detach` mode ito ay hindi.
 
 Binubuksan ang mga devtools.
@@ -1160,14 +1178,14 @@ Para sa `mouseWheel` kaganapan, ang `kaganapan` ay mayroon ding mga sumusunod na
 
 * `onlyDirty` Boolean (opsyonal) - Mga Default sa `huwad`.
 * `callback` Function 
-  * `frameBuffer` Buffer
+  * `image` [NativeImage](native-image.md)
   * `dirtyRect` [Parihaba](structures/rectangle.md)
 
-Simulan ang pag-subscribe para sa mga kaganapan sa pagtatanghal at makuha ang mga frame, ang `callback` ay tatawagan na may `callback(frameBuffer, dirtyRect)` kapag mayroong isang kaganapan ng pagtatanghal.
+Begin subscribing for presentation events and captured frames, the `callback` will be called with `callback(image, dirtyRect)` when there is a presentation event.
 
-Ang `frameBuffer` ay isang `Buffer` na naglalaman ng raw data ng pixel. Sa karamihan ng mga makina, ang pixel data ay epektibong naka-imbak sa 32bit BGRA format, ngunit ang aktwal na representasyon ay depende sa endianness ng processor (pinaka modernong mga processor ay maliit-endian, sa mga machine na may malaking-endian processors ang data ay nasa 32bit ARB format).
+The `image` is an instance of [NativeImage](native-image.md) that stores the captured frame.
 
-Ang `dirtyRect` ay isang bagay na may `x, y, lapad, taas ` ang mga katangian na iyon ay naglalarawan kung aling bahagi ng pahina ay pinahiran. If `onlyDirty` is set to `true`, `frameBuffer` will only contain the repainted area. `onlyDirty` defaults to `false`.
+Ang `dirtyRect` ay isang bagay na may `x, y, lapad, taas ` ang mga katangian na iyon ay naglalarawan kung aling bahagi ng pahina ay pinahiran. If `onlyDirty` is set to `true`, `image` will only contain the repainted area. `onlyDirty` defaults to `false`.
 
 #### `contents.endFrameSubscription()`
 
@@ -1188,7 +1206,7 @@ Sets the `item` as dragging item for current drag-drop operation, `file` is the 
   * `HTMLOnly` - Save only the HTML of the page.
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
-* `callback` Punsyon - `(error) => {}`. 
+* `callback` Function - `(error) => {}`. 
   * `error` Error
 
 Returns `Boolean` - true if the process of saving page has been initiated successfully.
@@ -1206,19 +1224,9 @@ win.webContents.on('did-finish-load', () => {
 })
 ```
 
-#### `contents.showDefinitionForSelection()` *macOS*
+#### `contents.showDefinitionForSelection()` *macOS* 
 
 Pinapakita ang pop-up na diksyonaryo na naghahanap ng mga napiling salita sa page.
-
-#### `contents.setSize(options)`
-
-Set the size of the page. This is only supported for `<webview>` guest contents.
-
-* `mga opsyon` Bagay 
-  * `enableAutoSize` Boolean (optional) - true to make the webview container automatically resize within the bounds specified by the attributes normal, min and max.
-  * `normal` [Size](structures/size.md) (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
-  * `min` [Size](structures/size.md) (optional) - Minimum size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
-  * `max` [Size](structures/size.md) (optional) - Maximium size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
 
 #### `contents.isOffscreen()`
 
@@ -1268,9 +1276,13 @@ Setting the WebRTC IP handling policy allows you to control which IPs are expose
 
 #### `contents.getOSProcessId()`
 
-Returns `Integer` - The `pid` of the associated renderer process.
+Returns `Integer` - The operating system `pid` of the associated renderer process.
 
-### Mga Katangian ng Instance
+#### `contents.getProcessId()`
+
+Returns `Integer` - The chromium internal `pid` of the associated renderer. Can be compared to the `frameProcessId` passed by frame specific navigation events (e.g. `did-frame-navigate`)
+
+### Katangian ng pagkakataon
 
 #### `contents.id`
 

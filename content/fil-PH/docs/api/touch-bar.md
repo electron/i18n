@@ -2,7 +2,7 @@
 
 > Gumawa ng TouchBar layout para sa native macOS na aplikasyon.
 
-Proseso: [Pangunahing](../tutorial/quick-start.md#main-process)
+Proseso: [Pangunahing](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `bagong TouchBar(pagpipilian)`*Experimental*
 

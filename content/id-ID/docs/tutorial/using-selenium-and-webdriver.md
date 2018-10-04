@@ -13,32 +13,32 @@ $ npm install --save-dev spectron
 ```
 
 ```javascript
-// Tes sederhana untuk memverifikasi jendela yang terlihat dibuka dengan judul
-var Application = require ('spectron') Aplikasi
-var assert = require ('assert')
+// A simple test to verify a visible window is opened with a title
+var Application = require('spectron').Application
+var assert = require('assert')
 
-aplikasi var = aplikasi baru ({
-   path: '/Applications/MyApp.app/Contents/MacOS/MyApp'
+var app = new Application({
+  path: '/Applications/MyApp.app/Contents/MacOS/MyApp'
 })
 
-app.start () lalu (function () {
-   // Periksa apakah jendela terlihat
-   kembali app.browserWindow.isVisible ()
-}) kemudian (function (isVisible) {
-   // Verifikasi jendela yang terlihat
-   assert.equal (isVisible, true)
-}) lalu (function () {
-   // Dapatkan judul jendela
-   kembalikan app.client.getTitle ()
-}) lalu (fungsi (judul) {
-   // Verifikasi judul jendela
-   assert.equal (judul, 'App saya')
-}) catch (fungsi (error) {
-   // Masuki kegagalan
-   console.error ('Test failed', error.message)
-}) lalu (function () {
-   // hentikan aplikasi
-   kembali app.stop ()
+app.start().then(function () {
+  // Check if the window is visible
+  return app.browserWindow.isVisible()
+}).then(function (isVisible) {
+  // Verify the window is visible
+  assert.strictEqual(isVisible, true)
+}).then(function () {
+  // Get the window's title
+  return app.client.getTitle()
+}).then(function (title) {
+  // Verify the window's title
+  assert.strictEqual(title, 'My App')
+}).catch(function (error) {
+  // Log any failures
+  console.error('Test failed', error.message)
+}).then(function () {
+  // Stop the application
+  return app.stop()
 })
 ```
 
@@ -124,15 +124,15 @@ $ npm pasang webdriverio
 ### 3. Sambungkan ke driver krom
 
 ```javascript
-const webdriverio = require ('webdriverio')
-pilihan const = {
-   host: 'localhost', // Gunakan localhost sebagai server driver chrome
-   port: 9515, // "9515" adalah port yang dibuka oleh pengemudi krom.
+const webdriverio = require('webdriverio')
+const options = {
+  host: 'localhost', // Use localhost as chrome driver server
+  port: 9515, // "9515" is the port opened by chrome driver.
   yang dikehendakiKetentuan: {
      browserName: 'chrome',
      chromeOptions: {
        biner: '/ Path-to-Your-App / elektron', // Path ke biner Elektron Anda.
-      args: [/* cli arguments */]           // Optional, perhaps 'app=' + /path/to/your/app/
+      args: [/* cli arguments */] // Optional, perhaps 'app=' + /path/to/your/app/
     }
   }
 }
@@ -148,8 +148,6 @@ client
     console.log('Title was: ' + title)
   })
   .end()
- 
-Context | Request Context
 ```
 
 ## Alur kerja

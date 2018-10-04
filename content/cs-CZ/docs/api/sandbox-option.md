@@ -14,9 +14,9 @@ A sandboxed renderer doesn't have a node.js environment running and doesn't expo
 
 Another difference is that sandboxed renderers don't modify any of the default JavaScript APIs. Consequently, some APIs such as `window.open` will work as they do in chromium (i.e. they do not return a [`BrowserWindowProxy`](browser-window-proxy.md)).
 
-## Příklad
+## Ukázka
 
-To create a sandboxed window, simply pass `sandbox: true` to `webPreferences`:
+To create a sandboxed window, pass `sandbox: true` to `webPreferences`:
 
 ```js
 let win
@@ -53,7 +53,7 @@ electron --enable-sandbox app.js
 
 It is not possible to have the OS sandbox active only for some renderers, if `--enable-sandbox` is enabled, normal electron windows cannot be created.
 
-If you need to mix sandboxed and non-sandboxed renderers in one application, simply omit the `--enable-sandbox` argument. Without this argument, windows created with `sandbox: true` will still have node.js disabled and communicate only via IPC, which by itself is already a gain from security POV.
+If you need to mix sandboxed and non-sandboxed renderers in one application, omit the `--enable-sandbox` argument. Without this argument, windows created with `sandbox: true` will still have node.js disabled and communicate only via IPC, which by itself is already a gain from security POV.
 
 ## Preload
 

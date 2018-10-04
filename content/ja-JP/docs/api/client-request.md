@@ -168,3 +168,14 @@ Electronのプロセスメモリの中で内部的にバッファする代わり
 #### `request.followRedirect()`
 
 リダイレクトモードが、`manual` のとき、遅延しているリダイレクトリクエストを続行します。
+
+#### `request.getUploadProgress()`
+
+戻り値 `Object`:
+
+* `active` Boolean - そのリクエストが現在アクティブかどうか。これが false の場合は他のプロパティにはセットされません。
+* `started` Boolean - アップロードが始まったかどうか。これが false の場合は `current` と `total` には 0 がセットされます。
+* `current` Integer - どのくらいアップロードしたかのバイト数。
+* `total` Integer - このリクエストでアップロードされるバイト数。
+
+このメソッドを `POST` リクエストと組み合わせて使用すると、ファイルのアップロードや他のデータ転送の進行状況を取得できます。

@@ -4,7 +4,7 @@
 
 Processo: [Main](../glossary.md#main-process)
 
-**Puoi trovare una guida dettagliata su come impementare gli aggiornamenti nella tua applicazione [qui](../tutorial/updates.md).**
+**Vedi anche: [Una guida dettagliata su come implementare aggiornamenti nella tua applicazione](../tutorial/updates.md).**
 
 ## Avvisi Piattaforma
 
@@ -36,7 +36,7 @@ L'oggetto `autoAggiornatore` emette i seguenti eventi:
 
 Restituisce:
 
-* `errore` Errore
+* `error` Error
 
 Emesso quando avviene un errore in aggiornamento.
 
@@ -66,6 +66,12 @@ Emesso quando un aggiornamento è stato scaricato.
 
 Solo su Windows `rilascioNome` è disponibile.
 
+### Evento: 'before-quit-for-update'
+
+Questo evento è emesso dopo una chiamata utente `quitAndInstall()`.
+
+Quando questa API è chiamata, l'evento `before-quit` non è emesso finché tutte le finestre non sono state chiuse. Come risultato dovresti restare in ascolto di questo evento se desideri eseguire delle azioni prima che le finestre siano chiuse mentre un processo si sta chiudendo, così come restare in ascolto di `before-quit`.
+
 ## Metodi
 
 L'oggetto `autoAggiornatore` ha i seguenti metodi:
@@ -75,7 +81,7 @@ L'oggetto `autoAggiornatore` ha i seguenti metodi:
 * `opzioni` Oggetto 
   * `url` Stringa
   * `headers` Oggetto (opzionale) *macOS* - HTTP header della richiesta.
-  * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
+  * `serverType` Stringa (opzionale) *macOS* - Uno tra `json` o `default`, Vedi anche [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README per più informazioni.
 
 Imposta l'`url` e inizializza l'auto aggiornatore.
 
@@ -91,6 +97,6 @@ Chiedi il server se c'è un aggiornamento. Devi chiamare `impostaFeedURL` prima 
 
 Riavvia l'app ed installa l'aggiornamento dopo che è stato scaricato. Potrebbe solo essere chiamato dopo l'emissione di `aggiornamento-scaricato.</p>
 
-<p>Under the hood calling <code>autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
+<p>Sotto la chiamata <code>autoUpdater.quitAndInstall()` saranno prima chiuse tutte le finestre dell'applicazione, e automaticamente chiamata `app.quit()` dopo che tutte le finestre sono state chiuse.
 
-**Note:** If the application is quit without calling this API after the `update-downloaded` event has been emitted, the application will still be replaced by the updated one on the next run.
+**Nota:** Se l'applicazione è chiusa senza chiamare questa API dopo l'evento `update-downloaded` è stato emesso, l'applicazione sarà comunque sostituita da quella aggiornata al prossimo avvio.

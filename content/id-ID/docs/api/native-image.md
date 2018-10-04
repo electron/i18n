@@ -78,7 +78,7 @@ Menyusul sufiks DPI juga didukung:
 
 ## Gambar Template
 
-Gambar template terdiri dari warna hitam dan bening (dan alpha channel). Gambar template tidak dimaksudkan untuk dijadikan gambar standalone dan biasanya dicampur dengan konten lain untuk menciptakan tampilan akhir yang diinginkan.
+Template images consist of black and an alpha channel. Template images are not intended to be used as standalone images and are usually mixed with other content to create the desired final appearance.
 
 Kasus yang paling umum adalah dengan menggunakan gambar template untuk ikon menu bar sehingga bisa menyesuaikan dengan menu bar terang dan gelap.
 
@@ -160,7 +160,7 @@ Mengembalikan ` gambar asli </ 0></p>
  
  Metode berikut tersedia pada contoh kelas ` Gambar asli`:
  
- #### `gambar.untukPng([options])`
+ #### `image.toPNG([options])`
  
  * `pilihan` Objek (opsional)  *`faktor skala` Dua kali lipat (opsional) - Default ke 1.0.
  
@@ -192,9 +192,9 @@ Mengembalikan ` gambar asli </ 0></p>
  
  Perbedaan antara `getBitmap() ` dan ` toBitmap ()` adalah, `getBitmap()` tidak salin data bitmap, jadi Anda harus segera menggunakan Buffer yang dikembalikan tick loop acara saat ini, jika tidak data bisa diubah atau dihancurkan.
  
- #### `image.getNativeHandle()` *macOS*
- 
- Mengembalikan `Buffer` - A [Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer) yang menyimpan pointer C ke pegangan asli yang mendasarinya foto. Di macOS, sebuah pointer ke instance` NSImage ` akan dikembalikan.
+ #### ` image.getNativeHandle () </ 0>  <em> macos </ 1></h4>
+
+<p>Mengembalikan <code>Buffer` - A [Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer) yang menyimpan pointer C ke pegangan asli yang mendasarinya foto. Di macOS, sebuah pointer ke instance` NSImage ` akan dikembalikan.</p> 
  
  Perhatikan bahwa pointer yang dikembalikan adalah pointer lemah ke native yang mendasarinya gambar bukan salinannya, jadi Anda *harus* memastikannya terkait `nativeImage` contoh disimpan di sekitar.
  

@@ -21,7 +21,7 @@ O objeto `app` emite os seguintes eventos:
 
 Emitido quando a aplicação termina inicialização básica. No Windows e Linux o evento `will-finish-launching` é o mesmo que o evento `ready`; no macOS, este evento representa a notificação `applicationWillFinishLaunching` de `NSApplication`. Você normalmente poderia escutar os eventos de `open-file` e `open-url` aqui e iniciar o crash reporter e auto atualização.
 
-Na maioria dos casos, dá para fazer tudo no manipulador do evento `ready`.
+In most cases, you should do everything in the `ready` event handler.
 
 ### Evento: 'ready'
 
@@ -47,7 +47,7 @@ Emitido antes de a aplicação começar a fechar suas janelas. Chamar `event.pre
 
 **Nota:** Se o encerramento da aplicação foi iniciado por `autoUpdater.quitAndInstall()`, então `before-quit` é emitido *depois* de lançar o evento `close` em todas as janelas e fechá-las.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**Nota:** No Windows, este evento não será emitido se o aplicativo for fechado devido a um desligamento / reinício do sistema ou a um logout do usuário.
 
 ### Evento: 'will-quit'
 
@@ -59,7 +59,7 @@ Emitido quando todas as janelas foram fechadas e a aplicação irá encerrar. Ch
 
 Consulte a descrição do evento `window-all-closed` para as diferenças entre os eventos `will-quit` e `window-all-closed`.
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**Nota:** No Windows, este evento não será emitido se o aplicativo for fechado devido a um desligamento / reinício do sistema ou a um logout do usuário.
 
 ### Evento: 'quit'
 
@@ -70,7 +70,7 @@ Retorna:
 
 Emitido quando a aplicação esta sendo encerrada(quitting).
 
-**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
+**Nota:** No Windows, este evento não será emitido se o aplicativo for fechado devido a um desligamento / reinício do sistema ou a um logout do usuário.
 
 ### Evento: 'open-file' *macOS*
 
@@ -303,6 +303,35 @@ Retorna:
 
 Emitido quando o suporte de acessibilidade do Chrome muda. Este evento é acionado quando a tecnologias assistivas, tais como leitores de tela, estão habilitadas ou desabilitadas. Veja https://www.chromium.org/developers/design-documents/accessibility para mais detalhes.
 
+### Event: 'session-created'
+
+Retorna:
+
+* `event` Event
+* `session` [Session](session.md)
+
+Emitted when Electron has created a new `session`.
+
+```javascript
+const {app} = require('electron')
+
+app.on('session-created', (event, session) => {
+  console.log(session)
+})
+```
+
+### Event: 'second-instance'
+
+Retorna:
+
+* `event` Event
+* `argv` String[] - Um array dos argumentos da linha de comando da segunda instância
+* `workingDirectory` String - O diretório de trabalho da segunda instância
+
+This event will be emitted inside the primary instance of your application when a second instance has been executed. `argv` é um array dos argumentos de linha de comando da segunda instância, e `workingDirectory` é o diretório de trabalho atual dela. Geralmente, aplicativos reagem a isso tornando a janela principal deles visível e em primeiro plano.
+
+This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
+
 ## Métodos
 
 O objeto `app` tem os seguintes métodos:
@@ -319,7 +348,7 @@ Este método garante que todos os manipuladores de vento `beforeunload` e `unloa
 
 * `exitCode` Integer (opcional)
 
-Exits immediately with `exitCode`. `exitCode` defaults to 0.
+Sai imediatamente com `exitCode`. `exitCode` padrão é 0.
 
 Todas as janelas serão fechadas imediatamente sem perguntar ao usuário e os eventos `before-quit` e `will-quit` não serão emitidos.
 
@@ -349,6 +378,10 @@ app.exit(0)
 ### `app.isReady()`
 
 Retorna `Boolean` - `true` se o Electron tiver inicializado, `false` caso contrário.
+
+### `app.whenReady()`
+
+Returns `Promise` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
 
 ### `app.focus()`
 
@@ -390,7 +423,7 @@ Você pode solicitar os seguintes caminhos pelo o nome:
 * `pictures` Diretório para as imagens de um usuário.
 * `videos` Diretório para os vídeos de um usuário.
 * `logs` Diretório que armazena os logs da aplicação.
-* `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
+* `pepperFlashSystemPlugin` Caminho completo para a versão do sistema do plug-in do Pepper Flash.
 
 ### `app.getFileIcon(path[, options], callback)`
 
@@ -442,9 +475,9 @@ Sobrescreve o atual nome da aplicação.
 
 ### `app.getLocale()`
 
-Returns `String` - The current application locale. Possible return values are documented [here](locales.md).
+Retorna `String` - A localidade do aplicativo atual. Valores de possíveis retornos são documentados [aqui](locales.md).
 
-To set the locale, you'll want to use a command line switch at app startup, which may be found [here](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
+Para definir a localidade, você vai querer usar um switch de linha de comando na inicialização do aplicativo, que pode ser encontrado [aqui](https://github.com/electron/electron/blob/master/docs/api/chrome-command-line-switches.md).
 
 **Nota:** Quando estiver distribuindo seu aplicativo, você também deve entregar a pasta `locales`.
 
@@ -488,7 +521,7 @@ Retorna `Boolean` - Se a chamada foi realizada com sucesso.
 
 Esse método verifica se o executável atual é o manipulador padrão de um protocolo (também conhecido como esquema de URI). Caso seja, ele removerá a aplicação como o manipulador padrão.
 
-### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
+### `app.isDefaultProtocolClient(protocol[, path, args])`
 
 * `protocol` String - O nome do protocolo sem `://`.
 * `path` String (opcional) *Windows* - O padrão é `process.execPath`
@@ -599,21 +632,15 @@ app.setJumpList([
 ])
 ```
 
-### `app.makeSingleInstance(callback)`
+### `app.requestSingleInstanceLock()`
 
-* `callback` Function 
-  * `argv` String[] - Um array dos argumentos da linha de comando da segunda instância
-  * `workingDirectory` String - O diretório de trabalho da segunda instância
-
-Retorna `Boolean`.
+Retorna `Boolean`
 
 Este método transforma sua aplicação em uma aplicação de instância única - em vez de permitir várias instâncias do seu app rodando ao mesmo tempo, isso irá garantir que apenas uma única instância do seu app seja executada. Quaisquer outras instâncias irão apontar para esta instância e, então, serão finalizadas.
 
-`callback` será chamada pela primeira instância com `callback(argv, workingDirectory)` quando uma segunda instância for executada. `argv` é um array dos argumentos de linha de comando da segunda instância, e `workingDirectory` é o diretório de trabalho atual dela. Geralmente, aplicativos reagem a isso tornando a janela principal deles visível e em primeiro plano.
+The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock you can assume that another instance of your application is already running with the lock and exit immediately.
 
-É garantido que a `callback` será executada após o evento `ready` do objeto `app` ser emitido.
-
-Este método retorna `false` se seu processo for a instância principal da sua aplicação e, nesse caso, seu app deve continuar carregando. E retorna `true` se seu processo enviou seus parâmetros para outra instância; dessa forma, você deve encerrá-lo imediatamente.
+I.e. This method returns `true` if your process is the primary instance of your application and your app should continue loading. It returns `false` if your process should immediately quit as it has sent its parameters to another instance that has already acquired the lock.
 
 No macOS, o sistema impõe o uso de instância única automaticamente quando os usuários tentam abrir uma segunda instância do seu aplicativo no Finder, e os eventos `open-file` e `open-url` serão emitidos nesse caso. Porém, se os usuários iniciarem seu app através da linha de comando, o mecanismo de instância única do sistema será contornado. Por isso, você tem que usar este método para reforçar o uso de instância única.
 
@@ -623,26 +650,34 @@ Aqui vai um exemplo de como ativar a janela da instância principal quando uma s
 const {app} = require('electron')
 let myWindow = null
 
-const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
-  // Alguém tentou executar uma segunda instância - devemos colocar nossa janela em primeiro plano.
-  if (myWindow) {
-    if (myWindow.isMinimized()) myWindow.restore()
-    myWindow.focus()
-  }
-})
+const gotTheLock = app.requestSingleInstanceLock()
 
-if (isSecondInstance) {
+if (!gotTheLock) {
   app.quit()
-}
+} else {
+  app.on('second-instance', (event, commandLine, workingDirectory) => {
+    // Someone tried to run a second instance, we should focus our window.
+    if (myWindow) {
+      if (myWindow.isMinimized()) myWindow.restore()
+      myWindow.focus()
+    }
+  })
 
-// Cria myWindow, carrega o resto do app, etc...
-app.on('ready', () => {
-})
+  // Create myWindow, load the rest of the app, etc...
+  app.on('ready', () => {
+  })
+}
 ```
 
-### `app.releaseSingleInstance()`
+### `app.hasSingleInstanceLock()`
 
-Desfaz todas as restrições que foram criadas pelo `makeSingleInstance`. Isso irá permitir que várias instâncias da aplicação possam ser executadas simultaneamente mais uma vez.
+Retorna `Boolean`
+
+This method returns whether or not this instance of your app is currently holding the single instance lock. You can request the lock with `app.requestSingleInstanceLock()` and release with `app.releaseSingleInstanceLock()`
+
+### `app.releaseSingleInstanceLock()`
+
+Releases all locks that were created by `requestSingleInstanceLock`. This will allow multiple instances of the application to once again run side by side.
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
@@ -699,7 +734,7 @@ Este método somente pode ser chamado antes do aplicativo estiver pronto.
 
 ### `app.getAppMetrics()`
 
-Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetric` objects that correspond to memory and cpu usage statistics of all the processes associated with the app.
+Retorna [`ProcessMetric[]`](structures/process-metric.md): Array de `ProcessMetric` objetos que correspondem a estatísticas de uso de memória e CPU de todos os processos associados ao aplicativo.
 
 ### `app.getGPUFeatureStatus()`
 
@@ -715,7 +750,7 @@ Muda o selo contador do aplicativo atual. Definí-lo como `0` irá ocultar o sel
 
 No macOS, ele é mostrado no ícone da dock. No Linux, ele só funciona no lançador Unity.
 
-**Nota:** O lançador Unity requer a existência de um arquivo `.desktop` para que isso funcione. Para mais detalhes, leia a [Integração com Ambiente de Trabalho](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux).
+**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
@@ -780,7 +815,7 @@ Ativa manualmente o suporte à acessibilidade do Chrome, permitindo expor uma op
 
 **Nota:** A renderização da árvore de acessibilidade pode afetar o desempenho do seu aplicativo de forma significativa. Ela não deve ser ativada por padrão.
 
-### `app.setAboutPanelOptions(options)` no *macOS*
+### `app.setAboutPanelOptions(options)` *macOS*
 
 * `options` Object 
   * `applicationName` String (opcional) - O nome do aplicativo.
@@ -851,19 +886,19 @@ When `informational` is passed, the dock icon will bounce for one second. Howeve
 
 Returns `Integer` an ID representing the request.
 
-### `app.dock.cancelBounce(id)` no *macOS*
+### `app.dock.cancelBounce(id)` *macOS*
 
 * `id` Inteiro
 
 Cancel the bounce of `id`.
 
-### `app.dock.downloadFinished(filePath)` no *macOS*
+### `app.dock.downloadFinished(filePath)` *macOS*
 
 * `filePath` String
 
 Bounces the Downloads stack if the filePath is inside the Downloads folder.
 
-### `app.dock.setBadge(text)` no *macOS*
+### `app.dock.setBadge(text)` *macOS*
 
 * `text` String
 
@@ -883,16 +918,22 @@ Mostra o ícone na Dock.
 
 ### `app.dock.isVisible()` no *macOS*
 
-Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call is asynchronous so this method might not return true immediately after that call.
+Retorna `Boolean` - Se o ícone do dock está visível. O `app.dock.show()` A chamada é assíncrona, portanto, esse método pode não retornar true imediatamente após a chamada.
 
-### `app.dock.setMenu(menu)` no *macOS*
+### `app.dock.setMenu(menu)` *macOS*
 
 * `menu` [Menu](menu.md)
 
-Define o [dock menu](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103) da aplicação.
+Sets the application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
 
-### `app.dock.setIcon(image)` no *macOS*
+### `app.dock.setIcon(image)` *macOS*
 
 * `image` ([NativeImage](native-image.md) | String)
 
 Define a `imagem` associada com o ícone do dock.
+
+## Propriedades
+
+### `app.isPackaged`
+
+A `Boolean` property that returns `true` if the app is packaged, `false` otherwise. For many apps, this property can be used to distinguish development and production environments.

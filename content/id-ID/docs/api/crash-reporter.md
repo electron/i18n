@@ -15,6 +15,11 @@ Untuk menyiapkan server untuk menerima dan memproses laporan kerusakan, Anda dap
 * [socorro](https://github.com/mozilla/socorro)
 * [mini-istirahat pad-server](https://github.com/electron/mini-breakpad-server)
 
+Or use a 3rd party hosted solution:
+
+* [Backtrace I/O](https://backtrace.io/electron/)
+* [Sentry](https://docs.sentry.io/clients/electron)
+
 Laporan kerusakan disimpan secara lokal di folder direktori khusus aplikasi. Untuk `nama produk </ 0> dari <code> nama kamu </ 0> , laporan kerusakan akan disimpan dalam folder bernama <code> nama Crash kamu </ 0> di dalam direktori temp. Anda dapat menyesuaikan lokasi direktori sementara ini untuk aplikasi Anda dengan memanggil <code> app.setPath ( 'temp', '/ my / custom / temp') </ 0> 
 API sebelum memulai reporter kecelakaan.</p>
 
@@ -24,7 +29,7 @@ API sebelum memulai reporter kecelakaan.</p>
 
 <h3><code>kecelakaan Reporter.mulai (pilihan)`</h3> 
 
-* `pilihan` Obyek 
+* `pilihan` Objek 
   * ` nama perusahaan </ 0>  String (opsional)</li>
 <li><code> submitURL </ 0>  String - URL bahwa laporan kerusakan akan dikirim ke POST.</li>
 <li><code> nama product</ 0>  String (opsional) - Default ke <code> app.getName () </ 0> .</li>

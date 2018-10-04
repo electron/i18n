@@ -2,18 +2,18 @@
 
 > Create a button in the touch bar for native macOS applications
 
-Prozess: [Haupt](../tutorial/quick-start.md#main-process)
+Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new TouchBarButton(options)` *Experimental*
 
-* `options` Object 
+* `optionen` Object 
   * `label` String (optional) - Button text.
   * `backgroundColor` String (optional) - Button background color in hex format, i.e `#ABCDEF`.
   * `icon` [NativeImage](native-image.md) (optional) - Button icon.
   * `iconPosition` String (optional) - Can be `left`, `right` or `overlay`.
   * `click` Function (optional) - Function to call when the button is clicked.
 
-### Instance Properties
+### Instanz Eigenschaften
 
 The following properties are available on instances of `TouchBarButton`:
 

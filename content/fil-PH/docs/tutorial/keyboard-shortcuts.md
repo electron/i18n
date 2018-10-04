@@ -7,13 +7,14 @@
 Pwedi kang maggamit ng [Menu](../api/menu.md) na modyul para i-configure ang keyboard shortcuts na nagti-trigger lamang kapag nka pokus ang app. Upang magawa, i-specify ang [`accelerator`] property kapag gumagawa ng [Menultem](../api/menu-item.md).
 
 ```js
-const {Menu, Menultem} = nangangailangan ng ('electron')
-const menu = bagong Menu()
+const { Menu, MenuItem } = require('electron')
+const menu = new Menu()
 
-menu.append(nee menultem({
+menu.append(new MenuItem({
   label: 'Print',
   accelerator: 'CmdOrCtrl+P',
-  click: () => { console.log('time to print stuff') }}))
+  click: () => { console.log('time to print stuff') }
+}))
 ```
 
 You can configure different key combinations based on the user's operating system.
@@ -29,7 +30,7 @@ You can configure different key combinations based on the user's operating syste
 Maaari mong gamitin ang module na [globalShortcut](../api/global-shortcut.md) upang makita ang mga kaganapan sa keyboard kahit kailan ang application ay walang focus sa keyboard.
 
 ```js
-const {app, globalShortcut} = require('electron')
+const { app, globalShortcut } = require('electron')
 
 app.on('ready', () => {
   globalShortcut.register('CommandOrControl+X', () => {

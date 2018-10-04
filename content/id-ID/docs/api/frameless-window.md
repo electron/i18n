@@ -111,7 +111,7 @@ win.show()
        -webkit-app-region: no-drag; }
     ```
     
-    Jika Anda menetapkan hanya titlebar kustom sebagai draggable, Anda juga perlu membuat semua tombol di titlebar yang tidak dapat digeser.
+    If you're only setting a custom titlebar as draggable, you also need to make all buttons in titlebar non-draggable.
     
     ## Pilihan teks
     

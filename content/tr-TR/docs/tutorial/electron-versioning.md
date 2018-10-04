@@ -80,10 +80,18 @@ Stabilizasyon dalları daima ** major</ i> veya ** minor</ i> sürüm çizgileri
 <p>Süreç şöyledir:</p>
 
 <ol>
-<li>Tüm yeni büyük ve küçük yayın satırları, <code>N >= 1` için `-beta.N` etiketi ile başlar. Tam da burada, özellik seti **kilitli** olur. Bu sürüm satırı, başka hiçbir özelliği kabul etmiyor ve yalnızca güvenlik kararlılıkları ile ilgilidir. örneğin `2.0.0-beta.1`.
-- Hata düzeltmeleri, regresyon düzeltmeleri ve güvenlik yamaları kabul edilebilir. Bunu yaptıktan sonra `N` bir arttırılarak yeni bir beta yayınlandı. Örneğin. `2.0.0-beta.2`
-- Belirli bir beta sürümünün kararlılığı *genel olarak kabul edilirse*, yalnızca sürüm bilgisi değiştirilerek, kararlı yapı olarak yeniden yayınlanacaktır. Örneğin. `2.0.0`.
-- Gelecekteki hata düzeltmeleri veya güvenlik yamalarının yayın kararlı iken bir araya getirilmesi gerekiyorsa, bunlar uygulanır ve buna göre *yama* sürümü artırılır. Örneğin. `2.0.1`.</ol> 
+<li>All new major and minor releases lines begin with a beta series indicated by semver prerelease tags of <code>beta.N`, Örnek `2.0.0-beta.1`. After the first beta, subsequent beta releases must meet all of the following conditions: 
+    1. The change is backwards API-compatible (deprecations are allowed)
+    2. The risk to meeting our stability timeline must be low.
+- If allowed changes need to be made once a release is beta, they are applied and the prerelease tag is incremented, e.g. `2.0.0-beta.2`.
+- If a particular beta release is *generally regarded* as stable, it will be re-released as a stable build, changing only the version information. e.g. `2.0.0`. After the first stable, all changes must be backwards-compatible bug or security fixes.
+- If future bug fixes or security patches need to be made once a release is stable, they are applied and the *patch* version is incremented e.g. `2.0.1`.</ol> 
+
+Specifically, the above means:
+
+1. Admitting non-breaking-API changes early in the beta cycle is okay, even if those changes have the potential to cause moderate side-affects
+2. Admitting feature-flagged changes, that do not otherwise alter existing code paths, at most points in the beta cycle is okay. Users can explicitly enable those flags in their apps.
+3. Admitting features of any sort very late in the beta cycle is 
 
 For each major and minor bump, you should expect to see something like the following:
 
@@ -123,12 +131,7 @@ Gelecekteki değerlendirmelerde, aşağıdakilerden birini veya her ikisini birl
 
 - it is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
 - bu bölümler tamamen yeni ve eski kod yollarıdır: Bu yeni özellik yeni ve eski kodların yenıden yapılandırılması içindir *uygun değil* koşullu kontrat özellikleri
-- belirleyici işaretler hassas bölümler birleştirildikten sonra doğal olarak kaldırılır
-
-İşaretlenen kodu sürüm verme stratejimizle aşağıdaki şekilde eşleştiriyoruz:
-
-1. istikrar dalında özellik işaretli kod üzerinde yinelemeyi düşünmüyoruz; Hatta özellik bayrakları dikkatli kullanımı risklidir
-2. aPI sözleşmelerini özellik işaretli kodda, ana sözcüğe darbe indirmeden geçirebilirsiniz. İşaretlenen kod semver'e uymuyor olabilir
+- feature flags are eventually removed after the feature is released
 
 # Anlamsal örneklendirme
 

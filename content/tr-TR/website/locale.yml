@@ -6,7 +6,7 @@ nav:
   community: Topluluk
   contact: İletişim
   docs: Dokümanlar
-  donors: Donors
+  donors: Bağışçılar
   languages: Diller
   releases: Sürümler
   search: Ara
@@ -152,6 +152,6 @@ pages:
     title: Spectron
     description: Spectron, Electron uygulamanıza, kolaylıkla test entegrasyonu yazılmasını sağlayan, açık kaynak kodlu kütüphanedir. ChromeDriver ve WebDriverIO ya geliştirilmiştir.
   '/donors':
-    title: Donors
+    title: Bağışçılar
 _404:
   page_not_found: Sayfa bulunamadı.

@@ -233,6 +233,18 @@ win.on('hide', () => {
 })
 ```
 
+#### `tray.setIgnoreDoubleClickEvents(ignore)` *macOS*
+
+* `ignore` Boolean
+
+ダブルクリックイベントを無視するよう設定します。これらのイベントを無視することで tray アイコンそれぞれの独立したクリックを検知することを許可します。
+
+この値はデフォルトで false にセットされます。
+
+#### `tray.getIgnoreDoubleClickEvents()` *macOS*
+
+戻り値 `Boolean` - ダブルクリックイベントが無視されているかどうか。
+
 #### `tray.displayBalloon(options)` *Windows*
 
 * `options` Object 
@@ -253,7 +265,7 @@ tray アイコンのコンテキストメニューをポップアップします
 
 #### `tray.setContextMenu(menu)`
 
-* `menu` Menu
+* `menu` Menu | null
 
 このアイコンのコンテキストメニューを設定します。
 

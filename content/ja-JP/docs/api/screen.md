@@ -2,7 +2,7 @@
 
 > 画面サイズ、ディスプレイ、カーソルの位置などについての情報を取得します。
 
-プロセス: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+プロセス: [メイン](../glossary.md#main-process), [レンダラー](../glossary.md#renderer-process)
 
 `app` モジュールの `ready` イベントが発生するまでは、このモジュールを require、または使用できません。
 
@@ -91,10 +91,6 @@ app.on('ready', () => {
 
 マウスポインタの現在の絶対位置。
 
-### `screen.getMenuBarHeight()` *macOS*
-
-戻り値 `Integer` - メニューバーのピクセル単位の高さ。
-
 ### `screen.getPrimaryDisplay()`
 
 戻り値 [`Display`](structures/display.md) - 主要なディスプレイ。
@@ -114,3 +110,37 @@ app.on('ready', () => {
 * `rect` [Rectangle](structures/rectangle.md)
 
 戻り値 [`Display`](structures/display.md) - 指定した矩形に最も近い display。
+
+### `screen.screenToDipPoint(point)` *Windows*
+
+* `point` [Point](structures/point.md)
+
+戻り値 [`Point`](structures/point.md)
+
+スクリーンの物理ポイントをスクリーンの DIP ポイントに変換します。DPI スケールは物理ポイントを含むディスプレイと相対的に計算されます。
+
+### `screen.dipToScreenPoint(point)` *Windows*
+
+* `point` [Point](structures/point.md)
+
+戻り値 [`Point`](structures/point.md)
+
+スクリーンの DIP ポイントをスクリーンの物理ポイントに変換します。DPI スケールは DIP ポイントを含むディスプレイと相対的に計算されます。
+
+### `screen.screenToDipRect(window, rect)` *Windows*
+
+* `window` [BrowserWindow](browser-window.md) | null
+* `rect` [Rectangle](structures/rectangle.md)
+
+戻り値 [`Rectangle`](structures/rectangle.md)
+
+スクリーンの物理矩形をスクリーンのの DIP 矩形に変換します。 DPI スケールは `window` に近いディスプレイと相対的に計算されます。 `window` が null の場合、スケールは `rect` に近いディスプレイと相対的に計算されます。
+
+### `screen.dipToScreenRect(window, rect)` *Windows*
+
+* `window` [BrowserWindow](browser-window.md) | null
+* `rect` [Rectangle](structures/rectangle.md)
+
+戻り値 [`Rectangle`](structures/rectangle.md)
+
+スクリーンの DIP 矩形をスクリーンのの物理矩形に変換します。 DPI スケールは `window` に近いディスプレイと相対的に計算されます。 `window` が null の場合、スケールは `rect` に近いディスプレイと相対的に計算されます。

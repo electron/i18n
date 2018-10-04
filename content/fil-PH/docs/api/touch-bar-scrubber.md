@@ -2,7 +2,7 @@
 
 > Lumilikha ng isang "scrubber" (isang scrollable na tagapili)
 
-Proseso: [Pangunahing](../tutorial/quick-start.md#main-process)
+Proseso: [Pangunahing](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new TouchBarScrubber(options)` *Experimental*
 

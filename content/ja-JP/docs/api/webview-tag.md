@@ -1,8 +1,14 @@
 # `<webview>`タグ
 
+## Warning
+
+Electron の `webview` タグは [Chromium の `webview`](https://developer.chrome.com/apps/tags/webview) に基づきつつ、劇的に変更されています。 これはレンダリング、ナビゲーション、イベントルーティングを含む `webview` の安定性に影響しています。 私たちは、`webview` タグを使用せずに、`iframe` や Electron の `BrowserView` 、埋め込みコンテンツを完全に避けるアーキテクチャといった代替案を検討することを推奨しています。
+
+## 概要
+
 > 分離したフレームとプロセスに外部ウェブコンテンツを表示します。
 
-プロセス: [レンダラー](../tutorial/quick-start.md#renderer-process)
+プロセス: [Renderer](../glossary.md#renderer-process)
 
 `webview`タグを使用して、Electron アプリに 'ゲスト' コンテンツ (ウェブページなど) を埋め込むことができます。ゲストコンテンツは `webview` コンテナに含まれています。 アプリ内の埋め込みページは、ゲストコンテンツのレイアウトとレンダリングの方法を制御します。
 
@@ -38,24 +44,19 @@
 </script>
 ```
 
+## 内部実装
+
+内部では `webview` は [Out-of-Process iframe (OOPIF) ](https://www.chromium.org/developers/design-documents/oop-iframes) で実装されています。 `webview` タグは本質的には、見えない DOM を用いてその内側に `iframe` 要素をラップしたカスタム要素です。
+
+なので `webview` の動作はクロスドメイン `iframe` ととても似ています。例として、
+
+* `webview`をクリックしたとき、ページフォーカスが埋め込みフレームから `webview` に移動します。
+* `webview` にキーボードイベントリスナを追加することはできません。
+* 埋め込みフレームと `webview` 間のすべての反応は非同期です。
+
 ## CSS スタイルの注意事項
 
-`webview` タグのスタイルでは、子の `object` 要素が、古典的かつフレックスボックスなレイアウトを使用するとき (v0.36.11 以降)、`webview` コンテナの高さと幅を完全に埋めるのに、内部的に `display:flex;` を使用していることに注意して下さい。 `display:inline-flex;` をインラインレイアウトに指定しない限り、デフォルトの`display:flex;` CSS プロパティを上書きしないでください。
-
-`webview` には、`hidden` 属性を使用する、及び `display: none;` を使用して非表示にする際に問題があります。 `browserplugin` オブジェクト内で異常なレンダリング動作が発生し、`webview` が非表示にされるときにウェブページがリロードされます。 推奨される手段は、`visibility: hidden` を使用して `webview` を隠すことです。
-
-```html
-<style>
-  webview {
-    display:inline-flex;
-    width:640px;
-    height:480px;
-  }
-  webview.hide {
-    visibility: hidden;
-  }
-</style>
-```
+`webview` タグのスタイルでは、`webview` コンテナでの子の `iframe` 要素の高さと幅を完全に埋めるのに内部的に `display:flex;` を使用しているので、古典的かつフレックスボックスなレイアウトを使用するときは注意して下さい。 `display:inline-flex;` をインラインレイアウトに指定しない限り、デフォルトの`display:flex;` CSS プロパティを上書きしないでください。
 
 ## タグの属性
 
@@ -162,13 +163,13 @@ webview で設定するウェブ環境設定を指定する `,` 区切りの文�
 
 この文字列は、`window.open` の features 文字列と同じ形式に従います。 名前自体には `true` のブール値が与えられます。 設定は、`=` とそれに続く値を含めることによって別の値に設定できます。 特殊な値として、`yes` と `1` は `true` として解釈され、`no` と `0` は `false` として解釈されます。
 
-### `blinkfeatures`
+### `enableblinkfeatures`
 
 ```html
-<webview src="https://www.github.com/" blinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
+<webview src="https://www.github.com/" enableblinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-有効にする Blink 機能を指定する `,` 区切りの文字列リスト。 サポートされている機能の文字列の完全なリストは、[RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) ファイルにあります。
+有効にする Blink 機能を指定する `,` 区切りの文字列リスト。 サポートされている機能の文字列の完全なリストは、[RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) ファイルにあります。
 
 ### `disableblinkfeatures`
 
@@ -176,50 +177,7 @@ webview で設定するウェブ環境設定を指定する `,` 区切りの文�
 <webview src="https://www.github.com/" disableblinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-無効にする Blink 機能を指定する `,` 区切りの文字列リスト。 サポートされている機能の文字列の完全なリストは、[RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/RuntimeEnabledFeatures.json5?l=62) ファイルにあります。
-
-### `guestinstance`
-
-```html
-<webview src="https://www.github.com/" guestinstance="3"></webview>
-```
-
-webview を特定の webContents にリンクする値。 webview が最初に新しい webContents をロードすると、この属性はそのインスタンス識別子に設定されます。 この属性を新規または既存の webview に設定すると、現在別の webview でレンダリングされている既存の webContents にリンクされます。
-
-既存の webview は `destroy` イベントを監視して、新しい URL がロードされたときに新しい webContents を作成します。
-
-### `disableguestresize`
-
-```html
-<webview src="https://www.github.com/" disableguestresize></webview>
-```
-
-この属性が存在すると、`webview` 要素自体のサイズが変更されたときに、`webview` のコンテンツのリサイズができなくなります。
-
-これを [`webContents.setSize`](web-contents.md#contentssetsizeoptions) と組み合わせて使用すると、ウインドウサイズの変更に応じて webview のコンテンツのサイズを手動で変更できます。 これにより、webview 要素の矩形を使用してコンテンツのサイズを自動的に変更するのに比べて、サイズ変更を高速化できます。
-
-```javascript
-const {webContents} = require('electron')
-
-// `win`は、`disableguestresize` を持つ `<webview>`を含む
-// `BrowserWindow` インスタンスを指していると仮定します。
-
-win.on('resize', () => {
-  const [width, height] = win.getContentSize()
-  for (let wc of webContents.getAllWebContents()) {
-    // `wc` が ` win` ウインドウの webview に属しているかどうか確認します。
-    if (wc.hostWebContents &&
-        wc.hostWebContents.id === win.webContents.id) {
-      wc.setSize({
-        normal: {
-          width: width,
-          height: height
-        }
-      })
-    }
-  }
-})
-```
+無効にする Blink 機能を指定する `,` 区切りの文字列リスト。 サポートされている機能の文字列の完全なリストは、[RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) ファイルにあります。
 
 ## メソッド
 
@@ -240,10 +198,10 @@ webview.addEventListener('dom-ready', () => {
 
 * `url` URL
 * `options` Object (任意) 
-  * `httpReferrer` String (任意) - HTTPリファラのURL。
+  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (任意) - HTTPリファラのURL。
   * `userAgent` String (任意) - リクエスト元のユーザーエージェント。
   * `extraHeaders` String (任意) - "\n" で区切られた追加のヘッダー
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (任意) -
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (任意)
   * `baseURLForDataURL` String (任意) - データURLによってロードされたファイルの (最後のパス区切り文字を含む) ベースURL。 これは指定された `url` がデータURLで、他のファイルをロードする必要がある場合のみ必要です。
 
 `url` を webview にロードします。`url` には、`http://` または `file://` のような、プロトコルのプレフィックスを含みます。
@@ -569,31 +527,6 @@ webview.addEventListener('dom-ready', () => {
 
 タブのくるくるが止まるタイミングに対応しています。
 
-### イベント: 'did-get-response-details'
-
-戻り値:
-
-* `status` Boolean
-* `newURL` String
-* `originalURL` String
-* `httpResponseCode` Integer
-* `requestMethod` String
-* `referrer` String
-* `headers` Object
-* `resourceType` String
-
-要求されたリソースに関する詳細が利用可能なときに発行されます。`status` はリソースをダウンロードするためのソケット接続状態を示します。
-
-### イベント: 'did-get-redirect-request'
-
-戻り値:
-
-* `oldURL` String
-* `newURL` String
-* `isMainFrame` Boolean
-
-リソースのリクエスト中にリダイレクトを受けたときに発行されます。
-
 ### イベント: 'dom-ready'
 
 指定のフレームの document が読み込まれたときに発行されます。
@@ -623,7 +556,7 @@ HTML API にトリガーされてページがフルスクリーンになると�
 
 HTML API にトリガーされてページがフルスクリーンから抜けるときに発生します。
 
-### イベント: 'console-message'
+### Event: 'console-message'
 
 戻り値:
 
@@ -748,7 +681,7 @@ webview.addEventListener('close', () => {
 
 ゲストページが埋め込みページに非同期メッセージを送信したときに発生します。
 
-`sendToHost` メソッドと `ipc-message` イベントを使用すると、ゲストページと埋め込みページの間で簡単に通信できます。
+`sendToHost` メソッドと `ipc-message` イベントを使用すると、ゲストページと埋め込みページの間で通信できます。
 
 ```javascript
 // 埋め込みページ。

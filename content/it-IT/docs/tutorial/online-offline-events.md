@@ -7,7 +7,7 @@ Esempio:
 *main.js*
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 let onlineStatusWindow
 
@@ -42,7 +42,7 @@ Ci potrebbero essere instanze dove vuoi rispondere a questi eventi anche nel pro
 *main.js*
 
 ```javascript
-const {app, BrowserWindow, ipcMain} = require('electron')
+const { app, BrowserWindow, ipcMain } = require('electron')
 let onlineStatusWindow
 
 app.on('ready', () => {
@@ -62,7 +62,7 @@ ipcMain.on('online-status-changed', (event, status) => {
 <html>
 <body>
 <script>
-  const {ipcRenderer} = require('electron')
+  const { ipcRenderer } = require('electron')
   const updateOnlineStatus = () => {
     ipcRenderer.send('online-status-changed', navigator.onLine ? 'online' : 'offline')
   }

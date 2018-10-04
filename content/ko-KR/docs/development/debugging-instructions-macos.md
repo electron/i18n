@@ -4,7 +4,7 @@
 
 ## 요구 사항
 
-* **Electron의 디버그 빌드**: 가장 쉬운 방법은 보통 [macOS용 빌드 설명서 ](build-instructions-osx.md)에 명시된 요구 사항과 툴을 사용하여 스스로 빌드하는 것입니다. While you can attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
+* **Electron의 디버그 빌드**: 가장 쉬운 방법은 보통 [macOS용 빌드 설명서 ](build-instructions-macos.md)에 명시된 요구 사항과 툴을 사용하여 스스로 빌드하는 것입니다. While you can attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
 
 * **Xcode**: Xcode 뿐만 아니라, Xcode 명령 줄 도구를 설치합니다. 이것은 LLDB, macOS Xcode 의 기본 디버거를 포함합니다. 그것은 데스크톱과 iOS 기기와 시뮬레이터에서 C, Objective-C, C++ 디버깅을 지원합니다.
 
@@ -13,9 +13,9 @@
 디버깅 작업을 시작하려면, Terminal 을 열고 디버그 빌드 상태의 Electron 을 전달하여 `lldb` 를 시작합니다.
 
 ```sh
-$ lldb ./out/D/Electron.app
-(lldb) target create "./out/D/Electron.app"
-Current executable set to './out/D/Electron.app' (x86_64).
+$ lldb ./out/Debug/Electron.app
+(lldb) target create "./out/Debug/Electron.app"
+Current executable set to './out/Debug/Electron.app' (x86_64).
 ```
 
 ### 중단점 설정
@@ -41,17 +41,17 @@ Electron 이 시작시에 앱의 이름을 설정하기때문에, 앱은 즉시 
 
 ```sh
 (lldb) run
-Process 25244 launched: '/Users/fr/Code/electron/out/D/Electron.app/Contents/MacOS/Electron' (x86_64)
+Process 25244 launched: '/Users/fr/Code/electron/out/Debug/Electron.app/Contents/MacOS/Electron' (x86_64)
 Process 25244 stopped
 * thread #1: tid = 0x839a4c, 0x0000000100162db4 Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 20 at browser.cc:118, queue = 'com.apple.main-thread', stop reason = breakpoint 1.1
     frame #0: 0x0000000100162db4 Electron Framework`atom::Browser::SetName(this=0x0000000108b14f20, name="Electron") + 20 at browser.cc:118
-   115 	}
+   115  }
    116
-   117 	void Browser::SetName(const std::string& name) {
--> 118 	  name_override_ = name;
-   119 	}
+   117  void Browser::SetName(const std::string& name) {
+-> 118    name_override_ = name;
+   119  }
    120
-   121 	int Browser::GetBadgeCount() {
+   121  int Browser::GetBadgeCount() {
 (lldb)
 ```
 

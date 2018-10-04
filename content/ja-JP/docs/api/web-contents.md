@@ -60,6 +60,8 @@ console.log(webContents)
 * `errorDescription` String
 * `validatedURL` String
 * `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
 
 このイベントは `did-finish-load` のようですが、ロードが失敗した、キャンセルされた、`window.stop()` が呼び出されたなどで、発行されます。 エラーコードとその意味のすべてのリストは [こちら](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) です。
 
@@ -69,6 +71,8 @@ console.log(webContents)
 
 * `event` Event
 * `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
 
 フレームのナビゲーションが終了したときに発行されます。
 
@@ -79,37 +83,6 @@ console.log(webContents)
 #### イベント: 'did-stop-loading'
 
 タブのくるくるが止まったタイミングに対応しています。
-
-#### イベント: 'did-get-response-details'
-
-戻り値:
-
-* `event` Event
-* `status` Boolean
-* `newURL` String
-* `originalURL` String
-* `httpResponseCode` Integer
-* `requestMethod` String
-* `referrer` String
-* `headers` Object
-* `resourceType` String
-
-要求されたリソースに関する詳細が利用可能なときに発行されます。`status` はリソースをダウンロードするためのソケット接続状態を示します。
-
-#### イベント: 'did-get-redirect-request'
-
-戻り値:
-
-* `event` Event
-* `oldURL` String
-* `newURL` String
-* `isMainFrame` Boolean
-* `httpResponseCode` Integer
-* `requestMethod` String
-* `referrer` String
-* `headers` Object
-
-リソースのリクエスト中にリダイレクトを受けたときに発行されます。
 
 #### イベント: 'dom-ready'
 
@@ -138,6 +111,7 @@ console.log(webContents)
 * `disposition` String - `default`、`foreground-tab`、`background-tab`、`new-window`、`save-to-disk`、`other` にできる。
 * `options` Object - 新しい [`BrowserWindow`](browser-window.md) を作成するのに使われるオプション。
 * `additionalFeatures` String[] - `window.open()` に与えられている、標準でない機能 (Chromium や Electron によって処理されない機能)。
+* `referrer` [Referrer](structures/referrer.md) - 新しいウィンドウへ渡される Referrer。 Referrer のポリシーに依存しているので、`Referrer` ヘッダを送信されるようにしてもしなくてもかまいません。
 
 ページが `url` の新しいウインドウを開くリクエストをするときに発行されます。`window.open` か `<a target='_blank'>` のようなリンクによってリクエストされる可能があります。
 
@@ -170,14 +144,44 @@ myBrowserWindow.webContents.on('new-window', (event, url) => {
 
 `event.preventDefault()` を呼ぶとナビゲーションが阻害されます。
 
+#### イベント: 'did-start-navigation'
+
+戻り値:
+
+* `url` String
+* `isInPlace` Boolean
+* `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
+
+フレーム (メインを含む) がナビゲーションを始めているときに発生します。ページ内ナビゲーションの場合、`isInplace` は `true` になります。
+
 #### イベント: 'did-navigate'
 
 戻り値:
 
 * `event` Event
 * `url` String
+* `httpResponseCode` Integer - HTTP ナビゲーションが無い場合は-1
+* `httpStatusText` String - HTTP ナビゲーションが無い場合は空
 
-ナビゲーションが完了したときに発行されます。
+メインフレームのナビゲーションが完了したときに発生します。
+
+このイベントは、アンカーリンクのクリックや `window.location.hash` の更新のような、ページ内ナビゲーションでは発行されません。これを意図する場合は `did-navigate-in-page` を使用して下さい。
+
+#### イベント: 'did-frame-navigate'
+
+戻り値:
+
+* `event` Event
+* `url` String
+* `httpResponseCode` Integer - HTTP ナビゲーションが無い場合は-1
+* `httpStatusText` String - HTTP ナビゲーションが無い場合は空。
+* `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
+
+フレームのナビゲーションが完了したときに発生します。
 
 このイベントは、アンカーリンクのクリックや `window.location.hash` の更新のような、ページ内ナビゲーションでは発行されません。これを意図する場合は `did-navigate-in-page` を使用して下さい。
 
@@ -188,8 +192,10 @@ myBrowserWindow.webContents.on('new-window', (event, url) => {
 * `event` Event
 * `url` String
 * `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
 
-ページ内ナビゲーションが発生したときに発行されます。
+フレームのページ内ナビゲーションが発生したときに発生します。
 
 ページ内ナビゲーションが行われるとき、ページのURLは変更されますがページ外でのナビゲーションは発生しません。 これが発生する例は、アンカーリンクがクリックされたときや、DOM の `hashchange` イベントがトリガーされたときです。
 
@@ -230,6 +236,14 @@ win.webContents.on('will-prevent-unload', (event) => {
 * `killed` Boolean
 
 レンダラープロセスがクラッシュしたり、強制終了されたりしたときに発行されます。
+
+#### イベント: 'unresponsive'
+
+Webページが応答しなくなるときに発生します。
+
+#### イベント: 'responsive'
+
+応答しないWebページが再び応答するようになるときに発生します。
 
 #### イベント: 'plugin-crashed'
 
@@ -453,11 +467,14 @@ win.webContents.on('before-input-event', (event, input) => {
 `navigator.bluetooth.requestDevice` を呼ぶうえで、Bluetooth デバイスを選択する必要があるときに発行されます。 `navigator.bluetooth` を使用するには、`webBluetooth` API を有効にする必要があります。 もし `event.preventDefault` が呼ばれなければ、最初に有効なデバイスが選択されます。 `callback` は選択された `deviceId` で呼ばれます。リクエストがキャンセルされると、`callbback` に空文字列が渡されます。
 
 ```javascript
-const {app, webContents} = require('electron')
-app.commandLine.appendSwitch('enable-web-bluetooth')
+const {app, BrowserWindow} = require('electron')
+
+let win = null
+app.commandLine.appendSwitch('enable-experimental-web-platform-features')
 
 app.on('ready', () => {
-  webContents.on('select-bluetooth-device', (event, deviceList, callback) => {
+  win = new BrowserWindow({width: 800, height: 600})
+  win.webContents.on('select-bluetooth-device', (event, deviceList, callback) => {
     event.preventDefault()
     let result = deviceList.find((device) => {
       return device.deviceName === 'test'
@@ -518,10 +535,11 @@ win.loadURL('http://github.com')
 
 `<webview>` がこの webContents に適用されたときに発行されます。
 
-#### イベント: 'console-message'
+#### Event: 'console-message'
 
 戻り値:
 
+* `event` Event
 * `level` Integer
 * `message` String
 * `line` Integer
@@ -535,10 +553,10 @@ win.loadURL('http://github.com')
 
 * `url` String
 * `options` Object (任意) 
-  * `httpReferrer` String (任意) - HTTPリファラのURL。
+  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (任意) - HTTPリファラのURL。
   * `userAgent` String (任意) - リクエスト元のユーザーエージェント。
   * `extraHeaders` String (任意) - "\n" で区切られた追加のヘッダー。
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (任意)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (任意)
   * `baseURLForDataURL` String (任意) - データURLによってロードされたファイルの (最後のパス区切り文字を含む) ベースURL。 これは指定された `url` がデータURLで、他のファイルをロードする必要がある場合のみ必要です。
 
 ウインドウ内に `url` を読み込みます。 `url` は、`http://` や `file://` のようなプロトコルの接頭子を含まなければなりません。 HTTP キャッシュをバイパスする必要があるロードの場合は、`pragma` ヘッダを使用してそれを実現します。
@@ -1107,7 +1125,7 @@ app.on('ready', () => {
 #### `contents.enableDeviceEmulation(parameters)`
 
 * `parameters` Object 
-  * `screenPosition` String - エミュレートする画面のタイプの指定 (省略値: `desktop`): 
+  * `screenPosition` String - エミュレートする画面のタイプの指定 (省略値: `desktop、`): 
     * `desktop` - デスクトップ画面タイプ.
     * `mobile` - モバイル画面タイプ.
   * `screenSize` [Size](structures/size.md) - エミュレートされる画面サイズの設定 (screenPosition == mobile).
@@ -1160,14 +1178,14 @@ app.on('ready', () => {
 
 * `onlyDirty` Boolean (任意) - 省略値は `false`。
 * `callback` Function 
-  * `frameBuffer` Buffer
+  * `image` [NativeImage](native-image.md)
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
-プレゼンテーションイベントとキャプチャされたフレームの監視を開始し、プレゼンテーションイベントがあれば、`callbabck` が `callback(frameBuffer, dirtyRect)` で呼ばれます。
+プレゼンテーションイベントとキャプチャされたフレームの監視を開始し、プレゼンテーションイベントがあれば、`callbabck` が `callback(image, dirtyRect)` で呼ばれます。
 
-`frameBuffer` は生のピクセルデータを含む `Buffer` です。 ほとんどのマシンでは、ピクセルデータは 32bit BGRA 形式で効果的に格納されますが、実際の表示はプロセッサのエンディアンに依存します (ほとんどのプロセッサはリトルエンディアンで、ビッグエンディアンのプロセッサでのデータは 32bit ARGB 形式です)。
+`image` はキャプチャされたフレームを格納する [NativeImage](native-image.md) のインスタンスです。
 
-`dirtyRect` は 再描画されたページの部分を示す `x, y, width, height` プロパティのオブジェクトです。 もし `onlyDirty` が `true` にセットされている場合、`frameBuffer` は再描画された領域だけを含みます。 `onlyDirty` の省略値は `false` です。
+`dirtyRect` は 再描画されたページの部分を示す `x, y, width, height` プロパティのオブジェクトです。 もし `onlyDirty` が `true` にセットされている場合、`image` は再描画された領域だけを含みます。 `onlyDirty` の省略値は `false` です。
 
 #### `contents.endFrameSubscription()`
 
@@ -1209,16 +1227,6 @@ win.webContents.on('did-finish-load', () => {
 #### `contents.showDefinitionForSelection()` *macOS*
 
 ページ上の選択された単語を検索するポップアップ辞書を表示します。
-
-#### `contents.setSize(options)`
-
-ページのサイズを設定します。`<webview>` のゲストコンテンツでのみサポートされています。
-
-* `options` Object 
-  * `enableAutoSize` Boolean (任意) - webview コンテナを normal、min、max 属性で指定された範囲内で自動的にサイズ変更する場合は true にします。
-  * `normal` [Size](structures/size.md) (任意) - ページの通常サイズ。 これを [`disableguestresize`](webview-tag.md#disableguestresize) 属性と組み合わせて使用すると、webview ゲストコンテンツのサイズを手動で変更できます。
-  * `min` [Size](structures/size.md) (任意) - ページの最小サイズ。 これを [`disableguestresize`](webview-tag.md#disableguestresize) 属性と組み合わせて使用すると、webview ゲストコンテンツのサイズを手動で変更できます。
-  * `max` [Size](structures/size.md) (任意) - ページの最大サイズ。 これを [`disableguestresize`](webview-tag.md#disableguestresize) 属性と組み合わせて使用すると、webview ゲストコンテンツのサイズを手動で変更できます。
 
 #### `contents.isOffscreen()`
 
@@ -1268,7 +1276,11 @@ WebRTC IP ハンドリングポリシーを設定すると、WebRTC を介して
 
 #### `contents.getOSProcessId()`
 
-戻り値 `Integer` - 関連するレンダラープロセスの `pid`。
+戻り値 `Integer` - 関連するレンダラープロセスのオペレーティングシステムの `pid`。
+
+#### `contents.getProcessId()`
+
+戻り値 `Integer` - 関連するレンダラーの Chromium 内部の `pid`。 フレーム特有のナビゲーションイベント (`did-frame-navigate` など) で渡される `frameProcessId` と比較できます。
 
 ### インスタンスプロパティ
 

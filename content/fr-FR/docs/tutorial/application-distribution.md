@@ -67,22 +67,12 @@ La structure d'une application renommée serait comme :
 MyApp.app/Contents
 ├── Info.plist
 ├── MacOS/
-│   └── MyApp
+│   └── MyApp
 └── Frameworks/
-    ├── MyApp Helper EH.app
-    |   ├── Info.plist
-    |   └── MacOS/
-    |       └── MyApp Helper EH
-    ├── MyApp Helper NP.app
-    |   ├── Info.plist
-    |   └── MacOS/
-    |       └── MyApp Helper NP
     └── MyApp Helper.app
         ├── Info.plist
         └── MacOS/
-            └── MyApp Helper
- 
-Context | Request Context
+            └── MyApp Helper
 ```
 
 ### Linux
@@ -99,7 +89,7 @@ Au lieu d'empaqueter votre application manuellement, vous pouvez également choi
 
 ## Renommer en recompilant Electron à partir du code source
 
-Il est également possible de renommer Electron en changeant le nom de produit et en le compilant depuis le code source. Pour ce faire, vous devrez modifier le fichier `atom.gyp` et avoir une recompilation propre.
+It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to set the build argument corresponding to the product name (`electron_product_name = "YourProductName"`) in the `args.gn` file and rebuild.
 
 ### Créer un fork personnalisé d'Electron
 

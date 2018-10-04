@@ -15,14 +15,14 @@ Vea [`Menú`](menu.md) para obtener ejemplos.
     * `event` Event
   * `rol` String (opcional) - Define la acción del elemento del menú, cuando se especifica el `click` la propiedad será ignorada. Vea [roles](#roles).
   * `tipo` String (opcional) - Puede ser `normal`, `separador`, `submenu`, `checkbox` o `radio`.
-  * `label` String (optional)
-  * `sublabel` String (optional)
+  * `label` String (opcional)
+  * `sublabel` String (opcional)
   * `accelerator` [Accelerator](accelerator.md) (opcional)
   * `icon` ([NativeImage](native-image.md) | String) (opcional)
   * `enabled` Boolean (opcional) - Si es falso, el elemento de menú será gris y no se podrá hacer click en él.
   * `visible` Boolean (opcional) - Si es falso, el elemento del menú será totalmente invisible.
   * `checked` Boolean (opcional) - Solo debe especificarse para elementos del menú tipo `checkbox` o `radio`.
-  * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. Si `submenu` es especificado, el `tipo: 'submenu'` puede ser omitido. If the value is not a [`Menu`](menu.md) then it will be automatically converted to one using `Menu.buildFromTemplate`.
+  * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (opcional) - Debe ser especificado para elementos del menú tipo `submenu`. Si `submenu` es especificado, el `tipo: 'submenu'` puede ser omitido. Si el valor no es un [`Menu`](menu.md) entonces se convertirá automáticamente en uno usando `Menu.buildFromTemplate`.
   * `id` String (opcional) - Único dentro de un menú concreto. Si se define, entonces puede usarse como referencia a este elemento mediante el atributo de posición.
   * `position` String (opcional) - Este campo permite una definición granular de la posición específica dentro de un menú concreto.
 
@@ -48,37 +48,37 @@ La propiedad `role` puede tener los siguientes valores:
 * `close` - Cerrar la ventana actual.
 * `quit`- Salir de la aplicación.
 * `reload` - Recargar la ventana actual.
-* `forceReload` - Reload the current window ignoring the cache.
-* `toggleDevTools` - Toggle developer tools in the current window.
-* `toggleFullScreen`- Toggle full screen mode on the current window.
-* `resetZoom` - Reset the focused page's zoom level to the original size.
-* `zoomIn` - Zoom in the focused page by 10%.
-* `zoomOut` - Zoom out the focused page by 10%.
+* `forceReload` - Recargar la ventana actual ignorando la caché.
+* `toggleDevTools` - Alternar herramientas de desarrollador en la ventana actual.
+* `toggleFullScreen`- Alternar el modo de pantalla completa en la ventana actual.
+* `resetZoom` - Restablece el nivel de zoom de la página enfocada al tamaño original.
+* `zoomIn` - Zoom en la página enfocada en un 10%.
+* `zoomOut` - Aleja la página enfocada en un 10%.
 * `editMenu` - Grupo por defecto de un menú "Edit" (Deshacer, Copiar, etc.).
 * `windowMenu` - Grupo por defecto de un menú "Window" (Minimizar, Cerrar, etc.).
 
-The following additional roles are available on *macOS*:
+Los siguientes roles adicionales están disponibles en *macOS*:
 
 * `about` - Enlace a la acción `orderFrontStandardAboutPanel`.
 * `hide` - Enlace a la acción `hide`.
-* `hideOthers` - Map to the `hideOtherApplications` action.
+* `hideothers` - Enlace a la acción `hideOtherApplications`.
 * `unhide` - Enlace a la acción `unhideAllApplications`.
-* `startSpeaking` - Map to the `startSpeaking` action.
-* `stopSpeaking` - Map to the `stopSpeaking` action.
+* `startspeaking` - Enlace a la acción `startSpeaking`.
+* `stopspeaking` - Enlace a la acción `stopSpeaking`.
 * `front` - Enlace a la acción `arrangeInFront`.
 * `zoom` - Enlace a la acción `performZoom`.
-* `toggleTabBar` - Map to the `toggleTabBar` action.
-* `selectNextTab` - Map to the `selectNextTab` action.
-* `selectPreviousTab` - Map to the `selectPreviousTab` action.
-* `mergeAllWindows` - Map to the `mergeAllWindows` action.
-* `moveTabToNewWindow` - Map to the `moveTabToNewWindow` action.
-* `window` - The submenu is a "Window" menu.
-* `help` - The submenu is a "Help" menu.
-* `services` - The submenu is a "Services" menu.
-* `recentDocuments` - The submenu is an "Open Recent" menu.
-* `clearRecentDocuments` - Map to the `clearRecentDocuments` action.
+* `toggletabbar` - Enlace a la acción `toggleTabBar`.
+* `selectnexttab` - Enlace a la acción `selectNextTab`.
+* `selectprevioustab` - Enlace a la acción `selectPreviousTab`.
+* `mergeallwindows` - Enlace a la acción `mergeAllWindows`.
+* `movetabtonewwindow` - Enlace a la acción `moveTabToNewWindow`.
+* `window` - El submenú es un menú "Ventana".
+* `help` - El submenú es un menú "Ayuda".
+* `services` - El submenú es un menú "Servicios".
+* `recentDocuments` - El submenú es un menú "Abrir reciente".
+* `clearRecentDocuments` - Enlace a la acción `clearRecentDocuments`.
 
-When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored. Lowercase `role`, e.g. `toggledevtools`, is still supported.
+Al especificar un `role` en macOS, `label` y `accelerator` son las únicas opciones que afectarán el elemento del menú. Todas las demás opciones serán ignoradas. Los `role` en minúscula, por ejemplo, `toggledevtools`, todavía son soportados.
 
 ### Propiedades de la instancia
 

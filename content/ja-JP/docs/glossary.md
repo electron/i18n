@@ -14,7 +14,7 @@ Brightray は [libchromiumcontent](#libchromiumcontent) をアプリ内で簡単
 
 ### CRT
 
-C ランタイム ライブラリ (CRT, C Run-time Library) は ISO C99 標準ライブラリが組み込まれている C++ 標準ライブラリの一部です。 The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
+C ランタイム ライブラリ (CRT, C Run-time Library) は ISO C99 標準ライブラリが組み込まれている C++ 標準ライブラリの一部です。 ネイティブコード開発、ネイティブコードと管理コードの混在した開発、.Netの純粋な管理コードをサポートするCRTを実装するVisual C++ライブラリ
 
 ### DMG
 
@@ -26,7 +26,7 @@ Input Method Editorの略で、日本では「かな漢字変換システム」�
 
 ### IDL
 
-Interface description language. Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
+インターフェース記述言語。関数シグネチャとデータ型を記述するとJavaやC++、Javascript等の言語でインターフェースを生成するために使用されるフォーマット
 
 ### IPC
 
@@ -54,13 +54,13 @@ AppleのMac App Storeの略語です。MASへアプリを登録する際の詳�
 
 ### Mojo
 
-An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.
+イントラプロセスまたはインタープロセス通信のための IPC システム。これが重要なのは、Chromeが別々のプロセスで動作するかどうかを、メモリプレッシャーによって判断するようにに設計されているからです。
 
-See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
+（参照： https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md ）
 
 ### ネイティブモジュール (native module)
 
-Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used as if they were an ordinary Node.js module. 主に、Node.jsで実行されているJavaScript と C/C++ のライブラリ間のインタフェースを提供するために使用されます。
+ネイティブ モジュールはNode.js では[アドオン](https://nodejs.org/api/addons.html) とも呼ばれ、requireによってNode.jsやElectronへ読み込むことの出来る、C またはC++で書かれたモジュールです。通常のNode.jsモジュールと同様に使用することが出来ます。 主に、Node.jsで実行されているJavaScript と C/C++ のライブラリ間のインタフェースを提供するために使用されます。
 
 Electronは、ネイティブのNodeモジュールをサポートしていますが、システム上にインストールされたNodeとは異なるV8バージョンを使用しているので、ネイティブモジュールでビルドする時、Electronのヘッダーの場所を手動で指定する必要があります。
 
@@ -104,7 +104,7 @@ Nodeのように、Electronはマルチプラットフォームデスクトッ�
 
 V8 は Google 製のオープンソース JavaScript エンジンです。C++で書かれており、Google Chrome で使用されています。V8 はスタンドアロンで実行することも、任意の C++ アプリケーションに埋め込むこともできます。
 
-Electron builds V8 as part of Chromium and then points Node to that V8 when building it.
+Electron は V8 を Chromium の一部としてビルドし、それからNodeをビルドする際に NodeがV8を指すようにします。
 
 V8のバージョンは必ず Google Chrome のバージョンに対応しています。例えば Chrome 59 には V8 5.9 が、Chrome 58 には V8 5.8 が含まれています。
 

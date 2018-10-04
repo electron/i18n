@@ -16,7 +16,13 @@ Nowo utworzony obiekt `BrowserWindow` domyślnie dziedziczy opcje okna nadrzędn
 
 Zwraca [`BrowserWindowProxy`](browser-window-proxy.md) - tworzy nowe okno i zwraca wystąpienie klasy `BrowserWindowProxy`.
 
-The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options.
+The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options. These are the features you can set via `features` string: `zoomFactor`, `nodeIntegration`, `preload`, `javascript`, `contextIsolation`, `webviewTag`.
+
+Na przykład:
+
+```js
+window.open('https://github.com', '_blank', 'nodeIntegration=no')
+```
 
 **Uwagi:**
 

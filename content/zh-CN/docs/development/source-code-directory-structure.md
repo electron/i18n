@@ -43,9 +43,7 @@ Electron
 ├── native_mate/ - A fork of Chromium's gin library that makes it easier to marshal
 |                  types between C++ and JavaScript.
 ├── spec/ - 自动化测试.
-├── electron.gyp - Electron 的构建规则.
-└── common.gypi - Compiler specific settings and building rules for other
-                  components like `node` and `breakpad`.
+└── BUILD.gn - Building rules of Electron.
 ```
 
 ## `/chromium_src`
@@ -55,12 +53,12 @@ Electron
 ## 其它目录的结构
 
 * **script** - 用于诸如构建、打包、测试等开发用途的脚本等.
-* **tools** - 在 gyp 文件中用到的工具脚本，但与 `script` 目录不同，该目录中的脚本不应该被用户直接调用.
+* **tools** - Helper scripts used by GN files, unlike `script`, scripts put here should never be invoked by users directly.
 * **vendor** - 第三方依赖项的源代码，为了防止人们将它与 Chromium 源码中的同名目录相混淆，在这里我们不使用 `third_party` 作为目录名.
 * **node_modules** - 在构建中用到的第三方 node 模块.
 * **out** - `ninja` 的临时输出目录.
 * **dist** - 由脚本 `script/create-dist.py` 创建的临时发布目录.
-* **external_binaries** - 下载的不支持通过 `gyp` 构建的预编译第三方框架.
+* **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gn`.
 
 ## 让 Git 子模块保持最新
 
@@ -69,8 +67,8 @@ Electron信息库有一些被提供的依赖, 在 [/vendor](https://github.com/e
 ```sh
 $ git status
 
-    modified:   vendor/libchromiumcontent (new commits)
-    modified:   vendor/node (new commits)
+    modified:   vendor/depot_tools (new commits)
+    modified:   vendor/boto (new commits)
 ```
 
 要更新这些被提供的依赖关系，运行以下命令：

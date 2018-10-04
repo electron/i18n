@@ -57,7 +57,7 @@ app.on('ready', () => {
 })
 ```
 
-**注意:** このメソッドは `app` モジュールの `ready` イベントが発生する前に呼び出すことはできません。
+**注意:** このメソッドは `app` モジュールの `ready` イベントが発生する前でのみ呼び出せます。
 
 ### `protocol.registerServiceWorkerSchemes(schemes)`
 

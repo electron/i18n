@@ -7,7 +7,7 @@ Contoh:
 *main.js*
 
 ```javascript
-const {app, BrowserWindow} = membutuhkan('electron')
+const { app, BrowserWindow } = membutuhkan('electron')
 
 biarkan onlineStatusWindow
 
@@ -42,7 +42,7 @@ Mungkin ada kejadian di mana Anda ingin menanggapi kejadian ini di Proses utama 
 *main.js*
 
 ```javascript
-const {app, BrowserWindow, ipcMain} = require('electron')
+const { app, BrowserWindow, ipcMain } = require('electron')
 let onlineStatusWindow
 
 app.on('ready', () => {
@@ -62,7 +62,7 @@ ipcMain.on('online-status-changed', (event, status) => {
 <html>
 <body>
 <script>
-  const {ipcRenderer} = require('electron')
+  const { ipcRenderer } = require('electron')
   const updateOnlineStatus = () => {
     ipcRenderer.send('online-status-changed', navigator.onLine ? 'online' : 'offline')
   }

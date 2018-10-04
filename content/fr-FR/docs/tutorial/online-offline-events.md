@@ -2,12 +2,12 @@
 
 La détection des [événements en ligne et hors ligne](https://developer.mozilla.org/en-US/docs/Online_and_offline_events) peut être implémentée dans le processus de rendu en utilisant l'attribut [`navigator.onLine`](http://html5index.org/Offline%20-%20NavigatorOnLine.html), faisant partie de l'API HTML5 standard. L'attribut `navigator.onLine` retourne `false` si n'importe quelle requêtes est garantie d'échouée. Par exemple, être complétement hors-ligne (déconnecté du réseau). Cela retourne `true` dans tous les autres cas. Puisque toutes les autres conditions retournent `true`, il faut s'attendre à obtenir de faux positifs, car nous ne pouvons pas supposer que la valeur `true` signifie nécessairement qu'Electron peut accéder à Internet. Par exemple, dans les cas où l'ordinateur exécute un logiciel de virtualisation qui a des adaptateurs ethernet virtuels qui sont toujours "connectés". Par conséquent, si vous voulez vraiment déterminer le statut d'accès à Internet d'Electron, vous devriez développer des moyens supplémentaires de vérification.
 
-Exemple:
+Exemple :
 
 *main.js*
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 let onlineStatusWindow
 
@@ -42,7 +42,7 @@ Il peut y avoir des cas où vous souhaitez avoir accès à ces événements dans
 *main.js*
 
 ```javascript
-const {app, BrowserWindow, ipcMain} = require('electron')
+const { app, BrowserWindow, ipcMain } = require('electron')
 let onlineStatusWindow
 
 app.on('ready', () => {
@@ -62,7 +62,7 @@ ipcMain.on('online-status-changed', (event, status) => {
 <html>
 <body>
 <script>
-  const {ipcRenderer} = require('electron')
+  const { ipcRenderer } = require('electron')
   const updateOnlineStatus = () => {
     ipcRenderer.send('online-status-changed', navigator.onLine ? 'online' : 'offline')
   }

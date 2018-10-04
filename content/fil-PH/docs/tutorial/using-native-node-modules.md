@@ -55,6 +55,14 @@ HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https
 
 Ang `HOME=~/.electron-gyp` ay nagbabago sa lokasyon ng mga development header. Ang `--target=1.2.3` ay bersyon ng Electron. Ang `--dist-url=...` ay nagtutukoy kung saan ida-download ang mga header. Ang `--arch=x64` ay nagsasabing ang modyul ay ginawa para sa 64bit na sistema.
 
+### Manually building for a custom build of Electron
+
+To compile native Node addons against a custom build of Electron that doesn't match a public release, instruct `npm` to use the version of Node you have bundled with your custom build.
+
+```sh
+npm rebuild --nodedir=$HOME/.../path/to/electron/vendor/node
+```
+
 ## Paghahanap ng ProblemaPaghahanap ng Problema
 
 Kung naka-install ka ng isang native na modyul at nalamang hindi ito gumagana, kailangan mong tingnan ang mga sumusunod na mga bagay:

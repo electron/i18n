@@ -57,6 +57,13 @@ console.log(systemPreferences.isDarkMode())
 
 `event` を macOS のネイティブの通知として送信します。 `userInfo` は、通知とともに送信されるユーザ情報辞書を含むオブジェクトです。
 
+### `systemPreferences.postWorkspaceNotification(event, userInfo)` *macOS*
+
+* `event` String
+* `userInfo` Object
+
+`event` を macOS のネイティブの通知として送信します。 `userInfo` は、通知とともに送信されるユーザ情報辞書を含むオブジェクトです。
+
 ### `systemPreferences.subscribeNotification(event, callback)` *macOS*
 
 * `event` String
@@ -75,12 +82,6 @@ console.log(systemPreferences.isDarkMode())
 * `AppleColorPreferencesChangedNotification`
 * `AppleShowScrollBarsSettingChanged`
 
-### `systemPreferences.unsubscribeNotification(id)` *macOS*
-
-* `id` Integer
-
-`id` の監視者を削除します。
-
 ### `systemPreferences.subscribeLocalNotification(event, callback)` *macOS*
 
 * `event` String
@@ -90,11 +91,32 @@ console.log(systemPreferences.isDarkMode())
 
 `subscribeNotification` と同じですが、ローカルデフォルトでは `NSNotificationCenter` を使用します。これは、`NSUserDefaultsDidChangeNotification` などのイベントに必要です。
 
+### `systemPreferences.subscribeWorkspaceNotification(event, callback)` *macOS*
+
+* `event` String
+* `callback` Function 
+  * `event` String
+  * `userInfo` Object
+
+`subscribeNotification` と同じですが、`NSWorkspace.sharedWorkspace.notificationCenter` を使用します。 これは `NSWorkspaceDidActivateApplicationNotification` といったイベントに必要です。
+
+### `systemPreferences.unsubscribeNotification(id)` *macOS*
+
+* `id` Integer
+
+`id` の監視者を削除します。
+
 ### `systemPreferences.unsubscribeLocalNotification(id)` *macOS*
 
 * `id` Integer
 
 `unsubscribeNotification` と同じですが、`NSNotificationCenter` から監視者を削除します。
+
+### `systemPreferences.unsubscribeWorkspaceNotification(id)` *macOS*
+
+* `id` Integer
+
+`unsubscribeNotification` と同じですが、`NSWorkspace.sharedWorkspace.notificationCenter` から監視者を削除します。
 
 ### `systemPreferences.registerDefaults(defaults)` *macOS*
 
@@ -122,7 +144,7 @@ console.log(systemPreferences.isDarkMode())
 ### `systemPreferences.setUserDefault(key, type, value)` *macOS*
 
 * `key` String
-* `type` String - [`getUserDefault`][#systempreferencesgetuserdefaultkey-type-macos] を参照してください。
+* `type` String - [`getUserDefault`](#systempreferencesgetuserdefaultkey-type-macos) を参照してください。
 * `value` String
 
 `NSUserDefaults` 内の `key` の値を設定します。

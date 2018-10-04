@@ -42,3 +42,30 @@ app.on('ready', () => {
 ### イベント: 'shutdown' *Linux* *macOS*
 
 システムが再起動またはシャットダウンしようとしているときに発生します。 イベントハンドラが `e.preventDefault()` を呼び出した場合、Electron は正常にアプリを終了するためにシステムのシャットダウンの遅延を試みます。 `e.preventDefault()` が呼ばれた場合、出来る限り `app.quit()` のようなものを呼ぶのと同じようにアプリを終了します。
+
+### イベント: 'lock-screen' *macOS* *Windows*
+
+システムがスクリーンをロックしようとしているときに発生します。
+
+### イベント: 'unlock-screen' *macOS* *Windows*
+
+システムスクリーンがアンロックされたときに発行されます。
+
+## メソッド
+
+`powerMonitor` モジュールには以下のメソッドがあります。
+
+#### `powerMonitor.querySystemIdleState(idleThreshold, callback)`
+
+* `idleThreshold` Integer
+* `callback` Function 
+  * `idleState` String - `active`, `idle`, `locked`, `unknown` にできます。
+
+システムのアイドル状態を計算します。 `idleThreshold` は、アイドルとみなされるまでの時間 (秒) です。 `callback` はいくつかのシステムでは同期的に呼ばれ、`idleState` 引数はシステムの状態を表します。 `locked` はサポートしているシステムでのみ利用可能です。
+
+#### `powerMonitor.querySystemIdleTime(callback)`
+
+* `callback` Function 
+  * `idleTime` Integer - アイドルしている秒
+
+システムのアイドル時間を計算します。

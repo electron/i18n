@@ -132,7 +132,7 @@ The  Halaman Visibilitas API </ 0> bekerja sebagai berikut:</p>
     * `disableAutoHideCursor` Boolean (opsional) - Apakah akan menyembunyikan kursor saat mengetik. Defaultnya adalah `palsu`.
     * `autoHideMenuBar` Boolean (opsional) - Auto menyembunyikan bilah menu kecuali `Alt` kunci ditekan Defaultnya adalah `palsu`.
     * `enableLargerThanScreen` Boolean (opsional) - Aktifkan jendela yang akan diubah ukurannya lebih besar. dari layar Defaultnya adalah `palsu`.
-    * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported). Default adalah `#FFF` (putih).
+    * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported). Default adalah `#FFF` (putih). If `transparent` is set to `true`, only values with transparent (`#00-------`) or opaque (`#FF-----`) alpha values are respected.
     * `hasShadow` Boolean (opsional) - Apakah jendela seharusnya memiliki bayangan. Hanya ini diimplementasikan di macos Defaultnya adalah `benar`.
     * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
     * `Tema gelap` Boolean (opsional) - Pasukan menggunakan tema gelap untuk jendela, hanya bekerja beberapa lingkungan desktop GTK3. Defaultnya adalah `false`.
@@ -175,8 +175,8 @@ Konteks | Permintaan Konteks. Jika diset ke <code> false </ 0>, tidak dapat meng
       * `experimentalFeatures` Boolean (opsional) - Mengaktifkan fitur eksperimental Chromium. Defaultnya adalah `false`.
       * `experimentalCanvasFeatures` Boolean (tangan) - Memungkinkan eksperimental Chromium fitur kanvas Defaultnya adalah `false`.
       * `scrollBounce` Boolean (opsional) - Mengaktifkan efek gulir gips (karet banding) macos Defaultnya adalah `false`.
-      * `blinkFeatures` String (opsional) - Daftar string fitur yang dipisahkan oleh `,`, seperti `CSSVariables, KeyboardEventKey` untuk mengaktifkannya. Daftar lengkap fitur yang didukung string dapat ditemukan di [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/runtime_enabled_features.json5?l=70) mengajukan.
-      * `disableBlinkFeatures` String (opsional) - Daftar string fitur yang dipisahkan oleh `,`, seperti ` CSSVariables, KeyboardEventKey` untuk menonaktifkannya. Daftar lengkap didukung string fitur dapat ditemukan di [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/WebKit/Source/platform/runtime_enabled_features.json5?l=70) file.
+      * `enableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to enable. Daftar lengkap fitur yang didukung string dapat ditemukan di [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) mengajukan.
+      * `disableBlinkFeatures` String (opsional) - Daftar string fitur yang dipisahkan oleh `,`, seperti ` CSSVariables, KeyboardEventKey` untuk menonaktifkannya. Daftar lengkap didukung string fitur dapat ditemukan di [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) file.
       * `defaultFontFamily` Object (optional) - Menetapkan font default untuk font-family. 
         * `standar` String (opsional) - Default ke `Times New Roman`.
         * `serif` String (opsional) - Default ke `Times New Roman`.
@@ -189,14 +189,17 @@ Konteks | Permintaan Konteks. Jika diset ke <code> false </ 0>, tidak dapat meng
       * `minimumFontSize` Integer (opsional) - Default ke `0`.
       * `defaultEncoding` String (opsional) - Default ke `ISO-8859-1`.
       * `backgroundThrottling` Boolean (opsional) - Apakah akan mencekik animasi dan timer? Saat halaman menjadi background. This also affects the [Page Visibility API](#page-visibility). Default ke ` true </ 0> .</li>
-<li><code> offscreen </ 0>  Boolean (opsional) - Apakah akan mengaktifkan rendering offscreen untuk jendela browser. Default ke <code> false </ 0>. Lihat
+<li><code> offscreen </ 0>  Boolean (opsional) - Apakah akan mengaktifkan rendering offscreen untuk jendela browser. Default ke <code> false </ 0> . Lihat
  tutorial rendering <a href="../tutorial/offscreen-rendering.md"> offscreen </ 0> untuk lebih jelasnya.</li>
 <li><code> contextIsolation </ 0>  Boolean (opsional) - Apakah akan menjalankan API Elektron dan skrip <code> preload </ 0> yang ditentukan dalam konteks JavaScript yang terpisah . Default ke <code> false </ 0> . Konteks script <code> preload ` berjalan masih akan memiliki akses penuh ke jendela ` document `dan` window` namun akan menggunakan set sendiri JavaScript builtins ( `Array`, `Objek`, `JSON`, dll.) Dan akan diisolasi dari perubahan yang dilakukan pada lingkungan global oleh laman yang dimuat. The Electron API hanya akan tersedia di ` preload </ 0> naskah dan bukan halaman dimuat. Opsi ini harus digunakan saat memuat konten remote yang berpotensi tidak tepercaya untuk memastikan konten yang dimuat tidak dapat merusak skrip <code> preload </ 0> dan setiap API Elektron yang digunakan.
 Opsi ini menggunakan teknik yang sama yang digunakan oleh <a href="https://developer.chrome.com/extensions/content_scripts#execution-environment"> Chrome Content Scripts </ 0> .
 Anda dapat mengakses konteks ini di alat dev dengan memilih entri ' Elektron Isolated Context' di kotak kombo di bagian atas tab Konsol. <strong> Catatan: </ 0> Ini pilihan saat ini eksperimental dan dapat berubah atau dihapus di masa Elektron rilis.</li>
 <li><code>nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. Defaults to `false`. **Note:** This option is currently experimental.
       * ` webviewTag ` Boolean (opsional) - Apakah untuk mengaktifkan[`<webview>`tag](webview-tag.md). Default untuk nilai ` nodeIntegration ` option . ** Catatan: ** ` preload ` Script dikonfigurasi untuk `<webview>` akan memiliki simpul integrasi diaktifkan ketika dieksekusi sehingga Anda harus memastikan remote / konten yang tidak dipercaya tidak mampu menciptakan `<webview>` tag dengan mungkin ` preload ` script. Anda dapat menggunakan `akan melampirkan tampilan web` acara di [webContents](web-contents.md) untuk mengupas dengan` preload` naskah dan untuk memvalidasi atau mengubah `<webview>` 's pengaturan awal.
-      * `additionArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app. Useful for passing small bits of data down to renderer process preload scripts.
+      * `additionalArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app. Useful for passing small bits of data down to renderer process preload scripts.
+      * `safeDialogs` Boolean (optional) - Whether to enable browser style consecutive dialog protection. Default is `false`.
+      * `safeDialogsMessage` String (optional) - The message to display when consecutive dialog protection is triggered. If not defined the default message would be used, note that currently the default message is in English and not localized.
+      * `navigateOnDragDrop` Boolean (optional) - Whether dragging and dropping a file or link onto the page causes a navigation. Default is `false`.
   
   When setting minimum or maximum window size with `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, it only constrains the users. Ini tidak akan mencegah Anda melewati ukuran yang tidak mengikuti batasan ukuran pada ` setBounds `/`setSize` atau ke konstruktor `BrowserWindow`.
   
@@ -252,7 +255,7 @@ akan membatalkan penutupan.</p>
 }
 ``</pre> 
   
-  ***Note**: There is a subtle difference between the behaviors of `window.onbeforeunload = handler` and `window.addEventListener('beforeunload', handler)`. It is recommended to always set the `event.returnValue` explicitly, instead of just returning a value, as the former works more consistently within Electron.*
+  ***Note**: There is a subtle difference between the behaviors of `window.onbeforeunload = handler` and `window.addEventListener('beforeunload', handler)`. It is recommended to always set the `event.returnValue` explicitly, instead of only returning a value, as the former works more consistently within Electron.*
   
   #### Acara : 'ditutup'
   
@@ -314,35 +317,33 @@ akan membatalkan penutupan.</p>
   
   Emitted saat jendela sedang dipindahkan ke posisi baru.
   
-  ** Catatan </ 0> : Pada macOS , acara ini hanya alias ` pindah </ 1> .</p>
-
-<h4>Acara : 'pindah' <em> macOS </ 0></h4>
-
-<p>Emitted sekali saat jendela dipindahkan ke posisi baru.</p>
-
-<h4>Acara : 'enter-full-screen'</h4>
-
-<p>Emitted saat jendela memasuki keadaan layar penuh.</p>
-
-<h4>Acara : 'tinggalkan layar penuh'</h4>
-
-<p>Emitted saat jendela meninggalkan keadaan layar-penuh.</p>
-
-<h4>Acara : 'enter-html-full-screen'</h4>
-
-<p>Emitted saat jendela memasuki status layar-penuh yang dipicu oleh HTML API.</p>
-
-<h4>Acara : 'leave-html-full-screen'</h4>
-
-<p>Emitted saat jendela meninggalkan status layar-penuh yang dipicu oleh HTML API.</p>
-
-<h4>Event : 'app-command' <em> Windows </ 0></h4>
-
-<p>Pengembalian:</p>
-
-<ul>
-<li><code>acara` Acara</li> 
+  **Note**: On macOS this event is an alias of `moved`.
   
+  #### Acara : 'pindah' * macOS </ 0></h4> 
+  
+  Emitted sekali saat jendela dipindahkan ke posisi baru.
+  
+  #### Acara : 'enter-full-screen'
+  
+  Emitted saat jendela memasuki keadaan layar penuh.
+  
+  #### Acara : 'tinggalkan layar penuh'
+  
+  Emitted saat jendela meninggalkan keadaan layar-penuh.
+  
+  #### Acara : 'enter-html-full-screen'
+  
+  Emitted saat jendela memasuki status layar-penuh yang dipicu oleh HTML API.
+  
+  #### Acara : 'leave-html-full-screen'
+  
+  Emitted saat jendela meninggalkan status layar-penuh yang dipicu oleh HTML API.
+  
+  #### Event : 'app-command' * Windows </ 0></h4> 
+  
+  Pengembalian:
+  
+  * `acara` Acara
   * ` perintah </ 0>  String</li>
 </ul>
 
@@ -402,7 +403,7 @@ misal <code> APPCOMMAND_BROWSER_BACKWARD </ 0> dipancarkan sebagai <code> browse
       
       #### `BrowserWindow.getFocusedWindow ()`
       
-      Mengembalikan ` BrowserWindow ` - Jendela yang difokuskan pada aplikasi ini, jika tidak mengembalikan ` null `.
+      Returns `BrowserWindow | null` - The window that is focused in this application, otherwise returns `null`.
       
       #### `BrowserWindow.fromWebContents (webContents)`
       
@@ -510,15 +511,15 @@ misal <code> APPCOMMAND_BROWSER_BACKWARD </ 0> dipancarkan sebagai <code> browse
               
               Angkatan menutup jendela, ` membongkar </ 0> dan <code> beforeunload </ 0>  event tidak akan dipancarkan untuk halaman web, dan <code> dekat </ 0>  acara juga tidak akan dipancarkan untuk jendela ini, tetapi menjamin <code> ditutup </ 0>  acara akan dipancarkan.</p>
 
-<h4><code>win.close ()`</h4> 
+<h4><code>win.close()`</h4> 
               
               Cobalah untuk menutup jendela. Ini memiliki efek yang sama dengan pengguna yang secara manual mengklik tombol tutup jendela. Halaman web bisa membatalkan close sekalipun. Lihat  acara tutup </ 0> .</p> 
               
-              #### `win.focus ()`
+              #### `win.focus()`
               
               Berfokus pada jendela.
               
-              #### `win.blur ()`
+              #### `win.blur()`
               
               Berfokus pada jendela.
               
@@ -584,7 +585,7 @@ misal <code> APPCOMMAND_BROWSER_BACKWARD </ 0> dipancarkan sebagai <code> browse
               
               Mengembalikan ` Boolean </ 0> - Apakah jendela dalam mode layar penuh.</p>
 
-<h4><code>win.setSimpleFullScreen(flag)` *macOS*</h4> 
+<h4><code>win.setSimpleFullScreen(flag)` * macos*</h4> 
               
               * `bendera` Boolean
               
@@ -592,9 +593,9 @@ misal <code> APPCOMMAND_BROWSER_BACKWARD </ 0> dipancarkan sebagai <code> browse
               
               Simple fullscreen mode emulates the native fullscreen behavior found in versions of Mac OS X prior to Lion (10.7).
               
-              #### `win.isSimpleFullScreen()` *macOS*
-              
-              Returns `Boolean` - Whether the window is in simple (pre-Lion) fullscreen mode.
+              #### ` win.isSimpleFullScreen () </ 0>  <em> macos </ 1></h4>
+
+<p>Returns <code>Boolean` - Whether the window is in simple (pre-Lion) fullscreen mode.</p> 
               
               #### ` win.setAspectRatio (aspectRatio [, extraSize]) </ 0>  <em> macos </ 1></h4>
 
@@ -606,9 +607,12 @@ misal <code> APPCOMMAND_BROWSER_BACKWARD </ 0> dipancarkan sebagai <code> browse
 <p>Ini akan membuat jendela menjaga rasio aspek. Ukuran ekstra memungkinkan pengembang memiliki ruang, ditentukan dalam piksel, tidak termasuk dalam perhitungan rasio aspek. API ini sudah memperhitungkan perbedaan antara ukuran jendela dan ukuran isinya.</p>
 
 <p>Pertimbangkan jendela normal dengan pemutar video HD dan kontrol yang terkait.
-Mungkin ada 15 piksel kontrol di tepi kiri, 25 piksel kontrol di tepi kanan dan 50 piksel kontrol di bawah pemutar. Untuk mempertahankan rasio aspek 16: 9 (rasio aspek standar untuk HD @ 1920x1080) di dalam pemutar itu sendiri, kami akan memanggil fungsi ini dengan argumen 16/9 dan [40, 50]. Argumen kedua tidak peduli di mana lebar dan tinggi ekstra berada dalam tampilan konten--hanya isinya. Tentukan area lebar dan tinggi ekstra yang Anda miliki dalam keseluruhan tampilan konten.</p>
+Mungkin ada 15 piksel kontrol di tepi kiri, 25 piksel kontrol di tepi kanan dan 50 piksel kontrol di bawah pemutar. Untuk mempertahankan rasio aspek 16: 9 (rasio aspek standar untuk HD @ 1920x1080) di dalam pemutar itu sendiri, kami akan memanggil fungsi ini dengan argumen 16/9 dan [40, 50]. Argumen kedua tidak peduli di mana lebar dan tinggi ekstra berada dalam tampilan konten--hanya isinya. Sum any extra width and
+height areas you have within the overall content view.</p>
 
-<h4><code> win.previewFile (path [, displayName]) </ 0>  <em> macos </ 1></h4>
+<p>Calling this function with a value of <code>0` will remove any previously set aspect ratios.</p> 
+              
+              #### ` win.previewFile (path [, displayName]) </ 0>  <em> macos </ 1></h4>
 
 <ul>
 <li><code> path </ 0>  String - Path absolut ke file untuk dipratinjau dengan QuickLook. Hal ini penting karena Quick Look menggunakan nama file dan ekstensi file pada path untuk menentukan jenis konten file yang akan dibuka.</li>
@@ -779,6 +783,10 @@ Mungkin ada 15 piksel kontrol di tepi kiri, 25 piksel kontrol di tepi kanan dan 
                       
                       Kembali `Boolean` - Apakah jendela selalu di atas jendela lainnya.
                       
+                      #### `win.moveTop()` *macOS* *Windows*
+                      
+                      Moves window to top(z-order) regardless of focus
+                      
                       #### `win.center()`
                       
                       Memindahkan jendela ke bagian tengah layar.
@@ -797,7 +805,7 @@ Mungkin ada 15 piksel kontrol di tepi kiri, 25 piksel kontrol di tepi kanan dan 
                       
                       #### `win.setTitle(title)`
                       
-                      * ` judul </ 0> String</li>
+                      * ` judul</ 0>  String</li>
 </ul>
 
 <p>Perubahan judul jendela asli <code>judul`.</p> 
@@ -915,10 +923,10 @@ bar will become gray when set to <code>true`.</p>
                               
                               * ` url </ 0> String</li>
 <li><code>pilihan` Objek (opsional) 
-                                * ` httpReferrer </ 0>  String (opsional) - url Referrer HTTP.</li>
-<li><code>userAgent` String (opsional) - agen pengguna berasal permintaan.
-                                * ` extraHeaders ` String (opsional) - Header ekstra yang dipisahkan oleh " \n "
-                                * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
+                                * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
+                                * ` userAgent </ 0>  String (opsional) - Agen pengguna yang berasal dari permintaan.</li>
+<li><code>extraHeaders` String (opsional) - header tambahan yang dipisahkan oleh "\n"
+                                * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
                                 * ` baseURLForDataURL </ 0>  String (opsional) - URL dasar (dengan pemisah jalur trailing) untuk file yang akan dimuat oleh url data. Hal ini diperlukan hanya jika ditentukan <code>url` data url dan perlu memuat file lainnya.
                               
                               Sama seperti ` webContents.loadURL (url [, options]) `.
@@ -1005,6 +1013,12 @@ win.loadURL(url)
                               #### `win.getOpacity()` *Windows* *macOS*
                               
                               Returns `Number` - between 0.0 (fully transparent) and 1.0 (fully opaque)
+                              
+                              #### `win.setShape(rects)` *Windows* *Linux* *Experimental*
+                              
+                              * `rects` [Rectangle[]](structures/rectangle.md) - Sets a shape on the window. Passing an empty list reverts the window to being rectangular.
+                              
+                              Setting a window shape determines the area within the window where the system permits drawing and user interaction. Outside of the given region, no pixels will be drawn and no mouse events will be registered. Mouse events outside of the region will not be received by that window, but will fall through to whatever is behind the window.
                               
                               #### `win.setThumbarButtons (tombol)` *Windows*
                               
@@ -1111,7 +1125,7 @@ win.loadURL(url)
                                   
                                   * `mengabaikan` Boolean
                                   * `pilihan` Objek (opsional) 
-                                    * `forward` Boolean (optional) *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Only used when `ignore` is true. If `ignore` is false, forwarding is always disabled regardless of this value.
+                                    * `forward` Boolean (optional) *macOS* *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Only used when `ignore` is true. If `ignore` is false, forwarding is always disabled regardless of this value.
                                   
                                   Membuat jendela mengabaikan semua kejadian mouse.
                                   
@@ -1163,15 +1177,17 @@ win.loadURL(url)
                                   
                                   Merges all windows into one window with multiple tabs when native tabs are enabled and there is more than one open window.
                                   
-                                  #### `win.moveTabToNewWindow()` *macOS*
-                                  
-                                  Moves the current tab into a new window if native tabs are enabled and there is more than one tab in the current window.
-                                  
-                                  #### `win.toggleTabBar()` *macOS*
-                                  
-                                  Toggles the visibility of the tab bar if native tabs are enabled and there is only one tab in the current window.
-                                  
-                                  #### `win.addTabbedWindow(browserWindow)` *macOS*
+                                  #### ` win.moveTabToNewWindow () </ 0>  <em> macos </ 1></h4>
+
+<p>Moves the current tab into a new window if native tabs are enabled and
+there is more than one tab in the current window.</p>
+
+<h4><code> win.toggleTabBar () </ 0>  <em> macos </ 1></h4>
+
+<p>Toggles the visibility of the tab bar if native tabs are enabled and
+there is only one tab in the current window.</p>
+
+<h4><code>win.addTabbedWindow(browserWindow)` * macos*
                                   
                                   * `browserWindow` BrowserWindow
                                   

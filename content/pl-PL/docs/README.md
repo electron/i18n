@@ -85,8 +85,8 @@ Te poszczególne poradniki rozwijają tematy omówione w przewodniku powyżej.
   * [Używanie Archiwów asar](tutorial/application-packaging.md#using-asar-archives)
   * [Ograniczenia](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Dodawanie rozpakowanych Plików do Archiwów asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
+* [Szczegółowo: Testowanie z Widevine CDM Plugin](tutorial/testing-widevine-cdm.md)
 * [Szczegółowo: Używanie Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [Szczegółowo: Korzystanie z Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
 * [Renderowanie Pozaekranowe](tutorial/offscreen-rendering.md)
 
 * * *

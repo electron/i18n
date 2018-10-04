@@ -69,7 +69,7 @@ win.show()
 
 ## Fenêtre non cliquable
 
-Pour créer une fenêtre non cliquable, c'est-à-dire faire en sorte que la fenêtre ignore tous les événements de la souris, vous pouvez appeler l'API [win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore) :
+Pour créer une fenêtre non cliquable, c'est-à-dire faire en sorte que la fenêtre ignore tous les événements de la souris, vous pouvez appeler l'API [win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore-options) :
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -115,7 +115,7 @@ button {
 }
 ```
 
-If you're setting just a custom titlebar as draggable, you also need to make all buttons in titlebar non-draggable.
+If you're only setting a custom titlebar as draggable, you also need to make all buttons in titlebar non-draggable.
 
 ## Sélection de texte
 

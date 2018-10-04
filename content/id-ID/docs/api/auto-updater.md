@@ -4,7 +4,7 @@
 
 Proses: [Main](../glossary.md#main-process)
 
-**Anda dapat menemukan petunjuk lebih lanjut mengenai penerapan pembaharuan ke dalam aplikasi anda [disini.](../tutorial/updates.md).**
+**See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
 
 ## Platform Notices
 
@@ -66,6 +66,12 @@ Emitted saat update telah didownload.
 
 `releaseName` hanya tersedia pada Windows.
 
+### Event: 'before-quit-for-update'
+
+This event is emitted after a user calls `quitAndInstall()`.
+
+When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
+
 ## Metode
 
 Objek `autoUpdater` memiliki metode berikut:
@@ -73,8 +79,8 @@ Objek `autoUpdater` memiliki metode berikut:
 ### `autoUpdater.setFeedURL(options)`
 
 * `pilihan` Objek 
-  * `url` String
-  * `headers` Object (optional) *macOS* - HTTP request headers.
+  * ` url </ 0> String</li>
+<li><code>headers` Object (optional) *macOS* - HTTP request headers.
   * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
 Menetapkan `url` dan menginisialisasi updater otomatis.
@@ -89,7 +95,7 @@ Meminta server apakah ada update. Anda harus menghubungi `setFeedURL` sebelumnya
 
 ### `autoUpdater.quitAndInstall()`
 
-Menjalankan ulang app dan menginstall pembaharuan setelah selesai di unduh. hanya di gunakan setelah sinyal `update-downloaded` telah di kirimkan.
+Aktifkan ulang aplikasi dan instal pembaruan setelah diunduh. Saya t seharusnya hanya dipanggil setelah `update-download` telah dipancarkan.
 
 Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
 

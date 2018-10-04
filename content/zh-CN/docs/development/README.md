@@ -11,7 +11,7 @@
 * [编码风格](coding-style.md)
 * [在 C++ 代码中使用 clang-format 工具](clang-format.md)
 * [构建系统概览](build-system-overview.md)
-* [构建步骤（macOS）](build-instructions-osx.md)
+* [构建步骤（macOS）](build-instructions-macos.md)
 * [构建步骤（Windows）](build-instructions-windows.md)
 * [构建步骤（Linux）](build-instructions-linux.md)
 * [Chromium 开发](chromium-development.md)

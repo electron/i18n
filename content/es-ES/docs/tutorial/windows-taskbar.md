@@ -1,10 +1,10 @@
 # Barra de tareas de Windows
 
-Electron tiene APIs para configurar el icono de la aplicación en la barra de tareas de Windows. Supported are the [creation of a `JumpList`](#jumplist), [custom thumbnails and toolbars](#thumbnail-toolbars), [icon overlays](#icon-overlays-in-taskbar), and the so-called ["Flash Frame" effect](#flash-frame), but Electron also uses the app's dock icon to implement cross-platform features like [recent documents](./recent-documents.md) and [application progress](./progress-bar.md).
+Electron tiene APIs para configurar el icono de la aplicación en la barra de tareas de Windows. Se soporta la [creación de `JumpList`](#jumplist), [miniaturas personalizadas y barras de herramientas](#thumbnail-toolbars), [encubrimiento de íconos](#icon-overlays-in-taskbar) y el efecto llamado ["Flash Frame"](#flash-frame), pero Electron también utiliza el icono del dock de la aplicación para implementar funciones multiplataforma como [documentos recientes](./recent-documents.md) y el [progreso de la aplicación](./progress-bar.md).
 
 ## JumpList
 
-Windows allows apps to define a custom context menu that shows up when users right-click the app's icon in the task bar. That context menu is called `JumpList`. You specify custom actions in the `Tasks` category of JumpList, as quoted from MSDN:
+Windows permite a las aplicaciones definir un menú contextual personalizado que aparece cuando los usuarios hacen clic con el botón derecho en el ícono de las aplicaciones en la barra de tareas. Ese menú contextual se llama `JumpList`. Especifique acciones personalizadas en la categoría `Tasks` de JumpList, como se cita en MSDN:
 
 > Las aplicaciones definen tareas basadas tanto en las características del programa como en las cosas claves que se espera que haga un usuario con ellas. Las tareas deben estar libres de contexto, en que la aplicación no necesita ejecutarse para que funcione. También deberían ser las acciones estadísticamente más comunes que un usuario normal llevaría a cabo en una aplicación, como redactar un mensaje de correo electrónico o abrir el calendario en un programa de correo, crear un nuevo documento en un procesador de texto, iniciar una aplicación en un determinado modo, o ejecuta uno de sus subcomandos. Una aplicación no debe saturar el menú con características avanzadas que los usuarios estándar no necesitarán o acciones únicas como el registro. No utilice tareas para artículos promocionales como actualizaciones u ofertas especiales.
 > 
@@ -32,7 +32,7 @@ app.setUserTasks([
 ])
 ```
 
-To clean your tasks list, call `app.setUserTasks` with an empty array:
+Para limpiar su lista de tareas, llame a `app.setUserTasks` con un arreglo vacío:
 
 ```javascript
 const { app } = require('electron')
@@ -47,7 +47,7 @@ En Windoes usted puede añadir una barra de tareas thumbnail con botones especí
 
 Para MSDN, está ilustrado:
 
-> This toolbar is the familiar standard toolbar common control. Tiene un máximo de siete botones. Cada botón de identificación, imagen, descripción y estado está definido en una estructura, la cual es pasada a la barra de tareas. La aplicación puede mostrar, habilitar, deshabilitar u ocultar botones de la barra de herramientas si es requerido por su estado actual.
+> Esta barra de herramientas es la barra de tareas estándar de control común. Tiene un máximo de siete botones. Cada botón de identificación, imagen, descripción y estado está definido en una estructura, la cual es pasada a la barra de tareas. La aplicación puede mostrar, habilitar, deshabilitar u ocultar botones de la barra de herramientas si es requerido por su estado actual.
 > 
 > Por ejemplo, el reproductor de Windows ofrece regularmente controles de transporte como play, pausa, silenciar y detener.
 
@@ -67,12 +67,12 @@ win.setThumbarButtons([
   {
     tooltip: 'button1',
     icon: path.join(__dirname, 'button1.png'),
-    click () { console.log('button1 clicked') }
+    click () { console.log('button1 clickeado') }
   }, {
     tooltip: 'button2',
     icon: path.join(__dirname, 'button2.png'),
     flags: ['enabled', 'dismissonclick'],
-    click () { console.log('button2 clicked.') }
+    click () { console.log('button2 clickeado.') }
   }
 ])
 ```
@@ -86,7 +86,7 @@ const win = new BrowserWindow()
 win.setThumbarButtons([])
 ```
 
-## Icon Overlays in Taskbar
+## Encubrimiento de íconos en la barra de tareas
 
 En Windows un botón de la barra de tareas puede usar un pequeño encubrimiento para mostrar el estatus de la aplicación, como es mencionado por la MSDN:
 
@@ -99,21 +99,21 @@ En Windows un botón de la barra de tareas puede usar un pequeño encubrimiento 
 Para configurar el encubrimiento de un ícono para una ventana tiene que usar el API [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows):
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
-win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
+win.setOverlayIcon('path/to/overlay.png', 'Descripción del overlay')
 ```
 
 ## Flash Frame
 
-On Windows you can highlight the taskbar button to get the user's attention. This is similar to bouncing the dock icon on macOS. From the MSDN reference documentation:
+En Windows, puede resaltar el botón de la barra de tareas para llamar la atención del usuario. Esto es similar al rebote del ícono en el dock de macOS. De la documentación de referencia de MSDN:
 
 > Por lo general, una ventana está iluminada para informar al usuario que la ventana requiere atención pero este no está concentrado en el teclado en el momento.
 
 Para iluminar el botón de la barra de tareas del buscador windows, usted puede usar el API [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag):
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)

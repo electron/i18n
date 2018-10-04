@@ -2,7 +2,7 @@
 
 > Create a group in the touch bar for native macOS applications
 
-Quá trình: [Main](../tutorial/quick-start.md#main-process)
+Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new TouchBarGroup(options)` *Experimental*
 

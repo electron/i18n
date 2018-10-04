@@ -31,7 +31,7 @@ npm が基本的な `package.json` ファイルを作るガイドをします。
 }
 ```
 
-**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does). もしこれがただのNodeアプリケーションならば、現在のパッケージを実行するように `node` に指示する `start` スクリプトを追加します。
+**注釈**: もし `main` フィールドが `package.json` 内に記載されていない場合、 Electron は (Node.js のように) `index.js` の読み込みを試みます。 もしこれがただのNodeアプリケーションならば、現在のパッケージを実行するように `node` に指示する `start` スクリプトを追加します。
 
 ```json
 {
@@ -75,14 +75,14 @@ Electron アプリは Node.js の開発にある原理や方法と同じもの�
 const electron = require('electron')
 ```
 
-`electron` オブジェクトは名前空間内の機能を公開します。 例として、`electron.app` を通じてアプリケーションのライフサイクルを管理したり、`electron.BrowserWindow` クラスを使用してウインドウを作成することができます。 A simple `main.js` file might wait for the application to be ready and open a window:
+`electron` オブジェクトは名前空間内の機能を公開します。 例として、`electron.app` を通じてアプリケーションのライフサイクルを管理したり、`electron.BrowserWindow` クラスを使用してウインドウを作成することができます。 この簡単な `main.js` ファイルは、アプリケーションの準備ができるまで待機してから、ウインドウを開くだけです。
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
   // ブラウザウインドウを作成
-  win = new BrowserWindow({width: 800, height: 600})
+  win = new BrowserWindow({ width: 800, height: 600 })
 
   // アプリの index.html を読み込む
   win.loadFile('index.html')
@@ -94,7 +94,7 @@ app.on('ready', createWindow)
 `main.js` は、ウインドウを作成し、アプリケーションが遭遇する全てのシステムイベントを処理する必要があります。 上記の例より完全なバージョンでは、ユーザがドック内のアプリアイコンをクリックすると、開発者向けツールが開いたり、ウインドウが閉じられたのを処理したり、macOSにおいてウインドウを再作成したりします。
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 // ウインドウオブジェクトのグローバル参照を保持してください。さもないと、そのウインドウは
 // JavaScript オブジェクトがガベージコレクションを行った時に自動的に閉じられます。
@@ -102,7 +102,7 @@ let win
 
 function createWindow () {
   // browser window を生成する
-  win = new BrowserWindow({width: 800, height: 600})
+  win = new BrowserWindow({ width: 800, height: 600 })
 
   // アプリの index.html を読み込む
   win.loadFile('index.html')
@@ -173,7 +173,7 @@ app.on('activate', () => {
 
 このチュートリアルのコードを [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) リポジトリからクローンして、実行してみてください。
 
-**注意**: これを実行するには[Git](https://git-scm.com)が必要です。
+**注意**: これを実行するには、[Git](https://git-scm.com) と [npm](https://www.npmjs.com/)が必要です。
 
 ```sh
 # リポジトリをクローン

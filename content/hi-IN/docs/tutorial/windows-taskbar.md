@@ -99,7 +99,7 @@ win.setThumbarButtons([])
 एक विंडो के लिए ओवरले आइकॉन सेट करने के लिए, आप [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) ऐपीआई का उपयोग कर सकते हैं:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 ```
@@ -113,7 +113,7 @@ On Windows you can highlight the taskbar button to get the user's attention. Thi
 ब्राउज़रविंडो टास्कबार बटन को फ़्लैश करने के लिए, आप [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) ऐपीआई का इस्तेमाल कर सकते हैं:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)

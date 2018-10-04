@@ -2,7 +2,7 @@
 
 > Use main process modules from the renderer process.
 
-Processo: [Renderer](../glossary.md#renderer-process)
+Processo: [Renderizador](../glossary.md#renderer-process)
 
 The `remote` module provides a simple way to do inter-process communication (IPC) between the renderer process (web page) and the main process.
 
@@ -14,7 +14,7 @@ let win = new BrowserWindow({width: 800, height: 600})
 win.loadURL('https://github.com')
 ```
 
-**Note:** For the reverse (access the renderer process from the main process), you can use [webContents.executeJavascript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback).
+**Note:** For the reverse (access the renderer process from the main process), you can use [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback).
 
 ## Remote Objects
 
@@ -131,6 +131,8 @@ const foo = require('electron').remote.require('./foo') // bar
 ### `remote.getCurrentWindow()`
 
 Returns [`BrowserWindow`](browser-window.md) - The window to which this web page belongs.
+
+**Note:** Do not use `removeAllListeners` on [`BrowserWindow`](browser-window.md). Use of this can remove all [`blur`](https://developer.mozilla.org/en-US/docs/Web/Events/blur) listeners, disable click events on touch bar buttons, and other unintended consequences.
 
 ### `remote.getCurrentWebContents()`
 

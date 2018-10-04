@@ -16,7 +16,7 @@ Chromium主要的安全特征之一便是所有的blink渲染或者JavaScript代
 
 ## 示例
 
-要创建沙盒窗口, 只需将 ` 沙盒: true ` 传递到 ` webPreferences `:
+To create a sandboxed window, pass `sandbox: true` to `webPreferences`:
 
 ```js
 let win
@@ -53,7 +53,7 @@ electron --enable-sandbox app.js
 
 如果启用了 `--enable-sandbox`, 则无法创建正常的电子窗口, 因此不能只为某些渲染激活 OS 沙盒。
 
-如果需要在一个应用程序中混合使用沙箱和非沙箱渲染, 只需省略 `-enable-sandbox ` 参数即可。 如果没有此参数, 使用 ` sandbox: true ` 创建的窗口仍将禁用 node. js 并仅能通过 IPC 进行通信, 这本身已经从安全视角获得了好处。
+If you need to mix sandboxed and non-sandboxed renderers in one application, omit the `--enable-sandbox` argument. 如果没有此参数, 使用 ` sandbox: true ` 创建的窗口仍将禁用 node. js 并仅能通过 IPC 进行通信, 这本身已经从安全视角获得了好处。
 
 ## 预加载
 

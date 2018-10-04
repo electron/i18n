@@ -31,7 +31,7 @@ Hay varios cambios principales desde nuestra estrategia 1.x expresada abajo. Cad
 1. Uso estricto de semver
 2. Introducción de las etiquetas de semver-compliant `-beta`
 3. Introducción a [mensajes de compromiso convencionales](https://conventionalcommits.org/)
-4. Well-defined stabilization branches
+4. Ramas estabilizadoras bien definidas
 5. La rama `master` no tiene versiones: solo las ramas de estabilización contienen información de las versiones
 
 Reseñamos en detalle cómo funcionan las ramas git, cómo funcionan las etiquetas de npm, qué es lo que los desarrolladores esperan ver, y como se pueden portar cambios a versiones anteriores.
@@ -75,10 +75,18 @@ Sin importar lo que elija, periódicamente tendrá que golpear su versión en su
 
 El proceso es el siguiente:
 
-1. Todos los lanzamientos de linea mayores o menores empiezan con una etiqueta `-beta.N` para `N >= 1`. En ese punto, el conjunto de características está **bloqueado**. Esa línea de lanzamientos no admite características posteriores, y se concentra solo en seguridad y estabilidad. e.g. `2.0.0-beta.1`.
-2. Arreglo errores, regresión de estos, y parches de seguridad pueden ser admitidos. Al hacerlo, una nueva beta es lanzada `N`. por ejemplo. `2.0.0-beta.2`
-3. Si una versión beta en particular es *generalmente considerada* como estable, será relanzada como una estructura estable, cambiando solamente la información de la versión. Por ejemplo. `2.0.0`.
-4. Si correcciones de errores futuros o parches de seguridad necesitan ser hechos una vez que el lanzamiento es estable, estos son aplicados y la versión *Con el parche* es incrementada según: ejemplo `2.0.1`.
+1. All new major and minor releases lines begin with a beta series indicated by semver prerelease tags of `beta.N`, p.e. `2.0.0-beta.1`. Después de la primera beta, las versiones beta que la sigan deben cumplir con las siguientes condiciones: 
+    1. The change is backwards API-compatible (deprecations are allowed)
+    2. The risk to meeting our stability timeline must be low.
+2. If allowed changes need to be made once a release is beta, they are applied and the prerelease tag is incremented, e.g. `2.0.0-beta.2`.
+3. If a particular beta release is *generally regarded* as stable, it will be re-released as a stable build, changing only the version information. p.e. `2.0.0`. After the first stable, all changes must be backwards-compatible bug or security fixes.
+4. If future bug fixes or security patches need to be made once a release is stable, they are applied and the *patch* version is incremented e.g. `2.0.1`.
+
+Specifically, the above means:
+
+1. Admitting non-breaking-API changes early in the beta cycle is okay, even if those changes have the potential to cause moderate side-affects
+2. Admitting feature-flagged changes, that do not otherwise alter existing code paths, at most points in the beta cycle is okay. Users can explicitly enable those flags in their apps.
+3. Admitting features of any sort very late in the beta cycle is 
 
 For each major and minor bump, you should expect to see something like the following:
 
@@ -117,12 +125,7 @@ Banderas de características son prácticas comunes en Chromium, y son bien esta
 
 - it is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
 - segmenta completamente nuevos y viejos rutas de códigos; refactorizando viejo código para soportar nuevas características *viola* el contrato de las banderas de características
-- banderas de características son removidas eventualmente después de que la rama blanda es absorbida
-
-Nosotros reconciliamos el código con bandera con nuestras estrategias de versiones como sigue:
-
-1. no consideramos iteración en códigos de características con bandera en las ramas de estabilidad: hasta el uso juicioso de algunas características con bandera no está libre de riesgo
-2. hay que romper el contracto API en el código de características con bandera sin golpear las versiones mayores. Código con bandera no se adhiere a los semver
+- feature flags are eventually removed after the feature is released
 
 # Semantic Commits
 

@@ -80,7 +80,7 @@ This is an overview of the steps needed to upgrade Chromium in Electron.
 - Disable all Electron features, fix the build, then enable them one by one
 - Add more build flags to disable features in build-time.
 
-When a Debug build of Electron succeeds, run the tests: `$ ./script/test.py` Fix the failing tests.
+When a Debug build of Electron succeeds, run the tests: `$ npm run test` Fix the failing tests.
 
 Follow all the steps above to fix Electron code on all supported platforms.
 
@@ -105,23 +105,23 @@ Vous pouvez vérifier le support d'Electron pour plusieurs compilations `ffmpeg`
 <html>
   <head>
     <meta charset="utf-8">
-    <title>Verification des codecs propriétaires</title>
+    <title>Proprietary Codec Check</title>
   </head>
   <body>
-    <p>Vérifie si Electron utilise des codecs propriétaires en chargeant la vidéo : http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4</p>
+    <p>Checking if Electron is using proprietary codecs by loading video from http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4</p>
     <p id="outcome"></p>
     <video style="display:none" src="http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4" autoplay></video>
     <script>
       const video = document.querySelector('video')
-      video.addEventListener('error', ({target}) => {
+      video.addEventListener('error', ({ target }) => {
         if (target.error.code === target.error.MEDIA_ERR_SRC_NOT_SUPPORTED) {
-          document.querySelector('#outcome').textContent = 'N'utilise pas de codecs propriétaires, source d'émission vidéo non prise en charge.'
+          document.querySelector('#outcome').textContent = 'Not using proprietary codecs, video emitted source not supported error event.'
         } else {
-          document.querySelector('#outcome').textContent = `Erreur non expectée: ${target.error.code}`
+          document.querySelector('#outcome').textContent = `Unexpected error: ${target.error.code}`
         }
       })
       video.addEventListener('playing', () => {
-        document.querySelector('#outcome').textContent = 'À l'aide de codecs propriétaires, la vidéo a commencé la lecture.'
+        document.querySelector('#outcome').textContent = 'Using proprietary codecs, video started playing.'
       })
     </script>
   </body>

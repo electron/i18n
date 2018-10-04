@@ -196,7 +196,7 @@ Note, if you need to run `--validateRelease` more than once to check the assets,
 
 ## Ilathala ang release
 
-Kapag ang pagsasama ay matagumpay na natapos. paganahin ang `release` script sa pamamagitan ng `npm run release` upang tapusin ang proseso ng release. Ang iskrip na ito ay gagawin ang mga sumusunod: 1. Itayo ang proyekto para patunayan na tama ang numero ng bersyon na inilalabas. 2. I download ang binaries at i-generate ang node ng headers at ang .lib linker gamitin sa window sa pamamagitan ng node-gyp para mabuo ang negatibong modyul. 3. Gumawa at i-upload ang SHASUMS na mga file na inipon sa S3 para sa mga node na file. 4. Gawin at i-upload ang SHASUMS256.txt file na inipon sa GitHub na lathala. 5. Patunayan na ang lahat ng kinakailangang mga file na ay nasa GitHub at S3 at may mga tamang checksum gaya ng tinutukoy sa SHASUMS na mga file. 6. Ilathala ang release sa GitHub
+Kapag ang pagsasama ay matagumpay na natapos. paganahin ang `release` script sa pamamagitan ng `npm run release` upang tapusin ang proseso ng release. Ang iskrip na ito ay gagawin ang mga sumusunod: 1. Gumawa ng proyekto para patunayan na tama ang numero ng bersyon na nailabas na. 2. I-download ang mga binary at lumikha ng mga node header at ang .lib na linker na ginamit sa Windows sa pamamagitan ng node-gyp para mabuo ang mga native na modyul. 3. Gumawa at i-upload ang SHASUMS files na nakatabi sa S3 para sa node files. 4. Gumawa at i-upload ang SHASUMS256.txt file na nakatabi sa GitHub release. 5. Patunayan na ang lahat ng kinakailangang mga file na ay nasa GitHub at S3 at may mga tamang checksum gaya ng tinutukoy sa SHASUMS na mga file. 6. Ilathala ang release sa GitHub
 
 ## Ilathala sa npm
 
@@ -209,20 +209,20 @@ Removing old .npmrc (default)
 Activating .npmrc "electron"
 ```
 
-The Electron account's credentials are kept by GitHub. "Electron - NPM" for the URL "https://www.npmjs.com/login".
+The Electron account's credentials are kept by GitHub in a password manager. You'll also need to have access to an 2FA authenticator app with the appropriate OTP generator code to log in.
 
 ```sh
 $ npm login
-Username: electron
-Password:
+Username: electron-nightly
+Password: <This can be found under NPM Electron Nightly on LastPass>
 Email: (this IS public) electron@github.com
 ```
 
-Publish the release to npm.
+Publish the release to npm. Before running this you'll need to have set `ELECTRON_NPM_OTP` as an environment variable using a code from the aforementioned 2FA authenticator app.
 
 ```sh
 $ npm whoami
-electron
+electron-nightly
 $ npm run publish-to-npm
 ```
 
@@ -279,22 +279,31 @@ node script/ci-release-build.js --ci=AppVeyor --ghRelease --job=electron-x64 TAR
 
 ## Ayusin ang mga nawawalang binary ng isang lathala nang mano-mano
 
-Sa kaso ng isang nasirang release na may sirang CI machines, maaari nating muling i-upload ang binary para sa isang nailathalang release.
+Sa kaso ng isang nasirang release na may sirang CI na mga makina, maaari nating muling i-upload ang mga binary para sa isang nailathalang release.
 
 Ang unang hakbang ay pumunta sa [Mga Lathala](https://github.com/electron/electron/releases) na pahina at tanggalin ang nasirang mga binary kasama ang `SHASUMS256.txt` na checksum file.
 
-Pagkatapos ay imanu-manong gawin ang pag-distribusyon para sa bawat platform at i-upload ang mga ito:
+Pagkatapos ay manu-manong gawin ang distribusyon para sa bawat plataporma at i-upload ang mga ito:
 
 ```sh
 # Tingnan ang bersyon na muling i-upload.
-git checkout vTHE.RELEASE.VERSION # gawin ang release build, pagtukoy ng isang target sa arkitektura.
-./script/bootstrap.py --target_arch [arm|x64|ia32]
-./script/build.py -c R
-./script/create-dist.py
+git checkout vX.Y.Z
 
-#Malinaw na pinayagan i-overwriting ang nailathala na release.
+# Create release build
+gn gen out/Release --args="import(\"//electron/build/args/release.gn\") $GN_EXTRA_ARGS"
+
+# To compile for specific arch, instead set
+gn gen out/Release-<TARGET_ARCH> --args='import(\"//electron/build/args/release.gn\") target_cpu = "[arm|x64|ia32]"'
+
+# Build by running ninja with the electron target
+ninja -C out/Release electron
+ninja -C out/Release electron:dist_zip
+
+# Explicitly allow overwriting a published release.
 ./script/upload.py --overwrite
 ```
+
+Allowable values for [target_cpu](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values) and [target_os](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values).
 
 Matapos muling pag-upload ang lahat distribusyon, ilathala muli upang mag-upload ang checksum:
 

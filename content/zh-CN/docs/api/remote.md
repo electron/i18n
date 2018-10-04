@@ -15,7 +15,7 @@ let win = new BrowserWindow({width: 800, height: 600})
 win.loadURL('https://github.com')
 ```
 
-** Note: **相反 (从主进程访问渲染进程), 你可以使用 [ webContents. executeJavascript ](web-contents.md#contentsexecutejavascriptcode-usergesture-callback)。
+**Note:** For the reverse (access the renderer process from the main process), you can use [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback).
 
 ## 远程对象（Remote Objects）
 
@@ -132,6 +132,8 @@ const foo = require('electron').remote.require('./foo') // bar
 ### `remote.getCurrentWindow()`
 
 返回 [`BrowserWindow`](browser-window.md) - 此网页所属的窗口
+
+**Note:** Do not use `removeAllListeners` on [`BrowserWindow`](browser-window.md). Use of this can remove all [`blur`](https://developer.mozilla.org/en-US/docs/Web/Events/blur) listeners, disable click events on touch bar buttons, and other unintended consequences.
 
 ### `remote.getCurrentWebContents()`
 

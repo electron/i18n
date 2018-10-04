@@ -1,6 +1,6 @@
 # 分发应用
 
-为了使用 Electron 部署你的应用程序，你需要下载 Electron 的 [prebuilt binaries](https://github.com/electron/electron/releases)。 接下来，你存放应用程序的文件夹需要叫做 `app` 并且需要放在 Electron 的 资源文件夹下，如下面的示例所示。 请注意，在下面的示例中，Electron的预制二进制文件的位置用`electron /`表示。
+为了使用 Electron 部署你的应用程序，你需要下载 Electron 的 [prebuilt binaries](https://github.com/electron/electron/releases)。 接下来，你存放应用程序的文件夹需要叫做 `app` 并且需要放在 Electron 的 资源文件夹下，如下面的示例所示。 请注意，在下面的示例中，Electron的预制二进制文件的位置用`electron/`表示。
 
 在 macOS 中:
 
@@ -69,14 +69,6 @@ MyApp.app/Contents
 ├── MacOS/
 │   └── MyApp
 └── Frameworks/
-    ├── MyApp Helper EH.app
-    |   ├── Info.plist
-    |   └── MacOS/
-    |       └── MyApp Helper EH
-    ├── MyApp Helper NP.app
-    |   ├── Info.plist
-    |   └── MacOS/
-    |       └── MyApp Helper NP
     └── MyApp Helper.app
         ├── Info.plist
         └── MacOS/
@@ -97,7 +89,7 @@ MyApp.app/Contents
 
 ## 通过重编译源代码来进行重新定制
 
-通过修改产品名称并重编译源代码来更换 Electron 的名称也是可行的。 你需要修改 `atom.gyp` 文件并彻底重编译一次。
+It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to set the build argument corresponding to the product name (`electron_product_name = "YourProductName"`) in the `args.gn` file and rebuild.
 
 ### 创建一个自定义 Electron 分支
 
@@ -120,7 +112,7 @@ MyApp.app/Contents
 3. 设置以下环境变量：
 
 * `ELECTRON_GITHUB_TOKEN` - 一个在 GitHub 创建版本的 token
-* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload Node.js headers as well as symbols
+* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - 你将要上传的 Node.js 的 headers 以及 symbols 的位置
 * `ELECTRON_RELEASE` - 设置为 `true`，上传部分将运行，不设置 和 `surf-build` 只是做 CI-type 的检查，它只在每次发起拉取请求时运行。
 * `CI` - 设置为 `true` ，否则无效
 * `GITHUB_TOKEN` - 设置为与 `ELECTRON_GITHUB_TOKEN` 相同

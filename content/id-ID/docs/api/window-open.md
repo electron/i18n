@@ -16,7 +16,13 @@ Yang baru dibuat ` BrowserWindow ` akan mewarisi pilihan jendela induk secara de
 
 Mengembalikan [` BrowserWindowProxy `](browser-window-proxy.md) - Membuat jendela baru dan mengembalikan sebuah instance dari kelas ` BrowserWindowProxy `.
 
-String `features` mengikuti format browser standar, namun masing-masing fitur harus berupa bidang `pilihan BrowserWindow`.
+String `features` mengikuti format browser standar, namun masing-masing fitur harus berupa bidang `pilihan BrowserWindow`. These are the features you can set via `features` string: `zoomFactor`, `nodeIntegration`, `preload`, `javascript`, `contextIsolation`, `webviewTag`.
+
+Sebagai contoh:
+
+```js
+window.open('https://github.com', '_blank', 'nodeIntegration=no')
+```
 
 **Catatan:**
 
@@ -25,10 +31,10 @@ String `features` mengikuti format browser standar, namun masing-masing fitur ha
 * JavaScript akan selalu dinonaktifkan di jendela `yang terbuka` jika dinonaktifkan pada jendela induk.
 * Fitur non-standar (yang tidak ditangani oleh Chromium atau Elektron) yang diberikan pada `fitur` akan diteruskan ke jendela baru ` webContent `baru` `event handler dalam argumen `tambahanFeatures`.
 
-### `window.opener.postMessage (pesan, targetOrigin)`
+### `window.opener.postMessage(message, targetOrigin)`
 
-* ` pesan </ 0> String</li>
-<li><code> targetOrigin </ 0> String</li>
+* `message` String
+* ` targetOrigin </ 0> String</li>
 </ul>
 
 <p>Mengirim pesan ke jendela induk dengan asal yang ditentukan atau <code>*` tanpa preferensi asal.</p> 

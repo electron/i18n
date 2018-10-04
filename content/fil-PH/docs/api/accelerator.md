@@ -2,7 +2,7 @@
 
 > Ipaliwanag ang mga shortcut ng keyboard.
 
-Ang aselerador ay mga String na maaaring naglalaman ng maramihang mga modifier at mga key code, na pinagsama sa pamamagitan ng `+` na character, at ginamit upang ipaliwanag ang mga shortcut ng keyboard sa kabuuan ng iyong aplikasyon.
+Accelerators are Strings that can contain multiple modifiers and a single key code, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
 
 Mga Halimbawa:
 

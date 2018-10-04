@@ -1,6 +1,6 @@
-# Developing Electron
+# Electron'u Geliştirmek
 
-These guides are intended for people working on the Electron project itself. For guides on Electron app development, see [/docs/README.md](../README.md#guides-and-tutorials).
+Bu rehberler Elecron projesinin kökü üzerinde çalışan kişiler içindir. Electon ile uygulama geliştirme rehberleri için [/docs/README.md](../README.md#guides-and-tutorials) kısmına göz atın.
 
 * [Davranış Kodu](../../CODE_OF_CONDUCT.md)
 * [Elektrona Katkıda Bulunmak](../../CONTRIBUTING.md)
@@ -11,12 +11,12 @@ These guides are intended for people working on the Electron project itself. For
 * [Kodlama Stili](coding-style.md)
 * [C++ Kodunda Clang-Format Kullanma](clang-format.md)
 * [Sistem Genel Bakışı Oluşturma](build-system-overview.md)
-* [İnşaa Talimatları (macOS)](build-instructions-osx.md)
+* [İnşaa Talimatları (macOS)](build-instructions-macos.md)
 * [İnşaa Talimatları (Windows)](build-instructions-windows.md)
 * [İnşaa Talimatları (Linux)](build-instructions-linux.md)
 * [Chromium Geliştirme](chromium-development.md)
 * [V8 Geliştirme](v8-development.md)
-* [Test Etme](testing.md)
+* [Test ediliyor](testing.md)
 * [Windowsta hata ayıklama](debug-instructions-windows.md)
 * [macOs'da Hata Ayıklama](debugging-instructions-macos.md)
 * [Hata Ayıklayıcıda Sembol Sunucusunu Kurma](setting-up-symbol-server.md)

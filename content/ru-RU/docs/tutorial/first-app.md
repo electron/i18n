@@ -21,7 +21,7 @@ your-app/
 npm init
 ```
 
-npm будет вести вас на протяжении создания базового `package.json` файла. Скрипт, указанный в поле `main`, является стартовым скриптом для вашего проиложения, который будет запускать весь процесс. Например, ваш файл `package.json` может выглядеть следующим образом:
+npm будет вести вас на протяжении создания базового `package.json` файла. Скрипт, указанный в поле `main`, является стартовым скриптом для вашего приложения, который будет запускать весь процесс. Например, ваш файл `package.json` может выглядеть следующим образом:
 
 ```json
 {
@@ -59,7 +59,7 @@ npm будет вести вас на протяжении создания ба
 
 ## Установка Electron
 
-Сейчас вам нужно будет установить сам `electron`. Рекомендуемым для этого путем является его установка вкачестве зависимости в вашем приложении, что позволяет вам работать с многими приложениями, используя разные версии Electron'а. Для этого вам нужно запустить следующую команду из директории вашего приложения:
+Сейчас вам нужно будет установить сам `electron`. Рекомендуемым для этого путем является его установка в качестве зависимости в вашем приложении, что позволяет вам работать с многими приложениями, используя разные версии Electron. Для этого вам нужно запустить следующую команду из директории вашего приложения:
 
 ```sh
 npm install --save-dev electron
@@ -69,20 +69,20 @@ npm install --save-dev electron
 
 ## Разработка Electron в двух словах
 
-Electron apps are developed in JavaScript using the same principles and methods found in Node.js development. Все особенности API и сам API Electron'а доступен через `electron` модуль, который может быть использован как и любой Node.js модуль:
+Разработка Electron приложения ведется на JavaScript, при использовании тех же принципов и методов, которые можно найти в разработке на Node.js. Все особенности API и сам API Electron'а доступен через `electron` модуль, который может быть использован как и любой Node.js модуль:
 
 ```javascript
 const electron = require('electron')
 ```
 
-Модуль `electron` предоставляет специальные особенности в пространство имен(namespaces). Например жизненный цикл приложения контролируется через `electron.app`, окна могут быть созданны пр использовании класса `electron.BrowserWindow`. A simple `main.js` file might wait for the application to be ready and open a window:
+Модуль `electron` предоставляет специальные особенности в пространство имен(namespaces). Например жизненный цикл приложения контролируется через `electron.app`, окна могут быть созданны пр использовании класса `electron.BrowserWindow`. Простой файл `main.js` может просто ждать пока приложение не будет готово и после этого открыть окно приложения:
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
-  // Create the browser window.
-  win = new BrowserWindow({width: 800, height: 600})
+  // Создаем окно браузера.
+  win = new BrowserWindow({ width: 800, height: 600 })
 
   // и загрузит index.html приложение.
   win.loadFile('index.html')
@@ -94,23 +94,23 @@ app.on('ready', createWindow)
 Файл `main.js` должен создавать окна и перехватывать все события системы, с которыми ваше приложение может столкнуться. Более сложная версия примера выше должна открывать инструменты разработчика, ждать когда окно будет закрыто или открыто заново на macOS если пользователь кликнул на иконку приложения.
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
+// Храните глобальную ссылку на объект окна, если вы этого не сделаете, окно будет
+// автоматически закрываться, когда объект JavaScript собирает мусор.
 let win
 
 function createWindow () {
   // Создаёт окно браузера.
-  win = new BrowserWindow({width: 800, height: 600})
+  win = new BrowserWindow({ width: 800, height: 600 })
 
   // и загрузит index.html приложение.
   win.loadFile('index.html')
 
-  // Open the DevTools.
+  // Открыть средства разработчика.
   win.webContents.openDevTools()
 
-  // Возникает, когда окно будет закрыто.
+  // Вызывается, когда окно будет закрыто.
   win.on('closed', () => {
     // Разбирает объект окна, обычно вы можете хранить окна     
     // в массиве, если ваше приложение поддерживает несколько окон в это время,
@@ -120,22 +120,22 @@ function createWindow () {
 }
 
 // Этот метод будет вызываться, когда Electron закончит 
-// инициализацию и готова к созданию окон браузера.
+// инициализацию и готов к созданию окон браузера.
 // Некоторые интерфейсы API могут использоваться только после возникновения этого события.
 app.on('ready', createWindow)
 
 // Выйти, когда все окна будут закрыты.
 app.on('window-all-closed', () => {
-  // На macOS это обычно для приложений и их строки меню   
-  // оставаться активным до тех пор, пока пользователь не выйдет явно с помощью Cmd + Q
+  // Оставаться активным до тех пор, пока пользователь не выйдет полностью с помощью Cmd + Q,
+  // это обычное дело для приложений и их строки меню на macOS
   if (process.platform !== 'darwin') {
     app.quit()
   }
 })
 
 app.on('activate', () => {
-   // На MacOS это общее для того чтобы создать окно в приложении, когда значок 
-   // dock нажали и нет других открытых окон.
+   // На MacOS обычно пересоздают окно в приложении,
+   // после того, как на иконку в доке нажали, и других открытых окон нету.
   if (win === null) {
     createWindow()
   }
@@ -155,8 +155,8 @@ app.on('activate', () => {
     <title>Hello World!</title>
   </head>
   <body>
-    <h1>Hello World!</h1>
-    Мы используем node <script> document.write (process.versions.node)</script>,
+    <h1>Привет мир!</h1>
+    Мы используем Node <script> document.write (process.versions.node)</script>,
     Chrome <script>document.write (process.versions.chrome)</script>,
     и Electron<script>document.write (process.versions.electron)</script>.
   </body>
@@ -167,11 +167,11 @@ app.on('activate', () => {
 
 Создав файлы `main.js`, `index.html`, и `package.json`, вы можете попробовать запустить свое приложение, написав `npm start` в командной строке из директории, где ваше приложение находится.
 
-## Попробуте данный Пример
+## Попробуйте этот пример
 
 Склонируйте и запустите код, приведенный в данном обучающем посте, из [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) репозитория.
 
-**Примечание**: Для запуска потребуется [Git](https://git-scm.com).
+**Заметка**: Для запуска требуется [Git](https://git-scm.com) и [npm](https://www.npmjs.com/).
 
 ```sh
 # Клонируем репозиторий

@@ -73,7 +73,7 @@ setInterval(() => {
 
 Once your application is [packaged](../tutorial/application-distribution.md), it will receive an update for each new [GitHub Release](https://help.github.com/articles/creating-releases/) that you publish.
 
-## Applying Updates
+## Güncellemeleri Uygulama
 
 Artık uygulamanız için temel güncelleştirme mekanizmasını yapılandırdınız, kullanıcının bir güncelleştirme olduğunda bilgilendirildiğinden emin olmanız gerekiyor. Bu autoUpdater API [events](../api/auto-updater.md#events) kullanarak elde edilebilir:
 

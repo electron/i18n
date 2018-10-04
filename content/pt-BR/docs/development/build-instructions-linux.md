@@ -7,13 +7,13 @@ Siga as instruções abaixo para configurar o Electron no Linux.
 * Pelo o menos o 25GB de espaço em disco e 8GB de memória RAM.
 * Python 2.7x. Para algumas distribuições como o CentOS 6.x continue usando o Python 2.6.x, então você precisa verificar a versão do Python com o comando `python -V`.
     
-    Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
+    Por favor verifique se o seu sistema suporta no mínimo a versão do Python TLS 1.2. Para um teste rápido, execute o seguinte script:
     
     ```sh
     $ npm run check-tls
     ```
     
-    If the script returns that your configuration is using an outdated security protocol, use your system's package manager to update Python to the latest version in the 2.7.x branch. Alternatively, visit https://www.python.org/downloads/ for detailed instructions.
+    Se o script retornar que sua configuração está usando um protocolo de segurança desatualizado, use seu gerenciador de pacotes para atualizar o Python para a última versão no ramo 2.7.x. Alternativamente, visite https://www.python.org/downloads/ para instruções mais detalhadas.
 
 * Node.js. Existem várias maneiras para instalar o Node. Você pode baixar o código fonte do [nodejs.org](https://nodejs.org) e compilar. Isto permite somente instalar o Node em seu próprio diretório como o usuário padrão. Ou pode tentar no repositório [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
 
@@ -27,7 +27,7 @@ $ sudo apt-get install build-essential clang libdbus-1-dev libgtk-3-dev \
                        libnotify-dev libgnome-keyring-dev libgconf2-dev \
                        libasound2-dev libcap-dev libcups2-dev libxtst-dev \
                        libxss1 libnss3-dev gcc-multilib g++-multilib curl \
-                       gperf bison
+                       gperf bison python-dbusmock
 ```
 
 No RHEL (Red Hat) / CentOS, é necessário instalar as seguintes bibliotecas:
@@ -36,7 +36,7 @@ No RHEL (Red Hat) / CentOS, é necessário instalar as seguintes bibliotecas:
 $ sudo yum install clang dbus-devel gtk3-devel libnotify-devel \
                    libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
                    cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
-                   GConf2-devel nss-devel
+                   GConf2-devel nss-devel python-dbusmock
 ```
 
 No Fedora, é necessário instalar as seguintes bibliotecas:
@@ -45,40 +45,10 @@ No Fedora, é necessário instalar as seguintes bibliotecas:
 $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
                    cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
-                   GConf2-devel nss-devel
+                   GConf2-devel nss-devel python-dbusmock
 ```
 
 Outras distribuições podem oferecer estas bibliotecas para serem instaladas através de gerenciadores de pacote, como o pacman. Ou você pode compilar o código fonte.
-
-## Obtendo o Código Fonte
-
-```sh
-$ git clone https://github.com/electron/electron
-```
-
-## Inicialização
-
-O script de inicialização irá baixar todas as dependências necessárias e criar a compilação do projeto. Você deve ter o Python 2.7.x para que o script tenha sucesso. Pode levar algum tempo para baixar certos arquivos. Observe que estamos utilizando `ninja` para configurar o Electron, não existe nenhum `Makefile` gerado.
-
-To bootstrap for a static, non-developer build, run:
-
-```sh
-$ cd electron
-$ npm run bootstrap
-```
-
-Or to bootstrap for a development session that builds faster by not statically linking:
-
-```sh
-$ cd electron
-$ npm run bootstrap:dev
-```
-
-If you are using editor supports [JSON compilation database](http://clang.llvm.org/docs/JSONCompilationDatabase.html) based language server, you can generate it:
-
-```sh
-$ ./script/build.py --compdb
-```
 
 ### Forçar compilação
 
@@ -96,55 +66,15 @@ $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
                        g++-aarch64-linux-gnu
 ```
 
-E para compilar para `arm` ou `i32`, Você deve passar o parâmetro `--target_arch` ao executar o script `bootstrap.py`:
+E para compilação cruzada para arquitetura `arm` ou `ia32` deve passar o parâmetro `target_cpu` para `gn gen`:
 
 ```sh
-$ ./script/bootstrap.py -v --target_arch=arm
+$ gn gen out/Debug --args='import(...) target_cpu="arm"'
 ```
 
 ## Compilando
 
-Se você deseja de compilar tanto para `Release` e `Debug`:
-
-```sh
-$ npm run build
-```
-
-O script irá gerar um executável do Electron muito grande para ser gravado no diretório `out/R`. O tamanho do arquivo é superior a 1.3 gigabytes. Isso acontece porque o binário contém sinais de depuração. Para reduzir o tamanho do arquivo, execute o script `create-dist.py`:
-
-```sh
-$ ./script/create-dist.py
-```
-
-Com isso será gerado uma distribuição muito menor no diretório `dist`. Depois de the executar o script `create-dist.py`, você talvez queira remover os 1.3+ gigabytes gerados anteriormente no `out/R`.
-
-You can also build either the `Debug` or `Release` target on its own:
-
-```sh
-$ npm run build:dev
-```
-
-```sh
-$ npm run build:release
-```
-
-Após a finalização, você pode encontrar o `electron` debug no diretório `out/D`.
-
-## Excluindo
-
-Para excluir os arquivos de compilação:
-
-```sh
-$ npm run clean
-```
-
-Para excluir somente os diretórios `out` e `dist`:
-
-```sh
-$ npm run clean-build
-```
-
-**Nota:** Os dois comandos exigem que seja executado o `bootstrap` novamente antes da compilação.
+Veja [Instruções de build: GN](build-instructions-gn.md)
 
 ## Solução de Problemas
 
@@ -156,76 +86,20 @@ Prebuilt `clang` irá atentar vincular a `libtinfo.so.5`. Dependendo da arquitet
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 ```
 
-## Testes
-
-Veja [Visão Geral do Sistema: Testes](build-system-overview.md#tests)
-
 ## Tópicos Avançados
 
 A configuração padrão para compilação é direcionado para as principais distribuições Linux, para compilar para uma determinada distribuição ou dispositivo, siga as seguintes informações que talvez possa ajudá-lo.
 
-### Compilando `libchromiumcontent` localmente
-
-Para evitar o uso dos códigos binários pre-produzidos do `libchromiumcontent`, você pode criar `libchromiumcontent` localmente. Para faze-lo, siga as seguintes etapas:
-
-1. Instale o [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install)
-2. Instale as [dependências de compilação adicionais](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies)
-3. Busque por novos git submodules:
-
-```sh
-$ git submodule update --init --recursive
-```
-
-1. Use o `--build_release_libcc` para mudar o script `bootstrap.py`:
-
-```sh
-$ ./script/bootstrap.py -v --build_release_libcc
-```
-
-Observe que por padrão a configuração de `shared_library` não é compilada, você pode compilar somente a versão de `Release` do Electron se você utilizar o modo:
-
-```sh
-$ ./script/build.py -c R
-```
-
 ### Usando o `clang` em vez de fazer o download dos binários de `clang`
 
-Por padrão o Electron é feito com código binário [`clang`](https://clang.llvm.org/get_started.html) pre-produzido e fornecido pelo projeto Chromium. Se por alguma razão você quer usar o `clang` instalado em seu sistema, você pode chamar `bootstrap.py` com o interruptor `--clang_dir=<path>`. Ao passar o código pre-produzido, se assumirá que o código binário `clang` está localizado em `<path>/bin/`.
+Por padrão o Electron é feito com código binário [`clang`](https://clang.llvm.org/get_started.html) pre-produzido e fornecido pelo projeto Chromium. Se por alguma razão quer construir usando `clang` instalado no seu sistema, pode especificar o argumento `clang_base_path` nos argumentos do GN.
 
-Por exemplo, se você instalou `clang` em `/user/local/bin/clang`:
+Por exemplo, se o `clang` estiver instalado em `/usr/local/bin/clang`:
 
 ```sh
-$ ./script/bootstrap.py -v --build_release_libcc --clang_dir /usr/local
-$ ./script/build.py -c R
+$ gn gen out/Debug --args='import("//electron/build/args/debug.gn") clang_base_path = "/usr/local/bin"'
 ```
 
 ### Utilizando compiladores diferentes de `clang`
 
-Para compilar o Electron com compiladores parecidos com o `g++`, você primeiro precisa desativar o `clang` com o parâmetro `--disable_clang`, depois configurar o 0>CC</code> e `CXX` nas variáveis de ambiente.
-
-Por exemplo, compilando com GCC toolchain:
-
-```sh
-$ env CC=gcc CXX=g++ ./script/bootstrap.py -v --build_release_libcc --disable_clang
-$ ./script/build.py -c R
-```
-
-### Variáveis de ambiente
-
-À parte de `CC` e `CXX`, você também pode definir as seguintes variáveis de ambiente para customizar as configurações para criar o build do seu aplicativo:
-
-* `CPPFLAGS`
-* `CPPFLAGS_host`
-* `CFLAGS`
-* `CFLAGS_host`
-* `CXXFLAGS`
-* `CXXFLAGS_host`
-* `AR`
-* `AR_host`
-* `CC`
-* `CC_host`
-* `CXX`
-* `CXX_host`
-* `LDFLAGS`
-
-A variável de ambiente precisa ser definidas ao executar o script `bootstrap.py`, isso não vai funcionar no script `build.py`.
+Construir Electron com compiladores diferentes de `clang` não é suportado.

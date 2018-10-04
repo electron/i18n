@@ -34,7 +34,7 @@ $ git fetch upstream
 
 Gumawa ng mga hakbang at mga dependencies ay bahagyang naiiba na nagdedepende sa iyong operating system. Tingnan ang mga detalyadong gabay sa pagtatayo ng Electron sa isang local:
 
-* [Pagbuo sa MacOS](https://electronjs.org/docs/development/build-instructions-osx)
+* [Pagbuo sa MacOS](https://electronjs.org/docs/development/build-instructions-macos)
 * [Pagbuo sa Linux](https://electronjs.org/docs/development/build-instructions-linux)
 * [Pagbuo sa Windows](https://electronjs.org/docs/development/build-instructions-windows)
 

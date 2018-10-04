@@ -62,7 +62,7 @@ Note that most Chromium updates will be considered breaking. Fixes that can be b
 
 GitHub不支持旧线路，但是其他分组可以自行获取所有权和返回稳定性和安全修复。 我们不鼓励这样做，但是认识到它使得许多应用程序开发人员的生活更轻松。
 
-# 测试版和Bug修复
+# 测试版和 Bug 修复
 
 开发人员想知道哪个版本可以 *安全* 使用。 即使是简单的功能也会使应用程序变得复杂。 同时，锁定到一个固定的版本是很危险的，因为你忽略了自你的版本以来可能出现的安全补丁和错误修复。 我们的目标是在 `package.json ` 中允许以下标准的 semver 范围:
 
@@ -75,10 +75,18 @@ GitHub不支持旧线路，但是其他分组可以自行获取所有权和返�
 
 过程如下:
 
-1. 所有新的主要和次要发布行都以 ` beta 为起点。n ` 标记为 ` n > = 1 `。 此时，功能集是 **被锁定** 的. 该版本不接纳更多功能，只关注安全性和稳定性。 例如 `2.0.0-beta.1`.
-2. 错误修复，复原修复和安全修补程序可以被接受。 一旦这样做，一个新的测试版被释放增加 `N`. 例如`2.0.0-beta.2`
-3. 如果特定的beta版本*通常被认为*是稳定的，那么它将作为稳定版本被重新发布，只改变版本信息。 例如`2.0.0`。
-4. 如果将来的错误修复或安全补丁需要在发布稳定后进行，则会应用这些修补程序并相应地增加* patch *程序版本 例如`2.0.1`.
+1. All new major and minor releases lines begin with a beta series indicated by semver prerelease tags of `beta.N`, e.g. `2.0.0-beta.1`. After the first beta, subsequent beta releases must meet all of the following conditions: 
+    1. The change is backwards API-compatible (deprecations are allowed)
+    2. The risk to meeting our stability timeline must be low.
+2. If allowed changes need to be made once a release is beta, they are applied and the prerelease tag is incremented, e.g. `2.0.0-beta.2`.
+3. If a particular beta release is *generally regarded* as stable, it will be re-released as a stable build, changing only the version information. e.g. `2.0.0`. After the first stable, all changes must be backwards-compatible bug or security fixes.
+4. If future bug fixes or security patches need to be made once a release is stable, they are applied and the *patch* version is incremented e.g. `2.0.1`.
+
+Specifically, the above means:
+
+1. Admitting non-breaking-API changes early in the beta cycle is okay, even if those changes have the potential to cause moderate side-affects
+2. Admitting feature-flagged changes, that do not otherwise alter existing code paths, at most points in the beta cycle is okay. Users can explicitly enable those flags in their apps.
+3. Admitting features of any sort very late in the beta cycle is 
 
 对于每个主要和次要的颠覆，你都应该像以下示例一样进行操作：
 
@@ -117,12 +125,7 @@ GitHub不支持旧线路，但是其他分组可以自行获取所有权和返�
 
 - 是在运行时或生成时启用/禁用的。我们不支持请求作用域功能标志的概念
 - 它完全细分新的和旧的代码路径; 重构旧代码以允许新功能 * 违反 * 功能标志内容
-- 在合并软分支后, 功能标志最终将被删除
-
-我们将标记的代码与我们的版本控制策略进行协调, 如下所示:
-
-1. 我们不考虑在稳定分支中对特征标记的代码进行迭代; 即使明智地使用功能标志也不是没有风险
-2. 您可能会在功能标记的代码中中断 API 协定, 而不会冲突主版本。标记的代码不遵守 semver
+- feature flags are eventually removed after the feature is released
 
 # 提交语义
 

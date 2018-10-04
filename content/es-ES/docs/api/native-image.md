@@ -82,7 +82,7 @@ También se admiten los siguientes sufijos para PPP:
 
 ## Imagen de plantilla
 
-Las imágenes de plantilla consisten en colores negros y claros (y un canal alfa). Las imágenes de plantilla no están destinadas a ser utilizadas como imágenes independientes y son generalmente mezcladas con otro contenido para crear la apariencia final deseada.
+Template images consist of black and an alpha channel. Template images are not intended to be used as standalone images and are usually mixed with other content to create the desired final appearance.
 
 El caso más común es usar imágenes de plantilla para un icono de barra de menú para que pueda adaptarse a barras de menú tanto claras como oscuras.
 
@@ -147,8 +147,8 @@ Crea una nueva instancia de `NativeImage` a partir de NSImage vinculada con el n
 El `hslShift` se aplica a la imagen con las siguientes reglas
 
 * `hsl_shift[0]` (tonalidad): El valor de tonalidad absoluto para la imagen - 0 y 1 se mapean a 0 y 360 en la rueda de tonalidad de color (rojo).
-* `hsl_shift[1]` (saturation): A saturation shift for the image, with the following key values: 0 = remove all color. 0.5 = leave unchanged. 1 = fully saturate the image.
-* `hsl_shift[2]` (lightness): A lightness shift for the image, with the following key values: 0 = remove all lightness (make all pixels black). 0.5 = leave unchanged. 1 = full lightness (make all pixels white).
+* `hsl_shift[1]` (saturación): Cambio en la saturación de la imagen, con las siguientes valores clave: 0 = eliminar todo el color. 0.5 = sin cambios. 1 = saturación completa de la imagen.
+* `hsl_shift[2]` (luminosidad): Un cambio de luminosidad para la imagen, con los siguientes valores clave: 0 = elimine toda la luminosidad (hace que todos los píxeles sean negros). 0.5 = Dejar sin cambios. 1 = Luminosidad total (hace que todos los píxeles sean blancos).
 
 Esto significa que `[-1, 0, 1]` hará la imagen completamente blanca y `[-1, 1, 0]` la hará completamente negra.
 
@@ -202,7 +202,7 @@ Observe que el puntero devuelto es un puntero debil a la imagen nativa subyacent
 
 #### `image.isEmpty()`
 
-Returns `Boolean` - Whether the image is empty.
+Devuelve `Boolean` - Si la imagen está vacía.
 
 #### `image.getSize()`
 
@@ -226,7 +226,7 @@ Devuelve `NativeImage` - La imagen recortada.
 
 #### `image.resize(options)`
 
-* `options` Objeto * `width` Entero (opcional) - Por defecto es el ancho de la imagen. * `height` Integer (optional) - Defaults to the image's height. * `quality` String (optional) - The desired quality of the resize image. Los valores posibles son `good`, `better` or `best`. Por defecto es `best`. Estos valores expresan una compensación de calidad/velocidad deseada. Son traducidas dentro de un método de algoritmo específico que depende de las capacidades (CPU, GPU) de la plataforma subyacente. Es posible asignar los tres métodos con el mismo algoritmo en una plataforma determinada.
+* `options` Objeto * `width` Entero (opcional) - Por defecto es el ancho de la imagen. * `height` Entero (opcional) - El valor predeterminado es la altura de la imagen. * `quality` String (opcional) - La calidad deseada para el cambio de tamaño de imagen. Los valores posibles son `good`, `better` or `best`. Por defecto es `best`. Estos valores expresan una compensación de calidad/velocidad deseada. Son traducidas dentro de un método de algoritmo específico que depende de las capacidades (CPU, GPU) de la plataforma subyacente. Es posible asignar los tres métodos con el mismo algoritmo en una plataforma determinada.
 
 Devuelve `NativeImage` - La imagen redimensionada.
 

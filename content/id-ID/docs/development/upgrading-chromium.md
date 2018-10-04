@@ -80,7 +80,7 @@ Ini adalah ikhtisar langkah-langkah yang diperlukan untuk meningkatkan Chromium 
 - Nonaktifkan semua fitur Elektron, perbaiki build, lalu aktifkan satu per satu
 - Tambahkan lebih banyak flag untuk menonaktifkan fitur build-time.
 
-Ketika sebuah Debug membangun Electron berhasil, jalankan tesnya: `$ ./script/test.py` Perbaiki tes yang gagal.
+When a Debug build of Electron succeeds, run the tests: `$ npm run test` Fix the failing tests.
 
 Ikuti semua langkah di atas untuk memperbaiki kode Elektron pada semua platform yang didukung.
 
@@ -101,30 +101,30 @@ Elektron kapal dengan versi `ffmpeg` yang mencakup codec proprietary oleh defaul
 Anda dapat memverifikasi dukungan Elektron untuk beberapa `ffmpeg` yang dibuat dengan memuat halaman berikut. Ini harus bekerja dengan perpustakaan default `ffmpeg` yang didistribusikan dengan Elektron dan tidak bekerja dengan perpustakaan `ffmpeg` yang dibuat tanpa hak kepemilikan codec.
 
 ```html
-< DOCTYPE html >
+<!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title> Pemeriksaan Codec Proprietary </title>
-  </head>
-  <body>
-    <p> Memeriksa apakah Elektron menggunakan codec proprietary dengan memuat video dari http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4 </p>
-    <p id="outcome"> </p>
-    <video style="display:none" src="http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4" autoplay> </video>
-    <script>
-      const video =document.querySelector ('video')
-      video.addEventListener ('error', ({target}) => {
-        jika (target.error.code === target.error.MEDIA_ERR_SRC_NOT_SUPPORTED) {
-          document.querySelector ('#hasil') textContent = 'Tidak menggunakan codec proprietary, video yang dipancarkan tidak didukung aktivitas kesalahan.'
-        } lain {
-          document.querySelector ('# hasil') textContent = `Kesalahan tak terduga: ${target.error.code}`
-        }
-      })
-      video.addEventListener ('bermain', () => {
-        document.querySelector ('#results') textContent = 'Menggunakan codec proprietary, video mulai diputar.'
-      })
-    </script>
-  </body>
+  <head>
+    <meta charset="utf-8">
+    <title>Proprietary Codec Check</title>
+  </head>
+  <body>
+    <p>Checking if Electron is using proprietary codecs by loading video from http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4</p>
+    <p id="outcome"></p>
+    <video style="display:none" src="http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4" autoplay></video>
+    <script>
+      const video = document.querySelector('video')
+      video.addEventListener('error', ({ target }) => {
+        if (target.error.code === target.error.MEDIA_ERR_SRC_NOT_SUPPORTED) {
+          document.querySelector('#outcome').textContent = 'Not using proprietary codecs, video emitted source not supported error event.'
+        } else {
+          document.querySelector('#outcome').textContent = `Unexpected error: ${target.error.code}`
+        }
+      })
+      video.addEventListener('playing', () => {
+        document.querySelector('#outcome').textContent = 'Using proprietary codecs, video started playing.'
+      })
+    </script>
+  </body>
 </html>
 ```
 

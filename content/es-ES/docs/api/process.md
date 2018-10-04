@@ -6,6 +6,20 @@ Proceso: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer
 
 El objeto en `proceso` de Electron está comprendido entre [Node.js `proceso` objecto](https://nodejs.org/api/process.html). Este agrega los siguientes eventos, propiedades y métodos:
 
+## Sandbox
+
+In sandboxed renderers the `process` object contains only a subset of the APIs:
+
+* `crash()`
+* `hang()`
+* `getHeapStatistics()`
+* `getProcessMemoryInfo()`
+* `getSystemMemoryInfo()`
+* `argv`
+* `execPath`
+* `env`
+* `platform`
+
 ## Eventos
 
 ### Evento: "cargado"
@@ -40,7 +54,7 @@ Un `Booleano` que controla el apoyo ASAR dentro de tu aplicación. Ajustando est
 
 ### `proceso.noDepreación`
 
-A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`. Setting this to `true` will silence deprecation warnings. Esta propiedad es usada en lugar de la linea de comando `--no-degradación`.
+Un `Boolean` que controla si las advertencias de desaprobación se imprimen o no a `stderr`. Establecer esto en `true` silenciará las advertencias de obsolescencia. Esta propiedad es usada en lugar de la linea de comando `--no-degradación`.
 
 ### `proceso.Rutaderecursos`
 
@@ -52,11 +66,11 @@ Un `Booleano` que controla si las advertencias de degradación son consideradas 
 
 ### `proceso.ubicarDegradación`
 
-Un `Booleano` que controla si las degradaciones son enviadas a `stderr` incluyen su proceso de ubicación. Setting this to `true` will print stack traces for deprecations. Esta propiedad es en vez de la linea de comando `--trace-deprecation`.
+Un `Booleano` que controla si las degradaciones son enviadas a `stderr` incluyen su proceso de ubicación. Ajustando este como `true` se enviarán ubicaciones de pila por degradaciones. Esta propiedad es en vez de la linea de comando `--trace-deprecation`.
 
 ### `proceso.ubicarAdvertenciasdeProcesos`
 
-Un `Booleano` que controla si las advertencias de procesos son enviadas a `stderr` incluyen su proceso de ubicación. Setting this to `true` will print stack traces for process warnings (including deprecations). This property is instead of the `--trace-warnings` command line flag.
+Un `Booleano` que controla si las advertencias de procesos son enviadas a `stderr` incluyen su proceso de ubicación. Ajustando este como `verdad` se enviarán ubicaciones de pila para advertencias de procesos (incluyendo degradaciones). Esta propiedad es en vez de la línea de comando `--trace-warnings`.
 
 ### `proceso.tipo`
 
@@ -90,9 +104,25 @@ Devuelve [`CPUUsage`](structures/cpu-usage.md)
 
 Devuelve [`IOCounters`](structures/io-counters.md)
 
-### `process.getProcessMemoryInfo()`
+### `process.getHeapStatistics()`
 
 Devuelve `Objeto`:
+
+* `totalHeapSize` Integer
+* `totalHeapSizeExecutable` Integer
+* `totalPhysicalSize` Integer
+* `totalAvailableSize` Integer
+* `usedHeapSize` Integer
+* `heapSizeLimit` Integer
+* `mallocedMemory` Integer
+* `peakMallocedMemory` Integer
+* `doesZapGarbage` Boolean
+
+Returns an object with V8 heap statistics. Note that all statistics are reported in Kilobytes.
+
+### `process.getProcessMemoryInfo()`
+
+Devuelve `Objecto`:
 
 * `workingSetSize` entero - La cantidad de memoria actualmente cubierta por la RAM física real.
 * `peakWorkingSetSize` Entero - La cantidad máxima de memoria que ha sido cubierta por la RAM física real.
@@ -103,12 +133,12 @@ Devuelve un objeto que contiene las estadísticas del uso de la memoria del proc
 
 ### `process.getSystemMemoryInfo()`
 
-Devuelve el `Objecto`:
+Devuelve `Objeto`:
 
 * `total` Entero - La cantidad total de memoria física en kilobytes de la que dispone el sistema.
 * `libre` entero - La cantidad de memoria que no está siendo usada por aplicaciones o caché de disco.
-* `swapTotal` Integer *Windows* *Linux* - The total amount of swap memory in Kilobytes available to the system.
-* `swapFree` Integer *Windows* *Linux* - The free amount of swap memory in Kilobytes available to the system.
+* `swapTotal` Integer *Windows* *Linux* - La cantidad total de memoria de swap en Kilobytes disponible para el sistema.
+* `swapFree` Integer *Windows* *Linux* - La cantidad libre de memoria de swap en Kilobytes disponible para el sistema.
 
 Devuelve un objeto que contiene las estadísticas de la memoria usada por el sistema completo. Note que todas las estadísticas están reportadas en kilobytes.
 

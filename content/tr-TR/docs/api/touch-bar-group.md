@@ -2,9 +2,9 @@
 
 > Yerel Macos uygulamaları için dokunma çubuğunda bir grup oluşturun
 
-Süreç: [Ana](../tutorial/quick-start.md#main-process)
+İşlem: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new TouchBarGroup(options)` *Experimental*
 
-* `seçenekler` Nesne 
+* `seçenekler` Nesnesi 
   * `items` [TouchBar](touch-bar.md) - Grup halinde görüntülenecek öğeler.

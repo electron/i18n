@@ -13,7 +13,7 @@ You can directly add `--ppapi-flash-path` and `--ppapi-flash-version` to the Ele
 For example:
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 const path = require('path')
 
 // Specify flash path, supposing it is placed in the same directory with main.js.
@@ -57,7 +57,7 @@ Add `plugins` attribute to `<webview>` tag.
 <webview src="https://www.adobe.com/software/flash/about/" plugins></webview>
 ```
 
-## Troubleshooting
+## اكتشاف الأخطاء وإصلاحها
 
 You can check if Pepper Flash plugin was loaded by inspecting `navigator.plugins` in the console of devtools (although you can't know if the plugin's path is correct).
 

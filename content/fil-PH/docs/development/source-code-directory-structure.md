@@ -43,9 +43,7 @@ Electron
 ├── native_mate/ - A fork of Chromium's gin library that makes it easier to marshal
 |                  types between C++ and JavaScript.
 ├── spec/ - Kusang pagsubok.
-├── electron.gyp - Ang pagbuo ng mga panuntunan ng Elektron.
-└── common.gypi - Compiler specific settings and building rules for other
-                  components like `node` and `breakpad`.
+└── BUILD.gn - Building rules of Electron.
 ```
 
 ## `/chromium_src`
@@ -55,12 +53,12 @@ The files in `/chromium_src` tend to be pieces of Chromium that aren't part of t
 ## Ang Istraktura ng Iba pang mga Direktoryo
 
 * **iskrip** - Ang mga iskrip ay ginamit upang ang layunin ay mapaunlad tulad ng pagbuo, "packaging", "testing", at iba pa.
-* **tools** - Katuwang ng mga iskrip na gamit ng "gyp files", di tulad ng `iskrip`, ang mga iskrip na inilagay dito ay di na dapat direktang gamitin pa ng mga gumagamit.
+* **tools** - Helper scripts used by GN files, unlike `script`, scripts put here should never be invoked by users directly.
 * **vendor** - Ang "source code" ng pangatlong partido ng mga dependency, tayo ay 'di gumagamit nito `third_party` bilang pangalan dahil ito'y nakakalito para sa kaparehong direktoryo sa "source code tree" ng "Chromium".
 * **node_modules**, Ang pangatlong partido ng mga modyul ng "node" para sa pagbuo.
 * **out** - Ang pansamantalang "output" ng direktoryo ng `ninja`.
 * **dist** - Ang pansamantalang direktoryo na likha ng `script/create-dist.py` iskrip kapag gumagawa ng distribusyon.
-* **external_binaries** - Ang "downloaded binaries" ng pangatlong partido ng mga balangkas ay di sinusuportahan ang pagbuo gamit ang `gyp`,.
+* **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gn`.
 
 ## Pagpapanatili ng "Git Submodules" sa Tamang Oras
 
@@ -69,8 +67,8 @@ Ang Electron repository ay mayroon ilang "vendored dependencies", at matatagpuan
 ```sh
 $ git status
 
-    modified:   vendor/libchromiumcontent (new commits)
-    modified:   vendor/node (new commits)
+    modified:   vendor/depot_tools (new commits)
+    modified:   vendor/boto (new commits)
 ```
 
 Upang hindi mahuli ang mga "vendored dependency", patakbuhin ang mga sumusunod na "command":

@@ -29,7 +29,7 @@ By default, this module will check for updates at app startup, then every ten mi
 
 If you need to customize your configuration, you can [pass options to `update-electron-app`](https://github.com/electron/update-electron-app) or [use the update service directly](https://github.com/electron/update.electronjs.org).
 
-## Usando o electron-builder
+## Usando o `electron-builder`
 
 Se seu aplicativo é empacotado com [`electron-builder`](https://github.com/electron-userland/electron-builder) você pode usar o módulo [electron-updater](https://www.electron.build/auto-update), que não requer um servidor e permite atualizações via S3, GitHub ou qualquer outro host de arquivo estático. This sidesteps Electron's built-in update mechanism, meaning that the rest of this documentation will not apply to `electron-builder`'s updater.
 
@@ -97,7 +97,7 @@ Also make sure that errors are [being handled](../api/auto-updater.md#event-erro
 
 ```javascript
 autoUpdater.on('error', message => {
-  console.error('Erro ao atualizar aplicação')
+  console.error('Erro ao atualizar o aplicativo')
   console.error(message)
 })
 ```

@@ -82,7 +82,7 @@ Following suffixes for DPI are also supported:
 
 ## Template Image
 
-Template images consist of black and clear colors (and an alpha channel). Template images are not intended to be used as standalone images and are usually mixed with other content to create the desired final appearance.
+Template images consist of black and an alpha channel. Template images are not intended to be used as standalone images and are usually mixed with other content to create the desired final appearance.
 
 The most common case is to use template images for a menu bar icon so it can adapt to both light and dark menu bars.
 
@@ -99,7 +99,7 @@ The `nativeImage` module has the following methods, all of which return an insta
 
 ### `nativeImage.createEmpty()`
 
-Returns `NativeImage`
+Zwraca `NativeImage`
 
 Creates an empty `NativeImage` instance.
 
@@ -107,7 +107,7 @@ Creates an empty `NativeImage` instance.
 
 * `path` String
 
-Returns `NativeImage`
+Zwraca `NativeImage`
 
 Creates a new `NativeImage` instance from a file located at `path`. This method returns an empty image if the `path` does not exist, cannot be read, or is not a valid image.
 
@@ -123,7 +123,7 @@ console.log(image)
 * `buffer` [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)
 * `options` Object (optional) * `width` Integer (optional) - Required for bitmap buffers. * `height` Integer (optional) - Required for bitmap buffers. * `scaleFactor` Double (optional) - Defaults to 1.0.
 
-Returns `NativeImage`
+Zwraca `NativeImage`
 
 Creates a new `NativeImage` instance from `buffer`.
 
@@ -131,7 +131,7 @@ Creates a new `NativeImage` instance from `buffer`.
 
 * `dataURL` String
 
-Returns `NativeImage`
+Zwraca `NativeImage`
 
 Creates a new `NativeImage` instance from `dataURL`.
 
@@ -140,7 +140,7 @@ Creates a new `NativeImage` instance from `dataURL`.
 * `imageName` String
 * `hslShift` Number[]
 
-Returns `NativeImage`
+Zwraca `NativeImage`
 
 Creates a new `NativeImage` instance from the NSImage that maps to the given image name. See [`NSImageName`](https://developer.apple.com/documentation/appkit/nsimagename?language=objc) for a list of possible values.
 
@@ -206,7 +206,7 @@ Returns `Boolean` - Whether the image is empty.
 
 #### `image.getSize()`
 
-Returns [`Size`](structures/size.md)
+Zwraca [`Size`](structures/size.md)
 
 #### `image.setTemplateImage(option)`
 

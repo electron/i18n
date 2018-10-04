@@ -1,6 +1,6 @@
 # `window.open` Funktion
 
-> Open a new window and load a URL.
+> Öffnet ein neues Fenster und lädt eine URL.
 
 When `window.open` is called to create a new window in a web page, a new instance of [`BrowserWindow`](browser-window.md) will be created for the `url` and a proxy will be returned to `window.open` to let the page have limited control over it.
 
@@ -16,9 +16,15 @@ The newly created `BrowserWindow` will inherit the parent window's options by de
 
 Returns [`BrowserWindowProxy`](browser-window-proxy.md) - Creates a new window and returns an instance of `BrowserWindowProxy` class.
 
-The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options.
+The `features` string follows the format of standard browser, but each feature has to be a field of `BrowserWindow`'s options. These are the features you can set via `features` string: `zoomFactor`, `nodeIntegration`, `preload`, `javascript`, `contextIsolation`, `webviewTag`.
 
-**Notes:**
+Ein Beispiel:
+
+```js
+window.open('https://github.com', '_blank', 'nodeIntegration=no')
+```
+
+**Hinweise:**
 
 * Node integration will always be disabled in the opened `window` if it is disabled on the parent window.
 * Context isolation will always be enabled in the opened `window` if it is enabled on the parent window.

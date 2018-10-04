@@ -34,7 +34,7 @@ $ git fetch upstream
 
 Mulai dengan langkah dan dependensi sedikit berbeda tergantung pada sistem operasi Anda. Lihat detail panduan lebih rinci di Building Electron Locally:
 
-* [Membuat di MacOS](https://electronjs.org/docs/development/build-instructions-osx)
+* [Membuat di MacOS](https://electronjs.org/docs/development/build-instructions-macos)
 * [Membuat di Linux](https://electronjs.org/docs/development/build-instructions-linux)
 * [Membuat di Windows](https://electronjs.org/docs/development/build-instructions-windows)
 

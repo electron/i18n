@@ -21,6 +21,11 @@ Para pag set up sa server para tanggapin at iproseso ang mga bagsak na ulat, puw
 * [socorro](https://github.com/mozilla/socorro)
 * [mini-breakpad-server](https://github.com/electron/mini-breakpad-server)
 
+Or use a 3rd party hosted solution:
+
+* [Backtrace I/O](https://backtrace.io/electron/)
+* [Sentry](https://docs.sentry.io/clients/electron)
+
 Ang mga ulat na bumagsak ay naka save sa isang lokal na application-specifc temp direktoryo folder. Para sa `PangalanngProdukto`sa`PangalanMo`, bagsak na ulat ay nakaimbak sa isang folder pangalan `PangalanMo Bagsak` loob ng temp directory. Puwede mong i-customize ang temp directory lokasyon para sa iyong app sa pagtawag ng `app.setPath('temp','/my/custom/temp')` API bago mag start ang mga bagsak na ulat.
 
 ## Mga Paraan
@@ -29,7 +34,7 @@ Ang `crashReporter`module ay merong sumusunod na paraan:
 
 ### `crashReporter.start(options)`
 
-* `options` Bagay 
+* `mga opsyon` Bagay 
   * `PangalanngKompanya`String(optional)
   * `sumbitURL` String-- URL na magpapadala sa mga bagsak na ulat na naka POST.
   * `pangalanngProdukto` String (optinal) - Defaults para sa `app.getName()`.

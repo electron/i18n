@@ -2,7 +2,7 @@
 
 > Create OS desktop notifications
 
-Process: [Main](../glossary.md#main-process)
+Proces: [Main](../glossary.md#main-process)
 
 ## Using in the renderer process
 
@@ -12,7 +12,7 @@ If you want to show Notifications from a renderer process you should use the [HT
 
 > Create OS desktop notifications
 
-Process: [Main](../glossary.md#main-process)
+Proces: [Main](../glossary.md#main-process)
 
 `Notification` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
 
@@ -94,7 +94,7 @@ Objects created with `new Notification` have the following instance methods:
 
 #### `notification.show()`
 
-Immediately shows the notification to the user, please note this means unlike the HTML5 Notification implementation, simply instantiating a `new Notification` does not immediately show it to the user, you need to call this method before the OS will display it.
+Immediately shows the notification to the user, please note this means unlike the HTML5 Notification implementation, instantiating a `new Notification` does not immediately show it to the user, you need to call this method before the OS will display it.
 
 If the notification has been shown before, this method will dismiss the previously shown notification and create a new one with identical properties.
 

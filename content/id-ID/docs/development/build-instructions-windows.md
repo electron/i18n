@@ -17,87 +17,27 @@ Bangunan Electron dilakukan sepenuhnya dengan script baris perintah dan tidak da
 
 **Catatan:** Walaupun Visual Studio tidak digunakan untuk membangun, hal ini masih **diperlukan** karena kita perlu membangun toolchains yang menyediakan.
 
-## Mendapatkan kode
-
-```powershell
-$ git klon https://github.com/electron/electron.git
-```
-
-## Bootstrap
-
-Script bootstrap akan mendownload semua dependensi build yang diperlukan dan membuat file proyek build. Perhatikan bahwa kita menggunakan `ninja` untuk membangun Electron sehingga tidak ada proyek Visual Studio yang dihasilkan.
-
-To bootstrap for a static, non-developer build, run:
-
-```powershell
-$ cd electron
-$ npm run bootstrap
-```
-
-Or to bootstrap for a development session that builds faster by not statically linking:
-
-```powershell
-$ cd electron
-$ npm run bootstrap:dev
-```
-
 ## Bangunan
 
-Jika Anda ingin membangun target ` Release ` dan ` Debug `:
-
-```powershell
-$ npm run build
-```
-
-You can also build either the `Debug` or `Release` target on its own:
-
-```powershell
-$ npm run build:dev
-```
-
-```powershell
-$ npm run build:release
-```
-
-Setelah pembangunan selesai, Anda dapat menemukan `electron.exe` dibawah `out\D` (debug target) atau di bawah `out\R` (rilis target).
+See [Build Instructions: GN](build-instructions-gn.md)
 
 ## Membangun 32bit
 
-Untuk membangun target 32bit, Anda harus melewati `--target_arch=ia32`kapan menjalankan script bootstrap:
+To build for the 32bit target, you need to pass `target_cpu = "x86"` as a GN arg. You can build the 32bit target alongside the 64bit target by using a different output directory for GN, e.g. `out/Release-x86`, with different arguments.
 
 ```powershell
-$ python script\bootstrap.py -v --target_arch=ia32
+$ gn gen out/Release-x86 --args="import(\"//electron/build/args/release.gn\") target_cpu=\"x86\""
 ```
 
 Langkah lain membangun tentu sama persis.
 
 ## Proyek Visual Studio
 
-Untuk menghasilkan proyek Visual Studio, Anda bisa melewati `--msvs` parameter:
+To generate a Visual Studio project, you can pass the `--ide=vs2017` parameter to `gn gen`:
 
 ```powershell
-$ python script\bootstrap.py --msvs
+$ gn gen out/Debug --ide=vs2017
 ```
-
-## Pembersihan
-
-Untuk membersihkan bangunan file:
-
-```powershell
-$ npm bersih
-```
-
-Untuk pembersihan hanya `keluar` dan `dist` direktori:
-
-```sh
-$ npm berjalan bersih-bangun
-```
-
-**Catatan:** Kedua perintah bersih perlu menjalankan `bootstrap` lagi sebelum membangun.
-
-## Coba
-
-Lihat [Bangun Gambaran Sistem: Pengujian](build-system-overview.md#tests)
 
 ## Penyelesaian masalah
 
@@ -108,31 +48,6 @@ Jika Anda mengalami kesalahan seperti `Command xxxx tidak ditemukan`, Anda dapat
 ### Kesalahan fatal kompilator internal: C1001
 
 Pastikan Anda menginstal pembaruan Visual Studio terbaru.
-
-### Assertion failed: ((handle))->activecnt >= 0
-
-Jika membangun di bawah Cygwin, Anda mungkin melihat `bootstrap.py` gagal mengikuti perintah berikut kesalahan:
-
-```sh
-Assertion failed: ((handle))->activecnt >= 0, file src\win\pipe.c, line 1430
-
-Traceback (most recent call last):
-  File "script/bootstrap.py", line 87, in <module>
-    sys.exit(main())
-  File "script/bootstrap.py", line 22, in main
-    update_node_modules('.')
-  File "script/bootstrap.py", line 56, in update_node_modules
-    execute([NPM, 'install'])
-  File "/home/zcbenz/codes/raven/script/lib/util.py", line 118, in execute
-    raise e
-subprocess.CalledProcessError: Command '['npm.cmd', 'install']' returned non-zero exit status 3
-```
-
-Hal ini disebabkan oleh bug saat menggunakan Cygwin Python dan Win32 Node bersamaan. Sebuah Solusinya adalah menggunakan Win32 Python untuk mengeksekusi script bootstrap (dengan asumsi Anda telah menginstal Python di bawah `C:\Python27`):
-
-```powershell
-$ /cygdrive/c/Python27/python.exe script/bootstrap.py
-```
 
 ### LNK1181: tidak dapat membuka file masukan 'kernel32.lib'
 

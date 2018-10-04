@@ -16,7 +16,13 @@ O recém-criado `BrowserWindow` herdará as opções da janela pai por padrão. 
 
 Retorna [`BrowserWindowProxy`](browser-window-proxy.md) - Cria uma nova janela e retorna uma instância da classe `BrowserWindowProxy`.
 
-A string `features` segue o formato padrão do navegador, mas cada feature deve ser um campo das opções de `BrowserWindow`.
+A string `features` segue o formato padrão do navegador, mas cada feature deve ser um campo das opções de `BrowserWindow`. These are the features you can set via `features` string: `zoomFactor`, `nodeIntegration`, `preload`, `javascript`, `contextIsolation`, `webviewTag`.
+
+Como por exemplo:
+
+```js
+window.open('https://github.com', '_blank', 'nodeIntegration=no')
+```
 
 **Notas:**
 

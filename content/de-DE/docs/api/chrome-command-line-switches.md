@@ -1,8 +1,8 @@
 # Unterstützte Chrome-Befehlszeilenoptionen
 
-> Command line switches supported by Electron.
+> Befehlszeilenoptionen unterstützt von Electron.
 
-You can use [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) to append them in your app's main script before the [ready](app.md#event-ready) event of the [app](app.md) module is emitted:
+[app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) kann benutzt werden um die Befehlszeilenoptionen zu dem Hauptskript der App, bevor das [ready](app.md#event-ready)-Ereignis des [app](app.md)-Moduls eintritt, hinzuzufügen:
 
 ```javascript
 const {app} = require('electron')
@@ -148,6 +148,6 @@ This switch only works when `--enable-logging` is also passed.
 
 Gives the per-module maximal V-logging levels to override the value given by `--v`. E.g. `my_module=2,foo*=3` would change the logging level for all code in source files `my_module.*` and `foo*.*`.
 
-Any pattern containing a forward or backward slash will be tested against the whole pathname and not just the module. E.g. `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
+Any pattern containing a forward or backward slash will be tested against the whole pathname and not only the module. E.g. `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
 
 This switch only works when `--enable-logging` is also passed.

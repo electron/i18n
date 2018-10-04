@@ -13,7 +13,7 @@ $ npm install --save-dev spectron
 ```
 
 ```javascript
-// 一个简单的测试验证一个带标题的可见的窗口
+// A simple test to verify a visible window is opened with a title
 var Application = require('spectron').Application
 var assert = require('assert')
 
@@ -22,22 +22,22 @@ var app = new Application({
 })
 
 app.start().then(function () {
-  // 检查浏览器窗口是否可见
+  // Check if the window is visible
   return app.browserWindow.isVisible()
 }).then(function (isVisible) {
-  // 验证浏览器窗口是否可见
-  assert.equal(isVisible, true)
+  // Verify the window is visible
+  assert.strictEqual(isVisible, true)
 }).then(function () {
-  // 获得浏览器窗口的标题
+  // Get the window's title
   return app.client.getTitle()
 }).then(function (title) {
-  // 验证浏览器窗口的标题
-  assert.equal(title, 'My App')
+  // Verify the window's title
+  assert.strictEqual(title, 'My App')
 }).catch(function (error) {
-  // 记录任何错误
+  // Log any failures
   console.error('Test failed', error.message)
 }).then(function () {
-  // 停止应用程序
+  // Stop the application
   return app.stop()
 })
 ```
@@ -124,13 +124,13 @@ $ npm install webdriverio
 ```javascript
 const webdriverio = require('webdriverio')
 const options = {
-  host: 'localhost', // 使用 localhost 作为 ChromeDriver 服务器
-  port: 9515,        // "9515"是ChromeDriver使用的端口
+  host: 'localhost', // Use localhost as chrome driver server
+  port: 9515, // "9515" is the port opened by chrome driver.
   desiredCapabilities: {
     browserName: 'chrome',
     chromeOptions: {
       binary: '/Path-to-Your-App/electron', // Electron的路径
-      args: [/* cli arguments */]           // 可选参数，类似：'app=' + /path/to/your/app/
+      args: [/* cli arguments */] // Optional, perhaps 'app=' + /path/to/your/app/
     }
   }
 }
@@ -152,4 +152,4 @@ client
 
 无需重新编译 Electron，只要把 app 的源码[放到](https://github.com/electron/electron/blob/master/docs/tutorial/application-distribution.md) Electron的资源目录 里就可直接开始测试了。
 
-Alternatively, pass an argument to run with your Electron binary that points to your app's folder. This eliminates the need to copy-paste your app into Electron's resource directory.
+当然，你也可以在运行Electron时传入参数指定你的应用所在文件夹。这样可以免去拷贝粘贴应用到Electron资源目录的步骤。

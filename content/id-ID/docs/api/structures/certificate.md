@@ -1,6 +1,6 @@
 # Objek Sertifikat
 
-* `data` String - data PEM yang dikodekan
+* `data` String - data PEM yang di-encode
 * `issuer` [SertifikatPokok](certificate-principal.md) - Pokok Emiten
 * `issuerName` String - Nama Umum Emiten
 * `issuerCert` Sertifikat - Sertifikat Emiten (jika tidak-betandatangan)

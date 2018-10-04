@@ -1,4 +1,4 @@
-# Official Guides
+# מדריכים רשמיים
 
 אנא שים לב שאתה משתמש בתיעוד שמתאים לגרסאת Electron שלך. מספר הגרסה נמצא בכתובת העמוד. אם מספר הגירסה אינו נמצא בכתובת העמוד, אתה כנראה צופה בתיעוד של גרסה בפיתוח אשר עשויה להכיל שינויי ממשק שאינם מתאימים לגרסת האלקטרון שברשותך. לצפייה בגרסאות ישנות יותר של התיעוד, אתה יוכל [ לחפש לפי גירסה](https://github.com/electron/electron/tree/v1.4.0) ב-Github ולבחור בתג שמתאים לגירסה שלך בתפריט "Switch branches/tags".
 
@@ -17,7 +17,7 @@
   * [בחירת העורך](tutorial/development-environment.md#a-good-editor)
 * [יצירת האפליקציה הראשונה שלך](tutorial/first-app.md) 
   * [התקנת Electron](tutorial/first-app.md#installing-electron)
-  * [Electron Development in a Nutshell](tutorial/first-app.md#electron-development-in-a-nutshell)
+  * [פיתוח ב-Electron בקצרה](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [הפעלת האפליקציה שלך](tutorial/first-app.md#running-your-app)
 * [Boilerplates and CLIs](tutorial/boilerplates-and-clis.md) 
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
@@ -85,8 +85,8 @@ These individual tutorials expand on topics discussed in the guide above.
   * [Using asar Archives](tutorial/application-packaging.md#using-asar-archives)
   * [Limitations](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Adding Unpacked Files to asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
+* [In Detail: Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
 * [In Detail: Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [In Detail: Using Widevine CDM Plugin](tutorial/using-widevine-cdm-plugin.md)
 * [Offscreen Rendering](tutorial/offscreen-rendering.md)
 
 * * *

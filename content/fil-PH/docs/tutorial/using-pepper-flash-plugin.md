@@ -13,7 +13,7 @@ Kaya mong direktang magdagdag ng `--ppapi-flash-landas` at `– ppapi-flash vers
 Halimbawa:
 
 ```javascript
-const {app, BrowserWindow} = kaylangan('elektron') const path = kaylangan('path') 
+const { app, BrowserWindow } = kaylangan('elektron') const path = kaylangan('path') 
 
 
 // Liwanagin ang flash path, ipagpalagay ito ay nakalagay sa parehong listahan kasama ang main.js.

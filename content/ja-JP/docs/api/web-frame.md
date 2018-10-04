@@ -4,6 +4,8 @@
 
 プロセス: [Renderer](../glossary.md#renderer-process)
 
+`webFrame` は現在の `BrowserWindow` のトップフレームで表示されている `WebFrame` クラスのインスタンスをエクスポートする Electron のモジュールです。 サブフレームは特定のプロパティとメソッド (`webFrame.firstChild` など) によって取得されます。
+
 現在のページを 200% にズームするサンプルです。
 
 ```javascript
@@ -14,7 +16,7 @@ webFrame.setZoomFactor(2)
 
 ## メソッド
 
-`webFrame` モジュールには以下のメソッドがあります。
+`WebFrame`クラスには以下のメソッドがあります。
 
 ### `webFrame.setZoomFactor(factor)`
 
@@ -72,14 +74,6 @@ webFrame.setSpellCheckProvider('en-US', true, {
   }
 })
 ```
-
-### `webFrame.registerURLSchemeAsSecure(scheme)`
-
-* `scheme` String
-
-セキュアなスキームとして `scheme` を登録します。
-
-セキュアなスキームは、混在するコンテンツの警告をトリガーしません。 たとえば、`https` と `data` は、アクティブなネットワーク攻撃者によって壊されないため、セキュアなスキームです。
 
 ### `webFrame.registerURLSchemeAsBypassingCSP(scheme)`
 
@@ -161,6 +155,7 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 戻り値 `Object`:
 
 * `images` [MemoryUsageDetails](structures/memory-usage-details.md)
+* `scripts` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `cssStyleSheets` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `xslStyleSheets` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `fonts` [MemoryUsageDetails](structures/memory-usage-details.md)
@@ -194,3 +189,47 @@ console.log(webFrame.getResourceUsage())
 以前使用していたメモリを解放しようとします (以前のナビゲーションの画像など)。
 
 このメソッドを盲目的に呼び出すと、空になったキャッシュを補充する必要があるため、Electron の処理速度が遅くなる可能性があることに注意してください。アプリ内のイベントが発生してページの実際のメモリ使用量が少なくなったと思われる場合にのみ呼び出すようにしてください (即ち、とても重いページから空のページへナビゲートし、そこにとどまるとき)。
+
+### `webFrame.getFrameForSelector(selector)`
+
+* `selector` String - フレーム要素の CSS セレクタ。
+
+戻り値 `WebFrame` - `selector` によって選択された `webFrame` のドキュメント。`selector` がフレームを選択していないか現在のレンダラープロセスにそのフレームがない場合、`null` が返されます。
+
+### `webFrame.findFrameByName(name)`
+
+* `name` String
+
+戻り値 `WebFrame` - 与えられた `name` である `webFrame` の子。そのようなフレームが存在しないか現在のレンダラープロセスにそのフレームがない場合、`null` が返されます。
+
+### `webFrame.findFrameByRoutingId(routingId)`
+
+* `routingId` Integer - 現在のレンダラープロセスでの一意なフレーム ID を表す `Integer`。 ルーティング ID は `WebFrame` インスタンス (`webFrame.routingId`) や、フレーム特有の `WebContents` ナビゲーションイベント (`did-frame-navigate` など) から取得できます。
+
+戻り値 `WebFrame` - 渡された `routingId` のもの。見つからなければ `null`。
+
+## プロパティ
+
+### `webFrame.top`
+
+`webFrame` が属するフレーム階層内のトップフレームを表す `WebFrame`。トップフレームが現在のレンダラープロセスにない場合、プロパティは `null` になります。
+
+### `webFrame.opener`
+
+`webFrame` が開かれたフレームを表す `WebFrame`。開いたフレームが存在しないか現在のレンダラープロセスにない場合、プロパティは `null` になります。
+
+### `webFrame.parent`
+
+`webFrame` の親フレームを表す `WebFrame`。`webFrame` がトップフレームか現在のレンダラープロセスにない場合、プロパティは `null` になります。
+
+### `webFrame.firstChild`
+
+`webFrame` の最初の子フレームを表す `WebFrame`。`webFrame` に子フレームが存在しないか現在のレンダラープロセスにない場合、プロパティは `null` になります。
+
+### `webFrame.nextSibling`
+
+次の兄弟フレームを表す `WebFrame`。`webFrame` がその親の最後の子フレームか、次の兄弟フレームが現在のレンダラープロセスにない場合、プロパティは `null` になります。
+
+### `webFrame.routingId`
+
+現在のレンダラープロセスの一意なフレーム ID を表す `Integer`。同じ基底フレームを参照する WebFrame インスタンスは、同じ `routingId` を持ちます。

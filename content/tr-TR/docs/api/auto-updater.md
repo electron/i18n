@@ -4,7 +4,7 @@
 
 İşlem: [Ana](../glossary.md#main-process)
 
-**Uygulamanıza güncelleştirmeleri nasıl uygulayacağınız hakkında ayrıntılı bir rehberi [burada](../tutorial/updates.md) bulabilirsiniz.**
+**See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
 
 ## Platform Bildirimleri
 
@@ -32,7 +32,7 @@ Squirrel.Mac'ten farklı olarak, Windows güncelleştirmeleri S3'te veya diğer 
 
 `autoUpdater` nesnesi aşağıdaki olaylarla ortaya çıkarır:
 
-### Olay: 'error'
+### Event: 'error'
 
 Dönüşler:
 
@@ -66,13 +66,19 @@ Bir güncelleme indirildiğinde ortaya çıkan.
 
 Windows üzerinde yalnızca `releaseName` kullanılabilir.
 
+### Event: 'before-quit-for-update'
+
+This event is emitted after a user calls `quitAndInstall()`.
+
+When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
+
 ## Metodlar
 
 `autoUpdater` nesnesi aşağıdaki yöntemleri içerir:
 
 ### `autoUpdater.setFeedURL(seçenekler)`
 
-* `seçenekler` Obje 
+* `options` Obje 
   * `url` Dize
   * `headers` Object (optional) *macOS* - HTTP request headers.
   * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.

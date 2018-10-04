@@ -1,6 +1,6 @@
 # Snapcraft Rehberi (Ubuntu Yazılım Merkezi ve daha fazlası)
 
-This guide provides information on how to package your Electron application for any Snapcraft environment, including the Ubuntu Software Center.
+Bu kılavuz, Ubuntu Yazılım Merkezi dahil olmak üzere herhangi bir Snapcraft ortamı için Electron uygulamanızı nasıl paketleyeceğiniz hakkında bilgi sağlar.
 
 ## Arka plan ve Gereksinimler
 
@@ -50,7 +50,7 @@ Package the application using [electron-packager](https://github.com/electron-us
         └── version
 ```
 
-### Step 2: Running `electron-installer-snap`
+### 2. Adım: Çalıştırma `electron-installer-snap`
 
 From a terminal that has `snapcraft` in its `PATH`, run `electron-installer-snap` with the only required parameter `--src`, which is the location of your packaged Electron application created in the first step.
 
@@ -67,15 +67,15 @@ snap(options)
   .then(snapPath => console.log(`Created snap at ${snapPath}!`))
 ```
 
-## Using an Existing Debian Package
+## Mevcut bir Debian Paketiniz varsa
 
 Snapcraft is capable of taking an existing `.deb` file and turning it into a `.snap` file. The creation of a snap is configured using a `snapcraft.yaml` file that describes the sources, dependencies, description, and other core building blocks.
 
-### Step 1: Create a Debian Package
+### 1. Adım: Debian Paketi Oluşturma
 
 If you do not already have a `.deb` package, using `electron-installer-snap` might be an easier path to create snap packages. However, multiple solutions for creating Debian packages exist, including [`electron-forge`](https://github.com/electron-userland/electron-forge), [`electron-builder`](https://github.com/electron-userland/electron-builder) or [`electron-installer-debian`](https://github.com/unindented/electron-installer-debian).
 
-### Step 2: Create a snapcraft.yaml
+### 2. Adım: snapcraft.yaml Oluşturma
 
 For more information on the available configuration options, see the [documentation on the snapcraft syntax](https://docs.snapcraft.io/build-snaps/syntax). Let's look at an example:
 

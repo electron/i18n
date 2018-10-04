@@ -4,6 +4,8 @@
 
 进程: [ Renderer](../glossary.md#renderer-process)
 
+`webFrame` export of the electron module is an instance of the `WebFrame` class representing the top frame of the current `BrowserWindow`. Sub-frames can be retrieved by certain properties and methods (e.g. `webFrame.firstChild`).
+
 将当前页缩放到200% 的示例。
 
 ```javascript
@@ -13,7 +15,7 @@ webFrame.setZoomFactor(2)
 
 ## 方法
 
-`webFrame`模块包含以下方法：
+The `WebFrame` class has the following instance methods:
 
 ### `webFrame.setZoomFactor(factor)`
 
@@ -72,14 +74,6 @@ webFrame.setSpellCheckProvider('en-US', true, {
 })
 ```
 
-### `webFrame.registerURLSchemeAsSecure(scheme)`
-
-* `scheme` String
-
-Registers the `scheme` as secure scheme.
-
-安全方案不会触发混合内容警告。 例如，`https` 和 `data`是安全的方案，因为它们不能被活跃的网络攻击者破坏。
-
 ### `webFrame.registerURLSchemeAsBypassingCSP(scheme)`
 
 * `scheme` String
@@ -89,7 +83,7 @@ Registers the `scheme` as secure scheme.
 ### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
 
 * `scheme` String
-* `选项` Object (可选) 
+* `options` Object (可选) 
   * `secure` Boolean (optional) - Default true.
   * `bypassCSP` Boolean (optional) - Default true.
   * `allowServiceWorkers` Boolean (optional) - Default true.
@@ -120,7 +114,7 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 
 Returns `Promise` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
 
-评估页面中的 `code`。
+在页面中执行 `code`。
 
 在浏览器窗口中，一些HTML API（如` requestFullScreen `）只能是 由来自用户的手势调用。 将 ` userGesture ` 设置为 ` true ` 将删除此限制。
 
@@ -160,6 +154,7 @@ Set the security origin of the isolated world.
 返回 `Object`:
 
 * `images` [MemoryUsageDetails](structures/memory-usage-details.md)
+* `scripts` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `cssStyleSheets` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `xslStyleSheets` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `fonts` [MemoryUsageDetails](structures/memory-usage-details.md)
@@ -193,3 +188,47 @@ This will generate:
 尝试释放不再使用的内存 (如以前导航中的图像)。
 
 请注意, 盲目调用此方法可能使Electron较慢, 因为它将不得不重新填充这些清空的缓存。你应该只在这种情况下调用它, 就是当你的应用程序发生的一个事件, 使你认为你的网页实际只使用了较少的内存 (例如你从一个超级重页跳转到一个基本为空的页面, 并打算留在那)。
+
+### `webFrame.getFrameForSelector(selector)`
+
+* `selector` String - CSS selector for a frame element.
+
+Returns `WebFrame` - The frame element in `webFrame's` document selected by `selector`, `null` would be returned if `selector` does not select a frame or if the frame is not in the current renderer process.
+
+### `webFrame.findFrameByName(name)`
+
+* `name` String
+
+Returns `WebFrame` - A child of `webFrame` with the supplied `name`, `null` would be returned if there's no such frame or if the frame is not in the current renderer process.
+
+### `webFrame.findFrameByRoutingId(routingId)`
+
+* `routingId` Integer - An `Integer` representing the unique frame id in the current renderer process. Routing IDs can be retrieved from `WebFrame` instances (`webFrame.routingId`) and are also passed by frame specific `WebContents` navigation events (e.g. `did-frame-navigate`)
+
+Returns `WebFrame` - that has the supplied `routingId`, `null` if not found.
+
+## 属性
+
+### `webFrame.top`
+
+A `WebFrame` representing top frame in frame hierarchy to which `webFrame` belongs, the property would be `null` if top frame is not in the current renderer process.
+
+### `webFrame.opener`
+
+A `WebFrame` representing the frame which opened `webFrame`, the property would be `null` if there's no opener or opener is not in the current renderer process.
+
+### `webFrame.parent`
+
+A `WebFrame` representing parent frame of `webFrame`, the property would be `null` if `webFrame` is top or parent is not in the current renderer process.
+
+### `webFrame.firstChild`
+
+A `WebFrame` representing the first child frame of `webFrame`, the property would be `null` if `webFrame` has no children or if first child is not in the current renderer process.
+
+### `webFrame.nextSibling`
+
+A `WebFrame` representing next sibling frame, the property would be `null` if `webFrame` is the last frame in its parent or if the next sibling is not in the current renderer process.
+
+### `webFrame.routingId`
+
+An `Integer` representing the unique frame id in the current renderer process. Distinct WebFrame instances that refer to the same underlying frame will have the same `routingId`.

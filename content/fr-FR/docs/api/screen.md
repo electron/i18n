@@ -64,18 +64,18 @@ Retourne :
 
 ### Événement : 'display-removed'
 
-Retourne :
+Renvoie :
 
-* `event` Event
+* `event` Événement
 * `oldDisplay` [Display](structures/display.md)
 
 Émis lorsque `oldDisplay` a été retiré.
 
 ### Événement 'display-metrics-changed'
 
-Retourne :
+Renvoie :
 
-* `event` Event
+* `event` Événement
 * `display` [Display](structures/display.md)
 * `changedMetrics` String[]
 
@@ -90,10 +90,6 @@ Le module `screen` dispose des méthodes suivantes :
 Retourne [`Point`](structures/point.md)
 
 La position absolue du pointeur de la souris.
-
-### `screen.getMenuBarHeight()` *macOS*
-
-Retourne `Integer` - La hauteur de la barre de menu en pixels.
 
 ### `screen.getPrimaryDisplay()`
 
@@ -114,3 +110,37 @@ Retourne [`Display`](structures/display.md) - L'écran le plus proche du point s
 * `rect` [Rectangle](structures/rectangle.md)
 
 Retourne [`Display`](structures/display.md) - L'écran qui croise le plus les limites d'intersection données.
+
+### `screen.screenToDipPoint(point)` *Windows*
+
+* `point` [Point](structures/point.md)
+
+Retourne [`Point`](structures/point.md)
+
+Converts a screen physical point to a screen DIP point. The DPI scale is performed relative to the display containing the physical point.
+
+### `screen.dipToScreenPoint(point)` *Windows*
+
+* `point` [Point](structures/point.md)
+
+Retourne [`Point`](structures/point.md)
+
+Converts a screen DIP point to a screen physical point. The DPI scale is performed relative to the display containing the DIP point.
+
+### `screen.screenToDipRect(window, rect)` *Windows*
+
+* `window` [BrowserWindow](browser-window.md) | null
+* `rect` [Rectangle](structures/rectangle.md)
+
+Retourne [`Rectangle`](structures/rectangle.md)
+
+Converts a screen physical rect to a screen DIP rect. The DPI scale is performed relative to the display nearest to `window`. If `window` is null, scaling will be performed to the display nearest to `rect`.
+
+### `screen.dipToScreenRect(window, rect)` *Windows*
+
+* `window` [BrowserWindow](browser-window.md) | null
+* `rect` [Rectangle](structures/rectangle.md)
+
+Retourne [`Rectangle`](structures/rectangle.md)
+
+Converts a screen DIP rect to a screen physical rect. The DPI scale is performed relative to the display nearest to `window`. If `window` is null, scaling will be performed to the display nearest to `rect`.

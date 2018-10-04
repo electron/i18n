@@ -1,4 +1,4 @@
-# NotificationAction 객체
+# NotificationAction Object
 
 * `type` String - 동작 유형, `button` 입니다.
 * `text` String (선택) 지정된 동작의 라벨입니다.

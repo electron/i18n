@@ -8,7 +8,7 @@ Ang `ipcMain` modyul ay isang halimbawa ng [EventEmitter](https://nodejs.org/api
 
 ## Ipinadalang mga mensahe
 
-Ito rin ay posibleng maipada ang mga mensaheng mula sa pangunahing proseso papunta sa proseso ng renderer, tingnan [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) para sa karagdagang impormasyon.
+Ito rin ay posibleng maipada ang mga mensaheng mula sa pangunahing proseso papunta sa proseso ng renderer, tingnan [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) para sa karagdagang impormasyon.
 
 * Kapag nagpadala ng mensahe, ang event name ay ang `channel`.
 * Upang tumugon sa mensahe ng synchronous, maaari mong i-set ang `event.returnValue`.
@@ -82,4 +82,4 @@ Itakda ang mga ito sa halaga na ibabalik sa isang mensahe ng synchronous.
 
 ### `event.sender`
 
-Nagbabalik ang `webContents` na nagpadala ng mensahe, maaari mong tawagan ang `event.sender.send` upang tumugon sa mensahe ng asynchronous, tingnan ang [webContents.send](web-contents.md#webcontentssendchannel-arg1-arg2-) para sa karagdagang impormasyon.
+Nagbabalik ang `webContents` na nagpadala ng mensahe, maaari mong tawagan ang `event.sender.send` upang tumugon sa mensahe ng asynchronous, tingnan ang [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) para sa karagdagang impormasyon.

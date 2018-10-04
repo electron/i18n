@@ -2,7 +2,7 @@
 
 > Створює відступ між елементами в панелі дотику для нативних macOS застосунків
 
-Процес: [Main](../tutorial/quick-start.md#main-process)
+Процес: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `new TouchBarSpacer(options)` *Експериментальний*
 

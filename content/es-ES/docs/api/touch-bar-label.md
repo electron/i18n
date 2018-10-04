@@ -2,11 +2,11 @@
 
 > Crea una etiqueta en la barra táctil para aplicaciones nativas a macOS
 
-Proceso: [principal](../tutorial/quick-start.md#main-process)
+Proceso: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `Nueva etiqueta en la barra táctil(opciones)` *Experimental*
 
-* `options` Object 
+* `opciones` Object 
   * `etiqueta` Cadena (opcional) - texto a mostrar.
   * `Color del texto` cadena (opcional) - color del texto en hex, ejemplo `#ABCDEF`.
 

@@ -17,89 +17,29 @@ Electron se construye casi completamente con script de comandos de linea y no pu
 
 **Nota:** A pesar de que Visual Studio no es usado para construir, todavía se **requiere** debido a que necesitamos las herramientas que provee para construir.
 
-## Obteniendo el código
-
-```powershell
-$ git clone https://github.com/electron/electron.git
-```
-
-## Inicialización
-
-El script bootstrap descargará todas las dependencias de compilacion necesarias y creará la estructura de archivos del proyecto. Fijese que estamos usando `ninja` para construir Electron así que no hay ningún proyecto de Visual Studio generado.
-
-To bootstrap for a static, non-developer build, run:
-
-```powershell
-$ cd electron
-$ npm run bootstrap
-```
-
-Or to bootstrap for a development session that builds faster by not statically linking:
-
-```powershell
-$ cd electron
-$ npm run bootstrap:dev
-```
-
 ## Compilando
 
-Compilar ambos destinos `lanzamiento` y `Depuración`:
-
-```powershell
-$ npm run build
-```
-
-You can also build either the `Debug` or `Release` target on its own:
-
-```powershell
-$ npm run build:dev
-```
-
-```powershell
-$ npm run build:release
-```
-
-Después de que acabe la compilación, puede encontrar `electron.exe` en `out\D` (version debug) o en `out\R` (version release).
+See [Build Instructions: GN](build-instructions-gn.md)
 
 ## Arquitectura 32bit
 
-Para construir una versión de 32bit, necesita pasar `--target_arch=ia32` cuando ejecute el script bootstrap:
+To build for the 32bit target, you need to pass `target_cpu = "x86"` as a GN arg. You can build the 32bit target alongside the 64bit target by using a different output directory for GN, e.g. `out/Release-x86`, with different arguments.
 
 ```powershell
-$ python script\bootstrap.py -v --target_arch=ia32
+$ gn gen out/Release-x86 --args="import(\"//electron/build/args/release.gn\") target_cpu=\"x86\""
 ```
 
 El resto de los pasos son exactamente los mismos.
 
 ## Proyecto de Visual Studio
 
-Para generar un proyecto Visual Studio, se puede pasar el argumento `--msvs`:
+To generate a Visual Studio project, you can pass the `--ide=vs2017` parameter to `gn gen`:
 
 ```powershell
-$ python script\bootstrap.py --msvs
+$ gn gen out/Debug --ide=vs2017
 ```
 
-## Limpieza
-
-Para limpiar los archivos de compilación:
-
-```powershell
-$ npm run clean
-```
-
-Para limpiar solo los directorios `fuera` y `dist`:
-
-```sh
-$ npm run clean-build
-```
-
-**Nota:** Ambos comandos limpios requieren un `arranque` de nuevo después de ser compilados.
-
-## Verificación
-
-Ver Resumen de sistema de [Build: Tests](build-system-overview.md#tests)
-
-## Solución de problemas
+## Problemas
 
 ### Comand xxxx not found
 
@@ -108,31 +48,6 @@ Si encuentra un error como `Comand xxxx not found`, intente usar la `Consola de 
 ### Fatal internal compiler error: C1001
 
 Asegúrese de que tiene instalada la última versión de Visual Studio.
-
-### Assertion failed: ((handle))->activecnt >= 0
-
-Mientras compila con Cygwin, puede observar que falla `bootstrap.py` con el siguiente error:
-
-```sh
-Assertion failed: ((handle))->activecnt >= 0, file src\win\pipe.c, line 1430
-
-Traceback (most recent call last):
-  File "script/bootstrap.py", line 87, in <module>
-    sys.exit(main())
-  File "script/bootstrap.py", line 22, in main
-    update_node_modules('.')
-  File "script/bootstrap.py", line 56, in update_node_modules
-    execute([NPM, 'install'])
-  File "/home/zcbenz/codes/raven/script/lib/util.py", line 118, in execute
-    raise e
-subprocess.CalledProcessError: Command '['npm.cmd', 'install']' returned non-zero exit status 3
-```
-
-Esto es causado por un error usando juntos Cygwin Python y Node Win32. La solución es usar Python Win32 para ejecutar el script bootstrap (Asumiendo que ha instalado python en `C:\Python27`):
-
-```powershell
-$ /cygdrive/c/Python27/python.exe script/bootstrap.py
-```
 
 ### LNK1181: cannot open input file 'kernel32.lib'
 
@@ -152,7 +67,7 @@ Debe obtener este error si está usando Git Bash para la compilación, en cambio
 
 ### cannot create directory at '...': Filename too long
 
-node.js has some [extremely long pathnames](https://github.com/electron/node/tree/electron/deps/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/node_modules/is-arrayish), and by default git on windows doesn't handle long pathnames correctly (even though windows supports them). This should fix it:
+node.js has some [extremely long pathnames](https://github.com/electron/node/tree/electron/deps/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/node_modules/is-arrayish), and by default git on windows doesn't handle long pathnames correctly (even though windows supports them). Esto debería arreglarlo:
 
 ```sh
 $ git config --system core.longpaths true

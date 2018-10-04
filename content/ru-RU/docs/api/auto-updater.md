@@ -2,9 +2,9 @@
 
 > Включает в приложении автоматическое самообновление.
 
-Process: [Main](../glossary.md#main-process)
+Процесс: [Main](../glossary.md#main-process)
 
-**Вы можете найти подробное руководство о том, как выполнять обновления в Вашем приложение [здесь](../tutorial/updates.md).**
+**See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
 
 ## Платформа заметок
 
@@ -65,6 +65,12 @@ Process: [Main](../glossary.md#main-process)
 Возникает при загрузке обновления.
 
 На Windows доступен только `releaseName`.
+
+### Event: 'before-quit-for-update'
+
+This event is emitted after a user calls `quitAndInstall()`.
+
+When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
 
 ## Методы
 

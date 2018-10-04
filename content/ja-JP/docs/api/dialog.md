@@ -30,7 +30,7 @@ console.log(dialog)
   * `defaultPath` String (任意)
   * `buttonLabel` String (任意) - 確認ボタンのカスタムラベル。空のままにすると、既定のラベルが使用されます。
   * `filters` [FileFilter[]](structures/file-filter.md) (任意)
-  * `プロパティ` String[] (任意) - ダイアログでどの機能を使用するか。以下の値がサポートされます。 
+  * `properties` String[] (任意) - ダイアログでどの機能を使用するか。以下の値がサポートされます。 
     * `openFile` - ファイルを選択するのを許可します。
     * `openDirectory` - ディレクトリを選択するのを許可します。
     * `multiSelections` - 複数のパスを選択するのを許可します。

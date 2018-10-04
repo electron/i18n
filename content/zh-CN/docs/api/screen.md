@@ -4,7 +4,7 @@
 
 参见： [process](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) process
 
-在发出 ` app ` 模块的 ` ready ` 事件之前, 您不能 `require` 或使用此模块。
+在 ` app ` 模块发出 ` ready ` 事件之前, 您不能引用或者使用此模块。
 
 `screen` 是一个 [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -91,10 +91,6 @@ app.on('ready', () => {
 
 当前鼠标的绝对位置。
 
-### `screen.getMenuBarHeight()` *macOS*
-
-返回`Integer`，表示菜单栏的高度 (单位：像素)
-
 ### `screen.getPrimaryDisplay()`
 
 返回主窗口[`Display`](structures/display.md)
@@ -114,3 +110,37 @@ app.on('ready', () => {
 * `rect` [Rectangle](structures/rectangle.md)
 
 返回离指定的图形最密切相交一个窗口[`Display`](structures/display.md)
+
+### `screen.screenToDipPoint(point)` *Windows*
+
+* `point` [Point](structures/point.md)
+
+返回 [`Point`](structures/point.md)
+
+Converts a screen physical point to a screen DIP point. The DPI scale is performed relative to the display containing the physical point.
+
+### `screen.dipToScreenPoint(point)` *Windows*
+
+* `point` [Point](structures/point.md)
+
+返回 [`Point`](structures/point.md)
+
+Converts a screen DIP point to a screen physical point. The DPI scale is performed relative to the display containing the DIP point.
+
+### `screen.screenToDipRect(window, rect)` *Windows*
+
+* `window` [BrowserWindow](browser-window.md) | null
+* `rect` [Rectangle](structures/rectangle.md)
+
+返回 [`Rectangle`](structures/rectangle.md)
+
+Converts a screen physical rect to a screen DIP rect. The DPI scale is performed relative to the display nearest to `window`. If `window` is null, scaling will be performed to the display nearest to `rect`.
+
+### `screen.dipToScreenRect(window, rect)` *Windows*
+
+* `window` [BrowserWindow](browser-window.md) | null
+* `rect` [Rectangle](structures/rectangle.md)
+
+返回 [`Rectangle`](structures/rectangle.md)
+
+Converts a screen DIP rect to a screen physical rect. The DPI scale is performed relative to the display nearest to `window`. If `window` is null, scaling will be performed to the display nearest to `rect`.

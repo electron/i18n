@@ -4,7 +4,7 @@
 
 线程：[主线程](../glossary.md#main-process)
 
-**您可以在 [这里](../tutorial/updates.md) 找到一个详细的指南，介绍如何将更新应用到您的应用程序。**
+**See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
 
 ## 跨平台提醒
 
@@ -66,13 +66,19 @@
 
 在 Windows 上只有 `releaseName` 是有效的。
 
+### Event: 'before-quit-for-update'
+
+This event is emitted after a user calls `quitAndInstall()`.
+
+When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
+
 ## 方法
 
 `autoUpdater` 对象具有以下方法:
 
 ### `autoUpdater.setFeedURL(选项)`
 
-* `选项` Object 
+* `options` Object 
   * `url` String
   * `headers` Object (可选) *macOS* - HTTP 请求头。
   * `serverType` String (可选) *macOS* - `json` 或者 `default`, 有关更多信息，请参考 [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) 的自述文件(README)。

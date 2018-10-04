@@ -77,7 +77,7 @@ get_started:
   description: Para comenzar con Electron, revisa los recursos de abajo. Aprende como ajustar tu aplicación web con ELectron, acceder a todas las APIs, y generar instaladores.
 explore:
   title: Explorar las APIs de Electron
-  description: "La <a href='https://github.com/electron/electron-api-demos'>aplicación de demos de Electron API</a>muestra de forma interactiva las características más importantes de la API de Electron. Vea qué es posible hacer con Electron con código de muestra y consejos útiles para construir su aplicación."
+  description: "La <a href='https://github.com/electron/electron-api-demos'>aplicación de demostración de Electron API</a> muestra de forma interactiva las características más importantes de la API de Electron. Vea qué es posible hacer con Electron con código de muestra y consejos útiles para construir su aplicación."
 download_from_github: Descargar desde GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Ver todas las versiones</a> en GitHub
 quick_start:

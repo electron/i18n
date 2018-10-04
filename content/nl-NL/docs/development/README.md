@@ -1,26 +1,26 @@
-# Developing Electron
+# Electron ontwikkelen
 
-These guides are intended for people working on the Electron project itself. For guides on Electron app development, see [/docs/README.md](../README.md#guides-and-tutorials).
+Deze handleidingen zijn bedoeld voor mensen die aan het Electron project werken. Voor handleidingen over het maken van een Electron app, ga naar [/docs/README.md](../README.md#guides-and-tutorials).
 
 * [Gedragscode](../../CODE_OF_CONDUCT.md)
-* [Contributing to Electron](../../CONTRIBUTING.md)
-* [Issues](issues.md)
+* [Bijdragen aan Electron](../../CONTRIBUTING.md)
+* [Problemen](issues.md)
 * [Pull Requests](pull-requests.md)
 * [Documentatie Styleguide](coding-style.md#documentation)
 * [Bron Code mappen structuur](source-code-directory-structure.md)
 * [Codeerstijl](coding-style.md)
 * [Het gebruik van clang-format op C++ Code](clang-format.md)
-* [Bouwen Systeemoverzicht](build-system-overview.md)
-* [Bouwen van instructies (macOS)](build-instructions-osx.md)
+* [Bouw omgeving overzicht](build-system-overview.md)
+* [Bouwen van instructies (MacOS)](build-instructions-macos.md)
 * [Bouwen van instructies (Windows)](build-instructions-windows.md)
 * [Bouwen van instructies (Linux)](build-instructions-linux.md)
 * [Chromium ontwikkeling](chromium-development.md)
 * [V8 ontwikkeling](v8-development.md)
 * [Testen](testing.md)
-* [Debugging on Windows](debug-instructions-windows.md)
-* [Debugging on macOS](debugging-instructions-macos.md)
-* [Setting Up Symbol Server in Debugger](setting-up-symbol-server.md)
-* [Upgraden Chromium](upgrading-chromium.md)
-* [Upgrading Crashpad](upgrading-crashpad.md)
-* [Upgrading Node](upgrading-node.md)
+* [Foutopsporing op Windows](debug-instructions-windows.md)
+* [Foutopsporing op MacOS](debugging-instructions-macos.md)
+* [Symbol Server instellen in Debugger](setting-up-symbol-server.md)
+* [Chromium updaten](upgrading-chromium.md)
+* [Crashpad updaten](upgrading-crashpad.md)
+* [Node updaten](upgrading-node.md)
 * [Releasing](releasing.md)

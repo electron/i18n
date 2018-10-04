@@ -9,7 +9,7 @@ Proses: [Main](../glossary.md#main-process)
 
 <h2>Mengirim Pesan</h2>
 
-<p>Hal ini juga memungkinkan untuk mengirim pesan dari proses utama ke proses renderer, lihat <a href="web-contents.md#webcontentssendchannel-arg1-arg2-"> isi web.kirim</ 0> untuk informasi lebih lanjut.</p>
+<p>Hal ini juga memungkinkan untuk mengirim pesan dari proses utama ke proses renderer, lihat <a href="web-contents.md#contentssendchannel-arg1-arg2-"> isi web.kirim</ 0> untuk informasi lebih lanjut.</p>
 
 <ul>
 <li>Saat mengirim pesan, nama acara adalah <code> saluran </ 0> .</li>
@@ -58,8 +58,8 @@ Modul ` ipcMain </ 0> memiliki metode berikut untuk mendengarkan acara:</p>
  <code> pendengar (acara, args ...) </ 0> .</p>
 
 <h3><code>ipcMain.sekali (saluran, pendengar)`</h3> 
-    * ` saluran </ 0>  String</li>
-<li><code> pendengar </ 0> Fungsi</li>
+    * `channel` String
+    * ` pendengar </ 0> Fungsi</li>
 </ul>
 
 <p>Hapus satu waktu <code> pendengar </ 0> fungsi untuk acara. Ini <code> pendengar </ 0> yang hanya satu kali pesan terkirim ke <code> saluran </ 0>, setelah itu hapus.</p>
@@ -72,20 +72,20 @@ Modul ` ipcMain </ 0> memiliki metode berikut untuk mendengarkan acara:</p>
 <p>Menghapus ditentukan <code> pendengar </ 0> dari array pendengar untuk <code> saluran </ 0> tertentu.</p>
 
 <h3><code>ipcMain.pendengar menghapus semua( [channel] )`</h3> 
-            * ` saluran </ 0>  String</li>
-</ul>
-
-<p>Menghapus pendengar yang ditentukan <code> saluran </ 0> .</p>
+            * `channel` String
+            
+            Menghapus pendengar yang ditentukan ` saluran </ 0> .</p>
 
 <h2>Objek acara</h2>
 
 <p><code> acara </ 0> objek diteruskan ke <code> callback </ 0> memiliki metode berikut:</p>
 
 <h3><code>acara.kembali di nilai`</h3> 
-                Atur ini ke nilai yang akan dikembalikan dalam pesan sinkron.
-                
-                ### `acara.pengirim`
-                
-                Mengembalikan isi web </ 0> yang mengirim pesan, Anda dapat memanggil
+            
+            Atur ini ke nilai yang akan dikembalikan dalam pesan sinkron.
+            
+            ### `acara.pengirim`
+            
+            Mengembalikan isi web </ 0> yang mengirim pesan, Anda dapat memanggil
  <code> acara.pengirim.kirim </ 0> untuk membalas pesan asinkron, lihat
- <a href="web-contents.md#webcontentssendchannel-arg1-arg2-"> isis web.kirim</ 1> untuk lebih informasi.</p>
+ <a href="web-contents.md#contentssendchannel-arg1-arg2-"> isis web.kirim</ 1> untuk lebih informasi.</p>

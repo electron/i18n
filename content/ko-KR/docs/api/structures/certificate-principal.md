@@ -1,4 +1,4 @@
-# 인증서 책임자 개체
+# CertificatePrincipal Object
 
 * `commonName` String - 통칭
 * `organizations` String - 조직 이름

@@ -2,7 +2,7 @@
 
 > Определяне на клавишни комбинации.
 
-Ускорители са низове, които могат да съдържат множество модификатори и ключови кодове, комбинирани със символа `+`, като се използват за определяне на клавишни комбинации в приложението.
+Accelerators are Strings that can contain multiple modifiers and a single key code, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
 
 Примери:
 

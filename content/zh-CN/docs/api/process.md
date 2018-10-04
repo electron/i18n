@@ -6,6 +6,20 @@
 
 Electron's `process` 对象继承 [Node.js `process` object](https://nodejs.org/api/process.html)。 它新增了以下事件、属性和方法
 
+## Sandbox
+
+In sandboxed renderers the `process` object contains only a subset of the APIs:
+
+* `crash()`
+* `hang()`
+* `getHeapStatistics()`
+* `getProcessMemoryInfo()`
+* `getSystemMemoryInfo()`
+* `argv`
+* `execPath`
+* `env`
+* `platform`
+
 ## 事件
 
 ### 事件: 'loaded'
@@ -90,6 +104,22 @@ process.once('loaded', () => {
 
 返回 [`IOCounters`](structures/io-counters.md)
 
+### `process.getHeapStatistics()`
+
+返回 ` Object `:
+
+* `totalHeapSize` Integer
+* `totalHeapSizeExecutable` Integer
+* `totalPhysicalSize` Integer
+* `totalAvailableSize` Integer
+* `usedHeapSize` Integer
+* `heapSizeLimit` Integer
+* `mallocedMemory` Integer
+* `peakMallocedMemory` Integer
+* `doesZapGarbage` Boolean
+
+Returns an object with V8 heap statistics. Note that all statistics are reported in Kilobytes.
+
 ### `process.getProcessMemoryInfo()`
 
 返回 ` Object `:
@@ -103,12 +133,12 @@ process.once('loaded', () => {
 
 ### `process.getSystemMemoryInfo()`
 
-返回 `Object`:
+返回 ` Object `:
 
 * `total` Integer - 系统可用的物理内存总量(Kb)。
 * `free` Integer - 应用程序或磁盘缓存未使用的内存总量。
-* `swapTotal` Integer *Windows* *Linux* - The total amount of swap memory in Kilobytes available to the system.
-* `swapFree` Integer *Windows* *Linux* - The free amount of swap memory in Kilobytes available to the system.
+* `swapTotal` Integer *Windows* *Linux* - 系统交换内存容量（单位：千字节）。
+* `swapFree` Integer *Windows* *Linux* - 系统可用交换内存大小（单位：千字节）。
 
 返回一个对象, 它提供有关当前进程的内存使用情况统计信息。请注意, 所有统计信息都以千字节为单位报告。
 

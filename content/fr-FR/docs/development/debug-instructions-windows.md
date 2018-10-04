@@ -17,7 +17,7 @@ Si vous rencontrez des crash ou des problèmes dans Electron et que vous croyez 
 Pour démarrer une session de débogage, ouvrez PowerShell/CMD et exécutez votre version debug d'Electron, utilisant votre application comme paramètre.
 
 ```powershell
-$ ./out/D/electron.exe ~/mon-app-electron/
+$ ./out/Debug/electron.exe ~/my-electron-app/
 ```
 
 ### Définition de points d’arrêt

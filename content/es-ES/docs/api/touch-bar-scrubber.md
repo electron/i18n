@@ -1,8 +1,8 @@
-## Clase: depurador de la barra tactil
+## Clase: TouchBarScrubber
 
 > Crear un depurador (un selector de desplazamiento)
 
-Proceso: [Main](../tutorial/quick-start.md#main-process)
+Proceso: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `Nuevo depurador de la barra táctil(opciones)` *Experimental*
 
@@ -24,23 +24,23 @@ Las siguientes propiedades está disponibles en instancias del `depurador de bar
 
 #### `touchBarScrubber.items`
 
-Un arreglo de`Elemento a depurar[]` representando los elementos en este depurador. Actualizar este valor actualiza inmediatamente el control en la barra táctil. Mientras se actualicen las propiedades profundas dentro de este arreglo **no se actualiza la barra táctil**.
+Un array de `ScrubberItem[]` representando los elementos en este depurador. Actualizar este valor actualiza inmediatamente el control en la barra táctil. Mientras se actualicen las propiedades profundas dentro de este arreglo **no se actualiza la barra táctil**.
 
 #### `touchBarScrubber.selectedStyle`
 
-A `String` representing the style that selected items in the scrubber should have. Updating this value immediately updates the control in the touch bar. Possible values:
+Un `String` representando el estilo que deben tener los elementos en el depurador. Actualizar este valor inmediatamente actualiza el control en la barra táctil. Valores positivos:
 
-* `fondo` - mapas a `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
-* `fuera de linea` - Mapa a `[NSScrubberSelectionStyle outlineOverlayStyle]`.
-* `nulo` - Actualiza nulo, no una cadena, remueve todos los estilos.
+* `background` - Mapa a `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
+* `outline` - Mapa a `[NSScrubberSelectionStyle outlineOverlayStyle]`.
+* `null` - Actualiza nulo, no una cadena, remueve todos los estilos.
 
 #### `touchBarScrubber.overlayStyle`
 
 Una `Cadena` que representa el estilo que deben tener los elementos seleccionados por el depurador. Este estilo es cubierto en la parte superior del elemento depurador en vez de posicionarse detrás de él. Actualizar este valor inmediatamente actualiza el control en la barra de herramientas. Posibles valores:
 
-* `fondo` - mapas a `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
-* `fuera de linea` - Mapa a `[NSScrubberSelectionStyle outlineOverlayStyle]`.
-* `nulo` - Actualiza nulo, no una cadena, remueve todos los estilos.
+* `background` - Mapa a `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
+* `outline` - Mapa a `[NSScrubberSelectionStyle outlineOverlayStyle]`.
+* `null` - Actualiza nulo, no una cadena, remueve todos los estilos.
 
 #### `touchBarScrubber.showArrowButtons`
 

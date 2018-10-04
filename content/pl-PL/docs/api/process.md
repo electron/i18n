@@ -6,9 +6,23 @@ Proces: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-
 
 Electron's `process` object is extended from the [Node.js `process` object](https://nodejs.org/api/process.html). It adds the following events, properties, and methods:
 
+## Sandbox
+
+In sandboxed renderers the `process` object contains only a subset of the APIs:
+
+* `crash()`
+* `hang()`
+* `getHeapStatistics()`
+* `getProcessMemoryInfo()`
+* `getSystemMemoryInfo()`
+* `argv`
+* `execPath`
+* `env`
+* `platform`
+
 ## Zdarzenia
 
-### Event: 'loaded'
+### Zdarzenie: 'loaded'
 
 Emitted when Electron has loaded its internal initialization script and is beginning to load the web page or the main script.
 
@@ -89,6 +103,22 @@ Returns [`CPUUsage`](structures/cpu-usage.md)
 ### `process.getIOCounters()` *Windows* *Linux*
 
 Returns [`IOCounters`](structures/io-counters.md)
+
+### `process.getHeapStatistics()`
+
+Returns `Object`:
+
+* `totalHeapSize` Integer
+* `totalHeapSizeExecutable` Integer
+* `totalPhysicalSize` Integer
+* `totalAvailableSize` Integer
+* `usedHeapSize` Integer
+* `heapSizeLimit` Integer
+* `mallocedMemory` Integer
+* `peakMallocedMemory` Integer
+* `doesZapGarbage` Boolean
+
+Returns an object with V8 heap statistics. Note that all statistics are reported in Kilobytes.
 
 ### `process.getProcessMemoryInfo()`
 

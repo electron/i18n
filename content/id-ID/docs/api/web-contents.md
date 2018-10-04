@@ -60,6 +60,8 @@ Kembali:
 * `Deskripsi kesalahan` Tali
 * `memvalidasi URL` Tali
 * `adalah Bingkai Utama` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
 
 Acara ini seperti `Apakah-selesai-beban` tapi dipancarkan ketika beban gagal atau dibatalkan, misalnya `jendela.berhenti()` dipanggil. Daftar lengkap kode galat dan makna mereka tersedia [di sini](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
@@ -69,6 +71,8 @@ Pengembalian:
 
 * `acara` Acara
 * `adalah Bingkai Utama` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
 
 Dibunyikan apabila bingkai telah melakukan navigasi.
 
@@ -80,50 +84,21 @@ Sesuai dengan poin pada saat pemintal tab berhenti berputar.
 
 Sesuai dengan poin pada saat pemintal tab berhenti berputar.
 
-#### Peristiwa: 'Apakah-mendapatkan-tanggapan-rincian'
-
-Pengembalian:
-
-* `event</ 0> Acara</li>
-<li><code>status` Boolean
-* `URL baru` Tali
-* `URL asli` Tali
-* `kode tanggapan http` Bilangan bulat
-* `metode permintaan` Tali
-* `pengarah` Tali
-* `header` Obyek
-* `TipeSumberdaya` String
-
-dipancarkan ketika rincian tentang sumber daya yang diminta tersedia. `status` menunjukkan koneksi soket untuk mendownload sumber daya.
-
-#### Peristiwa: 'apakah-mendapatkan-pengalihan-permintaan'
-
-Pengembalian:
-
-* `acara` Acara
-* `URL lama` Tali
-* `URL baru` Tali
-* `adalah Bingkai Utama` Boolean
-* `kode tanggapan http` Bilangan bulat
-* `metode permintaan` Tali
-* `pengarah` Tali
-* `header` Obyek
-
-dipancarkan ketika pengalihan diterima saat meminta sumber daya.
-
 #### Peristiwa: 'lokal-siap'
 
 Pengembalian:
 
-* `event` Acara
+* `event</ 0> Acara</li>
+</ul>
 
-dipancarkan saat dokumen dalam bingkai yang diberikan dimuat.
+<p>dipancarkan saat dokumen dalam bingkai yang diberikan dimuat.</p>
 
-#### Peristiwa: 'halaman-favicon-diperbarui '
+<h4>Peristiwa: 'halaman-favicon-diperbarui '</h4>
 
-Pengembalian:
+<p>Pengembalian:</p>
 
-* `event` Acara
+<ul>
+<li><code>acara` Acara
 * `FAVICONS` String [] - serangkaian URL.
 
 Dibunyikan saat halaman menerima url favicon.
@@ -133,11 +108,12 @@ Dibunyikan saat halaman menerima url favicon.
 Pengembalian:
 
 * `event` Acara
-* ` url </ 0> String</li>
-<li><code>nama bingkai` tali
+* `url` String
+* `nama bingkai` tali
 * `disposisi` String - dapat `default`, `latar depan-tab`, `latar belakang-tab`, `jendela baru`, `Simpan ke disk` dan `lainnya`.
 * `options` Object - The options which will be used for creating the new [`BrowserWindow`](browser-window.md).
 * `fitur tambahan` String [] - fitur tidak-standar (fitur tidak ditangani oleh Kromium atau elektron) diberikan kepada `jendela terbuka()`.
+* `referrer` [Referrer](structures/referrer.md) - The referrer that will be passed to the new window. May or may not result in the `Referer` header being sent, depending on the referrer policy.
 
 Dibunyikan apabila halaman yang permintaan untuk membuka jendela baru `url`. Itu bisa saja diminta oleh `jendela terbuka` atau link eksternal seperti `<a target='_blank'>`.
 
@@ -153,7 +129,7 @@ JendelaPerambansay isiweb.on ('window baru ', (acara, url) = > {peristiwa.menceg
 
 Pengembalian:
 
-* `acara` Acara
+* `event` Acara
 * ` url </ 0> String</li>
 </ul>
 
@@ -166,373 +142,430 @@ API seperti <code>isi web memuat URL` dan `isi web kembali`.</p>
   
   Memanggil `peristiwa.mencegah Default()` akan mencegah navigasi.
   
+  #### Event: 'did-start-navigation'
+  
+  Pengembalian:
+  
+  * `url` String
+  * `isInPlace` Boolean
+  * `adalah Bingkai Utama` Boolean
+  * `frameProcessId` Integer
+  * `frameRoutingId` Integer
+  
+  Emitted when any frame (including main) starts navigating. `isInplace` will be `true` for in-page navigations.
+  
   #### Peristiwa: 'akan navigasi'
+  
+  Pengembalian:
+  
+  * `acara` Acara
+  * ` url </ 0> String</li>
+<li><code>httpResponseCode` Integer - -1 for non HTTP navigations
+  * `httpStatusText` String - empty for non HTTP navigations
+  
+  Emitted when a main frame navigation is done.
+  
+  Acara ini tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
+  
+  #### Event: 'did-frame-navigate'
   
   Pengembalian:
   
   * `event</ 0> Acara</li>
 <li><code> url </ 0> String</li>
-</ul>
-
-<p>Dibunyikan apabila navigasi dilakukan.</p>
-
-<p>Acara ini tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui <code>window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.</p> 
-    #### peristiwa: 'Apakah-menavigasi-di halaman'
-    
-    Pengembalian:
-    
-    * `acara` Acara
-    * `url` String
-    * `adalah Bingkai Utama` Boolean
-    
-    Dibunyikan saat navigasi dalam halaman terjadi.
-    
-    Saat navigasi dalam halaman terjadi, perubahan URL halaman tidak menyebabkan navigasi di luar halaman. Contoh dari hal ini adalah ketika jangkar link diklik atau saat peristiwa hash `perubahan hash` dipicu.
-    
-    #### Peristiwa: 'akan-mencegah-membongkar'
-    
-    Pengembalian:
-    
-    * `acara` Acara
-    
-    Dibunyikan apabila `sebelumnya` event handler adalah mencoba untuk membatalkan halaman membongkar.
-    
-    Memanggil `event.preventDefault()` akan mengabaikan `beforeunload` event handler dan memungkinkan halaman harus dibongkar.
-    
-    ```javascript
-    const {BrowserWindow, dialog} = require ('electron') const win = new BrowserWindow ({width: 800, height: 600}) win.webContents.on ('akan-mencegah-membongkar', (event) = > { const choice = dialog.showMessageBox (menang, {type: 'question', buttons: ['Leave', 'Stay'], title: 'Apakah Anda ingin meninggalkan situs ini?', pesan: 'Perubahan yang Anda buat mungkin tidak disimpan. ', defaultId: 0, cancelId: 1}) const leave = (pilihan === 0) if (leave) {event.preventDefault ()}})
-    ```
-    
-    #### Peristiwa: 'jatuh'
-    
-    Pengembalian:
-    
-    * `acara` Acara
-    * `terbunuh` Boolean
-    
-    Dipancarkan ketika proses perender penembak atau terbunuh.
-    
-    #### Peristiwa: 'plugin-jatuh'
-    
-    Pengembalian:
-    
-    * `event</ 0> Acara</li>
+<li><code>httpResponseCode` Integer - -1 for non HTTP navigations
+  * `httpStatusText` String - empty for non HTTP navigations,
+  * `adalah Bingkai Utama` Boolean
+  * `frameProcessId` Integer
+  * `frameRoutingId` Integer
+  
+  Emitted when any frame navigation is done.
+  
+  Acara ini tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
+  
+  #### peristiwa: 'Apakah-menavigasi-di halaman'
+  
+  Pengembalian:
+  
+  * `acara` Acara
+  * `url` String
+  * `adalah Bingkai Utama` Boolean
+  * `frameProcessId` Integer
+  * `frameRoutingId` Integer
+  
+  Emitted when an in-page navigation happened in any frame.
+  
+  Saat navigasi dalam halaman terjadi, perubahan URL halaman tidak menyebabkan navigasi di luar halaman. Contoh dari hal ini adalah ketika jangkar link diklik atau saat peristiwa hash `perubahan hash` dipicu.
+  
+  #### Peristiwa: 'akan-mencegah-membongkar'
+  
+  Pengembalian:
+  
+  * `acara` Acara
+  
+  Dibunyikan apabila `sebelumnya` event handler adalah mencoba untuk membatalkan halaman membongkar.
+  
+  Memanggil `event.preventDefault()` akan mengabaikan `beforeunload` event handler dan memungkinkan halaman harus dibongkar.
+  
+  ```javascript
+  const {BrowserWindow, dialog} = require ('electron') const win = new BrowserWindow ({width: 800, height: 600}) win.webContents.on ('akan-mencegah-membongkar', (event) = > { const choice = dialog.showMessageBox (menang, {type: 'question', buttons: ['Leave', 'Stay'], title: 'Apakah Anda ingin meninggalkan situs ini?', pesan: 'Perubahan yang Anda buat mungkin tidak disimpan. ', defaultId: 0, cancelId: 1}) const leave = (pilihan === 0) if (leave) {event.preventDefault ()}})
+  ```
+  
+  #### Peristiwa: 'jatuh'
+  
+  Pengembalian:
+  
+  * `acara` Acara
+  * `terbunuh` Boolean
+  
+  Dipancarkan ketika proses perender penembak atau terbunuh.
+  
+  #### Acara : 'tidak responsif'
+  
+  Emitted saat halaman web menjadi tidak responsif.
+  
+  #### Acara: 'responsif'
+  
+  Emitted saat halaman web yang tidak responsif menjadi responsif lagi.
+  
+  #### Peristiwa: 'plugin-jatuh'
+  
+  Pengembalian:
+  
+  * `event</ 0> Acara</li>
 <li><code> nama </ 0>  String</li>
 <li><code>Versi` String
-    
-    Dibunyikan ketika proses plugin telah jatuh.
-    
-    #### Event: 'menghancurkan'
-    
-    Dibunyikan apabila `webContents` dihancurkan.
-    
-    #### Acara: 'sebelum-masukan-event'
-    
-    Pengembalian:
-    
-    * `acara` Acara
-    * `masukan` Obyek - Input properti. 
-      * `jenis` String - baik `keyUp` atau `keyDown`.
-      * `kunci` String - setara dengan [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-      * `kode` String - setara dengan [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-      * `isAutoRepeat` Boolean - setara dengan [KeyboardEvent.repeat](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-      * `pergeseran` Boolean - setara dengan [KeyboardEvent.shiftKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-      * `kontrol` Boolean - setara dengan [KeyboardEvent.controlKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-      * `Alt` Boolean - setara dengan [KeyboardEvent.altKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-      * `meta` Boolean - setara dengan [KeyboardEvent.metaKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
-    
-    Dipancarkan sebelum membuat acara `keydown` dan `keyup` di halaman. Memanggil `event.preventDefault` akan mencegah halaman `keydown` / `keyup` peristiwa dan menu cara pintas.
-    
-    Untuk hanya mencegah menu cara pintas, menggunakan [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcutsignore-experimental):
-    
-    ```javascript
-    const {BrowserWindow} = require ('electron') 
-    
-    misalkan win = new BrowserWindow ({width: 800, height: 600}) 
-    
-    win.webContents.on ('before-input-event', (event, input) => { // Sebagai contoh, aktifkan pintasan keyboard menu aplikasi saat // Ctrl/Cmd sedang down.
-      win.webContents.setIgnoreMenuShortcuts(!input.control && !input.meta)
-    })
-    ```
-    
-    #### Event: 'devtools-dibuka'
-    
-    Emitted saat DevTools dibuka.
-    
-    #### Event: 'devtools-ditutup'
-    
-    Emitted saat DevTools ditutup.
-    
-    #### Event: 'fokus devtools'
-    
-    Emitted saat DevTools difokuskan / dibuka.
-    
-    #### Acara: 'sertifikat-kesalahan'
-    
-    Pengembalian:
-    
-    * `acara` Acara
-    * ` url </ 0> String</li>
+  
+  Dibunyikan ketika proses plugin telah jatuh.
+  
+  #### Event: 'menghancurkan'
+  
+  Dibunyikan apabila `webContents` dihancurkan.
+  
+  #### Acara: 'sebelum-masukan-event'
+  
+  Pengembalian:
+  
+  * `acara` Acara
+  * `masukan` Obyek - Input properti. 
+    * `jenis` String - baik `keyUp` atau `keyDown`.
+    * `kunci` String - setara dengan [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+    * `kode` String - setara dengan [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+    * `isAutoRepeat` Boolean - setara dengan [KeyboardEvent.repeat](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+    * `pergeseran` Boolean - setara dengan [KeyboardEvent.shiftKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+    * `kontrol` Boolean - setara dengan [KeyboardEvent.controlKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+    * `Alt` Boolean - setara dengan [KeyboardEvent.altKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+    * `meta` Boolean - setara dengan [KeyboardEvent.metaKey](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
+  
+  Dipancarkan sebelum membuat acara `keydown` dan `keyup` di halaman. Memanggil `event.preventDefault` akan mencegah halaman `keydown` / `keyup` peristiwa dan menu cara pintas.
+  
+  Untuk hanya mencegah menu cara pintas, menggunakan [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcutsignore-experimental):
+  
+  ```javascript
+  const {BrowserWindow} = require ('electron') 
+  
+  misalkan win = new BrowserWindow ({width: 800, height: 600}) 
+  
+  win.webContents.on ('before-input-event', (event, input) => { // Sebagai contoh, aktifkan pintasan keyboard menu aplikasi saat // Ctrl/Cmd sedang down.
+    win.webContents.setIgnoreMenuShortcuts(!input.control && !input.meta)
+  })
+  ```
+  
+  #### Event: 'devtools-dibuka'
+  
+  Emitted saat DevTools dibuka.
+  
+  #### Event: 'devtools-ditutup'
+  
+  Emitted saat DevTools ditutup.
+  
+  #### Event: 'fokus devtools'
+  
+  Emitted saat DevTools difokuskan / dibuka.
+  
+  #### Acara: 'sertifikat-kesalahan'
+  
+  Pengembalian:
+  
+  * `acara` Acara
+  * ` url </ 0> String</li>
 <li><code>error` String - Kode kesalahan.
-    * `sertifikat` [Sertifikat](structures/certificate.md)
-    * `callback` Fungsi 
-      * `Terpercaya` Boolean -Menunjukkan apakah sertifikat bisa dianggap terpercaya.
-    
-    Emitted ketika gagal untuk memverifikasi `sertifikat` untuk `url`.
-    
-    Penggunaannya sama dengan [the `certificate-error` event of `app`](app.md#event-certificate-error).
-    
-    #### Acara: 'pilih-klien-sertifikat'
-    
-    Pengembalian:
-    
-    * `acara` Acara
-    * `url` URL
-    * `certificateList` [Sertifikat[]](structures/certificate.md)
-    * `callback` Fungsi 
-      * `sertifikat` [Sertifikat](structures/certificate.md) - Harus berupa sertifikat dari daftar yang diberikan.
-    
-    Emitted ketika sertifikat klien diminta.
-    
-    Penggunaannya sama dengan [the `pilih-sertifikat-klien` acara `app`](app.md#event-select-client-certificate).
-    
-    #### Acara: 'login'
-    
-    Pengembalian:
-    
-    * `event</ 0> Acara</li>
+  * `sertifikat` [Sertifikat](structures/certificate.md)
+  * `callback` Fungsi 
+    * `Terpercaya` Boolean -Menunjukkan apakah sertifikat bisa dianggap terpercaya.
+  
+  Emitted ketika gagal untuk memverifikasi `sertifikat` untuk `url`.
+  
+  Penggunaannya sama dengan [the `certificate-error` event of `app`](app.md#event-certificate-error).
+  
+  #### Acara: 'pilih-klien-sertifikat'
+  
+  Pengembalian:
+  
+  * `acara` Acara
+  * `url` URL
+  * `certificateList` [Sertifikat[]](structures/certificate.md)
+  * `callback` Fungsi 
+    * `sertifikat` [Sertifikat](structures/certificate.md) - Harus berupa sertifikat dari daftar yang diberikan.
+  
+  Emitted ketika sertifikat klien diminta.
+  
+  Penggunaannya sama dengan [the `pilih-sertifikat-klien` acara `app`](app.md#event-select-client-certificate).
+  
+  #### Acara: 'login'
+  
+  Pengembalian:
+  
+  * `event</ 0> Acara</li>
 <li><code>permintaan` Obyek 
-      * `method` String
-      * `url` URL
-      * `perujuk` URL
-    * `authInfo` Obyek 
-      * ` isProxy </ 0>  Boolean</li>
+    * `method` String
+    * `url` URL
+    * `perujuk` URL
+  * `authInfo` Obyek 
+    * ` isProxy </ 0>  Boolean</li>
 <li><code>skema` String
-      * `host` String
-      * `port` Integer
-      * `realm` String
-    * `callback` Fungsi 
-      * `namapengguna` String
-      * `katasandi` String
-    
-    Emitted ketika `webContents` ingin melakukan auth dasar.
-    
-    Penggunaannya sama dengan [the `masuk` event of `app`](app.md#event-login).
-    
-    #### Event: 'ditemukan-di-halaman'
-    
-    Pengembalian:
-    
-    * `event</ 0> Acara</li>
+    * `host` String
+    * `port` Integer
+    * `realm` String
+  * `callback` Fungsi 
+    * `namapengguna` String
+    * `katasandi` String
+  
+  Emitted ketika `webContents` ingin melakukan auth dasar.
+  
+  Penggunaannya sama dengan [the `masuk` event of `app`](app.md#event-login).
+  
+  #### Event: 'ditemukan-di-halaman'
+  
+  Pengembalian:
+  
+  * `event</ 0> Acara</li>
 <li><code>hasil` Obyek 
-      * `requestId` Bilangan bulat
-      * `activeMatchOrdinal` Bulat - posisi pertandingan aktif.
-      * `pertandingan` Bulat - jumlah pertandingan.
-      * `selectionArea` Objek - koordinat pertama pertandingan wilayah.
-      * `finalUpdate` Boolean
-    
-    Dipancarkan saat hasilnya tersedia [`webContents.findInPage`] permintaan.
-    
-    #### Event: 'media-mulai-bermain''
-    
-    Emitted saat media mulai diputar.
-    
-    #### Event: 'media-berhenti'
-    
-    Emitted saat media dijeda atau dilakukan bermain.
-    
-    #### Event: 'apakah-ganti-tema-warna'
-    
-    Emitted ketika warna tema halaman berubah. Hal ini biasanya karena bertemu sebuah meta tag:
-    
-    ```html
-    <meta name='theme-color' content='#ff0000'>
-    ```
-    
-    Pengembalian:
-    
-    * `acara` Acara
-    * `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
-    #### Event: 'update-target-url'
-    
-    Pengembalian:
-    
-    * `acara` Acara
-    * ` url </ 0> String</li>
-</ul>
-
-<p>Emitted saat mouse bergerak di atas sebuah link atau keyboard memindahkan fokus ke sebuah link.</p>
-
-<h4>Event: 'kursor-berubah'</h4>
-
-<p>Pengembalian:</p>
-
-<ul>
-<li><code>acara` Acara
-    * `jenis` String
-    * ` gambar </ 0>  <a href="native-image.md"> NativeImage </ 1> (opsional)</li>
+    * `requestId` Bilangan bulat
+    * `activeMatchOrdinal` Bulat - posisi pertandingan aktif.
+    * `pertandingan` Bulat - jumlah pertandingan.
+    * `selectionArea` Objek - koordinat pertama pertandingan wilayah.
+    * `finalUpdate` Boolean
+  
+  Dipancarkan saat hasilnya tersedia [`webContents.findInPage`] permintaan.
+  
+  #### Event: 'media-mulai-bermain''
+  
+  Emitted saat media mulai diputar.
+  
+  #### Event: 'media-berhenti'
+  
+  Emitted saat media dijeda atau dilakukan bermain.
+  
+  #### Event: 'apakah-ganti-tema-warna'
+  
+  Emitted ketika warna tema halaman berubah. Hal ini biasanya karena bertemu sebuah meta tag:
+  
+  ```html
+  <meta name='theme-color' content='#ff0000'>
+  ```
+  
+  Pengembalian:
+  
+  * `acara` Acara
+  * `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
+  #### Event: 'update-target-url'
+  
+  Pengembalian:
+  
+  * `acara` Acara
+  * `url` String
+  
+  Emitted saat mouse bergerak di atas sebuah link atau keyboard memindahkan fokus ke sebuah link.
+  
+  #### Event: 'kursor-berubah'
+  
+  Pengembalian:
+  
+  * `acara` Acara
+  * `jenis` String
+  * ` gambar </ 0>  <a href="native-image.md"> NativeImage </ 1> (opsional)</li>
 <li><code>skala` Mengambang (opsional) - skala faktor untuk kursor kustom.
-    * `ukuran` [Ukuran](structures/size.md) (opsional) - ukuran `gambar`.
-    * `hotspot` [Titik](structures/point.md) (opsional) - koordinat kursor kustom Hotspot.
-    
-    Emitted saat tipe kursor berubah. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing` or `custom`.
-    
-    If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a [`NativeImage`](native-image.md), and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
-    
-    #### Event: 'menu konteks'
-    
-    Pengembalian:
-    
-    * `acara` Acara
-    * `params` Obyek 
-      * `x` koordinat Integer - x.
-      * ` y </ 0>  Koordinat integer.</li>
+  * `ukuran` [Ukuran](structures/size.md) (opsional) - ukuran `gambar`.
+  * `hotspot` [Titik](structures/point.md) (opsional) - koordinat kursor kustom Hotspot.
+  
+  Emitted saat tipe kursor berubah. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing` or `custom`.
+  
+  If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a [`NativeImage`](native-image.md), and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
+  
+  #### Event: 'menu konteks'
+  
+  Pengembalian:
+  
+  * `acara` Acara
+  * `params` Obyek 
+    * `x` koordinat Integer - x.
+    * ` y </ 0>  Koordinat integer.</li>
 <li><code> linkURL </ 0>  String - URL tautan yang membungkus node menu konteks dipanggil.</li>
 <li><code> linkText </ 0>  String - Teks yang terkait dengan tautan. Mungkin berupa string kosong
  jika isi link adalah gambar.</li>
 <li><code> pageURL ` String - URL halaman tingkat atas yang diikuti menu konteks.
-      * `frameURL` String - URL subframe yang diikuti menu konteks.
-      * `srcURL` String - URL Sumber untuk elemen yang menu konteksnya dipanggil. Elemen dengan URL sumber adalah gambar, audio dan video.
-      * `mediaType` String - jenis node menu konteks dipanggil pada. Bisa `none`, ` gambar`, `audio`, `video`, `kanvas`, `file` atau `plugin`.
-      * `hasImageContents` Boolean - Apakah menu konteks dipanggil pada gambar yang isinya tidak kosong.
-      * `isEditable` Boolean - Apakah konteks dapat diedit.
-      * `selectionText` String - Teks pilihan bahwa menu konteks dipanggil.
-      * `titleText` String - Judul atau teks alt dari pilihan yang konteksnya dipanggil.
-      * `salah eja` String - Kata salah eja di bawah kursor, jika ada.
-      * `frameCharset` String - Pengkodean karakter dari bingkai tempat menu dipanggil.
-      * `inputFieldType` String - Jika menu konteks dipanggil pada bidang masukan, jenis bidang itu. Nilai yang mungkin adalah `tidak ada` `plainText`, `sandi`, `lain`.
-      * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch` or `touchMenu`.
-      * `mediaFlags` Objek - Bendera untuk elemen media menu konteksnya dipanggil di. 
-        * `inError` Boolean - Apakah elemen media telah jatuh.
-        * `isPaused` Boolean - Apakah elemen media dijeda.
-        * `isMuted` Boolean - Apakah elemen media dimatikan.
-        * `hasAudio` Boolean - Apakah elemen media memiliki audio.
-        * `isLooping` Boolean - Apakah elemen media adalah perulangan.
-        * `isControlsVisible` Boolean - Apakah kontrol elemen media terlihat.
-        * `canToggleControls` Boolean - Apakah kontrol elemen media dapat dialihkan.
-        * `canRotate` Boolean - Apakah elemen media dapat diputar.
-      * `editFlags` Objek - Bendera ini menunjukkan apakah penyair mempercayainya mampu melakukan tindakan yang sesuai. 
-        * `canUndo` Boolean - Apakah renderer percaya itu dapat membatalkan.
-        * `canRedo` Boolean - Apakah renderer percaya itu dapat mengulang.
-        * `canCut` Boolean - Apakah renderer percaya dapat memotong.
-        * `canCopy` Boolean - Apakah renderer percaya itu dapat menyalin
-        * `canPaste` Boolean - Apakah renderer percaya itu dapat menyisipkan.
-        * `canDelete` Boolean - Apakah renderer percaya itu dapat menghapus.
-        * `canSelectAll` Boolean - Apakah renderer percaya itu dapat memilih semua.
-    
-    Emitted saat ada menu konteks baru yang perlu ditangani.
-    
-    #### Event: 'Pilih--perangkat bluetooth'
-    
-    Pengembalian:
-    
-    * `acara` Acara
-    * `perangkat` [[BluetoothDevice]](structures/bluetooth-device.md)
-    * `callback` Fungsi 
-      * `IdentitasAlat` String
-    
-    Dipancarkan saat perangkat bluetooth perlu dipilih saat dihubungi `navigator.bluetooth.requestDevice`. Menggunakan `navigator.bluetooth` api `webBluetooth` harus diaktifkan. Jika `event.preventDefault` tidak disebut, perangkat tersedia pertama akan dipilih. `callback` harus disebut dengan `deviceId` untuk dipilih, melewati string kosong ke `callback` akan membatalkan permintaan.
-    
-    ```javascript
-    const {app, webContents} = require('electron') app.commandLine.appendSwitch('enable-web-bluetooth') app.on ('siap', () = > {webContents.on (' perangkat pilih bluetooth', (acara, deviceList, callback) = > {event.preventDefault() membiarkan hasil = deviceList.find((device) = > {kembali device.deviceName === 'test'}) jika (! hasil) {callback('')} lain {callback(result.deviceId)}})})
-    ```
-    
-    #### Event: 'cat'
-    
-    Pengembalian:
-    
-    * `event</ 0> Acara</li>
+    * `frameURL` String - URL subframe yang diikuti menu konteks.
+    * `srcURL` String - URL Sumber untuk elemen yang menu konteksnya dipanggil. Elemen dengan URL sumber adalah gambar, audio dan video.
+    * `mediaType` String - jenis node menu konteks dipanggil pada. Bisa `none`, ` gambar`, `audio`, `video`, `kanvas`, `file` atau `plugin`.
+    * `hasImageContents` Boolean - Apakah menu konteks dipanggil pada gambar yang isinya tidak kosong.
+    * `isEditable` Boolean - Apakah konteks dapat diedit.
+    * `selectionText` String - Teks pilihan bahwa menu konteks dipanggil.
+    * `titleText` String - Judul atau teks alt dari pilihan yang konteksnya dipanggil.
+    * `salah eja` String - Kata salah eja di bawah kursor, jika ada.
+    * `frameCharset` String - Pengkodean karakter dari bingkai tempat menu dipanggil.
+    * `inputFieldType` String - Jika menu konteks dipanggil pada bidang masukan, jenis bidang itu. Nilai yang mungkin adalah `tidak ada` `plainText`, `sandi`, `lain`.
+    * `menuSourceType` String - Input source that invoked the context menu. Can be `none`, `mouse`, `keyboard`, `touch` or `touchMenu`.
+    * `mediaFlags` Objek - Bendera untuk elemen media menu konteksnya dipanggil di. 
+      * `inError` Boolean - Apakah elemen media telah jatuh.
+      * `isPaused` Boolean - Apakah elemen media dijeda.
+      * `isMuted` Boolean - Apakah elemen media dimatikan.
+      * `hasAudio` Boolean - Apakah elemen media memiliki audio.
+      * `isLooping` Boolean - Apakah elemen media adalah perulangan.
+      * `isControlsVisible` Boolean - Apakah kontrol elemen media terlihat.
+      * `canToggleControls` Boolean - Apakah kontrol elemen media dapat dialihkan.
+      * `canRotate` Boolean - Apakah elemen media dapat diputar.
+    * `editFlags` Objek - Bendera ini menunjukkan apakah penyair mempercayainya mampu melakukan tindakan yang sesuai. 
+      * `canUndo` Boolean - Apakah renderer percaya itu dapat membatalkan.
+      * `canRedo` Boolean - Apakah renderer percaya itu dapat mengulang.
+      * `canCut` Boolean - Apakah renderer percaya dapat memotong.
+      * `canCopy` Boolean - Apakah renderer percaya itu dapat menyalin
+      * `canPaste` Boolean - Apakah renderer percaya itu dapat menyisipkan.
+      * `canDelete` Boolean - Apakah renderer percaya itu dapat menghapus.
+      * `canSelectAll` Boolean - Apakah renderer percaya itu dapat memilih semua.
+  
+  Emitted saat ada menu konteks baru yang perlu ditangani.
+  
+  #### Event: 'Pilih--perangkat bluetooth'
+  
+  Pengembalian:
+  
+  * `acara` Acara
+  * `perangkat` [[BluetoothDevice]](structures/bluetooth-device.md)
+  * `callback` Fungsi 
+    * `deviceId` String
+  
+  Dipancarkan saat perangkat bluetooth perlu dipilih saat dihubungi `navigator.bluetooth.requestDevice`. Menggunakan `navigator.bluetooth` api `webBluetooth` harus diaktifkan. Jika `event.preventDefault` tidak disebut, perangkat tersedia pertama akan dipilih. `callback` harus disebut dengan `deviceId` untuk dipilih, melewati string kosong ke `callback` akan membatalkan permintaan.
+  
+  ```javascript
+  const {app, BrowserWindow} = require('electron')
+  
+  let win = null
+  app.commandLine.appendSwitch('enable-experimental-web-platform-features')
+  
+  app.on('ready', () => {
+    win = new BrowserWindow({width: 800, height: 600})
+    win.webContents.on('select-bluetooth-device', (event, deviceList, callback) => {
+      event.preventDefault()
+      let result = deviceList.find((device) => {
+        return device.deviceName === 'test'
+      })
+      if (!result) {
+        callback('')
+      } else {
+        callback(result.deviceId)
+      }
+    })
+  })
+  ```
+  
+  #### Event: 'cat'
+  
+  Pengembalian:
+  
+  * `event</ 0> Acara</li>
 <li><code>dirtyRect` [Persegi panjang](structures/rectangle.md)
-    * `gambar` [NativeImage](native-image.md) - Data gambar dari keseluruhan frame.
-    
-    Emitted ketika bingkai baru dihasilkan. Hanya area kotor yang dilewati di penyangga.
-    
-    ```javascript
-    const {BrowserWindow} = require('electron') membiarkan memenangkan = BrowserWindow baru ({webPreferences: {offscreen: true}}) win.webContents.on ('cat', (acara, kotor, gambar) = > {/ / updateBitmap (kotor, image.getBitmap())}) win.loadURL ('http://github.com')
-    ```
-    
-    #### Event: 'devtools-reload-halaman'
-    
-    Dibunyikan apabila jendela devtools memerintahkan webContents untuk reload
-    
-    #### Event: 'akan-melampirkan-webview'
-    
-    Pengembalian:
-    
-    * `acara` Acara
-    * `webPreferences` Objek - preferensi web yang akan digunakan oleh semua halaman. Objek ini dapat dimodifikasi untuk menyesuaikan preferensi untuk semua halaman.
-    * `params` Obyek - `<webview>`parameter lain seperti `src` URL. Objek ini dapat dimodifikasi untuk menyesuaikan parameter halaman tamu.
-    
-    Dipancarkan ketika `<webview>`isi web yang melekat pada isi web ini. Memanggil `event.preventDefault()` akan menghancurkan semua halaman.
-    
-    Acara ini dapat digunakan untuk mengkonfigurasi `webPreferences` untuk `webContents` dari `<webview>`sebelum dimuat, dan menyediakan kemampuan untuk mengatur pengaturan yang tidak dapat diatur melalui `<webview>`atribut.
-    
-    **Catatan:** Opsi script tertentu `preload` akan muncul sebagai `preloadURL` (tidak `preload`) di objek `webPreferences` yang dipancarkan dengan acara ini.
-    
-    #### Event: 'did-attach-webview'
-    
-    Pengembalian:
-    
-    * `acara` Acara
-    * `webContents` WebContents - The guest web contents that is used by the `<webview>`.
-    
-    Emitted when a `<webview>` has been attached to this web contents.
-    
-    #### Event: 'console-message'
-    
-    Pengembalian:
-    
-    * `level` Integer
-    * ` pesan </ 0> String</li>
-<li><code>line` Integer
-    * `sourceId` String
-    
-    Emitted when the associated window logs a console message. Will not be emitted for windows with *offscreen rendering* enabled.
-    
-    ### Metode Instance
-    
-    #### `contents.loadURL (url [, opsi])`
-    
-    * `url` String
-    * `pilihan` Objek (opsional) 
-      * `httpReferrer` String (opsional) - url perujuk HTTP.
-      * `userAgent` String (opsional) - agen pengguna berasal permintaan.
-      * `extraHeaders` String (opsional) - header tambahan yang dipisahkan oleh "\n".
-      * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadFileSystem[]](structures/upload-file-system.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
-      * `baseURLForDataURL` String (opsional) - url dasar (dengan trailing pemisah path) untuk file yang akan diambil oleh data url. Hal ini diperlukan hanya jika ditentukan `url` data url dan perlu memuat file lainnya.
-    
-    Beban `url` di jendela. `Url` harus mengandung prefiks protokol, misalnya `http://` atau `file://`. Jika beban harus mem-bypass http cache kemudian menggunakan `pragma` header untuk mencapainya.
-    
-    ```javascript
-    const {webContents} = require('electron') opsi const = {extraHeaders: ' pragma: no-cache\n'} webContents.loadURL ('https://github.com', opsi)
-    ```
-    
-    #### `contents.loadFile(filePath)`
-    
-    * `fullPath` String
-    
-    Loads the given file in the window, `filePath` should be a path to an HTML file relative to the root of your application. For instance an app structure like this:
-    
-    ```sh
-    | root
-    | - package.json
-    | - src
-    |   - main.js
-    |   - index.html
-    ```
-    
-    Would require code like this
-    
-    ```js
-    win.loadFile('src/index.html')
-    ```
-    
-    #### `contents.downloadURL(url)`
-    
-    * `url` String
-    
-    Memulai download dari sumber daya di `url` tanpa menavigasi. Acara `akan-download` `sesi` akan dipicu.
-    
+  * `gambar` [NativeImage](native-image.md) - Data gambar dari keseluruhan frame.
+  
+  Emitted ketika bingkai baru dihasilkan. Hanya area kotor yang dilewati di penyangga.
+  
+  ```javascript
+  const {BrowserWindow} = require('electron') membiarkan memenangkan = BrowserWindow baru ({webPreferences: {offscreen: true}}) win.webContents.on ('cat', (acara, kotor, gambar) = > {/ / updateBitmap (kotor, image.getBitmap())}) win.loadURL ('http://github.com')
+  ```
+  
+  #### Event: 'devtools-reload-halaman'
+  
+  Dibunyikan apabila jendela devtools memerintahkan webContents untuk reload
+  
+  #### Event: 'akan-melampirkan-webview'
+  
+  Pengembalian:
+  
+  * `acara` Acara
+  * `webPreferences` Objek - preferensi web yang akan digunakan oleh semua halaman. Objek ini dapat dimodifikasi untuk menyesuaikan preferensi untuk semua halaman.
+  * `params` Obyek - `<webview>`parameter lain seperti `src` URL. Objek ini dapat dimodifikasi untuk menyesuaikan parameter halaman tamu.
+  
+  Dipancarkan ketika `<webview>`isi web yang melekat pada isi web ini. Memanggil `event.preventDefault()` akan menghancurkan semua halaman.
+  
+  Acara ini dapat digunakan untuk mengkonfigurasi `webPreferences` untuk `webContents` dari `<webview>`sebelum dimuat, dan menyediakan kemampuan untuk mengatur pengaturan yang tidak dapat diatur melalui `<webview>`atribut.
+  
+  **Catatan:** Opsi script tertentu `preload` akan muncul sebagai `preloadURL` (tidak `preload`) di objek `webPreferences` yang dipancarkan dengan acara ini.
+  
+  #### Event: 'did-attach-webview'
+  
+  Pengembalian:
+  
+  * `acara` Acara
+  * `webContents` WebContents - The guest web contents that is used by the `<webview>`.
+  
+  Emitted when a `<webview>` has been attached to this web contents.
+  
+  #### Event: 'console-message'
+  
+  Pengembalian:
+  
+  * `acara` Acara
+  * `level` Integer
+  * `message` String
+  * `line` Integer
+  * `sourceId` String
+  
+  Emitted when the associated window logs a console message. Will not be emitted for windows with *offscreen rendering* enabled.
+  
+  ### Metode Instance
+  
+  #### `contents.loadURL (url [, opsi])`
+  
+  * `url` String
+  * `pilihan` Objek (opsional) 
+    * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
+    * ` userAgent </ 0>  String (opsional) - Agen pengguna yang berasal dari permintaan.</li>
+<li><code>extraHeaders` String (opsional) - header tambahan yang dipisahkan oleh "\n".
+    * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
+    * `baseURLForDataURL` String (opsional) - url dasar (dengan trailing pemisah path) untuk file yang akan diambil oleh data url. Hal ini diperlukan hanya jika ditentukan `url` data url dan perlu memuat file lainnya.
+  
+  Beban `url` di jendela. `Url` harus mengandung prefiks protokol, misalnya `http://` atau `file://`. Jika beban harus mem-bypass http cache kemudian menggunakan `pragma` header untuk mencapainya.
+  
+  ```javascript
+  const {webContents} = require('electron') opsi const = {extraHeaders: ' pragma: no-cache\n'} webContents.loadURL ('https://github.com', opsi)
+  ```
+  
+  #### `contents.loadFile(filePath)`
+  
+  * `fullPath` String
+  
+  Loads the given file in the window, `filePath` should be a path to an HTML file relative to the root of your application. For instance an app structure like this:
+  
+  ```sh
+  | root
+  | - package.json
+  | - src
+  |   - main.js
+  |   - index.html
+  ```
+  
+  Would require code like this
+  
+  ```js
+  win.loadFile('src/index.html')
+  ```
+  
+  #### `contents.downloadURL(url)`
+  
+  * ` url </ 0> String</li>
+</ul>
+
+<p>Memulai download dari sumber daya di <code>url` tanpa menavigasi. Acara `akan-download` `sesi` akan dipicu.</p> 
     #### `contents.getURL()`
     
     Mengembalikan `String` - URL laman web saat ini.
@@ -641,8 +674,8 @@ API seperti <code>isi web memuat URL` dan `isi web kembali`.</p>
     
     #### `contents.executeJavaScript(kode[, userGesture, callback])`
     
-    * ` kode </ 0> String</li>
-<li><code>userGesture` Boolean (opsional) - Default adalah `false`.
+    * `code` String
+    * `userGesture` Boolean (opsional) - Default adalah `false`.
     * `callback` Fungsi (opsional) - Dipanggil setelah script telah dieksekusi. 
       * `hasil` Ada
     
@@ -1082,14 +1115,14 @@ API seperti <code>isi web memuat URL` dan `isi web kembali`.</p>
               
               * `onlyDirty` Boolean (opsional) - Default ke `false`.
               * `callback` Fungsi 
-                * `frameBuffer` Buffer
-                * `dirtyRect` [Persegi panjang](structures/rectangle.md)
+                * ` gambar </ 0>  <a href="native-image.md"> gambar asli </ 1></li>
+<li><code>dirtyRect` [Persegi panjang](structures/rectangle.md)
               
-              Mulailah berlangganan untuk acara presentasi dan bingkai yang diambil, `callback` akan dipanggil dengan `callback(frameBuffer, dirtyRect)` bila ada acara presentasi.
+              Begin subscribing for presentation events and captured frames, the `callback` will be called with `callback(image, dirtyRect)` when there is a presentation event.
               
-              `frameBuffer` adalah `Buffer` yang berisi data piksel mentah. Pada kebanyakan mesin, data pixel secara efektif disimpan dalam format BGRA 32bit, namun sebenarnya Representasi tergantung pada endianitas prosesor (paling modern Prosesornya sedikit-endian, pada mesin dengan prosesor big-endian data ada dalam format ARGB 32bit).
+              The `image` is an instance of [NativeImage](native-image.md) that stores the captured frame.
               
-              `dirtyRect` adalah objek dengan properti `x, y, width, height` yang menggambarkan bagian mana dari halaman yang dicat ulang. Jika `onlyDirty` diatur ke `true`, `frameBuffer` akan hanya berisi daerah repainted. `onlyDirty` default ke `false`.
+              `dirtyRect` adalah objek dengan properti `x, y, width, height` yang menggambarkan bagian mana dari halaman yang dicat ulang. If `onlyDirty` is set to `true`, `image` will only contain the repainted area. `onlyDirty` defaults to `false`.
               
               #### `contents.endFrameSubscription()`
               
@@ -1123,15 +1156,6 @@ API seperti <code>isi web memuat URL` dan `isi web kembali`.</p>
               
               Menampilkan kamus pop-up yang mencari kata yang dipilih pada halaman.
               
-              #### `contents.setSize(options)`
-              
-              Tetapkan ukuran halaman. Ini hanya didukung untuk konten tamu `<webview>`.
-              
-              * `pilihan` Obyek 
-                * `enableAutoSize` Boolean (optional) - true to make the webview container automatically resize within the bounds specified by the attributes normal, min and max.
-                * `normal` [Size](structures/size.md) (optional) - Normal size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
-                * `min` [Size](structures/size.md) (optional) - Minimum size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
-                * `max` [Size](structures/size.md) (optional) - Maximium size of the page. This can be used in combination with the [`disableguestresize`](webview-tag.md#disableguestresize) attribute to manually resize the webview guest contents.
               #### `contents.isOffscreen()`
               
               Returns `Boolean` - Indicates whether *offscreen rendering* is enabled.
@@ -1180,7 +1204,11 @@ API seperti <code>isi web memuat URL` dan `isi web kembali`.</p>
               
               #### `contents.getOSProcessId()`
               
-              Mengembalikan `Integer` - `pid` dari proses renderer yang terkait.
+              Returns `Integer` - The operating system `pid` of the associated renderer process.
+              
+              #### `contents.getProcessId()`
+              
+              Returns `Integer` - The chromium internal `pid` of the associated renderer. Can be compared to the `frameProcessId` passed by frame specific navigation events (e.g. `did-frame-navigate`)
               
               ### Contoh properti
               

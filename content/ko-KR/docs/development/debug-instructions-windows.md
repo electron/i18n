@@ -17,7 +17,7 @@
 디버깅 작업을 시작하려면, PowerShell/CMD 중 한 가지를 열고 디버그 빌드 상태의 Electron에 인수로 애플리케이션을 전달하여 실행합니다:
 
 ```powershell
-$ ./out/D/electron.exe ~/my-electron-app/
+$ ./out/Debug/electron.exe ~/my-electron-app/
 ```
 
 ### 중단점 설정

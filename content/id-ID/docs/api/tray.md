@@ -173,7 +173,7 @@ Menyetel teks hover untuk ikon baki ini.
 
 #### `tray.setTitle(judul) ` *macos*
 
-* ` judul </ 0> String</li>
+* ` judul</ 0>  String</li>
 </ul>
 
 <p>Sets the title displayed aside of the tray icon in the status bar (Support ANSI colors).</p>
@@ -205,6 +205,18 @@ Menyetel teks hover untuk ikon baki ini.
   })
   ```
   
+  #### `tray.setIgnoreDoubleClickEvents(ignore)` Linux *macOS*
+  
+  * `mengabaikan` Boolean
+  
+  Sets the option to ignore double click events. Ignoring these events allows you to detect every individual click of the tray icon.
+  
+  This value is set to false by default.
+  
+  #### ` tray.getIgnoreDoubleClickEvents () </ 0>  <em> macos </ 1></h4>
+
+<p>Returns <code>Boolean` - Whether double click events will be ignored.</p> 
+  
   #### `tray.displayBalloon(options)` *Windows*
   
   * `pilihan` Obyek 
@@ -225,16 +237,16 @@ Menyetel teks hover untuk ikon baki ini.
   
   #### `tray.setContextMenu (menu)`
   
-  * ` menu </ 0> Menu</li>
-</ul>
-
-<p>Menetapkan menu konteks untuk ikon ini.</p>
-
-<h4><code>tray.getBounds()` *macOS * * Windows*</h4> 
-    Kembali [`Rectangle`](structures/rectangle.md)
-    
-    `Batas` dari ikon baki ini sebagai `Objek`.
-    
-    #### `tray.isDestroyed()`
-    
-    Mengembalikan `Boolean` - Apakah ikon baki rusak.
+  * `menu` Menu | batal
+  
+  Menetapkan menu konteks untuk ikon ini.
+  
+  #### `tray.getBounds()` *macOS * * Windows*
+  
+  Kembali [`Rectangle`](structures/rectangle.md)
+  
+  `Batas` dari ikon baki ini sebagai `Objek`.
+  
+  #### `tray.isDestroyed()`
+  
+  Mengembalikan `Boolean` - Apakah ikon baki rusak.

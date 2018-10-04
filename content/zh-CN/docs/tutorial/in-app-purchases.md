@@ -1,4 +1,4 @@
-# 应用内购买 (macOS)
+# Zakupy w aplikacji (macOS)
 
 ## 准备中
 

@@ -101,8 +101,8 @@ callback はセッションの現在のキャッシュサイズで呼ばれま�
 
 * `options` Object (任意) 
   * `origin` String (任意) - `window.location.origin` の表記の `scheme://host:port` に従わなければいけません。
-  * `storages` String[] (任意) - ストレージをクリアするタイプ。`appcache`、`cookies`、`filesystem`、`indexdb`、`localstorage`、`shadercache`、`websql`、`serviceworkers` を含めることができます。
-  * `quotas` String[] (任意) - クォータをクリアするタイプ。`temporary`、`persistent`、`syncable` を含むことができます。
+  * `storages` String[] (任意) - クリアするストレージの種類。`appcache`, `cookies`, `filesystem`, `indexdb`, `localstorage`, `shadercache`, `websql`, `serviceworkers`, `cachestorage` を含めることができます。
+  * `quotas` String[] (任意) - クリアするクォータの種類。`temporary`, `persistent`, `syncable` を含むことができます。
 * `callback` Function (任意) - 操作が完了したときに呼ばれる.
 
 ウェブストレージのデータをクリアします。

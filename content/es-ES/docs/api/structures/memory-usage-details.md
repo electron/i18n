@@ -1,5 +1,5 @@
-# Objeto MemoryUsageDetails
+# MemoryUsageDetails Object
 
 * `cuenta` Número
-* `tamaño` Número
-* `tamañoVivo` Número
+* `size` Number
+* `windowId` Number

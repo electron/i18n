@@ -6,6 +6,20 @@
 
 Electron の `process` オブジェクトは、[Node.js `process` object](https://nodejs.org/api/process.html) から拡張されています。 以下のイベント、プロパティ、メソッドが追加されます。
 
+## サンドボックス
+
+サンドボックス化されたレンダラーでは、`process` オブジェクトは以下の API の部分のみを含んでいます。
+
+* `crash()`
+* `hang()`
+* `getHeapStatistics()`
+* `getProcessMemoryInfo()`
+* `getSystemMemoryInfo()`
+* `argv`
+* `execPath`
+* `env`
+* `platform`
+
 ## イベント
 
 ### イベント: 'loaded'
@@ -89,6 +103,22 @@ Electron のバージョン文字列を表す `String`。
 ### `process.getIOCounters()` *Windows* *Linux*
 
 戻り値 [`IOCounters`](structures/io-counters.md)
+
+### `process.getHeapStatistics()`
+
+戻り値 `Object`:
+
+* `totalHeapSize` Integer
+* `totalHeapSizeExecutable` Integer
+* `totalPhysicalSize` Integer
+* `totalAvailableSize` Integer
+* `usedHeapSize` Integer
+* `heapSizeLimit` Integer
+* `mallocedMemory` Integer
+* `peakMallocedMemory` Integer
+* `doesZapGarbage` Boolean
+
+V8 ヒープ統計のオブジェクトを返します。統計はすべてキロバイト単位で報告されることに注意してください。
 
 ### `process.getProcessMemoryInfo()`
 

@@ -4,7 +4,7 @@
 
 Prozess: [Haupt](../glossary.md#main-process)
 
-**You can find a detailed guide about how to implement updates into your application [here](../tutorial/updates.md).**
+**See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
 
 ## Platform Notices
 
@@ -77,13 +77,19 @@ Sie können die Dokumente von <a href="https://github.com/Squirrel/Squirrel.Wind
 
 <p>Unter Windows ist nur <code> releaseName </ 0> verfügbar.</p>
 
-<h2>Methoden</h2>
+<h3>Event: 'before-quit-for-update'</h3>
 
-<p>Das Objekt <code> autoUpdater </ 0> verfügt über die folgenden Methoden:</p>
+<p>This event is emitted after a user calls <code>quitAndInstall()`.
+
+When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
+
+## Methoden
+
+Das Objekt ` autoUpdater </ 0> verfügt über die folgenden Methoden:</p>
 
 <h3><code>autoUpdater.setFeedURL(options)`</h3> 
 
-* `options` Object 
+* `optionen` Object 
   * ` URL </ 0>  Zeichenfolge</li>
 <li><code>headers` Object (optional) *macOS* - HTTP request headers.
   * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.

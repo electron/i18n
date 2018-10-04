@@ -303,6 +303,35 @@ GPUプロセスがクラッシュしたり、強制終了されたりしたと�
 
 Chromeのユーザ補助機能が変更されると発生します。 このイベントはスクリーンリーダーのような支援技術が有効にされたり、無効にされたりしたときに発火します。 詳細については、https://www.chromium.org/developers/design-documents/accessibility を参照してください。
 
+### イベント: 'session-created'
+
+戻り値:
+
+* `event` Event
+* `session` [Session](session.md)
+
+Electron が新しい `session` を作成したときに発生します。
+
+```javascript
+const {app} = require('electron')
+
+app.on('session-created', (event, session) => {
+  console.log(session)
+})
+```
+
+### イベント: 'second-instance'
+
+戻り値:
+
+* `event` Event
+* `argv` String[] - 2番目のインスタンスのコマンドライン引数の配列
+* `workingDirectory` String - 2番目のインスタンスの作業ディレクトリ
+
+このイベントは、2つ目のインスタンスが実行されたときにアプリケーションの1つ目のインスタンス内で発火されます。 `argv` は2番目のインスタンスのコマンドライン引数の配列で、`workingDirectory` はその現在の作業ディレクトリです。 通常、アプリケーションはこれに対して1番目のウインドウにフォーカスを当て、最小化しないように対応します。
+
+このイベントは `app` の `ready` イベントが発生した後で実行されることが保証されます。
+
 ## メソッド
 
 `app` オブジェクトには以下のメソッドがあります。
@@ -317,7 +346,7 @@ Chromeのユーザ補助機能が変更されると発生します。 このイ�
 
 ### `app.exit([exitCode])`
 
-* `exitCode` Integer (任意)
+* `exitCode` Integer (optional)
 
 `exitCode` ですぐに終了します。`exitCode` の省略値は0です。
 
@@ -327,7 +356,7 @@ Chromeのユーザ補助機能が変更されると発生します。 このイ�
 
 * `options` Object (任意) 
   * `args` String[] (任意)
-  * `execPath` String (任意)
+  * `execPath` String (optional)
 
 現在のインスタンスが終了したときに、アプリを再起動します。
 
@@ -349,6 +378,10 @@ app.exit(0)
 ### `app.isReady()`
 
 戻り値 `Boolean` - Electronの初期化が完了している場合、`true`、そうでない場合、`false`。
+
+### `app.whenReady()`
+
+Returns `Promise` - Electron が初期化されるときに実行される Promise。 `app.isReady()` を確認してアプリの準備がまだできていないときに `ready` イベントに登録するための、便利な代替手段として使用できます。
 
 ### `app.focus()`
 
@@ -488,7 +521,7 @@ Windowsの場合、オプションのパラメータを指定することがで�
 
 このメソッドは現在の実行可能ファイルがプロトコル (別名URIスキーム) の既定のハンドラーであるかをチェックします。もしそうである場合、アプリを既定のハンドラから外します。
 
-### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
+### `app.isDefaultProtocolClient(protocol[, path, args])`
 
 * `protocol` String - `://` を除くプロトコルの名前。
 * `path` String (任意) *Windows* - 省略値は `process.execPath`
@@ -504,7 +537,7 @@ Windowsの場合、オプションのパラメータを指定することがで�
 
 ### `app.setUserTasks(tasks)` *Windows*
 
-* `tasks` [Task[]](structures/task.md) - `Task` オブジェクトの配列
+* `tasks` [Task[]](structures/task.md) - `Task`オブジェクトの配列
 
 Windowsでジャンプリストの [タスク](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) カテゴリに `tasks` を追加します。
 
@@ -599,50 +632,52 @@ app.setJumpList([
 ])
 ```
 
-### `app.makeSingleInstance(callback)`
+### `app.requestSingleInstanceLock()`
 
-* `callback` Function 
-  * `argv` String[] - 2番目のインスタンスのコマンドライン引数の配列
-  * `workingDirectory` String - 2番目のインスタンスの作業ディレクトリ
-
-戻り値 `Boolean`。
+戻り値 `Boolean`
 
 このメソッドはアプリケーションをシングルインスタンスのアプリケーションにします。複数のインスタンスでのアプリ実行を許可する代わりに、これはアプリの単一のインスタンスだけが実行されていることを保証します。そして、他のインスタンスはこのインスタンスに通知し、終了します。
 
-2番目のインスタンスを実行すると、`callback(argv, workingDirectory)` で、`callback` が最初のインスタンスによって呼び出されます。 `argv` は2番目のインスタンスのコマンドライン引数の配列で、`workingDirectory` はその現在の作業ディレクトリです。 通常、アプリケーションはこれに対して1番目のウインドウにフォーカスを当て、最小化しないように対応します。
+このメソッドの戻り値は、アプリケーションのこのインスタンスのロックが成功したかどうかを表します。 ロック状態にできなかった場合、アプリケーションの他のインスタンスが既にロックされており、ただちに終了すると想定できます。
 
-`callback` は `app` の `ready` のイベントが発生した後で実行されることが保証されます。
+またこのメソッドは、プロセスがアプリケーションの1つ目のインスタンスで、アプリがロード処理を続行する必要がある場合も `false` を返します。 既にロック状態にしたものとは別のインスタンスにパラメータを送信したためプロセスが直ちに終了する必要がある場合は、`false` を返します。
 
-このメソッドは、プロセスがアプリケーションの1番目のインスタンスで、アプリがロード処理を続行する必要がある場合、`false` を返します。 そして、プロセスが別のインスタンスにパラメータを送信し、すぐに終了する必要がある場合、`true` を返します。
+macOS の場合、ユーザが Finder でアプリの2つ目のインスタンスを開こうとしたとき、システムは自動的にシングルインスタンスになるようにし、`open-file` と `open-url` イベントが発生します。 ただし、ユーザがアプリをコマンドラインで開始する場合、シングルインスタンスを強制するシステムの仕組みが迂回されるため、シングルインスタンスであることを保証するには、このメソッドを使う必要があります。
 
-macOSの場合、ユーザがFinderでアプリの2番目のインスタンスを開こうとしたとき、システムは自動的にシングルインスタンスになるようにし、`open-file` と `open-url` イベントが発生します。 ただし、ユーザがアプリをコマンドラインで開始する場合、シングルインスタンスを強制するシステムの仕組みが迂回されるため、シングルインスタンスであることを保証するには、このメソッドを使う必要があります。
-
-2番目のインスタンスが開始されたとき、1番目のインスタンスのウインドウをアクティブにする例:
+以下は、2つ目のインスタンスが開始されたときに1つ目のインスタンスのウインドウをアクティブにする例です。
 
 ```javascript
 const {app} = require('electron')
 let myWindow = null
 
-const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
-  // 誰かが2番目のインスタンスを実行しようとした場合、今のウインドウにフォーカスを当てる必要があります。
-  if (myWindow) {
-    if (myWindow.isMinimized()) myWindow.restore()
-    myWindow.focus()
-  }
-})
+const gotTheLock = app.requestSingleInstanceLock()
 
-if (isSecondInstance) {
+if (!gotTheLock) {
   app.quit()
-}
+} else {
+  app.on('second-instance', (event, commandLine, workingDirectory) => {
+    // 誰かが2つ目のインスタンスを実行したとき、このウィンドウにフォーカスする
+    if (myWindow) {
+      if (myWindow.isMinimized()) myWindow.restore()
+      myWindow.focus()
+    }
+  })
 
-// myWindowを生成したり、アプリの残りのロード処理をしたりするなど...
-app.on('ready', () => {
-})
+  // myWindow を作成したり、アプリの残りをロードしたり、...
+  app.on('ready', () => {
+  })
+}
 ```
 
-### `app.releaseSingleInstance()`
+### `app.hasSingleInstanceLock()`
 
-`makeSingleInstance` によって作成されたすべてのロックを解放します。これでもう一度、アプリケーションを並列で実行するための複数インスタンスが許可されます。
+戻り値 `Boolean`
+
+このメソッドはアプリのこのインスタンスが現在シングルインスタンスロックをされているかどうかを返します。 `app.requestSingleInstanceLock()` でロックを要求し、`app.releaseSingleInstanceLock()` で解放できます。
+
+### `app.releaseSingleInstanceLock()`
+
+`requestSingleInstanceLock` によって作成されたすべてのロックを解放します。これで、並列実行するためのアプリケーションの複数インスタンスが再び許可されます。
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
@@ -715,7 +750,7 @@ app.on('ready', () => {
 
 macOSでは、ドックアイコンに表示されます。Linuxでは、Unityランチャーでしか機能しません。
 
-**注:** 機能させるには、Unityランチャーは、`.desktop` ファイルの存在を必要とします。詳細は [デスクトップ環境への統合](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux) をお読みください。
+**注:** Unity ランチャーで機能させるには、`.desktop` ファイルが存在する必要があります。詳細は [デスクトップ環境への統合](../tutorial/desktop-environment-integration.md#unity-launcher) をお読みください。
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
@@ -823,7 +858,7 @@ Chromiumのコマンドラインに引数を追加します。引数は正しく
 
 **注:** これは`process.argv` に影響を与えません。
 
-### `app.enableMixedSandbox()` *実験的* *macOS* *Windows*
+### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
 
 アプリで混在サンドボックスモードを有効にします。
 
@@ -889,10 +924,16 @@ filePath がダウンロードフォルダの中の場合、ダウンロード�
 
 * `menu` [Menu](menu.md)
 
-アプリケーションの[ドックメニュー](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103)を設定します。
+アプリケーションの [Dock メニュー](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/) を設定します。
 
 ### `app.dock.setIcon(image)` *macOS*
 
 * `image` ([NativeImage](native-image.md) | String)
 
 このドックアイコンに関連付けられた `image` を設定します。
+
+## プロパティ
+
+### `app.isPackaged`
+
+アプリがパッケージされている場合は`true`、それ以外は `false` を返す `Boolean` プロパティ。 多くのアプリケーションでは、このプロパティを用いて開発版の環境と製品版の環境を区別できます。

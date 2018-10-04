@@ -5,20 +5,20 @@ Linux 版 Electron のビルドについては、以下のガイドラインに�
 ## 必要な環境
 
 * 最低 25 GB のストレージ空き容量と 8 GB以上の RAM。
-* Python 2.7.x. Some distributions like CentOS 6.x still use Python 2.6.x so you may need to check your Python version with `python -V`.
+* Python 2.7.x。CentOS 6.xのようないくつかのディストリビューションでは Python 2.6.x を採用しています。そのため、`python -V`などでPythonのバージョンを確認してください。
     
-    Please also ensure that your system and Python version support at least TLS 1.2. For a quick test, run the following script:
+    あなたのシステムと Python が少くとも TLS 1.2をサポートしていることを確認してください。 確認するには、次のスクリプトを実行します。:
     
     ```sh
     $ npm run check-tls
     ```
     
-    If the script returns that your configuration is using an outdated security protocol, use your system's package manager to update Python to the latest version in the 2.7.x branch. Alternatively, visit https://www.python.org/downloads/ for detailed instructions.
+    あなたの設定が時代遅れのセキュリティプロトコルを使用していると、このスクリプトが返した場合、あなたのシステムパッケージマネージャでPythonを2.7.xブランチまで更新してください。 または、https://www.python.org/downloads/ を参照して、詳細な情報を入手してください。
 
-* Node.js. There are various ways to install Node. You can download source code from [nodejs.org](https://nodejs.org) and compile it. Doing so permits installing Node on your own home directory as a standard user. Or try repositories such as [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
+* Node.js. Node はいろいろな方法でインストールできます。 [nodejs.org](https://nodejs.org)からソースコードをダウンロードしてコンパイルできます。 一般ユーザーのホームディレクトリに Node をインストールできます。 または[NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories)のようなリポジトリを試してください。
 
-* [clang](https://clang.llvm.org/get_started.html) 3.4 or later.
-* Development headers of GTK+ and libnotify.
+* [clang](https://clang.llvm.org/get_started.html) 3.4 またはそれ以降。
+* GTK+ と libnotify の開発ヘッダ
 
 Ubuntu では、以下のライブラリをインストールしてください
 
@@ -27,7 +27,7 @@ $ sudo apt-get install build-essential clang libdbus-1-dev libgtk-3-dev \
                        libnotify-dev libgnome-keyring-dev libgconf2-dev \
                        libasound2-dev libcap-dev libcups2-dev libxtst-dev \
                        libxss1 libnss3-dev gcc-multilib g++-multilib curl \
-                       gperf bison
+                       gperf bison python-dbusmock
 ```
 
 RHEL / CentOS では、以下のライブラリをインストールしてください
@@ -36,7 +36,7 @@ RHEL / CentOS では、以下のライブラリをインストールしてくだ
 $ sudo yum install clang dbus-devel gtk3-devel libnotify-devel \
                    libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
                    cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
-                   GConf2-devel nss-devel
+                   GConf2-devel nss-devel python-dbusmock
 ```
 
 Fedora では、以下のライブラリをインストールしてください
@@ -45,187 +45,61 @@ Fedora では、以下のライブラリをインストールしてください
 $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
                    cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
-                   GConf2-devel nss-devel
+                   GConf2-devel nss-devel python-dbusmock
 ```
 
-Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
+その他のディストリビューションも、例えば pacmanのようなパッケージマネージャーで同様のパッケージをインストールできるでしょう、またはソースコードからコンパイルする必要があるかもしれません。
 
-## コードを取得する
+### クロスコンパイル
 
-```sh
-$ git clone https://github.com/electron/electron
-```
-
-## ブートストラップ
-
-ブートストラップスクリプトはビルドに必要な全ての依存関係をダウンロードし、ビルドプロジェクトファイルを作成します。 You must have Python 2.7.x for the script to succeed. Downloading certain files can take a long time. Notice that we are using `ninja` to build Electron so there is no `Makefile` generated.
-
-To bootstrap for a static, non-developer build, run:
-
-```sh
-$ cd electron
-$ npm run bootstrap
-```
-
-Or to bootstrap for a development session that builds faster by not statically linking:
-
-```sh
-$ cd electron
-$ npm run bootstrap:dev
-```
-
-言語サーバを基にした [JSON コンパイルデータベース](http://clang.llvm.org/docs/JSONCompilationDatabase.html) をサポートしているエディタを使用している場合、以下で生成できます。
-
-```sh
-$ ./script/build.py --compdb
-```
-
-### Cross compilation
-
-If you want to build for an `arm` target you should also install the following dependencies:
+`arm` ターゲットに向けてビルドする場合、次の依存パッケージをインストールしてください。:
 
 ```sh
 $ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
                        g++-arm-linux-gnueabihf
 ```
 
-Similarly for `arm64`, install the following:
+同様に `arm64` の場合以下をインストールします。:
 
 ```sh
 $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
                        g++-aarch64-linux-gnu
 ```
 
-And to cross-compile for `arm` or `ia32` targets, you should pass the `--target_arch` parameter to the `bootstrap.py` script:
+`arm` または `ia32` ターゲット向けにクロスコンパイルする場合、`target_cpu` パラメーターで `gn gen`に情報を渡します。:
 
 ```sh
-$ ./script/bootstrap.py -v --target_arch=arm
+$ gn gen out/Debug --args='import(...) target_cpu="arm"'
 ```
 
 ## ビルド
 
-If you would like to build both `Release` and `Debug` targets:
-
-```sh
-$ npm run build
-```
-
-This script will cause a very large Electron executable to be placed in the directory `out/R`. The file size is in excess of 1.3 gigabytes. This happens because the Release target binary contains debugging symbols. To reduce the file size, run the `create-dist.py` script:
-
-```sh
-$ ./script/create-dist.py
-```
-
-This will put a working distribution with much smaller file sizes in the `dist` directory. After running the `create-dist.py` script, you may want to remove the 1.3+ gigabyte binary which is still in `out/R`.
-
-You can also build either the `Debug` or `Release` target on its own:
-
-```sh
-$ npm run build:dev
-```
-
-```sh
-$ npm run build:release
-```
-
-After building is done, you can find the `electron` debug binary under `out/D`.
-
-## クリーン
-
-以下でビルドファイルをクリーンします。
-
-```sh
-$ npm run clean
-```
-
-以下で `out` と `dist` ディレクトリだけをクリーンします。
-
-```sh
-$ npm run clean-build
-```
-
-**注釈:** どちらのクリーンコマンドもビルド前に `ブートストラップ` を再度実行する必要があります。
+[ビルド指示: GN](build-instructions-gn.md)を参照してください。
 
 ## トラブルシューティング
 
 ### Error While Loading Shared Libraries: libtinfo.so.5
 
-Prebuilt `clang` will try to link to `libtinfo.so.5`. Depending on the host architecture, symlink to appropriate `libncurses`:
+プレビルドの`clang` は `libtinfo.so.5` へリンクしようとします。ホストのアーキテクチャにしたがって、適切な`libncurses`にシンボリックリンクしてください。:
 
 ```sh
 $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 ```
 
-## テスト
-
-[ビルドシステム概要: テスト](build-system-overview.md#tests) を参照してください。
-
 ## 高度なトピック
 
-The default building configuration is targeted for major desktop Linux distributions. To build for a specific distribution or device, the following information may help you.
+デフォルトのビルド設定はメジャーナデスクトップLinuxディストリビューション向けになっています。特定のディストリビューションやデバイス向けにビルドする場合、以下の情報が助けになるかもしれません。
 
-### Building `libchromiumcontent` locally
+### システムの`clang`をダウンロードした`clang`バイナリの代りに使う
 
-To avoid using the prebuilt binaries of `libchromiumcontent`, you can build `libchromiumcontent` locally. To do so, follow these steps:
+デフォルトでは、Electron のビルドは、Chromiumプロジェクトが提供する、プレビルドの[`clang`](https://clang.llvm.org/get_started.html)バイナリを使用します。 なんらかの理由であなたのシステムにインストールされた`clang`を使う場合、GNの引数の `clang_base_path` で指定します。
 
-1. Install [depot_tools](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install)
-2. Install [additional build dependencies](https://chromium.googlesource.com/chromium/src/+/master/docs/linux_build_instructions.md#Install-additional-build-dependencies)
-3. Fetch the git submodules:
+例えば `clang` が `/usr/local/bin/clang`にインストールされている場合：
 
 ```sh
-$ git submodule update --init --recursive
+$ gn gen out/Debug --args='import("//electron/build/args/debug.gn") clang_base_path = "/usr/local/bin"'
 ```
 
-1. Pass the `--build_release_libcc` switch to `bootstrap.py` script:
+### `clang`以外のコンパイラの使用
 
-```sh
-$ ./script/bootstrap.py -v --build_release_libcc
-```
-
-Note that by default the `shared_library` configuration is not built, so you can only build `Release` version of Electron if you use this mode:
-
-```sh
-$ ./script/build.py -c R
-```
-
-### Using system `clang` instead of downloaded `clang` binaries
-
-By default Electron is built with prebuilt [`clang`](https://clang.llvm.org/get_started.html) binaries provided by the Chromium project. If for some reason you want to build with the `clang` installed in your system, you can call `bootstrap.py` with `--clang_dir=<path>` switch. By passing it the build script will assume the `clang` binaries reside in `<path>/bin/`.
-
-For example if you installed `clang` under `/user/local/bin/clang`:
-
-```sh
-$ ./script/bootstrap.py -v --build_release_libcc --clang_dir /usr/local
-$ ./script/build.py -c R
-```
-
-### Using compilers other than `clang`
-
-To build Electron with compilers like `g++`, you first need to disable `clang` with `--disable_clang` switch first, and then set `CC` and `CXX` environment variables to the ones you want.
-
-For example building with GCC toolchain:
-
-```sh
-$ env CC=gcc CXX=g++ ./script/bootstrap.py -v --build_release_libcc --disable_clang
-$ ./script/build.py -c R
-```
-
-### 環境変数
-
-Apart from `CC` and `CXX`, you can also set the following environment variables to customise the build configuration:
-
-* `CPPFLAGS`
-* `CPPFLAGS_host`
-* `CFLAGS`
-* `CFLAGS_host`
-* `CXXFLAGS`
-* `CXXFLAGS_host`
-* `AR`
-* `AR_host`
-* `CC`
-* `CC_host`
-* `CXX`
-* `CXX_host`
-* `LDFLAGS`
-
-The environment variables have to be set when executing the `bootstrap.py` script, it won't work in the `build.py` script.
+`clang`以外のコンパイラを用いたElectronのビルドはサポートされていません。

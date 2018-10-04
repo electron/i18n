@@ -43,9 +43,7 @@ Electron
 ├── native_mate/ - A fork of Chromium's gin library that makes it easier to marshal
 |                  types between C++ and JavaScript.
 ├── spec / - tes otomatis.
-├── electron.gyp - Aturan pembangunan electron.
-└── common.gypi - Compiler specific settings and building rules for other
-                  components like `node` and `breakpad`.
+└── BUILD.gn - Building rules of Electron.
 ```
 
 ## `/chromium_src`
@@ -62,13 +60,13 @@ analytics stuff) so we took parts of the code. Ini bisa dengan mudah telah patch
 <ul>
 <li><strong>skrip</strong> - Skrip yang digunakan untuk tujuan pembangunan seperti bangunan, kemasan,
 pengujian, dll.</li>
-<li><strong>alat</strong> - Skrip pembantu yang digunakan oleh file gyp, tidak seperti <code>skrip`, skrip diletakkan disini jangan pernah dipanggil oleh pengguna secara langsung.</li> 
+<li><strong>tools</strong> - Helper scripts used by GN files, unlike <code>script`, scripts put here should never be invoked by users directly.</li> 
 
 * **vendor** - sumber kode dari dependensi pihak ketiga, kami tidak menggunakannya `third_party` sebagai nama karena akan membingungkannya dengan direktori yang sama di Pohon sumber kode Chromium.
 * **node_modules** - Modul simpul pihak ketiga digunakan untuk bangunan.
 * **keluar** - Direktori keluaran sementara `ninja`.
 * **dist** - Direktori sementara dibuat oleh skrip `script/create-dist.py` saat membuat distribusi.
-* **external_binaries** - Download binari kerangka pihak ketiga yang jangan mendukung bangunan dengan `gyp`.</ul> 
+* **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gn`.</ul> 
 
 ## Menjaga Git Submodul Up to Date
 
@@ -77,8 +75,8 @@ Repositori Electron memiliki beberapa dependensi yang dipesan, ditemukan di [/ve
 ```sh
 $ git status
 
-    modified:   vendor/libchromiumcontent (new commits)
-    modified:   vendor/node (new commits)
+    modified:   vendor/depot_tools (new commits)
+    modified:   vendor/boto (new commits)
 ```
 
 Untuk memperbarui dependensi ini, jalankan perintah berikut:

@@ -43,9 +43,7 @@ Electron
 ├── native_mate/ - A fork of Chromium's gin library that makes it easier to marshal
 |                  types between C++ and JavaScript.
 ├── spec/ - 自動測試案例。
-├── electron.gyp - Electron 建置規則。
-└── common.gypi - Compiler specific settings and building rules for other
-                  components like `node` and `breakpad`.
+└── BUILD.gn - Building rules of Electron.
 ```
 
 ## `/chromium_src`
@@ -55,12 +53,12 @@ The files in `/chromium_src` tend to be pieces of Chromium that aren't part of t
 ## 其他目錄的結構
 
 * **script** - 開發時期用的腳本，例如建置、打包、測試等。
-* **tools** - 供 gyp 檔用的輔助腳本，跟 `script` 不同，放在這裡的腳本使用者應該都不會直接用到。
+* **tools** - Helper scripts used by GN files, unlike `script`, scripts put here should never be invoked by users directly.
 * **vendor** - 第三方相依模組的原始碼。我們不用 `third_party`，是為了避免與 Chromium 原始碼目錄裡的那份混淆。
 * **node_modules** - 建置時使用的第三方 Node 模組。
 * **out** - `ninja` 的暫存目錄。
 * **dist** - `script/create-dist.py` 建立發佈檔時產生的暫存目錄。
-* **external_binaries** - 不支援以 `gyp` 建置的第三方框架下載檔。
+* **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gn`.
 
 ## 持續更新 Git 子模組
 
@@ -69,8 +67,8 @@ Electron 儲存庫裡有一些外部的相依模組，存放在 [/vendor](https:
 ```sh
 $ git status
 
-    modified:   vendor/libchromiumcontent (new commits)
-    modified:   vendor/node (new commits)
+    modified:   vendor/depot_tools (new commits)
+    modified:   vendor/boto (new commits)
 ```
 
 執行下列指令可以更新相依的外部模組:

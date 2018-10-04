@@ -57,7 +57,7 @@ console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 Ако търсите бързо решение, може да направите променливите глобални, като промените своят код от това:
 
 ```javascript
-const {app, Tray} = require('electron')
+const { app, Tray } = require('electron')
 app.on('ready', () => {
    const tray = new Tray('/path/to/icon.png')
    tray.setTitle('hello world')
@@ -67,7 +67,7 @@ app.on('ready', () => {
 на това:
 
 ```javascript
-const {app, Tray} = require('electron')
+const { app, Tray } = require('electron')
 let tray = null
 app.on('ready', () => {
    tray = new Tray('/path/to/icon.png')
@@ -83,7 +83,7 @@ app.on('ready', () => {
 
 ```javascript
 // В главния процес.
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({
    webPreferences: {
      nodeIntegration: false

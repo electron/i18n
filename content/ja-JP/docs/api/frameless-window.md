@@ -69,7 +69,7 @@ win.show()
 
 ## クリックスルーウインドウ
 
-クリックスルーウインドウを作成する、すなわち、ウインドウにすべてのマウスイベントを無視させるには、[win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore) APIを呼び出して下さい。
+クリックスルーウインドウを作成する、すなわち、ウインドウにすべてのマウスイベントを無視させるには、[win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore-options) APIを呼び出して下さい。
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -98,7 +98,7 @@ el.addEventListener('mouseleave', () => {
 
 既定では、フレームレスウインドウはドラッグできません。 アプリは、どの領域が (OSの標準のタイトルバーのように) ドラッグ可能であるかをElectronに伝えるため、CSSで `-webkit-app-region: drag` を指定することが必要です。また、アプリは、ドラッグ可能な領域からドラッグ不可能な領域を除外するため、`-webkit-app-region: no-drag` を使用することもできます。 現在のところ、長方形の形状しかサポートされていないことに注意して下さい。
 
-注: `-webkit-app-region: drag` は、開発者ツールが開かれている間、問題があることが知られています。 回避策を含む詳細については、この[GitHubの課題](https://github.com/electron/electron/issues/3647)を参照して下さい。
+注: `-webkit-app-region: drag` は、開発者ツールが開かれている間、問題があることが知られています。 回避策を含む詳細については、この [GitHub Issue](https://github.com/electron/electron/issues/3647) を参照して下さい。
 
 ウインドウ全体をドラッグ可能にするには、`body` のスタイルとして `-webkit-app-region: drag` を追加して下さい。
 
@@ -115,7 +115,7 @@ button {
 }
 ```
 
-カスタムのタイトルバーだけをドラッグ可能に設定する場合、同時にタイトルバーのすべてのボタンをドラッグ不可にする必要があります。
+カスタムのタイトルバーをドラッグ可能に設定するだけの場合、同時にタイトルバーのすべてのボタンもドラッグ不可にする必要があります。
 
 ## テキストの選択
 

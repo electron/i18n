@@ -44,7 +44,7 @@ Set a custom locale.
 
 ## --js-flags=`флаги`
 
-Specifies the flags passed to the Node JS engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
+Указывает флаги, поданные движку Node JS. Обязателен при запуске Electron если вы хотите задействовать `flags` в основном процессе.
 
 ```sh
 $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
@@ -148,6 +148,6 @@ This switch only works when `--enable-logging` is also passed.
 
 Gives the per-module maximal V-logging levels to override the value given by `--v`. E.g. `my_module=2,foo*=3` would change the logging level for all code in source files `my_module.*` and `foo*.*`.
 
-Any pattern containing a forward or backward slash will be tested against the whole pathname and not just the module. E.g. `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
+Any pattern containing a forward or backward slash will be tested against the whole pathname and not only the module. E.g. `*/foo/bar/*=2` would change the logging level for all code in the source files under a `foo/bar` directory.
 
 This switch only works when `--enable-logging` is also passed.

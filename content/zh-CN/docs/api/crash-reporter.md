@@ -22,6 +22,11 @@ crashReporter.start({
 * [socorro](https://github.com/mozilla/socorro)
 * [mini-breakpad-server](https://github.com/electron/mini-breakpad-server)
 
+Or use a 3rd party hosted solution:
+
+* [Backtrace I/O](https://backtrace.io/electron/)
+* [Sentry](https://docs.sentry.io/clients/electron)
+
 崩溃日志被保存在本地的应用特有的临时文件夹中。 对于`YourName`对象中的`productName`，崩溃报日志将被储存在临时文件夹中名为`YourName Crashes`的文件文件夹中。 在启动崩溃报告器之前，您可以通过调用`app.setPath('temp', 'my/custom/temp')` API来自定义这些临时文件的保存路径
 
 ## 方法
@@ -30,7 +35,7 @@ crashReporter.start({
 
 ### `crashReporter.start(options)`
 
-* `选项` Object - 过滤器对象，包含过滤参数 
+* `options` Object 
   * `companyName` 字符串 - 公司名称 (可选).
   * `submitURL` 字符串 - 崩溃日志将以POST的方式发送给此URL.
   * `productName` 字符串(可选) - 默认为 `app.getName()`.

@@ -56,6 +56,14 @@ HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3
 
 `HOME=~/.electron-gyp` डेवलपमेंट हेअदेर्स को खोजने की लोकेशन परिवर्तित कर देता है | `--target=1.2.3` इलेक्ट्रॉन का संस्करण है | `--dist-url=...` निर्दिष्ट करता है कि हेडर्स कहाँ से डाउनलोड करने हैं | `--arch=x64` का मतलब है कि मोड्यूल 64बिट सिस्टम के लिए बना है |
 
+### Manually building for a custom build of Electron
+
+To compile native Node addons against a custom build of Electron that doesn't match a public release, instruct `npm` to use the version of Node you have bundled with your custom build.
+
+```sh
+npm rebuild --nodedir=$HOME/.../path/to/electron/vendor/node
+```
+
 ## समस्या निवारण
 
 अगर आपने एक मूल मोड्यूल इन्स्टॉल किया है पर वह चल नहीं रहा है, तो आपको निम्नलिखित चीज़े जाँचनी होगी:

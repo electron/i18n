@@ -128,7 +128,7 @@ hindi pinagana.</li>
     }
     ```
     
-    Kung ikaw ay nagtatakda lamang ng isang custom titlebar bilang draggable, kailangan mo ring gawin ang lahat mga pindutan sa titlebar non-draggable.
+    If you're only setting a custom titlebar as draggable, you also need to make all buttons in titlebar non-draggable.
     
     ## Text selection 
     

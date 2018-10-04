@@ -21,7 +21,7 @@ app.on('window-all-closed', () => {
 
 当应用程序完成基础的启动的时候被触发。 在 Windows 和 Linux 中, `will-finish-launching` 事件与 `ready` 事件是相同的; 在 macOS 中，这个事件相当于 `NSApplication` 中的 `applicationWillFinishLaunching` 提示。 通常会在这里为 `open-file` 和 `open-url` 设置监听器，并启动崩溃报告和自动更新。
 
-在大多数的情况下，你应该只在 `ready` 事件中完成所有的业务。
+In most cases, you should do everything in the `ready` event handler.
 
 ### 事件: 'ready'
 
@@ -236,7 +236,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 * `webContents` [WebContents](web-contents.md)
 * `url` URL
 * `certificateList` [证书[]](structures/certificate.md)
-* `callback` Function - 回调函数 
+* `callback` Function 
   * `certificate` [证书](structures/certificate.md) (可选)
 
 当一个客户证书被请求的时候发出。
@@ -268,7 +268,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Function - 回调函数 
+* `callback` Function 
   * `username` String
   * `password` String
 
@@ -303,6 +303,35 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 当 Chrome 的辅助功能状态改变时触发。 当启用或禁用辅助技术时将触发此事件，例如屏幕阅读器 。 查看更多详情 https://www.chromium.org/developers/design-documents/accessibility
 
+### Event: 'session-created'
+
+返回:
+
+* `event` Event
+* `session` [Session](session.md)
+
+Emitted when Electron has created a new `session`.
+
+```javascript
+const {app} = require('electron')
+
+app.on('session-created', (event, session) => {
+  console.log(session)
+})
+```
+
+### Event: 'second-instance'
+
+返回:
+
+* `event` Event
+* `argv` String[] - 第二个实例的命令行参数数组
+* `workingDirectory` String - 第二个实例的工作目录
+
+This event will be emitted inside the primary instance of your application when a second instance has been executed. ` argv ` 是第二个实例的命令行参数的数组, ` workingDirectory ` 是这个实例当前工作目录。 通常, 应用程序会激活窗口并且取消最小化来响应。
+
+This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
+
 ## 方法
 
 ` app ` 对象具有以下方法:
@@ -325,7 +354,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 ### `app.relaunch([options])`
 
-* `选项` Object (可选) 
+* `options` Object (可选) 
   * `args` String[] (可选)
   * `execPath` String (可选)
 
@@ -349,6 +378,10 @@ app.exit(0)
 ### `app.isReady()`
 
 返回 `Boolean` 类型 - 如果 Electron 已经完成初始化，则返回 `true`, 其他情况为 `false`
+
+### `app.whenReady()`
+
+Returns `Promise` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
 
 ### `app.focus()`
 
@@ -395,7 +428,7 @@ app.exit(0)
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `选项` Object (可选) 
+* `options` Object (可选) 
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
@@ -488,7 +521,7 @@ API 在内部使用 Windows 注册表和 LSSetDefaultHandlerForURLScheme。
 
 此方法检查当前程序是否为协议（也称为URI scheme）的默认处理程序。 如果是，它会删除应用程序作为默认处理程序。
 
-### `app.isDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
+### `app.isDefaultProtocolClient(protocol[, path, args])`
 
 * `protocol` String - 协议的名称, 不包含 `://`。
 * ` path `String (可选) * Windows *-默认为 ` process.execPath `
@@ -599,21 +632,15 @@ app.setJumpList([
 ])
 ```
 
-### `app.makeSingleInstance(callback)`
+### `app.requestSingleInstanceLock()`
 
-* `callback` Function 
-  * `argv` String[] - 第二个实例的命令行参数数组
-  * `workingDirectory` String - 第二个实例的工作目录
-
-返回 `Boolean`.
+返回 `Boolean`
 
 此方法使应用程序成为单个实例应用程序, 而不是允许应用程序的多个实例运行, 这将确保只有一个应用程序的实例正在运行, 其余的实例全部会被终止并退出。
 
-当执行第二个实例时, 第一个实例将使用 ` callback (argv, workingDirectory) ` 调用 ` callback`。 ` argv ` 是第二个实例的命令行参数的数组, ` workingDirectory ` 是这个实例当前工作目录。 通常, 应用程序会激活窗口并且取消最小化来响应。
+The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock you can assume that another instance of your application is already running with the lock and exit immediately.
 
-在 `app` 的 `ready` 事件后，`callback` 才会被调用。
-
-如果进程是应用程序的第一个实例, 则此方法返回 ` false `，并且应用程序会继续加载。 如果您的进程已将其参数发送到另一个实例, 则会立即退出, 并返回 ` true `。
+I.e. This method returns `true` if your process is the primary instance of your application and your app should continue loading. It returns `false` if your process should immediately quit as it has sent its parameters to another instance that has already acquired the lock.
 
 在 macOS 上, 当用户尝试在 Finder 中打开您的应用程序的第二个实例时, 系统会自动强制执行单个实例, 并且发出 ` open-file ` 和 ` open-url ` 事件。 但是当用户在命令行中启动应用程序时, 系统的单实例机制将被绕过, 您必须使用此方法来确保单实例。
 
@@ -623,26 +650,34 @@ app.setJumpList([
 const {app} = require('electron')
 let myWindow = null
 
-const isSecondInstance = app.makeSingleInstance((commandLine, workingDirectory) => {
-  // Someone tried to run a second instance, we should focus our window.
-  if (myWindow) {
-    if (myWindow.isMinimized()) myWindow.restore()
-    myWindow.focus()
-  }
-})
+const gotTheLock = app.requestSingleInstanceLock()
 
-if (isSecondInstance) {
+if (!gotTheLock) {
   app.quit()
-}
+} else {
+  app.on('second-instance', (event, commandLine, workingDirectory) => {
+    // Someone tried to run a second instance, we should focus our window.
+    if (myWindow) {
+      if (myWindow.isMinimized()) myWindow.restore()
+      myWindow.focus()
+    }
+  })
 
-// Create myWindow, load the rest of the app, etc...
-app.on('ready', () => {
-})
+  // Create myWindow, load the rest of the app, etc...
+  app.on('ready', () => {
+  })
+}
 ```
 
-### `app.releaseSingleInstance()`
+### `app.hasSingleInstanceLock()`
 
-释放所有由 `makeSingleInstance` 创建的限制. 这将允许应用程序的多个实例依次运行.
+返回 `Boolean`
+
+This method returns whether or not this instance of your app is currently holding the single instance lock. You can request the lock with `app.requestSingleInstanceLock()` and release with `app.releaseSingleInstanceLock()`
+
+### `app.releaseSingleInstanceLock()`
+
+Releases all locks that were created by `requestSingleInstanceLock`. This will allow multiple instances of the application to once again run side by side.
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
@@ -677,7 +712,7 @@ app.on('ready', () => {
 
 ### `app.importCertificate(options, callback)` *LINUX*
 
-* `选项` Object 
+* `options` Object 
   * `certificate` String - pkcs12 文件的路径
   * `password` String - 证书的密码
 * `callback` Function - 回调函数 
@@ -715,7 +750,7 @@ app.on('ready', () => {
 
 在macOS系统中, 它展示在dock图标上。在Linux系统中, 它只适用于Unity启动器.
 
-** 注意: **Unity 启动器依赖于 `.desktop ` 文件, 获取更多信息, 请阅读 [ 桌面环境集成 ](../tutorial/desktop-environment-integration.md#unity-launcher-shortcuts-linux)。
+**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
@@ -727,7 +762,7 @@ Returns `Boolean` - 当前桌面环境是否为 Unity 启动器
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `选项` Object (可选) 
+* `options` Object (可选) 
   * ` path `String (可选) * Windows *-要比较的可执行文件路径。默认为 ` process. execPath `。
   * ` 参数 `String [] (可选) * Windows *-要比较的命令行参数。默认为空数组。
 
@@ -783,14 +818,14 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
 
 ### `app.setAboutPanelOptions(options)` *macOS*
 
-* `选项` Object 
+* `options` Object 
   * `applicationName` String (可选) - 应用程序的名字
   * `applicationVersion` String (可选) - 应用程序版本
   * `copyright` String (可选) - 版权信息
   * `credits` String (可选) - 信用信息.
   * `version` String (可选) - 应用程序版本号
 
-设置 "关于" 面板选项。 这将覆盖应用程序的 `.plist ` 文件中定义的值。 更多详细信息, 请查阅 [ Apple 文档 ](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc)。
+设置 "关于" 面板选项。 这将覆盖应用程序的 `. plist ` 文件中定义的值。 更多详细信息, 请查阅 [ Apple 文档 ](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc)。
 
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
 
@@ -890,10 +925,16 @@ stopAccessingSecurityScopedResource()
 
 * `menu` [Menu](menu.md)
 
-设置该应用程序的 [dock 菜单](https://developer.apple.com/library/mac/documentation/Carbon/Conceptual/customizing_docktile/concepts/dockconcepts.html#//apple_ref/doc/uid/TP30000986-CH2-TPXREF103).
+Sets the application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
 
 ### `app.dock.setIcon(image)` *macOS*
 
 * `image` ([NativeImage](native-image.md) | String)
 
 设置`image`作为应用在 dock 中显示的图标
+
+## 属性
+
+### `app.isPackaged`
+
+A `Boolean` property that returns `true` if the app is packaged, `false` otherwise. For many apps, this property can be used to distinguish development and production environments.

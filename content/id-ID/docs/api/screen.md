@@ -1,10 +1,10 @@
-# screen
+# layar
 
 > Retrieve information about screen size, displays, cursor position, etc.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+Proses:  Utama </ 0> ,  Renderer </ 1></p> 
 
-You cannot require or use this module until the `ready` event of the `app` module is emitted.
+Anda tidak dapat meminta atau menggunakan modul ini sampai acara `siap` dari`aplikasi` modul dipancarkan.
 
 `screen` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
@@ -49,39 +49,39 @@ app.on('ready', () => {
 })
 ```
 
-## Events
+## Kejadian
 
 The `screen` module emits the following events:
 
 ### Event: 'display-added'
 
-Returns:
+Pengembalian:
 
-* `event` Event
-* `newDisplay` [Display](structures/display.md)
+* ` event </ 0>  Acara</li>
+<li><code>newDisplay` [Display](structures/display.md)
 
 Emitted when `newDisplay` has been added.
 
 ### Event: 'display-removed'
 
-Returns:
+Pengembalian:
 
-* `event` Event
+* `event` Sinyal
 * `oldDisplay` [Display](structures/display.md)
 
 Emitted when `oldDisplay` has been removed.
 
 ### Event: 'display-metrics-changed'
 
-Returns:
+Mengirimkan:
 
-* `event` Event
+* `peristiwa` Peristiwa
 * `display` [Display](structures/display.md)
 * `changedMetrics` String[]
 
 Emitted when one or more metrics change in a `display`. The `changedMetrics` is an array of strings that describe the changes. Possible changes are `bounds`, `workArea`, `scaleFactor` and `rotation`.
 
-## Methods
+## Metode
 
 The `screen` module has the following methods:
 
@@ -90,10 +90,6 @@ The `screen` module has the following methods:
 Returns [`Point`](structures/point.md)
 
 The current absolute position of the mouse pointer.
-
-### `screen.getMenuBarHeight()` *macOS*
-
-Returns `Integer` - The height of the menu bar in pixels.
 
 ### `screen.getPrimaryDisplay()`
 
@@ -114,3 +110,37 @@ Returns [`Display`](structures/display.md) - The display nearest the specified p
 * `rect` [Rectangle](structures/rectangle.md)
 
 Returns [`Display`](structures/display.md) - The display that most closely intersects the provided bounds.
+
+### `screen.screenToDipPoint(point)` *Windows*
+
+* `point` [Point](structures/point.md)
+
+Returns [`Point`](structures/point.md)
+
+Converts a screen physical point to a screen DIP point. The DPI scale is performed relative to the display containing the physical point.
+
+### `screen.dipToScreenPoint(point)` *Windows*
+
+* `point` [Point](structures/point.md)
+
+Returns [`Point`](structures/point.md)
+
+Converts a screen DIP point to a screen physical point. The DPI scale is performed relative to the display containing the DIP point.
+
+### `screen.screenToDipRect(window, rect)` *Windows*
+
+* `window` [BrowserWindow](browser-window.md) | null
+* `rect` [Rectangle](structures/rectangle.md)
+
+Kembali [`Rectangle`](structures/rectangle.md)
+
+Converts a screen physical rect to a screen DIP rect. The DPI scale is performed relative to the display nearest to `window`. If `window` is null, scaling will be performed to the display nearest to `rect`.
+
+### `screen.dipToScreenRect(window, rect)` *Windows*
+
+* `window` [BrowserWindow](browser-window.md) | null
+* `rect` [Rectangle](structures/rectangle.md)
+
+Kembali [`Rectangle`](structures/rectangle.md)
+
+Converts a screen DIP rect to a screen physical rect. The DPI scale is performed relative to the display nearest to `window`. If `window` is null, scaling will be performed to the display nearest to `rect`.

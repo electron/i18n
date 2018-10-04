@@ -13,7 +13,7 @@ Vous pouvez directement ajouter `--ppapi-flash-path` et `--ppapi-flash-version` 
 Par exemple :
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 const path = require('path')
 
 // Spécifie l'emplacement de flash, en supposant qu'il est placé dans le même dossier que main.js.

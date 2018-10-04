@@ -7,7 +7,7 @@
 Você pode usar o módulo [Menu](../api/menu.md) para configurar os atalhos do teclado que serão acionados quando a aplicação estiver em foco. Para isso, especifique a propriedade [`accelerator`] quando criar um [MenuItem](../api/menu-item.md).
 
 ```js
-const {Menu, MenuItem} = require('electron')
+const { Menu, MenuItem } = require('electron')
 const menu = new Menu()
 
 menu.append(new MenuItem({
@@ -30,7 +30,7 @@ Você pode configurar diferentes combinações de teclas com base no sistema ope
 Você pode usar o módulo [globalShortcut](../api/global-shortcut.md) para detectar os eventos do teclado mesmo quando o aplicativo não possuir foco no teclado.
 
 ```js
-const {app, globalShortcut} = require('electron')
+const { app, globalShortcut } = require('electron')
 
 app.on('ready', () => {
   globalShortcut.register('CommandOrControl+X', () => {
@@ -55,21 +55,25 @@ Se você não quer fazer análises manuais de atalhos, há bibliotecas que fazem
 
 ```js
 Mousetrap.bind('4', () => { console.log('4') })
-Mousetrap.bind('?', () => { console.log('Mostrar atalhos!') })
+Mousetrap.bind('?', () => { console.log('show shortcuts!') })
 Mousetrap.bind('esc', () => { console.log('escape') }, 'keyup')
 
-// compinações
+// combinations
 Mousetrap.bind('command+shift+k', () => { console.log('command shift k') })
 
-// mapa para várias combinações para o mesmo retorno de chamada
+// map multiple combinations to the same callback
 Mousetrap.bind(['command+k', 'ctrl+k'], () => {
   console.log('command k or control k')
 
-  // retorna false para impedir o comportamento padrão e evento de parada de propagação 
+  // return false to prevent default behavior and stop event from bubbling
   return false
 })
 
-// estilo de sequências do gmail!
+// gmail style sequences
+Mousetrap.bind('g i', () => { console.log('go to inbox') })
+Mousetrap.bind('* a', () => { console.log('select all') })
+
+// konami code!
 Mousetrap.bind('up up down down left right left right b a enter', () => {
   console.log('konami code')
 })

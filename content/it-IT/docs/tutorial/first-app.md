@@ -4,9 +4,9 @@ Electron consente di creare applicazioni desktop in JavaScript fornendo un esegu
 
 Questo non significa che Electron è un legame tra JavaScript e le librerie della interfaccia grafica (GUI). Al contrario, Electron utilizza pagine web come GUI, quindi puoi immaginarlo come un browser Chromium minimale, controllato da JavaScript.
 
-**Note**: This example is also available as a repository you can [download and run immediately](#trying-this-example).
+**Nota**: Questo esempio è anche disponibile come repository, puoi [scaricarlo ed utilizzarlo immediatamente](#trying-this-example).
 
-As far as development is concerned, an Electron application is essentially a Node.js application. The starting point is a `package.json` that is identical to that of a Node.js module. A most basic Electron app would have the following folder structure:
+Fino allo sviluppo, un'app Electron è essenzialmente un'app Node.js. Il punto di partenza è `package.json` che è identico a quello di un modulo Node.js. Un'app Electron molto semplice avrebbe la seguente struttura:
 
 ```text
 tua-app/
@@ -15,27 +15,27 @@ tua-app/
 └── index.html
 ```
 
-Create a new empty folder for your new Electron application. Open up your command line client and run `npm init` from that very folder.
+Crea una nuova cartella vuota per la tua applicazione Electron. Apri il tuo client di linea di comando ed esegui `npm init` in quella cartella.
 
 ```sh
 npm init
 ```
 
-npm will guide you through creating a basic `package.json` file. The script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+npm ti guiderà nella creazione di un file `package.json`. Lo script specificato nel `main` field è lo script d'avvio della tua app, che avvierà il processo principale. Il tuo `package.json` potrebbe apparire in questo modo:
 
 ```json
 {
-  "name": "your-app",
+  "name": "tua-app",
   "version": "0.1.0",
   "main": "main.js"
 }
 ```
 
-**Note**: If the `main` field is not present in `package.json`, Electron will attempt to load an `index.js` (as Node.js does). If this was actually a simple Node application, you would add a `start` script that instructs `node` to execute the current package:
+**Nota**: Se il `main` field non è presente nel `package.json`, Electron proverà a caricare un file `index.js` (come Node.js). Se questa fosse una semplice applicazione Node, aggiungeresti uno script `start` che istruisce `node` per eseguire questo package:
 
 ```json
 {
-  "name": "your-app",
+  "name": "tua-app",
   "version": "0.1.0",
   "main": "main.js",
   "scripts": {
@@ -44,11 +44,11 @@ npm will guide you through creating a basic `package.json` file. The script spec
 }
 ```
 
-Turning this Node application into an Electron application is quite simple - we merely replace the `node` runtime with the `electron` runtime.
+Trasformare quest'applicazione Node in un'applicazione Electron è abbastanza semplice - semplicemente rimpiazziamo il `node` runtime con l'`electron` runtime.
 
 ```json
 {
-  "name": "your-app",
+  "name": "tua-app",
   "version": "0.1.0",
   "main": "main.js",
   "scripts": {
@@ -59,13 +59,13 @@ Turning this Node application into an Electron application is quite simple - we 
 
 ## Installare Electron
 
-At this point, you'll need to install `electron` itself. The recommended way of doing so is to install it as a development dependency in your app, which allows you to work on multiple apps with different Electron versions. To do so, run the following command from your app's directory:
+A questo punto, dovrai installare `electron` stesso. Il metodo consigliato per farlo è installare come dependency della tua app, che ti permette di lavorare su più applicazioni con versioni di Electron differenti. Per fare ciò, esegui il seguente comando dalla cartella della tua applicazione:
 
 ```sh
 npm install --save-dev electron
 ```
 
-Other means for installing Electron exist. Please consult the [installation guide](installation.md) to learn about use with proxies, mirrors, and custom caches.
+Esistono anche altri modi per installare Electron. Perfavore, consulta la [guida d'installazione](installation.md) per imparare come usare proxies, mirrors e caches personalizzate.
 
 ## Sviluppo Electron in breve
 
@@ -78,11 +78,11 @@ const electron = require('electron')
 The `electron` module exposes features in namespaces. As examples, the lifecycle of the application is managed through `electron.app`, windows can be created using the `electron.BrowserWindow` class. A simple `main.js` file might wait for the application to be ready and open a window:
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
-  // Create the browser window.
-  win = new BrowserWindow({width: 800, height: 600})
+  // Create la finestra del browser
+  win = new BrowserWindow({ width: 800, height: 600 })
 
   // e viene caricato il file index.html della nostra app.
   win.loadFile('index.html')
@@ -94,20 +94,20 @@ app.on('ready', createWindow)
 The `main.js` should create windows and handle all the system events your application might encounter. A more complete version of the above example might open developer tools, handle the window being closed, or re-create windows on macOS if the user clicks on the app's icon in the dock.
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
+// Mantiene un riferimento globale all'oggetto window, se non lo fai, la finestra sarà
+// chiusa automaticamente quando l'oggetto JavaScript sarà garbage collected.
 let win
 
 function createWindow () {
   // Creazione della finestra del browser.
-  win = new BrowserWindow({width: 800, height: 600})
+  win = new BrowserWindow({ width: 800, height: 600 })
 
   // e viene caricato il file index.html della nostra app.
   win.loadFile('index.html')
 
-  // Open the DevTools.
+  // Apre il Pannello degli Strumenti di Sviluppo.
   win.webContents.openDevTools()
 
   // Emesso quando la finestra viene chiusa.
@@ -165,13 +165,13 @@ Infine il file `index. html` è la pagina web che si desidera visualizzare:
 
 ## Esecuzione della tua App
 
-Once you've created your initial `main.js`, `index.html`, and `package.json` files, you can try your app by running `npm start` from your application's directory.
+Dopo aver creato il `main.js` iniziale, il file`index.html`, ed il `package.json`, puoi provare la tua app eseguendo il comando `npm start` dalla cartella della tua applicazione.
 
-## Trying this Example
+## Provando quest'esempio
 
 Clona ed esegui il codice mostrato in questo tutorial utilizzando il repository [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start).
 
-**Nota:** l'esecuzione di questi comandi richiede [Git](https://git-scm.com).
+**Nota**: Avviare questo richiede [Git](https://git-scm.com) e [npm](https://www.npmjs.com/).
 
 ```sh
 # Clona la repository
@@ -184,4 +184,4 @@ $ npm install
 $ npm start
 ```
 
-For a list of boilerplates and tools to kick-start your development process, see the [Boilerplates and CLIs documentation](./boilerplates-and-clis.md).
+Per una lista degli standard e degli strumenti per iniziare il proprio processo di sviluppo, vedi la [Documentazione per gli Standard e le Command Line Interfaces](./boilerplates-and-clis.md).

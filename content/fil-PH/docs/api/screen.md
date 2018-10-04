@@ -22,22 +22,22 @@ Isa pang halimbawa ng paglikha ng isang window sa panlabas na display:
 const elektron = rewuire('elektron') const {app, BrowserWindow} = require('elektron') let win app.on('ready',() => { let displays = elektron.screen.getAllDisplays() let externalDisplay = displays.find((display) = > { return display.bounds.x !== 0 || display.bounds.y!== 0 }) of (externalDisplay) { win = new BrowserWindow({ x: externalDisplay.bounds.x + 50, y: externalDisplay.bounds.y + 50 }) win.loadURL('https://github.com') } })
 ```
 
-## Pangyayari
+## Mga event
 
 Ang `screen` na modyul na naglalabas ng mga sumusunod na pangyayari:
 
 ### Pangyayari: 'display-added'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `kaganapan` Kaganapan
 * `newDisplay` [Display](structures/display.md)
 
 Naglalabas kapag `newDisplay` ay idinagdag na.
 
 ### Pangyayari: 'display-removed'
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `event` na Kaganapan
 * `oldDisplay` [Display](structures/display.md)
@@ -46,15 +46,15 @@ Naglalabas kapag `oldDisplay` ay idinagdag na.
 
 ### Pangyayari: 'display-metrics-changed'
 
-Pagbabalik:
+Ibinabalik ang:
 
-* `event` na Kaganapan
+* `event` na Pangyayari
 * `display` [Display](structures/display.md)
 * `changedMetrics` String[]
 
 Naglalabas kapag ang isa o maraming panukat ay nagbago sa isang `display`. Ang `changedMetrics` ay isang array ng mga strings na naglalarawan ng mga pagbabago. Mga posiblen pagbabago sa `bounds`, `workArea`, `scaleFactor` at `rotation`.
 
-## Mga Paraan
+## Mga Pamamaraan
 
 Ang `screen` na modyul ay may mga sumusunod na mga paraan:
 
@@ -63,10 +63,6 @@ Ang `screen` na modyul ay may mga sumusunod na mga paraan:
 Pagbabalik [`Point`](structures/point.md)
 
 Ang kasalukuyang ganap na posisyon ng mouse pointer.
-
-### `screen.getMenuBarHeight()` *macOS*
-
-Ibabalik sa `Integer` - Ang taas ng menu bar sa pixels.
 
 ### `screen.getPrimaryDisplay()`
 
@@ -87,3 +83,37 @@ Ibabalik sa [`Display`](structures/display.md) - Ang pinakamalapit na display sa
 * `rect` [Rectangle](structures/rectangle.md)
 
 Ibabalik sa [`Display`](structures/display.md) - Ang display na pinakamalapit na bumabalandra sa ibinibigay na hangganan.
+
+### `screen.screenToDipPoint(point)` *Windows*
+
+* `point` [Point](structures/point.md)
+
+Pagbabalik [`Point`](structures/point.md)
+
+Converts a screen physical point to a screen DIP point. The DPI scale is performed relative to the display containing the physical point.
+
+### `screen.dipToScreenPoint(point)` *Windows*
+
+* `point` [Point](structures/point.md)
+
+Pagbabalik [`Point`](structures/point.md)
+
+Converts a screen DIP point to a screen physical point. The DPI scale is performed relative to the display containing the DIP point.
+
+### `screen.screenToDipRect(window, rect)` *Windows*
+
+* `window` [BrowserWindow](browser-window.md) | null
+* `rect` [Rectangle](structures/rectangle.md)
+
+Nagbabalik[`Rectangle`](structures/rectangle.md)
+
+Converts a screen physical rect to a screen DIP rect. The DPI scale is performed relative to the display nearest to `window`. If `window` is null, scaling will be performed to the display nearest to `rect`.
+
+### `screen.dipToScreenRect(window, rect)` *Windows*
+
+* `window` [BrowserWindow](browser-window.md) | null
+* `rect` [Rectangle](structures/rectangle.md)
+
+Nagbabalik[`Rectangle`](structures/rectangle.md)
+
+Converts a screen DIP rect to a screen physical rect. The DPI scale is performed relative to the display nearest to `window`. If `window` is null, scaling will be performed to the display nearest to `rect`.

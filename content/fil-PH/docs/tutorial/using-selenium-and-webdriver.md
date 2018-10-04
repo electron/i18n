@@ -13,7 +13,7 @@ $ npm install --save-dev spectron
 ```
 
 ```javascript
-// Ang isang simpleng pagsubok upang i-verify ang isang nakikitang window ay binuksan gamit ang isang pamagat
+// A simple test to verify a visible window is opened with a title
 var Application = require('spectron').Application
 var assert = require('assert')
 
@@ -26,13 +26,13 @@ app.start().then(function () {
   return app.browserWindow.isVisible()
 }).then(function (isVisible) {
   // Verify the window is visible
-  assert.equal(isVisible, true)
+  assert.strictEqual(isVisible, true)
 }).then(function () {
   // Get the window's title
   return app.client.getTitle()
 }).then(function (title) {
   // Verify the window's title
-  assert.equal(title, 'My App')
+  assert.strictEqual(title, 'My App')
 }).catch(function (error) {
   // Log any failures
   console.error('Test failed', error.message)
@@ -125,12 +125,12 @@ $ npm install webdriverio
 const webdriverio = require('webdriverio')
 const options = {
   host: 'localhost', // Use localhost as chrome driver server
-  port: 9515,        // "9515" is the port opened by chrome driver.
+  port: 9515, // "9515" is the port opened by chrome driver.
   desiredCapabilities: {
     browserName: 'chrome',
     chromeOptions: {
       binary: '/Path-to-Your-App/electron', // Path to your Electron binary.
-      args: [/* cli arguments */]           // Optional, perhaps 'app=' + /path/to/your/app/
+      args: [/* cli arguments */] // Optional, perhaps 'app=' + /path/to/your/app/
     }
   }
 }

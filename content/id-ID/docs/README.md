@@ -85,8 +85,8 @@ Tutorial individu ini memperluas topik yang dibahas dalam panduan di atas.
   * [Menggunakan Arsip asar](tutorial/application-packaging.md#using-asar-archives)
   * [Keterbatasan](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Menambahkan File yang Belum Dikemas ke Arsip asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
+* [In Detail: Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
 * [Secara Detail: Menggunakan Plugin Pepper Flash](tutorial/using-pepper-flash-plugin.md)
-* [Secara Detail: Menggunakan Plugin Widevine CDM](tutorial/using-widevine-cdm-plugin.md)
 * [Rendering di luar layar](tutorial/offscreen-rendering.md)
 
 * * *

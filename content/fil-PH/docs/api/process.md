@@ -6,7 +6,21 @@ Proseso: [Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#re
 
 Ang `prosesong` bagay ng Electron ay pinalawak mula sa [Node.js `proseso` bagay](https://nodejs.org/api/process.html). Ito ay nagdaragdag ng mga sumusunod na pangyayari, katangian, at mga pamamaraan:
 
-## Mga event
+## Sandbox
+
+In sandboxed renderers the `process` object contains only a subset of the APIs:
+
+* `crash()`
+* `hang()`
+* `getHeapStatistics()`
+* `getProcessMemoryInfo()`
+* `getSystemMemoryInfo()`
+* `argv`
+* `execPath`
+* `env`
+* `platform`
+
+## Pangyayari
 
 ### Pangyayari: 'puno'
 
@@ -24,7 +38,7 @@ process.once('loaded', () => {
 })
 ```
 
-## Properties
+## Mga Katangian
 
 ### `proseso.defaultApp`
 
@@ -90,9 +104,25 @@ Pagbabalik [` CPUUsage `](structures/cpu-usage.md)
 
 Pagbabalik [`IOCounters`](structures/io-counters.md)
 
+### `process.getHeapStatistics()`
+
+Nagbabalik ng mga `bagay`:
+
+* `totalHeapSize` Integer
+* `totalHeapSizeExecutable` Integer
+* `totalPhysicalSize` Integer
+* `totalAvailableSize` Integer
+* `usedHeapSize` Integer
+* `heapSizeLimit` Integer
+* `mallocedMemory` Integer
+* `peakMallocedMemory` Integer
+* `doesZapGarbage` Boolean
+
+Returns an object with V8 heap statistics. Note that all statistics are reported in Kilobytes.
+
 ### `proseso.getProsesoMemoryaInfo()`
 
-Returns `Object`:
+Nagbabalik ng mga `bagay`:
 
 * `workingSetSize`Integer - Ang halaga ng memorya ay kasalukuyang naka-pin sa aktwal na pisikal na RAM.
 * `peakWorkingSetSize` Integer - Ang pinakamataas na halaga ng memorya na hindi pa nai-pin sa aktwal na pisikal RAM.
@@ -103,7 +133,7 @@ Nagbabalik ng mga bagay at nagbibigay ng memoryang paggamit ng istatistika tungk
 
 ### `proseso.getSystemMemoryInfo()`
 
-Nagbabalik ng mga `bagay`:
+Returns `Object`:
 
 * `kabuuan` Integer - Ang kabuuang halaga ng pisikal na memorya sa Kilobytes na maggagamit sa sistema. 
 * `libre` Integer - Ang kabuuang halaga ng memorya na hindi nagagamit sa aplikasyon o disk cache.

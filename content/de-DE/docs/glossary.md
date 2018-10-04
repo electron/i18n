@@ -4,25 +4,25 @@ Diese Seite enthält Begriffe, die während der Entwicklung von Electron häufig
 
 ### ASAR
 
-ASAR steht für Atom-Shell-Archiv-Format. An [asar](https://github.com/electron/asar) archive is a simple `tar`-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
+ASAR steht für Atom-Shell-Archiv-Format. Ein [asar](https://github.com/electron/asar)-Archiv ist ein simples, `tar`-ähnliches Format, das die Dateien in einer einzelnen Datei zusammenführt. Electron kann willkürliche Dateien aus dem Archiv lesen ohne diese zu entpacken.
 
-Das ASAR-Format wurde primär für Performance-Vorteile unter Windows entwickelt.... TODO
+Das ASAR-Format wurde primär für bessere Performence unter Windows entwickelt.... TODO
 
 ### Brightray
 
-Brightray [was](https://github.com/electron-archive/brightray) a static library that made [libchromiumcontent](#libchromiumcontent) easier to use in applications. It is now deprecated and has been merged into Electron's codebase.
+Brightray [war](https://github.com/electron-archive/brightray) eine statische Library, welche den Umgang mit [libchromiumcontent](#libchromiumcontent)-Inhalten in Applikationen vereinfacht hatte. Sie wurde mittlerweile in die Codebasis von Electron eingepflegt.
 
 ### CRT
 
-The C Run-time Library (CRT) is the part of the C++ Standard Library that incorporates the ISO C99 standard library. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
+Die C Run-time Library (CRT) ist Teil der C++ Standard Library welche die ISO C66 Standard Library beinhaltet. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
 
 ### DMG
 
-An Apple Disk Image is a packaging format used by macOS. DMG files are commonly used for distributing application "installers". [electron-builder](https://github.com/electron-userland/electron-builder) supports `dmg` as a build target.
+Ein Apple Disk Image ist ein Packetformat von macOS. DMG-Dateien werde oft zur Distribution von Installern verwendet. [electron-builder](https://github.com/electron-userland/electron-builder) supports `dmg` as a build target.
 
 ### IME
 
-Input Method Editor. A program that allows users to enter characters and symbols not found on their keyboard. For example, this allows users of Latin keyboards to input Chinese, Japanese, Korean and Indic characters.
+Input Method Editor. Ein Programm welches dem Benutzer die Eingabe von Buchstaben und Zeichen, welche nicht auf der Tastatur vertreten sind, erlaubt. Zum Beispiel können Benutzer einer lateinischen Tastatur, chinesische, japanische, koreanische und indische Zeichen einzugeben.
 
 ### IDL
 

@@ -228,9 +228,21 @@ win.on('hide', () => {
 })
 ```
 
+#### `tray.setIgnoreDoubleClickEvents(ignore)` *macOS*
+
+* `huwag pansinin` Boolean
+
+Sets the option to ignore double click events. Ignoring these events allows you to detect every individual click of the tray icon.
+
+This value is set to false by default.
+
+#### `tray.getIgnoreDoubleClickEvents()` *macOS* 
+
+Returns `Boolean` - Whether double click events will be ignored.
+
 #### `tray.displayBalloon(options)` *Windows*
 
-* `options` Bagay 
+* `mga opsyon` Bagay 
   * `icon` ([NativeImage](native-image.md) | String) (opsyonal) -
   * `title` String
   * `content` String
@@ -248,7 +260,7 @@ Ang`position` ay tanging magagamit sa Windows, at ito ay (0, 0) sa pamamagitan n
 
 #### `tray.setContextMenu(menu)`
 
-* `menu` Menu
+* `menu` Menu | null
 
 Nagseset ng context menu para sa icon na ito.
 

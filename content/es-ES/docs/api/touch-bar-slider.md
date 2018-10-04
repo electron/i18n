@@ -2,7 +2,7 @@
 
 > Crea un control deslizante en la barra táctil para aplicaciones nativas de macOS
 
-Proceso: [principal](../tutorial/quick-start.md#main-process)
+Proceso: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
 ### `nuevo TouchBarSlider(options)` *Experimental*
 

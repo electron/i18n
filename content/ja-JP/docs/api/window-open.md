@@ -16,7 +16,13 @@
 
 戻り値 [`BrowserWindowProxy`](browser-window-proxy.md) - 新しいウインドウを作成し、`BrowserWindowProxy` クラスのインスタンスを返します。
 
-`features` 文字列は、標準ブラウザの形式に従いますが、各機能は `BrowserWindow` のオプションのフィールドになっていければなりません。
+`features` 文字列は、標準ブラウザの形式に従いますが、各機能は `BrowserWindow` のオプションのフィールドになっていければなりません。 `features` 文字列を通してセットできる機能は、 `zoomFactor`, `nodeIntegration`, `preload`, `javascript`, `contextIsolation`, `webviewTag` になります。
+
+例:
+
+```js
+window.open('https://github.com', '_blank', 'nodeIntegration=no')
+```
 
 **注釈:**
 
