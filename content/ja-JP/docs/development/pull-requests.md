@@ -71,7 +71,7 @@ $ git commit
 
 #### コミットメッセージのガイドライン
 
-良いコミットメッセージは、何が何故変更されたのか、が記述されるべきです。 The Electron project uses [semantic commit messages](https://conventionalcommits.org/) to streamline the release process.
+良いコミットメッセージは、何が何故変更されたのか、が記述されるべきです。 このElectronプロジェクトは[セマンティックコミットメッセージ](https://conventionalcommits.org/)をつかって、このリリースプロセスを合理化しています。
 
 Before a pull request can be merged, it **must** have a pull request title with a semantic prefix.
 
