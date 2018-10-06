@@ -1,6 +1,6 @@
 # コード署名
 
-Code signing is a security technology that you use to certify that an app was created by you.
+コード署名はセキュリティ技術のひとつで、アプリを作成したのがあなたであることを確実にするために使用します。
 
 On macOS the system can detect any change to the app, whether the change is introduced accidentally or by malicious code.
 
@@ -14,7 +14,7 @@ While it is possible to distribute unsigned apps, it is not recommended. For exa
 
 If you are building an Electron app that you intend to package and distribute, it should be code signed. The Mac and Windows app stores do not allow unsigned apps.
 
-# Signing macOS builds
+# macOSビルドの署名
 
 Before signing macOS builds, you must do the following:
 
@@ -31,7 +31,7 @@ There are a number of tools for signing your packaged app:
 
 For more info, see the [Mac App Store Submission Guide](mac-app-store-submission-guide.md).
 
-# Signing Windows builds
+# Windowsビルドの署名
 
 Before signing Windows builds, you must do the following:
 
