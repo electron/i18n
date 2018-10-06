@@ -27,4 +27,4 @@ Exec=audacious -r
 OnlyShowIn=Unity;
 ```
 
-Unity's preferred way of telling your application what to do is to use parameters. You can find these in your app in the global variable `process.argv`.
+あなたのアプリケーションに何をするかを伝える、Unityが推奨する方法は、パラメーターの使用です。 あなたのアプリのグローバル変数`process.argv`でこれを見付けます。
