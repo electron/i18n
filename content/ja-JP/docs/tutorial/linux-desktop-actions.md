@@ -1,12 +1,12 @@
-# Custom Linux Desktop Launcher Actions
+# カスタム Linux デスクトップランチャーアクション
 
-On many Linux environments, you can add custom entries to its launcher by modifying the `.desktop` file. For Canonical's Unity documentation, see [Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher). For details on a more generic implementation, see the [freedesktop.org Specification](https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html).
+多くのLinux環境で、あなたは`.desktop`ファイルを修正して、そのランチャーにカスタムエントリーを追加できます。 Canonicalの Unity ドキュメントについては、[Adding Shortcuts to a Launcher](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher)を参照してください。 より一般的な実装については、[freedesktop.org Specification](https://specifications.freedesktop.org/desktop-entry-spec/1.1/ar01s11.html)を参照してください。
 
-**Launcher shortcuts of Audacious:**
+**Audaciousのランチャーショートカット:**
 
 ![audacious](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles?action=AttachFile&do=get&target=shortcuts.png)
 
-Generally speaking, shortcuts are added by providing a `Name` and `Exec` property for each entry in the shortcuts menu. Unity will execute the `Exec` field once clicked by the user. The format is as follows:
+一般的に、ショートカットメニューのそれぞれのエントリーには、`Name` と`Exec`のプロパティを追加することで、シュートカットを追加できます。 Unityはユーザーがクリックしたときに`Exec`フィールドを実行します。 このフォーマットは以下のとおりです。
 
 ```text
 Actions=PlayPause;Next;Previous
