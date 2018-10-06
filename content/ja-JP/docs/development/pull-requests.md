@@ -103,7 +103,7 @@ Other things to keep in mind when writing a commit message:
 2. 2行目は空にしてください。
 3. 他のすべての行は72列で折り返します。
 
-#### Breaking Changes
+#### 破壊的変更
 
 A commit that has the text `BREAKING CHANGE:` at the beginning of its optional body or footer section introduces a breaking API change (correlating with Major in semantic versioning). A breaking change can be part of commits of any type. e.g., a `fix:`, `feat:` & `chore:` types would all be valid, in addition to any other type.
 
@@ -132,7 +132,7 @@ $ npm run test
 
 リンターが問題を報告していないこと、そしてすべてのテストが合格していることを確認してください。 いずれかのチェックに失敗したパッチは提出しないでください。
 
-If you are updating tests and want to run a single spec to check it:
+テストを更新していて、単一の仕様を実行してチェックしたい場合は、以下のようにします。
 
 ```sh
 $ npm run test -match=menu
