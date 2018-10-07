@@ -75,13 +75,13 @@ $ git commit
 
 プルリクエストがマージされるためには、プルリクエストにタイトルがあり、それには意図を示すプレフィックスが**なければなりません**
 
-コミットメッセージの意図を示すプレフィックスの例です。:
+意図を示すプレフィックスのあるコミットメッセージのの例です。:
 
 * `fix: don't overwrite prevent_default if default wasn't prevented`
 * `feat: add app.isPackaged() method`
 * `docs: app.isDefaultProtocolClient is now available on Linux`
 
-Common prefixes:
+プレフィックスの例:
 
     - fix: A bug fix
     - feat: A new feature
