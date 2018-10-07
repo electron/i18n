@@ -4,16 +4,16 @@ Follow the guidelines below for building Electron on Windows.
 
 ## Wymagania
 
-* Windows 10 / Server 2012 R2 lub wyżej
-* Visual Studio 2017 15.7.2 or higher - [download VS 2017 Community Edition for free](https://www.visualstudio.com/vs/)
+* Windows 10 / Server 2012 R2 lub nowszy
+* Visual Studio 2017 15.7.2 lub nowszy - [pobierz VS 2017 Community Edition za darmo](https://www.visualstudio.com/vs/)
 * [Python 2.7](http://www.python.org/download/releases/2.7/)
 * [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
 * [Debugging Tools for Windows](https://msdn.microsoft.com/en-us/library/windows/hardware/ff551063.aspx) if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` files.
 
-If you don't currently have a Windows installation, [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) has timebombed versions of Windows that you can use to build Electron.
+Jeżeli nie posiadasz aktualnie instalacji Windowsa [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) posiada wersje, które możesz użyć aby zbudować Electron.
 
-Building Electron is done entirely with command-line scripts and cannot be done with Visual Studio. Możesz rozwijać Electron z każdym edytorem, ale wsparcie dla budowy z Visual Studio powstanie w przyszłości.
+Budowanie Electrona odbywa się w pełni przy użyciu skryptów wiersza poleceń i nie może zostać wykonane w Visual Studio. Możesz rozwijać Electron z każdym edytorem, ale wsparcie dla budowy z Visual Studio powstanie w przyszłości.
 
 **Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
 
