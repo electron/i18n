@@ -1,4 +1,4 @@
-# Build Instructions
+# Instrukcje Budowania
 
 Follow the guidelines below for building Electron.
 
