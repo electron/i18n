@@ -15,13 +15,13 @@ Jeżeli nie posiadasz aktualnie instalacji Windowsa [dev.microsoftedge.com](http
 
 Budowanie Electrona odbywa się w pełni przy użyciu skryptów wiersza poleceń i nie może zostać wykonane w Visual Studio. Możesz rozwijać Electron z każdym edytorem, ale wsparcie dla budowy z Visual Studio powstanie w przyszłości.
 
-**Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
+**Uwaga:** Mimo tego, że Visual Studio nie jest używane do budowania, jest ono **potrzebne** ponieważ potrzebujemy narzędzi budowania, które dostarcza.
 
 ## Kompilowanie
 
-See [Build Instructions: GN](build-instructions-gn.md)
+See [Instrukcje Budowania (Ogólne)](build-instructions-gn.md)
 
-## 32bit Build
+## Budowanie 32bit
 
 To build for the 32bit target, you need to pass `target_cpu = "x86"` as a GN arg. You can build the 32bit target alongside the 64bit target by using a different output directory for GN, e.g. `out/Release-x86`, with different arguments.
 
@@ -31,7 +31,7 @@ $ gn gen out/Release-x86 --args="import(\"//electron/build/args/release.gn\") ta
 
 Inne kroki budowania są dokładnie takie same.
 
-## Visual Studio project
+## Projekt Visual Studio
 
 To generate a Visual Studio project, you can pass the `--ide=vs2017` parameter to `gn gen`:
 
@@ -43,7 +43,7 @@ $ gn gen out/Debug --ide=vs2017
 
 ### Komenda xxxx nie znaleziona
 
-Jeśli wystąpił bład taki ajk `Komenda xxxx nie znaleziona`, możesz spróbować użyć kompilacji skryptów za pomocą konsoli `Wiersza polecenia VS2015`.
+Jeśli wystąpił bład taki jak `Komenda xxxx nie znaleziona`, możesz spróbować użyć kompilacji skryptów za pomocą `Wiersza polecenia VS2015`.
 
 ### Błąd krytyczny wewnętrznego kompilatora: C1001
 
