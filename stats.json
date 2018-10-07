@@ -114,7 +114,7 @@
     "words_approved": "66",
     "translated_progress": 19,
     "approved_progress": 0,
-    "qa_issues": "1072"
+    "qa_issues": "1071"
   },
   {
     "name": "Hebrew",
@@ -172,10 +172,10 @@
     "name": "Japanese",
     "code": "ja",
     "phrases": "9600",
-    "translated": "8641",
+    "translated": "8647",
     "approved": "345",
     "words": "88507",
-    "words_translated": "74167",
+    "words_translated": "74274",
     "words_approved": "2020",
     "translated_progress": 83,
     "approved_progress": 2,
