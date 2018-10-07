@@ -73,9 +73,9 @@ $ git commit
 
 良いコミットメッセージは、何が何故変更されたのか、が記述されるべきです。 このElectronプロジェクトは[セマンティックコミットメッセージ](https://conventionalcommits.org/)をつかって、このリリースプロセスを合理化しています。
 
-Before a pull request can be merged, it **must** have a pull request title with a semantic prefix.
+プルリクエストがマージされるためには、プルリクエストにタイトルがあり、それには意図を示すプレフィックスが**なければなりません**
 
-Examples of commit messages with semantic prefixes:
+コミットメッセージの意図を示すプレフィックスの例です。:
 
 * `fix: don't overwrite prevent_default if default wasn't prevented`
 * `feat: add app.isPackaged() method`
