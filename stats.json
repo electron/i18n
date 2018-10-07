@@ -94,14 +94,14 @@
     "name": "French",
     "code": "fr",
     "phrases": "9600",
-    "translated": "7078",
+    "translated": "7079",
     "approved": "42",
     "words": "88507",
-    "words_translated": "53828",
+    "words_translated": "53860",
     "words_approved": "163",
     "translated_progress": 60,
     "approved_progress": 0,
-    "qa_issues": "2074"
+    "qa_issues": "2075"
   },
   {
     "name": "German",
@@ -172,14 +172,14 @@
     "name": "Japanese",
     "code": "ja",
     "phrases": "9600",
-    "translated": "8614",
+    "translated": "8641",
     "approved": "345",
     "words": "88507",
-    "words_translated": "73908",
+    "words_translated": "74167",
     "words_approved": "2020",
     "translated_progress": 83,
     "approved_progress": 2,
-    "qa_issues": "269"
+    "qa_issues": "270"
   },
   {
     "name": "Korean",
@@ -250,10 +250,10 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "9600",
-    "translated": "8521",
+    "translated": "8524",
     "approved": "291",
     "words": "88507",
-    "words_translated": "74132",
+    "words_translated": "74182",
     "words_approved": "2400",
     "translated_progress": 83,
     "approved_progress": 2,
