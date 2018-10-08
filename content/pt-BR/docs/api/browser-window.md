@@ -292,57 +292,57 @@ Emitted when the window is shown.
 
 Emitted when the window is hidden.
 
-#### Event: 'ready-to-show'
+#### Evento: 'ready-to-show'
 
 Emitted when the web page has been rendered (while not being shown) and window can be displayed without a visual flash.
 
-#### Event: 'maximize'
+#### Evento: 'maximize'
 
 Emitted when window is maximized.
 
-#### Event: 'unmaximize'
+#### Evento: 'unmaximize'
 
 Emitted when the window exits from a maximized state.
 
-#### Event: 'minimize'
+#### Evento: 'minimize'
 
 Emitted when the window is minimized.
 
-#### Event: 'restore'
+#### Evento: 'restore'
 
 Emitted when the window is restored from a minimized state.
 
-#### Event: 'resize'
+#### Evento: 'resize'
 
 Emitted when the window is being resized.
 
-#### Event: 'move'
+#### Evento: 'move'
 
 Emitted when the window is being moved to a new position.
 
 **Note**: On macOS this event is an alias of `moved`.
 
-#### Event: 'moved' *macOS*
+#### Evento: 'moved' *macOS*
 
 Emitted once when the window is moved to a new position.
 
-#### Event: 'enter-full-screen'
+#### Evento: 'enter-full-screen'
 
 Emitted when the window enters a full-screen state.
 
-#### Event: 'leave-full-screen'
+#### Evento: 'leave-full-screen'
 
 Emitted when the window leaves a full-screen state.
 
-#### Event: 'enter-html-full-screen'
+#### Evento: 'enter-html-full-screen'
 
 Emitted when the window enters a full-screen state triggered by HTML API.
 
-#### Event: 'leave-html-full-screen'
+#### Evento: 'leave-html-full-screen'
 
 Emitted when the window leaves a full-screen state triggered by HTML API.
 
-#### Event: 'app-command' *Windows*
+#### Evento: 'app-command' *Windows*
 
 Retorna:
 
