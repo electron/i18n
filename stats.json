@@ -16,14 +16,14 @@
     "name": "Bulgarian",
     "code": "bg",
     "phrases": "9600",
-    "translated": "2401",
+    "translated": "2410",
     "approved": "3",
     "words": "88507",
-    "words_translated": "13665",
+    "words_translated": "13777",
     "words_approved": "6",
     "translated_progress": 15,
     "approved_progress": 0,
-    "qa_issues": "698"
+    "qa_issues": "701"
   },
   {
     "name": "Chinese Simplified",
@@ -224,14 +224,14 @@
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "9600",
-    "translated": "4114",
+    "translated": "4162",
     "approved": "396",
     "words": "88507",
-    "words_translated": "29434",
+    "words_translated": "29667",
     "words_approved": "2755",
     "translated_progress": 33,
     "approved_progress": 3,
-    "qa_issues": "1202"
+    "qa_issues": "1215"
   },
   {
     "name": "Russian",
