@@ -6,18 +6,18 @@ Process: [Main](../glossary.md#main-process)
 
 Instancias de la clase `WebRequest` son accesibles usando la propiedad `webRequest` de una `Session`.
 
-Los métodos de `WebRequest` aceptan un `filter` opcional y un `listener`. El `oyente` será cancelado con `oyente(detalles)` cuando el evento de API haya pasado. El objeto `details` describe la solicitud. Pasar `nulo` como `oyente` hará que se desasocie del evento.
+Los métodos de `WebRequest` aceptan un `filter` opcional y un `listener`. El `listener` será cancelado con `listener(details)` cuando el evento de API haya pasado. El objeto `details` describe la solicitud. Pasar `null` como `listener` hará que se desasocie del evento.
 
-El objeto `filtro` tiene una propiedad `urls` que es un arreglo de patrones URL que serán usados para filtrar las solicitudes que no coincidan con los patrones de URL. Si el `filtro` es omitido todas las solicitudes serán atendidas.
+El objeto `filter` tiene una propiedad `urls` que es un arreglo de patrones URL que serán usados para filtrar las solicitudes que no coincidan con los patrones de URL. Si el `filtro` es omitido todas las solicitudes serán atendidas.
 
-Para ciertos eventos el `oyente` es pasado con una `retrollamada`, Que debe ser llamada con un objeto `respuesta` cuando el `oyente` haya hecho su trabajo.
+Para ciertos eventos el `listener` es pasado con una `callback`, Que debe ser llamada con un objeto `response` cuando el `listener` haya hecho su trabajo.
 
-Un ejemplo de añadir encabezados `User-Agent` para solicitudes:
+Un ejemplo de añadir encabezados `User-Agent` a las solicitudes:
 
 ```javascript
 const {session} = require('electron')
 
-// Modify the user agent for all requests to the following urls.
+// Modificar el user agent para todas las consultas de las siguientes urls.
 const filter = {
   urls: ['https://*.github.com/*', '*://electron.github.io']
 }
@@ -34,9 +34,9 @@ Lo siguientes métodos están disponibles en instancias de `WebRequest`:
 
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
-* `filtrar` Objecto (opcional) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `oyente` Function 
+* `filter` Objecto (opcional) 
+  * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
+* `listener` Function 
   * `details` Object 
     * `id` Íntegro
     * `url` Cadena
@@ -59,7 +59,7 @@ La `retrollamada` tiene que ser llamada con un objeto `respuesta`.
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
 * `filtrar` Objecto (opcional) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
 * `listener` Función
 
 El `oyente` se llamará con `listener(details, callback)` Antes de enviar la solicitud HTTP, una vez que los encabezados de las solicitudes estén disponibles. Esto puede ocurrir después de que se realiza una conexión TCP al servidor, pero antes de que se envíe cualquier información http.
@@ -82,7 +82,7 @@ La `retrollamada` tiene que ser llamada con un objeto `respuesta`.
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
 * `filtrar` Objecto (opcional) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
 * `oyente` Function 
   * `details` Object 
     * `id` Íntegro
@@ -98,7 +98,7 @@ El`oyente` Será llamado con `listener(details)` justo antes que una solicitud v
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
 * `filtrar` Objecto (opcional) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
 * `listener` Función
 
 El `oyente` será cancelado con `listener(details, callback)` cuando la respuesta HTTP de los encabezados de de una solicitud hayan sido recibidos.
@@ -124,7 +124,7 @@ La `retrollamada` tiene que ser llamada con un objeto `respuesta`.
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
 * `filtrar` Object (opcional) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
 * `oyente` Function 
   * `details` Object 
     * `id` Íntegro
@@ -143,7 +143,7 @@ El `oyente` será cancelado con `listener(details)` cuando se reciba el primer b
 #### `webRequest.onBeforeRedirect([filter, ]listener)`
 
 * `filtrar` Object (opcional) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
 * `oyente` Function 
   * `details` Object 
     * `id` Íntegro
@@ -163,7 +163,7 @@ El `oyente` Será cancelado con `listener(details)` cuando la redirección del s
 #### `webRequest.onCompleted([filter, ]listener)`
 
 * `filtrar` Objecto (opcional) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
 * `oyente` Function 
   * `details` Object 
     * `id` Íntegro
@@ -182,7 +182,7 @@ The `listener` will be called with `listener(details)` when a request is complet
 #### `webRequest.onErrorOccurred([filter, ]listener)`
 
 * `filtrar` Objecto (opcional) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
 * `oyente` Function 
   * `details` Object 
     * `id` Íntegro
