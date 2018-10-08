@@ -1,11 +1,11 @@
 # Objeto de Transação
 
-* `transactionIdentifier` String - A string that uniquely identifies a successful payment transaction.
-* `transactionDate` String - The date the transaction was added to the App Store’s payment queue.
-* `originalTransactionIdentifier` String - The identifier of the restored transaction by the App Store.
-* `transactionState` String - The transaction state, can be `purchasing`, `purchased`, `failed`, `restored` or `deferred`.
-* `errorCode` Integer - The error code if an error occurred while processing the transaction.
-* `errorMessage` String - The error message if an error occurred while processing the transaction.
+* `transactionIdentifier` String - Uma string que identifica exclusivamente uma transação de pagamento bem-sucedida.
+* `transactionDate` String - A data em que a transação foi adicionada à fila de pagamento da App Store.
+* `originalTransactionIdentifier` String - O identificador da transação restaurada pela App Store.
+* `transactionState` String - o estado da transação, pode ser `purchasing`, `purchased`, `failed`, `restored` ou `deferred`.
+* `errorCode` Integer - O código do erro, que ocorreu ao processar a transação.
+* `errorMessage` String - A mensagem do erro, que ocorreu ao processar a transação.
 * `payment` Object 
   * `productIdentifier` String - The identifier of the purchased product.
   * `quantity` Integer - The quantity purchased.
