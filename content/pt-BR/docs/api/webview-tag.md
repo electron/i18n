@@ -548,11 +548,11 @@ Retorna:
 
 Fired when page receives favicon urls.
 
-### Event: 'enter-html-full-screen'
+### Evento: 'enter-html-full-screen'
 
 Fired when page enters fullscreen triggered by HTML API.
 
-### Event: 'leave-html-full-screen'
+### Evento: 'leave-html-full-screen'
 
 Fired when page leaves fullscreen triggered by HTML API.
 
