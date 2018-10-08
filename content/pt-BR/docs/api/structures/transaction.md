@@ -7,5 +7,5 @@
 * `errorCode` Integer - O código do erro, que ocorreu ao processar a transação.
 * `errorMessage` String - A mensagem do erro, que ocorreu ao processar a transação.
 * `payment` Object 
-  * `productIdentifier` String - The identifier of the purchased product.
-  * `quantity` Integer - The quantity purchased.
+  * `productIdentifier` String - O identificador do produto comprado.
+  * `quantity` Integer - A quantidade comprada.
