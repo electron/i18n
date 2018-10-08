@@ -4,9 +4,9 @@
 
 Process: [Main](../glossary.md#main-process)
 
-Instancias de la clase `Solicitud Web` son accesadas usando la propiedad `Solicitud web` de una `Sesion`.
+Instancias de la clase `WebRequest` son accesibles usando la propiedad `webRequest` de una `Session`.
 
-Los métodos de `solicitud de web` aceptan un `filtro` opcional y un `oyente`. El `oyente` será cancelado con `oyente(detalles)` cuando el evento de API haya pasado. El objeto `details` describe la solicitud. Pasar `nulo` como `oyente` hará que se desasocie del evento.
+Los métodos de `WebRequest` aceptan un `filter` opcional y un `listener`. El `oyente` será cancelado con `oyente(detalles)` cuando el evento de API haya pasado. El objeto `details` describe la solicitud. Pasar `nulo` como `oyente` hará que se desasocie del evento.
 
 El objeto `filtro` tiene una propiedad `urls` que es un arreglo de patrones URL que serán usados para filtrar las solicitudes que no coincidan con los patrones de URL. Si el `filtro` es omitido todas las solicitudes serán atendidas.
 
