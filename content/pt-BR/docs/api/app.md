@@ -21,7 +21,7 @@ O objeto `app` emite os seguintes eventos:
 
 Emitido quando a aplicação termina inicialização básica. No Windows e Linux o evento `will-finish-launching` é o mesmo que o evento `ready`; no macOS, este evento representa a notificação `applicationWillFinishLaunching` de `NSApplication`. Você normalmente poderia escutar os eventos de `open-file` e `open-url` aqui e iniciar o crash reporter e auto atualização.
 
-In most cases, you should do everything in the `ready` event handler.
+Na maioria dos casos, dá para fazer tudo no manipulador do evento `ready`.
 
 ### Evento: 'ready'
 
@@ -154,7 +154,7 @@ Retorna:
 * `type` String - Uma string identificando a atividade. É mapeada para [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object - Contém configurações específicas do app armazenadas na atividade.
 
-Emitido quando o [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) está prestes a ser continuado em outro dispositivo. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Caso contrário, a operação irá falhar e `continue-activity-error` será chamado.
+Emitido quando o [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) está prestes a ser continuado em outro dispositivo. Se você precisar atualizar o estado a ser transferido, você deve imediatamente chamar `event.preventDefault()`, construir um novo dicionário `userInfo` e chamar `app.updateCurrentActivity()` de forma pontual. Caso contrário, a operação irá falhar e `continue-activity-error` será chamado.
 
 ### Evento: 'new-window-for-tab' no *macOS*
 
@@ -294,7 +294,7 @@ Retorna:
 
 Emitido quando o processo da GPU para de funcionar ou é interrompido.
 
-### Event: 'accessibility-support-changed' no *macOS* e no *Windows*
+### Evento: 'accessibility-support-changed' no *macOS* e no *Windows*
 
 Retorna:
 
@@ -303,7 +303,7 @@ Retorna:
 
 Emitido quando o suporte de acessibilidade do Chrome muda. Este evento é acionado quando a tecnologias assistivas, tais como leitores de tela, estão habilitadas ou desabilitadas. Veja https://www.chromium.org/developers/design-documents/accessibility para mais detalhes.
 
-### Event: 'session-created'
+### Evento: 'session-created'
 
 Retorna:
 
@@ -320,7 +320,7 @@ app.on('session-created', (event, session) => {
 })
 ```
 
-### Event: 'second-instance'
+### Evento: 'second-instance'
 
 Retorna:
 
