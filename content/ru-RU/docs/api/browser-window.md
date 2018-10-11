@@ -659,7 +659,7 @@ Resizes and moves the window's client area (e.g. the web page) to the supplied b
 * `height` Integer
 * `animate` Boolean (необязательно) *macOS*
 
-Resizes the window to `width` and `height`.
+Resizes the window to `width` and `height`. If `width` or `height` are below any set minimum size constraints the window will snap to its minimum size.
 
 #### `win.getSize()`
 
