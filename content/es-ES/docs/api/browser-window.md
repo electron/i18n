@@ -659,7 +659,7 @@ Habilita o deshabilita la ventana.
 * `height` Integer
 * `animate` Boolean (opcional) *macOS*
 
-Cambia el tamaño de la ventana a `width` y `height`.
+Resizes the window to `width` and `height`. If `width` or `height` are below any set minimum size constraints the window will snap to its minimum size.
 
 #### `win.getSize()`
 
@@ -1113,7 +1113,7 @@ Devuelve `Boolean` - Si la ventana es visible en todos los espacios de trabajo.
 #### `win.setIgnoreMouseEvents(ignore[, options])`
 
 * `ignore` Boolean
-* `opciones` Objecto (opcional) 
+* `opciones` Object (opcional) 
   * `forward` Boolean (optional) *macOS* *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Solo se usa cuando `ignore` es verdadero. Si `ignore` es falso, el reenvío está simpre desactivado independientemente de este valor.
 
 Hace que la ventana ignore todos los eventos del ratón.
