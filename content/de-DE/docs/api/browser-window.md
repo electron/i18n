@@ -660,7 +660,7 @@ Rückgabewert:
   * `height` Integer
   * `animate` Boolean (optional) *macOS*
   
-  Resizes the window to `width` and `height`.
+  Resizes the window to `width` and `height`. If `width` or `height` are below any set minimum size constraints the window will snap to its minimum size.
   
   #### `win.getSize()`
   
