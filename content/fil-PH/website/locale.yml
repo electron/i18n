@@ -51,7 +51,10 @@ community:
   meetups: Mga meetup
   awesome_notice: Ang lista na ito ay nakabuo galing sa <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus na Awesome Electron</a> repository. <br>may kulang ba?<a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Gumawa ng pull na request</a>.
   meetup_notice: Para magdagdag ng meetup, mag-edit ng <code>data/meetups.json</code> at <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">gumawa ng pull na request</a>.
-releases: Paglalabas
+releases:
+  title: Electron Releases
+  all_releases: All Releases
+  back_to_index: Back to index
 electron_is_easy:
   title: Mas madali kaysa sa iyong tingin
   description: Kung makakabuo ka ng website, makakabuo ka ng desktop na app. Ang electron na ito ay isang framework para lumikha ng native na aplikasyon sa web na mga teknolohiya gaya ng JavaScript, HTML, at CSS. Ito ay responsable sa mga mahirap na parte para maka pokus ka sa core ng iyong aplikasyon.
@@ -104,6 +107,21 @@ apps:
   submit_your_own: isumite ang iyong pag-aari
   something_missing: May kulang ba?
   edit_this_app: Baguhin ang app na ito.
+  search_app: Filter apps by name, description, etc…
+  categories: Categories
+  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
+  website: Website
+  repository: Repository
+  category: Category
+  downloads: Downloads
+  keywords: Keywords
+  license: License
+  latest_release: Latest Release
+blog:
+  title: Electron na Blog
+  description: Lahat ng mga pinakabagong balita galing sa Electron team at komunidad.
+  feedback: Have feedback on this post? Let <a href="https://twitter.com/electronjs">@electronjs</a> know on Twitter.
+  help: Need help or found a bug? <a href="/contact">Contact us
 clipboard:
   copy: Kopyahin
   copy_to_clipboard: Kopyahin sa Clipboard
