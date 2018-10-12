@@ -1,10 +1,10 @@
-# Product Object
+# Об'єкт Product
 
-* `productIdentifier` String - The string that identifies the product to the Apple App Store.
-* `localizedDescription` String - A description of the product.
-* `localizedTitle` String - The name of the product.
-* `contentVersion` String - A string that identifies the version of the content.
-* `contentLengths` Number[] - The total size of the content, in bytes.
-* `price` Number - The cost of the product in the local currency.
-* `formattedPrice` String - The locale formatted price of the product.
-* `downloadable` Boolean - A Boolean value that indicates whether the App Store has downloadable content for this product.
+* `productIdentifier` String - Строка, яка ідентифікує продукт у магазині Apple App Store.
+* `localizedDescription` String - Опис продукту.
+* `localizedTitle` String - Назва продукту.
+* `contentVersion` String - Строка, яка ідентифікує версію вмісту.
+* `contentLengths` Number[] - Загальний розмір вмісту, в байтах.
+* `price` Number - Вартість продукту в національній валюті.
+* `formattedPrice` String - Ціна, відформатована для місцевості.
+* `downloadable` Boolean - Булеве значення, яке вказує на те, чи має App Store завантажений вміст для цього продукту.
