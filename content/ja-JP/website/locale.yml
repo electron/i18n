@@ -51,7 +51,10 @@ community:
   meetups: ミートアップイベント
   awesome_notice: このリストは <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus による Awesome Electron リポジトリ </a> から生成されています。<br>もし不足しているものがあれば、<a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">プルリクエストにてお知らせください</a>。
   meetup_notice: ミートアップイベントの情報をこのページに追加するには、 <code>data/meetups.json</code> を編集した上で <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">プルリクエストを送信</a>してください。
-releases: リリース
+releases:
+  title: Electron Releases
+  all_releases: All Releases
+  back_to_index: Back to index
 electron_is_easy:
   title: 簡単に開発できます
   description: Webサイトを作成する感覚でデスクトップアプリを開発できます。Electron は JavaScript, HTML, CSS といったWeb技術を利用してネイティブアプリケーションを作成するためのフレームワークです。開発者はアプリの重要な部分の実装に集中して、面倒な部分はElectronにお任せください。
@@ -104,6 +107,21 @@ apps:
   submit_your_own: あなたのアプリを送信する
   something_missing: 何か見つかりませんか？
   edit_this_app: アプリを編集する
+  search_app: Filter apps by name, description, etc…
+  categories: Categories
+  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
+  website: Website
+  repository: Repository
+  category: Category
+  downloads: Downloads
+  keywords: Keywords
+  license: License
+  latest_release: Latest Release
+blog:
+  title: Electron ブログ
+  description: Electron チームとコミュニティからの最新情報
+  feedback: Have feedback on this post? Let <a href="https://twitter.com/electronjs">@electronjs</a> know on Twitter.
+  help: Need help or found a bug? <a href="/contact">Contact us
 clipboard:
   copy: コピー
   copy_to_clipboard: クリップボードにコピー
