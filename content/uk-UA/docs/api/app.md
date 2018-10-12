@@ -640,7 +640,7 @@ app.setJumpList([
 
 Повернене значення цього методу вказує на те, чи цей екземпляр вашої програми успішно отримав блокування. Якщо не вдалося отримати блокування, ви можете припустити, що інший екземпляр вашої програми вже працює з блокуванням і негайно завершується.
 
-I.e. This method returns `true` if your process is the primary instance of your application and your app should continue loading. It returns `false` if your process should immediately quit as it has sent its parameters to another instance that has already acquired the lock.
+Тобто. Цей метод повертає `true` якщо ваш процес є основним екземпляром вашої програми, і ваш додаток має продовжувати завантаження. Він повертає `false`, якщо ваш процес слід негайно припинити, оскільки він надіслав свої параметри іншому екземпляру, який вже отримав блокування.
 
 На macOS система застосовує єдиний екземпляр автоматично, коли користувач намагається відкрити інший екземпляр вашого застосунку в Finder, і події `open-file` та `open-url` викличуться для цього. Однак коли користувач запускає ваш застосунок з командного рядка система уникне механізму єдиного екземпляру і вам доведеться використовувати цей метод для його забезпечення.
 
@@ -656,14 +656,14 @@ if (!gotTheLock) {
   app.quit()
 } else {
   app.on('second-instance', (event, commandLine, workingDirectory) => {
-    // Someone tried to run a second instance, we should focus our window.
+    //Хтось намагався запустити другий екземпляр, нам слід надати фокус нашому вікну.
     if (myWindow) {
       if (myWindow.isMinimized()) myWindow.restore()
       myWindow.focus()
     }
   })
 
-  // Create myWindow, load the rest of the app, etc...
+  // Створіть myWindow, завантажте решту додатку тощо...
   app.on('ready', () => {
   })
 }
