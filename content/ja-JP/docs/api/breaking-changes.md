@@ -1,4 +1,4 @@
-# API Contract
+# API コントラクト
 
 破壊的な変更は変更の [一つ前のメジャーバージョン](../tutorial/electron-versioning.md#semver) についてここに文書化され、可能であれば非推奨の警告を JS コードに加えます。
 
