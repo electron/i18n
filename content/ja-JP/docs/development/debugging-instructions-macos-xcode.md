@@ -1,8 +1,8 @@
-## Debugging with XCode
+## Xcodeでのデバッグ
 
-### Generate xcode project for debugging sources (cannot build code from xcode)
+### ソースのデバッグのためのxcodeプロジェクトを作成(Xcodeでコードをビルドできない)
 
-Run `gn gen` with the --ide=xcode argument.
+`gn gen` に --ide=xcode 引数を加えて実行します。
 
 ```sh
 $ gn gen out/Debug --ide=xcode
