@@ -14,11 +14,11 @@ Electronは、プロジェクト生成に[GN](https://gn.googlesource.com/gn)を
 
 Chromiumはとても巨大なプロジェクトですので、最終的なリンクの段階でかなりの時間を要し、それが開発を難しくしてしまいます。 これを解決するために、Chromiumはそれぞれのコンポーネントを別々の共有ライブラリとしてビルドを行う、「コンポーネントビルド」を採用しており、これによりファイルサイズとパフォーマンスを犠牲にすることでビルドを高速で行っています。
 
-Electron inherits this build option from Chromium. In `Debug` builds, the binary will be linked to a shared library version of Chromium's components to achieve fast linking time; for `Release` builds, the binary will be linked to the static library versions, so we can have the best possible binary size and performance.
+ElectronはChromiumビルドオプションを継承します。 In `Debug` builds, the binary will be linked to a shared library version of Chromium's components to achieve fast linking time; for `Release` builds, the binary will be linked to the static library versions, so we can have the best possible binary size and performance.
 
 ## テスト
 
-**NB** *this section is out of date and contains information that is no longer relevant to the GN-built electron.*
+**NB** *この章の内容は古くなっており、GNでビルドしたElectronに当たらない情報です。*
 
 プロジェクトのコードのスタイルを確認するためには：
 
