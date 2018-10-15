@@ -28,7 +28,7 @@ $ asar pack your-app app.asar
 
 ### Node API
 
-With special patches in Electron, Node APIs like `fs.readFile` and `require` treat `asar` archives as virtual directories, and the files in it as normal files in the filesystem.
+С помощью специальных патчей в Electron Node API, например, `fs.readFile` и `require` обрабатывают архивы `asar` как виртуальные каталоги, а файлы в нем - как обычные файлы в файловой системе.
 
 Например, предположим что у нас есть архив `example.asar` лежащий в `/path/to`:
 
@@ -62,7 +62,7 @@ fs.readdirSync('/path/to/example.asar')
 require('/path/to/example.asar/dir/module.js')
 ```
 
-You can also display a web page in an `asar` archive with `BrowserWindow`:
+Также вы можете открыть веб-страницу из `asar` архива с помощью `BrowserWindow`:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -73,7 +73,7 @@ win.loadURL('file:///path/to/example.asar/static/index.html')
 
 ### Web API
 
-In a web page, files in an archive can be requested with the `file:` protocol. Like the Node API, `asar` archives are treated as directories.
+В веб-странице файлы в архиве могут быть использованы через протокол `file:`. Как и в Node API, архивы `asar` обрабатываются как каталоги.
 
 For example, to get a file with `$.get`:
 
