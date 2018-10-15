@@ -11,12 +11,12 @@ Ein Beispiel:
 ```javascript
 const {session} = require('electron')
 
-// Query all cookies.
+// Durchsuche all Cookies.
 session.defaultSession.cookies.get({}, (error, cookies) => {   
   console.log(error, cookies)
 })
 
-// Frage alle Cookies ab, die mit einer besonderen URL verbunden sind
+// Frage alle Cookies ab, die mit einer bestimmten URL verbunden sind.
 session.defaultSession.cookies.get({url: 'http://www.github.com'}, (error, cookies) => {   
 console.log(error, cookies) 
 })
