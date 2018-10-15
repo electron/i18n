@@ -42,11 +42,11 @@ const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 ```
 
-Since communication between the processes is possible, a renderer process can call upon the main process to perform tasks. Electron comes with a module called `remote` that exposes APIs usually only available on the main process. In order to create a `BrowserWindow` from a renderer process, we'd use the remote as a middle-man:
+Поскольку возможна связь между процессами, процесс визуализации может вызвать основной процесс для выполнения задач. Electrom имеет модуль, называемый `remote`, который предоставляет API, доступный только основному процессу. Чтобы создать `BrowserWindow` из процесса визуализации, мы используем remote в качестве посредника:
 
 ```javascript
-// This will work in a renderer process, but be `undefined` in the
-// main process:
+// Это сработает в процессе визуализации, но будет undefined
+// в основном процессе
 const { remote } = require('electron')
 const { BrowserWindow } = remote
 
@@ -55,21 +55,21 @@ const win = new BrowserWindow()
 
 ## Использование API Node.js
 
-Electron exposes full access to Node.js both in the main and the renderer process. This has two important implications:
+Electron предоставляет полный доступ к Node.js из обоих типов процессов. Это имеет два важных следствия:
 
-1) Все API, доступные в Node.js также доступны и в Electron. Вызов следующего кода an Electron app:
+1) Все API, доступные в Node.js также доступны и в Electron. Выполните следующий код в приложении Electron:
 
 ```javascript
 const fs = require('fs')
 
 const root = fs.readdirSync('/')
 
-// Это будет печатать все файлы на корневом уровне диска,
+// Выведет все файлы на корневом уровне диска,
 // либо '/' либо 'C:\'.
 console.log(root)
 ```
 
-Как вы уже могли угадать, это имеет важные последствия для безопасности если вы пытаетесь загрузить удаленный контент. Вы можете найти дополнительную информацию и руководство по загрузке remote контента в нашем [security documentation](./security.md).
+Как вы уже поняли, это имеет важные последствия для безопасности если вы пытаетесь загрузить удаленный контент. Вы можете найти дополнительную информацию и руководство по загрузке удаленного контента в нашей [документации по безопасности](./security.md).
 
 2) Вы можете использовать Node.js модули в вашем приложении. Выберите свой любимый npm модуль. npm предлагает в настоящее время крупнейшее в мире хранилище open-source код - возможность использовать хорошо поддержанный и проверенный код, который раньше был зарезервированное для серверных приложений, является одной из ключевых особенностей Electron. Контекст | Контекст запроса.
 
