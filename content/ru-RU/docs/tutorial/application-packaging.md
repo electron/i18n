@@ -1,8 +1,8 @@
 # Упаковка приложений
 
-To mitigate [issues](https://github.com/joyent/node/issues/6960) around long path names on Windows, slightly speed up `require` and conceal your source code from cursory inspection, you can choose to package your app into an [asar](https://github.com/electron/asar) archive with little changes to your source code.
+Для смягчения [проблем](https://github.com/joyent/node/issues/6960), связанных с длинными именами путей в Windows, небольшого ускорения `require` и скрытия исходного кода вы можете упаковать ваше приложение в [asar](https://github.com/electron/asar) архив с минимальными изменениями в исходном коде.
 
-Most users will get this feature for free, since it's supported out of the box by [`electron-packager`](https://github.com/electron-userland/electron-packager), [`electron-forge`](https://github.com/electron-userland/electron-forge), and [`electron-builder`](https://github.com/electron-userland/electron-builder). If you are not using any of these tools, read on.
+Для большинства пользователей это просто, потому что это поддерживается "из коробки" [`electron-packager`](https://github.com/electron-userland/electron-packager), [`electron-forge`](https://github.com/electron-userland/electron-forge), и [`electron-builder`](https://github.com/electron-userland/electron-builder). Если же вы не используете ни один из этих инструментов, читайте дальше.
 
 ## Generating `asar` Archives
 
@@ -24,7 +24,7 @@ $ asar pack your-app app.asar
 
 ## Использование архива `asar`
 
-In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
+В Electron два набора API: Node API, предоставляемый Node.js и Web API, предоставляемый Chromium. Оба API поддерживают чтение файлов из архивов `asar`.
 
 ### Node API
 
