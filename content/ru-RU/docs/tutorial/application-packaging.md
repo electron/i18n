@@ -105,19 +105,19 @@ fs.readFileSync('/path/to/example.asar')
 
 ## Ограничения Node API
 
-Even though we tried hard to make `asar` archives in the Node API work like directories as much as possible, there are still limitations due to the low-level nature of the Node API.
+Несмотря на наши усилия сделать архивы `asar` в Node API максимально похожими на каталоги, по прежнему существуют ограничения из-за низкоуровневой природы Node API.
 
-### Archives Are Read-only
+### Архивы только для чтения
 
-The archives can not be modified so all Node APIs that can modify files will not work with `asar` archives.
+Архивы не могут быть модифицированы, поэтому все Node API, которые изменяют файлы, не будут работать с архивами `asar`.
 
-### Working Directory Can Not Be Set to Directories in Archive
+### Рабочий каталог не может быть задан как каталог в архиве
 
-Though `asar` archives are treated as directories, there are no actual directories in the filesystem, so you can never set the working directory to directories in `asar` archives. Passing them as the `cwd` option of some APIs will also cause errors.
+Хотя `asar` архивы и рассматриваются как каталоги, фактически в файловой системе их нет, поэтому вы никогда не сможете установить рабочий каталог в `asar` архиве. Передача их в качестве опций `cwd` некоторых API также приведет к ошибкам.
 
-### Extra Unpacking on Some APIs
+### Дополнительная распаковка некоторых API
 
-Most `fs` APIs can read a file or get a file's information from `asar` archives without unpacking, but for some APIs that rely on passing the real file path to underlying system calls, Electron will extract the needed file into a temporary file and pass the path of the temporary file to the APIs to make them work. This adds a little overhead for those APIs.
+Most `fs` APIs can read a file or get a file's information from `asar` archives without unpacking, but for some APIs that rely on passing the real file path to underlying system calls, Electron will extract the needed file into a temporary file and pass the path of the temporary file to the APIs to make them work. Это добавляет немного оверхэдов для этих API.
 
 APIs that requires extra unpacking are:
 
