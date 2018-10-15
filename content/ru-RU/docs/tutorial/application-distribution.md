@@ -87,9 +87,9 @@ MyApp.app/Contents
 * [electron-builder](https://github.com/electron-userland/electron-builder)
 * [electron-packager](https://github.com/electron-userland/electron-packager)
 
-## Ребрендинг, перестроив Electron из источника
+## Проведите ребрендинг, пересобрав Electron из исходных кодов
 
-It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to set the build argument corresponding to the product name (`electron_product_name = "YourProductName"`) in the `args.gn` file and rebuild.
+Можно изменить бренд Electron путем изменения имени продукта и сборки его из исходных кодов. Для этого вам надо установить аргумент, отвечающий за имя продукта (`electron_product_name = "YourProductName"`) в файле `args.gn` и пересобрать Electron.
 
 ### Создание пользовательских Electron форков
 
@@ -123,4 +123,4 @@ It is also possible to rebrand Electron by changing the product name and buildin
 
 2. `surf-build -r https://github.com/MYORG/electron -s YOUR_COMMIT -n 'surf-PLATFORM-ARCH'`
 
-3. Ждать очень, очень долгое время для завершения построения.
+3. Очень, очень долго ждать завершения сборки.
