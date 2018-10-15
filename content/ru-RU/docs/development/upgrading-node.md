@@ -12,14 +12,14 @@ Electron имеет свой собственный [форк Node](https://gith
 
 Как только все зависимости Electron будут собраны для использования одной и той же копии V8, следующий шаг - исправление любых проблем с кодом Electron, вызванных обновлением Node.
 
-[FIXME] something about a Node debugger in Atom that we (e.g. deepak) use and need to confirm doesn't break with the Node upgrade?
+[FIXME] что-то об отладчике Node в Atom, которое мы (например, deepak) используем и необходимость подтверждения не ломается с обновлением Node?
 
-So in short, the primary steps are:
+Короче говоря, основными шагами являются:
 
-1. Update Electron's Node fork to the desired version
-2. Backport Node's V8 patches to our copy of V8
+1. Обновить форк Node для Electron на нужную версию
+2. Сделать бэкпорт Node патчей для V8 на нашу копию V8
 3. Update the GN build files, porting changes from node's GYP files
-4. Update Electron's DEPS to use new version of Node
+4. Обновить зависимости Electron для использования новой версии Node (прим. пер. возможно DEPS в оригинале не означает зависимости)
 
 ## Updating Electron's Node [fork](https://github.com/electron/node)
 
