@@ -2,9 +2,9 @@
 
 ## Discussion
 
-Chromium and Node.js both depend on V8, and Electron contains only a single copy of V8, so it's important to ensure that the version of V8 chosen is compatible with the build's version of Node.js and Chromium.
+И Chromium и Node.js, зависят от V8. Electron содержит только одну копию V8, поэтому важно обеспечить совместимость версии V8 с версией сборки Node.js и Chromium.
 
-Upgrading Node is much easier than upgrading Chromium, so fewer conflicts arise if one upgrades Chromium first, then chooses the upstream Node release whose version of V8 is closest to the one Chromium contains.
+Обновление Node намного проще, чем обновление Chromium, поэтому возникнет меньше конфликтов, если сначала обновить Chromium, а затем выбрать апстрим Node, версия V8 которого ближе всего к обновленному Chromium.
 
 Electron has its own [Node fork](https://github.com/electron/node) with modifications for the V8 build details mentioned above and for exposing API needed by Electron. Once an upstream Node release is chosen, it's placed in a branch in Electron's Node fork and any Electron Node patches are applied there.
 
