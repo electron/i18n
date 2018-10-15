@@ -24,19 +24,19 @@
 
 ## Использование API Electron
 
-В Electron доступен ряд API-интерфейсов, поддерживающих разработку настольных приложений в обоих процессах - main process и render process. Для доступа к этим процессам API Electron вам необходимо включить в проект следующий модуль:
+В Electron доступен ряд API-интерфейсов, поддерживающих разработку настольных приложений в обоих процессах - основном процессе и процессе визуализации. Для доступа к API Electron вам необходимо включить в проект в каждом процессе следующий модуль:
 
 ```javascript
 const electron = require('electron')
 ```
 
-All Electron APIs are assigned a process type. Many of them can only be used from the main process, some of them only from a renderer process, some from both. The documentation for each individual API will state which process it can be used from.
+Все API-интерфейсы назначаются типам процессов. Многие из них могут использоваться только из основного процесса, некоторые только из процесса визуализации, а какие-то - из обоих процессов. В документации для каждого отдельного API указывается, для какого типа процесса он может быть использован.
 
-A window in Electron is for instance created using the `BrowserWindow` class. It is only available in the main process.
+Например, окно в Electron создается с использованием класса `BrowserWindow`. Он доступен только в основном процессе.
 
 ```javascript
-// This will work in the main process, but be `undefined` in a
-// renderer process:
+// Это сработает только в основном процессе,
+// в процессе визуализации же будет undefined
 const { BrowserWindow } = require('electron')
 
 const win = new BrowserWindow()
