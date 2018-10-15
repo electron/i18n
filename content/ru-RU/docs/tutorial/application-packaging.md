@@ -75,7 +75,7 @@ win.loadURL('file:///path/to/example.asar/static/index.html')
 
 В веб-странице файлы в архиве могут быть использованы через протокол `file:`. Как и в Node API, архивы `asar` обрабатываются как каталоги.
 
-For example, to get a file with `$.get`:
+Например, получение файла с помощью `$.get`:
 
 ```html
 <script>
@@ -86,16 +86,16 @@ $.get('file:///path/to/example.asar/file.txt', (data) => {
 </script>
 ```
 
-### Treating an `asar` Archive as a Normal File
+### Обработка архивов `asar` в качестве нормального файла
 
-For some cases like verifying the `asar` archive's checksum, we need to read the content of an `asar` archive as a file. For this purpose you can use the built-in `original-fs` module which provides original `fs` APIs without `asar` support:
+В некоторых случаях вроде проверки контрольной суммы `asar` архива, нам может потребоваться получить `asar` архив как обычный файл. Для этих целей вы можете использовать встроенный модуль `original-fs`, который предоставляет оригинальный интерфейс `fs` без поддержки обработки `asar`:
 
 ```javascript
 const originalFs = require('original-fs')
 originalFs.readFileSync('/path/to/example.asar')
 ```
 
-You can also set `process.noAsar` to `true` to disable the support for `asar` in the `fs` module:
+Также вы можете установить переменную `process.noAsar` в `true` для отключения поддержки `asar` в модуле `fs`:
 
 ```javascript
 const fs = require('fs')
@@ -103,7 +103,7 @@ process.noAsar = true
 fs.readFileSync('/path/to/example.asar')
 ```
 
-## Limitations of the Node API
+## Ограничения Node API
 
 Even though we tried hard to make `asar` archives in the Node API work like directories as much as possible, there are still limitations due to the low-level nature of the Node API.
 
