@@ -34,8 +34,8 @@ community:
     updates: "通过关注Twitter账号<a href='https://twitter.com/electronjs'>@electronjs</a> 和订阅<a href='/blog'>博客Feed</a>来获取最新消息。"
     localized_docs: "通过访问<a href='/languages'>语言页面</a>来阅读你<a href='/languages'><b>本地语言的文档</b></a>。"
     help: "通过加入 <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, 发送 <a href='https://discuss.atom.io/c/electron'>Discuss</a>, 或者访问<a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>来<a href='http://atom-slack.herokuapp.com'><b>获取帮助和反馈</b></a>。"
-    packages: "在<a href='/search/npmPackages'>npm包搜索页面</a>找到<a href='/search/npmPackages'><b>有用的npm包</b></a> 。"
-    bugs: "通过在<a href='https://github.com/electron/electron/issues'>electron/electron</a> 代码仓库提交issues来<a href='https://github.com/electron/electron/issues'><b>报告BUG</b></a>。"
+    packages: "在 <a href='/search/npmPackages'>npm 包搜索页面</a>找到<a href='/search/npmPackages'><b>有用的 npm 包</b></a> 。"
+    bugs: "通过在 <a href='https://github.com/electron/electron/issues'>electron/electron</a> 代码仓库提交 issues 来<a href='https://github.com/electron/electron/issues'><b>报告 BUG</b></a>。"
     feature_requests: "通过在<a href='https://github.com/electron/electron/issues'>electron/electron</a> 代码仓库提交issues来<a href='https://github.com/electron/electron/issues'><b>提交功能申请</b></a>。"
     code_of_conduct: "发送邮件到<a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>来<a href='mailto:coc@electronjs.org'><b>报告代码冲突</b></a>。"
     security: "发送邮件到<a href='mailto:security@electronjs.org'>security@electronjs.org</a>来<a href='mailto:security@electronjs.org'><b>披露安全问题</b></a> 。"
@@ -54,7 +54,7 @@ community:
 releases:
   title: Electron 发行版
   all_releases: 全部发行版
-  back_to_index: Back to index
+  back_to_index: 返回索引
 electron_is_easy:
   title: 比你想象的更简单
   description: 如果你可以建一个网站，你就可以建一个桌面应用程序。 Electron 是一个使用 JavaScript, HTML 和 CSS 等 Web 技术创建原生程序的框架，它负责比较难搞的部分，你只需把精力放在你的应用的核心上即可。
@@ -107,21 +107,21 @@ apps:
   submit_your_own: 提交你的应用
   something_missing: 少了点什么？
   edit_this_app: 编辑此应用程序。
-  search_app: Filter apps by name, description, etc…
-  categories: Categories
-  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
-  website: Website
-  repository: Repository
-  category: Category
-  downloads: Downloads
-  keywords: Keywords
-  license: License
-  latest_release: Latest Release
+  search_app: 按名称，说明等过滤应用...
+  categories: 分类
+  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">发出拉取请求</a>以添加您的应用程序。'
+  website: 网站
+  repository: 仓库
+  category: 分类
+  downloads: 下载
+  keywords: 关键词
+  license: 许可
+  latest_release: 最新发布
 blog:
   title: Electron 博客
   description: 所有来自 Electron 团队和社区的最新消息。
-  feedback: Have feedback on this post? Let <a href="https://twitter.com/electronjs">@electronjs</a> know on Twitter.
-  help: Need help or found a bug? <a href="/contact">Contact us
+  feedback: 对这篇文章有反馈意见吗？ 可以在在 Twitter 上<a href="https://twitter.com/electronjs">@electronjs</a>
+  help: 需要帮助或发现错误？ <a href="/contact">联系我们
 clipboard:
   copy: Copy
   copy_to_clipboard: 复制到剪贴板
