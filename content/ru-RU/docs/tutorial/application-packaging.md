@@ -135,16 +135,16 @@ fs.readFileSync('/path/to/example.asar')
 
 В Node APIs существуют интерфейсы, которые могут выполнять двоичные файлы, например `child_process.exec`, `child_process.spawn` и `child_process.execFile`, но только `execFile` способен выполнить бинарный файл из архива `asar`.
 
-This is because `exec` and `spawn` accept `command` instead of `file` as input, and `command`s are executed under shell. There is no reliable way to determine whether a command uses a file in asar archive, and even if we do, we can not be sure whether we can replace the path in command without side effects.
+This is because `exec` and `spawn` accept `command` instead of `file` as input, and `command`s are executed under shell. Нет надежного способа определить использует ли команда файл в asar-архиве и даже если мы это сделаем, то нет уверенности, можем ли мы заменить путь в команде без побочных эффектов.
 
-## Adding Unpacked Files to `asar` Archives
+## Добавление файлов в архив `asar`
 
-As stated above, some Node APIs will unpack the file to the filesystem when called. Apart from the performance issues, various anti-virus scanners might be triggered by this behavior.
+Как указано выше, некоторые Node API будут распаковывать файл в реальную файловую систему при вызове. Помимо проблем с производительностью это может вызвать срабатывание различных антивирусных сканеров.
 
-As a workaround, you can leave various files unpacked using the `--unpack` option. In the following example, shared libraries of native Node.js modules will not be packed:
+В качестве обходного пути вы можете оставлять некоторые файлы в незапакованном виде с помощью опции `--unpack`. В следующем примере общие библиотеки нативных модуле Node.js исключаются из запаковки и не будут включены в архив:
 
 ```sh
 $ asar pack app app.asar --unpack *.node
 ```
 
-After running the command, you will notice that a folder named `app.asar.unpacked` was created together with the `app.asar` file. It contains the unpacked files and should be shipped together with the `app.asar` archive.
+После выполнения этой команды вы обнаружите, что вместе с файлом `app.asar` была создана папка `app.asar.unpacked`. Она содержит незапакованные файлы и должна распространяться вместе с архивом `app.asar`.
