@@ -1,14 +1,14 @@
 # Макеты и CLI
 
-Electron development is un-opinionated - there is no "one true way" to develop, build, package, or release an Electron application. Additional features for Electron, both for build- and run-time, can usually be found on [npm](https://www.npmjs.com/search?q=electron) in individual packages, allowing developers to build both the app and build pipeline they need.
+Разработка в Electron разнообразна - нет "одного истинного пути" для разработки, сборки, упаковки или выпуска приложения. Дополнительные особенности для Electron, как для сборки, так и для времени выполнения, обычно можно найти в [npm](https://www.npmjs.com/search?q=electron) в отдельных пакетах, что позволяет разработчикам как создать приложение, так и построить конвейер, в котором они нуждаются.
 
-That level of modularity and extendability ensures that all developers working with Electron, both big and small in team-size, are never restricted in what they can or cannot do at any time during their development lifecycle. However, for many developers, one of the community-driven boilerplates or command line tools might make it dramatically easier to compile, package, and release an app.
+Этот уровень модульности и расширяемости гарантирует, что все разработчики, работающие с Electron, как большие, так и малые по размеру группы, никогда не ограничены тем, что они могут или не могут делать в любое время в течение своего жизненного цикла разработки. Тем не менее, для многих разработчиков один из управляемых сообществом шаблонов или инструментов командной строки может значительно упростить компиляцию, упаковку и выпуск приложения.
 
 ## Макеты против CLI
 
-A boilerplate is only a starting point - a canvas, so to speak - from which you build your application. They usually come in the form of a repository you can clone and customize to your heart's content.
+Шаблон является только отправной точкой - это, так сказать, холст, из которого вы создаете свое приложение. Они обычно приходят в виде репозитория, который вы можете клонировать и настраивать ваш контент.
 
-A command line tool on the other hand continues to support you throughout the development and release. They are more helpful and supportive but enforce guidelines on how your code should be structured and built. *Especially for beginners, using a command line tool is likely to be helpful*.
+С другой стороны, инструмент командной строки продолжает поддерживать вас на протяжении всей разработки и выпуска. Они более полезны и поддерживаемы, но обеспечивают соблюдение рекомендаций о том, как ваш код должен быть структурирован и построен. *Especially for beginners, using a command line tool is likely to be helpful*.
 
 ## electron-forge
 
