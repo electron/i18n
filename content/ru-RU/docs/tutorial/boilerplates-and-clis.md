@@ -8,15 +8,15 @@
 
 Шаблон является только отправной точкой - это, так сказать, холст, из которого вы создаете свое приложение. Они обычно приходят в виде репозитория, который вы можете клонировать и настраивать ваш контент.
 
-С другой стороны, инструмент командной строки продолжает поддерживать вас на протяжении всей разработки и выпуска. Они более полезны и поддерживаемы, но обеспечивают соблюдение рекомендаций о том, как ваш код должен быть структурирован и построен. *Especially for beginners, using a command line tool is likely to be helpful*.
+С другой стороны, инструмент командной строки продолжает поддерживать вас на протяжении всей разработки и выпуска. Они более полезны и поддерживаемы, но обеспечивают соблюдение рекомендаций о том, как ваш код должен быть структурирован и построен. *Специально для новичков - использование командной строки будет весьма полезно*.
 
 ## electron-forge
 
-A "complete tool for building modern Electron applications". Electron Forge unifies the existing (and well maintained) build tools for Electron development into a cohesive package so that anyone can jump right in to Electron development.
+"Полноценный инструмент для создания современных приложений Electron". Electron Forge объединяет существующие (и хорошо поддерживаемые) инструменты сборки в единый пакет, чтобы каждый мог прямо сейчас заняться разработкой в Electron.
 
-Forge comes with [ready-to-use templates](https://electronforge.io/templates) for popular frameworks like React, Vue, or Angular. It uses the same core modules used by the greater Electron community (like [`electron-packager`](https://github.com/electron-userland/electron-packager)) –  changes made by Electron maintainers (like Slack) benefit Forge's users, too.
+Forge поставляется с [готовыми к использованию](https://electronforge.io/templates) шаблонами для популярных фреймворков, таких как React, Vue, или Angular. Он использует те же основные модули, которые используются большим сообществом Electron (например, [`electron-packager`](https://github.com/electron-userland/electron-packager)). Изменения, вносимые заказчиками Electron (например, Slack), также приносят пользу пользователям Forge.
 
-You can find more information and documentation on [electronforge.io](https://electronforge.io/).
+Вы можете найти больше информации и документации на [electronforge.io](https://electronforge.io/).
 
 ## electron-builder
 
