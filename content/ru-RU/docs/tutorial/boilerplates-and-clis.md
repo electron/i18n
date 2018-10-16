@@ -20,16 +20,16 @@ Forge поставляется с [готовыми к использовани�
 
 ## electron-builder
 
-A "complete solution to package and build a ready-for-distribution Electron app" that focuses on an integrated experience. [`electron-builder`](https://github.com/electron-userland/electron-builder) adds one single dependency focused on simplicity and manages all further requirements internally.
+"Полноценное решение для упаковки и создания готового к использованию приложения Electron", которое фокусируется на интегрированном опыте. [`electron-builder`](https://github.com/electron-userland/electron-builder) добавляет одну единственную зависимость, ориентированную на простоту, и управляет всеми дополнительными требованиями изнутри.
 
-`electron-builder` replaces features and modules used by the Electron maintainers (such as the auto-updater) with custom ones. They are generally tighter integrated but will have less in common with popular Electron apps like Atom, Visual Studio Code, or Slack.
+`electron-builder` заменяет функции и модули, используемые майнтейнерами Electron (такими как автообновление) с пользовательскими. Они, как правило, более тесно интегрированы, но будут иметь меньше общего с популярными приложениями Electron, такими как Atom, Visual Studio Code или Slack.
 
-You can find more information and documentation in [the repository](https://github.com/electron-userland/electron-builder).
+Вы можете найти дополнительную информацию и документацию в [репозитории](https://github.com/electron-userland/electron-builder).
 
 ## electron-react-boilerplate
 
-If you don't want any tools but only a solid boilerplate to build from, CT Lin's [`electron-react-boilerplate`](https://github.com/chentsulin/electron-react-boilerplate) might be worth a look. It's quite popular in the community and uses `electron-builder` internally.
+Если вам не нужны какие-либо инструменты, а только плоский шаблон, из которого можно собрать приложение, вам стоит взглянуть на [`electron-react-boilerplate`](https://github.com/chentsulin/electron-react-boilerplate). Он довольно популярен в сообществе и использует встроенный `electron-builder`.
 
 ## Другие инструменты и Макеты
 
-The ["Awesome Electron" list](https://github.com/sindresorhus/awesome-electron#boilerplates) contains more tools and boilerplates to choose from. If you find the length of the list intimidating, don't forget that adding tools as you go along is a valid approach, too.
+Список [«Awesome Electron»](https://github.com/sindresorhus/awesome-electron#boilerplates) предоставляет большой выбор инструментов и шаблонов. Если вы обнаружите, что длина списка вас пугает, не забывайте, что можно добавлять инструменты по ходу работы.
