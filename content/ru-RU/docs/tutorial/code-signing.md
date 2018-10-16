@@ -19,7 +19,7 @@ If you are building an Electron app that you intend to package and distribute, i
 Перед подписью, следует:
 
 1. Зарегистрироваться в [Apple Developer Program](https://developer.apple.com/programs/) (требует оплату раз в год)
-2. Download and install [Xcode](https://developer.apple.com/xcode)
+2. Загрузить и установить [Xcode](https://developer.apple.com/xcode)
 3. Сгенерировать [подписанные сертификаты](https://github.com/electron-userland/electron-osx-sign/wiki/1.-Getting-Started#certificates)
 
 Существует ряд инструментов для подписывания приложений:
