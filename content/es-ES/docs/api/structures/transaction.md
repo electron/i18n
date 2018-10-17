@@ -1,6 +1,6 @@
 # Objeto Transaction
 
-* `transactionIdentifier` String - A string that uniquely identifies a successful payment transaction.
+* `transactionIdentifier` String - Un string que identifica de forma única, una transacción de pago exitosa.
 * `transactionDate` String - The date the transaction was added to the App Store’s payment queue.
 * `originalTransactionIdentifier` String - The identifier of the restored transaction by the App Store.
 * `transactionState` String - The transaction state, can be `purchasing`, `purchased`, `failed`, `restored` or `deferred`.
