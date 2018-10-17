@@ -16,4 +16,4 @@ Para que los botones de notificación extra funcionen en macOS, tu aplicación d
 * La aplicación está certificada
 * La aplicación tiene su propiedad `NSUserNotificationAlertStyle` configurada en `alert` en el `Info.plist`.
 
-If either of these requirements are not met the button won't appear.
+Si cualquiera de estos requisitos no se cumplen, los nuevos cambios no se mostrarán.
