@@ -13,7 +13,7 @@ $ npm install --save-dev spectron
 ```
 
 ```javascript
-// A simple test to verify a visible window is opened with a title
+// 一个简单的验证测试和一个带标题的可是窗口
 const Application = require('spectron').Application
 const assert = require('assert')
 
@@ -24,19 +24,19 @@ const myApp = new Application({
 const verifyWindowIsVisibleWithTitle = async (app) => {
   await app.start()
   try {
-    // Check if the window is visible
+    // 检查窗口是否可见
     const isVisible = await app.browserWindow.isVisible()
-    // Verify the window is visible
+    // 验证窗口是否可见
     assert.strictEqual(isVisible, true)
-    // Get the window's title
+    // 获取床就标题
     const title = await app.client.getTitle()
-    // Verify the window's title
+    // 验证窗口标题
     assert.strictEqual(title, 'My App')
   } catch (error) {
-    // Log any failures
+    // 记录任何故障
     console.error('Test failed', error.message)
   }
-  // Stop the application
+  // 停止应用
   await app.stop()
 }
 
