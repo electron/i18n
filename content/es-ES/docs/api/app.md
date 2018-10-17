@@ -21,7 +21,7 @@ El objeto `app` emite los siguientes eventos:
 
 Emitido cuando la aplicación ha terminado su iniciación básica. En windows y Linux el evento `will-finish-launching` es el mismo que el evento `ready`; en macOS este evento representa la notificación `applicationWillFinishLaunching` de `NSApplication`. Normalmente configurará aquí los receptores para los eventos `open-file` y `open-url`, e iniciará el informador de errores y el actualizador automático.
 
-In most cases, you should do everything in the `ready` event handler.
+En la mayoría de los casos usted debe hacer todo desde el controlador del evento `ready`.
 
 ### Evento: 'ready'
 
@@ -328,9 +328,9 @@ Devuelve:
 * `argv` Cadena[] - Un arreglo de las líneas de argumentos de comandos de segunda instancia
 * `workingDirectory` Cadena - El directorio de trabajo de segunda instancia
 
-This event will be emitted inside the primary instance of your application when a second instance has been executed. `argv` es un arreglo de las líneas de argumentos de segunda instancia, y `workingDirectory` es su directorio de trabajo actual. Usualmente las aplicaciones responden a esto haciendo su ventana principal concentrada y no minimizada.
+Este evento será emitido dentro de la instancia principal de la aplicación cuando se ha ejecutado una segunda instancia. `argv` es un arreglo de las líneas de argumentos de segunda instancia, y `workingDirectory` es su directorio de trabajo actual. Usualmente las aplicaciones responden a esto haciendo su ventana principal concentrada y no minimizada.
 
-This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
+Este evento garantiza que se ejecute después del evento `ready` de `app` para ser emitido.
 
 ## Métodos
 
