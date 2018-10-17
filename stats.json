@@ -250,14 +250,14 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "9623",
-    "translated": "8552",
+    "translated": "8581",
     "approved": "291",
     "words": "88699",
-    "words_translated": "74510",
+    "words_translated": "74842",
     "words_approved": "2400",
     "translated_progress": 84,
     "approved_progress": 2,
-    "qa_issues": "3292"
+    "qa_issues": "3312"
   },
   {
     "name": "Tagalog",
