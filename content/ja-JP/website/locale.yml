@@ -109,7 +109,7 @@ apps:
   edit_this_app: アプリを編集する
   search_app: 名前、説明などでアプリをフィルタリング
   categories: カテゴリ
-  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
+  add_app_link: 'あなたのアプリケーションに<a href="https://github.com/electron/electron-apps#readme">プルリクエストを作成。</a>'
   website: ウェブサイト
   repository: リポジトリ
   category: カテゴリ
