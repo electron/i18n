@@ -120,8 +120,8 @@ apps:
 blog:
   title: Blog de Electron
   description: Todas las ultimas noticias del equipo y la comunidad de Electron.
-  feedback: Have feedback on this post? Let <a href="https://twitter.com/electronjs">@electronjs</a> know on Twitter.
-  help: Need help or found a bug? <a href="/contact">Contact us
+  feedback: Tienes algún comentario sobre este post? Dejanos un <a href="https://twitter.com/electronjs">@electronjs</a> para saberlo a través de Twitter.
+  help: Necesitas ayuda o encontraste un error? <a href="/contact">Contáctanos
 clipboard:
   copy: Copiar
   copy_to_clipboard: Copiar al portapapeles
