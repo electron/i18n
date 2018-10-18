@@ -4,7 +4,7 @@
 
 Process: [Main](../glossary.md#main-process)
 
-**See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
+**Puede Ver: [Una guía detallada sobre cómo implementar las actualizaciones en su aplicación](../tutorial/updates.md).**
 
 ## Noticias de la plataforma
 
@@ -66,7 +66,7 @@ Aparece cuando se ha descargado una actualización.
 
 Solo esta disponible en Windows `releaseName`.
 
-### Event: 'before-quit-for-update'
+### Evento: 'before-quit-for-update'
 
 This event is emitted after a user calls `quitAndInstall()`.
 
