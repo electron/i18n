@@ -381,7 +381,7 @@ Devuelve `Boolean` - `true` Si Electron se ha inicializado correctamente, de lo 
 
 ### `app.whenReady()`
 
-Devuelve el método `Promise` - cuando Electrón se ha inicializado completamente. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
+Devuelve el método `Promise` - cuando Electrón se ha inicializado completamente. También puede ser utilizado para comprobar el estado de: `app.isReady()` y registrar al evento `ready` si la aplicación aun no esta lista.
 
 ### `app.focus()`
 
@@ -637,9 +637,9 @@ Devuelve `Boolean`
 
 Este método hace de tu aplicación una de segunda instancia - además de permitir que tu aplicación se ejecuta de muchas instancias, esto asegurará que solo una instancia única de tu aplicación se esté ejecutando, y otras señales de instancias a esta instancia y sale.
 
-The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock you can assume that another instance of your application is already running with the lock and exit immediately.
+El valor devuelto de este método indica si esta instancia de su aplicación obtuvo con éxito el bloqueo. Si no pudo obtener el bloqueo se puede asumir que ya se está ejecutando otra instancia de la aplicación con el bloqueo y salir inmediatamente.
 
-I.e. This method returns `true` if your process is the primary instance of your application and your app should continue loading. It returns `false` if your process should immediately quit as it has sent its parameters to another instance that has already acquired the lock.
+Este método retorna `true` si el proceso es de primera instancia en su aplicación y esta debe continuar la carga. Retorna `false` si su proceso deja inmediatamente de enviar parámetros a otra instancia que ya haya adquirido el bloqueo con anterioridad.
 
 En macOS, el sistema fuerza instancias únicas automáticamente cuando los usuarios intentan abrir una segunda instancia de tu aplicación en Finder, y los eventos `open-file` y `open-url` serán emitidos por eso. Como sea, cuando los usuarios inicien tu aplicación en línea de comando, los mecanismos de instancia única del sistema serán puenteados y tendrás que usar este método para asegurar la única instancia.
 
@@ -647,15 +647,16 @@ Un ejemplo de activar la ventana de la instancia primaria cuando una de segunda 
 
 ```javascript
 const {app} = require('electron')
-let myWindow = null
+let miVentana = null
 
-const gotTheLock = app.requestSingleInstanceLock()
+const obtenerBloqueo = app.requestSingleInstanceLock()
 
-if (!gotTheLock) {
+if (!obtenerBloqueo) {
   app.quit()
 } else {
   app.on('second-instance', (event, commandLine, workingDirectory) => {
-    // Someone tried to run a second instance, we should focus our window.
+    // Si alguien intentó ejecutar un segunda instancia, debemos
+ //enfocarnos en nuestra ventana principal.
     if (myWindow) {
       if (myWindow.isMinimized()) myWindow.restore()
       myWindow.focus()
