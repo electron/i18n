@@ -8,4 +8,4 @@
 * [Оптимизация компилятора](https://github.com/v8/v8/wiki/TurboFan)
 * [Отладка V8 в GDB](https://github.com/v8/v8/wiki/GDB-JIT-Interface)
 
-See also [Chromium Development](chromium-development.md)
+См. также [Разработка Chromium](chromium-development.md)
