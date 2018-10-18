@@ -47,7 +47,7 @@ app.on('ready', () => {
 window.addEventListener('keyup', doSomething, true)
 ```
 
-Note the third parameter `true` which means the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
+Обратите внимание на третий параметр `true`, который означает, что слушатель всегда будет получать нажатия клавиш перед другими слушателями, чтобы они не могли вызвать `stopPropagation ()`.
 
 The [`before-input-event`](../api/web-contents.md#event-before-input-event) event is emitted before dispatching `keydown` and `keyup` events in the page. It can be used to catch and handle custom shortcuts that are not visible in the menu.
 
