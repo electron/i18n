@@ -294,7 +294,7 @@ Devuelve:
 
 Es emitido cuando el proceso de la gpu se crashea o es terminado.
 
-### Event: 'accessibility-support-changed' *macOS* *Windows*
+### Evento: 'accessibility-support-changed' *macOS* *Windows*
 
 Devuelve:
 
@@ -320,7 +320,7 @@ app.on('session-created', (event, session) => {
 })
 ```
 
-### Event: 'second-instance'
+### Evento: 'second-instance'
 
 Devuelve:
 
@@ -336,7 +336,7 @@ Este evento garantiza que se ejecute después del evento `ready` de `app` para s
 
 El objeto `app` tiene los siguientes métodos:
 
-**Note:** Algunos métodos solo están disponibles es sistemas operativos específicos y son etiquetados como tal.
+**Nota:** Algunos métodos solo están disponibles es sistemas operativos específicos y son etiquetados como tal.
 
 ### `app.quit()`
 
@@ -381,7 +381,7 @@ Devuelve `Boolean` - `true` Si Electron se ha inicializado correctamente, de lo 
 
 ### `app.whenReady()`
 
-Returns `Promise` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
+Devuelve el método `Promise` - cuando Electrón se ha inicializado completamente. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
 
 ### `app.focus()`
 
