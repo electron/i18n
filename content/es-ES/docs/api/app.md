@@ -657,13 +657,13 @@ if (!obtenerBloqueo) {
   app.on('second-instance', (event, commandLine, workingDirectory) => {
     // Si alguien intentó ejecutar un segunda instancia, debemos
  //enfocarnos en nuestra ventana principal.
-    if (myWindow) {
-      if (myWindow.isMinimized()) myWindow.restore()
-      myWindow.focus()
+    if (miVentana) {
+      if (miVentana.isMinimized()) miVentana.restore()
+      miVentana.focus()
     }
   })
 
-  // Create myWindow, load the rest of the app, etc...
+  // Crear miVentana, esto cargara el resto de la aplicación, etc...
   app.on('ready', () => {
   })
 }
