@@ -237,14 +237,14 @@
     "name": "Russian",
     "code": "ru",
     "phrases": "9623",
-    "translated": "5108",
+    "translated": "5136",
     "approved": "1057",
     "words": "88699",
-    "words_translated": "37208",
+    "words_translated": "37507",
     "words_approved": "8219",
-    "translated_progress": 41,
+    "translated_progress": 42,
     "approved_progress": 9,
-    "qa_issues": "1472"
+    "qa_issues": "1490"
   },
   {
     "name": "Spanish",
@@ -289,14 +289,14 @@
     "name": "Turkish",
     "code": "tr",
     "phrases": "9623",
-    "translated": "7865",
+    "translated": "7871",
     "approved": "2",
     "words": "88699",
-    "words_translated": "66123",
+    "words_translated": "66219",
     "words_approved": "2",
     "translated_progress": 74,
     "approved_progress": 0,
-    "qa_issues": "3667"
+    "qa_issues": "3671"
   },
   {
     "name": "Ukrainian",
