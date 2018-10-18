@@ -28,7 +28,7 @@ $ mkdir -p "${GIT_CACHE_PATH}"
 # Это будет использовать примерно 16 гигабайт.
 ```
 
-> **NOTE**: the git cache will set the `origin` of the `src/electron` repository to point to the local cache, instead of the upstream git repository. This is undesirable when running `git push`—you probably want to push to github, not your local cache. To fix this, from the `src/electron` directory, run:
+> **ПРИМ.**: Кэш git устанавливается в `origin` репозитория `src/electron` чтобы указывать на локальный кэш, а не репозиторий апстрима в git. Это нежелательно при запуске `git push` - с большой вероятностью вы захотите пушить на github, а не в свой локальный кеш. Чтобы исправить это, из каталога `src/electron` запустите:
 
 ```sh
 $ git remote set-url origin https://github.com/electron/electron
