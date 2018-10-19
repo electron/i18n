@@ -31,11 +31,11 @@ Si usted necesita personalizar su configuración, usted puede [usar la opción d
 
 ## Usando `electron-builder`
 
-Si su aplicación fue empaquetada con [`electron-builder`](https://github.com/electron-userland/electron-builder) usted puede usar el modulo [electron-updater](https://www.electron.build/auto-update) que no requiere de un servidor y permite actualizaciones desde Amazon S3, GitHub o cualquier otro host de archivos estáticos. This sidesteps Electron's built-in update mechanism, meaning that the rest of this documentation will not apply to `electron-builder`'s updater.
+Si su aplicación fue empaquetada con [`electron-builder`](https://github.com/electron-userland/electron-builder) usted puede usar el modulo [electron-updater](https://www.electron.build/auto-update) que no requiere de un servidor y permite actualizaciones desde Amazon S3, GitHub o cualquier otro host de archivos estáticos. Esto hace a un lado el mecanismo de actualización incorporado por Electrón, lo que significa que el resto de esta documentación no se aplicará al actualizador de `electron-builder`.
 
 ## Implementar un servidor de actualización
 
-If you're developing a private Electron application, or if you're not publishing releases to GitHub Releases, it may be necessary to run your own update server.
+Si está desarrollando una aplicación privada de Electrón, o si no está publicando lanzamientos a los lanzamientos de GitHub, tiene que considerar que es necesario que ejecute su propio servidor de actualizaciones.
 
 Dependiendo de sus necesidades, puede escoger una de esta:
 
