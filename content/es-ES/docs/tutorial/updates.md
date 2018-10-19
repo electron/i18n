@@ -8,8 +8,8 @@ El equipo de Electron de GitHub mantiene [update.electronjs.org](https://github.
 
 - Aplicaciones que se ejecuten en macOS o Windows
 - La Aplicación tiene un repositorio público en GitHub
-- Builds are published to GitHub Releases
-- Builds are code-signed
+- Todas las compilaciones se publicarán en GitHub
+- Todas las compilaciones tienen verificación de código
 
 The easiest way to use this service is by installing [update-electron-app](https://github.com/electron/update-electron-app), a Node.js module preconfigured for use with update.electronjs.org.
 
