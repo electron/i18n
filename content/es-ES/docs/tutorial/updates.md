@@ -48,13 +48,13 @@ Dependiendo de sus necesidades, puede escoger una de esta:
 
 Una vez que haya implementado su servidor de actualización, continúe con la importación de los módulos requeridos en su código. El siguiente código podría variar en diferentes servidores de software, pero funciona como está descrito cuando se utiliza [Hazel](https://github.com/zeit/hazel).
 
-**Important:** Please ensure that the code below will only be executed in your packaged app, and not in development. You can use [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) to check for the environment.
+**Importantante:** por favor asegurate de que el siguiente código solo se ejecutara en su paquete de aplicaciones, y no en desarrollo. Puedes usar [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) para chequear el tipo de ambiente.
 
 ```javascript
 const { app, autoUpdater, dialog } = require('electron')
 ```
 
-Next, construct the URL of the update server and tell [autoUpdater](../api/auto-updater.md) about it:
+A continuación, construya la URL de uno de los servidores de actualizaciones, de la siguiente manera: [autoUpdater](../api/auto-updater.md):
 
 ```javascript
 const server = 'https://your-deployment-url.com'
