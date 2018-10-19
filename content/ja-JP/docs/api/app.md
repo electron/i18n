@@ -780,7 +780,7 @@ macOSでは、ドックアイコンに表示されます。Linuxでは、Unity�
 
 * `settings` Object 
   * `openAtLogin` Boolean (任意) - アプリをログイン時に開く場合、`true`、ログイン項目からアプリを外す場合、`false`。 省略値は `false` です。
-  * `openAsHidden` Boolean (任意) *macOS* - アプリを非表示で開く場合、`true`。 省略値は `false` です。 ユーザはこの設定をシステム環境設定から変更することができます。そのため、アプリが開いたときに現在の値を把握するため、`app.getLoginItemStatus().wasOpenedAsHidden` を確認するようにしてください。 この設定は [MAS ビルド](../tutorial/mac-app-store-submission-guide.md) では利用できません。
+  * `openAsHidden` Boolean (任意) *macOS* - アプリを非表示で開く場合、`true`。 省略値は `false` です。 The user can edit this setting from the System Preferences so `app.getLoginItemSettings().wasOpenedAsHidden` should be checked when the app is opened to know the current value. この設定は [MAS ビルド](../tutorial/mac-app-store-submission-guide.md) では利用できません。
   * `path` String (任意) *Windows* - ログイン時に起動する実行ファイルのパス。省略値は、`process.execPath` です。
   * `args` String[] (任意) *Windows* - 実行ファイルに引き渡すコマンドライン引数。省略値は空の配列です。パスは引用符で囲むように注意してください。
 
