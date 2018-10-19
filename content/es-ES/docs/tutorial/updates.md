@@ -71,11 +71,11 @@ setInterval(() => {
 }, 60000)
 ```
 
-Once your application is [packaged](../tutorial/application-distribution.md), it will receive an update for each new [GitHub Release](https://help.github.com/articles/creating-releases/) that you publish.
+Una vez que su aplicacion es [empaquetada](../tutorial/application-distribution.md), usted recibirá una actualización para cada nuevo [Lanzamiento de GitHub](https://help.github.com/articles/creating-releases/) que usted publique.
 
 ## Aplicar actualizaciones
 
-Ahora que ha configurado el mecanismo de actualización básico para su aplicación, debe asegurarse de que el usuario reciba una notificación cuando haya una actualización. This can be achieved using the autoUpdater API [events](../api/auto-updater.md#events):
+Ahora que ha configurado el mecanismo de actualización básico para su aplicación, debe asegurarse de que el usuario reciba una notificación cuando haya una actualización. Esto se puede lograr utilzando la API de autoUpdater [events](../api/auto-updater.md#events):
 
 ```javascript
 autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
@@ -93,7 +93,7 @@ Detalles: Una nueva versión ha sido descargada. Reiniciar la aplicación para a
 })
 ```
 
-Also make sure that errors are [being handled](../api/auto-updater.md#event-error). Here's an example for logging them to `stderr`:
+También asegúrese de que los errores estan [siendo bien manipulados](../api/auto-updater.md#event-error). Aquí hay un ejemplo para que se pueda registrar `stderr`:
 
 ```javascript
 autoUpdater.on('error', message => {
