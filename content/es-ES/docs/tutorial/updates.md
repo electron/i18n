@@ -39,8 +39,8 @@ Si está desarrollando una aplicación privada de Electrón, o si no está publi
 
 Dependiendo de sus necesidades, puede escoger una de esta:
 
-- [Hazel](https://github.com/zeit/hazel) – Update server for private or open-source apps which can be deployed for free on [Now](https://zeit.co/now). It pulls from [GitHub Releases](https://help.github.com/articles/creating-releases/) and leverages the power of GitHub's CDN.
-- [Nuts](https://github.com/GitbookIO/nuts) – Also uses [GitHub Releases](https://help.github.com/articles/creating-releases/), but caches app updates on disk and supports private repositories.
+- [Hazel](https://github.com/zeit/hazel) – Servidor de actualizaciones para aplicaciones privadas o de código abierto que pueden ser desplegadas de forma gratuita. [Now](https://zeit.co/now). Es tomado de los [Lanzamientos de GitHub](https://help.github.com/articles/creating-releases/) y aprovecha al maximo el poder de las CDN's de GitHub.
+- [Nuts](https://github.com/GitbookIO/nuts) – También usa los [Lanzamientos de GitHub](https://help.github.com/articles/creating-releases/), pero almacena la aplicación, actualiza en el Disco Duro y también soporta repositorios privados.
 - [electron-release-server](https://github.com/ArekSredzki/electron-release-server) – Provides a dashboard for handling releases and does not require releases to originate on GitHub.
 - [Nucleus](https://github.com/atlassian/nucleus) – A complete update server for Electron apps maintained by Atlassian. Supports multiple applications and channels; uses a static file store to minify server cost.
 
