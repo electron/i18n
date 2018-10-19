@@ -780,7 +780,7 @@ Retorna `Object`:
 
 * `settings` Object 
   * `openAtLogin` Boolean (opcional) - `true` para abrir o aplicativo após o login, `false` para removê-lo da lista de inicialização automática. O padrão é `false`.
-  * `openAsHidden` Boolean (optional) *macOS* - `true` to open the app as hidden. Padrão sendo `false`. O usuário pode editar essa configuração a partir das Preferências do Sistema portanto `app.getLoginItemStatus().wasOpenedAsHidden` deverá ser verificado quando o aplicativo for aberto para saber o valor atual. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+  * `openAsHidden` Boolean (optional) *macOS* - `true` to open the app as hidden. Padrão sendo `false`. The user can edit this setting from the System Preferences so `app.getLoginItemSettings().wasOpenedAsHidden` should be checked when the app is opened to know the current value. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
   * `path` String (optional) *Windows* - O executável para ser rodado no login. Padrão sendo `process.execPath`.
   * `args` String[] (opcional) *Windows* - Os argumentos da linha de comando para passar para o executável. Padrão sendo uma array vazia. Tome cuidado ao envolver caminhos com aspas.
 
