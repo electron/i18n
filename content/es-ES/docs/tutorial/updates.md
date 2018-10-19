@@ -11,7 +11,7 @@ El equipo de Electron de GitHub mantiene [update.electronjs.org](https://github.
 - Todas las compilaciones se publicarán en GitHub
 - Todas las compilaciones tienen verificación de código
 
-The easiest way to use this service is by installing [update-electron-app](https://github.com/electron/update-electron-app), a Node.js module preconfigured for use with update.electronjs.org.
+La forma más fácil de usar este servicio es instalando [update-electron-app](https://github.com/electron/update-electron-app), un módulo de Node.js preconfigurado para usarse con update.electronjs.org.
 
 Instala el módulo:
 
@@ -19,13 +19,13 @@ Instala el módulo:
 npm install update-electron-app
 ```
 
-Invoke the updater from your app's main process file:
+Invoque el actualizador de archivos de los principales procesos de su aplicacion Electrón:
 
 ```js
 require('update-electron-app')()
 ```
 
-By default, this module will check for updates at app startup, then every ten minutes. When an update is found, it will automatically be downloaded in the background. When the download completes, a dialog is displayed allowing the user to restart the app.
+Por defecto, este módulo buscara actualizaciones al iniciar la aplicacion luego de cada 10 minutos. Cuando se encuentra una actualización, esta se descargará automáticamente en segundo plano. Cuando se completa la descarga, se muestra un cuadro de diálogo que le permite al usuario reiniciar su aplicación.
 
 If you need to customize your configuration, you can [pass options to `update-electron-app`](https://github.com/electron/update-electron-app) or [use the update service directly](https://github.com/electron/update.electronjs.org).
 
