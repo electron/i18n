@@ -1,9 +1,9 @@
 # Product Object
 
-* `productIdentifier` String - The string that identifies the product to the Apple App Store.
-* `localizedDescription` String - A description of the product.
-* `localizedTitle` String - The name of the product.
-* `contentVersion` String - A string that identifies the version of the content.
+* `productIdentifier` String - Ein String, der das Produkt für Apple App Store identifiziert.
+* `localizedDescription` String - Produktbeschreibung.
+* `localizedTitle` String - Produktname.
+* `contentVersion` String - Ein String, der die Contentversion identifiziert.
 * `contentLengths` Number[] - The total size of the content, in bytes.
 * `price` Number - The cost of the product in the local currency.
 * `formattedPrice` String - The locale formatted price of the product.
