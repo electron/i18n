@@ -224,14 +224,14 @@ Cambiar: https://atom.io/download/atom-shell
 
 Reemplazar con: https://atom.io/download/electron
 
-# Breaking API Changes (2.0)
+# Cambios en la API(2.0)
 
-The following list includes the breaking API changes made in Electron 2.0.
+La siguiente lista incluye cambios efectuados en la API 2.0 de Electrón.
 
 ## `BrowserWindow`
 
 ```js
-// Cambiar
+// Obsoleto
 let optionsA = {titleBarStyle: 'hidden-inset'}
 let windowA = new BrowserWindow(optionsA)
 // Reemplazar con
@@ -242,23 +242,23 @@ let windowB = new BrowserWindow(optionsB)
 ## `menu`
 
 ```js
-// Removed
+// Obsoleto
 menu.popup(browserWindow, 100, 200, 2)
-// Replaced with
+// Reemplazar con
 menu.popup(browserWindow, {x: 100, y: 200, positioningItem: 2})
 ```
 
 ## `nativeImage`
 
 ```js
-// Removed
+// Obsoleto
 nativeImage.toPng()
-// Replaced with
+// Reemplazar con
 nativeImage.toPNG()
 
-// Removed
+// Obsoleto
 nativeImage.toJpeg()
-// Replaced with
+// Reemplazar con
 nativeImage.toJPEG()
 ```
 
@@ -269,33 +269,33 @@ nativeImage.toJPEG()
 ## `webContents`
 
 ```js
-// Removed
+// Obsoleto
 webContents.setZoomLevelLimits(1, 2)
-// Replaced with
+// Reemplazar con
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## `webFrame`
 
 ```js
-// Removed
+// Obsoleto
 webFrame.setZoomLevelLimits(1, 2)
-// Replaced with
+// Reemplazar con
 webFrame.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## `<webview>`
 
 ```js
-// Removed
+// Obsoleto
 webview.setZoomLevelLimits(1, 2)
-// Replaced with
+// Reemplazar con
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-## Duplicado de brazo ARM
+## Activos duplicados ARM
 
-Each Electron release includes two identical ARM builds with slightly different filenames, like `electron-v1.7.3-linux-arm.zip` and `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
+Cada version de Electron incluye dos versiones de ARM identicas con diferentes nombres de archivo, como: `electron-v1.7.3-linux-arm.zip` y `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
 
 The file *without the prefix* is still being published to avoid breaking any setups that may be consuming it. Starting at 2.0, the un-prefixed file will no longer be published.
 
