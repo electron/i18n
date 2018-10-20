@@ -48,7 +48,7 @@ let win = new BrowserWindow({titleBarStyle: 'customButtonsOnHover', frame: false
 win.show()
 ```
 
-## Transparent window
+## پنجره ی شفاف
 
 By setting the `transparent` option to `true`, you can also make the frameless window transparent:
 
