@@ -4,7 +4,7 @@
 * `localizedDescription` String - Produktbeschreibung.
 * `localizedTitle` String - Produktname.
 * `contentVersion` String - Ein String, der die Contentversion identifiziert.
-* `contentLengths` Number[] - The total size of the content, in bytes.
-* `price` Number - The cost of the product in the local currency.
-* `formattedPrice` String - The locale formatted price of the product.
-* `downloadable` Boolean - A Boolean value that indicates whether the App Store has downloadable content for this product.
+* `contentLengths` Number[] - Gesamtgröße des Contents in Bytes.
+* `price` Number - Produktkosten in Landeswährung.
+* `formattedPrice` String - länderspezifisch formatierter Preis.
+* `downloadable` Boolean - Boolescher Wert, der anzeigt, ob es im App Store einen herunterladbaren Content für dieses Produkt gibt.
