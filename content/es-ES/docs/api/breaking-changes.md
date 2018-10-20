@@ -6,18 +6,18 @@ Los cambios de ruptura se documentaran aquí y se agregaran advertencias de desa
 
 El string `FIXME` se usa en las cadenas de código para indicar que cualquier problema debería solucionarse para futuras versiones. Puede ver: https://github.com/electron/electron/search?q=fixme para mas información
 
-# Cambios de Rupturas planeados en la API(4.0)
+# Cambios planeados en la API(4.0)
 
-The following list includes the breaking API changes planned for Electron 4.0.
+La siguiente lista incluye los cambios planeados en la API 4.0 de Electrón.
 
 ## `app.makeSingleInstance`
 
 ```js
-// Deprecated
+// Obsoleto
 app.makeSingleInstance(function (argv, cwd) {
 
 })
-// Replace with
+// Reemplazar con
 app.requestSingleInstanceLock()
 app.on('second-instance', function (argv, cwd) {
 
@@ -27,48 +27,48 @@ app.on('second-instance', function (argv, cwd) {
 ## `app.releaseSingleInstance`
 
 ```js
-// Deprecated
+// Obsoleto
 app.releaseSingleInstance()
-// Replace with
+// Reemplazar con
 app.releaseSingleInstanceLock()
 ```
 
-# Breaking API Changes (3.0)
+# Cambios en la API(3.0)
 
-The following list includes the breaking API changes in Electron 3.0.
+La siguiente lista incluye cambios efectuados en la API 3.0 de Electrón.
 
 ## `app`
 
 ```js
-// Deprecated
+// Obsoleto
 app.getAppMemoryInfo()
-// Replace with
+// Remplazar con
 app.getAppMetrics()
 
-// Deprecated
+// Obsoleto
 const metrics = app.getAppMetrics()
 const {memory} = metrics[0]
-memory.privateBytes  // Deprecated property
-memory.sharedBytes  // Deprecated property
+memory.privateBytes  // Propiedad Obsoleta
+memory.sharedBytes  // Propiedad Obsoleta
 ```
 
 ## `BrowserWindow`
 
 ```js
-// Deprecated
+// Obsoleto
 let optionsA = {webPreferences: {blinkFeatures: ''}}
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// Reemplazar con
 let optionsB = {webPreferences: {enableBlinkFeatures: ''}}
 let windowB = new BrowserWindow(optionsB)
 
-// Deprecated
+// Obsoleto
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
     // do something
   }
 })
-// Replace with
+// Reemplazar con
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
     // do something
