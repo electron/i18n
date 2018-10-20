@@ -79,22 +79,22 @@ window.on('app-command', (e, cmd) => {
 ## `clipboard`
 
 ```js
-// Cambiar
+// Obsoleto
 clipboard.readRtf()
 // Reemplazar con
 clipboard.readRTF()
 
-// Cambiar
+// Obsoleto
 clipboard.writeRtf()
 // Reemplazar con
 clipboard.writeRTF()
 
-// Cambiar
+// Obsoleto
 clipboard.readHtml()
 // Reemplazar con
 clipboard.readHTML()
 
-// Cambiar
+// Obsoleto
 clipboard.writeHtml()
 // Reemplazar con
 clipboard.writeHTML()
@@ -103,7 +103,7 @@ clipboard.writeHTML()
 ## `crashReporter`
 
 ```js
-// Cambiar
+// Obsoleto
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -120,9 +120,9 @@ crashReporter.start({
 ## `nativeImage`
 
 ```js
-// Deprecated
+// Obsoleto
 nativeImage.createFromBuffer(buffer, 1.0)
-// Replace with
+// Reemplazar con
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
@@ -131,25 +131,25 @@ nativeImage.createFromBuffer(buffer, {
 ## `process`
 
 ```js
-// Deprecated
+// Obsoleto
 const info = process.getProcessMemoryInfo()
-const privateBytes = info.privateBytes // deprecated property
-const sharedBytes = info.sharedBytes // deprecated property
+const privateBytes = info.privateBytes // Propiedad Obsoleta
+const sharedBytes = info.sharedBytes // Propiedad Obsoleta
 ```
 
 ## `screen`
 
 ```js
-// Deprecated
+// Obsoleto
 screen.getMenuBarHeight()
-// Replace with
+// Reemplazar con
 screen.getPrimaryDisplay().workArea
 ```
 
 ## `session`
 
 ```js
-// Cambiar
+// Obsoleto
 ses.setCertificateVerifyProc(function (hostname, certificate, callback) {
   callback(true)
 })
@@ -162,12 +162,12 @@ ses.setCertificateVerifyProc(function (request, callback) {
 ## `Tray`
 
 ```js
-// Cambiar
+// Obsoleto
 tray.setHighlightMode(true)
 // Reemplazar con
 tray.setHighlightMode('on')
 
-// Cambiar
+// Obsoleto
 tray.setHighlightMode(false)
 // Reemplazar con
 tray.setHighlightMode('off')
@@ -176,42 +176,42 @@ tray.setHighlightMode('off')
 ## `webContents`
 
 ```js
-// Deprecated
+// Obsoleto
 webContents.openDevTools({detach: true})
-// Replace with
+// Reemplazar con
 webContents.openDevTools({mode: 'detach'})
 
-// Removed
+// Eliminado
 webContents.setSize(options)
-// There is no replacement for this API
+// No hay reemplazo para esto en la API
 ```
 
 ## `webFrame`
 
 ```js
-// Deprecated
+// Obsoleto
 webFrame.registerURLSchemeAsSecure('app')
-// Replace with
+// Reemplazar con
 protocol.registerStandardSchemes(['app'], {secure: true})
 
-// Deprecated
+// Obsoleto
 webFrame.registerURLSchemeAsPrivileged('app', {secure: true})
-// Replace with
+// Reemplazar con
 protocol.registerStandardSchemes(['app'], {secure: true})
 ```
 
 ## `<webview>`
 
 ```js
-// Removed
+// Eliminado
 webview.setAttribute('disableguestresize', '')
-// There is no replacement for this API
+// No hay reemplazo para esto en la API
 
-// Removed
+// Eliminado
 webview.setAttribute('guestinstance', instanceId)
-// There is no replacement for this API
+// No hay reemplazo para esto en la API
 
-// Keyboard listeners no longer work on webview tag
+// Los eventos de tecldo ya no funcionan en la etiqueta de webview
 webview.onkeydown = () => { /* handler */ }
 webview.onkeyup = () => { /* handler */ }
 ```
