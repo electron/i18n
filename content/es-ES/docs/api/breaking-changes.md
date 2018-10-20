@@ -293,10 +293,10 @@ webview.setZoomLevelLimits(1, 2)
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-## Activos duplicados ARM
+## Archivos duplicados ARM
 
-Cada version de Electron incluye dos versiones de ARM identicas con diferentes nombres de archivo, como: `electron-v1.7.3-linux-arm.zip` y `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
+Cada versión de Electrón incluye dos versiones de ARM idénticas con diferentes nombres de archivo, como: `electron-v1.7.3-linux-arm.zip` y `electron-v1.7.3-linux-armv7l.zip`. Se agregó el archivo con el prefijo `v7l` para aclarar a los usuarios qué versión de ARM soporta y desambiguar los futuros archivos de armv6l y arm64 que pueden ser producidos.
 
-The file *without the prefix* is still being published to avoid breaking any setups that may be consuming it. Starting at 2.0, the un-prefixed file will no longer be published.
+El archivo *sin el prefijo* todavía se está publicando para evitar romper cualquier configuración que pueda estar consumiéndolo. A partir de la versión 2.0, el archivo sin prefijo ya no se estara publicando.
 
-For details, see [6986](https://github.com/electron/electron/pull/6986) and [7189](https://github.com/electron/electron/pull/7189).
+Para más detalles, vea: [6986](https://github.com/electron/electron/pull/6986) y [7189](https://github.com/electron/electron/pull/7189).
