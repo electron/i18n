@@ -107,14 +107,14 @@
     "name": "German",
     "code": "de",
     "phrases": "9623",
-    "translated": "2796",
+    "translated": "2807",
     "approved": "35",
     "words": "88699",
-    "words_translated": "17463",
+    "words_translated": "17598",
     "words_approved": "66",
     "translated_progress": 19,
     "approved_progress": 0,
-    "qa_issues": "1073"
+    "qa_issues": "1081"
   },
   {
     "name": "Hebrew",
@@ -185,27 +185,27 @@
     "name": "Korean",
     "code": "ko",
     "phrases": "9623",
-    "translated": "4335",
+    "translated": "4337",
     "approved": "318",
     "words": "88699",
-    "words_translated": "36569",
+    "words_translated": "36579",
     "words_approved": "2691",
     "translated_progress": 41,
     "approved_progress": 3,
-    "qa_issues": "1955"
+    "qa_issues": "1956"
   },
   {
     "name": "Persian",
     "code": "fa",
     "phrases": "9623",
-    "translated": "919",
+    "translated": "923",
     "approved": "30",
     "words": "88699",
-    "words_translated": "4159",
+    "words_translated": "4177",
     "words_approved": "54",
     "translated_progress": 4,
     "approved_progress": 0,
-    "qa_issues": "38"
+    "qa_issues": "39"
   },
   {
     "name": "Polish",
@@ -250,14 +250,14 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "9623",
-    "translated": "8631",
+    "translated": "8661",
     "approved": "291",
     "words": "88699",
-    "words_translated": "75514",
+    "words_translated": "75930",
     "words_approved": "2400",
     "translated_progress": 85,
     "approved_progress": 2,
-    "qa_issues": "3339"
+    "qa_issues": "3354"
   },
   {
     "name": "Tagalog",
