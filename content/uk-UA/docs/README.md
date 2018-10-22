@@ -84,7 +84,7 @@
   * [Генерація asar Архівів](tutorial/application-packaging.md#generating-asar-archives)
   * [Використання asar Архівів](tutorial/application-packaging.md#using-asar-archives)
   * [Обмеження](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [Додавання Нерозпакований Файлів в asar Архів](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
+  * [Додавання Нерозпакованих Файлів в asar Архів](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [In Detail: Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
 * [Детальніше: Використання Плагіну Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 * [Закадровий Рендеринг](tutorial/offscreen-rendering.md)
