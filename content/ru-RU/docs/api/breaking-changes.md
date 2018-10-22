@@ -1,23 +1,23 @@
 # API Contract
 
-Breaking changes will be documented here, and deprecation warnings added to JS code where possible, at least [one major version](../tutorial/electron-versioning.md#semver) before the change is made.
+Критические изменения будут описаны здесь, а также будут добавлены предупреждения об устаревших функциях в код JS, где это возможно, нужна, по крайней мере, [одна мажорная версия](../tutorial/electron-versioning.md#semver) перед тем, как изменения будут сделаны.
 
-# `FIXME` comments
+# Комментарии `FIXME`
 
-The `FIXME` string is used in code comments to denote things that should be fixed for future releases. See https://github.com/electron/electron/search?q=fixme
+Строка `FIXME` используется в комментариях к коду для обозначения вещей, которые должны быть исправлены в будущих релизах. Смотрите https://github.com/electron/electron/search?q=fixme
 
-# Planned Breaking API Changes (4.0)
+# Запланированные критические изменения API (4.0)
 
-The following list includes the breaking API changes planned for Electron 4.0.
+Данный список включает в себя критические изменения в API, запланированные для Electron 4.0.
 
 ## `app.makeSingleInstance`
 
 ```js
-// Deprecated
+// Устарело
 app.makeSingleInstance(function (argv, cwd) {
 
 })
-// Replace with
+// Заменить на
 app.requestSingleInstanceLock()
 app.on('second-instance', function (argv, cwd) {
 
@@ -27,15 +27,15 @@ app.on('second-instance', function (argv, cwd) {
 ## `app.releaseSingleInstance`
 
 ```js
-// Deprecated
+// Устарело
 app.releaseSingleInstance()
-// Replace with
+// Заменить на
 app.releaseSingleInstanceLock()
 ```
 
-# Breaking API Changes (3.0)
+# Критические изменения API (3.0)
 
-The following list includes the breaking API changes in Electron 3.0.
+Данный список включает в себя критические изменения в API для Electron 3.0.
 
 ## `app`
 
