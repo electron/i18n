@@ -54,7 +54,7 @@ community:
 releases:
   title: Релизы Electron
   all_releases: Все релизы
-  back_to_index: Back to index
+  back_to_index: Вернуться к содержанию
 electron_is_easy:
   title: Это проще, чем вы думаете
   description: 'Если Вы можете сделать сайт, то Вы сможете сделать приложение. Electron это фреймворк для создания нативных приложений с веб-технологиями, такими как: JavaScript, HTML и CSS. Он заботится о трудных частях, так что вы можете сосредоточиться на главных элементах Вашего приложения.'
@@ -116,12 +116,12 @@ apps:
   downloads: Загрузки
   keywords: Ключевые слова
   license: Лицензия
-  latest_release: Latest Release
+  latest_release: Последний релиз
 blog:
   title: Блог Electron
   description: Все последние новости от команды Electron и сообщества.
-  feedback: Have feedback on this post? Let <a href="https://twitter.com/electronjs">@electronjs</a> know on Twitter.
-  help: Need help or found a bug? <a href="/contact">Contact us
+  feedback: Есть мысли по поводу этой публикации? Дайте <a href="https://twitter.com/electronjs">@electronjs</a> об этом знать на Twitter.
+  help: Нужна помощь или вы нашли баг? <a href="/contact">Свяжитесь с нами
 clipboard:
   copy: Копировать
   copy_to_clipboard: Копировать в буфер обмена
