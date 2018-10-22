@@ -52,8 +52,8 @@ community:
   awesome_notice: Этот список генерируется из репозитория <a href="https://github.com/sindresorhus/awesome-electron">Awesome Electron от @sindresorhus</a>. <br> Что-то пропустили? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Сделайте pull request</a>.
   meetup_notice: Чтобы добавить встречу, отредактируйте <code>data/meetups.json</code> и <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">сделайте pull request</a>.
 releases:
-  title: Electron Releases
-  all_releases: All Releases
+  title: Релизы Electron
+  all_releases: Все релизы
   back_to_index: Back to index
 electron_is_easy:
   title: Это проще, чем вы думаете
@@ -107,15 +107,15 @@ apps:
   submit_your_own: опубликовать своё
   something_missing: Что-то отсутствует?
   edit_this_app: Измените это приложение.
-  search_app: Filter apps by name, description, etc…
-  categories: Categories
-  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
-  website: Website
-  repository: Repository
-  category: Category
-  downloads: Downloads
-  keywords: Keywords
-  license: License
+  search_app: Отфильтровать приложения по имени, описанию и так далее…
+  categories: Категории
+  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Создайте Pull Request</a>, чтобы добавить свое приложение.'
+  website: Веб-сайт
+  repository: Репозитарий
+  category: Категория
+  downloads: Загрузки
+  keywords: Ключевые слова
+  license: Лицензия
   latest_release: Latest Release
 blog:
   title: Блог Electron
