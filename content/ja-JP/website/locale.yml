@@ -121,7 +121,7 @@ blog:
   title: Electron ブログ
   description: Electron チームとコミュニティからの最新情報
   feedback: Have feedback on this post? Let <a href="https://twitter.com/electronjs">@electronjs</a> know on Twitter.
-  help: Need help or found a bug? <a href="/contact">Contact us
+  help: サポートが必要ですか、または不具合を見つけましたか？<a href="/contact">お問い合わせ
 clipboard:
   copy: コピー
   copy_to_clipboard: クリップボードにコピー
