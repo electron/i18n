@@ -14,7 +14,7 @@
 
 1. 議論のためにイシューをつくる: もしあなたがElectronの新たな不具合を見つけたと思ったら、`electron/electron`の課題トラッカーに新しいイシューをつくってそれを報告することを推奨します。
 2. 問題の選別を手伝う: あなたは補助的な詳細 (不具合を再現することのできるテストケース) を提供したり、この問題に対処するための提案を行うことによって、問題の選別を手伝うことができます。
-3. By helping to resolve the issue: This can be done by demonstrating that the issue is not a bug or is fixed; but more often, by opening a pull request that changes the source in `electron/electron` in a concrete and reviewable manner.
+3. 問題の解決を手伝う: 問題はそれが不具合ではなかったり修正されていると示すことでも解決されますが、より多くは具体的かつレビュー可能な方法で`electron/electron`のソースコードに変更を加えるプルリクエストを送ることによって解決されます。
 
 ## 一般的なヘルプ
 
