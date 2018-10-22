@@ -18,7 +18,7 @@ Electron имеет свой собственный [форк Node](https://gith
 
 1. Обновить форк Node для Electron на нужную версию
 2. Сделать бэкпорт Node патчей для V8 на нашу копию V8
-3. Update the GN build files, porting changes from node's GYP files
+3. Обновите файлы сборки GN, портируя изменения из GYP файлов Node
 4. Обновить зависимости Electron для использования новой версии Node (прим. пер. возможно DEPS в оригинале не означает зависимости)
 
 ## Updating Electron's Node [fork](https://github.com/electron/node)
