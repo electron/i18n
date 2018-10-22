@@ -10,10 +10,10 @@
 
 ## Посібники та Підручники
 
-* [Настроювання Середовища Розробки](tutorial/development-environment.md) 
-  * [Настроювання macOS](tutorial/development-environment.md#setting-up-macos)
-  * [Настроювання Windows](tutorial/development-environment.md#setting-up-windows)
-  * [Настроювання Linux](tutorial/development-environment.md#setting-up-linux)
+* [Налаштовування Середовища Розробки](tutorial/development-environment.md) 
+  * [Налаштовування macOS](tutorial/development-environment.md#setting-up-macos)
+  * [Налаштовування Windows](tutorial/development-environment.md#setting-up-windows)
+  * [Налаштовування Linux](tutorial/development-environment.md#setting-up-linux)
   * [Вибір Редактора](tutorial/development-environment.md#a-good-editor)
 * [Створення вашого першого застосунку](tutorial/first-app.md) 
   * [Встановлення Electron](tutorial/first-app.md#installing-electron)
@@ -65,7 +65,7 @@
   * [Контрольний Список Безпеки](tutorial/security.md#checklist-security-recommendations)
 * [Оновлення](tutorial/updates.md) 
   * [Розгортання на Сервері для Оновлень](tutorial/updates.md#deploying-an-update-server)
-  * [Реалізація Оновлення в Вашому Застосунку](tutorial/updates.md#implementing-updates-in-your-app)
+  * [Реалізація Оновлення у Вашому Застосунку](tutorial/updates.md#implementing-updates-in-your-app)
   * [Застосування Оновлень](tutorial/updates.md#applying-updates)
 
 ## Докладні Підручники
