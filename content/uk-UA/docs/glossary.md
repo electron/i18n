@@ -14,11 +14,11 @@ Brightray [була](https://github.com/electron-archive/brightray) статич
 
 ### CRT
 
-Бібліотека C Run-time (CRT) є частиною стандартної бібліотеки C++ яка включає стандартну бібліотеку ISO C99. Бібліотеки Visual C++, які реалізують CRT підтримку нативної розробки коду, нативний змішаний та керований код, а також чистий керований код для розробки .NET.
+Бібліотека C Run-time (CRT) є частиною стандартної бібліотеки C++, яка включає стандартну бібліотеку ISO C99. Бібліотеки Visual C++, які реалізують CRT підтримку нативної розробки коду, нативний змішаний та керований код, а також чистий керований код для розробки .NET.
 
 ### DMG
 
-Apple Disk Image (DMG) это пакетний формат, який використовується в macOS. DMG файли зазвичай використовуються для поширення програми «установника». [electron-builder](https://github.com/electron-userland/electron-builder) підтримує `dmg` формат як ціль побудови/компіляції.
+Apple Disk Image (DMG) — це пакетний формат, який використовується в macOS. DMG файли зазвичай використовуються для поширення програми «установника». [electron-builder](https://github.com/electron-userland/electron-builder) підтримує `dmg` формат як ціль побудови/компіляції.
 
 ### IME
 
@@ -30,7 +30,7 @@ Input Method Editor. Це програма, яка дозволяє корист
 
 ### IPC
 
-IPC (Inter-Process Communication) це набір засобів для комунікації або взаємодії між процесами. Electron використовує IPC для відправки серіалізованих JSON повідомлень між [main](#main-process) та [renderer](#renderer-process) процесами.
+IPC (Inter-Process Communication) — це набір засобів для комунікації або взаємодії між процесами. Electron використовує IPC для відправки серіалізованих JSON повідомлень між [main](#main-process) та [renderer](#renderer-process) процесами.
 
 ### libchromiumcontent
 
@@ -60,15 +60,15 @@ An IPC system for communicating intra- or inter-process, and that's important be
 
 ### native modules
 
-Нативні модулі(ще називають [аддонами](https://nodejs.org/api/addons.html) в Node.js) є модулями написаними на C або C++ що можуть бути загружені в Node.js або Electron використовує функцію require(), і використовує, як звичайний модуль Node.js. Вони зазвичай використовуються для надання зв'язку між JavaScript, який запущені в Node.js та C/C++ бібліотек.
+Нативні модулі(ще називають [аддонами](https://nodejs.org/api/addons.html) в Node.js) є модулями написаними на C або C++ що можуть бути завантажені в Node.js або Electron використовує функцію require(), і використані, як звичайний модуль Node.js. Вони зазвичай використовуються для надання зв'язку між JavaScript, який запущені в Node.js та C/C++ бібліотек.
 
-Нативні модулі Node підтримуються Electron, але так як Electron скоріш за все використовує відмінну версію V8 від тієї що в Node встановленого у вашій системі, вам потрібно вручну визначити розташування заголовків Electron при побудові нативних модулів.
+Нативні модулі Node підтримуються Electron, але так як Electron скоріш за все використовує відмінну версію V8 від тієї що у встановленого Node у вашій системі, вам потрібно вручну визначити розташування заголовків Electron при побудові нативних модулів.
 
 Дивіться також [Використання Нативних Модулів Node](tutorial/using-native-node-modules.md).
 
 ### NSIS
 
-Nullsoft Scriptable Install System це керований скриптом інсталятор для Microsoft Windows. Випускається під комбінацією вільних прикладних ліцензій і гироко використовується як альтернатива комерційним пропрієтарним продуктам таким як InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) підтримує NSIS як ціль побудови.
+Nullsoft Scriptable Install System це керований скриптом інсталятор для Microsoft Windows. Випускається під комбінацією вільних прикладних ліцензій і широко використовується як альтернатива комерційним пропрієтарним продуктам таким як InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) підтримує NSIS як ціль побудови.
 
 ### OSR
 
