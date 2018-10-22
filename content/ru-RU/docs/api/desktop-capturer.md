@@ -1,6 +1,6 @@
 # desktopCapturer
 
-> Access information about media sources that can be used to capture audio and video from the desktop using the [`navigator.mediaDevices.getUserMedia`] API.
+> Получает информацию о медиа ресурсах, которые могут быть использованы для записи аудио и видео с рабочего стола, при использовании API [`navigator.mediaDevices.getUserMedia`].
 
 Процесс: [Renderer](../glossary.md#renderer-process)
 
