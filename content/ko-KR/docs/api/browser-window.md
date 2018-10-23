@@ -1,6 +1,6 @@
 # BrowserWindow
 
-> Create and control browser windows.
+> 브라우저 윈도우를 생성하고 제어합니다.
 
 프로세스:[Main](../glossary.md#main-process)
 
@@ -109,7 +109,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 ## Class: BrowserWindow
 
-> Create and control browser windows.
+> 브라우저 윈도우를 생성하고 제어합니다.
 
 프로세스:[Main](../glossary.md#main-process)
 
@@ -660,7 +660,7 @@ Disable or enable the window.
 * `height` Integer
 * `animate` Boolean (optional) *macOS*
 
-Resizes the window to `width` and `height`.
+Resizes the window to `width` and `height`. If `width` or `height` are below any set minimum size constraints the window will snap to its minimum size.
 
 #### `win.getSize()`
 
