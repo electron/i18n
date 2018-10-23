@@ -28,7 +28,7 @@ $ mkdir -p "${GIT_CACHE_PATH}"
 # Это будет использовать примерно 16 гигабайт.
 ```
 
-> **NOTE**: the git cache will set the `origin` of the `src/electron` repository to point to the local cache, instead of the upstream git repository. This is undesirable when running `git push`—you probably want to push to github, not your local cache. To fix this, from the `src/electron` directory, run:
+> **ПРИМ.**: Кэш git устанавливается в `origin` репозитория `src/electron` чтобы указывать на локальный кэш, а не репозиторий апстрима в git. Это нежелательно при запуске `git push` - с большой вероятностью вы захотите пушить на github, а не в свой локальный кеш. Чтобы исправить это, из каталога `src/electron` запустите:
 
 ```sh
 $ git remote set-url origin https://github.com/electron/electron
@@ -36,7 +36,7 @@ $ git remote set-url origin https://github.com/electron/electron
 
 ### sccache
 
-Thousands of files must be compiled to build Chromium and Electron. You can avoid much of the wait by reusing Electron CI's build output via [sccache](https://github.com/mozilla/sccache). This requires some optional steps (listed below) and these two environment variables:
+Для сборки Chromium и Electron компилируются тысячи файлов. Вы можете избежать большей части ожидания, повторно используя вывод сборки Electron CI через [sccache](https://github.com/mozilla/sccache). Для этого требуются некоторые необязательные шаги (перечисленные ниже) и эти две переменные среды:
 
 ```sh
 export SCCACHE_BUCKET="electronjs-sccache"
@@ -55,6 +55,30 @@ $ gclient sync --with_branch_heads --with_tags
 # Это займёт некоторое время, идите и налейте себе кофейку.
 ```
 
+> Instead of `https://github.com/electron/electron`, you can use your own fork here (something like `https://github.com/<username>/electron`).
+
+#### A note on pulling/pushing
+
+If you intend to `git pull` or `git push` from the official `electron` repository in the future, you now need to update the respective folder's origin URLs.
+
+```sh
+$ cd src/electron
+$ git remote remove origin
+$ git remote add origin https://github.com/electron/electron
+$ git branch --set-upstream-to=origin/master
+$ cd -
+```
+
+:memo: `gclient` works by checking a file called `DEPS` inside the `src/electron` folder for dependencies (like Chromium or Node.js). Running `gclient sync -f` ensures that all dependencies required to build Electron match that file.
+
+So, in order to pull, you'd run the following commands:
+
+```sh
+$ cd src/electron
+$ git pull
+$ gclient sync -f
+```
+
 ## Сборка
 
 ```sh
@@ -63,6 +87,14 @@ $ export CHROMIUM_BUILDTOOLS_PATH=`pwd`/buildtools
 # this next line is needed only if building with sccache
 $ export GN_EXTRA_ARGS="${GN_EXTRA_ARGS} cc_wrapper=\"${PWD}/electron/external_binaries/sccache\""
 $ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_ARGS"
+```
+
+Or on Windows (without the optional argument):
+
+```sh
+$ cd src
+$ set CHROMIUM_BUILDTOOLS_PATH=%cd%\buildtools
+$ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\")"
 ```
 
 This will generate a build directory `out/Debug` under `src/` with debug build configuration. You can replace `Debug` with another name, but it should be a subdirectory of `out`. Also you shouldn't have to run `gn gen` again—if you want to change the build arguments, you can run `gn args out/Debug` to bring up an editor.
