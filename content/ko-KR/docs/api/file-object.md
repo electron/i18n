@@ -1,6 +1,6 @@
 # `File` 객체
 
-> Use the HTML5 `File` API to work natively with files on the filesystem.
+> 파일 시스템에 있는 파일이 네이티브하게 작동하기 위해, HTML5 `파일`API를 사용합니다.
 
 The DOM's File interface provides abstraction around native files in order to let users work on native files directly with the HTML5 file API. Electron has added a `path` attribute to the `File` interface which exposes the file's real path on filesystem.
 
@@ -8,7 +8,7 @@ The DOM's File interface provides abstraction around native files in order to le
 
 ```html
 <div id="holder">
-  Drag your file here
+  파일을 여기로 끌어다놓으세요
 </div>
 
 <script>
