@@ -4,24 +4,27 @@ Follow the guidelines below for building Electron on Windows.
 
 ## Wymagania
 
-* Windows 10 / Server 2012 R2 lub wyżej
-* Visual Studio 2017 15.7.2 or higher - [download VS 2017 Community Edition for free](https://www.visualstudio.com/vs/)
-* [Python 2.7](http://www.python.org/download/releases/2.7/)
+* Windows 10 / Server 2012 R2 lub nowszy
+* Visual Studio 2017 15.7.2 lub nowszy - [pobierz VS 2017 Community Edition za darmo](https://www.visualstudio.com/vs/)
+* [Python 2.7.10 or higher](http://www.python.org/download/releases/2.7/) 
+  * Contrary to the `depot_tools` setup instructions linked below, you will need to use your locally installed Python with at least version 2.7.10 (with support for TLS 1.2). To do so, make sure that in **PATH**, your locally installed Python comes before the `depot_tools` folder. Right now `depot_tools` still comes with Python 2.7.6, which will cause the `gclient` command to fail (see https://crbug.com/868864).
+  * [Python for Windows (pywin32) Extensions](https://pypi.org/project/pywin32/#files) is also needed in ordner to run the build process.
 * [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
-* [Debugging Tools for Windows](https://msdn.microsoft.com/en-us/library/windows/hardware/ff551063.aspx) if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` files.
+* Debugging Tools for Windows of Windows SDK 10.0.15063.468 if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` files. 
+  * Different versions of the SDK can be installed side by side. To install the SDK, open Visual Studio Installer, select `Change` → `Individual Components`, scroll down and select the appropriate Windows SDK to install. Another option would be to look at the [Windows SDK and emulator archive](https://developer.microsoft.com/de-de/windows/downloads/sdk-archive) and download the standalone version of the SDK respectively.
 
-If you don't currently have a Windows installation, [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) has timebombed versions of Windows that you can use to build Electron.
+Jeżeli nie posiadasz aktualnie instalacji Windowsa [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) posiada wersje, które możesz użyć aby zbudować Electron.
 
-Building Electron is done entirely with command-line scripts and cannot be done with Visual Studio. Możesz rozwijać Electron z każdym edytorem, ale wsparcie dla budowy z Visual Studio powstanie w przyszłości.
+Budowanie Electrona odbywa się w pełni przy użyciu skryptów wiersza poleceń i nie może zostać wykonane w Visual Studio. Możesz rozwijać Electron z każdym edytorem, ale wsparcie dla budowy z Visual Studio powstanie w przyszłości.
 
-**Note:** Even though Visual Studio is not used for building, it's still **required** because we need the build toolchains it provides.
+**Uwaga:** Mimo tego, że Visual Studio nie jest używane do budowania, jest ono **potrzebne** ponieważ potrzebujemy narzędzi budowania, które dostarcza.
 
 ## Kompilowanie
 
-See [Build Instructions: GN](build-instructions-gn.md)
+See [Instrukcje Budowania (Ogólne)](build-instructions-gn.md)
 
-## 32bit Build
+## Budowanie 32bit
 
 To build for the 32bit target, you need to pass `target_cpu = "x86"` as a GN arg. You can build the 32bit target alongside the 64bit target by using a different output directory for GN, e.g. `out/Release-x86`, with different arguments.
 
@@ -31,7 +34,7 @@ $ gn gen out/Release-x86 --args="import(\"//electron/build/args/release.gn\") ta
 
 Inne kroki budowania są dokładnie takie same.
 
-## Visual Studio project
+## Projekt Visual Studio
 
 To generate a Visual Studio project, you can pass the `--ide=vs2017` parameter to `gn gen`:
 
@@ -43,7 +46,7 @@ $ gn gen out/Debug --ide=vs2017
 
 ### Komenda xxxx nie znaleziona
 
-Jeśli wystąpił bład taki ajk `Komenda xxxx nie znaleziona`, możesz spróbować użyć kompilacji skryptów za pomocą konsoli `Wiersza polecenia VS2015`.
+Jeśli wystąpił bład taki jak `Komenda xxxx nie znaleziona`, możesz spróbować użyć kompilacji skryptów za pomocą `Wiersza polecenia VS2015`.
 
 ### Błąd krytyczny wewnętrznego kompilatora: C1001
 
