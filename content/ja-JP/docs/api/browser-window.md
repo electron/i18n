@@ -659,7 +659,7 @@ HDビデオプレーヤーと関連したコントロールを持つ通常のウ
 * `height` Integer
 * `animate` Boolean (任意) *macOS*
 
-ウインドウのサイズを `width` と `height` に変更します。
+Resizes the window to `width` and `height`. If `width` or `height` are below any set minimum size constraints the window will snap to its minimum size.
 
 #### `win.getSize()`
 
