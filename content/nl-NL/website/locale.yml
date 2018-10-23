@@ -51,7 +51,10 @@ community:
   meetups: Bijeenkomsten
   awesome_notice: Deze lijst is gegenereerd van <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repository.<br> Mist er iets? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Maak een pull request</a>.
   meetup_notice: Om een bijeenkomst toe te voegen, bewerk <code>data/meetups.json</code> en <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">maak een pull request</a>.
-releases: Releases
+releases:
+  title: Electron Releases
+  all_releases: All Releases
+  back_to_index: Back to index
 electron_is_easy:
   title: Het is makkelijker dan je denkt
   description: Als je een website kunt bouwen, kun je een desktop app bouwen. Electron is een framewerk voor het creëren van applicaties met webtechnologieën als JavaScript, HTML en CSS. Het zorgt zelf voor de moeilijke delen zodat jij je meer kunt richten op de kern van je applicatie.
@@ -104,6 +107,21 @@ apps:
   submit_your_own: dien je eigen in
   something_missing: Ontbreekt er iets?
   edit_this_app: Bewerk deze app.
+  search_app: Filter apps by name, description, etc…
+  categories: Categories
+  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
+  website: Website
+  repository: Repository
+  category: Category
+  downloads: Downloads
+  keywords: Keywords
+  license: License
+  latest_release: Latest Release
+blog:
+  title: Electron Blog
+  description: Al het laatste nieuws van het Electron team en de community.
+  feedback: Have feedback on this post? Let <a href="https://twitter.com/electronjs">@electronjs</a> know on Twitter.
+  help: Need help or found a bug? <a href="/contact">Contact us
 clipboard:
   copy: Kopieer
   copy_to_clipboard: Naar klembord kopiëren
