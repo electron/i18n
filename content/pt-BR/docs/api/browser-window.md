@@ -227,7 +227,7 @@ Objects created with `new BrowserWindow` emit the following events:
 
 **Note:** Some events are only available on specific operating systems and are labeled as such.
 
-#### Event: 'page-title-updated'
+#### Evento: 'page-title-updated'
 
 Retorna:
 
@@ -236,7 +236,7 @@ Retorna:
 
 Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing.
 
-#### Event: 'close'
+#### Evento: 'close'
 
 Retorna:
 
@@ -260,89 +260,89 @@ window.onbeforeunload = (e) => {
 
 ***Note**: There is a subtle difference between the behaviors of `window.onbeforeunload = handler` and `window.addEventListener('beforeunload', handler)`. It is recommended to always set the `event.returnValue` explicitly, instead of only returning a value, as the former works more consistently within Electron.*
 
-#### Event: 'closed'
+#### Evento: 'closed'
 
 Emitted when the window is closed. After you have received this event you should remove the reference to the window and avoid using it any more.
 
-#### Event: 'session-end' *Windows*
+#### Evento: 'session-end' *Windows*
 
 Emitted when window session is going to end due to force shutdown or machine restart or session log off.
 
-#### Event: 'unresponsive'
+#### Evento: 'unresponsive'
 
 Emitted when the web page becomes unresponsive.
 
-#### Event: 'responsive'
+#### Evento: 'responsive'
 
 Emitted when the unresponsive web page becomes responsive again.
 
-#### Event: 'blur'
+#### Evento: 'blur'
 
 Emitted when the window loses focus.
 
-#### Event: 'focus'
+#### Evento: 'focus'
 
 Emitted when the window gains focus.
 
-#### Event: 'show'
+#### Evento: 'show'
 
 Emitted when the window is shown.
 
-#### Event: 'hide'
+#### Evento: 'hide'
 
 Emitted when the window is hidden.
 
-#### Event: 'ready-to-show'
+#### Evento: 'ready-to-show'
 
 Emitted when the web page has been rendered (while not being shown) and window can be displayed without a visual flash.
 
-#### Event: 'maximize'
+#### Evento: 'maximize'
 
 Emitted when window is maximized.
 
-#### Event: 'unmaximize'
+#### Evento: 'unmaximize'
 
 Emitted when the window exits from a maximized state.
 
-#### Event: 'minimize'
+#### Evento: 'minimize'
 
 Emitted when the window is minimized.
 
-#### Event: 'restore'
+#### Evento: 'restore'
 
 Emitted when the window is restored from a minimized state.
 
-#### Event: 'resize'
+#### Evento: 'resize'
 
 Emitted when the window is being resized.
 
-#### Event: 'move'
+#### Evento: 'move'
 
 Emitted when the window is being moved to a new position.
 
 **Note**: On macOS this event is an alias of `moved`.
 
-#### Event: 'moved' *macOS*
+#### Evento: 'moved' *macOS*
 
 Emitted once when the window is moved to a new position.
 
-#### Event: 'enter-full-screen'
+#### Evento: 'enter-full-screen'
 
 Emitted when the window enters a full-screen state.
 
-#### Event: 'leave-full-screen'
+#### Evento: 'leave-full-screen'
 
 Emitted when the window leaves a full-screen state.
 
-#### Event: 'enter-html-full-screen'
+#### Evento: 'enter-html-full-screen'
 
 Emitted when the window enters a full-screen state triggered by HTML API.
 
-#### Event: 'leave-html-full-screen'
+#### Evento: 'leave-html-full-screen'
 
 Emitted when the window leaves a full-screen state triggered by HTML API.
 
-#### Event: 'app-command' *Windows*
+#### Evento: 'app-command' *Windows*
 
 Retorna:
 
@@ -659,7 +659,7 @@ Disable or enable the window.
 * `height` Integer
 * `animate` Boolean (optional) *macOS*
 
-Resizes the window to `width` and `height`.
+Resizes the window to `width` and `height`. If `width` or `height` are below any set minimum size constraints the window will snap to its minimum size.
 
 #### `win.getSize()`
 
