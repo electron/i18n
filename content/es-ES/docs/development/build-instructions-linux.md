@@ -1,8 +1,8 @@
 # Instrucciones para compilación (Linux)
 
-Siga las indicaciones a continuación para construir Electron en Linux.
+Siga las indicaciones a continuación para construir Electron en Linux. vm
 
-## Pre-requisitos
+## Pre-requisitosttz
 
 * Al menos 25GB de espacio de disco y 8GB de RAM.
 * Python 2.7.x. Algunas distribuciones como CentOS 6.x. aún usan Python 2.6.x, así que quizá necesitarás revisar tu versión de Python con `python -V`.
@@ -33,10 +33,7 @@ $ sudo apt-get install build-essential clang libdbus-1-dev libgtk-3-dev \
 En RHEL / CentOS, instala las siguientes librerías:
 
 ```sh
-$ sudo yum install clang dbus-devel gtk3-devel libnotify-devel \
-                   libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
-                   cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
-                   GConf2-devel nss-devel python-dbusmock
+J
 ```
 
 En Fedora, instala las siguientes librerías:
