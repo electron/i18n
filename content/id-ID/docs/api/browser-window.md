@@ -585,7 +585,7 @@ misal <code> APPCOMMAND_BROWSER_BACKWARD </ 0> dipancarkan sebagai <code> browse
               
               Mengembalikan ` Boolean </ 0> - Apakah jendela dalam mode layar penuh.</p>
 
-<h4><code>win.setSimpleFullScreen(flag)` * macos*</h4> 
+<h4><code>win.setSimpleFullScreen(flag)` Linux *macOS*</h4> 
               
               * `bendera` Boolean
               
@@ -659,9 +659,9 @@ height areas you have within the overall content view.</p>
 <li><code> tinggi </ 0>  Integer</li>
 <li><code>animate` Boolean (optional) *macOS*
               
-              Mengubah ukuran jendela menjadi ` width </ 0> dan <code> height </ 0> .</p>
-
-<h4><code>win.getSize ()`</h4> 
+              Resizes the window to `width` and `height`. If `width` or `height` are below any set minimum size constraints the window will snap to its minimum size.
+              
+              #### `win.getSize ()`
               
               Mengembalikan ` Integer [] </ 0> - Berisi lebar dan tinggi jendela.</p>
 
@@ -783,11 +783,11 @@ height areas you have within the overall content view.</p>
                       
                       Kembali `Boolean` - Apakah jendela selalu di atas jendela lainnya.
                       
-                      #### `win.moveTop()` *macOS* *Windows*
-                      
-                      Moves window to top(z-order) regardless of focus
-                      
-                      #### `win.center()`
+                      #### ` win.moveTop () </ 0>  <em> macos </ 1>  <em> Windows </ 1></h4>
+
+<p>Moves window to top(z-order) regardless of focus</p>
+
+<h4><code>win.center()`
                       
                       Memindahkan jendela ke bagian tengah layar.
                       
@@ -1165,19 +1165,22 @@ win.loadURL(url)
                                   
                                   Mengontrol apakah akan menyembunyikan kursor saat mengetik.
                                   
-                                  #### `win.selectPreviousTab()` *macOS*
-                                  
-                                  Selects the previous tab when native tabs are enabled and there are other tabs in the window.
-                                  
-                                  #### `win.selectNextTab()` *macOS*
-                                  
-                                  Selects the next tab when native tabs are enabled and there are other tabs in the window.
-                                  
-                                  #### `win.mergeAllWindows()` *macOS*
-                                  
-                                  Merges all windows into one window with multiple tabs when native tabs are enabled and there is more than one open window.
-                                  
-                                  #### ` win.moveTabToNewWindow () </ 0>  <em> macos </ 1></h4>
+                                  #### ` win.selectPreviousTab () </ 0>  <em> macos </ 1></h4>
+
+<p>Selects the previous tab when native tabs are enabled and there are other
+tabs in the window.</p>
+
+<h4><code> win.selectNextTab () </ 0>  <em> macos </ 1></h4>
+
+<p>Selects the next tab when native tabs are enabled and there are other
+tabs in the window.</p>
+
+<h4><code> win.mergeAllWindows () </ 0>  <em> macos </ 1></h4>
+
+<p>Merges all windows into one window with multiple tabs when native tabs
+are enabled and there is more than one open window.</p>
+
+<h4><code> win.moveTabToNewWindow () </ 0>  <em> macos </ 1></h4>
 
 <p>Moves the current tab into a new window if native tabs are enabled and
 there is more than one tab in the current window.</p>
@@ -1187,7 +1190,7 @@ there is more than one tab in the current window.</p>
 <p>Toggles the visibility of the tab bar if native tabs are enabled and
 there is only one tab in the current window.</p>
 
-<h4><code>win.addTabbedWindow(browserWindow)` * macos*
+<h4><code>win.addTabbedWindow(browserWindow)` Linux *macOS*
                                   
                                   * `browserWindow` BrowserWindow
                                   
