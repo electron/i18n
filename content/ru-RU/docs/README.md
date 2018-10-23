@@ -85,7 +85,7 @@
   * [Использование архива asar](tutorial/application-packaging.md#using-asar-archives)
   * [Ограничения](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Добавление распакованных файлов в архив asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [In Detail: Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [В деталях: Тестирование Widevine CDM](tutorial/testing-widevine-cdm.md)
 * [В деталях: Использование плагина Pepper Flash](tutorial/using-pepper-flash-plugin.md)
 * [Закадровый рендеринг](tutorial/offscreen-rendering.md)
 

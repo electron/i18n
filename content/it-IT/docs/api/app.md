@@ -438,7 +438,7 @@ Puoi richiedere i seguenti percorsi dal nome:
 </ul></li>
 </ul></li>
 <li><code>callback` Function 
-      * `error` Error
+      * `errore` Errore
       * `icona` [ImmagineNativa](native-image.md)
     
     Recupera un'icona associata al percorso.
@@ -553,7 +553,7 @@ Puoi richiedere i seguenti percorsi dal nome:
     
     ### `app.ottieniImpostazioniJumpList` *Windows*
     
-    Ritorna `Object`:
+    Restituisci `Oggetto`:
     
     * `miniElementi` Numero intero - Il minimo numero di elementi che saranno mostrati nella JumpList (per una più dettagliata descrizione di questo valore vedere [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
     * `Elementirimossi` [ElementiJumpList[]](structures/jump-list-item.md) - Insieme degli oggetti `ElementiJumpList` che corrisponde agli elementi esplicitamente rimossi dall'utente dalle categorie modificate nella Jump List. Questi elementi non possono essere nuovamente aggiunti alla Jump List alla **prossima** chiamata a `app.impostaJumpList()`, Windows non mostrerà alcuna categoria personalizzata che contenga alcuni valori rimossi.
@@ -785,7 +785,7 @@ Puoi richiedere i seguenti percorsi dal nome:
     
     * `impostazioni` Oggetto 
       * `apriAdAccesso` Booleano (opzionale) - `true` per aprire l'app all'accesso, `false` per rimuovere l'app come elemento di accesso. Di default a `false`.
-      * `openAsHidden` Boolean (optional) *macOS* - `true` per aprirew l'app come nascosta. Di default `false`. L'utente può editare questa impostazione dalle Preferenze di Sistema quindi `app.ottieniStatoAccessoElementi().eraApertoComeNascosto` potrebbe essere controllato quando l'app è aperta per conoscere il valore attuale. Questa opzione non è disponibile in [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+      * `openAsHidden` Boolean (optional) *macOS* - `true` per aprirew l'app come nascosta. Di default `false`. The user can edit this setting from the System Preferences so `app.getLoginItemSettings().wasOpenedAsHidden` should be checked when the app is opened to know the current value. Questa opzione non è disponibile in [MAS builds](../tutorial/mac-app-store-submission-guide.md).
       * `percorso` Stringa (opzionale) *Windows*. L'eseguibile al lancio all'accesso. Di default a `processo.eseguiPercorso`.
       * `arg` Stringa[] (opzionale) *Windows* - La linea di comando dell'argomento per passare all'eseguibile. Di default ad un insieme vuoto. Stai attento ad avvolgere i percorsi in quote.
     

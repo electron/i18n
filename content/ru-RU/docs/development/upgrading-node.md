@@ -1,25 +1,25 @@
 # Обновление Node
 
-## Discussion
+## Обсуждение
 
-Chromium and Node.js both depend on V8, and Electron contains only a single copy of V8, so it's important to ensure that the version of V8 chosen is compatible with the build's version of Node.js and Chromium.
+И Chromium и Node.js, зависят от V8. Electron содержит только одну копию V8, поэтому важно обеспечить совместимость версии V8 с версией сборки Node.js и Chromium.
 
-Upgrading Node is much easier than upgrading Chromium, so fewer conflicts arise if one upgrades Chromium first, then chooses the upstream Node release whose version of V8 is closest to the one Chromium contains.
+Обновление Node намного проще, чем обновление Chromium, поэтому возникнет меньше конфликтов, если сначала обновить Chromium, а затем выбрать апстрим Node, версия V8 которого ближе всего к обновленному Chromium.
 
-Electron has its own [Node fork](https://github.com/electron/node) with modifications for the V8 build details mentioned above and for exposing API needed by Electron. Once an upstream Node release is chosen, it's placed in a branch in Electron's Node fork and any Electron Node patches are applied there.
+Electron имеет свой собственный [форк Node](https://github.com/electron/node) с модификациями для билда V8, упомянутыми выше и предоставляющий API, который необходим для Electron. Как только выбран нужный апстрим Node, из него делается форк для Electron и все требуемые патчи применяются уже там.
 
-Another factor is that the Node project patches its version of V8. As mentioned above, Electron builds everything with a single copy of V8, so Node's V8 patches must be ported to that copy.
+Другим фактором является то, что проект Node исправляет версию V8. Как уже упоминалось выше, Electron собирает все с помощью единой копии V8, поэтому патчи Node для V8 должны быть применены в этой копии.
 
-Once all of Electron's dependencies are building and using the same copy of V8, the next step is to fix any Electron code issues caused by the Node upgrade.
+Как только все зависимости Electron будут собраны для использования одной и той же копии V8, следующий шаг - исправление любых проблем с кодом Electron, вызванных обновлением Node.
 
-[FIXME] something about a Node debugger in Atom that we (e.g. deepak) use and need to confirm doesn't break with the Node upgrade?
+[FIXME] что-то об отладчике Node в Atom, которое мы (например, deepak) используем и необходимость подтверждения не ломается с обновлением Node?
 
-So in short, the primary steps are:
+Короче говоря, основными шагами являются:
 
-1. Update Electron's Node fork to the desired version
-2. Backport Node's V8 patches to our copy of V8
-3. Update the GN build files, porting changes from node's GYP files
-4. Update Electron's DEPS to use new version of Node
+1. Обновить форк Node для Electron на нужную версию
+2. Сделать бэкпорт Node патчей для V8 на нашу копию V8
+3. Обновите файлы сборки GN, портируя изменения из GYP файлов Node
+4. Обновить зависимости Electron для использования новой версии Node (прим. пер. возможно DEPS в оригинале не означает зависимости)
 
 ## Updating Electron's Node [fork](https://github.com/electron/node)
 

@@ -354,7 +354,7 @@ Ang lahat ng mga window ay kaagad na magsasara kahit walang pahintulot ng user a
 
 ### `app.relaunch([options])`
 
-* `options` Na Bagay (opsyonal) 
+* `mga opsyon` Na Bagay (opsyonal) 
   * `args` String[] (optional)
   * `execPath` String (opsyonal)
 
@@ -428,12 +428,12 @@ Maaari mong hilingin ang mga sumusunod na landas sa pamamagitan ng pangalan:
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `options` Bagay (opsyonal) 
+* `mga opsyon` Na Bagay (opsyonal) 
   * `sukat` String 
     * `small` - 16x16
     * `normal` - 32x32
     * `large` - 48x48 sa *Linux*, 32x32 sa *Windows*, hindi suportado sa *macOS*.
-* `callback` Punsyon 
+* `callback` Function 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
@@ -780,7 +780,7 @@ Nagbabalik ng mga `bagay`:
 
 * `mga setting` Bagay 
   * `openAtLogin` Boolean (opsyonal) - `true` para buksan ang app sa pag-login, `false` para tanggalin ang app bilang aytem sa pag-login. Mga default sa `false`.
-  * `openAsHidden` Boolean (optional) *macOS* - `true` to open the app as hidden. Mga default sa `false`. Maaaring i-edit ng user ang setting na ito mula sa System Preferences kaya `app.getLoginitemStatus().wasOpenedAsHidden` ay dapat namasuri kapag ang app ay nabuksan para malaman ang kasalukuyang halaga. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+  * `openAsHidden` Boolean (optional) *macOS* - `true` to open the app as hidden. Mga default sa `false`. The user can edit this setting from the System Preferences so `app.getLoginItemSettings().wasOpenedAsHidden` should be checked when the app is opened to know the current value. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
   * `path` String (opsyonal) *Windows* - Ang maipapatupad para maglunsad sa login. Ay mga default sa `process.execPath`.
   * `args` String[] (opsyonal) *Windows* - Ang mga argumento ng command-line na ipapasa sa ipinapatupad. Mga default sa isang walang lamang hanay. Alalayan para isama ang mga landas sa mga quote.
 
@@ -866,7 +866,7 @@ Ang pinaghalong paraan ng sandbox sa app ay pinagana.
 
 Ang pamamaraang ito ay maaari lamang matawag bago ang app ay handa na.
 
-### `app.isInApplicationsFolder()` *macOS* 
+### `app.isInApplicationsFolder()` *macOS*
 
 Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
 

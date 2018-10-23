@@ -21,7 +21,7 @@ El objeto `app` emite los siguientes eventos:
 
 Emitido cuando la aplicación ha terminado su iniciación básica. En windows y Linux el evento `will-finish-launching` es el mismo que el evento `ready`; en macOS este evento representa la notificación `applicationWillFinishLaunching` de `NSApplication`. Normalmente configurará aquí los receptores para los eventos `open-file` y `open-url`, e iniciará el informador de errores y el actualizador automático.
 
-In most cases, you should do everything in the `ready` event handler.
+En la mayoría de los casos usted debe hacer todo desde el controlador del evento `ready`.
 
 ### Evento: 'ready'
 
@@ -294,7 +294,7 @@ Devuelve:
 
 Es emitido cuando el proceso de la gpu se crashea o es terminado.
 
-### Event: 'accessibility-support-changed' *macOS* *Windows*
+### Evento: 'accessibility-support-changed' *macOS* *Windows*
 
 Devuelve:
 
@@ -320,7 +320,7 @@ app.on('session-created', (event, session) => {
 })
 ```
 
-### Event: 'second-instance'
+### Evento: 'second-instance'
 
 Devuelve:
 
@@ -328,15 +328,15 @@ Devuelve:
 * `argv` Cadena[] - Un arreglo de las líneas de argumentos de comandos de segunda instancia
 * `workingDirectory` Cadena - El directorio de trabajo de segunda instancia
 
-This event will be emitted inside the primary instance of your application when a second instance has been executed. `argv` es un arreglo de las líneas de argumentos de segunda instancia, y `workingDirectory` es su directorio de trabajo actual. Usualmente las aplicaciones responden a esto haciendo su ventana principal concentrada y no minimizada.
+Este evento será emitido dentro de la instancia principal de la aplicación cuando se ha ejecutado una segunda instancia. `argv` es un arreglo de las líneas de argumentos de segunda instancia, y `workingDirectory` es su directorio de trabajo actual. Usualmente las aplicaciones responden a esto haciendo su ventana principal concentrada y no minimizada.
 
-This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
+Este evento garantiza que se ejecute después del evento `ready` de `app` para ser emitido.
 
 ## Métodos
 
 El objeto `app` tiene los siguientes métodos:
 
-**Note:** Algunos métodos solo están disponibles es sistemas operativos específicos y son etiquetados como tal.
+**Nota:** Algunos métodos solo están disponibles es sistemas operativos específicos y son etiquetados como tal.
 
 ### `app.quit()`
 
@@ -381,7 +381,7 @@ Devuelve `Boolean` - `true` Si Electron se ha inicializado correctamente, de lo 
 
 ### `app.whenReady()`
 
-Returns `Promise` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
+Devuelve el método `Promise` - cuando Electrón se ha inicializado completamente. También puede ser utilizado para comprobar el estado de: `app.isReady()` y registrar al evento `ready` si la aplicación aun no esta lista.
 
 ### `app.focus()`
 
@@ -637,9 +637,9 @@ Devuelve `Boolean`
 
 Este método hace de tu aplicación una de segunda instancia - además de permitir que tu aplicación se ejecuta de muchas instancias, esto asegurará que solo una instancia única de tu aplicación se esté ejecutando, y otras señales de instancias a esta instancia y sale.
 
-The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock you can assume that another instance of your application is already running with the lock and exit immediately.
+El valor devuelto de este método indica si esta instancia de su aplicación obtuvo con éxito el bloqueo. Si no pudo obtener el bloqueo se puede asumir que ya se está ejecutando otra instancia de la aplicación con el bloqueo y salir inmediatamente.
 
-I.e. This method returns `true` if your process is the primary instance of your application and your app should continue loading. It returns `false` if your process should immediately quit as it has sent its parameters to another instance that has already acquired the lock.
+Este método retorna `true` si el proceso es de primera instancia en su aplicación y esta debe continuar la carga. Retorna `false` si su proceso deja inmediatamente de enviar parámetros a otra instancia que ya haya adquirido el bloqueo con anterioridad.
 
 En macOS, el sistema fuerza instancias únicas automáticamente cuando los usuarios intentan abrir una segunda instancia de tu aplicación en Finder, y los eventos `open-file` y `open-url` serán emitidos por eso. Como sea, cuando los usuarios inicien tu aplicación en línea de comando, los mecanismos de instancia única del sistema serán puenteados y tendrás que usar este método para asegurar la única instancia.
 
@@ -647,22 +647,23 @@ Un ejemplo de activar la ventana de la instancia primaria cuando una de segunda 
 
 ```javascript
 const {app} = require('electron')
-let myWindow = null
+let miVentana = null
 
-const gotTheLock = app.requestSingleInstanceLock()
+const obtenerBloqueo = app.requestSingleInstanceLock()
 
-if (!gotTheLock) {
+if (!obtenerBloqueo) {
   app.quit()
 } else {
   app.on('second-instance', (event, commandLine, workingDirectory) => {
-    // Someone tried to run a second instance, we should focus our window.
-    if (myWindow) {
-      if (myWindow.isMinimized()) myWindow.restore()
-      myWindow.focus()
+    // Si alguien intentó ejecutar un segunda instancia, debemos
+ //enfocarnos en nuestra ventana principal.
+    if (miVentana) {
+      if (miVentana.isMinimized()) miVentana.restore()
+      miVentana.focus()
     }
   })
 
-  // Create myWindow, load the rest of the app, etc...
+  // Crear miVentana, esto cargara el resto de la aplicación, etc...
   app.on('ready', () => {
   })
 }
@@ -729,7 +730,7 @@ Este método solo puede ser llamado despues de iniciada la aplicación.
 
 Por defecto, Chromium desactiva 3D APIs (ej., WebGL) hasta reiniciar por dominio si el proceso de GPU crashea frecuentemente. Esta función desactiva ese comportamiento.
 
-Este método solo puede ser llamado después de iniciada la aplicación.
+Este método solo puede ser llamado despues de iniciada la aplicación.
 
 ### `app.getAppMetrics()`
 
@@ -767,7 +768,7 @@ Devuelve `Boolean` - Aunque el ambiente del escritorio actual sea un ejecutador 
 
 Si tú has dado las opciones `path` y `args` a `app.setLoginItemSettings` entonces tú necesitas pasar los mismos argumentos aquí para `openAtLogin` para que se establezca correctamente.
 
-Devuelve `Objecto`:
+Devuelve `Objeto`:
 
 * `openAtLogin` Boolean - `true` si la aplicación es establecida para abrirse al iniciar.
 * `openAsHidden` Boolean *macOS* - `true` si la aplicación es establecida para abrirse como oculta al login. Esta configuración no está disponible en [builds para la tienda de aplicaciones de MAC](../tutorial/mac-app-store-submission-guide.md).
@@ -779,7 +780,7 @@ Devuelve `Objecto`:
 
 * `ajustes` Object 
   * `openAtLogin` Boolean (opcional) - `true` para abrir la aplicación al iniciar, `false` para eliminar la aplicación como un objeto de inicio. Por defecto a `false`.
-  * `openAsHidden` Boolean (optional) *macOS* - `true` abrirse la aplicación como oculta. Por defecto a `false`. El usuario puede editar este ajuste desde Preferencias del Sistema, así que `app.getLoginItemStatus().wasOpenedAsHidden` debería ser revisado cuando la aplicación sea abierta para saber el valor actual. Esta configuración no está disponible en [builds para la tienda de aplicaciones de MAC](../tutorial/mac-app-store-submission-guide.md).
+  * `openAsHidden` Boolean (optional) *macOS* - `true` abrirse la aplicación como oculta. Por defecto a `false`. The user can edit this setting from the System Preferences so `app.getLoginItemSettings().wasOpenedAsHidden` should be checked when the app is opened to know the current value. Esta configuración no está disponible en [builds para la tienda de aplicaciones de MAC](../tutorial/mac-app-store-submission-guide.md).
   * `path` String (opcional) *Windows* - El ejecutable para iniciar al iniciar. Por defecto a `process.execPath`.
   * `args` Cadena[] (opcional) *Windows* - Los argumentos de líneas de comando para pasar al ejecutable. Por defecto a un arreglo vacío. Ten cuidado de envolver los caminos en las citas.
 

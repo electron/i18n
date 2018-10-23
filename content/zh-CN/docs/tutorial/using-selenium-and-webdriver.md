@@ -13,33 +13,34 @@ $ npm install --save-dev spectron
 ```
 
 ```javascript
-// A simple test to verify a visible window is opened with a title
-var Application = require('spectron').Application
-var assert = require('assert')
+// 一个简单的验证测试和一个带标题的可是窗口
+const Application = require('spectron').Application
+const assert = require('assert')
 
-var app = new Application({
+const myApp = new Application({
   path: '/Applications/MyApp.app/Contents/MacOS/MyApp'
 })
 
-app.start().then(function () {
-  // Check if the window is visible
-  return app.browserWindow.isVisible()
-}).then(function (isVisible) {
-  // Verify the window is visible
-  assert.strictEqual(isVisible, true)
-}).then(function () {
-  // Get the window's title
-  return app.client.getTitle()
-}).then(function (title) {
-  // Verify the window's title
-  assert.strictEqual(title, 'My App')
-}).catch(function (error) {
-  // Log any failures
-  console.error('Test failed', error.message)
-}).then(function () {
-  // Stop the application
-  return app.stop()
-})
+const verifyWindowIsVisibleWithTitle = async (app) => {
+  await app.start()
+  try {
+    // 检查窗口是否可见
+    const isVisible = await app.browserWindow.isVisible()
+    // 验证窗口是否可见
+    assert.strictEqual(isVisible, true)
+    // 获取床就标题
+    const title = await app.client.getTitle()
+    // 验证窗口标题
+    assert.strictEqual(title, 'My App')
+  } catch (error) {
+    // 记录任何故障
+    console.error('Test failed', error.message)
+  }
+  // 停止应用
+  await app.stop()
+}
+
+verifyWindowIsVisibleWithTitle(myApp)
 ```
 
 ## 通过 WebDriverJs 配置

@@ -1,10 +1,10 @@
 # Горячие клавиши
 
-> Configure local and global keyboard shortcuts
+> Конфигурирование локальных и глобальных горячих клавиш
 
-## Local Shortcuts
+## Локальные горячие клавиши
 
-Вы можете использовать модуль [Menu](../api/menu.md) для настройки горячих клавиш, которые срабатывают только когда приложение активно. To do so, specify an [`accelerator`] property when creating a [MenuItem](../api/menu-item.md).
+Вы можете использовать модуль [Menu](../api/menu.md) для настройки горячих клавиш, которые срабатывают только когда приложение активно. Чтобы это сделать, укажите свойство [`accelerator`] при создании [MenuItem](../api/menu-item.md).
 
 ```js
 const { Menu, MenuItem } = require('electron')
@@ -17,7 +17,7 @@ menu.append(new MenuItem({
 }))
 ```
 
-You can configure different key combinations based on the user's operating system.
+Вы можете настраивать различные комбинации клавиш, которые позволяет операционная система пользователя.
 
 ```js
 {
@@ -27,7 +27,7 @@ You can configure different key combinations based on the user's operating syste
 
 ## Глобальные сочетания клавиш
 
-You can use the [globalShortcut](../api/global-shortcut.md) module to detect keyboard events even when the application does not have keyboard focus.
+Вы можете использовать модуль [globalShortcut](../api/global-shortcut.md) для обнаружения событий клавиатуры, даже если приложение не имеет клавиатурного фокуса.
 
 ```js
 const { app, globalShortcut } = require('electron')
@@ -39,15 +39,15 @@ app.on('ready', () => {
 })
 ```
 
-## Shortcuts within a BrowserWindow
+## Горячие клавиши в BrowserWindow
 
-If you want to handle keyboard shortcuts for a [BrowserWindow](../api/browser-window.md), you can use the `keyup` and `keydown` event listeners on the window object inside the renderer process.
+Если вы хотите обрабатывать сочетания клавиш для [BrowserWindow](../api/browser-window.md), вы можете использовать прослушиватели событий `keyup` и `keydown` в объекте window внутри процесса визуализации.
 
 ```js
 window.addEventListener('keyup', doSomething, true)
 ```
 
-Note the third parameter `true` which means the listener will always receive key presses before other listeners so they can't have `stopPropagation()` called on them.
+Обратите внимание на третий параметр `true`, который означает, что слушатель всегда будет получать нажатия клавиш перед другими слушателями, чтобы они не могли вызвать `stopPropagation ()`.
 
 The [`before-input-event`](../api/web-contents.md#event-before-input-event) event is emitted before dispatching `keydown` and `keyup` events in the page. It can be used to catch and handle custom shortcuts that are not visible in the menu.
 

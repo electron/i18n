@@ -26,15 +26,15 @@ In Electron, Node.js and Chromium share a single V8 instance—usually the versi
 
 ### Версии
 
-As of version 2.0 Electron [follows `semver`](https://semver.org). For most applications, and using any recent version of npm, running `$ npm install electron` will do the right thing.
+Като версията 2.0 на Electron [ следва ` semver`](https://semver.org). За повечето приложения, ползващи всяка скорошна версия на npm, използвайки `$ npm install electron` ще свърши работата.
 
-The version update process is detailed explicitly in our [Versioning Doc](electron-versioning.md).
+Този актуализиращ процес е детайлно обосновен в нашата [Версова Документация](electron-versioning.md).
 
-### LTS
+### ДНС
 
-Long term support of older versions of Electron does not currently exist. If your current version of Electron works for you, you can stay on it for as long as you'd like. If you want to make use of new features as they come in you should upgrade to a newer version.
+За момента не съществува поддръжка на по-стари версии на Electron. Ако сегашната версия на Electron работи перфектно за вас, то вие може да я използвате колкото пожелаете. Ако искате да използвате други нови опции, то вие трябва да актуализирате до най-новата версия.
 
-A major update came with version `v1.0.0`. If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electronjs.org/blog/electron-1-0).
+Най-голямата актуализация беше във версия `v1.0.0`. Ако все още не я ползвате, [ трябва да прочетете `v1.0.0` промените](https://electronjs.org/blog/electron-1-0).
 
 ## Core Philosophy
 

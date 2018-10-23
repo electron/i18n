@@ -66,7 +66,7 @@ Emitido quando uma atualização foi baixada.
 
 No Windows apenas o `releaseName` está disponível.
 
-### Event: 'before-quit-for-update'
+### Evento: 'before-quit-for-update'
 
 This event is emitted after a user calls `quitAndInstall()`.
 

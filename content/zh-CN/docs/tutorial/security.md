@@ -265,7 +265,12 @@ Electron 会处理 [`Content-Security-Policy` HTTP 标头](https://developer.moz
 const { session } = require('electron')
 
 session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
-  callback({ responseHeaders: `default-src 'none'` })
+  callback({
+    responseHeaders: {
+      ...details.responseHeaders,
+      'Content-Security-Policy': ['default-src \'none\'']
+    }
+  })
 })
 ```
 

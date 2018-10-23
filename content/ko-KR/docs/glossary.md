@@ -60,11 +60,11 @@ See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
 ### native modules
 
-Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used as if they were an ordinary Node.js module. They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
+Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used as if they were an ordinary Node.js module. 이들은 Node.js에서 실행되는 JavaScript와 C/C++ 라이브러리 사이의 인터페이스를 제공하기 위해 주로 사용됩니다.
 
-Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
+일랙트론은 노드의 네이티브 모듈을 지원하지만, 당신의 시스템에 설치된 노드와 다른 v8 버전을 사용해서 빌드할 가능성이 매우 높다. 따라서 네이티브 모듈을 빌드할 때는 반드시 수동으로 일랙트론의 헤더위치를 지정해야한다.
 
-See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
+[네이티브 노드 모듈 사용하기](tutorial/using-native-node-modules.md) 를 참고하기 바란다.
 
 ### NSIS
 

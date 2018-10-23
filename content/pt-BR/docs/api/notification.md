@@ -46,7 +46,7 @@ Objects created with `new Notification` emit the following events:
 
 **Note:** Some events are only available on specific operating systems and are labeled as such.
 
-#### Event: 'show'
+#### Evento: 'show'
 
 Retorna:
 
@@ -62,7 +62,7 @@ Retorna:
 
 Emitted when the notification is clicked by the user.
 
-#### Event: 'close'
+#### Evento: 'close'
 
 Retorna:
 

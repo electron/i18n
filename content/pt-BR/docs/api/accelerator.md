@@ -2,7 +2,7 @@
 
 > Definem atalhos de teclado.
 
-Accelerators are Strings that can contain multiple modifiers and a single key code, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
+Aceleradores são Strings que podem conter múltiplos modificadores e um código de teclas combinados pelo '`+`' e que são utilizados para definir atalhos de teclado para sua aplicação.
 
 Exemplos:
 

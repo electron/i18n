@@ -1,14 +1,14 @@
 # Отладка главного процесса
 
-The DevTools in an Electron browser window can only debug JavaScript that's executed in that window (i.e. the web pages). To debug JavaScript that's executed in the main process you will need to use an external debugger and launch Electron with the `--inspect` or `--inspect-brk` switch.
+DevTools, который открывается в окне браузера может отлаживать только тот JavaScript, который выполняется в этом окне (т.е. веб-страницы). Для отладки кода основного процесса вам нужно будет использовать внешний отладчик и запускать Electron с ключом `--inspect` или `--inspect-brk`.
 
 ## Параметры командной строки
 
-Use one of the following command line switches to enable debugging of the main process:
+Для отладки основного процесса используйте один из следующих параметров командной строки:
 
 ### `--inspect=[port]`
 
-Electron will listen for V8 inspector protocol messages on the specified `port`, an external debugger will need to connect on this port. The default `port` is `5858`.
+Electron будет прослушивать сообщения протокола инспектора V8 на указанном `порту`, внешний отладчик должен будет подключиться к этому порту. `Порт` по умолчанию - `5858`.
 
 ```shell
 electron --inspect=5858 ваше/приложение
@@ -16,11 +16,11 @@ electron --inspect=5858 ваше/приложение
 
 ### `--inspect-brk=[port]`
 
-Like `--inspect` but pauses execution on the first line of JavaScript.
+Работает так же, как `--inspect`, но останавливает выполнение в первой строке JavaScript.
 
 ## Внешние отладчики
 
-You will need to use a debugger that supports the V8 inspector protocol.
+Вам нужно будет использовать отладчик, поддерживающий протокол инспектора V8.
 
-- Connect Chrome by visiting `chrome://inspect` and selecting to inspect the launched Electron app present there.
+- Откройте `chrome://inspect` в Chrome и выберите для проверки запущенное приложение Electron.
 - [Отладка главного процесса в VSCode](debugging-main-process-vscode.md)

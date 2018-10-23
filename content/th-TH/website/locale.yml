@@ -51,7 +51,10 @@ community:
   meetups: พบเจอได้ที่
   awesome_notice: รายชื่อพวกนี้ถูกสร้างจาก <a href="https://github.com/sindresorhus/awesome-electron"> @sindresorhus's Awesome Electron </a> repository <br> มีอะไรหาย? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md"> สร้าง pull request สิ</a>
   meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">make a pull request</a>.
-releases: การเผยแพร่
+releases:
+  title: Electron Releases
+  all_releases: All Releases
+  back_to_index: Back to index
 electron_is_easy:
   title: ง่ายกว่าที่คุณคิด
   description: ถ้าคุณสร้างเว็บไซต์ได้ คุณก็สร้างเดสท็อปแอปได้ ซึ่ง Electron คือเฟรมเวิร์คสำหรับสร้างแอปด้วยเทคโนโลยีของเว็บไซต์ เช่น JavaScript, HTML และ CSS โดยที่เราจะจัดการส่วนที่ยากให้เอง คุณก็เพียงแต่เน้นไปที่ส่วนสำคัญของแอปของคุณเท่านั้น
@@ -104,6 +107,21 @@ apps:
   submit_your_own: ส่งของคุณเอง
   something_missing: มีอะไรหายเหรอ?
   edit_this_app: แก้ไขแอปนี้
+  search_app: Filter apps by name, description, etc…
+  categories: Categories
+  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
+  website: Website
+  repository: Repository
+  category: Category
+  downloads: Downloads
+  keywords: Keywords
+  license: License
+  latest_release: Latest Release
+blog:
+  title: บล๊อกของอิเล็กตรอน
+  description: รับข่าวสารจาก ทีมงานของอิเล็กตรอน และ ชุมชน
+  feedback: Have feedback on this post? Let <a href="https://twitter.com/electronjs">@electronjs</a> know on Twitter.
+  help: Need help or found a bug? <a href="/contact">Contact us
 clipboard:
   copy: Copy
   copy_to_clipboard: คัดลอกไปยังคลิปบอร์ด

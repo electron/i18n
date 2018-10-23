@@ -2,7 +2,7 @@
 
 > Definir atajos del teclado.
 
-Accelerators are Strings that can contain multiple modifiers and a single key code, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
+Los Atajos son strings que pueden contener múltiples modificadores y un único código clave, en combinación con el carácter `+` se utilizan para definir métodos abreviados de teclado a través de su aplicación.
 
 Ejemplos:
 

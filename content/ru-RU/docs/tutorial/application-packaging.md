@@ -1,8 +1,8 @@
 # Упаковка приложений
 
-To mitigate [issues](https://github.com/joyent/node/issues/6960) around long path names on Windows, slightly speed up `require` and conceal your source code from cursory inspection, you can choose to package your app into an [asar](https://github.com/electron/asar) archive with little changes to your source code.
+Для смягчения [проблем](https://github.com/joyent/node/issues/6960), связанных с длинными именами путей в Windows, небольшого ускорения `require` и скрытия исходного кода вы можете упаковать ваше приложение в [asar](https://github.com/electron/asar) архив с минимальными изменениями в исходном коде.
 
-Most users will get this feature for free, since it's supported out of the box by [`electron-packager`](https://github.com/electron-userland/electron-packager), [`electron-forge`](https://github.com/electron-userland/electron-forge), and [`electron-builder`](https://github.com/electron-userland/electron-builder). If you are not using any of these tools, read on.
+Для большинства пользователей это просто, потому что это поддерживается "из коробки" [`electron-packager`](https://github.com/electron-userland/electron-packager), [`electron-forge`](https://github.com/electron-userland/electron-forge), и [`electron-builder`](https://github.com/electron-userland/electron-builder). Если же вы не используете ни один из этих инструментов, читайте дальше.
 
 ## Generating `asar` Archives
 
@@ -24,11 +24,11 @@ $ asar pack your-app app.asar
 
 ## Использование архива `asar`
 
-In Electron there are two sets of APIs: Node APIs provided by Node.js and Web APIs provided by Chromium. Both APIs support reading files from `asar` archives.
+В Electron два набора API: Node API, предоставляемый Node.js и Web API, предоставляемый Chromium. Оба API поддерживают чтение файлов из архивов `asar`.
 
 ### Node API
 
-With special patches in Electron, Node APIs like `fs.readFile` and `require` treat `asar` archives as virtual directories, and the files in it as normal files in the filesystem.
+С помощью специальных патчей в Electron Node API, например, `fs.readFile` и `require` обрабатывают архивы `asar` как виртуальные каталоги, а файлы в нем - как обычные файлы в файловой системе.
 
 Например, предположим что у нас есть архив `example.asar` лежащий в `/path/to`:
 
@@ -62,7 +62,7 @@ fs.readdirSync('/path/to/example.asar')
 require('/path/to/example.asar/dir/module.js')
 ```
 
-You can also display a web page in an `asar` archive with `BrowserWindow`:
+Также вы можете открыть веб-страницу из `asar` архива с помощью `BrowserWindow`:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -73,9 +73,9 @@ win.loadURL('file:///path/to/example.asar/static/index.html')
 
 ### Web API
 
-In a web page, files in an archive can be requested with the `file:` protocol. Like the Node API, `asar` archives are treated as directories.
+В веб-странице файлы в архиве могут быть использованы через протокол `file:`. Как и в Node API, архивы `asar` обрабатываются как каталоги.
 
-For example, to get a file with `$.get`:
+Например, получение файла с помощью `$.get`:
 
 ```html
 <script>
@@ -86,16 +86,16 @@ $.get('file:///path/to/example.asar/file.txt', (data) => {
 </script>
 ```
 
-### Treating an `asar` Archive as a Normal File
+### Обработка архивов `asar` в качестве нормального файла
 
-For some cases like verifying the `asar` archive's checksum, we need to read the content of an `asar` archive as a file. For this purpose you can use the built-in `original-fs` module which provides original `fs` APIs without `asar` support:
+В некоторых случаях вроде проверки контрольной суммы `asar` архива, нам может потребоваться получить `asar` архив как обычный файл. Для этих целей вы можете использовать встроенный модуль `original-fs`, который предоставляет оригинальный интерфейс `fs` без поддержки обработки `asar`:
 
 ```javascript
 const originalFs = require('original-fs')
 originalFs.readFileSync('/path/to/example.asar')
 ```
 
-You can also set `process.noAsar` to `true` to disable the support for `asar` in the `fs` module:
+Также вы можете установить переменную `process.noAsar` в `true` для отключения поддержки `asar` в модуле `fs`:
 
 ```javascript
 const fs = require('fs')
@@ -103,23 +103,23 @@ process.noAsar = true
 fs.readFileSync('/path/to/example.asar')
 ```
 
-## Limitations of the Node API
+## Ограничения Node API
 
-Even though we tried hard to make `asar` archives in the Node API work like directories as much as possible, there are still limitations due to the low-level nature of the Node API.
+Несмотря на наши усилия сделать архивы `asar` в Node API максимально похожими на каталоги, по прежнему существуют ограничения из-за низкоуровневой природы Node API.
 
-### Archives Are Read-only
+### Архивы только для чтения
 
-The archives can not be modified so all Node APIs that can modify files will not work with `asar` archives.
+Архивы не могут быть модифицированы, поэтому все Node API, которые изменяют файлы, не будут работать с архивами `asar`.
 
-### Working Directory Can Not Be Set to Directories in Archive
+### Рабочий каталог не может быть задан как каталог в архиве
 
-Though `asar` archives are treated as directories, there are no actual directories in the filesystem, so you can never set the working directory to directories in `asar` archives. Passing them as the `cwd` option of some APIs will also cause errors.
+Хотя `asar` архивы и рассматриваются как каталоги, фактически в файловой системе их нет, поэтому вы никогда не сможете установить рабочий каталог в `asar` архиве. Передача их в качестве опций `cwd` некоторых API также приведет к ошибкам.
 
-### Extra Unpacking on Some APIs
+### Дополнительная распаковка некоторых API
 
-Most `fs` APIs can read a file or get a file's information from `asar` archives without unpacking, but for some APIs that rely on passing the real file path to underlying system calls, Electron will extract the needed file into a temporary file and pass the path of the temporary file to the APIs to make them work. This adds a little overhead for those APIs.
+Большинство API-интерфейсов `fs` могут читать файл или получать информацию из архивов `asar` без распаковки, но для некоторых API, которые полагаются на передачу реального пути к базовым системным вызовам, Electron будет извлекать необходимый файл во временный файл и передавать путь временного файл для API, чтобы заставить их работать. Это добавляет немного оверхэдов для этих API.
 
-APIs that requires extra unpacking are:
+Интерфейсы, которые требуют дополнительной распаковки:
 
 * `child_process.execFile`
 * `child_process.execFileSync`
@@ -127,24 +127,24 @@ APIs that requires extra unpacking are:
 * `fs.openSync`
 * `process.dlopen` - использует `require` на нативных модулях
 
-### Поддельная статистическая информация из `fs.stat`
+### Поддельная информация из `fs.stat`
 
-The `Stats` object returned by `fs.stat` and its friends on files in `asar` archives is generated by guessing, because those files do not exist on the filesystem. So you should not trust the `Stats` object except for getting file size and checking file type.
+Объект `Stats`, возвращаемый `fs.stat` из `asar` архивов генерируется "с потолка", поскольку этих файлов нет в реальной файловой системе. Поэтому единственное, чему вы можете доверять в таком объекте `Stats` - размер файла и его тип.
 
-### Executing Binaries Inside `asar` Archive
+### Выполнение бинарных файлов внутри архива `asar`
 
-There are Node APIs that can execute binaries like `child_process.exec`, `child_process.spawn` and `child_process.execFile`, but only `execFile` is supported to execute binaries inside `asar` archive.
+В Node APIs существуют интерфейсы, которые могут выполнять двоичные файлы, например `child_process.exec`, `child_process.spawn` и `child_process.execFile`, но только `execFile` способен выполнить бинарный файл из архива `asar`.
 
-This is because `exec` and `spawn` accept `command` instead of `file` as input, and `command`s are executed under shell. There is no reliable way to determine whether a command uses a file in asar archive, and even if we do, we can not be sure whether we can replace the path in command without side effects.
+This is because `exec` and `spawn` accept `command` instead of `file` as input, and `command`s are executed under shell. Нет надежного способа определить использует ли команда файл в asar-архиве и даже если мы это сделаем, то нет уверенности, можем ли мы заменить путь в команде без побочных эффектов.
 
-## Adding Unpacked Files to `asar` Archives
+## Добавление файлов в архив `asar`
 
-As stated above, some Node APIs will unpack the file to the filesystem when called. Apart from the performance issues, various anti-virus scanners might be triggered by this behavior.
+Как указано выше, некоторые Node API будут распаковывать файл в реальную файловую систему при вызове. Помимо проблем с производительностью это может вызвать срабатывание различных антивирусных сканеров.
 
-As a workaround, you can leave various files unpacked using the `--unpack` option. In the following example, shared libraries of native Node.js modules will not be packed:
+В качестве обходного пути вы можете оставлять некоторые файлы в незапакованном виде с помощью опции `--unpack`. В следующем примере общие библиотеки нативных модуле Node.js исключаются из запаковки и не будут включены в архив:
 
 ```sh
 $ asar pack app app.asar --unpack *.node
 ```
 
-After running the command, you will notice that a folder named `app.asar.unpacked` was created together with the `app.asar` file. It contains the unpacked files and should be shipped together with the `app.asar` archive.
+После выполнения этой команды вы обнаружите, что вместе с файлом `app.asar` была создана папка `app.asar.unpacked`. Она содержит незапакованные файлы и должна распространяться вместе с архивом `app.asar`.

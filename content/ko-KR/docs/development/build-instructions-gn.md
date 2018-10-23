@@ -55,6 +55,30 @@ $ gclient sync --with_branch_heads --with_tags
 # This will take a while, go get a coffee.
 ```
 
+> Instead of `https://github.com/electron/electron`, you can use your own fork here (something like `https://github.com/<username>/electron`).
+
+#### A note on pulling/pushing
+
+If you intend to `git pull` or `git push` from the official `electron` repository in the future, you now need to update the respective folder's origin URLs.
+
+```sh
+$ cd src/electron
+$ git remote remove origin
+$ git remote add origin https://github.com/electron/electron
+$ git branch --set-upstream-to=origin/master
+$ cd -
+```
+
+:memo: `gclient` works by checking a file called `DEPS` inside the `src/electron` folder for dependencies (like Chromium or Node.js). Running `gclient sync -f` ensures that all dependencies required to build Electron match that file.
+
+So, in order to pull, you'd run the following commands:
+
+```sh
+$ cd src/electron
+$ git pull
+$ gclient sync -f
+```
+
 ## 빌드하기
 
 ```sh
@@ -63,6 +87,14 @@ $ export CHROMIUM_BUILDTOOLS_PATH=`pwd`/buildtools
 # this next line is needed only if building with sccache
 $ export GN_EXTRA_ARGS="${GN_EXTRA_ARGS} cc_wrapper=\"${PWD}/electron/external_binaries/sccache\""
 $ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_ARGS"
+```
+
+Or on Windows (without the optional argument):
+
+```sh
+$ cd src
+$ set CHROMIUM_BUILDTOOLS_PATH=%cd%\buildtools
+$ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\")"
 ```
 
 This will generate a build directory `out/Debug` under `src/` with debug build configuration. You can replace `Debug` with another name, but it should be a subdirectory of `out`. Also you shouldn't have to run `gn gen` again—if you want to change the build arguments, you can run `gn args out/Debug` to bring up an editor.

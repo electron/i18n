@@ -47,7 +47,7 @@ win.once('ready-to-show', () => {
 
 ### Настройка `backgroundColor`
 
-Для больших приложений событие `ready-to-show` может вызываться слишком поздно, что может замедлить приложение. В этом случае рекомендуется показать окно немедленно, и использовать `backgroundColor`, рядом с фоном Вашего приложения:
+Для больших приложений событие `ready-to-show` может вызываться слишком поздно, что может замедлить приложение. В этом случае рекомендуется показать окно немедленно, и использовать `backgroundColor`, задающий цвет фона Вашего приложения:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -75,7 +75,7 @@ top.show()
 
 ### Модальные окна
 
-Модальное окно - дочернее окно, которое отключает родительское окно, чтобы создать модальное окно, Вы должны установить два параметра `parent` и `modal`:
+Модальное окно - дочернее окно, которое делает недоступным родительское окно. Чтобы создать модальное окно, Вы должны установить два параметра `parent` и `modal`:
 
 ```javascript
 conts {BrowserWindow} = require('electron')
@@ -659,7 +659,7 @@ Resizes and moves the window's client area (e.g. the web page) to the supplied b
 * `height` Integer
 * `animate` Boolean (необязательно) *macOS*
 
-Resizes the window to `width` and `height`.
+Resizes the window to `width` and `height`. If `width` or `height` are below any set minimum size constraints the window will snap to its minimum size.
 
 #### `win.getSize()`
 

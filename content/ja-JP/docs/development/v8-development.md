@@ -1,11 +1,11 @@
 # V8 開発
 
-> A collection of resources for learning and using V8
+> V8の学習や使用のためのリソースを収集しています。
 
-* [V8 Tracing](https://github.com/v8/v8/wiki/Tracing-V8)
-* [V8 Profiler](https://github.com/v8/v8/wiki/V8-Profiler) - Profiler combinations which are useful for profiling: `--prof`, `--trace-ic`, `--trace-opt`, `--trace-deopt`, `--print-bytecode`, `--print-opt-code`
-* [V8 Interpreter Design](https://docs.google.com/document/d/11T2CRex9hXxoJwbYqVQ32yIPMh0uouUZLdyrtmMoL44/edit?ts=56f27d9d#heading=h.6jz9dj3bnr8t)
-* [Optimizing compiler](https://github.com/v8/v8/wiki/TurboFan)
-* [V8 GDB Debugging](https://github.com/v8/v8/wiki/GDB-JIT-Interface)
+* [V8 トレース](https://github.com/v8/v8/wiki/Tracing-V8)
+* [V8 プロファイラ](https://github.com/v8/v8/wiki/V8-Profiler) - プロファイルに便利なプロファイラの組合せ`--prof`, `--trace-ic`, `--trace-opt`, `--trace-deopt`, `--print-bytecode`, `--print-opt-code`
+* [V8 インタプリタ設計](https://docs.google.com/document/d/11T2CRex9hXxoJwbYqVQ32yIPMh0uouUZLdyrtmMoL44/edit?ts=56f27d9d#heading=h.6jz9dj3bnr8t)
+* [コンパイラ最適化](https://github.com/v8/v8/wiki/TurboFan)
+* [V8 GDB デバッグ](https://github.com/v8/v8/wiki/GDB-JIT-Interface)
 
-See also [Chromium Development](chromium-development.md)
+[Chromium Development](chromium-development.md) も参照

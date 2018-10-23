@@ -51,7 +51,10 @@ community:
   meetups: ملاقات‌ها
   awesome_notice: This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.
   meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">make a pull request</a>.
-releases: نسخه‌ها
+releases:
+  title: Electron Releases
+  all_releases: All Releases
+  back_to_index: Back to index
 electron_is_easy:
   title: ساده‌تر از آن چیزی است که فکر می‌کنید
   description: اگر می توانید یک وب سایت بسازید، پس می توانید یک برنامه ی دسکتاپی هم بسازید. الکترون چارچوبی برای ساخت برنامه های بومی با استفاده از فناوری هایی مثل جاوا اسکریپت، HTML و CSS است. بخش های دشوار توسط الکترون انجام می شوند، بنابراین شما می توانید بر روی مرکز برنامه تان تمرکز کنید.
@@ -104,6 +107,21 @@ apps:
   submit_your_own: برنامه خودتان را ارسال کنید
   something_missing: چیزی فراموش شده است؟
   edit_this_app: ویرایش این برنامه.
+  search_app: Filter apps by name, description, etc…
+  categories: Categories
+  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
+  website: Website
+  repository: Repository
+  category: Category
+  downloads: Downloads
+  keywords: Keywords
+  license: License
+  latest_release: Latest Release
+blog:
+  title: وبلاگ الکترون
+  description: آخرین اخبار تیم الکترون و انجمن.
+  feedback: Have feedback on this post? Let <a href="https://twitter.com/electronjs">@electronjs</a> know on Twitter.
+  help: Need help or found a bug? <a href="/contact">Contact us
 clipboard:
   copy: کپی
   copy_to_clipboard: کپی در کلیپ‌بورد

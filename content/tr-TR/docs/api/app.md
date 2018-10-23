@@ -324,7 +324,7 @@ app.on('session-created', (event, session) => {
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `argv` Dizi[] - İkinci aşamanın komuta satırı argümanları sırası
 * `workingDirectory` Dizi - İkinci aşamanın çalışma dizini
 
@@ -498,7 +498,7 @@ Yakın zamandaki dokümentasyon listesini temizler.
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
-* 71/5000 `protokol` String - `://` olmadan protokolünüzün adı: Uygulamanızın `electron://` bağlantılarını işlemesini isterseniz, bu yöntemi parametre olarak `electron` ile çağırın.
+* 71/5000 `protokol` String - `://` olmadan protokolünüzün adı. Uygulamanızın `electron://` bağlantılarını işlemesini isterseniz, bu yöntemi parametre olarak `electron` ile çağırın.
 * `yolu` Dize (isteğe bağlı) *Windows* - Varsayılan değer olarak `process.execPath`
 * `args` Dizi [] (isteğe bağlı) *Windows* - Boş bir diziye varsayılan
 
@@ -525,8 +525,8 @@ Bu yöntem, geçerli yürütülebilir bir iletişim kuralı (aka URI şeması) i
 ### `app.isDefaultProtocolClient(protocol[, path, args])`
 
 * 71/5000 `protokol` String - `://` olmadan protokolünüzün adı.
-* `path` Dizi (isteğe bağlı) *Windows* - Varsayılana çevirir `process.execPath`
-* `args` Dizi[] (isteğe bağlı) *Windows* - Boş düzeni varsayılana ayarlar
+* `yolu` Dize (isteğe bağlı) *Windows* - Varsayılan değer olarak `process.execPath`
+* `args` Dizi [] (isteğe bağlı) *Windows* - Boş bir diziye varsayılan
 
 `Boole Değeri` döndürür
 
@@ -749,7 +749,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 <ul>
 <li><code>sayı` tam sayı</li> </ul> 
   
-  `Boolean` 'ı geri getirir - Çağrı başarılı olduğunda.
+  Aramanın başarılı olup olmadığı `Boole Değerine ` döndürür.
   
   Sayaç rozet sayısı `0` olarak ayarlandığında uygulama için geçerli ayarlar rozeti gizler.
   
@@ -785,7 +785,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
       
       * `ayarlar` Nesne 
         * `openAtLogin` Boolean (isteğe bağlı) oturum açmak ve uygulamayı açmak için `doğru,` kaldırmak içinse `yanlış`. Bir giriş öğesi olarak uygulanır. Varsayılan olarak `yanlış`.
-        * `openAsHidden` Boolean (optional) *macOS* - `true` to open the app as hidden. Varsayılan olarak değer `false`. Kullanıcı bu ayarı Sistem Tercihleri'nden düzenleyebilir, böylece `app.getLoginItemStatus (). WasOpenedAsHidden` uygulaması kontrol edildiğinde denetlenip mevcut değeri bilmek için açılır. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+        * `openAsHidden` Boolean (optional) *macOS* - `true` to open the app as hidden. Varsayılan olarak değer `false`. The user can edit this setting from the System Preferences so `app.getLoginItemSettings().wasOpenedAsHidden` should be checked when the app is opened to know the current value. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
         * ` yolu` Dizi (isteğe bağlı) * Windows* Giriş sırasında başlatılacak yürütülebilir dosya. Varsayılan değer `process.execPath`.
         * `Yolu` Dizi [] (isteğe bağlı) *Windows* dosya geçmek için komut satırı değişkenleri yürütülebilir. Varsayılan olarak boş bir dizi. Yolları sarmaya tırnak işareti ile dikkat edin.
       

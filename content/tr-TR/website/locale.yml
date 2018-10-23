@@ -51,7 +51,10 @@ community:
   meetups: Buluşmalar
   awesome_notice: Bu liste <a href="https://github.com/sindresorhus/awesome-electron"> @ sindresorhus's Awesome Electron</a> deposu baz alınarak oluşturulmuştur. <br>Listede birşeyler eksik mi? Listenin büyümesine <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">katkıda bulunun</a>.
   meetup_notice: Bir konferans eklemek için, <code>data/meetups.json</code> düzenleyin ve <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">talepte bulunun</a>.
-releases: Sürümler
+releases:
+  title: Electron Releases
+  all_releases: All Releases
+  back_to_index: Back to index
 electron_is_easy:
   title: Düşündüğünden daha kolay
   description: Eğer bir website oluşturabiliyorsanız, masaüstü uygulama da oluşturabilirsiniz. Electron, JavaScript, HTML ve CSS gibi web teknolojileriyle birlikte yaratıcı, yerli uygulamalar oluşturmak için bir sistemdir. Uygulamanızın özüne odaklanabilmeniz için, zor kısımların üstesinden gelir.
@@ -104,6 +107,21 @@ apps:
   submit_your_own: kendininkini gönder
   something_missing: Bir şey mi eksik?
   edit_this_app: Bu uygulamayı düzenle.
+  search_app: Filter apps by name, description, etc…
+  categories: Categories
+  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
+  website: Website
+  repository: Repository
+  category: Category
+  downloads: Downloads
+  keywords: Keywords
+  license: License
+  latest_release: Latest Release
+blog:
+  title: Electron Bloğu
+  description: Electron takım ve topluluğundan en sonki haberler.
+  feedback: Have feedback on this post? Let <a href="https://twitter.com/electronjs">@electronjs</a> know on Twitter.
+  help: Need help or found a bug? <a href="/contact">Contact us
 clipboard:
   copy: Copy
   copy_to_clipboard: Panoya Kopyala
