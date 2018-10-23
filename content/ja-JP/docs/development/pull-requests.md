@@ -71,31 +71,31 @@ $ git commit
 
 #### コミットメッセージのガイドライン
 
-良いコミットメッセージは、何が何故変更されたのか、が記述されるべきです。 The Electron project uses [semantic commit messages](https://conventionalcommits.org/) to streamline the release process.
+良いコミットメッセージは、何が何故変更されたのか、が記述されるべきです。 このElectronプロジェクトは[セマンティックコミットメッセージ](https://conventionalcommits.org/)をつかって、このリリースプロセスを合理化しています。
 
-Before a pull request can be merged, it **must** have a pull request title with a semantic prefix.
+プルリクエストがマージされるためには、プルリクエストにタイトルがあり、それには意図を示すプレフィックスが**なければなりません**
 
-Examples of commit messages with semantic prefixes:
+意図を示すプレフィックスのあるコミットメッセージのの例です。:
 
 * `fix: don't overwrite prevent_default if default wasn't prevented`
 * `feat: add app.isPackaged() method`
 * `docs: app.isDefaultProtocolClient is now available on Linux`
 
-Common prefixes:
+プレフィックスの例:
 
-    - fix: A bug fix
-    - feat: A new feature
-    - docs: Documentation changes
-    - test: Adding missing tests or correcting existing tests
-    - build: Changes that affect the build system
-    - ci: Changes to our CI configuration files and scripts
-    - perf: A code change that improves performance
-    - refactor: A code change that neither fixes a bug nor adds a feature
-    - style: Changes that do not affect the meaning of the code (linting)
-    - vendor: Bumping a dependency like libchromiumcontent or node
+    - fix: バグフィックス
+    - feat: 新しい機能
+    - docs: ドキュメントの修正
+    - test: 不足していたテストの追加や、既存のテストの修正
+    - build: ビルドシステムに影響のある修正
+    - ci: CI の設定ファイルやスクリプトへの修正
+    - perf: 性能を向上させるコードの修正
+    - refactor: バグフィックスでもなく、機能追加でもないコードの修正
+    - style: コードの意味に影響しない修正 (スタイル修正)
+    - vendor: libchromiumcontent や nodeのような依存性に関係する修正
     
 
-Other things to keep in mind when writing a commit message:
+その他、コミットメッセージを作成するときに留意すること:
 
 1. 最初の行は、以下の通りにしてください。 
   * 変更の簡単な説明が含まれている (50文字以下が好ましく、72文字未満である)
@@ -103,7 +103,7 @@ Other things to keep in mind when writing a commit message:
 2. 2行目は空にしてください。
 3. 他のすべての行は72列で折り返します。
 
-#### Breaking Changes
+#### 破壊的変更
 
 A commit that has the text `BREAKING CHANGE:` at the beginning of its optional body or footer section introduces a breaking API change (correlating with Major in semantic versioning). A breaking change can be part of commits of any type. e.g., a `fix:`, `feat:` & `chore:` types would all be valid, in addition to any other type.
 
@@ -132,7 +132,7 @@ $ npm run test
 
 リンターが問題を報告していないこと、そしてすべてのテストが合格していることを確認してください。 いずれかのチェックに失敗したパッチは提出しないでください。
 
-If you are updating tests and want to run a single spec to check it:
+テストを更新していて、単一の仕様を実行してチェックしたい場合は、以下のようにします。
 
 ```sh
 $ npm run test -match=menu
