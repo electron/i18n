@@ -269,7 +269,12 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     const { session } = require('electron')
     
     session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
-      callback({ responseHeaders: `default-src 'none'` })
+      callback({
+        responseHeaders: {
+          ...details.responseHeaders,
+          'Content-Security-Policy': ['default-src \'none\'']
+        }
+      })
     })
     ```
     
