@@ -51,7 +51,10 @@ community:
   meetups: Срещи
   awesome_notice: Този списък е генериран от хранилището на<a href="https://github.com/sindresorhus/awesome-electron"> @sindresorhus страхотен Електрон</a>. <br>Нещо липсва? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md"> направи предложение</a>.
   meetup_notice: За да добавите среща, редактиране <code>data/meetups.json</code> и <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json"> направи предложение</a>.
-releases: Издания
+releases:
+  title: Electron Releases
+  all_releases: All Releases
+  back_to_index: Back to index
 electron_is_easy:
   title: По-лесно е, отколкото си мислите
   description: Ако можете да създадете уеб сайт, то можете да създадете и настолно приложение. Електрон е система за създаване на настолни приложения, използвайки интернет технологии като JavaScript, HTML и CSS. Електрон се грижи за трудните неща, за да можете вие да се фокусирате върху същността на вашето приложение.
@@ -104,6 +107,21 @@ apps:
   submit_your_own: представи свои собствени
   something_missing: Липсва ли нещо?
   edit_this_app: Редактиране на това приложение.
+  search_app: Filter apps by name, description, etc…
+  categories: Categories
+  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
+  website: Website
+  repository: Repository
+  category: Category
+  downloads: Downloads
+  keywords: Keywords
+  license: License
+  latest_release: Latest Release
+blog:
+  title: Блог за Електрон
+  description: Всички последни новини от екипа и общността на Електрон.
+  feedback: Have feedback on this post? Let <a href="https://twitter.com/electronjs">@electronjs</a> know on Twitter.
+  help: Need help or found a bug? <a href="/contact">Contact us
 clipboard:
   copy: Копиране
   copy_to_clipboard: Копиране в клипборда
