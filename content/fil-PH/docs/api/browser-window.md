@@ -660,8 +660,7 @@ Disable or enable the window.
 * `taas` Integer
 * `animate` Boolean (opsyonal) *macOS*
 
-Lumalabas ang window sa `width` at `
-height`.
+Resizes the window to `width` and `height`. If `width` or `height` are below any set minimum size constraints the window will snap to its minimum size.
 
 #### `win.getSize()`
 
@@ -885,7 +884,7 @@ I-unhook ang lahat ng mensahe sa window.
 
 Nagtatakda ng pathnamesa mga file na irepresenta sa window, at ang icon ng file ay ipapakita sa title bar ng window.
 
-#### `win.getRepresentedFilename()` *macOS* 
+#### `win.getRepresentedFilename()` *macOS*
 
 Ibinibalik `String` - Ang pathname ng file na nakarepresenta sa window.
 
@@ -991,7 +990,7 @@ Nagtatakda ng 16 x 16 na pixel na overlay papunta sa kasalukuyang icon ng taskba
 
 Nagtatakda kung ang window ay dapat magkaroon ng anino. Sa Windows at Linux ay walang ginagawa.
 
-#### `win.hasShadow()` *macOS* 
+#### `win.hasShadow()` *macOS*
 
 Ibinabalik ` Boolean` - Kung ang window ay may anino.
 
@@ -1111,10 +1110,10 @@ Ibinabalik ang `Boolean` - Kung saan ang window ay dapay na makikita sa lahat ng
 
 **Tandaan:** Itong API ay palaging ibinabalik na huwad para sa windows.
 
-#### `win.setIgnoreMouseEvents(ignore[, options])`
+#### `win.setIgnoreMouseEvents(ignore[, mga pagpipilian])`
 
 * `huwag pansinin` Boolean
-* `mga opsyon` Na Bagay (opsyonal) 
+* `options` Na Bagay (opsyonal) 
   * `forward` Boolean (optional) *macOS* *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Ginagamit lamang kung ang`ignore` ay tama. Kung ang `ignore` is mali, Pagsulong ay palaging hindi-pinagana sa anumang mga balyu.
 
 Ginagawa ang window na hindi pansinin ang lahat ng mouse na kaganapan.
@@ -1155,7 +1154,7 @@ Ibinabalik kung `BrowserWindow[]` - Lahat ay anak windows.
 
 Kinokontrol kung ang cursor ay itatago kapag nag-type.
 
-#### `win.selectPreviousTab()` *macOS* 
+#### `win.selectPreviousTab()` *macOS*
 
 Pinipili ang nakaraang tab kung ang pinagana ang native na mga tab at may iba pa mga tab sa window.
 
@@ -1167,11 +1166,11 @@ Pinipili ang susunod na tab kung ang pinagana ang mga native na tab at mayroong 
 
 Pinagsama ang lahat ng mga window sa isang window na may maraming tab kapag ang mga native na tab ay gumagana at mayroong higit sa isang bukas na window.
 
-#### `win.moveTabToNewWindow()` *macOS* 
+#### `win.moveTabToNewWindow()` *macOS*
 
 Inililipat ang kasalukuyang tab sa isang bagong window kung pinagana ang mga native na tab at mayroong higit sa isang tab sa kasalukuyang window.
 
-#### `win.toggleTabBar()` *macOS* 
+#### `win.toggleTabBar()` *macOS*
 
 Tina-toggle ang kakayahang makita ng tab na bar kung pinagana ang mga native na tab at mayroon lamang isang tab sa kasalukuyang window.
 
