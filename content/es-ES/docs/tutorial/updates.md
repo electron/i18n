@@ -4,57 +4,57 @@ Hay muchas manera de actualizar la aplicación Electron. La manera más fácil y
 
 ## Usando `update.electronjs.org`
 
-GitHub's Electron team maintains [update.electronjs.org](https://github.com/electron/update.electronjs.org), a free and open-source webservice that Electron apps can use to self-update. The service is designed for Electron apps that meet the following criteria:
+El equipo de Electron de GitHub mantiene [update.electronjs.org](https://github.com/electron/update.electronjs.org), un servicio web gratuito y de código abierto que las aplicaciones de Electrón pueden usar para auto-actualizarse. El servicio está diseñado para aplicaciones de Electrón que cumplen con los siguientes requisitos:
 
-- App runs on macOS or Windows
-- App has a public GitHub repository
-- Builds are published to GitHub Releases
-- Builds are code-signed
+- Aplicaciones que se ejecuten en macOS o Windows
+- La Aplicación tiene un repositorio público en GitHub
+- Todas las compilaciones se publicarán en GitHub
+- Todas las compilaciones tienen verificación de código
 
-The easiest way to use this service is by installing [update-electron-app](https://github.com/electron/update-electron-app), a Node.js module preconfigured for use with update.electronjs.org.
+La forma más fácil de usar este servicio es instalando [update-electron-app](https://github.com/electron/update-electron-app), un módulo de Node.js preconfigurado para usarse con update.electronjs.org.
 
-Install the module:
+Instala el módulo:
 
 ```sh
 npm install update-electron-app
 ```
 
-Invoke the updater from your app's main process file:
+Invoque el actualizador de archivos de los principales procesos de su aplicacion Electrón:
 
 ```js
 require('update-electron-app')()
 ```
 
-By default, this module will check for updates at app startup, then every ten minutes. When an update is found, it will automatically be downloaded in the background. When the download completes, a dialog is displayed allowing the user to restart the app.
+Por defecto, este módulo buscara actualizaciones al iniciar la aplicacion luego de cada 10 minutos. Cuando se encuentra una actualización, esta se descargará automáticamente en segundo plano. Cuando se completa la descarga, se muestra un cuadro de diálogo que le permite al usuario reiniciar su aplicación.
 
-If you need to customize your configuration, you can [pass options to `update-electron-app`](https://github.com/electron/update-electron-app) or [use the update service directly](https://github.com/electron/update.electronjs.org).
+Si usted necesita personalizar su configuración, usted puede [usar la opción de `update-electron-app`](https://github.com/electron/update-electron-app) o [usar el servicio de actualización directo](https://github.com/electron/update.electronjs.org).
 
-## Using `electron-builder`
+## Usando `electron-builder`
 
-If your app is packaged with [`electron-builder`](https://github.com/electron-userland/electron-builder) you can use the [electron-updater](https://www.electron.build/auto-update) module, which does not require a server and allows for updates from S3, GitHub or any other static file host. This sidesteps Electron's built-in update mechanism, meaning that the rest of this documentation will not apply to `electron-builder`'s updater.
+Si su aplicación fue empaquetada con [`electron-builder`](https://github.com/electron-userland/electron-builder) usted puede usar el modulo [electron-updater](https://www.electron.build/auto-update) que no requiere de un servidor y permite actualizaciones desde Amazon S3, GitHub o cualquier otro host de archivos estáticos. Esto hace a un lado el mecanismo de actualización incorporado por Electrón, lo que significa que el resto de esta documentación no se aplicará al actualizador de `electron-builder`.
 
 ## Implementar un servidor de actualización
 
-If you're developing a private Electron application, or if you're not publishing releases to GitHub Releases, it may be necessary to run your own update server.
+Si está desarrollando una aplicación privada de Electrón, o si no está publicando lanzamientos a los lanzamientos de GitHub, tiene que considerar que es necesario que ejecute su propio servidor de actualizaciones.
 
 Dependiendo de sus necesidades, puede escoger una de esta:
 
-- [Hazel](https://github.com/zeit/hazel) – Update server for private or open-source apps which can be deployed for free on [Now](https://zeit.co/now). It pulls from [GitHub Releases](https://help.github.com/articles/creating-releases/) and leverages the power of GitHub's CDN.
-- [Nuts](https://github.com/GitbookIO/nuts) – Also uses [GitHub Releases](https://help.github.com/articles/creating-releases/), but caches app updates on disk and supports private repositories.
-- [electron-release-server](https://github.com/ArekSredzki/electron-release-server) – Provides a dashboard for handling releases and does not require releases to originate on GitHub.
-- [Nucleus](https://github.com/atlassian/nucleus) – A complete update server for Electron apps maintained by Atlassian. Supports multiple applications and channels; uses a static file store to minify server cost.
+- [Hazel](https://github.com/zeit/hazel) – Servidor de actualizaciones para aplicaciones privadas o de código abierto que pueden ser desplegadas de forma gratuita. [Now](https://zeit.co/now). Es tomado de los [Lanzamientos de GitHub](https://help.github.com/articles/creating-releases/) y aprovecha al maximo el poder de las CDN's de GitHub.
+- [Nuts](https://github.com/GitbookIO/nuts) – También usa los [Lanzamientos de GitHub](https://help.github.com/articles/creating-releases/), pero almacena la aplicación, actualiza en el Disco Duro y también soporta repositorios privados.
+- [electron-release-server](https://github.com/ArekSredzki/electron-release-server) – proporciona un panel para administrar los lanzamientos y no es necesarios que los lanzamientos se originen desde GitHub.
+- [Nucleus](https://github.com/atlassian/nucleus) – Un servidor de actualizaciones completo para aplicaciones de Electrón y es mantenido gracias a Atlassian. Soporta múltiples aplicaciones y canales, y utiliza un almacén de archivos estáticos para minimizar el coste del servidor.
 
 ## Implementación de actualizaciones en su aplicación
 
 Una vez que haya implementado su servidor de actualización, continúe con la importación de los módulos requeridos en su código. El siguiente código podría variar en diferentes servidores de software, pero funciona como está descrito cuando se utiliza [Hazel](https://github.com/zeit/hazel).
 
-**Important:** Please ensure that the code below will only be executed in your packaged app, and not in development. You can use [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) to check for the environment.
+**Importantante:** por favor asegurate de que el siguiente código solo se ejecutara en su paquete de aplicaciones, y no en desarrollo. Puedes usar [electron-is-dev](https://github.com/sindresorhus/electron-is-dev) para chequear el tipo de ambiente.
 
 ```javascript
 const { app, autoUpdater, dialog } = require('electron')
 ```
 
-Next, construct the URL of the update server and tell [autoUpdater](../api/auto-updater.md) about it:
+A continuación, construya la URL de uno de los servidores de actualizaciones, de la siguiente manera: [autoUpdater](../api/auto-updater.md):
 
 ```javascript
 const server = 'https://your-deployment-url.com'
@@ -71,11 +71,11 @@ setInterval(() => {
 }, 60000)
 ```
 
-Once your application is [packaged](../tutorial/application-distribution.md), it will receive an update for each new [GitHub Release](https://help.github.com/articles/creating-releases/) that you publish.
+Una vez que su aplicacion es [empaquetada](../tutorial/application-distribution.md), usted recibirá una actualización para cada nuevo [Lanzamiento de GitHub](https://help.github.com/articles/creating-releases/) que usted publique.
 
 ## Aplicar actualizaciones
 
-Ahora que ha configurado el mecanismo de actualización básico para su aplicación, debe asegurarse de que el usuario reciba una notificación cuando haya una actualización. This can be achieved using the autoUpdater API [events](../api/auto-updater.md#events):
+Ahora que ha configurado el mecanismo de actualización básico para su aplicación, debe asegurarse de que el usuario reciba una notificación cuando haya una actualización. Esto se puede lograr utilzando la API de autoUpdater [events](../api/auto-updater.md#events):
 
 ```javascript
 autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
@@ -93,7 +93,7 @@ Detalles: Una nueva versión ha sido descargada. Reiniciar la aplicación para a
 })
 ```
 
-Also make sure that errors are [being handled](../api/auto-updater.md#event-error). Here's an example for logging them to `stderr`:
+También asegúrese de que los errores estan [siendo bien manipulados](../api/auto-updater.md#event-error). Aquí hay un ejemplo para que se pueda registrar `stderr`:
 
 ```javascript
 autoUpdater.on('error', message => {
