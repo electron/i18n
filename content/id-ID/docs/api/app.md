@@ -785,7 +785,7 @@ properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> 
             
             * `pengaturan` Obyek 
               * `openAtLogin` Boolean (opsional) - `true` untuk membuka aplikasi saat masuk, `false` untuk menghapus aplikasi sebagai item masuk. Default ke `false`.
-              * `openAsHidden` Boolean (optional) *macOS* - `true` to open the app as hidden. Default ke `false`. Pengguna dapat mengedit setelan ini dari Preferensi Sistem jadi `app.getLoginItemStatus().BeenOpenedAsHidden` harus diperiksa saat aplikasi dibuka untuk mengetahui nilai saat ini. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+              * `openAsHidden` Boolean (optional) *macOS* - `true` to open the app as hidden. Default ke `false`. The user can edit this setting from the System Preferences so `app.getLoginItemSettings().wasOpenedAsHidden` should be checked when the app is opened to know the current value. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
               * `path` String (opsional) *Windows* - Eksekusi untuk diluncurkan saat login. Default ke `process.execPath`.
               * `args` String[] (opsional) *Windows* - Argumen baris perintah untuk lolos ke eksekusi. Default ke array kosong. Berhati-hatilah untuk membungkus jalan dengan tanda petik.
             
@@ -864,9 +864,9 @@ properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> 
             
             Metode ini hanya bisa dipanggil sebelum aplikasi sudah siap.
             
-            ### ` app.isInApplicationsFolder () </ 0>  <em> macos </ 1></h3>
-
-<p>Returns <code>Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`</p> 
+            ### `app.isInApplicationsFolder()` *macOS*
+            
+            Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
             
             ### ` app.moveToApplicationsFolder () </ 0>  <em> macos </ 1></h3>
 
