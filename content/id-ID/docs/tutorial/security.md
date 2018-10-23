@@ -251,7 +251,12 @@ Electron respects the [`Content-Security-Policy` HTTP header](https://developer.
 const { session } = require('electron')
 
 session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
-  callback({ responseHeaders: `default-src 'none'` })
+  callback({
+    responseHeaders: {
+      ...details.responseHeaders,
+      'Content-Security-Policy': ['default-src \'none\'']
+    }
+  })
 })
 ```
 
