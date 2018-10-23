@@ -51,7 +51,10 @@ community:
   meetups: Incontri
   awesome_notice: Questo elenco è generato dalla repository <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a>. <br> Manca qualcosa? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Fai una richiesta di pull</a>.
   meetup_notice: Per aggiungere un meetup, modifica <code>data/meetups.json</code> e <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json"> fai una richiesta di pull</a>.
-releases: Versioni
+releases:
+  title: Electron Releases
+  all_releases: All Releases
+  back_to_index: Back to index
 electron_is_easy:
   title: È più facile di quanto pensi
   description: Se puoi costruire un sito Web, allora puoi costruire un'applicazione desktop. Electron è un framework per la creazione di applicazioni native con tecnologie web come JavaScript, HTML e CSS. Electron gestisce le parti più complicate, così puoi concentrarti sul core dell'applicazione.
@@ -104,6 +107,21 @@ apps:
   submit_your_own: inviare la tua applicazione
   something_missing: Manca qualcosa?
   edit_this_app: Modifica questa app.
+  search_app: Filter apps by name, description, etc…
+  categories: Categories
+  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
+  website: Website
+  repository: Repository
+  category: Category
+  downloads: Downloads
+  keywords: Keywords
+  license: License
+  latest_release: Latest Release
+blog:
+  title: Blog di Electron
+  description: Tutte le ultime notizie dal team e dalla community di Electron.
+  feedback: Have feedback on this post? Let <a href="https://twitter.com/electronjs">@electronjs</a> know on Twitter.
+  help: Need help or found a bug? <a href="/contact">Contact us
 clipboard:
   copy: Copia
   copy_to_clipboard: Copia negli appunti
