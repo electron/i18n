@@ -4,7 +4,7 @@
 
 Process: [Main](../glossary.md#main-process)
 
-**See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
+**Puede Ver: [Una guía detallada sobre cómo implementar las actualizaciones en su aplicación](../tutorial/updates.md).**
 
 ## Noticias de la plataforma
 
@@ -66,11 +66,11 @@ Aparece cuando se ha descargado una actualización.
 
 Solo esta disponible en Windows `releaseName`.
 
-### Event: 'before-quit-for-update'
+### Evento: 'before-quit-for-update'
 
-This event is emitted after a user calls `quitAndInstall()`.
+Este evento se ejecuta luego que un usuario llama al método: `quitAndInstall()`.
 
-When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
+Cuando se hace el llamado a la API, el evento `before-quit` no se ejecuta hasta que todas las ventanas estén cerradas. Como resultado usted debe escuchar a este evento si desea realizar acciones antes de que las ventanas sean cerradas, mientras el proceso está finalizando, así como también escuchar al proceso: `before-quit`.
 
 ## Métodos
 
