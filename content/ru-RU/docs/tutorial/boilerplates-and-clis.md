@@ -1,35 +1,35 @@
 # Макеты и CLI
 
-Electron development is un-opinionated - there is no "one true way" to develop, build, package, or release an Electron application. Additional features for Electron, both for build- and run-time, can usually be found on [npm](https://www.npmjs.com/search?q=electron) in individual packages, allowing developers to build both the app and build pipeline they need.
+Разработка в Electron разнообразна - нет "одного истинного пути" для разработки, сборки, упаковки или выпуска приложения. Дополнительные особенности для Electron, как для сборки, так и для времени выполнения, обычно можно найти в [npm](https://www.npmjs.com/search?q=electron) в отдельных пакетах, что позволяет разработчикам как создать приложение, так и построить конвейер, в котором они нуждаются.
 
-That level of modularity and extendability ensures that all developers working with Electron, both big and small in team-size, are never restricted in what they can or cannot do at any time during their development lifecycle. However, for many developers, one of the community-driven boilerplates or command line tools might make it dramatically easier to compile, package, and release an app.
+Этот уровень модульности и расширяемости гарантирует, что все разработчики, работающие с Electron, как большие, так и малые по размеру группы, никогда не ограничены тем, что они могут или не могут делать в любое время в течение своего жизненного цикла разработки. Тем не менее, для многих разработчиков один из управляемых сообществом шаблонов или инструментов командной строки может значительно упростить компиляцию, упаковку и выпуск приложения.
 
 ## Макеты против CLI
 
-A boilerplate is only a starting point - a canvas, so to speak - from which you build your application. They usually come in the form of a repository you can clone and customize to your heart's content.
+Шаблон является только отправной точкой - это, так сказать, холст, из которого вы создаете свое приложение. Они обычно приходят в виде репозитория, который вы можете клонировать и настраивать ваш контент.
 
-A command line tool on the other hand continues to support you throughout the development and release. They are more helpful and supportive but enforce guidelines on how your code should be structured and built. *Especially for beginners, using a command line tool is likely to be helpful*.
+С другой стороны, инструмент командной строки продолжает поддерживать вас на протяжении всей разработки и выпуска. Они более полезны и поддерживаемы, но обеспечивают соблюдение рекомендаций о том, как ваш код должен быть структурирован и построен. *Специально для новичков - использование командной строки будет весьма полезно*.
 
 ## electron-forge
 
-A "complete tool for building modern Electron applications". Electron Forge unifies the existing (and well maintained) build tools for Electron development into a cohesive package so that anyone can jump right in to Electron development.
+"Полноценный инструмент для создания современных приложений Electron". Electron Forge объединяет существующие (и хорошо поддерживаемые) инструменты сборки в единый пакет, чтобы каждый мог прямо сейчас заняться разработкой в Electron.
 
-Forge comes with [ready-to-use templates](https://electronforge.io/templates) for popular frameworks like React, Vue, or Angular. It uses the same core modules used by the greater Electron community (like [`electron-packager`](https://github.com/electron-userland/electron-packager)) –  changes made by Electron maintainers (like Slack) benefit Forge's users, too.
+Forge поставляется с [готовыми к использованию](https://electronforge.io/templates) шаблонами для популярных фреймворков, таких как React, Vue, или Angular. Он использует те же основные модули, которые используются большим сообществом Electron (например, [`electron-packager`](https://github.com/electron-userland/electron-packager)). Изменения, вносимые заказчиками Electron (например, Slack), также приносят пользу пользователям Forge.
 
-You can find more information and documentation on [electronforge.io](https://electronforge.io/).
+Вы можете найти больше информации и документации на [electronforge.io](https://electronforge.io/).
 
 ## electron-builder
 
-A "complete solution to package and build a ready-for-distribution Electron app" that focuses on an integrated experience. [`electron-builder`](https://github.com/electron-userland/electron-builder) adds one single dependency focused on simplicity and manages all further requirements internally.
+"Полноценное решение для упаковки и создания готового к использованию приложения Electron", которое фокусируется на интегрированном опыте. [`electron-builder`](https://github.com/electron-userland/electron-builder) добавляет одну единственную зависимость, ориентированную на простоту, и управляет всеми дополнительными требованиями изнутри.
 
-`electron-builder` replaces features and modules used by the Electron maintainers (such as the auto-updater) with custom ones. They are generally tighter integrated but will have less in common with popular Electron apps like Atom, Visual Studio Code, or Slack.
+`electron-builder` заменяет функции и модули, используемые майнтейнерами Electron (такими как автообновление) с пользовательскими. Они, как правило, более тесно интегрированы, но будут иметь меньше общего с популярными приложениями Electron, такими как Atom, Visual Studio Code или Slack.
 
-You can find more information and documentation in [the repository](https://github.com/electron-userland/electron-builder).
+Вы можете найти дополнительную информацию и документацию в [репозитории](https://github.com/electron-userland/electron-builder).
 
 ## electron-react-boilerplate
 
-If you don't want any tools but only a solid boilerplate to build from, CT Lin's [`electron-react-boilerplate`](https://github.com/chentsulin/electron-react-boilerplate) might be worth a look. It's quite popular in the community and uses `electron-builder` internally.
+Если вам не нужны какие-либо инструменты, а только плоский шаблон, из которого можно собрать приложение, вам стоит взглянуть на [`electron-react-boilerplate`](https://github.com/chentsulin/electron-react-boilerplate). Он довольно популярен в сообществе и использует встроенный `electron-builder`.
 
 ## Другие инструменты и Макеты
 
-The ["Awesome Electron" list](https://github.com/sindresorhus/awesome-electron#boilerplates) contains more tools and boilerplates to choose from. If you find the length of the list intimidating, don't forget that adding tools as you go along is a valid approach, too.
+Список [«Awesome Electron»](https://github.com/sindresorhus/awesome-electron#boilerplates) предоставляет большой выбор инструментов и шаблонов. Если вы обнаружите, что длина списка вас пугает, не забывайте, что можно добавлять инструменты по ходу работы.
