@@ -51,7 +51,10 @@ community:
   meetups: מפגשים
   awesome_notice: רשימה זו נוצרה מתוך <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repository. <br>חסר משהו? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">בצע pull request</a>.
   meetup_notice: להוספת מפגש, ערוך את code> data/meetups.json< </code>href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">ובצע pull request</a>.
-releases: הפצות
+releases:
+  title: Electron Releases
+  all_releases: All Releases
+  back_to_index: Back to index
 electron_is_easy:
   title: זה קל יותר משאתה חושב
   description: מהיום, אם אתה יכול לבנות אתר אתה יוכל לבנות גם יישומי מחשב. Electron הוא framework לפיתוח יישומים למערכות הפעלה שנות בטכנולוגיות פיתוח אתרים כמו JavaScript, HTML, ו-CSS. Electron דואג להתאמות השונות כך שאתם תוכלו להתמקד בעיקר היישום שלכם.
@@ -104,6 +107,21 @@ apps:
   submit_your_own: שלח משלך
   something_missing: משהו חסר?
   edit_this_app: ערוך את היישום הזה.
+  search_app: Filter apps by name, description, etc…
+  categories: Categories
+  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
+  website: Website
+  repository: Repository
+  category: Category
+  downloads: Downloads
+  keywords: Keywords
+  license: License
+  latest_release: Latest Release
+blog:
+  title: בלוג Electron
+  description: כל החדשות האחרונות מקהילת Electron.
+  feedback: Have feedback on this post? Let <a href="https://twitter.com/electronjs">@electronjs</a> know on Twitter.
+  help: Need help or found a bug? <a href="/contact">Contact us
 clipboard:
   copy: העתק
   copy_to_clipboard: העתקה ללוח העריכה
