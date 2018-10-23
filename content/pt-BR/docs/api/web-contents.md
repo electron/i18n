@@ -237,11 +237,11 @@ Retorna:
 
 Emitted when the renderer process crashes or is killed.
 
-#### Event: 'unresponsive'
+#### Evento: 'unresponsive'
 
 Emitted when the web page becomes unresponsive.
 
-#### Event: 'responsive'
+#### Evento: 'responsive'
 
 Emitted when the unresponsive web page becomes responsive again.
 
