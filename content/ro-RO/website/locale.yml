@@ -14,25 +14,25 @@ nav:
 docs:
   title: Documentație Electron
   description: Vezi toate<a href="/docs/all">documentele pe o pagină</a> sau verifică secțiunea <a href="/docs/faq">FAQ</a>.
-  guides: Guides
-  api_reference: API Reference
-  advanced: Advanced
+  guides: Ghiduri
+  api_reference: Referință API
+  advanced: Avansate
   footer:
-    propose_change: Improve this doc
-    version_history: Version history
-    translate: Translate this doc
-    view_all_docs: All Docs on One Page
+    propose_change: Îmbunătățește acest document
+    version_history: Istoric versiune
+    translate: Tradu acest document
+    view_all_docs: Toate documentele pe o pagină
 languages:
-  choose_language: Choose Your Site Language
-  translation_progress: Translation Progress
-  current: current selection
+  choose_language: Alege limba ta pentru sait
+  translation_progress: Progres traducere
+  current: selecție curentă
 community:
-  title: Electron Community
-  description: Resources for connecting with people working on Electron.
+  title: Comunitatea Electron
+  description: Resurse pentru conectarea cu oamenii care lucrează la Electron.
   channels:
-    get_started: "<a href='/docs/tutorial/first-app'><b>Get started</b></a> building an app by reading the <a href='/docs/tutorial/first-app'>quick-start guide</a>."
-    updates: "<a href='https://twitter.com/electronjs'><b>Stay up to date</b></a> by following <a href='https://twitter.com/electronjs'>@electronjs</a> on Twitter and subscribing to the <a href='/blog'>blog feed</a>."
-    localized_docs: "<a href='/languages'><b>Read docs in your native language</b></a> by visiting the <a href='/languages'>languages page</a>."
+    get_started: "<a href='/docs/tutorial/first-app'><b>Începe</b></a> să construiești o aplicație citind <a href='/docs/tutorial/first-app'>ghidul de inițiere rapidă</a>."
+    updates: "<a href='https://twitter.com/electronjs'><b>Fii la curent</b></a> urmărind<a href='https://twitter.com/electronjs'>@electronjs</a> pe Twitter și abonându-te la <a href='/blog'>fluxul blogului</a>."
+    localized_docs: "<a href='/languages'><b>Citește documentele în limba ta maternă</b></a> vizitând <a href='/languages'>pagina limbilor</a>."
     help: "<a href='http://atom-slack.herokuapp.com'><b>Get help and feedback</b></a> by joining the <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
     packages: "<a href='/search/npmPackages'><b>Find useful npm packages</b></a> on the <a href='/search/npmPackages'>package search page</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Report bugs</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
