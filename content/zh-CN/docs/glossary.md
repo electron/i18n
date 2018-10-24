@@ -8,17 +8,13 @@ ASAR 表示 Atom Shell Archive Format。 一个 [asar](https://github.com/electr
 
 ASAR 格式主要是为了提高 Windows 上的性能而创建的... TODO
 
-### Brightray
-
-Brightray [之前是](https://github.com/electron-archive/brightray)一个可以让 [libchromiumcontent](#libchromiumcontent)在应用中更加易用的静态库。 现在它已并入 Electron 的代码库，所以不再推荐使用。
-
 ### CRT
 
 C 运行时库 (CRT) 是包含了 ISO C99 标准库的 c + + 标准库的一部分。 实现了 CRT 的 Visual c++ 库支持本机代码开发, 以及混合的本机和托管代码, 以及用于. NET 开发的纯托管代码。
 
 ### DMG
 
-是指在 macOS 上使用的苹果系统的磁盘镜像打包格式。 DMG 文件通常被用来分发应用的 "installers"（安装包）。 [electron-builder ](https://github.com/electron-userland/electron-builder)支持使用 dmg 来作为编译目标。
+是指在 macOS 上使用的苹果系统的磁盘镜像打包格式。 DMG 文件通常被用来分发应用的 "installers"（安装包）。 [electron-builder ](https://github.com/electron-userland/electron-builder)支持使用 `dmg` 来作为编译目标。
 
 ### IME
 
@@ -30,7 +26,7 @@ C 运行时库 (CRT) 是包含了 ISO C99 标准库的 c + + 标准库的一部�
 
 ### IPC
 
-IPC 代表 Inter-Process Communication。Electron 使用 IPC 来在 [main](#main-process) 进程和 [ renderer](#renderer-process) 进程之间传递 JSON 信息。
+IPC 代表 Inter-Process Communication进程间通信。Electron 使用 IPC 来在[main主进程](#main-process)和[renderer渲染进程](#renderer-process)之间传递 JSON 信息。
 
 ### libchromiumcontent
 
@@ -38,15 +34,15 @@ IPC 代表 Inter-Process Communication。Electron 使用 IPC 来在 [main](#main
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
-### 主进程
+### main process
 
-主进程，通常是指 `main.js` 文件，是每个 Electron 应用的入口文件。它控制着整个 App 的生命周期，从打开到关闭。 它也管理着原生元素比如菜单，菜单栏，Dock 栏，托盘等。 主进程负责创建 APP 的每个渲染进程。而且整个 Node API 都集成在里面。
+主进程，通常是名为` main.js ` 的文件，是每个 Electron 应用的入口文件。它控制着整个 App 的生命周期，从打开到关闭。 它也管理着系统原生元素比如菜单，菜单栏，Dock 栏，托盘等。 主进程负责创建 APP 的每个渲染进程。而且整个 Node API 都集成在里面。
 
-每个 app 的主进程文件都定义在 `package.json` 中的 `main` 属性当中，这也是为什么 `electron .` 能够知道应该使用哪个文件来启动。
+每个 app 的主进程文件都定义在 `package.json` 中的 `main` 属性当中。这也是为什么 `electron.` 能够知道应该使用哪个文件来启动。
 
 在Chromium中, 这个进程被称为 "浏览器进程"。它在Electron被重新命名, 以避免与渲染器进程混淆。
 
-参见： [process](#process), [renderer](#renderer-process) process
+参见: [process](#process), [renderer process](#renderer-process)
 
 ### MAS
 
