@@ -84,8 +84,8 @@ explore:
 download_from_github: Descarcă de pe GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Vezi toate lansările</a> pe GitHub
 quick_start:
-  title: "Răsucește <a href='https://github.com/electron/electron-quick-start' target='_blank'>inițierea rapidă</a> pentru a vedea Electron în acțiune:"
-  description: A minimal Electron app with helpful notations.
+  title: "Răsucește aplicația de <a href='https://github.com/electron/electron-quick-start' target='_blank'>inițiere rapidă</a> pentru a vedea Electron în acțiune:"
+  description: O aplicație Electron minimă cu note utile.
   clone: Clonează depozitarul de inițiere rapidă
   go_into_repo: Mergi în depozitar
   install_deps: Instalează dependențele și rulează
@@ -104,7 +104,7 @@ apps:
   title: Aplicații create cu Electron
   description: Cu Electron, crearea unei aplicații desktop pentru compania sau ideea ta este ușoară. Inițial dezvoltat pentru <a href='https://atom.io' target='_blank'>editorul Atom</a> care aparține de GitHub, Electronul a fost utilizat pentru a crea aplicații de companii precum Microsoft, Facebook, Slack și Docker.
   view_more: Vezi mai multe aplicații
-  submit_your_own: submit your own
+  submit_your_own: trimite-ți propria
   something_missing: Lipsește ceva?
   edit_this_app: Editează această aplicație.
   search_app: Filtrează aplicații după nume, descriere, etc…
