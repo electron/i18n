@@ -32,11 +32,11 @@ Process оновлення версій детально описаний в н�
 
 ### LTS
 
-Long term support of older versions of Electron does not currently exist. If your current version of Electron works for you, you can stay on it for as long as you'd like. If you want to make use of new features as they come in you should upgrade to a newer version.
+На даний час підтримки більш старіших версій Electron не існує. Якщо ваша поточна версія Electron у вас працює, ви можете залишатись на ній стільки - скільки завгодно. Якщо ви хочете використовувати нові можливості по мірі їх надходження, вам потрібно перейти на новішу версію.
 
-A major update came with version `v1.0.0`. If you're not yet using this version, you should [read more about the `v1.0.0` changes](https://electronjs.org/blog/electron-1-0).
+Основні оновлення появились з версією `v1.0.0`. Якщо ви ще не використовуєте цю версію, вам необхідно [ознайомитись більше з змінами у версії `v1.0.0`](https://electronjs.org/blog/electron-1-0).
 
-## Core Philosophy
+## Основна філософія
 
 In order to keep Electron small (file size) and sustainable (the spread of dependencies and APIs) the project limits the scope of the core project.
 
