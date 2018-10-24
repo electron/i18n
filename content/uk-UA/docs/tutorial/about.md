@@ -14,13 +14,13 @@ Electron підтримується командою GitHub, а також гр�
 
 ## Релізи
 
-[Electron releases](https://github.com/electron/electron/releases) frequently. We release when there are significant bug fixes, new APIs or are updating versions of Chromium or Node.js.
+[Релізи Electron](https://github.com/electron/electron/releases) виходять часто. Ми їх випускається, коли є виправлення важливих помилок, новий API або обновлена версія Chromium чи Node.js.
 
 ### Оновлення Залежностей
 
-Electron's version of Chromium is usually updated within one or two weeks after a new stable Chromium version is released, depending on the effort involved in the upgrade.
+Версія Chromium в Electron зазвичай обновляється напротязі одного чи двох тижнів після релізу нової стабільної версії Chromium, в залежності від обєму робіт, звязаних з оновленням.
 
-When a new version of Node.js is released, Electron usually waits about a month before upgrading in order to bring in a more stable version.
+Після релізу нової версії Node.js, Electron зазвичай випускає оновлення приблизно через місяць, щоб переконатись у стабільності останньої версії Node.js.
 
 In Electron, Node.js and Chromium share a single V8 instance—usually the version that Chromium is using. Most of the time this *just works* but sometimes it means patching Node.js.
 
