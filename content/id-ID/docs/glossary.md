@@ -8,10 +8,6 @@ ASAR singkatan dari Atom Shell Archive Format. Arsip [asar](https://github.com/e
 
 The ASAR Format diciptakan terutama untuk meningkatkan kinerja pada Windows ... TODO
 
-### Brightray
-
-Brightray [adalah](https://github.com/electron-archive/brightray) sebuah perpustakaan statis yang membuat [libchromiumcontent](#libchromiumcontent) lebih mudah untuk menggunakan dalam aplikasi. Sekarang sudah tidak berlaku lagi dan telah digabungkan ke dalam basis kode Elektron.
-
 ### CRT
 
 C Run-time Library (CRT) adalah bagian dari C++ Standard Library itu menggabungkan perpustakaan standar ISO C99. Perpustakaan Visual C++ itu menerapkan pengembangan kode asli dukungan CRT, dan keduanya asli dan campuran kode dikelola, dan kode dikelola murni untuk .NET development.
