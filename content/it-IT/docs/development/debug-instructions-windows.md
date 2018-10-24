@@ -24,7 +24,7 @@ $ ./out/Debug/electron.exe ~/my-electron-app/
 
 Then, open up Visual Studio. Electron is not built with Visual Studio and hence does not contain a project file - you can however open up the source code files "As File", meaning that Visual Studio will open them up by themselves. È ancora possibile impostare i punti di interruzione: Visual Studio rileva automaticamente che il codice sorgente corrisponde al codice in esecuzione nel processo allegato e si interrompe di conseguenza.
 
-Relevant code files can be found in `./atom/` as well as in Brightray, found in `./brightray/browser` and `./brightray/common`.
+Relevant code files can be found in `./atom/`.
 
 ### Attaching
 
