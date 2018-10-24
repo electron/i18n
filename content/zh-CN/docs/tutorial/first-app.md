@@ -4,9 +4,9 @@ Electron 可以让你使用纯 JavaScript 调用丰富的原生(操作系统) AP
 
 这不意味着 Electron 是某个图形用户界面（GUI）库的 JavaScript 版本。 相反，Electron 使用 web 页面作为它的 GUI，所以你能把它看作成一个被 JavaScript 控制的，精简版的 Chromium 浏览器。
 
-** 注意 **: 此示例还有可用的仓库, 您可以 [ 立即下载并运行 ](#trying-this-example)。
+** 注意 **: 获取该示例的代码仓库: [ 立即下载并运行 ](#trying-this-example)。
 
-从开发的角度来看, Electron application 本质上是一个 Node. js 应用程序。 应用启动的入口是一个与 Node.js 模块相同的 `package.json` 文件。 一个最基本的 Electron 应用一般来说会有如下的目录结构：
+从开发的角度来看, Electron application 本质上是一个 Node. js 应用程序。 与 Node.js 模块相同，应用的入口是 `package.json` 文件。 一个最基本的 Electron 应用一般来说会有如下的目录结构：
 
 ```text
 your-app/
