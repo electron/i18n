@@ -8,10 +8,6 @@ ASAR è l'acronimo di Atom Shell Archive Format. An [asar](https://github.com/el
 
 Il formato ASAR è stato creato principalmente per migliorare le prestazioni su Windows... TODO
 
-### Brightray
-
-Brightray [was](https://github.com/electron-archive/brightray) a static library that made [libchromiumcontent](#libchromiumcontent) easier to use in applications. Ora è deprecato ed è stato fuso nel codebase di Electron.
-
 ### CRT
 
 The C Run-time Library (CRT) is the part of the C++ Standard Library that incorporates the ISO C99 standard library. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
@@ -56,7 +52,7 @@ Acronym for Apple's Mac App Store. For details on submitting your app to the MAS
 
 An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.
 
-See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
+Vedi https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
 ### moduli nativi
 
