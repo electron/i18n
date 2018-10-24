@@ -8,10 +8,6 @@ ASAR steht für Atom-Shell-Archiv-Format. Ein [asar](https://github.com/electron
 
 Das ASAR-Format wurde primär für bessere Performence unter Windows entwickelt.... TODO
 
-### Brightray
-
-Brightray [war](https://github.com/electron-archive/brightray) eine statische Library, welche den Umgang mit [libchromiumcontent](#libchromiumcontent)-Inhalten in Applikationen vereinfacht hatte. Sie wurde mittlerweile in die Codebasis von Electron eingepflegt.
-
 ### CRT
 
 Die C Run-time Library (CRT) ist Teil der C++ Standard Library welche die ISO C66 Standard Library beinhaltet. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
@@ -30,7 +26,7 @@ Interface description language. Write function signatures and data types in a fo
 
 ### IPC
 
-IPC steht für Inter-Process-Communication. Electron verwendet IPC serialisierte JSON Nachrichten zwischen den [Haupt-](#main-process) und [Renderer](#renderer-process) Prozessen.
+IPC steht für Inter-Process-Communication. Electron verwendet IPC serialisierte JSON-Nachrichten zwischen den [main](#main-process) und [renderer](#renderer-process) processes.
 
 ### libchromiumcontent
 
@@ -38,7 +34,7 @@ A shared library that includes the [Chromium Content module](https://www.chromiu
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
-### Main-Prozess
+### main process
 
 The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
 
