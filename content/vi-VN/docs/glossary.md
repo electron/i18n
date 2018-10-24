@@ -8,10 +8,6 @@ ASAR là viết tắt của Atom Shell Archive Format. Một tập tin [asar](ht
 
 Định dạng ASAR được tạo ra chủ yếu để cải thiện hiệu suất trên Windows... TODO
 
-### Brightray
-
-Brightray [là](https://github.com/electron-archive/brightray) một thư viện riêng dùng tạo ra [libchromiumcontent](#libchromiumcontent) dễ dàng hơn để sử dụng trong các ứng dụng. It is now deprecated and has been merged into Electron's codebase.
-
 ### CRT
 
 The C Run-time Library (CRT) is the part of the C++ Standard Library that incorporates the ISO C99 standard library. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
