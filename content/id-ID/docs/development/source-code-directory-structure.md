@@ -28,7 +28,6 @@ Electron
 |       |         message loop into Chromium's message loop.
 |       └── api/ - The implementation of common APIs, and foundations of
 |                  Electron's built-in modules.
-├── brightray / - Thin shim over libcc yang membuatnya lebih mudah digunakan.
 ├── chromium_src / - Sumber kode disalin dari Chromium. Lihat di bawah.
 ├── default_app/ - The default page to show when Electron is started without
 |                  providing an app.
