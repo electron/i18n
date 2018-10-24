@@ -52,7 +52,7 @@ $ git checkout -b my-branch -t upstream/master
 
 ### Étape 4 : Code
 
-La plus-part des demandes d'évolution concernant le dépôt `electron/electron` comprennent des modifications, soit de code C++ dans le répertoire `atom/` ou `brightray/`, soit de code Javascript dans le répertoire `lib/`, soit de la documentation sous `docs/api/`, ou encore des tests dans le répertoire `spec`.
+Most pull requests opened against the `electron/electron` repository include changes to either the C/C++ code in the `atom/` folder, the JavaScript code in the `lib/` folder, the documentation in `docs/api/` or tests in the `spec/` folder.
 
 Penser à lancer régulièrement `npm run lint` après chaque évolution du code, pour en garantir la conformité de style du projet.
 
