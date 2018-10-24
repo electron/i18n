@@ -6,11 +6,11 @@ Electron засновано в 2013 році як фреймворк на яко
 
 Від того часу він став популярним інструментом, який використовується розробниками з відкритим вихідним кодом, стартапами та великими компаніями. [Подивіться хто використовує Electron](https://electronjs.org/apps).
 
-Читайте далі, щоб дізнатись більше про авторів та резіли Electron або почніть працювати з Electron у [Короткому посібнику](quick-start.md).
+Читайте далі, щоб дізнатись більше про авторів та резіли Electron або почніть працювати з Electron за допомогою [короткого посібника](quick-start.md).
 
 ## Основна команда та автори
 
-Electron is maintained by a team at GitHub as well as a group of [active contributors](https://github.com/electron/electron/graphs/contributors) from the community. Some of the contributors are individuals and some work at larger companies who are developing on Electron. We're happy to add frequent contributors to the project as maintainers. Read more about [contributing to Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
+Electron підтримується командою GitHub, а також групою [активних учасників](https://github.com/electron/electron/graphs/contributors) спільноти. Деякі автори самозайняті, а деякі працюють у великих компаніях, які розвиваються разом з Electron. We're happy to add frequent contributors to the project as maintainers. Read more about [contributing to Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
 ## Релізи
 
