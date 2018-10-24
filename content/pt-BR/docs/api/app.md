@@ -330,7 +330,7 @@ Retorna:
 
 Este evento será emitido dentro da instância principal do seu aplicativo quando uma segunda instância é executada. `argv` é um array dos argumentos de linha de comando da segunda instância, e `workingDirectory` é o diretório de trabalho atual dela. Geralmente, aplicativos reagem a isso tornando a janela principal deles visível e em primeiro plano.
 
-This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
+Esse evento é garantido que será emitido após o evento `ready` do objeto `app` ser emitido.
 
 ## Métodos
 
@@ -355,7 +355,7 @@ Todas as janelas serão fechadas imediatamente sem perguntar ao usuário e os ev
 ### `app.relaunch([options])`
 
 * `options` Objeto (opcional) 
-  * `args` String[] (optional)
+  * `args` String[] (opcional)
   * `execPath` String (opcional)
 
 Reinicia a aplicação quando a instância atual sair.
@@ -381,7 +381,7 @@ Retorna `Boolean` - `true` se o Electron tiver inicializado, `false` caso contr�
 
 ### `app.whenReady()`
 
-Returns `Promise` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
+Retorna `Promise` - cumprido quando o Electron é inicializado. Pode ser usado como uma alternativa conveniente para a verificação `app.isReady()` e subscrever o evento `ready` se a aplicação ainda não estiver pronta.
 
 ### `app.focus()`
 
