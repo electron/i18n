@@ -289,7 +289,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 Retorna:
 
-* `event` Event
+* `event` Evento
 * `killed` Boolean
 
 Emitido quando o processo da GPU para de funcionar ou é interrompido.
@@ -310,7 +310,7 @@ Retorna:
 * `event` Event
 * `session` [Session](session.md)
 
-Emitted when Electron has created a new `session`.
+Emitido quando Electron criar uma nova `session`.
 
 ```javascript
 const {app} = require('electron')
@@ -328,7 +328,7 @@ Retorna:
 * `argv` String[] - Um array dos argumentos da linha de comando da segunda instância
 * `workingDirectory` String - O diretório de trabalho da segunda instância
 
-This event will be emitted inside the primary instance of your application when a second instance has been executed. `argv` é um array dos argumentos de linha de comando da segunda instância, e `workingDirectory` é o diretório de trabalho atual dela. Geralmente, aplicativos reagem a isso tornando a janela principal deles visível e em primeiro plano.
+Este evento será emitido dentro da instância principal do seu aplicativo quando uma segunda instância é executada. `argv` é um array dos argumentos de linha de comando da segunda instância, e `workingDirectory` é o diretório de trabalho atual dela. Geralmente, aplicativos reagem a isso tornando a janela principal deles visível e em primeiro plano.
 
 This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
 
