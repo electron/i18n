@@ -237,14 +237,14 @@
     "name": "Romanian",
     "code": "ro",
     "phrases": "9632",
-    "translated": "0",
+    "translated": "141",
     "approved": "0",
     "words": "88806",
-    "words_translated": "0",
+    "words_translated": "997",
     "words_approved": "0",
-    "translated_progress": 0,
+    "translated_progress": 1,
     "approved_progress": 0,
-    "qa_issues": "0"
+    "qa_issues": "17"
   },
   {
     "name": "Russian",
@@ -263,14 +263,14 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "9632",
-    "translated": "8662",
+    "translated": "8667",
     "approved": "289",
     "words": "88806",
-    "words_translated": "75896",
+    "words_translated": "75999",
     "words_approved": "2369",
     "translated_progress": 85,
     "approved_progress": 2,
-    "qa_issues": "3351"
+    "qa_issues": "3354"
   },
   {
     "name": "Tagalog",
