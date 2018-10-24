@@ -24,7 +24,7 @@ $ ./out/Debug/electron.exe ~/my-electron-app/
 
 Sonra Visual Studio'da açın. Elektron Visual Studio ile oluşturulmaz ve bu nedenle bir proje dosyası içermez - ancak kaynak kod dosyalarını açabilirsiniz "As File", yani Visual Studio kendiliğinden açılacaktır. Hala kesme noktalarını ayarlayabilirsiniz - Visual Studio otomatik olarak kaynak kodu, ekteki işlemde çalışan kodla eşleşir ve buna göre keser.
 
-İlgili kod dosyaları, `./ atom / ` 'da olduğu gibi Brightray'de de bulunabilir `./ brightray / tarayıcı ` ve `./ brightray / common `.
+Relevant code files can be found in `./atom/`.
 
 ### Ekleme yapma
 
