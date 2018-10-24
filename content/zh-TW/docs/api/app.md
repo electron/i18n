@@ -307,7 +307,6 @@ Emitted when Chrome's accessibility support changes. This event fires when assis
 
 回傳:
 
-* `event` Event
 * `session` [Session](session.md)
 
 Emitted when Electron has created a new `session`.
