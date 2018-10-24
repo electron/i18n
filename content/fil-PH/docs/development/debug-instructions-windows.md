@@ -24,7 +24,7 @@ $ ./out/Debug/electron.exe ~/my-electron-app/
 
 Buksan ang Visual Studio. Ang Electron ay di gawa gamit ang Visual Studio kung kaya naman ito ay di naglalaman ng project file - ganoon pa man, ikaw ay maaaring magbukas ng source code files bilang "As File", ibig sabihin ang Visual Studio ay magbubukas lamang gamit ang kanyang sarili. Maaari ka pa ring magtakda ng mga breakpoint - ang Visual Studio ay kusang hahanap ng source code na tutugma sa code running ayon sa attached process at break nito.
 
-Ang mga may kaugnayang mga code file ay matatagpuan sa `./atom/` pati na rin sa Brightray na matatagpuan sa `./brightray/browser` at `./brightray/common`.
+Relevant code files can be found in `./atom/`.
 
 ### Pagkakabit (Attaching)
 
