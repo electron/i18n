@@ -22,11 +22,11 @@ Electron підтримується командою GitHub, а також гр�
 
 Після релізу нової версії Node.js, Electron зазвичай випускає оновлення приблизно через місяць, щоб переконатись у стабільності останньої версії Node.js.
 
-In Electron, Node.js and Chromium share a single V8 instance—usually the version that Chromium is using. Most of the time this *just works* but sometimes it means patching Node.js.
+У Electron Node.js та Chromium використовують один екзеппляр V8 - зазвичай версію, яку використовує Chromium. У більшості випадків це *працює* але іколи вимагає оновлення Node.js.
 
 ### Версії
 
-As of version 2.0 Electron [follows `semver`](https://semver.org). For most applications, and using any recent version of npm, running `$ npm install electron` will do the right thing.
+Починаючи з версії 2.0 Electron [використовує `семантичні версії`](https://semver.org). Для більшості додатків і при використанні останніх версій npm, команда `$ npm install electron` зробить свою справу.
 
 The version update process is detailed explicitly in our [Versioning Doc](electron-versioning.md).
 
