@@ -4,7 +4,7 @@
 
 > A home for Electron's translated documentation.
 
-🇵🇭 🇨🇳 🇹🇼 🇧🇷 🇪🇸 🇮🇱 🇰🇷 🇯🇵 🇷🇺 🇫🇷 🇹🇭 🇳🇱 🇹🇷 🇮🇩 🇺🇦 🇨🇿 🇮🇹 🇵🇱
+🇵🇭 🇨🇳 🇹🇼 🇧🇷 🇪🇸 🇮🇱 🇰🇷 🇯🇵 🇷🇺 🇫🇷 🇹🇭 🇳🇱 🇹🇷 🇮🇩 🇺🇦 🇨🇿 🇮🇹 🇵🇱 🇷🇴
 
 ## Contributing
 
@@ -43,6 +43,7 @@ The following languages are currently being translated, but we can
 - [ไทย (Thai)](https://crowdin.com/project/electron/th)
 - [עברית (Hebrew)](https://crowdin.com/project/electron/he)
 - [Wikang Tagalog (Tagalog)](https://crowdin.com/project/electron/tl)
+- [Română (Romanian)](https://crowdin.com/project/electron/ro)
 <!-- end language-table -->
 
 ## Installation
