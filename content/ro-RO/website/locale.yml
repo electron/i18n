@@ -43,40 +43,40 @@ community:
     other: "Pentru toate celelalte întrebări, trimite un email la<a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
   language_communities:
     title: Comunitățile lingvistice
-    description: "The Electron community spans the globe, and English is not everyone's first language. Find <a href='/languages'>documentation in your language</a>, or join one of the language communities below:"
-  tools: Tools
+    description: "Comunitatea Electron se întinde pe glob și limba engleză nu este prima limbă a fiecăruia. Găsește <a href='/languages'>documentația în limba ta</a> sau alătură-te uneia dintre comunitățile lingvistice de mai jos:"
+  tools: Instrumente
   boilerplates: Boilerplates
-  components: Components
-  videos: Videos
-  meetups: Meetups
-  awesome_notice: This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.
-  meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">make a pull request</a>.
+  components: Componente
+  videos: Videoclipuri
+  meetups: Meetupuri
+  awesome_notice: Această listă este generată de la depozitarul <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a>.<br>Lipsește ceva? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Fă un pull request</a>.
+  meetup_notice: Pentru a adăuga un meetup, editează <code>data/meetups.json</code> și <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">fă un pull request</a>.
 releases:
-  title: Electron Releases
-  all_releases: All Releases
-  back_to_index: Back to index
+  title: Lansări Electron
+  all_releases: Toate lansările
+  back_to_index: Înapoi la index
 electron_is_easy:
-  title: It's easier than you think
-  description: If you can build a website, you can build a desktop app. Electron is a framework for creating native applications with web technologies like JavaScript, HTML, and CSS. It takes care of the hard parts so you can focus on the core of your application.
-  video_link: Watch the video
+  title: Este mai ușor decât crezi
+  description: Dacă poți crea un sait web, poți crea o aplicație desktop. Electron este un cadru pentru crearea de aplicații native cu tehnologii web precum JavaScript, HTML și CSS. El are grijă de părțile dure, astfel încât să te poți concentra pe nucleul aplicației tale.
+  video_link: Urmărește videoclipul
 web_technologies:
-  title: Web Technologies
-  description: Electron uses Chromium and Node.js so you can build your app with HTML, CSS, and JavaScript.
+  title: Tehnologii web
+  description: Electron folosește Chromium și Node.Js deci poți crea aplicația ta cu HTML, CSS și JavaScript.
 open_source:
-  title: Open Source
-  description: Electron is an open source project maintained by GitHub and an active community of contributors.
+  title: Sursă deschisă
+  description: Electron este un proiect cu sursă deschisă întreținut de GitHub și de o comunitate activă de contribuitori.
 cross_platform:
-  title: Cross Platform
-  description: Compatible with Mac, Windows, and Linux, Electron apps build and run on three platforms.
+  title: Cross platform
+  description: Compatibil cu Mac, Windows și Linux, aplicațiile Electron se construiesc și rulează pe trei platforme.
 benefits:
-  hard_parts_made_easy: The hard parts made easy
-  automatic_updates: Automatic updates
-  native_menus_and_notifications: Native menus & notifications
-  crash_reporting: Crash reporting
-  debugging_and_profiling: Debugging & profiling
-  windows_installers: Windows installers
+  hard_parts_made_easy: Părțile grele devin ușoare
+  automatic_updates: Actualizări automate
+  native_menus_and_notifications: Meniuri & notificări native
+  crash_reporting: Raportarea problemelor
+  debugging_and_profiling: Depanare & profilare
+  windows_installers: Instalatori Windows
 get_started:
-  title: Get started
+  title: Începe
   description: To get started with Electron, check out the resources below. Learn how to wrap your web app with Electron, access all the APIs, and generate installers.
 explore:
   title: Explore the Electron APIs
