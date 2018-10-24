@@ -8,10 +8,6 @@ ASAR, Atom Shell Arşiv Formatı anlamına gelmektedir. Bir [ asar ](https://git
 
 ASAR biçimi öncelikle Windows'daki performansı artırmak için oluşturuldu... TODO
 
-### Brightray
-
-Brightray [was](https://github.com/electron-archive/brightray) statik kitaplığı [libchromiumcontent](#libchromiumcontent) uygulamalarda daha kolay kullanılabilir hale getirdi. Şimdi kullanımdan kaldırıldı ve Electron'un kod tablasına birleştirildi.
-
 ### CRT
 
 C Çalışma Zamanı Kitaplığı (CRT) C ++ Standart Kitaplığı'nın bir parçasıdır. ISO C99 standart kütüphanesini içerir. CRT' yi destekleyen görsel C++ kütüphaneleri yerel kod geliştimeyi sağlar,ayrıca hem düzenli hemde düzensiz yerel kodlar .NET'i geliştirmek için yönetilebilir.
