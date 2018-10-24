@@ -42,7 +42,7 @@ Consulte la [macOS Cocoa Event Handling Guide](https://developer.apple.com/libra
 
 Devuelve `Menu`
 
-Generally, the `template` is an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
+Generalmente, el `template` es un arreglo de `options` para construir un [MenuItem](menu-item.md). El uso puede ser referenciado más arriba.
 
 Se pueden anexar otros campos al elemento de la `template` y pueden convertirse en propiedades de los elementos del menú creado.
 
@@ -277,7 +277,7 @@ You can make use of `before`, `after`, `beforeGroupContaining`, `afterGroupConta
 * `beforeGroupContaining` - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
 * `afterGroupContaining` - Provides a means for a single context menu to declare the placement of their containing group after the containing group of the item with the specified label.
 
-By default, items will be inserted in the order they exist in the template unless one of the specified positioning keywords is used.
+Por defecto, los elementos se insertarán en el orden en que existen en la plantilla, a menos que se utilice una de las palabras clave de posicionamiento especificadas.
 
 ### Ejemplos
 
