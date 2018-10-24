@@ -108,20 +108,20 @@ apps:
   something_missing: Faltando alguma coisa?
   edit_this_app: Editar esse aplicativo.
   search_app: Filter apps by name, description, etc…
-  categories: Categories
-  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
+  categories: Categorias
+  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Faça um Pull Request</a> para adicionar seu aplicativo.'
   website: Website
-  repository: Repository
-  category: Category
-  downloads: Downloads
-  keywords: Keywords
-  license: License
-  latest_release: Latest Release
+  repository: Repositório
+  category: Categoria
+  downloads: Baixar
+  keywords: Palavras-Chave
+  license: Licença
+  latest_release: Última versão
 blog:
   title: Blog do Electron
   description: Todas as últimas notícias da equipe e comunidade do Electron.
   feedback: Have feedback on this post? Let <a href="https://twitter.com/electronjs">@electronjs</a> know on Twitter.
-  help: Need help or found a bug? <a href="/contact">Contact us
+  help: Precisa de ajuda ou encontrou um bug? <a href="/contact">Contacte-nos
 clipboard:
   copy: Copiar
   copy_to_clipboard: Copiar para Área de Transferência
