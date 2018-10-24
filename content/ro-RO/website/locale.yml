@@ -77,14 +77,14 @@ benefits:
   windows_installers: Instalatori Windows
 get_started:
   title: Începe
-  description: To get started with Electron, check out the resources below. Learn how to wrap your web app with Electron, access all the APIs, and generate installers.
+  description: Pentru a începe cu Electron, verifică resursele de mai jos. Află cum să îmbraci aplicația ta web cu Electron, accesează toate API-urile și generează instalatori.
 explore:
   title: Explorează API-urile Electron
-  description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
+  description: "<a href='https://github.com/electron/electron-api-demos'>Aplicația demouri API Electron</a> demonstrează în mod interactiv cele mai importante caracteristici ale API-ului Electron. Vezi ce este posibil cu Electron cu un cod exemplu și sfaturi utile pentru construirea aplicației tale."
 download_from_github: Descarcă de pe GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Vezi toate lansările</a> pe GitHub
 quick_start:
-  title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
+  title: "Răsucește <a href='https://github.com/electron/electron-quick-start' target='_blank'>inițierea rapidă</a> pentru a vedea Electron în acțiune:"
   description: A minimal Electron app with helpful notations.
   clone: Clonează depozitarul de inițiere rapidă
   go_into_repo: Mergi în depozitar
@@ -119,9 +119,9 @@ apps:
   latest_release: Ultimele lansări
 blog:
   title: Blog Electron
-  description: All the latest news from the Electron team and community.
-  feedback: Have feedback on this post? Let <a href="https://twitter.com/electronjs">@electronjs</a> know on Twitter.
-  help: Need help or found a bug? <a href="/contact">Contact us
+  description: Cele mai recente știri de la echipa și comunitatea Electron.
+  feedback: Ai feedback despre acest articol? Informează <a href="https://twitter.com/electronjs">@electronjs</a> pe Twitter.
+  help: Ai nevoie de ajutor sau ai găsit o eroare? <a href="/contact">Contactează-ne
 clipboard:
   copy: Copiază
   copy_to_clipboard: Copiere în clipboard
@@ -129,47 +129,47 @@ clipboard:
 or: sau
 pages:
   '/':
-    title: Electron | Build cross platform desktop apps with JavaScript, HTML, and CSS.
-    description: 'Build cross platform desktop apps with JavaScript, HTML, and CSS.'
+    title: Electron | Construiește aplicații cross platform pentru desktop cu JavaScript, HTML și CSS.
+    description: 'Construiește aplicații cross platform pentru desktop cu JavaScript, HTML și CSS.'
   '/apps':
     title: Aplicații Electron
     description: Aplicații create cu Electron
   '/docs':
     title: Documentație
-    description: Guides and API reference documentation for the latest Electron release
+    description: Ghiduri și documentație de referință API pentru cea mai recentă versiune Electron
   '/docs/all':
     title: Toate documentele Electron!
-    description: All of Electron's guides and API documentation on a single, searchable page.
+    description: Toate ghidurile și documentația API Electron pe o singură pagină de căutare.
   '/docs/api':
     title: API
-    description: API reference documentation for the latest Electron release
+    description: Documentație de referință API pentru cea mai recentă versiune Electron
   '/docs/development':
     title: Dezvoltare
     description: Dezvoltare cu Electron
   '/docs/tutorial':
     title: Tutorial
-    description: Guides and tutorials for the latest Electron release
+    description: Ghiduri și tutoriale pentru cea mai recentă lansare Electron
   '/blog':
     title: Blog Electron
-    description: All the latest news from the Electron team and community.
+    description: Toate cele mai recente știri de la echipa și comunitatea Electron.
   '/community':
     title: Comunitate
   '/releases':
     title: Lansări
   '/contact':
     title: Contact
-    description: Get in touch with the Electron team on Twitter, Slack, GitHub, or via email.
+    description: Intră în legătură cu echipa Electron pe Twitter, Slack, GitHub sau pe email.
   '/languages':
     title: Limbi
   '/userland':
     title: Spațiu utilizator
   '/devtron':
     title: Devtron
-    description: Devtron is an open source tool to help you inspect, monitor, and debug your Electron app. Built on top of the amazing Chrome Developer Tools.
+    description: Devtron este un instrument cu sursă deschisă care te ajută să inspectezi, să monitorizezi și să depanezi aplicația ta Electron. Construit pe partea de sus a uimitoarelor instrumente de dezvoltare Chrome.
   '/spectron':
     title: Spectron
-    description: Spectron is an open source framework for easily writing integrations tests for your Electron app. Built on top of ChromeDriver and WebDriverIO.
+    description: Spectron este un cadru cu sursă deschisă pentru scrierea cu ușurință a testelor de integrare pentru aplicația ta Electron. Construit pe partea de sus a ChromeDriver și WebDriverIO.
   '/donors':
     title: Donatori
 _404:
-  page_not_found: Page not found.
+  page_not_found: Pagina nu a fost găsită.
