@@ -24,7 +24,7 @@ $ ./out/Debug/electron.exe ~/my-electron-app/
 
 Kemudian, membuka Visual Studio. Elektron tidak dibangun dengan Visual Studio dan karenanya tidak berisi file project - namun Anda dapat membuka file kode sumber "Sebagai File", yang berarti bahwa Visual Studio akan membuka mereka sendiri. Anda masih dapat mengatur breakpoints - Visual Studio secara otomatis akan mengetahui bahwa kode sumber sesuai dengan kode yang berjalan dalam proses melekat dan istirahat sesuai.
 
-File kode yang relevan dapat ditemukan di `./atom/` serta dalam Brightray, ditemukan di `./brightray/browser` dan `./brightray/common`.
+Relevant code files can be found in `./atom/`.
 
 ### melampirkan
 
