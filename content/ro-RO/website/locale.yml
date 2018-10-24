@@ -86,30 +86,30 @@ view_all_releases_on_github: <a href="https://github.com/electron/electron-api-d
 quick_start:
   title: "Spin up the <a href='https://github.com/electron/electron-quick-start' target='_blank'>Quick Start</a> app to see Electron in action:"
   description: A minimal Electron app with helpful notations.
-  clone: Clone the Quick Start repository
+  clone: Clonează depozitarul de inițiere rapidă
   go_into_repo: Mergi în depozitar
-  install_deps: Install the dependencies and run
-  dive_deeper: Or dive deeper and read the <a href='/docs'>documentation</a>.
+  install_deps: Instalează dependențele și rulează
+  dive_deeper: Sau scufundă-te mai adânc și citește <a href='/docs'>documentația</a>.
 need_help:
   title: Ai nevoie de ajutor?
-  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum or our <a href='http://atom-slack.herokuapp.com/'>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
+  description: Pune întrebări în forumul <a href='https://discuss.atom.io/c/electron'>Discuss</a> sau canalul nostru de <a href='http://atom-slack.herokuapp.com/'>Slack</a>. Urmărește <a href="https://twitter.com/electronjs">@electronjs</a> pe Twitter pentru anunțurile importante. Ai nevoie de ceva în mod privat? Trimite un email la <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
 headings:
   languages: Limbi
 taglines:
-  languages: Localized content from our awesome global developer community.
+  languages: Conținut localizat de la o minunată comunitate dezvoltatoare globală.
 help_translate: "Ajută la traducere"
 footer:
-  see_the_faq: See the frequently asked questions
+  see_the_faq: Vezi întrebările frecvente
 apps:
-  title: Apps built on Electron
-  description: With Electron, creating a desktop application for your company or idea is easy. Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been used to create applications by companies like Microsoft, Facebook, Slack, and Docker.
+  title: Aplicații create cu Electron
+  description: Cu Electron, crearea unei aplicații desktop pentru compania sau ideea ta este ușoară. Inițial dezvoltat pentru <a href='https://atom.io' target='_blank'>editorul Atom</a> care aparține de GitHub, Electronul a fost utilizat pentru a crea aplicații de companii precum Microsoft, Facebook, Slack și Docker.
   view_more: Vezi mai multe aplicații
   submit_your_own: submit your own
   something_missing: Lipsește ceva?
   edit_this_app: Editează această aplicație.
-  search_app: Filter apps by name, description, etc…
+  search_app: Filtrează aplicații după nume, descriere, etc…
   categories: Categorii
-  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
+  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Fă un pull request</a> pentru a-ți adăuga aplicația.'
   website: Websait
   repository: Depozitar
   category: Categorie
