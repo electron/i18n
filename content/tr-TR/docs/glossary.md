@@ -22,7 +22,7 @@ Giriş yöntemi editörü. Kullanıcıların klavyelerinde bulunmayan karakterle
 
 ### IDL
 
-Interface description language. Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
+Arayüz açıklama dili. Fonksiyon tanımlamalarını ve veri tiplerini bir formatta yazın. Bu format Java, C++, JavaScript vb. gibi dillerde arabirimler oluşturmak için kullanılabilir. 
 
 ### IPC
 
@@ -52,7 +52,7 @@ Apple'ın Mac App Store'un kısaltması. Uygulamanızı, MAS'a gönderme ile ilg
 
 An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.
 
-See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
+https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md adresine bakın
 
 ### yerel modüller
 
