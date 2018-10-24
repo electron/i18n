@@ -4,11 +4,11 @@
 
 Electron засновано в 2013 році як фреймворк на якому згодом буде створено [Atom](https://atom.io) - хакерський текстовий редактор від GitHub. Весною 2014 року вони стали open-source.
 
-It has since become a popular tool used by open source developers, startups, and established companies. [See who is building on Electron](https://electronjs.org/apps).
+Від того часу він став популярним інструментом, який використовується розробниками з відкритим вихідним кодом, стартапами та великими компаніями. [Подивіться хто використовує Electron](https://electronjs.org/apps).
 
-Read on to learn more about the contributors and releases of Electron or get started building with Electron in the [Quick Start Guide](quick-start.md).
+Читайте далі, щоб дізнатись більше про авторів та резіли Electron або почніть працювати з Electron у [Короткому посібнику](quick-start.md).
 
-## Core Team and Contributors
+## Основна команда та автори
 
 Electron is maintained by a team at GitHub as well as a group of [active contributors](https://github.com/electron/electron/graphs/contributors) from the community. Some of the contributors are individuals and some work at larger companies who are developing on Electron. We're happy to add frequent contributors to the project as maintainers. Read more about [contributing to Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
