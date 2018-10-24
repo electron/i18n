@@ -307,7 +307,6 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
 * `session` [Session](session.md)
 
 Émis lorsque Electron vient de créer une nouvelle `session`.
