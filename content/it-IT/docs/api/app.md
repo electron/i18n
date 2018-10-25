@@ -308,7 +308,6 @@ Emesso quando cambia il supporto accessibilità di Chrome. Questo evento avviene
 
 Restituisce:
 
-* `event` Event
 * `session` [Session](session.md)
 
 Emesso quando Electron ha creato una nuova `sessione`.
