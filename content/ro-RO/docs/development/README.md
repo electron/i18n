@@ -14,7 +14,7 @@ These guides are intended for people working on the Electron project itself. For
 * [Build Instructions (macOS)](build-instructions-macos.md)
 * [Build Instructions (Windows)](build-instructions-windows.md)
 * [Build Instructions (Linux)](build-instructions-linux.md)
-* [Chromium Development](chromium-development.md)
+* [Dezvoltare Chromium](chromium-development.md)
 * [V8 Development](v8-development.md)
 * [Testing](testing.md)
 * [Debugging on Windows](debug-instructions-windows.md)
