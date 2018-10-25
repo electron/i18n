@@ -4,7 +4,7 @@ Electron の開発は基本的に Node.js 開発です。 オペレーティン�
 
 ## macOS のセットアップ
 
-> Electron supports Mac OS X 10.9 (and all versions named macOS) and up. Apple does not allow running macOS in virtual machines unless the host computer is already an Apple computer, so if you find yourself in need of a Mac, consider using a cloud service that rents access to Macs (like [MacInCloud](https://www.macincloud.com/) or [xcloud](https://xcloud.me)).
+> Electron supports macOS 10.10 (Yosemite) and up. Apple does not allow running macOS in virtual machines unless the host computer is already an Apple computer, so if you find yourself in need of a Mac, consider using a cloud service that rents access to Macs (like [MacInCloud](https://www.macincloud.com/) or [xcloud](https://xcloud.me)).
 
 まず、最新バージョンの Node.js をインストールします。 利用可能な最新の `LTS` もしくは `Current` バージョンのいずれかをインストールすることをお勧めします。 Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `macOS Installer`. While Homebrew is an offered option, but we recommend against it - many tools will be incompatible with the way Homebrew installs Node.js.
 
@@ -22,7 +22,7 @@ npm -v
 
 両方のコマンドがバージョン番号を印刷すれば、準備完了です! 始める前に、JavaScript 開発に適した [コード エディタ](#a-good-editor) をインストールするといいでしょう。
 
-## Windows のセットアップ
+## Windows をセットアップ
 
 > Electron は Windows 7 とそれ以降のバージョンをサポートし、それ以前の Windows で Electron アプリケーションを開発しようとしても動作しません。 Microsoft は開発者のための無料の [Windows 10 仮想マシン イメージ](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) を提供しています。
 
@@ -42,7 +42,7 @@ npm -v
 
 両方のコマンドがバージョン番号を印刷すれば、準備完了です! 始める前に、JavaScript 開発に適した [コード エディタ](#a-good-editor) をインストールするといいでしょう。
 
-## Linux のセットアップ
+## Linux をセットアップ
 
 > 一般的に Electron は Ubuntu 12.04、Fedora 21、Debian 8 とそれ以降をサポートします。
 
