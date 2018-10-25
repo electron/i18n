@@ -237,14 +237,14 @@
     "name": "Romanian",
     "code": "ro",
     "phrases": "9631",
-    "translated": "141",
+    "translated": "311",
     "approved": "0",
     "words": "88804",
-    "words_translated": "997",
+    "words_translated": "1646",
     "words_approved": "0",
     "translated_progress": 1,
     "approved_progress": 0,
-    "qa_issues": "17"
+    "qa_issues": "61"
   },
   {
     "name": "Russian",
