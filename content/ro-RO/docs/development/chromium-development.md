@@ -8,7 +8,7 @@
 - [Blog](https://blog.chromium.org)
 - [Căutare cod](https://cs.chromium.org/)
 - [Cod sursă](https://cs.chromium.org/chromium/src/)
-- [Development Calendar and Release Info](https://www.chromium.org/developers/calendar)
-- [Discussion Groups](http://www.chromium.org/developers/discussion-groups)
+- [Calendar de dezvoltare și informații de lansare](https://www.chromium.org/developers/calendar)
+- [Grupuri de discuții](http://www.chromium.org/developers/discussion-groups)
 
-See also [V8 Development](v8-development.md)
+Vezi de asemenea [dezvoltarea V8](v8-development.md)
