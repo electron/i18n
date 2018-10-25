@@ -17,46 +17,46 @@ Folosirea `Inițierii rapide` ca exemplu:
 
 ...
 
-## Main process
+## Proces principal
 
 ...
 
-## Renderer process
+## Proces de randare
 
 ...
 
-## Run your app
+## Rulează aplicația ta
 
 ...
 
-### Run as a distribution
+### Rulează ca o distribuție
 
 ...
 
-### Manually downloaded Electron binary
+### Descărcare Electron binar manuală
 
 ...
 ```
 
-For API references, there are exceptions to this rule.
+Pentru referințe API există excepții de la această regulă.
 
-## Markdown rules
+## Reguli de marcare
 
-* Use `sh` instead of `cmd` in code blocks (due to the syntax highlighter).
-* Lines should be wrapped at 80 columns.
-* No nesting lists more than 2 levels (due to the markdown renderer).
-* All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
+* Folosește `sh` în loc de `cmd` în blocurile de cod (datorită marcatorului de sintaxă).
+* Liniile ar trebui să fie încadrate la 80 de coloane.
+* Fără liste indentate mai mult de 2 niveluri (din cauza redării de marcare).
+* Toate blocurile de cod `js` și `javascript` sunt listate cu [standard-markdown](http://npm.im/standard-markdown).
 
-## Picking words
+## Alegerea cuvintelor
 
-* Use "will" over "would" when describing outcomes.
-* Prefer "in the ___ process" over "on".
+* Folosește „va” în loc de „ar” atunci când descrii rezultatele.
+* Preferă „în procesul ___” în loc de „pe”.
 
-## API references
+## Referințe API
 
-The following rules only apply to the documentation of APIs.
+Următoarele reguli se aplică doar la documentația API-urilor.
 
-### Page title
+### Titlul paginii
 
 Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
 
