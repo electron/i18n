@@ -319,7 +319,6 @@ event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan 
     
     Pengembalian:
     
-    * `acara` Acara
     * `session` [Session](session.md)
     
     Emitted when Electron has created a new `session`.
@@ -696,9 +695,10 @@ properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> 
             
             Mengembalikan `String` - Jenis aktivitas yang sedang berjalan.
             
-            ### `app.invalidateCurrentActivity()` *macOS*
-            
-            * `ketik` String - Unik mengidentifikasi aktivitas. Maps ke [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+            ### ` app.invalidateCurrentActivity () </ 0>  <em> macos </ 1></h3>
+
+<ul>
+<li><code>ketik` String - Unik mengidentifikasi aktivitas. Maps ke [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).</li> </ul> 
             
             Invalidates the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity.
             
