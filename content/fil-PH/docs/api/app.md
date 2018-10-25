@@ -307,7 +307,6 @@ Lalabas kapag ang parating na suporta ng Chrome ay nabago. Ang event na ito ay s
 
 Ibinabalik ang:
 
-* `kaganapan` Kaganapan
 * `session` [Session](session.md)
 
 Emitted when Electron has created a new `session`.
