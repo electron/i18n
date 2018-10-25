@@ -1,16 +1,16 @@
-# Electron Documentation Styleguide
+# Documentația ghidului de stil Electron
 
-These are the guidelines for writing Electron documentation.
+Acestea sunt liniile directoare pentru scrierea documentației Electron.
 
-## Titles
+## Titluri
 
-* Each page must have a single `#`-level title at the top.
-* Chapters in the same page must have `##`-level titles.
-* Sub-chapters need to increase the number of `#` in the title according to their nesting depth.
-* All words in the page's title must be capitalized, except for conjunctions like "of" and "and" .
-* Only the first word of a chapter title must be capitalized.
+* Fiecare pagină trebuie să aibă un singur titlu de nivel-`#` în partea de sus.
+* Capitolele în aceeași pagină trebuie să aibă titluri de nivel-`##`.
+* Subcapitolele trebuie să mărească numărul `#` din titlu în funcție de adâncimea lor.
+* Toate cuvintele din titlul paginii trebuie să fie cu majusculă cu excepția conjuncțiilor precum „de” și „și”.
+* Numai primul cuvânt al unui titlu de capitol trebuie să fie cu majuscule.
 
-Using `Quick Start` as example:
+Folosirea `Inițierii rapide` ca exemplu:
 
 ```markdown
 # Quick Start
