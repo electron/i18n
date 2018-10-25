@@ -307,7 +307,6 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 Повертає:
 
-* `event` Event
 * `session` [Session](session.md)
 
 Emitted when Electron has created a new `session`.
