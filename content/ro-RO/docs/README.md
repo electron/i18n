@@ -130,14 +130,14 @@ Aceste tutoriale individuale se extind asupra subiectelor discutate în ghidul d
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
-### Modules for the Renderer Process (Web Page):
+### Module pentru randarea procesului (pagina web):
 
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)
 * [remote](api/remote.md)
 * [webFrame](api/web-frame.md)
 
-### Modules for Both Processes:
+### Module pentru ambele procese:
 
 * [clipboard](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
@@ -145,6 +145,6 @@ Aceste tutoriale individuale se extind asupra subiectelor discutate în ghidul d
 * [screen](api/screen.md)
 * [shell](api/shell.md)
 
-## Development
+## Dezvoltare
 
-See <development/README.md>
+Vezi <development/README.md>
