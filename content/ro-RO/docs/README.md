@@ -1,8 +1,8 @@
-# Official Guides
+# Ghiduri oficiale
 
-Please make sure that you use the documents that match your Electron version. The version number should be a part of the page URL. If it's not, you are probably using the documentation of a development branch which may contain API changes that are not compatible with your Electron version. To view older versions of the documentation, you can [browse by tag](https://github.com/electron/electron/tree/v1.4.0) on GitHub by opening the "Switch branches/tags" dropdown and selecting the tag that matches your version.
+Te rog asigură-te că folosești documente care se potrivesc cu versiunea ta de Electron. Numărul versiunii ar trebui să fie o parte din URL-ul paginii. Dacă nu este, probabil folosești documentația unei ramuri de dezvoltare care ar putea conține modificări care nu sunt compatibile cu versiunea ta de Electron. Pentru a vedea versiuni mai vechi în documentație, poți [naviga după etichetă](https://github.com/electron/electron/tree/v1.4.0) pe GitHub deschizând lista verticală „Switch branches/tags” și selectând eticheta care se potrivește cu versiunea ta.
 
-## FAQ
+## Întrebări frecvente
 
 There are questions that are asked quite often. Check this out before creating an issue:
 
