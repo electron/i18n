@@ -76,38 +76,38 @@ Aceste tutoriale individuale se extind asupra subiectelor discutate în ghidul d
   * [Proxiuri](tutorial/installation.md#proxies)
   * [Oglinzi și cacheuri personalizate](tutorial/installation.md#custom-mirrors-and-caches)
   * [Depanare](tutorial/installation.md#troubleshooting)
-* [In Detail: Electron's Versioning Scheme](tutorial/electron-versioning.md) 
+* [În detaliu: schema de versionare Electron](tutorial/electron-versioning.md) 
   * [semver](tutorial/electron-versioning.md#semver)
-  * [Stabilization Branches](tutorial/electron-versioning.md#stabilization-branches)
-  * [Beta Releases and Bug Fixes](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
-* [In Detail: Packaging App Source Code with asar](tutorial/application-packaging.md) 
-  * [Generating asar Archives](tutorial/application-packaging.md#generating-asar-archives)
-  * [Using asar Archives](tutorial/application-packaging.md#using-asar-archives)
-  * [Limitations](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [Adding Unpacked Files to asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [In Detail: Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [In Detail: Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
-* [Offscreen Rendering](tutorial/offscreen-rendering.md)
+  * [Stabilizarea ramurilor](tutorial/electron-versioning.md#stabilization-branches)
+  * [Lansări beta și fixări de erori](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
+* [În detaliu: ambalarea codului sursă al aplicației cu asar](tutorial/application-packaging.md) 
+  * [Generarea arhivelor asar](tutorial/application-packaging.md#generating-asar-archives)
+  * [Utilizarea arhivelor asar](tutorial/application-packaging.md#using-asar-archives)
+  * [Limitări](tutorial/application-packaging.md#limitations-of-the-node-api)
+  * [Adăugarea fișierelor despachetate în arhivele asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
+* [În detaliu: testarea Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [În detaliu: utilizarea modulului Pepper Flash](tutorial/using-pepper-flash-plugin.md)
+* [Randare în afara ecranului](tutorial/offscreen-rendering.md)
 
 * * *
 
-* [Glossary of Terms](glossary.md)
+* [Glosar de termeni](glossary.md)
 
-## API References
+## Referințe API
 
-* [Synopsis](api/synopsis.md)
-* [Process Object](api/process.md)
-* [Supported Chrome Command Line Switches](api/chrome-command-line-switches.md)
-* [Environment Variables](api/environment-variables.md)
-* [Breaking API Changes](api/breaking-changes.md)
+* [Rezumat](api/synopsis.md)
+* [Obiectul procesului](api/process.md)
+* [Comutările liniei de comandă Chrome acceptate](api/chrome-command-line-switches.md)
+* [Variabile de mediu](api/environment-variables.md)
+* [Ruperea modificărilor API](api/breaking-changes.md)
 
-### Custom DOM Elements:
+### Elemente DOM personalizate:
 
-* [`File` Object](api/file-object.md)
-* [`<webview>` Tag](api/webview-tag.md)
-* [`window.open` Function](api/window-open.md)
+* [Obiectul `File`](api/file-object.md)
+* [Eticheta `<webview>`](api/webview-tag.md)
+* [Funcția `window.open`](api/window-open.md)
 
-### Modules for the Main Process:
+### Module pentru procesul principal:
 
 * [app](api/app.md)
 * [autoUpdater](api/auto-updater.md)
