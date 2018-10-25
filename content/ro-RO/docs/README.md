@@ -4,37 +4,37 @@ Te rog asigură-te că folosești documente care se potrivesc cu versiunea ta de
 
 ## Întrebări frecvente
 
-There are questions that are asked quite often. Check this out before creating an issue:
+Există întrebări care sunt solicitate destul de des. Verifică acest lucru înainte de a crea o problemă:
 
-* [Electron FAQ](faq.md)
+* [Întrebări și răspunsuri Electron](faq.md)
 
-## Guides and Tutorials
+## Ghiduri și tutoriale
 
-* [Setting up the Development Environment](tutorial/development-environment.md) 
-  * [Setting up macOS](tutorial/development-environment.md#setting-up-macos)
-  * [Setting up Windows](tutorial/development-environment.md#setting-up-windows)
-  * [Setting up Linux](tutorial/development-environment.md#setting-up-linux)
-  * [Choosing an Editor](tutorial/development-environment.md#a-good-editor)
-* [Creating your First App](tutorial/first-app.md) 
-  * [Installing Electron](tutorial/first-app.md#installing-electron)
-  * [Electron Development in a Nutshell](tutorial/first-app.md#electron-development-in-a-nutshell)
-  * [Running Your App](tutorial/first-app.md#running-your-app)
-* [Boilerplates and CLIs](tutorial/boilerplates-and-clis.md) 
+* [Configurarea mediului de dezvoltare](tutorial/development-environment.md) 
+  * [Configurarea macOS](tutorial/development-environment.md#setting-up-macos)
+  * [Configurarea Windows](tutorial/development-environment.md#setting-up-windows)
+  * [Configurarea Linux](tutorial/development-environment.md#setting-up-linux)
+  * [Alegerea unui editor](tutorial/development-environment.md#a-good-editor)
+* [Crearea primei tale aplicații](tutorial/first-app.md) 
+  * [Instalarea Electron](tutorial/first-app.md#installing-electron)
+  * [Dezvoltarea Electron într-un Nutshell](tutorial/first-app.md#electron-development-in-a-nutshell)
+  * [Rularea primei tale aplicații](tutorial/first-app.md#running-your-app)
+* [Boilerplates și CLI-uri](tutorial/boilerplates-and-clis.md) 
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
-  * [Other Tools and Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
-* [Application Architecture](tutorial/application-architecture.md) 
-  * [Main and Renderer Processes](tutorial/application-architecture.md#main-and-renderer-processes)
-  * [Using Electron's APIs](tutorial/application-architecture.md#using-electron-apis)
-  * [Using Node.js APIs](tutorial/application-architecture.md#using-nodejs-apis)
-  * [Using Native Node.js Modules](tutorial/using-native-node-modules.md)
-* Adding Features to Your App 
-  * [Notifications](tutorial/notifications.md)
-  * [Recent Documents](tutorial/desktop-environment-integration.md#recent-documents)
-  * [Application Progress](tutorial/progress-bar.md)
-  * [Custom Dock Menu](tutorial/macos-dock.md)
+  * [Alte instrumente și Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
+* [Arhitectură aplicație](tutorial/application-architecture.md) 
+  * [Procese principale și de redare](tutorial/application-architecture.md#main-and-renderer-processes)
+  * [Utilizarea API-ului Electron](tutorial/application-architecture.md#using-electron-apis)
+  * [Utilizarea API-ului Node.js](tutorial/application-architecture.md#using-nodejs-apis)
+  * [Utilizarea modulelor native Node.js](tutorial/using-native-node-modules.md)
+* Adăugarea funcționalităților în aplicația ta 
+  * [Notificări](tutorial/notifications.md)
+  * [Documente recente](tutorial/desktop-environment-integration.md#recent-documents)
+  * [Progresul aplicației](tutorial/progress-bar.md)
+  * [Meniu de andocare personalizat](tutorial/macos-dock.md)
   * [Custom Windows Taskbar](tutorial/windows-taskbar.md)
   * [Custom Linux Desktop Actions](tutorial/linux-desktop-actions.md)
   * [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
