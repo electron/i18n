@@ -1,4 +1,4 @@
-# Electron FAQ
+# Întrebări și răspunsuri Electron
 
 ## Why am I having trouble installing Electron?
 
