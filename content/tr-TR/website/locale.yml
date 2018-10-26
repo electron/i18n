@@ -121,7 +121,7 @@ blog:
   title: Electron Bloğu
   description: Electron takım ve topluluğundan en sonki haberler.
   feedback: Have feedback on this post? Let <a href="https://twitter.com/electronjs">@electronjs</a> know on Twitter.
-  help: Need help or found a bug? <a href="/contact">Contact us
+  help: Need help or found a bug? <a href="/contact">Contact us</a>.
 clipboard:
   copy: Copy
   copy_to_clipboard: Panoya Kopyala
