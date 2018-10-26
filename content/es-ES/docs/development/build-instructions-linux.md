@@ -2,7 +2,7 @@
 
 Siga las indicaciones a continuación para construir Electron en Linux. vm
 
-## Pre-requisitosttz
+## Prerequisitos
 
 * Al menos 25GB de espacio de disco y 8GB de RAM.
 * Python 2.7.x. Algunas distribuciones como CentOS 6.x. aún usan Python 2.6.x, así que quizá necesitarás revisar tu versión de Python con `python -V`.
@@ -27,7 +27,7 @@ $ sudo apt-get install build-essential clang libdbus-1-dev libgtk-3-dev \
                        libnotify-dev libgnome-keyring-dev libgconf2-dev \
                        libasound2-dev libcap-dev libcups2-dev libxtst-dev \
                        libxss1 libnss3-dev gcc-multilib g++-multilib curl \
-                       gperf bison python-dbusmock
+                       gperf bison
 ```
 
 En RHEL / CentOS, instala las siguientes librerías:
@@ -71,7 +71,7 @@ $ gn gen out/Debug --args='import(...) target_cpu="arm"'
 
 ## Compilando
 
-See [Build Instructions: GN](build-instructions-gn.md)
+Ver [Build Instructions: GN](build-instructions-gn.md)
 
 ## Problemas
 
