@@ -121,7 +121,7 @@ blog:
   title: Блог Electron
   description: Все последние новости от команды Electron и сообщества.
   feedback: Есть мысли по поводу этой публикации? Дайте <a href="https://twitter.com/electronjs">@electronjs</a> об этом знать на Twitter.
-  help: Нужна помощь или вы нашли баг? <a href="/contact">Свяжитесь с нами
+  help: Need help or found a bug? <a href="/contact">Contact us</a>.
 clipboard:
   copy: Копировать
   copy_to_clipboard: Копировать в буфер обмена
