@@ -121,7 +121,7 @@ blog:
   title: Blog d'Electron
   description: Toutes les dernières nouvelles de l'équipe d'Electron et de la communauté.
   feedback: Have feedback on this post? Let <a href="https://twitter.com/electronjs">@electronjs</a> know on Twitter.
-  help: Need help or found a bug? <a href="/contact">Contact us
+  help: Need help or found a bug? <a href="/contact">Contact us</a>.
 clipboard:
   copy: Copier
   copy_to_clipboard: Copier dans le presse-papiers
