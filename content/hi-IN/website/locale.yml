@@ -121,7 +121,7 @@ blog:
   title: इलेक्ट्रॉन ब्लॉग
   description: इलेक्ट्रॉनक टीम और समुदाय के सभी नवीनतम समाचार|
   feedback: Have feedback on this post? Let <a href="https://twitter.com/electronjs">@electronjs</a> know on Twitter.
-  help: Need help or found a bug? <a href="/contact">Contact us
+  help: Need help or found a bug? <a href="/contact">Contact us</a>.
 clipboard:
   copy: कॉपी करें
   copy_to_clipboard: क्‍लिपबोर्ड पर कॉपी करें
