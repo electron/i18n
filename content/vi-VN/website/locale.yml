@@ -121,7 +121,7 @@ blog:
   title: Blog Electron
   description: Tin tức mới nhất từ đội ngũ Electron và cộng đồng.
   feedback: Have feedback on this post? Let <a href="https://twitter.com/electronjs">@electronjs</a> know on Twitter.
-  help: Need help or found a bug? <a href="/contact">Contact us
+  help: Need help or found a bug? <a href="/contact">Contact us</a>.
 clipboard:
   copy: Sao chép
   copy_to_clipboard: Chép vào clipboard
