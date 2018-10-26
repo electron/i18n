@@ -36,7 +36,7 @@ $ git remote set-url origin https://github.com/electron/electron
 
 ### sccache
 
-Thousands of files must be compiled to build Chromium and Electron. You can avoid much of the wait by reusing Electron CI's build output via [sccache](https://github.com/mozilla/sccache). This requires some optional steps (listed below) and these two environment variables:
+Miles de archivos deben ser compilados para construir Chromium y Electron. You can avoid much of the wait by reusing Electron CI's build output via [sccache](https://github.com/mozilla/sccache). This requires some optional steps (listed below) and these two environment variables:
 
 ```sh
 export SCCACHE_BUCKET="electronjs-sccache"
@@ -184,7 +184,7 @@ $ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec \
 
 ## Sharing the git cache between multiple machines
 
-It is possible to share the gclient git cache with other machines by exporting it as SMB share on linux, but only one process/machine can be using the cache at a time. Los bloqueos creados por el script git-cache intentarán evitar esto, pero puede que no funcione perfectamente en una red.
+Es posible compartir este directorio con otras máquinas exportándolo como SMB share en Linux, pero solo un proceso/máquina puede usar la memoria caché a la vez. Los bloqueos creados por el script git-cache intentarán evitar esto, pero puede que no funcione perfectamente en una red.
 
 En Windows, SMBv2 tiene un caché de directorio que causará problemas con el script del git cache, por lo que es necesario desactivarlo configurando la clave de registro
 
@@ -192,7 +192,7 @@ En Windows, SMBv2 tiene un caché de directorio que causará problemas con el sc
 HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Lanmanworkstation\Parameters\DirectoryCacheLifetime
 ```
 
-to 0. More information: https://stackoverflow.com/a/9935126
+a cero. Para más información: https://stackoverflow.com/a/9935126
 
 ## Problemas
 
