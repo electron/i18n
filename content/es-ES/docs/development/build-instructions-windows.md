@@ -22,7 +22,7 @@ Electron se construye casi completamente con script de comandos de linea y no pu
 
 ## Compilando
 
-See [Build Instructions: GN](build-instructions-gn.md)
+Ver [Build Instructions: GN](build-instructions-gn.md)
 
 ## Arquitectura 32bit
 
