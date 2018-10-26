@@ -15,8 +15,8 @@ win.webContents.openDevTools()
 
 Google 為他們的開發者工具提供了[傑出的文件](https://developer.chrome.com/devtools) 我們建議你熟悉它們，他們對於任何 Electron 的開發者來說通常都是工具包中最強大的工具之一。
 
-## 主處理序
+## 主進程
 
-调试主进程有点棘手, 因为您不能简单地打开开发者工具来调试它们。 多亏了谷歌和Node.js的紧密合作，Chromium开发者工具可以[被用来调试Electron的主进程](https://nodejs.org/en/docs/inspector/)，否则你也许会遇到许多怪事就像`require`不能再控制台中显示。
+調試主進程有點棘手, 因為你無法簡單地打開開發者工具來調試它們。 多虧了 Google 和 Node.js 的緊密合作，Chromium 開發者工具可以[被用來調試 Electron 的主進程](https://nodejs.org/en/docs/inspector/)，否則你也許會遇到許多怪事，就像`require`不能在控制台中顯示。
 
-如果想获取更多信息，可以看[调试主进程的文档](./debugging-main-process.md)
+如果想獲取更多訊息，可以看[調試主進程的文件](./debugging-main-process.md)
