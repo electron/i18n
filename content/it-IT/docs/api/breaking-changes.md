@@ -1,8 +1,8 @@
 # Contratto API
 
-Breaking changes will be documented here, and deprecation warnings added to JS code where possible, at least [one major version](../tutorial/electron-versioning.md#semver) before the change is made.
+I cambiamenti delle API assieme agli avvisi di deprecazione aggiunti al codice JavaScript, dove possibile, saranno qui documentati almeno [una versione maggiore](../tutorial/electron-versioning.md#semver) prima che il cambiamento sia implementato.
 
-# Commenti `FIXAMI`
+# Commenti `FIXME`
 
 La stringa `FIXME` è usata nei commenti del codice per denotare cose che dovrebbero essere sistemate per i prossimi rilasci. Vedi https://github.com/electron/electron/search?q=fixme
 
