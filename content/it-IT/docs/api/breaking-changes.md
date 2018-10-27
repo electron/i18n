@@ -6,7 +6,7 @@ I cambiamenti delle API assieme agli avvisi di deprecazione aggiunti al codice J
 
 La stringa `FIXME` è usata nei commenti del codice per denotare cose che dovrebbero essere sistemate per i prossimi rilasci. Vedi https://github.com/electron/electron/search?q=fixme
 
-# Planned Breaking API Changes (4.0)
+# Cambiamenti Pianificati API (4.0)
 
 La seguente lista include i cambiamenti delle API pianificati per Electron 4.0.
 
