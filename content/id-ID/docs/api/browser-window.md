@@ -22,39 +22,49 @@ Ketika memuat halaman di jendela secara langsung, pengguna dapat melihat pemuata
 
 ### Menggunakan kejadian `ready-to-show`
 
-Saat memuat halaman, kejadian `ready-to-show` akan dikeluarkan saat proses perender telah memberikan halaman untuk pertama kalinya jika jendela belum ditampilkan. Menampilkan jendela setelah acara ini tidak memiliki lampu kilat visual:
+Saat memuat halaman, kejadian `ready-to-show` akan dikeluarkan saat proses perender telah memberikan halaman untuk pertama kalinya jika jendela belum ditampilkan. Menampilkan jendela setelah kejadian ini tidak memiliki flash visual:
 
 ```javascript
-const {jendela peramban} = memerlukan ('electron') nyalakan = jendela baru peramban({show: false}) win.once ('siap-untuk-menunjukkan', () = & gt; {win.show ()})
+const {BrowserWindow} = require('electron')
+let win = new BrowserWindow({show: false})
+win.once('ready-to-show', () => {
+  win.show()
+})
 ```
 
-Acara ini biasanya dibunyikan setelah acara ` Apakah-selesai-load </ 0>, tapi untuk halaman dengan banyak sumber daya terpencil, itu mungkin dipancarkan sebelum acara <code> Apakah-selesai-load </ 0>.</p>
+Kejadian ini biasanya dijalankan/dikeluarkan setelah kejadian `did-finish-load`, tapi untuk halaman dengan banyak sumber daya jark jauh, itu mungkin dijalankan sebelum kejadian `did-finish-load`.
 
-<h3>Pengaturan <code> warna latar belakang</ 0></h3>
+### Pengaturan `backgroundColor`
 
-<p>Untuk aplikasi yang kompleks, <code> siap-show </ 0>  acara bisa dipancarkan terlambat, membuat aplikasi merasa lambat. Dalam kasus ini, sebaiknya segera tampilkan jendela, dan gunakan latar belakang < 0> warna latar belakang </ 0> ke latar belakang aplikasi Anda:</p>
+Untuk aplikasi yang kompleks, kejadian `ready-to-show` bisa dijalankan sangat terlambat, membuat aplikasi terasa lambat. Dalam kasus ini, sebaiknya segera tampilkan jendela, dan gunakan `backgroundColor` ke latar belakang aplikasi Anda:
 
-<pre><code class="javascript">const {BrowserWindow} = membutuhkan ('elektron')
+```javascript
+const {BrowserWindow} = membutuhkan ('elektron')
 
 let win = new BrowserWindow({backgroundColor: '#2e2c29'})
 win.loadURL('https://github.com')
-`</pre> 
+```
 
-Preview untuk aplikasi yang menggunakan ` siap-untuk-menunjukkan </ 0> peristiwa, masih disarankan untuk melakukan <code> backgroundColor </ 0> untuk aplikasi yang lebih asli.</p>
+Perhatikan bahwa untuk aplikasi yang menggunakan `ready-to-show`, masih disarankan untuk mengatur`backgroundColor` untuk membuat aplikasi terasa lebih asli.
 
-<h2>Jendela dewasa dan anak</h2>
+## Jendela dewasa dan anak
 
-<p>Dengan menggunakan opsi <code> utama </ 0>  , Anda dapat membuat jendela anak:</p>
+Dengan menggunakan opsi `parent`, Anda dapat membuat jendela anak:
 
-<pre><code class="javascript">const {Browser peramban} = require ('elektron') biarkan top = new BrowserWindow () biarkan anak = new BrowserWindow ( {parent: top} ) child.show () top.show () top.show ()
+```javascript
+const {BrowserWindow} = require('electron')
 
-`</pre> 
+let top = new BrowserWindow()
+let child = new BrowserWindow({parent: top})
+child.show()
+top.show()
+```
 
-Jendela ` anak </ 0> akan selalu tampil di atas jendela <code> atas </ 0> .</p>
+Jendela `child` akan selalu tampil di atas jendela `top`.
 
-<h3>Jendela modal</h3>
+### Jendela modal
 
-<p>Jendela modal adalah jendela anak yang menonaktifkan jendela orangtua, untuk menciptakan jendela modal, Anda harus menetapkan pilihan <code>orang tua` dan `modal`pilihan:
+Jendela modal adalah jendela anak yang menonaktifkan jendela orangtua, untuk menciptakan jendela modal, Anda harus menetapkan pilihan `parent` dan `modal` pilihan:
 
 ```javascript
 const {BrowserWindow} = require ('electron') biarkan anak = Jendela peramban baru ( {orang tua: atas, modal: benar, tunjukkan: salah} ) anak. beban URL ('https://github.com') child.once (' siap tampil ', () = & gt; {
@@ -63,7 +73,7 @@ const {BrowserWindow} = require ('electron') biarkan anak = Jendela peramban bar
 
 ### Visibilitas halaman 
 
-The  Halaman Visibilitas API </ 0> bekerja sebagai berikut:</p> 
+The [Halaman Visibilitas API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) bekerja sebagai berikut:
 
 * Pada semua platform, negara visibilitas melacak apakah jendela tersembunyi / diminimalkan atau tidak.
 * Selain itu, di macOS , status visibilitas juga melacak keadaan oklusi jendela. Jika jendela ditutup (yaitu tertutup sepenuhnya) oleh jendela lain, status visibilitas akan ` tersembunyi </ 0> . Pada platform lain, status visibilitas hanya <code> tersembunyi </ 0> hanya jika jendela diminimalkan atau secara eksplisit disembunyikan dengan <code> menyembunyikan () </ 0> .</li>
