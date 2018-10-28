@@ -1,14 +1,14 @@
 # BrowserWindow
 
-> mengatasi dan kendalikan jendela peramban
+> Buat dan kendalikan jendela peramban.
 
 Proses: [Main](../glossary.md#main-process)
 
 ```javascript
-// Dalam proses utamanya.
-Misalnya {Jendela Peramban} = memerlukan ('elektron')
+// Pada proses utama.
+const {BrowserWindow} = require('electron')
 
-// Atau gunakan`terpencil` dari proses renderer.
+// Atau gunakan `remote` dari proses perender.
 // Misalnya {Jendela Peramban} = memerlukan ('electron').terpencil biarkan menang=jendela baru Peramban ( {lebar: 800, tinggi: 600} ) menang.di ('tutup', () = & gt; {menang = batal}) //beban sebuah remote URL win.loadURL ('https://github.com') // Atau muat file HTML lokal win.loadURL (`file: // $ {__ dirname} / app / index.html`)
 ```
 
@@ -18,14 +18,15 @@ Untuk membuat jendela tanpa krom , atau jendela transparan dalam bentuk sewenang
 
 ## Menampilkan jendela dengan anggun
 
-Saat memuat halaman di jendela secara langsung, pengguna mungkin melihat pemuatan laman secara bertahap, yang bukan pengalaman bagus untuk aplikasi asli. Untuk membuat tampilan jendela tanpa lampu kilat visual, ada dua solusi untuk situasi yang berbeda.
+Ketika memuat halaman di jendela secara langsung, pengguna dapat melihat pemuatan halaman secara bertahap, yang bukan pengalaman yang baik untuk aplikasi asli. Untuk membuat tampilan jendela tanpa visual flash, ada dua solusi untuk situasi yang berbeda.
 
-### Menggunakan ` siap-tampil</ 0>  acara</h3>
+### Menggunakan kejadian `ready-to-show`
 
-<p>Saat memuat halaman, <code> siap-show </ 0>  acara akan dikeluarkan saat proses penyaji telah memberikan halaman untuk pertama kalinya jika jendela belum terbukti belum. Menampilkan jendela setelah acara ini tidak memiliki lampu kilat visual:</p>
+Saat memuat halaman, kejadian `ready-to-show` akan dikeluarkan saat proses perender telah memberikan halaman untuk pertama kalinya jika jendela belum ditampilkan. Menampilkan jendela setelah acara ini tidak memiliki lampu kilat visual:
 
-<pre><code class="javascript">const {jendela peramban} = memerlukan ('electron') nyalakan = jendela baru peramban({show: false}) win.once ('siap-untuk-menunjukkan', () = & gt; {win.show ()})
-`</pre> 
+```javascript
+const {jendela peramban} = memerlukan ('electron') nyalakan = jendela baru peramban({show: false}) win.once ('siap-untuk-menunjukkan', () = & gt; {win.show ()})
+```
 
 Acara ini biasanya dibunyikan setelah acara ` Apakah-selesai-load </ 0>, tapi untuk halaman dengan banyak sumber daya terpencil, itu mungkin dipancarkan sebelum acara <code> Apakah-selesai-load </ 0>.</p>
 
