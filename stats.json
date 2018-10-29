@@ -107,27 +107,27 @@
     "name": "German",
     "code": "de",
     "phrases": "9631",
-    "translated": "2805",
+    "translated": "2808",
     "approved": "35",
     "words": "88800",
-    "words_translated": "17581",
+    "words_translated": "17609",
     "words_approved": "66",
     "translated_progress": 19,
     "approved_progress": 0,
-    "qa_issues": "1078"
+    "qa_issues": "1079"
   },
   {
     "name": "Hebrew",
     "code": "he",
     "phrases": "9631",
-    "translated": "200",
+    "translated": "208",
     "approved": "0",
     "words": "88800",
-    "words_translated": "1469",
+    "words_translated": "1495",
     "words_approved": "0",
     "translated_progress": 1,
     "approved_progress": 0,
-    "qa_issues": "62"
+    "qa_issues": "63"
   },
   {
     "name": "Hindi",
@@ -153,20 +153,20 @@
     "words_approved": "62",
     "translated_progress": 74,
     "approved_progress": 0,
-    "qa_issues": "4288"
+    "qa_issues": "4283"
   },
   {
     "name": "Italian",
     "code": "it",
     "phrases": "9631",
-    "translated": "4661",
+    "translated": "4664",
     "approved": "3",
     "words": "88800",
-    "words_translated": "34538",
+    "words_translated": "34570",
     "words_approved": "43",
     "translated_progress": 38,
     "approved_progress": 0,
-    "qa_issues": "1712"
+    "qa_issues": "1713"
   },
   {
     "name": "Japanese",
