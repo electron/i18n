@@ -107,21 +107,21 @@ apps:
   submit_your_own: שלח משלך
   something_missing: משהו חסר?
   edit_this_app: ערוך את היישום הזה.
-  search_app: Filter apps by name, description, etc…
+  search_app: סנן יישומים לפי שם, תיאור, ועוד…
   categories: Categories
   add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
   website: Website
   repository: Repository
   category: Category
-  downloads: Downloads
-  keywords: Keywords
+  downloads: הורדות
+  keywords: מילות מפתח
   license: License
   latest_release: Latest Release
 blog:
   title: בלוג Electron
   description: כל החדשות האחרונות מקהילת Electron.
   feedback: Have feedback on this post? Let <a href="https://twitter.com/electronjs">@electronjs</a> know on Twitter.
-  help: Need help or found a bug? <a href="/contact">Contact us</a>.
+  help: צריכים עזרה או שמצאתם באג? <a href="/contact">צרו עמנו קשר!</a>.
 clipboard:
   copy: העתק
   copy_to_clipboard: העתקה ללוח העריכה
