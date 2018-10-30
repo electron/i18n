@@ -50,7 +50,7 @@ Below is a table explicitly mapping types of changes to their corresponding cate
 
 Note that most Chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
 
-# Stabilization Branches
+# Stabilizarea ramurilor
 
 Stabilization branches are branches that run parallel to master, taking in only cherry-picked commits that are related to security or stability. These branches are never merged back to master.
 
@@ -62,7 +62,7 @@ We allow for multiple stabilization branches to exist simultaneously, and intend
 
 Older lines will not be supported by GitHub, but other groups can take ownership and backport stability and security fixes on their own. We discourage this, but recognize that it makes life easier for many app developers.
 
-# Beta Releases and Bug Fixes
+# Lansări beta și fixări de erori
 
 Developers want to know which releases are *safe* to use. Even seemingly innocent features can introduce regressions in complex applications. At the same time, locking to a fixed version is dangerous because you’re ignoring security patches and bug fixes that may have come out since your version. Our goal is to allow the following standard semver ranges in `package.json` :
 
@@ -110,13 +110,12 @@ A few examples of how various semver ranges will pick up new releases:
 
 ![](../images/versioning-sketch-7.png)
 
-# Missing Features: Alphas, and Nightly
+# Missing Features: Alphas
 
 Our strategy has a few tradeoffs, which for now we feel are appropriate. Most importantly that new features in master may take a while before reaching a stable release line. If you want to try a new feature immediately, you will have to build Electron yourself.
 
 As a future consideration, we may introduce one or both of the following:
 
-- nightly builds off of master; these would allow folks to test new features quickly and give feedback
 - alpha releases that have looser stability constraints to betas; for example it would be allowable to admit new features while a stability channel is in *alpha*
 
 # Feature Flags
@@ -139,8 +138,9 @@ We seek to increase clarity at all levels of the update and releases process. St
 
 - It is acceptable for some commits in a pull request to not include a semantic prefix, as long as the pull request title contains a meaningful encompassing semantic message.
 
-# Versionless `master`
+# Versioned `master`
 
-- The `master` branch will always contain `0.0.0-dev` in its `package.json`
+- The `master` branch will always contain the next major version `X.0.0-nightly.DATE` in its `package.json`
 - Release branches are never merged back to master
 - Release branches *do* contain the correct version in their `package.json`
+- As soon as a release branch is cut for a major, master must be bumped to the next major. I.e. `master` is always versioned as the next theoretical release branch
