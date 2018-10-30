@@ -75,7 +75,7 @@ Whatever you choose, you will periodically have to bump the version in your `pac
 
 The process is as follows:
 
-1. All new major and minor releases lines begin with a beta series indicated by semver prerelease tags of `beta.N`, e.g. `2.0.0-beta.1`. After the first beta, subsequent beta releases must meet all of the following conditions: 
+1. All new major and minor releases lines begin with a beta series indicated by semver prerelease tags of `beta.N`, ví dụ. `2.0.0-beta.1`. After the first beta, subsequent beta releases must meet all of the following conditions: 
     1. The change is backwards API-compatible (deprecations are allowed)
     2. The risk to meeting our stability timeline must be low.
 2. If allowed changes need to be made once a release is beta, they are applied and the prerelease tag is incremented, e.g. `2.0.0-beta.2`.
@@ -110,13 +110,12 @@ A few examples of how various semver ranges will pick up new releases:
 
 ![](../images/versioning-sketch-7.png)
 
-# Missing Features: Alphas, and Nightly
+# Missing Features: Alphas
 
 Our strategy has a few tradeoffs, which for now we feel are appropriate. Most importantly that new features in master may take a while before reaching a stable release line. If you want to try a new feature immediately, you will have to build Electron yourself.
 
 As a future consideration, we may introduce one or both of the following:
 
-- nightly builds off of master; these would allow folks to test new features quickly and give feedback
 - alpha releases that have looser stability constraints to betas; for example it would be allowable to admit new features while a stability channel is in *alpha*
 
 # Feature Flags
@@ -139,8 +138,9 @@ We seek to increase clarity at all levels of the update and releases process. St
 
 - It is acceptable for some commits in a pull request to not include a semantic prefix, as long as the pull request title contains a meaningful encompassing semantic message.
 
-# Versionless `master`
+# Versioned `master`
 
-- The `master` branch will always contain `0.0.0-dev` in its `package.json`
+- The `master` branch will always contain the next major version `X.0.0-nightly.DATE` in its `package.json`
 - Release branches are never merged back to master
 - Release branches *do* contain the correct version in their `package.json`
+- As soon as a release branch is cut for a major, master must be bumped to the next major. I.e. `master` is always versioned as the next theoretical release branch
