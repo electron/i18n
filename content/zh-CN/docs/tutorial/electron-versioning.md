@@ -110,13 +110,12 @@ Specifically, the above means:
 
 ![](../images/versioning-sketch-7.png)
 
-# 缺少的功能: Alphas, 和 Nightly
+# Missing Features: Alphas
 
 我们的战略有几个权衡, 现在我们觉得是适当的。 最重要的是, 新的功能在掌握可能需要一段时间才能达到稳定的释放。 如果你想立即尝试一个新的功能, 你将不得不建立自己的Electron 。
 
 作为未来的考虑, 我们可以介绍以下一种或两种情况:
 
-- 由 master 构建的 nightly; 这些将允许人们快速测试新的功能, 并提供反馈
 - 具有松散稳定性限制的 alpha 释放版; 例如, 当稳定通道在 * alpha * 中时, 允许接纳新特性
 
 # 功能标志
@@ -139,8 +138,9 @@ Specifically, the above means:
 
 - It is acceptable for some commits in a pull request to not include a semantic prefix, as long as the pull request title contains a meaningful encompassing semantic message.
 
-# 无版本的 `master`
+# Versioned `master`
 
-- The `master` 分支将始终在其 `package.json` 中包含 `0.0.0-dev`.
+- The `master` branch will always contain the next major version `X.0.0-nightly.DATE` in its `package.json`
 - Release 分支永远不会合并回 master 分支
 - 发布分支 *在* 其`package.json ` 中包含正确的版本
+- As soon as a release branch is cut for a major, master must be bumped to the next major. I.e. `master` is always versioned as the next theoretical release branch
