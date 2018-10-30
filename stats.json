@@ -237,10 +237,10 @@
     "name": "Romanian",
     "code": "ro",
     "phrases": "9631",
-    "translated": "319",
+    "translated": "320",
     "approved": "0",
     "words": "88815",
-    "words_translated": "1680",
+    "words_translated": "1692",
     "words_approved": "0",
     "translated_progress": 1,
     "approved_progress": 0,
@@ -257,7 +257,7 @@
     "words_approved": "7629",
     "translated_progress": 42,
     "approved_progress": 8,
-    "qa_issues": "1515"
+    "qa_issues": "1514"
   },
   {
     "name": "Spanish",
