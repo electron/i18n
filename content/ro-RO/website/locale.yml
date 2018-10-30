@@ -121,7 +121,7 @@ blog:
   title: Blog Electron
   description: Toate cele mai recente știri de la echipa și comunitatea Electron.
   feedback: Ai feedback despre acest articol? Informează <a href="https://twitter.com/electronjs">@electronjs</a> pe Twitter.
-  help: Need help or found a bug? <a href="/contact">Contact us</a>.
+  help: Ai nevoie de ajutor sau ai găsit o eroare? <a href="/contact">Contactează-ne</a>.
 clipboard:
   copy: Copiază
   copy_to_clipboard: Copiere în clipboard
