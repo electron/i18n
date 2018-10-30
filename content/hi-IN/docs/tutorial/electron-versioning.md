@@ -110,13 +110,12 @@ For each major and minor bump, you should expect to see something like the follo
 
 ![](../images/versioning-sketch-7.png)
 
-# नामौज़ूद सुविधायें अल्फा, और नाईटली
+# Missing Features: Alphas
 
 हमारी रणनीति की भी कुछ खामियाँ है, पर हम समझते हैं कि फिलहाल उनसे कोई फर्क नहीं पड़ता | ख़ासकर यह कि मास्टर में नयी सुविधायें शामिल करने में कुछ समय लग सकता है, इससे पहले कि वह एक स्थिर रिलीज़ पंक्ति तक पहुंचे | अगर आप नयी सुविधाओं को तुरंत ही इस्तेमाल करना चाहते हैं, तो आप को खुद ही इलेक्ट्रॉन का निर्माण करना होगा |
 
 भविष्य को ध्यान में रखते हुए, हम निम्नलिखित में से एक या दोनों को ला सकते हैं:
 
-- मास्टर की नाईटली बिल्डस ऑफ; आपको नयी सुविधाओं का तुरंत परिक्षण करने और फीडबैक देने की अनुमति प्रदान करेगी
 - अल्फा रिलीज़िस जिनके पास बीटा से ज्यादा लचीले स्थिरता तत्व हैं; जैसे कि इस बात की अनुमति होगी कि जब एक स्थिरता चैनल *अल्फा* में मौज़ूद हो, तब भी नयी सुविधाओं को शामिल किया जा सके |
 
 # फीचर ध्वज
@@ -139,8 +138,9 @@ For each major and minor bump, you should expect to see something like the follo
 
 - It is acceptable for some commits in a pull request to not include a semantic prefix, as long as the pull request title contains a meaningful encompassing semantic message.
 
-# संस्करण बिना `मास्टर`
+# Versioned `master`
 
-- `मास्टर` शाखा अपने `package.json` में `0.0.0-dev` को हमेशा शामिल करेगी
+- The `master` branch will always contain the next major version `X.0.0-nightly.DATE` in its `package.json`
 - रिलीज़ शाखायें कभी भी वापस मास्टर शाखा में संयोजित नहीं की जाती
 - रिलीज़ शाखायें सही संस्करण को शामिल *करती* हैं अपने `package.json` में
+- As soon as a release branch is cut for a major, master must be bumped to the next major. I.e. `master` is always versioned as the next theoretical release branch
