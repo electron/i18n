@@ -111,13 +111,12 @@ Beberapa contoh bagaimana berbagai rentang semver akan mengambil rilis baru:
 
 ![](../images/versioning-sketch-7.png)
 
-# Fitur yang Hilang: Alphas, dan Nightly
+# Missing Features: Alphas
 
 Strategi kami memiliki beberapa pengorbanan, yang untuk saat ini kami merasa sesuai. Yang paling penting bahwa fitur baru di master mungkin memerlukan beberapa saat sebelum mencapai garis rilis yang stabil. Jika Anda ingin segera mencoba fitur baru, Anda harus membangun Elektron sendiri.
 
 Sebagai pertimbangan di masa depan, kami dapat memperkenalkan satu atau kedua hal berikut:
 
-- malam membangun dari tuan; ini akan memungkinkan orang untuk menguji fitur baru dengan cepat dan memberikan umpan balik
 - rilis alpha yang memiliki batasan stabilitas yang lebih longgar pada beta; misalnya akan diizinkan untuk mengakui fitur baru saat saluran stabilitas masuk *alpha*
 
 # Bendera fitur
@@ -140,8 +139,9 @@ Kami berusaha untuk meningkatkan kejelasan di semua tingkat proses update dan re
 
 - It is acceptable for some commits in a pull request to not include a semantic prefix, as long as the pull request title contains a meaningful encompassing semantic message.
 
-# Versionless `master`
+# Versioned `master`
 
-- `Master` branch akan selalu berisi `0.0.0-dev` di yang `package.json`
+- The `master` branch will always contain the next major version `X.0.0-nightly.DATE` in its `package.json`
 - Rilis Cabang-cabang tidak pernah digabung kembali ke master
 - Rilis cabang *Apakah* mengandung versi yang benar di mereka `package.json`
+- As soon as a release branch is cut for a major, master must be bumped to the next major. I.e. `master` is always versioned as the next theoretical release branch
