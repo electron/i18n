@@ -75,7 +75,7 @@ Sin importar lo que elija, periódicamente tendrá que golpear su versión en su
 
 El proceso es el siguiente:
 
-1. All new major and minor releases lines begin with a beta series indicated by semver prerelease tags of `beta.N`, p.e. `2.0.0-beta.1`. Después de la primera beta, las versiones beta que la sigan deben cumplir con las siguientes condiciones: 
+1. All new major and minor releases lines begin with a beta series indicated by semver prerelease tags of `beta.N`, por ejemplo. `2.0.0-beta.1`. Después de la primera beta, las versiones beta que la sigan deben cumplir con las siguientes condiciones: 
     1. The change is backwards API-compatible (deprecations are allowed)
     2. The risk to meeting our stability timeline must be low.
 2. If allowed changes need to be made once a release is beta, they are applied and the prerelease tag is incremented, e.g. `2.0.0-beta.2`.
@@ -110,13 +110,12 @@ Algunos ejemplos de como varios rangos semver recogerán nuevo lanzamientos:
 
 ![](../images/versioning-sketch-7.png)
 
-# Funciones faltantes: Alphas y nightly
+# Missing Features: Alphas
 
 Nuestra estrategia tiene algunas compensaciones, que por ahora sentimos que son apropiadas. Más importante que las nuevas características en la maestra pueden tomar un tiempo antes de alcanzar una linea de lanzamiento estable. Si quiere tratar nuevas características inmediatamente, tendrá que construir Electron usted mismo.
 
 Como consideración futura, podemos introducir uno o ambos de los siguientes:
 
-- nightly se estructura fuera de la maestra; esto le permitiría a la gente probar nuevas características rápido y que dieran retroalimentación
 - lanzamientos alpha que tiene perdida de estabilidad se vuelven beta; por ejemplo, le permitiría admitir nuevas características mientras un canal de estabilidad está en *alpha*
 
 # Señales de característica
@@ -139,8 +138,9 @@ Buscamos aumentar la claridad en todos los niveles del proceso de actualización
 
 - It is acceptable for some commits in a pull request to not include a semantic prefix, as long as the pull request title contains a meaningful encompassing semantic message.
 
-# Versionless `master`
+# Versioned `master`
 
-- La rama `master` siempre contendrá `0.0.0-dev` en su `package.json`
+- The `master` branch will always contain the next major version `X.0.0-nightly.DATE` in its `package.json`
 - Las ramas de lanzamiento no se fusionan nuevamente con la rama maestra
 - Las ramas de versión *do*contienen la versión correcta en su `package.json`
+- As soon as a release branch is cut for a major, master must be bumped to the next major. I.e. `master` is always versioned as the next theoretical release branch
