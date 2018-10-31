@@ -31,7 +31,7 @@ community:
   description: Resurse pentru conectarea cu oamenii care lucrează la Electron.
   channels:
     get_started: "<a href='/docs/tutorial/first-app'><b>Începe</b></a> să construiești o aplicație citind <a href='/docs/tutorial/first-app'>ghidul de inițiere rapidă</a>."
-    updates: "<a href='https://twitter.com/electronjs'><b>Fii la curent</b></a> urmărind<a href='https://twitter.com/electronjs'>@electronjs</a> pe Twitter și abonându-te la <a href='/blog'>fluxul blogului</a>."
+    updates: "<a href='https://twitter.com/electronjs'><b>Rămâi la curent</b></a> urmărind <a href='https://twitter.com/electronjs'>@electronjs</a> pe Twitter și abonându-te la <a href='/blog'>fluxul blogului</a>."
     localized_docs: "<a href='/languages'><b>Citește documentele în limba ta maternă</b></a> vizitând <a href='/languages'>pagina limbilor</a>."
     help: "<a href='http://atom-slack.herokuapp.com'><b>Obține ajutor și feedback</b></a> intrând în <a href='http://atom-slack.herokuapp.com'>atomio pe Slack</a>, postând pe <a href='https://discuss.atom.io/c/electron'>Discuss</a> sau vizitând <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
     packages: "<a href='/search/npmPackages'><b>Găsește pachete npm utile</b></a> în <a href='/search/npmPackages'>pagina de căutare a pachetelor</a>."
@@ -40,7 +40,7 @@ community:
     code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Raportează încălcarea codului de conduită</b></a> trimițând un email la <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
     security: "<a href='mailto:security@electronjs.org'><b>Dezvăluie probleme de securitate</b></a> trimițând un email la <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     donations: "<a href='donors'><b>Donează</b></a> în pagina noastră <a href='/donors'>OpenCollective</a>."
-    other: "Pentru toate celelalte întrebări, trimite un email la<a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
+    other: "Pentru toate celelalte întrebări, trimite un email la <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
   language_communities:
     title: Comunitățile lingvistice
     description: "Comunitatea Electron se întinde pe glob și limba engleză nu este prima limbă a fiecăruia. Găsește <a href='/languages'>documentația în limba ta</a> sau alătură-te uneia dintre comunitățile lingvistice de mai jos:"
