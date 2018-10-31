@@ -16,6 +16,7 @@ docs:
   description: Перегляньте всі <a href="/docs/all">документи на одній сторінці</a> або перевірте <a href="/docs/faq">FAQ</a>.
   guides: Посібники
   api_reference: Довідник API
+  api_structures: API Structures
   advanced: Додатково
   footer:
     propose_change: Поліпшити цю документацію
