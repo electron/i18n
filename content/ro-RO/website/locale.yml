@@ -13,7 +13,7 @@ nav:
   userland: Spațiu utilizator
 docs:
   title: Documentație Electron
-  description: Vezi toate<a href="/docs/all">documentele pe o pagină</a> sau verifică secțiunea <a href="/docs/faq">FAQ</a>.
+  description: Vezi toate <a href="/docs/all">documentele pe o pagină</a> sau verifică secțiunea <a href="/docs/faq">FAQ</a>.
   guides: Ghiduri
   api_reference: Referință API
   advanced: Avansate
@@ -61,7 +61,7 @@ electron_is_easy:
   video_link: Urmărește videoclipul
 web_technologies:
   title: Tehnologii web
-  description: Electron folosește Chromium și Node.Js deci poți crea aplicația ta cu HTML, CSS și JavaScript.
+  description: Electron folosește Chromium și Node.js deci poți crea aplicația ta cu HTML, CSS și JavaScript.
 open_source:
   title: Sursă deschisă
   description: Electron este un proiect cu sursă deschisă întreținut de GitHub și de o comunitate activă de contribuitori.
@@ -102,15 +102,15 @@ footer:
   see_the_faq: Vezi întrebările frecvente
 apps:
   title: Aplicații create cu Electron
-  description: Cu Electron, crearea unei aplicații desktop pentru compania sau ideea ta este ușoară. Inițial dezvoltat pentru <a href='https://atom.io' target='_blank'>editorul Atom</a> care aparține de GitHub, Electronul a fost utilizat pentru a crea aplicații de companii precum Microsoft, Facebook, Slack și Docker.
+  description: Cu Electron, să creezi o aplicație desktop, pentru compania sau ideea ta, este ușor. Inițial dezvoltat pentru <a href='https://atom.io' target='_blank'>editorul Atom</a> care aparține de GitHub, Electron a fost utilizat pentru a crea aplicații de către companii precum Microsoft, Facebook, Slack și Docker.
   view_more: Vezi mai multe aplicații
-  submit_your_own: trimite-ți propria
+  submit_your_own: trimite-ți propria aplicație
   something_missing: Lipsește ceva?
   edit_this_app: Editează această aplicație.
   search_app: Filtrează aplicații după nume, descriere, etc…
   categories: Categorii
   add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Fă un pull request</a> pentru a-ți adăuga aplicația.'
-  website: Websait
+  website: Sait web
   repository: Depozitar
   category: Categorie
   downloads: Descărcări
@@ -119,7 +119,7 @@ apps:
   latest_release: Ultimele lansări
 blog:
   title: Blog Electron
-  description: Toate cele mai recente știri de la echipa și comunitatea Electron.
+  description: Cele mai recente știri de la echipa și comunitatea Electron.
   feedback: Ai feedback despre acest articol? Informează <a href="https://twitter.com/electronjs">@electronjs</a> pe Twitter.
   help: Ai nevoie de ajutor sau ai găsit o eroare? <a href="/contact">Contactează-ne</a>.
 clipboard:
@@ -151,7 +151,7 @@ pages:
     description: Ghiduri și tutoriale pentru cea mai recentă lansare Electron
   '/blog':
     title: Blog Electron
-    description: Cele mai recente știri de la echipa și comunitatea Electron.
+    description: Toate cele mai recente știri de la echipa și comunitatea Electron.
   '/community':
     title: Comunitate
   '/releases':
