@@ -16,6 +16,7 @@ docs:
   description: Просмотрите всю <a href="/docs/all">документацию на одной странице</a> или посетите <a href="/docs/faq">ЧаВо</a>.
   guides: Руководства
   api_reference: Справочник по API
+  api_structures: API Structures
   advanced: Расширенный
   footer:
     propose_change: Улучшить этот документ
