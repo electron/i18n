@@ -16,6 +16,7 @@ docs:
   description: Zobacz całą <a href="/docs/all">dokumentację na jednej stronie</a> lub sprawdź <a href="/docs/faq">FAQ</a>.
   guides: Poradniki
   api_reference: API
+  api_structures: API Structures
   advanced: Zaawansowane
   footer:
     propose_change: Ulepsz tę dokumentację
