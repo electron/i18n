@@ -8,17 +8,13 @@ ASAR significa formato de archivo de Shell de Atom. Un archivo de [asar](https:/
 
 El formato ASAR fue creado principalmente para mejorar el rendimiento en Windows... Por hacer
 
-### Brightray
-
-Brightray [fue](https://github.com/electron-archive/brightray) una biblioteca estática que hizo a [libchromiumcontent](#libchromiumcontent) más fácil de usar en aplicaciones. Ahora es obsoleta y se ha fusionado de la base de código de Electron.
-
 ### CRT
 
 La Librería C Run-time (CRT) es la parte de la Librería Estándar de C++ que incorpora a la librería estándar de ISO C99. Las librerías de Visual C++ que implementan el apoyo CRT desarrollo de código nativo, y tanto código mixto nativo y como código administrado, y puro código administrado para el desarrollo .NET.
 
 ### DMG
 
-Una imagen de disco de Apple es un formato de empaquetado utilizado por macOS. Archivos DMG se utilizan comúnmente para la distribución de aplicaciones "instaladores". [electron-builder](https://github.com/electron-userland/electron-builder) soporta `dmg` como objetivo compilar.
+Una imagen de disco de Apple es un formato de empaquetado utilizado por macOS. Archivos DMG se utilizan comúnmente para la distribución de aplicaciones "instaladores". [electron-builder](https://github.com/electron-userland/electron-builder) soporta `dmg` como objetivo de compilación.
 
 ### IME
 
@@ -40,7 +36,7 @@ Una biblioteca compartida que incluye el [módulo de contenido de Chromium](http
 
 ### proceso principal
 
-El proceso principal, comúnmente un archivo llamado `main.js`, es el punto de entrada a la aplicación de cada Electron. Controla la vida de la aplicación, de abrir a cerrar. También maneja elementos nativos como el menú, barra de menú, bandeja, etc. El proceso principal es responsable de crear cada proceso nuevo de renderizado en la aplicación. Todo el nodo API está construido.
+El proceso principal, comúnmente un archivo llamado `main.js`, es el punto de entrada a la aplicación de cada aplicación Electron. Controla la vida de la aplicación, desde que se abre hasta que se cierra. También maneja elementos nativos como el menú, barra de menú, bandeja, etc. El proceso principal es responsable de crear cada proceso nuevo de renderizado en la aplicación. Todo el nodo API está construido.
 
 Cada archivo de proceso principal de la aplicación está especificada en la propieda `main` en `package.json`. Así es cómo `electron.` sabe qué archivo a ejecutar al inicio.
 
@@ -58,7 +54,7 @@ Un sistema IPC para la comunicación intra - o inter-proceso, y eso es important
 
 Ver https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
-### Módulos nativos
+### módulos nativos
 
 Los módulos nativos (también llamados [addons](https://nodejs.org/api/addons.html) en Node.js) son módulos escritos en C o C++ que pueden ser cargados en Node.js o Electron mediante la función require() y utilizarlos como si fueran un módulo ordinario de Node.js. Son usados principalmente para ofrecer una interfaz entre JavaScript corriendo en Node.js y las librerías C/C++.
 
@@ -98,7 +94,7 @@ Ardilla es un marco de código abierto que permite a aplicaciones de Electron ac
 
 Este término que se originó en la comunidad Unix, donde "userland" o "userspace" se refiere a programas que se ejecutan afuera del kernel del sistema operativo. Más recientemente, el término se ha popularizado en la comunidad Node y npm para distinguir entre las características disponibles en el "núcleo Node" versus los paqutes publicados por el registro npm por la comunidad de "usuarios" mucho más grande.
 
-Como Node, Electron se centra en tener un pequeño conjunto de APIs que proporcionan a todas las primitivas necesarias para el desarrollo de aplicaciones de escritorio multiplataformas. Esta filosofía de diseño permite Electron a seguir siendo una herramienta flexible sin ser excesivamente prescriptivas sobre cómo deben utilizarse. Userland permite a los usuarios crear y compartir herramientas que proporcionen funcionalidad adicional además de lo que está disponible en el "núcleo".
+Como nodo, Electron se centra en tener un pequeño conjunto de APIs que proporcionan a todas las primitivas necesarias para el desarrollo de aplicaciones de escritorio multiplataformas. Esta filosofía de diseño permite Electron a seguir siendo una herramienta flexible sin ser excesivamente prescriptivas sobre cómo deben utilizarse. Userland permite a los usuarios crear y compartir herramientas que proporcionen funcionalidad adicional además de lo que está disponible en el "núcleo".
 
 ### V8
 

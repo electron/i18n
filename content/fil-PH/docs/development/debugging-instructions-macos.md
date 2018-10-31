@@ -22,7 +22,7 @@ Current executable set to './out/Debug/Electron.app' (x86_64).
 
 Ang LLDB ay isang makapangyarihang kagamitan at sumusuporta sa maraming mga istratehiya sa pagsisiyasat ng code. Para sa simpleng introduksyong ito, ipagpalagay natin na nagtatawag ka ng isang utos mula sa JavaScript na hindi gumagalaw ng tama - kaya gusto mong magtuon sa katumbas nitong C++ na utos sa loob ng pinagkukunan ng Electron.
 
-Ang mga may kaugnayang mga code file ay matatagpuan sa `./atom/` pati na rin sa Brightray na matatagpuan sa `./brightray/browser` at `./brightray/common`.
+Relevant code files can be found in `./atom/`.
 
 Ipagpalagay natin na gusto mong i-debug ang `app.setName()`, na syang inilalarawan sa `browser.cc` bilang `Browser::SetName()`. Itakda ang breakpoint gamit ang utos na `breakpoint` na tumutukoy sa file at linya na pagtutuonan:
 

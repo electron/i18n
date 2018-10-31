@@ -116,13 +116,12 @@ Resimlerdeki bir yaşam döngüsü:
 
 ![](../images/versioning-sketch-7.png)
 
-# Eksik Özellikleri: Alfalar ve Gececiler
+# Missing Features: Alphas
 
 Stratejimiz, şu an uygun olduğunu düşündüğümüz birkaç takas hattı içeriyor. En önemlisi, master'daki yeni özelliklerin kararlı bir sürüm hattına erişmeden önce biraz zaman alması. Hemen yeni bir özellik denemek isterseniz, Electron'u kendiniz kurmanız gerekecek.
 
 Gelecekteki değerlendirmelerde, aşağıdakilerden birini veya her ikisini birlikte sunabiliriz:
 
-- gece boyunca inşa eden ustalar; bunlar milletlerin yeni özellikleri hızlıca test etmesine ve geri bildirimde bulunmasına izin verecektir
 - beta sürümlerine göre daha serbest denge kısıtlamaları olan alfa sürümleri; örneğin, bir denge kanalı *alpha* da ise, yeni özellikleri kabul etmek için izin verir
 
 # Özellik bayrakları
@@ -146,8 +145,9 @@ Biz güncelleme ve serbest bırakma sürecinin her düzeyinde netliği arttırma
 <li>It is acceptable for some commits in a pull request to not include a semantic prefix, as long as the pull request title contains a meaningful encompassing semantic message.</li>
 </ul>
 
-<h1>Versionless <code>master`</h1> 
+<h1>Versioned <code>master`</h1> 
     
-    - `master` şubesi `package.json` içerisinde daima `0.0.0-dev` içerecektir
+    - The `master` branch will always contain the next major version `X.0.0-nightly.DATE` in its `package.json`
     - Serbest branşlar asla ustaya birleştirilmez
     - Serbest şubeler `package.json` içerisinde doğru sürümler bulundurmalıdır
+    - As soon as a release branch is cut for a major, master must be bumped to the next major. I.e. `master` is always versioned as the next theoretical release branch

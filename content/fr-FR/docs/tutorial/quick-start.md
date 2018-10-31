@@ -1,6 +1,6 @@
 # Démarrage Rapide
 
-Electron vous permet de créer des applications de bureau avec du pure JavaScript fournissant un runtime avec des API natives riches (système d'exploitation). Vous pourriez le voir comme une variante d'un Node.js directement exécutable sur le bureau au lieu des serveurs Web.
+Electron vous permet de créer des applications de bureau avec du pur JavaScript fournissant un runtime avec des API natives riches (système d'exploitation). Vous pourriez le voir comme une variante d'une application Node.js directement exécutable sur le bureau au lieu des serveurs Web.
 
 L'ancien document "Démarrage rapide" qui existait ici a été scindé en deux documents :
 

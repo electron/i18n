@@ -24,7 +24,7 @@ $ ./out/Debug/electron.exe ~/my-electron-app/
 
 그리고, Visual Studio를 엽니다. Electron은 Visual Studio로 만들어지지 않았으며 이러한 이유로 인해 프로젝트 파일을 가지고 있지 않습니다. 하지만 "파일로 열기"를 통해 소스 코드 파일들을 열 수 있습니다. Visual Studio가 각각의 파일을 따로 연다는 것입니다. 여전히 중단점을 설정할 수 있습니다. Visual Studio는 현재 소스 코드와 일치하는 작동 중인 프로세스와 중단점을 자동으로 찾아냅니다.
 
-관련된 코드 파일들은 `./atom/`에서 찾을 수 있으며 또한 Brightray 안 `./brightray/browser`와 `./brightray/common`에서도 찾을 수 있습니다.
+Relevant code files can be found in `./atom/`.
 
 ### 디버거 연결
 

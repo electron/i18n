@@ -289,7 +289,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 Retorna:
 
-* `event` Event
+* `event` Evento
 * `killed` Boolean
 
 Emitido quando o processo da GPU para de funcionar ou é interrompido.
@@ -307,10 +307,9 @@ Emitido quando o suporte de acessibilidade do Chrome muda. Este evento é aciona
 
 Retorna:
 
-* `event` Event
 * `session` [Session](session.md)
 
-Emitted when Electron has created a new `session`.
+Emitido quando Electron criar uma nova `session`.
 
 ```javascript
 const {app} = require('electron')
@@ -328,9 +327,9 @@ Retorna:
 * `argv` String[] - Um array dos argumentos da linha de comando da segunda instância
 * `workingDirectory` String - O diretório de trabalho da segunda instância
 
-This event will be emitted inside the primary instance of your application when a second instance has been executed. `argv` é um array dos argumentos de linha de comando da segunda instância, e `workingDirectory` é o diretório de trabalho atual dela. Geralmente, aplicativos reagem a isso tornando a janela principal deles visível e em primeiro plano.
+Este evento será emitido dentro da instância principal do seu aplicativo quando uma segunda instância é executada. `argv` é um array dos argumentos de linha de comando da segunda instância, e `workingDirectory` é o diretório de trabalho atual dela. Geralmente, aplicativos reagem a isso tornando a janela principal deles visível e em primeiro plano.
 
-This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
+Esse evento é garantido que será emitido após o evento `ready` do objeto `app` ser emitido.
 
 ## Métodos
 
@@ -355,7 +354,7 @@ Todas as janelas serão fechadas imediatamente sem perguntar ao usuário e os ev
 ### `app.relaunch([options])`
 
 * `options` Objeto (opcional) 
-  * `args` String[] (optional)
+  * `args` String[] (opcional)
   * `execPath` String (opcional)
 
 Reinicia a aplicação quando a instância atual sair.
@@ -381,7 +380,7 @@ Retorna `Boolean` - `true` se o Electron tiver inicializado, `false` caso contr�
 
 ### `app.whenReady()`
 
-Returns `Promise` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
+Retorna `Promise` - cumprido quando o Electron é inicializado. Pode ser usado como uma alternativa conveniente para a verificação `app.isReady()` e subscrever o evento `ready` se a aplicação ainda não estiver pronta.
 
 ### `app.focus()`
 

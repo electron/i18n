@@ -37,7 +37,7 @@ community:
     packages: "在<a href='/search/npmPackages'>套件搜尋頁面</a>上<a href='/search/npmPackages'><b>探索實用的 npm 套件</b></a>。"
     bugs: "在<a href='https://github.com/electron/electron/issues'>electron/electron</a>儲存庫中開啟 issue 以<a href='https://github.com/electron/electron/issues'><b>回報 bug</b></a>。"
     feature_requests: "通過在<a href='https://github.com/electron/electron/issues'>electron/electron</a>代碼庫提交報告來<a href='https://github.com/electron/electron /issues'><b>提交功能申請</b></a>"
-    code_of_conduct: "發送郵件到<a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>來<a href='mailto:coc@electronjs.org'><b>報告代碼衝突</b ></a>"
+    code_of_conduct: "發送郵件到<a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>來<a href='mailto:coc@electronjs.org'><b>報告程式碼衝突</b ></a>"
     security: "寄電子郵件到 <a href='mailto:security@electronjs.org'>security@electronjs.org</a> <a href='mailto:security@electronjs.org'><b>揭露資安問題</b></a>。"
     donations: "透過 <a href='/donors'>OpenCollective</a> <a href='donors'><b>贊助我們</b></a>。"
     other: "其他問題請寄信至 <a href='mailto:info@electronjs.org'>info@electronjs.org</a>。"
@@ -110,18 +110,18 @@ apps:
   search_app: Filter apps by name, description, etc…
   categories: Categories
   add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
-  website: Website
-  repository: Repository
+  website: 網站
+  repository: 儲存庫
   category: Category
-  downloads: Downloads
-  keywords: Keywords
-  license: License
+  downloads: 下載
+  keywords: 關鍵字
+  license: 授權
   latest_release: Latest Release
 blog:
   title: Electron 部落格
   description: 來自 Electron 團隊及社群的最新消息。
   feedback: Have feedback on this post? Let <a href="https://twitter.com/electronjs">@electronjs</a> know on Twitter.
-  help: Need help or found a bug? <a href="/contact">Contact us
+  help: Need help or found a bug? <a href="/contact">Contact us</a>.
 clipboard:
   copy: Copy
   copy_to_clipboard: 複製到剪貼簿

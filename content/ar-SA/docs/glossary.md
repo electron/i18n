@@ -8,10 +8,6 @@
 
 أنشئ تنسيق ASAR في المقام الأول لتحسين الأداء على ويندوز
 
-### Brightray
-
-برايتراي [هو](https://github.com/electron-archive/brightray) مكتبة ثابتة والتي جعلت [ملفات كروميوم](#libchromiumcontent) أسهل للاستخدام في التطبيقات. هذه المكتبة مهملة اﻵن ودمجت في شيفرة إلكترون الأساسية.
-
 ### CRT
 
 مكتبة وقت التشغيل C (CRT) هو الجزء من "مكتبة c + + القياسية" التي تتضمن المكتبة القياسية إيزو C99. مكتبات Visual c + + التي تنفذ CRT ، وكل التعليمات البرمجية الأصلية والمداره مختلطة، والتعليمات البرمجية المدارة خالصة للتنمية.NET.
@@ -60,13 +56,16 @@
 
 <p>أنظر https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md</p>
 
-<h3>الوحدات المحلية</h3>
+<h3>native modules</h3>
 
-<p>الوحدات المحلية (يطلق عليها أيضاً <a href="https://nodejs.org/api/addons.html">إضافات</a> في Node.js) هي وحدات مكتوبة بلغة C أو C++ والتي يمكن تحمليها في Node.js أو Electron بإستخدام الدالة require()، وتستخدم كأنها وحدة Node.js عادية. إنها تستخدم أساسا لتقديم واجهة بين جافا سكريبت التي تعمل في مكتبات Node.js و C/c + +.</p>
+<p>الوحدات المحلية (يطلق عليها أيضاً <a href="https://nodejs.org/api/addons.html">إضافات</a> في Node.js) هي وحدات مكتوبة بلغة C أو C++ والتي يمكن تحمليها في Node.js أو Electron بإستخدام الدالة require()، وتستخدم كأنها وحدة Node.js عادية. أنها تستخدم أساسا لتقديم واجهة بين جافا سكريبت يعمل في مكتبات Node.js و C/c + +.</p>
 
-<p>وحدات Node المحلية مدعمة من قبل Electron، ولكن بما أن Electron من المرجح جداً أن يستخدم إصدارات V8 تختلف عن ملفات Node المثبتة في نظامك، يجب عليك تحديد مسار الـ Electron’s headers يدوياً عند بناء وحدات محلية.</p>
+<p>Native Node modules are supported by Electron, but since Electron is very
+likely to use a different V8 version from the Node binary installed in your
+system, you have to manually specify the location of Electron’s headers when
+building native modules.</p>
 
-<p>أنظر أيضاً <a href="tutorial/using-native-node-modules.md">Using Native Node Modules</a>.</p>
+<p>See also <a href="tutorial/using-native-node-modules.md">Using Native Node Modules</a>.</p>
 
 <h3>NSIS</h3>
 
@@ -102,7 +101,7 @@ See also: [process](#process), [main process](#main-process)
 
 ### سنجاب
 
-سكويرل هو إطار مفتوح المصدر الذي يمكن تطبيقات إلكترون لتحديث تلقائيا كما يتم الافراج عن الإصدارات الجديدة. انظر [autoUpdater](api/auto-updater.md) API لمزيد من المعلومات حول الشروع في العمل مع السنجاب.
+السنجاب هو إطار مفتوح المصدر الذي يمكن تطبيقات إلكترون لتحديث تلقائيا كما يتم الافراج عن الإصدارات الجديدة. انظر [autoUpdater](api/auto-updater.md) API لمزيد من المعلومات حول الشروع في العمل مع السنجاب.
 
 ### userland
 

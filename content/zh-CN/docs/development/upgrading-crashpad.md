@@ -1,4 +1,4 @@
-# 更新奔溃报告（Crashpad）
+# 更新崩溃报告（Crashpad）
 
 1. 获取crashpad的版本信息
     

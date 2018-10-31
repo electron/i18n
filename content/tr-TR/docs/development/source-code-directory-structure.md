@@ -27,7 +27,6 @@ Kaynak kodu daha iyi anlamak için [krom'ın çok süreç mimarisi](https://dev.
 |       |         message loop into Chromium's message loop.
 |       └── api/ - The implementation of common APIs, and foundations of
 |                  Electron's built-in modules.
-├── brightray/ - Thin shim over libcc that makes it easier to use.
 ├── chromium_src / - kaynak kodu krom kopyalanır. Aşağıya bakınız.
 ├── default_app/ - The default page to show when Electron is started without
 |                  providing an app.

@@ -1,21 +1,20 @@
-# Build Instructions
+# Instrucciones de Compilación
 
-Follow the guidelines below for building Electron.
+Siga los pasos que se mencionan abajo para compilar Electron.
 
-## Platform prerequisites
+## Pre-requisitos de la Plataforma
 
-Check the build prerequisites for your platform before proceeding
+Comprueba los pre-requisitos de tu plataforma para la compilación antes de avanzar
 
 - [macOS](build-instructions-macos.md#prerequisites)
 - [Linux](build-instructions-linux.md#prerequisites)
 - [Windows](build-instructions-windows.md#prerequisites)
 
-## GN prerequisites
+## Pre-requisitos de GN
 
-You'll need to install [`depot_tools`](http://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up), the toolset used for fetching Chromium and its dependencies.
+Necesitaras instalar [`depot_tools`](http://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up), el conjunto de herramientas usadas para consumir Chromium y sus dependencias.
 
-Also, on Windows, you'll need to set the environment variable `DEPOT_TOOLS_WIN_TOOLCHAIN=0`. To do so, open `Control Panel` → `System and
-Security` → `System` → `Advanced system settings` and add a system variable `DEPOT_TOOLS_WIN_TOOLCHAIN` with value `0`. This tells `depot_tools` to use your locally installed version of Visual Studio (by default, `depot_tools` will try to download a Google-internal version that only Googlers have access to).
+Ademas, en Windows, tendrás que asignar la variable de ambiente ` DEPOT_TOOLS_WIN_TOOLCHAIN=0`. Para hacerlo, abre ` Panel de Control ` → ` Sistema y Seguridad ` → ` Sistema ` → ` Opciones de Configuración Avanzadas ` y agrega a tu sistema la variable de ambiente ` DEPOT_TOOLS_WIN_TOOLCHAIN` con el valor `0`. Esto le indica a `depot_tools` que utilice tu version instalada de Visual Studio (por defecto, `depot_tools` intentará descargar una version interna de Google, a la cual solo empleados de Google tienen acceso).
 
 ## Cached builds (optional step)
 
@@ -37,7 +36,7 @@ $ git remote set-url origin https://github.com/electron/electron
 
 ### sccache
 
-Thousands of files must be compiled to build Chromium and Electron. You can avoid much of the wait by reusing Electron CI's build output via [sccache](https://github.com/mozilla/sccache). This requires some optional steps (listed below) and these two environment variables:
+Miles de archivos deben ser compilados para construir Chromium y Electron. You can avoid much of the wait by reusing Electron CI's build output via [sccache](https://github.com/mozilla/sccache). This requires some optional steps (listed below) and these two environment variables:
 
 ```sh
 export SCCACHE_BUCKET="electronjs-sccache"
@@ -165,7 +164,7 @@ $ ninja -C out/Debug third_party/electron_node:headers
 $ (cd electron/spec && npm i --nodedir=../../out/Debug/gen/node_headers)
 ```
 
-Luego, ejecuta Electron con `electron/spec` como el argumento:
+Luego, ejecuta Electron con `electron/spec` como parametro:
 
 ```sh
 # En Mac:
@@ -185,7 +184,7 @@ $ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec \
 
 ## Sharing the git cache between multiple machines
 
-It is possible to share the gclient git cache with other machines by exporting it as SMB share on linux, but only one process/machine can be using the cache at a time. Los bloqueos creados por el script git-cache intentarán evitar esto, pero puede que no funcione perfectamente en una red.
+Es posible compartir este directorio con otras máquinas exportándolo como SMB share en Linux, pero solo un proceso/máquina puede usar la memoria caché a la vez. Los bloqueos creados por el script git-cache intentarán evitar esto, pero puede que no funcione perfectamente en una red.
 
 En Windows, SMBv2 tiene un caché de directorio que causará problemas con el script del git cache, por lo que es necesario desactivarlo configurando la clave de registro
 
@@ -193,7 +192,7 @@ En Windows, SMBv2 tiene un caché de directorio que causará problemas con el sc
 HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Lanmanworkstation\Parameters\DirectoryCacheLifetime
 ```
 
-to 0. More information: https://stackoverflow.com/a/9935126
+a cero. Para más información: https://stackoverflow.com/a/9935126
 
 ## Problemas
 

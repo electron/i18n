@@ -39,7 +39,7 @@ Las siguientes plataformas son apoyadas por Electron:
 
 ### macOS
 
-Solo 64bits binarios son previstos para macOS, la versión mínima de macOS soportada es masOS 10.9.
+Only 64bit binaries are provided for macOS, and the minimum macOS version supported is macOS 10.10 (Yosemite).
 
 ### Windows
 
@@ -51,7 +51,7 @@ Ambos binarios `ia32` (`x86`) y `x64` (`amd64`) se proporcionan para Windows. La
 
 Los binarios preconstruidos `ia32` (`i686`) y `x64` (`amd64`) de Electron están basados en Ubuntu 12.04, el binario `armv7l` está construido contra ARM v7 con ABI de flotación dura y NEON para Debian Wheezy.
 
-[Hasta el lanzamiento de Electron 2.0](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md#duplicate-arm-assets), Electron también continuará lanzando el binario `armv7l` con un simple sufijo `arm`. Ambos binarios son idénticos.
+[Hasta el lanzamiento de Electron 2.0](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md#duplicate-arm-assets), Electron también continuará lanzando el binario `armv7l` con un simple sufijo `arm`. Both binaries are identical.
 
 Si el compilado binario puede correr en una distribución depende de que la distribución incluye las librerías a las que está ligada Electron en la plataforma construida, así que solo hay garantía de que Ubuntu 12.04 trabaje, pero las siguientes plataformas también están verificadas para correr el precompilado binario de Electron:
 

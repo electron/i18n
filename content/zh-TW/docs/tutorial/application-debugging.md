@@ -1,10 +1,10 @@
 # 應用程式 Debug
 
-每当 你编写的 Electron 应用程序没有按照你想要的方式运行时，一系列调试工具可能会帮助您发现编码错误、性能瓶颈或优化机会。
+每當你编寫的 Electron 應用程式没有按照你想要的方式運作時，一系列的除錯器可能可以幫助你發現程式碼的錯誤、效能瓶頸或優化的機會。
 
 ## 畫面轉譯處理序
 
-最广泛使用来调试指定渲染进程的工具是Chromium的开发者工具集。 它可以获取到所有的渲染进程，包括`BrowserWindow`的实例，`BrowserView`以及`WebView`。 您可以通过编程的方式在BrowserWindow的`webContents`中调用`openDevTool()`API来打开它们：
+最廣泛被使用來除錯指定渲染進程(renderer process)的工具是 Chromium 的開發者工具。 它適用於所有的渲染過程，包括 `BrowserWindow` 、`BrowserView`、以及 `WebView`的實例。 您可以透過程式設計的方式，呼叫在 `webContents` 中的 `openDevTool()` API 打開它們：
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -13,10 +13,10 @@ let win = new BrowserWindow()
 win.webContents.openDevTools()
 ```
 
-谷歌为他们的开发者工具提供了[杰出的文档](https://developer.chrome.com/devtools) 我们建议您熟悉它们，它们对于任何Electron开发者来说通常都是工具包中最强大的工具之一。
+Google 為他們的開發者工具提供了[傑出的文件](https://developer.chrome.com/devtools) 我們建議你熟悉它們，他們對於任何 Electron 的開發者來說通常都是工具包中最強大的工具之一。
 
-## 主處理序
+## 主進程
 
-调试主进程有点棘手, 因为您不能简单地打开开发者工具来调试它们。 多亏了谷歌和Node.js的紧密合作，Chromium开发者工具可以[被用来调试Electron的主进程](https://nodejs.org/en/docs/inspector/)，否则你也许会遇到许多怪事就像`require`不能再控制台中显示。
+調試主進程有點棘手, 因為你無法簡單地打開開發者工具來調試它們。 多虧了 Google 和 Node.js 的緊密合作，Chromium 開發者工具可以[被用來調試 Electron 的主進程](https://nodejs.org/en/docs/inspector/)，否則你也許會遇到許多怪事，就像`require`不能在控制台中顯示。
 
-如果想获取更多信息，可以看[调试主进程的文档](./debugging-main-process.md)
+如果想獲取更多訊息，可以看[調試主進程的文件](./debugging-main-process.md)

@@ -1,4 +1,4 @@
-# Opciones de linea de commandos de Chrome soportadas
+# Opciones de línea de comandos soportadas por Chrome
 
 > Opciones de la linea de comandos soportados por Electron.
 

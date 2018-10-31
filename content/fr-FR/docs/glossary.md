@@ -8,17 +8,13 @@ ASAR signifie Atom Shell Archive Format. Une archive [asar](https://github.com/e
 
 Le format ASAR a été créé principalement pour améliorer les performances sur Windows... TODO
 
-### Brightray
-
-Brightray [était](https://github.com/electron-archive/brightray) une bibliothèque statique qui rend l'utilisation de [libchromiumcontent](#libchromiumcontent) plus simple dans les applications. Il est désormais obsolète et a été implémenté dans le code d'Electron.
-
 ### CRT
 
 La bibliothèque de Runtime C (CRT) est la partie de la bibliothèque Standard C++ qui intègre la bibliothèque standard ISO C99. Les bibliothèques Visual C++ qui implémentent le CRT soutiennent le développement de code natif et code mixte natif et managé ainsi que le code managé pur pour le développement .NET.
 
 ### DMG
 
-Une Image disque Apple est un format de package utilisé par macOS. Les fichiers DMG sont couramment utilisés pour distribuer un « installateur » d'une application. [electron-builder](https://github.com/electron-userland/electron-builder) prend en charge le `dmg` comme format de build.
+Une Image disque Apple est un format de package utilisé par macOS. Les fichiers DMG sont couramment utilisés pour distribuer un  "installateur" d'une application. [electron-builder](https://github.com/electron-userland/electron-builder) prend en charge le `dmg` comme format de compilation.
 
 ### IME
 

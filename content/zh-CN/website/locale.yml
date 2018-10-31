@@ -121,7 +121,7 @@ blog:
   title: Electron 博客
   description: 所有来自 Electron 团队和社区的最新消息。
   feedback: 对这篇文章有反馈意见吗？ 可以在在 Twitter 上<a href="https://twitter.com/electronjs">@electronjs</a>
-  help: 需要帮助或发现错误？ <a href="/contact">联系我们
+  help: Need help or found a bug? <a href="/contact">Contact us</a>.
 clipboard:
   copy: Copy
   copy_to_clipboard: 复制到剪贴板

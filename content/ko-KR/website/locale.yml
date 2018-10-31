@@ -121,7 +121,7 @@ blog:
   title: Electron 블로그
   description: 모든 최신 소식들은 Electron 팀과 커뮤니티에서 가져옵니다.
   feedback: Have feedback on this post? Let <a href="https://twitter.com/electronjs">@electronjs</a> know on Twitter.
-  help: Need help or found a bug? <a href="/contact">Contact us
+  help: Need help or found a bug? <a href="/contact">Contact us</a>.
 clipboard:
   copy: 복사
   copy_to_clipboard: 클립보드에 복사하기

@@ -48,10 +48,10 @@ Devuelve un `String`, que la ruta/dirección del recibo.
 
 ### `inAppPurchase.finishAllTransactions()`
 
-Completes all pending transactions.
+Completa todas las transacciones pendientes.
 
 ### `inAppPurchase.finishTransactionByDate(date)`
 
 * `date` String - The ISO formatted date of the transaction to finish.
 
-Completes the pending transactions corresponding to the date.
+Completa las pendientes transacciones correspondiendo al día.

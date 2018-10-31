@@ -22,7 +22,7 @@ Current executable set to './out/Debug/Electron.app' (x86_64).
 
 LLDB güçlü bir araçtır ve kod denetimi için birden fazla stratejiyi desteklemektedir. Bu temel giriş için, JavaScript'ten doğru şekilde davranmayan bir komut çağırdığınızı varsayalım -böylece, bu komutun Electron kaynağı içindeki C++ muadili parçasını kırmak istiyorsunuz.
 
-İlgili kod dosyaları, `./ atom / ` 'da olduğu gibi Brightray'de de bulunabilir `./ brightray / tarayıcı ` ve `./ brightray / common `.
+Relevant code files can be found in `./atom/`.
 
 `browser.cc`'da `Browser:: SetName()` olarak tanımlanan `app.setName()`'i hata ayıklamak istediğinizi varsayalım. Devre dışı bırakılacak dosya ve satırı belirterek, kesme noktasını `breakpoint` komutunu kullanarak ayarlayın:
 

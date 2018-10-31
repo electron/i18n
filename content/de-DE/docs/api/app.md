@@ -310,8 +310,7 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         Rückgabewert:
         
-        * ` Ereignis </ 0>  Ereignis</li>
-<li><code>session` [Session](session.md)
+        * `session` [Session](session.md)
         
         Emitted when Electron has created a new `session`.
         

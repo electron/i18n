@@ -8,10 +8,6 @@ Ang ASAR ay nangahuhulugang Atom Shell Archive Format. Ang isang [ asar ](https:
 
 Ang format ng ASAR ay nilikha lalo na upang mapabuti ang pagganap sa Windows... TODO
 
-### Brightray
-
-Ang Brightray  ay isang static library na ginawa [ libchromiumcontent ](#libchromiumcontent) na mas madaling gamitin sa mga application. Ito ay ngayon hindi na ginagamit at isinama sa codebase ng Electron.</p> 
-
 ### CRT
 
 Ang C Run-time Library (CRT) ay bahagi ng C ++ Standard Library na isinasama ang karaniwang standard na ISO C99. Ang Visual C ++ na mga aklatan na ipatupad ang suporta ng CRT native code development, at parehong halo-halong katutubong at pinamamahalaang code, at dalisay na pinamamahalaang code para sa .NET development.

@@ -22,7 +22,7 @@ Current executable set to './out/Debug/Electron.app' (x86_64).
 
 LLDB 는 강력한 도구이며 코드 검사를 위한 다양한 전략을 제공합니다. 간단히 소개하자면, JavaScript 에서 올바르지 않은 명령을 호출한다고 가정합시다 - 당신은 명령의 C++ 부분에서 멈추길 원하며 그것은 Electron 소스 내에 있습니다.
 
-관련된 코드 파일들은 `./atom/`에서 찾을 수 있으며 또한 Brightray 안 `./brightray/browser`와 `./brightray/common`에서도 찾을 수 있습니다.
+Relevant code files can be found in `./atom/`.
 
 `app.setName()` 을 디버깅한다고 가정합시다, 이것은 `browser.cc` 에 `Browser::SetName()` 으로 정의되어있습니다. `breakpoint` 명령으로 멀추려는 파일과 줄을 명시하여 중단점을 설정합시다:
 

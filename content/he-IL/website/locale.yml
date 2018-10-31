@@ -54,7 +54,7 @@ community:
 releases:
   title: Electron Releases
   all_releases: All Releases
-  back_to_index: Back to index
+  back_to_index: חזרה לעמוד הראשי
 electron_is_easy:
   title: זה קל יותר משאתה חושב
   description: מהיום, אם אתה יכול לבנות אתר אתה יוכל לבנות גם יישומי מחשב. Electron הוא framework לפיתוח יישומים למערכות הפעלה שנות בטכנולוגיות פיתוח אתרים כמו JavaScript, HTML, ו-CSS. Electron דואג להתאמות השונות כך שאתם תוכלו להתמקד בעיקר היישום שלכם.
@@ -107,21 +107,21 @@ apps:
   submit_your_own: שלח משלך
   something_missing: משהו חסר?
   edit_this_app: ערוך את היישום הזה.
-  search_app: Filter apps by name, description, etc…
-  categories: Categories
+  search_app: סנן יישומים לפי שם, תיאור, ועוד…
+  categories: קטגוריות
   add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
-  website: Website
+  website: אתר
   repository: Repository
   category: Category
-  downloads: Downloads
-  keywords: Keywords
-  license: License
+  downloads: הורדות
+  keywords: מילות מפתח
+  license: רשיון
   latest_release: Latest Release
 blog:
   title: בלוג Electron
   description: כל החדשות האחרונות מקהילת Electron.
   feedback: Have feedback on this post? Let <a href="https://twitter.com/electronjs">@electronjs</a> know on Twitter.
-  help: Need help or found a bug? <a href="/contact">Contact us
+  help: צריכים עזרה או שמצאתם באג? <a href="/contact">צרו עמנו קשר!</a>.
 clipboard:
   copy: העתק
   copy_to_clipboard: העתקה ללוח העריכה

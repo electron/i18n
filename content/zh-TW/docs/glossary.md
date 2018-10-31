@@ -8,10 +8,6 @@ ASAR 代表 Atom Shell Archive Format。 [Asar](https://github.com/electron/asar
 
 ASAR 格式主要是為了提高在 Windows 上執行的效能... TODO
 
-### Brightray
-
-Brightray [之前是](https://github.com/electron-archive/brightray)讓應用程式方便使用 [libchromiumcontent](#libchromiumcontent) 的靜態程式庫。 目前已經沒在用了，相關程式已直接整合進 Electron 中。
-
 ### CRT
 
 C 執行期程式庫 (C Run-time Library，縮寫為 CRT) 是 C++ 標準程式庫的一部分，整合了 ISO C99 標準程式庫。 Visual C++ 程式庫的 CRT 實作，支援機器碼開發、機器碼與 Managed 程式碼混用開發，以及 .NET 上的純 Managed 程式碼開發。

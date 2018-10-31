@@ -307,7 +307,6 @@ Emitowany gdy zmieni się obsługa dostępu Chroma. Zdarzenie zostaje wywołane,
 
 Zwraca:
 
-* `event` Event
 * `session` [Session](session.md)
 
 Emitted when Electron has created a new `session`.

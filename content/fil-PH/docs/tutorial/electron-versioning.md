@@ -75,7 +75,7 @@ Anuman ang piliin mo, pana-panahon mo pa ring i-bump ang bersyon ng iyong `packa
 
 Ang mga sumusunod ay ang proseso:
 
-1. All new major and minor releases lines begin with a beta series indicated by semver prerelease tags of `beta.N`, e.g. `2.0.0-beta.1`. After the first beta, subsequent beta releases must meet all of the following conditions: 
+1. All new major and minor releases lines begin with a beta series indicated by semver prerelease tags of `beta.N`, halimbawa. `2.0.0-beta.1`. After the first beta, subsequent beta releases must meet all of the following conditions: 
     1. The change is backwards API-compatible (deprecations are allowed)
     2. The risk to meeting our stability timeline must be low.
 2. If allowed changes need to be made once a release is beta, they are applied and the prerelease tag is incremented, e.g. `2.0.0-beta.2`.
@@ -110,13 +110,12 @@ Ang mga ilang halimbawa kung paano ang iba't-ibang semver na saklaw ay kumukuha 
 
 ![](../images/versioning-sketch-7.png)
 
-# Mga nawawalang tampok: Alphas, at Nightly
+# Missing Features: Alphas
 
 Ang aming istratehiya ay may ilang tradeoffs, na sa ngayon nadarama namin ang aming angkop. Higit sa lahat ang mga bagong tampok sa master ay maaring tumagal bago umabot sa matatag na release line. Kung gusto mong subukan kaagad ang bagong tampok, dapat mong i-build ang Electron ng iyong sarili.
 
 Bilang pagsasaalang-alang sa hinaharap, maari naming ipakilala ang isa o pareho ang mga sumusunod:
 
-- nightly builds off ng master; ito'y nagpapahintulot sa mga folks para subukan kaagad ang mga bagong tampok at magbigay ng feedback
 - inilabas ng alpha ang maluwag na katatagan na balakid sa mga beta; halimbawa ito'y pinapahintulutan para umamin ang bagong tampok habang ang stabilidad channel ay nasa *alpha*
 
 # Mga tampok na Bandila
@@ -139,8 +138,9 @@ Hangad nating madagdagan ang kalinawan sa lahat ng antas ng proseso sa updeyt at
 
 - It is acceptable for some commits in a pull request to not include a semantic prefix, as long as the pull request title contains a meaningful encompassing semantic message.
 
-# Walang pagbabago sa bersyon ng `master`
+# Versioned `master`
 
-- Ang `master` branch ay palaging naglalaman ng `0.0.0-dev` sa loob ng `package.json`
+- The `master` branch will always contain the next major version `X.0.0-nightly.DATE` in its `package.json`
 - Ang mga release na branch ay hindi maaring isama ulit sa master
 - Ang mga release branches *ba*ay may laman nang tamang bersyon sa kanilang `package.json`
+- As soon as a release branch is cut for a major, master must be bumped to the next major. I.e. `master` is always versioned as the next theoretical release branch

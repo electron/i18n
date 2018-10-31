@@ -8,10 +8,6 @@ ASAR significa formato de arquivo Atom Shell (em inglês, Atom Shell Archive For
 
 O formato ASAR foi criado principalmente para melhorar o desempenho no Windows...
 
-### Brightray
-
-Brightray [foi](https://github.com/electron-archive/brightray) uma biblioteca estática que tornava o uso do [libchromiumcontent](#libchromiumcontent) mais fácil. Isso é agora obsoleta e foi incorporada na base de código do Electron.
-
 ### CRT
 
 A C Run-time (CRT) biblioteca é a parte padrão de C++ que incorpora a biblioteca padrão ISO C99. As bibliotecas do Visual C++ que implementam o CRT apoiar o desenvolvimento de código nativo e misto de código nativo e gerenciado e código gerenciado puro para desenvolvimento .NET.

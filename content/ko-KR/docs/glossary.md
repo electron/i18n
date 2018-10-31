@@ -8,10 +8,6 @@ ASAR는 Atom Shell Archive Format의 약자입니다. [asar](https://github.com/
 
 ASAR 포맷은 Windows에서의 성능 향상을 목적으로 만들어졌습니다... [작성 중]
 
-### Brightray
-
-Brightray는 애플리케이션에서 [libchromiumcontent](#libchromiumcontent)를 쉽게 사용하기 위해 만들어진 정적 라이브러리[였습니다.](https://github.com/electron-archive/brightray) 이제 더는 사용되지 않고, Electron의 기본 코드에 통합되었습니다.
-
 ### CRT
 
 C 런타임 라이브러리 (CRT) 는 ISO C99 표준 라이브러리를 통합하는 C++ 표준 라이브러리의 한 부분입니다. Visual C++ 라이브러리는 CRT를 네이티브 코드 개발 구현 및 네이티브코드와 관리되는 코드의 CRT를 구현하는 Visual C ++ 라이브러리는 네이티브 코드 개발, 네이티브 및 작성된 코드의 혼합, 순수하게 작성된 .NET 코드를 지원합니다.
@@ -56,7 +52,7 @@ Apple's Mac App Store의 약자입니다. MAS에 앱을 제출하는 방법에 �
 
 An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.
 
-See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
+https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md 을 확인하세요.
 
 ### native modules
 

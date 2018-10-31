@@ -1,6 +1,6 @@
-# Zakupy w aplikacji (macOS)
+# 应用内购买 (macOS)
 
-## 准备中
+## 准备工作
 
 ### 付费应用协议
 

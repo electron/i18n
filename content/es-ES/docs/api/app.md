@@ -307,7 +307,6 @@ Es emitido cuando el soporte de accesibilidad de Chrome es modificado. Este even
 
 Devuelve:
 
-* `event` Event
 * `session` [Session](session.md)
 
 Emitido cuando Electron ha creado una nueva `session`.
@@ -354,7 +353,7 @@ Tods las ventanas se cerrarán inmediatamente sin preguntar al usuarios y los ev
 
 ### `app.relaunch([options])`
 
-* `opciones` Objecto (opcional) 
+* `opciones` Object (opcional) 
   * `args` String[] - (opcional)
   * `execPath` Cadena (opcional)
 
@@ -549,7 +548,7 @@ Regresa `Boolean` - Siempre que el llamado fue exitoso.
 
 ### `app.getJumpListSettings()` *Windows*
 
-Devuelve `Objeto`:
+Devuelve `Objecto`:
 
 * `minItems` Entero - El número mínimo de elementos que será mostrado en la lista (Para una descripción detallada de este valor vea el [documento MSDN](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
 * `remover elementos` [JumpListItem[]](structures/jump-list-item.md) - Arreglo de los objetos `JumpListItem` a elementos que el usuario ha removido explícitamente de la categoría personalizada en la Jump list. Estos elementos no deben ser añadidos nuevamente a la jump list en el **próximo** llamado a `app.setJumpList()`, Windows no mostrará ninguna categoría personalizada que contenga alguno de los elementos removidos.
@@ -724,7 +723,7 @@ Importa el certificado en formato pkcs12 dentro del certificado de la plataforma
 
 Desactiva la aceleración por hardware para esta aplicación.
 
-Este método solo puede ser llamado despues de iniciada la aplicación.
+Este método solo puede ser llamado después de iniciada la aplicación.
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
@@ -862,7 +861,7 @@ Adjuntar un argumento a la línea de comando de Chromium. El argumento será cit
 
 Permite modo sandbox mezclado en la aplicación.
 
-Este método solo puede ser llamado después de iniciada la aplicación.
+Este método solo puede ser llamado despues de iniciada la aplicación.
 
 ### `app.isInApplicationsFolder()` *macOS*
 

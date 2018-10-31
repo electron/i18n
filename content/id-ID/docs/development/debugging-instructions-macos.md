@@ -22,7 +22,7 @@ Current executable set to './out/Debug/Electron.app' (x86_64).
 
 LLDB adalah alat yang ampuh dan mendukung beberapa strategi untuk pemeriksaan kode. Untuk pengenalan dasar ini, mari kita asumsikan bahwa Anda menelepon perintah dari JavaScript yang tidak berperilaku dengan benar - sehingga Anda ingin istirahat pada bahwa perintah ini C ++ rekan dalam Elektron sumber.
 
-File kode yang relevan dapat ditemukan di `./atom/` serta dalam Brightray, ditemukan di `./brightray/browser` dan `./brightray/common`.
+Relevant code files can be found in `./atom/`.
 
 Mari kita berasumsi bahwa Anda ingin debug `app.setName()`, yang didefinisikan dalam `browser.cc` sebagai `Browser::setName()`. Mengatur breakpoint menggunakan `breakpoint` perintah, menentukan berkas dan garis untuk istirahat pada:
 

@@ -110,13 +110,12 @@ Specifically, the above means:
 
 ![](../images/versioning-sketch-7.png)
 
-# 누락된 기능: 알파와 Nightly
+# Missing Features: Alphas
 
 우리의 전략은 몇 가지 단점(tradeoff)이 있지만, 현재 시점에서는 이 전략이 적절하다고 생각합니다. 가장 큰 단점은 master 브랜치의 새로운 기능이 안정 버전 출시 라인에 반영되기 전까지 상당한 시간이 걸릴 수도 있다는 점입니다. 새로운 기능을 즉시 사용하고 싶다면 Electron을 직접 빌드해야 할 것입니다.
 
 향후에는 아래의 사항들을 도입할 수도 있습니다:
 
-- master 브랜치 기반의 nightly 빌드 버전; 새로운 기능에 대한 빠른 테스트 및 피드백 수집 가능
 - 알파 출시 버전은 베타 버전에 비해 안정성 요건을 약하게 적용한 것; 예를 들면, 안정성 채널은 *알파*에 유지하면서 새로운 기능을 허락할 수 있음.
 
 # 기능 플래그(Feature Flags)
@@ -139,8 +138,9 @@ Specifically, the above means:
 
 - It is acceptable for some commits in a pull request to not include a semantic prefix, as long as the pull request title contains a meaningful encompassing semantic message.
 
-# 버전 정보가 없는 `master` 브랜치
+# Versioned `master`
 
-- `master` 브랜치는 `package.json` 안에 항상 `0.0.0-dev`를 포함할 것입니다.
+- The `master` branch will always contain the next major version `X.0.0-nightly.DATE` in its `package.json`
 - 출시 브랜치는 master 브랜치로 병합되지 않습니다.
 - 출시 브랜치는 `package.json` 안에 정확한 버전을 포함*할 수* 있습니다.
+- As soon as a release branch is cut for a major, master must be bumped to the next major. I.e. `master` is always versioned as the next theoretical release branch

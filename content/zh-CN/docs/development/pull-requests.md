@@ -52,7 +52,7 @@ $ git checkout -b my-branch -t upstream/master
 
 ### 步骤4: 编写代码
 
-大多数提交后被`electron/electron`仓库拒绝的合并代码请求都包括对 `atom/` 或 `brightray/` 文件夹中的 c/c++ 代码，`lib` 文件夹中的 JavaScript 代码， `docs/api/` 中的文档或在 `spec/` 文件夹中的测试代码的更改。
+Most pull requests opened against the `electron/electron` repository include changes to either the C/C++ code in the `atom/` folder, the JavaScript code in the `lib/` folder, the documentation in `docs/api/` or tests in the `spec/` folder.
 
 请确保都运行 ` npm run lint ` 在任何代码更改后, 以确保它们遵循项目的代码样式。
 

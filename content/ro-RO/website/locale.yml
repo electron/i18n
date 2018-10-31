@@ -1,0 +1,175 @@
+tagline: Construiește aplicații cross platform pentru desktop cu JavaScript, HTML și CSS
+nav:
+  apps: Aplicații
+  blog: Blog
+  code_of_conduct: Cod de conduită
+  community: Comunitate
+  contact: Contact
+  docs: Documente
+  donors: Donatori
+  languages: Limbi
+  releases: Lansări
+  search: Caută
+  userland: Spațiu utilizator
+docs:
+  title: Documentație Electron
+  description: Vezi toate<a href="/docs/all">documentele pe o pagină</a> sau verifică secțiunea <a href="/docs/faq">FAQ</a>.
+  guides: Ghiduri
+  api_reference: Referință API
+  advanced: Avansate
+  footer:
+    propose_change: Îmbunătățește acest document
+    version_history: Istoric versiune
+    translate: Tradu acest document
+    view_all_docs: Toate documentele pe o pagină
+languages:
+  choose_language: Alege limba ta pentru sait
+  translation_progress: Progres traducere
+  current: selecție curentă
+community:
+  title: Comunitatea Electron
+  description: Resurse pentru conectarea cu oamenii care lucrează la Electron.
+  channels:
+    get_started: "<a href='/docs/tutorial/first-app'><b>Începe</b></a> să construiești o aplicație citind <a href='/docs/tutorial/first-app'>ghidul de inițiere rapidă</a>."
+    updates: "<a href='https://twitter.com/electronjs'><b>Fii la curent</b></a> urmărind<a href='https://twitter.com/electronjs'>@electronjs</a> pe Twitter și abonându-te la <a href='/blog'>fluxul blogului</a>."
+    localized_docs: "<a href='/languages'><b>Citește documentele în limba ta maternă</b></a> vizitând <a href='/languages'>pagina limbilor</a>."
+    help: "<a href='http://atom-slack.herokuapp.com'><b>Obține ajutor și feedback</b></a> intrând în <a href='http://atom-slack.herokuapp.com'>atomio pe Slack</a>, postând pe <a href='https://discuss.atom.io/c/electron'>Discuss</a> sau vizitând <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    packages: "<a href='/search/npmPackages'><b>Găsește pachete npm utile</b></a> în <a href='/search/npmPackages'>pagina de căutare a pachetelor</a>."
+    bugs: "<a href='https://github.com/electron/electron/issues'><b>Raportează erori</b></a> deschizând probleme în depozitarul <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
+    feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Solicită funcționalități</b></a> deschizând probleme în depozitarul <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
+    code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Raportează încălcarea codului de conduită</b></a> trimițând un email la <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
+    security: "<a href='mailto:security@electronjs.org'><b>Dezvăluie probleme de securitate</b></a> trimițând un email la <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
+    donations: "<a href='donors'><b>Donează</b></a> în pagina noastră <a href='/donors'>OpenCollective</a>."
+    other: "Pentru toate celelalte întrebări, trimite un email la<a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
+  language_communities:
+    title: Comunitățile lingvistice
+    description: "Comunitatea Electron se întinde pe glob și limba engleză nu este prima limbă a fiecăruia. Găsește <a href='/languages'>documentația în limba ta</a> sau alătură-te uneia dintre comunitățile lingvistice de mai jos:"
+  tools: Instrumente
+  boilerplates: Boilerplates
+  components: Componente
+  videos: Videoclipuri
+  meetups: Meetupuri
+  awesome_notice: Această listă este generată de la depozitarul <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a>.<br>Lipsește ceva? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Fă un pull request</a>.
+  meetup_notice: Pentru a adăuga un meetup, editează <code>data/meetups.json</code> și <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">fă un pull request</a>.
+releases:
+  title: Lansări Electron
+  all_releases: Toate lansările
+  back_to_index: Înapoi la index
+electron_is_easy:
+  title: Este mai ușor decât crezi
+  description: Dacă poți crea un sait web, poți crea o aplicație desktop. Electron este un cadru pentru crearea de aplicații native cu tehnologii web precum JavaScript, HTML și CSS. El are grijă de părțile dure, astfel încât să te poți concentra pe nucleul aplicației tale.
+  video_link: Urmărește videoclipul
+web_technologies:
+  title: Tehnologii web
+  description: Electron folosește Chromium și Node.Js deci poți crea aplicația ta cu HTML, CSS și JavaScript.
+open_source:
+  title: Sursă deschisă
+  description: Electron este un proiect cu sursă deschisă întreținut de GitHub și de o comunitate activă de contribuitori.
+cross_platform:
+  title: Cross platform
+  description: Compatibil cu Mac, Windows și Linux, aplicațiile Electron se construiesc și rulează pe trei platforme.
+benefits:
+  hard_parts_made_easy: Părțile grele devin ușoare
+  automatic_updates: Actualizări automate
+  native_menus_and_notifications: Meniuri & notificări native
+  crash_reporting: Raportarea problemelor
+  debugging_and_profiling: Depanare & profilare
+  windows_installers: Instalatori Windows
+get_started:
+  title: Începe
+  description: Pentru a începe cu Electron, verifică resursele de mai jos. Află cum să îmbraci aplicația ta web cu Electron, accesează toate API-urile și generează instalatori.
+explore:
+  title: Explorează API-urile Electron
+  description: "<a href='https://github.com/electron/electron-api-demos'>Aplicația demouri API Electron</a> demonstrează în mod interactiv cele mai importante caracteristici ale API-ului Electron. Vezi ce este posibil cu Electron cu un cod exemplu și sfaturi utile pentru construirea aplicației tale."
+download_from_github: Descarcă de pe GitHub
+view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Vezi toate lansările</a> pe GitHub
+quick_start:
+  title: "Răsucește aplicația de <a href='https://github.com/electron/electron-quick-start' target='_blank'>inițiere rapidă</a> pentru a vedea Electron în acțiune:"
+  description: O aplicație Electron minimă cu note utile.
+  clone: Clonează depozitarul de inițiere rapidă
+  go_into_repo: Mergi în depozitar
+  install_deps: Instalează dependențele și rulează
+  dive_deeper: Sau scufundă-te mai adânc și citește <a href='/docs'>documentația</a>.
+need_help:
+  title: Ai nevoie de ajutor?
+  description: Pune întrebări în forumul <a href='https://discuss.atom.io/c/electron'>Discuss</a> sau canalul nostru de <a href='http://atom-slack.herokuapp.com/'>Slack</a>. Urmărește <a href="https://twitter.com/electronjs">@electronjs</a> pe Twitter pentru anunțurile importante. Ai nevoie de ceva în mod privat? Trimite un email la <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
+headings:
+  languages: Limbi
+taglines:
+  languages: Conținut localizat de la o minunată comunitate dezvoltatoare globală.
+help_translate: "Ajută la traducere"
+footer:
+  see_the_faq: Vezi întrebările frecvente
+apps:
+  title: Aplicații create cu Electron
+  description: Cu Electron, crearea unei aplicații desktop pentru compania sau ideea ta este ușoară. Inițial dezvoltat pentru <a href='https://atom.io' target='_blank'>editorul Atom</a> care aparține de GitHub, Electronul a fost utilizat pentru a crea aplicații de companii precum Microsoft, Facebook, Slack și Docker.
+  view_more: Vezi mai multe aplicații
+  submit_your_own: trimite-ți propria
+  something_missing: Lipsește ceva?
+  edit_this_app: Editează această aplicație.
+  search_app: Filtrează aplicații după nume, descriere, etc…
+  categories: Categorii
+  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Fă un pull request</a> pentru a-ți adăuga aplicația.'
+  website: Websait
+  repository: Depozitar
+  category: Categorie
+  downloads: Descărcări
+  keywords: Cuvinte cheie
+  license: Licenţă
+  latest_release: Ultimele lansări
+blog:
+  title: Blog Electron
+  description: Toate cele mai recente știri de la echipa și comunitatea Electron.
+  feedback: Ai feedback despre acest articol? Informează <a href="https://twitter.com/electronjs">@electronjs</a> pe Twitter.
+  help: Ai nevoie de ajutor sau ai găsit o eroare? <a href="/contact">Contactează-ne</a>.
+clipboard:
+  copy: Copiază
+  copy_to_clipboard: Copiere în clipboard
+  copied: Copiat
+or: sau
+pages:
+  '/':
+    title: Electron | Construiește aplicații cross platform pentru desktop cu JavaScript, HTML și CSS.
+    description: 'Construiește aplicații cross platform pentru desktop cu JavaScript, HTML și CSS.'
+  '/apps':
+    title: Aplicații Electron
+    description: Aplicații create cu Electron
+  '/docs':
+    title: Documentație
+    description: Ghiduri și documentație de referință API pentru cea mai recentă versiune Electron
+  '/docs/all':
+    title: Toate documentele Electron!
+    description: Toate ghidurile și documentația API Electron pe o singură pagină de căutare.
+  '/docs/api':
+    title: API
+    description: Documentație de referință API pentru cea mai recentă versiune Electron
+  '/docs/development':
+    title: Dezvoltare
+    description: Dezvoltare cu Electron
+  '/docs/tutorial':
+    title: Tutorial
+    description: Ghiduri și tutoriale pentru cea mai recentă lansare Electron
+  '/blog':
+    title: Blog Electron
+    description: Cele mai recente știri de la echipa și comunitatea Electron.
+  '/community':
+    title: Comunitate
+  '/releases':
+    title: Lansări
+  '/contact':
+    title: Contact
+    description: Intră în legătură cu echipa Electron pe Twitter, Slack, GitHub sau pe email.
+  '/languages':
+    title: Limbi
+  '/userland':
+    title: Spațiu utilizator
+  '/devtron':
+    title: Devtron
+    description: Devtron este un instrument cu sursă deschisă care te ajută să inspectezi, să monitorizezi și să depanezi aplicația ta Electron. Construit pe partea de sus a uimitoarelor instrumente de dezvoltare Chrome.
+  '/spectron':
+    title: Spectron
+    description: Spectron este un cadru cu sursă deschisă pentru scrierea cu ușurință a testelor de integrare pentru aplicația ta Electron. Construit pe partea de sus a ChromeDriver și WebDriverIO.
+  '/donors':
+    title: Donatori
+_404:
+  page_not_found: Pagina nu a fost găsită.

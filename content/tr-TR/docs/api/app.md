@@ -307,7 +307,6 @@ Chrome'un erişilebilirlik takviyesi değiştiğinde ortaya çıkar. Bu olay, ek
 
 Dönüşler:
 
-* `event` Event
 * `session` [Session](session.md)
 
 Emitted when Electron has created a new `session`.
@@ -518,13 +517,13 @@ API dahili olarak Windows Kayıt Defteri ve LSSetDefaultHandlerForURLScheme kull
 * `yolu` Dize (isteğe bağlı) *Windows* - Varsayılan değer olarak `process.execPath`
 * `args` Dizi [] (isteğe bağlı) *Windows* - Boş bir diziye varsayılan
 
-Aramanın başarılı olup olmadığı `Boole Değerine ` döndürür.
+`Boolean` 'ı geri getirir - Çağrı başarılı olduğunda.
 
 Bu yöntem, geçerli yürütülebilir bir iletişim kuralı (aka URI şeması) için varsayılan işleyici olarak çalışıp çalışmadığını kontrol eder. Eğer öyleyse, varsayılan işleyici olarak uygulamayı kaldırır.
 
 ### `app.isDefaultProtocolClient(protocol[, path, args])`
 
-* 71/5000 `protokol` String - `://` olmadan protokolünüzün adı.
+* 71/5000 `protokol` String - `://` olmadan protokolünüzün adı:
 * `yolu` Dize (isteğe bağlı) *Windows* - Varsayılan değer olarak `process.execPath`
 * `args` Dizi [] (isteğe bağlı) *Windows* - Boş bir diziye varsayılan
 
@@ -544,7 +543,7 @@ Windows'taki `tasks` kategorisini JumpList'teki [Görevler](https://msdn.microso
 
 `tasks`, [`görevler`](structures/task.md) nesenelerinin bir sırasıdır.
 
-Aramanın başarılı olup olmadığı `Boole Değerine ` döndürür.
+`Boolean` 'ı geri getirir - Çağrı başarılı olduğunda.
 
 **Not:** Eğer Jump List'i daha da çok özelleştirmek istiyorsanız yerine `app.setJumpList(categories)` kullanın.
 

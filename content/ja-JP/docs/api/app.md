@@ -307,7 +307,6 @@ Chromeのユーザ補助機能が変更されると発生します。 このイ�
 
 戻り値:
 
-* `event` Event
 * `session` [Session](session.md)
 
 Electron が新しい `session` を作成したときに発生します。

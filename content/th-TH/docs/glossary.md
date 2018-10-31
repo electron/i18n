@@ -8,10 +8,6 @@ ASAR stands for Atom Shell Archive Format. An [asar](https://github.com/electron
 
 The ASAR format was created primarily to improve performance on Windows... TODO
 
-### Brightray
-
-Brightray [was](https://github.com/electron-archive/brightray) a static library that made [libchromiumcontent](#libchromiumcontent) easier to use in applications. It is now deprecated and has been merged into Electron's codebase.
-
 ### CRT
 
 C Run-time Library (CRT) เป็นส่วนหนึ่งของไลบรารี่มาตรฐาน C++ ที่รวมอยู่ใน ISO C99 standard library. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
