@@ -16,6 +16,7 @@ docs:
   description: Vezi toate <a href="/docs/all">documentele pe o pagină</a> sau verifică secțiunea <a href="/docs/faq">FAQ</a>.
   guides: Ghiduri
   api_reference: Referință API
+  api_structures: Structuri API
   advanced: Avansate
   footer:
     propose_change: Îmbunătățește acest document
