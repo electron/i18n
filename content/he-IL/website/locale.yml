@@ -16,6 +16,7 @@ docs:
   description: צפא בכל <a href="/docs/all"> התיעוד בדף אחד</a> או חפש <href="/docs/faq"> בשאלות נפוצות </a>.
   guides: מדריכים
   api_reference: הפניה לממשק
+  api_structures: API Structures
   advanced: הגדרות מתקדמות
   footer:
     propose_change: שפר מסמך זה
