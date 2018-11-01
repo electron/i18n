@@ -61,13 +61,13 @@ The main process handles it by listening for `channel` with [`ipcMain`](ipc-main
 
 **Note:** Ang pagpapadala ng magkasabay na mensahe ay iba-block ang buong prosesong tagabigay, maliban kung alam mo ang ginagawa mo huwag mo itong gagamitin.
 
-### `ipcRenderer.sendTo(windowId, channel, [, arg1][, arg2][, ...])`
+### `ipcRenderer.sendTo(webContentsId, channel, [, arg1][, arg2][, ...])`
 
-* `windowId` Number
+* `webContentsId` Number
 * `channel` String
 * `...args` anuman[]
 
-Sends a message to a window with `windowid` via `channel`.
+Sends a message to a window with `webContentsId` via `channel`.
 
 ### `ipcRenderer.sendToHost(channel[,arg1][, arg2][, ...])`
 
