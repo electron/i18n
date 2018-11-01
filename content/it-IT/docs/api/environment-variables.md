@@ -50,6 +50,17 @@ Non collega l'attuale sessione console.
 
 Non usa la barra del menu globale su Linux.
 
+### `ELECTRON_TRASH` *Linux*
+
+Set the trash implementation on Linux. Default is `gio`.
+
+Opzioni:
+
+* `gvfs-trash`
+* `trash-cli`
+* `kioclient5`
+* `kioclient`
+
 ## Variabili di sviluppo
 
 Le seguenti variabili d'ambiente sono principalmente destinate per scopi di sviluppo e debugging.
