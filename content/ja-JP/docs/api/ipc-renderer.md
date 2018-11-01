@@ -61,13 +61,13 @@
 
 **注釈:** 同期メッセージを送信するとレンダラープロセス全体がブロックされます。何をしているのかをよく理解せずに使用しないで下さい。
 
-### `ipcRenderer.sendTo(windowId, channel, [, arg1][, arg2][, ...])`
+### `ipcRenderer.sendTo(webContentsId, channel, [, arg1][, arg2][, ...])`
 
-* `windowId` Number
+* `webContentsId` Number
 * `channel` String
 * `...args` any[]
 
-`channel` を介して `windowid` のウインドウにメッセージを送ります。
+Sends a message to a window with `webContentsId` via `channel`.
 
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 
