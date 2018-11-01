@@ -8,9 +8,9 @@ Node를 업그레이드하는 것이 크로미움을 업그레이드하는 것 �
 
 일렉트론은 위에 언급된 V8 빌드 세부정보와 일렉트론이 필요로 하는 API를 공개하기 위한 수정사항이 포함된 자체적인 [Node fork](https://github.com/electron/node)를 가지고 있습니다. 업스트림 Node 릴리스를 선택하게 되면 해당 릴리스가 일렉트론의 Node fork의 브랜치에 배치되고 모든 일렉트론 Node 패치가 적용됩니다.
 
-Another factor is that the Node project patches its version of V8. As mentioned above, Electron builds everything with a single copy of V8, so Node's V8 patches must be ported to that copy.
+또 다른 요인은 Node 프로젝트가 V8 버전을 패치한다는 것입니다. 위에서 언급했듯이, Electron은 V8의 단일 복사본으로 모든 것을 구축하므로 Node의 V8 패치를 해당 복사본에 포트해야 합니다.
 
-Once all of Electron's dependencies are building and using the same copy of V8, the next step is to fix any Electron code issues caused by the Node upgrade.
+모든 일렉트론의 종속성이 구축되고 동일한 V8 사본을 사용 중인 경우 다음 단계는 Node 업그레이드로 인해 발생한 모든 일렉트론 코드 문제를 해결하는 것입니다.
 
 [FIXME] something about a Node debugger in Atom that we (e.g. deepak) use and need to confirm doesn't break with the Node upgrade?
 
