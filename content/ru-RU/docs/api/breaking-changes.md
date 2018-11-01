@@ -224,7 +224,7 @@ Deprecated: https://atom.io/download/atom-shell
 
 Replace with: https://atom.io/download/electron
 
-# Breaking API Changes (2.0)
+# Критические изменения API (2.0)
 
 The following list includes the breaking API changes made in Electron 2.0.
 
