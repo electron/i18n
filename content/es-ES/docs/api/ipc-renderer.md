@@ -61,13 +61,13 @@ El processo principal lo controlo por escuchar `channel` con el módulo [`ipcMai
 
 **Nota:** Enviar un mensaje sincrónico bloqueará el proceso todo el proceso de renderizado, nunca se debe utilizar a menos que se sepa lo que está haciendo.
 
-### `ipcRenderer.sendTo(windowId, channel, [, arg1][, arg2][, ...])`
+### `ipcRenderer.sendTo(webContentsId, channel, [, arg1][, arg2][, ...])`
 
-* `windowId` Number
+* `webContentsId` Number
 * `channel` Cadena
 * `...args` any[]
 
-Envía un mensaje a una ventana con `windowid` via `channel`.
+Sends a message to a window with `webContentsId` via `channel`.
 
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 
