@@ -50,6 +50,17 @@ Don't attach to the current console session.
 
 Don't use the global menu bar on Linux.
 
+### `ELECTRON_TRASH` *Linux*
+
+Set the trash implementation on Linux. Default is `gio`.
+
+Options:
+
+* `gvfs-trash`
+* `trash-cli`
+* `kioclient5`
+* `kioclient`
+
 ## 개발 변수
 
 다음 환경 변수들은 주로 개발이나 디버깅 목적으로 사용됩니다.
