@@ -80,6 +80,8 @@ Roles を使用すると、メニューアイテムに定義済みの動作を�
 
 macOS の `role` を指定するとき、`label` と `accelerator` がメニューアイテムに影響を与える唯一のオプションです。 ほかのすべてのオプションは無視されます。 小文字の `role`、`toggledevtools` などもまだサポートしています。
 
+**Nota Bene:** The `enabled` and `visibility` properties are not available for top-level menu items in the tray on MacOS.
+
 ### インスタンスプロパティ
 
 `MenuItem` のインスタンスには以下のプロパティがあります。
