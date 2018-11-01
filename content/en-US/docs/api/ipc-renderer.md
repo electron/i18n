@@ -74,13 +74,13 @@ and replies by setting `event.returnValue`.
 **Note:** Sending a synchronous message will block the whole renderer process,
 unless you know what you are doing you should never use it.
 
-### `ipcRenderer.sendTo(webContentsId, channel, [, arg1][, arg2][, ...])`
+### `ipcRenderer.sendTo(windowId, channel, [, arg1][, arg2][, ...])`
 
-* `webContentsId` Number
+* `windowId` Number
 * `channel` String
 * `...args` any[]
 
-Sends a message to a window with `webContentsId` via `channel`.
+Sends a message to a window with `windowid` via `channel`.
 
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 

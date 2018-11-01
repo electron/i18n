@@ -58,16 +58,6 @@ Don't attach to the current console session.
 
 Don't use the global menu bar on Linux.
 
-### `ELECTRON_TRASH` _Linux_
-
-Set the trash implementation on Linux. Default is `gio`.
-
-Options:
-* `gvfs-trash`
-* `trash-cli`
-* `kioclient5`
-* `kioclient`
-
 ## Development Variables
 
 The following environment variables are intended primarily for development and
@@ -95,13 +85,3 @@ This environment variable will not work if the `crashReporter` is started.
 Shows the Windows's crash dialog when Electron crashes.
 
 This environment variable will not work if the `crashReporter` is started.
-
-### `ELECTRON_OVERRIDE_DIST_PATH`
-
-When running from the `electron` package, this variable tells
-the `electron` command to use the specified build of Electron instead of
-the one downloaded by `npm install`. Usage:
-
-```sh
-export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/D
-```
