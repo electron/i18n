@@ -50,6 +50,17 @@ O anki konsol oturumuna kendini bağlama.
 
 Linux'taki global menu bar'ını kullanma.
 
+### `ELECTRON_TRASH` *Linux*
+
+Set the trash implementation on Linux. Default is `gio`.
+
+Options:
+
+* `gvfs-trash`
+* `trash-cli`
+* `kioclient5`
+* `kioclient`
+
 ## Geliştirme değişkenleri
 
 Aşağıdaki ortam değişkenleri birincil olarak geliştirme ve hata ayıklama niyetiyle kullanılır.
