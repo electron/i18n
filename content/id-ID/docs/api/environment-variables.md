@@ -49,11 +49,22 @@ Mulai proses sebagai proses Node.js normal.
 
 <p>Jangan gunakan menu bar global di Linux.</p>
 
-<h2>Variabel Pembangunan</h2>
+<h3><code>ELECTRON_TRASH` *Linux*
 
-<p>Variabel lingkungan berikut ditujukan terutama untuk keperluan pengembangan dan debugging.</p>
+Set the trash implementation on Linux. Default is `gio`.
 
-<h3><code>ELECTRON_memungkinkan_LOGGING`
+Options:
+
+* `gvfs-trash`
+* `trash-cli`
+* `kioclient5`
+* `kioclient`
+
+## Variabel Pembangunan
+
+Variabel lingkungan berikut ditujukan terutama untuk keperluan pengembangan dan debugging.
+
+### `ELECTRON_memungkinkan_LOGGING`
 
 Mencetak log internal Chrome ke konsol.
 
