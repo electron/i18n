@@ -4,7 +4,7 @@
 
 크로미움과 Node.js는 둘 다 V8에 의존하며 일렉트론은 V8의 단일 복사본만 포함하고 있습니다. 그러므로 선택한 V8의 버전이 Node.js와 크로미움의 빌드 버전과 호환 가능한지 확인하는 것이 중요합니다.
 
-Upgrading Node is much easier than upgrading Chromium, so fewer conflicts arise if one upgrades Chromium first, then chooses the upstream Node release whose version of V8 is closest to the one Chromium contains.
+Node를 업그레이드하는 것이 크로미움을 업그레이드하는 것 보다 훨씬 쉬우므로 크로미움을 먼저 업그레이드하고 V8 버전이 크로미움에 포함된 버전과 가장 가까운 업스트림 Node 릴리스를 선택하는 것이 충돌을 줄일 수 있습니다.
 
 Electron has its own [Node fork](https://github.com/electron/node) with modifications for the V8 build details mentioned above and for exposing API needed by Electron. Once an upstream Node release is chosen, it's placed in a branch in Electron's Node fork and any Electron Node patches are applied there.
 
