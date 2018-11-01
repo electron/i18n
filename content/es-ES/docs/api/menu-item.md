@@ -80,6 +80,8 @@ Los siguientes roles adicionales están disponibles en *macOS*:
 
 Al especificar un `role` en macOS, `label` y `accelerator` son las únicas opciones que afectarán el elemento del menú. Todas las demás opciones serán ignoradas. Los `role` en minúscula, por ejemplo, `toggledevtools`, todavía son soportados.
 
+**Nota Bene:** The `enabled` and `visibility` properties are not available for top-level menu items in the tray on MacOS.
+
 ### Propiedades de la instancia
 
 Las siguientes propiedades están disponibles en instancias del `menú de elementos`:
