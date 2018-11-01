@@ -8,9 +8,9 @@
 
 ### `new MenuItem(可选)`
 
-* `options` Object 
+* `参数` Object 
   * `click` Function (可选) - 当菜单项被点击后，将会调用 `click(menuItem, browserWindow, event)` 。 
-    * `menuItem` MenuItem
+    * `menuItem` 菜单项
     * `browserWindow` [BrowserWindow](browser-window.md)
     * `event` Event
   * ` role ` String (可选)-内置事件, 定义菜单项的行为, 当指定 ` click ` 属性时将被忽略。请参见 [ roles ](#roles)。
@@ -79,6 +79,8 @@
 * `clearRecentDocuments` -映射到 `clearRecentDocuments` 操作.
 
 在 macOS 上指定 ` role ` 时, ` label ` 和 ` accelerator ` 是影响菜单项的唯一选项。 所有其它选项都将被忽略。 不过，仍然支持小写的`role`，如`toggledevtools`。
+
+**Nota Bene:** The `enabled` and `visibility` properties are not available for top-level menu items in the tray on MacOS.
 
 ### 实例属性
 
