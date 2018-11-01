@@ -55,19 +55,19 @@ Il processo principale lo gestisce ascoltando il `channel` con il modulo [`ipcMa
 
 Restituisce `any` - il valore inviato indietro dal gestore [`ipcMain`](ipc-main.md).
 
-Invia un messaggio al processo principale in modo sincrono attraverso il canale `channel`, si possono inviare un numero qualsiasi di argomenti. Gli argomenti verranno serializzati internamenti in JSON e dunque le funzioni e la catena dei prototype non verrano inclusi.
+Invia un messaggio al processo principale in modo sincrono attraverso il canale `channel`, si possono inviare un numero qualsiasi di argomenti. Gli argomenti verranno serializzati internamente in JSON e dunque funzioni e catene di prototype non verrano incluse.
 
 Il processo principale lo gestisce ascoltando il `channel` con il modulo [`ipcMain`](ipc-main.md), e risponde impostando un valore `event.returnValue`.
 
 **Nota:** L'invio di un messaggio sincrono bloccherà il processo di rendering nel punto in cui invia il messaggio fino a quando il processo main non imposta il returnValue sull'oggetto event che ha ricevuto, a meno che non si sa cosa si stia facendo è meglio evitare di usarlo.
 
-### `ipcRenderer.sendTo(windowId, channel, [, arg1][, arg2][, ...])`
+### `ipcRenderer.sendTo(webContentsId, channel, [, arg1][, arg2][, ...])`
 
-* `windowId` Number
+* `webContentsId` Number
 * `channel` String
 * `...args` any[]
 
-Invia un messaggio a una finestra con `windowid` tramite `channel`.
+Sends a message to a window with `webContentsId` via `channel`.
 
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 
