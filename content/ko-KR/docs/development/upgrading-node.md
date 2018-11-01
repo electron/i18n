@@ -6,7 +6,7 @@
 
 Node를 업그레이드하는 것이 크로미움을 업그레이드하는 것 보다 훨씬 쉬우므로 크로미움을 먼저 업그레이드하고 V8 버전이 크로미움에 포함된 버전과 가장 가까운 업스트림 Node 릴리스를 선택하는 것이 충돌을 줄일 수 있습니다.
 
-Electron has its own [Node fork](https://github.com/electron/node) with modifications for the V8 build details mentioned above and for exposing API needed by Electron. Once an upstream Node release is chosen, it's placed in a branch in Electron's Node fork and any Electron Node patches are applied there.
+일렉트론은 위에 언급된 V8 빌드 세부정보와 일렉트론이 필요로 하는 API를 공개하기 위한 수정사항이 포함된 자체적인 [Node fork](https://github.com/electron/node)를 가지고 있습니다. 업스트림 Node 릴리스를 선택하게 되면 해당 릴리스가 일렉트론의 Node fork의 브랜치에 배치되고 모든 일렉트론 Node 패치가 적용됩니다.
 
 Another factor is that the Node project patches its version of V8. As mentioned above, Electron builds everything with a single copy of V8, so Node's V8 patches must be ported to that copy.
 
