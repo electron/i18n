@@ -71,6 +71,8 @@ Naglalathala ng isang `event` bilang natibong paalala ng macOS. Ang `userInfo` a
   * `event` na String
   * `userInfo` na Object
 
+Returns `Number` - The ID of this subscription
+
 Nagsa-subscribe sa pansariling mga paalala ng macOS, ang `callback` ay tatawagin gamit ang `callback(event, userInfo)` kapag ang katumbas na `event` ay nangyayari. Ang `userInfo` ay isang Object na naglalaman ng impormasyong diksyunaryo ng tagagamit na ipinapadala kasama ang paalala.
 
 Ang `id` ng nagsa-subscribe ay ibinabalik, pwede itong gamitin sa pag-unsubscribe sa `event`.
@@ -88,6 +90,8 @@ Sa ilalim ng hood, ang API na ito ay nagsa-subscribe sa `NSDistributedNotificati
 * `callback` Function 
   * `event` na String
   * `userInfo` na Object
+
+Returns `Number` - The ID of this subscription
 
 Kapareho ng `subscribeNotification`, pero gumagamit ng `NSNotificationCenter` para sa lokal na mga default. Kinakailangan ito para sa mga pangyayaring katulad ng `NSUserDefaultsDidChangeNotification`.
 
@@ -126,7 +130,7 @@ Add the specified defaults to your application's `NSUserDefaults`.
 
 ### `systemPreferences.getUserDefault(key, type)` *macOS*
 
-* `key` String
+* `key` na String
 * `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
 
 Ibinabalik ang `any` - Ang halaga ng `key` sa `NSUserDefaults`.
@@ -143,7 +147,7 @@ Ang ilang mga sikat na `key` at `type` ay:
 
 ### `systemPreferences.setUserDefault(key, type, value)` *macOS*
 
-* `key` String
+* `key` na String
 * `type` String - See [`getUserDefault`](#systempreferencesgetuserdefaultkey-type-macos).
 * `value` na String
 
@@ -157,7 +161,7 @@ Ang ilang mga sikat na `key` at `type` ay:
 
 ### `systemPreferences.removeUserDefault(key)` *macOS*
 
-* `key` String
+* `key` na String
 
 Tinatanggal ang `key` sa `NSUserDefaults`. Maaari itong gamitin sa pagbabalik ng default o pangkalahatang halaga ng isang `key` na naitakda gamit ang `setUserDefault`.
 
