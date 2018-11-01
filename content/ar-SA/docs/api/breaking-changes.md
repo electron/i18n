@@ -239,7 +239,7 @@ let optionsB = {titleBarStyle: 'hiddenInset'}
 let windowB = new BrowserWindow(optionsB)
 ```
 
-## `menu (القائمة)`
+## `menu`
 
 ```js
 // Removed
