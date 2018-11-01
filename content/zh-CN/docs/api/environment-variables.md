@@ -50,6 +50,17 @@ process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
 
 不使用 Linux 的全局菜单栏。
 
+### `ELECTRON_TRASH` *Linux*
+
+Set the trash implementation on Linux. Default is `gio`.
+
+Options:
+
+* `gvfs-trash`
+* `trash-cli`
+* `kioclient5`
+* `kioclient`
+
 ## 开发环境相关变量
 
 以下环境变量主要用于开发和调试目的。
