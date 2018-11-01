@@ -50,6 +50,17 @@ process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
 
 Не использовать глобальное меню в Linux.
 
+### `ELECTRON_TRASH` *Linux*
+
+Set the trash implementation on Linux. Default is `gio`.
+
+Options:
+
+* `gvfs-trash`
+* `trash-cli`
+* `kioclient5`
+* `kioclient`
+
 ## Переменные разработки (development)
 
 Следующие переменные окружения предназначены для использования в среде выполнения приложения Electron во время разработки и отладки.
