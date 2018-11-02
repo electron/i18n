@@ -672,11 +672,11 @@ if (!gotTheLock) {
 
 Повертає `Boolean`
 
-This method returns whether or not this instance of your app is currently holding the single instance lock. You can request the lock with `app.requestSingleInstanceLock()` and release with `app.releaseSingleInstanceLock()`
+Цей метод повертає чи поточний екземпляр вашого застосунку заблоковано як єдиний. Ви можете застосувати блокування за допомогою `app.requestSingleInstanceLock()` та зняти за допомогою `app.releaseSingleInstanceLock()`
 
 ### `app.releaseSingleInstanceLock()`
 
-Releases all locks that were created by `requestSingleInstanceLock`. This will allow multiple instances of the application to once again run side by side.
+Знімає всі блокування, які були створені за допомогою `requestSingleInstanceLock`. Це дозволить знову створювати багато еземплярів вашого застосунку.
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
@@ -749,7 +749,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 
 На macOS показує на піктограмі в панелі задач. На Linux працює тільки для з Unity,
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+**Примітка:** Unity вимагає існування файлу `.desktop` для роботи, для детальнішої інформації прочитайте [Інтеграція в Середовище Робочого Столу](../tutorial/desktop-environment-integration.md#unity-launcher).
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
@@ -779,7 +779,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 
 * `settings` Object 
   * `openAtLogin` Boolean (опціонально) - `true` щоб відкрити застосунок при вході в систему, `false` для видалення його з автозавантаження. За замовчуванням `false`.
-  * `openAsHidden` Boolean (опціонально) *macOS* - `true` щоб відкрити застосунок як прихований. За замовчуванням `false`. The user can edit this setting from the System Preferences so `app.getLoginItemSettings().wasOpenedAsHidden` should be checked when the app is opened to know the current value. Це налаштування не доступне на [MAS збірках](../tutorial/mac-app-store-submission-guide.md).
+  * `openAsHidden` Boolean (опціонально) *macOS* - `true` щоб відкрити застосунок як прихований. За замовчуванням `false`. Користувач може редагувати це значення з Налаштувань Системи, тому `app.getLoginItemSettings().wasOpenedAsHidden` має перевірятися коли застосунок відкрито, щоб знати поточне значення. Це налаштування не доступне на [MAS збірках](../tutorial/mac-app-store-submission-guide.md).
   * `path` String (опціонально) *Windows* - Виконуваний файл для запуску при вході в систему. За замовчуванням `process.execPath`.
   * `args` String[] (опціонально) *Windows* - Аргументи командного рядка, для запуску виконуваного файлу. За замовчуванням пустий масив. Оберніть шляхи в лапки.
 
@@ -829,12 +829,12 @@ app.setLoginItemSettings({
 
 * `bookmarkData` String - Декодована в форматі base64 захищеній bookmark data що повернена методами `dialog.showOpenDialog` або `dialog.showSaveDialog`.
 
-Повертає `Function` ця функція **обов'язково** має бути викликана як тільки ви закінчили роботу із захищеним файлом. If you do not remember to stop accessing the bookmark, [kernel resources will be leaked](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) and your app will lose its ability to reach outside the sandbox completely, until your app is restarted.
+Повертає `Function` ця функція **обов'язково** має бути викликана як тільки ви закінчили роботу із захищеним файлом. Якщо ви забули закрити доступ до bookmark, [ресурси ядра будуть витрачатися](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) і ваш застосунок цілком втратить можливість доступу поза sandbox, до того часу як він не буде перезавантажений.
 
 ```js
 //Отримати доступ до файлу.
 const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
-// You can now access the file outside of the sandbox 
+// Тепер файл доступний поза sandbox 
 stopAccessingSecurityScopedResource()
 ```
 
@@ -923,7 +923,7 @@ Start accessing a security scoped resource. За допомогою цієї ф�
 
 * `menu` [Menu](menu.md)
 
-Sets the application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
+Встановлює [dock меню](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/) застосунку.
 
 ### `app.dock.setIcon(image)` *macOS*
 
@@ -935,4 +935,4 @@ Sets the application's [dock menu](https://developer.apple.com/macos/human-inter
 
 ### `app.isPackaged`
 
-A `Boolean` property that returns `true` if the app is packaged, `false` otherwise. For many apps, this property can be used to distinguish development and production environments.
+`Boolean` властивість повертає `true` якщо застосунок запаковано, та `false` в іншому випадку. Для багатьох застосунків ця властивість може бути використана щоб відрізняти середовище розробки від виробничого.
