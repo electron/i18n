@@ -21,7 +21,7 @@ app.on('window-all-closed', () => {
 
 Відбувається коли застосунок закінчує основний запуск. На Windows і Linux, подія `will-finish-launching` те саме що і подія `ready`; на macOS, ця подія представляє `NSApplication` повідомлення `applicationWillFinishLaunching`. Зазвичай ви будете налаштовувати тут слухачі на `open-file` та `open-url` події, запускати репортер збоїв та автооновлювач.
 
-In most cases, you should do everything in the `ready` event handler.
+В більшості випадків, ви повинні робити все в хендлері події `ready`.
 
 ### Подія: 'ready'
 
@@ -303,13 +303,13 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 Відбуваєтсья коли змінюється підтримка спеціальних можливостей Chrome. Ця подія викликається коли допоміжні технології, такі як читач екрану, вмикаються або вимикаються. Дивись https://www.chromium.org/developers/design-documents/accessibility для більш детедбної інформації.
 
-### Event: 'session-created'
+### Подія: 'session-created'
 
 Повертає:
 
 * `session` [Session](session.md)
 
-Emitted when Electron has created a new `session`.
+Викликаєтсья коли Electron створив нову `session`.
 
 ```javascript
 const {app} = require('electron')
@@ -319,7 +319,7 @@ app.on('session-created', (event, session) => {
 })
 ```
 
-### Event: 'second-instance'
+### Подія: 'second-instance'
 
 Повертає:
 
@@ -327,9 +327,9 @@ app.on('session-created', (event, session) => {
 * `argv` String[] - Масив параметрів командного рядка другого екземпляру
 * `workingDirectory` String - Робоча директорія другого екземпляру
 
-This event will be emitted inside the primary instance of your application when a second instance has been executed. `argv` це масив з аргументами командного рядку другого екземпляру, а `workingDirectory` ця поточна робоча директорія. Зазвичай застосунок відповідає на це, розгортаючи головне вікно на перводячи на нього фокус.
+Ця подія буде викликана всередині головного екземпляра вашого застосунку, коли виконався інший екземпляр. `argv` це масив з аргументами командного рядку другого екземпляру, а `workingDirectory` ця поточна робоча директорія. Зазвичай застосунок відповідає на це, розгортаючи головне вікно на перводячи на нього фокус.
 
-This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
+Ця подія гарантовано викличеться після події `ready` модуля `app`.
 
 ## Методи
 
@@ -380,7 +380,7 @@ app.exit(0)
 
 ### `app.whenReady()`
 
-Returns `Promise` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
+Повертає `Promise` - заповнюється, коли Electron ініціалізовано. Може бути використана як зручна альтернатива для перевірки `app.isReady()` і підписки на подію `ready`, якщо застосунок ще не готовий.
 
 ### `app.focus()`
 
