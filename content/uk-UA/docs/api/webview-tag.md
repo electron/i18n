@@ -198,10 +198,10 @@ webview.addEventListener('dom-ready', () => {
 
 * `url` URL
 * `options` Object (опціонально) 
-  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
+  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (опціонально) - HTTP Referrer посилання.
   * `userAgent` String (опціонально) - User agent відправника запиту.
   * `extraHeaders` String (опціонально) - Додаткові заголовки, розділені "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (опціонально)
   * `baseURLForDataURL` String (опціонально) - Основне URL (з розділювачем шляху) для файлів, які мають бути завантажені. Це необхідно, лише якщо вказане `url` є посилання на дані і потребує завантаження інших файлів.
 
 Loads the `url` in the webview, the `url` must contain the protocol prefix, e.g. the `http://` or `file://`.
