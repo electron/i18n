@@ -16,7 +16,7 @@ docs:
   description: Перегляньте всі <a href="/docs/all">документи на одній сторінці</a> або перевірте <a href="/docs/faq">FAQ</a>.
   guides: Посібники
   api_reference: Довідник API
-  api_structures: API Structures
+  api_structures: Структура API
   advanced: Додатково
   footer:
     propose_change: Поліпшити цю документацію
@@ -53,9 +53,9 @@ community:
   awesome_notice: 'Цей список сформований з репозиторію <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus''а: Awesome Electron</a>. <br>Чогось не вистачає? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md"> Зробіть пул реквест</a>.'
   meetup_notice: Щоб додати зустріч, відредагуйте <code>data/meetups.json</code> та <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json"> зробіть пул реквест</a>.
 releases:
-  title: Electron Releases
-  all_releases: All Releases
-  back_to_index: Back to index
+  title: Релізи Electron
+  all_releases: Всі релізи
+  back_to_index: Назад до змісту
 electron_is_easy:
   title: Все простіше, ніж здається
   description: Якщо ви можете створити сайт, то ви можете створити і прикладну програму. Electron це фреймворк для створення застосунків з такими веб-технологіями як JavaScript, HTML та CSS. Він подбає про важкі частини, тому ви можете зосередитися на ядрі вашої програми.
@@ -108,21 +108,21 @@ apps:
   submit_your_own: надішліть власний
   something_missing: Чогось не вистачає?
   edit_this_app: Редагувати цей застосунок.
-  search_app: Filter apps by name, description, etc…
-  categories: Categories
-  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
-  website: Website
-  repository: Repository
-  category: Category
-  downloads: Downloads
-  keywords: Keywords
-  license: License
-  latest_release: Latest Release
+  search_app: Фільтр застосунків по назві, опису, т.д.…
+  categories: Категорії
+  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Зробити Pull Request</a> та додати свій застосунок.'
+  website: Сайт
+  repository: Репозиторій
+  category: Категорія
+  downloads: Завантаження
+  keywords: Ключові Слова
+  license: Ліцензія
+  latest_release: Останній Реліз
 blog:
   title: Блог Electron
   description: Всі останні новини від команди та спільноти Electron.
-  feedback: Have feedback on this post? Let <a href="https://twitter.com/electronjs">@electronjs</a> know on Twitter.
-  help: Need help or found a bug? <a href="/contact">Contact us</a>.
+  feedback: Маєте відгук на цю статтю? Дайте знати <a href="https://twitter.com/electronjs">@electronjs</a> в Twitter.
+  help: Потрібна допомога чи знайшли помилку? <a href="/contact">Напишіть нам</a>.
 clipboard:
   copy: Копіювати
   copy_to_clipboard: Копіювати до буферу обміну
