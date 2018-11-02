@@ -1,23 +1,23 @@
-## Class: TouchBarLabel
+## Клас: TouchBarLabel
 
-> Create a label in the touch bar for native macOS applications
+> Створює напис в панелі дотику для нативних macOS застосунків
 
 Процес: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarLabel(options)` *Experimental*
+### `new TouchBarLabel(options)` *Експериментальний*
 
 * `options` Об'єкт 
-  * `label` String (optional) - Text to display.
-  * `textColor` String (optional) - Hex color of text, i.e `#ABCDEF`.
+  * `label` String (опціонально) - Текст для відображення.
+  * `textColor` String (опціонально) - Шістнадцятковий код кольору, наприклад `#ABCDEF`.
 
 ### Властивості Екземпляра
 
-The following properties are available on instances of `TouchBarLabel`:
+Наступні властивості доступні в екземплярах `TouchBarLabel`:
 
 #### `touchBarLabel.label`
 
-A `String` representing the label's current text. Changing this value immediately updates the label in the touch bar.
+`String` представляє поточний текст напису. Зміна цього значення миттєво змінює напис в панель дотику.
 
 #### `touchBarLabel.textColor`
 
-A `String` hex code representing the label's current text color. Changing this value immediately updates the label in the touch bar.
+`String` представляє поточний колір напису в шістнадцятковому вигляді. Зміна цього значення миттєво змінює напис в панель дотику.
