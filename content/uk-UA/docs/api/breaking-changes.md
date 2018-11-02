@@ -48,8 +48,8 @@ app.getAppMetrics()
 // Припиняється підтримка
 const metrics = app.getAppMetrics()
 const {memory} = metrics[0]
-memory.privateBytes  // Припиняється підтримка властивості
-memory.sharedBytes  // Припиняється підтримка властивості
+memory.privateBytes  // припиняється підтримка властивості
+memory.sharedBytes  // припиняється підтримка властивості
 ```
 
 ## `BrowserWindow`
@@ -103,13 +103,13 @@ clipboard.writeHTML()
 ## `crashReporter`
 
 ```js
-// Deprecated
+// Припиняється підтримка
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// Replace with
+// Замінити на
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -120,9 +120,9 @@ crashReporter.start({
 ## `nativeImage`
 
 ```js
-// Deprecated
+// Припиняється підтримка
 nativeImage.createFromBuffer(buffer, 1.0)
-// Replace with
+// Замінити
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
@@ -131,29 +131,29 @@ nativeImage.createFromBuffer(buffer, {
 ## `процес`
 
 ```js
-// Deprecated
+// Припиняється підтримка
 const info = process.getProcessMemoryInfo()
-const privateBytes = info.privateBytes // deprecated property
-const sharedBytes = info.sharedBytes // deprecated property
+const privateBytes = info.privateBytes // припиняється підтримка властивості
+const sharedBytes = info.sharedBytes // припиняється підтримка властивості
 ```
 
 ## `screen`
 
 ```js
-// Deprecated
+// Припиняється підтримка
 screen.getMenuBarHeight()
-// Replace with
+// Замінити на
 screen.getPrimaryDisplay().workArea
 ```
 
 ## `session`
 
 ```js
-// Deprecated
+// Припиняється підтримка
 ses.setCertificateVerifyProc(function (hostname, certificate, callback) {
   callback(true)
 })
-// Replace with
+// Замінити на
 ses.setCertificateVerifyProc(function (request, callback) {
   callback(0)
 })
@@ -162,79 +162,79 @@ ses.setCertificateVerifyProc(function (request, callback) {
 ## `Tray`
 
 ```js
-// Deprecated
+// Припиняється підтримка
 tray.setHighlightMode(true)
-// Replace with
+// Замінити на
 tray.setHighlightMode('on')
 
-// Deprecated
+// Припиняється підтримка
 tray.setHighlightMode(false)
-// Replace with
+// Замінити на
 tray.setHighlightMode('off')
 ```
 
 ## `webContents`
 
 ```js
-// Deprecated
+// Припиняється підтримка
 webContents.openDevTools({detach: true})
-// Replace with
+// Замінити на
 webContents.openDevTools({mode: 'detach'})
 
-// Removed
+// Видалено
 webContents.setSize(options)
-// There is no replacement for this API
+// Для цього API заміни немає
 ```
 
 ## `webFrame`
 
 ```js
-// Deprecated
+// Припиняється підтримка
 webFrame.registerURLSchemeAsSecure('app')
-// Replace with
+// Замінити на
 protocol.registerStandardSchemes(['app'], {secure: true})
 
-// Deprecated
+// Припиняється підтримка
 webFrame.registerURLSchemeAsPrivileged('app', {secure: true})
-// Replace with
+// Замінити на
 protocol.registerStandardSchemes(['app'], {secure: true})
 ```
 
 ## `<webview>`
 
 ```js
-// Removed
+// Видалено
 webview.setAttribute('disableguestresize', '')
-// There is no replacement for this API
+// Для цього API заміни немає
 
-// Removed
+// Видалено
 webview.setAttribute('guestinstance', instanceId)
-// There is no replacement for this API
+// TДля цього API заміни немає
 
-// Keyboard listeners no longer work on webview tag
+// Слухачі клавіатури більше не працюють з тегом webview
 webview.onkeydown = () => { /* handler */ }
 webview.onkeyup = () => { /* handler */ }
 ```
 
-## Node Headers URL
+## URL Node Заголовків
 
-This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
+Це URL визначені як `disturl` в `.npmrc` файлі чи прапорець `--dist-url` командного рядку, коли будуються нативні модулі Node.
 
-Deprecated: https://atom.io/download/atom-shell
+Припиняється підтримка: https://atom.io/download/atom-shell
 
-Replace with: https://atom.io/download/electron
+Замінити на: https://atom.io/download/electron
 
-# Breaking API Changes (2.0)
+# Зміни API (2.0)
 
-The following list includes the breaking API changes made in Electron 2.0.
+Даний список містить API зміни зроблені для Electron 2.0.
 
 ## `BrowserWindow`
 
 ```js
-// Deprecated
+// Припиняється підтримка
 let optionsA = {titleBarStyle: 'hidden-inset'}
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// Замінити на
 let optionsB = {titleBarStyle: 'hiddenInset'}
 let windowB = new BrowserWindow(optionsB)
 ```
@@ -242,9 +242,9 @@ let windowB = new BrowserWindow(optionsB)
 ## `menu`
 
 ```js
-// Removed
+// Видалено
 menu.popup(browserWindow, 100, 200, 2)
-// Replaced with
+// Замінити на
 menu.popup(browserWindow, {x: 100, y: 200, positioningItem: 2})
 ```
 
