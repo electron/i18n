@@ -1,23 +1,23 @@
 # Угода API
 
-Breaking changes will be documented here, and deprecation warnings added to JS code where possible, at least [one major version](../tutorial/electron-versioning.md#semver) before the change is made.
+Зміни, які ламають роботу застосунку, будуть документуватися тут, також попередження про припинення підримки по можливості додано в JS код, як мінімум за [одне велике оновлення](../tutorial/electron-versioning.md#semver) до змін.
 
-# `FIXME` comments
+# Коментарі `FIXME`
 
-The `FIXME` string is used in code comments to denote things that should be fixed for future releases. See https://github.com/electron/electron/search?q=fixme
+Стрічки `FIXME` використовуються в коментарях коду для маркування речей, які мають бути виправлені для майбутній релізів. Дивіться https://github.com/electron/electron/search?q=fixme
 
-# Planned Breaking API Changes (4.0)
+# Заплановані Зміни API (4.0)
 
-The following list includes the breaking API changes planned for Electron 4.0.
+Даний список містить заплановані API зміни для Electron 4.0.
 
 ## `app.makeSingleInstance`
 
 ```js
-// Deprecated
+// Припиняється підтримка
 app.makeSingleInstance(function (argv, cwd) {
 
 })
-// Replace with
+// Замінити на
 app.requestSingleInstanceLock()
 app.on('second-instance', function (argv, cwd) {
 
@@ -27,51 +27,51 @@ app.on('second-instance', function (argv, cwd) {
 ## `app.releaseSingleInstance`
 
 ```js
-// Deprecated
+// Припиняється підтримка
 app.releaseSingleInstance()
-// Replace with
+// Замінити на
 app.releaseSingleInstanceLock()
 ```
 
-# Breaking API Changes (3.0)
+# Зміни API (3.0)
 
-The following list includes the breaking API changes in Electron 3.0.
+Даний список містить API зміни для Electron 3.0.
 
 ## `app`
 
 ```js
-// Deprecated
+// Припиняється підтримка
 app.getAppMemoryInfo()
-// Replace with
+// Замінити на
 app.getAppMetrics()
 
-// Deprecated
+// Припиняється підтримка
 const metrics = app.getAppMetrics()
 const {memory} = metrics[0]
-memory.privateBytes  // Deprecated property
-memory.sharedBytes  // Deprecated property
+memory.privateBytes  // Припиняється підтримка властивості
+memory.sharedBytes  // Припиняється підтримка властивості
 ```
 
 ## `BrowserWindow`
 
 ```js
-// Deprecated
+// Припиняється підтримка
 let optionsA = {webPreferences: {blinkFeatures: ''}}
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// Замінити на
 let optionsB = {webPreferences: {enableBlinkFeatures: ''}}
 let windowB = new BrowserWindow(optionsB)
 
-// Deprecated
+// Припиняється підтримка
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
-    // do something
+    // зробити щось
   }
 })
-// Replace with
+// Замінити на
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
-    // do something
+    // зробити щось
   }
 })
 ```
@@ -79,24 +79,24 @@ window.on('app-command', (e, cmd) => {
 ## `clipboard`
 
 ```js
-// Deprecated
+// Припиняється підтримка
 clipboard.readRtf()
-// Replace with
+// Замінити на
 clipboard.readRTF()
 
-// Deprecated
+// Припиняється підтримка
 clipboard.writeRtf()
-// Replace with
+// Замінити на
 clipboard.writeRTF()
 
-// Deprecated
+// Припиняється підтримка
 clipboard.readHtml()
-// Replace with
+// Замінити на
 clipboard.readHTML()
 
-// Deprecated
+// Припиняється підтримка
 clipboard.writeHtml()
-// Replace with
+// Замінити на
 clipboard.writeHTML()
 ```
 
