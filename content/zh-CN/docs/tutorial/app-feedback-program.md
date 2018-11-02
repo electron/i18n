@@ -1,3 +1,3 @@
 # Electron App 反馈编程
 
-Electron 正致力于建立一种使得应用能更流畅和快速发布版本的。 To help with that, we have the App Feedback Program for large-scale Electron apps to test our beta releases and report app-specific issues to the Electron team. We use this program to help us prioritize work and get applications upgraded to the next stable release as soon as possible. There are a few requirements we expect from participants, such as attending short, online weekly check-ins. If you are interested or have questions, please send us a message at info@electronjs.org.
+Electron 正致力于构建更流畅版本发布的过程从而快速发布版本。 为了实现这个目标，我们使App反馈编程大范围应用于Electron应用，以此来测试beta版本和上报与应用相关的特定问题给Electron团队。 We use this program to help us prioritize work and get applications upgraded to the next stable release as soon as possible. There are a few requirements we expect from participants, such as attending short, online weekly check-ins. If you are interested or have questions, please send us a message at info@electronjs.org.
