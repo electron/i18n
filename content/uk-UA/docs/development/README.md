@@ -1,6 +1,6 @@
 # Розроблюємо Electron
 
-Ці інстуркції призначені для людей, які працюють безпосередньо з проектом Electron. For guides on Electron app development, see [/docs/README.md](../README.md#guides-and-tutorials).
+Ці інстуркції призначені для людей, які працюють безпосередньо з проектом Electron. Для інтструкцій по розробці застосунків на Electron, дивіться [/docs/README.md](../README.md#guides-and-tutorials).
 
 * [Норми поведінки](../../CODE_OF_CONDUCT.md)
 * [Доповнення до Electron](../../CONTRIBUTING.md)
