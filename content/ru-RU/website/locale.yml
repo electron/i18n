@@ -16,7 +16,7 @@ docs:
   description: Просмотрите всю <a href="/docs/all">документацию на одной странице</a> или посетите <a href="/docs/faq">ЧаВо</a>.
   guides: Руководства
   api_reference: Справочник по API
-  api_structures: API Structures
+  api_structures: Структуры API
   advanced: Расширенный
   footer:
     propose_change: Улучшить этот документ
@@ -122,7 +122,7 @@ blog:
   title: Блог Electron
   description: Все последние новости от команды Electron и сообщества.
   feedback: Есть мысли по поводу этой публикации? Дайте <a href="https://twitter.com/electronjs">@electronjs</a> об этом знать на Twitter.
-  help: Need help or found a bug? <a href="/contact">Contact us</a>.
+  help: Нужна помощь или вы нашли баг? <a href="/contact">Свяжитесь с нами</a>.
 clipboard:
   copy: Копировать
   copy_to_clipboard: Копировать в буфер обмена
