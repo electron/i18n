@@ -6,9 +6,9 @@
 
 Electron також забеспечує деякими вбудованими модулями для розробки десктопних застосунків. Деякі модулі доступні тільки в головному процесі, деякі доступні тільки в процесі візуалізації (Web сторінка) і деякі доступні в обох процесах.
 
-Основне правило: якщо модуль пов'язаний з [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) чи системою на низькому рівні, тоді він має бути доступний в головному процесі. You need to be familiar with the concept of [main process vs. renderer process](../tutorial/application-architecture.md#main-and-renderer-processes) scripts to be able to use those modules.
+Основне правило: якщо модуль пов'язаний з [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) чи системою на низькому рівні, тоді він має бути доступний в головному процесі. Ви маєте бути знайомі з принципом [головний процес vs. процес рендерингу](../tutorial/application-architecture.md#main-and-renderer-processes) для використання цих модулів.
 
-The main process script is like a normal Node.js script:
+Скрипт головного процесу виглядає як нормальний Node.js скрипт:
 
 ```javascript
 const {app, BrowserWindow} = require('electron')
