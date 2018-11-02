@@ -251,52 +251,52 @@ menu.popup(browserWindow, {x: 100, y: 200, positioningItem: 2})
 ## `nativeImage`
 
 ```js
-// Removed
+// Видалено
 nativeImage.toPng()
-// Replaced with
+// Замінити на
 nativeImage.toPNG()
 
-// Removed
+// Видалено
 nativeImage.toJpeg()
-// Replaced with
+// Замінити на
 nativeImage.toJPEG()
 ```
 
-## `процес`
+## `process`
 
-* `process.versions.electron` and `process.version.chrome` will be made read-only properties for consistency with the other `process.versions` properties set by Node.
+* `process.versions.electron` та `process.version.chrome` будуть зроблені властивостями тільки для читання для сумусності з іншими `process.versions` властивостями встановленими Node.
 
 ## `webContents`
 
 ```js
-// Removed
+// Видалено
 webContents.setZoomLevelLimits(1, 2)
-// Replaced with
+// Замінити на
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## `webFrame`
 
 ```js
-// Removed
+// Видалено
 webFrame.setZoomLevelLimits(1, 2)
-// Replaced with
+// Замінити на
 webFrame.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## `<webview>`
 
 ```js
-// Removed
+// Видалено
 webview.setZoomLevelLimits(1, 2)
-// Replaced with
+// Замінити на
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-## Duplicate ARM Assets
+## Дублікати ARM Файлів
 
-Each Electron release includes two identical ARM builds with slightly different filenames, like `electron-v1.7.3-linux-arm.zip` and `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
+Кожен реліз Electron містить дві ідентичні ARM збірки з трохи різними назвами файлів, наприклад `electron-v1.7.3-linux-arm.zip` та `electron-v1.7.3-linux-armv7l.zip`. Файли з префіксом `v7l` були додані для ясності яку версію ARM вони підтримують, та відрізнити їх від майбутніх armv6l та arm64 файлів, які можуть з'явитися.
 
 The file *without the prefix* is still being published to avoid breaking any setups that may be consuming it. Starting at 2.0, the un-prefixed file will no longer be published.
 
-For details, see [6986](https://github.com/electron/electron/pull/6986) and [7189](https://github.com/electron/electron/pull/7189).
+Детальніше дивіться [6986](https://github.com/electron/electron/pull/6986) та [7189](https://github.com/electron/electron/pull/7189).
