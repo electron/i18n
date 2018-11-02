@@ -68,9 +68,9 @@
 
 ### Подія: 'before-quit-for-update'
 
-This event is emitted after a user calls `quitAndInstall()`.
+Ця подія викликається після того як користувач викликав `quitAndInstall()`.
 
-When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
+Коли викликається цей API, подія `before-quit` не виконується перед закриттям всіх вікон. Як результат ви маєте очікувати цю подію, якщо хочете виконати дії перед закриттям всіх вікон, так само як і `before-quit`.
 
 ## Методи
 
