@@ -4,7 +4,7 @@
 
 Процес: [Main](../glossary.md#main-process)
 
-**See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
+**Дивіться також: [Детальна інструкція як налаштувати процес оновлення вашого застосунку](../tutorial/updates.md).**
 
 ## Зауваження
 
@@ -66,7 +66,7 @@
 
 На Windows доступне тільки `releaseName`.
 
-### Event: 'before-quit-for-update'
+### Подія: 'before-quit-for-update'
 
 This event is emitted after a user calls `quitAndInstall()`.
 
