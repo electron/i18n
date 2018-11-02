@@ -89,7 +89,7 @@ MyApp.app/Contents
 
 ## 通过重编译源代码来进行重新定制
 
-你也可以通过改变产品名称后从源码构建来重塑Electron的形象。 To do this you need to set the build argument corresponding to the product name (`electron_product_name = "YourProductName"`) in the `args.gn` file and rebuild.
+你也可以通过改变产品名称后从源码构建来重塑Electron的形象。 你只需要在 `args.gn` 文件中将构建参数设置为对应产品的名称(`electron_product_name = "YourProductName"`)，并进行重新构建。
 
 ### 创建一个自定义 Electron 分支
 
