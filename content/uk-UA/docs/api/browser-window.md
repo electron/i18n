@@ -913,10 +913,10 @@ win.setSheetOffset(toolbarRect.height)
 
 * `url` String
 * `options` Object (опціонально) 
-  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
+  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (опціонально) - HTTP Referrer посилання.
   * `userAgent` String (опціонально) - User agent відправника запиту.
   * `extraHeaders` String (опціонально) - Додаткові заголовки, розділені "\n"
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (опціонально)
   * `baseURLForDataURL` String (опціонально) - Основне URL (з розділювачем шляху) для файлів, які мають бути завантажені. Це необхідно, лише якщо вказане `url` є посилання на дані і потребує завантаження інших файлів.
 
 Те саме що і `webContents.loadURL(url[, options])`.
@@ -967,7 +967,7 @@ Same as `webContents.loadFile`, `filePath` should be a path to an HTML file rela
 
 * `progress` Double
 * `options` Object (опціонально) 
-  * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error` or `paused`.
+  * `mode` String *Windows* - Режим для рядка прогресу. Може бути `none`, `normal`, `indeterminate`, `error`, чи `paused`.
 
 Встановлює прогрес в рядок прогресу. Допустимий діапазон [0, 1.0].
 
@@ -1006,7 +1006,7 @@ Sets a 16 x 16 pixel overlay onto the current taskbar icon, usually used to conv
 
 Повертає `Number` - між 0.0 (повністю прозоре) та 1.0 (повністю непрозоре)
 
-#### `win.setShape(rects)` *Windows* *Linux* *Experimental*
+#### `win.setShape(rects)` *Windows* *Linux* *Експериментальний*
 
 * `rects` [Rectangle[]](structures/rectangle.md) - Sets a shape on the window. Passing an empty list reverts the window to being rectangular.
 
@@ -1106,7 +1106,7 @@ Sets whether the window should be visible on all workspaces.
 
 #### `win.isVisibleOnAllWorkspaces()`
 
-Returns `Boolean` - Whether the window is visible on all workspaces.
+Повертає `Boolean` - Чи вікно видиме на всіх робочих областях.
 
 **Примітка:** Цей API завжди повертає false на Windows.
 
@@ -1114,7 +1114,7 @@ Returns `Boolean` - Whether the window is visible on all workspaces.
 
 * `ignore` Boolean
 * `options` Object (опціонально) 
-  * `forward` Boolean (optional) *macOS* *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Використовується тільки якщо `ignore` дорівнює true. Якщо `ignore` дорівнює false, передавання завжди вимкнене незважаючи на поточне значення.
+  * `forward` Boolean (опціонально) *macOS* *Windows* - Якщо true, передають повідомлення про рухи мишки в Chromium, в тому числі пов'язані з мишкою події такими як `mouseleave`. Використовується тільки якщо `ignore` дорівнює true. Якщо `ignore` дорівнює false, передавання завжди вимкнене незважаючи на поточне значення.
 
 Примушує вікно ігнорувати всі події мишки.
 
@@ -1198,7 +1198,7 @@ Sets `parent` as current window's parent window, passing `null` will turn curren
 
 * `browserView` [BrowserView](browser-view.md)
 
-#### `win.getBrowserView()` *Experimental*
+#### `win.getBrowserView()` *Експериментальний*
 
 Повертає `BrowserView | null` - прикріплений BrowserView. Повертає `null`, якщо немає прикіпленого.
 
