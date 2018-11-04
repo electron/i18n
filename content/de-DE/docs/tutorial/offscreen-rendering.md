@@ -12,13 +12,13 @@ Two modes of rendering can be used and only the dirty area is passed in the `'pa
 
 GPU accelerated rendering means that the GPU is used for composition. Because of that the frame has to be copied from the GPU which requires more performance, thus this mode is quite a bit slower than the other one. The benefit of this mode that WebGL and 3D CSS animations are supported.
 
-### Software output device
+### Software Ausgabegerät
 
-This mode uses a software output device for rendering in the CPU, so the frame generation is much faster, thus this mode is preferred over the GPU accelerated one.
+Dieser Modus verwendet ein Software Ausgabegerät um auf der CPU zu rendern. Da die Bildgenerierung in diesem Modus um einiges schneller ist, wird dieser über den GPU beschleunigten Modus bevorzugt.
 
-To enable this mode GPU acceleration has to be disabled by calling the [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API.
+Um diesen Modus einzuschalten, muss GPU Beschleunigung ausgeschaltet werden. Dies erreicht man indem man die [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API aufruft.
 
-## Usage
+## Beispiel
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
