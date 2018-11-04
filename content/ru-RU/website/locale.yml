@@ -108,11 +108,11 @@ apps:
   submit_your_own: опубликовать своё
   something_missing: Что-то отсутствует?
   edit_this_app: Измените это приложение.
-  search_app: Отфильтровать приложения по имени, описанию и так далее…
+  search_app: Отфильтровать приложения по имени, описанию, другое…
   categories: Категории
   add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Создайте Pull Request</a>, чтобы добавить свое приложение.'
   website: Веб-сайт
-  repository: Репозитарий
+  repository: Репозиторий
   category: Категория
   downloads: Загрузки
   keywords: Ключевые слова
