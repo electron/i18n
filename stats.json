@@ -107,14 +107,14 @@
     "name": "German",
     "code": "de",
     "phrases": "9642",
-    "translated": "2808",
+    "translated": "2825",
     "approved": "35",
     "words": "88866",
-    "words_translated": "17609",
+    "words_translated": "17870",
     "words_approved": "66",
-    "translated_progress": 19,
+    "translated_progress": 20,
     "approved_progress": 0,
-    "qa_issues": "1079"
+    "qa_issues": "1086"
   },
   {
     "name": "Hebrew",
@@ -224,14 +224,14 @@
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "9642",
-    "translated": "4178",
+    "translated": "4180",
     "approved": "373",
     "words": "88866",
-    "words_translated": "29708",
+    "words_translated": "29724",
     "words_approved": "2715",
     "translated_progress": 33,
     "approved_progress": 3,
-    "qa_issues": "1218"
+    "qa_issues": "1220"
   },
   {
     "name": "Romanian",
