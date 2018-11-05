@@ -177,7 +177,7 @@ Ibinabalik ang:
 * `url` Tali
 * `httpResponseCode` Integer - -1 for non HTTP navigations
 * `httpStatusText` String - empty for non HTTP navigations,
-* `ay pangunahing kuwadro` Boolean
+* `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -354,7 +354,7 @@ Lalabas kapag ang `webContents` ay gustong gawin ang basic auth.
 
 Ang paggamit ay pareho sa [ang kaganapan `login` ng `app`](app.md#event-login).
 
-#### Event: 'found-in-page'
+#### Kaganapan: 'natagpuan-sa-pahina'
 
 Ibinabalik ang:
 
@@ -396,7 +396,7 @@ Ibinabalik ang:
 * `kaganapan` kaganapan
 * `url` Tali
 
-Inilalabas kapag gumagalaw ang mouse sa isang link o inililipat ng keyboard ang focus sa isang link.
+Ilabas kapag ang mouse ay napunta sa link o ang keyboard ay nagalaw ang pukos sa link.
 
 #### Kaganapan: 'cursor-changed'
 
@@ -540,7 +540,7 @@ Ibinabalik ang:
 
 * `kaganapan` Kaganapan
 * `level` Integer
-* `message` String
+* `mensahe` Tali
 * `line` Integer
 * `sourceId` String
 
@@ -699,7 +699,7 @@ Ibinabalik`Pisi` - Ang ahenteng gumagamit para sa pahina ng web na ito.
 
 #### `mga nilalaman.insertCSS(css)`
 
-* `css` Pisi
+* `css` String
 
 Mga pagturok ng CSS sa kasalukuyang pahina ng web.
 
@@ -923,7 +923,7 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
 
 * `options` Bagay 
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `pageSize` String (optional) - Specify page size of the generated PDF. Pwedeng `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o ang Objek na mayroong `height` at `width` na naka-micron.
+  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Pwedeng `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o ang Objek na mayroong `height` at `width` na naka-micron.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
