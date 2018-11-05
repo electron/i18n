@@ -19,7 +19,7 @@ app.makeSingleInstance(function (argv, cwd) {
 })
 // Replace with
 app.requestSingleInstanceLock()
-app.on('second-instance', function (argv, cwd) {
+app.on('second-instance', function (event, argv, cwd) {
 
 })
 ```
@@ -262,7 +262,7 @@ nativeImage.toJpeg()
 nativeImage.toJPEG()
 ```
 
-## `處理序`
+## `process`
 
 * `process.versions.electron` 及 `process.version.chrome` 將變為唯讀的屬性，與其他由 Node 設定的 `process.versions` 一致。
 
