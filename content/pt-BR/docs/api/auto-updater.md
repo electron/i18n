@@ -68,9 +68,9 @@ No Windows apenas o `releaseName` está disponível.
 
 ### Evento: 'before-quit-for-update'
 
-This event is emitted after a user calls `quitAndInstall()`.
+Este evento é emitido depois de um usuário chamar `quitAndInstall()`.
 
-When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
+Quando esta API é chamada, o evento `before-quit` não é emitido antes de todas as janelas serem fechadas. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
 
 ## Métodos
 
