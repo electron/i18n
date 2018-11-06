@@ -516,7 +516,7 @@ API seperti <code>isi web memuat URL` dan `isi web kembali`.</p>
   
   * `acara` Acara
   * `level` Integer
-  * `message` String
+  * `pesan` String
   * `line` Integer
   * `sourceId` String
   
@@ -886,7 +886,7 @@ API seperti <code>isi web memuat URL` dan `isi web kembali`.</p>
         
         * `pilihan` Obyek 
           * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-          * `pageSize` String (optional) - Specify page size of the generated PDF. Bisa menjadi `A3`, `A4`,`A5`,`legal`,`huruf`,`majalah` atau sebuah objek yang mengandung `tinggi` dan `lebar` di mikron.
+          * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Bisa menjadi `A3`, `A4`,`A5`,`legal`,`huruf`,`majalah` atau sebuah objek yang mengandung `tinggi` dan `lebar` di mikron.
           * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
           * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
           * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
@@ -1034,7 +1034,7 @@ API seperti <code>isi web memuat URL` dan `isi web kembali`.</p>
               Contoh pengiriman pesan dari proses utama ke proses renderer:
               
               ```javascript
-              // In the main process.
+              // Pada proses utama.
               const {app, BrowserWindow} = require('electron')
               let win = null
               
