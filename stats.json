@@ -192,20 +192,20 @@
     "words_approved": "2631",
     "translated_progress": 41,
     "approved_progress": 2,
-    "qa_issues": "1960"
+    "qa_issues": "1958"
   },
   {
     "name": "Persian",
     "code": "fa",
     "phrases": "9642",
-    "translated": "924",
+    "translated": "925",
     "approved": "30",
     "words": "88869",
-    "words_translated": "4178",
+    "words_translated": "4197",
     "words_approved": "54",
     "translated_progress": 4,
     "approved_progress": 0,
-    "qa_issues": "39"
+    "qa_issues": "40"
   },
   {
     "name": "Polish",
@@ -224,10 +224,10 @@
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "9642",
-    "translated": "4189",
+    "translated": "4191",
     "approved": "373",
     "words": "88869",
-    "words_translated": "29848",
+    "words_translated": "29861",
     "words_approved": "2715",
     "translated_progress": 33,
     "approved_progress": 3,
@@ -302,14 +302,14 @@
     "name": "Turkish",
     "code": "tr",
     "phrases": "9642",
-    "translated": "7858",
+    "translated": "7859",
     "approved": "2",
     "words": "88869",
-    "words_translated": "66058",
+    "words_translated": "66068",
     "words_approved": "2",
     "translated_progress": 74,
     "approved_progress": 0,
-    "qa_issues": "3662"
+    "qa_issues": "3663"
   },
   {
     "name": "Ukrainian",
