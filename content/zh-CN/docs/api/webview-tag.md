@@ -250,7 +250,7 @@ Stops any pending navigation.
 
 ### `<webview>.clearHistory()`
 
-Clears the navigation history.
+清除定位历史。
 
 ### `<webview>.goBack()`
 
@@ -441,7 +441,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
 ### `<webview>.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
-* `callback` Function 
+* `callback` Function - 回调函数 
   * `image` [NativeImage](native-image.md)
 
 捕获 `requestFullScreen` 的页面的一个快照，类似于 `webContents.capturePage([rect, ]callback)`。
