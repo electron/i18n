@@ -13,13 +13,13 @@
 ## `app.makeSingleInstance`
 
 ```js
-// Устарело
+// Deprecated
 app.makeSingleInstance(function (argv, cwd) {
 
 })
-// Заменить на
+// Replace with
 app.requestSingleInstanceLock()
-app.on('second-instance', function (argv, cwd) {
+app.on('second-instance', function (event, argv, cwd) {
 
 })
 ```
