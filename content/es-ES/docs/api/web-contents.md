@@ -150,7 +150,7 @@ Devuelve:
 
 * `url` String
 * `isInPlace` Boolean
-* `EsElFramePrincipal` Boolean
+* `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -686,7 +686,7 @@ Navega a la compensación especifica desde la "entrada actual".
 
 #### `contents.isCrashed()`
 
-Devuelve `Boolean` - Aunque el proceso del renderizador se haya arruinado.
+Devuelve `Boolean` - Si el proceso de renderizado ha fallado.
 
 #### `contents.setUserAgent(userAgent)`
 
@@ -841,7 +841,7 @@ Ejecuta el comando de edición `replaceMisspelling` en página web.
 
 * `texto` String
 
-Inserta `texto` en el elemento enfocado.
+Inserta `texto` al elemento centrado.
 
 #### `contents.findInPage(text[, options])`
 
@@ -923,7 +923,7 @@ Utilizar el estilo CCS `page-break-before: always;` para imprimir a la fuerza un
 
 * `opciones` Object 
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `pageSize` String (optional) - Specify page size of the generated PDF. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un contenedor de objeto `height` y `width` en micrones.
+  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un contenedor de objeto `height` y `width` en micrones.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
