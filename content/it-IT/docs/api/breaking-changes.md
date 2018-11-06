@@ -13,13 +13,13 @@ La seguente lista include i cambiamenti delle API pianificati per Electron 4.0.
 ## `app.makeSingleInstance`
 
 ```js
-// Deprecato
+// Deprecated
 app.makeSingleInstance(function (argv, cwd) {
 
 })
-// Sostituire con
+// Replace with
 app.requestSingleInstanceLock()
-app.on('second-instance', function (argv, cwd) {
+app.on('second-instance', function (event, argv, cwd) {
 
 })
 ```
