@@ -428,7 +428,7 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
 
 * `options` Oggetto 
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `pageSize` String (optional) - Specify page size of the generated PDF. Può essere `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un oggetto contenente `height`(altezza) e la `width`(larghezza) in micron.
+  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Può essere `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un oggetto contenente `height`(altezza) e la `width`(larghezza) in micron.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
