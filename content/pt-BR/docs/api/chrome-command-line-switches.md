@@ -16,7 +16,7 @@ app.on('ready', () => {
 
 ## --ignore-connections-limit=`domains`
 
-Ignore the connections limit for `domains` list separated by `,`.
+Ignora o limite de conexão por `domains` lista separada por `,`.
 
 ## --disable-http-cache
 
