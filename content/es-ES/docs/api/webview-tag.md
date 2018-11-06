@@ -142,7 +142,7 @@ Cuando este atributo está presente, la página de invitado tendrá la seguridad
 <webview src="https://electronjs.org" partition="electron"></webview>
 ```
 
-Establece la sesión usada por la página. Si `partition` empieza con `persist:`, la página usará una sesión persistente disponible para todas las páginas en la aplicación con la misma `partition`. si no hay un prefijo `persist:`, la página usará una sesión en memoria. Al asignar la misma `partition`, las páginas múltiples pueden compartir la misma sesión. Si la `partition` no se establece entonces la sesión por defecto de la aplicación será usada.
+Establece la sesión usada por la página. Si `partition` empieza con `persist:`, la página usará una sesión persistente disponible para todas las páginas en la aplicación con la misma `partition`. si no hay un prefijo `persist:`, la página usará una sesión en memoria. Por asignar el mismo `partition`, múltiples páginas podrán compartir la misma sesión. Si la `partition` no se establece entonces la sesión por defecto de la aplicación será usada.
 
 Este valor solo puede ser modificado antes que la primera navegación, ya que la sesión de un proceso de renderizado activo no puede cambiar. Intentos subsecuentes de modificar el valor fallarán con la excepción de DOM.
 
@@ -198,10 +198,10 @@ webview.addEventListener('dom-ready', () => {
 ### `<webview>.loadURL(url[, options])`
 
 * `url` URL
-* `opciones` Objecto (opcional) 
+* `opciones` Object (opcional) 
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
   * `userAgent` String (opcional) - Un agente de usuario originando la solicitud.
-  * `extraHeaders` Cadena (opcional) - Encabezados extras separados por "\n"
+  * `extraHeaders` String (opcional) - Encabezados extras separadas por "\n"
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
   * `baseURLForDataURL` String (opcional) - Url base (con separadores de ruta arrastrables) para archivos que se cargan por el url de datos. Esto es necesario únicamente si el `url` especificado es un url de datos y necesita cargar otros archivos.
 
@@ -320,7 +320,7 @@ Devuelve `Boolean` - Aunque la ventana de DevTools de la página de invitado est
 
 ### `<webview>.inspectElement(x, y)`
 
-* `x` Íntegro
+* `x` Integer
 * `y` Íntegro
 
 Empieza inspeccionado elementos en posición (`x`, `y`) de la página de invitado.
@@ -391,7 +391,7 @@ Ejecuta el comando de edición `replaceMisspelling` en página.
 
 * `texto` String
 
-Inserta `texto` en el elemento enfocado.
+Inserta `texto` al elemento centrado.
 
 ### `<webview>.findInPage(text[, options])`
 
@@ -421,7 +421,7 @@ Detiene cualquier solicitud `findInPage` para el `webview` con la `action` dada.
 * `opciones` Objecto (opcional) 
   * `silent` Boolean (opcional) - No le pide al usuario configurar la impresora. Por defecto es `false`.
   * `printBackground` Boolean (opcional) - También imprime el color de fondo y la imagen de la página web. Por defecto es `false`.
-  * `deviceName` String (opcional) - Configura el nombre de la impresora que se va a usar. Por defecto es `''`.
+  * `deviceName` Cadena (opcional) - Establece el nombre del dispositivo de impresión a usar. Por defecto es `"`.
 
 Imprime la página web de `webview`. Al igual que `webContents.print([options])`.
 
@@ -429,7 +429,7 @@ Imprime la página web de `webview`. Al igual que `webContents.print([options])`
 
 * `opciones` Object 
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `pageSize` String (optional) - Specify page size of the generated PDF. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un contenedor de objeto `height` y `width` en micrones.
+  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un objeto que contenga `height` y `width` en micron.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
@@ -653,7 +653,7 @@ Este evento no es emitido para navegaciones dentro de la página, como hacerle c
 
 Devuelve:
 
-* `isMainFrame` Boolean
+* `EsElFramePrincipal` Boolean
 * `url` String
 
 Emitido cuando una navegación dentro de la página sucede.
@@ -757,7 +757,7 @@ Emitido cuando DevTools es abierto.
 
 ### Evento: 'devtools-closed'
 
-Emitido cuando DevTools es cerrado.
+Emitido cuando Devtools es cerrado.
 
 ### Evento: 'devtools-focused'
 
