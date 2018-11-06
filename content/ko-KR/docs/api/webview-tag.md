@@ -711,7 +711,7 @@ Fired when the gpu process is crashed.
 
 ### Event: 'plugin-crashed'
 
-반환:
+Returns:
 
 * PrinterInfo Object
 * `version` String
