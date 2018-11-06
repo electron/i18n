@@ -13,13 +13,13 @@
 ## `app.makeSingleInstance`
 
 ```js
-// 非推奨
+// Deprecated
 app.makeSingleInstance(function (argv, cwd) {
 
 })
-// こちらに置換
+// Replace with
 app.requestSingleInstanceLock()
-app.on('second-instance', function (argv, cwd) {
+app.on('second-instance', function (event, argv, cwd) {
 
 })
 ```
