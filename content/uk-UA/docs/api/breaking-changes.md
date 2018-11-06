@@ -13,13 +13,13 @@
 ## `app.makeSingleInstance`
 
 ```js
-// Припиняється підтримка
+// Deprecated
 app.makeSingleInstance(function (argv, cwd) {
 
 })
-// Замінити на
+// Replace with
 app.requestSingleInstanceLock()
-app.on('second-instance', function (argv, cwd) {
+app.on('second-instance', function (event, argv, cwd) {
 
 })
 ```
@@ -262,7 +262,7 @@ nativeImage.toJpeg()
 nativeImage.toJPEG()
 ```
 
-## `process`
+## `процес`
 
 * `process.versions.electron` та `process.version.chrome` будуть зроблені властивостями тільки для читання для сумусності з іншими `process.versions` властивостями встановленими Node.
 
