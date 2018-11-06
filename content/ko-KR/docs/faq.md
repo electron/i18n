@@ -1,4 +1,4 @@
-# Electron 자주 묻는 질문
+# Electron FAQ
 
 ## 왜 Electron을 설치하는데에 문제가 생길까요?
 
@@ -24,7 +24,7 @@ Node.js의 새 버전이 출시되면, Electron 또한 업그레이드 전에 �
 
 ## 웹 페이지 간에 데이터를 어떻게 공유하나요?
 
-웹 페이지 (렌더러 프로세스 들) 간 데이터를 공유하기 위한 가장 쉬운 방법은 브라우저에 이미 사용가능 한 HTML5 API 들을 사용하는 것 입니다. 좋은 후보는 [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API) 입니다.
+웹페이지(렌더러 프로세스들) 간의 가장 간단한 공유 방법은 이미 모든 브라우저에서 사용가능한 HTML5의 API를 사용하는 것입니다. 좋은 해결책들은 [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API)입니다.
 
 또는 Electron 에 한정되는 IPC 시스템을 사용할 수 있습니다. `electron` 모듈의 `remote` 속성을 통하여 주 프로세스의 객체를 전역 변수로 저장하고, 렌더러에서 그것들에 접근합니다:
 
@@ -45,9 +45,9 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## 몇 분 후 내 앱이 윈도우 트레이에서 사라집니다.
+## 내 앱의 윈도우/트레이가 몇 분 후에 사라집니다.
 
-이 현상은 window/tray 를 저장하기 위해 사용 된 변수가 가비지 수집 될 때 발생합니다.
+이 현상은 윈도우/트레이를 저장하기 위해 사용 된 변수가 쓰레기로 수집되었을 때 발생합니다.
 
 이 문제가 발생했다면, 다음 글이 도움이 될 것 입니다:
 
@@ -75,7 +75,7 @@ app.on('ready', () => {
 })
 ```
 
-## Electron 에서 jQuery/RequireJS/Meteor/AngularJS 를 사용할 수 없습니다.
+## Electron에서 jQuery/RequireJS/Meteor/AngularJS를 사용할 수 없습니다.
 
 Electron 의 Node.js 통합으로 인해, DOM 에 `module`, `exports`, `require` 같은 몇 가지 추가 기호가 삽입됐습니다. 이것은 같은 이름의 심볼을 삽입하려는 몇몇 라이브러리에서 문제를 일으킵니다.
 
