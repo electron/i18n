@@ -1,6 +1,6 @@
 # Suporte ao Terminal de Comando do Chrome
 
-> Command line switches supported by Electron.
+> Opções de comandos de linhas suportados pelo Electron.
 
 You can use [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) to append them in your app's main script before the [ready](app.md#event-ready) event of the [app](app.md) module is emitted:
 
@@ -20,7 +20,7 @@ Ignore the connections limit for `domains` list separated by `,`.
 
 ## --disable-http-cache
 
-Disables the disk cache for HTTP requests.
+Desabilita o cache de disco para as requisições HTTP.
 
 ## --disable-http2
 
@@ -36,7 +36,7 @@ Debug-related flags, see the [Debugging the Main Process](../tutorial/debugging-
 
 ## --remote-debugging-port=`port`
 
-Enables remote debugging over HTTP on the specified `port`.
+Habilita depuração remota sobre o HTTP na `port` especificada.
 
 ## --disk-cache-size=`size`
 
@@ -50,7 +50,7 @@ Specifies the flags passed to the Node JS engine. It has to be passed when start
 $ electron --js-flags="--harmony_proxies --harmony_collections" seu-app
 ```
 
-See the [Node documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node's V8 JavaScript engine.
+See the [Node documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Além disso, rode `node --v8-options` para ver a lista de flags especificas referentes ao motor javascript v8 do Node.
 
 ## --proxy-server=`address:port`
 
