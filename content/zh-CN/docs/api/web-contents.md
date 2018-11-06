@@ -662,7 +662,7 @@ Returns `Boolean` - Whether the web page can go to `offset`.
 
 #### `contents.clearHistory()`
 
-清除定位历史。
+Clears the navigation history.
 
 #### `contents.goBack()`
 
