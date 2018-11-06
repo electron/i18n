@@ -202,7 +202,7 @@ webview.addEventListener('dom-ready', () => {
   * `userAgent` Dizgi (isteğe bağlı) - İsteğin kaynağını oluşturan bir kullanıcı aracı.
   * `extraHeaders` Dizgi (isteğe bağlı) - "\n" ile ayrılan ek sayfa başlıkları
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
-  * `baseURLForDataURL` Dizgi (isteğe bağlı) - Veri bağlantıları tarafından dosyaların yükleneceği (Dizin ayracına sahip) temel bağlantı. Buna, sadece belirtilen `url` bir veri bağlantısıysa ve başka dosyalar yüklemesi gerekiyorsa, gerek duyulur.
+  * `baseURLForDataURL` Dizgi (isteğe bağlı) - Veri bağlantıları tarafından dosyaların yükleneceği (Dizin ayracına sahip) temel bağlantı. Bu, yalnızca belirtilen `url` veri url'si ve diğer dosyaları yüklemek gerekiyorsa gereklidir.
 
 Webview'ün içinde `url`'i yükler, `url` prefix protokolünü içermelidir, örneğin: `http://` ya da `file://`.
 
@@ -224,7 +224,7 @@ Returns `Boolean` - Misafir sayfası, sayfanın ana kaynağından gelecek bir il
 
 ### `<webview>.dur()`
 
-Bekleyen gezinmeleri durdurur.
+Bekleyen gezinmeyi durdurur.
 
 ### `<webview>.yeniden yükle()`
 
@@ -320,7 +320,7 @@ Returns `Boolean` - Misafir sayfasının DevTools penceresine odaklanıldığın
 ### `<webview>.inspectElement(x, y)`
 
 * `x` Integer
-* `y` Tamsayı
+* `x` Integer
 
 Misafir sayfasının inceleyici öğesini (`x`, `y`) başlatır.
 
@@ -388,7 +388,7 @@ Sayfada düzenleme komutu olan `replaceMisspelling`'i yerine getirir.
 
 ### `<webview>.insertText(text)`
 
-* `text` String
+* `text` Dizi
 
 Odaklanmış öğeye `metin` ekler.
 
@@ -400,7 +400,7 @@ Odaklanmış öğeye `metin` ekler.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
   * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
-  * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Diğer birtakım kelime-içi eşleşmeyi kabul eder, `false` varsayılan olur.
+  * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Diğer çeşitli alt kelime (intra-word) eşleşmelerini kabul eder, varsayılan olarak `false`'tur.
 
 `Integer` döndürür - İstek için kullanılan istek kimliği.
 
@@ -420,7 +420,7 @@ Web sayfasındaki `metin` ile tüm eşleşenleri bulmak için bir istek başlat�
 * `seçenekler` Obje (opsiyonel) 
   * `silent` Boolean (isteğe bağlı) - Kullanıcıya yazdırma seçeneklerini sormaz. Varsayılan olarak `false`'tur.
   * `printBackground` Boolean (isteğe bağlı) - Ek olarak arkaplan rengini ve web sayfasının görüntüsünü de yazdırır. Varsayılan olarak `false`'tur.
-  * `deviceName` String (isteğe bağlı) - Kullanılacak yazıcının ismini ayarla. `''` varsayılandır.
+  * `deviceName` Dizgi (isteğe bağlı) - Kullanılacak cihaz ismini ayarlar. Varsayılan olarak `''`'tur.
 
 `webview`'ün web sayfasını yazdırır. Tıpkı `webContents.print([options])` gibi.
 
@@ -428,7 +428,7 @@ Web sayfasındaki `metin` ile tüm eşleşenleri bulmak için bir istek başlat�
 
 * `seçenekler` Nesne 
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `pageSize` String (optional) - Specify page size of the generated PDF. `A3`, `A4`, `A%`, `Legal`, `Letter`, `Tabloid` veya mikron formatında `height` ve `width` içeren bir nesne olabilir.
+  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` ya da micron olarak `height` ve `width` içeren bir nesne olabilir.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
@@ -440,7 +440,7 @@ Web sayfasındaki `metin` ile tüm eşleşenleri bulmak için bir istek başlat�
 
 ### `<webview>.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (isteğe bağlı) - Sayfanın yakalanılmak istenen alanı.
+* `rect` [Rectangle](structures/rectangle.md) (isteğe bağlı) - Sayfadaki alınacak bölge.
 * `geri aramak` Function 
   * `image` [NativeImage](native-image.md)
 
@@ -451,7 +451,7 @@ Web sayfasındaki `metin` ile tüm eşleşenleri bulmak için bir istek başlat�
 * `channel` Dizesi
 * `...args` herhangi[]
 
-İşleyiciye `channel` aracılığıyla bir asenkron mesaj yollayın, aynı zamanda rastgele argümanlar da yollayabilirsiniz. The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
+İşleyiciye ` kanal ` üzerinden eşzamansız bir ileti gönder, keyfi argümanlar da gönderebilirsiniz. The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
 
 Örnekler için [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) 'i ziyaret edin.
 
@@ -477,7 +477,7 @@ Yakınlaştırma düzeyini belirtilen seviyeye değiştirir. Orijinal boyut 0'd�
 
 ### `<webview>.showDefinitionForSelection()` *macOS*
 
-Sayfadan seçilen sözcüğü arayan bir pop-up sözlük gösterir.
+Sayfadaki seçili sözcüğü arayan pop-up sözlüğünü gösterir.
 
 ### `<webview>.getWebContents()`
 
@@ -584,7 +584,7 @@ Dönüşler:
   * `requestId` Tamsayı
   * `activeMatchOrdinal` Integer - Etkin olan eşleşmenin konumu.
   * `matches` Tamsayı - Numaraların eşleştirilmesi.
-  * `selectionArea` Object - İlk eşleşme alanının koordinatları.
+  * `selectionArea` Obje - Eşleşme bölgesinin koordinatları.
   * `finalUpdate` Boolean
 
 Bir sonuç [`webview.findInPage`](#webviewfindinpagetext-options) isteği için geçerli hale geldiğinde tetiklenir.
