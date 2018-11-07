@@ -159,14 +159,14 @@
     "name": "Italian",
     "code": "it",
     "phrases": "9642",
-    "translated": "4689",
+    "translated": "4697",
     "approved": "3",
     "words": "88869",
-    "words_translated": "34692",
+    "words_translated": "34809",
     "words_approved": "43",
     "translated_progress": 39,
     "approved_progress": 0,
-    "qa_issues": 1717
+    "qa_issues": 1723
   },
   {
     "name": "Japanese",
@@ -224,10 +224,10 @@
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "9642",
-    "translated": "4191",
+    "translated": "4194",
     "approved": "373",
     "words": "88869",
-    "words_translated": "29861",
+    "words_translated": "29876",
     "words_approved": "2715",
     "translated_progress": 33,
     "approved_progress": 3,
@@ -263,14 +263,14 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "9642",
-    "translated": "8669",
+    "translated": "8671",
     "approved": "289",
     "words": "88869",
-    "words_translated": "76031",
+    "words_translated": "76069",
     "words_approved": "2369",
     "translated_progress": 85,
     "approved_progress": 2,
-    "qa_issues": 3349
+    "qa_issues": 3350
   },
   {
     "name": "Tagalog",
