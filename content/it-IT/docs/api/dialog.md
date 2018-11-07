@@ -29,17 +29,17 @@ Il modulo `"dialog"` espone i seguenti metodi:
   * `title` String (opzionale)
   * `defaultPath` String (opzionale)
   * `buttonLabel` String (opzionale) - Etichetta personalizzata per il pulsante di conferma, se lasciata vuota verrà utilizzata quella di default.
-  * `filters` [FileFilter[]](structures/file-filter.md) (optional)
+  * `filters` [FileFilter[]](structures/file-filter.md) (opzionale)
   * `properties` String[] (opzionale) - Indica le caratteristiche che la finestra di dialogo renderà disponibili. A seguire i valori supportati: 
     * `openFile` - Permette la selezione dei file.
     * `openDirectory` - Permette la selezione delle cartelle.
-    * `multiSelections` - Allow multiple paths to be selected.
+    * `multiSelections` - Permette di selezionare più di un percorso.
     * `showHiddenFiles` - Mostra i file nascosti.
     * `createDirectory` *macOS* - Permette la creazione di nuove cartelle all'interno della finestra.
     * 0>promptToCreate</code> *Windows* - Effettua la creazione del file se il percorso inserito nel dialog non esiste. This does not actually create the file at the path but allows non-existent paths to be returned that should be created by the application.
     * `noResolveAliases` *macOS* - Disabilita la risoluzione automatica dei collegamenti (symlink). I collegamenti selezionati non ritorneranno il proprio percorso, bensì il percorso a cui puntano.
-    * `treatPackageAsDirectory` *macOS* - Treat packages, such as `.app` folders, as a directory instead of a file.
-  * `message` String (optional) *macOS* - Message to display above input boxes.
+    * `treatPackageAsDirectory` *macOS* - Considera packages, come ad esempio la cartella `.app`, come cartelle anzichè file.
+  * `message` String (opzionale) *macOS* - Messaggio da mostrare sopra alle caselle di input.
   * `securityScopedBookmarks` Boolean (optional) *masOS* *mas* - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
 * `callback` Function (optional) 
   * `filePaths` String[] - An array of file paths chosen by the user
@@ -75,7 +75,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
   * `title` String (opzionale)
   * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
   * `buttonLabel` String (opzionale) - Etichetta personalizzata per il pulsante di conferma, se lasciata vuota verrà utilizzata quella di default.
-  * `filters` [FileFilter[]](structures/file-filter.md) (optional)
+  * `filters` [FileFilter[]](structures/file-filter.md) (opzionale)
   * `message` String (optional) *macOS* - Message to display above text fields.
   * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
   * `showsTagField` Boolean (optional) *macOS* - Show the tags input box, defaults to `true`.
