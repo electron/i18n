@@ -516,7 +516,7 @@ A API usa internamente o Registro do Windows e o LSSetDefaultHandlerForURLScheme
 * `path` String (opcional) *Windows* - O padrão é `process.execPath`
 * `args` String[] (opcional) *Windows* - O padrão é um array vazio
 
-Retorna `Boolean` - Se a chamada foi realizada com sucesso.
+Retorna `Boolean` - Se a chamada for bem sucedida.
 
 Esse método verifica se o executável atual é o manipulador padrão de um protocolo (também conhecido como esquema de URI). Caso seja, ele removerá a aplicação como o manipulador padrão.
 
