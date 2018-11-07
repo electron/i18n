@@ -73,11 +73,11 @@ Se viene passata una `callback`, la chiamata alla API sarà asincrona ed il risu
 * `browserWindow` [BrowserWindow](browser-window.md) (opzionale)
 * `options` Oggetto 
   * `title` String (opzionale)
-  * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
+  * `defaultPath` String (opzionale) - Indirizzo assoluto a cartella, indirizzo assoluto a file, o nome di file da usare di default.
   * `buttonLabel` String (opzionale) - Etichetta personalizzata per il pulsante di conferma, se lasciata vuota verrà utilizzata quella di default.
   * `filters` [FileFilter[]](structures/file-filter.md) (opzionale)
-  * `message` String (optional) *macOS* - Message to display above text fields.
-  * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
+  * `message` String (opzionale) *macOS* - Messaggio da mostrare sopra ai campi di testo.
+  * `nameFieldLabel` String (opzionale) *macOS* - Etichetta personalizzata per il testo mostrato sopra al campo di testo del nome file.
   * `showsTagField` Boolean (optional) *macOS* - Show the tags input box, defaults to `true`.
   * `securityScopedBookmarks` Boolean (optional) *masOS* *mas* - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. If this option is enabled and the file doesn't already exist a blank file will be created at the chosen path.
 * `callback` Function (opzionale) 
