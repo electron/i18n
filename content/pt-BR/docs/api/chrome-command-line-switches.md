@@ -1,6 +1,6 @@
 # Suporte ao Terminal de Comando do Chrome
 
-> Command line switches supported by Electron.
+> Opções de linha de comando suportados pelo Electron.
 
 You can use [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) to append them in your app's main script before the [ready](app.md#event-ready) event of the [app](app.md) module is emitted:
 
@@ -16,11 +16,11 @@ app.on('ready', () => {
 
 ## --ignore-connections-limit=`domains`
 
-Ignore the connections limit for `domains` list separated by `,`.
+Ignora o limite de conexão por `domains` lista separada por `,`.
 
 ## --disable-http-cache
 
-Disables the disk cache for HTTP requests.
+Desabilita o cache de disco para as requisições HTTP.
 
 ## --disable-http2
 
@@ -28,7 +28,7 @@ Disable HTTP/2 and SPDY/3.1 protocols.
 
 ## --lang
 
-Set a custom locale.
+Definir uma localidade customizada.
 
 ## --inspect=`port` and --inspect-brk=`port`
 
@@ -36,21 +36,21 @@ Debug-related flags, see the [Debugging the Main Process](../tutorial/debugging-
 
 ## --remote-debugging-port=`port`
 
-Enables remote debugging over HTTP on the specified `port`.
+Habilita depuração remota sobre o HTTP na `port` especificada.
 
 ## --disk-cache-size=`size`
 
-Forces the maximum disk space to be used by the disk cache, in bytes.
+Força o máximo de espaço em disco a ser usado pelo cache de disco, em bytes.
 
 ## --js-flags=`flags`
 
-Specifies the flags passed to the Node JS engine. It has to be passed when starting Electron if you want to enable the `flags` in the main process.
+Especifica as flags a serem passadas pelo mecanismo do Node JS. Tem que ser passado quando o Electron é iniciado se você quiser habilitar as `flags` no processo principal.
 
 ```sh
 $ electron --js-flags="--harmony_proxies --harmony_collections" seu-app
 ```
 
-See the [Node documentation](https://nodejs.org/api/cli.html) or run `node --help` in your terminal for a list of available flags. Additionally, run `node --v8-options` to see a list of flags that specifically refer to Node's V8 JavaScript engine.
+Veja o [Documentação do Node](https://nodejs.org/api/cli.html) ou rode `node --help` no seu terminal para listar as flags disponíveis. Além disso, rode `node --v8-options` para ver a lista de flags especificas referentes ao motor javascript v8 do Node.
 
 ## --proxy-server=`address:port`
 
@@ -60,7 +60,7 @@ Use a specified proxy server, which overrides the system setting. This switch on
 
 Instructs Electron to bypass the proxy server for the given semi-colon-separated list of hosts. This flag has an effect only if used in tandem with `--proxy-server`.
 
-Como por exemplo:
+Por exemplo:
 
 ```javascript
 const {app} = require('electron')
@@ -81,7 +81,7 @@ Don't use a proxy server and always make direct connections. Overrides any other
 
 A comma-separated list of `rules` that control how hostnames are mapped.
 
-Como por exemplo:
+Por exemplo:
 
 * `MAP * 127.0.0.1` Forces all hostnames to be mapped to 127.0.0.1
 * `MAP *.google.com proxy` Forces all google.com subdomains to be resolved to "proxy".
@@ -98,7 +98,7 @@ Like `--host-rules` but these `rules` only apply to the host resolver.
 
 A comma-separated list of servers for which integrated authentication is enabled.
 
-Como por exemplo:
+Por exemplo:
 
 ```sh
 --auth-server-whitelist='*example.com, *foobar.com, *baz'
