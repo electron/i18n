@@ -16,6 +16,7 @@ docs:
   description: Veja toda a <a href="/docs/all">documentação em uma só página</a> ou verifique as <a href="/docs/faq">perguntas frequente</a>.
   guides: Guias
   api_reference: Referência da API
+  api_structures: Estruturas da API
   advanced: Avançado
   footer:
     propose_change: Melhorar este documento
@@ -121,7 +122,7 @@ blog:
   title: Blog do Electron
   description: Todas as últimas notícias da equipe e comunidade do Electron.
   feedback: Você tem um feedback sobre este post? Deixe o <a href="https://twitter.com/electronjs">@electronjs</a> saber no Twitter.
-  help: Need help or found a bug? <a href="/contact">Contact us</a>.
+  help: Precisa de ajuda ou encontrou um bug? <a href="/contact">Contacte-nos</a>.
 clipboard:
   copy: Copiar
   copy_to_clipboard: Copiar para Área de Transferência
