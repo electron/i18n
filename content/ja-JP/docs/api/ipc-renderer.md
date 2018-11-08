@@ -67,7 +67,7 @@
 * `channel` String
 * `...args` any[]
 
-Sends a message to a window with `webContentsId` via `channel`.
+`channel` を介して `webContentsId` のウインドウにメッセージを送ります。
 
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 
