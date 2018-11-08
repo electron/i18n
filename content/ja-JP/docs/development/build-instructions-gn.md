@@ -186,16 +186,16 @@ $ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec \
 
 gclient git キャッシュを Linux 上で SMB 共有としてエクスポートすることで、他のマシンと共有することは可能ですが、一度に一つのプロセス/マシンだけがキャッシュを使用できます。 git-cache スクリプトによって作成されたロックはこれを防止しようとしますが、ネットワーク内で完璧には動作しない可能性があります。
 
-On Windows, SMBv2 has a directory cache that will cause problems with the git cache script, so it is necessary to disable it by setting the registry key
+Windows では、SMBv2 にはディレクトリキャッシュがあり、git キャッシュスクリプトに問題が発生するため、レジストリキー
 
 ```sh
 HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Lanmanworkstation\Parameters\DirectoryCacheLifetime
 ```
 
-to 0. More information: https://stackoverflow.com/a/9935126
+を0に設定して無効にする必要があります。 詳細: https://stackoverflow.com/a/9935126
 
 ## トラブルシューティング
 
-### Stale locks in the git cache
+### git キャッシュ内の古いロック
 
-If `gclient sync` is interrupted while using the git cache, it will leave the cache locked. To remove the lock, pass the `--break_repo_locks` argument to `gclient sync`.
+git キャッシュを使用している間に `gclient sync` が割り込まれた場合、キャッシュがロックされたままになります。 このロックを除去するには、`gclient sync` に `--break_repo_locks` 引数を渡します。
