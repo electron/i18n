@@ -128,9 +128,9 @@ $ ninja -C out/Debug electron
 $ ninja -C out/Release electron
 ```
 
-This will build all of what was previously 'libchromiumcontent' (i.e. the `content/` directory of `chromium` and its dependencies, incl. WebKit and V8), so it will take a while.
+これは、先に "libchromiumcontent" (` chromium` の `content/` ディレクトリとWebKitとV8などの依存関係) のすべてをビルドします。そのため時間がかかります。
 
-To speed up subsequent builds, you can use [sccache](https://github.com/mozilla/sccache). Add the GN arg `cc_wrapper = "sccache"` by running `gn args out/Debug` to bring up an editor and adding a line to the end of the file.
+次回以降のビルドを高速化するには、[sccache](https://github.com/mozilla/sccache) が使用できます。 Add the GN arg `cc_wrapper = "sccache"` by running `gn args out/Debug` to bring up an editor and adding a line to the end of the file.
 
 The built executable will be under `./out/Debug`:
 
