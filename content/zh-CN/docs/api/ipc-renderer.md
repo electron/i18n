@@ -78,12 +78,12 @@
 </p>
 
 <h3>
-  <code>ipcRenderer.sendTo(windowId, channel, [, arg1][, arg2][, ...])</code>
+  <code>ipcRenderer.sendTo(webContentsId, channel, [, arg1][, arg2][, ...])</code>
 </h3>
 
 <ul>
   <li>
-    <code>windowId</code> Number
+    <code>webContentsId</code> Number
   </li>
   <li>
     <code>channel</code> String
@@ -94,7 +94,7 @@
 </ul>
 
 <p>
-  通过 <code>channel</code> 发送消息到带有 <code>windowid</code> 的窗口.
+  Sends a message to a window with <code>webContentsId</code> via <code>channel</code>.
 </p>
 
 <h3>
