@@ -1,4 +1,4 @@
-# Environment Variables
+# Variabile de mediu
 
 > Control application configuration and behavior without changing code.
 
@@ -49,6 +49,17 @@ Don't attach to the current console session.
 ### `ELECTRON_FORCE_WINDOW_MENU_BAR` *Linux*
 
 Don't use the global menu bar on Linux.
+
+### `ELECTRON_TRASH` *Linux*
+
+Set the trash implementation on Linux. Default is `gio`.
+
+Options:
+
+* `gvfs-trash`
+* `trash-cli`
+* `kioclient5`
+* `kioclient`
 
 ## Development Variables
 
