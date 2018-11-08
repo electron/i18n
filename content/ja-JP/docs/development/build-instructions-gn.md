@@ -130,9 +130,9 @@ $ ninja -C out/Release electron
 
 これは、先に "libchromiumcontent" (` chromium` の `content/` ディレクトリとWebKitとV8などの依存関係) のすべてをビルドします。そのため時間がかかります。
 
-次回以降のビルドを高速化するには、[sccache](https://github.com/mozilla/sccache) が使用できます。 Add the GN arg `cc_wrapper = "sccache"` by running `gn args out/Debug` to bring up an editor and adding a line to the end of the file.
+次回以降のビルドを高速化するには、[sccache](https://github.com/mozilla/sccache) が使用できます。 GN 引数 `cc_wrapper = "sccache"` を追加して `gn args out/Debug` を実行するように、エディタで開いてファイルの末尾に追加してください。
 
-The built executable will be under `./out/Debug`:
+実行形式は `./out/Debug` 下に置かれます。
 
 ```sh
 $ ./out/Debug/Electron.app/Contents/MacOS/Electron
@@ -142,15 +142,15 @@ $ ./out/Debug/electron.exe
 $ ./out/Debug/electron
 ```
 
-### Cross-compiling
+### クロスコンパイル
 
-To compile for a platform that isn't the same as the one you're building on, set the `target_cpu` and `target_os` GN arguments. For example, to compile an x86 target from an x64 host, specify `target_cpu = "x86"` in `gn args`.
+構築しているプラットフォームと同じでないプラットフォーム用にコンパイルするには、`target_cpu` 及び `target_os` GN 引数を設定します。 例えば、x64 ホストから x86 ターゲットをコンパイルするには、`gn args` で `target_cpu = "x86"` と指定します。
 
 ```sh
 $ gn gen out/Debug-x86 --args='... target_cpu = "x86"'
 ```
 
-Not all combinations of source and target CPU/OS are supported by Chromium. Only cross-compiling Windows 32-bit from Windows 64-bit and Linux 32-bit from Linux 64-bit have been tested in Electron. If you test other combinations and find them to work, please update this document :)
+ソースコードとターゲット CPU/OS のすべての組み合わせが Chromium でサポートされているわけではありません。 Windows 64 ビットからの Windows 32 ビットと、Linux 64 ビットからの Linux 32 ビットのクロスコンパイルのみが Electron でテストされています。 他の組み合わせをテストしてうまく動作することがわかっている場合は、このドキュメントを更新してください :)
 
 [`target_os`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values) と [`target_cpu`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values) の許される値については、 GN リファレンスを参照してください。
 
