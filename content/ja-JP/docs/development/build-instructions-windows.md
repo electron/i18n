@@ -5,9 +5,9 @@ Windows 版 Electron のビルドについては、以下のガイドライン�
 ## 必要な環境
 
 * Windows 10 / Server 2012 R2 以上
-* Visual Studio 2017 15.7.2 またはそれ以降 - [VS 2017 Community Edition (無料版) をダウンロード](https://www.visualstudio.com/vs/)
-* [Python 2.7.10 or higher](http://www.python.org/download/releases/2.7/) 
-  * Contrary to the `depot_tools` setup instructions linked below, you will need to use your locally installed Python with at least version 2.7.10 (with support for TLS 1.2). To do so, make sure that in **PATH**, your locally installed Python comes before the `depot_tools` folder. Right now `depot_tools` still comes with Python 2.7.6, which will cause the `gclient` command to fail (see https://crbug.com/868864).
+* Visual Studio 2017 15.7.2 以上 - [VS 2017 Community Edition 無料ダウンロード](https://www.visualstudio.com/vs/)
+* [Python 2.7.10 以上](http://www.python.org/download/releases/2.7/) 
+  * 以下にリンクされている `depot_tools` の設定手順とは異なり、ローカルにインストールされた Python を少なくとも 2.7.10 (TLS 1.2 サポート) で使用する必要があります。 To do so, make sure that in **PATH**, your locally installed Python comes before the `depot_tools` folder. Right now `depot_tools` still comes with Python 2.7.6, which will cause the `gclient` command to fail (see https://crbug.com/868864).
   * [Python for Windows (pywin32) Extensions](https://pypi.org/project/pywin32/#files) is also needed in ordner to run the build process.
 * [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
