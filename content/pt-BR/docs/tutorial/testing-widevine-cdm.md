@@ -1,6 +1,6 @@
-# Testing Widevine CDM
+# Testando Widevine CCDM
 
-In Electron you can use the Widevine CDM library shipped with Chrome browser.
+No Electron você pode usar a biblioteca Widevine CDM inclusa no navegador Chrome.
 
 ## Getting the library
 
