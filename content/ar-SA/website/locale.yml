@@ -16,6 +16,7 @@ docs:
   description: مشاهدة <a href="/docs/all"> كافة المستندات في صفحة واحدة</a> أو التحقق من <a href="/docs/faq"> الأسئلة الأكثر تكرارًا</a>.
   guides: الأدلة
   api_reference: مرجع API
+  api_structures: API Structures
   advanced: خيارات متقدمة
   footer:
     propose_change: تحسين هذه الوثيقة
