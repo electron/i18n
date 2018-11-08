@@ -16,6 +16,7 @@ docs:
   description: 모든 문서 <a href="/docs/all">한 페이지에서</a> 보기 및 <a href="/docs/faq"> FAQ</a> 문서를 확인하기
   guides: 안내서
   api_reference: API 참조
+  api_structures: API Structures
   advanced: 상급(advanced) 주제
   footer:
     propose_change: 문서 개선 작업 참여
@@ -160,7 +161,7 @@ pages:
     title: 연락처
     description: Twitter, Slack, GitHub 혹은 이메일을 통해서 Electron팀과 연락하세요.
   '/languages':
-    title: 언어
+    title: 다국어 지원
   '/userland':
     title: 사용자 공간
   '/devtron':
