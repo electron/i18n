@@ -55,9 +55,9 @@ $ gclient sync --with_branch_heads --with_tags
 # これは時間がかかります。コーヒーでも淹れましょう。
 ```
 
-> Instead of `https://github.com/electron/electron`, you can use your own fork here (something like `https://github.com/<username>/electron`).
+> `https://github.com/electron/electron` の代わりに、`https://github.com/<username>/electron` のような自分のフォークを使うこともできます。
 
-#### A note on pulling/pushing
+#### プル/プッシュ時の注意
 
 If you intend to `git pull` or `git push` from the official `electron` repository in the future, you now need to update the respective folder's origin URLs.
 
