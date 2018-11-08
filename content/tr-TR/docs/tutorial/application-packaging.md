@@ -13,7 +13,7 @@ Uygulamanızı bir `asar` arşivine paketlemeye ilişkin adımlar:
 ### 1. Asar Yardımcı Programını Kurun
 
 ```sh
-$ npm kurma -g asar
+$ npm install -g asar
 ```
 
 ### 2. Paket `asar pack`
@@ -33,7 +33,7 @@ Electron'da özel yamalarla, `fs.readFile` ve `require` gerektirir. ` asar` arş
 Örneğin, bir `example.asar` archive under `/path/to`:
 
 ```sh
-$ asar listesi /path/to/example.asar
+$ asar list /path/to/example.asar
 /app.js
 /file.txt
 /dir/module.js
