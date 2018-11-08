@@ -64,7 +64,7 @@ app.on('ready', () => {
 })
 ```
 
-to this:
+in questo:
 
 ```javascript
 const { app, Tray } = require('electron')
@@ -75,7 +75,7 @@ app.on('ready', () => {
 })
 ```
 
-## I can not use jQuery/RequireJS/Meteor/AngularJS in Electron.
+## Non posso usare jQuery/RequireJS/Meteor/AngularJS in Electron.
 
 Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. Ciò causa problemi ad alcune librerie poiché vogliono inserire i simboli con lo stesso nome.
 
