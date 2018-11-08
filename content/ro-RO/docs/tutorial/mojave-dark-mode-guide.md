@@ -1,12 +1,12 @@
-# Mojave Dark Mode
+# Mojave mod întunecat
 
-In macOS 10.14 Mojave, Apple introduced a new [system-wide dark mode](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/) for all macOS computers. By default Electron apps do not automatically adjust their UI and native interfaces to the dark mode setting when it's enabled. This is primarily due to Apple's own guidelines saying you **shouldn't** use the dark mode native interfaces if your app's own interfaces don't support dark mode themselves.
+În MacOS 10.14 Mojave, Appled a introdus un nou [mod întunecat la nivel de sistem](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/) pentru toate computerele MacOS. By default Electron apps do not automatically adjust their UI and native interfaces to the dark mode setting when it's enabled. This is primarily due to Apple's own guidelines saying you **shouldn't** use the dark mode native interfaces if your app's own interfaces don't support dark mode themselves.
 
 If your app does have a dark mode, you can make your Electron app follow the system-wide dark mode setting.
 
 ## Automatically updating the native interfaces
 
-"Native Interfaces" include the file picker, window border, dialogs, context menus and more; basically anything where the UI comes from macOS and not your app. In order to make these interfaces update to dark mode automatically, you need to set the `NSRequiresAquaSystemAppearance` key in your app's `Info.plist` file to `false`. E.g.
+"Native Interfaces" include the file picker, window border, dialogs, context menus and more; basically anything where the UI comes from macOS and not your app. In order to make these interfaces update to dark mode automatically, you need to set the `NSRequiresAquaSystemAppearance` key in your app's `Info.plist` file to `false`. Ex.
 
 ```xml
 <plist>
@@ -23,7 +23,7 @@ If you are using [`electron-packager` >= 12.2.0](https://github.com/electron-use
 
 ## Automatically updating your own interfaces
 
-If your app has its own dark mode you should toggle it on and off in sync with the system's dark mode setting. You can do this by listening for the theme changed event on Electron's `systemPreferences` module. E.g.
+If your app has its own dark mode you should toggle it on and off in sync with the system's dark mode setting. You can do this by listening for the theme changed event on Electron's `systemPreferences` module. Ex.
 
 ```js
 const { systemPreferences } = require('electron')
