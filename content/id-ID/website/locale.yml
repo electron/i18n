@@ -16,6 +16,7 @@ docs:
   description: Lihat semua <a href="/docs/all">dokumentasi di satu halaman</a> atau lihat <a href="/docs/faq">FAQ</a>.
   guides: Panduan
   api_reference: Referensi API
+  api_structures: API Structures
   advanced: Peningkatan
   footer:
     propose_change: Meningkatkan sebuah dokumen
