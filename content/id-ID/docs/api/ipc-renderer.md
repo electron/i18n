@@ -63,18 +63,18 @@ The ` ipcRenderer </ 0> modul adalah turunan dari
 <p>The main process handles it by listening for <code>channel` with [`ipcMain`](ipc-main.md) module, and replies by setting `event.returnValue`.</p> 
                     ** Catatan: </ 0> Mengirimkan pesan sinkron akan memblokir keseluruhan proses perenderan, kecuali jika Anda tahu apa yang Anda lakukan, Anda tidak boleh menggunakannya.</p> 
                     
-                    ### `ipcRenderer.sendTo(windowId, channel, [, arg1][, arg2][, ...])`
+                    ### `ipcRenderer.sendTo(webContentsId, channel, [, arg1][, arg2][, ...])`
                     
-                    * `windowId` Number
+                    * `webContentsId` Number
                     * ` saluran </ 0>  String</li>
 <li><code> ... args </ 0> ada []</li>
 </ul>
 
-<p>Sends a message to a window with <code>windowid` via `channel`.</p> 
+<p>Sends a message to a window with <code>webContentsId` via `channel`.</p> 
                         ### `ipcRenderer.kirim ke tuan rumah(saluran [, arg1] [, arg2] [, ...])`
                         
-                        * `channel` String
-                        * ` ... args </ 0> ada []</li>
+                        * ` saluran </ 0>  String</li>
+<li><code> ... args </ 0> ada []</li>
 </ul>
 
 <p>Seperti <code> ipcrenderer.kirim </ 0> tapi acara akan dikirim ke <code><webview>` elemen di tuan rumah halaman bukan proses utama.</p>
