@@ -927,7 +927,7 @@ the <code>window.location` object is changed or a user clicks a link in the page
       
       * `options` Object 
         * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-        * `pageSize` String (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
+        * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
         * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
         * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
         * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
