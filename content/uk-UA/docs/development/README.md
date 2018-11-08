@@ -1,6 +1,6 @@
-# Developing Electron
+# Розроблюємо Electron
 
-These guides are intended for people working on the Electron project itself. For guides on Electron app development, see [/docs/README.md](../README.md#guides-and-tutorials).
+Ці інстуркції призначені для людей, які працюють безпосередньо з проектом Electron. Для інтструкцій по розробці застосунків на Electron, дивіться [/docs/README.md](../README.md#guides-and-tutorials).
 
 * [Норми поведінки](../../CODE_OF_CONDUCT.md)
 * [Доповнення до Electron](../../CONTRIBUTING.md)
@@ -17,10 +17,10 @@ These guides are intended for people working on the Electron project itself. For
 * [Розробка Chromium](chromium-development.md)
 * [Розробка V8](v8-development.md)
 * [Тестування](testing.md)
-* [Debugging on Windows](debug-instructions-windows.md)
-* [Debugging on macOS](debugging-instructions-macos.md)
-* [Setting Up Symbol Server in Debugger](setting-up-symbol-server.md)
+* [Відлагоджування на Windows](debug-instructions-windows.md)
+* [Відлагоджування на macOS](debugging-instructions-macos.md)
+* [Налаштування Серверу Символів в Налагоджувачі](setting-up-symbol-server.md)
 * [Оновлення Chromium](upgrading-chromium.md)
-* [Upgrading Crashpad](upgrading-crashpad.md)
-* [Upgrading Node](upgrading-node.md)
-* [Releasing](releasing.md)
+* [Оновлення Crashpad](upgrading-crashpad.md)
+* [Оновлення Node](upgrading-node.md)
+* [Реліз](releasing.md)
