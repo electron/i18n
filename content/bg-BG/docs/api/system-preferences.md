@@ -67,9 +67,11 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 ### `systemPreferences.subscribeNotification(event, callback)` *macOS*
 
 * `event` String
-* `callback` Function 
+* `обратно повикване` Function 
   * `event` String
   * `userInfo` Object
+
+Returns `Number` - The ID of this subscription
 
 Subscribes to native notifications of macOS, `callback` will be called with `callback(event, userInfo)` when the corresponding `event` happens. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
@@ -89,12 +91,14 @@ Under the hood this API subscribes to `NSDistributedNotificationCenter`, example
   * `event` String
   * `userInfo` Object
 
+Returns `Number` - The ID of this subscription
+
 Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults. This is necessary for events such as `NSUserDefaultsDidChangeNotification`.
 
 ### `systemPreferences.subscribeWorkspaceNotification(event, callback)` *macOS*
 
 * `event` String
-* `обратно повикване` Функция 
+* `обратно повикване` Function 
   * `event` String
   * `userInfo` Object
 
