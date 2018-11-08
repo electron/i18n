@@ -28,7 +28,7 @@ const verifyWindowIsVisibleWithTitle = async (app) => {
     const isVisible = await app.browserWindow.isVisible()
     // 验证窗口是否可见
     assert.strictEqual(isVisible, true)
-    // 获取床就标题
+    // 获取窗口标题
     const title = await app.client.getTitle()
     // 验证窗口标题
     assert.strictEqual(title, 'My App')
