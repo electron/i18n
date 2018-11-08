@@ -69,9 +69,9 @@ $ git branch --set-upstream-to=origin/master
 $ cd -
 ```
 
-:memo: `gclient` は、Chromium や Node.js のような依存の解決のために `src/electron` フォルダ内の `DEPS` と呼ばれるファイルを確認します。 Running `gclient sync -f` ensures that all dependencies required to build Electron match that file.
+:memo: `gclient` は、Chromium や Node.js のような依存の解決のために `src/electron` フォルダ内の `DEPS` と呼ばれるファイルを確認します。 `gclient sync -f` を実行することで Electron のビルドに必要な依存関係をすべて取得します。
 
-So, in order to pull, you'd run the following commands:
+なので、プルするには、以下のコマンドを実行するとよいでしょう。
 
 ```sh
 $ cd src/electron
