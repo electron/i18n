@@ -52,7 +52,7 @@ Linuxのグローバルメニューバーを使用しません。
 
 ### `ELECTRON_TRASH` *Linux*
 
-Set the trash implementation on Linux. Default is `gio`.
+Linux 上での trash 実装を設定します。デフォルトは `gio` です。
 
 Options:
 
