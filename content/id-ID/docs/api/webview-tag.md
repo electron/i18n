@@ -185,7 +185,7 @@ webview.addEventListener ('dom-ready', () => {
   * `userAgent` String (opsional) - agen pengguna berasal permintaan.
   * `extraHeaders` String (opsional) - header tambahan yang dipisahkan oleh "\n"
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
-  * ` baseURLForDataURL </ 0>  String (opsional) - URL dasar (dengan pemisah jalur trailing) untuk file yang akan dimuat oleh url data. Hal ini diperlukan hanya jika ditentukan <code>url` data url dan perlu memuat file lainnya.
+  * `baseURLForDataURL` String (opsional) - url dasar (dengan trailing pemisah path) untuk file yang akan diambil oleh data url. Hal ini diperlukan hanya jika ditentukan `url` data url dan perlu memuat file lainnya.
 
 Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http://` atau`://`.
 
@@ -403,7 +403,7 @@ Jalankan perintah pengeditan `batalkan pilihan` di halaman.
   * `pilihan` Objek (opsional) 
     * `diam` Boolean (opsional) - Jangan tanya pengguna untuk pengaturan cetak. Defaultnya adalah `false`.
     * `printBackground` Boolean (opsional) - Juga mencetak warna latar belakang dan gambar halaman web Defaultnya adalah `false`.
-    * `deviceName` String (opsional) - mengatur printer nama perangkat untuk menggunakan. Default adalah `"`.
+    * `deviceName` String (opsional) - Tetapkan nama perangkat printer yang akan digunakan. Defaultnya adalah `''`.
   
   Prints `webview` 's web page. Same as `webContents.print ([options])`.
   
@@ -411,7 +411,7 @@ Jalankan perintah pengeditan `batalkan pilihan` di halaman.
   
   * `pilihan` Obyek 
     * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-    * `pageSize` String (optional) - Specify page size of the generated PDF. Bisa menjadi `A3`, `A4`,`A5`,`legal`,`huruf`,`majalah` atau sebuah objek yang mengandung `tinggi` dan `lebar` di mikron.
+    * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be`A3`,`A4`,`A5`,` Legal `,`Letter`,`Tabloid` or an Object containing `height` and `width` in microns.
     * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
     * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
     * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
@@ -432,8 +432,8 @@ Jalankan perintah pengeditan `batalkan pilihan` di halaman.
 <p>Menangkap cuplikan halaman <code>webview`. Sama seperti `webContents.capturePage ([rect,] callback) `.</p> 
       ### `<webview>.send (saluran [, arg1] [, arg2] [, ...])`
       
-      * ` saluran </ 0>  String</li>
-<li><code> ... args </ 0> ada []</li>
+      * `channel` String
+      * ` ... args </ 0> ada []</li>
 </ul>
 
 <p>Kirim pesan asinkron ke proses renderer melalui <code>channel`, Anda juga bisa mengirim argumen sewenang wenang. The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.</p> 
@@ -545,7 +545,7 @@ Jalankan perintah pengeditan `batalkan pilihan` di halaman.
         Pengembalian:
         
         * `level` Integer
-        * `pesan` String
+        * `message` String
         * `line` Integer
         * `sourceId` String
         
@@ -577,8 +577,8 @@ Jalankan perintah pengeditan `batalkan pilihan` di halaman.
         
         Pengembalian:
         
-        * `url` String
-        * `nama bingkai` tali
+        * ` url </ 0> String</li>
+<li><code>nama bingkai` tali
         * `disposisi` String - dapat `default`, `latar depan-tab`, `latar belakang-tab`, `jendela baru`, `Simpan ke disk` dan `lainnya`.
         * `options` Object - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
         
@@ -701,19 +701,18 @@ API seperti <code>webContents.loadURL` dan `webContents.back`.
           
           Pengembalian:
           
-          *  url </ 0> String</li>
-</ul>
-
-<p>Emitted saat mouse bergerak di atas sebuah link atau keyboard memindahkan fokus ke sebuah link.</p>
-
-<h3>Event: 'devtools-dibuka'</h3>
-
-<p>Emitted saat DevTools dibuka.</p>
-
-<h3>Event: 'devtools-ditutup'</h3>
-
-<p>Emitted saat DevTools ditutup.</p>
-
-<h3>Event: 'fokus devtools'</h3>
-
-<p>Emitted saat DevTools difokuskan / dibuka.</p>
+          * `url` String
+          
+          Emitted saat mouse bergerak di atas sebuah link atau keyboard memindahkan fokus ke sebuah link.
+          
+          ### Event: 'devtools-dibuka'
+          
+          Emitted saat DevTools dibuka.
+          
+          ### Event: 'devtools-ditutup'
+          
+          Emitted saat DevTools ditutup.
+          
+          ### Event: 'fokus devtools'
+          
+          Emitted saat DevTools difokuskan / dibuka.
