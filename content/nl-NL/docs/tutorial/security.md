@@ -51,13 +51,13 @@ This is not bulletproof, but at the least, you should follow these steps to impr
 
 Any resources not included with your application should be loaded using a secure protocol like `HTTPS`. In other words, do not use insecure protocols like `HTTP`. Similarly, we recommend the use of `WSS` over `WS`, `FTPS` over `FTP`, and so on.
 
-### Why?
+### Waarom?
 
 `HTTPS` has three main benefits:
 
 1) It authenticates the remote server, ensuring your app connects to the correct host instead of an impersonator. 2) It ensures data integrity, asserting that the data was not modified while in transit between your application and the host. 3) It encrypts the traffic between your user and the destination host, making it more difficult to eavesdrop on the information sent between your app and the host.
 
-### How?
+### Hoe?
 
 ```js
 // Bad
@@ -83,11 +83,11 @@ It is paramount that you disable Node.js integration in any renderer ([`BrowserW
 
 After this, you can grant additional permissions for specific hosts. For example, if you are opening a BrowserWindow pointed at `https://my-website.com/", you can give that website exactly the abilities it needs, but no more.
 
-### Why?
+### Waarom?
 
 A cross-site-scripting (XSS) attack is more dangerous if an attacker can jump out of the renderer process and execute code on the user's computer. Cross-site-scripting attacks are fairly common - and while an issue, their power is usually limited to messing with the website that they are executed on. Disabling Node.js integration helps prevent an XSS from being escalated into a so-called "Remote Code Execution" (RCE) attack.
 
-### How?
+### Hoe?
 
 ```js
 // Bad
@@ -134,7 +134,7 @@ Context isolation is an Electron feature that allows developers to run code in p
 
 Electron uses the same technology as Chromium's [Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment) to enable this behavior.
 
-### Why?
+### Waarom?
 
 Context isolation allows each the scripts on running in the renderer to make changes to its JavaScript environment without worrying about conflicting with the scripts in the Electron API or the preload script.
 
@@ -142,7 +142,7 @@ While still an experimental Electron feature, context isolation adds an addition
 
 At the same time, preload scripts still have access to the `document` and `window` objects. In other words, you're getting a decent return on a likely very small investment.
 
-### How?
+### Hoe?
 
 ```js
 // Main process
@@ -180,11 +180,11 @@ You may have seen permission requests while using Chrome: They pop up whenever t
 
 The API is based on the [Chromium permissions API](https://developer.chrome.com/extensions/permissions) and implements the same types of permissions.
 
-### Why?
+### Waarom?
 
 By default, Electron will automatically approve all permission requests unless the developer has manually configured a custom handler. While a solid default, security-conscious developers might want to assume the very opposite.
 
-### How?
+### Hoe?
 
 ```js
 const { session } = require('electron')
@@ -214,11 +214,11 @@ You may have already guessed that disabling the `webSecurity` property on a rend
 
 Do not disable `webSecurity` in production applications.
 
-### Why?
+### Waarom?
 
 Disabling `webSecurity` will disable the same-origin policy and set `allowRunningInsecureContent` property to `true`. In other words, it allows the execution of insecure code from different domains.
 
-### How?
+### Hoe?
 
 ```js
 // Bad
@@ -246,7 +246,7 @@ const mainWindow = new BrowserWindow()
 
 A Content Security Policy (CSP) is an additional layer of protection against cross-site-scripting attacks and data injection attacks. We recommend that they be enabled by any website you load inside Electron.
 
-### Why?
+### Waarom?
 
 CSP allows the server serving content to restrict and control the resources Electron can load for that given web page. `https://your-page.com` should be allowed to load scripts from the origins you defined while scripts from `https://evil.attacker.com` should not be allowed to run. Defining a CSP is an easy way to improve your application's security.
 
@@ -291,13 +291,13 @@ CSP's preferred delivery mechanism is an HTTP header. It can be useful, however,
 
 `eval()` is a core JavaScript method that allows the execution of JavaScript from a string. Disabling it disables your app's ability to evaluate JavaScript that is not known in advance.
 
-### Why?
+### Waarom?
 
 The `eval()` method has precisely one mission: To evaluate a series of characters as JavaScript and execute it. It is a required method whenever you need to evaluate code that is not known ahead of time. While legitimate use cases exist, like any other code generators, `eval()` is difficult to harden.
 
 Generally speaking, it is easier to completely disable `eval()` than to make it bulletproof. Thus, if you do not need it, it is a good idea to disable it.
 
-### How?
+### Hoe?
 
 ```js
 // ESLint will warn about any use of eval(), even this one
@@ -315,11 +315,11 @@ By default, Electron will not allow websites loaded over `HTTPS` to load and exe
 
 Loading the initial HTML of a website over `HTTPS` and attempting to load subsequent resources via `HTTP` is also known as "mixed content".
 
-### Why?
+### Waarom?
 
 Loading content over `HTTPS` assures the authenticity and integrity of the loaded resources while encrypting the traffic itself. See the section on [only displaying secure content](#1-only-load-secure-content) for more details.
 
-### How?
+### Hoe?
 
 ```js
 // Bad
@@ -341,13 +341,13 @@ const mainWindow = new BrowserWindow({})
 
 Advanced users of Electron can enable experimental Chromium features using the `experimentalFeatures` property.
 
-### Why?
+### Waarom?
 
 Experimental features are, as the name suggests, experimental and have not been enabled for all Chromium users. Furthermore, their impact on Electron as a whole has likely not been tested.
 
 Legitimate use cases exist, but unless you know what you are doing, you should not enable this property.
 
-### How?
+### Hoe?
 
 ```js
 // Bad
@@ -369,11 +369,11 @@ const mainWindow = new BrowserWindow({})
 
 Blink is the name of the rendering engine behind Chromium. As with `experimentalFeatures`, the `enableBlinkFeatures` property allows developers to enable features that have been disabled by default.
 
-### Why?
+### Waarom?
 
 Generally speaking, there are likely good reasons if a feature was not enabled by default. Legitimate use cases for enabling specific features exist. As a developer, you should know exactly why you need to enable a feature, what the ramifications are, and how it impacts the security of your application. Under no circumstances should you enable features speculatively.
 
-### How?
+### Hoe?
 
 ```js
 // Bad
@@ -395,11 +395,11 @@ const mainWindow = new BrowserWindow()
 
 If you are using [`<webview>`](../api/webview-tag.md), you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`](../api/browser-window.md) using the `window.open()` method. `<webview>` tags are otherwise not allowed to create new windows.
 
-### Why?
+### Waarom?
 
 If you do not need popups, you are better off not allowing the creation of new [`BrowserWindows`](../api/browser-window.md) by default. This follows the principle of minimally required access: Don't let a website create new popups unless you know it needs that feature.
 
-### How?
+### Hoe?
 
 ```html
 <!-- Bad -->
@@ -415,13 +415,13 @@ A WebView created in a renderer process that does not have Node.js integration e
 
 It is a good idea to control the creation of new [`<webview>`](../api/webview-tag.md) tags from the main process and to verify that their webPreferences do not disable security features.
 
-### Why?
+### Waarom?
 
 Since `<webview>` live in the DOM, they can be created by a script running on your website even if Node.js integration is otherwise disabled.
 
 Electron enables developers to disable various security features that control a renderer process. In most cases, developers do not need to disable any of those features - and you should therefore not allow different configurations for newly created [`<webview>`](../api/webview-tag.md) tags.
 
-### How?
+### Hoe?
 
 Before a [`<webview>`](../api/webview-tag.md) tag is attached, Electron will fire the `will-attach-webview` event on the hosting `webContents`. Use the event to prevent the creation of `webViews` with possibly insecure options.
 
@@ -449,13 +449,13 @@ Again, this list merely minimizes the risk, it does not remove it. If your goal 
 
 If your app has no need to navigate or only needs to navigate to known pages, it is a good idea to limit navigation outright to that known scope, disallowing any other kinds of navigation.
 
-### Why?
+### Waarom?
 
 Navigation is a common attack vector. If an attacker can convince your app to navigate away from its current page, they can possibly force your app to open web sites on the Internet. Even if your `webContents` are configured to be more secure (like having `nodeIntegration` disabled or `contextIsolation` enabled), getting your app to open a random web site will make the work of exploiting your app a lot easier.
 
 A common attack pattern is that the attacker convinces your app's users to interact with the app in such a way that it navigates to one of the attacker's pages. This is usually done via links, plugins, or other user-generated content.
 
-### How?
+### Hoe?
 
 If your app has no need for navigation, you can call `event.preventDefault()` in a [`will-navigate`](../api/web-contents.md#event-will-navigate) handler. If you know which pages your app might navigate to, check the URL in the event handler and only let navigation occur if it matches the URLs you're expecting.
 
@@ -479,13 +479,13 @@ app.on('web-contents-created', (event, contents) => {
 
 If you have a known set of windows, it's a good idea to limit the creation of additional windows in your app.
 
-### Why?
+### Waarom?
 
 Much like navigation, the creation of new `webContents` is a common attack vector. Attackers attempt to convince your app to create new windows, frames, or other renderer processes with more privileges than they had before; or with pages opened that they couldn't open before.
 
 If you have no need to create windows in addition to the ones you know you'll need to create, disabling the creation buys you a little bit of extra security at no cost. This is commonly the case for apps that open one `BrowserWindow` and do not need to open an arbitrary number of additional windows at runtime.
 
-### How?
+### Hoe?
 
 [`webContents`](../api/web-contents.md) will emit the [`new-window`](../api/web-contents.md#event-new-window) event before creating new windows. That event will be passed, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you use the event to scrutinize the creation of windows, limiting it to only what you need.
 
