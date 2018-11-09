@@ -657,7 +657,7 @@ Disable or enable the window.
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optioneell) *macOS*
+* `animate` Boolean (optioneel) *macOS*
 
 Resizes the window to `width` and `height`. If `width` or `height` are below any set minimum size constraints the window will snap to its minimum size.
 
@@ -669,7 +669,7 @@ Returns `Integer[]` - Contains the window's width and height.
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optioneell) *macOS*
+* `animate` Boolean (optioneel) *macOS*
 
 Resizes the window's client area (e.g. the web page) to `width` and `height`.
 
