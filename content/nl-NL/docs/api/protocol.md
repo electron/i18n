@@ -66,13 +66,13 @@ app.on('ready', () => {
 ### `protocol.registerFileProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Functie 
+* `handler` Function 
   * `request` Object 
     * `url` String
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Functie 
+  * `callback` Function 
     * `filePath` String (optional)
 * `completion` Function (optioneel) 
   * `error` Error
