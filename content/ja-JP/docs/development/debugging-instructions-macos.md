@@ -20,24 +20,24 @@ Current executable set to './out/Debug/Electron.app' (x86_64).
 
 ### ブレークポイントの設定
 
-LLDBは強力なツールであり、コード検査のための複数の計画をサポートします。 For this basic introduction, let's assume that you're calling a command from JavaScript that isn't behaving correctly - so you'd like to break on that command's C++ counterpart inside the Electron source.
+LLDBは強力なツールであり、コード検査のための複数の計画をサポートします。 この基本的な導入では、正しく動作していないコマンドを JavaScript から呼び出していると仮定しましょう。Electron ソース内に対応するコマンドの C++をブレークしたいとします。
 
 関連するコードファイルは `./atom/` にあります。
 
-Let's assume that you want to debug `app.setName()`, which is defined in `browser.cc` as `Browser::SetName()`. Set the breakpoint using the `breakpoint` command, specifying file and line to break on:
+`browser.cc` 内に `Browser::SetName()` として定義されている `app.setName()` をデバッグしたいと仮定しましょう。 `breakpoint` コマンドを用いて、以下のようにブレークするファイルと行を指定してブレークポイントを設定します。
 
 ```sh
 (lldb) breakpoint set --file browser.cc --line 117
 Breakpoint 1: where = Electron Framework`atom::Browser::SetName(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) + 20 at browser.cc:118, address = 0x000000000015fdb4
 ```
 
-Then, start Electron:
+そして、 Electron を実行します。
 
 ```sh
 (lldb) run
 ```
 
-The app will immediately be paused, since Electron sets the app's name on launch:
+Electron は起動時にアプリの名前を設定するため、アプリはすぐに一時停止されます。
 
 ```sh
 (lldb) run
@@ -55,7 +55,7 @@ Process 25244 stopped
 (lldb)
 ```
 
-To show the arguments and local variables for the current frame, run `frame variable` (or `fr v`), which will show you that the app is currently setting the name to "Electron".
+現在のフレームの引数とローカル変数を表示するには、`frame variable` (または `fr v`) を実行します。アプリの名前が現在は "Electron" にセットされているのが表示されるでしょう。
 
 ```sh
 (lldb) frame variable
@@ -65,7 +65,7 @@ To show the arguments and local variables for the current frame, run `frame vari
 }
 ```
 
-To do a source level single step in the currently selected thread, execute `step` (or `s`). This would take you into `name_override_.empty()`. To proceed and do a step over, run `next` (or `n`).
+現在のスレッド内でソースレベルステップ実行するには、`step` (または `s`) を実行します。 This would take you into `name_override_.empty()`. To proceed and do a step over, run `next` (or `n`).
 
 ```sh
 (lldb) step
