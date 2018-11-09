@@ -14,7 +14,7 @@ JavaScriptアプリケーションによらないと思われるクラッシュ�
 
 ## Electronへの接続とデバッグ
 
-To start a debugging session, open up PowerShell/CMD and execute your debug build of Electron, using the application to open as a parameter.
+デバッグセッションを始めるには、PowerShell/CMD を開いて Electron のデバッグビルドを実行し、引数として開くアプリケーションを渡して使用します。
 
 ```powershell
 $ ./out/Debug/electron.exe ~/my-electron-app/
@@ -22,7 +22,7 @@ $ ./out/Debug/electron.exe ~/my-electron-app/
 
 ### ブレークポイントの設定
 
-Then, open up Visual Studio. Electron is not built with Visual Studio and hence does not contain a project file - you can however open up the source code files "As File", meaning that Visual Studio will open them up by themselves. You can still set breakpoints - Visual Studio will automatically figure out that the source code matches the code running in the attached process and break accordingly.
+そして、Visual Studio を開きます。 Electron is not built with Visual Studio and hence does not contain a project file - you can however open up the source code files "As File", meaning that Visual Studio will open them up by themselves. You can still set breakpoints - Visual Studio will automatically figure out that the source code matches the code running in the attached process and break accordingly.
 
 Relevant code files can be found in `./atom/`.
 
