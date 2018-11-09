@@ -30,7 +30,7 @@ $ ./out/Debug/electron.exe ~/my-electron-app/
 
 ローカルまたはリモートコンピュータ上で実行中のプロセスに Visual Studio デバッガをアタッチできます。 プロセスを実行中にしてから、"プロセスにアタッチ" ダイアログを開くためにプロセスにデバッグ/アタッチをクリック (または `CTRL+ALT+P` を押下) します。 この機能を使用してローカルまたはリモートコンピュータ上で実行されているアプリをデバッグし、複数のプロセスを同時にデバッグすることができます。
 
-If Electron is running under a different user account, select the `Show processes from all users` check box. Notice that depending on how many BrowserWindows your app opened, you will see multiple processes. A typical one-window app will result in Visual Studio presenting you with two `Electron.exe` entries - one for the main process and one for the renderer process. Since the list only gives you names, there's currently no reliable way of figuring out which is which.
+Electron が異なるユーザアカウントで実行されている場合、`すべてのユーザからのプロセスを表示する` チェックボックスを選択してください。 開かれているアプリの BrowserWindow の数に応じて、複数のプロセスが表示されることに注意してください。 典型的な1ウインドウアプリは、Visual Studio に2つの `Electron.exe` エントリ - メインプロセス用とレンダラプロセス用を表示します。 リストは名前だけを表示するので、どちらがどちらであるかを把握する信頼できる方法は現在ありません。
 
 ### どのプロセスにアタッチするべきか
 
