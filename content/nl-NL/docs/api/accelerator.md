@@ -43,12 +43,12 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 
 ## Available key codes
 
-* `0` to `9`
-* `A` to `Z`
-* `F1` to `F24`
+* `0` tot `9`
+* `A` tot `Z`
+* `F1` tot `F24`
 * Punctuations like `~`, `!`, `@`, `#`, `$`, etc.
 * `Plus`
-* `Space`
+* `Spatie`
 * `Tab`
 * `Backspace`
 * `Delete`
