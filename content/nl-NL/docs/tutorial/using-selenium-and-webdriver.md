@@ -60,7 +60,7 @@ Only local connections are allowed.
 
 Remember the port number `9515`, which will be used later
 
-### 2. Install WebDriverJS
+### 2. Installeer WebDriverJS
 
 ```sh
 $ npm install selenium-webdriver
@@ -114,7 +114,7 @@ Only local connections are allowed.
 
 Remember the port number `9515`, which will be used later
 
-### 2. Install WebdriverIO
+### 2. Installeer WebdriverIO
 
 ```sh
 $ npm install webdriverio
