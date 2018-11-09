@@ -22,9 +22,9 @@ $ ./out/Debug/electron.exe ~/my-electron-app/
 
 ### ブレークポイントの設定
 
-そして、Visual Studio を開きます。 Electron is not built with Visual Studio and hence does not contain a project file - you can however open up the source code files "As File", meaning that Visual Studio will open them up by themselves. You can still set breakpoints - Visual Studio will automatically figure out that the source code matches the code running in the attached process and break accordingly.
+そして、Visual Studio を開きます。 Electron は Visual Studio でビルドされていないため、プロジェクトファイルは含まれていません。しかし、ソースコードファイルを "ファイルとして" 開くことができます。つまり、Visual Studio がそれ単独で開きます。 ブレークポイントを設定することもできます。 Visual Studio は、ソースコードがアタッチされたプロセスで実行されているコードと一致することを自動的に認識し、それに応じてブレークします。
 
-Relevant code files can be found in `./atom/`.
+関連するコードファイルは `./atom/` にあります。
 
 ### アタッチ
 
