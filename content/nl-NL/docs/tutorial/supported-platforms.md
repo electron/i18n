@@ -1,1 +1,1 @@
-Moved to <support.md>
+Verplaats naar <support.md>
