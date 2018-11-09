@@ -14,6 +14,6 @@ GNでIDEプロジェクトの生成についての情報を見るには、`gn he
 
 ### デバッグとブレークポイント
 
-ビルド後にElectronアプリを起動します。 You can now open the xcode workspace created above and attach to the Electron process through the Debug > Attach To Process > Electron debug menu. [Note: If you want to debug the renderer process, you need to attach to the Electron Helper as well.]
+ビルド後にElectronアプリを起動します。 上記で作成した Xcode ワークスペースを開いて、デバッグ > プロセスにアタッチ > Electron デバッグメニューから Electron プロセスにアタッチすることができます。 [注意: レンダラープロセスをデバッグする場合は、Electron Helper にもアタッチする必要があります。]
 
-You can now set breakpoints in any of the indexed files. However, you will not be able to set breakpoints directly in the Chromium source. To set break points in the Chromium source, you can choose Debug > Breakpoints > Create Symbolic Breakpoint and set any function name as the symbol. This will set the breakpoint for all functions with that name, from all the classes if there are more than one. You can also do this step of setting break points prior to attaching the debugger, however, actual breakpoints for symbolic breakpoint functions may not show up until the debugger is attached to the app.
+インデックスファイル内のどこにでもブレークポイントを設定することができます。 ただし、Chromium ソース内でブレークポイントを直接設定することはできません。 Chromium ソース内でブレークポイントを設定するには、デバッグ > ブレークポイント > シンボリックブレークポイントの作成 を選択し、関数名をシンボルとして設定します。 これは、一つ以上クラスがある場合は、そのうちのすべてのクラスから、その名前を持つすべての関数のブレークポイントを設定します。 デバッガをアタッチする前にブレークポイントを設定する手順を実行することもできますが、シンボリックブレークポイント関数の実際のブレークポイントは、デバッガがアプリにアタッチされるまで表示されないことがあります。
