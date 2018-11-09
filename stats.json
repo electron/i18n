@@ -68,14 +68,14 @@
     "name": "Dutch",
     "code": "nl",
     "phrases": "9659",
-    "translated": "1661",
+    "translated": "2270",
     "approved": "4",
     "words": "89109",
-    "words_translated": "6447",
+    "words_translated": "8585",
     "words_approved": "61",
-    "translated_progress": 7,
+    "translated_progress": 9,
     "approved_progress": 0,
-    "qa_issues": 442
+    "qa_issues": 655
   },
   {
     "name": "Filipino",
@@ -172,14 +172,14 @@
     "name": "Japanese",
     "code": "ja",
     "phrases": "9659",
-    "translated": "8752",
+    "translated": "8789",
     "approved": "345",
     "words": "89109",
-    "words_translated": "75728",
+    "words_translated": "76494",
     "words_approved": "2020",
-    "translated_progress": 84,
+    "translated_progress": 85,
     "approved_progress": 2,
-    "qa_issues": 275
+    "qa_issues": 276
   },
   {
     "name": "Korean",
