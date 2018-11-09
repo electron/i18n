@@ -26,7 +26,7 @@ Starts recording network events to `path`.
 
 ### `netLog.stopLogging([callback])`
 
-* `callback` Function (optional) 
+* `callback` Function (optioneel) 
   * `path` String - File path to which network logs were recorded.
 
 Stops recording network events. If not called, net logging will automatically end when app quits.
