@@ -30,7 +30,7 @@ Disable HTTP/2 and SPDY/3.1 protocols.
 
 Set a custom locale.
 
-## --inspect=`port` and --inspect-brk=`port`
+## --inspect=`port` en --inspect-brk=`port`
 
 Debug-related flags, see the [Debugging the Main Process](../tutorial/debugging-main-process.md) guide for details.
 
@@ -81,7 +81,7 @@ Don't use a proxy server and always make direct connections. Overrides any other
 
 A comma-separated list of `rules` that control how hostnames are mapped.
 
-For example:
+Bijvoorbeeld:
 
 * `MAP * 127.0.0.1` Forces all hostnames to be mapped to 127.0.0.1
 * `MAP *.google.com proxy` Forces all google.com subdomains to be resolved to "proxy".
