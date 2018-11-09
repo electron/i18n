@@ -34,9 +34,9 @@ Electron が異なるユーザアカウントで実行されている場合、`�
 
 ### どのプロセスにアタッチするべきか
 
-Code executed within the main process (that is, code found in or eventually run by your main JavaScript file) as well as code called using the remote (`require('electron').remote`) will run inside the main process, while other code will execute inside its respective renderer process.
+メインの JavaScript ファイルで検出されるコードとリモート (`require('electron').remote`) を使用して呼び出されるコードは、最終的にメインプロセス内で実行され、他のコードはそれぞれのレンダラープロセス内で実行されます。
 
-You can be attached to multiple programs when you are debugging, but only one program is active in the debugger at any time. You can set the active program in the `Debug Location` toolbar or the `Processes window`.
+デバッグ中は複数のプログラムにアタッチすることができますが、随時1つのプログラムだけがデバッガでアクティブになります。 You can set the active program in the `Debug Location` toolbar or the `Processes window`.
 
 ## プロセス監視にProcMonを使用する
 
