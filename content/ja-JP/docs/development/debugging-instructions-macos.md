@@ -65,7 +65,7 @@ Process 25244 stopped
 }
 ```
 
-現在のスレッド内でソースレベルステップ実行するには、`step` (または `s`) を実行します。 This would take you into `name_override_.empty()`. To proceed and do a step over, run `next` (or `n`).
+現在のスレッド内でソースレベルステップ実行するには、`step` (または `s`) を実行します。 これにより、`name_override_.empty()` に飛びます。 処理してステップオーバーするには、`next` (または `n`) を実行します。
 
 ```sh
 (lldb) step
@@ -81,12 +81,12 @@ Process 25244 stopped
    122    return badge_count_;
 ```
 
-To finish debugging at this point, run `process continue`. You can also continue until a certain line is hit in this thread (`thread until 100`). This command will run the thread in the current frame till it reaches line 100 in this frame or stops if it leaves the current frame.
+このポイントでのデバッグが完了したら、`process continue` を実行します。 このスレッドで特定の行がヒットするまで (`thread until 100`) 続行することもできます。 このコマンドは、このフレームの100行目に達するまで、現在のフレーム内のスレッドを実行し、現在のフレームを終了すると停止します。
 
-Now, if you open up Electron's developer tools and call `setName`, you will once again hit the breakpoint.
+今、Electron の開発者ツールを開いて `setName` を呼び出すと、もう一度ブレークポイントにヒットします。
 
-### Further Reading
+### 参考リンク
 
-LLDB is a powerful tool with a great documentation. To learn more about it, consider Apple's debugging documentation, for instance the [LLDB Command Structure Reference](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) or the introduction to [Using LLDB as a Standalone Debugger](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
+LLDB は素晴らしいドキュメントを備えた強力なツールです。 詳細については、[LLDB コマンド構造リファレンス](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) や [LLDB をスタンドアロンデバッガとして使用する方法](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html) などの Apple のデバッグドキュメントを参照してください。
 
-You can also check out LLDB's fantastic [manual and tutorial](http://lldb.llvm.org/tutorial.html), which will explain more complex debugging scenarios.
+さらに複雑なデバッグシナリオについて説明されている、LLDB の素晴らしい [マニュアルとチュートリアル](http://lldb.llvm.org/tutorial.html) も参考にできます。
