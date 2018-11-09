@@ -40,6 +40,6 @@ Electron が異なるユーザアカウントで実行されている場合、`�
 
 ## プロセス監視にProcMonを使用する
 
-Visual Studio は特定のコードパスを検査するのには優れていますが、ProcMon の強みは、アプリケーションのオペレーティングシステムで行われているすべてのことを実際に監視していることです。プロセスのファイル、レジストリ、ネットワーク、プロセス、プロファイリングの詳細をキャプチャします。 It attempts to log **all** events occurring and can be quite overwhelming, but if you seek to understand what and how your application is doing to the operating system, it can be a valuable resource.
+Visual Studio は特定のコードパスを検査するのには優れていますが、ProcMon の強みは、アプリケーションのオペレーティングシステムで行われているすべてのことを実際に監視していることです。プロセスのファイル、レジストリ、ネットワーク、プロセス、プロファイリングの詳細をキャプチャします。 **すべての**イベントをログに記録しようするので非常に巨大になる可能性がありますが、アプリケーションがオペレーティングシステムに対して何をどのようにして行っているのかを理解しようとするには価値のあるリソースになるかもしれません。
 
-For an introduction to ProcMon's basic and advanced debugging features, go check out [this video tutorial](https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor) provided by Microsoft.
+ProcMon の基本及び高度なデバッグ機能については、Microsoft が提供する [このビデオチュートリアル](https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor) を参照してください。
