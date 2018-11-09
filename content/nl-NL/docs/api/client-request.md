@@ -93,7 +93,7 @@ Emitted when the `request` is aborted. The `abort` event will not be fired if th
 
 #### Event: 'error'
 
-Returns:
+Geeft terug:
 
 * `error` Error - an error object providing some information about the failure.
 
@@ -157,7 +157,7 @@ Adds a chunk of data to the request body. The first write operation may cause th
 
 * `chunk` (String | Buffer) (optional)
 * `encoding` String (optional)
-* `callback` Function (optional)
+* `callback` Function (optioneel)
 
 Sends the last chunk of the request data. Subsequent write or end operations will not be allowed. The `finish` event is emitted just after the end operation.
 
