@@ -36,10 +36,10 @@ Electron が異なるユーザアカウントで実行されている場合、`�
 
 メインの JavaScript ファイルで検出されるコードとリモート (`require('electron').remote`) を使用して呼び出されるコードは、最終的にメインプロセス内で実行され、他のコードはそれぞれのレンダラープロセス内で実行されます。
 
-デバッグ中は複数のプログラムにアタッチすることができますが、随時1つのプログラムだけがデバッガでアクティブになります。 You can set the active program in the `Debug Location` toolbar or the `Processes window`.
+デバッグ中は複数のプログラムにアタッチすることができますが、随時1つのプログラムだけがデバッガでアクティブになります。 `デバッグの場所` ツールバーか `プロセスウインドウ` 内でアクティブなプログラムをセットできます。
 
 ## プロセス監視にProcMonを使用する
 
-While Visual Studio is fantastic for inspecting specific code paths, ProcMon's strength is really in observing everything your application is doing with the operating system - it captures File, Registry, Network, Process, and Profiling details of processes. It attempts to log **all** events occurring and can be quite overwhelming, but if you seek to understand what and how your application is doing to the operating system, it can be a valuable resource.
+Visual Studio は特定のコードパスを検査するのには優れていますが、ProcMon の強みは、アプリケーションのオペレーティングシステムで行われているすべてのことを実際に監視していることです。プロセスのファイル、レジストリ、ネットワーク、プロセス、プロファイリングの詳細をキャプチャします。 It attempts to log **all** events occurring and can be quite overwhelming, but if you seek to understand what and how your application is doing to the operating system, it can be a valuable resource.
 
 For an introduction to ProcMon's basic and advanced debugging features, go check out [this video tutorial](https://channel9.msdn.com/shows/defrag-tools/defrag-tools-4-process-monitor) provided by Microsoft.
