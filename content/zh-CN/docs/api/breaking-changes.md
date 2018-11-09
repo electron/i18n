@@ -4,7 +4,7 @@
 
 # `FIXME` 注释
 
-在代码注释中添加`FIXME`字符来表示以后的版本应该被修复的内容. 在 https://github.com/electron/electron/search?q=fixme 里查看
+代码注释中添加的`FIXME`字符来表示以后的版本应该被修复的问题. 参考 https://github.com/electron/electron/search?q=fixme
 
 # 计划重写的 API (4.0)
 
@@ -40,35 +40,35 @@ The following list includes the breaking API changes in Electron 3.0.
 ## `app`
 
 ```js
-// Deprecated
+// 弃用
 app.getAppMemoryInfo()
 // Replace with
 app.getAppMetrics()
 
-// Deprecated
+// 弃用
 const metrics = app.getAppMetrics()
 const {memory} = metrics[0]
-memory.privateBytes  // Deprecated property
-memory.sharedBytes  // Deprecated property
+memory.privateBytes  // 弃用的属性
+memory.sharedBytes  // 弃用的属性
 ```
 
 ## `BrowserWindow`
 
 ```js
-// Deprecated
+// 弃用
 let optionsA = {webPreferences: {blinkFeatures: ''}}
 let windowA = new BrowserWindow(optionsA)
 // Replace with
 let optionsB = {webPreferences: {enableBlinkFeatures: ''}}
 let windowB = new BrowserWindow(optionsB)
 
-// Deprecated
+// 弃用
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
     // do something
   }
 })
-// Replace with
+// 替换为
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
     // do something
