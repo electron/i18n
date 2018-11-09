@@ -88,13 +88,13 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
 ### `protocol.registerBufferProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Functie 
+* `handler` Function 
   * `request` Object 
     * `url` String
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Functie 
+  * `callback` Function 
     * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (optional)
 * `completion` Function (optioneel) 
   * `error` Error
@@ -125,7 +125,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Functie 
-    * `data` String (optional)
+    * `data` String (optioneel)
 * `completion` Function (optioneel) 
   * `error` Error
 
@@ -146,7 +146,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
     * `redirectRequest` Object 
       * `url` String
       * `method` String
-      * `session` Object (optional)
+      * `session` Object (optioneel)
       * `uploadData` Object (optioneel) 
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
@@ -180,7 +180,7 @@ Registers a protocol of `scheme` that will send a `Readable` as a response.
 
 The usage is similar to the other `register{Any}Protocol`, except that the `callback` should be called with either a `Readable` object or an object that has the `data`, `statusCode`, and `headers` properties.
 
-Example:
+Voorbeeld:
 
 ```javascript
 const {protocol} = require('electron')
@@ -230,7 +230,7 @@ Unregisters the custom protocol of `scheme`.
 ### `protocol.isProtocolHandled(scheme, callback)`
 
 * `scheme` String
-* `callback` Functie 
+* `callback` Function 
   * `error` Error
 
 The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
@@ -261,7 +261,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Functie 
-    * `data` String (optional)
+    * `data` String (optioneel)
 * `completion` Function (optioneel) 
   * `error` Error
 
@@ -277,7 +277,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Functie 
-    * `buffer` Buffer (optional)
+    * `buffer` Buffer (optioneel)
 * `completion` Function (optioneel) 
   * `error` Error
 
@@ -296,7 +296,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `redirectRequest` Object 
       * `url` String
       * `method` String
-      * `session` Object (optional)
+      * `session` Object (optioneel)
       * `uploadData` Object (optioneel) 
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
