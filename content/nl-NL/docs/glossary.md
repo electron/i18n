@@ -98,9 +98,9 @@ Like Node, Electron is focused on having a small set of APIs that provide all th
 
 ### V8
 
-V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
+V8 is Google's open source JavaScript engine. Het is geschreven in C++ en wordt gebruikt in Google Chrome. V8 kan op zichzelf uitgevoerd worden of kan worden ingebed in een C++ applicatie.
 
-Electron builds V8 as part of Chromium and then points Node to that V8 when building it.
+Electron bouwt V8 as onderdeel van Chromium en verwijst vervolgens Node naar die V8 wanneer hij wordt gebouwt.
 
 V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
 
