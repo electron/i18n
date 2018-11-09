@@ -1,14 +1,14 @@
 # API协议
 
-这里将记录重大更改, 并在可能的情况下向JS代码添加弃用警告, 在这更改之前至少会有[一个重要版本](../tutorial/electron-versioning.md#semver).
+这里将记录重大更改,并在可能的情况下向JS代码添加弃用警告,在这更改之前至少会有[一个重要版本](../tutorial/electron-versioning.md#semver).
 
 # `FIXME` 注释
 
-The `FIXME` string is used in code comments to denote things that should be fixed for future releases. See https://github.com/electron/electron/search?q=fixme
+在代码注释中添加`FIXME`字符来表示以后的版本应该被修复的内容. 在 https://github.com/electron/electron/search?q=fixme 里查看
 
 # 计划重写的 API (4.0)
 
-The following list includes the breaking API changes planned for Electron 4.0.
+以下列表包含了Electron4.0计划重写的API
 
 ## `app.makeSingleInstance`
 
