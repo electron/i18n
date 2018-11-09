@@ -6,5 +6,5 @@
 * `contentVersion` String - Aanduiding voor de versie van de content.
 * `contentLengths` Number[] - De totale grootte van de content, in bytes.
 * `price` Number - De prijs van het product in de lokale valuta.
-* `formattedPrice` String - The locale formatted price of the product.
+* `formattedPrice` String - De lokale geformateerde prijs van het product.
 * `downloadable` Boolean - Een booleaanse expressie om aan te geven of App Store downloadbare inhoud heeft voor dit product.
