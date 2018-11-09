@@ -1,6 +1,6 @@
-# API Contract
+# API协议
 
-Breaking changes will be documented here, and deprecation warnings added to JS code where possible, at least [one major version](../tutorial/electron-versioning.md#semver) before the change is made.
+这里将记录重大更改, 并在可能的情况下向JS代码添加弃用警告, 在这更改之前至少会有[一个重要版本](../tutorial/electron-versioning.md#semver).
 
 # `FIXME` 注释
 
