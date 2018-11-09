@@ -7,24 +7,24 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | Language Code | Language Name           |
 | ------------- | ----------------------- |
 | af            | Afrikaans               |
-| am            | Amharic                 |
-| ar            | Arabic                  |
+| am            | Amhaars                 |
+| ar            | Arabisch                |
 | az            | Azerbaijani             |
 | be            | Belarusian              |
 | bg            | Bulgarian               |
 | bh            | Bihari                  |
 | bn            | Bengali                 |
 | br            | Breton                  |
-| bs            | Bosnian                 |
-| ca            | Catalan                 |
-| co            | Corsican                |
-| cs            | Czech                   |
+| bs            | Bosnisch                |
+| ca            | Catalaans               |
+| co            | Corsicaans              |
+| cs            | Tsjechisch              |
 | cy            | Welsh                   |
-| da            | Danish                  |
-| de            | German                  |
-| de-AT         | German (Austria)        |
-| de-CH         | German (Switzerland)    |
-| de-DE         | German (Germany)        |
+| da            | Deens                   |
+| de            | Duits                   |
+| de-AT         | Duits (Oostenrijks)     |
+| de-CH         | Duits (Zwitserland)     |
+| de-DE         | Duits (Duitsland)       |
 | el            | Greek                   |
 | en            | English                 |
 | en-AU         | English (Australia)     |
@@ -93,7 +93,7 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | no            | Norwegian               |
 | oc            | Occitan                 |
 | om            | Oromo                   |
-| of            | Oriya                   |
+| or            | Oriya                   |
 | pa            | Punjabi                 |
 | pl            | Polish                  |
 | ps            | Pashto                  |
