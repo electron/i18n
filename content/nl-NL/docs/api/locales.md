@@ -119,7 +119,7 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | sw            | Swahili                 |
 | ta            | Tamil                   |
 | te            | Telugu                  |
-| tg            | Tajik                   |
+| tg            | Tadzjieks               |
 | th            | Thai                    |
 | ti            | Tigrinya                |
 | tk            | Turkmen                 |
