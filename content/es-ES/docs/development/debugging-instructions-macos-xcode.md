@@ -12,7 +12,7 @@ Esto generará el electron.ninja.xcworkspace. You will have to open this workspa
 
 See `gn help gen` for more information on generating IDE projects with GN.
 
-### Debugging and breakpoints
+### Depuración y puntos de interrupción
 
 Launch Electron app after build. You can now open the xcode workspace created above and attach to the Electron process through the Debug > Attach To Process > Electron debug menu. [Note: If you want to debug the renderer process, you need to attach to the Electron Helper as well.]
 
