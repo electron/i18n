@@ -38,7 +38,7 @@
 4. [在所有會載入遠端內容的 Session 中使用 `ses.setPermissionRequestHandler()`](#4-handle-session-permission-requests-from-remote-content)
 5. [不要停用 `webSecurity`](#5-do-not-disable-websecurity)
 6. [Define a `Content-Security-Policy`](#6-define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
-7. [Do not set `allowRunningInsecureContent` to `true`](#7-do-not-set-allowrunninginsecurecontent-to-true)
+7. [不要將 `allowRunningInsecureContent` 設為 `true`](#7-do-not-set-allowrunninginsecurecontent-to-true)
 8. [Do not enable experimental features](#8-do-not-enable-experimental-features)
 9. [Do not use `enableBlinkFeatures`](#9-do-not-use-enableblinkfeatures)
 10. [`<webview>`: Do not use `allowpopups`](#10-do-not-use-allowpopups)
@@ -284,7 +284,7 @@ CSP's preferred delivery mechanism is an HTTP header. It can be useful, however,
 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
-## 7) Do Not Set `allowRunningInsecureContent` to `true`
+## 7) 不要將 `allowRunningInsecureContent` 設為 `true`
 
 *建議值就是 Electron 的預設值*
 
@@ -299,7 +299,7 @@ Loading content over `HTTPS` assures the authenticity and integrity of the loade
 ### 怎麼做?
 
 ```js
-// Bad
+// 錯誤示範
 const mainWindow = new BrowserWindow({
   webPreferences: {
     allowRunningInsecureContent: true
@@ -308,7 +308,7 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// 正確寫法
 const mainWindow = new BrowserWindow({})
 ```
 
@@ -327,7 +327,7 @@ Legitimate use cases exist, but unless you know what you are doing, you should n
 ### 怎麼做?
 
 ```js
-// Bad
+// 錯誤示範
 const mainWindow = new BrowserWindow({
   webPreferences: {
     experimentalFeatures: true
@@ -336,7 +336,7 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// 正確寫法
 const mainWindow = new BrowserWindow({})
 ```
 
@@ -366,7 +366,7 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow()
 ```
 
-## 10) Do Not Use `allowpopups`
+## 10) 不要用 `allowpopups`
 
 *建議值就是 Electron 的預設值*
 
@@ -379,14 +379,14 @@ If you do not need popups, you are better off not allowing the creation of new [
 ### 怎麼做?
 
 ```html
-<!-- Bad -->
+<!-- 錯誤示範 -->
 <webview allowpopups src="page.html"></webview>
 
-<!-- Good -->
+<!-- 正確寫法 -->
 <webview src="page.html"></webview>
 ```
 
-## 11) Verify WebView Options Before Creation
+## 11) 建立 WebView 前先檢查選項
 
 A WebView created in a renderer process that does not have Node.js integration enabled will not be able to enable integration itself. However, a WebView will always create an independent renderer process with its own `webPreferences`.
 
@@ -405,14 +405,14 @@ Before a [`<webview>`](../api/webview-tag.md) tag is attached, Electron will fir
 ```js
 app.on('web-contents-created', (event, contents) => {
   contents.on('will-attach-webview', (event, webPreferences, params) => {
-    // Strip away preload scripts if unused or verify their location is legitimate
+    // 拿掉用不著的預載腳本，或是確認它們的位置是安全正確的
     delete webPreferences.preload
     delete webPreferences.preloadURL
 
-    // Disable Node.js integration
+    // 停用 Node.js 整合
     webPreferences.nodeIntegration = false
 
-    // Verify URL being loaded
+    // 驗證將要載入的 URL
     if (!params.src.startsWith('https://yourapp.com/')) {
       event.preventDefault()
     }
@@ -420,7 +420,7 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-Again, this list merely minimizes the risk, it does not remove it. If your goal is to display a website, a browser will be a more secure option.
+再次強調，這份清單只能幫你降低風險，並沒辦法完全將風險排除。如果你的目標只是要顯示網站，那麼瀏覽器會是比較安全的選項。
 
 ## 12) Disable or limit navigation
 
