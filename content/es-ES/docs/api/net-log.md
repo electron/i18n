@@ -1,6 +1,6 @@
 # netLog
 
-> Logging network events.
+> Registrando los eventos de la red.
 
 Process: [Main](../glossary.md#main-process)
 
