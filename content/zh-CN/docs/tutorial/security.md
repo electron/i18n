@@ -38,14 +38,13 @@ Web开发人员通常享有浏览器强大的网络安全特性，而自己的�
 4. [在所有加载远程内容的会话中使用 `ses.setPermissionRequestHandler()`.](#4-handle-session-permission-requests-from-remote-content)
 5. [不要禁用 ` webSecurity `](#5-do-not-disable-websecurity)
 6. [定义一个`Content-Security-Policy`](#6-define-a-content-security-policy)并设置限制规则(如：`script-src 'self'`)
-7. [通过重写禁用`eval`](#7-override-and-disable-eval)，防止通过字符串执行代码。
-8. [不要设置 ` allowRunningInsecureContent ` 为 true.](#8-do-not-set-allowrunninginsecurecontent-to-true)
-9. [不要开启实验性功能](#9-do-not-enable-experimental-features)
-10. [不要使用`enableBlinkFeatures`](#10-do-not-use-enableblinkfeatures)
-11. [`<webview>`：不要使用 `allowpopups `](#11-do-not-use-allowpopups)
-12. [`<webview>`：验证选项与参数](#12-verify-webview-options-before-creation)
-13. [禁用或限制网页跳转](#13-disable-or-limit-navigation)
-14. [禁用或限制新窗口创建](#14-disable-or-limit-creation-of-new-windows)
+7. [不要设置 ` allowRunningInsecureContent ` 为 true.](#7-do-not-set-allowrunninginsecurecontent-to-true)
+8. [不要开启实验性功能](#8-do-not-enable-experimental-features)
+9. [不要使用`enableBlinkFeatures`](#9-do-not-use-enableblinkfeatures)
+10. [`<webview>`：不要使用 `allowpopups `](#10-do-not-use-allowpopups)
+11. [`<webview>`：验证选项与参数](#11-verify-webview-options-before-creation)
+12. [禁用或限制网页跳转](#12-disable-or-limit-navigation)
+13. [禁用或限制新窗口创建](#13-disable-or-limit-creation-of-new-windows)
 
 ## 1) 仅加载安全内容
 
@@ -284,27 +283,7 @@ CSP 建议的传送机制是通过 HTTP 标头。但也可以在页面上直接�
 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
-## 7) 通过重写禁用`eval`
-
-`eval()` 是JavaScript的一个核心方法，它允许通过字符串直接执行JavaScript。禁用它相当于禁止你的应用执行不可知的JavaScript代码。
-
-### 为什么？
-
-`eval()`的功能很明确： 将一系列字符串转化为JavaScript代码并执行。 不管你是否想转换执行那些未知代码，这个函数都是存在的。 就像其他代码生成器一样，`eval()`很难分辨哪些调用是合法的。
-
-通常来说，完全禁用`eval()`比各处设防要更容易。所以，如果你不是特别需要，禁用它是个不错的办法。
-
-### 怎么做？
-
-```js
-// ESLint 对任何形式的 eval() 引用都会产生警告，甚至包括以下代码
-// eslint-disable-next-line
-window.eval = global.eval = function () {
-  throw new Error(`Sorry, this app does not support window.eval().`)
-}
-```
-
-## 8) 不要设置`allowRunningInsecureContent`为`true`
+## 7) 不要设置`allowRunningInsecureContent`为`true`
 
 *Electron的默认值即是建议值。*
 
@@ -332,7 +311,7 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## 9) 不要开启实验室特性
+## 8) 不要开启实验室特性
 
 *Electron的默认值即是建议值。*
 
@@ -360,7 +339,7 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## 10) 不要使用`enableBlinkFeatures`
+## 9) 不要使用`enableBlinkFeatures`
 
 *Electron的默认值即是建议值。*
 
@@ -386,7 +365,7 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow()
 ```
 
-## 11) 不要使用`allowpopups`
+## 10) 不要使用`allowpopups`
 
 *Electron的默认值即是建议值。*
 
@@ -406,7 +385,7 @@ If you are using [`<webview>`](../api/webview-tag.md), you might need the pages 
 <webview src="page.html"></webview>
 ```
 
-## 12) 创建WebView前确认其选项
+## 11) 创建WebView前确认其选项
 
 通过渲染进程创建的WebView是不开启Node.js集成的，且也不能由自身开启。 但是，WebView可以通过其`webPreferences`属性创建一个独立的渲染进程。
 
@@ -440,9 +419,9 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-强调一下，这份列表只是将风险降到最低，并不会完全屏蔽风险。 如果您的目的是展示一个网站，浏览器将是一个更安全的选择。
+Again, this list merely minimizes the risk, it does not remove it. If your goal is to display a website, a browser will be a more secure option.
 
-## 13) Disable or limit navigation
+## 12) Disable or limit navigation
 
 If your app has no need to navigate or only needs to navigate to known pages, it is a good idea to limit navigation outright to that known scope, disallowing any other kinds of navigation.
 
@@ -472,7 +451,7 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-## 14) Disable or limit creation of new windows
+## 13) Disable or limit creation of new windows
 
 If you have a known set of windows, it's a good idea to limit the creation of additional windows in your app.
 
