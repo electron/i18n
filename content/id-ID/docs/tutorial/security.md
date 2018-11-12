@@ -42,14 +42,13 @@ tingkatkan keamanan aplikasi Anda.</p>
 <li><a href="#5-do-not-disable-websecurity">Jangan menonaktifkan <code>Keamanan web`</a></li> 
 
 - [Define a `Content-Security-Policy`](#6-define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
-- [Override and disable `eval`](#7-override-and-disable-eval), which allows strings to be executed as code.
-- [Tidak ditetapkan `mengizinkan menjalankan konten yang tidak aman` `yang benar`](#8-do-not-set-allowrunninginsecurecontent-to-true)
-- [Tidak mengaktifkan fitur eksperimental](#9-do-not-enable-experimental-features)
-- [Do not use `enableBlinkFeatures`](#10-do-not-use-enableblinkfeatures)
-- [`<webview>`: Do not use `allowpopups`](#11-do-not-use-allowpopups)
-- [`<webview>`: Verify options and params](#12-verify-webview-options-before-creation)
-- [Disable or limit navigation](#13-disable-or-limit-navigation)
-- [Disable or limit creation of new windows](#14-disable-or-limit-creation-of-new-windows)</ol> 
+- [Tidak ditetapkan `mengizinkan menjalankan konten yang tidak aman` `yang benar`](#7-do-not-set-allowrunninginsecurecontent-to-true)
+- [Tidak mengaktifkan fitur eksperimental](#8-do-not-enable-experimental-features)
+- [Do not use `enableBlinkFeatures`](#9-do-not-use-enableblinkfeatures)
+- [`<webview>`: Do not use `allowpopups`](#10-do-not-use-allowpopups)
+- [`<webview>`: Verify options and params](#11-verify-webview-options-before-creation)
+- [Disable or limit navigation](#12-disable-or-limit-navigation)
+- [Disable or limit creation of new windows](#13-disable-or-limit-creation-of-new-windows)</ol> 
 
 ## 1) Hanya memuat konten aman
 
@@ -270,27 +269,7 @@ CSP's preferred delivery mechanism is an HTTP header. It can be useful, however,
 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
-## 7) Ganti dan Nonaktifkan `eval`
-
-`eval()` adalah metode JavaScript inti yang memungkinkan eksekusi JavaScript dari sebuah string. Menonaktifkan kemampuan aplikasi anda untuk mengevaluasi JavaScript yang tidak diketahui sebelumnya.
-
-### Mengapa?
-
-`Metode()` eval memiliki satu misi tepat: Untuk mengevaluasi serangkaian karakter seperti JavaScript dan menjalankannya. Ini adalah metode yang diperlukan setiap kali anda perlu mengevaluasi kode yang tidak dikenal sebelumnya. While legitimate use cases exist, like any other code generators, `eval()` is difficult to harden.
-
-Secara umum, lebih mudah untuk benar-benar menonaktifkan `eval()` daripada membuat anti peluru itu. Dengan demikian, jika anda tidak membutuhkannya, itu adalah ide yang baik untuk menonaktifkannya.
-
-### Bagaimana?
-
-```js
-// ESLint will warn about any use of eval(), even this one
-// eslint-disable-next-line
-window.eval = global.eval = function () {
-  throw new Error(`Sorry, this app does not support window.eval().`)
-}
-```
-
-## 8) Do Not Set `allowRunningInsecureContent` to `true`
+## 7) Do Not Set `allowRunningInsecureContent` to `true`
 
 *Recommendation is Electron's default*
 
@@ -318,7 +297,7 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## 9) Tidak Mengaktifkan Fitur Eksperimental
+## 8) Tidak Mengaktifkan Fitur Eksperimental
 
 *Recommendation is Electron's default*
 
@@ -346,9 +325,9 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## 10) Do Not Use `enableBlinkFeatures`
+## 9) Do Not Use `enableBlinkFeatures`
 
-*Rekomendasi adalah elektron 's default*
+*Recommendation is Electron's default*
 
 Blink is the name of the rendering engine behind Chromium. As with `experimentalFeatures`, the `enableBlinkFeatures` property allows developers to enable features that have been disabled by default.
 
@@ -372,9 +351,9 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow()
 ```
 
-## 11) Jangan Gunakan ` allowpopups </ code></h2>
+## 10) Jangan Gunakan ` allowpopups </ code></h2>
 
-<p><em>Recommendation is Electron's default</em></p>
+<p><em>Rekomendasi adalah elektron 's default</em></p>
 
 <p>If you are using <a href="../api/webview-tag.md"><code><webview>`</a>, you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`](../api/browser-window.md) using the `window.open()` method. `<webview>` tags are otherwise not allowed to create new windows.</p> 
 
@@ -388,7 +367,7 @@ Jika Anda tidak perlu popup, Anda akan lebih baik tidak memungkinkan penciptaan 
 <!--buruk--> <webview allowpopups src="page.html"></webview> <!--baik--> <webview src="page.html"></webview>
 ```
 
-## 12) Verifikasi Pilihan WebView Sebelum Penciptaan
+## 11) Verifikasi Pilihan WebView Sebelum Penciptaan
 
 Tampilan Web yang dibuat dalam sebuah proses penyaji yang tidak memiliki integrasi Node.js diaktifkan tidak akan dapat mengaktifkan integrasi itu sendiri. Namun, WebView akan selalu membuat proses renderer independen dengan sendiri `webPreferences`.
 
@@ -421,9 +400,9 @@ app.on ( 'web-isi-dibuat', ( acara , isi) = & gt; {
  })})            
 ```
 
-Sekali lagi, daftar ini hanya meminimalkan risiko, tidak menghapusnya. Jika tujuan Anda adalah untuk menampilkan sebuah situs web, browser akan menjadi lebih aman pilihan .
+Sekali lagi, daftar ini hanya meminimalkan risiko, tidak menghapusnya. Jika tujuan Anda adalah untuk menampilkan sebuah situs web, browser akan menjadi lebih aman pilihan.
 
-## 13) Disable or limit navigation
+## 12) Disable or limit navigation
 
 If your app has no need to navigate or only needs to navigate to known pages, it is a good idea to limit navigation outright to that known scope, disallowing any other kinds of navigation.
 
@@ -453,7 +432,7 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-## 14) Disable or limit creation of new windows
+## 13) Disable or limit creation of new windows
 
 If you have a known set of windows, it's a good idea to limit the creation of additional windows in your app.
 
