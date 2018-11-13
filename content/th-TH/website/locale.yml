@@ -16,6 +16,7 @@ docs:
   description: ดูเพิ่มเติมใน<a href="/docs/all">เอกสารทั้งหมด</a> หรือ <a href="/docs/faq"></a> FAQ
   guides: คู่มือ
   api_reference: API อ้างอิง
+  api_structures: API Structures
   advanced: ขั้นสูง
   footer:
     propose_change: ปรับปรุงเอกสารนี้

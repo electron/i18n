@@ -2,15 +2,15 @@
 
 ## 논의
 
-Chromium and Node.js both depend on V8, and Electron contains only a single copy of V8, so it's important to ensure that the version of V8 chosen is compatible with the build's version of Node.js and Chromium.
+크로미움과 Node.js는 둘 다 V8에 의존하며 일렉트론은 V8의 단일 복사본만 포함하고 있습니다. 그러므로 선택한 V8의 버전이 Node.js와 크로미움의 빌드 버전과 호환 가능한지 확인하는 것이 중요합니다.
 
-Upgrading Node is much easier than upgrading Chromium, so fewer conflicts arise if one upgrades Chromium first, then chooses the upstream Node release whose version of V8 is closest to the one Chromium contains.
+Node를 업그레이드하는 것이 크로미움을 업그레이드하는 것 보다 훨씬 쉬우므로 크로미움을 먼저 업그레이드하고 V8 버전이 크로미움에 포함된 버전과 가장 가까운 업스트림 Node 릴리스를 선택하는 것이 충돌을 줄일 수 있습니다.
 
-Electron has its own [Node fork](https://github.com/electron/node) with modifications for the V8 build details mentioned above and for exposing API needed by Electron. Once an upstream Node release is chosen, it's placed in a branch in Electron's Node fork and any Electron Node patches are applied there.
+일렉트론은 위에 언급된 V8 빌드 세부정보와 일렉트론이 필요로 하는 API를 공개하기 위한 수정사항이 포함된 자체적인 [Node fork](https://github.com/electron/node)를 가지고 있습니다. 업스트림 Node 릴리스를 선택하게 되면 해당 릴리스가 일렉트론의 Node fork의 브랜치에 배치되고 모든 일렉트론 Node 패치가 적용됩니다.
 
-Another factor is that the Node project patches its version of V8. As mentioned above, Electron builds everything with a single copy of V8, so Node's V8 patches must be ported to that copy.
+또 다른 요인은 Node 프로젝트가 V8 버전을 패치한다는 것입니다. 위에서 언급했듯이, Electron은 V8의 단일 복사본으로 모든 것을 구축하므로 Node의 V8 패치를 해당 복사본에 포트해야 합니다.
 
-Once all of Electron's dependencies are building and using the same copy of V8, the next step is to fix any Electron code issues caused by the Node upgrade.
+모든 일렉트론의 종속성이 구축되고 동일한 V8 사본을 사용 중인 경우 다음 단계는 Node 업그레이드로 인해 발생한 모든 일렉트론 코드 문제를 해결하는 것입니다.
 
 [FIXME] something about a Node debugger in Atom that we (e.g. deepak) use and need to confirm doesn't break with the Node upgrade?
 

@@ -50,6 +50,17 @@ ASARサポートを無効にします。 この変数は、`ELECTRON_RUN_AS_NODE
 
 Linuxのグローバルメニューバーを使用しません。
 
+### `ELECTRON_TRASH` *Linux*
+
+Linux 上での trash 実装を設定します。デフォルトは `gio` です。
+
+Options:
+
+* `gvfs-trash`
+* `trash-cli`
+* `kioclient5`
+* `kioclient`
+
 ## 開発用の変数
 
 以下の環境変数は、主に開発とデバッグを目的としています。

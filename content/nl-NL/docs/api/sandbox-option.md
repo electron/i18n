@@ -14,7 +14,7 @@ A sandboxed renderer doesn't have a node.js environment running and doesn't expo
 
 Another difference is that sandboxed renderers don't modify any of the default JavaScript APIs. Consequently, some APIs such as `window.open` will work as they do in chromium (i.e. they do not return a [`BrowserWindowProxy`](browser-window-proxy.md)).
 
-## Example
+## Voorbeeld
 
 To create a sandboxed window, pass `sandbox: true` to `webPreferences`:
 
@@ -72,7 +72,7 @@ app.on('ready', () => {
 })
 ```
 
-and preload.js:
+en preload.js:
 
 ```js
 // This file is loaded whenever a javascript context is created. It runs in a

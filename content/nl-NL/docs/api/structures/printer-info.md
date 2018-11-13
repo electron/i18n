@@ -5,9 +5,9 @@
 * `status` Number
 * `isDefault` Boolean
 
-## Example
+## Voorbeeld
 
-Below is an example of some of the additional options that may be set which may be different on each platform.
+Hieronder zie je een voorbeeld van de verschillende opties die gegeven kunnen worden, deze zijn misschien verschillend per platform.
 
 ```javascript
 {

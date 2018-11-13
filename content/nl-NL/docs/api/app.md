@@ -345,7 +345,7 @@ This method guarantees that all `beforeunload` and `unload` event handlers are c
 
 ### `app.exit([exitCode])`
 
-* `exitCode` Integer (optional)
+* `exitCode` Integer (optioneel)
 
 Exits immediately with `exitCode`. `exitCode` defaults to 0.
 
@@ -354,8 +354,8 @@ All windows will be closed immediately without asking user and the `before-quit`
 ### `app.relaunch([options])`
 
 * `options` Object (optioneel) 
-  * `args` String[] (optional)
-  * `execPath` String (optional)
+  * `args` String[] (optioneel)
+  * `execPath` String (optioneel)
 
 Relaunches the app when current instance exits.
 

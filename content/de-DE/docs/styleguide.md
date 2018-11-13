@@ -1,4 +1,4 @@
-# Gestaltungsrichtlinien für die Dokumentation
+# Electron's Dokumentations-Styleguide
 
 Dies sind die Richtlinien für das Schreiben von Dokumentation zu Elektron.
 

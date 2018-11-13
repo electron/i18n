@@ -53,7 +53,7 @@ The `state` can be one of following:
 
 #### Event: 'done'
 
-Returns:
+Geeft terug:
 
 * `event` Event
 * `state` String - Can be `completed`, `cancelled` or `interrupted`.
@@ -82,7 +82,7 @@ Returns `String` - The save path of the download item. This will be either the p
 
 #### `downloadItem.pause()`
 
-Pauses the download.
+Pauzeert de download.
 
 #### `downloadItem.isPaused()`
 
@@ -100,7 +100,7 @@ Returns `Boolean` - Whether the download can resume.
 
 #### `downloadItem.cancel()`
 
-Cancels the download operation.
+Annuleert de download.
 
 #### `downloadItem.getURL()`
 

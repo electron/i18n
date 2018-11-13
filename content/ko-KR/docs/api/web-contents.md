@@ -86,7 +86,7 @@ Corresponds to the points in time when the spinner of the tab stopped spinning.
 
 #### Event: 'dom-ready'
 
-Returns:
+반환:
 
 * `event` Event
 
@@ -146,7 +146,7 @@ Calling `event.preventDefault()` will prevent the navigation.
 
 #### Event: 'did-start-navigation'
 
-반환:
+Returns:
 
 * `url` String
 * `isInPlace` Boolean
@@ -201,7 +201,7 @@ When in-page navigation happens, the page URL changes but does not cause navigat
 
 #### Event: 'will-prevent-unload'
 
-Returns:
+반환:
 
 * `event` Event
 
@@ -261,7 +261,7 @@ Emitted when `webContents` is destroyed.
 
 #### Event: 'before-input-event'
 
-반환:
+Returns:
 
 * `event` Event
 * `input` Object - Input properties. 
@@ -391,7 +391,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 #### Event: 'update-target-url'
 
-Returns:
+반환:
 
 * `event` Event
 * `url` String
@@ -415,7 +415,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 #### Event: 'context-menu'
 
-반환:
+Returns:
 
 * `event` Event
 * `params` Object 
@@ -923,7 +923,7 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
 
 * `options` Object 
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `pageSize` String (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
+  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.

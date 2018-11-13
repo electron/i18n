@@ -6,7 +6,7 @@ Para mostrar los problemas de estilo detectados por `cpplint` y `eslint`, puede 
 
 ## Código general
 
-* End files with a newline.
+* Termine los archivos con una nueva linea vacía.
 * Place requires in the following order: 
   * Built in Node Modules (such as `path`)
   * Built in Electron Modules (such as `ipc`, `app`)

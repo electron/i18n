@@ -71,6 +71,8 @@ console.log(systemPreferences.isDarkMode())
   * `event` String
   * `userInfo` Object
 
+Returns `Number` - The ID of this subscription
+
 订阅macOS的原生通知，当通信的 `event</ 0>发生时，将调用 <code>callback(event, userInfo)` 。 ` userInfo `是一个Object，它包含随通知一起发送的用户信息字典。
 
 返回订阅的 ` id `, 可用于取消该订阅的 `event`.
@@ -88,6 +90,8 @@ console.log(systemPreferences.isDarkMode())
 * `callback` Function - 回调函数 
   * `event` String
   * `userInfo` Object
+
+Returns `Number` - The ID of this subscription
 
 与` subscribeNotification `相同，但使用` NSNotificationCenter `作为本地默认值。 这对于诸如` NSUserDefaultsDidChangeNotification `的事件是必需的.
 

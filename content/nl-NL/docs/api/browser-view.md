@@ -8,7 +8,7 @@ Proces: [Main](../glossary.md#main-process)
 
 Een `BrowserView` kan gebruiken worden om extra content te plaatsen in een [`BrowserWindow`](browser-window.md). It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
 
-## Example
+## Voorbeeld
 
 ```javascript
 // In the main process.
@@ -31,7 +31,7 @@ view.webContents.loadURL('https://electronjs.org')
 
 ### `new BrowserView([options])` *Experimental*
 
-* `options` Object (optional) 
+* `options` Object (optioneel) 
   * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
 
 ### Static Methods
@@ -82,12 +82,12 @@ Returns `Boolean` - Whether the view is destroyed.
   * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
   * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
 
-#### `view.setBounds(bounds)` *Experimental*
+#### `view.setBounds(bounds)` *Experimenteel*
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
 Resizes and moves the view to the supplied bounds relative to the window.
 
-#### `view.setBackgroundColor(color)` *Experimental*
+#### `view.setBackgroundColor(color)` *Experimenteel*
 
 * `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.

@@ -16,6 +16,7 @@ docs:
   description: Xem tất cả <a href="/docs/all"> tài liệu trên một trang </a> hoặc xem <a href="/docs/faq"> Câu hỏi thường gặp </a> .
   guides: Hướng dẫn
   api_reference: Tham Chiếu API
+  api_structures: API Structures
   advanced: Nâng cao
   footer:
     propose_change: Cải thiện tài liệu này

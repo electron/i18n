@@ -749,7 +749,7 @@ Muda o selo contador do aplicativo atual. Definí-lo como `0` irá ocultar o sel
 
 No macOS, ele é mostrado no ícone da dock. No Linux, ele só funciona no lançador Unity.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+**Note:** O lançador Unity requer um arquivo `.desktop` para funcionar, para mais informações, por favor, leia [Integração do Ambiente Desktop](../tutorial/desktop-environment-integration.md#unity-launcher).
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 

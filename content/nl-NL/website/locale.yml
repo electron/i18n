@@ -16,6 +16,7 @@ docs:
   description: Bekijk alle <a href="/docs/all">documentatie op 1 pagina</a> of bekijk de <a href="/docs/faq">FAQ</a>.
   guides: Gidsen
   api_reference: API Verwijzing
+  api_structures: API Structures
   advanced: Geavanceerd
   footer:
     propose_change: Verbeter deze verwijzing
@@ -112,10 +113,10 @@ apps:
   add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
   website: Website
   repository: Repository
-  category: Category
+  category: Categorie
   downloads: Downloads
   keywords: Keywords
-  license: License
+  license: Licentie
   latest_release: Latest Release
 blog:
   title: Electron Blog

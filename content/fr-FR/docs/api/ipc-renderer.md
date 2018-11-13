@@ -61,13 +61,13 @@ The main process handles it by listening for `channel` with [`ipcMain`](ipc-main
 
 **Remarque :** Envoyer un message synchrone permet de bloquer le processus renderer entièrement, sauf si vous savez ce que vous faites, vous ne devez jamais l'utiliser.
 
-### `ipcRenderer.sendTo(windowId, channel, [, arg1][, arg2][, ...])`
+### `ipcRenderer.sendTo(webContentsId, channel, [, arg1][, arg2][, ...])`
 
-* `windowId` Number
+* `webContentsId` Number
 * `channel` String
 * `...args` any[]
 
-Envoi un message à une fenêtre avec `windowid` via `channel`.
+Sends a message to a window with `webContentsId` via `channel`.
 
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 

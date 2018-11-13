@@ -672,7 +672,7 @@ if (!obtenerBloqueo) {
 
 Devuelve `Boolean`
 
-This method returns whether or not this instance of your app is currently holding the single instance lock. You can request the lock with `app.requestSingleInstanceLock()` and release with `app.releaseSingleInstanceLock()`
+This method returns whether or not this instance of your app is currently holding the single instance lock. Usted puede realiza un bloqueo con `app.requestSingleInstanceLock()` o liberarlo con `app.releaseSingleInstanceLock()`
 
 ### `app.releaseSingleInstanceLock()`
 

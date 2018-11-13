@@ -71,6 +71,8 @@ Publicaciones `eventos` como notificaciones nativas de macOS. El `userInfo` es u
   * `evento` Cadena
   * `userInfo` Objeto
 
+Returns `Number` - The ID of this subscription
+
 Subscriptores a notificaciones nativas de macOS, `callback` serán llamados con `callback(evento, userinfo)` cuando el `evento` correspondiente suceda. El `userInfo` es un Objeto que contiene el diccionario de la información de usuario enviado junto a las notificaciones.
 
 El `id` del subscriptor es devuelto, el cual puede ser usado para desuscribir el `evento`.
@@ -88,6 +90,8 @@ Bajo de la capucha este API subscribe a `NSDistributedNotificationCenter`, valor
 * `callback` Function 
   * `evento` Cadena
   * `userInfo` Objeto
+
+Returns `Number` - The ID of this subscription
 
 Al igual que `subscribeNotification`, pero usa `NSNotificationCenter` para defectos locales. Esto es necesario para eventos como `NSUserDefaultsDidChangeNotification`.
 

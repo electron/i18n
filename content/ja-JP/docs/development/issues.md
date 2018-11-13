@@ -1,4 +1,4 @@
-# エレクトロンの問題
+# Electron の Issue
 
 # 問題
 

@@ -659,7 +659,7 @@ HDビデオプレーヤーと関連したコントロールを持つ通常のウ
 * `height` Integer
 * `animate` Boolean (任意) *macOS*
 
-Resizes the window to `width` and `height`. If `width` or `height` are below any set minimum size constraints the window will snap to its minimum size.
+ウインドウを `width` と `height` でリサイズします。`width` や `height` をウインドウ内のサイズ制約より小さい値にセットした場合は、その制約の最小値にスナップします。
 
 #### `win.getSize()`
 

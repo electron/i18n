@@ -15,10 +15,10 @@ See [`Menu`](menu.md) for examples.
     * `event` Event
   * `role` String (optional) - Define the action of the menu item, when specified the `click` property will be ignored. See [roles](#roles).
   * `type` String (optional) - Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
-  * `label` String (optional)
-  * `sublabel` String (optional)
-  * `accelerator` [Accelerator](accelerator.md) (optional)
-  * `icon` ([NativeImage](native-image.md) | String) (optional)
+  * `label` String (optioneel)
+  * `sublabel` String (optioneel)
+  * `accelerator` [Accelerator](accelerator.md) (optioneel)
+  * `icon` ([NativeImage](native-image.md) | String) (optioneel)
   * `enabled` Boolean (optional) - If false, the menu item will be greyed out and unclickable.
   * `visible` Boolean (optional) - If false, the menu item will be entirely hidden.
   * `checked` Boolean (optional) - Should only be specified for `checkbox` or `radio` type menu items.
@@ -37,9 +37,9 @@ The `label` and `accelerator` values are optional when using a `role` and will d
 The `role` property can have following values:
 
 * `undo`
-* `redo`
+* `redot`
 * `cut`
-* `kopieer`
+* `copy`
 * `paste`
 * `pasteAndMatchStyle`
 * `selectAll`
@@ -79,6 +79,8 @@ The following additional roles are available on *macOS*:
 * `clearRecentDocuments` - Map to the `clearRecentDocuments` action.
 
 When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored. Lowercase `role`, e.g. `toggledevtools`, is still supported.
+
+**Nota Bene:** The `enabled` and `visibility` properties are not available for top-level menu items in the tray on MacOS.
 
 ### Instance Properties
 

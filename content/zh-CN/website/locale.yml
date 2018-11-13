@@ -16,6 +16,7 @@ docs:
   description: 在一页内查看所有的 <a href="/docs/all"> 文档 </a> 或查看 <a href="/docs/faq"> 常见问题 </a>。
   guides: 指南
   api_reference: API 参考
+  api_structures: API Structures
   advanced: 高级
   footer:
     propose_change: 改进此文档

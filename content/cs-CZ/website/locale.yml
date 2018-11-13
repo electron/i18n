@@ -16,6 +16,7 @@ docs:
   description: Koukněte na všechny <a href="/docs/all"> dokumenty na jedné stránce</a> nebo se podívejte na <a href="/docs/faq" title="často kladené dotazy"> FAQ</a>.
   guides: Návody
   api_reference: API Reference
+  api_structures: API Structures
   advanced: Pokročilé
   footer:
     propose_change: Pomozte vylepšit tuto dokumentaci

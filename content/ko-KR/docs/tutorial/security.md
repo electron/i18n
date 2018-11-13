@@ -39,14 +39,13 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
 5. [`webSecurity`를 비활성화 하지 마세요.](#5-do-not-disable-websecurity)
 6. 콘텐츠 보안 정책(`Content-Security-Policy`)을 정의<0>하고 제한적 규칙을 사용합니다(i.e. `script-src 'self'`).</li> 
     
-    - 코드로서 실행되는 문자열을 허용할 수 있는, eval을 재정의 하고 비활성화합니다.
-    - [`allowRunningInsecureContent`을 `true`로 설정하지 마세요.](#8-do-not-set-allowrunninginsecurecontent-to-true)
-    - [실험적인 기능들을 활성화 하지 마세요.](#9-do-not-enable-experimental-features)
-    - [`enableBlinkFeatures`을 사용하지 마세요.](#10-do-not-use-enableblinkfeatures)
-    - [`<webview>`: Do not use `allowpopups`](#11-do-not-use-allowpopups)
-    - [`<webview>`: Verify options and params](#12-verify-webview-options-before-creation)
-    - [Disable or limit navigation](#13-disable-or-limit-navigation)
-    - [Disable or limit creation of new windows](#14-disable-or-limit-creation-of-new-windows)</ol> 
+    - [`allowRunningInsecureContent`을 `true`로 설정하지 마세요.](#7-do-not-set-allowrunninginsecurecontent-to-true)
+    - [실험적인 기능들을 활성화 하지 마세요.](#8-do-not-enable-experimental-features)
+    - [`enableBlinkFeatures`을 사용하지 마세요.](#9-do-not-use-enableblinkfeatures)
+    - [`<webview>`: Do not use `allowpopups`](#10-do-not-use-allowpopups)
+    - [`<webview>`: Verify options and params](#11-verify-webview-options-before-creation)
+    - [Disable or limit navigation](#12-disable-or-limit-navigation)
+    - [Disable or limit creation of new windows](#13-disable-or-limit-creation-of-new-windows)</ol> 
     
     ## 1) 안전한 콘텐츠만 로드하세요.
     
@@ -288,27 +287,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     
     #### `webRequest.onHeadersReceived([filter, ]listener)`
     
-    ## 7) `eval`의 재정의 및 비활성화
-    
-    `eval()`은 문자열로 되어있는 JavaScript를 실행하도록 허용하는 핵심 JavaScript 매서드입니다. 이것을 비활성화하면 앱이 알려지지 않은 JavaScript 스크립트를 실행하지 못하도록 기능을 비활성화합니다.
-    
-    ### 왜냐구요?
-    
-    `eval()` 함수는 문자열로 되어 있는 자바스크립트를 실행하는 것 딱 한 가지에 목표를 두고 있습니다. Eval() 함수는 사전에 알려지지 않은 코드를 평가할 필요가 있을때 필수적인 방법입니다. 다른 코드 생성기와 마찬가지로 본격적인 유스 케이스들이 존재하지만, eval () 은 단단한 구조로 만들기 어렵습니다.
-    
-    일반적으로 말하자면, `eval()`을 완벽하게 비활성화하는 것이 방탄(Not bts) 처리하는 것보다 쉽습니다. 따라서 필요하지 않은 경우 사용하지 않는 것이 좋습니다.
-    
-    ### 어떻게 하나요?
-    
-    ```js
-    // ESLint는 어느 eval() 사용에 경고문을 띄웁니다. 심지어 이것도요.
-    // eslint-disable-next-line
-    window.eval = global.eval = function () {
-      throw new Error(`이 앱은 window.eval()을 지원하지 않습니다.`)
-    }
-    ```
-    
-    ## 8) `allowRunningInsecureContent`를 `true`로 설정하지 마세요.
+    ## 7) `allowRunningInsecureContent`를 `true`로 설정하지 마세요.
     
     *추천 값은 Electron의 기본값입니다.*
     
@@ -336,7 +315,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     const mainWindow = new BrowserWindow({})
     ```
     
-    ## 9) 실험적인 기능을 활성화하지 마세요.
+    ## 8) 실험적인 기능을 활성화하지 마세요.
     
     *추천 값은 Electron의 기본값입니다.*
     
@@ -364,7 +343,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     const mainWindow = new BrowserWindow({})
     ```
     
-    ## 10) `enableBlinkFeatures`을 사용하지 마세요
+    ## 9) `enableBlinkFeatures`을 사용하지 마세요
     
     *추천 값은 Electron의 기본값입니다.*
     
@@ -390,7 +369,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     const mainWindow = new BrowserWindow()
     ```
     
-    ## 11) `allowpopups`을 사용하지 마세요.
+    ## 10) `allowpopups`을 사용하지 마세요.
     
     *추천 값은 Electron의 기본값입니다.*
     
@@ -410,7 +389,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     <webview src="page.html"></webview>
     ```
     
-    ## 12) 생성 전 WebView 옵션 확인
+    ## 11) 생성 전 WebView 옵션 확인
     
     Node.js 통합이 활성화되지 않은 렌더러 프로세스에서 생성된 WebView는 통합 자체를 활성화 할 수 없습니다. 하지만, WebView는 항상 자체 `webPreferences`를 사용하여 독립적인 렌더러 프로세스를 생성합니다.
     
@@ -446,7 +425,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     
     다시 말하지만, 이 목록은 위험을 최소화하고 제거하지는 않습니다. 만약 목표가 웹 사이트를 표시하는 것이라면 브라우저가 더 안전한 옵션이됩니다.
     
-    ## 13) Disable or limit navigation
+    ## 12) Disable or limit navigation
     
     If your app has no need to navigate or only needs to navigate to known pages, it is a good idea to limit navigation outright to that known scope, disallowing any other kinds of navigation.
     
@@ -476,7 +455,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     })
     ```
     
-    ## 14) Disable or limit creation of new windows
+    ## 13) Disable or limit creation of new windows
     
     If you have a known set of windows, it's a good idea to limit the creation of additional windows in your app.
     

@@ -39,7 +39,7 @@ The `role` property can have following values:
 * `undo`
 * `redo`
 * `cut`
-* `копирай`
+* `копиране`
 * `paste`
 * `pasteAndMatchStyle`
 * `selectAll`
@@ -79,6 +79,8 @@ The following additional roles are available on *macOS*:
 * `clearRecentDocuments` - Map to the `clearRecentDocuments` action.
 
 When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored. Lowercase `role`, e.g. `toggledevtools`, is still supported.
+
+**Nota Bene:** The `enabled` and `visibility` properties are not available for top-level menu items in the tray on MacOS.
 
 ### Инстантни свойства
 

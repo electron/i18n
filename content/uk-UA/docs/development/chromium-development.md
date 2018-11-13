@@ -1,14 +1,14 @@
 # Розробка Chromium
 
-> A collection of resources for learning about Chromium and tracking its development
+> Збірка ресурсів про Chromium та його розробку
 
-- [chromiumdev](https://chromiumdev-slack.herokuapp.com) on Slack
-- [@ChromiumDev](https://twitter.com/ChromiumDev) on Twitter
-- [@googlechrome](https://twitter.com/googlechrome) on Twitter
+- [chromiumdev](https://chromiumdev-slack.herokuapp.com) в Slack
+- [@ChromiumDev](https://twitter.com/ChromiumDev) в Twitter
+- [@googlechrome](https://twitter.com/googlechrome) в Twitter
 - [Блог](https://blog.chromium.org)
-- [Code Search](https://cs.chromium.org/)
-- [Source Code](https://cs.chromium.org/chromium/src/)
-- [Development Calendar and Release Info](https://www.chromium.org/developers/calendar)
-- [Discussion Groups](http://www.chromium.org/developers/discussion-groups)
+- [Пошук Коду](https://cs.chromium.org/)
+- [Вихідний Код](https://cs.chromium.org/chromium/src/)
+- [Календар Розробки та Релізна Інформація](https://www.chromium.org/developers/calendar)
+- [Групи Обговорення](http://www.chromium.org/developers/discussion-groups)
 
-See also [V8 Development](v8-development.md)
+Дивіться також [Розробка V8](v8-development.md)

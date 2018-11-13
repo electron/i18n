@@ -80,6 +80,8 @@ I seguenti valori sono disponibili per *macOS*:
 
 When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored. Lowercase `role`, e.g. `toggledevtools`, is still supported.
 
+**Nota Bene:** The `enabled` and `visibility` properties are not available for top-level menu items in the tray on MacOS.
+
 ### Proprietà Istanze
 
 Le seguenti proprietà sono disponibili quando si istanzia la classe `MenuItem`:

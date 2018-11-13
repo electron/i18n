@@ -61,13 +61,13 @@ The main process handles it by listening for `channel` with [`ipcMain`](ipc-main
 
 **참고:** 동기 메시지를 보내는 것은 전체 renderer 프로세스를 차단합니다. 만약 무엇이 동작하는지 알지 못한다면 이것을 사용해선 안됩니다.
 
-### `ipcRenderer.sendTo(windowId, channel, [, arg1][, arg2][, ...])`
+### `ipcRenderer.sendTo(webContentsId, channel, [, arg1][, arg2][, ...])`
 
-* `windowId` Number
+* `webContentsId` Number
 * `channel` String
 * `...args` any[]
 
-Sends a message to a window with `windowid` via `channel`.
+Sends a message to a window with `webContentsId` via `channel`.
 
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 

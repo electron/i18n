@@ -10,7 +10,7 @@ Proces: [Main](../glossary.md#main-process)
 
 #### Event: 'data'
 
-Returns:
+Geeft terug:
 
 * `chunk` Buffer - A chunk of response body's data.
 

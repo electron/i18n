@@ -16,6 +16,7 @@ docs:
   description: Tingnan ang lahat ng <a href="/docs/all">na mga docs sa isang pahina</a> o tingnan ang  <a href="/docs/faq">FAQ</a>.
   guides: Mga Gabay
   api_reference: Referens ng API 
+  api_structures: API Structures
   advanced: Advans
   footer:
     propose_change: Ipabuti ang docs na ito

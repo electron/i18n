@@ -1,4 +1,4 @@
-# systeemVoorkeuren
+# systemPreferences
 
 > Get system preferences.
 
@@ -15,20 +15,20 @@ The `systemPreferences` object emits the following events:
 
 ### Event: 'accent-color-changed' *Windows*
 
-Returns:
+Geeft terug:
 
 * `event` Event
 * `newColor` String - The new RGBA color the user assigned to be their system accent color.
 
 ### Event: 'color-changed' *Windows*
 
-Returns:
+Geeft terug:
 
 * `event` Event
 
 ### Event: 'inverted-color-scheme-changed' *Windows*
 
-Returns:
+Geeft terug:
 
 * `event` Event
 * `invertedColorScheme` Boolean - `true` if an inverted color scheme, such as a high contrast theme, is being used, `false` otherwise.
@@ -71,6 +71,8 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
   * `event` String
   * `userInfo` Object
 
+Returns `Number` - The ID of this subscription
+
 Subscribes to native notifications of macOS, `callback` will be called with `callback(event, userInfo)` when the corresponding `event` happens. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
 The `id` of the subscriber is returned, which can be used to unsubscribe the `event`.
@@ -88,6 +90,8 @@ Under the hood this API subscribes to `NSDistributedNotificationCenter`, example
 * `callback` Functie 
   * `event` String
   * `userInfo` Object
+
+Returns `Number` - The ID of this subscription
 
 Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults. This is necessary for events such as `NSUserDefaultsDidChangeNotification`.
 
@@ -144,7 +148,7 @@ Some popular `key` and `type`s are:
 ### `systemPreferences.setUserDefault(key, type, value)` *macOS*
 
 * `key` String
-* `type` String - See [`getUserDefault`](#systempreferencesgetuserdefaultkey-type-macos).
+* `type` String - Zie [`getUserDefault`](#systempreferencesgetuserdefaultkey-type-macos).
 * `value` String
 
 Set the value of `key` in `NSUserDefaults`.

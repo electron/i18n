@@ -16,6 +16,7 @@ docs:
   description: تمام مستندات را در <a href="/docs/all">این صفحه</a> مشاهده کنید و یا <a href="/docs/faq">سوالات متداول</a> را بررسی کنید.
   guides: راهنماها
   api_reference: مرجع API
+  api_structures: API Structures
   advanced: پیشرفته
   footer:
     propose_change: مستندات را بهبود ببخشید

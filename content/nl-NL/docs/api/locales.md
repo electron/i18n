@@ -7,26 +7,26 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | Language Code | Language Name           |
 | ------------- | ----------------------- |
 | af            | Afrikaans               |
-| am            | Amharic                 |
-| ar            | Arabic                  |
+| am            | Amhaars                 |
+| ar            | Arabisch                |
 | az            | Azerbaijani             |
 | be            | Belarusian              |
 | bg            | Bulgarian               |
 | bh            | Bihari                  |
 | bn            | Bengali                 |
 | br            | Breton                  |
-| bs            | Bosnian                 |
-| ca            | Catalan                 |
-| co            | Corsican                |
-| cs            | Czech                   |
+| bs            | Bosnisch                |
+| ca            | Catalaans               |
+| co            | Corsicaans              |
+| cs            | Tsjechisch              |
 | cy            | Welsh                   |
-| da            | Danish                  |
-| de            | German                  |
-| de-AT         | German (Austria)        |
-| de-CH         | German (Switzerland)    |
-| de-DE         | German (Germany)        |
-| el            | Greek                   |
-| en            | English                 |
+| da            | Deens                   |
+| de            | Duits                   |
+| de-AT         | Duits (Oostenrijk)      |
+| de-CH         | Duits (Zwitserland)     |
+| de-DE         | Duits (Duitsland)       |
+| el            | Grieks                  |
+| en            | Engels                  |
 | en-AU         | English (Australia)     |
 | en-CA         | English (Canada)        |
 | en-GB         | English (UK)            |
@@ -45,31 +45,31 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | fr            | French                  |
 | fr-CA         | French (Canada)         |
 | fr-CH         | French (Switzerland)    |
-| fr-FR         | French (France)         |
-| fy            | Frisian                 |
-| ga            | Irish                   |
-| gd            | Scots Gaelic            |
-| gl            | Galician                |
+| fr-FR         | Frans (Frankrijk)       |
+| fy            | Fries                   |
+| ga            | Iers                    |
+| gd            | Schots-Gaelisch         |
+| gl            | Galicisch               |
 | gn            | Guarani                 |
 | gu            | Gujarati                |
 | ha            | Hausa                   |
-| haw           | Hawaiian                |
-| he            | Hebrew                  |
+| haw           | Hawaïaans               |
+| he            | Hebreeuws               |
 | hi            | Hindi                   |
-| hr            | Croatian                |
-| hu            | Hungarian               |
-| hy            | Armenian                |
+| hr            | Kroatisch               |
+| hu            | Hongaars                |
+| hy            | Armeens                 |
 | ia            | Interlingua             |
-| id            | Indonesian              |
-| is            | Icelandic               |
-| it            | Italian                 |
-| it-CH         | Italian (Switzerland)   |
-| it-IT         | Italian (Italy)         |
-| ja            | Japanese                |
-| jw            | Javanese                |
-| ka            | Georgian                |
-| kk            | Kazakh                  |
-| km            | Cambodian               |
+| id            | Indonesisch             |
+| is            | IJslands                |
+| it            | Italiaans               |
+| it-CH         | Italiaans (Zwitserland) |
+| it-IT         | Italiaans (Italië)      |
+| ja            | Japans                  |
+| jw            | Javaans                 |
+| ka            | Georgisch               |
+| kk            | Kazachs                 |
+| km            | Cambodjaans             |
 | kn            | Kannada                 |
 | ko            | Korean                  |
 | ku            | Kurdish                 |
@@ -93,33 +93,33 @@ Electron uses Chromium's `l10n_util` library to fetch the locale. Possible value
 | no            | Norwegian               |
 | oc            | Occitan                 |
 | om            | Oromo                   |
-| of            | Oriya                   |
+| or            | Oriya                   |
 | pa            | Punjabi                 |
-| pl            | Polish                  |
-| ps            | Pashto                  |
-| pt            | Portuguese              |
-| pt-BR         | Portuguese (Brazil)     |
-| pt-PT         | Portuguese (Portugal)   |
+| pl            | Pools                   |
+| ps            | Pasjtoe                 |
+| pt            | Portugees               |
+| pt-BR         | Portugees (Brazilië)    |
+| pt-PT         | Portugees (Portugal)    |
 | qu            | Quechua                 |
-| rm            | Romansh                 |
-| ro            | Romanian                |
-| ru            | Russian                 |
+| rm            | Reto-Romaans            |
+| ro            | Roemeens                |
+| ru            | Russisch                |
 | sd            | Sindhi                  |
-| sh            | Serbo-Croatian          |
-| si            | Sinhalese               |
-| sk            | Slovak                  |
-| sl            | Slovenian               |
+| sh            | Servo-Kroatisch         |
+| si            | Singalees               |
+| sk            | Slowaaks                |
+| sl            | Sloveens                |
 | sn            | Shona                   |
-| so            | Somali                  |
-| sq            | Albanian                |
-| sr            | Serbian                 |
-| st            | Sesotho                 |
-| su            | Sundanese               |
-| sv            | Swedish                 |
+| so            | Somalisch               |
+| sq            | Albanees                |
+| sr            | Servisch                |
+| st            | Zuid-Sotho              |
+| su            | Soendanees              |
+| sv            | Zweeds                  |
 | sw            | Swahili                 |
 | ta            | Tamil                   |
 | te            | Telugu                  |
-| tg            | Tajik                   |
+| tg            | Tadzjieks               |
 | th            | Thai                    |
 | ti            | Tigrinya                |
 | tk            | Turkmen                 |

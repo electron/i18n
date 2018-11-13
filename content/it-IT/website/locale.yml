@@ -16,6 +16,7 @@ docs:
   description: Vedi tutti i <a href="/docs/all">documenti in un'unica pagina</a> o controlla le <a href="/docs/faq">FAQ</a>.
   guides: Guide
   api_reference: API di Riferimento
+  api_structures: Strutture API
   advanced: Avanzato
   footer:
     propose_change: Migliora questo documento
@@ -52,9 +53,9 @@ community:
   awesome_notice: Questo elenco è generato dalla repository <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a>. <br> Manca qualcosa? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Fai una richiesta di pull</a>.
   meetup_notice: Per aggiungere un meetup, modifica <code>data/meetups.json</code> e <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json"> fai una richiesta di pull</a>.
 releases:
-  title: Electron Releases
-  all_releases: All Releases
-  back_to_index: Back to index
+  title: Rilasci di Electron
+  all_releases: Tutti i rilasci
+  back_to_index: Torna alla pagina principale
 electron_is_easy:
   title: È più facile di quanto pensi
   description: Se puoi costruire un sito Web, allora puoi costruire un'applicazione desktop. Electron è un framework per la creazione di applicazioni native con tecnologie web come JavaScript, HTML e CSS. Electron gestisce le parti più complicate, così puoi concentrarti sul core dell'applicazione.
@@ -107,16 +108,16 @@ apps:
   submit_your_own: inviare la tua applicazione
   something_missing: Manca qualcosa?
   edit_this_app: Modifica questa app.
-  search_app: Filter apps by name, description, etc…
-  categories: Categories
+  search_app: Filtra app per nome, descrizione, ecc…
+  categories: Categorie
   add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
-  website: Website
+  website: Sito web
   repository: Repository
-  category: Category
-  downloads: Downloads
-  keywords: Keywords
-  license: License
-  latest_release: Latest Release
+  category: Categoria
+  downloads: Download
+  keywords: Parole chiave
+  license: Licenza
+  latest_release: Ultimo rilascio
 blog:
   title: Blog di Electron
   description: Tutte le ultime notizie dal team e dalla community di Electron.

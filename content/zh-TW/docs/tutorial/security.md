@@ -38,14 +38,13 @@
 4. [在所有會載入遠端內容的 Session 中使用 `ses.setPermissionRequestHandler()`](#4-handle-session-permission-requests-from-remote-content)
 5. [不要停用 `webSecurity`](#5-do-not-disable-websecurity)
 6. [Define a `Content-Security-Policy`](#6-define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
-7. [Override and disable `eval`](#7-override-and-disable-eval), which allows strings to be executed as code.
-8. [不要將 `allowRunningInsecureContent` 設為 `true`](#8-do-not-set-allowrunninginsecurecontent-to-true)
-9. [Do not enable experimental features](#9-do-not-enable-experimental-features)
-10. [Do not use `enableBlinkFeatures`](#10-do-not-use-enableblinkfeatures)
-11. [`<webview>`: Do not use `allowpopups`](#11-do-not-use-allowpopups)
-12. [`<webview>`: Verify options and params](#12-verify-webview-options-before-creation)
-13. [Disable or limit navigation](#13-disable-or-limit-navigation)
-14. [Disable or limit creation of new windows](#14-disable-or-limit-creation-of-new-windows)
+7. [不要將 `allowRunningInsecureContent` 設為 `true`](#7-do-not-set-allowrunninginsecurecontent-to-true)
+8. [Do not enable experimental features](#8-do-not-enable-experimental-features)
+9. [Do not use `enableBlinkFeatures`](#9-do-not-use-enableblinkfeatures)
+10. [`<webview>`: Do not use `allowpopups`](#10-do-not-use-allowpopups)
+11. [`<webview>`: Verify options and params](#11-verify-webview-options-before-creation)
+12. [Disable or limit navigation](#12-disable-or-limit-navigation)
+13. [Disable or limit creation of new windows](#13-disable-or-limit-creation-of-new-windows)
 
 ## 1) 只載入安全的內容
 
@@ -285,27 +284,7 @@ CSP's preferred delivery mechanism is an HTTP header. It can be useful, however,
 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
-## 7) 覆寫並停用 `eval`
-
-`eval()` is a core JavaScript method that allows the execution of JavaScript from a string. Disabling it disables your app's ability to evaluate JavaScript that is not known in advance.
-
-### 為什麼?
-
-The `eval()` method has precisely one mission: To evaluate a series of characters as JavaScript and execute it. It is a required method whenever you need to evaluate code that is not known ahead of time. While legitimate use cases exist, like any other code generators, `eval()` is difficult to harden.
-
-Generally speaking, it is easier to completely disable `eval()` than to make it bulletproof. Thus, if you do not need it, it is a good idea to disable it.
-
-### 怎麼做?
-
-```js
-// ESLint 會對任何用到 eval() 的地方提出警告，就算用了
-// eslint-disable-next-line 也一樣
-window.eval = global.eval = function () {
-  throw new Error(`失禮了，本應用程式不支援 window.eval()。`)
-}
-```
-
-## 8) 不要將 `allowRunningInsecureContent` 設為 `true`
+## 7) 不要將 `allowRunningInsecureContent` 設為 `true`
 
 *建議值就是 Electron 的預設值*
 
@@ -333,7 +312,7 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## 9) Do Not Enable Experimental Features
+## 8) Do Not Enable Experimental Features
 
 *建議值就是 Electron 的預設值*
 
@@ -361,7 +340,7 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## 10) Do Not Use `enableBlinkFeatures`
+## 9) Do Not Use `enableBlinkFeatures`
 
 *建議值就是 Electron 的預設值*
 
@@ -387,7 +366,7 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow()
 ```
 
-## 11) 不要用 `allowpopups`
+## 10) 不要用 `allowpopups`
 
 *建議值就是 Electron 的預設值*
 
@@ -407,7 +386,7 @@ If you do not need popups, you are better off not allowing the creation of new [
 <webview src="page.html"></webview>
 ```
 
-## 12) 建立 WebView 前先檢查選項
+## 11) 建立 WebView 前先檢查選項
 
 A WebView created in a renderer process that does not have Node.js integration enabled will not be able to enable integration itself. However, a WebView will always create an independent renderer process with its own `webPreferences`.
 
@@ -441,9 +420,9 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-再次強調，這份清單只能幫你降低風險，並沒辦法完全將風險排除。如果你的目的只是要顯示網站，那麼瀏覽器會是比較安全的選項。
+再次強調，這份清單只能幫你降低風險，並沒辦法完全將風險排除。如果你的目標只是要顯示網站，那麼瀏覽器會是比較安全的選項。
 
-## 13) Disable or limit navigation
+## 12) Disable or limit navigation
 
 If your app has no need to navigate or only needs to navigate to known pages, it is a good idea to limit navigation outright to that known scope, disallowing any other kinds of navigation.
 
@@ -473,7 +452,7 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-## 14) Disable or limit creation of new windows
+## 13) Disable or limit creation of new windows
 
 If you have a known set of windows, it's a good idea to limit the creation of additional windows in your app.
 

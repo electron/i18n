@@ -6,14 +6,14 @@ Electronは、プロジェクト生成に[GN](https://gn.googlesource.com/gn)を
 
 以下の`gn`ファイルにはElectronのビルトのメインルールを含んでいます：
 
-* `BUILD.gn` defines how Electron itself is built and includes the default configurations for linking with Chromium.
+* `BUILD.gn` は、Electron 自身をどのようにビルドするかを定義し、Chromium とリンクするデフォルト設定を含んでいます。
 * `build/args/{debug,release,all}.gn` には、Electronをビルドするためのデフォルトのビルド引数が含まれています。
 
 ## コンポーネントのビルド
 
 Chromiumはとても巨大なプロジェクトですので、最終的なリンクの段階でかなりの時間を要し、それが開発を難しくしてしまいます。 これを解決するために、Chromiumはそれぞれのコンポーネントを別々の共有ライブラリとしてビルドを行う、「コンポーネントビルド」を採用しており、これによりファイルサイズとパフォーマンスを犠牲にすることでビルドを高速で行っています。
 
-ElectronはChromiumビルドオプションを継承します。 In `Debug` builds, the binary will be linked to a shared library version of Chromium's components to achieve fast linking time; for `Release` builds, the binary will be linked to the static library versions, so we can have the best possible binary size and performance.
+ElectronはChromiumビルドオプションを継承します。 `Debug` ビルドでは、ライブラリはリンク時間を節約するために、Chromium のコンポーネントの共有ライブラリにバイナリがリンクされます。`Release` ビルドではバイナリは静的ライブラリにリンクされるので、適したファイルサイズとパフォーマンスを得ることができます。
 
 ## テスト
 

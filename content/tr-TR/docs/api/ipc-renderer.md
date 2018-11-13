@@ -61,13 +61,13 @@ The main process handles it by listening for `channel` with [`ipcMain`](ipc-main
 
 **Note:** Senkronize bir ileti göndermek, eğer ne yaptığınızı bilmiyorsanız kullanamayacağınız sürece tüm işleyici işlemini engeller.
 
-### `ipcRenderer.sendTo(windowId, channel, [, arg1][, arg2][, ...])`
+### `ipcRenderer.sendTo(webContentsId, channel, [, arg1][, arg2][, ...])`
 
-* `windowId` Sayı
+* `webContentsId` Number
 * `channel` Dizesi
 * `...args` herhangi[]
 
-Sends a message to a window with `windowid` via `channel`.
+Sends a message to a window with `webContentsId` via `channel`.
 
 ### `ipcRenderer.sendToHost(channel[, arg1][, arg2][, ...])`
 

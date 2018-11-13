@@ -428,7 +428,7 @@ webview.addEventListener('dom-ready', () => {
 
 * `options` Object 
   * `marginsType` Integer (任意) - 使用するマージンの種類を指定する。デフォルトマージンには 0 を、マージン無しには 1 を、最小マージンには 2 を使用する。
-  * `pageSize` String (任意) - 生成する PDF のページサイズを指定する。 `A3`、`A4`、`A5`、`Legal`、`Letter`、`Tabloid`、またはミクロン単位の `width` と `height` を含む Object にできる。
+  * `pageSize` String | Size (任意) - 生成する PDF のページサイズを指定します。 `A3`、`A4`、`A5`、`Legal`、`Letter`、`Tabloid`、またはミクロン単位の `width` と `height` を含む Object にできる。
   * `printBackground` Boolean (任意) - CSS 背景を印刷するかどうか。
   * `printSelectionOnly` Boolean (任意) - 選択部分だけを印刷するかどうか。
   * `landscape` Boolean (任意) - `true` で横向き、`false` で縦向き。

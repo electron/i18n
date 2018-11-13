@@ -428,7 +428,7 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
 
 * `options` Object 
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `pageSize` String (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
+  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
@@ -502,7 +502,7 @@ Fired when the navigation is done, i.e. the spinner of the tab will stop spinnin
 
 ### Event: 'did-fail-load'
 
-반환:
+Returns:
 
 * `errorCode` Integer
 * `errorDescription` String
@@ -533,7 +533,7 @@ Fired when document in the given frame is loaded.
 
 ### Event: 'page-title-updated'
 
-반환:
+Returns:
 
 * `title` String
 * `explicitSet` Boolean
@@ -542,7 +542,7 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 
 ### Event: 'page-favicon-updated'
 
-반환:
+Returns:
 
 * `favicons` String[] - Array of URLs.
 
@@ -578,7 +578,7 @@ webview.addEventListener('console-message', (e) => {
 
 ### Event: 'found-in-page'
 
-Returns:
+반환:
 
 * `result` Object 
   * `requestId` Integer
@@ -626,7 +626,7 @@ webview.addEventListener('new-window', (e) => {
 
 ### Event: 'will-navigate'
 
-반환:
+Returns:
 
 * `url` String
 
@@ -640,7 +640,7 @@ Calling `event.preventDefault()` does **NOT** have any effect.
 
 ### Event: 'did-navigate'
 
-Returns:
+반환:
 
 * `url` String
 
@@ -711,7 +711,7 @@ Fired when the gpu process is crashed.
 
 ### Event: 'plugin-crashed'
 
-반환:
+Returns:
 
 * PrinterInfo Object
 * `version` String

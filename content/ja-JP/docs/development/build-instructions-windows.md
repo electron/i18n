@@ -5,14 +5,14 @@ Windows 版 Electron のビルドについては、以下のガイドライン�
 ## 必要な環境
 
 * Windows 10 / Server 2012 R2 以上
-* Visual Studio 2017 15.7.2 またはそれ以降 - [VS 2017 Community Edition (無料版) をダウンロード](https://www.visualstudio.com/vs/)
-* [Python 2.7.10 or higher](http://www.python.org/download/releases/2.7/) 
-  * Contrary to the `depot_tools` setup instructions linked below, you will need to use your locally installed Python with at least version 2.7.10 (with support for TLS 1.2). To do so, make sure that in **PATH**, your locally installed Python comes before the `depot_tools` folder. Right now `depot_tools` still comes with Python 2.7.6, which will cause the `gclient` command to fail (see https://crbug.com/868864).
-  * [Python for Windows (pywin32) Extensions](https://pypi.org/project/pywin32/#files) is also needed in ordner to run the build process.
+* Visual Studio 2017 15.7.2 以上 - [VS 2017 Community Edition 無料ダウンロード](https://www.visualstudio.com/vs/)
+* [Python 2.7.10 以上](http://www.python.org/download/releases/2.7/) 
+  * 以下にリンクされている `depot_tools` の設定手順とは異なり、ローカルにインストールされた Python を少なくとも 2.7.10 (TLS 1.2 サポート) で使用する必要があります。 これをするには、**PATH** 内で、ローカルにインストールされた Python が `depot_tools`のフォルダより前に来るように指定してください。 現在、`depot_tools` にはまだ Python 2.7.6 が付属しているため、`gclient` コマンドが失敗します (https://crbug.com/868864 を参照)。
+  * [Python for Windows (pywin32) Extensions](https://pypi.org/project/pywin32/#files) もビルドプロセスを実行するために必要です。
 * [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
-* Debugging Tools for Windows of Windows SDK 10.0.15063.468 if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` files. 
-  * Different versions of the SDK can be installed side by side. To install the SDK, open Visual Studio Installer, select `Change` → `Individual Components`, scroll down and select the appropriate Windows SDK to install. Another option would be to look at the [Windows SDK and emulator archive](https://developer.microsoft.com/de-de/windows/downloads/sdk-archive) and download the standalone version of the SDK respectively.
+* 完全なディストリビューションを作成する予定がある場合は、Windows SDK 10.0.15063.468 の Windows 用デバッグツールを使用してください。 `symstore.exe` が `.pdb` ファイルからシンボルストアを作成するために使用します。 
+  * 異なるバージョンのSDKを並行してインストールできます。 SDK をインストールするには、Visual Studio Installer を開いて `変更` → `個別のコンポーネント` を選択し、スクロールしてインストールする適切な Windows SDK を選択します。 他に、[Windows SDK とエミュレータのアーカイブ](https://developer.microsoft.com/de-de/windows/downloads/sdk-archive) を見て、SDK のスタンドアロン版をそれぞれダウンロードすることでもできます。
 
 現在 Windows インストールを持っていない場合、[dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) に Electron をビルドするために使用できる Windows のバージョンがあります。
 

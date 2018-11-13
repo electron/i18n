@@ -1,16 +1,16 @@
 # macOS におけるデバッグ
 
-JavaScriptアプリケーションによらないと思われるクラッシュや問題がElectron上で起こった場合、デバッグは少し複雑になります。ネイティブ/C++の経験がない場合には得にそうでしょう。 However, using lldb, and the Electron source code, you can enable step-through debugging with breakpoints inside Electron's source code. You can also use [XCode for debugging](debugging-instructions-macos-xcode.md) if you prefer a graphical interface.
+JavaScript アプリケーションに起因しないと思われるクラッシュや問題が Electron 上で起こった場合、特にネイティブ/ C++ デバッグの経験がない開発者にとって少しトリッキーなデバッグになります。 しかし、lldb と Electron のソースコードを使用することで、Electron のソースコード内でブレークポイントを使用したステップ実行デバッグを有効にできます。 グラフィカルインタフェースを希望する場合は、[Xcode におけるデバッグ](debugging-instructions-macos-xcode.md) を使用することもできます。
 
 ## 要件
 
-* **A debug build of Electron**: The easiest way is usually building it yourself, using the tools and prerequisites listed in the [build instructions for macOS](build-instructions-macos.md). While you can attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
+* **Electronのデバッグビルド**: 最も簡単な方法は、[ビルド手順 (macOS)](build-instructions-macos.md) にリストされているツールと必要な環境を使って、自分でビルドをする方法です。 Electron を直接ダウンロードしてアタッチしデバッグできますが、Electron は高度に最適化されているためデバッグが困難であることに気付くでしょう。デバッガはすべての変数の内容は表示できませんし、インラインに展開されたり、末尾再帰やその他のコンパイラによる最適化により実行経路は奇妙に見えるはずです。
 
-* **Xcode**: In addition to Xcode, also install the Xcode command line tools. They include LLDB, the default debugger in Xcode on Mac OS X. It supports debugging C, Objective-C and C++ on the desktop and iOS devices and simulator.
+* **Xcode**: Xcode では、加えて Xcode コマンドラインツールもインストールします。 Mac OS X の Xcode にはデフォルトのデバッガである LLDB が含まれています。C、Objective-C、C++ のデバッグを、デスクトップ、iOS デバイス、シミュレータ上でサポートしています。
 
 ## Electronへの接続とデバッグ
 
-To start a debugging session, open up Terminal and start `lldb`, passing a debug build of Electron as a parameter.
+デバッグセッションを始めるには、ターミナルを開いて Electron のデバッグビルドを引数として渡して `lldb` を実行します。
 
 ```sh
 $ lldb ./out/Debug/Electron.app
@@ -20,24 +20,24 @@ Current executable set to './out/Debug/Electron.app' (x86_64).
 
 ### ブレークポイントの設定
 
-LLDB is a powerful tool and supports multiple strategies for code inspection. For this basic introduction, let's assume that you're calling a command from JavaScript that isn't behaving correctly - so you'd like to break on that command's C++ counterpart inside the Electron source.
+LLDBは強力なツールであり、コード検査のための複数の計画をサポートします。 この基本的な導入では、正しく動作していないコマンドを JavaScript から呼び出していると仮定しましょう。Electron ソース内に対応するコマンドの C++をブレークしたいとします。
 
-Relevant code files can be found in `./atom/`.
+関連するコードファイルは `./atom/` にあります。
 
-Let's assume that you want to debug `app.setName()`, which is defined in `browser.cc` as `Browser::SetName()`. Set the breakpoint using the `breakpoint` command, specifying file and line to break on:
+`browser.cc` 内に `Browser::SetName()` として定義されている `app.setName()` をデバッグしたいと仮定しましょう。 `breakpoint` コマンドを用いて、以下のようにブレークするファイルと行を指定してブレークポイントを設定します。
 
 ```sh
 (lldb) breakpoint set --file browser.cc --line 117
 Breakpoint 1: where = Electron Framework`atom::Browser::SetName(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) + 20 at browser.cc:118, address = 0x000000000015fdb4
 ```
 
-Then, start Electron:
+そして、 Electron を実行します。
 
 ```sh
 (lldb) run
 ```
 
-The app will immediately be paused, since Electron sets the app's name on launch:
+Electron は起動時にアプリの名前を設定するため、アプリはすぐに一時停止されます。
 
 ```sh
 (lldb) run
@@ -55,7 +55,7 @@ Process 25244 stopped
 (lldb)
 ```
 
-To show the arguments and local variables for the current frame, run `frame variable` (or `fr v`), which will show you that the app is currently setting the name to "Electron".
+現在のフレームの引数とローカル変数を表示するには、`frame variable` (または `fr v`) を実行します。アプリの名前が現在は "Electron" にセットされているのが表示されるでしょう。
 
 ```sh
 (lldb) frame variable
@@ -65,7 +65,7 @@ To show the arguments and local variables for the current frame, run `frame vari
 }
 ```
 
-To do a source level single step in the currently selected thread, execute `step` (or `s`). This would take you into `name_override_.empty()`. To proceed and do a step over, run `next` (or `n`).
+現在のスレッド内でソースレベルステップ実行するには、`step` (または `s`) を実行します。 これにより、`name_override_.empty()` に飛びます。 処理してステップオーバーするには、`next` (または `n`) を実行します。
 
 ```sh
 (lldb) step
@@ -81,12 +81,12 @@ Process 25244 stopped
    122    return badge_count_;
 ```
 
-To finish debugging at this point, run `process continue`. You can also continue until a certain line is hit in this thread (`thread until 100`). This command will run the thread in the current frame till it reaches line 100 in this frame or stops if it leaves the current frame.
+このポイントでのデバッグが完了したら、`process continue` を実行します。 このスレッドで特定の行がヒットするまで (`thread until 100`) 続行することもできます。 このコマンドは、このフレームの100行目に達するまで、現在のフレーム内のスレッドを実行し、現在のフレームを終了すると停止します。
 
-Now, if you open up Electron's developer tools and call `setName`, you will once again hit the breakpoint.
+今、Electron の開発者ツールを開いて `setName` を呼び出すと、もう一度ブレークポイントにヒットします。
 
-### Further Reading
+### 参考リンク
 
-LLDB is a powerful tool with a great documentation. To learn more about it, consider Apple's debugging documentation, for instance the [LLDB Command Structure Reference](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) or the introduction to [Using LLDB as a Standalone Debugger](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html).
+LLDB は素晴らしいドキュメントを備えた強力なツールです。 詳細については、[LLDB コマンド構造リファレンス](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-basics.html#//apple_ref/doc/uid/TP40012917-CH2-SW2) や [LLDB をスタンドアロンデバッガとして使用する方法](https://developer.apple.com/library/mac/documentation/IDEs/Conceptual/gdb_to_lldb_transition_guide/document/lldb-terminal-workflow-tutorial.html) などの Apple のデバッグドキュメントを参照してください。
 
-You can also check out LLDB's fantastic [manual and tutorial](http://lldb.llvm.org/tutorial.html), which will explain more complex debugging scenarios.
+さらに複雑なデバッグシナリオについて説明されている、LLDB の素晴らしい [マニュアルとチュートリアル](http://lldb.llvm.org/tutorial.html) も参考にできます。

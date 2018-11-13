@@ -38,14 +38,13 @@ This is not bulletproof, but at the least, you should follow these steps to impr
 4. [Gamitin ang `ses.setPermissionRequestHandler()` sa lahat ng mga sesyon na maka-load ang bahagyang nilalaman.](#4-handle-session-permission-requests-from-remote-content)
 5. [Huwang i-disable ang `webSecurity`](#5-do-not-disable-websecurity)
 6. [Define a `Content-Security-Policy`](#6-define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
-7. [Override and disable `eval`](#7-override-and-disable-eval), which allows strings to be executed as code.
-8. [Huwag i-set ang `allowRunningInsecureContent` sa `true`](#8-do-not-set-allowrunninginsecurecontent-to-true)
-9. [Huwag paganahin ang mga experimental na katangian](#9-do-not-enable-experimental-features)
-10. [Do not use `enableBlinkFeatures`](#10-do-not-use-enableblinkfeatures)
-11. [`<webview>`: Do not use `allowpopups`](#11-do-not-use-allowpopups)
-12. [`<webview>`: Verify options and params](#12-verify-webview-options-before-creation)
-13. [Disable or limit navigation](#13-disable-or-limit-navigation)
-14. [Disable or limit creation of new windows](#14-disable-or-limit-creation-of-new-windows)
+7. [Huwag i-set ang `allowRunningInsecureContent` sa `true`](#7-do-not-set-allowrunninginsecurecontent-to-true)
+8. [Huwag paganahin ang mga experimental na katangian](#8-do-not-enable-experimental-features)
+9. [Do not use `enableBlinkFeatures`](#9-do-not-use-enableblinkfeatures)
+10. [`<webview>`: Do not use `allowpopups`](#10-do-not-use-allowpopups)
+11. [`<webview>`: Verify options and params](#11-verify-webview-options-before-creation)
+12. [Disable or limit navigation](#12-disable-or-limit-navigation)
+13. [Disable or limit creation of new windows](#13-disable-or-limit-creation-of-new-windows)
 
 ## 1) Only Load Secure Content
 
@@ -283,27 +282,7 @@ CSP's preferred delivery mechanism is an HTTP header. It can be useful, however,
 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
-## 7) Override and Disable `eval`
-
-Ang `eval()` ay isang core JavaScript na pamamaraan na naggpapahintulot ng exekusyon sa JavaScript galing sa isang string. Ang pag-disable nito ay makaka-disable ng kakayahan ng iyong app para suriin ang JavaScript na hindi unang kilala.
-
-### Bakit?
-
-Ang `eval` na pamamaraan ay mayroong isang tiyak na misyon: Para suriin ang serye ng mga character bilang isang JavaScript at patakbuhin. It is a required method whenever you need to evaluate code that is not known ahead of time. While legitimate use cases exist, like any other code generators, `eval()` is difficult to harden.
-
-Generally speaking, it is easier to completely disable `eval()` than to make it bulletproof. Thus, if you do not need it, it is a good idea to disable it.
-
-### Paano?
-
-```js
-// ESLint will warn about any use of eval(), even this one
-// eslint-disable-next-line
-window.eval = global.eval = function () {
-  throw new Error(`Sorry, this app does not support window.eval().`)
-}
-```
-
-## 8) Do Not Set `allowRunningInsecureContent` to `true`
+## 7) Do Not Set `allowRunningInsecureContent` to `true`
 
 *Ang rekomendasyon ay default ng Electron*
 
@@ -331,7 +310,7 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## 9) Do Not Enable Experimental Features
+## 8) Do Not Enable Experimental Features
 
 *Ang rekomendasyon ay default ng Electron*
 
@@ -359,7 +338,7 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## 10) Do Not Use `enableBlinkFeatures`
+## 9) Do Not Use `enableBlinkFeatures`
 
 *Ang rekomendasyon ay default ng Electron*
 
@@ -385,7 +364,7 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow()
 ```
 
-## 11) Do Not Use `allowpopups`
+## 10) Do Not Use `allowpopups`
 
 *Ang rekomendasyon ay default ng Electron*
 
@@ -404,7 +383,7 @@ Kung hindi mo kailangan ang mga popup, ikaw ay mas mahusay na hindi pinapayagan 
 <webview src="page.html"></webview>
 ```
 
-## 12) Verify WebView Options Before Creation
+## 11) Verify WebView Options Before Creation
 
 Ang isang WebView na nilikha sa isang proseso ng renderer na walang pagsasama ng Node.js pinagana hindi makapag-enable ang pagsasama mismo. Gayunpaman, ang isang WebView ay laging lumikha ng isang malayang proseso ng pag-render na may sariling `webPreferences`.
 
@@ -440,7 +419,7 @@ app.on('web-contents-created', (event, contents) => {
 
 Muli, ang listahang ito ay nagpapaliit lang sa panganib, hindi ito inaalis. Kung ang iyong layunin ay upang ipakita ang isang website, isang browser ay magiging isang mas ligtas na option.
 
-## 13) Disable or limit navigation
+## 12) Disable or limit navigation
 
 If your app has no need to navigate or only needs to navigate to known pages, it is a good idea to limit navigation outright to that known scope, disallowing any other kinds of navigation.
 
@@ -470,7 +449,7 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-## 14) Disable or limit creation of new windows
+## 13) Disable or limit creation of new windows
 
 If you have a known set of windows, it's a good idea to limit the creation of additional windows in your app.
 

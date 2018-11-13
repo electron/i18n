@@ -38,14 +38,13 @@ This is not bulletproof, but at the least, you should follow these steps to impr
 4. [Usar `ses.setPermissionRequestHandler()` en todas las sesiones que cargan contenido remoto](#4-handle-session-permission-requests-from-remote-content)
 5. [No desactives `webSecurity`](#5-do-not-disable-websecurity)
 6. [Define a `Content-Security-Policy`](#6-define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
-7. [Override and disable `eval`](#7-override-and-disable-eval), which allows strings to be executed as code.
-8. [No establezca `allowRunningInsecureContent` a `true`](#8-do-not-set-allowrunninginsecurecontent-to-true)
-9. [No active ajustes experimentales](#9-do-not-enable-experimental-features)
-10. [Do not use `enableBlinkFeatures`](#10-do-not-use-enableblinkfeatures)
-11. [`<webview>`: Do not use `allowpopups`](#11-do-not-use-allowpopups)
-12. [`<webview>`: Verify options and params](#12-verify-webview-options-before-creation)
-13. [Disable or limit navigation](#13-disable-or-limit-navigation)
-14. [Disable or limit creation of new windows](#14-disable-or-limit-creation-of-new-windows)
+7. [No establezca `allowRunningInsecureContent` a `true`](#7-do-not-set-allowrunninginsecurecontent-to-true)
+8. [No active ajustes experimentales](#8-do-not-enable-experimental-features)
+9. [Do not use `enableBlinkFeatures`](#9-do-not-use-enableblinkfeatures)
+10. [`<webview>`: Do not use `allowpopups`](#10-do-not-use-allowpopups)
+11. [`<webview>`: Verify options and params](#11-verify-webview-options-before-creation)
+12. [Disable or limit navigation](#12-disable-or-limit-navigation)
+13. [Disable or limit creation of new windows](#13-disable-or-limit-creation-of-new-windows)
 
 ## 1) Only Load Secure Content
 
@@ -287,27 +286,7 @@ CSP's preferred delivery mechanism is an HTTP header. It can be useful, however,
 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
-## 7) Override and Disable `eval`
-
-`eval()` es un método principal de JavaScript que permite la ejecución de JavaScript desde una cadena. Desactivar esto desactivará la habilidad de tu aplicación de evaluar el JavaScript que no es conocido en avance.
-
-### ¿Por què?
-
-El método `eval()` tiene precisamente una misión: evaluar una serie de personajes como JavaScript y ejecutarlo. Es un método requerido cuando necesites evaluar códigos que no es conocido acerca del tiempo. While legitimate use cases exist, like any other code generators, `eval()` is difficult to harden.
-
-En general, Es más sencillo desactivar por completo `eval()` que hacerlo a prueba de balas. Por los tanto, si usted no lo necesita, es buena idea desactivarlo.
-
-### ¿Còmo?
-
-```js
-// ESLint will warn about any use of eval(), even this one
-// eslint-disable-next-line
-window.eval = global.eval = function () {
-  throw new Error(`Sorry, this app does not support window.eval().`)
-}
-```
-
-## 8) Do Not Set `allowRunningInsecureContent` to `true`
+## 7) Do Not Set `allowRunningInsecureContent` to `true`
 
 *La recomendación por defecto es Electrón*
 
@@ -335,7 +314,7 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## 9) Do Not Enable Experimental Features
+## 8) Do Not Enable Experimental Features
 
 *La recomendación por defecto es Electrón*
 
@@ -363,7 +342,7 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## 10) Do Not Use `enableBlinkFeatures`
+## 9) Do Not Use `enableBlinkFeatures`
 
 *La recomendación por defecto es Electrón*
 
@@ -389,7 +368,7 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow()
 ```
 
-## 11) Do Not Use `allowpopups`
+## 10) Do Not Use `allowpopups`
 
 *La recomendación por defecto es Electrón*
 
@@ -409,7 +388,7 @@ Si usted no necesita ventanas emergentes, le conviene no permitir la creación d
 <webview src="page.html"></webview>
 ```
 
-## 12) Verify WebView Options Before Creation
+## 11) Verify WebView Options Before Creation
 
 Un WebView creado en un proceso de renderizado que no contenga integración habilitada de Node.js no será capaz de habilitar integración por sí mismo. Sin embargo, a WebView siempre creará un proco de renderizado independiente con su propio `webPreferences`.
 
@@ -445,7 +424,7 @@ app.on('web-contents-created', (event, contents) => {
 
 De nuevo, esta lista solo minimiza los riesgos, no los remueve. Si su meta es mostrar una página web, un navegador sería una opción más segura.
 
-## 13) Disable or limit navigation
+## 12) Disable or limit navigation
 
 If your app has no need to navigate or only needs to navigate to known pages, it is a good idea to limit navigation outright to that known scope, disallowing any other kinds of navigation.
 
@@ -475,7 +454,7 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-## 14) Disable or limit creation of new windows
+## 13) Disable or limit creation of new windows
 
 If you have a known set of windows, it's a good idea to limit the creation of additional windows in your app.
 

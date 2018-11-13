@@ -55,11 +55,11 @@ $ gclient sync --with_branch_heads --with_tags
 # これは時間がかかります。コーヒーでも淹れましょう。
 ```
 
-> Instead of `https://github.com/electron/electron`, you can use your own fork here (something like `https://github.com/<username>/electron`).
+> `https://github.com/electron/electron` の代わりに、`https://github.com/<username>/electron` のような自分のフォークを使うこともできます。
 
-#### A note on pulling/pushing
+#### プル/プッシュ時の注意
 
-If you intend to `git pull` or `git push` from the official `electron` repository in the future, you now need to update the respective folder's origin URLs.
+もし将来公式の `electron` レポジトリから `git pull` や `git push` をする予定であれば、現在はそれぞれのフォルダの origin URL を更新する必要があります。
 
 ```sh
 $ cd src/electron
@@ -69,9 +69,9 @@ $ git branch --set-upstream-to=origin/master
 $ cd -
 ```
 
-:memo: `gclient` works by checking a file called `DEPS` inside the `src/electron` folder for dependencies (like Chromium or Node.js). Running `gclient sync -f` ensures that all dependencies required to build Electron match that file.
+:memo: `gclient` は、Chromium や Node.js のような依存の解決のために `src/electron` フォルダ内の `DEPS` と呼ばれるファイルを確認します。 `gclient sync -f` を実行することで Electron のビルドに必要な依存関係をすべて取得します。
 
-So, in order to pull, you'd run the following commands:
+なので、プルするには、以下のコマンドを実行するとよいでしょう。
 
 ```sh
 $ cd src/electron
@@ -89,7 +89,7 @@ $ export GN_EXTRA_ARGS="${GN_EXTRA_ARGS} cc_wrapper=\"${PWD}/electron/external_b
 $ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_ARGS"
 ```
 
-Or on Windows (without the optional argument):
+Windows 上(任意の引数はなし):
 
 ```sh
 $ cd src
@@ -128,11 +128,11 @@ $ ninja -C out/Debug electron
 $ ninja -C out/Release electron
 ```
 
-This will build all of what was previously 'libchromiumcontent' (i.e. the `content/` directory of `chromium` and its dependencies, incl. WebKit and V8), so it will take a while.
+これは、先に "libchromiumcontent" (` chromium` の `content/` ディレクトリとWebKitとV8などの依存関係) のすべてをビルドします。そのため時間がかかります。
 
-To speed up subsequent builds, you can use [sccache](https://github.com/mozilla/sccache). Add the GN arg `cc_wrapper = "sccache"` by running `gn args out/Debug` to bring up an editor and adding a line to the end of the file.
+次回以降のビルドを高速化するには、[sccache](https://github.com/mozilla/sccache) が使用できます。 GN 引数 `cc_wrapper = "sccache"` を追加して `gn args out/Debug` を実行するように、エディタで開いてファイルの末尾に追加してください。
 
-The built executable will be under `./out/Debug`:
+実行形式は `./out/Debug` 下に置かれます。
 
 ```sh
 $ ./out/Debug/Electron.app/Contents/MacOS/Electron
@@ -142,15 +142,15 @@ $ ./out/Debug/electron.exe
 $ ./out/Debug/electron
 ```
 
-### Cross-compiling
+### クロスコンパイル
 
-To compile for a platform that isn't the same as the one you're building on, set the `target_cpu` and `target_os` GN arguments. For example, to compile an x86 target from an x64 host, specify `target_cpu = "x86"` in `gn args`.
+構築しているプラットフォームと同じでないプラットフォーム用にコンパイルするには、`target_cpu` 及び `target_os` GN 引数を設定します。 例えば、x64 ホストから x86 ターゲットをコンパイルするには、`gn args` で `target_cpu = "x86"` と指定します。
 
 ```sh
 $ gn gen out/Debug-x86 --args='... target_cpu = "x86"'
 ```
 
-Not all combinations of source and target CPU/OS are supported by Chromium. Only cross-compiling Windows 32-bit from Windows 64-bit and Linux 32-bit from Linux 64-bit have been tested in Electron. If you test other combinations and find them to work, please update this document :)
+ソースコードとターゲット CPU/OS のすべての組み合わせが Chromium でサポートされているわけではありません。 Windows 64 ビットからの Windows 32 ビットと、Linux 64 ビットからの Linux 32 ビットのクロスコンパイルのみが Electron でテストされています。 他の組み合わせをテストしてうまく動作することがわかっている場合は、このドキュメントを更新してください :)
 
 [`target_os`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values) と [`target_cpu`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values) の許される値については、 GN リファレンスを参照してください。
 
@@ -175,7 +175,7 @@ $ ./out/Debug/electron.exe electron/spec
 $ ./out/Debug/electron electron/spec
 ```
 
-If you're debugging something, it can be helpful to pass some extra flags to the Electron binary:
+もし何かをデバッグ中であれば、以下のフラグを Electron バイナリに渡すと役に立つかもしれません。
 
 ```sh
 $ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec \
@@ -184,18 +184,18 @@ $ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec \
 
 ## 複数マシン間での gitのキャッシュの共有
 
-It is possible to share the gclient git cache with other machines by exporting it as SMB share on linux, but only one process/machine can be using the cache at a time. The locks created by git-cache script will try to prevent this, but it may not work perfectly in a network.
+gclient git キャッシュを Linux 上で SMB 共有としてエクスポートすることで、他のマシンと共有することは可能ですが、一度に一つのプロセス/マシンだけがキャッシュを使用できます。 git-cache スクリプトによって作成されたロックはこれを防止しようとしますが、ネットワーク内で完璧には動作しない可能性があります。
 
-On Windows, SMBv2 has a directory cache that will cause problems with the git cache script, so it is necessary to disable it by setting the registry key
+Windows では、SMBv2 にはディレクトリキャッシュがあり、git キャッシュスクリプトに問題が発生するため、レジストリキー
 
 ```sh
 HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Lanmanworkstation\Parameters\DirectoryCacheLifetime
 ```
 
-to 0. More information: https://stackoverflow.com/a/9935126
+を0に設定して無効にする必要があります。 詳細: https://stackoverflow.com/a/9935126
 
 ## トラブルシューティング
 
-### Stale locks in the git cache
+### git キャッシュ内の古いロック
 
-If `gclient sync` is interrupted while using the git cache, it will leave the cache locked. To remove the lock, pass the `--break_repo_locks` argument to `gclient sync`.
+git キャッシュを使用している間に `gclient sync` が割り込まれた場合、キャッシュがロックされたままになります。 このロックを除去するには、`gclient sync` に `--break_repo_locks` 引数を渡します。
