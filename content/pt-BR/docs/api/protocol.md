@@ -1,6 +1,6 @@
 # protocol
 
-> Registre um protocolo personalizado e intercepte as solicitações de protocolo existentes.
+> Registra um protocolo personalizado e intercepte as solicitações de protocolo existentes.
 
 Processo: [Main](../glossary.md#main-process)
 
@@ -15,7 +15,7 @@ app.on('ready', () => {
     const url = request.url.substr(7)
     callback({path: path.normalize(`${__dirname}/${url}`)})
   }, (error) => {
-    if (error) console.error('Failed to register protocol')
+    if (error) console.error('Falha ao registrar o protocolo')
   })
 })
 ```
@@ -30,7 +30,7 @@ O módulo de protocol possui os seguintes métodos:
 
 * `schemes` String[] - Esquemas personalizados para serem registrados como esquemas padrão.
 * `options` Objeto (opcional) 
-  * `secure` Boolean (optional) - `true` registrar o esquema como seguro
+  * `secure` Boolean (optional) - `true` registra o esquema como seguro
 
 A standard scheme adheres to what RFC 3986 calls [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). For example `http` and `https` are standard schemes, while `file` is not.
 
