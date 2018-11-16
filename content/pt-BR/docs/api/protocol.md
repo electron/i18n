@@ -28,9 +28,9 @@ O módulo de protocol possui os seguintes métodos:
 
 ### `protocol.registerStandardSchemes(schemes[, options])`
 
-* `schemes` String[] - Custom schemes to be registered as standard schemes.
+* `schemes` String[] - Esquemas personalizados para serem registrados como esquemas padrão.
 * `options` Objeto (opcional) 
-  * `secure` Boolean (optional) - `true` to register the scheme as secure. Default `false`.
+  * `secure` Boolean (optional) - `true` registrar o esquema como seguro
 
 A standard scheme adheres to what RFC 3986 calls [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). For example `http` and `https` are standard schemes, while `file` is not.
 
