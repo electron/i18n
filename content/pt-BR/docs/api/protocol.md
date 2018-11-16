@@ -1,10 +1,10 @@
 # protocol
 
-> Registre um protocolo personalizado e intercepte as solicitações de protocol existentes.
+> Registre um protocolo personalizado e intercepte as solicitações de protocolo existentes.
 
 Processo: [Main](../glossary.md#main-process)
 
-An example of implementing a protocol that has the same effect as the `file://` protocol:
+Um exemplo de implementação de um protocolo que tem o mesmo efeito que o `file://` protocol:
 
 ```javascript
 const {app, protocol} = require('electron')
