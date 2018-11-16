@@ -1,6 +1,6 @@
 # protocol
 
-> Register a custom protocol and intercept existing protocol requests.
+> Registre um protocolo personalizado e intercepte as solicitações de protocol existentes.
 
 Processo: [Main](../glossary.md#main-process)
 
