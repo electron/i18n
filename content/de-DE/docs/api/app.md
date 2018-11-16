@@ -21,7 +21,7 @@ Das `app` Objekt stellt folgende Ereignisse zur Verfügung:
 
 Wird ausgelöst wenn die Anwendung den grundlegenenden Start abgeschlossen hat. Unter Windows und Linux, hat das `will-finish-launching`-Ereignis das gleiche Verhalten wie das `ready`-Ereignis; unter macOS, repräsentiert dieses Ereignis die `applicationWillFinishLaunching`-Benachrichtung von `NSApplication`. In der Regel würden hier Listener für die Ereignisse `open-file` und `open-url` registriert und der Crash Reporter und Auto-Updater gestartet werden.
 
-In most cases, you should do everything in the `ready` event handler.
+In den meisten Fällen, sollte man alles im `ready` Eventhandler machen.
 
 ### Ereignis: 'ready'
 
