@@ -977,7 +977,7 @@ the <code>window.location` object is changed or a user clicks a link in the page
       
       #### `contents.addWorkSpace(path)`
       
-      * `path` String
+      * `path` Zeichenfolge
       
       Adds the specified path to DevTools workspace. Must be used after DevTools creation:
       
@@ -991,7 +991,7 @@ the <code>window.location` object is changed or a user clicks a link in the page
       
       #### `contents.removeWorkSpace(path)`
       
-      * `path` String
+      * `path` Zeichenfolge
       
       Removes the specified path from DevTools workspace.
       
