@@ -15,7 +15,7 @@ docs:
   title: Документация Electron
   description: Просмотрите всю <a href="/docs/all">документацию на одной странице</a> или посетите <a href="/docs/faq">ЧаВо</a>.
   guides: Руководства
-  api_reference: Справочник по API
+  api_reference: Справка по API
   api_structures: Структуры API
   advanced: Расширенный
   footer:
