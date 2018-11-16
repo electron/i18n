@@ -47,7 +47,7 @@ app.on('ready', () => {
 window.addEventListener('keyup', doSomething, true)
 ```
 
-注意第三个参数 `true`，这意味着监听器总是在其他监听器之前接收按键，所以它们不能对它们调用 `stopPropagation()`。
+注意第三个参数 `true`，这意味着当前监听器总是在其他监听器之前接收按键，以避免其它监听器调用 `stopPropagation()`。
 
 在调度页面中的`keydown`和`keyup`事件之前，会发出[`before-input-event`](../api/web-contents.md#event-before-input-event)事件。 它可以用于捕获和处理在菜单中不可见的自定义快捷方式。
 
