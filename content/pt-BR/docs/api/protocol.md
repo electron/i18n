@@ -1,6 +1,6 @@
 # protocol
 
-> Registra um protocolo personalizado e intercepte as solicitações de protocolo existentes.
+> Registra um protocolo personalizado e intercepta as solicitações de protocolo existentes.
 
 Processo: [Main](../glossary.md#main-process)
 
@@ -32,7 +32,7 @@ O módulo de protocol possui os seguintes métodos:
 * `options` Objeto (opcional) 
   * `secure` Boolean (optional) - `true` registra o esquema como seguro
 
-A standard scheme adheres to what RFC 3986 calls [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). For example `http` and `https` are standard schemes, while `file` is not.
+Um esquema padrão adere ao que a RFC 3986 chama [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). For example `http` and `https` are standard schemes, while `file` is not.
 
 Registering a scheme as standard, will allow relative and absolute resources to be resolved correctly when served. Otherwise the scheme will behave like the `file` protocol, but without the ability to resolve relative URLs.
 
