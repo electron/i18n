@@ -430,7 +430,7 @@ Rückgabewert:
   
   #### `BrowserWindow.addExtension(path)`
   
-  * `path` String
+  * `path` Zeichenfolge
   
   Adds Chrome extension located at `path`, and returns extension's name.
   
@@ -454,7 +454,7 @@ Rückgabewert:
   
   #### `BrowserWindow.addDevToolsExtension(path)`
   
-  * `path` String
+  * `path` Zeichenfolge
   
   Adds DevTools extension located at `path`, and returns extension's name.
   
