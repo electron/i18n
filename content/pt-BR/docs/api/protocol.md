@@ -24,7 +24,7 @@ app.on('ready', () => {
 
 ## Métodos
 
-O módulo de protocol possui os seguintes métodos:
+O módulo de protocolo possui os seguintes métodos:
 
 ### `protocol.registerStandardSchemes(schemes[, options])`
 
@@ -32,9 +32,9 @@ O módulo de protocol possui os seguintes métodos:
 * `options` Objeto (opcional) 
   * `secure` Boolean (optional) - `true` registra o esquema como seguro
 
-Um esquema padrão adere ao que a RFC 3986 chama [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). For example `http` and `https` are standard schemes, while `file` is not.
+Um esquema padrão adere ao que a RFC 3986 chama [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). Por exemplo `http` e `https` são esquema padrão, enquanto `file` não é.
 
-Registering a scheme as standard, will allow relative and absolute resources to be resolved correctly when served. Otherwise the scheme will behave like the `file` protocol, but without the ability to resolve relative URLs.
+Registrando um esquema como padrão, permitirá que recursos relativos e absolutos sejam resolvidos corretamente quando vinculados. Caso contrário, o esquema se comportará como o protocolo `file`, mas sem a capacidade de resolver URLs relativos.
 
 For example when you load following page with custom protocol without registering it as standard scheme, the image will not be loaded because non-standard schemes can not recognize relative URLs:
 
