@@ -13,18 +13,18 @@ La seguente lista include i cambiamenti delle API pianificati per Electron 4.0.
 ## `app.makeSingleInstance`
 
 ```js
-// Deprecated
+// Deprecato
 app.makeSingleInstance(function (argv, cwd) {
 
 })
-// Replace with
+// Sostituire con
 app.requestSingleInstanceLock()
 app.on('second-instance', function (event, argv, cwd) {
 
 })
 ```
 
-## `app.rilasciaIstanzaSingola`
+## `app.releaseSingleInstance`
 
 ```js
 // Deprecato
@@ -76,31 +76,31 @@ window.on('app-command', (e, cmd) => {
 })
 ```
 
-## `appunti`
+## `clipboard`
 
 ```js
 // Deprecato
 clipboard.readRtf()
-// Rimpiazza con
+// Sostituire con
 clipboard.readRTF()
 
 // Deprecato
 clipboard.writeRtf()
-// Rimpiazza con
+// Sostituire con
 clipboard.writeRTF()
 
 // Deprecato
 clipboard.readHtml()
-// Rimpiazza con
+// Sostituire con
 clipboard.readHTML()
 
 // Deprecato
 clipboard.writeHtml()
-// Rimpiazza con
+// Sostituire con
 clipboard.writeHTML()
 ```
 
-## `riportatorecrash`
+## `creshReporter`
 
 ```js
 // Deprecato
@@ -109,7 +109,7 @@ crashReporter.start({
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// Rimpiazza con
+// Sostituire con
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -117,7 +117,7 @@ crashReporter.start({
 })
 ```
 
-## `immagineNativa`
+## `nativeImage`
 
 ```js
 // Deprecato
@@ -137,7 +137,7 @@ const privateBytes = info.privateBytes // Proprietà deprecata
 const sharedBytes = info.sharedBytes // Proprietà deprecata
 ```
 
-## `schermo`
+## `screen`
 
 ```js
 // Deprecato
@@ -173,7 +173,7 @@ tray.setHighlightMode(false)
 tray.setHighlightMode('off')
 ```
 
-## `contenutiWeb`
+## `webContents`
 
 ```js
 // Deprecato
@@ -191,12 +191,12 @@ webContents.setSize(options)
 ```js
 // Deprecato
 webFrame.registerURLSchemeAsSecure('app')
-// Rimpiazza con
+// Sostituire con
 protocol.registerStandardSchemes(['app'], {secure: true})
 
 // Deprecato
 webFrame.registerURLSchemeAsPrivileged('app', {secure: true})
-// Rimpiazza con
+// Sostituire con
 protocol.registerStandardSchemes(['app'], {secure: true})
 ```
 
@@ -234,7 +234,7 @@ The following list includes the breaking API changes made in Electron 2.0.
 // Deprecated
 let optionsA = {titleBarStyle: 'hidden-inset'}
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// Sostituire with
 let optionsB = {titleBarStyle: 'hiddenInset'}
 let windowB = new BrowserWindow(optionsB)
 ```
