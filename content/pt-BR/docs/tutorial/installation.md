@@ -56,17 +56,17 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 
 #### Cache
 
-Como alternativa, você pode substituir o cache local. `electron-download` will cache downloaded binaries in a local directory to not stress your network. You can use that cache folder to provide custom builds of Electron or to avoid making contact with the network at all.
+Como alternativa, você pode substituir o cache local. O `electron-download` armazenará em cache os binários baixados em um diretório local para não estressar sua rede. Você pode usar essa pasta de cache para fornecer construções personalizadas do Electron ou evitar contato com a rede.
 
 * Linux: `$XDG_CACHE_HOME` ou `~/.cache/electron/`
 * MacOS: `~/Library/Caches/electron/`
 * Windows: `$LOCALAPPDATA/electron/Cache` ou `~/AppData/Local/electron/Cache/`
 
-On environments that have been using older versions of Electron, you might find the cache also in `~/.electron`.
+Em ambientes que usam versões mais antigas do Electron, você pode encontrar cache também em `~/.electron`.
 
-You can also override the local cache location by providing a `ELECTRON_CACHE` environment variable.
+Você também pode sobrescrever o local do cache local fornecendo uma variável `ELECTRON_CACHE` de ambiente.
 
-The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
+O cache contém o arquivo zip oficial da versão, bem como uma soma de verificação, armazenada como um arquivo de texto. Um cache típico pode se parecer com isso:
 
 ```sh
 ├── electron-v1.7.9-darwin-x64.zip
@@ -91,16 +91,16 @@ Se a instalação via `npm` falhar, você também pode tentar baixar o Electron 
 
 Se a instalação falha com um erro `EACCESS`, você precisará [corrgir suas permissões do npm](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
 
-If the above error persists, the [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) flag may need to be set to true:
+Se o erro acima persistir, o sinalizador unsafe-perm</ 0> pode precisar ser definido como true:</p> 
 
 ```sh
 sudo npm install electron --unsafe-perm=true
 ```
 
-On slower networks, it may be advisable to use the `--verbose` flag in order to show download progress:
+Em redes mais lentas, pode ser aconselhável usar o sinalizador `--verbose</ 0> para
+mostrar o progresso do download:</p>
 
-```sh
-npm install --verbose electron
-```
+<pre><code class="sh">npm install --verbose electron
+`</pre> 
 
-If you need to force a re-download of the asset and the SHASUM file set the `force_no_cache` environment variable to `true`.
+Se você precisar forçar um novo download do ativo e o arquivo SHASUM, defina a variável force_no_cache</ 0> do ambiente para <code>true</ 0>.</p>
