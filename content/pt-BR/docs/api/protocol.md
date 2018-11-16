@@ -20,11 +20,11 @@ app.on('ready', () => {
 })
 ```
 
-**Note:** All methods unless specified can only be used after the `ready` event of the `app` module gets emitted.
+**Nota:** Todos os métodos, a menos que seja especificados, só podem ser usados ​​após o evento `app` quando é emitido.
 
 ## Métodos
 
-The `protocol` module has the following methods:
+O módulo de protocol possui os seguintes métodos:
 
 ### `protocol.registerStandardSchemes(schemes[, options])`
 
