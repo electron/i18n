@@ -107,14 +107,14 @@
     "name": "German",
     "code": "de",
     "phrases": "9649",
-    "translated": "2827",
+    "translated": "2846",
     "approved": "35",
     "words": "88955",
-    "words_translated": "17892",
+    "words_translated": "17978",
     "words_approved": "66",
     "translated_progress": 20,
     "approved_progress": 0,
-    "qa_issues": 1088
+    "qa_issues": 1096
   },
   {
     "name": "Hebrew",
@@ -159,14 +159,14 @@
     "name": "Italian",
     "code": "it",
     "phrases": "9649",
-    "translated": "4712",
+    "translated": "4726",
     "approved": "3",
     "words": "88955",
-    "words_translated": "34842",
+    "words_translated": "35034",
     "words_approved": "43",
     "translated_progress": 39,
     "approved_progress": 0,
-    "qa_issues": 1724
+    "qa_issues": 1728
   },
   {
     "name": "Japanese",
@@ -224,14 +224,14 @@
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "9649",
-    "translated": "4199",
+    "translated": "4232",
     "approved": "373",
     "words": "88955",
-    "words_translated": "29930",
+    "words_translated": "30386",
     "words_approved": "2715",
-    "translated_progress": 33,
+    "translated_progress": 34,
     "approved_progress": 3,
-    "qa_issues": 1226
+    "qa_issues": 1243
   },
   {
     "name": "Romanian",
@@ -250,14 +250,14 @@
     "name": "Russian",
     "code": "ru",
     "phrases": "9649",
-    "translated": "5162",
+    "translated": "5166",
     "approved": "1006",
     "words": "88955",
-    "words_translated": "37636",
+    "words_translated": "37678",
     "words_approved": "7629",
     "translated_progress": 42,
     "approved_progress": 8,
-    "qa_issues": 1513
+    "qa_issues": 1515
   },
   {
     "name": "Spanish",
