@@ -1,16 +1,16 @@
 # màn hình
 
-> Retrieve information about screen size, displays, cursor position, etc.
+> Truy xuất thông tin về kích thước màn hình, hiển thị, vị trí con trỏ,.
 
 Tiến trình: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-You cannot require or use this module until the `ready` event of the `app` module is emitted.
+Bạn không thể yêu cầu hoặc sử dụng module này cho đến khi sự kiện của `ứng dụng` `sẵn sàng` được phát.
 
 `screen` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 **Note:** In the renderer / DevTools, `window.screen` is a reserved DOM property, so writing `let {screen} = require('electron')` will not work.
 
-An example of creating a window that fills the whole screen:
+Ví dụ tạo cửa sổ rộng toàn màn hình:
 
 ```javascript
 const electron = require('electron')
