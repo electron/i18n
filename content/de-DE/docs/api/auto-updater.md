@@ -104,7 +104,7 @@ Gibt ` String </ 0> zurück - Die aktuelle URL des Aktualisierungsfeeds.</p>
 
 Fragt den Server, ob es ein Update gibt. Sie müssen ` setFeedURL </ 0> aufrufen, bevor Sie diese API verwenden .</p>
 
-<h3><code>autoUpdater.quitAndInstall ()`</h3> 
+<h3><code>autoUpdater.quitAndInstall()`</h3> 
 
 Startet die App neu und installiert das Update nach dem Herunterladen. Es sollte nur aufgerufen werden, nachdem ` update-downloaded </ 0> ausgegeben wurde.</p>
 
