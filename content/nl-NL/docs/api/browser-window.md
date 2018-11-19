@@ -344,7 +344,7 @@ Emitted when the window leaves a full-screen state triggered by HTML API.
 
 #### Event: 'app-command' *Windows*
 
-Returns:
+Geeft terug:
 
 * `event` Event
 * `command` String
@@ -378,7 +378,7 @@ Emitted when scroll wheel event phase filed upon reaching the edge of element.
 
 #### Event: 'swipe' *macOS*
 
-Returns:
+Geeft terug:
 
 * `event` Event
 * `direction` String
@@ -628,7 +628,7 @@ Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look)
 #### `win.setBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (optioneel) *macOS*
 
 Resizes and moves the window to the supplied bounds
 
@@ -639,7 +639,7 @@ Returns [`Rectangle`](structures/rectangle.md)
 #### `win.setContentBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (optioneel) *macOS*
 
 Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
 
@@ -791,7 +791,7 @@ Moves window to the center of the screen.
 
 * `x` Integer
 * `y` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (optioneel) *macOS*
 
 Moves window to `x` and `y`.
 
@@ -904,7 +904,7 @@ Returns `Boolean` - Whether the window's document has been edited.
 #### `win.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
-* `callback` Functie 
+* `callback` Function 
   * `image` [NativeImage](native-image.md)
 
 Same as `webContents.capturePage([rect, ]callback)`.
