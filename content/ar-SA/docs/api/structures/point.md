@@ -1,4 +1,4 @@
-# Point Object
+# إحداثيات الكائن
 
-* `x` Number
-* `y` Number
+* `x` رقم بصيفة Number
+* `y` رقم بصيفة Number
