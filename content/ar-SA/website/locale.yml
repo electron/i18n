@@ -16,7 +16,7 @@ docs:
   description: مشاهدة <a href="/docs/all"> كافة المستندات في صفحة واحدة</a> أو التحقق من <a href="/docs/faq"> الأسئلة الأكثر تكرارًا</a>.
   guides: الأدلة
   api_reference: مرجع API
-  api_structures: API Structures
+  api_structures: بنية الواجهة البرمجية API
   advanced: خيارات متقدمة
   footer:
     propose_change: تحسين هذه الوثيقة
@@ -51,11 +51,11 @@ community:
   videos: مقاطع فيديو
   meetups: الملتقيات
   awesome_notice: هذه قائمة تم تكوينها من <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repository. <br> شيء مفقود؟ <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">تقديم طلب سحب للمستودع</a>.
-  meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">make a pull request</a>.
+  meetup_notice: لإضافة اجتماع ، عدِّل<code>data/meetups.json</code> و <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">تقديم طلب سحب</a>.
 releases:
-  title: Electron Releases
-  all_releases: All Releases
-  back_to_index: Back to index
+  title: إصدارات إلكترون
+  all_releases: كل الاصدارات
+  back_to_index: العودة إلى الرئيسية
 electron_is_easy:
   title: الأمر أسهل مما تصور
   description: إن كان بمقدورك بناء موقع إلكتروني، فستكون قادرًا على بناء تطبيق سطح المكتب. Electron هو إطار عمل لإنشاء تطبيقات سطح المكتب حقيقة باستخدام تقنيات الويب مثل جافاسكريبت وHTML وCSS. يهتم Electron بالتفاصيل الصعبة والمعقدة ليتيح لك التركيز على جوهر تطبيقك.
@@ -81,7 +81,7 @@ get_started:
   description: للشروع في استخدام إلكترون، راجع المصادر المذكورة أدناه. ولتتعرف على كيفية ربط تطبيق الويب الخاص بك مع إلكترون، راجع توثيقات الواجهة البرمجية API وأنشئ برامج التثبيت.
 explore:
   title: استكشف واجهة إلكترون البرمجية API
-  description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
+  description: "<a href='https://github.com/electron/electron-api-demos'>تطبيق المعاينات للواجهة البرمجة API لإكترون </a>\nيوضح بشكل تفاعلي أهم ميزات واجهة برمجة التطبيقات الإلكترونية. شاهد ما هو ممكن باستخدام Electron مع نموذج التعليمات البرمجية والنصائح المفيدة لإنشاء تطبيقك."
 download_from_github: تحميل من GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases"> عرض جميع الإصدارات</a> على GitHub
 quick_start:
@@ -93,7 +93,7 @@ quick_start:
   dive_deeper: أو الغوص أعمق وقراءة <a href='/docs'> الوثائق</a>.
 need_help:
   title: هل أنت بحاجة إلى مساعدة؟
-  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum or our <a href='http://atom-slack.herokuapp.com/'>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
+  description: 'اطرح أسئلة في منتدى <a href=''https://discuss.atom.io/c/electron''> المناقشة </a> أو <a href=''http: //atom-slack.herokuapp.com/''> Slack </a> قناة. تابع <a href="https://twitter.com/electronjs">electronjs </a> على Twitter للحصول على كل جديد. تحتاج لمراسلة خاصة؟ البريد الإلكتروني <a href="mailto:info@electronjs.org"> info@electronjs.org </a>.'
 headings:
   languages: اللغات
 taglines:
@@ -108,21 +108,21 @@ apps:
   submit_your_own: أرسل تطبيقك الخاص
   something_missing: هل هناك شيء مفقود؟
   edit_this_app: عدّل هذا التطبيق.
-  search_app: Filter apps by name, description, etc…
-  categories: Categories
-  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
-  website: Website
-  repository: Repository
-  category: Category
-  downloads: Downloads
-  keywords: Keywords
-  license: License
-  latest_release: Latest Release
+  search_app: تصفية التطبيقات حسب الاسم والوصف وغير ذلك…
+  categories: الاقسام
+  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">قم بعمل طلب سحب</a> لإضافة التطبيق الخاص بك.'
+  website: موقع الكتروني
+  repository: مستودع
+  category: الفئة
+  downloads: التنزيلات
+  keywords: الكلمات المفتاحية
+  license: رخصة
+  latest_release: أحدث إصدار
 blog:
   title: مدونة إلكترون
   description: آخر الأخبار من فريق ومجتمع إلكترون.
-  feedback: Have feedback on this post? Let <a href="https://twitter.com/electronjs">@electronjs</a> know on Twitter.
-  help: Need help or found a bug? <a href="/contact">Contact us</a>.
+  feedback: هل لديك ملاحظات حول هذا الموضوع؟ دع Let <a href="https://twitter.com/electronjs">@electronjs</a> يعلم بأمرها.
+  help: هل انت بحاجة للمساعدة، أم انك عثرت على خطأ؟ <a href="/contact">راسلنا</a>.
 clipboard:
   copy: نسخ
   copy_to_clipboard: نسخ إلى الحافظة
