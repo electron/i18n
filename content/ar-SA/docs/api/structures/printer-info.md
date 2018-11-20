@@ -1,13 +1,13 @@
-# PrinterInfo Object
+# الكائن PrinterInfo
 
 * اسم الجهاز
 * اسم الجهاز
-* `status` Number
-* `isDefault` Boolean
+* `status` رقم
+* `isDefault` قيمة منطقية
 
-## Example
+## مثال
 
-Below is an example of some of the additional options that may be set which may be different on each platform.
+في ما يلي مثال لبعض الخيارات الإضافية التي قد يتم تعيينها والتي قد تكون مختلفة على كل نظام أساسي.
 
 ```javascript
 {
