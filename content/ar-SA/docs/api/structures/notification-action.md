@@ -11,9 +11,9 @@
 
 ### الازرار المدعومة في macOS
 
-In order for extra notification buttons to work on macOS your app must meet the following criteria.
+لكي تعمل أزرار الإشعارات الإضافية على نظام macOS ، يجب أن يستوفي تطبيقك المعايير التالية.
 
-* App is signed
-* App has it's `NSUserNotificationAlertStyle` set to `alert` in the `Info.plist`.
+* التطبيق يجب أن يكون موقعا
+* يحتوي التطبيق على `NSUserNotificationAlertStyle ` لتعيين `alert` في ` Info.plist `.
 
-If either of these requirements are not met the button won't appear.
+في حالة عدم تلبية أي من هذه المتطلبات ، لن يظهر الزر. في حالة عدم تلبية أي من هذه المتطلبات ، لن يظهر الزر.
