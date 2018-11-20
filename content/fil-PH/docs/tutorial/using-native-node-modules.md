@@ -68,8 +68,13 @@ npm rebuild --nodedir=$HOME/.../path/to/electron/vendor/node
 Kung naka-install ka ng isang native na modyul at nalamang hindi ito gumagana, kailangan mong tingnan ang mga sumusunod na mga bagay:
 
 * Ang arkitektura ng modyul ay dapat tugma sa arkitektura ng Electron (ia32 o x64).
+* `win_delay_load_hook` is not set to `false` in the module's `binding.gyp`.
 * Pagkatapos mong i-upgrade ang Electron, kadalasan kailangan mong i-rebuild ang mga modyul.
 * Kung hindi sigurado, paganahin muna ang `electron-rebuild`.
+
+### A note about `win_delay_load_hook`
+
+On Windows, by default, node-gyp links native modules against `node.dll`. However, in Electron 4.x and higher, the symbols needed by native modules are exported by `electron.exe`, and there is no `node.dll` in Electron 4.x. In order to load native modules on Windows, node-gyp installs a [delay-load hook](https://msdn.microsoft.com/en-us/library/z9h1h6ty.aspx) that triggers when the native module is loaded, and redirects the `node.dll` reference to use the loading executable instead of looking for `node.dll` in the library search path (which would turn up nothing). As such, on Electron 4.x and higher, `'win_delay_load_hook': 'true'` is required to load native modules.
 
 ## Mga Modyul na nakadepende sa `prebuild`
 
