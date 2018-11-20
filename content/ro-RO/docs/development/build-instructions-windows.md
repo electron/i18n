@@ -42,7 +42,7 @@ To generate a Visual Studio project, you can pass the `--ide=vs2017` parameter t
 $ gn gen out/Debug --ide=vs2017
 ```
 
-## Troubleshooting
+## Depanare
 
 ### Command xxxx not found
 
