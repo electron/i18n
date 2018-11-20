@@ -68,8 +68,13 @@ npm rebuild --nodedir=$HOME/.../path/to/electron/vendor/node
 Se hai installato un modulo nativo ed hai trovato che non fosse funzionante, devi controllare le seguenti cose:
 
 * L'architettura del modulo deve corrispondere con quella di Electron (ia32 o x64).
+* `win_delay_load_hook` is not set to `false` in the module's `binding.gyp`.
 * Dopo un aggiornamento di Electron, dovrai spesso ricostruire i moduli.
 * Quando sei in dubbio, esegui prima `electron-rebuild`.
+
+### A note about `win_delay_load_hook`
+
+On Windows, by default, node-gyp links native modules against `node.dll`. However, in Electron 4.x and higher, the symbols needed by native modules are exported by `electron.exe`, and there is no `node.dll` in Electron 4.x. In order to load native modules on Windows, node-gyp installs a [delay-load hook](https://msdn.microsoft.com/en-us/library/z9h1h6ty.aspx) that triggers when the native module is loaded, and redirects the `node.dll` reference to use the loading executable instead of looking for `node.dll` in the library search path (which would turn up nothing). As such, on Electron 4.x and higher, `'win_delay_load_hook': 'true'` is required to load native modules.
 
 ## Moduli rilevanti su `prebuild`
 
@@ -81,6 +86,6 @@ Se i moduli forniscono binari per usarli in Electron, assicurati di omettere `--
 
 Lo [strumento `node-pre-gyp`](https://github.com/mapbox/node-pre-gyp) fornisce un modo per implementare i moduli nativi di Node con binari precostruiti e molti moduli popolari lo usano.
 
-Spesso questi moduli lavorano bene sotto Electron, ma a volte quando Electron usa una nuova versione di V8 e ci sono cambiamenti ABI, posso succedere brutte cose. Quindi in generale si raccomanda di costruire sempre moduli nativi dal codice sorgente.
+Spesso questi moduli lavorano bene sotto Electron, ma a volte quando Electron usa una nuova versione di V8 e ci sono cambiamenti ABI, posso succedere brutte cose. Quindi in generale si raccomanda di costruire sempre moduli nativi dal codice risorsa.
 
-Se stai installando moduli tramite `npm`, questo sarà fatto di default, altrimenti devi passare `--build-from-source` a `npm` o impostare la variabile ambiente `npm_config_build_from_source`.
+Se stai seguendo il metodo di installazione moduli `npm`, questo sarà fatto di default, altrimenti devi passare `--build-from-source` a `npm` o impostare la variabile ambiente `npm_config_build_from_source`.

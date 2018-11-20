@@ -1,10 +1,10 @@
 # protocol
 
-> Register a custom protocol and intercept existing protocol requests.
+> Registra um protocolo personalizado e intercepta as solicitações de protocolo existentes.
 
 Processo: [Main](../glossary.md#main-process)
 
-An example of implementing a protocol that has the same effect as the `file://` protocol:
+Um exemplo de implementação de um protocolo que tem o mesmo efeito que o `file://` protocol:
 
 ```javascript
 const {app, protocol} = require('electron')
@@ -15,28 +15,28 @@ app.on('ready', () => {
     const url = request.url.substr(7)
     callback({path: path.normalize(`${__dirname}/${url}`)})
   }, (error) => {
-    if (error) console.error('Failed to register protocol')
+    if (error) console.error('Falha ao registrar o protocolo')
   })
 })
 ```
 
-**Note:** All methods unless specified can only be used after the `ready` event of the `app` module gets emitted.
+**Nota:** Todos os métodos, a menos que seja especificados, só podem ser usados ​​após o evento `app` quando é emitido.
 
 ## Métodos
 
-The `protocol` module has the following methods:
+O módulo de protocolo possui os seguintes métodos:
 
 ### `protocol.registerStandardSchemes(schemes[, options])`
 
-* `schemes` String[] - Custom schemes to be registered as standard schemes.
+* `schemes` String[] - Esquemas personalizados para serem registrados como esquemas padrão.
 * `options` Objeto (opcional) 
-  * `secure` Boolean (optional) - `true` to register the scheme as secure. Default `false`.
+  * `secure` Boolean (optional) - `true` registra o esquema como seguro
 
-A standard scheme adheres to what RFC 3986 calls [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). For example `http` and `https` are standard schemes, while `file` is not.
+Um esquema padrão adere ao que a RFC 3986 chama [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). Por exemplo `http` e `https` são esquema padrão, enquanto `file` não é.
 
-Registering a scheme as standard, will allow relative and absolute resources to be resolved correctly when served. Otherwise the scheme will behave like the `file` protocol, but without the ability to resolve relative URLs.
+Registrando um esquema como padrão, permitirá que recursos relativos e absolutos sejam resolvidos corretamente quando vinculados. Caso contrário, o esquema se comportará como o protocolo `file`, mas sem a capacidade de resolver URLs relativos.
 
-For example when you load following page with custom protocol without registering it as standard scheme, the image will not be loaded because non-standard schemes can not recognize relative URLs:
+Por exemplo, quando você carrega a página seguinte com o protocolo personalizado sem registrando-o como esquema padrão, a imagem não será carregada porque esquemas não padrão não podem reconhecer URLs relativas:
 
 ```html
 <body>
@@ -44,7 +44,7 @@ For example when you load following page with custom protocol without registerin
 </body>
 ```
 
-Registering a scheme as standard will allow access to files through the [FileSystem API](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem). Otherwise the renderer will throw a security error for the scheme.
+Registrar um esquema como padrão permitirá o acesso aos arquivos através do[FileSystem API](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem). Caso contrário, o renderizador lançará um erro de segurança para o esquema.
 
 By default web storage apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) are disabled for non standard schemes. So in general if you want to register a custom protocol to replace the `http` protocol, you have to register it as a standard scheme:
 

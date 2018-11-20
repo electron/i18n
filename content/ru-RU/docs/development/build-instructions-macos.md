@@ -7,7 +7,7 @@
 - macOS >= 10.11.6
 - [Xcode](https://developer.apple.com/technologies/tools/) >= 8.2.1
 - [node.js](https://nodejs.org) (внешнее)
-- Python 2.7 with support for TLS 1.2
+- Python 2.7 с поддержкой TLS 1.2
 
 ## Python
 
@@ -47,6 +47,6 @@ cp -r /Volumes/Xcode/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Deve
 - Установите `MinimumSDKVersion` в `10.10`
 - Сохраните файл
 
-## Building Electron
+## Собираем Electron
 
 See [Build Instructions: GN](build-instructions-gn.md).

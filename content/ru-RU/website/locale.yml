@@ -1,4 +1,4 @@
-tagline: Создавайте кросс-платформенные приложения при помощи JavaScript, HTML и CSS
+tagline: Создавайте кроссплатформенные приложения при помощи JavaScript, HTML и CSS
 nav:
   apps: Приложения
   blog: Блог
@@ -15,7 +15,7 @@ docs:
   title: Документация Electron
   description: Просмотрите всю <a href="/docs/all">документацию на одной странице</a> или посетите <a href="/docs/faq">ЧаВо</a>.
   guides: Руководства
-  api_reference: Справочник по API
+  api_reference: Справка по API
   api_structures: Структуры API
   advanced: Расширенный
   footer:
@@ -81,7 +81,7 @@ get_started:
   description: Для начала работы с Electron посмотрите на указанные ниже ресурсы. Узнайте как обернуть ваше веб-приложение с Electron, получить доступ ко всем API и научиться создавать установщики.
 explore:
   title: Исследуйте Electron API
-  description: "<a href='https://github.com/electron/electron-api-demos'>Демонстрационное приложение API Electron'а</a> интерактивно демонстрирует наиболее важные функции API Electron'а. Посмотрите на возможности Electron на примере простого кода и прочитайте полезные советы для создания Вашего приложения."
+  description: "<a href='https://github.com/electron/electron-api-demos'>Демонстрационное приложение Electron API</a> интерактивно демонстрирует наиболее важные функции Electron API. Посмотрите на возможности Electron на примере простого кода и прочитайте полезные советы для создания Вашего приложения."
 download_from_github: Скачать с GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Посмотреть все релизы</a> на GitHub
 quick_start:
@@ -108,7 +108,7 @@ apps:
   submit_your_own: опубликовать своё
   something_missing: Что-то отсутствует?
   edit_this_app: Измените это приложение.
-  search_app: Отфильтровать приложения по имени, описанию, другое…
+  search_app: Отфильтровать приложения по имени, описанию и так далее…
   categories: Категории
   add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Создайте Pull Request</a>, чтобы добавить свое приложение.'
   website: Веб-сайт

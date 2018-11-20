@@ -72,7 +72,7 @@ And to cross-compile for `arm` or `ia32` targets, you should pass the `target_cp
 $ gn gen out/Debug --args='import(...) target_cpu="arm"'
 ```
 
-## Building
+## Bouwen
 
 See [Build Instructions: GN](build-instructions-gn.md)
 

@@ -1,11 +1,12 @@
 # اكتب String (اختياري) - أحد ما يلي: المهام - سيتم وضع العناصر في هذه الفئة في فئة المهام القياسية. يمكن أن يكون هناك فئة واحدة فقط ، وسيتم عرضها دائمًا في أسفل قائمة الانتقال السريع. متكرر - يعرض قائمة من الملفات التي يفتحها التطبيق بشكل متكرر ، يتم تعيين اسم الفئة وعناصرها بواسطة Windows. حديث - يعرض قائمة بالملفات التي تم فتحها مؤخرًا بواسطة التطبيق ، يتم تعيين اسم الفئة وعناصرها بواسطة Windows. يمكن إضافة العناصر إلى هذه الفئة بشكل غير مباشر باستخدام app.addRecentDocument (مسار). custom - لعرض المهام أو روابط الملفات ، يجب أن يتم تعيين الاسم بواسطة التطبيق. اسم السلسلة (اختياري) - يجب تحديده إذا كان النوع مخصصًا ، وإلا يجب حذفه. عناصر JumpListItem [] (اختياري) - صفيف كائنات JumpListItem إذا كان النوع هو مهام أو مخصص ، وإلا يجب حذفه. ملاحظة: إذا كان كائن JumpListCategory لا يحتوي على النوع ولا خاصية الاسم ، فسيتم افتراض أن نوعه هو مهام. إذا تم تعيين خاصية الاسم ولكن تم حذف خاصية الكتابة ، فيتم افتراض أن النوع مخصص.
 
 * `النوع` السلسلة (اختياري) - أحد ما يلي: 
-  * `tasks` - Items in this category will be placed into the standard `Tasks` category. There can be only one such category, and it will always be displayed at the bottom of the Jump List.
-  * `frequent` - Displays a list of files frequently opened by the app, the name of the category and its items are set by Windows.
-  * `recent` - Displays a list of files recently opened by the app, the name of the category and its items are set by Windows. Items may be added to this category indirectly using `app.addRecentDocument(path)`.
-  * `custom` - Displays tasks or file links, `name` must be set by the app.
-* `name` String (optional) - Must be set if `type` is `custom`, otherwise it should be omitted.
-* `items` JumpListItem[] (optional) - Array of [`JumpListItem`](jump-list-item.md) objects if `type` is `tasks` or `custom`, otherwise it should be omitted.
+  * `tasks` - سيتم وضع عناصر هذه الفئة في الفئة`Tasks`المعيارية. يمكن أن يكون هناك فئة واحدة فقط ، وسيتم عرضها دائمًا في أسفل قائمة الانتقال السريع.
+  * `frequent`- يعرض قائمة من الملفات التي يتم فتحها بشكل متكرر من قبل التطبيق ، يتم تعيين اسم الفئة وعناصرها بواسطة Windows.
+  * `recent` - يعرض قائمة بالملفات التي تم فتحها مؤخرًا بواسطة التطبيق ، ويتم تعيين اسم الفئة وعناصرها بواسطة Windows. يمكن إضافة عناصر لهذه الفئة بطريقة غير مباشرة باستخدام `app.addRecentDocument(path)`.
+  * `custom` - يعرض المهام أو روابط الملفات, `name` يجب أن يحددها التطبيق.
+* `name` السلسلة (اختياري) - يجب تحديدها إذا`type` هو `custom`, وإلا يجب أن يكون.
+* ` items </ 0> JumpListItem [] (اختياري) - صفيف الكائنات <a href="jump-list-item.md"><code> JumpListItem </ 1> إذا كانت <code> type </ 0> هي <code> مهمات </ 0> أو <code> custom < / 0> ، وإلا يجب حذفها.</li>
+</ul>
 
-**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. If the `name` property is set but the `type` property is omitted then the `type` is assumed to be `custom`.
+<p><strong>Note:</strong> إذا كان الكائن <code>JumpListCategory` ليس لديه `type` ولا `name` تعيين الخواص `type` يفترض أن يكون `tasks`. إذا كانت خاصية `name` معينة لكن خاصية `type` يتم حذفها ويفترض أن يكون `type` `custom`.</p>

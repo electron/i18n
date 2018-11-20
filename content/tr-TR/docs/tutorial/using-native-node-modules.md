@@ -67,11 +67,16 @@ npm rebuild --nodedir=$HOME/.../path/to/electron/vendor/node
 Yerel bir modül yüklediyseniz ve çalışmadığını tespit ettiyseniz, aşağıdaki hususları kontrol etmeniz gerekir:
 
 * Modülün mimarisi, Electron'un mimarisiyle (ia32 veya x64) eşleşmelidir.
+* `win_delay_load_hook` is not set to `false` in the module's `binding.gyp`.
 * Electron'u yükselttikten sonra genellikle modülleri yeniden oluşturmanız gerekir.
 * Şüpheniz olduğunda, önce ` elektron yeniden inşa </ 0> 'yı çalıştırın.</li>
 </ul>
 
-<h2><code>prebuild`'e dayanan modüller</h2> 
+<h3>A note about <code>win_delay_load_hook`</h3> 
+    On Windows, by default, node-gyp links native modules against `node.dll`. However, in Electron 4.x and higher, the symbols needed by native modules are exported by `electron.exe`, and there is no `node.dll` in Electron 4.x. In order to load native modules on Windows, node-gyp installs a [delay-load hook](https://msdn.microsoft.com/en-us/library/z9h1h6ty.aspx) that triggers when the native module is loaded, and redirects the `node.dll` reference to use the loading executable instead of looking for `node.dll` in the library search path (which would turn up nothing). As such, on Electron 4.x and higher, `'win_delay_load_hook': 'true'` is required to load native modules.
+    
+    ## `prebuild`'e dayanan modüller
+    
     [`prebuild`](https://github.com/mafintosh/prebuild), Node ve Electron'un birçok sürümü için önceden oluşturulmuş umumi Node modüllerini kolayca yayınlamak için bir yol sağlar.
     
     Eğer modüller Electron'da kullanım için ikili dosyalar sağlıyorsa, önceden oluşturulmuş ikili dosyalardan tam avantaj sağlamak için `--build-from-source` ve `npm_config_build_from_source` ortam değişkenlerini dahil etmediğinizden emin olun.

@@ -36,19 +36,19 @@ Se você precisar usar um proxy HTTP você pode [definir estas variáveis de amb
 
 ## Mirrors e Caches Customizados
 
-During installation, the `electron` module will call out to [`electron-download`](https://github.com/electron-userland/electron-download) to download prebuilt binaries of Electron for your platform. It will do so by contacting GitHub's release download page (`https://github.com/electron/electron/releases/tag/v$VERSION`, where `$VERSION` is the exact version of Electron).
+Durante a instalação, o módulo `electron` vai se conectar para o [`electron-download`](https://github.com/electron-userland/electron-download) para fazer o download de binários pré-construídos do Electron para a sua plataforma. Ele fará isso entrando em contato a página de lançamento da GitHub (`https://github.com/electron/electron/releases/tag/v$VERSION`, onde `$VERSION` é a versão exata do Electron).
 
-If you are unable to access GitHub or you need to provide a custom build, you can do so by either providing a mirror or an existing cache directory.
+Se você não conseguir acessar o GitHub ou precisar fornecer uma compilação personalizada, poderá fazê-lo fornecendo um espelho ou um diretório de cache existente.
 
-#### Mirror
+#### Mirror (espelhamento)
 
-You can use environment variables to override the base URL, the path at which to look for Electron binaries, and the binary filename. The url used by `electron-download` is composed as follows:
+Você pode usar variáveis de ambiente para substituir a URL base, o caminho no qual procurar por binários Electron e o nome do arquivo binário. A Url usada pelo `electron-download` é composta da seguinte maneira:
 
 ```txt
 url = ELECTRON_MIRROR + ELECTRON_CUSTOM_DIR + '/' + ELECTRON_CUSTOM_FILENAME
 ```
 
-For instance, to use the China mirror:
+Por exemplo, para usar o mirror da China:
 
 ```txt
 ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
@@ -56,17 +56,17 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 
 #### Cache
 
-Alternatively, you can override the local cache. `electron-download` will cache downloaded binaries in a local directory to not stress your network. You can use that cache folder to provide custom builds of Electron or to avoid making contact with the network at all.
+Como alternativa, você pode substituir o cache local. O `electron-download` armazenará em cache os binários baixados em um diretório local para não estressar sua rede. Você pode usar essa pasta de cache para fornecer construções personalizadas do Electron ou evitar contato com a rede.
 
 * Linux: `$XDG_CACHE_HOME` ou `~/.cache/electron/`
 * MacOS: `~/Library/Caches/electron/`
 * Windows: `$LOCALAPPDATA/electron/Cache` ou `~/AppData/Local/electron/Cache/`
 
-On environments that have been using older versions of Electron, you might find the cache also in `~/.electron`.
+Em ambientes que usam versões mais antigas do Electron, você pode encontrar cache também em `~/.electron`.
 
-You can also override the local cache location by providing a `ELECTRON_CACHE` environment variable.
+Você também pode sobrescrever o local do cache local fornecendo uma variável `ELECTRON_CACHE` de ambiente.
 
-The cache contains the version's official zip file as well as a checksum, stored as a text file. A typical cache might look like this:
+O cache contém o arquivo zip oficial da versão, bem como uma soma de verificação, armazenada como um arquivo de texto. Um cache típico pode se parecer com isso:
 
 ```sh
 ├── electron-v1.7.9-darwin-x64.zip
@@ -91,16 +91,16 @@ Se a instalação via `npm` falhar, você também pode tentar baixar o Electron 
 
 Se a instalação falha com um erro `EACCESS`, você precisará [corrgir suas permissões do npm](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
 
-If the above error persists, the [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) flag may need to be set to true:
+Se o erro acima persistir, o sinalizador unsafe-perm</ 0> pode precisar ser definido como true:</p> 
 
 ```sh
 sudo npm install electron --unsafe-perm=true
 ```
 
-On slower networks, it may be advisable to use the `--verbose` flag in order to show download progress:
+Em redes mais lentas, pode ser aconselhável usar o sinalizador `--verbose</ 0> para
+mostrar o progresso do download:</p>
 
-```sh
-npm install --verbose electron
-```
+<pre><code class="sh">npm install --verbose electron
+`</pre> 
 
-If you need to force a re-download of the asset and the SHASUM file set the `force_no_cache` environment variable to `true`.
+Se você precisar forçar um novo download do ativo e o arquivo SHASUM, defina a variável force_no_cache</ 0> do ambiente para <code>true</ 0>.</p>

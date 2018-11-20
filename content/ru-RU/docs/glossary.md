@@ -50,7 +50,7 @@ IPC стенды для взаимодействия между процесса
 
 ### Mojo
 
-An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.
+Система IPC для обмена внутри- или межпроцессорными процессами, она важна, потому что Chrome решает, разделять свою работу на отдельные процессы или нет, в зависимости от заполнения памяти и т.д.
 
 Смотри https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 

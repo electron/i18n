@@ -21,7 +21,7 @@ Das `app` Objekt stellt folgende Ereignisse zur Verfügung:
 
 Wird ausgelöst wenn die Anwendung den grundlegenenden Start abgeschlossen hat. Unter Windows und Linux, hat das `will-finish-launching`-Ereignis das gleiche Verhalten wie das `ready`-Ereignis; unter macOS, repräsentiert dieses Ereignis die `applicationWillFinishLaunching`-Benachrichtung von `NSApplication`. In der Regel würden hier Listener für die Ereignisse `open-file` und `open-url` registriert und der Crash Reporter und Auto-Updater gestartet werden.
 
-In most cases, you should do everything in the `ready` event handler.
+In den meisten Fällen, sollte man alles im `ready` Eventhandler machen.
 
 ### Ereignis: 'ready'
 
@@ -68,7 +68,7 @@ Durch einen Aufruf von <code>event.preventDefault()` wird die standardmäßige A
     Rückgabewert:
     
     * ` Ereignis </ 0>  Ereignis</li>
-<li><code>exitCode` Integer
+<li><code>exitCode` Ganze Zahl
     
     Wird ausgelöst wenn die App beendet wird.
     
@@ -79,7 +79,7 @@ Durch einen Aufruf von <code>event.preventDefault()` wird die standardmäßige A
     Rückgabewert:
     
     * ` Ereignis </ 0>  Ereignis</li>
-<li><code>path` String
+<li><code>path` Zeichenfolge
     
     Wird ausgelöst wenn der Nutzer versucht eine Datei mit der App zu öffnen. The `open-file` Event wird auch ausgelöst wenn die App bereits offen ist und das Betriebssystem die App nochmal zum Öffnen einer Datei benutzen will. `open-file` wird auch ausgelöst wenn eine Datei auf das Dock-Icon der App gezogen wird (macOS) und die App noch nicht gestartet ist. Behandle das `open-file` Event so früh wie möglich in deiner App um diesen Fall zu berücksichtigen (Also definitiv bevor das `ready` Event ausgelöst wird).
     
@@ -428,7 +428,7 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         * `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
         ### `app.getFileIcon(path[, options], callback)`
         
-        * `path` String
+        * `path` Zeichenfolge
         * `options` Objekt (optional) 
           * `size` String 
             * `small` - 16x16
@@ -450,7 +450,7 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         ### `app.setPath(name, path)`
         
         * `name` String
-        * `path` String
+        * `path` Zeichenfolge
         
         Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.
         
@@ -486,7 +486,7 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         ### `app.addRecentDocument(path)` *macOS* *Windows*
         
-        * `path` String
+        * `path` Zeichenfolge
         
         Adds `path` to the recent documents list.
         

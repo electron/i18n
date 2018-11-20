@@ -13,18 +13,18 @@ La seguente lista include i cambiamenti delle API pianificati per Electron 4.0.
 ## `app.makeSingleInstance`
 
 ```js
-// Deprecated
+// Deprecato
 app.makeSingleInstance(function (argv, cwd) {
 
 })
-// Replace with
+// Sostituire con
 app.requestSingleInstanceLock()
 app.on('second-instance', function (event, argv, cwd) {
 
 })
 ```
 
-## `app.rilasciaIstanzaSingola`
+## `app.releaseSingleInstance`
 
 ```js
 // Deprecato
@@ -76,31 +76,31 @@ window.on('app-command', (e, cmd) => {
 })
 ```
 
-## `appunti`
+## `clipboard`
 
 ```js
 // Deprecato
 clipboard.readRtf()
-// Rimpiazza con
+// Sostituire con
 clipboard.readRTF()
 
 // Deprecato
 clipboard.writeRtf()
-// Rimpiazza con
+// Sostituire con
 clipboard.writeRTF()
 
 // Deprecato
 clipboard.readHtml()
-// Rimpiazza con
+// Sostituire con
 clipboard.readHTML()
 
 // Deprecato
 clipboard.writeHtml()
-// Rimpiazza con
+// Sostituire con
 clipboard.writeHTML()
 ```
 
-## `riportatorecrash`
+## `creshReporter`
 
 ```js
 // Deprecato
@@ -109,7 +109,7 @@ crashReporter.start({
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// Rimpiazza con
+// Sostituire con
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -117,7 +117,7 @@ crashReporter.start({
 })
 ```
 
-## `immagineNativa`
+## `nativeImage`
 
 ```js
 // Deprecato
@@ -137,7 +137,7 @@ const privateBytes = info.privateBytes // Proprietà deprecata
 const sharedBytes = info.sharedBytes // Proprietà deprecata
 ```
 
-## `schermo`
+## `screen`
 
 ```js
 // Deprecato
@@ -173,7 +173,7 @@ tray.setHighlightMode(false)
 tray.setHighlightMode('off')
 ```
 
-## `contenutiWeb`
+## `webContents`
 
 ```js
 // Deprecato
@@ -191,12 +191,12 @@ webContents.setSize(options)
 ```js
 // Deprecato
 webFrame.registerURLSchemeAsSecure('app')
-// Rimpiazza con
+// Sostituire con
 protocol.registerStandardSchemes(['app'], {secure: true})
 
 // Deprecato
 webFrame.registerURLSchemeAsPrivileged('app', {secure: true})
-// Rimpiazza con
+// Sostituire con
 protocol.registerStandardSchemes(['app'], {secure: true})
 ```
 
@@ -231,10 +231,10 @@ The following list includes the breaking API changes made in Electron 2.0.
 ## `BrowserWindow`
 
 ```js
-// Deprecated
+// Deprecato
 let optionsA = {titleBarStyle: 'hidden-inset'}
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// Sostituire con
 let optionsB = {titleBarStyle: 'hiddenInset'}
 let windowB = new BrowserWindow(optionsB)
 ```
@@ -242,61 +242,61 @@ let windowB = new BrowserWindow(optionsB)
 ## `menu`
 
 ```js
-// Removed
+// Rimosso
 menu.popup(browserWindow, 100, 200, 2)
-// Replaced with
+// Sostituito con
 menu.popup(browserWindow, {x: 100, y: 200, positioningItem: 2})
 ```
 
-## `immagineNativa`
+## `nativeImage`
 
 ```js
-// Removed
+// Rimosso
 nativeImage.toPng()
-// Replaced with
+// Sostituito con
 nativeImage.toPNG()
 
-// Removed
+// Rimosso
 nativeImage.toJpeg()
-// Replaced with
+// Sostituito con
 nativeImage.toJPEG()
 ```
 
 ## `process`
 
-* `process.versions.electron` and `process.version.chrome` will be made read-only properties for consistency with the other `process.versions` properties set by Node.
+* `process.versions.electron` e `process.version.chrome` diventeranno delle proprietà di sola lettura coerentemente con le altre proprietà `process.versions` impostate da Node.
 
-## `contenutiWeb`
+## `webContents`
 
 ```js
-// Removed
+// Rimosso
 webContents.setZoomLevelLimits(1, 2)
-// Replaced with
+// Sostituito con
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## `webFrame`
 
 ```js
-// Removed
-webFrame.setZoomLevelLimits(1, 2)
-// Replaced with
-webFrame.setVisualZoomLevelLimits(1, 2)
+// Rimosso
+webContents.setZoomLevelLimits(1, 2)
+// Sostituito con
+webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## `<webview>`
 
 ```js
-// Removed
-webview.setZoomLevelLimits(1, 2)
-// Replaced with
-webview.setVisualZoomLevelLimits(1, 2)
+// Rimosso
+webContents.setZoomLevelLimits(1, 2)
+// Sostituito con
+webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
-## Duplicate ARM Assets
+## Asset ARM duplicati
 
-Each Electron release includes two identical ARM builds with slightly different filenames, like `electron-v1.7.3-linux-arm.zip` and `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
+Ogni rilascio di Electron include due build ARM identiche con filename leggermente differenti, come `electron-v1.7.3-linux-arm.zip` e `electron-v1.7.3-linux-armv7l.zip`. L'asset con il prefisso `v7l` è stato aggiunto per chiarire agli utenti quale versione di ARM esso supporti, e per renderlo disambiguo dai futuri asset armv6l e arm64 che potrebbero essere prodotti.
 
-The file *without the prefix* is still being published to avoid breaking any setups that may be consuming it. Starting at 2.0, the un-prefixed file will no longer be published.
+Il file *senza prefisso* è ancora in fase di pubblicazione per evitare di rompere le configurazioni che lo stanno ancora utilizzando. A partire dalla versione 2.0, il file senza prefisso non sarà più pubblicato.
 
-For details, see [6986](https://github.com/electron/electron/pull/6986) and [7189](https://github.com/electron/electron/pull/7189).
+Per maggiori dettagli, vedere [6986](https://github.com/electron/electron/pull/6986) e [7189](https://github.com/electron/electron/pull/7189).

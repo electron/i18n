@@ -55,7 +55,7 @@ community:
 releases:
   title: Electron Releases
   all_releases: All Releases
-  back_to_index: Back to index
+  back_to_index: Zurück zum Index
 electron_is_easy:
   title: Es ist einfacher, als Sie denken
   description: Sind Sie in der Lage eine Website zu erstellen? Dann können Sie auch eine Desktop-Anwendung entwickeln! Electron ist ein Framework, mit dem Sie Webtechnologien wie JavaScript, HTML und CSS nutzen, um native Desktop-Applikationen zu erstellen. Wir kümmern uns um die kniffligen Dinge &mdash; und Sie um den Kern der Anwendung.

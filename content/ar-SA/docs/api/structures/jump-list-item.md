@@ -11,7 +11,7 @@ title String (اختياري) - النص الذي سيتم عرضه للعنصر
 description string (اختياري) - وصف المهمة (معروضة في تلميح الأدوات). يجب أن يتم تعيينها فقط إذا كانت الكتابة مهمة.
 iconPath String (اختياري) - المسار المطلق لأيقونة ليتم عرضها في قائمة الانتقال السريع ، والتي يمكن أن تكون ملف موارد اعتباطي يحتوي على رمز (مثل .ico ، .exe ، .dll). يمكنك عادة تحديد process.execPath لإظهار رمز البرنامج.
 iconIndex Number (اختياري) - فهرس الرمز في ملف المورد. إذا كان ملف المورد يحتوي على رموز متعددة ، فيمكن استخدام هذه القيمة لتحديد فهرس يستند إلى الصفر للرمز الذي يجب عرضه لهذه المهمة. إذا كان ملف المورد يحتوي على رمز واحد فقط ، فيجب تعيين هذه الخاصية على صفر.` السلسلة (اختياري) - أحد ما يلي: 
-  * `task` - A task will launch an app with specific arguments.
+  * `task` - ستشغل المهمة تطبيقًا يحتوي على قيم محددة.
   * `separator` - Can be used to separate items in the standard `Tasks` category.
   * `file` - A file link will open a file using the app that created the Jump List, for this to work the app must be registered as a handler for the file type (though it doesn't have to be the default handler).
 * `path` String (optional) - Path of the file to open, should only be set if `type` is `file`.
