@@ -1,13 +1,13 @@
 # NotificationAction - كائن
 
-* `type` String - The type of action, can be `button`.
-* `text` String (optional) - The label for the given action.
+* `type` سلسلة - نوع الإجراء ، يمكن أن يكون`button`.
+* `text` سلسلة (اختياري) - التسمية الخاصة بالإجراء المحدد.
 
-## Platform / Action Support
+## المنصة / دعم العمل
 
-| Action Type | Platform Support | Usage of `text`                  | Default `text`                                                                              | Limitations                                                                                                                                                                                                                                                               |
-| ----------- | ---------------- | -------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `button`    | macOS            | Used as the label for the button | "Show" (or a localized string by system default if first of such `button`, otherwise empty) | Only the first one is used. If multiple are provided, those beyond the first will be listed as additional actions (displayed when mouse active over the action button). Any such action also is incompatible with `hasReply` and will be ignored if `hasReply` is `true`. |
+| Action Type | Platform Support | Usage of `text`    | افتراضي `text`                                                                                        | القيود                                                                                                                                                                                                                                     |
+| ----------- | ---------------- | ------------------ | ----------------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `زرّ`       | نظام macOS       | تستخدم كتسمية للزر | "إظهار" (أو سلسلة مترجمة حسب النظام الافتراضي إذا كان الأول من هذا القبيل`button`, خلاف ذلك هي فارغة) | أول واحد فقط يستخدم. إذا تم تقديم العديد، فسيتم إدراج الذين تجاوزوا الأول كإجراءات إضافية (يتم عرضها عند تنشيط الماوس فوق زر الإجراء). أي إجراء من هذا القبيل أيضا غير متوافق مع `hasReply` وسيتم تجاهلها إذا كان `hasReply` صحيحا `true`. |
 
 ### الازرار المدعومة في macOS
 
