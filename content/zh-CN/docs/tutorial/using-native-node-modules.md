@@ -68,8 +68,13 @@ npm rebuild --nodedir=$HOME/.../path/to/electron/vendor/node
 如果你安装了一个原生模块并发现它不能工作，你需要检查 以下事项：
 
 * 模块的对应的操作系统和 Electron 对应的操作系统是否匹配(ia32 或 x64)。
+* `win_delay_load_hook` is not set to `false` in the module's `binding.gyp`.
 * 如果升级了 Electron，你通常需要重新编译这些模块。
 * 当有疑问时，请先执行 `electron-rebuild`。
+
+### A note about `win_delay_load_hook`
+
+On Windows, by default, node-gyp links native modules against `node.dll`. However, in Electron 4.x and higher, the symbols needed by native modules are exported by `electron.exe`, and there is no `node.dll` in Electron 4.x. In order to load native modules on Windows, node-gyp installs a [delay-load hook](https://msdn.microsoft.com/en-us/library/z9h1h6ty.aspx) that triggers when the native module is loaded, and redirects the `node.dll` reference to use the loading executable instead of looking for `node.dll` in the library search path (which would turn up nothing). As such, on Electron 4.x and higher, `'win_delay_load_hook': 'true'` is required to load native modules.
 
 ## 依赖于 `prebuild` 的模块
 
