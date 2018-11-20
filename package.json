@@ -10,7 +10,7 @@
   "author": "zeke",
   "license": "MIT",
   "devDependencies": {
-    "@octokit/rest": "^15.2.7",
+    "@octokit/rest": "^16.0.1",
     "chai": "^4.1.2",
     "chai-date-string": "^0.1.0",
     "check-for-leaks": "^1.2.0",
