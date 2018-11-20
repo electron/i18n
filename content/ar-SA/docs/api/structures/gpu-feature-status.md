@@ -25,5 +25,5 @@
 * `enabled_readback` - الأجهزة المسرّعة ولكن بأداء منخفض (أصفر)
 * `enabled_force` - الأجهزة تسارعت في جميع الصفحات (أخضر)
 * `enabled`- الأجهزة المسرّعة (الخضراء)
-* `enabled_on` - Enabled (green)
-* `enabled_force_on`- تفعيل القوة (أخضر)
+* `enabled_on` - ممكن (أخضر)
+* `enabled_force_on`- الإجبار على التفعيل(أخضر)
