@@ -68,8 +68,13 @@ npm rebuild --nodedir=$HOME/.../path/to/electron/vendor/node
 Si instaló un módulo nativo y descubrió que no estaba funcionando, debe verificar las siguientes cosas:
 
 * La arquitectura del módulo debe coincidir con la arquitectura de Electron (ia32 o x64).
+* `win_delay_load_hook` is not set to `false` in the module's `binding.gyp`.
 * Después de actualizar Electron, generalmente necesita reconstruir los módulos.
 * En caso de duda, ejecute `electron-rebuild` primero.
+
+### A note about `win_delay_load_hook`
+
+On Windows, by default, node-gyp links native modules against `node.dll`. However, in Electron 4.x and higher, the symbols needed by native modules are exported by `electron.exe`, and there is no `node.dll` in Electron 4.x. In order to load native modules on Windows, node-gyp installs a [delay-load hook](https://msdn.microsoft.com/en-us/library/z9h1h6ty.aspx) that triggers when the native module is loaded, and redirects the `node.dll` reference to use the loading executable instead of looking for `node.dll` in the library search path (which would turn up nothing). As such, on Electron 4.x and higher, `'win_delay_load_hook': 'true'` is required to load native modules.
 
 ## Módulos que dependen de `prebuild`
 
