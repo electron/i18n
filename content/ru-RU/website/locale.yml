@@ -1,4 +1,4 @@
-tagline: Создавайте кросс-платформенные приложения при помощи JavaScript, HTML и CSS
+tagline: Создавайте кроссплатформенные приложения при помощи JavaScript, HTML и CSS
 nav:
   apps: Приложения
   blog: Блог
@@ -81,7 +81,7 @@ get_started:
   description: Для начала работы с Electron посмотрите на указанные ниже ресурсы. Узнайте как обернуть ваше веб-приложение с Electron, получить доступ ко всем API и научиться создавать установщики.
 explore:
   title: Исследуйте Electron API
-  description: "<a href='https://github.com/electron/electron-api-demos'>Демонстрационное приложение API Electron'а</a> интерактивно демонстрирует наиболее важные функции API Electron'а. Посмотрите на возможности Electron на примере простого кода и прочитайте полезные советы для создания Вашего приложения."
+  description: "<a href='https://github.com/electron/electron-api-demos'>Демонстрационное приложение Electron API</a> интерактивно демонстрирует наиболее важные функции Electron API. Посмотрите на возможности Electron на примере простого кода и прочитайте полезные советы для создания Вашего приложения."
 download_from_github: Скачать с GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Посмотреть все релизы</a> на GitHub
 quick_start:
