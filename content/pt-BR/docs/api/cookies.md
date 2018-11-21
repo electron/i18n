@@ -4,7 +4,7 @@
 
 Processo: [Main](../glossary.md#main-process)
 
-Instances of the `Cookies` class are accessed by using `cookies` property of a `Session`.
+Instâncias da classe `Cookies` são acessadas através da propriedade `cookies` de uma `Sessão`.
 
 Como por exemplo:
 
@@ -31,7 +31,7 @@ session.defaultSession.cookies.set(cookie, (error) => {
 
 ### Eventos de instância
 
-The following events are available on instances of `Cookies`:
+Os seguintes eventos estão disponíveis em instâncias de `Cookies`:
 
 #### Event: 'changed'
 
@@ -68,12 +68,12 @@ Sends a request to get all cookies matching `filter`, `callback` will be called 
 
 #### `cookies.set(details, callback)`
 
-* `details` Object 
-  * `url` String - The url to associate the cookie with.
-  * `name` String (optional) - The name of the cookie. Empty by default if omitted.
-  * `value` String (optional) - The value of the cookie. Empty by default if omitted.
-  * `domain` String (optional) - The domain of the cookie. Empty by default if omitted.
-  * `path` String (optional) - The path of the cookie. Empty by default if omitted.
+* `detalhes` Object 
+  * `url` String - A url que será associada ao cookie.
+  * `name` String (opcional) - O nome do cookie. Vazio por padrão caso omitido.
+  * `value` String (opcional) - O valor do cookie. Vazio por padrão caso omitido.
+  * `domain` String (opcional) - O domínio do cookie. Vazio por padrão caso omitido.
+  * `path` String (opcional) - O caminho do cookie. Vazio por padrão caso omitido.
   * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
   * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
@@ -84,8 +84,8 @@ Sets a cookie with `details`, `callback` will be called with `callback(error)` o
 
 #### `cookies.remove(url, name, callback)`
 
-* `url` String - The URL associated with the cookie.
-* `name` String - The name of cookie to remove.
+* `url` String - A URL associada com o cookie.
+* `name` String - O nome do cookie a ser removido.
 * `callback` Function
 
 Removes the cookies matching `url` and `name`, `callback` will called with `callback()` on complete.
