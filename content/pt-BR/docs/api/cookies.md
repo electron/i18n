@@ -54,11 +54,11 @@ The following methods are available on instances of `Cookies`:
 #### `cookies.get(filter, callback)`
 
 * `filter` Object 
-  * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all urls.
-  * `name` String (optional) - Filters cookies by name.
-  * `domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`.
-  * `path` String (optional) - Retrieves cookies whose path matches `path`.
-  * `secure` Boolean (optional) - Filters cookies by their Secure property.
+  * `url` String (opcional) - Recupera cookies associados com a `url`. Sendo vazia recupera cookies de todas as urls.
+  * `name` String (opcional) - Filtra cookies por nome.
+  * `domain` String (opcional) - Recupera cookies nos quais os domínios sejam iguais ou subdomínios de `domain`.
+  * `path` String (opcional) - Recupera cookies nos quais o caminho seja igual a `path`.
+  * `secure` Boolean (opcional) - Filtra cookies pela propriedade Secure.
   * `session` Boolean (optional) - Filters out session or persistent cookies.
 * `callback` Function 
   * `error` Error
@@ -74,8 +74,8 @@ Sends a request to get all cookies matching `filter`, `callback` will be called 
   * `value` String (opcional) - O valor do cookie. Vazio por padrão caso omitido.
   * `domain` String (opcional) - O domínio do cookie. Vazio por padrão caso omitido.
   * `path` String (opcional) - O caminho do cookie. Vazio por padrão caso omitido.
-  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
-  * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
+  * `secure` Boolean (opcional) - Indica se o cookie deve ser marcado como seguro. Padrão é falso.
+  * `httpOnly` Boolean (opcional) - Indica se o cookie deve ser marcado como apenas HTTP. Padrão é falso.
   * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
 * `callback` Function 
   * `error` Error
