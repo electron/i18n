@@ -224,14 +224,14 @@
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "9664",
-    "translated": "4234",
+    "translated": "4260",
     "approved": "373",
     "words": "89235",
-    "words_translated": "30392",
+    "words_translated": "30586",
     "words_approved": "2715",
     "translated_progress": 34,
     "approved_progress": 3,
-    "qa_issues": 1242
+    "qa_issues": 1246
   },
   {
     "name": "Romanian",
@@ -270,7 +270,7 @@
     "words_approved": "2369",
     "translated_progress": 85,
     "approved_progress": 2,
-    "qa_issues": 3347
+    "qa_issues": 3346
   },
   {
     "name": "Tagalog",
