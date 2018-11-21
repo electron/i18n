@@ -3,8 +3,8 @@ require('make-promises-safe')
 const chai = require('chai')
 chai.should()
 chai.use(require('chai-date-string'))
-const {expect} = chai
-const {describe, it, xit} = require('mocha')
+const { expect } = chai
+const { describe, it, xit } = require('mocha')
 const i18n = require('..')
 const cheerio = require('cheerio')
 
@@ -54,7 +54,7 @@ describe('i18n.docs', () => {
 
   describe('sections', () => {
     it('breaks up HTML into sections, for language-toggling on the website', () => {
-      const {sections} = i18n.docs['en-US']['/docs/api/accelerator']
+      const { sections } = i18n.docs['en-US']['/docs/api/accelerator']
       sections.should.be.an('array')
       sections.length.should.be.above(0)
       sections.every(section => section.name && section.html).should.eq(true)

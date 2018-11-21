@@ -11,7 +11,7 @@ const parseElectronGlossary = require('../lib/parse-electron-glossary')
 main()
 
 async function main () {
-  const glossary = require('crowdin-glossary')({project: 'electron'})
+  const glossary = require('crowdin-glossary')({ project: 'electron' })
 
   // JavaScript builtins like Array, Map, String, etc
   Object.keys(globals.builtin).forEach(term => {

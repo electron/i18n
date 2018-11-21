@@ -2,7 +2,7 @@
 
 const fs = require('fs')
 const path = require('path')
-const {chain} = require('lodash')
+const { chain } = require('lodash')
 const walk = require('walk-sync')
 const matchWords = require('match-words')
 
@@ -12,13 +12,13 @@ analyze(path.join(__dirname, '../content/en-US'), 'English')
 analyze(path.join(__dirname, '../content'), 'All Languages')
 
 function analyze (dir, title) {
-  const files = walk(dir, {directories: false}).map(f => path.join(dir, f))
+  const files = walk(dir, { directories: false }).map(f => path.join(dir, f))
   const words = chain(files)
     .map(file => matchWords(fs.readFileSync(file, 'utf8')))
     .flatten()
     .value()
   const counts = files.map(f => (matchWords(fs.readFileSync(f, 'utf8')) || []).length)
-  const {average, sum} = require('simple-statistics')
+  const { average, sum } = require('simple-statistics')
 
   const results = {
     'total files': files.length,

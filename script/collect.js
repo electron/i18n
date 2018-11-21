@@ -8,7 +8,7 @@ const fs = require('fs')
 const got = require('got')
 const mkdir = require('make-dir').sync
 const path = require('path')
-const {execSync} = require('child_process')
+const { execSync } = require('child_process')
 const github = require('@octokit/rest')()
 const englishBasepath = path.join(__dirname, '..', 'content', 'en-US')
 
@@ -67,7 +67,7 @@ async function fetchApiData () {
     return Promise.reject(Error(`No electron-api.json asset found for ${release.tag_name}`))
   }
 
-  const response = await got(asset.browser_download_url, {json: true})
+  const response = await got(asset.browser_download_url, { json: true })
   const apis = response.body
   const filename = path.join(englishBasepath, 'electron-api.json')
   mkdir(path.dirname(filename))
