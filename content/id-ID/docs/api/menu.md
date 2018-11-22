@@ -20,7 +20,7 @@ Sets `menu` sebagai menu aplikasi pada macOS. Pada Windows dan Linux, `menu` aka
 
 Melewati `null` akan menghapus menu bar pada Windows dan Linux tetapi tidak memiliki efek pada macOS.
 
-** Catatan: ** API ini tidak dapat dipanggil sebelum event ` ready ` dari modul ` app `dipancarkan.
+**Catatan:** API ini harus dipanggil setelah event `ready` dari modul `app`.
 
 #### `Menu.getApplicationMenu()`
 
