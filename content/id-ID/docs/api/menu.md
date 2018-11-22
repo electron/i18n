@@ -1,20 +1,20 @@
-## Kelas: Utama
+## Class: Menu
 
-> Buat menu aplikasi asli dan menu konteks.
+> Membuat menu native aplikasi dan menu konteks.
 
 Proses: [Main](../glossary.md#main-process)
 
-### `menu Menu()`
+### `new Menu()`
 
 Membuat menu baru.
 
 ### Metode Statis
 
-Kelas ` BrowserWindow ` memiliki metode statis berikut:
+Kelas ` menu </ 0> memiliki metode statis berikut:</p>
 
-#### `Menu.set Aplikasi Menu (menu)`
+<h4><code>Menu.setApplicationMenu(menu)`</h4> 
 
-* `menu` Menu | batal
+* `menu` Menu | null
 
 Set ` menu </ 0> sebagai menu aplikasi pada macOS. Pada Windows dan Linux,
  <code> menu </ 0> akan ditetapkan sebagai menu atas setiap jendela.</p>
