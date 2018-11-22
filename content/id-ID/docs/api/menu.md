@@ -16,10 +16,9 @@ Kelas ` menu </ 0> memiliki metode statis berikut:</p>
 
 * `menu` Menu | null
 
-Set ` menu </ 0> sebagai menu aplikasi pada macOS. Pada Windows dan Linux,
- <code> menu </ 0> akan ditetapkan sebagai menu atas setiap jendela.</p>
+Sets `menu` sebagai menu aplikasi pada macOS. Pada Windows dan Linux, `menu` akan di set sebagai menu atas tiap-tiap window.
 
-<p>Melewati <code>null` akan menghapus menu bar pada Windows dan Linux tetapi tidak memiliki efek pada macOS.
+Melewati `null` akan menghapus menu bar pada Windows dan Linux tetapi tidak memiliki efek pada macOS.
 
 ** Catatan: ** API ini tidak dapat dipanggil sebelum event ` ready ` dari modul ` app `dipancarkan.
 
