@@ -24,7 +24,7 @@ Melewati `null` akan menghapus menu bar pada Windows dan Linux tetapi tidak memi
 
 #### `Menu.getApplicationMenu()`
 
-Returns `Menu | null` - The application menu, if set, or `null`, if not set.
+Hasil returns `Menu | null` - menu aplikasi, jika di set, atau `null`, jika tidak di set.
 
 **Catatan:** Contoh `Menu` kembali tidak mendukung dinamis penambahan atau penghapusan item menu.  Instance properti </ 0> masih dapat dimodifikasi secara dinamis.</p> 
 
