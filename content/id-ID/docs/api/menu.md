@@ -12,7 +12,7 @@ Membuat menu baru.
 
 Kelas ` BrowserWindow ` memiliki metode statis berikut:
 
-#### `Menu.set Aaplikasi Menu (menu)`
+#### `Menu.set Aplikasi Menu (menu)`
 
 * `menu` Menu | batal
 
