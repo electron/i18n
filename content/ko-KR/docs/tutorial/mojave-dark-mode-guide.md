@@ -6,7 +6,7 @@ MacOS 10.14 Mojave에서 Apple은 모든 MacOS 컴퓨터에 대해 새로운 [�
 
 ## 기본 인터페이스 자동 업데이트
 
-"Native Interfaces" include the file picker, window border, dialogs, context menus and more; basically anything where the UI comes from macOS and not your app. In order to make these interfaces update to dark mode automatically, you need to set the `NSRequiresAquaSystemAppearance` key in your app's `Info.plist` file to `false`. E.g.
+"기본 인터페이스"에는 파일 선택기, 창 테두리, 대화 상자, 컨텍스트 메뉴 등과 같은 당신의 앱이 아닌 macOS에서 제공되는 UI가 포함되어 있습니다. 이러한 인터페이스를 자동으로 다크 모드로 업데이트하려면 앱의 `Info.plist` 파일에서 `NSRequiresAquaSystemAppearance` 키를 `false`로 설정해야합니다. E.g.
 
 ```xml
 <plist>
