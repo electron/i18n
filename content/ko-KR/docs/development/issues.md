@@ -10,7 +10,7 @@
 
 ## 이슈에 기여하는 방법
 
-For any issue, there are fundamentally three ways an individual can contribute:
+어떤 이슈든, 개인이 근본적으로 기여할수 있는 3가지 방법이 있습니다.:
 
 1. By opening the issue for discussion: If you believe that you have found a new bug in Electron, you should report it by creating a new issue in the `electron/electron` issue tracker.
 2. By helping to triage the issue: You can do this either by providing assistive details (a reproducible test case that demonstrates a bug) or by providing suggestions to address the issue.
