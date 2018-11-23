@@ -23,7 +23,7 @@ MacOS 10.14 Mojave에서 Apple은 모든 MacOS 컴퓨터에 대해 새로운 [�
 
 ## 사용자 인터페이스 자동 업데이트
 
-If your app has its own dark mode you should toggle it on and off in sync with the system's dark mode setting. You can do this by listening for the theme changed event on Electron's `systemPreferences` module. E.g.
+앱에 자체 다크 모드가 있는 경우 시스템의 다크 모드 설정과 동기화하여 켜거나 꺼야 합니다. Electron의 `systemPreferences` 모듈에서 테마 변경 이벤트를 수신하여 이를 수행할 수 있습니다. E.g.
 
 ```js
 const { systemPreferences } = require('electron')
