@@ -5,8 +5,8 @@
 * [이슈에 기여하는 방법](#how-to-contribute-in-issues)
 * [일반적인 도움받기](#asking-for-general-help)
 * [버그 신고하기](#submitting-a-bug-report)
-* [Triaging a Bug Report](#triaging-a-bug-report)
-* [Resolving a Bug Report](#resolving-a-bug-report)
+* [버그 보고서 작성](#triaging-a-bug-report)
+* [버그 리포트 해결](#resolving-a-bug-report)
 
 ## 이슈에 기여하는 방법
 
@@ -68,7 +68,7 @@ The two most important pieces of information needed to evaluate the report are a
 
 See [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve).
 
-## Triaging a Bug Report
+## 버그 보고서 작성
 
 It's common for open issues to involve discussion. Some contributors may have differing opinions, including whether the behavior is a bug or feature. This discussion is part of the process and should be kept focused, helpful, and professional.
 
@@ -76,6 +76,6 @@ Terse responses that provide neither additional context nor supporting detail ar
 
 Contributors are encouraged to solve issues collaboratively and help one another make progress. If encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. By doing so, we can often reach the correct outcome faster.
 
-## Resolving a Bug Report
+## 버그 리포트 해결
 
 주요 이슈들은 Pull Request를 열어 해결합니다. The process for opening and reviewing a pull request is similar to that of opening and triaging issues, but carries with it a necessary review and approval workflow that ensures that the proposed changes meet the minimal quality and functional guidelines of the Electron project.
