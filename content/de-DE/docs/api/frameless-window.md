@@ -16,7 +16,7 @@ win.show()
 
 ### Alternativen auf macOS
 
-Auf macOS 10.0 Mavericks und neuer gibt es eine alternative Möglichkeit menülose Fenster zu erstellen. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. You can do so by specifying the `titleBarStyle` option:
+Auf macOS 10.0 Mavericks und neuer gibt es eine alternative Möglichkeit menülose Fenster zu erstellen. Wenn du `frame` auf `false` setzt deaktivierst du nicht nur die Menüleisten usw. sondern auch die Fensterkontrollen (Ampel). Du möchtest vielleicht die Fensterkontrollen beibehalten und dennoch die restlichen Kontrollen entfernen. Das kannst du erreichen indem du folgende `titleBarStyle`-Optionen verwendest:
 
 #### `hidden`
 
