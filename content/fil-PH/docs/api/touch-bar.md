@@ -6,19 +6,19 @@ Proseso: [Pangunahing](../tutorial/application-architecture.md#main-and-renderer
 
 ### `bagong TouchBar(pagpipilian)`*Experimental*
 
-* `pagpipilian` Bagay 
+* `pagpipilian` Bagay
   * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[]
   * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md) | null) (optional)
 
-Gumawa ng bagong touch bar kasama ang mga tinukoy na aytem. Gamitin ang `BrowserWindow.setTouchBar` para idagdag `TouchBar` sa isang window. 
+Gumawa ng bagong touch bar kasama ang mga tinukoy na aytem. Gamitin ang `BrowserWindow.setTouchBar` para idagdag `TouchBar` sa isang window.
 
-**Note:** Ang TouchBar API ay kasalukuyang eksperimental at maaring mabago o pwedeng tangalin sa panghinaharap na pag-release ng Electron. 
+**Note:** Ang TouchBar API ay kasalukuyang eksperimental at maaring mabago o pwedeng tangalin sa panghinaharap na pag-release ng Electron.
 
 **Tip:** Kung wala kang MacBook na may Touch Bar, pwede kang gumamit ng [Touch Bar Simulator](https://github.com/sindresorhus/touch-bar-simulator) upang subukan ang paggamit ng Bar ng Touch sa inyong app.
 
 ### Katangian ng pagkakataon
 
-Ang mga sumusunod na katangian ay magagamit sa mga pagkakataon ng `TouchBar`: 
+Ang mga sumusunod na katangian ay magagamit sa mga pagkakataon ng `TouchBar`:
 
 #### `touchBar.escapeItem
  `
@@ -32,7 +32,7 @@ Sa ibaba ay halimbawa ng simpleng laro ng slot machine touch bar kasama ang butt
 ```javascript
 const {app, BrowserWindow, TouchBar} = require('electron')
 
-const {TouchBarLabel, TouchBarButton, TouchBarSpacer} = TouchBar
+const {TouchBarButton, TouchBarLabel, TouchBarSpacer} = TouchBar
 
 let spinning = false
 
@@ -46,7 +46,91 @@ const result = new TouchBarLabel()
 
 // Spin button
 const spin = new TouchBarButton({
-  label: '
+  label: '🎰 Spin',
+  backgroundColor: '#7851A9',
+  click: () => {
+    // Ignore clicks if already spinning
+    if (spinning) {
+      return
+    }
+
+    spinning = true
+    result.label = ''
+
+    let timeout = 10
+    const spinLength = 4 * 1000 // 4 seconds
+    const startTime = Date.now()
+
+    const spinReels = () => {
+      updateReels()
+
+      if ((Date.now() - startTime) >= spinLength) {
+        finishSpin()
+      } else {
+        // Slow down a bit on each spin
+        timeout *= 1.1
+        setTimeout(spinReels, timeout)
+      }
+    }
+
+    spinReels()
+  }
+})
+
+const getRandomValue = () => {
+  const values = ['🍒', '💎', '7️⃣', '🍊', '🔔', '⭐', '🍇', '🍀']
+  return values[Math.floor(Math.random() * values.length)]
+}
+
+const updateReels = () => {
+  reel1.label = getRandomValue()
+  reel2.label = getRandomValue()
+  reel3.label = getRandomValue()
+}
+
+const finishSpin = () => {
+  const uniqueValues = new Set([reel1.label, reel2.label, reel3.label]).size
+  if (uniqueValues === 1) {
+    // All 3 values are the same
+    result.label = '💰 Jackpot!'
+    result.textColor = '#FDFF00'
+  } else if (uniqueValues === 2) {
+    // 2 values are the same
+    result.label = '😍 Winner!'
+    result.textColor = '#FDFF00'
+  } else {
+    // No values are the same
+    result.label = '🙁 Spin Again'
+    result.textColor = null
+  }
+  spinning = false
+}
+
+const touchBar = new TouchBar([
+  spin,
+  new TouchBarSpacer({size: 'large'}),
+  reel1,
+  new TouchBarSpacer({size: 'small'}),
+  reel2,
+  new TouchBarSpacer({size: 'small'}),
+  reel3,
+  new TouchBarSpacer({size: 'large'}),
+  result
+])
+
+let window
+
+app.once('ready', () => {
+  window = new BrowserWindow({
+    frame: false,
+    titleBarStyle: 'hidden-inset',
+    width: 200,
+    height: 200,
+    backgroundColor: '#000'
+  })
+  window.loadURL('about:blank')
+  window.setTouchBar(touchBar)
+})
 ```
 
 ### Pinapatakbo ang mga halimbawa sa taas.
