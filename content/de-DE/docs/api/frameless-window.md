@@ -1,6 +1,6 @@
 # Rahmenlose Fenster
 
-> Open a window without toolbars, borders, or other graphical "chrome".
+> Öffne ein Fenster ohne Werkzeug/Symbolleiste, Rändern oder anderem grafischen Schnickschnack.
 
 A frameless window is a window that has no [chrome](https://developer.mozilla.org/en-US/docs/Glossary/Chrome), the parts of the window, like toolbars, that are not a part of the web page. These are options on the [`BrowserWindow`](browser-window.md) class.
 
