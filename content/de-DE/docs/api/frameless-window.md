@@ -20,7 +20,7 @@ Auf macOS 10.0 Mavericks und neuer gibt es eine alternative Möglichkeit menülo
 
 #### `hidden`
 
-Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls (“traffic lights”) in the top left.
+Resultiert in eine versteckte Titelleiste und ein Inhaltsfenster der vollen Größe. Dennoch sind die Standard-Fensterkontrollen (Ampel) weiterhin vorhanden.
 
 ```javascript
 const {BrowserWindow} = require('electron')
