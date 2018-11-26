@@ -96,8 +96,8 @@ app.on('ready', createWindow)
 ```javascript
 const { app, BrowserWindow } = require('electron')
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
+// 保持对window对象的全局引用，如果不这么做的话，当JavaScript对象被
+// 垃圾回收的时候，window对象将会自动的关闭
 let win
 
 function createWindow () {
