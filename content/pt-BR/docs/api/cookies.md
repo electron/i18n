@@ -33,23 +33,23 @@ session.defaultSession.cookies.set(cookie, (error) => {
 
 Os seguintes eventos estão disponíveis em instâncias de `Cookies`:
 
-#### Event: 'changed'
+#### Evento: 'changed'
 
 * `event` Event
-* `cookie` [Cookie](structures/cookie.md) - The cookie that was changed.
-* `cause` String - The cause of the change with one of the following values: 
-  * `explicit` - The cookie was changed directly by a consumer's action.
-  * `overwrite` - The cookie was automatically removed due to an insert operation that overwrote it.
-  * `expired` - The cookie was automatically removed as it expired.
+* `cookie` [Cookie](structures/cookie.md) - O cookie que foi modificado.
+* `cause` String - A causa da mudança com um dos seguintes valores: 
+  * `explicit` - O cookie foi modificado diretamente por uma ação do consumidor.
+  * `overwrite` - O cookie foi removido automaticamente devido à uma ação de inserção que o sobrescreveu.
+  * `expired` - O cookie foi automaticamente removido conforme expirou.
   * `evicted` - The cookie was automatically evicted during garbage collection.
   * `expired-overwrite` - The cookie was overwritten with an already-expired expiration date.
-* `removed` Boolean - `true` if the cookie was removed, `false` otherwise.
+* `removed` Boolean - `true` se o cookie foi removido, `false` caso contrário.
 
-Emitted when a cookie is changed because it was added, edited, removed, or expired.
+Emitido quando um cookie é modificado devido à adição, edição, remoção ou expiração.
 
 ### Métodos de Instância
 
-The following methods are available on instances of `Cookies`:
+Os metódos a seguir estão disponíveis em instâncias `de Cookies`:
 
 #### `cookies.get(filter, callback)`
 
@@ -62,7 +62,7 @@ The following methods are available on instances of `Cookies`:
   * `session` Boolean (optional) - Filters out session or persistent cookies.
 * `callback` Function 
   * `error` Error
-  * `cookies` [Cookie[]](structures/cookie.md) - an array of cookie objects.
+  * `cookies` [Cookie[]](structures/cookie.md) - Um array de objetos cookie.
 
 Sends a request to get all cookies matching `filter`, `callback` will be called with `callback(error, cookies)` on complete.
 
@@ -94,4 +94,4 @@ Removes the cookies matching `url` and `name`, `callback` will called with `call
 
 * `callback` Function
 
-Writes any unwritten cookies data to disk.
+Escreve qualquer cookie que não tenha sido escrito no disco.
