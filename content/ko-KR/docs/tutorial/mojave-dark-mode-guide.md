@@ -1,12 +1,12 @@
-# Mojave Dark Mode
+# 모하비 다크 모드
 
-In macOS 10.14 Mojave, Apple introduced a new [system-wide dark mode](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/) for all macOS computers. By default Electron apps do not automatically adjust their UI and native interfaces to the dark mode setting when it's enabled. This is primarily due to Apple's own guidelines saying you **shouldn't** use the dark mode native interfaces if your app's own interfaces don't support dark mode themselves.
+MacOS 10.14 Mojave에서 Apple은 모든 MacOS 컴퓨터에 대해 새로운 [시스템 차원의 다크 모드](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/)를 도입했습니다. 기본적으로 Electron 앱은 활성화될 때 해당 UI 및 기본 인터페이스를 다크 모드 설정으로 자동 조정하지 않습니다. 이는 주로 앱 자체 인터페이스가 직접 다크 모드를 지원하지 않는 경우 다크 모드 네이티브 인터페이스를 사용하면 **안 된다**는 Apple의 지침 때문입니다.
 
-If your app does have a dark mode, you can make your Electron app follow the system-wide dark mode setting.
+앱에 다크 모드가 있는 경우, Electron 앱이 시스템 차원의 다크 모드 설정을 따르도록 할 수 있습니다.
 
-## Automatically updating the native interfaces
+## 기본 인터페이스 자동 업데이트
 
-"Native Interfaces" include the file picker, window border, dialogs, context menus and more; basically anything where the UI comes from macOS and not your app. In order to make these interfaces update to dark mode automatically, you need to set the `NSRequiresAquaSystemAppearance` key in your app's `Info.plist` file to `false`. E.g.
+"기본 인터페이스"에는 파일 선택기, 창 테두리, 대화 상자, 컨텍스트 메뉴 등과 같은 당신의 앱이 아닌 macOS에서 제공되는 UI가 포함되어 있습니다. 이러한 인터페이스를 자동으로 다크 모드로 업데이트하려면 앱의 `Info.plist` 파일에서 `NSRequiresAquaSystemAppearance` 키를 `false`로 설정해야합니다. E.g.
 
 ```xml
 <plist>
@@ -19,11 +19,11 @@ If your app does have a dark mode, you can make your Electron app follow the sys
 </plist>
 ```
 
-If you are using [`electron-packager` >= 12.2.0](https://github.com/electron-userland/electron-packager) or [`electron-forge` >= 6](https://github.com/electron-userland/electron-forge) you can set the [`darwinDarkModeSupport`](https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) option when packaging and this key will be set for you.
+[`electron-packager` = 12.2.0](https://github.com/electron-userland/electron-packager) 또는 [`electron-forge`> = 6](https://github.com/electron-userland/electron-forge)을 사용하는 경우 패키징 할 때 [`darwinDarkModeSupport`](https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) 옵션을 설정하면 이 키가 설정됩니다.
 
-## Automatically updating your own interfaces
+## 사용자 인터페이스 자동 업데이트
 
-If your app has its own dark mode you should toggle it on and off in sync with the system's dark mode setting. You can do this by listening for the theme changed event on Electron's `systemPreferences` module. E.g.
+앱에 자체 다크 모드가 있는 경우 시스템의 다크 모드 설정과 동기화하여 켜거나 꺼야 합니다. Electron의 `systemPreferences` 모듈에서 테마 변경 이벤트를 수신하여 이를 수행할 수 있습니다. E.g.
 
 ```js
 const { systemPreferences } = require('electron')

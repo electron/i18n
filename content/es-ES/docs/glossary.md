@@ -4,7 +4,7 @@ Esta página define algunos términos que comúnmente se utilizan en el desarrol
 
 ### ASAR
 
-ASAR significa formato de archivo de Shell de Atom. Un archivo de [asar](https://github.com/electron/asar) es un simple `tar`-como formato que concatena archivos en un solo archivo. Electron puede leer archivos arbitrarios de él sin desempacar el archivo entero.
+ASAR significa formato de archivo de Shell de Atom. Un archivo de [asar](https://github.com/electron/asar) es un simple formato tipo `tar` que concatena archivos en un solo archivo. Electron puede leer archivos arbitrarios de él sin desempacar el archivo entero.
 
 El formato ASAR fue creado principalmente para mejorar el rendimiento en Windows... Por hacer
 
@@ -14,7 +14,7 @@ La Librería C Run-time (CRT) es la parte de la Librería Estándar de C++ que i
 
 ### DMG
 
-Una imagen de disco de Apple es un formato de empaquetado utilizado por macOS. Archivos DMG se utilizan comúnmente para la distribución de aplicaciones "instaladores". [electron-builder](https://github.com/electron-userland/electron-builder) soporta `dmg` como objetivo de compilación.
+Una imagen de disco de Apple es un formato de empaquetado utilizado por macOS. Los archivos DMG se utilizan comúnmente para la distribución de aplicaciones "instaladores". [electron-builder](https://github.com/electron-userland/electron-builder) soporta `dmg` como objetivo de compilación.
 
 ### IME
 
@@ -108,6 +108,6 @@ Los números de versión de V8 siempre corresponden a aquellos de Google Chrome.
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
 - [docs/development/v8-development.md](development/v8-development.md)
 
-### vistaweb
+### webview
 
 `webview` etiquetas se utilizan para incrustar contenido de 'guest' (como páginas web externas) en su aplicación Electron. Son similares a `iframe`s, pero se diferencian en que cada vista Web se ejecuta en un proceso separado. No tiene los mismos permisos que su página web y todas las interacciones entre tu aplicación y el contenido incluido serán asincrónicas. Esto mantiene a tu aplicación protegida de contenido incluido.

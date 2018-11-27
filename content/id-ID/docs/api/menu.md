@@ -1,31 +1,30 @@
-## Kelas: Utama
+## Class: Menu
 
-> Buat menu aplikasi asli dan menu konteks.
+> Membuat menu native aplikasi dan menu konteks.
 
 Proses: [Main](../glossary.md#main-process)
 
-### `menu Menu()`
+### `new Menu()`
 
 Membuat menu baru.
 
 ### Metode Statis
 
-Kelas ` BrowserWindow ` memiliki metode statis berikut:
+Kelas ` menu </ 0> memiliki metode statis berikut:</p>
 
-#### `Menu.set Aaplikasi Menu (menu)`
+<h4><code>Menu.setApplicationMenu(menu)`</h4> 
 
-* `menu` Menu | batal
+* `menu` Menu | null
 
-Set ` menu </ 0> sebagai menu aplikasi pada macOS. Pada Windows dan Linux,
- <code> menu </ 0> akan ditetapkan sebagai menu atas setiap jendela.</p>
+Sets `menu` sebagai menu aplikasi pada macOS. Pada Windows dan Linux, `menu` akan di set sebagai menu atas tiap-tiap window.
 
-<p>Melewati <code>null` akan menghapus menu bar pada Windows dan Linux tetapi tidak memiliki efek pada macOS.
+Melewati `null` akan menghapus menu bar pada Windows dan Linux tetapi tidak memiliki efek pada macOS.
 
-** Catatan: ** API ini tidak dapat dipanggil sebelum event ` ready ` dari modul ` app `dipancarkan.
+**Catatan:** API ini harus dipanggil setelah event `ready` dari modul `app`.
 
 #### `Menu.getApplicationMenu()`
 
-Returns `Menu | null` - The application menu, if set, or `null`, if not set.
+Hasil returns `Menu | null` - menu aplikasi, jika di set, atau `null`, jika tidak di set.
 
 **Catatan:** Contoh `Menu` kembali tidak mendukung dinamis penambahan atau penghapusan item menu.  Instance properti </ 0> masih dapat dimodifikasi secara dinamis.</p> 
 

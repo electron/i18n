@@ -53,9 +53,9 @@ community:
   awesome_notice: Esta lista é gerada a partir do repositório <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a>. <br> Falta alguma coisa? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Crie um pedido</a>.
   meetup_notice: Para adicionar um encontro, edite o <code>data/meetups.json</code> e <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">crie um pedido</a>.
 releases:
-  title: Versões de Electron
-  all_releases: Todas as Versões
-  back_to_index: Volta para o começo
+  title: Versões do Electron
+  all_releases: Todas as versões
+  back_to_index: Voltar para o início
 electron_is_easy:
   title: É mais fácil do que você pensa
   description: Se você pode construir um website, você pode construir um aplicativo desktop. Electron é um framework para criação de aplicações nativas utilizando tecnologias web como JavaScript, HTML e CSS. Ele cuida das partes mais difíceis para que você possa se concentrar somente com o principal da aplicação.
@@ -72,7 +72,7 @@ cross_platform:
 benefits:
   hard_parts_made_easy: As partes difíceis são feitas facilmente
   automatic_updates: Atualizações automáticas
-  native_menus_and_notifications: Notificações & menus nativos
+  native_menus_and_notifications: Notificações e menus nativos
   crash_reporting: Relatório de falhas
   debugging_and_profiling: Depuração & criação de perfil
   windows_installers: Instaladores do Windows
@@ -115,7 +115,7 @@ apps:
   repository: Repositório
   category: Categoria
   downloads: Baixar
-  keywords: Palavras-Chave
+  keywords: Palavras-chave
   license: Licença
   latest_release: Última versão
 blog:

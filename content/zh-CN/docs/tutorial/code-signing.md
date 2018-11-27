@@ -1,6 +1,6 @@
 # 代码签名
 
-Code signing is a security technology that you use to certify that an app was created by you.
+代码签名是一种用来证明应用是由你创建的一种安全技术。
 
 在macOS系统中，系统可以区分开应用的变更是偶然产生的，还是被恶意代码生成的。
 
@@ -19,7 +19,7 @@ If you are building an Electron app that you intend to package and distribute, i
 在签署macOS应用程序前，你需要完成以下事项：
 
 1. 加入 [Apple Developer Program](https://developer.apple.com/programs/)(需要缴纳年费)
-2. Download and install [Xcode](https://developer.apple.com/xcode)
+2. 下载并安装 [Xcode](https://developer.apple.com/xcode)
 3. 生成，下载，然后安装[签名证书（signing certificates）](https://github.com/electron-userland/electron-osx-sign/wiki/1.-Getting-Started#certificates)
 
 你可以运用许多方式来签署你的应用：

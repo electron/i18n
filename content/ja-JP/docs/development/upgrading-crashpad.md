@@ -1,4 +1,4 @@
-# Upgrading Crashpad
+# Crashpad のアップグレード
 
 1. Get the version of crashpad that we're going to use.
     

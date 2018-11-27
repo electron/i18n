@@ -4,7 +4,7 @@
 
 Processo: [Main](../glossary.md#main-process)
 
-Instances of the `Cookies` class are accessed by using `cookies` property of a `Session`.
+Instâncias da classe `Cookies` são acessadas através da propriedade `cookies` de uma `Sessão`.
 
 Como por exemplo:
 
@@ -31,51 +31,51 @@ session.defaultSession.cookies.set(cookie, (error) => {
 
 ### Eventos de instância
 
-The following events are available on instances of `Cookies`:
+Os seguintes eventos estão disponíveis em instâncias de `Cookies`:
 
-#### Event: 'changed'
+#### Evento: 'changed'
 
 * `event` Event
-* `cookie` [Cookie](structures/cookie.md) - The cookie that was changed.
-* `cause` String - The cause of the change with one of the following values: 
-  * `explicit` - The cookie was changed directly by a consumer's action.
-  * `overwrite` - The cookie was automatically removed due to an insert operation that overwrote it.
-  * `expired` - The cookie was automatically removed as it expired.
+* `cookie` [Cookie](structures/cookie.md) - O cookie que foi modificado.
+* `cause` String - A causa da mudança com um dos seguintes valores: 
+  * `explicit` - O cookie foi modificado diretamente por uma ação do consumidor.
+  * `overwrite` - O cookie foi removido automaticamente devido à uma ação de inserção que o sobrescreveu.
+  * `expired` - O cookie foi automaticamente removido conforme expirou.
   * `evicted` - The cookie was automatically evicted during garbage collection.
   * `expired-overwrite` - The cookie was overwritten with an already-expired expiration date.
-* `removed` Boolean - `true` if the cookie was removed, `false` otherwise.
+* `removed` Boolean - `true` se o cookie foi removido, `false` caso contrário.
 
-Emitted when a cookie is changed because it was added, edited, removed, or expired.
+Emitido quando um cookie é modificado devido à adição, edição, remoção ou expiração.
 
 ### Métodos de Instância
 
-The following methods are available on instances of `Cookies`:
+Os metódos a seguir estão disponíveis em instâncias `de Cookies`:
 
 #### `cookies.get(filter, callback)`
 
 * `filter` Object 
-  * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all urls.
-  * `name` String (optional) - Filters cookies by name.
-  * `domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`.
-  * `path` String (optional) - Retrieves cookies whose path matches `path`.
-  * `secure` Boolean (optional) - Filters cookies by their Secure property.
+  * `url` String (opcional) - Recupera cookies associados com a `url`. Sendo vazia recupera cookies de todas as urls.
+  * `name` String (opcional) - Filtra cookies por nome.
+  * `domain` String (opcional) - Recupera cookies nos quais os domínios sejam iguais ou subdomínios de `domain`.
+  * `path` String (opcional) - Recupera cookies nos quais o caminho seja igual a `path`.
+  * `secure` Boolean (opcional) - Filtra cookies pela propriedade Secure.
   * `session` Boolean (optional) - Filters out session or persistent cookies.
 * `callback` Function 
   * `error` Error
-  * `cookies` [Cookie[]](structures/cookie.md) - an array of cookie objects.
+  * `cookies` [Cookie[]](structures/cookie.md) - Um array de objetos cookie.
 
 Sends a request to get all cookies matching `filter`, `callback` will be called with `callback(error, cookies)` on complete.
 
 #### `cookies.set(details, callback)`
 
-* `details` Object 
-  * `url` String - The url to associate the cookie with.
-  * `name` String (optional) - The name of the cookie. Empty by default if omitted.
-  * `value` String (optional) - The value of the cookie. Empty by default if omitted.
-  * `domain` String (optional) - The domain of the cookie. Empty by default if omitted.
-  * `path` String (optional) - The path of the cookie. Empty by default if omitted.
-  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
-  * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
+* `detalhes` Object 
+  * `url` String - A url que será associada ao cookie.
+  * `name` String (opcional) - O nome do cookie. Vazio por padrão caso omitido.
+  * `value` String (opcional) - O valor do cookie. Vazio por padrão caso omitido.
+  * `domain` String (opcional) - O domínio do cookie. Vazio por padrão caso omitido.
+  * `path` String (opcional) - O caminho do cookie. Vazio por padrão caso omitido.
+  * `secure` Boolean (opcional) - Indica se o cookie deve ser marcado como seguro. Padrão é falso.
+  * `httpOnly` Boolean (opcional) - Indica se o cookie deve ser marcado como apenas HTTP. Padrão é falso.
   * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
 * `callback` Function 
   * `error` Error
@@ -84,8 +84,8 @@ Sets a cookie with `details`, `callback` will be called with `callback(error)` o
 
 #### `cookies.remove(url, name, callback)`
 
-* `url` String - The URL associated with the cookie.
-* `name` String - The name of cookie to remove.
+* `url` String - A URL associada com o cookie.
+* `name` String - O nome do cookie a ser removido.
 * `callback` Function
 
 Removes the cookies matching `url` and `name`, `callback` will called with `callback()` on complete.
@@ -94,4 +94,4 @@ Removes the cookies matching `url` and `name`, `callback` will called with `call
 
 * `callback` Function
 
-Writes any unwritten cookies data to disk.
+Escreve qualquer cookie que não tenha sido escrito no disco.

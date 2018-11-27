@@ -1,12 +1,12 @@
 # Rahmenlose Fenster
 
-> Open a window without toolbars, borders, or other graphical "chrome".
+> Öffne ein Fenster ohne Werkzeug/Symbolleiste, Rändern oder anderem grafischen Schnickschnack.
 
-A frameless window is a window that has no [chrome](https://developer.mozilla.org/en-US/docs/Glossary/Chrome), the parts of the window, like toolbars, that are not a part of the web page. These are options on the [`BrowserWindow`](browser-window.md) class.
+Ein rahmenloses Fenster ist ein Fenster ohne den üblichen [Bestandteilen](https://developer.mozilla.org/en-US/docs/Glossary/Chrome), wie Symbol/Werkzeugleiste, Tabs, Menüleiste usw. Ein rahmenloses Fenster besteht lediglich aus der Internetseite selbst. Die folgenden Optionen stehen in der Klasse [`BrowserWindow`](browser-window.md) zur Verfügung.
 
-## Create a frameless window
+## Erstelle ein rahmenloses Fenster
 
-To create a frameless window, you need to set `frame` to `false` in [BrowserWindow](browser-window.md)'s `options`:
+Um ein rahmenloses Fenster zu erstellen musst du `frame` in den [BrowserWindow](browser-window.md) `Optionen` auf `false` setzen:
 
 ```javascript
 const {BrowserWindow} = require('electron')
@@ -14,13 +14,13 @@ let win = new BrowserWindow({width: 800, height: 600, frame: false})
 win.show()
 ```
 
-### Alternatives on macOS
+### Alternativen auf macOS
 
-On macOS 10.9 Mavericks and newer, there's an alternative way to specify a chromeless window. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. You can do so by specifying the `titleBarStyle` option:
+Auf macOS 10.0 Mavericks und neuer gibt es eine alternative Möglichkeit menülose Fenster zu erstellen. Wenn du `frame` auf `false` setzt deaktivierst du nicht nur die Menüleisten usw. sondern auch die Fensterkontrollen (Ampel). Du möchtest vielleicht die Fensterkontrollen beibehalten und dennoch die restlichen Kontrollen entfernen. Das kannst du erreichen indem du folgende `titleBarStyle`-Optionen verwendest:
 
 #### `hidden`
 
-Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls (“traffic lights”) in the top left.
+Resultiert in eine versteckte Titelleiste und ein Inhaltsfenster der vollen Größe. Dennoch sind die Standard-Fensterkontrollen (Ampel) weiterhin vorhanden.
 
 ```javascript
 const {BrowserWindow} = require('electron')
