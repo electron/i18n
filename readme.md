@@ -18,12 +18,12 @@ The following languages are currently being translated, but we can
 [easily add more]((https://github.com/electron/i18n/issues/new?title=new%20language%20request)):
 
 <!-- start language-table -->
-- [Español (Spanish)](https://crowdin.com/project/electron/es-ES)
 - [日本語 (Japanese)](https://crowdin.com/project/electron/ja)
+- [Español (Spanish)](https://crowdin.com/project/electron/es-ES)
 - [中文 (Chinese Simplified)](https://crowdin.com/project/electron/zh-CN)
-- [Filipino](https://crowdin.com/project/electron/fil)
 - [Indonesian](https://crowdin.com/project/electron/id)
 - [Türkçe (Turkish)](https://crowdin.com/project/electron/tr)
+- [Filipino](https://crowdin.com/project/electron/fil)
 - [Français (French)](https://crowdin.com/project/electron/fr)
 - [Русский (Russian)](https://crowdin.com/project/electron/ru)
 - [한국어 (Korean)](https://crowdin.com/project/electron/ko)
@@ -40,8 +40,8 @@ The following languages are currently being translated, but we can
 - [اللغة العربية (Arabic)](https://crowdin.com/project/electron/ar)
 - [فارسی (Persian)](https://crowdin.com/project/electron/fa)
 - [čeština (Czech)](https://crowdin.com/project/electron/cs)
-- [limba română (Romanian)](https://crowdin.com/project/electron/ro)
 - [עברית (Hebrew)](https://crowdin.com/project/electron/he)
+- [limba română (Romanian)](https://crowdin.com/project/electron/ro)
 - [ไทย (Thai)](https://crowdin.com/project/electron/th)
 - [Wikang Tagalog (Tagalog)](https://crowdin.com/project/electron/tl)
 <!-- end language-table -->
