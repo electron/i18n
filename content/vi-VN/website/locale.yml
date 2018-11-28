@@ -6,17 +6,17 @@ nav:
   community: Cộng đồng
   contact: Liên hệ
   docs: Tài liệu
-  donors: Nhà Tài Trợ
+  donors: Nhà tài trợ
   languages: Ngôn ngữ
-  releases: Phát hành
+  releases: Các phiên bản phát hành
   search: Tìm kiếm
   userland: Không gian người dùng
 docs:
   title: Tài liệu Electron
   description: Xem tất cả <a href="/docs/all"> tài liệu trên một trang </a> hoặc xem <a href="/docs/faq"> Câu hỏi thường gặp </a> .
-  guides: Hướng dẫn
-  api_reference: Tham Chiếu API
-  api_structures: API Structures
+  guides: Các hướng dẫn
+  api_reference: Tài liệu tham khảo về API
+  api_structures: Cấu trúc API
   advanced: Nâng cao
   footer:
     propose_change: Cải thiện tài liệu này
@@ -54,7 +54,7 @@ community:
   meetup_notice: Để thêm một cuộc gặp gỡ, chỉnh sửa <code> dữ liệu / meetups.json </ code> và <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json"> làm một yêu cầu kéo </a> .
 releases:
   title: Electron Releases
-  all_releases: All Releases
+  all_releases: Tất cả bản phát hành
   back_to_index: Back to index
 electron_is_easy:
   title: Nó dễ hơn bạn nghĩ
@@ -108,16 +108,16 @@ apps:
   submit_your_own: gửi lên ứng dụng của bạn
   something_missing: Một cái gì đó thiếu?
   edit_this_app: Chỉnh sửa ứng dụng này.
-  search_app: Filter apps by name, description, etc…
-  categories: Categories
+  search_app: Tìm kiếm ứng dụng bằng tên, mô tả, vv…
+  categories: Thể loại
   add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
   website: Website
   repository: Repository
-  category: Category
-  downloads: Downloads
-  keywords: Keywords
-  license: License
-  latest_release: Latest Release
+  category: Thể loại
+  downloads: Tải xuống
+  keywords: Từ khóa
+  license: Bản quyền
+  latest_release: Bản phát hành cuối
 blog:
   title: Blog Electron
   description: Tin tức mới nhất từ đội ngũ Electron và cộng đồng.
