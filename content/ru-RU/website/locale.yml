@@ -88,8 +88,8 @@ quick_start:
   title: "Подготовьте приложение <a href='https://github.com/electron/electron-quick-start' target='_blank'>быстрого старта</a> для просмотра Electron в действии:"
   description: Небольшое приложение Electron с полезными нотациями.
   clone: Клонируйте репозиторий быстрого старта
-  go_into_repo: Перейти в репозиторий
-  install_deps: Установите зависимости и запустите
+  go_into_repo: Перейдите в репозиторий
+  install_deps: Установите зависимости и выполните
   dive_deeper: Или окунитесь глубже и ознакомьтесь с <a href='/docs'>документацией</a>.
 need_help:
   title: Нужна помощь?
