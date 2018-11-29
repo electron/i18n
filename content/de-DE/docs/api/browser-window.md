@@ -1,6 +1,6 @@
 # BrowserWindow
 
-> Erzeugung und Steuerung von Browser Fénytelen.
+> Erstellung und Steuerung von Browserfenstern.
 
 Prozess: [Haupt](../glossary.md#main-process)
 

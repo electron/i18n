@@ -10,9 +10,9 @@ Process: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
   * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[]
   * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md) | null) (可选的)
 
-用指定的项目创建一个新的触摸栏。 使用`BrowserWindow.setTouchBar`将 `TouchBar`添加到窗口。
+Creates a new touch bar with the specified items. Use `BrowserWindow.setTouchBar` to add the `TouchBar` to a window.
 
-**注意:** TouchBar API目前为实验性质，可能会更改或删除。
+**注意:** TouchBar API目前为实验性质，以后的Electron版本可能会更改或删除。
 
 **提示：**如果您没有带Touch Bar的MacBook，则可以使用[ Touch Bar Simulator ](https://github.com/sindresorhus/touch-bar-simulator)来测试应用中的Touch Bar使用情况。
 
@@ -29,9 +29,9 @@ Process: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
 下面是一个带有一个按钮和若干文本的简易Touch bar老虎机游戏示例
 
 ```javascript
-const {app, BrowserWindow, TouchBar} = require('electron')
+const { app, BrowserWindow, TouchBar } = require('electron')
 
-const {TouchBarLabel, TouchBarButton, TouchBarSpacer} = TouchBar
+const { TouchBarLabel, TouchBarButton, TouchBarSpacer } = TouchBar
 
 let spinning = false
 
@@ -45,7 +45,91 @@ const result = new TouchBarLabel()
 
 // Spin button
 const spin = new TouchBarButton({
-  label: '
+  label: '🎰 Spin',
+  backgroundColor: '#7851A9',
+  click: () => {
+    // Ignore clicks if already spinning
+    if (spinning) {
+      return
+    }
+
+    spinning = true
+    result.label = ''
+
+    let timeout = 10
+    const spinLength = 4 * 1000 // 4 seconds
+    const startTime = Date.now()
+
+    const spinReels = () => {
+      updateReels()
+
+      if ((Date.now() - startTime) >= spinLength) {
+        finishSpin()
+      } else {
+        // Slow down a bit on each spin
+        timeout *= 1.1
+        setTimeout(spinReels, timeout)
+      }
+    }
+
+    spinReels()
+  }
+})
+
+const getRandomValue = () => {
+  const values = ['🍒', '💎', '7️⃣', '🍊', '🔔', '⭐', '🍇', '🍀']
+  return values[Math.floor(Math.random() * values.length)]
+}
+
+const updateReels = () => {
+  reel1.label = getRandomValue()
+  reel2.label = getRandomValue()
+  reel3.label = getRandomValue()
+}
+
+const finishSpin = () => {
+  const uniqueValues = new Set([reel1.label, reel2.label, reel3.label]).size
+  if (uniqueValues === 1) {
+    // All 3 values are the same
+    result.label = '💰 Jackpot!'
+    result.textColor = '#FDFF00'
+  } else if (uniqueValues === 2) {
+    // 2 values are the same
+    result.label = '😍 Winner!'
+    result.textColor = '#FDFF00'
+  } else {
+    // No values are the same
+    result.label = '🙁 Spin Again'
+    result.textColor = null
+  }
+  spinning = false
+}
+
+const touchBar = new TouchBar([
+  spin,
+  new TouchBarSpacer({ size: 'large' }),
+  reel1,
+  new TouchBarSpacer({ size: 'small' }),
+  reel2,
+  new TouchBarSpacer({ size: 'small' }),
+  reel3,
+  new TouchBarSpacer({ size: 'large' }),
+  result
+])
+
+let window
+
+app.once('ready', () => {
+  window = new BrowserWindow({
+    frame: false,
+    titleBarStyle: 'hiddenInset',
+    width: 200,
+    height: 200,
+    backgroundColor: '#000'
+  })
+  window.loadURL('about:blank')
+  window.setTouchBar(touchBar)
+})
 ```
 
 ### 运行以上示例

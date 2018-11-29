@@ -1,8 +1,8 @@
-# نوافذ المتصفح
+# نافذة المتصفح
 
-> Create and control browser windows.
+> إنشاء نوافذ المتصفح والتحكم فيها.
 
-Process: [Main](../glossary.md#main-process)
+العملية: [Main](../glossary.md#main-process)
 
 ```javascript
 // In the main process.
@@ -23,13 +23,13 @@ win.loadURL('https://github.com')
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
-## Frameless window
+## نافذة بدون إطارات
 
-To create a window without chrome, or a transparent window in arbitrary shape, you can use the [Frameless Window](frameless-window.md) API.
+يمكن استخدام واجهة [نافذة بدون إطارات](frameless-window.md) لإنشاء نافذة غير محاطة بإطار، أو نافذة شفافة ذات شكل غير محدد.
 
-## Showing window gracefully
+## عرض النافذة بسلاسة ودون تقطيع
 
-When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
+قد يشاهد المستخدم الصفحة وهي تُعرض تدريجيًا في نافذة البرنامج، وقد يعاني المستخدم نتيجة لذلك من تجربة استخدام سيئة. هناك طريقتان مختلفتان لعرض محتويات الصفحة دون حدوث أي تأخير.
 
 ### Using `ready-to-show` event
 
@@ -108,7 +108,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 ## Class: BrowserWindow
 
-> Create and control browser windows.
+> إنشاء نوافذ المتصفح والتحكم فيها.
 
 Process: [Main](../glossary.md#main-process)
 

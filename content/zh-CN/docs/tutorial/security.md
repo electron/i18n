@@ -275,7 +275,7 @@ session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
 
 ### CSP元标签
 
-CSP 建议的传送机制是通过 HTTP 标头。但也可以在页面上直接使用 `<meta>` 标签来设置内容安全策略：
+CSP's preferred delivery mechanism is an HTTP header, however it is not possible to use this method when loading a resource using the `file://` protocol. It can be useful in some cases, such as using the `file://` protocol, to set a policy on a page directly in the markup using a `<meta>` tag:
 
 ```html
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'">

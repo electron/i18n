@@ -17,7 +17,7 @@ app.on('window-all-closed', () => {
 
 `app` object sẽ tạo ra các sự kiện sau đây:
 
-### Event: 'will-finish-launching'
+### Sự kiện: 'will-finish-launching'
 
 Emitted when the application has finished basic startup. On Windows and Linux, the `will-finish-launching` event is the same as the `ready` event; on macOS, this event represents the `applicationWillFinishLaunching` notification of `NSApplication`. You would usually set up listeners for the `open-file` and `open-url` events here, and start the crash reporter and auto updater.
 
