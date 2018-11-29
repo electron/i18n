@@ -29,7 +29,7 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 
 ## عرض النافذة بسلاسة ودون تقطيع
 
-When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
+قد يشاهد المستخدم الصفحة وهي تُعرض تدريجيًا في نافذة البرنامج، وقد يعاني المستخدم نتيجة لذلك من تجربة استخدام سيئة. هناك طريقتان مختلفتان لعرض محتويات الصفحة دون حدوث أي تأخير.
 
 ### Using `ready-to-show` event
 
