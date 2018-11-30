@@ -1,6 +1,6 @@
 # electron-i18n
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/electron/i18n.svg)](https://greenkeeper.io/)
+[![Dependabot badge](https://img.shields.io/badge/Dependabot-enabled-blue.svg)](https://dependabot.com/)
 
 > A home for Electron's translated documentation.
 
