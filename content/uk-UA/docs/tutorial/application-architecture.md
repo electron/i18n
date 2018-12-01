@@ -16,7 +16,7 @@
 
 Головний процес керує всіма веб-сторінками і відповідними процесами для їх рендерінгу. Кожний процес рендерінгу є ізольованим і стосується веб сторінки що в ньому запущена.
 
-In web pages, calling native GUI related APIs is not allowed because managing native GUI resources in web pages is very dangerous and it is easy to leak resources. If you want to perform GUI operations in a web page, the renderer process of the web page must communicate with the main process to request that the main process perform those operations.
+Виклик нативних API для GUI заборонений, оскільки керування нативними ресурсами на веб-сторінках є дуже небезпечним та може призвести то витоку ресурсів. Якщо вам потрібно виконувати GUI операції на веб-сторінці, процес рендерингу веб-сторінки повинен взаємодіяти з головним процесом та запитувати у останнього виконання таких операцій.
 
 > #### Aside: Communication Between Processes
 > 
