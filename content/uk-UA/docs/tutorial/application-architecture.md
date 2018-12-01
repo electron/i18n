@@ -4,7 +4,7 @@
 
 ## Main та Renderer Processes
 
-В Electron, процес що запускає `package.json`'s `main` скрипт що називається **the main process**. Скрипт що запускає main process може демонструвати GUI за допомогою створення веб сторінок. Застосунок Electron завжди має main process, і нічого більше.
+В Electron, процес що запускає `package.json`'s `main` скрипт що називається **the main process**. Скрипт, що запускає main process, може демонструвати GUI за допомогою створення веб сторінок. Застосунок Electron завжди має main process, і нічого більше.
 
 Відтоді як Electron використовує Chromium для відображення веб-сторінок, багато процесна архітектураChromium також використовується. Кожна веб-сторінка в Electron запускається в процесі що стосується тільки її, що називається **the renderer process**.
 
@@ -22,9 +22,9 @@
 > 
 > In Electron, we have several ways to communicate between the main process and renderer processes, such as [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
 
-## Використання Electron APIs
+## Використання Electron API
 
-Electron offers a number of APIs that support the development of a desktop application in both the main process and the renderer process. In both processes, you'd access Electron's APIs by requiring its included module:
+Electron пропонує декілька API, котрі дозволяють вести розробку десктопних додатків і в основному процесі, і в процесі рендерингу. В обох процесах доступ до API Electron' можна отримати підключенням модуля:
 
 ```javascript
 const electron = require('electron')
