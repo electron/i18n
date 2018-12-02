@@ -234,7 +234,7 @@ Retourne :
 * `event` Événement
 * `title` String
 
-Émis lorsque le document a changé son titre, appeller `event.preventDefault()` empêchera le titre de la fenêtre native de changer.
+Émis lorsque le document a changé son titre, appeler `event.preventDefault()` empêchera le titre de la fenêtre native de changer.
 
 #### Événement : 'close'
 
@@ -251,7 +251,7 @@ window.onbeforeunload = (e) => {   console.log('I do not want to be closed')
 
 // A la différence des navigateurs web, un message sera affiché aux utilisateurs, retourner
 // une valeur non-nulle annulera la fermeture.
-  // Il est recommandé d'utilisaer l'API de dialogue afin de laisser l'utilisateur confirmer la fermeture de
+  // Il est recommandé d'utiliser l'API de dialogue afin de laisser l'utilisateur confirmer la fermeture de
 // l'application.
   e.returnValue = false // Equivaut à un `return false` mais ce n'est pas recommandé
 }
