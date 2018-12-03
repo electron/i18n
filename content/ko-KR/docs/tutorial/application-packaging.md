@@ -4,7 +4,7 @@ Windows에서 일어나는 긴 경로 이름에 대한 [issues](https://github.c
 
 [`electron-packager`](https://github.com/electron-userland/electron-packager), [`electron-forge`](https://github.com/electron-userland/electron-forge), and [`electron-builder`](https://github.com/electron-userland/electron-builder) 에서 지원하기 때문에, 대부분의 사용자들은 무료로 이 기능을 사용할 수 있습니다. 이 도구들을 사용하지 않는다면, 계속 읽어보십시오.
 
-## Generating `asar` Archives
+## `asar` 아카이브 생성하기
 
 [asar](https://github.com/electron/asar) 아카이브는 tar과 비슷한 포맷으로 모든 리소스를 하나의 파일로 만듭니다. 그리고 Electron은 압축해제 없이 임의로 모든 파일을 읽어들일 수 있습니다.
 
