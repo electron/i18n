@@ -6,7 +6,7 @@ Windows에서 일어나는 긴 경로 이름에 대한 [issues](https://github.c
 
 ## `asar` 아카이브 생성하기
 
-[asar](https://github.com/electron/asar) 아카이브는 tar과 비슷한 포맷으로 모든 리소스를 하나의 파일로 만듭니다. 그리고 Electron은 압축해제 없이 임의로 모든 파일을 읽어들일 수 있습니다.
+[asar](https://github.com/electron/asar) 아카이브는 tar과 비슷한 간단한 포맷으로 모든 리소스를 하나의 파일로 만듭니다. 그리고 Electron은 압축해제 없이 임의로 모든 파일을 읽어들일 수 있습니다.
 
 간단한 작업을 통해 애플리케이션을 `asar` 아카이브로 압축할 수 있습니다:
 
