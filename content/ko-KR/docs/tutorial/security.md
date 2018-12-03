@@ -42,10 +42,10 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     - [`allowRunningInsecureContent`을 `true`로 설정하지 마세요.](#7-do-not-set-allowrunninginsecurecontent-to-true)
     - [실험적인 기능들을 활성화 하지 마세요.](#8-do-not-enable-experimental-features)
     - [`enableBlinkFeatures`을 사용하지 마세요.](#9-do-not-use-enableblinkfeatures)
-    - [`<webview>`: Do not use `allowpopups`](#10-do-not-use-allowpopups)
+    - [`<webview>`: `allowpopups`을 사용하지 마세요.](#10-do-not-use-allowpopups)
     - [`<webview>`: Verify options and params](#11-verify-webview-options-before-creation)
     - [Disable or limit navigation](#12-disable-or-limit-navigation)
-    - [Disable or limit creation of new windows](#13-disable-or-limit-creation-of-new-windows)</ol> 
+    - [새로운 창 생성을 제한하거나 비활성화하세요.](#13-disable-or-limit-creation-of-new-windows)</ol> 
     
     ## 1) 안전한 콘텐츠만 로드하세요.
     
