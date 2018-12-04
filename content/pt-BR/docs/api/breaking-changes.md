@@ -4,20 +4,20 @@ Breaking changes will be documented here, and deprecation warnings added to JS c
 
 # `FIXME` Comentários
 
-The `FIXME` string is used in code comments to denote things that should be fixed for future releases. See https://github.com/electron/electron/search?q=fixme
+A string `FIXME` é utilizada nos comentários do código para denotar coisas que devem ser corrigidas em versões futuras. Veja https://github.com/electron/electron/search?q=fixme
 
-# Planned Breaking API Changes (4.0)
+# Alterações planejadas na API (4.0)
 
-The following list includes the breaking API changes planned for Electron 4.0.
+A seguinte lista inclui as alterações planejadas na API para Electron 4.0.
 
 ## `app.makeSingleInstance`
 
 ```js
-// Deprecated
+// Discontinuado
 app.makeSingleInstance(function (argv, cwd) {
 
 })
-// Replace with
+// Substituir com
 app.requestSingleInstanceLock()
 app.on('second-instance', function (event, argv, cwd) {
 
@@ -27,13 +27,13 @@ app.on('second-instance', function (event, argv, cwd) {
 ## `app.releaseSingleInstance`
 
 ```js
-// Deprecated
+// Discontinuado
 app.releaseSingleInstance()
-// Replace with
+// Substituir com
 app.releaseSingleInstanceLock()
 ```
 
-# Breaking API Changes (3.0)
+# Alterações na API (3.0)
 
 The following list includes the breaking API changes in Electron 3.0.
 
