@@ -109,11 +109,11 @@ apps:
   something_missing: 少了什麼嗎?
   edit_this_app: 編輯這個應用程式。
   search_app: Filter apps by name, description, etc…
-  categories: Categories
+  categories: 類別
   add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
   website: 網站
   repository: 儲存庫
-  category: Category
+  category: 類別
   downloads: 下載
   keywords: 關鍵字
   license: 授權
