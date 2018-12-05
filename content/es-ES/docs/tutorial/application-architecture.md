@@ -20,7 +20,7 @@ En páginas web, llamar APIs nativas relacionadas a GUI no está permitido porqu
 
 > #### A un lado: Comunicación entre Procesos
 > 
-> In Electron, we have several ways to communicate between the main process and renderer processes, such as [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. Existe también una entrada de FAQ en [como compartir data entre páginas web](../faq.md#how-to-share-data-between-web-pages).
+> En Electron hay varias formas de establecer una comunicación entre el proceso principal y el proceso renderizador, como los módulos [`ipcRenderer`](../api/ipc-renderer.md) y [`ipcMain`](../api/ipc-main.md) para enviar mensajes, y el módulo [remote](../api/remote.md) para una comunicación de tipo RPC. Existe también una entrada de FAQ en [como compartir data entre páginas web](../faq.md#how-to-share-data-between-web-pages).
 
 ## Usando APIs de Electron
 
@@ -30,7 +30,7 @@ Electron ofrece un número de APIs que apoyan el desarrollo de una aplicación d
 const electron = require('electron')
 ```
 
-Todas las APIs de Electron son asignadas a un tipo de proceso. Muchos de ellos puede ser utilizados desde el proceso principal, algunos de estos sólo desde el proceso visualizador, algunos otros de ambos. The documentation for each individual API will state which process it can be used from.
+Todas las APIs de Electron son asignadas a un tipo de proceso. Muchas de ellas solo pueden ser utilizadas desde el proceso principal, algunas sólo desde el proceso visualizador, y algunas desde ambos. La documentación de cada API va a indicar desde que proceso puede ser utilizada.
 
 Una ventana en Electron es, por ejemplo, creada usando la clase `BrowserWindow`. Sólo esta disponible en el proceso principal.
 
