@@ -1,10 +1,10 @@
-# Nativo Arquivo Drag & Drop
+# Nativo Arquivo Drag & Drop (Arrastar e Soltar)
 
-Certain kinds of applications that manipulate files might want to support the operating system's native file drag & drop feature. Arrastar de arquivos para um web conteúdo é comum e apoiado por muitos sites. Além disso, Electron adicionou suporte para arrastar arquivos e conteúdos de fora do conteúdo web para o mundo do sistema operacional.
+Determinados tipos de aplicativos que manipulam arquivos talvez queiram oferecer suporte a recurso de arrastar e soltar arquivo nativo do sistema operacional. Arrastar de arquivos para um web conteúdo é comum e apoiado por muitos sites. Além disso, Electron adicionou suporte para arrastar arquivos e conteúdos de fora do conteúdo web para o mundo do sistema operacional.
 
 Para implementar esse funções em seu aplicativo, você precisa chamar a API `webContents.startDrag(item)` em resposta ao evento `ondragstart`.
 
-In your renderer process, handle the `ondragstart` event and forward the information to your main process.
+Em seu processo de renderização, manipular o evento `ondragstart` e encaminhe as informações ao seu processo principal.
 
 ```html
 <a href="#" id="drag">item</a>
@@ -16,7 +16,7 @@ In your renderer process, handle the `ondragstart` event and forward the informa
 </script>
 ```
 
-Then, in the main process, augment the event with a path to the file that is being dragged and an icon.
+Em seguida, no processo principal, use o evento com um caminho para o arquivo que está sendo arrastado e um ícone.
 
 ```javascript
 const { ipcMain } = require('electron')
