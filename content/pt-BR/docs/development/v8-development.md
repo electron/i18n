@@ -1,6 +1,6 @@
 # V8 Desenvolvimento
 
-> A collection of resources for learning and using V8
+> Uma coleção de recursos para aprender e usar o V8
 
 * [V8 Tracing](https://github.com/v8/v8/wiki/Tracing-V8)
 * [V8 Profiler](https://github.com/v8/v8/wiki/V8-Profiler) - Profiler combinations which are useful for profiling: `--prof`, `--trace-ic`, `--trace-opt`, `--trace-deopt`, `--print-bytecode`, `--print-opt-code`
