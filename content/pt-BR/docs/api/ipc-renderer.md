@@ -17,7 +17,7 @@ O módulo `ipcRenderer` possui o seguinte método para ouvir eventos e enviar me
 * `channel` String
 * `listener` Function
 
-Listens to `channel`, when a new message arrives `listener` would be called with `listener(event, args...)`.
+Ouve o `channel`, quando uma mensagem chega, o `listener` deve ser chamado com `listener(event, args...)`.
 
 ### `ipcRenderer.once(channel, listener)`
 
