@@ -4,7 +4,7 @@
 
 處理序: [主處理序](../glossary.md#main-process)
 
-See [`Menu`](menu.md) for examples.
+範例請看 [`Menu`](menu.md)
 
 ### `new MenuItem(options)`
 
