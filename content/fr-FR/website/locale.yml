@@ -53,8 +53,8 @@ community:
   awesome_notice: Cette liste est générée depuis le repository <a href="https://github.com/sindresorhus/awesome-electron">Awesome Electron de @sindresorhus</a>. <br> Quelque chose manque ? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Faites une pull request</a>.
   meetup_notice: Pour ajouter une réunion, éditez <code>data/meetups.json</code> et <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">faites une pull request</a>.
 releases:
-  title: Electron Releases
-  all_releases: All Releases
+  title: Versions d'Electron
+  all_releases: Toutes les versions
   back_to_index: Back to index
 electron_is_easy:
   title: C'est plus facile que vous ne le pensez
