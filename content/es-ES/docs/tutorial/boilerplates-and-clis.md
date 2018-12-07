@@ -1,12 +1,12 @@
 # Boilerplates and CLIs
 
-Electron development is un-opinionated - there is no "one true way" to develop, build, package, or release an Electron application. Additional features for Electron, both for build- and run-time, can usually be found on [npm](https://www.npmjs.com/search?q=electron) in individual packages, allowing developers to build both the app and build pipeline they need.
+El desarrollo con Electron es libre de opiniones, y no hay una "única manera" de desarrollar, construir, empaquetar y desplegar una aplicación Electron. Características adicionales, tanto para la fase de build como para la ejecución, pueden encontrarse con frecuencia en [npm](https://www.npmjs.com/search?q=electron) en paquetes individuales, permitiendo a los desarrolladores construir tanto las aplicaciones como los pipelines que necesiten.
 
 Ese nivel de modularidad y extensibilidad asegura que todos los desarrolladores que trabajan con Electron, ambos equipos grandes y pequeños, nunca estén restringidos en que pueden o no puedan hacer en cualquier momento durante sus ciclos de vida del desarrollo. Sin embargo, para muchos desarrolladores, uno de los boilerplates comunitarios o herramientas de línea de comandos podría facilitar dramáticamente el compilar, empacar y liberar una aplicación.
 
 ## Boilerplate vs CLI
 
-A boilerplate is only a starting point - a canvas, so to speak - from which you build your application. Generalmente vienen en la forma de repositorio, puede clonar y personalizar a su gusto.
+Un boilerplate es solo un punto de partida -un lienza, por así decir- a partir del cual construir una aplicación. Generalmente vienen en la forma de repositorio, puede clonar y personalizar a su gusto.
 
 Por otro lado una herramienta de línea de comandos sigue para apoyarte a lo largo del desarrollo y liberación. Son mas útiles y serviciales pero encarga lineas directrices en como su código debe ser estructurado y construido. *Especialmente para principiantes, usando una herramienta de linea de comando es probable que sea útil*.
 
