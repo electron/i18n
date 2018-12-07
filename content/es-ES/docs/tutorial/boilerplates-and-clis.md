@@ -6,15 +6,15 @@ Ese nivel de modularidad y extensibilidad asegura que todos los desarrolladores 
 
 ## Boilerplate vs CLI
 
-Un boilerplate es solo un punto de partida -un lienza, por así decir- a partir del cual construir una aplicación. Generalmente vienen en la forma de repositorio, puede clonar y personalizar a su gusto.
+Un boilerplate es solo un punto de partida -un lienza, por así decir- a partir del cual construir una aplicación. Generalmente vienen en la forma de un repositorio, que se puede clonar y personalizar a gusto.
 
-Por otro lado una herramienta de línea de comandos sigue para apoyarte a lo largo del desarrollo y liberación. Son mas útiles y serviciales pero encarga lineas directrices en como su código debe ser estructurado y construido. *Especialmente para principiantes, usando una herramienta de linea de comando es probable que sea útil*.
+Por otro lado una herramienta de línea de comandos sigue para apoyarte a lo largo del desarrollo y despliegue. Son mas útiles y serviciales pero encarga lineas directrices en cómo su código debe ser estructurado y construido. *Especialmente para principiantes, el uso de una herramienta de linea de comando es probable que sea útil*.
 
 ## electron-forge
 
-Una "herramienta completa para las construcción de aplicaciones Electron modernas". Electron Forge unifies the existing (and well maintained) build tools for Electron development into a cohesive package so that anyone can jump right in to Electron development.
+Una "herramienta completa para las construcción de aplicaciones Electron modernas". Electron Forge unifica las herramientas de construcción existentes (y bien mantenidas) para el desarrollo de Electron en un paquete cohesivo de manera que cualquiera pueda saltar directamente al desarrollo en Electron.
 
-La Fragua viene con [Plantillas listas para usar](https://electronforge.io/templates) para infraestructuras populares como React, Vue o Angular. Utiliza los mismos módulos de nucleo usados por la gran comunidad Electron (como [`electron-packager`](https://github.com/electron-userland/electron-packager)) - los cambios hechos por los mantenedores a cargo de Electron (como Slack), benefician también a los usuarios de Fragua.
+Forge viene con [Plantillas listas para usar](https://electronforge.io/templates) para infraestructuras populares como React, Vue o Angular. Utiliza los mismos módulos de núcleo usados por la gran comunidad Electron (como [`electron-packager`](https://github.com/electron-userland/electron-packager)) - los cambios hechos por los mantenedores a cargo de Electron (como Slack), benefician también a los usuarios de Forge.
 
 Puede encontrar información y documentación en [electronforge.io](https://electronforge.io/).
 
