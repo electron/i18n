@@ -55,23 +55,23 @@ memory.sharedBytes  // Устаревшее свойство
 ## `BrowserWindow`
 
 ```js
-// Deprecated
+// Устарело
 let optionsA = {webPreferences: {blinkFeatures: ''}}
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// Заменить на
 let optionsB = {webPreferences: {enableBlinkFeatures: ''}}
 let windowB = new BrowserWindow(optionsB)
 
-// Deprecated
+// Устарело
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
-    // do something
+    // делается что-нибудь
   }
 })
-// Replace with
+// Заменить на
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
-    // do something
+    // делается что-нибудь
   }
 })
 ```
