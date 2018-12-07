@@ -40,16 +40,16 @@ app.releaseSingleInstanceLock()
 ## `app`
 
 ```js
-// Deprecated
+// Устарело
 app.getAppMemoryInfo()
-// Replace with
+// Заменить на
 app.getAppMetrics()
 
-// Deprecated
+// Устарело
 const metrics = app.getAppMetrics()
 const {memory} = metrics[0]
-memory.privateBytes  // Deprecated property
-memory.sharedBytes  // Deprecated property
+memory.privateBytes  // Устаревшее свойство
+memory.sharedBytes  // Устаревшее свойство
 ```
 
 ## `BrowserWindow`
