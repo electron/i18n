@@ -658,7 +658,7 @@ Calling this function with a value of `0` will remove any previously set aspect 
 * `height` Integer
 * `animate` Boolean (可选) *macOS*
 
-Resizes the window to `width` and `height`. If `width` or `height` are below any set minimum size constraints the window will snap to its minimum size.
+将窗口的大小调整为`width`和`height`. 如果`width`或`height`低于设定的最小值, 那么对应的大小将被截断至设定的最小值.
 
 #### `win.getSize()`
 
