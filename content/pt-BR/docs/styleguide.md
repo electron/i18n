@@ -38,7 +38,7 @@ Usado o `Inicio Rápido` como exemplo:
 ...
 ```
 
-For API references, there are exceptions to this rule.
+Para referencias à API, existem exceções a está regra.
 
 ## Funcionalidades Markdown
 
