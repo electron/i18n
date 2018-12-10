@@ -13,7 +13,7 @@ app.on('window-all-closed', () => {
 })
 ```
 
-## Events
+## Události
 
 The `app` object emits the following events:
 
@@ -258,11 +258,11 @@ Vrací:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
-* `request` Object 
+* `request` Objekt 
   * `method` String
   * `url` URL
   * `referrer` URL
-* `authInfo` Object 
+* `authInfo` Objekt 
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
@@ -428,7 +428,7 @@ You can request the following paths by the name:
 
 * `path` String
 * `nastavení` Object (optional) 
-  * `size` String 
+  * `size` Řetězec 
     * `small` - 16x16
     * `normal` - 32x32
     * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
@@ -711,7 +711,7 @@ Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library
 
 ### `app.importCertificate(options, callback)` *LINUX*
 
-* `nastavení` Object 
+* `nastavení` Objekt 
   * `certificate` String - Path for the pkcs12 file.
   * `password` String - Passphrase for the certificate.
 * `callback` Funkce 
@@ -777,7 +777,7 @@ Returns `Object`:
 
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
-* `settings` Object 
+* `settings` Objekt 
   * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Defaults to `false`.
   * `openAsHidden` Boolean (optional) *macOS* - `true` to open the app as hidden. Defaults to `false`. The user can edit this setting from the System Preferences so `app.getLoginItemSettings().wasOpenedAsHidden` should be checked when the app is opened to know the current value. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
   * `path` String (optional) *Windows* - The executable to launch at login. Defaults to `process.execPath`.
@@ -816,7 +816,7 @@ Manually enables Chrome's accessibility support, allowing to expose accessibilit
 
 ### `app.setAboutPanelOptions(options)` *macOS*
 
-* `nastavení` Object 
+* `nastavení` Objekt 
   * `applicationName` String (optional) - The app's name.
   * `applicationVersion` String (optional) - The app's version.
   * `copyright` String (optional) - Copyright information.
@@ -931,7 +931,7 @@ Sets the application's [dock menu](https://developer.apple.com/macos/human-inter
 
 Sets the `image` associated with this dock icon.
 
-## Properties
+## Vlastnosti
 
 ### `app.isPackaged`
 
