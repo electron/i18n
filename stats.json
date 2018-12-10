@@ -55,14 +55,14 @@
     "name": "Czech",
     "code": "cs",
     "phrases": "9681",
-    "translated": "988",
+    "translated": "1125",
     "approved": "0",
     "words": "89724",
-    "words_translated": "2538",
+    "words_translated": "2912",
     "words_approved": "0",
-    "translated_progress": 2,
+    "translated_progress": 3,
     "approved_progress": 0,
-    "qa_issues": 235
+    "qa_issues": 246
   },
   {
     "name": "Dutch",
@@ -224,14 +224,14 @@
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "9681",
-    "translated": "4306",
+    "translated": "4311",
     "approved": "371",
     "words": "89724",
-    "words_translated": "31088",
+    "words_translated": "31137",
     "words_approved": "2712",
     "translated_progress": 34,
     "approved_progress": 3,
-    "qa_issues": 1260
+    "qa_issues": 1262
   },
   {
     "name": "Romanian",
