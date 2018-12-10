@@ -1,9 +1,9 @@
 # Objekt Display
 
-* `id` Number – unikátní identifikátor spojený s displayem.
-* `rotation` Number – možné hodnoty jsou 0, 90, 180, 270 a reprezentují stupňovou rotaci obrazovky ve směru ručiček.
-* `scaleFactor` Number – pixelové měřítko výstupního zařízení.
-* `touchSupport` String – možné hodnoty jsou `available`, `unavailable` a `unknown`.
+* `id` Číslo – unikátní identifikátor spojený s displayem.
+* `rotation` Číslo – možné hodnoty jsou 0, 90, 180, 270 a reprezentují stupňovou rotaci obrazovky ve směru ručiček.
+* `scaleFactor` Číslo – pixelové měřítko výstupního zařízení.
+* `touchSupport` Text – možné hodnoty jsou `available`, `unavailable` a `unknown`.
 * `bounds` [Rectangle](rectangle.md)
 * `size` [Size](size.md)
 * `workArea` [Rectangle](rectangle.md)
