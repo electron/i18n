@@ -20,7 +20,7 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 * `env`
 * `platform`
 
-## Events
+## Události
 
 ### Event: 'loaded'
 
@@ -38,7 +38,7 @@ process.once('loaded', () => {
 })
 ```
 
-## Properties
+## Vlastnosti
 
 ### `process.defaultApp`
 
