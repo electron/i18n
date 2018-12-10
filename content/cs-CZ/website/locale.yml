@@ -111,7 +111,7 @@ apps:
   search_app: Filter apps by name, description, etc…
   categories: Categories
   add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
-  website: Website
+  website: Webová stránka
   repository: Repository
   category: Category
   downloads: Downloads
@@ -121,7 +121,7 @@ apps:
 blog:
   title: Electron Blog
   description: Všechny nejnovější zprávy z týmu Electron a komunity.
-  feedback: Have feedback on this post? Let <a href="https://twitter.com/electronjs">@electronjs</a> know on Twitter.
+  feedback: Máte něco k tomuto příspěvku? Jděte na Twitter <a href="https://twitter.com/electronjs">@electronjs</a>.
   help: Need help or found a bug? <a href="/contact">Contact us</a>.
 clipboard:
   copy: Kopírovat
