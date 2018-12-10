@@ -31,7 +31,7 @@ Starts recording network events to `path`.
 
 Stops recording network events. If not called, net logging will automatically end when app quits.
 
-## Properties
+## Vlastnosti
 
 ### `netLog.currentlyLogging`
 
