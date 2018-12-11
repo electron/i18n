@@ -2,7 +2,7 @@
 
 > إنشاء قوائم التطبيقات الأصلية وقوائم السياق.
 
-Process: [Main](../glossary.md#main-process)
+العملية: [Main](../glossary.md#main-process)
 
 ### `new Menu()`
 
