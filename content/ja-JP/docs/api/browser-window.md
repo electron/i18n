@@ -161,7 +161,7 @@ child.once('ready-to-show', () => {
     * `default` - 標準の灰色不透明なMacのタイトルバーになります。
     * `hidden` - タイトルバーが非表示かつフルサイズのコンテンツウインドウになりますが、タイトルバーには、まだ標準のウインドウコントロール ("信号") が左上にあります。
     * `hiddenInset` - ウインドウの端から信号ボタンが少し埋め込まれた別の見た目でタイトルバーが非表示になります。
-    * `customButtonsOnHover` Boolean (任意) - macOSのフレームレスウインドウで、カスタムの閉じる、最小化、フルスクリーンボタンを描画します。 これらのボタンはウインドウの左上を通過させないと表示されません。 これらのボタンは標準のウインドウツールバーボタンで発生するマウスイベントの問題を防止します。 **注:** このオプションは、現在、実験的なものです。
+    * `customButtonsOnHover` Boolean (optional) - Draw custom close, and minimize buttons on macOS frameless windows. These buttons will not display unless hovered over in the top left of the window. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. **注:** このオプションは、現在、実験的なものです。
   * `fullscreenWindowTitle` Boolean (任意) - macOSのフルスクリーンモードで、どの `titleBarStyle` オプションの場合でもタイトルバーにタイトルを表示します。省略値は、`false` です。
   * `thickFrame` Boolean (任意) - Windowsのフレームレスウインドウに対して、標準のウインドウ枠を追加する `WS_THICKFRAME` スタイルを使用します。 `false` に設定すると、ウインドウの影とウインドウアニメーションがなくなります。 省略値は `true` です。
   * `vibrancy` String (任意) - macOSでのみ、ウインドウに曇りガラス効果の種類を追加します。 `appearance-based`、`light`、`dark`、`titlebar`、`selection`、`menu`、`popover`、`sidebar`、`medium-light` または `ultra-dark` にすることができます。 曇り値と組み合わせて `frame: false` を使用する場合は、デフォルト以外の `titleBarStyle` も使用する必要があります。
