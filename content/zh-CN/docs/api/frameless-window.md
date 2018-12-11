@@ -40,7 +40,7 @@ win.show()
 
 #### `customButtonsOnHover`
 
-使用自定义的关闭、缩小和全屏按钮，这些按钮会在划过窗口的左上角时显示。 这些自定义按钮会阻止工具栏窗口上的鼠标事件。 这个选项只适用于无框架的窗口。
+Uses custom drawn close, and miniaturize buttons that display when hovering in the top left of the window. The fullscreen button is not available due to restrictions of frameless windows as they interface with Apple's MacOS window masks. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. This option is only applicable for frameless windows.
 
 ```javascript
 const {BrowserWindow} = require('electron')
