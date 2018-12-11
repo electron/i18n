@@ -40,8 +40,8 @@ The following languages are currently being translated, but we can
 - [اللغة العربية (Arabic)](https://crowdin.com/project/electron/ar)
 - [فارسی (Persian)](https://crowdin.com/project/electron/fa)
 - [čeština (Czech)](https://crowdin.com/project/electron/cs)
-- [עברית (Hebrew)](https://crowdin.com/project/electron/he)
 - [limba română (Romanian)](https://crowdin.com/project/electron/ro)
+- [עברית (Hebrew)](https://crowdin.com/project/electron/he)
 - [ไทย (Thai)](https://crowdin.com/project/electron/th)
 - [Wikang Tagalog (Tagalog)](https://crowdin.com/project/electron/tl)
 <!-- end language-table -->
