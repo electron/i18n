@@ -55,10 +55,10 @@
     "name": "Czech",
     "code": "cs",
     "phrases": "9682",
-    "translated": "1129",
+    "translated": "1130",
     "approved": "0",
     "words": "89740",
-    "words_translated": "2918",
+    "words_translated": "2926",
     "words_approved": "0",
     "translated_progress": 3,
     "approved_progress": 0,
@@ -250,14 +250,14 @@
     "name": "Russian",
     "code": "ru",
     "phrases": "9682",
-    "translated": "5174",
+    "translated": "5178",
     "approved": "1037",
     "words": "89740",
-    "words_translated": "37806",
+    "words_translated": "37871",
     "words_approved": "7837",
     "translated_progress": 42,
     "approved_progress": 8,
-    "qa_issues": 1514
+    "qa_issues": 1516
   },
   {
     "name": "Spanish",
@@ -315,14 +315,14 @@
     "name": "Ukrainian",
     "code": "uk",
     "phrases": "9682",
-    "translated": "3973",
+    "translated": "3974",
     "approved": "153",
     "words": "89740",
-    "words_translated": "24917",
+    "words_translated": "24930",
     "words_approved": "711",
     "translated_progress": 27,
     "approved_progress": 0,
-    "qa_issues": 1589
+    "qa_issues": 1590
   },
   {
     "name": "Vietnamese",
