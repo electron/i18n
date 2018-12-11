@@ -40,7 +40,7 @@ win.show()
 
 #### `customButtonsOnHover`
 
-Utiliza botões customizados para fechar, minimizar e colocar tela cheia que aparecem quando passar o mouse no canto superior da janela. Esses botões customizados evitam erros com eventos do mouse que ocorrem com os botões da barra de ferramentas padrão. Essa opção é apenas aplicável para frameless windows.
+Uses custom drawn close, and miniaturize buttons that display when hovering in the top left of the window. The fullscreen button is not available due to restrictions of frameless windows as they interface with Apple's MacOS window masks. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. This option is only applicable for frameless windows.
 
 ```javascript
 const {BrowserWindow} = require('electron')
