@@ -186,7 +186,7 @@ if (process.platform === 'darwin') {
     submenu: [
       {role: 'about'},
       {type: 'separator'},
-      {role: 'services', submenu: []},
+      {role: 'services'},
       {type: 'separator'},
       {role: 'hide'},
       {role: 'hideothers'},
@@ -196,7 +196,7 @@ if (process.platform === 'darwin') {
     ]
   })
 
-  // 編集メニュー
+  // Edit menu
   template[1].submenu.push(
     {type: 'separator'},
     {
@@ -208,7 +208,7 @@ if (process.platform === 'darwin') {
     }
   )
 
-  // ウインドウメニュー
+  // Window menu
   template[3].submenu = [
     {role: 'close'},
     {role: 'minimize'},
