@@ -705,7 +705,7 @@ Updates the current activity if its type matches `type`, merging the entries fro
 
 ### `app.setAppUserModelId(id)` *Windows*
 
-* `id` String
+* `id` Text
 
 Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) to `id`.
 
