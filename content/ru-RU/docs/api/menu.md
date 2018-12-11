@@ -108,7 +108,7 @@ Emitted when `menu.popup()` is called.
 
 Emitted when a popup is closed either manually or with `menu.closePopup()`.
 
-### Instance Properties
+### Свойства экземпляра
 
 `menu` objects also have the following properties:
 
@@ -186,7 +186,7 @@ if (process.platform === 'darwin') {
     submenu: [
       {role: 'about'},
       {type: 'separator'},
-      {role: 'services', submenu: []},
+      {role: 'services'},
       {type: 'separator'},
       {role: 'hide'},
       {role: 'hideothers'},
