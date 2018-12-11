@@ -75,7 +75,7 @@ Appends the `menuItem` to the menu.
 
 #### `menu.getMenuItemById(id)`
 
-* `id` String
+* `id` Text
 
 Returns `MenuItem` the item with the specified `id`
 
