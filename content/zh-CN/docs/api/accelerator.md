@@ -2,7 +2,7 @@
 
 > 定义键盘快捷键。
 
-Accelerators are Strings that can contain multiple modifiers and a single key code, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
+快捷键可以包含多个功能键和一个键码的字符串，由符号`+`结合，用来定义你应用中的键盘快捷键
 
 示例：
 
