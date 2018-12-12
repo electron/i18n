@@ -6,7 +6,7 @@ nav:
   community: جامعه
   contact: تماس با ما
   docs: مستندات
-  donors: Donors
+  donors: یاری‌گران مالی
   languages: زبان‌ ها
   releases: نسخه‌ها
   search: جستجو
@@ -16,7 +16,7 @@ docs:
   description: تمام مستندات را در <a href="/docs/all">این صفحه</a> مشاهده کنید و یا <a href="/docs/faq">سوالات متداول</a> را بررسی کنید.
   guides: راهنماها
   api_reference: مرجع API
-  api_structures: API Structures
+  api_structures: ساختارهای ای پی آی
   advanced: پیشرفته
   footer:
     propose_change: مستندات را بهبود ببخشید
@@ -29,7 +29,7 @@ languages:
   current: انتخاب کنونی
 community:
   title: پرسش و پاسخ الکترون
-  description: Resources for connecting with people working on Electron.
+  description: منابعی برای ارتباط با کسانی که روی الکترون کار می‌کنند.
   channels:
     get_started: "<a href='/docs/tutorial/first-app'><b>Get started</b></a> building an app by reading the <a href='/docs/tutorial/first-app'>quick-start guide</a>."
     updates: "<a href='https://twitter.com/electronjs'><b>Stay up to date</b></a> by following <a href='https://twitter.com/electronjs'>@electronjs</a> on Twitter and subscribing to the <a href='/blog'>blog feed</a>."
@@ -43,7 +43,7 @@ community:
     donations: "<a href='donors'><b>Donate</b></a> on our <a href='/donors'>OpenCollective page</a>."
     other: "For all other inquiries, email <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
   language_communities:
-    title: Language Communities
+    title: انجمن‌های ترجمه
     description: "The Electron community spans the globe, and English is not everyone's first language. Find <a href='/languages'>documentation in your language</a>, or join one of the language communities below:"
   tools: ابزارها
   boilerplates: برنامه ی آماده
@@ -53,9 +53,9 @@ community:
   awesome_notice: This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.
   meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">make a pull request</a>.
 releases:
-  title: Electron Releases
-  all_releases: All Releases
-  back_to_index: Back to index
+  title: رهانش‌های الکترون
+  all_releases: تمامی رهانش‌ها
+  back_to_index: بازگشت به فهرست
 electron_is_easy:
   title: ساده‌تر از آن چیزی است که فکر می‌کنید
   description: اگر می توانید یک وب سایت بسازید، پس می توانید یک برنامه ی دسکتاپی هم بسازید. الکترون چارچوبی برای ساخت برنامه های بومی با استفاده از فناوری هایی مثل جاوا اسکریپت، HTML و CSS است. بخش های دشوار توسط الکترون انجام می شوند، بنابراین شما می توانید بر روی مرکز برنامه تان تمرکز کنید.
@@ -109,15 +109,15 @@ apps:
   something_missing: چیزی فراموش شده است؟
   edit_this_app: ویرایش این برنامه.
   search_app: Filter apps by name, description, etc…
-  categories: Categories
+  categories: دسته‌‎بندی‎ها
   add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
-  website: Website
-  repository: Repository
-  category: Category
-  downloads: Downloads
-  keywords: Keywords
-  license: License
-  latest_release: Latest Release
+  website: تارنما
+  repository: مخزن
+  category: دسته‌بندی
+  downloads: دریافت‌ها
+  keywords: کلیدواژه ها
+  license: پروانه
+  latest_release: آخرین رهانش
 blog:
   title: وبلاگ الکترون
   description: آخرین اخبار تیم الکترون و انجمن.
@@ -171,6 +171,6 @@ pages:
     title: اسپکترون
     description: Spectron یک چارچوب متن باز برای نوشتن تست های یک پارچه برای برنامه ی الکترون شما است. Spectron بر پایه ی ChromeDriver و WebDriverIO ساخته شده است.
   '/donors':
-    title: Donors
+    title: یاری‌گران مالی
 _404:
   page_not_found: صفحه یافت نشد.
