@@ -676,7 +676,7 @@ if (!gotTheLock) {
 
 ### `app.releaseSingleInstanceLock()`
 
-Releases all locks that were created by `requestSingleInstanceLock`. This will allow multiple instances of the application to once again run side by side.
+释放由`requestSingleInstanceLock`创建的所有锁。这将允许应用中的多例再次同时执行。
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
@@ -749,7 +749,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 
 在macOS系统中, 它展示在dock图标上。在Linux系统中, 它只适用于Unity启动器.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+**注意:** 联合启动器需要`.desktop`文件的存在和工作， 获得更多信息请阅读 [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher)。
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
