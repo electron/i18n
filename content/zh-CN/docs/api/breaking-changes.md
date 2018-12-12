@@ -76,27 +76,27 @@ window.on('app-command', (e, cmd) => {
 })
 ```
 
-## `clipboard`
+## `剪贴板`
 
 ```js
-// 过时的
+// 弃用
 clipboard.readRtf()
 // 替换为
 clipboard.readRTF()
 
-// 过时的
+// 弃用
 clipboard.writeRtf()
 // 替换为
 clipboard.writeRTF()
 
-// 过时的
+// 弃用
 clipboard.readHtml()
 // 替换为
 clipboard.readHTML()
 
-// 过时的
+// 弃用
 clipboard.writeHtml()
-//替换为
+// 替换为
 clipboard.writeHTML()
 ```
 
@@ -120,9 +120,9 @@ crashReporter.start({
 ## `nativeImage`
 
 ```js
-// Deprecated
+// 弃用
 nativeImage.createFromBuffer(buffer, 1.0)
-// Replace with
+// 替换为
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
@@ -131,25 +131,25 @@ nativeImage.createFromBuffer(buffer, {
 ## `process`
 
 ```js
-// Deprecated
+// 弃用
 const info = process.getProcessMemoryInfo()
-const privateBytes = info.privateBytes // deprecated property
-const sharedBytes = info.sharedBytes // deprecated property
+const privateBytes = info.privateBytes // 弃用的属性
+const sharedBytes = info.sharedBytes // 弃用的属性
 ```
 
 ## `screen`
 
 ```js
-// Deprecated
+// 弃用
 screen.getMenuBarHeight()
-// Replace with
+// 替换为
 screen.getPrimaryDisplay().workArea
 ```
 
 ## `session`
 
 ```js
-// 过时的
+// 弃用
 ses.setCertificateVerifyProc(function (hostname, certificate, callback) {
   callback(true)
 })
@@ -162,12 +162,12 @@ ses.setCertificateVerifyProc(function (request, callback) {
 ## `Tray`
 
 ```js
-// 过时的
+// 弃用
 tray.setHighlightMode(true)
 // 替换为
 tray.setHighlightMode('on')
 
-// 过时的
+// 弃用
 tray.setHighlightMode(false)
 // 替换为
 tray.setHighlightMode('off')
