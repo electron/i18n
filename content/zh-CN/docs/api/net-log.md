@@ -1,6 +1,6 @@
 # netLog
 
-> Logging network events.
+> 网络日志记录事件
 
 进程：[主进程](../glossary.md#main-process)
 
@@ -14,29 +14,29 @@ netLog.stopLogging(path => {
 })
 ```
 
-See [`--log-net-log`](chrome-command-line-switches.md#--log-net-logpath) to log network events throughout the app's lifecycle.
+查看 [`--log-net-log`](chrome-command-line-switches.md#--log-net-logpath) 记录应用生命周期的网络事件。
 
 ## 方法
 
 ### `netLog.startLogging(path)`
 
-* `path` String - File path to record network logs.
+* `path` String - 记录网络日志的文件路径。
 
-Starts recording network events to `path`.
+开始记录网络事件日志到 `path`。
 
 ### `netLog.stopLogging([callback])`
 
 * `callback` Function (可选) 
-  * `path` String - File path to which network logs were recorded.
+  * `path` String - 记录网络日志的文件路径。
 
-Stops recording network events. If not called, net logging will automatically end when app quits.
+停止网络事件日志的记录。 如果未被调用，net 记录将自动结束当 app 退出的时候。
 
 ## 属性
 
 ### `netLog.currentlyLogging`
 
-A `Boolean` property that indicates whether network logs are recorded.
+`Boolean` 类型的属性，指示网络日志是否被记录。
 
 ### `netLog.currentlyLoggingPath`
 
-A `String` property that returns the path to the current log file.
+`String` 类型的属性，返回当前的日志文件路径。
