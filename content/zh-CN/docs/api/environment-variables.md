@@ -52,7 +52,7 @@ process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
 
 ### `ELECTRON_TRASH` *Linux*
 
-Set the trash implementation on Linux. Default is `gio`.
+在Linux中设置回收站的实现，默认为`gio`。
 
 Options:
 
