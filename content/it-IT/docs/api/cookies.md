@@ -1,4 +1,4 @@
-## Class: Cookies
+## Classe: Cookies
 
 > Interroga e modifica i cookie di una sessione.
 
