@@ -903,7 +903,7 @@ Restituisce `Boolean` - Se il documento della finestra è stato modificato.
 
 #### `win.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
+* `rect` [Rectangle](structures/rectangle.md) (optional) - Le misure da ottenere
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
@@ -923,7 +923,7 @@ Uguale a `webContents.loadURL(url[, options])`.
 
 L' `url` può essere un indirizzo remoto (e.g. `http://`) o il percorso a un file HTML locale attraverso l'uso del protocollo `file://`.
 
-To ensure that file URLs are properly formatted, it is recommended to use Node's [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject) method:
+Per assicurarsi che gli URLs dei file sono formattati in modo corretto, è raccomandato l'uso del metodo di Node [`url.format`](https://nodejs.org/api/url.html#url_url_format_urlobject):
 
 ```javascript
 let url = require('url').format({
@@ -935,7 +935,7 @@ let url = require('url').format({
 win.loadURL(url)
 ```
 
-You can load a URL using a `POST` request with URL-encoded data by doing the following:
+Puoi caricare un URL usando una richiesta `POST` con i dati dell'URL codificati in questo modo:
 
 ```javascript
 win.loadURL('http://localhost:8000/post', {
@@ -949,29 +949,29 @@ win.loadURL('http://localhost:8000/post', {
 
 #### `win.loadFile(filePath)`
 
-* `Percorsofile` Stringa
+* `percorsoFile` String
 
-Same as `webContents.loadFile`, `filePath` should be a path to an HTML file relative to the root of your application. See the `webContents` docs for more information.
+Proprio come `webContents.loadFile`, `filePath` deve essere un percorso verso un file HTML relativo alla radice della tua applicazione. Leggi le documentazioni su `webContents` per maggiori informazioni.
 
 #### `win.reload()`
 
-Same as `webContents.reload`.
+Proprio come `webContents.reload`.
 
 #### `win.setMenu(menu)` *Linux* *Windows*
 
 * `menu` Menu | null
 
-Sets the `menu` as the window's menu bar, setting it to `null` will remove the menu bar.
+Imposta il `menu` come menu nella barra della finestra, impostandolo su `null` rimuove la barra del menu.
 
 #### `win.setProgressBar(progress[, opzioni])`
 
-* `progress` Double
-* `options` Object (opzionale) 
-  * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error` or `paused`.
+* `progresso` Double
+* `opzioni` Object (opzionale) 
+  * `mode` String *Windows* - Modalità per la barra del progresso. Può essere `none`, `normal`, `indeterminate`, `error` o `paused`.
 
-Sets progress value in progress bar. Valid range is [0, 1.0].
+Imposta il valore del progresso per la barra del progresso. Sono validi i valori compresi tra 0 e 1.0.
 
-Remove progress bar when progress < 0; Change to indeterminate mode when progress > 1.
+Rimuove la barra del progresso quando il progresso è minore di 0; Cambia in "indeterminate" quando il progresso è maggiore di 1.
 
 On Linux platform, only supports Unity desktop environment, you need to specify the `*.desktop` file name to `desktopName` field in `package.json`. By default, it will assume `app.getName().desktop`.
 
