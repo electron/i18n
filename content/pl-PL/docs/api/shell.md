@@ -37,7 +37,7 @@ Otwiera dany plik w normalnym sposobie komputera.
 ### `shell.openExternal(url[, options, callback])`
 
 * `url` String - Max 2081 characters on windows, or the function returns false.
-* `opcje` Obiekt (opcjonalne) *macOS* 
+* `options` Obiekt (opcjonalne) *macOS* 
   * `activate` Boolean - `true` to bring the opened application to the foreground. The default is `true`.
 * `callback` Funkcja (opcjonalne) *macOS* - If specified will perform the open asynchronously. 
   * `error` Error
@@ -61,13 +61,13 @@ Play the beep sound.
 ### `shell.writeShortcutLink(shortcutPath[, operation], options)` *Windows*
 
 * `shortcutPath` String
-* `operation` String (optional) - Default is `stwórz`, can be one of following: 
+* `operation` String (opcjonalny) - Domyślnie jest `create`, can be one of following: 
   * `create` - Creates a new shortcut, overwriting if necessary.
   * `update` - Updates specified properties only on an existing shortcut.
   * `replace` - Overwrites an existing shortcut, fails if the shortcut doesn't exist.
 * `options` [ShortcutDetails](structures/shortcut-details.md)
 
-Returns `Boolean` - Whether the shortcut was created successfully.
+Zwraca `Boolean` - Określa, czy skrót został utworzony pomyślnie.
 
 Creates or updates a shortcut link at `shortcutPath`.
 
