@@ -100,7 +100,7 @@ const { app, BrowserWindow } = require('electron')
 let win
 
 function createWindow () {
-  // Create the browser window.
+  // Stwórz okno przeglądarki.
   win = new BrowserWindow({ width: 800, height: 600 })
 
   // i ładowanie index.html aplikacji.
