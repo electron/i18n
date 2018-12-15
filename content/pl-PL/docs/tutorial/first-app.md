@@ -81,7 +81,7 @@ The `electron` module exposes features in namespaces. As examples, the lifecycle
 const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
-  // Tworzenie okna przeglądarki.
+  // Stwórz okno przeglądarki.
   win = new BrowserWindow({ width: 800, height: 600 })
 
   // i ładowanie index.html aplikacji.
@@ -95,8 +95,8 @@ The `main.js` should create windows and handle all the system events your applic
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
-// zapisz do zmiennej globalnej referencję window object, w przeciwnym razie 
-// zostanie ona zamknięta automatycznie kiedy  JavaScript
+// Zachowaj globalną referencję obiektu okna, jeśli tego nie zrobisz, okno 
+// zostanie zamknięte automatycznie, gdy obiekt JavaScript odśmieci pamięć.
 let win
 
 function createWindow () {
@@ -109,7 +109,7 @@ function createWindow () {
   // Otwórz Narzędzia Deweloperskie.
   win.webContents.openDevTools()
 
-  // Emitted when the window is closed.
+  // Emitowane, gdy okno jest zamknięte.
   win.on('closed', () => {
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
@@ -123,7 +123,7 @@ function createWindow () {
 // Some APIs can only be used after this event occurs.
 app.on('ready', createWindow)
 
-// Quit when all windows are closed.
+// Zamknij, gdy wszystkie okna są zamknięte.
 app.on('window-all-closed', () => {
   // On macOS it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q
