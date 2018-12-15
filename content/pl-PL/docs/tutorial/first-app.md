@@ -6,7 +6,7 @@ To nie znaczy, że Electron jest powiązaniem JavaScript z bibliotekami graficzn
 
 **Uwaga**: Ten przykład jest dostępny także jako repozytorium przez co możesz [go pobrać i uruchomić od razu](#trying-this-example).
 
-As far as development is concerned, an Electron application is essentially a Node.js application. The starting point is a `package.json` that is identical to that of a Node.js module. Najbardziej podstawowa aplikacja napisana za pomocą Electron`a ma następującą strukturę folderów:
+As far as development is concerned, an Electron application is essentially a Node.js application. Punktem wyjścia jest `package.json`, który jest identyczny z modułem Node.js. Najbardziej podstawowa aplikacja napisana za pomocą Electron`a ma następującą strukturę folderów:
 
 ```text
 twoja-aplikacja
@@ -21,7 +21,7 @@ Stwórz nowy pusty folder dla twojej nowej aplikacji napisanej w Electron`ie. Ot
 npm init
 ```
 
-npm will guide you through creating a basic `package.json` file. The script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+npm poprowadzi Cię przez proces tworzenia podstawowego pliku `package.json`. The script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
 
 ```json
 {
@@ -106,7 +106,7 @@ function createWindow () {
   // i ładowanie index.html aplikacji.
   win.loadFile('index.html')
 
-  // Open the DevTools.
+  // Otwórz Narzędzia Deweloperskie.
   win.webContents.openDevTools()
 
   // Emitted when the window is closed.
