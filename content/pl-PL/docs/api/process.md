@@ -106,7 +106,7 @@ Returns [`IOCounters`](structures/io-counters.md)
 
 ### `process.getHeapStatistics()`
 
-Returns `Object`:
+Zwraca `Object`:
 
 * `totalHeapSize` Integer
 * `totalHeapSizeExecutable` Integer
@@ -122,7 +122,7 @@ Returns an object with V8 heap statistics. Note that all statistics are reported
 
 ### `process.getProcessMemoryInfo()`
 
-Returns `Object`:
+Zwraca `Object`:
 
 * `workingSetSize` Integer - The amount of memory currently pinned to actual physical RAM.
 * `peakWorkingSetSize` Integer - The maximum amount of memory that has ever been pinned to actual physical RAM.
@@ -133,7 +133,7 @@ Returns an object giving memory usage statistics about the current process. Note
 
 ### `process.getSystemMemoryInfo()`
 
-Returns `Object`:
+Zwraca `Object`:
 
 * `total` Integer - The total amount of physical memory in Kilobytes available to the system.
 * `free` Integer - The total amount of memory not being used by applications or disk cache.
