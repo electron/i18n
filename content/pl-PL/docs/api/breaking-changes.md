@@ -13,11 +13,11 @@ The following list includes the breaking API changes planned for Electron 4.0.
 ## `app.makeSingleInstance`
 
 ```js
-// Deprecated
+// Przestarzałe
 app.makeSingleInstance(function (argv, cwd) {
 
 })
-// Replace with
+// Zamień na
 app.requestSingleInstanceLock()
 app.on('second-instance', function (event, argv, cwd) {
 
@@ -27,9 +27,9 @@ app.on('second-instance', function (event, argv, cwd) {
 ## `app.releaseSingleInstance`
 
 ```js
-// Deprecated
+// Przestarzałe
 app.releaseSingleInstance()
-// Replace with
+// Zamień na
 app.releaseSingleInstanceLock()
 ```
 
@@ -40,16 +40,16 @@ The following list includes the breaking API changes in Electron 3.0.
 ## `app`
 
 ```js
-// Deprecated
+// Przestarzałe
 app.getAppMemoryInfo()
-// Replace with
+// Zamień na
 app.getAppMetrics()
 
-// Deprecated
+// Przestarzałe
 const metrics = app.getAppMetrics()
 const {memory} = metrics[0]
-memory.privateBytes  // Deprecated property
-memory.sharedBytes  // Deprecated property
+memory.privateBytes  // Przestarzała właściwość
+memory.sharedBytes  // Przestarzała właściwość
 ```
 
 ## `BrowserWindow`
@@ -262,7 +262,7 @@ nativeImage.toJpeg()
 nativeImage.toJPEG()
 ```
 
-## `przetwórz`
+## `process`
 
 * `process.versions.electron` and `process.version.chrome` will be made read-only properties for consistency with the other `process.versions` properties set by Node.
 
