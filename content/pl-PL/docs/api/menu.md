@@ -40,7 +40,7 @@ See the [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/m
 
 * `template` MenuItemConstructorOptions[]
 
-Returns `Menu`
+Zwraca `Menu`
 
 Generally, the `template` is an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
 
@@ -186,7 +186,7 @@ if (process.platform === 'darwin') {
     submenu: [
       {role: 'about'},
       {type: 'separator'},
-      {role: 'services', submenu: []},
+      {role: 'services'},
       {type: 'separator'},
       {role: 'hide'},
       {role: 'hideothers'},
