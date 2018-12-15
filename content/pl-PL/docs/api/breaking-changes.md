@@ -55,20 +55,20 @@ memory.sharedBytes  // Przestarzała właściwość
 ## `BrowserWindow`
 
 ```js
-// Deprecated
+// Przestarzałe
 let optionsA = {webPreferences: {blinkFeatures: ''}}
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// Zamień na
 let optionsB = {webPreferences: {enableBlinkFeatures: ''}}
 let windowB = new BrowserWindow(optionsB)
 
-// Deprecated
+// Przestarzałe
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
     // do something
   }
 })
-// Replace with
+// Zamień na
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
     // do something
@@ -79,24 +79,24 @@ window.on('app-command', (e, cmd) => {
 ## `clipboard`
 
 ```js
-// Deprecated
+// Przestarzałe
 clipboard.readRtf()
-// Replace with
+// Zamień na
 clipboard.readRTF()
 
-// Deprecated
+// Przestarzałe
 clipboard.writeRtf()
-// Replace with
+// Zamień na
 clipboard.writeRTF()
 
-// Deprecated
+// Przestarzałe
 clipboard.readHtml()
-// Replace with
+// Zamień na
 clipboard.readHTML()
 
-// Deprecated
+// Przestarzałe
 clipboard.writeHtml()
-// Replace with
+// Zamień na
 clipboard.writeHTML()
 ```
 
