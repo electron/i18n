@@ -1,10 +1,10 @@
-## Klasa: PobranyPrzedmiot
+## Klasa: DownloadItem
 
 > Pliki kontroli programów że źródeł zdalnych.
 
 Proces: [Main](../glossary.md#main-process)
 
-`PobranyPrzedmiot` jest `EmitterWydarzeń` który reprezentuje pobrany przedmiot w Electron. It is used in `will-download` event of `Session` class, and allows users to control the download item.
+`DownloadItem` to `EventEmitter`, który reprezentuje pobrany przedmiot w Electronie. It is used in `will-download` event of `Session` class, and allows users to control the download item.
 
 ```javascript
 //W głównym procesie.
