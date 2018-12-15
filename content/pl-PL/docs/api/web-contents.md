@@ -404,7 +404,7 @@ Zwraca:
 
 * `event` Event
 * `type` String
-* `image` [NativeImage](native-image.md) (optional)
+* `image` [NativeImage](native-image.md) (opcjonalnie)
 * `scale` Float (optional) - scaling factor for the custom cursor.
 * `size` [Size](structures/size.md) (optional) - the size of the `image`.
 * `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot.
