@@ -152,7 +152,7 @@ Set the security origin of the isolated world.
 
 ### `webFrame.getResourceUsage()`
 
-Returns `Object`:
+Zwraca `Object`:
 
 * `images` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `scripts` [MemoryUsageDetails](structures/memory-usage-details.md)
