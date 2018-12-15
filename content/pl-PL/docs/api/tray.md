@@ -271,7 +271,7 @@ Sets the context menu for this icon.
 
 #### `tray.getBounds()` *macOS* *Windows*
 
-Returns [`Rectangle`](structures/rectangle.md)
+Zwraca [`Rectangle`](structures/rectangle.md)
 
 The `bounds` of this tray icon as `Object`.
 
