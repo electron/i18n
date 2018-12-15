@@ -526,7 +526,7 @@ This method checks if the current executable as the default handler for a protoc
 * `path` String (optional) *Windows* - Defaults to `process.execPath`
 * `args` String[] (optional) *Windows* - Defaults to an empty array
 
-Returns `Boolean`
+Zwraca `Boolean`
 
 This method checks if the current executable is the default handler for a protocol (aka URI scheme). If so, it will return true. Otherwise, it will return false.
 
@@ -548,7 +548,7 @@ Returns `Boolean` - Whether the call succeeded.
 
 ### `app.getJumpListSettings()` *Windows*
 
-Returns `Object`:
+Zwraca `Object`:
 
 * `minItems` Integer - The minimum number of items that will be shown in the Jump List (for a more detailed description of this value see the [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
 * `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. These items must not be re-added to the Jump List in the **next** call to `app.setJumpList()`, Windows will not display any custom category that contains any of the removed items.
@@ -633,7 +633,7 @@ app.setJumpList([
 
 ### `app.requestSingleInstanceLock()`
 
-Returns `Boolean`
+Zwraca `Boolean`
 
 This method makes your application a Single Instance Application - instead of allowing multiple instances of your app to run, this will ensure that only a single instance of your app is running, and other instances signal this instance and exit.
 
@@ -670,7 +670,7 @@ if (!gotTheLock) {
 
 ### `app.hasSingleInstanceLock()`
 
-Returns `Boolean`
+Zwraca `Boolean`
 
 This method returns whether or not this instance of your app is currently holding the single instance lock. You can request the lock with `app.requestSingleInstanceLock()` and release with `app.releaseSingleInstanceLock()`
 
@@ -767,7 +767,7 @@ Returns `Boolean` - Whether the current desktop environment is Unity launcher.
 
 If you provided `path` and `args` options to `app.setLoginItemSettings` then you need to pass the same arguments here for `openAtLogin` to be set correctly.
 
-Returns `Object`:
+Zwraca `Object`:
 
 * `openAtLogin` Boolean - `true` if the app is set to open at login.
 * `openAsHidden` Boolean *macOS* - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
