@@ -6,9 +6,9 @@ Ese nivel de modularidad y extensibilidad asegura que todos los desarrolladores 
 
 ## Boilerplate vs CLI
 
-Un boilerplate es solo un punto de partida -un lienza, por así decir- a partir del cual construir una aplicación. Generalmente vienen en la forma de un repositorio, que se puede clonar y personalizar a gusto.
+Un boilerplate es sólo un punto de partida -un lienzo en blanco, por así decirlo- a partir del cual construir su aplicación. Generalmente vienen en la forma de un repositorio, que se puede clonar y personalizar a gusto.
 
-Por otro lado una herramienta de línea de comandos sigue para apoyarte a lo largo del desarrollo y despliegue. Son mas útiles y serviciales pero encarga lineas directrices en cómo su código debe ser estructurado y construido. *Especialmente para principiantes, el uso de una herramienta de linea de comando es probable que sea útil*.
+Por otro, lado una herramienta de línea de comandos sigue para apoyarle a lo largo del desarrollo y la liberación. Son mas útiles y serviciales pero encarga lineas directrices en cómo su código debe ser estructurado y construido. *Especialmente para principiantes, el uso de una herramienta de linea de comando es probable que sea útil*.
 
 ## electron-forge
 
