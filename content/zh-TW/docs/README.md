@@ -53,7 +53,7 @@
   * [Automated Testing with a Custom Driver](tutorial/automated-testing-with-a-custom-driver.md)
 * Packaging 
   * [Code Signing](tutorial/code-signing.md)
-* [Distribution](tutorial/application-distribution.md) 
+* [分發](tutorial/application-distribution.md) 
   * [支援](tutorial/support.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows 市集](tutorial/windows-store-guide.md)
