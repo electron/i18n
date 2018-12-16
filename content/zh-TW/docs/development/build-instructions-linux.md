@@ -13,9 +13,9 @@ Follow the guidelines below for building Electron on Linux.
     $ npm run check-tls
     ```
     
-    If the script returns that your configuration is using an outdated security protocol, use your system's package manager to update Python to the latest version in the 2.7.x branch. Alternatively, visit https://www.python.org/downloads/ for detailed instructions.
+    如果腳本返回了你使用過時的安全協議定義的配置，可以使用系統的包管理器更新python至2.7.x分支的最新版本 或者訪問或者，https://www.python.org/downloads/以獲取詳細說明
 
-* Node.js。 There are various ways to install Node. You can download source code from [nodejs.org](https://nodejs.org) and compile it. Doing so permits installing Node on your own home directory as a standard user. Or try repositories such as [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
+* Node.js。 有幾種方法安裝node 你可以從[node.org](https://nodejs.org)下載源代碼並編譯 Doing so permits installing Node on your own home directory as a standard user. Or try repositories such as [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
 
 * [clang](https://clang.llvm.org/get_started.html) 3.4 或之後的版本。
 * Development headers of GTK+ and libnotify.
