@@ -6,8 +6,8 @@ Accelerators are Strings that can contain multiple modifiers and a single key co
 
 Przykłady:
 
-* `CommandOrControl + A`
-* `CommandOrControl + Shift + Z`
+* `CommandOrControl+A`
+* `CommandOrControl+Shift+Z`
 
 Skróty są zarejestrowane z modułem [`globalShortcut`](global-shortcut.md), za pomocą metody [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback), tj.
 
@@ -26,7 +26,7 @@ app.on('ready', () => {
 
 Na systemach Linux oraz Windows klawisz `Command` nie ma żadnego wpływu, więc należy używać `CommandOrControl`, który reprezentuje `command` na systemie macOS i `control` na systemach Linux oraz Windows, aby zdefiniować niektóre akceleratory.
 
-Używaj `Alt` zamiast `Option`. Klawisz `Option` istnieje tylko na systemie macOS, mając na uwadze, że klawisz `Alt` jest dostępny na wszystkich systemach.
+Używaj `Alt` zamiast `Option`. Klawisz `Option` istnieje tylko w systemie macOS, mając na uwadze, że klawisz `Alt` jest dostępny na wszystkich systemach.
 
 Klawisz `Super` jest mapowany do klawisza`Windows` w systemach Windows i Linux oraz jako `Cmd` na macOS.
 
