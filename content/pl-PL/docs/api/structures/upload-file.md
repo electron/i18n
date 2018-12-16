@@ -1,4 +1,4 @@
-# Obiekt UploadFile
+# UploadFile Object
 
 * `type` String - `file`.
 * `filePath` String - Ścieżka pliku, który jest przesyłany.
