@@ -1,6 +1,6 @@
 # app
 
-> Kontrola cyklu życia zdarzeń aplikacji.
+> Kontroluj cykl życia swojej aplikacji.
 
 Proces: [Main](../glossary.md#main-process)
 
@@ -19,15 +19,15 @@ Obiekt `app` emituje następujące zdarzenia:
 
 ### Zdarzenie: 'will-finish-launching'
 
-Emitowane, kiedy aplikacja zakończy podstawowe uruchamianie. W systemach Windows oraz Linux, zdarzenie `will-finish-launching` jest takie samo jak zdarzenie `ready`; w macOS reprezentuje powiadomienie `applicationWillFinishLaunching` z `NSApplication`. Zazwyczaj chcesz skonfigurować nasłuchiwanie na zdarzenie `open-file` lub `open-url`, oraz uruchomić crash reporter i auto updater.
+Emitowane, kiedy aplikacja zakończy podstawowe uruchamianie. W systemach Windows oraz Linux, zdarzenie `will-finish-launching` jest takie samo jak zdarzenie `ready`; w systemie macOS reprezentuje powiadomienie `applicationWillFinishLaunching` z `NSApplication`. Zazwyczaj będziesz chciał skonfigurować nasłuchiwanie na zdarzenie `open-file` lub `open-url`, oraz uruchomić crash reporter i auto updater.
 
-In most cases, you should do everything in the `ready` event handler.
+W większości przypadków, powinieneś zrobić wszystko w obsłudze zdarzenia `ready`.
 
 ### Zdarzenie: 'ready'
 
 Zwraca:
 
-* `launchInfo` Obiekt *macOS*
+* `launchInfo` Object *macOS*
 
 Emitowane, gdy elektron zakończył inicjowanie. W systemie Mac OS `launchInfo` posiada `userInfo` z `NSUserNotification`, który został użyty do otwarcia aplikacji, jeśli został uruchomiony z centrum powiadomień. Można wywołać `app.isReady()` Aby sprawdzić, czy to zdarzenie został już wyemitowane.
 
