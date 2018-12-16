@@ -52,7 +52,7 @@ $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
 
 ### Cross compilation
 
-If you want to build for an `arm` target you should also install the following dependencies:
+如果你想要創建一個`arm`target，應該先下載以下依賴：
 
 ```sh
 $ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \
