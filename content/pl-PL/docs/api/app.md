@@ -43,7 +43,7 @@ Zwraca:
 
 * `event` Event
 
-Emitowane przed tym jak aplikacja zacznie zamykać okna. Wywołanie `event.preventDefault()` uniemożliwi zachowanie domyślne, którym jest zakończenie aplikacji.
+Emitowane przed tym jak aplikacja zacznie zamykać okna. Wywołanie `event.preventDefault()` uniemożliwi wykonanie domyślnego zachowania, jakim jest zakończenie aplikacji.
 
 **Uwaga:** Jeśli zamykanie zostało zainicjowane przez `autoUpdater.quitAndInstall()`, wtedy `before-quit` jest emitowany *po* emitowaniu `close` na wszystkich oknach oraz ich zamknięcia.
 
@@ -79,7 +79,7 @@ Zwraca:
 * `event` Event
 * `path` String
 
-Emitowany kiedy użytkownik chce otworzyć plik za pomocą aplikacji. `open-file` Zdarzenie jest zazwyczaj emitowane gdy aplikacja jest już otwarta i system operacyjny chce użyć jej ponownie do otwarcia pliku. `open-file` również jest emitowane, gdy plik został przerzucony do stacji dokującej, a aplikacja nie jest jeszcze uruchomiona. Upewnij się, że nasłuchujesz się zdarzenia `open-file` we wczesnym stadium uruchamiania aplikacji do obsługi tego przypadku (zdarzenie jest emitowane nawet przed zdarzeniem `ready`).
+Emitowany kiedy użytkownik chce otworzyć plik za pomocą aplikacji. `open-file` Zdarzenie jest zazwyczaj emitowane gdy aplikacja jest już otwarta i system operacyjny chce użyć jej ponownie do otwarcia pliku. `open-file` również jest emitowane, gdy plik został przerzucony dock'u, a aplikacja nie jest jeszcze uruchomiona. Upewnij się, że nasłuchujesz zdarzenia `open-file` we wczesnym stadium uruchamiania aplikacji do obsługi tego przypadku (zdarzenie jest emitowane nawet przed zdarzeniem `ready`).
 
 Powinieneś wywołać `event.preventDefault()` jeśli chcesz obsłużyć zdarzenie.
 
