@@ -2,7 +2,7 @@
 
 Dalla v0.34.0, Electron permette di inviare pacchetti app al Mac App Store (MAS). Questa guida fornisce informazioni su: come inviare un'app e sulle limitazioni della build MAS.
 
-**Nota:** Inviare una app al Mac App Store richiede l'iscrizione al [Programma Sviluppatore Apple](https://developer.apple.com/support/compare-memberships/), che costa denaro.
+**Note:** Submitting an app to Mac App Store requires enrolling in the [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), which costs money.
 
 ## Come inviare la tua app
 
@@ -20,7 +20,7 @@ Before signing your app, you need to know the Team ID of your account. To locate
 
 After finishing the preparation work, you can package your app by following [Application Distribution](application-distribution.md), and then proceed to signing your app.
 
-First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which has your Team ID as value:
+First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which has your Team ID as its value:
 
 ```xml
 <plist version="1.0">
@@ -126,7 +126,7 @@ Native modules used in your app also need to be signed. If using electron-osx-si
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-Also note that native modules may have intermediate files produced which should not be included (as they would also need to be signed). If you use [electron-packager](https://github.com/electron-userland/electron-packager) before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versions 8.1.0 and later ignores those files by default.
+Also note that native modules may have intermediate files produced which should not be included (as they would also need to be signed). If you use [electron-packager](https://github.com/electron-userland/electron-packager) before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versions 8.1.0 and later ignore those files by default.
 
 ### Upload Your App
 
