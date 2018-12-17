@@ -135,7 +135,7 @@ const {app, Menu} = require('electron')
 
 const template = [
   {
-    label: 'Редагування',
+    label: 'Edit',
     submenu: [
       {role: 'undo'},
       {role: 'redo'},
@@ -149,7 +149,7 @@ const template = [
     ]
   },
   {
-    label: 'Вигляд',
+    label: 'View',
     submenu: [
       {role: 'reload'},
       {role: 'forcereload'},
@@ -173,7 +173,7 @@ const template = [
     role: 'help',
     submenu: [
       {
-        label: 'Дізнатись більше',
+        label: 'Learn More',
         click () { require('electron').shell.openExternal('https://electronjs.org') }
       }
     ]
@@ -186,7 +186,7 @@ if (process.platform === 'darwin') {
     submenu: [
       {role: 'about'},
       {type: 'separator'},
-      {role: 'services', submenu: []},
+      {role: 'services'},
       {type: 'separator'},
       {role: 'hide'},
       {role: 'hideothers'},
@@ -196,11 +196,11 @@ if (process.platform === 'darwin') {
     ]
   })
 
-  // Меню "Редагування"
+  // Edit menu
   template[1].submenu.push(
     {type: 'separator'},
     {
-      label: 'Мовлення',
+      label: 'Speech',
       submenu: [
         {role: 'startspeaking'},
         {role: 'stopspeaking'}
@@ -208,7 +208,7 @@ if (process.platform === 'darwin') {
     }
   )
 
-  // Меню "Вікно"
+  // Window menu
   template[3].submenu = [
     {role: 'close'},
     {role: 'minimize'},
