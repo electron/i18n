@@ -33,16 +33,16 @@ app.releaseSingleInstance()
 app.releaseSingleInstanceLock()
 ```
 
-# Breaking API Changes (3.0)
+# 重大的API更新 (3.0)
 
-The following list includes the breaking API changes in Electron 3.0.
+以下包含了Electron 3.0中重大的API更新
 
 ## `app`
 
 ```js
 // 弃用
 app.getAppMemoryInfo()
-// Replace with
+// 替换为
 app.getAppMetrics()
 
 // 弃用
@@ -76,27 +76,27 @@ window.on('app-command', (e, cmd) => {
 })
 ```
 
-## `clipboard`
+## `剪贴板`
 
 ```js
-// 过时的
+// 弃用
 clipboard.readRtf()
 // 替换为
 clipboard.readRTF()
 
-// 过时的
+// 弃用
 clipboard.writeRtf()
 // 替换为
 clipboard.writeRTF()
 
-// 过时的
+// 弃用
 clipboard.readHtml()
 // 替换为
 clipboard.readHTML()
 
-// 过时的
+// 弃用
 clipboard.writeHtml()
-//替换为
+// 替换为
 clipboard.writeHTML()
 ```
 
@@ -120,9 +120,9 @@ crashReporter.start({
 ## `nativeImage`
 
 ```js
-// Deprecated
+// 弃用
 nativeImage.createFromBuffer(buffer, 1.0)
-// Replace with
+// 替换为
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
@@ -131,25 +131,25 @@ nativeImage.createFromBuffer(buffer, {
 ## `process`
 
 ```js
-// Deprecated
+// 弃用
 const info = process.getProcessMemoryInfo()
-const privateBytes = info.privateBytes // deprecated property
-const sharedBytes = info.sharedBytes // deprecated property
+const privateBytes = info.privateBytes // 弃用的属性
+const sharedBytes = info.sharedBytes // 弃用的属性
 ```
 
 ## `screen`
 
 ```js
-// Deprecated
+// 弃用
 screen.getMenuBarHeight()
-// Replace with
+// 替换为
 screen.getPrimaryDisplay().workArea
 ```
 
 ## `session`
 
 ```js
-// 过时的
+// 弃用
 ses.setCertificateVerifyProc(function (hostname, certificate, callback) {
   callback(true)
 })
@@ -162,12 +162,12 @@ ses.setCertificateVerifyProc(function (request, callback) {
 ## `Tray`
 
 ```js
-// 过时的
+// 弃用
 tray.setHighlightMode(true)
 // 替换为
 tray.setHighlightMode('on')
 
-// 过时的
+// 弃用
 tray.setHighlightMode(false)
 // 替换为
 tray.setHighlightMode('off')
@@ -176,42 +176,42 @@ tray.setHighlightMode('off')
 ## `webContents`
 
 ```js
-// Deprecated
+// 弃用
 webContents.openDevTools({detach: true})
-// Replace with
+// 替换为
 webContents.openDevTools({mode: 'detach'})
 
-// Removed
+// 移除
 webContents.setSize(options)
-// There is no replacement for this API
+// 没有该API的替代
 ```
 
 ## `webFrame`
 
 ```js
-// Deprecated
+// 弃用
 webFrame.registerURLSchemeAsSecure('app')
-// Replace with
+// 替换为
 protocol.registerStandardSchemes(['app'], {secure: true})
 
-// Deprecated
+// 弃用
 webFrame.registerURLSchemeAsPrivileged('app', {secure: true})
-// Replace with
+// 替换为
 protocol.registerStandardSchemes(['app'], {secure: true})
 ```
 
 ## `<webview>`
 
 ```js
-// Removed
+// 移除
 webview.setAttribute('disableguestresize', '')
-// There is no replacement for this API
+// 没有该API的替代
 
-// Removed
+// 移除
 webview.setAttribute('guestinstance', instanceId)
-// There is no replacement for this API
+// 没有该API的替代
 
-// Keyboard listeners no longer work on webview tag
+// 键盘监听器在webview标签中不再起效
 webview.onkeydown = () => { /* handler */ }
 webview.onkeyup = () => { /* handler */ }
 ```
@@ -224,9 +224,9 @@ webview.onkeyup = () => { /* handler */ }
 
 替换为: https://atom.io/download/electron
 
-# Breaking API Changes (2.0)
+# 重大的API更新 (2.0)
 
-The following list includes the breaking API changes made in Electron 2.0.
+以下包含了Electron 2.0中重大的API更新
 
 ## `BrowserWindow`
 
@@ -242,23 +242,23 @@ let windowB = new BrowserWindow(optionsB)
 ## `menu`
 
 ```js
-// Removed
+// 移除
 menu.popup(browserWindow, 100, 200, 2)
-// Replaced with
+// 替换为
 menu.popup(browserWindow, {x: 100, y: 200, positioningItem: 2})
 ```
 
 ## `nativeImage`
 
 ```js
-// Removed
+// 移除
 nativeImage.toPng()
-// Replaced with
+// 替换为
 nativeImage.toPNG()
 
-// Removed
+// 移除
 nativeImage.toJpeg()
-// Replaced with
+// 替换为
 nativeImage.toJPEG()
 ```
 
@@ -269,34 +269,34 @@ nativeImage.toJPEG()
 ## `webContents`
 
 ```js
-// Removed
+// 移除
 webContents.setZoomLevelLimits(1, 2)
-// Replaced with
+// 替换为
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## `webFrame`
 
 ```js
-// Removed
+// 移除
 webFrame.setZoomLevelLimits(1, 2)
-// Replaced with
+// 替换为
 webFrame.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## `<webview>`
 
 ```js
-// Removed
+// 移除
 webview.setZoomLevelLimits(1, 2)
-// Replaced with
+// 替换为
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## 重复的 ARM 资源
 
-Each Electron release includes two identical ARM builds with slightly different filenames, like `electron-v1.7.3-linux-arm.zip` and `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
+每个 Electron 发布版本包含两个相同的ARM版本，文件名略有不同，如`electron-v1.7.3-linux-arm.zip` 和 `electron-v1.7.3-linux-armv7l.zip` 添加包含`v7l`前缀的资源向用户明确其支持的ARM版本，并消除由未来armv6l 和 arm64 资源可能产生的歧义。
 
-The file *without the prefix* is still being published to avoid breaking any setups that may be consuming it. Starting at 2.0, the un-prefixed file will no longer be published.
+为了防止可能导致安装器毁坏的中断，*不带前缀*的文件仍然将被发布。 从2.0版本起，不带前缀的文件将不再发布。
 
-For details, see [6986](https://github.com/electron/electron/pull/6986) and [7189](https://github.com/electron/electron/pull/7189).
+更多详细情况，查看 [6986](https://github.com/electron/electron/pull/6986) 和 [7189](https://github.com/electron/electron/pull/7189)。
