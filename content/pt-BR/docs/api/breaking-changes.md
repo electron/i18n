@@ -1,23 +1,23 @@
-# API Contract
+# Contrato da API
 
 Breaking changes will be documented here, and deprecation warnings added to JS code where possible, at least [one major version](../tutorial/electron-versioning.md#semver) before the change is made.
 
-# `FIXME` comments
+# `FIXME` Comentários
 
-The `FIXME` string is used in code comments to denote things that should be fixed for future releases. See https://github.com/electron/electron/search?q=fixme
+A string `FIXME` é utilizada nos comentários do código para denotar coisas que devem ser corrigidas em versões futuras. Veja https://github.com/electron/electron/search?q=fixme
 
-# Planned Breaking API Changes (4.0)
+# Alterações planejadas na API (4.0)
 
-The following list includes the breaking API changes planned for Electron 4.0.
+A seguinte lista inclui as alterações planejadas na API para Electron 4.0.
 
 ## `app.makeSingleInstance`
 
 ```js
-// Deprecated
+// depreciado
 app.makeSingleInstance(function (argv, cwd) {
 
 })
-// Replace with
+// Substituir com
 app.requestSingleInstanceLock()
 app.on('second-instance', function (event, argv, cwd) {
 
@@ -27,25 +27,25 @@ app.on('second-instance', function (event, argv, cwd) {
 ## `app.releaseSingleInstance`
 
 ```js
-// Deprecated
+// depreciado
 app.releaseSingleInstance()
-// Replace with
+// Substituir com
 app.releaseSingleInstanceLock()
 ```
 
-# Breaking API Changes (3.0)
+# Alterações na API (3.0)
 
-The following list includes the breaking API changes in Electron 3.0.
+A lista a seguir inclui as alterações na API do Election 3.0.
 
 ## `app`
 
 ```js
-// Deprecated
+// depreciado
 app.getAppMemoryInfo()
 // Replace with
 app.getAppMetrics()
 
-// Deprecated
+// depreciado
 const metrics = app.getAppMetrics()
 const {memory} = metrics[0]
 memory.privateBytes  // Deprecated property
@@ -55,61 +55,60 @@ memory.sharedBytes  // Deprecated property
 ## `BrowserWindow`
 
 ```js
-// Deprecated
+// depreciado
 let optionsA = {webPreferences: {blinkFeatures: ''}}
 let windowA = new BrowserWindow(optionsA)
 // Replace with
 let optionsB = {webPreferences: {enableBlinkFeatures: ''}}
 let windowB = new BrowserWindow(optionsB)
 
-// Deprecated
+// depreciado
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
-    // do something
+    // Faz alguma coisa
   }
 })
-// Replace with
+// Substituir com
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
-    // do something
-  }
+    // Faz alguma coisa
 })
 ```
 
 ## `clipboard`
 
 ```js
-// Deprecated
+// depreciado
 clipboard.readRtf()
-// Replace with
+// Substitua com
 clipboard.readRTF()
 
-// Deprecated
+// depreciado
 clipboard.writeRtf()
-// Replace with
+// Substitua com
 clipboard.writeRTF()
 
-// Deprecated
+// depreciado
 clipboard.readHtml()
-// Replace with
+// Substitua com
 clipboard.readHTML()
 
-// Deprecated
+// depreciado
 clipboard.writeHtml()
-// Replace with
+// Substitua com
 clipboard.writeHTML()
 ```
 
 ## `crashReporter`
 
 ```js
-// Deprecated
+// depreciado
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// Replace with
+// Substitua com
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -120,9 +119,9 @@ crashReporter.start({
 ## `nativeImage`
 
 ```js
-// Deprecated
+// depreciado
 nativeImage.createFromBuffer(buffer, 1.0)
-// Replace with
+// Substitua com
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
@@ -131,7 +130,7 @@ nativeImage.createFromBuffer(buffer, {
 ## `process`
 
 ```js
-// Deprecated
+// depreciado
 const info = process.getProcessMemoryInfo()
 const privateBytes = info.privateBytes // deprecated property
 const sharedBytes = info.sharedBytes // deprecated property
