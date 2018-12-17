@@ -4,7 +4,7 @@
 
 Proces: [Main](../glossary.md#main-process)
 
-## Events
+## Události
 
 The `inAppPurchase` module emits the following events:
 
