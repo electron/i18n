@@ -46,7 +46,7 @@ Vrací:
 
 Vrací:
 
-* `authInfo` Object 
+* `authInfo` Objekt 
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
