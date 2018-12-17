@@ -2,7 +2,7 @@
 
 v0.34.0から、ElectronはMac App Store (MAS) にパッケージ化したアプリを登録することができます。このガイドでは、MASビルド用の制限とアプリを登録する方法についての情報を提供します。
 
-**注意:** Mac App Storeにアプリを登録するには、[Apple Developer Program](https://developer.apple.com/support/compare-memberships/)に登録する必要があります。これには費用がかかります。
+**Note:** Submitting an app to Mac App Store requires enrolling in the [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), which costs money.
 
 ## アプリを登録する方法
 
@@ -20,7 +20,7 @@ Mac App Store にアプリを提出するには、Appleからまず証明書を�
 
 準備作業を終えた後は、[アプリケーションの配布](application-distribution.md)に従って、アプリをパッケージ化して、アプリの署名に進みます。
 
-First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which has your Team ID as value:
+First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which has your Team ID as its value:
 
 ```xml
 <plist version="1.0">
@@ -126,7 +126,7 @@ Native modules used in your app also need to be signed. If using electron-osx-si
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-Also note that native modules may have intermediate files produced which should not be included (as they would also need to be signed). If you use [electron-packager](https://github.com/electron-userland/electron-packager) before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versions 8.1.0 and later ignores those files by default.
+Also note that native modules may have intermediate files produced which should not be included (as they would also need to be signed). If you use [electron-packager](https://github.com/electron-userland/electron-packager) before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versions 8.1.0 and later ignore those files by default.
 
 ### Appをアップロードする。
 
