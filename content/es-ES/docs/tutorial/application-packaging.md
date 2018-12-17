@@ -4,7 +4,7 @@ Para mitigar los [problemas](https://github.com/joyent/node/issues/6960) relacio
 
 La mayoría de los usuarios conseguirán estas características de manera gratuita, ya que están soportadas desde el primer momento por [`electron-packager`](https://github.com/electron-userland/electron-packager), [`electron-forge`](https://github.com/electron-userland/electron-forge), y [`electron-builder`](https://github.com/electron-userland/electron-builder). Si no utiliza ninguna de estas herramientas, siga leyendo.
 
-## Generating `asar` Archives
+## Generando archivos `asar`
 
 Un archivo [asar](https://github.com/electron/asar) es un formato simple similar a un alquitrán que concatena archivos en un solo archivo. Electron puede leer archivos arbitrarios sin desempaquetar todo el archivo. 
 
@@ -139,7 +139,7 @@ Esto es debido a que `exec` y `spawn` acepta `command` en vez de `file` como ent
 
 Como se indicó anteriormente, algunos APIs Node desempaquetaran el archivo al sistema de archivos cuando es llamado. Aparte de los inconvenientes de rendimiento, varios escaner anti-virus pueden ser activados por este comportamiento.
 
-As a workaround, you can leave various files unpacked using the `--unpack` option. In the following example, shared libraries of native Node.js modules will not be packed:
+Como solución, se pueden dejar varios archivos desempaquetados usando la opción `--unpack`. En el siguiente ejemplo, las librerías compartidas de módulos nativos de Node.js no serán empaquetadas:
 
 ```sh
 $ asar pack app app.asar --unpack *.node
