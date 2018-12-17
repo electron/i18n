@@ -67,7 +67,7 @@ app.on('ready', () => {
 
 * `scheme` String
 * `handler` Funkce 
-  * `request` Object 
+  * `request` Objekt 
     * `url` String
     * `referrer` String
     * `method` String
@@ -89,7 +89,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
 
 * `scheme` String
 * `handler` Funkce 
-  * `request` Object 
+  * `request` Objekt 
     * `url` String
     * `referrer` String
     * `method` String
@@ -119,7 +119,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 * `scheme` String
 * `handler` Funkce 
-  * `request` Object 
+  * `request` Objekt 
     * `url` String
     * `referrer` String
     * `method` String
@@ -137,13 +137,13 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 
 * `scheme` String
 * `handler` Funkce 
-  * `request` Object 
+  * `request` Objekt 
     * `url` String
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Funkce 
-    * `redirectRequest` Object 
+    * `redirectRequest` Objekt 
       * `url` String
       * `method` String
       * `session` Object (optional)
@@ -165,7 +165,7 @@ For POST requests the `uploadData` object must be provided.
 
 * `scheme` String
 * `handler` Funkce 
-  * `request` Object 
+  * `request` Objekt 
     * `url` String
     * `headers` Object
     * `referrer` String
@@ -239,7 +239,7 @@ The `callback` will be called with a boolean that indicates whether there is alr
 
 * `scheme` String
 * `handler` Funkce 
-  * `request` Object 
+  * `request` Objekt 
     * `url` String
     * `referrer` String
     * `method` String
@@ -255,7 +255,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `scheme` String
 * `handler` Funkce 
-  * `request` Object 
+  * `request` Objekt 
     * `url` String
     * `referrer` String
     * `method` String
@@ -271,7 +271,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `scheme` String
 * `handler` Funkce 
-  * `request` Object 
+  * `request` Objekt 
     * `url` String
     * `referrer` String
     * `method` String
@@ -287,13 +287,13 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `scheme` String
 * `handler` Funkce 
-  * `request` Object 
+  * `request` Objekt 
     * `url` String
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Funkce 
-    * `redirectRequest` Object 
+    * `redirectRequest` Objekt 
       * `url` String
       * `method` String
       * `session` Object (optional)
@@ -309,7 +309,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `scheme` String
 * `handler` Funkce 
-  * `request` Object 
+  * `request` Objekt 
     * `url` String
     * `headers` Object
     * `referrer` String
