@@ -2,7 +2,7 @@
 
 > إنشاء قوائم التطبيقات الأصلية وقوائم السياق.
 
-Process: [Main](../glossary.md#main-process)
+العملية: [Main](../glossary.md#main-process)
 
 ### `new Menu()`
 
@@ -186,7 +186,7 @@ if (process.platform === 'darwin') {
     submenu: [
       {role: 'about'},
       {type: 'separator'},
-      {role: 'services', submenu: []},
+      {role: 'services'},
       {type: 'separator'},
       {role: 'hide'},
       {role: 'hideothers'},
