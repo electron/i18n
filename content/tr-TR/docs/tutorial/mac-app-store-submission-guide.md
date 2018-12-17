@@ -2,7 +2,7 @@
 
 V0.34.0'dan beri Electron, Mac App Store'a (MAS) paketlenmiş uygulamalar gönderilmesini sağlar. Bu kılavuzda, uygulamanızın nasıl gönderileceği ve MAS yapısının sınırlamaları hakkında bilgiler verilmektedir.
 
-**Note:** Mac App Store'a bir uygulama göndermek, [ Apple Developer'ı kaydettirmeyi gerektirirProgram ](https://developer.apple.com/support/compare-memberships/), hangi ücreti ödemektedir.
+**Note:** Submitting an app to Mac App Store requires enrolling in the [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), which costs money.
 
 ## Uygulamanızı Nasıl sunabilirsiniz
 
@@ -20,7 +20,7 @@ Uygulamanızı imzalamadan önce, hesabınızın Takım ID'sini bilmeniz gerekiy
 
 Hazırlık çalışmalarını tamamladıktan sonra, uygulamanızı aşağıdakileri izleyerek paketleyebilirsiniz:  Uygulama Dağıtımı </ 0> 'na gidin ve ardından uygulamanızı imzalayın.</p> 
 
-İlk önce, uygulamanızın `Info.plist` 'e bir `ElectronTeamID`anahtarı eklemeniz gerekir;takım kimliğinizi değer olarak belirtir:
+First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which has your Team ID as its value:
 
 ```xml
 <plist version="1.0">
@@ -126,7 +126,7 @@ Uygulamanızda kullanılan yerel modüller de imzalanmalıdır. Eğer Electron-o
 electron-osx-sign Uygulaman.app Uygulaman.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-Ayrıca, yerli modüllerde üretilmemiş ara dosyaların bulunmasına dikkat edilmelidir. (bunların da imzalanması gerektiğinden dolayı dahil edilmemelidir). Eğer 8.1.0 sürümünden önce [electron-packager](https://github.com/electron-userland/electron-packager) kullandıysanız, yapı adımınıza bu dosyaları yok saymak için `--ignore=.+\.o$` ekleyin. Sürüm 8.1.0 ve sonrakiler bu dosyaları varsayılan olarak yok sayar.
+Ayrıca, yerli modüllerde üretilmemiş ara dosyaların bulunmasına dikkat edilmelidir. (bunların da imzalanması gerektiğinden dolayı dahil edilmemelidir). Eğer 8.1.0 sürümünden önce [electron-packager](https://github.com/electron-userland/electron-packager) kullandıysanız, yapı adımınıza bu dosyaları yok saymak için `--ignore=.+\.o$` ekleyin. Versions 8.1.0 and later ignore those files by default.
 
 ### Uygulamanı yükle
 
