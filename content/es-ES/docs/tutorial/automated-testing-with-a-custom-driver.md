@@ -1,4 +1,4 @@
-# Automatizado con un controlador personalizado de prueba
+# Prueba Automática con un controlador personalizado
 
 Para escribir pruebas automatizadas para su aplicación Electron, necesitará una forma de "manejar" su aplicación. Spectron es una solución de uso común que le permite emular acciones de usuario a través de WebDriver. Sin embargo, también es posible escribir su propio controlador personalizado utilizando el IPC-over-STDIO incorporado en el nodo. El beneficio de un controlador personalizado es que tiende a requerir menos gastos generales que Spectron, y le permite exponer métodos personalizados a su conjunto de pruebas.
 
@@ -22,7 +22,7 @@ appProcess.on('message', (msg) => {
 appProcess.send({ my: 'message' })
 ```
 
-From within the Electron app, you can listen for messages and send replies using the nodejs [process](https://nodejs.org/api/process.html) API:
+Desde dentro de la aplicación Electron, usted puede escuchar mensajes y enviar respuestas usando la API [process](https://nodejs.org/api/process.html) de nodejs:
 
 ```js
 // listen for IPC messages from the test suite
@@ -34,9 +34,9 @@ process.on('message', (msg) => {
 process.send({ my: 'message' })
 ```
 
-We can now communicate from the test suite to the Electron app using the `appProcess` object.
+Ahora podemos comunicar desde la suite de test a la aplicación Electron usando el objeto `appProcess`.
 
-For convenience, you may want to wrap `appProcess` in a driver object that provides more high-level functions. Here is an example of how you can do this:
+Por conveniencia, es posible que desee encapsular `appProcess` en un objeto controlador, que provea funciones de más alto nivel. Este es un ejemplo de como podría hacerlo:
 
 ```js
 class TestDriver {
@@ -81,7 +81,7 @@ class TestDriver {
 }
 ```
 
-In the app, you'd need to write a simple handler for the RPC calls:
+En la aplicación, necesitará escribir un manejador sencillo para las llamadas RPC:
 
 ```js
 if (process.env.APP_TEST_DRIVER) {
@@ -113,7 +113,7 @@ const METHODS = {
 }
 ```
 
-Then, in your test suite, you can use your test-driver as follows:
+Luego, en tu suite de test, puede usar sus test-driver del siguiente modo:
 
 ```js
 var test = require('ava')
