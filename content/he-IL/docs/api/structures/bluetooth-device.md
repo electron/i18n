@@ -1,4 +1,4 @@
-# BluetoothDevice Object
+# בלותות'
 
-* `deviceName` String
-* `deviceId` String
+* ערך - שם המכשיר
+* ערך - מכשיר Id
