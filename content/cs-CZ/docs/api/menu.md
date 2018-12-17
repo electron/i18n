@@ -52,7 +52,7 @@ The `menu` object has the following instance methods:
 
 #### `menu.popup(options)`
 
-* `nastavení` Object 
+* `nastavení` Objekt 
   * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
   * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
   * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
@@ -75,7 +75,7 @@ Appends the `menuItem` to the menu.
 
 #### `menu.getMenuItemById(id)`
 
-* `id` String
+* `id` Text
 
 Returns `MenuItem` the item with the specified `id`
 
@@ -186,7 +186,7 @@ if (process.platform === 'darwin') {
     submenu: [
       {role: 'about'},
       {type: 'separator'},
-      {role: 'services', submenu: []},
+      {role: 'services'},
       {type: 'separator'},
       {role: 'hide'},
       {role: 'hideothers'},
