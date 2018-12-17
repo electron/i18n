@@ -2,7 +2,7 @@
 
 從 0.34.0 版開始，Electron 允許你將打包後的應用程式上架到 Mac App Store (MAS)。這份導引文件將教你: 如何上架你的應用程式，並了解 MAS 建置的限制。
 
-**注意:** 將應用程式上架到 Mac App Store 要註冊 [Apple Developer Program](https://developer.apple.com/support/compare-memberships/)，需要支付費用。
+**Note:** Submitting an app to Mac App Store requires enrolling in the [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), which costs money.
 
 ## 如何上架你的應用程式
 
@@ -20,7 +20,7 @@ Before signing your app, you need to know the Team ID of your account. To locate
 
 After finishing the preparation work, you can package your app by following [Application Distribution](application-distribution.md), and then proceed to signing your app.
 
-First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which has your Team ID as value:
+First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which has your Team ID as its value:
 
 ```xml
 <plist version="1.0">
@@ -126,7 +126,7 @@ Native modules used in your app also need to be signed. If using electron-osx-si
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-Also note that native modules may have intermediate files produced which should not be included (as they would also need to be signed). If you use [electron-packager](https://github.com/electron-userland/electron-packager) before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versions 8.1.0 and later ignores those files by default.
+Also note that native modules may have intermediate files produced which should not be included (as they would also need to be signed). If you use [electron-packager](https://github.com/electron-userland/electron-packager) before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versions 8.1.0 and later ignore those files by default.
 
 ### 上傳你的應用程式
 
