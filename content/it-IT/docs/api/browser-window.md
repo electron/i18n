@@ -659,7 +659,7 @@ Disabilita o abilita la finestra.
 * `height` Integer
 * `animate` Boolean (opzionale) *macOS*
 
-Resizes the window to `width` and `height`. If `width` or `height` are below any set minimum size constraints the window will snap to its minimum size.
+Ridimensiona la finestra in `width` (larghezza) ed `height` (altezza). Se `width` o `height` sono minori di un qualsiasi vincolo minimo di dimensione, la finestra si ridimensionerà alle sue dimensioni minime.
 
 #### `win.getSize()`
 
