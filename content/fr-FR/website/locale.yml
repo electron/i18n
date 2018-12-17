@@ -8,7 +8,7 @@ nav:
   docs: Documentation
   donors: Donateurs
   languages: Langues
-  releases: Mise à jour
+  releases: Versions
   search: Rechercher
   userland: Userland
 docs:
@@ -53,9 +53,9 @@ community:
   awesome_notice: Cette liste est générée depuis le repository <a href="https://github.com/sindresorhus/awesome-electron">Awesome Electron de @sindresorhus</a>. <br> Quelque chose manque ? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Faites une pull request</a>.
   meetup_notice: Pour ajouter une réunion, éditez <code>data/meetups.json</code> et <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">faites une pull request</a>.
 releases:
-  title: Electron Releases
-  all_releases: All Releases
-  back_to_index: Back to index
+  title: Versions d'Electron
+  all_releases: Toutes les versions
+  back_to_index: Retour à l'accueil
 electron_is_easy:
   title: C'est plus facile que vous ne le pensez
   description: Si vous savez développer un site, alors vous savez développer une application desktop. Electron est un framework pour créer des applications natives avec les technologies web comme JavaScript, HTML et CSS. Electron s'occupe de la partie technique pour que vous puissiez vous concentrer sur le cœur de votre application.
@@ -105,24 +105,24 @@ apps:
   title: Apps développées avec Electron
   description: Avec Electron, il est facile de créer des applications desktop pour votre entreprise ou votre projet. Initialement développé pour <a href='https://atom.io' target='_blank'>l'éditeur Atom</a> de GitHub, Electron est maintenant utilisé pour créer des applications par des entreprises comme Microsoft, Facebook, Slack ou encore Docker.
   view_more: Voir plus d'applications
-  submit_your_own: proposez la vôtre
+  submit_your_own: proposez votre app
   something_missing: Quelque chose manque ?
   edit_this_app: Éditer cette app.
-  search_app: Filter apps by name, description, etc…
-  categories: Categories
-  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
-  website: Website
-  repository: Repository
-  category: Category
-  downloads: Downloads
-  keywords: Keywords
-  license: License
-  latest_release: Latest Release
+  search_app: Filtrer les apps par nom, description, etc…
+  categories: Catégories
+  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Faîtes une Pull Request</a> pour ajouter votre application.'
+  website: Site web
+  repository: Dépôt
+  category: Catégorie
+  downloads: Téléchargements
+  keywords: Mots clés
+  license: Licence
+  latest_release: Dernière version
 blog:
   title: Blog d'Electron
   description: Toutes les dernières nouvelles de l'équipe d'Electron et de la communauté.
-  feedback: Have feedback on this post? Let <a href="https://twitter.com/electronjs">@electronjs</a> know on Twitter.
-  help: Need help or found a bug? <a href="/contact">Contact us</a>.
+  feedback: Un commentaire sur cet article ? Faîtes le savoir à <a href="https://twitter.com/electronjs">@electronjs</a> sur Twitter.
+  help: Besoin d'aide ou un bug à partager ? <a href="/contact">Contactez-nous</a>.
 clipboard:
   copy: Copier
   copy_to_clipboard: Copier dans le presse-papiers
