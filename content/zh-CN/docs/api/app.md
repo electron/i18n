@@ -21,7 +21,7 @@ app.on('window-all-closed', () => {
 
 当应用程序完成基础的启动的时候被触发。 在 Windows 和 Linux 中, `will-finish-launching` 事件与 `ready` 事件是相同的; 在 macOS 中，这个事件相当于 `NSApplication` 中的 `applicationWillFinishLaunching` 提示。 通常会在这里为 `open-file` 和 `open-url` 设置监听器，并启动崩溃报告和自动更新。
 
-In most cases, you should do everything in the `ready` event handler.
+绝大部分情况下，你必须在`ready`事件句柄中处理所有事务。
 
 ### 事件: 'ready'
 
@@ -672,11 +672,11 @@ if (!gotTheLock) {
 
 返回 `Boolean`
 
-This method returns whether or not this instance of your app is currently holding the single instance lock. You can request the lock with `app.requestSingleInstanceLock()` and release with `app.releaseSingleInstanceLock()`
+此方法返回你的应用实例当前是否持有单例锁。 你可以通过 `app.requestSingleInstanceLock()`请求锁，并且通过 `app.releaseSingleInstanceLock()` 释放锁。
 
 ### `app.releaseSingleInstanceLock()`
 
-Releases all locks that were created by `requestSingleInstanceLock`. This will allow multiple instances of the application to once again run side by side.
+释放由`requestSingleInstanceLock`创建的所有锁。这将允许应用中的多例再次同时执行。
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
@@ -749,7 +749,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 
 在macOS系统中, 它展示在dock图标上。在Linux系统中, 它只适用于Unity启动器.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+**注意:** 联合启动器需要`.desktop`文件的存在和工作， 获得更多信息请阅读 [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher)。
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
