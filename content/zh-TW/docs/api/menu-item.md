@@ -4,12 +4,12 @@
 
 處理序: [主處理序](../glossary.md#main-process)
 
-See [`Menu`](menu.md) for examples.
+範例請看 [`Menu`](menu.md)
 
 ### `new MenuItem(options)`
 
 * `options` Object 
-  * `click` Function (optional) - Will be called with `click(menuItem, browserWindow, event)` when the menu item is clicked. 
+  * `click` 函式 (optional) - 被呼叫，用 `click(menuItem, browserWindow, event)` 形式，當 menu 項目被敲擊的時候 
     * `menuItem` MenuItem
     * `browserWindow` [BrowserWindow](browser-window.md)
     * `event` Event
