@@ -1,13 +1,13 @@
 # NotificationAction Object
 
-* `type` String - The type of action, can be `button`.
-* `text` String (optional) - The label for the given action.
+* `type` String - Loại hành động, có thể là `button`.
+* `text` String (optional) - Nhãn cho hành động cụ thể.
 
 ## Platform / Action Support
 
 | Action Type | Platform Support | Usage of `text`                  | Default `text`                                                                              | Limitations                                                                                                                                                                                                                                                               |
 | ----------- | ---------------- | -------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `button`    | macOS            | Used as the label for the button | "Show" (or a localized string by system default if first of such `button`, otherwise empty) | Only the first one is used. If multiple are provided, those beyond the first will be listed as additional actions (displayed when mouse active over the action button). Any such action also is incompatible with `hasReply` and will be ignored if `hasReply` is `true`. |
+| `button`    | macOS            | Được sử dụng như nhãn cho button | "Show" (or a localized string by system default if first of such `button`, otherwise empty) | Only the first one is used. If multiple are provided, those beyond the first will be listed as additional actions (displayed when mouse active over the action button). Any such action also is incompatible with `hasReply` and will be ignored if `hasReply` is `true`. |
 
 ### Button support on macOS
 
