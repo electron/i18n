@@ -2,7 +2,7 @@
 
 V0.34.0 이후, Electron는 패키지 앱을 Mac App Store(MAS) 에 제출할 수 있습니다. 이 가이드는 앱 제출 방법 및 MAS 빌드의 제약들에 관련 정보를 제공합니다.
 
-**참고:**: Mac App Store에 앱을 제출하려면 [Apple Developer Program](https://developer.apple.com/support/compare-memberships/)에 등록해야합니다.
+**Note:** Submitting an app to Mac App Store requires enrolling in the [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), which costs money.
 
 ## 앱 제출 방법
 
@@ -20,7 +20,7 @@ Mac App Store에 앱을 제출하려면, 먼저 Apple로 부터 인증서를 받
 
 사전 준비 작업을 마친 후, [Application Distribution](application-distribution.md)를 따라 애플리케이션을 패키지화하고, 애플리케이션에 서명 할 수 있습니다.
 
-우선, 앱의 `Info.plist`에 `ElectronTeamID`키를 추가하고 Team ID값을 입력합니다.
+First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which has your Team ID as its value:
 
 ```xml
 <plist version="1.0">
@@ -126,7 +126,7 @@ MacOS에서 앱 샌드 박싱을 처음 사용한다면, Apple의 앱 샌드박�
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-또한 주목해야할 점은 네이티브 모듈이 intermediate files을 생성 할 수도 있기 때문에, 생성된 파일들은 포함되지 않아야합니다 (그것들 역시 서명이 필요하기 때문). 8.1.x 이전 버전에서 [electron-packager](https://github.com/electron-userland/electron-packager)를 사용하는 경우 빌드 단계에`--ignore=.+\.o$`를 추가하여이 파일들을 ignore 설정 합니다. 버전 8.1.0 이상에서는 기본적으로 해당 파일을 무시합니다.
+또한 주목해야할 점은 네이티브 모듈이 intermediate files을 생성 할 수도 있기 때문에, 생성된 파일들은 포함되지 않아야합니다 (그것들 역시 서명이 필요하기 때문). 8.1.x 이전 버전에서 [electron-packager](https://github.com/electron-userland/electron-packager)를 사용하는 경우 빌드 단계에`--ignore=.+\.o$`를 추가하여이 파일들을 ignore 설정 합니다. Versions 8.1.0 and later ignore those files by default.
 
 ### 업로드 앱
 
