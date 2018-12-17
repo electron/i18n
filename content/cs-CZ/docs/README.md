@@ -1,4 +1,4 @@
-# Official Guides
+# Oficiální průvodci
 
 Použijte prosím dokumentaci, která odpovídá vámi používanou verzi Electronu. Číslo verze by mělo být součástí URL. Pokud ne, používáte pravděpodobně dokumentaci vývojové větve, která může obsahovat změny v API, který nemusí být kompatibilní s vaší verzí Electronu. Chcete-li zobrazit starší verze dokumentace, můžete na GitHubu využít možnost [Switch branches/tags](https://github.com/electron/electron/tree/v1.4.0) a tak pomocí značek přepnout na starší verzi.
 
@@ -8,14 +8,14 @@ Zde jsou často pokládané otázky. Prosím zkontrolujte tento list před tím 
 
 * [Electron FAQ](faq.md)
 
-## Guides and Tutorials
+## Průvodci a postupy
 
-* [Setting up the Development Environment](tutorial/development-environment.md) 
-  * [Setting up macOS](tutorial/development-environment.md#setting-up-macos)
-  * [Setting up Windows](tutorial/development-environment.md#setting-up-windows)
-  * [Setting up Linux](tutorial/development-environment.md#setting-up-linux)
-  * [Choosing an Editor](tutorial/development-environment.md#a-good-editor)
-* [Creating your First App](tutorial/first-app.md) 
+* [Nastavení vývojového prostředí](tutorial/development-environment.md) 
+  * [Nastavení pro macOS](tutorial/development-environment.md#setting-up-macos)
+  * [Nastavení pro Windows](tutorial/development-environment.md#setting-up-windows)
+  * [Nastavení pro Linux](tutorial/development-environment.md#setting-up-linux)
+  * [Výběr editoru](tutorial/development-environment.md#a-good-editor)
+* [Vytvořit tvoji 1. aplikaci](tutorial/first-app.md) 
   * [Instalování Electronu](tutorial/first-app.md#installing-electron)
   * [Vývoj pro Electron v kostce](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [Spuštění vaší aplikace](tutorial/first-app.md#running-your-app)
@@ -31,8 +31,8 @@ Zde jsou často pokládané otázky. Prosím zkontrolujte tento list před tím 
   * [Using Node.js APIs](tutorial/application-architecture.md#using-nodejs-apis)
   * [Using Native Node.js Modules](tutorial/using-native-node-modules.md)
 * Adding Features to Your App 
-  * [Notifications](tutorial/notifications.md)
-  * [Recent Documents](tutorial/desktop-environment-integration.md#recent-documents)
+  * [Notifikace](tutorial/notifications.md)
+  * [Nedávné dokumenty](tutorial/desktop-environment-integration.md#recent-documents)
   * [Application Progress](tutorial/progress-bar.md)
   * [Custom Dock Menu](tutorial/macos-dock.md)
   * [Custom Windows Taskbar](tutorial/windows-taskbar.md)
@@ -63,19 +63,19 @@ Zde jsou často pokládané otázky. Prosím zkontrolujte tento list před tím 
   * [Chromium Security Issues and Upgrades](tutorial/security.md#chromium-security-issues-and-upgrades)
   * [Electron Security Warnings](tutorial/security.md#electron-security-warnings)
   * [Security Checklist](tutorial/security.md#checklist-security-recommendations)
-* [Updates](tutorial/updates.md) 
+* [Aktualizace](tutorial/updates.md) 
   * [Deploying an Update Server](tutorial/updates.md#deploying-an-update-server)
   * [Implementing Updates in Your App](tutorial/updates.md#implementing-updates-in-your-app)
   * [Applying Updates](tutorial/updates.md#applying-updates)
 
-## Detailed Tutorials
+## Detailní provodci
 
 These individual tutorials expand on topics discussed in the guide above.
 
 * [In Detail: Installing Electron](tutorial/installation.md) 
   * [Proxies](tutorial/installation.md#proxies)
   * [Custom Mirrors and Caches](tutorial/installation.md#custom-mirrors-and-caches)
-  * [Troubleshooting](tutorial/installation.md#troubleshooting)
+  * [Odstranění problémů](tutorial/installation.md#troubleshooting)
 * [In Detail: Electron's Versioning Scheme](tutorial/electron-versioning.md) 
   * [semver](tutorial/electron-versioning.md#semver)
   * [Stabilization Branches](tutorial/electron-versioning.md#stabilization-branches)
@@ -83,7 +83,7 @@ These individual tutorials expand on topics discussed in the guide above.
 * [In Detail: Packaging App Source Code with asar](tutorial/application-packaging.md) 
   * [Generating asar Archives](tutorial/application-packaging.md#generating-asar-archives)
   * [Using asar Archives](tutorial/application-packaging.md#using-asar-archives)
-  * [Limitations](tutorial/application-packaging.md#limitations-of-the-node-api)
+  * [Omezení](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Adding Unpacked Files to asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [In Detail: Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
 * [In Detail: Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
@@ -139,10 +139,10 @@ These individual tutorials expand on topics discussed in the guide above.
 
 ### Modules for Both Processes:
 
-* [clipboard](api/clipboard.md)
+* [schránka](api/clipboard.md)
 * [crashReporter](api/crash-reporter.md)
 * [nativeImage](api/native-image.md)
-* [screen](api/screen.md)
+* [obrazovka](api/screen.md)
 * [shell](api/shell.md)
 
 ## Vývoj
