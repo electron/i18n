@@ -14,12 +14,12 @@
 * `webgl` String - WebGL
 * `webgl2` String - WebGL2
 
-Possible values:
+Giá trị khả thi:
 
-* `disabled_software` - Software only. Hardware acceleration disabled (yellow)
-* `disabled_off` - Disabled (red)
-* `disabled_off_ok` - Disabled (yellow)
-* `unavailable_software` - Software only, hardware acceleration unavailable (yellow)
+* `disabled_software` - Chỉ phần mềm. Tăng tốc phần cứng đã bị vô hiệu hóa (yellow)
+* `disabled_off` - Đã vô hiệu hóa (red)
+* `disabled_off_ok` - Đã vô hiệu hóa (yellow)
+* `unavailable_software` - Chỉ phần mềm, tăng tốc phần cứng không có sẵn (yellow)
 * `unavailable_off` - Unavailable (red)
 * `unavailable_off_ok` - Unavailable (yellow)
 * `enabled_readback` - Hardware accelerated but at reduced performance (yellow)
