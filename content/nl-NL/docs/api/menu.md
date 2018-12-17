@@ -94,7 +94,7 @@ Objects created with `new Menu` emit the following events:
 
 #### Event: 'menu-will-show'
 
-Returns:
+Geeft terug:
 
 * `event` Event
 
@@ -102,7 +102,7 @@ Emitted when `menu.popup()` is called.
 
 #### Event: 'menu-will-close'
 
-Returns:
+Geeft terug:
 
 * `event` Event
 
@@ -122,7 +122,7 @@ Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem`
 
 Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
 
-## Examples
+## Voorbeelden
 
 The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
 
@@ -186,7 +186,7 @@ if (process.platform === 'darwin') {
     submenu: [
       {role: 'about'},
       {type: 'separator'},
-      {role: 'services', submenu: []},
+      {role: 'services'},
       {type: 'separator'},
       {role: 'hide'},
       {role: 'hideothers'},
@@ -279,7 +279,7 @@ You can make use of `before`, `after`, `beforeGroupContaining`, `afterGroupConta
 
 By default, items will be inserted in the order they exist in the template unless one of the specified positioning keywords is used.
 
-### Examples
+### Voorbeelden
 
 Template:
 
