@@ -162,7 +162,7 @@ sa macOS. Ang default ay <code>false`.
     * `default` - Ang mga resulta sa standard na gray opaque na title bar ng Mac.
     * `hidden` - Ang mga resulta sa isang nakatagong title bar at isang buong sukat na laman ng window, gayon pa man ang title bar ay mayroon ding mga karaniwang mga kontrol ng window (mga ilaw ng trapiko) sa kaliwang itaas.
     * `hiddenInset` - Ang mga resulta sa isang nakatagong title bar na may isang alternatibong hitsura kung saan ang mga pindutan ng ilaw ng trapiko ay bahagyang nakasingit sa gilid ng window.
-    * `customButtonsOnHover` Boolean (optional) - Gumuhit ng pasadyang sarado, paliitin, at mga buong screen button sa macOS frameless windows. Ang mga pindutan na ito ay hindi ipapakita maliban kung ang hovered sa itaas sa kaliwang itaas ng window. Ang pasadyang ito Ang mga pindutan ay maiiwasan ang mga problema sa mga pang-yayari ng mouse na nangyayari sa pamantayan Mga kasangkapanng bar sa pindutan ng window. **Note:** Ang opsyon na ito ay kasalukuyang eksperimental.
+    * `customButtonsOnHover` Boolean (optional) - Draw custom close, and minimize buttons on macOS frameless windows. These buttons will not display unless hovered over in the top left of the window. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. **Note:** Ang opsyon na ito ay kasalukuyang eksperimental.
   * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the title bar in full screen mode on macOS for all `titleBarStyle` options. Default is `false`.
   * `thickFrame` Boolean (opsyonal) - Gamitin ang istilo ng `WS_THICKFRAME` para sa walang kaayusang windows sa Windows, kung saan nagdadagdag ng karaniwang ayos ng window. Ang tagpo nito sa `false`ay tanggalin ang window shadow at animation window. Ang Default ay `true`.
   * `vibrancy` String (opsyonal) - Ang pag-dagdag ng isang tipo ng epekto ng vibrancy sa window, lamang sa Mac Os. Ay maaaring maging `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` o `ultra-dark`. Please note that using `frame: false` in combination with a vibrancy value requires that you use a non-default `titleBarStyle` as well.
@@ -963,7 +963,7 @@ Tulad ng `webContents.reload`.
 
 Itinatakda ang ` menu ` bilang menu bar ng window, ang pagtatakda nito sa ` null ` ay aalisin ang menu bar.
 
-#### `win.setProgressBar(progress[, options])`
+#### `win.setProgressBar(progress[, mga pagpipilian])`
 
 * `progress` Doble
 * `mga opsyon` Na Bagay (opsyonal) 
@@ -1064,7 +1064,7 @@ Itakda ang ari-arian para sa window's taskbar na button.
 
 **Note:** `relaunchCommand` at `relaunchDisplayName` dapat na palaging itakda nang sabay. Kung ang isang ari-arian ay hindi naitakda, pagkatapos ay hindi na ito magagamit.
 
-#### `win.showDefinitionForSelection()` *macOS* 
+#### `win.showDefinitionForSelection()` *macOS*
 
 Tulad nang`webContents.showDefinitionForSelection()`.
 
