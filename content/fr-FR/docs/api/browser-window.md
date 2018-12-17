@@ -161,7 +161,7 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
     * `default` - Results in the standard gray opaque Mac title bar.
     * `hidden` - Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls ("traffic lights") in the top left.
     * `hiddenInset` - Results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
-    * `customButtonsOnHover` Boolean (optional) - Draw custom close, minimize, and full screen buttons on macOS frameless windows. These buttons will not display unless hovered over in the top left of the window. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. **Note:** This option is currently experimental.
+    * `customButtonsOnHover` Boolean (optional) - Draw custom close, and minimize buttons on macOS frameless windows. These buttons will not display unless hovered over in the top left of the window. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. **Note:** This option is currently experimental.
   * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the title bar in full screen mode on macOS for all `titleBarStyle` options. Default is `false`.
   * `thickFrame` Boolean (optional) - Use `WS_THICKFRAME` style for frameless windows on Windows, which adds standard window frame. Setting it to `false` will remove window shadow and window animations. La valeur par défaut est `vraie`.
   * `vibrancy` String (optional) - Add a type of vibrancy effect to the window, only on macOS. Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`. Please note that using `frame: false` in combination with a vibrancy value requires that you use a non-default `titleBarStyle` as well.
@@ -234,7 +234,7 @@ Retourne :
 * `event` Événement
 * `title` String
 
-Émis lorsque le document a changé son titre, appeller `event.preventDefault()` empêchera le titre de la fenêtre native de changer.
+Émis lorsque le document a changé son titre, appeler `event.preventDefault()` empêchera le titre de la fenêtre native de changer.
 
 #### Événement : 'close'
 
@@ -242,16 +242,16 @@ Retourne :
 
 * `event` Événement
 
-Emis lorsque la fenêtre va être fermée. Émis avant les événements `beforeunload` et `unload` du DOM. Appeller `event.preventDefault()` annulera la fermeture.
+Emis lorsque la fenêtre va être fermée. Émis avant les événements `beforeunload` et `unload` du DOM. Appeler `event.preventDefault()` annulera la fermeture.
 
-Normalement, vous voudriez utiliser le gestionaire `beforeunload` pour décider si une fenêtre doit être fermée, ce qui sera aussi appelé lorsque la fenêtre est rechargée. Dans Electron, n'importe quelle valeur retournée autre que `undefined` annulera la fermeture. Par exemple :
+Normalement, vous voudriez utiliser le gestionnaire `beforeunload` pour décider si une fenêtre doit être fermée, ce qui sera aussi appelé lorsque la fenêtre est rechargée. Dans Electron, n'importe quelle valeur retournée autre que `undefined` annulera la fermeture. Par exemple :
 
 ```javascript
 window.onbeforeunload = (e) => {   console.log('I do not want to be closed')  
 
 // A la différence des navigateurs web, un message sera affiché aux utilisateurs, retourner
 // une valeur non-nulle annulera la fermeture.
-  // Il est recommandé d'utilisaer l'API de dialogue afin de laisser l'utilisateur confirmer la fermeture de
+  // Il est recommandé d'utiliser l'API de dialogue afin de laisser l'utilisateur confirmer la fermeture de
 // l'application.
   e.returnValue = false // Equivaut à un `return false` mais ce n'est pas recommandé
 }
@@ -261,11 +261,11 @@ window.onbeforeunload = (e) => {   console.log('I do not want to be closed')
 
 #### Événement : 'closed'
 
-Émis lorsque la fenêtre est fermée. Après avoir reçu cet évenement, vous devriez enlever la référence à la fenêtre et éviter de l'utiliser à nouveau.
+Émis lorsque la fenêtre est fermée. Après avoir reçu cet évènement, vous devriez enlever la référence à la fenêtre et éviter de l'utiliser à nouveau.
 
 #### Événement : 'session-end' *Windows*
 
-Émis lorsque la session va se terminer à cause d'une redémarage, un éteignage forcé ou une déconnexion.
+Émis lorsque la session va se terminer à cause d'un redémarrage, une extinction forcée ou une déconnexion.
 
 #### Événement : 'unresponsive'
 
@@ -293,7 +293,7 @@ window.onbeforeunload = (e) => {   console.log('I do not want to be closed')
 
 #### Événement : 'ready-to-show'
 
-Émis lorsque la page web à été chargée (tout en n'était pas affichée) et la fenêtre peut être affichée sans flash visuel.
+Émis lorsque la page web à été chargée (tout en n'étant pas affichée) et la fenêtre peut être affichée sans flash visuel.
 
 #### Événement : 'maximize'
 
