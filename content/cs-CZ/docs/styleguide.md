@@ -56,7 +56,7 @@ For API references, there are exceptions to this rule.
 
 The following rules only apply to the documentation of APIs.
 
-### Page title
+### Nadpis strany
 
 Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
 
@@ -88,7 +88,7 @@ Using `autoUpdater` as an example:
 ### `autoUpdater.setFeedURL(url[, requestHeaders])`
 ```
 
-### Classes
+### Třídy
 
 * API classes or classes that are part of modules must be listed under a `## Class: TheClassName` chapter.
 * One page can have multiple classes.
@@ -162,12 +162,12 @@ required[, optional]
 
 Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
 
-* [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
-* [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
-* [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
-* [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
+* [`Řetězec`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+* [`Číslo`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+* [`Objekt`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
+* [`Pole`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-* Or a custom type like Electron's [`WebContent`](api/web-contents.md)
+* Nebo uživatelský typ jako např [`WebContent`](api/web-contents.md) Electronu
 
 If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows` or `Linux`.
 
@@ -179,7 +179,7 @@ If an argument or a method is unique to certain platforms, those platforms are d
 
 The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
 
-### Events
+### Události
 
 The events chapter must be in following form:
 
@@ -197,7 +197,7 @@ The title can be `###` or `####`-levels depending on whether it is an event of a
 
 The arguments of an event follow the same rules as methods.
 
-### Properties
+### Vlastnosti
 
 The properties chapter must be in following form:
 
