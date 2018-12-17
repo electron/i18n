@@ -2,7 +2,7 @@
 
 自从 v0.34.0，Electron 就允许提交应用包到 Mac App Store (MAS)。这个向导提供的信息有: 如何提交应用和 MAS 构建的限制。
 
-**注意:** 提交应用到 Mac App Store 需要加入 [Apple Developer Program](https://developer.apple.com/support/compare-memberships/)，这需要额外花费。
+**Note:** Submitting an app to Mac App Store requires enrolling in the [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), which costs money.
 
 ## 如何提交你的应用
 
@@ -20,7 +20,7 @@
 
 获得证书之后，你可以使用 [应用部署](application-distribution.md) 打包你的应用，之后进行提交。
 
-首先，你需要在软件包内的 `Info.plist` 中增添一项 `ElectronTeamID`：
+First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which has your Team ID as its value:
 
 ```xml
 <plist version="1.0">
@@ -126,7 +126,7 @@ productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RES
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-还要注意，原生模块可能产生的中间文件 不包括在内(因为它们也需要签署)。 如果你使用 [electron-packager](https://github.com/electron-userland/electron-packager) 8.1.0 之前的版本，在构建步骤中添加 `--ignore=.+\.o$` 以忽略这些文件。 8.1.0及 以后的版本默认情况下会忽略这些文件。
+还要注意，原生模块可能产生的中间文件 不包括在内(因为它们也需要签署)。 如果你使用 [electron-packager](https://github.com/electron-userland/electron-packager) 8.1.0 之前的版本，在构建步骤中添加 `--ignore=.+\.o$` 以忽略这些文件。 Versions 8.1.0 and later ignore those files by default.
 
 ### 上传你的应用
 
