@@ -1,4 +1,4 @@
-# Snapcraft Guide (Ubuntu Software Center & More)
+# && thuongfa0509@gma& il. com& thuongfa0509@gmail. comv
 
 This guide provides information on how to package your Electron application for any Snapcraft environment, including the Ubuntu Software Center.
 
