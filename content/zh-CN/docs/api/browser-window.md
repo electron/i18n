@@ -209,7 +209,7 @@ child.once('ready-to-show', () => {
     * `additionalArguments` String[] (可选) - 一系列将会被附加至此app的渲染进程的`process.argv`的字符串. 对于将少量数据向下传至渲染进程的预加载脚本而言是十分实用的.
     * `safeDialogs` Boolean (optional) - Whether to enable browser style consecutive dialog protection. Default is `false`.
     * `safeDialogsMessage` String (optional) - The message to display when consecutive dialog protection is triggered. If not defined the default message would be used, note that currently the default message is in English and not localized.
-    * `navigateOnDragDrop` Boolean (optional) - Whether dragging and dropping a file or link onto the page causes a navigation. Default is `false`.
+    * `navigateOnDragDrop` Boolean (可选) - 将文件或链接拖放到页面上时是否触发页面跳转. 默认为`false`.
 
 当使用 ` minWidth `/` maxWidth `/` minHeight `/` maxHeight ` 设置最小或最大窗口大小时, 它只限制用户。 它不会阻止您将不符合大小限制的值传递给 ` setBounds `/` setSize ` 或 ` BrowserWindow ` 的构造函数。
 
