@@ -257,7 +257,7 @@ window.onbeforeunload = (e) => {
 }
 ```
 
-***注意**: `window.onbeforeunload = handler` 和 `window.addEventListener('beforeunload', handler)` 的行为有细微的区别。 It is recommended to always set the `event.returnValue` explicitly, instead of only returning a value, as the former works more consistently within Electron.*
+***注意**: `window.onbeforeunload = handler` 和 `window.addEventListener('beforeunload', handler)` 的行为有细微的区别。 推荐总是显式地设置 `event.returnValue`, 而不是仅仅返回一个值, 因为前者在Electron中作用得更为一致.*
 
 #### 事件： 'closed'
 
@@ -780,7 +780,7 @@ Calling this function with a value of `0` will remove any previously set aspect 
 
 #### `win.moveTop()` *macOS* *Windows*
 
-Moves window to top(z-order) regardless of focus
+无论焦点如何, 将窗口移至顶端(z轴上的顺序).
 
 #### `win.center()`
 
@@ -1005,7 +1005,7 @@ win.loadURL('http://localhost:8000/post', {
 
 返回 `Number` - 介于0.0 ( 完全透明) 和1.0 ( 完全不透明) 之间
 
-#### `win.setShape(rects)` *Windows* *Linux* *Experimental*
+#### `win.setShape(rects)` *Windows* *Linux* *实验性*
 
 * `rects` [Rectangle[]](structures/rectangle.md) - Sets a shape on the window. Passing an empty list reverts the window to being rectangular.
 
