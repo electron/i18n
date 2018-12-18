@@ -159,14 +159,14 @@
     "name": "Italian",
     "code": "it",
     "phrases": "9682",
-    "translated": "4755",
+    "translated": "4756",
     "approved": "3",
     "words": "89743",
-    "words_translated": "35298",
+    "words_translated": "35324",
     "words_approved": "43",
     "translated_progress": 39,
     "approved_progress": 0,
-    "qa_issues": 1740
+    "qa_issues": 1741
   },
   {
     "name": "Japanese",
