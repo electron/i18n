@@ -1007,9 +1007,9 @@ win.loadURL('http://localhost:8000/post', {
 
 #### `win.setShape(rects)` *Windows* *Linux* *实验性*
 
-* `rects` [Rectangle[]](structures/rectangle.md) - Sets a shape on the window. Passing an empty list reverts the window to being rectangular.
+* `rects` [Rectangle[]](structures/rectangle.md) - 设置窗口的形状. 传入空列表会使窗口恢复至矩形.
 
-Setting a window shape determines the area within the window where the system permits drawing and user interaction. Outside of the given region, no pixels will be drawn and no mouse events will be registered. Mouse events outside of the region will not be received by that window, but will fall through to whatever is behind the window.
+对窗口形状的设置决定了窗口内系统允许绘制与用户交互的区域. 在给定的区域外, 没有像素会被绘制, 且没有鼠标事件会被登记. 在该区域外的鼠标事件将不会被该窗口接收, 而是落至该窗口后方的任意窗口.
 
 #### `win.setThumbarButtons(buttons)` *Windows*
 
