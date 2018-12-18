@@ -15,7 +15,7 @@ Os atalhos são registrados com o módulo [`globalShortcut`](global-shortcut.md)
 const {app, globalShortcut} = require('electron') 
 
 app.on('ready', () => {
-// Registrar um 'listener' para o atalho 'CommandOrControl+Y'.
+// Registrar um 'listener' para o atalho 'CommandOuControl+Y'.
   globalShortcut.register('CommandOrControl+Y', () => {
   // Fazer algo quando Y e Command ou Control forem pressionados.
   }) 
