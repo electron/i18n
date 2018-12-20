@@ -2,19 +2,17 @@
 
 > 创建和控制视图
 
-**注意:** BrowserView 的 API目前为实验性质，可能会更改或删除。
+线程：[主线程](../glossary.md#main-process)
 
-进程：[主进程](../glossary.md#main-process)
-
-`BrowserView` 被用来让 [`BrowserWindow`](browser-window.md) 嵌入更多的 web 内容。 它就像一个子窗口，除了它的位置是相对于父窗口。 这意味着可以替代`webview`标签.
+A `BrowserView` can be used to embed additional web content into a [`BrowserWindow`](browser-window.md). It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
 
 ## 示例
 
 ```javascript
 // 在主进程中.
-const {BrowserView, BrowserWindow} = require('electron')
+const { BrowserView, BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({width: 800, height: 600})
+let win = new BrowserWindow({ width: 800, height: 600 })
 win.on('closed', () => {
   win = null
 })
@@ -38,43 +36,43 @@ view.webContents.loadURL('https://electronjs.org')
 
 #### `BrowserView.getAllViews()`
 
-返回 `BrowserWindow[]` - 所有打开的窗口的数组
+Returns `BrowserView[]` - An array of all opened BrowserViews.
 
 #### `BrowserView.fromWebContents(webContents)`
 
 * `webContents` [WebContents](web-contents.md)
 
-返回 `BrowserView | null` - 如果内容不属于BrowserView，则它拥有返回的`webContents`或`null`。
+Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
 
 #### `BrowserView.fromId(id)`
 
 * `id` Integer
 
-返回 `BrowserView` - 带有`id`的视图.
+Returns `BrowserView` - The view with the given `id`.
 
 ### 实例属性
 
-使用 `new BrowserView` 创建的对象具有以下属性:
+Objects created with `new BrowserView` have the following properties:
 
 #### `view.webContents` *实验功能*
 
-视图的[`WebContents`](web-contents.md) 对象
+A [`WebContents`](web-contents.md) object owned by this view.
 
 #### `view.id` *实验功能*
 
-视图的唯一ID `Integer`.
+A `Integer` representing the unique ID of the view.
 
 ### 实例方法
 
-使用 `new BrowserView`创建的对象具有以下实例方法:
+Objects created with `new BrowserView` have the following instance methods:
 
 #### `view.destroy()`
 
-强制关闭视图, 不会为网页发出 ` unload ` 和 ` beforeunload ` 事件。 完成视图后, 请调用此函数, 以便尽快释放内存和其他资源。
+Force closing the view, the `unload` and `beforeunload` events won't be emitted for the web page. After you're done with a view, call this function in order to free memory and other resources as soon as possible.
 
 #### `view.isDestroyed()`
 
-返回 `Boolean` -判断窗口是否被销毁
+Returns `Boolean` - Whether the view is destroyed.
 
 #### `view.setAutoResize(options)` *实验功能*
 
@@ -86,7 +84,7 @@ view.webContents.loadURL('https://electronjs.org')
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
-调整视图的大小，并将它移动到窗口边界
+Resizes and moves the view to the supplied bounds relative to the window.
 
 #### `view.setBackgroundColor(color)` *实验功能*
 
