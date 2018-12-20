@@ -1,6 +1,6 @@
 # شئ مستطیل
 
-* شماره `x` - x مختصات منشا مستطیل است (باید یک عدد صحیح باشد)
-* شماره `y` - y مختصات منشا مستطیل است (باید یک عدد صحیح باشد)
-* شماره `width` - عرض مستطیل (باید یک عدد صحیح باشد)
-* شماره `height` - ارتفاع مستطیل (باید یک عدد صحیح باشد)
+* `x` Number - The x coordinate of the origin of the rectangle (must be an integer).
+* `y` Number - The y coordinate of the origin of the rectangle (must be an integer).
+* `width` Number - The width of the rectangle (must be an integer).
+* `height` Number - The height of the rectangle (must be an integer).
