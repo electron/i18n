@@ -11,7 +11,7 @@ Par exemple :
 ```javascript
 const { session } = require('electron')
 
-// Query all cookies.
+// Récupère tous les cookies.
 session.defaultSession.cookies.get({}, (error, cookies) => {
   console.log(error, cookies)
 })
@@ -35,7 +35,7 @@ Les événements suivants sont disponibles pour les instances de `Cookies` :
 
 #### Événement : 'changed'
 
-* `event` Event
+* `event` Événement
 * `cookie` [Cookie](structures/cookie.md) - Le cookie qui a été changé.
 * `cause` String - La cause du changement avec l'une des valeurs suivantes : 
   * `explicit` - Le cookie a été modifié directement par l'action du consommateur.
