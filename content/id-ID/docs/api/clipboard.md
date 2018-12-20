@@ -4,166 +4,175 @@
 
 Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-Contoh berikut menunjukkan cara menulis string ke clipboard:
+In the renderer process context it depends on the [`remote`](remote.md) module on Linux, it is therefore not available when this module is disabled.
+
+The following example shows how to write a string to the clipboard:
 
 ```javascript
-const {clipboard} = require ('electron') clipboard.writeText (' String Contoh ')
+const { clipboard } = require('electron')
+clipboard.writeText('Example String')
 ```
 
-Pada sistem X Window, ada juga clipboard pilihan. Untuk memanipulasinya, Anda harus melewati ` pilihan </ 0> untuk setiap metode:</p>
+On X Window systems, there is also a selection clipboard. To manipulate it you need to pass `selection` to each method:
 
-<pre><code class="javascript">const {clipboard} = require ('electron') clipboard.writeText ('Example String ', 'selection') console.log (clipboard.readText ('selection'))
-`</pre> 
+```javascript
+const { clipboard } = require('electron')
+clipboard.writeText('Example String', 'selection')
+console.log(clipboard.readText('selection'))
+```
 
 ## Methods
 
-The ` clipboard </ 0> modul memiliki metode berikut:</p>
+The `clipboard` module has the following methods:
 
-<p><strong> Catatan: </ 0> API Eksperimental ditandai seperti itu dan dapat dihapus di masa mendatang.</p>
+**Note:** Experimental APIs are marked as such and could be removed in future.
 
-<h3><code>clipboard.baca teks ( [tipe] )`</h3> 
+### `clipboard.baca teks ( [tipe] )`
 
 * ` ketik </ 0>  String (opsional)</li>
 </ul>
 
-<p>Mengembalikan <code> String </ 0> - Konten di clipboard sebagai teks biasa.</p>
-
-<h3><code>clipboard.menulis tek (teks [, tipe])`</h3> 
+<p>Returns <code>String` - The content in the clipboard as plain text.</p> 
+  ### `clipboard.menulis tek (teks [, tipe])`
+  
   * `teks` String
   * ` ketik </ 0>  String (opsional)</li>
 </ul>
 
-<p>Menuliskan <code> teks </ 0> ke clipboard sebagai teks biasa.</p>
-
-<h3><code>clipboard.readHTML ( [type] )`</h3> 
+<p>Writes the <code>text` into the clipboard as plain text.</p> 
+    ### `clipboard.readHTML ( [type] )`
+    
     * ` ketik </ 0>  String (opsional)</li>
 </ul>
 
-<p>Mengembalikan <code> String </ 0> - Konten di clipboard sebagai markup.</p>
-
-<h3><code>clipboard.menulisHTML (markup [, tipe])`</h3> 
+<p>Returns <code>String` - The content in the clipboard as markup.</p> 
+      ### `clipboard.menulisHTML (markup [, tipe])`
+      
       * ` markup </ 0>  String</li>
 <li><code> ketik </ 0>  String (opsional)</li>
 </ul>
 
-<p>Menulis <code> markup </ 0> ke clipboard.</p>
-
-<h3><code>clipboard.readImage ( [type] )`</h3> 
+<p>Writes <code>markup` to the clipboard.</p> 
+        ### `clipboard.readImage ( [type] )`
+        
         * ` ketik </ 0>  String (opsional)</li>
 </ul>
 
-<p>Mengembalikan <a href="native-image.md"><code> NativeImage </ 0> - Konten gambar di clipboard.</p>
-
-<h3><code>clipboard.writeImage (gambar [, tipe])`</h3> 
+<p>Returns <a href="native-image.md"><code>NativeImage`</a> - The image content in the clipboard.</p> 
+          ### `clipboard.writeImage (gambar [, tipe])`
+          
           * ` gambar </ 0>  <a href="native-image.md"> gambar asli </ 1></li>
 <li><code> ketik </ 0>  String (opsional)</li>
 </ul>
 
-<p>Menulis <code> gambar </ 0> ke clipboard.</p>
-
-<h3><code>clipboard.readRTF ( [type] )`</h3> 
+<p>Writes <code>image` to the clipboard.</p> 
+            ### `clipboard.readRTF ( [type] )`
+            
             * ` ketik </ 0>  String (opsional)</li>
 </ul>
 
-<p>Mengembalikan <code> String </ 0> - Konten di clipboard sebagai RTF.</p>
-
-<h3><code>clipboard.writeRTF (teks [, jenis])`</h3> 
+<p>Returns <code>String` - The content in the clipboard as RTF.</p> 
+              ### `clipboard.writeRTF (teks [, jenis])`
+              
               * `teks` String
               * ` ketik </ 0>  String (opsional)</li>
 </ul>
 
-<p>Menuliskan <code> teks </ 0> ke clipboard di RTF.</p>
-
-<h3><code>clipboard.readBookmark()` *macOS* *Windows*</h3> 
+<p>Writes the <code>text` into the clipboard in RTF.</p> 
+                ### `clipboard.readBookmark()` *macOS* *Windows*
+                
                 Mengembalikan `Objek`:
                 
                 * ` judul</ 0>  String</li>
 <li><code> url </ 0> Tali</li>
 </ul>
 
-<p>Mengembalikan objek yang berisi <code> judul </ 0> dan <code> url </ 0> yang mewakili penanda di clipboard. Nilai <code> judul</ 0> dan <code> url </ 0> akan menjadi string kosong bila bookmark tidak tersedia.</p>
-
-<h3><code> clipboard.menulisBookmark (judul, url [, tipe]) </ 0>  <em> macos </ 1>  <em> jendela </ 1></h3>
+<p>Returns an Object containing <code>title` and `url` keys representing the bookmark in the clipboard. The `title` and `url` values will be empty strings when the bookmark is unavailable.</p> 
+                  ### ` clipboard.menulisBookmark (judul, url [, tipe]) </ 0>  <em> macos </ 1>  <em> jendela </ 1></h3>
 
 <ul>
 <li><code> judul </ 0> String</li>
-<li><code>url` Tali
-                * ` ketik </ 0>  String (opsional)</li>
-</ul>
-
-<p>Menulis <code> judul </ 0> dan <code> url </ 0> ke clipboard sebagai bookmark.</p>
-
-<p><strong> Catatan: </ 0> Sebagian besar aplikasi di Windows tidak mendukung penandaan bookmark ke dalamnya sehingga Anda dapat menggunakan <code> clipboard.write </ 1> untuk menulis teks bookmark dan fallback ke clipboard.</p>
-
-<pre><code class="js">clipboard.write({
-  text: 'https://electronjs.org',
-  bookmark: 'Electron Homepage'
-})
-`</pre> 
-                  ### `clipboard.readFindText()` *macOS*
-                  
-                  Mengembalikan ` String </ 0> - Teks pada papan gambar yang ditemukan. Metode ini menggunakan synchronous IPC saat dipanggil dari proses renderer. Nilai cache dibaca ulang dari papan gambar anyar setiap kali aplikasi diaktifkan.</p>
-
-<h3><code>clipboard.writeFindText(text)` *macOS*</h3> 
-                  
-                  * `teks` String
-                  
-                  Menuliskan ` teks </ 0> ke dalam papan tulis yang ditemukan sebagai teks biasa. Metode ini menggunakan synchronous IPC saat dipanggil dari proses renderer.</p>
-
-<h3><code>clipboard.clear ( [type] )`</h3> 
+<li><code>url` Tali</li> 
                   
                   * ` ketik </ 0>  String (opsional)</li>
 </ul>
 
-<p>Membersihkan konten clipboard.</p>
-
-<h3><code>clipboard.availableFormats ( [type] )`</h3> 
+<p>Writes the <code>title` and `url` into the clipboard as a bookmark.</p> 
+                    **Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
+                    
+                    ```js
+                    clipboard.write({
+                      text: 'https://electronjs.org',
+                      bookmark: 'Electron Homepage'
+                    })
+                    ```
+                    
+                    ### `clipboard.readFindText()` *macOS*
+                    
+                    Returns `String` - The text on the find pasteboard. This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
+                    
+                    ### `clipboard.writeFindText(text)` *macOS*
+                    
+                    * `teks` String
+                    
+                    Writes the `text` into the find pasteboard as plain text. This method uses synchronous IPC when called from the renderer process.
+                    
+                    ### `clipboard.clear ( [type] )`
+                    
                     * ` ketik </ 0>  String (opsional)</li>
 </ul>
 
-<p>Mengembalikan <code> String [] </ 0> - Kumpulan format yang didukung untuk clipboard <code> ketik </ 0> .</p>
+<p>Clears the clipboard content.</p>
 
-<h3><code> clipboard.has (format [, tipe]) </ 0>  <em> Eksperimental </ 1></h3>
+<h3><code>clipboard.availableFormats ( [type] )`</h3> 
+                      * ` ketik </ 0>  String (opsional)</li>
+</ul>
+
+<p>Returns <code>String[]` - An array of supported formats for the clipboard `type`.</p> 
+                        ### ` clipboard.has (format [, tipe]) </ 0>  <em> Eksperimental </ 1></h3>
 
 <ul>
 <li><code> format </ 0>  String</li>
 <li><code> ketik </ 0>  String (opsional)</li>
 </ul>
 
-<p>Pengembalian <code> Boolean </ 0> - Apakah clipboard mendukung ditentukan <code> Format </ 0> .</p>
-
-<pre><code class="javascript">const {clipboard} = require ('electron') console.log (clipboard.has (' &lt;p&gt; selection </ 0> '))
-`</pre> 
-                      ### ` clipboard.read (format) </ 0>  <em> Eksperimental </ 1></h3>
-
-<ul>
-<li><code> format </ 0>  String</li>
-</ul>
-
-<p>Mengembalikan <code> String </ 0> - Membaca <code> format </ 0> ketik dari clipboard.</p>
-
-<h3><code> clipboard.readBuffer (format) </ 0>  <em> Eksperimental </ 1></h3>
+<p>Returns <code>Boolean` - Whether the clipboard supports the specified `format`.</p> 
+                        
+                        ```javascript
+                        const { clipboard } = require('electron')
+                        console.log(clipboard.has('<p>selection</p>'))
+                        ```
+                        
+                        ### ` clipboard.read (format) </ 0>  <em> Eksperimental </ 1></h3>
 
 <ul>
 <li><code> format </ 0>  String</li>
 </ul>
 
-<p>Mengembalikan <code> Buffer </ 0> - Membaca <code> format </ 0> ketik dari clipboard.</p>
+<p>Returns <code>String` - Reads `format` type from the clipboard.</p> 
+                        
+                        ### ` clipboard.readBuffer (format) </ 0>  <em> Eksperimental </ 1></h3>
 
-<h3><code> clipboard.writeBuffer (format, buffer [, tipe]) </ 0>  <em> Eksperimental </ 1></h3>
+<ul>
+<li><code> format </ 0>  String</li>
+</ul>
+
+<p>Returns <code>Buffer` - Reads `format` type from the clipboard.</p> 
+                        
+                        ### ` clipboard.writeBuffer (format, buffer [, tipe]) </ 0>  <em> Eksperimental </ 1></h3>
 
 <ul>
 <li><code> format </ 0>  String</li>
 <li><code>penyangga` Buffer</li> 
-                      
-                      * ` ketik </ 0>  String (opsional)</li>
+                        
+                        * ` ketik </ 0>  String (opsional)</li>
 </ul>
 
-<p>Menulis <code> penyangga </ 0> ke clipboard sebagai <code> Format </ 0> .</p>
-
-<h3><code>clipboard.write (data [, type])`</h3> 
-                        * `data` Obyek 
-                          * ` teks </ 0>  String (opsional)</li>
+<p>Writes the <code>buffer` into the clipboard as `format`.</p> 
+                          ### `clipboard.write (data [, type])`
+                          
+                          * `data` Obyek 
+                            * ` teks </ 0>  String (opsional)</li>
 <li><code> html </ 0>  String (opsional)</li>
 <li><code> gambar </ 0>  <a href="native-image.md"> NativeImage </ 1> (opsional)</li>
 <li><code> rtf </ 0>  String (opsional)</li>
@@ -172,6 +181,7 @@ The ` clipboard </ 0> modul memiliki metode berikut:</p>
 <li><code> ketik </ 0>  String (opsional)</li>
 </ul>
 
-<pre><code class="javascript">const {clipboard} = require ('electron') clipboard.write ({text: 'test', html: ' &lt;b&gt; test </ 0> '})
+<pre><code class="javascript">const { clipboard } = require('electron')
+clipboard.write({ text: 'test', html: '<b>test</b>' })
 `</pre> 
-                            Menulis  data </ 0> ke clipboard.</p>
+                              Writes `data` to the clipboard.
