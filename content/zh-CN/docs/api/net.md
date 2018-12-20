@@ -18,9 +18,9 @@
 例如, 下面的示例快速显示如何使用 ` net ` API:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 app.on('ready', () => {
-  const {net} = require('electron')
+  const { net } = require('electron')
   const request = net.request('https://github.com')
   request.on('response', (response) => {
     console.log(`STATUS: ${response.statusCode}`)
@@ -29,7 +29,7 @@ app.on('ready', () => {
       console.log(`BODY: ${chunk}`)
     })
     response.on('end', () => {
-      console.log('response请求中没有更多数据。')
+      console.log('No more data in response.')
     })
   })
   request.end()
