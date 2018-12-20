@@ -7,13 +7,13 @@
 实现与 ` file://` 协议具有相同效果的协议的示例:
 
 ```javascript
-const {app, protocol} = require('electron')
+const { app, protocol } = require('electron')
 const path = require('path')
 
 app.on('ready', () => {
   protocol.registerFileProtocol('atom', (request, callback) => {
     const url = request.url.substr(7)
-    callback({path: path.normalize(`${__dirname}/${url}`)})
+    callback({ path: path.normalize(`${__dirname}/${url}`) })
   }, (error) => {
     if (error) console.error('Failed to register protocol')
   })
@@ -49,7 +49,7 @@ app.on('ready', () => {
 默认情况下web storage apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) 被禁止访问非标准schemes。 所以一般来说如果你想注册一个 自定义协议来替换`http`协议，您必须将其注册为标准scheme：
 
 ```javascript
-const {app, protocol} = require('electron')
+const { app, protocol } = require('electron')
 
 protocol.registerStandardSchemes(['atom'])
 app.on('ready', () => {
@@ -79,7 +79,7 @@ app.on('ready', () => {
 
 注册一个 `scheme` 协议, 将该文件作为响应发送 当要使用 `scheme` 创建 `request` 时, 将使用 `handler(request, callback)` 来调用 `handler` 。 `completion` 将在 `scheme` 注册成功时通过`completion(null)` 调用，失败时通过`completion(error)` 调用。
 
-要处理 `request`, 应当使用文件的路径或具有 `path` 属性的对象来调用 `callback`。例如:`callback(filePath)`或 `callback({path: filePath})`.
+To handle the `request`, the `callback` should be called with either the file's path or an object that has a `path` property, e.g. `callback(filePath)` or `callback({ path: filePath })`.
 
 当 `callback` 被调用后，并且没有带着数字或 `error` 属性的对象时, `request`将会失败, 并且带有你指定的 `error`错误号。 更多的错误号信息，您可以查阅[网络错误列表](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
@@ -106,12 +106,12 @@ app.on('ready', () => {
 示例:
 
 ```javascript
-const {protocol} = require('electron')
+const { protocol } = require('electron')
 
-protocol.registerBufferProtocol('atom', () => {
-  globalSuffer.from('Response') () => {
-    console.error('Failed is pressed')
-  })
+protocol.registerBufferProtocol('atom', (request, callback) => {
+  callback({ mimeType: 'text/html', data: Buffer.from('<h5>Response</h5>') })
+}, (error) => {
+  if (error) console.error('Failed to register protocol')
 })
 ```
 
@@ -139,6 +139,7 @@ protocol.registerBufferProtocol('atom', () => {
 * `handler` Function - 回调函数 
   * `request` Object 
     * `url` String
+    * `headers` Object
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -183,8 +184,8 @@ protocol.registerBufferProtocol('atom', () => {
 示例:
 
 ```javascript
-const {protocol} = require('electron')
-const {PassThrough} = require('stream')
+const { protocol } = require('electron')
+const { PassThrough } = require('stream')
 
 function createStream (text) {
   const rv = new PassThrough() // PassThrough is also a Readable stream
@@ -209,7 +210,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 可以传递任何可读取流 API 的对象(`data`/`end`/`error` 事件)。以下是如何返回文件的方法示例:
 
 ```javascript
-const {protocol} = require('electron')
+const { protocol } = require('electron')
 const fs = require('fs')
 
 protocol.registerStreamProtocol('atom', (request, callback) => {
@@ -289,6 +290,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 * `handler` Function 
   * `request` Object 
     * `url` String
+    * `headers` Object
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
