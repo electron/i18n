@@ -2,14 +2,14 @@
 
 > Recopile datos de rastreo del módulo de contenido de Chromium para encontrar cuellos de botella de rendimiento y operaciones lentas.
 
-Proceso: [Principal](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 Este módulo no incluye una interfaz web, por lo que debe abrir `chrome://tracing/` en un navegador Chrome y cargar el archivo generado para ver el resultado.
 
 **Nota:** No debe usar este módulo hasta que se emita el evento `ready` del módulo de la aplicación.
 
 ```javascript
-const {app, contentTracing} = require('electron')
+const { app, contentTracing } = require('electron')
 
 app.on('ready', () => {
   const options = {
@@ -35,7 +35,7 @@ El módulo `contentTracing` tiene los siguientes métodos:
 
 ### `contentTracing.getCategories(callback)`
 
-* `callback` Función 
+* `callback` Function 
   * `categories` Cadena[]
 
 Obtener un conjunto de grupos de categorías. Los grupos de categorías pueden cambiar a medida que se alcanzan nuevas rutas de código.
@@ -76,7 +76,7 @@ La opción de rastreo se restablecerá primero a la opción predeterminada (`rec
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
 * `resultFilePath` Cadena
-* `callback` Función 
+* `callback` Function 
   * `resultFilePath` Cadena
 
 Dejar de grabar en todos los procesos.
@@ -89,7 +89,7 @@ Los datos de rastreo se escribirán en `resultFilePath` si no está vacío o en 
 
 ### `contentTracing.startMonitoring(options, callback)`
 
-* `options` Objecto 
+* `opciones` Objecto 
   * `categoryFilter` Cadena
   * `traceOptions` Cadena
 * `callback` Función
@@ -111,7 +111,7 @@ Una vez que todos los procesos secundarios han confirmado la solicitud `stopMoni
 ### `contentTracing.captureMonitoringSnapshot(resultFilePath, callback)`
 
 * `resultFilePath` Cadena
-* `callback` Función 
+* `callback` Function 
   * `resultFilePath` Cadena
 
 Obtenga los datos de monitoreo actualizados.
@@ -122,7 +122,7 @@ Una vez que todos los procesos secundarios hayan confirmado la solicitud `captur
 
 ### `contentTracing.getTraceBufferUsage(callback)`
 
-* `callback` Función 
+* `callback` Function 
   * `value` Número
   * `percentage` Número
 
