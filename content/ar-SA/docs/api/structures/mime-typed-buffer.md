@@ -1,4 +1,4 @@
 # كائن MimeTypedBuffer
 
-* `mimeType` String - The mimeType of the Buffer that you are sending.
-* `data` Buffer - The actual Buffer content.
+* `mimeType` (سلسلة نصية) الـ mimeType الخاص بالـ Buffer التي ترسلها.
+* `data` Buffer - محتوى المخزن المؤقت الفعلي.
