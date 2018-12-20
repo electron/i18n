@@ -1,22 +1,26 @@
 # netLog
 
-> Logging network events.
+> Logging network events for a session.
 
 Процес: [Main](../glossary.md#main-process)
 
 ```javascript
-const {netLog} = require('electron')
-console.log('Start recording net-logs')
-netLog.startLogging('/path/to/net-log')
-// After some network events
-netLog.stopLogging(path => {
-  console.log('Net-logs written to', path)
+const { netLog } = require('electron')
+
+app.on('ready', function () {
+  netLog.startLogging('/path/to/net-log')
+  // After some network events
+  netLog.stopLogging(path => {
+    console.log('Net-logs written to', path)
+  })
 })
 ```
 
 See [`--log-net-log`](chrome-command-line-switches.md#--log-net-logpath) to log network events throughout the app's lifecycle.
 
-## Методи
+**Note:** All methods unless specified can only be used after the `ready` event of the `app` module gets emitted.
+
+## Методиa
 
 ### `netLog.startLogging(path)`
 
