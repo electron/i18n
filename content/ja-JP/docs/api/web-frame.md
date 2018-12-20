@@ -4,12 +4,12 @@
 
 プロセス: [Renderer](../glossary.md#renderer-process)
 
-`webFrame` は現在の `BrowserWindow` のトップフレームで表示されている `WebFrame` クラスのインスタンスをエクスポートする Electron のモジュールです。 サブフレームは特定のプロパティとメソッド (`webFrame.firstChild` など) によって取得されます。
+`webFrame` export of the Electron module is an instance of the `WebFrame` class representing the top frame of the current `BrowserWindow`. サブフレームは特定のプロパティとメソッド (`webFrame.firstChild` など) によって取得されます。
 
 現在のページを 200% にズームするサンプルです。
 
 ```javascript
-const {webFrame} = require('electron')
+const { webFrame } = require('electron')
 
 webFrame.setZoomFactor(2)
 ```
@@ -45,6 +45,12 @@ webFrame.setZoomFactor(2)
 
 ピンチによる拡大レベルの最大値と最小値を設定します。
 
+> **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
+> 
+> ```js
+webFrame.setVisualZoomLevelLimits(1, 3)
+```
+
 ### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
@@ -67,7 +73,7 @@ webFrame.setZoomFactor(2)
 [node-spellchecker](https://github.com/atom/node-spellchecker) をプロバイダとして使用するサンプルです。
 
 ```javascript
-const {webFrame} = require('electron')
+const { webFrame } = require('electron')
 webFrame.setSpellCheckProvider('en-US', true, {
   spellCheck (text) {
     return !(require('spellchecker').isMisspelled(text))
@@ -96,7 +102,7 @@ webFrame.setSpellCheckProvider('en-US', true, {
 `false` の値を指定してオプションを指定すると、その登録が省略されます。以下は Content Security Policy をバイパスすることなく、特権スキームを登録する例です。
 
 ```javascript
-const {webFrame} = require('electron')
+const { webFrame } = require('electron')
 webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 ```
 
@@ -113,7 +119,7 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 * `callback` Function (任意) - スクリプトが実行されたあとに呼ばれる。 
   * `result` Any
 
-戻り値 `Promise` - 実行されたコードの結果で解決される Promise、またはコードの結果が拒否された Promise である場合の拒否された Promise。
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
 
 ページ内の `code` を評価します。
 
@@ -121,31 +127,31 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 
 ### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
 
-* `worldId` Integer
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
 * `scripts` [WebSource[]](structures/web-source.md)
 * `userGesture` Boolean (任意) - 省略値は `false`。
 * `callback` Function (任意) - スクリプトが実行されたあとに呼ばれる。 
   * `result` Any
 
-`executeJavaScript` のように動きますが、 `scripts` はイソレートコンテキスト内で評価します。
+Work like `executeJavaScript` but evaluates `scripts` in an isolated context.
 
 ### `webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)`
 
-* `worldId` Integer
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
 * `csp` String
 
 イソレートコンテキストのコンテンツセキュリティポリシーを設定します。
 
 ### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)`
 
-* `worldId` Integer
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
 * `name` String
 
 イソレートコンテキストの名前を設定します。開発者向けツール内で活用できます。
 
 ### `webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)`
 
-* `worldId` Integer
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
 * `securityOrigin` String
 
 イソレートコンテキストのセキュリティオリジンを設定します。
@@ -164,7 +170,7 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 Blink の内部メモリキャッシュの使用情報を記述しているオブジェクトを返します。
 
 ```javascript
-const {webFrame} = require('electron')
+const { webFrame } = require('electron')
 console.log(webFrame.getResourceUsage())
 ```
 
