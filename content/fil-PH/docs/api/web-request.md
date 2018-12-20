@@ -6,16 +6,18 @@ Proseso:[Pangunahi](../glossary.md#main-process)
 
 May ilang pagkakataon na ang `WebRequests` class ay mapupuntahan gamit ang `WebRequests` na katangian ng isang `Session`.
 
-Ang mga paraan ng `WebRequest` pagtanggap ng opsyunal `filter` at isang `listener`. `listener` ay matatawag gamit ang `listener(details)` kung ang event ng API ay naganap. Ang `detalye` bagay na nagrerepresenta sa request. Pagsumite `null` bilang `listener` ay makaka-unsubscribe mula sa event.
+Ang mga paraan ng `WebRequest` pagtanggap ng opsyunal `filter` at isang `listener`. `listener` ay matatawag gamit ang `listener(details)` kung ang event ng API ay naganap. Ang `detalye` bagay na nagrerepresenta sa request.
 
-Ang `filter` ng isang bagay ay mayroong `urls` katangian kung saan ito ay Array ng URL patterns na magagamit sa pagiba-iba ng mga hiling na hindi tugma sa URL patterns. Kung ang `filter` ay makukuha kung kaya lahat ng mga hiling ay matutugma.
+⚠️ Only the last attached `listener` will be used. Passing `null` as `listener` will unsubscribe from the event.
 
-Para sa ilang mga event ang `listener` ay binigyan ng isang `callback`, na kung tatawagin ay isang `response` bagay kung `listener` nagampanan nya ang kanyang trabaho.
+The `filter` object has a `urls` property which is an Array of URL patterns that will be used to filter out the requests that do not match the URL patterns. If the `filter` is omitted then all requests will be matched.
 
-Isang halimbawa ng pagdagdag ng `User-Agent` header para sa mga halimbawa:
+For certain events the `listener` is passed with a `callback`, which should be called with a `response` object when `listener` has done its work.
+
+An example of adding `User-Agent` header for requests:
 
 ```javascript
-const {session} = require('electron')
+const { session } = require('electron')
 
 // Modify the user agent for all requests to the following urls.
 const filter = {
@@ -24,7 +26,7 @@ const filter = {
 
 session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback) => {
   details.requestHeaders['User-Agent'] = 'MyAgent'
-  callback({cancel: false, requestHeaders: details.requestHeaders})
+  callback({ cancel: false, requestHeaders: details.requestHeaders })
 })
 ```
 
