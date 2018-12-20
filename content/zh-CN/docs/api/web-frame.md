@@ -4,12 +4,13 @@
 
 进程: [ Renderer](../glossary.md#renderer-process)
 
-`webFrame` export of the electron module is an instance of the `WebFrame` class representing the top frame of the current `BrowserWindow`. Sub-frames can be retrieved by certain properties and methods (e.g. `webFrame.firstChild`).
+`webFrame` export of the Electron module is an instance of the `WebFrame` class representing the top frame of the current `BrowserWindow`. Sub-frames can be retrieved by certain properties and methods (e.g. `webFrame.firstChild`).
 
 将当前页缩放到200% 的示例。
 
 ```javascript
-const {webFrame} = require('electron')
+const { webFrame } = require('electron')
+
 webFrame.setZoomFactor(2)
 ```
 
@@ -44,6 +45,12 @@ Returns `Number` - The current zoom level.
 
 设置最大和最小缩放级别。
 
+> **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
+> 
+> ```js
+webFrame.setVisualZoomLevelLimits(1, 3)
+```
+
 ### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
@@ -66,7 +73,7 @@ The `provider` must be an object that has a `spellCheck` method that returns whe
 An example of using [node-spellchecker](https://github.com/atom/node-spellchecker) as provider:
 
 ```javascript
-const {webFrame} = require('electron')
+const { webFrame } = require('electron')
 webFrame.setSpellCheckProvider('en-US', true, {
   spellCheck (text) {
     return !(require('spellchecker').isMisspelled(text))
@@ -95,7 +102,7 @@ webFrame.setSpellCheckProvider('en-US', true, {
 指定一个值为 ` false ` 的选项, 将其从注册中省略。在不绕过内容安全策略的情况下注册特权方案的示例:
 
 ```javascript
-const {webFrame} = require('electron')
+const { webFrame } = require('electron')
 webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 ```
 
@@ -112,7 +119,7 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 * `callback` Function (可选) - 在脚本被执行后被调用。 
   * `result` Any
 
-Returns `Promise` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
 
 在页面中执行 `code`。
 
@@ -120,31 +127,31 @@ Returns `Promise` - A promise that resolves with the result of the executed code
 
 ### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
 
-* `worldId` Integer
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
 * `scripts` [WebSource[]](structures/web-source.md)
 * `userGesture` Boolean (optional) - Default is `false`.
 * `callback` Function (可选) - 在脚本被执行后被调用。 
   * `result` Any
 
-Work like `executeJavaScript` but evaluates `scripts` in isolated context.
+Work like `executeJavaScript` but evaluates `scripts` in an isolated context.
 
 ### `webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)`
 
-* `worldId` Integer
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
 * `csp` String
 
 Set the content security policy of the isolated world.
 
 ### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)`
 
-* `worldId` Integer
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
 * `name` String
 
 Set the name of the isolated world. Useful in devtools.
 
 ### `webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)`
 
-* `worldId` Integer
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
 * `securityOrigin` String
 
 Set the security origin of the isolated world.
@@ -163,7 +170,7 @@ Set the security origin of the isolated world.
 Returns an object describing usage information of Blink's internal memory caches.
 
 ```javascript
-const {webFrame} = require('electron')
+const { webFrame } = require('electron')
 console.log(webFrame.getResourceUsage())
 ```
 
