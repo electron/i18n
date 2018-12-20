@@ -9,22 +9,22 @@
 フレームレスウインドウを作成するには、[BrowserWindow](browser-window.md) の `options` で `frame` を `false` に設定する必要があります。
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({width: 800, height: 600, frame: false})
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ width: 800, height: 600, frame: false })
 win.show()
 ```
 
 ### macOSでの他の方法
 
-macOS 10.9 Mavericks以降では、枠のないウインドウを指定する他の方法があります。 タイトルバーとウインドウコントロールの両方が無効になる `frame` を `false` に設定する方法の代わりに、タイトルバーを非表示にし、コンテンツをフルウインドウサイズに拡大しつつ、標準のウインドウアクションのためにウインドウコントロール ("信号") を保持し続けることもできます。 `titleBarStyle` オプションを指定すると、そのようにすることができます。
+There's an alternative way to specify a chromeless window. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. `titleBarStyle` オプションを指定すると、そのようにすることができます。
 
 #### `hidden`
 
 タイトルバーが非表示かつフルサイズのコンテンツウインドウになりますが、タイトルバーには、まだ標準のウインドウコントロール ("信号") が左上にあります。
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({titleBarStyle: 'hidden'})
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ titleBarStyle: 'hidden' })
 win.show()
 ```
 
@@ -33,8 +33,8 @@ win.show()
 ウインドウの端から信号ボタンが少し埋め込まれた別の見た目でタイトルバーが非表示になります。
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({titleBarStyle: 'hiddenInset'})
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ titleBarStyle: 'hiddenInset' })
 win.show()
 ```
 
@@ -43,8 +43,8 @@ win.show()
 Uses custom drawn close, and miniaturize buttons that display when hovering in the top left of the window. The fullscreen button is not available due to restrictions of frameless windows as they interface with Apple's MacOS window masks. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. This option is only applicable for frameless windows.
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({titleBarStyle: 'customButtonsOnHover', frame: false})
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ titleBarStyle: 'customButtonsOnHover', frame: false })
 win.show()
 ```
 
@@ -53,8 +53,8 @@ win.show()
 `transparent` オプションを `true` に設定することで、フレームレスウインドウを透明にすることもできます。
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({transparent: true, frame: false})
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ transparent: true, frame: false })
 win.show()
 ```
 
@@ -72,7 +72,7 @@ win.show()
 クリックスルーウインドウを作成する、すなわち、ウインドウにすべてのマウスイベントを無視させるには、[win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore-options) APIを呼び出して下さい。
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.setIgnoreMouseEvents(true)
 ```
@@ -85,7 +85,7 @@ win.setIgnoreMouseEvents(true)
 let win = require('electron').remote.getCurrentWindow()
 let el = document.getElementById('clickThroughElement')
 el.addEventListener('mouseenter', () => {
-  win.setIgnoreMouseEvents(true, {forward: true})
+  win.setIgnoreMouseEvents(true, { forward: true })
 })
 el.addEventListener('mouseleave', () => {
   win.setIgnoreMouseEvents(false)
