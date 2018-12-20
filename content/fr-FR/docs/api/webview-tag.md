@@ -90,6 +90,14 @@ When this attribute is present the `webview` container will automatically resize
 
 When this attribute is present the guest page in `webview` will have node integration and can use node APIs like `require` and `process` to access low level system resources. Node integration is disabled by default in the guest page.
 
+### `enableremotemodule`
+
+```html
+<webview src="http://www.google.com/" enableremotemodule="false"></webview>
+```
+
+When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. The remote module is avaiable by default.
+
 ### `plugins`
 
 ```html
@@ -98,7 +106,7 @@ When this attribute is present the guest page in `webview` will have node integr
 
 When this attribute is present the guest page in `webview` will be able to use browser plugins. Plugins are disabled by default.
 
-### `prechargement`
+### `preload`
 
 ```html
 <webview src="https://www.github.com/" preload="./test.js"></webview>
@@ -181,7 +189,7 @@ A list of strings which specifies the blink features to be disabled separated by
 
 ## Méthodes
 
-La balise `webview` possède les méthodes suivantes :
+The `webview` tag has the following methods:
 
 **Note:** The webview element must be loaded before using the methods.
 
@@ -206,6 +214,12 @@ webview.addEventListener('dom-ready', () => {
 
 Loads the `url` in the webview, the `url` must contain the protocol prefix, e.g. the `http://` or `file://`.
 
+### `<webview>.downloadURL(url)`
+
+* `url` String
+
+Initiates a download of the resource at `url` without navigating.
+
 ### `<webview>.getURL()`
 
 Returns `String` - The URL of guest page.
@@ -217,6 +231,10 @@ Returns `String` - The title of guest page.
 ### `<webview>.isLoading()`
 
 Returns `Boolean` - Whether guest page is still loading resources.
+
+### `<webview>.isLoadingMainFrame()`
+
+Returns `Boolean` - Whether the main frame (and not just iframes or frames within it) is still loading.
 
 ### `<webview>.isWaitingForResponse()`
 
@@ -337,6 +355,10 @@ Set guest page muted.
 ### `<webview>.isAudioMuted()`
 
 Returns `Boolean` - Whether guest page has been muted.
+
+### `<webview>.isCurrentlyAudible()`
+
+Returns `Boolean` - Whether audio is currently playing.
 
 ### `<webview>.undo()`
 
@@ -473,7 +495,35 @@ Change le facteur de zoom par le facteur spécifié. Le facteur de zoom est le p
 
 * `level` Number - Niveau de zoom.
 
-Modifie le niveau de zoom jusqu'au niveau spécifié. La taille originale est de 0 et chaque incrément au-dessus ou en dessous représente un zoom de 20% supérieur ou inférieure jusqu'au limites de 300% et 50% de la taille originale, respectivement.
+Modifie le niveau de zoom jusqu'au niveau spécifié. La taille originale est de 0 et chaque incrément au-dessus ou en dessous représente un zoom de 20% supérieur ou inférieure jusqu'au limites de 300% et 50% de la taille originale, respectivement. The formula for this is `scale := 1.2 ^ level`.
+
+### `<webview>.getZoomFactor(callback)`
+
+* `callback` Function 
+  * `zoomFactor` Number
+
+Sends a request to get current zoom factor, the `callback` will be called with `callback(zoomFactor)`.
+
+### `<webview>.getZoomLevel(callback)`
+
+* `callback` Function 
+  * `zoomLevel` Number
+
+Sends a request to get current zoom level, the `callback` will be called with `callback(zoomLevel)`.
+
+### `<webview>.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
+
+* `minimumLevel` Number
+* `maximumLevel` Number
+
+Définit le niveau maximum et minimum le niveau pinch-to-zoom.
+
+### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
+
+* `minimumLevel` Number
+* `maximumLevel` Number
+
+Définit le maximum et minimum du niveau de zoom axée sur la mise en page (c'est-à-dire non visuels).
 
 ### `<webview>.showDefinitionForSelection()` *macOS*
 
@@ -483,11 +533,13 @@ Shows pop-up dictionary that searches the selected word on the page.
 
 Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
 
+It depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
+
 ## Événements DOM
 
 The following DOM events are available to the `webview` tag:
 
-### Événement : 'load-commit'
+### Event: 'load-commit'
 
 Retourne :
 
@@ -572,7 +624,7 @@ The following example code forwards all log messages to the embedder's console w
 ```javascript
 const webview = document.querySelector('webview')
 webview.addEventListener('console-message', (e) => {
-  console.log('La page invité a envoyé un message :', e.message)
+  console.log('Guest page logged a message:', e.message)
 })
 ```
 
@@ -613,7 +665,7 @@ Fired when the guest page attempts to open a new browser window.
 The following example code opens the new url in system's default browser.
 
 ```javascript
-const {shell} = require('electron')
+const { shell } = require('electron')
 const webview = document.querySelector('webview')
 
 webview.addEventListener('new-window', (e) => {
@@ -644,7 +696,7 @@ Retourne :
 
 * `url` String
 
-Émis lorsqu'une navigation est faite.
+Emitted when a navigation is done.
 
 Cet événement n'est également pas émis pour les navigations à l'intérieur de la page, comme cliquer sur les liens d'ancrage ou la mise à jour de `window.location.hash`. Utilisez l'événement `did-navigate-in-page` pour cet usage.
 
@@ -655,7 +707,7 @@ Retourne :
 * `isMainFrame` Boolean
 * `url` String
 
-Émis lorsqu'une navigation dans la page s'est produite.
+Emitted when an in-page navigation happened.
 
 En cas de navigation dans la page, l'URL de la page change mais ne provoque pas de navigation à l'extérieur de la page. Par exemple, lorsque vous cliquez sur un lien d'ancrage ou lorsque l'événement DOM `hashchange` est déclenché.
 
@@ -672,7 +724,7 @@ webview.addEventListener('close', () => {
 })
 ```
 
-### Événement : 'ipc-message'
+### Event: 'ipc-message'
 
 Retourne :
 
@@ -694,8 +746,8 @@ webview.send('ping')
 ```
 
 ```javascript
-// Dans la page invité.
-const {ipcRenderer} = require('electron')
+// In guest page.
+const { ipcRenderer } = require('electron')
 ipcRenderer.on('ping', () => {
   ipcRenderer.sendToHost('pong')
 })
@@ -705,9 +757,9 @@ ipcRenderer.on('ping', () => {
 
 Fired when the renderer process is crashed.
 
-### Événement : 'gpu-crashed'
+### Event: 'gpu-crashed'
 
-Déclenché lorsque le processus du gpu crash.
+Fired when the gpu process is crashed.
 
 ### Événement : 'plugin-crashed'
 
@@ -716,11 +768,11 @@ Retourne :
 * `name` String
 * `version` String
 
-Déclenché lorsqu’un processus de plugin crash.
+Fired when a plugin process is crashed.
 
 ### Événement : 'destroyed'
 
-Déclenché lorsque le WebContents est détruit.
+Fired when the WebContents is destroyed.
 
 ### Événement : 'media-started-playing'
 
@@ -736,7 +788,7 @@ Retourne :
 
 * `themeColor` String
 
-Émis lorsque le thème couleur de la page est changé. Il s’agit généralement de l'ajout d'une balise meta :
+Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
