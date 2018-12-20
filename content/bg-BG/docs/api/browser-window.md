@@ -8,7 +8,7 @@
 // В процеса main.
 const { BrowserWindow } = require('electron')
 
-// Or use `remote` from the renderer process.
+// Или използвайте `remote` от процеса renderer.
 // const { BrowserWindow } = require('electron').remote
 
 let win = new BrowserWindow({ width: 800, height: 600 })
@@ -16,10 +16,10 @@ win.on('closed', () => {
   win = null
 })
 
-// Load a remote URL
+// Зареди външен URL
 win.loadURL('https://github.com')
 
-// Or load a local HTML file
+// Или зареди локален HTML файл
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
@@ -470,7 +470,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 #### `BrowserWindow.removeExtension(name)`
 
-* `name` String
+* `name` String - Име
 
 Remove a Chrome extension by name.
 
@@ -496,7 +496,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 #### `BrowserWindow.removeDevToolsExtension(name)`
 
-* `name` String
+* `name` String - Име
 
 Remove a DevTools extension by name.
 
@@ -962,7 +962,7 @@ Returns `Boolean` - Whether the window's document has been edited.
 #### `win.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
-* `callback` Function 
+* `обратно повикване` Функция 
   * `image` [NativeImage](native-image.md)
 
 Same as `webContents.capturePage([rect, ]callback)`.
@@ -1087,7 +1087,7 @@ The number of buttons in thumbnail toolbar should be no greater than 7 due to th
 The `buttons` is an array of `Button` objects:
 
 * `Button` Object 
-  * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
+  * `icon` [NativeImage](native-image.md) - Иконата, показваща се в миниатюрата на toolbar лентата.
   * `click` Function - Функцията, която се изпълнява при натискане на бутона
   * `tooltip` String (по избор) - Пояснителният текст на бутона.
   * `flags` String[] (по избор) - Контролира специални състояния и държание на бутона. Стойността му по подразбиране е `['enabled']`.
@@ -1274,4 +1274,4 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 Returns `BrowserView | null` - an attached BrowserView. Returns `null` if none is attached.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**Забележка:** API на BrowserView в момента е експериментално и може да се промени или да бъде отстранено в бъдещо издание на Електрон.
