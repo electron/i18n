@@ -7,10 +7,10 @@ Proses: [Main](../glossary.md#main-process)
 Sebagai contoh:
 
 ```javascript
-const {powerSaveBlocker} = require('electron') 
+const { powerSaveBlocker } = require('electron')
 
-const id = powerSaveBlocker.start('mencegah-tampilan-tidur') 
-console.log(powerSaveBlocker.isStarted(id)) 
+const id = powerSaveBlocker.start('prevent-display-sleep')
+console.log(powerSaveBlocker.isStarted(id))
 
 powerSaveBlocker.stop(id)
 ```
