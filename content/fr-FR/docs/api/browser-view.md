@@ -2,19 +2,17 @@
 
 > Créer et contrôle les fenêtres.
 
-**Remarque :** L’API BrowserView est actuellement expérimentale et peut changer ou être supprimée dans les futures mises à jour d'Electron.
-
 Processus : [Main](../glossary.md#main-process)
 
 Un `BrowserView` peut être utilisé pour intégrer des contenus web supplémentaires dans un [`BrowserWindow`](browser-window.md). C'est comme une fenêtre enfant, sauf qu'il est positionné par rapport à sa fenêtre propriétaire. Il se veut être une alternative à la balise `webview`.
 
-## Exemple
+## Example
 
 ```javascript
 // Dans le processus main.
-const {BrowserView, BrowserWindow} = require('electron')
+const { BrowserView, BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({width: 800, height: 600})
+let win = new BrowserWindow({ width: 800, height: 600 })
 win.on('closed', () => {
   win = null
 })
