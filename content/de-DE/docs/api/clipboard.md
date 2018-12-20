@@ -4,78 +4,80 @@
 
 Prozess: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-Das folgende Beispiel zeigt, wie Zeichenfolgen in die Zwischenablage geschrieben werden:
+In the renderer process context it depends on the [`remote`](remote.md) module on Linux, it is therefore not available when this module is disabled.
+
+The following example shows how to write a string to the clipboard:
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 clipboard.writeText('Example String')
 ```
 
-Auf X Window Systemen existiert eine selektierende Zwischenablage. Um diese zu manipulieren, füge `selection` in jeder Methode ein:
+On X Window systems, there is also a selection clipboard. To manipulate it you need to pass `selection` to each method:
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 clipboard.writeText('Example String', 'selection')
 console.log(clipboard.readText('selection'))
 ```
 
 ## Methoden
 
-Das `clipboard` Modul besitzt die folgenden Methoden:
+The `clipboard` module has the following methods:
 
-**Notiz:** Experimentelle Schnittstellen sind mit "Experimentell" markiert und könnten in der Zukunft wegfallen.
+**Note:** Experimental APIs are marked as such and could be removed in future.
 
 ### `clipboard.readText([type])`
 
 * `type` String (optional)
 
-Gibt einen `String` zurück - Der Inhalt der Zwischenablage liegt in Klartext vor.
+Returns `String` - The content in the clipboard as plain text.
 
 ### `clipboard.writeText(text[, type])`
 
 * `text` String
 * `type` String (optional)
 
-Schreibt den `text` als Klartext in die Zwischenablage.
+Writes the `text` into the clipboard as plain text.
 
 ### `clipboard.readHTML([type])`
 
 * `type` String (optional)
 
-Gibt einen `String` zurück - Der Inhalt der Zwischenablage liegt in Auszeichnungssprache (markup language) vor.
+Returns `String` - The content in the clipboard as markup.
 
 ### `clipboard.writeHTML(markup[, type])`
 
 * `markup` String
 * `type` String (optional)
 
-Schreibt `markup` in die Zwischenablage.
+Writes `markup` to the clipboard.
 
 ### `clipboard.readImage([type])`
 
 * `type` String (optional)
 
-Gibt ein [`NativeImage`](native-image.md) zurück - Der Inhalt des Bildes liegt in der Zwischenablage vor.
+Returns [`NativeImage`](native-image.md) - The image content in the clipboard.
 
 ### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
 * `type` String (optional)
 
-Schreibt das `image` in die Zwischenablage.
+Writes `image` to the clipboard.
 
 ### `clipboard.readRTF([type])`
 
 * `type` String (optional)
 
-Gibt einen `String` zurück - Der Inhalt der Zwischenablage liegt im Rich Text Format (RTF) vor.
+Returns `String` - The content in the clipboard as RTF.
 
 ### `clipboard.writeRTF(text[, type])`
 
 * `text` String
 * `type` String (optional)
 
-Schreibt den `text` im Rich Text Format (RTF) in die Zwischenablage.
+Writes the `text` into the clipboard in RTF.
 
 ### `clipboard.readBookmark()` *macOS* *Windows*
 
@@ -85,16 +87,16 @@ Gibt das `Object` zurück:
 * ` URL </ 0>  Zeichenfolge</li>
 </ul>
 
-<p>Gibt ein Objekt, dass die Keys <code>title` und `url` enthält zurück. Diese Keys repräsentieren das Lesezeichen in der Zwischenablage. Wenn das Lesezeichen nicht verfügbar ist, sind die Werte `title` und `url` leer.</p> 
+<p>Returns an Object containing <code>title` and `url` keys representing the bookmark in the clipboard. The `title` and `url` values will be empty strings when the bookmark is unavailable.</p> 
   ### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
   
   * `title` String
   * ` URL </ 0>  Zeichenfolge</li>
 <li><code>type` String (optional)
   
-  Schreibt den `title` und die `url` als Lesezeichen in die Zwischenablage.
+  Writes the `title` and `url` into the clipboard as a bookmark.
   
-  **Notiz:** Viele Anwendungen unter Windows unterstützen das Einfügen von Lesezeichen nicht. In diesem Fall kann man `clipboard.write` benutzen, um sowohl ein Lesezeichen, als auch Text als Fallback-Variante in die Zwischenablage zu schreiben.
+  **Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
   
   ```js
   clipboard.write({
@@ -117,23 +119,23 @@ Gibt das `Object` zurück:
   
   * `type` String (optional)
   
-  Löscht den Inhalt aus der Zwischenablage.
+  Clears the clipboard content.
   
   ### `clipboard.availableFormats([type])`
   
   * `type` String (optional)
   
-  Gibt ein `String[]` zurück - Ein Array mit allen von der Zwischenablage unterstützten Formattypen `type`.
+  Returns `String[]` - An array of supported formats for the clipboard `type`.
   
   ### `clipboard.has(format[, type])` *Experimentell*
   
   * `format` String
   * `type` String (optional)
   
-  Gibt einen `Boolean` zurück - Prüft, ob die Zwischenablage das angegebene `format` unterstützt.
+  Returns `Boolean` - Whether the clipboard supports the specified `format`.
   
   ```javascript
-  const {clipboard} = require('electron')
+  const { clipboard } = require('electron')
   console.log(clipboard.has('<p>selection</p>'))
   ```
   
@@ -141,13 +143,13 @@ Gibt das `Object` zurück:
   
   * `format` String
   
-  Gibt den `String` zurück - Liest den `format` Typ von der Zwischenablage.
+  Returns `String` - Reads `format` type from the clipboard.
   
   ### `clipboard.readBuffer(format)` *Experimentell*
   
   * `format` String
   
-  Gibt den `Buffer` zurück - Liest den `format` Typ von der Zwischenablage.
+  Returns `Buffer` - Reads `format` type from the clipboard.
   
   ### `clipboard.writeBuffer(format, buffer[, type])` *Experimentell*
   
@@ -155,7 +157,7 @@ Gibt das `Object` zurück:
   * `buffer` Puffer
   * `type` String (optional)
   
-  Schreibt den `buffer` mit dem angegebenen `format` in die Zwischenablage.
+  Writes the `buffer` into the clipboard as `format`.
   
   ### `clipboard.write(data[, type])`
   
@@ -167,8 +169,8 @@ Gibt das `Object` zurück:
     * `bookmark` String (optional) - Der Titel von der URL bei `text`.
   * `type` String (optional)
   ```javascript
-  const {clipboard} = require('electron')
-  clipboard.write({text: 'test', html: '<b>test</b>'})
+  const { clipboard } = require('electron')
+  clipboard.write({ text: 'test', html: '<b>test</b>' })
   ```
   
-  Schreibt `data` in die Zwischenablage.
+  Writes `data` to the clipboard.
