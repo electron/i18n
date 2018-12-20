@@ -7,13 +7,13 @@ Prozess: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer
 Das folgende ist ein Beispiel über die atomatische Bestätigung eines Crash Reports zu einem Remote Server
 
 ```javascript
-const { crashReporter } = require('electron')
+const { crashReporter } = require('electron') 
 
-crashReporter.start({
-  productName: 'YourName',
-  companyName: 'YourCompany',
-  submitURL: 'https://your-domain.com/url-to-submit',
-  uploadToServer: true
+crashReporter.start({   
+	productName: 'DeinName',   
+	companyName: 'DeineFirma',   
+	submitURL: 'https://deine-domain.de/url-to-submit',   
+	uploadToServer: true 
 })
 ```
 
