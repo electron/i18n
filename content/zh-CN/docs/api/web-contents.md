@@ -603,7 +603,7 @@ Emitted when `remote.getGlobal()` is called in the renderer process. Calling `ev
 #### `contents.loadURL(url[, options])`
 
 * `url` String
-* `选项` Object (可选) 
+* `参数` Object (可选) 
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
   * `userAgent` String (可选) - 发起请求的 userAgent.
   * `extraHeaders` String (optional) - Extra headers separated by "\n".
@@ -621,7 +621,7 @@ webContents.loadURL('https://github.com', options)
 #### `contents.loadFile(filePath[, options])`
 
 * `filePath` String
-* `选项` Object (可选) 
+* `参数` Object (可选) 
   * `query` Object (optional) - Passed to `url.format()`.
   * `search` String (optional) - Passed to `url.format()`.
   * `hash` String (optional) - Passed to `url.format()`.
@@ -911,7 +911,7 @@ Executes the editing command `replaceMisspelling` in web page.
 #### `contents.findInPage(text[, options])`
 
 * `text` String - 要搜索的内容，必须非空。
-* `选项` Object (可选) 
+* `参数` Object (可选) 
   * `forward` Boolean (可选) -向前或向后搜索，默认为 `true`。
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -971,7 +971,7 @@ Returns [`PrinterInfo[]`](structures/printer-info.md).
 
 #### `contents.print([options], [callback])`
 
-* `选项` Object (可选) 
+* `参数` Object (可选) 
   * `silent` Boolean (可选) - 不询问用户打印信息，默认为 `false`。
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
@@ -1115,7 +1115,7 @@ app.once('ready', () => {
 
 #### `contents.openDevTools([options])`
 
-* `选项` Object (可选) 
+* `参数` Object (可选) 
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
 
 Opens the devtools.
