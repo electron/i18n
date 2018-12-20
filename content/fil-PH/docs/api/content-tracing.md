@@ -9,7 +9,7 @@ Ang modyul na ito ay hindi kinabibilangan ng isang web interface kaya kailangan 
 **Note:** Hindi mo dapat gamitin ang modyul na ito hanggang sa ` kaganapan ng mga app
 modulo ay napalabas.</p>
 
-<pre><code class="javascript">const {app, contentTracing} = require('electron')
+<pre><code class="javascript">const { app, contentTracing } = require('electron')
 
 app.on('ready', () => {
   const options = {
