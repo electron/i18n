@@ -4,12 +4,12 @@
 
 Proceso: [Renderer](../glossary.md#renderer-process)
 
-`webFrame` export of the electron module is an instance of the `WebFrame` class representing the top frame of the current `BrowserWindow`. Sub-frames can be retrieved by certain properties and methods (e.g. `webFrame.firstChild`).
+`webFrame` export of the Electron module is an instance of the `WebFrame` class representing the top frame of the current `BrowserWindow`. Sub-frames can be retrieved by certain properties and methods (e.g. `webFrame.firstChild`).
 
 Un ejemplo de zoom de la página actual al 200%.
 
 ```javascript
-const {webFrame} = require('electron')
+const { webFrame } = require('electron')
 
 webFrame.setZoomFactor(2)
 ```
@@ -45,6 +45,12 @@ Devuelve `Número` - El nivel de zoom actual.
 
 Establecer el nivel de máximo y mínimo pizca de zoom.
 
+> **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
+> 
+> ```js
+webFrame.setVisualZoomLevelLimits(1, 3)
+```
+
 ### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Número
@@ -68,7 +74,7 @@ El `proveedor` debe ser un objeto que tenga un método de `corrección ortográf
 Un ejemplo de uso de [node-spellchecker](https://github.com/atom/node-spellchecker) como proveedor:
 
 ```javascript
-const {webFrame} = require('electron')
+const { webFrame } = require('electron')
 webFrame.setSpellCheckProvider('en-US', true, {
   spellCheck (text) {
     return !(require('spellchecker').isMisspelled(text))
@@ -97,7 +103,7 @@ Registra el `esquema` como seguro, omite la política de seguridad de contenido 
 Especifique una opción con el valor de `falso` para omitirla del registro. Un ejemplo de registro de un esquema con privilegios, sin eludir la Política de Seguridad de Contenido:
 
 ```javascript
-const {webFrame} = require('electron')
+const { webFrame } = require('electron')
 webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 ```
 
@@ -114,7 +120,7 @@ Inserta `texto` en el elemento enfocado.
 * `callback` Function (opcional) - Es llamado luego de que se haya ejecutado el script. 
   * `resultado` Cualquiera
 
-Devolver `Promesa`: una promesa se resuelve con el resultado del código ejecutado o se rechaza si el resultado del código es una promesa rechazada.
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
 
 Evalúa el `código` en la página.
 
@@ -122,31 +128,31 @@ En la ventana del navegador, algunas API HTML como `requestFullScreen` solo pued
 
 ### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
 
-* `worldId` Integer
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
 * `scripts` [WebSource[]](structures/web-source.md)
 * `userGesture` Boolean (opcional) - Por de `false`.
 * `callback` Función (opcional) - Llamado después de que se haya ejecutado el script. 
   * `resultado` Cualquiera
 
-Work like `executeJavaScript` but evaluates `scripts` in isolated context.
+Work like `executeJavaScript` but evaluates `scripts` in an isolated context.
 
 ### `webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)`
 
-* `worldId` Integer
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
 * `csp` String
 
 Set the content security policy of the isolated world.
 
 ### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)`
 
-* `worldId` Integer
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
 * `name` String
 
 Set the name of the isolated world. Useful in devtools.
 
 ### `webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)`
 
-* `worldId` Integer
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
 * `securityOrigin` String
 
 Set the security origin of the isolated world.
@@ -165,7 +171,7 @@ Devuelve `Objecto`:
 Devuelve un objeto que describe la información de uso de las cachés de memoria interna de Blink.
 
 ```javascript
-const {webFrame} = requiere('electron')
+const { webFrame } = require('electron')
 console.log(webFrame.getResourceUsage())
 ```
 
