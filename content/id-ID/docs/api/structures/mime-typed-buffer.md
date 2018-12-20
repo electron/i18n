@@ -1,5 +1,4 @@
 # MimeTypedBuffer Object
 
-*  mimeType </ 0>  String - Jenis mime dari Buffer yang Anda kirim</li>
-<li><code> Data </ 0>  Buffer - sebenarnya Buffer konten</li>
-</ul>
+* `mimeType` String - The mimeType of the Buffer that you are sending.
+* `data` Buffer - The actual Buffer content.
