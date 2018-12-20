@@ -90,7 +90,15 @@ When this attribute is present the `webview` container will automatically resize
 
 When this attribute is present the guest page in `webview` will have node integration and can use node APIs like `require` and `process` to access low level system resources. Node integration is disabled by default in the guest page.
 
-### `wtyczki`
+### `enableremotemodule`
+
+```html
+<webview src="http://www.google.com/" enableremotemodule="false"></webview>
+```
+
+When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. The remote module is avaiable by default.
+
+### `plugins`
 
 ```html
 <webview src="https://www.github.com/" plugins></webview>
@@ -206,6 +214,12 @@ webview.addEventListener('dom-ready', () => {
 
 Loads the `url` in the webview, the `url` must contain the protocol prefix, e.g. the `http://` or `file://`.
 
+### `<webview>.downloadURL(url)`
+
+* `url` String
+
+Initiates a download of the resource at `url` without navigating.
+
 ### `<webview>.getURL()`
 
 Returns `String` - The URL of guest page.
@@ -217,6 +231,10 @@ Returns `String` - The title of guest page.
 ### `<webview>.isLoading()`
 
 Returns `Boolean` - Whether guest page is still loading resources.
+
+### `<webview>.isLoadingMainFrame()`
+
+Returns `Boolean` - Whether the main frame (and not just iframes or frames within it) is still loading.
 
 ### `<webview>.isWaitingForResponse()`
 
@@ -232,7 +250,7 @@ Reloads the guest page.
 
 ### `<webview>.reloadIgnoringCache()`
 
-Przeładowuje stronę gościa i ignoruje cache.
+Reloads the guest page and ignores cache.
 
 ### `<webview>.canGoBack()`
 
@@ -303,11 +321,11 @@ Evaluates `code` in page. If `userGesture` is set, it will create the user gestu
 
 ### `<webview>.openDevTools()`
 
-Otwiera okno DevTools dla strony gościa.
+Opens a DevTools window for guest page.
 
 ### `<webview>.closeDevTools()`
 
-Zamyka okno DevTools strony gościa.
+Closes the DevTools window of guest page.
 
 ### `<webview>.isDevToolsOpened()`
 
@@ -337,6 +355,10 @@ Set guest page muted.
 ### `<webview>.isAudioMuted()`
 
 Returns `Boolean` - Whether guest page has been muted.
+
+### `<webview>.isCurrentlyAudible()`
+
+Returns `Boolean` - Whether audio is currently playing.
 
 ### `<webview>.undo()`
 
@@ -395,7 +417,7 @@ Inserts `text` to the focused element.
 ### `<webview>.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `opcje` Obiekt (opcjonalne) 
+* `options` Obiekt (opcjonalne) 
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -408,7 +430,7 @@ Starts a request to find all matches for the `text` in the web page. The result 
 
 ### `<webview>.stopFindInPage(action)`
 
-* `czynność` String - Specifies the action to take place when ending [`<webview>.findInPage`](#webviewfindinpagetext-options) żądanie. 
+* `czynność` String - Specifies the action to take place when ending [`<webview>.findInPage`](#webviewfindinpagetext-options) request. 
   * `clearSelection` - Clear the selection.
   * `keepSelection` - Translate the selection into a normal selection.
   * `activateSelection` - Focus and click the selection node.
@@ -426,13 +448,13 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
 
 ### `<webview>.printToPDF(options, callback)`
 
-* `opcje` Object 
+* `options` Object 
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
-* `callback` Function 
+* `callback` Funkcja 
   * `error` Error
   * `data` Buffer
 
@@ -473,7 +495,35 @@ Changes the zoom factor to the specified factor. Zoom factor is zoom percent div
 
 * `level` Number - Zoom level.
 
-Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
+Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively. The formula for this is `scale := 1.2 ^ level`.
+
+### `<webview>.getZoomFactor(callback)`
+
+* `callback` Funkcja 
+  * `zoomFactor` Number
+
+Sends a request to get current zoom factor, the `callback` will be called with `callback(zoomFactor)`.
+
+### `<webview>.getZoomLevel(callback)`
+
+* `callback` Funkcja 
+  * `zoomLevel` Number
+
+Sends a request to get current zoom level, the `callback` will be called with `callback(zoomLevel)`.
+
+### `<webview>.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
+
+* `minimumLevel` Number
+* `maximumLevel` Number
+
+Ustawia maksymalny i minimalny poziom pinch-to-zoom.
+
+### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
+
+* `minimumLevel` Number
+* `maximumLevel` Number
+
+Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
 
 ### `<webview>.showDefinitionForSelection()` *macOS*
 
@@ -482,6 +532,8 @@ Shows pop-up dictionary that searches the selected word on the page.
 ### `<webview>.getWebContents()`
 
 Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
+
+It depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
 
 ## DOM events
 
@@ -613,7 +665,7 @@ Fired when the guest page attempts to open a new browser window.
 The following example code opens the new url in system's default browser.
 
 ```javascript
-const {shell} = require('electron')
+const { shell } = require('electron')
 const webview = document.querySelector('webview')
 
 webview.addEventListener('new-window', (e) => {
@@ -695,7 +747,7 @@ webview.send('ping')
 
 ```javascript
 // In guest page.
-const {ipcRenderer} = require('electron')
+const { ipcRenderer } = require('electron')
 ipcRenderer.on('ping', () => {
   ipcRenderer.sendToHost('pong')
 })
