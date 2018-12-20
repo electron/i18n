@@ -15,7 +15,7 @@ Kod örnekleri için [ipcMain](ipc-main.md)' e bakın.
 ### `ipcRenderer.on(kanal, dinleyici)`
 
 * `channel` Dizesi
-* `listener` Fonksiyon
+* `listener` Function
 
 `listener` ile yeni bir mesaj geldiğinde `listener(event, args...)` ile çağırabilir. `channel`' ı dinler.
 
@@ -75,3 +75,11 @@ Sends a message to a window with `webContentsId` via `channel`.
 * `...args` herhangi[]
 
 `ipcRenderer.send` gibi ancak olay ana işlem yerine ana sayfadaki `<webview>` öğesine gönderilecektir.
+
+## Etkinlik objesi
+
+`geri çağırma`'ya iletilen `olay` nesnesi aşağıdaki yöntemleri içerir:
+
+### `event.senderId`
+
+Returns the `webContents.id` that sent the message, you can call `event.sender.sendTo(event.senderId, ...)` to reply to the message, see [ipcRenderer.sendTo](#ipcrenderersendtowindowid-channel--arg1-arg2-) for more information. This only applies to messages sent from a different renderer. Messages sent directly from the main process set `event.senderId` to `0`.
