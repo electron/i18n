@@ -1,4 +1,4 @@
-# clipboard
+# schránka
 
 > Perform copy and paste operations on the system clipboard.
 
