@@ -36,7 +36,7 @@ const { ipcRenderer } = require('electron')
 console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // prints "pong"
 
 ipcRenderer.on('asynchronous-reply', (event, arg) => {
-  console.log(arg) // prints "pong"
+  console.log(arg) // 印出 "pong"
 })
 ipcRenderer.send('asynchronous-message', 'ping')
 ```
