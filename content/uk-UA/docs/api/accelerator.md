@@ -12,7 +12,7 @@
 Гарячі клавіші реєструються з допомогою модуля [`globalShortcut`](global-shortcut.md), використовуючи метод [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback), тобто
 
 ```javascript
-const {app, globalShortcut} = require('electron')
+const { app, globalShortcut } = require('electron')
 
 app.on('ready', () => {
   // Реєстрація 'CommandOrControl+Y' слухача комбінації.
