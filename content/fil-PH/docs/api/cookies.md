@@ -9,9 +9,9 @@ May ilang pagkakataon na ang `Cookies` class ay mapupuntahan gamit ang `cookies`
 Halimbawa:
 
 ```javascript
-const { session } = require('electron')
+const { session } = kinakailangan ng ('electron')
 
-// Query all cookies.
+// e "Query" ang lahat na mga "cookies".
 session.defaultSession.cookies.get({}, (error, cookies) => {
   console.log(error, cookies)
 })
@@ -77,7 +77,7 @@ Sends a request to get all cookies matching `filter`, `callback` will be called 
 <li><code>secure` Boolean (opsyunal) - Kung ang isang cookie ay dapat markado na Secure. Pagdefaults to mali.
   * `httpOnly` Boolean (opsyunal) - Kung ang isang cookie ay dapat na markado nang HTTP lang. Pagdefault ito false.
   * `expirationDate` Double (opsyunal) - Ang expiration na petsa ng isang cookie ng bilang ng segundo dahil sa UNIX epoch. Kung ito ay tatanggalin ang cookie ay magiging isang sesyon cookie at hindi na ito mananatili sa pagitan ng mga sesyon.
-* `callback` Function 
+* `callback` Punsyon 
   * `error` Error
 
 Eset ang cookie sa mga`details`, `callback` ay pwedeng itawag na may `callback(error)` na kumpleto.
