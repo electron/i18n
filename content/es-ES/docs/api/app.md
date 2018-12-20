@@ -7,7 +7,7 @@ Proceso: [Main](../glossary.md#main-process)
 Los siguientes ejemplos muestran como salir de la aplicación cuando la última ventana está cerrada:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 app.on('window-all-closed', () => {
   app.quit()
 })
@@ -215,7 +215,7 @@ Devuelve:
 Emitido cuando falla la verificación de `certificate` por `url`, al confiar en el certificado usted debe prevenir el comportamiento con `event.preventDefault()` y llamar `callback(true)`.
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('certificate-error', (event, webContents, url, error, certificate, callback) => {
   if (url === 'https://github.com') {
@@ -244,7 +244,7 @@ Emitido cuando el certificado de un cliente es requerido.
 La `url` corresponde a la entrada de navegación requerida al certificado del cliente y `callback` puede ser llamado con una entrada filtrada de la lista. Usando `event.preventDefault()` previene que la aplicación use el primer certificado almacenado.
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('select-client-certificate', (event, webContents, url, list, callback) => {
   event.preventDefault()
@@ -277,7 +277,7 @@ Emitido cuando `webContents` quiere hacer una autenticación básica.
 El comportamiento por defecto es cancelar todas las autenticaciones, para anular esto usted debería prevenir el comportamiento por defecto con `event.preventDefault()` y llamar `callback (username, password) ` con las credenciales.
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('login', (event, webContents, request, authInfo, callback) => {
   event.preventDefault()
@@ -312,7 +312,7 @@ Devuelve:
 Emitido cuando Electron ha creado una nueva `session`.
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('session-created', (event, session) => {
   console.log(session)
@@ -331,11 +331,31 @@ Este evento será emitido dentro de la instancia principal de la aplicación cua
 
 Este evento garantiza que se ejecute después del evento `ready` de `app` para ser emitido.
 
+### Event: 'remote-require'
+
+Devuelve:
+
+* `event` Event
+* `Contenidosweb` [Contenidosweb](web-contents.md)
+* `moduleName` String
+
+Emitted when `remote.require()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+
+### Event: 'remote-get-global'
+
+Devuelve:
+
+* `event` Event
+* `Contenidosweb` [Contenidosweb](web-contents.md)
+* `globalName` String
+
+Emitted when `remote.getGlobal()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
+
 ## Métodos
 
 El objeto `app` tiene los siguientes métodos:
 
-**Nota:** Algunos métodos solo están disponibles es sistemas operativos específicos y son etiquetados como tal.
+**Note:** Algunos métodos solo están disponibles es sistemas operativos específicos y son etiquetados como tal.
 
 ### `app.quit()`
 
@@ -353,7 +373,7 @@ Tods las ventanas se cerrarán inmediatamente sin preguntar al usuarios y los ev
 
 ### `app.relaunch([options])`
 
-* `opciones` Object (opcional) 
+* `opciones` Objecto (opcional) 
   * `args` String[] - (opcional)
   * `execPath` Cadena (opcional)
 
@@ -368,9 +388,9 @@ Cuando `app.relaunch` es llamada múltiples veces, múltiples instancias serán 
 Un ejemplo de reiniciar la instancia actual de forma inmediata y agregar un nuevo argumento a la línea de comando de la nueva instancia:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
-app.relaunch({args: process.argv.slice(1).concat(['--relaunch'])})
+app.relaunch({ args: process.argv.slice(1).concat(['--relaunch']) })
 app.exit(0)
 ```
 
@@ -380,7 +400,7 @@ Devuelve `Boolean` - `true` Si Electron se ha inicializado correctamente, de lo 
 
 ### `app.whenReady()`
 
-Devuelve el método `Promise` - cuando Electrón se ha inicializado completamente. También puede ser utilizado para comprobar el estado de: `app.isReady()` y registrar al evento `ready` si la aplicación aun no esta lista.
+Returns `Promise<void>` - fulfilled when Electron is initialized. También puede ser utilizado para comprobar el estado de: `app.isReady()` y registrar al evento `ready` si la aplicación aun no esta lista.
 
 ### `app.focus()`
 
@@ -427,7 +447,7 @@ Usted puede pedir las siguientes direcciones por nombre:
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `opciones` Objecto (opcional) 
+* `opciones` Object (opcional) 
   * `size` String 
     * `pequeño` - 16x16
     * `normal` - 32x32
@@ -497,8 +517,8 @@ Borra la lista de documentos recientes.
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
 * `protocolo` Cadena - El nombre de su protocolo, sin el `://`. Si quiere que su aplicación maneje enlaces `electron://`, llame este método con `electron` como el parámetro.
-* `ruta` String (opcional) *Windows* - por defecto a `process.execPath`
-* `args` String[] (opcional) *Windows* - por defecto a un arreglo vacío
+* `ruta` Cadena (opcional) *Windows* - por defecto a `process.execPath`
+* `args` Cadena[] (opcional) *Windows* - por defecto a un arreglo vacío
 
 Regresa `Boolean` - Siempre que el llamado fue exitoso.
 
@@ -548,7 +568,7 @@ Regresa `Boolean` - Siempre que el llamado fue exitoso.
 
 ### `app.getJumpListSettings()` *Windows*
 
-Devuelve `Objecto`:
+Devuelve `Objeto`:
 
 * `minItems` Entero - El número mínimo de elementos que será mostrado en la lista (Para una descripción detallada de este valor vea el [documento MSDN](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
 * `remover elementos` [JumpListItem[]](structures/jump-list-item.md) - Arreglo de los objetos `JumpListItem` a elementos que el usuario ha removido explícitamente de la categoría personalizada en la Jump list. Estos elementos no deben ser añadidos nuevamente a la jump list en el **próximo** llamado a `app.setJumpList()`, Windows no mostrará ninguna categoría personalizada que contenga alguno de los elementos removidos.
@@ -574,7 +594,7 @@ Si la `categoría` es `nula` la configuración personalizada previa de la Jump L
 Aquí hay un ejemplo sencillo de cómo crear una Jump List personalizada:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.setJumpList([
   {
@@ -585,7 +605,8 @@ app.setJumpList([
       { type: 'file', path: 'C:\\Projects\\project2.proj' }
     ]
   },
-  { // tiene un nombre por lo que `type` se asume tener nombre "custom": 'Tools',
+  { // has a name so `type` is assumed to be "custom"
+    name: 'Tools',
     items: [
       {
         type: 'task',
@@ -608,7 +629,7 @@ app.setJumpList([
     ]
   },
   { type: 'frequent' },
-  { // no tiene nombre ni tipo por lo que `type` se asume ser "tasks"
+  { // has no name and no type so `type` is assumed to be "tasks"
     items: [
       {
         type: 'task',
@@ -645,7 +666,7 @@ En macOS, el sistema fuerza instancias únicas automáticamente cuando los usuar
 Un ejemplo de activar la ventana de la instancia primaria cuando una de segunda instancia se inicia:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 let miVentana = null
 
 const obtenerBloqueo = app.requestSingleInstanceLock()
@@ -717,7 +738,7 @@ Cambia el [Id Modelo de Usuario de la Aplicación](https://msdn.microsoft.com/en
 * `callback` Function 
   * `resultado` Entero - Resultado del importe.
 
-Importa el certificado en formato pkcs12 dentro del certificado de la plataforma. `callback` es llamado con `result` para importar operaciones, un valor de `0` indica que fue exitoso, mientras que otro valor indica un error acorde a chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Importa el certificado en formato pkcs12 dentro del certificado de la plataforma. `callback` is called with the `result` of import operation, a value of `0` indicates success while any other value indicates failure according to Chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
 ### `app.disableHardwareAcceleration()`
 
@@ -729,7 +750,7 @@ Este método solo puede ser llamado después de iniciada la aplicación.
 
 Por defecto, Chromium desactiva 3D APIs (ej., WebGL) hasta reiniciar por dominio si el proceso de GPU crashea frecuentemente. Esta función desactiva ese comportamiento.
 
-Este método solo puede ser llamado despues de iniciada la aplicación.
+Este método solo puede ser llamado después de iniciada la aplicación.
 
 ### `app.getAppMetrics()`
 
@@ -738,6 +759,41 @@ Devuelve [`ProcessMetric[]`](structures/process-metric.md): matriz de `ProcessMe
 ### `app.getGPUFeatureStatus()`
 
 Devuelve [`GPUFeatureStatus`](structures/gpu-feature-status.md) - el estado de la función de gráficos de `chrome://gpu/`.
+
+### `app.getGPUInfo(infoType)`
+
+* `infoType` String - Values can be either `basic` for basic info or `complete` for complete info.
+
+Returns `Promise`
+
+For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src.git/+/69.0.3497.106/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
+
+For `infoType` equal to `basic`: Promise is fulfilled with `Object` containing fewer attributes than when requested with `complete`. Here's an example of basic response:
+
+```js
+{ auxAttributes:
+   { amdSwitchable: true,
+     canSupportThreadedTextureMailbox: false,
+     directComposition: false,
+     directRendering: true,
+     glResetNotificationStrategy: 0,
+     inProcessGpu: true,
+     initializationTime: 0,
+     jpegDecodeAcceleratorSupported: false,
+     optimus: false,
+     passthroughCmdDecoder: false,
+     sandboxed: false,
+     softwareRendering: false,
+     supportsOverlays: false,
+     videoDecodeAcceleratorFlags: 0 },
+gpuDevice:
+   [ { active: true, deviceId: 26657, vendorId: 4098 },
+     { active: false, deviceId: 3366, vendorId: 32902 } ],
+machineModelName: 'MacBookPro',
+machineModelVersion: '11.5' }
+```
+
+Using `basic` should be preferred if only basic information like `vendorId` or `driverId` is needed.
 
 ### `app.setBadgeCount(count)` *Linux* *macOS*
 
@@ -761,7 +817,7 @@ Devuelve `Boolean` - Aunque el ambiente del escritorio actual sea un ejecutador 
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `opciones` Object (opcional) 
+* `opciones` Objecto (opcional) 
   * `path` Cadena (opcional) *Windows* - El camino ejecutable para comparar en contra. Por defecto a `process.execPath`.
   * `args` Cadena[] (opcional) *Windows* - La línea de argumentos de comando para comparar e contra. Por defecto, a un arreglo vacío.
 
@@ -814,6 +870,10 @@ Manualmente habilita el soporte de accesibilidad de Chrome, lo que permite expon
 
 **Nota:** Renderizar el árbol de accesibilidad puede afectar significativamente al rendimiento de su aplicación. No debería estar activado por defecto.
 
+### `app.showAboutPanel()` *macOS*
+
+Show the about panel with the values defined in the app's `.plist` file or with the options set via `app.setAboutPanelOptions(options)`.
+
 ### `app.setAboutPanelOptions(options)` *macOS*
 
 * `opciones` Object 
@@ -838,7 +898,7 @@ const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedReso
 stopAccessingSecurityScopedResource()
 ```
 
-Empezar a acceder un recurso de ámbito de seguridad. Con este método aplicaciones de electron que están empaquetado para el App Store de Mac pueden alcanzar afuera su entorno aislado para acceder archivos elegidos por el usuario. Ver a [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) por una descripción de cómo funciona este sistema.
+Empezar a acceder un recurso de ámbito de seguridad. With this method Electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. Ver a [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) por una descripción de cómo funciona este sistema.
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
@@ -856,6 +916,12 @@ Adjuntar un cambio (con `valor` opcional) al comando de de línea de Chromium.
 Adjuntar un argumento a la línea de comando de Chromium. El argumento será citado correctamente.
 
 **Nota:** Esto no afectará a `process.argv`.
+
+### `app.enableSandbox()` *Experimental* *macOS* *Windows*
+
+Enables full sandbox mode on the app.
+
+Este método solo puede ser llamado despues de iniciada la aplicación.
 
 ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
 
