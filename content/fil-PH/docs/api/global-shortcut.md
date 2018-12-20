@@ -9,12 +9,10 @@ Ang `globalShortcut` modyul ay pwedeng irehistro/hindi-irehistro ang global keyb
 **Tandaan:** Ang shortcut ay global: magagamit ito kahit na ang apps ay walang pagtuon ng keyboard. Hindi mo dapat gamitin ang modyul na ito hanggang ang `handa` pangyayari sa app modyul ay napalabas.
 
 ```javascript
-onst {app, globalShortcut} = kailangan('electron')
+const { app, globalShortcut } = require('electron')
 
 app.on('ready', () => {
-  // Magrehistro ng a 'CommandOrControl+X' shortcut na tagapakinig.
-
-
+  // Register a 'CommandOrControl+X' shortcut listener.
   const ret = globalShortcut.irehistro('CommandOrControl+X', () => {
     console.log('CommandOrControl+X is pressed')
   })
