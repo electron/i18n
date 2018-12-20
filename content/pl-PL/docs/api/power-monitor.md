@@ -9,13 +9,13 @@ Nie możesz użyć tego modułu, dopóki zdarzenie `ready` z modułu `app` nie z
 Na przykład:
 
 ```javascript
-const electron = require('electron') 
-const {app} = electron
+const electron = require('electron')
+const { app } = electron
 
-app.on('ready', () => {   
-     electron.powerMonitor.on('suspend', () => {
-             console.log('The system is going to sleep')   
-     }) 
+app.on('ready', () => {
+  electron.powerMonitor.on('suspend', () => {
+    console.log('The system is going to sleep')
+  })
 })
 ```
 
