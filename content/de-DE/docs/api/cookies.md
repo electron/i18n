@@ -9,21 +9,21 @@ Auf Instanzen der `Cookies-Klasse` wird über die Cookie-Eigenschaft einer Sitzu
 Ein Beispiel:
 
 ```javascript
-const {session} = require('electron')
+const { session } = require('electron')
 
-// Durchsuche all Cookies.
+// Query all cookies.
 session.defaultSession.cookies.get({}, (error, cookies) => {   
   console.log(error, cookies)
 })
 
 // Frage alle Cookies ab, die mit einer bestimmten URL verbunden sind.
-session.defaultSession.cookies.get({url: 'http://www.github.com'}, (error, cookies) => {   
-console.log(error, cookies) 
+session.defaultSession.cookies.get({ url: 'http://www.github.com' }, (error, cookies) => {
+  console.log(error, cookies)
 })
 
- // Setze einen Cookie mit der festgelegten Cookie-Data
-// Kann gleiche Cookies überschreiben, wenn sie vorhanden sind
-const cookie = {url: 'http://www.github.com', name: 'dummy_name', value: 'dummy'}
+// Set a cookie with the given cookie data;
+// may overwrite equivalent cookies if they exist.
+const cookie = { url: 'http://www.github.com', name: 'dummy_name', value: 'dummy' }
 session.defaultSession.cookies.set(cookie, (error) => {
   if (error) console.error(error)
 })
