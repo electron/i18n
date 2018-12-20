@@ -158,7 +158,7 @@ nativeImage.createFromBuffer(buffer, {
 })
 ```
 
-## `process`
+## `عملية`
 
 ```js
 // Deprecated
@@ -267,7 +267,7 @@ let optionsB = { titleBarStyle: 'hiddenInset' }
 let windowB = new BrowserWindow(optionsB)
 ```
 
-## `menu`
+## `menu (القائمة)`
 
 ```js
 // Removed
@@ -290,7 +290,7 @@ nativeImage.toJpeg()
 nativeImage.toJPEG()
 ```
 
-## `process`
+## `عملية`
 
 * `process.versions.electron` and `process.version.chrome` will be made read-only properties for consistency with the other `process.versions` properties set by Node.
 
