@@ -1,4 +1,4 @@
 # شئ MimeTypedBuffer
 
-* <; 0>; mimeType<;/0>; رشته - mimeType بافر که شما در حال ارسال هستید
-* `بافر` اطلاعات
+* `mimeType` String - The mimeType of the Buffer that you are sending.
+* `data` Buffer - The actual Buffer content.
