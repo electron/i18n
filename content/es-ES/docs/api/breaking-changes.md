@@ -6,6 +6,26 @@ Los cambios de ruptura se documentaran aquí y se agregaran advertencias de desa
 
 El string `FIXME` se usa en las cadenas de código para indicar que cualquier problema debería solucionarse para futuras versiones. Puede ver: https://github.com/electron/electron/search?q=fixme para mas información
 
+# Cambios planeados en la API(5.0)
+
+## `new BrowserWindow({ webPreferences })`
+
+The following `webPreferences` option default values are deprecated in favor of the new defaults listed below.
+
+| Property           | Deprecated Default                   | New Default |
+| ------------------ | ------------------------------------ | ----------- |
+| `contextIsolation` | `false`                              | `true`      |
+| `nodeIntegration`  | `true`                               | `false`     |
+| `webviewTag`       | `nodeIntegration` if set else `true` | `false`     |
+
+## `nativeWindowOpen`
+
+Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled.
+
+## `webContents.findInPage(text[, options])`
+
+`wordStart` and `medialCapitalAsWordStart` options are removed.
+
 # Cambios planeados en la API(4.0)
 
 La siguiente lista incluye los cambios planeados en la API 4.0 de Electrón.
@@ -33,6 +53,18 @@ app.releaseSingleInstance()
 app.releaseSingleInstanceLock()
 ```
 
+## `app.getGPUInfo`
+
+```js
+app.getGPUInfo('complete')
+// Now behaves the same with `basic` on macOS
+app.getGPUInfo('basic')
+```
+
+## `win_delay_load_hook`
+
+When building native modules for windows, the `win_delay_load_hook` variable in the module's `binding.gyp` must be true (which is the default). If this hook is not present, then the native module will fail to load on Windows, with an error message like `Cannot find module`. See the [native module guide](/docs/tutorial/using-native-node-modules.md) for more.
+
 # Cambios en la API(3.0)
 
 La siguiente lista incluye cambios efectuados en la API 3.0 de Electrón.
@@ -40,35 +72,33 @@ La siguiente lista incluye cambios efectuados en la API 3.0 de Electrón.
 ## `app`
 
 ```js
-// Obsoleto
+// Deprecated
 app.getAppMemoryInfo()
-// Remplazar con
+// Replace with
 app.getAppMetrics()
 
-// Obsoleto
+// Deprecated
 const metrics = app.getAppMetrics()
-const {memory} = metrics[0]
-memory.privateBytes  // Propiedad Obsoleta
-memory.sharedBytes  // Propiedad Obsoleta
+const { memory } = metrics[0] // Deprecated property
 ```
 
 ## `BrowserWindow`
 
 ```js
-// Obsoleto
-let optionsA = {webPreferences: {blinkFeatures: ''}}
+// Deprecated
+let optionsA = { webPreferences: { blinkFeatures: '' } }
 let windowA = new BrowserWindow(optionsA)
-// Reemplazar con
-let optionsB = {webPreferences: {enableBlinkFeatures: ''}}
+// Replace with
+let optionsB = { webPreferences: { enableBlinkFeatures: '' } }
 let windowB = new BrowserWindow(optionsB)
 
-// Obsoleto
+// Deprecated
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
     // do something
   }
 })
-// Reemplazar con
+// Replace with
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
     // do something
@@ -79,22 +109,22 @@ window.on('app-command', (e, cmd) => {
 ## `clipboard`
 
 ```js
-// Obsoleto
+// Cambiar
 clipboard.readRtf()
 // Reemplazar con
 clipboard.readRTF()
 
-// Obsoleto
+// Cambiar
 clipboard.writeRtf()
 // Reemplazar con
 clipboard.writeRTF()
 
-// Obsoleto
+// Cambiar
 clipboard.readHtml()
 // Reemplazar con
 clipboard.readHTML()
 
-// Obsoleto
+// Cambiar
 clipboard.writeHtml()
 // Reemplazar con
 clipboard.writeHTML()
@@ -103,7 +133,7 @@ clipboard.writeHTML()
 ## `crashReporter`
 
 ```js
-// Obsoleto
+// Cambiar
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -131,10 +161,8 @@ nativeImage.createFromBuffer(buffer, {
 ## `process`
 
 ```js
-// Obsoleto
+// Deprecated
 const info = process.getProcessMemoryInfo()
-const privateBytes = info.privateBytes // Propiedad Obsoleta
-const sharedBytes = info.sharedBytes // Propiedad Obsoleta
 ```
 
 ## `screen`
@@ -149,7 +177,7 @@ screen.getPrimaryDisplay().workArea
 ## `session`
 
 ```js
-// Obsoleto
+// Cambiar
 ses.setCertificateVerifyProc(function (hostname, certificate, callback) {
   callback(true)
 })
@@ -162,12 +190,12 @@ ses.setCertificateVerifyProc(function (request, callback) {
 ## `Tray`
 
 ```js
-// Obsoleto
+// Cambiar
 tray.setHighlightMode(true)
 // Reemplazar con
 tray.setHighlightMode('on')
 
-// Obsoleto
+// Cambiar
 tray.setHighlightMode(false)
 // Reemplazar con
 tray.setHighlightMode('off')
@@ -177,9 +205,9 @@ tray.setHighlightMode('off')
 
 ```js
 // Obsoleto
-webContents.openDevTools({detach: true})
+webContents.openDevTools({ detach: true })
 // Reemplazar con
-webContents.openDevTools({mode: 'detach'})
+webContents.openDevTools({ mode: 'detach' })
 
 // Eliminado
 webContents.setSize(options)
@@ -192,12 +220,12 @@ webContents.setSize(options)
 // Obsoleto
 webFrame.registerURLSchemeAsSecure('app')
 // Reemplazar con
-protocol.registerStandardSchemes(['app'], {secure: true})
+protocol.registerStandardSchemes(['app'], { secure: true })
 
 // Obsoleto
-webFrame.registerURLSchemeAsPrivileged('app', {secure: true})
+webFrame.registerURLSchemeAsPrivileged('app', { secure: true })
 // Reemplazar con
-protocol.registerStandardSchemes(['app'], {secure: true})
+protocol.registerStandardSchemes(['app'], { secure: true })
 ```
 
 ## `<webview>`
@@ -231,11 +259,11 @@ La siguiente lista incluye cambios efectuados en la API 2.0 de Electrón.
 ## `BrowserWindow`
 
 ```js
-// Obsoleto
-let optionsA = {titleBarStyle: 'hidden-inset'}
+// Cambiar
+let optionsA = { titleBarStyle: 'hidden-inset' }
 let windowA = new BrowserWindow(optionsA)
 // Reemplazar con
-let optionsB = {titleBarStyle: 'hiddenInset'}
+let optionsB = { titleBarStyle: 'hiddenInset' }
 let windowB = new BrowserWindow(optionsB)
 ```
 
@@ -245,7 +273,7 @@ let windowB = new BrowserWindow(optionsB)
 // Obsoleto
 menu.popup(browserWindow, 100, 200, 2)
 // Reemplazar con
-menu.popup(browserWindow, {x: 100, y: 200, positioningItem: 2})
+menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```
 
 ## `nativeImage`
@@ -293,7 +321,7 @@ webview.setZoomLevelLimits(1, 2)
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-## Archivos duplicados ARM
+## Duplicado de brazo ARM
 
 Cada versión de Electrón incluye dos versiones de ARM idénticas con diferentes nombres de archivo, como: `electron-v1.7.3-linux-arm.zip` y `electron-v1.7.3-linux-armv7l.zip`. Se agregó el archivo con el prefijo `v7l` para aclarar a los usuarios qué versión de ARM soporta y desambiguar los futuros archivos de armv6l y arm64 que pueden ser producidos.
 
