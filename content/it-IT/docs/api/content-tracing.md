@@ -9,7 +9,7 @@ This module does not include a web interface so you need to open `chrome://traci
 **Note:** You should not use this module until the `ready` event of the app module is emitted.
 
 ```javascript
-const {app, contentTracing} = require('electron')
+const { app, contentTracing } = require('electron')
 
 app.on('ready', () => {
   const options = {
