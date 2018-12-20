@@ -22,6 +22,28 @@ Exemplo de console do Windows:
 
 The following environment variables are intended primarily for use at runtime in packaged Electron applications.
 
+### `NODE_OPTIONS`
+
+Electron includes support for a subset of Node's [`NODE_OPTIONS`](https://nodejs.org/api/cli.html#cli_node_options_options). The majority are supported with the exception of those which conflict with Chromium's use of BoringSSL.
+
+Exemplo:
+
+```sh
+export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
+```
+
+Unsupported options are:
+
+```sh
+--use-bundled-ca
+--force-fips
+--enable-fips
+--openssl-config
+--use-openssl-ca
+```
+
+`NODE_OPTIONS` are explicitly disallowed in packaged apps.
+
 ### `GOOGLE_API_KEY`
 
 Electron includes a hardcoded API key for making requests to Google's geocoding webservice. Because this API key is included in every version of Electron, it often exceeds its usage quota. To work around this, you can supply your own Google API key in the environment. Place the following code in your main process file, before opening any browser windows that will make geocoding requests:
@@ -63,32 +85,32 @@ Options:
 
 ## Variáveis de desenvolvimento
 
-As seguintes variáveis de ambiente são destinadas principalmente para fins de depuração e desenvolvimento.
+The following environment variables are intended primarily for development and debugging purposes.
 
 ### `ELECTRON_ENABLE_LOGGING`
 
-Imprime o log interno do Chrome para o console.
+Prints Chrome's internal logging to the console.
 
 ### `ELECTRON_LOG_ASAR_READS`
 
-Quando o Electron lê de um arquivo ASAR, o offset de leitura e o caminho para o `tmpdir` do sistema será registrado. O arquivo resultante pode ser fornecido para o módulo ASAR para otimização da ordenação de arquivos.
+When Electron reads from an ASAR file, log the read offset and file path to the system `tmpdir`. The resulting file can be provided to the ASAR module to optimize file ordering.
 
 ### `ELECTRON_ENABLE_STACK_DUMPING`
 
-Imprime o rastreamento da pilha para o console quando o Electron trava.
+Prints the stack trace to the console when Electron crashes.
 
-Essa variável de ambiente não funcionará se o `crashReporter` tiver iniciado.
+This environment variable will not work if the `crashReporter` is started.
 
 ### `ELECTRON_DEFAULT_ERROR_MODE` *Windows*
 
-Mostra a caixa de diálogo de travamento do Windows quando o Electron trava.
+Shows the Windows's crash dialog when Electron crashes.
 
-Essa variável de ambiente não funcionará se o `crashReporter` tiver iniciado.
+This environment variable will not work if the `crashReporter` is started.
 
 ### `ELECTRON_OVERRIDE_DIST_PATH`
 
-When running from the `electron` package, this variable tells the `electron` command to use the specified build of Electron instead of the one downloaded by `npm install`. Usando:
+When running from the `electron` package, this variable tells the `electron` command to use the specified build of Electron instead of the one downloaded by `npm install`. Usage:
 
 ```sh
-export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/D
+export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Debug
 ```
