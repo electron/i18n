@@ -13,12 +13,22 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 * `crash()`
 * `hang()`
 * `getHeapStatistics()`
-* `getProcessMemoryInfo()`
 * `getSystemMemoryInfo()`
+* `getCPUUsage()`
+* `getIOCounters()`
 * `argv`
 * `execPath`
 * `env`
+* `pid`
+* `arch`
 * `platform`
+* `resourcesPath`
+* `sandboxed`
+* `tip`
+* `version`
+* `versions`
+* `mas`
+* `windowsStore`
 
 ## Events
 
@@ -60,6 +70,10 @@ A `Boolean` that controls whether or not deprecation warnings are printed to `st
 
 Kaynaklar dizininin yolunu temsil eden bir `String`.
 
+### `process.sandboxed`
+
+A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
+
 ### `process.throwDeprecation`
 
 İtiraz uyarılarının istisna olarak atılıp atılmayacağını kontrol eden bir `Boolean`. Bunu `true` olarak ayarlamak itirazlar için hatalar oluşturacak. Bu özellik `--throw-deprecation` komut satırı etiketi yerine kullanılır.
@@ -96,6 +110,12 @@ Bir `Boolean`. Eğer uygulama bir Windows Store uygulaması (appx) olarak çalı
 
 Geçerli işlemin ana iş parçacığının çökmesine neden olur.
 
+### `process.getCreationTime()`
+
+Returns `Number | null` - The number of milliseconds since epoch, or `null` if the information is unavailable
+
+Indicates the creation time of the application. The time is represented as number of milliseconds since epoch. It returns null if it is unable to get the process creation time.
+
 ### `process.getCPUUsage()`
 
 [`CPUUsage`](structures/cpu-usage.md)'a döner
@@ -120,17 +140,6 @@ Geçerli işlemin ana iş parçacığının çökmesine neden olur.
 
 Returns an object with V8 heap statistics. Note that all statistics are reported in Kilobytes.
 
-### `process.getProcessMemoryInfo()`
-
-`Object` 'i geri getirir:
-
-* `workingSetSize` Tamsayı - O anda gerçek fiziksel RAM'e sabitlenmiş bellek miktarı.
-* `peakWorkingSetSize` Tamsayı - Gerçek fiziksel RAM'e sabitlenmiş maksimum bellek miktarı.
-* `privateBytes` Tam sayı - Diğer işlemler tarafından paylaşılmayan bellek miktarı, Js heap veya HTML içeriği gibi.
-* `sharedBytes` Tamsayı - İşlemler arasında paylaşılan bellek miktarı, genel olarak Elektron kodunun kendisi tarafından tüketilen bellek.
-
-Geçerli işlem hakkında bellek kullanımı istatistiklerini veren bir nesneye döner. Tüm istatistiklerin Kilobayt olarak raporlandığına dikkat edin.
-
 ### `process.getSystemMemoryInfo()`
 
 `Object` 'i geri getirir:
@@ -141,6 +150,14 @@ Geçerli işlem hakkında bellek kullanımı istatistiklerini veren bir nesneye 
 * `swapFree` Integer *Windows* *Linux* - The free amount of swap memory in Kilobytes available to the system.
 
 Tüm sistem hakkında bellek kullanımı istatistiklerini veren bir nesneye döner. Tüm nesnelerin Kilobayt olarak raporlandığına dikkat edin.
+
+### `process.takeHeapSnapshot(filePath)`
+
+* `filePath` String - Path to the output file.
+
+Returns `Boolean` - Indicates whether the snapshot has been created successfully.
+
+Takes a V8 heap snapshot and saves it to `filePath`.
 
 ### `process.hang()`
 
