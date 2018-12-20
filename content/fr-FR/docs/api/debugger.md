@@ -61,7 +61,7 @@ Envoi une commande au débogueur.
 
 #### Événement : 'detach'
 
-* `event` Event
+* `event` Événement
 * `reason` String - Motif du retrait du débogueur.
 
 Émis lorsque la session de débogage est terminée. Cela se produit soit lorsque le `webContents` est fermé, soit lorsque devtools est invoqué pour le `webContents` rattaché.
