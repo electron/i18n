@@ -2,8 +2,6 @@
 
 > Crea e controlla visite.
 
-**Nota:** La VistaBrowser API è attualmente sperimentale e potrebbe cambiare o essere rimossa nei rilasci futuri di Electron.
-
 Processo: [Main](../glossary.md#main-process)
 
 Una `BrowserView` può essere usata per incorporare del contenuto web aggiuntivo all'interno di una [`BrowserWindow`](browser-window.md). È come una finestra piccola, eccetto per il fatto che è posta in parentela alla finestra propria. È considerato essere un alternativa al tag `webview`.
@@ -12,9 +10,9 @@ Una `BrowserView` può essere usata per incorporare del contenuto web aggiuntivo
 
 ```javascript
 // Nel processo principale(main).
-const {BrowserView, BrowserWindow} = require('electron')
+const { BrowserView, BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({width: 800, height: 600})
+let win = new BrowserWindow({ width: 800, height: 600 })
 win.on('closed', () => {
   win = null
 })
@@ -42,31 +40,31 @@ Restituisce `BrowserView[]` - una array di tutti i BrowserViews aperti.
 
 #### `BrowserView.fromWebContents(webContents)`
 
-* `webContents` [WebContents](web-contents.md)
+* `ContenutiWeb` [ContenutiWeb](web-contents.md)
 
 Restituisce `BrowserView | null`-The BrowserView che possiede il dato `webContents` o `null` se il contenuto non è di proprietà di un BrowserView.
 
 #### `BrowserView.fromId(id)`
 
-* `id` Numero Intero
+* `id` Integer
 
-Restituisce `BrowserView` - La vista con l'`id` dato.
+Restituisce `VistaBrowser` - La vista con l'`id` dato.
 
 ### Proprietà Istanza
 
-Oggetti creato con `new BrowserView` hanno le seguenti proprietà:
+Oggetti creato con `nuova VistaBrowser` hanno le seguenti proprietà:
 
 #### `view.webContents` *Sperimentale*
 
-Un oggetto [`WebContents`](web-contents.md) da questa vista.
+Un oggetto [`ContenutiWeb`](web-contents.md) da questa vista.
 
 #### `view.id` *Sperimentale*
 
-Un numero intero(`Integer`) rappresentante l'unico ID di visualizzazione.
+Un numero `Intero` rappresentante l'unico ID di visualizzazione.
 
 ### Metodi Istanza
 
-Oggetti creati con `new BrowserView` hanno i seguenti metodi d'istanza:
+Oggetti creati con `nuova VistaBrowser` hanno i seguenti metodi d'istanza:
 
 #### `view.destroy()`
 
