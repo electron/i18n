@@ -18,11 +18,11 @@ app.on('ready', () => {
   }
 
   contentTracing.startRecording(options, () => {
-    console.log('Tracing started')
+    console.log('開始追蹤')
 
     setTimeout(() => {
       contentTracing.stopRecording('', (path) => {
-        console.log('Tracing data recorded to ' + path)
+        console.log('追蹤資料寫到 ' + path)
       })
     }, 5000)
   })
