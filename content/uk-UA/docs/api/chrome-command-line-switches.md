@@ -5,7 +5,7 @@
 Ви можете використовувати [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) для додавання параметрів командного рядка в основний скрипт Вашого додатку, перед появою події [ready](app.md#event-ready) в модулі [app](app.md):
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 app.commandLine.appendSwitch('remote-debugging-port', '8315')
 app.commandLine.appendSwitch('host-rules', 'MAP * 127.0.0.1')
 
@@ -54,7 +54,7 @@ See the [Node documentation](https://nodejs.org/api/cli.html) or run `node --hel
 
 ## --proxy-server=`адреса:порт`
 
-Use a specified proxy server, which overrides the system setting. This switch only affects requests with HTTP protocol, including HTTPS and WebSocket requests. It is also noteworthy that not all proxy servers support HTTPS and WebSocket requests.
+Use a specified proxy server, which overrides the system setting. This switch only affects requests with HTTP protocol, including HTTPS and WebSocket requests. It is also noteworthy that not all proxy servers support HTTPS and WebSocket requests. The proxy URL does not support username and password authentication [per Chromium issue](https://bugs.chromium.org/p/chromium/issues/detail?id=615947).
 
 ## --proxy-bypass-list=`хости`
 
@@ -63,7 +63,7 @@ Instructs Electron to bypass the proxy server for the given semi-colon-separated
 Наприклад:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com;1.2.3.4:5678')
 ```
 
