@@ -9,7 +9,7 @@ The `shell` modul menyediakan fungsi yang berkaitan dengan integrasi desktop.
 Contoh membuka URL di browser default pengguna:
 
 ```javascript
-onst {shell} = require('electron')
+const { shell } = require('electron')
 
 shell.openExternal('https://github.com')
 ```
@@ -37,8 +37,9 @@ Buka file yang diberikan dengan cara default desktop.
 ### `shell.openExternal (url [, pilihan, callback])`
 
 * `url` String - Max 2081 characters on windows, or the function returns false.
-* `options` Objek (opsional) *macOS* 
-  * `Aktifkan` Aljabar Boolean - `benar` untuk membawa aplikasi dibuka latar depan. Default adalah `benar`.
+* `options` Objek (opsional) 
+  * `activate` Boolean (optional) - `true` to bring the opened application to the foreground. The default is `true`. *macOS*
+  * `workingDirectory` String (optional) - The working directory. *Windows*
 * `callback` Fungsi (opsional) *macOS* - If specified will perform the open asynchronously. 
   * Kesalahan `kesalahan`
 
