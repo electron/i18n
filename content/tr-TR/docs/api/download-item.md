@@ -8,7 +8,7 @@
 
 ```javascript
 // Ana süreçte.
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.webContents.session.on('will-download', (event, item, webContents) => {
 Kaydetme yolunu ayarlayın ve Electron'un bir kaydetme istememesi için yol gösterin.
