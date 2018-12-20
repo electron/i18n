@@ -11,7 +11,7 @@ Instances of the `Cookies` class are accessed by using `cookies` property of a `
 ```javascript
 const { session } = require('electron')
 
-// Query all cookies.
+// 查詢所有 cookies。
 session.defaultSession.cookies.get({}, (error, cookies) => {
   console.log(error, cookies)
 })
