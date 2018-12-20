@@ -60,7 +60,7 @@ Use a specified proxy server, which overrides the system setting. This switch on
 
 Instructs Electron to bypass the proxy server for the given semi-colon-separated list of hosts. This flag has an effect only if used in tandem with `--proxy-server`.
 
-For example:
+Bijvoorbeeld:
 
 ```javascript
 const { app } = require('electron')
@@ -98,7 +98,7 @@ Like `--host-rules` but these `rules` only apply to the host resolver.
 
 A comma-separated list of servers for which integrated authentication is enabled.
 
-For example:
+Bijvoorbeeld:
 
 ```sh
 --auth-server-whitelist='*example.com, *foobar.com, *baz'
