@@ -9,9 +9,9 @@
 Ayrıca mevcut sayfaların `oturum`larına `oturum` [`Webİçeriği`](web-contents.md) özelliğinden, yada `oturum` modülünden ulaşabilirsiniz.
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({width: 800, height: 600})
+let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('http://github.com')
 
 const ses = win.webContents.session
@@ -51,7 +51,7 @@ Bir `Session` nesnesi, uygulamanın varsayılan oturum nesnesidir.
 `oturum` modülünde bir `Oturum` nesnesi oluşturabilirsiniz:
 
 ```javascript
-const {session} = require('electron')
+const { session } = require('electron')
 const ses = session.fromPartition('persist:name')
 console.log(ses.getUserAgent())
 ```
@@ -71,7 +71,7 @@ Elektron indirmek üzereyken ortaya çıkar `item` in `webContents`.
 `event.preventDefault()` çağırmak indirmeyi iptal edecektir ve `item` işlemin bir sonraki işaretine kadar uygun olmayacaktır.
 
 ```javascript
-const {session} = require('electron')
+const { session } = require('electron')
 session.defaultSession.on('will-download', (event, item, webContents) => {
   event.preventDefault()
   require('request')(item.getURL(), (data) => {
@@ -206,7 +206,7 @@ window.webContents.session.enableNetworkEmulation({
 })
 
 // To emulate a network outage.
-window.webContents.session.enableNetworkEmulation({offline: true})
+window.webContents.session.enableNetworkEmulation({ offline: true })
 ```
 
 #### `ses.disableNetworkEmulation()`
@@ -232,11 +232,11 @@ Ağbağlantısı emulasyonu `session` için zaten aktiftir. Orjinal ağ yapılan
 `setCertificateVerifyProc(null)` çağırmak varsayılan sertifika doğrulama işlemine döner.
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 
 win.webContents.session.setCertificateVerifyProc((request, callback) => {
-  const {hostname} = request
+  const { hostname } = request
   if (hostname === 'github.com') {
     callback(0)
   } else {
@@ -254,11 +254,12 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
     * `permissionGranted` Boolean - İzin verme veya reddetme.
   * `details` Object - Some properties are only available on certain permission types. 
     * `externalURL` String - The url of the `openExternal` request.
+    * `mediaTypes` String[] - The types of media access being requested, elements can be `video` or `audio`
 
 Hallediciyi `session` tepki verecek şekilde ayarlar. Arama `geri çağırma(true)` izin verir ve `geri çağırma(false)` reddeder. İşleyiciyi temizlemek için `setPermissionRequestHandler(null)`'i çağırın.
 
 ```javascript
-const {session} = require('electron')
+const { session } = require('electron')
 session.fromPartition('some-partition').setPermissionRequestHandler((webContents, permission, callback) => {
   if (webContents.getURL() === 'some-host' && permission === 'notifications') {
     return callback(false) // denied.
@@ -268,69 +269,92 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 })
 ```
 
+#### `ses.setPermissionCheckHandler(handler)`
+
+* `halledici` Fonksiyon<boolean> | null 
+  * `webContents` [WebContents](web-contents.md) - WebContents checking the permission.
+  * `permission` String - Enum of 'media'.
+  * `requestingOrigin` String - The origin URL of the permission check
+  * `details` Object - Some properties are only available on certain permission types. 
+    * `securityOrigin` String - The security orign of the `media` check.
+    * `mediaType` String - The type of media access being requested, can be `video`, `audio` or `unknown`
+
+Sets the handler which can be used to respond to permission checks for the `session`. Returning `true` will allow the permission and `false` will reject it. To clear the handler, call `setPermissionCheckHandler(null)`.
+
+```javascript
+const { session } = require('electron')
+session.fromPartition('some-partition').setPermissionCheckHandler((webContents, permission) => {
+  if (webContents.getURL() === 'some-host' && permission === 'notifications') {
+    return false // denied
+  }
+
+  return true
+})
+```
+
 #### `ses.clearHostResolverCache([callback])`
 
-* `callback` Function (isteğe bağlı) - İşlem bittiğinde çağırıldı.
+* Fonksiyon `geri çağırma` (isteğe bağlı) - İşlem tamamlandığında çağrılır.
 
-Ana çözümleyici önbelleğini temizler.
+Clears the host resolver cache.
 
 #### `ses.allowNTLMCredentialsForDomains(domains)`
 
 * `domains` String - A comma-separated list of servers for which integrated authentication is enabled.
 
-Dinamik olarak, HTTP, NTLM veya Müzakere kimlik doğrulaması için kimlik bilgilerini göndermeyi veya göndermemeyi ayarlar.
+Dynamically sets whether to always send credentials for HTTP NTLM or Negotiate authentication.
 
 ```javascript
-const {session} = require('electron')
+const { session } = require('electron')
 // consider any url ending with `example.com`, `foobar.com`, `baz`
 // for integrated authentication.
-session.defaultSession.allowNTLMCredentialsForDomains ('* example.com, * foobar.com, * baz')
+session.defaultSession.allowNTLMCredentialsForDomains('*example.com, *foobar.com, *baz')
 
-// entegre kimlik doğrulama için tüm Url'lerin doğruluğunu kanıtlar.
+// consider all urls for integrated authentication.
 session.defaultSession.allowNTLMCredentialsForDomains('*')
 ```
 
 #### `ses.setUserAgent(userAgent[, acceptLanguages])`
 
 * `userAgent` Dizgi
-* `acceptLanguages` Dize (isteğe bağlı)
+* `acceptLanguages` String (optional)
 
-`userAgent` ve `acceptLanguages` modülünü bu oturum için geçersiz kılar.
+Overrides the `userAgent` and `acceptLanguages` for this session.
 
-`acceptLanguages` virgülle ayrılmış dil kodlarının sıralı bir listesi olmalıdır, örneğin `"en-US,fr,de,ko,zh-CN,ja"`.
+The `acceptLanguages` must a comma separated ordered list of language codes, for example `"en-US,fr,de,ko,zh-CN,ja"`.
 
-Bu mevcut `WebContents` yapısını etkilemez ve her `WebContents` yapısı `webContents.setUserAgent` yapısını oturum genelinde kullanıcı aracısını geçersiz kılmak için kullanabilir.
+This doesn't affect existing `WebContents`, and each `WebContents` can use `webContents.setUserAgent` to override the session-wide user agent.
 
 #### `ses.getUserAgent()`
 
-`String` döndürür - Bu oturum için kullanıcı aracısı.
+Returns `String` - The user agent for this session.
 
 #### `ses.getBlobData(identifier, callback)`
 
-* `identifier` Dizgi - Valid UUID.
-* `geri aramak` Function 
-  * `result` Tampon - Blob verileri.
+* `identifier` String - Valid UUID.
+* `geri aramak` Fonksiyon 
+  * `result` Buffer - Blob data.
 
 #### `ses.createInterruptedDownload(options)`
 
 * `seçenekler` Nesne 
-  * `yol` String - İndirmenin kesin yolu.
-  * `urlChain` String[] - Karşıdan yükleme için tam URL zinciri.
-  * `mimeType` String (isteğe bağlı)
-  * `offset` Integer - Karşıdan yükleme için başlangıç aralığı.
-  * `uzunluk` Integer - Karşıdan yükleme toplam uzunluk.
-  * `lastModified` String - Son değiştirilen başlık değeri.
-  * `eTag` String - ETag başlık değeri.
-  * `startTime` Çift (isteğe bağlı) - indirmenin UNİX epoch'tan sonraki birkaç saniye içinde başlama zamanı.
+  * `path` String - Absolute path of the download.
+  * `urlChain` String[] - Complete URL chain for the download.
+  * `mimeType` String (optional)
+  * `offset` Integer - Start range for the download.
+  * `length` Integer - Total length of the download.
+  * `lastModified` String - Last-Modified header value.
+  * `eTag` String - ETag header value.
+  * `startTime` Double (optional) - Time when download was started in number of seconds since UNIX epoch.
 
-Önceki `oturumdan` `iptal edilen` ya da `kesilen` indirmelerin devam etmesine izin verir. API [will-download](#event-will-download) eventi ile erişilebilecek bir [DownloadItem](download-item.md) oluşturacak. [DownloadItem](download-item.md) ile ilişkili herhangi bir `WebContents` yok ve başlangıç durumu `interrupted` olacak. Yükleme yalnızca [DownloadItem](download-item.md) üzerinde `resume` API'ı çağırıldığında başlayacaktır.
+Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
 
 #### `ses.clearAuthCache(options[, callback])`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
 * Fonksiyon `geri çağırma` (isteğe bağlı) - İşlem tamamlandığında çağrılır.
 
-Kullanıcı oturumunun HTTP kimlik doğrulama önbelleğini temizler.
+Clears the session’s HTTP authentication cache.
 
 #### `ses.setPreloads(preloads)`
 
@@ -344,31 +368,48 @@ Returns `String[]` an array of paths to preload scripts that have been registere
 
 ### Örnek Özellikler
 
-Aşağıdaki özellikler `Oturum` örnekleri üzerinde mevcuttur:
+The following properties are available on instances of `Session`:
 
 #### `ses.cookies`
 
-Bu oturum için [çerezler](cookies.md) nesnesi.
+A [Cookies](cookies.md) object for this session.
 
 #### `ses.webRequest`
 
-Bu oturum için [Webistek](web-request.md) nesnesi.
+A [WebRequest](web-request.md) object for this session.
 
 #### `ses.protocol`
 
-Bu oturum için bir [Protokol](protocol.md) nesnesi.
+A [Protocol](protocol.md) object for this session.
 
 ```javascript
-const {app, session} = require('electron')
+const { app, session } = require('electron')
 const path = require('path')
 
 app.on('ready', function () {
   const protocol = session.fromPartition('some-partition').protocol
   protocol.registerFileProtocol('atom', function (request, callback) {
     var url = request.url.substr(7)
-    callback({path: path.normalize(`${__dirname}/${url}`)})
+    callback({ path: path.normalize(`${__dirname}/${url}`) })
   }, function (error) {
     if (error) console.error('Failed to register protocol')
+  })
+})
+```
+
+#### `ses.netLog`
+
+A [NetLog](net-log.md) object for this session.
+
+```javascript
+const { app, session } = require('electron')
+
+app.on('ready', function () {
+  const netLog = session.fromPartition('some-partition').netLog
+  netLog.startLogging('/path/to/net-log')
+  // After some network events
+  netLog.stopLogging(path => {
+    console.log('Net-logs written to', path)
   })
 })
 ```
