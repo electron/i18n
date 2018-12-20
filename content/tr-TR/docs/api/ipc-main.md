@@ -18,7 +18,7 @@ Ana işlemden yan işleme mesaj göndermek mümkündür, daha fazla bilgi için 
 
 ```javascript
 // Ana süreç içinde.
-const {ipcMain} = require('electron')
+const { ipcMain } = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
   console.log(arg) // prints "ping"
   event.sender.send('asynchronous-reply', 'pong')
@@ -32,7 +32,7 @@ ipcMain.on('synchronous-message', (event, arg) => {
 
 ```javascript
 // Oluşturucu işleminde (web sayfası).
-const {ipcRenderer} = require('electron')
+const { ipcRenderer } = require('electron')
 console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // prints "pong"
 
 ipcRenderer.on('asynchronous-reply', (event, arg) => {
