@@ -6,7 +6,7 @@
 
 代码注释中添加的`FIXME`字符来表示以后的版本应该被修复的问题. 参考 https://github.com/electron/electron/search?q=fixme
 
-# Planned Breaking API Changes (5.0)
+# 计划重写的 API (5.0)
 
 ## `new BrowserWindow({ webPreferences })`
 
@@ -26,9 +26,9 @@ Child windows opened with the `nativeWindowOpen` option will always have Node.js
 
 `wordStart` and `medialCapitalAsWordStart` options are removed.
 
-# Planned Breaking API Changes (4.0)
+# 计划重写的 API (4.0)
 
-The following list includes the breaking API changes planned for Electron 4.0.
+以下列表包含了Electron4.0计划重写的API
 
 ## `app.makeSingleInstance`
 
@@ -65,9 +65,9 @@ app.getGPUInfo('basic')
 
 When building native modules for windows, the `win_delay_load_hook` variable in the module's `binding.gyp` must be true (which is the default). If this hook is not present, then the native module will fail to load on Windows, with an error message like `Cannot find module`. See the [native module guide](/docs/tutorial/using-native-node-modules.md) for more.
 
-# Breaking API Changes (3.0)
+# 重大的API更新 (3.0)
 
-The following list includes the breaking API changes in Electron 3.0.
+以下包含了Electron 3.0中重大的API更新
 
 ## `app`
 
@@ -106,40 +106,40 @@ window.on('app-command', (e, cmd) => {
 })
 ```
 
-## `剪贴板`
+## `clipboard`
 
 ```js
-// Deprecated
+// 过时的
 clipboard.readRtf()
-// Replace with
+// 替换为
 clipboard.readRTF()
 
-// Deprecated
+// 过时的
 clipboard.writeRtf()
-// Replace with
+// 替换为
 clipboard.writeRTF()
 
-// Deprecated
+// 过时的
 clipboard.readHtml()
-// Replace with
+// 替换为
 clipboard.readHTML()
 
-// Deprecated
+// 过时的
 clipboard.writeHtml()
-// Replace with
+//替换为
 clipboard.writeHTML()
 ```
 
 ## `crashReporter`
 
 ```js
-// Deprecated
+// 过时的
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// Replace with
+// 替换为
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -150,15 +150,15 @@ crashReporter.start({
 ## `nativeImage`
 
 ```js
-// Deprecated
+// 弃用
 nativeImage.createFromBuffer(buffer, 1.0)
-// Replace with
+// 替换为
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
 ```
 
-## `进程`
+## `process`
 
 ```js
 // Deprecated
@@ -168,20 +168,20 @@ const info = process.getProcessMemoryInfo()
 ## `screen`
 
 ```js
-// Deprecated
+// 弃用
 screen.getMenuBarHeight()
-// Replace with
+// 替换为
 screen.getPrimaryDisplay().workArea
 ```
 
 ## `session`
 
 ```js
-// Deprecated
+// 过时的
 ses.setCertificateVerifyProc(function (hostname, certificate, callback) {
   callback(true)
 })
-// Replace with
+// 替换为
 ses.setCertificateVerifyProc(function (request, callback) {
   callback(0)
 })
@@ -190,79 +190,79 @@ ses.setCertificateVerifyProc(function (request, callback) {
 ## `Tray`
 
 ```js
-// Deprecated
+// 过时的
 tray.setHighlightMode(true)
-// Replace with
+// 替换为
 tray.setHighlightMode('on')
 
-// Deprecated
+// 过时的
 tray.setHighlightMode(false)
-// Replace with
+// 替换为
 tray.setHighlightMode('off')
 ```
 
 ## `webContents`
 
 ```js
-// Deprecated
+// 弃用
 webContents.openDevTools({ detach: true })
-// Replace with
+// 替换为
 webContents.openDevTools({ mode: 'detach' })
 
-// Removed
+// 移除
 webContents.setSize(options)
-// There is no replacement for this API
+// 没有该API的替代
 ```
 
 ## `webFrame`
 
 ```js
-// Deprecated
+// 弃用
 webFrame.registerURLSchemeAsSecure('app')
-// Replace with
+// 替换为
 protocol.registerStandardSchemes(['app'], { secure: true })
 
-// Deprecated
+// 弃用
 webFrame.registerURLSchemeAsPrivileged('app', { secure: true })
-// Replace with
+// 替换为
 protocol.registerStandardSchemes(['app'], { secure: true })
 ```
 
 ## `<webview>`
 
 ```js
-// Removed
+// 移除
 webview.setAttribute('disableguestresize', '')
-// There is no replacement for this API
+// 没有该API的替代
 
-// Removed
+// 移除
 webview.setAttribute('guestinstance', instanceId)
-// There is no replacement for this API
+// 没有该API的替代
 
-// Keyboard listeners no longer work on webview tag
+// 键盘监听器在webview标签中不再起效
 webview.onkeydown = () => { /* handler */ }
 webview.onkeyup = () => { /* handler */ }
 ```
 
 ## Node Headers URL
 
-This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
+这是在构建原生 node 模块时在 `.npmrc` 文件中指定为 `disturl` 的 url 或是 `--dist-url` 命令行标志.
 
-Deprecated: https://atom.io/download/atom-shell
+过时的: https://atom.io/download/atom-shell
 
-Replace with: https://atom.io/download/electron
+替换为: https://atom.io/download/electron
 
-# Breaking API Changes (2.0)
+# 重大的API更新 (2.0)
 
-The following list includes the breaking API changes made in Electron 2.0.
+以下包含了Electron 2.0中重大的API更新
 
 ## `BrowserWindow`
 
 ```js
-// Deprecated
+// 过时的
 let optionsA = { titleBarStyle: 'hidden-inset' }
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+//替换为
 let optionsB = { titleBarStyle: 'hiddenInset' }
 let windowB = new BrowserWindow(optionsB)
 ```
@@ -270,61 +270,61 @@ let windowB = new BrowserWindow(optionsB)
 ## `menu`
 
 ```js
-// Removed
+// 移除
 menu.popup(browserWindow, 100, 200, 2)
-// Replaced with
+// 替换为
 menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```
 
 ## `nativeImage`
 
 ```js
-// Removed
+// 移除
 nativeImage.toPng()
-// Replaced with
+// 替换为
 nativeImage.toPNG()
 
-// Removed
+// 移除
 nativeImage.toJpeg()
-// Replaced with
+// 替换为
 nativeImage.toJPEG()
 ```
 
-## `进程`
+## `process`
 
 * ` process.versions.electron ` 和 ` process.version.chrome ` 将成为只读属性, 以便与其他 ` process.versions ` 属性由Node设置。
 
 ## `webContents`
 
 ```js
-// Removed
+// 移除
 webContents.setZoomLevelLimits(1, 2)
-// Replaced with
+// 替换为
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## `webFrame`
 
 ```js
-// Removed
+// 移除
 webFrame.setZoomLevelLimits(1, 2)
-// Replaced with
+// 替换为
 webFrame.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## `<webview>`
 
 ```js
-// Removed
+// 移除
 webview.setZoomLevelLimits(1, 2)
-// Replaced with
+// 替换为
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-## Duplicate ARM Assets
+## 重复的 ARM 资源
 
-Each Electron release includes two identical ARM builds with slightly different filenames, like `electron-v1.7.3-linux-arm.zip` and `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
+每个 Electron 发布版本包含两个相同的ARM版本，文件名略有不同，如`electron-v1.7.3-linux-arm.zip` 和 `electron-v1.7.3-linux-armv7l.zip` 添加包含`v7l`前缀的资源向用户明确其支持的ARM版本，并消除由未来armv6l 和 arm64 资源可能产生的歧义。
 
-The file *without the prefix* is still being published to avoid breaking any setups that may be consuming it. Starting at 2.0, the un-prefixed file will no longer be published.
+为了防止可能导致安装器毁坏的中断，*不带前缀*的文件仍然将被发布。 从2.0版本起，不带前缀的文件将不再发布。
 
-For details, see [6986](https://github.com/electron/electron/pull/6986) and [7189](https://github.com/electron/electron/pull/7189).
+更多详细情况，查看 [6986](https://github.com/electron/electron/pull/6986) 和 [7189](https://github.com/electron/electron/pull/7189)。
