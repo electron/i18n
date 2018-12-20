@@ -10,11 +10,11 @@
 
 ```javascript
 const electron = require('electron')
-const {app} = electron
+const { app } = electron
 
 app.on('ready', () => {
   electron.powerMonitor.on('suspend', () => {
-    console.log('系統即將休眠')
+    console.log('The system is going to sleep')
   })
 })
 ```
