@@ -5,7 +5,7 @@
 애플리케이션 메인 스크립트의 [app](app.md)모듈에서 [ready](app.md#event-ready) 이벤트가 실행되기 전에 [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value)를 호출하면, 애플리케이션의 명령줄 옵션을 추가로 지정할 수 있습니다:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 app.commandLine.appendSwitch('remote-debugging-port', '8315')
 app.commandLine.appendSwitch('host-rules', 'MAP * 127.0.0.1')
 
@@ -54,7 +54,7 @@ $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 
 ## --proxy-server=`address:port`
 
-시스템 설정의 프록시 서버를 무시하고 지정한 서버로 연결합니다. HTTP와 HTTPS 요청에만 적용됩니다. 시스템 프록시 서버 설정을 무시하고 지정한 서버로 연결합니다. 이 스위치는 HTTP와 HTTPS 그리고 WebSocket 요청에만 적용됩니다. 그리고 모든 프록시 서버가 HTTPS가 WebSocket 요청을 지원하지 않고 있을 수 있으므로 사용시 주의해야 합니다. 
+시스템 설정의 프록시 서버를 무시하고 지정한 서버로 연결합니다. HTTP와 HTTPS 요청에만 적용됩니다. 시스템 프록시 서버 설정을 무시하고 지정한 서버로 연결합니다. 이 스위치는 HTTP와 HTTPS 그리고 WebSocket 요청에만 적용됩니다. 그리고 모든 프록시 서버가 HTTPS가 WebSocket 요청을 지원하지 않고 있을 수 있으므로 사용시 주의해야 합니다. The proxy URL does not support username and password authentication [per Chromium issue](https://bugs.chromium.org/p/chromium/issues/detail?id=615947).
 
 ## --proxy-bypass-list=`hosts`
 
@@ -63,7 +63,7 @@ Instructs Electron to bypass the proxy server for the given semi-colon-separated
 예시:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com;1.2.3.4:5678')
 ```
 
