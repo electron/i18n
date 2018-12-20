@@ -7,14 +7,13 @@ Proseso: [Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#re
 Ang mga ito ay halimbawa ng awtomatikong pag pasa ng mga crash report patungo sa remote server:
 
 ```javascript
-const { crashReporter } = require('electron')
+const{ crashReporter } = require('electron')
 
 crashReporter.start({
-  productName: 'YourName',
-  companyName: 'YourCompany',
-  submitURL: 'https://your-domain.com/url-to-submit',
-  uploadToServer: true
-})
+Pangalan ng produkto : 'Pangalan mo''
+Pangalan ng Kompanya: 'Pangalan ng Kompanya mo'
+ipasa sa URL: 'https;//your-domain.com/url-to-submit',uploadToServer: true
+}}
 ```
 
 Para pag set up sa server para tanggapin at iproseso ang mga bagsak na ulat, puwedeng gamitin ang mga halimbawa na proyekto:
@@ -35,7 +34,7 @@ Ang `crashReporter`module ay merong sumusunod na paraan:
 
 ### `crashReporter.start(options)`
 
-* `mga opsyon` Bagay 
+* `options` Bagay 
   * `companyName` String
   * `sumbitURL` String-- URL na magpapadala sa mga bagsak na ulat na naka POST.
   * `pangalanngProdukto` String (optinal) - Defaults para sa `app.getName()`.
