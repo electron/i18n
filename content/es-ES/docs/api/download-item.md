@@ -8,7 +8,7 @@ Process: [Main](../glossary.md#main-process)
 
 ```javascript
 // En el proceso principal.
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.webContents.session.on('will-download', (event, item, webContents) => {
   // Establece una dirección de guardado, haciendo que Electron no saque una ventana de guardado.
@@ -41,7 +41,7 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 Devuelve:
 
-* `event` Event
+* `event`
 * `state` String - Puede ser `en progresso` o `interrumpido`.
 
 Aparece cuando la descara ha sido actualizada y no está terminada.
