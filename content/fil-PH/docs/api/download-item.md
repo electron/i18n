@@ -11,7 +11,7 @@ Proseso:[Pangunahi](../glossary.md#main-process)
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.webContents.session.on('will-download', (event, item, webContents) => {
-  // Set the save path, making Electron not to prompt a save dialog.
+  // itakda ang pinanatiling "path", na hinahayaan ang Elektron na huwag gawin ang "save dialog".
   item.setSavePath('/tmp/save.pdf')
 
   item.on('updated', (event, state) => {
