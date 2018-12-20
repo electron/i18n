@@ -65,7 +65,7 @@ Calculate the system idle state. `idleThreshold` is the amount of time (in secon
 
 #### `powerMonitor.querySystemIdleTime(callback)`
 
-* `callback` Функция 
+* `обратно повикване` Function 
   * `idleTime` Integer - Idle time in seconds
 
 Calculate system idle time in seconds.
