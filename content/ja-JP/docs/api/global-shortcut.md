@@ -9,10 +9,10 @@
 **注:** ショートカットはグローバルです。そのため、アプリにキーボードフォーカスがない場合でも機能します。 アプリモジュールの `ready` イベントが発生するまではこのモジュールを使用してはいけません。
 
 ```javascript
-const {app, globalShortcut} = require('electron')
+const { app, globalShortcut } = require('electron')
 
 app.on('ready', () => {
-  // 'CommandOrControl+X' をショートカットリスナーに登録します。
+  // Register a 'CommandOrControl+X' shortcut listener.
   const ret = globalShortcut.register('CommandOrControl+X', () => {
     console.log('CommandOrControl+X is pressed')
   })
