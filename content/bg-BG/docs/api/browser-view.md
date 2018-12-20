@@ -2,19 +2,17 @@
 
 > Създаване и контрол на изгледи.
 
-**Забележка:** API на BrowserView в момента е експериментално и може да се промени или да бъде отстранено в бъдещо издание на Електрон.
-
 Процеса: [Main](../glossary.md#main-process)
 
-A `BrowserView` can be used to embed additional web content into a [`BrowserWindow`](browser-window.md). Това е като дете прозорец, освен че е разположен спрямо основния му прозорец. Той е предназначен да бъде алтернатива на `webview` маркер.
+A `BrowserView` can be used to embed additional web content into a [`BrowserWindow`](browser-window.md). It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
 
 ## Пример
 
 ```javascript
 // В процеса main.
-const {BrowserView, BrowserWindow} = require('electron')
+const { BrowserView, BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({width: 800, height: 600})
+let win = new BrowserWindow({ width: 800, height: 600 })
 win.on('closed', () => {
   win = null
 })
@@ -38,43 +36,43 @@ view.webContents.loadURL('https://electronjs.org')
 
 #### `BrowserView.getAllViews()`
 
-Връща `[BrowserView]` - Масив с всички отворени BrowserViews.
+Returns `BrowserView[]` - An array of all opened BrowserViews.
 
 #### `BrowserView.fromWebContents(webContents)`
 
 * `webContents` [WebContents](web-contents.md)
 
-Връща `BrowserView | null`-BrowserView, което притежава даден `webContents` или `null`, ако съдържанието не е собственост на BrowserView.
+Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
 
 #### `BrowserView.fromId(id)`
 
 * `id` Integer
 
-Връща `BrowserView` - Изгледът на съответното `id`.
+Returns `BrowserView` - The view with the given `id`.
 
 ### Инстантни свойства
 
-Обекти създадени с `new BrowserView` имат следните свойства:
+Objects created with `new BrowserView` have the following properties:
 
 #### `view.webContents` *Experimental*
 
-Обект [`WebContents`](web-contents.md) собственост на този изглед.
+A [`WebContents`](web-contents.md) object owned by this view.
 
 #### `view.id` *Experimental*
 
-`Integer` представляващ уникално ID на изгледа.
+A `Integer` representing the unique ID of the view.
 
 ### Инстантни методи
 
-Обекти създадени с `new BrowserView` имат следните методи:
+Objects created with `new BrowserView` have the following instance methods:
 
 #### `view.destroy()`
 
-Насила затваря изгледа, събитията `unload` и `beforeunload` няма да бъдат излъчени за уеб страницата. Когато сте готови с изгледа, извикайте тази функция, за да освободите памет и други ресурси възможно най-скоро.
+Force closing the view, the `unload` and `beforeunload` events won't be emitted for the web page. After you're done with a view, call this function in order to free memory and other resources as soon as possible.
 
 #### `view.isDestroyed()`
 
-Връща `Boolean` - Показва дали изгледа е унищожен.
+Returns `Boolean` - Whether the view is destroyed.
 
 #### `view.setAutoResize(опции)` *Experimental*
 
@@ -86,7 +84,7 @@ view.webContents.loadURL('https://electronjs.org')
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
-Преоразмерява и премества изгледа към предоставените границите спрямо прозореца.
+Resizes and moves the view to the supplied bounds relative to the window.
 
 #### `view.setBackgroundColor(color)` *Experimental*
 
