@@ -12,7 +12,7 @@ Accelerator は、`+` によって結合された複数の修飾キーと単一�
 以下のようにショートカットは [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) メソッドを使って [`globalShortcut`](global-shortcut.md) モジュールに登録されます。
 
 ```javascript
-const {app, globalShortcut} = require('electron')
+const { app, globalShortcut } = require('electron')
 
 app.on('ready', () => {
   // 'CommandOrControl+Y' をショートカットリスナーに登録します。
