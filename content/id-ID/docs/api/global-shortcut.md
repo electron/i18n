@@ -9,8 +9,10 @@ The ` globalShortcut </ 0> modul dapat mendaftarkan / unregister shortcut keyboa
 <p><strong> Catatan: </ 0> Jalan pintas bersifat global; itu akan bekerja bahkan jika aplikasi tidak memiliki fokus keyboard. Anda tidak boleh menggunakan modul ini sampai event <code> ready </ 0>
  dari modul aplikasi dipancarkan.</p>
 
-<pre><code class="javascript">const {app, globalShortcut} = memerlukan ('elektron') app.on ('siap', () = & gt; {
-   // Daftarkan pendatang jalan pintas 'CommandOrControl + X'.
+<pre><code class="javascript">const { app, globalShortcut } = require('electron')
+
+app.on('ready', () => {
+  // Register a 'CommandOrControl+X' shortcut listener.
   const (= perintah) = ()perintah atau Control + X ', () = & gt; {
      console.log (' perintah atau Control + X ditekan ')
    })
