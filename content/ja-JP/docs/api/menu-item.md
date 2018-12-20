@@ -22,9 +22,13 @@
   * `enabled` Boolean (任意) - もし false なら、メニューアイテムはグレーっぽくなってクリックできない。
   * `visible` Boolean (任意) - もし false なら、メニューアイテムは全く見えなくなる。
   * `checked` Boolean (任意) - `checkbox` または `radio` の type のメニューアイテムに対してのみ指定する必要がある。
-  * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (任意) - type が `submenu` のメニューアイテムに対してのみ指定する必要がある。 もし `submenu` を指定した場合、`type: 'submenu'` は省略できる。 値が [`Menu`](menu.md) でない場合は、`Menu.buildFromTemplate` を用いて自動的に変換される。
-  * `id` String (任意) - 一つの menu 内で一意なもの。これが定義されていれば、position 属性によってこのアイテムへの参照として利用できる。
-  * `position` String (任意) - このフィールドは与えられたメニュー内の特定の場所を細かく定義できる。
+  * `registerAccelerator` Boolean (optional) - If false, the accelerator won't be registered with the system, but it will still be displayed. Defaults to true.
+  * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. If the value is not a [`Menu`](menu.md) then it will be automatically converted to one using `Menu.buildFromTemplate`.
+  * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
+  * `before` String[] (optional) - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
+  * `after` String[] (optional) - Inserts this item after the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu.
+  * `beforeGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
+  * `afterGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group after the containing group of the item with the specified label.
 
 ### 役割 (roles)
 
@@ -34,7 +38,9 @@ Roles を使用すると、メニューアイテムに定義済みの動作を�
 
 `role`を使用する場合、`label` と `accelerator` の値は任意で、各プラットフォームに最適な値がデフォルトになっています。
 
-`role` プロパティは、以下の値を持つことができます。
+Every menu item must have either a `role`, `label`, or in the case of a separator a `type`.
+
+The `role` property can have following values:
 
 * `undo`
 * `redo`
@@ -46,18 +52,18 @@ Roles を使用すると、メニューアイテムに定義済みの動作を�
 * `delete`
 * `minimize` - 現在のウィンドウを最小化する。
 * `close` - 現在のウィンドウを閉じる。
-* `quit` - アプリケーションを終了する。
+* `quit` - Quit the application.
 * `reload` - 現在のウィンドウをリロードする。
 * `forceReload` - キャッシュを無視して現在のウィンドウをリロードする。
 * `toggleDevTools` - 現在のウィンドウの開発者向けツールのトグル切り替えをする。
-* `toggleFullScreen`- 現在のウィンドウの全画面モードのトグル切り替えをする。
+* `toggleFullScreen` - Toggle full screen mode on the current window.
 * `resetZoom` - フォーカス中のページのズームレベルを元のサイズにリセットする。
 * `zoomIn` - フォーカス中のページを 10% 拡大する。
 * `zoomOut` - フォーカス中のページを 10% 縮小する。
 * `editMenu` - デフォルトの"編集"メニュー全体 (元に戻す、コピー、等)。
 * `windowMenu` - デフォルトの"ウインドウ"メニュー全体 (最小化、閉じる、等)。
 
-以下は *macOS* で有効な追加の role です。
+The following additional roles are available on *macOS*:
 
 * `about` - `orderFrontStandardAboutPanel` アクションに割り当てる。
 * `hide` - `hide` アクションに割り当てる。
@@ -78,36 +84,36 @@ Roles を使用すると、メニューアイテムに定義済みの動作を�
 * `recentDocuments` - "最近使った項目を開く"サブメニュー。
 * `clearRecentDocuments` - `clearRecentDocuments` アクションに割り当てる。
 
-macOS の `role` を指定するとき、`label` と `accelerator` がメニューアイテムに影響を与える唯一のオプションです。 ほかのすべてのオプションは無視されます。 小文字の `role`、`toggledevtools` などもまだサポートしています。
+When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored. Lowercase `role`, e.g. `toggledevtools`, is still supported.
 
-**注意:** macOS 上の tray 内の最も上にあるメニューアイテムでは、`enabled` と `visibility` プロパティは利用できません。
+**Nota Bene:** The `enabled` and `visibility` properties are not available for top-level menu items in the tray on MacOS.
 
 ### インスタンスプロパティ
 
-`MenuItem` のインスタンスには以下のプロパティがあります。
+The following properties are available on instances of `MenuItem`:
 
 #### `menuItem.enabled`
 
-アイテムが有効かどうかを示す `Boolean`。このプロパティは動的に変更できます。
+A `Boolean` indicating whether the item is enabled, this property can be dynamically changed.
 
 #### `menuItem.visible`
 
-アイテムが見えるかどうかを示す `Boolean`。このプロパティは動的に変更できます。
+A `Boolean` indicating whether the item is visible, this property can be dynamically changed.
 
 #### `menuItem.checked`
 
-アイテムがチェックされたかどうかを示す `Boolean`。このプロパティは動的に変更できます。
+A `Boolean` indicating whether the item is checked, this property can be dynamically changed.
 
-`checkbox` メニューアイテムは、選択された時に `checked` プロパティをオンかオフにトグル切り替えします。
+A `checkbox` menu item will toggle the `checked` property on and off when selected.
 
-`radio` メニューアイテムは、クリックされると `checked` がオンになり、同じメニュー内の隣接するアイテムすべてのこのプロパティをオフにします。
+A `radio` menu item will turn on its `checked` property when clicked, and will turn off that property for all adjacent items in the same menu.
 
-更なる動作は、`click` 関数の追加で可能です。
+You can add a `click` function for additional behavior.
 
 #### `menuItem.label`
 
-メニューアイテムに表示されているラベルの `String`。
+A `String` representing the menu items visible label.
 
 #### `menuItem.click`
 
-MenuItem がクリックイベントを受け取った時に発火される `Function`。
+A `Function` that is fired when the MenuItem receives a click event.
