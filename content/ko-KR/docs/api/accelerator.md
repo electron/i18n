@@ -12,7 +12,7 @@ Accelerator 는 `+` 문자로 결합된 여러 수식어와 키 코드를 포함
 단축키는 [`globalShortcut`](global-shortcut.md) 모듈의 [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) 메소드로 등록됩니다. 예시:
 
 ```javascript
-const {app, globalShortcut} = require('electron')
+const { app, globalShortcut } = require('electron')
 
 app.on('ready', () => {
   // '커맨드 또는 컨트롤+Y' 단축키 리스너 등록.
