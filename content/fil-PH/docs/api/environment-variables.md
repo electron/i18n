@@ -22,37 +22,55 @@ Halimbawa ng Windows console:
 
 Ang mga sumusunod na variable ng kapaligiran ay inilaan lalo na para gamitin sa runtime sa mga naka-package na application ng Electron.
 
-### `GOOGLE_API_KEY
-`
+### `NODE_OPTIONS`
 
-Kasama sa elektron ang hardcoded na key ng API para sa paghiling ng mga kahilingan sa geocoding ng Google webservice. Dahil ang key na API na ito ay kasama sa bawat bersyon ng Electron, ito ay madalas na lumalampas sa quota ng paggamit nito. Upang magtrabaho sa paligid nito, maaari mong matustusan ang iyong sariling Google API key sa kapaligiran. Ilagay ang sumusunod na code sa iyong pangunahing proseso file, bago buksan ang anumang mga window ng browser na gagawa ng mga kahilingan sa geocoding:
+Electron includes support for a subset of Node's [`NODE_OPTIONS`](https://nodejs.org/api/cli.html#cli_node_options_options). The majority are supported with the exception of those which conflict with Chromium's use of BoringSSL.
+
+Halimbawa:
+
+```sh
+export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
+```
+
+Unsupported options are:
+
+```sh
+--use-bundled-ca
+--force-fips
+--enable-fips
+--openssl-config
+--use-openssl-ca
+```
+
+`NODE_OPTIONS` are explicitly disallowed in packaged apps.
+
+### `GOOGLE_API_KEY`
+
+Electron includes a hardcoded API key for making requests to Google's geocoding webservice. Because this API key is included in every version of Electron, it often exceeds its usage quota. To work around this, you can supply your own Google API key in the environment. Place the following code in your main process file, before opening any browser windows that will make geocoding requests:
 
 ```javascript
 process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
-
 ```
 
-Para sa mga tagubilin kung paano makakuha ng isang key ng Google API, bisitahin ang  ang pahinang ito </ 0>.</p> 
+For instructions on how to acquire a Google API key, visit [this page](https://www.chromium.org/developers/how-tos/api-keys).
 
-Bilang default, maaaring hindi pinapayagan ang isang bagong nabuong Google API key para gumawa ng mga kahilingan sa geocoding. Upang paganahin ang mga kahilingan sa geocoding, bisitahin ang  ang pahinang ito </ 0>.</p> 
+By default, a newly generated Google API key may not be allowed to make geocoding requests. To enable geocoding requests, visit [this page](https://console.developers.google.com/apis/api/geolocation/overview).
 
-### `ELECTRON_NO_ASAR
-`
+### `ELECTRON_NO_ASAR`
 
-Hindi pinapagana ang suporta ng ASAR. Ang variable na ito ay suportado lamang sa mga proseso sa forked child at spawned child proseso na nagtatakda ng ` ELECTRON_RUN_AS_NODE </ 0>. </p>
+Disables ASAR support. This variable is only supported in forked child processes and spawned child processes that set `ELECTRON_RUN_AS_NODE`.
 
-<h3><code>ELECTRON_RUN_AS_NODE
-`</h3> 
+### `ELECTRON_RUN_AS_NODE`
 
-Nagsisimula ang proseso bilang isang normal na proseso ng Node.js.
+Starts the process as a normal Node.js process.
 
-### `ELECTRON_NO_ATTACH_CONSOLE` *Windows* 
+### `ELECTRON_NO_ATTACH_CONSOLE` *Windows*
 
-Huwag ilakip sa kasalukuyang session ng console.
+Don't attach to the current console session.
 
-### `ELECTRON_FORCE_WINDOW_MENU_BAR` *Linux* 
+### `ELECTRON_FORCE_WINDOW_MENU_BAR` *Linux*
 
-Huwag gamitin ang global menu bar sa Linux.
+Don't use the global menu bar on Linux.
 
 ### `ELECTRON_TRASH` *Linux*
 
@@ -67,36 +85,32 @@ Options:
 
 ## Development Variables 
 
-Ang mga sumusunod na variable ng kapaligiran ay inilaan lalo na para sa pag-unlad at mga layunin ng pag-debug.
+The following environment variables are intended primarily for development and debugging purposes.
 
-### `ELECTRON_ENABLE_LOGGING
-`
+### `ELECTRON_ENABLE_LOGGING`
 
-Ini-print ang Chrome's internal logging sa console.
+Prints Chrome's internal logging to the console.
 
-### `ELECTRON_LOG_ASAR_READS
-`
+### `ELECTRON_LOG_ASAR_READS`
 
-Kapag bumabasa ang Electron mula sa isang file ng ASAR, mag-log sa read offset at file path sa ang system ` tmpdir </ 0>. Ang resultang file ay maaaring ibigay sa module ng ASAR
-upang i-optimize ang pag-order ng file.</p>
+When Electron reads from an ASAR file, log the read offset and file path to the system `tmpdir`. The resulting file can be provided to the ASAR module to optimize file ordering.
 
-<h3><code>ELECTRON_ENABLE_STACK_DUMPING
-`</h3> 
+### `ELECTRON_ENABLE_STACK_DUMPING`
 
-Ini-print ang stack trace sa console kapag nag-crash ang Electron.
+Prints the stack trace to the console when Electron crashes.
 
-Ang variable ng kapaligiran na ito ay hindi gagana kung ang ` crashReporter </ 0> ay nagsimula.</p>
+This environment variable will not work if the `crashReporter` is started.
 
-<h3><code>ELECTRON_DEFAULT_ERROR_MODE` *Windows* </h3> 
+### `ELECTRON_DEFAULT_ERROR_MODE` *Windows*
 
-Ipinapakita ang dialog ng pag-crash ng Windows kapag nag-crash ang Electron.
+Shows the Windows's crash dialog when Electron crashes.
 
-Ang variable ng kapaligiran na ito ay hindi gagana kung ang ` crashReporter </ 0> ay nagsimula.</p>
+This environment variable will not work if the `crashReporter` is started.
 
-<h3><code>ELECTRON_OVERRIDE_DIST_PATH`</h3> 
+### `ELECTRON_OVERRIDE_DIST_PATH`
 
-When running from the `electron` package, this variable tells the `electron` command to use the specified build of Electron instead of the one downloaded by `npm install`. Paggamit:
+When running from the `electron` package, this variable tells the `electron` command to use the specified build of Electron instead of the one downloaded by `npm install`. Usage:
 
 ```sh
-export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/D
+export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Debug
 ```
