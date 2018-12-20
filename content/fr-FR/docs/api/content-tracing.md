@@ -9,7 +9,7 @@ This module does not include a web interface so you need to open `chrome://traci
 **Note:** You should not use this module until the `ready` event of the app module is emitted.
 
 ```javascript
-const {app, contentTracing} = require('electron')
+const { app, contentTracing } = require('electron')
 
 app.on('ready', () => {
   const options = {
@@ -19,6 +19,7 @@ app.on('ready', () => {
 
   contentTracing.startRecording(options, () => {
     console.log('Tracing started')
+
     setTimeout(() => {
       contentTracing.stopRecording('', (path) => {
         console.log('Tracing data recorded to ' + path)
