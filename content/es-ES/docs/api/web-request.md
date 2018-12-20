@@ -6,31 +6,33 @@ Process: [Main](../glossary.md#main-process)
 
 Instancias de la clase `WebRequest` son accesibles usando la propiedad `webRequest` de una `Session`.
 
-Los métodos de `WebRequest` aceptan un `filter` opcional y un `listener`. El `listener` será cancelado con `listener(details)` cuando el evento de API haya pasado. El objeto `details` describe la solicitud. Pasar `null` como `listener` hará que se desasocie del evento.
+Los métodos de `WebRequest` aceptan un `filter` opcional y un `listener`. El `listener` será cancelado con `listener(details)` cuando el evento de API haya pasado. El objeto `details` describe la solicitud.
 
-El objeto `filter` tiene una propiedad `urls` que es un arreglo de patrones URL que serán usados para filtrar las solicitudes que no coincidan con los patrones de URL. Si el `filtro` es omitido todas las solicitudes serán atendidas.
+⚠️ Only the last attached `listener` will be used. Passing `null` as `listener` will unsubscribe from the event.
 
-Para ciertos eventos el `listener` es pasado con una `callback`, Que debe ser llamada con un objeto `response` cuando el `listener` haya hecho su trabajo.
+The `filter` object has a `urls` property which is an Array of URL patterns that will be used to filter out the requests that do not match the URL patterns. If the `filter` is omitted then all requests will be matched.
 
-Un ejemplo de añadir encabezados `User-Agent` a las solicitudes:
+For certain events the `listener` is passed with a `callback`, which should be called with a `response` object when `listener` has done its work.
+
+An example of adding `User-Agent` header for requests:
 
 ```javascript
-const {session} = require('electron')
+const { session } = require('electron')
 
-// Modificar el user agent para todas las consultas de las siguientes urls.
+// Modify the user agent for all requests to the following urls.
 const filter = {
   urls: ['https://*.github.com/*', '*://electron.github.io']
 }
 
 session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback) => {
   details.requestHeaders['User-Agent'] = 'MyAgent'
-  callback({cancel: false, requestHeaders: details.requestHeaders})
+  callback({ cancel: false, requestHeaders: details.requestHeaders })
 })
 ```
 
 ### Métodos de Instancia
 
-Lo siguientes métodos están disponibles en instancias de `WebRequest`:
+The following methods are available on instances of `WebRequest`:
 
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
@@ -50,11 +52,11 @@ Lo siguientes métodos están disponibles en instancias de `WebRequest`:
       * `cancelar` Booleano (opcional)
       * `Redireccionar URL` Cadena (opcional) - La solicitud original está prevenida de ser enviada o completada y en vez de eso es redireccionada a una URL dada.
 
-El `oyente` será llamado con `listener(details, callback)` cuando una solicitud está a punto de ocurrir.
+The `listener` will be called with `listener(details, callback)` when a request is about to occur.
 
-`uploadData` es un arreglo de objetos `uploadData`.
+The `uploadData` is an array of `UploadData` objects.
 
-La `retrollamada` tiene que ser llamada con un objeto `respuesta`.
+The `callback` has to be called with an `response` object.
 
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
@@ -62,7 +64,7 @@ La `retrollamada` tiene que ser llamada con un objeto `respuesta`.
   * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
 * `listener` Función
 
-El `oyente` se llamará con `listener(details, callback)` Antes de enviar la solicitud HTTP, una vez que los encabezados de las solicitudes estén disponibles. Esto puede ocurrir después de que se realiza una conexión TCP al servidor, pero antes de que se envíe cualquier información http.
+The `listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent.
 
 * `details` Objeto 
   * `id` Íntegro
@@ -77,7 +79,7 @@ El `oyente` se llamará con `listener(details, callback)` Antes de enviar la sol
     * `cancelar` Booleano (opcional)
     * `Encabezados de solicitud` Objecto (opcional) - Cuando se provean, las solicitudes serán hechas con este encabezado.
 
-La `retrollamada` tiene que ser llamada con un objeto `respuesta`.
+The `callback` has to be called with an `response` object.
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
@@ -93,7 +95,7 @@ La `retrollamada` tiene que ser llamada con un objeto `respuesta`.
     * `fecha y hora` Doble
     * `Encabezado de solicitud` Objecto
 
-El`oyente` Será llamado con `listener(details)` justo antes que una solicitud vaya a ser enviada al servidor, modificaciones de previas respuestas `onBeforeSendHeaders` son visibles en el momento que este oyente esté en funcionamiento.
+The `listener` will be called with `listener(details)` just before a request is going to be sent to the server, modifications of previous `onBeforeSendHeaders` response are visible by the time this listener is fired.
 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
@@ -101,7 +103,7 @@ El`oyente` Será llamado con `listener(details)` justo antes que una solicitud v
   * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
 * `listener` Función
 
-El `oyente` será cancelado con `listener(details, callback)` cuando la respuesta HTTP de los encabezados de de una solicitud hayan sido recibidos.
+The `listener` will be called with `listener(details, callback)` when HTTP response headers of a request have been received.
 
 * `details` Object 
   * `id` Íntegro
@@ -119,7 +121,7 @@ El `oyente` será cancelado con `listener(details, callback)` cuando la respuest
     * `Encabezados de respuesta` Objecto (opcional) - Cuando se provean, el servidor se asume que será respondido con estos encabezados.
     * `Linea de estatus` Cadena (opcional) - Se proveerá al reemplazar el `encabezado de respuesta` para cambiar el estatus del encabezado, de otra manera el estatus original del encabezado de respuesta será usado.
 
-La `retrollamada` tiene que ser llamada con un objeto `respuesta`.
+The `callback` has to be called with an `response` object.
 
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
@@ -138,7 +140,7 @@ La `retrollamada` tiene que ser llamada con un objeto `respuesta`.
     * `Estatus de código` entero
     * `linea de estatus` Cadena
 
-El `oyente` será cancelado con `listener(details)` cuando se reciba el primer byte del cuerpo de la respuesta. Para las solicitudes HTTP, esto significa que la línea de estado y los encabezados de respuesta están disponibles.
+The `listener` will be called with `listener(details)` when first byte of the response body is received. For HTTP requests, this means that the status line and response headers are available.
 
 #### `webRequest.onBeforeRedirect([filter, ]listener)`
 
@@ -158,7 +160,7 @@ El `oyente` será cancelado con `listener(details)` cuando se reciba el primer b
     * `Desde cache` Booleano
     * `headers de respuesta` objeto
 
-El `oyente` Será cancelado con `listener(details)` cuando la redirección del servidor esté por ocurrir.
+The `listener` will be called with `listener(details)` when a server initiated redirect is about to occur.
 
 #### `webRequest.onCompleted([filter, ]listener)`
 
@@ -194,4 +196,4 @@ The `listener` will be called with `listener(details)` when a request is complet
     * `Desde cache` Booleano
     * `error` Cadena - la descripción del error.
 
-El `oyente` será cancelado con `listener(details)` cuando ocurra un error.
+The `listener` will be called with `listener(details)` when an error occurs.
