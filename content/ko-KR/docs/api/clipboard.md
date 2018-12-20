@@ -4,78 +4,80 @@
 
 프로세스: [메인](../glossary.md#main-process), [렌더러](../glossary.md#renderer-process)
 
-다음 예시는 클립보드에 문자열을 쓰는 방법을 보여줍니다:
+In the renderer process context it depends on the [`remote`](remote.md) module on Linux, it is therefore not available when this module is disabled.
+
+The following example shows how to write a string to the clipboard:
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 clipboard.writeText('Example String')
 ```
 
-X Window 시스템에선 selection 클립보드도 존재합니다. 이를 사용하려면 인수 뒤에 `selection` 문자열을 같이 지정해주어야 합니다:
+On X Window systems, there is also a selection clipboard. To manipulate it you need to pass `selection` to each method:
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 clipboard.writeText('Example String', 'selection')
 console.log(clipboard.readText('selection'))
 ```
 
 ## 메서드
 
-`clipboard` 모듈은 다음과 같은 메서드를 가지고 있습니다:
+The `clipboard` module has the following methods:
 
-**참고**: Experimental 마크가 붙은 API는 실험적인 기능이며 차후 최신 버전에서 제거될 수 있습니다.
+**Note:** Experimental APIs are marked as such and could be removed in future.
 
 ### `clipboard.readText([type])`
 
 * `type` String (optional)
 
-Returns `String` - 일반 텍스트 형식의 클립보드의 내용.
+Returns `String` - The content in the clipboard as plain text.
 
 ### `clipboard.writeText(text[, type])`
 
 * `text` String
 * `type` String (optional)
 
-클립보드에 `plain text`로 문자열을 씁니다.
+Writes the `text` into the clipboard as plain text.
 
 ### `clipboard.readHTML([type])`
 
 * `type` String (optional)
 
-Returns `String` - 마크업 형식의 클립보드의 내용.
+Returns `String` - The content in the clipboard as markup.
 
 ### `clipboard.writeHTML(markup[, type])`
 
 * `markup` String
 * `type` String (optional)
 
-클립보드에 `markup`으로 씁니다.
+Writes `markup` to the clipboard.
 
 ### `clipboard.readImage([type])`
 
 * `type` String (optional)
 
-Returns [`NativeImage`](native-image.md) - NativeImage 형식의 클립보드의 내용.
+Returns [`NativeImage`](native-image.md) - The image content in the clipboard.
 
 ### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
 * `type` String (optional)
 
-클립보드에 `image`를 씁니다.
+Writes `image` to the clipboard.
 
 ### `clipboard.readRTF([type])`
 
 * `type` String (optional)
 
-Returns `String` - RTF 형식의 클립보드 내용.
+Returns `String` - The content in the clipboard as RTF.
 
 ### `clipboard.writeRTF(text[, type])`
 
 * `text` String
 * `type` String (optional)
 
-클립보드에 `text`를 RTF 형식으로 씁니다.
+Writes the `text` into the clipboard in RTF.
 
 ### `clipboard.readBookmark()` *macOS* *Windows*
 
@@ -84,7 +86,7 @@ Returns `Object`:
 * `title` String
 * `url` String
 
-클립보드로부터 북마크 형식으로 표현된 `title와 <code>url` 키를 담은 객체를 반환합니다. `title`과 `url` 값들은 북마크를 사용할 수 없을 때 빈 문자열을 포함합니다.
+Returns an Object containing `title` and `url` keys representing the bookmark in the clipboard. The `title` and `url` values will be empty strings when the bookmark is unavailable.
 
 ### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
 
@@ -92,9 +94,9 @@ Returns `Object`:
 * `url` String
 * `type` String (optional)
 
-`title`과 `url`을 클립보드에 북마크 형식으로 씁니다.
+Writes the `title` and `url` into the clipboard as a bookmark.
 
-**참고**: 윈도우의 대부분의 앱은 북마크 붙여넣기를 지원하지 않습니다. `clipboard.write` 를 통해 북마크와 대체 텍스트를 클립보드에 쓸 수 있습니다.
+**Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
 
 ```js
 clipboard.write({
@@ -105,35 +107,35 @@ clipboard.write({
 
 ### `clipboard.readFindText()` *macOS*
 
-Returns `String` - FindPasteboard 의 텍스트. 이 메소드는 렌더러 프로세스에서 호출되었을 떄 동기 IPC 를 사용합니다. 캐시된 값은 애플리케이션이 활성화될 때 마다 FindPasteboard 에서 다시 읽습니다. 
+Returns `String` - The text on the find pasteboard. This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
 
 ### `clipboard.writeFindText(text)` *macOS*
 
 * `text` String
 
-`text` 를 FindPasteboard 에 일반 텍스트로 씁니다. 이 메소드는 렌더러 프로세스에서 호출되었을 떄 동기 IPC 를 사용합니다.
+Writes the `text` into the find pasteboard as plain text. This method uses synchronous IPC when called from the renderer process.
 
 ### `clipboard.clear([type])`
 
 * `type` String (optional)
 
-클립보드에 저장된 모든 콘텐츠를 삭제합니다.
+Clears the clipboard content.
 
 ### `clipboard.availableFormats([type])`
 
 * `type` String (optional)
 
-Return `String[]` - 클립보드 `type` 에 지원되는 형식의 배열.
+Returns `String[]` - An array of supported formats for the clipboard `type`.
 
 ### `clipboard.has(format[, type])` *Experimental*
 
 * `format` String
 * `type` String (optional)
 
-Returns `Boolean` - 클립보드가 지정한 `format`을 지원하는지 여부.
+Returns `Boolean` - Whether the clipboard supports the specified `format`.
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 console.log(clipboard.has('<p>selection</p>'))
 ```
 
@@ -141,13 +143,13 @@ console.log(clipboard.has('<p>selection</p>'))
 
 * `format` String
 
-Returns `String` - 클립보드로부터 `format`를 읽습니다.
+Returns `String` - Reads `format` type from the clipboard.
 
 ### `clipboard.readBuffer(format)` *Experimental*
 
 * `format` String
 
-Returns `Buffer` - 클립보드로부터 `format` 타입을 읽습니다.
+Returns `Buffer` - Reads `format` type from the clipboard.
 
 ### `clipboard.writeBuffer(format, buffer[, type])` *Experimental*
 
@@ -155,7 +157,7 @@ Returns `Buffer` - 클립보드로부터 `format` 타입을 읽습니다.
 * `buffer` Buffer
 * `type` String (optional)
 
-`buffer`에 있는 `format`을 클립보드에 씁니다 .
+Writes the `buffer` into the clipboard as `format`.
 
 ### `clipboard.write(data[, type])`
 
@@ -168,8 +170,8 @@ Returns `Buffer` - 클립보드로부터 `format` 타입을 읽습니다.
 * `type` String (optional)
 
 ```javascript
-const {clipboard} = require('electron')
-clipboard.write({text: 'test', html: '<b>test</b>'})
+const { clipboard } = require('electron')
+clipboard.write({ text: 'test', html: '<b>test</b>' })
 ```
 
-`data`를 클립보드에 씁니다.
+Writes `data` to the clipboard.
