@@ -21,21 +21,21 @@ modul <code> net </ 0> daripada modul Node.js asli:</p>
 
 <p>Misalnya, contoh berikut dengan cepat menunjukkan bagaimana <code> net </ 0>  API dapat digunakan:</p>
 
-<pre><code class="javascript">const {app} = require ('electron')
-app.on ('siap', () => {
-  const {net} = require ('electron')
-  const request = net.request ('https://github.com')
-  request.on ('respon', (respon) => {
-    console.log (`STATUS: ${response.statusCode}`)
-    console.log (`HEADERS: $ {JSON.stringify (response.header)}`)
-    response.on ('data', (chunk) => {
-      console.log (`BODY: ${chunk}`)
-    })
-    response.on ('akhir', () =>
-      console.log ('Tidak ada lagi data yang di respon'.)
-    })
-  })
-  request.end ()
+<pre><code class="javascript">const { app } = require('electron')
+app.on('ready', () => {
+  const { net } = require('electron')
+  const request = net.request('https://github.com')
+  request.on('response', (response) => {
+    console.log(`STATUS: ${response.statusCode}`)
+    console.log(`HEADERS: ${JSON.stringify(response.headers)}`)
+    response.on('data', (chunk) => {
+      console.log(`BODY: ${chunk}`)
+    })
+    response.on('end', () => {
+      console.log('No more data in response.')
+    })
+  })
+  request.end()
 })
 ``</pre> 
 
