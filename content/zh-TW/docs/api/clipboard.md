@@ -6,7 +6,7 @@
 
 In the renderer process context it depends on the [`remote`](remote.md) module on Linux, it is therefore not available when this module is disabled.
 
-The following example shows how to write a string to the clipboard:
+下列範例展示如何將字串寫進剪貼簿:
 
 ```javascript
 const { clipboard } = require('electron')
@@ -17,7 +17,7 @@ On X Window systems, there is also a selection clipboard. To manipulate it you n
 
 ```javascript
 const { clipboard } = require('electron')
-clipboard.writeText('Example String', 'selection')
+clipboard.writeText('範例字串', 'selection')
 console.log(clipboard.readText('selection'))
 ```
 
