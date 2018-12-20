@@ -109,37 +109,37 @@ window.on('app-command', (e, cmd) => {
 ## `clipboard`
 
 ```js
-// Deprecated
+// 已被取代
 clipboard.readRtf()
-// Replace with
+// 請寫成
 clipboard.readRTF()
 
-// Deprecated
+// 已被取代
 clipboard.writeRtf()
-// Replace with
+// 請寫成
 clipboard.writeRTF()
 
-// Deprecated
+// 已被取代
 clipboard.readHtml()
-// Replace with
+// 請寫成
 clipboard.readHTML()
 
-// Deprecated
+// 已被取代
 clipboard.writeHtml()
-// Replace with
+// 請寫成
 clipboard.writeHTML()
 ```
 
 ## `crashReporter`
 
 ```js
-// Deprecated
+// 已被取代
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// Replace with
+// 請寫成
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -158,7 +158,7 @@ nativeImage.createFromBuffer(buffer, {
 })
 ```
 
-## `process`
+## `處理序`
 
 ```js
 // Deprecated
@@ -177,11 +177,11 @@ screen.getPrimaryDisplay().workArea
 ## `session`
 
 ```js
-// Deprecated
+// 已被取代
 ses.setCertificateVerifyProc(function (hostname, certificate, callback) {
   callback(true)
 })
-// Replace with
+// 請寫成
 ses.setCertificateVerifyProc(function (request, callback) {
   callback(0)
 })
@@ -190,14 +190,14 @@ ses.setCertificateVerifyProc(function (request, callback) {
 ## `Tray`
 
 ```js
-// Deprecated
+// 已被取代
 tray.setHighlightMode(true)
-// Replace with
+// 請寫成
 tray.setHighlightMode('on')
 
-// Deprecated
+// 已被取代
 tray.setHighlightMode(false)
-// Replace with
+// 請寫成
 tray.setHighlightMode('off')
 ```
 
@@ -248,9 +248,9 @@ webview.onkeyup = () => { /* handler */ }
 
 This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
 
-Deprecated: https://atom.io/download/atom-shell
+已被取代: https://atom.io/download/atom-shell
 
-Replace with: https://atom.io/download/electron
+請改用: https://atom.io/download/electron
 
 # Breaking API Changes (2.0)
 
@@ -259,10 +259,10 @@ The following list includes the breaking API changes made in Electron 2.0.
 ## `BrowserWindow`
 
 ```js
-// Deprecated
+// 已被取代
 let optionsA = { titleBarStyle: 'hidden-inset' }
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// 請寫成
 let optionsB = { titleBarStyle: 'hiddenInset' }
 let windowB = new BrowserWindow(optionsB)
 ```
@@ -290,7 +290,7 @@ nativeImage.toJpeg()
 nativeImage.toJPEG()
 ```
 
-## `process`
+## `處理序`
 
 * `process.versions.electron` 及 `process.version.chrome` 將變為唯讀的屬性，與其他由 Node 設定的 `process.versions` 一致。
 
