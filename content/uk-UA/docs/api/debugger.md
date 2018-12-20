@@ -7,17 +7,17 @@
 Інструменти розробника Chrome мають [спеціальну прив'язку](https://developer.chrome.com/devtools/docs/debugger-protocol) доступну під час виконання JavaScript, що дозволяє взаємодіяти зі сторінками і інструментарієм.
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 
 try {
   win.webContents.debugger.attach('1.1')
 } catch (err) {
-  console.log('Не вдалося підключити налагоджувач : ', err)
+  console.log('Debugger attach failed : ', err)
 }
 
 win.webContents.debugger.on('detach', (event, reason) => {
-  console.log('Налагоджувач відключено через : ', reason)
+  console.log('Debugger detached due to : ', reason)
 })
 
 win.webContents.debugger.on('message', (event, method, params) => {
