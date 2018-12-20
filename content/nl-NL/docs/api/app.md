@@ -7,7 +7,7 @@ Proces: [Main](../glossary.md#main-process)
 The following example shows how to quit the application when the last window is closed:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 app.on('window-all-closed', () => {
   app.quit()
 })
@@ -25,7 +25,7 @@ In most cases, you should do everything in the `ready` event handler.
 
 ### Event: 'ready'
 
-Returns:
+Geeft terug:
 
 * `launchInfo` Object *macOS*
 
@@ -39,7 +39,7 @@ If you do not subscribe to this event and all windows are closed, the default be
 
 ### Event: 'before-quit'
 
-Returns:
+Geeft terug:
 
 * `event` Event
 
@@ -51,7 +51,7 @@ Emitted before the application starts closing its windows. Calling `event.preven
 
 ### Event: 'will-quit'
 
-Returns:
+Geeft terug:
 
 * `event` Event
 
@@ -63,7 +63,7 @@ See the description of the `window-all-closed` event for the differences between
 
 ### Event: 'quit'
 
-Returns:
+Geeft terug:
 
 * `event` Event
 * `exitCode` Integer
@@ -74,7 +74,7 @@ Emitted when the application is quitting.
 
 ### Event: 'open-file' *macOS*
 
-Returns:
+Geeft terug:
 
 * `event` Event
 * `path` String
@@ -87,7 +87,7 @@ On Windows, you have to parse `process.argv` (in the main process) to get the fi
 
 ### Event: 'open-url' *macOS*
 
-Returns:
+Geeft terug:
 
 * `event` Event
 * `url` String
@@ -98,7 +98,7 @@ You should call `event.preventDefault()` if you want to handle this event.
 
 ### Event: 'activate' *macOS*
 
-Returns:
+Geeft terug:
 
 * `event` Event
 * `hasVisibleWindows` Boolean
@@ -107,7 +107,7 @@ Emitted when the application is activated. Various actions can trigger this even
 
 ### Event: 'continue-activity' *macOS*
 
-Returns:
+Geeft terug:
 
 * `event` Event
 * `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
@@ -119,7 +119,7 @@ A user activity can be continued only in an app that has the same developer Team
 
 ### Event: 'will-continue-activity' *macOS*
 
-Returns:
+Geeft terug:
 
 * `event` Event
 * `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
@@ -128,7 +128,7 @@ Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/U
 
 ### Event: 'continue-activity-error' *macOS*
 
-Returns:
+Geeft terug:
 
 * `event` Event
 * `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
@@ -138,7 +138,7 @@ Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/U
 
 ### Event: 'activity-was-continued' *macOS*
 
-Returns:
+Geeft terug:
 
 * `event` Event
 * `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
@@ -148,7 +148,7 @@ Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/U
 
 ### Event: 'update-activity-state' *macOS*
 
-Returns:
+Geeft terug:
 
 * `event` Event
 * `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
@@ -158,7 +158,7 @@ Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/Use
 
 ### Event: 'new-window-for-tab' *macOS*
 
-Returns:
+Geeft terug:
 
 * `event` Event
 
@@ -166,7 +166,7 @@ Emitted when the user clicks the native macOS new tab button. The new tab button
 
 ### Event: 'browser-window-blur'
 
-Returns:
+Geeft terug:
 
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
@@ -175,7 +175,7 @@ Emitted when a [browserWindow](browser-window.md) gets blurred.
 
 ### Event: 'browser-window-focus'
 
-Returns:
+Geeft terug:
 
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
@@ -184,7 +184,7 @@ Emitted when a [browserWindow](browser-window.md) gets focused.
 
 ### Event: 'browser-window-created'
 
-Returns:
+Geeft terug:
 
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
@@ -193,7 +193,7 @@ Emitted when a new [browserWindow](browser-window.md) is created.
 
 ### Event: 'web-contents-created'
 
-Returns:
+Geeft terug:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -202,20 +202,20 @@ Emitted when a new [webContents](web-contents.md) is created.
 
 ### Event: 'certificate-error'
 
-Returns:
+Geeft terug:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `url` String
 * `error` String - The error code
 * `certificate` [Certificate](structures/certificate.md)
-* `callback` Functie 
+* `callback` Function 
   * `isTrusted` Boolean - Whether to consider the certificate as trusted
 
 Emitted when failed to verify the `certificate` for `url`, to trust the certificate you should prevent the default behavior with `event.preventDefault()` and call `callback(true)`.
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('certificate-error', (event, webContents, url, error, certificate, callback) => {
   if (url === 'https://github.com') {
@@ -230,13 +230,13 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 ### Event: 'select-client-certificate'
 
-Returns:
+Geeft terug:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Functie 
+* `callback` Function 
   * `certificate` [Certificate](structures/certificate.md) (optional)
 
 Emitted when a client certificate is requested.
@@ -244,7 +244,7 @@ Emitted when a client certificate is requested.
 The `url` corresponds to the navigation entry requesting the client certificate and `callback` can be called with an entry filtered from the list. Using `event.preventDefault()` prevents the application from using the first certificate from the store.
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('select-client-certificate', (event, webContents, url, list, callback) => {
   event.preventDefault()
@@ -254,7 +254,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 ### Event: 'login'
 
-Returns:
+Geeft terug:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -268,7 +268,7 @@ Returns:
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Functie 
+* `callback` Function 
   * `username` String
   * `password` String
 
@@ -277,7 +277,7 @@ Emitted when `webContents` wants to do basic auth.
 The default behavior is to cancel all authentications, to override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('login', (event, webContents, request, authInfo, callback) => {
   event.preventDefault()
@@ -287,7 +287,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 ### Event: 'gpu-process-crashed'
 
-Returns:
+Geeft terug:
 
 * `event` Event
 * `killed` Boolean
@@ -296,7 +296,7 @@ Emitted when the gpu process crashes or is killed.
 
 ### Event: 'accessibility-support-changed' *macOS* *Windows*
 
-Returns:
+Geeft terug:
 
 * `event` Event
 * `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
@@ -305,14 +305,14 @@ Emitted when Chrome's accessibility support changes. This event fires when assis
 
 ### Event: 'session-created'
 
-Returns:
+Geeft terug:
 
 * `session` [Session](session.md)
 
 Emitted when Electron has created a new `session`.
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('session-created', (event, session) => {
   console.log(session)
@@ -321,7 +321,7 @@ app.on('session-created', (event, session) => {
 
 ### Event: 'second-instance'
 
-Returns:
+Geeft terug:
 
 * `event` Event
 * `argv` String[] - An array of the second instance's command line arguments
@@ -330,6 +330,26 @@ Returns:
 This event will be emitted inside the primary instance of your application when a second instance has been executed. `argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Usually applications respond to this by making their primary window focused and non-minimized.
 
 This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
+
+### Event: 'remote-require'
+
+Geeft terug:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+* `moduleName` String
+
+Emitted when `remote.require()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+
+### Event: 'remote-get-global'
+
+Geeft terug:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+* `globalName` String
+
+Emitted when `remote.getGlobal()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
 
 ## Methoden
 
@@ -368,9 +388,9 @@ When `app.relaunch` is called for multiple times, multiple instances will be sta
 An example of restarting current instance immediately and adding a new command line argument to the new instance:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
-app.relaunch({args: process.argv.slice(1).concat(['--relaunch'])})
+app.relaunch({ args: process.argv.slice(1).concat(['--relaunch']) })
 app.exit(0)
 ```
 
@@ -380,7 +400,7 @@ Returns `Boolean` - `true` if Electron has finished initializing, `false` otherw
 
 ### `app.whenReady()`
 
-Returns `Promise` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
+Returns `Promise<void>` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
 
 ### `app.focus()`
 
@@ -432,7 +452,7 @@ You can request the following paths by the name:
     * `small` - 16x16
     * `normal` - 32x32
     * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
-* `callback` Functie 
+* `callback` Function 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
@@ -574,7 +594,7 @@ If `categories` is `null` the previously set custom Jump List (if any) will be r
 Here's a very simple example of creating a custom Jump List:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.setJumpList([
   {
@@ -646,7 +666,7 @@ On macOS the system enforces single instance automatically when users try to ope
 An example of activating the window of primary instance when a second instance starts:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 let myWindow = null
 
 const gotTheLock = app.requestSingleInstanceLock()
@@ -714,10 +734,10 @@ Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library
 * `options` Object 
   * `certificate` String - Path for the pkcs12 file.
   * `password` String - Passphrase for the certificate.
-* `callback` Functie 
+* `callback` Function 
   * `result` Integer - Result of import.
 
-Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `0` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `0` indicates success while any other value indicates failure according to Chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
 ### `app.disableHardwareAcceleration()`
 
@@ -738,6 +758,41 @@ Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetr
 ### `app.getGPUFeatureStatus()`
 
 Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Feature Status from `chrome://gpu/`.
+
+### `app.getGPUInfo(infoType)`
+
+* `infoType` String - Values can be either `basic` for basic info or `complete` for complete info.
+
+Returns `Promise`
+
+For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src.git/+/69.0.3497.106/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
+
+For `infoType` equal to `basic`: Promise is fulfilled with `Object` containing fewer attributes than when requested with `complete`. Here's an example of basic response:
+
+```js
+{ auxAttributes:
+   { amdSwitchable: true,
+     canSupportThreadedTextureMailbox: false,
+     directComposition: false,
+     directRendering: true,
+     glResetNotificationStrategy: 0,
+     inProcessGpu: true,
+     initializationTime: 0,
+     jpegDecodeAcceleratorSupported: false,
+     optimus: false,
+     passthroughCmdDecoder: false,
+     sandboxed: false,
+     softwareRendering: false,
+     supportsOverlays: false,
+     videoDecodeAcceleratorFlags: 0 },
+gpuDevice:
+   [ { active: true, deviceId: 26657, vendorId: 4098 },
+     { active: false, deviceId: 3366, vendorId: 32902 } ],
+machineModelName: 'MacBookPro',
+machineModelVersion: '11.5' }
+```
+
+Using `basic` should be preferred if only basic information like `vendorId` or `driverId` is needed.
 
 ### `app.setBadgeCount(count)` *Linux* *macOS*
 
@@ -785,7 +840,7 @@ Returns `Object`:
 
 Set the app's login item settings.
 
-To work with Electron's `autoUpdater` on Windows, which uses [Squirrel](https://github.com/Squirrel/Squirrel.Windows), you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. For example:
+To work with Electron's `autoUpdater` on Windows, which uses [Squirrel](https://github.com/Squirrel/Squirrel.Windows), you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. Bijvoorbeeld:
 
 ```javascript
 const appFolder = path.dirname(process.execPath)
@@ -814,6 +869,10 @@ Manually enables Chrome's accessibility support, allowing to expose accessibilit
 
 **Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
 
+### `app.showAboutPanel()` *macOS*
+
+Show the about panel with the values defined in the app's `.plist` file or with the options set via `app.setAboutPanelOptions(options)`.
+
 ### `app.setAboutPanelOptions(options)` *macOS*
 
 * `options` Object 
@@ -838,7 +897,7 @@ const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedReso
 stopAccessingSecurityScopedResource()
 ```
 
-Start accessing a security scoped resource. With this method electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
+Start accessing a security scoped resource. With this method Electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
@@ -856,6 +915,12 @@ Append a switch (with optional `value`) to Chromium's command line.
 Append an argument to Chromium's command line. The argument will be quoted correctly.
 
 **Note:** This will not affect `process.argv`.
+
+### `app.enableSandbox()` *Experimental* *macOS* *Windows*
+
+Enables full sandbox mode on the app.
+
+This method can only be called before app is ready.
 
 ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
 
