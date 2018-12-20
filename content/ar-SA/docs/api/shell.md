@@ -40,7 +40,7 @@ Open the given file in the desktop's default manner.
 * `options` Object (optional) 
   * `activate` Boolean (optional) - `true` to bring the opened application to the foreground. The default is `true`. *macOS*
   * `workingDirectory` String (optional) - The working directory. *Windows*
-* `callback` Function (optional) *macOS* - If specified will perform the open asynchronously. 
+* `callback` Function (optional) *نظام macOS* - If specified will perform the open asynchronously. 
   * `error` Error
 
 Returns `Boolean` - Whether an application was available to open the URL. If callback is specified, always returns true.
