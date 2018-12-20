@@ -9,22 +9,22 @@ A frameless window is a window that has no [chrome](https://developer.mozilla.or
 To create a frameless window, you need to set `frame` to `false` in [BrowserWindow](browser-window.md)'s `options`:
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({width: 800, height: 600, frame: false})
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ width: 800, height: 600, frame: false })
 win.show()
 ```
 
 ### Alternatives on macOS
 
-On macOS 10.9 Mavericks and newer, there's an alternative way to specify a chromeless window. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. You can do so by specifying the `titleBarStyle` option:
+There's an alternative way to specify a chromeless window. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. You can do so by specifying the `titleBarStyle` option:
 
 #### `hidden`
 
 Results in a hidden title bar and a full size content window, yet the title bar still has the standard window controls (“traffic lights”) in the top left.
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({titleBarStyle: 'hidden'})
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ titleBarStyle: 'hidden' })
 win.show()
 ```
 
@@ -33,8 +33,8 @@ win.show()
 Results in a hidden title bar with an alternative look where the traffic light buttons are slightly more inset from the window edge.
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({titleBarStyle: 'hiddenInset'})
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ titleBarStyle: 'hiddenInset' })
 win.show()
 ```
 
@@ -43,8 +43,8 @@ win.show()
 Uses custom drawn close, and miniaturize buttons that display when hovering in the top left of the window. The fullscreen button is not available due to restrictions of frameless windows as they interface with Apple's MacOS window masks. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. Tato volba je dostupná pouze pro okna bez rámů.
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({titleBarStyle: 'customButtonsOnHover', frame: false})
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ titleBarStyle: 'customButtonsOnHover', frame: false })
 win.show()
 ```
 
@@ -53,8 +53,8 @@ win.show()
 By setting the `transparent` option to `true`, you can also make the frameless window transparent:
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({transparent: true, frame: false})
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ transparent: true, frame: false })
 win.show()
 ```
 
@@ -72,7 +72,7 @@ win.show()
 To create a click-through window, i.e. making the window ignore all mouse events, you can call the [win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore-options) API:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.setIgnoreMouseEvents(true)
 ```
@@ -85,7 +85,7 @@ Ignoring mouse messages makes the web page oblivious to mouse movement, meaning 
 let win = require('electron').remote.getCurrentWindow()
 let el = document.getElementById('clickThroughElement')
 el.addEventListener('mouseenter', () => {
-  win.setIgnoreMouseEvents(true, {forward: true})
+  win.setIgnoreMouseEvents(true, { forward: true })
 })
 el.addEventListener('mouseleave', () => {
   win.setIgnoreMouseEvents(false)
