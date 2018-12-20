@@ -66,6 +66,8 @@
 
 На Windows доступне тільки `releaseName`.
 
+**Note:** It is not strictly necessary to handle this event. A successfully downloaded update will still be applied the next time the application starts.
+
 ### Подія: 'before-quit-for-update'
 
 Ця подія викликається після того як користувач викликав `quitAndInstall()`.
@@ -99,4 +101,4 @@
 
 Під капотом виклик `autoUpdater.quitAndInstall()` спочатку закриє всі вікна застосунку та автоматично викличе `app.quit()` після закриття всіх вікон.
 
-**Примітка:** Якщо з застосунка вийшли без виклику цого API після виконання події `update-downloaded`, застосунок все рівно буде замінений на оновлений на наступному запуску.
+**Note:** It is not strictly necessary to call this function to apply an update, as a successfully downloaded update will always be applied the next time the application starts.
