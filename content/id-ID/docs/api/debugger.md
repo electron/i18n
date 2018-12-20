@@ -7,7 +7,28 @@ Proses:  Utama </ 0></p>
 Alat Pengembang Chrome memiliki  pengikatan khusus </ 0> yang tersedia pada runtime JavaScript yang memungkinkan berinteraksi dengan halaman dan menginstruksikannya.</p> 
 
 ```javascript
-const {BrowserWindow} = require ('elektron') nyalakan = baru BrowserWindow () mencoba {win.webContents.debugger.attach ('1.1')} ha (err) {console.log ('Debugger melampirkan gagal:', err )} win.webContents.debugger.on ('hapus' (acara, alasan) = & gt; {console.log ('Debugger yang tertutup karena:', alasan)}) win.webContents.debugger.on ('pesan' acara, metode, params) = & gt; {jika (metode === 'Network.requestWillBeSent') {jika (params.request.url === 'https://www.github.com') {win.webContents. debugger.detach ()}}}) win.webContents.debugger.sendCommand ('Network.enable')
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow()
+
+try {
+  win.webContents.debugger.attach('1.1')
+} catch (err) {
+  console.log('Debugger attach failed : ', err)
+}
+
+win.webContents.debugger.on('detach', (event, reason) => {
+  console.log('Debugger detached due to : ', reason)
+})
+
+win.webContents.debugger.on('message', (event, method, params) => {
+  if (method === 'Network.requestWillBeSent') {
+    if (params.request.url === 'https://www.github.com') {
+      win.webContents.debugger.detach()
+    }
+  }
+})
+
+win.webContents.debugger.sendCommand('Network.enable')
 ```
 
 ### Metode Instance
