@@ -7,14 +7,14 @@ Proceso: [Principal](../glossary.md#main-process)
 Un ejemplo de mostrar un cuadro de diálogo para seleccionar múltiples archivos y directorios:
 
 ```javascript
-const {dialog} = require('electron')
-console.log(dialog.showOpenDialog({properties: ['openFile', 'openDirectory', 'multiSelections']}))
+const { dialog } = require('electron')
+console.log(dialog.showOpenDialog({ properties: ['openFile', 'openDirectory', 'multiSelections'] }))
 ```
 
 El dialogo es abierto en el proceso principal de Electron. Si quiere usar el objeto diálogo para un proceso renderizado, recuerde accederlo usando el comando remoto:
 
 ```javascript
-const {dialog} = require('electron').remote
+const { dialog } = require('electron').remote
 console.log(dialog)
 ```
 
@@ -24,7 +24,7 @@ El módulo `dialogo` tiene los siguientes métodos:
 
 ### `dialog.showOpenDialog([browserWindow, ]options[, callback])`
 
-* `browserWindow`[BrowserWindow](browser-window.md)(opcional)
+* `browserWindow`[BrowserWindow](browser-window.md) (opcional)
 * `opciones` Object 
   * `título` cadena (opcional)
   * `defaultPath` Cadena (optional)
@@ -54,10 +54,10 @@ Los `filters` especifican un arreglo de tipo de archivos que pueden ser desplega
 ```javascript
 {
   filters: [
-    {name: 'Images', extensions: ['jpg', 'png', 'gif']},
-    {name: 'Movies', extensions: ['mkv', 'avi', 'mp4']},
-    {name: 'Custom File Type', extensions: ['as']},
-    {name: 'All Files', extensions: ['*']}
+    { name: 'Images', extensions: ['jpg', 'png', 'gif'] },
+    { name: 'Movies', extensions: ['mkv', 'avi', 'mp4'] },
+    { name: 'Custom File Type', extensions: ['as'] },
+    { name: 'All Files', extensions: ['*'] }
   ]
 }
 ```
@@ -70,7 +70,7 @@ Si un `callback` es pasado, la llamada API será asincrónica y el resultado ser
 
 ### `dialog.showSaveDialog([browserWindow, ]options[, callback])`
 
-* `browserWindow`[BrowserWindow](browser-window.md) (opcional)
+* `browserWindow`[BrowserWindow](browser-window.md)(opcional)
 * `opciones` Object 
   * `título` cadena (opcional)
   * `defaultPath` Cadena (opcional) - El camino de directorio absoluto, el camino de archivo absoluto o el nombre del archivo a usar por defecto.
@@ -94,7 +94,7 @@ Si un `callback` es pasado, la llamada API será asincrónica y el resultado ser
 
 ### `dialog.showMessageBox([browserWindow, ]options[, callback])`
 
-* `browserWindow`[BrowserWindow](browser-window.md)(opcional)
+* `browserWindow`[BrowserWindow](browser-window.md) (opcional)
 * `opciones` Object 
   * `type` Cadena (opcional) - Puede ser `"none"`, `"info"`, `"error"`, `"question"` o `"warning"`. En Windows, `"question"` muestra el mismo icono que `"info"`, a menos que tu dispongas un icono usando la opción `"icon"`. En macOS, tanto `"warning"` como `"error"` muestran el mismo icono de peligro.
   * `buttons` Cadena[] (opcional) - Arreglo de textos por botones. En Windows, un arreglo vacío resultará en un botón con la etiqueta "OK".
@@ -105,7 +105,7 @@ Si un `callback` es pasado, la llamada API será asincrónica y el resultado ser
   * `checkboxLabel` Cadena (opcional) - Si es proveído, la caja de mensaje será incluido en una caja de chequeo con la etiqueta dada. El estado de la caja puede ser inspeccionado solo cuando se usa `callback`.
   * `checkboxChecked` Boolean (opcional) - Inicial estado de chequeo de la caja. `false` por defecto.
   * `icon` [NativeImage](native-image.md) (opcional)
-  * `cancelId` Íntegro (opcional) - El índice el botón a ser usado a cancelar el diálogo, por vía la llave `Esc`. Por defecto, esto es asignado a el primer botón con "cancelar" o "no" como una etiqueta. Si los botones etiquetados no existen y está opción no está establecida, `0` será usado como un valor de retorno o una respondida de llamada de vuelta. Esta opción es ignorada en Windows.
+  * `cancelId` Íntegro (opcional) - El índice el botón a ser usado a cancelar el diálogo, por vía la llave `Esc`. Por defecto, esto es asignado a el primer botón con "cancelar" o "no" como una etiqueta. Si los botones etiquetados no existen y está opción no está establecida, `0` será usado como un valor de retorno o una respondida de llamada de vuelta.
   * `noLink` Boolean (opcional) - En Windows Electron se tratará de averiguar cuál de los `buttons` son botones comunes (como "Cancelar" o "Sí"), y muestra los otros como links de comandos en el diálogo. Esto puede hacer que el diálogo aparezca en el estilo de las aplicaciones modernas de Windows. Si no te gusta este comportamiento, puedes establecer `noLink` a `true`.
   * `normalizeAccessKeys` Boolean (opcional) - Normalizar el acceso al teclado a través de las plataformas. Por defecto es `false`. Permitir esto asume que `&` es usado en las etiquetas de los botones para el colocamiento de los atajos de acceso de las teclas del teclado y las etiquetas serán convertidas para que funcionen correctamente en cada plataforma, `&` personajes serán eliminados de macOS, convertidos a `_` en Linux, y dejado intacto en Windows. Por ejemplo, una etiqueta de botón de `Vie&w` será convertida a `Vie_w` en Linux y `View` en macOS y puede ser seleccionado vía `Alt-W` en Windows y Linux.
 * `callback` Function (opcional) 
@@ -131,7 +131,7 @@ Esta API puede ser llamada seguramente antes que el evento `ready` el módulo `a
 
 ### `dialog.showCertificateTrustDialog([browserWindow, ]options, callback)` *macOS* *Windows*
 
-* `browserWindow`[BrowserWindow](browser-window.md)(opcional)
+* `browserWindow`[BrowserWindow](browser-window.md) (opcional)
 * `opciones` Object 
   * `certificate` [Certificate](structures/certificate.md) - El certificado a confiar/importar.
   * `message` Cadena - El mensaje a mostrar al usuario.
