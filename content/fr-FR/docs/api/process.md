@@ -13,12 +13,22 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 * `crash()`
 * `hang()`
 * `getHeapStatistics()`
-* `getProcessMemoryInfo()`
 * `getSystemMemoryInfo()`
+* `getCPUUsage()`
+* `getIOCounters()`
 * `argv`
 * `execPath`
 * `env`
+* `pid`
+* `arch`
 * `platform`
+* `resourcesPath`
+* `sandboxed`
+* `type`
+* `version`
+* `versions`
+* `mas`
+* `windowsStore`
 
 ## Événements
 
@@ -60,6 +70,10 @@ A `Boolean` that controls whether or not deprecation warnings are printed to `st
 
 A `String` representing the path to the resources directory.
 
+### `process.sandboxed`
+
+A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
+
 ### `process.throwDeprecation`
 
 A `Boolean` that controls whether or not deprecation warnings will be thrown as exceptions. Setting this to `true` will throw errors for deprecations. This property is used instead of the `--throw-deprecation` command line flag.
@@ -78,11 +92,11 @@ A `String` representing the current process's type, can be `"browser"` (i.e. mai
 
 ### `process.versions.chrome`
 
-Un `String` représentant la version de Chrome.
+A `String` representing Chrome's version string.
 
 ### `process.versions.electron`
 
-Un `String` représentant la version d'Electron.
+A `String` representing Electron's version string.
 
 ### `process.windowsStore`
 
@@ -90,19 +104,25 @@ A `Boolean`. If the app is running as a Windows Store app (appx), this property 
 
 ## Méthodes
 
-L'objet `process` dispose des méthodes suivantes :
+The `process` object has the following methods:
 
 ### `process.crash()`
 
 Causes the main thread of the current process crash.
 
+### `process.getCreationTime()`
+
+Returns `Number | null` - The number of milliseconds since epoch, or `null` if the information is unavailable
+
+Indicates the creation time of the application. The time is represented as number of milliseconds since epoch. It returns null if it is unable to get the process creation time.
+
 ### `process.getCPUUsage()`
 
-Retourne [`CPUUsage`](structures/cpu-usage.md)
+Returns [`CPUUsage`](structures/cpu-usage.md)
 
 ### `process.getIOCounters()` *Windows* *Linux*
 
-Retourne [`IOCounters`](structures/io-counters.md)
+Returns [`IOCounters`](structures/io-counters.md)
 
 ### `process.getHeapStatistics()`
 
@@ -120,17 +140,6 @@ Retourne `Object`:
 
 Returns an object with V8 heap statistics. Note that all statistics are reported in Kilobytes.
 
-### `process.getProcessMemoryInfo()`
-
-Retourne `Object`:
-
-* `workingSetSize` Integer - The amount of memory currently pinned to actual physical RAM.
-* `peakWorkingSetSize` Integer - The maximum amount of memory that has ever been pinned to actual physical RAM.
-* `privateBytes` Integer - La quantité de mémoire non partagée par d'autres processus, tel que des empilements de JS ou du contenu HTML.
-* `sharedBytes` Integer - La quantité de mémoire partagée entre processus, généralement la mémoire consommée par Electron lui-même.
-
-Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes.
-
 ### `process.getSystemMemoryInfo()`
 
 Retourne `Object`:
@@ -141,6 +150,14 @@ Retourne `Object`:
 * `swapFree` Integer *Windows* *Linux* - The free amount of swap memory in Kilobytes available to the system.
 
 Returns an object giving memory usage statistics about the entire system. Note that all statistics are reported in Kilobytes.
+
+### `process.takeHeapSnapshot(filePath)`
+
+* `filePath` String - Path to the output file.
+
+Returns `Boolean` - Indicates whether the snapshot has been created successfully.
+
+Takes a V8 heap snapshot and saves it to `filePath`.
 
 ### `process.hang()`
 
