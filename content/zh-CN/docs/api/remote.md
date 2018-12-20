@@ -24,29 +24,29 @@ win.loadURL('https://github.com')
 
 ## 远程对象（Remote Objects）
 
-Each object (including functions) returned by the `remote` module represents an object in the main process (we call it a remote object or remote function). When you invoke methods of a remote object, call a remote function, or create a new object with the remote constructor (function), you are actually sending synchronous inter-process messages.
+` remote ` 模块返回的每个对象 (包括函数) 表示主进程中的一个对象 (我们称它为远程对象或远程函数)。 当调用远程对象的方法时, 调用远程函数, 或者使用远程构造函数 (函数) 创建新对象时, 实际上是在发送同步进程消息。
 
-In the example above, both [`BrowserWindow`](browser-window.md) and `win` were remote objects and `new BrowserWindow` didn't create a `BrowserWindow` object in the renderer process. Instead, it created a `BrowserWindow` object in the main process and returned the corresponding remote object in the renderer process, namely the `win` object.
+在上面的示例中, [ BrowserWindow ` 和 ` win ](browser-window. md) 都是远程对象, ` new BrowserWindow ` 在渲染过程中没有创建 ` BrowserWindow ` 对象。 取而代之的是，它在主进程中创建了一个 `BrowserWindow`对象，并且在渲染进程中返回相应的远程对象，即` win </ 0>对象。</p>
 
-**Note:** Only [enumerable properties](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties) which are present when the remote object is first referenced are accessible via remote.
+<p><strong>注意： </strong>当远程对象被第一次引用时，只有<a href="https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties">可枚举的属性</a>可以通过远程访问。</p>
 
-**Note:** Arrays and Buffers are copied over IPC when accessed via the `remote` module. Modifying them in the renderer process does not modify them in the main process and vice versa.
+<p><strong>注意：</strong> 当通过<code> remote `模块访问时，数组和缓冲区在IPC上复制。 在渲染进程中修改它们不会在主进程中修改它们，反之亦然。
 
 ## 远程对象的生命周期
 
-Electron makes sure that as long as the remote object in the renderer process lives (in other words, has not been garbage collected), the corresponding object in the main process will not be released. When the remote object has been garbage collected, the corresponding object in the main process will be dereferenced.
+Electron 确保只要渲染进程中的远程对象存在（换句话说，没有被垃圾收集），主进程中的相应对象将不会被释放。 当远程对象被垃圾回收后，主进程中的相应对象将被解除引用。
 
-If the remote object is leaked in the renderer process (e.g. stored in a map but never freed), the corresponding object in the main process will also be leaked, so you should be very careful not to leak remote objects.
+如果远程对象在渲染进程中泄露（例如存储在映射中，但从未释放），则主进程中的相应对象也将被泄漏，所以您应该非常小心，不要泄漏远程对象。
 
-Primary value types like strings and numbers, however, are sent by copy.
+但是，字符串和数字等主要值的类型是通过复制发送的。
 
 ## 将回调传递给主进程
 
-Code in the main process can accept callbacks from the renderer - for instance the `remote` module - but you should be extremely careful when using this feature.
+主进程中的代码可以接受来自渲染进程的回调 - 例如`remote`模块 - 但使用此功能时应该非常小心。
 
-First, in order to avoid deadlocks, the callbacks passed to the main process are called asynchronously. You should not expect the main process to get the return value of the passed callbacks.
+首先，为了避免死锁，传递给主进程的回调被异步调用。 您不应该期望主进程获得传递回调的返回值。
 
-For instance you can't use a function from the renderer process in an `Array.map` called in the main process:
+例如，您不能在主进程中调用的` Array.map `中使用来自渲染器进程的函数：
 
 ```javascript
 // 主进程 mapNumbers.js
@@ -69,11 +69,11 @@ console.log(withRendererCb, withLocalCb)
 // [undefined, undefined, undefined], [2, 3, 4]
 ```
 
-As you can see, the renderer callback's synchronous return value was not as expected, and didn't match the return value of an identical callback that lives in the main process.
+如您所见，渲染器回调的同步返回值不是预期的，而且在主进程中也与相同回调的返回值不符。
 
-Second, the callbacks passed to the main process will persist until the main process garbage-collects them.
+其次，传递给主进程的回调将持续到主进程垃圾回收。
 
-For example, the following code seems innocent at first glance. It installs a callback for the `close` event on a remote object:
+例如，下面的代码乍一看似乎是无辜的。 它为远程对象上的` close `事件安装一个回调：
 
 ```javascript
 require('electron').remote.getCurrentWindow().on('close', () => {
@@ -81,15 +81,15 @@ require('electron').remote.getCurrentWindow().on('close', () => {
 })
 ```
 
-But remember the callback is referenced by the main process until you explicitly uninstall it. If you do not, each time you reload your window the callback will be installed again, leaking one callback for each restart.
+但请记住, 回调是由主进程引用的, 直到你显式卸载它。 如果不这样做, 每次重新加载窗口时这个回调将再次被安装, 每次重启时都会泄漏一个回调。
 
-To make things worse, since the context of previously installed callbacks has been released, exceptions will be raised in the main process when the `close` event is emitted.
+更糟的是, 由于以前安装的回调的上下文已释放, 因此在发出 ` close ` 事件时, 将在主进程中引发异常。
 
-To avoid this problem, ensure you clean up any references to renderer callbacks passed to the main process. This involves cleaning up event handlers, or ensuring the main process is explicitly told to dereference callbacks that came from a renderer process that is exiting.
+为了避免这个问题，请确保清除对传递给主进程的渲染器回调的引用。 这涉及到清理事件处理程序, 或者确保主进程被明确告知取消引用来自正在退出的渲染程序的回调。
 
 ## 访问主进程中的内置模块
 
-The built-in modules in the main process are added as getters in the `remote` module, so you can use them directly like the `electron` module.
+主过程中的内置模块被添加为 `remote` 模块中的获取器，因此可以像 `electron` 模块一样直接使用它们。
 
 ```javascript
 const app = require('electron').remote.app
@@ -98,15 +98,15 @@ console.log(app)
 
 ## 方法
 
-The `remote` module has the following methods:
+`remote ` 模块具有以下方法:
 
 ### `remote.require(module)`
 
 * `module` String
 
-Returns `any` - The object returned by `require(module)` in the main process. Modules specified by their relative path will resolve relative to the entrypoint of the main process.
+返回 `any` - 主进程中`require(module)` 返回的对象。 由其相对路径指定的模块将相对于主进程的入口点来解析。
 
-e.g.
+例如:
 
 ```sh
 project/
@@ -136,22 +136,22 @@ const foo = require('electron').remote.require('./foo') // bar
 
 ### `remote.getCurrentWindow()`
 
-Returns [`BrowserWindow`](browser-window.md) - The window to which this web page belongs.
+返回 [`BrowserWindow`](browser-window.md) - 此网页所属的窗口
 
 **Note:** Do not use `removeAllListeners` on [`BrowserWindow`](browser-window.md). Use of this can remove all [`blur`](https://developer.mozilla.org/en-US/docs/Web/Events/blur) listeners, disable click events on touch bar buttons, and other unintended consequences.
 
 ### `remote.getCurrentWebContents()`
 
-Returns [`WebContents`](web-contents.md) - The web contents of this web page.
+返回 [`WebContents`](web-contents.md) - 此网页的 web 内容
 
 ### `remote.getGlobal(name)`
 
 * `name` String
 
-Returns `any` - The global variable of `name` (e.g. `global[name]`) in the main process.
+返回 ` any `-主进程中 ` name ` (例如 ` global[name]`) 的全局变量。
 
 ## 属性
 
 ### `remote.process`
 
-The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
+主进程中的 ` process ` 对象。这与 ` remote.getGlobal('process') ` 相同, 但已被缓存。
