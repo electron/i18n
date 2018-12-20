@@ -2,14 +2,14 @@
 
 > Performans darboğazlarını ve yavaş işlemleri bulmak için Chromium'un içerik modülünden izleme verilerini toplar.
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
 Bu modül web arabirimi içermez o yüzden sonuçları görüntülemek için `chrome://tracing/` bunu Chrome tarayıcısında açın ve oluşturulan dosyayı yükleyin.
 
 **Not:** Uygulama modülünün `ready` etkinliği belirtilmeden bu modülü kullanmamalısınız.
 
 ```javascript
-const {app, contentTracing} = require('electron')
+const { app, contentTracing } = require('electron')
 
 app.on('ready', () => {
   const options = {
@@ -29,13 +29,13 @@ app.on('ready', () => {
 })
 ```
 
-## Metodlar
+## Yöntemler
 
 `contentTracing` modülü aşağıdaki metodları içerir:
 
 ### `contentTracing.getCategories(callback)`
 
-* `geri aramak` Fonksiyon 
+* `geri aramak` Function 
   * `categories` Dizi[]
 
 Kategori gruplarının bir kümesini edinin. Yeni kod yollarına ulaşıldığında kategori grupları değiiştirilebilir.
@@ -44,10 +44,10 @@ Bütün alt süreçler, `getCategories` isteğini onayladıktan sonra, `callback
 
 ### `contentTracing.startRecording(options, callback)`
 
-* `seçenekler` Nesne 
+* `seçenekler` Object 
   * `categoryFilter` Dizi
   * `traceOptions` Dizi
-* `callback` Fonksiyon
+* `callback` Function
 
 Tüm işlemler kaydetmeye başlayın.
 
@@ -76,7 +76,7 @@ Kayıt işlemi, EnableRecording isteği alındığı gibi yerel ve asenkron olar
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
 * `resultFilePath` Dizi
-* `geri aramak` Fonksiyon 
+* `geri aramak` Function 
   * `resultFilePath` Dizi
 
 Kayıt işlemini tüm süreçlerde durdurur.
@@ -92,7 +92,7 @@ Eğer izleme verileri boş değilse veya geçici dosyaya gönderilirse `resultFi
 * `seçenekler` Nesne 
   * `categoryFilter` Dizi
   * `traceOptions` Dizi
-* `callback` Fonksiyon
+* `callback` Function
 
 Tüm süreçlerin izlenmesini başlat.
 
@@ -102,7 +102,7 @@ Tüm alt süreçler `startMonitoring` isteğini onayladıktan sonra `callback` �
 
 ### `contentTracing.stopMonitoring(callback)`
 
-* `callback` Fonksiyon
+* `callback` Function
 
 Tüm işlemlerin izlemesini durdurun.
 
@@ -111,7 +111,7 @@ Tüm alt süreçler `stopMonitoring` isteğini onayladıktan sonra `callback` ç
 ### `contentTracing.captureMonitoringSnapshot(resultFilePath, callback)`
 
 * `resultFilePath` Dizi
-* `geri aramak` Fonksiyon 
+* `geri aramak` Function 
   * `resultFilePath` Dizi
 
 Geçerli izleme verilerini alın.
@@ -122,7 +122,7 @@ Bütün alt süreçler, `captureMonitoringSnapshot` isteğini onayladıktan sonr
 
 ### `contentTracing.getTraceBufferUsage(callback)`
 
-* `geri aramak` Fonksiyon 
+* `geri aramak` Function 
   * `value` numara
   * `percentage` numara
 
