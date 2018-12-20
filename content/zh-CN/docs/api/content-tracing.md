@@ -2,7 +2,7 @@
 
 > 从Chromium的内容模块收集跟踪数据，以查找性能瓶颈和缓慢的操作。
 
-线程：[主线程](../glossary.md#main-process)
+进程：[主进程](../glossary.md#main-process)
 
 该模块不包含网页接口，所以你需要在Chrome浏览器打开`chrome://tracing/`页面，然后加载生成的文件来查看结果。
 
@@ -35,7 +35,7 @@ app.on('ready', () => {
 
 ### `contentTracing.getCategories(callback)`
 
-* `callback` Function 
+* `callback` Function - 回调函数 
   * `categories` String[]
 
 获取一个类别组的集合。随着能访问的新的代码路径不一样，获取的类别组对象也会不一样。
@@ -44,7 +44,7 @@ app.on('ready', () => {
 
 ### `contentTracing.startRecording(options, callback)`
 
-* `options` Object 
+* `options` Object - 过滤器对象，包含过滤参数 
   * `categoryFilter` String
   * `traceOptions` String
 * `callback` Function
@@ -55,7 +55,7 @@ app.on('ready', () => {
 
 `categoryFilter` 是一个用来控制哪些类别组需要被跟踪的过滤器。 过滤器可以有一个可选的`-`前缀来排除包含一个匹配类别的类别组。 同一个列表中，不支持既有包含的类别模式又有排除的类别模式。
 
-示例:
+示例
 
 * `test_MyTest*`,
 * `test_MyTest*,test_OtherStuff`,
@@ -76,12 +76,12 @@ app.on('ready', () => {
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
 * `resultFilePath` String
-* `callback` Function 
+* `callback` Function - 回调函数 
   * `resultFilePath` String
 
 停止所有进程记录。
 
-子进程通常缓存跟踪数据，并且很少清空和发送跟踪数据回到主进程。 这有助于最小化运行时间开销，因为通过IPC发送跟踪数据可能是一个开销巨大的操作。 所以，为了结束跟踪，我们必须异步地要求所有子进程清空任何等待跟踪数据。
+子进程通常缓存跟踪数据，并且很少清空和发送跟踪数据到主进程。 这有助于最小化运行时间开销，因为通过IPC发送跟踪数据可能是一个开销巨大的操作。 所以，为了结束跟踪，我们必须异步地要求所有子进程清空任何等待跟踪数据。
 
 一旦所有子进程确认了 `stopRecording`请求，将传递包含跟踪数据的文件作为参数调用`callback`。
 
@@ -116,13 +116,13 @@ app.on('ready', () => {
 
 获取当前监控的跟踪数据
 
-子进程通常缓存跟踪数据，并且很少清空和发送跟踪数据到主进程。 通过IPC发送跟踪数据可能是一个开销巨大的操作，我们想避免跟踪时不必要的运行时开销。 因此, 为了结束跟踪, 我们必须异步请求所有子进程刷新所有挂起的跟踪数据。
+子进程通常缓存跟踪数据，并且很少清空和发送跟踪数据回到主进程。 通过IPC发送跟踪数据可能是一个开销巨大的操作，我们想避免跟踪时不必要的运行时开销。 因此, 为了结束跟踪, 我们必须异步请求所有子进程刷新所有挂起的跟踪数据。
 
 一旦所有子进程都确认了 ` captureMonitoringSnapshot ` 请求, 就会使用包含跟踪数据的文件来调用 ` callback `。
 
 ### `contentTracing.startMonitoring(options, callback)`
 
-* `callback` Function 
+* `callback` Function - 回调函数 
   * `value` Number
   * `percentage` Number
 
