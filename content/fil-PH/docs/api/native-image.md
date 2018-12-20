@@ -9,17 +9,17 @@ Sa Electron, para sa APIs na kumukuha ng imahe, pwede mong ipasa alinman sa file
 Halimbawa, kung gagawa ng tray o setting sa icon ng window, pwede mong ipasa ang file path ng imahe bilang isang `String`:
 
 ```javascript
-const {BrowserWindow, Tray} = require('electron')
+const { BrowserWindow, Tray } = require('electron')
 
 const appIcon = new Tray('/Users/somebody/images/icon.png')
-let win = new BrowserWindow({icon: '/Users/somebody/images/window.png'})
+let win = new BrowserWindow({ icon: '/Users/somebody/images/window.png' })
 console.log(appIcon, win)
 ```
 
 O basahin ang imahe mula sa klipbord na nagbabalik ng isang `NativeImage`:
 
 ```javascript
-const {clipboard, Tray} = require('electron')
+const { clipboard, Tray } = require('electron')
 const image = clipboard.readImage()
 const appIcon = new Tray(image)
 console.log(appIcon)
@@ -61,7 +61,7 @@ imahe/
 ```
 
 ```javascript
-const {Tray} = require('electron')
+const { Tray } = require('electron')
 let appIcon = new Tray('/Users/somebody/images/icon.png')
 console.log(appIcon)
 ```
