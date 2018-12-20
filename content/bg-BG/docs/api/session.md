@@ -332,7 +332,7 @@ Returns `String` - The user agent for this session.
 #### `ses.getBlobData(identifier, callback)`
 
 * `identifier` String - Valid UUID.
-* `callback` Function 
+* `обратно повикване` Функция 
   * `result` Buffer - Blob data.
 
 #### `ses.createInterruptedDownload(options)`
