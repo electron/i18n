@@ -2,12 +2,12 @@
 
 > Un transporte alternativo para el protocolo de depuración remoto de Chrome.
 
-Proceso: [Main](../glossary.md#main-process)
+Process: [Main](../glossary.md#main-process)
 
 Las herramientas para desarrolladores de Chrome tiene un [special binding](https://developer.chrome.com/devtools/docs/debugger-protocol) disponible en JavaScript runtime que permite interactuar con las páginas y equiparlas.
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 
 try {
