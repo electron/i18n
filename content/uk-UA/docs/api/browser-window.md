@@ -6,12 +6,12 @@
 
 ```javascript
 // В головному процесі.
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 
 // Чи використовуйте `remote` з процесу рендеринга.
-// const {BrowserWindow} = require('electron').remote
+// const { BrowserWindow } = require('electron').remote
 
-let win = new BrowserWindow({width: 800, height: 600})
+let win = new BrowserWindow({ width: 800, height: 600 })
 win.on('closed', () => {
   win = null
 })
@@ -36,8 +36,8 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 Під час завантаження сторінки, подія `ready-to-show` буде викликана, коли процес рендерингу перший раз збере сторінку, якщо вікно ще не показано. Відображення вікна після цієї події не буде мати візуального спалаху:
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({show: false})
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ show: false })
 win.once('ready-to-show', () => {
   win.show()
 })
@@ -50,9 +50,9 @@ win.once('ready-to-show', () => {
 Для складного застосунку, подія `ready-to-show` може бути викликана занадто пізно, роблячи застосунок помітно повільним. В такому випадку рекомендовано показувати вікно негайно і використовувати `backgroundColor` для встановлення кольору фону застосунку:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({backgroundColor: '#2e2c29'})
+let win = new BrowserWindow({ backgroundColor: '#2e2c29' })
 win.loadURL('https://github.com')
 ```
 
@@ -63,10 +63,10 @@ win.loadURL('https://github.com')
 Використовуючи параметр `parent`, ви можете створити дочірні вікна:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 
 let top = new BrowserWindow()
-let child = new BrowserWindow({parent: top})
+let child = new BrowserWindow({ parent: top })
 child.show()
 top.show()
 ```
@@ -78,9 +78,9 @@ top.show()
 Модальне вікно - це дочірнє вікно, що відключає батьківське вікно. Щоб створити модельне вікно, ви повинні встановити `parent` та `modal` параметри:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 
-let child = new BrowserWindow({parent: top, modal: true, show: false})
+let child = new BrowserWindow({ parent: top, modal: true, show: false })
 child.loadURL('https://github.com')
 child.once('ready-to-show', () => {
   child.show()
@@ -151,7 +151,7 @@ child.once('ready-to-show', () => {
   * `disableAutoHideCursor` Boolean (опціонально) - Чи ховати курсор під час вводу. За замовчуванням `false`.
   * `autoHideMenuBar` Boolean (опціонально) - Автоматично ховати панель меню, якщо кнопка `Alt` натиснута. За замовчуванням `false`.
   * `enableLargerThanScreen` Boolean (опціонально) - Дозволяти робити вікно більшим за екран. За замовчуванням `false`.
-  * `backgroundColor` String (опціонально) - колір фону вікна, як шістнадцяткове значення, як `#66CD00` чи `#FFF` чи `#80FFFFFF` (альфа підтримується). За замовчуванням `#FFF` (білий). Якщо `transparent` встановлено в `true`, тільки значення з прозорістю (`#00-------`) чи непрозорістю (`#FF-----`) альфа-значення підтримуються.
+  * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported if `transparent` is set to `true`). Default is `#FFF` (white).
   * `hasShadow` Boolean (опціонально) - Чи має вікно мати тінь. Реалізовано тільки на macOS. За замовчуванням `true`.
   * `opacity` Number (опціонально) - Встановити початкову непрозорість вікна, між 0.0 (повність прозоре) та 1.0 (повністю непрозоре). Реалізовано тільки на Windows та macOS.
   * `darkTheme` Boolean (опціонально) - Примусово використовувати темну тему для вікна, працює тільки на деяких середовищах GTK+3. За замовчуванням `false`.
@@ -173,6 +173,7 @@ child.once('ready-to-show', () => {
     * `nodeIntegrationInWorker` Boolean (опціонально) - Чи Node.js інтеграція увімкнена в веб-воркерах. За замовчуванням `false`. Більше інформації можна знайти в [Багатопоточності](../tutorial/multithreading.md).
     * `preload` String (опціонально) - Визначає скрипт, який буде завантажено перед запуском інших скриптів на сторінці. Цей скрипт завжди буде мати доступ до Node.js API, в незалежності чи Node.js інтеграція увімкнена чи ні. Значенням має бути абсолютний шлях до скрипта. Коли Node.js інтеграція вимкнена, скрипт може представити глобальні символи Node назад в глобальне середовище. Дивись приклад [тут](process.md#event-loaded).
     * `sandbox` Boolean (опціонально) - Якщо встановлено, це запустить рендерер, який асоціюється з вікном, у тестовому режимі, роблячи його сумісним з тестуванням Chromium рівня ОС і вимикаючи движок Node.js. Це не те саме що і опція `nodeIntegration` і API, доступне для попередньої підгрузки скриптів, є більш обмеженим. Читайте більше про опцію [тут](sandbox-option.md). **Примітка:** Ця опція наразі екпериментальна і може бути змінена чи видалена в майбутніх релізах Electron.
+    * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. Default is `true`.
     * `session` [Session](session.md#class-session) (опціонально) - Встановлює сесію, яку використовує сторінка. Замість того щоб передавати об'єкт Session напряму, ви можете також використовувати опцію `partition`, яка приймає стрічку розділу. Коли передається і `session` і `partition`, `session` буде мати перевагу. За замовчуванням звичайна сесія.
     * `partition` String (опціонально) - Встановлює сесію, яка використовується сторінкою відповідно до стрічок розділу сесії. Якщо `partition` починається з `persist:`, сторінка буде використовувати стійку сесію доступну всім сторінкам застосунку з однаковим `partition`. Якщо префікс `persist:` відсутній, сторінка буде використовувати сесію пам'яті. Призначаючи однаковий `partition`, декілька сторінок можуть спільно використовувати однакову сесію. За замовчуванням звичайна сесія.
     * `affinity` String (optional) - When specified, web pages with the same `affinity` will run in the same renderer process. Note that due to reusing the renderer process, certain `webPreferences` options will also be shared between the web pages even when you specified different values for them, including but not limited to `preload`, `sandbox` and `nodeIntegration`. So it is suggested to use exact same `webPreferences` for web pages with the same `affinity`. *This property is experimental*
@@ -186,7 +187,6 @@ child.once('ready-to-show', () => {
     * `webaudio` Boolean (опціонально) - Вмикає підтримку WebAudio. За замовчуванням `true`.
     * `plugins` Boolean (опціонально) - Чи вмикати плагіни. За замовчуванням `false`.
     * `experimentalFeatures` Boolean (опціонально) - Вмикає експериментальні властивості Chromium. За замовчуванням `false`.
-    * `experimentalCanvasFeatures` Boolean (опціонально) - Вмикає експериментальні особливості полотна Chromium. За замовчуванням `false`.
     * `scrollBounce` Boolean (опціонально) - Вмикає стрибаючий ефект прокрутки (ефект гумки) на macOS. За замовчуванням `false`.
     * `enableBlinkFeatures` String (опціонально) - Список особливостей, розділений за допомогою `,`, таких як `CSSVariables,KeyboardEventKey`, доступних для вмикання. Повний список особливостей, що пітримуються, можна знайти в файлі [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70).
     * `disableBlinkFeatures` String (опціонально) - Список особливостей, розділений за допомогою `,`, таких як `CSSVariables,KeyboardEventKey`, доступних для вимикання. Повний список особливостей, що пітримуються, можна знайти в файлі [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70).
@@ -203,7 +203,7 @@ child.once('ready-to-show', () => {
     * `defaultEncoding` String (опціонально) - За замовчуванням `ISO-8859-1`.
     * `backgroundThrottling` Boolean (опціонально) - Чи забороняти анімацію і таймери, коли сторінка стає фоновою. Це також впливає на [Page Visibility API](#page-visibility). За замовчуванням `true`.
     * `offscreen` Boolean (опціонально) - Чи вмикати позаекранний рендеринг вікна браузера. За замовчуванням `false`. Дивіться [інструкцію позаекранного рендерингу](../tutorial/offscreen-rendering.md) для детальнішої інформації.
-    * `contextIsolation` Boolean (опціонально) - Чи запускати API Electron і визначені `preload` скрипти в окремому контексті JavaScript. За замовчуванням `false`. Контекст, в якому будуть запускатися `preload` скрипти, все ще буде мати повний доступ до глобальних `document` і `window`, але буде використовувати власні визначені JavaScript вбудовані конструкції (`Array`, `Object`, `JSON`, тощо) і буде ізольований від змін глобального середовища під час завантаження сторінки. API Electron буде доступне тільки в `preload` скрипті, аое не на завантаженій сторінці. Цю поцію слід використовувати, коли підвантажується потенційно ненадійний контент віддалений, щоб переконатися, що вміст не зможе втрутитися в `preload` скрипт і API Electron не буде використане. Ця опція використовує таку саму техніку як і [Контент Скрипти Chrome](https://developer.chrome.com/extensions/content_scripts#execution-environment). Цей контекст доступний в інтрументах розробника при виборі пункту 'Ізольований Контекст Electron' в полі зі списком вгорі вкладки Консоль. **Примітка:** Ця опція наразі екпериментальна і може бути змінена чи видалена в майбутніх релізах Electron.
+    * `contextIsolation` Boolean (опціонально) - Чи запускати API Electron і визначені `preload` скрипти в окремому контексті JavaScript. За замовчуванням `false`. Контекст, в якому будуть запускатися `preload` скрипти, все ще буде мати повний доступ до глобальних `document` і `window`, але буде використовувати власні визначені JavaScript вбудовані конструкції (`Array`, `Object`, `JSON`, тощо) і буде ізольований від змін глобального середовища під час завантаження сторінки. API Electron буде доступне тільки в `preload` скрипті, аое не на завантаженій сторінці. Цю поцію слід використовувати, коли підвантажується потенційно ненадійний контент віддалений, щоб переконатися, що вміст не зможе втрутитися в `preload` скрипт і API Electron не буде використане. Ця опція використовує таку саму техніку як і [Контент Скрипти Chrome](https://developer.chrome.com/extensions/content_scripts#execution-environment). Цей контекст доступний в інтрументах розробника при виборі пункту 'Ізольований Контекст Electron' в полі зі списком вгорі вкладки Консоль.
     * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. If set to `true`, the `webPreferences` of child window will always be the same with parent window, regardless of the parameters passed to `window.open()`. За замовчуванням `false`. **Note:** This option is currently experimental.
     * `webviewTag` Boolean (опціонально) - Чи вмикати [`<webview>` тег](webview-tag.md). За замовчуванням відповідає значенню опції `nodeIntegration`. **Примітка:** `preload` скрипт, сконфігурований для `<webview>` буде мати ввімкнену інтеграцію з Node.js, коли він буде виконуватися, тому ви маєте впевнитися, що віддалений/ненадійний контент не може створювати `<webview>` тег з потенційно зловмисним `preload` скриптом. Ви можете використовуват подію `will-attach-webview` на [webContents](web-contents.md), щоб стерти `preload` скрипт і провалідувати чи змінити початкові налаштування `<webview>`.
     * `additionalArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app. Useful for passing small bits of data down to renderer process preload scripts.
@@ -312,9 +312,31 @@ window.onbeforeunload = (e) => {
 
 Викликається коли вікно розгортається.
 
+#### Event: 'will-resize' *macOS* *Windows*
+
+Повертає:
+
+* `event` Event
+* `newBounds` [`Rectangle`](structures/rectangle.md) - Size the window is being resized to.
+
+Emitted before the window is resized. Calling `event.preventDefault()` will prevent the window from being resized.
+
+Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
+
 #### Подія: 'resize'
 
-Викликається коли вікно змінює розмір.
+Emitted after the window has been resized.
+
+#### Event: 'will-move' *Windows*
+
+Повертає:
+
+* `event` Event
+* `newBounds` [`Rectangle`](structures/rectangle.md) - Location the window is being moved to.
+
+Emitted before the window is moved. Calling `event.preventDefault()` will prevent the window from being moved.
+
+Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
 
 #### Подія: 'move'
 
@@ -342,6 +364,15 @@ window.onbeforeunload = (e) => {
 
 Викликається коли вікно виходить з повноекранного режиму через HTML API.
 
+#### Event: 'always-on-top-changed' *macOS*
+
+Повертає:
+
+* `event` Event
+* `isAlwaysOnTop` Boolean
+
+Emitted when the window is set or unset to show always on top of other windows.
+
 #### Подія: 'app-command' *Windows*
 
 Повертає:
@@ -354,7 +385,7 @@ window.onbeforeunload = (e) => {
 Команди пишуться маленькими буквами, підчерки замінені на дефіси і пропускається префікс `APPCOMMAND_`. Наприклад, `APPCOMMAND_BROWSER_BACKWARD` викликається як `browser-backward`.
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.on('app-command', (e, cmd) => {
   // Переходить назад коли юзер натискає кнопку назад
@@ -478,7 +509,7 @@ win.on('app-command', (e, cmd) => {
 Щоб перевірити чи розширення DevTools встановлено, ви можете виконати наступне:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 
 let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
 console.log(installed)
@@ -491,9 +522,9 @@ console.log(installed)
 Об'єкт створений за допомогою `new BrowserWindow` має наступні властивості:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 // В цьому прикладі `win` наш екземпляр
-let win = new BrowserWindow({width: 800, height: 600})
+let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
@@ -603,6 +634,10 @@ win.loadURL('https://github.com')
 
 Повертає `Boolean` - Чи вікно в простому повноекранному режимі.
 
+#### `win.isNormal()`
+
+Returns `Boolean` - Whether the window is in normal state (not maximized, not minimized, not in fullscreen mode).
+
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
 * `aspectRatio` Float - Співвідношення сторін для певної частини контенту.
@@ -613,6 +648,12 @@ win.loadURL('https://github.com')
 Розглянемо звичайне вікно з HD відеоплеєром та елементами його керування. Нехай є 15 пікселів елементів керування на лівому краї, 25 пікселів на правому та 50 пікселів під плеєром. Щоб підтримувати пропорції 16:9 (стандарт для HD @1920x1080) з самим плеєром, потрібно викликати функцію за параметрами 16/9 та [ 40, 50 ]. Другому параметру не цікаво де додаткові ширина та висота розміщені, важливо, що вони є. Додайте будь-які додаткові ширину та висоту, які ви маєте в межах загального вмісту.
 
 Calling this function with a value of `0` will remove any previously set aspect ratios.
+
+#### `win.setBackgroundColor(backgroundColor)`
+
+* `backgroundColor` String - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported if `transparent` is `true`). Default is `#FFF` (white).
+
+Sets the background color of the window. See [Setting `backgroundColor`](#setting-backgroundcolor).
 
 #### `win.previewFile(path[, displayName])` *macOS*
 
@@ -630,7 +671,18 @@ Calling this function with a value of `0` will remove any previously set aspect 
 * `bounds` [Rectangle](structures/rectangle.md)
 * `animate` Boolean (опціонально) *macOS*
 
-Змінює розмір і переміщує вікно до переданої межі
+Resizes and moves the window to the supplied bounds. Any properties that are not supplied will default to their current values.
+
+```javascript
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow()
+ // set all bounds properties
+win.setBounds({ x: 440, y: 225, width: 800, height: 600 })
+ // set a single bounds property
+win.setBounds({ width: 200 })
+ // { x: 440, y: 225, width: 200, height: 600 }
+console.log(win.getBounds())
+```
 
 #### `win.getBounds()`
 
@@ -646,6 +698,12 @@ Calling this function with a value of `0` will remove any previously set aspect 
 #### `win.getContentBounds()`
 
 Повертає [`Rectangle`](structures/rectangle.md)
+
+#### `win.getNormalBounds()`
+
+Returns [`Rectangle`](structures/rectangle.md) - Contains the window bounds of the normal state
+
+**Note:** whatever the current state of the window : maximized, minimized or in fullscreen, this function always returns the position and size of the window in normal state. In normal state, getBounds and getNormalBounds returns the same [`Rectangle`](structures/rectangle.md).
 
 #### `win.setEnabled(enable)`
 
@@ -770,7 +828,7 @@ Resizes the window to `width` and `height`. If `width` or `height` are below any
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
 * `flag` Boolean
-* `level` String (опціонально) *macOS* - Включає значення `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, та ~~`dock`~~ (Застаріло). За замовчуванням `floating`. Дивіться [документацію macOS ](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) для деталей.
+* `level` String (опціонально) *macOS* - Включає значення `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, та ~~`dock`~~ (Застаріло). За замовчуванням `floating`. Дивіться [документацію macOS ](https://developer.apple.com/documentation/appkit/nswindow/level) для деталей.
 * `relativeLevel` Integer (опціонально) *macOS* - Кількість шарів, на яку потрібно підняти вікно в порівнянні з `level`. За замовчуванням `0`. Зверніть увагу, що Apple не рекомендує налаштування шарів вище за 1 над `screen-saver`.
 
 Встановлює чи вікно повинно завжди бути поверх інших вікон. Після встановлення цього, вікно все ще звичайне вікно, не вікно-інструмент, на яке не можна встановити фокус.
@@ -819,7 +877,7 @@ Moves window to top(z-order) regardless of focus
 Змінює точку кріплення для сторінок на macOS. За замовчуванням сторінки кріпляться під панеллю віконної рами, але ви можете захотіти відображати їх під розміченою HTML панеллю інструментів. Наприклад:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 
 let toolbarRect = document.getElementById('toolbar').getBoundingClientRect()
@@ -947,9 +1005,13 @@ win.loadURL('http://localhost:8000/post', {
 })
 ```
 
-#### `win.loadFile(filePath)`
+#### `win.loadFile(filePath[, options])`
 
 * `filePath` String
+* `options` Object (опціонально) 
+  * `query` Object (optional) - Passed to `url.format()`.
+  * `search` String (optional) - Passed to `url.format()`.
+  * `hash` String (optional) - Passed to `url.format()`.
 
 Same as `webContents.loadFile`, `filePath` should be a path to an HTML file relative to the root of your application. See the `webContents` docs for more information.
 
@@ -1043,7 +1105,7 @@ The number of buttons in thumbnail toolbar should be no greater than 7 due to th
 
 * `region` [Rectangle](structures/rectangle.md) - Область вікна
 
-Встановлює область вікна яке відображатиметься як мініатюра при наведенні на вікно в панелі задач. Ви можете змінити мініатюру на ціле вікно, вказавши порожню область: `{x: 0, y: 0, width: 0, height: 0}`.
+Встановлює область вікна яке відображатиметься як мініатюра при наведенні на вікно в панелі задач. You can reset the thumbnail to be the entire window by specifying an empty region: `{ x: 0, y: 0, width: 0, height: 0 }`.
 
 #### `win.setThumbnailToolTip(toolTip)` *Windows*
 
@@ -1074,6 +1136,14 @@ The number of buttons in thumbnail toolbar should be no greater than 7 due to th
 
 Змінити піктограму вікна.
 
+#### `win.setWindowButtonVisibility(visible)` *macOS*
+
+* `visible` Boolean
+
+Sets whether the window traffic light buttons should be visible.
+
+This cannot be called when `titleBarStyle` is set to `customButtonsOnHover`.
+
 #### `win.setAutoHideMenuBar(hide)`
 
 * `hide` Boolean
@@ -1096,9 +1166,11 @@ The number of buttons in thumbnail toolbar should be no greater than 7 due to th
 
 Повертає `Boolean` - Якщо панель меню видима.
 
-#### `win.setVisibleOnAllWorkspaces(visible)`
+#### `win.setVisibleOnAllWorkspaces(visible[, options])`
 
 * `visible` Boolean
+* `options` Object (опціонально) 
+  * `visibleOnFullScreen` Boolean (optional) *macOS* - Sets whether the window should be visible above fullscreen windows
 
 Sets whether the window should be visible on all workspaces.
 
