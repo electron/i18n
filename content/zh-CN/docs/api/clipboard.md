@@ -4,87 +4,89 @@
 
 参见： [process](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) process
 
-下面的示例演示如何将字符串写入剪贴板:
+In the renderer process context it depends on the [`remote`](remote.md) module on Linux, it is therefore not available when this module is disabled.
+
+The following example shows how to write a string to the clipboard:
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 clipboard.writeText('Example String')
 ```
 
-在 X Window 系统上还有一个可选的剪贴板 。对其复制时需要传递` selection ` 参数到每个函数：
+On X Window systems, there is also a selection clipboard. To manipulate it you need to pass `selection` to each method:
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 clipboard.writeText('Example String', 'selection')
 console.log(clipboard.readText('selection'))
 ```
 
 ## 方法
 
-` clipboard ` 对象具有以下方法:
+The `clipboard` module has the following methods:
 
-** 注意: **被标记为实验性的 api 将来可能被删除。
+**Note:** Experimental APIs are marked as such and could be removed in future.
 
 ### `clipboard.readText([type])`
 
 * ` type ` String（可选）
 
-返回 ` String `- 剪贴板中的纯文本内容。
+Returns `String` - The content in the clipboard as plain text.
 
 ### `clipboard.writeText(text[, type])`
 
 * `text` String
 * ` type ` String（可选）
 
-将 ` text ` 作为纯文本写入剪贴板。
+Writes the `text` into the clipboard as plain text.
 
 ### `clipboard.readHTML([type])`
 
 * ` type ` String（可选）
 
-返回 ` String `- 剪贴板中的HTML内容。
+Returns `String` - The content in the clipboard as markup.
 
 ### `clipboard.writeHTML(markup[, type])`
 
 * `markup` String
 * ` type ` String（可选）
 
-将 ` markup ` 写入剪贴板。
+Writes `markup` to the clipboard.
 
 ### `clipboard.readImage([type])`
 
 * ` type ` String（可选）
 
-返回 [` NativeImage `](native-image.md)- 剪贴板中的图像内容。
+Returns [`NativeImage`](native-image.md) - The image content in the clipboard.
 
 ### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
 * ` type ` String（可选）
 
-将 ` image ` 写入剪贴板。
+Writes `image` to the clipboard.
 
 ### `clipboard.readRTF([type])`
 
 * ` type ` String（可选）
 
-返回 ` String `- 剪贴板中的RTF内容。
+Returns `String` - The content in the clipboard as RTF.
 
 ### `clipboard.writeRTF(text[, type])`
 
 * `text` String
 * ` type ` String（可选）
 
-向剪贴板中写入 RTF 格式的 `text`.
+Writes the `text` into the clipboard in RTF.
 
 ### `clipboard.readBookmark()` *macOS* *Windows*
 
-返回 `Object`:
+返回 ` Object `:
 
 * `title` String
 * `url` String
 
-返回一个对象, 其中包含表示剪贴板中书签 `title` 和 `url` 。 当书签不可用时, ` title ` 和 ` url ` 值将为空字符串。
+Returns an Object containing `title` and `url` keys representing the bookmark in the clipboard. The `title` and `url` values will be empty strings when the bookmark is unavailable.
 
 ### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
 
@@ -92,9 +94,9 @@ console.log(clipboard.readText('selection'))
 * `url` String
 * ` type ` String（可选）
 
-将书签的 ` title ` 和 ` url ` 写入剪贴板。
+Writes the `title` and `url` into the clipboard as a bookmark.
 
-**注意**：Windows上的大多数应用程序不支持粘贴书签，因此您可以使用 `clipboard.write` 将书签和后备文本写入剪贴板。
+**Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
 
 ```js
 clipboard.write({
@@ -105,35 +107,35 @@ clipboard.write({
 
 ### `clipboard.readFindText()` *macOS*
 
-返回 ` String `- 查找粘贴板上的文本。 此方法在从渲染进程调用时使用同步 IPC。 每当激活应用程序时, 都会从查找粘贴板中重新读取缓存值。
+Returns `String` - The text on the find pasteboard. This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
 
 ### `clipboard.writeFindText(text)` *macOS*
 
 * `text` String
 
-将 ` text ` 作为纯文本写入查找粘贴板。此方法在从渲染进程调用时使用同步 IPC。
+Writes the `text` into the find pasteboard as plain text. This method uses synchronous IPC when called from the renderer process.
 
 ### `clipboard.clear([type])`
 
 * ` type ` String（可选）
 
-清除剪贴板内容。
+Clears the clipboard content.
 
 ### `clipboard.availableFormats([type])`
 
 * ` type ` String（可选）
 
-返回 ` String [] `- 剪贴板 ` type ` 所支持的格式的数组。
+Returns `String[]` - An array of supported formats for the clipboard `type`.
 
 ### `clipboard.has(format[, type])` *实验功能*
 
 * `format` String
 * ` type ` String（可选）
 
-返回 ` Boolean `, 剪贴板是否支持指定的 ` format `。
+Returns `Boolean` - Whether the clipboard supports the specified `format`.
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 console.log(clipboard.has('<p>selection</p>'))
 ```
 
@@ -141,13 +143,13 @@ console.log(clipboard.has('<p>selection</p>'))
 
 * `format` String
 
-返回 ` String `- 从剪贴板中读取 ` format ` 类型的内容。
+Returns `String` - Reads `format` type from the clipboard.
 
 ### `clipboard.readBuffer(format)` *实验功能*
 
 * `format` String
 
-返回 ` Buffer `- 从剪贴板中读取 ` format ` 类型的内容。
+Returns `Buffer` - Reads `format` type from the clipboard.
 
 ### `clipboard.writeBuffer(format, buffer[, type])` *实验功能*
 
@@ -155,7 +157,7 @@ console.log(clipboard.has('<p>selection</p>'))
 * `buffer` Buffer
 * ` type ` String（可选）
 
-将 `buffer ` 作为 ` format ` 类型写入剪贴板。
+Writes the `buffer` into the clipboard as `format`.
 
 ### `clipboard.write(data[, type])`
 
@@ -168,8 +170,8 @@ console.log(clipboard.has('<p>selection</p>'))
 * ` type ` String（可选）
 
 ```javascript
-const {clipboard} = require('electron')
-clipboard.write({text: 'test', html: '<b>test</b>'})
+const { clipboard } = require('electron')
+clipboard.write({ text: 'test', html: '<b>test</b>' })
 ```
 
-将 ` data ` 写入剪贴板。
+Writes `data` to the clipboard.
