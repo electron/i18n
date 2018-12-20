@@ -5,7 +5,7 @@
 Process: [Main](../glossary.md#main-process)
 
 ```javascript
-const {systemPreferences} = require('electron')
+const { systemPreferences } = require('electron')
 console.log(systemPreferences.isDarkMode())
 ```
 
@@ -33,15 +33,23 @@ Devuelve:
 * `event` Event
 * `EsquemaColorinvertido` Boolean ' `verdad` si un color de esquema invertido, como un tema de alto contraste, está siendo usando, o de lo contrario `falso`.
 
+### Event: 'appearance-changed' *macOS*
+
+Devuelve:
+
+* `newAppearance` String - Can be `dark` or `light`
+
+**NOTE:** This event is only emitted after you have called `startAppLevelAppearanceTrackingOS`
+
 ## Métodos
 
 ### `systemPreferences.isDarkMode()` *macOS*
 
-Devuelve `Boolean` - Aunque el sistema esté en modo oscuro.
+Returns `Boolean` - Whether the system is in Dark Mode.
 
 ### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` *macOS*
 
-Devuelve `Boolean` - Aunque el ajuste de cambio entre páginas esté activado.
+Returns `Boolean` - Whether the Swipe between pages setting is on.
 
 ### `systemPreferences.postNotification(event, userInfo)` *macOS*
 
@@ -73,11 +81,11 @@ Publicaciones `eventos` como notificaciones nativas de macOS. El `userInfo` es u
 
 Returns `Number` - The ID of this subscription
 
-Subscriptores a notificaciones nativas de macOS, `callback` serán llamados con `callback(evento, userinfo)` cuando el `evento` correspondiente suceda. El `userInfo` es un Objeto que contiene el diccionario de la información de usuario enviado junto a las notificaciones.
+Subscribes to native notifications of macOS, `callback` will be called with `callback(event, userInfo)` when the corresponding `event` happens. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
-El `id` del subscriptor es devuelto, el cual puede ser usado para desuscribir el `evento`.
+The `id` of the subscriber is returned, which can be used to unsubscribe the `event`.
 
-Bajo de la capucha este API subscribe a `NSDistributedNotificationCenter`, valores de ejemplo de `evento` son:
+Under the hood this API subscribes to `NSDistributedNotificationCenter`, example values of `event` are:
 
 * `AppleInterfaceThemeChangedNotification`
 * `AppleAquaColorVariantChanged`
@@ -93,7 +101,7 @@ Bajo de la capucha este API subscribe a `NSDistributedNotificationCenter`, valor
 
 Returns `Number` - The ID of this subscription
 
-Al igual que `subscribeNotification`, pero usa `NSNotificationCenter` para defectos locales. Esto es necesario para eventos como `NSUserDefaultsDidChangeNotification`.
+Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults. This is necessary for events such as `NSUserDefaultsDidChangeNotification`.
 
 ### `systemPreferences.subscribeWorkspaceNotification(event, callback)` *macOS*
 
@@ -108,13 +116,13 @@ Same as `subscribeNotification`, but uses `NSWorkspace.sharedWorkspace.notificat
 
 * `id` Íntegro
 
-Remueve el subscriptor con el `id`.
+Removes the subscriber with `id`.
 
 ### `systemPreferences.unsubscribeLocalNotification(id)` *macOS*
 
 * `id` Íntegro
 
-Al igual que `unsubscribeNotification`, pero remueveal subscritor de `NSNotificationCenter`.
+Same as `unsubscribeNotification`, but removes the subscriber from `NSNotificationCenter`.
 
 ### `systemPreferences.unsubscribeWorkspaceNotification(id)` *macOS*
 
@@ -124,18 +132,18 @@ Same as `unsubscribeNotification`, but removes the subscriber from `NSWorkspace.
 
 ### `systemPreferences.registerDefaults(defaults)` *macOS*
 
-* `defaults` Object -un diccionario de valores predeterminados de usuario (`key: value`) 
+* `defaults` Object - a dictionary of (`key: value`) user defaults 
 
-Agregue los valores predeterminados especificados a `NSUserDefaults` de su aplicación.
+Add the specified defaults to your application's `NSUserDefaults`.
 
 ### `systemPreferences.getUserDefault(key, type)` *macOS*
 
-* `llave` Cadena
-* `type` String - Puede ser `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` o `dictionary`.
+* `key` String
+* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
 
-Devuelve `any` - El valor de `Key` en `NSUserDefaults`.
+Returns `any` - The value of `key` in `NSUserDefaults`.
 
-Algún `key` y `type`s populares:
+Some popular `key` and `type`s are:
 
 * `AppleInterfaceStyle`: `string`
 * `AppleAquaColorVariant`: `integer`
@@ -147,35 +155,35 @@ Algún `key` y `type`s populares:
 
 ### `systemPreferences.setUserDefault(key, type, value)` *macOS*
 
-* `llave` Cadena
+* `key` String
 * `type` String - See [`getUserDefault`](#systempreferencesgetuserdefaultkey-type-macos).
-* `value` Cadena
+* `value` String
 
-Establece el valor de `key` en `NSUserDefaults`.
+Set the value of `key` in `NSUserDefaults`.
 
-Nota que `type` debería coincidir el tipo actual de `value`. Una excepción es arrojada si no es así.
+Note that `type` should match actual type of `value`. An exception is thrown if they don't.
 
-Algún `key` y `type`s populares:
+Some popular `key` and `type`s are:
 
 * `ApplePressAndHoldEnabled`: `boolean`
 
 ### `systemPreferences.removeUserDefault(key)` *macOS*
 
-* `llave` Cadena
+* `key` String
 
-Elimina el `key` en `NSUserDefaults`. Puede usarse para reestablecer el valor por defecto o el valor global de un `key` establecido previamente con `setUserDefault`.
+Removes the `key` in `NSUserDefaults`. This can be used to restore the default or global value of a `key` previously set with `setUserDefault`.
 
 ### `systemPreferences.isAeroGlassEnabled()` *Windows*
 
-Devuelve `Boolean` - `true` si [DWM composition](https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx) (Aero Glass) está habilitada, y `false` de lo contrario.
+Returns `Boolean` - `true` if [DWM composition](https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx) (Aero Glass) is enabled, and `false` otherwise.
 
-Un ejemplo de usarlo para determinar si deberías crear una ventana transparente o no (las ventanas transparentes no funcionarán correctamente cuando la composición de DWM está deshabilitada):
+An example of using it to determine if you should create a transparent window or not (transparent windows won't work correctly when DWM composition is disabled):
 
 ```javascript
-onst {BrowserWindow, systemPreferences} = requiere('electron')
-let browserOptions = {width: 1000, height: 800}
+const { BrowserWindow, systemPreferences } = require('electron')
+let browserOptions = { width: 1000, height: 800 }
 
-// Haz la ventana transparente solo si la plataforma los soporta.
+// Make the window transparent only if the platform supports it.
 si (process.platform !== 'win32' || systemPreferences.isAeroGlassEnabled()) {
   browserOptions.transparent = verdad
   browserOptions.frame = falso
@@ -195,7 +203,7 @@ si (browserOptions.transparent) {
 
 ### `systemPreferences.getAccentColor()` *Windows*
 
-Devuelve `Cadena` - El sistema actual de usuarios amplía el acento del color de preferencia en la forma hexadecimal de RGBA.
+Returns `String` - The users current system wide accent color preference in RGBA hexadecimal form.
 
 ```js
 const color = systemPreferences.getAccentColor() // `"aabbccdd"`
@@ -207,40 +215,78 @@ const alpha = color.substr(6, 2) // "dd"
 
 ### `systemPreferences.getColor(color)` *Windows*
 
-* `color` Cadena - Uno de los siguientes valores: 
-  * `3d-dark-shadow` - Sombra oscura para elementos de tres dimensiones mostrados.
-  * `3d-face` - Color facial para elementos de tres dimensiones mostrados y para cuadro de fondos de las caja de diálogo.
-  * `3d-highlight` - Resalta color para elementos de tres dimensiones mostrados.
-  * `3d-light` - Color claro para elementos de tres dimensiones mostrados.
-  * `3d-shadow` - Color oscuro para elementos de tres dimensiones mostrados.
-  * `active-border` - Borde de ventana activo.
-  * `active-caption` - Título de barra de la ventana activo. Especifica el color del lado izquierdo en el tono del color de un título de barra de ventana activa si el efecto de tono está habilitado.
-  * `active-caption-gradient` - El color del lado derecho en el tono del color de un título de barra de una ventana activa.
-  * `app-workspace` - Color de fondo de múltiples documentos de aplicaciones de interfase.
-  * `button-text` - Texto en los botones de presión.
-  * `caption-text` - Textos en subtítulos, tamaño de la caja y la barra de desplazamiento de la caja de flecha.
-  * `desktop` - Color de fondo del escritorio.
-  * `disabled-text` - Gris (desactivado) texto.
-  * 0>highlight</code> - objeto(s) seleccionados en un control.
-  * `highlight-text` - Texto de objeto(s) seleccionados en un control.
-  * `hotlight` - Color para un hiperlink o un muy rastreado objeto.
-  * `inactive-border` - Borde de ventana inactivo.
-  * `inactive-caption` - Subtítulo de ventana inactivo. Especifica el color del lado izquierdo en el tono de color de una barra de título de una ventana inactiva si el efecto de tono está habilitado.
-  * `inactive-caption-gradient` - Color del lado derecho en el tono de color de un título de barra de una ventana inactiva.
-  * `inactive-caption-text` - Color del texto en un subtítulo inactivo.
-  * `info-background` - Color de fondo para control de información de herramientas.
-  * `info-text` - Color de texto para controles de información de herramientas.
-  * `menu` - Fondo del menú.
-  * `menu-highlight` - El color usado para resaltar los objetos del menú cuando el menú aparece como un menú plano.
-  * `menubar` - El color de fondo para la barra del menú cuando los menús aparecen como menús planos.
-  * `menu-text` - Textos en menús.
-  * `scrollbar` - Desplazar la barra en el área gris.
-  * `window` - Fondo de la ventana.
-  * `window-frame` - Cuadro de ventana.
-  * `window-text` - Texto en ventanas.
+* `color` String - One of the following values: 
+  * `3d-dark-shadow` - Dark shadow for three-dimensional display elements.
+  * `3d-face` - Face color for three-dimensional display elements and for dialog box backgrounds.
+  * `3d-highlight` - Highlight color for three-dimensional display elements.
+  * `3d-light` - Light color for three-dimensional display elements.
+  * `3d-shadow` - Shadow color for three-dimensional display elements.
+  * `active-border` - Active window border.
+  * `active-caption` - Active window title bar. Specifies the left side color in the color gradient of an active window's title bar if the gradient effect is enabled.
+  * `active-caption-gradient` - Right side color in the color gradient of an active window's title bar.
+  * `app-workspace` - Background color of multiple document interface (MDI) applications.
+  * `button-text` - Text on push buttons.
+  * `caption-text` - Text in caption, size box, and scroll bar arrow box.
+  * `desktop` - Desktop background color.
+  * `disabled-text` - Grayed (disabled) text.
+  * `highlight` - Item(s) selected in a control.
+  * `highlight-text` - Text of item(s) selected in a control.
+  * `hotlight` - Color for a hyperlink or hot-tracked item.
+  * `inactive-border` - Inactive window border.
+  * `inactive-caption` - Inactive window caption. Specifies the left side color in the color gradient of an inactive window's title bar if the gradient effect is enabled.
+  * `inactive-caption-gradient` - Right side color in the color gradient of an inactive window's title bar.
+  * `inactive-caption-text` - Color of text in an inactive caption.
+  * `info-background` - Background color for tooltip controls.
+  * `info-text` - Text color for tooltip controls.
+  * `menu` - Menu background.
+  * `menu-highlight` - The color used to highlight menu items when the menu appears as a flat menu.
+  * `menubar` - The background color for the menu bar when menus appear as flat menus.
+  * `menu-text` - Text in menus.
+  * `scrollbar` - Scroll bar gray area.
+  * `window` - Window background.
+  * `window-frame` - Window frame.
+  * `window-text` - Text in windows.
 
-Devuelve `String` - El color del sistema ajustando en la forma hexadecimal de RGB (`#ABCDEF`). Ver el [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) para más detalles.
+Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) for more details.
 
 ### `systemPreferences.isInvertedColorScheme()` *Windows*
 
-Devuelve `Boolean` - `true` si un esquema de color invertido, como un tema de alto contraste, es activo, `false` de lo contrario.
+Returns `Boolean` - `true` if an inverted color scheme, such as a high contrast theme, is active, `false` otherwise.
+
+### `systemPreferences.getEffectiveAppearance()` *macOS*
+
+Returns `String` - Can be `dark`, `light` or `unknown`.
+
+Gets the macOS appearance setting that is currently applied to your application, maps to [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
+
+Please note that until Electron is built targeting the 10.14 SDK, your application's `effectiveAppearance` will default to 'light' and won't inherit the OS preference. In the interim in order for your application to inherit the OS preference you must set the `NSRequiresAquaSystemAppearance` key in your apps `Info.plist` to `false`. If you are using `electron-packager` or `electron-forge` just set the `enableDarwinDarkMode` packager option to `true`. See the [Electron Packager API](https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) for more details.
+
+### `systemPreferences.getAppLevelAppearance()` *macOS*
+
+Returns `String` | `null` - Can be `dark`, `light` or `unknown`.
+
+Gets the macOS appearance setting that you have declared you want for your application, maps to [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc). You can use the `setAppLevelAppearance` API to set this value.
+
+### `systemPreferences.setAppLevelAppearance(appearance)` *macOS*
+
+* `appearance` String | null - Can be `dark` or `light`
+
+Sets the appearance setting for your application, this should override the system default and override the value of `getEffectiveAppearance`.
+
+### `systemPreferences.getMediaAccessStatus(mediaType)` *macOS*
+
+* `mediaType` String - `microphone` or `camera`.
+
+Returns `String` - Can be `not-determined`, `granted`, `denied`, `restricted` or `unknown`.
+
+This user consent was not required until macOS 10.14 Mojave, so this method will always return `granted` if your system is running 10.13 High Sierra or lower.
+
+### `systemPreferences.askForMediaAccess(mediaType)` *macOS*
+
+* `mediaType` String - the type of media being requested; can be `microphone`, `camera`.
+
+Returns `Promise<Boolean>` - A promise that resolves with `true` if consent was granted and `false` if it was denied. If an invalid `mediaType` is passed, the promise will be rejected. If an access request was denied and later is changed through the System Preferences pane, a restart of the app will be required for the new permissions to take effect. If access has already been requested and denied, it *must* be changed through the preference pane; an alert will not pop up and the promise will resolve with the existing access status.
+
+**Important:** In order to properly leverage this API, you [must set](https://developer.apple.com/documentation/avfoundation/cameras_and_media_capture/requesting_authorization_for_media_capture_on_macos?language=objc) the `NSMicrophoneUsageDescription` and `NSCameraUsageDescription` strings in your app's `Info.plist` file. The values for these keys will be used to populate the permission dialogs so that the user will be properly informed as to the purpose of the permission request. See [Electron Application Distribution](https://electronjs.org/docs/tutorial/application-distribution#macos) for more information about how to set these in the context of Electron.
+
+This user consent was not required until macOS 10.14 Mojave, so this method will always return `true` if your system is running 10.13 High Sierra or lower.
