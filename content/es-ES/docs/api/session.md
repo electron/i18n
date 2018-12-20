@@ -9,9 +9,9 @@ El módulo `session` puede ser usado para crear nuevos objetos `session`.
 También puede acceder el `session` de las páginas existentes utilizando la propiedad `session` de [`WebContents`](web-contents.md), o desde el módulo `session`.
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({width: 800, height: 600})
+let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('http://github.com')
 
 const ses = win.webContents.session
@@ -51,7 +51,7 @@ Process: [Main](../glossary.md#main-process)
 Puede crear un objeto `Session` en el módulo `session`:
 
 ```javascript
-const {session} = require('electron')
+const { session } = require('electron')
 const ses = session.fromPartition('persist:name')
 console.log(ses.getUserAgent())
 ```
@@ -71,7 +71,7 @@ Emitido cuando Electron está por descargar un `elemento` en `Contenido web`.
 Llamando `event.preventDefault()` Se cancelará la descarga y el `elemento` no estará disponible para el siguiente tick del proceso.
 
 ```javascript
-const {session} = require('electron')
+const { session } = require('electron')
 session.defaultSession.on('will-download', (event, item, webContents) => {
   event.preventDefault()
   require('request')(item.getURL(), (data) => {
@@ -206,7 +206,7 @@ window.webContents.session.enableNetworkEmulation({
 })
 
 // Para emular la caída de la red.
-window.webContents.session.enableNetworkEmulation({offline: true})
+window.webContents.session.enableNetworkEmulation({ offline: true })
 ```
 
 #### `ses.disableNetworkEmulation()`
@@ -232,11 +232,11 @@ Establece el certificado de verificar proc de la `sesión`, el `proc` será canc
 Llamando `setCertificateVerifyProc(null)` se reveritrá la verificación de certificado por defecto.
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 
 win.webContents.session.setCertificateVerifyProc((request, callback) => {
-  const {hostname} = request
+  const { hostname } = request
   if (hostname === 'github.com') {
     callback(0)
   } else {
@@ -254,11 +254,12 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
     * `permiso concedido` Booleano - Permiso o denegado de permiso.
   * `details` Object - Algunas propiedades solamente están disponibles en ciertos tipos de permisos. 
     * `externalURL` String - La url de la solicitud `openExternal`.
+    * `mediaTypes` String[] - The types of media access being requested, elements can be `video` or `audio`
 
 Configurar el controlador que será usado para responder las peticiones de permisos para la `sesión`. Llamando `callback(true)` se permitirá el permiso y `callback(false)` se rechazará. Para limpiar el manejador, llamar a `setPermissionRequestHandler(null)`.
 
 ```javascript
-const {session} = require('electron')
+const { session } = require('electron')
 session.fromPartition('some-partition').setPermissionRequestHandler((webContents, permission, callback) => {
   if (webContents.getURL() === 'some-host' && permission === 'notifications') {
     return callback(false) // denied.
@@ -268,107 +269,147 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 })
 ```
 
+#### `ses.setPermissionCheckHandler(handler)`
+
+* `handler` Function<boolean> | null 
+  * `webContents` [WebContents](web-contents.md) - WebContents checking the permission.
+  * `permission` String - Enum of 'media'.
+  * `requestingOrigin` String - The origin URL of the permission check
+  * `details` Object - Algunas propiedades solamente están disponibles en ciertos tipos de permisos. 
+    * `securityOrigin` String - The security orign of the `media` check.
+    * `mediaType` String - The type of media access being requested, can be `video`, `audio` or `unknown`
+
+Sets the handler which can be used to respond to permission checks for the `session`. Returning `true` will allow the permission and `false` will reject it. To clear the handler, call `setPermissionCheckHandler(null)`.
+
+```javascript
+const { session } = require('electron')
+session.fromPartition('some-partition').setPermissionCheckHandler((webContents, permission) => {
+  if (webContents.getURL() === 'some-host' && permission === 'notifications') {
+    return false // denied
+  }
+
+  return true
+})
+```
+
 #### `ses.clearHostResolverCache([callback])`
 
 * `callback` Function (opcional) - Invocada cuando la operación ha finalizado.
 
-Borra la caché de resolución de host.
+Clears the host resolver cache.
 
 #### `ses.allowNTLMCredentialsForDomains(domains)`
 
-* `dominio` Cadena - Una lista separada por coma de servidores para los cuales la autenticación integrada está habilitada.
+* `domains` String - A comma-separated list of servers for which integrated authentication is enabled.
 
-Configura dinámicamente cada vez que se envíen credenciales para HTTP NTLM o negociaciones de autenticación.
+Dynamically sets whether to always send credentials for HTTP NTLM or Negotiate authentication.
 
 ```javascript
-const {session} = require('electron')
-// considera cualquier url que termine con `example.com`, `foobar.com`, `baz`
-// para autenticación integrada.
+const { session } = require('electron')
+// consider any url ending with `example.com`, `foobar.com`, `baz`
+// for integrated authentication.
 session.defaultSession.allowNTLMCredentialsForDomains('*example.com, *foobar.com, *baz')
 
-// considera todas las Urls para autenticación integrada.
+// consider all urls for integrated authentication.
 session.defaultSession.allowNTLMCredentialsForDomains('*')
 ```
 
 #### `ses.setUserAgent(userAgent[, acceptLanguages])`
 
 * `userAgent` cadena
-* `lenguajes aceptados` Cadena (opcional)
+* `acceptLanguages` String (optional)
 
-Reemplaza el `userAgent` y los `lenguajes aceptados` para esta sesión.
+Overrides the `userAgent` and `acceptLanguages` for this session.
 
-Los `lenguajes aceptados` deben estar ordenados en una lista separada por coma de códigos de lenguaje, por ejemplo `"en-US,fr,de,ko,zh-CN,ja"`.
+The `acceptLanguages` must a comma separated ordered list of language codes, for example `"en-US,fr,de,ko,zh-CN,ja"`.
 
-Esto no afecta el `contenido web` existente, y cada `contenido web` puede usar `webContents.setUserAgent` para sobreescribir el agente de sesión de usuario.
+This doesn't affect existing `WebContents`, and each `WebContents` can use `webContents.setUserAgent` to override the session-wide user agent.
 
 #### `ses.getUserAgent()`
 
-Devuelve `Cadena` - El agente usuario para esta sesión.
+Returns `String` - The user agent for this session.
 
 #### `ses.getBlobData(identifier, callback)`
 
-* `identificador` Cadena - UUID válido.
+* `identifier` String - Valid UUID.
 * `callback` Function 
-  * `resultado` Buffer - datos Blob.
+  * `result` Buffer - Blob data.
 
 #### `ses.createInterruptedDownload(options)`
 
-* `opciones` Object 
-  * `ruta` Cadena - ruta de acceso absoluta de la descarga.
-  * `Cadeba URL` Cadena[] - Cadena de URL completa para la descarga.
-  * `mimeType` Cadena (opcional)
-  * `offset` Entero - rango de inicio para la descarga.
-  * `longitud` Entero - longitud total de la descarga.
-  * `última modificación` Cadena - Último valor del encabezado modificado.
-  * `eTag` Cadena - Valor Etag del encabezado.
-  * `Tiempo de inicio` Doble (opcional) - Tiempo en que se inició la descarga en números de segundo desde epoch de UNIX.
+* `options` Objeto 
+  * `path` String - Absolute path of the download.
+  * `urlChain` String[] - Complete URL chain for the download.
+  * `mimeType` String (optional)
+  * `offset` Integer - Start range for the download.
+  * `length` Integer - Total length of the download.
+  * `lastModified` String - Last-Modified header value.
+  * `eTag` String - ETag header value.
+  * `startTime` Double (optional) - Time when download was started in number of seconds since UNIX epoch.
 
-Permite `cancelar` o `interrumpir` descargas de una `Sesión` previa. La API generará un [elemento de descarga](download-item.md) que puede ser accesado con el evento [se descargará](#event-will-download). El [Elemento de descarga](download-item.md) no tendrá ningún `contenido web` asociado con el y el estado inicial será `interrumpido`. La descarga empezará solo cuando la `reanudación` de la API sea llamada en el [elemento descargado](download-item.md).
+Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
 
 #### `ses.clearAuthCache(options[, callback])`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
 * `callback` Function (opcional) - Invocada cuando la operación ha finalizado.
 
-Limpia caché de autenticación HTTP de la sesión.
+Clears the session’s HTTP authentication cache.
 
 #### `ses.setPreloads(preloads)`
 
-* `preloads` String[] - Un array de ruta absoluta para precargar scripts
+* `preloads` String[] - An array of absolute path to preload scripts
 
-Agrega scripts que se ejecutarán en TODOS los contenidos web que están asociados con esta sesión justo antes de que se ejecuten los scripts de `preload` normales.
+Adds scripts that will be executed on ALL web contents that are associated with this session just before normal `preload` scripts run.
 
 #### `ses.getPreloads()`
 
-Devuelve un array de rutas `String[]` para precargar guiones que han sido registrado.
+Returns `String[]` an array of paths to preload scripts that have been registered.
 
 ### Propiedades de Instancia
 
-Las siguientes propiedades están disponibles en instancias de `Sesión`:
+The following properties are available on instances of `Session`:
 
 #### `ses.cookies`
 
-Un objeto de [Cookies](cookies.md) para esta esión.
+A [Cookies](cookies.md) object for this session.
 
 #### `ses.webRequest`
 
-Un objeto [petición web](web-request.md) para esta sesión.
+A [WebRequest](web-request.md) object for this session.
 
 #### `ses.protocol`
 
-Un objeto de [protocolo](protocol.md) para esta sesión.
+A [Protocol](protocol.md) object for this session.
 
 ```javascript
-const {app, session} = require('electron')
+const { app, session } = require('electron')
 const path = require('path')
 
 app.on('ready', function () {
   const protocol = session.fromPartition('some-partition').protocol
   protocol.registerFileProtocol('atom', function (request, callback) {
     var url = request.url.substr(7)
-    callback({path: path.normalize(`${__dirname}/${url}`)})
+    callback({ path: path.normalize(`${__dirname}/${url}`) })
   }, function (error) {
     if (error) console.error('Failed to register protocol')
+  })
+})
+```
+
+#### `ses.netLog`
+
+A [NetLog](net-log.md) object for this session.
+
+```javascript
+const { app, session } = require('electron')
+
+app.on('ready', function () {
+  const netLog = session.fromPartition('some-partition').netLog
+  netLog.startLogging('/path/to/net-log')
+  // After some network events
+  netLog.stopLogging(path => {
+    console.log('Net-logs written to', path)
   })
 })
 ```
