@@ -166,7 +166,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
 
 * `filter` Object (по избор) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Функция 
+* `listener` Function 
   * `details` Object 
     * `id` Integer
     * `url` String
