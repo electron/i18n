@@ -7,14 +7,14 @@
 Birden çok dosya ve dizin seçmek için bir iletişim kutusunu gösteren örnek:
 
 ```javascript
-const{dialog}=ihtiyaç('electron')
-console.log(dialog.showOpenDialog({özellikleri: ['openFile', 'openDirectory', 'multiSelections']}))
+const { dialog } = require('electron')
+console.log(dialog.showOpenDialog({ properties: ['openFile', 'openDirectory', 'multiSelections'] }))
 ```
 
 Diyalog, Electron'un ana dizininden açılır. iletişim kutusunu bir oluşturucu işlem nesnesinde kullanmak isterseniz, uzaktan erişim kullanarak erşiebileceğinizi unutmayın:
 
 ```javascript
-const {dialog} = ihtiyaç('electron').dolaylı
+const { dialog } = ihtiyaç('electron').dolaylı
 console.log(dialog)
 ```
 
@@ -52,11 +52,11 @@ console.log(dialog)
 ` filtreleri </ 0>, görüntülenebilecek dosya türleri dizisini belirtir veya Kullanıcıyı belirli bir özelliğe sınırlamak istediğinizde seçili. Örneğin:</p>
 
 <pre><code class="javascript">{
- filtreler: [
-    {isim: 'görüntüler', uzantılar: ['jpg', 'png', 'gif']},
-    {isim: 'filmler', uzantılar: ['mkv', 'avi', 'mp4']},
-    {isim: 'Özel Dosya Türü', uzantılar: ['as']},
-    {isim: 'Tüm dosyalar', uzantılar: ['*']}
+  filters: [
+    { name: 'Images', extensions: ['jpg', 'png', 'gif'] },
+    { name: 'Movies', extensions: ['mkv', 'avi', 'mp4'] },
+    { name: 'Custom File Type', extensions: ['as'] },
+    { name: 'All Files', extensions: ['*'] }
   ]
 }
 `</pre> 
@@ -106,7 +106,7 @@ Iade`dize`kullanıcı tarafından seçilen dosyanın yolu, bir geri arama sağla
 <li><code>checkboxLabel` dizge(isteğe bağlı) - sağlandıysa, ileti kutusu verilen etiketi içeren bir onay kutusu içerir. Onay kutusu durumu yalnızca ` geri arama </ 0> kullanılırken incelenebilir.</li>
 <li><code>checkboxChecked` Boolean (isteğe bağlı) -Onay kutusunun başlangıçta kontrol edilmiş durumu. ` yanlış </ 0> varsayılan olarak.</li>
 <li><code>icon` [NativeImage](native-image.md) (isteğe bağlı)
-  * `cancelId` Integer (isteğe bağlı) - Diyalogu iptal etmek için kullanılacak düğmenin indeksi,` Esc </ 0> tuşu ile. Varsayılan olarak bu, etiket olarak "iptal" veya "hayır" ile ilk düğmeye atanır. Böyle bir etiketli düğme yoksa ve bu seçenek ayarlanmamışsa, <code>0`dönüş değeri veya geri arama yanıtı olarak kullanılacaktır. Bu seçenek Windows'ta yok sayılır.
+  * `cancelId` Integer (isteğe bağlı) - Diyalogu iptal etmek için kullanılacak düğmenin indeksi,` Esc </ 0> tuşu ile. Varsayılan olarak bu, etiket olarak "iptal" veya "hayır" ile ilk düğmeye atanır. Böyle bir etiketli düğme yoksa ve bu seçenek ayarlanmamışsa, <code>0`dönüş değeri veya geri arama yanıtı olarak kullanılacaktır.
   * `noLink` Boolean (isteğe bağlı) - Windows Elektron' da `buttons`' dan hangisinin ortak düğmeler olduğunu ve diğer iletişim kutusundaki komutların bağlantılarını anlamaya çalışacağız ("İptal" veya "Evet" gibi). Bu işlem diyaloğun modern Windows aplikasyonu tarzında çıkmasını sağlar. Bu davranış hoşunuza gitmiyorsa, `noLink` `true` ayarlayabilirsiniz.
   * `normalizeAccessKeys` Boolean (İsteğe Bağlı) - Platformlar arasında klavye erişim anahtarlarını normalize eder. Varsayılan `false`'dur. Bunun etkinleştirilmesi, klavye kısayol erişim anahtarının yerleştirilmesi için düğme etiketlerinde `&` kullanıldığını ve etiketlerin her platformda doğru şekilde çalışacak şekilde dönüştürüleceğini varsayar, `&` karakterler macOS'ta kaldırılır, Linux'ta `_` olarak dönüştürülür ve Windows'ta dokunulmaz bırakılır. Örneğin; `Vie&w` düğme etiketi Linux' ta `Vie_w` ve macOS' ta `View` olarak dönüştürülecektir, Windows ve Linux' ta `Alt-W` yoluyla seçilebilir.
 * `geri aramak` Fonksiyon (isteğe bağlı) 
