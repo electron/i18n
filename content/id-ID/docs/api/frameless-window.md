@@ -9,21 +9,22 @@ Jendela buram tanpa bingkai adalah jendela yang tidak memiliki  krom </ 0> , bag
 <p>Untuk membuat jendela tanpa bingkai, Anda perlu mengatur <code> bingkai </ 0> ke <code> palsu </ 0> di
  <a href="browser-window.md">jendela Browser </ 1> 's <code> Pilihan </ 0> :</p>
 
-<pre><code class="javascript">const {BrowserWindow} = require ('electron') misalkan win = new BrowserWindow ( {width: 800, height: 600, frame: false} ) win.show ()
+<pre><code class="javascript">const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ width: 800, height: 600, frame: false })
+win.show()
 `</pre> 
 
 ### Alternatif macos
 
-Pada macos 10.9 Mavericks dan yang lebih baru, ada cara alternatif untuk menentukan jendela chromeless. Alih-alih menyetel ` bingkai </ 0> ke <code> false </ 0> yang menonaktifkan kedua kontrol titlebar dan jendela, Anda mungkin ingin agar bilah judul tersembunyi dan konten Anda meluas ke ukuran jendela penuh, namun tetap lindungi kontrol jendela ("lampu lalu lintas") untuk tindakan jendela standar.
-Anda dapat melakukannya dengan menetapkan <code> titleBarStyle </ 0>  option :</p>
+There's an alternative way to specify a chromeless window. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. Anda dapat melakukannya dengan menetapkan ` titleBarStyle </ 0>  option :</p>
 
 <h4><code>tersembunyi`</h4> 
 
 Hasil di bar judul tersembunyi dan jendela konten ukuran penuh, namun bilah judul masih memiliki kontrol jendela standar ("lampu lalu lintas") di kiri atas.
 
 ```javascript
-const {BrowserWindow} = membutuhkan ('elektron')
-let win = new BrowserWindow({titleBarStyle: 'hidden'})
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ titleBarStyle: 'hidden' })
 win.show()
 ```
 
@@ -32,8 +33,8 @@ win.show()
 Hasil di bar judul tersembunyi dengan tampilan alternatif dimana tombol lampu lalu lintas sedikit lebih tertutup dari tepi jendela.
 
 ```javascript
-const {BrowserWindow} = membutuhkan ('elektron')
-let win = new BrowserWindow({titleBarStyle: 'hiddenInset'})
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ titleBarStyle: 'hiddenInset' })
 win.show()
 ```
 
@@ -42,15 +43,17 @@ win.show()
 Uses custom drawn close, and miniaturize buttons that display when hovering in the top left of the window. The fullscreen button is not available due to restrictions of frameless windows as they interface with Apple's MacOS window masks. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. This option is only applicable for frameless windows.
 
 ```javascript
-const {BrowserWindow} = require ('electron') misalkan win = new BrowserWindow ( {titleBarStyle: 'customButtonsOnHover', frame: false} ) win.show ()
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ titleBarStyle: 'customButtonsOnHover', frame: false })
+win.show()
 ```
 
 ## Jendela transparan
 
 Dengan menetapkan ` transparan </ 0>  option untuk <code> benar </ 0> , Anda juga dapat membuat jendela tanpa bingkai transparan:</p>
 
-<pre><code class="javascript">const {BrowserWindow} = membutuhkan ('elektron')
-let win = new BrowserWindow({transparent: true, frame: false})
+<pre><code class="javascript">const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ transparent: true, frame: false })
 win.show()
 `</pre> 
 
@@ -69,7 +72,7 @@ win.show()
     Untuk membuat jendela klik-tayang, yaitu membuat jendela mengabaikan semua peristiwa mouse, Anda dapat memanggil API  win.setIgnoreMouseEvents (ignore) </ 0> :</p> 
     
     ```javascript
-    const {BrowserWindow} = require('electron')
+    const { BrowserWindow } = require('electron')
     let win = new BrowserWindow()
     win.setIgnoreMouseEvents(true)
     ```
@@ -82,7 +85,7 @@ win.show()
     let win = require('electron').remote.getCurrentWindow()
     let el = document.getElementById('clickThroughElement')
     el.addEventListener('mouseenter', () => {
-      win.setIgnoreMouseEvents(true, {forward: true})
+      win.setIgnoreMouseEvents(true, { forward: true })
     })
     el.addEventListener('mouseleave', () => {
       win.setIgnoreMouseEvents(false)
