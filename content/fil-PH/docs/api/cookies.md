@@ -9,21 +9,21 @@ May ilang pagkakataon na ang `Cookies` class ay mapupuntahan gamit ang `cookies`
 Halimbawa:
 
 ```javascript
-const {session} = kinakailangan ng ('electron')
+const { session } = require('electron')
 
-// e "Query" ang lahat na mga "cookies".
+// Query all cookies.
 session.defaultSession.cookies.get({}, (error, cookies) => {
   console.log(error, cookies)
 })
 
 // e "Query" ang lahat ng "cookies" na may kaugnayan sa isang partikular na "url".
-session.defaultSession.cookies.get({url: 'http://www.github.com'}, (error, cookies) => {
+session.defaultSession.cookies.get({ url: 'http://www.github.com' }, (error, cookies) => {
   console.log(error, cookies)
 })
 
-// Itakda ang "cookie" sapamamagitan na ibinigay na datos nito;
-// maaari ding palitan ang katumbas na "cookies" nito kapag ito'y naiiral na.
-const cookie = {url: 'http://www.github.com', name: 'dummy_name', value: 'dummy'}
+// Set a cookie with the given cookie data;
+// may overwrite equivalent cookies if they exist.
+const cookie = { url: 'http://www.github.com', name: 'dummy_name', value: 'dummy' }
 session.defaultSession.cookies.set(cookie, (error) => {
   if (error) console.error(error)
 })
