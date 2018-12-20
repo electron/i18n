@@ -21,35 +21,57 @@ Contoh konsol jendela :
 
 Variabel lingkungan berikut ditujukan terutama untuk digunakan pada saat runtime dalam aplikasi Elektron yang dikemas .
 
-### `GOOGLE_API_kunci`
+### `NODE_OPTIONS`
 
-Elektron mencakup kunci API hardcoded untuk mengajukan permintaan ke layanan web geokode Google. Karena kunci API ini disertakan dalam setiap versi Elektron , ini seringkali melebihi kuota pemakaiannya. Untuk mengatasi masalah ini, Anda dapat menyediakan kunci Google API Anda sendiri di lingkungan. Tempatkan kode berikut di file proses utama Anda, sebelum membuka jendela browser yang akan membuat permintaan geocoding:
+Electron includes support for a subset of Node's [`NODE_OPTIONS`](https://nodejs.org/api/cli.html#cli_node_options_options). The majority are supported with the exception of those which conflict with Chromium's use of BoringSSL.
 
-```javascript
-proses.env.GOOGLE_API_kunci = 'kamu_kunci_di sini'
+Contoh:
+
+```sh
+export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
 ```
 
-Untuk petunjuk tentang cara mendapatkan kunci Google API , kunjungi  halaman ini </ 0> .</p> 
+Unsupported options are:
 
-Secara default, kunci Google API yang baru dibuat mungkin tidak diizinkan untuk membuat permintaan geocoding. Untuk mengaktifkan permintaan geocoding, kunjungi  halaman ini </ 0> .</p> 
+```sh
+--use-bundled-ca
+--force-fips
+--enable-fips
+--openssl-config
+--use-openssl-ca
+```
 
-### `ELEKTRON_tidak_ASAR`
+`NODE_OPTIONS` are explicitly disallowed in packaged apps.
 
-Nonaktifkan dukungan ASAR . Variabel ini hanya didukung pada proses anak bercabang dan melahirkan proses anak yang menetapkan ` ELECTRON_menjalankan_sebagai_NODE </ 0> .</p>
+### `GOOGLE_API_KEY`
 
-<h3><code>ELECTRON_menjalankan_sebagai_NODE`</h3> 
+Electron includes a hardcoded API key for making requests to Google's geocoding webservice. Because this API key is included in every version of Electron, it often exceeds its usage quota. To work around this, you can supply your own Google API key in the environment. Place the following code in your main process file, before opening any browser windows that will make geocoding requests:
 
-Mulai proses sebagai proses Node.js normal.
+```javascript
+process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
+```
 
-### ` ELECTRON_tidak_melapirkan_menghibur </ 0>  <em> jendela</ 1></h3>
+For instructions on how to acquire a Google API key, visit [this page](https://www.chromium.org/developers/how-tos/api-keys).
 
-<p>Jangan lampirkan sesi konsol saat ini.</p>
+By default, a newly generated Google API key may not be allowed to make geocoding requests. To enable geocoding requests, visit [this page](https://console.developers.google.com/apis/api/geolocation/overview).
 
-<h3><code> ELECTRON_memaksa_jendela_MENU_BAR </ 0>  <em> Linux </ 1></h3>
+### `ELECTRON_NO_ASAR`
 
-<p>Jangan gunakan menu bar global di Linux.</p>
+Disables ASAR support. This variable is only supported in forked child processes and spawned child processes that set `ELECTRON_RUN_AS_NODE`.
 
-<h3><code>ELECTRON_TRASH` *Linux*
+### `ELECTRON_RUN_AS_NODE`
+
+Starts the process as a normal Node.js process.
+
+### `ELECTRON_NO_ATTACH_CONSOLE` *Windows*
+
+Don't attach to the current console session.
+
+### `ELECTRON_FORCE_WINDOW_MENU_BAR` *Linux*
+
+Don't use the global menu bar on Linux.
+
+### `ELECTRON_TRASH` *Linux*
 
 Set the trash implementation on Linux. Default is `gio`.
 
@@ -62,32 +84,32 @@ Options:
 
 ## Variabel Pembangunan
 
-Variabel lingkungan berikut ditujukan terutama untuk keperluan pengembangan dan debugging.
+The following environment variables are intended primarily for development and debugging purposes.
 
-### `ELECTRON_memungkinkan_LOGGING`
+### `ELECTRON_ENABLE_LOGGING`
 
-Mencetak log internal Chrome ke konsol.
+Prints Chrome's internal logging to the console.
 
 ### `ELECTRON_LOG_ASAR_READS`
 
-Ketika Elektron membaca dari file ASAR , log membaca mengimbangi dan jalankan file ke sistem ` tmpdir </ 0> . File yang dihasilkan dapat diberikan ke modul ASAR untuk mengoptimalkan pemesanan file.</p>
+When Electron reads from an ASAR file, log the read offset and file path to the system `tmpdir`. The resulting file can be provided to the ASAR module to optimize file ordering.
 
-<h3><code>ELECTRON_memungkinkan_tumpuka _DUMPING`</h3> 
+### `ELECTRON_ENABLE_STACK_DUMPING`
 
-Mencetak tumpukan jejak ke konsol saat Electron crash.
+Prints the stack trace to the console when Electron crashes.
 
-Variabel lingkungan ini tidak akan bekerja jika ` crashReporter </ 0> dimulai.</p>
+This environment variable will not work if the `crashReporter` is started.
 
-<h3><code> ELECTRON_DEFAULT_kesalahan_mode </ 0>  <em> jendela </ 1></h3>
+### `ELECTRON_DEFAULT_ERROR_MODE` *Windows*
 
-<p>Menunjukkan dialog crash Windows saat Electron crash.</p>
+Shows the Windows's crash dialog when Electron crashes.
 
-<p>Variabel lingkungan ini tidak akan bekerja jika <code> crashReporter </ 0> dimulai.</p>
+This environment variable will not work if the `crashReporter` is started.
 
-<h3><code>ELECTRON_OVERRIDE_DIST_PATH`</h3> 
+### `ELECTRON_OVERRIDE_DIST_PATH`
 
-When running from the `electron` package, this variable tells the `electron` command to use the specified build of Electron instead of the one downloaded by `npm install`. Pemakaian:
+When running from the `electron` package, this variable tells the `electron` command to use the specified build of Electron instead of the one downloaded by `npm install`. Usage:
 
 ```sh
-export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/D
+export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Debug
 ```
