@@ -1,8 +1,8 @@
 # CertificatePrincipal オブジェクト
 
-* `commonName` String - コモンネーム
-* `organizations` String[] - 組織名
-* `organizationUnits` String[] - 組織内の部署名
-* `locality` String - 市区町村
-* `state` String - 都道府県
-* `country` String - 国または地域
+* `commonName` String - Common Name.
+* `organizations` String[] - Organization names.
+* `organizationUnits` String[] - Organization Unit names.
+* `locality` String - Locality.
+* `state` String - State or province.
+* `country` String - Country or region.
