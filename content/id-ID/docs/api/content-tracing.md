@@ -9,23 +9,23 @@ Modul ini tidak menyertakan antarmuka web sehingga Anda perlu membuka `chrome://
 **Catatan:** Anda tidak boleh menggunakan modul ini sampai acara ` siap` dari aplikasi modul dipancarkan.
 
 ```javascript
-const {app, contentTracing} = require ('elektron')
+const { app, contentTracing } = require('electron')
 
-app.on ('siap', () = > {
-  pilihan const = {
-    categoryFilter: '*',
-    traceOptions: 'record-until-full, enable-sampling'
-  }
+app.on('ready', () => {
+  const options = {
+    categoryFilter: '*',
+    traceOptions: 'record-until-full,enable-sampling'
+  }
 
-  contentTracing.startRecording (pilihan, () = > {
-    console.log ('penelusuran dimulai')
+  contentTracing.startRecording(options, () => {
+    console.log('Tracing started')
 
-    setTimeout (() => {
-      contentTracing.stopRecording ('', (path) = > {
-        console.log ('Tracing data direkam ke' + path)
-      })
-    }, 5000)
-  })
+    setTimeout(() => {
+      contentTracing.stopRecording('', (path) => {
+        console.log('Tracing data recorded to ' + path)
+      })
+    }, 5000)
+  })
 })
 ```
 
