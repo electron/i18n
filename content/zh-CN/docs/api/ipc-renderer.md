@@ -113,3 +113,19 @@
 <p>
   就像 <code>ipcRenderer.send</code>，不同的是消息会被发送到 host 页面上的 <code>&lt;webview&gt;</code> 元素，而不是主进程。
 </p>
+
+<h2>
+  事件对象
+</h2>
+
+<p>
+  传递给 callback 的 event 对象有如下方法:
+</p>
+
+<h3>
+  <code>event.senderId</code>
+</h3>
+
+<p>
+  Returns the <code>webContents.id</code> that sent the message, you can call <code>event.sender.sendTo(event.senderId, ...)</code> to reply to the message, see <a href="#ipcrenderersendtowindowid-channel--arg1-arg2-">ipcRenderer.sendTo</a> for more information. This only applies to messages sent from a different renderer. Messages sent directly from the main process set <code>event.senderId</code> to <code>0</code>.
+</p>
