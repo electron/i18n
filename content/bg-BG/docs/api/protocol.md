@@ -143,7 +143,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `обратно повикване` Функция 
+  * `callback` Function 
     * `redirectRequest` Object 
       * `url` String
       * `method` String
@@ -172,7 +172,7 @@ For POST requests the `uploadData` object must be provided.
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `обратно повикване` Функция 
+  * `обратно повикване` Function 
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
 * `completion` Function (optional) 
   * `error` Error
@@ -261,7 +261,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `обратно повикване` Функция 
+  * `обратно повикване` Function 
     * `data` String (optional)
 * `completion` Function (optional) 
   * `error` Error
@@ -287,7 +287,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
 
 * `схема` Низ
-* `handler` Функция 
+* `handler` Function 
   * `request` Object 
     * `url` String
     * `headers` Object
@@ -310,14 +310,14 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
 
 * `схема` Низ
-* `handler` Функция 
+* `handler` Function 
   * `request` Object 
     * `url` String
     * `headers` Object
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Функция 
+  * `callback` Function 
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
 * `completion` Function (optional) 
   * `error` Error
