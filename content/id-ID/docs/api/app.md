@@ -7,7 +7,7 @@ Proses: [Main](../glossary.md#main-process)
 Contoh berikut ini menunjukkan bagaimana untuk keluar dari aplikasi ketika jendela terakhir ditutup:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 app.on('window-all-closed', () => {
   app.quit()
 })
@@ -233,7 +233,7 @@ event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan 
     Emitted ketika gagal untuk memverifikasi `certificate` untuk `url`, untuk mempercayai sertifikat Anda harus mencegah perilaku default dengan `event.preventDefault ()` dan memanggil `callback(true)`.
     
     ```javascript
-    const {app} = require ('electron') app.on('certificate-error', (event, webContents, url, error, certificate, callback) => {
+    const { app } = require ('electron') app.on('certificate-error', (event, webContents, url, error, certificate, callback) => {
        if (url === 'https://github.com') {
          // Verifikasi logika.
         event.preventDefault()
@@ -260,7 +260,7 @@ event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan 
  <code>event.preventDefault()` mencegah aplikasi menggunakan sertifikat pertama dari toko.
     
     ```javascript
-    const {app} = require('electron') app.on('select-client-certificate', (event, webContents, url, list, callback) => {
+    const { app } = require('electron') app.on('select-client-certificate', (event, webContents, url, list, callback) => {
      event.preventDefault()
      callback(daftar[0]) 
     })    
@@ -291,7 +291,7 @@ event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan 
     Perilaku default adalah membatalkan semua otentikasi, untuk menimpa ini Anda harus mencegah perilaku default dengan `event.preventDefault()` dan panggil `callback(nama pengguna, kata sandi)` dengan kredensial.
     
     ```javascript
-    const {app} = require('electron') app.on('login', (event, webContents, request, authInfo, callback) => {
+    const { app } = require('electron') app.on('login', (event, webContents, request, authInfo, callback) => {
      event.preventDefault()
      callback('username', 'secret')
     })
@@ -324,7 +324,7 @@ event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan 
     Emitted when Electron has created a new `session`.
     
     ```javascript
-    const {app} = require('electron')
+    const { app } = require('electron')
     
     app.on('session-created', (event, session) => {
       console.log(session)
@@ -342,6 +342,26 @@ event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan 
     This event will be emitted inside the primary instance of your application when a second instance has been executed. `argv` adalah argumen argumen baris kedua dari Array, dan `workingDirectory` adalah direktori kerja saat ini. Biasanya aplikasi merespon hal ini dengan membuat jendela utama mereka fokus dan tidak diminimalisir.
     
     This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
+    
+    ### Event: 'remote-require'
+    
+    Pengembalian:
+    
+    * `acara` Acara
+    * `webContents` [WebContents](web-contents.md)
+    * `moduleName` String
+    
+    Emitted when `remote.require()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+    
+    ### Event: 'remote-get-global'
+    
+    Pengembalian:
+    
+    * `acara` Acara
+    * `webContents` [WebContents](web-contents.md)
+    * `globalName` String
+    
+    Emitted when `remote.getGlobal()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
     
     ## Metode
     
@@ -380,7 +400,10 @@ event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan 
     Contoh untuk me-restart instance saat ini segera dan menambahkan argumen baris perintah baru ke instance baru:
     
     ```javascript
-    const {app} = require ('electron') app.relaunch({args: process.argv.slice(1).concat(['-- relaunch'])}) app.exit(0)
+    const { app } = require('electron')
+    
+    app.relaunch({ args: process.argv.slice(1).concat(['--relaunch']) })
+    app.exit(0)
     ```
     
     ### `app.isReady()`
@@ -389,7 +412,7 @@ event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan 
     
     ### `app.whenReady()`
     
-    Returns `Promise` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
+    Returns `Promise<void>` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
     
     ### `app.focus()`
     
@@ -582,57 +605,60 @@ properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> 
             Berikut adalah contoh sederhana untuk membuat Daftar Langsung kustom:
             
             ```javascript
-            const {app} = require ('electron') app.setJumpList([
-               {
-                 type: 'custom',
-                 name: 'Proyek Terbaru',
-                 item: [
-                   {type: 'file', path: 'C:\\Projects\\project1.proj '},
-                   {type:' file ', path: 'C:\\Projects\\project2.proj '}
-                 ]
-               },
-               { // memiliki nama jadi `type` diasumsikan sebagai nama "custom"
-             : 'Tools',
-                 item: [
-                   {
-                     type: 'task',
-                     title: 'Tool A',
-                     program: process.execPath,
-                     args: '--run-tool-a',
-                     icon: process.execPath,
-                     iconIndex: 0,
-                     deskripsi : 'Runs Tool A'
-                   },
-                   {
-                     type: 'task',
-                    judul: 'Alat B',
-                     program: process.execPath,
+            const { app } = require('electron')
+            
+            app.setJumpList([
+              {
+                type: 'custom',
+                name: 'Recent Projects',
+                items: [
+                  { type: 'file', path: 'C:\\Projects\\project1.proj' },
+                  { type: 'file', path: 'C:\\Projects\\project2.proj' }
+                ]
+              },
+              { // has a name so `type` is assumed to be "custom"
+                name: 'Tools',
+                items: [
+                  {
+                    type: 'task',
+                    title: 'Tool A',
+                    program: process.execPath,
+                    args: '--run-tool-a',
+                    icon: process.execPath,
+                    iconIndex: 0,
+                    description: 'Runs Tool A'
+                  },
+                  {
+                    type: 'task',
+                    title: 'Tool B',
+                    program: process.execPath,
                     args: '--run-tool-b',
-                     icon: process.execPath,
-                     iconIndex: 0,
-                     description: 'Runs Tool B'
-                   }
-                 ]
-               },
-             {type: 'frequent' },
-             {// tidak memiliki nama dan tipe tidak ada Jadi `tipe` diasumsikan sebagai item "tugas": [
-            {
-             type: 'task',
-             title: 'New Project',
-             program: process.execPath,
-             args: '--new-project',
-             deskripsi: 'Buat yang baru proyek.'
-            },
-             {type: 'separator' },
-            {
-             type: 'task',
-             title: 'Recover Project',
-             program: process.execPath,
-             args: '--recover-project',
-             deskripsi: 'Recover Project'
-            }
-            ]
-            }
+                    icon: process.execPath,
+                    iconIndex: 0,
+                    description: 'Runs Tool B'
+                  }
+                ]
+              },
+              { type: 'frequent' },
+              { // has no name and no type so `type` is assumed to be "tasks"
+                items: [
+                  {
+                    type: 'task',
+                    title: 'New Project',
+                    program: process.execPath,
+                    args: '--new-project',
+                    description: 'Create a new project.'
+                  },
+                  { type: 'separator' },
+                  {
+                    type: 'task',
+                    title: 'Recover Project',
+                    program: process.execPath,
+                    args: '--recover-project',
+                    description: 'Recover Project'
+                  }
+                ]
+              }
             ])
             ```
             
@@ -651,7 +677,7 @@ properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> 
             Contoh mengaktifkan jendela contoh utama saat instance kedua dimulai:
             
             ```javascript
-            const {app} = require('electron')
+            const { app } = require('electron')
             let myWindow = null
             
             const gotTheLock = app.requestSingleInstanceLock()
@@ -723,7 +749,7 @@ properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> 
             * `callback` Fungsi 
               * `hasil` Integer - Hasil impor.
             
-            Impor sertifikat dalam format pkcs12 ke toko sertifikat platform. `callback` dipanggil dengan `hasil` dari operasi impor, nilai `0` menunjukkan keberhasilan sementara nilai lainnya mengindikasikan kegagalan menurut kromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+            Impor sertifikat dalam format pkcs12 ke toko sertifikat platform. `callback` is called with the `result` of import operation, a value of `0` indicates success while any other value indicates failure according to Chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
             
             ### `app.disableHardwareAcceleration()`
             
@@ -744,6 +770,41 @@ properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> 
             ### `app.getGPUFeatureStatus()`
             
             Mengembalikan [`GPUFeatureStatus`](structures/gpu-feature-status.md) - Status Fitur Gambar dari `chrome://gpu/`.
+            
+            ### `app.getGPUInfo(infoType)`
+            
+            * `infoType` String - Values can be either `basic` for basic info or `complete` for complete info.
+            
+            Returns `Promise`
+            
+            For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src.git/+/69.0.3497.106/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
+            
+            For `infoType` equal to `basic`: Promise is fulfilled with `Object` containing fewer attributes than when requested with `complete`. Here's an example of basic response:
+            
+            ```js
+            { auxAttributes:
+               { amdSwitchable: true,
+                 canSupportThreadedTextureMailbox: false,
+                 directComposition: false,
+                 directRendering: true,
+                 glResetNotificationStrategy: 0,
+                 inProcessGpu: true,
+                 initializationTime: 0,
+                 jpegDecodeAcceleratorSupported: false,
+                 optimus: false,
+                 passthroughCmdDecoder: false,
+                 sandboxed: false,
+                 softwareRendering: false,
+                 supportsOverlays: false,
+                 videoDecodeAcceleratorFlags: 0 },
+            gpuDevice:
+               [ { active: true, deviceId: 26657, vendorId: 4098 },
+                 { active: false, deviceId: 3366, vendorId: 32902 } ],
+            machineModelName: 'MacBookPro',
+            machineModelVersion: '11.5' }
+            ```
+            
+            Using `basic` should be preferred if only basic information like `vendorId` or `driverId` is needed.
             
             ### `app.setBadgeCount(count)` *Linux* *macOS*
             
@@ -815,6 +876,11 @@ properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> 
             
             **Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
             
+            ### ` app.showAboutPanel () </ 0>  <em> macos </ 1></h3>
+
+<p>Show the about panel with the values defined in the app's
+<code>.plist` file or with the options set via `app.setAboutPanelOptions(options)`.</p> 
+            
             ### `app.setAboutPanelOptions(opsi)` *macOS*
             
             * `pilihan` Obyek 
@@ -839,7 +905,7 @@ properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> 
             stopAccessingSecurityScopedResource()
             ```
             
-            Start accessing a security scoped resource. With this method electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
+            Start accessing a security scoped resource. With this method Electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
             
             ### `app.commandLine.appendSwitch(beralih [, nilai])`
             
@@ -858,15 +924,21 @@ properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> 
             
             **Catatan:** Ini tidak akan mempengaruhi `process.argv`.
             
+            ### `app.enableSandbox()` *macOS* *Windows*
+            
+            Enables full sandbox mode on the app.
+            
+            Metode ini hanya bisa dipanggil sebelum aplikasi sudah siap.
+            
             ### `app.enableMixedSandbox()` *macOS* *Windows*
             
             Mengaktifkan mode kotak pasir campuran di aplikasi.
             
             Metode ini hanya bisa dipanggil sebelum aplikasi sudah siap.
             
-            ### `app.isInApplicationsFolder()` *macOS*
-            
-            Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
+            ### ` app.isInApplicationsFolder () </ 0>  <em> macos </ 1></h3>
+
+<p>Returns <code>Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`</p> 
             
             ### ` app.moveToApplicationsFolder () </ 0>  <em> macos </ 1></h3>
 
