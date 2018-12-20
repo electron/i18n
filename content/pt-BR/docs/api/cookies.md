@@ -9,7 +9,7 @@ Instâncias da classe `Cookies` são acessadas através da propriedade `cookies`
 Como por exemplo:
 
 ```javascript
-const {session} = require('electron')
+const { session } = require('electron')
 
 // Query all cookies.
 session.defaultSession.cookies.get({}, (error, cookies) => {
@@ -17,13 +17,13 @@ session.defaultSession.cookies.get({}, (error, cookies) => {
 })
 
 // Query all cookies associated with a specific url.
-session.defaultSession.cookies.get({url: 'http://www.github.com'}, (error, cookies) => {
+session.defaultSession.cookies.get({ url: 'http://www.github.com' }, (error, cookies) => {
   console.log(error, cookies)
 })
 
 // Set a cookie with the given cookie data;
 // may overwrite equivalent cookies if they exist.
-const cookie = {url: 'http://www.github.com', name: 'dummy_name', value: 'dummy'}
+const cookie = { url: 'http://www.github.com', name: 'dummy_name', value: 'dummy' }
 session.defaultSession.cookies.set(cookie, (error) => {
   if (error) console.error(error)
 })
