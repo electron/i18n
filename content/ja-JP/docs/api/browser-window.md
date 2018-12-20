@@ -6,12 +6,12 @@
 
 ```javascript
 // メインプロセス
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 
 // または、レンダラープロセスから `remote` を使用してください。
-// const {BrowserWindow} = require('electron').remote
+// const { BrowserWindow } = require('electron').remote
 
-let win = new BrowserWindow({width: 800, height: 600})
+let win = new BrowserWindow({ width: 800, height: 600 })
 win.on('closed', () => {
   win = null
 })
@@ -36,8 +36,8 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 ページのロード中、ウインドウがまだ表示されていない場合、レンダラープロセスが初めてページをレンダリングし終わったとき、`ready-to-show` イベントが発生します。 このイベントの後にウインドウを表示させれば、チラつくことはありません。
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({show: false})
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ show: false })
 win.once('ready-to-show', () => {
   win.show()
 })
@@ -50,9 +50,9 @@ win.once('ready-to-show', () => {
 複雑なアプリでは、`ready-to-show` イベントが発生するのに時間がかかり過ぎて、アプリが遅いと感じさせる可能性があります。 このような場合、ウインドウをすぐに表示し、アプリの背景に近い `backgroundColor` を使うことを推奨します。
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({backgroundColor: '#2e2c29'})
+let win = new BrowserWindow({ backgroundColor: '#2e2c29' })
 win.loadURL('https://github.com')
 ```
 
@@ -63,10 +63,10 @@ win.loadURL('https://github.com')
 `parent` オプションを使用することで、子ウインドウを作成することができます。
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 
 let top = new BrowserWindow()
-let child = new BrowserWindow({parent: top})
+let child = new BrowserWindow({ parent: top })
 child.show()
 top.show()
 ```
@@ -78,9 +78,9 @@ top.show()
 モーダルウインドウは親ウインドウを無効化する子ウインドウです。モーダルウインドウを作成するには、`parent` と `modal` オプションの両方を設定しなければなりません。
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 
-let child = new BrowserWindow({parent: top, modal: true, show: false})
+let child = new BrowserWindow({ parent: top, modal: true, show: false })
 child.loadURL('https://github.com')
 child.once('ready-to-show', () => {
   child.show()
@@ -151,7 +151,7 @@ child.once('ready-to-show', () => {
   * `disableAutoHideCursor` Boolean (任意) - 入力中にカーソルを非表示にするかどうか。 省略値は、`false` です。
   * `autoHideMenuBar` Boolean (任意) - `Alt` キーが押されていない場合、メニューバーを自動的に非表示にします。省略値は、`false` です。
   * `enableLargerThanScreen` Boolean (任意) - ウインドウを画面よりも大きいサイズに変更できるようにします。省略値は、`false` です。
-  * `backgroundColor` String (任意) - `#66CD00` や `#FFF` や `#80FFFFFF` (アルファ値をサポートしています) のような16進数の値でのウインドウの背景色。 省略値は、`#FFF` (白) です。 もし `transparent` が `true` に設定されている場合、透明 (`#00------`) か不透明 (`#FF------`) な値にのみ従います。
+  * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported if `transparent` is set to `true`). Default is `#FFF` (white).
   * `hasShadow` Boolean (任意) - ウインドウが影をもっているかどうか。これはmacOSでのみ実装されています。省略値は、`true` です。
   * `opacity` Number (任意) - ウインドウの初期透明度を0.0 (完全に透明) から 1.0 (完全に不透明) の間で設定します。これはWindowsとmacOSでのみ実装されています。
   * `darkTheme` Boolean (任意) - ウインドウに対してダークテーマを強制的に使用します。いくつかのGTK+3デスクトップ環境でしか動作しません。省略値は、`false` です。
@@ -173,6 +173,7 @@ child.once('ready-to-show', () => {
     * `nodeIntegrationInWorker` Boolean (任意) - WebワーカーでNode統合を有効にするかどうか。 省略値は、`false` です。 これについての詳細は、[マルチスレッド](../tutorial/multithreading.md) を参照してください。
     * `preload` String (任意) - 他のスクリプトがページで実行される前にロードされるスクリプトを指定します。 このスクリプトは、Node統合がオンまたはオフであるかに関係なく常にNode APIにアクセスできます。 値は、スクリプトへの絶対ファイルパスにする必要があります。 Node統合がオフのときでも、プレロードされたスクリプトは、Nodeのグローバルシンボルをグローバルスコープに再導入できます。 [ここ](process.md#event-loaded) の例を参照してください。
     * `sandbox` Boolean (任意) - 設定された場合、ウインドウと関連付けられているレンダラーをサンドボックス化します。これは、ChromiumのOSレベルのサンドボックスと互換性を持ち、Node.jsエンジンを無効化します。 これは `nodeIntegration` オプションと同じではなく、プレロードスクリプトで利用可能なAPIよりもさらに制限がかかります。 このオプションの詳細については、[ここ](sandbox-option.md) をお読みください。 **注:** このオプションは、現在のところ、実験的なものであり、将来のElectronのリリースで変更されたり、削除されたりする可能性があります。
+    * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. Default is `true`.
     * `session` [Session](session.md#class-session) (任意) - ページで使用されるセッションを設定します。 Session オブジェクトを直接引き渡す代わりに、パーティション文字列を受け付ける `partition` オプションを使用することを選択することもできます。 `session` と `partition` の両方が指定されたときは、`session` が優先されます。 省略値は、既定のセッションです。
     * `partition` String (任意) - セッションのパーティション文字列に従って、ページで使用されるセッションを設定します。 `partition` が `persist:` 始まりの場合、ページはアプリの全ページで利用可能な永続的なセッションを同じ `partition` で使用します。 `persist:` プレフィックスがない場合、ページは、インメモリセッションを使用します。 同じ `partition` を割り当てることによって、複数のページが同じセッションを共有できます。 省略値は、既定のセッションです。
     * `affinity` String (任意) - 指定されると、同じ `affinity` のウェブページは同じレンダラープロセス内で実行します。 レンダラープロセスを再利用することにより、`preload`、`sandbox`、`nodeIntegration` などの異なる値を指定した場合でも、特定の `webPreferences` オプションがウェブページ間で共有されることに注意してください。 したがって、同じ `affinity` を持つウェブページに対しては、全く同じ `webPreferences` を使用することをお勧めします。 *このプロパティは実験的機能です*
@@ -186,7 +187,6 @@ child.once('ready-to-show', () => {
     * `webaudio` Boolean (任意) - WebAudioのサポートを有効にします。省略値は、`true` です。
     * `plugins` Boolean (任意) - プラグインを有効にするかどうか。省略値は、`false` です。
     * `experimentalFeatures` Boolean (任意) - Chromiumの実験的な機能を有効にします。 省略値は、`false` です。
-    * `experimentalCanvasFeatures` Boolean (任意) - Chromiumの実験的なキャンバスの機能を有効にします。省略値は、`false` です。
     * `scrollBounce` Boolean (任意) - macOSでスクロールバウンス (ラバーバンディング) 効果を有効にします。省略値は、`false` です。
     * `enableBlinkFeatures` String (任意) - `CSSVariables,KeyboardEventKey` のように `,` で区切られた有効にする機能の文字列のリスト。 サポートされている機能の文字列の完全なリストは、[RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) ファイルで確認することができます。
     * `disableBlinkFeatures` String (任意) - `CSSVariables,KeyboardEventKey` のように `,` で区切られた無効にする機能の文字列のリスト。 サポートされている機能の文字列の完全なリストは、[RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) ファイルで確認することができます。
@@ -203,7 +203,7 @@ child.once('ready-to-show', () => {
     * `defaultEncoding` String (任意) - 省略値は、`ISO-8859-1` です。
     * `backgroundThrottling` Boolean (任意) - ページがバックグラウンドになったとき、アニメーションやタイマーを抑制するかどうか。 これは [Page Visibility API](#page-visibility) にも影響を与えます。 省略値は `true` です。
     * `offscreen` Boolean (任意) - ブラウザウィンドウでオフスクリーンレンダリングを有効にするかどうか。 省略値は、`false` です。 詳細については、[オフスクリーンレンダリングのチュートリアル](../tutorial/offscreen-rendering.md) を参照してください。
-    * `contextIsolation` Boolean (任意) - Electron APIと指定された `preload` スクリプトを別々のJavaScriptコンテキストで実行するかどうか。 省略値は、`false` です。 `preload` スクリプトが実行されているコンテキストは、依然として `document` と `window` のグローバル変数にフルアクセスできますが、独自のJavaScriptの組み込みコマンドのセット (`Array`、`Object`、`JSON` など) を使用し、ロードされたページによってグローバル環境に加えられたいかなる変更からも分離されます。 Electron APIは `preload` スクリプトでのみ利用可能で、読み込まれたページでは利用できません。 このオプションは、潜在的に信頼できないリモートコンテンツをロードする際、ロードされたコンテンツが `preload` スクリプトや使用されているElectron APIを悪用することができないようにするときに使用する必要があります。 このオプションは、[Chromeのコンテンツスクリプト](https://developer.chrome.com/extensions/content_scripts#execution-environment)で使用されているのと同じ手法を使用します。 Consoleタブの一番上のコンボボックスの中にある 'Electron Isolated Context' という項目を選択することによって、開発者ツールでこのコンテキストにアクセスすることができます。 **注:** このオプションは、現在のところ、実験的なものであり、将来のElectronのリリースで変更されたり、削除されたりする可能性があります。
+    * `contextIsolation` Boolean (任意) - Electron APIと指定された `preload` スクリプトを別々のJavaScriptコンテキストで実行するかどうか。 省略値は、`false` です。 `preload` スクリプトが実行されているコンテキストは、依然として `document` と `window` のグローバル変数にフルアクセスできますが、独自のJavaScriptの組み込みコマンドのセット (`Array`、`Object`、`JSON` など) を使用し、ロードされたページによってグローバル環境に加えられたいかなる変更からも分離されます。 Electron APIは `preload` スクリプトでのみ利用可能で、読み込まれたページでは利用できません。 このオプションは、潜在的に信頼できないリモートコンテンツをロードする際、ロードされたコンテンツが `preload` スクリプトや使用されているElectron APIを悪用することができないようにするときに使用する必要があります。 このオプションは、[Chromeのコンテンツスクリプト](https://developer.chrome.com/extensions/content_scripts#execution-environment)で使用されているのと同じ手法を使用します。 Consoleタブの一番上のコンボボックスの中にある 'Electron Isolated Context' という項目を選択することによって、開発者ツールでこのコンテキストにアクセスすることができます。
     * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. If set to `true`, the `webPreferences` of child window will always be the same with parent window, regardless of the parameters passed to `window.open()`. 省略値は、`false` です。 **Note:** This option is currently experimental.
     * `webviewTag` Boolean (任意) - [`<webview>` タグ](webview-tag.md) を有効にするかどうか。 省略値は、`nodeIntegration` オプションの値です。 **注:** `<webview>` に設定された `preload` スクリプトは、実行時にNode統合が有効になるので、潜在的に悪意のある `preload` スクリプトを含む `<webview>` タグをリモート/信頼できないコンテンツに作成させないようにする必要があります。 `preload` スクリプトを除去したり、検証したり、`<webview>` の初期設定を変更したりするために、[webContents](web-contents.md) の `will-attach-webview` イベントを使うことができます。
     * `additionalArguments` String[] (任意) - このアプリケーションのレンダラープロセスで `process.argv` に追加される文字列のリスト。少量のデータをレンダラープロセスのプリロードスクリプトに渡すのに便利です。
@@ -312,9 +312,31 @@ Webページが (まだ表示されていないが) レンダリングされ、�
 
 ウインドウが最小化状態から復元されたときに発生します。
 
+#### Event: 'will-resize' *macOS* *Windows*
+
+戻り値:
+
+* `event` Event
+* `newBounds` [`Rectangle`](structures/rectangle.md) - Size the window is being resized to.
+
+Emitted before the window is resized. Calling `event.preventDefault()` will prevent the window from being resized.
+
+Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
+
 #### イベント: 'resize'
 
-ウインドウがリサイズされるときに発生します。
+Emitted after the window has been resized.
+
+#### Event: 'will-move' *Windows*
+
+戻り値:
+
+* `event` Event
+* `newBounds` [`Rectangle`](structures/rectangle.md) - Location the window is being moved to.
+
+Emitted before the window is moved. Calling `event.preventDefault()` will prevent the window from being moved.
+
+Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
 
 #### イベント: 'move'
 
@@ -342,6 +364,15 @@ Webページが (まだ表示されていないが) レンダリングされ、�
 
 ウインドウがHTML APIによってフルスクリーン状態を抜けるときに発生します。
 
+#### Event: 'always-on-top-changed' *macOS*
+
+戻り値:
+
+* `event` Event
+* `isAlwaysOnTop` Boolean
+
+Emitted when the window is set or unset to show always on top of other windows.
+
 #### イベント: 'app-command' *Windows*
 
 戻り値:
@@ -354,7 +385,7 @@ Webページが (まだ表示されていないが) レンダリングされ、�
 コマンドは小文字にされ、アンダースコアはハイフンに置き換えられ、`APPCOMMAND_`プレフィックスは外されます。 例えば、`APPCOMMAND_BROWSER_BACKWARD` は、`browser-backward` として送信されます。
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.on('app-command', (e, cmd) => {
   // ユーザがマウスの戻るボタンをクリックしたとき、ウインドウに対して戻るように操作する
@@ -478,7 +509,7 @@ win.on('app-command', (e, cmd) => {
 開発者ツールの拡張機能がインストールされているかを確認するには、以下のように実行することで可能です。
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 
 let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
 console.log(installed)
@@ -491,9 +522,9 @@ console.log(installed)
 `new BrowserWindow` で作成されたオブジェクトは、以下のプロパティを持っています。
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 // この例では、`win` がインスタンス
-let win = new BrowserWindow({width: 800, height: 600})
+let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
@@ -603,6 +634,10 @@ Mac OS X Lion (10.7) より前のバージョンで見られる簡易フルス�
 
 戻り値 `Boolean` - ウインドウが簡易 (Lionより前) フルスクリーンモードであるかどうか。
 
+#### `win.isNormal()`
+
+Returns `Boolean` - Whether the window is in normal state (not maximized, not minimized, not in fullscreen mode).
+
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
 * `aspectRatio` Float - コンテンツビューの一部を維持するためのアスペクト比。
@@ -613,6 +648,12 @@ Mac OS X Lion (10.7) より前のバージョンで見られる簡易フルス�
 HDビデオプレーヤーと関連したコントロールを持つ通常のウインドウを考えてみましょう。 ひょっとすると、左端に15ピクセルのコントロール、右端に25ピクセルのコントロール、プレーヤーの下部に50ピクセルのコントロールがあるかもしれません。 プレーヤー内で、16:9のアスペクト比 (HD @1920x1280の標準的なアスペクト比) を維持するためには、この関数を16/9と[ 40, 50 ]の引数で呼び出します。 2番目の引数は、追加の幅と高さがコンテンツビューの中に収まるかを気にしません。それらはただ存在しているだけです。 全体のコンテンツビュー内にある余分な幅と高さの領域を単純に足し合わせます。
 
 `0` の値でこの関数を呼ぶと、以前に設定したアスペクト比が削除されます。
+
+#### `win.setBackgroundColor(backgroundColor)`
+
+* `backgroundColor` String - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported if `transparent` is `true`). Default is `#FFF` (white).
+
+Sets the background color of the window. See [Setting `backgroundColor`](#setting-backgroundcolor).
 
 #### `win.previewFile(path[, displayName])` *macOS*
 
@@ -630,7 +671,18 @@ HDビデオプレーヤーと関連したコントロールを持つ通常のウ
 * `bounds` [Rectangle](structures/rectangle.md) 
 * `animate` Boolean (optional) *macOS*
 
-指定した境界までウインドウのサイズを変更して移動します。
+Resizes and moves the window to the supplied bounds. Any properties that are not supplied will default to their current values.
+
+```javascript
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow()
+ // set all bounds properties
+win.setBounds({ x: 440, y: 225, width: 800, height: 600 })
+ // set a single bounds property
+win.setBounds({ width: 200 })
+ // { x: 440, y: 225, width: 200, height: 600 }
+console.log(win.getBounds())
+```
 
 #### `win.getBounds()`
 
@@ -647,6 +699,12 @@ HDビデオプレーヤーと関連したコントロールを持つ通常のウ
 
 戻り値 [`Rectangle`](structures/rectangle.md)
 
+#### `win.getNormalBounds()`
+
+Returns [`Rectangle`](structures/rectangle.md) - Contains the window bounds of the normal state
+
+**Note:** whatever the current state of the window : maximized, minimized or in fullscreen, this function always returns the position and size of the window in normal state. In normal state, getBounds and getNormalBounds returns the same [`Rectangle`](structures/rectangle.md).
+
 #### `win.setEnabled(enable)`
 
 * `enable` Boolean
@@ -657,7 +715,7 @@ HDビデオプレーヤーと関連したコントロールを持つ通常のウ
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (任意) *macOS*
+* `animate` Boolean (optional) *macOS*
 
 ウインドウを `width` と `height` でリサイズします。`width` や `height` をウインドウ内のサイズ制約より小さい値にセットした場合は、その制約の最小値にスナップします。
 
@@ -770,7 +828,7 @@ Linuxでは常に `true` を返します。
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
 * `flag` Boolean
-* `level` String (任意) *macOS* - 値は、`normal`、`floating`、`torn-off-menu`、`modal-panel`、`main-menu`、`status`、`pop-up-menu`、`screen-saver` と ~~`dock`~~ (非推奨) です。 省略値は、`floating` です。 詳細については、[macOSのドキュメント](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels) を参照してください。
+* `level` String (任意) *macOS* - 値は、`normal`、`floating`、`torn-off-menu`、`modal-panel`、`main-menu`、`status`、`pop-up-menu`、`screen-saver` と ~~`dock`~~ (非推奨) です。 省略値は、`floating` です。 詳細については、[macOSのドキュメント](https://developer.apple.com/documentation/appkit/nswindow/level) を参照してください。
 * `relativeLevel` Integer (任意) *macOS* - このウインドウに設定する指定した `level` より上のレイヤーの数。 省略値は、`0` です。 Apple社は、`screen-saver` より上に1以上のレベルを設定することを推奨していないことに注意してください。
 
 ウインドウが常に他のウインドウの上に表示されるかどうかを設定します。これを設定した後でも、ウインドウはフォーカスを当てられないツールボックスウインドウではなく、まだ通常のウインドウのままです。
@@ -819,7 +877,7 @@ Linuxでは常に `true` を返します。
 macOSでシートを表示させる場所を変更します。既定では、シートはウインドウフレームのちょうど真下に表示されますが、HTMLでレンダリングされたツールバーの下に表示したいことがあるかもしれません。例:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 
 let toolbarRect = document.getElementById('toolbar').getBoundingClientRect()
@@ -947,9 +1005,13 @@ win.loadURL('http://localhost:8000/post', {
 })
 ```
 
-#### `win.loadFile(filePath)`
+#### `win.loadFile(filePath[, options])`
 
 * `filePath` String
+* `options` Object (任意) 
+  * `query` Object (optional) - Passed to `url.format()`.
+  * `search` String (optional) - Passed to `url.format()`.
+  * `hash` String (optional) - Passed to `url.format()`.
 
 `webContents.loadFile` と同じで、`filePath` はアプリケーションのルートからの相対パスで指す HTML でなければいけません。詳細は `webContents` ドキュメントを参照してください。
 
@@ -1043,7 +1105,7 @@ WindowsとLinuxでは常に `true` を返します。
 
 * `region` [Rectangle](structures/rectangle.md) - ウインドウの領域
 
-タスクバーのウインドウの上でホバリングするときに表示されるサムネイルイメージとして表示するウインドウの領域を設定します。 空の領域: `{x: 0, y: 0, width: 0, height: 0}` を指定することで、サムネイルをウインドウ全体にリセットすることができます。
+タスクバーのウインドウの上でホバリングするときに表示されるサムネイルイメージとして表示するウインドウの領域を設定します。 You can reset the thumbnail to be the entire window by specifying an empty region: `{ x: 0, y: 0, width: 0, height: 0 }`.
 
 #### `win.setThumbnailToolTip(toolTip)` *Windows*
 
@@ -1074,6 +1136,14 @@ WindowsとLinuxでは常に `true` を返します。
 
 ウインドウのアイコンを変更します。
 
+#### `win.setWindowButtonVisibility(visible)` *macOS*
+
+* `visible` Boolean
+
+Sets whether the window traffic light buttons should be visible.
+
+This cannot be called when `titleBarStyle` is set to `customButtonsOnHover`.
+
 #### `win.setAutoHideMenuBar(hide)`
 
 * `hide` Boolean
@@ -1096,9 +1166,11 @@ WindowsとLinuxでは常に `true` を返します。
 
 戻り値 `Boolean` - メニューバーを表示しているかどうか。
 
-#### `win.setVisibleOnAllWorkspaces(visible)`
+#### `win.setVisibleOnAllWorkspaces(visible[, options])`
 
 * `visible` Boolean
+* `options` Object (任意) 
+  * `visibleOnFullScreen` Boolean (optional) *macOS* - Sets whether the window should be visible above fullscreen windows
 
 ウインドウをすべてのワークスペースで表示させるかどうかを設定します。
 
@@ -1132,65 +1204,65 @@ macOSでは、NSWindowのsharingTypeをNSWindowSharingNoneに設定します。W
 
 * `focusable` Boolean
 
-ウインドウにフォーカスできるかどうかを変更します。
+Changes whether the window can be focused.
 
 #### `win.setParentWindow(parent)` *Linux* *macOS*
 
 * `parent` BrowserWindow
 
-現在のウインドウの親ウインドウとして `parent` を設定します。`null` を渡すと、現在のウインドウをトップレベルウインドウにします。
+Sets `parent` as current window's parent window, passing `null` will turn current window into a top-level window.
 
 #### `win.getParentWindow()`
 
-戻り値 `BrowserWindow` - 親ウインドウ。
+Returns `BrowserWindow` - The parent window.
 
 #### `win.getChildWindows()`
 
-戻り値 `BrowserWindow[]` - すべての子ウインドウ。
+Returns `BrowserWindow[]` - All child windows.
 
 #### `win.setAutoHideCursor(autoHide)` *macOS*
 
 * `autoHide` Boolean
 
-タイプしているときにカーソルを非表示にするかどうかを制御します。
+Controls whether to hide cursor when typing.
 
 #### `win.selectPreviousTab()` *macOS*
 
-ネイティブのタブが有効で、ウインドウに他のタブがあるとき、一つ前のタブを選択します。
+Selects the previous tab when native tabs are enabled and there are other tabs in the window.
 
 #### `win.selectNextTab()` *macOS*
 
-ネイティブのタブが有効で、ウインドウに他のタブがあるとき、次のタブを選択します。
+Selects the next tab when native tabs are enabled and there are other tabs in the window.
 
 #### `win.mergeAllWindows()` *macOS*
 
-ネイティブのタブが有効で複数の開いているウインドウがあるとき、すべてのウインドウを複数のタブで1つのウインドウにマージします。
+Merges all windows into one window with multiple tabs when native tabs are enabled and there is more than one open window.
 
 #### `win.moveTabToNewWindow()` *macOS*
 
-ネイティブのタブが有効で現在のウインドウに複数のタブがあるとき、現在のタブを新しいウインドウに移動します。
+Moves the current tab into a new window if native tabs are enabled and there is more than one tab in the current window.
 
 #### `win.toggleTabBar()` *macOS*
 
-ネイティブのタブが有効で現在のウインドウにタブが1つだけしかないとき、タブバーを表示するかどうかを切り替えます。
+Toggles the visibility of the tab bar if native tabs are enabled and there is only one tab in the current window.
 
 #### `win.addTabbedWindow(browserWindow)` *macOS*
 
 * `browserWindow` BrowserWindow
 
-ウインドウインスタンスのタブの後ろに、このウインドウのタブとしてウインドウを追加します。
+Adds a window as a tab on this window, after the tab for the window instance.
 
 #### `win.setVibrancy(type)` *macOS*
 
-* `type` String - `appearance-based`、`light`、`dark`、`titlebar`、`selection`、`menu`、`popover`、`sidebar`、`medium-light` または `ultra-dark` にすることができます。 詳細については、[macOSのドキュメント](https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc) を参照してください。
+* `type` String - Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`. See the [macOS documentation](https://developer.apple.com/documentation/appkit/nsvisualeffectview?preferredLanguage=objc) for more details.
 
-ブラウザウィンドウに曇りガラス効果を追加します。`null` または空文字を渡すと、ウインドウの曇りガラス効果が削除されます。
+Adds a vibrancy effect to the browser window. Passing `null` or an empty string will remove the vibrancy effect on the window.
 
 #### `win.setTouchBar(touchBar)` *macOS* *Experimental*
 
 * `touchBar` TouchBar
 
-現在のウインドウのTouchBarレイアウトを設定します。 `null` または `undefined` を指定すると、TouchBarがクリアされます。 このメソッドはTouchBarがあって、macOS 10.12.1以上を実行しているマシンでのみ、有効です。
+Sets the touchBar layout for the current window. Specifying `null` or `undefined` clears the touch bar. This method only has an effect if the machine has a touch bar and is running on macOS 10.12.1+.
 
 **注釈:** TouchBar API は現在実験的な機能で、将来の Electron リリースでは変更されたり削除されたりする可能性があります。
 
@@ -1198,8 +1270,8 @@ macOSでは、NSWindowのsharingTypeをNSWindowSharingNoneに設定します。W
 
 * `browserView` [BrowserView](browser-view.md)
 
-#### `win.getBrowserView()` *実験的*
+#### `win.getBrowserView()` *Experimental*
 
-戻り値 `BrowserView | null` - アタッチされたBrowserView。何もアタッチされていない場合、`null` を返します。
+Returns `BrowserView | null` - an attached BrowserView. Returns `null` if none is attached.
 
-**注:** 現在のところ、BrowserView APIは実験的な機能であり、将来のElectronのリリースで変更されたり、削除されたりする可能性があります。
+**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
