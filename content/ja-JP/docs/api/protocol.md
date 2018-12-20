@@ -7,15 +7,15 @@
 `file://` プロトコルと同じ効果を持つプロトコルの実装の例:
 
 ```javascript
-const {app, protocol} = require('electron')
+const { app, protocol } = require('electron')
 const path = require('path')
 
 app.on('ready', () => {
   protocol.registerFileProtocol('atom', (request, callback) => {
     const url = request.url.substr(7)
-    callback({path: path.normalize(`${__dirname}/${url}`)})
+    callback({ path: path.normalize(`${__dirname}/${url}`) })
   }, (error) => {
-    if (error) console.error('プロトコルの登録に失敗しました')
+    if (error) console.error('Failed to register protocol')
   })
 })
 ```
@@ -49,7 +49,7 @@ app.on('ready', () => {
 デフォルトでは、非標準スキームはウェブストレージ API (localStorage, sessionStorage, webSQL, indexedDB, cookies) が無効にされます。 なので、一般的に、`http` プロトコルを置き換えるカスタムプロトコルを登録する場合は、標準スキームとして登録する必要があります。
 
 ```javascript
-const {app, protocol} = require('electron')
+const { app, protocol } = require('electron')
 
 protocol.registerStandardSchemes(['atom'])
 app.on('ready', () => {
@@ -79,7 +79,7 @@ app.on('ready', () => {
 
 ファイルをレスポンスとして送信する `scheme` のプロトコルを登録します。 `request` が `scheme` で作成されると、`handler` が `handler(request, callback)` で呼び出されます。 `completion` は、`scheme` が正常に登録された場合は `completion(null)`、失敗した場合は `completion(error)` で呼び出されます。
 
-`request` を処理するには、`callback` を、ファイルのパスまたは `path` プロパティを持つオブジェクトのいずれかを使用して、例えば、`callback(filePath)` や `callback({path: filePath})` で呼び出す必要があります。
+To handle the `request`, the `callback` should be called with either the file's path or an object that has a `path` property, e.g. `callback(filePath)` or `callback({ path: filePath })`.
 
 引数なし、数、または `error` プロパティを持つオブジェクトで `callback` が呼び出されると、 `request` は指定した `error` 番号で失敗します。 使用できる利用可能なエラー番号については、[net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) を参照してください。
 
@@ -106,12 +106,12 @@ app.on('ready', () => {
 サンプル:
 
 ```javascript
-const {protocol} = require('electron')
+const { protocol } = require('electron')
 
 protocol.registerBufferProtocol('atom', (request, callback) => {
-  callback({mimeType: 'text/html', data: Buffer.from('<h5>Response</h5>')})
+  callback({ mimeType: 'text/html', data: Buffer.from('<h5>Response</h5>') })
 }, (error) => {
-  if (error) console.error('プロトコルの登録に失敗しました')
+  if (error) console.error('Failed to register protocol')
 })
 ```
 
@@ -139,6 +139,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 * `handler` Function 
   * `request` Object 
     * `url` String
+    * `headers` Object
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -183,11 +184,11 @@ POST リクエストの場合、`uploadData` オブジェクトを提供する�
 サンプル:
 
 ```javascript
-const {protocol} = require('electron')
-const {PassThrough} = require('stream')
+const { protocol } = require('electron')
+const { PassThrough } = require('stream')
 
 function createStream (text) {
-  const rv = new PassThrough() // PassThrough は Readable ストリームでもある
+  const rv = new PassThrough() // PassThrough is also a Readable stream
   rv.push(text)
   rv.push(null)
   return rv
@@ -202,20 +203,20 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
     data: createStream('<h5>Response</h5>')
   })
 }, (error) => {
-  if (error) console.error('プロトコルの登録に失敗しました')
+  if (error) console.error('Failed to register protocol')
 })
 ```
 
 Readable ストリーム API (`data` / `end` / `error` イベントが発生する) を実装するオブジェクトを渡すことは可能です。例として、ファイルを返す方法を以下に示します。
 
 ```javascript
-const {protocol} = require('electron')
+const { protocol } = require('electron')
 const fs = require('fs')
 
 protocol.registerStreamProtocol('atom', (request, callback) => {
   callback(fs.createReadStream('index.html'))
 }, (error) => {
-  if (error) console.error('プロトコルの登録に失敗しました')
+  if (error) console.error('Failed to register protocol')
 })
 ```
 
@@ -289,6 +290,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 * `handler` Function 
   * `request` Object 
     * `url` String
+    * `headers` Object
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
