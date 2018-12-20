@@ -8,8 +8,10 @@ Proses: [Main](../glossary.md#main-process)
 Ini digunakan dalam event <code> will-download </ 0>  pada kelas <code> Session </ 0> , dan memungkinkan pengguna untuk mengontrol item download.</p>
 
 <pre><code class="javascript">// In the main process.
-const {jendela Browser} = memerlukan (' electron ') misalkan win = jendela baru Browser () win.webContents.session.on ('will-download', ( event , item, webContents) = & gt; {
-   // Set save path, membuat Elektron tidak meminta dialog simpan.
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow()
+win.webContents.session.on('will-download', (event, item, webContents) => {
+  // Set the save path, making Electron not to prompt a save dialog.
   item.setSavePath ('/ tmp / save.pdf') item.on ('util', (acara, negara bagian) = & gt; {jika (negara === 'terputus') {console.log ('Download terputus & dapat kembali ')} jika lain (negara ===' berkembang ') {jika (item.isPaused ()) {console.log (' Downl ownload berhenti ')} lain {console.log (' menerima byte: $ {item .getReceivedBytes ()} ')}}}) item.once (' dilakukan ', (acara, negara bagian) = & gt; {jika (negara ===' selesai ') {console.log (' Download berhasil ')} lain {console.log ('Download gagal: $ {state}')}})})
 `</pre> 
 
