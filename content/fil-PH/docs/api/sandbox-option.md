@@ -1,18 +1,18 @@
 # `sandbox` Ang opsyon
 
-> Lumikha ng isang browser window kasama ang tagabigay na maaaring gumana sa loob ng sandbox ng Chromium OS. Kasama ang pinaganang opsyon, ang tagabigay ay dapat makipag-ugnayan sa pamamagitan ng IPC sa mga pangunahing proseso nang sa gayon ay ma-access ang mga node ng API. Gayunpaman, para mapagana ang sandbox ng Chromium OS, ang electron ay dapat na umandar kasama ang `--enable-sandbox` ng argumento sa linya ng komand.
+> Lumikha ng isang browser window kasama ang tagabigay na maaaring gumana sa loob ng sandbox ng Chromium OS. Kasama ang pinaganang opsyon, ang tagabigay ay dapat makipag-ugnayan sa pamamagitan ng IPC sa mga pangunahing proseso nang sa gayon ay ma-access ang mga node ng API. However, in order to enable the Chromium OS sandbox, Electron must be run with the `--enable-sandbox` command line argument.
 
 Isa sa mga katangian ng susing pangseguridad ng Chromium ay ang lahat ng kodigo ng blink rendering/JavaScript ay isinagawa sa loob ng isang sandbox. Ang sandbox na ito ay gumagamit ng partikular na mga katangian ng OS para matiyak na ang pagsasamantala sa mga prosesong tagasalin ay hindi makakasira sa sistema.
 
 Sa madaling salita, kapag ang sandbox ay pinagana, ang mga tagasalin ay maaari lamang gumawa ng mga pagbabago sa sistema sa pamamagitan ng pagtatalaga ng mga gawain sa pangunahing proseso sa pamamagitan ng IPC. [Here's](https://www.chromium.org/developers/design-documents/sandbox) ang mas maraming impormasyon tungkol sa sandbox.
 
-Dahilan sa ang isang pangunahing katangian ng electron ay ang kakayahang patakbuhin ang node.js sa prosesong tagasalin (ginagawa nitong mas madali ang pagbuo ng mga aplikasyon ng desktop gamit ang mga teknolohiya ng web), ang sandbox ay pinapahinto ng electron. Ito ay dahil sa ang karamihan ng mga API ng node.js ay nangangailangan ng access sa sistema. Ang `require()` bilang halimbawa, ay hindi posible kung walang mga permiso ng file ng sistema, kung saan ay hindi magagamit sa kapaligiran ng isang sandbox.
+Since a major feature in Electron is the ability to run Node.js in the renderer process (making it easier to develop desktop applications using web technologies), the sandbox is disabled by electron. This is because most Node.js APIs require system access. Ang `require()` bilang halimbawa, ay hindi posible kung walang mga permiso ng file ng sistema, kung saan ay hindi magagamit sa kapaligiran ng isang sandbox.
 
-Karaniwang ito ay hindi problema para sa mga aplikasyon ng desktop dahil ang mga kodigo ay palaging mapagkakatiwalaan, ngunit maaaring ang electron ay hindi gaanong ligtas kaysa chromium para sa pagpapakita ng hindi mapagkakatiwalaang laman ng web. Para sa mga aplikasyon na nangangailangan ng mas higit na siguridad, ang flag ng `sandbox` ay pipilitin ang electron na maglabas ng isang klasikong tagasalin ng chromium na nababagay sa sandbox.
+Usually this is not a problem for desktop applications since the code is always trusted, but it makes Electron less secure than Chromium for displaying untrusted web content. For applications that require more security, the `sandbox` flag will force Electron to spawn a classic Chromium renderer that is compatible with the sandbox.
 
-Ang tagasalin ng isang sandbox ay hindi magkakaroon ng gumaganang kapaligiran ng isang node.js at hindi ilalantad ang mga JavaScript API ng node.js sa kodigo ng kliyente. Ang tanging eksepsyon ay ang preload script, kung saan ay may access sa isang tagasalin ng API ng electron.
+A sandboxed renderer doesn't have a Node.js environment running and doesn't expose Node.js JavaScript APIs to client code. The only exception is the preload script, which has access to a subset of the Electron renderer API.
 
-Ang isa pang pagkakaiba ay ang mga tagasalin ng sandbox ay hindi binabago ang alinman sa mga default ng mga API ng JavaScript. Consequently, some APIs such as `window.open` will work as they do in chromium (i.e. they do not return a [`BrowserWindowProxy`](browser-window-proxy.md)).
+Ang isa pang pagkakaiba ay ang mga tagasalin ng sandbox ay hindi binabago ang alinman sa mga default ng mga API ng JavaScript. Consequently, some APIs such as `window.open` will work as they do in Chromium (i.e. they do not return a [`BrowserWindowProxy`](browser-window-proxy.md)).
 
 ## Mga halimbawa
 
@@ -30,7 +30,7 @@ app.on('ready', () => {
 })
 ```
 
-In the above code the [`BrowserWindow`](browser-window.md) that was created has node.js disabled and can communicate only via IPC. Ang paggamit nitong pagpipilian ay mahihinto ang elektron sa paglika ng isang node.js runtime sa tagatanghal. Also, within this new window `window.open` follows the native behaviour (by default electron creates a [`BrowserWindow`](browser-window.md) and returns a proxy to this via `window.open`).
+In the above code the [`BrowserWindow`](browser-window.md) that was created has Node.js disabled and can communicate only via IPC. The use of this option stops Electron from creating a Node.js runtime in the renderer. Also, within this new window `window.open` follows the native behaviour (by default Electron creates a [`BrowserWindow`](browser-window.md) and returns a proxy to this via `window.open`).
 
 Ito ay mahalaga na tandaan na ang opsyun nito na nag-iisa ay hindi nkapagpapagana ng OS-enforced sandbox. Upang paganahin ang tampok na ito, ang `– mapagana-sandbox` ang linya ng utos sa argumento dapat maipasa sa elektron, na kung saan ay pipilitin `sandbox: totoo` para sa lahat ng mga kaganapan ng `BrowserWindow`.
 
@@ -43,15 +43,15 @@ win.loadURL('http://google.com')
 })
 ```
 
-Tandaan na ito ay hindi sapat upang tawagin ang `app.commandLine.appendSwitch('--enable-sandbox')`, bilang elektron o node startup code na tumatakbo pagkatapos ito ay posibleng gumawa ng mga pagbabago sa mga settings ng chromium sandbox. Ang switch ay dapat dumaan sa elektron sa mga command-line:
+Note that it is not enough to call `app.commandLine.appendSwitch('--enable-sandbox')`, as electron/node startup code runs after it is possible to make changes to Chromium sandbox settings. The switch must be passed to Electron on the command-line:
 
 ```sh
 elektron --enable-sandbox app.js
 ```
 
-Ito ay hindi posible na magkaroon ng OS sandbox na aktibo lamang para sa ilang mga renderers, kung `--enable-sandbox` ay gumagana, ang normal na elektron windows ay hindi malilikha.
+It is not possible to have the OS sandbox active only for some renderers, if `--enable-sandbox` is enabled, normal Electron windows cannot be created.
 
-If you need to mix sandboxed and non-sandboxed renderers in one application, omit the `--enable-sandbox` argument. Kung walang argumento ito, nilikha ang windows sa `sandbox: tama` ay magkakaroon parin nang node.js na hindi gumagana at kaugnayan lamang sa pamamagitan ng IPC, kung saan ito mismo makakuha mula sa seguridad POV.
+If you need to mix sandboxed and non-sandboxed renderers in one application, omit the `--enable-sandbox` argument. Without this argument, windows created with `sandbox: true` will still have Node.js disabled and communicate only via IPC, which by itself is already a gain from security POV.
 
 ## Preload
 
@@ -73,9 +73,10 @@ win.loadURL('http://google.com')
 at preload.js:
 
 ```js
-// Ang file na ito ay isinasakay tuwing ang isang javascript na konteksto ay nilikha. Ito ay tumatakbo sa isang // pribadong saklaw na maaaring ma-akses ang isang subset ng elektron na tagasalin ng APIs. Dapat tayong maging // maingat para hindi tumagas ang anumang bagay sa mga pandaigdigang saklaw!
+// Ang file na ito ay isinasakay tuwing ang isang javascript na konteksto ay nilikha. It runs in a
+// private scope that can access a subset of Electron renderer APIs. Dapat tayong maging // maingat para hindi tumagas ang anumang bagay sa mga pandaigdigang saklaw!
 const fs = require('fs')
-const {ipcRenderer} = require('electron')
+const { ipcRenderer } = require('electron')
 
 // read a configuration file using the `fs` module
 const buf = fs.readFileSync('allowed-popup-urls.json')
@@ -96,9 +97,9 @@ window.open = customWindowOpen
 
 Mahahalagang bagay na mapapansin sa preload script:
 
-- Kahit na ang sandboxed na tagsalin na walang node.js na tumatakbo, ito parin ay ma-aakses sa isang limitadong node-like na kapaligiran: `Buffer`, `proseso`, `setlmmediate` at `nangangailangan` ay magagamit.
+- Even though the sandboxed renderer doesn't have Node.js running, it still has access to a limited node-like environment: `Buffer`, `process`, `setImmediate` and `require` are available.
 - Ang preload script ay maaaring ma-akses na hindi direkta ang lahat na APIs na mula sa pangunahing proseso sa pamamagitan ng `remote` at `ipcRenderer` na mga modyul. Ito ay kung paano ang `fs` (na ginagamit sa itaas) at ang ibang modyul ay ipinatupad: Ang mga proxy na katapat sa pangunahing proseso.
-- Ang preload script ay dapat nakapaloob sa isang iskrip, pero ito din ay posible na magkaroon ng mga kumplikado na preload na kodigo na binubuo ng maramihang mga modyul sa parang kasangkapan na browserify, na naipaliwanag sa ibaba. Sa katunayan, ang browserify na ginagamit ng mga elektron upang magbigay ng isang katulad ng node na kapaligiran sa preload iskrip.
+- Ang preload script ay dapat nakapaloob sa isang iskrip, pero ito din ay posible na magkaroon ng mga kumplikado na preload na kodigo na binubuo ng maramihang mga modyul sa parang kasangkapan na browserify, na naipaliwanag sa ibaba. In fact, browserify is already used by Electron to provide a node-like environment to the preload script.
 
 Sa paglikha ng isang bungkos ng browserify at gamitin ito bilang isang preload na iskrip, ang sumusunod ay dapat gamitin:
 
@@ -124,15 +125,15 @@ Kasalukuyan ang `require` ng function na nakapagbibigay ng preload na saklaw na 
 - `mga timers`
 - `url`
 
-Maaring marami ang maidagdag sa kinakailngan na mailantad na maraming elektron APIs sa sandbox, pero anumang modyul sa pangunahing proseso na ginamit sa pamamagitan ng `elektron.remote.require`.
+More may be added as needed to expose more Electron APIs in the sandbox, but any module in the main process can already be used through `electron.remote.require`.
 
 ## Katayuan
 
-Pakiusap na gamitin ang `sandbox` na opsyun na may pangangalaga, katulad pa rin sa isang experimentong tampok nito. Kami ay wala pa ring kamalayan sa seguridad ng paglalantad sa ilang elektron na tagatanghal APIs sa preload na iskrip, pero narito ang mga ilang bagay na isinasaalang-alang bago e-render ang di-pinagkakatiwalaan na nilalaman:
+Pakiusap na gamitin ang `sandbox` na opsyun na may pangangalaga, katulad pa rin sa isang experimentong tampok nito. We are still not aware of the security implications of exposing some Electron renderer APIs to the preload script, but here are some things to consider before rendering untrusted content:
 
 - A preload script can accidentally leak privileged APIs to untrusted code.
 - Ang ilang bug sa V8 engine ay maaring payagan ang malisyusong kodigo para ma-akses ang renderer preload APIs, na epiktibong bigyan ng buong akses sa sistema sa pamamagitan ng `remote` na modyul.
 
-Dahil sa pagrender ng hindi makapagtiwalaang nilalaman sa elektron ay wala pa sa mapa ng teritoryo, ang APIs ay nakalantad sa sandbox preload na iskrip na dapt na maisaalang-alang na maraming hindi matatag kaysa sa ilang elektron ng APIs, ay maaring mayroong pagsira sa mga pagbabago para ayusin ang isyu sa seguridad.
+Since rendering untrusted content in Electron is still uncharted territory, the APIs exposed to the sandbox preload script should be considered more unstable than the rest of Electron APIs, and may have breaking changes to fix security issues.
 
 Isang planadong paghuhusay na dapat may malaking dagdag sa seguridad ay para maharangan ang mensahe ng IPC galing sa sandboxed renderers sa pamamagitan ng default, nagpapahintulot na ang pangunahing proseso sa tahasang pagtutukoy sa isang itinakdang mensahe sa renderer ay mapayagan na maipadala.
