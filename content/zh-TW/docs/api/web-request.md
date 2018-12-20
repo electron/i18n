@@ -19,7 +19,7 @@ An example of adding `User-Agent` header for requests:
 ```javascript
 const { session } = require('electron')
 
-// Modify the user agent for all requests to the following urls.
+// 修改存取下列 URL 時使用的 User Agent。
 const filter = {
   urls: ['https://*.github.com/*', '*://electron.github.io']
 }
