@@ -2,8 +2,6 @@
 
 > Create and control views.
 
-**Notatka** BrowserView jest eksperymentalną klasą API i może być zmieniona lub usunięta w przyszłych wersjach Electron`a.
-
 Proces: [Main](../glossary.md#main-process)
 
 A `BrowserView` can be used to embed additional web content into a [`BrowserWindow`](browser-window.md). It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
@@ -11,10 +9,10 @@ A `BrowserView` can be used to embed additional web content into a [`BrowserWind
 ## Przykład
 
 ```javascript
-//W głównym procesie.
-const {BrowserView, BrowserWindow} = require('electron')
+// W procesie głównym.
+const { BrowserView, BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({width: 800, height: 600})
+let win = new BrowserWindow({ width: 800, height: 600 })
 win.on('closed', () => {
   win = null
 })
@@ -60,7 +58,7 @@ Obiekt utworzony za pomocą `new BrowserView` posiada następujące właściwoś
 
 A [`WebContents`](web-contents.md) object owned by this view.
 
-#### `view.id` *Experimental*
+#### `view.id` *Eksperymentalny*
 
 A `Integer` representing the unique ID of the view.
 
@@ -76,18 +74,18 @@ Force closing the view, the `unload` and `beforeunload` events won't be emitted 
 
 Returns `Boolean` - Whether the view is destroyed.
 
-#### `view.setAutoResize(options)` *Experimental*
+#### `view.setAutoResize(options)` *Eksperymentalne*
 
-* `options` Obiekt 
+* `options` Object 
   * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
   * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
 
-#### `view.setBounds(bounds)` *Experimental*
+#### `view.setBounds(bounds)` *Eksperymentalne*
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
 Resizes and moves the view to the supplied bounds relative to the window.
 
-#### `view.setBackgroundColor(color)` *Experimental*
+#### `view.setBackgroundColor(color)` *Eksperymentalne*
 
 * `color` String - Color in `#aarrggbb` or `#argb` form. The alpha channel is optional.
