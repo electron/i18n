@@ -11,7 +11,7 @@
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.webContents.session.on('will-download', (event, item, webContents) => {
-  // Set the save path, making Electron not to prompt a save dialog.
+  // 設定儲存路徑，不讓 Electron 跳出視窗詢問。
   item.setSavePath('/tmp/save.pdf')
 
   item.on('updated', (event, state) => {
