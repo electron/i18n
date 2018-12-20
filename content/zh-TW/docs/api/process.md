@@ -118,11 +118,11 @@ Indicates the creation time of the application. The time is represented as numbe
 
 ### `process.getCPUUsage()`
 
-Returns [`CPUUsage`](structures/cpu-usage.md)
+回傳 [`CPUUsage`](structures/cpu-usage.md)
 
 ### `process.getIOCounters()` *Windows* *Linux*
 
-Returns [`IOCounters`](structures/io-counters.md)
+回傳 [`IOCounters`](structures/io-counters.md)
 
 ### `process.getHeapStatistics()`
 
