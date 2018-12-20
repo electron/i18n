@@ -4,78 +4,80 @@
 
 プロセス: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-以下の例では、クリップボードに文字列を書き込む方法を示します。
+In the renderer process context it depends on the [`remote`](remote.md) module on Linux, it is therefore not available when this module is disabled.
+
+The following example shows how to write a string to the clipboard:
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 clipboard.writeText('Example String')
 ```
 
-X Windowシステムには、セレクションクリップボードもあります。これを操作するには、各メソッドに `selection` を渡す必要があります。
+On X Window systems, there is also a selection clipboard. To manipulate it you need to pass `selection` to each method:
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 clipboard.writeText('Example String', 'selection')
 console.log(clipboard.readText('selection'))
 ```
 
 ## メソッド
 
-`clipboard` モジュールには以下のメソッドがあります。
+The `clipboard` module has the following methods:
 
-**注:** 実験的なAPIにはそのように注記があり、将来的に削除される可能性があります。
+**Note:** Experimental APIs are marked as such and could be removed in future.
 
 ### `clipboard.readText([type])`
 
 * `type` String (任意)
 
-戻り値 `String` - プレーンテキストでのクリップボード内のコンテンツ。
+Returns `String` - The content in the clipboard as plain text.
 
 ### `clipboard.writeText(text[, type])`
 
 * `text` String
 * `type` String (任意)
 
-プレーンテキストとしてクリップボードに `text` を書き込みます。
+Writes the `text` into the clipboard as plain text.
 
 ### `clipboard.readHTML([type])`
 
 * `type` String (任意)
 
-戻り値 `String` - マークアップでのクリップボード内のコンテンツ。
+Returns `String` - The content in the clipboard as markup.
 
 ### `clipboard.writeHTML(markup[, type])`
 
 * `markup` String
 * `type` String (任意)
 
-クリップボードに `markup` を書き込みます。
+Writes `markup` to the clipboard.
 
 ### `clipboard.readImage([type])`
 
 * `type` String (任意)
 
-戻り値 [`NativeImage`](native-image.md) - クリップボード内の画像コンテンツ。
+Returns [`NativeImage`](native-image.md) - The image content in the clipboard.
 
 ### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
 * `type` String (任意)
 
-クリップボードに `image` を書き込みます。
+Writes `image` to the clipboard.
 
 ### `clipboard.readRTF([type])`
 
 * `type` String (任意)
 
-戻り値 `String` - RTFでのクリップボード内のコンテンツ。
+Returns `String` - The content in the clipboard as RTF.
 
 ### `clipboard.writeRTF(text[, type])`
 
 * `text` String
 * `type` String (任意)
 
-RTFでクリップボードに `text` を書き込みます。
+Writes the `text` into the clipboard in RTF.
 
 ### `clipboard.readBookmark()` *macOS* *Windows*
 
@@ -84,7 +86,7 @@ RTFでクリップボードに `text` を書き込みます。
 * `title` String
 * `url` String
 
-クリップボード内のブックマークを表す `title` と `url` のキーを含む Object を返します。 ブックマークが無効なとき、`title` と `url` の値は空文字です。
+Returns an Object containing `title` and `url` keys representing the bookmark in the clipboard. The `title` and `url` values will be empty strings when the bookmark is unavailable.
 
 ### `clipboard.writeBookmark(title, url[, type])` *macOS* *Windows*
 
@@ -92,9 +94,9 @@ RTFでクリップボードに `text` を書き込みます。
 * `url` String
 * `type` String (任意)
 
-ブックマークとしてクリップボードに `title` と `url` を書き込みます。
+Writes the `title` and `url` into the clipboard as a bookmark.
 
-**注:** Windowsの大抵のアプリは、ブックマークのペーストをサポートしていないため、ブックマークと縮退したテキストの両方をクリップボードに書き込むため、`clipboard.write` を使うようにしてください。
+**Note:** Most apps on Windows don't support pasting bookmarks into them so you can use `clipboard.write` to write both a bookmark and fallback text to the clipboard.
 
 ```js
 clipboard.write({
@@ -105,35 +107,35 @@ clipboard.write({
 
 ### `clipboard.readFindText()` *macOS*
 
-戻り値 `String` - 検索ペーストボードのテキスト。 このメソッドは、レンダラープロセスから呼び出されたとき、同期IPCを使います。 アプリケーションがアクティブにされるたびに、キャッシュされた値は、検索ペーストボードから再読込されます。
+Returns `String` - The text on the find pasteboard. This method uses synchronous IPC when called from the renderer process. The cached value is reread from the find pasteboard whenever the application is activated.
 
 ### `clipboard.writeFindText(text)` *macOS*
 
 * `text` String
 
-プレーンテキストとして検索ペーストボードに `text` を書き込みます。このメソッドは、レンダラープロセスから呼び出されたとき、同期IPCを使います。
+Writes the `text` into the find pasteboard as plain text. This method uses synchronous IPC when called from the renderer process.
 
 ### `clipboard.clear([type])`
 
 * `type` String (任意)
 
-クリップボードの内容を消去します。
+Clears the clipboard content.
 
 ### `clipboard.availableFormats([type])`
 
 * `type` String (任意)
 
-戻り値 `String[]` - クリップボードがサポートしている形式の `type` の配列。
+Returns `String[]` - An array of supported formats for the clipboard `type`.
 
 ### `clipboard.has(format[, type])` *実験的*
 
 * `format` String
 * `type` String (任意)
 
-戻り値 `Boolean` - クリップボードが指定した `format` をサポートしているかどうか。
+Returns `Boolean` - Whether the clipboard supports the specified `format`.
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 console.log(clipboard.has('<p>selection</p>'))
 ```
 
@@ -141,13 +143,13 @@ console.log(clipboard.has('<p>selection</p>'))
 
 * `format` String
 
-戻り値 `String` - クリップボードから `format` 形式で読み出します。
+Returns `String` - Reads `format` type from the clipboard.
 
 ### `clipboard.readBuffer(format)` *実験的*
 
 * `format` String
 
-戻り値 `Buffer` - クリップボードから `format` 形式で読み出します。
+Returns `Buffer` - Reads `format` type from the clipboard.
 
 ### `clipboard.writeBuffer(format, buffer[, type])` *実験的*
 
@@ -155,7 +157,7 @@ console.log(clipboard.has('<p>selection</p>'))
 * `buffer` Buffer
 * `type` String (任意)
 
-`format` でクリップボードに `buffer` を書き込みます。
+Writes the `buffer` into the clipboard as `format`.
 
 ### `clipboard.write(data[, type])`
 
@@ -168,8 +170,8 @@ console.log(clipboard.has('<p>selection</p>'))
 * `type` String (任意)
 
 ```javascript
-const {clipboard} = require('electron')
-clipboard.write({text: 'test', html: '<b>test</b>'})
+const { clipboard } = require('electron')
+clipboard.write({ text: 'test', html: '<b>test</b>' })
 ```
 
-クリップボードに `data` を書き込みます。
+Writes `data` to the clipboard.
