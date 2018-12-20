@@ -9,7 +9,7 @@ Las instancias de la clase `Cookies` son accedidas utilizado la propiedad `cooki
 Por ejemplo:
 
 ```javascript
-const {session} = require('electron')
+const { session } = require('electron')
 
 // Busca todas las cookies.
 session.defaultSession.cookies.get({}, (error, cookies) => {
@@ -17,13 +17,13 @@ session.defaultSession.cookies.get({}, (error, cookies) => {
 })
 
 // Busca todas las cookies asociadas con un url específico.
-session.defaultSession.cookies.get({url: 'http://www.github.com'}, (error, cookies) => {
+session.defaultSession.cookies.get({ url: 'http://www.github.com' }, (error, cookies) => {
   console.log(error, cookies)
 })
 
-// Establece una cookie con la información de cookie ofrecida;
-// puede sobreescribir cookies equivalentes si existen.
-const cookie = {url: 'http://www.github.com', name: 'dummy_name', value: 'dummy'}
+// Set a cookie with the given cookie data;
+// may overwrite equivalent cookies if they exist.
+const cookie = { url: 'http://www.github.com', name: 'dummy_name', value: 'dummy' }
 session.defaultSession.cookies.set(cookie, (error) => {
   if (error) console.error(error)
 })
@@ -35,7 +35,7 @@ Los siguientes eventos están disponibles en las instancias de `Cookies`:
 
 #### Evento: "changed"
 
-* `event` Event
+* `event`
 * `cookie` [Cookie](structures/cookie.md) - La cookie que se ha cambiado.
 * `cause` Cadena - La causa del cambio con uno de los siguientes valores: 
   * `explicit` - La cookie se cambió directamente por la acción de un consumidor.
@@ -53,7 +53,7 @@ Los siguientes métodos están disponibles en las instancias de `Cookies`:
 
 #### `cookies.get(filter, callback)`
 
-* `filter` Objeto 
+* `filter` Objecto 
   * `url` Cadena (opcional) - Recupera las cookies que estás asociadas con el `url`. Dejarlo en blanco implica recuperar las cookies de todos los Urls.
   * `name` Cadena (opcional) - Filtra las cookies por nombre.
   * `domain` Cadena (opcional) - Recupera las cookies de cuyos dominios coinciden o son subdominios de `domains`.
