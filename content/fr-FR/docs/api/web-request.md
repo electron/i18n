@@ -6,7 +6,9 @@ Processus : [Main](../glossary.md#main-process)
 
 Les instances de la classe `WebRequest` sont accessibles à l'aide de la propriété `WebRequest` d'une `Session`.
 
-Les méthodes de `WebRequest` acceptent un `filter` et un `listener` optionnels. Le `listener` va être appelé avec `listener(details)` quand l'événement de l'API est émis. L'objet `details` représente la requête. Passer `null` comme argument désabonnera le `listener` de l'événement.
+Les méthodes de `WebRequest` acceptent un `filter` et un `listener` optionnels. Le `listener` va être appelé avec `listener(details)` quand l'événement de l'API est émis. L'objet `details` représente la requête.
+
+⚠️ Only the last attached `listener` will be used. Passing `null` as `listener` will unsubscribe from the event.
 
 The `filter` object has a `urls` property which is an Array of URL patterns that will be used to filter out the requests that do not match the URL patterns. If the `filter` is omitted then all requests will be matched.
 
@@ -15,7 +17,7 @@ For certain events the `listener` is passed with a `callback`, which should be c
 An example of adding `User-Agent` header for requests:
 
 ```javascript
-const {session} = require('electron')
+const { session } = require('electron')
 
 // Modify the user agent for all requests to the following urls.
 const filter = {
@@ -24,13 +26,13 @@ const filter = {
 
 session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback) => {
   details.requestHeaders['User-Agent'] = 'MyAgent'
-  callback({cancel: false, requestHeaders: details.requestHeaders})
+  callback({ cancel: false, requestHeaders: details.requestHeaders })
 })
 ```
 
 ### Méthodes d’instance
 
-Les méthodes suivants sont disponibles pour les instances de `WebRequest` :
+The following methods are available on instances of `WebRequest`:
 
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
