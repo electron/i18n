@@ -6,6 +6,26 @@
 
 Строка `FIXME` используется в комментариях к коду для обозначения вещей, которые должны быть исправлены в будущих релизах. Смотрите https://github.com/electron/electron/search?q=fixme
 
+# Запланированные критические изменения API (5.0)
+
+## `new BrowserWindow({ webPreferences })`
+
+The following `webPreferences` option default values are deprecated in favor of the new defaults listed below.
+
+| Property           | Deprecated Default                   | New Default |
+| ------------------ | ------------------------------------ | ----------- |
+| `contextIsolation` | `false`                              | `true`      |
+| `nodeIntegration`  | `true`                               | `false`     |
+| `webviewTag`       | `nodeIntegration` if set else `true` | `false`     |
+
+## `nativeWindowOpen`
+
+Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled.
+
+## `webContents.findInPage(text[, options])`
+
+`wordStart` and `medialCapitalAsWordStart` options are removed.
+
 # Запланированные критические изменения API (4.0)
 
 Данный список включает в себя критические изменения в API, запланированные для Electron 4.0.
@@ -33,6 +53,18 @@ app.releaseSingleInstance()
 app.releaseSingleInstanceLock()
 ```
 
+## `app.getGPUInfo`
+
+```js
+app.getGPUInfo('complete')
+// Now behaves the same with `basic` on macOS
+app.getGPUInfo('basic')
+```
+
+## `win_delay_load_hook`
+
+When building native modules for windows, the `win_delay_load_hook` variable in the module's `binding.gyp` must be true (which is the default). If this hook is not present, then the native module will fail to load on Windows, with an error message like `Cannot find module`. See the [native module guide](/docs/tutorial/using-native-node-modules.md) for more.
+
 # Критические изменения API (3.0)
 
 Данный список включает в себя критические изменения в API для Electron 3.0.
@@ -40,38 +72,36 @@ app.releaseSingleInstanceLock()
 ## `app`
 
 ```js
-// Устарело
+// Deprecated
 app.getAppMemoryInfo()
-// Заменить на
+// Replace with
 app.getAppMetrics()
 
-// Устарело
+// Deprecated
 const metrics = app.getAppMetrics()
-const {memory} = metrics[0]
-memory.privateBytes  // Устаревшее свойство
-memory.sharedBytes  // Устаревшее свойство
+const { memory } = metrics[0] // Deprecated property
 ```
 
 ## `BrowserWindow`
 
 ```js
-// Устарело
-let optionsA = {webPreferences: {blinkFeatures: ''}}
+// Deprecated
+let optionsA = { webPreferences: { blinkFeatures: '' } }
 let windowA = new BrowserWindow(optionsA)
-// Заменить на
-let optionsB = {webPreferences: {enableBlinkFeatures: ''}}
+// Replace with
+let optionsB = { webPreferences: { enableBlinkFeatures: '' } }
 let windowB = new BrowserWindow(optionsB)
 
-// Устарело
+// Deprecated
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
-    // делается что-нибудь
+    // do something
   }
 })
-// Заменить на
+// Replace with
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
-    // делается что-нибудь
+    // do something
   }
 })
 ```
@@ -133,8 +163,6 @@ nativeImage.createFromBuffer(buffer, {
 ```js
 // Deprecated
 const info = process.getProcessMemoryInfo()
-const privateBytes = info.privateBytes // deprecated property
-const sharedBytes = info.sharedBytes // deprecated property
 ```
 
 ## `screen`
@@ -177,9 +205,9 @@ tray.setHighlightMode('off')
 
 ```js
 // Deprecated
-webContents.openDevTools({detach: true})
+webContents.openDevTools({ detach: true })
 // Replace with
-webContents.openDevTools({mode: 'detach'})
+webContents.openDevTools({ mode: 'detach' })
 
 // Removed
 webContents.setSize(options)
@@ -192,12 +220,12 @@ webContents.setSize(options)
 // Deprecated
 webFrame.registerURLSchemeAsSecure('app')
 // Replace with
-protocol.registerStandardSchemes(['app'], {secure: true})
+protocol.registerStandardSchemes(['app'], { secure: true })
 
 // Deprecated
-webFrame.registerURLSchemeAsPrivileged('app', {secure: true})
+webFrame.registerURLSchemeAsPrivileged('app', { secure: true })
 // Replace with
-protocol.registerStandardSchemes(['app'], {secure: true})
+protocol.registerStandardSchemes(['app'], { secure: true })
 ```
 
 ## `<webview>`
@@ -232,10 +260,10 @@ The following list includes the breaking API changes made in Electron 2.0.
 
 ```js
 // Deprecated
-let optionsA = {titleBarStyle: 'hidden-inset'}
+let optionsA = { titleBarStyle: 'hidden-inset' }
 let windowA = new BrowserWindow(optionsA)
 // Replace with
-let optionsB = {titleBarStyle: 'hiddenInset'}
+let optionsB = { titleBarStyle: 'hiddenInset' }
 let windowB = new BrowserWindow(optionsB)
 ```
 
@@ -245,7 +273,7 @@ let windowB = new BrowserWindow(optionsB)
 // Removed
 menu.popup(browserWindow, 100, 200, 2)
 // Replaced with
-menu.popup(browserWindow, {x: 100, y: 200, positioningItem: 2})
+menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```
 
 ## `nativeImage`
