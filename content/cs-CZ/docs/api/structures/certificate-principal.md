@@ -1,8 +1,8 @@
 # Objekt CertificatePrincipal
 
-* `commonName` String – obecné jméno
-* `organizations` String[] – jména organizací
-* `organizationUnits` String[] – jména organizačních jednotek
-* `locality` String – lokalita
-* `state` String – stát, nebo provincie
-* `country` String – země, nebo oblast
+* `commonName` String - Common Name.
+* `organizations` String[] - Organization names.
+* `organizationUnits` String[] - Organization Unit names.
+* `locality` String - Locality.
+* `state` String - State or province.
+* `country` String - Country or region.
