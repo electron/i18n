@@ -5,12 +5,12 @@
 Maaari mong gamitin ang [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) upang idagdag ito sa iyong app's ang iyong pangunahing script bago ang [ready](app.md#event-ready) event ng [app](app.md) modyul ay emitted:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 app.commandLine.appendSwitch('remote-debugging-port', '8315')
 app.commandLine.appendSwitch('host-rules', 'MAP * 127.0.0.1')
 
 app.on('ready', () => {
-  // ilagay mo ang code mo dito
+  // Your code here
 })
 ```
 
@@ -54,7 +54,7 @@ Tingnan ang [Node documentation](https://nodejs.org/api/cli.html) o kaya paganah
 
 ## --proxy-server=`address:port`
 
-Gumamit ng isang uri ng proxy server, para mapatungan ang system setting. Lumipat lamang kung nakakaapekto ang request ng HTTP protocol, pati na ang HTTPS at WebSocker request. Maaring kapansin-pansin na ang lahat ng proxy servers ay sumusuporta sa HTTPS at sa hiling ng WebSocket.
+Gumamit ng isang uri ng proxy server, para mapatungan ang system setting. Lumipat lamang kung nakakaapekto ang request ng HTTP protocol, pati na ang HTTPS at WebSocker request. Maaring kapansin-pansin na ang lahat ng proxy servers ay sumusuporta sa HTTPS at sa hiling ng WebSocket. The proxy URL does not support username and password authentication [per Chromium issue](https://bugs.chromium.org/p/chromium/issues/detail?id=615947).
 
 ## --proxy-bypass-list=`hosts`
 
@@ -63,7 +63,7 @@ Turuan ang Electron na lampasan ang proxy server na semi-colon-separated ang lis
 Halimbawa:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com;1.2.3.4:5678')
 ```
 
