@@ -2,8 +2,6 @@
 
 > Lumikha at kontrolin ang mga nakikita.
 
-**Note:** Ang BrowserView API ay kasalukuyang eksperimental at maaaring mabago o matanggal sa hinaharap na pag-release ng Electron.
-
 Proseso:[Pangunahi](../glossary.md#main-process)
 
 A `BrowserView` can be used to embed additional web content into a [`BrowserWindow`](browser-window.md). Ito ay katulad ng isang batang window, maliban na ito ay naka-posisyon kaugnay sa kanyang angking window. Ito ay sinadya na maging isang alternatibo ng mga tag ng `webview`.
@@ -12,9 +10,9 @@ A `BrowserView` can be used to embed additional web content into a [`BrowserWind
 
 ```javascript
 // Ang pangunahing pag-proseso.
-const {BrowserView, BrowserWindow} = kailangan('electron')
+const { BrowserView, BrowserWindow } = kailangan('electron')
 
-hayaang manalo = bagong BrowserWindow({width: 800, height: 600})
+hayaang manalo = bagong BrowserWindow({ width: 800, height: 600 })
 win.on('closed', () => {
   manalo = null
 })
@@ -78,7 +76,7 @@ Returns `Boolean` - Whether the view is destroyed.
 
 #### `view.setAutoResize(options)` *Experimental*
 
-* `mga opsyon` Bagay 
+* `options` Bagay 
   * `width` Boolean - Kung ang `true`, ang lapad ng view ay lalaki at liliit kasabay ng window. `false` sa pamamagitan ng default.
   * `height` Boolean - Kung ang `true`, ang taas ng view ay lalaki at liliit kasabay ng window. `false` sa pamamagitan ng default.
 
