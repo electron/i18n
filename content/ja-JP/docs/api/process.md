@@ -13,12 +13,22 @@ Electron の `process` オブジェクトは、[Node.js `process` object](https:
 * `crash()`
 * `hang()`
 * `getHeapStatistics()`
-* `getProcessMemoryInfo()`
 * `getSystemMemoryInfo()`
+* `getCPUUsage()`
+* `getIOCounters()`
 * `argv`
 * `execPath`
 * `env`
+* `pid`
+* `arch`
 * `platform`
+* `resourcesPath`
+* `sandboxed`
+* `type`
+* `version`
+* `versions`
+* `mas`
+* `windowsStore`
 
 ## イベント
 
@@ -60,49 +70,59 @@ process.once('loaded', () => {
 
 リソースディレクトリのパスを表す `String`。
 
+### `process.sandboxed`
+
+A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
+
 ### `process.throwDeprecation`
 
-非推奨の警告が例外としてスローされるかどうかを制御する `Boolean`。 これを `true` に設定すると非推奨のエラーがスローされます。 `--throw-deprecation` コマンドラインフラグの代わりにこのプロパティを使用します。
+A `Boolean` that controls whether or not deprecation warnings will be thrown as exceptions. Setting this to `true` will throw errors for deprecations. This property is used instead of the `--throw-deprecation` command line flag.
 
 ### `process.traceDeprecation`
 
-`stderr` に出力される非推奨にスタックトレースを含めるかどうかを制御する `Boolean`。 これを `true` に設定すると非推奨のスタックトレースが出力されます。 `--trace-deprecation` コマンドラインフラグの代わりにこのプロパティを使用します。
+A `Boolean` that controls whether or not deprecations printed to `stderr` include their stack trace. Setting this to `true` will print stack traces for deprecations. This property is instead of the `--trace-deprecation` command line flag.
 
 ### `process.traceProcessWarnings`
 
-`stderr` に出力されるプロセスの警告にスタックトレースを含めるかどうかを制御する `Boolean`。 これを `true` に設定するとプロセスの (非推奨を含む) 警告のスタックトレースが出力されます。 `--trace-warnings` コマンドラインフラグの代わりにこのプロパティを使用します。
+A `Boolean` that controls whether or not process warnings printed to `stderr` include their stack trace. Setting this to `true` will print stack traces for process warnings (including deprecations). This property is instead of the `--trace-warnings` command line flag.
 
 ### `process.type`
 
-現在のプロセスのタイプを表す `String`。`"browser"` (即ちメインプロセス) または ` "renderer"` になります。
+A `String` representing the current process's type, can be `"browser"` (i.e. main process) or `"renderer"`.
 
 ### `process.versions.chrome`
 
-Chrome のバージョン文字列を表す `String`。
+A `String` representing Chrome's version string.
 
 ### `process.versions.electron`
 
-Electron のバージョン文字列を表す `String`。
+A `String` representing Electron's version string.
 
 ### `process.windowsStore`
 
-`Boolean`。アプリが Windows Store アプリ (appx) として実行されている場合、このプロパティは `true` です。それ以外の場合は `undefined` です。
+A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
 
 ## メソッド
 
-`process` オブジェクトには以下のメソッドがあります。
+The `process` object has the following methods:
 
 ### `process.crash()`
 
-現在のプロセスのメインスレッドでクラッシュを発生させます。
+Causes the main thread of the current process crash.
+
+### `process.getCreationTime()`
+
+Returns `Number | null` - The number of milliseconds since epoch, or `null` if the information is unavailable
+
+Indicates the creation time of the application. The time is represented as number of milliseconds since epoch. It returns null if it is unable to get the process creation time.
 
 ### `process.getCPUUsage()`
 
-戻り値 [`CPUUsage`](structures/cpu-usage.md)
+Returns [`CPUUsage`](structures/cpu-usage.md)
 
 ### `process.getIOCounters()` *Windows* *Linux*
 
-戻り値 [`IOCounters`](structures/io-counters.md)
+Returns [`IOCounters`](structures/io-counters.md)
 
 ### `process.getHeapStatistics()`
 
@@ -118,36 +138,33 @@ Electron のバージョン文字列を表す `String`。
 * `peakMallocedMemory` Integer
 * `doesZapGarbage` Boolean
 
-V8 ヒープ統計のオブジェクトを返します。統計はすべてキロバイト単位で報告されることに注意してください。
-
-### `process.getProcessMemoryInfo()`
-
-戻り値 `Object`:
-
-* `workingSetSize` Integer - 現在、実際の物理 RAM に確保されているメモリ量。
-* `peakWorkingSetSize` Integer - 実際の物理 RAM に確保されたことのある最大メモリ量。
-* `privateBytes` Integer - JS ヒープや HTML コンテンツなど、他のプロセスと共有されないメモリ量。
-* `sharedBytes` Integer - プロセス間で共有されるメモリ量で、通常は、 Electron のコード自体が使っているメモリ量。
-
-現在のプロセスに関するメモリ使用統計を返すオブジェクトを返します。すべての統計情報はキロバイト単位で報告されることに注意してください。
+Returns an object with V8 heap statistics. Note that all statistics are reported in Kilobytes.
 
 ### `process.getSystemMemoryInfo()`
 
 戻り値 `Object`:
 
-* `total` Integer - システムで利用可能な物理メモリの合計量 (キロバイト)。
-* `free` Integer - アプリケーションまたはディスクキャッシュで使用されていないメモリの合計量。
-* `swapTotal` Integer *Windows* *Linux* - システムが使用できるスワップメモリの合計量 (キロバイト)。
-* `swapFree` Integer *Windows* *Linux* - システムが使用できるスワップメモリの空き容量 (キロバイト)。
+* `total` Integer - The total amount of physical memory in Kilobytes available to the system.
+* `free` Integer - The total amount of memory not being used by applications or disk cache.
+* `swapTotal` Integer *Windows* *Linux* - The total amount of swap memory in Kilobytes available to the system.
+* `swapFree` Integer *Windows* *Linux* - The free amount of swap memory in Kilobytes available to the system.
 
-システム全体に関するメモリ使用統計を返すオブジェクトを返します。すべての統計情報はキロバイト単位で報告されることに注意してください。
+Returns an object giving memory usage statistics about the entire system. Note that all statistics are reported in Kilobytes.
+
+### `process.takeHeapSnapshot(filePath)`
+
+* `filePath` String - Path to the output file.
+
+Returns `Boolean` - Indicates whether the snapshot has been created successfully.
+
+Takes a V8 heap snapshot and saves it to `filePath`.
 
 ### `process.hang()`
 
-現在のプロセスのメインスレッドでハングを発生させます。
+Causes the main thread of the current process hang.
 
 ### `process.setFdLimit(maxDescriptors)` *macOS* *Linux*
 
 * `maxDescriptors` Integer
 
-ファイルディスクリプタのソフトリミットを、`maxDescriptors` または OS のハードリミットの、いずれか低い方に設定します。
+Sets the file descriptor soft limit to `maxDescriptors` or the OS hard limit, whichever is lower for the current process.
