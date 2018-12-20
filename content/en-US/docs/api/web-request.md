@@ -9,8 +9,9 @@ property of a `Session`.
 
 The methods of `WebRequest` accept an optional `filter` and a `listener`. The
 `listener` will be called with `listener(details)` when the API's event has
-happened. The `details` object describes the request. Passing `null`
-as `listener` will unsubscribe from the event.
+happened. The `details` object describes the request.
+
+⚠️ Only the last attached `listener` will be used. Passing `null` as `listener` will unsubscribe from the event.
 
 The `filter` object has a `urls` property which is an Array of URL
 patterns that will be used to filter out the requests that do not match the URL
@@ -22,7 +23,7 @@ called with a `response` object when `listener` has done its work.
 An example of adding `User-Agent` header for requests:
 
 ```javascript
-const {session} = require('electron')
+const { session } = require('electron')
 
 // Modify the user agent for all requests to the following urls.
 const filter = {
@@ -31,7 +32,7 @@ const filter = {
 
 session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback) => {
   details.requestHeaders['User-Agent'] = 'MyAgent'
-  callback({cancel: false, requestHeaders: details.requestHeaders})
+  callback({ cancel: false, requestHeaders: details.requestHeaders })
 })
 ```
 
