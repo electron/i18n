@@ -7,7 +7,7 @@
 下面的这个例子将会展示如何在最后一个窗口被关闭时退出应用：
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 app.on('window-all-closed', () => {
   app.quit()
 })
@@ -215,7 +215,7 @@ app.on('window-all-closed', () => {
 当对 `url` 的 `certificate` 证书验证失败的时候发出。如果需要信任这个证书，你需要阻止默认行为 `event.preventDefault()` 并且调用 `callback(true)`。
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('certificate-error', (event, webContents, url, error, certificate, callback) => {
   if (url === 'https://github.com') {
@@ -244,7 +244,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 `url` 指的是请求客户端认证的网页地址，调用 `callback` 时需要传入一个证书列表中的证书。 需要通过调用 `event.preventDefault()` 来防止应用自动使用第一个证书进行验证。
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('select-client-certificate', (event, webContents, url, list, callback) => {
   event.preventDefault()
@@ -277,7 +277,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 默认行为是取消所有的验证行为，如果需要重写这个行为，你需要用 `event.preventDefault()` 来阻止默认行为，并且使用 `callback(username, password)` 来验证。
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('login', (event, webContents, request, authInfo, callback) => {
   event.preventDefault()
@@ -312,7 +312,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 Emitted when Electron has created a new `session`.
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('session-created', (event, session) => {
   console.log(session)
@@ -330,6 +330,26 @@ app.on('session-created', (event, session) => {
 This event will be emitted inside the primary instance of your application when a second instance has been executed. ` argv ` 是第二个实例的命令行参数的数组, ` workingDirectory ` 是这个实例当前工作目录。 通常, 应用程序会激活窗口并且取消最小化来响应。
 
 This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
+
+### Event: 'remote-require'
+
+返回:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+* `moduleName` String
+
+Emitted when `remote.require()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+
+### Event: 'remote-get-global'
+
+返回:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+* `globalName` String
+
+Emitted when `remote.getGlobal()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
 
 ## 方法
 
@@ -368,9 +388,9 @@ This event is guaranteed to be emitted after the `ready` event of `app` gets emi
 立即重启当前实例并向新的实例添加新的命令行参数的示例：
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
-app.relaunch({args: process.argv.slice(1).concat(['--relaunch'])})
+app.relaunch({ args: process.argv.slice(1).concat(['--relaunch']) })
 app.exit(0)
 ```
 
@@ -380,7 +400,7 @@ app.exit(0)
 
 ### `app.whenReady()`
 
-Returns `Promise` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
+Returns `Promise<void>` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
 
 ### `app.focus()`
 
@@ -548,7 +568,7 @@ API 在内部使用 Windows 注册表和 LSSetDefaultHandlerForURLScheme。
 
 ### `app.getJumpListSettings()` *Windows*
 
-返回 `Object`:
+返回 ` Object `:
 
 * `minItems` Integer - 将在跳转列表中显示项目的最小数量(有关此值的更详细描述，请参阅 [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
 * `removedItems` [JumpListItem[]](structures/jump-list-item.md) - `JumpListItem` 对象组成的数组，对应用户在跳转列表中明确删除的项目。 这些项目不能在 **next** 调用 `app.setJumpList()` 时重新添加到跳转列表中, Windows不会显示任何包含已删除项目的自定义类别.
@@ -574,7 +594,7 @@ API 在内部使用 Windows 注册表和 LSSetDefaultHandlerForURLScheme。
 下面是创建自定义跳转列表的一个非常简单的示例:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.setJumpList([
   {
@@ -646,7 +666,7 @@ app.setJumpList([
 在第二个实例启动时激活主实例窗口的示例:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 let myWindow = null
 
 const gotTheLock = app.requestSingleInstanceLock()
@@ -714,10 +734,10 @@ if (!gotTheLock) {
 * `options` Object 
   * `certificate` String - pkcs12 文件的路径
   * `password` String - 证书的密码
-* `callback` Function - 回调函数 
+* `callback` Function 
   * `result` Integer - 导入结果
 
-将 pkcs12 格式的证书导入到平台证书库。 ` callback ` 使用导入操作的 ` result ` 调用, ` 0 ` 的表示成功, 其他值标识失败，参照 [ net_error_list ](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) 。
+将 pkcs12 格式的证书导入到平台证书库。 `callback` is called with the `result` of import operation, a value of `0` indicates success while any other value indicates failure according to Chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
 ### `app.disableHardwareAcceleration()`
 
@@ -738,6 +758,41 @@ if (!gotTheLock) {
 ### `app.getGPUFeatureStatus()`
 
 返回 [` GPUFeatureStatus `](structures/gpu-feature-status.md)-来自 ` chrome://gpu/` 的图形功能状态。
+
+### `app.getGPUInfo(infoType)`
+
+* `infoType` String - Values can be either `basic` for basic info or `complete` for complete info.
+
+Returns `Promise`
+
+For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src.git/+/69.0.3497.106/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
+
+For `infoType` equal to `basic`: Promise is fulfilled with `Object` containing fewer attributes than when requested with `complete`. Here's an example of basic response:
+
+```js
+{ auxAttributes:
+   { amdSwitchable: true,
+     canSupportThreadedTextureMailbox: false,
+     directComposition: false,
+     directRendering: true,
+     glResetNotificationStrategy: 0,
+     inProcessGpu: true,
+     initializationTime: 0,
+     jpegDecodeAcceleratorSupported: false,
+     optimus: false,
+     passthroughCmdDecoder: false,
+     sandboxed: false,
+     softwareRendering: false,
+     supportsOverlays: false,
+     videoDecodeAcceleratorFlags: 0 },
+gpuDevice:
+   [ { active: true, deviceId: 26657, vendorId: 4098 },
+     { active: false, deviceId: 3366, vendorId: 32902 } ],
+machineModelName: 'MacBookPro',
+machineModelVersion: '11.5' }
+```
+
+Using `basic` should be preferred if only basic information like `vendorId` or `driverId` is needed.
 
 ### `app.setBadgeCount(count)` *Linux* *macOS*
 
@@ -815,6 +870,10 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
 
 **注意:** 渲染进程树会明显的影响应用的性能。默认情况下不应该启用。
 
+### `app.showAboutPanel()` *macOS*
+
+Show the about panel with the values defined in the app's `.plist` file or with the options set via `app.setAboutPanelOptions(options)`.
+
 ### `app.setAboutPanelOptions(options)` *macOS*
 
 * `options` Object 
@@ -839,7 +898,7 @@ const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedReso
 stopAccessingSecurityScopedResource()
 ```
 
-开始访问安全范围内的资源。 通过这个方法，electron 应用被打包为可到达Mac App Store沙箱之外访问用户选择的文件。 关于系统工作原理，请查阅[Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16)
+开始访问安全范围内的资源。 With this method Electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. 关于系统工作原理，请查阅[Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16)
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
@@ -857,6 +916,12 @@ stopAccessingSecurityScopedResource()
 给 Chromium 中直接添加一个命令行参数，该参数的引号和格式必须正确。
 
 ** 注意: **该方法不会影响 ` process. argv `
+
+### `app.enableSandbox()` *Experimental* *macOS* *Windows*
+
+Enables full sandbox mode on the app.
+
+这个方法只能在应用程序准备就绪（ready）之前调用。
 
 ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
 
