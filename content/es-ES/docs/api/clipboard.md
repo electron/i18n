@@ -4,17 +4,19 @@
 
 Proceso: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
+In the renderer process context it depends on the [`remote`](remote.md) module on Linux, it is therefore not available when this module is disabled.
+
 El siguiente ejemplo muestra cómo escribir una cadena en el portapapeles:
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 clipboard.writeText('Ejemplo de cadena')
 ```
 
 En los sistemas X Window, también hay un portapapeles de selección. Para manipularlo, debe pasar `selección` a cada método:
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 clipboard.writeText('Ejemplo de cadena', 'selección')
 console.log(clipboard.readText ('selección'))
 ```
@@ -44,7 +46,7 @@ Escribe el `texto` en el portapapeles como texto sin formato.
 
 Devuelve `Cadena` - El contenido en el portapapeles como marca.
 
-### `clipboard.writeHTML(markup[, type])`
+### `clipboard.writeHTML(markupo[, type])`
 
 * `markup` Cadena
 * `type` Cadena (opcional)
@@ -57,7 +59,7 @@ Escribe `markup` en el portapapeles.
 
 Devuelve [`NativeImage`](native-image.md) - El contenido de la imagen en el portapapeles.
 
-### `clipboard.writeImage(image[, type])`
+### `clipboard.writeImage(imageo[, type])`
 
 * `image` [NativeImage](native-image.md)
 * `type` Cadena (opcional)
@@ -70,7 +72,7 @@ Escribe `image` en el portapapeles.
 
 Devuelve `Cadena` - El contenido en el portapapeles como RTF.
 
-### `clipboard.writeRTF(text[, type])`
+### `clipboard.writeRTF(texto[, type])`
 
 * `texto` String
 * `type` Cadena (opcional)
@@ -133,11 +135,11 @@ Devuelve `Cadena[] ` - Una matriz de formatos admitidos para el portapapeles `ty
 Devuelve `Boolean`: si el portapapeles admite el `formato` especificado.
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 console.log(clipboard.has('<p>selection</p>'))
 ```
 
-### `clipboard.read(format)` *Experimental*
+### `clipboard.read(formato)` *Experimental*
 
 * `formato` Cadena
 
@@ -168,8 +170,8 @@ Escribe el `buffer` en el portapapeles como `formato`.
 * `type` Cadena (opcional)
 
 ```javascript
-const {clipboard} = require('electron')
-clipboard.write({text: 'test', html: '<b>test</b>'})
+const { clipboard } = require('electron')
+clipboard.write({ text: 'test', html: '<b>test</b>' })
 ```
 
 Escribe `datos` en el portapapeles.
