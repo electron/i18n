@@ -11,11 +11,11 @@ Ang mahalagang patakaran ay: kung ang isang modyul ay [GUI](https://en.wikipedia
 The main process script is like a normal Node.js script:
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 let win = null
 
 app.on('ready', () => {
-  win = new BrowserWindow({width: 800, height: 600})
+  win = new BrowserWindow({ width: 800, height: 600 })
   win.loadURL('https://github.com')
 })
 ```
@@ -27,7 +27,7 @@ Ang prosesong renderer ay hindi iba sa isang normal na pahina, maliban na lang s
 <html>
 <body>
 <script>
-  const {app} = require('electron').remote
+  const { app } = require('electron').remote
   console.log(app.getVersion())
 </script>
 </body>
@@ -41,7 +41,7 @@ Upang mapagana ang iyong app, basahin ang [Paganahin ang iyong app](../tutorial/
 Sa 0.37, magagamit mo ang [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) upang mapadali ang paggamit ng built-in na mga modyul.
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 let win
 
@@ -55,7 +55,7 @@ Kung kailangan mo ang kabuuang modyul ng `electron`, pwede mong i-require ito at
 
 ```javascript
 const electron = require('electron')
-const {app, BrowserWindow} = electron
+const { app, BrowserWindow } = electron
 
 let win
 
