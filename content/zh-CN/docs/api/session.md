@@ -9,9 +9,9 @@
 你还可以使用[`WebContents`](web-contents.md)的`session`属性或` session`模块访问现有页的`session`
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({width: 800, height: 600})
+let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('http://github.com')
 
 const ses = win.webContents.session
@@ -51,7 +51,7 @@ Returns `Session` - 根据`partition`字符串产生的session实例。 当这�
 你可以创建一个 `Session`对象在`session`模块中。
 
 ```javascript
-const {session} = require('electron')
+const { session } = require('electron')
 const ses = session.fromPartition('persist:name')
 console.log(ses.getUserAgent())
 ```
@@ -71,7 +71,7 @@ console.log(ses.getUserAgent())
 <p>调用<code>event.preventDefault()`方法，将会停止下载，并且在进程的next tick中，`item`将不再可用。
 
 ```javascript
-const {session} = require('electron')
+const { session } = require('electron')
 session.defaultSession.on('will-download', (event, item, webContents) => {
   event.preventDefault()
   require('request')(item.getURL(), (data) => {
@@ -206,7 +206,7 @@ window.webContents.session.enableNetworkEmulation({
 })
 
 // To emulate a network outage.
-window.webContents.session.enableNetworkEmulation({offline: true})
+window.webContents.session.enableNetworkEmulation({ offline: true })
 ```
 
 #### `ses.disableNetworkEmulation()`
@@ -232,11 +232,11 @@ window.webContents.session.enableNetworkEmulation({offline: true})
 调用 ` setCertificateVerifyProc（null）`将恢复为默认证书验证过程。
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 
 win.webContents.session.setCertificateVerifyProc((request, callback) => {
-  const {hostname} = request
+  const { hostname } = request
   if (hostname === 'github.com') {
     callback(0)
   } else {
@@ -254,11 +254,12 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
     * `permissionGranted` Boolean - 允许或拒绝该权限.
   * `details` Object - 一些属性只有在某些授权状态下可用。 
     * `externalURL` String - `openExternal`请求的地址。
+    * `mediaTypes` String[] - The types of media access being requested, elements can be `video` or `audio`
 
 设置可用于响应 ` session ` 的权限请求的处理程序。 调用 ` callback(true)` 将允许该权限, 调用 ` callback(false)` 将拒绝它。 若要清除处理程序, 请调用 ` setPermissionRequestHandler (null) `。
 
 ```javascript
-const {session} = require('electron')
+const { session } = require('electron')
 session.fromPartition('some-partition').setPermissionRequestHandler((webContents, permission, callback) => {
   if (webContents.getURL() === 'some-host' && permission === 'notifications') {
     return callback(false) // denied.
@@ -268,106 +269,147 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 })
 ```
 
+#### `ses.setPermissionCheckHandler(handler)`
+
+* `handler` Function - 回调函数<boolean> | null 
+  * `webContents` [WebContents](web-contents.md) - WebContents checking the permission.
+  * `permission` String - Enum of 'media'.
+  * `requestingOrigin` String - The origin URL of the permission check
+  * `details` Object - 一些属性只有在某些授权状态下可用。 
+    * `securityOrigin` String - The security orign of the `media` check.
+    * `mediaType` String - The type of media access being requested, can be `video`, `audio` or `unknown`
+
+Sets the handler which can be used to respond to permission checks for the `session`. Returning `true` will allow the permission and `false` will reject it. To clear the handler, call `setPermissionCheckHandler(null)`.
+
+```javascript
+const { session } = require('electron')
+session.fromPartition('some-partition').setPermissionCheckHandler((webContents, permission) => {
+  if (webContents.getURL() === 'some-host' && permission === 'notifications') {
+    return false // denied
+  }
+
+  return true
+})
+```
+
 #### `ses.clearHostResolverCache([callback])`
 
-* `callback` Function (optional) - 会在操作完成后被调用.
+* `callback` Function (可选) - 会在操作完成后被调用.
 
-清除主机解析程序的缓存。
+Clears the host resolver cache.
 
 #### `ses.allowNTLMCredentialsForDomains(domains)`
 
-* `domains` String - 一个逗号分隔的服务器列表, 用于收集已经启用身份验证的服务器。
+* `domains` String - A comma-separated list of servers for which integrated authentication is enabled.
 
-动态设置是否始终为 HTTP NTLM 发送凭据或协商身份验证。
+Dynamically sets whether to always send credentials for HTTP NTLM or Negotiate authentication.
 
 ```javascript
-const {session} = require('electron')
-// 以 "example.com"、"foobar.com"、"baz" 结尾的 url 用于身份验证。
+const { session } = require('electron')
+// consider any url ending with `example.com`, `foobar.com`, `baz`
+// for integrated authentication.
 session.defaultSession.allowNTLMCredentialsForDomains('*example.com, *foobar.com, *baz')
 
-// 所有的 url 都可以用作身份验证
+// consider all urls for integrated authentication.
 session.defaultSession.allowNTLMCredentialsForDomains('*')
 ```
 
 #### `ses.setUserAgent(userAgent[, acceptLanguages])`
 
 * `userAgent` String
-* `acceptLanguages` String (可选)
+* `acceptLanguages` String (optional)
 
-覆盖当前会话的 `userAgent` 和 `acceptLanguages`.
+Overrides the `userAgent` and `acceptLanguages` for this session.
 
-`acceptLanguages` 必须是用逗号分隔的语言代码列表，例如 `"en-US,fr,de,ko,zh-CN,ja"`.
+The `acceptLanguages` must a comma separated ordered list of language codes, for example `"en-US,fr,de,ko,zh-CN,ja"`.
 
-这不会影响现有的`WebContents`, 并且每个`WebContents`都可以使用 `webContents.setUserAgent`重写会话范围的user agent。
+This doesn't affect existing `WebContents`, and each `WebContents` can use `webContents.setUserAgent` to override the session-wide user agent.
 
 #### `ses.getUserAgent()`
 
-返回 `String` - 当前会话的 user agent.
+Returns `String` - The user agent for this session.
 
 #### `ses.getBlobData(identifier, callback)`
 
-* `identifier` String - 有效的 UUID.
+* `identifier` String - Valid UUID.
 * `callback` Function - 回调函数 
-  * `result` Buffer - Blob 数据.
+  * `result` Buffer - Blob data.
 
 #### `ses.createInterruptedDownload(options)`
 
-* `选项` Object 
-  * `path` String - 下载的绝对路径.
-  * `urlChain` String[] - 完整的 url 下载地址.
-  * `mimeType` String (可选)
-  * `offset` Integer - 下载的开始范围.
-  * `length` Integer - 下载的总长度。
-  * `lastModified` String - 上次修改的标头值。
-  * `eTag` String - ETag 标头值。
-  * `startTime` Double (optional) - 下载的时间是从 UNIX 时代以来的秒数开始的。
+* `选项` Object - 过滤器对象，包含过滤参数 
+  * `path` String - Absolute path of the download.
+  * `urlChain` String[] - Complete URL chain for the download.
+  * `mimeType` String (optional)
+  * `offset` Integer - Start range for the download.
+  * `length` Integer - Total length of the download.
+  * `lastModified` String - Last-Modified header value.
+  * `eTag` String - ETag header value.
+  * `startTime` Double (optional) - Time when download was started in number of seconds since UNIX epoch.
 
-允许从上一个 `Session` 恢复 ` cancelled ` 或 ` interrupted ` 下载。 该 API 将生成一个 [ DownloadItem ](download-item.md), 可使用 [ will-download ](#event-will-download) 事件进行访问。 [ DownloadItem ](download-item.md) 将不具有与之关联的任何 ` WebContents `, 并且初始状态将为 ` interrupted `。 只有在 [ DownloadItem ](download-item.md) 上调用 ` resume ` API 时, 才会启动下载。
+Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
 
 #### `ses.clearAuthCache(options[, callback])`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `callback` Function (optional) - 会在操作完成后被调用.
+* `callback` Function (可选) - 会在操作完成后被调用.
 
-清除会话的 HTTP 身份验证缓存。
+Clears the session’s HTTP authentication cache.
 
 #### `ses.setPreloads(preloads)`
 
-* `preloads` String[] - 数组，该数组由所有需要进行预加载的脚本的绝对路径组成。
+* `preloads` String[] - An array of absolute path to preload scripts
 
 Adds scripts that will be executed on ALL web contents that are associated with this session just before normal `preload` scripts run.
 
 #### `ses.getPreloads()`
 
-返回 `String[]` 返回一个数组，这个数组由已经注册过的预加载脚本的路径组成。
+Returns `String[]` an array of paths to preload scripts that have been registered.
 
 ### 实例属性
 
-以下属性在` Session </ 0>实例上可用：</p>
+The following properties are available on instances of `Session`:
 
-<h4><code>ses.cookies`</h4> 
+#### `ses.cookies`
 
-此会话的 [ cookie ](cookies.md) 对象。
+A [Cookies](cookies.md) object for this session.
 
 #### `ses.webRequest`
 
-此会话的 [WebRequest](web-request.md) 对象。
+A [WebRequest](web-request.md) object for this session.
 
 #### `ses.protocol`
 
-此会话的 [ 协议 ](protocol.md) 对象。
+A [Protocol](protocol.md) object for this session.
 
 ```javascript
-const {app, session} = require('electron')
+const { app, session } = require('electron')
 const path = require('path')
 
 app.on('ready', function () {
   const protocol = session.fromPartition('some-partition').protocol
   protocol.registerFileProtocol('atom', function (request, callback) {
     var url = request.url.substr(7)
-    callback({path: path.normalize(`${__dirname}/${url}`)})
+    callback({ path: path.normalize(`${__dirname}/${url}`) })
   }, function (error) {
     if (error) console.error('Failed to register protocol')
+  })
+})
+```
+
+#### `ses.netLog`
+
+A [NetLog](net-log.md) object for this session.
+
+```javascript
+const { app, session } = require('electron')
+
+app.on('ready', function () {
+  const netLog = session.fromPartition('some-partition').netLog
+  netLog.startLogging('/path/to/net-log')
+  // After some network events
+  netLog.stopLogging(path => {
+    console.log('Net-logs written to', path)
   })
 })
 ```
