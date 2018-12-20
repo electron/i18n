@@ -40,7 +40,7 @@ The `label` and `accelerator` values are optional when using a `role` and will d
 
 Every menu item must have either a `role`, `label`, or in the case of a separator a `type`.
 
-The `role` property can have following values:
+La propriété `role` peut avoir les valeurs suivantes :
 
 * `undo`
 * `redo`
@@ -90,7 +90,7 @@ When specifying a `role` on macOS, `label` and `accelerator` are the only option
 
 ### Instance Properties
 
-The following properties are available on instances of `MenuItem`:
+Les propriétés suivantes sont disponibles pour les instances de `MenuItem` :
 
 #### `menuItem.enabled`
 
@@ -112,8 +112,8 @@ You can add a `click` function for additional behavior.
 
 #### `menuItem.label`
 
-A `String` representing the menu items visible label.
+Un `String` représentant le libellé visible des éléments de menu.
 
 #### `menuItem.click`
 
-A `Function` that is fired when the MenuItem receives a click event.
+Une `Function` qui est activée lorsque l'élément MenuItem reçoit un événement de clic.
