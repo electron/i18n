@@ -7,8 +7,8 @@ Proces: [Main](../glossary.md#main-process)
 `DownloadItem` to `EventEmitter`, który reprezentuje pobrany przedmiot w Electronie. It is used in `will-download` event of `Session` class, and allows users to control the download item.
 
 ```javascript
-//W głównym procesie.
-const {BrowserWindow} = require('electron')
+// W procesie głównym.
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.webContents.session.on('will-download', (event, item, webContents) => {
   // Set the save path, making Electron not to prompt a save dialog.
