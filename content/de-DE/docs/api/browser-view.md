@@ -2,8 +2,6 @@
 
 > Create and control views.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
-
 Prozess: [Haupt](../glossary.md#main-process)
 
 A `BrowserView` can be used to embed additional web content into a [`BrowserWindow`](browser-window.md). It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
@@ -12,9 +10,9 @@ A `BrowserView` can be used to embed additional web content into a [`BrowserWind
 
 ```javascript
 // Im Hauptprozess.
-const {BrowserView, BrowserWindow} = require('electron')
+const { BrowserView, BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({width: 800, height: 600})
+let win = new BrowserWindow({ width: 800, height: 600 })
 win.on('closed', () => {
   win = null
 })
@@ -78,7 +76,7 @@ Returns `Boolean` - Whether the view is destroyed.
 
 #### `view.setAutoResize(options)` *Experimentell*
 
-* `optionen` Object 
+* `options` Object 
   * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
   * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
 
