@@ -90,6 +90,14 @@ When this attribute is present the `webview` container will automatically resize
 
 When this attribute is present the guest page in `webview` will have node integration and can use node APIs like `require` and `process` to access low level system resources. Node integration is disabled by default in the guest page.
 
+### `enableremotemodule`
+
+```html
+<webview src="http://www.google.com/" enableremotemodule="false"></webview>
+```
+
+When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. The remote module is avaiable by default.
+
 ### `plugins`
 
 ```html
@@ -206,6 +214,12 @@ webview.addEventListener('dom-ready', () => {
 
 Loads the `url` in the webview, the `url` must contain the protocol prefix, e.g. the `http://` or `file://`.
 
+### `<webview>.downloadURL(url)`
+
+* `url` String
+
+Initiates a download of the resource at `url` without navigating.
+
 ### `<webview>.getURL()`
 
 Returns `String` - The URL of guest page.
@@ -217,6 +231,10 @@ Returns `String` - The title of guest page.
 ### `<webview>.isLoading()`
 
 Returns `Boolean` - Whether guest page is still loading resources.
+
+### `<webview>.isLoadingMainFrame()`
+
+Returns `Boolean` - Whether the main frame (and not just iframes or frames within it) is still loading.
 
 ### `<webview>.isWaitingForResponse()`
 
@@ -337,6 +355,10 @@ Set guest page muted.
 ### `<webview>.isAudioMuted()`
 
 Returns `Boolean` - Whether guest page has been muted.
+
+### `<webview>.isCurrentlyAudible()`
+
+Returns `Boolean` - Whether audio is currently playing.
 
 ### `<webview>.undo()`
 
@@ -473,7 +495,35 @@ Changes the zoom factor to the specified factor. Zoom factor is zoom percent div
 
 * `level` Number - Zoom level.
 
-Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
+Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively. The formula for this is `scale := 1.2 ^ level`.
+
+### `<webview>.getZoomFactor(callback)`
+
+* `callback` Functie 
+  * `zoomFactor` Number
+
+Sends a request to get current zoom factor, the `callback` will be called with `callback(zoomFactor)`.
+
+### `<webview>.getZoomLevel(callback)`
+
+* `callback` Functie 
+  * `zoomLevel` Number
+
+Sends a request to get current zoom level, the `callback` will be called with `callback(zoomLevel)`.
+
+### `<webview>.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
+
+* `minimumLevel` Number
+* `maximumLevel` Number
+
+Sets the maximum and minimum pinch-to-zoom level.
+
+### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
+
+* `minimumLevel` Number
+* `maximumLevel` Number
+
+Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
 
 ### `<webview>.showDefinitionForSelection()` *macOS*
 
@@ -483,13 +533,15 @@ Shows pop-up dictionary that searches the selected word on the page.
 
 Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
 
+It depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
+
 ## DOM events
 
 The following DOM events are available to the `webview` tag:
 
 ### Event: 'load-commit'
 
-Returns:
+Geeft terug:
 
 * `url` String
 * `isMainFrame` Boolean
@@ -502,7 +554,7 @@ Fired when the navigation is done, i.e. the spinner of the tab will stop spinnin
 
 ### Event: 'did-fail-load'
 
-Returns:
+Geeft terug:
 
 * `errorCode` Integer
 * `errorDescription` String
@@ -513,7 +565,7 @@ This event is like `did-finish-load`, but fired when the load failed or was canc
 
 ### Event: 'did-frame-finish-load'
 
-Returns:
+Geeft terug:
 
 * `isMainFrame` Boolean
 
@@ -533,7 +585,7 @@ Fired when document in the given frame is loaded.
 
 ### Event: 'page-title-updated'
 
-Returns:
+Geeft terug:
 
 * `title` String
 * `explicitSet` Boolean
@@ -542,7 +594,7 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 
 ### Event: 'page-favicon-updated'
 
-Returns:
+Geeft terug:
 
 * `favicons` String[] - Array of URLs.
 
@@ -558,7 +610,7 @@ Fired when page leaves fullscreen triggered by HTML API.
 
 ### Event: 'console-message'
 
-Returns:
+Geeft terug:
 
 * `level` Integer
 * `message` String
@@ -578,7 +630,7 @@ webview.addEventListener('console-message', (e) => {
 
 ### Event: 'found-in-page'
 
-Returns:
+Geeft terug:
 
 * `result` Object 
   * `requestId` Integer
@@ -601,7 +653,7 @@ console.log(requestId)
 
 ### Event: 'new-window'
 
-Returns:
+Geeft terug:
 
 * `url` String
 * `frameName` String
@@ -613,7 +665,7 @@ Fired when the guest page attempts to open a new browser window.
 The following example code opens the new url in system's default browser.
 
 ```javascript
-const {shell} = require('electron')
+const { shell } = require('electron')
 const webview = document.querySelector('webview')
 
 webview.addEventListener('new-window', (e) => {
@@ -626,7 +678,7 @@ webview.addEventListener('new-window', (e) => {
 
 ### Event: 'will-navigate'
 
-Returns:
+Geeft terug:
 
 * `url` String
 
@@ -640,7 +692,7 @@ Calling `event.preventDefault()` does **NOT** have any effect.
 
 ### Event: 'did-navigate'
 
-Returns:
+Geeft terug:
 
 * `url` String
 
@@ -650,7 +702,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 ### Event: 'did-navigate-in-page'
 
-Returns:
+Geeft terug:
 
 * `isMainFrame` Boolean
 * `url` String
@@ -674,7 +726,7 @@ webview.addEventListener('close', () => {
 
 ### Event: 'ipc-message'
 
-Returns:
+Geeft terug:
 
 * `channel` String
 * `args` Array
@@ -695,7 +747,7 @@ webview.send('ping')
 
 ```javascript
 // In guest page.
-const {ipcRenderer} = require('electron')
+const { ipcRenderer } = require('electron')
 ipcRenderer.on('ping', () => {
   ipcRenderer.sendToHost('pong')
 })
@@ -711,7 +763,7 @@ Fired when the gpu process is crashed.
 
 ### Event: 'plugin-crashed'
 
-Returns:
+Geeft terug:
 
 * `name` String
 * `version` String
@@ -732,7 +784,7 @@ Emitted when media is paused or done playing.
 
 ### Event: 'did-change-theme-color'
 
-Returns:
+Geeft terug:
 
 * `themeColor` String
 
@@ -744,7 +796,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 ### Event: 'update-target-url'
 
-Returns:
+Geeft terug:
 
 * `url` String
 
