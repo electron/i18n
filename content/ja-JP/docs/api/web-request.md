@@ -6,31 +6,33 @@
 
 `WebRequest` クラスのインスタンスには、`Session` の `webRequest` プロパティを使用してアクセスします。
 
-`WebRequest` のメソッドは、任意の `filter` と `listener` を受け取ります。 `listener` は、API のイベントが発生したときに `listener(details)` で呼ばれます。 `details` オブジェクトはリクエストについて記述します。 `listener` として `null` を渡すとイベントから登録解除します。
+`WebRequest` のメソッドは、任意の `filter` と `listener` を受け取ります。 `listener` は、API のイベントが発生したときに `listener(details)` で呼ばれます。 `details` オブジェクトはリクエストについて記述します。
 
-`filter` オブジェクトには、`urls` プロパティがあります。これは、URL パターンと一致しないリクエストをフィルタリングするために使用される URL パターンの配列です。 `filter` を省略するとすべてのリクエストがマッチします。
+⚠️ Only the last attached `listener` will be used. Passing `null` as `listener` will unsubscribe from the event.
 
-特定のイベントでは、`listener` には `callback` が渡されます。これは、`listener` が処理を終えたときに `response` オブジェクトとともに呼び出される必要があります。
+The `filter` object has a `urls` property which is an Array of URL patterns that will be used to filter out the requests that do not match the URL patterns. If the `filter` is omitted then all requests will be matched.
 
-以下はリクエストに `User-Agent` ヘッダーを追加する例です。
+For certain events the `listener` is passed with a `callback`, which should be called with a `response` object when `listener` has done its work.
+
+An example of adding `User-Agent` header for requests:
 
 ```javascript
-const {session} = require('electron')
+const { session } = require('electron')
 
-// 以下の URL へのすべてのリクエストのユーザエージェントを変更します。
+// Modify the user agent for all requests to the following urls.
 const filter = {
   urls: ['https://*.github.com/*', '*://electron.github.io']
 }
 
 session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback) => {
   details.requestHeaders['User-Agent'] = 'MyAgent'
-  callback({cancel: false, requestHeaders: details.requestHeaders})
+  callback({ cancel: false, requestHeaders: details.requestHeaders })
 })
 ```
 
 ### インスタンスメソッド
 
-`WebRequest` のインスタンスでは、以下のメソッドが利用できます。
+The following methods are available on instances of `WebRequest`:
 
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
@@ -50,11 +52,11 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
       * `cancel` Boolean (任意)
       * `redirectURL` String (任意) - 元のリクエストは送信または終了されず、代わりに指定された URL にリダイレクトされます。
 
-`listener` は、リクエストが発生しようとしているときに `listener(details, callback)` で呼ばれます。
+The `listener` will be called with `listener(details, callback)` when a request is about to occur.
 
-`uploadData` は、`UploadData` オブジェクトの配列です。
+The `uploadData` is an array of `UploadData` objects.
 
-`callback` は、`response` オブジェクトで呼ぶ必要があります。
+The `callback` has to be called with an `response` object.
 
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
@@ -62,7 +64,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
   * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
 * `listener` Function
 
-リクエストヘッダが利用可能になると、HTTP リクエストを送信する前に `listener` が `listener(details, callback)` で呼び出されます。 これは、サーバーに TCP 接続が行われた後、HTTP データが送信される前に発生する可能性があります。
+The `listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent.
 
 * `details` Object 
   * `id` Integer
@@ -77,7 +79,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `cancel` Boolean (任意)
     * `requestHeaders` Object (任意) - 指定すると、これらのヘッダでリクエストが作成されます。
 
-`callback` は、`response` オブジェクトで呼ぶ必要があります。
+The `callback` has to be called with an `response` object.
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
@@ -93,7 +95,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `timestamp` Double
     * `requestHeaders` Object
 
-`listener` は、リクエストがサーバに送信される直前に `listener(details)` で呼び出され、以前の `onBeforeSendHeaders` レスポンスの変更は、このリスナが起動される時までに表示されます。
+The `listener` will be called with `listener(details)` just before a request is going to be sent to the server, modifications of previous `onBeforeSendHeaders` response are visible by the time this listener is fired.
 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
@@ -101,7 +103,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
   * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
 * `listener` Function
 
-`listener` は、HTTP リクエストのレスポンスヘッダを受信したときに `listener(details, callback)` で呼ばれます。
+The `listener` will be called with `listener(details, callback)` when HTTP response headers of a request have been received.
 
 * `details` Object 
   * `id` Integer
@@ -119,7 +121,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `responseHeaders` Object (任意) - 指定すると、サーバはこれらのヘッダでレスポンスしたものとみなされます。
     * `statusLine` String (任意) - ヘッダのステータスを変更するために `responseHeaders` をオーバーライドする場合に指定する必要があります。そうしないと、元の応答ヘッダのステータスが使用されます。
 
-`callback` は、`response` オブジェクトで呼ぶ必要があります。
+The `callback` has to be called with an `response` object.
 
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
@@ -138,7 +140,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `statusCode` Integer
     * `statusLine` String
 
-`listener` は、レスポンスボディの最初のバイトを受信したときに `listener(details)` で呼ばれます。 HTTP リクエストの場合、これはステータスラインとレスポンスヘッダが使用可能であることを意味します。
+The `listener` will be called with `listener(details)` when first byte of the response body is received. For HTTP requests, this means that the status line and response headers are available.
 
 #### `webRequest.onBeforeRedirect([filter, ]listener)`
 
@@ -158,7 +160,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `fromCache` Boolean
     * `responseHeaders` Object
 
-`listener` は、サーバーが始めたリダイレクトが発生しようとしているときに `listener(details)` で呼ばれます。
+The `listener` will be called with `listener(details)` when a server initiated redirect is about to occur.
 
 #### `webRequest.onCompleted([filter, ]listener)`
 
@@ -177,7 +179,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `statusCode` Integer
     * `statusLine` String
 
-`listener` は、リクエストが終了したときに `listener(details)` で呼ばれます。
+The `listener` will be called with `listener(details)` when a request is completed.
 
 #### `webRequest.onErrorOccurred([filter, ]listener)`
 
@@ -194,4 +196,4 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `fromCache` Boolean
     * `error` String - エラーの内容。
 
-`listener` は、エラーが発生したときに `listener(details)` で呼ばれます。
+The `listener` will be called with `listener(details)` when an error occurs.
