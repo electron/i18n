@@ -9,7 +9,7 @@
 **Примітка:** Це сполучення клавіш глобальне; воно буде працювати навіть якщо програма зараз не у фокусі. Ви не повинні використовувати цей модуль, поки не відбудеться Подія `ready`.
 
 ```javascript
-const {app, globalShortcut} = require('electron')
+const { app, globalShortcut } = require('electron')
 
 app.on('ready', () => {
   // Реєстрація слухача сполучення клавіш 'CommandOrControl+X'.
@@ -34,7 +34,7 @@ app.on('will-quit', () => {
 })
 ```
 
-## Методи
+## Методиa
 
 Модуль `GlobalShortcut` має такі методи:
 
