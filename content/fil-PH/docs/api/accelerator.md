@@ -12,7 +12,7 @@ Mga Halimbawa:
 Ang mga shortcut ay irehistro kasabay ang modyul ng [`globalShortcut`](global-shortcut.md) na gamit ang paraan ng [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback), i.e.
 
 ```javascript
-const {app, globalShortcut} = require('electron')
+const { app, globalShortcut } = require('electron')
 
 app.on('ready', () => {
   // Magrehistro ng isang 'CommandOrControl+Y' mga tagapakinig ng shortcut.
