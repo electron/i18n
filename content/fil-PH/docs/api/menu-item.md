@@ -22,9 +22,13 @@ Tingnan ang [`Menu`](menu.md) para sa mga halimbawa.
   * `enabled` Boolean (opsyonal) - Kung hindi totoo, ang aytem ng menu ay naka-grey out at hindi maki-klik.
   * `visible` Boolean (opsyonal) - Kung hindi totoo, ang aytem ng menu ay lubusang itatago.
   * `checked` Boolean (opsyonal) - Dapat lamang na tinukoy para sa uri ng `checkbox` o `radio` ng mga aytem ng menu.
-  * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. Kung ang `submenu` ay tinukoy na, ang `type: 'submenu'` ay maaaring tanggalin. If the value is not a [`Menu`](menu.md) then it will be automatically converted to one using `Menu.buildFromTemplate`.
-  * `id` String (opsyonal) - Kakaiba sa loob ng nag-iisang menu. Kung tinukoy samakatuwid ito ay maaaring gamitin bilang isang sanggunian sa aytem na ito sa pamamagitan ngkatangian ng posisyon.
-  * `position` String (opsyonal) - Ang field na ito ay nagpapahintulot sa pinong kahulugan ng tiyak na lokasyon sa loob ng ibinigay na menu.
+  * `registerAccelerator` Boolean (optional) - If false, the accelerator won't be registered with the system, but it will still be displayed. Defaults to true.
+  * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. If the value is not a [`Menu`](menu.md) then it will be automatically converted to one using `Menu.buildFromTemplate`.
+  * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
+  * `before` String[] (optional) - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
+  * `after` String[] (optional) - Inserts this item after the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu.
+  * `beforeGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
+  * `afterGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group after the containing group of the item with the specified label.
 
 ### Mga tungkulin
 
@@ -34,7 +38,9 @@ Ito ang mabisang paraan para matukoy ang `role` para sa kahit anong aytem ng men
 
 Ang mga halaga ng `label` at `accelerator` ay opsyonal kapag ginagamit ang`role` at magiging default sa naaangkop na halaga para sa bawat plataporma.
 
-Ang katangian ng `role` ay maaaring ang mga sumusunod na halaga:
+Every menu item must have either a `role`, `label`, or in the case of a separator a `type`.
+
+The `role` property can have following values:
 
 * `undo`
 * `redo`
@@ -46,11 +52,11 @@ Ang katangian ng `role` ay maaaring ang mga sumusunod na halaga:
 * `delete`
 * `minimize` - Paliitin ang kasalukuyang window.
 * `close` - Isara ang kasalukuyang window.
-* `quit` - Alisin ang aplikasyon.
+* `quit` - Quit the application.
 * `reload` - Ikarga ulit ang kasalukuyang window.
 * `forceReload` - Reload the current window ignoring the cache.
 * `toggleDevTools` - Toggle developer tools in the current window.
-* `toggleFullScreen`- Toggle full screen mode on the current window.
+* `toggleFullScreen` - Toggle full screen mode on the current window.
 * `resetZoom` - Reset the focused page's zoom level to the original size.
 * `zoomIn` - Zoom in the focused page by 10%.
 * `zoomOut` - Zoom out the focused page by 10%.
@@ -84,30 +90,30 @@ When specifying a `role` on macOS, `label` and `accelerator` are the only option
 
 ### Katangian ng pagkakataon
 
-Ang mga sumusunod na mga katangian ay makukuha sa mga instansya ng `MenuItem`:
+The following properties are available on instances of `MenuItem`:
 
 #### `ang menuItem.enabled`
 
-Ang isang `Boolean` ay nagpapakita kung ang aytem ay pinagana na, ang katangian na ito ay maaaring mabago ng matindi.
+A `Boolean` indicating whether the item is enabled, this property can be dynamically changed.
 
 #### `ang menuItem.visible`
 
-Ang isang `Boolean` ay nagpapakita kung ang aytem ay nakikita, ang katangian na ito ay maaaring mabago ng matindi.
+A `Boolean` indicating whether the item is visible, this property can be dynamically changed.
 
 #### `ang menuItem.checked`
 
-Ang isang `Boolean` ay nagpapakita kung ang aytem ay nasuri na, ang katangian na ito ay maaaring mabago ng matindi.
+A `Boolean` indicating whether the item is checked, this property can be dynamically changed.
 
-Ang isang `checkbox` na aytem ng menu ay ito-toggle ang katangian ng `checked` ng pagbukas at pagpatay kapag napili.
+A `checkbox` menu item will toggle the `checked` property on and off when selected.
 
-Ang isang `radio` na aytem ng menu ay bubuksan ang kanyang `checked` na katangian kapag na-klik, at papatayin ang nasabing katangian para sa lahat ng mga katabing aytem sa loob ng parehong menu.
+A `radio` menu item will turn on its `checked` property when clicked, and will turn off that property for all adjacent items in the same menu.
 
-Maaari kang magdagdag ng isang punsyon ng `click` para sa karagdagang gawain.
+You can add a `click` function for additional behavior.
 
 #### `ang menuItem.label`
 
-Ang isang `String` ay kumakatawan sa mga aytem ng menu sa nakikitang tatak.
+A `String` representing the menu items visible label.
 
 #### `ang menuItem.click`
 
-Ang isang `Function` na ititira kapag natanggap ng MenuItem ang isang event ng klik.
+A `Function` that is fired when the MenuItem receives a click event.
