@@ -1,8 +1,8 @@
-# contentTracing
+# pagsubaybay ng nilalaman
 
 > Pagkolekta ng tracing data galing sa Chromium's content modyul para paghanap ng pagganap bottlenecks at mahinang operasyon.
 
-Proseso: [Main](../glossary.md#main-process)
+Proseso:[Pangunahi](../glossary.md#main-process)
 
 Ang modyul na ito ay hindi kinabibilangan ng isang web interface kaya kailangan mong buksan ang `chrome://tracing/` sa Chrome browser at i-load ang nabuong file to makita ang resulta. 
 
@@ -29,7 +29,7 @@ app.on('ready', () => {
 })
 `</pre> 
 
-## Pamamaraan
+## Mga Paraan
 
 Ang `contentTracing` modyul ay ang sumusunod na pamamaraan:
 
@@ -45,10 +45,10 @@ Kapag lahat ng child processes ay nakakilla ng `getCategories` magrequest ng `ca
 
 ### `contentTracing.startRecording(options, callback)`
 
-* `options` Bagay 
+* `mga pagpipilian` Bagay 
   * `categoryFilter` String
   * `traceOptions` String
-* `callback` Function
+* `callback` na Function
 
 Simulan ang pagtatala ng lahat ng mga proseso. 
 
@@ -77,7 +77,7 @@ Ang opsyon na bakas ay marereset muna sa default opsyon(`record_mode` magtakda n
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
 * `resultFilePath` String
-* `callback` function 
+* `callback` Function 
   * `resultFilePath` String
 
 Itigil ang pagtatala ng mga proseso. 
@@ -92,10 +92,10 @@ Ang trace data ay maaaring isulat sa `resultFilePath` kung hindi ito walang lama
 
 `
 
-* `opsyons` Bagay 
+* `options` Bagay 
   * `categoryFilter` String
   * `traceOptions` String
-* `callback` Function
+* `callback` na Function
 
 Simulan ang pagtatala sa lahat ng mga proseso. 
 
@@ -105,7 +105,7 @@ Kapag kinilala ng child processes ang`startMonitoring` request the `callback` ay
 
 ### `contentTracing.stopMonitoring(callback)`
 
-* `callback` Function
+* `baliktawag` ginagawa
 
 Tigilan ang pagtatala sa lahat ng proseso.
 
@@ -114,7 +114,7 @@ Kapag kinilala ng child processes ang`stopMonitoring` request the `callback` ay 
 ### `contentTracing.captureMonitoringSnapshot(resultFilePath, callback)`
 
 * `resultFilePath` String
-* `callback` function 
+* `callback` Punsyon 
   * `resultFilePath` String
 
 Kumuha ng kasalukuyang nagtatala ng traced data.
