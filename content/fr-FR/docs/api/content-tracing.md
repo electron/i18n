@@ -19,7 +19,6 @@ app.on('ready', () => {
 
   contentTracing.startRecording(options, () => {
     console.log('Tracing started')
-
     setTimeout(() => {
       contentTracing.stopRecording('', (path) => {
         console.log('Tracing data recorded to ' + path)
@@ -44,7 +43,7 @@ Once all child processes have acknowledged the `getCategories` request the `call
 
 ### `contentTracing.startRecording(options, callback)`
 
-* `options` Object 
+* `options` Objet 
   * `categoryFilter` String
   * `traceOptions` String
 * `callback` Function
