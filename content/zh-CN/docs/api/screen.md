@@ -8,11 +8,11 @@
 
 In the renderer process context it depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
 
-`screen` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`screen` 是一个 [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-**Note:** In the renderer / DevTools, `window.screen` is a reserved DOM property, so writing `let { screen } = require('electron')` will not work.
+** 注意: **在 renderer/DevTools 中, `window.screen ` 是一个保留的 DOM 属性, 因此编写 ` let { screen } = require('electron') ` 将不起作用。
 
-An example of creating a window that fills the whole screen:
+创建填充整个屏幕的窗口的示例:
 
 ```javascript
 const electron = require('electron')
@@ -27,7 +27,7 @@ app.on('ready', () => {
 })
 ```
 
-Another example of creating a window in the external display:
+另一个在外部显示器中创建窗口的例子
 
 ```javascript
 const electron = require('electron')
@@ -53,7 +53,7 @@ app.on('ready', () => {
 
 ## 事件
 
-The `screen` module emits the following events:
+`screen`模块触发以下事件:
 
 ### Event: 'display-added'
 
@@ -62,7 +62,7 @@ The `screen` module emits the following events:
 * `event` Event
 * `newDisplay` [Display](structures/display.md)
 
-Emitted when `newDisplay` has been added.
+当新的窗口`newDisplay`被添加的时候触发。
 
 ### Event: 'display-removed'
 
@@ -71,7 +71,7 @@ Emitted when `newDisplay` has been added.
 * `event` Event
 * `oldDisplay` [Display](structures/display.md)
 
-Emitted when `oldDisplay` has been removed.
+当旧的窗口`oldDisplay`被移除的时候触发。
 
 ### Event: 'display-metrics-changed'
 
@@ -81,43 +81,43 @@ Emitted when `oldDisplay` has been removed.
 * `display` [Display](structures/display.md)
 * `changedMetrics` String[]
 
-Emitted when one or more metrics change in a `display`. The `changedMetrics` is an array of strings that describe the changes. Possible changes are `bounds`, `workArea`, `scaleFactor` and `rotation`.
+当`display`中的一个或多个值发生改变时发出。 `changedMetrics`是描述更改信息的字符串数组。 可能改变的值有`bounds`, `workArea`, `scaleFactor` 和 `rotation`.
 
 ## 方法
 
-The `screen` module has the following methods:
+`screen`模块有以下方法:
 
 ### `screen.getCursorScreenPoint()`
 
-Returns [`Point`](structures/point.md)
+返回 [`Point`](structures/point.md)
 
-The current absolute position of the mouse pointer.
+当前鼠标的绝对位置。
 
 ### `screen.getPrimaryDisplay()`
 
-Returns [`Display`](structures/display.md) - The primary display.
+返回主窗口[`Display`](structures/display.md)
 
 ### `screen.getAllDisplays()`
 
-Returns [`Display[]`](structures/display.md) - An array of displays that are currently available.
+返回一个窗口数组[`Display[]`](structures/display.md)，表示当前可用的窗口。
 
 ### `screen.getDisplayNearestPoint(point)`
 
 * `point` [Point](structures/point.md)
 
-Returns [`Display`](structures/display.md) - The display nearest the specified point.
+返回离指定点最近的一个窗口[`Display`](structures/display.md)
 
 ### `screen.getDisplayMatching(rect)`
 
 * `rect` [Rectangle](structures/rectangle.md)
 
-Returns [`Display`](structures/display.md) - The display that most closely intersects the provided bounds.
+返回离指定的图形最密切相交一个窗口[`Display`](structures/display.md)
 
 ### `screen.screenToDipPoint(point)` *Windows*
 
 * `point` [Point](structures/point.md)
 
-Returns [`Point`](structures/point.md)
+返回 [`Point`](structures/point.md)
 
 Converts a screen physical point to a screen DIP point. The DPI scale is performed relative to the display containing the physical point.
 
@@ -125,7 +125,7 @@ Converts a screen physical point to a screen DIP point. The DPI scale is perform
 
 * `point` [Point](structures/point.md)
 
-Returns [`Point`](structures/point.md)
+返回 [`Point`](structures/point.md)
 
 Converts a screen DIP point to a screen physical point. The DPI scale is performed relative to the display containing the DIP point.
 
