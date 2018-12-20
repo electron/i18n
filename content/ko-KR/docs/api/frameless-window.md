@@ -9,25 +9,23 @@ A frameless window is a window that has no [chrome](https://developer.mozilla.or
 테두리 없는 창을 만들기 위해서는 [BrowserWindow](browser-window.md)의 `옵션` 중에서 `frame`을 `false`로 설정 해야 합니다.
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({width: 800, height: 600, frame: false})
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ width: 800, height: 600, frame: false })
 win.show()
-
 ```
 
 ### Alternatives on macOS
 
-macOS 10.9 매버릭스 이상에서는 chromeless 윈도우를 지정하는 다른 방법이 있다. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. `titleBarStyle` 옵션을 지정하여 이를 할 수 있습니다:
+There's an alternative way to specify a chromeless window. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. `titleBarStyle` 옵션을 지정하여 이를 할 수 있습니다:
 
 #### `hidden`
 
 타이블바가 숨겨지고 전체크기의 컨텐츠 윈도우가 표시되지만 여전히 타이틀바는 표준 윈도우 컨트롤인 ("신호등")을 왼쪽 상단에 가지게 됩니다.
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({titleBarStyle: 'hidden'})
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ titleBarStyle: 'hidden' })
 win.show()
-
 ```
 
 #### `hiddenInset`
@@ -35,10 +33,9 @@ win.show()
 타이틀바가 숨겨지고 신호등 버튼이 윈도우 가장자리에 약간 더 끼워진 대체 모습으로 표시됩니다.
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({titleBarStyle: 'hiddenInset'})
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ titleBarStyle: 'hiddenInset' })
 win.show()
-
 ```
 
 #### `customButtonsOnHover`
@@ -46,10 +43,9 @@ win.show()
 Uses custom drawn close, and miniaturize buttons that display when hovering in the top left of the window. The fullscreen button is not available due to restrictions of frameless windows as they interface with Apple's MacOS window masks. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. This option is only applicable for frameless windows.
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({titleBarStyle: 'customButtonsOnHover', frame: false})
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ titleBarStyle: 'customButtonsOnHover', frame: false })
 win.show()
-
 ```
 
 ## 투명한 윈도우
@@ -57,10 +53,9 @@ win.show()
 `transparent`옵션을 `true`로 설정함으로써 테두리없는 윈도우를 투명하게 만들 수 있습니다:
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({transparent: true, frame: false})
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ transparent: true, frame: false })
 win.show()
-
 ```
 
 ### 제한 사항
@@ -77,7 +72,7 @@ win.show()
 To create a click-through window, i.e. making the window ignore all mouse events, you can call the [win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore-options) API:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.setIgnoreMouseEvents(true)
 ```
@@ -90,7 +85,7 @@ Ignoring mouse messages makes the web page oblivious to mouse movement, meaning 
 let win = require('electron').remote.getCurrentWindow()
 let el = document.getElementById('clickThroughElement')
 el.addEventListener('mouseenter', () => {
-  win.setIgnoreMouseEvents(true, {forward: true})
+  win.setIgnoreMouseEvents(true, { forward: true })
 })
 el.addEventListener('mouseleave', () => {
   win.setIgnoreMouseEvents(false)
