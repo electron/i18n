@@ -1,6 +1,6 @@
 # كائن مستطيل (Rectangle Object)
 
-* `x` نوعه عدد (Number) - الإحداثي x لمنشأ المستطيل (يجب أن يكون عدداً صحيحاً)
-* `y` نوعه عدد (Number) - الإحداثي y لمنشأ المستطيل (يجب أن يكون عدداً صحيحاً)
-* العرض width نوعه عدد (Number) - عرض المستطيل (يجب أن يكون عدداً صحيحاً)
-* الطول height نوعه عدد (Number) - طول المستطيل (يجب أن يكون عدداً صحيحاً)
+* `x` Number - The x coordinate of the origin of the rectangle (must be an integer).
+* `y` Number - The y coordinate of the origin of the rectangle (must be an integer).
+* `width` Number - The width of the rectangle (must be an integer).
+* `height` Number - The height of the rectangle (must be an integer).
