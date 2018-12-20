@@ -9,21 +9,21 @@ Puoi accedere alle istanze della classe `Cookies` usando la proprietà `cookies`
 Ad esempio:
 
 ```javascript
-const {session} = require('electron')
+const { session } = require('electron')
 
-// Interroga tutti i cookie.
+// Query all cookies.
 session.defaultSession.cookies.get({}, (error, cookies) => {
   console.log(error, cookies)
 })
 
 // Interroga tutti i cookie con un url specifico.
-session.defaultSession.cookies.get({url: 'http://www.github.com'}, (error, cookies) => {
+session.defaultSession.cookies.get({ url: 'http://www.github.com' }, (error, cookies) => {
   console.log(error, cookies)
 })
 
-// Salva dei dati in un cookie;
-// Se il cookie esiste già, lo sovrascrive.
-const cookie = {url: 'http://www.github.com', name: 'dummy_name', value: 'dummy'}
+// Set a cookie with the given cookie data;
+// may overwrite equivalent cookies if they exist.
+const cookie = { url: 'http://www.github.com', name: 'dummy_name', value: 'dummy' }
 session.defaultSession.cookies.set(cookie, (error) => {
   if (error) console.error(error)
 })
