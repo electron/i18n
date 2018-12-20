@@ -9,8 +9,8 @@ Hindi mo kailangan o gamitin ang amg modyul na ito hanggang ang event ng `ready`
 Halimbawa ng:
 
 ```javascript
-const electron = kailangan('electron')
-const {app} = electron
+const electron = require('electron')
+const { app } = electron
 
 app.on('ready', () => {
   electron.powerMonitor.on('suspend', () => {
