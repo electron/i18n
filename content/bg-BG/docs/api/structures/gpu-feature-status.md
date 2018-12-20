@@ -1,18 +1,18 @@
 # Обект GPUFeatureStatus
 
-* `2d_canvas` String - Платно
-* `flash_3d` String - Flash
-* `flash_stage3d` String - Flash Stage3D
-* `flash_stage3d_baseline` String - Основната профилна линия за Flash Stage3D
-* `gpu_compositing` String - Композиране
-* `multiple_raster_threads` String - Множество растерни процесорни нишки
-* `native_gpu_memory_buffers` String - Роден за устройството буфер GpuMemoryBuffers
-* `rasterization` String - Растерна графика
-* `video_decode` String - Видео декодиране
-* `video_encode` String - Видео кодиране
-* `vpx_decode` String - VPx Видео декодиране
-* `webgl` String - WebGL
-* `webgl2` String - WebGL2
+* `2d_canvas` String - Canvas.
+* `flash_3d` String - Flash.
+* `flash_stage3d` String - Flash Stage3D.
+* `flash_stage3d_baseline` String - Flash Stage3D Baseline profile.
+* `gpu_compositing` String - Compositing.
+* `multiple_raster_threads` String - Multiple Raster Threads.
+* `native_gpu_memory_buffers` String - Native GpuMemoryBuffers.
+* `rasterization` String - Rasterization.
+* `video_decode` String - Video Decode.
+* `video_encode` String - Video Encode.
+* `vpx_decode` String - VPx Video Decode.
+* `webgl` String - WebGL.
+* `webgl2` String - WebGL2.
 
 Възможни стойности:
 
