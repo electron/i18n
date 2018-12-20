@@ -7,13 +7,13 @@ Proseso:[Pangunahi](../glossary.md#main-process)
 Ang isang halimbawa ng pagpapatupad ng isang protokol na may kaparehas na epekto katulad ng `file://` na protokol:
 
 ```javascript
-const {app, protocol} = kailangan('electron')
+const { app, protocol } = require('electron')
 const path = require('path')
 
 app.on('ready', () => {
   protocol.registerFileProtocol('atom', (request, callback) => {
     const url = request.url.substr(7)
-    callback({path: path.normalize(`${__dirname}/${url}`)})
+    callback({ path: path.normalize(`${__dirname}/${url}`) })
   }, (error) => {
     if (error) console.error('Failed to register protocol')
   })
@@ -49,7 +49,7 @@ Ang pagrerehistro sa isang iskema bilang standard ay pinapayagan ang pagpunta sa
 Sa default, ang mga api ng imbakan ng web (localStorage, sessionStorage, webSQL, indexedDB, cookies) ay hindi pinagana para sa hindi istandard na mga iskema. Kaya sa pangkalahatan kung gusto mong irehistro ang isang karaniwang protokol para palitan ng `http` na protokol, kailangan mo itong irehistro bilang isang istandard na iskema:
 
 ```javascript
-const {app, protocol} = kailangan('electron')
+const { app, protocol } = require('electron')
 
 protocol.registerStandardSchemes(['atom'])
 app.on('ready', () => {
@@ -79,7 +79,7 @@ app.on('ready', () => {
 
 Nagrerehistro ang isang protokol ng `scheme` na magpapadala sa file bilang isang tugon. Ang `handler` ay tatawagin kasama ang `handler(request, callback)` kapag ang isang `request` ay lilikhain kasama ang `scheme`. Ang `completion` ay tatawagin kasama ang `completion(null)` kapag ang `scheme` ay matagumpay na nairehistro o ang `completion(error)` kapag nabigo.
 
-Para hawakan ang `request`, ang `callback` ay dapat tawagin na may alinman sa landas ng file o isang bagay na may katangian ng `path`, halimbawa. ang `callback(filePath)` o ang `callback({path: filePath})`.
+To handle the `request`, the `callback` should be called with either the file's path or an object that has a `path` property, e.g. `callback(filePath)` or `callback({ path: filePath })`.
 
 Kapag ang `callback` ay tinawag ng walang kasama na isang numero, o isang bagay na may katangian ng `error`, ang `request` ay mabibigo kasama ang `error` na numero na iyong tinukoy. Para sa magagamit na mga maling numero na iyong gagamitin, pakiusap tingnan ang [net error list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
@@ -106,10 +106,10 @@ Ang paggamit ay katulad din ng `registerFileProtocol`, maliban lang na ang `call
 Halimbawa:
 
 ```javascript
-const {protocol} = kailangan('electron')
+const { protocol } = require('electron')
 
 protocol.registerBufferProtocol('atom', (request, callback) => {
-  callback({mimeType: 'text/html', data: Buffer.from('<h5>Response</h5>')})
+  callback({ mimeType: 'text/html', data: Buffer.from('<h5>Response</h5>') })
 }, (error) => {
   if (error) console.error('Failed to register protocol')
 })
@@ -139,9 +139,10 @@ Ang paggamit ay katulad din nang `registerFileProtocol`, maliban kung ang `callb
 * `tagahawak` Ang Function 
   * `kahilingan` Bagay 
     * `url` Tali
+    * `headers` Objek
     * `referer` String
     * `method` na String
-    * `uploadData` [UploadData[]](structures/upload-data.md)
+    * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
   * `callback` Punsyon 
     * `ang redirectRequest` Bagay 
       * `url` Tali
@@ -183,8 +184,8 @@ The usage is similar to the other `register{Any}Protocol`, except that the `call
 Halimbawa:
 
 ```javascript
-const {protocol} = require('electron')
-const {PassThrough} = require('stream')
+const { protocol } = require('electron')
+const { PassThrough } = require('stream')
 
 function createStream (text) {
   const rv = new PassThrough() // PassThrough is also a Readable stream
@@ -209,7 +210,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 It is possible to pass any object that implements the readable stream API (emits `data`/`end`/`error` events). For example, here's how a file could be returned:
 
 ```javascript
-const {protocol} = require('electron')
+const { protocol } = require('electron')
 const fs = require('fs')
 
 protocol.registerStreamProtocol('atom', (request, callback) => {
@@ -289,9 +290,10 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 * `tagahawak` Function 
   * `kahilingan` Bagay 
     * `url` Tali
+    * `headers` Objek
     * `referer` String
     * `method` na String
-    * `uploadData` [UploadData[]](structures/upload-data.md)
+    * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
   * `callback` Punsyon 
     * `ang redirectRequest` Bagay 
       * `url` Tali
