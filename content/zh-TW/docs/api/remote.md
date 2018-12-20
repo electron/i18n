@@ -105,7 +105,7 @@ The `remote` module has the following methods:
 
 Returns `any` - The object returned by `require(module)` in the main process. Modules specified by their relative path will resolve relative to the entrypoint of the main process.
 
-e.g.
+例如:
 
 ```sh
 project/
@@ -118,7 +118,7 @@ project/
 ```
 
 ```js
-// main process: main/index.js
+// 主處理序: main/index.js
 const { app } = require('electron')
 app.on('ready', () => { /* ... */ })
 ```
