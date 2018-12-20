@@ -22,15 +22,37 @@ Windows 콘솔 예시:
 
 The following environment variables are intended primarily for use at runtime in packaged Electron applications.
 
+### `NODE_OPTIONS`
+
+Electron includes support for a subset of Node's [`NODE_OPTIONS`](https://nodejs.org/api/cli.html#cli_node_options_options). The majority are supported with the exception of those which conflict with Chromium's use of BoringSSL.
+
+Example:
+
+```sh
+export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
+```
+
+Unsupported options are:
+
+```sh
+--use-bundled-ca
+--force-fips
+--enable-fips
+--openssl-config
+--use-openssl-ca
+```
+
+`NODE_OPTIONS` are explicitly disallowed in packaged apps.
+
 ### `GOOGLE_API_KEY`
 
 Electron includes a hardcoded API key for making requests to Google's geocoding webservice. Because this API key is included in every version of Electron, it often exceeds its usage quota. To work around this, you can supply your own Google API key in the environment. Place the following code in your main process file, before opening any browser windows that will make geocoding requests:
 
 ```javascript
-process.env.GOOGLE_API_KEY = 'API_키'
+process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
 ```
 
-Google API 키를 얻으려면, [이 페이지](https://www.chromium.org/developers/how-tos/api-keys)를 방문해 보세요.
+For instructions on how to acquire a Google API key, visit [this page](https://www.chromium.org/developers/how-tos/api-keys).
 
 By default, a newly generated Google API key may not be allowed to make geocoding requests. To enable geocoding requests, visit [this page](https://console.developers.google.com/apis/api/geolocation/overview).
 
@@ -40,7 +62,7 @@ Disables ASAR support. This variable is only supported in forked child processes
 
 ### `ELECTRON_RUN_AS_NODE`
 
-일반 Node.js 프로세스에서 프로세스를 시작합니다.
+Starts the process as a normal Node.js process.
 
 ### `ELECTRON_NO_ATTACH_CONSOLE` *Windows*
 
@@ -63,11 +85,11 @@ Options:
 
 ## 개발 변수
 
-다음 환경 변수들은 주로 개발이나 디버깅 목적으로 사용됩니다.
+The following environment variables are intended primarily for development and debugging purposes.
 
 ### `ELECTRON_ENABLE_LOGGING`
 
-Chrome 내장 로깅을 콘솔에 출력합니다.
+Prints Chrome's internal logging to the console.
 
 ### `ELECTRON_LOG_ASAR_READS`
 
@@ -90,5 +112,5 @@ This environment variable will not work if the `crashReporter` is started.
 When running from the `electron` package, this variable tells the `electron` command to use the specified build of Electron instead of the one downloaded by `npm install`. Usage:
 
 ```sh
-export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/D
+export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Debug
 ```
