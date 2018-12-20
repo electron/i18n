@@ -12,7 +12,7 @@ Accelerators are Strings that can contain multiple modifiers and a single key co
 Kısayollar, [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) yöntemini kullanarak [`globalShortcut`](global-shortcut.md) modülüyle kaydedilir.
 
 ```javascript
-const {app, globalShortcut} = require('electron') app.on('ready', () => {   // 'CommandOrControl+Y' için bir kısayol dinleyicisi kaydet.
+const { app, globalShortcut } = require('electron') app.on('ready', () => {   // 'CommandOrControl+Y' için bir kısayol dinleyicisi kaydet.
   globalShortcut.register('CommandOrControl+Y', () => {     // Y ve Command/Control'a basıldığında bir şeyler yapar.
   }) })
 ```
