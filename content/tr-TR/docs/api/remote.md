@@ -9,12 +9,17 @@
 Electron'da, GUI ile ilgili modüller (` iletişim kutusu `, ` menü ` vb.) Yalnızca ana süreçte kullanılabilir, oluşturucu işlemi içinde değil. Onları oluşturucu işleminde kullanmak için `ipc` modülü ana işleme işlemler arası iletileri göndermek için gereklidir. ` remote ` modülüyle, ana işlem obje metotlarını açıkça süreçler arası mesaj atmadan çağırabilirsiniz. Tıpkı Java'nın [ RMI](https://en.wikipedia.org/wiki/Java_remote_method_invocation)'si gibi. Bir tarayıcı penceresi oluşturmak için bir örnek: Oluşturucu süreci:
 
 ```javascript
-const {BrowserWindow} = require('electron').remote
-let win = new BrowserWindow({width: 800, height: 600})
+const { BrowserWindow } = require('electron').remote
+let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
 **Note:** For the reverse (access the renderer process from the main process), you can use [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback).
+
+**Note:** The remote module can be disabled for security reasons in the following contexts:
+
+* [`BrowserWindow`](browser-window.md) - by setting the `enableRemoteModule` option to `false`.
+* [`<webview>`](webview-tag.md) - by setting the `enableremotemodule` attribute to `false`.
 
 ## Uzak nesneler
 
@@ -113,7 +118,7 @@ project/
 
 ```js
 // ana işlem: main/index.js
-const {app} = require('electron')
+const { app } = require('electron')
 app.on('ready', () => { /* ... */ })
 ```
 
