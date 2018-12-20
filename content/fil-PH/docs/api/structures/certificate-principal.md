@@ -1,8 +1,8 @@
 # CertificatePrincipal na Bagay
 
-* `commonName` na String - Karaniwang Pangalan
-* `organizations` na String[] - mga pangalan ng organisasyon
-* `organizationUnits` na String[] - mga pangalan ng yunit ng organisasyon
-* `locality` na String - Lokalidad
-* `state` na String - Stado o probinsya
-* `country` na String - Bansa o rehiyon
+* `commonName` String - Common Name.
+* `organizations` String[] - Organization names.
+* `organizationUnits` String[] - Organization Unit names.
+* `locality` String - Locality.
+* `state` String - State or province.
+* `country` String - Country or region.
