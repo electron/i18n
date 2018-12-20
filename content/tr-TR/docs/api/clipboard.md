@@ -4,17 +4,19 @@
 
 İşlem: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
+In the renderer process context it depends on the [`remote`](remote.md) module on Linux, it is therefore not available when this module is disabled.
+
 Aşağıdaki örnek bir dizeyi panoya nasıl yazacağınızı gösterir:
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 clipboard.writeText('Example String')
 ```
 
 Ayrıca X Window sistemlerinde bir seçim panosu bulunur. Bunu değiştirmek için `selection`'ı her bir metoda geçirmelisiniz:
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 clipboard.writeText('Example String', 'selection')
 console.log(clipboard.readText('selection'))
 ```
@@ -53,7 +55,7 @@ Yazar `markup` panoya.
 
 ### `clipboard.readImage([type])`
 
-* `type` String (isteğe bağlı)
+* `type` Dize (isteğe bağlı)
 
 [`NativeImage`](native-image.md) - Pano içindeki resim içeriği.
 
@@ -133,7 +135,7 @@ Pano içeriğini temizler.
 `Boolean` - Panoda belirtilen `format` komutunun desteklenip desteklenmediğini gösterir.
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 console.log(clipboard.has('<p>selection</p>'))
 ```
 
@@ -168,8 +170,8 @@ console.log(clipboard.has('<p>selection</p>'))
 * `type` String (isteğe bağlı)
 
 ```javascript
-const {clipboard} = require('electron')
-clipboard.write({text: 'test', html: '<b>test</b>'})
+const { clipboard } = require('electron')
+clipboard.write({ text: 'test', html: '<b>test</b>' })
 ```
 
 `Verileri` panoya yazar.
