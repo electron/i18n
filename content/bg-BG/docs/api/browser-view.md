@@ -4,7 +4,7 @@
 
 Процеса: [Main](../glossary.md#main-process)
 
-A `BrowserView` can be used to embed additional web content into a [`BrowserWindow`](browser-window.md). It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
+A `BrowserView` can be used to embed additional web content into a [`BrowserWindow`](browser-window.md). Това е като дете прозорец, освен че е разположен спрямо основния му прозорец. Той е предназначен да бъде алтернатива на `webview` маркер.
 
 ## Пример
 
@@ -36,43 +36,43 @@ view.webContents.loadURL('https://electronjs.org')
 
 #### `BrowserView.getAllViews()`
 
-Returns `BrowserView[]` - An array of all opened BrowserViews.
+Връща `[BrowserView]` - Масив с всички отворени BrowserViews.
 
 #### `BrowserView.fromWebContents(webContents)`
 
 * `webContents` [WebContents](web-contents.md)
 
-Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
+Връща `BrowserView | null`-BrowserView, което притежава даден `webContents` или `null`, ако съдържанието не е собственост на BrowserView.
 
 #### `BrowserView.fromId(id)`
 
 * `id` Integer
 
-Returns `BrowserView` - The view with the given `id`.
+Връща `BrowserView` - Изгледът на съответното `id`.
 
 ### Инстантни свойства
 
-Objects created with `new BrowserView` have the following properties:
+Обекти създадени с `new BrowserView` имат следните свойства:
 
 #### `view.webContents` *Experimental*
 
-A [`WebContents`](web-contents.md) object owned by this view.
+Обект [`WebContents`](web-contents.md) собственост на този изглед.
 
 #### `view.id` *Experimental*
 
-A `Integer` representing the unique ID of the view.
+`Integer` представляващ уникално ID на изгледа.
 
 ### Инстантни методи
 
-Objects created with `new BrowserView` have the following instance methods:
+Обекти създадени с `new BrowserView` имат следните методи:
 
 #### `view.destroy()`
 
-Force closing the view, the `unload` and `beforeunload` events won't be emitted for the web page. After you're done with a view, call this function in order to free memory and other resources as soon as possible.
+Насила затваря изгледа, събитията `unload` и `beforeunload` няма да бъдат излъчени за уеб страницата. Когато сте готови с изгледа, извикайте тази функция, за да освободите памет и други ресурси възможно най-скоро.
 
 #### `view.isDestroyed()`
 
-Returns `Boolean` - Whether the view is destroyed.
+Връща `Boolean` - Показва дали изгледа е унищожен.
 
 #### `view.setAutoResize(опции)` *Experimental*
 
@@ -84,7 +84,7 @@ Returns `Boolean` - Whether the view is destroyed.
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
-Resizes and moves the view to the supplied bounds relative to the window.
+Преоразмерява и премества изгледа към предоставените границите спрямо прозореца.
 
 #### `view.setBackgroundColor(color)` *Experimental*
 
