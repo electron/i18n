@@ -77,4 +77,11 @@ The ` ipcRenderer </ 0> modul adalah turunan dari
 <li><code> ... args </ 0> ada []</li>
 </ul>
 
-<p>Seperti <code> ipcrenderer.kirim </ 0> tapi acara akan dikirim ke <code><webview>` elemen di tuan rumah halaman bukan proses utama.</p>
+<p>Seperti <code> ipcrenderer.kirim </ 0> tapi acara akan dikirim ke <code><webview>` elemen di tuan rumah halaman bukan proses utama.</p> 
+                            ## Objek acara
+                            
+                            ` acara </ 0> objek diteruskan ke <code> callback </ 0> memiliki metode berikut:</p>
+
+<h3><code>event.senderId`</h3> 
+                            
+                            Returns the `webContents.id` that sent the message, you can call `event.sender.sendTo(event.senderId, ...)` to reply to the message, see [ipcRenderer.sendTo](#ipcrenderersendtowindowid-channel--arg1-arg2-) for more information. This only applies to messages sent from a different renderer. Messages sent directly from the main process set `event.senderId` to `0`.
