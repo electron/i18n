@@ -1,18 +1,18 @@
 # `sandbox` Option
 
-> Crea una ventana en el navegador con un renderizador que corra dentro de la caja de arena del sistema operativo de Chromium. Con esta opción activada, la renderización debe comunicarse vía IPC al procesador principal para poder acceder a los nodos API. Sin embargo, con el fin de activar la caja de arena de Chromium OS, Electron debe ser ejecutado con el argumento del comando de linea `--enable-sandbox`.
+> Crea una ventana en el navegador con un renderizador que corra dentro de la caja de arena del sistema operativo de Chromium. Con esta opción activada, la renderización debe comunicarse vía IPC al procesador principal para poder acceder a los nodos API. However, in order to enable the Chromium OS sandbox, Electron must be run with the `--enable-sandbox` command line argument.
 
 Una de las características clave de la seguridad de Chromium es que toda la renderización y el código de JavaScript es ejecutado dentro d una caja de arena. Esta caja de area usa características específicas para cada OS para asegurar que un explosivo en el proceso de renderización no pueda lastimar al sistema.
 
 En otras palabras, cuando la caja de arena está activada, los renderizadores solamente pueden hacer cambios al sistema delegando tareas al proceso principal via IPC. [aquí](https://www.chromium.org/developers/design-documents/sandbox) hay más información sobre las cajas de arena.
 
-Puesto que la mayor característica de Electron es la habilidad de ejecutar node.js en el proceso de renderizado (haciendo más fácil el desarrollo de aplicaciones de escritorio usando tecnologías web), la caja de arena está deshabilitada por Electron. Esto se debe a que la mayoría de los API de node.js requieren acceso al sistema. `require()` por ejemplo, no es posible si el permiso del sistema, el cual no está disponible en un ambiente de caja de arena.
+Since a major feature in Electron is the ability to run Node.js in the renderer process (making it easier to develop desktop applications using web technologies), the sandbox is disabled by electron. This is because most Node.js APIs require system access. `require()` por ejemplo, no es posible si el permiso del sistema, el cual no está disponible en un ambiente de caja de arena.
 
-Usualmente esto no es un problema para aplicaciones de escritorio ya que el código siempre es confiable, pero hace Electron menos seguro que Chromium para abrir contenido web sospechoso. Para aplicaciones que requieren más seguridad, la bandera de `sandbox` forzará a Electrón a iniciar una renderización de Chomium clásica que es compatible con la caja de arena.
+Usually this is not a problem for desktop applications since the code is always trusted, but it makes Electron less secure than Chromium for displaying untrusted web content. For applications that require more security, the `sandbox` flag will force Electron to spawn a classic Chromium renderer that is compatible with the sandbox.
 
-Un renderizador en una caja de arena no tiene un ambiente de node.js ejecutandose y no expone el node.js JavaScript API al código del cliente. La única excepción es el script precargado, que tiene el acceso al subset de los renderizadores API de electron.
+A sandboxed renderer doesn't have a Node.js environment running and doesn't expose Node.js JavaScript APIs to client code. The only exception is the preload script, which has access to a subset of the Electron renderer API.
 
-Otra diferencia es que los renderizadores en caja de arena no modifican ninguno de los JavaScript APIs que está por defecto. En consecuencia, algunos APIs como `window.open` trabajarán como lo harían en chromium (i.e ellos no regresan a [`BrowserWindowProxy`](browser-window-proxy.md)).
+Otra diferencia es que los renderizadores en caja de arena no modifican ninguno de los JavaScript APIs que está por defecto. Consequently, some APIs such as `window.open` will work as they do in Chromium (i.e. they do not return a [`BrowserWindowProxy`](browser-window-proxy.md)).
 
 ## Ejemplo
 
@@ -30,7 +30,7 @@ app.on('ready', () => {
 })
 ```
 
-En el código anterior el [`BrowserWindow`](browser-window.md) que fue creado tiene el node.jsdeshabilitado y puede comunicarse solo via IPC. El uso de esta opción detiene a Electron de crear un node.js en el tiempo de corrida dentro del renderizador. También, en esta nueva ventana `window.open` sigue el comportamiento nativo (por defecto Electron crea un [`BrowserWindow`](browser-window.md) y regresa un proxy a este via `window.open`).
+In the above code the [`BrowserWindow`](browser-window.md) that was created has Node.js disabled and can communicate only via IPC. The use of this option stops Electron from creating a Node.js runtime in the renderer. Also, within this new window `window.open` follows the native behaviour (by default Electron creates a [`BrowserWindow`](browser-window.md) and returns a proxy to this via `window.open`).
 
 Es importante notar que esta opción sola no va a habilitar la caja de arena impuesta por el OS. Para activar esta característica, el argumento de linea de comando `--enable-sandbox` debe ser pasado a Electron, que lo forzará `sandbox: true` por todas `BrowserWindow` instancias.
 
@@ -45,15 +45,15 @@ app.on('ready', () => {
 })
 ```
 
-Note que esto no es suficiente para llamar `app.commandLine.appendSwitch('--enable-sandbox')` como Electron/nodo código de inicio corre después si es posible para hacer cambios a la configuración de la caja de aren de Chromium. El cambio debe ser pasado por la linea de comando de electron:
+Note that it is not enough to call `app.commandLine.appendSwitch('--enable-sandbox')`, as electron/node startup code runs after it is possible to make changes to Chromium sandbox settings. The switch must be passed to Electron on the command-line:
 
 ```sh
 electron --enable-sandbox app.js
 ```
 
-No es posible tener el OS caja de arena activo solo por algunos renderizadores, si `--enable-sandbox` está habilitado, no se puede crear una ventana normal de Electron.
+It is not possible to have the OS sandbox active only for some renderers, if `--enable-sandbox` is enabled, normal Electron windows cannot be created.
 
-If you need to mix sandboxed and non-sandboxed renderers in one application, omit the `--enable-sandbox` argument. Sin este argumento, ventanas creadas con `sandbox: true` todavía tendrán deshabilitado node.js y podrán comunicarse solo via IPC, que ya es una ganancia de seguridad POV en si misma.
+If you need to mix sandboxed and non-sandboxed renderers in one application, omit the `--enable-sandbox` argument. Without this argument, windows created with `sandbox: true` will still have Node.js disabled and communicate only via IPC, which by itself is already a gain from security POV.
 
 ## Precarga
 
@@ -75,13 +75,13 @@ app.on('ready', () => {
 y preload.js:
 
 ```js
-// Este archivo se carga cada vez que se crea un contexto de javascript. Corre en un
-// enlace privado que puede acceder al a la selección de renderizadores APIs de Electron. Debemos ser
+// Este archivo se carga cada vez que se crea un contexto de javascript. It runs in a
+// private scope that can access a subset of Electron renderer APIs. Debemos ser
 // cuidadosos de no dejar salir ningún objeto en el ámbito global!
 const fs = require('fs')
-const {ipcRenderer} = require('electron')
+const { ipcRenderer } = require('electron')
 
-// Lea un archivo de configuración usando el módulo "fs"
+// read a configuration file using the `fs` module
 const buf = fs.readFileSync('allowed-popup-urls.json')
 const allowedUrls = JSON.parse(buf.toString('utf8'))
 
@@ -100,9 +100,9 @@ window.open = customWindowOpen
 
 Cosas importantes que notar en el script precargado:
 
-- A pesar de que el renderizador en la caja de arena no tiene un node.js corriendo, todavía tiene acceso a un ambiente limitado parecido a uno nodal: `Buffer`, `process`, `setImmediate` y `require` están disponibles.
+- Even though the sandboxed renderer doesn't have Node.js running, it still has access to a limited node-like environment: `Buffer`, `process`, `setImmediate` and `require` are available.
 - El script precargado puede acceder indirectamente todas las APIs desde el proceso principal a través de los módulos `remote` y `ipcRenderer`. Así es como `fs` (usado arriba) y otros módulos son implementados: Son proxies de las contrapartes remotas en el proceso principal.
-- El script precargado debe contener un único script, pero es posible tener códigos precargados complejos compuestos con múltiples módulos usando una herramienta como browserify, como explicamos abajo. De hecho, browserify ya está siendo usada por Electron para proveer un ambiente parecido al nodal para el script precargado.
+- El script precargado debe contener un único script, pero es posible tener códigos precargados complejos compuestos con múltiples módulos usando una herramienta como browserify, como explicamos abajo. In fact, browserify is already used by Electron to provide a node-like environment to the preload script.
 
 Para crear un paquete browserify y usarlo como un script precargado, algo como lo siguiente puede ser usado:
 
@@ -128,15 +128,15 @@ Actualmente la function `require` proveída en el ambiente de precargado expone 
 - `contadores`
 - `url`
 
-Se pueden agregar más si se necesitan para exponer más APIs de Electron en la caja de arena, pero cualquier módulo en el proceso principar ya puede ser usado a través de `electron.remote.require`.
+More may be added as needed to expose more Electron APIs in the sandbox, but any module in the main process can already be used through `electron.remote.require`.
 
 ## Estado
 
-Por favor use la opción de `sandbox` con cuidado, debido a que todavía es una característica experimental. Todavía no estamos seguros de las implicaciones de seguridad de exponer algunos renderizadores API de Electron a un script precargado, pero aquí hay algunas cosas a considerar antes de renderizar contenido no confiable:
+Por favor use la opción de `sandbox` con cuidado, debido a que todavía es una característica experimental. We are still not aware of the security implications of exposing some Electron renderer APIs to the preload script, but here are some things to consider before rendering untrusted content:
 
 - Un script precargado puede filtrar accidentalmente APIs privilegiadas a códigos no confiables.
 - Algún bug en el motor v8 también puede permitir que un código malicioso acceda al API precargado del renderizador, dandole efectivamente acceso completo al sistema mediante el módulo `remote`.
 
-Dado que renderizar contenido no confiable en Electron es un territorio inexplorado, las APIs expuestas a los script de la caja de arena precargada deben ser considerados más inestables que el resto de las APIs de Electron, y debe tener cambios radicales para arreglar los problemas de seguridad.
+Since rendering untrusted content in Electron is still uncharted territory, the APIs exposed to the sandbox preload script should be considered more unstable than the rest of Electron APIs, and may have breaking changes to fix security issues.
 
 Una mejora planificada que debería incrementar mucho la seguridad es bloquear los mensajes IPC de los renderizadores de la caja de arena por defecto, permitiendo al proceso principal definir un grupo de mensajes que el renderizador está autorizado para enviar.
