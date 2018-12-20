@@ -11,7 +11,7 @@ Processus : [Main](../glossary.md#main-process)
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.webContents.session.on('will-download', (event, item, webContents) => {
-  // Set the save path, making Electron not to prompt a save dialog.
+  // Définit le chemin de sauvegarde, ce qui fait qu'Electron n'affichera pas une boite de dialogue de sauvegarde.
   item.setSavePath('/tmp/save.pdf')
 
   item.on('updated', (event, state) => {
