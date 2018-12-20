@@ -12,7 +12,7 @@ Przykłady:
 Skróty są zarejestrowane z modułem [`globalShortcut`](global-shortcut.md), za pomocą metody [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback), tj.
 
 ```javascript
-const {app, globalShortcut} = require('electron')
+const { app, globalShortcut } = require('electron')
 
 app.on('ready', () => {
   // Register a 'CommandOrControl+Y' shortcut listener.
