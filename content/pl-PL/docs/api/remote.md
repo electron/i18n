@@ -9,16 +9,21 @@ The `remote` module provides a simple way to do inter-process communication (IPC
 In Electron, GUI-related modules (such as `dialog`, `menu` etc.) are only available in the main process, not in the renderer process. In order to use them from the renderer process, the `ipc` module is necessary to send inter-process messages to the main process. With the `remote` module, you can invoke methods of the main process object without explicitly sending inter-process messages, similar to Java's [RMI](https://en.wikipedia.org/wiki/Java_remote_method_invocation). An example of creating a browser window from a renderer process:
 
 ```javascript
-const {BrowserWindow} = require('electron').remote
-let win = new BrowserWindow({width: 800, height: 600})
+const { BrowserWindow } = require('electron').remote
+let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
 **Note:** For the reverse (access the renderer process from the main process), you can use [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback).
 
+**Note:** The remote module can be disabled for security reasons in the following contexts:
+
+* [`BrowserWindow`](browser-window.md) - by setting the `enableRemoteModule` option to `false`.
+* [`<webview>`](webview-tag.md) - by setting the `enableremotemodule` attribute to `false`.
+
 ## Zdalne Objekty
 
-Każdy obiekt (w tym funkcje) zwraca przez `remote` moduł reprezentujący obiekt w głównym procesie (nazywamy to obiekt zdalny lub funkcja zdalna). When you invoke methods of a remote object, call a remote function, or create a new object with the remote constructor (function), you are actually sending synchronous inter-process messages.
+Each object (including functions) returned by the `remote` module represents an object in the main process (we call it a remote object or remote function). When you invoke methods of a remote object, call a remote function, or create a new object with the remote constructor (function), you are actually sending synchronous inter-process messages.
 
 In the example above, both [`BrowserWindow`](browser-window.md) and `win` were remote objects and `new BrowserWindow` didn't create a `BrowserWindow` object in the renderer process. Instead, it created a `BrowserWindow` object in the main process and returned the corresponding remote object in the renderer process, namely the `win` object.
 
@@ -92,7 +97,7 @@ console.log(app)
 
 ## Metody
 
-Moduł `remote` posiada następujące metody:
+The `remote` module has the following methods:
 
 ### `remote.require(module)`
 
@@ -100,7 +105,7 @@ Moduł `remote` posiada następujące metody:
 
 Returns `any` - The object returned by `require(module)` in the main process. Modules specified by their relative path will resolve relative to the entrypoint of the main process.
 
-np.
+e.g.
 
 ```sh
 project/
@@ -113,8 +118,8 @@ project/
 ```
 
 ```js
-// główny proces: main/index.js
-const {app} = require('electron')
+// main process: main/index.js
+const { app } = require('electron')
 app.on('ready', () => { /* ... */ })
 ```
 
@@ -136,7 +141,7 @@ Returns [`BrowserWindow`](browser-window.md) - The window to which this web page
 
 ### `remote.getCurrentWebContents()`
 
-Zwraca [`WebContents`](web-contents.md) - Zawartość internetowa tej strony.
+Returns [`WebContents`](web-contents.md) - The web contents of this web page.
 
 ### `remote.getGlobal(name)`
 
