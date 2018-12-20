@@ -5,12 +5,12 @@
 [app](app.md) モジュールで [ready](app.md#event-ready) イベントが発生する前に、アプリのメインスクリプトで [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) を使って、コマンドラインスイッチを追加することができます。
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 app.commandLine.appendSwitch('remote-debugging-port', '8315')
 app.commandLine.appendSwitch('host-rules', 'MAP * 127.0.0.1')
 
 app.on('ready', () => {
-  // ここにあなたのコード
+  // Your code here
 })
 ```
 
@@ -54,7 +54,7 @@ $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 
 ## --proxy-server=`address:port`
 
-システム設定よりも優先して、指定したプロキシサーバーを使用します。 このスイッチは、HTTPSとWebSocketリクエストを含むHTTPプロトコルでのリクエストにしか影響しません。 また、すべてのプロキシサーバーがHTTPSとWebSocketリクエストに対応している訳ではないことにも注意してください。
+システム設定よりも優先して、指定したプロキシサーバーを使用します。 このスイッチは、HTTPSとWebSocketリクエストを含むHTTPプロトコルでのリクエストにしか影響しません。 また、すべてのプロキシサーバーがHTTPSとWebSocketリクエストに対応している訳ではないことにも注意してください。 The proxy URL does not support username and password authentication [per Chromium issue](https://bugs.chromium.org/p/chromium/issues/detail?id=615947).
 
 ## --proxy-bypass-list=`hosts`
 
@@ -63,7 +63,7 @@ $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 例:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com;1.2.3.4:5678')
 ```
 
