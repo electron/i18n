@@ -66,6 +66,8 @@ Emesso quando un aggiornamento è stato scaricato.
 
 Solo su Windows `rilascioNome` è disponibile.
 
+**Note:** It is not strictly necessary to handle this event. A successfully downloaded update will still be applied the next time the application starts.
+
 ### Evento: 'before-quit-for-update'
 
 Questo evento è emesso dopo una chiamata utente `quitAndInstall()`.
@@ -99,4 +101,4 @@ Riavvia l'app ed installa l'aggiornamento dopo che è stato scaricato. Potrebbe 
 
 <p>Sotto la chiamata <code>autoUpdater.quitAndInstall()` saranno prima chiuse tutte le finestre dell'applicazione, e automaticamente chiamata `app.quit()` dopo che tutte le finestre sono state chiuse.
 
-**Nota:** Se l'applicazione è chiusa senza chiamare questa API dopo l'evento `update-downloaded` è stato emesso, l'applicazione sarà comunque sostituita da quella aggiornata al prossimo avvio.
+**Note:** It is not strictly necessary to call this function to apply an update, as a successfully downloaded update will always be applied the next time the application starts.
