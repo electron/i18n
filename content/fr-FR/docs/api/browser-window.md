@@ -8,7 +8,7 @@ Processus : [Main](../glossary.md#main-process)
 // Dans le processus main.
 const { BrowserWindow } = require('electron')
 
-// Or use `remote` from the renderer process.
+// Ou utilisez `remote` depuis le renderer process.
 // const { BrowserWindow } = require('electron').remote
 
 let win = new BrowserWindow({ width: 800, height: 600 })
@@ -16,10 +16,10 @@ win.on('closed', () => {
   win = null
 })
 
-// Load a remote URL
+// Charge une URL distante
 win.loadURL('https://github.com')
 
-// Or load a local HTML file
+// Ou charge un fichier HTML local
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
@@ -322,7 +322,7 @@ Emitted before the window is resized. Calling `event.preventDefault()` will prev
 
 Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
 
-#### Event: 'resize'
+#### Événement : 'resize'
 
 Emitted after the window has been resized.
 
@@ -337,31 +337,31 @@ Emitted before the window is moved. Calling `event.preventDefault()` will preven
 
 Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
 
-#### Event: 'move'
+#### Événement : 'move'
 
-Emitted when the window is being moved to a new position.
+Émis lorsque la fenêtre est déplacée vers une nouvelle position.
 
 **Note**: On macOS this event is an alias of `moved`.
 
-#### Event: 'moved' *macOS*
+#### Événement : 'moved' *macOS*
 
-Emitted once when the window is moved to a new position.
+Émis une fois lorsque la fenêtre est déplacée vers une nouvelle position.
 
-#### Event: 'enter-full-screen'
+#### Événement : 'enter-full-screen'
 
-Emitted when the window enters a full-screen state.
+Émis lorsque la fenêtre passe à un état de plein écran.
 
-#### Event: 'leave-full-screen'
+#### Événement : 'leave-full-screen'
 
-Emitted when the window leaves a full-screen state.
+Émis lorsque la fenêtre revient d'un état de plein écran.
 
 #### Événement : 'enter-html-full-screen'
 
-Emitted when the window enters a full-screen state triggered by HTML API.
+Émis lorsque la fenêtre entre dans un état de plein écran déclenchée par l’API HTML.
 
 #### Événement : 'leave-html-full-screen'
 
-Emitted when the window leaves a full-screen state triggered by HTML API.
+Émis lorsque la fenêtre revient d'un état de plein écran déclenchée par l’API HTML.
 
 #### Event: 'always-on-top-changed' *macOS*
 
@@ -372,7 +372,7 @@ Retourne :
 
 Emitted when the window is set or unset to show always on top of other windows.
 
-#### Event: 'app-command' *Windows*
+#### Événement : 'app-command' *Windows*
 
 Retourne :
 
@@ -394,19 +394,19 @@ win.on('app-command', (e, cmd) => {
 })
 ```
 
-#### Event: 'scroll-touch-begin' *macOS*
+#### Événement : 'scroll-touch-begin' *macOS*
 
-Emitted when scroll wheel event phase has begun.
+Émis lorsque l’événement scroll de la souris a commencé.
 
-#### Event: 'scroll-touch-end' *macOS*
+#### Événement : 'scroll-touch-end' *macOS*
 
-Emitted when scroll wheel event phase has ended.
+Émis lorsque l’événement scroll de la souris est terminée.
 
-#### Event: 'scroll-touch-edge' *macOS*
+#### Événement : 'scroll-touch-edge' *macOS*
 
-Emitted when scroll wheel event phase filed upon reaching the edge of element.
+Émis lorsque l’événement scroll de la souris arrive au bord d'un élément.
 
-#### Event: 'swipe' *macOS*
+#### Événement : 'swipe' *macOS*
 
 Retourne :
 
@@ -415,13 +415,13 @@ Retourne :
 
 Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
 
-#### Event: 'sheet-begin' *macOS*
+#### Événement : 'sheet-begin' *macOS*
 
-Emitted when the window opens a sheet.
+Émis lorsque la fenêtre ouvre une feuille.
 
-#### Event: 'sheet-end' *macOS*
+#### Événement : 'sheet-end' *macOS*
 
-Emitted when the window has closed a sheet.
+Émis lorsque la fenêtre a fermé une feuille.
 
 #### Événement : 'new-window-for-tab' *macOS*
 
@@ -553,11 +553,11 @@ Try to close the window. This has the same effect as a user manually clicking th
 
 #### `win.focus()`
 
-Focuses on the window.
+Ramène la fenêtre au premier plan.
 
 #### `win.blur()`
 
-Removes focus from the window.
+Supprime le focus de la fenêtre.
 
 #### `win.isFocused()`
 
@@ -569,15 +569,15 @@ Returns `Boolean` - Whether the window is destroyed.
 
 #### `win.show()`
 
-Shows and gives focus to the window.
+Affiche la fenêtre et la ramène au premier plan.
 
 #### `win.showInactive()`
 
-Shows the window but doesn't focus on it.
+Affiche la fenêtre, mais ne la ramène pas au premier plan.
 
 #### `win.hide()`
 
-Hides the window.
+Masque la fenêtre.
 
 #### `win.isVisible()`
 
@@ -593,7 +593,7 @@ Maximizes the window. This will also show (but not focus) the window if it isn't
 
 #### `win.unmaximize()`
 
-Unmaximizes the window.
+Réduit la fenêtre à sa taille initiale.
 
 #### `win.isMaximized()`
 
@@ -605,7 +605,7 @@ Minimizes the window. On some platforms the minimized window will be shown in th
 
 #### `win.restore()`
 
-Restores the window from minimized state to its previous state.
+Restaure la fenêtre depuis l'état réduit à son état précédent.
 
 #### `win.isMinimized()`
 
@@ -615,7 +615,7 @@ Returns `Boolean` - Whether the window is minimized.
 
 * `flag` Boolean
 
-Sets whether the window should be in fullscreen mode.
+Définit si la fenêtre doit être en mode plein écran.
 
 #### `win.isFullScreen()`
 
@@ -668,7 +668,7 @@ Closes the currently open [Quick Look](https://en.wikipedia.org/wiki/Quick_Look)
 #### `win.setBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (facultatif) *macOS*
 
 Resizes and moves the window to the supplied bounds. Any properties that are not supplied will default to their current values.
 
@@ -690,7 +690,7 @@ Retourne [`Rectangle`](structures/rectangle.md)
 #### `win.setContentBounds(bounds[, animate])`
 
 * `bounds` [Rectangle](structures/rectangle.md)
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (facultatif) *macOS*
 
 Resizes and moves the window's client area (e.g. the web page) to the supplied bounds.
 
@@ -714,7 +714,7 @@ Disable or enable the window.
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (facultatif) *macOS*
 
 Resizes the window to `width` and `height`. If `width` or `height` are below any set minimum size constraints the window will snap to its minimum size.
 
@@ -726,7 +726,7 @@ Returns `Integer[]` - Contains the window's width and height.
 
 * `width` Integer
 * `height` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (facultatif) *macOS*
 
 Resizes the window's client area (e.g. the web page) to `width` and `height`.
 
@@ -760,7 +760,7 @@ Returns `Integer[]` - Contains the window's maximum width and height.
 
 * `resizable` Boolean
 
-Sets whether the window can be manually resized by user.
+Définit si la fenêtre peut être redimensionnée manuellement par l’utilisateur.
 
 #### `win.isResizable()`
 
@@ -770,7 +770,7 @@ Returns `Boolean` - Whether the window can be manually resized by user.
 
 * `movable` Boolean
 
-Sets whether the window can be moved by user. On Linux does nothing.
+Définit si la fenêtre peut être déplacée par l’utilisateur. Sous Linux, cela ne fait rien.
 
 #### `win.isMovable()` *macOS* *Windows*
 
@@ -816,7 +816,7 @@ Returns `Boolean` - Whether the maximize/zoom window button toggles fullscreen m
 
 * `closable` Boolean
 
-Sets whether the window can be manually closed by user. On Linux does nothing.
+Définit si la fenêtre peut être fermée manuellement par l’utilisateur. Sous Linux, cela ne fait rien.
 
 #### `win.isClosable()` *macOS* *Windows*
 
@@ -842,13 +842,13 @@ Moves window to top(z-order) regardless of focus
 
 #### `win.center()`
 
-Moves window to the center of the screen.
+Déplace la fenêtre vers le centre de l’écran.
 
 #### `win.setPosition(x, y[, animate])`
 
 * `x` Integer
 * `y` Integer
-* `animate` Boolean (optional) *macOS*
+* `animate` Boolean (facultatif) *macOS*
 
 Moves window to `x` and `y`.
 
@@ -871,7 +871,7 @@ Returns `String` - The title of the native window.
 #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
 
 * `offsetY` Float
-* `offsetX` Float (optional)
+* `offsetX` Float (facultatif)
 
 Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. For example:
 
@@ -879,8 +879,7 @@ Changes the attachment point for sheets on macOS. By default, sheets are attache
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 
-let toolbarRect = document.getElementById('toolbar').getBoundingClientRect()
-win.setSheetOffset(toolbarRect.height)
+let toolbarRect = document.getElementById('toolbar').getBoundingClientRect() win.setSheetOffset(toolbarRect.height)
 ```
 
 #### `win.flashFrame(flag)`
@@ -899,7 +898,7 @@ Makes the window not show in the taskbar.
 
 * `flag` Boolean
 
-Enters or leaves the kiosk mode.
+Entre ou quitte le mode kiosk.
 
 #### `win.isKiosk()`
 
@@ -1086,7 +1085,7 @@ The number of buttons in thumbnail toolbar should be no greater than 7 due to th
 The `buttons` is an array of `Button` objects:
 
 * `Button` Objet 
-  * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
+  * `icon` [NativeImage](native-image.md) - L'icône s'affichant dans la miniature dans la barre d'outils.
   * `click` Function
   * `tooltip` String (facultatif) - Le texte dans l'info-bulle du bouton.
   * `flags` String[] (facultatif) - Contrôle les états et comportements spécifiques du bouton. `['enabled']` par défaut.
@@ -1102,7 +1101,7 @@ Le `flags` est un tableau pouvant inclure ces `String`s suivant :
 
 #### `win.setThumbnailClip(region)` *Windows*
 
-* `region` [Rectangle](structures/rectangle.md) - Region of the window
+* `region` [Rectangle](structures/rectangle.md) - La région de la fenêtre
 
 Sets the region of the window to show as the thumbnail image displayed when hovering over the window in the taskbar. You can reset the thumbnail to be the entire window by specifying an empty region: `{ x: 0, y: 0, width: 0, height: 0 }`.
 
@@ -1223,7 +1222,7 @@ Returns `BrowserWindow[]` - All child windows.
 
 * `autoHide` Boolean
 
-Controls whether to hide cursor when typing.
+Contrôle s'il faut masquer le curseur lors de la saisie.
 
 #### `win.selectPreviousTab()` *macOS*
 
@@ -1273,4 +1272,4 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 Returns `BrowserView | null` - an attached BrowserView. Returns `null` if none is attached.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**Remarque :** L’API BrowserView est actuellement expérimentale et peut changer ou être supprimée dans les futures mises à jour d'Electron.
