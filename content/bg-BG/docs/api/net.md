@@ -18,9 +18,9 @@ The `net` module API has been specifically designed to mimic, as closely as poss
 For instance, the following example quickly shows how the `net` API might be used:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 app.on('ready', () => {
-  const {net} = require('electron')
+  const { net } = require('electron')
   const request = net.request('https://github.com')
   request.on('response', (response) => {
     console.log(`STATUS: ${response.statusCode}`)
