@@ -6,21 +6,23 @@
 
 `app` modülü `ready` yayınlanıncaya hazır olana kadar bu modülü kullanamazsınız.
 
+In the renderer process context it depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
+
 `screen` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-**Note:** Oluşturucu / DevTools'da `window.screen`, ayrılmış bir DOM özelliği olduğundan, `let {screen} = require('electron')` komutu çalışmaz.
+**Note:** Oluşturucu / DevTools'da `window.screen`, ayrılmış bir DOM özelliği olduğundan, `let { screen } = require('electron')` komutu çalışmaz.
 
 Tüm ekranı kaplayan bir pencere oluşturmanın örneği:
 
 ```javascript
 const electron = require('electron')
-const {app, BrowserWindow} = electron
+const { app, BrowserWindow } = electron
 
 let win
 
 app.on('ready', () => {
-  const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize
-  win = new BrowserWindow({width, height})
+  const { width, height } = electron.screen.getPrimaryDisplay().workAreaSize
+  win = new BrowserWindow({ width, height })
   win.loadURL('https://github.com')
 })
 ```
@@ -29,7 +31,7 @@ Harici ekranda bir pencere oluşturmanın bir diğer örneği:
 
 ```javascript
 const electron = require('electron')
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 let win
 
@@ -73,7 +75,7 @@ Dönüşler:
 
 ### Etkinlik: 'display-metrics-changed'
 
-Dönüşler:
+Returns:
 
 * `event` Event
 * `display` [Display](structures/display.md)
