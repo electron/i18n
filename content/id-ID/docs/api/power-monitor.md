@@ -9,13 +9,13 @@ You cannot require or use this module until the `ready` event of the `app` modul
 Sebagai contoh:
 
 ```javascript
-const electron = require ('elektron')
-const {app} = elektron
+const electron = require('electron')
+const { app } = electron
 
-app.on ('siap', () => {
-  electron.powerMonitor.on ('suspend', () => {
-    console.log ('Sistemnya akan tertidur')
-  })
+app.on('ready', () => {
+  electron.powerMonitor.on('suspend', () => {
+    console.log('The system is going to sleep')
+  })
 })
 ```
 
