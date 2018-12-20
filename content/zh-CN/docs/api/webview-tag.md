@@ -417,7 +417,7 @@ Executes editing command `replaceMisspelling` in page.
 ### `<webview>.findInPage(text[, options])`
 
 * `text` String - 要搜索的内容，必须非空。
-* `选项` Object (可选) 
+* `参数` Object (可选) 
   * `forward` Boolean (可选) -向前或向后搜索，默认为 `true`。
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -448,7 +448,7 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
 
 ### `<webview>.printToPDF(options, callback)`
 
-* `选项` Object - 过滤器对象，包含过滤参数 
+* `参数` Object - 过滤器对象，包含过滤参数 
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
