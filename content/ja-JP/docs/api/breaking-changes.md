@@ -6,6 +6,26 @@
 
 `FIXME` 文字列は将来のリリースで修正されるべきであることを意味するコードのコメントに用いられます。 （参照： https://github.com/electron/electron/search?q=fixme ）
 
+# 予定されている破壊的なAPIの変更 (5.0)
+
+## `new BrowserWindow({ webPreferences })`
+
+The following `webPreferences` option default values are deprecated in favor of the new defaults listed below.
+
+| Property           | Deprecated Default                   | New Default |
+| ------------------ | ------------------------------------ | ----------- |
+| `contextIsolation` | `false`                              | `true`      |
+| `nodeIntegration`  | `true`                               | `false`     |
+| `webviewTag`       | `nodeIntegration` if set else `true` | `false`     |
+
+## `nativeWindowOpen`
+
+Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled.
+
+## `webContents.findInPage(text[, options])`
+
+`wordStart` and `medialCapitalAsWordStart` options are removed.
+
 # 予定されている破壊的なAPIの変更 (4.0)
 
 以下のリストには Electron 4.0 で予定されている破壊的な API の変更が含まれています。
@@ -33,6 +53,18 @@ app.releaseSingleInstance()
 app.releaseSingleInstanceLock()
 ```
 
+## `app.getGPUInfo`
+
+```js
+app.getGPUInfo('complete')
+// Now behaves the same with `basic` on macOS
+app.getGPUInfo('basic')
+```
+
+## `win_delay_load_hook`
+
+When building native modules for windows, the `win_delay_load_hook` variable in the module's `binding.gyp` must be true (which is the default). If this hook is not present, then the native module will fail to load on Windows, with an error message like `Cannot find module`. See the [native module guide](/docs/tutorial/using-native-node-modules.md) for more.
+
 # 破壊的な API の変更 (3.0)
 
 以下のリストには Electron 3.0 での破壊的な API の変更が含まれています。
@@ -40,38 +72,36 @@ app.releaseSingleInstanceLock()
 ## `app`
 
 ```js
-// 非推奨
+// Deprecated
 app.getAppMemoryInfo()
-// こちらに置換
+// Replace with
 app.getAppMetrics()
 
-// 非推奨
+// Deprecated
 const metrics = app.getAppMetrics()
-const {memory} = metrics[0]
-memory.privateBytes  // 非推奨なプロパティ
-memory.sharedBytes  // 非推奨なプロパティ
+const { memory } = metrics[0] // Deprecated property
 ```
 
 ## `BrowserWindow`
 
 ```js
-// 非推奨
-let optionsA = {webPreferences: {blinkFeatures: ''}}
+// Deprecated
+let optionsA = { webPreferences: { blinkFeatures: '' } }
 let windowA = new BrowserWindow(optionsA)
-// こちらに置換
-let optionsB = {webPreferences: {enableBlinkFeatures: ''}}
+// Replace with
+let optionsB = { webPreferences: { enableBlinkFeatures: '' } }
 let windowB = new BrowserWindow(optionsB)
 
-// 非推奨
+// Deprecated
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
-    // なにかする
+    // do something
   }
 })
-// こちらに置換
+// Replace with
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
-    // なにかする
+    // do something
   }
 })
 ```
@@ -132,10 +162,8 @@ nativeImage.createFromBuffer(buffer, {
 ## `プロセス`
 
 ```js
-// 非推奨
+// Deprecated
 const info = process.getProcessMemoryInfo()
-const privateBytes = info.privateBytes // 非推奨なプロパティ
-const sharedBytes = info.sharedBytes // 非推奨なプロパティ
 ```
 
 ## `screen`
@@ -178,9 +206,9 @@ tray.setHighlightMode('off')
 
 ```js
 // 非推奨
-webContents.openDevTools({detach: true})
+webContents.openDevTools({ detach: true })
 // こちらに置換
-webContents.openDevTools({mode: 'detach'})
+webContents.openDevTools({ mode: 'detach' })
 
 // 削除されました
 webContents.setSize(options)
@@ -193,12 +221,12 @@ webContents.setSize(options)
 // 非推奨
 webFrame.registerURLSchemeAsSecure('app')
 // こちらに置換
-protocol.registerStandardSchemes(['app'], {secure: true})
+protocol.registerStandardSchemes(['app'], { secure: true })
 
 // 非推奨
-webFrame.registerURLSchemeAsPrivileged('app', {secure: true})
+webFrame.registerURLSchemeAsPrivileged('app', { secure: true })
 // こちらに置換
-protocol.registerStandardSchemes(['app'], {secure: true})
+protocol.registerStandardSchemes(['app'], { secure: true })
 ```
 
 ## `<webview>`
@@ -233,10 +261,10 @@ webview.onkeyup = () => { /* handler */ }
 
 ```js
 // 非推奨
-let optionsA = {titleBarStyle: 'hidden-inset'}
+let optionsA = { titleBarStyle: 'hidden-inset' }
 let windowA = new BrowserWindow(optionsA)
 // こちらに置換
-let optionsB = {titleBarStyle: 'hiddenInset'}
+let optionsB = { titleBarStyle: 'hiddenInset' }
 let windowB = new BrowserWindow(optionsB)
 ```
 
@@ -246,7 +274,7 @@ let windowB = new BrowserWindow(optionsB)
 // 削除されました
 menu.popup(browserWindow, 100, 200, 2)
 // こちらに置換
-menu.popup(browserWindow, {x: 100, y: 200, positioningItem: 2})
+menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```
 
 ## `nativeImage`
@@ -263,7 +291,7 @@ nativeImage.toJpeg()
 nativeImage.toJPEG()
 ```
 
-## `process`
+## `プロセス`
 
 * `process.versions.electron` と `process.version.chrome` は、Node によって定められた他の `process.versions` プロパティと一貫性を持つために読み取り専用プロパティになりました。
 
