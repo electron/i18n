@@ -2,9 +2,9 @@
 
 > 创建和控制视图
 
-线程：[主线程](../glossary.md#main-process)
+进程：[主进程](../glossary.md#main-process)
 
-A `BrowserView` can be used to embed additional web content into a [`BrowserWindow`](browser-window.md). It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
+`BrowserView` 被用来让 [`BrowserWindow`](browser-window.md) 嵌入更多的 web 内容。 它就像一个子窗口，除了它的位置是相对于父窗口。 这意味着可以替代`webview`标签.
 
 ## 示例
 
@@ -29,54 +29,54 @@ view.webContents.loadURL('https://electronjs.org')
 
 ### `new BrowserView([可选])` *实验功能*
 
-* `选项` Object (可选) 
+* `参数` Object (可选) 
   * `webPreferences` Object (可选) - 详情请看 [BrowserWindow](browser-window.md).
 
 ### 静态方法
 
 #### `BrowserView.getAllViews()`
 
-Returns `BrowserView[]` - An array of all opened BrowserViews.
+返回 `BrowserWindow[]` - 所有打开的窗口的数组
 
 #### `BrowserView.fromWebContents(webContents)`
 
 * `webContents` [WebContents](web-contents.md)
 
-Returns `BrowserView | null` - The BrowserView that owns the given `webContents` or `null` if the contents are not owned by a BrowserView.
+返回 `BrowserView | null` - 如果内容不属于BrowserView，则它拥有返回的`webContents`或`null`。
 
 #### `BrowserView.fromId(id)`
 
 * `id` Integer
 
-Returns `BrowserView` - The view with the given `id`.
+返回 `BrowserView` - 带有`id`的视图.
 
 ### 实例属性
 
-Objects created with `new BrowserView` have the following properties:
+使用 `new BrowserView` 创建的对象具有以下属性:
 
 #### `view.webContents` *实验功能*
 
-A [`WebContents`](web-contents.md) object owned by this view.
+视图的[`WebContents`](web-contents.md) 对象
 
 #### `view.id` *实验功能*
 
-A `Integer` representing the unique ID of the view.
+视图的唯一ID `Integer`.
 
 ### 实例方法
 
-Objects created with `new BrowserView` have the following instance methods:
+使用 `new BrowserView`创建的对象具有以下实例方法:
 
 #### `view.destroy()`
 
-Force closing the view, the `unload` and `beforeunload` events won't be emitted for the web page. After you're done with a view, call this function in order to free memory and other resources as soon as possible.
+强制关闭视图, 不会为网页发出 ` unload ` 和 ` beforeunload ` 事件。 完成视图后, 请调用此函数, 以便尽快释放内存和其他资源。
 
 #### `view.isDestroyed()`
 
-Returns `Boolean` - Whether the view is destroyed.
+返回 `Boolean` -判断窗口是否被销毁
 
 #### `view.setAutoResize(options)` *实验功能*
 
-* `选项` Object 
+* `options` Object 
   * `width` Boolean - 如果为`true`，视图宽度跟随窗口变化. 默认为 `false`.
   * `height` Boolean - 如果为`true`，视图高度跟随窗口变化. 默认为 `false`.
 
@@ -84,7 +84,7 @@ Returns `Boolean` - Whether the view is destroyed.
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
-Resizes and moves the view to the supplied bounds relative to the window.
+调整视图的大小，并将它移动到窗口边界
 
 #### `view.setBackgroundColor(color)` *实验功能*
 
