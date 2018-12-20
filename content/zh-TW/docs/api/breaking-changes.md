@@ -6,6 +6,26 @@ Breaking changes will be documented here, and deprecation warnings added to JS c
 
 The `FIXME` string is used in code comments to denote things that should be fixed for future releases. See https://github.com/electron/electron/search?q=fixme
 
+# Planned Breaking API Changes (5.0)
+
+## `new BrowserWindow({ webPreferences })`
+
+The following `webPreferences` option default values are deprecated in favor of the new defaults listed below.
+
+| Property           | Deprecated Default                   | New Default |
+| ------------------ | ------------------------------------ | ----------- |
+| `contextIsolation` | `false`                              | `true`      |
+| `nodeIntegration`  | `true`                               | `false`     |
+| `webviewTag`       | `nodeIntegration` if set else `true` | `false`     |
+
+## `nativeWindowOpen`
+
+Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled.
+
+## `webContents.findInPage(text[, options])`
+
+`wordStart` and `medialCapitalAsWordStart` options are removed.
+
 # Planned Breaking API Changes (4.0)
 
 The following list includes the breaking API changes planned for Electron 4.0.
@@ -33,6 +53,18 @@ app.releaseSingleInstance()
 app.releaseSingleInstanceLock()
 ```
 
+## `app.getGPUInfo`
+
+```js
+app.getGPUInfo('complete')
+// Now behaves the same with `basic` on macOS
+app.getGPUInfo('basic')
+```
+
+## `win_delay_load_hook`
+
+When building native modules for windows, the `win_delay_load_hook` variable in the module's `binding.gyp` must be true (which is the default). If this hook is not present, then the native module will fail to load on Windows, with an error message like `Cannot find module`. See the [native module guide](/docs/tutorial/using-native-node-modules.md) for more.
+
 # Breaking API Changes (3.0)
 
 The following list includes the breaking API changes in Electron 3.0.
@@ -47,19 +79,17 @@ app.getAppMetrics()
 
 // Deprecated
 const metrics = app.getAppMetrics()
-const {memory} = metrics[0]
-memory.privateBytes  // Deprecated property
-memory.sharedBytes  // Deprecated property
+const { memory } = metrics[0] // Deprecated property
 ```
 
 ## `BrowserWindow`
 
 ```js
 // Deprecated
-let optionsA = {webPreferences: {blinkFeatures: ''}}
+let optionsA = { webPreferences: { blinkFeatures: '' } }
 let windowA = new BrowserWindow(optionsA)
 // Replace with
-let optionsB = {webPreferences: {enableBlinkFeatures: ''}}
+let optionsB = { webPreferences: { enableBlinkFeatures: '' } }
 let windowB = new BrowserWindow(optionsB)
 
 // Deprecated
@@ -79,37 +109,37 @@ window.on('app-command', (e, cmd) => {
 ## `clipboard`
 
 ```js
-// 已被取代
+// Deprecated
 clipboard.readRtf()
-// 請寫成
+// Replace with
 clipboard.readRTF()
 
-// 已被取代
+// Deprecated
 clipboard.writeRtf()
-// 請寫成
+// Replace with
 clipboard.writeRTF()
 
-// 已被取代
+// Deprecated
 clipboard.readHtml()
-// 請寫成
+// Replace with
 clipboard.readHTML()
 
-// 已被取代
+// Deprecated
 clipboard.writeHtml()
-// 請寫成
+// Replace with
 clipboard.writeHTML()
 ```
 
 ## `crashReporter`
 
 ```js
-// 已被取代
+// Deprecated
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// 請寫成
+// Replace with
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -133,8 +163,6 @@ nativeImage.createFromBuffer(buffer, {
 ```js
 // Deprecated
 const info = process.getProcessMemoryInfo()
-const privateBytes = info.privateBytes // deprecated property
-const sharedBytes = info.sharedBytes // deprecated property
 ```
 
 ## `screen`
@@ -149,11 +177,11 @@ screen.getPrimaryDisplay().workArea
 ## `session`
 
 ```js
-// 已被取代
+// Deprecated
 ses.setCertificateVerifyProc(function (hostname, certificate, callback) {
   callback(true)
 })
-// 請寫成
+// Replace with
 ses.setCertificateVerifyProc(function (request, callback) {
   callback(0)
 })
@@ -162,14 +190,14 @@ ses.setCertificateVerifyProc(function (request, callback) {
 ## `Tray`
 
 ```js
-// 已被取代
+// Deprecated
 tray.setHighlightMode(true)
-// 請寫成
+// Replace with
 tray.setHighlightMode('on')
 
-// 已被取代
+// Deprecated
 tray.setHighlightMode(false)
-// 請寫成
+// Replace with
 tray.setHighlightMode('off')
 ```
 
@@ -177,9 +205,9 @@ tray.setHighlightMode('off')
 
 ```js
 // Deprecated
-webContents.openDevTools({detach: true})
+webContents.openDevTools({ detach: true })
 // Replace with
-webContents.openDevTools({mode: 'detach'})
+webContents.openDevTools({ mode: 'detach' })
 
 // Removed
 webContents.setSize(options)
@@ -192,12 +220,12 @@ webContents.setSize(options)
 // Deprecated
 webFrame.registerURLSchemeAsSecure('app')
 // Replace with
-protocol.registerStandardSchemes(['app'], {secure: true})
+protocol.registerStandardSchemes(['app'], { secure: true })
 
 // Deprecated
-webFrame.registerURLSchemeAsPrivileged('app', {secure: true})
+webFrame.registerURLSchemeAsPrivileged('app', { secure: true })
 // Replace with
-protocol.registerStandardSchemes(['app'], {secure: true})
+protocol.registerStandardSchemes(['app'], { secure: true })
 ```
 
 ## `<webview>`
@@ -220,9 +248,9 @@ webview.onkeyup = () => { /* handler */ }
 
 This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
 
-已被取代: https://atom.io/download/atom-shell
+Deprecated: https://atom.io/download/atom-shell
 
-請改用: https://atom.io/download/electron
+Replace with: https://atom.io/download/electron
 
 # Breaking API Changes (2.0)
 
@@ -231,11 +259,11 @@ The following list includes the breaking API changes made in Electron 2.0.
 ## `BrowserWindow`
 
 ```js
-// 已被取代
-let optionsA = {titleBarStyle: 'hidden-inset'}
+// Deprecated
+let optionsA = { titleBarStyle: 'hidden-inset' }
 let windowA = new BrowserWindow(optionsA)
-// 請寫成
-let optionsB = {titleBarStyle: 'hiddenInset'}
+// Replace with
+let optionsB = { titleBarStyle: 'hiddenInset' }
 let windowB = new BrowserWindow(optionsB)
 ```
 
@@ -245,7 +273,7 @@ let windowB = new BrowserWindow(optionsB)
 // Removed
 menu.popup(browserWindow, 100, 200, 2)
 // Replaced with
-menu.popup(browserWindow, {x: 100, y: 200, positioningItem: 2})
+menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```
 
 ## `nativeImage`
