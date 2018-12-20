@@ -9,12 +9,12 @@ Non puoi richiedere o usare questo modulo finchè l'evento `pronto` del modulo `
 Ad esempio:
 
 ```javascript
-const electron = richiede('electron')
-const {app} = electron
+const electron = require('electron')
+const { app } = electron
 
 app.on('ready', () => {
-  electron.Monitorapotenz.on('sospendi', () => {
-    console.log('Il sistema sta andando a dormire')
+  electron.powerMonitor.on('suspend', () => {
+    console.log('The system is going to sleep')
   })
 })
 ```
