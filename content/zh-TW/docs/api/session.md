@@ -262,7 +262,7 @@ Sets the handler which can be used to respond to permission requests for the `se
 const { session } = require('electron')
 session.fromPartition('some-partition').setPermissionRequestHandler((webContents, permission, callback) => {
   if (webContents.getURL() === 'some-host' && permission === 'notifications') {
-    return callback(false) // denied.
+    return callback(false) // 拒絕。
   }
 
   callback(true)
@@ -306,18 +306,17 @@ Dynamically sets whether to always send credentials for HTTP NTLM or Negotiate a
 
 ```javascript
 const { session } = require('electron')
-// consider any url ending with `example.com`, `foobar.com`, `baz`
-// for integrated authentication.
+// 整合驗證結尾是 `example.com`, `foobar.com`, `baz` 的 url。
 session.defaultSession.allowNTLMCredentialsForDomains('*example.com, *foobar.com, *baz')
 
-// consider all urls for integrated authentication.
+// 整合驗證所有 url。
 session.defaultSession.allowNTLMCredentialsForDomains('*')
 ```
 
 #### `ses.setUserAgent(userAgent[, acceptLanguages])`
 
 * `userAgent` String
-* `acceptLanguages` String (optional)
+* `acceptLanguages` String (選用)
 
 Overrides the `userAgent` and `acceptLanguages` for this session.
 
@@ -340,7 +339,7 @@ Returns `String` - The user agent for this session.
 * `options` Object 
   * `path` String - Absolute path of the download.
   * `urlChain` String[] - Complete URL chain for the download.
-  * `mimeType` String (optional)
+  * `mimeType` String (選用)
   * `offset` Integer - Start range for the download.
   * `length` Integer - Total length of the download.
   * `lastModified` String - Last-Modified header value.
