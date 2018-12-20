@@ -337,7 +337,7 @@ Returns `String` - The user agent for this session.
 
 #### `ses.createInterruptedDownload(options)`
 
-* `选项` Object - 过滤器对象，包含过滤参数 
+* `参数` Object - 过滤器对象，包含过滤参数 
   * `path` String - Absolute path of the download.
   * `urlChain` String[] - Complete URL chain for the download.
   * `mimeType` String (optional)
