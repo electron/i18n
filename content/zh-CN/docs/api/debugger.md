@@ -2,7 +2,7 @@
 
 > 用于 Chrome 远程调试协议的备用传输。
 
-线程：[主线程](../glossary.md#main-process)
+进程：[主进程](../glossary.md#main-process)
 
 Chrome Developer Tools 在 JavaScript 运行时提供了一个 [ special binding ](https://developer.chrome.com/devtools/docs/debugger-protocol), 允许与页面进行交互和检测。
 
@@ -57,7 +57,7 @@ Returns `Boolean` - 表示调试器是否成功添加到 `webContents` 。
 
 向调试目标发送给定的命令。
 
-### 事件
+### 实例事件
 
 #### Event: 'detach'
 
