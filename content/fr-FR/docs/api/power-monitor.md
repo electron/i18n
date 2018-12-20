@@ -10,11 +10,11 @@ Par exemple :
 
 ```javascript
 const electron = require('electron')
-const {app} = electron
+const { app } = electron
 
 app.on('ready', () => {
   electron.powerMonitor.on('suspend', () => {
-    console.log('Le système va se mettre en veille')
+    console.log('The system is going to sleep')
   })
 })
 ```
