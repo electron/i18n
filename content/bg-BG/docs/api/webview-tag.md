@@ -463,7 +463,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
 ### `<webview>.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
-* `callback` Function 
+* `обратно повикване` Функция 
   * `image` [NativeImage](native-image.md)
 
 Captures a snapshot of the `webview`'s page. Same as `webContents.capturePage([rect, ]callback)`.
@@ -499,14 +499,14 @@ Changes the zoom level to the specified level. The original size is 0 and each i
 
 ### `<webview>.getZoomFactor(callback)`
 
-* `callback` Function 
+* `callback` Функция 
   * `zoomFactor` Number
 
 Sends a request to get current zoom factor, the `callback` will be called with `callback(zoomFactor)`.
 
 ### `<webview>.getZoomLevel(callback)`
 
-* `callback` Function 
+* `callback` Функция 
   * `zoomLevel` Number
 
 Sends a request to get current zoom level, the `callback` will be called with `callback(zoomLevel)`.
@@ -765,7 +765,7 @@ Fired when the gpu process is crashed.
 
 Връща:
 
-* `name` String
+* `name` String - Име
 * `version` String
 
 Fired when a plugin process is crashed.
