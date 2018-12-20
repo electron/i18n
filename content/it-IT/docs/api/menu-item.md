@@ -22,9 +22,13 @@ Vedi [`Menu`](menu.md) per degli esempi.
   * `enabled` Boolean (optional) - If false, the menu item will be greyed out and unclickable.
   * `visible` Boolean (optional) - If false, the menu item will be entirely hidden.
   * `checked` Boolean (optional) - Should only be specified for `checkbox` or `radio` type menu items.
+  * `registerAccelerator` Boolean (optional) - If false, the accelerator won't be registered with the system, but it will still be displayed. Defaults to true.
   * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. If the value is not a [`Menu`](menu.md) then it will be automatically converted to one using `Menu.buildFromTemplate`.
   * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
-  * `position` String (optional) - This field allows fine-grained definition of the specific location within a given menu.
+  * `before` String[] (optional) - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
+  * `after` String[] (optional) - Inserts this item after the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu.
+  * `beforeGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
+  * `afterGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group after the containing group of the item with the specified label.
 
 ### Roles
 
@@ -34,7 +38,9 @@ It is best to specify `role` for any menu item that matches a standard role, rat
 
 The `label` and `accelerator` values are optional when using a `role` and will default to appropriate values for each platform.
 
-La proprietà `role` può avere i seguenti valori:
+Every menu item must have either a `role`, `label`, or in the case of a separator a `type`.
+
+The `role` property can have following values:
 
 * `undo`
 * `redo`
@@ -46,18 +52,18 @@ La proprietà `role` può avere i seguenti valori:
 * `delete`
 * `minimize` - Riduce la finestra corrente.
 * `close` - Chiude la finestra corrente.
-* `quit`- Chiude l'applicazione.
+* `quit` - Quit the application.
 * `reload` - Aggiorna la finestra corrente.
 * `forceReload` - Aggiorna la finestra corrente ignorando la cache.
 * `toggleDevTools` - Mostra/Nasconde la finestra per gli strumenti di sviluppo.
-* `toggleFullScreen`- Attiva/Disattiva la modalità a schermo intero per la finestra corrente.
+* `toggleFullScreen` - Toggle full screen mode on the current window.
 * `resetZoom` - Ripristina lo zoom al valore originario.
 * `zoomIn` - Aumenta lo zoom la pagina del 10%.
 * `zoomOut` - Riduce lo zoom della pagina del 10%.
 * `editMenu` - L'intero menu di default "Modifica" (Annulla, Copia, etc.).
 * `windowMenu` - L'intero menu di default "Finestra" (Riduci, Chiudi, etc.).
 
-I seguenti valori sono disponibili per *macOS*:
+The following additional roles are available on *macOS*:
 
 * `about` - Mappa l'azione `orderFrontStandardAboutPanel`.
 * `hide` - Mappa l'azione `hide`.
@@ -84,7 +90,7 @@ When specifying a `role` on macOS, `label` and `accelerator` are the only option
 
 ### Proprietà Istanze
 
-Le seguenti proprietà sono disponibili quando si istanzia la classe `MenuItem`:
+The following properties are available on instances of `MenuItem`:
 
 #### `menuItem.enabled`
 
