@@ -6,30 +6,32 @@ Proceso: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer
 
 No se puede solicitar o usar este módulo hasta que el evento `ready` del módulo `app` sea emitido.
 
-`screen` es un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+In the renderer process context it depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
 
-**Nota:** En el renderizador / DevTools, `window.screen` es una propiedad de DOM reservado, así que escribir `let {screen} = require('electron')` no funcionará.
+`screen` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-Un ejemplo de crear una ventana que llene toda la pantalla:
+**Note:** In the renderer / DevTools, `window.screen` is a reserved DOM property, so writing `let { screen } = require('electron')` will not work.
+
+An example of creating a window that fills the whole screen:
 
 ```javascript
 const electron = require('electron')
-const {app, BrowserWindow} = electron
+const { app, BrowserWindow } = electron
 
-dejar ganar
+let win
 
 app.on('ready', () => {
-  const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize
-  win = new BrowserWindow({width, height})
+  const { width, height } = electron.screen.getPrimaryDisplay().workAreaSize
+  win = new BrowserWindow({ width, height })
   win.loadURL('https://github.com')
 })
 ```
 
-Otro ejemplo de crear una ventana el display externo es:
+Another example of creating a window in the external display:
 
 ```javascript
-onst electron = require('electron')
-const {app, BrowserWindow} = require('electron')
+const electron = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 let win
 
@@ -51,7 +53,7 @@ app.on('ready', () => {
 
 ## Eventos
 
-El módulo `screen` emite los siguientes eventos:
+The `screen` module emits the following events:
 
 ### Evento: 'display-added'
 
@@ -60,7 +62,7 @@ Devuelve:
 * `event`
 * `newDisplay` [Display](structures/display.md)
 
-Emitido cuando `newDisplay` ha sido añadido.
+Emitted when `newDisplay` has been added.
 
 ### Evento: 'display-removed'
 
@@ -69,7 +71,7 @@ Devuelve:
 * `event` Event
 * `oldDisplay` [Display](structures/display.md)
 
-Emitido cuando `oldDisplay` ha sido eliminado.
+Emitted when `oldDisplay` has been removed.
 
 ### Evento: 'display-metrics-changed'
 
@@ -79,43 +81,43 @@ Devuelve:
 * `display` [Display](structures/display.md)
 * `changedMetrics` Cadena[]
 
-Emitido cuando o más métricos cambian en un `display`. El `changedMetrics` es un arreglo de cadenas que describen los cambios. Posibles cambios son `bounds`, `workArea`, `scaleFactor` y `rotation`.
+Emitted when one or more metrics change in a `display`. The `changedMetrics` is an array of strings that describe the changes. Possible changes are `bounds`, `workArea`, `scaleFactor` and `rotation`.
 
 ## Métodos
 
-El módulo `screen` tiene los siguientes métodos:
+The `screen` module has the following methods:
 
 ### `screen.getCursorScreenPoint()`
 
-Devuelve [`Point`](structures/point.md)
+Returns [`Point`](structures/point.md)
 
-La actual y absoluta posición del cursor del mouse.
+The current absolute position of the mouse pointer.
 
 ### `screen.getPrimaryDisplay()`
 
-Devuelve [`Display`](structures/display.md) - La muestra primaria.
+Returns [`Display`](structures/display.md) - The primary display.
 
 ### `screen.getAllDisplays()`
 
-Devuelve [`Display[]`](structures/display.md) - Un arreglo de muestras que son actualmente disponibles.
+Returns [`Display[]`](structures/display.md) - An array of displays that are currently available.
 
 ### `screen.getDisplayNearestPoint(point)`
 
 * `point` [Point](structures/point.md)
 
-Devuelve [`Display`](structures/display.md) - La muestra más cerca del punto especificado.
+Returns [`Display`](structures/display.md) - The display nearest the specified point.
 
 ### `screen.getDisplayMatching(rect)`
 
 * `rect` [Rectangle](structures/rectangle.md)
 
-Devuelve [`Display`](structures/display.md) - La muestra que es más cercana intersecta a las bandas dadas.
+Returns [`Display`](structures/display.md) - The display that most closely intersects the provided bounds.
 
 ### `screen.screenToDipPoint(point)` *Windows*
 
 * `point` [Point](structures/point.md)
 
-Devuelve [`Point`](structures/point.md)
+Returns [`Point`](structures/point.md)
 
 Converts a screen physical point to a screen DIP point. The DPI scale is performed relative to the display containing the physical point.
 
@@ -123,7 +125,7 @@ Converts a screen physical point to a screen DIP point. The DPI scale is perform
 
 * `point` [Point](structures/point.md)
 
-Devuelve [`Point`](structures/point.md)
+Returns [`Point`](structures/point.md)
 
 Converts a screen DIP point to a screen physical point. The DPI scale is performed relative to the display containing the DIP point.
 
