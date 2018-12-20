@@ -11,7 +11,7 @@ Ein Beispiel:
 ```javascript
 const { session } = require('electron')
 
-// Query all cookies.
+// Durchsuche all Cookies.
 session.defaultSession.cookies.get({}, (error, cookies) => {   
   console.log(error, cookies)
 })
@@ -29,7 +29,7 @@ session.defaultSession.cookies.set(cookie, (error) => {
 })
 ```
 
-### Beispiel Events
+### Instanz Events
 
 The following events are available on instances of `Cookies`:
 
