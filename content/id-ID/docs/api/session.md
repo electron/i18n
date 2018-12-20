@@ -9,7 +9,13 @@ Modul ` sesi ` dapat digunakan untuk membuat objek ` Sesi ` baru.
 Anda juga dapat mengakses `sesi` laman yang ada dengan menggunakan properti `sesi` [`WebContents`](web-contents.md), atau dari modul `sesi`.
 
 ```javascript
-const {BrowserWindow} = require('electron') membiarkan memenangkan = BrowserWindow({width: 800, height: 600}) baru win.loadURL ('http://github.com') const ses = win.webContents.session console.log(ses.getUserAgent())
+const { BrowserWindow } = require('electron')
+
+let win = new BrowserWindow({ width: 800, height: 600 })
+win.loadURL('http://github.com')
+
+const ses = win.webContents.session
+console.log(ses.getUserAgent())
 ```
 
 ## Metode
@@ -46,7 +52,9 @@ Proses: [Main](../glossary.md#main-process)
 Kamu bisa membuat sebuah `Sesi` objek di `sesi` modul:
 
 ```javascript
-const {session} = require('electron') const ses = session.fromPartition('persist:name') console.log(ses.getUserAgent())
+const { session } = require('electron')
+const ses = session.fromPartition('persist:name')
+console.log(ses.getUserAgent())
 ```
 
 ### Contoh peristiwa
@@ -64,7 +72,13 @@ Terpencar ketika Elektron akan men-download `barang` di `webContents`.
 Memanggil `peristiwa.mencegahDefault()` akan membatalkan download dan `barang` tidak akan tersedia dari tikungan berikutnya prosesnya.
 
 ```javascript
-const {session} = require('electron') session.defaultSession.on (' akan-download', (acara, item, webContents) = > {event.preventDefault() require('request')(item.getURL(), (data) = > {require('fs').writeFileSync ('/ di suatu tempat', data)})})
+const { session } = require('electron')
+session.defaultSession.on('will-download', (event, item, webContents) => {
+  event.preventDefault()
+  require('request')(item.getURL(), (data) => {
+    require('fs').writeFileSync('/somewhere', data)
+  })
+})
 ```
 
 ### Metode contoh
@@ -191,7 +205,7 @@ window.webContents.session.enableNetworkEmulation({
   downloadThroughput: 6400,
   uploadThroughput: 6400
 }) / / untuk meniru pemadaman jaringan.
-window.webContents.session.enableNetworkEmulation({offline: true})
+window.webContents.session.enableNetworkEmulation({ offline: true })
 ```
 
 #### `ses.disableNetworkEmulation()`
@@ -217,7 +231,17 @@ Sets sertifikat verifikasi proc untuk `sesi`, `proc` akan dipanggil dengan `proc
 Memanggil `setCertificateVerifyProc(null)` akan kembali kembali ke default sertifikat verifikasi proc.
 
 ```javascript
-const {BrowserWindow} = require('electron') membiarkan memenangkan = win.webContents.session.setCertificateVerifyProc BrowserWindow() baru ((request, callback) = > {const {hostname} = permintaan jika (hostname === 'github.com') {callback(0)} lain {callback(-2)}})
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow()
+
+win.webContents.session.setCertificateVerifyProc((request, callback) => {
+  const { hostname } = request
+  if (hostname === 'github.com') {
+    callback(0)
+  } else {
+    callback(-2)
+  }
+})
 ```
 
 #### `ses.setPermissionRequestHandler(handler)`
@@ -229,73 +253,104 @@ const {BrowserWindow} = require('electron') membiarkan memenangkan = win.webCont
     * `permissionGranted` Boolean - mengizinkan atau menolak izin.
   * `rincian` Object - Some properties are only available on certain permission types. 
     * `externalURL` String - The url of the `openExternal` request.
+    * `mediaTypes` String[] - The types of media access being requested, elements can be `video` or `audio`
 
 Menetapkan handler yang dapat digunakan untuk menanggapi permintaan izin untuk `sesi`. Memanggil `callback(true)` akan memungkinkan izin dan `callback(false)` akan menolaknya. To clear the handler, call `setPermissionRequestHandler(null)`.
 
 ```javascript
-const {session} = require('electron') session.fromPartition('some-partition').setPermissionRequestHandler ((webContents, izin, callback) = > {jika (webContents.getURL() === 'beberapa-host' & & izin === 'pemberitahuan') {}     kembali callback(false) / / ditolak.
+const { session } = require('electron')
+session.fromPartition('some-partition').setPermissionRequestHandler((webContents, permission, callback) => {
+  if (webContents.getURL() === 'some-host' && permission === 'notifications') {
+    return callback(false) // denied.
   } callback(true)})
 ```
 
-#### `ses.clearHostResolverCache ([callback])`
+#### `ses.setPermissionCheckHandler(handler)`
 
-* `panggilan kembali` Fungsi (pilihan) - Disebut saat operasi selesai.
+* `handler` Fungsi<boolean> | null 
+  * `webContents` [WebContents](web-contents.md) - WebContents checking the permission.
+  * `permission` String - Enum of 'media'.
+  * `requestingOrigin` String - The origin URL of the permission check
+  * `rincian` Object - Some properties are only available on certain permission types. 
+    * `securityOrigin` String - The security orign of the `media` check.
+    * `mediaType` String - The type of media access being requested, can be `video`, `audio` or `unknown`
 
-Menghapus cache resolver host.
+Sets the handler which can be used to respond to permission checks for the `session`. Returning `true` will allow the permission and `false` will reject it. To clear the handler, call `setPermissionCheckHandler(null)`.
 
-#### `ses.allowNTLMCredentialsForDomains(domain)`
+```javascript
+const { session } = require('electron')
+session.fromPartition('some-partition').setPermissionCheckHandler((webContents, permission) => {
+  if (webContents.getURL() === 'some-host' && permission === 'notifications') {
+    return false // denied
+  }
+
+  return true
+})
+```
+
+#### `ses.clearHostResolverCache([callback])`
+
+* `callback` Fungsi (opsional) - disebut ketika operasi dilakukan.
+
+Clears the host resolver cache.
+
+#### `ses.allowNTLMCredentialsForDomains(domains)`
 
 * `domains` String - A comma-separated list of servers for which integrated authentication is enabled.
 
-Secara dinamis tetapkan apakah akan selalu mengirim kredensial untuk HTTP NTLM atau Negotiate otentikasi.
+Dynamically sets whether to always send credentials for HTTP NTLM or Negotiate authentication.
 
 ```javascript
-const {session} = require('electron') / / mempertimbangkan setiap url yang diakhiri dengan 'example.com', 'foobar.com', 'baz' / / untuk otentikasi Terpadu.
-session.defaultSession.allowNTLMCredentialsForDomains ('* example.com, * foobar.com, * baz') / / mempertimbangkan semua Url untuk otentikasi Terpadu.
+const { session } = require('electron')
+// consider any url ending with `example.com`, `foobar.com`, `baz`
+// for integrated authentication.
+session.defaultSession.allowNTLMCredentialsForDomains('*example.com, *foobar.com, *baz')
+
+// consider all urls for integrated authentication.
 session.defaultSession.allowNTLMCredentialsForDomains('*')
 ```
 
-#### `ses.setUserAgent (userAgent [, acceptLanguages])`
+#### `ses.setUserAgent(userAgent[, acceptLanguages])`
 
 * `userAgent` String
-* `acceptLanguages` String (opsional)
+* `acceptLanguages` String (optional)
 
-Menggantikan `userAgent` dan `acceptLanguages` untuk sesi ini.
+Overrides the `userAgent` and `acceptLanguages` for this session.
 
-`AcceptLanguages` harus koma terpisah daftar bahasa kode, misalnya `"En-US, fr, de, ko, zh-CN, ja"`.
+The `acceptLanguages` must a comma separated ordered list of language codes, for example `"en-US,fr,de,ko,zh-CN,ja"`.
 
-Ini tidak akan mempengaruhi yang ada `WebContents`, dan setiap `WebContents` dapat menggunakan `webContents.setUserAgent` untuk menimpa agen sesi pengguna.
+This doesn't affect existing `WebContents`, and each `WebContents` can use `webContents.setUserAgent` to override the session-wide user agent.
 
 #### `ses.getUserAgent()`
 
-Mengembalikan `String` - user agent untuk sesi ini.
+Returns `String` - The user agent for this session.
 
-#### `ses.getBlobData(identifier, panggilan kembali)`
+#### `ses.getBlobData(identifier, callback)`
 
-* `pengenal` String - UUID berlaku.
+* `identifier` String - Valid UUID.
 * `callback` Fungsi 
-  * `hasil` Luapan penyangga - gumpalan data.
+  * `result` Buffer - Blob data.
 
 #### `ses.createInterruptedDownload(options)`
 
-* `pilihan` Obyek 
-  * `jalan` String - path absolut download.
-  * `urlChain` String [] - URL lengkap jaringan untuk men-download.
-  * `mimeType` String (opsional)
-  * `offset` Bulat - rentang mulai untuk men-download.
-  * `panjang` Bulat - panjang Total download.
-  * `lastModified` String - header Last-Modified nilai.
-  * `eTag` String - ETag header nilai.
-  * `startTime` Kamar Double (opsional) - waktu download mulai dalam jumlah detik sejak zaman UNIX.
+* `pilihan` Sasaran 
+  * `path` String - Absolute path of the download.
+  * `urlChain` String[] - Complete URL chain for the download.
+  * `mimeType` String (optional)
+  * `offset` Integer - Start range for the download.
+  * `length` Integer - Total length of the download.
+  * `lastModified` String - Last-Modified header value.
+  * `eTag` String - ETag header value.
+  * `startTime` Double (optional) - Time when download was started in number of seconds since UNIX epoch.
 
-Memungkinkan melanjutkan `dibatalkan` atau `terganggu` download dari `sesi` sebelumnya. API akan menghasilkan [DownloadItem](download-item.md) yang dapat diakses dengan acara [akan-download](#event-will-download). [DownloadItem](download-item.md) tidak akan memiliki apapun `WebContents` terkait dengan itu dan keadaan awal akan `terganggu`. Download akan mulai hanya ketika `melanjutkan` API disebut di [DownloadItem](download-item.md).
+Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
 
-#### `ses.clearAuthCache(options[, panggilan kembali])`
+#### `ses.clearAuthCache(options[, callback])`
 
-* `pilihan` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `panggilan kembali` Fungsi (pilihan) - Disebut saat operasi selesai.
+* `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
+* `callback` Fungsi (opsional) - disebut ketika operasi dilakukan.
 
-Membersihkan cache otentikasi HTTP sesi.
+Clears the session’s HTTP authentication cache.
 
 #### `ses.setPreloads(preloads)`
 
@@ -309,20 +364,48 @@ Returns `String[]` an array of paths to preload scripts that have been registere
 
 ### Contoh properti
 
-Properti berikut tersedia pada contoh-contoh dari `sesi`:
+The following properties are available on instances of `Session`:
 
 #### `ses.cookies`
 
-Sebuah objek [cookie](cookies.md) sesi ini.
+A [Cookies](cookies.md) object for this session.
 
 #### `ses.webRequest`
 
-Sebuah objek [WebRequest](web-request.md) sesi ini.
+A [WebRequest](web-request.md) object for this session.
 
-#### `ses.Protocol`
+#### `ses.protocol`
 
-Sebuah objek [protokol](protocol.md) untuk sesi ini.
+A [Protocol](protocol.md) object for this session.
 
 ```javascript
-const {app, session} = require('electron') const path = require('path') app.on ('siap', function {const protokol = session.fromPartition('some-partition').protocol protocol.registerFileProtocol ('atom', fungsi (permintaan, callback) {var url = Request.Url.substr(7) callback ({jalan: path.normalize('${__dirname}/${url}')})}, fungsi (error) {jika (error) console.error ('gagal untuk mendaftarkan protokol')})})
+const { app, session } = require('electron')
+const path = require('path')
+
+app.on('ready', function () {
+  const protocol = session.fromPartition('some-partition').protocol
+  protocol.registerFileProtocol('atom', function (request, callback) {
+    var url = request.url.substr(7)
+    callback({ path: path.normalize(`${__dirname}/${url}`) })
+  }, function (error) {
+    if (error) console.error('Failed to register protocol')
+  })
+})
+```
+
+#### `ses.netLog`
+
+A [NetLog](net-log.md) object for this session.
+
+```javascript
+const { app, session } = require('electron')
+
+app.on('ready', function () {
+  const netLog = session.fromPartition('some-partition').netLog
+  netLog.startLogging('/path/to/net-log')
+  // After some network events
+  netLog.stopLogging(path => {
+    console.log('Net-logs written to', path)
+  })
+})
 ```
