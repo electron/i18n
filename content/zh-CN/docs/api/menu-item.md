@@ -24,7 +24,7 @@
   * ` checked `Boolean (可选)-只应为 ` checkbox ` 或 ` radio ` 类型菜单项指定。
   * `registerAccelerator` Boolean (optional) - If false, the accelerator won't be registered with the system, but it will still be displayed. Defaults to true.
   * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. If the value is not a [`Menu`](menu.md) then it will be automatically converted to one using `Menu.buildFromTemplate`.
-  * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
+  * ` id `String (可选)-在单个菜单中是唯一的。如果定义, 则可以通过它来引用该项。
   * `before` String[] (optional) - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
   * `after` String[] (optional) - Inserts this item after the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu.
   * `beforeGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
@@ -40,7 +40,7 @@
 
 Every menu item must have either a `role`, `label`, or in the case of a separator a `type`.
 
-The `role` property can have following values:
+`role ` 属性可以具有以下值:
 
 * `undo`
 * `redo`
@@ -63,7 +63,7 @@ The `role` property can have following values:
 * `editMenu`-默认的 "编辑" 菜单 (包括撤消、复制等)
 * ` windowMenu `-默认 "窗口" 菜单 (包括最小化、关闭等)
 
-The following additional roles are available on *macOS*:
+以下为macOS 中提供的角色:
 
 * ` about `-映射到 ` orderFrontStandardAboutPanel ` 操作.
 * ` hide `-映射到 ` hide ` 操作.
@@ -84,36 +84,36 @@ The following additional roles are available on *macOS*:
 * ` recentDocuments `-这个子菜单是 "Open Recent" 菜单.
 * `clearRecentDocuments` -映射到 `clearRecentDocuments` 操作.
 
-When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored. Lowercase `role`, e.g. `toggledevtools`, is still supported.
+在 macOS 上指定 ` role ` 时, ` label ` 和 ` accelerator ` 是影响菜单项的唯一选项。 所有其它选项都将被忽略。 不过，仍然支持小写的`role`，如`toggledevtools`。
 
 **Nota Bene:** The `enabled` and `visibility` properties are not available for top-level menu items in the tray on MacOS.
 
 ### 实例属性
 
-The following properties are available on instances of `MenuItem`:
+以下为 ` MenuItem ` 实例的可用属性:
 
 #### `menuItem.enabled`
 
-A `Boolean` indicating whether the item is enabled, this property can be dynamically changed.
+一个 ` Boolean ` 类型的值, 指示是否启用该项, 该属性可以动态改变
 
 #### `menuItem.visible`
 
-A `Boolean` indicating whether the item is visible, this property can be dynamically changed.
+一个 ` Boolean ` 类型的值, 指示该项是否可见, 该属性可以动态改变。
 
 #### `menuItem.checked`
 
-A `Boolean` indicating whether the item is checked, this property can be dynamically changed.
+一个 ` Boolean ` 类型的值, 指示是否选中该项, 该属性可以动态改变。
 
-A `checkbox` menu item will toggle the `checked` property on and off when selected.
+` checkbox ` 菜单项将在选中时切换 ` checked ` 的开关属性。
 
-A `radio` menu item will turn on its `checked` property when clicked, and will turn off that property for all adjacent items in the same menu.
+`单选菜单项` 将返回单击时`checked`属性, 并将关闭同一菜单中所有相邻项的属性。
 
-You can add a `click` function for additional behavior.
+你可以为其他行为添加`click`函数。
 
 #### `menuItem.label`
 
-A `String` representing the menu items visible label.
+一个表示菜单项标签的 `String`.
 
 #### `menuItem.click`
 
-A `Function` that is fired when the MenuItem receives a click event.
+当 MenuItem 接收到 click 事件时激发的`Function`.
