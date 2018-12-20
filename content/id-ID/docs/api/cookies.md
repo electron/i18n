@@ -8,13 +8,21 @@ Contoh dari ` Cookie </ 0> kelas diakses dengan menggunakan <code> cookie </ 0> 
 
 <p>Sebagai contoh:</p>
 
-<pre><code class="javascript">const {session} = require ('electron') // Query semua cookies.
+<pre><code class="javascript">const { session } = require('electron')
+
+// Query all cookies.
 session.defaultSession.cookies.get ({}, (error, cookies) = & gt; {
    console.log (error, cookies)}) // Query semua cookies yang terkait dengan url tertentu.
-session.defaultSession.cookies.get ({url: 'http://www.github.com'}, (kesalahan, cookie) = & gt; {
-   console.log (error, cookies)}) // Setel cookie dengan diberi data cookie; // dapat menimpa cookie yang setara jika ada.
-const cookie = {url: 'http://www.github.com', nama: 'dummy_name', nilai: 'dummy'} session.defaultSession.cookies.set (cookie, (error) = & gt; {
-   if (error ) console.error (error)})
+session.defaultSession.cookies.get({ url: 'http://www.github.com' }, (error, cookies) => {
+  console.log(error, cookies)
+})
+
+// Set a cookie with the given cookie data;
+// may overwrite equivalent cookies if they exist.
+const cookie = { url: 'http://www.github.com', name: 'dummy_name', value: 'dummy' }
+session.defaultSession.cookies.set(cookie, (error) => {
+  if (error) console.error(error)
+})
 `</pre> 
 
 ### Contoh peristiwa
