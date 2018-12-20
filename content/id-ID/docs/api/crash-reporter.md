@@ -7,7 +7,14 @@ Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer
 Berikut ini adalah contoh untuk secara otomatis mengirimkan laporan kerusakan ke server jauh:
 
 ```javascript
-const {kecelakaan Reporter} = require ('electron') kecelakaan Reporter.mulai ({nama produk: 'NamaAnda'nama perusahaan: 'PerusahaanAnda', submitURL: 'https://your-domain.com/url-to-submit', unggah keServer: benar})
+const { crashReporter } = require('electron')
+
+crashReporter.start({
+  productName: 'YourName',
+  companyName: 'YourCompany',
+  submitURL: 'https://your-domain.com/url-to-submit',
+  uploadToServer: true
+})
 ```
 
 Untuk menyiapkan server untuk menerima dan memproses laporan kerusakan, Anda dapat menggunakan proyek berikut ini:
@@ -30,8 +37,8 @@ API sebelum memulai reporter kecelakaan.</p>
 <h3><code>kecelakaan Reporter.mulai (pilihan)`</h3> 
 
 * `pilihan` Objek 
-  * ` nama perusahaan </ 0>  String (opsional)</li>
-<li><code> submitURL </ 0>  String - URL bahwa laporan kerusakan akan dikirim ke POST.</li>
+  * `companyName` String
+  * ` submitURL </ 0>  String - URL bahwa laporan kerusakan akan dikirim ke POST.</li>
 <li><code> nama product</ 0>  String (opsional) - Default ke <code> app.getName () </ 0> .</li>
 <li><code> ungkah ke Server </ 0>  Boolean (opsional) - Apakah laporan kerusakan harus dikirim ke server Default adalah <code> true </ 0> .</li>
 <li><code> mengabaikan Sistem jatuh Handler </ 0>  Boolean (opsional) - Default adalah <code> false </ 0> .</li>
@@ -51,18 +58,18 @@ dan <code> crash Direktori</ 0> dengan nilai yang sesuai.</p>
 <p><strong>Note:</strong> If you need send additional/updated <code>extra` parameters after your first call `start` you can call `addExtraParameter` on macOS or call `start` again with the new/updated `extra` parameters on Linux and Windows.
 
 ```js
- const args = [
-    `--reporter-url = $ {submitURL} `,
-    `--application-name = $ {productName} `,
-    `--crashes-directory = $ {crashesDirectory} `
-  ]
-  const env = {
-    ELECTRON_INTERNAL_CRASH_SERVICE: 1
-  }
-  bertelur (process.execPath, args, {
-    env: env,
-    dilepas: true
-  })
+const args = [
+  `--reporter-url=${submitURL}`,
+  `--application-name=${productName}`,
+  `--crashes-directory=${crashesDirectory}`
+]
+const env = {
+  ELECTRON_INTERNAL_CRASH_SERVICE: 1
+}
+spawn(process.execPath, args, {
+  env: env,
+  detached: true
+})
 ```
 
 ** Catatan: </ 0> Pada macos , Electron menggunakan klien ` crashpad </ 1> baru untuk pengumpulan dan pelaporan kecelakaan.
