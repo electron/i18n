@@ -1,16 +1,16 @@
 # GPU 기능 상태 개체
 
-* `2d_canvas` String - Canvas.
-* `flash_3d` String - Flash.
-* `flash_stage3d` String - Flash Stage3D.
-* `flash_stage3d_baseline` String - Flash Stage3D Baseline profile.
-* `gpu_compositing` String - Compositing.
-* `multiple_raster_threads` String - Multiple Raster Threads.
-* `native_gpu_memory_buffers` String - Native GpuMemoryBuffers.
-* `rasterization` String - Rasterization.
-* `video_decode` String - Video Decode.
-* `video_encode` String - Video Encode.
-* `vpx_decode` String - VPx Video Decode.
+* `2d_canvas` String - 캔버스.
+* `flash_3d` String - 플래시.
+* `flash_stage3d` String - 플래시 3D스테이지.
+* `flash_stage3d_baseline` String - 플래시 3D스테이지 기준선 프로필.
+* `gpu_compositing` String - 합성.
+* `multiple_raster_threads` String - 여러개의 래스터 스레드.
+* `native_gpu_memory_buffers` String - 네이티브 GPU 메모리 버퍼.
+* `rasterization` String - 래스터화.
+* `video_decode` String - 비디오 디코딩.
+* `video_encode` String - 비디오 인코딩.
+* `vpx_decode` String - VPx 비디오 디코딩.
 * `webgl` String - WebGL.
 * `webgl2` String - WebGL2.
 
