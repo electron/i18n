@@ -2,7 +2,7 @@
 
 > Transport alternatif untuk protokol debugging jarak jauh Chrome.
 
-Proses:  Utama </ 0></p> 
+Proses: [Main](../glossary.md#main-process)
 
 Alat Pengembang Chrome memiliki  pengikatan khusus </ 0> yang tersedia pada runtime JavaScript yang memungkinkan berinteraksi dengan halaman dan menginstruksikannya.</p> 
 
@@ -61,13 +61,13 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 <p>Kirim perintah yang diberikan ke target debugging.</p>
 
-<h3>Contoh peristiwa</h3>
+<h3>Perihal contoh</h3>
 
 <h4>Acara : 'melepaskan'</h4>
 
 <ul>
-<li><code>event` Sinyal
-    * ` alasan </ 0>  String - Alasan untuk memisahkan debugger.</li>
+<li><code>peristiwa` Peristiwa
+    *  alasan </ 0>  String - Alasan untuk memisahkan debugger.</li>
 </ul>
 
 <p>Emitted saat sesi debugging dihentikan. Hal ini terjadi ketika
@@ -76,8 +76,8 @@ win.webContents.debugger.sendCommand('Network.enable')
 <h4>Acara : 'pesan'</h4>
 
 <ul>
-<li><code>event` Sinyal
-    *  metode </ 0> String - nama metode.</li>
+<li><code>event</ 0> Acara</li>
+<li><code> metode </ 0> String - nama metode.</li>
 <li><code> params </ 0> Objek - Parameter acara ditentukan oleh  atribut 'parameter'
  dalam protokol debugging jarak jauh.</li>
 </ul>
