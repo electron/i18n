@@ -9,23 +9,23 @@ Modul ini tidak menyertakan antarmuka web sehingga Anda perlu membuka `chrome://
 **Catatan:** Anda tidak boleh menggunakan modul ini sampai acara ` siap` dari aplikasi modul dipancarkan.
 
 ```javascript
-const { app, contentTracing } = require('electron')
+const { app, contentTracing } = require ('elektron')
 
-app.on('ready', () => {
-  const options = {
-    categoryFilter: '*',
-    traceOptions: 'record-until-full,enable-sampling'
-  }
+app.on ('siap', () = > {
+  pilihan const = {
+    categoryFilter: '*',
+    traceOptions: 'record-until-full, enable-sampling'
+  }
 
-  contentTracing.startRecording(options, () => {
-    console.log('Tracing started')
+  contentTracing.startRecording (pilihan, () = > {
+    console.log ('penelusuran dimulai')
 
-    setTimeout(() => {
-      contentTracing.stopRecording('', (path) => {
-        console.log('Tracing data recorded to ' + path)
-      })
-    }, 5000)
-  })
+    setTimeout (() => {
+      contentTracing.stopRecording ('', (path) = > {
+        console.log ('Tracing data direkam ke' + path)
+      })
+    }, 5000)
+  })
 })
 ```
 
@@ -44,7 +44,7 @@ Setelah semua proses anak mengakui permintaan`getCategories` `callback` dipanggi
 
 ### `contentTracing.startRecording (pilihan,callback)`
 
-* `pilihan` Objek 
+* `pilihan` Obyek 
   * `kategori Filter ` String
   * `traceOptions ` String
 * `callback ` Fungsi
@@ -89,7 +89,7 @@ Data jejak akan ditulis ke `resultFilePath` jika tidak kosong atau ke a file sem
 
 ### `isi Tracing.startMonitoring (pilihan, callback)`
 
-* `pilihan` Objek 
+* `pilihan` Object 
   * `kategori Filter ` String
   * `traceOptions ` String
 * `callback ` Fungsi
