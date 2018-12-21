@@ -2,4 +2,4 @@
 
 * `pid` Integer - プロセスのプロセス ID。
 * `type` String - プロセスタイプ (ブラウザ、タブ、GPU など)。
-* `cpu` [CPUUsage](cpu-usage.md) - CPU usage of the process.
+* `cpu` [CPUUsage](cpu-usage.md) - プロセスの CPU 使用率。
