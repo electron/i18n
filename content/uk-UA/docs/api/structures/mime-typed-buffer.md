@@ -1,4 +1,4 @@
 # Об'єкт MimeTypedBuffer
 
-* `mimeType` String - The mimeType of the Buffer that you are sending.
-* `data` Buffer - The actual Buffer content.
+* `mimeType` String - Mime тип об'єкта Buffer, який ви надсилаєте.
+* `data` Buffer - Фактичний вміст об'єкта Buffer.
