@@ -1,8 +1,8 @@
 # CertificatePrincipal वस्तु
 
-* `commonName` String - Common Name.
-* `organizations` String[] - Organization names.
-* `organizationUnits` String[] - Organization Unit names.
+* ` commonName ` String-सामांय नाम.
+* ` organizations` String []-संगठन नाम.
+* ` organizationUnits` String []-संगठन इकाई का नाम.
 * `locality` String - Locality.
-* `state` String - State or province.
-* `country` String - Country or region.
+* `state` String-राज्य या प्रांत.
+* `country` String-देश या क्षेत्र.
