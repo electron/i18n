@@ -1,6 +1,6 @@
 # Dikdörtgen obje
 
-* `x` Number - The x coordinate of the origin of the rectangle (must be an integer).
-* `y` Number - The y coordinate of the origin of the rectangle (must be an integer).
-* `width` Number - The width of the rectangle (must be an integer).
-* `height` Number - The height of the rectangle (must be an integer).
+* `x` Number - Dikdörtgenin orijin noktasının x koordinatı ( tamsayı olmalı).
+* `y` Number - Dikdörtgenin orijin noktasının y koordinatı ( tamsayı olmalı).
+* `width` Dikdörtgenin genişliği (tamsayı olmalı).
+* `height` Number - Dikdörtgenin yüksekliği (tamsayı olmalı).
