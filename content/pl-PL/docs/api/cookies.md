@@ -29,7 +29,7 @@ session.defaultSession.cookies.set(cookie, (error) => {
 })
 ```
 
-### Wydarzenia instancji
+### Zdarzenia instancji
 
 The following events are available on instances of `Cookies`:
 
@@ -53,14 +53,14 @@ The following methods are available on instances of `Cookies`:
 
 #### `cookies.get(filter, callback)`
 
-* `filtr` Obiekt 
+* `filter` Object 
   * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all urls.
   * `name` String (optional) - Filters cookies by name.
   * `domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`.
   * `path` String (optional) - Retrieves cookies whose path matches `path`.
   * `secure` Boolean (optional) - Filters cookies by their Secure property.
   * `session` Boolean (optional) - Filters out session or persistent cookies.
-* `callback` Function 
+* `callback` Funkcja 
   * `error` Error
   * `cookies` [Cookie[]](structures/cookie.md) - an array of cookie objects.
 
