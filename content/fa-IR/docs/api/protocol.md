@@ -1,4 +1,4 @@
-# protocol
+# پروتکل
 
 > Register a custom protocol and intercept existing protocol requests.
 
@@ -67,7 +67,7 @@ app.on('ready', () => {
 
 * `scheme` String
 * `handler` Function 
-  * `request` Object 
+  * `request` شئ 
     * `url` String
     * `referrer` String
     * `method` String
@@ -89,7 +89,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
 
 * `scheme` String
 * `handler` Function 
-  * `request` Object 
+  * `request` شئ 
     * `url` String
     * `referrer` String
     * `method` String
@@ -119,7 +119,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 * `scheme` String
 * `handler` Function 
-  * `request` Object 
+  * `request` شئ 
     * `url` String
     * `referrer` String
     * `method` String
@@ -137,14 +137,14 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 
 * `scheme` String
 * `handler` Function 
-  * `request` Object 
+  * `request` شئ 
     * `url` String
     * `headers` Object
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `redirectRequest` Object 
+    * `redirectRequest` شئ 
       * `url` String
       * `method` String
       * `session` Object (optional)
@@ -166,7 +166,7 @@ For POST requests the `uploadData` object must be provided.
 
 * `scheme` String
 * `handler` Function 
-  * `request` Object 
+  * `request` شئ 
     * `url` String
     * `headers` Object
     * `referrer` String
@@ -240,7 +240,7 @@ The `callback` will be called with a boolean that indicates whether there is alr
 
 * `scheme` String
 * `handler` Function 
-  * `request` Object 
+  * `request` شئ 
     * `url` String
     * `referrer` String
     * `method` String
@@ -256,7 +256,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `scheme` String
 * `handler` Function 
-  * `request` Object 
+  * `request` شئ 
     * `url` String
     * `referrer` String
     * `method` String
@@ -272,7 +272,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `scheme` String
 * `handler` Function 
-  * `request` Object 
+  * `request` شئ 
     * `url` String
     * `referrer` String
     * `method` String
@@ -288,14 +288,14 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `scheme` String
 * `handler` Function 
-  * `request` Object 
+  * `request` شئ 
     * `url` String
     * `headers` Object
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `redirectRequest` Object 
+    * `redirectRequest` شئ 
       * `url` String
       * `method` String
       * `session` Object (optional)
@@ -311,7 +311,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `scheme` String
 * `handler` Function 
-  * `request` Object 
+  * `request` شئ 
     * `url` String
     * `headers` Object
     * `referrer` String
