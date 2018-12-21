@@ -26,21 +26,21 @@ app.on('ready', function () {
 
 * `path` String - ネットワークログを記録するファイルパス。
 
-Starts recording network events to `path`.
+`path` へネットワークイベントの記録を開始する。
 
 ### `netLog.stopLogging([callback])`
 
 * `callback` Function (任意) 
   * `path` String - ネットワークログが記録されたファイルパス。
 
-Stops recording network events. If not called, net logging will automatically end when app quits.
+ネットワークイベントの記録を停止します。 もし呼ばれなければ、ネットロギングはアプリ終了時に自動的に終了します。
 
 ## プロパティ
 
 ### `netLog.currentlyLogging`
 
-A `Boolean` property that indicates whether network logs are recorded.
+ネットワークログが記録されていたかどうかを表す `Boolean` プロパティ。
 
 ### `netLog.currentlyLoggingPath`
 
-A `String` property that returns the path to the current log file.
+現在のログファイルへのパスを返す `String` プロパティ。
