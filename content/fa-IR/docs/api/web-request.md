@@ -39,7 +39,7 @@ The following methods are available on instances of `WebRequest`:
 * `filter` Object (optional) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function 
-  * `details` Object 
+  * `details` شئ 
     * `id` Integer
     * `url` String
     * `method` String
@@ -48,7 +48,7 @@ The following methods are available on instances of `WebRequest`:
     * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `response` Object 
+    * `response` شئ 
       * `cancel` Boolean (optional)
       * `redirectURL` String (optional) - The original request is prevented from being sent or completed and is instead redirected to the given URL.
 
@@ -66,7 +66,7 @@ The `callback` has to be called with an `response` object.
 
 The `listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent.
 
-* `details` Object 
+* `details` شئ 
   * `id` Integer
   * `url` String
   * `method` String
@@ -75,7 +75,7 @@ The `listener` will be called with `listener(details, callback)` before sending 
   * `timestamp` Double
   * `requestHeaders` Object
 * `callback` Function 
-  * `response` Object 
+  * `response` شئ 
     * `cancel` Boolean (optional)
     * `requestHeaders` Object (optional) - When provided, request will be made with these headers.
 
@@ -86,7 +86,7 @@ The `callback` has to be called with an `response` object.
 * `filter` Object (optional) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function 
-  * `details` Object 
+  * `details` شئ 
     * `id` Integer
     * `url` String
     * `method` String
@@ -105,7 +105,7 @@ The `listener` will be called with `listener(details)` just before a request is 
 
 The `listener` will be called with `listener(details, callback)` when HTTP response headers of a request have been received.
 
-* `details` Object 
+* `details` شئ 
   * `id` Integer
   * `url` String
   * `method` String
@@ -116,7 +116,7 @@ The `listener` will be called with `listener(details, callback)` when HTTP respo
   * `statusCode` Integer
   * `responseHeaders` Object
 * `callback` Function 
-  * `response` Object 
+  * `response` شئ 
     * `cancel` Boolean
     * `responseHeaders` Object (optional) - When provided, the server is assumed to have responded with these headers.
     * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
@@ -128,7 +128,7 @@ The `callback` has to be called with an `response` object.
 * `filter` Object (optional) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function 
-  * `details` Object 
+  * `details` شئ 
     * `id` Integer
     * `url` String
     * `method` String
@@ -147,7 +147,7 @@ The `listener` will be called with `listener(details)` when first byte of the re
 * `filter` Object (optional) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function 
-  * `details` Object 
+  * `details` شئ 
     * `id` Integer
     * `url` String
     * `method` String
@@ -167,7 +167,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
 * `filter` Object (optional) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function 
-  * `details` Object 
+  * `details` شئ 
     * `id` Integer
     * `url` String
     * `method` String
@@ -186,7 +186,7 @@ The `listener` will be called with `listener(details)` when a request is complet
 * `filter` Object (optional) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function 
-  * `details` Object 
+  * `details` شئ 
     * `id` Integer
     * `url` String
     * `method` String
