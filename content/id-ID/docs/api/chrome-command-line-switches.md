@@ -5,12 +5,12 @@
 Anda dapat menggunakan [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) untuk menambahkan mereka di app's script utama sebelum acara [siap](app.md#event-ready) modul [app](app.md) dibunyikan:
 
 ```javascript
-const { app } = require('electron')
-app.commandLine.appendSwitch('remote-debugging-port', '8315')
-app.commandLine.appendSwitch('host-rules', 'MAP * 127.0.0.1')
+const { app } = require ('electron')
+app.commandLine.appendSwitch ('remote-debugging-port', '8315')
+app.commandLine.appendSwitch ('host-rules', 'MAP * 127.0.0.1')
 
-app.on('ready', () => {
-  // Your code here
+app.on ('siap', () = > {
+   // kode kamu disini
 })
 ```
 
@@ -63,8 +63,8 @@ Memerintahkan elektron untuk mem-bypass server proxy untuk daftar dipisahkan sem
 Sebagai contoh:
 
 ```javascript
-const { app } = require('electron')
-app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com;1.2.3.4:5678')
+const { app } = require ('electron')
+app.commandLine.appendSwitch ('proxy-bypass-list', '<local>; * google.com; * foo.com; 1.2.3.4: 5678')
 ```
 
 Akan menggunakan proxy server untuk semua host kecuali alamat lokal (`localhost`, `127.0.0.1` dll), `google.com` subdomain, host yang mengandung akhiran `foo.com` dan apa-apa di `1.2.3.4:5678`.
