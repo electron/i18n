@@ -7,7 +7,7 @@ Proses: [Main](../glossary.md#main-process)
 ` DownloadItem </ 0> adalah <code> acara Emitter </ 0> yang mewakili item unduhan di Elektron .
 Ini digunakan dalam event <code> will-download </ 0>  pada kelas <code> Session </ 0> , dan memungkinkan pengguna untuk mengontrol item download.</p>
 
-<pre><code class="javascript">// In the main process.
+<pre><code class="javascript">// Pada proses utama.
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.webContents.session.on('will-download', (event, item, webContents) => {
