@@ -1,8 +1,8 @@
 # شئ CertificatePrincipal
 
-* `commonName` String - Common Name.
-* `organizations` String[] - Organization names.
-* `organizationUnits` String[] - Organization Unit names.
-* `locality` String - Locality.
-* `state` String - State or province.
-* `country` String - Country or region.
+* `نام مشترک` رشته - نام مشترک.
+* `سازمان ها` رشته [] - نام سازمان.
+* نامِ واحدهای سازمانی - آرایه ای از رشته ها `نام سازمان `.
+* محلیت - رشته ` نامِ محل`.
+* استان یا شهر - رشته `نامِ استان`.
+* کشور یا منطقه - رشته `نام کشور`.
