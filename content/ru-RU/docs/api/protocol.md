@@ -302,7 +302,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
       * `uploadData` Object (опционально) 
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
-* `completion` Function (optional) 
+* `completion` Function (опционально) 
   * `error` Error
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a new HTTP request as a response.
@@ -319,7 +319,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
-* `completion` Function (optional) 
+* `completion` Function (опционально) 
   * `error` Error
 
 Same as `protocol.registerStreamProtocol`, except that it replaces an existing protocol handler.
@@ -327,7 +327,7 @@ Same as `protocol.registerStreamProtocol`, except that it replaces an existing p
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
 * `scheme` String
-* `completion` Function (optional) 
+* `completion` Function (опционально) 
   * `error` Error
 
 Remove the interceptor installed for `scheme` and restore its original handler.
