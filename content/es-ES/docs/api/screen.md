@@ -8,17 +8,17 @@ No se puede solicitar o usar este módulo hasta que el evento `ready` del módul
 
 In the renderer process context it depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
 
-`screen` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
+`screen` es un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-**Note:** In the renderer / DevTools, `window.screen` is a reserved DOM property, so writing `let { screen } = require('electron')` will not work.
+**Nota:** En el renderizador / DevTools, `window.screen` es una propiedad de DOM reservado, así que escribir `let { screen } = require('electron')` no funcionará.
 
-An example of creating a window that fills the whole screen:
+Un ejemplo de crear una ventana que llene toda la pantalla:
 
 ```javascript
 const electron = require('electron')
 const { app, BrowserWindow } = electron
 
-let win
+dejar ganar
 
 app.on('ready', () => {
   const { width, height } = electron.screen.getPrimaryDisplay().workAreaSize
@@ -27,10 +27,10 @@ app.on('ready', () => {
 })
 ```
 
-Another example of creating a window in the external display:
+Otro ejemplo de crear una ventana el display externo es:
 
 ```javascript
-const electron = require('electron')
+onst electron = require('electron')
 const { app, BrowserWindow } = require('electron')
 
 let win
@@ -53,7 +53,7 @@ app.on('ready', () => {
 
 ## Eventos
 
-The `screen` module emits the following events:
+El módulo `screen` emite los siguientes eventos:
 
 ### Evento: 'display-added'
 
@@ -62,7 +62,7 @@ Devuelve:
 * `event`
 * `newDisplay` [Display](structures/display.md)
 
-Emitted when `newDisplay` has been added.
+Emitido cuando `newDisplay` ha sido añadido.
 
 ### Evento: 'display-removed'
 
@@ -71,7 +71,7 @@ Devuelve:
 * `event` Event
 * `oldDisplay` [Display](structures/display.md)
 
-Emitted when `oldDisplay` has been removed.
+Emitido cuando `oldDisplay` ha sido eliminado.
 
 ### Evento: 'display-metrics-changed'
 
@@ -81,43 +81,43 @@ Devuelve:
 * `display` [Display](structures/display.md)
 * `changedMetrics` Cadena[]
 
-Emitted when one or more metrics change in a `display`. The `changedMetrics` is an array of strings that describe the changes. Possible changes are `bounds`, `workArea`, `scaleFactor` and `rotation`.
+Emitido cuando o más métricos cambian en un `display`. El `changedMetrics` es un arreglo de cadenas que describen los cambios. Posibles cambios son `bounds`, `workArea`, `scaleFactor` y `rotation`.
 
 ## Métodos
 
-The `screen` module has the following methods:
+El módulo `screen` tiene los siguientes métodos:
 
 ### `screen.getCursorScreenPoint()`
 
-Returns [`Point`](structures/point.md)
+Devuelve [`Point`](structures/point.md)
 
-The current absolute position of the mouse pointer.
+La actual y absoluta posición del cursor del mouse.
 
 ### `screen.getPrimaryDisplay()`
 
-Returns [`Display`](structures/display.md) - The primary display.
+Devuelve [`Display`](structures/display.md) - La muestra primaria.
 
 ### `screen.getAllDisplays()`
 
-Returns [`Display[]`](structures/display.md) - An array of displays that are currently available.
+Devuelve [`Display[]`](structures/display.md) - Un arreglo de muestras que son actualmente disponibles.
 
 ### `screen.getDisplayNearestPoint(point)`
 
 * `point` [Point](structures/point.md)
 
-Returns [`Display`](structures/display.md) - The display nearest the specified point.
+Devuelve [`Display`](structures/display.md) - La muestra más cerca del punto especificado.
 
 ### `screen.getDisplayMatching(rect)`
 
 * `rect` [Rectangle](structures/rectangle.md)
 
-Returns [`Display`](structures/display.md) - The display that most closely intersects the provided bounds.
+Devuelve [`Display`](structures/display.md) - La muestra que es más cercana intersecta a las bandas dadas.
 
 ### `screen.screenToDipPoint(point)` *Windows*
 
 * `point` [Point](structures/point.md)
 
-Returns [`Point`](structures/point.md)
+Devuelve [`Point`](structures/point.md)
 
 Converts a screen physical point to a screen DIP point. The DPI scale is performed relative to the display containing the physical point.
 
@@ -125,7 +125,7 @@ Converts a screen physical point to a screen DIP point. The DPI scale is perform
 
 * `point` [Point](structures/point.md)
 
-Returns [`Point`](structures/point.md)
+Devuelve [`Point`](structures/point.md)
 
 Converts a screen DIP point to a screen physical point. The DPI scale is performed relative to the display containing the DIP point.
 
