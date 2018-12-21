@@ -10,8 +10,6 @@ Un ejemplo de zoom de la página actual al 200%.
 
 ```javascript
 const { webFrame } = require('electron')
-
-webFrame.setZoomFactor(2)
 ```
 
 ## Métodos
@@ -91,7 +89,7 @@ Los recursos se cargarán desde este `esquema` independientemente de la Polític
 ### `webFrame.registerURLSchemeAsPrivileged(esquema[, opciones])`
 
 * `scheme` String
-* `opciones` Objecto (opcional) 
+* `opciones` Object (opcional) 
   * `secure` Boolean (optional) - Default true.
   * `bypassCSP` Boolean (optional) - Default true.
   * `allowServiceWorkers` Boolean (optional) - Default true.
@@ -124,7 +122,7 @@ Returns `Promise<any>` - A promise that resolves with the result of the executed
 
 Evalúa el `código` en la página.
 
-En la ventana del navegador, algunas API HTML como `requestFullScreen` solo pueden invocarse con un gesto del usuario. Establecer `userGesture` a `true` eliminará esta limitación.
+En la ventana del buscador, algunas APIs HTML como `requestFullScreen` solo pueden ser invocadas por un gesto del usuario. Establecer `userGesture` a `true` eliminará esta limitación.
 
 ### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
 
