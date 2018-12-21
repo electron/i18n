@@ -1,6 +1,6 @@
 # Objeto Rectangle
 
-* `x` Number - The x coordinate of the origin of the rectangle (must be an integer).
-* `y` Number - The y coordinate of the origin of the rectangle (must be an integer).
-* `width` Number - The width of the rectangle (must be an integer).
-* `height` Number - The height of the rectangle (must be an integer).
+* `x` Number - La coordenada x del origen del rectángulo (debe ser un entero).
+* `y` Number - La coordenada y del origen del rectángulo (debe ser un entero).
+* `width` Number - El ancho del rectángulo (debe ser un entero).
+* `height` Number - El alto del rectángulo (debe ser un entero).
