@@ -312,7 +312,7 @@ Loads the `url` in the webview, the `url` must contain the protocol prefix, e.g.
   
   ### `<webview>.executeJavaScript(code[, userGesture, callback])`
   
-  * `code` String
+  * `code` Zeichenkette
   * `userGesture` Boolean (optional) - Default `false`.
   * `callback` Function (optional) - Called after script has been executed. 
     * `result` Any
