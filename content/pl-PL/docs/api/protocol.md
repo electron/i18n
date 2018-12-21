@@ -67,7 +67,7 @@ app.on('ready', () => {
 
 * `schemat` String
 * `handler` Function 
-  * `żądanie` Obiekt 
+  * `żądanie` Object 
     * `url` String
     * `referrer` String
     * `method` String
@@ -89,7 +89,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
 
 * `schemat` String
 * `handler` Function 
-  * `żądanie` Obiekt 
+  * `żądanie` Object 
     * `url` String
     * `referrer` String
     * `method` String
@@ -119,7 +119,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 
 * `schemat` String
 * `handler` Function 
-  * `żądanie` Obiekt 
+  * `żądanie` Object 
     * `url` String
     * `referrer` String
     * `method` String
@@ -137,14 +137,14 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 
 * `schemat` String
 * `handler` Function 
-  * `żądanie` Obiekt 
+  * `żądanie` Object 
     * `url` String
     * `headers` Object
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `redirectRequest` Obiekt 
+    * `redirectRequest` Object 
       * `url` String
       * `method` String
       * `session` Object (optional)
@@ -165,14 +165,14 @@ For POST requests the `uploadData` object must be provided.
 ### `protocol.registerStreamProtocol(scheme, handler[, completion])`
 
 * `schemat` String
-* `handler` Function 
-  * `żądanie` Obiekt 
+* `handler` Funkcja 
+  * `żądanie` Object 
     * `url` String
     * `headers` Object
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Funkcja 
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
 * `completion` Funkcja (opcjonalne) 
   * `error` Error
@@ -240,7 +240,7 @@ The `callback` will be called with a boolean that indicates whether there is alr
 
 * `schemat` String
 * `handler` Function 
-  * `żądanie` Obiekt 
+  * `żądanie` Object 
     * `url` String
     * `referrer` String
     * `method` String
@@ -256,7 +256,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `schemat` String
 * `handler` Function 
-  * `żądanie` Obiekt 
+  * `żądanie` Object 
     * `url` String
     * `referrer` String
     * `method` String
@@ -272,7 +272,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 
 * `schemat` String
 * `handler` Function 
-  * `żądanie` Obiekt 
+  * `żądanie` Object 
     * `url` String
     * `referrer` String
     * `method` String
@@ -287,15 +287,15 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
 
 * `schemat` String
-* `handler` Function 
-  * `żądanie` Obiekt 
+* `handler` Funkcja 
+  * `żądanie` Object 
     * `url` String
     * `headers` Object
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
-    * `redirectRequest` Obiekt 
+  * `callback` Funkcja 
+    * `redirectRequest` Object 
       * `url` String
       * `method` String
       * `session` Object (optional)
@@ -310,14 +310,14 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
 
 * `schemat` String
-* `handler` Function 
-  * `żądanie` Obiekt 
+* `handler` Funkcja 
+  * `żądanie` Object 
     * `url` String
     * `headers` Object
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Funkcja 
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
 * `completion` Funkcja (opcjonalne) 
   * `error` Error
