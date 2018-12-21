@@ -1087,7 +1087,7 @@ The number of buttons in thumbnail toolbar should be no greater than 7 due to th
 The `buttons` is an array of `Button` objects:
 
 * `Button` Oggetto 
-  * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
+  * `icon` [NativeImage](native-image.md) - L'icona mostrata nella barra degli strumenti come anteprima.
   * `click` Funzione
   * `tooltip` Stringa (opzionale) - Il testo del tooltip del pulsante.
   * `flags` Stringa[] (opzionale) - Controlla specifici comportamenti e comportamenti del pulsante. Di default è `['enabled']`.
@@ -1166,7 +1166,7 @@ Sets whether the menu bar should be visible. If the menu bar is auto-hide, users
 
 Returns `Boolean` - Whether the menu bar is visible.
 
-#### `win.setVisibleOnAllWorkspaces(visible[, options])`
+#### `win.setVisibleOnAllWorkspaces(visible[, opzioni])`
 
 * `visible` Boolean
 * `options` Object (opzionale) 
@@ -1182,7 +1182,7 @@ Returns `Boolean` - Whether the window is visible on all workspaces.
 
 **Note:** This API always returns false on Windows.
 
-#### `win.setIgnoreMouseEvents(ignore[, options])`
+#### `win.setIgnoreMouseEvents(ignore[, opzioni])`
 
 * `ignore` Boolean
 * `options` Object (opzionale) 
@@ -1266,7 +1266,7 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 **Note:** The TouchBar API is currently experimental and may change or be removed in future Electron releases.
 
-#### `win.setBrowserView(browserView)` *Experimental*
+#### `win.setBrowserView(browserView)` *Sperimentale*
 
 * `browserView` [BrowserView](browser-view.md)
 
@@ -1274,4 +1274,4 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 Returns `BrowserView | null` - an attached BrowserView. Returns `null` if none is attached.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**Nota:** La VistaBrowser API è attualmente sperimentale e potrebbe cambiare o essere rimossa nei rilasci futuri di Electron.
