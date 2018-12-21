@@ -75,7 +75,7 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 ### `systemPreferences.subscribeNotification(event, callback)` *macOS*
 
 * `event` String
-* `callback` Functie 
+* `callback` Function 
   * `event` String
   * `userInfo` Object
 
@@ -95,7 +95,7 @@ Under the hood this API subscribes to `NSDistributedNotificationCenter`, example
 ### `systemPreferences.subscribeLocalNotification(event, callback)` *macOS*
 
 * `event` String
-* `callback` Functie 
+* `callback` Function 
   * `event` String
   * `userInfo` Object
 
@@ -106,7 +106,7 @@ Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defau
 ### `systemPreferences.subscribeWorkspaceNotification(event, callback)` *macOS*
 
 * `event` String
-* `callback` Functie 
+* `callback` Function 
   * `event` String
   * `userInfo` Object
 
@@ -156,7 +156,7 @@ Some popular `key` and `type`s are:
 ### `systemPreferences.setUserDefault(key, type, value)` *macOS*
 
 * `key` String
-* `type` String - See [`getUserDefault`](#systempreferencesgetuserdefaultkey-type-macos).
+* `type` String - Zie [`getUserDefault`](#systempreferencesgetuserdefaultkey-type-macos).
 * `value` String
 
 Set the value of `key` in `NSUserDefaults`.
