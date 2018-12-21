@@ -74,7 +74,7 @@ Un exemple d'utilisation de [node-spellchecker](https://github.com/atom/node-spe
 
 ```javascript
 const { webFrame } = require('electron')
-webFrame.setSpellCheckProvider('en-US', true, {
+webFrame.setSpellCheckProvider('fr-FR', true, {
   spellCheck (text) {
     return !(require('spellchecker').isMisspelled(text))
   }
