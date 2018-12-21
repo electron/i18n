@@ -7,18 +7,18 @@ Proseso:[Pangunahi](../glossary.md#main-process)
 Ang`Tray`ay isang [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 ```javascript
-const { app, Menu, Tray } = require('electron')
+const { app, Menu, Tray } = nangangailanganng('electron')
 
-let tray = null
+hayaan ang tray = null
 app.on('ready', () => {
-  tray = new Tray('/path/to/my/icon')
+  tray = bagong Tray('/path/to/my/icon')
   const contextMenu = Menu.buildFromTemplate([
     { label: 'Item1', type: 'radio' },
     { label: 'Item2', type: 'radio' },
     { label: 'Item3', type: 'radio', checked: true },
     { label: 'Item4', type: 'radio' }
   ])
-  tray.setToolTip('This is my application.')
+  tray.setToolTip('Ito ay aking aplikasyon.')
   tray.setContextMenu(contextMenu)
 })
 ```
@@ -32,22 +32,17 @@ app.on('ready', () => {
 * Sa Linux para sa mga pagbabago na ginawa sa indibidwal`MenuItem`upang magkabisa, dapat mong tawagan ang`setContextMenu`muli. Halimbawa:
 
 ```javascript
-const { app, Menu, Tray } = require('electron')
+const { app, Menu, Tray } = nangangaianganng('electron')
 
-let appIcon = null
+hayaan ang appIcon = null
 app.on('ready', () => {
-  appIcon = new Tray('/path/to/my/icon')
+  appIcon = bagong Tray('/path/to/my/icon')
   const contextMenu = Menu.buildFromTemplate([
     { label: 'Item1', type: 'radio' },
     { label: 'Item2', type: 'radio' }
   ])
-
-  // Make a change to the context menu
-  contextMenu.items[1].checked = false
-
-  // Call this again for Linux because we modified the context menu
-  appIcon.setContextMenu(contextMenu)
-})
+  //Gumawa ng mga pagbabago sa context menu
+  contextMenu.items[1].tiningnan = mali
 ```
 
 * Sa windows ito ay inirekomenda para gamitin ang mga `ICO`icons para makuha ang pinakamahusay na visual effects.
@@ -217,10 +212,10 @@ Nagseset kapang ang tray's icon background ay nagiging highlighted(sa asul).
 **Note:**Maari mong gamitin ang`highlightMode`sa isang [`BrowserWindow`](browser-window.md)sa pamamagitan ng toggling sa pagitan `'never'` and `'always'` modes kapag ang window visibility ay nagbago.
 
 ```javascript
-const { BrowserWindow, Tray } = require('electron')
+const { BrowserWindow, Tray } = nangangailanganng('electron')
 
-const win = new BrowserWindow({ width: 800, height: 600 })
-const tray = new Tray('/path/to/my/icon')
+const win = bagong BrowserWindow({ width: 800, height: 600 })
+const tray = bagong Tray('/path/to/my/icon')
 
 tray.on('click', () => {
   win.isVisible() ? win.hide() : win.show()
