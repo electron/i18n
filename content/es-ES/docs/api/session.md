@@ -271,7 +271,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.setPermissionCheckHandler(handler)`
 
-* `handler` Function<boolean> | null 
+* `manejador` Function<boolean> | null 
   * `webContents` [WebContents](web-contents.md) - WebContents checking the permission.
   * `permission` String - Enum of 'media'.
   * `requestingOrigin` String - The origin URL of the permission check
@@ -296,91 +296,91 @@ session.fromPartition('some-partition').setPermissionCheckHandler((webContents, 
 
 * `callback` Function (opcional) - Invocada cuando la operación ha finalizado.
 
-Clears the host resolver cache.
+Borra la caché de resolución de host.
 
 #### `ses.allowNTLMCredentialsForDomains(domains)`
 
-* `domains` String - A comma-separated list of servers for which integrated authentication is enabled.
+* `dominio` Cadena - Una lista separada por coma de servidores para los cuales la autenticación integrada está habilitada.
 
-Dynamically sets whether to always send credentials for HTTP NTLM or Negotiate authentication.
+Configura dinámicamente cada vez que se envíen credenciales para HTTP NTLM o negociaciones de autenticación.
 
 ```javascript
 const { session } = require('electron')
-// consider any url ending with `example.com`, `foobar.com`, `baz`
-// for integrated authentication.
+// considera cualquier url que termine con `example.com`, `foobar.com`, `baz`
+// para autenticación integrada.
 session.defaultSession.allowNTLMCredentialsForDomains('*example.com, *foobar.com, *baz')
 
-// consider all urls for integrated authentication.
+// considera todas las Urls para autenticación integrada.
 session.defaultSession.allowNTLMCredentialsForDomains('*')
 ```
 
 #### `ses.setUserAgent(userAgent[, acceptLanguages])`
 
 * `userAgent` cadena
-* `acceptLanguages` String (optional)
+* `lenguajes aceptados` Cadena (opcional)
 
-Overrides the `userAgent` and `acceptLanguages` for this session.
+Reemplaza el `userAgent` y los `lenguajes aceptados` para esta sesión.
 
-The `acceptLanguages` must a comma separated ordered list of language codes, for example `"en-US,fr,de,ko,zh-CN,ja"`.
+Los `lenguajes aceptados` deben estar ordenados en una lista separada por coma de códigos de lenguaje, por ejemplo `"en-US,fr,de,ko,zh-CN,ja"`.
 
-This doesn't affect existing `WebContents`, and each `WebContents` can use `webContents.setUserAgent` to override the session-wide user agent.
+Esto no afecta el `contenido web` existente, y cada `contenido web` puede usar `webContents.setUserAgent` para sobreescribir el agente de sesión de usuario.
 
 #### `ses.getUserAgent()`
 
-Returns `String` - The user agent for this session.
+Devuelve `Cadena` - El agente usuario para esta sesión.
 
 #### `ses.getBlobData(identifier, callback)`
 
-* `identifier` String - Valid UUID.
+* `identificador` Cadena - UUID válido.
 * `callback` Function 
-  * `result` Buffer - Blob data.
+  * `resultado` Buffer - datos Blob.
 
 #### `ses.createInterruptedDownload(options)`
 
-* `options` Objeto 
-  * `path` String - Absolute path of the download.
-  * `urlChain` String[] - Complete URL chain for the download.
-  * `mimeType` String (optional)
-  * `offset` Integer - Start range for the download.
-  * `length` Integer - Total length of the download.
-  * `lastModified` String - Last-Modified header value.
-  * `eTag` String - ETag header value.
-  * `startTime` Double (optional) - Time when download was started in number of seconds since UNIX epoch.
+* `opciones` Object 
+  * `ruta` Cadena - ruta de acceso absoluta de la descarga.
+  * `Cadeba URL` Cadena[] - Cadena de URL completa para la descarga.
+  * `mimeType` Cadena (opcional)
+  * `offset` Entero - rango de inicio para la descarga.
+  * `longitud` Entero - longitud total de la descarga.
+  * `última modificación` Cadena - Último valor del encabezado modificado.
+  * `eTag` Cadena - Valor Etag del encabezado.
+  * `Tiempo de inicio` Doble (opcional) - Tiempo en que se inició la descarga en números de segundo desde epoch de UNIX.
 
-Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
+Permite `cancelar` o `interrumpir` descargas de una `Sesión` previa. La API generará un [elemento de descarga](download-item.md) que puede ser accesado con el evento [se descargará](#event-will-download). El [Elemento de descarga](download-item.md) no tendrá ningún `contenido web` asociado con el y el estado inicial será `interrumpido`. La descarga empezará solo cuando la `reanudación` de la API sea llamada en el [elemento descargado](download-item.md).
 
 #### `ses.clearAuthCache(options[, callback])`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
 * `callback` Function (opcional) - Invocada cuando la operación ha finalizado.
 
-Clears the session’s HTTP authentication cache.
+Limpia caché de autenticación HTTP de la sesión.
 
 #### `ses.setPreloads(preloads)`
 
-* `preloads` String[] - An array of absolute path to preload scripts
+* `preloads` String[] - Un array de ruta absoluta para precargar scripts
 
-Adds scripts that will be executed on ALL web contents that are associated with this session just before normal `preload` scripts run.
+Agrega scripts que se ejecutarán en TODOS los contenidos web que están asociados con esta sesión justo antes de que se ejecuten los scripts de `preload` normales.
 
 #### `ses.getPreloads()`
 
-Returns `String[]` an array of paths to preload scripts that have been registered.
+Devuelve un array de rutas `String[]` para precargar guiones que han sido registrado.
 
 ### Propiedades de Instancia
 
-The following properties are available on instances of `Session`:
+Las siguientes propiedades están disponibles en instancias de `Sesión`:
 
 #### `ses.cookies`
 
-A [Cookies](cookies.md) object for this session.
+Un objeto de [Cookies](cookies.md) para esta esión.
 
 #### `ses.webRequest`
 
-A [WebRequest](web-request.md) object for this session.
+Un objeto [petición web](web-request.md) para esta sesión.
 
 #### `ses.protocol`
 
-A [Protocol](protocol.md) object for this session.
+Un objeto de [protocolo](protocol.md) para esta sesión.
 
 ```javascript
 const { app, session } = require('electron')
