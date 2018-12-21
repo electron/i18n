@@ -7,20 +7,7 @@ Proses: [Main](../glossary.md#main-process)
 `Tray` adalah [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 ```javascript
-const { app, Menu, Tray } = require('electron')
-
-let tray = null
-app.on('ready', () => {
-  tray = new Tray('/path/to/my/icon')
-  const contextMenu = Menu.buildFromTemplate([
-    { label: 'Item1', type: 'radio' },
-    { label: 'Item2', type: 'radio' },
-    { label: 'Item3', type: 'radio', checked: true },
-    { label: 'Item4', type: 'radio' }
-  ])
-  tray.setToolTip('This is my application.')
-  tray.setContextMenu(contextMenu)
-})
+const { app, Menu, Tray } = require('electron') Biarkan nampan = null app.on ('siap', () = > {nampan = baru Tray('/path/to/my/icon') const contextMenu = tray.setToolTip Menu.buildFromTemplate ([{ label: 'Item1', type: 'radio' }, { label: 'Item2', type: 'radio' }, { label: 'Item3', type: 'radio', checked: true }, { label: 'Item4', type: 'radio' }]) (' Inilah saya  aplikasi.')   tray.setContextMenu(contextMenu)})
 ```
 
 **Keterbatasan platform:**
@@ -32,22 +19,7 @@ app.on('ready', () => {
 * Pada Linux dalam rangka untuk perubahan yang dibuat ke setiap `MenuItem` s untuk mengambil efek, Anda harus memanggil `setContextMenu` lagi. Sebagai contoh:
 
 ```javascript
-const { app, Menu, Tray } = require('electron')
-
-let appIcon = null
-app.on('ready', () => {
-  appIcon = new Tray('/path/to/my/icon')
-  const contextMenu = Menu.buildFromTemplate([
-    { label: 'Item1', type: 'radio' },
-    { label: 'Item2', type: 'radio' }
-  ])
-
-  // Make a change to the context menu
-  contextMenu.items[1].checked = false
-
-  // Call this again for Linux because we modified the context menu
-  appIcon.setContextMenu(contextMenu)
-})
+const { app, Menu, Tray } = require('electron') Biarkan appIcon = null app.on ('siap', () = > {appIcon = baru Tray('/path/to/my/icon') const contextMenu = Menu.buildFromTemplate ([{ label: 'Item1', type: 'radio' }, { label: 'Item2', type: 'radio' }]) / / membuat perubahan konteks menu contextMenu.items[1].checked = false / / menyebutnya lagi untuk Linux karena kami diubah konteks menu appIcon.setContextMenu(contextMenu)})
 ```
 
 * Pada Windows disarankan untuk menggunakan ikon `ICO` untuk mendapatkan efek visual terbaik.
@@ -217,13 +189,13 @@ Menyetel teks hover untuk ikon baki ini.
   **Catatan:** Anda dapat menggunakan `highlightMode` dengan [`BrowserWindow`](browser-window.md) dengan Toggling antara `'never'` dan `'always'` saat jendela melihat visibilitas berubah.
   
   ```javascript
-  const { BrowserWindow, Tray } = require('electron')
+  const { BrowserWindow, Tray } = require ('electron')
   
-  const win = new BrowserWindow({ width: 800, height: 600 })
-  const tray = new Tray('/path/to/my/icon')
+  const win = new BrowserWindow ({ width: 800, height: 600 })
+  const tray = new Tray ('/ path / to / my / icon')
   
-  tray.on('click', () => {
-    win.isVisible() ? win.hide (): win.show ()
+  tray.on ('klik', () = > {
+    win.isVisible ()? win.hide (): win.show ()
   })
   win.on ('show', () = > {
     tray.setHighlightMode ('selalu')
@@ -233,7 +205,7 @@ Menyetel teks hover untuk ikon baki ini.
   })
   ```
   
-  #### `tray.setIgnoreDoubleClickEvents(ignore)` Linux *macOS*
+  #### `tray.setIgnoreDoubleClickEvents(ignore)` * macos*
   
   * `mengabaikan` Boolean
   
