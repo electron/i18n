@@ -193,7 +193,7 @@ The `webview` tag has the following methods:
 
 **Note:** The webview element must be loaded before using the methods.
 
-**Example**
+**예시**
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -417,7 +417,7 @@ Inserts `text` to the focused element.
 ### `<webview>.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `options` Object (optional) 
+* `options` Object (선택) 
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -439,7 +439,7 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
 
 ### `<webview>.print([options])`
 
-* `options` Object (optional) 
+* `options` Object (선택) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
@@ -565,7 +565,7 @@ This event is like `did-finish-load`, but fired when the load failed or was canc
 
 ### Event: 'did-frame-finish-load'
 
-반환:
+Returns:
 
 * `isMainFrame` Boolean
 
@@ -594,7 +594,7 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 
 ### Event: 'page-favicon-updated'
 
-Returns:
+반환:
 
 * `favicons` String[] - Array of URLs.
 
@@ -610,7 +610,7 @@ Fired when page leaves fullscreen triggered by HTML API.
 
 ### Event: 'console-message'
 
-반환:
+Returns:
 
 * `level` Integer
 * `message` String
@@ -678,7 +678,7 @@ webview.addEventListener('new-window', (e) => {
 
 ### Event: 'will-navigate'
 
-반환:
+Returns:
 
 * `url` String
 
@@ -692,7 +692,7 @@ Calling `event.preventDefault()` does **NOT** have any effect.
 
 ### Event: 'did-navigate'
 
-반환:
+Returns:
 
 * `url` String
 
@@ -726,7 +726,7 @@ webview.addEventListener('close', () => {
 
 ### Event: 'ipc-message'
 
-반환:
+Returns:
 
 * `channel` String
 * `args` Array
@@ -763,9 +763,9 @@ Fired when the gpu process is crashed.
 
 ### Event: 'plugin-crashed'
 
-반환:
+Returns:
 
-* `name` String
+* PrinterInfo Object
 * `version` String
 
 Fired when a plugin process is crashed.
@@ -796,7 +796,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 ### Event: 'update-target-url'
 
-반환:
+Returns:
 
 * `url` String
 
