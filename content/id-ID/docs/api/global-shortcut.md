@@ -2,17 +2,15 @@
 
 > Deteksi kejadian keyboard saat aplikasi tidak memiliki fokus keyboard.
 
-Proses:  Utama </ 0></p> 
+Proses: [Main](../glossary.md#main-process)
 
 The ` globalShortcut </ 0> modul dapat mendaftarkan / unregister shortcut keyboard global dengan sistem operasi sehingga Anda dapat menyesuaikan operasi untuk berbagai cara pintas.</p>
 
 <p><strong> Catatan: </ 0> Jalan pintas bersifat global; itu akan bekerja bahkan jika aplikasi tidak memiliki fokus keyboard. Anda tidak boleh menggunakan modul ini sampai event <code> ready </ 0>
  dari modul aplikasi dipancarkan.</p>
 
-<pre><code class="javascript">const { app, globalShortcut } = require('electron')
-
-app.on('ready', () => {
-  // Register a 'CommandOrControl+X' shortcut listener.
+<pre><code class="javascript">const { app, globalShortcut } = memerlukan ('elektron') app.on ('siap', () = & gt; {
+   // Daftarkan pendatang jalan pintas 'CommandOrControl + X'.
   const (= perintah) = ()perintah atau Control + X ', () = & gt; {
      console.log (' perintah atau Control + X ditekan ')
    })
@@ -40,8 +38,8 @@ Modul ` globalShortcut ` memiliki metode berikut:
 
 ### `globalShortcut.register (akselerator, callback)`
 
-* ` akselerator ` [ Accelerator ](accelerator.md)
-* `callback ` Fungsi
+* ` akselerator </ 0>  <a href="accelerator.md"> Akselerator </ 1></li>
+<li><code>callback ` Fungsi
 
 Mendaftarkan pintasan global ` akselerator </ 0> . The <code> callback </ 0> disebut ketika shortcut yang terdaftar ditekan oleh pengguna.</p>
 
@@ -49,18 +47,18 @@ Mendaftarkan pintasan global ` akselerator </ 0> . The <code> callback </ 0> dis
 
 <h3><code>globalShortcut.isRegistered (akselerator)`</h3> 
 
-* ` akselerator </ 0>  <a href="accelerator.md"> Akselerator </ 1></li>
-</ul>
+* ` akselerator ` [ Accelerator ](accelerator.md)
 
-<p>Mengembalikan <code> Boolean </ 0> - Apakah aplikasi ini telah terdaftar <code> akselerator </ 0> .</p>
+Mengembalikan ` Boolean </ 0> - Apakah aplikasi ini telah terdaftar <code> akselerator </ 0> .</p>
 
 <p>Bila akselerator sudah diambil oleh aplikasi lain, panggilan ini tetap akan kembali <code> salah</ 0> . Perilaku ini dimaksudkan oleh sistem operasi, karena mereka tidak ingin aplikasi berjuang untuk jalan pintas global.</p>
 
 <h3><code>globalShortcut.unregister (akselerator)`</h3> 
-    * ` akselerator ` [ Accelerator ](accelerator.md)
-    
-    Unregisters jalan pintas global ` akselerator </ 0> .</p>
+
+* ` akselerator ` [ Accelerator ](accelerator.md)
+
+Unregisters jalan pintas global ` akselerator </ 0> .</p>
 
 <h3><code>globalShortcut.unregisterAll ()`</h3> 
-    
-    Unregisters semua jalan pintas global.
+
+Unregisters semua jalan pintas global.
