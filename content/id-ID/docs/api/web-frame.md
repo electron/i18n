@@ -108,134 +108,134 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 
 ### `webFrame.insertText(text)`
 
-* ` teks </ 0>  String</li>
-</ul>
+* `teks` String
 
-<p>Sisipan <code>teks` ke elemen yang terfokus.</p> 
-  ### `webFrame.executeJavaScript(code[, userGesture, callback])`
-  
-  * `code` String
-  * `userGesture` Boolean (opsional) - Default adalah `false`.
-  * `callback` Fungsi (opsional) - Dipanggil setelah script telah dieksekusi. 
-    * `hasil` Ada
-  
-  Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
-  
-  Evaluasi `kode` di halaman.
-  
-  Di jendela browser beberapa API HTML seperti `requestFullScreen` hanya bisa dipanggil oleh isyarat dari pengguna. Setting `userGesture` ke `true` akan dihapus keterbatasan ini.
-  
-  ### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
-  
-  * `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
-  * `scripts` [WebSource[]](structures/web-source.md)
-  * `userGesture` Boolean (opsional) - Default adalah `false`.
-  * `callback` Fungsi (opsional) - Dipanggil setelah script telah dieksekusi. 
-    * `hasil` Ada
-  
-  Work like `executeJavaScript` but evaluates `scripts` in an isolated context.
-  
-  ### `webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)`
-  
-  * `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
-  * `csp` String
-  
-  Set the content security policy of the isolated world.
-  
-  ### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)`
-  
-  * `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
-  * ` nama </ 0>  String</li>
+Sisipan `teks` ke elemen yang terfokus.
+
+### `webFrame.executeJavaScript(code[, userGesture, callback])`
+
+* `code` String
+* `userGesture` Boolean (opsional) - Default adalah `false`.
+* `callback` Fungsi (opsional) - Dipanggil setelah script telah dieksekusi. 
+  * `hasil` Ada
+
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+
+Evaluasi `kode` di halaman.
+
+Di jendela browser beberapa API HTML seperti `requestFullScreen` hanya bisa dipanggil oleh isyarat dari pengguna. Setting `userGesture` ke `true` akan dihapus keterbatasan ini.
+
+### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
+
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
+* `scripts` [WebSource[]](structures/web-source.md)
+* `userGesture` Boolean (opsional) - Default adalah `false`.
+* `callback` Fungsi (opsional) - Dipanggil setelah script telah dieksekusi. 
+  * `hasil` Ada
+
+Work like `executeJavaScript` but evaluates `scripts` in an isolated context.
+
+### `webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)`
+
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
+* `csp` String
+
+Set the content security policy of the isolated world.
+
+### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)`
+
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
+* ` nama </ 0>  String</li>
 </ul>
 
 <p>Set the name of the isolated world. Useful in devtools.</p>
 
 <h3><code>webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)`</h3> 
-    * `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
-    * `securityOrigin` String
-    
-    Set the security origin of the isolated world.
-    
-    ### `webFrame.getResourceUsage()`
-    
-    Mengembalikan `Objek`:
-    
-    * `gambar` [DetailPemakaianMemori](structures/memory-usage-details.md)
-    * `scripts` [MemoryUsageDetails](structures/memory-usage-details.md)
-    * `cssStyleSheets` [DetailPemakaianMemori](structures/memory-usage-details.md)
-    * `xslStyleSheets` [DetailPemakaianMemori](structures/memory-usage-details.md)
-    * `Huruf` [DetailPemakaianMemori](structures/memory-usage-details.md)
-    * `lain` [DetailPemakaianMemori](structures/memory-usage-details.md)
-    
-    Mengembalikan objek yang menjelaskan informasi penggunaan memori internal Blink cache.
-    
-    ```javascript
-    const { webFrame } = require('electron')
-    console.log(webFrame.getResourceUsage())
-    ```
-    
-    Ini akan menghasilkan:
-    
-    ```javascript
-    {
-      images: {
-        count: 22,
-        size: 2549,
-        liveSize: 2542
-      },
-      cssStyleSheets: { /* same with "images" */ },
-      xslStyleSheets: { /* same with "images" */ },
-      fonts: { /* same with "images" */ },
-      other: { /* same with "images" */ }
-    }
-    ```
-    
-    ### `webFrame.clearCache()`
-    
-    Upaya untuk membebaskan memori yang tidak lagi digunakan (seperti gambar dari a navigasi sebelumnya).
-    
-    Perhatikan bahwa secara membabi buta memanggil metode ini mungkin membuat Electron lebih lambat sejak itu harus mengisi ulang cache yang dikosongkan ini, sebaiknya Anda hanya menelponnya jika sebuah acara di aplikasi Anda telah terjadi yang membuat Anda menganggap halaman Anda benar-benar menggunakan lebih sedikit memori (yaitu Anda telah menavigasi dari halaman super berat ke yang kebanyakan kosong, dan berniat untuk tinggal di sana).
-    
-    ### `webFrame.getFrameForSelector(selector)`
-    
-    * `selector` String - CSS selector for a frame element.
-    
-    Returns `WebFrame` - The frame element in `webFrame's` document selected by `selector`, `null` would be returned if `selector` does not select a frame or if the frame is not in the current renderer process.
-    
-    ### `webFrame.findFrameByName(name)`
-    
-    * ` nama </ 0>  String</li>
+  * `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
+  * `securityOrigin` String
+  
+  Set the security origin of the isolated world.
+  
+  ### `webFrame.getResourceUsage()`
+  
+  Mengembalikan `Objek`:
+  
+  * `gambar` [DetailPemakaianMemori](structures/memory-usage-details.md)
+  * `scripts` [MemoryUsageDetails](structures/memory-usage-details.md)
+  * `cssStyleSheets` [DetailPemakaianMemori](structures/memory-usage-details.md)
+  * `xslStyleSheets` [DetailPemakaianMemori](structures/memory-usage-details.md)
+  * `Huruf` [DetailPemakaianMemori](structures/memory-usage-details.md)
+  * `lain` [DetailPemakaianMemori](structures/memory-usage-details.md)
+  
+  Mengembalikan objek yang menjelaskan informasi penggunaan memori internal Blink cache.
+  
+  ```javascript
+  const { webFrame } = require('electron')
+  console.log(webFrame.getResourceUsage())
+  ```
+  
+  Ini akan menghasilkan:
+  
+  ```javascript
+  {
+    images: {
+      count: 22,
+      size: 2549,
+      liveSize: 2542
+    },
+    cssStyleSheets: { /* same with "images" */ },
+    xslStyleSheets: { /* same with "images" */ },
+    fonts: { /* same with "images" */ },
+    other: { /* same with "images" */ }
+  }
+  ```
+  
+  ### `webFrame.clearCache()`
+  
+  Upaya untuk membebaskan memori yang tidak lagi digunakan (seperti gambar dari a navigasi sebelumnya).
+  
+  Perhatikan bahwa secara membabi buta memanggil metode ini mungkin membuat Electron lebih lambat sejak itu harus mengisi ulang cache yang dikosongkan ini, sebaiknya Anda hanya menelponnya jika sebuah acara di aplikasi Anda telah terjadi yang membuat Anda menganggap halaman Anda benar-benar menggunakan lebih sedikit memori (yaitu Anda telah menavigasi dari halaman super berat ke yang kebanyakan kosong, dan berniat untuk tinggal di sana).
+  
+  ### `webFrame.getFrameForSelector(selector)`
+  
+  * `selector` String - CSS selector for a frame element.
+  
+  Returns `WebFrame` - The frame element in `webFrame's` document selected by `selector`, `null` would be returned if `selector` does not select a frame or if the frame is not in the current renderer process.
+  
+  ### `webFrame.findFrameByName(name)`
+  
+  * ` nama </ 0>  String</li>
 </ul>
 
 <p>Returns <code>WebFrame` - A child of `webFrame` with the supplied `name`, `null` would be returned if there's no such frame or if the frame is not in the current renderer process.</p> 
-      ### `webFrame.findFrameByRoutingId(routingId)`
-      
-      * `routingId` Integer - An `Integer` representing the unique frame id in the current renderer process. Routing IDs can be retrieved from `WebFrame` instances (`webFrame.routingId`) and are also passed by frame specific `WebContents` navigation events (e.g. `did-frame-navigate`)
-      
-      Returns `WebFrame` - that has the supplied `routingId`, `null` if not found.
-      
-      ## Properti/peralatan
-      
-      ### `webFrame.top`
-      
-      A `WebFrame` representing top frame in frame hierarchy to which `webFrame` belongs, the property would be `null` if top frame is not in the current renderer process.
-      
-      ### `webFrame.opener`
-      
-      A `WebFrame` representing the frame which opened `webFrame`, the property would be `null` if there's no opener or opener is not in the current renderer process.
-      
-      ### `webFrame.parent`
-      
-      A `WebFrame` representing parent frame of `webFrame`, the property would be `null` if `webFrame` is top or parent is not in the current renderer process.
-      
-      ### `webFrame.firstChild`
-      
-      A `WebFrame` representing the first child frame of `webFrame`, the property would be `null` if `webFrame` has no children or if first child is not in the current renderer process.
-      
-      ### `webFrame.nextSibling`
-      
-      A `WebFrame` representing next sibling frame, the property would be `null` if `webFrame` is the last frame in its parent or if the next sibling is not in the current renderer process.
-      
-      ### `webFrame.routingId`
-      
-      An `Integer` representing the unique frame id in the current renderer process. Distinct WebFrame instances that refer to the same underlying frame will have the same `routingId`.
+    ### `webFrame.findFrameByRoutingId(routingId)`
+    
+    * `routingId` Integer - An `Integer` representing the unique frame id in the current renderer process. Routing IDs can be retrieved from `WebFrame` instances (`webFrame.routingId`) and are also passed by frame specific `WebContents` navigation events (e.g. `did-frame-navigate`)
+    
+    Returns `WebFrame` - that has the supplied `routingId`, `null` if not found.
+    
+    ## Properti/peralatan
+    
+    ### `webFrame.top`
+    
+    A `WebFrame` representing top frame in frame hierarchy to which `webFrame` belongs, the property would be `null` if top frame is not in the current renderer process.
+    
+    ### `webFrame.opener`
+    
+    A `WebFrame` representing the frame which opened `webFrame`, the property would be `null` if there's no opener or opener is not in the current renderer process.
+    
+    ### `webFrame.parent`
+    
+    A `WebFrame` representing parent frame of `webFrame`, the property would be `null` if `webFrame` is top or parent is not in the current renderer process.
+    
+    ### `webFrame.firstChild`
+    
+    A `WebFrame` representing the first child frame of `webFrame`, the property would be `null` if `webFrame` has no children or if first child is not in the current renderer process.
+    
+    ### `webFrame.nextSibling`
+    
+    A `WebFrame` representing next sibling frame, the property would be `null` if `webFrame` is the last frame in its parent or if the next sibling is not in the current renderer process.
+    
+    ### `webFrame.routingId`
+    
+    An `Integer` representing the unique frame id in the current renderer process. Distinct WebFrame instances that refer to the same underlying frame will have the same `routingId`.
