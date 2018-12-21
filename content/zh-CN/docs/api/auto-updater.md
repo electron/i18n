@@ -72,7 +72,7 @@
 
 此事件是在用户调用`quitAndInstall()`之后发出的。
 
-When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
+当此API被调用时，会在所有窗口关闭之前发出 `before-quit` 事件。 因此，如果您希望在关闭窗口进程退出之前执行操作，则应该侦听此事件，以及侦听 `before-quit`。
 
 ## 方法
 
