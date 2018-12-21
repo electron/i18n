@@ -11,14 +11,14 @@ const { app, Menu, Tray } = require('electron')
 
 let tray = null
 app.on('ready', () => {
-  tray = new Tray('/path/to/my/icon')
+  tray = new Tray('/chemin/vers/mon/icone')
   const contextMenu = Menu.buildFromTemplate([
     { label: 'Item1', type: 'radio' },
     { label: 'Item2', type: 'radio' },
     { label: 'Item3', type: 'radio', checked: true },
     { label: 'Item4', type: 'radio' }
   ])
-  tray.setToolTip('This is my application.')
+  tray.setToolTip('Ceci est mon application.')
   tray.setContextMenu(contextMenu)
 })
 ```
@@ -36,16 +36,16 @@ const { app, Menu, Tray } = require('electron')
 
 let appIcon = null
 app.on('ready', () => {
-  appIcon = new Tray('/path/to/my/icon')
+  appIcon = new Tray('/chemin/vers/mon/icone')
   const contextMenu = Menu.buildFromTemplate([
     { label: 'Item1', type: 'radio' },
     { label: 'Item2', type: 'radio' }
   ])
 
-  // Make a change to the context menu
+  // Fait un changement au menu contextuel
   contextMenu.items[1].checked = false
 
-  // Call this again for Linux because we modified the context menu
+  // Appelé à nouveau pour Linux car nous avons modifié le menu contextuel
   appIcon.setContextMenu(contextMenu)
 })
 ```
