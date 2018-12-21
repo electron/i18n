@@ -1,4 +1,4 @@
-# clipboard
+# کلیپ بورد
 
 > Perform copy and paste operations on the system clipboard.
 
@@ -161,7 +161,7 @@ Writes the `buffer` into the clipboard as `format`.
 
 ### `clipboard.write(data[, type])`
 
-* `data` Object 
+* `data` شئ 
   * `text` String (optional)
   * `html` String (optional)
   * `image` [NativeImage](native-image.md) (optional)
