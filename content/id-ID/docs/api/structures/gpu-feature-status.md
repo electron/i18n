@@ -1,18 +1,18 @@
 # GPUFeatureStatus Object
 
-* `2d_canvas` String - Canvas.
-* `flash_3d` String - Flash.
-* `flash_stage3d` String - Flash Stage3D.
-* `flash_stage3d_baseline` String - Flash Stage3D Baseline profile.
-* `gpu_compositing` String - Compositing.
-* `multiple_raster_threads` String - Multiple Raster Threads.
-* `native_gpu_memory_buffers` String - Native GpuMemoryBuffers.
-* `rasterization` String - Rasterization.
-* `video_decode` String - Video Decode.
-* `video_encode` String - Video Encode.
-* `vpx_decode` String - VPx Video Decode.
-* `webgl` String - WebGL.
-* `webgl2` String - WebGL2.
+* ` 2d_canvas </ 0>  String - kanvas.</li>
+<li><code> flash_3d </ 0>  String - Flash.</li>
+<li><code> flash_stage3d </ 0>  String - Flash Stage3D.</li>
+<li><code>flash_stage3d_baseline` String - Flash Stage3D Baseline profile.
+* ` gpu_compositing </ 0>  String - Pengomposisian.</li>
+<li><code> multiple_raster_threads </ 0>  String - Beberapa Raster Threads.</li>
+<li><code> native_gpu_memory_buffers </ 0>  String - GpuMemoryBuffers asli.</li>
+<li><code> rasterisasi </ 0>  String - Rasterisasi.</li>
+<li><code> video_decode </ 0>  String - Dekode Video.</li>
+<li><code> video_encode </ 0>  String - Video Encode.</li>
+<li><code>vpx_decode` String - VPx Video Decode.
+* ` webgl </ 0>  String - WebGL.</li>
+<li><code>webgl2` String - WebGL2.
 
 Nilai yang mungkin:
 
