@@ -262,7 +262,7 @@ Sets the handler which can be used to respond to permission requests for the `se
 const { session } = require('electron')
 session.fromPartition('some-partition').setPermissionRequestHandler((webContents, permission, callback) => {
   if (webContents.getURL() === 'some-host' && permission === 'notifications') {
-    return callback(false) // denied.
+    return callback(false) // interdit.
   }
 
   callback(true)
@@ -294,9 +294,9 @@ session.fromPartition('some-partition').setPermissionCheckHandler((webContents, 
 
 #### `ses.clearHostResolverCache([callback])`
 
-* `callback` Function (optionnelle) - Appelée lorsque l’opération est effectuée.
+* `callback` Function (optionnel) - Appelée quand l'opération est terminée.
 
-Clears the host resolver cache.
+Vide le cache de résolution de l'hôte.
 
 #### `ses.allowNTLMCredentialsForDomains(domains)`
 
@@ -317,7 +317,7 @@ session.defaultSession.allowNTLMCredentialsForDomains('*')
 #### `ses.setUserAgent(userAgent[, acceptLanguages])`
 
 * `userAgent` String
-* `acceptLanguages` String (optional)
+* `acceptLanguages` String (facultatif)
 
 Overrides the `userAgent` and `acceptLanguages` for this session.
 
@@ -327,34 +327,34 @@ This doesn't affect existing `WebContents`, and each `WebContents` can use `webC
 
 #### `ses.getUserAgent()`
 
-Returns `String` - The user agent for this session.
+Renvoie `String` - L'utilisateur de cette session.
 
 #### `ses.getBlobData(identifier, callback)`
 
-* `identifier` String - Valid UUID.
+* `identifier` String - UUID valide.
 * `callback` Function 
-  * `result` Buffer - Blob data.
+  * `result` Buffer - données Blob.
 
 #### `ses.createInterruptedDownload(options)`
 
 * `options` Objet 
-  * `path` String - Absolute path of the download.
-  * `urlChain` String[] - Complete URL chain for the download.
-  * `mimeType` String (optional)
-  * `offset` Integer - Start range for the download.
-  * `length` Integer - Total length of the download.
-  * `lastModified` String - Last-Modified header value.
-  * `eTag` String - ETag header value.
-  * `startTime` Double (optional) - Time when download was started in number of seconds since UNIX epoch.
+  * `path` String - Chemin d'accès absolu pour le téléchargement.
+  * `urlChain` String[] - Chaîne de caractère complète de l'URL du téléchargement.
+  * `type` String (facultatif)
+  * `offset` Integer - Portée de départ pour le téléchargement.
+  * `length` Integer - Longueur totale du le téléchargement.
+  * `lastModified` String - Valeur Last-Modified du header.
+  * `eTag` String - Valeur du ETag dans le header.
+  * `startTime` Double (facultatif) - Heure du début de téléchargement, en nombre de secondes depuis la date initiale UNIX (1er janvier 1970 à 0 heure (UTC)).
 
 Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
 
 #### `ses.clearAuthCache(options[, callback])`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `callback` Function (optionnelle) - Appelée lorsque l’opération est effectuée.
+* `callback` Function (optionnel) - Appelée quand l'opération est terminée.
 
-Clears the session’s HTTP authentication cache.
+Vide le cache d'authentification HTTP de la session.
 
 #### `ses.setPreloads(preloads)`
 
@@ -368,19 +368,19 @@ Returns `String[]` an array of paths to preload scripts that have been registere
 
 ### Instance Properties
 
-The following properties are available on instances of `Session`:
+Les propriétés suivantes sont disponibles pour les instances de `Session` :
 
 #### `ses.cookies`
 
-A [Cookies](cookies.md) object for this session.
+Un objet [Cookies](cookies.md) pour cette session.
 
 #### `ses.webRequest`
 
-A [WebRequest](web-request.md) object for this session.
+Un objet [WebRequest](web-request.md) pour cette session.
 
 #### `ses.protocol`
 
-A [Protocol](protocol.md) object for this session.
+Un objet [Protocol](protocol.md) pour cette session.
 
 ```javascript
 const { app, session } = require('electron')
