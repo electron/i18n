@@ -30,8 +30,8 @@ The ` ipcRenderer </ 0> modul adalah turunan dari
 <p>Hapus satu waktu <code> pendengar </ 0> fungsi untuk acara. Ini <code> pendengar </ 0> yang hanya satu kali pesan terkirim ke <code> saluran </ 0>, setelah itu hapus.</p>
 
 <h3><code>ipcRenderer.pendengar menghapus (saluran, pendengar)`</h3> 
-        * ` saluran </ 0>  String</li>
-<li><code> pendengar </ 0> Fungsi</li>
+        * `channel` String
+        * ` pendengar </ 0> Fungsi</li>
 </ul>
 
 <p>Menghapus ditentukan <code> pendengar </ 0> dari array pendengar untuk <code> saluran </ 0> tertentu.</p>
