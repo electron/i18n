@@ -11,7 +11,7 @@
 ```javascript
 const { session } = require('electron')
 
-// Query all cookies.
+// すべてのクッキーをクエリーします。
 session.defaultSession.cookies.get({}, (error, cookies) => {
   console.log(error, cookies)
 })
