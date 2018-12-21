@@ -101,4 +101,4 @@
 
 在此机制下，调用 `autoUpdater.quitAndInstall()` 将首先关闭所有应用程序窗口，并且在所有窗口都关闭之后自动调用 `app.quit()`
 
-**Note:** It is not strictly necessary to call this function to apply an update, as a successfully downloaded update will always be applied the next time the application starts.
+**Note:** 严格来讲，执行一次自动更新不一定要调用次方法。因为下载更新文件成功止之后，下次应用启动的时候会强制更新。
