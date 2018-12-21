@@ -98,7 +98,7 @@ When this attribute is present the guest page in `webview` will have node integr
 
 When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. The remote module is avaiable by default.
 
-### `plugins`
+### `wtyczki`
 
 ```html
 <webview src="https://www.github.com/" plugins></webview>
@@ -205,7 +205,7 @@ webview.addEventListener('dom-ready', () => {
 ### `<webview>.loadURL(url[, options])`
 
 * `url` URL
-* `opcje` Obiekt (opcjonalne) 
+* `options` Obiekt (opcjonalne) 
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
@@ -250,7 +250,7 @@ Reloads the guest page.
 
 ### `<webview>.reloadIgnoringCache()`
 
-Reloads the guest page and ignores cache.
+Przeładowuje stronę gościa i ignoruje cache.
 
 ### `<webview>.canGoBack()`
 
@@ -321,11 +321,11 @@ Evaluates `code` in page. If `userGesture` is set, it will create the user gestu
 
 ### `<webview>.openDevTools()`
 
-Opens a DevTools window for guest page.
+Otwiera okno DevTools dla strony gościa.
 
 ### `<webview>.closeDevTools()`
 
-Closes the DevTools window of guest page.
+Zamyka okno DevTools strony gościa.
 
 ### `<webview>.isDevToolsOpened()`
 
@@ -430,7 +430,7 @@ Starts a request to find all matches for the `text` in the web page. The result 
 
 ### `<webview>.stopFindInPage(action)`
 
-* `czynność` String - Specifies the action to take place when ending [`<webview>.findInPage`](#webviewfindinpagetext-options) request. 
+* `czynność` String - Specifies the action to take place when ending [`<webview>.findInPage`](#webviewfindinpagetext-options) żądanie. 
   * `clearSelection` - Clear the selection.
   * `keepSelection` - Translate the selection into a normal selection.
   * `activateSelection` - Focus and click the selection node.
@@ -439,7 +439,7 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
 
 ### `<webview>.print([options])`
 
-* `opcje` Obiekt (opcjonalne) 
+* `options` Obiekt (opcjonalne) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
