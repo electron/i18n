@@ -70,7 +70,7 @@ Don't attach to the current console session.
 
 ### `ELECTRON_FORCE_WINDOW_MENU_BAR` *Linux*
 
-Don't use the global menu bar on Linux.
+Nie używaj global menu bar na Linuxie.
 
 ### `ELECTRON_TRASH` *Linux*
 
@@ -109,7 +109,7 @@ This environment variable will not work if the `crashReporter` is started.
 
 ### `ELECTRON_OVERRIDE_DIST_PATH`
 
-When running from the `electron` package, this variable tells the `electron` command to use the specified build of Electron instead of the one downloaded by `npm install`. Usage:
+When running from the `electron` package, this variable tells the `electron` command to use the specified build of Electron instead of the one downloaded by `npm install`. Zużycie:
 
 ```sh
 export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Debug
