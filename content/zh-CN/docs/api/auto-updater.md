@@ -4,7 +4,7 @@
 
 线程：[主线程](../glossary.md#main-process)
 
-**See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
+**请参阅：在应用程序中如何实现更新的详细指南。**
 
 ## 跨平台提醒
 
@@ -66,11 +66,11 @@
 
 在 Windows 上只有 `releaseName` 是有效的。
 
-**Note:** It is not strictly necessary to handle this event. A successfully downloaded update will still be applied the next time the application starts.
+注意：严格来说不需要处理此事件。即时成功下载之后，下一次应用程序启动时，仍将继续下载更新文件。
 
 ### Event: 'before-quit-for-update'
 
-This event is emitted after a user calls `quitAndInstall()`.
+此事件是在用户调用`quitAndInstall()`之后发出的。
 
 When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
 
