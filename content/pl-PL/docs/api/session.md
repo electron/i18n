@@ -252,7 +252,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
   * `permission` String - Enum of 'media', 'geolocation', 'notifications', 'midiSysex', 'pointerLock', 'fullscreen', 'openExternal'.
   * `callback` Function 
     * `permissionGranted` Boolean - Allow or deny the permission.
-  * `detale` Object - Some properties are only available on certain permission types. 
+  * `details` Object - Some properties are only available on certain permission types. 
     * `externalURL` String - The url of the `openExternal` request.
     * `mediaTypes` String[] - The types of media access being requested, elements can be `video` or `audio`
 
