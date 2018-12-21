@@ -33,10 +33,10 @@ ipcMain.on('synchronous-message', (event, arg) => {
 ```javascript
 // renderer 프로세스(웹 페이지)안에서
 const { ipcRenderer } = require('electron')
-console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // prints "pong"
+console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // "pong"이 출력됩니다.
 
 ipcRenderer.on('asynchronous-reply', (event, arg) => {
-  console.log(arg) // prints "pong"
+  console.log(arg) // "pong"이 출력됩니다.
 })
 ipcRenderer.send('asynchronous-message', 'ping')
 ```
