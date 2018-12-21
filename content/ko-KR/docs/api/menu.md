@@ -52,7 +52,7 @@ You can also attach other fields to the element of the `template` and they will 
 
 #### `menu.popup(options)`
 
-* `options` Object (optional) 
+* `options` Object (선택) 
   * `window` [BrowserWindow](browser-window.md) (선택) - 기본 값은 포커스된 윈도우입니다.
   * `x` Number (선택) - 기본 값은 현재 마우스 커서의 위치입니다. `y`가 정의되어있다면 반드시 정의되어야 합니다.
   * `y` Number (선택) - 기본 값은 현재 마우스 커서의 위치입니다. `x`가 정의되어있다면 반드시 정의되어야 합니다.
