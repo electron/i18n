@@ -24,7 +24,7 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 * `platform`
 * `resourcesPath`
 * `sandboxed`
-* `uri`
+* `ang uri`
 * `version`
 * `versions`
 * `mas`
@@ -74,41 +74,41 @@ Ang `String` nag representa ng landas patungo sa pangunahing panuto.
 
 A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
 
-### `process.throwDeprecation`
+### `proseso.itaponDeprecation`
 
-A `Boolean` that controls whether or not deprecation warnings will be thrown as exceptions. Setting this to `true` will throw errors for deprecations. This property is used instead of the `--throw-deprecation` command line flag.
+Ang `Boolean` na kumokontrol kung o hindi ang mga babala sa deprecation ay matatapon bilang eskepsyon. Ang pagtatakda ng mga ito na `totoo` ay magtatapon ng mali para sa deprecations. Ang propeyedad na ito ay ginagamit sa halip na `--tapon-deprecation` naguutos sa bandilang linya.
 
-### `process.traceDeprecation`
+### `proseso.bakasDeprecation`
 
-A `Boolean` that controls whether or not deprecations printed to `stderr` include their stack trace. Setting this to `true` will print stack traces for deprecations. This property is instead of the `--trace-deprecation` command line flag.
+Ang `Boolean` na nagkontrol kung o hindi ang deprecation ay nakalimbag sa `stderr` isinama ng isinalansan na bakas. Setting this to `true` will print stack traces for deprecations. Ang propeyedad na ito ay sa halip na ang `--bakas-deprecation` naguutos ng linyang bandila.
 
-### `process.traceProcessWarnings`
+### `proseso.bakasProsesoBabala`
 
-A `Boolean` that controls whether or not process warnings printed to `stderr` include their stack trace. Setting this to `true` will print stack traces for process warnings (including deprecations). This property is instead of the `--trace-warnings` command line flag.
+Ang `Boolean` na nagkontrol kung o hindi na ang mga babalang proseso ay nakalimbag sa `stderr` isama sa isinalansan na bakas. Setting this to `true` will print stack traces for process warnings (including deprecations). This property is instead of the `--trace-warnings` command line flag.
 
-### `process.type`
+### `proseso.uri`
 
-A `String` representing the current process's type, can be `"browser"` (i.e. main process) or `"renderer"`.
+Ang `String` ay nagrepresenta sa kasalukuyang prosesong uri, pwede ring `"browser"`(i.e pangunahing proses) o `"gumawa"`.
 
-### `process.versions.chrome`
+### `proseso.bersyon.chrome`
 
-A `String` representing Chrome's version string.
+Ang `String` nagrepresenta sa bersyon ng Chrome string.
 
-### `process.versions.electron`
+### `proseso.bersyon.electron`
 
-A `String` representing Electron's version string.
+Ang `String` nag representang bersyon ng Electron string.
 
-### `process.windowsStore`
+### `proseso.windowsStore`
 
-A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
+Ang `Boolean`. Kung ang app ay tumatakbo bilang Windows Store app (appx), ang propeyedad a `totoo`, para kung hindimna ito ay `malabo`.
 
 ## Mga Paraan
 
-The `process` object has the following methods:
+Ang `proseso` na bagay ay may mga sumusunod na paraan:
 
-### `process.crash()`
+### `proseso.crash()`
 
-Causes the main thread of the current process crash.
+Ang mga dahilan ng pangunahing thread sa kasalukuyang proseso ay lumagpak.
 
 ### `process.getCreationTime()`
 
@@ -116,17 +116,17 @@ Returns `Number | null` - The number of milliseconds since epoch, or `null` if t
 
 Indicates the creation time of the application. The time is represented as number of milliseconds since epoch. It returns null if it is unable to get the process creation time.
 
-### `process.getCPUUsage()`
+### `proseso.getCPUUsage()`
 
-Returns [`CPUUsage`](structures/cpu-usage.md)
+Pagbabalik [` CPUUsage `](structures/cpu-usage.md)
 
-### `process.getIOCounters()` *Windows* *Linux*
+### ` proseso.kuhaIOCounter()`*Windows**Linux*
 
-Returns [`IOCounters`](structures/io-counters.md)
+Pagbabalik [`IOCounters`](structures/io-counters.md)
 
 ### `process.getHeapStatistics()`
 
-Returns `Object`:
+Nagbabalik ng mga `bagay`:
 
 * `totalHeapSize` Integer
 * `totalHeapSizeExecutable` Integer
@@ -140,16 +140,16 @@ Returns `Object`:
 
 Returns an object with V8 heap statistics. Note that all statistics are reported in Kilobytes.
 
-### `process.getSystemMemoryInfo()`
+### `proseso.getSystemMemoryInfo()`
 
 Returns `Object`:
 
-* `total` Integer - The total amount of physical memory in Kilobytes available to the system.
-* `free` Integer - The total amount of memory not being used by applications or disk cache.
+* `kabuuan` Integer - Ang kabuuang halaga ng pisikal na memorya sa Kilobytes na maggagamit sa sistema. 
+* `libre` Integer - Ang kabuuang halaga ng memorya na hindi nagagamit sa aplikasyon o disk cache.
 * `swapTotal` Integer *Windows* *Linux* - The total amount of swap memory in Kilobytes available to the system.
 * `swapFree` Integer *Windows* *Linux* - The free amount of swap memory in Kilobytes available to the system.
 
-Returns an object giving memory usage statistics about the entire system. Note that all statistics are reported in Kilobytes.
+Nagbabalik ng bagay at nagbibigay ng memoryang gamit na istatistika tungkol sa buong sistema. Tandaan na ang lahat ng istatistika ay inuulat sa Kilobytes.
 
 ### `process.takeHeapSnapshot(filePath)`
 
@@ -159,12 +159,12 @@ Returns `Boolean` - Indicates whether the snapshot has been created successfully
 
 Takes a V8 heap snapshot and saves it to `filePath`.
 
-### `process.hang()`
+### `proseso.hang()`
 
-Causes the main thread of the current process hang.
+Dahilan na ang pangunahing thread sa kasalukuyang proseso sabit.
 
-### `process.setFdLimit(maxDescriptors)` *macOS* *Linux*
+### `proseso.setFdLimit(maxDescriptors)`macOS</em>*Linux*
 
 * `maxDescriptors` Integer
 
-Sets the file descriptor soft limit to `maxDescriptors` or the OS hard limit, whichever is lower for the current process.
+Itakda ang file na tagapaglarawan sa mahinang limitasyon sa `maxDescriptors` o sa OS malakas na limitasyon, alinman ang mas mababa sa kasalukuyang proseso.
