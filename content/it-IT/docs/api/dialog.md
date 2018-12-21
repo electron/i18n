@@ -135,7 +135,7 @@ This API can be called safely before the `ready` event the `app` module emits, i
 * `options` Oggetto 
   * `certificate` [Certificate](structures/certificate.md) - The certificate to trust/import.
   * `message` String - The message to display to the user.
-* `callback` Function
+* `callback` Funzione
 
 On macOS, this displays a modal dialog that shows a message and certificate information, and gives the user the option of trusting/importing the certificate. If you provide a `browserWindow` argument the dialog will be attached to the parent window, making it modal.
 
