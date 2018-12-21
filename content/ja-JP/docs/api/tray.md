@@ -220,7 +220,7 @@ tray のアイコンの背景を、いつ青く強調表示するかを設定し
 const { BrowserWindow, Tray } = require('electron')
 
 const win = new BrowserWindow({ width: 800, height: 600 })
-const tray = new Tray('/path/to/my/icon')
+const tray = new Tray('/自分の/アイコンへの/パス')
 
 tray.on('click', () => {
   win.isVisible() ? win.hide() : win.show()
