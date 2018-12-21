@@ -26,7 +26,7 @@ app.on('ready', () => {
 
 The `protocol` module has the following methods:
 
-### `protocol.registerStandardSchemes(schemes[, options])`
+### `protocol.registerStandardSchemes(schemes[, opzioni])`
 
 * `schemes` String[] - Custom schemes to be registered as standard schemes.
 * `options` Object (opzionale) 
@@ -232,7 +232,7 @@ Unregisters the custom protocol of `scheme`.
 
 * `schema` Stringa
 * `callback` Function 
-  * `error` Error
+  * `errore` Errore
 
 The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
 
@@ -303,7 +303,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
 * `completion` Function (opzionale) 
-  * `error` Error
+  * `errore` Errore
 
 Intercepts `scheme` protocol and uses `handler` as the protocol's new handler which sends a new HTTP request as a response.
 
@@ -328,6 +328,6 @@ Same as `protocol.registerStreamProtocol`, except that it replaces an existing p
 
 * `schema` Stringa
 * `completion` Function (opzionale) 
-  * `error` Error
+  * `errore` Errore
 
 Remove the interceptor installed for `scheme` and restore its original handler.
