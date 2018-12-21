@@ -97,7 +97,7 @@ console.log(app)
 
 ## Méthodes
 
-The `remote` module has the following methods:
+Le module `remote` dispose des méthodes suivantes :
 
 ### `remote.require(module)`
 
@@ -105,7 +105,7 @@ The `remote` module has the following methods:
 
 Returns `any` - The object returned by `require(module)` in the main process. Modules specified by their relative path will resolve relative to the entrypoint of the main process.
 
-e.g.
+exemple :
 
 ```sh
 project/
