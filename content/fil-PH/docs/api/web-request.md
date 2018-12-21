@@ -10,11 +10,11 @@ Ang mga paraan ng `WebRequest` pagtanggap ng opsyunal `filter` at isang `listene
 
 ⚠️ Only the last attached `listener` will be used. Passing `null` as `listener` will unsubscribe from the event.
 
-The `filter` object has a `urls` property which is an Array of URL patterns that will be used to filter out the requests that do not match the URL patterns. If the `filter` is omitted then all requests will be matched.
+Ang `filter` ng isang bagay ay mayroong `urls` katangian kung saan ito ay Array ng URL patterns na magagamit sa pagiba-iba ng mga hiling na hindi tugma sa URL patterns. Kung ang `filter` ay makukuha kung kaya lahat ng mga hiling ay matutugma.
 
-For certain events the `listener` is passed with a `callback`, which should be called with a `response` object when `listener` has done its work.
+Para sa ilang mga event ang `listener` ay binigyan ng isang `callback`, na kung tatawagin ay isang `response` bagay kung `listener` nagampanan nya ang kanyang trabaho.
 
-An example of adding `User-Agent` header for requests:
+Isang halimbawa ng pagdagdag ng `User-Agent` header para sa mga halimbawa:
 
 ```javascript
 const { session } = require('electron')
@@ -44,7 +44,7 @@ The following methods are available on instances of `WebRequest`:
     * `url` Tali
     * `method` na String
     * `webContentsId` Integer (optional)
-    * `resourceType` Tali
+    * `resourceType` String
     * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Punsyon 
@@ -60,7 +60,7 @@ The `callback` has to be called with an `response` object.
 
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
-* `salain` Na Bagay (opsyonal) 
+* `salain` Bagay (opsyonal) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function
 
@@ -91,7 +91,7 @@ The `callback` has to be called with an `response` object.
     * `url` Tali
     * `method` na String
     * `webContentsId` Integer (optional)
-    * `resourceType` Tali
+    * `resourceType` String
     * `timestamp` Double
     * `requestHeaders` Object
 
@@ -164,7 +164,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
 
 #### `webRequest.onCompleted([filter, ]listener)`
 
-* `salain` Na Bagay (opsyonal) 
+* `salain` Bagay (opsyonal) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Punsyon 
   * `ang mga detalye` Bagay 
@@ -191,7 +191,7 @@ The `listener` will be called with `listener(details)` when a request is complet
     * `url` Tali
     * `method` na String
     * `webContentsId` Integer (optional)
-    * `resourceType` Tali
+    * `resourceType` String
     * `timestamp` Double
     * `fromCache` Boolean
     * `error` String - The error description.
