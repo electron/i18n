@@ -23,7 +23,7 @@ win.loadURL('https://github.com')
 
 ## Remote 객체
 
-Each object (including functions) returned by the `remote` module represents an object in the main process (we call it a remote object or remote function). When you invoke methods of a remote object, call a remote function, or create a new object with the remote constructor (function), you are actually sending synchronous inter-process messages.
+`remote` 모듈로부터 반환된 각 객체(메서드 포함)는 메인 프로세스의 객체를 추상화 한 객체입니다. (우리는 그것을 remote 객체 또는 remote 함수라고 부릅니다) When you invoke methods of a remote object, call a remote function, or create a new object with the remote constructor (function), you are actually sending synchronous inter-process messages.
 
 In the example above, both [`BrowserWindow`](browser-window.md) and `win` were remote objects and `new BrowserWindow` didn't create a `BrowserWindow` object in the renderer process. Instead, it created a `BrowserWindow` object in the main process and returned the corresponding remote object in the renderer process, namely the `win` object.
 
@@ -145,7 +145,7 @@ Returns [`WebContents`](web-contents.md) - The web contents of this web page.
 
 ### `remote.getGlobal(name)`
 
-* `name` String
+* PrinterInfo Object
 
 Returns `any` - The global variable of `name` (e.g. `global[name]`) in the main process.
 
