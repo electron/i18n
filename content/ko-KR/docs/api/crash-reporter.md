@@ -10,8 +10,8 @@
 const { crashReporter } = require('electron')
 
 crashReporter.start({
-  productName: 'YourName',
-  companyName: 'YourCompany',
+  productName: '이름',
+  companyName: '조직 이름',
   submitURL: 'https://your-domain.com/url-to-submit',
   uploadToServer: true
 })
