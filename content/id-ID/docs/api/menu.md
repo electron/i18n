@@ -55,7 +55,7 @@ The `menu` object has the following instance methods:
 
 #### `menu.popup(options)`
 
-* `pilihan` Objek (pilihan) 
+* `pilihan` Objek (opsional) 
   * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
   * `x` minor (options) - Default adalah posisi kursor mouse saat ini. harus dinyatakan jika `y<\0> dinyatakan.</li>
 <li><code>y` Nomor (opsional) - Default adalah posisi kursor mouse saat ini. Harus dinyatakan jika `x` dinyatakan.
