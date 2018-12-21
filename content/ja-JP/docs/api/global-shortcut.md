@@ -12,7 +12,7 @@
 const { app, globalShortcut } = require('electron')
 
 app.on('ready', () => {
-  // Register a 'CommandOrControl+X' shortcut listener.
+  // 'CommandOrControl+X' をショートカットリスナーに登録します。
   const ret = globalShortcut.register('CommandOrControl+X', () => {
     console.log('CommandOrControl+X is pressed')
   })
