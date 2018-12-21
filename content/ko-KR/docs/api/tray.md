@@ -42,10 +42,10 @@ app.on('ready', () => {
     { label: 'Item2', type: 'radio' }
   ])
 
-  // Make a change to the context menu
+  // 컨텍스트 메뉴를 변경
   contextMenu.items[1].checked = false
 
-  // Call this again for Linux because we modified the context menu
+  // Linux에서는 컨텍스트 메뉴를 변경하면 다시 호출
   appIcon.setContextMenu(contextMenu)
 })
 ```
