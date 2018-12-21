@@ -14,8 +14,7 @@ console.log(dialog.showOpenDialog({ properties: ['openFile', 'openDirectory', 'm
 Dialog dibuka dari thread utama Elektron. Jika Anda ingin menggunakan objek dialog dari proses renderer, ingatlah untuk mengaksesnya dengan menggunakan remote:
 
 ```javascript
-const { dialog } = require('electron').remote
-console.log(dialog)
+const { dialog } = membutuhkan ('elektron'). remote console.log (dialog)
 ```
 
 ## Methods
