@@ -26,7 +26,7 @@ app.on('ready', () => {
 
 Ang `protocol` na modyul ay mayroong mga sumusunod na mga pamamaraan:
 
-### `protocol.registerStandardSchemes(schemes[, options])`
+### `protocol.registerStandardSchemes(schemes[, mga pagpipilian])`
 
 * `schemes` na String[] - Ang karaniwang panukala na irerehistro bilang mga istandard na iskema.
 * `mga pagpipilian` Na Bagay (opsyonal) 
@@ -49,7 +49,7 @@ Ang pagrerehistro sa isang iskema bilang standard ay pinapayagan ang pagpunta sa
 Sa default, ang mga api ng imbakan ng web (localStorage, sessionStorage, webSQL, indexedDB, cookies) ay hindi pinagana para sa hindi istandard na mga iskema. Kaya sa pangkalahatan kung gusto mong irehistro ang isang karaniwang protokol para palitan ng `http` na protokol, kailangan mo itong irehistro bilang isang istandard na iskema:
 
 ```javascript
-const { app, protocol } = require('electron')
+const { app, protocol } = kailangan('electron')
 
 protocol.registerStandardSchemes(['atom'])
 app.on('ready', () => {
@@ -79,7 +79,7 @@ app.on('ready', () => {
 
 Nagrerehistro ang isang protokol ng `scheme` na magpapadala sa file bilang isang tugon. Ang `handler` ay tatawagin kasama ang `handler(request, callback)` kapag ang isang `request` ay lilikhain kasama ang `scheme`. Ang `completion` ay tatawagin kasama ang `completion(null)` kapag ang `scheme` ay matagumpay na nairehistro o ang `completion(error)` kapag nabigo.
 
-To handle the `request`, the `callback` should be called with either the file's path or an object that has a `path` property, e.g. `callback(filePath)` or `callback({ path: filePath })`.
+Para hawakan ang `request`, ang `callback` ay dapat tawagin na may alinman sa landas ng file o isang bagay na may katangian ng `path`, halimbawa. ang `callback(filePath)` o ang `callback({ path: filePath })`.
 
 Kapag ang `callback` ay tinawag ng walang kasama na isang numero, o isang bagay na may katangian ng `error`, ang `request` ay mabibigo kasama ang `error` na numero na iyong tinukoy. Para sa magagamit na mga maling numero na iyong gagamitin, pakiusap tingnan ang [net error list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
@@ -142,7 +142,7 @@ Ang paggamit ay katulad din nang `registerFileProtocol`, maliban kung ang `callb
     * `headers` Objek
     * `referer` String
     * `method` na String
-    * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
+    * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Punsyon 
     * `ang redirectRequest` Bagay 
       * `url` Tali
@@ -168,11 +168,11 @@ For POST requests the `uploadData` object must be provided.
 * `tagahawak` Function 
   * `kahilingan` Bagay 
     * `url` Tali
-    * `headers` Objek
+    * `header` Bagay
     * `referer` String
     * `method` na String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Punsyon 
+  * `callback` Function 
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
 * `pagkumpleto` Function (opsyonal) 
   * `error` Error
@@ -228,7 +228,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 
 Unregisters the custom protocol of `scheme`.
 
-### `protocol.isProtocolHandled(scheme, callback)`
+### `protocol.isProtocolHandled(scheme,callback)`
 
 * `scheme` na String
 * `callback` Function 
@@ -287,14 +287,14 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
 
 * `scheme` na String
-* `tagahawak` Function 
+* `tagahawak` Punsyon 
   * `kahilingan` Bagay 
     * `url` Tali
-    * `headers` Objek
+    * `header` Bagay
     * `referer` String
     * `method` na String
-    * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
-  * `callback` Punsyon 
+    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `callback` Function 
     * `ang redirectRequest` Bagay 
       * `url` Tali
       * `method` na String
@@ -310,7 +310,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
 
 * `scheme` na String
-* `tagahawak` Function 
+* `tagahawak` Punsyon 
   * `kahilingan` Bagay 
     * `url` Tali
     * `headers` Objek
