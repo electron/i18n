@@ -9,8 +9,8 @@ const { app } = require('electron')
 app.commandLine.appendSwitch('remote-debugging-port', '8315')
 app.commandLine.appendSwitch('host-rules', 'MAP * 127.0.0.1')
 
-app.on('ready', () => {
-  // Your code here
+app.on('ready', () =>  {
+  // Il tuo codice va qui
 })
 ```
 
@@ -150,4 +150,4 @@ Fornisce i livelli massimi di V-logging per modulo, per sovrascrivere il valore 
 
 Any pattern containing a forward or backward slash will be tested against the whole pathname and not only the module. Ad esempio. `*/foo/bar/*=2` cambierebbe il livello di logging per tutto il codice sorgente nei file all interno della directory `foo/bar`.
 
-Questa opzione funziona solo quando viene passato anche `--enable-logging`.
+Questa opzione funziona solo quando viene anche eseguito il *--enable-logging*.
