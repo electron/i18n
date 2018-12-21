@@ -9,13 +9,7 @@ Modul ` sesi ` dapat digunakan untuk membuat objek ` Sesi ` baru.
 Anda juga dapat mengakses `sesi` laman yang ada dengan menggunakan properti `sesi` [`WebContents`](web-contents.md), atau dari modul `sesi`.
 
 ```javascript
-const { BrowserWindow } = require('electron')
-
-let win = new BrowserWindow({ width: 800, height: 600 })
-win.loadURL('http://github.com')
-
-const ses = win.webContents.session
-console.log(ses.getUserAgent())
+const { BrowserWindow } = require('electron') membiarkan memenangkan = BrowserWindow({ width: 800, height: 600 }) baru win.loadURL ('http://github.com') const ses = win.webContents.session console.log(ses.getUserAgent())
 ```
 
 ## Metode
@@ -52,9 +46,7 @@ Proses: [Main](../glossary.md#main-process)
 Kamu bisa membuat sebuah `Sesi` objek di `sesi` modul:
 
 ```javascript
-const { session } = require('electron')
-const ses = session.fromPartition('persist:name')
-console.log(ses.getUserAgent())
+const { session } = require('electron') const ses = session.fromPartition('persist:name') console.log(ses.getUserAgent())
 ```
 
 ### Contoh peristiwa
@@ -72,13 +64,7 @@ Terpencar ketika Elektron akan men-download `barang` di `webContents`.
 Memanggil `peristiwa.mencegahDefault()` akan membatalkan download dan `barang` tidak akan tersedia dari tikungan berikutnya prosesnya.
 
 ```javascript
-const { session } = require('electron')
-session.defaultSession.on('will-download', (event, item, webContents) => {
-  event.preventDefault()
-  require('request')(item.getURL(), (data) => {
-    require('fs').writeFileSync('/somewhere', data)
-  })
-})
+const { session } = require('electron') session.defaultSession.on (' akan-download', (acara, item, webContents) = > {event.preventDefault() require('request')(item.getURL(), (data) = > {require('fs').writeFileSync ('/ di suatu tempat', data)})})
 ```
 
 ### Metode contoh
@@ -231,17 +217,7 @@ Sets sertifikat verifikasi proc untuk `sesi`, `proc` akan dipanggil dengan `proc
 Memanggil `setCertificateVerifyProc(null)` akan kembali kembali ke default sertifikat verifikasi proc.
 
 ```javascript
-const { BrowserWindow } = require('electron')
-let win = new BrowserWindow()
-
-win.webContents.session.setCertificateVerifyProc((request, callback) => {
-  const { hostname } = request
-  if (hostname === 'github.com') {
-    callback(0)
-  } else {
-    callback(-2)
-  }
-})
+const { BrowserWindow } = require('electron') membiarkan memenangkan = win.webContents.session.setCertificateVerifyProc BrowserWindow() baru ((request, callback) = > {const { hostname } = permintaan jika (hostname === 'github.com') {callback(0)} lain {callback(-2)}})
 ```
 
 #### `ses.setPermissionRequestHandler(handler)`
@@ -258,10 +234,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 Menetapkan handler yang dapat digunakan untuk menanggapi permintaan izin untuk `sesi`. Memanggil `callback(true)` akan memungkinkan izin dan `callback(false)` akan menolaknya. To clear the handler, call `setPermissionRequestHandler(null)`.
 
 ```javascript
-const { session } = require('electron')
-session.fromPartition('some-partition').setPermissionRequestHandler((webContents, permission, callback) => {
-  if (webContents.getURL() === 'some-host' && permission === 'notifications') {
-    return callback(false) // denied.
+const { session } = require('electron') session.fromPartition('some-partition').setPermissionRequestHandler ((webContents, izin, callback) = > {jika (webContents.getURL() === 'beberapa-host' & & izin === 'pemberitahuan') {}     kembali callback(false) / / ditolak.
   } callback(true)})
 ```
 
@@ -288,69 +261,65 @@ session.fromPartition('some-partition').setPermissionCheckHandler((webContents, 
 })
 ```
 
-#### `ses.clearHostResolverCache([callback])`
+#### `ses.clearHostResolverCache ([callback])`
 
-* `callback` Fungsi (opsional) - disebut ketika operasi dilakukan.
+* `panggilan kembali` Fungsi (pilihan) - Disebut saat operasi selesai.
 
-Clears the host resolver cache.
+Menghapus cache resolver host.
 
-#### `ses.allowNTLMCredentialsForDomains(domains)`
+#### `ses.allowNTLMCredentialsForDomains(domain)`
 
 * `domains` String - A comma-separated list of servers for which integrated authentication is enabled.
 
-Dynamically sets whether to always send credentials for HTTP NTLM or Negotiate authentication.
+Secara dinamis tetapkan apakah akan selalu mengirim kredensial untuk HTTP NTLM atau Negotiate otentikasi.
 
 ```javascript
-const { session } = require('electron')
-// consider any url ending with `example.com`, `foobar.com`, `baz`
-// for integrated authentication.
-session.defaultSession.allowNTLMCredentialsForDomains('*example.com, *foobar.com, *baz')
-
-// consider all urls for integrated authentication.
+const { session } = require('electron') / / mempertimbangkan setiap url yang diakhiri dengan 'example.com', 'foobar.com', 'baz' / / untuk otentikasi Terpadu.
+session.defaultSession.allowNTLMCredentialsForDomains ('* example.com, * foobar.com, * baz') / / mempertimbangkan semua Url untuk otentikasi Terpadu.
 session.defaultSession.allowNTLMCredentialsForDomains('*')
 ```
 
-#### `ses.setUserAgent(userAgent[, acceptLanguages])`
+#### `ses.setUserAgent (userAgent [, acceptLanguages])`
 
 * `userAgent` String
-* `acceptLanguages` String (optional)
+* `acceptLanguages` String (opsional)
 
-Overrides the `userAgent` and `acceptLanguages` for this session.
+Menggantikan `userAgent` dan `acceptLanguages` untuk sesi ini.
 
-The `acceptLanguages` must a comma separated ordered list of language codes, for example `"en-US,fr,de,ko,zh-CN,ja"`.
+`AcceptLanguages` harus koma terpisah daftar bahasa kode, misalnya `"En-US, fr, de, ko, zh-CN, ja"`.
 
-This doesn't affect existing `WebContents`, and each `WebContents` can use `webContents.setUserAgent` to override the session-wide user agent.
+Ini tidak akan mempengaruhi yang ada `WebContents`, dan setiap `WebContents` dapat menggunakan `webContents.setUserAgent` untuk menimpa agen sesi pengguna.
 
 #### `ses.getUserAgent()`
 
-Returns `String` - The user agent for this session.
+Mengembalikan `String` - user agent untuk sesi ini.
 
-#### `ses.getBlobData(identifier, callback)`
+#### `ses.getBlobData (pengenal, callback)`
 
-* `identifier` String - Valid UUID.
+* `pengenal` String - UUID berlaku.
 * `callback` Fungsi 
-  * `result` Buffer - Blob data.
+  * `hasil` Luapan penyangga - gumpalan data.
 
 #### `ses.createInterruptedDownload(options)`
 
-* `pilihan` Sasaran 
-  * `path` String - Absolute path of the download.
-  * `urlChain` String[] - Complete URL chain for the download.
-  * `mimeType` String (optional)
-  * `offset` Integer - Start range for the download.
-  * `length` Integer - Total length of the download.
-  * `lastModified` String - Last-Modified header value.
-  * `eTag` String - ETag header value.
-  * `startTime` Double (optional) - Time when download was started in number of seconds since UNIX epoch.
+* `pilihan` Obyek 
+  * `jalan` String - path absolut download.
+  * `urlChain` String [] - URL lengkap jaringan untuk men-download.
+  * `mimeType` String (opsional)
+  * `offset` Bulat - rentang mulai untuk men-download.
+  * `panjang` Bulat - panjang Total download.
+  * `lastModified` String - header Last-Modified nilai.
+  * `eTag` String - ETag header nilai.
+  * `startTime` Kamar Double (opsional) - waktu download mulai dalam jumlah detik sejak zaman UNIX.
 
-Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
+Memungkinkan melanjutkan `dibatalkan` atau `terganggu` download dari `sesi` sebelumnya. API akan menghasilkan [DownloadItem](download-item.md) yang dapat diakses dengan acara [akan-download](#event-will-download). [DownloadItem](download-item.md) tidak akan memiliki apapun `WebContents` terkait dengan itu dan keadaan awal akan `terganggu`. Download akan mulai hanya ketika `melanjutkan` API disebut di [DownloadItem](download-item.md).
 
-#### `ses.clearAuthCache(options[, callback])`
+#### `ses.clearAuthCache (pilihan [, callback])`
 
-* `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `callback` Fungsi (opsional) - disebut ketika operasi dilakukan.
+* `pilihan` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
+* `panggilan kembali` Fungsi (pilihan) - Disebut saat operasi selesai.
 
-Clears the session’s HTTP authentication cache.
+Membersihkan cache otentikasi HTTP sesi.
 
 #### `ses.setPreloads(preloads)`
 
@@ -364,19 +333,19 @@ Returns `String[]` an array of paths to preload scripts that have been registere
 
 ### Contoh properti
 
-The following properties are available on instances of `Session`:
+Properti berikut tersedia pada contoh-contoh dari `sesi`:
 
 #### `ses.cookies`
 
-A [Cookies](cookies.md) object for this session.
+Sebuah objek [cookie](cookies.md) sesi ini.
 
 #### `ses.webRequest`
 
-A [WebRequest](web-request.md) object for this session.
+Sebuah objek [WebRequest](web-request.md) sesi ini.
 
-#### `ses.protocol`
+#### `ses.Protocol`
 
-A [Protocol](protocol.md) object for this session.
+Sebuah objek [protokol](protocol.md) untuk sesi ini.
 
 ```javascript
 const { app, session } = require('electron')
