@@ -17,10 +17,7 @@ console.log(appIcon, win)
 
 Atau baca gambar dari clipboard yang mengembalikan ` NativeImage </ 0> :</p>
 
-<pre><code class="javascript">const { clipboard, Tray } = require('electron')
-const image = clipboard.readImage()
-const appIcon = new Tray(image)
-console.log(appIcon)
+<pre><code class="javascript">const { clipboard, Tray } = require ('electron') const image = clipboard.readImage () const appIcon = Baki baru (gambar) console.log (appIcon)
 `</pre> 
 
 ## Format yang Didukung
@@ -64,9 +61,9 @@ Saat ` PNG </ 0> dan <code> JPEG </ 0> format gambar yang didukung. <code> PNG <
 `</pre> 
 
 ```javascript
-const { Tray } = require('electron')
-let appIcon = new Tray('/Users/somebody/images/icon.png')
-console.log(appIcon)
+const { Tray } = membutuhkan ('elektron')
+biarkan appIcon = Baki baru ('/Users/someone /images / icon.png')
+console.log (appIcon)
 ```
 
 Menyusul sufiks DPI juga didukung:
