@@ -262,7 +262,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
 const { session } = require('electron')
 session.fromPartition('some-partition').setPermissionRequestHandler((webContents, permission, callback) => {
   if (webContents.getURL() === 'some-host' && permission === 'notifications') {
-    return callback(false) // denied.
+    return callback(false) // 拒否。
   }
 
   callback(true)
@@ -294,93 +294,93 @@ session.fromPartition('some-partition').setPermissionCheckHandler((webContents, 
 
 #### `ses.clearHostResolverCache([callback])`
 
-* `callback` Function (任意) - 操作が完了したときに呼ばれる.
+* `callback` Function (任意) - 操作が完了したときに呼ばれる。
 
-Clears the host resolver cache.
+ホスト解決のキャッシュをクリアします。
 
 #### `ses.allowNTLMCredentialsForDomains(domains)`
 
-* `domains` String - A comma-separated list of servers for which integrated authentication is enabled.
+* `domains` String - 統合認証が有効であるサーバーのコンマ区切りのリスト。
 
-Dynamically sets whether to always send credentials for HTTP NTLM or Negotiate authentication.
+HTTP NTLM またはネゴシエート認証の資格情報を常に送信するかどうかを動的に設定します。
 
 ```javascript
 const { session } = require('electron')
-// consider any url ending with `example.com`, `foobar.com`, `baz`
-// for integrated authentication.
+// 統合認証に、`example.com`、`foobar.com`、`baz`
+// で終わる URL を考えます。
 session.defaultSession.allowNTLMCredentialsForDomains('*example.com, *foobar.com, *baz')
 
-// consider all urls for integrated authentication.
+// 統合認証に、すべての URL を考えます。
 session.defaultSession.allowNTLMCredentialsForDomains('*')
 ```
 
 #### `ses.setUserAgent(userAgent[, acceptLanguages])`
 
 * `userAgent` String
-* `acceptLanguages` String (optional)
+* `acceptLanguages` String (任意)
 
-Overrides the `userAgent` and `acceptLanguages` for this session.
+このセッションの `userAgent` と `acceptLanguages` をオーバーライドします。
 
-The `acceptLanguages` must a comma separated ordered list of language codes, for example `"en-US,fr,de,ko,zh-CN,ja"`.
+`acceptLanguages` は、言語コードのカンマ区切りリスト (例: `"en-US, fr, de, ko, zh-CN, ja"`) でなければなりません。
 
-This doesn't affect existing `WebContents`, and each `WebContents` can use `webContents.setUserAgent` to override the session-wide user agent.
+これは既存の `WebContents` には影響しません。それぞれの `WebContents` は `webContents.setUserAgent` を使用してセッション全体のユーザーエージェントをオーバーライドできます。
 
 #### `ses.getUserAgent()`
 
-Returns `String` - The user agent for this session.
+戻り値 `String` - このセッションのユーザエージェント。
 
 #### `ses.getBlobData(identifier, callback)`
 
-* `identifier` String - Valid UUID.
+* `identifier` String - 有効な UUID。
 * `callback` Function 
-  * `result` Buffer - Blob data.
+  * `result` Buffer - Blob データ。
 
 #### `ses.createInterruptedDownload(options)`
 
 * `options` Object 
-  * `path` String - Absolute path of the download.
-  * `urlChain` String[] - Complete URL chain for the download.
-  * `mimeType` String (optional)
-  * `offset` Integer - Start range for the download.
-  * `length` Integer - Total length of the download.
-  * `lastModified` String - Last-Modified header value.
-  * `eTag` String - ETag header value.
-  * `startTime` Double (optional) - Time when download was started in number of seconds since UNIX epoch.
+  * `path` String - ダウンロードの絶対パス。
+  * `urlChain` String[] - ダウンロードの完全な URL チェーン。
+  * `mimeType` String (任意)
+  * `offset` Integer - ダウンロードの範囲の始端。
+  * `length` Integer - ダウンロードの長さ。
+  * `lastModified` String - ヘッダの最終更新日の値。
+  * `eTag` String - ヘッダの ETag の値。
+  * `startTime` Double (任意) - ダウンロードが開始されたときの UNIX エポックからの秒数。
 
-Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
+以前の `Session` からの、`cancelled` または `interrupted` なダウンロードの再開を許可します。 APIは、[will-download](#event-will-download) イベントでアクセスできる [DownloadItem](download-item.md) を生成します。 [DownloadItem](download-item.md) はそれに関連付けられた `WebContents` を持たず、初期状態は `interrupted` です。 [DownloadItem](download-item.md) 上の `resume` API を呼ぶことでのみ、ダウンロードが開始されます。
 
 #### `ses.clearAuthCache(options[, callback])`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
-* `callback` Function (任意) - 操作が完了したときに呼ばれる.
+* `callback` Function (任意) - 操作が完了したときに呼ばれる。
 
-Clears the session’s HTTP authentication cache.
+セッションの HTTP 認証キャッシュをクリアします。
 
 #### `ses.setPreloads(preloads)`
 
-* `preloads` String[] - An array of absolute path to preload scripts
+* `preloads` String[] - プリロードスクリプトへの絶対パスの配列
 
-Adds scripts that will be executed on ALL web contents that are associated with this session just before normal `preload` scripts run.
+通常の `preload` スクリプトが実行される直前に、このセッションに関連するすべてのウェブコンテンツで実行されるスクリプトを追加します。
 
 #### `ses.getPreloads()`
 
-Returns `String[]` an array of paths to preload scripts that have been registered.
+戻り値 `String[]` - 登録されているプリロードスクリプトへのパスの配列。
 
 ### インスタンスプロパティ
 
-The following properties are available on instances of `Session`:
+`Session` のインスタンスには以下のプロパティがあります。
 
 #### `ses.cookies`
 
-A [Cookies](cookies.md) object for this session.
+このセッションの [Cookies](cookies.md) オブジェクト。
 
 #### `ses.webRequest`
 
-A [WebRequest](web-request.md) object for this session.
+このセッションの [WebRequest](web-request.md) オブジェクト。
 
 #### `ses.protocol`
 
-A [Protocol](protocol.md) object for this session.
+このセッションの [Protocol](protocol.md) オブジェクト。
 
 ```javascript
 const { app, session } = require('electron')
