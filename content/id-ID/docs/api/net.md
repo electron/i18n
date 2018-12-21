@@ -43,11 +43,11 @@ Omong-omong, hampir sama dengan bagaimana Anda biasa menggunakan modul  HTTP </ 
 
 Itu` net </ 0>  API hanya dapat digunakan setelah aplikasi memancarkan <code> siap </ 0>  acara . Mencoba untuk menggunakan modul sebelum <code> siap </ 0>  acara akan melemparkan kesalahan.</p>
 
-<h2>Metode</h2>
+<h2>Methods</h2>
 
 <p>Itu <code> net </ 0> modul memiliki metode berikut:</p>
 
-<h3><code>net.pilihan (pilihan)`</h3> 
+<h3><code>net.request(options)`</h3> 
 
 * `options` (Object | String) - Opsi konstruktor `ClientRequest`.
 
