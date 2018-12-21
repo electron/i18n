@@ -1,8 +1,8 @@
 # Sertifika Ana Objesi
 
-* `commonName` String - Common Name.
-* `organizations` String[] - Organization names.
-* `organizationUnits` String[] - Organization Unit names.
-* `locality` String - Locality.
-* `state` String - State or province.
-* `country` String - Country or region.
+* `commonName` String - Ortak İsim.
+* `organizations` String[] - Organizasyon adları.
+* `organizationUnits` String[] - Organizasyon Birim Adları.
+* `locality` String - yer.
+* `state` String - Eyalet ve ya il.
+* `country` String - Ülke ve ya bölge.
