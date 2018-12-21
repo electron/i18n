@@ -26,21 +26,21 @@ app.on('ready', function () {
 
 * `path` String - 记录网络日志的文件路径。
 
-Starts recording network events to `path`.
+开始记录网络事件日志到 `path`。
 
 ### `netLog.stopLogging([callback])`
 
 * `callback` Function (可选) 
   * `path` String - 记录网络日志的文件路径。
 
-Stops recording network events. If not called, net logging will automatically end when app quits.
+停止网络事件日志的记录。 如果未被调用，net 记录将自动结束当 app 退出的时候。
 
 ## 属性
 
 ### `netLog.currentlyLogging`
 
-A `Boolean` property that indicates whether network logs are recorded.
+`Boolean` 类型的属性，指示网络日志是否被记录。
 
 ### `netLog.currentlyLoggingPath`
 
-A `String` property that returns the path to the current log file.
+`String` 类型的属性，返回当前的日志文件路径。
