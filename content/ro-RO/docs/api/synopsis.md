@@ -1,4 +1,4 @@
-# Synopsis
+# Rezumat
 
 > How to use Node.js and Electron APIs.
 
