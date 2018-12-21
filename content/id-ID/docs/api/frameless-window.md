@@ -9,7 +9,7 @@ Jendela buram tanpa bingkai adalah jendela yang tidak memiliki  krom </ 0> , bag
 <p>Untuk membuat jendela tanpa bingkai, Anda perlu mengatur <code> bingkai </ 0> ke <code> palsu </ 0> di
  <a href="browser-window.md">jendela Browser </ 1> 's <code> Pilihan </ 0> :</p>
 
-<pre><code class="javascript">const { BrowserWindow } = require('electron')
+<pre><code class="javascript">const { BrowserWindow } = membutuhkan ('elektron')
 let win = new BrowserWindow({ width: 800, height: 600, frame: false })
 win.show()
 `</pre> 
@@ -23,7 +23,7 @@ There's an alternative way to specify a chromeless window. Instead of setting `f
 Hasil di bar judul tersembunyi dan jendela konten ukuran penuh, namun bilah judul masih memiliki kontrol jendela standar ("lampu lalu lintas") di kiri atas.
 
 ```javascript
-const { BrowserWindow } = require('electron')
+const { BrowserWindow } = membutuhkan ('elektron')
 let win = new BrowserWindow({ titleBarStyle: 'hidden' })
 win.show()
 ```
@@ -33,7 +33,7 @@ win.show()
 Hasil di bar judul tersembunyi dengan tampilan alternatif dimana tombol lampu lalu lintas sedikit lebih tertutup dari tepi jendela.
 
 ```javascript
-const { BrowserWindow } = require('electron')
+const { BrowserWindow } = membutuhkan ('elektron')
 let win = new BrowserWindow({ titleBarStyle: 'hiddenInset' })
 win.show()
 ```
@@ -43,7 +43,7 @@ win.show()
 Uses custom drawn close, and miniaturize buttons that display when hovering in the top left of the window. The fullscreen button is not available due to restrictions of frameless windows as they interface with Apple's MacOS window masks. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. This option is only applicable for frameless windows.
 
 ```javascript
-const { BrowserWindow } = require('electron')
+const { BrowserWindow } = membutuhkan ('elektron')
 let win = new BrowserWindow({ titleBarStyle: 'customButtonsOnHover', frame: false })
 win.show()
 ```
@@ -52,9 +52,7 @@ win.show()
 
 Dengan menetapkan ` transparan </ 0>  option untuk <code> benar </ 0> , Anda juga dapat membuat jendela tanpa bingkai transparan:</p>
 
-<pre><code class="javascript">const { BrowserWindow } = require('electron')
-let win = new BrowserWindow({ transparent: true, frame: false })
-win.show()
+<pre><code class="javascript">const { BrowserWindow } = require ('electron') misalkan win = new BrowserWindow ( { transparent: true, frame: false } ) win.show ()
 `</pre> 
 
 ### Keterbatasan
@@ -72,9 +70,7 @@ win.show()
     Untuk membuat jendela klik-tayang, yaitu membuat jendela mengabaikan semua peristiwa mouse, Anda dapat memanggil API  win.setIgnoreMouseEvents (ignore) </ 0> :</p> 
     
     ```javascript
-    const { BrowserWindow } = require('electron')
-    let win = new BrowserWindow()
-    win.setIgnoreMouseEvents(true)
+    const { BrowserWindow } = require ('electron') biarkan menang = new BrowserWindow () win.setIgnoreMouseEvents (true)
     ```
     
     ### Forwarding
