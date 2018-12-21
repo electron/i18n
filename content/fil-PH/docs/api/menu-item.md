@@ -40,7 +40,7 @@ Ang mga halaga ng `label` at `accelerator` ay opsyonal kapag ginagamit ang`role`
 
 Every menu item must have either a `role`, `label`, or in the case of a separator a `type`.
 
-The `role` property can have following values:
+Ang katangian ng `role` ay maaaring ang mga sumusunod na halaga:
 
 * `undo`
 * `redo`
@@ -90,30 +90,30 @@ When specifying a `role` on macOS, `label` and `accelerator` are the only option
 
 ### Katangian ng pagkakataon
 
-The following properties are available on instances of `MenuItem`:
+Ang mga sumusunod na mga katangian ay makukuha sa mga instansya ng `MenuItem`:
 
 #### `ang menuItem.enabled`
 
-A `Boolean` indicating whether the item is enabled, this property can be dynamically changed.
+Ang isang `Boolean` ay nagpapakita kung ang aytem ay pinagana na, ang katangian na ito ay maaaring mabago ng matindi.
 
 #### `ang menuItem.visible`
 
-A `Boolean` indicating whether the item is visible, this property can be dynamically changed.
+Ang isang `Boolean` ay nagpapakita kung ang aytem ay nakikita, ang katangian na ito ay maaaring mabago ng matindi.
 
 #### `ang menuItem.checked`
 
-A `Boolean` indicating whether the item is checked, this property can be dynamically changed.
+Ang isang `Boolean` ay nagpapakita kung ang aytem ay nasuri na, ang katangian na ito ay maaaring mabago ng matindi.
 
-A `checkbox` menu item will toggle the `checked` property on and off when selected.
+Ang isang `checkbox` na aytem ng menu ay ito-toggle ang katangian ng `checked` ng pagbukas at pagpatay kapag napili.
 
-A `radio` menu item will turn on its `checked` property when clicked, and will turn off that property for all adjacent items in the same menu.
+Ang isang `radio` na aytem ng menu ay bubuksan ang kanyang `checked` na katangian kapag na-klik, at papatayin ang nasabing katangian para sa lahat ng mga katabing aytem sa loob ng parehong menu.
 
-You can add a `click` function for additional behavior.
+Maaari kang magdagdag ng isang punsyon ng `click` para sa karagdagang gawain.
 
 #### `ang menuItem.label`
 
-A `String` representing the menu items visible label.
+Ang isang `String` ay kumakatawan sa mga aytem ng menu sa nakikitang tatak.
 
 #### `ang menuItem.click`
 
-A `Function` that is fired when the MenuItem receives a click event.
+Ang isang `Function` na ititira kapag natanggap ng MenuItem ang isang event ng klik.
