@@ -296,65 +296,65 @@ session.fromPartition('some-partition').setPermissionCheckHandler((webContents, 
 
 * `callback` Function (opsyonal) - Tinatawag kung ang operasyon ay tapos na.
 
-Clears the host resolver cache.
+Nililinis ang cache ng tagalutas ng host.
 
 #### `ses.allowNTLMCredentialsForDomains(domains)`
 
 * `domains` String - A comma-separated list of servers for which integrated authentication is enabled.
 
-Dynamically sets whether to always send credentials for HTTP NTLM or Negotiate authentication.
+Dinamikong itinatakda kung lagi bang magpadala ng mga kredensyal para sa HTTP NTLM o makipagpulungan para pagpapatunay.
 
 ```javascript
 const { session } = require('electron')
-// consider any url ending with `example.com`, `foobar.com`, `baz`
-// for integrated authentication.
+// isaalang-alang ang kahit anong url na nagtatapos sa `example.com`, `foobar.com`, `baz`
+// para sa naka-integrate na pagpapatunay.
 session.defaultSession.allowNTLMCredentialsForDomains('*example.com, *foobar.com, *baz')
 
-// consider all urls for integrated authentication.
+// isaalang-alang ang lahat ng mga url para sa naka-integrate na pagpapatunay.
 session.defaultSession.allowNTLMCredentialsForDomains('*')
 ```
 
 #### `ses.setUserAgent(userAgent[, acceptLanguages])`
 
 * `userAgent` na String
-* `acceptLanguages` String (optional)
+* `acceptLanguages` na String (opsyonal)
 
-Overrides the `userAgent` and `acceptLanguages` for this session.
+Nag-override sa `userAgent` at `acceptLanguages` para sa sesyong ito.
 
-The `acceptLanguages` must a comma separated ordered list of language codes, for example `"en-US,fr,de,ko,zh-CN,ja"`.
+Ang `acceptLanguages` ay dapat pinaghiwalay ng kuwit na isinaayos na listahan ng mga code ng lengwahe, bilang halimbawa `"en-US,fr,de,ko,zh-CN,ja"`.
 
-This doesn't affect existing `WebContents`, and each `WebContents` can use `webContents.setUserAgent` to override the session-wide user agent.
+Ito ay hindi makakapekto sa umiiral na `WebContents`, at ang bawat `WebContents` ay makakagamit ng `webContents.setUserAgent` para i-override ang malawakang-sesyon na tagagamit na ahente.
 
 #### `ses.getUserAgent()`
 
-Returns `String` - The user agent for this session.
+Nagbabalik ng `String` - Ang tagagamit na ahente para sa sesyong ito.
 
 #### `ses.getBlobData(identifier, callback)`
 
-* `identifier` String - Valid UUID.
-* `callback` Punsyon 
-  * `result` Buffer - Blob data.
+* `identifier` na String - Tamang UUID.
+* `callback` Function 
+  * `result` na Buffer - Blob na datos.
 
 #### `ses.createInterruptedDownload(options)`
 
-* `pagpipilian` Bagay 
-  * `path` String - Absolute path of the download.
-  * `urlChain` String[] - Complete URL chain for the download.
-  * `mimeType` String (optional)
-  * `offset` Integer - Start range for the download.
-  * `length` Integer - Total length of the download.
-  * `lastModified` String - Last-Modified header value.
-  * `eTag` String - ETag header value.
-  * `startTime` Double (optional) - Time when download was started in number of seconds since UNIX epoch.
+* `options` Bagay 
+  * `path` na String - Ganap na path ng download.
+  * `urlChain` na String[] - kompletong URL na chain para sa download.
+  * `mimeType` na String (opsyonal)
+  * `offset` na Integer - Pagsimulang saklaw para sa download.
+  * `length` na Integer - Kabuuang haba ng download.
+  * `lastModified` na String - Last-Modified na halaga ng header.
+  * `eTag` na String - ETag na halaga ng header.
+  * `startTime` na Doble (opsyonal) - Ang oras kung kailan sinimulan ang download sa segundong bilang simula sa UNIX epoch.
 
-Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
+Nagpapahintulot ng pagpapatuloy sa `nakansela` o `napahintong` mga download galing sa nakaraang `Sesyon`. Ang API ay maglilikha ng isang [DownloadItem](download-item.md) na maaring ma-access gamit ang [will-download](#event-will-download) na pangyayari. Ang [DownloadItem](download-item.md) ay hindi magkakaroon ng anumang `WebContents` nauugnay rito at ang paunang estado ay `maaantala`. Ang download ay magsisimula kung ang `resume` na API ay tinawag sa [DownloadItem](download-item.md).
 
 #### `ses.clearAuthCache(options[, callback])`
 
-* `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
+* `mga opsyon` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
 * `callback` Function (opsyonal) - Tinatawag kung ang operasyon ay tapos na.
 
-Clears the session’s HTTP authentication cache.
+Nilinis ang sesyon ng HTTP authentication na cache.
 
 #### `ses.setPreloads(preloads)`
 
@@ -368,19 +368,19 @@ Returns `String[]` an array of paths to preload scripts that have been registere
 
 ### Mga Katangian ng Instance
 
-The following properties are available on instances of `Session`:
+Ang mga sumusunod na katangian ay magagamit sa mga instance ng `session`:
 
 #### `ses.cookies`
 
-A [Cookies](cookies.md) object for this session.
+Isang [Cookies](cookies.md) na bagay para sa sesyong ito.
 
 #### `ses.webRequest`
 
-A [WebRequest](web-request.md) object for this session.
+Isang [WebRequest](web-request.md) na bagay para sa sesyong ito.
 
 #### `ses.protocol`
 
-A [Protocol](protocol.md) object for this session.
+Isang [Protocol](protocol.md) na bagay para sa sesyong ito.
 
 ```javascript
 const { app, session } = require('electron')
