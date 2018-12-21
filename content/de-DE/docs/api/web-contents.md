@@ -765,7 +765,7 @@ the <code>window.location` object is changed or a user clicks a link in the page
       
       #### `contents.executeJavaScript(code[, userGesture, callback])`
       
-      * `code` String
+      * `code` Zeichenkette
       * `userGesture` Boolean (optional) - Default is `false`.
       * `callback` Function (optional) - Called after script has been executed. 
         * `result` Any
@@ -785,7 +785,7 @@ the <code>window.location` object is changed or a user clicks a link in the page
         })
       ```
       
-      #### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
+      #### `contents.setIgnoreMenuShortcuts(ignore)` *Experimentell*
       
       * `ignore` Boolean
       
@@ -1274,7 +1274,7 @@ the <code>window.location` object is changed or a user clicks a link in the page
         * `HTMLOnly` - Save only the HTML of the page.
         * `HTMLComplete` - Save complete-html page.
         * `MHTML` - Save complete-html page as MHTML.
-      * `callback` Function - `(error) => {}`. 
+      * `callback` Funktion - `(error) => {}`. 
         * ` Fehler </ 0> Fehler</li>
 </ul></li>
 </ul>
