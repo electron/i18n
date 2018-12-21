@@ -53,7 +53,7 @@ app.on('ready', () => {
 
 ## События
 
-The `screen` module emits the following events:
+Объект `screen` имеет следующие события:
 
 ### Событие: 'display-added'
 
@@ -89,7 +89,7 @@ The `screen` module has the following methods:
 
 ### `screen.getCursorScreenPoint()`
 
-Returns [`Point`](structures/point.md)
+Возвращает [`Point`](structures/point.md)
 
 The current absolute position of the mouse pointer.
 
@@ -117,7 +117,7 @@ Returns [`Display`](structures/display.md) - The display that most closely inter
 
 * `point` [Point](structures/point.md)
 
-Returns [`Point`](structures/point.md)
+Возвращает [`Point`](structures/point.md)
 
 Converts a screen physical point to a screen DIP point. The DPI scale is performed relative to the display containing the physical point.
 
@@ -125,7 +125,7 @@ Converts a screen physical point to a screen DIP point. The DPI scale is perform
 
 * `point` [Point](structures/point.md)
 
-Returns [`Point`](structures/point.md)
+Возвращает [`Point`](structures/point.md)
 
 Converts a screen DIP point to a screen physical point. The DPI scale is performed relative to the display containing the DIP point.
 
