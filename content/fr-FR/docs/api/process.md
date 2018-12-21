@@ -92,11 +92,11 @@ A `String` representing the current process's type, can be `"browser"` (i.e. mai
 
 ### `process.versions.chrome`
 
-A `String` representing Chrome's version string.
+Un `String` représentant la version de Chrome.
 
 ### `process.versions.electron`
 
-A `String` representing Electron's version string.
+Un `String` représentant la version d'Electron.
 
 ### `process.windowsStore`
 
@@ -104,7 +104,7 @@ A `Boolean`. If the app is running as a Windows Store app (appx), this property 
 
 ## Méthodes
 
-The `process` object has the following methods:
+L'objet `process` dispose des méthodes suivantes :
 
 ### `process.crash()`
 
@@ -118,11 +118,11 @@ Indicates the creation time of the application. The time is represented as numbe
 
 ### `process.getCPUUsage()`
 
-Returns [`CPUUsage`](structures/cpu-usage.md)
+Retourne [`CPUUsage`](structures/cpu-usage.md)
 
 ### `process.getIOCounters()` *Windows* *Linux*
 
-Returns [`IOCounters`](structures/io-counters.md)
+Retourne [`IOCounters`](structures/io-counters.md)
 
 ### `process.getHeapStatistics()`
 
