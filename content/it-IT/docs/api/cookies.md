@@ -11,7 +11,7 @@ Ad esempio:
 ```javascript
 const { session } = require('electron')
 
-// Query all cookies.
+// Interroga tutti i cookie.
 session.defaultSession.cookies.get({}, (error, cookies) => {
   console.log(error, cookies)
 })
@@ -78,7 +78,7 @@ Sends a request to get all cookies matching `filter`, `callback` will be called 
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
   * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
 * `callback` Function 
-  * `errore` Errore
+  * `error` Error
 
 Sets a cookie with `details`, `callback` will be called with `callback(error)` on complete.
 
@@ -86,12 +86,12 @@ Sets a cookie with `details`, `callback` will be called with `callback(error)` o
 
 * `url` String - The URL associated with the cookie.
 * `name` String - The name of cookie to remove.
-* `callback` Function
+* `callback` Funzione
 
 Rimuove i cookie con uno specifico `url` e `name`, a operazione finita chiama `callback` tramite `callback()`.
 
 #### `cookies.flushStore(callback)`
 
-* `callback` Function
+* `callback` Funzione
 
 Writes any unwritten cookies data to disk.
