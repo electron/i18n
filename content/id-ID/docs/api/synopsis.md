@@ -23,15 +23,15 @@ app.on('ready', () => {
 Proses renderer tidak berbeda dengan halaman web biasa, kecuali untuk kemampuan ekstra untuk menggunakan modul simpul:
 
 ```html
-<!DOCTYPE html>
-<html>
-<body>
-<script>
-  const { app } = require('electron').remote
-  console.log(app.getVersion())
-</script>
-</body>
-</html>
+& lt; DOCTYPE html & gt;
+&lt;html&gt;
+&lt;body&gt;
+&lt;script&gt;
+  const { app } = membutuhkan ('elektron'). remote
+  console.log (app.getVersion ())
+</ 2>
+</ 1>
+</ 0>
 ```
 
 Untuk menjalankan aplikasi Anda, baca  Jalankan aplikasi Anda </ 0>.</p> 
