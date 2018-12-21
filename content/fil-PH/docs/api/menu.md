@@ -86,7 +86,7 @@ Ibinabalik ang `MenuItem` ang aytem na may tiyak na `id`
 
 Ipinapasok ang `menuItem` sa posisyon ng`pos` ng menu.
 
-### Halimbawa ng mga Event
+### Halimbawa ng Mga Kaganapan
 
 Objects created with `new Menu` emit the following events:
 
