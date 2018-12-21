@@ -14,7 +14,7 @@ const { app } = electron
 
 app.on('ready', () => {
   electron.powerMonitor.on('suspend', () => {
-    console.log('The system is going to sleep')
+    console.log('系統即將休眠')
   })
 })
 ```
