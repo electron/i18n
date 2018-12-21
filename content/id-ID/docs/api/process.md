@@ -24,7 +24,7 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 * `platform`
 * `resourcesPath`
 * `sandboxed`
-* `mengetik`
+* `type`
 * `version`
 * `versions`
 * `mas`
@@ -76,39 +76,39 @@ A `Boolean`. When the renderer process is sandboxed, this property is `true`, ot
 
 ### `process.throwDeprecation`
 
-A `Boolean` that controls whether or not deprecation warnings will be thrown as exceptions. Setting this to `true` will throw errors for deprecations. This property is used instead of the `--throw-deprecation` command line flag.
+A `Boolean` yang mengontrol apakah peringatan dimusnahkan atau tidak akan dilemparkan pengecualian. Menetapkan ini ke `benar` akan membuang kesalahan untuk penolakan. Properti ini digunakan sebagai pengganti flag baris perintah `-throw-deprecation`.
 
 ### `process.traceDeprecation`
 
-A `Boolean` that controls whether or not deprecations printed to `stderr` include their stack trace. Setting this to `true` will print stack traces for deprecations. This property is instead of the `--trace-deprecation` command line flag.
+A `Boolean` yang mengontrol apakah pencabutan atau tidak dicocokkan ke `stderr ` sertakan jejak tumpukan mereka. Setting this to `true` will print stack traces for deprecations. Properti ini bukan flag baris perintah `- trace deprecation`.
 
 ### `process.traceProcessWarnings`
 
-A `Boolean` that controls whether or not process warnings printed to `stderr` include their stack trace. Setting this to `true` will print stack traces for process warnings (including deprecations). This property is instead of the `--trace-warnings` command line flag.
+A `Boolean` yang mengontrol apakah proses peringatan atau tidak untuk mencetak `stderr` disertakan  jejak tumpukan mereka. Setting this to `true` will print stack traces for process warnings (including deprecations). This property is instead of the `--trace-warnings` command line flag.
 
 ### `process.type`
 
-A `String` representing the current process's type, can be `"browser"` (i.e. main process) or `"renderer"`.
+A `String` mewakili tipe proses saat ini, bisa jadi ` "browser" ` (yaitu proses utama) atau `"renderer" `.
 
 ### `process.versions.chrome`
 
-A `String` representing Chrome's version string.
+A ` String` mewakili string versi Chrome.
 
 ### `process.versions.electron`
 
-A `String` representing Electron's version string.
+A `String` mewakili string versi Elektron.
 
 ### `process.windowsStore`
 
-A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
+A `Boolean`. Jika aplikasi berjalan sebagai aplikasi Store Windows (appx), properti ini `benar`, karena jika tidak `tidak terdefinisi`.
 
 ## Metode
 
-The `process` object has the following methods:
+Objek `proses` memiliki metode berikut:
 
 ### `process.crash()`
 
-Causes the main thread of the current process crash.
+Penyebab benang utama dari proses crash saat ini.
 
 ### `process.getCreationTime()`
 
@@ -118,11 +118,11 @@ Indicates the creation time of the application. The time is represented as numbe
 
 ### `process.getCPUUsage()`
 
-Returns [`CPUUsage`](structures/cpu-usage.md)
+Mengembalikan[`Penggunaan CPU`](structures/cpu-usage.md)
 
 ### `process.getIOCounters()` *Windows* *Linux*
 
-Returns [`IOCounters`](structures/io-counters.md)
+Mengembalikan [`IO Penghitung`](structures/io-counters.md)
 
 ### `process.getHeapStatistics()`
 
@@ -144,12 +144,12 @@ Returns an object with V8 heap statistics. Note that all statistics are reported
 
 Mengembalikan `Objek`:
 
-* `total` Integer - The total amount of physical memory in Kilobytes available to the system.
-* `free` Integer - The total amount of memory not being used by applications or disk cache.
+* `total`Integer - Jumlah total memori fisik di Kilobyte tersedia untuk sistem.
+* `gratis` Integer - Jumlah total memori yang tidak digunakan oleh aplikasi atau disk cache.
 * `swapTotal` Integer *Windows* *Linux* - The total amount of swap memory in Kilobytes available to the system.
 * `swapFree` Integer *Windows* *Linux* - The free amount of swap memory in Kilobytes available to the system.
 
-Returns an object giving memory usage statistics about the entire system. Note that all statistics are reported in Kilobytes.
+Mengembalikan objek yang memberikan statistik penggunaan memori tentang keseluruhan sistem. Catatan bahwa semua statistik dilaporkan di Kilobytes.
 
 ### `process.takeHeapSnapshot(filePath)`
 
@@ -161,10 +161,10 @@ Takes a V8 heap snapshot and saves it to `filePath`.
 
 ### `process.hang()`
 
-Causes the main thread of the current process hang.
+Penyebab benang utama dari proses saat ini hang.
 
 ### `process.setFdLimit(maxDescriptors)` *macOS* *Linux*
 
 * `maxDescriptors` Integer
 
-Sets the file descriptor soft limit to `maxDescriptors` or the OS hard limit, whichever is lower for the current process.
+Menetapkan file descriptor soft limit ke `maxDescriptors`atau OS yang keras batas, mana yang lebih rendah untuk proses saat ini.
