@@ -220,7 +220,7 @@ Sets when the tray's icon background becomes highlighted (in blue).
 const { BrowserWindow, Tray } = require('electron')
 
 const win = new BrowserWindow({ width: 800, height: 600 })
-const tray = new Tray('/path/to/my/icon')
+const tray = new Tray('/caminho/para/o/icone')
 
 tray.on('click', () => {
   win.isVisible() ? win.hide() : win.show()
