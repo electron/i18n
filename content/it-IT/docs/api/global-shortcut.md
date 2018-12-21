@@ -1,4 +1,4 @@
-# globalShortcut
+# Shortcutglobale
 
 > Rileva eventi della tastiera quando l'applicazione non è in focus su di essa.
 
@@ -12,7 +12,7 @@ Il modulo `globalShortcut` può registrare/eliminare una scorciatoia di tastiera
 const { app, globalShortcut } = require('electron')
 
 app.on('ready', () => {
-  // Register a 'CommandOrControl+X' shortcut listener.
+  // Registra un listener per la combinazione 'CommandOrControl+X'.
   const ret = globalShortcut.register('CommandOrControl+X', () => {
     console.log('Hai premuto CommandOrControl+X')
   })
@@ -41,7 +41,7 @@ Il modulo `globalShortcut` ha i seguenti metodi:
 ### `globalShortcut.register(accelerator, callback)`
 
 * `accelerator` [Accelerator](accelerator.md)
-* `callback` Funzione
+* `callback` Function
 
 Registra la scorciatoia di `accelerator`. Il `callback` viene chiamato quando la scorciatoia registrata viene premuta dall'utente.
 
