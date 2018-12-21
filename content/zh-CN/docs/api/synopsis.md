@@ -11,11 +11,11 @@ Electron 还为开发原生桌面应用程序提供了一些额外的内置模�
 The main process script is like a normal Node.js script:
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 let win = null
 
 app.on('ready', () => {
-  win = new BrowserWindow({width: 800, height: 600})
+  win = new BrowserWindow({ width: 800, height: 600 })
   win.loadURL('https://github.com')
 })
 ```
@@ -27,7 +27,7 @@ app.on('ready', () => {
 <html>
 <body>
 <script>
-  const {app} = require('electron').remote
+  const { app } = require('electron').remote
   console.log(app.getVersion())
 </script>
 </body>
@@ -41,7 +41,7 @@ app.on('ready', () => {
 从0.37开始，可以使用 [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) (es6解构赋值)来使内置模块更容易使用。
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 let win
 
@@ -55,7 +55,7 @@ app.on('ready', () => {
 
 ```javascript
 const electron = require('electron')
-const {app, BrowserWindow} = electron
+const { app, BrowserWindow } = electron
 
 let win
 

@@ -2,8 +2,6 @@
 
 > Buat dan kontrol tampilan.
 
-**Catatan:** lihat browser API masih bersifat eksperimental dan mungkin mengubah atau dihapus elektron pada masa depan.
-
 Proses: [Main](../glossary.md#main-process)
 
 A `BrowserView` can be used to embed additional web content into a [`BrowserWindow`](browser-window.md). Ini seperti jendela anak, kecuali yang diposisikan relatif terhadap jendela miliknya. Hal ini dimaksudkan untuk menjadi alternatif tag `lihat web`.
@@ -11,8 +9,8 @@ A `BrowserView` can be used to embed additional web content into a [`BrowserWind
 ## Contoh
 
 ```javascript
-// In the main process.
-const {BrowserView, BrowserWindow} = require('elektron') nyalakan = baru BrowserWindow ({width: 800, height: 600}) win.on('tertutup', () => {mut = null}) = BrowserView baru ({webPreferences: {nodeIntegration: false}}) win.setBrowserView (view) view.setBounds ({x: 0, y: 0, lebar: tinggi 300,: 300 }) view.webContents.loadURL('https://electronjs.org')
+// Pada proses utama.
+const { BrowserView, BrowserWindow } = require('elektron') nyalakan = baru BrowserWindow ({ width: 800, height: 600 }) win.on('tertutup', () => {mut = null}) = BrowserView baru ({webPreferences: {nodeIntegration: false}}) win.setBrowserView (view) view.setBounds ({x: 0, y: 0, lebar: tinggi 300,: 300 }) view.webContents.loadURL('https://electronjs.org')
 ```
 
 ### `baru lihat browser([options])` *Eksperimental*

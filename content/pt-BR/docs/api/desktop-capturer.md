@@ -2,15 +2,15 @@
 
 > Access information about media sources that can be used to capture audio and video from the desktop using the [`navigator.mediaDevices.getUserMedia`] API.
 
-Processo: [Renderer](../glossary.md#renderer-process)
+Processo: [Renderizador](../glossary.md#renderer-process)
 
 The following example shows how to capture video from a desktop window whose title is `Electron`:
 
 ```javascript
 // In the renderer process.
-const {desktopCapturer} = require('electron')
+const { desktopCapturer } = require('electron')
 
-desktopCapturer.getSources({types: ['window', 'screen']}, (error, sources) => {
+desktopCapturer.getSources({ types: ['window', 'screen'] }, (error, sources) => {
   if (error) throw error
   for (let i = 0; i < sources.length; ++i) {
     if (sources[i].name === 'Electron') {
@@ -26,9 +26,8 @@ desktopCapturer.getSources({types: ['window', 'screen']}, (error, sources) => {
             maxHeight: 720
           }
         }
-      })
-      .then((stream) => handleStream(stream))
-      .catch((e) => handleError(e))
+      }).then((stream) => handleStream(stream))
+        .catch((e) => handleError(e))
       return
     }
   }

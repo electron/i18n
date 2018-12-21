@@ -7,14 +7,14 @@ Processo: [Main](../glossary.md#main-process)
 Exemplo mostrando um diálogo para selecionar múltiplos arquivos e diretórios:
 
 ```javascript
-const {dialog} = require('electron')
-console.log(dialog.showOpenDialog({properties: ['openFile', 'openDirectory', 'multiSelections']}))
+const { dialog } = require('electron')
+console.log(dialog.showOpenDialog({ properties: ['openFile', 'openDirectory', 'multiSelections'] }))
 ```
 
 O Diálogo é aberto a partir do thread principal do Electron. Se deseja usar o objeto dialog de um processo de renderização, lembre-se de acessar usando o código a seguir:
 
 ```javascript
-const {dialog} = require('electron').remote
+const { dialog } = require('electron').remote
 console.log(dialog)
 ```
 
@@ -54,10 +54,10 @@ Os `filters` designam um array dos tipos que podem ser apresentados ou seleciona
 ```javascript
 {
   filters: [
-    {name: 'Images', extensions: ['jpg', 'png', 'gif']},
-    {name: 'Movies', extensions: ['mkv', 'avi', 'mp4']},
-    {name: 'Custom File Type', extensions: ['as']},
-    {name: 'All Files', extensions: ['*']}
+    { name: 'Images', extensions: ['jpg', 'png', 'gif'] },
+    { name: 'Movies', extensions: ['mkv', 'avi', 'mp4'] },
+    { name: 'Custom File Type', extensions: ['as'] },
+    { name: 'All Files', extensions: ['*'] }
   ]
 }
 ```
@@ -105,7 +105,7 @@ Se um `callback` é passado, a solicitação à API será dessincronizada e o re
   * `checkboxLabel` String (opcional) - Se fornecida, a caixa de mensagem incluirá uma caixa de seleção com o devido rótulo. O estado da caixa de seleção poderá ser verificada apenas quando `callback` estiver sendo usado.
   * `checkboxChecked` Boolean (opcional) - Estado inicial da caixa de seleção designada como ativa. `false` por padrão.
   * `icon` [NativeImage](native-image.md) (opcional)
-  * `cancelId` Integer (opcional) - O indicador do botão será usado para cancelar o diálogo, por via da tecla `Esc`. Por padrão é atribuído ao primeiro botão como "cancelar" ou "não" como rótulos. Se botões desse tipo não existem e essa opção não é atribuída, `0` será usado como valor de retorno ou resposta do callback. Essa opção é ignorada no Windows.
+  * `cancelId` Integer (opcional) - O indicador do botão será usado para cancelar o diálogo, por via da tecla `Esc`. Por padrão é atribuído ao primeiro botão como "cancelar" ou "não" como rótulos. Se botões desse tipo não existem e essa opção não é atribuída, `0` será usado como valor de retorno ou resposta do callback.
   * `noLink` Boolean (opcional) - No Windows, o Electron tentará identificar qual dos `buttons` são botões comuns (como "cancelar" ou "sim"), e exibir os outros como links de comandos no diálogo. Ele pode fazer o diálogo ser apresentado com o estilo dos aplicativos modernos do Windows. Se você não deseja esse comportamento, você pode definir `noLink` para `true`.
   * `normalizeAccessKeys` Boolean (opcional) - Normaliza o acesso às teclas do teclado entre as plataformas. Por padrão é `false`. Ativando-o assume-se que `&` é usado nos rótulos dos botões para atribuir a tecla de atalho de acesso do teclado assim os rótulos serão convertidos para que funcionem corretamente em cada plataforma, os caracteres `&` são removidos no macOS, convertidos para `_` no Linux, e deixados intactos no Windows. Por exemplo, um rótulo de botão `Vie&w` será convertido para `Vie_w` no Linux e `View` no macOS e pode ser selecionado através de `Alt-W` no Windows e Linux.
 * `callback` Function (opcional) 

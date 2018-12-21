@@ -91,6 +91,14 @@ Cuando este atributo está presente, el contenedor `webview` se reajustará auto
 
 Cuando este atributo esté presente, la página de invitado en `webview` tendrá integración de nodo y puede usar nodos APIs como `require` y `process` para acceder a bajos niveles de recursos de sistemas. La integración de nodo está desactivada por defecto en la página de invitado.
 
+### `enableremotemodule`
+
+```html
+<webview src="http://www.google.com/" enableremotemodule="false"></webview>
+```
+
+When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. The remote module is avaiable by default.
+
 ### `complementos`
 
 ```html
@@ -99,7 +107,7 @@ Cuando este atributo esté presente, la página de invitado en `webview` tendrá
 
 Cuando este atributo está presente, la página de invitado en `webview` podrá usar complementos del buscador. Los complementos están desactivados por defecto.
 
-### `precargado`
+### `precarga`
 
 ```html
 <webview src="https://www.github.com/" preload="./test.js"></webview>
@@ -207,6 +215,12 @@ webview.addEventListener('dom-ready', () => {
 
 Carga el `url` en el webview, el `url` debe contener el prefijo protocolo, e.g. el `http://` or `file://`.
 
+### `<webview>.downloadURL(url)`
+
+* `url` Cadena
+
+Initiates a download of the resource at `url` without navigating.
+
 ### `<webview>.getURL()`
 
 Devuelve `String` - El URL de la página de invitado.
@@ -218,6 +232,10 @@ Devuelve `Cadena` - El título de la página de invitado.
 ### `<webview>.isLoading()`
 
 Devuelve `Boolean` - Aunque la página de invitado esté cargando recursos.
+
+### `<webview>.isLoadingMainFrame()`
+
+Devuelve `Boolean` - Si el marco principal (y no sólo iframes o frames dentro de él) todavía está cargando.
 
 ### `<webview>.isWaitingForResponse()`
 
@@ -300,7 +318,7 @@ Inyecta CSS en la página de invitado.
 * `callback` Función (opcional) - Llamado después de que se haya ejecutado el script. 
   * `resultado` Cualquiera
 
-Evalúa el `code` en la página. Si `userGesture` está establecido, creará el contexto de gesto del usuario en la página. APIs de HTML como `requestFullScreen`, los cuales requieren acciones de usuario, puede tomar ventaja de esta opción para automatización.
+Evalúa el `código` en la página. Si `userGesture` está establecido, creará el contexto de gesto del usuario en la página. APIs de HTML como `requestFullScreen`, los cuales requieren acciones de usuario, puede tomar ventaja de esta opción para automatización.
 
 ### `<webview>.openDevTools()`
 
@@ -320,8 +338,8 @@ Devuelve `Boolean` - Aunque la ventana de DevTools de la página de invitado est
 
 ### `<webview>.inspectElement(x, y)`
 
-* `x` Integer
-* `y` Íntegro
+* `x` Íntegro
+* `y` Integer
 
 Empieza inspeccionado elementos en posición (`x`, `y`) de la página de invitado.
 
@@ -338,6 +356,10 @@ Establece la página de invitado silenciada.
 ### `<webview>.isAudioMuted()`
 
 Devuelve `Boolean` - Aunque a página de invitado haya sido silenciada.
+
+### `<webview>.isCurrentlyAudible()`
+
+Returns `Boolean` - Whether audio is currently playing.
 
 ### `<webview>.undo()`
 
@@ -396,7 +418,7 @@ Inserta `texto` al elemento centrado.
 ### `<webview>.findInPage(text[, options])`
 
 * `text` String - El contenido para ser buscado, no debe quedar en blanco.
-* `opciones` Objecto (opcional) 
+* `opciones` Object (opcional) 
   * `forward` Boolean (opcional) - Ya sea para buscar hacia adelante o hacia atrás, el valor predeterminado es `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -418,10 +440,10 @@ Detiene cualquier solicitud `findInPage` para el `webview` con la `action` dada.
 
 ### `<webview>.print([options])`
 
-* `opciones` Objecto (opcional) 
+* `opciones` Object (opcional) 
   * `silent` Boolean (opcional) - No le pide al usuario configurar la impresora. Por defecto es `false`.
   * `printBackground` Boolean (opcional) - También imprime el color de fondo y la imagen de la página web. Por defecto es `false`.
-  * `deviceName` Cadena (opcional) - Establece el nombre del dispositivo de impresión a usar. Por defecto es `"`.
+  * `deviceName` String (opcional) - Configura el nombre de la impresora que se va a usar. Por defecto es `''`.
 
 Imprime la página web de `webview`. Al igual que `webContents.print([options])`.
 
@@ -429,7 +451,7 @@ Imprime la página web de `webview`. Al igual que `webContents.print([options])`
 
 * `opciones` Object 
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un objeto que contenga `height` y `width` en micron.
+  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un contenedor de objeto `height` y `width` en micrones.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
@@ -474,7 +496,35 @@ Cambia el factor de zoom al factor especificado. El factor de zoom es el porcent
 
 * `nivel` Número - Nivel de Zoom.
 
-Cambia el nivel de zoom al nivel especificado. El tamaño original es 0 y cada incremento por encima o por debajo representa un zoom del 20% mayor o menor a los límites predeterminados de 300% y 50% del tamaño original, respectivamente.
+Cambia el nivel de zoom al nivel especificado. El tamaño original es 0 y cada incremento por encima o por debajo representa un zoom del 20% mayor o menor a los límites predeterminados de 300% y 50% del tamaño original, respectivamente. La fórmula para esto es `scale := 1.2 ^ level`.
+
+### `<webview>.getZoomFactor(callback)`
+
+* `callback` Function 
+  * `zoomFactor` Number
+
+Envía una solicitud para obtener el factor zoom actual. El `callback` será llamado con `callback(zoomFactor)`.
+
+### `<webview>.getZoomLevel(callback)`
+
+* `callback` Function 
+  * `zoomLevel` Number
+
+Envía una solicitud para obtener el factor zoom actual. El `callback` será llamado con `callback(zoomLevel)`.
+
+### `<webview>.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
+
+* `minimumLevel` Número
+* `maximumLevel` Número
+
+Establecer el nivel de máximo y mínimo pizca de zoom.
+
+### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
+
+* `minimumLevel` Número
+* `maximumLevel` Número
+
+Establece el nivel de zoom máximo y mínimo basado en el diseño (es decir, no visual).
 
 ### `<webview>.showDefinitionForSelection()` *macOS*
 
@@ -483,6 +533,8 @@ Muestra el diccionario pop-up que busca la palabra seleccionada en la página.
 ### `<webview>.getWebContents()`
 
 Devuelve [`WebContents`](web-contents.md) - Los contenidos web asociados con esto `webview`.
+
+It depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
 
 ## Eventos DOM
 
@@ -508,7 +560,7 @@ Devuelve:
 * `errorCode` Entero
 * `errorDescription` String
 * `validatedURL` String
-* `isMainFrame` Boolean
+* `EsElFramePrincipal` Boolean
 
 Este evento es como `did-finish-load`,pero disparado cuando la carga falla o es cancelada, e.g. `window.stop()` es involucrada.
 
@@ -614,7 +666,7 @@ Disparado cuando la página de invitado intenta abrir una nueva ventana de busca
 El siguiente código ejemplo abre el nuevo url en el buscador por defecto del sistema.
 
 ```javascript
-const {shell} = require('electron')
+const { shell } = require('electron')
 const webview = document.querySelector('webview')
 
 webview.addEventListener('new-window', (e) => {
@@ -629,7 +681,7 @@ webview.addEventListener('new-window', (e) => {
 
 Devuelve:
 
-* `url` Cadena
+* `url` String
 
 Emitido cuando un usuario o la página quiere iniciar la navegación. Puede suceder cuando el objeto `window.location` es cambiado o un usuario hace click en un link de la página.
 
@@ -696,7 +748,7 @@ webview.send('ping')
 
 ```javascript
 // En la página de invitado.
-const {ipcRenderer} = require('electron')
+const { ipcRenderer } = require('electron')
 ipcRenderer.on('ping', () => {
   ipcRenderer.sendToHost('pong')
 })

@@ -2,7 +2,7 @@
 
 Desde su V0.34.0, Electron permite introducir paquetes de aplicaciones a la Mac App Store (MAS). Esta guía provee información de: Como presentar tu aplicación y las limitaciones de la estructura del MAS.
 
-**Nota:** Presentar una aplicación en la Mac App Store requiere la aprobación del [programa de desarrolladores de Apple](https://developer.apple.com/support/compare-memberships/), el cual cuesta dinero.
+**Note:** Submitting an app to Mac App Store requires enrolling in the [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), which costs money.
 
 ## Como presentar su aplicación
 
@@ -20,7 +20,7 @@ Antes de firmar su aplicación, necesita conocer la identificaicón del equipo d
 
 Después de los trabajos preparativos, puede empacar su aplicación siguiendo [Distribución de la aplicación](application-distribution.md), y después firmando su aplicación.
 
-Primer, tiene que añadir la llave `ElectronTeamID` a la `Info.plist` de su aplicación, el cual tiene la identificación de su equipo como valor:
+First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which has your Team ID as its value:
 
 ```xml
 <plist version="1.0">
@@ -126,7 +126,7 @@ Módulos nativos utilizados en su aplicación también necesitan la firma. Si us
 Electron-osx-signo YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-Note también que los módulos nativos pueden tener archivos intermediarios los cuales no deben ser incluidos (de la misma forma en que tienen que ser firmados). Si utiliza [electron-packager](https://github.com/electron-userland/electron-packager) antes de la versión 8.1.0, agregue `--ignore=.+\.o$` a sus pasos de estructuración para ignorar estos archivos. Versión 8.1.0 y posteriores ignora estos archivos por defecto.
+Note también que los módulos nativos pueden tener archivos intermediarios los cuales no deben ser incluidos (de la misma forma en que tienen que ser firmados). Si utiliza [electron-packager](https://github.com/electron-userland/electron-packager) antes de la versión 8.1.0, agregue `--ignore=.+\.o$` a sus pasos de estructuración para ignorar estos archivos. Versions 8.1.0 and later ignore those files by default.
 
 ### Actualice su aplicación
 

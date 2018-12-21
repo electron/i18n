@@ -4,17 +4,19 @@
 
 Prozess: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
+In the renderer process context it depends on the [`remote`](remote.md) module on Linux, it is therefore not available when this module is disabled.
+
 Das folgende Beispiel zeigt, wie Zeichenfolgen in die Zwischenablage geschrieben werden:
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 clipboard.writeText('Example String')
 ```
 
 Auf X Window Systemen existiert eine selektierende Zwischenablage. Um diese zu manipulieren, füge `selection` in jeder Methode ein:
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 clipboard.writeText('Example String', 'selection')
 console.log(clipboard.readText('selection'))
 ```
@@ -133,7 +135,7 @@ Gibt das `Object` zurück:
   Gibt einen `Boolean` zurück - Prüft, ob die Zwischenablage das angegebene `format` unterstützt.
   
   ```javascript
-  const {clipboard} = require('electron')
+  const { clipboard } = require('electron')
   console.log(clipboard.has('<p>selection</p>'))
   ```
   
@@ -167,8 +169,8 @@ Gibt das `Object` zurück:
     * `bookmark` String (optional) - Der Titel von der URL bei `text`.
   * `type` String (optional)
   ```javascript
-  const {clipboard} = require('electron')
-  clipboard.write({text: 'test', html: '<b>test</b>'})
+  const { clipboard } = require('electron')
+  clipboard.write({ text: 'test', html: '<b>test</b>' })
   ```
   
   Schreibt `data` in die Zwischenablage.

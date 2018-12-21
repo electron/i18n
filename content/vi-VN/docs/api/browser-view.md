@@ -2,9 +2,7 @@
 
 > Tạo và điểu khiển View.
 
-**Ghi chú:** BrowserView API đang được thử nghiệm và có thể bị thay đổi hoặc bỏ luôn trong các phiên bản Electron kế tiếp.
-
-Tiến trình: [Main](../glossary.md#main-process)
+Quá trình: [Main](../glossary.md#main-process)
 
 A `BrowserView` can be used to embed additional web content into a [`BrowserWindow`](browser-window.md). Nó như một cửa sổ con, ngoại trừ vị trí của nó thì tương đối với cửa sổ sở hữu nó. Có thể xem nó là một sự lựa chọn khác với sử dụng tag `webview`.
 
@@ -12,9 +10,9 @@ A `BrowserView` can be used to embed additional web content into a [`BrowserWind
 
 ```javascript
 // Trong tiến trình main.
-const {BrowserView, BrowserWindow} = require('electron')
+const { BrowserView, BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({width: 800, height: 600})
+let win = new BrowserWindow({ width: 800, height: 600 })
 win.on('closed', () => {
   win = null
 })

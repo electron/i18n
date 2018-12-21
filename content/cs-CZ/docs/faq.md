@@ -51,7 +51,7 @@ This happens when the variable which is used to store the window/tray gets garba
 
 If you encounter this problem, the following articles may prove helpful:
 
-* [Memory Management](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
+* [Správa paměti](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
 * [Variable Scope](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
 If you want a quick fix, you can make the variables global by changing your code from this:

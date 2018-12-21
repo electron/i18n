@@ -13,12 +13,22 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 * `crash()`
 * `hang()`
 * `getHeapStatistics()`
-* `getProcessMemoryInfo()`
 * `getSystemMemoryInfo()`
+* `getCPUUsage()`
+* `getIOCounters()`
 * `argv`
 * `execPath`
 * `env`
+* `pid`
+* `arch`
 * `platform`
+* `resourcesPath`
+* `sandboxed`
+* `ang uri`
+* `version`
+* `versions`
+* `mas`
+* `windowsStore`
 
 ## Pangyayari
 
@@ -60,6 +70,10 @@ A `Boolean` that controls whether or not deprecation warnings are printed to `st
 
 Ang `String` nag representa ng landas patungo sa pangunahing panuto.
 
+### `process.sandboxed`
+
+A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
+
 ### `proseso.itaponDeprecation`
 
 Ang `Boolean` na kumokontrol kung o hindi ang mga babala sa deprecation ay matatapon bilang eskepsyon. Ang pagtatakda ng mga ito na `totoo` ay magtatapon ng mali para sa deprecations. Ang propeyedad na ito ay ginagamit sa halip na `--tapon-deprecation` naguutos sa bandilang linya.
@@ -96,11 +110,17 @@ Ang `proseso` na bagay ay may mga sumusunod na paraan:
 
 Ang mga dahilan ng pangunahing thread sa kasalukuyang proseso ay lumagpak.
 
+### `process.getCreationTime()`
+
+Returns `Number | null` - The number of milliseconds since epoch, or `null` if the information is unavailable
+
+Indicates the creation time of the application. The time is represented as number of milliseconds since epoch. It returns null if it is unable to get the process creation time.
+
 ### `proseso.getCPUUsage()`
 
 Pagbabalik [` CPUUsage `](structures/cpu-usage.md)
 
-### `process.getIOCounters()` *Windows* *Linux*
+### ` proseso.kuhaIOCounter()`*Windows**Linux*
 
 Pagbabalik [`IOCounters`](structures/io-counters.md)
 
@@ -120,17 +140,6 @@ Nagbabalik ng mga `bagay`:
 
 Returns an object with V8 heap statistics. Note that all statistics are reported in Kilobytes.
 
-### `proseso.getProsesoMemoryaInfo()`
-
-Nagbabalik ng mga `bagay`:
-
-* `workingSetSize`Integer - Ang halaga ng memorya ay kasalukuyang naka-pin sa aktwal na pisikal na RAM.
-* `peakWorkingSetSize` Integer - Ang pinakamataas na halaga ng memorya na hindi pa nai-pin sa aktwal na pisikal RAM.
-* `privateBytes` Integer - Ang halaga ng memorya na hindi ibinahagi ng iba pang mga proseso, tulad ng tambakan ng JS o mga nilalaman ng HTML.
-* `sharedBytes` Integer - Ang halaga ng memorya na naibahagi sa bawat mga proseso, na kadalasan ay memoryang nagagamit ng mismong code ng Electron.
-
-Nagbabalik ng mga bagay at nagbibigay ng memoryang paggamit ng istatistika tungkol sa kasalukuyang proseso. Tandaan na ang lahat ng istatistik ay iniulat sa Kilobytes.
-
 ### `proseso.getSystemMemoryInfo()`
 
 Returns `Object`:
@@ -141,6 +150,14 @@ Returns `Object`:
 * `swapFree` Integer *Windows* *Linux* - The free amount of swap memory in Kilobytes available to the system.
 
 Nagbabalik ng bagay at nagbibigay ng memoryang gamit na istatistika tungkol sa buong sistema. Tandaan na ang lahat ng istatistika ay inuulat sa Kilobytes.
+
+### `process.takeHeapSnapshot(filePath)`
+
+* `filePath` String - Path to the output file.
+
+Returns `Boolean` - Indicates whether the snapshot has been created successfully.
+
+Takes a V8 heap snapshot and saves it to `filePath`.
 
 ### `proseso.hang()`
 

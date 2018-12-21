@@ -2,8 +2,6 @@
 
 > Створюйте та керуйте виглядами.
 
-**Примітка:** BrowserView API наразі є експериментальним і може бути зміненим чи видаленим з майбутніх версій Electron.
-
 Процес: [Main](../glossary.md#main-process)
 
 `BrowserView` Може бути використаний для вставки додаткового веб контенту у [`BrowserWindow`](browser-window.md). По cуті він є дочірнім вікном, за винятком того, що позиціонується відносно батьківського вікна. Він покликаний бути альтернативою тегу `webview`.
@@ -12,9 +10,9 @@
 
 ```javascript
 // В головному процесі.
-const {BrowserView, BrowserWindow} = require('electron')
+const { BrowserView, BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({width: 800, height: 600})
+let win = new BrowserWindow({ width: 800, height: 600 })
 win.on('closed', () => {
   win = null
 })

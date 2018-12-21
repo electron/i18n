@@ -9,7 +9,7 @@ El módulo `shell` proporciona las funciones relacionadas con la integración de
 Ejemplo de cómo abrir un URL en el navegador por defecto del usuario:
 
 ```javascript
-const {shell} = require('electron')
+const { shell } = require('electron')
 
 shell.openExternal('https://github.com')
 ```
@@ -37,8 +37,9 @@ Abre el archivo determinado en el escritorio por defecto.
 ### `shell.openExternal(url[, options, callback])`
 
 * `url` String - Max 2081 characters on windows, or the function returns false.
-* `opciones` Object (opcional) *macOS* 
-  * `activate` Booleano - `true` para traer la aplicación abierta al primer plano. Por defecto es `true`.
+* `opciones` Object (opcional) 
+  * `activate` Boolean (optional) - `true` to bring the opened application to the foreground. The default is `true`. *macOS*
+  * `workingDirectory` String (optional) - The working directory. *Windows*
 * `callback` Function (opcional) *macOS* Si se especifica se abrirá de forma asincrónica. 
   * `error` Error
 

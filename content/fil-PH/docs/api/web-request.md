@@ -6,7 +6,9 @@ Proseso:[Pangunahi](../glossary.md#main-process)
 
 May ilang pagkakataon na ang `WebRequests` class ay mapupuntahan gamit ang `WebRequests` na katangian ng isang `Session`.
 
-Ang mga paraan ng `WebRequest` pagtanggap ng opsyunal `filter` at isang `listener`. `listener` ay matatawag gamit ang `listener(details)` kung ang event ng API ay naganap. Ang `detalye` bagay na nagrerepresenta sa request. Pagsumite `null` bilang `listener` ay makaka-unsubscribe mula sa event.
+Ang mga paraan ng `WebRequest` pagtanggap ng opsyunal `filter` at isang `listener`. `listener` ay matatawag gamit ang `listener(details)` kung ang event ng API ay naganap. Ang `detalye` bagay na nagrerepresenta sa request.
+
+⚠️ Only the last attached `listener` will be used. Passing `null` as `listener` will unsubscribe from the event.
 
 Ang `filter` ng isang bagay ay mayroong `urls` katangian kung saan ito ay Array ng URL patterns na magagamit sa pagiba-iba ng mga hiling na hindi tugma sa URL patterns. Kung ang `filter` ay makukuha kung kaya lahat ng mga hiling ay matutugma.
 
@@ -15,7 +17,7 @@ Para sa ilang mga event ang `listener` ay binigyan ng isang `callback`, na kung 
 Isang halimbawa ng pagdagdag ng `User-Agent` header para sa mga halimbawa:
 
 ```javascript
-const {session} = require('electron')
+const { session } = require('electron')
 
 // Modify the user agent for all requests to the following urls.
 const filter = {
@@ -24,7 +26,7 @@ const filter = {
 
 session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback) => {
   details.requestHeaders['User-Agent'] = 'MyAgent'
-  callback({cancel: false, requestHeaders: details.requestHeaders})
+  callback({ cancel: false, requestHeaders: details.requestHeaders })
 })
 ```
 
@@ -42,7 +44,7 @@ The following methods are available on instances of `WebRequest`:
     * `url` Tali
     * `method` na String
     * `webContentsId` Integer (optional)
-    * `resourceType` Tali
+    * `resourceType` String
     * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Punsyon 
@@ -58,7 +60,7 @@ The `callback` has to be called with an `response` object.
 
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
-* `salain` Na Bagay (opsyonal) 
+* `salain` Bagay (opsyonal) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function
 
@@ -89,7 +91,7 @@ The `callback` has to be called with an `response` object.
     * `url` Tali
     * `method` na String
     * `webContentsId` Integer (optional)
-    * `resourceType` Tali
+    * `resourceType` String
     * `timestamp` Double
     * `requestHeaders` Object
 
@@ -162,7 +164,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
 
 #### `webRequest.onCompleted([filter, ]listener)`
 
-* `salain` Na Bagay (opsyonal) 
+* `salain` Bagay (opsyonal) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Punsyon 
   * `ang mga detalye` Bagay 
@@ -189,7 +191,7 @@ The `listener` will be called with `listener(details)` when a request is complet
     * `url` Tali
     * `method` na String
     * `webContentsId` Integer (optional)
-    * `resourceType` Tali
+    * `resourceType` String
     * `timestamp` Double
     * `fromCache` Boolean
     * `error` String - The error description.

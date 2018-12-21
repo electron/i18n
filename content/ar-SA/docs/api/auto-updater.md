@@ -2,7 +2,7 @@
 
 > Enable apps to automatically update themselves.
 
-Process: [Main](../glossary.md#main-process)
+العملية: [Main](../glossary.md#main-process)
 
 **See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
 
@@ -12,7 +12,7 @@ Currently, only macOS and Windows are supported. There is no built-in support fo
 
 In addition, there are some subtle differences on each platform:
 
-### macOS
+### نظام macOS
 
 On macOS, the `autoUpdater` module is built upon [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac), meaning you don't need any special setup to make it work. For server-side requirements, you can read [Server Support](https://github.com/Squirrel/Squirrel.Mac#server-support). Note that [App Transport Security](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) applies to all requests made as part of the update process. Apps that need to disable ATS can add the `NSAllowsArbitraryLoads` key to their app's plist.
 
@@ -66,6 +66,8 @@ Emitted when an update has been downloaded.
 
 On Windows only `releaseName` is available.
 
+**Note:** It is not strictly necessary to handle this event. A successfully downloaded update will still be applied the next time the application starts.
+
 ### Event: 'before-quit-for-update'
 
 This event is emitted after a user calls `quitAndInstall()`.
@@ -99,4 +101,4 @@ Restarts the app and installs the update after it has been downloaded. It should
 
 Under the hood calling `autoUpdater.quitAndInstall()` will close all application windows first, and automatically call `app.quit()` after all windows have been closed.
 
-**Note:** If the application is quit without calling this API after the `update-downloaded` event has been emitted, the application will still be replaced by the updated one on the next run.
+**Note:** It is not strictly necessary to call this function to apply an update, as a successfully downloaded update will always be applied the next time the application starts.

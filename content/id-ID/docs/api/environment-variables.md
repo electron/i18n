@@ -21,6 +21,28 @@ Contoh konsol jendela :
 
 Variabel lingkungan berikut ditujukan terutama untuk digunakan pada saat runtime dalam aplikasi Elektron yang dikemas .
 
+### `NODE_OPTIONS`
+
+Electron includes support for a subset of Node's [`NODE_OPTIONS`](https://nodejs.org/api/cli.html#cli_node_options_options). The majority are supported with the exception of those which conflict with Chromium's use of BoringSSL.
+
+Contoh:
+
+```sh
+export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
+```
+
+Unsupported options are:
+
+```sh
+--use-bundled-ca
+--force-fips
+--enable-fips
+--openssl-config
+--use-openssl-ca
+```
+
+`NODE_OPTIONS` are explicitly disallowed in packaged apps.
+
 ### `GOOGLE_API_kunci`
 
 Elektron mencakup kunci API hardcoded untuk mengajukan permintaan ke layanan web geokode Google. Karena kunci API ini disertakan dalam setiap versi Elektron , ini seringkali melebihi kuota pemakaiannya. Untuk mengatasi masalah ini, Anda dapat menyediakan kunci Google API Anda sendiri di lingkungan. Tempatkan kode berikut di file proses utama Anda, sebelum membuka jendela browser yang akan membuat permintaan geocoding:
@@ -89,5 +111,5 @@ Variabel lingkungan ini tidak akan bekerja jika ` crashReporter </ 0> dimulai.</
 When running from the `electron` package, this variable tells the `electron` command to use the specified build of Electron instead of the one downloaded by `npm install`. Pemakaian:
 
 ```sh
-export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/D
+export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Debug
 ```

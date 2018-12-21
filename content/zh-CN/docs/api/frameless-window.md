@@ -9,22 +9,22 @@
 要创建无边框窗口，只需在 [ BrowserWindow ](browser-window.md) 的 ` options ` 中将 ` frame ` 设置为 ` false `：
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({width: 800, height: 600, frame: false})
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ width: 800, height: 600, frame: false })
 win.show()
 ```
 
 ### macOS 上的其他方案
 
-在 macOS 10.9 Mavericks 及更新的版本中，有另一种方式来指定无边框窗口。 通过将 ` frame ` 设置为 ` false ` 得到的窗口在隐藏标题栏的同时也隐藏了窗口控制按钮（俗称“红绿灯”），而有时我们希望保留控制按钮以便对窗口进行操作，同时使内容扩充到整个窗口。 您可以通过指定 ` titleBarStyle ` 选项来完成此操作：
+There's an alternative way to specify a chromeless window. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. 您可以通过指定 ` titleBarStyle ` 选项来完成此操作：
 
 #### `hidden`
 
 返回一个隐藏标题栏的全尺寸内容窗口，在左上角仍然有标准的窗口控制按钮（俗称“红绿灯”）。
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({titleBarStyle: 'hidden'})
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ titleBarStyle: 'hidden' })
 win.show()
 ```
 
@@ -33,18 +33,18 @@ win.show()
 返回一个另一种隐藏了标题栏的窗口，其中控制按钮到窗口边框的距离更大。
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({titleBarStyle: 'hiddenInset'})
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ titleBarStyle: 'hiddenInset' })
 win.show()
 ```
 
 #### `customButtonsOnHover`
 
-使用自定义的关闭、缩小和全屏按钮，这些按钮会在划过窗口的左上角时显示。 这些自定义按钮会阻止工具栏窗口上的鼠标事件。 这个选项只适用于无框架的窗口。
+Uses custom drawn close, and miniaturize buttons that display when hovering in the top left of the window. The fullscreen button is not available due to restrictions of frameless windows as they interface with Apple's MacOS window masks. 这些自定义的按钮能防止, 与发生于标准的窗口工具栏按钮处的鼠标事件相关的问题. This option is only applicable for frameless windows.
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({titleBarStyle: 'customButtonsOnHover', frame: false})
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ titleBarStyle: 'customButtonsOnHover', frame: false })
 win.show()
 ```
 
@@ -53,8 +53,8 @@ win.show()
 通过将 ` transparent ` 选项设置为 ` true `, 还可以使无框窗口透明:
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({transparent: true, frame: false})
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ transparent: true, frame: false })
 win.show()
 ```
 
@@ -72,7 +72,7 @@ win.show()
 要创建一个点击穿透窗口，也就是使窗口忽略所有鼠标事件，可以调用 [ win.setIgnoreMouseEvents(ignore) ](browser-window.md#winsetignoremouseeventsignore-options) API：
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.setIgnoreMouseEvents(true)
 ```
@@ -85,7 +85,7 @@ win.setIgnoreMouseEvents(true)
 let win = require('electron').remote.getCurrentWindow()
 let el = document.getElementById('clickThroughElement')
 el.addEventListener('mouseenter', () => {
-  win.setIgnoreMouseEvents(true, {forward: true})
+  win.setIgnoreMouseEvents(true, { forward: true })
 })
 el.addEventListener('mouseleave', () => {
   win.setIgnoreMouseEvents(false)

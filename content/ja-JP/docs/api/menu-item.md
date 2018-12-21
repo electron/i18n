@@ -22,9 +22,13 @@
   * `enabled` Boolean (任意) - もし false なら、メニューアイテムはグレーっぽくなってクリックできない。
   * `visible` Boolean (任意) - もし false なら、メニューアイテムは全く見えなくなる。
   * `checked` Boolean (任意) - `checkbox` または `radio` の type のメニューアイテムに対してのみ指定する必要がある。
-  * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (任意) - type が `submenu` のメニューアイテムに対してのみ指定する必要がある。 もし `submenu` を指定した場合、`type: 'submenu'` は省略できる。 値が [`Menu`](menu.md) でない場合は、`Menu.buildFromTemplate` を用いて自動的に変換される。
+  * `registerAccelerator` Boolean (optional) - If false, the accelerator won't be registered with the system, but it will still be displayed. Defaults to true.
+  * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. If the value is not a [`Menu`](menu.md) then it will be automatically converted to one using `Menu.buildFromTemplate`.
   * `id` String (任意) - 一つの menu 内で一意なもの。これが定義されていれば、position 属性によってこのアイテムへの参照として利用できる。
-  * `position` String (任意) - このフィールドは与えられたメニュー内の特定の場所を細かく定義できる。
+  * `before` String[] (optional) - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
+  * `after` String[] (optional) - Inserts this item after the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu.
+  * `beforeGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
+  * `afterGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group after the containing group of the item with the specified label.
 
 ### 役割 (roles)
 
@@ -33,6 +37,8 @@ Roles を使用すると、メニューアイテムに定義済みの動作を�
 `click` 関数で手動で動作を実装しようとするのではなく、標準の role に一致するメニューアイテムに対して `role` を指定することが最善です。 組み込み `role` の動作は最適なネイティブの操作感を得られます。
 
 `role`を使用する場合、`label` と `accelerator` の値は任意で、各プラットフォームに最適な値がデフォルトになっています。
+
+Every menu item must have either a `role`, `label`, or in the case of a separator a `type`.
 
 `role` プロパティは、以下の値を持つことができます。
 
@@ -46,11 +52,11 @@ Roles を使用すると、メニューアイテムに定義済みの動作を�
 * `delete`
 * `minimize` - 現在のウィンドウを最小化する。
 * `close` - 現在のウィンドウを閉じる。
-* `quit` - アプリケーションを終了する。
+* `quit` - Quit the application.
 * `reload` - 現在のウィンドウをリロードする。
 * `forceReload` - キャッシュを無視して現在のウィンドウをリロードする。
 * `toggleDevTools` - 現在のウィンドウの開発者向けツールのトグル切り替えをする。
-* `toggleFullScreen`- 現在のウィンドウの全画面モードのトグル切り替えをする。
+* `toggleFullScreen` - Toggle full screen mode on the current window.
 * `resetZoom` - フォーカス中のページのズームレベルを元のサイズにリセットする。
 * `zoomIn` - フォーカス中のページを 10% 拡大する。
 * `zoomOut` - フォーカス中のページを 10% 縮小する。

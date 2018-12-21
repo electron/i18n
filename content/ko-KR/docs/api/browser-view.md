@@ -2,8 +2,6 @@
 
 > 뷰들을 생성하고 제어합니다.
 
-**참고:** BrowserView API는 현재 실험 단계이며, 차후 일렉트론이 릴리즈 되면 변경되거나 제거될 수 있습니다.
-
 프로세스:[Main](../glossary.md#main-process)
 
 A `BrowserView` can be used to embed additional web content into a [`BrowserWindow`](browser-window.md). It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
@@ -12,9 +10,9 @@ A `BrowserView` can be used to embed additional web content into a [`BrowserWind
 
 ```javascript
 // 메인 프로세스에서.
-const {BrowserView, BrowserWindow} = require('electron')
+const { BrowserView, BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({width: 800, height: 600})
+let win = new BrowserWindow({ width: 800, height: 600 })
 win.on('closed', () => {
   win = null
 })
@@ -31,7 +29,7 @@ view.webContents.loadURL('https://electronjs.org')
 
 ### `new BrowserView([options])` *Experimental*
 
-* `options` Object (선택) 
+* `options` Object (optional) 
   * `webPreferences` Object (optional) - See [BrowserWindow](browser-window.md).
 
 ### 정적 메서드

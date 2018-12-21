@@ -9,7 +9,7 @@ Instances of the `Cookies` class are accessed by using `cookies` property of a `
 Na przykład:
 
 ```javascript
-const {session} = require('electron')
+const { session } = require('electron')
 
 // Query all cookies.
 session.defaultSession.cookies.get({}, (error, cookies) => {
@@ -17,19 +17,19 @@ session.defaultSession.cookies.get({}, (error, cookies) => {
 })
 
 // Query all cookies associated with a specific url.
-session.defaultSession.cookies.get({url: 'http://www.github.com'}, (error, cookies) => {
+session.defaultSession.cookies.get({ url: 'http://www.github.com' }, (error, cookies) => {
   console.log(error, cookies)
 })
 
 // Set a cookie with the given cookie data;
 // may overwrite equivalent cookies if they exist.
-const cookie = {url: 'http://www.github.com', name: 'dummy_name', value: 'dummy'}
+const cookie = { url: 'http://www.github.com', name: 'dummy_name', value: 'dummy' }
 session.defaultSession.cookies.set(cookie, (error) => {
   if (error) console.error(error)
 })
 ```
 
-### Wydarzenia instancji
+### Zdarzenia instancji
 
 The following events are available on instances of `Cookies`:
 
@@ -53,14 +53,14 @@ The following methods are available on instances of `Cookies`:
 
 #### `cookies.get(filter, callback)`
 
-* `filtr` Obiekt 
+* `filter` Object 
   * `url` String (optional) - Retrieves cookies which are associated with `url`. Empty implies retrieving cookies of all urls.
   * `name` String (optional) - Filters cookies by name.
   * `domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`.
   * `path` String (optional) - Retrieves cookies whose path matches `path`.
   * `secure` Boolean (optional) - Filters cookies by their Secure property.
   * `session` Boolean (optional) - Filters out session or persistent cookies.
-* `callback` Function 
+* `callback` Funkcja 
   * `error` Error
   * `cookies` [Cookie[]](structures/cookie.md) - an array of cookie objects.
 

@@ -9,7 +9,7 @@ This module does not include a web interface so you need to open `chrome://traci
 **Note:** You should not use this module until the `ready` event of the app module is emitted.
 
 ```javascript
-const {app, contentTracing} = require('electron')
+const { app, contentTracing } = require('electron')
 
 app.on('ready', () => {
   const options = {
@@ -29,7 +29,7 @@ app.on('ready', () => {
 })
 ```
 
-## Методи
+## Методиa
 
 The `contentTracing` module has the following methods:
 
@@ -47,7 +47,7 @@ Once all child processes have acknowledged the `getCategories` request the `call
 * `options` Object 
   * `categoryFilter` String
   * `traceOptions` String
-* `callback` Функція
+* `callback` Function
 
 Start recording on all processes.
 
@@ -92,7 +92,7 @@ Trace data will be written into `resultFilePath` if it is not empty or into a te
 * `options` Object 
   * `categoryFilter` String
   * `traceOptions` String
-* `callback` Функція
+* `callback` Function
 
 Start monitoring on all processes.
 
@@ -102,7 +102,7 @@ Once all child processes have acknowledged the `startMonitoring` request the `ca
 
 ### `contentTracing.stopMonitoring(callback)`
 
-* `callback` Функція
+* `callback` Function
 
 Stop monitoring on all processes.
 

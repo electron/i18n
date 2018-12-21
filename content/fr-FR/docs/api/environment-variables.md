@@ -22,6 +22,28 @@ Exemple sur la console Windows :
 
 Les variables d'environnement suivantes sont destinés principalement à l'exécution des applications Electron empaquetées.
 
+### `NODE_OPTIONS`
+
+Electron includes support for a subset of Node's [`NODE_OPTIONS`](https://nodejs.org/api/cli.html#cli_node_options_options). The majority are supported with the exception of those which conflict with Chromium's use of BoringSSL.
+
+Exemple :
+
+```sh
+export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
+```
+
+Unsupported options are:
+
+```sh
+--use-bundled-ca
+--force-fips
+--enable-fips
+--openssl-config
+--use-openssl-ca
+```
+
+`NODE_OPTIONS` are explicitly disallowed in packaged apps.
+
 ### `GOOGLE_API_KEY`
 
 Electron inclut une clé d'API codée en dur pour faire des requêtes au webservice de geocoding de Google. Car cette clé API est incluse dans toutes les versions d'Electron, elle dépasse souvent son quota d'utilisation. Pour contourner ce problème, vous pouvez fournir votre propre clé API Google dans l'environnement. Placez le code suivant dans votre fichier main process avant d'ouvrir une fenêtre navigateur qui va faire des requêtes geocoding :
@@ -90,5 +112,5 @@ Cette variable d'environnement ne fonctionnera pas si vous avez démarré `crash
 When running from the `electron` package, this variable tells the `electron` command to use the specified build of Electron instead of the one downloaded by `npm install`. Utilisation:
 
 ```sh
-export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/D
+export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Debug
 ```

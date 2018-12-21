@@ -7,13 +7,13 @@ Proseso:[Pangunahi](../glossary.md#main-process)
 `WebContents ` ay isang [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Ito ay responsable sa pag-render at pagkontrol sa isang web page at bagay na ari-arian ng [`BrowserWindow`](browser-window.md). Isang halimbawa ng pag-access sa `webContents` bagay:
 
 ```javascript
-const {BrowserWindow} = nangangailangan ('elektron')
+const { BrowserWindow } = require('electron')
 
-hayaang manalo = bagong BrowserWindow({lapad: 800, taas: 1500})
-manalo.loadURL ('http://github.com')
+let win = new BrowserWindow({ width: 800, height: 1500 })
+win.loadURL('http://github.com')
 
-hayaan ang mga nilalaman =manalo.webContents
-console.log (mga nilalaman)
+let contents = win.webContents
+console.log(contents)
 ```
 
 ## Mga Paraan
@@ -21,7 +21,7 @@ console.log (mga nilalaman)
 Ang mga pamamaraan na ito ay Maaaring ma-access mula sa module na ` webContents`:
 
 ```javascript
-const {webContents} = require('electron')
+const { webContents } = nangangailangan ('elektron')
 console.log(webContents)
 ```
 
@@ -122,7 +122,7 @@ Calling `event.preventDefault()` will prevent Electron from automatically creati
 ```javascript
 myBrowserWindow.webContents.on('bagong-window', (event, url) => {
   kaganapan.preventDefault()
-  const manalo = bagong BrowserWindow ({show: false})
+  const manalo = bagong BrowserWindow ({ show: false })
   manalo.once ('ready-to-show', () = > win.show())
   manalo.loadURL (url)
   kaganapan.newGuest = manalo
@@ -148,15 +148,48 @@ Ang pagtawag sa `kaganapan.preventDefault()` ay maiiwasan ang nabigasyon.
 
 Ibinabalik ang:
 
+* `kaganapan` Kaganapan
+* `url` Tali
+* `isInPlace` Boolean
+* `ay pangunahing kuwadro` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
+
+Emitted when any frame (including main) starts navigating. `isInplace` will be `true` for in-page navigations.
+
+#### Event: 'will-redirect'
+
+Ibinabalik ang:
+
+* `kaganapan` kaganapan
 * `url` Tali
 * `isInPlace` Boolean
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emitted when any frame (including main) starts navigating. `isInplace` will be `true` for in-page navigations.
+Emitted as a server side redirect occurs during navigation. For example a 302 redirect.
 
-#### Kaganapan: 'ginawa-navigate'
+This event will be emitted after `did-start-navigation` and always before the `did-redirect-navigation` event for the same navigation.
+
+Calling `event.preventDefault()` will prevent the navigation (not just the redirect).
+
+#### Event: 'did-redirect-navigation'
+
+Ibinabalik ang:
+
+* `kaganapan` Kaganapan
+* `url` Tali
+* `isInPlace` Boolean
+* `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
+
+Emitted after a server side redirect occurs during navigation. For example a 302 redirect.
+
+This event can not be prevented, if you want to prevent redirects you should checkout out the `will-redirect` event above.
+
+#### Event: 'did-navigate'
 
 Ibinabalik ang:
 
@@ -167,17 +200,17 @@ Ibinabalik ang:
 
 Emitted when a main frame navigation is done.
 
-Ang event na ito ay hindi ilalabas habang nasa nabigasyon sa loog ng page, gaya ng pag-click sa naka-ankor na mga link o naka-update ang `window.location.hash`. Gamitin ang event na `did-navigate-in-page` para sa layuning ito.
+Ang kaganapang ito ay hindi ipinapalabas para sa pag-navigate sa pahina, tulad ng pag-click sa mga link ng anchor o pag-update ng `bintana.lokasyon.hash`. Gamit ang `ginawa-navigate-sa-pahina` kaganapan para sa layuning ito.
 
 #### Event: 'did-frame-navigate'
 
 Ibinabalik ang:
 
-* `kaganapan` Kaganapan
+* `kaganapan` kaganapan
 * `url` Tali
 * `httpResponseCode` Integer - -1 for non HTTP navigations
 * `httpStatusText` String - empty for non HTTP navigations,
-* `isMainFrame` Boolean
+* `ay pangunahing kuwadro` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -185,19 +218,19 @@ Emitted when any frame navigation is done.
 
 Ang kaganapang ito ay hindi ipinapalabas para sa pag-navigate sa pahina, tulad ng pag-click sa mga link ng anchor o pag-update ng `bintana.lokasyon.hash`. Gamit ang `ginawa-navigate-sa-pahina` kaganapan para sa layuning ito.
 
-#### Event: 'did-navigate-in-page'
+#### Kaganapan: 'ginawa-navigate-in-page'
 
 Ibinabalik ang:
 
 * `kaganapan` kaganapan
 * `url` Tali
-* `isMainFrame` Boolean
+* `ay pangunahing kuwadro` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
 Emitted when an in-page navigation happened in any frame.
 
-Kapag nangyayari ang pag-navigate sa pahina, ang pahina ng URL ay nagbabago ngunit hindi ito magiging dahilan ng nabigasyon sa labas ng pahina. Ang mga halimbawa ng nangyari ay kapag ang mga anchor link ay na-click o kapag ang DOM `hashchange` at ang kaganapan ay na-trigger.
+Kapag nangyari ang nabigasyon sa loob ng page, ang URL ng page ay nababago pero hindi ito magiging dahilan sa pag-nanavigate sa labas ng page. Mga halimbawa ng mga pangyayaring ito ay kapag ang naka-ankor na mga link ay naclick o kung ang mga na DOM na `hashchange` ay natrigger.
 
 #### Kaganapan: 'will-prevent-unload'
 
@@ -210,8 +243,8 @@ Naipalalabas kapag ang `beforeunload` ay sinusubukan ng tagahawak ng kaganapan n
 Ang pagtawag sa `kaganapan.preventDefault()` ay hindi papansinin ang `beforeunload` tagahawak ng kaganapan at pahihintulutan ang pahina na ito ay i-unload.
 
 ```javascript
-const {BrowserWindow, dialog} = nangangailangan('elektron')
-const manalo = bagong BrowserWindow ({width: 800, height: 600})
+const { BrowserWindow, dialog } = nangangailangan('elektron')
+const manalo = bagong BrowserWindow ({ width: 800, height: 600 })
 manalo.webContents.on('will-prevent-unload', (kaganapan) => {
   const pagpili = dialog.showMessageBox(manalo, {
     uri: 'tanong',
@@ -228,11 +261,11 @@ manalo.webContents.on('will-prevent-unload', (kaganapan) => {
 })
 ```
 
-#### Event: 'crashed'
+#### Kaganapan: 'nag-crash'
 
 Ibinabalik ang:
 
-* `kaganapan` kaganapan
+* `kaganapan` Kaganapan
 * `killed` Ang Boolean
 
 Lumalabas kapag ang proseso ng tagapag-render ay nasira o pinatay.
@@ -249,9 +282,9 @@ Ay lalabas kapag ang hindi tumutugon na pahina ng web ay tumutugon ulit.
 
 Ibinabalik ang:
 
-* `kaganapan` kaganapan
+* `event` Ang event
 * `name` String
-* `version` String
+* `Bersyon` Pisi
 
 Lumalabas kapag ang proseso ng plugin ay nag-crash.
 
@@ -263,7 +296,7 @@ Nagpapalabas kapag ang `webContents` ay nawasak.
 
 Ibinabalik ang:
 
-* `kaganapan` Kaganapan
+* `kaganapan` kaganapan
 * `input` Bagay - Input properties. 
   * `uri` Pisi - Alinman `keyUp` o `keyDown`.
   * `susi` Pisi - Katumbas ng [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
@@ -279,20 +312,20 @@ Pinapalabas bago ipadala ang `keydown` at `keyup` mga kaganapan sa pahina. Ang p
 Upang mapigilan lamang ang mga shortcut sa menu, gamitin ang [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcutsignore-experimental):
 
 ```javascript
-const {BrowserWindow} = nangangailangan('elektron')
+const { BrowserWindow } = require('electron')
 
-hayaan ang panalo = bagong BrowserWindow ({lapad: 800, taas: 600})
+let win = new BrowserWindow({ width: 800, height: 600 })
 
-manalo.webContents.on('bago-input-kaganapan', (kaganapan, input) => {
-  // Halimbawa, paganahin lang ang mga shortcut sa keyboard ng menu ng aplikasyon kapag
-  / / Ctrl/Cmd ay pababa.
+win.webContents.on('before-input-event', (event, input) => {
+  // For example, only enable application menu keyboard shortcuts when
+  // Ctrl/Cmd are down.
   manalo.webContents.setIgnoreMenuShortcuts(!input.control && !input.meta)
 })
 ```
 
 #### Kaganapan: 'devtools-binuksan'
 
-Nilalabas kapag ang DevTools ay nabuksan.
+Ilabas kapag ang mga DevTool ay nabuksan.
 
 #### Kaganapan: 'devtools-sarado'
 
@@ -300,7 +333,7 @@ Nilalabas kapag ang DevTools ay sarado.
 
 #### Kaganapan: 'devtools-nakatuon'
 
-Nilalabas kapag ang DevTools ay nakatuon/binuksan.
+Ilabas kapag ang mga DevTool ay napukos / nabuksan.
 
 #### Mga event: 'certificate-error'
 
@@ -310,7 +343,7 @@ Ibinabalik ang:
 * `url` Tali
 * `error` String - Ang code ng error.
 * `certificate` [Certificate](structures/certificate.md)
-* `mulingtawag` Punsyon 
+* `callback` Function 
   * `isTrusted` Boolean - ay nagpapahiwatig kung ang sertipiko ay maaaring ituring na pinagkakatiwalaan.
 
 Naipalalabas kapag nabigo upang i-verify ang `sertipiko` para sa `url`.
@@ -335,7 +368,7 @@ Ang paggamit ay pareho sa [ang kaganapan `piliin-client-sertipiko`ng `app`](app.
 
 Ibinabalik ang:
 
-* `event` Ang event
+* `kaganapan` Kaganapan
 * `kahilingan` Bagay 
   * `method` na String
   * `url` Ang URL
@@ -362,8 +395,8 @@ Ibinabalik ang:
 * `resulta` Bagay 
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Posisyon ng aktibong katugma.
-  * `matches` Integer - Bilang ng mga Tugma.
-  * `selectionArea` Objek - Mga coordinate ng unang tugmang parte.
+  * `tugma` Integer - Bilang ng Mga Tugma.
+  * `selectionArea` Layunin - Coordinates ng unang rehiyon ng pagtutugma.
   * `finalUpdate` Boolean
 
 Naipalalabas kapag ang resulta ay magagamit para sa [`webContents.findInPage`] humiling.
@@ -374,7 +407,7 @@ Naipalalabas kapag nagsimula ng maglaro ang media.
 
 #### Kaganapan: 'media-paused'
 
-Naipalalabas kapag ang media ay naka-nakahinto o tapos na ang pag-play.
+Ilabas kapag ang medya ay nahinto o natapos na.
 
 #### Kaganapan: 'ginawa-baguhin-tema-kulay'
 
@@ -396,7 +429,7 @@ Ibinabalik ang:
 * `kaganapan` kaganapan
 * `url` Tali
 
-Ilabas kapag ang mouse ay napunta sa link o ang keyboard ay nagalaw ang pukos sa link.
+Inilalabas kapag gumagalaw ang mouse sa isang link o inililipat ng keyboard ang focus sa isang link.
 
 #### Kaganapan: 'cursor-changed'
 
@@ -417,7 +450,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 
 Ibinabalik ang:
 
-* `kaganapan` kaganapan
+* `kaganapan` Kaganapan
 * `params` Bagay 
   * `x` Integer - x coordinate.
   * `y` Integer - y coordinate.
@@ -461,19 +494,19 @@ Ibinabalik ang:
 
 * `kaganapan` Kaganapan
 * `Mga aparato` [BluetoothDevice[]](structures/bluetooth-device.md)
-* `callback` Punsyon 
+* `callback` Function 
   * `deviceId` String
 
 Ipinalalabas kapag kailangang pumili ng bluetooth device sa tawag sa `navigator.bluetooth.requestDevice`. Upang gamitin ang `navigator.bluetooth` api `webBluetooth` ay dapat na paganahin. Kung ang `kaganapan.preventDefault` ay hindi tinatawag, Ang unang magagamit na aparato ang mapipili. `callback` ay dapat na tawagin `deviceId` na mapipili, magpasa ng walang laman na pisi sa `callback` ay kanselahin ang kahilingan.
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 let win = null
 app.commandLine.appendSwitch('enable-experimental-web-platform-features')
 
 app.on('ready', () => {
-  win = new BrowserWindow({width: 800, height: 600})
+  win = new BrowserWindow({ width: 800, height: 600 })
   win.webContents.on('select-bluetooth-device', (event, deviceList, callback) => {
     event.preventDefault()
     let result = deviceList.find((device) => {
@@ -499,12 +532,13 @@ Ibinabalik ang:
 Binubuwag kapag ang bagong kuwadro ay nabuo. Tanging ang maruming lugar ay ipinasa sa buffer.
 
 ```javascript
-const {BrowserWindow} = nangangailangan('elektron')
+const { BrowserWindow } = require('electron')
 
-hayaan manalo ang = bagong BrowserWindow ({webPreferences: {offscreen: tama}})
-manalo.webContents.on ('pintura', (kaganapan, marumi, larawan) = & gt; {
-   // updateBitmap (marumi, image.kumuha ng Bitmap ())})
-manalo.loadURL ('http://github.com')
+let win = new BrowserWindow({ webPreferences: { offscreen: true } })
+win.webContents.on('paint', (event, dirty, image) => {
+  // updateBitmap(dirty, image.getBitmap())
+})
+win.loadURL('http://github.com')
 ```
 
 #### Kaganapan: 'devtools-kargahan muli-ang pahina'
@@ -546,14 +580,32 @@ Ibinabalik ang:
 
 Pinapalabas kapag nag-log ang nauugnay na window sa isang mensahe ng console. Hindi ipapalabas para sa mga window na may *offscreen rendering* na pinapagana.
 
+#### Event: 'remote-require'
+
+Ibinabalik ang:
+
+* `kaganapan` Kaganapan
+* `moduleName` String
+
+Emitted when `remote.require()` is called in the renderer process. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+
+#### Event: 'remote-get-global'
+
+Ibinabalik ang:
+
+* `kaganapan` Kaganapan
+* `globalName` String
+
+Emitted when `remote.getGlobal()` is called in the renderer process. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
+
 ### Instance Methods
 
 #### `contents.loadURL(url[, mga pagpipilian])`
 
 * `url` Tali
-* `options` Na Bagay (opsyonal) 
+* `mga opsyon` Bagay (opsyonal) 
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
-  * `userAgent` String(opsyonal) - Ang ahente na gumagamit ng pinagmumulan ng kahilingan.
+  * `userAgent` Pisi (opsyonal) - Isang ahenteg gumagamit na nagmumula sa kahilingan.
   * `extraHeaders` String(opsyonal) - Sobrang ulunan ay pinaghihiwalay sa "\n".
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
   * `baseURLForDataURL` String(opsyonal) - Basi nag url (may tagapahiwalay sa landas ng separator) para sa mga dokumento na kakargahin sa pamamagitan ng datos ng url. Ito ay kinakailangan lamang kung ang tinutukoy na `url` ay isang url ng data at kailangang mag-load ng iba pang mga file.
@@ -561,14 +613,18 @@ Pinapalabas kapag nag-log ang nauugnay na window sa isang mensahe ng console. Hi
 Naglo-load ang `url` sa bintana. Ang `url` ay dapat naglalaman ng prefix ng protocol, hal. ang `http://` o `file://`. Kung ang load ay dapat mag-bypass http cache pagkatapos gamitin ang `pragma` header upang makamit ito.
 
 ```javascript
-const {webContents} = nangangailangan('elektron')
-const mga pagpiilian = {extraHeaders: 'pragma: no-cache\n'}
-webContents.loadURL('https://github.com', mga pagpipilian)
+const { webContents } = require('electron')
+const options = { extraHeaders: 'pragma: no-cache\n' }
+webContents.loadURL('https://github.com', options)
 ```
 
-#### `contents.loadFile(filePath)`
+#### `contents.loadFile(filePath[, options])`
 
 * `filePath` String
+* `mga opsyon` Na Bagay (opsyonal) 
+  * `query` Object (optional) - Passed to `url.format()`.
+  * `search` String (optional) - Passed to `url.format()`.
+  * `hash` String (optional) - Passed to `url.format()`.
 
 Loads the given file in the window, `filePath` should be a path to an HTML file relative to the root of your application. For instance an app structure like this:
 
@@ -597,11 +653,11 @@ Nagsimula ang pag-download ng mapagkukunan sa `url` nang walang pag-navigate. An
 Ibinabalik `Pisi` - Ang URL ng kasalukuyang web page.
 
 ```javascript
-const {BrowserWindow} = nangangailangan('elektron')
-hayaan ang panalo = bagong BrowserWindow ({lapad: 800, taas: 600})
-manalo.loadURL ('http://github.com')
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ width: 800, height: 600 })
+win.loadURL('http://github.com')
 
-hayaan ang kasalukuyangURL = manalo.webContents.getURL()
+let currentURL = win.webContents.getURL()
 console.log(currentURL)
 ```
 
@@ -685,11 +741,11 @@ Ang nabigasyon sa tinutukoy na offset galing sa "kasalukuyang entri".
 
 #### `mga nilalaman.isCrashed()`
 
-Nagbabalik `Boolean` - Kung saan ang proseso ng tagapagbigay ay nasira.
+Ibinabalik `Boolean` - Kapag ang proseso ng tagapag-render ay nawasak.
 
 #### `mga nilalaman.setUserAgent(userAgent)`
 
-* `userAgent` String
+* `userAgent` na String
 
 Naka-override ang ahenteng gumagamit para sa pahina ng web na ito.
 
@@ -699,7 +755,7 @@ Ibinabalik`Pisi` - Ang ahenteng gumagamit para sa pahina ng web na ito.
 
 #### `mga nilalaman.insertCSS(css)`
 
-* `css` String
+* `css` Pisi
 
 Mga pagturok ng CSS sa kasalukuyang pahina ng web.
 
@@ -710,7 +766,7 @@ Mga pagturok ng CSS sa kasalukuyang pahina ng web.
 * `callback` Function (opsyonal) - Tinawagan pagkatapos na maisakatuparan ang iskrip. 
   * `result` Any
 
-Ibinabalik ang mga `Pangako` - Ang isang pangako na lumulutas sa resulta ng naipatupad na code o tinanggihan kung ang resulta ng code ay isang tinanggihang pangako.
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
 
 Sinusuri ang mga `code` sa pahina.
 
@@ -741,6 +797,10 @@ I-mute ang audio sa kasalukuyang web na page.
 #### `mga nilalaman.ng AudioMuted()`
 
 Bumalik `Boolean` - Kung naka-mute ang pahinang ito.
+
+#### `contents.isCurrentlyAudible()`
+
+Returns `Boolean` - Whether audio is currently playing.
 
 #### `mga nilalaman.setZoomFactor(kadahilanan)`
 
@@ -774,6 +834,12 @@ Tinatapos ang isang kahilingan upang makakuha ng kasalukuyang antas sa pag-zoom,
 * `Pinakamataas na Antas` na Numero
 
 Itinatakda ang pinakamataas at pinakamababang antas ng pinch-sa-zoom.
+
+> **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
+> 
+> ```js
+contents.setVisualZoomLevelLimits(1, 3)
+```
 
 #### `mga nilalaman.setVisualZoomLevelLimits (pinakamababang antas, pinakamataas na antas)`
 
@@ -846,12 +912,12 @@ Pagsingit `text` para sa nakapukos na elemento.
 #### `mga nilalaman.findInPage (teksto [, mga pagpipilian])`
 
 * `teksto` String - Ang nilalaman na hahanapin, ay hindi dapat walang laman.
-* `mga opsyon` Na Bagay (opsyonal) 
+* `mga opsyon` Bagay (opsyonal) 
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
-  * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
-  * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Tinatanggap ang ilan na ibang intra-salitang magkapareha, mga defaults `false`.
+  * `wordStart` Boolean (optional) (Deprecated) - Whether to look only at the start of words. defaults to `false`.
+  * `medialCapitalAsWordStart` Boolean (optional) (Deprecated) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Tinatanggap ang ilan na ibang intra-salitang magkapareha, mga defaults `false`.
 
 Ibinabalik `Integer` - Ang kahilingang id na ginagamit para sa kahilingan.
 
@@ -867,7 +933,7 @@ Magsisimula ng isang kahilingan upang mahanap ang lahat ng mga tugma para sa `te
 Hinihinto ang `findInPage` kahilingan para sa `webContents` kasama ang ibinigay na `aksyon`.
 
 ```javascript
-const {webContents} = nangangailangan('elektron')
+const { webContents } = nangangailangan('elektron')
 webContents.on('found-in-page', (kaganapan, resulta) => {
   kung (resulta.finalUpdate) webContents.stopFindInPage('clearSelection')
 })
@@ -880,7 +946,7 @@ console.log(requestId)
 
 * `rect` [Rectangle](structures/rectangle.md) (opsyonal) - Ang kabuuan ng page na kukuhanin.
 * `callback` Function 
-  * `imahe` [NativeImage](native-image.md)
+  * `image` [NativeImage](native-image.md)
 
 Kumukuha ng isang snapshot ng pahina sa loob ng `rect`. Sa oras na makumpleto `callback` ay tatawagan `callback(imahe)`. Ang `imahe` ay isang halimbawa ng [NativeImage](native-image.md) na nag-iimbak ng data ng snapshot. Umupo `rect` ay kukunin ang buong nakikitang pahina.
 
@@ -906,7 +972,7 @@ Ibinabalik [`PrinterInfo[]`](structures/printer-info.md).
 
 #### `mga nilalaman.print([options], [callback])`
 
-* `mga opsyon` Bagay (opsyonal) 
+* `opsyon` Na Bagay (opsyonal) 
   * `silent` Boolean (opsyonal) - Huwag itanong sa user sa mga setting sa pagpapaimprinta. Ang naka-default ay `false`.
   * `printBackground` Boolean (opsyonal) - Iniimprinta rin ang kulay ng background at ang mukha ng web page. Ang naka-default ay `false`.
   * `deviceName` String (opsyonal) - Itakda ang pangalan ng gagamiting printer na gagamitin. Ang naka-default ay `"`.
@@ -915,13 +981,13 @@ Ibinabalik [`PrinterInfo[]`](structures/printer-info.md).
 
 Nagpiprint ng pahina ng web sa mga window. Kapag ang `tahimik` ay naka-set sa `totoo`, ang Elektron ay pipiliin ang sistema ng default na printer kung ang `deviceName` ay walang laman at ang mga default na magtatakda para sa pag-print.
 
-Pagtawag sa `window.print()` sa pahina ng web ay katumbas ng pagtawag sa `webContents.print({silent: false, printBackground: false, deviceName: ''})`.
+Pagtawag sa `window.print()` sa pahina ng web ay katumbas ng pagtawag sa `webContents.print({ silent: false, printBackground: false, deviceName: '' })`.
 
 Use `page-break-before: always;` CSS style to force to print to a new page.
 
 #### `contents.printToPDF(options, callback)`
 
-* `options` Bagay 
+* `mga opsyon` Bagay 
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Pwedeng `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o ang Objek na mayroong `height` at `width` na naka-micron.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
@@ -953,19 +1019,19 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
 Isang halimbawa ng `webContents.printToPDF`:
 
 ```javascript
-const {BrowserWindow} = nangangailangan('elektron')
+const { BrowserWindow } = require('electron')
 const fs = require('fs')
 
-hayaan ang panalo = bagong BrowserWindow ({lapad: 800, taas: 600})
-win.loadURL ('http://github.com')
+let win = new BrowserWindow({ width: 800, height: 600 })
+win.loadURL('http://github.com')
 
-manalo.webContents.on('did-finish-load', () = > {
-  / / Gamitin ang mga default na pagpipilian sa pag-print
-  manalo.webContents.printToPDF({}, (error, data) = > {
-    kung ang (error) itapon ang error
-    fs.writeFile('/tmp/print.pdf', data, (error) = > {
-      kung ang (error) itapon ang error
-      console.log('Matagumpay na sumulat ng PDF.')
+win.webContents.on('did-finish-load', () => {
+  // Use default printing options
+  win.webContents.printToPDF({}, (error, data) => {
+    if (error) throw error
+    fs.writeFile('/tmp/print.pdf', data, (error) => {
+      if (error) throw error
+      console.log('Write PDF successfully.')
     })
   })
 })
@@ -978,7 +1044,7 @@ manalo.webContents.on('did-finish-load', () = > {
 Nagdadagdag ng tinukoy na landas sa DevTools workspace. Dapat gamitin pagkatapos ng DevTools paglikha:
 
 ```javascript
-const {BrowserWindow} = nangangailangan('elektron')
+const { BrowserWindow } = nangangailangan('elektron')
 hayaan ang panalo = bagong BrowserWindow()
 manalo.webContents.on('devtools-binuksan', () = > {
   manalo.webContents.addWorkSpace(__ dirname)
@@ -1034,7 +1100,7 @@ An example of showing devtools in a `<webview>` tag:
 An example of showing devtools in a `BrowserWindow`:
 
 ```js
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 let win = null
 let devtools = null
@@ -1044,13 +1110,13 @@ app.once('ready', () => {
   devtools = new BrowserWindow()
   win.loadURL('https://github.com')
   win.webContents.setDevToolsWebContents(devtools.webContents)
-  win.webContents.openDevTools({mode: 'detach'})
+  win.webContents.openDevTools({ mode: 'detach' })
 })
 ```
 
 #### `contents.openDevTools([mga pagpipilian])`
 
-* `mga opsyon` Bagay (opsyonal) 
+* `options` Na Bagay (opsyonal) 
   * `mode` String - Binubuksan ang mga devtools na may tinukoy na estado ng dock, ay maaaring maging `kanan`, `ibaba`, `undocked`, `detach`. Mga Default na huling ginagamit sa estado ng dock. Sa `undocked` mode posible na i-dock pabalik. Sa `detach` mode ito ay hindi.
 
 Binubuksan ang mga devtools.
@@ -1097,14 +1163,14 @@ Isang halimbawa ng pagpapadala ng mga mensahe mula sa pangunahing proseso sa tag
 
 ```javascript
 // Sa mga pangunahing proseso.
-const {app, BrowserWindow} = nangangailangan('elektron')
-hayaan ang panalo = null
+const { app, BrowserWindow } = require('electron')
+let win = null
 
-app.on('handa', () = > {
-  manalo = bagong BrowserWindow ({lapad: 800, taaa: 600})
-  manalo.loadURL(`file://${__dirname}/index.html`)
-  manalo.webContents.on('did-finish-load', () = > {
-    manalo.webContents.magpadala('ping', 'whoooooooh!')
+app.on('ready', () => {
+  win = new BrowserWindow({ width: 800, height: 600 })
+  win.loadURL(`file://${__dirname}/index.html`)
+  win.webContents.on('did-finish-load', () => {
+    win.webContents.send('ping', 'whoooooooh!')
   })
 })
 ```
@@ -1129,7 +1195,7 @@ app.on('handa', () = > {
     * `desktop` - Desktop screen type.
     * `mobile` - Uri ng screen ng mobile.
   * `screenSize` [Sukat](structures/size.md) - Itakda ang emulated na laki ng screen (screenPosisyon == mobile).
-  * `viewPosition` [Point](structures/point.md) - Iposisyon ang view sa screen (screenPosisyon == mobile) (default: `{x: 0, y: 0}`).
+  * `viewPosition` [Point](structures/point.md) - Iposisyon ang view sa screen (screenPosisyon == mobile) (default: `{ x: 0, y: 0 }`).
   * `deviceScaleFactor` Integer - Itakda ang aparato ng scale factor (kung zero ang default orihinal na kadahilanan ng sukat ng aparato) (default: `0`).
   * `viewSize` [Sukat](structures/size.md) - Itakda ang emulated at tignan ang laki (walang laman ang ibig sabihin nito ay walang override)
   * `scale` Lumutang - Sukat ng emulated view sa loob ng magagamit na espasyo (hindi angkop upang tignan ang mode) (default: `1`).
@@ -1212,7 +1278,7 @@ Sets the `item` as dragging item for current drag-drop operation, `file` is the 
 Returns `Boolean` - true if the process of saving page has been initiated successfully.
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 
 win.loadURL('https://github.com')
@@ -1280,7 +1346,21 @@ Returns `Integer` - The operating system `pid` of the associated renderer proces
 
 #### `contents.getProcessId()`
 
-Returns `Integer` - The chromium internal `pid` of the associated renderer. Can be compared to the `frameProcessId` passed by frame specific navigation events (e.g. `did-frame-navigate`)
+Returns `Integer` - The Chromium internal `pid` of the associated renderer. Can be compared to the `frameProcessId` passed by frame specific navigation events (e.g. `did-frame-navigate`)
+
+#### `contents.takeHeapSnapshot(filePath)`
+
+* `filePath` String - Path to the output file.
+
+Returns `Promise<void>` - Indicates whether the snapshot has been created successfully.
+
+Takes a V8 heap snapshot and saves it to `filePath`.
+
+#### `contents.setBackgroundThrottling(allowed)`
+
+* `allowed` Boolean
+
+Controls whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
 
 ### Katangian ng pagkakataon
 

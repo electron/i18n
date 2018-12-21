@@ -4,9 +4,9 @@ Windows에서 일어나는 긴 경로 이름에 대한 [issues](https://github.c
 
 [`electron-packager`](https://github.com/electron-userland/electron-packager), [`electron-forge`](https://github.com/electron-userland/electron-forge), and [`electron-builder`](https://github.com/electron-userland/electron-builder) 에서 지원하기 때문에, 대부분의 사용자들은 무료로 이 기능을 사용할 수 있습니다. 이 도구들을 사용하지 않는다면, 계속 읽어보십시오.
 
-## Generating `asar` Archives
+## `asar` 아카이브 생성하기
 
-[asar](https://github.com/electron/asar) 아카이브는 tar과 비슷한 포맷으로 모든 리소스를 하나의 파일로 만듭니다. 그리고 Electron은 압축해제 없이 임의로 모든 파일을 읽어들일 수 있습니다.
+[asar](https://github.com/electron/asar) 아카이브는 tar과 비슷한 간단한 포맷으로 모든 리소스를 하나의 파일로 만듭니다. 그리고 Electron은 압축해제 없이 임의로 모든 파일을 읽어들일 수 있습니다.
 
 간단한 작업을 통해 애플리케이션을 `asar` 아카이브로 압축할 수 있습니다:
 
@@ -137,9 +137,9 @@ Node API에는 `child_process.exec`, `child_process.spawn` 그리고 `child_proc
 
 이 한계가 존재하는 이유는 `exec`와 `spawn`은 `file` 대신 `command`를 인수로 허용하고 있고 `command`는 shell에서 작동하기 때문입니다. 그리고 asar 아카이브 내의 파일을 사용하는지 결정하는데 적절한 방법을 가지고 있지 않으며, 심지어 그게 가능하다고 해도 부작용 없이 명령 경로를 대체할 수 있는지에 대해 확실히 알 수 있는 방법이 없습니다.
 
-## Adding Unpacked Files to `asar` Archives
+## `asar` 아카이브에 압축 해제된 파일 추가하기
 
-위에서 언급했듯이, 일부 Node API는 호출시 파일을 파일 시스템에 압축을 풉니 다. 성능 문제 외에도 다양한 바이러스 백신 검색 프로그램이이 동작에 의해 트리거 될 수 있습니다.
+위에서 언급했듯이, 일부 Node API는 호출시 파일을 파일 시스템에 압축을 풉니다. 성능 문제 외에도 다양한 안티 바이러스 프로그램이 이 동작에 의해 트리거 될 수 있습니다.
 
 이 문제를 해결하기 위해 ` -unpack ` 옵션을 사용하여 여러 파일을 압축 해제 된 상태로 둘 수 있습니다. 다음 예제에서 기본 Node.js 모듈의 공유 라이브러리는 압축되지 않습니다.
 

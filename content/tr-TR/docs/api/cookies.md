@@ -9,7 +9,7 @@
 Örneğin:
 
 ```javascript
-const {session} = require('electron')
+const { session } = require('electron')
 
 // Tüm çerezleri sorgula.
 session.defaultSession.cookies.get({}, (error, cookies) => {
@@ -17,13 +17,13 @@ session.defaultSession.cookies.get({}, (error, cookies) => {
 })
 
 // Sadece belirli bir Url ile bağlantılı çerezleri sorgula.
-session.defaultSession.cookies.get({url: 'http://www.github.com'}, (error, cookies) => {
+session.defaultSession.cookies.get({ url: 'http://www.github.com' }, (error, cookies) => {
   console.log(error, cookies)
 })
 
-// İlgili veri ile bir çerez ata
-// Aynı isimde başka bir çerez varsa, üzerine yazar.
-const cookie = {url: 'http://www.github.com', name: 'dummy_name', value: 'dummy'}
+// Set a cookie with the given cookie data;
+// may overwrite equivalent cookies if they exist.
+const cookie = { url: 'http://www.github.com', name: 'dummy_name', value: 'dummy' }
 session.defaultSession.cookies.set(cookie, (error) => {
   if (error) console.error(error)
 })

@@ -30,8 +30,8 @@ The ` ipcRenderer </ 0> modul adalah turunan dari
 <p>Hapus satu waktu <code> pendengar </ 0> fungsi untuk acara. Ini <code> pendengar </ 0> yang hanya satu kali pesan terkirim ke <code> saluran </ 0>, setelah itu hapus.</p>
 
 <h3><code>ipcRenderer.pendengar menghapus (saluran, pendengar)`</h3> 
-        * ` saluran </ 0>  String</li>
-<li><code> pendengar </ 0> Fungsi</li>
+        * `channel` String
+        * ` pendengar </ 0> Fungsi</li>
 </ul>
 
 <p>Menghapus ditentukan <code> pendengar </ 0> dari array pendengar untuk <code> saluran </ 0> tertentu.</p>
@@ -77,4 +77,11 @@ The ` ipcRenderer </ 0> modul adalah turunan dari
 <li><code> ... args </ 0> ada []</li>
 </ul>
 
-<p>Seperti <code> ipcrenderer.kirim </ 0> tapi acara akan dikirim ke <code><webview>` elemen di tuan rumah halaman bukan proses utama.</p>
+<p>Seperti <code> ipcrenderer.kirim </ 0> tapi acara akan dikirim ke <code><webview>` elemen di tuan rumah halaman bukan proses utama.</p> 
+                            ## Objek acara
+                            
+                            ` acara </ 0> objek diteruskan ke <code> callback </ 0> memiliki metode berikut:</p>
+
+<h3><code>event.senderId`</h3> 
+                            
+                            Returns the `webContents.id` that sent the message, you can call `event.sender.sendTo(event.senderId, ...)` to reply to the message, see [ipcRenderer.sendTo](#ipcrenderersendtowindowid-channel--arg1-arg2-) for more information. This only applies to messages sent from a different renderer. Messages sent directly from the main process set `event.senderId` to `0`.

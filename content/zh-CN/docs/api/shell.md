@@ -9,7 +9,7 @@
 在用户的默认浏览器中打开 URL 的示例:
 
 ```javascript
-const {shell} = require('electron')
+const { shell } = require('electron')
 
 shell.openExternal('https://github.com')
 ```
@@ -37,8 +37,9 @@ shell.openExternal('https://github.com')
 ### `shell.openExternal(url[, options, callback])`
 
 * `url` String - Max 2081 characters on windows, or the function returns false.
-* `选项` Object (可选) *macOS* 
-  * `activate` Boolean - ` true `将打开的应用程序置于前台. 默认值为 `true`.
+* `选项` Object (可选) 
+  * `activate` Boolean (optional) - `true` to bring the opened application to the foreground. The default is `true`. *macOS*
+  * `workingDirectory` String (optional) - The working directory. *Windows*
 * `callback` Function (可选) *macOS* Function (可选) - 如果设定该回调函数，那么该回调函数以异步的方式执行。 
   * `error` Error
 

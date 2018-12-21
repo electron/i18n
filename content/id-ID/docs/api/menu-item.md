@@ -22,9 +22,13 @@ Melihat [`Menu`](menu.md) untuk contoh.
   * `diaktifkan` Boolean (opsional) - jika palsu, menu item akan diklik keluar dan unclickable.
   * `terlihat` Boolean (opsional) - jika palsu, menu item akan sepenuhnya tersembunyi.
   * `memeriksa` Boolean (opsional) - harus hanya ditentukan untuk `centang` atau `radio` jenis item menu.
-  * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. Jika `submenu` ditetapkan, `jenis: 'submenu'` dapat diabaikan. If the value is not a [`Menu`](menu.md) then it will be automatically converted to one using `Menu.buildFromTemplate`.
+  * `registerAccelerator` Boolean (optional) - If false, the accelerator won't be registered with the system, but it will still be displayed. Defaults to true.
+  * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. If the value is not a [`Menu`](menu.md) then it will be automatically converted to one using `Menu.buildFromTemplate`.
   * `id` String (opsional) - unik dalam menu tunggal. Jika ditentukan kemudian dapat digunakan sebagai referensi untuk item ini oleh posisi atribut.
-  * `posisi` String (opsional) - bidang ini memungkinkan definisi yang halus lokasi tertentu dalam menu tertentu.
+  * `before` String[] (optional) - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
+  * `after` String[] (optional) - Inserts this item after the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu.
+  * `beforeGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
+  * `afterGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group after the containing group of the item with the specified label.
 
 ### Peran
 
@@ -33,6 +37,8 @@ Peran memungkinkan item menu untuk memiliki standar perilaku.
 Terbaik untuk menetapkan `peran` untuk setiap item menu yang sesuai peran standar, daripada berusaha untuk secara manual menerapkan perilaku dalam fungsi `Klik`. Perilaku internal `peran` akan memberikan pengalaman asli terbaik.
 
 Nilai-nilai `label` dan `akselerator` opsional ketika menggunakan `peran` dan akan default ke nilai-nilai yang sesuai untuk setiap platform.
+
+Every menu item must have either a `role`, `label`, or in the case of a separator a `type`.
 
 Properti `peran` dapat memiliki nilai-nilai berikut:
 
@@ -46,11 +52,11 @@ Properti `peran` dapat memiliki nilai-nilai berikut:
 * `menghapus`
 * ` minimize </ 0> - Minimalkan jendela saat ini.</li>
 <li><code> tutup </ 0> - Tutup jendela saat ini.</li>
-<li><code> berhenti </ 0> - Keluar dari aplikasi.</li>
-<li><code> reload </ 0> - Muat ulang jendela aktif.</li>
+<li><code>quit` - Quit the application.
+* ` reload </ 0> - Muat ulang jendela aktif.</li>
 <li><code>forceReload` - Reload the current window ignoring the cache.
 * `toggleDevTools` - Toggle developer tools in the current window.
-* `toggleFullScreen`- Toggle full screen mode on the current window.
+* `toggleFullScreen` - Toggle full screen mode on the current window.
 * `resetZoom` - Reset the focused page's zoom level to the original size.
 * `zoomIn` - Zoom in the focused page by 10%.
 * `zoomOut` - Zoom out the focused page by 10%.

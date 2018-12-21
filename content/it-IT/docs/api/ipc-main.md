@@ -18,7 +18,7 @@ Un esempio di invio e gestione dei messaggi tra i processi render e main:
 
 ```javascript
 // Nel processo principale.
-const {ipcMain} = require('electron')
+const { ipcMain } = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
   console.log(arg) // prints "ping"
   event.sender.send('asynchronous-reply', 'pong')
@@ -32,7 +32,7 @@ ipcMain.on('synchronous-message', (event, arg) => {
 
 ```javascript
 // Nel processo di rendering (pagina web).
-const {ipcRenderer} = require('electron')
+const { ipcRenderer } = require('electron')
 console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // stampa "pong"
 
 ipcRenderer.on('asynchronous-reply', (event, arg) => {

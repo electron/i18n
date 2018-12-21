@@ -4,15 +4,17 @@
 
 Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
+In the renderer process context it depends on the [`remote`](remote.md) module on Linux, it is therefore not available when this module is disabled.
+
 Contoh berikut menunjukkan cara menulis string ke clipboard:
 
 ```javascript
-const {clipboard} = require ('electron') clipboard.writeText (' String Contoh ')
+const { clipboard } = require ('electron') clipboard.writeText (' String Contoh ')
 ```
 
 Pada sistem X Window, ada juga clipboard pilihan. Untuk memanipulasinya, Anda harus melewati ` pilihan </ 0> untuk setiap metode:</p>
 
-<pre><code class="javascript">const {clipboard} = require ('electron') clipboard.writeText ('Example String ', 'selection') console.log (clipboard.readText ('selection'))
+<pre><code class="javascript">const { clipboard } = require ('electron') clipboard.writeText ('Example String ', 'selection') console.log (clipboard.readText ('selection'))
 `</pre> 
 
 ## Methods
@@ -21,7 +23,7 @@ The ` clipboard </ 0> modul memiliki metode berikut:</p>
 
 <p><strong> Catatan: </ 0> API Eksperimental ditandai seperti itu dan dapat dihapus di masa mendatang.</p>
 
-<h3><code>clipboard.baca teks ( [tipe] )`</h3> 
+<h3><code>clipboard.readText ( [type] )`</h3> 
 
 * ` ketik </ 0>  String (opsional)</li>
 </ul>
@@ -104,7 +106,7 @@ The ` clipboard </ 0> modul memiliki metode berikut:</p>
                   
                   Mengembalikan ` String </ 0> - Teks pada papan gambar yang ditemukan. Metode ini menggunakan synchronous IPC saat dipanggil dari proses renderer. Nilai cache dibaca ulang dari papan gambar anyar setiap kali aplikasi diaktifkan.</p>
 
-<h3><code>clipboard.writeFindText(text)` *macOS*</h3> 
+<h3><code>clipboard.writeFindText(text)` * macos*</h3> 
                   
                   * `teks` String
                   
@@ -132,7 +134,7 @@ The ` clipboard </ 0> modul memiliki metode berikut:</p>
 
 <p>Pengembalian <code> Boolean </ 0> - Apakah clipboard mendukung ditentukan <code> Format </ 0> .</p>
 
-<pre><code class="javascript">const {clipboard} = require ('electron') console.log (clipboard.has (' &lt;p&gt; selection </ 0> '))
+<pre><code class="javascript">const { clipboard } = require ('electron') console.log (clipboard.has (' &lt;p&gt; selection </ 0> '))
 `</pre> 
                       ### ` clipboard.read (format) </ 0>  <em> Eksperimental </ 1></h3>
 
@@ -172,6 +174,7 @@ The ` clipboard </ 0> modul memiliki metode berikut:</p>
 <li><code> ketik </ 0>  String (opsional)</li>
 </ul>
 
-<pre><code class="javascript">const {clipboard} = require ('electron') clipboard.write ({text: 'test', html: ' &lt;b&gt; test </ 0> '})
+<pre><code class="javascript">const { clipboard } = require('electron')
+clipboard.write({ text: 'test', html: '<b>test</b>' })
 `</pre> 
                             Menulis  data </ 0> ke clipboard.</p>

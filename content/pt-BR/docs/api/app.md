@@ -7,7 +7,7 @@ Processo: [Main](../glossary.md#main-process)
 O seguinte exemplo mostra como encerrar a aplicação quando a última janela é fechada:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 app.on('window-all-closed', () => {
   app.quit()
 })
@@ -21,7 +21,7 @@ O objeto `app` emite os seguintes eventos:
 
 Emitido quando a aplicação termina inicialização básica. No Windows e Linux o evento `will-finish-launching` é o mesmo que o evento `ready`; no macOS, este evento representa a notificação `applicationWillFinishLaunching` de `NSApplication`. Você normalmente poderia escutar os eventos de `open-file` e `open-url` aqui e iniciar o crash reporter e auto atualização.
 
-Na maioria dos casos, dá para fazer tudo no manipulador do evento `ready`.
+Na maioria dos casos, você deve fazer tudo no manipulador do evento `ready`.
 
 ### Evento: 'ready'
 
@@ -215,7 +215,7 @@ Retorna:
 Emitido quando a verificação do `certificate` para o `url` falha, para confiar no certificado você deve prevenir o comportamento padrão com `event.preventDefault()` e chamar `callback(true)`.
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('certificate-error', (event, webContents, url, error, certificate, callback) => {
   if (url === 'https://github.com') {
@@ -244,7 +244,7 @@ Emitido quando um certificado de cliente é solicitado.
 O `url` corresponde à entrada de navegação solicitando o certificado do cliente e `callback` pode ser chamado com uma entrada filtrada da lista. Usar `event.preventDefault()` previne a aplicação de utilizar o primeiro certificado da store.
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('select-client-certificate', (event, webContents, url, list, callback) => {
   event.preventDefault()
@@ -277,7 +277,7 @@ Emitido quando `webContents` quer fazer uma autenticação básica.
 O comportamento padrão é cancelar todas as autenticações, para superar isso você deve prevenir o comportamento padrão com `event.preventDefault()` e chamar `callback(username, password)` com as credenciais.
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('login', (event, webContents, request, authInfo, callback) => {
   event.preventDefault()
@@ -312,7 +312,7 @@ Retorna:
 Emitido quando Electron criar uma nova `session`.
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('session-created', (event, session) => {
   console.log(session)
@@ -330,6 +330,26 @@ Retorna:
 Este evento será emitido dentro da instância principal do seu aplicativo quando uma segunda instância é executada. `argv` é um array dos argumentos de linha de comando da segunda instância, e `workingDirectory` é o diretório de trabalho atual dela. Geralmente, aplicativos reagem a isso tornando a janela principal deles visível e em primeiro plano.
 
 Esse evento é garantido que será emitido após o evento `ready` do objeto `app` ser emitido.
+
+### Event: 'remote-require'
+
+Retorna:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+* `moduleName` String
+
+Emitted when `remote.require()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+
+### Event: 'remote-get-global'
+
+Retorna:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+* `globalName` String
+
+Emitted when `remote.getGlobal()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
 
 ## Métodos
 
@@ -368,9 +388,9 @@ Quando `app.relaunch` é chamado por várias vezes, várias instâncias serão i
 Um exemplo de reinício da instância atual imediatamente e adicionar um novo argumento de linha de comando à nova instância:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
-app.relaunch({args: process.argv.slice(1).concat(['--relaunch'])})
+app.relaunch({ args: process.argv.slice(1).concat(['--relaunch']) })
 app.exit(0)
 ```
 
@@ -380,7 +400,7 @@ Retorna `Boolean` - `true` se o Electron tiver inicializado, `false` caso contr�
 
 ### `app.whenReady()`
 
-Retorna `Promise` - cumprido quando o Electron é inicializado. Pode ser usado como uma alternativa conveniente para a verificação `app.isReady()` e subscrever o evento `ready` se a aplicação ainda não estiver pronta.
+Returns `Promise<void>` - fulfilled when Electron is initialized. Pode ser usado como uma alternativa conveniente para a verificação `app.isReady()` e subscrever o evento `ready` se a aplicação ainda não estiver pronta.
 
 ### `app.focus()`
 
@@ -516,7 +536,7 @@ A API usa internamente o Registro do Windows e o LSSetDefaultHandlerForURLScheme
 * `path` String (opcional) *Windows* - O padrão é `process.execPath`
 * `args` String[] (opcional) *Windows* - O padrão é um array vazio
 
-Retorna `Boolean` - Se a chamada for bem sucedida.
+Retorna `Boolean` - Se a chamada foi realizada com sucesso.
 
 Esse método verifica se o executável atual é o manipulador padrão de um protocolo (também conhecido como esquema de URI). Caso seja, ele removerá a aplicação como o manipulador padrão.
 
@@ -574,57 +594,57 @@ Se `categories` for `null`, a Jump List personalizada anteriormente definida (se
 Aqui vai um exemplo muito simples de como criar uma Jump List personalizada:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.setJumpList([
   {
     type: 'custom',
-    name: 'Projetos recentes',
+    name: 'Recent Projects',
     items: [
       { type: 'file', path: 'C:\\Projects\\project1.proj' },
       { type: 'file', path: 'C:\\Projects\\project2.proj' }
     ]
   },
-  { // Como ela tem um nome, `type` já é considerado como "custom"
-    name: 'Ferramentas',
+  { // has a name so `type` is assumed to be "custom"
+    name: 'Tools',
     items: [
       {
         type: 'task',
-        title: 'Ferramenta A',
+        title: 'Tool A',
         program: process.execPath,
         args: '--run-tool-a',
         icon: process.execPath,
         iconIndex: 0,
-        description: 'Executa a ferramenta A'
+        description: 'Runs Tool A'
       },
       {
         type: 'task',
-        title: 'Ferramenta B',
+        title: 'Tool B',
         program: process.execPath,
         args: '--run-tool-b',
         icon: process.execPath,
         iconIndex: 0,
-        description: 'Executa a ferramenta B'
+        description: 'Runs Tool B'
       }
     ]
   },
   { type: 'frequent' },
-  { // Como não tem nome nem tipo, `type` é considerado como sendo "tasks"
+  { // has no name and no type so `type` is assumed to be "tasks"
     items: [
       {
         type: 'task',
-        title: 'Novo projeto',
+        title: 'New Project',
         program: process.execPath,
         args: '--new-project',
-        description: 'Cria um novo projeto.'
+        description: 'Create a new project.'
       },
       { type: 'separator' },
       {
         type: 'task',
-        title: 'Recuperar projeto',
+        title: 'Recover Project',
         program: process.execPath,
         args: '--recover-project',
-        description: 'Recupera um projeto'
+        description: 'Recover Project'
       }
     ]
   }
@@ -646,7 +666,7 @@ No macOS, o sistema impõe o uso de instância única automaticamente quando os 
 Aqui vai um exemplo de como ativar a janela da instância principal quando uma segunda instância for iniciada:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 let myWindow = null
 
 const gotTheLock = app.requestSingleInstanceLock()
@@ -717,7 +737,7 @@ Muda o [Application User Model ID](https://msdn.microsoft.com/en-us/library/wind
 * `callback` Function 
   * `result` Integer - Resultado da importação.
 
-Importa o certificado em formato pkcs12 ao armazenamento de certificados da plataforma. `callback` é chamada com o `result` da operação de importação. O valor `0` indica sucesso, enquanto que qualquer outro valor indica falha de acordo com a [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) do Chromium.
+Importa o certificado em formato pkcs12 ao armazenamento de certificados da plataforma. `callback` is called with the `result` of import operation, a value of `0` indicates success while any other value indicates failure according to Chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
 ### `app.disableHardwareAcceleration()`
 
@@ -738,6 +758,41 @@ Retorna [`ProcessMetric[]`](structures/process-metric.md): Array de `ProcessMetr
 ### `app.getGPUFeatureStatus()`
 
 Retorna [`GPUFeatureStatus`](structures/gpu-feature-status.md) - Os status de recursos gráficos descritos em `chrome://gpu/`.
+
+### `app.getGPUInfo(infoType)`
+
+* `infoType` String - Values can be either `basic` for basic info or `complete` for complete info.
+
+Returns `Promise`
+
+For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src.git/+/69.0.3497.106/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
+
+For `infoType` equal to `basic`: Promise is fulfilled with `Object` containing fewer attributes than when requested with `complete`. Here's an example of basic response:
+
+```js
+{ auxAttributes:
+   { amdSwitchable: true,
+     canSupportThreadedTextureMailbox: false,
+     directComposition: false,
+     directRendering: true,
+     glResetNotificationStrategy: 0,
+     inProcessGpu: true,
+     initializationTime: 0,
+     jpegDecodeAcceleratorSupported: false,
+     optimus: false,
+     passthroughCmdDecoder: false,
+     sandboxed: false,
+     softwareRendering: false,
+     supportsOverlays: false,
+     videoDecodeAcceleratorFlags: 0 },
+gpuDevice:
+   [ { active: true, deviceId: 26657, vendorId: 4098 },
+     { active: false, deviceId: 3366, vendorId: 32902 } ],
+machineModelName: 'MacBookPro',
+machineModelVersion: '11.5' }
+```
+
+Using `basic` should be preferred if only basic information like `vendorId` or `driverId` is needed.
 
 ### `app.setBadgeCount(count)` *Linux* *macOS*
 
@@ -814,6 +869,10 @@ Ativa manualmente o suporte à acessibilidade do Chrome, permitindo expor uma op
 
 **Nota:** A renderização da árvore de acessibilidade pode afetar o desempenho do seu aplicativo de forma significativa. Ela não deve ser ativada por padrão.
 
+### `app.showAboutPanel()` no *macOS*
+
+Show the about panel with the values defined in the app's `.plist` file or with the options set via `app.setAboutPanelOptions(options)`.
+
 ### `app.setAboutPanelOptions(options)` *macOS*
 
 * `options` Object 
@@ -838,7 +897,7 @@ const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedReso
 stopAccessingSecurityScopedResource()
 ```
 
-Start accessing a security scoped resource. With this method electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
+Start accessing a security scoped resource. With this method Electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
@@ -856,6 +915,12 @@ Insere uma opção (com um `value` opcional) à linha de comando do Chromium.
 Append an argument to Chromium's command line. The argument will be quoted correctly.
 
 **Note:** This will not affect `process.argv`.
+
+### `app.enableSandbox()` *Experimental* *macOS* *Windows*
+
+Enables full sandbox mode on the app.
+
+Este método somente pode ser chamado antes do aplicativo estiver pronto.
 
 ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
 

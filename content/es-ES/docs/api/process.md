@@ -13,12 +13,22 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 * `crash()`
 * `hang()`
 * `getHeapStatistics()`
-* `getProcessMemoryInfo()`
 * `getSystemMemoryInfo()`
+* `getCPUUsage()`
+* `getIOCounters()`
 * `argv`
 * `execPath`
 * `env`
+* `pid`
+* `arch`
 * `platform`
+* `resourcesPath`
+* `sandboxed`
+* `type`
+* `version`
+* `versions`
+* `mas`
+* `windowsStore`
 
 ## Eventos
 
@@ -60,6 +70,10 @@ Un `Boolean` que controla si las advertencias de desaprobación se imprimen o no
 
 Una `cadena` que representa la ruta de acceso al directorio de recursos.
 
+### `process.sandboxed`
+
+A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
+
 ### `proceso.desechoDegradación`
 
 Un `Booleano` que controla si las advertencias de degradación son consideradas como excepción. Ajustando este como `verdad` se producirán errores por degradación. Esta propiedad es usada en vez de la linea de comando `--throw-deprecation`.
@@ -96,6 +110,12 @@ El objeto `proceso` tiene los siguientes métodos:
 
 Hace que el hilo principal del proceso actual se detenga.
 
+### `process.getCreationTime()`
+
+Returns `Number | null` - The number of milliseconds since epoch, or `null` if the information is unavailable
+
+Indicates the creation time of the application. The time is represented as number of milliseconds since epoch. It returns null if it is unable to get the process creation time.
+
 ### `process.getCPUUsage()`
 
 Devuelve [`CPUUsage`](structures/cpu-usage.md)
@@ -120,17 +140,6 @@ Devuelve `Objeto`:
 
 Returns an object with V8 heap statistics. Note that all statistics are reported in Kilobytes.
 
-### `process.getProcessMemoryInfo()`
-
-Devuelve `Objecto`:
-
-* `workingSetSize` entero - La cantidad de memoria actualmente cubierta por la RAM física real.
-* `peakWorkingSetSize` Entero - La cantidad máxima de memoria que ha sido cubierta por la RAM física real.
-* `privateBytes` Entero - la cantidad de memoria no compartida por otros procesos, como JS heap o contenido HTML.
-* `sharedBytes` Entero - La cantidad de memoria que ha sido compartida entre procesos, típicamente memoria consumida por el código propio de Electron.
-
-Devuelve un objeto que contiene las estadísticas del uso de la memoria del proceso en curso. Note que todas las estadísticas son reportadas en Kilobytes.
-
 ### `process.getSystemMemoryInfo()`
 
 Devuelve `Objeto`:
@@ -141,6 +150,14 @@ Devuelve `Objeto`:
 * `swapFree` Integer *Windows* *Linux* - La cantidad libre de memoria de swap en Kilobytes disponible para el sistema.
 
 Devuelve un objeto que contiene las estadísticas de la memoria usada por el sistema completo. Note que todas las estadísticas están reportadas en kilobytes.
+
+### `process.takeHeapSnapshot(filePath)`
+
+* `filePath` String - Path to the output file.
+
+Returns `Boolean` - Indicates whether the snapshot has been created successfully.
+
+Takes a V8 heap snapshot and saves it to `filePath`.
 
 ### `process.hang()`
 

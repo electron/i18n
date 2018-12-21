@@ -22,6 +22,28 @@ Windows 控制台示例:
 
 以下环境变量主要用于在打包后的Electron应用运行时使用。
 
+### `NODE_OPTIONS`
+
+Electron includes support for a subset of Node's [`NODE_OPTIONS`](https://nodejs.org/api/cli.html#cli_node_options_options). The majority are supported with the exception of those which conflict with Chromium's use of BoringSSL.
+
+示例:
+
+```sh
+export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
+```
+
+Unsupported options are:
+
+```sh
+--use-bundled-ca
+--force-fips
+--enable-fips
+--openssl-config
+--use-openssl-ca
+```
+
+`NODE_OPTIONS` are explicitly disallowed in packaged apps.
+
 ### `GOOGLE_API_KEY`
 
 Electron包含一个硬编码的 API key用于请求谷歌的地理编码服务。 由于此 API key包含在每个版本的Electron中, 因此它通常超过其使用限额。 为了应对这一情况，您可以在环境中提供自己的 Google API key。 在打开将进行地理编码请求的任何Browser窗口之前, 请在主进程文件中放置以下代码:
@@ -52,7 +74,7 @@ process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
 
 ### `ELECTRON_TRASH` *Linux*
 
-Set the trash implementation on Linux. Default is `gio`.
+在Linux中设置回收站的实现，默认为`gio`。
 
 Options:
 
@@ -87,8 +109,8 @@ Options:
 
 ### `ELECTRON_OVERRIDE_DIST_PATH`
 
-When running from the `electron` package, this variable tells the `electron` command to use the specified build of Electron instead of the one downloaded by `npm install`. 用法:
+由 ` electron ` 包运行时，该变量告知 ` electron `命令使用指定构件代替由`npm install`下载的构件。 用法:
 
 ```sh
-export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/D
+export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Debug
 ```

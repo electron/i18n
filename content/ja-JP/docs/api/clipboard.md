@@ -4,17 +4,19 @@
 
 プロセス: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
+In the renderer process context it depends on the [`remote`](remote.md) module on Linux, it is therefore not available when this module is disabled.
+
 以下の例では、クリップボードに文字列を書き込む方法を示します。
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 clipboard.writeText('Example String')
 ```
 
 X Windowシステムには、セレクションクリップボードもあります。これを操作するには、各メソッドに `selection` を渡す必要があります。
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 clipboard.writeText('Example String', 'selection')
 console.log(clipboard.readText('selection'))
 ```
@@ -133,7 +135,7 @@ clipboard.write({
 戻り値 `Boolean` - クリップボードが指定した `format` をサポートしているかどうか。
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 console.log(clipboard.has('<p>selection</p>'))
 ```
 
@@ -168,8 +170,8 @@ console.log(clipboard.has('<p>selection</p>'))
 * `type` String (任意)
 
 ```javascript
-const {clipboard} = require('electron')
-clipboard.write({text: 'test', html: '<b>test</b>'})
+const { clipboard } = require('electron')
+clipboard.write({ text: 'test', html: '<b>test</b>' })
 ```
 
 クリップボードに `data` を書き込みます。

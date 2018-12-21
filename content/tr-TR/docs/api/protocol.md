@@ -7,13 +7,13 @@
 Şebeke sunucusu ile aynı etkiye sahip bir protokol uygulamak için bir örnek. `dosya://` protokolü:
 
 ```javascript
-const {app, protocol} = require('electron')
+const { app, protocol } = require('electron')
 const path = require('path')
 
 app.on('ready', () => {
   protocol.registerFileProtocol('atom', (request, callback) => {
     const url = request.url.substr(7)
-    callback({path: path.normalize(`${__dirname}/${url}`)})
+    callback({ path: path.normalize(`${__dirname}/${url}`) })
   }, (error) => {
     if (error) console.error('Failed to register protocol')
   })
@@ -48,7 +48,7 @@ Kayıt şeması [FileSystem API](https://developer.mozilla.org/en-US/docs/Web/AP
 Varsayılan olarak, standart olmayan şemalar için web depolama apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) devre dışı bırakılmıştır. Yani çoğu zaman `http` protokolünün yerine özel bir protokol kaydetmek istiyorsanız standart düzeni kaydeder gibi kaydetmelisiniz:
 
 ```javascript
-const {app, protocol} = require('electron')
+const { app, protocol } = require('electron')
 
 protocol.registerStandardSchemes(['atom'])
 app.on('ready', () => {
@@ -64,7 +64,7 @@ app.on('ready', () => {
 
 ### `protocol.registerFileProtocol(scheme, handler[, completion])`
 
-* `scheme` Dizi
+* `scheme` String
 * `halledici` Function 
   * `istek` Nesne 
     * `url` Dize
@@ -78,7 +78,7 @@ app.on('ready', () => {
 
 Dosyayı yanıt olarak gönderecek `şema` protokolünü kaydeder. `handler`, bir `request``scheme` ile oluşturulacağı zaman `handler(request, callback)` ile çağırılacak. `completion`, `scheme` başarılı bir şekilde kaydolduğunda `completion(null)` ile veya başarısız olduğunda `completion(error)` ile çağırılacak.
 
-`request`'i işleyebilmek için `callback` ya dosyanın yoluyla ya da `path` özelliği olan bir obje ile çağırılmalıdır, örneğin `callback(filePath)` veya `callback({path: filePath})`.
+`request`'i işleyebilmek için `callback` ya dosyanın yoluyla ya da `path` özelliği olan bir obje ile çağırılmalıdır, örneğin `callback(filePath)` veya `callback({ path: filePath })`.
 
 `callback` hiçbir şeyle, bir sayıyla ya da `error` özelliği olan bir nesneyle çağırıldığı zaman `request` belirttiğiniz ` error` numarası ile başarısız olacaktır. Mevcut hata numaraları için lütfen bakın [net hataların listesi](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
@@ -105,10 +105,10 @@ Kullanımı `registerFileProtocol` ile aynıdır, ancak `callback` `Buffer` nesn
 Örneğin:
 
 ```javascript
-const {protocol} = require('electron')
+const { protocol } = require('electron')
 
 protocol.registerBufferProtocol('atom', (request, callback) => {
-  callback({mimeType: 'text/html', data: Buffer.from('<h5>Response</h5>')})
+  callback({ mimeType: 'text/html', data: Buffer.from('<h5>Response</h5>') })
 }, (error) => {
   if (error) console.error('Failed to register protocol')
 })
@@ -138,8 +138,9 @@ Kullanımı `registerFileProtocol` ile aynıdır, ancak `callback` `String` veya
 * `halledici` Function 
   * `istek` Nesne 
     * `url` Dize
+    * `headers` Nesne
     * `referrer` Dize
-    * `method` String
+    * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri aramak` Function 
     * `talebi yönlendir` Nesne 
@@ -168,7 +169,7 @@ POST istekleri için `uploadData` nesnesi sağlanmalıdır.
     * `url` Dize
     * `headers` Nesne
     * `referrer` Dize
-    * `method` Dizi
+    * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri aramak` Function 
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
@@ -182,8 +183,8 @@ Kullanımı, diğer `register{Any}Protocol`'e benzer, ancak `callback`'nin bir `
 Örnek:
 
 ```javascript
-const {protocol} = require('electron')
-const {PassThrough} = require('stream')
+const { protocol } = require('electron')
+const { PassThrough } = require('stream')
 
 function createStream (text) {
   const rv = new PassThrough() // PassThrough is also a Readable stream
@@ -208,7 +209,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 Okunabilir akış API (emits`data`/`end`/`error` events)'ı uygulayan herhangi bir nesneyi iletmek mümkündür. Örneğin, bir dosyanın nasıl geri gönderilebileceği aşağıda açıklanmıştır:
 
 ```javascript
-const {protocol} = require('electron')
+const { protocol } = require('electron')
 const fs = require('fs')
 
 protocol.registerStreamProtocol('atom', (request, callback) => {
@@ -228,7 +229,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 
 ### `protocol.isProtocolHandled(scheme, callback)`
 
-* `scheme` String
+* `scheme` Dizi
 * `geri aramak` Function 
   * `error` Error
 
@@ -288,8 +289,9 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 * `halledici` Function 
   * `istek` Nesne 
     * `url` Dize
+    * `headers` Nesne
     * `referrer` Dize
-    * `method` String
+    * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri aramak` Function 
     * `talebi yönlendir` Nesne 

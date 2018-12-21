@@ -1,18 +1,18 @@
 # Obiekt GPUFeatureStatus
 
-* `2d_canvas` String - Canvas
-* `flash_3d` String - Flash
-* `flash_stage3d` String - Flash Stage3D
-* `flash_stage3d_baseline` String - Profil Flash Stage3D Baseline
-* `gpu_compositing` String - Kompozycja
-* `multiple_raster_threads` String - Wielowątkowa rasteryzacja
-* `native_gpu_memory_buffers` String - Natywne GpuMemoryBuffers
-* `rasterization` String - Rasteryzacja
-* `video_decode` String - Dekodowanie Video
-* `video_encode` String - Kodowanie Video
-* `vpx_decode` String - Dekodowanie VPx Video
-* `webgl` String - WebGL
-* `webgl2` String - WebGL2
+* `2d_canvas` String - Canvas.
+* `flash_3d` String - Flash.
+* `flash_stage3d` String - Flash Stage3D.
+* `flash_stage3d_baseline` String - Profil Flash Stage3D Baseline.
+* `gpu_compositing` String - Kompozycja.
+* `multiple_raster_threads` String - Wielowątkowa rasteryzacja.
+* `native_gpu_memory_buffers` String - Natywne GpuMemoryBuffers.
+* `rasterization` String - Rasteryzacja.
+* `video_decode` String - Dekodowanie Video.
+* `video_encode` String - Kodowanie Video.
+* `vpx_decode` String - Dekodowanie VPx Video.
+* `webgl` String - WebGL.
+* `webgl2` String - WebGL2.
 
 Możliwe wartości:
 

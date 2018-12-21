@@ -90,6 +90,14 @@ Bu özellik varsa, `webview` `minwidth`, `minheight`, özellikleri tarafından b
 
 Bu özellik varsa, `webview` konuk sayfasında Node. js entegrasyona izin verir ve erişim için `require` ve `process` gibi Node. js API'lerini düşük seviyeli sistem kaynaklarına erişmek için kullanabilir. Node.js entegrasyon konuk sayfada varsayılan olarak devre dışıdır.
 
+### `enableremotemodule`
+
+```html
+<webview src="http://www.google.com/" enableremotemodule="false"></webview>
+```
+
+When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. The remote module is avaiable by default.
+
 ### `eklentiler`
 
 ```html
@@ -206,6 +214,12 @@ webview.addEventListener('dom-ready', () => {
 
 Webview'ün içinde `url`'i yükler, `url` prefix protokolünü içermelidir, örneğin: `http://` ya da `file://`.
 
+### `<webview>.downloadURL(url)`
+
+* `url` Dize
+
+Initiates a download of the resource at `url` without navigating.
+
 ### `<webview>.getURL()`
 
 Returns `String` - Misafir sayfasının URL'si.
@@ -217,6 +231,10 @@ Returns `String` - Misafir sayfasının başlığı.
 ### `<webview>.isLoading()`
 
 Returns `Boolean` - Misafir sayfası hala kaynakları yüklüyorsa.
+
+### `<webview>.isLoadingMainFrame()`
+
+`Boolean` olarak dönüt verir - (Sadece bilgi iletim birimlerinin veya içindeki birimlerin değil) Ana bilgisayarın hala yüklemekte olup olmadığı.
 
 ### `<webview>.isWaitingForResponse()`
 
@@ -296,7 +314,7 @@ CSS'i misafir sayfasının içine yerleştirir.
 
 * `code` String
 * `userGesture` Boolean (optional) - Default `false`.
-* `geri aramak` Function (isteğe bağlı) - Script çalıştıktan sonra çağırılır. 
+* `geri aramak` Fonksiyon (isteğe bağlı) - Betik tamamlandıktan sonra çağrılır. 
   * `result` Any
 
 Sayfadaki `code`'u ölçer. `userGesture` kuruluysa, sayfada kullanıcı hareketleri bağlamını yaratır. `requestFullScreen` gibi kullanıcı hareketi gerektiren HTML API'ları, otomasyon için olan bu ayardan avantaj sağlayabilir.
@@ -337,6 +355,10 @@ Misafir sayfası sessiz.
 ### `<webview>.isAudioMuted()`
 
 Returns `Boolean` - Misafir sayfası sessize alınmışsa.
+
+### `<webview>.isCurrentlyAudible()`
+
+Returns `Boolean` - Whether audio is currently playing.
 
 ### `<webview>.geri almak()`
 
@@ -388,7 +410,7 @@ Sayfada düzenleme komutu olan `replaceMisspelling`'i yerine getirir.
 
 ### `<webview>.insertText(text)`
 
-* `text` Dizi
+* `text` String
 
 Odaklanmış öğeye `metin` ekler.
 
@@ -428,7 +450,7 @@ Web sayfasındaki `metin` ile tüm eşleşenleri bulmak için bir istek başlat�
 
 * `seçenekler` Nesne 
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` ya da micron olarak `height` ve `width` içeren bir nesne olabilir.
+  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. `A3`, `A4`, `A%`, `Legal`, `Letter`, `Tabloid` veya mikron formatında `height` ve `width` içeren bir nesne olabilir.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
@@ -451,7 +473,7 @@ Web sayfasındaki `metin` ile tüm eşleşenleri bulmak için bir istek başlat�
 * `channel` Dizesi
 * `...args` herhangi[]
 
-İşleyiciye ` kanal ` üzerinden eşzamansız bir ileti gönder, keyfi argümanlar da gönderebilirsiniz. The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
+İşleyiciye `channel` aracılığıyla bir asenkron mesaj yollayın, aynı zamanda rastgele argümanlar da yollayabilirsiniz. The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
 
 Örnekler için [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) 'i ziyaret edin.
 
@@ -473,7 +495,35 @@ Yakınlaştırma faktörünü belirtilen faktöre değiştirir. Yakınlaştırma
 
 * `level` Number - Yakınlaştırma seviyesi.
 
-Yakınlaştırma düzeyini belirtilen seviyeye değiştirir. Orijinal boyut 0'dır ve her bir artım yukarıdaki veya aşağıdaki %20 daha büyük veya daha küçük, varsayılan %300 sınırına ve %50 orijinal boyutuna sırasıyla yakınlaştırma oranını temsil eder.
+Yakınlaştırma düzeyini belirtilen seviyeye değiştirir. Orijinal boyut 0'dır ve her bir artım yukarıdaki veya aşağıdaki %20 daha büyük veya daha küçük, varsayılan %300 sınırına ve %50 orijinal boyutuna sırasıyla yakınlaştırma oranını temsil eder. The formula for this is `scale := 1.2 ^ level`.
+
+### `<webview>.getZoomFactor(callback)`
+
+* `geri aramak` Function 
+  * `zoomFactor` Sayı
+
+Yürürlükteki yakınlaştırma değerini almak için bir istek gönderir, `callback` , `callback(zoomFactor)` ile birlikte çağrılacaktır.
+
+### `<webview>.getZoomLevel(callback)`
+
+* `geri aramak` Function 
+  * `zoomLevel` Sayı
+
+Yürürlükteki yakınlaştırma düzeyini almak için bir istek gönderir, `callback`, `callback(zoomLevel)` ile birlikte çağrılacaktır.
+
+### `<webview>.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
+
+* `minimumLevel` Number
+* `maximumLevel` Number
+
+Maksimum ve minimum bas-yakınlaştır seviyesini ayarlar.
+
+### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
+
+* `minimumLevel` Number
+* `maximumLevel` Number
+
+Maksimum ve minimum layout-tabanlı (yani görsel olmayan) yakınlaştırma düzeyini ayarlar.
 
 ### `<webview>.showDefinitionForSelection()` *macOS*
 
@@ -482,6 +532,8 @@ Sayfadaki seçili sözcüğü arayan pop-up sözlüğünü gösterir.
 ### `<webview>.getWebContents()`
 
 Returns [`WebContents`](web-contents.md) - Web içerikleri `webview` ile ilişkilendirilmiştir.
+
+It depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
 
 ## DOM etkinlikleri
 
@@ -584,7 +636,7 @@ Dönüşler:
   * `requestId` Tamsayı
   * `activeMatchOrdinal` Integer - Etkin olan eşleşmenin konumu.
   * `matches` Tamsayı - Numaraların eşleştirilmesi.
-  * `selectionArea` Obje - Eşleşme bölgesinin koordinatları.
+  * `selectionArea` Object - İlk eşleşme alanının koordinatları.
   * `finalUpdate` Boolean
 
 Bir sonuç [`webview.findInPage`](#webviewfindinpagetext-options) isteği için geçerli hale geldiğinde tetiklenir.
@@ -613,7 +665,7 @@ Misafir sayfası yeni bir tarayıcı penceresi açmaya çalıştığında tetikl
 Aşağıdaki örnek kod, sistemin varsayılan tarayıcısında yeni url'yi açar.
 
 ```javascript
-const {shell} = require('electron')
+const { shell } = require('electron')
 const webview = document.querySelector('webview')
 
 webview.addEventListener('new-window', (e) => {
@@ -695,7 +747,7 @@ webview.send('ping')
 
 ```javascript
 // In guest page.
-const {ipcRenderer} = require('electron')
+const { ipcRenderer } = require('electron')
 ipcRenderer.on('ping', () => {
   ipcRenderer.sendToHost('pong')
 })
@@ -724,7 +776,7 @@ WebContents işlemi çöktüğünde tetiklenir.
 
 ### Olay: Medya oynamaya başladı
 
-Medya oynamaya başladığında belirir.
+Medya oynatılmaya başladığında yayınlanır.
 
 ### Etkinlik: 'medya-duraklatıldı'
 

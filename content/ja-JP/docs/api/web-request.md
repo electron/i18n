@@ -6,7 +6,9 @@
 
 `WebRequest` クラスのインスタンスには、`Session` の `webRequest` プロパティを使用してアクセスします。
 
-`WebRequest` のメソッドは、任意の `filter` と `listener` を受け取ります。 `listener` は、API のイベントが発生したときに `listener(details)` で呼ばれます。 `details` オブジェクトはリクエストについて記述します。 `listener` として `null` を渡すとイベントから登録解除します。
+`WebRequest` のメソッドは、任意の `filter` と `listener` を受け取ります。 `listener` は、API のイベントが発生したときに `listener(details)` で呼ばれます。 `details` オブジェクトはリクエストについて記述します。
+
+⚠️ Only the last attached `listener` will be used. Passing `null` as `listener` will unsubscribe from the event.
 
 `filter` オブジェクトには、`urls` プロパティがあります。これは、URL パターンと一致しないリクエストをフィルタリングするために使用される URL パターンの配列です。 `filter` を省略するとすべてのリクエストがマッチします。
 
@@ -15,7 +17,7 @@
 以下はリクエストに `User-Agent` ヘッダーを追加する例です。
 
 ```javascript
-const {session} = require('electron')
+const { session } = require('electron')
 
 // 以下の URL へのすべてのリクエストのユーザエージェントを変更します。
 const filter = {
@@ -24,7 +26,7 @@ const filter = {
 
 session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback) => {
   details.requestHeaders['User-Agent'] = 'MyAgent'
-  callback({cancel: false, requestHeaders: details.requestHeaders})
+  callback({ cancel: false, requestHeaders: details.requestHeaders })
 })
 ```
 

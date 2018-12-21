@@ -10,12 +10,17 @@
 例如：从渲染进程创建浏览器窗口
 
 ```javascript
-const {BrowserWindow} = require('electron').remote
-let win = new BrowserWindow({width: 800, height: 600})
+const { BrowserWindow } = require('electron').remote
+let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
 **Note:** For the reverse (access the renderer process from the main process), you can use [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback).
+
+**Note:** The remote module can be disabled for security reasons in the following contexts:
+
+* [`BrowserWindow`](browser-window.md) - by setting the `enableRemoteModule` option to `false`.
+* [`<webview>`](webview-tag.md) - by setting the `enableremotemodule` attribute to `false`.
 
 ## 远程对象（Remote Objects）
 
@@ -115,7 +120,7 @@ project/
 
 ```js
 // main process: main/index.js
-const {app} = require('electron')
+const { app } = require('electron')
 app.on('ready', () => { /* ... */ })
 ```
 

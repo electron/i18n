@@ -9,7 +9,7 @@
 例:
 
 ```javascript
-const {session} = require('electron')
+const { session } = require('electron')
 
 // すべてのクッキーをクエリーします。
 session.defaultSession.cookies.get({}, (error, cookies) => {
@@ -17,13 +17,13 @@ session.defaultSession.cookies.get({}, (error, cookies) => {
 })
 
 // 特定のURLに関連付けられているすべてのクッキーをクエリーします。
-session.defaultSession.cookies.get({url: 'http://www.github.com'}, (error, cookies) => {
+session.defaultSession.cookies.get({ url: 'http://www.github.com' }, (error, cookies) => {
   console.log(error, cookies)
 })
 
-// 指定したクッキーのデータでクッキーを設定します。
-// 同一のクッキーが存在する場合、上書きする可能性があります。
-const cookie = {url: 'http://www.github.com', name: 'dummy_name', value: 'dummy'}
+// Set a cookie with the given cookie data;
+// may overwrite equivalent cookies if they exist.
+const cookie = { url: 'http://www.github.com', name: 'dummy_name', value: 'dummy' }
 session.defaultSession.cookies.set(cookie, (error) => {
   if (error) console.error(error)
 })

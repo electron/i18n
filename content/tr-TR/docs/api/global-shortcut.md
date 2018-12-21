@@ -1,15 +1,15 @@
-# evrenselKısayol
+# globalShortcut
 
 > Uygulamanın klavye odağı olmadığı zaman klavye etkinliklerini algılar.
 
-İşlem: [Ana](../glossary.md#main-process)
+Süreç: [Main](../glossary.md#main-process)
 
 `globalShortcut` modülü bir evrensel kısayolu işletim sistemi ile kaydedebilir/kaydetmeyebilir bu sayede çeşitli kısayollar için işlemleri özelleştirebilirsiniz.
 
 **Note:** Kısayol evrenseldir; uygulamanın klavye odağı olmasa bile çalışacaktır. Uygulamanın modülünün `ready` etkinliği belirtilmeden bu modülü kullanmamalısınız.
 
 ```javascript
-const {app, globalShortcut} = require('electron')
+const { app, globalShortcut } = require('electron')
 
 app.on('ready', () => {
   // Register a 'CommandOrControl+X' shortcut listener.
@@ -41,7 +41,7 @@ app.on('will-quit', () => {
 ### `globalShortcut.register(accelerator, callback)`
 
 * `accelerator` [Accelerator](accelerator.md)
-* `callback` Function
+* `callback` Fonksiyon
 
 `accelerator`'ün bir evrensel kısayolunu kaydeder. `callback` kaydedilen kısayol kullanıcı tarafından tıklandığı zaman çağırılır.
 

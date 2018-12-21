@@ -18,7 +18,7 @@
 
 ```javascript
 // メインプロセス
-const {ipcMain} = require('electron')
+const { ipcMain } = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
   console.log(arg)  // "ping"を表示
   event.sender.send('asynchronous-reply', 'pong')
@@ -32,7 +32,7 @@ ipcMain.on('synchronous-message', (event, arg) => {
 
 ```javascript
 // レンダラープロセス（ウェブページ）
-const {ipcRenderer} = require('electron')
+const { ipcRenderer } = require('electron')
 console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // "pong"を表示
 
 ipcRenderer.on('asynchronous-reply', (event, arg) => {

@@ -7,9 +7,9 @@
 `webContents` bir [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) 'dır. Bir web sayfasını oluşturma ve denetlemekle sorumludur ve [`BrowserWindow`](browser-window.md) nesnesinin bir öğesidir. `webContents` nesnesine erişmenin bir örneği:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({width: 800, height: 1500})
+let win = new BrowserWindow({ width: 800, height: 1500 })
 win.loadURL('http://github.com')
 
 let contents = win.webContents
@@ -21,7 +21,7 @@ console.log(contents)
 Bu yöntemlere `webContents` modülünden erişilebilir:
 
 ```javascript
-const {webContents} = require('electron')
+const { webContents } = require('electron')
 console.log(webContents)
 ```
 
@@ -122,7 +122,7 @@ Calling `event.preventDefault()` will prevent Electron from automatically creati
 ```javascript
 myBrowserWindow.webContents.on('new-window', (event, url) => {
   event.preventDefault()
-  const win = new BrowserWindow({show: false})
+  const win = new BrowserWindow({ show: false })
   win.once('ready-to-show', () => win.show())
   win.loadURL(url)
   event.newGuest = win
@@ -148,6 +148,7 @@ Ayrıca, bağlı linkleri tıklama veya `window.location.hash` öğesini güncel
 
 Dönüşler:
 
+* `event` Olay
 * `url` Dize
 * `isInPlace` Boolean
 * `isMainFrame` Boolean
@@ -155,6 +156,38 @@ Dönüşler:
 * `frameRoutingId` Integer
 
 Emitted when any frame (including main) starts navigating. `isInplace` will be `true` for in-page navigations.
+
+#### Event: 'will-redirect'
+
+Dönüşler:
+
+* `event` Event
+* `url` Dize
+* `isInPlace` Boolean
+* `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
+
+Emitted as a server side redirect occurs during navigation. For example a 302 redirect.
+
+This event will be emitted after `did-start-navigation` and always before the `did-redirect-navigation` event for the same navigation.
+
+Calling `event.preventDefault()` will prevent the navigation (not just the redirect).
+
+#### Event: 'did-redirect-navigation'
+
+Dönüşler:
+
+* `event` Event
+* `url` Dize
+* `isInPlace` Boolean
+* `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
+
+Emitted after a server side redirect occurs during navigation. For example a 302 redirect.
+
+This event can not be prevented, if you want to prevent redirects you should checkout out the `will-redirect` event above.
 
 #### Olay: 'did-navigate'
 
@@ -189,7 +222,7 @@ Ayrıca, bağlı linkleri tıklama veya `window.location.hash` öğesini güncel
 
 Dönüşler:
 
-* `event` Event
+* `event` Etkinlik
 * `url` Dize
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
@@ -203,15 +236,15 @@ Sayfa içi gezinme gerçekleştiğinde, sayfa URL'si değişir, ancak sayfanın 
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 
 `beforeunload` olay işleyicisi, bir sayfayı kaldırmayı denediğinde yayımlanır.
 
 `event.preventDefault()` öğesinin çağrılması, `beforeunload` olay işleyicisini yoksayar ve sayfanın boşaltılmasına izin verir.
 
 ```javascript
-const {BrowserWindow, dialog} = require('electron')
-const win = new BrowserWindow({width: 800, height: 600})
+const { BrowserWindow, dialog } = require('electron')
+const win = new BrowserWindow({ width: 800, height: 600 })
 win.webContents.on('will-prevent-unload', (event) => {
   const choice = dialog.showMessageBox(win, {
     type: 'question',
@@ -232,7 +265,7 @@ win.webContents.on('will-prevent-unload', (event) => {
 
 Dönüşler:
 
-* `event` Etkinlik
+* `event` Olay
 * `killed` Boolean
 
 Oluşturucu işlemi çöker veya yok olduğunda yayımlanır.
@@ -263,7 +296,7 @@ Bir eklenti işlemi çöktüğünde ortaya çıkar.
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `giriş` Nesne - Giriş özellikleri. 
   * `type` Dize - `keyUp` veya `keyDown`.
   * `key` Dize - Eşittir [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
@@ -279,9 +312,9 @@ Sayfada `keydown` ve `keyup` olaylarını göndermeden önce yayınlanır. `even
 Menü kısayollarını yalnızca engellemek için [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcutsignore-experimental) kullanın:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({width: 800, height: 600})
+let win = new BrowserWindow({ width: 800, height: 600 })
 
 win.webContents.on('before-input-event', (event, input) => {
   // For example, only enable application menu keyboard shortcuts when
@@ -306,7 +339,7 @@ DevTools odaklandığında / açıldığında ortaya çıkar.
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `url` Dize
 * `error` Dizi - Hata Kodu.
 * `certificate` [sertifika](structures/certificate.md)
@@ -321,7 +354,7 @@ Kullanımı [the `certificate-error` olayı `app`](app.md#event-certificate-erro
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `url` URL
 * `certificateList` [Sertifika[]](structures/certificate.md)
 * `geri aramak` Function 
@@ -335,14 +368,14 @@ Kullanımı [the `select-client-certificate` olayı `app`](app.md#event-select-c
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `istek` Nesne 
-  * `method` String
+  * `method` Dizi
   * `url` URL
   * `referrer` URL
 * `authInfo` Nesne 
   * `isProxy` Boolean
-  * `scheme` Dizi
+  * `scheme` String
   * `host` Dizi
   * `port` Tamsayı
   * `realm` Dizi
@@ -358,12 +391,12 @@ Kullanımı [the `login` olayı `app`](app.md#event-login) ile aynıdır.
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `sonuç` Nesne 
   * `requestId` Tamsayı
   * `activeMatchOrdinal` Integer - Etkin olan eşleşmenin konumu.
-  * `matches` Integer - Eşleşmelerin sayısı.
-  * `selectionArea` Object - İlk eşleşme alanının koordinatları.
+  * `matches` Tamsayı - Numaraların eşleştirilmesi.
+  * `selectionArea` Obje - Eşleşme bölgesinin koordinatları.
   * `finalUpdate` Boolean
 
 [`webContents.findInPage`] isteği için sonuç kullanılabilir olduğunda yayılıyor.
@@ -374,7 +407,7 @@ Medya oynatılmaya başladığında yayınlanır.
 
 #### Etkinlik: 'medya-duraklatıldı'
 
-Medya duraklatıldığında veya oynatıldığında yaydır.
+Medya duraklatıldığında veya oynatma süresi bittiğinde belirir.
 
 #### Olay: tema rengi değiştirildi
 
@@ -459,7 +492,7 @@ Emitted when there is a new context menu that needs to be handled.
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
 * `geri aramak` Function 
   * `deviceId` String
@@ -467,13 +500,13 @@ Dönüşler:
 Bluetooth aygıtı `navigator.bluetooth.requestDevice` çağrı için seçilmesi gerektiğinde sinyal başlar. `navigator.bluetooth` api'sini kullanmak `webBluetooth`'u etkinleştirmelidir. Eğer `event.preventDefault` çağırılmazsa ilk bağlanılabilen alet seçilecektir. ` callback`, seçilecek `deviceId` ile çağırılmalıdır, `callback`'e boş string göndermek isteği iptal edecektir.
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 let win = null
 app.commandLine.appendSwitch('enable-experimental-web-platform-features')
 
 app.on('ready', () => {
-  win = new BrowserWindow({width: 800, height: 600})
+  win = new BrowserWindow({ width: 800, height: 600 })
   win.webContents.on('select-bluetooth-device', (event, deviceList, callback) => {
     event.preventDefault()
     let result = deviceList.find((device) => {
@@ -499,9 +532,9 @@ Dönüşler:
 Yeni kare oluşturulduğunda gönderilir. Yalnızca kirli alan arabellekten geçirilir.
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({webPreferences: {offscreen: true}})
+let win = new BrowserWindow({ webPreferences: { offscreen: true } })
 win.webContents.on('paint', (event, dirty, image) => {
   // updateBitmap(dirty, image.getBitmap())
 })
@@ -516,7 +549,7 @@ Devtools penceresi webContents'ü yeniden yüklemeye yönlendirdiğinde çıkar
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `webPreferences` Nesne - Konuk sayfanın kullanacağı web tercihleri. Bu nesne konuk sayfası tercihlerini ayarlamak için değiştirilebilir.
 * `params` Nesne - `src` URL gibi diğer `<webview>` parametreleri. Bu nesne konuk sayfası tercihlerini ayarlamak için değiştirilebilir.
 
@@ -530,7 +563,7 @@ Bu event, `<webview>` yüklenmeden önce ` webContents`'inin `webPreferences<0>'
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `webContents` WebContents - The guest web contents that is used by the `<webview>`.
 
 Emitted when a `<webview>` has been attached to this web contents.
@@ -539,13 +572,31 @@ Emitted when a `<webview>` has been attached to this web contents.
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `level` Integer
 * `message` String
 * `line` Integer
 * `sourceId` String
 
 Emitted when the associated window logs a console message. Will not be emitted for windows with *offscreen rendering* enabled.
+
+#### Event: 'remote-require'
+
+Dönüşler:
+
+* `event` Event
+* `moduleName` String
+
+Emitted when `remote.require()` is called in the renderer process. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+
+#### Event: 'remote-get-global'
+
+Dönüşler:
+
+* `event` Olay
+* `globalName` String
+
+Emitted when `remote.getGlobal()` is called in the renderer process. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
 
 ### Örnek Metodlar
 
@@ -562,14 +613,18 @@ Emitted when the associated window logs a console message. Will not be emitted f
 `url`'yi pencereye yükler. `url` bir protokol önadı içermek zorundadır, Örneğin `http://` veya `file://`. Eğer yüklemenin http önbelleğini atlaması gerekiyorsa, atlatmak için `pragma` başlığını kullanın.
 
 ```javascript
-const {webContents} = require('electron')
-const options = {extraHeaders: 'pragma: no-cache\n'}
+const { webContents } = require('electron')
+const options = { extraHeaders: 'pragma: no-cache\n' }
 webContents.loadURL('https://github.com', options)
 ```
 
-#### `contents.loadFile(filePath)`
+#### `contents.loadFile(filePath[, options])`
 
 * `filePath` Dizi
+* `seçenekler` Obje (opsiyonel) 
+  * `query` Object (optional) - Passed to `url.format()`.
+  * `search` String (optional) - Passed to `url.format()`.
+  * `hash` String (optional) - Passed to `url.format()`.
 
 Loads the given file in the window, `filePath` should be a path to an HTML file relative to the root of your application. For instance an app structure like this:
 
@@ -598,8 +653,8 @@ Gezinme yapmadan `url` de bir kaynak indirmesi başlatır. `session`'a ait `will
 `String` olarak dönüt verir - Yürürlükteki web sayfasının bağlantısı.
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({width: 800, height: 600})
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('http://github.com')
 
 let currentURL = win.webContents.getURL()
@@ -707,13 +762,13 @@ Yürürlükteki web sayfasına CSS ekler.
 #### `contents.executeJavaScript(code[, userGesture, callback])`
 
 * `code` String
-* `userGesture` Boolean (isteğe bağlı) - Varsayılan `false`'dır.
-* `geri aramak` Fonksiyon (isteğe bağlı) - Betik tamamlandıktan sonra çağrılır. 
+* `userGesture` Boolean (isteğe bağlı) - Varsayılan `false`'dur.
+* `geri aramak` Function (isteğe bağlı) - Script çalıştıktan sonra çağırılır. 
   * `result` Any
 
-`Promise` döner - Çalıştırılan kodun sonucuyla çözülen veya eğer kod sonucu promise reddedildiyse reddedilen bir promise.
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
 
-Sayfadaki `code`'u değerlendirir.
+Sayfadaki `code`'u ölçer.
 
 Tarayıcı penceresinde, `requestFullScreen` gibi bazı HTML API'leri yalnızca kullanıcıdan gelen bir hareket ile çağrılmaktadır. `userGesture` ayarını `true` olarak ayarladığınızda bu sınırlama kaldırılır.
 
@@ -741,6 +796,10 @@ Yürürlükteki web sayfasında bulunan sesi kapatır.
 #### `contents.isAudioMuted()`
 
 `Boolean` olarak dönüt verir - Sayfanın sesinin kapatılıp kapatılmadığı.
+
+#### `contents.isCurrentlyAudible()`
+
+Returns `Boolean` - Whether audio is currently playing.
 
 #### `contents.setZoomFactor(factor)`
 
@@ -775,6 +834,12 @@ Yürürlükteki yakınlaştırma düzeyini almak için bir istek gönderir, `cal
 
 Maksimum ve minimum bas-yakınlaştır seviyesini ayarlar.
 
+> **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
+> 
+> ```js
+contents.setVisualZoomLevelLimits(1, 3)
+```
+
 #### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
@@ -800,8 +865,8 @@ Maksimum ve minimum layout-tabanlı (yani görsel olmayan) yakınlaştırma düz
 
 #### `contents.copyImageAt(x, y)`
 
-* `x` Tamsayı
-* `y` Tamsayı
+* `x` Integer
+* `x` Integer
 
 Verilen pozisyondaki görüntüyü panoya kopyalar.
 
@@ -839,9 +904,9 @@ Verilen pozisyondaki görüntüyü panoya kopyalar.
 
 #### `contents.insertText(text)`
 
-* `text` Dizi
+* `text` String
 
-Odaklanılan öğeye `text`'i yerleştirir.
+Odaklanmış öğeye `metin` ekler.
 
 #### `contents.findInPage(text[, options])`
 
@@ -850,8 +915,8 @@ Odaklanılan öğeye `text`'i yerleştirir.
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
-  * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
-  * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Diğer çeşitli alt kelime (intra-word) eşleşmelerini kabul eder, varsayılan olarak `false`'tur.
+  * `wordStart` Boolean (optional) (Deprecated) - Whether to look only at the start of words. defaults to `false`.
+  * `medialCapitalAsWordStart` Boolean (optional) (Deprecated) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Diğer çeşitli alt kelime (intra-word) eşleşmelerini kabul eder, varsayılan olarak `false`'tur.
 
 `Integer` döndürür - İstek için kullanılan istek kimliği.
 
@@ -867,7 +932,7 @@ Web sayfasındaki `metin` ile tüm eşleşenleri bulmak için bir istek başlat�
 Sunulan `action` ile birlikte, `webContents` için olan tüm `findInPage` isteklerini durdurur.
 
 ```javascript
-const {webContents} = require('electron')
+const { webContents } = require('electron')
 webContents.on('found-in-page', (event, result) => {
   if (result.finalUpdate) webContents.stopFindInPage('clearSelection')
 })
@@ -878,7 +943,7 @@ console.log(requestId)
 
 #### `contents.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (isteğe bağlı) - Sayfanın yakalanılmak istenen alanı.
+* `rect` [Rectangle](structures/rectangle.md) (isteğe bağlı) - Sayfadaki alınacak bölge.
 * `geri aramak` Function 
   * `image` [NativeImage](native-image.md)
 
@@ -909,13 +974,13 @@ Sistemdeki yazıcıların listesini alır.
 * `seçenekler` Obje (opsiyonel) 
   * `silent` Boolean (isteğe bağlı) - Kullanıcıya yazdırma seçeneklerini sormaz. Varsayılan olarak `false`'tur.
   * `printBackground` Boolean (isteğe bağlı) - Ek olarak arkaplan rengini ve web sayfasının görüntüsünü de yazdırır. Varsayılan olarak `false`'tur.
-  * `deviceName` String (isteğe bağlı) - Kullanılacak yazıcının ismini ayarla. `''` varsayılandır.
+  * `deviceName` Dizgi (isteğe bağlı) - Kullanılacak cihaz ismini ayarlar. Varsayılan olarak `''`'tur.
 * `geri aramak` Fonksiyon (isteğe bağlı) 
   * `success` Boolean - Indicates success of the print call.
 
 Penceredeki web sayfasını yazdırır. `silent`, `true` olarak ayarlandığında Electron, eğer `deviceName` boş bırakıldıysa, sistemin varsayılan yazıcısını ve varsayılan yazdırma ayarlarını seçecektir.
 
-Web sayfasında `window.print()`'i çağırmak, `webContents.print({silent: false, printBackground: false, deviceName: ''})`'i çağırmaya denktir.
+Web sayfasında `window.print()`'i çağırmak, `webContents.print({ silent: false, printBackground: false, deviceName: '' })`'i çağırmaya denktir.
 
 Yeni bir sayfa yazdırmaya zorlamak için `page-break-before: always;` CSS stilini kullanın.
 
@@ -953,10 +1018,10 @@ Yeni bir sayfa yazdırmaya zorlamak için `page-break-before: always;` CSS stili
 Bir `webContents.printToPDF` örneği:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 const fs = require('fs')
 
-let win = new BrowserWindow({width: 800, height: 600})
+let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('http://github.com')
 
 win.webContents.on('did-finish-load', () => {
@@ -978,7 +1043,7 @@ win.webContents.on('did-finish-load', () => {
 Belirtilen yolu DevTools çalışma alanına ekler. DevTools yaratımından sonra kullanılması zorunludur:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.webContents.on('devtools-opened', () => {
   win.webContents.addWorkSpace(__dirname)
@@ -1034,7 +1099,7 @@ An example of showing devtools in a `<webview>` tag:
 An example of showing devtools in a `BrowserWindow`:
 
 ```js
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 let win = null
 let devtools = null
@@ -1044,7 +1109,7 @@ app.once('ready', () => {
   devtools = new BrowserWindow()
   win.loadURL('https://github.com')
   win.webContents.setDevToolsWebContents(devtools.webContents)
-  win.webContents.openDevTools({mode: 'detach'})
+  win.webContents.openDevTools({ mode: 'detach' })
 })
 ```
 
@@ -1075,7 +1140,7 @@ Geliştirme araçlarına geçiş yapar.
 
 #### `contents.inspectElement(x, y)`
 
-* `x` Integer
+* `x` Tamsayı
 * `y` Tamsayı
 
 (`x`,`y`) pozisyonundaki ögeyi incelemeye başlar.
@@ -1089,7 +1154,7 @@ Servis işçisisi bağlamı için geliştirici araçları açar.
 * `channel` Dizesi
 * `...args` herhangi[]
 
-İşleyiciye `channel` aracılığıyla bir asenkron mesaj yollayın, aynı zamanda rastgele argümanlar da yollayabilirsiniz. Bağımsız değişkenler dahili olarak JSON'da seri hale getirilecek ve dolayısıyla hiçbir işlev veya prototip zinciri dahil edilmeyecektir.
+İşleyiciye ` kanal ` üzerinden eşzamansız bir ileti gönder, keyfi argümanlar da gönderebilirsiniz. Bağımsız değişkenler dahili olarak JSON'da seri hale getirilecek ve dolayısıyla hiçbir işlev veya prototip zinciri dahil edilmeyecektir.
 
 The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
@@ -1097,11 +1162,11 @@ Ana işlemden render işlemine gönderilen mesaj örneği:
 
 ```javascript
 // Ana süreçte.
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 let win = null
 
 app.on('ready', () => {
-  win = new BrowserWindow({width: 800, height: 600})
+  win = new BrowserWindow({ width: 800, height: 600 })
   win.loadURL(`file://${__dirname}/index.html`)
   win.webContents.on('did-finish-load', () => {
     win.webContents.send('ping', 'whoooooooh!')
@@ -1129,7 +1194,7 @@ app.on('ready', () => {
     * `desktop` - Masaüstü ekran tipi.
     * `mobile` - Mobil ekran tipi.
   * `screenSize`[Size](structures/size.md) - Emülasyon uygulanacak ekran genişliğini ayarlar (screenPosition == mobile).
-  * `viewPosition` [Point](structures/point.md) - Position the view on the screen (screenPosition == mobile) (default: `{x: 0, y: 0}`).
+  * `viewPosition` [Point](structures/point.md) - Position the view on the screen (screenPosition == mobile) (default: `{ x: 0, y: 0 }`).
   * `deviceScaleFactor` Integer - Set the device scale factor (if zero defaults to original device scale factor) (default: `0`).
   * `viewSize` [Size](structures/size.md) -Benzetilmiş görüntü boyutunu ayarlar (boş demek üstüne yazma yok demek)
   * `scale` Float - Emulated görüntünün kullanılabilir alan içerisindeki ölçeğidir.( Görüntüleme moduna uygun değil) (varsayılan: `1`).
@@ -1212,7 +1277,7 @@ Yürürlükteki sürükle-bırak işlemi içi `item`'i sürükleme elemanı olar
 Eğer sayfayı kaydetme işlemi başarıyla gerçekleştirilirse `Boolean` - true döner.
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 
 win.loadURL('https://github.com')
@@ -1280,7 +1345,21 @@ Returns `Integer` - The operating system `pid` of the associated renderer proces
 
 #### `contents.getProcessId()`
 
-Returns `Integer` - The chromium internal `pid` of the associated renderer. Can be compared to the `frameProcessId` passed by frame specific navigation events (e.g. `did-frame-navigate`)
+Returns `Integer` - The Chromium internal `pid` of the associated renderer. Can be compared to the `frameProcessId` passed by frame specific navigation events (e.g. `did-frame-navigate`)
+
+#### `contents.takeHeapSnapshot(filePath)`
+
+* `filePath` String - Path to the output file.
+
+Returns `Promise<void>` - Indicates whether the snapshot has been created successfully.
+
+Takes a V8 heap snapshot and saves it to `filePath`.
+
+#### `contents.setBackgroundThrottling(allowed)`
+
+* `allowed` Boolean
+
+Controls whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
 
 ### Örnek Özellikleri
 

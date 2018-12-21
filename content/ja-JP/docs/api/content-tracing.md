@@ -9,7 +9,7 @@
 **注:** アプリモジュールの `ready` イベントが発生するまではこのモジュールを使用してはいけません。
 
 ```javascript
-const {app, contentTracing} = require('electron')
+const { app, contentTracing } = require('electron')
 
 app.on('ready', () => {
   const options = {

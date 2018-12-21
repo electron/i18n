@@ -7,7 +7,7 @@ Process: [Main](../glossary.md#main-process)
 उदाहरण के लिए:
 
 ```javascript
-const {powerSaveBlocker} = require('electron')
+const { powerSaveBlocker } = require('electron')
 
 const id = powerSaveBlocker.start('prevent-display-sleep')
 console.log(powerSaveBlocker.isStarted(id))

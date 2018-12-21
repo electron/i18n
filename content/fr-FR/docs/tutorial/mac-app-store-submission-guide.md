@@ -2,7 +2,7 @@
 
 Depuis la version 0.34.0, Electron permet la soumission des applications empaquetées pour le Mac App Store (MAS). Ce guide fournit les informations sur : Comment soumettre votre application et les limites du MAS build.
 
-**Remarque :** Soumettre une application pour Mac App Store nécessite l’inscription au [Programme développeur Apple](https://developer.apple.com/support/compare-memberships/), qui coûte de l’argent.
+**Note:** Submitting an app to Mac App Store requires enrolling in the [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), which costs money.
 
 ## Comment soumettre votre App
 
@@ -20,7 +20,7 @@ Avant de signer votre application, vous devez connaître le Team ID de votre com
 
 Après avoir terminé les préparatifs, vous pouvez empaqueter votre application en suivant [Distribution de l'application](application-distribution.md) et passer ensuite à la signature de votre application.
 
-Tout d’abord, vous devez ajouter une clé `ElectronTeamID` au fichier `Info.plist` de votre application, qui possède le Team ID comme valeur :
+First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which has your Team ID as its value:
 
 ```xml
 <plist version="1.0">
@@ -64,7 +64,7 @@ Ensuite, vous devez préparer les trois fichiers suivant.
 </plist>
 ```
 
-`loginhelper.plist`:
+`loginhelper.plist` :
 
 ```xml
 <?xml version="1.0" encoding="UTF-8"?>
@@ -126,7 +126,7 @@ Les modules natifs utilisés dans votre application doivent également être sig
 electron-osx-sign VotreApp.app VotreApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-Remarquez que les modules natifs peuvent avoir des fichiers intermédiaires générés qui ne doivent pas être inclus (car ils devront aussi être signée). Si vous utilisez [electron-packager](https://github.com/electron-userland/electron-packager) avant la version 8.1.0, ajoutez `--ignore=.+\.o$` à vos étapes de compilation pour ignorer ces fichiers. La version 8.1.0 et ultérieur ignore ces fichiers par défaut.
+Remarquez que les modules natifs peuvent avoir des fichiers intermédiaires générés qui ne doivent pas être inclus (car ils devront aussi être signée). Si vous utilisez [electron-packager](https://github.com/electron-userland/electron-packager) avant la version 8.1.0, ajoutez `--ignore=.+\.o$` à vos étapes de compilation pour ignorer ces fichiers. Versions 8.1.0 and later ignore those files by default.
 
 ### Envoyer votre App
 

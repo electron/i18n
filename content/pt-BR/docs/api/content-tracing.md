@@ -9,7 +9,7 @@ Este modulo nao inclui uma interface-web, entao voce precisa abrir `chrome://tra
 **Nota:** Voce nao deve usar este modulo ate que o '`ready` event' do modulo da aplicacao esteja finalizado e emitido.
 
 ```javascript
-const {app, contentTracing} = require('electron')
+const { app, contentTracing } = require('electron')
 
 app.on('ready', () => {
   const options = {
@@ -35,7 +35,7 @@ The `contentTracing` module has the following methods:
 
 ### `contentTracing.getCategories(callback)`
 
-* `callback` Função 
+* `callback` Function 
   * `categories` String[]
 
 Get a set of category groups. The category groups can change as new code paths are reached.
@@ -44,7 +44,7 @@ Uma vez que todos os processos-filhos reconhecem a requisição do `getCategorie
 
 ### `contentTracing.startRecording(options, callback)`
 
-* `opções` Object 
+* `options` Object 
   * `categoryFilter` String
   * `traceOptions` String
 * `callback` Function
@@ -76,7 +76,7 @@ The trace option will first be reset to the default option (`record_mode` set to
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
 * `resultFilePath` String
-* `callback` Função 
+* `callback` Function 
   * `resultFilePath` String
 
 Stop recording on all processes.
@@ -89,7 +89,7 @@ Trace data will be written into `resultFilePath` if it is not empty or into a te
 
 ### `contentTracing.startMonitoring(options, callback)`
 
-* `opções` Object 
+* `options` Object 
   * `categoryFilter` String
   * `traceOptions` String
 * `callback` Function
@@ -111,7 +111,7 @@ Once all child processes have acknowledged the `stopMonitoring` request the `cal
 ### `contentTracing.captureMonitoringSnapshot(resultFilePath, callback)`
 
 * `resultFilePath` String
-* `callback` Função 
+* `callback` Function 
   * `resultFilePath` String
 
 Get the current monitoring traced data.
@@ -122,7 +122,7 @@ Once all child processes have acknowledged the `captureMonitoringSnapshot` reque
 
 ### `contentTracing.getTraceBufferUsage(callback)`
 
-* `callback` Função 
+* `callback` Function 
   * `value` Number
   * `percentage` Number
 

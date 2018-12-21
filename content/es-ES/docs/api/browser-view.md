@@ -2,8 +2,6 @@
 
 > Crear y controlar vistas.
 
-**Nota:** actualmente la API BrowserView es experimental y puede cambiar o ser eliminada en versiones futuras de Electron.
-
 Process: [Main](../glossary.md#main-process)
 
 Se puede utilizar un `BrowserView` para incrustar contenido web adicional dentro de un [`BrowserWindow`](browser-window.md). Es como una ventana hija, excepto que su posición es relativa a la de su ventana propietaria. Se puede considerar como una alternativa al tag `webview`.
@@ -12,9 +10,9 @@ Se puede utilizar un `BrowserView` para incrustar contenido web adicional dentro
 
 ```javascript
 // En el proceso principal.
-const {BrowserView, BrowserWindow} = require('electron')
+const { BrowserView, BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({width: 800, height: 600})
+let win = new BrowserWindow({ width: 800, height: 600 })
 win.on('closed', () => {
   win = null
 })
@@ -50,7 +48,7 @@ Devuelve `BrowserView | null` - La BrowserView propietaria del `webContents` ind
 
 * `id` Integer
 
-Devuelve `BrowserView` - La vista con el `id` especificado.
+Devuelve `BrowserView` - La vista con el proveido `id`.
 
 ### Propiedades de la instancia
 

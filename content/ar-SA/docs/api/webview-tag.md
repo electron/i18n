@@ -14,7 +14,7 @@ Use the `webview` tag to embed 'guest' content (such as web pages) in your Elect
 
 Unlike an `iframe`, the `webview` runs in a separate process than your app. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content. **Note:** Most methods called on the webview from the host page require a synchronous call to the main process.
 
-## Example
+## مثال
 
 To embed a web page in your app, add the `webview` tag to your app's embedder page (this is the app page that will display the guest content). In its simplest form, the `webview` tag includes the `src` of the web page and css styles that control the appearance of the `webview` container:
 
@@ -89,6 +89,14 @@ When this attribute is present the `webview` container will automatically resize
 ```
 
 When this attribute is present the guest page in `webview` will have node integration and can use node APIs like `require` and `process` to access low level system resources. Node integration is disabled by default in the guest page.
+
+### `enableremotemodule`
+
+```html
+<webview src="http://www.google.com/" enableremotemodule="false"></webview>
+```
+
+When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. The remote module is avaiable by default.
 
 ### `plugins`
 
@@ -185,7 +193,7 @@ The `webview` tag has the following methods:
 
 **Note:** The webview element must be loaded before using the methods.
 
-**Example**
+**مثال**
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -206,6 +214,12 @@ webview.addEventListener('dom-ready', () => {
 
 Loads the `url` in the webview, the `url` must contain the protocol prefix, e.g. the `http://` or `file://`.
 
+### `<webview>.downloadURL(url)`
+
+* `url` String
+
+Initiates a download of the resource at `url` without navigating.
+
 ### `<webview>.getURL()`
 
 Returns `String` - The URL of guest page.
@@ -217,6 +231,10 @@ Returns `String` - The title of guest page.
 ### `<webview>.isLoading()`
 
 Returns `Boolean` - Whether guest page is still loading resources.
+
+### `<webview>.isLoadingMainFrame()`
+
+Returns `Boolean` - Whether the main frame (and not just iframes or frames within it) is still loading.
 
 ### `<webview>.isWaitingForResponse()`
 
@@ -337,6 +355,10 @@ Set guest page muted.
 ### `<webview>.isAudioMuted()`
 
 Returns `Boolean` - Whether guest page has been muted.
+
+### `<webview>.isCurrentlyAudible()`
+
+Returns `Boolean` - Whether audio is currently playing.
 
 ### `<webview>.undo()`
 
@@ -473,7 +495,35 @@ Changes the zoom factor to the specified factor. Zoom factor is zoom percent div
 
 * `level` Number - Zoom level.
 
-Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
+Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively. The formula for this is `scale := 1.2 ^ level`.
+
+### `<webview>.getZoomFactor(callback)`
+
+* `callback` Function 
+  * `zoomFactor` Number
+
+Sends a request to get current zoom factor, the `callback` will be called with `callback(zoomFactor)`.
+
+### `<webview>.getZoomLevel(callback)`
+
+* `callback` Function 
+  * `zoomLevel` Number
+
+Sends a request to get current zoom level, the `callback` will be called with `callback(zoomLevel)`.
+
+### `<webview>.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
+
+* `minimumLevel` Number
+* `maximumLevel` Number
+
+Sets the maximum and minimum pinch-to-zoom level.
+
+### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
+
+* `minimumLevel` Number
+* `maximumLevel` Number
+
+Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
 
 ### `<webview>.showDefinitionForSelection()` *macOS*
 
@@ -482,6 +532,8 @@ Shows pop-up dictionary that searches the selected word on the page.
 ### `<webview>.getWebContents()`
 
 Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
+
+It depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
 
 ## DOM events
 
@@ -613,7 +665,7 @@ Fired when the guest page attempts to open a new browser window.
 The following example code opens the new url in system's default browser.
 
 ```javascript
-const {shell} = require('electron')
+const { shell } = require('electron')
 const webview = document.querySelector('webview')
 
 webview.addEventListener('new-window', (e) => {
@@ -695,7 +747,7 @@ webview.send('ping')
 
 ```javascript
 // In guest page.
-const {ipcRenderer} = require('electron')
+const { ipcRenderer } = require('electron')
 ipcRenderer.on('ping', () => {
   ipcRenderer.sendToHost('pong')
 })

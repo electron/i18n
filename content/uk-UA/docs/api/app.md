@@ -7,7 +7,7 @@
 Наступний приклад показує як вийти з застосунку, коли закривається останнє вікно:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 app.on('window-all-closed', () => {
   app.quit()
 })
@@ -215,7 +215,7 @@ app.on('window-all-closed', () => {
 Відбуваєтся коли не вдалося перевірити `certificate` для `url`, щоб довіряти сертифікату потрібно запобігти поведінці за замовчуванням за допомогою `event.preventDefault()` та викликати `callback(true)`.
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('certificate-error', (event, webContents, url, error, certificate, callback) => {
   if (url === 'https://github.com') {
@@ -244,7 +244,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 `url` відповідає запису навігації, що запитує сертифікат клієнта і `callback` може викликатися з записом, що відфільтрований зі списку. Використання `event.preventDefault()` запобігає використання першого сертифікату з сховища.
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('select-client-certificate', (event, webContents, url, list, callback) => {
   event.preventDefault()
@@ -277,7 +277,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 Поведінка за замовчуванням: скасувати всі автентифікації, щоб перевизначити її потрібно використати `event.preventDefault()` і викликати `callback(username, password)` з обліковими даними.
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('login', (event, webContents, request, authInfo, callback) => {
   event.preventDefault()
@@ -312,7 +312,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 Викликаєтсья коли Electron створив нову `session`.
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('session-created', (event, session) => {
   console.log(session)
@@ -330,6 +330,26 @@ app.on('session-created', (event, session) => {
 Ця подія буде викликана всередині головного екземпляра вашого застосунку, коли виконався інший екземпляр. `argv` це масив з аргументами командного рядку другого екземпляру, а `workingDirectory` ця поточна робоча директорія. Зазвичай застосунок відповідає на це, розгортаючи головне вікно на перводячи на нього фокус.
 
 Ця подія гарантовано викличеться після події `ready` модуля `app`.
+
+### Event: 'remote-require'
+
+Повертає:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+* `moduleName` String
+
+Emitted when `remote.require()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+
+### Event: 'remote-get-global'
+
+Повертає:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+* `globalName` String
+
+Emitted when `remote.getGlobal()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
 
 ## Методи
 
@@ -368,9 +388,9 @@ app.on('session-created', (event, session) => {
 Приклад негайного перезапуску поточного екземпляру і додання нового аргументу командного рядка в новий екземпляр:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
-app.relaunch({args: process.argv.slice(1).concat(['--relaunch'])})
+app.relaunch({ args: process.argv.slice(1).concat(['--relaunch']) })
 app.exit(0)
 ```
 
@@ -380,7 +400,7 @@ app.exit(0)
 
 ### `app.whenReady()`
 
-Повертає `Promise` - заповнюється, коли Electron ініціалізовано. Може бути використана як зручна альтернатива для перевірки `app.isReady()` і підписки на подію `ready`, якщо застосунок ще не готовий.
+Returns `Promise<void>` - fulfilled when Electron is initialized. Може бути використана як зручна альтернатива для перевірки `app.isReady()` і підписки на подію `ready`, якщо застосунок ще не готовий.
 
 ### `app.focus()`
 
@@ -574,7 +594,7 @@ API всередині використовує реєстр Windows та LSCopy
 Ось дуже простий приклад створення налаштовуваного Jump List:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.setJumpList([
   {
@@ -585,7 +605,7 @@ app.setJumpList([
       { type: 'file', path: 'C:\\Projects\\project2.proj' }
     ]
   },
-  { // має назву тому `type` вважається "custom"
+  { // has a name so `type` is assumed to be "custom"
     name: 'Tools',
     items: [
       {
@@ -609,7 +629,7 @@ app.setJumpList([
     ]
   },
   { type: 'frequent' },
-  { // немає назви тому`type` вважається "tasks"
+  { // has no name and no type so `type` is assumed to be "tasks"
     items: [
       {
         type: 'task',
@@ -646,7 +666,7 @@ app.setJumpList([
 Приклад активації вікна головного екземпляру коли стартує другий:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 let myWindow = null
 
 const gotTheLock = app.requestSingleInstanceLock()
@@ -717,7 +737,7 @@ if (!gotTheLock) {
 * `callback` Function 
   * `result` Integer - Результат імпорту.
 
-Імпортує сертифікат у форматі pkcs12 сховище сертифікатів платформи. `callback` викликається з `result` операції імпорту, значення `0` показує успіх, тоді як будь-яке інше значення показує невдачу відповідно до [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) chromium.
+Імпортує сертифікат у форматі pkcs12 сховище сертифікатів платформи. `callback` is called with the `result` of import operation, a value of `0` indicates success while any other value indicates failure according to Chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
 ### `app.disableHardwareAcceleration()`
 
@@ -738,6 +758,41 @@ if (!gotTheLock) {
 ### `app.getGPUFeatureStatus()`
 
 Повертає [`GPUFeatureStatus`](structures/gpu-feature-status.md) - Статус функції графіки з `chrome://gpu/`.
+
+### `app.getGPUInfo(infoType)`
+
+* `infoType` String - Values can be either `basic` for basic info or `complete` for complete info.
+
+Returns `Promise`
+
+For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src.git/+/69.0.3497.106/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
+
+For `infoType` equal to `basic`: Promise is fulfilled with `Object` containing fewer attributes than when requested with `complete`. Here's an example of basic response:
+
+```js
+{ auxAttributes:
+   { amdSwitchable: true,
+     canSupportThreadedTextureMailbox: false,
+     directComposition: false,
+     directRendering: true,
+     glResetNotificationStrategy: 0,
+     inProcessGpu: true,
+     initializationTime: 0,
+     jpegDecodeAcceleratorSupported: false,
+     optimus: false,
+     passthroughCmdDecoder: false,
+     sandboxed: false,
+     softwareRendering: false,
+     supportsOverlays: false,
+     videoDecodeAcceleratorFlags: 0 },
+gpuDevice:
+   [ { active: true, deviceId: 26657, vendorId: 4098 },
+     { active: false, deviceId: 3366, vendorId: 32902 } ],
+machineModelName: 'MacBookPro',
+machineModelVersion: '11.5' }
+```
+
+Using `basic` should be preferred if only basic information like `vendorId` or `driverId` is needed.
 
 ### `app.setBadgeCount(count)` *Linux* *macOS*
 
@@ -814,6 +869,10 @@ app.setLoginItemSettings({
 
 **Примітка:** Рендеринг дерева спеціальних можливостей може суттєво вплинути на швидкодію застосунку. Варто його вимикати за замовчуванням.
 
+### `app.showAboutPanel()` *macOS*
+
+Show the about panel with the values defined in the app's `.plist` file or with the options set via `app.setAboutPanelOptions(options)`.
+
 ### `app.setAboutPanelOptions(options)` *macOS*
 
 * `options` Object 
@@ -834,11 +893,11 @@ app.setLoginItemSettings({
 ```js
 //Отримати доступ до файлу.
 const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
-// Тепер файл доступний поза sandbox 
+// You can now access the file outside of the sandbox 
 stopAccessingSecurityScopedResource()
 ```
 
-Start accessing a security scoped resource. За допомогою цієї функції застосунки що зроблені для Mac App Store можуть отримувати доступ поза їх пісочницею для доступу до файлів обраних користувачеми. Дивіться [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) для опису того як ця система працює.
+Start accessing a security scoped resource. With this method Electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. Дивіться [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) для опису того як ця система працює.
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
@@ -856,6 +915,12 @@ Start accessing a security scoped resource. За допомогою цієї ф�
 Додає аргумент до командного рядка Chromium. Аргумент буде правильно заекрановано.
 
 **Примітка:** Це не впливає на `process.argv`.
+
+### `app.enableSandbox()` *Експериментальний* *macOS* *Windows*
+
+Enables full sandbox mode on the app.
+
+Цей метод може викликатися лише до готовності застосунку.
 
 ### `app.enableMixedSandbox()` *Експериментальний* *macOS* *Windows*
 

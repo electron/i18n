@@ -4,10 +4,12 @@
 
 Proseso: [Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
+In the renderer process context it depends on the [`remote`](remote.md) module on Linux, it is therefore not available when this module is disabled.
+
 Ang mga sumusunod na halimbawa ay nagpapakita kung paano sumulat ng isang string sa clipboard ng: 
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 clipboard.writeText('Halimbawa String')
  
 Context | Request Context
@@ -17,7 +19,7 @@ Context | Request Context
 Sa X Window system, mayroon ding seleksyon clipboard. Upang manipulahin ang mga ito kailangan mo na mapasa`selection` sa bawat pamamaraan:
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 clipboard.writeText('Halimbawa String', 'selection')
 console.log(clipboard.readText('selection'))
 ```
@@ -28,29 +30,30 @@ Ang `clipboard` modyul ay ang ma sumusunod na pamamaraan:
 
 **Note:** Eksperimental na APIs ay minarkahan bilang tulad at pwedeng maalis sa hinaharap. 
 
-### `clipboard.readText([type])`
+### `clipboard.readText([i-type])
+
+`
 
 * `type` String (opsiyonal)
 
 Returns `String` - Ang nilalaman ng klipboard bilang textstong walang format. 
 
-### `clipboard.writeText(text[, type])`
+### `clipboard.writeText(text[ ,i-type])
+
+`
 
 * `text` String
 * `type` String (opsiyonal)
 
 Pagsulat ng `text` as klipboard bilang tekstong walang format.
 
-### `clipboard.readHTML([i-type])
-
-`
+### `clipboard.readHTML([i-type])`
 
 * `type` String (opsiyonal)
 
 Returns `String` - Ang nilalaman ng klipboard bilang texkstong walang format. 
 
-### `clipboard.writeHTML(markup[, type])
- 
+### `clipboard.writeHTML(markup[ ,i-type])
 
 `
 
@@ -59,14 +62,15 @@ Returns `String` - Ang nilalaman ng klipboard bilang texkstong walang format.
 
 Pagsulat ng `markup` sa klipboard. 
 
-### `clipboard.readImage([i-type]`
+### `clipboard.readImage([i-type])
+
+`
 
 * `type` String (opsiyonal)
 
 Nagbabalik ang [`NativeImage`](native-image.md) ang nilalaman ng larawan sa klipbord. 
 
-### `clipboard.writeImage(image[, type])
- 
+### `clipboard.writeImage(image[ ,i-type])
 
 `
 
@@ -75,7 +79,9 @@ Nagbabalik ang [`NativeImage`](native-image.md) ang nilalaman ng larawan sa klip
 
 Pagsulat `image` sa klipboard.
 
-### `clipboard.readRTF([i-type])`
+### `clipboard.readRTF([i-type])
+
+`
 
 * `type` String (opsiyonal)
 
@@ -125,7 +131,6 @@ Returns `String` - ang texksto sa find pasteboard. Ang paraan na ito ay gumagami
 Pagsulat ng `text` sa find pasteboard bilang tekstong walang format. Ang paraan na ito ay gumagamit ng mga kasabay ng IPC kapag tinawag mula sa proseso ng tagasalin. 
 
 ### `clipboard.clear([i-type])
- 
 
 `
 
@@ -133,7 +138,7 @@ Pagsulat ng `text` sa find pasteboard bilang tekstong walang format. Ang paraan 
 
 Nililimas ang mga nilalaman ng klipboard. 
 
-### `clipboard.availableFormats([i-type])`
+### `clipboard.availableFormats([i-type]`
 
 * `type` String (opsiyonal)
 
@@ -147,7 +152,7 @@ Returns `String[]` - isang array ng mga supportadong pormat para sa klipboard `u
 Returns `Boolean` - maski ang clipboard ay sumusuporta sa tinukoy na`format`.
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 console.log(clipboard.has('<p>selection</p>'))
 ```
 
@@ -171,7 +176,9 @@ Returns `Buffer` - Reads `format` uri mula sa klipboard.
 
 Pagsulat ng `buffer` sa klipboard bilang `format`.
 
-### `clipboard.write(data[, type])`
+### `clipboard.write(data[ ,i-type])
+
+`
 
 * `datos` Bagay 
   * `text` String (opsiyonal)
@@ -182,8 +189,8 @@ Pagsulat ng `buffer` sa klipboard bilang `format`.
 * `type` String (opsiyonal)
 
 ```javascript
-onst {clipboard} = require('electron')
-clipboard.write({text: 'test', html: '<b>test</b>'})
+const { clipboard } = require('electron')
+clipboard.write({ text: 'test', html: '<b>test</b>' })
 ```
 
 Pagsulat ng `data` sa klipboard.

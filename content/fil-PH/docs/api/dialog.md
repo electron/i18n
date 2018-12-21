@@ -7,14 +7,14 @@ Proseso: [Main](../glossary.md#main-process)
 Isang halimbawa ng pagpapakita ng isang dialog sa pagpili ng maraming mga file at mga direktoryo:
 
 ```javascript
-const {dialog} = require('electron')
-console.log(dialog.showOpenDialog({properties: ['openFile', 'openDirectory', 'multiSelections']}))
+const { dialog } = require('electron')
+console.log(dialog.showOpenDialog({ properties: ['openFile', 'openDirectory', 'multiSelections'] }))
 ```
 
 Ang Dialog ay binuksan mula sa pangunahing thread ng Electron. Kung gusto mong gamitin ang dialog mula sa renderer na proseso, tandaang i-access ito gamit ang remote:
 
 ```javascript
-const {dialog} = require('electron').remote
+const { dialog } = require('electron').remote
 console.log(dialog)
 ```
 
@@ -54,10 +54,10 @@ Ang mga `filter` ay nagtitiyak ng mga hanay ng mga uri ng file na maipapakita o 
 ```javascript
 {
   filters: [
-    {name: 'Mga Imahe', extensions: ['jpg', 'png', 'gif']},
-    {name: 'Mga Pelikula', extensions: ['mkv', 'avi', 'mp4']},
-    {name: 'Karaniwang Uri ng File', extensions: ['as']},
-    {name: 'Lahat ng mga file', extensions: ['*']}
+    { name: 'Images', extensions: ['jpg', 'png', 'gif'] },
+    { name: 'Movies', extensions: ['mkv', 'avi', 'mp4'] },
+    { name: 'Custom File Type', extensions: ['as'] },
+    { name: 'All Files', extensions: ['*'] }
   ]
 }
 ```
@@ -105,7 +105,7 @@ Kung ang isang `callback` ay naipasa, ang API na tawag ay magiging asynchronous 
   * `checkboxLabel` String (opsyonal) - Kapag ibinigay, ang mensaheng kahon ay maglalakip ng isang checkbox na may lebel. Ang estado ng checkbox ay pwede tingnan lamang kapag gumagamit ng `callback`.
   * `checkboxChecked` Boolean (optional) - paunang naka-check na estado ng checkbox. `false` ito sa default.
   * `icon` [NativeImage](native-image.md) (opsyonal)
-  * `cancelId` Integer (opsyonal) - Ang index ng pipindutin na gagamitin sa pagkakansela ng dialog, gamit ang `Esc` na key. Sa default, nakatalaga ito sa unang pipindutin na may "cancel"o "no" bilang lebel. Kung ang mayroong mga ganyang pipinduting may lebel at ang opsyon na ito ay hindi na-set, ang `0` ay gagamitin bilang pabalik na halaga o sagot sa callback. Ang opsyon na ito ay napapabayaan sa Windows.
+  * `cancelId` Integer (opsyonal) - Ang index ng pipindutin na gagamitin sa pagkakansela ng dialog, gamit ang `Esc` na key. Sa default, nakatalaga ito sa unang pipindutin na may "cancel"o "no" bilang lebel. Kung ang mayroong mga ganyang pipinduting may lebel at ang opsyon na ito ay hindi na-set, ang `0` ay gagamitin bilang pabalik na halaga o sagot sa callback.
   * `noLink` Boolean (opsyonal) - Sa Windows, susubukang alamin ng Electron kung alin sa `buttons` ang karaniwang mga pipindutin (katulad ng "Cancel" o "Yes"), at ipinapakita ang iba bilang mga command link sa dialog. Pinapakita nito ang dialog sa istilo ng modernong mga Windows app. Kung ayaw mo ng ganitong galaw, pwede mong i-set ang `noLink` sa `true`.
   * `normalizeAccessKeys` Boolean (opsyonal) - ini-normalize ang mga key na pang-keyboard access sa mga plataporma. Ang default ay `false`. Ang pagpapagana nito ay pumapalit at ginagamit sa mga lebel ng mga pipindutin para sa paglalagay ng keyboard shortcut access key at ang mga lebel ay isasalin upang maayos silang gagana sa bawat plataporma, at ang mga karakter ay tinanggal sa macOS, isinalin sa `_` sa Linux at hindi pinakialaman sa Windows. Halimbawa, ang isang lebel ng pipindutin na `Vie&w` ay isasalin sa `Vie_w` sa Linux at `View` sa macOS at pwedeng piliin sa pamamagitan ng `Alt-W` sa Windows at Linux.
 * `callback` Function (opsyonal) 

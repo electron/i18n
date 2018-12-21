@@ -1,13 +1,13 @@
 # app
 
-> Kontrola cyklu życia zdarzeń aplikacji.
+> Kontroluj cykl życia swojej aplikacji.
 
 Proces: [Main](../glossary.md#main-process)
 
 Poniższy przykład pokazuje, jak zamknąć aplikację po zamknięciu ostatniego okna:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 app.on('window-all-closed', () => {
   app.quit()
 })
@@ -19,15 +19,15 @@ Obiekt `app` emituje następujące zdarzenia:
 
 ### Zdarzenie: 'will-finish-launching'
 
-Emitowane, kiedy aplikacja zakończy podstawowe uruchamianie. W systemach Windows oraz Linux, zdarzenie `will-finish-launching` jest takie samo jak zdarzenie `ready`; w macOS reprezentuje powiadomienie `applicationWillFinishLaunching` z `NSApplication`. Zazwyczaj chcesz skonfigurować nasłuchiwanie na zdarzenie `open-file` lub `open-url`, oraz uruchomić crash reporter i auto updater.
+Emitowane, kiedy aplikacja zakończy podstawowe uruchamianie. W systemach Windows oraz Linux, zdarzenie `will-finish-launching` jest takie samo jak zdarzenie `ready`; w systemie macOS reprezentuje powiadomienie `applicationWillFinishLaunching` z `NSApplication`. Zazwyczaj będziesz chciał skonfigurować nasłuchiwanie na zdarzenie `open-file` lub `open-url`, oraz uruchomić crash reporter i auto updater.
 
-In most cases, you should do everything in the `ready` event handler.
+W większości przypadków, powinieneś zrobić wszystko w obsłudze zdarzenia `ready`.
 
 ### Zdarzenie: 'ready'
 
 Zwraca:
 
-* `launchInfo` Obiekt *macOS*
+* `launchInfo` Object *macOS*
 
 Emitowane, gdy elektron zakończył inicjowanie. W systemie Mac OS `launchInfo` posiada `userInfo` z `NSUserNotification`, który został użyty do otwarcia aplikacji, jeśli został uruchomiony z centrum powiadomień. Można wywołać `app.isReady()` Aby sprawdzić, czy to zdarzenie został już wyemitowane.
 
@@ -43,7 +43,7 @@ Zwraca:
 
 * `event` Event
 
-Emitowane przed tym jak aplikacja zacznie zamykać okna. Wywołanie `event.preventDefault()` uniemożliwi zachowanie domyślne, którym jest zakończenie aplikacji.
+Emitowane przed tym jak aplikacja zacznie zamykać okna. Wywołanie `event.preventDefault()` uniemożliwi wykonanie domyślnego zachowania, jakim jest zakończenie aplikacji.
 
 **Uwaga:** Jeśli zamykanie zostało zainicjowane przez `autoUpdater.quitAndInstall()`, wtedy `before-quit` jest emitowany *po* emitowaniu `close` na wszystkich oknach oraz ich zamknięcia.
 
@@ -79,7 +79,7 @@ Zwraca:
 * `event` Event
 * `path` String
 
-Emitowany kiedy użytkownik chce otworzyć plik za pomocą aplikacji. `open-file` Zdarzenie jest zazwyczaj emitowane gdy aplikacja jest już otwarta i system operacyjny chce użyć jej ponownie do otwarcia pliku. `open-file` również jest emitowane, gdy plik został przerzucony do stacji dokującej, a aplikacja nie jest jeszcze uruchomiona. Upewnij się, że nasłuchujesz się zdarzenia `open-file` we wczesnym stadium uruchamiania aplikacji do obsługi tego przypadku (zdarzenie jest emitowane nawet przed zdarzeniem `ready`).
+Emitowany kiedy użytkownik chce otworzyć plik za pomocą aplikacji. `open-file` Zdarzenie jest zazwyczaj emitowane gdy aplikacja jest już otwarta i system operacyjny chce użyć jej ponownie do otwarcia pliku. `open-file` również jest emitowane, gdy plik został przerzucony dock'u, a aplikacja nie jest jeszcze uruchomiona. Upewnij się, że nasłuchujesz zdarzenia `open-file` we wczesnym stadium uruchamiania aplikacji do obsługi tego przypadku (zdarzenie jest emitowane nawet przed zdarzeniem `ready`).
 
 Powinieneś wywołać `event.preventDefault()` jeśli chcesz obsłużyć zdarzenie.
 
@@ -215,7 +215,7 @@ Zwraca:
 Emitowany gdy nie powiedzie się weryfikacja certyfikatu `certificate` dla `url`, aby certyfikat przeszedł weryfikację powinieneś zapobiec domyślnemu zachowaniu aplikacji przy pomocy `event.preventDefault()` i wywołać `callback(true)`.
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('certificate-error', (event, webContents, url, error, certificate, callback) => {
   if (url === 'https://github.com') {
@@ -244,7 +244,7 @@ Emitowane, kiedy certyfikat klienta jest wymagany.
 The `url` corresponds to the navigation entry requesting the client certificate and `callback` can be called with an entry filtered from the list. Using `event.preventDefault()` prevents the application from using the first certificate from the store.
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('select-client-certificate', (event, webContents, url, list, callback) => {
   event.preventDefault()
@@ -277,7 +277,7 @@ Emitowane gdy `webContents` żąda podstawowej autoryzacji.
 The default behavior is to cancel all authentications, to override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('login', (event, webContents, request, authInfo, callback) => {
   event.preventDefault()
@@ -312,7 +312,7 @@ Zwraca:
 Emitted when Electron has created a new `session`.
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('session-created', (event, session) => {
   console.log(session)
@@ -330,6 +330,26 @@ Zwraca:
 This event will be emitted inside the primary instance of your application when a second instance has been executed. `argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Usually applications respond to this by making their primary window focused and non-minimized.
 
 This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
+
+### Event: 'remote-require'
+
+Zwraca:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+* `moduleName` String
+
+Emitted when `remote.require()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+
+### Event: 'remote-get-global'
+
+Zwraca:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+* `globalName` String
+
+Emitted when `remote.getGlobal()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
 
 ## Metody
 
@@ -353,7 +373,7 @@ Wszystkie okna zostaną natychmiast zamknięte bez pytania się użytkownika ora
 
 ### `app.relaunch([options])`
 
-* `opcje` Obiekt (opcjonalne) 
+* `options` Obiekt (opcjonalne) 
   * `args` String[] (opcjonalne)
   * `execPath` String (opcjonalne)
 
@@ -368,9 +388,9 @@ Kiedy `app.relaunch` jest wielokrotnie wywoływana, nowe wielokrotne instancje b
 Przykład natychmiastowego ponownego uruchomienia bieżącej instancji oraz dodanie nowych argumentów do wiersza poleceń:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
-app.relaunch({args: process.argv.slice(1).concat(['--relaunch'])})
+app.relaunch({ args: process.argv.slice(1).concat(['--relaunch']) })
 app.exit(0)
 ```
 
@@ -380,7 +400,7 @@ Returns `Boolean` - `true` if Electron has finished initializing, `false` otherw
 
 ### `app.whenReady()`
 
-Returns `Promise` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
+Returns `Promise<void>` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
 
 ### `app.focus()`
 
@@ -427,7 +447,7 @@ Możesz poprosić o następujące ścieżki dostępu poprzez nazwę:
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `opcje` Obiekt (opcjonalne) 
+* `options` Obiekt (opcjonalne) 
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
@@ -526,7 +546,7 @@ This method checks if the current executable as the default handler for a protoc
 * `path` String (optional) *Windows* - Defaults to `process.execPath`
 * `args` String[] (optional) *Windows* - Defaults to an empty array
 
-Returns `Boolean`
+Zwraca `Boolean`
 
 This method checks if the current executable is the default handler for a protocol (aka URI scheme). If so, it will return true. Otherwise, it will return false.
 
@@ -548,7 +568,7 @@ Returns `Boolean` - Whether the call succeeded.
 
 ### `app.getJumpListSettings()` *Windows*
 
-Returns `Object`:
+Zwraca `Object`:
 
 * `minItems` Integer - The minimum number of items that will be shown in the Jump List (for a more detailed description of this value see the [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
 * `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. These items must not be re-added to the Jump List in the **next** call to `app.setJumpList()`, Windows will not display any custom category that contains any of the removed items.
@@ -574,7 +594,7 @@ If `categories` is `null` the previously set custom Jump List (if any) will be r
 Prosty przykład tworzenia niestandardowej listy szybkiego dostępu:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.setJumpList([
   {
@@ -633,7 +653,7 @@ app.setJumpList([
 
 ### `app.requestSingleInstanceLock()`
 
-Returns `Boolean`
+Zwraca `Boolean`
 
 This method makes your application a Single Instance Application - instead of allowing multiple instances of your app to run, this will ensure that only a single instance of your app is running, and other instances signal this instance and exit.
 
@@ -646,7 +666,7 @@ On macOS the system enforces single instance automatically when users try to ope
 An example of activating the window of primary instance when a second instance starts:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 let myWindow = null
 
 const gotTheLock = app.requestSingleInstanceLock()
@@ -670,7 +690,7 @@ if (!gotTheLock) {
 
 ### `app.hasSingleInstanceLock()`
 
-Returns `Boolean`
+Zwraca `Boolean`
 
 This method returns whether or not this instance of your app is currently holding the single instance lock. You can request the lock with `app.requestSingleInstanceLock()` and release with `app.releaseSingleInstanceLock()`
 
@@ -711,13 +731,13 @@ Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library
 
 ### `app.importCertificate(options, callback)` *LINUX*
 
-* `opcje` Object 
+* `options` Object 
   * `certificate` String - Path for the pkcs12 file.
   * `password` String - Passphrase for the certificate.
 * `callback` Funkcja 
   * `result` Integer - Result of import.
 
-Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `0` indicates success while any other value indicates failure according to chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `0` indicates success while any other value indicates failure according to Chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
 ### `app.disableHardwareAcceleration()`
 
@@ -738,6 +758,41 @@ Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetr
 ### `app.getGPUFeatureStatus()`
 
 Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Feature Status from `chrome://gpu/`.
+
+### `app.getGPUInfo(infoType)`
+
+* `infoType` String - Values can be either `basic` for basic info or `complete` for complete info.
+
+Returns `Promise`
+
+For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src.git/+/69.0.3497.106/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
+
+For `infoType` equal to `basic`: Promise is fulfilled with `Object` containing fewer attributes than when requested with `complete`. Here's an example of basic response:
+
+```js
+{ auxAttributes:
+   { amdSwitchable: true,
+     canSupportThreadedTextureMailbox: false,
+     directComposition: false,
+     directRendering: true,
+     glResetNotificationStrategy: 0,
+     inProcessGpu: true,
+     initializationTime: 0,
+     jpegDecodeAcceleratorSupported: false,
+     optimus: false,
+     passthroughCmdDecoder: false,
+     sandboxed: false,
+     softwareRendering: false,
+     supportsOverlays: false,
+     videoDecodeAcceleratorFlags: 0 },
+gpuDevice:
+   [ { active: true, deviceId: 26657, vendorId: 4098 },
+     { active: false, deviceId: 3366, vendorId: 32902 } ],
+machineModelName: 'MacBookPro',
+machineModelVersion: '11.5' }
+```
+
+Using `basic` should be preferred if only basic information like `vendorId` or `driverId` is needed.
 
 ### `app.setBadgeCount(count)` *Linux* *macOS*
 
@@ -761,13 +816,13 @@ Returns `Boolean` - Whether the current desktop environment is Unity launcher.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `opcje` Obiekt (opcjonalne) 
+* `options` Obiekt (opcjonalne) 
   * `path` String (optional) *Windows* - The executable path to compare against. Defaults to `process.execPath`.
   * `args` String[] (optional) *Windows* - The command-line arguments to compare against. Defaults to an empty array.
 
 If you provided `path` and `args` options to `app.setLoginItemSettings` then you need to pass the same arguments here for `openAtLogin` to be set correctly.
 
-Returns `Object`:
+Zwraca `Object`:
 
 * `openAtLogin` Boolean - `true` if the app is set to open at login.
 * `openAsHidden` Boolean *macOS* - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
@@ -814,9 +869,13 @@ Manually enables Chrome's accessibility support, allowing to expose accessibilit
 
 **Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
 
+### `app.showAboutPanel()` *macOS*
+
+Show the about panel with the values defined in the app's `.plist` file or with the options set via `app.setAboutPanelOptions(options)`.
+
 ### `app.setAboutPanelOptions(options)` *macOS*
 
-* `opcje` Object 
+* `options` Object 
   * `applicationName` String (optional) - The app's name.
   * `applicationVersion` String (optional) - The app's version.
   * `copyright` String (optional) - Copyright information.
@@ -838,7 +897,7 @@ const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedReso
 stopAccessingSecurityScopedResource()
 ```
 
-Start accessing a security scoped resource. With this method electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
+Start accessing a security scoped resource. With this method Electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
@@ -856,6 +915,12 @@ Append a switch (with optional `value`) to Chromium's command line.
 Append an argument to Chromium's command line. The argument will be quoted correctly.
 
 **Note:** This will not affect `process.argv`.
+
+### `app.enableSandbox()` *Eksperymentalne* *macOS* *Windows*
+
+Enables full sandbox mode on the app.
+
+This method can only be called before app is ready.
 
 ### `app.enableMixedSandbox()` *Eksperymentalne* *macOS* *Windows*
 

@@ -9,7 +9,7 @@ Modul ini tidak menyertakan antarmuka web sehingga Anda perlu membuka `chrome://
 **Catatan:** Anda tidak boleh menggunakan modul ini sampai acara ` siap` dari aplikasi modul dipancarkan.
 
 ```javascript
-const {app, contentTracing} = require ('elektron')
+const { app, contentTracing } = require ('elektron')
 
 app.on ('siap', () = > {
   pilihan const = {
@@ -44,7 +44,7 @@ Setelah semua proses anak mengakui permintaan`getCategories` `callback` dipanggi
 
 ### `contentTracing.startRecording (pilihan,callback)`
 
-* `pilihan` Objek 
+* `pilihan` Obyek 
   * `kategori Filter ` String
   * `traceOptions ` String
 * `callback ` Fungsi
@@ -89,7 +89,7 @@ Data jejak akan ditulis ke `resultFilePath` jika tidak kosong atau ke a file sem
 
 ### `isi Tracing.startMonitoring (pilihan, callback)`
 
-* `pilihan` Objek 
+* `pilihan` Object 
   * `kategori Filter ` String
   * `traceOptions ` String
 * `callback ` Fungsi

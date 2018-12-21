@@ -2,12 +2,33 @@
 
 > Transport alternatif untuk protokol debugging jarak jauh Chrome.
 
-Proses:  Utama </ 0></p> 
+Proses: [Main](../glossary.md#main-process)
 
 Alat Pengembang Chrome memiliki  pengikatan khusus </ 0> yang tersedia pada runtime JavaScript yang memungkinkan berinteraksi dengan halaman dan menginstruksikannya.</p> 
 
 ```javascript
-const {BrowserWindow} = require ('elektron') nyalakan = baru BrowserWindow () mencoba {win.webContents.debugger.attach ('1.1')} ha (err) {console.log ('Debugger melampirkan gagal:', err )} win.webContents.debugger.on ('hapus' (acara, alasan) = & gt; {console.log ('Debugger yang tertutup karena:', alasan)}) win.webContents.debugger.on ('pesan' acara, metode, params) = & gt; {jika (metode === 'Network.requestWillBeSent') {jika (params.request.url === 'https://www.github.com') {win.webContents. debugger.detach ()}}}) win.webContents.debugger.sendCommand ('Network.enable')
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow()
+
+try {
+  win.webContents.debugger.attach('1.1')
+} catch (err) {
+  console.log('Debugger attach failed : ', err)
+}
+
+win.webContents.debugger.on('detach', (event, reason) => {
+  console.log('Debugger detached due to : ', reason)
+})
+
+win.webContents.debugger.on('message', (event, method, params) => {
+  if (method === 'Network.requestWillBeSent') {
+    if (params.request.url === 'https://www.github.com') {
+      win.webContents.debugger.detach()
+    }
+  }
+})
+
+win.webContents.debugger.sendCommand('Network.enable')
 ```
 
 ### Metode Instance
@@ -40,13 +61,13 @@ const {BrowserWindow} = require ('elektron') nyalakan = baru BrowserWindow () me
 
 <p>Kirim perintah yang diberikan ke target debugging.</p>
 
-<h3>Contoh peristiwa</h3>
+<h3>Perihal contoh</h3>
 
 <h4>Acara : 'melepaskan'</h4>
 
 <ul>
-<li><code>event` Sinyal
-    * ` alasan </ 0>  String - Alasan untuk memisahkan debugger.</li>
+<li><code>peristiwa` Peristiwa
+    *  alasan </ 0>  String - Alasan untuk memisahkan debugger.</li>
 </ul>
 
 <p>Emitted saat sesi debugging dihentikan. Hal ini terjadi ketika
@@ -55,8 +76,8 @@ const {BrowserWindow} = require ('elektron') nyalakan = baru BrowserWindow () me
 <h4>Acara : 'pesan'</h4>
 
 <ul>
-<li><code>event` Sinyal
-    *  metode </ 0> String - nama metode.</li>
+<li><code>event</ 0> Acara</li>
+<li><code> metode </ 0> String - nama metode.</li>
 <li><code> params </ 0> Objek - Parameter acara ditentukan oleh  atribut 'parameter'
  dalam protokol debugging jarak jauh.</li>
 </ul>

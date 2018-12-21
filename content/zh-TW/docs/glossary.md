@@ -22,7 +22,7 @@ Apple 磁碟映像檔 (Apple Disk Image) 是 macOS 用的打包格式。 DMG 檔
 
 ### IDL
 
-Interface description language. Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
+接口描述語言，用同一種格式生成java，c++，JavaScript等接口的函數簽名與數據類型
 
 ### IPC
 

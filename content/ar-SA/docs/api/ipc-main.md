@@ -2,7 +2,7 @@
 
 > Communicate asynchronously from the main process to renderer processes.
 
-Process: [Main](../glossary.md#main-process)
+العملية: [Main](../glossary.md#main-process)
 
 The `ipcMain` module is an instance of the [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) class. When used in the main process, it handles asynchronous and synchronous messages sent from a renderer process (web page). Messages sent from a renderer will be emitted to this module.
 
@@ -18,7 +18,7 @@ An example of sending and handling messages between the render and main processe
 
 ```javascript
 // In main process.
-const {ipcMain} = require('electron')
+const { ipcMain } = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
   console.log(arg) // prints "ping"
   event.sender.send('asynchronous-reply', 'pong')
@@ -32,7 +32,7 @@ ipcMain.on('synchronous-message', (event, arg) => {
 
 ```javascript
 // In renderer process (web page).
-const {ipcRenderer} = require('electron')
+const { ipcRenderer } = require('electron')
 console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // prints "pong"
 
 ipcRenderer.on('asynchronous-reply', (event, arg) => {

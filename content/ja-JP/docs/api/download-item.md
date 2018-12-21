@@ -8,7 +8,7 @@
 
 ```javascript
 // メインプロセス
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.webContents.session.on('will-download', (event, item, webContents) => {
   // Electronが保存ダイアログを表示しないようにするために、保存先のパスを設定します。

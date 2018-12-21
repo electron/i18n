@@ -7,7 +7,7 @@
 아래는 자동으로 원격 서버에 충돌 보고서를 제출하는 예제입니다.
 
 ```javascript
-const {crashReporter} = require('electron')
+const { crashReporter } = require('electron')
 
 crashReporter.start({
   productName: '이름',
@@ -36,7 +36,7 @@ Or use a 3rd party hosted solution:
 ### `crashReporter.start(options)`
 
 * `options` Object 
-  * `companyName` String (선택)
+  * `companyName` String
   * `submitURL` String - POST로 보낼 충돌 보고서 URL 입니다.
   * `productName` String (선택) - 기본 값은 `app.getName()` 입니다.
   * `uploadToServer` Boolean (선택) - 충돌 보고서가 서버로 전송될지를 결정합니다. 기본값은 `true` 입니다.
@@ -53,18 +53,18 @@ Or use a 3rd party hosted solution:
 **Note:** If you need send additional/updated `extra` parameters after your first call `start` you can call `addExtraParameter` on macOS or call `start` again with the new/updated `extra` parameters on Linux and Windows.
 
 ```js
- const args = [
-   `--reporter-url=${submitURL}`,
-   `--application-name=${productName}`,
-   `--crashes-directory=${crashesDirectory}`
- ]
- const env = {
-   ELECTRON_INTERNAL_CRASH_SERVICE: 1
- }
- spawn(process.execPath, args, {
-   env: env,
-   detached: true
- })
+const args = [
+  `--reporter-url=${submitURL}`,
+  `--application-name=${productName}`,
+  `--crashes-directory=${crashesDirectory}`
+]
+const env = {
+  ELECTRON_INTERNAL_CRASH_SERVICE: 1
+}
+spawn(process.execPath, args, {
+  env: env,
+  detached: true
+})
 ```
 
 **참고:** macOS에서는, Electron은 새 `crashpad` 클라이언트를 사용하여 충돌 수집과 보고서를 작성합니다. 충돌 보고를 사용 하려면, 주 프로세스에서 `crashReporter.start`를 사용하여, `crashpad`를 초기화 하는것이 어느 프로세스에서 충돌 수집을 하든 필요합니다. 이 방법으로 한번 초기화 되면, crashpad 핸들러가 모든 프로세스에서 충돌을 수집합니다. 아직 `crashReporter.start`를 렌더러나 자식 프로세스에서 호출하는 것이 필요합니다, 그렇지 않으면 `companyName`, `productName` 혹은 어느 `extra` 정보가 포함되지 않은 보고서가 제보될 것입니다.

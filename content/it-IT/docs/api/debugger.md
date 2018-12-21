@@ -7,7 +7,7 @@ Processo: [Main](../glossary.md#main-process)
 Chrome Developer Tools ha un [legame speciale](https://developer.chrome.com/devtools/docs/debugger-protocol) disponibile nel runtime JavaScript che permette di interagire con le pagine e strumentarle.
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 
 try {

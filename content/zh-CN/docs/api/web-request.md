@@ -6,7 +6,9 @@
 
 使用 ` Session ` 的 ` WebRequest ` 属性访问 ` WebRequest ` 类的实例。
 
-` WebRequest ` 的方法接受可选的 `filter ` 和 ` listener `。 当 API 的事件发生时, 将使用 ` listener(details) ` 来调用 ` listener`。 ` 详细details ` 对象描述了该请求。 若` listener `为` null `，则取消订阅该事件。
+` WebRequest ` 的方法接受可选的 `filter ` 和 ` listener `。 当 API 的事件发生时, 将使用 ` listener(details) ` 来调用 ` listener`。 ` 详细details ` 对象描述了该请求。
+
+⚠️ Only the last attached `listener` will be used. Passing `null` as `listener` will unsubscribe from the event.
 
 ` filter ` 对象具有一个 ` url ` 属性, 它是一个 url 模式数组, 用于筛选出与 url 模式不匹配的请求。 如果省略 ` filter `, 则所有请求都将匹配。
 
@@ -15,7 +17,7 @@
 为 requests 添加 `User-Agent` 头的示例：
 
 ```javascript
-const {session} = require('electron')
+const { session } = require('electron')
 
 // Modify the user agent for all requests to the following urls.
 const filter = {
@@ -24,7 +26,7 @@ const filter = {
 
 session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback) => {
   details.requestHeaders['User-Agent'] = 'MyAgent'
-  callback({cancel: false, requestHeaders: details.requestHeaders})
+  callback({ cancel: false, requestHeaders: details.requestHeaders })
 })
 ```
 
@@ -125,7 +127,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 * `filter` Object (可选) 
   * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。
-* `listener` Function 
+* `listener` Function - 回调函数 
   * `details` Object 
     * `id` Integer
     * `url` String
@@ -188,7 +190,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `id` Integer
     * `url` String
     * `method` String
-    * ` webContentsId ` Integer (可选)
+    * `webContentsId` Integer (可选)
     * `resourceType` String
     * `timestamp` Double
     * `fromCache` Boolean

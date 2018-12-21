@@ -7,13 +7,13 @@ Process: [Main](../glossary.md#main-process)
 Un ejemplo de la implementación de un protocolo que tiene el mismo efecto que el protocolo `file://`:
 
 ```javascript
-const {app, protocol} = require('electron')
+const { app, protocol } = require('electron')
 const path = require('path')
 
 app.on('ready', () => {
   protocol.registerFileProtocol('atom', (request, callback) => {
     const url = request.url.substr(7)
-    callback({path: path.normalize(`${__dirname}/${url}`)})
+    callback({ path: path.normalize(`${__dirname}/${url}`) })
   }, (error) => {
     if (error) console.error('Failed to register protocol')
   })
@@ -49,7 +49,7 @@ Registrando un esquema como estándar permitirá el acceso a archivos mediante l
 Por defecto el almacenamiento web de apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) está deshabilitado para esquemas no estándar. Así que en general si quiere registrar un protocolo personalizado para reemplazar el protocolo el `http`, tiene que registrarlo como un esquema estándar:
 
 ```javascript
-const {app, protocol} = require('electron')
+const { app, protocol } = require('electron')
 
 protocol.registerStandardSchemes(['atom'])
 app.on('ready', () => {
@@ -79,7 +79,7 @@ app.on('ready', () => {
 
 Registra un protocolo de `esquema` que enviará el archivo como respuesta. El `controlador` será llamado con `handler(request, callback)` cuando una `solicitud` será creada con el `esquema`. `terminación` será llamado con `terminación(nulo)` cuando el `esquema` está registrado exitósamente o `terminación(error)` cuando haya fallado.
 
-Para controlar la `solicitud`, la `retrollamada` debe ser llamada con la ruta al archivo o un objeto que tiene una propiedad `ruta`, ejemplo `callback(filePath)` o `callback({path: filePath})`.
+Para controlar la `solicitud`, la `retrollamada` debe ser llamada con la ruta al archivo o un objeto que tiene una propiedad `ruta`, ejemplo `callback(filePath)` o `callback({ path: filePath })`.
 
 Cuando la `retrollamada` es llamada sin argumento, un número, o un objeto que tiene una propiedad `error`, la `solicitud` fallará con el número de `error` que usted haya especificado. Para números de errores que puede usar, por favor vea la [lista de errores de red](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
@@ -106,10 +106,10 @@ El uso es el mismo que con `registerFileProtocol`, excepto que la `retrollamada`
 Ejemplo:
 
 ```javascript
-const {protocol} = require('electron')
+const { protocol } = require('electron')
 
 protocol.registerBufferProtocol('atom', (request, callback) => {
-  callback({mimeType: 'text/html', data: Buffer.from('<h5>Response</h5>')})
+  callback({ mimeType: 'text/html', data: Buffer.from('<h5>Response</h5>') })
 }, (error) => {
   if (error) console.error('Failed to register protocol')
 })
@@ -139,7 +139,8 @@ El uso es el mismo que con `registerFileProtocol`, excepto que la `retrollamada`
 * `manejador` Function 
   * `request` Object 
     * `url` String
-    * `referrer` String
+    * `headers` Objeto
+    * `referrer` Cadena
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
@@ -183,11 +184,11 @@ El uso es similar al otro `register{Any}Protocol`, excepto que el `callback` deb
 Ejemplo:
 
 ```javascript
-const {protocol} = require('electron')
-const {PassThrough} = require('stream')
+const { protocol } = require('electron')
+const { PassThrough } = require('stream')
 
 function createStream (text) {
-  const rv = new PassThrough() // PassThrough también es una transmisión legible
+  const rv = new PassThrough() // PassThrough is also a Readable stream
   rv.push(text)
   rv.push(null)
   return rv
@@ -199,17 +200,17 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
     headers: {
       'content-type': 'text/html'
     },
-    data: createStream('<h5>Respuesta</h5>')
+    data: createStream('<h5>Response</h5>')
   })
 }, (error) => {
-  if (error) console.error('Error al registrar el protocolo')
+  if (error) console.error('Failed to register protocol')
 })
 ```
 
 Es posible pasar cualquier objeto que implemente la API de flujo legible (emite los eventos `data`/`end`/`error`). Por ejemplo, a continuación se muestra como podría devolverse un fichero:
 
 ```javascript
-const {protocol} = require('electron')
+const { protocol } = require('electron')
 const fs = require('fs')
 
 protocol.registerStreamProtocol('atom', (request, callback) => {
@@ -289,6 +290,7 @@ Intercepta el protocolo de `scheme` y usa el `handler` como el nuevo manejador d
 * `manejador` Function 
   * `request` Object 
     * `url` String
+    * `headers` Objeto
     * `referrer` Cadena
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -325,7 +327,7 @@ Mismo que `protocol.registerStreamProtocol`, excepto que reemplaza un manejador 
 ### `protocol.uninterceptProtocol(scheme[, completion])`
 
 * `scheme` String
-* `completion` Función (opcional) 
+* `completion` Function (opcional) 
   * `error` Error
 
 Elimina el interceptor instalado para el `scheme` y restaura su controlador original.

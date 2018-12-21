@@ -7,13 +7,14 @@ Proses: [Main](../glossary.md#main-process)
 Contoh menampilkan dialog untuk memilih beberapa file dan direktori:
 
 ```javascript
-const {dialog} = require ('electron') console.log (dialog.showOpenDialog ({properties: ['openFile', 'openDirectory', 'multiSelections']}))
+const { dialog } = require('electron')
+console.log(dialog.showOpenDialog({ properties: ['openFile', 'openDirectory', 'multiSelections'] }))
 ```
 
 Dialog dibuka dari thread utama Elektron. Jika Anda ingin menggunakan objek dialog dari proses renderer, ingatlah untuk mengaksesnya dengan menggunakan remote:
 
 ```javascript
-const {dialog} = membutuhkan ('elektron'). remote console.log (dialog)
+const { dialog } = membutuhkan ('elektron'). remote console.log (dialog)
 ```
 
 ## Methods
@@ -51,11 +52,11 @@ The `filters` menentukan kumpulan jenis file yang dapat ditampilkan atau dipilih
 
 ```javascript
 {
-  filter: [
-    {name: 'Images', extensions: ['jpg', 'png', 'gif']},
-    {name: 'Movies', extensions: ['mkv', 'avi', 'mp4']},
-    {name: 'Custom File Type', ekstensi: ['as']},
-    {name: 'All Files', ekstensi: ['*']}
+  filters: [
+    { name: 'Images', extensions: ['jpg', 'png', 'gif'] },
+    { name: 'Movies', extensions: ['mkv', 'avi', 'mp4'] },
+    { name: 'Custom File Type', extensions: ['as'] },
+    { name: 'All Files', extensions: ['*'] }
   ]
 }
 ```
@@ -103,7 +104,7 @@ Jika `callback` dilewati, panggilan API akan menjadi asinkron dan hasilnya akan 
   * `kotak centangLabe` String (opsional) - Jika tersedia, kotak pesan akan sertakan kotak centang dengan label yang diberikan. Kotak centangnya bisa jadi diperiksa hanya saat menggunakan `callback`.
   * `checkboxChecked` Boolean (opsional) - Status pemeriksaan awal dari kotak centang. `false` secara default.
   * `ikon` [NativeImage](native-image.md) (opsional)
-  * `cancelId` Integer (opsional) - Indeks tombol yang akan digunakan untuk membatalkan dialog, melalui tombol `Esc`. Secara default ini diberikan ke tombol pertama dengan "cancel" atau "no" sebagai label. Jika tidak ada tombol berlabel seperti itu dan pilihan ini tidak diset, `0` akan digunakan sebagai nilai balik atau respons balik. Pilihan ini diabaikan pada Windows.
+  * `cancelId` Integer (opsional) - Indeks tombol yang akan digunakan untuk membatalkan dialog, melalui tombol `Esc`. Secara default ini diberikan ke tombol pertama dengan "cancel" atau "no" sebagai label. Jika tidak ada tombol berlabel seperti itu dan pilihan ini tidak diset, `0` akan digunakan sebagai nilai balik atau respons balik.
   * `noLink` Boolean (opsional) - Pada Windows Electron akan mencoba untuk mencari tahu dari mana `buttons` adalah tombol yang umum (seperti "Batal" atau "Ya"), dan menampilkan yang lain sebagai link perintah dalam dialog. Hal ini bisa membuat dialog tampil dengan gaya aplikasi Windows modern . Jika Anda tidak menyukai perilaku ini, Anda dapat mengatur `noLink` to `true`.
   * `normalizeAccessKeys` Boolean (opsional) - Menormalisasi tombol akses keyboard. Defaultnya adalah ` false </ 0> . Mengaktifkan asumsi ini <code>&` digunakan pada label tombol untuk penempatan tombol akses pintas keyboard dan label akan dikonversi sehingga bekerja dengan benar pada setiap platform, `&` karakter dihapus di macos, dikonversi ke `_` di Linux, dan tidak tersentuh pada Windows. Misalnya, label tombol `Vie&w` akan dikonversi ke `Vie_w` di Linux dan ` View ` di macos dan dapat dipilih melalui `Alt-W` pada Windows dan Linux.
 * `callback` Fungsi (opsional) 

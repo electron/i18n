@@ -52,7 +52,7 @@ The `menu` object has the following instance methods:
 
 #### `menu.popup(options)`
 
-* `options` Object 
+* `options` Object (опціонально) 
   * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
   * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
   * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
@@ -131,49 +131,49 @@ The `Menu` class is only available in the main process, but you can also use it 
 An example of creating the application menu in the main process with the simple template API:
 
 ```javascript
-const {app, Menu} = require('electron')
+const { app, Menu } = require('electron')
 
 const template = [
   {
-    label: 'Редагування',
+    label: 'Edit',
     submenu: [
-      {role: 'undo'},
-      {role: 'redo'},
-      {type: 'separator'},
-      {role: 'cut'},
-      {role: 'copy'},
-      {role: 'paste'},
-      {role: 'pasteandmatchstyle'},
-      {role: 'delete'},
-      {role: 'selectall'}
+      { role: 'undo' },
+      { role: 'redo' },
+      { type: 'separator' },
+      { role: 'cut' },
+      { role: 'copy' },
+      { role: 'paste' },
+      { role: 'pasteandmatchstyle' },
+      { role: 'delete' },
+      { role: 'selectall' }
     ]
   },
   {
-    label: 'Вигляд',
+    label: 'View',
     submenu: [
-      {role: 'reload'},
-      {role: 'forcereload'},
-      {role: 'toggledevtools'},
-      {type: 'separator'},
-      {role: 'resetzoom'},
-      {role: 'zoomin'},
-      {role: 'zoomout'},
-      {type: 'separator'},
-      {role: 'togglefullscreen'}
+      { role: 'reload' },
+      { role: 'forcereload' },
+      { role: 'toggledevtools' },
+      { type: 'separator' },
+      { role: 'resetzoom' },
+      { role: 'zoomin' },
+      { role: 'zoomout' },
+      { type: 'separator' },
+      { role: 'togglefullscreen' }
     ]
   },
   {
     role: 'window',
     submenu: [
-      {role: 'minimize'},
-      {role: 'close'}
+      { role: 'minimize' },
+      { role: 'close' }
     ]
   },
   {
     role: 'help',
     submenu: [
       {
-        label: 'Дізнатись більше',
+        label: 'Learn More',
         click () { require('electron').shell.openExternal('https://electronjs.org') }
       }
     ]
@@ -184,37 +184,37 @@ if (process.platform === 'darwin') {
   template.unshift({
     label: app.getName(),
     submenu: [
-      {role: 'about'},
-      {type: 'separator'},
-      {role: 'services', submenu: []},
-      {type: 'separator'},
-      {role: 'hide'},
-      {role: 'hideothers'},
-      {role: 'unhide'},
-      {type: 'separator'},
-      {role: 'quit'}
+      { role: 'about' },
+      { type: 'separator' },
+      { role: 'services' },
+      { type: 'separator' },
+      { role: 'hide' },
+      { role: 'hideothers' },
+      { role: 'unhide' },
+      { type: 'separator' },
+      { role: 'quit' }
     ]
   })
 
-  // Меню "Редагування"
+  // Edit menu
   template[1].submenu.push(
-    {type: 'separator'},
+    { type: 'separator' },
     {
-      label: 'Мовлення',
+      label: 'Speech',
       submenu: [
-        {role: 'startspeaking'},
-        {role: 'stopspeaking'}
+        { role: 'startspeaking' },
+        { role: 'stopspeaking' }
       ]
     }
   )
 
-  // Меню "Вікно"
+  // Window menu
   template[3].submenu = [
-    {role: 'close'},
-    {role: 'minimize'},
-    {role: 'zoom'},
-    {type: 'separator'},
-    {role: 'front'}
+    { role: 'close' },
+    { role: 'minimize' },
+    { role: 'zoom' },
+    { type: 'separator' },
+    { role: 'front' }
   ]
 }
 
@@ -229,17 +229,17 @@ Below is an example of creating a menu dynamically in a web page (render process
 ```html
 <!-- index.html -->
 <script>
-const {remote} = require('electron')
-const {Menu, MenuItem} = remote
+const { remote } = require('electron')
+const { Menu, MenuItem } = remote
 
 const menu = new Menu()
-menu.append(new MenuItem({label: 'Пункт1', click() { console.log('пункт 1 натиснутий') }}))
-menu.append(new MenuItem({type: 'separator'}))
-menu.append(new MenuItem({label: 'Пункт2', type: 'checkbox', checked: true}))
+menu.append(new MenuItem({ label: 'MenuItem1', click() { console.log('item 1 clicked') } })))
+menu.append(new MenuItem({ type: 'separator' }))
+menu.append(new MenuItem({ label: 'MenuItem2', type: 'checkbox', checked: true }))
 
 window.addEventListener('contextmenu', (e) => {
   e.preventDefault()
-  menu.popup({window: remote.getCurrentWindow()})
+  menu.popup({ window: remote.getCurrentWindow() })
 }, false)
 </script>
 ```

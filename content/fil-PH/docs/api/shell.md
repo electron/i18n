@@ -9,7 +9,7 @@ Ang modyul ng `shell` ng mga gamit nito na kaugnay sa pinagsama-samang "desktop"
 Isang halimbawa ay ang pagbukas ng URL sa dating nitong "browser" ng gumagamit:
 
 ```javascript
-const {shell} = require('electron')
+const { shell } = require('electron')
 
 shell.openExternal('https://github.com')
 ```
@@ -37,8 +37,9 @@ Buksan ang binigay na payl sa dati nitong aspeto ng "desktop".
 ### `shell.openExternal(url[, options, callback])`
 
 * `url` String - Max 2081 characters on windows, or the function returns false.
-* `mga opsyon` Bagay (opsyonal) *macOS* 
-  * `activate` Boolean - `true` para maipadala ang nakabukas na "application" sa importante nitong posisyon. Ang "default" ay `true`.
+* `mga opsyon` Bagay (opsyonal) 
+  * `activate` Boolean (optional) - `true` to bring the opened application to the foreground. The default is `true`. *macOS*
+  * `workingDirectory` String (optional) - The working directory. *Windows*
 * `callback` Function (opsyonal) *macOS* - If specified will perform the open asynchronously. 
   * `error` na Kamalian
 

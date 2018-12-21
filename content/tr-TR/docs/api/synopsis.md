@@ -11,11 +11,11 @@ Temek kural şudur: eğer modül [GUI](https://en.wikipedia.org/wiki/Graphical_u
 The main process script is like a normal Node.js script:
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 let win = null
 
 app.on('ready', () => {
-  win = new BrowserWindow({width: 800, height: 600})
+  win = new BrowserWindow({ width: 800, height: 600 })
   win.loadURL('https://github.com')
 })
 ```
@@ -27,7 +27,7 @@ Oluşturma işlemi, düğüm modüllerini kullanmanın ekstra yeteneği haricind
 <html>
 <body>
 <script>
-  const {app} = require('electron').remote
+  const { app } = require('electron').remote
   console.log(app.getVersion())
 </script>
 </body>
@@ -41,7 +41,7 @@ Uygulamanızı çalıştırmak için,[Run your app](../tutorial/first-app.md#run
 0.37 itibariyle, [destructuring assignment](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment)'ı dahili modülleri kullanmayı kolaylaştırmak için kullanabilirsiniz.
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 let win
 
@@ -55,7 +55,7 @@ app.on('ready', () => {
 
 ```javascript
 const electron = require('electron')
-const {app, BrowserWindow} = electron
+const { app, BrowserWindow } = electron
 
 let win
 

@@ -74,6 +74,14 @@ Bila atribut ini hadir, kontainer `webview` akan secara otomatis diubah ukuranny
 
 Ketika atribut ini menampilkan halaman tamu di `webview` akan memiliki integrasi simpul dan dapat menggunakan API simpul seperti` memerlukan ` dan `proses` untuk mengakses sumber daya sistem tingkat rendah. Node integrasi dinonaktifkan secara default pada semua halaman.
 
+### `enableremotemodule`
+
+```html
+<webview src="http://www.google.com/" enableremotemodule="false"></webview>
+```
+
+When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. The remote module is avaiable by default.
+
 ### `plugins`
 
 ```html
@@ -82,7 +90,7 @@ Ketika atribut ini menampilkan halaman tamu di `webview` akan memiliki integrasi
 
 Bila atribut ini menampilkan halaman tamu di `webview` akan dapat menggunakan plugin browser. Plugin dinonaktifkan secara default.
 
-### `pemuatan Awal`
+### `preload`
 
 ```html
 <webview src="https://www.github.com/" preload="./test.js"></webview>
@@ -189,180 +197,194 @@ webview.addEventListener ('dom-ready', () => {
 
 Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http://` atau`://`.
 
-### `<webview>.dapatkanURL()`
+### `<webview>.downloadURL(url)`
 
-Mengembalikan ` String ` - URL halaman tamu.
-
-### `<webview>.dapatkanTitle()`
-
-Mengembalikan `String` - Judul halaman tamu.
-
-### `<webview>.isLoading()`
-
-Pengembalian ` Boolean ` - Apakah halaman tamu masih memuat sumber daya.
-
-### `<webview>.isWaitingForResponse ()`
-
-Mengembalikan ` Boolean ` - Apakah halaman tamu menunggu tanggapan pertama untuk sumber utama halaman.
-
-### `<webview>.stop()`
-
-Menghentikan navigasi yang tertunda.
-
-### `<webview>.reload()`
-
-Memuat kembali halaman web saat ini.
-
-### `<webview>.reloadIgnoringCache()`
-
-Muat ulang laman tamu dan mengabaikan cache.
-
-### `<webview>.canGoBack()`
-
-Returns `Boolean ` - Whether the guest page can go back.
-
-### `<webview>.canGoForward()`
-
-Returns `Boolean` - Whether the guest page can go forward.
-
-### `<webview>.canGoToOffset(offset)`
-
-* `offset` Integer
-
-Mengembalikan `Boolean` - Apakah halaman tamu bisa masuk ke `offset`.
-
-### `<webview>.clearHistory()`
-
-Menghapus sejarah navigasi.
-
-### `<webview>.goBack()`
-
-Membuat halaman baru kembali.
-
-### `<webview>.goForward()`
-
-Membuat halaman tamu maju.
-
-### `<webview>.goToIndex(index)`
-
-* `indeks` Integer
-
-Menavigasi browser ke indeks halaman web absolut yang ditentukan.
-
-### `<webview>.goToOffset(offset)`
-
-* `offset` Integer
-
-Arahkan ke offset yang ditentukan dari "entri saat ini".
-
-### `<webview>.isCrashed()`
-
-Mengembalikan `Boolean` - Apakah proses renderer telah jatuh.
-
-### `<webview>.setUserAgent(userAgent)`
-
-* `userAgent` String
-
-Mengganti agen pengguna untuk halaman web ini.
-
-### `<webview>.getUserAgent()`
-
-Mengembalikan `String` - Agen pengguna untuk halaman tamu.
-
-### `<webview>.insertCSS(css)`
-
-* `css` String
-
-Menyuntikkan CSS ke halaman tamu.
-
-### `<webview>.executeJavaScript(code[, userGesture, callback])`
-
-* `code` String
-* `userGesture` Boolean (optional) - Default `false`.
-* `callback` Fungsi (opsional) - Dipanggil setelah script telah dieksekusi. 
-  * `hasil` Ada
-
-Evaluasi `kode` di halaman. If `userGesture` is set, it will create the user gesture context in the page. HTML APIs like `requestFullScreen `, which requires user action, can take advantage of this option for automation.
-
-### `<webview>.openDevTools ()`
-
-Membuka jendela DevTools untuk halaman tamu.
-
-### `<webview>.tutupDevTools()`
-
-Menutup jendela tamu DevTools.
-
-### `<webview>.isDevToolsOpened()`
-
-Returns `Boolean` - Whether guest page has a DevTools window attached.
-
-### `<webview>.isDevToolsFocused()`
-
-Returns `Boolean` - Whether DevTools window of guest page is dedicated.
-
-### `<webview>.inspectElement(x, y)`
-
-* `x` Integer
-* `y` Integer
-
-Mulai memeriksa elemen pada posisi (`x`,`y`) dari halaman tamu.
-
-### `<webview>.inspectServiceWorker()`
-
-Buka DevTools untuk konteks pekerja Layanan hadir di semua halaman.
-
-### `<webview>.setAudioMuted(muted)`
-
-* `dibungkam` Boolean
-
-Tetapkan halaman tamu yang dibungkam.
-
-### `<webview>.isAudioMuted()`
-
-Returns `Boolean` - Whether guest page has been muted.
-
-### `<webview>.undo()`
-
-Jalankan perintah pengeditan `undo` di halaman.
-
-### `<webview>.redo()`
-
-Executes editing command `redo` in page.
-
-### `<webview>.cut()`
-
-Executes editing command `cut` in page.
-
-### `<webview>.copy()`
-
-Executes editing command `copy` in page.
-
-### `<webview>.paste()`
-
-Executes editing command `paste` in page.
-
-### `<webview>.pasteAndMatchStyle()`
-
-Executes editing command `pasteAndMatchStyle` in page.
-
-### `<webview>.delete()`
-
-Executes editing command `delete` in page.
-
-### `<webview>.selectAll()`
-
-Executes editing command `selectAll` in page.
-
-### `<webview>.unselect()`
-
-Jalankan perintah pengeditan `batalkan pilihan` di halaman.
-
-### `<webview>.replace(text)`
-
-* ` teks </ 0>  String</li>
+* ` url </ 0> String</li>
 </ul>
 
-<p>Jalankan perintah pengeditan <code>ganti` di halaman.</p> 
+<p>Initiates a download of the resource at <code>url` without navigating.</p> 
+  ### `<webview>.dapatkanURL()`
+  
+  Mengembalikan ` String ` - URL halaman tamu.
+  
+  ### `<webview>.dapatkanTitle()`
+  
+  Mengembalikan `String` - Judul halaman tamu.
+  
+  ### `<webview>.isLoading()`
+  
+  Pengembalian ` Boolean ` - Apakah halaman tamu masih memuat sumber daya.
+  
+  ### `<webview>.isLoadingMainFrame()`
+  
+  Kembali `Boolean` - Apakah bingkai utama (dan bukan hanya iframes atau bingkai di dalamnya) masih sedang loading.
+  
+  ### `<webview>.isWaitingForResponse ()`
+  
+  Mengembalikan ` Boolean ` - Apakah halaman tamu menunggu tanggapan pertama untuk sumber utama halaman.
+  
+  ### `<webview>.stop()`
+  
+  Menghentikan navigasi yang tertunda.
+  
+  ### `<webview>.reload()`
+  
+  Memuat kembali halaman web saat ini.
+  
+  ### `<webview>.reloadIgnoringCache()`
+  
+  Muat ulang laman tamu dan mengabaikan cache.
+  
+  ### `<webview>.canGoBack()`
+  
+  Returns `Boolean ` - Whether the guest page can go back.
+  
+  ### `<webview>.canGoForward()`
+  
+  Returns `Boolean` - Whether the guest page can go forward.
+  
+  ### `<webview>.canGoToOffset(offset)`
+  
+  * `offset` Integer
+  
+  Mengembalikan `Boolean` - Apakah halaman tamu bisa masuk ke `offset`.
+  
+  ### `<webview>.clearHistory()`
+  
+  Menghapus sejarah navigasi.
+  
+  ### `<webview>.goBack()`
+  
+  Membuat halaman baru kembali.
+  
+  ### `<webview>.goForward()`
+  
+  Membuat halaman tamu maju.
+  
+  ### `<webview>.goToIndex(index)`
+  
+  * `indeks` Integer
+  
+  Menavigasi browser ke indeks halaman web absolut yang ditentukan.
+  
+  ### `<webview>.goToOffset(offset)`
+  
+  * `offset` Integer
+  
+  Arahkan ke offset yang ditentukan dari "entri saat ini".
+  
+  ### `<webview>.isCrashed()`
+  
+  Mengembalikan `Boolean` - Apakah proses renderer telah jatuh.
+  
+  ### `<webview>.setUserAgent(userAgent)`
+  
+  * `userAgent` String
+  
+  Mengganti agen pengguna untuk halaman web ini.
+  
+  ### `<webview>.getUserAgent()`
+  
+  Mengembalikan `String` - Agen pengguna untuk halaman tamu.
+  
+  ### `<webview>.insertCSS(css)`
+  
+  * `css` String
+  
+  Menyuntikkan CSS ke halaman tamu.
+  
+  ### `<webview>.executeJavaScript(code[, userGesture, callback])`
+  
+  * `code` String
+  * `userGesture` Boolean (optional) - Default `false`.
+  * `callback` Fungsi (opsional) - Dipanggil setelah script telah dieksekusi. 
+    * `hasil` Ada
+  
+  Evaluasi `kode` di halaman. If `userGesture` is set, it will create the user gesture context in the page. HTML APIs like `requestFullScreen `, which requires user action, can take advantage of this option for automation.
+  
+  ### `<webview>.openDevTools ()`
+  
+  Membuka jendela DevTools untuk halaman tamu.
+  
+  ### `<webview>.tutupDevTools()`
+  
+  Menutup jendela tamu DevTools.
+  
+  ### `<webview>.isDevToolsOpened()`
+  
+  Returns `Boolean` - Whether guest page has a DevTools window attached.
+  
+  ### `<webview>.isDevToolsFocused()`
+  
+  Returns `Boolean` - Whether DevTools window of guest page is dedicated.
+  
+  ### `<webview>.inspectElement(x, y)`
+  
+  * `x` Integer
+  * `y` Integer
+  
+  Mulai memeriksa elemen pada posisi (`x`,`y`) dari halaman tamu.
+  
+  ### `<webview>.inspectServiceWorker()`
+  
+  Buka DevTools untuk konteks pekerja Layanan hadir di semua halaman.
+  
+  ### `<webview>.setAudioMuted(muted)`
+  
+  * `dibungkam` Boolean
+  
+  Tetapkan halaman tamu yang dibungkam.
+  
+  ### `<webview>.isAudioMuted()`
+  
+  Returns `Boolean` - Whether guest page has been muted.
+  
+  ### `<webview>.isCurrentlyAudible()`
+  
+  Returns `Boolean` - Whether audio is currently playing.
+  
+  ### `<webview>.undo()`
+  
+  Jalankan perintah pengeditan `undo` di halaman.
+  
+  ### `<webview>.redo()`
+  
+  Executes editing command `redo` in page.
+  
+  ### `<webview>.cut()`
+  
+  Executes editing command `cut` in page.
+  
+  ### `<webview>.copy()`
+  
+  Executes editing command `copy` in page.
+  
+  ### `<webview>.paste()`
+  
+  Executes editing command `paste` in page.
+  
+  ### `<webview>.pasteAndMatchStyle()`
+  
+  Executes editing command `pasteAndMatchStyle` in page.
+  
+  ### `<webview>.delete()`
+  
+  Executes editing command `delete` in page.
+  
+  ### `<webview>.selectAll()`
+  
+  Executes editing command `selectAll` in page.
+  
+  ### `<webview>.unselect()`
+  
+  Jalankan perintah pengeditan `batalkan pilihan` di halaman.
+  
+  ### `<webview>.replace(text)`
+  
+  * `teks` String
+  
+  Jalankan perintah pengeditan `ganti` di halaman.
+  
   ### `<webview>.replaceMisspelling(text)`
   
   * `teks` String
@@ -457,7 +479,35 @@ Jalankan perintah pengeditan `batalkan pilihan` di halaman.
         
         * `level` Angka - level zoom.
         
-        Mengubah tingkat zoom ke tingkat tertentu. Ukuran aslinya adalah 0 dan masing-masing Peningkatan atas atau di bawah mewakili zoom 20% lebih besar atau lebih kecil ke default batas 300% dan 50% dari ukuran aslinya, berurutan.
+        Mengubah tingkat zoom ke tingkat tertentu. Ukuran aslinya adalah 0 dan masing-masing Peningkatan atas atau di bawah mewakili zoom 20% lebih besar atau lebih kecil ke default batas 300% dan 50% dari ukuran aslinya, berurutan. The formula for this is `scale := 1.2 ^ level`.
+        
+        ### `<webview>.getZoomFactor(callback)`
+        
+        * `callback` Fungsi 
+          * `zoomFactor` Nomor
+        
+        Mengirim permintaan untuk mendapatkan faktor pembesaran saat ini, `panggilan balik` akan dipanggil `callback (zoomFactor)`.
+        
+        ### `<webview>.getZoomLevel(callback)`
+        
+        * `callback` Fungsi 
+          * `zoomLevel` Nomor
+        
+        Mengirimkan permintaan untuk mendapatkan tingkat pembesaran saat ini, panggilan balik ` `akan dipanggil dengan `callback(zoomLevel)`.
+        
+        ### `<webview>.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
+        
+        * `minimalLevel` Nomor
+        * `maksimalLevel` Nomor
+        
+        Menetapkan maksimum dan minimum tingkat mencubit-to-zoom.
+        
+        ### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
+        
+        * `minimalLevel` Nomor
+        * `maksimalLevel` Nomor
+        
+        Menetapkan tingkat zoom maksimal dan minimal berbasis tata letak (yaitu bukan-visual).
         
         ### `<webview>.showDefinitionForSelection()` *macOS*
         
@@ -466,6 +516,8 @@ Jalankan perintah pengeditan `batalkan pilihan` di halaman.
         ### `<webview>.getWebContents()`
         
         Mengembalikan [`WebContents`](web-contents.md) - Isi web dari halaman web ini.
+        
+        It depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
         
         ## DOM events
         
@@ -519,7 +571,7 @@ Jalankan perintah pengeditan `batalkan pilihan` di halaman.
         
         Pengembalian:
         
-        * ` judul </ 0> String</li>
+        * ` judul</ 0>  String</li>
 <li><code>explicitSet` Boolean
         
         Dipecat bila judul halaman diatur saat navigasi. `explicitSet` salah ketika judul disintesis dari file url.
@@ -587,24 +639,8 @@ Jalankan perintah pengeditan `batalkan pilihan` di halaman.
         Contoh kode berikut membuka url baru di browser default sistem.
         
         ```javascript
-        const {shell} = require ('electron') const webview = document.querySelector ('webview') webview.addEventListener ('new-window', (e) = > {const protocol = require ('url'). parse (e.url) .protocol if (protocol === 'http:' || protocol === 'https:') {shell.openExternal (e.url)}})
+        const { shell } = require ('electron') const webview = document.querySelector ('webview') webview.addEventListener ('new-window', (e) = > {const protocol = require ('url'). parse (e.url) .protocol if (protocol === 'http:' || protocol === 'https:') {shell.openExternal (e.url)}})
         ```
-        
-        ### Peristiwa: 'akan navigasi'
-        
-        Pengembalian:
-        
-        * `url` String
-        
-        dipancarkan saat pengguna atau halaman ingin memulai navigasi. Hal itu bisa terjadi ketikaObjek ` jendela.lokasi </ 0> diubah atau pengguna mengklik link di halaman.
-</p>
-
-<p>Acara ini tidak akan memancarkan saat navigasi dimulai secara pemrograman
-API seperti <code>webContents.loadURL` dan `webContents.back`.
-        
-        Itu juga tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
-        
-        Memanggil `event.preventDefault ()` tidak **TIDAK** memiliki efek.
         
         ### Peristiwa: 'akan navigasi'
         
@@ -613,9 +649,25 @@ API seperti <code>webContents.loadURL` dan `webContents.back`.
         * ` url </ 0> String</li>
 </ul>
 
-<p>Dibunyikan apabila navigasi dilakukan.</p>
+<p>dipancarkan saat pengguna atau halaman ingin memulai navigasi. Hal itu bisa terjadi ketikaObjek <code> jendela.lokasi </ 0> diubah atau pengguna mengklik link di halaman.
+</p>
 
-<p>Acara ini tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui <code>window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.</p> 
+<p>Acara ini tidak akan memancarkan saat navigasi dimulai secara pemrograman
+API seperti <code>webContents.loadURL` dan `webContents.back`.</p> 
+          Itu juga tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
+          
+          Memanggil `event.preventDefault ()` tidak **TIDAK** memiliki efek.
+          
+          ### Peristiwa: 'akan navigasi'
+          
+          Pengembalian:
+          
+          * `url` String
+          
+          Dibunyikan apabila navigasi dilakukan.
+          
+          Acara ini tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
+          
           ### peristiwa: 'Apakah-menavigasi-di halaman'
           
           Pengembalian:
@@ -641,8 +693,8 @@ API seperti <code>webContents.loadURL` dan `webContents.back`.
           
           Pengembalian:
           
-          * ` saluran </ 0>  String</li>
-<li><code>args` Array
+          * `channel` String
+          * `args` Array
           
           Fired when the guest page has sent an asynchronous message to the embedder page.
           
@@ -653,7 +705,7 @@ API seperti <code>webContents.loadURL` dan `webContents.back`.
           ```
           
           ```javascript
-          // In guest page. const {ipcRenderer} = require ('electron') ipcRenderer.on ('ping', () = > {ipcRenderer.sendToHost ('pong')})
+          // In guest page. const { ipcRenderer } = require ('electron') ipcRenderer.on ('ping', () = > {ipcRenderer.sendToHost ('pong')})
           ```
           
           ### Peristiwa: 'jatuh'

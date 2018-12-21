@@ -8,7 +8,7 @@
 
 ```javascript
 // 在主處理序裡。
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.webContents.session.on('will-download', (event, item, webContents) => {
   // 設定儲存路徑，不讓 Electron 跳出視窗詢問。

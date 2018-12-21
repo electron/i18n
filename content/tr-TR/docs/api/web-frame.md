@@ -4,12 +4,12 @@
 
 Süreç:[ İşleyici](../glossary.md#renderer-process)
 
-`webFrame` export of the electron module is an instance of the `WebFrame` class representing the top frame of the current `BrowserWindow`. Sub-frames can be retrieved by certain properties and methods (e.g. `webFrame.firstChild`).
+`webFrame` export of the Electron module is an instance of the `WebFrame` class representing the top frame of the current `BrowserWindow`. Sub-frames can be retrieved by certain properties and methods (e.g. `webFrame.firstChild`).
 
 Geçerli sayfayı% 200'e yakınlaştırmaya bir örnek.
 
 ```javascript
-const {webFrame} = require('electron')
+const { webFrame } = require('electron')
 
 webFrame.setZoomFactor(2)
 ```
@@ -45,6 +45,12 @@ Yakınlaştırma düzeyini belirtilen seviyeye değiştirir. Orijinal boyut 0'd�
 
 Maksimum ve minimum bas-yakınlaştır seviyesini ayarlar.
 
+> **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
+> 
+> ```js
+webFrame.setVisualZoomLevelLimits(1, 3)
+```
+
 ### `webFrame.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
@@ -67,7 +73,7 @@ Giriş alanlarında ve metin alanlarında yazım denetimi için bir provider aya
 Provider gibi [node-spellchecker](https://github.com/atom/node-spellchecker) kullanılarak bir örnek:
 
 ```javascript
-const {webFrame} = require('electron')
+const { webFrame } = require('electron')
 webFrame.setSpellCheckProvider('en-US', true, {
   spellCheck (text) {
     return !(require('spellchecker').isMisspelled(text))
@@ -96,7 +102,7 @@ Geçerli sayfanın İçerik Güvenliği Politikası ne olursa olsun kaynaklar bu
 Kayıttan çıkarmak için `false` değerine sahip bir seçenek belirtin. İçerik Güvenliği Politikasını atlamaksızın ayrıcalıklı bir scheme'nin kaydedilmesine bir örnek:
 
 ```javascript
-const {webFrame} = require('electron')
+const { webFrame } = require('electron')
 webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 ```
 
@@ -104,48 +110,48 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 
 * `text` String
 
-Odaklanılan öğeye `text`'i yerleştirir.
+Odaklanmış öğeye `metin` ekler.
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
 * `code` String
+* `userGesture` Boolean (isteğe bağlı) - Varsayılan `false`'dır.
+* `geri aramak` Function (isteğe bağlı) - Script çalıştıktan sonra çağırılır. 
+  * `result` Any
+
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+
+Sayfadaki `code`'u değerlendirir.
+
+Tarayıcı penceresinde `requestFullScreen` gibi bazı HTML arayüzleri (APIs) sadece kullanıcıdan gelen bir işaretle çağrılabilir. `userGesture` ayarını `true` olarak ayarladığınızda bu sınırlama kaldırılır.
+
+### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
+
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
+* `scripts` [WebSource[]](structures/web-source.md)
 * `userGesture` Boolean (isteğe bağlı) - Varsayılan `false`'dur.
 * `geri aramak` Function (isteğe bağlı) - Script çalıştıktan sonra çağırılır. 
   * `result` Any
 
-`Promise` döndürür - çalışan kodun sonucuyla çözülen bir söz veya kodun sonucu reddedilen bir söz ise reddedilir.
-
-Sayfadaki `code`'u değerlendirir.
-
-Tarayıcı penceresinde, `requestFullScreen` gibi bazı HTML API'leri yalnızca kullanıcıdan gelen bir hareket ile çağrılmaktadır. `userGesture`'ü `true` olarak ayarlamak bu kısıtlamayı kaldırır.
-
-### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
-
-* `worldId` Integer
-* `scripts` [WebSource[]](structures/web-source.md)
-* `userGesture` Boolean (isteğe bağlı) - Varsayılan `false`'dur.
-* `geri aramak` Fonksiyon (isteğe bağlı) - Betik tamamlandıktan sonra çağrılır. 
-  * `result` Any
-
-Work like `executeJavaScript` but evaluates `scripts` in isolated context.
+Work like `executeJavaScript` but evaluates `scripts` in an isolated context.
 
 ### `webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)`
 
-* `worldId` Integer
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
 * `csp` String
 
 Set the content security policy of the isolated world.
 
 ### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)`
 
-* `worldId` Integer
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
 * `name` Dizi
 
 Set the name of the isolated world. Useful in devtools.
 
 ### `webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)`
 
-* `worldId` Integer
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
 * `securityOrigin` String
 
 Set the security origin of the isolated world.
@@ -164,7 +170,7 @@ Set the security origin of the isolated world.
 Blink'in dahili belleğinin önbelleklerinin kullanım bilgilerini açıklayan bir nesne döndürür.
 
 ```javascript
-const {webFrame} = require('electron')
+const { webFrame } = require('electron')
 console.log(webFrame.getResourceUsage())
 ```
 

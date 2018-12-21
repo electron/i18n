@@ -21,7 +21,7 @@ Proses: [Main](../glossary.md#main-process)
 <p>Contoh pengiriman dan penanganan pesan antara proses render dan utama:</p>
 
 <pre><code class="javascript">// Dalam proses utama.
-const {ipcMain} = require('electron')
+const { ipcMain } = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
   console.log(arg) // prints "ping"
   event.sender.send('asynchronous-reply', 'pong')
@@ -35,7 +35,7 @@ ipcMain.on('synchronous-message', (event, arg) => {
 
 ```javascript
 // Dalam proses renderer (halaman web).
-const {ipcRenderer} = require ('electron')
+const { ipcRenderer } = require ('electron')
 console.log (ipcRenderer.sendSync ('pesan sinkron', 'ping')) // mencetak "pong"
 
 ipcRenderer.on ('asinkron-reply', (event, arg) = > {

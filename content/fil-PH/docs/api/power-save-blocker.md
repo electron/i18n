@@ -7,7 +7,7 @@ Proseso:[Pangunahi](../glossary.md#main-process)
 Halimbawa:
 
 ```javascript
-const {powerSaveBlocker} = kailangan('electron')
+const { powerSaveBlocker } = kailangan('electron')
 
 const id = powerSaveBlocker.start('prevent-display-sleep')
 console.log(powerSaveBlocker.isStarted(id))

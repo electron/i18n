@@ -2,4 +2,4 @@
 
 * `code` String
 * `url` String (opcjonalnie)
-* `startLine` Integer (opcjonalnie) - Domyślnie 1.
+* `startLine` Integer (opcjonalnie) - Domyślnie jest równy 1.

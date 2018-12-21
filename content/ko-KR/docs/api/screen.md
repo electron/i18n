@@ -6,21 +6,23 @@
 
 이모듈을 이용 하시려면 `app`의`ready`이벤트가 방사돼기를 기다려야 합니다.
 
+In the renderer process context it depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
+
 `screen` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-**Note:** In the renderer / DevTools, `window.screen` is a reserved DOM property, so writing `let {screen} = require('electron')` will not work.
+**Note:** In the renderer / DevTools, `window.screen` is a reserved DOM property, so writing `let { screen } = require('electron')` will not work.
 
 An example of creating a window that fills the whole screen:
 
 ```javascript
 const electron = require('electron')
-const {app, BrowserWindow} = electron
+const { app, BrowserWindow } = electron
 
 let win
 
 app.on('ready', () => {
-  const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize
-  win = new BrowserWindow({width, height})
+  const { width, height } = electron.screen.getPrimaryDisplay().workAreaSize
+  win = new BrowserWindow({ width, height })
   win.loadURL('https://github.com')
 })
 ```
@@ -29,7 +31,7 @@ Another example of creating a window in the external display:
 
 ```javascript
 const electron = require('electron')
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 let win
 
@@ -55,7 +57,7 @@ The `screen` module emits the following events:
 
 ### Event: 'display-added'
 
-반환:
+Returns:
 
 * `event` Event
 * `newDisplay` [Display](structures/display.md)
@@ -64,7 +66,7 @@ Emitted when `newDisplay` has been added.
 
 ### Event: 'display-removed'
 
-반환:
+Returns:
 
 * `event` Event
 * `oldDisplay` [Display](structures/display.md)
@@ -73,7 +75,7 @@ Emitted when `oldDisplay` has been removed.
 
 ### Event: 'display-metrics-changed'
 
-반환:
+Returns:
 
 * `event` Event
 * `display` [Display](structures/display.md)

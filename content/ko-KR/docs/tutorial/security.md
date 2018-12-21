@@ -12,7 +12,7 @@ Electron의 보안 취약점을 공개하는 방법은 [SECURITY.md](https://git
 
 ## Chromium 보안 문제와 업그레이드
 
-Electron은 가능한 한 빨리 새로운 버전의 Chromium을 지원하기 위해 노력하지만, 개발자는 업그레이드가 수십 또는 수백 개의 파일을 수작업으로 편집하는 작업이 포함되는 중요한 사업임을 인지해야합니다. Given the resources and contributions available today, Electron will often not be on the very latest version of Chromium, lagging behind by several weeks or a few months.
+Electron은 가능한 한 빨리 새로운 버전의 Chromium을 지원하기 위해 노력하지만, 개발자는 업그레이드가 수십 또는 수백 개의 파일을 수작업으로 편집하는 작업이 포함되는 중요한 사업임을 인지해야합니다. 현재 사용할 수 있는 자원과 기여를 고려할 때, Electron은 종종 최신 버전의 Chromiun 대신 몇 주 혹은 몇 달 전 버전을 사용할 것입니다.
 
 우리의 현재 크로니움 컴포넌트 업그레이드 시스템이 우리가 사용할 수 있는 자원과 프레임 워크 위에 구축 된 대부분의 애플리케이션의 요구 사이에서 적절한 균형을 유지한다는 인상을 받고 있습니다. 우리는 Electron을 기반으로 무엇인가를 개발중인 사람들의 특별한 use case에 관해 더 듣고싶습니다. 이 노력을 지지하는 Pull 요청과 기여는 언제나 환영합니다.
 
@@ -20,7 +20,7 @@ Electron은 가능한 한 빨리 새로운 버전의 Chromium을 지원하기 �
 
 원격 대상에서 코드를 수신하여 로컬에서 실행할 때는 항상 보안 문제가 존재합니다. 예를 들어, 원격 웹사이트가 [`BrowserWindow`](../api/browser-window.md)내부에 표시되는 경우를 고려합니다. 만약 공격자가 어떻게 든 콘텐츠를 변경하면(소스를 직접 공격하거나 앱과 실제 목적지 사이에 앉든), 사용자의 컴퓨터에서 native code를 실행할 수 있습니다.
 
-> :warning: 어떤 상황에서도 Node.js 통합을 사용하는 원격 코드를 로드하고 실행하지 않아야 합니다. 대신, Node.js 코드를 실행하기 위해 로컬 파일 (애플리케이션과 함께 패키지된) 만 사용하십시오. To display remote content, use the [`<webview>`](../api/webview-tag.md) tag and make sure to disable the `nodeIntegration`.
+> :warning: 어떤 상황에서도 Node.js 통합을 사용하는 원격 코드를 로드하고 실행하지 않아야 합니다. 대신, Node.js 코드를 실행하기 위해 로컬 파일 (애플리케이션과 함께 패키지된) 만 사용하십시오. 원격 컨텐츠를 표시할려면 [`<webview>`](../api/webview-tag.md)태그를 사용하고 `nodeIntegration`을 비활성화 하십시오.
 
 ## Electron 보안 경고
 
@@ -42,10 +42,10 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     - [`allowRunningInsecureContent`을 `true`로 설정하지 마세요.](#7-do-not-set-allowrunninginsecurecontent-to-true)
     - [실험적인 기능들을 활성화 하지 마세요.](#8-do-not-enable-experimental-features)
     - [`enableBlinkFeatures`을 사용하지 마세요.](#9-do-not-use-enableblinkfeatures)
-    - [`<webview>`: Do not use `allowpopups`](#10-do-not-use-allowpopups)
-    - [`<webview>`: Verify options and params](#11-verify-webview-options-before-creation)
+    - [`<webview>`: `allowpopups`을 사용하지 마세요.](#10-do-not-use-allowpopups)
+    - [`<webview>`: 옵션 및 매개변수 확인](#11-verify-webview-options-before-creation)
     - [Disable or limit navigation](#12-disable-or-limit-navigation)
-    - [Disable or limit creation of new windows](#13-disable-or-limit-creation-of-new-windows)</ol> 
+    - [새로운 창 생성을 제한하거나 비활성화하세요.](#13-disable-or-limit-creation-of-new-windows)</ol> 
     
     ## 1) 안전한 콘텐츠만 로드하세요.
     
@@ -79,7 +79,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     
     ## 2) 원격 콘텐츠에 대한 Node.js 통합 비활성화
     
-    It is paramount that you disable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) that loads remote content. 목적은, 원격 콘텐츠에 부여하는 권한을 제한하여, 공격자가 웹 사이트에서 JavaScript를 실행할 수 있는 사용자를 해치는 것이 훨씬 더 어려워 지도록 합니다.
+    원격 컨텐츠를 로드하는 모든 렌더러([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), 또는 [`<webview>`](../api/webview-tag.md))에서 Node.js 통합을 비활성화 하는 것이 가장 중요합니다. 목적은, 원격 콘텐츠에 부여하는 권한을 제한하여, 공격자가 웹 사이트에서 JavaScript를 실행할 수 있는 사용자를 해치는 것이 훨씬 더 어려워 지도록 합니다.
     
     그 후, 특별한 호스트를 위해 추가적인 권한을 부여할 수 있습니다. 예를 들면, 만약 `https://my-website.com/ '을 가르키는 BrowserWindow를 여는 경우, 해당 웹 사이트에 필요한 정확한 권한을 줄 수 있지만, 그 이상은 필요 없습니다.
     
@@ -195,12 +195,12 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
         const url = webContents.getURL()
     
         if (permission === 'notifications') {
-          // Approves the permissions request
+          // 권한 요청 승인
           callback(true)
         }
     
         if (!url.startsWith('https://my-website.com')) {
-          // Denies the permissions request
+          // 권한 요청 거부
           return callback(false)
         }
       })

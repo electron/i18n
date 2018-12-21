@@ -9,12 +9,17 @@ Ang modyul ng `remote` ay nagbibigay ng isang simpleng paraan na gumawa ng maki-
 Sa Electron, ang mga modyul na may kaugnayan sa GUI (tulad ng `dialog`, `menu` atbp.) ay makukuha lamang sa pangunahing proseso, hindi sa prosesong tagabigay. Sa ayos ng paggamit sa kanila mula sa prosesong tagabigay, ang modyul ng `ipc` ay kinakailangan na magpadala ng mga maki-prosesong mensahe sa pangunahing proseso. Kasama ang modyul ng `remote`, maaari mong hingiin ang mga pamamaraan ng mga bagay sa pangunahing proseso nang walang nakakapansin na nakapagpadala ng maki-prosesong mensahe, katulad ng [RMI](https://en.wikipedia.org/wiki/Java_remote_method_invocation) ng Java. Ang isang halimbawa ng paglikha ng isang browser window mula sa isang prosesong tagabigay:
 
 ```javascript
-const {BrowserWindow} = kailangan('electron').remote
-let win = new BrowserWindow({width: 800, height: 600})
+const { BrowserWindow } = kailangan('electron').remote
+let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
 **Note:** For the reverse (access the renderer process from the main process), you can use [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback).
+
+**Note:** The remote module can be disabled for security reasons in the following contexts:
+
+* [`BrowserWindow`](browser-window.md) - by setting the `enableRemoteModule` option to `false`.
+* [`<webview>`](webview-tag.md) - by setting the `enableremotemodule` attribute to `false`.
 
 ## Mga bagay ng Remote
 
@@ -114,7 +119,7 @@ proyekto/
 
 ```js
 // main process: main/index.js
-const {app} = kailangan('electron')
+const { app } = kailangan('electron')
 app.on('ready', () => { /* ... */ })
 ```
 

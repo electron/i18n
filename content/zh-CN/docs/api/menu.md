@@ -52,7 +52,7 @@ Generally, the `template` is an array of `options` for constructing a [MenuItem]
 
 #### `menu.popup(options)`
 
-* `options` Object 
+* `options` Object (可选) 
   * `window` [BrowserWindow](browser-window.md) (可选) - 默认为选中窗口.
   * ` x ` 数字 (可选)-默认值是当前鼠标光标的位置。如果声明了 ` y `, 则必须声明。
   * ` y ` 数字 (可选)-默认值是当前鼠标光标的位置。如果声明了 ` x `, 则必须声明。
@@ -212,42 +212,42 @@ Generally, the `template` is an array of `options` for constructing a [MenuItem]
   在主进程中创建程序菜单的简单API模版示例:
 </p>
 
-<pre><code class="javascript">const {app, Menu} = require('electron')
+<pre><code class="javascript">const { app, Menu } = require('electron')
 
 const template = [
   {
     label: 'Edit',
     submenu: [
-      {role: 'undo'},
-      {role: 'redo'},
-      {type: 'separator'},
-      {role: 'cut'},
-      {role: 'copy'},
-      {role: 'paste'},
-      {role: 'pasteandmatchstyle'},
-      {role: 'delete'},
-      {role: 'selectall'}
+      { role: 'undo' },
+      { role: 'redo' },
+      { type: 'separator' },
+      { role: 'cut' },
+      { role: 'copy' },
+      { role: 'paste' },
+      { role: 'pasteandmatchstyle' },
+      { role: 'delete' },
+      { role: 'selectall' }
     ]
   },
   {
     label: 'View',
     submenu: [
-      {role: 'reload'},
-      {role: 'forcereload'},
-      {role: 'toggledevtools'},
-      {type: 'separator'},
-      {role: 'resetzoom'},
-      {role: 'zoomin'},
-      {role: 'zoomout'},
-      {type: 'separator'},
-      {role: 'togglefullscreen'}
+      { role: 'reload' },
+      { role: 'forcereload' },
+      { role: 'toggledevtools' },
+      { type: 'separator' },
+      { role: 'resetzoom' },
+      { role: 'zoomin' },
+      { role: 'zoomout' },
+      { type: 'separator' },
+      { role: 'togglefullscreen' }
     ]
   },
   {
     role: 'window',
     submenu: [
-      {role: 'minimize'},
-      {role: 'close'}
+      { role: 'minimize' },
+      { role: 'close' }
     ]
   },
   {
@@ -265,37 +265,37 @@ if (process.platform === 'darwin') {
   template.unshift({
     label: app.getName(),
     submenu: [
-      {role: 'about'},
-      {type: 'separator'},
-      {role: 'services', submenu: []},
-      {type: 'separator'},
-      {role: 'hide'},
-      {role: 'hideothers'},
-      {role: 'unhide'},
-      {type: 'separator'},
-      {role: 'quit'}
+      { role: 'about' },
+      { type: 'separator' },
+      { role: 'services' },
+      { type: 'separator' },
+      { role: 'hide' },
+      { role: 'hideothers' },
+      { role: 'unhide' },
+      { type: 'separator' },
+      { role: 'quit' }
     ]
   })
 
   // Edit menu
   template[1].submenu.push(
-    {type: 'separator'},
+    { type: 'separator' },
     {
       label: 'Speech',
       submenu: [
-        {role: 'startspeaking'},
-        {role: 'stopspeaking'}
+        { role: 'startspeaking' },
+        { role: 'stopspeaking' }
       ]
     }
   )
 
   // Window menu
   template[3].submenu = [
-    {role: 'close'},
-    {role: 'minimize'},
-    {role: 'zoom'},
-    {type: 'separator'},
-    {role: 'front'}
+    { role: 'close' },
+    { role: 'minimize' },
+    { role: 'zoom' },
+    { type: 'separator' },
+    { role: 'front' }
   ]
 }
 
@@ -313,17 +313,17 @@ Menu.setApplicationMenu(menu)
 
 <pre><code class="html">&lt;!-- index.html --&gt;
 &lt;script&gt;
-const {remote} = require('electron')
-const {Menu, MenuItem} = remote
+const { remote } = require('electron')
+const { Menu, MenuItem } = remote
 
 const menu = new Menu()
-menu.append(new MenuItem({label: 'MenuItem1', click() { console.log('item 1 clicked') }}))
-menu.append(new MenuItem({type: 'separator'}))
-menu.append(new MenuItem({label: 'MenuItem2', type: 'checkbox', checked: true}))
+menu.append(new MenuItem({ label: 'MenuItem1', click() { console.log('item 1 clicked') } })))
+menu.append(new MenuItem({ type: 'separator' }))
+menu.append(new MenuItem({ label: 'MenuItem2', type: 'checkbox', checked: true }))
 
 window.addEventListener('contextmenu', (e) =&gt; {
   e.preventDefault()
-  menu.popup({window: remote.getCurrentWindow()})
+  menu.popup({ window: remote.getCurrentWindow() })
 }, false)
 &lt;/script&gt;
 </code></pre>

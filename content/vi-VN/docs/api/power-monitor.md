@@ -4,13 +4,13 @@
 
 Quá trình: [Main](../glossary.md#main-process)
 
-You cannot require or use this module until the `ready` event of the `app` module is emitted.
+Bạn không thể yêu cầu hoặc sử dụng module này cho đến khi sự kiện của `ứng dụng` `sẵn sàng` được phát.
 
 For example:
 
 ```javascript
 const electron = require('electron')
-const {app} = electron
+const { app } = electron
 
 app.on('ready', () => {
   electron.powerMonitor.on('suspend', () => {

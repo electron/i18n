@@ -9,26 +9,22 @@ Ang isang frameless window ay isang window na walang  chrome </ 0>, ang mga baha
 <p>Upang lumikha ng isang frameless window, kailangan mong itakda ang <code> frame </ 0> sa <code> false </ 0> sa
 <a href="browser-window.md"> BrowserWindow </ 1> 's <code> options </ 0>:</p>
 
-<pre><code class="javascript">const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({width: 800, height: 600, frame: false})
+<pre><code class="javascript">const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ width: 800, height: 600, frame: false })
 win.show()
 `</pre> 
 
 ### Mga alternatibo sa macOS
 
-Sa macOS 10.9 Mavericks at mas bago, mayroong isang alternatibong paraan upang tukuyin ang isang chromeless window. Sa halip na setting ` frame </ 0> sa <code> false </ 0> na hindi pinapagana
-parehong kontrol sa titlebar at window, maaaring gusto mong magkaroon ng title bar na
-nakatago at ang iyong content ay umaabot sa full window size, gayunman ay pinananatili pa rin
-ang mga kontrol ng window ("mga ilaw ng trapiko") para sa karaniwang mga aksyon ng window.
-Magagawa mo ito sa pamamagitan ng pagtukoy sa pagpipiliang <code> titleBarStyle </ 0>:</p>
+There's an alternative way to specify a chromeless window. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. Magagawa mo ito sa pamamagitan ng pagtukoy sa pagpipiliang ` titleBarStyle </ 0>:</p>
 
 <h4><code>nakatago`</h4> 
 
 Mga resulta sa isang nakatagong title bar at isang full size content window , gayon pa man ang title bar ay mayroon ding mga karaniwang mga kontrol ng window ("traffic lights") sa kaliwang tuktok.
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({titleBarStyle: 'hidden'})
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ titleBarStyle: 'hidden' })
 win.show()
 ```
 
@@ -37,19 +33,19 @@ win.show()
 Mga resulta sa isang nakatagong title bar na may isang alternatibong hitsura kung saan ang mga pindutan ng traffic lights ay bahagyang higit pa mula sa gilid ng window.
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({titleBarStyle: 'hiddenInset'})
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ titleBarStyle: 'hiddenInset' })
 win.show()
 ```
 
 #### `customButtonsOnHover
 `
 
-Gumagamit ng custom drawn close, miniaturize,and fullscreen buttons na nagpapakita kapag naghovering sa itaas ng kaliwang window. Pinipigilan ng mga custom buttons ang mga isyu na may mga kaganapan sa mouse na nangyayari sa mga standard na window toolbar buttons. Ito ang opsyon na naaangkop lamang para sa mga frameless window.
+Uses custom drawn close, and miniaturize buttons that display when hovering in the top left of the window. The fullscreen button is not available due to restrictions of frameless windows as they interface with Apple's MacOS window masks. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. This option is only applicable for frameless windows.
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({titleBarStyle: 'customButtonsOnHover', frame: false})
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ titleBarStyle: 'customButtonsOnHover', frame: false })
 win.show()
 ```
 
@@ -58,8 +54,8 @@ win.show()
 Sa pamamagitan ng pagtatakda ng opsyon na ` transparent </ 0> sa <code> true </ 0>, maaari mo ring gawin ang frameless
 transparent window:</p>
 
-<pre><code class="javascript">const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({transparent: true, frame: false})
+<pre><code class="javascript">const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ transparent: true, frame: false })
 win.show()
 `</pre> 
 
@@ -81,7 +77,7 @@ hindi pinagana.</li>
     Upang lumikha ng isang click-through window, i.e. paggawa ng window huwag pansinin ang lahat ng mouse mga kaganapan, maaari mong tawagan ang  win.setIgnoreMouseEvents (ignore) </ 0> API:</p> 
     
     ```javascript
-    const {BrowserWindow} = require('electron')
+    const { BrowserWindow } = require('electron')
     let win = new BrowserWindow()
     win.setIgnoreMouseEvents(true)
     ```
@@ -94,7 +90,7 @@ hindi pinagana.</li>
     let win = require('electron').remote.getCurrentWindow()
     let el = document.getElementById('clickThroughElement')
     el.addEventListener('mouseenter', () => {
-      win.setIgnoreMouseEvents(true, {forward: true})
+      win.setIgnoreMouseEvents(true, { forward: true })
     })
     el.addEventListener('mouseleave', () => {
       win.setIgnoreMouseEvents(false)

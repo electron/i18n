@@ -1,19 +1,19 @@
 # NotificationAction Object
 
-* `type` String - The type of action, can be `button`.
-* `text` String (optional) - The label for the given action.
+* `type` String - Loại hành động, có thể là `button`.
+* `text` String (optional) - Nhãn cho hành động cụ thể.
 
 ## Platform / Action Support
 
-| Action Type | Platform Support | Usage of `text`                  | Default `text`                                                                              | Limitations                                                                                                                                                                                                                                                               |
-| ----------- | ---------------- | -------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `button`    | macOS            | Used as the label for the button | "Show" (or a localized string by system default if first of such `button`, otherwise empty) | Only the first one is used. If multiple are provided, those beyond the first will be listed as additional actions (displayed when mouse active over the action button). Any such action also is incompatible with `hasReply` and will be ignored if `hasReply` is `true`. |
+| Loại hoạt động | Platform Support | Cách sử dụng của `text`          | Mặc định `text`                                                                             | Hạn chế                                                                                                                                                                                                                                                                                                |
+| -------------- | ---------------- | -------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------ |
+| `button`       | macOS            | Được sử dụng như nhãn cho button | "Show" (or a localized string by system default if first of such `button`, otherwise empty) | Chỉ cái đầu tiên được sử dụng. Nếu nhiều cái được cung cấp, những cái ngoại trừ cái đầu tiên sẽ được liệt kê dưới dạng hành động bổ sung (Được hiển thị khi chuột hoạt động trên button). Bất kỳ hành động nào như vậy cũng không tương thích với `hasReply` và sẽ bị bỏ qua nếu `hasReply` là `true`. |
 
-### Button support on macOS
+### Nút hỗ trợ trên macOS
 
 In order for extra notification buttons to work on macOS your app must meet the following criteria.
 
 * App is signed
 * App has it's `NSUserNotificationAlertStyle` set to `alert` in the `Info.plist`.
 
-If either of these requirements are not met the button won't appear.
+Nếu một trong những yêu cầu này không được đáp ứng, nút sẽ không xuất hiện.

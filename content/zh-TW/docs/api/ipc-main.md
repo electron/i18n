@@ -18,7 +18,7 @@ An example of sending and handling messages between the render and main processe
 
 ```javascript
 // 在主處理序裡。
-const {ipcMain} = require('electron')
+const { ipcMain } = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
   console.log(arg) // prints "ping"
   event.sender.send('asynchronous-reply', 'pong')
@@ -32,7 +32,7 @@ ipcMain.on('synchronous-message', (event, arg) => {
 
 ```javascript
 // 在畫面轉譯處理序中 (網頁)。
-const {ipcRenderer} = require('electron')
+const { ipcRenderer } = require('electron')
 console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // prints "pong"
 
 ipcRenderer.on('asynchronous-reply', (event, arg) => {

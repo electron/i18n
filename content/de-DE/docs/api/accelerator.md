@@ -12,7 +12,7 @@ Beispiele:
 Tastenkürzel werden registriert mit dem [`globalShortcut`](global-shortcut.md) Modul durch die [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) Methode.
 
 ```javascript
-const {app, globalShortcut} = require('electron')
+const { app, globalShortcut } = require('electron')
 
 app.on('ready', () => {
   // Register a 'CommandOrControl+Y' shortcut listener.

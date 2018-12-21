@@ -6,21 +6,23 @@
 
 `app` モジュールの `ready` イベントが発生するまでは、このモジュールを require、または使用できません。
 
+In the renderer process context it depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
+
 `screen` は [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) です。
 
-**注釈:** レンダラー / 開発者向けツールでは、`window.screen` は予約済みの DOM プロパティなので、`let {screen} = require('electron')` と書くことはできません。
+**注釈:** レンダラー / 開発者向けツールでは、`window.screen` は予約済みの DOM プロパティなので、`let { screen } = require('electron')` と書くことはできません。
 
 以下は画面全体を埋めるウインドウを作成する例です。
 
 ```javascript
 const electron = require('electron')
-const {app, BrowserWindow} = electron
+const { app, BrowserWindow } = electron
 
 let win
 
 app.on('ready', () => {
-  const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize
-  win = new BrowserWindow({width, height})
+  const { width, height } = electron.screen.getPrimaryDisplay().workAreaSize
+  win = new BrowserWindow({ width, height })
   win.loadURL('https://github.com')
 })
 ```
@@ -29,7 +31,7 @@ app.on('ready', () => {
 
 ```javascript
 const electron = require('electron')
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 let win
 

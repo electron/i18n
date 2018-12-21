@@ -6,20 +6,22 @@ Proseso: [Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#re
 
 Hindi mo kailangan o gamitin ang amg modyul na ito hanggang ang event ng `ready` ng modyul ng `app` ay lumabas.
 
+In the renderer process context it depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
+
 `screen` ay isang [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-**Note:** Sa tagapagtanghal / DevTools, `window.screen` ay isang ari-arian ng DOM na nakareserba, kaya nga ang pagsulat ng `let {screen} = require('elektron')` ay hindi gagana.
+**Note:** Sa tagapagtanghal / DevTools, `window.screen` ay isang ari-arian ng DOM na nakareserba, kaya nga ang pagsulat ng `let { screen } = require('elektron')` ay hindi gagana.
 
 Isang halimbawa ng paglikha ng isang window na pupuno sa buong screen:
 
 ```javascript
-const elektron = require('elektron') const {app, BrowserWindow} = elektron let win app.on('ready', () => { const {width, height} = elektron.screen.getPrimaryDisplay().workAreaSize win = new BrowserWindow({width, height}) win.loadURL('https:..github.com') })
+const elektron = require('elektron') const { app, BrowserWindow } = elektron let win app.on('ready', () => { const { width, height } = elektron.screen.getPrimaryDisplay().workAreaSize win = new BrowserWindow({ width, height }) win.loadURL('https:..github.com') })
 ```
 
 Isa pang halimbawa ng paglikha ng isang window sa panlabas na display:
 
 ```javascript
-const elektron = rewuire('elektron') const {app, BrowserWindow} = require('elektron') let win app.on('ready',() => { let displays = elektron.screen.getAllDisplays() let externalDisplay = displays.find((display) = > { return display.bounds.x !== 0 || display.bounds.y!== 0 }) of (externalDisplay) { win = new BrowserWindow({ x: externalDisplay.bounds.x + 50, y: externalDisplay.bounds.y + 50 }) win.loadURL('https://github.com') } })
+const elektron = rewuire('elektron') const { app, BrowserWindow } = require('elektron') let win app.on('ready',() => { let displays = elektron.screen.getAllDisplays() let externalDisplay = displays.find((display) = > { return display.bounds.x !== 0 || display.bounds.y!== 0 }) of (externalDisplay) { win = new BrowserWindow({ x: externalDisplay.bounds.x + 50, y: externalDisplay.bounds.y + 50 }) win.loadURL('https://github.com') } })
 ```
 
 ## Mga event
@@ -37,7 +39,7 @@ Naglalabas kapag `newDisplay` ay idinagdag na.
 
 ### Pangyayari: 'display-removed'
 
-Ibinabalik ang:
+Pagbabalik ng:
 
 * `event` na Kaganapan
 * `oldDisplay` [Display](structures/display.md)
@@ -46,7 +48,7 @@ Naglalabas kapag `oldDisplay` ay idinagdag na.
 
 ### Pangyayari: 'display-metrics-changed'
 
-Ibinabalik ang:
+Magbabalik ng:
 
 * `event` na Pangyayari
 * `display` [Display](structures/display.md)

@@ -6,12 +6,12 @@
 
 ```javascript
 // 在主进程中.
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 
 // 或者从渲染进程中使用 `remote`.
-// const {BrowserWindow} = require('electron').remote
+// const { BrowserWindow } = require('electron').remote
 
-let win = new BrowserWindow({width: 800, height: 600})
+let win = new BrowserWindow({ width: 800, height: 600 })
 win.on('closed', () => {
   win = null
 })
@@ -36,8 +36,8 @@ win.loadURL(`file://${__dirname}/app/index.html`)
 在加载页面时，渲染进程第一次完成绘制时，会发出 `ready-to-show` 事件 。 在此事件后显示窗口将没有视觉闪烁：
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({show: false})
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ show: false })
 win.once('ready-to-show', () => {
   win.show()
 })
@@ -50,9 +50,9 @@ win.once('ready-to-show', () => {
 对于一个复杂的应用，`ready-to-show` 可能发出的太晚，会让应用感觉缓慢。 在这种情况下，建议立刻显示窗口，并使用接近应用程序背景的 `backgroundColor`
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({backgroundColor: '#2e2c29'})
+let win = new BrowserWindow({ backgroundColor: '#2e2c29' })
 win.loadURL('https://github.com')
 ```
 
@@ -63,10 +63,10 @@ win.loadURL('https://github.com')
 通过使用 `parent` 选项，你可以创建子窗口：
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 
 let top = new BrowserWindow()
-let child = new BrowserWindow({parent: top})
+let child = new BrowserWindow({ parent: top })
 child.show()
 top.show()
 ```
@@ -78,9 +78,9 @@ top.show()
 模态窗口是禁用父窗口的子窗口，创建模态窗口必须设置 `parent` 和 `modal` 选项：
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 
-let child = new BrowserWindow({parent: top, modal: true, show: false})
+let child = new BrowserWindow({ parent: top, modal: true, show: false })
 child.loadURL('https://github.com')
 child.once('ready-to-show', () => {
   child.show()
@@ -151,7 +151,7 @@ child.once('ready-to-show', () => {
   * `disableAutoHideCursor` Boolean (可选) - 是否在输入时隐藏鼠标. 默认值为`false`.
   * `autoHideMenuBar` Boolean (可选) - 自动隐藏菜单栏, 除非按了`Alt`键. 默认值为`false`.
   * `enableLargerThanScreen` Boolean (可选) - 是否允许改变窗口的大小时, 大于屏幕的尺寸. 默认值为`false`.
-  * `backgroundColor` String (可选) - 窗口的16进制背景颜色, 例如 `#66CD00` 或 `#FFF` 或 `#80FFFFFF` (支持alpha透明度). 默认值为`#FFF` (白色). If `transparent` is set to `true`, only values with transparent (`#00-------`) or opaque (`#FF-----`) alpha values are respected.
+  * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported if `transparent` is set to `true`). Default is `#FFF` (white).
   * `hasShadow` Boolean (可选) - 窗口是否有阴影. 仅在 macOS 上支持. 默认值为 `true`.
   * `opacity` Number (可选)-设置窗口初始的不透明度, 介于 0.0 (完全透明) 和 1.0 (完全不透明) 之间。仅支持 Windows 和 macOS 。
   * `darkTheme` Boolean (可选) - 强制窗口使用 dark 主题, 只在一些拥有 GTK+3 桌面环境上有效. 默认值为 `false`.
@@ -161,7 +161,7 @@ child.once('ready-to-show', () => {
     * `default` - 标准灰色不透明的Mac标题栏
     * `hidden` - 隐藏标题栏, 内容充满整个窗口, 但它依然在左上角, 仍然受标准窗口控制.
     * `hiddenInset` - 隐藏标题栏, 显示小的控制按钮在窗口边缘
-    * `customButtonsOnHover` Boolean (可选) - 在 macOS 的无边框窗口上绘制自定义的关闭, 最小化和全屏按钮. 只有鼠标滑过窗口的左上角时这些按钮才会显示. 这些自定义按钮可以阻止工具栏窗口的鼠标事件。 ** 注意: **此选项目前是实验性的。
+    * `customButtonsOnHover` Boolean (可选) - 在macOS的无框窗口上绘制自定义的关闭与最小化按钮. 除非鼠标悬停到窗口的左上角, 否则这些按钮不会显示出来. 这些自定义的按钮能防止, 与发生于标准的窗口工具栏按钮处的鼠标事件相关的问题. ** 注意: **此选项目前是实验性的。
   * `fullscreenWindowTitle` Boolean (可选) - 在 macOS 全屏模式时，为所有带 `titleBarStyle` 选项的标题栏显示标题。默认值为 `false`。
   * `thickFrame` Boolean(可选)-对 Windows 上的无框窗口使用` WS_THICKFRAME ` 样式，会增加标准窗口框架。 设置为 `false` 时将移除窗口的阴影和动画. 默认值为 `true`。
   * `vibrancy` String (可选) - 窗口是否使用 vibrancy 动态效果, 仅 macOS 中有效. 可以为 `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` 或 `ultra-dark`. 请注意，结合一个 vibrancy 值使用 `frame: false` ，需要确保`titleBarStyle`为一个非默认值。
@@ -173,6 +173,7 @@ child.once('ready-to-show', () => {
     * `nodeIntegrationInWorker` Boolean (可选) - 是否在Web工作器中启用了Node集成. 默认值为 `false`. 更多内容参见 [多线程](../tutorial/multithreading.md).
     * `preload` String (可选) -在页面运行其他脚本之前预先加载指定的脚本 无论页面是否集成Node, 此脚本都可以访问所有Node API 脚本路径为文件的绝对路径。 当 node integration 关闭时, 预加载的脚本将从全局范围重新引入node的全局引用标志 [参考示例](process.md#event-loaded).
     * `sandbox` Boolean (可选)-如果设置该参数, 沙箱的渲染器将与窗口关联, 使它与Chromium OS-level 的沙箱兼容, 并禁用 Node. js 引擎。 它与 `nodeIntegration` 的选项不同，且预加载脚本的 API 也有限制. [更多详情](sandbox-option.md). **注意:**改选项目前是为实验性质，可能会在 Electron 未来的版本中移除。
+    * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. Default is `true`.
     * `session` [Session](session.md#class-session) (可选) - 设置页面的 session 而不是直接忽略 Session 对象, 也可用 `partition` 选项来代替，它接受一个 partition 字符串. 同时设置了`session` 和 `partition`时, `session` 的优先级更高. 默认使用默认的 session.
     * `partition` String (optional) - 通过 session 的 partition 字符串来设置界面session. 如果 `partition` 以 `persist:`开头, 该页面将使用持续的 session，并在所有页面生效，且使用同一个`partition`. 如果没有 `persist:` 前缀, 页面将使用 in-memory session. 通过分配相同的 ` partition `, 多个页可以共享同一会话。 默认使用默认的 session.
     * `affinity` String (可选) - 当指定，具有相同`affinity` 的 web页面将在相同的渲染进程运行。 需要注意的是，由于渲染过程中会有代码重用，如 `webPreferences`的`preload`, `sandbox` 和 `nodeIntegration`等选项会在不同页面之间共用，即使你已经在不同页面中为同一选项设置过不同的值，它们仍会被共用。 因此，建议为`affinity`相同的页面，使用相同的 `webPreferences` *This property is experimental*
@@ -186,7 +187,6 @@ child.once('ready-to-show', () => {
     * `webaudio` Boolean (可选) - 启用 WebAudio 支持. 默认值为 `true`.
     * `plugins` Boolean (可选) - 是否支持插件. 默认值为 `false`.
     * `experimentalFeatures` Boolean (optional) - 启用 Chromium 的实验功能. 默认值为 `false`.
-    * `experimentalCanvasFeatures` Boolean (可选) - 启用 Chromium 的实验画布功能. 默认值为`false`.
     * `scrollBounce` Boolean (可选) - 在 macOS 启用弹力动画 (橡皮筋) 效果. 默认值为 `false`.
     * `enableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to enable. 在 [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70)文件中查看被支持的所有特性.
     * `disableBlinkFeatures` String (可选) - 以 `,`分隔的禁用特性列表, 如 `CSSVariables,KeyboardEventKey`. 在[RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) 文件中查看被支持的所有特性.
@@ -203,13 +203,13 @@ child.once('ready-to-show', () => {
     * ` defaultEncoding ` String (可选) - 默认值为 `ISO-8859-1`.
     * ` backgroundThrottling `Boolean (可选)-是否在页面成为背景时限制动画和计时器。 这也会影响到 [Page Visibility API](#page-visibility). 默认值为 `true`。
     * `offscreen` Boolean (optional) - 是否绘制和渲染可视区域外的窗口. 默认值为 `false`. 更多详情, 请参见 [ offscreen rendering tutorial ](../tutorial/offscreen-rendering.md)。
-    * `contextIsolation` Boolean (可选) - 是否在独立 JavaScript 环境中运行 Electron API和指定的`preload` 脚本. 默认值为 `false`. `preload`脚本的运行环境仍然可以访问`document` 和 `window`全局变量，但它将使用自己内置的函数 (如`Array`, `Object`, `JSON`等)，并且将被加载的页面与对全局环境所做的任何更改隔离开来. Electron API 仅在 `preload` 脚本中有效，而不是加载的页面。 在加载可能不受信任的远程内容时, 应使用此选项, 以确保加载的内容不能篡改 ` preload ` 脚本和使用的 Electron APIs。 此选项使用 [ Chrome Content Scripts ](https://developer.chrome.com/extensions/content_scripts#execution-environment) 使用的相同技术。 通过在控制台选项卡顶部的组合框中选择 "Electron Isolated Context" 条目, 可以在开发工具中访问此上下文。 **注意:**改选项目前是为实验性质，可能会在 Electron 未来的版本中移除。
-    * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. If set to `true`, the `webPreferences` of child window will always be the same with parent window, regardless of the parameters passed to `window.open()`. 默认值为 `false`. **Note:** This option is currently experimental.
+    * `contextIsolation` Boolean (可选) - 是否在独立 JavaScript 环境中运行 Electron API和指定的`preload` 脚本. 默认值为 `false`. `preload`脚本的运行环境仍然可以访问`document` 和 `window`全局变量，但它将使用自己内置的函数 (如`Array`, `Object`, `JSON`等)，并且将被加载的页面与对全局环境所做的任何更改隔离开来. Electron API 仅在 `preload` 脚本中有效，而不是加载的页面。 在加载可能不受信任的远程内容时, 应使用此选项, 以确保加载的内容不能篡改 ` preload ` 脚本和使用的 Electron APIs。 此选项使用 [ Chrome Content Scripts ](https://developer.chrome.com/extensions/content_scripts#execution-environment) 使用的相同技术。 通过在控制台选项卡顶部的组合框中选择 "Electron Isolated Context" 条目, 可以在开发工具中访问此上下文。
+    * `nativeWindowOpen` Boolean (可选) - 是否使用原生的`window.open()`. 如果设置为 `true`, 那么子窗口的 `webPreferences`将永远与父窗口的相同, 不论什么参数被传至`window.open()`. 默认值为 `false`. **注意:** 这一选项当前是实验性的.
     * `webviewTag` Boolean (可选) - 是否启用 [`<webview>` tag](webview-tag.md)标签. 默认为 ` nodeIntegration ` 选项的值。 ** 注意: **为 `< webview>` 配置的 ` preload ` 脚本在执行时将启用节点集成, 因此应确保远程或不受信任的内容无法创建恶意的 ` preload ` 脚本 。 可以使用 [ webContents ](web-contents.md) 上的 ` will-attach-webview ` 事件对 ` preload ` 脚本进行剥离, 并验证或更改 `<webview>` 的初始设置。
-    * `additionalArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app. Useful for passing small bits of data down to renderer process preload scripts.
+    * `additionalArguments` String[] (可选) - 一系列将会被附加至此app的渲染进程的`process.argv`的字符串. 对于将少量数据向下传至渲染进程的预加载脚本而言是十分实用的.
     * `safeDialogs` Boolean (optional) - Whether to enable browser style consecutive dialog protection. Default is `false`.
     * `safeDialogsMessage` String (optional) - The message to display when consecutive dialog protection is triggered. If not defined the default message would be used, note that currently the default message is in English and not localized.
-    * `navigateOnDragDrop` Boolean (optional) - Whether dragging and dropping a file or link onto the page causes a navigation. Default is `false`.
+    * `navigateOnDragDrop` Boolean (可选) - 将文件或链接拖放到页面上时是否触发页面跳转. 默认为`false`.
 
 当使用 ` minWidth `/` maxWidth `/` minHeight `/` maxHeight ` 设置最小或最大窗口大小时, 它只限制用户。 它不会阻止您将不符合大小限制的值传递给 ` setBounds `/` setSize ` 或 ` BrowserWindow ` 的构造函数。
 
@@ -257,7 +257,7 @@ window.onbeforeunload = (e) => {
 }
 ```
 
-***注意**: `window.onbeforeunload = handler` 和 `window.addEventListener('beforeunload', handler)` 的行为有细微的区别。 It is recommended to always set the `event.returnValue` explicitly, instead of only returning a value, as the former works more consistently within Electron.*
+***注意**: `window.onbeforeunload = handler` 和 `window.addEventListener('beforeunload', handler)` 的行为有细微的区别。 推荐总是显式地设置 `event.returnValue`, 而不是仅仅返回一个值, 因为前者在Electron中作用得更为一致.*
 
 #### 事件： 'closed'
 
@@ -311,9 +311,31 @@ window.onbeforeunload = (e) => {
 
 当窗口从最小化状态恢复时触发
 
+#### Event: 'will-resize' *macOS* *Windows*
+
+返回:
+
+* `event` Event
+* `newBounds` [`Rectangle`](structures/rectangle.md) - Size the window is being resized to.
+
+Emitted before the window is resized. Calling `event.preventDefault()` will prevent the window from being resized.
+
+Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
+
 #### 事件: 'resize'
 
-调整窗口大小时触发
+Emitted after the window has been resized.
+
+#### Event: 'will-move' *Windows*
+
+返回:
+
+* `event` Event
+* `newBounds` [`Rectangle`](structures/rectangle.md) - Location the window is being moved to.
+
+Emitted before the window is moved. Calling `event.preventDefault()` will prevent the window from being moved.
+
+Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
 
 #### 事件: 'move'
 
@@ -341,6 +363,15 @@ window.onbeforeunload = (e) => {
 
 窗口离开由HTML API触发的全屏状态时触发
 
+#### Event: 'always-on-top-changed' *macOS*
+
+返回:
+
+* `event` Event
+* `isAlwaysOnTop` Boolean
+
+Emitted when the window is set or unset to show always on top of other windows.
+
 #### 事件: 'app-command' *Windows*
 
 返回:
@@ -353,7 +384,7 @@ window.onbeforeunload = (e) => {
 命令是小写的，下划线替换为连字符，以及`APPCOMMAND_` 前缀将被删除。 例如 `APPCOMMAND_BROWSER_BACKWARD`将被`browser-backward`触发.
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.on('app-command', (e, cmd) => {
   // 当用户点击鼠标返回按钮时，导航窗口会后退
@@ -477,7 +508,7 @@ Returns `BrowserWindow | null` - The window that is focused in this application,
 要检查是否安装了 DevTools 扩展，您可以运行以下内容:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 
 let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
 console.log(installed)
@@ -490,9 +521,9 @@ console.log(installed)
 使用 `new BrowserWindow ` 创建的对象具有以下属性:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 // 在这个例子中,`win` 是我们的实例
-let win = new BrowserWindow({width: 800, height: 600})
+let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
@@ -602,6 +633,10 @@ win.loadURL('https://github.com')
 
 返回 `Boolean` - 窗口是否为简单全屏模式(pre-Lion)。
 
+#### `win.isNormal()`
+
+Returns `Boolean` - Whether the window is in normal state (not maximized, not minimized, not in fullscreen mode).
+
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
 * ` aspectRatio ` Float- 为内容视图保持的宽高比.
@@ -612,6 +647,12 @@ win.loadURL('https://github.com')
 想象一个使用高清视频播放器和相关控件的普通窗口。 假假如左边缘有15px, 右边缘有25px, 在播放器下面有50px. 为了保持16:9 的长宽比 (标准的HD长宽比为1920x1080)， 我们可以调用这个api传入参数16/9 和[ 40,50 ]. 第二个参数不管网页中的额外的宽度和高度在什么位置, 只要它们存在就行. Sum any extra width and height areas you have within the overall content view.
 
 Calling this function with a value of `0` will remove any previously set aspect ratios.
+
+#### `win.setBackgroundColor(backgroundColor)`
+
+* `backgroundColor` String - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported if `transparent` is `true`). Default is `#FFF` (white).
+
+Sets the background color of the window. See [Setting `backgroundColor`](#setting-backgroundcolor).
 
 #### `win.previewFile(path[, displayName])` *macOS*
 
@@ -629,7 +670,18 @@ Calling this function with a value of `0` will remove any previously set aspect 
 * `bounds` [Rectangle](structures/rectangle.md)
 * `animate` Boolean (可选) *macOS*
 
-重置窗口，并且移动窗口到指定的位置
+Resizes and moves the window to the supplied bounds. Any properties that are not supplied will default to their current values.
+
+```javascript
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow()
+ // set all bounds properties
+win.setBounds({ x: 440, y: 225, width: 800, height: 600 })
+ // set a single bounds property
+win.setBounds({ width: 200 })
+ // { x: 440, y: 225, width: 200, height: 600 }
+console.log(win.getBounds())
+```
 
 #### `win.getBounds()`
 
@@ -646,6 +698,12 @@ Calling this function with a value of `0` will remove any previously set aspect 
 
 返回 [`Rectangle`](structures/rectangle.md)
 
+#### `win.getNormalBounds()`
+
+Returns [`Rectangle`](structures/rectangle.md) - Contains the window bounds of the normal state
+
+**Note:** whatever the current state of the window : maximized, minimized or in fullscreen, this function always returns the position and size of the window in normal state. In normal state, getBounds and getNormalBounds returns the same [`Rectangle`](structures/rectangle.md).
+
 #### `win.setEnabled(enable)`
 
 * `enable` Boolean
@@ -658,7 +716,7 @@ Calling this function with a value of `0` will remove any previously set aspect 
 * `height` Integer
 * `animate` Boolean (可选) *macOS*
 
-Resizes the window to `width` and `height`. If `width` or `height` are below any set minimum size constraints the window will snap to its minimum size.
+将窗口的大小调整为`width`和`height`. 如果`width`或`height`低于设定的最小值, 那么对应的大小将被截断至设定的最小值.
 
 #### `win.getSize()`
 
@@ -769,7 +827,7 @@ Resizes the window to `width` and `height`. If `width` or `height` are below any
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
 * `flag` Boolean
-* `level` String (可选) *macOS* - 可以为下面的值 `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, 和 ~~`dock`~~ (参考值). 默认值为 `floating`. 更多信息，请查阅 [macOS docs](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels)
+* `level` String (可选) *macOS* - 可以为下面的值 `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, 和 ~~`dock`~~ (参考值). 默认值为 `floating`. 更多信息，请查阅 [macOS docs](https://developer.apple.com/documentation/appkit/nswindow/level)
 * `relativeLevel` Integer (可选) *macOS* - 设置此窗口相对于给定 `级别`的层数。. 默认值为`0`. 请注意, Apple 不鼓励在 ` 屏幕保护程序 ` 之上设置高于1的级别。
 
 设置窗口是否应始终显示在其他窗口的顶部。设置之后, 仍然是一个普通窗口, 而不是一个无法聚焦的工具箱窗口。
@@ -780,7 +838,7 @@ Resizes the window to `width` and `height`. If `width` or `height` are below any
 
 #### `win.moveTop()` *macOS* *Windows*
 
-Moves window to top(z-order) regardless of focus
+无论焦点如何, 将窗口移至顶端(z轴上的顺序).
 
 #### `win.center()`
 
@@ -818,7 +876,7 @@ Moves window to top(z-order) regardless of focus
 更改macOS上的工作表的附件点。默认情况下, 工作表时在窗口框架下附加的，但是您可能想要将它们显示在 HTML-rendered 的工具栏。例如:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 
 let toolbarRect = document.getElementById('toolbar').getBoundingClientRect()
@@ -903,7 +961,7 @@ Windows上句柄类型为 `HWND`，macOS 上为 `NSView*`，Linux 上为`Window`
 #### `win.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (可选) - 捕获的区域
-* `callback` Function 
+* `callback` Function - 回调函数 
   * `image` [NativeImage](native-image.md)
 
 和 `webContents.capturePage([rect, ]callback)` 相同.
@@ -946,9 +1004,13 @@ win.loadURL('http://localhost:8000/post', {
 })
 ```
 
-#### `win.loadFile(filePath)`
+#### `win.loadFile(filePath[, options])`
 
 * `filePath` String
+* `options` Object (可选) 
+  * `query` Object (optional) - Passed to `url.format()`.
+  * `search` String (optional) - Passed to `url.format()`.
+  * `hash` String (optional) - Passed to `url.format()`.
 
 类似于`webContents.loadFile`，`filePath`是一个HTML页相对的应用根目录的相对路径。更多信息，可参阅`webContents`文档。
 
@@ -1005,11 +1067,11 @@ win.loadURL('http://localhost:8000/post', {
 
 返回 `Number` - 介于0.0 ( 完全透明) 和1.0 ( 完全不透明) 之间
 
-#### `win.setShape(rects)` *Windows* *Linux* *Experimental*
+#### `win.setShape(rects)` *Windows* *Linux* *实验性*
 
-* `rects` [Rectangle[]](structures/rectangle.md) - Sets a shape on the window. Passing an empty list reverts the window to being rectangular.
+* `rects` [Rectangle[]](structures/rectangle.md) - 设置窗口的形状. 传入空列表会使窗口恢复至矩形.
 
-Setting a window shape determines the area within the window where the system permits drawing and user interaction. Outside of the given region, no pixels will be drawn and no mouse events will be registered. Mouse events outside of the region will not be received by that window, but will fall through to whatever is behind the window.
+对窗口形状的设置决定了窗口内系统允许绘制与用户交互的区域. 在给定的区域外, 没有像素会被绘制, 且没有鼠标事件会被登记. 在该区域外的鼠标事件将不会被该窗口接收, 而是落至该窗口后方的任意窗口.
 
 #### `win.setThumbarButtons(buttons)` *Windows*
 
@@ -1042,7 +1104,7 @@ Setting a window shape determines the area within the window where the system pe
 
 * `region` [Rectangle](structures/rectangle.md) 窗口的区域
 
-将窗口的区域设置为在任务栏中悬停在窗口上方时显示的缩略图图像。 当 region 为空即 `{x: 0, y: 0, width: 0, height: 0}`时, 则重置缩图为整个窗口.
+将窗口的区域设置为在任务栏中悬停在窗口上方时显示的缩略图图像。 You can reset the thumbnail to be the entire window by specifying an empty region: `{ x: 0, y: 0, width: 0, height: 0 }`.
 
 #### `win.setThumbnailToolTip(toolTip)` *Windows*
 
@@ -1073,6 +1135,14 @@ Setting a window shape determines the area within the window where the system pe
 
 设置窗口图标
 
+#### `win.setWindowButtonVisibility(visible)` *macOS*
+
+* `visible` Boolean
+
+Sets whether the window traffic light buttons should be visible.
+
+This cannot be called when `titleBarStyle` is set to `customButtonsOnHover`.
+
 #### `win.setAutoHideMenuBar(hide)`
 
 * `hide` Boolean
@@ -1095,9 +1165,11 @@ Setting a window shape determines the area within the window where the system pe
 
 返回 `Boolean` - 判断窗口的菜单栏是否可见.
 
-#### `win.setVisibleOnAllWorkspaces(visible)`
+#### `win.setVisibleOnAllWorkspaces(visible[, options])`
 
 * `visible` Boolean
+* `options` Object (可选) 
+  * `visibleOnFullScreen` Boolean (optional) *macOS* - Sets whether the window should be visible above fullscreen windows
 
 设置窗口是否在所有工作空间上可见
 

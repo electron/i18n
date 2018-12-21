@@ -9,7 +9,7 @@ Process: [Main](../glossary.md#main-process)
 **Примечание:** Сочетания клавиш являются глобальными, они будут работать, даже если ваше приложение не акцентирует внимание на клавиатуре. **Примечание:** Вам не следует использовать данный модуль до тех пор, пока событие `ready` приложения не произошло.
 
 ```javascript
-const {app, globalShortcut} = require('electron')
+const { app, globalShortcut } = require('electron')
 
 app.on('ready', () => {
   // Регистрируем слушатель для сочетания клавиш 'CommandOrControl+X'.

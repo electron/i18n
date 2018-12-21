@@ -4,17 +4,19 @@
 
 参见： [process](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) process
 
+In the renderer process context it depends on the [`remote`](remote.md) module on Linux, it is therefore not available when this module is disabled.
+
 下面的示例演示如何将字符串写入剪贴板:
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 clipboard.writeText('Example String')
 ```
 
 在 X Window 系统上还有一个可选的剪贴板 。对其复制时需要传递` selection ` 参数到每个函数：
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 clipboard.writeText('Example String', 'selection')
 console.log(clipboard.readText('selection'))
 ```
@@ -79,7 +81,7 @@ console.log(clipboard.readText('selection'))
 
 ### `clipboard.readBookmark()` *macOS* *Windows*
 
-返回 `Object`:
+返回 ` Object `:
 
 * `title` String
 * `url` String
@@ -133,7 +135,7 @@ clipboard.write({
 返回 ` Boolean `, 剪贴板是否支持指定的 ` format `。
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 console.log(clipboard.has('<p>selection</p>'))
 ```
 
@@ -168,8 +170,8 @@ console.log(clipboard.has('<p>selection</p>'))
 * ` type ` String（可选）
 
 ```javascript
-const {clipboard} = require('electron')
-clipboard.write({text: 'test', html: '<b>test</b>'})
+const { clipboard } = require('electron')
+clipboard.write({ text: 'test', html: '<b>test</b>' })
 ```
 
 将 ` data ` 写入剪贴板。

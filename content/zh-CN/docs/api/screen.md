@@ -6,21 +6,23 @@
 
 在 ` app ` 模块发出 ` ready ` 事件之前, 您不能引用或者使用此模块。
 
+In the renderer process context it depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
+
 `screen` 是一个 [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-** 注意: **在 renderer/DevTools 中, `window.screen ` 是一个保留的 DOM 属性, 因此编写 ` let {screen} = require('electron') ` 将不起作用。
+** 注意: **在 renderer/DevTools 中, `window.screen ` 是一个保留的 DOM 属性, 因此编写 ` let { screen } = require('electron') ` 将不起作用。
 
 创建填充整个屏幕的窗口的示例:
 
 ```javascript
 const electron = require('electron')
-const {app, BrowserWindow} = electron
+const { app, BrowserWindow } = electron
 
 let win
 
 app.on('ready', () => {
-  const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize
-  win = new BrowserWindow({width, height})
+  const { width, height } = electron.screen.getPrimaryDisplay().workAreaSize
+  win = new BrowserWindow({ width, height })
   win.loadURL('https://github.com')
 })
 ```
@@ -29,7 +31,7 @@ app.on('ready', () => {
 
 ```javascript
 const electron = require('electron')
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 let win
 

@@ -75,3 +75,11 @@ Sends a message to a window with `webContentsId` via `channel`.
 * `...args` any[]
 
 `ipcRenderer.send`와 같지만 main 프로세스 대신 호스트 페이지의 `<webview>` 엘리먼트로 이벤트를 전달합니다.
+
+## Event 객체
+
+`callback`으로 전달되는 `event`객체는 다음과 같은 메소드를 가진다:
+
+### `event.senderId`
+
+Returns the `webContents.id` that sent the message, you can call `event.sender.sendTo(event.senderId, ...)` to reply to the message, see [ipcRenderer.sendTo](#ipcrenderersendtowindowid-channel--arg1-arg2-) for more information. This only applies to messages sent from a different renderer. Messages sent directly from the main process set `event.senderId` to `0`.

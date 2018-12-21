@@ -9,7 +9,7 @@ Les instances de la classe `Cookies` sont accessibles à l'aide de la propriét�
 Par exemple :
 
 ```javascript
-const {session} = require('electron')
+const { session } = require('electron')
 
 // Récupère tous les cookies.
 session.defaultSession.cookies.get({}, (error, cookies) => {
@@ -17,13 +17,13 @@ session.defaultSession.cookies.get({}, (error, cookies) => {
 })
 
 // Récupère tous les cookies associés à une url spécifique.
-session.defaultSession.cookies.get({url: 'http://www.github.com'}, (error, cookies) => {
+session.defaultSession.cookies.get({ url: 'http://www.github.com' }, (error, cookies) => {
   console.log(error, cookies)
 })
 
-// Définit un cookie avec les données du cookie donné;
-// Peut écraser des cookies équivalents s'ils existent.
-const cookie = {url: 'http://www.github.com', name: 'nom_fictif', value: 'fictif'}
+// Set a cookie with the given cookie data;
+// may overwrite equivalent cookies if they exist.
+const cookie = { url: 'http://www.github.com', name: 'dummy_name', value: 'dummy' }
 session.defaultSession.cookies.set(cookie, (error) => {
   if (error) console.error(error)
 })
@@ -35,7 +35,7 @@ Les événements suivants sont disponibles pour les instances de `Cookies` :
 
 #### Événement : 'changed'
 
-* `event` Event
+* `event` Événement
 * `cookie` [Cookie](structures/cookie.md) - Le cookie qui a été changé.
 * `cause` String - La cause du changement avec l'une des valeurs suivantes : 
   * `explicit` - Le cookie a été modifié directement par l'action du consommateur.

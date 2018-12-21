@@ -1,4 +1,4 @@
-# immagineNativa
+# nativeImage
 
 > Create tray, dock, and application icons using PNG or JPG files.
 
@@ -9,17 +9,17 @@ In Electron, for the APIs that take images, you can pass either file paths or `N
 For example, when creating a tray or setting a window's icon, you can pass an image file path as a `String`:
 
 ```javascript
-const {BrowserWindow, Tray} = require('electron')
+const { BrowserWindow, Tray } = require('electron')
 
 const appIcon = new Tray('/Users/somebody/images/icon.png')
-let win = new BrowserWindow({icon: '/Users/somebody/images/window.png'})
+let win = new BrowserWindow({ icon: '/Users/somebody/images/window.png' })
 console.log(appIcon, win)
 ```
 
 Or read the image from the clipboard which returns a `NativeImage`:
 
 ```javascript
-const {clipboard, Tray} = require('electron')
+const { clipboard, Tray } = require('electron')
 const image = clipboard.readImage()
 const appIcon = new Tray(image)
 console.log(appIcon)
@@ -61,7 +61,7 @@ images/
 ```
 
 ```javascript
-const {Tray} = require('electron')
+const { Tray } = require('electron')
 let appIcon = new Tray('/Users/somebody/images/icon.png')
 console.log(appIcon)
 ```

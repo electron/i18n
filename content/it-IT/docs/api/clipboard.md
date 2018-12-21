@@ -4,17 +4,19 @@
 
 Vedi anche: [Principale](../glossary.md#main-process), [Rendering](../glossary.md#renderer-process)
 
+In the renderer process context it depends on the [`remote`](remote.md) module on Linux, it is therefore not available when this module is disabled.
+
 Nell'esempio seguente viene illustrato come scrivere una stringa negli Appunti:
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 clipboard.writeText('Stringa di esempio')
 ```
 
 Nei sistemi X Window, ci sono anche gli appunti di selezione. Per utilizzarli è necessario passare la `selezione` ad ogni metodo:
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 clipboard.writeText('Stringa di esempio', 'selection')
 console.log(clipboard.readText('selection'))
 ```
@@ -25,7 +27,7 @@ Il modulo di `Appunti` ha i seguenti metodi:
 
 **Nota:** Le API sperimentali sono contrassegnate come tali e potrebbero essere rimosse in futuro.
 
-### `clipboard.readText([type])`
+### `clipboard.readText([tipo])`
 
 * `tipo` Stringa (opzionale)
 
@@ -51,7 +53,7 @@ Restituisce la `stringa` - il contenuto negli Appunti come markup.
 
 Scrive il `markup` negli appunti.
 
-### `clipboard.readText([type])`
+### `clipboard.readImage([tipo])`
 
 * `tipo` Stringa (opzionale)
 
@@ -79,7 +81,7 @@ Scrive il `testo` negli Appunti come RTF.
 
 ### `clipboard.readBookmark()` *macOS* *Windows*
 
-Ritorna `Object`:
+Restituisci `Oggetto`:
 
 * `Titolo` Stringa
 * `url` Stringa
@@ -113,13 +115,13 @@ Returns `String` - The text on the find pasteboard. This method uses synchronous
 
 Writes the `text` into the find pasteboard as plain text. This method uses synchronous IPC when called from the renderer process.
 
-### `clipboard.clear([type])`
+### `clipboard.clear([tipo])`
 
 * `tipo` Stringa (opzionale)
 
 Clears the clipboard content.
 
-### `clipboard.availableFormats([type])`
+### `clipboard.availableFormats([tipo])`
 
 * `tipo` Stringa (opzionale)
 
@@ -133,7 +135,7 @@ Restituisce `String[]` - Un array di formati supportati per la clipboard `type`.
 Restituisce `Boolean` - Vero se la clipboard supporta il formato specificato `format`, falso altrimenti.
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 console.log(clipboard.has('<p>selection</p>'))
 ```
 
@@ -168,8 +170,8 @@ Scrive il `buffer` nella clipboard come `format`.
 * `tipo` Stringa (opzionale)
 
 ```javascript
-const {clipboard} = require('electron')
-clipboard.write({text: 'test', html: '<b>test</b>'})
+const { clipboard } = require('electron')
+clipboard.write({ text: 'test', html: '<b>test</b>' })
 ```
 
 Scrive `data` sulla clipboard.

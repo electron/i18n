@@ -2,19 +2,19 @@
 
 O DevTools em uma janela do navegador do Electron, só pode depurar JavaScript que é executado na janela (ex. uma web página). Para depurar JavaScript que é executado no processo principal você precisá usar um depurador externo e fazer o carregamento do Electron com o `--inspect` ou `--inspect-brk`.
 
-## Command Line Switches
+## Opções de Linha de Comandos
 
-Use one of the following command line switches to enable debugging of the main process:
+Use uma das seguintes opções de linha de comando para habilitar a depuração principal processo:
 
-### `--inspect=[port]`
+### `--inspect=[porta]`
 
-Electron will listen for V8 inspector protocol messages on the specified `port`, an external debugger will need to connect on this port. The default `port` is `5858`.
+O Electron listara mensagens do protocolo de inspector do V8 na `porta` especificada, um depurador externo precisará se conectar nesta porta. A `porta` padrão é `5858`.
 
 ```shell
 electron --inspect=5858 seu/app
 ```
 
-### `--inspect-brk=[port]`
+### `--inspect-brk=[porta]`
 
 Como o `--inspect` mas pausa a execução na primeira linha de JavaScript.
 

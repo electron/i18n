@@ -22,6 +22,28 @@ Windowsコンソールの例:
 
 以下の環境変数は、主にパッケージ化されたElectronアプリケーションで実行時に使用するためのものです。
 
+### `NODE_OPTIONS`
+
+Electron includes support for a subset of Node's [`NODE_OPTIONS`](https://nodejs.org/api/cli.html#cli_node_options_options). The majority are supported with the exception of those which conflict with Chromium's use of BoringSSL.
+
+サンプル:
+
+```sh
+export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
+```
+
+Unsupported options are:
+
+```sh
+--use-bundled-ca
+--force-fips
+--enable-fips
+--openssl-config
+--use-openssl-ca
+```
+
+`NODE_OPTIONS` are explicitly disallowed in packaged apps.
+
 ### `GOOGLE_API_KEY`
 
 Electronには、GoogleのジオコーディングWebサービスへのリクエストを行うためのハードコードされたAPIキーが含まれています。 このAPIキーはすべてのバージョンのElectronに含まれているため、利用制限を超えることがよくあります。 この問題を回避するには、環境に独自のGoogle APIキーを指定することができます。 ジオコーディングリクエストを行うブラウザーウインドウを開く前に、メインプロセスファイルに以下のコードを記述します。
@@ -90,5 +112,5 @@ Electronがクラッシュすると、Windowsのクラッシュダイアログ�
 `electron` パッケージを実行しているとき、この変数は `npm install` によってダウンロードされた代わりの Electron の指定ビルドを使用するための `electron` コマンドを知らせます。 使い方:
 
 ```sh
-export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/D
+export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Debug
 ```

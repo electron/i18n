@@ -8,9 +8,9 @@ L'exemple suivant montre comment faire pour capturer la vidéo à partir d'une f
 
 ```javascript
 // Dans le processus renderer.
-const {desktopCapturer} = require('electron')
+const { desktopCapturer } = require('electron')
 
-desktopCapturer.getSources({types: ['window', 'screen']}, (error, sources) => {
+desktopCapturer.getSources({ types: ['window', 'screen'] }, (error, sources) => {
   if (error) throw error
   for (let i = 0; i < sources.length; ++i) {
     if (sources[i].name === 'Electron') {
@@ -26,9 +26,8 @@ desktopCapturer.getSources({types: ['window', 'screen']}, (error, sources) => {
             maxHeight: 720
           }
         }
-      })
-      .then((stream) => handleStream(stream))
-      .catch((e) => handleError(e))
+      }).then((stream) => handleStream(stream))
+        .catch((e) => handleError(e))
       return
     }
   }

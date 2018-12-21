@@ -22,6 +22,28 @@ $ electron
 
 Следующие переменные окружения предназначены для использования в среде выполнения приложения Electron.
 
+### `NODE_OPTIONS`
+
+Electron includes support for a subset of Node's [`NODE_OPTIONS`](https://nodejs.org/api/cli.html#cli_node_options_options). The majority are supported with the exception of those which conflict with Chromium's use of BoringSSL.
+
+Пример:
+
+```sh
+export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
+```
+
+Unsupported options are:
+
+```sh
+--use-bundled-ca
+--force-fips
+--enable-fips
+--openssl-config
+--use-openssl-ca
+```
+
+`NODE_OPTIONS` are explicitly disallowed in packaged apps.
+
 ### `GOOGLE_API_KEY`
 
 Electron включает жёстко запрограммированный (hardcoded) ключ API для запросов к веб-сервису геолокации Google. Так как этот ключ включен в каждую версию Electron, его использование часто превышает доступную квоту. Вы можете предоставить свой API ключ Google в переменной окружения, чтобы данная проблема не возникала. Вставьте следующей код в файл главного процесса, перед открытием любого окна браузера, который производит запросы геолокации:
@@ -90,5 +112,5 @@ Options:
 When running from the `electron` package, this variable tells the `electron` command to use the specified build of Electron instead of the one downloaded by `npm install`. Usage:
 
 ```sh
-export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/D
+export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Debug
 ```

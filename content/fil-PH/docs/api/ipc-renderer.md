@@ -75,3 +75,11 @@ Sends a message to a window with `webContentsId` via `channel`.
 * `...args` anuman[]
 
 Katulad ng `ipcRenderer.send` ngunit ang event ay ipapadala sa `<webview>` bahagi sa pahina ng host sa halip na sa pangunahing proseso.
+
+## Ang bagay ng event
+
+Ang bagay `event` na pumasa sa `callback` ay may mga sumusunod na pamamaraan:
+
+### `event.senderId`
+
+Returns the `webContents.id` that sent the message, you can call `event.sender.sendTo(event.senderId, ...)` to reply to the message, see [ipcRenderer.sendTo](#ipcrenderersendtowindowid-channel--arg1-arg2-) for more information. This only applies to messages sent from a different renderer. Messages sent directly from the main process set `event.senderId` to `0`.

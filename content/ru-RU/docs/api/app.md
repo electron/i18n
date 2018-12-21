@@ -7,7 +7,7 @@
 Этот пример показывает, как закрыть приложение, когда последнее окно будет закрыто:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 app.on('window-all-closed', () => {
   app.quit()
 })
@@ -215,7 +215,7 @@ In most cases, you should do everything in the `ready` event handler.
 Возникает, когда не удалось проверить `certificate` для `url`, чтобы доверять сертификату, вы должны предотвратить поведение по умолчанию с `event.preventDefault()` и вызвать `callback(true)`.
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('certificate-error', (event, webContents, url, error, certificate, callback) => {
   if (url === 'https://github.com') {
@@ -244,7 +244,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 `url` соответствует записи навигации, запрашивающей сертификат клиента и `callback` можно вызвать с записью, отфильтрованной из списка. `event.preventDefault()` предотвращает приложению использование первого сертификата из хранилища.
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('select-client-certificate', (event, webContents, url, list, callback) => {
   event.preventDefault()
@@ -277,7 +277,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 Поведением по умолчанию является отмена всех идентификаций, чтобы переопределить это вы должны предотвратить поведение по умолчанию с `event.preventDefault()` и вызвать `callback(username, password)` с учётными данными.
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('login', (event, webContents, request, authInfo, callback) => {
   event.preventDefault()
@@ -312,7 +312,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 Emitted when Electron has created a new `session`.
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('session-created', (event, session) => {
   console.log(session)
@@ -330,6 +330,26 @@ app.on('session-created', (event, session) => {
 This event will be emitted inside the primary instance of your application when a second instance has been executed. `argv` является массивом аргументов командной строки вторичных экземпляров, а `workingDirectory` является его текущим рабочим каталогом. Обычно приложения реагируют на это, делая их основное окно сфокусированным и не свернутым.
 
 This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
+
+### Event: 'remote-require'
+
+Возвращает:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+* `moduleName` String
+
+Emitted when `remote.require()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+
+### Event: 'remote-get-global'
+
+Возвращает:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+* `globalName` String
+
+Emitted when `remote.getGlobal()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
 
 ## Методы
 
@@ -368,9 +388,9 @@ This event is guaranteed to be emitted after the `ready` event of `app` gets emi
 Пример перезапуска немедленно текущего экземпляра и добавив новый аргумент командной строки в новый экземпляр:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
-app.relaunch({args: process.argv.slice(1).concat(['--relaunch'])})
+app.relaunch({ args: process.argv.slice(1).concat(['--relaunch']) })
 app.exit(0)
 ```
 
@@ -380,7 +400,7 @@ app.exit(0)
 
 ### `app.whenReady()`
 
-Returns `Promise` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
+Returns `Promise<void>` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
 
 ### `app.focus()`
 
@@ -574,7 +594,7 @@ API использует внутренний реестр Windows и LSCopyDefa
 Вот очень простой способ, как создать настраиваемый Jump List:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.setJumpList([
   {
@@ -585,7 +605,7 @@ app.setJumpList([
       { type: 'file', path: 'C:\\Projects\\project2.proj' }
     ]
   },
-  { // имеет имя, поэтому `type` считается "custom"
+  { // has a name so `type` is assumed to be "custom"
     name: 'Tools',
     items: [
       {
@@ -595,7 +615,7 @@ app.setJumpList([
         args: '--run-tool-a',
         icon: process.execPath,
         iconIndex: 0,
-        description: 'Запустить инструмент A'
+        description: 'Runs Tool A'
       },
       {
         type: 'task',
@@ -604,19 +624,19 @@ app.setJumpList([
         args: '--run-tool-b',
         icon: process.execPath,
         iconIndex: 0,
-        description: 'Запустить инструмент B'
+        description: 'Runs Tool B'
       }
     ]
   },
   { type: 'frequent' },
-  { // не имеет имени и никакого типа, поэтому `type` считается "tasks"
+  { // has no name and no type so `type` is assumed to be "tasks"
     items: [
       {
         type: 'task',
         title: 'New Project',
         program: process.execPath,
         args: '--new-project',
-        description: 'Создать новый проект.'
+        description: 'Create a new project.'
       },
       { type: 'separator' },
       {
@@ -646,7 +666,7 @@ I.e. This method returns `true` if your process is the primary instance of your 
 Пример активации окна первичного экземпляра, при запуске второго экземпляра:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 let myWindow = null
 
 const gotTheLock = app.requestSingleInstanceLock()
@@ -717,7 +737,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 * `callback` Function 
   * `result` Integer - результат импорта.
 
-Импорт сертификата в формате pkcs12 из платформы хранилища сертификатов. `callback` вызывает `result` импорт операции, значение `0` указывает на успех в то время как любое другое значение указывает на ошибку в соответствии с Chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Импорт сертификата в формате pkcs12 из платформы хранилища сертификатов. `callback` is called with the `result` of import operation, a value of `0` indicates success while any other value indicates failure according to Chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
 ### `app.disableHardwareAcceleration()`
 
@@ -738,6 +758,41 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 ### `app.getGPUFeatureStatus()`
 
 Возвращает [`GPUFeatureStatus`](structures/gpu-feature-status.md) - статус функции графики из `chrome://gpu/`.
+
+### `app.getGPUInfo(infoType)`
+
+* `infoType` String - Values can be either `basic` for basic info or `complete` for complete info.
+
+Returns `Promise`
+
+For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src.git/+/69.0.3497.106/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
+
+For `infoType` equal to `basic`: Promise is fulfilled with `Object` containing fewer attributes than when requested with `complete`. Here's an example of basic response:
+
+```js
+{ auxAttributes:
+   { amdSwitchable: true,
+     canSupportThreadedTextureMailbox: false,
+     directComposition: false,
+     directRendering: true,
+     glResetNotificationStrategy: 0,
+     inProcessGpu: true,
+     initializationTime: 0,
+     jpegDecodeAcceleratorSupported: false,
+     optimus: false,
+     passthroughCmdDecoder: false,
+     sandboxed: false,
+     softwareRendering: false,
+     supportsOverlays: false,
+     videoDecodeAcceleratorFlags: 0 },
+gpuDevice:
+   [ { active: true, deviceId: 26657, vendorId: 4098 },
+     { active: false, deviceId: 3366, vendorId: 32902 } ],
+machineModelName: 'MacBookPro',
+machineModelVersion: '11.5' }
+```
+
+Using `basic` should be preferred if only basic information like `vendorId` or `driverId` is needed.
 
 ### `app.setBadgeCount(count)` *Linux* *macOS*
 
@@ -814,6 +869,10 @@ app.setLoginItemSettings({
 
 **Примечание:** Рендеринг древа специальных возможностей может повлиять на производительность Вашего приложения. Не должно быть включенным по умолчанию.
 
+### `app.showAboutPanel()` *macOS*
+
+Show the about panel with the values defined in the app's `.plist` file or with the options set via `app.setAboutPanelOptions(options)`.
+
 ### `app.setAboutPanelOptions(options)` *macOS*
 
 * `options` Object 
@@ -838,7 +897,7 @@ const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedReso
 stopAccessingSecurityScopedResource()
 ```
 
-Начать доступ в области безопасности ресурса. При использовании этого метода приложение Электрон запакованное для Mac App Store, может выходить за пределы песочницы для получения доступа к файлам, выбранных пользователем. Подробное описание как работает эта система, смотри [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16).
+Начать доступ в области безопасности ресурса. With this method Electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. Подробное описание как работает эта система, смотри [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16).
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
@@ -856,6 +915,12 @@ stopAccessingSecurityScopedResource()
 Добавляет аргумент к Chromium в командной строке. Аргумент будет указан правильно.
 
 **Примечание:** Это не повлияет на `process.argv`.
+
+### `app.enableSandbox()` *Experimental* *macOS* *Windows*
+
+Enables full sandbox mode on the app.
+
+Этот метод может быть вызван только до того, как приложение будет готово.
 
 ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
 

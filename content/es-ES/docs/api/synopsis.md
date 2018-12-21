@@ -11,11 +11,11 @@ La regla básica es: si un módulo es [ GUI](https://en.wikipedia.org/wiki/Graph
 The main process script is like a normal Node.js script:
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 let win = null
 
 app.on('ready', () => {
-  win = new BrowserWindow({width: 800, height: 600})
+  win = new BrowserWindow({ width: 800, height: 600 })
   win.loadURL('https://github.com')
 })
 ```
@@ -27,7 +27,7 @@ El proceso de renderizado no es diferente que el de una página web normal, exce
 <html>
 <body>
 <script>
-  const {app} = require('electron').remote
+  const { app } = require('electron').remote
   console.log(app.getVersion())
 </script>
 </body>
@@ -41,7 +41,7 @@ Para ejecutar su aplicación, lea [Ejecutar su aplicación](../tutorial/first-ap
 Respecto al 0.37, puedes usar [ asignación de desestruturación](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) para hacer más fácil el uso de los módulos incorporados.
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 let win
 
@@ -55,7 +55,7 @@ Si necesitas el módulo ` electron ` completo, puedes requerirlo y luego usar la
 
 ```javascript
 const electron = require('electron')
-const {app, BrowserWindow} = electron
+const { app, BrowserWindow } = electron
 
 let win
 

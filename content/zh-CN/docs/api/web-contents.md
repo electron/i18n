@@ -7,9 +7,9 @@
 ` webContents ` 是 [ EventEmitter ](https://nodejs.org/api/events.html#events_class_eventemitter)的实例， 负责渲染和控制网页, 是 [` BrowserWindow `](browser-window.md) 对象的一个属性。 这是一个访问 `webContents` 对象的例子:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({width: 800, height: 1500})
+let win = new BrowserWindow({ width: 800, height: 1500 })
 win.loadURL('http://github.com')
 
 let contents = win.webContents
@@ -21,7 +21,7 @@ console.log(contents)
 通过`webContents`模块可以访问以下方法：
 
 ```javascript
-const {webContents} = require('electron')
+const { webContents } = require('electron')
 console.log(webContents)
 ```
 
@@ -122,7 +122,7 @@ Returns `WebContents` - 给定 id 的 WebContents 实例。
 ```javascript
 myBrowserWindow.webContents.on('new-window', (event, url) => {
   event.preventDefault()
-  const win = new BrowserWindow({show: false})
+  const win = new BrowserWindow({ show: false })
   win.once('ready-to-show', () => win.show())
   win.loadURL(url)
   event.newGuest = win
@@ -148,6 +148,7 @@ It is also not emitted for in-page navigations, such as clicking anchor links or
 
 返回:
 
+* `event` Event
 * `url` String
 * `isInPlace` Boolean
 * `isMainFrame` Boolean
@@ -155,6 +156,38 @@ It is also not emitted for in-page navigations, such as clicking anchor links or
 * `frameRoutingId` Integer
 
 Emitted when any frame (including main) starts navigating. `isInplace` will be `true` for in-page navigations.
+
+#### Event: 'will-redirect'
+
+返回:
+
+* `event` Event
+* `url` String
+* `isInPlace` Boolean
+* `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
+
+Emitted as a server side redirect occurs during navigation. For example a 302 redirect.
+
+This event will be emitted after `did-start-navigation` and always before the `did-redirect-navigation` event for the same navigation.
+
+Calling `event.preventDefault()` will prevent the navigation (not just the redirect).
+
+#### Event: 'did-redirect-navigation'
+
+返回:
+
+* `event` Event
+* `url` String
+* `isInPlace` Boolean
+* `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
+
+Emitted after a server side redirect occurs during navigation. For example a 302 redirect.
+
+This event can not be prevented, if you want to prevent redirects you should checkout out the `will-redirect` event above.
 
 #### Event: 'did-navigate'
 
@@ -210,8 +243,8 @@ Emitted when a `beforeunload` event handler is attempting to cancel a page unloa
 Calling `event.preventDefault()` will ignore the `beforeunload` event handler and allow the page to be unloaded.
 
 ```javascript
-const {BrowserWindow, dialog} = require('electron')
-const win = new BrowserWindow({width: 800, height: 600})
+const { BrowserWindow, dialog } = require('electron')
+const win = new BrowserWindow({ width: 800, height: 600 })
 win.webContents.on('will-prevent-unload', (event) => {
   const choice = dialog.showMessageBox(win, {
     type: 'question',
@@ -279,9 +312,9 @@ Emitted before dispatching the `keydown` and `keyup` events in the page. Calling
 To only prevent the menu shortcuts, use [`setIgnoreMenuShortcuts`](#contentssetignoremenushortcutsignore-experimental):
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({width: 800, height: 600})
+let win = new BrowserWindow({ width: 800, height: 600 })
 
 win.webContents.on('before-input-event', (event, input) => {
   // For example, only enable application menu keyboard shortcuts when
@@ -310,7 +343,7 @@ win.webContents.on('before-input-event', (event, input) => {
 * `url` String
 * `error` String - 错误码.
 * `certificate` [证书](structures/certificate.md)
-* `callback` Function - 回调函数 
+* `callback` Function 
   * `isTrusted` Boolean - 用于显示证书是否可信。
 
 `证书`的`链接`验证失败时，触发该事件。
@@ -324,7 +357,7 @@ win.webContents.on('before-input-event', (event, input) => {
 * `event` Event
 * `url` URL
 * `certificateList` [证书[]](structures/certificate.md)
-* `callback` Function - 回调函数 
+* `callback` Function 
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list.
 
 当一个客户证书被请求的时候发出。
@@ -467,13 +500,13 @@ Emitted when there is a new context menu that needs to be handled.
 Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 let win = null
 app.commandLine.appendSwitch('enable-experimental-web-platform-features')
 
 app.on('ready', () => {
-  win = new BrowserWindow({width: 800, height: 600})
+  win = new BrowserWindow({ width: 800, height: 600 })
   win.webContents.on('select-bluetooth-device', (event, deviceList, callback) => {
     event.preventDefault()
     let result = deviceList.find((device) => {
@@ -499,9 +532,9 @@ app.on('ready', () => {
 Emitted when a new frame is generated. Only the dirty area is passed in the buffer.
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({webPreferences: {offscreen: true}})
+let win = new BrowserWindow({ webPreferences: { offscreen: true } })
 win.webContents.on('paint', (event, dirty, image) => {
   // updateBitmap(dirty, image.getBitmap())
 })
@@ -547,6 +580,24 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 Emitted when the associated window logs a console message. Will not be emitted for windows with *offscreen rendering* enabled.
 
+#### Event: 'remote-require'
+
+返回:
+
+* `event` Event
+* `moduleName` String
+
+Emitted when `remote.require()` is called in the renderer process. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+
+#### Event: 'remote-get-global'
+
+返回:
+
+* `event` Event
+* `globalName` String
+
+Emitted when `remote.getGlobal()` is called in the renderer process. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
+
 ### 实例方法
 
 #### `contents.loadURL(url[, options])`
@@ -562,14 +613,18 @@ Emitted when the associated window logs a console message. Will not be emitted f
 Loads the `url` in the window. The `url` must contain the protocol prefix, e.g. the `http://` or `file://`. If the load should bypass http cache then use the `pragma` header to achieve it.
 
 ```javascript
-const {webContents} = require('electron')
-const options = {extraHeaders: 'pragma: no-cache\n'}
+const { webContents } = require('electron')
+const options = { extraHeaders: 'pragma: no-cache\n' }
 webContents.loadURL('https://github.com', options)
 ```
 
-#### `contents.loadFile(filePath)`
+#### `contents.loadFile(filePath[, options])`
 
 * `filePath` String
+* `options` Object (可选) 
+  * `query` Object (optional) - Passed to `url.format()`.
+  * `search` String (optional) - Passed to `url.format()`.
+  * `hash` String (optional) - Passed to `url.format()`.
 
 Loads the given file in the window, `filePath` should be a path to an HTML file relative to the root of your application. For instance an app structure like this:
 
@@ -598,8 +653,8 @@ Initiates a download of the resource at `url` without navigating. The `will-down
 Returns `String` - 当前页面的URL.
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({width: 800, height: 600})
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('http://github.com')
 
 let currentURL = win.webContents.getURL()
@@ -662,7 +717,7 @@ Returns `Boolean` - Whether the web page can go to `offset`.
 
 #### `contents.clearHistory()`
 
-Clears the navigation history.
+清除定位历史。
 
 #### `contents.goBack()`
 
@@ -711,7 +766,7 @@ Returns `Boolean` - Whether the renderer process has crashed.
 * `callback` Function (可选) - 在脚本被执行后被调用。 
   * `result` Any
 
-Returns `Promise` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
 
 在页面中执行 `code`。
 
@@ -742,6 +797,10 @@ Ignore application menu shortcuts while this web contents is focused.
 
 返回 `Boolean` -判断页面是否被静音
 
+#### `contents.isCurrentlyAudible()`
+
+Returns `Boolean` - Whether audio is currently playing.
+
 #### `contents.setZoomFactor(factor)`
 
 * `factor` Number - 缩放比例
@@ -750,7 +809,7 @@ Ignore application menu shortcuts while this web contents is focused.
 
 #### `contents.getZoomFactor(callback)`
 
-* `callback` Function 
+* `callback` Function - 回调函数 
   * `zoomFactor` Number
 
 Sends a request to get current zoom factor, the `callback` will be called with `callback(zoomFactor)`.
@@ -763,7 +822,7 @@ Sends a request to get current zoom factor, the `callback` will be called with `
 
 #### `contents.getZoomLevel(callback)`
 
-* `callback` Function - 回调函数 
+* `callback` Function 
   * `zoomLevel` Number
 
 Sends a request to get current zoom level, the `callback` will be called with `callback(zoomLevel)`.
@@ -774,6 +833,12 @@ Sends a request to get current zoom level, the `callback` will be called with `c
 * `maximumLevel` Number
 
 设置最大和最小缩放级别。
+
+> **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
+> 
+> ```js
+contents.setVisualZoomLevelLimits(1, 3)
+```
 
 #### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
 
@@ -850,8 +915,8 @@ Copy the image at the given position to the clipboard.
   * `forward` Boolean (可选) -向前或向后搜索，默认为 `true`。
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
-  * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
-  * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
+  * `wordStart` Boolean (optional) (Deprecated) - Whether to look only at the start of words. defaults to `false`.
+  * `medialCapitalAsWordStart` Boolean (optional) (Deprecated) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
 
 Returns `Integer` - The request id used for the request.
 
@@ -867,7 +932,7 @@ Starts a request to find all matches for the `text` in the web page. The result 
 Stops any `findInPage` request for the `webContents` with the provided `action`.
 
 ```javascript
-const {webContents} = require('electron')
+const { webContents } = require('electron')
 webContents.on('found-in-page', (event, result) => {
   if (result.finalUpdate) webContents.stopFindInPage('clearSelection')
 })
@@ -915,13 +980,13 @@ Unregisters any ServiceWorker if present and returns a boolean as response to `c
 
 Prints window's web page. When `silent` is set to `true`, Electron will pick the system's default printer if `deviceName` is empty and the default settings for printing.
 
-Calling `window.print()` in web page is equivalent to calling `webContents.print({silent: false, printBackground: false, deviceName: ''})`.
+Calling `window.print()` in web page is equivalent to calling `webContents.print({ silent: false, printBackground: false, deviceName: '' })`.
 
 Use `page-break-before: always;` CSS style to force to print to a new page.
 
 #### `contents.printToPDF(options, callback)`
 
-* `选项` Object 
+* `options` Object 
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
@@ -953,10 +1018,10 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
 An example of `webContents.printToPDF`:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 const fs = require('fs')
 
-let win = new BrowserWindow({width: 800, height: 600})
+let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('http://github.com')
 
 win.webContents.on('did-finish-load', () => {
@@ -978,7 +1043,7 @@ win.webContents.on('did-finish-load', () => {
 Adds the specified path to DevTools workspace. Must be used after DevTools creation:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.webContents.on('devtools-opened', () => {
   win.webContents.addWorkSpace(__dirname)
@@ -1034,7 +1099,7 @@ An example of showing devtools in a `<webview>` tag:
 An example of showing devtools in a `BrowserWindow`:
 
 ```js
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 let win = null
 let devtools = null
@@ -1044,7 +1109,7 @@ app.once('ready', () => {
   devtools = new BrowserWindow()
   win.loadURL('https://github.com')
   win.webContents.setDevToolsWebContents(devtools.webContents)
-  win.webContents.openDevTools({mode: 'detach'})
+  win.webContents.openDevTools({ mode: 'detach' })
 })
 ```
 
@@ -1097,11 +1162,11 @@ An example of sending messages from the main process to the renderer process:
 
 ```javascript
 // 在主进程中.
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 let win = null
 
 app.on('ready', () => {
-  win = new BrowserWindow({width: 800, height: 600})
+  win = new BrowserWindow({ width: 800, height: 600 })
   win.loadURL(`file://${__dirname}/index.html`)
   win.webContents.on('did-finish-load', () => {
     win.webContents.send('ping', 'whoooooooh!')
@@ -1129,7 +1194,7 @@ app.on('ready', () => {
     * `desktop` - Desktop screen type.
     * `mobile` - Mobile screen type.
   * `screenSize` [Size](structures/size.md) - Set the emulated screen size (screenPosition == mobile).
-  * `viewPosition` [Point](structures/point.md) - Position the view on the screen (screenPosition == mobile) (default: `{x: 0, y: 0}`).
+  * `viewPosition` [Point](structures/point.md) - Position the view on the screen (screenPosition == mobile) (default: `{ x: 0, y: 0 }`).
   * `deviceScaleFactor` Integer - Set the device scale factor (if zero defaults to original device scale factor) (default: `0`).
   * `viewSize` [Size](structures/size.md) - Set the emulated view size (empty means no override)
   * `scale` Float - Scale of emulated view inside available space (not in fit to view mode) (default: `1`).
@@ -1206,13 +1271,13 @@ Sets the `item` as dragging item for current drag-drop operation, `file` is the 
   * `HTMLOnly` - Save only the HTML of the page.
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
-* `callback` Function - `(error) => {}`. 
+* `callback` Function - 回调函数 - `(error) => {}`. 
   * `error` Error
 
 Returns `Boolean` - true if the process of saving page has been initiated successfully.
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 
 win.loadURL('https://github.com')
@@ -1280,7 +1345,21 @@ Returns `Integer` - The operating system `pid` of the associated renderer proces
 
 #### `contents.getProcessId()`
 
-Returns `Integer` - The chromium internal `pid` of the associated renderer. Can be compared to the `frameProcessId` passed by frame specific navigation events (e.g. `did-frame-navigate`)
+Returns `Integer` - The Chromium internal `pid` of the associated renderer. Can be compared to the `frameProcessId` passed by frame specific navigation events (e.g. `did-frame-navigate`)
+
+#### `contents.takeHeapSnapshot(filePath)`
+
+* `filePath` String - Path to the output file.
+
+Returns `Promise<void>` - Indicates whether the snapshot has been created successfully.
+
+Takes a V8 heap snapshot and saves it to `filePath`.
+
+#### `contents.setBackgroundThrottling(allowed)`
+
+* `allowed` Boolean
+
+Controls whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
 
 ### 实例属性
 

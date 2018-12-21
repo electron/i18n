@@ -9,22 +9,22 @@ Una ventana sin bordes es una ventana que no tiene [chrome](https://developer.mo
 Para crear una ventana sin marco, necesitas establecer `frame` a `false` en las `options` de [BrowserWindow](browser-window.md):
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({width: 800, height: 600, frame: false})
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ width: 800, height: 600, frame: false })
 win.show()
 ```
 
 ### Alternativas en macOS
 
-En macOS 10.9 Mavericks y más reciente, hay una manera alternativa de especificar una ventana sin chromes. En lugar de establecer `frame` a `false`, el cual deshabilita tanto los controles de la ventana como la barra de títulos, puedes ocultar la barra de tareas y ampliar el contenido hasta el tamaño completo de la ventana, aún así se mantienen los controles de la ventana ("traffic lights") para las acciones estándares de la ventana. Puede hacerse especificando la opción `titleBarStyle`:
+There's an alternative way to specify a chromeless window. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. Puede hacerse especificando la opción `titleBarStyle`:
 
 #### `hidden`
 
 Es una barra de título oculta y una ventana de contenido de tamaño completo. Sin embargo, la barra de título mantiene los controles estándares de la ventana (“traffic lights”) en la parte superior izquierda.
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({titleBarStyle: 'hidden'})
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ titleBarStyle: 'hidden' })
 win.show()
 ```
 
@@ -33,18 +33,18 @@ win.show()
 Es una barra de título oculta con un aspecto alternativo donde los botones de traffic light están ligeramente mas insertados desde el borde de la ventana.
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({titleBarStyle: 'hiddenInset'})
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ titleBarStyle: 'hiddenInset' })
 win.show()
 ```
 
 #### `customButtonsOnHover`
 
-Utiliza un dibujo personalizado de los botones cerrar, miniaturizar y pantalla completa que se muestran cuando se pasa por encima de la parte superior izquierda de la ventana. Estos botones personalizados evitan problemas con los eventos del ratón que ocurren con los botones estándares de la barra de tareas de la ventana. Esta opción solo es aplicable para ventanas sin marco.
+Uses custom drawn close, and miniaturize buttons that display when hovering in the top left of the window. The fullscreen button is not available due to restrictions of frameless windows as they interface with Apple's MacOS window masks. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. This option is only applicable for frameless windows.
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({titleBarStyle: 'customButtonsOnHover', frame: false})
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ titleBarStyle: 'customButtonsOnHover', frame: false })
 win.show()
 ```
 
@@ -53,8 +53,8 @@ win.show()
 Al configurar la opción `transparent` a `true`, se puede hacer transparente la ventana sin bordes:
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({transparent: true, frame: false})
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ transparent: true, frame: false })
 win.show()
 ```
 
@@ -72,7 +72,7 @@ win.show()
 Para crear una ventana click-through, por ejemplo hacer que la ventana ignore todos los eventos del ratón, puedes llamar la API [win.setIgnoreMouseEvents(ignore)](browser-window.md#winsetignoremouseeventsignore-options):
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.setIgnoreMouseEvents(true)
 ```
@@ -85,7 +85,7 @@ Ignorar los mensajes de movimiento del ratón hace la página agena al movimient
 let win = require('electron').remote.getCurrentWindow()
 let el = document.getElementById('clickThroughElement')
 el.addEventListener('mouseenter', () => {
-  win.setIgnoreMouseEvents(true, {forward: true})
+  win.setIgnoreMouseEvents(true, { forward: true })
 })
 el.addEventListener('mouseleave', () => {
   win.setIgnoreMouseEvents(false)

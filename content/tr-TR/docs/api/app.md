@@ -7,7 +7,7 @@ Süreç: [Ana](../glossary.md#main-process)
 Aşağıdaki örnek, son pencere kapatıldığında uygulamadan nasıl çıkılacağını göstermektedir:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 app.on('window-all-closed', () => {
   app.quit()
 })
@@ -215,7 +215,7 @@ Dönüşler:
 Çıkarıldığında `url` için `certificate` doğrulama hatası oluştu, sertifikaya güvenmek için temel davranışın oluşmasını `event.preventDefault()` ile engelleyin ve `callback(true)` arayın.
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('certificate-error', (event, webContents, url, error, certificate, callback) => {
   if (url === 'https://github.com') {
@@ -244,7 +244,7 @@ Bir istemci sertifikası talep edildiğinde yayılır.
 `url`, istemci sertifikasını isteyen gezinme girişine karşılık gelir ve listeden filtrelenmiş bir girdi ile `callback` çağrılabilir. `event.preventDefault()` öğesinin kullanılması, uygulamanın mağazadaki ilk sertifikayı kullanmasını engeller.
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('select-client-certificate', (event, webContents, url, list, callback) => {
   event.preventDefault()
@@ -277,7 +277,7 @@ Dönüşler:
 Varsayılan davranış, tüm kimlik doğrulamalarını iptal etmektir; bunu geçersiz kılmak için `event.preventDefault()` ile varsayılan davranışı engellemeli ve kimlik bilgileriyle `callback(username, password)`'u çağırmalısınız.
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('login', (event, webContents, request, authInfo, callback) => {
   event.preventDefault()
@@ -312,7 +312,7 @@ Dönüşler:
 Emitted when Electron has created a new `session`.
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('session-created', (event, session) => {
   console.log(session)
@@ -330,6 +330,26 @@ Dönüşler:
 This event will be emitted inside the primary instance of your application when a second instance has been executed. `argv` ikinci örneğin komuta sırası argümanlarının dizilişidir, ve `workingDirectory` bunun şimdiki çalışma dizinidir. Genellikle uygulama, ana penceresinin odağını küçültecek ve odaklaştıracak şekilde yanıtlar.
 
 This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
+
+### Event: 'remote-require'
+
+Dönüşler:
+
+* `event` Event
+* `webContents` [webİçerikleri](web-contents.md)
+* `moduleName` String
+
+Emitted when `remote.require()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+
+### Event: 'remote-get-global'
+
+Dönüşler:
+
+* `event` Olay
+* `webContents` [webİçerikleri](web-contents.md)
+* `globalName` String
+
+Emitted when `remote.getGlobal()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
 
 ## Metodlar
 
@@ -368,9 +388,9 @@ Bu metodun uygulandığında uygulamadan çıkış yapmadığını unutmayın, u
 Yürürlükteki oluşumun yeniden başlatılmasının (restart) ve yeni oluşumuna yeni bir komut satırı değişkeni eklenmesinin bir örneği:
 
 ```javascript
-const {app} = gerekir('electron')
+const { app } = require('electron')
 
-app.relaunch({args: process.argv.slice(1).concat(['--relaunch'])})
+app.relaunch({ args: process.argv.slice(1).concat(['--relaunch']) })
 app.exit(0)
 ```
 
@@ -380,7 +400,7 @@ Eğer Electron sıfırlamayı tamamladıysa `Boolean` - `true` dönütünü, tam
 
 ### `app.whenReady()`
 
-Returns `Promise` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
+Returns `Promise<void>` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
 
 ### `app.focus()`
 
@@ -514,8 +534,8 @@ API dahili olarak Windows Kayıt Defteri ve LSSetDefaultHandlerForURLScheme kull
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
 * 71/5000 `protokol` String - `://` olmadan protokolünüzün adı.
-* `yolu` Dize (isteğe bağlı) *Windows* - Varsayılan değer olarak `process.execPath`
-* `args` Dizi [] (isteğe bağlı) *Windows* - Boş bir diziye varsayılan
+* `path` Dizi (isteğe bağlı) *Windows* - Varsayılana çevirir `process.execPath`
+* `args` Dizi[] (isteğe bağlı) *Windows* - Boş düzeni varsayılana ayarlar
 
 `Boolean` 'ı geri getirir - Çağrı başarılı olduğunda.
 
@@ -524,7 +544,7 @@ Bu yöntem, geçerli yürütülebilir bir iletişim kuralı (aka URI şeması) i
 ### `app.isDefaultProtocolClient(protocol[, path, args])`
 
 * 71/5000 `protokol` String - `://` olmadan protokolünüzün adı:
-* `yolu` Dize (isteğe bağlı) *Windows* - Varsayılan değer olarak `process.execPath`
+* `path` Dizi (isteğe bağlı) *Windows* - Varsayılana çevirir `process.execPath`
 * `args` Dizi [] (isteğe bağlı) *Windows* - Boş bir diziye varsayılan
 
 `Boole Değeri` döndürür
@@ -543,7 +563,7 @@ Windows'taki `tasks` kategorisini JumpList'teki [Görevler](https://msdn.microso
 
 `tasks`, [`görevler`](structures/task.md) nesenelerinin bir sırasıdır.
 
-`Boolean` 'ı geri getirir - Çağrı başarılı olduğunda.
+Aramanın başarılı olup olmadığı `Boole Değerine ` döndürür.
 
 **Not:** Eğer Jump List'i daha da çok özelleştirmek istiyorsanız yerine `app.setJumpList(categories)` kullanın.
 
@@ -575,7 +595,7 @@ Uygulama için özel bir Atlama Listesi'ni ayarlar veya kaldırır ve aşağıda
 Aşağıda özel bir Atlama Listesi oluşturmanın basit bir örneği verilmiştir:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.setJumpList([
   {
@@ -647,7 +667,7 @@ macOS 'ta, kullanıcılar Finder'ın içindeki uygulamada ikinci bir aşamayı a
 İkinci bir örnek başladığında, birincil örnek penceresi harekete geçirme örneği:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 let myWindow = null
 
 const gotTheLock = app.requestSingleInstanceLock()
@@ -721,7 +741,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
   * `geri aramak` Function 
     * `sonuç` Tamsayı - sonuç alma</ul> 
   
-  Sertifika pkcs12 formatında platform sertifika deposuna kaydedilir. `callback` içe aktarma işlemi `result` ile çağırılır. `0` değeri çalıştığını gösterirken herhangi başka bir değer kroma göre başarısızlığı gösterir. [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+  Sertifika pkcs12 formatında platform sertifika deposuna kaydedilir. `callback` is called with the `result` of import operation, a value of `0` indicates success while any other value indicates failure according to Chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
   
   ### `app.disableHardwareAcceleration()`
   
@@ -743,12 +763,47 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
   
   ` GPU Özellik Durumu'nu döndürür</ 0> - Grafik Özellik Durumu <code> chrome: //gpu/`döndürür.</p> 
   
+  ### `app.getGPUInfo(infoType)`
+  
+  * `infoType` String - Values can be either `basic` for basic info or `complete` for complete info.
+  
+  Returns `Promise`
+  
+  For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src.git/+/69.0.3497.106/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
+  
+  For `infoType` equal to `basic`: Promise is fulfilled with `Object` containing fewer attributes than when requested with `complete`. Here's an example of basic response:
+  
+  ```js
+  { auxAttributes:
+     { amdSwitchable: true,
+       canSupportThreadedTextureMailbox: false,
+       directComposition: false,
+       directRendering: true,
+       glResetNotificationStrategy: 0,
+       inProcessGpu: true,
+       initializationTime: 0,
+       jpegDecodeAcceleratorSupported: false,
+       optimus: false,
+       passthroughCmdDecoder: false,
+       sandboxed: false,
+       softwareRendering: false,
+       supportsOverlays: false,
+       videoDecodeAcceleratorFlags: 0 },
+  gpuDevice:
+     [ { active: true, deviceId: 26657, vendorId: 4098 },
+       { active: false, deviceId: 3366, vendorId: 32902 } ],
+  machineModelName: 'MacBookPro',
+  machineModelVersion: '11.5' }
+  ```
+  
+  Using `basic` should be preferred if only basic information like `vendorId` or `driverId` is needed.
+  
   ### `app.setBadgeCount(count)<0><em>Linux</em><em>macOS</em></h3>
 
 <ul>
 <li><code>sayı` tam sayı</li> </ul> 
   
-  Aramanın başarılı olup olmadığı `Boole Değerine ` döndürür.
+  `Boolean` 'ı geri getirir - Çağrı başarılı olduğunda.
   
   Sayaç rozet sayısı `0` olarak ayarlandığında uygulama için geçerli ayarlar rozeti gizler.
   
@@ -819,6 +874,10 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
       
       **Note:** render erişilebilirlik ağacı uygulamanızın performansını önemli ölçüde etkileyebilir. Varsayılan olarak etkinleştirilmemelidir.<0>.
       
+      ### `app.showAboutPanel()` *macOS*
+      
+      Show the about panel with the values defined in the app's `.plist` file or with the options set via `app.setAboutPanelOptions(options)`.
+      
       ### `app.setAboutPanelOptions(ayarlar)` *macOS*
       
       * `seçenekler` Nesne 
@@ -843,7 +902,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
       stopAccessingSecurityScopedResource()
       ```
       
-      Start accessing a security scoped resource. With this method electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
+      Start accessing a security scoped resource. With this method Electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
       
       ### `app.commandLine.appendSwitch(switch[, value])`
       
@@ -861,6 +920,12 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
       Chromium'un komut satırına bağımsız bir değişken ekleyin. Argüman doğru şekilde alıntılanacaktır.
       
       **Note:** bu etkilenmeyecek `process.argv`.
+      
+      ### `app.enableSandbox()` *Experimental* *macOS* *Windows*
+      
+      Enables full sandbox mode on the app.
+      
+      Bu metod sadece uygulama hazır olmadan önce çağırılabilir.
       
       ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
       
@@ -904,7 +969,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
       
       ### `app.dock.setBadge(text)` *macOS*
       
-      * `text` Dizi
+      * `text` String
       
       Dock'un rozetleme alanında gösterilecek satırı ayarlar.
       

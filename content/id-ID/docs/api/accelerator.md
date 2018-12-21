@@ -12,7 +12,7 @@ Contoh:
 Jalan pintas terdaftar dengan modul ` globalShortcut </ 0> dengan menggunakan metode <a href="global-shortcut.md#globalshortcutregisteraccelerator-callback"><code> register </ 1> 
 , misalnya</p>
 
-<pre><code class="javascript">const {app, globalShortcut} = memerlukan ('elektron') app.on ('siap', () = & gt; {
+<pre><code class="javascript">const { app, globalShortcut } = memerlukan ('elektron') app.on ('siap', () = & gt; {
    // Daftarkan pendatang jalan pintas 'CommandOrControl + Y'.
   globalShortcut.register ('CommandOrControl + Y', () = & gt; {
      // Lakukan hal-hal saat Y dan salah satu Command / Control ditekan.

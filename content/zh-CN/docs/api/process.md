@@ -13,12 +13,22 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 * `crash()`
 * `hang()`
 * `getHeapStatistics()`
-* `getProcessMemoryInfo()`
 * `getSystemMemoryInfo()`
+* `getCPUUsage()`
+* `getIOCounters()`
 * `argv`
 * `execPath`
 * `env`
+* `pid`
+* `arch`
 * `platform`
+* `resourcesPath`
+* `sandboxed`
+* `type`
+* `version`
+* `versions`
+* `mas`
+* `windowsStore`
 
 ## 事件
 
@@ -60,6 +70,10 @@ process.once('loaded', () => {
 
 ` String ` 类型， 表示资源目录的路径。
 
+### `process.sandboxed`
+
+A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
+
 ### `process.throwDeprecation`
 
 `Boolean`类型，用于控制是否将弃用警告当做例外。 设置它为 `true` 时会抛出错误。 使用此属性代替 `--throw-deprecation ` 命令行标志。
@@ -96,6 +110,12 @@ process.once('loaded', () => {
 
 导致当前进程崩溃的主线程。
 
+### `process.getCreationTime()`
+
+Returns `Number | null` - The number of milliseconds since epoch, or `null` if the information is unavailable
+
+Indicates the creation time of the application. The time is represented as number of milliseconds since epoch. It returns null if it is unable to get the process creation time.
+
 ### `process.getCPUUsage()`
 
 返回 [`CPUUsage`](structures/cpu-usage.md)
@@ -120,20 +140,9 @@ process.once('loaded', () => {
 
 Returns an object with V8 heap statistics. Note that all statistics are reported in Kilobytes.
 
-### `process.getProcessMemoryInfo()`
-
-返回 ` Object `:
-
-* `workingSetSize` Integer- 当前占用的物理内存RAM总量
-* `peakWorkingSetSize` Integer - 已被占用的物理内存最大值。
-* `privateBytes` Integer - 独占内存，不被其他进程（如JavaScript堆或者HTML内容）共享的内存数量
-* `sharedBytes` Integer -共享内存，在进程之间共享的内存数量，通常是Electron自身消耗的内存量.
-
-返回一个对象, 它提供有关当前进程的内存使用情况统计信息。请注意, 所有统计信息都以千字节为单位报告。
-
 ### `process.getSystemMemoryInfo()`
 
-返回 ` Object `:
+返回 `Object`:
 
 * `total` Integer - 系统可用的物理内存总量(Kb)。
 * `free` Integer - 应用程序或磁盘缓存未使用的内存总量。
@@ -141,6 +150,14 @@ Returns an object with V8 heap statistics. Note that all statistics are reported
 * `swapFree` Integer *Windows* *Linux* - 系统可用交换内存大小（单位：千字节）。
 
 返回一个对象, 它提供有关当前进程的内存使用情况统计信息。请注意, 所有统计信息都以千字节为单位报告。
+
+### `process.takeHeapSnapshot(filePath)`
+
+* `filePath` String - Path to the output file.
+
+Returns `Boolean` - Indicates whether the snapshot has been created successfully.
+
+Takes a V8 heap snapshot and saves it to `filePath`.
 
 ### `process.hang()`
 

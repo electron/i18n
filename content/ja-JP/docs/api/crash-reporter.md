@@ -7,7 +7,7 @@
 以下は、リモートサーバーにクラッシュレポートを自動的に送信する例です。
 
 ```javascript
-const {crashReporter} = require('electron')
+const { crashReporter } = require('electron')
 
 crashReporter.start({
   productName: 'YourName',
@@ -36,7 +36,7 @@ crashReporter.start({
 ### `crashReporter.start(options)`
 
 * `options` Object 
-  * `companyName` String (任意)
+  * `companyName` String
   * `submitURL` String - POSTでクラッシュレポートが送信されるURL。
   * `productName` String (任意) - 省略値は、`app.getName()` です。
   * `uploadToServer` Boolean (任意) - クラッシュレポートをサーバーに送信するかどうか。省略値は、`true` です。
@@ -53,18 +53,18 @@ crashReporter.start({
 **注釈:** 最初の `start` の呼び出しの後、追加/更新した `extra` パラメーターを送信する必要がある場合、macOS では、`addExtraParameter` を呼び出してください。Linux と Windows では、追加/更新した `extra` パラメーターとともに `start` を再度、呼び出してください。
 
 ```js
- const args = [
-   `--reporter-url=${submitURL}`,
-   `--application-name=${productName}`,
-   `--crashes-directory=${crashesDirectory}`
- ]
- const env = {
-   ELECTRON_INTERNAL_CRASH_SERVICE: 1
- }
- spawn(process.execPath, args, {
-   env: env,
-   detached: true
- })
+const args = [
+  `--reporter-url=${submitURL}`,
+  `--application-name=${productName}`,
+  `--crashes-directory=${crashesDirectory}`
+]
+const env = {
+  ELECTRON_INTERNAL_CRASH_SERVICE: 1
+}
+spawn(process.execPath, args, {
+  env: env,
+  detached: true
+})
 ```
 
 **注:** macOSでは、Electronはクラッシュの収集とレポートに新しい `crashpad` クライアントを使用します。 クラッシュレポートを有効にしたい場合、どのプロセスからクラッシュを収集したいかに関わらず、メインプロセスから `crashReporter.start` を使用して `crashpad` を初期化する必要があります。 一度、この方法で初期化されると、crashpadのハンドラーはすべてのプロセスからクラッシュを収集します。 依然として、レンダラーや子プロセスから `crashReporter.start` を呼び出す必要があります。そうでない場合、それらからのクラッシュは、`companyName`、`productName` やすべての `extra` 情報なしでレポートされます。

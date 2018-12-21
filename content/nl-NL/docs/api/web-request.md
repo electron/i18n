@@ -6,7 +6,9 @@ Proces: [Main](../glossary.md#main-process)
 
 Instances of the `WebRequest` class are accessed by using the `webRequest` property of a `Session`.
 
-The methods of `WebRequest` accept an optional `filter` and a `listener`. The `listener` will be called with `listener(details)` when the API's event has happened. The `details` object describes the request. Passing `null` as `listener` will unsubscribe from the event.
+The methods of `WebRequest` accept an optional `filter` and a `listener`. The `listener` will be called with `listener(details)` when the API's event has happened. The `details` object describes the request.
+
+⚠️ Only the last attached `listener` will be used. Passing `null` as `listener` will unsubscribe from the event.
 
 The `filter` object has a `urls` property which is an Array of URL patterns that will be used to filter out the requests that do not match the URL patterns. If the `filter` is omitted then all requests will be matched.
 
@@ -15,7 +17,7 @@ For certain events the `listener` is passed with a `callback`, which should be c
 An example of adding `User-Agent` header for requests:
 
 ```javascript
-const {session} = require('electron')
+const { session } = require('electron')
 
 // Modify the user agent for all requests to the following urls.
 const filter = {
@@ -24,7 +26,7 @@ const filter = {
 
 session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback) => {
   details.requestHeaders['User-Agent'] = 'MyAgent'
-  callback({cancel: false, requestHeaders: details.requestHeaders})
+  callback({ cancel: false, requestHeaders: details.requestHeaders })
 })
 ```
 
@@ -36,7 +38,7 @@ The following methods are available on instances of `WebRequest`:
 
 * `filter` Object (optioneel) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Functie 
+* `listener` Function 
   * `details` Object 
     * `id` Integer
     * `url` String
@@ -45,7 +47,7 @@ The following methods are available on instances of `WebRequest`:
     * `resourceType` String
     * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Functie 
+  * `callback` Function 
     * `response` Object 
       * `cancel` Boolean (optional)
       * `redirectURL` String (optional) - The original request is prevented from being sent or completed and is instead redirected to the given URL.
@@ -72,7 +74,7 @@ The `listener` will be called with `listener(details, callback)` before sending 
   * `resourceType` String
   * `timestamp` Double
   * `requestHeaders` Object
-* `callback` Functie 
+* `callback` Function 
   * `response` Object 
     * `cancel` Boolean (optional)
     * `requestHeaders` Object (optional) - When provided, request will be made with these headers.
@@ -83,7 +85,7 @@ The `callback` has to be called with an `response` object.
 
 * `filter` Object (optioneel) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Functie 
+* `listener` Function 
   * `details` Object 
     * `id` Integer
     * `url` String
@@ -113,7 +115,7 @@ The `listener` will be called with `listener(details, callback)` when HTTP respo
   * `statusLine` String
   * `statusCode` Integer
   * `responseHeaders` Object
-* `callback` Functie 
+* `callback` Function 
   * `response` Object 
     * `cancel` Boolean
     * `responseHeaders` Object (optional) - When provided, the server is assumed to have responded with these headers.
@@ -125,7 +127,7 @@ The `callback` has to be called with an `response` object.
 
 * `filter` Object (optioneel) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Functie 
+* `listener` Function 
   * `details` Object 
     * `id` Integer
     * `url` String
@@ -144,7 +146,7 @@ The `listener` will be called with `listener(details)` when first byte of the re
 
 * `filter` Object (optioneel) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Functie 
+* `listener` Function 
   * `details` Object 
     * `id` Integer
     * `url` String
@@ -164,7 +166,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
 
 * `filter` Object (optioneel) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Functie 
+* `listener` Function 
   * `details` Object 
     * `id` Integer
     * `url` String
@@ -183,7 +185,7 @@ The `listener` will be called with `listener(details)` when a request is complet
 
 * `filter` Object (optioneel) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Functie 
+* `listener` Function 
   * `details` Object 
     * `id` Integer
     * `url` String

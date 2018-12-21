@@ -5,7 +5,7 @@
 Proseso:[Main](../glossary.md#main-process)
 
 ```javascript
-const {systemPreferences} = require('electron')
+const { systemPreferences } = require('electron')
 console.log(systemPreferences.isDarkMode())
 ```
 
@@ -33,6 +33,14 @@ Ibinabalik ang:
 * `event` na Pangyayari
 * `invertedColorScheme` na Boolean - `true` kapag ang isang binaliktad na pamamaraan ng pagkulay, tulad isang mataas na antas ng temang pangkontrast, ay ginagagami, `false` kapag hindi.
 
+### Event: 'appearance-changed' *macOS*
+
+Pagbabalik:
+
+* `newAppearance` String - Can be `dark` or `light`
+
+**NOTE:** This event is only emitted after you have called `startAppLevelAppearanceTrackingOS`
+
 ## Mga Pamamaraan
 
 ### `systemPreferences.isDarkMode()` *macOS*
@@ -55,7 +63,7 @@ Naglalathala ng isang `event` bilang natibong paalala ng macOS. Ang `userInfo` a
 * `event` na String
 * `userInfo` na Object
 
-Inilalathala ang `event` bilang pansariling paalala ng macOS. Ang `userInfo` ay isang Object na naglalaman ng impormasyong diksyunaryo ng tagagamit na ipinapadala kasama ang paalala.
+Naglalathala ng isang `event` bilang natibong paalala ng macOS. Ang `userInfo` ay isang object na naglalaman ng mga diksyunaryong impormasyon ng tagagamit na ipadala kasama ang paalala.
 
 ### `systemPreferences.postWorkspaceNotification(event, userInfo)` *macOS*
 
@@ -130,7 +138,7 @@ Add the specified defaults to your application's `NSUserDefaults`.
 
 ### `systemPreferences.getUserDefault(key, type)` *macOS*
 
-* `key` na String
+* `key` String
 * `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
 
 Ibinabalik ang `any` - Ang halaga ng `key` sa `NSUserDefaults`.
@@ -172,8 +180,8 @@ Ibinabalik ang `Boolean` - `true` kapag ang [DWM composition](https://msdn.micro
 Ang isang halimbawa ng paggamit nito sa pag-alam kung dapat bang maglikha ka ng isang transparent na window o hindi (ang mga transparent na window ay hindi gumagana nang maayos kapag ang DWM na komposisyon ay hindi pinagana):
 
 ```javascript
-const {BrowserWindow, systemPreferences} = require('electron')
-let browserOptions = {width: 1000, height: 800}
+const { BrowserWindow, systemPreferences } = require('electron')
+let browserOptions = { width: 1000, height: 800 }
 
 // Gawing transparent ang window kapang sinusuportahan lamang ito ng plataporma.
 if (process.platform !== 'win32' || systemPreferences.isAeroGlassEnabled()) {
@@ -244,3 +252,41 @@ Ibinabalik ang `String` - Ang setting ng pangsistemang kulay ay nasa anyong hexa
 ### `systemPreferences.isInvertedColorScheme()` *Windows*
 
 Ibinabalik ang `Boolean` - `true` kapag ang binaliktad na pamamaraan sa pagkulay, katulad ng mataas na temang pangkontrast, ay aktibo, `false` kapag hindi.
+
+### `systemPreferences.getEffectiveAppearance()` *macOS*
+
+Returns `String` - Can be `dark`, `light` or `unknown`.
+
+Gets the macOS appearance setting that is currently applied to your application, maps to [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
+
+Please note that until Electron is built targeting the 10.14 SDK, your application's `effectiveAppearance` will default to 'light' and won't inherit the OS preference. In the interim in order for your application to inherit the OS preference you must set the `NSRequiresAquaSystemAppearance` key in your apps `Info.plist` to `false`. If you are using `electron-packager` or `electron-forge` just set the `enableDarwinDarkMode` packager option to `true`. See the [Electron Packager API](https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) for more details.
+
+### `systemPreferences.getAppLevelAppearance()` *macOS*
+
+Returns `String` | `null` - Can be `dark`, `light` or `unknown`.
+
+Gets the macOS appearance setting that you have declared you want for your application, maps to [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc). You can use the `setAppLevelAppearance` API to set this value.
+
+### `systemPreferences.setAppLevelAppearance(appearance)` *macOS*
+
+* `appearance` String | null - Can be `dark` or `light`
+
+Sets the appearance setting for your application, this should override the system default and override the value of `getEffectiveAppearance`.
+
+### `systemPreferences.getMediaAccessStatus(mediaType)` *macOS*
+
+* `mediaType` String - `microphone` or `camera`.
+
+Returns `String` - Can be `not-determined`, `granted`, `denied`, `restricted` or `unknown`.
+
+This user consent was not required until macOS 10.14 Mojave, so this method will always return `granted` if your system is running 10.13 High Sierra or lower.
+
+### `systemPreferences.askForMediaAccess(mediaType)` *macOS*
+
+* `mediaType` String - the type of media being requested; can be `microphone`, `camera`.
+
+Returns `Promise<Boolean>` - A promise that resolves with `true` if consent was granted and `false` if it was denied. If an invalid `mediaType` is passed, the promise will be rejected. If an access request was denied and later is changed through the System Preferences pane, a restart of the app will be required for the new permissions to take effect. If access has already been requested and denied, it *must* be changed through the preference pane; an alert will not pop up and the promise will resolve with the existing access status.
+
+**Important:** In order to properly leverage this API, you [must set](https://developer.apple.com/documentation/avfoundation/cameras_and_media_capture/requesting_authorization_for_media_capture_on_macos?language=objc) the `NSMicrophoneUsageDescription` and `NSCameraUsageDescription` strings in your app's `Info.plist` file. The values for these keys will be used to populate the permission dialogs so that the user will be properly informed as to the purpose of the permission request. See [Electron Application Distribution](https://electronjs.org/docs/tutorial/application-distribution#macos) for more information about how to set these in the context of Electron.
+
+This user consent was not required until macOS 10.14 Mojave, so this method will always return `true` if your system is running 10.13 High Sierra or lower.

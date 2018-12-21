@@ -1,4 +1,4 @@
-## Class: Cookies
+## Classe: Cookies
 
 > Interroga e modifica i cookie di una sessione.
 
@@ -9,7 +9,7 @@ Puoi accedere alle istanze della classe `Cookies` usando la proprietà `cookies`
 Ad esempio:
 
 ```javascript
-const {session} = require('electron')
+const { session } = require('electron')
 
 // Interroga tutti i cookie.
 session.defaultSession.cookies.get({}, (error, cookies) => {
@@ -17,13 +17,13 @@ session.defaultSession.cookies.get({}, (error, cookies) => {
 })
 
 // Interroga tutti i cookie con un url specifico.
-session.defaultSession.cookies.get({url: 'http://www.github.com'}, (error, cookies) => {
+session.defaultSession.cookies.get({ url: 'http://www.github.com' }, (error, cookies) => {
   console.log(error, cookies)
 })
 
-// Salva dei dati in un cookie;
-// Se il cookie esiste già, lo sovrascrive.
-const cookie = {url: 'http://www.github.com', name: 'dummy_name', value: 'dummy'}
+// Set a cookie with the given cookie data;
+// may overwrite equivalent cookies if they exist.
+const cookie = { url: 'http://www.github.com', name: 'dummy_name', value: 'dummy' }
 session.defaultSession.cookies.set(cookie, (error) => {
   if (error) console.error(error)
 })
@@ -78,7 +78,7 @@ Sends a request to get all cookies matching `filter`, `callback` will be called 
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
   * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
 * `callback` Function 
-  * `errore` Errore
+  * `error` Error
 
 Sets a cookie with `details`, `callback` will be called with `callback(error)` on complete.
 
@@ -86,12 +86,12 @@ Sets a cookie with `details`, `callback` will be called with `callback(error)` o
 
 * `url` String - The URL associated with the cookie.
 * `name` String - The name of cookie to remove.
-* `callback` Function
+* `callback` Funzione
 
 Rimuove i cookie con uno specifico `url` e `name`, a operazione finita chiama `callback` tramite `callback()`.
 
 #### `cookies.flushStore(callback)`
 
-* `callback` Function
+* `callback` Funzione
 
 Writes any unwritten cookies data to disk.

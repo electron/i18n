@@ -7,16 +7,16 @@ Processus : [Main](../glossary.md#main-process)
 `Tray` est un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 ```javascript
-const {app, Menu, Tray} = require('electron')
+const { app, Menu, Tray } = require('electron')
 
 let tray = null
 app.on('ready', () => {
   tray = new Tray('/chemin/vers/mon/icone')
   const contextMenu = Menu.buildFromTemplate([
-    {label: 'Item1', type: 'radio'},
-    {label: 'Item2', type: 'radio'},
-    {label: 'Item3', type: 'radio', checked: true},
-    {label: 'Item4', type: 'radio'}
+    { label: 'Item1', type: 'radio' },
+    { label: 'Item2', type: 'radio' },
+    { label: 'Item3', type: 'radio', checked: true },
+    { label: 'Item4', type: 'radio' }
   ])
   tray.setToolTip('Ceci est mon application.')
   tray.setContextMenu(contextMenu)
@@ -32,14 +32,14 @@ app.on('ready', () => {
 * Sur Linux, afin que les modifications apportées à chaque `MenuItem` prennent effet, vous devrez appeler `setContextMenu` à nouveau. Par exemple :
 
 ```javascript
-const {app, Menu, Tray} = require('electron')
+const { app, Menu, Tray } = require('electron')
 
 let appIcon = null
 app.on('ready', () => {
   appIcon = new Tray('/chemin/vers/mon/icone')
   const contextMenu = Menu.buildFromTemplate([
-    {label: 'Item1', type: 'radio'},
-    {label: 'Item2', type: 'radio'}
+    { label: 'Item1', type: 'radio' },
+    { label: 'Item2', type: 'radio' }
   ])
 
   // Fait un changement au menu contextuel
@@ -217,9 +217,9 @@ Définit quand l'icône de la barre d'état est mis en surbrillance (en blue).
 **Remarque :** Vous pouvez utiliser `highlightMode` avec [`BrowserWindow`](browser-window.md) en alternant les modes `'never'` et `'always'` lorsque la visibilité de la fenêtre change.
 
 ```javascript
-const {BrowserWindow, Tray} = require('electron')
+const { BrowserWindow, Tray } = require('electron')
 
-const win = new BrowserWindow({width: 800, height: 600})
+const win = new BrowserWindow({ width: 800, height: 600 })
 const tray = new Tray('/path/to/my/icon')
 
 tray.on('click', () => {

@@ -6,21 +6,23 @@ Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer
 
 You cannot require or use this module until the `ready` event of the `app` module is emitted.
 
+In the renderer process context it depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
+
 `screen` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-**Note:** In the renderer / DevTools, `window.screen` is a reserved DOM property, so writing `let {screen} = require('electron')` will not work.
+**Note:** In the renderer / DevTools, `window.screen` is a reserved DOM property, so writing `let { screen } = require('electron')` will not work.
 
 An example of creating a window that fills the whole screen:
 
 ```javascript
 const electron = require('electron')
-const {app, BrowserWindow} = electron
+const { app, BrowserWindow } = electron
 
 let win
 
 app.on('ready', () => {
-  const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize
-  win = new BrowserWindow({width, height})
+  const { width, height } = electron.screen.getPrimaryDisplay().workAreaSize
+  win = new BrowserWindow({ width, height })
   win.loadURL('https://github.com')
 })
 ```
@@ -29,7 +31,7 @@ Another example of creating a window in the external display:
 
 ```javascript
 const electron = require('electron')
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 let win
 
@@ -55,7 +57,7 @@ The `screen` module emits the following events:
 
 ### Event: 'display-added'
 
-Returns:
+Geeft terug:
 
 * `event` Event
 * `newDisplay` [Display](structures/display.md)
@@ -64,7 +66,7 @@ Emitted when `newDisplay` has been added.
 
 ### Event: 'display-removed'
 
-Returns:
+Geeft terug:
 
 * `event` Event
 * `oldDisplay` [Display](structures/display.md)
@@ -73,7 +75,7 @@ Emitted when `oldDisplay` has been removed.
 
 ### Event: 'display-metrics-changed'
 
-Returns:
+Geeft terug:
 
 * `event` Event
 * `display` [Display](structures/display.md)

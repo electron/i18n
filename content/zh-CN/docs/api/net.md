@@ -2,7 +2,7 @@
 
 > 使用Chromium的原生网络库发出HTTP / HTTPS请求
 
-线程：[主线程](../glossary.md#main-process)
+进程：[主进程](../glossary.md#main-process)
 
 `net` 模块是一个发送 HTTP(S) 请求的客户端API。 它类似于Node.js的[HTTP](https://nodejs.org/api/http.html) 和 [HTTPS](https://nodejs.org/api/https.html) 模块 ，但它使用的是Chromium原生网络库来替代Node.js的实现，提供更好的网络代理支持。 
 
@@ -18,9 +18,9 @@
 例如, 下面的示例快速显示如何使用 ` net ` API:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 app.on('ready', () => {
-  const {net} = require('electron')
+  const { net } = require('electron')
   const request = net.request('https://github.com')
   request.on('response', (response) => {
     console.log(`STATUS: ${response.statusCode}`)
@@ -29,7 +29,7 @@ app.on('ready', () => {
       console.log(`BODY: ${chunk}`)
     })
     response.on('end', () => {
-      console.log('response请求中没有更多数据。')
+      console.log('No more data in response.')
     })
   })
   request.end()

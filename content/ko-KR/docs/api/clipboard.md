@@ -4,17 +4,19 @@
 
 프로세스: [메인](../glossary.md#main-process), [렌더러](../glossary.md#renderer-process)
 
+In the renderer process context it depends on the [`remote`](remote.md) module on Linux, it is therefore not available when this module is disabled.
+
 다음 예시는 클립보드에 문자열을 쓰는 방법을 보여줍니다:
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 clipboard.writeText('Example String')
 ```
 
 X Window 시스템에선 selection 클립보드도 존재합니다. 이를 사용하려면 인수 뒤에 `selection` 문자열을 같이 지정해주어야 합니다:
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 clipboard.writeText('Example String', 'selection')
 console.log(clipboard.readText('selection'))
 ```
@@ -133,7 +135,7 @@ Return `String[]` - 클립보드 `type` 에 지원되는 형식의 배열.
 Returns `Boolean` - 클립보드가 지정한 `format`을 지원하는지 여부.
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 console.log(clipboard.has('<p>selection</p>'))
 ```
 
@@ -168,8 +170,8 @@ Returns `Buffer` - 클립보드로부터 `format` 타입을 읽습니다.
 * `type` String (optional)
 
 ```javascript
-const {clipboard} = require('electron')
-clipboard.write({text: 'test', html: '<b>test</b>'})
+const { clipboard } = require('electron')
+clipboard.write({ text: 'test', html: '<b>test</b>' })
 ```
 
 `data`를 클립보드에 씁니다.

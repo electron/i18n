@@ -9,7 +9,7 @@ Process: [Main](../glossary.md#main-process)
 Например:
 
 ```javascript
-const {session} = require('electron')
+const { session } = require('electron')
 
 // Запрос всех cookies.
 session.defaultSession.cookies.get({}, (error, cookies) => {
@@ -17,13 +17,13 @@ session.defaultSession.cookies.get({}, (error, cookies) => {
 })
 
 // Запрос всех файлы cookie, связанных с определенным Url-адресом.
-session.defaultSession.cookies.get({url: 'http://www.github.com'}, (error, cookies) => {
+session.defaultSession.cookies.get({ url: 'http://www.github.com' }, (error, cookies) => {
   console.log(error, cookies)
 })
 
-// Установить cookie с данными объекта cookie;
-// перезаписывает эквивалентные cookie, если такие есть.
-const cookie = {url: 'http://www.github.com', name: 'dummy_name', value: 'dummy'}
+// Set a cookie with the given cookie data;
+// may overwrite equivalent cookies if they exist.
+const cookie = { url: 'http://www.github.com', name: 'dummy_name', value: 'dummy' }
 session.defaultSession.cookies.set(cookie, (error) => {
   if (error) console.error(error)
 })
@@ -35,7 +35,7 @@ session.defaultSession.cookies.set(cookie, (error) => {
 
 #### Событие: 'changed'
 
-* `event` Event
+* Событие типа `event`
 * `cookie` [Cookie](structures/cookie.md) - The cookie that was changed.
 * `cause` String - The cause of the change with one of the following values: 
   * `explicit` - The cookie was changed directly by a consumer's action.

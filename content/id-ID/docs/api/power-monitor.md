@@ -10,7 +10,7 @@ Sebagai contoh:
 
 ```javascript
 const electron = require ('elektron')
-const {app} = elektron
+const { app } = elektron
 
 app.on ('siap', () => {
   electron.powerMonitor.on ('suspend', () => {

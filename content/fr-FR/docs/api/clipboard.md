@@ -4,17 +4,19 @@
 
 Processus : [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
+In the renderer process context it depends on the [`remote`](remote.md) module on Linux, it is therefore not available when this module is disabled.
+
 L'exemple suivant montre comment écrire une chaîne de caractère dans le presse-papiers :
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 clipboard.writeText('Mon exemple')
 ```
 
 Sur les systèmes Windows, il y existe aussi un presse-papiers de sélection. Pour le manipuler, vous devez passer le paramètre `selection` pour chaque méthode :
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 clipboard.writeText('Mon exemple', 'selection') console.log(clipboard.readText('selection'))
 ```
 
@@ -132,7 +134,7 @@ Retourne `String[]` - Un tableau de format pris en charge pour le `type` du pres
 Retourne `Boolean` - Si le presse-papiers prend en charge le `format` spécifié.
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 console.log(clipboard.has('<p>selection</p>'))
 ```
 
@@ -167,8 +169,8 @@ Retourne un `Buffer` - Lit le type de `format` depuis le presse-papiers.
 * `type` String (facultatif)
 
 ```javascript
-const {clipboard} = require('electron')
-clipboard.write({text: 'test', html: '<b>test</b>'})
+const { clipboard } = require('electron')
+clipboard.write({ text: 'test', html: '<b>test</b>' })
 ```
 
 Écrit `data` dans le presse-papiers.

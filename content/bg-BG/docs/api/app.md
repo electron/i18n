@@ -7,7 +7,7 @@
 Следния пример показва как да излезем от приложението, когато последния прозорец се затвори:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 app.on('window-all-closed', () => {
    app.quit()
 })
@@ -215,7 +215,7 @@ In most cases, you should do everything in the `ready` event handler.
 Излъчено, когато има проблем с потвърждението на `certificate` за конкретния `url`, за да вярвате на сертификата трябва да прекъснете държанието по подразбиране с `event.preventDefault()` и извикване на `callback(true)`.
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('certificate-error', (event, webContents, url, error, certificate, callback) => {
    if (url === 'https://github.com') {
@@ -244,7 +244,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 `url` съответства на използваната навигация, която изисква клиентския сертификат, а `callback` може да бъде извикан със стойност, филтрирана от списъка. Използването на `event.preventDefault()` предотвратява използването на първия запазен сертификат от приложението.
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('select-client-certificate', (event, webContents, url, list, callback) => {
    event.preventDefault()
@@ -277,7 +277,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 Поведението по подразбиране е да отмените всички удостоверявания, за да промените това трябва да предотвратите поведението по подразбиране с `event.preventDefault()` и извикване на `callback(username, password)` с идентификационните данни.
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('login', (event, webContents, request, authInfo, callback) => {
    event.preventDefault()
@@ -312,7 +312,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 Emitted when Electron has created a new `session`.
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('session-created', (event, session) => {
   console.log(session)
@@ -330,6 +330,26 @@ app.on('session-created', (event, session) => {
 This event will be emitted inside the primary instance of your application when a second instance has been executed. `argv` е масив от аргументи на командния ред на втората инстанция, а `workingDirectory` е неговата текущата работна директория. Обикновено приложенията отговарят на това чрез фокусирането на своя първичен прозорец, който не е минимизиран.
 
 This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
+
+### Event: 'remote-require'
+
+Връща:
+
+* `event` Събитие
+* `webContents` [WebContents](web-contents.md)
+* `moduleName` String
+
+Emitted when `remote.require()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+
+### Event: 'remote-get-global'
+
+Връща:
+
+* `event` Събитие
+* `webContents` [WebContents](web-contents.md)
+* `globalName` String
+
+Emitted when `remote.getGlobal()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
 
 ## Методи
 
@@ -368,9 +388,9 @@ Exits immediately with `exitCode`. `exitCode` defaults to 0.
 Пример за рестартиране текущата инстанция веднага и добавяне на нов команден аргумент за новата инстанция:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
-app.relaunch({args: process.argv.slice(1).concat(['--relaunch'])})
+app.relaunch({ args: process.argv.slice(1).concat(['--relaunch']) })
 app.exit(0)
 ```
 
@@ -380,7 +400,7 @@ app.exit(0)
 
 ### `app.whenReady()`
 
-Returns `Promise` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
+Returns `Promise<void>` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
 
 ### `app.focus()`
 
@@ -432,7 +452,7 @@ Returns `Promise` - fulfilled when Electron is initialized. May be used as a con
     * `small` - 16x16
     * `normal` - 32x32
     * `large` - 48x48 на *Linux*, 32x32 на *Windows*, не се поддържа на *macOS*.
-* `callback` Function 
+* `обратно повикване` Функция 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
@@ -574,7 +594,7 @@ API използва системния регистър на Windows и LSCopyD
 Ето един много прост пример за създаване на потребителски списък за прескачане:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.setJumpList([
   {
@@ -585,7 +605,7 @@ app.setJumpList([
       { type: 'file', path: 'C:\\Projects\\project2.proj' }
     ]
   },
-  { // има име, така че `type` ще бъде "custom"
+  { // has a name so `type` is assumed to be "custom"
     name: 'Tools',
     items: [
       {
@@ -609,7 +629,7 @@ app.setJumpList([
     ]
   },
   { type: 'frequent' },
-  { // няма нито име, нито тип, така че `type` ще бъде "tasks"
+  { // has no name and no type so `type` is assumed to be "tasks"
     items: [
       {
         type: 'task',
@@ -646,7 +666,7 @@ I.e. This method returns `true` if your process is the primary instance of your 
 Пример за активиране на прозореца на основния екземпляр, когато втори екземпляр бива стартиран:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 let myWindow = null
 
 const gotTheLock = app.requestSingleInstanceLock()
@@ -714,10 +734,10 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 * `опции` Object 
   * `certificate` String - Път към файла pkcs12.
   * `password` String - Паролата на сертификата.
-* `обратно повикване` Функция 
+* `callback` Function 
   * `result` Integer - Резултата на импортирането.
 
-Импортира сертификата в pkcs12 формат в хранилището за сертификати на платформата. `callback` е извикана с `result` от импортиращата операция, стойност от `0` показва успех, докато всяка друга стойност показва провал следващ chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Импортира сертификата в pkcs12 формат в хранилището за сертификати на платформата. `callback` is called with the `result` of import operation, a value of `0` indicates success while any other value indicates failure according to Chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
 ### `app.disableHardwareAcceleration()`
 
@@ -738,6 +758,41 @@ Returns [`ProcessMetric[]`](structures/process-metric.md): Array of `ProcessMetr
 ### `app.getGPUFeatureStatus()`
 
 Връща [`GPUFeatureStatus`](structures/gpu-feature-status.md) - Състоянието на функцията графика от `chrome://gpu/`.
+
+### `app.getGPUInfo(infoType)`
+
+* `infoType` String - Values can be either `basic` for basic info or `complete` for complete info.
+
+Returns `Promise`
+
+For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src.git/+/69.0.3497.106/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
+
+For `infoType` equal to `basic`: Promise is fulfilled with `Object` containing fewer attributes than when requested with `complete`. Here's an example of basic response:
+
+```js
+{ auxAttributes:
+   { amdSwitchable: true,
+     canSupportThreadedTextureMailbox: false,
+     directComposition: false,
+     directRendering: true,
+     glResetNotificationStrategy: 0,
+     inProcessGpu: true,
+     initializationTime: 0,
+     jpegDecodeAcceleratorSupported: false,
+     optimus: false,
+     passthroughCmdDecoder: false,
+     sandboxed: false,
+     softwareRendering: false,
+     supportsOverlays: false,
+     videoDecodeAcceleratorFlags: 0 },
+gpuDevice:
+   [ { active: true, deviceId: 26657, vendorId: 4098 },
+     { active: false, deviceId: 3366, vendorId: 32902 } ],
+machineModelName: 'MacBookPro',
+machineModelVersion: '11.5' }
+```
+
+Using `basic` should be preferred if only basic information like `vendorId` or `driverId` is needed.
 
 ### `app.setBadgeCount(count)` *Linux* *macOS*
 
@@ -814,6 +869,10 @@ app.setLoginItemSettings({
 
 **Забележка:** Рендирането на accessibility tree може осезаемо да повлияе на работата на вашето приложение. Не трябва да се активира по подразбиране.
 
+### `app.showAboutPanel()` *macOS*
+
+Show the about panel with the values defined in the app's `.plist` file or with the options set via `app.setAboutPanelOptions(options)`.
+
 ### `app.setAboutPanelOptions(options)` *macOS*
 
 * `опции` Object 
@@ -838,7 +897,7 @@ const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedReso
 stopAccessingSecurityScopedResource()
 ```
 
-Start accessing a security scoped resource. With this method electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
+Start accessing a security scoped resource. With this method Electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
@@ -856,6 +915,12 @@ Start accessing a security scoped resource. With this method electron applicatio
 Добави аргумент към командния ред на Chromium. Аргументът ще бъде коректно обграден с кавички.
 
 **Забележка:** Това няма да повлияе на `process.argv`.
+
+### `app.enableSandbox()` *Experimental* *macOS* *Windows*
+
+Enables full sandbox mode on the app.
+
+Този метод може да бъде извикван само преди приложението да е готово.
 
 ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
 

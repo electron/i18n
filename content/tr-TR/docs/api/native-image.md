@@ -9,17 +9,17 @@ Resim çeken API'ler için Electron'da dosya yollarını veya `NativeImage` örn
 Örnek olarak, bir tepsi oluştururken veya pencere simgesi ayarlarken, görüntü dosyasının yolunu `String` olarak geçirebilirsiniz:
 
 ```javascript
-const {BrowserWindow, Tray} = require('electron')
+const { BrowserWindow, Tray } = require('electron')
 
 const appIcon = new Tray('/Users/somebody/images/icon.png')
-let win = new BrowserWindow({icon: '/Users/somebody/images/window.png'})
+let win = new BrowserWindow({ icon: '/Users/somebody/images/window.png' })
 console.log(appIcon, win)
 ```
 
 Veya panodan `NativeImage` döndüren bir görüntü okuyun:
 
 ```javascript
-const {clipboard, Tray} = require('electron')
+const { clipboard, Tray } = require('electron')
 const image = clipboard.readImage()
 const appIcon = new Tray(image)
 console.log(appIcon)
@@ -61,7 +61,7 @@ images/
 ```
 
 ```javascript
-const {Tray} = require('electron')
+const { Tray } = require('electron')
 let appIcon = new Tray('/Users/somebody/images/icon.png')
 console.log(appIcon)
 ```

@@ -7,7 +7,7 @@
 Chrome 개발자 도구는 JavaScript 런타임에서 사용할 수있는 [special binding](https://developer.chrome.com/devtools/docs/debugger-protocol)을 가지고있어서 페이지와 상호 작용하고 이를 조작 할 수 있습니다
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 
 try {

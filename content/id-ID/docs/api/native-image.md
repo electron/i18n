@@ -8,12 +8,16 @@ Di Elektron , untuk API yang mengambil gambar, Anda dapat melewati jalur file at
 
 <p>Misalnya, saat membuat baki atau mengatur ikon jendela, Anda dapat melewati jalur file gambar sebagai <code> String </ 0> :</p>
 
-<pre><code class="javascript">const {BrowserWindow, Tray} = require ('electron') const appIcon = Baki baru ('/ Users / someone / images / icon.png') biarkan menang = new BrowserWindow ({icon: '/ Users / someone / images / window .png '}) console.log (appIcon, win)
+<pre><code class="javascript">const { BrowserWindow, Tray } = require('electron')
+
+const appIcon = new Tray('/Users/somebody/images/icon.png')
+let win = new BrowserWindow({ icon: '/Users/somebody/images/window.png' })
+console.log(appIcon, win)
 `</pre> 
 
 Atau baca gambar dari clipboard yang mengembalikan ` NativeImage </ 0> :</p>
 
-<pre><code class="javascript">const {clipboard, Tray} = require ('electron') const image = clipboard.readImage () const appIcon = Baki baru (gambar) console.log (appIcon)
+<pre><code class="javascript">const { clipboard, Tray } = require ('electron') const image = clipboard.readImage () const appIcon = Baki baru (gambar) console.log (appIcon)
 `</pre> 
 
 ## Format yang Didukung
@@ -57,7 +61,7 @@ Saat ` PNG </ 0> dan <code> JPEG </ 0> format gambar yang didukung. <code> PNG <
 `</pre> 
 
 ```javascript
-const {Tray} = membutuhkan ('elektron')
+const { Tray } = membutuhkan ('elektron')
 biarkan appIcon = Baki baru ('/Users/someone /images / icon.png')
 console.log (appIcon)
 ```

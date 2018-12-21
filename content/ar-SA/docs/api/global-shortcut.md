@@ -2,14 +2,14 @@
 
 > Detect keyboard events when the application does not have keyboard focus.
 
-Process: [Main](../glossary.md#main-process)
+العملية: [Main](../glossary.md#main-process)
 
 The `globalShortcut` module can register/unregister a global keyboard shortcut with the operating system so that you can customize the operations for various shortcuts.
 
 **Note:** The shortcut is global; it will work even if the app does not have the keyboard focus. You should not use this module until the `ready` event of the app module is emitted.
 
 ```javascript
-const {app, globalShortcut} = require('electron')
+const { app, globalShortcut } = require('electron')
 
 app.on('ready', () => {
   // Register a 'CommandOrControl+X' shortcut listener.
@@ -34,7 +34,7 @@ app.on('will-quit', () => {
 })
 ```
 
-## المنهجية
+## Methods
 
 The `globalShortcut` module has the following methods:
 

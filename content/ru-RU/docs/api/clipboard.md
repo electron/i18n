@@ -4,17 +4,19 @@
 
 Процессы: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
+In the renderer process context it depends on the [`remote`](remote.md) module on Linux, it is therefore not available when this module is disabled.
+
 Следующий пример показывает, как записать строку в буфер обмена:
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 clipboard.writeText('Пример строки')
 ```
 
 На системах X Window также есть буфер обмена. Чтобы им манипулировать, вам нужно передать `selection` каждому методу:
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 clipboard.writeText('Пример строки', 'selection')
 console.log(clipboard.readText('selection'))
 ```
@@ -133,7 +135,7 @@ Returns `String[]` - An array of supported formats for the clipboard `type`.
 Returns `Boolean` - Whether the clipboard supports the specified `format`.
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 console.log(clipboard.has('<p>selection</p>'))
 ```
 
@@ -168,8 +170,8 @@ Writes the `buffer` into the clipboard as `format`.
 * `type` String (опционально)
 
 ```javascript
-const {clipboard} = require('electron')
-clipboard.write({text: 'test', html: '<b>test</b>'})
+const { clipboard } = require('electron')
+clipboard.write({ text: 'test', html: '<b>test</b>' })
 ```
 
 Записывает `data` в буфер обмена.

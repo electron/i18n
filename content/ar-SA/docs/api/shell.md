@@ -9,7 +9,7 @@ The `shell` module provides functions related to desktop integration.
 An example of opening a URL in the user's default browser:
 
 ```javascript
-const {shell} = require('electron')
+const { shell } = require('electron')
 
 shell.openExternal('https://github.com')
 ```
@@ -37,9 +37,10 @@ Open the given file in the desktop's default manner.
 ### `shell.openExternal(url[, options, callback])`
 
 * `url` String - Max 2081 characters on windows, or the function returns false.
-* `options` Object (optional) *macOS* 
-  * `activate` Boolean - `true` to bring the opened application to the foreground. The default is `true`.
-* `callback` Function (optional) *macOS* - If specified will perform the open asynchronously. 
+* `options` Object (optional) 
+  * `activate` Boolean (optional) - `true` to bring the opened application to the foreground. The default is `true`. *macOS*
+  * `workingDirectory` String (optional) - The working directory. *Windows*
+* `callback` Function (optional) *نظام macOS* - If specified will perform the open asynchronously. 
   * `error` Error
 
 Returns `Boolean` - Whether an application was available to open the URL. If callback is specified, always returns true.

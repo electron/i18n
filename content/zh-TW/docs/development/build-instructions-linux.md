@@ -13,9 +13,9 @@ Follow the guidelines below for building Electron on Linux.
     $ npm run check-tls
     ```
     
-    If the script returns that your configuration is using an outdated security protocol, use your system's package manager to update Python to the latest version in the 2.7.x branch. Alternatively, visit https://www.python.org/downloads/ for detailed instructions.
+    如果腳本返回了你使用過時的安全協議定義的配置，可以使用系統的包管理器更新python至2.7.x分支的最新版本 或者訪問或者，https://www.python.org/downloads/以獲取詳細說明
 
-* Node.js。 There are various ways to install Node. You can download source code from [nodejs.org](https://nodejs.org) and compile it. Doing so permits installing Node on your own home directory as a standard user. Or try repositories such as [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
+* Node.js。 有幾種方法安裝node 你可以從[node.org](https://nodejs.org)下載源代碼並編譯 也可以作為普通用戶在你的home目錄下安裝node 或者嘗試使用[NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories)倉庫
 
 * [clang](https://clang.llvm.org/get_started.html) 3.4 或之後的版本。
 * Development headers of GTK+ and libnotify.
@@ -23,7 +23,7 @@ Follow the guidelines below for building Electron on Linux.
 在 Ubuntu 上，安將下列程式庫:
 
 ```sh
-$ sudo apt-get install build-essential clang libdbus-1-dev libgtk-3-dev \
+sudo apt-get install build-essential clang libdbus-1-dev libgtk-3-dev \
                        libnotify-dev libgnome-keyring-dev libgconf2-dev \
                        libasound2-dev libcap-dev libcups2-dev libxtst-dev \
                        libxss1 libnss3-dev gcc-multilib g++-multilib curl \
@@ -48,11 +48,11 @@ $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    GConf2-devel nss-devel python-dbusmock
 ```
 
-Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
+其他分發版也可能通過包管理器提供相似的包來安裝，例如pacman，或者一個可以從源代碼編譯的文件
 
 ### Cross compilation
 
-If you want to build for an `arm` target you should also install the following dependencies:
+如果你想要創建一個`arm`target，應該先下載以下依賴：
 
 ```sh
 $ sudo apt-get install libc6-dev-armhf-cross linux-libc-dev-armhf-cross \

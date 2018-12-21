@@ -6,21 +6,23 @@ Proses:  Utama </ 0> ,  Renderer </ 1></p>
 
 Anda tidak dapat meminta atau menggunakan modul ini sampai acara `siap` dari`aplikasi` modul dipancarkan.
 
+In the renderer process context it depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
+
 `screen` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-**Note:** In the renderer / DevTools, `window.screen` is a reserved DOM property, so writing `let {screen} = require('electron')` will not work.
+**Note:** In the renderer / DevTools, `window.screen` is a reserved DOM property, so writing `let { screen } = require('electron')` will not work.
 
 An example of creating a window that fills the whole screen:
 
 ```javascript
 const electron = require('electron')
-const {app, BrowserWindow} = electron
+const { app, BrowserWindow } = electron
 
 let win
 
 app.on('ready', () => {
-  const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize
-  win = new BrowserWindow({width, height})
+  const { width, height } = electron.screen.getPrimaryDisplay().workAreaSize
+  win = new BrowserWindow({ width, height })
   win.loadURL('https://github.com')
 })
 ```
@@ -29,7 +31,7 @@ Another example of creating a window in the external display:
 
 ```javascript
 const electron = require('electron')
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 let win
 
@@ -73,7 +75,7 @@ Emitted when `oldDisplay` has been removed.
 
 ### Event: 'display-metrics-changed'
 
-Mengirimkan:
+Pengembalian:
 
 * `peristiwa` Peristiwa
 * `display` [Display](structures/display.md)

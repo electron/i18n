@@ -6,6 +6,26 @@ I cambiamenti delle API assieme agli avvisi di deprecazione aggiunti al codice J
 
 La stringa `FIXME` è usata nei commenti del codice per denotare cose che dovrebbero essere sistemate per i prossimi rilasci. Vedi https://github.com/electron/electron/search?q=fixme
 
+# Cambiamenti Pianificati API (5.0)
+
+## `new BrowserWindow({ webPreferences })`
+
+The following `webPreferences` option default values are deprecated in favor of the new defaults listed below.
+
+| Property           | Deprecated Default                   | New Default |
+| ------------------ | ------------------------------------ | ----------- |
+| `contextIsolation` | `false`                              | `true`      |
+| `nodeIntegration`  | `true`                               | `false`     |
+| `webviewTag`       | `nodeIntegration` if set else `true` | `false`     |
+
+## `nativeWindowOpen`
+
+Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled.
+
+## `webContents.findInPage(text[, options])`
+
+`wordStart` and `medialCapitalAsWordStart` options are removed.
+
 # Cambiamenti Pianificati API (4.0)
 
 La seguente lista include i cambiamenti delle API pianificati per Electron 4.0.
@@ -24,7 +44,7 @@ app.on('second-instance', function (event, argv, cwd) {
 })
 ```
 
-## `app.releaseSingleInstance`
+## `app.rilasciaIstanzaSingola`
 
 ```js
 // Deprecato
@@ -33,6 +53,18 @@ app.releaseSingleInstance()
 app.releaseSingleInstanceLock()
 ```
 
+## `app.getGPUInfo`
+
+```js
+app.getGPUInfo('complete')
+// Now behaves the same with `basic` on macOS
+app.getGPUInfo('basic')
+```
+
+## `win_delay_load_hook`
+
+When building native modules for windows, the `win_delay_load_hook` variable in the module's `binding.gyp` must be true (which is the default). If this hook is not present, then the native module will fail to load on Windows, with an error message like `Cannot find module`. See the [native module guide](/docs/tutorial/using-native-node-modules.md) for more.
+
 # Cambiamenti API (3.0)
 
 La seguente lista include i cambiamenti delle API in Electron 3.0.
@@ -40,43 +72,41 @@ La seguente lista include i cambiamenti delle API in Electron 3.0.
 ## `app`
 
 ```js
-// Deprecato
+// Deprecated
 app.getAppMemoryInfo()
-// Sostituire con
+// Replace with
 app.getAppMetrics()
 
-// Deprecato
+// Deprecated
 const metrics = app.getAppMetrics()
-const {memory} = metrics[0]
-memory.privateBytes  // Proprietà deprecata
-memory.sharedBytes  // Proprietà deprecata
+const { memory } = metrics[0] // Deprecated property
 ```
 
 ## `BrowserWindow`
 
 ```js
-// Deprecato
-let optionsA = {webPreferences: {blinkFeatures: ''}}
+// Deprecated
+let optionsA = { webPreferences: { blinkFeatures: '' } }
 let windowA = new BrowserWindow(optionsA)
-// Sostituire con
-let optionsB = {webPreferences: {enableBlinkFeatures: ''}}
+// Replace with
+let optionsB = { webPreferences: { enableBlinkFeatures: '' } }
 let windowB = new BrowserWindow(optionsB)
 
-// Deprecato
+// Deprecated
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
-    // fai qualcosa
+    // do something
   }
 })
-// Sostituire con
+// Replace with
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
-    // fai qualcosa
+    // do something
   }
 })
 ```
 
-## `clipboard`
+## `appunti`
 
 ```js
 // Deprecato
@@ -100,7 +130,7 @@ clipboard.writeHtml()
 clipboard.writeHTML()
 ```
 
-## `creshReporter`
+## `riportatorecrash`
 
 ```js
 // Deprecato
@@ -109,7 +139,7 @@ crashReporter.start({
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// Sostituire con
+// Rimpiazza con
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -131,13 +161,11 @@ nativeImage.createFromBuffer(buffer, {
 ## `process`
 
 ```js
-// Deprecato
+// Deprecated
 const info = process.getProcessMemoryInfo()
-const privateBytes = info.privateBytes // Proprietà deprecata
-const sharedBytes = info.sharedBytes // Proprietà deprecata
 ```
 
-## `screen`
+## `schermo`
 
 ```js
 // Deprecato
@@ -177,9 +205,9 @@ tray.setHighlightMode('off')
 
 ```js
 // Deprecato
-webContents.openDevTools({detach: true})
+webContents.openDevTools({ detach: true })
 // Sostituire con
-webContents.openDevTools({mode: 'detach'})
+webContents.openDevTools({ mode: 'detach' })
 
 // Rimosso
 webContents.setSize(options)
@@ -191,13 +219,13 @@ webContents.setSize(options)
 ```js
 // Deprecato
 webFrame.registerURLSchemeAsSecure('app')
-// Sostituire con
-protocol.registerStandardSchemes(['app'], {secure: true})
+// Rimpiazza con
+protocol.registerStandardSchemes(['app'], { secure: true })
 
 // Deprecato
-webFrame.registerURLSchemeAsPrivileged('app', {secure: true})
-// Sostituire con
-protocol.registerStandardSchemes(['app'], {secure: true})
+webFrame.registerURLSchemeAsPrivileged('app', { secure: true })
+// Rimpiazza con
+protocol.registerStandardSchemes(['app'], { secure: true })
 ```
 
 ## `<webview>`
@@ -232,10 +260,10 @@ The following list includes the breaking API changes made in Electron 2.0.
 
 ```js
 // Deprecato
-let optionsA = {titleBarStyle: 'hidden-inset'}
+let optionsA = { titleBarStyle: 'hidden-inset' }
 let windowA = new BrowserWindow(optionsA)
 // Sostituire con
-let optionsB = {titleBarStyle: 'hiddenInset'}
+let optionsB = { titleBarStyle: 'hiddenInset' }
 let windowB = new BrowserWindow(optionsB)
 ```
 
@@ -245,10 +273,10 @@ let windowB = new BrowserWindow(optionsB)
 // Rimosso
 menu.popup(browserWindow, 100, 200, 2)
 // Sostituito con
-menu.popup(browserWindow, {x: 100, y: 200, positioningItem: 2})
+menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```
 
-## `nativeImage`
+## `immagineNativa`
 
 ```js
 // Rimosso

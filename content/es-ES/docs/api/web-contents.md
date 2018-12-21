@@ -7,9 +7,9 @@ Process: [Main](../glossary.md#main-process)
 `webContents` es un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Ese es responsable de renderizar y controlar la página web y es el propietario del objeto [`BrowserWindow`](browser-window.md). Un ejemplo de acceso del objeto `webContents`:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({width: 800, height: 1500})
+let win = new BrowserWindow({ width: 800, height: 1500 })
 win.loadURL('http://github.com')
 
 let contents = win.webContents
@@ -21,7 +21,7 @@ console.log(contents)
 Se pueden acceder a estos métodos desde el módulo `webContents`:
 
 ```javascript
-const {webContents} = require('electron')
+const { webContents } = require('electron')
 console.log(webContents)
 ```
 
@@ -122,7 +122,7 @@ Ejecutar `event.preventDefault()` evitará que Electron cree automáticamente un
 ```javascript
 myBrowserWindow.webContents.on('new-window', (event, url) => {
   event.preventDefault()
-  const win = new BrowserWindow({show: false})
+  const win = new BrowserWindow({ show: false })
   win.once('ready-to-show', () => win.show())
   win.loadURL(url)
   event.newGuest = win
@@ -148,6 +148,7 @@ Llamando `event.preventDefault()` evitará la navegación.
 
 Devuelve:
 
+* `evento` Evento
 * `url` String
 * `isInPlace` Boolean
 * `isMainFrame` Boolean
@@ -156,12 +157,44 @@ Devuelve:
 
 Emitted when any frame (including main) starts navigating. `isInplace` will be `true` for in-page navigations.
 
-#### Evento: 'did-navigate'
+#### Event: 'will-redirect'
 
 Devuelve:
 
 * `event` Event
 * `url` Cadena
+* `isInPlace` Boolean
+* `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
+
+Emitted as a server side redirect occurs during navigation. For example a 302 redirect.
+
+This event will be emitted after `did-start-navigation` and always before the `did-redirect-navigation` event for the same navigation.
+
+Calling `event.preventDefault()` will prevent the navigation (not just the redirect).
+
+#### Event: 'did-redirect-navigation'
+
+Devuelve:
+
+* `event` Event
+* `url` String
+* `isInPlace` Boolean
+* `isMainFrame` Boolean
+* `frameProcessId` Integer
+* `frameRoutingId` Integer
+
+Emitted after a server side redirect occurs during navigation. For example a 302 redirect.
+
+This event can not be prevented, if you want to prevent redirects you should checkout out the `will-redirect` event above.
+
+#### Evento: 'did-navigate'
+
+Devuelve:
+
+* `event` Event
+* `url` String
 * `httpResponseCode` Integer - -1 for non HTTP navigations
 * `httpStatusText` String - empty for non HTTP navigations
 
@@ -191,7 +224,7 @@ Devuelve:
 
 * `event` Event
 * `url` String
-* `EsElFramePrincipal` Boolean
+* `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -210,8 +243,8 @@ Emite cuando un controlador de eventos `beforeunload` está tratando de cancelar
 Llamando a `event.preventDefault()` ignorará el controlador de eventos `beforeunload` y permite que la página sea descargada.
 
 ```javascript
-const {BrowserWindow, dialog} = require('electron')
-const win = new BrowserWindow({width: 800, height: 600})
+const { BrowserWindow, dialog } = require('electron')
+const win = new BrowserWindow({ width: 800, height: 600 })
 win.webContents.on('will-prevent-unload', (event) => {
   const choice = dialog.showMessageBox(win, {
     type: 'question',
@@ -279,9 +312,9 @@ Emitido antes de enviar los eventos `keydown` y `keyup` en la página. Llamando 
 Para evitar sólo los accesos directos del menú, use [`setignoreMenuShortcuts`](#contentssetignoremenushortcutsignore-experimental):
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({width: 800, height: 600})
+let win = new BrowserWindow({ width: 800, height: 600 })
 
 win.webContents.on('before-input-event', (event, input) => {
   // For example, only enable application menu keyboard shortcuts when
@@ -296,7 +329,7 @@ Emitido cuando DevTools es abierto.
 
 #### Evento: 'devtools-closed'
 
-Emitido cuando DevTools es cerrado.
+Emitido cuando Devtools es cerrado.
 
 #### Evento: 'devtools-focused'
 
@@ -307,7 +340,7 @@ Emitido cuando DevTools es centrado o abierto.
 Devuelve:
 
 * `event` Event
-* `url` Cadena
+* `url` String
 * `error` cadena - el error del código.
 * `certificate` [certificate](structures/certificate.md)
 * `callback` Function 
@@ -361,9 +394,9 @@ Devuelve:
 * `event` Event
 * `resultado` Object 
   * `requestId` Íntegro
-  * `activeMatchOrdinal` Íntegro - Posición de un partido activo.
+  * `activeMatchOrdinal` Integer - Posición de la coincidencia activa.
   * `matches` Íntegro - Número de Coincidencias.
-  * `selectionArea` Objeto - Coordinación de la primera región de casualidad.
+  * `selectionArea` Object - Coordenadas del lugar de la primera coincidencia.
   * `finalUpdate` Boolean
 
 Emitido cuando un resultado está disponible para la petición de [`webContents.findInPage`].
@@ -467,13 +500,13 @@ Devuelve:
 Emite cuando el dispositivo bluetooth necesita ser seleccionado en la llamada `navigator.bluetooth.requestDevice`. Para usar `navigator.bluetooth` api `webBluetooth` debe ser activada. Si no se llama `event.preventDefault` el primer dispositivo disponible será seleccionado. `callback` puede ser llamado con `deviceId` ser seleccionado,.
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 let win = null
 app.commandLine.appendSwitch('enable-experimental-web-platform-features')
 
 app.on('ready', () => {
-  win = new BrowserWindow({width: 800, height: 600})
+  win = new BrowserWindow({ width: 800, height: 600 })
   win.webContents.on('select-bluetooth-device', (event, deviceList, callback) => {
     event.preventDefault()
     let result = deviceList.find((device) => {
@@ -499,9 +532,9 @@ Devuelve:
 Emitido cuando un se genera un nuevo fotograma. Solo la zona oscura se pasa al búfer.
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({webPreferences: {offscreen: true}})
+let win = new BrowserWindow({ webPreferences: { offscreen: true } })
 win.webContents.on('paint', (event, dirty, image) => {
   // updateBitmap(dirty, image.getBitmap())
 })
@@ -547,29 +580,51 @@ Devuelve:
 
 Emitido cuando la ventana asociada registra un mensaje de consola. No se emite para ventanas con *Renderización fuera de pantalla* activado.
 
+#### Event: 'remote-require'
+
+Devuelve:
+
+* `event` Event
+* `moduleName` String
+
+Emitted when `remote.require()` is called in the renderer process. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+
+#### Event: 'remote-get-global'
+
+Devuelve:
+
+* `event` Event
+* `globalName` String
+
+Emitted when `remote.getGlobal()` is called in the renderer process. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
+
 ### Métodos de Instancia
 
 #### `contents.loadURL(url[, options])`
 
 * `url` String
-* `opciones` Object (opcional) 
+* `opciones` Objecto (opcional) 
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
   * `userAgent` Cadena (opcional) - Un agente de usuario originando el pedido.
-  * `extraHeaders` String (opcional) - Encabezados extras separadas por "\n".
+  * `extraHeaders` Cadena (opcional) - Encabezados extras separados por "\n".
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
   * `baseURLForDataURL` String (opcional) - Url base (con separadores de ruta arrastrables) para archivos que se cargan por el url de datos. Esto es necesario únicamente si el `url` especificado es un url de datos y necesita cargar otros archivos.
 
 Carga el `url` en la ventana. El `url` debe contener el prefijo de protocolo. Por ejemplo `http://` o `file://`. Si la carga debe omitir el caché http entonces hay que utilizar el encabezado `pragma` para lograrlo.
 
 ```javascript
-const {webContents} = require('electron')
-const options = {extraHeaders: 'pragma: no-cache\n'}
+const { webContents } = require('electron')
+const options = { extraHeaders: 'pragma: no-cache\n' }
 webContents.loadURL('https://github.com', options)
 ```
 
-#### `contents.loadFile(filePath)`
+#### `contents.loadFile(filePath[, options])`
 
 * `filePath` String
+* `opciones` Objecto (opcional) 
+  * `query` Object (optional) - Passed to `url.format()`.
+  * `search` String (optional) - Passed to `url.format()`.
+  * `hash` String (optional) - Passed to `url.format()`.
 
 Carga el archivo dado en la ventana, `filePath` debe ser una ruta a un archivo HTML relativo a la raíz de su aplicación. Por ejemplo, una estructura de aplicación como esta:
 
@@ -598,8 +653,8 @@ Inicia una descarga del recurso en el `url` sin navegar. Se activará el evento 
 Devuelve `String` - El URL de la página web actual.
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({width: 800, height: 600})
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('http://github.com')
 
 let currentURL = win.webContents.getURL()
@@ -707,15 +762,15 @@ Inserta CSS en la página web actual.
 #### `contents.executeJavaScript(code[, userGesture, callback])`
 
 * `code` Cadena de caracteres
-* `userGesture` Boolean (opcional) - Por de `false`.
-* `callback` Function (opcional) - Es llamado luego de que se haya ejecutado el script. 
+* `userGesture` Boolean (opcional) - Predeterminado es `falso`.
+* `callback` Función (opcional) - Llamado después de que se haya ejecutado el script. 
   * `resultado` Cualquiera
 
-Devuelve `Promise` - Un compromiso que soluciona con el resultado del código ejecutado o es rechazado si el resultado del código es un compromiso rechazado.
+Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
 
-Evalúa el `código` en la página.
+Evalúa el `code` en la página.
 
-En la ventana del navegador, algunas API HTML como `requestFullScreen` solo pueden invocarse con un gesto del usuario. Configurar `userGesture` a `true` eliminará esta limitación.
+En la ventana del navegador, algunas API HTML como `requestFullScreen` solo pueden invocarse con un gesto del usuario. Establecer `userGesture` a `true` eliminará esta limitación.
 
 Si el resultado del código ejecutado es una promise, el callback será el valor resuelto de la promise. Recomendamos que utilice la Promise devuelta para manejar el código que da como resultado una Promise.
 
@@ -741,6 +796,10 @@ Silencia el audio la página web actual.
 #### `contents.isAudioMuted()`
 
 Devuelve `Boolean` - Si esta página ha sido silenciada.
+
+#### `contents.isCurrentlyAudible()`
+
+Returns `Boolean` - Whether audio is currently playing.
 
 #### `contents.setZoomFactor(factor)`
 
@@ -775,6 +834,12 @@ Envía una solicitud para obtener el factor zoom actual. El `callback` será lla
 
 Establecer el nivel de máximo y mínimo pizca de zoom.
 
+> **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
+> 
+> ```js
+contents.setVisualZoomLevelLimits(1, 3)
+```
+
 #### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Número
@@ -800,8 +865,8 @@ Ejecuta el comando de edición `copy` en la página web.
 
 #### `contents.copyImageAt(x, y)`
 
-* `x` Íntegro
-* `y` Integer
+* `x` Integer
+* `y` Íntegro
 
 Copia la imagen en la posición determinada al portapapeles.
 
@@ -841,7 +906,7 @@ Ejecuta el comando de edición `replaceMisspelling` en página web.
 
 * `texto` String
 
-Inserta `texto` al elemento centrado.
+Inserta `texto` en el elemento enfocado.
 
 #### `contents.findInPage(text[, options])`
 
@@ -850,8 +915,8 @@ Inserta `texto` al elemento centrado.
   * `forward` Boolean (opcional) - Ya sea para buscar hacia adelante o hacia atrás, el valor predeterminado es `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
-  * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
-  * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Acepta muchas otras coincidencias intra palabras, por defecto a `falso`.
+  * `wordStart` Boolean (optional) (Deprecated) - Whether to look only at the start of words. defaults to `false`.
+  * `medialCapitalAsWordStart` Boolean (optional) (Deprecated) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Acepta muchas otras coincidencias intra palabras, por defecto a `falso`.
 
 Returns `Integer` - The request id used for the request.
 
@@ -867,7 +932,7 @@ Starts a request to find all matches for the `text` in the web page. The result 
 Detiene cualquier solicitud `findInPage` para el `webContents` con la `action` proporcionada.
 
 ```javascript
-const {webContents} = require('electron')
+const { webContents } = require('electron')
 webContents.on('found-in-page', (event, result) => {
   if (result.finalUpdate) webContents.stopFindInPage('clearSelection')
 })
@@ -909,13 +974,13 @@ Devuelve [`PrinterInfo[]`](structures/printer-info.md).
 * `opciones` Object (opcional) 
   * `silent` Boolean (opcional) - No le pide al usuario configurar la impresora. Por defecto es `false`.
   * `printBackground` Boolean (opcional) - También imprime el color de fondo y la imagen de la página web. Por defecto es `false`.
-  * `deviceName` String (opcional) - Configura el nombre de la impresora que se va a usar. Por defecto es `''`.
+  * `deviceName` Cadena (opcional) - Establece el nombre del dispositivo de impresión a usar. Por defecto es `"`.
 * `callback` Función (opcional) 
   * `success` Boolean - Indicates success of the print call.
 
 Imprime la página web de la ventana. Cuando se configura `silent` a `true`, Electron seleccionará la impresora por defecto del sistema si `deviceName` esta en blanco y la configuración por defecto para imprimir.
 
-Llamar `window.print()` en la página web es igual a llamar `webContents.print({silent: false, printBackground: false, deviceName: ''})`.
+Llamar `window.print()` en la página web es igual a llamar `webContents.print({ silent: false, printBackground: false, deviceName: '' })`.
 
 Utilizar el estilo CCS `page-break-before: always;` para imprimir a la fuerza una página nueva.
 
@@ -923,7 +988,7 @@ Utilizar el estilo CCS `page-break-before: always;` para imprimir a la fuerza un
 
 * `opciones` Object 
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un contenedor de objeto `height` y `width` en micrones.
+  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un objeto que contenga `height` y `width` en micron.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
@@ -953,10 +1018,10 @@ Utilizar el estilo CCS `page-break-before: always;` para imprimir a la fuerza un
 Un ejemplo de `webContents.printToPDF`:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 const fs = require('fs')
 
-let win = new BrowserWindow({width: 800, height: 600})
+let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('http://github.com')
 
 win.webContents.on('did-finish-load', () => {
@@ -978,7 +1043,7 @@ win.webContents.on('did-finish-load', () => {
 Añade la ruta especificada al espacio de trabajo DevTools. Debe ser utilizado luego de la creación de DevTools:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.webContents.on('devtools-opened', () => {
   win.webContents.addWorkSpace(__dirname)
@@ -1034,7 +1099,7 @@ An example of showing devtools in a `<webview>` tag:
 An example of showing devtools in a `BrowserWindow`:
 
 ```js
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 let win = null
 let devtools = null
@@ -1044,13 +1109,13 @@ app.once('ready', () => {
   devtools = new BrowserWindow()
   win.loadURL('https://github.com')
   win.webContents.setDevToolsWebContents(devtools.webContents)
-  win.webContents.openDevTools({mode: 'detach'})
+  win.webContents.openDevTools({ mode: 'detach' })
 })
 ```
 
 #### `contents.openDevTools([options])`
 
-* `opciones` Object (opcional) 
+* `opciones` Objecto (opcional) 
   * `mode` String - Abre las herramientas del desarrollador con el estado de dock especificado, puede ser `right`, `bottom`, `undocked`, `detach`. Por defecto se utiliza el último estado de dock. En el modo `undocked` es posible acoplarse de nuevo. En el modo `detach` no se puede.
 
 Abre las herramientas del desarrolador.
@@ -1089,7 +1154,7 @@ Abre las herramientas de desarrollador para el contexto del trabajador de servic
 * `channel` Cadena
 * `...args` any[]
 
-Envía un mensaje asincrónico al proceso de renderizado a través de `channel`. También se puede enviar argumentos arbitrarios. Los argumentos se serializarán en JSON internamente y por lo tanto, no se incluirán funciones ni cadenas de prototipos.
+Envía un mensaje asincrónico al proceso de renderizado vía `channel`, también puedes mandar argumentos arbitrarios. Los argumentos se serializarán en JSON internamente y por lo tanto, no se incluirán funciones ni cadenas de prototipos.
 
 The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
 
@@ -1097,11 +1162,11 @@ Un ejemplo de envío de mensajes desde el proceso principal al proceso de render
 
 ```javascript
 // En el proceso principal.
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 let win = null
 
 app.on('ready', () => {
-  win = new BrowserWindow({width: 800, height: 600})
+  win = new BrowserWindow({ width: 800, height: 600 })
   win.loadURL(`file://${__dirname}/index.html`)
   win.webContents.on('did-finish-load', () => {
     win.webContents.send('ping', '¡Suuuuuuuuuuuuuu!')
@@ -1129,7 +1194,7 @@ app.on('ready', () => {
     * `desktop` - El tipo de la pantalla de escritorio.
     * `mobile` - El tipo de la pantalla móvil.
   * `screenSize` [Size](structures/size.md) - Configura el tamaño de la pantalla emulada (screenPosition == mobile).
-  * `viewPosition` [Point](structures/point.md) - Posiciona la vista sobre la pantalla (screenPosition == mobile) (por defecto: `{x: 0, y: 0}`).
+  * `viewPosition` [Point](structures/point.md) - Posiciona la vista sobre la pantalla (screenPosition == mobile) (por defecto: `{ x: 0, y: 0 }`).
   * `deviceScaleFactor` Integer - Configura el factor escala del dispositivo (si es cero regresa por defecto al factor de escala original del dispositivo) (por defecto: `0`).
   * `viewSize` [Size](structures/size.md) - Configura el tamaño de la vista emulada (en blanco significa que no hay anulación)
   * `scale` Float - Escala de la vista emulada dentro del espacio disponible (no dentro del modo vista) (por defecto: `1`).
@@ -1212,7 +1277,7 @@ Configura el `item` como un elemento arrastrable para la operación drag-drop ac
 Devuelve `Boolean` - true si se ha iniciado con éxito el proceso de guardar la página.
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 
 win.loadURL('https://github.com')
@@ -1280,7 +1345,21 @@ Returns `Integer` - The operating system `pid` of the associated renderer proces
 
 #### `contents.getProcessId()`
 
-Returns `Integer` - The chromium internal `pid` of the associated renderer. Can be compared to the `frameProcessId` passed by frame specific navigation events (e.g. `did-frame-navigate`)
+Returns `Integer` - The Chromium internal `pid` of the associated renderer. Can be compared to the `frameProcessId` passed by frame specific navigation events (e.g. `did-frame-navigate`)
+
+#### `contents.takeHeapSnapshot(filePath)`
+
+* `filePath` String - Path to the output file.
+
+Returns `Promise<void>` - Indicates whether the snapshot has been created successfully.
+
+Takes a V8 heap snapshot and saves it to `filePath`.
+
+#### `contents.setBackgroundThrottling(allowed)`
+
+* `allowed` Boolean
+
+Controls whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
 
 ### Propiedades de Instancia
 

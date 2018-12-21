@@ -5,8 +5,8 @@
 Proses: [Main](../glossary.md#main-process)
 
 ```javascript
-const {systemPreferences} = require('electron')
-console.log(systemPreferences.isDarkMode())
+const { systemPreferences } = require ('electron')
+console.log (systemPreferences.isDarkMode ())
 ```
 
 ## Kejadian
@@ -56,6 +56,24 @@ Aksen warna.&lt;/li>
           <code>invertedColorScheme</code> Boolean - <code>true</code> if an inverted color scheme, such as a high contrast theme, is being used, <code>false</code> otherwise.
         </li>
       </ul>
+      
+      <h3>
+        Event: 'appearance-changed' <em>macOS</em>
+      </h3>
+      
+      <p>
+        Mengembalikan:
+      </p>
+      
+      <ul>
+        <li>
+          <code>newAppearance</code> String - Can be <code>dark</code> or <code>light</code>
+        </li>
+      </ul>
+      
+      <p>
+        <strong>NOTE:</strong> This event is only emitted after you have called <code>startAppLevelAppearanceTrackingOS</code>
+      </p>
       
       <h2>
         Metode
@@ -301,8 +319,8 @@ bersama dengan notifikasi.&lt;/p>
                                 <p>
                                   Contoh penggunaannya untuk menentukan apakah Anda harus membuat jendela transparan atau tidak (jendela transparan tidak akan bekerja dengan benar saat komposisi DWM dinonaktifkan):
                                 </p>
-                                <pre><code class="javascript">const {BrowserWindow, systemPreferences} = require ('elektron')
-biarkan browserOptions = {width: 1000, height: 800}
+                                <pre><code class="javascript">const { BrowserWindow, systemPreferences } = require ('elektron')
+biarkan browserOptions = { width: 1000, height: 800 }
 
 // Buat jendela transparan hanya jika platform mendukungnya.
 jika (process.platform! == 'win32' || systemPreferences.isAeroGlassEnabled ()) {
@@ -440,4 +458,67 @@ const alpha = color.substr(6, 2) // "dd"
                                 </h3>
                                 <p>
                                   Mengembalikan <code>Boolean</code> - <code>benar</code> jika skema warna terbalik, seperti tema kontras tinggi, aktif, <code> salah </code> sebaliknya.
+                                </p>
+                                <h3>
+                                  <code>systemPreferences.getEffectiveAppearance()</code> <em>macOS</em>
+                                </h3>
+                                <p>
+                                  Returns <code>String</code> - Can be <code>dark</code>, <code>light</code> or <code>unknown</code>.
+                                </p>
+                                <p>
+                                  Gets the macOS appearance setting that is currently applied to your application, maps to <a href="https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc">NSApplication.effectiveAppearance</a>
+                                </p>
+                                <p>
+                                  Please note that until Electron is built targeting the 10.14 SDK, your application's <code>effectiveAppearance</code> will default to 'light' and won't inherit the OS preference. In the interim in order for your application to inherit the OS preference you must set the <code>NSRequiresAquaSystemAppearance</code> key in your apps <code>Info.plist</code> to <code>false</code>. If you are using <code>electron-packager</code> or <code>electron-forge</code> just set the <code>enableDarwinDarkMode</code> packager option to <code>true</code>. See the <a href="https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#darwindarkmodesupport">Electron Packager API</a> for more details.
+                                </p>
+                                <h3>
+                                  <code>systemPreferences.getAppLevelAppearance()</code> <em>macOS</em>
+                                </h3>
+                                <p>
+                                  Returns <code>String</code> | <code>null</code> - Can be <code>dark</code>, <code>light</code> or <code>unknown</code>.
+                                </p>
+                                <p>
+                                  Gets the macOS appearance setting that you have declared you want for your application, maps to <a href="https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc">NSApplication.appearance</a>. You can use the <code>setAppLevelAppearance</code> API to set this value.
+                                </p>
+                                <h3>
+                                  <code>systemPreferences.setAppLevelAppearance(appearance)</code> <em>macOS</em>
+                                </h3>
+                                <ul>
+                                  <li>
+                                    <code>appearance</code> String | null - Can be <code>dark</code> or <code>light</code>
+                                  </li>
+                                </ul>
+                                <p>
+                                  Sets the appearance setting for your application, this should override the system default and override the value of <code>getEffectiveAppearance</code>.
+                                </p>
+                                <h3>
+                                  <code>systemPreferences.getMediaAccessStatus(mediaType)</code> <em>macOS</em>
+                                </h3>
+                                <ul>
+                                  <li>
+                                    <code>mediaType</code> String - <code>microphone</code> or <code>camera</code>.
+                                  </li>
+                                </ul>
+                                <p>
+                                  Returns <code>String</code> - Can be <code>not-determined</code>, <code>granted</code>, <code>denied</code>, <code>restricted</code> or <code>unknown</code>.
+                                </p>
+                                <p>
+                                  This user consent was not required until macOS 10.14 Mojave, so this method will always return <code>granted</code> if your system is running 10.13 High Sierra or lower.
+                                </p>
+                                <h3>
+                                  <code>systemPreferences.askForMediaAccess(mediaType)</code> <em>macOS</em>
+                                </h3>
+                                <ul>
+                                  <li>
+                                    <code>mediaType</code> String - the type of media being requested; can be <code>microphone</code>, <code>camera</code>.
+                                  </li>
+                                </ul>
+                                <p>
+                                  Returns <code>Promise&lt;Boolean&gt;</code> - A promise that resolves with <code>true</code> if consent was granted and <code>false</code> if it was denied. If an invalid <code>mediaType</code> is passed, the promise will be rejected. If an access request was denied and later is changed through the System Preferences pane, a restart of the app will be required for the new permissions to take effect. If access has already been requested and denied, it <em>must</em> be changed through the preference pane; an alert will not pop up and the promise will resolve with the existing access status.
+                                </p>
+                                <p>
+                                  <strong>Important:</strong> In order to properly leverage this API, you <a href="https://developer.apple.com/documentation/avfoundation/cameras_and_media_capture/requesting_authorization_for_media_capture_on_macos?language=objc">must set</a> the <code>NSMicrophoneUsageDescription</code> and <code>NSCameraUsageDescription</code> strings in your app's <code>Info.plist</code> file. The values for these keys will be used to populate the permission dialogs so that the user will be properly informed as to the purpose of the permission request. See <a href="https://electronjs.org/docs/tutorial/application-distribution#macos">Electron Application Distribution</a> for more information about how to set these in the context of Electron.
+                                </p>
+                                <p>
+                                  This user consent was not required until macOS 10.14 Mojave, so this method will always return <code>true</code> if your system is running 10.13 High Sierra or lower.
                                 </p>

@@ -6,21 +6,23 @@ Proces: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-
 
 Nie możesz użyć tego modułu, dopóki zdarzenie `ready` z modułu `app` nie zostanie wyemitowane.
 
+In the renderer process context it depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
+
 `screen` jest klasą [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-**Uwaga:** W module renderowania / DevTools, `window.screen` jest zarezerwowaną właściwością DOM, więc napisanie `let{screen} = require('electron')` nie będzie działać.
+**Uwaga:** W module renderowania / DevTools, `window.screen` jest zarezerwowaną właściwością DOM, więc napisanie `let{ screen } = require('electron')` nie będzie działać.
 
 Przykład tworzenia okna, które wypełnia cały ekran:
 
 ```javascript
 const electron = require('electron')
-const {app, BrowserWindow} = electron
+const { app, BrowserWindow } = electron
 
 let win
 
 app.on('ready', () => {
-  const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize
-  win = new BrowserWindow({width, height})
+  const { width, height } = electron.screen.getPrimaryDisplay().workAreaSize
+  win = new BrowserWindow({ width, height })
   win.loadURL('https://github.com')
 })
 ```
@@ -29,7 +31,7 @@ Inny przykład utworzenia okna na ekranie zewnętrznym:
 
 ```javascript
 const electron = require('electron')
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 let win
 
@@ -132,7 +134,7 @@ Converts a screen DIP point to a screen physical point. The DPI scale is perform
 * `window` [BrowserWindow](browser-window.md) | null
 * `rect` [Rectangle](structures/rectangle.md)
 
-Returns [`Rectangle`](structures/rectangle.md)
+Zwraca [`Rectangle`](structures/rectangle.md)
 
 Converts a screen physical rect to a screen DIP rect. The DPI scale is performed relative to the display nearest to `window`. If `window` is null, scaling will be performed to the display nearest to `rect`.
 
@@ -141,6 +143,6 @@ Converts a screen physical rect to a screen DIP rect. The DPI scale is performed
 * `window` [BrowserWindow](browser-window.md) | null
 * `rect` [Rectangle](structures/rectangle.md)
 
-Returns [`Rectangle`](structures/rectangle.md)
+Zwraca [`Rectangle`](structures/rectangle.md)
 
 Converts a screen DIP rect to a screen physical rect. The DPI scale is performed relative to the display nearest to `window`. If `window` is null, scaling will be performed to the display nearest to `rect`.

@@ -7,7 +7,7 @@ Proseso: [Pangunahin](../glossary.md#main-process), [Renderer](../glossary.md#re
 Ang mga ito ay halimbawa ng awtomatikong pag pasa ng mga crash report patungo sa remote server:
 
 ```javascript
-const{crashReporter} = require('electron')
+const{ crashReporter } = require('electron')
 
 crashReporter.start({
 Pangalan ng produkto : 'Pangalan mo''
@@ -34,8 +34,8 @@ Ang `crashReporter`module ay merong sumusunod na paraan:
 
 ### `crashReporter.start(options)`
 
-* `mga opsyon` Bagay 
-  * `PangalanngKompanya`String(optional)
+* `options` Bagay 
+  * `companyName` String
   * `sumbitURL` String-- URL na magpapadala sa mga bagsak na ulat na naka POST.
   * `pangalanngProdukto` String (optinal) - Defaults para sa `app.getName()`.
   * `uploadToServer`Boolean(optional) - kung ang mga bagsak na ulat ay dapat ma i-sent sa server. Ang default ay `true`.
@@ -52,18 +52,18 @@ Ikaw ay kailangan na tumawag sa mga pamaraan bago mag gamit ng ibang `crashRepor
 **Note:** If you need send additional/updated `extra` parameters after your first call `start` you can call `addExtraParameter` on macOS or call `start` again with the new/updated `extra` parameters on Linux and Windows.
 
 ```js
- const args = [
-   `--reporter-url=${submitURL}`,
-   `--application-name=${productName}`,
-   `--crashes-directory=${crashesDirectory}`
- ]
- const env = {
-   ELECTRON_INTERNAL_CRASH_SERVICE: 1
- }
- spawn(process.execPath, args, {
-   env: env,
-   detached: true
- })
+const args = [
+  `--reporter-url=${submitURL}`,
+  `--application-name=${productName}`,
+  `--crashes-directory=${crashesDirectory}`
+]
+const env = {
+  ELECTRON_INTERNAL_CRASH_SERVICE: 1
+}
+spawn(process.execPath, args, {
+  env: env,
+  detached: true
+})
 ```
 
 **Note:** On macOS, Electron uses a new `crashpad` client for crash collection and reporting. If you want to enable crash reporting, initializing `crashpad` from the main process using `crashReporter.start` is required regardless of which process you want to collect crashes from. Once initialized this way, the crashpad handler collects crashes from all processes. You still have to call `crashReporter.start` from the renderer or child process, otherwise crashes from them will get reported without `companyName`, `productName` or any of the `extra` information.

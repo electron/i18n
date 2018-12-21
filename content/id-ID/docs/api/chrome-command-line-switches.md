@@ -5,7 +5,7 @@
 Anda dapat menggunakan [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) untuk menambahkan mereka di app's script utama sebelum acara [siap](app.md#event-ready) modul [app](app.md) dibunyikan:
 
 ```javascript
-const {app} = require ('electron')
+const { app } = require ('electron')
 app.commandLine.appendSwitch ('remote-debugging-port', '8315')
 app.commandLine.appendSwitch ('host-rules', 'MAP * 127.0.0.1')
 
@@ -54,7 +54,7 @@ Lihat [dokumentasi Node](https://nodejs.org/api/cli.html) atau menjalankan `simp
 
 ## --proxy-server =`alamat: port`
 
-Menggunakan server proxy tertentu, yang menimpa pengaturan sistem. Switch ini hanya mempengaruhi permintaan dengan protokol HTTP, termasuk HTTPS dan WebSocket permintaan. Hal ini juga perlu dicatat bahwa tidak semua server proxy dukungan HTTPS dan WebSocket permintaan.
+Menggunakan server proxy tertentu, yang menimpa pengaturan sistem. Switch ini hanya mempengaruhi permintaan dengan protokol HTTP, termasuk HTTPS dan WebSocket permintaan. Hal ini juga perlu dicatat bahwa tidak semua server proxy dukungan HTTPS dan WebSocket permintaan. The proxy URL does not support username and password authentication [per Chromium issue](https://bugs.chromium.org/p/chromium/issues/detail?id=615947).
 
 ## --proxy-bypass-list =`host`
 
@@ -63,7 +63,7 @@ Memerintahkan elektron untuk mem-bypass server proxy untuk daftar dipisahkan sem
 Sebagai contoh:
 
 ```javascript
-const {app} = require ('electron')
+const { app } = require ('electron')
 app.commandLine.appendSwitch ('proxy-bypass-list', '<local>; * google.com; * foo.com; 1.2.3.4: 5678')
 ```
 

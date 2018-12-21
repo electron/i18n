@@ -6,7 +6,9 @@ Proses: [Main](../glossary.md#main-process)
 
 Contoh kelas `WebRequest` diakses dengan menggunakan `webRequest` properti dari `Sesi`.
 
-Metode `WebRequest` menerima opsional `filter` dan seorang `pendengar`. Seorang `pendengar` akan dipanggil dengan `pendengar(rincian)` saat API sudah terjadi. Sebuah `rincian` objek menjelaskan permintaan. Melewati `null` sebagai `pendengar` akan berhenti berlangganan dari acara tersebut.
+Metode `WebRequest` menerima opsional `filter` dan seorang `pendengar`. Seorang `pendengar` akan dipanggil dengan `pendengar(rincian)` saat API sudah terjadi. Sebuah `rincian` objek menjelaskan permintaan.
+
+⚠️ Only the last attached `listener` will be used. Passing `null` as `listener` will unsubscribe from the event.
 
 Sebuah `filter` objek memiliki `url` properti yang merupakan Array URL pola yang akan digunakan untuk menyaring permintaan yang tidak sesuai dengan URL pola. Jika `filter` dihilangkan maka semua permintaan akan dicocokkan.
 
@@ -15,7 +17,7 @@ Untuk event tertentu ` pendengar` dilewatkan dengan `panggilan kembali`, yang se
 Contoh menambahkan `User-Agent` header untuk permintaan:
 
 ```javascript
-const {session} = require('electron')
+const { session } = require('electron')
 // Mengubah agen pengguna untuk semua permintaan ke url berikut.
 const filter = {
   urls: ['https://*.github.com/*', '*://electron.github.io']
@@ -23,7 +25,7 @@ const filter = {
 
 session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback) => {
   details.requestHeaders['User-Agent'] = 'MyAgent'
-  callback({cancel: false, requestHeaders: details.requestHeaders})
+  callback({ cancel: false, requestHeaders: details.requestHeaders })
 })
 ```
 
@@ -41,7 +43,7 @@ Metode berikut tersedia pada contoh `WebRequest`:
     * `url` String
     * `method` String
     * `webContentsId` Integer (optional)
-    * `TipeSumberdaya` String
+    * `Jenissumberdaya` Tali
     * `timestamp` Duakali
     * `uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>
 </ul></li>
@@ -69,7 +71,7 @@ Metode berikut tersedia pada contoh `WebRequest`:
       * ` url </ 0> String</li>
 <li><code>method` String
       * `webContentsId` Integer (optional)
-      * `TipeSumberdaya` String
+      * `Jenissumberdaya` Tali
       * `timestamp` Duakali
       * `permintaanHeaders` Objek
     * `callback` Fungsi 
@@ -128,8 +130,8 @@ Metode berikut tersedia pada contoh `WebRequest`:
       * `pendengar` Fungsi 
         * `rincian` Obyek 
           * `identitas` Integer
-          * `url` String
-          * `method` String
+          * ` url </ 0> String</li>
+<li><code>method` String
           * `webContentsId` Integer (optional)
           * `Jenissumberdaya` Tali
           * `timestamp` Duakali
@@ -150,7 +152,7 @@ Metode berikut tersedia pada contoh `WebRequest`:
           * ` url </ 0> String</li>
 <li><code>method` String
           * `webContentsId` Integer (optional)
-          * `Jenissumberdaya` Tali
+          * `TipeSumberdaya` String
           * `timestamp` Duakali
           * `redirectURL` String
           * `statusCode` Bilangan bulat
@@ -170,7 +172,7 @@ Metode berikut tersedia pada contoh `WebRequest`:
           * `url` String
           * `method` String
           * `webContentsId` Integer (optional)
-          * `TipeSumberdaya` String
+          * `Jenissumberdaya` Tali
           * `timestamp` Duakali
           * `responseHeaders` Objek
           * `dariCache` Boolean
@@ -189,7 +191,7 @@ Metode berikut tersedia pada contoh `WebRequest`:
           * ` url </ 0> String</li>
 <li><code>method` String
           * `webContentsId` Integer (optional)
-          * `TipeSumberdaya` String
+          * `Jenissumberdaya` Tali
           * `timestamp` Duakali
           * `dariCache` Boolean
           * `kesalahan` String - deskripsi kesalahan.

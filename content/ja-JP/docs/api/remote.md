@@ -9,12 +9,17 @@
 Electronでは、GUI 関係のモジュール (たとえば `dialog`、`menu` 等) はレンダラープロセスではなく、メインプロセスでのみ有効です。 レンダラープロセスからそれらを使用するためには、`ipc` モジュールがメインプロセスにプロセス間メッセージを送る必要があります。 `remote` モジュールでは、明示的にプロセス間メッセージを送ることなく、Java の [RMI](https://en.wikipedia.org/wiki/Java_remote_method_invocation) のように、メインプロセスのオブジェクトのメソッドを呼び出せます。 以下はレンダラープロセスからブラウザウインドウを作成するサンプルです。
 
 ```javascript
-const {BrowserWindow} = require('electron').remote
-let win = new BrowserWindow({width: 800, height: 600})
+const { BrowserWindow } = require('electron').remote
+let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
 **注:** 逆 (メインプロセスからレンダラープロセスにアクセスする) の場合は、 [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback) が使用できます。
+
+**Note:** The remote module can be disabled for security reasons in the following contexts:
+
+* [`BrowserWindow`](browser-window.md) - by setting the `enableRemoteModule` option to `false`.
+* [`<webview>`](webview-tag.md) - by setting the `enableremotemodule` attribute to `false`.
 
 ## リモートオブジェクト
 
@@ -114,7 +119,7 @@ project/
 
 ```js
 // メインプロセス: main/index.js
-const {app} = require('electron')
+const { app } = require('electron')
 app.on('ready', () => { /* ... */ })
 ```
 

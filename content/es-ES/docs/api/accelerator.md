@@ -12,7 +12,7 @@ Ejemplos:
 Los atajos son registrados con el módulo e [`globalShortcut`](global-shortcut.md) usando el método [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback), ejemplo.
 
 ```javascript
-const {app, globalShortcut} = require('electron')
+const { app, globalShortcut } = require('electron')
 
 app.on('ready', () => {
   // Registrar un grabador de atajo 'CommandOControl+Y'.

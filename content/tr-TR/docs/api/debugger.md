@@ -2,12 +2,12 @@
 
 > Chrome'un uzaktan hata ayıklama protokolü içın alternatif bir geçiş noktası.
 
-Süreç: [Ana](../glossary.md#main-process)
+İşlem: [Ana](../glossary.md#main-process)
 
 Chrome Geliştirici Araçları'nın Javascript çalışma anında sayfalarla etkileşime geçme ve yönetmek üzerine [özel bir kütüphanesi](https://developer.chrome.com/devtools/docs/debugger-protocol) var.
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 
 try {
@@ -57,7 +57,7 @@ Hata ayıklayıcıyı `web İçerikleri`nden ayırır.
 
 Verilen komutu hata ayıklama hedefine gönderin.
 
-### Örnek etkinlikler
+### Örnek Events
 
 #### Etkinlik: 'ayırmak'
 
@@ -68,7 +68,7 @@ Hata ayıklama oturumu sona erdiğinde yayan. This happens either when `webConte
 
 #### Etkinlik: 'mesaj'
 
-* `event` Event
+* `event` Olay
 * `method` String - Yöntem adı.
 * `params` Object - Olay parametreleri 'parametreler' özniteliği uzaktan hata ayıklama protokolünde.
 

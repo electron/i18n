@@ -4,7 +4,7 @@
 
 线程：[主线程](../glossary.md#main-process)
 
-**See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
+**请参阅：在应用程序中如何实现更新的详细指南。**
 
 ## 跨平台提醒
 
@@ -66,11 +66,13 @@
 
 在 Windows 上只有 `releaseName` 是有效的。
 
+注意：严格来说不需要处理此事件。即时成功下载之后，下一次应用程序启动时，仍将继续下载更新文件。
+
 ### Event: 'before-quit-for-update'
 
-This event is emitted after a user calls `quitAndInstall()`.
+此事件是在用户调用`quitAndInstall()`之后发出的。
 
-When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
+当此API被调用时，会在所有窗口关闭之前发出 `before-quit` 事件。 因此，如果您希望在关闭窗口进程退出之前执行操作，则应该侦听此事件，以及侦听 `before-quit`。
 
 ## 方法
 
@@ -99,4 +101,4 @@ When this API is called, the `before-quit` event is not emitted before all windo
 
 在此机制下，调用 `autoUpdater.quitAndInstall()` 将首先关闭所有应用程序窗口，并且在所有窗口都关闭之后自动调用 `app.quit()`
 
-**注意:** 如果在`update-downloaded` 事件触发后没有调用这个API 的情况下，应用程序已经退出，该程序在下次运行的时候还是会被替换更新。
+**Note:** 严格来讲，执行一次自动更新不一定要调用次方法。因为下载更新文件成功止之后，下次应用启动的时候会强制更新。

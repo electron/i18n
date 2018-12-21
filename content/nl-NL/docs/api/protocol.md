@@ -7,13 +7,13 @@ Proces: [Main](../glossary.md#main-process)
 An example of implementing a protocol that has the same effect as the `file://` protocol:
 
 ```javascript
-const {app, protocol} = require('electron')
+const { app, protocol } = require('electron')
 const path = require('path')
 
 app.on('ready', () => {
   protocol.registerFileProtocol('atom', (request, callback) => {
     const url = request.url.substr(7)
-    callback({path: path.normalize(`${__dirname}/${url}`)})
+    callback({ path: path.normalize(`${__dirname}/${url}`) })
   }, (error) => {
     if (error) console.error('Failed to register protocol')
   })
@@ -49,7 +49,7 @@ Registering a scheme as standard will allow access to files through the [FileSys
 By default web storage apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) are disabled for non standard schemes. So in general if you want to register a custom protocol to replace the `http` protocol, you have to register it as a standard scheme:
 
 ```javascript
-const {app, protocol} = require('electron')
+const { app, protocol } = require('electron')
 
 protocol.registerStandardSchemes(['atom'])
 app.on('ready', () => {
@@ -79,7 +79,7 @@ app.on('ready', () => {
 
 Registers a protocol of `scheme` that will send the file as a response. The `handler` will be called with `handler(request, callback)` when a `request` is going to be created with `scheme`. `completion` will be called with `completion(null)` when `scheme` is successfully registered or `completion(error)` when failed.
 
-To handle the `request`, the `callback` should be called with either the file's path or an object that has a `path` property, e.g. `callback(filePath)` or `callback({path: filePath})`.
+To handle the `request`, the `callback` should be called with either the file's path or an object that has a `path` property, e.g. `callback(filePath)` or `callback({ path: filePath })`.
 
 When `callback` is called with nothing, a number, or an object that has an `error` property, the `request` will fail with the `error` number you specified. For the available error numbers you can use, please see the [net error list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
@@ -103,13 +103,13 @@ Registers a protocol of `scheme` that will send a `Buffer` as a response.
 
 The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `Buffer` object or an object that has the `data`, `mimeType`, and `charset` properties.
 
-Example:
+Voorbeeld:
 
 ```javascript
-const {protocol} = require('electron')
+const { protocol } = require('electron')
 
 protocol.registerBufferProtocol('atom', (request, callback) => {
-  callback({mimeType: 'text/html', data: Buffer.from('<h5>Response</h5>')})
+  callback({ mimeType: 'text/html', data: Buffer.from('<h5>Response</h5>') })
 }, (error) => {
   if (error) console.error('Failed to register protocol')
 })
@@ -118,13 +118,13 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 ### `protocol.registerStringProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Functie 
+* `handler` Function 
   * `request` Object 
     * `url` String
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Functie 
+  * `callback` Function 
     * `data` String (optioneel)
 * `completion` Function (optioneel) 
   * `error` Error
@@ -136,13 +136,14 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
 ### `protocol.registerHttpProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Functie 
+* `handler` Function 
   * `request` Object 
     * `url` String
+    * `headers` Object
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Functie 
+  * `callback` Function 
     * `redirectRequest` Object 
       * `url` String
       * `method` String
@@ -164,14 +165,14 @@ For POST requests the `uploadData` object must be provided.
 ### `protocol.registerStreamProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Functie 
+* `handler` Function 
   * `request` Object 
     * `url` String
     * `headers` Object
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Functie 
+  * `callback` Function 
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
 * `completion` Function (optioneel) 
   * `error` Error
@@ -183,8 +184,8 @@ The usage is similar to the other `register{Any}Protocol`, except that the `call
 Voorbeeld:
 
 ```javascript
-const {protocol} = require('electron')
-const {PassThrough} = require('stream')
+const { protocol } = require('electron')
+const { PassThrough } = require('stream')
 
 function createStream (text) {
   const rv = new PassThrough() // PassThrough is also a Readable stream
@@ -209,7 +210,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 It is possible to pass any object that implements the readable stream API (emits `data`/`end`/`error` events). For example, here's how a file could be returned:
 
 ```javascript
-const {protocol} = require('electron')
+const { protocol } = require('electron')
 const fs = require('fs')
 
 protocol.registerStreamProtocol('atom', (request, callback) => {
@@ -238,13 +239,13 @@ The `callback` will be called with a boolean that indicates whether there is alr
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Functie 
+* `handler` Function 
   * `request` Object 
     * `url` String
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Functie 
+  * `callback` Function 
     * `filePath` String
 * `completion` Function (optioneel) 
   * `error` Error
@@ -254,13 +255,13 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.interceptStringProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Functie 
+* `handler` Function 
   * `request` Object 
     * `url` String
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Functie 
+  * `callback` Function 
     * `data` String (optioneel)
 * `completion` Function (optioneel) 
   * `error` Error
@@ -270,13 +271,13 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.interceptBufferProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Functie 
+* `handler` Function 
   * `request` Object 
     * `url` String
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Functie 
+  * `callback` Function 
     * `buffer` Buffer (optioneel)
 * `completion` Function (optioneel) 
   * `error` Error
@@ -286,13 +287,14 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.interceptHttpProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Functie 
+* `handler` Function 
   * `request` Object 
     * `url` String
+    * `headers` Object
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Functie 
+  * `callback` Function 
     * `redirectRequest` Object 
       * `url` String
       * `method` String
@@ -308,14 +310,14 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
 ### `protocol.interceptStreamProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Functie 
+* `handler` Function 
   * `request` Object 
     * `url` String
     * `headers` Object
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Functie 
+  * `callback` Function 
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
 * `completion` Function (optioneel) 
   * `error` Error

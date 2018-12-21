@@ -18,7 +18,7 @@ renderer와 main 프로세스간의 메시지 발송과 처리 예:
 
 ```javascript
 // main 프로세스안에서
-const {ipcMain} = require('electron')
+const { ipcMain } = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
   console.log(arg) // prints "ping"
   event.sender.send('asynchronous-reply', 'pong')
@@ -32,7 +32,7 @@ ipcMain.on('synchronous-message', (event, arg) => {
 
 ```javascript
 // renderer 프로세스(웹 페이지)안에서
-const {ipcRenderer} = require('electron')
+const { ipcRenderer } = require('electron')
 console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // "pong"이 출력됩니다.
 
 ipcRenderer.on('asynchronous-reply', (event, arg) => {

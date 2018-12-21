@@ -7,7 +7,7 @@
 Aşağıda bir çökme durumunun otomatik olarak uzak sunucuya gönderilmesinin bir örneği var:
 
 ```javascript
-const {crashReporter} = require('electron')
+const { crashReporter } = require('electron')
 
 crashReporter.start({
   productName: 'YourName',
@@ -36,7 +36,7 @@ Or use a 3rd party hosted solution:
 ### `crashReporter.start(options)`
 
 * `seçenekler` Obje 
-  * `companyName` Katar (opsiyonel)
+  * `companyName` String
   * `submitURL` Katar - Çökme raporlarının POST olarak yollanacağı URL.
   * `productName` Katar (opsiyonel) - Varsayılan olarak `app.getName()`.
   * `uploadToServer` Boolean (opsiyonel) - Çökme raporları sunucuya yollansın mı? Varsayılan `true`.
@@ -53,18 +53,18 @@ Or use a 3rd party hosted solution:
 **Note:** If you need send additional/updated `extra` parameters after your first call `start` you can call `addExtraParameter` on macOS or call `start` again with the new/updated `extra` parameters on Linux and Windows.
 
 ```js
- const args = [
-   `--reporter-url=${gonderilecekURL}`,
-   `--application-name=${urunIsmi}`,
-   `--crashes-directory=${cokmeRaporuDizini}`
- ]
- const env = {
-   ELECTRON_INTERNAL_CRASH_SERVICE: 1
- }
- spawn(process.execPath, args, {
-   env: env,
-   detached: true
- })
+const args = [
+  `--reporter-url=${submitURL}`,
+  `--application-name=${productName}`,
+  `--crashes-directory=${crashesDirectory}`
+]
+const env = {
+  ELECTRON_INTERNAL_CRASH_SERVICE: 1
+}
+spawn(process.execPath, args, {
+  env: env,
+  detached: true
+})
 ```
 
 **Not:** macOS üzerinde Electron, çökme raporu toplama ve raporlama için `crashpad` istemcisi kullanır. Çökme raporlamayı aktif hale getirmek için, `crashpad<code>'i ana süreç içerisinden -hangi süreçten çökmeleri toplayacağınızdan bağımsız olarak-

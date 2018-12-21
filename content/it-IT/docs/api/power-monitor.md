@@ -10,7 +10,7 @@ Ad esempio:
 
 ```javascript
 const electron = richiede('electron')
-const {app} = electron
+const { app } = electron
 
 app.on('ready', () => {
   electron.Monitorapotenz.on('sospendi', () => {

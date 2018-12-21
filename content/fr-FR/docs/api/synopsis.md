@@ -11,11 +11,11 @@ La règle de base est : si un module est une [GUI](https://en.wikipedia.org/wiki
 The main process script is like a normal Node.js script:
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 let win = null
 
 app.on('ready', () => {
-  win = new BrowserWindow({width: 800, height: 600})
+  win = new BrowserWindow({ width: 800, height: 600 })
   win.loadURL('https://github.com')
 })
 ```
@@ -27,7 +27,7 @@ Le processus renderer n'est pas différent d'une page web normale, à l'exceptio
 <html>
 <body>
 <script>
-  const {app} = require('electron').remote
+  const { app } = require('electron').remote
   console.log(app.getVersion())
 </script>
 </body>
@@ -41,7 +41,7 @@ Pour lancer votre app, lisez [Lancer votre application](../tutorial/first-app.md
 À partir de la 0.37, vous pouvez utiliser l'[affectation par décomposition](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment) pour rendre l'utilisation des modules intégrés plus simple.
 
 ```javascript
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 let win
 
@@ -55,7 +55,7 @@ Si vous avez besoin la totalité du module `electron`, vous pouvez faire un requ
 
 ```javascript
 const electron = require('electron')
-const {app, BrowserWindow} = electron
+const { app, BrowserWindow } = electron
 
 let win
 

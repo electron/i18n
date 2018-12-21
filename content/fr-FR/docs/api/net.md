@@ -18,9 +18,9 @@ L'API du module `net` a été spécifiquement conçu pour imiter, autant que pos
 Par exemple, l'exemple suivant montre rapidement comment utiliser l'API `net` :
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 app.on('ready', () => {
-  const {net} = require('electron')
+  const { net } = require('electron')
   const request = net.request('https://github.com')
   request.on('response', (response) => {
     console.log(`STATUS: ${response.statusCode}`)
@@ -29,7 +29,7 @@ app.on('ready', () => {
       console.log(`BODY: ${chunk}`)
     })
     response.on('end', () => {
-      console.log('Plus de données dans response.')
+      console.log('No more data in response.')
     })
   })
   request.end()

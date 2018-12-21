@@ -6,7 +6,7 @@ To nie znaczy, że Electron jest powiązaniem JavaScript z bibliotekami graficzn
 
 **Uwaga**: Ten przykład jest dostępny także jako repozytorium przez co możesz [go pobrać i uruchomić od razu](#trying-this-example).
 
-As far as development is concerned, an Electron application is essentially a Node.js application. The starting point is a `package.json` that is identical to that of a Node.js module. Najbardziej podstawowa aplikacja napisana za pomocą Electron`a ma następującą strukturę folderów:
+As far as development is concerned, an Electron application is essentially a Node.js application. Punktem wyjścia jest `package.json`, który jest identyczny z modułem Node.js. Najbardziej podstawowa aplikacja napisana za pomocą Electron`a ma następującą strukturę folderów:
 
 ```text
 twoja-aplikacja
@@ -21,7 +21,7 @@ Stwórz nowy pusty folder dla twojej nowej aplikacji napisanej w Electron`ie. Ot
 npm init
 ```
 
-npm will guide you through creating a basic `package.json` file. The script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
+npm poprowadzi Cię przez proces tworzenia podstawowego pliku `package.json`. The script specified by the `main` field is the startup script of your app, which will run the main process. An example of your `package.json` might look like this:
 
 ```json
 {
@@ -81,7 +81,7 @@ The `electron` module exposes features in namespaces. As examples, the lifecycle
 const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
-  // Tworzenie okna przeglądarki.
+  // Stwórz okno przeglądarki.
   win = new BrowserWindow({ width: 800, height: 600 })
 
   // i ładowanie index.html aplikacji.
@@ -95,21 +95,21 @@ The `main.js` should create windows and handle all the system events your applic
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
-// zapisz do zmiennej globalnej referencję window object, w przeciwnym razie 
-// zostanie ona zamknięta automatycznie kiedy  JavaScript
+// Zachowaj globalną referencję obiektu okna, jeśli tego nie zrobisz, okno 
+// zostanie zamknięte automatycznie, gdy obiekt JavaScript odśmieci pamięć.
 let win
 
 function createWindow () {
-  // Create the browser window.
+  // Stwórz okno przeglądarki.
   win = new BrowserWindow({ width: 800, height: 600 })
 
   // i ładowanie index.html aplikacji.
   win.loadFile('index.html')
 
-  // Open the DevTools.
+  // Otwórz Narzędzia Deweloperskie.
   win.webContents.openDevTools()
 
-  // Emitted when the window is closed.
+  // Emitowane, gdy okno jest zamknięte.
   win.on('closed', () => {
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
@@ -123,7 +123,7 @@ function createWindow () {
 // Some APIs can only be used after this event occurs.
 app.on('ready', createWindow)
 
-// Quit when all windows are closed.
+// Zamknij, gdy wszystkie okna są zamknięte.
 app.on('window-all-closed', () => {
   // On macOS it is common for applications and their menu bar
   // to stay active until the user quits explicitly with Cmd + Q

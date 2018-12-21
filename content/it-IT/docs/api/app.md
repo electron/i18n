@@ -7,7 +7,7 @@ Processo: [Main](../glossary.md#main-process)
 I seguenti esempi mostrano come uscire dall'applicazione quando l'ultima finestra è chiusa:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 app.on('window-all-closed', () => {
   app.quit()
 })
@@ -215,7 +215,7 @@ Restituisce:
 Emesso quando fallisce la verifica del`certificato` per`url`, per verificare il certificato puoi prevenire il comportamento predefinito con `evento.previeniDefault()` e chiamare `callback(vero)`.
 
 ```javascript
-const {app} = richiedi('electron')
+const { app } = richiedi('electron')
 
 
 app.on ('certificate-error', (event, webContents, url, error, certificate, callback) => {
@@ -245,7 +245,7 @@ Emesso quando un certificato client è richiesto.
 L'`url` corrisponde alla voce di navigazione richiedente il certificato client e `callback` può essere chiamato con una voce filtrata dalla lista. Usando `evento.previeniDefault()` si previene che l'app usi il primo certificato dal magazzino.
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('select-client-certificate', (event, webContents, url, list, callback) => {
   event.preventDefault()
@@ -278,7 +278,7 @@ Emesso quando i `Contenutiweb` vogliono fare un'autenticazione base.
 Il comportamento predefinito è di cancellare tutte le autenticazioni, per evitare ciò puoi prevenire il comportamento predefinito con `evento.previeniDefault` e chiamare `callback(nomeutente, password)` con le credenziali.
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('login', (event, webContents, request, authInfo, callback) => {
   event.preventDefault()
@@ -313,7 +313,7 @@ Restituisce:
 Emesso quando Electron ha creato una nuova `sessione`.
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('session-created', (event, session) => {
   console.log(session)
@@ -331,6 +331,26 @@ Restituisce:
 Questo evento verrà emesso all'interno della prima istanza della tua applicazione quando una seconda istanza è stata eseguita. `argv` è un insieme delle linee di comando degli argomenti della seconda istanza e la `Directoryfunzionante` è la sua attuale Directory funzionante. Di solito le app rispondono a questo focalizzando la loro finestra primaria e non minimizzata.
 
 Questo evento è garantito per essere emesso dopo che l'evento `ready` di `app` viene emesso.
+
+### Event: 'remote-require'
+
+Restituisce:
+
+* `event` Event
+* `ContenutiWeb` [ContenutiWeb](web-contents.md)
+* `moduleName` String
+
+Emitted when `remote.require()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+
+### Event: 'remote-get-global'
+
+Restituisce:
+
+* `event` Event
+* `ContenutiWeb` [ContenutiWeb](web-contents.md)
+* `globalName` String
+
+Emitted when `remote.getGlobal()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
 
 ## Metodi
 
@@ -369,10 +389,9 @@ Quando `app.rilancia` è chiamato ripetutamente, le istanze multiple sarannò av
 Un esempio di riavvio dell'istanza corrente immediato e aggiungendo un nuovo argomento della linea di comando alla nuova istanza:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
-
-app.relaunch({args: process.argv..slice(1).concat(['--relaunch'])})
+app.relaunch({ args: process.argv.slice(1).concat(['--relaunch']) })
 app.exit(0)
 ```
 
@@ -382,7 +401,7 @@ Restituisce `Booleano` - `true` se Electron ha finito l'inizializzazione, `falso
 
 ### `app.whenReady()`
 
-Restituisce `Promise` - soddisfatta quando Electron è inizializzato. Può essere usata come alternativa conveniente per controllare `app.isReady()` e sottoscrivendo all'evento `ready` se l'applicazione non è ancora pronta.
+Returns `Promise<void>` - fulfilled when Electron is initialized. Può essere usata come alternativa conveniente per controllare `app.isReady()` e sottoscrivendo all'evento `ready` se l'applicazione non è ancora pronta.
 
 ### `app.focalizza()`
 
@@ -437,7 +456,7 @@ Puoi richiedere i seguenti percorsi dal nome:
 </ul></li>
 </ul></li>
 <li><code>callback` Function 
-      * `errore` Errore
+      * `error` Error
       * `icona` [ImmagineNativa](native-image.md)
     
     Recupera un'icona associata al percorso.
@@ -552,7 +571,7 @@ Puoi richiedere i seguenti percorsi dal nome:
     
     ### `app.ottieniImpostazioniJumpList` *Windows*
     
-    Restituisci `Oggetto`:
+    Ritorna `Object`:
     
     * `miniElementi` Numero intero - Il minimo numero di elementi che saranno mostrati nella JumpList (per una più dettagliata descrizione di questo valore vedere [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
     * `Elementirimossi` [ElementiJumpList[]](structures/jump-list-item.md) - Insieme degli oggetti `ElementiJumpList` che corrisponde agli elementi esplicitamente rimossi dall'utente dalle categorie modificate nella Jump List. Questi elementi non possono essere nuovamente aggiunti alla Jump List alla **prossima** chiamata a `app.impostaJumpList()`, Windows non mostrerà alcuna categoria personalizzata che contenga alcuni valori rimossi.
@@ -577,57 +596,57 @@ Puoi richiedere i seguenti percorsi dal nome:
     Questo è un esempio molto semplice di come creare una Jump List personalizzata:
     
     ```javascript
-    const {app} = require('electron')
+    const { app } = require('electron')
     
     app.setJumpList([
       {
         type: 'custom',
-        name: 'Progetti recenti',
+        name: 'Recent Projects',
         items: [
           { type: 'file', path: 'C:\\Projects\\project1.proj' },
           { type: 'file', path: 'C:\\Projects\\project2.proj' }
         ]
       },
-      { // Ha un nome, così `type` viene considerato come "custom"
-        name: 'Strumenti',
+      { // has a name so `type` is assumed to be "custom"
+        name: 'Tools',
         items: [
           {
             type: 'task',
-            title: 'Strumento A',
+            title: 'Tool A',
             program: process.execPath,
             args: '--run-tool-a',
             icon: process.execPath,
             iconIndex: 0,
-            description: 'Esegui Strumento A'
+            description: 'Runs Tool A'
           },
           {
             type: 'task',
-            title: 'Strumento B',
+            title: 'Tool B',
             program: process.execPath,
             args: '--run-tool-b',
             icon: process.execPath,
             iconIndex: 0,
-            description: 'Esegui Strumento B'
+            description: 'Runs Tool B'
           }
         ]
       },
       { type: 'frequent' },
-      { // NON ha un nome, così `type` viene considerato come "tasks"
+      { // has no name and no type so `type` is assumed to be "tasks"
         items: [
           {
             type: 'task',
-            title: 'Nuovo Progetto',
+            title: 'New Project',
             program: process.execPath,
             args: '--new-project',
-            description: 'Crea un nuovo progetto.'
+            description: 'Create a new project.'
           },
           { type: 'separator' },
           {
             type: 'task',
-            title: 'Recupera Progetto',
+            title: 'Recover Project',
             program: process.execPath,
             args: '--recover-project',
-            description: 'Recupera Progetto'
+            description: 'Recover Project'
           }
         ]
       }
@@ -638,7 +657,7 @@ Puoi richiedere i seguenti percorsi dal nome:
     
     Restituisci `Booleano`
     
-    Questo metodo rende la tua app a Singola Istanza - invece di permettere istanze multiple della tua app da eseguire, questo assicurerà che solo una singola istanza della tua app sia in esecuzione e che le altre istanze segnino questa ed escano.
+    Questo metodo rende la tua app una app a Singola Istanza - invece di permettere multiple istanze della tua app da eseguire, questo assicurerà che solo una singola istanza della tua app sia in esecuzione e che le altre istanze segnino questa ed escano.
     
     Il valore restituito da questo metodo indica se o meno questa istanza della tua applicazione ha ottenuto con successo il blocco. Se non è riuscita a ottenere il blocco puoi presumere che l'altra istanza della tua applicazione è già in esecuzione con il blocco ed esca immediatamente.
     
@@ -649,7 +668,7 @@ Puoi richiedere i seguenti percorsi dal nome:
     Un esempio dell'attivazione drll'istanza primaria quando se ne avvia una seconda:
     
     ```javascript
-    const {app} = require('electron')
+    const { app } = require('electron')
     let myWindow = null
     
     const gotTheLock = app.requestSingleInstanceLock()
@@ -723,7 +742,7 @@ Puoi richiedere i seguenti percorsi dal nome:
     * `callback` Function 
       * `risultato` Numero intero - Risultato dell'importo.
     
-    Importa il certificato in formato pkcs12 nel magazzino del certificato della piattaforma. `callback` è chiamato con il `risultato` dell'operazione di importazione, un valore di `0` indica successo, mentre un altro valore indica un fallimento in base al chromium [net_errore_lista](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+    Importa il certificato in formato pkcs12 nel magazzino del certificato della piattaforma. `callback` is called with the `result` of import operation, a value of `0` indicates success while any other value indicates failure according to Chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
     
     ### `app.disabilitaAccelerazioneHardware()`
     
@@ -744,6 +763,41 @@ Puoi richiedere i seguenti percorsi dal nome:
     ### `app.getGPUFeatureStatus()`
     
     Restituisce lo [`StatoFunzioneGPU`](structures/gpu-feature-status.md) - Lo Stato Funzioni Grafiche da `chrome://gpu/`.
+    
+    ### `app.getGPUInfo(infoType)`
+    
+    * `infoType` String - Values can be either `basic` for basic info or `complete` for complete info.
+    
+    Returns `Promise`
+    
+    For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src.git/+/69.0.3497.106/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
+    
+    For `infoType` equal to `basic`: Promise is fulfilled with `Object` containing fewer attributes than when requested with `complete`. Here's an example of basic response:
+    
+    ```js
+    { auxAttributes:
+       { amdSwitchable: true,
+         canSupportThreadedTextureMailbox: false,
+         directComposition: false,
+         directRendering: true,
+         glResetNotificationStrategy: 0,
+         inProcessGpu: true,
+         initializationTime: 0,
+         jpegDecodeAcceleratorSupported: false,
+         optimus: false,
+         passthroughCmdDecoder: false,
+         sandboxed: false,
+         softwareRendering: false,
+         supportsOverlays: false,
+         videoDecodeAcceleratorFlags: 0 },
+    gpuDevice:
+       [ { active: true, deviceId: 26657, vendorId: 4098 },
+         { active: false, deviceId: 3366, vendorId: 32902 } ],
+    machineModelName: 'MacBookPro',
+    machineModelVersion: '11.5' }
+    ```
+    
+    Using `basic` should be preferred if only basic information like `vendorId` or `driverId` is needed.
     
     ### `app.impostaContaBadge(conta)` *Linux* *macOS*
     
@@ -819,6 +873,10 @@ Puoi richiedere i seguenti percorsi dal nome:
     
     **Nota:** L'albero accessibilità del rendering può colpire significativamente la performance della tua app. Potrebbe non essere abilitato di default.
     
+    ### `app.showAboutPanel()` *macOS*
+    
+    Show the about panel with the values defined in the app's `.plist` file or with the options set via `app.setAboutPanelOptions(options)`.
+    
     ### `app.impostaOpzioniCircaPannello(opzioni)` *macOS*
     
     * `options` Oggetto 
@@ -843,7 +901,7 @@ Puoi richiedere i seguenti percorsi dal nome:
     stopAccessingSecurityScopedResource()
     ```
     
-    Comincia con l'accesso ad una risorsa mirata sicura. Con questo metodo le applicazioni electron che sono impacchettate per il Mac App Store possono raggiungere l'esterno della loro sandbox per accedere ai file scelti dall'utente. Dai un'occhiata alla [documentazione Apple](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) per una descrizione su come questi sistemi funzionano.
+    Comincia con l'accesso ad una risorsa mirata sicura. With this method Electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. Dai un'occhiata alla [documentazione Apple](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) per una descrizione su come questi sistemi funzionano.
     
     ### `app.Lineacomando.aggiungereInterruttore(interrutore[, valore])`
     
@@ -861,6 +919,12 @@ Puoi richiedere i seguenti percorsi dal nome:
     Aggiungi un argomento alla linea di comando di Chromium. L'argomento sarà quotato correttamente.
     
     **Nota:** Non colpirà `processo.argv`.
+    
+    ### `app.enableSandbox()` *Sperimentale* *macOS* *Windows*
+    
+    Enables full sandbox mode on the app.
+    
+    Questo metodo può essere chiamato solo prima che l'app sia pronta.
     
     ### `app.abilitascatolaSabbiaMischiata()` *Sperimentale* *macOS* *Windows*
     

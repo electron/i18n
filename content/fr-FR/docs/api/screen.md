@@ -6,21 +6,23 @@ Processus : [Main](../glossary.md#main-process), [Renderer](../glossary.md#rende
 
 Vous ne pouvez pas inclure ou utiliser ce module avant que l'événement `ready` du module `app` soit émis.
 
+In the renderer process context it depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
+
 `screen` est un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-**Remarque :** Dans le renderer / DevTools, `window.screen` est une propriété réservée au DOM, alors écrire `let {screen} = require('electron')` ne fonctionnera pas.
+**Remarque :** Dans le renderer / DevTools, `window.screen` est une propriété réservée au DOM, alors écrire `let { screen } = require('electron')` ne fonctionnera pas.
 
 Un exemple de création d'une fenêtre qui prendra tout l'écran :
 
 ```javascript
 const electron = require('electron')
-const {app, BrowserWindow} = electron
+const { app, BrowserWindow } = electron
 
 let win
 
 app.on('ready', () => {
-  const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize
-  win = new BrowserWindow({width, height})
+  const { width, height } = electron.screen.getPrimaryDisplay().workAreaSize
+  win = new BrowserWindow({ width, height })
   win.loadURL('https://github.com')
 })
 ```
@@ -29,7 +31,7 @@ Un autre exemple de création d'une fenêtre dans l'écran externe :
 
 ```javascript
 const electron = require('electron')
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 let win
 
@@ -64,7 +66,7 @@ Retourne :
 
 ### Événement : 'display-removed'
 
-Renvoie :
+Retourne :
 
 * `event` Événement
 * `oldDisplay` [Display](structures/display.md)
@@ -73,7 +75,7 @@ Renvoie :
 
 ### Événement 'display-metrics-changed'
 
-Renvoie :
+Retourne :
 
 * `event` Événement
 * `display` [Display](structures/display.md)

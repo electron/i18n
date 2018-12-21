@@ -2,7 +2,7 @@
 
 Sejak v0.34.0, Electron mengizinkan pengiriman aplikasi yang dikemas ke Mac App Store (MAS). Panduan ini memberikan informasi tentang: bagaimana cara mengirimkan aplikasi Anda dan keterbatasan MAS membangun.
 
-**Note:** Mengirimkan aplikasi ke Mac App Store memerlukan pendaftaran [ Apple Developer Program ](https://developer.apple.com/support/compare-memberships/), yang membutuhkan biaya.
+**Note:** Submitting an app to Mac App Store requires enrolling in the [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), which costs money.
 
 ## Cara Mengirimkan Aplikasi Anda
 
@@ -20,7 +20,7 @@ Sebelum menandatangani aplikasi Anda, Anda perlu mengetahui ID Tim akun Anda. Un
 
 Setelah menyelesaikan pekerjaan persiapan, Anda dapat mengemas aplikasi Anda dengan mengikuti [ Distribusi Aplikasi ](application-distribution.md), lalu lanjutkan ke menandatangani aplikasi Anda.
 
-Pertama, Anda harus menambahkan kunci `ElektronTeamID` ke aplikasi `Info.plist`, yang memiliki ID Tim Anda sebagai nilai:
+First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which has your Team ID as its value:
 
 ```xml
 <plist version="1.0">
@@ -98,7 +98,7 @@ Modul asli yang digunakan di aplikasi Anda juga perlu ditandatangani. Jika mengg
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-Perhatikan juga bahwa modul asli mungkin memiliki file antara yang dihasilkan yang seharusnya tidak disertakan (karena mereka juga perlu ditandatangani). Jika Anda menggunakan [elektron-packager](https://github.com/electron-userland/electron-packager) sebelum versi 8.1.0, tambahkan `--ignore=.+\.o$` ke langkah membangun Anda untuk mengabaikan berkas-berkas ini. Versi 8.1.0 dan yang lebih baru mengabaikan file tersebut secara default.
+Perhatikan juga bahwa modul asli mungkin memiliki file antara yang dihasilkan yang seharusnya tidak disertakan (karena mereka juga perlu ditandatangani). Jika Anda menggunakan [elektron-packager](https://github.com/electron-userland/electron-packager) sebelum versi 8.1.0, tambahkan `--ignore=.+\.o$` ke langkah membangun Anda untuk mengabaikan berkas-berkas ini. Versions 8.1.0 and later ignore those files by default.
 
 ### Upload Aplikasi Anda
 

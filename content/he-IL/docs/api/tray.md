@@ -7,16 +7,16 @@ Process: [Main](../glossary.md#main-process)
 `Tray` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
 ```javascript
-const {app, Menu, Tray} = require('electron')
+const { app, Menu, Tray } = require('electron')
 
 let tray = null
 app.on('ready', () => {
   tray = new Tray('/path/to/my/icon')
   const contextMenu = Menu.buildFromTemplate([
-    {label: 'Item1', type: 'radio'},
-    {label: 'Item2', type: 'radio'},
-    {label: 'Item3', type: 'radio', checked: true},
-    {label: 'Item4', type: 'radio'}
+    { label: 'Item1', type: 'radio' },
+    { label: 'Item2', type: 'radio' },
+    { label: 'Item3', type: 'radio', checked: true },
+    { label: 'Item4', type: 'radio' }
   ])
   tray.setToolTip('This is my application.')
   tray.setContextMenu(contextMenu)
@@ -32,14 +32,14 @@ app.on('ready', () => {
 * On Linux in order for changes made to individual `MenuItem`s to take effect, you have to call `setContextMenu` again. For example:
 
 ```javascript
-const {app, Menu, Tray} = require('electron')
+const { app, Menu, Tray } = require('electron')
 
 let appIcon = null
 app.on('ready', () => {
   appIcon = new Tray('/path/to/my/icon')
   const contextMenu = Menu.buildFromTemplate([
-    {label: 'Item1', type: 'radio'},
-    {label: 'Item2', type: 'radio'}
+    { label: 'Item1', type: 'radio' },
+    { label: 'Item2', type: 'radio' }
   ])
 
   // Make a change to the context menu
@@ -217,9 +217,9 @@ Sets when the tray's icon background becomes highlighted (in blue).
 **Note:** You can use `highlightMode` with a [`BrowserWindow`](browser-window.md) by toggling between `'never'` and `'always'` modes when the window visibility changes.
 
 ```javascript
-const {BrowserWindow, Tray} = require('electron')
+const { BrowserWindow, Tray } = require('electron')
 
-const win = new BrowserWindow({width: 800, height: 600})
+const win = new BrowserWindow({ width: 800, height: 600 })
 const tray = new Tray('/path/to/my/icon')
 
 tray.on('click', () => {

@@ -7,7 +7,7 @@ Processus : [Main](../glossary.md#main-process)
 Les outils de développement de chrome a une [liaison spéciale](https://developer.chrome.com/devtools/docs/debugger-protocol) disponible lors de l’exécution de JavaScript qui permet l’interaction avec les pages et leur instrumentation.
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 
 try {
@@ -61,7 +61,7 @@ Envoi une commande au débogueur.
 
 #### Événement : 'detach'
 
-* `event` Event
+* `event` Événement
 * `reason` String - Motif du retrait du débogueur.
 
 Émis lorsque la session de débogage est terminée. Cela se produit soit lorsque le `webContents` est fermé, soit lorsque devtools est invoqué pour le `webContents` rattaché.

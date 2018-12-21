@@ -22,9 +22,13 @@
   * `enabled` Boolean (可选) - 如果为 false，该菜单项将会置灰且不可点击。
   * ` visible `Boolean (可选)-如果为 false, 该菜单项将完全隐藏。
   * ` checked `Boolean (可选)-只应为 ` checkbox ` 或 ` radio ` 类型菜单项指定。
-  * `submenu` (MenuItemConstructorOptions[] | Menu) (可选) - 只适用于`submenu` 类型的菜单项。 如果设置了 ` submenu `, 则 ` type: 'submenu' `配置可以省略。 如果该值不是 [ Menu ](menu.md) `, 则它将自动使用 ` Menu. buildFromTemplate将其转换为Menu。
+  * `registerAccelerator` Boolean (optional) - If false, the accelerator won't be registered with the system, but it will still be displayed. Defaults to true.
+  * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. If the value is not a [`Menu`](menu.md) then it will be automatically converted to one using `Menu.buildFromTemplate`.
   * ` id `String (可选)-在单个菜单中是唯一的。如果定义, 则可以通过它来引用该项。
-  * ` position `String (可选)-此字段允许对给定菜单中的特定位置进行 fine-grained（细粒度） 定义。
+  * `before` String[] (optional) - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
+  * `after` String[] (optional) - Inserts this item after the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu.
+  * `beforeGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
+  * `afterGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group after the containing group of the item with the specified label.
 
 ### 角色
 
@@ -33,6 +37,8 @@
 最好给任何一个菜单指定 ` role `去匹配一个标准角色, 而不是尝试在 ` click ` 函数中手动实现该行为。 内置的 ` role ` 行为将提供最佳的原生体验。
 
 使用 ` role ` 时, ` label ` 和 ` accelerator ` 值是可选的, 并为每个平台，将默认为适当值。
+
+Every menu item must have either a `role`, `label`, or in the case of a separator a `type`.
 
 `role ` 属性可以具有以下值:
 
@@ -46,11 +52,11 @@
 * `delete`
 * ` minimize ` - 最小化当前窗口。
 * `close` - 关闭当前窗口.
-* `quit`- 退出应用。
+* `quit` - Quit the application.
 * `reload` - 重新加载当前窗口。
 * `forcereload` - 忽略缓存，重新加载当前窗口。
 * `toggledevtools` - 在当前窗口中隐藏/显示开发者工具。
-* `togglefullscreen`- 将当前窗口切换全屏模式。
+* `toggleFullScreen` - Toggle full screen mode on the current window.
 * `resetzoom` - 将主页的缩放级别重置为初始大小.
 * `zoomin` - 主页面放大 10%.
 * `zoomout` -主页面缩小 10%.

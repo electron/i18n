@@ -6,12 +6,12 @@
 
 ```javascript
 // Ana süreçte.
-const {BrowserWindow} = ('electron') gerektirir
+const { BrowserWindow } = ('electron') gerektirir
 
 // Ya da oluşturucu işleminden `kumanda` kullanın.
-// const {BrowserWindow} = require('electron').remote
+// const { BrowserWindow } = require('electron').remote
 
-let win = new BrowserWindow({width: 800, height: 600})
+let win = new BrowserWindow({ width: 800, height: 600 })
 win.on('closed', () => {
   win = null
 })
@@ -36,7 +36,7 @@ Sayfa doğrudan pencereye yüklendiğinde, kullanıcı, bitmemiş sayfayı gör�
 Sayfayı yüklerken, pencerenin henüz gösterilmemesi durumunda, oluşturucu işlemi sayfayı ilk kez işlediğinde, ` hazır göster ` olayı yayımlanacaktır. Bu olayın ardından bir pencere gösterildiğinde görsel bir flaş yok:
 
 ```javascript
-const {BrowserWindow} = require ('elektron') win = yeni BrowserWindow olsun ({show: false}) win.once ('ready to show', () => {win.show () })
+const { BrowserWindow } = require ('elektron') win = yeni BrowserWindow olsun ({ show: false }) win.once ('ready to show', () => {win.show () })
 ```
 
 Bu olay genellikle `did-finish-load` olayından sonra verilir, ancak birçok uzak kaynağa sahip sayfalar için `did-finish-load` olayından önce yayınlanabilir.
@@ -46,10 +46,9 @@ Bu olay genellikle `did-finish-load` olayından sonra verilir, ancak birçok uza
 Karmaşık bir uygulama için, `ready-to-show` etkinliği çok geç yayınlanarak uygulamanın yavaşlamasına neden olabilir. Bu durumda, pencereyi derhal göstermeniz ve uygulamanızın arka planına yakın bir `backgroundColor` kullanmanız önerilir:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require ('elektron') 
 
-let win = new BrowserWindow({backgroundColor: '#2e2c29'})
-win.loadURL('https://github.com')
+ lett win = news BrowserWindow({ backgroundColor: '#2e2c29' }) win.loadURL ( 'https://github.com')
 ```
 
 ` hazır göster </ 0>  etkinliğine sahip olan uygulamalar için bile, uygulamanın daha doğal hissetmesini sağlamak için <code>arka plan rengi </ 0> ayarlamanız önerilir .</p>
@@ -59,10 +58,10 @@ win.loadURL('https://github.com')
 <p><code>parent` seçeneğini kullanarak türetilmiş pencereler yaratabilirsiniz:
 
 ```javascript
-const {BrowserWindow} = require ('elektron') 
+const { BrowserWindow } = require ('elektron') 
 
 let top = yeni BrowserWindow()
- izin ver çocuk = yeni BrowserWindow ({parent: top})
+ izin ver çocuk = yeni BrowserWindow ({ parent: top })
  child.show ()
  top.show ()
 ```
@@ -74,9 +73,9 @@ let top = yeni BrowserWindow()
 Modal bir pencere, üst pencereyi devre dışı bırakan ve bir kalıcı pencere oluşturmak için kullanılan alt penceredir, hem `parent` hem de `modal` seçeneklerini ayarlamanız gerekir:
 
 ```javascript
-const {BrowserWindow} = require ('elektron')
+const { BrowserWindow } = require ('elektron')
 
-izin ver çocuk = yeni BrowserWindow({parent: top, modal: true, show: false})
+izin ver çocuk = yeni BrowserWindow({ parent: top, modal: true, show: false })
 child.loadURL('https://github.com')
  ('ready to show', () => {
 child.show ()
@@ -147,7 +146,7 @@ Güç tüketimini en aza indirmek için yoğun işlemleri görünürlük durumu 
   * `disableAutoHideCursor` Boolean (isteğe bağlı) - Yazarken imleç gizlenip gizlenmeyecek. Varsayılan değer `false`.
   * `autoHideMenuBar` Boolean (isteğe bağlı) - `Alt` tuşuna basmadığınız sürece menü çubuğunu otomatik olarak gizler. Varsayılan değer `false`.
   * `enableLargerThanScreen` Boolean (isteğe bağlı) - Pencerenin ekran boyutundan daha büyük boyutlandırılmasını etkinleştirin. Varsayılan değer `false`.
-  * `backgroundColor` Dizilim (isteğe bağlı) - Pencere arka plan rengi onaltılık bir değer, `#66CD00` veya `#FFF` veya `#80FFFFFF` gibi (alfa desteklidir). Varsayılan değer `#FFF` (beyaz). If `transparent` is set to `true`, only values with transparent (`#00-------`) or opaque (`#FF-----`) alpha values are respected.
+  * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported if `transparent` is set to `true`). Default is `#FFF` (white).
   * `hasShadow` mantıksal (isteğe bağlı) - Pencerenin gölge olması gerekip gerekmediğini belirtir. Bu sadece macOS'ta uygulanır. Varsayılan `true`'dir.
   * `opacity` Sayı (isteğe bağlı) - Pencerenin başlangıçtaki opaklığını 0.0 (tamamen saydam) ile 1.0 (tamamen opak) arasında ayarlayın. Bu yalnızca Windows ve macOS'ta uygulanır.
   * `darkTheme` Boole (isteğe bağlı) - Pencere için koyu temayı kullanmaya zorlar, yalnızca bazı GTK+3 masaüstü ortamlarında çalışır. Varsayılan değer `yanlış`.
@@ -157,7 +156,7 @@ Güç tüketimini en aza indirmek için yoğun işlemleri görünürlük durumu 
     * `default` - Standart gri opak Mac başlık çubuğunda sonuç verir.
     * `hidden` - Gizli başlık çubuğunda ve tam boyutlu bir içerik penceresinde sonuç verir, ancak başlık çubuğunun sol üst tarafında hala standart pencere kontrolleri ("trafik ışıkları") vardır.
     * `hiddenInset` - Trafik ışığı düğmelerinin pencere kenarında biraz daha yerleştirildiği alternatif bir görünüme sahip gizli bir başlık çubuğunda sonuç verir.
-    * `customButtonsOnHover` Boolean (isteğe bağlı) - MacOS çerçevesiz pencerelerde özel kapatma, küçültme ve tam ekran düğmeleri çizin. Bu düğmeler, pencerenin sol üst köşesine gelmediğiniz sürece görüntülenmez. Bu özel tuşlar, standart pencere araç çubuğu tuşlarıyla oluşan fare olaylarıyla ilgili sorunları önlemektedir. **Note:** Bu seçenek şu anda deneme niteliğinde.
+    * `customButtonsOnHover` Boolean (optional) - Draw custom close, and minimize buttons on macOS frameless windows. These buttons will not display unless hovered over in the top left of the window. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. **Note:** Bu seçenek şu anda deneme niteliğinde.
   * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the title bar in full screen mode on macOS for all `titleBarStyle` options. Default is `false`.
   * ` kalınÇerçeve </ 0>  Boole (opsiyonel) - Kullanım <code> WS_KALIN ÇERÇEVE</ 0> çerçevesiz için stil pencereler üzerinde
  Windows'un standart pencere çerçevesi ekler. <code>false` olarak ayarlamak pencere gölgesini ve pencere animasyonlarını kaldıracaktır. Varsayılan `true`'dur.
@@ -170,6 +169,7 @@ Güç tüketimini en aza indirmek için yoğun işlemleri görünürlük durumu 
     * ` nodeIntegrationInWorker` Boolean (isteğe bağlı) - Düğümün tümleştirilip web çalışanlarında etkinleştirildi. Varsayılan `false`'dur. Bununla ilgili daha fazla bilgi bulabilirsiniz [ Multithreading'de](../tutorial/multithreading.md).
     * ` preload` Sicim (isteğe bağlı) - Diğerinden önce yüklenecek bir betiği belirtir sayfalarda komut dosyaları çalıştırın. Bu komut dosyasında, düğüm entegrasyonunun açık veya kapalı olmasına bakılmaksızın düğüm API'lerine her zaman erişilebilmektedir. Değer, komut dosyasının salt dosya yolu olmalıdır. Düğüm entegrasyonu kapatıldığında, önceden yüklenmiş komut dosyası düğümün genel başvuru bayrağını genel kapsamdan yeniden başlatır. Örneği [gör](process.md#event-loaded).
     * ` sandbox` Boole (isteğe bağlı) - Ayarlanırsa, oluşturucuyu gizlenecektir pencere ile ilişkilendirilerek Krom ile uyumlu hale getirilir OS düzeyinde sanal alan ve Node.js motorunu devre. Bu aynı şey değil ` düğüm Entegrasyon` seçeneği ve önyükleme komut dosyasında kullanılabilen API'ler daha sınırlıdır. Seçenek hakkında daha fazla detaya [buradan ](sandbox-option.md) ulaşabilirsiniz. ** Not**: Bu seçenek şu anda deneme amaçlı olup değişebilir veya değişebilir gelecekteki Electron sürümlerinde kaldırıldı.
+    * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. Default is `true`.
     * `oturum` [Oturum](session.md#class-session) (isteğe bağlı) - Kullanılan oturumu ayarlar sayfa. Oturum nesnesini doğrudan geçirmek yerine bir bölüm dizesini kabul eden `partition` seçeneğini kullanmayı da denebilirsiniz. Ne zaman hem `oturumu` hem de `bölüm` sağlanır, `oturumu` tercih edilir. Varsayılan oturumun varsayılanıdır.
     * `bölüm` Satır (isteğe bağlı) - Sayfanın kullandığı oturumu. oturumun bölümlenmiş satırına göre ayarlar. Eğer `bölümü` ile başlarsa `persist:`, sayfa ile uygulamadaki tüm sayfalar için kalıcı bir oturum kullanacaktır aynı `bölümü`. Hiçbir ` persist`: öneki yoksa, sayfa bellek içi oturumu. Aynı `partition`, değişkenine değer atayarak birden çok sayfada aynı oturumu paylaşabilirsiniz. Varsayılan oturumun varsayılanıdır.
     * `affinity` String (optional) - When specified, web pages with the same `affinity` will run in the same renderer process. Note that due to reusing the renderer process, certain `webPreferences` options will also be shared between the web pages even when you specified different values for them, including but not limited to `preload`, `sandbox` and `nodeIntegration`. So it is suggested to use exact same `webPreferences` for web pages with the same `affinity`. *This property is experimental*
@@ -183,7 +183,6 @@ Güç tüketimini en aza indirmek için yoğun işlemleri görünürlük durumu 
     * ` webaudio` Boolean (isteğe bağlı) - Web Ses desteğini etkinleştirir. Varsayılan `doğrudur`.
     * `eklentileri` Boolean (isteğe bağlı) - Eklentilerin etkinleştirilip etkinleştirilmeyeceği. Varsayılan değer `yanlış`.
     * `experimentalFeatures` Boolean (isteğe bağlı) - Chromium'un deneysel özelliklerini etkinleştirir. Varsayılan değer `yanlış`.
-    * `dexperimentalCanvasFeatures` Boolean (isteğe bağlı) - Chromium'un deneysel özelliklerini etkinleştirir tuval özellikleri. Varsayılan değer `yanlış`.
     * ` scrollBounce` Boolean (isteğe bağlı) - Üzerinde kaydırma sıçrama (lastik bantlama) efekti sağlar Mac os işletim sistemi. Varsayılan değer `yanlış`.
     * `enableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to enable. Desteklenmiş özellik dizelerinin tam listesi [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) dosyasında olabilir.
     * ` Blink özelliğini devre dışı bırak ` Dizi (opsiyonel) - `,` ile ayrılmış bir özellikler dizisi. İptal etmek için `CSSVariables, KeyboardEventKey`. Desteklenen özellik dizelerinin tam listesini [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) dosyasında bulabilirsiniz.
@@ -200,8 +199,8 @@ Güç tüketimini en aza indirmek için yoğun işlemleri görünürlük durumu 
     * `defaultEncoding` Dize (isteğe bağlı) - Varsayılanı `ISO-8859-1` olarak belirler.
     * `backgroundThrottling` Bağlaç (isteğe bağlı) - Sayfa arka plandayken animasyonların ve zamanlayıcıların kısıtlanması. Bu da [Page Visibility API](#page-visibility) etkiler. Varsayılanı `true` olarak belirler.
     * `offScreen` Boolean (isteğe bağlı) - Tarayıcı için ekran dışı görüntülemeyi etkinleştirip destekleyip desteklemeyeceğini belirtir penceresi. Varsayılanı `false` olarak belirler. Bak [için ekran dışı işleme öğretici](../tutorial/offscreen-rendering.md) daha fazla detay.
-    * ` contextIsolation` Boolean (isteğe bağlı) - Elektron API'lerini çalıştırıp çalıştırmamak Ayrı bir JavaScript bağlamında belirtilen `önyükleme` komut dosyası. Varsayılanı `false` olarak belirler. `önceden yükleme` Komut Dosyasının Çalıştığı İçerik Olmayacaktır `belge` ve `pencere` dünyasına tam erişime sahip olmakla birlikte kendi JavaScript yerleşikleri kümesi (`Array`, `Objec`, `JSON`, vb.) ve küresel çevreye yapılan herhangi bir değişiklikten izole edilecek yüklenen sayfaya göre. Elektron API'sı yalnızca ` yüklenen` sayfa değil önyükleme komut dosyası. Yüklenen içeriğin `önyükleme` komut dosyasına ve kullanılan herhangi bir Elektron API'sine kurcalamamasını sağlamak için potansiyel olarak güvenilmeyen uzak içeriği yüklerken bu seçenek kullanılmalıdır. Bu seçenek[Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment) tarafından kullanılan yöntemi kullanır. Konsol sekmesinin üst kısmındaki birleşik giriş kutusunda 'Electron Yalıtılmış Ortam' girişini seçerek dev araçlarındaki bu içeriğe ulaşabilirsiniz. **Not**: Bu seçenek şu anda deneme amaçlı olup, gelecekteki Electron sürümlerinde değiştirilebilir veya kaldırılabilir.
-    * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. If set to `true`, the `webPreferences` of child window will always be the same with parent window, regardless of the parameters passed to `window.open()`. Varsayılan değer `false`. **Note:** This option is currently experimental.
+    * ` contextIsolation` Boolean (isteğe bağlı) - Elektron API'lerini çalıştırıp çalıştırmamak Ayrı bir JavaScript bağlamında belirtilen `önyükleme` komut dosyası. Varsayılanı `false` olarak belirler. `önceden yükleme` Komut Dosyasının Çalıştığı İçerik Olmayacaktır `belge` ve `pencere` dünyasına tam erişime sahip olmakla birlikte kendi JavaScript yerleşikleri kümesi (`Array`, `Objec`, `JSON`, vb.) ve küresel çevreye yapılan herhangi bir değişiklikten izole edilecek yüklenen sayfaya göre. Elektron API'sı yalnızca ` yüklenen` sayfa değil önyükleme komut dosyası. Yüklenen içeriğin `önyükleme` komut dosyasına ve kullanılan herhangi bir Elektron API'sine kurcalamamasını sağlamak için potansiyel olarak güvenilmeyen uzak içeriği yüklerken bu seçenek kullanılmalıdır. Bu seçenek[Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment) tarafından kullanılan yöntemi kullanır. Konsol sekmesinin üst kısmındaki birleşik giriş kutusunda 'Electron Yalıtılmış Ortam' girişini seçerek dev araçlarındaki bu içeriğe ulaşabilirsiniz.
+    * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. If set to `true`, the `webPreferences` of child window will always be the same with parent window, regardless of the parameters passed to `window.open()`. Varsayılanı `false` olarak belirler. **Note:** This option is currently experimental.
     * `webviewTag` Boolean (opsiyonel) - Aktifleştirmek için [`<webview>` etiket](webview-tag.md). Varsayılan değeri `nodeIntegration` aksamının değeridir. **Note:**`<webview>`için yapılandırılmış `preload` komut dosyası, çalıştırıldığında düğüm entegrasyonunun etkinleştirilmesini sağlar bu nedenle uzak/güvenilir olmayan içeriğin muhtemel kötü amaçlı `preload` komut dosyası içeren bir `<webview>` etiketi oluşturamayacağından emin olmanız gerekir. ` webview ekleyecek` etkinliğini [ webSatıcıları'nda](web-contents.md) kullanabilirsiniz. `önyükleme` komut dosyasını kaldırmak ve belgeyi doğrulamak veya değiştirmek için `<webview>` 'nin başlangıç ​​ayarları.
     * `additionalArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app. Useful for passing small bits of data down to renderer process preload scripts.
     * `safeDialogs` Boolean (optional) - Whether to enable browser style consecutive dialog protection. Default is `false`.
@@ -309,9 +308,31 @@ Pencere minimize edildiğinde ortaya çıkmaktadır.
 
 Pencere küçültülmüş bir durumdan geri yüklendiğinde ortaya çıkmaktadır.
 
+#### Event: 'will-resize' *macOS* *Windows*
+
+Dönüşler:
+
+* `event` Event
+* `newBounds` [`Rectangle`](structures/rectangle.md) - Size the window is being resized to.
+
+Emitted before the window is resized. Calling `event.preventDefault()` will prevent the window from being resized.
+
+Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
+
 #### Etkinlik: 'yeniden boyutlandırma'
 
-Pencere yeniden boyutlandırıldığında ortaya çıkar.
+Emitted after the window has been resized.
+
+#### Event: 'will-move' *Windows*
+
+Dönüşler:
+
+* `event` Event
+* `newBounds` [`Rectangle`](structures/rectangle.md) - Location the window is being moved to.
+
+Emitted before the window is moved. Calling `event.preventDefault()` will prevent the window from being moved.
+
+Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
 
 #### Etkinlik: 'hareket ettir'
 
@@ -339,6 +360,15 @@ Pencere, HTML API'sı tarafından tetiklenen bir tam ekran haline girdiğinde d�
 
 Pencere, HTML API'sı tarafından tetiklenen bir tam ekran halinde bırakıldığında dışarı çıkar.
 
+#### Event: 'always-on-top-changed' *macOS*
+
+Dönüşler:
+
+* `event` Event
+* `isAlwaysOnTop` Boolean
+
+Emitted when the window is set or unset to show always on top of other windows.
+
 #### Etkinlik: 'uygulama-komutu' *Windows*
 
 Dönüşler:
@@ -351,7 +381,7 @@ Dönüşler:
 Tire ve `APPCOMMAND_` ön adıyla değişen küçük harfli, altı çizili komutlar sıyrılır. Örneğin `APPCOMMAND_BROWSER_BACKWARD`, `browser-backward` olarak belirtilir.
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.on('app-command', (e, cmd) => {
   // Navigate the window back when the user hits their mouse back button
@@ -475,7 +505,7 @@ Dönüş `Nesne` - Anahtarlar uzantı adlarıdır ve her değer `ad` ve `versiyo
 DevTools uzantısının yüklenmiş olup olmadığını kontrol etmek için aşağıdakileri çalıştırabilirsiniz:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 
 let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
 console.log(installed)
@@ -488,9 +518,9 @@ console.log(installed)
 `yeni BrowserWindow` ile oluşturulan nesneler aşağıdaki özelliklere sahiptir:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 // bu örnekte örnek sınıfımız "win"
-let win = new BrowserWindow({width: 800, height: 600})
+let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
@@ -600,6 +630,10 @@ Basit tam ekran modu, Mac OS X'den önce Lion (10.7) sürümlerinde bulunan yere
 
 `Boolean` - pencerenin basit (Leon öncesi) tam ekran modunda olup olmadığını raporlar.
 
+#### `win.isNormal()`
+
+Returns `Boolean` - Whether the window is in normal state (not maximized, not minimized, not in fullscreen mode).
+
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
 * `aspectRatio` Yay - Bazı kısımların içerik görünümünü sürdürme adına en-boy oranı.
@@ -610,6 +644,12 @@ Bu, görüntü oranını koruyan bir pencere oluşturacaktır. Ekstra bir boyut,
 Bir HD video oynatıcısına ve ilişkili olan kontrollere sahip normal bir pencere düşünün. Büyük ihtimalle player'ın sol kenarında 15, sağ kenarında 25 ve altında 50 piksel kontrol alanı var. Player içerisinde 16:9 oranını korumak için (HD için standart oran @1920x1080) bu işlemi çağırırız. [40,50] İkinci argüman içerik görüntüsü içerisinde genişlik ve yüksekliğin nerede olduğuyla ilgilenmez, sadece var oluşlarına bakar. Sum any extra width and height areas you have within the overall content view.
 
 Calling this function with a value of `0` will remove any previously set aspect ratios.
+
+#### `win.setBackgroundColor(backgroundColor)`
+
+* `backgroundColor` String - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported if `transparent` is `true`). Default is `#FFF` (white).
+
+Sets the background color of the window. See [Setting `backgroundColor`](#setting-backgroundcolor).
 
 #### `win.previewFile(path[, displayName])` *macOS*
 
@@ -627,7 +667,18 @@ Belirli bir yoldaki bir dosyayı önizlemek için [Hızlı Bakış](https://en.w
 * `bounds` [Dikdörtgen](structures/rectangle.md)
 * `animate` Boolean (isteğe bağlı) *macOS*
 
-Pencereyi yeniden boyutlandırır ve sağlanan sınırlara taşır
+Resizes and moves the window to the supplied bounds. Any properties that are not supplied will default to their current values.
+
+```javascript
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow()
+ // set all bounds properties
+win.setBounds({ x: 440, y: 225, width: 800, height: 600 })
+ // set a single bounds property
+win.setBounds({ width: 200 })
+ // { x: 440, y: 225, width: 200, height: 600 }
+console.log(win.getBounds())
+```
 
 #### `win.getBounds()
 `
@@ -636,7 +687,7 @@ Pencereyi yeniden boyutlandırır ve sağlanan sınırlara taşır
 
 #### `win.setContentBounds(bounds[, animate])`
 
-* `bounds` [Dikdörtgen](structures/rectangle.md)
+* `bounds` [Rectangle](structures/rectangle.md)
 * `animate` Boolean (isteğe bağlı) *macOS*
 
 Pencerenin müşteri alanını (örneğin, Web sayfası) boyutlandırmakta,taşımakta ve verilen sınırlara getirmektedir.
@@ -644,6 +695,12 @@ Pencerenin müşteri alanını (örneğin, Web sayfası) boyutlandırmakta,taş�
 #### `win.getContentBounds()`
 
 [`Rectangle`](structures/rectangle.md) döndürür
+
+#### `win.getNormalBounds()`
+
+Returns [`Rectangle`](structures/rectangle.md) - Contains the window bounds of the normal state
+
+**Note:** whatever the current state of the window : maximized, minimized or in fullscreen, this function always returns the position and size of the window in normal state. In normal state, getBounds and getNormalBounds returns the same [`Rectangle`](structures/rectangle.md).
 
 #### `win.setEnabled(enable)`
 
@@ -655,7 +712,7 @@ Disable or enable the window.
 `
 
 * `width` Integer
-* `height` Integer
+* `height` Tamsayı
 * `animate` Boolean (isteğe bağlı) *macOS*
 
 Resizes the window to `width` and `height`. If `width` or `height` are below any set minimum size constraints the window will snap to its minimum size.
@@ -667,7 +724,7 @@ Iadeler `Integer[]` - Pencerenin genişliğini ve yüksekliğini içerir.
 #### `win.setContentSize(width, height[, animate])`
 
 * `width` Tamsayı
-* `height` Integer
+* `height` Tamsayı
 * `animate` Boolean (isteğe bağlı) *macOS*
 
 Pencerenin istemci alanını yeniden boyutlandırır (e.g. the web page) to `width` and `height`.
@@ -678,7 +735,7 @@ Pencerenin istemci alanını yeniden boyutlandırır (e.g. the web page) to `wid
 
 #### `win.setMinimumSize(width, height)`
 
-* `width` Integer
+* `width` Tamsayı
 * `height` Integer
 
 Pencerenin minimum boyutunu `genişlik` ve `yükseklik` olarak ayarlar.
@@ -718,7 +775,7 @@ Pencerenin kullanıcı tarafından taşınabilir olup olmadığını ayarlar. Li
 
 `Boolean` Döndürür - Pencerenin kullanıcı tarafından taşınıp taşınmayacağı.
 
-Linux üzerinde her zaman `true` döndürür.
+Linux'ta daima geri dönüyor `true`.
 
 #### `win.setMinimizable(minimizable)` *macOS* *Windows*
 
@@ -730,7 +787,7 @@ Pencerenin kullanıcı tarafından el ile simge durumuna küçültülebilir olup
 
 `Boolean` Döndürür - Pencerenin kullanıcı tarafından manuel olarak küçültülüp küçültülmediği
 
-Linux'ta daima geri dönüyor `true`.
+Linux üzerinde her zaman `true` döndürür.
 
 #### `win.setMaximizable(maximizable)` *macOS* *Windows*
 
@@ -789,7 +846,7 @@ Linux üzerinde her zaman `true` döndürür.
   
   #### `win.setPosition(x, y[, animate])`
   
-  * `x` Tamsayı
+  * `x` Integer
   * `x` Integer
   * `animate` Boolean (isteğe bağlı) *macOS*
   
@@ -819,7 +876,7 @@ Linux üzerinde her zaman `true` döndürür.
   MacOS üzerindeki sayfalar için ek noktasını değiştirir. Varsayılan olarak, sayfalar pencere çerçevesinin hemen altına eklenir, ancak bunları HTML işlenmiş bir araç çubuğunun altında görüntülemek isteyebilirsiniz. Örnek olarak:
   
   ```javascript
-  const {BrowserWindow} = require('electron')
+  const { BrowserWindow } = require('electron')
   let win = new BrowserWindow()
   
   let toolbarRect = document.getElementById('toolbar').getBoundingClientRect()
@@ -947,9 +1004,13 @@ Linux üzerinde her zaman `true` döndürür.
   })
   ```
   
-  #### `win.loadFile(filePath)`
+  #### `win.loadFile(filePath[, options])`
   
   * `filePath` Dizi
+  * `seçenekler` Obje (opsiyonel) 
+    * `query` Object (optional) - Passed to `url.format()`.
+    * `search` String (optional) - Passed to `url.format()`.
+    * `hash` String (optional) - Passed to `url.format()`.
   
   Same as `webContents.loadFile`, `filePath` should be a path to an HTML file relative to the root of your application. See the `webContents` docs for more information.
   
@@ -1043,7 +1104,7 @@ Linux üzerinde her zaman `true` döndürür.
   
   * `region` [Rectangle](structures/rectangle.md) - Pencrenin gölgesi belirlenir
   
-  Görev çubuğunda pencerenin üzerinde gezinirken görüntülenen küçük resim şeklinde gösterecek şekilde pencerenin bölgesini ayarlar. Bir bölge belirleyerek küçük resmi oraya yerleştirebilirsiniz: `{x: 0, y: 0, width: 0, height: 0}`.
+  Görev çubuğunda pencerenin üzerinde gezinirken görüntülenen küçük resim şeklinde gösterecek şekilde pencerenin bölgesini ayarlar. You can reset the thumbnail to be the entire window by specifying an empty region: `{ x: 0, y: 0, width: 0, height: 0 }`.
   
   #### `win.setThumbnailToolTip(toolTip)` *Windows*
   
@@ -1074,6 +1135,14 @@ Linux üzerinde her zaman `true` döndürür.
   
   Pencere simgesi değiştirme.
   
+  #### `win.setWindowButtonVisibility(visible)` *macOS*
+  
+  * `visible` Boolean
+  
+  Sets whether the window traffic light buttons should be visible.
+  
+  This cannot be called when `titleBarStyle` is set to `customButtonsOnHover`.
+  
   #### `win.setAutoHideMenuBar(hide)`
   
   * `hide` Boolean
@@ -1096,9 +1165,11 @@ Linux üzerinde her zaman `true` döndürür.
   
   `Boolean` komutu menünün görünür olup olmadığını gösterir.
   
-  #### `win.setVisibleOnAllWorkspaces(visible)`
+  #### `win.setVisibleOnAllWorkspaces(visible[, options])`
   
   * `visible` Boolean
+  * `seçenekler` Obje (opsiyonel) 
+    * `visibleOnFullScreen` Boolean (optional) *macOS* - Sets whether the window should be visible above fullscreen windows
   
   Pencerenin tüm çalışma alanlarında görünüp görünmeyeceğini ayarlamaktadır.
   

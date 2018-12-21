@@ -18,9 +18,9 @@ Ang modyul ng API ng `net` ay partikular na dinisenyo para gayahin, ng mas malap
 Halimbawa, ang mga sumusunod nahalimbawa ay mabilis na nagpapakita kung papaano na ang API ng `net` ay maaaring gamitin:
 
 ```javascript
-const {app} = kailangan('electron')
+const { app } = require('electron')
 app.on('ready', () => {
-  const {net} = kailangan('electron')
+  const { net } = require('electron')
   const request = net.request('https://github.com')
   request.on('response', (response) => {
     console.log(`STATUS: ${response.statusCode}`)
@@ -40,11 +40,11 @@ Siyanga pala, ito ay halos magkakatulad kung papaanong normal mong gagamitin ang
 
 Ang API ng `net` ay maaari lamang gamitin pagkatapos na angaplikasyon ay ilalabas ang event ng `ready`. Kapag sinusubukang gamitin ang modyul bago ang event ng `ready` ay magdudulot ng pagkakamali.
 
-## Mga Pamamaraan
+## Mga Paraan
 
 Ang modyul ng `net` ay mayroong mga sumusunod na mga pamamaraan:
 
-### `ang net.request(mga opsyon)`
+### `net.request(options)`
 
 * `options` (Object | String) - Ang mga opsyon ng tagapagbuo ng `ClientRequest`.
 

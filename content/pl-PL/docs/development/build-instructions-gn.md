@@ -44,7 +44,7 @@ export SCCACHE_BUCKET="electronjs-sccache"
 export SCCACHE_TWO_TIER=true
 ```
 
-## Getting the code
+## Dostawanie kodu
 
 ```sh
 $ mkdir electron-gn && cd electron-gn

@@ -9,9 +9,9 @@ Ang `session` na modyul ay maaaring gamitin para gumawa ng bagong `session` ng m
 Maaari mo rin ma-akses ang `session` ng umiiral na mga pahina sa pamamagitan ng paggamit ng `session` na katangian ng [`Webcontents`](web-contents.md), o galing sa `session` na modyul.
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({width: 800, height: 600})
+let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('http://github.com')
 
 const ses = win.webContents.session
@@ -51,7 +51,7 @@ Proseso:[Pangunahi](../glossary.md#main-process)
 Maaari kang gumawa ng isang `Sesyon` na bagay sa `session` na modyul:
 
 ```javascript
-const {session} = require('electron')
+const { session } = require('electron')
 const ses = session.fromPartition('persist:name')
 console.log(ses.getUserAgent())
 ```
@@ -71,7 +71,7 @@ Inilalabas kung ang Electron ay magda-download ng `item` sa `webContents`.
 Ang pagtawag sa `event.preventDefault()` ay magkakansela sa download at ang `aytem` ay hindi maaaring magamit hanggang sa susunod na tik ng proseso.
 
 ```javascript
-const {session} = require('electron')
+const { session } = require('electron')
 session.defaultSession.on('will-download', (event, item, webContents) => {
   event.preventDefault()
   require('request')(item.getURL(), (data) => {
@@ -206,7 +206,7 @@ window.webContents.session.enableNetworkEmulation({
 })
 
 // Para i-emulate ang network na outage.
-window.webContents.session.enableNetworkEmulation({offline: true})
+window.webContents.session.enableNetworkEmulation({ offline: true })
 ```
 
 #### `ses.disableNetworkEmulation()`
@@ -232,11 +232,11 @@ Nagtatakda ng sertipikong verify proc para sa `session`, ang `proc` ay tinatawag
 Ang pagtawag sa `setCertificateVerifyProc(null)` ay magbabalik sa certificate verify proc sa default.
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 
 win.webContents.session.setCertificateVerifyProc((request, callback) => {
-  const {hostname} = request
+  const { hostname } = request
   if (hostname === 'github.com') {
     callback(0)
   } else {
@@ -254,17 +254,41 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
     * `permissionGranted` na Boolean - Pagpayag o pagtanggi sa pahintulot.
   * `ang mga detalye` Object - Some properties are only available on certain permission types. 
     * `externalURL` String - The url of the `openExternal` request.
+    * `mediaTypes` String[] - The types of media access being requested, elements can be `video` or `audio`
 
 Nagtatakda sa tagahawak na magagamit upang tumugon sa mga kahilingan sa pahintulot para sa `session`. Ang pagtawag sa `callback(true)` ay maaring magbigay ng pahintulot at ang `callback(false)` ay magtatanggi ito. Upang linisin ang tagahawak, tawagin ang `setPermissionRequestHandler(null)`.
 
 ```javascript
-const {session} = require('electron')
+const { session } = require('electron')
 session.fromPartition('some-partition').setPermissionRequestHandler((webContents, permission, callback) => {
   if (webContents.getURL() === 'some-host' && permission === 'notifications') {
     return callback(false) // denied.
   }
 
   callback(true)
+})
+```
+
+#### `ses.setPermissionCheckHandler(handler)`
+
+* `tagahawak` Punsyon<boolean> | null 
+  * `webContents` [WebContents](web-contents.md) - WebContents checking the permission.
+  * `permission` String - Enum of 'media'.
+  * `requestingOrigin` String - The origin URL of the permission check
+  * `ang mga detalye` Object - Some properties are only available on certain permission types. 
+    * `securityOrigin` String - The security orign of the `media` check.
+    * `mediaType` String - The type of media access being requested, can be `video`, `audio` or `unknown`
+
+Sets the handler which can be used to respond to permission checks for the `session`. Returning `true` will allow the permission and `false` will reject it. To clear the handler, call `setPermissionCheckHandler(null)`.
+
+```javascript
+const { session } = require('electron')
+session.fromPartition('some-partition').setPermissionCheckHandler((webContents, permission) => {
+  if (webContents.getURL() === 'some-host' && permission === 'notifications') {
+    return false // denied
+  }
+
+  return true
 })
 ```
 
@@ -281,7 +305,7 @@ Nililinis ang cache ng tagalutas ng host.
 Dinamikong itinatakda kung lagi bang magpadala ng mga kredensyal para sa HTTP NTLM o makipagpulungan para pagpapatunay.
 
 ```javascript
-const {session} = require('electron')
+const { session } = require('electron')
 // isaalang-alang ang kahit anong url na nagtatapos sa `example.com`, `foobar.com`, `baz`
 // para sa naka-integrate na pagpapatunay.
 session.defaultSession.allowNTLMCredentialsForDomains('*example.com, *foobar.com, *baz')
@@ -359,16 +383,33 @@ Isang [WebRequest](web-request.md) na bagay para sa sesyong ito.
 Isang [Protocol](protocol.md) na bagay para sa sesyong ito.
 
 ```javascript
-onst {app, session} = require('electron')
+const { app, session } = require('electron')
 const path = require('path')
 
 app.on('ready', function () {
   const protocol = session.fromPartition('some-partition').protocol
   protocol.registerFileProtocol('atom', function (request, callback) {
     var url = request.url.substr(7)
-    callback({path: path.normalize(`${__dirname}/${url}`)})
+    callback({ path: path.normalize(`${__dirname}/${url}`) })
   }, function (error) {
     if (error) console.error('Failed to register protocol')
+  })
+})
+```
+
+#### `ses.netLog`
+
+A [NetLog](net-log.md) object for this session.
+
+```javascript
+const { app, session } = require('electron')
+
+app.on('ready', function () {
+  const netLog = session.fromPartition('some-partition').netLog
+  netLog.startLogging('/path/to/net-log')
+  // After some network events
+  netLog.stopLogging(path => {
+    console.log('Net-logs written to', path)
   })
 })
 ```

@@ -6,6 +6,26 @@ Breaking changes will be documented here, and deprecation warnings added to JS c
 
 The `FIXME` string is used in code comments to denote things that should be fixed for future releases. See https://github.com/electron/electron/search?q=fixme
 
+# Planned Breaking API Changes (5.0)
+
+## `new BrowserWindow({ webPreferences })`
+
+The following `webPreferences` option default values are deprecated in favor of the new defaults listed below.
+
+| Property           | Deprecated Default                   | New Default |
+| ------------------ | ------------------------------------ | ----------- |
+| `contextIsolation` | `false`                              | `true`      |
+| `nodeIntegration`  | `true`                               | `false`     |
+| `webviewTag`       | `nodeIntegration` if set else `true` | `false`     |
+
+## `nativeWindowOpen`
+
+Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled.
+
+## `webContents.findInPage(text[, options])`
+
+`wordStart` and `medialCapitalAsWordStart` options are removed.
+
 # Planned Breaking API Changes (4.0)
 
 The following list includes the breaking API changes planned for Electron 4.0.
@@ -13,11 +33,11 @@ The following list includes the breaking API changes planned for Electron 4.0.
 ## `app.makeSingleInstance`
 
 ```js
-// Deprecated
+// Przestarzałe
 app.makeSingleInstance(function (argv, cwd) {
 
 })
-// Replace with
+// Zamień na
 app.requestSingleInstanceLock()
 app.on('second-instance', function (event, argv, cwd) {
 
@@ -27,11 +47,23 @@ app.on('second-instance', function (event, argv, cwd) {
 ## `app.releaseSingleInstance`
 
 ```js
-// Deprecated
+// Przestarzałe
 app.releaseSingleInstance()
-// Replace with
+// Zamień na
 app.releaseSingleInstanceLock()
 ```
+
+## `app.getGPUInfo`
+
+```js
+app.getGPUInfo('complete')
+// Now behaves the same with `basic` on macOS
+app.getGPUInfo('basic')
+```
+
+## `win_delay_load_hook`
+
+When building native modules for windows, the `win_delay_load_hook` variable in the module's `binding.gyp` must be true (which is the default). If this hook is not present, then the native module will fail to load on Windows, with an error message like `Cannot find module`. See the [native module guide](/docs/tutorial/using-native-node-modules.md) for more.
 
 # Breaking API Changes (3.0)
 
@@ -47,19 +79,17 @@ app.getAppMetrics()
 
 // Deprecated
 const metrics = app.getAppMetrics()
-const {memory} = metrics[0]
-memory.privateBytes  // Deprecated property
-memory.sharedBytes  // Deprecated property
+const { memory } = metrics[0] // Deprecated property
 ```
 
 ## `BrowserWindow`
 
 ```js
 // Deprecated
-let optionsA = {webPreferences: {blinkFeatures: ''}}
+let optionsA = { webPreferences: { blinkFeatures: '' } }
 let windowA = new BrowserWindow(optionsA)
 // Replace with
-let optionsB = {webPreferences: {enableBlinkFeatures: ''}}
+let optionsB = { webPreferences: { enableBlinkFeatures: '' } }
 let windowB = new BrowserWindow(optionsB)
 
 // Deprecated
@@ -79,24 +109,24 @@ window.on('app-command', (e, cmd) => {
 ## `clipboard`
 
 ```js
-// Deprecated
+// Przestarzałe
 clipboard.readRtf()
-// Replace with
+// Zamień na
 clipboard.readRTF()
 
-// Deprecated
+// Przestarzałe
 clipboard.writeRtf()
-// Replace with
+// Zamień na
 clipboard.writeRTF()
 
-// Deprecated
+// Przestarzałe
 clipboard.readHtml()
-// Replace with
+// Zamień na
 clipboard.readHTML()
 
-// Deprecated
+// Przestarzałe
 clipboard.writeHtml()
-// Replace with
+// Zamień na
 clipboard.writeHTML()
 ```
 
@@ -133,8 +163,6 @@ nativeImage.createFromBuffer(buffer, {
 ```js
 // Deprecated
 const info = process.getProcessMemoryInfo()
-const privateBytes = info.privateBytes // deprecated property
-const sharedBytes = info.sharedBytes // deprecated property
 ```
 
 ## `screen`
@@ -177,9 +205,9 @@ tray.setHighlightMode('off')
 
 ```js
 // Deprecated
-webContents.openDevTools({detach: true})
+webContents.openDevTools({ detach: true })
 // Replace with
-webContents.openDevTools({mode: 'detach'})
+webContents.openDevTools({ mode: 'detach' })
 
 // Removed
 webContents.setSize(options)
@@ -192,12 +220,12 @@ webContents.setSize(options)
 // Deprecated
 webFrame.registerURLSchemeAsSecure('app')
 // Replace with
-protocol.registerStandardSchemes(['app'], {secure: true})
+protocol.registerStandardSchemes(['app'], { secure: true })
 
 // Deprecated
-webFrame.registerURLSchemeAsPrivileged('app', {secure: true})
+webFrame.registerURLSchemeAsPrivileged('app', { secure: true })
 // Replace with
-protocol.registerStandardSchemes(['app'], {secure: true})
+protocol.registerStandardSchemes(['app'], { secure: true })
 ```
 
 ## `<webview>`
@@ -232,10 +260,10 @@ The following list includes the breaking API changes made in Electron 2.0.
 
 ```js
 // Deprecated
-let optionsA = {titleBarStyle: 'hidden-inset'}
+let optionsA = { titleBarStyle: 'hidden-inset' }
 let windowA = new BrowserWindow(optionsA)
 // Replace with
-let optionsB = {titleBarStyle: 'hiddenInset'}
+let optionsB = { titleBarStyle: 'hiddenInset' }
 let windowB = new BrowserWindow(optionsB)
 ```
 
@@ -245,7 +273,7 @@ let windowB = new BrowserWindow(optionsB)
 // Removed
 menu.popup(browserWindow, 100, 200, 2)
 // Replaced with
-menu.popup(browserWindow, {x: 100, y: 200, positioningItem: 2})
+menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```
 
 ## `nativeImage`

@@ -9,7 +9,7 @@ Instances of the `Cookies` class are accessed by using `cookies` property of a `
 例如:
 
 ```javascript
-const {session} = require('electron')
+const { session } = require('electron')
 
 // 查詢所有 cookies。
 session.defaultSession.cookies.get({}, (error, cookies) => {
@@ -17,12 +17,13 @@ session.defaultSession.cookies.get({}, (error, cookies) => {
 })
 
 // 查詢指定 url 的所有 cookie。
-session.defaultSession.cookies.get({url: 'http://www.github.com'}, (error, cookies) => {
+session.defaultSession.cookies.get({ url: 'http://www.github.com' }, (error, cookies) => {
   console.log(error, cookies)
 })
 
-// 將 cookie 設成指定的資料; 可能會覆寫已經存在的對等 cookie。
-const cookie = {url: 'http://www.github.com', name: 'dummy_name', value: 'dummy'}
+// Set a cookie with the given cookie data;
+// may overwrite equivalent cookies if they exist.
+const cookie = { url: 'http://www.github.com', name: 'dummy_name', value: 'dummy' }
 session.defaultSession.cookies.set(cookie, (error) => {
   if (error) console.error(error)
 })

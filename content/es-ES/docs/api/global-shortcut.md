@@ -2,14 +2,14 @@
 
 > Detecta los eventos del teclado cuando la aplicación no tiene el enfoque en el teclado.
 
-Process: [Main](../glossary.md#main-process)
+Proceso: [Main](../glossary.md#main-process)
 
 El módulo `globalShortcut` puede registrar o quitar un atajo del teclado global con el sistema operativo para que se puedan personalizar las operaciones para varios atajos.
 
 **Nota:** El atajo es global; funcionará incluso si la aplicación no tiene enfocado el teclado. No se debe utilizar este módulo hasta que el evento `ready` del módulo de la aplicación no se emita.
 
 ```javascript
-const {app, globalShortcut} = require('electron')
+const { app, globalShortcut } = require('electron')
 
 app.on('ready', () => {
   // Regista un grabador de atajo 'CommandOrControl+X'.

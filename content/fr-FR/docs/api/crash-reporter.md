@@ -7,7 +7,7 @@ Processus : [Main](../glossary.md#main-process), [Renderer](../glossary.md#rende
 Voici un exemple d'envoi automatique d'un rapport de plantage à un serveur distant :
 
 ```javascript
-const {crashReporter} = require('electron')
+const { crashReporter } = require('electron')
 
 crashReporter.start({
   productName: 'YourName',
@@ -36,7 +36,7 @@ Le module `crashReporter` dispose des méthodes suivantes :
 ### `crashReporter.start(options)`
 
 * `options` Objet 
-  * `companyName` String (facultatif)
+  * `companyName` String
   * `submitURL` String - URL that crash reports will be sent to as POST.
   * `productName` String (optional) - Defaults to `app.getName()`.
   * `uploadToServer` Boolean (optional) - Whether crash reports should be sent to the server Default is `true`.
@@ -53,18 +53,18 @@ You are required to call this method before using any other `crashReporter` APIs
 **Note:** If you need send additional/updated `extra` parameters after your first call `start` you can call `addExtraParameter` on macOS or call `start` again with the new/updated `extra` parameters on Linux and Windows.
 
 ```js
- const args = [
-   `--reporter-url=${submitURL}`,
-   `--application-name=${productName}`,
-   `--crashes-directory=${crashesDirectory}`
- ]
- const env = {
-   ELECTRON_INTERNAL_CRASH_SERVICE: 1
- }
- spawn(process.execPath, args, {
-   env: env,
-   detached: true
- })
+const args = [
+  `--reporter-url=${submitURL}`,
+  `--application-name=${productName}`,
+  `--crashes-directory=${crashesDirectory}`
+]
+const env = {
+  ELECTRON_INTERNAL_CRASH_SERVICE: 1
+}
+spawn(process.execPath, args, {
+  env: env,
+  detached: true
+})
 ```
 
 **Note:** On macOS, Electron uses a new `crashpad` client for crash collection and reporting. If you want to enable crash reporting, initializing `crashpad` from the main process using `crashReporter.start` is required regardless of which process you want to collect crashes from. Once initialized this way, the crashpad handler collects crashes from all processes. You still have to call `crashReporter.start` from the renderer or child process, otherwise crashes from them will get reported without `companyName`, `productName` or any of the `extra` information.

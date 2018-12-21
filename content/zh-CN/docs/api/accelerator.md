@@ -2,7 +2,7 @@
 
 > 定义键盘快捷键。
 
-Accelerators are Strings that can contain multiple modifiers and a single key code, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
+快捷键可以包含多个功能键和一个键码的字符串，由符号`+`结合，用来定义你应用中的键盘快捷键
 
 示例：
 
@@ -12,7 +12,7 @@ Accelerators are Strings that can contain multiple modifiers and a single key co
 快捷方式使用 [` register `](global-shortcut.md#globalshortcutregisteraccelerator-callback) 方法在 [` globalShortcut `](global-shortcut.md) 模块中注册, 即:
 
 ```javascript
-const {app, globalShortcut} = require('electron')
+const { app, globalShortcut } = require('electron')
 
 app.on('ready', () => {
   // Register a 'CommandOrControl+Y' shortcut listener.

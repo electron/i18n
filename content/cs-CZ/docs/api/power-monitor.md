@@ -10,7 +10,7 @@ For example:
 
 ```javascript
 const electron = require('electron')
-const {app} = electron
+const { app } = electron
 
 app.on('ready', () => {
   electron.powerMonitor.on('suspend', () => {
@@ -19,7 +19,7 @@ app.on('ready', () => {
 })
 ```
 
-## Events
+## Události
 
 The `powerMonitor` module emits the following events:
 

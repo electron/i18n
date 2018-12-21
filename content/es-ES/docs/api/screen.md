@@ -6,21 +6,23 @@ Proceso: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer
 
 No se puede solicitar o usar este módulo hasta que el evento `ready` del módulo `app` sea emitido.
 
+In the renderer process context it depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
+
 `screen` es un [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
-**Nota:** En el renderizador / DevTools, `window.screen` es una propiedad de DOM reservado, así que escribir `let {screen} = require('electron')` no funcionará.
+**Nota:** En el renderizador / DevTools, `window.screen` es una propiedad de DOM reservado, así que escribir `let { screen } = require('electron')` no funcionará.
 
 Un ejemplo de crear una ventana que llene toda la pantalla:
 
 ```javascript
 const electron = require('electron')
-const {app, BrowserWindow} = electron
+const { app, BrowserWindow } = electron
 
 dejar ganar
 
 app.on('ready', () => {
-  const {width, height} = electron.screen.getPrimaryDisplay().workAreaSize
-  win = new BrowserWindow({width, height})
+  const { width, height } = electron.screen.getPrimaryDisplay().workAreaSize
+  win = new BrowserWindow({ width, height })
   win.loadURL('https://github.com')
 })
 ```
@@ -29,7 +31,7 @@ Otro ejemplo de crear una ventana el display externo es:
 
 ```javascript
 onst electron = require('electron')
-const {app, BrowserWindow} = require('electron')
+const { app, BrowserWindow } = require('electron')
 
 let win
 

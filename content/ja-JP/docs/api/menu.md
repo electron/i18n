@@ -52,7 +52,7 @@ macOSネイティブなアクションに関しては[macOS Cocoa Event Handling
 
 #### `menu.popup(options)`
 
-* `options` Object 
+* `options` Object (任意) 
   * `window` [BrowserWindow](browser-window.md) (任意) - 省略値はフォーカスされたウインドウです。
   * `x` Number (任意) - デフォルトはマウスカーソルの位置。`y` が宣言されている場合はこれを宣言しなければいけない。
   * `y` Number (任意) - デフォルトはマウスカーソルの位置。`x` が宣言されている場合はこれを宣言しなければいけない。
@@ -131,42 +131,42 @@ menu のアイテムが入った配列 `MenuItem[]`。
 シンプルなテンプレートAPIを使用して、メインプロセスでアプリケーションメニューを作成するサンプル。
 
 ```javascript
-const {app, Menu} = require('electron')
+const { app, Menu } = require('electron')
 
 const template = [
   {
     label: 'Edit',
     submenu: [
-      {role: 'undo'},
-      {role: 'redo'},
-      {type: 'separator'},
-      {role: 'cut'},
-      {role: 'copy'},
-      {role: 'paste'},
-      {role: 'pasteandmatchstyle'},
-      {role: 'delete'},
-      {role: 'selectall'}
+      { role: 'undo' },
+      { role: 'redo' },
+      { type: 'separator' },
+      { role: 'cut' },
+      { role: 'copy' },
+      { role: 'paste' },
+      { role: 'pasteandmatchstyle' },
+      { role: 'delete' },
+      { role: 'selectall' }
     ]
   },
   {
     label: 'View',
     submenu: [
-      {role: 'reload'},
-      {role: 'forcereload'},
-      {role: 'toggledevtools'},
-      {type: 'separator'},
-      {role: 'resetzoom'},
-      {role: 'zoomin'},
-      {role: 'zoomout'},
-      {type: 'separator'},
-      {role: 'togglefullscreen'}
+      { role: 'reload' },
+      { role: 'forcereload' },
+      { role: 'toggledevtools' },
+      { type: 'separator' },
+      { role: 'resetzoom' },
+      { role: 'zoomin' },
+      { role: 'zoomout' },
+      { type: 'separator' },
+      { role: 'togglefullscreen' }
     ]
   },
   {
     role: 'window',
     submenu: [
-      {role: 'minimize'},
-      {role: 'close'}
+      { role: 'minimize' },
+      { role: 'close' }
     ]
   },
   {
@@ -184,37 +184,37 @@ if (process.platform === 'darwin') {
   template.unshift({
     label: app.getName(),
     submenu: [
-      {role: 'about'},
-      {type: 'separator'},
-      {role: 'services', submenu: []},
-      {type: 'separator'},
-      {role: 'hide'},
-      {role: 'hideothers'},
-      {role: 'unhide'},
-      {type: 'separator'},
-      {role: 'quit'}
+      { role: 'about' },
+      { type: 'separator' },
+      { role: 'services' },
+      { type: 'separator' },
+      { role: 'hide' },
+      { role: 'hideothers' },
+      { role: 'unhide' },
+      { type: 'separator' },
+      { role: 'quit' }
     ]
   })
 
-  // 編集メニュー
+  // Edit menu
   template[1].submenu.push(
-    {type: 'separator'},
+    { type: 'separator' },
     {
       label: 'Speech',
       submenu: [
-        {role: 'startspeaking'},
-        {role: 'stopspeaking'}
+        { role: 'startspeaking' },
+        { role: 'stopspeaking' }
       ]
     }
   )
 
-  // ウインドウメニュー
+  // Window menu
   template[3].submenu = [
-    {role: 'close'},
-    {role: 'minimize'},
-    {role: 'zoom'},
-    {type: 'separator'},
-    {role: 'front'}
+    { role: 'close' },
+    { role: 'minimize' },
+    { role: 'zoom' },
+    { type: 'separator' },
+    { role: 'front' }
   ]
 }
 
@@ -229,17 +229,17 @@ Menu.setApplicationMenu(menu)
 ```html
 <!-- index.html -->
 <script>
-const {remote} = require('electron')
-const {Menu, MenuItem} = remote
+const { remote } = require('electron')
+const { Menu, MenuItem } = remote
 
 const menu = new Menu()
-menu.append(new MenuItem({label: 'MenuItem1', click() { console.log('item 1 がクリックされた') }}))
-menu.append(new MenuItem({type: 'separator'}))
-menu.append(new MenuItem({label: 'MenuItem2', type: 'checkbox', checked: true}))
+menu.append(new MenuItem({ label: 'MenuItem1', click() { console.log('item 1 clicked') } })))
+menu.append(new MenuItem({ type: 'separator' }))
+menu.append(new MenuItem({ label: 'MenuItem2', type: 'checkbox', checked: true }))
 
 window.addEventListener('contextmenu', (e) => {
   e.preventDefault()
-  menu.popup({window: remote.getCurrentWindow()})
+  menu.popup({ window: remote.getCurrentWindow() })
 }, false)
 </script>
 ```

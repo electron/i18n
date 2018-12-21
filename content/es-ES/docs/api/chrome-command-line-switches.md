@@ -5,7 +5,7 @@
 Puedes usar [app.commandLine.appendSwitch](app.md#appcommandlineappendswitchswitch-value) para añadirlas en el código principal de tu app antes de que el evento [ready](app.md#event-ready) del modulo [app](app.md) es emitido:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 app.commandLine.appendSwitch('remote-debugging-port', '8315')
 app.commandLine.appendSwitch('host-rules', 'MAP * 127.0.0.1')
 
@@ -54,7 +54,7 @@ Vea la [documentación de Node](https://nodejs.org/api/cli.html) o ejecute `node
 
 ## --proxy-server=`address:port`
 
-Usa un servidor proxy especifico, el cual sobrescribe la configuración del sistema. Esta opción solo afecta peticiones con protocolo HTTP, incluyendo peticiones HTTPS y WebSocket. También cabe destacar que no todos los servidores proxy aceptan peticiones HTTPS y WebSocket.
+Usa un servidor proxy especifico, el cual sobrescribe la configuración del sistema. Esta opción solo afecta peticiones con protocolo HTTP, incluyendo peticiones HTTPS y WebSocket. También cabe destacar que no todos los servidores proxy aceptan peticiones HTTPS y WebSocket. The proxy URL does not support username and password authentication [per Chromium issue](https://bugs.chromium.org/p/chromium/issues/detail?id=615947).
 
 ## --proxy-bypass-list=`hosts`
 
@@ -63,7 +63,7 @@ Indica Electron a pasar de los servidores proxy en la lista de hosts separados p
 Por ejemplo:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com;1.2.3.4:5678')
 ```
 

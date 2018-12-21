@@ -52,7 +52,7 @@ You can also attach other fields to the element of the `template` and they will 
 
 #### `menu.popup(options)`
 
-* `options` Object 
+* `options` Object (선택) 
   * `window` [BrowserWindow](browser-window.md) (선택) - 기본 값은 포커스된 윈도우입니다.
   * `x` Number (선택) - 기본 값은 현재 마우스 커서의 위치입니다. `y`가 정의되어있다면 반드시 정의되어야 합니다.
   * `y` Number (선택) - 기본 값은 현재 마우스 커서의 위치입니다. `x`가 정의되어있다면 반드시 정의되어야 합니다.
@@ -131,42 +131,42 @@ The `Menu` class is only available in the main process, but you can also use it 
 An example of creating the application menu in the main process with the simple template API:
 
 ```javascript
-const {app, Menu} = require('electron')
+const { app, Menu } = require('electron')
 
 const template = [
   {
     label: 'Edit',
     submenu: [
-      {role: 'undo'},
-      {role: 'redo'},
-      {type: 'separator'},
-      {role: 'cut'},
-      {role: 'copy'},
-      {role: 'paste'},
-      {role: 'pasteandmatchstyle'},
-      {role: 'delete'},
-      {role: 'selectall'}
+      { role: 'undo' },
+      { role: 'redo' },
+      { type: 'separator' },
+      { role: 'cut' },
+      { role: 'copy' },
+      { role: 'paste' },
+      { role: 'pasteandmatchstyle' },
+      { role: 'delete' },
+      { role: 'selectall' }
     ]
   },
   {
     label: 'View',
     submenu: [
-      {role: 'reload'},
-      {role: 'forcereload'},
-      {role: 'toggledevtools'},
-      {type: 'separator'},
-      {role: 'resetzoom'},
-      {role: 'zoomin'},
-      {role: 'zoomout'},
-      {type: 'separator'},
-      {role: 'togglefullscreen'}
+      { role: 'reload' },
+      { role: 'forcereload' },
+      { role: 'toggledevtools' },
+      { type: 'separator' },
+      { role: 'resetzoom' },
+      { role: 'zoomin' },
+      { role: 'zoomout' },
+      { type: 'separator' },
+      { role: 'togglefullscreen' }
     ]
   },
   {
     role: 'window',
     submenu: [
-      {role: 'minimize'},
-      {role: 'close'}
+      { role: 'minimize' },
+      { role: 'close' }
     ]
   },
   {
@@ -184,37 +184,37 @@ if (process.platform === 'darwin') {
   template.unshift({
     label: app.getName(),
     submenu: [
-      {role: 'about'},
-      {type: 'separator'},
-      {role: 'services', submenu: []},
-      {type: 'separator'},
-      {role: 'hide'},
-      {role: 'hideothers'},
-      {role: 'unhide'},
-      {type: 'separator'},
-      {role: 'quit'}
+      { role: 'about' },
+      { type: 'separator' },
+      { role: 'services' },
+      { type: 'separator' },
+      { role: 'hide' },
+      { role: 'hideothers' },
+      { role: 'unhide' },
+      { type: 'separator' },
+      { role: 'quit' }
     ]
   })
 
   // Edit menu
   template[1].submenu.push(
-    {type: 'separator'},
+    { type: 'separator' },
     {
       label: 'Speech',
       submenu: [
-        {role: 'startspeaking'},
-        {role: 'stopspeaking'}
+        { role: 'startspeaking' },
+        { role: 'stopspeaking' }
       ]
     }
   )
 
   // Window menu
   template[3].submenu = [
-    {role: 'close'},
-    {role: 'minimize'},
-    {role: 'zoom'},
-    {type: 'separator'},
-    {role: 'front'}
+    { role: 'close' },
+    { role: 'minimize' },
+    { role: 'zoom' },
+    { type: 'separator' },
+    { role: 'front' }
   ]
 }
 
@@ -229,17 +229,17 @@ Below is an example of creating a menu dynamically in a web page (render process
 ```html
 <!-- index.html -->
 <script>
-const {remote} = require('electron')
-const {Menu, MenuItem} = remote
+const { remote } = require('electron')
+const { Menu, MenuItem } = remote
 
 const menu = new Menu()
-menu.append(new MenuItem({label: 'MenuItem1', click() { console.log('item 1 clicked') }}))
-menu.append(new MenuItem({type: 'separator'}))
-menu.append(new MenuItem({label: 'MenuItem2', type: 'checkbox', checked: true}))
+menu.append(new MenuItem({ label: 'MenuItem1', click() { console.log('item 1 clicked') } })))
+menu.append(new MenuItem({ type: 'separator' }))
+menu.append(new MenuItem({ label: 'MenuItem2', type: 'checkbox', checked: true }))
 
 window.addEventListener('contextmenu', (e) => {
   e.preventDefault()
-  menu.popup({window: remote.getCurrentWindow()})
+  menu.popup({ window: remote.getCurrentWindow() })
 }, false)
 </script>
 ```

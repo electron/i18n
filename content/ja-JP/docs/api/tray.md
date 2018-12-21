@@ -7,18 +7,18 @@
 `Tray` は [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) です。
 
 ```javascript
-const {app, Menu, Tray} = require('electron')
+const { app, Menu, Tray } = require('electron')
 
 let tray = null
 app.on('ready', () => {
-  tray = new Tray('/自分の/アイコンへの/パス')
+  tray = new Tray('/path/to/my/icon')
   const contextMenu = Menu.buildFromTemplate([
-    {label: 'アイテム1', type: 'radio'},
-    {label: 'アイテム2', type: 'radio'},
-    {label: 'アイテム3', type: 'radio', checked: true},
-    {label: 'アイテム4', type: 'radio'}
+    { label: 'Item1', type: 'radio' },
+    { label: 'Item2', type: 'radio' },
+    { label: 'Item3', type: 'radio', checked: true },
+    { label: 'Item4', type: 'radio' }
   ])
-  tray.setToolTip('これは自分のアプリケーションです。')
+  tray.setToolTip('This is my application.')
   tray.setContextMenu(contextMenu)
 })
 ```
@@ -32,20 +32,20 @@ app.on('ready', () => {
 * Linux では、個々の `MenuItem` に加えられた変更を有効にするには、`setContextMenu` を再び呼ぶ必要があります。以下は例です。
 
 ```javascript
-const {app, Menu, Tray} = require('electron')
+const { app, Menu, Tray } = require('electron')
 
 let appIcon = null
 app.on('ready', () => {
-  appIcon = new Tray('/自分の/アイコンへの/パス')
+  appIcon = new Tray('/path/to/my/icon')
   const contextMenu = Menu.buildFromTemplate([
-    {label: 'アイテム1', type: 'radio'},
-    {label: 'アイテム2', type: 'radio'}
+    { label: 'Item1', type: 'radio' },
+    { label: 'Item2', type: 'radio' }
   ])
 
-  // コンテキストメニューに変更を加える
+  // Make a change to the context menu
   contextMenu.items[1].checked = false
 
-  // コンテキストメニューを変更したので、Linux のためにこれを呼び直す
+  // Call this again for Linux because we modified the context menu
   appIcon.setContextMenu(contextMenu)
 })
 ```
@@ -217,9 +217,9 @@ tray のアイコンの背景を、いつ青く強調表示するかを設定し
 **注釈:** ウインドウの見た目が変更されたときは、`'never'` と `'always'` 間をトグル切り替えすることで、`highlightMode` を [`BrowserWindow`](browser-window.md) で使用できます。
 
 ```javascript
-const {BrowserWindow, Tray} = require('electron')
+const { BrowserWindow, Tray } = require('electron')
 
-const win = new BrowserWindow({width: 800, height: 600})
+const win = new BrowserWindow({ width: 800, height: 600 })
 const tray = new Tray('/自分の/アイコンへの/パス')
 
 tray.on('click', () => {

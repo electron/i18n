@@ -9,7 +9,7 @@
 Bir URL'yi kullanıcının varsayılan tarayıcısında açmaya örnek:
 
 ```javascript
-const {shell} = require('electron')
+const { shell } = require('electron')
 
 shell.openExternal('https://github.com')
 ```
@@ -37,8 +37,9 @@ Verilen dosyayı masaüstünün varsayılan yöntemiyle açın.
 ### `shell.openExternal(url[, options, callback])`
 
 * `url` String - Max 2081 characters on windows, or the function returns false.
-* `seçenekler` Obje (opsiyonel) *macOS* 
-  * `activate` Mantıksal - `true` açık uygulamayı ön plana getirmek için. Varsayılan `true`'dır.
+* `seçenekler` Obje (opsiyonel) 
+  * `activate` Boolean (optional) - `true` to bring the opened application to the foreground. The default is `true`. *macOS*
+  * `workingDirectory` String (optional) - The working directory. *Windows*
 * `geri aramak` Fonksiyon (isteğe bağlı) *macOS* - If specified will perform the open asynchronously. 
   * `error` Error
 

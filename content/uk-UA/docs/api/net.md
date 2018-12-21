@@ -18,9 +18,9 @@ The `net` module API has been specifically designed to mimic, as closely as poss
 For instance, the following example quickly shows how the `net` API might be used:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 app.on('ready', () => {
-  const {net} = require('electron')
+  const { net } = require('electron')
   const request = net.request('https://github.com')
   request.on('response', (response) => {
     console.log(`STATUS: ${response.statusCode}`)
@@ -40,7 +40,7 @@ By the way, it is almost identical to how you would normally use the [HTTP](http
 
 The `net` API can be used only after the application emits the `ready` event. Trying to use the module before the `ready` event will throw an error.
 
-## Методи
+## Методиa
 
 The `net` module has the following methods:
 

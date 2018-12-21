@@ -7,7 +7,7 @@
 下面的这个例子将会展示如何在最后一个窗口被关闭时退出应用：
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 app.on('window-all-closed', () => {
   app.quit()
 })
@@ -21,7 +21,7 @@ app.on('window-all-closed', () => {
 
 当应用程序完成基础的启动的时候被触发。 在 Windows 和 Linux 中, `will-finish-launching` 事件与 `ready` 事件是相同的; 在 macOS 中，这个事件相当于 `NSApplication` 中的 `applicationWillFinishLaunching` 提示。 通常会在这里为 `open-file` 和 `open-url` 设置监听器，并启动崩溃报告和自动更新。
 
-In most cases, you should do everything in the `ready` event handler.
+绝大部分情况下，你必须在`ready`事件句柄中处理所有事务。
 
 ### 事件: 'ready'
 
@@ -215,7 +215,7 @@ In most cases, you should do everything in the `ready` event handler.
 当对 `url` 的 `certificate` 证书验证失败的时候发出。如果需要信任这个证书，你需要阻止默认行为 `event.preventDefault()` 并且调用 `callback(true)`。
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('certificate-error', (event, webContents, url, error, certificate, callback) => {
   if (url === 'https://github.com') {
@@ -244,7 +244,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 `url` 指的是请求客户端认证的网页地址，调用 `callback` 时需要传入一个证书列表中的证书。 需要通过调用 `event.preventDefault()` 来防止应用自动使用第一个证书进行验证。
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('select-client-certificate', (event, webContents, url, list, callback) => {
   event.preventDefault()
@@ -277,7 +277,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 默认行为是取消所有的验证行为，如果需要重写这个行为，你需要用 `event.preventDefault()` 来阻止默认行为，并且使用 `callback(username, password)` 来验证。
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('login', (event, webContents, request, authInfo, callback) => {
   event.preventDefault()
@@ -303,7 +303,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 当 Chrome 的辅助功能状态改变时触发。 当启用或禁用辅助技术时将触发此事件，例如屏幕阅读器 。 查看更多详情 https://www.chromium.org/developers/design-documents/accessibility
 
-### Event: 'session-created'
+### 事件:'session-created'
 
 返回:
 
@@ -312,7 +312,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 Emitted when Electron has created a new `session`.
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.on('session-created', (event, session) => {
   console.log(session)
@@ -330,6 +330,26 @@ app.on('session-created', (event, session) => {
 This event will be emitted inside the primary instance of your application when a second instance has been executed. ` argv ` 是第二个实例的命令行参数的数组, ` workingDirectory ` 是这个实例当前工作目录。 通常, 应用程序会激活窗口并且取消最小化来响应。
 
 This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
+
+### Event: 'remote-require'
+
+返回:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+* `moduleName` String
+
+Emitted when `remote.require()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+
+### Event: 'remote-get-global'
+
+返回:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+* `globalName` String
+
+Emitted when `remote.getGlobal()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
 
 ## 方法
 
@@ -368,9 +388,9 @@ This event is guaranteed to be emitted after the `ready` event of `app` gets emi
 立即重启当前实例并向新的实例添加新的命令行参数的示例：
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
-app.relaunch({args: process.argv.slice(1).concat(['--relaunch'])})
+app.relaunch({ args: process.argv.slice(1).concat(['--relaunch']) })
 app.exit(0)
 ```
 
@@ -380,7 +400,7 @@ app.exit(0)
 
 ### `app.whenReady()`
 
-Returns `Promise` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
+Returns `Promise<void>` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
 
 ### `app.focus()`
 
@@ -548,7 +568,7 @@ API 在内部使用 Windows 注册表和 LSSetDefaultHandlerForURLScheme。
 
 ### `app.getJumpListSettings()` *Windows*
 
-返回 `Object`:
+返回 ` Object `:
 
 * `minItems` Integer - 将在跳转列表中显示项目的最小数量(有关此值的更详细描述，请参阅 [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
 * `removedItems` [JumpListItem[]](structures/jump-list-item.md) - `JumpListItem` 对象组成的数组，对应用户在跳转列表中明确删除的项目。 这些项目不能在 **next** 调用 `app.setJumpList()` 时重新添加到跳转列表中, Windows不会显示任何包含已删除项目的自定义类别.
@@ -574,7 +594,7 @@ API 在内部使用 Windows 注册表和 LSSetDefaultHandlerForURLScheme。
 下面是创建自定义跳转列表的一个非常简单的示例:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 
 app.setJumpList([
   {
@@ -637,16 +657,16 @@ app.setJumpList([
 
 此方法使应用程序成为单个实例应用程序, 而不是允许应用程序的多个实例运行, 这将确保只有一个应用程序的实例正在运行, 其余的实例全部会被终止并退出。
 
-The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock you can assume that another instance of your application is already running with the lock and exit immediately.
+此方法的返回值表示你的应用程序实例是否成功取得了锁。 如果它取得锁失败，你可以假设另一个应用实例已经取得了锁并且仍旧在运行，于是你可以暂停你的应用。
 
-I.e. This method returns `true` if your process is the primary instance of your application and your app should continue loading. It returns `false` if your process should immediately quit as it has sent its parameters to another instance that has already acquired the lock.
+例如：如果你的程序是应用的主要实例并且当这个方法返回 `true`时，你应该继续让你的程序运行。 如果当它返回 `false`如果你的程序没有取得锁，它应该立刻退出，并且将参数发送给那个已经取到锁的进程。
 
 在 macOS 上, 当用户尝试在 Finder 中打开您的应用程序的第二个实例时, 系统会自动强制执行单个实例, 并且发出 ` open-file ` 和 ` open-url ` 事件。 但是当用户在命令行中启动应用程序时, 系统的单实例机制将被绕过, 您必须使用此方法来确保单实例。
 
 在第二个实例启动时激活主实例窗口的示例:
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 let myWindow = null
 
 const gotTheLock = app.requestSingleInstanceLock()
@@ -672,11 +692,11 @@ if (!gotTheLock) {
 
 返回 `Boolean`
 
-This method returns whether or not this instance of your app is currently holding the single instance lock. You can request the lock with `app.requestSingleInstanceLock()` and release with `app.releaseSingleInstanceLock()`
+此方法返回你的应用实例当前是否持有单例锁。 你可以通过 `app.requestSingleInstanceLock()`请求锁，并且通过 `app.releaseSingleInstanceLock()` 释放锁。
 
 ### `app.releaseSingleInstanceLock()`
 
-Releases all locks that were created by `requestSingleInstanceLock`. This will allow multiple instances of the application to once again run side by side.
+释放由`requestSingleInstanceLock`创建的所有锁。这将允许应用中的多例再次同时执行。
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
@@ -714,10 +734,10 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 * `options` Object 
   * `certificate` String - pkcs12 文件的路径
   * `password` String - 证书的密码
-* `callback` Function - 回调函数 
+* `callback` Function 
   * `result` Integer - 导入结果
 
-将 pkcs12 格式的证书导入到平台证书库。 ` callback ` 使用导入操作的 ` result ` 调用, ` 0 ` 的表示成功, 其他值标识失败，参照 [ net_error_list ](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) 。
+将 pkcs12 格式的证书导入到平台证书库。 `callback` is called with the `result` of import operation, a value of `0` indicates success while any other value indicates failure according to Chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
 ### `app.disableHardwareAcceleration()`
 
@@ -739,6 +759,41 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 
 返回 [` GPUFeatureStatus `](structures/gpu-feature-status.md)-来自 ` chrome://gpu/` 的图形功能状态。
 
+### `app.getGPUInfo(infoType)`
+
+* `infoType` String - Values can be either `basic` for basic info or `complete` for complete info.
+
+Returns `Promise`
+
+For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src.git/+/69.0.3497.106/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
+
+For `infoType` equal to `basic`: Promise is fulfilled with `Object` containing fewer attributes than when requested with `complete`. Here's an example of basic response:
+
+```js
+{ auxAttributes:
+   { amdSwitchable: true,
+     canSupportThreadedTextureMailbox: false,
+     directComposition: false,
+     directRendering: true,
+     glResetNotificationStrategy: 0,
+     inProcessGpu: true,
+     initializationTime: 0,
+     jpegDecodeAcceleratorSupported: false,
+     optimus: false,
+     passthroughCmdDecoder: false,
+     sandboxed: false,
+     softwareRendering: false,
+     supportsOverlays: false,
+     videoDecodeAcceleratorFlags: 0 },
+gpuDevice:
+   [ { active: true, deviceId: 26657, vendorId: 4098 },
+     { active: false, deviceId: 3366, vendorId: 32902 } ],
+machineModelName: 'MacBookPro',
+machineModelVersion: '11.5' }
+```
+
+Using `basic` should be preferred if only basic information like `vendorId` or `driverId` is needed.
+
 ### `app.setBadgeCount(count)` *Linux* *macOS*
 
 * `count` Integer
@@ -749,7 +804,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 
 在macOS系统中, 它展示在dock图标上。在Linux系统中, 它只适用于Unity启动器.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+**注意:** 联合启动器需要`.desktop`文件的存在和工作， 获得更多信息请阅读 [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher)。
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
@@ -815,6 +870,10 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
 
 **注意:** 渲染进程树会明显的影响应用的性能。默认情况下不应该启用。
 
+### `app.showAboutPanel()` *macOS*
+
+Show the about panel with the values defined in the app's `.plist` file or with the options set via `app.setAboutPanelOptions(options)`.
+
 ### `app.setAboutPanelOptions(options)` *macOS*
 
 * `options` Object 
@@ -839,7 +898,7 @@ const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedReso
 stopAccessingSecurityScopedResource()
 ```
 
-开始访问安全范围内的资源。 通过这个方法，electron 应用被打包为可到达Mac App Store沙箱之外访问用户选择的文件。 关于系统工作原理，请查阅[Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16)
+开始访问安全范围内的资源。 With this method Electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. 关于系统工作原理，请查阅[Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16)
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
@@ -857,6 +916,12 @@ stopAccessingSecurityScopedResource()
 给 Chromium 中直接添加一个命令行参数，该参数的引号和格式必须正确。
 
 ** 注意: **该方法不会影响 ` process. argv `
+
+### `app.enableSandbox()` *Experimental* *macOS* *Windows*
+
+Enables full sandbox mode on the app.
+
+这个方法只能在应用程序准备就绪（ready）之前调用。
 
 ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
 

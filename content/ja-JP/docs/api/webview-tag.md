@@ -90,6 +90,14 @@ Electron の `webview` タグは [Chromium の `webview`](https://developer.chro
 
 この属性が存在する場合、`webview` のゲストページは Node Integration を持ち、低レベルのシステムリソースにアクセスするのに、`require` や `process` のような Node API が使用できます。 デフォルトでは、ゲストページ内の Node Integration は無効化されています。
 
+### `enableremotemodule`
+
+```html
+<webview src="http://www.google.com/" enableremotemodule="false"></webview>
+```
+
+When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. The remote module is avaiable by default.
+
 ### `plugins`
 
 ```html
@@ -206,6 +214,12 @@ webview.addEventListener('dom-ready', () => {
 
 `url` を webview にロードします。`url` には、`http://` または `file://` のような、プロトコルのプレフィックスを含みます。
 
+### `<webview>.downloadURL(url)`
+
+* `url` String
+
+Initiates a download of the resource at `url` without navigating.
+
 ### `<webview>.getURL()`
 
 戻り値 `String` - ゲストページの URL。
@@ -217,6 +231,10 @@ webview.addEventListener('dom-ready', () => {
 ### `<webview>.isLoading()`
 
 戻り値 `Boolean` - ゲストページがまだリソースを読み込んでいるかどうか。
+
+### `<webview>.isLoadingMainFrame()`
+
+戻り値 `Boolean` - メインフレーム (iframe やフレーム内のフレームだけではない) がまだ読み込んでいるかどうか。
 
 ### `<webview>.isWaitingForResponse()`
 
@@ -337,6 +355,10 @@ webview.addEventListener('dom-ready', () => {
 ### `<webview>.isAudioMuted()`
 
 戻り値 `Boolean` - ゲストページがミュートされているかどうか。
+
+### `<webview>.isCurrentlyAudible()`
+
+Returns `Boolean` - Whether audio is currently playing.
 
 ### `<webview>.undo()`
 
@@ -473,7 +495,35 @@ webview.addEventListener('dom-ready', () => {
 
 * `level` Number - 拡大レベル。
 
-指定レベルに拡大レベルを変更します。 原寸は 0 で、各増減分はそれぞれ 20% ずつの拡大または縮小を表し、デフォルトで元のサイズの 300% から 50% までに制限されています。
+指定レベルに拡大レベルを変更します。 原寸は 0 で、各増減分はそれぞれ 20% ずつの拡大または縮小を表し、デフォルトで元のサイズの 300% から 50% までに制限されています。 この式は `scale := 1.2 ^ level` です。
+
+### `<webview>.getZoomFactor(callback)`
+
+* `callback` Function 
+  * `zoomFactor` Number
+
+現在の拡大率を取得するリクエストを送ります。`callback` が `callback(zoomFactor)` で呼ばれます。
+
+### `<webview>.getZoomLevel(callback)`
+
+* `callback` Function 
+  * `zoomLevel` Number
+
+現在の拡大レベルを取得するリクエストを送ります。`callback` が `callback(zoomLevel)` で呼ばれます。
+
+### `<webview>.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
+
+* `minimumLevel` Number
+* `maximumLevel` Number
+
+ピンチによる拡大レベルの最大値と最小値を設定します。
+
+### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
+
+* `minimumLevel` Number
+* `maximumLevel` Number
+
+レイアウトベースな (つまり Visual ではない) 拡大レベルの最大値と最小値を設定します。
 
 ### `<webview>.showDefinitionForSelection()` *macOS*
 
@@ -482,6 +532,8 @@ webview.addEventListener('dom-ready', () => {
 ### `<webview>.getWebContents()`
 
 戻り値 [`WebContents`](web-contents.md) - この `webview` に関連付けられた webContents。
+
+It depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
 
 ## DOM イベント
 
@@ -613,7 +665,7 @@ console.log(requestId)
 以下のサンプルコードは、システムのデフォルトブラウザで新しい URL を開きます。
 
 ```javascript
-const {shell} = require('electron')
+const { shell } = require('electron')
 const webview = document.querySelector('webview')
 
 webview.addEventListener('new-window', (e) => {
@@ -695,7 +747,7 @@ webview.send('ping')
 
 ```javascript
 // ゲストページ。
-const {ipcRenderer} = require('electron')
+const { ipcRenderer } = require('electron')
 ipcRenderer.on('ping', () => {
   ipcRenderer.sendToHost('pong')
 })

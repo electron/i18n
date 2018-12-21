@@ -9,7 +9,7 @@ Process: [Main](../glossary.md#main-process)
 **Примечание:** Вам не следует использовать данный модуль до тех пор, пока событие `ready` приложения не произошло.
 
 ```javascript
-const {app, contentTracing} = require('electron')
+const { app, contentTracing } = require('electron')
 
 app.on('ready', () => {
   const options = {

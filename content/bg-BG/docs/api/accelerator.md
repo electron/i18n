@@ -12,7 +12,7 @@ Accelerators are Strings that can contain multiple modifiers and a single key co
 Клавишните комбинации са регистрирани с модула [`globalShortcut`](global-shortcut.md), използвайки метода [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback), т.е.
 
 ```javascript
-const {app, globalShortcut} = require('electron')
+const { app, globalShortcut } = require('electron')
 app.on('ready', () => {
    // Слуша за 'CommandOrControl+Y' клависна команда.
   globalShortcut.register('CommandOrControl+Y', () => {

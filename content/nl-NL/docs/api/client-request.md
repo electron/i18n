@@ -38,13 +38,13 @@ const request = net.request({
 
 #### Event: 'response'
 
-Returns:
+Geeft terug:
 
 * `response` IncomingMessage - An object representing the HTTP response message.
 
 #### Event: 'login'
 
-Returns:
+Geeft terug:
 
 * `authInfo` Object 
   * `isProxy` Boolean
@@ -105,7 +105,7 @@ Emitted as the last event in the HTTP request-response transaction. The `close` 
 
 #### Event: 'redirect'
 
-Returns:
+Geeft terug:
 
 * `statusCode` Integer
 * `method` String

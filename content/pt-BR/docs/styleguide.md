@@ -38,12 +38,12 @@ Usado o `Inicio Rápido` como exemplo:
 ...
 ```
 
-For API references, there are exceptions to this rule.
+Para referencias à API, existem exceções a está regra.
 
 ## Funcionalidades Markdown
 
-* Use `sh` instead of `cmd` in code blocks (due to the syntax highlighter).
-* Lines should be wrapped at 80 columns.
+* Use `sh` ao invés de `cmd` nos blocos de código (devido ao destaque de sintaxe).
+* Linhas devem ser quebradas em 80 colunas.
 * No nesting lists more than 2 levels (due to the markdown renderer).
 * All `js` and `javascript` code blocks are linted with [standard-markdown](http://npm.im/standard-markdown).
 

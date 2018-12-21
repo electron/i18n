@@ -1,15 +1,15 @@
-# globalShortcut
+# putulin ng maikli ang global
 
 > Tinutuklas ang mga pangyayari sa keyboard kung ang aplikasyon ay walang tumutuon na keyboard.
 
-Ang proseso: [Pangunahin](../glossary.md#main-process)
+Proseso:[Pangunahi](../glossary.md#main-process)
 
 Ang `globalShortcut` modyul ay pwedeng irehistro/hindi-irehistro ang global keyboard shortcut na may operating system para maka customize ang operasyon sa iba-ibang shortcut.
 
 **Tandaan:** Ang shortcut ay global: magagamit ito kahit na ang apps ay walang pagtuon ng keyboard. Hindi mo dapat gamitin ang modyul na ito hanggang ang `handa` pangyayari sa app modyul ay napalabas.
 
 ```javascript
-onst {app, globalShortcut} = kailangan('electron')
+onst { app, globalShortcut } = kailangan('electron')
 
 app.on('ready', () => {
   // Magrehistro ng a 'CommandOrControl+X' shortcut na tagapakinig.
@@ -39,14 +39,14 @@ app.on('will-quit', () => {
  
 ```
 
-## Pamamaraan
+## Mga Paraan
 
 Ang `globalShortcut` na modyul ay may mga sumusunod na paraan:
 
 ### `globalShortcut.rehistro(aselerador, baliktawag)`
 
 * `aselerador` [Aselerador](accelerator.md) 
-* `baliktawag` ginagawa
+* `callback` na Function
 
 Nag-rehistro ng global shortcut ng `aselerador`. Ang `baliktawag` ay tatawagan kung ang narehistrong shortcut ay pinindot ng tagagamit.
 

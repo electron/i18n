@@ -26,7 +26,7 @@ Emitted when a request has been canceled during an ongoing HTTP transaction.
 
 #### Event: 'error'
 
-Returns:
+Geeft terug:
 
 `error` Error - Typically holds an error string identifying failure root cause.
 

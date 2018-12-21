@@ -22,9 +22,13 @@ Vea [`Menú`](menu.md) para obtener ejemplos.
   * `enabled` Boolean (opcional) - Si es falso, el elemento de menú será gris y no se podrá hacer click en él.
   * `visible` Boolean (opcional) - Si es falso, el elemento del menú será totalmente invisible.
   * `checked` Boolean (opcional) - Solo debe especificarse para elementos del menú tipo `checkbox` o `radio`.
-  * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (opcional) - Debe ser especificado para elementos del menú tipo `submenu`. Si `submenu` es especificado, el `tipo: 'submenu'` puede ser omitido. Si el valor no es un [`Menu`](menu.md) entonces se convertirá automáticamente en uno usando `Menu.buildFromTemplate`.
+  * `registerAccelerator` Boolean (optional) - If false, the accelerator won't be registered with the system, but it will still be displayed. Defaults to true.
+  * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. If the value is not a [`Menu`](menu.md) then it will be automatically converted to one using `Menu.buildFromTemplate`.
   * `id` String (opcional) - Único dentro de un menú concreto. Si se define, entonces puede usarse como referencia a este elemento mediante el atributo de posición.
-  * `position` String (opcional) - Este campo permite una definición granular de la posición específica dentro de un menú concreto.
+  * `before` String[] (optional) - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
+  * `after` String[] (optional) - Inserts this item after the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu.
+  * `beforeGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
+  * `afterGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group after the containing group of the item with the specified label.
 
 ### Roles
 
@@ -33,6 +37,8 @@ Los roles le permiten a los elementos del menú tener comportamientos predetermi
 Es mejor especificar el `rol` para todos los elementos del menú de tal manera que coincidan con los roles estandar, en vez de tratar de implementar un comportamiento manualmente en una función `click`. El comportamiento incorporador `rol` dará la mejor experiencia nativa.
 
 Los valores de `etiqueta` y `acelerador` son opcionales mientras se usa un `rol` y por defecto se apropiarán valores de cada plataforma.
+
+Every menu item must have either a `role`, `label`, or in the case of a separator a `type`.
 
 La propiedad `role` puede tener los siguientes valores:
 
@@ -46,11 +52,11 @@ La propiedad `role` puede tener los siguientes valores:
 * `delete`
 * `minimize` - Minimizar la venta actual.
 * `close` - Cerrar la ventana actual.
-* `quit`- Salir de la aplicación.
+* `quit` - Quit the application.
 * `reload` - Recargar la ventana actual.
 * `forceReload` - Recargar la ventana actual ignorando la caché.
 * `toggleDevTools` - Alternar herramientas de desarrollador en la ventana actual.
-* `toggleFullScreen`- Alternar el modo de pantalla completa en la ventana actual.
+* `toggleFullScreen` - Toggle full screen mode on the current window.
 * `resetZoom` - Restablece el nivel de zoom de la página enfocada al tamaño original.
 * `zoomIn` - Zoom en la página enfocada en un 10%.
 * `zoomOut` - Aleja la página enfocada en un 10%.

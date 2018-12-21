@@ -6,12 +6,12 @@ Proceso: [Main](../glossary.md#main-process)
 
 ```javascript
 // En el proceso principal.
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 
 // O usa "remote" desde el proceso de renderizado.
-// const {BrowserWindow} = require('electron').remote
+// const { BrowserWindow } = require('electron').remote
 
-let win = new BrowserWindow({width: 800, height: 600})
+let win = new BrowserWindow({ width: 800, height: 600 })
 win.on('closed', () => {
   win = null
 })
@@ -36,8 +36,8 @@ Cuando los usuarios cargan una página directamente en la ventana, pueden ver co
 Mientras se carga la página, se emitirá el evento `ready-to-show` cuando el proceso de renderizado haya procesado la página por primera vez si aún no se ha mostrado la ventana. Si se muestra la ventana despues de este evento, no tendrá fogonazos:
 
 ```javascript
-const {BrowserWindow} = require('electron')
-let win = new BrowserWindow({show: false})
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({ show: false })
 win.once('ready-to-show', () => {
   win.show()
 })
@@ -50,9 +50,9 @@ Este evento generalmente se emite después del evento `did-finish-load`, pero pa
 Para una aplicación compleja, el evento `ready-to-show` puede emitirse muy tarde, haciendo que la aplicación parezca lenta. En este caso, se recomienda mostrar la ventana inmediatamente, y usar un color de fondo `backgroundColor` parecido al color de fondo de la aplicación:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 
-let win = new BrowserWindow({backgroundColor: '#2e2c29'})
+let win = new BrowserWindow({ backgroundColor: '#2e2c29' })
 win.loadURL('https://github.com')
 ```
 
@@ -63,10 +63,10 @@ Tenga en cuenta que incluso para aplicaciones que utilizan el evento `ready-to-s
 Al usar la opción `parent`, se pueden crean ventanas secundarias:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 
 let top = new BrowserWindow()
-let child = new BrowserWindow({parent: top})
+let child = new BrowserWindow({ parent: top })
 child.show()
 top.show()
 ```
@@ -78,9 +78,9 @@ La ventana `child` se mostrará siempre por encima de la ventana `top`.
 Una ventana modal es una ventana secundaria que deshabilita la ventana principal, para crear una ventana modal, hay que establecer ambas opciones `parent` y `modal`:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 
-let child = new BrowserWindow({parent: top, modal: true, show: false})
+let child = new BrowserWindow({ parent: top, modal: true, show: false })
 child.loadURL('https://github.com')
 child.once('ready-to-show', () => {
   child.show()
@@ -151,7 +151,7 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
   * `disableAutoHideCursor` Boolean (opcional) - si se oculta el cursor al escribir. Por defecto es `false`.
   * `autoHideMenuBar` Boolean (opcional) - Oculta automáticamente la barra de menú a menos que se presione la tecla `Alt`. Por defecto es `false`.
   * `enableLargerThanScreen` Boolean (opcional) - Permite que el tamaño de la ventana sea más grande que la pantalla. Por defecto es `false`.
-  * `backgroundColor` String (opcional) - Color de fondo de la ventana en hexadecimal, como `#66CD00` o `#FFF` o `#80FFFFFF` (se soporta el canal alpha). Por defecto es `#FFF` (blanco). If `transparent` is set to `true`, only values with transparent (`#00-------`) or opaque (`#FF-----`) alpha values are respected.
+  * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported if `transparent` is set to `true`). Default is `#FFF` (white).
   * `hasShadow` Boolean (opcional) - Si la ventana debería tener sombra. Esto solo es implementado en macOS. Por defecto es `true`.
   * `opacity` Number (opcional) - Establece la opacidad inicial de la ventana, entre 0.0 (completamente transparente) y 1.0 (completamente opaca). Solo está implementado en Windows y macOS.
   * `darkTheme` Boolean (opcional) - Obliga a utilizar un tema oscuro en la ventana, solamente funciona en algunos GTK+3 desktop environments. Por defecto es `false`.
@@ -161,7 +161,7 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
     * `default` - Es la barra de título gris opaca estándar de Mac.
     * `hidden` -Es una barra de título oculta y una ventana de tamaño completo. Sin embargo, la barra tiene los controles estándares de la ventana ("traffic lights") en la parte superior izquierda.
     * `hiddenInset` - Es una barra de título oculta con una apariencia alternativa donde los botones de traffic light están ligeramente mas insertados en el borde de la ventana.
-    * `customButtonsOnHover` Boolean (opcional) - Dibuja botones personalizados de cerrar, minimizar y pantalla completa en las ventanas sin marco de macOS. Estos botones no aparecerán a menos que se esté ubicado sobre la parte superior izquierda de la ventana. Estos botones personalizados previenen problemas con los eventos del ratón que suceden con los botones estándar de la barra de herramientas de la ventana. **Nota:** Actualmente esta opción es experimental.
+    * `customButtonsOnHover` Boolean (optional) - Draw custom close, and minimize buttons on macOS frameless windows. These buttons will not display unless hovered over in the top left of the window. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. **Nota:** Actualmente esta opción es experimental.
   * `fullscreenWindowTitle` Boolean (opcional) - Muestra el título en la barra de titulos en modo pantalla completa en macOS para todas las opciones `titleBarStyle`. Por defecto es `false`.
   * `thickFrame` Boolean (opcional) - Utilice el estilo `WS_THICKFRAME` para ventanas sin marco en Windows, la cual agrega un marco de ventana estándar. Configurarlo en `false` eliminará la sombra de la ventana y las animaciones de la ventana. Por defecto es `true`.
   * `vibrancy` Cadena (opcional) - Añade un tipo de efecto de vibración a la ventana. Funciona solamente en macOS. Puede ser `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`. Tenga en cuenta que usar `frame: false` en combinación con un valor de vibrancy requiere que use también un `titleBarStyle` no-predeterminado.
@@ -173,12 +173,13 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
     * `nodeIntegrationInWorker` Boolean (opcional) - Si la integración de nodos está habilitada en los trabajadores de la web. Por defecto es `false`. Se pueden encontrar más detalles en [Multithreading](../tutorial/multithreading.md).
     * `preload` String (opcional) - Especifica un script que será cargado antes del otros scripts en la página. Este script siempre tendrá acceso al nodo APIs sin importar si la integración de nodos esté activada o no. El valor debería ser la ruta del archivo absoluto al script. Cuando la integración de nodos esta desactivada, la precarga del script puede reintroducir de vuelta al ámbito global los símbolos globales del Nodo. Ver ejemplo [aquí](process.md#event-loaded).
     * `sandbox` Boolean (opcional) - Si se configura, protegerá al renderizador asociado a la ventana, haciéndolo compatible con el sandbox de Chromium OS-level, deshabilitando el motor Node.js. Esto no es lo mismo que la opción de `nodeIntegration` y las APIs disponibles para el script de precarga son más limitadas. Leer más sobre la opción [aquí](sandbox-option.md). **Nota:** actualmente esta opción es experimental y puede cambiar o ser eliminada en las futuras versiones de Electron.
+    * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. Default is `true`.
     * `session` [Session](session.md#class-session) (opcional) - Configura la sesión usada por la página. En lugar de pasar directamente el objeto de la sesión, se puede optar por utilizar la opción de `partition`, la cual acepta una cadena de partición. Cuando se proporcionen `session` y `partition`, se preferirá `session`. Default es la sesión por defecto.
     * `partition` Cadena (opcional) - Configura la sesión utilizada por la página según la cadena de partición de la sesión. Si la `partition` empieza con `persist:`, la página utilizará una sesión persistente disponible para todas las páginas en la partición con la misma `partition`. Si no está el prefijo `persist:`, la página usara una sesión de la memoria interna. Por asignar el mismo `partition`, múltiples páginas podrán compartir la misma sesión. Default es la sesión por defecto.
     * `affinity` Cadena de caracteres (opcional): Cuando se especifica, las páginas web con la misma `affinity` se ejecutarán en el mismo proceso de renderizado. Nótese que debido a que se reutiliza el proceso de renderizado, ciertas opciones `webPreferences` también se compartirán entre las páginas web incluso si se especificaron valores diferentes para cada una de ellas, incluyendo pero no limitándose a `preload`, `sandbox` y`nodeIntegration`. Por lo tanto, se sugiere utilizar las mismas `webPreferences` para páginas web con la misma `affinity`. *This property is experimental*
-    * `zoomFactor` Number (opcional) - El factor zoom de la página por defecto `3.0` representa el `300%`. Por defecto es `1.0`.
-    * `javascript` Boolean (opcional) - Habilita el soporte a JavaScript. Por defecto es `true`.
-    * `webSecurity` Boolean (opcional) - Cuando es `false`, desactivará la política de same-origin (por lo general se utiliza cuando la gente prueba los sitios web), y configurará `allowRunningInsecureContent`a `true` en caso de que estas opciones no hayan sido configuradas por el usuario. Por defecto es `true`.
+    * `zoomFactor` Numero (opcional) - El factor zoom de la página por defecto `3.0` representa el `300%`. Por defecto es `1.0`.
+    * `javascript` Booleano (opcional) - Habilita el soporte a JavaScript. Por defecto es `true`.
+    * `webSecurity` Booleano (opcional) - Cuando es `false`, deshabilitará la política de un mismo origen (por lo general se utiliza cuando la gente testea los sitios web), y configurará `allowRunningInsecureContent`a `true` en caso de que estas opciones no hayan sido configuradas por el usuario. Por defecto es `true`.
     * `allowRunningInsecureContent` Booleano (opcional) - Permite que una página https ejecute JavaScript, CSS o plugins de URLS http. Por defecto es `false`.
     * `images` Booleano (opcional) - Habilita el soporte a imagen. Por defecto es `true`.
     * `textAreasAreResizable` Booleano (opcional) - Hace que los elementos de TextArea sean redimensionables. Por defecto es `true`.
@@ -186,7 +187,6 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
     * `webaudio` Booleano (opcional) - Habilita el soporte a WebAudio. Por defecto es `true`.
     * `plugins` Booleano (opcional) - Si los plugins se habilitan o no. Por defecto es `false`.
     * `experimentalFeatures` Booleano (opcional) - Habilita las características experimentales de Chromium. Por defecto es `false`.
-    * `experimentalCanvasFeatures` Booleano (opcional) - Habilita las características experimentales de canvas de Chromium. Por defecto es `false`.
     * `scrollBounce` Boolean (opcional) - Habilita el efecto de rebote de desplazamiento (rubber banding) en macOS. Por defecto es `false`.
     * `enableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to enable. La lista completa de cadenas distintivas soportadas pueden encontrarse en el archivo [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70).
     * `disableblinkFeatures` String (opcional) - Una lista de cadenas distintivas separadas por `,`,como `CSSVariables,KeyboardEventKey` para deshabilitar. La lista completa de cadenas características soportadas puede ser encontrada en el archivo [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70).
@@ -203,7 +203,7 @@ Crea una nueva `BrowserWindow` con propiedades nativas como las establecidas por
     * `defaultEncoding` String (opcional) - Por defecto es `ISO-8859-1`.
     * `backgroundThrottling` Boolean (opcional) - Para acelerar animaciones y temporizadores cuando la página esta al fondo. Esto también afecta a [Page Visibility API](#page-visibility). Por defecto es `true`.
     * `offscreen` Boolean(optional) - Para habilitar el renderizado offscreen para el navegador de la ventana. Por defecto es `false`. Para más detalles, ver [offscreen rendering tutorial](../tutorial/offscreen-rendering.md).
-    * `contextIsolation` Boolean(opcional) - Para ejecutar las APIs de Electron y el script especificado `preload` en un contexto JavaScript independiente. Por defecto es `false`. El contexto que ejecuta el script `preload` tendrá acceso completo a los globales `document` y a `window` pero utilizará su propia configuración integrada de JavaScript (`Array`, `Object`, `JSON`, etc.) y estará apartada de cualquier cambio que se le haga al contexto global por la página cargada. El API Electron solo estará disponible en el script `preload` y no en la página cargada. Esta opción debe utilizarse cuando se carga contenido remoto potencialmente dañino para asegurar que el contenido cargado no pueda modificar el script `preload` o cualquier API de Electron en uso. Esta opción utiliza la misma técnica utilizada por [Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment). Se puede acceder a este contexto en las herramientas de desarrollo al seleccionar la entrada 'Electron Isolated Context' en el cuadro combo en la parte superior de la pestaña de la Consola. **Nota:** actualmente esta opción es experimental y puede cambiar o ser eliminada en las futuras versiones de Electron.
+    * `contextIsolation` Boolean(opcional) - Para ejecutar las APIs de Electron y el script especificado `preload` en un contexto JavaScript independiente. Por defecto es `false`. El contexto que ejecuta el script `preload` tendrá acceso completo a los globales `document` y a `window` pero utilizará su propia configuración integrada de JavaScript (`Array`, `Object`, `JSON`, etc.) y estará apartada de cualquier cambio que se le haga al contexto global por la página cargada. El API Electron solo estará disponible en el script `preload` y no en la página cargada. Esta opción debe utilizarse cuando se carga contenido remoto potencialmente dañino para asegurar que el contenido cargado no pueda modificar el script `preload` o cualquier API de Electron en uso. Esta opción utiliza la misma técnica utilizada por [Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment). Se puede acceder a este contexto en las herramientas de desarrollo al seleccionar la entrada 'Electron Isolated Context' en el cuadro combo en la parte superior de la pestaña de la Consola.
     * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. If set to `true`, the `webPreferences` of child window will always be the same with parent window, regardless of the parameters passed to `window.open()`. Por defecto es `false`. **Note:** This option is currently experimental.
     * `webviewTag` Boolean (opcional) - Si se habilita o no el [`<webview>` tag](webview-tag.md). Por defecto tiene el valor de la opción `nodeIntegration`. **Nota:** El script `preload` configurado para el `<webview>`tendrá la integración de nodos habilitada cuando se ejecuta por lo que hay que asegurarse que el contenido remoto o posiblemente dañino no sea capaz de crear una etiqueta de `<webview>`con un script `preload` posiblemente malicioso. Puede utilizarse el evento `will-attach-webview` en [webContents](web-contents.md) para quitar el script `preload` y validar o alterar la configuración inicial de `<webview>`.
     * `additionalArguments` String[] (opcional) - Una lista de string que se agregarán a `process.argv` en el proceso de renderización de esta aplicación. Útil para pasar pequeños bits de datos hasta los scripts de precarga del proceso del renderizador.
@@ -312,9 +312,31 @@ Aparece cuando se minimiza la ventana.
 
 Aparece cuando se restaura la ventana de un estado minimizado.
 
+#### Event: 'will-resize' *macOS* *Windows*
+
+Devuelve:
+
+* `event` Event
+* `newBounds` [`Rectangle`](structures/rectangle.md) - Size the window is being resized to.
+
+Emitted before the window is resized. Calling `event.preventDefault()` will prevent the window from being resized.
+
+Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
+
 #### Evento: "resize"
 
-Aparece cuando se redimensiona la ventana.
+Emitted after the window has been resized.
+
+#### Event: 'will-move' *Windows*
+
+Devuelve:
+
+* `evento` Evento
+* `newBounds` [`Rectangle`](structures/rectangle.md) - Location the window is being moved to.
+
+Emitted before the window is moved. Calling `event.preventDefault()` will prevent the window from being moved.
+
+Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
 
 #### Evento: "move"
 
@@ -334,13 +356,22 @@ Aparece cuando la ventana entra en un estado pantalla completa.
 
 Aparece cuando la ventana sale del estado pantalla completa.
 
-#### Evento: 'enter-html-full-screen'
+#### Evento: "enter-html-full-screen"
 
 Aparece cuando la ventana entra en un estado pantalla completa activado por la API HTML.
 
-#### Evento: 'leave-html-full-screen'
+#### Evento: "leave-html-full-screen"
 
 Aparece cuando la ventana sale de un estado pantalla completa activado por la API HTML.
+
+#### Event: 'always-on-top-changed' *macOS*
+
+Devuelve:
+
+* `event` Event
+* `isAlwaysOnTop` Boolean
+
+Emitted when the window is set or unset to show always on top of other windows.
 
 #### Evento: "app-command" *Windows*
 
@@ -354,7 +385,7 @@ Aparece cuando se invoca un [App Command](https://msdn.microsoft.com/en-us/libra
 Los comandos están en minuscula, los guiones bajos son remplazados por guiones, y el prefijo `APPCOMMAND_` se elimina. por ejemplo, `APPCOMMAND_BROWSER_BACKWARD` aparece como `browser-backward`.
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.on('app-command', (e, cmd) => {
   // La ventana retrocede cuando el usuario hace clic sobre el botón de atrás
@@ -380,7 +411,7 @@ Aparece cuando la fase del evento de la rueda desplazamiento ha alcanzado el bor
 
 Devuelve:
 
-* `evento` Evento
+* `event` Event
 * `direction` String
 
 Aparece al pasar 3 dedos. Las direcciones posibles son `up`, `right`, `down`, `left`.
@@ -393,7 +424,7 @@ Aparece cuando la ventana abre una hoja.
 
 Aparece cuando la ventana cierra una hoja.
 
-#### Evento: "new-window-for-tab" *macOS*
+#### Evento: 'new-window-for-tab' *macOS*
 
 Aparece cuando se hace clic al botón de nueva pestaña nativa.
 
@@ -411,7 +442,7 @@ Returns `BrowserWindow | null` - The window that is focused in this application,
 
 #### `BrowserWindow.fromWebContents(webContents)`
 
-* `webContents` [WebContents](web-contents.md)
+* `Contenidosweb` [Contenidosweb](web-contents.md)
 
 Devuelve `BrowserWindow` - La ventana que posee el `webContents` dado.
 
@@ -425,7 +456,7 @@ Devuelve `BrowserWindow | null` - La ventana propietaria del `browserView` espec
 
 * `id` Íntegro
 
-Devuelve `BrowserWindow` - La ventana que posee el `id` especificado.
+Devuelve `BrowserWindow` - La ventana que posee el `id`dado.
 
 #### `BrowserWindow.addExtension(path)`
 
@@ -478,7 +509,7 @@ Devuelve `Object` - Las llaves son los nombres de la extensión y cada valor es 
 Para verificar si una extensión de DevTools está instalada se puede ejecutar lo siguiente:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 
 let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
 console.log(installed)
@@ -491,9 +522,9 @@ console.log(installed)
 Los objetos creados con `new BrowserWindow` tienen las siguientes propiedades:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 // En este ejemplo "win" es nuestra instancia
-let win = new BrowserWindow({width: 800, height: 600})
+let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
@@ -603,6 +634,10 @@ El modo simple de pantalla completa emula el comportamiento de la pantalla compl
 
 Devuelve `Boolean` - Si la ventana está en modo simple de pantalla completa (pre-Lion).
 
+#### `win.isNormal()`
+
+Returns `Boolean` - Whether the window is in normal state (not maximized, not minimized, not in fullscreen mode).
+
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
 * `aspectRatio` Flotador - La relación de aspecto para mantener parte de la vista de contenido.
@@ -613,6 +648,12 @@ Esto hará que la ventana mantenga una relación de aspecto. El tamaño extra pe
 Considere una ventana normal con un reproductor de video HD y los controles asociados. Quizá hay 15 pixeles de controles en el borde izquierdo, 25 pixeles de control en el borde derecho y 50 pixeles de control bajo el reproductor. Para mantener una relación de aspecto de 16:9 (la relación de aspecto estándar para HD@1920x1080) dentro del reproductor, tendríamos que llamar esta función con argumentos de 16/9 y [ 40, 50 ]. En el segundo argumento no importa donde están la anchura extra ni altura extra dentro de la vista del contenido, solo importa que existan. Sum any extra width and height areas you have within the overall content view.
 
 Calling this function with a value of `0` will remove any previously set aspect ratios.
+
+#### `win.setBackgroundColor(backgroundColor)`
+
+* `backgroundColor` String - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported if `transparent` is `true`). Default is `#FFF` (white).
+
+Sets the background color of the window. See [Setting `backgroundColor`](#setting-backgroundcolor).
 
 #### `win.previewFile(path[, displayName])` *macOS*
 
@@ -630,7 +671,18 @@ Cierra el panel actual de [Quick Look](https://en.wikipedia.org/wiki/Quick_Look)
 * `bounds` [Rectangle](structures/rectangle.md)
 * `animate` Boolean (opcional) *macOS*
 
-Redimensiona y mueve la ventana a los límites proporcionados
+Resizes and moves the window to the supplied bounds. Any properties that are not supplied will default to their current values.
+
+```javascript
+const { BrowserWindow } = require('electron')
+const win = new BrowserWindow()
+ // set all bounds properties
+win.setBounds({ x: 440, y: 225, width: 800, height: 600 })
+ // set a single bounds property
+win.setBounds({ width: 200 })
+ // { x: 440, y: 225, width: 200, height: 600 }
+console.log(win.getBounds())
+```
 
 #### `win.getBounds()`
 
@@ -647,6 +699,12 @@ Redimensiona y mueve el área del cliente de la ventana (por ejemplo, la página
 
 Devuelve [`Rectangle`](structures/rectangle.md)
 
+#### `win.getNormalBounds()`
+
+Returns [`Rectangle`](structures/rectangle.md) - Contains the window bounds of the normal state
+
+**Note:** whatever the current state of the window : maximized, minimized or in fullscreen, this function always returns the position and size of the window in normal state. In normal state, getBounds and getNormalBounds returns the same [`Rectangle`](structures/rectangle.md).
+
 #### `win.setEnabled(enable)`
 
 * `enable` Boolean
@@ -656,7 +714,7 @@ Habilita o deshabilita la ventana.
 #### `win.setSize(width, height[, animate])`
 
 * `width` Integer
-* `height` Integer
+* `alto` Integer
 * `animate` Boolean (opcional) *macOS*
 
 Resizes the window to `width` and `height`. If `width` or `height` are below any set minimum size constraints the window will snap to its minimum size.
@@ -667,8 +725,8 @@ Devuelve `Integer[]` - Contiene la anchura y altura de la ventana.
 
 #### `win.setContentSize(width, height[, animate])`
 
-* `ancho` Entero
-* `alto` Entero
+* `width` Integer
+* `alto` Integer
 * `animate` Boolean (opcional) *macOS*
 
 Cambia el área del cliente de la ventana (por ejemplo, la página web) a la `width` y `height`.
@@ -679,8 +737,8 @@ Devuelve `Integer[]` - Contiene la anchura y altura del área del cliente de la 
 
 #### `win.setMinimumSize(width, height)`
 
-* `ancho` Entero
-* `alto` Entero
+* `width` Integer
+* `alto` Integer
 
 Establece el tamaño mínimo de la ventana a `width`y `height`.
 
@@ -690,7 +748,7 @@ Devuelve `Integer[]` - Contiene la anchura y altura mínima de la ventana.
 
 #### `win.setMaximumSize(width, height)`
 
-* `width` Integer
+* `ancho` Entero
 * `alto` Entero
 
 Establece el tamaño máximo de la ventana a `width`y `height`.
@@ -770,7 +828,7 @@ En Linux siempre devuelve `true`.
 #### `win.setAlwaysOnTop(flag[, level][, relativeLevel])`
 
 * `flag` Boolean
-* `level` String (opcional) *macOS* - Los valores incluyen `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Obsoleto). Por defecto es `floating`. Para más detalles, ver [macOS docs](https://developer.apple.com/reference/appkit/nswindow/1664726-window_levels).
+* `level` String (opcional) *macOS* - Los valores incluyen `normal`, `floating`, `torn-off-menu`, `modal-panel`, `main-menu`, `status`, `pop-up-menu`, `screen-saver`, and ~~`dock`~~ (Obsoleto). Por defecto es `floating`. Para más detalles, ver [macOS docs](https://developer.apple.com/documentation/appkit/nswindow/level).
 * `relativeLevel` Integer (opcional) *macOS* - El número de capas más alto para configurar esta ventana con respecto al `level` determinado. Por defecto es `0`. Tenga en cuenta que Apple desalienta establecer niveles superiores a 1 sobre `screen-saver`.
 
 Establece si la ventana debe mostrarse siempre encima de otras ventanas. Después de establecer esta opción, la ventana sigue siendo una ventana normal, no una ventana de herramientas sobre la cual no puede ser enfocada.
@@ -819,7 +877,7 @@ Devuelve `String` - El título de la ventana nativa.
 Cambia el punto de adjunto para hojas en macOS. Por defecto, las hojas son adjuntas en la parte de abajo del marco de la ventana, pero puede que se quiera mostrarlas debajo de una barra de herramientas renderizada HTML. Por ejemplo:
 
 ```javascript
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 
 let toolbarRect = document.getElementById('toolbar').getBoundingClientRect()
@@ -912,12 +970,12 @@ Es igual a `webContents.capturePage([rect, ]callback)`.
 #### `win.loadURL(url[, options])`
 
 * `url` String
-* `opciones` Object (opcional) 
+* `opciones` Objecto (opcional) 
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
-  * `userAgent` Cadena (opcional) - Un agente de usuario originando el pedido.
-  * `extraHeaders` String (opcional) - Encabezados extras separadas por "\n"
+  * `userAgent` String (opcional) - Un agente de usuario originando la solicitud.
+  * `extraHeaders` Cadena (opcional) - Encabezados extras separados por "\n"
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
-  * `baseURLForDataURL` Cadena (opcional) - url base (con arrastrar separadores de camino) para archivos a ser cargados por la data del url. Esto es necesario únicamente si el `url` especificado es un url de datos y necesita cargar otros archivos.
+  * `baseURLForDataURL` String (opcional) - Url base (con separadores de ruta arrastrables) para archivos que se cargan por el url de datos. Esto es necesario únicamente si el `url` especificado es un url de datos y necesita cargar otros archivos.
 
 Es igual a `webContents.loadURL(url[, options])`.
 
@@ -947,9 +1005,13 @@ win.loadURL('http://localhost:8000/post', {
 })
 ```
 
-#### `win.loadFile(filePath)`
+#### `win.loadFile(filePath[, options])`
 
 * `filePath` String
+* `opciones` Objecto (opcional) 
+  * `query` Object (optional) - Passed to `url.format()`.
+  * `search` String (optional) - Passed to `url.format()`.
+  * `hash` String (optional) - Passed to `url.format()`.
 
 Igual que `webContents.loadFile`, `filePath` debe ser una ruta a un archivo HTML, relativa a la raíz de la aplicación. Ver la documentación de `webContents` para más información.
 
@@ -1043,7 +1105,7 @@ Los `flags` es una matriz que puede incluir siguientes `String`s:
 
 * `region` [Rectangle](structures/rectangle.md) - la región de la ventana
 
-Establece la región de la ventana para mostrar como la vista previa de la imagen es mostrada cuando se pasa sobre la ventana en la barra de tareas. Se puede restablecer la vista previa de toda la ventana especificando una región vacía: `{x: 0, y: 0, width: 0, height: 0}`.
+Establece la región de la ventana para mostrar como la vista previa de la imagen es mostrada cuando se pasa sobre la ventana en la barra de tareas. You can reset the thumbnail to be the entire window by specifying an empty region: `{ x: 0, y: 0, width: 0, height: 0 }`.
 
 #### `win.setThumbnailToolTip(toolTip)` *Windows*
 
@@ -1074,6 +1136,14 @@ Es igual a `webContents.showDefinitionForSelection()`.
 
 Cambia el icono de la ventana.
 
+#### `win.setWindowButtonVisibility(visible)` *macOS*
+
+* `visible` Boolean
+
+Sets whether the window traffic light buttons should be visible.
+
+This cannot be called when `titleBarStyle` is set to `customButtonsOnHover`.
+
 #### `win.setAutoHideMenuBar(hide)`
 
 * `hide` Boolean
@@ -1096,9 +1166,11 @@ Establece si la barra de menú debe ser visible o no. Si la barra de menú se oc
 
 Devuelve `Boolean` - Si la barra de menú es visible o no.
 
-#### `win.setVisibleOnAllWorkspaces(visible)`
+#### `win.setVisibleOnAllWorkspaces(visible[, options])`
 
 * `visible` Boolean
+* `opciones` Objecto (opcional) 
+  * `visibleOnFullScreen` Boolean (optional) *macOS* - Sets whether the window should be visible above fullscreen windows
 
 Establece si la ventana debe ser visible o no en todos los espacios de trabajo.
 
@@ -1113,7 +1185,7 @@ Devuelve `Boolean` - Si la ventana es visible en todos los espacios de trabajo.
 #### `win.setIgnoreMouseEvents(ignore[, options])`
 
 * `ignore` Boolean
-* `opciones` Object (opcional) 
+* `opciones` Objecto (opcional) 
   * `forward` Boolean (optional) *macOS* *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Solo se usa cuando `ignore` es verdadero. Si `ignore` es falso, el reenvío está simpre desactivado independientemente de este valor.
 
 Hace que la ventana ignore todos los eventos del ratón.

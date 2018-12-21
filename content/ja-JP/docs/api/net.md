@@ -18,9 +18,9 @@
 例として、次のサンプルは簡単な `net` API の使用方法を示します。
 
 ```javascript
-const {app} = require('electron')
+const { app } = require('electron')
 app.on('ready', () => {
-  const {net} = require('electron')
+  const { net } = require('electron')
   const request = net.request('https://github.com')
   request.on('response', (response) => {
     console.log(`STATUS: ${response.statusCode}`)
@@ -29,7 +29,7 @@ app.on('ready', () => {
       console.log(`BODY: ${chunk}`)
     })
     response.on('end', () => {
-      console.log('もう応答にデータはないよ。')
+      console.log('No more data in response.')
     })
   })
   request.end()

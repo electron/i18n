@@ -22,6 +22,28 @@ Esempio Windows console:
 
 Le seguenti variabili d'ambiente sono principalmente destinate per l'uso a runtime in un'applicazione Electron pacchettizzata.
 
+### `NODE_OPTIONS`
+
+Electron includes support for a subset of Node's [`NODE_OPTIONS`](https://nodejs.org/api/cli.html#cli_node_options_options). The majority are supported with the exception of those which conflict with Chromium's use of BoringSSL.
+
+Esempio:
+
+```sh
+export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
+```
+
+Unsupported options are:
+
+```sh
+--use-bundled-ca
+--force-fips
+--enable-fips
+--openssl-config
+--use-openssl-ca
+```
+
+`NODE_OPTIONS` are explicitly disallowed in packaged apps.
+
 ### `GOOGLE_API_KEY`
 
 Electron include delle chiavi API hardcoded per fare richieste al webservice di geolocalizzazione di Google. Poichè questa chiave API key è inclusa in ogni versione di Electron, spesso si eccedono i limiti di quota. Per risolvere questo problema, puoi fornire la tua chiave Google API nell'ambiente. Metti la seguenti riga di codice nel tuo file per il processo principale, prima di aprire qualsiasi finestra browser che farà richieste di geocodifica:
@@ -87,8 +109,8 @@ Questa variabile d'ambiente non funzionerà se il `crashReporter` è avviato.
 
 ### `ELECTRON_OVERRIDE_DIST_PATH`
 
-When running from the `electron` package, this variable tells the `electron` command to use the specified build of Electron instead of the one downloaded by `npm install`. Uso:
+Durante l'esecuzione dal pacchetto `electron`, questa variabile indica al comando `electron` di usare la build Electron specificata invece di quella scaricata tramite `npm install`. Uso:
 
 ```sh
-export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/D
+export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Debug
 ```

@@ -83,7 +83,7 @@ These individual tutorials expand on topics discussed in the guide above.
 * [In Detail: Packaging App Source Code with asar](tutorial/application-packaging.md) 
   * [Generating asar Archives](tutorial/application-packaging.md#generating-asar-archives)
   * [Sử dụng các file đóng gói asar](tutorial/application-packaging.md#using-asar-archives)
-  * [Limitations](tutorial/application-packaging.md#limitations-of-the-node-api)
+  * [Hạn chế](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Adding Unpacked Files to asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
 * [In Detail: Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
 * [In Detail: Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
@@ -147,4 +147,4 @@ These individual tutorials expand on topics discussed in the guide above.
 
 ## Development
 
-See <development/README.md>
+</a>

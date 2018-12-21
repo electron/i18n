@@ -7,7 +7,7 @@ Proceso: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer
 A continuación, un ejemplo de un envío automático de un informe de fallos a un servidor remoto:
 
 ```javascript
-const {crashReporter} = require('electron')
+const { crashReporter } = require('electron')
 
 crashReporter.start({
   productName: 'YourName',
@@ -36,7 +36,7 @@ El módulo `crashReporter` tiene los siguientes métodos:
 ### `crashReporter.start(options)`
 
 * `options` Objeto 
-  * `companyName` String (opcional)
+  * `companyName` String
   * `submitURL` String - URL a donde se enviarán los informes de errores como un POST.
   * `productName` String (opcional) - Por defecto es `app.getName()`.
   * `uploadToServer` Booleano (opcional) - Si los informes de fallo deben enviarse o no al servidor. Por defecto es `true`.
@@ -53,18 +53,18 @@ Es necesario llamar este método antes de utilizar cualquier otra API `crashRepo
 **Nota:** Si necesita enviar parámetros adicionales o actualizados `extra` después de la primera llamada a `start` puede llamar a `addExtraParameter`, en macOS, o llamar a `start` otra vez con los parámetros nuevos o actualizados `extra`, en Linux y Windows.
 
 ```js
- const args = [
-   `--reporter-url=${submitURL}`,
-   `--application-name=${productName}`,
-   `--crashes-directory=${crashesDirectory}`
- ]
- const env = {
-   ELECTRON_INTERNAL_CRASH_SERVICE: 1
- }
- spawn(process.execPath, args, {
-   env: env,
-   detached: true
- })
+const args = [
+  `--reporter-url=${submitURL}`,
+  `--application-name=${productName}`,
+  `--crashes-directory=${crashesDirectory}`
+]
+const env = {
+  ELECTRON_INTERNAL_CRASH_SERVICE: 1
+}
+spawn(process.execPath, args, {
+  env: env,
+  detached: true
+})
 ```
 
 **Nota:** En macOS, Electron utiliza un nuevo cliente `crashpad` para recopilar e informar fallos. Si desea habilitar el informe de fallos, se requiere inicializar `crashpad` desde el proceso principal utilizando `crashReporter.start`, independientemente del proceso del cual se desea recopilar los fallos. Una vez inicializado, el controlador de crashpad recopila los fallos de todos los procesos. Aún así hay que llamar `crashReporter.start` del renderizador o del proceso secundario, de lo contrario los fallos serán informados sin `companyName`, `productName` o cualquier información `extra`.
@@ -122,7 +122,7 @@ El informador de fallos enviará la siguiente información al `submitURL` como u
 * `guid` String - por ejemplo, "5e1286fc-da97-479e-918b-6bfb0c3d1c72".
 * `_version` Cadena - La versión en `package.json`.
 * `_productName` String - El nombre del producto en el objeto `crashReporter` `options`.
-* `prod` String - El nombre del producto subyacente. En este caso, Electron.
-* `_companyName` String - El nombre de la empresa en el objeto `crashReporter` `options`.
-* `upload_file_minidump` Archivo - El informe de fallos en el formato de `minidump`.
+* `prod` Cadena- El nombre del producto subyacente. En este caso, Electron.
+* `_companyName` Cadena - El nombre de la empresa en el objeto `crashReporter` `options`.
+* `upload_file_minidump` File - El informe de fallos en el formato de `minidump`.
 * Todas las propiedades de nivel uno del objeto `extra` en el objeto `crashReporter` `options`.

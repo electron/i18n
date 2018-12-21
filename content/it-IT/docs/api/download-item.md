@@ -8,7 +8,7 @@ Processo: [Main](../glossary.md#main-process)
 
 ```javascript
 // Nel processo principale(main).
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.webContents.session.on('will-download', (event, item, webContents) => {
   // Imposta il percorso di salvataggio, evitando l'apertura della finestra di salvataggio.

@@ -4,17 +4,19 @@
 
 Processo: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
+In the renderer process context it depends on the [`remote`](remote.md) module on Linux, it is therefore not available when this module is disabled.
+
 O exemplo a seguir mostra como gravar uma sequência de caracteres para a área de transferência:
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 clipboard.writeText('Exemplo de string')
 ```
 
 Nos sistemas X Window, há também uma área de transferência da seleção. Para manipulá-la você precisa passar a `selection` para cada método:
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 clipboard.writeText('Example String', 'selection')
 console.log(clipboard.readText('selection'))
 ```
@@ -115,7 +117,7 @@ Writes the `text` into the find pasteboard as plain text. This method uses synch
 
 ### `clipboard.clear([type])`
 
-* `type` String (opcional)
+* `features` String (opcional)
 
 Clears the clipboard content.
 
@@ -133,7 +135,7 @@ Returns `String[]` - An array of supported formats for the clipboard `type`.
 Returns `Boolean` - Whether the clipboard supports the specified `format`.
 
 ```javascript
-const {clipboard} = require('electron')
+const { clipboard } = require('electron')
 console.log(clipboard.has('<p>selection</p>'))
 ```
 
@@ -165,11 +167,11 @@ Writes the `buffer` into the clipboard as `format`.
   * `image` [NativeImage](native-image.md) (optional)
   * `rtf` String (optional)
   * `bookmark` String (optional) - The title of the url at `text`.
-* `type` String (opcional)
+* `features` String (opcional)
 
 ```javascript
-const {clipboard} = require('electron')
-clipboard.write({text: 'test', html: '<b>test</b>'})
+const { clipboard } = require('electron')
+clipboard.write({ text: 'test', html: '<b>test</b>' })
 ```
 
 Writes `data` to the clipboard.

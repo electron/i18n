@@ -8,7 +8,7 @@ Processus : [Main](../glossary.md#main-process)
 
 ```javascript
 // Dans le processus principal.
-const {BrowserWindow} = require('electron')
+const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.webContents.session.on('will-download', (event, item, webContents) => {
   // Définit le chemin de sauvegarde, ce qui fait qu'Electron n'affichera pas une boite de dialogue de sauvegarde.

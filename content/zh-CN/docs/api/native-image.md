@@ -9,17 +9,17 @@
 例如, 创建托盘或设置窗口图标时, 你可以传递 `String` 格式的图片路径
 
 ```javascript
-const {BrowserWindow, Tray} = require('electron')
+const { BrowserWindow, Tray } = require('electron')
 
 const appIcon = new Tray('/Users/somebody/images/icon.png')
-let win = new BrowserWindow({icon: '/Users/somebody/images/window.png'})
+let win = new BrowserWindow({ icon: '/Users/somebody/images/window.png' })
 console.log(appIcon, win)
 ```
 
 或者从剪贴板中读取返回 ` NativeImage ` 的图像:
 
 ```javascript
-const {clipboard, Tray} = require('electron')
+const { clipboard, Tray } = require('electron')
 const image = clipboard.readImage()
 const appIcon = new Tray(image)
 console.log(appIcon)
@@ -61,7 +61,7 @@ images/
 ```
 
 ```javascript
-const {Tray} = require('electron')
+const { Tray } = require('electron')
 let appIcon = new Tray('/Users/somebody/images/icon.png')
 console.log(appIcon)
 ```

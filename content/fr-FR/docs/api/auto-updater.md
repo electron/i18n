@@ -66,6 +66,8 @@ Retourne :
 
 Sur Windows, seulement `releaseName` est disponible.
 
+**Note:** It is not strictly necessary to handle this event. A successfully downloaded update will still be applied the next time the application starts.
+
 ### Event: 'before-quit-for-update'
 
 This event is emitted after a user calls `quitAndInstall()`.
@@ -99,4 +101,4 @@ Redémarre l'application et installe la mise à jour après qu'elle soit téléc
 
 Derrière l'appel de `autoUpdater.quitAndInstall()` fermera toutes les applications windows en premier, appellera automatiquement `app.quit()` après que toutes les fenêtres aient été fermées.
 
-**Remarque :** Si l’application est fermée sans que cette API soit appelée après que l’événement `update-downloaded` ait été émis, l’application sera toujours remplacée par celle mise à jour lors de la prochaine exécution.
+**Note:** It is not strictly necessary to call this function to apply an update, as a successfully downloaded update will always be applied the next time the application starts.

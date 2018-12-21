@@ -9,12 +9,17 @@ El módulo `remote` proporciona una manera sencilla de hacer una comunicación (
 En electron, los módulos relacionados con GUI (como `dialog`, `menu` etc.) están solamente disponibles en el proceso principal, no en el proceso de renderizado. Para usarlos en el proceso de renderizado, el módulo `ipc` es necesario para enviar mensajes entre procesos al proceso principal. Con el módulo `remote`, se puede invocar métodos del objeto del proceso principal sin enviar explícitamente mensajes entre procesos. Es parecido al [RMI](https://en.wikipedia.org/wiki/Java_remote_method_invocation) de Java. Ejemplo de creación de una ventana de navegador desde un proceso de renderizado:
 
 ```javascript
-const {BrowserWindow} = require('electron').remote
-let win = new BrowserWindow({width: 800, height: 600})
+const { BrowserWindow } = require('electron').remote
+let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
 **Note:** For the reverse (access the renderer process from the main process), you can use [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback).
+
+**Note:** The remote module can be disabled for security reasons in the following contexts:
+
+* [`BrowserWindow`](browser-window.md) - by setting the `enableRemoteModule` option to `false`.
+* [`<webview>`](webview-tag.md) - by setting the `enableremotemodule` attribute to `false`.
 
 ## Objetos Remotos
 
@@ -100,7 +105,7 @@ El módulo `remote` tiene los siguientes métodos:
 
 Devuelve `any` - El objeto devuelto por `require(module)` en el proceso principal. Los módulos especificados por su ruta relativa se resolverán en relación al punto de entrada del proceso principal.
 
-p.e.
+por ejemplo.
 
 ```sh
 project/
@@ -114,7 +119,7 @@ project/
 
 ```js
 // proceso principal: main/index.js
-const {app} = require('electron')
+const { app } = require('electron')
 app.on('ready', () => { /* ... */ })
 ```
 
@@ -140,7 +145,7 @@ Devuelve [`WebContents`](web-contents.md) - Los contenidos web de esta página w
 
 ### `remote.getGlobal(name)`
 
-* `name` Cadena
+* `name` String
 
 Devuelve `any` - La variable global de `name` (por ejemplo `global[name]`) en el proceso principal.
 

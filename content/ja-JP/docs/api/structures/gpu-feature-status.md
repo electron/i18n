@@ -1,18 +1,18 @@
 # GPUFeatureStatus オブジェクト
 
-* `2d_canvas` String - キャンバス
-* `flash_3d` String - フラッシュ
-* `flash_stage3d` String - Flash Stage3D
-* `flash_stage3d_baseline` String - Flash Stage3D 標準プロファイル
-* `gpu_compositing` String - 合成
-* `multiple_raster_threads` String - 多重ラスタースレッド
-* `native_gpu_memory_buffers` String - ネイティブの GpuMemoryBuffers
-* `rasterization` String - ラスター化
-* `video_decode` String - ビデオデコード
-* `video_encode` String - ビデオエンコード
-* `vpx_decode` String - VPx ビデオデコード
-* `webgl` String - WebGL
-* `webgl2` String - WebGL2
+* `2d_canvas` String - キャンバス.
+* `flash_3d` String - フラッシュ.
+* `flash_stage3d` String - Flash Stage3D.
+* `flash_stage3d_baseline` String - Flash Stage3D 標準プロファイル.
+* `gpu_compositing` String - 合成.
+* `multiple_raster_threads` String - 多重ラスタースレッド.
+* `native_gpu_memory_buffers` String - ネイティブの GpuMemoryBuffers.
+* `rasterization` String - ラスター化.
+* `video_decode` String - ビデオデコード.
+* `video_encode` String - ビデオエンコード.
+* `vpx_decode` String - VPx ビデオデコード.
+* `webgl` String - WebGL.
+* `webgl2` String - WebGL2.
 
 取りうる値:
 

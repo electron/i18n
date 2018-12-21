@@ -2,7 +2,7 @@
 
 Simula v0.34.0, pinahintulutan ng Electron ang pagsumite ng pinaketeng mga app sa Mac App Store (MAS). Ang gabay na ito ay nagbibigay impormasyon sa: paano isumite ng iyong app at ang mga limitasyon ng MAS na build.
 
-**Tandaan:** Ang pagsumite ng app sa Mac App Store ay nangangailangan ng pag-enrol ng [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), na nagkakahalaga ng pera.
+**Note:** Submitting an app to Mac App Store requires enrolling in the [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), which costs money.
 
 ## Paano Isumite ng Iyong App
 
@@ -20,7 +20,7 @@ Bago lagdaan ang iyong app, kailangan mong malaman ang Team ID ng iyong account.
 
 Matapos magtapos ang paghahanda ng gawain, maaari mong i-package ang iyong app sa pamamagitan ng pagsunod sa [Application Distribution](application-distribution.md), at pagkatapos ipagpatuloy lagdaan ang iyong app.
 
-Una, kailangan mong magdagdag ng isang `ElectronTeamID` na key sa app ng iyong `Info.plist`, kung saan may halaga ang iyong Team ID:
+First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which has your Team ID as its value:
 
 ```xml
 <plist version="1.0">
@@ -126,7 +126,7 @@ Ang mga native na modyul na ginagamit ng iyong app ay dapat ring lagdaan. Kung g
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-Tandaan din na ang native na mga modyul ay maaaring may intermediate na mga file na binuo na hindi sana kabilang (na dapat rin nilagdaan). Kung gumamit ka ng [electron-packager](https://github.com/electron-userland/electron-packager) bago ang bersyon 8.1.0, magdagdag ng `--ignore=.+\.o$` sa iyong build na hakbang para maiwasan ang mga file. Ang mga bersyong 8.1.0 at mas bago pa ay iniiwasan ang mga file na iyon sa pamamagitan ng default.
+Tandaan din na ang native na mga modyul ay maaaring may intermediate na mga file na binuo na hindi sana kabilang (na dapat rin nilagdaan). Kung gumamit ka ng [electron-packager](https://github.com/electron-userland/electron-packager) bago ang bersyon 8.1.0, magdagdag ng `--ignore=.+\.o$` sa iyong build na hakbang para maiwasan ang mga file. Versions 8.1.0 and later ignore those files by default.
 
 ### I-upload ang iyong app
 

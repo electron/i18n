@@ -13,12 +13,22 @@ Electron の `process` オブジェクトは、[Node.js `process` object](https:
 * `crash()`
 * `hang()`
 * `getHeapStatistics()`
-* `getProcessMemoryInfo()`
 * `getSystemMemoryInfo()`
+* `getCPUUsage()`
+* `getIOCounters()`
 * `argv`
 * `execPath`
 * `env`
+* `pid`
+* `arch`
 * `platform`
+* `resourcesPath`
+* `sandboxed`
+* `type`
+* `version`
+* `versions`
+* `mas`
+* `windowsStore`
 
 ## イベント
 
@@ -60,6 +70,10 @@ process.once('loaded', () => {
 
 リソースディレクトリのパスを表す `String`。
 
+### `process.sandboxed`
+
+A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
+
 ### `process.throwDeprecation`
 
 非推奨の警告が例外としてスローされるかどうかを制御する `Boolean`。 これを `true` に設定すると非推奨のエラーがスローされます。 `--throw-deprecation` コマンドラインフラグの代わりにこのプロパティを使用します。
@@ -96,6 +110,12 @@ Electron のバージョン文字列を表す `String`。
 
 現在のプロセスのメインスレッドでクラッシュを発生させます。
 
+### `process.getCreationTime()`
+
+Returns `Number | null` - The number of milliseconds since epoch, or `null` if the information is unavailable
+
+Indicates the creation time of the application. The time is represented as number of milliseconds since epoch. It returns null if it is unable to get the process creation time.
+
 ### `process.getCPUUsage()`
 
 戻り値 [`CPUUsage`](structures/cpu-usage.md)
@@ -120,17 +140,6 @@ Electron のバージョン文字列を表す `String`。
 
 V8 ヒープ統計のオブジェクトを返します。統計はすべてキロバイト単位で報告されることに注意してください。
 
-### `process.getProcessMemoryInfo()`
-
-戻り値 `Object`:
-
-* `workingSetSize` Integer - 現在、実際の物理 RAM に確保されているメモリ量。
-* `peakWorkingSetSize` Integer - 実際の物理 RAM に確保されたことのある最大メモリ量。
-* `privateBytes` Integer - JS ヒープや HTML コンテンツなど、他のプロセスと共有されないメモリ量。
-* `sharedBytes` Integer - プロセス間で共有されるメモリ量で、通常は、 Electron のコード自体が使っているメモリ量。
-
-現在のプロセスに関するメモリ使用統計を返すオブジェクトを返します。すべての統計情報はキロバイト単位で報告されることに注意してください。
-
 ### `process.getSystemMemoryInfo()`
 
 戻り値 `Object`:
@@ -141,6 +150,14 @@ V8 ヒープ統計のオブジェクトを返します。統計はすべてキ�
 * `swapFree` Integer *Windows* *Linux* - システムが使用できるスワップメモリの空き容量 (キロバイト)。
 
 システム全体に関するメモリ使用統計を返すオブジェクトを返します。すべての統計情報はキロバイト単位で報告されることに注意してください。
+
+### `process.takeHeapSnapshot(filePath)`
+
+* `filePath` String - Path to the output file.
+
+Returns `Boolean` - Indicates whether the snapshot has been created successfully.
+
+Takes a V8 heap snapshot and saves it to `filePath`.
 
 ### `process.hang()`
 
