@@ -33,10 +33,10 @@ ipcMain.on('synchronous-message', (event, arg) => {
 ```javascript
 // Nel processo di rendering (pagina web).
 const { ipcRenderer } = require('electron')
-console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // prints "pong"
+console.log(ipcRenderer.sendSync('synchronous-message', 'ping')) // stampa "pong"
 
 ipcRenderer.on('asynchronous-reply', (event, arg) => {
-  console.log(arg) // prints "pong"
+  console.log(arg) // stampa "pong"
 })
 ipcRenderer.send('asynchronous-message', 'ping')
 ```
