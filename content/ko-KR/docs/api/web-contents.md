@@ -191,7 +191,7 @@ This event can not be prevented, if you want to prevent redirects you should che
 
 #### Event: 'did-navigate'
 
-반환:
+Returns:
 
 * `event` Event
 * `url` String
@@ -220,7 +220,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 #### Event: 'did-navigate-in-page'
 
-반환:
+Returns:
 
 * `event` Event
 * `url` String
@@ -280,10 +280,10 @@ Emitted when the unresponsive web page becomes responsive again.
 
 #### Event: 'plugin-crashed'
 
-반환:
+Returns:
 
 * `event` Event
-* `name` String
+* PrinterInfo Object
 * `version` String
 
 Emitted when a plugin process has crashed.
@@ -294,7 +294,7 @@ Emitted when `webContents` is destroyed.
 
 #### Event: 'before-input-event'
 
-반환:
+Returns:
 
 * `event` Event
 * `input` Object - Input properties. 
@@ -337,11 +337,11 @@ Emitted when DevTools is focused / opened.
 
 #### 이벤트: 'certificate-error'
 
-반환:
+Returns:
 
 * `event` Event
 * `url` String
-* `error` String - The error code.
+* `error` String - 에러 코드.
 * `certificate` [Certificate](structures/certificate.md)
 * `callback` 함수 
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
@@ -417,7 +417,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 <meta name='theme-color' content='#ff0000'>
 ```
 
-반환:
+Returns:
 
 * `event` Event
 * `color` (String | null) - Theme color is in format of '#rrggbb'. It is `null` when no theme color is set.
@@ -561,7 +561,7 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 #### Event: 'did-attach-webview'
 
-반환:
+Returns:
 
 * `event` Event
 * `webContents` WebContents - The guest web contents that is used by the `<webview>`.
@@ -582,7 +582,7 @@ Emitted when the associated window logs a console message. Will not be emitted f
 
 #### Event: 'remote-require'
 
-반환:
+Returns:
 
 * `event` Event
 * `moduleName` String
@@ -603,7 +603,7 @@ Emitted when `remote.getGlobal()` is called in the renderer process. Calling `ev
 #### `contents.loadURL(url[, options])`
 
 * `url` String
-* `options` Object (optional) 
+* `options` Object (선택) 
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n".
@@ -621,7 +621,7 @@ webContents.loadURL('https://github.com', options)
 #### `contents.loadFile(filePath[, options])`
 
 * `filePath` String
-* `options` Object (optional) 
+* `options` Object (선택) 
   * `query` Object (optional) - Passed to `url.format()`.
   * `search` String (optional) - Passed to `url.format()`.
   * `hash` String (optional) - Passed to `url.format()`.
@@ -911,7 +911,7 @@ Inserts `text` to the focused element.
 #### `contents.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `options` Object (optional) 
+* `options` Object (선택) 
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -971,7 +971,7 @@ Returns [`PrinterInfo[]`](structures/printer-info.md).
 
 #### `contents.print([options], [callback])`
 
-* `options` Object (optional) 
+* `options` Object (선택) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
@@ -1115,7 +1115,7 @@ app.once('ready', () => {
 
 #### `contents.openDevTools([options])`
 
-* `options` Object (optional) 
+* `options` Object (선택) 
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
 
 Opens the devtools.
@@ -1271,7 +1271,7 @@ Sets the `item` as dragging item for current drag-drop operation, `file` is the 
   * `HTMLOnly` - Save only the HTML of the page.
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
-* `callback` Function - `(error) => {}`. 
+* `callback` 함수 - `(error) => {}`. 
   * `error` Error
 
 Returns `Boolean` - true if the process of saving page has been initiated successfully.
