@@ -24,7 +24,7 @@ Melihat [`Menu`](menu.md) untuk contoh.
   * `memeriksa` Boolean (opsional) - harus hanya ditentukan untuk `centang` atau `radio` jenis item menu.
   * `registerAccelerator` Boolean (optional) - If false, the accelerator won't be registered with the system, but it will still be displayed. Defaults to true.
   * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. If the value is not a [`Menu`](menu.md) then it will be automatically converted to one using `Menu.buildFromTemplate`.
-  * `id` String (optional) - Unique within a single menu. If defined then it can be used as a reference to this item by the position attribute.
+  * `id` String (opsional) - unik dalam menu tunggal. Jika ditentukan kemudian dapat digunakan sebagai referensi untuk item ini oleh posisi atribut.
   * `before` String[] (optional) - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
   * `after` String[] (optional) - Inserts this item after the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu.
   * `beforeGroupContaining` String[] (optional) - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
@@ -40,7 +40,7 @@ Nilai-nilai `label` dan `akselerator` opsional ketika menggunakan `peran` dan ak
 
 Every menu item must have either a `role`, `label`, or in the case of a separator a `type`.
 
-The `role` property can have following values:
+Properti `peran` dapat memiliki nilai-nilai berikut:
 
 * `membatalkan`
 * `mengulang`
@@ -90,30 +90,30 @@ When specifying a `role` on macOS, `label` and `accelerator` are the only option
 
 ### Contoh properti
 
-The following properties are available on instances of `MenuItem`:
+Properti berikut tersedia pada contoh-contoh dari `MenuItem`:
 
 #### `menuItem.enabled`
 
-A `Boolean` indicating whether the item is enabled, this property can be dynamically changed.
+`Boolean` menunjukkan apakah item diaktifkan, properti ini dapat secara dinamis berubah.
 
 #### `menuItem.visible`
 
-A `Boolean` indicating whether the item is visible, this property can be dynamically changed.
+`Boolean` menunjukkan item Apakah terlihat, properti ini dapat secara dinamis berubah.
 
 #### `menuItem.checked`
 
-A `Boolean` indicating whether the item is checked, this property can be dynamically changed.
+`Boolean` menunjukkan apakah item dicentang, properti ini dapat secara dinamis berubah.
 
-A `checkbox` menu item will toggle the `checked` property on and off when selected.
+Item menu `kotak centang` akan beralih `memeriksa` properti on dan off ketika dipilih.
 
-A `radio` menu item will turn on its `checked` property when clicked, and will turn off that property for all adjacent items in the same menu.
+`Radio` menu item akan menyala `memeriksa` properti ketika diklik, dan akan menonaktifkan properti itu untuk semua item yang berdekatan di menu yang sama.
 
-You can add a `click` function for additional behavior.
+Anda dapat menambahkan sebuah `klik` fungsi untuk perilaku tambahan.
 
 #### `menuItem.label`
 
-A `String` representing the menu items visible label.
+Sebuah `String` yang mewakili label terlihat item menu.
 
 #### `menuItem.click`
 
-A `Function` that is fired when the MenuItem receives a click event.
+`Fungsi` yang dipecat ketika MenuItem menerima event klik.
