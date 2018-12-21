@@ -126,7 +126,7 @@ Returns [`IOCounters`](structures/io-counters.md)
 
 ### `process.getHeapStatistics()`
 
-Restituisci `Oggetto`:
+Ritorna `Object`:
 
 * `totalHeapSize` Integer
 * `totalHeapSizeExecutable` Integer
@@ -142,7 +142,7 @@ Returns an object with V8 heap statistics. Note that all statistics are reported
 
 ### `process.getSystemMemoryInfo()`
 
-Restituisci `Oggetto`:
+Ritorna `Object`:
 
 * `total` Integer - The total amount of physical memory in Kilobytes available to the system.
 * `free` Integer - The total amount of memory not being used by applications or disk cache.
