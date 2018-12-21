@@ -75,7 +75,7 @@ Emitted when `oldDisplay` has been removed.
 
 ### Event: 'display-metrics-changed'
 
-Rückgabewert:
+Kehrt zurück:
 
 * ` Ereignis </ 0>  Ereignis</li>
 <li><code>display` [Display](structures/display.md)
