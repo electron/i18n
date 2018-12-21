@@ -1,4 +1,4 @@
-# contentTracing
+# tracciacontenuto
 
 > Collect tracing data from Chromium's content module for finding performance bottlenecks and slow operations.
 
@@ -47,7 +47,7 @@ Once all child processes have acknowledged the `getCategories` request the `call
 * `options` Oggetto 
   * `categoryFilter` String
   * `traceOptions` String
-* `callback` Function
+* `callback` Funzione
 
 Start recording on all processes.
 
@@ -92,7 +92,7 @@ Trace data will be written into `resultFilePath` if it is not empty or into a te
 * `options` Oggetto 
   * `categoryFilter` String
   * `traceOptions` String
-* `callback` Function
+* `callback` Funzione
 
 Start monitoring on all processes.
 
@@ -102,7 +102,7 @@ Once all child processes have acknowledged the `startMonitoring` request the `ca
 
 ### `contentTracing.stopMonitoring(callback)`
 
-* `callback` Function
+* `callback` Funzione
 
 Stop monitoring on all processes.
 
