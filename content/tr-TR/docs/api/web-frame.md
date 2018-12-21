@@ -110,12 +110,12 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 
 * `text` String
 
-Odaklanılan öğeye `text`'i yerleştirir.
+Odaklanmış öğeye `metin` ekler.
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
 * `code` String
-* `userGesture` Boolean (isteğe bağlı) - Varsayılan `false`'dur.
+* `userGesture` Boolean (isteğe bağlı) - Varsayılan `false`'dır.
 * `geri aramak` Function (isteğe bağlı) - Script çalıştıktan sonra çağırılır. 
   * `result` Any
 
@@ -123,14 +123,14 @@ Returns `Promise<any>` - A promise that resolves with the result of the executed
 
 Sayfadaki `code`'u değerlendirir.
 
-Tarayıcı penceresinde, `requestFullScreen` gibi bazı HTML API'leri yalnızca kullanıcıdan gelen bir hareket ile çağrılmaktadır. `userGesture`'ü `true` olarak ayarlamak bu kısıtlamayı kaldırır.
+Tarayıcı penceresinde `requestFullScreen` gibi bazı HTML arayüzleri (APIs) sadece kullanıcıdan gelen bir işaretle çağrılabilir. `userGesture` ayarını `true` olarak ayarladığınızda bu sınırlama kaldırılır.
 
 ### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
 
 * `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
 * `scripts` [WebSource[]](structures/web-source.md)
 * `userGesture` Boolean (isteğe bağlı) - Varsayılan `false`'dur.
-* `geri aramak` Fonksiyon (isteğe bağlı) - Betik tamamlandıktan sonra çağrılır. 
+* `geri aramak` Function (isteğe bağlı) - Script çalıştıktan sonra çağırılır. 
   * `result` Any
 
 Work like `executeJavaScript` but evaluates `scripts` in an isolated context.
