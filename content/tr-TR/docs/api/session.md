@@ -271,7 +271,7 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 
 #### `ses.setPermissionCheckHandler(handler)`
 
-* `halledici` Fonksiyon<boolean> | null 
+* `halledici` Function<boolean> | null 
   * `webContents` [WebContents](web-contents.md) - WebContents checking the permission.
   * `permission` String - Enum of 'media'.
   * `requestingOrigin` String - The origin URL of the permission check
@@ -296,65 +296,65 @@ session.fromPartition('some-partition').setPermissionCheckHandler((webContents, 
 
 * Fonksiyon `geri çağırma` (isteğe bağlı) - İşlem tamamlandığında çağrılır.
 
-Clears the host resolver cache.
+Ana çözümleyici önbelleğini temizler.
 
 #### `ses.allowNTLMCredentialsForDomains(domains)`
 
 * `domains` String - A comma-separated list of servers for which integrated authentication is enabled.
 
-Dynamically sets whether to always send credentials for HTTP NTLM or Negotiate authentication.
+Dinamik olarak, HTTP, NTLM veya Müzakere kimlik doğrulaması için kimlik bilgilerini göndermeyi veya göndermemeyi ayarlar.
 
 ```javascript
 const { session } = require('electron')
 // consider any url ending with `example.com`, `foobar.com`, `baz`
 // for integrated authentication.
-session.defaultSession.allowNTLMCredentialsForDomains('*example.com, *foobar.com, *baz')
+session.defaultSession.allowNTLMCredentialsForDomains ('* example.com, * foobar.com, * baz')
 
-// consider all urls for integrated authentication.
+// entegre kimlik doğrulama için tüm Url'lerin doğruluğunu kanıtlar.
 session.defaultSession.allowNTLMCredentialsForDomains('*')
 ```
 
 #### `ses.setUserAgent(userAgent[, acceptLanguages])`
 
 * `userAgent` Dizgi
-* `acceptLanguages` String (optional)
+* `acceptLanguages` Dize (isteğe bağlı)
 
-Overrides the `userAgent` and `acceptLanguages` for this session.
+`userAgent` ve `acceptLanguages` modülünü bu oturum için geçersiz kılar.
 
-The `acceptLanguages` must a comma separated ordered list of language codes, for example `"en-US,fr,de,ko,zh-CN,ja"`.
+`acceptLanguages` virgülle ayrılmış dil kodlarının sıralı bir listesi olmalıdır, örneğin `"en-US,fr,de,ko,zh-CN,ja"`.
 
-This doesn't affect existing `WebContents`, and each `WebContents` can use `webContents.setUserAgent` to override the session-wide user agent.
+Bu mevcut `WebContents` yapısını etkilemez ve her `WebContents` yapısı `webContents.setUserAgent` yapısını oturum genelinde kullanıcı aracısını geçersiz kılmak için kullanabilir.
 
 #### `ses.getUserAgent()`
 
-Returns `String` - The user agent for this session.
+`String` döndürür - Bu oturum için kullanıcı aracısı.
 
 #### `ses.getBlobData(identifier, callback)`
 
-* `identifier` String - Valid UUID.
-* `geri aramak` Fonksiyon 
-  * `result` Buffer - Blob data.
+* `identifier` Dizgi - Valid UUID.
+* `geri aramak` Function 
+  * `result` Tampon - Blob verileri.
 
 #### `ses.createInterruptedDownload(options)`
 
 * `seçenekler` Nesne 
-  * `path` String - Absolute path of the download.
-  * `urlChain` String[] - Complete URL chain for the download.
-  * `mimeType` String (optional)
-  * `offset` Integer - Start range for the download.
-  * `length` Integer - Total length of the download.
-  * `lastModified` String - Last-Modified header value.
-  * `eTag` String - ETag header value.
-  * `startTime` Double (optional) - Time when download was started in number of seconds since UNIX epoch.
+  * `yol` String - İndirmenin kesin yolu.
+  * `urlChain` String[] - Karşıdan yükleme için tam URL zinciri.
+  * `mimeType` String (isteğe bağlı)
+  * `offset` Integer - Karşıdan yükleme için başlangıç aralığı.
+  * `uzunluk` Integer - Karşıdan yükleme toplam uzunluk.
+  * `lastModified` String - Son değiştirilen başlık değeri.
+  * `eTag` String - ETag başlık değeri.
+  * `startTime` Çift (isteğe bağlı) - indirmenin UNİX epoch'tan sonraki birkaç saniye içinde başlama zamanı.
 
-Allows resuming `cancelled` or `interrupted` downloads from previous `Session`. The API will generate a [DownloadItem](download-item.md) that can be accessed with the [will-download](#event-will-download) event. The [DownloadItem](download-item.md) will not have any `WebContents` associated with it and the initial state will be `interrupted`. The download will start only when the `resume` API is called on the [DownloadItem](download-item.md).
+Önceki `oturumdan` `iptal edilen` ya da `kesilen` indirmelerin devam etmesine izin verir. API [will-download](#event-will-download) eventi ile erişilebilecek bir [DownloadItem](download-item.md) oluşturacak. [DownloadItem](download-item.md) ile ilişkili herhangi bir `WebContents` yok ve başlangıç durumu `interrupted` olacak. Yükleme yalnızca [DownloadItem](download-item.md) üzerinde `resume` API'ı çağırıldığında başlayacaktır.
 
 #### `ses.clearAuthCache(options[, callback])`
 
 * `options` ([RemovePassword](structures/remove-password.md) | [RemoveClientCertificate](structures/remove-client-certificate.md))
 * Fonksiyon `geri çağırma` (isteğe bağlı) - İşlem tamamlandığında çağrılır.
 
-Clears the session’s HTTP authentication cache.
+Kullanıcı oturumunun HTTP kimlik doğrulama önbelleğini temizler.
 
 #### `ses.setPreloads(preloads)`
 
@@ -368,19 +368,19 @@ Returns `String[]` an array of paths to preload scripts that have been registere
 
 ### Örnek Özellikler
 
-The following properties are available on instances of `Session`:
+Aşağıdaki özellikler `Oturum` örnekleri üzerinde mevcuttur:
 
 #### `ses.cookies`
 
-A [Cookies](cookies.md) object for this session.
+Bu oturum için [çerezler](cookies.md) nesnesi.
 
 #### `ses.webRequest`
 
-A [WebRequest](web-request.md) object for this session.
+Bu oturum için [Webistek](web-request.md) nesnesi.
 
 #### `ses.protocol`
 
-A [Protocol](protocol.md) object for this session.
+Bu oturum için bir [Protokol](protocol.md) nesnesi.
 
 ```javascript
 const { app, session } = require('electron')
