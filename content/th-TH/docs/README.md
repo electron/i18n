@@ -10,14 +10,14 @@
 
 ## Guides and Tutorials
 
-* [Setting up the Development Environment](tutorial/development-environment.md) 
-  * [Setting up macOS](tutorial/development-environment.md#setting-up-macos)
-  * [Setting up Windows](tutorial/development-environment.md#setting-up-windows)
-  * [Setting up Linux](tutorial/development-environment.md#setting-up-linux)
-  * [Choosing an Editor](tutorial/development-environment.md#a-good-editor)
-* [Creating your First App](tutorial/first-app.md) 
-  * [Installing Electron](tutorial/first-app.md#installing-electron)
-  * [Electron Development in a Nutshell](tutorial/first-app.md#electron-development-in-a-nutshell)
+* [วิธีการติดตั้งสำหรับการพัฒนา](tutorial/development-environment.md) 
+  * [การติดตั้งบน macOS](tutorial/development-environment.md#setting-up-macos)
+  * [การติดตั้งบน Windows](tutorial/development-environment.md#setting-up-windows)
+  * [การติดตั้งบน Linux](tutorial/development-environment.md#setting-up-linux)
+  * [วิธีการเลือกเครื่องมือที่ใช้พัฒนา](tutorial/development-environment.md#a-good-editor)
+* [สร้างแอพแรกของคุณ](tutorial/first-app.md) 
+  * [วิธีการติดตั้ง Electron](tutorial/first-app.md#installing-electron)
+  * [ทำความรู้จักการพัฒนา Electron](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [Running Your App](tutorial/first-app.md#running-your-app)
 * [Boilerplates and CLIs](tutorial/boilerplates-and-clis.md) 
   * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
