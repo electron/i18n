@@ -311,7 +311,7 @@ window.onbeforeunload = (e) => {
 
 当窗口从最小化状态恢复时触发
 
-#### Event: 'will-resize' *macOS* *Windows*
+#### 事件: 'will-resize' *macOS* *Windows*
 
 返回:
 
