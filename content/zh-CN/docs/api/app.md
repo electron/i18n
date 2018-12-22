@@ -919,7 +919,7 @@ stopAccessingSecurityScopedResource()
 
 ### `app.enableSandbox()` *Experimental* *macOS* *Windows*
 
-Enables full sandbox mode on the app.
+在应用程序上启用完全沙盒模式。
 
 这个方法只能在应用程序准备就绪（ready）之前调用。
 
