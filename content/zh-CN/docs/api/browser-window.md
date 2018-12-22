@@ -318,30 +318,30 @@ window.onbeforeunload = (e) => {
 * `event` Event
 * `newBounds` [`Rectangle`](structures/rectangle.md) - Size the window is being resized to.
 
-Emitted before the window is resized. Calling `event.preventDefault()` will prevent the window from being resized.
+在调整窗口大小之前发出。调用` event.preventDefault() `会阻止窗口大小被调整。
 
-Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
+请注意，仅在手动调整窗口大小时才会发出此信息。使用` setBounds ` 或 ` setSize `调整窗口大小时不会发出此事件。
 
 #### 事件: 'resize'
 
-Emitted after the window has been resized.
+调整窗口大小后触发。
 
-#### Event: 'will-move' *Windows*
+#### 事件: 'will-move' *Windows*
 
 返回:
 
 * `event` Event
 * `newBounds` [`Rectangle`](structures/rectangle.md) - Location the window is being moved to.
 
-Emitted before the window is moved. Calling `event.preventDefault()` will prevent the window from being moved.
+在移动窗口之前发出。调用` event.preventDefault() `会阻止窗口被移动。
 
-Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
+请注意，仅在手动调整窗口大小时才会发出此信息。使用` setBounds ` 或 ` setSize `调整窗口大小时不会发出此事件。
 
 #### 事件: 'move'
 
 窗口移动到新位置时触发
 
-**Note**: On macOS this event is an alias of `moved`.
+**注意**: 在 macOS 上，此事件是` moved `的别名.
 
 #### 事件: 'moved' *macOS*
 
@@ -363,14 +363,14 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 窗口离开由HTML API触发的全屏状态时触发
 
-#### Event: 'always-on-top-changed' *macOS*
+#### 事件: 'always-on-top-changed' *macOS*
 
 返回:
 
 * `event` Event
 * `isAlwaysOnTop` Boolean
 
-Emitted when the window is set or unset to show always on top of other windows.
+设置或取消设置窗口总是在其他窗口的顶部显示时触发。
 
 #### 事件: 'app-command' *Windows*
 
@@ -437,7 +437,7 @@ win.on('app-command', (e, cmd) => {
 
 #### `BrowserWindow.getFocusedWindow()`
 
-Returns `BrowserWindow | null` - The window that is focused in this application, otherwise returns `null`.
+返回 `BrowserWindow | null` - 此应用程序中当前获得焦点的窗口，如果无就返回 `null`.
 
 #### `BrowserWindow.fromWebContents(webContents)`
 
@@ -635,7 +635,7 @@ win.loadURL('https://github.com')
 
 #### `win.isNormal()`
 
-Returns `Boolean` - Whether the window is in normal state (not maximized, not minimized, not in fullscreen mode).
+返回 `Boolean` - 窗口是否处于正常状态（未最大化，未最小化，不在全屏模式下）。
 
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
