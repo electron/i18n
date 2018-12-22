@@ -652,7 +652,7 @@ Calling this function with a value of `0` will remove any previously set aspect 
 
 * `backgroundColor` String - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported if `transparent` is `true`). Default is `#FFF` (white).
 
-Sets the background color of the window. See [Setting `backgroundColor`](#setting-backgroundcolor).
+设置窗体的背景颜色。详见 [Setting `backgroundColor`](#setting-backgroundcolor)。
 
 #### `win.previewFile(path[, displayName])` *macOS*
 
@@ -1269,7 +1269,7 @@ This cannot be called when `titleBarStyle` is set to `customButtonsOnHover`.
 
 * `browserView` [BrowserView](browser-view.md)
 
-#### `win.getBrowserView()` *Experimental*
+#### `win.getBrowserView()` *实验功能*
 
 返回 `BrowserView | null` - 一个附加的 BrowserView. 如果没有被附加的窗口，则返回 `null`.
 
