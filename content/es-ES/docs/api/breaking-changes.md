@@ -12,11 +12,11 @@ El string `FIXME` se usa en las cadenas de código para indicar que cualquier pr
 
 The following `webPreferences` option default values are deprecated in favor of the new defaults listed below.
 
-| Property           | Deprecated Default                   | New Default |
-| ------------------ | ------------------------------------ | ----------- |
-| `contextIsolation` | `false`                              | `true`      |
-| `nodeIntegration`  | `true`                               | `false`     |
-| `webviewTag`       | `nodeIntegration` if set else `true` | `false`     |
+| Propiedad          | Valor obsoleto                       | El valor por defecto nuevo |
+| ------------------ | ------------------------------------ | -------------------------- |
+| `contextIsolation` | `false`                              | `cierto`                   |
+| `nodeIntegration`  | `cierto`                             | `false`                    |
+| `webviewTag`       | `nodeIntegration` if set else `true` | `false`                    |
 
 ## `nativeWindowOpen`
 
@@ -63,7 +63,7 @@ app.getGPUInfo('basic')
 
 ## `win_delay_load_hook`
 
-When building native modules for windows, the `win_delay_load_hook` variable in the module's `binding.gyp` must be true (which is the default). If this hook is not present, then the native module will fail to load on Windows, with an error message like `Cannot find module`. See the [native module guide](/docs/tutorial/using-native-node-modules.md) for more.
+When building native modules for windows, the `win_delay_load_hook` variable in the module's `binding.gyp` must be true (which is the default). If this hook is not present, then the native module will fail to load on Windows, with an error message like `Cannot find module`. Consulte la [guía de módulo nativo](/docs/tutorial/using-native-node-modules.md) para más infromación.
 
 # Cambios en la API(3.0)
 
@@ -72,14 +72,14 @@ La siguiente lista incluye cambios efectuados en la API 3.0 de Electrón.
 ## `app`
 
 ```js
-// Deprecated
+// Obsoleto
 app.getAppMemoryInfo()
-// Replace with
+// Remplazar con
 app.getAppMetrics()
 
-// Deprecated
+// Obsoleto
 const metrics = app.getAppMetrics()
-const { memory } = metrics[0] // Deprecated property
+const { memory } = metrics[0] // Propiedad Obsoleta
 ```
 
 ## `BrowserWindow`
