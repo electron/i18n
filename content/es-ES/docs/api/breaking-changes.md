@@ -85,20 +85,20 @@ const { memory } = metrics[0] // Deprecated property
 ## `BrowserWindow`
 
 ```js
-// Deprecated
-let optionsA = { webPreferences: { blinkFeatures: '' } }
+// Obsoleto
+let optionsA = {webPreferences: { blinkFeatures: '' }}
 let windowA = new BrowserWindow(optionsA)
-// Replace with
-let optionsB = { webPreferences: { enableBlinkFeatures: '' } }
+// Reemplazar con
+let optionsB = {webPreferences: { enableBlinkFeatures: '' }}
 let windowB = new BrowserWindow(optionsB)
 
-// Deprecated
+// Obsoleto
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
     // do something
   }
 })
-// Replace with
+// Reemplazar con
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
     // do something
@@ -161,7 +161,7 @@ nativeImage.createFromBuffer(buffer, {
 ## `process`
 
 ```js
-// Deprecated
+// Obsoleto
 const info = process.getProcessMemoryInfo()
 ```
 
