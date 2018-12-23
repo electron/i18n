@@ -29,9 +29,9 @@ Or use a 3rd party hosted solution:
 
 Crash reports are saved locally in an application-specific temp directory folder. For a `productName` of `YourName`, crash reports will be stored in a folder named `YourName Crashes` inside the temp directory. You can customize this temp directory location for your app by calling the `app.setPath('temp', '/my/custom/temp')` API before starting the crash reporter.
 
-## Методиa
+## Методи
 
-The `crashReporter` module has the following methods:
+Модуль `crashReporter` має наступні методи:
 
 ### `crashReporter.start(options)`
 
