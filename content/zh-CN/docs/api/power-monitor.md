@@ -53,7 +53,7 @@ Emitted as soon as the systems screen is unlocked.
 
 ## 方法
 
-The `powerMonitor` module has the following methods:
+`电源监视器` 模块具有以下方法：
 
 #### `powerMonitor.querySystemIdleState(idleThreshold, callback)`
 
