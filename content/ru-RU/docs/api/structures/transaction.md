@@ -8,4 +8,4 @@
 * `errorMessage` String - Сообщение об ошибке если ошибка возникнет пока транзакция выполняется.
 * `payment` Object 
   * `productIdentifier` String - Идентификатор купленного продукта.
-  * `quantity` Integer - The quantity purchased.
+  * `quantity` Integer - Количество купленного.
