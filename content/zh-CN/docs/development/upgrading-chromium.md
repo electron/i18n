@@ -19,8 +19,8 @@
 2. 更新 Chromium 快照 
   - 选择一个版本号从 [OmahaProxy](https://omahaproxy.appspot.com/) 并且更新这个 `VERSION` 文件 
     - 这可以通过在浏览器中访问 OmahaProxy 手动完成，或自动完成：
-    - One-liner for the latest stable mac version: `curl -so- https://omahaproxy.appspot.com/mac > VERSION`
-    - One-liner for the latest win64 beta version: `curl -so- https://omahaproxy.appspot.com/all | grep "win64,beta" | awk -F, 'NR==1{print $3}' > VERSION`
+    - 最新稳定版 Mac 可用的一键脚本：`curl -so- https://omahaproxy.appspot.com/mac > VERSION`
+    - 最新测试版 win64 一键脚本： `curl -so- https://omahaproxy.appspot.com/all | grep "win64,beta" | awk -F, 'NR==1{print $3}' > VERSION`
   - 运行 `$ ./script/update` 
     - 倒杯茶吧 -- 这可能会运行 30 分钟或更长。
     - 补丁的应用可能会失败。
@@ -64,25 +64,25 @@
 6. 构建Electron。 
   - Try to build Debug version first: `$ ./script/build.py -c D`
   - You will need it to run tests
-7. Fix compilation and linking errors
-8. Ensure that Release build can be built too 
+7. 修复编译和链接错误
+8. 确保也可以构建发布版本 
   - `$ ./script/build.py -c R`
   - Often the Release build will have different linking errors that you'll need to fix.
   - Some compilation and linking errors are caused by missing source/object files in the libcc `dist`
 9. Update `./script/create-dist` in the libcc repo, recreate a `dist`, and run Electron bootstrap script once again.
 
-### Tips for fixing compilation errors
+### 关于修复编译错误的提示
 
-- Fix build config errors first
-- Fix fatal errors first, like missing files and errors related to compiler flags or defines
-- Try to identify complex errors as soon as possible. 
-  - Ask for help if you're not sure how to fix them
-- Disable all Electron features, fix the build, then enable them one by one
-- Add more build flags to disable features in build-time.
+- 首先修复构建配置的错误
+- 首先修复致命错误，例如丢失文件和与编译器相关的错误 标志或定义
+- 尝试尽快识别复杂错误。 
+  - 如果您不确定如何修复问题，请寻求帮助
+- 禁用所有 Electron 功能，修复构建，然后逐个启用它们
+- 添加更多构建标志以在构建时禁用功能。
 
 When a Debug build of Electron succeeds, run the tests: `$ npm run test` Fix the failing tests.
 
-Follow all the steps above to fix Electron code on all supported platforms.
+按照上述所有步骤在所有支持的平台上修复 Electron 代码。
 
 ## 更新奔溃报告（Crashpad）
 
