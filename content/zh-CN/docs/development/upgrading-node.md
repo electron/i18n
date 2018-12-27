@@ -65,7 +65,7 @@ This list of patches will probably include one that claims to make the V8 API ba
 
 It's usually easier to update Node to work without the compatibility patch than to update Chromium to work with the compatibility patch, so it's recommended to revert the compatibility patch and fix any errors that arise when compiling Node.
 
-## Update Electron's `DEPS` file
+## 更新 Electron's 的 `DEPS` 文件
 
 Update the `DEPS` file in the root of [electron/electron](https://github.com/electron/electron) to point to the git hash of the updated Node.
 
