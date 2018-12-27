@@ -2,9 +2,9 @@
 
 ## 讨论
 
-Chromium and Node.js both depend on V8, and Electron contains only a single copy of V8, so it's important to ensure that the version of V8 chosen is compatible with the build's version of Node.js and Chromium.
+Chromium 和 Node.js 都依赖于 V8 ， Electron 只包含 了 V8 的一个副本，所以务必确保选择的 V8 版本与构建版本的 Node.js 和 Chromium 相兼容。
 
-Upgrading Node is much easier than upgrading Chromium, so fewer conflicts arise if one upgrades Chromium first, then chooses the upstream Node release whose version of V8 is closest to the one Chromium contains.
+升级 Node 比升级 Chromium 容易得多，因此如果首先升级Chromium，然后升级 Node 版本至最接近 Chromiun 所包含的 V8 版本，出现的冲突可能会小一些。
 
 Electron 有它自己的 [ Node 克隆](https://github.com/electron/node), 并对上面提到的 V8 构建细节进行修改, 并用于暴露Electron所需的 API。 一旦选择了一个上游Node的发布版本, 它就被放置在Electron的Node克隆的一个分支中，并且任何Electron Node的补丁会被应用在那里。
 
