@@ -580,7 +580,7 @@ This event can be used to configure `webPreferences` for the `webContents` of a 
 
 Emitted when the associated window logs a console message. Will not be emitted for windows with *offscreen rendering* enabled.
 
-#### Event: 'remote-require'
+#### 事件: 'remote-require'
 
 返回:
 
@@ -589,7 +589,7 @@ Emitted when the associated window logs a console message. Will not be emitted f
 
 Emitted when `remote.require()` is called in the renderer process. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
 
-#### Event: 'remote-get-global'
+#### 事件: 'remote-get-global'
 
 返回:
 
