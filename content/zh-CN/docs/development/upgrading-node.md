@@ -18,25 +18,25 @@ Electron 有它自己的 [ Node 克隆](https://github.com/electron/node), 并�
 
 1. 更新电子的节点叉到所需的版本
 2. Backport Node's V8 patches to our copy of V8
-3. Update the GN build files, porting changes from node's GYP files
-4. Update Electron's DEPS to use new version of Node
+3. 更新 GN 的构建文件，从 Node 的 GYP 文件移植更改
+4. 更新 Electron 的 DEPS 以使用 Node 的新版本
 
 ## 更新Electron的Node[克隆](https://github.com/electron/node)
 
-1. Ensure that `master` on `electron/node` has updated release tags from `nodejs/node`
+1. 确保 `electron/node` 上的 `master` 已经从 `nodejs/node` 更新过发布标签
 2. 在https://github.com/electron/node创建一个分支 `electron-node-vX.X.X` where the base that you're branching from is the tag for the desired update 
-  - `vX.X.X` Must use a version of Node compatible with our current version of Chromium
-3. Re-apply our commits from the previous version of Node we were using (`vY.Y.Y`) to `v.X.X.X` 
-  - Check release tag and select the range of commits we need to re-apply
-  - Cherry-pick commit range: 
-    1. Checkout both `vY.Y.Y` & `v.X.X.X`
+  - `vX.X.X` 必须使用与当前版本的 Chromium 兼容的Node 版本
+3. 从我们使用的以前版本的 Node 重新应用我们的提交 (`vY.Y.Y`) 到 `v.X.X.X` 
+  - 检查发布标签并选择我们需要重新应用的提交的范围
+  - Cherry-pick 提交范围： 
+    1. 检查 `vY.Y.Y` & `v.X.X.X`
     2. `git cherry-pick FIRST_COMMIT_HASH..LAST_COMMIT_HASH`
   - 解决遇到的每个文件中的合并冲突，然后： 
     1. `git add <冲突文件>`
     2. `git cherry-pick --continue`
     3. 重复直到完成
 
-## Updating [V8](https://github.com/electron/node/src/V8) Patches
+## 更新 [V8](https://github.com/electron/node/src/V8) 补丁
 
 We need to generate a patch file from each patch that Node applies to V8.
 
