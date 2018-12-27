@@ -92,7 +92,7 @@ If there are any compilation errors related to the Crashpad, it probably means y
 
 Upgrade `vendor/node` to the Node release that corresponds to the v8 version used in the new Chromium release. See the v8 versions in Node on
 
-See [Upgrading Node](upgrading-node.md) for instructions on this.
+请参见 [更新 Node ](upgrading-node.md) 有关这方面的说明。
 
 ## 验证 ffmpeg 支持
 
@@ -102,16 +102,16 @@ Electron 发行版的 `ffmpeg`，默认包括专有的编解码器 没有这些�
 
 ```html
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Proprietary Codec Check</title>
-  </head>
-  <body>
-    <p>Checking if Electron is using proprietary codecs by loading video from http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4</p>
-    <p id="outcome"></p>
-    <video style="display:none" src="http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4" autoplay></video>
-    <script>
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;专用编解码器检查&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;通过加载来自 http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4 的视频来检查 Electron 是否使用了专用编解码器 &lt;/p&gt;
+    &lt;p id="outcome"&gt;&lt;/p&gt;
+    &lt;video style="display:none" src="http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4" autoplay&gt;&lt;/video&gt;
+    &lt;script&gt;
       const video = document.querySelector('video')
       video.addEventListener('error', ({ target }) => {
         if (target.error.code === target.error.MEDIA_ERR_SRC_NOT_SUPPORTED) {
@@ -123,9 +123,9 @@ Electron 发行版的 `ffmpeg`，默认包括专有的编解码器 没有这些�
       video.addEventListener('playing', () => {
         document.querySelector('#outcome').textContent = 'Using proprietary codecs, video started playing.'
       })
-    </script>
-  </body>
-</html>
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
 ```
 
 ## 相关链接
