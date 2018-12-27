@@ -872,7 +872,7 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
 
 ### `app.showAboutPanel()` *macOS*
 
-Show the about panel with the values defined in the app's `.plist` file or with the options set via `app.setAboutPanelOptions(options)`.
+通过 app's `.plist` 文件的值设定 或者 通过 `app.setAboutPanelOptions(options)`选项设置来显示about panel。
 
 ### `app.setAboutPanelOptions(options)` *macOS*
 
@@ -898,7 +898,7 @@ const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedReso
 stopAccessingSecurityScopedResource()
 ```
 
-开始访问安全范围内的资源。 With this method Electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. 关于系统工作原理，请查阅[Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16)
+开始访问安全范围内的资源。 通过这个方法，Electron 应用被打包为可到达Mac App Store沙箱之外访问用户选择的文件。 关于系统工作原理，请查阅[Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16)
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
