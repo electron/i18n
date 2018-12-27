@@ -16,14 +16,14 @@
       $ cd libchromiumcontent
       $ ./script/bootstrap -v
 
-2. Update the Chromium snapshot 
-  - Choose a version number from [OmahaProxy](https://omahaproxy.appspot.com/) and update the `VERSION` file with it 
-    - This can be done manually by visiting OmahaProxy in a browser, or automatically:
+2. 更新 Chromium 快照 
+  - 选择一个版本号从 [OmahaProxy](https://omahaproxy.appspot.com/) 并且更新这个 `VERSION` 文件 
+    - 这可以通过在浏览器中访问 OmahaProxy 手动完成，或自动完成：
     - One-liner for the latest stable mac version: `curl -so- https://omahaproxy.appspot.com/mac > VERSION`
     - One-liner for the latest win64 beta version: `curl -so- https://omahaproxy.appspot.com/all | grep "win64,beta" | awk -F, 'NR==1{print $3}' > VERSION`
   - 运行 `$ ./script/update` 
-    - Brew some tea -- this may run for 30m or more.
-    - It will probably fail applying patches.
+    - 倒杯茶吧 -- 这可能会运行 30 分钟或更长。
+    - 补丁的应用可能会失败。
 3. Fix `*.patch` files in the `patches/` and `patches-mas/` folders.
 4. （可选） `script/update` applies patches, but if multiple tries are needed you can manually run the same script that `update` calls: `$ ./script/apply-patches` 
   - There is a second script, `script/patch.py` that may be useful. Read `./script/patch.py -h` for more information.
