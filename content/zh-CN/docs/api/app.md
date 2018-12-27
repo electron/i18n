@@ -309,7 +309,7 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 * `session` [Session](session.md)
 
-Emitted when Electron has created a new `session`.
+当 Electron创建了一个新的 `session`后被触发.
 
 ```javascript
 const { app } = require('electron')
@@ -327,11 +327,11 @@ app.on('session-created', (event, session) => {
 * `argv` String[] - 第二个实例的命令行参数数组
 * `workingDirectory` String - 第二个实例的工作目录
 
-This event will be emitted inside the primary instance of your application when a second instance has been executed. ` argv ` 是第二个实例的命令行参数的数组, ` workingDirectory ` 是这个实例当前工作目录。 通常, 应用程序会激活窗口并且取消最小化来响应。
+此事件将在应用程序的主实例中触发，当第二个实例被执行时。 ` argv ` 是第二个实例的命令行参数的数组, ` workingDirectory ` 是这个实例当前工作目录。 通常, 应用程序会激活窗口并且取消最小化来响应。
 
 This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
 
-### Event: 'remote-require'
+### 事件: 'remote-require'
 
 返回:
 
@@ -341,7 +341,7 @@ This event is guaranteed to be emitted after the `ready` event of `app` gets emi
 
 Emitted when `remote.require()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
 
-### Event: 'remote-get-global'
+### 事件: 'remote-get-global'
 
 返回:
 
