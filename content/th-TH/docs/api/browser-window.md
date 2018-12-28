@@ -5,10 +5,10 @@
 Process: [Main](../glossary.md#main-process)
 
 ```javascript
-// In the main process.
+// ใน main process
 const { BrowserWindow } = require('electron')
 
-// Or use `remote` from the renderer process.
+// หรือจะใช้ `remote` จาก renderer process.
 // const { BrowserWindow } = require('electron').remote
 
 let win = new BrowserWindow({ width: 800, height: 600 })
@@ -16,14 +16,14 @@ win.on('closed', () => {
   win = null
 })
 
-// Load a remote URL
+// เรียก Remote URL
 win.loadURL('https://github.com')
 
-// Or load a local HTML file
+// หรือเรียกไฟล์ HTML
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
-## Frameless window
+## Frameless window (window ไร้ขอบ)
 
 To create a window without chrome, or a transparent window in arbitrary shape, you can use the [Frameless Window](frameless-window.md) API.
 
