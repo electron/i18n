@@ -2,7 +2,7 @@
 
 Некоторым приложениям может понадобиться поддержка, реализованной в операционной системе, функции перетаскивания файлов. Перетаскивание файлов в веб-контент поддерживается большинством веб-сайтов. Electron дополнительно поддерживает перетаскивание файлов и содержимого приложения в операционную систему.
 
-Чтобы добавить эту возможность в свое приложение нужно вызвать `webContents.startDrag(item)` API в ответ на `ondragstart` event.
+Чтобы добавить эту возможность в свое приложение нужно вызвать `webContents.startDrag(item)` API в ответ на событие `ondragstart`.
 
 In your renderer process, handle the `ondragstart` event and forward the information to your main process.
 
@@ -16,7 +16,7 @@ In your renderer process, handle the `ondragstart` event and forward the informa
 </script>
 ```
 
-Then, in the main process, augment the event with a path to the file that is being dragged and an icon.
+Далее, в main process, добавьте к событию путь к файлу, который перетаскивается, и иконку.
 
 ```javascript
 const { ipcMain } = require('electron')
