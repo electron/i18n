@@ -1,6 +1,6 @@
 # BrowserWindow
 
-> Create and control browser windows.
+> สร้างและควบคุม BrowserWindow
 
 Process: [Main](../glossary.md#main-process)
 
@@ -108,7 +108,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 ## Class: BrowserWindow
 
-> Create and control browser windows.
+> สร้างและควบคุม BrowserWindow
 
 Process: [Main](../glossary.md#main-process)
 
