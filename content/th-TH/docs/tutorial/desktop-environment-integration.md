@@ -8,7 +8,7 @@ This guide explains how to integrate your application into those desktop environ
 
 See the [Notifications documentation](notifications.md).
 
-## Recent Documents
+## บทความปัจจุบัน
 
 See [Recent Documents documentation](recent-documents.md).
 

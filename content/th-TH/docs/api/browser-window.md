@@ -1,14 +1,14 @@
 # BrowserWindow
 
-> Create and control browser windows.
+> สร้างและควบคุม BrowserWindow
 
 Process: [Main](../glossary.md#main-process)
 
 ```javascript
-// In the main process.
+// ใน main process
 const { BrowserWindow } = require('electron')
 
-// Or use `remote` from the renderer process.
+// หรือจะใช้ `remote` จาก renderer process.
 // const { BrowserWindow } = require('electron').remote
 
 let win = new BrowserWindow({ width: 800, height: 600 })
@@ -16,20 +16,20 @@ win.on('closed', () => {
   win = null
 })
 
-// Load a remote URL
+// เรียก Remote URL
 win.loadURL('https://github.com')
 
-// Or load a local HTML file
+// หรือเรียกไฟล์ HTML
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
-## Frameless window
+## Frameless window (window ไร้ขอบ)
 
-To create a window without chrome, or a transparent window in arbitrary shape, you can use the [Frameless Window](frameless-window.md) API.
+คุณสามารถใช้ [Frameless Window](frameless-window.md) API เพื่อสร้าง window แบบไร้ขอบหรือพื้นหลังโปร่งใส
 
-## Showing window gracefully
+## แสดงหน้าต่างแบบสวยๆ
 
-When loading a page in the window directly, users may see the page load incrementally, which is not a good experience for a native app. To make the window display without visual flash, there are two solutions for different situations.
+เมื่อ load page ใน window โดยตรง ผู้ใช้อาจเห็นสิ่งต่างๆ ค่อยแสดงขึ้นมา ซึ่งผู้ใช้จะได้รับประสบการณ์ที่ไม่ดีในการใช้ application แบบ native เพื่อที่จะให้ window แสดงแบบไร้การกระพริบ จะมีทางเลือก 2 ทาง ในสถานการณ์ที่แตกต่างกันออกไป
 
 ### Using `ready-to-show` event
 
@@ -108,7 +108,7 @@ It is recommended that you pause expensive operations when the visibility state 
 
 ## Class: BrowserWindow
 
-> Create and control browser windows.
+> สร้างและควบคุม BrowserWindow
 
 Process: [Main](../glossary.md#main-process)
 

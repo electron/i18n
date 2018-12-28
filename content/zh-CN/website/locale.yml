@@ -16,7 +16,7 @@ docs:
   description: 在一页内查看所有的 <a href="/docs/all"> 文档 </a> 或查看 <a href="/docs/faq"> 常见问题 </a>。
   guides: 指南
   api_reference: API 参考
-  api_structures: API Structures
+  api_structures: API 结构
   advanced: 高级
   footer:
     propose_change: 改进此文档
@@ -122,7 +122,7 @@ blog:
   title: Electron 博客
   description: 所有来自 Electron 团队和社区的最新消息。
   feedback: 对这篇文章有反馈意见吗？ 可以在在 Twitter 上<a href="https://twitter.com/electronjs">@electronjs</a>
-  help: Need help or found a bug? <a href="/contact">Contact us</a>.
+  help: 需要帮助或发现了一个错误？ <a href="/contact">联系我们</a>。
 clipboard:
   copy: Copy
   copy_to_clipboard: 复制到剪贴板

@@ -16,14 +16,14 @@
       $ cd libchromiumcontent
       $ ./script/bootstrap -v
 
-2. Update the Chromium snapshot 
-  - Choose a version number from [OmahaProxy](https://omahaproxy.appspot.com/) and update the `VERSION` file with it 
-    - This can be done manually by visiting OmahaProxy in a browser, or automatically:
-    - One-liner for the latest stable mac version: `curl -so- https://omahaproxy.appspot.com/mac > VERSION`
-    - One-liner for the latest win64 beta version: `curl -so- https://omahaproxy.appspot.com/all | grep "win64,beta" | awk -F, 'NR==1{print $3}' > VERSION`
+2. 更新 Chromium 快照 
+  - 选择一个版本号从 [OmahaProxy](https://omahaproxy.appspot.com/) 并且更新这个 `VERSION` 文件 
+    - 这可以通过在浏览器中访问 OmahaProxy 手动完成，或自动完成：
+    - 最新稳定版 Mac 可用的一键脚本：`curl -so- https://omahaproxy.appspot.com/mac > VERSION`
+    - 最新测试版 win64 一键脚本： `curl -so- https://omahaproxy.appspot.com/all | grep "win64,beta" | awk -F, 'NR==1{print $3}' > VERSION`
   - 运行 `$ ./script/update` 
-    - Brew some tea -- this may run for 30m or more.
-    - It will probably fail applying patches.
+    - 倒杯茶吧 -- 这可能会运行 30 分钟或更长。
+    - 补丁的应用可能会失败。
 3. Fix `*.patch` files in the `patches/` and `patches-mas/` folders.
 4. （可选） `script/update` applies patches, but if multiple tries are needed you can manually run the same script that `update` calls: `$ ./script/apply-patches` 
   - There is a second script, `script/patch.py` that may be useful. Read `./script/patch.py -h` for more information.
@@ -64,25 +64,25 @@
 6. 构建Electron。 
   - Try to build Debug version first: `$ ./script/build.py -c D`
   - You will need it to run tests
-7. Fix compilation and linking errors
-8. Ensure that Release build can be built too 
+7. 修复编译和链接错误
+8. 确保也可以构建发布版本 
   - `$ ./script/build.py -c R`
   - Often the Release build will have different linking errors that you'll need to fix.
   - Some compilation and linking errors are caused by missing source/object files in the libcc `dist`
 9. Update `./script/create-dist` in the libcc repo, recreate a `dist`, and run Electron bootstrap script once again.
 
-### Tips for fixing compilation errors
+### 关于修复编译错误的提示
 
-- Fix build config errors first
-- Fix fatal errors first, like missing files and errors related to compiler flags or defines
-- Try to identify complex errors as soon as possible. 
-  - Ask for help if you're not sure how to fix them
-- Disable all Electron features, fix the build, then enable them one by one
-- Add more build flags to disable features in build-time.
+- 首先修复构建配置的错误
+- 首先修复致命错误，例如丢失文件和与编译器相关的错误 标志或定义
+- 尝试尽快识别复杂错误。 
+  - 如果您不确定如何修复问题，请寻求帮助
+- 禁用所有 Electron 功能，修复构建，然后逐个启用它们
+- 添加更多构建标志以在构建时禁用功能。
 
 When a Debug build of Electron succeeds, run the tests: `$ npm run test` Fix the failing tests.
 
-Follow all the steps above to fix Electron code on all supported platforms.
+按照上述所有步骤在所有支持的平台上修复 Electron 代码。
 
 ## 更新奔溃报告（Crashpad）
 
@@ -92,7 +92,7 @@ If there are any compilation errors related to the Crashpad, it probably means y
 
 Upgrade `vendor/node` to the Node release that corresponds to the v8 version used in the new Chromium release. See the v8 versions in Node on
 
-See [Upgrading Node](upgrading-node.md) for instructions on this.
+请参见 [更新 Node ](upgrading-node.md) 有关这方面的说明。
 
 ## 验证 ffmpeg 支持
 
@@ -102,16 +102,16 @@ Electron 发行版的 `ffmpeg`，默认包括专有的编解码器 没有这些�
 
 ```html
 <!DOCTYPE html>
-<html>
-  <head>
-    <meta charset="utf-8">
-    <title>Proprietary Codec Check</title>
-  </head>
-  <body>
-    <p>Checking if Electron is using proprietary codecs by loading video from http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4</p>
-    <p id="outcome"></p>
-    <video style="display:none" src="http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4" autoplay></video>
-    <script>
+&lt;html&gt;
+  &lt;head&gt;
+    &lt;meta charset="utf-8"&gt;
+    &lt;title&gt;专用编解码器检查&lt;/title&gt;
+  &lt;/head&gt;
+  &lt;body&gt;
+    &lt;p&gt;通过加载来自 http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4 的视频来检查 Electron 是否使用了专用编解码器 &lt;/p&gt;
+    &lt;p id="outcome"&gt;&lt;/p&gt;
+    &lt;video style="display:none" src="http://www.quirksmode.org/html5/videos/big_buck_bunny.mp4" autoplay&gt;&lt;/video&gt;
+    &lt;script&gt;
       const video = document.querySelector('video')
       video.addEventListener('error', ({ target }) => {
         if (target.error.code === target.error.MEDIA_ERR_SRC_NOT_SUPPORTED) {
@@ -123,9 +123,9 @@ Electron 发行版的 `ffmpeg`，默认包括专有的编解码器 没有这些�
       video.addEventListener('playing', () => {
         document.querySelector('#outcome').textContent = 'Using proprietary codecs, video started playing.'
       })
-    </script>
-  </body>
-</html>
+    &lt;/script&gt;
+  &lt;/body&gt;
+&lt;/html&gt;
 ```
 
 ## 相关链接

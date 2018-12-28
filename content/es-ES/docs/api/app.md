@@ -919,15 +919,15 @@ Adjuntar un argumento a la línea de comando de Chromium. El argumento será cit
 
 ### `app.enableSandbox()` *Experimental* *macOS* *Windows*
 
-Enables full sandbox mode on the app.
+Habilita el modo sandbox completo en la aplicación.
 
-Este método solo puede ser llamado despues de iniciada la aplicación.
+Este método solo puede ser llamado antes de iniciada la aplicación.
 
 ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
 
 Permite modo sandbox mezclado en la aplicación.
 
-Este método solo puede ser llamado despues de iniciada la aplicación.
+Este método sólo puede ser llamado antes de que la aplicación sea iniciada.
 
 ### `app.isInApplicationsFolder()` *macOS*
 
@@ -1001,4 +1001,4 @@ Establece la `image` asociada con el ícono del punto.
 
 ### `app.isPackaged`
 
-A `Boolean` property that returns `true` if the app is packaged, `false` otherwise. For many apps, this property can be used to distinguish development and production environments.
+Una propiedad `Boolean` que retorna `true` si la aplicación está empaquetada, `false` si no lo está. Para muchas aplicaciones, esta propiedad puede ser usada para distinguir los ambientes de desarrollo y producción.

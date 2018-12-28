@@ -4,7 +4,7 @@
 
 Процессы: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-Electron's `process` object is extended from the [Node.js `process` object](https://nodejs.org/api/process.html). It adds the following events, properties, and methods:
+Объект Electron `process` является расширенной версией объекта [Node.js `process`](https://nodejs.org/api/process.html). Он добавляет следующие события, свойства и методы:
 
 ## Sandbox
 
@@ -32,11 +32,11 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 
 ## События
 
-### Event: 'loaded'
+### Событие: 'loaded'
 
-Emitted when Electron has loaded its internal initialization script and is beginning to load the web page or the main script.
+Срабатывает, когда Electron загрузил свой скрипт внутренней инициализации и начинает загружать веб-страницу или основной скрипт.
 
-It can be used by the preload script to add removed Node global symbols back to the global scope when node integration is turned off:
+Это событие может использоваться preload скриптом, чтобы вернуть удаленные Node global symbols в глобальную область видимости, когда node integration выключен:
 
 ```javascript
 // preload.js

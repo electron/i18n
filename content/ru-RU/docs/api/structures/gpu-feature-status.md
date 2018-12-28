@@ -1,9 +1,9 @@
 # Объект GPUFeatureStatus
 
-* `2d_canvas` String - холст.
-* `flash_3d` String - вспышка.
-* `flash_stage3d` String - вспышка Stage3D.
-* `flash_stage3d_baseline` String - базовый профиль вспышки Stage3D.
+* `2d_canvas` String - Canvas.
+* `flash_3d` String - Flash.
+* `flash_stage3d` String - Flash Stage3D.
+* `flash_stage3d_baseline` String - базовый профиль Flash Stage3D.
 * `gpu_compositing` String - композитный.
 * `multiple_raster_threads` String - несколько растровых потоков.
 * `native_gpu_memory_buffers` String - нативный GpuMemoryBuffers.

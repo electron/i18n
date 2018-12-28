@@ -36,7 +36,9 @@ Sayfa doğrudan pencereye yüklendiğinde, kullanıcı, bitmemiş sayfayı gör�
 Sayfayı yüklerken, pencerenin henüz gösterilmemesi durumunda, oluşturucu işlemi sayfayı ilk kez işlediğinde, ` hazır göster ` olayı yayımlanacaktır. Bu olayın ardından bir pencere gösterildiğinde görsel bir flaş yok:
 
 ```javascript
-const { BrowserWindow } = require ('elektron') win = yeni BrowserWindow olsun ({ show: false }) win.once ('ready to show', () => {win.show () })
+const { BrowserWindow } = require ('electron');
+let win = new BrowserWindow ({ show: false });
+win.once ('ready to show', () => {win.show () })
 ```
 
 Bu olay genellikle `did-finish-load` olayından sonra verilir, ancak birçok uzak kaynağa sahip sayfalar için `did-finish-load` olayından önce yayınlanabilir.
@@ -46,9 +48,9 @@ Bu olay genellikle `did-finish-load` olayından sonra verilir, ancak birçok uza
 Karmaşık bir uygulama için, `ready-to-show` etkinliği çok geç yayınlanarak uygulamanın yavaşlamasına neden olabilir. Bu durumda, pencereyi derhal göstermeniz ve uygulamanızın arka planına yakın bir `backgroundColor` kullanmanız önerilir:
 
 ```javascript
-const { BrowserWindow } = require ('elektron') 
+const { BrowserWindow } = require ('electron') 
 
- lett win = news BrowserWindow({ backgroundColor: '#2e2c29' }) win.loadURL ( 'https://github.com')
+ let win = new BrowserWindow({ backgroundColor: '#2e2c29' }) win.loadURL ( 'https://github.com')
 ```
 
 ` hazır göster </ 0>  etkinliğine sahip olan uygulamalar için bile, uygulamanın daha doğal hissetmesini sağlamak için <code>arka plan rengi </ 0> ayarlamanız önerilir .</p>
@@ -58,10 +60,10 @@ const { BrowserWindow } = require ('elektron')
 <p><code>parent` seçeneğini kullanarak türetilmiş pencereler yaratabilirsiniz:
 
 ```javascript
-const { BrowserWindow } = require ('elektron') 
+const { BrowserWindow } = require ('electron') 
 
-let top = yeni BrowserWindow()
- izin ver çocuk = yeni BrowserWindow ({ parent: top })
+let top = new BrowserWindow()
+let child = new BrowserWindow ({ parent: top })
  child.show ()
  top.show ()
 ```
@@ -73,9 +75,9 @@ let top = yeni BrowserWindow()
 Modal bir pencere, üst pencereyi devre dışı bırakan ve bir kalıcı pencere oluşturmak için kullanılan alt penceredir, hem `parent` hem de `modal` seçeneklerini ayarlamanız gerekir:
 
 ```javascript
-const { BrowserWindow } = require ('elektron')
+const { BrowserWindow } = require ('electron')
 
-izin ver çocuk = yeni BrowserWindow({ parent: top, modal: true, show: false })
+let child = new BrowserWindow({ parent: top, modal: true, show: false })
 child.loadURL('https://github.com')
  ('ready to show', () => {
 child.show ()
@@ -169,7 +171,7 @@ Güç tüketimini en aza indirmek için yoğun işlemleri görünürlük durumu 
     * ` nodeIntegrationInWorker` Boolean (isteğe bağlı) - Düğümün tümleştirilip web çalışanlarında etkinleştirildi. Varsayılan `false`'dur. Bununla ilgili daha fazla bilgi bulabilirsiniz [ Multithreading'de](../tutorial/multithreading.md).
     * ` preload` Sicim (isteğe bağlı) - Diğerinden önce yüklenecek bir betiği belirtir sayfalarda komut dosyaları çalıştırın. Bu komut dosyasında, düğüm entegrasyonunun açık veya kapalı olmasına bakılmaksızın düğüm API'lerine her zaman erişilebilmektedir. Değer, komut dosyasının salt dosya yolu olmalıdır. Düğüm entegrasyonu kapatıldığında, önceden yüklenmiş komut dosyası düğümün genel başvuru bayrağını genel kapsamdan yeniden başlatır. Örneği [gör](process.md#event-loaded).
     * ` sandbox` Boole (isteğe bağlı) - Ayarlanırsa, oluşturucuyu gizlenecektir pencere ile ilişkilendirilerek Krom ile uyumlu hale getirilir OS düzeyinde sanal alan ve Node.js motorunu devre. Bu aynı şey değil ` düğüm Entegrasyon` seçeneği ve önyükleme komut dosyasında kullanılabilen API'ler daha sınırlıdır. Seçenek hakkında daha fazla detaya [buradan ](sandbox-option.md) ulaşabilirsiniz. ** Not**: Bu seçenek şu anda deneme amaçlı olup değişebilir veya değişebilir gelecekteki Electron sürümlerinde kaldırıldı.
-    * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. Default is `true`.
+    * `enableRemoteModule` Boolean (isteğe bağlı) - [`remote`](remote.md) modulü'nün aktif olup, olmamasıdır. Varsayılan değeri `true`.
     * `oturum` [Oturum](session.md#class-session) (isteğe bağlı) - Kullanılan oturumu ayarlar sayfa. Oturum nesnesini doğrudan geçirmek yerine bir bölüm dizesini kabul eden `partition` seçeneğini kullanmayı da denebilirsiniz. Ne zaman hem `oturumu` hem de `bölüm` sağlanır, `oturumu` tercih edilir. Varsayılan oturumun varsayılanıdır.
     * `bölüm` Satır (isteğe bağlı) - Sayfanın kullandığı oturumu. oturumun bölümlenmiş satırına göre ayarlar. Eğer `bölümü` ile başlarsa `persist:`, sayfa ile uygulamadaki tüm sayfalar için kalıcı bir oturum kullanacaktır aynı `bölümü`. Hiçbir ` persist`: öneki yoksa, sayfa bellek içi oturumu. Aynı `partition`, değişkenine değer atayarak birden çok sayfada aynı oturumu paylaşabilirsiniz. Varsayılan oturumun varsayılanıdır.
     * `affinity` String (optional) - When specified, web pages with the same `affinity` will run in the same renderer process. Note that due to reusing the renderer process, certain `webPreferences` options will also be shared between the web pages even when you specified different values for them, including but not limited to `preload`, `sandbox` and `nodeIntegration`. So it is suggested to use exact same `webPreferences` for web pages with the same `affinity`. *This property is experimental*
@@ -184,7 +186,7 @@ Güç tüketimini en aza indirmek için yoğun işlemleri görünürlük durumu 
     * `eklentileri` Boolean (isteğe bağlı) - Eklentilerin etkinleştirilip etkinleştirilmeyeceği. Varsayılan değer `yanlış`.
     * `experimentalFeatures` Boolean (isteğe bağlı) - Chromium'un deneysel özelliklerini etkinleştirir. Varsayılan değer `yanlış`.
     * ` scrollBounce` Boolean (isteğe bağlı) - Üzerinde kaydırma sıçrama (lastik bantlama) efekti sağlar Mac os işletim sistemi. Varsayılan değer `yanlış`.
-    * `enableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to enable. Desteklenmiş özellik dizelerinin tam listesi [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) dosyasında olabilir.
+    * `enableBlinkFeatures` String (isteğe bağlı) - `,`(virgül) ile ayrılmış özellik dizelerinin bir listesidir. Aktifleştirmek için örneğin; `CSSVariables,KeyboardEventKey`. Desteklenmiş özellik dizelerinin tam listesi [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) dosyasında olabilir.
     * ` Blink özelliğini devre dışı bırak ` Dizi (opsiyonel) - `,` ile ayrılmış bir özellikler dizisi. İptal etmek için `CSSVariables, KeyboardEventKey`. Desteklenen özellik dizelerinin tam listesini [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) dosyasında bulabilirsiniz.
     * `defaultFontFamily` Obje (isteğe bağlı) - Kullanılan varsayılan yazı tipini ayarlar. 
       * `standard` Dize (isteğe bağlı) - Varsayılanı `Times New Roman` olarak belirler.
