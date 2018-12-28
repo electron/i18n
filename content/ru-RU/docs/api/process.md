@@ -64,15 +64,15 @@ process.once('loaded', () => {
 
 ### `process.noDeprecation`
 
-`Boolean`. Контролирует будут ли неодобряющие предупреждения выводиться в `stderr`. Setting this to `true` will silence deprecation warnings. This property is used instead of the `--no-deprecation` command line flag.
+`Boolean`. Контролирует будут ли неодобряющие предупреждения выводиться в `stderr`. Установка в `true` заглушит неодобряющие предупреждения. Это свойство используется вместо флага командной строки `--no-deprecation`.
 
 ### `process.resourcesPath`
 
-A `String` representing the path to the resources directory.
+`String`. Представляет из себя путь до каталога с ресурсами.
 
 ### `process.sandboxed`
 
-A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
+`Boolean`. Когда renderer process добавлен в sandbox это свойство принимает значение `true`, иначе `undefined`.
 
 ### `process.throwDeprecation`
 
