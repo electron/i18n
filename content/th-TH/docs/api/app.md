@@ -4,7 +4,7 @@
 
 Process: [Main](../glossary.md#main-process)
 
-The following example shows how to quit the application when the last window is closed:
+ตัวอย่างด้านล่างนี้แสดงถึงการออกจาก application เมื่อหน้าต่างสุดท้ายถูกปิดลง
 
 ```javascript
 const { app } = require('electron')
@@ -15,7 +15,7 @@ app.on('window-all-closed', () => {
 
 ## Events
 
-The `app` object emits the following events:
+Events ของ `app` object:
 
 ### Event: 'will-finish-launching'
 
