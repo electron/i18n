@@ -10,21 +10,21 @@
 
 ## `new BrowserWindow({ webPreferences })`
 
-The following `webPreferences` option default values are deprecated in favor of the new defaults listed below.
+Следующие значения по умолчанию для параметра `webPreferences` устарели в пользу новых значений по умолчанию, перечисленных ниже.
 
-| Property           | Deprecated Default                   | New Default |
-| ------------------ | ------------------------------------ | ----------- |
-| `contextIsolation` | `false`                              | `true`      |
-| `nodeIntegration`  | `true`                               | `false`     |
-| `webviewTag`       | `nodeIntegration` if set else `true` | `false`     |
+| Свойство           | Устаревшее                                      | Новое   |
+| ------------------ | ----------------------------------------------- | ------- |
+| `contextIsolation` | `false`                                         | `true`  |
+| `nodeIntegration`  | `true`                                          | `false` |
+| `webviewTag`       | `nodeIntegration` если установлено иначе `true` | `false` |
 
 ## `nativeWindowOpen`
 
-Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled.
+В дочерних окнах открытых с параметром `nativeWindowOpen` интеграция с Node.js всегда будет отключена.
 
 ## `webContents.findInPage(text[, options])`
 
-`wordStart` and `medialCapitalAsWordStart` options are removed.
+`wordStart` и `medialCapitalAsWordStart` парметры были удалены.
 
 # Запланированные критические изменения API (4.0)
 
@@ -57,7 +57,7 @@ app.releaseSingleInstanceLock()
 
 ```js
 app.getGPUInfo('complete')
-// Now behaves the same with `basic` on macOS
+// Теперь ведет себя так же с `basic` в macOS
 app.getGPUInfo('basic')
 ```
 
