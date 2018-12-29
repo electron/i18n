@@ -10,13 +10,13 @@ Breaking changes will be documented here, and deprecation warnings added to JS c
 
 ## `new BrowserWindow({ webPreferences })`
 
-The following `webPreferences` option default values are deprecated in favor of the new defaults listed below.
+다음 `webPreferences` 옵션의 기본값은 아래 리스트의 새로운 값으로 변경됩니다.
 
-| Property           | Deprecated Default                   | New Default |
-| ------------------ | ------------------------------------ | ----------- |
-| `contextIsolation` | `false`                              | `true`      |
-| `nodeIntegration`  | `true`                               | `false`     |
-| `webviewTag`       | `nodeIntegration` if set else `true` | `false`     |
+| 속성                 | 종료되는 기본값                             | 새로운 기본값 |
+| ------------------ | ------------------------------------ | ------- |
+| `contextIsolation` | `false`                              | `true`  |
+| `nodeIntegration`  | `true`                               | `false` |
+| `webviewTag`       | `nodeIntegration` if set else `true` | `false` |
 
 ## `nativeWindowOpen`
 
