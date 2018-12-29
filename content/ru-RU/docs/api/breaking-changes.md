@@ -37,7 +37,7 @@
 app.makeSingleInstance(function (argv, cwd) {
 
 })
-// Заменят на
+// Заменить на
 app.requestSingleInstanceLock()
 app.on('second-instance', function (event, argv, cwd) {
 
@@ -49,7 +49,7 @@ app.on('second-instance', function (event, argv, cwd) {
 ```js
 // Устарело
 app.releaseSingleInstance()
-// Заменят на
+// Заменить на
 app.releaseSingleInstanceLock()
 ```
 
@@ -74,7 +74,7 @@ When building native modules for windows, the `win_delay_load_hook` variable in 
 ```js
 // Устарело
 app.getAppMemoryInfo()
-// Заменят на
+// Заменить на
 app.getAppMetrics()
 
 // Устарело
@@ -88,7 +88,7 @@ const { memory } = metrics[0] // свойство устарело
 // Устарело
 let optionsA = { webPreferences: { blinkFeatures: '' } }
 let windowA = new BrowserWindow(optionsA)
-// Заменят на
+// Заменить на
 let optionsB = { webPreferences: { enableBlinkFeatures: '' } }
 let windowB = new BrowserWindow(optionsB)
 
@@ -98,7 +98,7 @@ window.on('app-command', (e, cmd) => {
     // делаем что-нибудь
   }
 })
-// Заменят на
+// Заменить на
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
     // делаем что-нибудь
@@ -111,22 +111,22 @@ window.on('app-command', (e, cmd) => {
 ```js
 // Устарело
 clipboard.readRtf()
-// Заменят на
+// Заменить на
 clipboard.readRTF()
 
 // Устарело
 clipboard.writeRtf()
-// Заменят на
+// Заменить на
 clipboard.writeRTF()
 
 // Устарело
 clipboard.readHtml()
-// Заменят на
+// Заменить на
 clipboard.readHTML()
 
 // Устарело
 clipboard.writeHtml()
-// Заменят на
+// Заменить на
 clipboard.writeHTML()
 ```
 
@@ -139,7 +139,7 @@ crashReporter.start({
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// Заменят на
+// Заменить на
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -152,7 +152,7 @@ crashReporter.start({
 ```js
 // Устарело
 nativeImage.createFromBuffer(buffer, 1.0)
-// Заменят на
+// Заменить на
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
@@ -170,7 +170,7 @@ const info = process.getProcessMemoryInfo()
 ```js
 // Устарело
 screen.getMenuBarHeight()
-// Заменят на
+// Заменить на
 screen.getPrimaryDisplay().workArea
 ```
 
@@ -181,7 +181,7 @@ screen.getPrimaryDisplay().workArea
 ses.setCertificateVerifyProc(function (hostname, certificate, callback) {
   callback(true)
 })
-// Заменят на
+// Заменить на
 ses.setCertificateVerifyProc(function (request, callback) {
   callback(0)
 })
@@ -192,69 +192,69 @@ ses.setCertificateVerifyProc(function (request, callback) {
 ```js
 // Устарело
 tray.setHighlightMode(true)
-// Заменено на
+// Заменить на
 tray.setHighlightMode('on')
 
 // Устарело
 tray.setHighlightMode(false)
-// Заменено на
+// Заменить на
 tray.setHighlightMode('off')
 ```
 
 ## `webContents`
 
 ```js
-// Deprecated
+// Устарело
 webContents.openDevTools({ detach: true })
-// Replace with
+// Заменить на
 webContents.openDevTools({ mode: 'detach' })
 
-// Removed
+// Удалено
 webContents.setSize(options)
-// There is no replacement for this API
+// Нет замены для этого API
 ```
 
 ## `webFrame`
 
 ```js
-// Deprecated
+// Устарело
 webFrame.registerURLSchemeAsSecure('app')
-// Replace with
+// Заменить на
 protocol.registerStandardSchemes(['app'], { secure: true })
 
-// Deprecated
+// Устарело
 webFrame.registerURLSchemeAsPrivileged('app', { secure: true })
-// Replace with
+// Заменить на
 protocol.registerStandardSchemes(['app'], { secure: true })
 ```
 
 ## `<webview>`
 
 ```js
-// Removed
+// Удалено
 webview.setAttribute('disableguestresize', '')
-// There is no replacement for this API
+// Нет замены для этого API
 
-// Removed
+// Удалено
 webview.setAttribute('guestinstance', instanceId)
-// There is no replacement for this API
+// Нет замены для этого API
 
-// Keyboard listeners no longer work on webview tag
-webview.onkeydown = () => { /* handler */ }
-webview.onkeyup = () => { /* handler */ }
+// Слушатели клавиатуры больше не работают в webview теге
+webview.onkeydown&nbsp;= () => { /* обработчик */ }
+webview.onkeyup&nbsp;= () => { /* обработчик */ }
 ```
 
 ## Node Headers URL
 
-This is the URL specified as `disturl` in a `.npmrc` file or as the `--dist-url` command line flag when building native Node modules.
+Это URL, указанный как `disturl` в файле `.npmrc` или как `--dist-url` флаг командной строки при сборке собственных модулей Node.
 
-Deprecated: https://atom.io/download/atom-shell
+Устарело: https://atom.io/download/atom-shell
 
-Replace with: https://atom.io/download/electron
+Заменить на: https://atom.io/download/electron
 
 # Критические изменения API (2.0)
 
-The following list includes the breaking API changes made in Electron 2.0.
+Следующий список включает в себя критические изменения API, сделанные в Electron 2.0.
 
 ## `BrowserWindow`
 
