@@ -24,7 +24,7 @@ Child windows opened with the `nativeWindowOpen` option will always have Node.js
 
 ## `webContents.findInPage(text[, options])`
 
-`wordStart` and `medialCapitalAsWordStart` options are removed.
+`wordStart` 와 `medialCapitalAsWordStart` 옵션이 제거되었습니다.
 
 # 중단될 예정 API (4.0)
 
