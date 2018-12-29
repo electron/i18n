@@ -63,7 +63,7 @@ app.getGPUInfo('basic')
 
 ## `win_delay_load_hook`
 
-When building native modules for windows, the `win_delay_load_hook` variable in the module's `binding.gyp` must be true (which is the default). If this hook is not present, then the native module will fail to load on Windows, with an error message like `Cannot find module`. See the [native module guide](/docs/tutorial/using-native-node-modules.md) for more.
+При создании собственных модулей для Windows переменная `win_delay_load_hook` в модулях `binding.gyp` должен быть true (это значение по умолчанию). Если этот хук отсутствует, то нативный модуль не будет загружаться в Windows с сообщением об ошибке, например `Cannot find module`. См. [руководство по нативным модулям](/docs/tutorial/using-native-node-modules.md) для получения дополнительной информации.
 
 # Критические изменения API (3.0)
 
@@ -259,10 +259,10 @@ webview.onkeyup&nbsp;= () => { /* обработчик */ }
 ## `BrowserWindow`
 
 ```js
-// Deprecated
+// Устарело
 let optionsA = { titleBarStyle: 'hidden-inset' }
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// Заменить на
 let optionsB = { titleBarStyle: 'hiddenInset' }
 let windowB = new BrowserWindow(optionsB)
 ```
@@ -270,61 +270,61 @@ let windowB = new BrowserWindow(optionsB)
 ## `menu`
 
 ```js
-// Removed
+// Удалено
 menu.popup(browserWindow, 100, 200, 2)
-// Replaced with
+// Заменить на
 menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```
 
 ## `nativeImage`
 
 ```js
-// Removed
+// Удалено
 nativeImage.toPng()
-// Replaced with
+// Заменить на
 nativeImage.toPNG()
 
-// Removed
+// Удалено
 nativeImage.toJpeg()
-// Replaced with
+// Заменить на
 nativeImage.toJPEG()
 ```
 
 ## `process`
 
-* `process.versions.electron` and `process.version.chrome` will be made read-only properties for consistency with the other `process.versions` properties set by Node.
+* `process.versions.electron` и `process.version.chrome` будет доступно только для чтения для согласованности с другими `process.versions` свойствами установленными в Node.
 
 ## `webContents`
 
 ```js
-// Removed
+// Удалено
 webContents.setZoomLevelLimits(1, 2)
-// Replaced with
+// Заменить на
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## `webFrame`
 
 ```js
-// Removed
+// Удалено
 webFrame.setZoomLevelLimits(1, 2)
-// Replaced with
+// Заменить на
 webFrame.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## `<webview>`
 
 ```js
-// Removed
+// Удалено
 webview.setZoomLevelLimits(1, 2)
-// Replaced with
+// Заменить на
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-## Duplicate ARM Assets
+## Двойные ARM ресурсы
 
-Each Electron release includes two identical ARM builds with slightly different filenames, like `electron-v1.7.3-linux-arm.zip` and `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
+Каждый выпуск Electron включает в себя две идентичные сборки ARM с немного разными имена файлов, такие как `electron-v1.7.3-linux-arm.zip` и `electron-v1.7.3-linux-armv7l.zip`. Ресурсы с префиксом `v7l` были добавлены, чтобы уточнить для пользователей, какую версию ARM он поддерживает, и избавиться от него из будущих ресурсов armv6l и arm64, которые могут быть произведены.
 
-The file *without the prefix* is still being published to avoid breaking any setups that may be consuming it. Starting at 2.0, the un-prefixed file will no longer be published.
+Файл *без префикса* по-прежнему публикуется, чтобы избежать нарушения любых настроек, которые могут его использовать. Начиная с версии 2.0, файл без префикса будет более не доступен для публикации.
 
-For details, see [6986](https://github.com/electron/electron/pull/6986) and [7189](https://github.com/electron/electron/pull/7189).
+Более детально смотреть [6986](https://github.com/electron/electron/pull/6986) и [7189](https://github.com/electron/electron/pull/7189).
