@@ -37,7 +37,7 @@
 app.makeSingleInstance(function (argv, cwd) {
 
 })
-// Заменить на
+// Заменят на
 app.requestSingleInstanceLock()
 app.on('second-instance', function (event, argv, cwd) {
 
@@ -49,7 +49,7 @@ app.on('second-instance', function (event, argv, cwd) {
 ```js
 // Устарело
 app.releaseSingleInstance()
-// Заменить на
+// Заменят на
 app.releaseSingleInstanceLock()
 ```
 
@@ -72,36 +72,36 @@ When building native modules for windows, the `win_delay_load_hook` variable in 
 ## `app`
 
 ```js
-// Deprecated
+// Устарело
 app.getAppMemoryInfo()
-// Replace with
+// Заменят на
 app.getAppMetrics()
 
-// Deprecated
+// Устарело
 const metrics = app.getAppMetrics()
-const { memory } = metrics[0] // Deprecated property
+const { memory } = metrics[0] // свойство устарело
 ```
 
 ## `BrowserWindow`
 
 ```js
-// Deprecated
+// Устарело
 let optionsA = { webPreferences: { blinkFeatures: '' } }
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// Заменят на
 let optionsB = { webPreferences: { enableBlinkFeatures: '' } }
 let windowB = new BrowserWindow(optionsB)
 
-// Deprecated
+// Устарело
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
-    // do something
+    // делаем что-нибудь
   }
 })
-// Replace with
+// Заменят на
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
-    // do something
+    // делаем что-нибудь
   }
 })
 ```
@@ -109,37 +109,37 @@ window.on('app-command', (e, cmd) => {
 ## `clipboard`
 
 ```js
-// Deprecated
+// Устарело
 clipboard.readRtf()
-// Replace with
+// Заменят на
 clipboard.readRTF()
 
-// Deprecated
+// Устарело
 clipboard.writeRtf()
-// Replace with
+// Заменят на
 clipboard.writeRTF()
 
-// Deprecated
+// Устарело
 clipboard.readHtml()
-// Replace with
+// Заменят на
 clipboard.readHTML()
 
-// Deprecated
+// Устарело
 clipboard.writeHtml()
-// Replace with
+// Заменят на
 clipboard.writeHTML()
 ```
 
 ## `crashReporter`
 
 ```js
-// Deprecated
+// Устарело
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// Replace with
+// Заменят на
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -150,9 +150,9 @@ crashReporter.start({
 ## `nativeImage`
 
 ```js
-// Deprecated
+// Устарело
 nativeImage.createFromBuffer(buffer, 1.0)
-// Replace with
+// Заменят на
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
@@ -161,27 +161,27 @@ nativeImage.createFromBuffer(buffer, {
 ## `process`
 
 ```js
-// Deprecated
+// Устарело
 const info = process.getProcessMemoryInfo()
 ```
 
 ## `screen`
 
 ```js
-// Deprecated
+// Устарело
 screen.getMenuBarHeight()
-// Replace with
+// Заменят на
 screen.getPrimaryDisplay().workArea
 ```
 
 ## `session`
 
 ```js
-// Deprecated
+// Устарело
 ses.setCertificateVerifyProc(function (hostname, certificate, callback) {
   callback(true)
 })
-// Replace with
+// Заменят на
 ses.setCertificateVerifyProc(function (request, callback) {
   callback(0)
 })
@@ -190,14 +190,14 @@ ses.setCertificateVerifyProc(function (request, callback) {
 ## `Tray`
 
 ```js
-// Deprecated
+// Устарело
 tray.setHighlightMode(true)
-// Replace with
+// Заменено на
 tray.setHighlightMode('on')
 
-// Deprecated
+// Устарело
 tray.setHighlightMode(false)
-// Replace with
+// Заменено на
 tray.setHighlightMode('off')
 ```
 
