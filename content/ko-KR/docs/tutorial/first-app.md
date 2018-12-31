@@ -140,10 +140,10 @@ app.on('activate', () => {
   }
 })
 
-// 이 파일 안에 당신 앱 특유의 메인 프로세스 코드를 추가할 수 있습니다. You can also put them in separate files and require them here.
+// 이 파일 안에 당신 앱 특유의 메인 프로세스 코드를 추가할 수 있습니다. 별도의 파일에 추가할 수도 있으며 이 경우 require 구문이 필요합니다.
 ```
 
-마지막으로 `index.html`이 표시하려는 웹 페이지입니다.
+마지막으로 `index.html`는 보여주고 싶은 웹 페이지에 해당합니다:
 
 ```html
 <!DOCTYPE html>
@@ -163,11 +163,11 @@ app.on('activate', () => {
 
 ## 앱 실행하기
 
-최초로 생성되어 초기화된 `main.js`, `index.html`, 그리고 `package.json` 파일들을 갖고 있다면, 여러분의 애플리케이션 디렉토리에서 `npm start` 명령어를 이용하여 app을 실행해 볼 수 있습니다. 
+`main.js`, `index.html`, `package.json` 파일을 작성한 후에는, 애플리케이션 디렉토리에서 `npm start` 명령어를 이용해 앱을 실행할 수 있습니다.
 
 ## 예제
 
-[`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) 레파지토리에서 소스를 clone하여 소스 안의 튜토리얼 코드를 실행합니다.
+[`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) 저장소를 clone하여 이 문서에서 설명한 코드를 실행해 볼 수 있습니다.
 
 **참고**: 실행하기 위해선 [Git](https://git-scm.com)과 [npm](https://www.npmjs.com/)이 필요합니다.
 
