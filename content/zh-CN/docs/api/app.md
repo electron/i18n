@@ -329,7 +329,7 @@ app.on('session-created', (event, session) => {
 
 此事件将在应用程序的主实例中触发，当第二个实例被执行时。 ` argv ` 是第二个实例的命令行参数的数组, ` workingDirectory ` 是这个实例当前工作目录。 通常, 应用程序会激活窗口并且取消最小化来响应。
 
-This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
+保证在 `app` 的 `ready` 事件发出后发出此事件。
 
 ### 事件: 'remote-require'
 
@@ -339,7 +339,7 @@ This event is guaranteed to be emitted after the `ready` event of `app` gets emi
 * `webContents` [WebContents](web-contents.md)
 * `moduleName` String
 
-Emitted when `remote.require()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+在 `webContents` 的渲染器进程中调用 `remote.require()` 时发出。 调用 `event.preventDefault()` 将阻止模块返回。 Custom value can be returned by setting `event.returnValue`.
 
 ### 事件: 'remote-get-global'
 
