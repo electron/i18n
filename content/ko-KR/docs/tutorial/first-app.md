@@ -69,13 +69,13 @@ npm install --save-dev electron
 
 ## Electron 개발 맛보기
 
-일랙트론 앱들은 Node.js 개발과 동일한 원칙 및 방법을 사용해 Javascript로 개발되었습니다. Electron에 있는 모든 API들과 기능들은 `electron` 모듈을 이용해 접근 할 수 있으며, 이것은 다른 Node.js 모듈처럼 사용이 가능 합니다:
+Electron 앱은 자바스크립트로 개발하며, Node.js를 개발할 때 사용하던 개념과 메서드를 그대로 이용해서 앱을 개발할 수 있습니다. Electron의 모든 API와 기능은 `electron` 모듈을 통해 접근할 수 있으며, Node.js 모듈 사용법과 유사합니다:
 
 ```javascript
 const electron = require('electron')
 ```
 
-`electron` 모듈은 네임 스페이스의 기능을 노출합니다. 에를 들어, 애플리케이션의 수명주기는 `electron.app`를 통해 관리되며, `electron.BrowserWindow` 클래스를 통해 창들이 생성합니다. 심플한 `main.js` 파일은 응용 프로그램이 준비되고 창을 열 때까지 기다릴 것입니다.
+`electron` 모듈은 네임 스페이스 안에서 기능을 제공합니다. 에를 들어, 애플리케이션 생명 주기는 `electron.app`을 통해 관리되며, `electron.BrowserWindow` 클래스를 사용해 창을 생성할 수 있습니다. 심플한 `main.js` 파일은 응용 프로그램이 준비되고 창을 열 때까지 기다릴 것입니다.
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
