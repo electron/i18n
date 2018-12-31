@@ -91,26 +91,26 @@ function createWindow () {
 app.on('ready', createWindow)
 ```
 
-`main.js`는 창을 생성하고 애플리케이션에서 발생한 모든 시스템 이벤트를 처리합니다. 위의 예제보다 더 완벽한 버전의 예제에서는 개발자 도구를 열거나, 창이 닫힐때의 처리, 혹은 macOS상에서 사용자가 dock의 app의 아이콘을 클릭했을때 창을 다시 만드는 등의 처리를 보여줍니다.
+`main.js`는 창을 생성하고 애플리케이션에서 발생한 모든 시스템 이벤트를 처리합니다. 최종 완성된 예제 코드에서는 개발자 도구를 열거나, 창 닫기 처리, macOS에서 사용자가 dock의 app 아이콘을 클릭했을때 창 재생성하기 등의 기능을 제공하고 있습니다.
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
 
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
+// window 객체는 전역 변수로 유지. 이렇게 하지 않으면, 
+// 자바스크립트 객체가 가비지 콜렉트될 때 자동으로 창이 닫힐 것입니다.
 let win
 
 function createWindow () {
-  // Create the browser window.
+  // 브라우저 창을 생성합니다.
   win = new BrowserWindow({ width: 800, height: 600 })
 
-  // and load the index.html of the app.
+  // 앱의 index.html 파일을 로드합니다.
   win.loadFile('index.html')
 
-  // Open the DevTools.
+  // 개발자 도구를 엽니다.
   win.webContents.openDevTools()
 
-  // Emitted when the window is closed.
+  // 창이 닫힐 때 발생합니다
   win.on('closed', () => {
     // Dereference the window object, usually you would store windows
     // in an array if your app supports multi windows, this is the time
