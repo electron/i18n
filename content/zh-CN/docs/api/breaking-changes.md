@@ -20,11 +20,11 @@
 
 ## `nativeWindowOpen`
 
-Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled.
+使用 `nativeWindowOpen` 选项打开的子窗口将始终禁用 Node.js 集成。
 
 ## `webContents.findInPage(text[, options])`
 
-`wordStart` and `medialCapitalAsWordStart` options are removed.
+`wordStart` 和 `medialCapitalAsWordStart` 选项被删除。
 
 # 计划重写的 API (4.0)
 
@@ -63,7 +63,7 @@ app.getGPUInfo('basic')
 
 ## `win_delay_load_hook`
 
-When building native modules for windows, the `win_delay_load_hook` variable in the module's `binding.gyp` must be true (which is the default). If this hook is not present, then the native module will fail to load on Windows, with an error message like `Cannot find module`. See the [native module guide](/docs/tutorial/using-native-node-modules.md) for more.
+在为 Windows 构建本机模块时，将使 `win_delay_load_hook` 变量值 位于 `binding.gyp` 模块，必须为 true (这是默认值)。 If this hook is not present, then the native module will fail to load on Windows, with an error message like `Cannot find module`. See the [native module guide](/docs/tutorial/using-native-node-modules.md) for more.
 
 # 重大的API更新 (3.0)
 
