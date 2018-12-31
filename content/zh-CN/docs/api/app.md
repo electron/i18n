@@ -737,7 +737,7 @@ if (!gotTheLock) {
 * `callback` Function 
   * `result` Integer - 导入结果
 
-将 pkcs12 格式的证书导入到平台证书库。 `callback` is called with the `result` of import operation, a value of `0` indicates success while any other value indicates failure according to Chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+将 pkcs12 格式的证书导入到平台证书库。 使用导入操作的 `callback` 调用返回 `result` ，值 `0` 表示成功，而任何其他值表示失败，根据Chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) 。
 
 ### `app.disableHardwareAcceleration()`
 
