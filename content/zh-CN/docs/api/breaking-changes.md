@@ -10,13 +10,13 @@
 
 ## `new BrowserWindow({ webPreferences })`
 
-The following `webPreferences` option default values are deprecated in favor of the new defaults listed below.
+不推荐使用以下 `webPreferences` 选项默认值，以支持下面列出的新默认值。
 
-| Property           | Deprecated Default                   | New Default |
-| ------------------ | ------------------------------------ | ----------- |
-| `contextIsolation` | `false`                              | `true`      |
-| `nodeIntegration`  | `true`                               | `false`     |
-| `webviewTag`       | `nodeIntegration` if set else `true` | `false`     |
+| 属性                 | 不推荐使用的默认值                            | 新的默认值   |
+| ------------------ | ------------------------------------ | ------- |
+| `contextIsolation` | `false`                              | `true`  |
+| `nodeIntegration`  | `true`                               | `false` |
+| `webviewTag`       | `nodeIntegration` if set else `true` | `false` |
 
 ## `nativeWindowOpen`
 
