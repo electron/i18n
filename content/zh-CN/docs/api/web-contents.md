@@ -587,7 +587,7 @@ Emitted when the associated window logs a console message. Will not be emitted f
 * `event` Event
 * `moduleName` String
 
-Emitted when `remote.require()` is called in the renderer process. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+Emitted when `remote.require()` is called in the renderer process. 调用 `event.preventDefault()` 将阻止模块返回。 Custom value can be returned by setting `event.returnValue`.
 
 #### 事件: 'remote-get-global'
 
