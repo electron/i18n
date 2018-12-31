@@ -31,7 +31,7 @@ npm은 기본적인 `package.json`파일을 생성하여 여러분에게 정보�
 }
 ```
 
-**주의**: package.json의 `main` 값이 없다면, Electron은 `index.js`를 로드할것입니다. (Node.js가 그러는것처럼요!) 이것이 간단한 Node 애플리케이션이었다면, 현재 패키지를 실행하는 `node` 명령어를 `start` 스크립트를 통해 추가할 수 있습니다.
+**주의**: `package.json`에 `main` 필드에 값이 설정되어 있지 않으면, Electron은 `index.js`를 로드하려고 할 것입니다. (Node.js 동작방식과 유사하게) 이것은 간단한 Node 애플리케이션이지만, 현재 패키지를 실행하기 위한 `node` 명령어를 담은 `start` 스크립트를 추가할 수도 있습니다.
 
 ```json
 {
