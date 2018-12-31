@@ -65,7 +65,7 @@ npm은 기본적인 `package.json`파일을 생성하여 여러분에게 정보�
 npm install --save-dev electron
 ```
 
-이 이외에도 다양한 Electron 설치 방법이 있습니다. [설치 가이드](installation.md)를 방문하여 프록시, 미러, 커스텀 캐쉬 등을 알아보십시오.
+이 이외에도 다양한 Electron 설치 방법이 있습니다. 프록시, 미러 사이트, 커스텀 캐시 등을 이용한 설치 방법은 [설치 가이드 문서](installation.md)를 참고하시길 바랍니다.
 
 ## Electron 개발 맛보기
 
