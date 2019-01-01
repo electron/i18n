@@ -76,12 +76,12 @@ app.on('ready', () => {
 
 ```js
 // 一旦javascript上下文创建，这个文件就会被自动加载 它在一个
-//私有范围内运行, 可以访问 electron 渲染器的 api 。 我们必须小心, 
+//私有环境内运行, 可以访问 electron 渲染器的 api的子集 。 我们必须小心, 
 //不要泄漏任何对象到全局范围!
 const fs = require('fs')
 const { ipcRenderer } = require('electron')
 
-// read a configuration file using the `fs` module
+// 使用 `fs` 模块读取配置文件
 const buf = fs.readFileSync('allowed-popup-urls.json')
 const allowedUrls = JSON.parse(buf.toString('utf8'))
 
@@ -100,9 +100,9 @@ window.open = customWindowOpen
 
 在预加载脚本中要注意的重要事项:
 
-- Even though the sandboxed renderer doesn't have Node.js running, it still has access to a limited node-like environment: `Buffer`, `process`, `setImmediate` and `require` are available.
+- 尽管沙盒渲染器没有运行 node. js, 但它仍然可以访问受限制的类似于节点的环境: ` Buffer `、` process `、` setImmediate ` 和 ` require ` 这些依然可用可用。
 - 预加载脚本可以通过 ` remote ` 和 ` ipcRenderer ` 模块间接访问主进程中的所有 api。 这是 ` fs ` (上面使用的) 和其他模块的实现方式: 它们是主进程中的 remote 对象的代理。
-- 预加载脚本必须包含在单个脚本中, 但可以使用像 browserify 这样的工具, 将多个模块组成复杂的预加载代码, 如下所述。 In fact, browserify is already used by Electron to provide a node-like environment to the preload script.
+- 预加载脚本必须包含在单个脚本中, 但可以使用像 browserify 这样的工具, 将多个模块组成复杂的预加载代码, 如下所述。 事实上, electron用browserify来提供一个类Node环境以便于预加载脚本。
 
 要创建 browserify 包并将其用作预加载脚本, 应使用类似下面的内容:
 
@@ -128,15 +128,15 @@ window.open = customWindowOpen
 - `timers`
 - `url`
 
-More may be added as needed to expose more Electron APIs in the sandbox, but any module in the main process can already be used through `electron.remote.require`.
+可以根据需要添加更多的electron api 以在沙箱中使用, 但主进程中的任何模块都可以通过 ` electron.remote.require ` 使用。
 
 ## 状态
 
-请小心使用`sandbox`选项，它仍是一个实验性特性。 We are still not aware of the security implications of exposing some Electron renderer APIs to the preload script, but here are some things to consider before rendering untrusted content:
+请小心使用`sandbox`选项，它仍是一个实验性特性。 我们仍然不知道将某些 electron api 暴露给预加载脚本的安全性问题, 但在显示不受信任的内容之前, 需要考虑以下一些事项:
 
 - 某个预加载脚本可能会意外把私有 API 暴露给不可信的代码。
 - V8 引擎中的某些 bug 可能允许恶意代码访问渲染器预加载 api, 从而有效地通过 ` remote ` 模块授予对系统的完全访问权限。
 
-Since rendering untrusted content in Electron is still uncharted territory, the APIs exposed to the sandbox preload script should be considered more unstable than the rest of Electron APIs, and may have breaking changes to fix security issues.
+由于在 electron 中渲染不受信任的内容仍然是未知的领域, 因此暴露给沙盒预加载脚本中的 api 应被认为比其他 electron api 更不稳定, 并且这些API可能会更改以修复安全问题。
 
 一个应该大大提高安全性的方法，是阻止 IPC 默认情况下来自沙盒渲染器的消息，允许主进程显式定义允许渲染器发送的一组消息。
