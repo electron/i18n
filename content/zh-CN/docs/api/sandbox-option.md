@@ -30,7 +30,7 @@ app.on('ready', () => {
 })
 ```
 
-以上代码中被创建的[`BrowserWindow`](browser-window.md)禁用了node.js，并且只能使用IPC通信。 使用这个选项阻止electron在渲染器中创建一个node.js运行时环境。 Also, within this new window `window.open` follows the native behaviour (by default Electron creates a [`BrowserWindow`](browser-window.md) and returns a proxy to this via `window.open`).
+以上代码中被创建的[`BrowserWindow`](browser-window.md)禁用了node.js，并且只能使用IPC通信。 这个选项的设置阻止electron在渲染器中创建一个node.js运行环境。 同时，在这个新窗口内`window.open`将按原生方式工作（默认情况下electron会创建一个[`BrowserWindow`](browser-window.md)并通过`window.open`向它返回一个代理）
 
 需要注意的是，这个选项本身不会启用操作系统强制的沙箱。 要启用此功能，必须在命令行参数里加上 `--enable-sandbox` 传递给 electron, 这将会使所有的 `BrowserWindow` 实例强制使用 `sandbox: true`.
 
@@ -45,15 +45,15 @@ app.on('ready', () => {
 })
 ```
 
-Note that it is not enough to call `app.commandLine.appendSwitch('--enable-sandbox')`, as electron/node startup code runs after it is possible to make changes to Chromium sandbox settings. The switch must be passed to Electron on the command-line:
+请注意, 只调用 ` app.commandLine.appendSwitch('--enable-sandbox')` 是不够的, 因为 electron/node 只会在能改变 chromium 沙箱设置后运行代码。 这个改变只能在命令行里传递给 electron:
 
 ```sh
 electron --enable-sandbox app.js
 ```
 
-It is not possible to have the OS sandbox active only for some renderers, if `--enable-sandbox` is enabled, normal Electron windows cannot be created.
+如果启用了 `--enable-sandbox`, 则无法创建正常的Electron窗口, 因此不能只为某些渲染而去激活 OS 沙盒。
 
-If you need to mix sandboxed and non-sandboxed renderers in one application, omit the `--enable-sandbox` argument. Without this argument, windows created with `sandbox: true` will still have Node.js disabled and communicate only via IPC, which by itself is already a gain from security POV.
+如果需要在一个应用程序中混合使用沙箱和非沙箱渲染, 只需省略 `-enable-sandbox ` 参数即可。 如果没有此参数, 使用 ` sandbox: true ` 创建的窗口仍将禁用 node. js 并仅能通过 IPC 进行通信, 从安全视角看这本身已经获得了好处。
 
 ## 预加载
 
@@ -75,8 +75,8 @@ app.on('ready', () => {
 和 preload.js:
 
 ```js
-只要创建 javascript , 就会加载此文件。 It runs in a
-// private scope that can access a subset of Electron renderer APIs. 我们必须小心, 
+// 一旦javascript上下文创建，这个文件就会被自动加载 它在一个
+//私有范围内运行, 可以访问 electron 渲染器的 api 。 我们必须小心, 
 //不要泄漏任何对象到全局范围!
 const fs = require('fs')
 const { ipcRenderer } = require('electron')
