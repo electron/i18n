@@ -19,8 +19,8 @@ The following languages are currently being translated, but we can
 
 <!-- start language-table -->
 - [Español (Spanish)](https://crowdin.com/project/electron/es-ES)
-- [日本語 (Japanese)](https://crowdin.com/project/electron/ja)
 - [中文 (Chinese Simplified)](https://crowdin.com/project/electron/zh-CN)
+- [日本語 (Japanese)](https://crowdin.com/project/electron/ja)
 - [Indonesian](https://crowdin.com/project/electron/id)
 - [Türkçe (Turkish)](https://crowdin.com/project/electron/tr)
 - [Filipino](https://crowdin.com/project/electron/fil)
@@ -41,8 +41,8 @@ The following languages are currently being translated, but we can
 - [فارسی (Persian)](https://crowdin.com/project/electron/fa)
 - [čeština (Czech)](https://crowdin.com/project/electron/cs)
 - [limba română (Romanian)](https://crowdin.com/project/electron/ro)
-- [עברית (Hebrew)](https://crowdin.com/project/electron/he)
 - [ไทย (Thai)](https://crowdin.com/project/electron/th)
+- [עברית (Hebrew)](https://crowdin.com/project/electron/he)
 - [Wikang Tagalog (Tagalog)](https://crowdin.com/project/electron/tl)
 <!-- end language-table -->
 
