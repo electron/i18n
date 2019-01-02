@@ -1,4 +1,4 @@
-# 상용구 코드와 CLI
+# Boilerplates와 CLI
 
 Electron 개발은 유연합니다 - Electron 응용 프로그램을 개발, 빌드, 패키지화 또는 릴리스 하는 유일한 방법을 고집하지 않습니다. 빌드 및 런타임 모두에 대한 Electron의 추가 기능은 일반적으로 개별 패키지의 [ npm ](https://www.npmjs.com/search?q=electron)에서 찾을 수 있고, 개발자가 앱을 빌드하고 필요한 파이프 라인을 빌드 할 수 있습니다.
 
@@ -32,4 +32,4 @@ Forge에는 React, Vue 또는 Angular와 같은 보편적 인 프레임 워크 �
 
 ## 다른 도구와 상용구 코드
 
-["Awesome Electron" list](https://github.com/sindresorhus/awesome-electron#boilerplates) 에 더 많은 툴과 보일러플레이트를 포함하고 있습니다. 어려움이 많아지면 도구를 추가하는 것도 유효한 접근 방법이라는 것을 잊지 마십시오.
+["Awesome Electron" 목록](https://github.com/sindresorhus/awesome-electron#boilerplates)에서 더 많은 도구와 boilerplates를 확인할 수 있습니다. 어려움이 많아지면 도구를 추가하는 것도 유효한 접근 방법이라는 것을 잊지 마십시오.
