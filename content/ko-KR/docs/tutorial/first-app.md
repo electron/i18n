@@ -169,16 +169,16 @@ app.on('activate', () => {
 
 [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start) 저장소를 clone하여 이 문서에서 설명한 코드를 실행해 볼 수 있습니다.
 
-**참고**: 실행하기 위해선 [Git](https://git-scm.com)과 [npm](https://www.npmjs.com/)이 필요합니다.
+**참고**: 예제 코드를 실행하려면 [Git](https://git-scm.com)과 [npm](https://www.npmjs.com/)이 필요합니다.
 
 ```sh
-# Clone the repository
+# 저장소 clone
 $ git clone https://github.com/electron/electron-quick-start
-# Go into the repository
+# 저장소 디렉토리로 이동
 $ cd electron-quick-start
-# Install dependencies
+# 의존성 설치
 $ npm install
-# Run the app
+# 앱 실행
 $ npm start
 ```
 
