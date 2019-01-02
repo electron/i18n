@@ -182,4 +182,4 @@ $ npm install
 $ npm start
 ```
 
-빠른 개발 process를 위한 boilerplates와 툴의 목록은 [Boilerplates and CLIs documentation](./boilerplates-and-clis.md)의 문서를 참고하세요.
+개발 편의성을 제공하는 boilerplates와 도구 목록을 확인하려면, [Boilerplates와 CLI](./boilerplates-and-clis.md) 문서를 참고하세요.
