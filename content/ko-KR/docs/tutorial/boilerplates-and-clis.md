@@ -30,6 +30,6 @@ Forge에는 React, Vue 또는 Angular와 같은 보편적 인 프레임 워크 �
 
 도구는 필요 없지만 견고한 보일러플레이트만 빌드를 위해 원한다면, CT Lin의 [`electron-react-boilerplate`](https://github.com/chentsulin/electron-react-boilerplate)를 살펴볼 가치가 있습니다. 커뮤니티에서 꽤 인기가 있고 내부적으로 `electron-builder`를 사용합니다.
 
-## 다른 도구와 상용구 코드
+## 기타 도구와 Boilerplates
 
 ["Awesome Electron" 목록](https://github.com/sindresorhus/awesome-electron#boilerplates)에서 더 많은 도구와 boilerplates를 확인할 수 있습니다. 어려움이 많아지면 도구를 추가하는 것도 유효한 접근 방법이라는 것을 잊지 마십시오.
