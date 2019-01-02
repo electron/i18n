@@ -24,7 +24,7 @@ Electron 버전과 일치하는 문서를 보고있는지 확인하세요. 페�
   * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
-  * [기타 도구 및 Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
+  * [기타 도구와 Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
 * [애플리케이션 아키텍처](tutorial/application-architecture.md) 
   * [메인 프로세스와 렌더러 프로세스](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Electron API 사용하기](tutorial/application-architecture.md#using-electron-apis)
