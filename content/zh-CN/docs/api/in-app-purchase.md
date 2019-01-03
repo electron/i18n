@@ -32,9 +32,9 @@
 
 ### `inAppPurchase.getProducts(productIDs, callback)`
 
-* `productIDs` String[] - The identifiers of the products to get.
-* `callback` Function - The callback called with the products or an empty array if the products don't exist. 
-    * `products` Product[] - Array of [`Product`](structures/product.md) objects
+* `productIDs` String[] - 预购商品ID
+* `callback` Function - 当商品不存在时，被商品对象或空的列表调用的回调 
+    * `products` Product[] - [`Product`](structures/product.md) 对象的数据
 
 Retrieves the product descriptions.
 
