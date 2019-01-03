@@ -28,7 +28,7 @@
 * `callback` Function (可选) - 当购买事件被推到 PaymentQueue中时触发这个回调函数. 
     * `isProductValid` Boolean - 用来表示商品是否已经添加到支付队列中。
 
-You should listen for the `transactions-updated` event as soon as possible and certainly before you call `purchaseProduct`.
+在调用`purchaseProduct`之前，你应该尽可能快的监听`transactions-updated`事件
 
 ### `inAppPurchase.getProducts(productIDs, callback)`
 
