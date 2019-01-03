@@ -54,4 +54,4 @@
 
 * `date` String - 待完成交易的ISO标准日期格式
 
-Completes the pending transactions corresponding to the date.
+完成与日期对应的待处理事务
