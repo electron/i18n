@@ -23,7 +23,7 @@
 
 ### `inAppPurchase.purchaseProduct(productID, quantity, callback)`
 
-* `productID` String - The identifiers of the product to purchase. (The identifier of `com.example.app.product1` is `product1`).
+* `productID` String - 预付款商品的ID (`com.example.app.product1` 的ID是 `product1`).
 * `quantity` Integer (可选) - 用户所要购买的商品数量.
 * `callback` Function (可选) - 当购买事件被推到 PaymentQueue中时触发这个回调函数. 
     * `isProductValid` Boolean - 用来表示商品是否已经添加到支付队列中。
@@ -33,10 +33,10 @@
 ### `inAppPurchase.getProducts(productIDs, callback)`
 
 * `productIDs` String[] - 预购商品ID
-* `callback` Function - 当商品不存在时，被商品对象或空的列表调用的回调 
+* `callback` Function - 当商品不存在时，被商品对象或空数组调用的回调 
     * `products` Product[] - [`Product`](structures/product.md) 对象的数据
 
-Retrieves the product descriptions.
+检索商品的描述
 
 ### `inAppPurchase.canMakePayments()`
 
@@ -48,10 +48,10 @@ Retrieves the product descriptions.
 
 ### `inAppPurchase.finishAllTransactions()`
 
-Completes all pending transactions.
+完成所有待处理的交易
 
 ### `inAppPurchase.finishTransactionByDate(date)`
 
-* `date` String - The ISO formatted date of the transaction to finish.
+* `date` String - 待完成交易的ISO标准日期格式
 
 Completes the pending transactions corresponding to the date.
