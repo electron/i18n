@@ -44,34 +44,12 @@ app.on('ready', () => {
 
 ### `contentTracing.startRecording(options, callback)`
 
-* `options` Object - 过滤器对象，包含过滤参数 
-  * `categoryFilter` String
-  * `traceOptions` String
+* `options` ([TraceCategoriesAndOptions](structures/trace-categories-and-options.md) | [TraceConfig](structures/trace-config.md))
 * `callback` Function
 
 在所有进程上开始记录
 
 一旦收到EnableRecording请求，记录立即在本地开始进行，并在子进程上异步执行。 一旦所有子进程都确认了`startRecording`请求，`callback`就会被调用。
-
-`categoryFilter` 是一个用来控制哪些类别组需要被跟踪的过滤器。 过滤器可以有一个可选的`-`前缀来排除包含一个匹配类别的类别组。 同一个列表中，不支持既有包含的类别模式又有排除的类别模式。
-
-示例
-
-* `test_MyTest*`,
-* `test_MyTest*,test_OtherStuff`,
-* `"-excluded_category1,-excluded_category2`
-
-`traceOptions` 控制哪种跟踪模式被启用，该属性值是一个逗号分隔列表。可能选项有：
-
-* `record-until-full`
-* `record-continuously`
-* `trace-to-console`
-* `enable-sampling`
-* `enable-systrace`
-
-前3个选项是跟踪记录模式，因此是相互排斥的。 如果`traceOptions`字符串中出现多个跟踪记录模式，最后一个优先。 如果指定没有跟踪记录模式，那记录模式就是`record-until-full`。
-
-在从`traceOptions`解析的选项应用于它之前，跟踪选项将首先被重置为默认选项(`record_mode` 设置为 `record-until-full`, `enable_sampling` 和 `enable_systrace` 设置为 `false`)。
 
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
@@ -79,46 +57,46 @@ app.on('ready', () => {
 * `callback` Function - 回调函数 
   * `resultFilePath` String
 
-停止所有进程记录。
+Stop recording on all processes.
 
-子进程通常缓存跟踪数据，并且很少清空和发送跟踪数据到主进程。 这有助于最小化运行时间开销，因为通过IPC发送跟踪数据可能是一个开销巨大的操作。 所以，为了结束跟踪，我们必须异步地要求所有子进程清空任何等待跟踪数据。
+Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This helps to minimize the runtime overhead of tracing since sending trace data over IPC can be an expensive operation. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
 
-一旦所有子进程确认了 `stopRecording`请求，将传递包含跟踪数据的文件作为参数调用`callback`。
+Once all child processes have acknowledged the `stopRecording` request, `callback` will be called with a file that contains the traced data.
 
-如果`resultFilePath`不为空，则跟踪数据会被写入该路径，否则就被写入一个临时文件。实际的文件路径如果不为`null`的话就被传递给`callback`函数了。
+Trace data will be written into `resultFilePath` if it is not empty or into a temporary file. The actual file path will be passed to `callback` if it's not `null`.
 
 ### `contentTracing.startMonitoring(options, callback)`
 
-* `options` Object 
+* `参数` Object - 过滤器对象，包含过滤参数 
   * `categoryFilter` String
   * `traceOptions` String
 * `callback` Function
 
-开始记录所有进程。
+Start monitoring on all processes.
 
-一旦收到` startMonitoring `请求，监控立即在本地和异步的子进程上立即开始。
+Monitoring begins immediately locally and asynchronously on child processes as soon as they receive the `startMonitoring` request.
 
-一旦所有子进程都确认了 ` startMonitoring ` 请求, 就会调用 ` callback`。
+Once all child processes have acknowledged the `startMonitoring` request the `callback` will be called.
 
 ### `contentTracing.startMonitoring(options, callback)`
 
 * `callback` Function
 
-停止对所有进程的监视。
+Stop monitoring on all processes.
 
-一旦所有子进程都确认了 ` startMonitoring ` 请求, 就会调用 ` callback`。
+Once all child processes have acknowledged the `stopMonitoring` request the `callback` is called.
 
 ### `contentTracing.startMonitoring(options, callback)`
 
 * `resultFilePath` String
-* `callback` Function 
+* `callback` Function - 回调函数 
   * `resultFilePath` String
 
-获取当前监控的跟踪数据
+Get the current monitoring traced data.
 
-子进程通常缓存跟踪数据，并且很少清空和发送跟踪数据回到主进程。 通过IPC发送跟踪数据可能是一个开销巨大的操作，我们想避免跟踪时不必要的运行时开销。 因此, 为了结束跟踪, 我们必须异步请求所有子进程刷新所有挂起的跟踪数据。
+Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This is because it may be an expensive operation to send the trace data over IPC and we would like to avoid unneeded runtime overhead from tracing. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
 
-一旦所有子进程都确认了 ` captureMonitoringSnapshot ` 请求, 就会使用包含跟踪数据的文件来调用 ` callback `。
+Once all child processes have acknowledged the `captureMonitoringSnapshot` request the `callback` will be called with a file that contains the traced data.
 
 ### `contentTracing.startMonitoring(options, callback)`
 
@@ -126,4 +104,4 @@ app.on('ready', () => {
   * `value` Number
   * `percentage` Number
 
-获取跟踪缓冲区进程的最大使用率，以百分比表示完整状态。当 TraceBufferUsage 值被确定后, 将调用 ` callback`。
+Get the maximum usage across processes of trace buffer as a percentage of the full state. When the TraceBufferUsage value is determined the `callback` is called.
