@@ -54,7 +54,7 @@ Recording begins immediately locally and asynchronously on child processes as so
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
 * `resultFilePath` String
-* `callback` Functie 
+* `callback` Function 
   * `resultFilePath` String
 
 Stop recording on all processes.
@@ -89,7 +89,7 @@ Once all child processes have acknowledged the `stopMonitoring` request the `cal
 ### `contentTracing.captureMonitoringSnapshot(resultFilePath, callback)`
 
 * `resultFilePath` String
-* `callback` Functie 
+* `callback` Function 
   * `resultFilePath` String
 
 Get the current monitoring traced data.
@@ -100,7 +100,7 @@ Once all child processes have acknowledged the `captureMonitoringSnapshot` reque
 
 ### `contentTracing.getTraceBufferUsage(callback)`
 
-* `callback` Functie 
+* `callback` Function 
   * `value` Number
   * `percentage` Number
 
