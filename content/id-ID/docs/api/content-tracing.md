@@ -44,34 +44,12 @@ Setelah semua proses anak mengakui permintaan`getCategories` `callback` dipanggi
 
 ### `contentTracing.startRecording (pilihan,callback)`
 
-* `pilihan` Obyek 
-  * `kategori Filter ` String
-  * `traceOptions ` String
+* `options` ([TraceCategoriesAndOptions](structures/trace-categories-and-options.md) | [TraceConfig](structures/trace-config.md))
 * `callback ` Fungsi
 
 Mulai rekaman pada semua proses.
 
 Pencatatan dimulai segera secara lokal dan asinkron pada proses anak segera setelah mereka menerima permintaan Aktifkan Rekaman. The `callback ` akan menjadi dipanggil sekali semua proses anak telah mengakui permintaan ` startRecording `.
-
-`categoryFilter ` adalah filter untuk mengontrol grup kategori apa yang seharusnya ditelusuri. Filter dapat memiliki awalan `-` opsional untuk mengecualikan grup kategori yang berisi kategori yang cocok. Memiliki keduanya termasuk dan dikecualikan pola kategori dalam daftar yang sama tidak didukung.
-
-Contoh:
-
-* `test_MyTest*`,
-* `test_MyTest*,test_OtherStuff`,
-* `"-excluded_category1, -kategori yang dikecualikan 2`
-
-`traceOptions ` mengontrol jenis pelacakan yang diaktifkan, ini adalah koma-delimited daftar. Pilihan yang mungkin adalah:
-
-* `record-sampai-penuh`
-* `rekam terus menerus`
-* `trace-to-console`
-* `mengaktifkan-contoh`
-* `mengaktifkan-systrace`
-
-3 pilihan pertama adalah mode perekaman jejak dan karenanya saling eksklusif. Jika lebih dari satu mode perekaman jejak muncul di string ` traceOptions ` yang terakhir diutamakan. Jika tidak ada mode perekaman jejak ditentukan, mode perekaman `record-until-full`.
-
-Pilihan jejak pertama akan diatur ulang ke opsi default (`record_mode` diatur ke `record-until-full `, `enable_sampling `dan` enable_systrace ` set ke `false`) sebelum pilihan yang diuraikan dari `traceOptions` diterapkan di dalamnya.
 
 ### `isi Tracing.stop Recording (hasil File Path, callback)`
 
@@ -89,7 +67,7 @@ Data jejak akan ditulis ke `resultFilePath` jika tidak kosong atau ke a file sem
 
 ### `isi Tracing.startMonitoring (pilihan, callback)`
 
-* `pilihan` Object 
+* `pilihan` Obyek 
   * `kategori Filter ` String
   * `traceOptions ` String
 * `callback ` Fungsi
