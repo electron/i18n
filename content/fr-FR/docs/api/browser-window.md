@@ -138,12 +138,12 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
   * `alwaysOnTop` Boolean (facultatif) - Si la fenêtre devrait toujours rester au dessus des autres fenêtres. La valeur par défaut est `false`.
   * `fullscreen` Boolean (facultatif) - Est-ce que la fenêtre doit s'afficher en plein écran. Quand explicitement mit a `faux`, le bouton plein écran sera caché ou désactivé sur macOS. Par défaut la valeur est `false`.
   * `fullscreen` Boolean (facultatif) - Est-ce que la fenêtre peut s'afficher en plein écran. Sur macOS, indiquez également si le bouton de maximizer/zoom doit basculer en mode plein écran ou agrandir la fenêtre. La valeur par défaut est `vraie`.
-  * `simpleFullscreen` Boolean (optional) - Use pre-Lion fullscreen on macOS. Default is `false`.
+  * `simpleFullscreen` Boolean (facultatif) - Utiliser le mode pre-Lion fullscreen sur macOS. La valeur par défaut est `false`.
   * `skipTaskbar` Boolean (facultatif) - Afficher ou masquer la fenêtre dans la barre des tâches. La valeur par défaut est `vrai`.
   * `kiosk` Boolean (facultatif) - Le mode kiosk. La valeur par défaut est `faux`.
   * `title` String (optional) - Default window title. Default is `"Electron"`.
   * `icon` ([NativeImage](native-image.md) | String) (optional) - The window icon. Sur Windows, il est recommandé d'utiliser le format`ICO` pour un rendu optimal. Si non défini, l'icone de l’exécutable sera utilisé.
-  * `show` Boolean (optional) - Whether window should be shown when created. Default is `true`.
+  * `show` Boolean (facultatif) -Détermine si la fenêtre doit s'afficher ou non à la création. La valeur par défaut est `true`.
   * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). Default is `true`.
   * `parent` BrowserWindow (optional) - Specify parent window. Default is `null`.
   * `modal` Boolean (optional) - Whether this is a modal window. This only works when the window is a child window. Default is `false`.
