@@ -58,16 +58,16 @@ The following accelerators will not be registered successfully on macOS 10.14 Mo
 
 * `accelerator` [Accelerator](accelerator.md)
 
-Returns `Boolean` - Whether this application has registered `accelerator`.
+Returns `Boolean` - 表示 `accelerator` 全局快捷键是否注册成功
 
-When the accelerator is already taken by other applications, this call will still return `false`. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+当快捷键已经被其他应用程序注册时, 此调用将返回 ` false `。 该特性由操作系统定义，因为操作系统不希望多个程序的全局快捷键互相冲突。
 
 ### `globalShortcut.unregister(accelerator)`
 
 * `accelerator` [Accelerator](accelerator.md)
 
-Unregisters the global shortcut of `accelerator`.
+注销 `accelerator` 的全局快捷键。
 
 ### `globalShortcut.unregisterAll()`
 
-Unregisters all of the global shortcuts.
+注销所有的全局快捷键（清空该应用程序的全局快捷键）。
