@@ -865,9 +865,11 @@ app.setLoginItemSettings({
 
 * `enabled` Boolean - Включено или изключено [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) рендиране
 
-Ръчно позволява на достъпна поддръжка при Chrome, което позволява да се изложи достъпност при превключване на потребители в настройките на приложението. https://www.chromium.org/developers/design-documents/accessibility за повече подробности. Изключено по подразбиране.
+Ръчно позволява на достъпна поддръжка при Chrome, което позволява да се изложи достъпност при превключване на потребители в настройките на приложението. See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. Изключено по подразбиране.
 
-**Забележка:** Рендирането на accessibility tree може осезаемо да повлияе на работата на вашето приложение. Не трябва да се активира по подразбиране.
+This API must be called after the `ready` event is emitted.
+
+**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
 
 ### `app.showAboutPanel()` *macOS*
 
@@ -882,7 +884,7 @@ Show the about panel with the values defined in the app's `.plist` file or with 
   * `credits` String (по избор) - Информация за авторите.
   * `version` String (по избор) - Номерът на изграждане на приложението.
 
-Вижте панелът с опции about. Това ще презапише стойностите, дефинирани в `.plist` файла на приложението. Вижте [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) за повече детайли.
+Set the about panel options. This will override the values defined in the app's `.plist` file. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
 
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
 
@@ -904,17 +906,17 @@ Start accessing a security scoped resource. With this method Electron applicatio
 * `switch` String - Превключвате от командния ред
 * `value` String (по избор) - Стойност за дадения превключвател
 
-Добавете превключвател (с `value` по избор) към командния ред на Chromium.
+Append a switch (with optional `value`) to Chromium's command line.
 
-**Забележка:** Това няма да повлияе на `process.argv`, и е основно използвано от разработчици да контролират ниското ниво на държане на Chromium.
+**Note:** This will not affect `process.argv`, and is mainly used by developers to control some low-level Chromium behaviors.
 
 ### `app.commandLine.appendArgument(value)`
 
 * `value` String - Аргументът, който ще бъде добавен в командния ред
 
-Добави аргумент към командния ред на Chromium. Аргументът ще бъде коректно обграден с кавички.
+Append an argument to Chromium's command line. The argument will be quoted correctly.
 
-**Забележка:** Това няма да повлияе на `process.argv`.
+**Note:** This will not affect `process.argv`.
 
 ### `app.enableSandbox()` *Experimental* *macOS* *Windows*
 
@@ -924,7 +926,7 @@ Enables full sandbox mode on the app.
 
 ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
 
-Включва смесен тестови мод на приложението.
+Enables mixed sandbox mode on the app.
 
 Този метод може да бъде извикван само преди приложението да е готово.
 
@@ -936,53 +938,53 @@ Returns `Boolean` - Whether the application is currently running from the system
 
 Returns `Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.
 
-По подразбиране, няма да бъде представен диалог за потвърждение, ако желаете потребителя да потвърди операцията, ще трябва да го направите, използвайки [`dialog`](dialog.md) API.
+No confirmation dialog will be presented by default, if you wish to allow the user to confirm the operation you may do so using the [`dialog`](dialog.md) API.
 
-**Забележка:**Този метод хвърля грешка ако нещо различно от потребителя попречи на местенето. На пример, ако потребителя отхвърли диалога за оторизиране - този метод ще върне false. Ако ме можем да изпълним копирането, тогава този метод ще хвърли грешка. Съобщението в грешката би трябвало да е информативно и да ви каже точно какво се е случило
+**NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog this method returns false. If we fail to perform the copy then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
 
 ### `app.dock.bounce([type])` *macOS*
 
 * `type` String (по избор) - Може да бъде `critical` или `informational`. По подразбиране е `informational`
 
-Когато е изпратено `critical`, иконката на дока ще подскоча докато или приложението не стане активно или заявката не бъде спряна.
+When `critical` is passed, the dock icon will bounce until either the application becomes active or the request is canceled.
 
-Когато е изпратено `informational`, иконката на дока ще подскочи една секунда. Обаче, заявката остава активна докато или приложението не стане активно или заявката не бъде спряна.
+When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
 
-Връща `Integer` идентификационен номер, който представлява приложението.
+Returns `Integer` an ID representing the request.
 
 ### `app.dock.cancelBounce(id)` *macOS*
 
 * `id` Integer
 
-Спира подскачането на `id`.
+Cancel the bounce of `id`.
 
 ### `app.dock.downloadFinished(filePath)` *macOS*
 
 * `filePath` String
 
-Подскача Downloads ако е включен filePath в папката за сваляне.
+Bounces the Downloads stack if the filePath is inside the Downloads folder.
 
 ### `app.dock.setBadge(text)` *macOS*
 
 * `text` String
 
-Поставя низ, който да бъде показан в областта на дока.
+Sets the string to be displayed in the dock’s badging area.
 
 ### `app.dock.getBadge()` *macOS*
 
-Връща `String` - Низът от дока.
+Returns `String` - The badge string of the dock.
 
 ### `app.dock.hide()` *macOS*
 
-Скрива иконката на дока.
+Hides the dock icon.
 
 ### `app.dock.show()` *macOS*
 
-Показва иконката на дока.
+Shows the dock icon.
 
 ### `app.dock.isVisible()` *macOS*
 
-Връща `Boolean` - Показва дали иконката на дока е видима. Извикването на `app.dock.show()` е асинхронно, за това този метод може да не върне true веднага след извикване.
+Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call is asynchronous so this method might not return true immediately after that call.
 
 ### `app.dock.setMenu(menu)` *macOS*
 
@@ -994,7 +996,7 @@ Sets the application's [dock menu](https://developer.apple.com/macos/human-inter
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Слага `image` асоцииран с тази иконка на дока.
+Sets the `image` associated with this dock icon.
 
 ## Свойства
 
