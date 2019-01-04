@@ -872,14 +872,15 @@ properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> 
             
             * `enabled` Boolean - Enable or disable [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) rendering
             
-            Manually enables Chrome's accessibility support, allowing to expose accessibility switch to users in application settings. https://www.chromium.org/developers/design-documents/accessibility for more details. Disabled by default.
+            Manually enables Chrome's accessibility support, allowing to expose accessibility switch to users in application settings. See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. Disabled by default.
+            
+            This API must be called after the `ready` event is emitted.
             
             **Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
             
-            ### ` app.showAboutPanel () </ 0>  <em> macos </ 1></h3>
-
-<p>Show the about panel with the values defined in the app's
-<code>.plist` file or with the options set via `app.setAboutPanelOptions(options)`.</p> 
+            ### `app.showAboutPanel()` *macOS*
+            
+            Show the about panel with the values defined in the app's `.plist` file or with the options set via `app.setAboutPanelOptions(options)`.
             
             ### `app.setAboutPanelOptions(opsi)` *macOS*
             
@@ -940,9 +941,9 @@ properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> 
 
 <p>Returns <code>Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`</p> 
             
-            ### ` app.moveToApplicationsFolder () </ 0>  <em> macos </ 1></h3>
-
-<p>Returns <code>Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.</p> 
+            ### `app.moveToApplicationsFolder()` *macOS*
+            
+            Returns `Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.
             
             No confirmation dialog will be presented by default, if you wish to allow the user to confirm the operation you may do so using the [`dialog`](dialog.md) API.
             
