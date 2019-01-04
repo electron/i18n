@@ -35,7 +35,7 @@ The `contentTracing` module has the following methods:
 
 ### `contentTracing.getCategories(callback)`
 
-* `обратно повикване` Function 
+* `обратно повикване` Функция 
   * `categories` String[]
 
 Get a set of category groups. The category groups can change as new code paths are reached.
@@ -54,7 +54,7 @@ Recording begins immediately locally and asynchronously on child processes as so
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
 * `resultFilePath` String
-* `callback` Function 
+* `обратно повикване` Функция 
   * `resultFilePath` String
 
 Stop recording on all processes.
@@ -89,7 +89,7 @@ Once all child processes have acknowledged the `stopMonitoring` request the `cal
 ### `contentTracing.captureMonitoringSnapshot(resultFilePath, callback)`
 
 * `resultFilePath` String
-* `callback` Function 
+* `обратно повикване` Функция 
   * `resultFilePath` String
 
 Get the current monitoring traced data.
@@ -100,7 +100,7 @@ Once all child processes have acknowledged the `captureMonitoringSnapshot` reque
 
 ### `contentTracing.getTraceBufferUsage(callback)`
 
-* `callback` Function 
+* `callback` Функция 
   * `value` Number
   * `percentage` Number
 
