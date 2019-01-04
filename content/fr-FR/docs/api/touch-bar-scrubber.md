@@ -28,11 +28,11 @@ Un tableau de `ScrubberItem[]`représentant les éléments dans ce scrubber. Cha
 
 #### `touchBarScrubber.selectedStyle`
 
-A `String` representing the style that selected items in the scrubber should have. Updating this value immediately updates the control in the touch bar. Possible values:
+Une `String` représentant le style que l'item sélectionné dans le scrubber devrait avoir. Mettre à jour cette valeur met à jour immédiatement le contrôle dans la touch bar. Valeurs possibles :
 
 * `background` - Mappé à `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
 * `outline` - Mappé à `[NSScrubberSelectionStyle outlineOverlayStyle]`.
-* `null` - Actually null, not a string, removes all styles.
+* `null` - Actuellement nulle, pas de chaîne de caractères, supprime tous les styles.
 
 #### `touchBarScrubber.overlayStyle`
 
@@ -40,7 +40,7 @@ Un `String` représentant le style des éléments sélectionnés dans le scrubbe
 
 * `background` - Mappé à `[NSScrubberSelectionStyle roundedBackgroundStyle]`.
 * `outline` - Mappé à `[NSScrubberSelectionStyle outlineOverlayStyle]`.
-* `null` - Actually null, not a string, removes all styles.
+* `null` - Actuellement nulle, pas de chaîne de caractères, supprime tous les styles.
 
 #### `touchBarScrubber.showArrowButtons`
 
