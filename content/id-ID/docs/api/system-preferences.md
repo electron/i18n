@@ -492,6 +492,17 @@ const alpha = color.substr(6, 2) // "dd"
                                   Sets the appearance setting for your application, this should override the system default and override the value of <code>getEffectiveAppearance</code>.
                                 </p>
                                 <h3>
+                                  <code>systemPreferences.isTrustedAccessibilityClient(prompt)</code> <em>macOS</em>
+                                </h3>
+                                <ul>
+                                  <li>
+                                    <code>prompt</code> Boolean - whether or not the user will be informed via prompt if the current process is untrusted.
+                                  </li>
+                                </ul>
+                                <p>
+                                  Returns <code>Boolean</code> - <code>true</code> if the current process is a trusted accessibility client and <code>false</code> if it is not.
+                                </p>
+                                <h3>
                                   <code>systemPreferences.getMediaAccessStatus(mediaType)</code> <em>macOS</em>
                                 </h3>
                                 <ul>
