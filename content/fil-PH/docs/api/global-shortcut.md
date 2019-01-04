@@ -63,16 +63,16 @@ The following accelerators will not be registered successfully on macOS 10.14 Mo
 
 * `aselerador` [Aselerador](accelerator.md) 
 
-Returns `Boolean` - Whether this application has registered `accelerator`.
+Nagbabalik `Boolean` - Kung ang aplikasyon na ito ay may nakarehistrong `aselerador`.
 
-When the accelerator is already taken by other applications, this call will still return `false`. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+Kung ang aselerador ay nakuha na ng ibang aplikasyon, ang tawag na ito ay babalik parin bilang `huwad`. Ang gawi na ito ay nilalayon sa pamamagitan ng sistemang operasyon, dahil hindi nila gustong maglaban ang mga aplikasyon para sa global shortcuts.
 
 ### `globalShortcut.hindirehistrado(aselerador)`
 
 * `aselerador` [Aselerador](accelerator.md) 
 
-Unregisters the global shortcut of `accelerator`.
+Hindi inirehistro ang global shortcut ng `aselerador`.
 
 ### `globalShortcut.hindirehistradoLahat()`
 
-Unregisters all of the global shortcuts.
+Hindi irehistro lahat ng global shortcuts.
