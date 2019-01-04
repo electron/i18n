@@ -47,6 +47,13 @@ app.on('will-quit', () => {
 
 Коли акселератор вже зайнятий іншою програмою, виклик просто не вдасться. Така поведінка призначена операційними системами, оскільки вони не хочуть, щоб програми конфліктували через глобальні комбінації клавіш.
 
+The following accelerators will not be registered successfully on macOS 10.14 Mojave unless the app has been authorized as a [trusted accessibility client](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html):
+
+* "Media Play/Pause"
+* "Media Next Track"
+* "Media Previous Track"
+* "Media Stop"
+
 ### `globalShortcut.isRegistered(accelerator)`
 
 * `accelerator` [Accelerator](accelerator.md)
