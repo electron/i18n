@@ -65,14 +65,14 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
   * [Güvenlik Kontrol Listesi](tutorial/security.md#checklist-security-recommendations)
 * [Güncellemeler](tutorial/updates.md) 
   * [Deploying an Update Server](tutorial/updates.md#deploying-an-update-server)
-  * [App modülünde güncelleştirmeleri gerçekleştirme](tutorial/updates.md#implementing-updates-in-your-app)
+  * [App modülünde güncelleştirmeleri gerçekleştirmek](tutorial/updates.md#implementing-updates-in-your-app)
   * [Güncellemeleri Uygulama](tutorial/updates.md#applying-updates)
 
 ## Detaylı Öğreticiler
 
 Bu bireysel eğitimler, yukardaki kılavuz üzerinde tartışılan konularda genişler.
 
-* [Ayrıntılı olarak: Electron Yükleme](tutorial/installation.md) 
+* [Ayrıntılı olarak: Electron Yüklemek](tutorial/installation.md) 
   * [Vekil Sunucular](tutorial/installation.md#proxies)
   * [Özel Aynalar ve Önbellekler](tutorial/installation.md#custom-mirrors-and-caches)
   * [Arıza giderme](tutorial/installation.md#troubleshooting)
@@ -80,13 +80,13 @@ Bu bireysel eğitimler, yukardaki kılavuz üzerinde tartışılan konularda gen
   * [semver](tutorial/electron-versioning.md#semver)
   * [Dengeleme Dalları](tutorial/electron-versioning.md#stabilization-branches)
   * [Beta Bültenleri ve Hata Düzeltmeleri](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
-* [Ayrıntılı olarak: asar ile App Kaynak Kodu Paketleme](tutorial/application-packaging.md) 
-  * [asar Arşivleri Üretme](tutorial/application-packaging.md#generating-asar-archives)
+* [Ayrıntılı olarak: asar ile App Kaynak Kodu Paketlemek](tutorial/application-packaging.md) 
+  * [asar Arşivleri Üretmek](tutorial/application-packaging.md#generating-asar-archives)
   * [Arşivleri asar kullanma](tutorial/application-packaging.md#using-asar-archives)
   * [Kısıtlamalar](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [asar Arşivlerine Paketlenmemiş Dosyaları Ekleme](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [Ayrıntılı olarak: Widevine CDM Sınama](tutorial/testing-widevine-cdm.md)
-* [In Detail: Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
+  * [asar Arşivlerine Paketlenmemiş Dosyaları Eklemek](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
+* [Ayrıntılı olarak: Widevine CDM Sınamak](tutorial/testing-widevine-cdm.md)
+* [Ayrıntılı olarak: Pepper Flash Eklentisi Kullanmak](tutorial/using-pepper-flash-plugin.md)
 * [Ekran Dışı İşleme](tutorial/offscreen-rendering.md)
 
 * * *
