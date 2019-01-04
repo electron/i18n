@@ -1,8 +1,8 @@
-# Accelerator
+# Accélération
 
 > Définit des raccourcis clavier.
 
-Accelerators are Strings that can contain multiple modifiers and a single key code, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
+Les accélérations sont des chaînes de caractères pouvant contenir plusieurs modificateurs et touches, combinés avec le caractère `+`. Ils sont utilisés pour définir des raccourcis clavier dans votre application.
 
 Exemples:
 
