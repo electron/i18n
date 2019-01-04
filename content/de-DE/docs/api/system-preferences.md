@@ -37,7 +37,7 @@ Rückgabewert:
 
 ### Event: 'appearance-changed' *macOS*
 
-Kehrt zurück:
+Rückgabewert:
 
 * `newAppearance` String - Can be `dark` or `light`
 
