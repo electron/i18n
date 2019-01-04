@@ -89,7 +89,7 @@ Au lieu d'empaqueter votre application manuellement, vous pouvez également choi
 
 ## Renommer en recompilant Electron à partir du code source
 
-It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to set the build argument corresponding to the product name (`electron_product_name = "YourProductName"`) in the `args.gn` file and rebuild.
+Il est aussi possible de renommer Electron par le nom du produit et le compiler depuis le code source. To do this you need to set the build argument corresponding to the product name (`electron_product_name = "YourProductName"`) in the `args.gn` file and rebuild.
 
 ### Créer un fork personnalisé d'Electron
 
