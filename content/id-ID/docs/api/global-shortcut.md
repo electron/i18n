@@ -45,20 +45,30 @@ Mendaftarkan pintasan global ` akselerator </ 0> . The <code> callback </ 0> dis
 
 <p>Bila akselerator sudah diambil oleh aplikasi lain, panggilan ini akan diam-diam gagal. Perilaku ini dimaksudkan oleh sistem operasi, karena mereka tidak ingin aplikasi berjuang untuk jalan pintas global.</p>
 
+<p>The following accelerators will not be registered successfully on macOS 10.14 Mojave unless
+the app has been authorized as a <a href="https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html">trusted accessibility client</a>:</p>
+
+<ul>
+<li>"Media Play/Pause"</li>
+<li>"Media Next Track"</li>
+<li>"Media Previous Track"</li>
+<li>"Media Stop"</li>
+</ul>
+
 <h3><code>globalShortcut.isRegistered (akselerator)`</h3> 
 
 * ` akselerator ` [ Accelerator ](accelerator.md)
 
-Mengembalikan ` Boolean </ 0> - Apakah aplikasi ini telah terdaftar <code> akselerator </ 0> .</p>
+Returns `Boolean` - Whether this application has registered `accelerator`.
 
-<p>Bila akselerator sudah diambil oleh aplikasi lain, panggilan ini tetap akan kembali <code> salah</ 0> . Perilaku ini dimaksudkan oleh sistem operasi, karena mereka tidak ingin aplikasi berjuang untuk jalan pintas global.</p>
+When the accelerator is already taken by other applications, this call will still return `false`. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
 
-<h3><code>globalShortcut.unregister (akselerator)`</h3> 
+### `globalShortcut.unregister (akselerator)`
 
-* ` akselerator ` [ Accelerator ](accelerator.md)
+* ` akselerator </ 0>  <a href="accelerator.md"> Akselerator </ 1></li>
+</ul>
 
-Unregisters jalan pintas global ` akselerator </ 0> .</p>
-
-<h3><code>globalShortcut.unregisterAll ()`</h3> 
-
-Unregisters semua jalan pintas global.
+<p>Unregisters the global shortcut of <code>accelerator`.</p> 
+    ### `globalShortcut.unregisterAll ()`
+    
+    Unregisters all of the global shortcuts.
