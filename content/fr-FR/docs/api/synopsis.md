@@ -6,9 +6,9 @@ Tous les [modules intégrés de Node.js](https://nodejs.org/api/) sont disponibl
 
 Electron fournit également quelques modules supplémentaires intégrés pour le développement d'application de bureau natives. Certains modules sont seulement disponibles dans le processus main, d'autres sont seulement disponibles dans le processus renderer (page web), et certains peuvent être utilisés dans les deux processus.
 
-La règle de base est : si un module est une [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) ou un système de bas niveau est associé, il devrait être disponible dans le processus main. You need to be familiar with the concept of [main process vs. processus renderer](../tutorial/application-architecture.md#main-and-renderer-processes) pour pouvoir utiliser ces modules.
+La règle de base est : si un module est une [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) ou un système de bas niveau est associé, il devrait être disponible dans le processus main. Vous devez être familier avec le concept de [processus main différent du processus renderer](../tutorial/application-architecture.md#main-and-renderer-processes) pour pouvoir utiliser ces modules.
 
-The main process script is like a normal Node.js script:
+Le script <0>main process</0> ressemble à script Node.js normal :
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
