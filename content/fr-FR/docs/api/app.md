@@ -21,7 +21,7 @@ L'objet `app` émet les événements suivants :
 
 Émis lorsque l'application a terminé son démarrage de base. Sur Windows et Linux, l'événement `will-finish-launching` est le même que l'événement `ready`. Sur macOS, cet événement représente la notification `applicationWillFinishLaunching` de `NSApplication`. Vous allez habituellement mettre en place des listeners pour les événements `open-file` et `open-url` ici, et lancer le reporteur d'incident et la mise à jour automatique.
 
-In most cases, you should do everything in the `ready` event handler.
+Dans la plupart des cas, vous devriez pouvoir tout faire dans l'évènement `ready`.
 
 ### Événement : 'ready'
 
@@ -303,7 +303,7 @@ Retourne :
 
 Émis lorsque le support de l’accessibilité du Chrome change. Cet événement se déclenche lorsque les technologies d’assistance, tels que les lecteurs d’écran sont activés ou désactivés. Voir https://www.chromium.org/developers/design-documents/accessibility pour plus de détails.
 
-### Event: 'session-created'
+### Évènement : 'session-created'
 
 Retourne :
 
@@ -319,7 +319,7 @@ app.on('session-created', (event, session) => {
 })
 ```
 
-### Event: 'second-instance'
+### Évènement : 'second-instance'
 
 Retourne :
 
@@ -327,19 +327,19 @@ Retourne :
 * `argv` String[] - un tableau d’arguments de la deuxième instance de la ligne de commande
 * `workingDirectory` String - Le répertoire de travail de la deuxième instance
 
-This event will be emitted inside the primary instance of your application when a second instance has been executed. `argv` est un tableau d’arguments de ligne de commande de la deuxième instance, et `workingDirectory` est son répertoire de travail courant. Les applications répondent habituellement à cela en faisant de leur fenêtre principale, une fenêtre centrée et non réduite au minimum.
+Cet évènement sera émis dans la première instance de votre votre application lorsqu'une seconde instance à été exécutée. `argv` est un tableau d’arguments de ligne de commande de la deuxième instance, et `workingDirectory` est son répertoire de travail courant. Les applications répondent habituellement à cela en faisant de leur fenêtre principale, une fenêtre centrée et non réduite au minimum.
 
-This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
+Cet évènement est garanti d'être émis après que l'évènement `ready` de `app` soit émis.
 
-### Event: 'remote-require'
+### Évènement : 'remote-require'
 
 Retourne :
 
 * `event` Événement
 * `webContents` [WebContents](web-contents.md)
-* `moduleName` String
+* `module` String
 
-Emitted when `remote.require()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+Émis lorsque `remote.require()` est appelé dans le processus de rendu de `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
 
 ### Event: 'remote-get-global'
 
