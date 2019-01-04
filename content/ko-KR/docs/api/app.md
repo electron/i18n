@@ -333,7 +333,7 @@ This event is guaranteed to be emitted after the `ready` event of `app` gets emi
 
 ### Event: 'remote-require'
 
-Returns:
+반환:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -343,7 +343,7 @@ Emitted when `remote.require()` is called in the renderer process of `webContent
 
 ### Event: 'remote-get-global'
 
-반환:
+Returns:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
@@ -865,7 +865,9 @@ Returns `Boolean` - `true` if Chrome's accessibility support is enabled, `false`
 
 * `enabled` Boolean - Enable or disable [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) rendering
 
-Manually enables Chrome's accessibility support, allowing to expose accessibility switch to users in application settings. https://www.chromium.org/developers/design-documents/accessibility for more details. Disabled by default.
+Manually enables Chrome's accessibility support, allowing to expose accessibility switch to users in application settings. See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. Disabled by default.
+
+This API must be called after the `ready` event is emitted.
 
 **Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
 
