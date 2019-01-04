@@ -44,34 +44,12 @@ app.on('ready', () => {
 
 ### `contentTracing.startRecording(options, callback)`
 
-* `options` Object 
-  * `categoryFilter` String
-  * `traceOptions` String
+* `options` ([TraceCategoriesAndOptions](structures/trace-categories-and-options.md) | [TraceConfig](structures/trace-config.md))
 * `callback` Function
 
 すべてのプロセスで記録を開始します。
 
 EnableRecordingリクエストを受信するとすぐにローカルでは即時、子プロセスでは非同期的に記録が開始されます。 一度、すべての子プロセスが `startRecording` リクエストを受諾したら、`callback` が呼び出されます。
-
-`categoryFilter` はどのカテゴリグループをトレースする必要があるかを制御するフィルターです。 フィルターには、一致するカテゴリを含むカテゴリグループを除外するオプションの `-` プレフィックスをつけることができます。 同一のリストに、含めるカテゴリパターンと除外するカテゴリパターンの両方を入れるのは、サポートされません。
-
-例:
-
-* `test_MyTest*`,
-* `test_MyTest*`,
-* `"-excluded_category1,-excluded_category2`
-
-`traceOptions` は、どのトレースの種類を有効にするかを制御する、コンマ区切りのリストです。使用可能なオプションは以下の通りです。
-
-* `record-until-full`
-* `record-continuously`
-* `trace-to-console`
-* `enable-sampling`
-* `enable-systrace`
-
-最初の3つのオプションは、トレース記録モードであり、それ故に相互に排他的です。 `traceOptions` の文字列に1つ以上のトレース記録モードが見つかった場合、最後の1つが優先されます。 トレース記録モードが何も指定されない場合、記録モードは、`record-until-full` です。
-
-トレースオプションは、`traceOptions` から解析されたオプションが適用されるまで、最初にデフォルトのオプション (`record_mode` は、`record-until-full` に設定され、`enable_sampling` と `enable_systrace` は、`false` に設定されます) にリセットされます。
 
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
