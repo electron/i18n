@@ -47,6 +47,6 @@ Vous devrez aussi activer Xcode pour compiler avec le SDK 10.10 :
 - Mettre la valeur `MinimumSDKVersion` à `10.10`
 - Sauvegarder le fichier
 
-## Building Electron
+## Compilation d'Electron
 
-See [Build Instructions: GN](build-instructions-gn.md).
+Voir les [Instructions de compilation : GN](build-instructions-gn.md).
