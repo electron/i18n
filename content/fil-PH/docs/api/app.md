@@ -886,7 +886,7 @@ Show the about panel with the values defined in the app's `.plist` file or with 
   * `credits` String (opsyonal) - Ang impormasyon ng credit.
   * `version` String (opsyonal) - Ang build version number ng app.
 
-Set the about panel options. This will override the values defined in the app's `.plist` file. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
+I-set ang mga pagpipilian tungkol sa panel. Ipinapawang-bisa nito ang halaga ng ipinaliwanag na `.plist` na file ng app. Tingnan ang [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) para sa iba pang mga detalye.
 
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
 
@@ -908,17 +908,17 @@ Start accessing a security scoped resource. With this method Electron applicatio
 * `switch` String - Ang swits ng command-line
 * `value` String (opsyonal) - Ang halaga para sa ibinigay na swits
 
-Append a switch (with optional `value`) to Chromium's command line.
+Ilapit ang swits (na may opsyonal `value`) sa linya ng command ng Chromium.
 
-**Note:** This will not affect `process.argv`, and is mainly used by developers to control some low-level Chromium behaviors.
+**Note:** Ito ay hindi makaka-apekto sa `process.argv`, at ito ay pangunahing ginagamit ng mga developer para kontrolin ang ilang mabababang mga katangian ng Chromium.
 
 ### `app.commandLine.appendArgument(halaga)`
 
 * `value` String - Ang argumento ay ilakip sa linya ng command
 
-Append an argument to Chromium's command line. The argument will be quoted correctly.
+Ilakip ang isang argumento sa linya ng command ng Chromium Ang argumento ay iko-qoute ng tama.
 
-**Note:** This will not affect `process.argv`.
+**Note:** Ito ay hindi makaka-apekto sa `process.argv`.
 
 ### `app.enableSandbox()` *Experimental* *macOS* *Windows*
 
@@ -928,7 +928,7 @@ Ang pamamaraang ito ay maaari lamang matawag bago ang app ay handa na.
 
 ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
 
-Enables mixed sandbox mode on the app.
+Ang pinaghalong paraan ng sandbox sa app ay pinagana.
 
 Ang pamamaraang ito ay maaari lamang matawag bago ang app ay handa na.
 
@@ -948,45 +948,45 @@ No confirmation dialog will be presented by default, if you wish to allow the us
 
 * `type` String (opsyonal) - ay maaaring `critical` o `informational`. Ang default ay `informational`
 
-When `critical` is passed, the dock icon will bounce until either the application becomes active or the request is canceled.
+Kapag ang `critical` ay lumipas, ang icon ng dock ay tatalon hanggang alinman sa mga aplikasyon ay naging aktibo o ang kahilingan ay kinansela.
 
-When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
+Kapag ang `informational` ay lumipas na, ang icon ng dock ay tatalon ng isang segundo. Gayunpaman, ang kahilingan ay nananatiling aktibo hanggang alinman sa mga aplikasyon ay nagiging aktibo o ang kahilingan ay kinansela.
 
-Returns `Integer` an ID representing the request.
+Nagbabalik ang `integer` ang isang ID na kumakatawan sa mga kahilingan.
 
 ### `app.dock.cancelBounce(id)` *macOS*
 
 * `id` Integer
 
-Cancel the bounce of `id`.
+Kanselahin ang pagtalon ng `id`.
 
 ### `app.dock.downloadFinished(filePath)` *macOS*
 
 * `filePath` String
 
-Bounces the Downloads stack if the filePath is inside the Downloads folder.
+Pinatatalon ang mga istak ng Download kung ang filePath ay nasa loob ng folder ng mga Download.
 
 ### `app.dock.setBadge(text)` *macOS*
 
 * `text` String
 
-Sets the string to be displayed in the dock’s badging area.
+Ise-set ang string upang maipakita sa badging area ng dock.
 
 ### `app.dock.getBadge()` *macOS*
 
-Returns `String` - The badge string of the dock.
+Nagbabalik ang `String` - Ang string ng badge ng dock.
 
 ### `app.dock.hide()` *macOS*
 
-Hides the dock icon.
+Itinatago ang icon ng dock.
 
 ### `app.dock.show()` *macOS*
 
-Shows the dock icon.
+Ipinapakita ang icon ng dock.
 
 ### `app.dock.isVisible()` *macOS*
 
-Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call is asynchronous so this method might not return true immediately after that call.
+Nagbabalik ang `Boolean` - Kung ang mga icon sa dock ay nakikita. Ang tawag ng `app.dock.show()` ay asynchronous kaya ang pamamaraan na ito ay hindi babalik na totoo agad-agad matapos ang tawag na iyon.
 
 ### `app.dock.setMenu(menu)` *macOS*
 
@@ -998,7 +998,7 @@ Sets the application's [dock menu](https://developer.apple.com/macos/human-inter
 
 * `image` [NativeImage](native-image.md) (String)
 
-Sets the `image` associated with this dock icon.
+I-set ang `image` na may kaugnayan sa dock icon na ito.
 
 ## Mga Katangian
 
