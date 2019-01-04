@@ -4,10 +4,10 @@ Follow the guidelines below for building Electron on macOS.
 
 ## 系統需求
 
-- macOS ≥ 10.11.6
-- [Xcode](https://developer.apple.com/technologies/tools/) ≥ 8.2.1
-- [node.js](https://nodejs.org) (外部)
-- Python 2.7 with support for TLS 1.2
+* macOS ≥ 10.11.6
+* [Xcode](https://developer.apple.com/technologies/tools/) ≥ 8.2.1
+* [node.js](https://nodejs.org) (外部)
+* Python 2.7 with support for TLS 1.2
 
 ## Python
 
@@ -25,27 +25,13 @@ $ brew install python@2 && brew link python@2 --force
 
 If you are using Python as provided by Homebrew, you also need to install the following Python modules:
 
-- [pyobjc](https://pythonhosted.org/pyobjc/install.html)
+* [pyobjc](https://pythonhosted.org/pyobjc/install.html)
 
 ## macOS SDK
 
 If you're developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
 
-For certain features (e.g. pinch-zoom) to work properly, you must target the macOS 10.10 SDK.
-
-Official Electron builds are built with [Xcode 8.2.1](http://adcdownload.apple.com/Developer_Tools/Xcode_8.2.1/Xcode_8.2.1.xip), which does not contain the 10.10 SDK by default. To obtain it, first download and mount the [Xcode 6.4](http://developer.apple.com/devcenter/download.action?path=/Developer_Tools/Xcode_6.4/Xcode_6.4.dmg) DMG.
-
-Then, assuming that the Xcode 6.4 DMG has been mounted at `/Volumes/Xcode` and that your Xcode 8.2.1 install is at `/Applications/Xcode.app`, run:
-
-```sh
-cp -r /Volumes/Xcode/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/
-```
-
-You will also need to enable Xcode to build against the 10.10 SDK:
-
-- 開啟 `/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Info.plist`
-- 將 `MinimumSDKVersion` 設為 `10.10`
-- 存檔
+Official Electron builds are built with [Xcode 8.3.3](http://adcdownload.apple.com/Developer_Tools/Xcode_8.3.3/Xcode_8.3.3.xip), and the MacOS 10.12 SDK. Building with a newer SDK works too, but the releases currently use the 10.12 SDK.
 
 ## Building Electron
 
