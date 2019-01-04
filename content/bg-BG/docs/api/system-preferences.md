@@ -106,7 +106,7 @@ Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defau
 ### `systemPreferences.subscribeWorkspaceNotification(event, callback)` *macOS*
 
 * `event` String
-* `обратно повикване` Function 
+* `callback` Функция 
   * `event` String
   * `userInfo` Object
 
