@@ -865,7 +865,9 @@ app.setLoginItemSettings({
 
 * `enabled` Boolean - [アクセシビリティツリー](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)レンダリングを有効もしくは無効にします。
 
-手動でChromeのユーザ補助機能を有効にすると、アプリケーションの設定でユーザにアクセシビリティスイッチを出すことができます。 詳細については、https://www.chromium.org/developers/design-documents/accessibility を参照してください。 既定では無効です。
+手動でChromeのユーザ補助機能を有効にすると、アプリケーションの設定でユーザにアクセシビリティスイッチを出すことができます。 See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. 既定では無効です。
+
+This API must be called after the `ready` event is emitted.
 
 **注:** アクセシビリティツリーをレンダリングすると、アプリのパフォーマンスに顕著な影響を与える可能性があります。既定で有効にすべきではありません。
 
