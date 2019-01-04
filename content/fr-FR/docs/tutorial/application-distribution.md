@@ -89,7 +89,7 @@ Au lieu d'empaqueter votre application manuellement, vous pouvez également choi
 
 ## Renommer en recompilant Electron à partir du code source
 
-Il est aussi possible de renommer Electron par le nom du produit et le compiler depuis le code source. To do this you need to set the build argument corresponding to the product name (`electron_product_name = "YourProductName"`) in the `args.gn` file and rebuild.
+Il est aussi possible de renommer Electron par le nom du produit et le compiler depuis le code source. Pour faire cela, vous devez définir les arguments de compilation correspondant au nom du produit (`electron_product_name = "LeNomDeVotreProduit"`) dans le fichier `args.gn` et recompiler.
 
 ### Créer un fork personnalisé d'Electron
 
@@ -112,7 +112,7 @@ Vous aurez besoin de forker Electron quand vous avez du code C++ à intégrer di
 3. Définir les Variables d’environnement suivantes :
 
 * `ELECTRON_GITHUB_TOKEN` - un jeton qui peut créer des releases sur GitHub
-* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload Node.js headers as well as symbols
+* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - chemin où vous uploaderez les entêtes de Node.js ainsi que les symboles
 * `ELECTRON_RELEASE` - Définit à `true` et l’upload s’exécutera, sinon `surf-build` va juste faire des contrôles de type CI, adaptés à être exécuté lors de chaque pull request.
 * `CI` - définir à `true` sinon il ne fonctionnera pas
 * `GITHUB_TOKEN` - mettre la même chose que `ELECTRON_GITHUB_TOKEN`
