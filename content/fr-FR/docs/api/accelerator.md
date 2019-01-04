@@ -17,14 +17,14 @@ const { app, globalShortcut } = require('electron')
 app.on('ready', () => {
   // Enregistre un écouteur de raccourci 'CommandOrControl+Y'.
   globalShortcut.register('CommandOrControl+Y', () => {
-    // Lance le code ici quand Y et Command/Control sont pressés en même temps.
+    // Lance le code ici quand les touches Y et Command/Control sont pressés en même temps.
   })
 })
 ```
 
 ## Remarques
 
-Sur Linux et Windows, la touche `Command` n'a aucun effet, donc utilisez `CommandOrControl` qui représente `Command` sur macOS et `Control` sur Linux et Windows pour définir certains Accelerators.
+Sur Linux et Windows, la touche `Command` n'a aucun effet, donc utilisez `CommandOrControl` qui représente `Command` sur macOS et `Control` sur Linux et Windows pour définir certaines accélérations.
 
 Utilisez `Alt` au lieu de `Option`. La touche `Option` n’existe que sur macOS, tandis que la touche `Alt` est disponible sur toutes les plateformes.
 
