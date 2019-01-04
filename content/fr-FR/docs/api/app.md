@@ -866,7 +866,7 @@ Active manuellement le support de l'accessibilité de Chrome, permettant de mett
 
 This API must be called after the `ready` event is emitted.
 
-**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
+**Note:** Le rendu de l'arbre d'accessibilité peut affecter de manière significative les performances de votre application. Il ne devrait pas être activé par défaut.
 
 ### `app.showAboutPanel()` *macOS*
 
@@ -881,7 +881,7 @@ Show the about panel with the values defined in the app's `.plist` file or with 
   * `credits` String (optional) - Information crédit.
   * `version` String (optional) - Numéro de version de l'application.
 
-Set the about panel options. This will override the values defined in the app's `.plist` file. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
+Configure les options de la fenêtre À propos de. Cela surchargera les valeurs définies dans le fichier `.plist` de l'application. Voir [la documentation Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) pour de plus amples informations.
 
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS*
 
@@ -913,7 +913,7 @@ Append a switch (with optional `value`) to Chromium's command line.
 
 Append an argument to Chromium's command line. The argument will be quoted correctly.
 
-**Note:** This will not affect `process.argv`.
+**Note:** Ceci n'affecte pas `process.argv`.
 
 ### `app.enableSandbox()` *Experimental* *macOS* *Windows*
 
@@ -943,45 +943,45 @@ No confirmation dialog will be presented by default, if you wish to allow the us
 
 * `type` String (facultatif) - Peut être `critical` ou `informational`. Par défaut : `informational`
 
-When `critical` is passed, the dock icon will bounce until either the application becomes active or the request is canceled.
+Lorsque la `critical` est passé, l’icône du dock rebondira jusqu'à ce que l’application redevienne active ou que la requête est annulée.
 
-When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
+Lorsque `informationnal` est passé, l’icône du dock rebondira pendant une seconde. Toutefois, la requête reste active jusqu'à ce que l’application redevienne active ou que la demande est annulée.
 
-Returns `Integer` an ID representing the request.
+Retourne `Integer` un ID représentant la requête.
 
 ### `app.dock.cancelBounce(id)` *macOS*
 
 * `id` Integer
 
-Cancel the bounce of `id`.
+Annule le rebond de l'`id`.
 
 ### `app.dock.downloadFinished(filePath)` *macOS*
 
 * `filePath` String
 
-Bounces the Downloads stack if the filePath is inside the Downloads folder.
+Fait rebondir la pile de téléchargements si le chemin d'accès se trouve le dossier Téléchargements.
 
 ### `app.dock.setBadge(text)` *macOS*
 
 * `text` String
 
-Sets the string to be displayed in the dock’s badging area.
+Définit la chaîne de caractères à afficher dans la zone du badge du dock.
 
 ### `app.dock.getBadge()` *macOS*
 
-Returns `String` - The badge string of the dock.
+Retourne `String` - Le texte du badge du dock.
 
 ### `app.dock.hide()` *macOS*
 
-Hides the dock icon.
+Masque l’icône du dock.
 
 ### `app.dock.show()` *macOS*
 
-Shows the dock icon.
+Affiche l’icône du dock.
 
 ### `app.dock.isVisible()` *macOS*
 
-Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call is asynchronous so this method might not return true immediately after that call.
+Retourne `Boolean` - Si l'icône du dock est visible. L'appel `app.dock.show()` est asynchrone, donc cette méthode peut ne pas retourner true immédiatement après cet appel.
 
 ### `app.dock.setMenu(menu)` *macOS*
 
@@ -993,7 +993,7 @@ Sets the application's [dock menu](https://developer.apple.com/macos/human-inter
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Sets the `image` associated with this dock icon.
+Définit l’`image` associée à l'icône du dock.
 
 ## Propriétés
 
