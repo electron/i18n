@@ -58,16 +58,16 @@ The following accelerators will not be registered successfully on macOS 10.14 Mo
 
 * `accelerator` [Accelerator](accelerator.md)
 
-Returns `Boolean` - Whether this application has registered `accelerator`.
+Retourne un `Boolean` - Si l'application à enregistrer l'`accelerator`.
 
-When the accelerator is already taken by other applications, this call will still return `false`. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+Lorsque l'accelerator est déjà utilisé par d'autres applications, cet appel retournera toujours `false`. Ce comportement est prévu par les systèmes d'exploitation, car ils ne veulent pas que les applications se battent pour des raccourcis globaux.
 
 ### `globalShortcut.unregister(accelerator)`
 
 * `accelerator` [Accelerator](accelerator.md)
 
-Unregisters the global shortcut of `accelerator`.
+Supprime le raccourci global de l'`accelerator`.
 
 ### `globalShortcut.unregisterAll()`
 
-Unregisters all of the global shortcuts.
+Supprime tous les raccourcis globaux.
