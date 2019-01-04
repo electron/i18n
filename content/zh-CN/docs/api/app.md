@@ -866,13 +866,15 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
 
 * `enable` 逻辑值 - 启用或禁用[访问权限树](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)视图。
 
-手动启用 Chrome 的辅助功能的支持, 允许在应用程序中设置是否开启辅助功能。 查看更多信息，请查阅 https://www.chromium.org/developers/design-documents/accessibility 默认为禁用
+手动启用 Chrome 的辅助功能的支持, 允许在应用程序中设置是否开启辅助功能。 See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. 默认为禁用
 
-**注意:** 渲染进程树会明显的影响应用的性能。默认情况下不应该启用。
+This API must be called after the `ready` event is emitted.
+
+**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
 
 ### `app.showAboutPanel()` *macOS*
 
-通过 app's `.plist` 文件的值设定 或者 通过 `app.setAboutPanelOptions(options)`选项设置来显示about panel。
+Show the about panel with the values defined in the app's `.plist` file or with the options set via `app.setAboutPanelOptions(options)`.
 
 ### `app.setAboutPanelOptions(options)` *macOS*
 
@@ -883,13 +885,13 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
   * `credits` String (可选) - 信用信息.
   * `version` String (可选) - 应用程序版本号
 
-设置 "关于" 面板选项。 这将覆盖应用程序的 `. plist ` 文件中定义的值。 更多详细信息, 请查阅 [ Apple 文档 ](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc)。
+Set the about panel options. This will override the values defined in the app's `.plist` file. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
 
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
 
 * `bookmarkData` String - base64 编码的安全作用域的书签数据(bookmark data) ，通过 `dialog.showOpenDialog` 或者 `dialog.showSaveDialog` 方法获取。
 
-返回 `Function` - 该函数 **必须** 在你完成访问安全作用域文件后调用一次。 如果你忘记停止访问书签，[内核资源将会泄漏](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc)，并且你的应用将失去完全到达沙盒之外的能力，直到应用重启。
+Returns `Function` - This function **must** be called once you have finished accessing the security scoped file. If you do not remember to stop accessing the bookmark, [kernel resources will be leaked](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) and your app will lose its ability to reach outside the sandbox completely, until your app is restarted.
 
 ```js
 //开始读取文件
@@ -898,107 +900,107 @@ const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedReso
 stopAccessingSecurityScopedResource()
 ```
 
-开始访问安全范围内的资源。 通过这个方法，Electron 应用被打包为可到达Mac App Store沙箱之外访问用户选择的文件。 关于系统工作原理，请查阅[Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16)
+Start accessing a security scoped resource. With this method Electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. See [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) for a description of how this system works.
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
 * `switch` String - 命令行开关
 * `value` String (optional) - 给开关设置的值
 
-通过可选的参数 `value` 给 Chromium 中添加一个命令行开关。
+Append a switch (with optional `value`) to Chromium's command line.
 
-** 注意: **该方法不会影响 ` process. argv `, 我们通常用这个方法控制一些底层的 Chromium 行为。
+**Note:** This will not affect `process.argv`, and is mainly used by developers to control some low-level Chromium behaviors.
 
 ### `app.commandLine.appendArgument(value)`
 
 * ` value `String - 要追加到命令行的参数
 
-给 Chromium 中直接添加一个命令行参数，该参数的引号和格式必须正确。
+Append an argument to Chromium's command line. The argument will be quoted correctly.
 
-** 注意: **该方法不会影响 ` process. argv `
+**Note:** This will not affect `process.argv`.
 
 ### `app.enableSandbox()` *Experimental* *macOS* *Windows*
 
-在应用程序上启用完全沙盒模式。
+Enables full sandbox mode on the app.
 
 这个方法只能在应用程序准备就绪（ready）之前调用。
 
 ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
 
-在应用程序上启用混合沙盒模式。
+Enables mixed sandbox mode on the app.
 
 这个方法只能在应用程序准备就绪（ready）之前调用。
 
 ### `app.isInApplicationsFolder()` *macOS*
 
-返回 ` Boolean `- 应用程序当前是否在系统应用程序文件夹运行。 可以搭配 ` app. moveToApplicationsFolder () `使用
+Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
 
 ### `app.moveToApplicationsFolder()` *macOS*
 
-返回 ` Boolean `-移动是否成功。 请注意, 当您的应用程序移动成功, 它将退出并重新启动。
+Returns `Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.
 
-默认情况下这个操作将不会显示任何确认对话框, 如果您希望让用户来确认操作，你可能需要使用 [` dialog `](dialog.md) API
+No confirmation dialog will be presented by default, if you wish to allow the user to confirm the operation you may do so using the [`dialog`](dialog.md) API.
 
-**注意:**如果并非是用户造成操作失败，这个方法会抛出错误。 例如，如果用户取消了授权会话，这个方法将返回false。 如果无法执行复制操作, 则此方法将引发错误。 错误中的信息应该是信息性的，并告知具体问题。
+**NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog this method returns false. If we fail to perform the copy then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
 
 ### `app.dock.bounce([type])` *macOS*
 
 * `type` String (可选) - 可以为`critical` 或 `informational`. 默认值为 `informational`
 
-当传入的是 `critical` 时, dock 中的应用将会开始弹跳, 直到这个应用被激活或者这个请求被取消。
+When `critical` is passed, the dock icon will bounce until either the application becomes active or the request is canceled.
 
-当传入的是 `informational` 时, dock 中的图标只会弹跳一秒钟。但是, 这个请求仍然会激活, 直到应用被激活或者请求被取消。
+When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
 
-返回 `Integer` 这个请求的 ID
+Returns `Integer` an ID representing the request.
 
 ### `app.dock.cancelBounce(id)` *macOS*
 
 * `id` Integer
 
-取消这个 ` id ` 对应的请求。
+Cancel the bounce of `id`.
 
 ### `app.dock.downloadFinished(filePath)` *macOS*
 
 * `filePath` String
 
-如果 filePath 位于 Downloads 文件夹中，则弹出下载队列。
+Bounces the Downloads stack if the filePath is inside the Downloads folder.
 
 ### `app.dock.setBadge(text)` *macOS*
 
 * `text` String
 
-设置应用在 dock 中显示的字符串。
+Sets the string to be displayed in the dock’s badging area.
 
 ### `app.dock.getBadge()` *macOS*
 
-返回 `String` - 应用在 dock 中显示的字符串。
+Returns `String` - The badge string of the dock.
 
 ### `app.dock.hide()` *macOS*
 
-隐藏 dock 中的图标。
+Hides the dock icon.
 
 ### `app.dock.show()` *macOS*
 
-显示 dock 图标
+Shows the dock icon.
 
 ### `app.dock.isVisible()` *macOS*
 
-返回 ` Boolean `-表示 dock 图标当前是否可见。` app.dock.show () ` 是异步调用的，因此此方法可能无法在调用之后立即返回true.
+Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call is asynchronous so this method might not return true immediately after that call.
 
 ### `app.dock.setMenu(menu)` *macOS*
 
 * `menu` [Menu](menu.md)
 
-设置应用程序的[Dock 菜单](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/)。
+Sets the application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
 
 ### `app.dock.setIcon(image)` *macOS*
 
 * `image` ([NativeImage](native-image.md) | String)
 
-设置`image`作为应用在 dock 中显示的图标
+Sets the `image` associated with this dock icon.
 
 ## 属性
 
 ### `app.isPackaged`
 
-返回一个`Boolean`值，如果应用已经打包，返回`true` ，否则返回`false` 。 对于大多数应用程序，此属性可用于区分开发和生产环境。
+A `Boolean` property that returns `true` if the app is packaged, `false` otherwise. For many apps, this property can be used to distinguish development and production environments.
