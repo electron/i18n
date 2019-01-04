@@ -55,51 +55,51 @@ Ang pagrerekord ay nagsisimula kaagad sa local at asynchronously sa child proces
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
 * `resultFilePath` String
-* `callback` Punsyon 
+* `callback` Function 
   * `resultFilePath` String
 
-Stop recording on all processes.
+Itigil ang pagtatala ng mga proseso. 
 
-Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This helps to minimize the runtime overhead of tracing since sending trace data over IPC can be an expensive operation. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
+Kadalasang kinaka-cache trace ang data ng child processes and minsan lang ito binabalik sa pangunahing proseso. Tumutulong ito upang mabawasan ang runtime overhead ng pagtukoy dahil mahal na operasyon ang pag padala nga trace data gamit ang IPC. Kaya, para tigilan ang pagsunod, kailangang i-asynchronously ang pagtanong sa child processes para ipantay ang anumang nakabinbin na bakas. 
 
-Once all child processes have acknowledged the `stopRecording` request, `callback` will be called with a file that contains the traced data.
+Kapag kinilala ng child processes ang `stopRecording` request, `callback` ay tatawagan gamit ang file na naglalaman ng traced data. 
 
-Trace data will be written into `resultFilePath` if it is not empty or into a temporary file. The actual file path will be passed to `callback` if it's not `null`.
+Ang trace data ay maaaring isulat sa `resultFilePath` kung hindi ito walang laman o sa isang pansamantalang talakasan. Ang talagang file path ay ipasa sa `callback` kung hindi sa `null` .
 
 ### `contentTracing.startMonitoring(options, callback)
 
 `
 
-* `pagpipilian` Bagay 
+* `options` Bagay 
   * `categoryFilter` String
   * `traceOptions` String
 * `callback` na Function
 
-Start monitoring on all processes.
+Simulan ang pagtatala sa lahat ng mga proseso. 
 
-Monitoring begins immediately locally and asynchronously on child processes as soon as they receive the `startMonitoring` request.
+Ang pagtatala ay nagsisimula agad sa lokal at asynchronous sa child processes sa oras na matanggap nila ang reuest na `startMonitoring`.
 
-Once all child processes have acknowledged the `startMonitoring` request the `callback` will be called.
+Kapag kinilala ng child processes ang`startMonitoring` request the `callback` ay tatawagan.
 
 ### `contentTracing.stopMonitoring(callback)`
 
-* `callback` na Function
+* `baliktawag` ginagawa
 
-Stop monitoring on all processes.
+Tigilan ang pagtatala sa lahat ng proseso.
 
-Once all child processes have acknowledged the `stopMonitoring` request the `callback` is called.
+Kapag kinilala ng child processes ang`stopMonitoring` request the `callback` ay tatawagan.
 
 ### `contentTracing.captureMonitoringSnapshot(resultFilePath, callback)`
 
 * `resultFilePath` String
-* `callback` Punsyon 
+* `callback` Ang Function 
   * `resultFilePath` String
 
-Get the current monitoring traced data.
+Kumuha ng kasalukuyang nagtatala ng traced data.
 
-Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This is because it may be an expensive operation to send the trace data over IPC and we would like to avoid unneeded runtime overhead from tracing. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
+Kadalasang kinaka-cache trace ang data ng child processes and minsan lang ito binabalik sa pangunahing proseso. Ito ay dahil baka mahal ang opersayon ng pagpapadala ng trace data gamit ang IPC at gusto nating maiwasan ang mga hindi kailangang runtime overhead mula sa tracing. Kaya, para matigilan ang tracing, dapat nating tanunging ng pa-asynchronous ang lahat ng child processes para ipantay ang anumang nakabinbin na trace data. 
 
-Once all child processes have acknowledged the `captureMonitoringSnapshot` request the `callback` will be called with a file that contains the traced data.
+Kapag kinilala ng child processes ang `captureMonitoringSnapshot` request the `callback` ay tatawagan gamit ang talaksan na naglalaman ng traced data.
 
 ### `contentTracing.getTraceBufferUsage(callback)`
 
@@ -107,4 +107,4 @@ Once all child processes have acknowledged the `captureMonitoringSnapshot` reque
   * `value` Number
   * `percentage` Number
 
-Get the maximum usage across processes of trace buffer as a percentage of the full state. When the TraceBufferUsage value is determined the `callback` is called.
+Kunin ang pinakamataas na paggamit ng proseso ng trace buffer bilang bahagdan ng buon estado. Kung ang TraceBufferUsage value ay makilala ang `callback` ay tatawagan.
