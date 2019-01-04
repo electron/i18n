@@ -447,7 +447,7 @@ Usted puede pedir las siguientes direcciones por nombre:
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `opciones` Object (opcional) 
+* `opciones` Objecto (opcional) 
   * `size` String 
     * `pequeño` - 16x16
     * `normal` - 32x32
@@ -568,7 +568,7 @@ Regresa `Boolean` - Siempre que el llamado fue exitoso.
 
 ### `app.getJumpListSettings()` *Windows*
 
-Devuelve `Objeto`:
+Devuelve `Objecto`:
 
 * `minItems` Entero - El número mínimo de elementos que será mostrado en la lista (Para una descripción detallada de este valor vea el [documento MSDN](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
 * `remover elementos` [JumpListItem[]](structures/jump-list-item.md) - Arreglo de los objetos `JumpListItem` a elementos que el usuario ha removido explícitamente de la categoría personalizada en la Jump list. Estos elementos no deben ser añadidos nuevamente a la jump list en el **próximo** llamado a `app.setJumpList()`, Windows no mostrará ninguna categoría personalizada que contenga alguno de los elementos removidos.
@@ -744,13 +744,13 @@ Importa el certificado en formato pkcs12 dentro del certificado de la plataforma
 
 Desactiva la aceleración por hardware para esta aplicación.
 
-Este método solo puede ser llamado después de iniciada la aplicación.
+Este método solo puede ser llamado despues de iniciada la aplicación.
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
 Por defecto, Chromium desactiva 3D APIs (ej., WebGL) hasta reiniciar por dominio si el proceso de GPU crashea frecuentemente. Esta función desactiva ese comportamiento.
 
-Este método solo puede ser llamado después de iniciada la aplicación.
+Este método solo puede ser llamado despues de iniciada la aplicación.
 
 ### `app.getAppMetrics()`
 
@@ -866,7 +866,9 @@ Devuelve `Boolean` - `true` si la accesibilidad de soporte de Chrome es habilita
 
 * `enabled` Boolean - Activa o desactiva el renderizado del [árbol de accesibilidad](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)
 
-Manualmente habilita el soporte de accesibilidad de Chrome, lo que permite exponer el interruptor de accesibilidad a los usuarios en la configuración de la aplicación. https://www.chromium.org/developers/design-documents/accessibility para más detalles. Desactivado por defecto.
+Manualmente habilita el soporte de accesibilidad de Chrome, lo que permite exponer el interruptor de accesibilidad a los usuarios en la configuración de la aplicación. See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. Desactivado por defecto.
+
+This API must be called after the `ready` event is emitted.
 
 **Nota:** Renderizar el árbol de accesibilidad puede afectar significativamente al rendimiento de su aplicación. No debería estar activado por defecto.
 
@@ -921,13 +923,13 @@ Adjuntar un argumento a la línea de comando de Chromium. El argumento será cit
 
 Habilita el modo sandbox completo en la aplicación.
 
-Este método solo puede ser llamado antes de iniciada la aplicación.
+Este método solo puede ser llamado despues de iniciada la aplicación.
 
 ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
 
 Permite modo sandbox mezclado en la aplicación.
 
-Este método sólo puede ser llamado antes de que la aplicación sea iniciada.
+Este método solo puede ser llamado después de iniciada la aplicación.
 
 ### `app.isInApplicationsFolder()` *macOS*
 
