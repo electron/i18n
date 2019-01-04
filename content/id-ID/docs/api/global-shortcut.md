@@ -59,16 +59,16 @@ the app has been authorized as a <a href="https://developer.apple.com/library/ar
 
 * ` akselerator ` [ Accelerator ](accelerator.md)
 
-Returns `Boolean` - Whether this application has registered `accelerator`.
+Mengembalikan ` Boolean </ 0> - Apakah aplikasi ini telah terdaftar <code> akselerator </ 0> .</p>
 
-When the accelerator is already taken by other applications, this call will still return `false`. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+<p>Bila akselerator sudah diambil oleh aplikasi lain, panggilan ini tetap akan kembali <code> salah</ 0> . Perilaku ini dimaksudkan oleh sistem operasi, karena mereka tidak ingin aplikasi berjuang untuk jalan pintas global.</p>
 
-### `globalShortcut.unregister (akselerator)`
+<h3><code>globalShortcut.unregister (akselerator)`</h3> 
 
-* ` akselerator </ 0>  <a href="accelerator.md"> Akselerator </ 1></li>
-</ul>
+* ` akselerator ` [ Accelerator ](accelerator.md)
 
-<p>Unregisters the global shortcut of <code>accelerator`.</p> 
-    ### `globalShortcut.unregisterAll ()`
-    
-    Unregisters all of the global shortcuts.
+Unregisters jalan pintas global ` akselerator </ 0> .</p>
+
+<h3><code>globalShortcut.unregisterAll ()`</h3> 
+
+Unregisters semua jalan pintas global.
