@@ -95,7 +95,7 @@ Returns `Number` - The ID of this subscription
 ### `systemPreferences.subscribeLocalNotification(event, callback)` *macOS*
 
 * `event` String
-* `callback` Function - 回调函数 
+* `callback` Function 
   * `event` String
   * `userInfo` Object
 
