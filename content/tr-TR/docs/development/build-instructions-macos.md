@@ -7,7 +7,7 @@ Electron'u macOS üzerinde kurmak için aşağıdaki yönergeleri takip edin.
 * macOS >= 10.11.6
 * [Xcode](https://developer.apple.com/technologies/tools/) >= 8.2.1
 * [node.js](https://nodejs.org) (harici)
-* Python 2.7 with support for TLS 1.2
+* Python 2.7, TLS 1.2 desteği ile
 
 ## Python
 
@@ -23,16 +23,16 @@ If the script returns that your configuration is using an outdated security prot
 $ brew install python@2 && brew link python@2 --force
 ```
 
-If you are using Python as provided by Homebrew, you also need to install the following Python modules:
+Homebrew tarafından sağlanan Python kullanıyorsanız, ayrıca aşağıdaki Python modüllerini kurmanız gerekmektedir:
 
 * [pyobjc](https://pythonhosted.org/pyobjc/install.html)
 
 ## macOS SDK
 
-If you're developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
+Electron geliştiriyor ve özel Electron derlemenizi dağıtmak gibi bir planınız yoksa bu bölümü atlayabilirsiniz.
 
-Official Electron builds are built with [Xcode 8.3.3](http://adcdownload.apple.com/Developer_Tools/Xcode_8.3.3/Xcode_8.3.3.xip), and the MacOS 10.12 SDK. Building with a newer SDK works too, but the releases currently use the 10.12 SDK.
+Resmi Electron derlemeleri, [Xcode 8.3.3](http://adcdownload.apple.com/Developer_Tools/Xcode_8.3.3/Xcode_8.3.3.xip) ve MacOS 10.12 SDK ile derlenir. Building with a newer SDK works too, but the releases currently use the 10.12 SDK.
 
-## Building Electron
+## Electron'u Derlemek
 
-See [Build Instructions: GN](build-instructions-gn.md).
+Bakmak [Derleme Komutları: GN](build-instructions-gn.md).
