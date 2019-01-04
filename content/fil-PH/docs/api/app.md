@@ -373,7 +373,7 @@ Ang lahat ng mga window ay kaagad na magsasara kahit walang pahintulot ng user a
 
 ### `app.relaunch([options])`
 
-* `mga opsyon` Na Bagay (opsyonal) 
+* `options` Na Bagay (opsyonal) 
   * `args` String[] (optional)
   * `execPath` String (opsyonal)
 
@@ -568,7 +568,7 @@ Returns `Boolean` - Kung ang tawag ay nagtagumpay.
 
 ### `app.getJumpListSettings()` *Windows*
 
-Returns `Object`:
+Nagbabalik ng mga `bagay`:
 
 * `minItems` Integer - Ang pinakamaliit na bilang ng mga item na ipapakita sa Jump List (para sa mas detalyadong deskripsyon ng halaga nito tingnan ang [MSDN docs](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
 * `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Isang hanay ng mga bagay sa `JumpListItem` na tumutugma sa mga item na tahasang tinanggal ng gumagamit galing sa ipinasadyang mga kategorya ng Jump List. Ang mga item na ito ay hindi dapat maidagdag na muli sa Jump List sa **next** na tawag sa `app.setJumpList()`, ang Windows ay hindi magpapakita ng kahit anong pasadyang kategorya na maglalaman ng kahit anong natanggal ng mga item.
@@ -816,13 +816,13 @@ Nagbabalik ang `Boolean` - Kung ang kasalukuyang kapaligiran ay tagalunsad ng Un
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `mga opsyon` Bagay (opsyonal) 
+* `mga opsyon` Na Bagay (opsyonal) 
   * `path` String (opsyonal) *Windows* - Ang maipapatupad na landas na ihahambing laban sa. Mga default sa `process.execPath`.
   * `args` String[] (opsyonal) *Windows* - Ang mga argumento ng command-line na ihahambing laban sa. Mga default sa isang hanay na walang laman.
 
 Kung ibinigay mo ang mga opsyon ng mga `path` at mga `args` sa `app.setLoginItemSettings` kung gayon dapat mong ipasa ang mga parehong argumento dito para mai-set ng tama ang `openAtLogin`.
 
-Returns `Object`:
+Nagbabalik ng mga `bagay`:
 
 * `openAtLogin` Boolean - `true` kung ang app ay naka-set na bumukas sa pag-login.
 * `openAsHidden` Boolean *macOS* - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
@@ -867,11 +867,13 @@ Returns `Boolean` - `true` kung ang parating na supota ng Chrome ay pinagana, `f
 
 * `enabled` Boolean - Enable or disable [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) rendering
 
-Manually enables Chrome's accessibility support, allowing to expose accessibility switch to users in application settings. https://www.chromium.org/developers/design-documents/accessibility for more details. Disabled by default.
+Manually enables Chrome's accessibility support, allowing to expose accessibility switch to users in application settings. See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. Disabled by default.
+
+This API must be called after the `ready` event is emitted.
 
 **Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
 
-### `app.showAboutPanel()` *macOS* 
+### `app.showAboutPanel()` *macOS*
 
 Show the about panel with the values defined in the app's `.plist` file or with the options set via `app.setAboutPanelOptions(options)`.
 
@@ -884,7 +886,7 @@ Show the about panel with the values defined in the app's `.plist` file or with 
   * `credits` String (opsyonal) - Ang impormasyon ng credit.
   * `version` String (opsyonal) - Ang build version number ng app.
 
-I-set ang mga pagpipilian tungkol sa panel. Ipinapawang-bisa nito ang halaga ng ipinaliwanag na `.plist` na file ng app. Tingnan ang [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) para sa iba pang mga detalye.
+Set the about panel options. This will override the values defined in the app's `.plist` file. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
 
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
 
@@ -906,17 +908,17 @@ Start accessing a security scoped resource. With this method Electron applicatio
 * `switch` String - Ang swits ng command-line
 * `value` String (opsyonal) - Ang halaga para sa ibinigay na swits
 
-Ilapit ang swits (na may opsyonal `value`) sa linya ng command ng Chromium.
+Append a switch (with optional `value`) to Chromium's command line.
 
-**Note:** Ito ay hindi makaka-apekto sa `process.argv`, at ito ay pangunahing ginagamit ng mga developer para kontrolin ang ilang mabababang mga katangian ng Chromium.
+**Note:** This will not affect `process.argv`, and is mainly used by developers to control some low-level Chromium behaviors.
 
 ### `app.commandLine.appendArgument(halaga)`
 
 * `value` String - Ang argumento ay ilakip sa linya ng command
 
-Ilakip ang isang argumento sa linya ng command ng Chromium Ang argumento ay iko-qoute ng tama.
+Append an argument to Chromium's command line. The argument will be quoted correctly.
 
-**Note:** Ito ay hindi makaka-apekto sa `process.argv`.
+**Note:** This will not affect `process.argv`.
 
 ### `app.enableSandbox()` *Experimental* *macOS* *Windows*
 
@@ -926,11 +928,11 @@ Ang pamamaraang ito ay maaari lamang matawag bago ang app ay handa na.
 
 ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
 
-Ang pinaghalong paraan ng sandbox sa app ay pinagana.
+Enables mixed sandbox mode on the app.
 
 Ang pamamaraang ito ay maaari lamang matawag bago ang app ay handa na.
 
-### `app.isInApplicationsFolder()` *macOS*
+### `app.isInApplicationsFolder()` *macOS* 
 
 Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
 
@@ -946,45 +948,45 @@ No confirmation dialog will be presented by default, if you wish to allow the us
 
 * `type` String (opsyonal) - ay maaaring `critical` o `informational`. Ang default ay `informational`
 
-Kapag ang `critical` ay lumipas, ang icon ng dock ay tatalon hanggang alinman sa mga aplikasyon ay naging aktibo o ang kahilingan ay kinansela.
+When `critical` is passed, the dock icon will bounce until either the application becomes active or the request is canceled.
 
-Kapag ang `informational` ay lumipas na, ang icon ng dock ay tatalon ng isang segundo. Gayunpaman, ang kahilingan ay nananatiling aktibo hanggang alinman sa mga aplikasyon ay nagiging aktibo o ang kahilingan ay kinansela.
+When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
 
-Nagbabalik ang `integer` ang isang ID na kumakatawan sa mga kahilingan.
+Returns `Integer` an ID representing the request.
 
 ### `app.dock.cancelBounce(id)` *macOS*
 
 * `id` Integer
 
-Kanselahin ang pagtalon ng `id`.
+Cancel the bounce of `id`.
 
 ### `app.dock.downloadFinished(filePath)` *macOS*
 
 * `filePath` String
 
-Pinatatalon ang mga istak ng Download kung ang filePath ay nasa loob ng folder ng mga Download.
+Bounces the Downloads stack if the filePath is inside the Downloads folder.
 
 ### `app.dock.setBadge(text)` *macOS*
 
 * `text` String
 
-Ise-set ang string upang maipakita sa badging area ng dock.
+Sets the string to be displayed in the dock’s badging area.
 
 ### `app.dock.getBadge()` *macOS*
 
-Nagbabalik ang `String` - Ang string ng badge ng dock.
+Returns `String` - The badge string of the dock.
 
 ### `app.dock.hide()` *macOS*
 
-Itinatago ang icon ng dock.
+Hides the dock icon.
 
 ### `app.dock.show()` *macOS*
 
-Ipinapakita ang icon ng dock.
+Shows the dock icon.
 
 ### `app.dock.isVisible()` *macOS*
 
-Nagbabalik ang `Boolean` - Kung ang mga icon sa dock ay nakikita. Ang tawag ng `app.dock.show()` ay asynchronous kaya ang pamamaraan na ito ay hindi babalik na totoo agad-agad matapos ang tawag na iyon.
+Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call is asynchronous so this method might not return true immediately after that call.
 
 ### `app.dock.setMenu(menu)` *macOS*
 
@@ -996,7 +998,7 @@ Sets the application's [dock menu](https://developer.apple.com/macos/human-inter
 
 * `image` [NativeImage](native-image.md) (String)
 
-I-set ang `image` na may kaugnayan sa dock icon na ito.
+Sets the `image` associated with this dock icon.
 
 ## Mga Katangian
 
