@@ -335,7 +335,7 @@ Cet évènement est garanti d'être émis après que l'évènement `ready` de `a
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `webContents` [WebContents](web-contents.md)
 * `module` String
 
@@ -345,7 +345,7 @@ Retourne :
 
 Retourne :
 
-* `event` Event
+* `event` Événement
 * `webContents` [WebContents](web-contents.md)
 * `globalName` String
 
@@ -862,9 +862,11 @@ Retourne `Boolean` - `true` si le support des fonctionnalités d'accessibilité 
 
 * `enabled` Boolean - Active ou désactive le rendu de [l'arbre d'accessibilité](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)
 
-Active manuellement le support de l'accessibilité de Chrome, permettant de mettre à disposition des utilisateurs les commutateurs d'accessibilité dans les paramètres de l'application. Voir https://www.chromium.org/developers/design-documents/accessibility pour de plus amples informations. Désactivé par défaut.
+Active manuellement le support de l'accessibilité de Chrome, permettant de mettre à disposition des utilisateurs les commutateurs d'accessibilité dans les paramètres de l'application. See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. Désactivé par défaut.
 
-**Note:** Le rendu de l'arbre d'accessibilité peut affecter de manière significative les performances de votre application. Il ne devrait pas être activé par défaut.
+This API must be called after the `ready` event is emitted.
+
+**Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
 
 ### `app.showAboutPanel()` *macOS*
 
@@ -879,7 +881,7 @@ Show the about panel with the values defined in the app's `.plist` file or with 
   * `credits` String (optional) - Information crédit.
   * `version` String (optional) - Numéro de version de l'application.
 
-Configure les options de la fenêtre À propos de. Cela surchargera les valeurs définies dans le fichier `.plist` de l'application. Voir [la documentation Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) pour de plus amples informations.
+Set the about panel options. This will override the values defined in the app's `.plist` file. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
 
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS*
 
@@ -911,7 +913,7 @@ Append a switch (with optional `value`) to Chromium's command line.
 
 Append an argument to Chromium's command line. The argument will be quoted correctly.
 
-**Note:** Ceci n'affecte pas `process.argv`.
+**Note:** This will not affect `process.argv`.
 
 ### `app.enableSandbox()` *Experimental* *macOS* *Windows*
 
@@ -941,45 +943,45 @@ No confirmation dialog will be presented by default, if you wish to allow the us
 
 * `type` String (facultatif) - Peut être `critical` ou `informational`. Par défaut : `informational`
 
-Lorsque la `critical` est passé, l’icône du dock rebondira jusqu'à ce que l’application redevienne active ou que la requête est annulée.
+When `critical` is passed, the dock icon will bounce until either the application becomes active or the request is canceled.
 
-Lorsque `informationnal` est passé, l’icône du dock rebondira pendant une seconde. Toutefois, la requête reste active jusqu'à ce que l’application redevienne active ou que la demande est annulée.
+When `informational` is passed, the dock icon will bounce for one second. However, the request remains active until either the application becomes active or the request is canceled.
 
-Retourne `Integer` un ID représentant la requête.
+Returns `Integer` an ID representing the request.
 
 ### `app.dock.cancelBounce(id)` *macOS*
 
 * `id` Integer
 
-Annule le rebond de l'`id`.
+Cancel the bounce of `id`.
 
 ### `app.dock.downloadFinished(filePath)` *macOS*
 
 * `filePath` String
 
-Fait rebondir la pile de téléchargements si le chemin d'accès se trouve le dossier Téléchargements.
+Bounces the Downloads stack if the filePath is inside the Downloads folder.
 
 ### `app.dock.setBadge(text)` *macOS*
 
 * `text` String
 
-Définit la chaîne de caractères à afficher dans la zone du badge du dock.
+Sets the string to be displayed in the dock’s badging area.
 
 ### `app.dock.getBadge()` *macOS*
 
-Retourne `String` - Le texte du badge du dock.
+Returns `String` - The badge string of the dock.
 
 ### `app.dock.hide()` *macOS*
 
-Masque l’icône du dock.
+Hides the dock icon.
 
 ### `app.dock.show()` *macOS*
 
-Affiche l’icône du dock.
+Shows the dock icon.
 
 ### `app.dock.isVisible()` *macOS*
 
-Retourne `Boolean` - Si l'icône du dock est visible. L'appel `app.dock.show()` est asynchrone, donc cette méthode peut ne pas retourner true immédiatement après cet appel.
+Returns `Boolean` - Whether the dock icon is visible. The `app.dock.show()` call is asynchronous so this method might not return true immediately after that call.
 
 ### `app.dock.setMenu(menu)` *macOS*
 
@@ -991,7 +993,7 @@ Sets the application's [dock menu](https://developer.apple.com/macos/human-inter
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Définit l’`image` associée à l'icône du dock.
+Sets the `image` associated with this dock icon.
 
 ## Propriétés
 
