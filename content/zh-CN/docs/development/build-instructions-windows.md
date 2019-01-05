@@ -23,7 +23,7 @@
 
 ## 构建
 
-See [Build Instructions: GN](build-instructions-gn.md)
+参照[Build Instructions: GN](build-instructions-gn.md)
 
 ## 32 位构建
 
