@@ -6,7 +6,7 @@
 
 **See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
 
-## Platform Notices
+## 플랫폼 참고 사랑
 
 Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
 
