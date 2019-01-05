@@ -8,7 +8,7 @@
 
 ## 플랫폼 참고 사랑
 
-Currently, only macOS and Windows are supported. There is no built-in support for auto-updater on Linux, so it is recommended to use the distribution's package manager to update your app.
+현재 macOS와 Windows만 지원됩니다. 리눅스에는 자동 업데이터를 위한 내장 지원이 없으므로, app을 업데이트하기 위해 배포판의 패키지 관리자를 이용하는 것이 좋습니다.
 
 In addition, there are some subtle differences on each platform:
 
