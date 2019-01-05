@@ -155,7 +155,7 @@ V8 ヒープ統計のオブジェクトを返します。統計はすべてキ�
 
 * `filePath` String - Path to the output file.
 
-Returns `Boolean` - Indicates whether the snapshot has been created successfully.
+戻り値 `Boolean` - スナップショットの作成が成功したかどうかを示します。
 
 Takes a V8 heap snapshot and saves it to `filePath`.
 
