@@ -36,10 +36,10 @@ Ouvre le fichier donné dans la manière par défaut de l'ordinateur.
 
 ### `shell.openExternal(url[, options, callback])`
 
-* `url` String - Max 2081 characters on windows, or the function returns false.
+* `url` String - Maximum 2081 caractères sur Windows, ou alors la fonction retourne false.
 * `options` Object (facultatif) 
-  * `activate` Boolean (optional) - `true` to bring the opened application to the foreground. The default is `true`. *macOS*
-  * `workingDirectory` String (optional) - The working directory. *Windows*
+  * `activate` Boolean (optionnel) - `true` pour amener l'application ouverte au premier plan. Vaut par défaut `true`. *macOS*
+  * `workingDirectory` String (optionnel) - Le répertoire de travail. *Windows*
 * `callback` Function (facultatif) *macOS* - Si spécifié, l'ouverture sera fera de façon asynchrone. 
   * `error` Error
 
