@@ -33,7 +33,7 @@ There are a handful of `*_TOKEN` environment variables needed by the release scr
 
 准备好的分发脚本将会做以下事情： 1. 校验一个分布是否已经在 process 中，如果是，将会停止。 2. 创建一个发布分支。 3. 碰撞个几文件的版本号 参照[这冲突提交](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a)这个例子 4. 用自动生成的发布记录在GitHub上创建一个发布草案 5. 推送release分支 6. 调用API以运行release构建
 
-Once you have determined which type of version change is needed, run the `prepare-release` script with arguments according to your need: - `[major|minor|patch|beta]` to increment one of the version numbers, or - `--stable` to indicate this is a stable version
+一旦你确定需要的版本改变类型，用你需要参数运行`prepare-release`脚本： -`[major|minor|patch|beta]`增量一个版本号，或者 - `--stable` 来表明这是一个稳定版本
 
 例如：
 
