@@ -16,7 +16,7 @@ There are a handful of `*_TOKEN` environment variables needed by the release scr
 - `ELECTRON_S3_ACCESS_KEY`:
 - `ELECTRON_S3_SECRET_KEY`: If you don't have these, ask a team member to help you.
 
-Once you've generated these tokens, put them in a `.env` file in the root directory of the project. This file is gitignored, and will be loaded into the environment by the release scripts.
+一旦你生成了这些令牌，把它们放到工程根目录的`.env`文件中，这个文件是git忽略的，将会被分发的脚本加载到环境中
 
 ## 决定从哪个版本发布
 
@@ -25,9 +25,9 @@ Once you've generated these tokens, put them in a `.env` file in the root direct
 
 ## 找出需要哪个版本更改
 
-运行`npm run prepare-release -- --notesOnly`来查看自动生成的发布说明。 The notes generated should help you determine if this is a major, minor, patch, or beta version change. 请参考[版本变更规则](../tutorial/electron-versioning.md#semver)以获取更多信息。
+运行`npm run prepare-release -- --notesOnly`来查看自动生成的发布说明。 生成的记录会帮助你判断这是主要的、次要的、补丁或者是公测版本变化 请参考[版本变更规则](../tutorial/electron-versioning.md#semver)以获取更多信息。
 
-**注意：** 如果从一个分支发布，例如1-8-x，使用 `git checkout 1-8-x` 检出分支而不是 `git checkout -b remotes/origin/1-8-x`。 The scripts need `git rev-parse --abbrev-ref HEAD` to return a short name, e.g. no `remotes/origin/`
+**注意：** 如果从一个分支发布，例如1-8-x，使用 `git checkout 1-8-x` 检出分支而不是 `git checkout -b remotes/origin/1-8-x`。 这脚本需要`git rev-parse --abbrev-ref HEAD`返回一个短名称， 例如：no `remotes/origin/`
 
 ## 运行 prepare-release 脚本
 
