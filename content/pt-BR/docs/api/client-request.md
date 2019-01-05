@@ -56,9 +56,9 @@ Retorna:
   * `username` String
   * `password` String
 
-Emitted when an authenticating proxy is asking for user credentials.
+Emitido quando um proxy de autenticação está solicitando as credenciais de usuário.
 
-The `callback` function is expected to be called back with user credentials:
+A função de `callback` é esperada para chamar de volta as credenciais do usuário:
 
 * `username` String
 * `password` String
@@ -69,7 +69,7 @@ request.on('login', (authInfo, callback) => {
 })
 ```
 
-Providing empty credentials will cancel the request and report an authentication error on the response object:
+Informar credenciais vazias irá cancelar a requisição e reportar um erro de autenticação no objeto de resposta:
 
 ```JavaScript
 request.on('response', (response) => {
@@ -83,19 +83,19 @@ request.on('login', (authInfo, callback) => {
 })
 ```
 
-#### Event: 'finish'
+#### Evento: 'finish'
 
-Emitted just after the last chunk of the `request`'s data has been written into the `request` object.
+Emitido logo após o último pedaço dos dados de `request` for escrito no objeto `request`.
 
-#### Event: 'abort'
+#### Evento: 'abort'
 
-Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
+Emitido quando `request` é abortado. O evento `abort` não vai ser disparado se `request` já estiver fechado.
 
 #### Evento: 'error'
 
 Retorna:
 
-* `error` Error - an error object providing some information about the failure.
+* `error` Error - um objeto de erro que provê informações sobre a falha.
 
 Emitted when the `net` module fails to issue a network request. Typically when the `request` object emits an `error` event, a `close` event will subsequently follow and no response object will be provided.
 
