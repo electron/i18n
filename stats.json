@@ -29,14 +29,14 @@
     "name": "Chinese Simplified",
     "code": "zh-CN",
     "phrases": "9953",
-    "translated": "8601",
+    "translated": "8644",
     "approved": "26",
     "words": "92100",
-    "words_translated": "74721",
+    "words_translated": "75237",
     "words_approved": "138",
     "translated_progress": 81,
     "approved_progress": 0,
-    "qa_issues": 242
+    "qa_issues": 243
   },
   {
     "name": "Chinese Traditional",
@@ -172,10 +172,10 @@
     "name": "Japanese",
     "code": "ja",
     "phrases": "9953",
-    "translated": "8722",
+    "translated": "8743",
     "approved": "291",
     "words": "92100",
-    "words_translated": "74069",
+    "words_translated": "74175",
     "words_approved": "1620",
     "translated_progress": 80,
     "approved_progress": 1,
@@ -185,14 +185,14 @@
     "name": "Korean",
     "code": "ko",
     "phrases": "9953",
-    "translated": "4394",
+    "translated": "4399",
     "approved": "358",
     "words": "92100",
-    "words_translated": "36665",
+    "words_translated": "36706",
     "words_approved": "3296",
     "translated_progress": 39,
     "approved_progress": 3,
-    "qa_issues": 1939
+    "qa_issues": 1941
   },
   {
     "name": "Persian",
@@ -224,14 +224,14 @@
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "9953",
-    "translated": "4326",
+    "translated": "4369",
     "approved": "365",
     "words": "92100",
-    "words_translated": "30553",
+    "words_translated": "31000",
     "words_approved": "2607",
     "translated_progress": 33,
     "approved_progress": 2,
-    "qa_issues": 1250
+    "qa_issues": 1259
   },
   {
     "name": "Romanian",
@@ -250,14 +250,14 @@
     "name": "Russian",
     "code": "ru",
     "phrases": "9953",
-    "translated": "5273",
+    "translated": "5276",
     "approved": "995",
     "words": "92100",
-    "words_translated": "38263",
+    "words_translated": "38331",
     "words_approved": "7329",
     "translated_progress": 41,
     "approved_progress": 7,
-    "qa_issues": 1577
+    "qa_issues": 1578
   },
   {
     "name": "Spanish",
