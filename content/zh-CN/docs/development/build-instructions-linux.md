@@ -102,4 +102,4 @@ gn gen out/Debug --args='import("//electron/build/args/debug.gn") clang_base_pat
 
 ### 使用 `clang` 之外的其它编译器
 
-Building Electron with compilers other than `clang` is not supported.
+Electron 不支持除 `clang`之外的其他编译器构建
