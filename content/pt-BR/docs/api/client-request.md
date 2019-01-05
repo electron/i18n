@@ -97,13 +97,13 @@ Retorna:
 
 * `error` Error - um objeto de erro que provê informações sobre a falha.
 
-Emitted when the `net` module fails to issue a network request. Typically when the `request` object emits an `error` event, a `close` event will subsequently follow and no response object will be provided.
+Emitido quando o módulo `net` falha ao emitir uma requisição de rede. Normalmente quando o objeto `request` emite um evento `error`, um evento `close` virá a seguir e nenhum objeto de resposta será fornecido.
 
 #### Evento: 'close'
 
-Emitted as the last event in the HTTP request-response transaction. The `close` event indicates that no more events will be emitted on either the `request` or `response` objects.
+Emitido como último evento na transação HTTP de requisição-resposta. O evento `close` indica que nenhum outro evento será emitido no objeto `request` e nem no objeto `response`.
 
-#### Event: 'redirect'
+#### Evento: 'redirect'
 
 Retorna:
 
@@ -112,7 +112,7 @@ Retorna:
 * `redirectUrl` String
 * `responseHeaders` Object
 
-Emitted when there is redirection and the mode is `manual`. Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection.
+Emitido quando há redirecionamento e o modo é `manual`. Chamar [`request.followRedirect`](#requestfollowredirect) vai continuar com o redirecionamento.
 
 ### Propriedades da Instância
 
