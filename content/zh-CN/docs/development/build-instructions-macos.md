@@ -31,8 +31,8 @@ $ brew install python@2 && brew link python@2 --force
 
 如果你已经在开发Electron项目，而且没有重新分发Electron构建文件的计划，那你可以忽略下面内容。
 
-官方的 Electron 是被 [Xcode 8.3.3](http://adcdownload.apple.com/Developer_Tools/Xcode_8.3.3/Xcode_8.3.3.xip)，和 MacOS 10.12 构建的 Building with a newer SDK works too, but the releases currently use the 10.12 SDK.
+官方的 Electron 是被 [Xcode 8.3.3](http://adcdownload.apple.com/Developer_Tools/Xcode_8.3.3/Xcode_8.3.3.xip)，和 MacOS 10.12 构建的 使用新的SDK构建也可以，但是当前的发布版用的是 10.12 SDK
 
-## Building Electron
+## 构建Electron
 
-See [Build Instructions: GN](build-instructions-gn.md).
+参照[Build Instructions: GN](build-instructions-gn.md)
