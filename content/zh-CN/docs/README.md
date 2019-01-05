@@ -85,7 +85,7 @@
   * [使用 asar 档案文件](tutorial/application-packaging.md#using-asar-archives)
   * [局限性](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [添加未打包的文件到 asar 档案](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [In Detail: Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [详情：测试CDM机制](tutorial/testing-widevine-cdm.md)
 * [深入: 使用 Pepper Flash 插件](tutorial/using-pepper-flash-plugin.md)
 * [离屏渲染](tutorial/offscreen-rendering.md)
 
