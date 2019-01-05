@@ -112,9 +112,9 @@ Electron のバージョン文字列を表す `String`。
 
 ### `process.getCreationTime()`
 
-Returns `Number | null` - The number of milliseconds since epoch, or `null` if the information is unavailable
+`Number | null`を返します。 - 発生からのミリ秒数、もし情報がない場合は`null`を返します。
 
-Indicates the creation time of the application. The time is represented as number of milliseconds since epoch. It returns null if it is unable to get the process creation time.
+アプリケーションの作成時を示します。 発生からのミリ秒数を表します。プロセス作成時間が有効でない場合はnullを返します。
 
 ### `process.getCPUUsage()`
 
@@ -153,11 +153,11 @@ V8 ヒープ統計のオブジェクトを返します。統計はすべてキ�
 
 ### `process.takeHeapSnapshot(filePath)`
 
-* `filePath` String - Path to the output file.
+* `filePath` String - 出力ファイルのパス
 
 戻り値 `Boolean` - スナップショットの作成が成功したかどうかを示します。
 
-Takes a V8 heap snapshot and saves it to `filePath`.
+V8ヒープを取得して、`filePath`にそれを保存します。
 
 ### `process.hang()`
 
