@@ -337,7 +337,7 @@ app.on('session-created', (event, session) => {
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
-* `moduleName` String
+* `モジュール名` String
 
 Emitted when `remote.require()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
 
