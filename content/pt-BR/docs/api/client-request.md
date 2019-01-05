@@ -14,11 +14,11 @@ Processo: [Main](../glossary.md#main-process)
   * `sessão` Object (opcional) - A instância da [`Sessão`](session.md) com a qual a requisição está associada.
   * `partition` String (opcional) - O nome da [`partição`](session.md) com a qual a requisição está associada. O padrão é uma string vazia. A opção `sessão` prevalece sobre a `partição`. Assim, se a `sessão` é explicitamente especificada, a `partição` é ignorada.
   * `protocol` String (opcional) - O esquema do protocolo, na forma 'scheme:'. O valores atualmente suportados são 'http:' ou 'https:', sendo 'http:' o padrão.
-  * `host` String (optional) - The server host provided as a concatenation of the hostname and the port number 'hostname:port'.
-  * `hostname` String (optional) - The server host name.
-  * `port` Integer (optional) - The server's listening port number.
-  * `path` String (optional) - The path part of the request URL.
-  * `redirect` String (optional) - The redirect mode for this request. Should be one of `follow`, `error` or `manual`. Defaults to `follow`. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be deferred until [`request.followRedirect`](#requestfollowredirect) is invoked. Listen for the [`redirect`](#event-redirect) event in this mode to get more details about the redirect request.
+  * `host` String (opcional) - O servidor, definido como a concatenação do nome com a porta: 'nome:porta'.
+  * `hostname` String (opcional) - O nome do servidor.
+  * `port` Integer (opcional) - O número da porta do servidor.
+  * `path` String (opcional) - A parte do caminho da URL de requisição.
+  * `redirect` String (opcional) - O modo de redirecionamento para esta requisição. Deve ser um dos modos: `follow`, `error` or `manual`. O padrão é `follow`. Quando o modo é `error`, qualquer redirecionamento será abortado. Quando o modo é `manual` o redirecionamento será deferido até que [`request.followRedirect`](#requestfollowredirect) seja invocado. Listen for the [`redirect`](#event-redirect) event in this mode to get more details about the redirect request.
 
 `options` properties such as `protocol`, `host`, `hostname`, `port` and `path` strictly follow the Node.js model as described in the [URL](https://nodejs.org/api/url.html) module.
 
