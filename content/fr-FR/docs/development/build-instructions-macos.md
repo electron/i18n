@@ -31,7 +31,7 @@ Si vous utilisez le Python fournit par Homebrew, vous devez également installer
 
 Si vous développez Electron et ne prévoyez pas de redistribuer votre version d'Electron vous pouvez sauter cette section.
 
-Les builds officielles d'Electron sont compilés avec [Xcode 8.3.3](http://adcdownload.apple.com/Developer_Tools/Xcode_8.3.3/Xcode_8.3.3.xip), et le SDK MacOS 10.12. Building with a newer SDK works too, but the releases currently use the 10.12 SDK.
+Les builds officielles d'Electron sont compilés avec [Xcode 8.3.3](http://adcdownload.apple.com/Developer_Tools/Xcode_8.3.3/Xcode_8.3.3.xip), et le SDK MacOS 10.12. Compiler avec des nouvelles version du SDK marche aussi, mais les releases utilisent actuellement le SDK 10.12.
 
 ## Compilation d'Electron
 
