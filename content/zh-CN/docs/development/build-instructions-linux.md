@@ -66,15 +66,15 @@ $ sudo apt-get install libc6-dev-arm64-cross linux-libc-dev-arm64-cross \
                        g++-aarch64-linux-gnu
 ```
 
-And to cross-compile for `arm` or `ia32` targets, you should pass the `target_cpu` parameter to `gn gen`:
+若要为 `arm` 或 `ia32` 平台的目标设备交叉编译，您应当为 `target_cpu` 添加`gn gen` 参数：
 
 ```sh
-$ gn gen out/Debug --args='import(...) target_cpu="arm"'
+gn gen out/Debug --args='import(...) target_cpu="arm"'
 ```
 
 ## 构建
 
-See [Build Instructions: GN](build-instructions-gn.md)
+参照[Build Instructions: GN](build-instructions-gn.md)
 
 ## 故障排查
 
@@ -92,12 +92,12 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 ### 使用系统提供的 `clang` 替换下载的 `clang` 二进制文件
 
-默认情况下, Electron 是由 Chromium 项目提供的预生成的 [`clang`](https://clang.llvm.org/get_started.html) 二进制文件构建的。 If for some reason you want to build with the `clang` installed in your system, you can specify the `clang_base_path` argument in the GN args.
+默认情况下, Electron 是由 Chromium 项目提供的预生成的 [`clang`](https://clang.llvm.org/get_started.html) 二进制文件构建的。 如果出于某些原因你想用你系统已安装的 `clang`来构建，你可以在GN的参数中指定`clang_base_path`
 
-For example if you installed `clang` under `/usr/local/bin/clang`:
+例如如果你的 `clang`安装在 `/usr/local/bin/clang`下：
 
 ```sh
-$ gn gen out/Debug --args='import("//electron/build/args/debug.gn") clang_base_path = "/usr/local/bin"'
+gn gen out/Debug --args='import("//electron/build/args/debug.gn") clang_base_path = "/usr/local/bin"'
 ```
 
 ### 使用 `clang` 之外的其它编译器
