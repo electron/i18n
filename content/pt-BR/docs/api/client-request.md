@@ -9,11 +9,11 @@ Processo: [Main](../glossary.md#main-process)
 ### `new ClientRequest(opções)`
 
 * `opções` (Object | String) - Se `opções` for uma String, ela é interpretada como a URL da requisição. Caso seja um objeto, é esperado que ela especifique totalmente a requisição HTTP através das seguintes propriedades: 
-  * `method` String (optional) - The HTTP request method. Defaults to the GET method.
-  * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
-  * `session` Object (optional) - The [`Session`](session.md) instance with which the request is associated.
-  * `partition` String (optional) - The name of the [`partition`](session.md) with which the request is associated. Defaults to the empty string. The `session` option prevails on `partition`. Thus if a `session` is explicitly specified, `partition` is ignored.
-  * `protocol` String (optional) - The protocol scheme in the form 'scheme:'. Currently supported values are 'http:' or 'https:'. Defaults to 'http:'.
+  * `method` String (opcional) - O método de requisição HTTP, sendo GET o método padrão.
+  * `url` String (opcional) - A URL da requisição. Precisa ser informada na forma absoluta com protocolo http ou https especificado.
+  * `sessão` Object (opcional) - A instância da [`Sessão`](session.md) com a qual a requisição está associada.
+  * `partition` String (opcional) - O nome da [`partição`](session.md) com a qual a requisição está associada. O padrão é uma string vazia. A opção `sessão` prevalece sobre a `partição`. Assim, se a `sessão` é explicitamente especificada, a `partição` é ignorada.
+  * `protocol` String (opcional) - O esquema do protocolo, na forma 'scheme:'. O valores atualmente suportados são 'http:' ou 'https:', sendo 'http:' o padrão.
   * `host` String (optional) - The server host provided as a concatenation of the hostname and the port number 'hostname:port'.
   * `hostname` String (optional) - The server host name.
   * `port` Integer (optional) - The server's listening port number.
