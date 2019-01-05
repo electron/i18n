@@ -585,7 +585,7 @@ win.loadURL('http://github.com')
 戻り値:
 
 * `event` Event
-* `moduleName` String
+* `モジュール名` String
 
 Emitted when `remote.require()` is called in the renderer process. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
 
@@ -1349,11 +1349,11 @@ Returns `Integer` - The Chromium internal `pid` of the associated renderer. フ�
 
 #### `contents.takeHeapSnapshot(filePath)`
 
-* `filePath` String - Path to the output file.
+* `filePath` String - 出力ファイルのパス
 
 Returns `Promise<void>` - Indicates whether the snapshot has been created successfully.
 
-Takes a V8 heap snapshot and saves it to `filePath`.
+V8ヒープを取得して、`filePath`にそれを保存します。
 
 #### `contents.setBackgroundThrottling(allowed)`
 
