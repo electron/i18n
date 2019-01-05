@@ -11,18 +11,18 @@ Processo: [Main](../glossary.md#main-process)
 * `opções` (Object | String) - Se `opções` for uma String, ela é interpretada como a URL da requisição. Caso seja um objeto, é esperado que ela especifique totalmente a requisição HTTP através das seguintes propriedades: 
   * `method` String (opcional) - O método de requisição HTTP, sendo GET o método padrão.
   * `url` String (opcional) - A URL da requisição. Precisa ser informada na forma absoluta com protocolo http ou https especificado.
-  * `sessão` Object (opcional) - A instância da [`Sessão`](session.md) com a qual a requisição está associada.
+  * `session` Object (opcional) - A instância da [`Sessão`](session.md) com a qual a requisição está associada.
   * `partition` String (opcional) - O nome da [`partição`](session.md) com a qual a requisição está associada. O padrão é uma string vazia. A opção `sessão` prevalece sobre a `partição`. Assim, se a `sessão` é explicitamente especificada, a `partição` é ignorada.
   * `protocol` String (opcional) - O esquema do protocolo, na forma 'scheme:'. O valores atualmente suportados são 'http:' ou 'https:', sendo 'http:' o padrão.
   * `host` String (opcional) - O servidor, definido como a concatenação do nome com a porta: 'nome:porta'.
   * `hostname` String (opcional) - O nome do servidor.
   * `port` Integer (opcional) - O número da porta do servidor.
   * `path` String (opcional) - A parte do caminho da URL de requisição.
-  * `redirect` String (opcional) - O modo de redirecionamento para esta requisição. Deve ser um dos modos: `follow`, `error` or `manual`. O padrão é `follow`. Quando o modo é `error`, qualquer redirecionamento será abortado. Quando o modo é `manual` o redirecionamento será deferido até que [`request.followRedirect`](#requestfollowredirect) seja invocado. Listen for the [`redirect`](#event-redirect) event in this mode to get more details about the redirect request.
+  * `redirect` String (opcional) - O modo de redirecionamento para esta requisição. Deve ser um dos modos: `follow`, `error` ou `manual`. O padrão é `follow`. Quando o modo é `error`, qualquer redirecionamento será abortado. Quando o modo é `manual` o redirecionamento será deferido até que [`request.followRedirect`](#requestfollowredirect) seja invocado. Escute o evento [`redirect`](#event-redirect) neste modo para obter mais detalhes sobre a requisição de redirecionamento.
 
-`options` properties such as `protocol`, `host`, `hostname`, `port` and `path` strictly follow the Node.js model as described in the [URL](https://nodejs.org/api/url.html) module.
+As propriedades em `options`, como `protocol`, `host`, `hostname`, `port` e `path` seguem estritamente o modelo Node.js, como descrito no módulo [URL](https://nodejs.org/api/url.html).
 
-For instance, we could have created the same request to 'github.com' as follows:
+Por exemplo, nós poderíamos criar a mesma requisição para 'github.com' da seguinte forma:
 
 ```JavaScript
 const request = net.request({
@@ -36,11 +36,11 @@ const request = net.request({
 
 ### Eventos de instância
 
-#### Event: 'response'
+#### Evento: 'response'
 
 Retorna:
 
-* `response` IncomingMessage - An object representing the HTTP response message.
+* `response` IncomingMessage - Um objeto representando a resposta HTTP.
 
 #### Evento: 'login'
 
