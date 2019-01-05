@@ -234,20 +234,20 @@ $ npm dist-tag ls electron
 If for some reason `npm run publish-to-npm` fails, you can tag the release manually:
 
 ```sh
-$ npm dist-tag add electron@<version> <tag>
+npm dist-tag add electron@&lt;version&gt; &lt;tag&gt;
 ```
 
-e.g.:
+例如:
 
 ```sh
-$ npm dist-tag add electron@2.0.0 latest
+npm dist-tag add electron@2.0.0 latest
 ```
 
 # 故障排查
 
-## Rerun broken builds
+## 重新运行中断的构建
 
-If a release build fails for some reason, you can use `script/ci-release-build.js` to rerun a release build:
+如果一个分发构建因某些原因失败，你可以用`script/ci-release-build.js`重新运行一次分发构建：
 
 ### Rerun all linux builds:
 
