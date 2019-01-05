@@ -28,7 +28,7 @@ Disable HTTP/2 and SPDY/3.1 protocols.
 
 ## --lang
 
-Set a custom locale.
+設置系統語言環境
 
 ## --inspect=`port` and --inspect-brk=`port`
 

@@ -237,18 +237,18 @@ win.on('hide', () => {
 
 * `ignore` Boolean
 
-Sets the option to ignore double click events. Ignoring these events allows you to detect every individual click of the tray icon.
+Définie l'option pour ignorer les événements de double clic. Ignorer ces évènements vous permet de détecter chaque simple clic sur l’icône dans la barre des tâches.
 
-This value is set to false by default.
+Cette valeur est définie à <0>false</0> par défaut.
 
 #### `tray.getIgnoreDoubleClickEvents()` *macOS*
 
-Returns `Boolean` - Whether double click events will be ignored.
+Retourne un `Boolean` - Si oui ou non les événènements de double clic seront ignorés.
 
 #### `tray.displayBalloon(options)` *Windows*
 
 * `options` Objet 
-  * `icon` ([NativeImage](native-image.md) | String) (optional) -
+  * `icon` ([NativeImage](native-image.md) | String) (optionnel)
   * `title` String
   * `content` String
 

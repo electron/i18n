@@ -329,7 +329,7 @@ app.on('session-created', (event, session) => {
 
 此事件将在应用程序的主实例中触发，当第二个实例被执行时。 ` argv ` 是第二个实例的命令行参数的数组, ` workingDirectory ` 是这个实例当前工作目录。 通常, 应用程序会激活窗口并且取消最小化来响应。
 
-This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
+保证在 `app` 的 `ready` 事件发出后发出此事件。
 
 ### 事件: 'remote-require'
 
@@ -339,7 +339,7 @@ This event is guaranteed to be emitted after the `ready` event of `app` gets emi
 * `webContents` [WebContents](web-contents.md)
 * `moduleName` String
 
-Emitted when `remote.require()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+在 `webContents` 的渲染器进程中调用 `remote.require()` 时发出。 调用 `event.preventDefault()` 将阻止模块返回。 可以通过设置 `event.returnValue` 返回自定义值。
 
 ### 事件: 'remote-get-global'
 
@@ -349,7 +349,7 @@ Emitted when `remote.require()` is called in the renderer process of `webContent
 * `webContents` [WebContents](web-contents.md)
 * `globalName` String
 
-Emitted when `remote.getGlobal()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
+在 `webContents` 的渲染器进程中调用 `remote.getGlobal()` 时发出。 调用 `event.preventDefault()` 将阻止全局返回。 可以通过设置 `event.returnValue` 返回自定义值。
 
 ## 方法
 
@@ -734,10 +734,10 @@ if (!gotTheLock) {
 * `options` Object 
   * `certificate` String - pkcs12 文件的路径
   * `password` String - 证书的密码
-* `callback` Function 
+* `callback` Function - 回调函数 
   * `result` Integer - 导入结果
 
-将 pkcs12 格式的证书导入到平台证书库。 `callback` is called with the `result` of import operation, a value of `0` indicates success while any other value indicates failure according to Chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+将 pkcs12 格式的证书导入到平台证书库。 使用导入操作的 `callback` 调用返回 `result` ，值 `0` 表示成功，而任何其他值表示失败，根据Chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) 。
 
 ### `app.disableHardwareAcceleration()`
 
@@ -822,7 +822,7 @@ Returns `Boolean` - 当前桌面环境是否为 Unity 启动器
 
 如果你为 ` app. setLoginItemSettings ` 提供` path ` 和 ` args ` 选项，那么你需要在这里为 ` openAtLogin ` 设置正确的参数。
 
-返回 ` Object `:
+返回 `Object`:
 
 * `openAtLogin` Boolean - `true` 如果应用程序设置为在登录时打开, 则为 <0>true</0>
 * `openAsHidden` Boolean *macOS* - `true` 表示应用在登录时以隐藏的方式启动。 该配置在 [ MAS 构建 ](../tutorial/mac-app-store-submission-guide.md)时不可用。
@@ -866,7 +866,9 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
 
 * `enable` 逻辑值 - 启用或禁用[访问权限树](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)视图。
 
-手动启用 Chrome 的辅助功能的支持, 允许在应用程序中设置是否开启辅助功能。 查看更多信息，请查阅 https://www.chromium.org/developers/design-documents/accessibility 默认为禁用
+手动启用 Chrome 的辅助功能的支持, 允许在应用程序中设置是否开启辅助功能。 See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. 默认为禁用
+
+This API must be called after the `ready` event is emitted.
 
 **注意:** 渲染进程树会明显的影响应用的性能。默认情况下不应该启用。
 

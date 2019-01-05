@@ -4,11 +4,11 @@ Sundin ang mga alituntunin sa ibaba para sa pagbuo ng Elektron sa macOS.
 
 ## Mga Pangunahing Kailangan
 
-- macOS >=10.11.6
-- Xcode<0/> >= 8.2.1</li> 
+* macOS >=10.11.6
+* Xcode<0/> >= 8.2.1</li> 
     
-    - [node.js](https://nodejs.org) (external)
-    - Python 2.7 with support for TLS 1.2</ul> 
+    * [node.js](https://nodejs.org) (external)
+    * Python 2.7 with support for TLS 1.2</ul> 
     
     ## Python
     
@@ -26,27 +26,13 @@ Sundin ang mga alituntunin sa ibaba para sa pagbuo ng Elektron sa macOS.
     
     If you are using Python as provided by Homebrew, you also need to install the following Python modules:
     
-    - [pyobjc](https://pythonhosted.org/pyobjc/install.html)
+    * [pyobjc](https://pythonhosted.org/pyobjc/install.html)
     
     ## macOS SDK
     
     If you're developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
     
-    Para sa ilang tampok (halimbawa ng pinch-zoom) na maaayos na gawa, kinakailangan mong makuha ang mocOS 10.10 SDK.
-    
-    Ang Elektron ay opisyal na itinayo gamit ang [Xcode 8.2.1](http://adcdownload.apple.com/Developer_Tools/Xcode_8.2.1/Xcode_8.2.1.xip), na hindi naglalaman 10.10 SDK bilang pagtakda. Upang makamit ito, kinakailangang makuha at maikabit ang Xcode 6.4<0/> DMG.</p> 
-    
-    Ipagpalagay na ang Xcode 6.4 ay nakakonekta sa `/Volumes/Xcode` at ang iyong Xcode 8.2.1 ay nakakabit sa `Applicatios/Xcode.app`, ay gumagana:
-    
-    ```sh
-    cp -r /Volumes/Xcode/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/MacOSX10.10.sdk /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/
-    ```
-    
-    Kinakailangan mo ring paganahin ang Xcode upang makabuo laban sa 10.10 SDK:
-    
-    - Buksan ang `/Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Info.plist`
-    - Itakda ang `MinimumSDKVersion` to `10.10`
-    - Panatilihin ang file na ito
+    Official Electron builds are built with [Xcode 8.3.3](http://adcdownload.apple.com/Developer_Tools/Xcode_8.3.3/Xcode_8.3.3.xip), and the MacOS 10.12 SDK. Building with a newer SDK works too, but the releases currently use the 10.12 SDK.
     
     ## Building Electron
     

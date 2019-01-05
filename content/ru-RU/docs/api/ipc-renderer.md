@@ -10,7 +10,7 @@ See [ipcMain](ipc-main.md) for code examples.
 
 ## Методы
 
-The `ipcRenderer` module has the following method to listen for events and send messages:
+Модуль `ipcRenderer` имеет следующие методы для прослушивания событий и отправки сообщений:
 
 ### `ipcRenderer.on(channel, listener)`
 

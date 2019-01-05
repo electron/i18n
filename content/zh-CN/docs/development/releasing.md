@@ -16,7 +16,7 @@ There are a handful of `*_TOKEN` environment variables needed by the release scr
 - `ELECTRON_S3_ACCESS_KEY`:
 - `ELECTRON_S3_SECRET_KEY`: If you don't have these, ask a team member to help you.
 
-Once you've generated these tokens, put them in a `.env` file in the root directory of the project. This file is gitignored, and will be loaded into the environment by the release scripts.
+一旦你生成了这些令牌，把它们放到工程根目录的`.env`文件中，这个文件是git忽略的，将会被分发的脚本加载到环境中
 
 ## 决定从哪个版本发布
 
@@ -25,15 +25,15 @@ Once you've generated these tokens, put them in a `.env` file in the root direct
 
 ## 找出需要哪个版本更改
 
-运行`npm run prepare-release -- --notesOnly`来查看自动生成的发布说明。 The notes generated should help you determine if this is a major, minor, patch, or beta version change. 请参考[版本变更规则](../tutorial/electron-versioning.md#semver)以获取更多信息。
+运行`npm run prepare-release -- --notesOnly`来查看自动生成的发布说明。 生成的记录会帮助你判断这是主要的、次要的、补丁或者是公测版本变化 请参考[版本变更规则](../tutorial/electron-versioning.md#semver)以获取更多信息。
 
-**注意：** 如果从一个分支发布，例如1-8-x，使用 `git checkout 1-8-x` 检出分支而不是 `git checkout -b remotes/origin/1-8-x`。 The scripts need `git rev-parse --abbrev-ref HEAD` to return a short name, e.g. no `remotes/origin/`
+**注意：** 如果从一个分支发布，例如1-8-x，使用 `git checkout 1-8-x` 检出分支而不是 `git checkout -b remotes/origin/1-8-x`。 这脚本需要`git rev-parse --abbrev-ref HEAD`返回一个短名称， 例如：no `remotes/origin/`
 
 ## 运行 prepare-release 脚本
 
-The prepare release script will do the following: 1. Check if a release is already in process and if so it will halt. 2. 创建一个发布分支。 3. Bump the version number in several files. See [this bump commit](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a) for an example. 4. Create a draft release on GitHub with auto-generated release notes. 5. 推送release分支 6. 调用API以运行release构建
+准备好的分发脚本将会做以下事情： 1. 校验一个分布是否已经在 process 中，如果是，将会停止。 2. 创建一个发布分支。 3. 碰撞个几文件的版本号 参照[这冲突提交](https://github.com/electron/electron/commit/78ec1b8f89b3886b856377a1756a51617bc33f5a)这个例子 4. 用自动生成的发布记录在GitHub上创建一个发布草案 5. 推送release分支 6. 调用API以运行release构建
 
-Once you have determined which type of version change is needed, run the `prepare-release` script with arguments according to your need: - `[major|minor|patch|beta]` to increment one of the version numbers, or - `--stable` to indicate this is a stable version
+一旦你确定需要的版本改变类型，用你需要参数运行`prepare-release`脚本： -`[major|minor|patch|beta]`增量一个版本号，或者 - `--stable` 来表明这是一个稳定版本
 
 例如：
 
@@ -234,20 +234,20 @@ $ npm dist-tag ls electron
 If for some reason `npm run publish-to-npm` fails, you can tag the release manually:
 
 ```sh
-$ npm dist-tag add electron@<version> <tag>
+npm dist-tag add electron@&lt;version&gt; &lt;tag&gt;
 ```
 
-e.g.:
+例如:
 
 ```sh
-$ npm dist-tag add electron@2.0.0 latest
+npm dist-tag add electron@2.0.0 latest
 ```
 
 # 故障排查
 
-## Rerun broken builds
+## 重新运行中断的构建
 
-If a release build fails for some reason, you can use `script/ci-release-build.js` to rerun a release build:
+如果一个分发构建因某些原因失败，你可以用`script/ci-release-build.js`重新运行一次分发构建：
 
 ### Rerun all linux builds:
 

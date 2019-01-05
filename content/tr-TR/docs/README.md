@@ -39,7 +39,7 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
   * [Özel Linux Masaüstü Eylemleri](tutorial/linux-desktop-actions.md)
   * [Klavye Kısayolları](tutorial/keyboard-shortcuts.md)
   * [Çevrimdışı/Çevrimiçi Algılama](tutorial/online-offline-events.md)
-  * [Represented File for macOS BrowserWindows](tutorial/represented-file.md)
+  * [MacOS BrowserWindows için temsil edilen dosya](tutorial/represented-file.md)
   * [Yerel dosya sürükle & bırak](tutorial/native-file-drag-drop.md)
 * [Erişilebilirlik](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
@@ -61,32 +61,32 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
 * [Güvenlik](tutorial/security.md) 
   * [Güvenlik sorunlarını raporlama](tutorial/security.md#reporting-security-issues)
   * [Chromium Güvenlik Sorunları ve Yükseltmeleri](tutorial/security.md#chromium-security-issues-and-upgrades)
-  * [Electron Security Warnings](tutorial/security.md#electron-security-warnings)
+  * [Electron Güvenlik Uyarıları](tutorial/security.md#electron-security-warnings)
   * [Güvenlik Kontrol Listesi](tutorial/security.md#checklist-security-recommendations)
 * [Güncellemeler](tutorial/updates.md) 
   * [Deploying an Update Server](tutorial/updates.md#deploying-an-update-server)
-  * [Implementing Updates in Your App](tutorial/updates.md#implementing-updates-in-your-app)
+  * [App modülünde güncelleştirmeleri gerçekleştirmek](tutorial/updates.md#implementing-updates-in-your-app)
   * [Güncellemeleri Uygulama](tutorial/updates.md#applying-updates)
 
 ## Detaylı Öğreticiler
 
-These individual tutorials expand on topics discussed in the guide above.
+Bu bireysel eğitimler, yukardaki kılavuz üzerinde tartışılan konularda genişler.
 
-* [In Detail: Installing Electron](tutorial/installation.md) 
+* [Ayrıntılı olarak: Electron Yüklemek](tutorial/installation.md) 
   * [Vekil Sunucular](tutorial/installation.md#proxies)
   * [Özel Aynalar ve Önbellekler](tutorial/installation.md#custom-mirrors-and-caches)
   * [Arıza giderme](tutorial/installation.md#troubleshooting)
-* [In Detail: Electron's Versioning Scheme](tutorial/electron-versioning.md) 
+* [Ayrıntılı olarak: Electron'un sürüm şeması](tutorial/electron-versioning.md) 
   * [semver](tutorial/electron-versioning.md#semver)
   * [Dengeleme Dalları](tutorial/electron-versioning.md#stabilization-branches)
   * [Beta Bültenleri ve Hata Düzeltmeleri](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
-* [In Detail: Packaging App Source Code with asar](tutorial/application-packaging.md) 
-  * [Generating asar Archives](tutorial/application-packaging.md#generating-asar-archives)
+* [Ayrıntılı olarak: asar ile App Kaynak Kodu Paketlemek](tutorial/application-packaging.md) 
+  * [asar Arşivleri Üretmek](tutorial/application-packaging.md#generating-asar-archives)
   * [Arşivleri asar kullanma](tutorial/application-packaging.md#using-asar-archives)
   * [Kısıtlamalar](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [Adding Unpacked Files to asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [In Detail: Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [In Detail: Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
+  * [asar Arşivlerine Paketlenmemiş Dosyaları Eklemek](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
+* [Ayrıntılı olarak: Widevine CDM Sınamak](tutorial/testing-widevine-cdm.md)
+* [Ayrıntılı olarak: Pepper Flash Eklentisi Kullanmak](tutorial/using-pepper-flash-plugin.md)
 * [Ekran Dışı İşleme](tutorial/offscreen-rendering.md)
 
 * * *

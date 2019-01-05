@@ -44,39 +44,17 @@ Bütün alt süreçler, `getCategories` isteğini onayladıktan sonra, `callback
 
 ### `contentTracing.startRecording(options, callback)`
 
-* `seçenekler` Object 
-  * `categoryFilter` Dizi
-  * `traceOptions` Dizi
+* `options` ([TraceCategoriesAndOptions](structures/trace-categories-and-options.md) | [TraceConfig](structures/trace-config.md))
 * `callback` Function
 
 Tüm işlemler kaydetmeye başlayın.
 
 Kayıt işlemi, EnableRecording isteği alındığı gibi yerel ve asenkron olarak alt süreçlerde başlar. Bütün alt süreçler `startRecording` isteğini onayladıktan sonra `callback` çağırılır.
 
-`categoryFilter`, hangi kategori gruplarının izleneceğini kontrol eden bir filtredir. Filtre, eşleşen bir kategori içeren kategori gruplarını hariç tutmak için `-` ön ekini içerebilir. Aynı listede hem eşleşen hem de eşleşmeyen kategori desenleri desteklenmemektedir.
-
-Örnekler:
-
-* `test_MyTest*`,
-* `test_MyTest*,test_OtherStuff`,
-* `"-excluded_category1,-excluded_category2`
-
-`traceOptions` ne tarz izlemenin etkinleştirildiğini kontrol eder, virgül ile ayrılmıştır. Mümkün seçenekler şunlardır:
-
-* `kayıt-kadar-tam`
-* `Kayıt-sürekli`
-* `trace-to-console`
-* `enable-sampling`
-* `enable-systrace`
-
-İlk 3 seçenek izleme kayıt modlarıdır ve bundan dolayı karşılıklı olarak dışlarlar. Eğer `traceOptions` dizesinde birden fazla izleme kayıt modu varsa, sonuncusu öncelikli olacaktır. Eğer hiç izleme kayıt modu belirtilmediyse, kayıt modu `record-until-full` olacaktır.
-
-İzleme seçeneği ilk olarak varsayılan seçeneğe (`record_mode` başlamak `record-until-full`, `enable_sampling` ve `enable_systrace`, `traceOptions`'dan ayrıştırılan seçeneklerin üzerine uygulanmadan önce `false`) olarak ayarlanır.
-
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
 * `resultFilePath` Dizi
-* `geri aramak` Function 
+* `geri aramak` Fonksiyon 
   * `resultFilePath` Dizi
 
 Kayıt işlemini tüm süreçlerde durdurur.
@@ -102,7 +80,7 @@ Tüm alt süreçler `startMonitoring` isteğini onayladıktan sonra `callback` �
 
 ### `contentTracing.stopMonitoring(callback)`
 
-* `callback` Function
+* `callback` Fonksiyon
 
 Tüm işlemlerin izlemesini durdurun.
 

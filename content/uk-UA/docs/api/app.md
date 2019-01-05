@@ -865,7 +865,9 @@ app.setLoginItemSettings({
 
 * `enabled` Boolean - Вмикає чи вимикає рендеринг [дерева спеціальних можливостей](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)
 
-Вручну вмикає підтримку спеціальних можливостей Chrome, дозволяє відобразити перемикач спеціальних можливостей користувачу в налаштуваннях застосунку. https://www.chromium.org/developers/design-documents/accessibility для більш детальної інформації. Стандартно вимкнено.
+Вручну вмикає підтримку спеціальних можливостей Chrome, дозволяє відобразити перемикач спеціальних можливостей користувачу в налаштуваннях застосунку. See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. Стандартно вимкнено.
+
+This API must be called after the `ready` event is emitted.
 
 **Примітка:** Рендеринг дерева спеціальних можливостей може суттєво вплинути на швидкодію застосунку. Варто його вимикати за замовчуванням.
 

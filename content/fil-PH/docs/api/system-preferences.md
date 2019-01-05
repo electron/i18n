@@ -75,7 +75,7 @@ Naglalathala ng isang `event` bilang natibong paalala ng macOS. Ang `userInfo` a
 ### `systemPreferences.subscribeNotification(event, callback)` *macOS*
 
 * `event` na String
-* `callback` Function 
+* `callback` function 
   * `event` na String
   * `userInfo` na Object
 
@@ -95,7 +95,7 @@ Sa ilalim ng hood, ang API na ito ay nagsa-subscribe sa `NSDistributedNotificati
 ### `systemPreferences.subscribeLocalNotification(event, callback)` *macOS*
 
 * `event` na String
-* `callback` Function 
+* `callback` Punsyon 
   * `event` na String
   * `userInfo` na Object
 
@@ -155,7 +155,7 @@ Ang ilang mga sikat na `key` at `type` ay:
 
 ### `systemPreferences.setUserDefault(key, type, value)` *macOS*
 
-* `key` na String
+* `key` String
 * `type` String - See [`getUserDefault`](#systempreferencesgetuserdefaultkey-type-macos).
 * `value` na String
 
@@ -169,7 +169,7 @@ Ang ilang mga sikat na `key` at `type` ay:
 
 ### `systemPreferences.removeUserDefault(key)` *macOS*
 
-* `key` na String
+* `key` String
 
 Tinatanggal ang `key` sa `NSUserDefaults`. Maaari itong gamitin sa pagbabalik ng default o pangkalahatang halaga ng isang `key` na naitakda gamit ang `setUserDefault`.
 
@@ -272,6 +272,12 @@ Gets the macOS appearance setting that you have declared you want for your appli
 * `appearance` String | null - Can be `dark` or `light`
 
 Sets the appearance setting for your application, this should override the system default and override the value of `getEffectiveAppearance`.
+
+### `systemPreferences.isTrustedAccessibilityClient(prompt)` *macOS*
+
+* `prompt` Boolean - whether or not the user will be informed via prompt if the current process is untrusted.
+
+Returns `Boolean` - `true` if the current process is a trusted accessibility client and `false` if it is not.
 
 ### `systemPreferences.getMediaAccessStatus(mediaType)` *macOS*
 

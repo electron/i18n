@@ -47,6 +47,13 @@ app.on('will-quit', () => {
 
 如果该快捷键已经被其他应用程序使用, 回调函数将不会被触发。 该特性由操作系统定义，因为操作系统不希望多个程序的全局快捷键互相冲突。
 
+The following accelerators will not be registered successfully on macOS 10.14 Mojave unless the app has been authorized as a [trusted accessibility client](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html):
+
+* "Media Play/Pause"
+* "Media Next Track"
+* "Media Previous Track"
+* "Media Stop"
+
 ### `globalShortcut.isRegistered(accelerator)`
 
 * `accelerator` [Accelerator](accelerator.md)

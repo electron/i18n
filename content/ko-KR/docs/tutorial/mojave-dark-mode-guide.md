@@ -6,7 +6,7 @@ MacOS 10.14 Mojave에서 Apple은 모든 MacOS 컴퓨터에 대해 새로운 [�
 
 ## 기본 인터페이스 자동 업데이트
 
-"기본 인터페이스"에는 파일 선택기, 창 테두리, 대화 상자, 컨텍스트 메뉴 등과 같은 당신의 앱이 아닌 macOS에서 제공되는 UI가 포함되어 있습니다. 이러한 인터페이스를 자동으로 다크 모드로 업데이트하려면 앱의 `Info.plist` 파일에서 `NSRequiresAquaSystemAppearance` 키를 `false`로 설정해야합니다. E.g.
+"기본 인터페이스"에는 파일 선택기, 창 테두리, 대화 상자, 컨텍스트 메뉴 등과 같은 당신의 앱이 아닌 macOS에서 제공되는 UI가 포함되어 있습니다. 이러한 인터페이스를 자동으로 다크 모드로 업데이트하려면 앱의 `Info.plist` 파일에서 `NSRequiresAquaSystemAppearance` 키를 `false`로 설정해야합니다. 예:
 
 ```xml
 <plist>
@@ -21,11 +21,11 @@ MacOS 10.14 Mojave에서 Apple은 모든 MacOS 컴퓨터에 대해 새로운 [�
 
 [`electron-packager` = 12.2.0](https://github.com/electron-userland/electron-packager) 또는 [`electron-forge`> = 6](https://github.com/electron-userland/electron-forge)을 사용하는 경우 패키징 할 때 [`darwinDarkModeSupport`](https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) 옵션을 설정하면 이 키가 설정됩니다.
 
-If you are using [`electron-builder` >= 20.37.0](https://github.com/electron-userland/electron-builder) you can set the [`darkModeSupport`](https://www.electron.build/configuration/mac.html) option.
+[`electron-builder` >= 20.37.0](https://github.com/electron-userland/electron-builder) 를 사용하는 경우 [`darkModeSupport`](https://www.electron.build/configuration/mac.html) 옵션을 사용할 수 있습니다.
 
 ## 사용자 인터페이스 자동 업데이트
 
-앱에 자체 다크 모드가 있는 경우 시스템의 다크 모드 설정과 동기화하여 켜거나 꺼야 합니다. Electron의 `systemPreferences` 모듈에서 테마 변경 이벤트를 수신하여 이를 수행할 수 있습니다. E.g.
+앱에 자체 다크 모드가 있는 경우 시스템의 다크 모드 설정과 동기화하여 켜거나 꺼야 합니다. Electron의 `systemPreferences` 모듈에서 테마 변경 이벤트를 수신하여 이를 수행할 수 있습니다. 예:
 
 ```js
 const { systemPreferences } = require('electron')

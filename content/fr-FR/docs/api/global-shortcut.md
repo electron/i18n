@@ -47,6 +47,13 @@ Enregistre un raccourci global avec un `accelerator`. Le `callback` est appelé 
 
 Lorsque l'accélérateur est déjà utilisé par d'autres applications, cet appel échouera silencieusement. Ce comportement est prévu par les systèmes d'exploitation, car ils ne veulent pas que les applications se battent pour des raccourcis globaux.
 
+Les accélérateurs suivants ne seront pas enregistrés correctement sur macOS 10.14 Mojave à moins que l'application ait été autorisée en tant qu'[application client approuvée](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html) :
+
+* "Media Play/Pause"
+* "Media Piste Suivante"
+* "Media Piste Précédente"
+* "Media Stop"
+
 ### `globalShortcut.isRegistered(accelerator)`
 
 * `accelerator` [Accelerator](accelerator.md)

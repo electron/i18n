@@ -39,7 +39,7 @@ Les plateformes suivantes sont prises en charge par Electron :
 
 ### macOS
 
-Only 64bit binaries are provided for macOS, and the minimum macOS version supported is macOS 10.10 (Yosemite).
+Seul les binaires 64bit sont fournit pour macOs, et la version minimale de macOs supportée est macOS 10.10 (Yosemite).
 
 ### Windows
 
@@ -51,7 +51,7 @@ Les deux binaires `ia32` (`x86`) et `x64` (`amd64`) sont fournit pour Windows. E
 
 Les binaires pré-compilés `ia32` (`i686`) et `x64` (`amd64`) d’Electron sont compilés sur Ubuntu 12.04, le binaire `armv7l` est compilé sur ARM v7 avec l'ABI hard-float et NEON pour Debian Wheezy.
 
-[Jusqu'à la version 2.0 d'Electron](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md#duplicate-arm-assets), Electron continuera également de sortir un binaire `armv7l` avec un simple suffix `arm`. Both binaries are identical.
+[Jusqu'à la version 2.0 d'Electron](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md#duplicate-arm-assets), Electron continuera également de sortir un binaire `armv7l` avec un simple suffix `arm`. Les deux binaires sont identiques.
 
 Le fait qu'un binaire pré-compilé peut ou non s'exécuter sur une distribution dépend si la distribution inclut ou non les librairies qu'Electron utilise pour compiler l'application. Du coup, seulement Ubuntu 12.04 est garanti de fonctionner, ainsi que les distributions suivantes pour faire fonctionner les binaires pré-compilés d'Electron :
 

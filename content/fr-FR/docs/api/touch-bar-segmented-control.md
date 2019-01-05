@@ -7,7 +7,7 @@ Processus : [Main](../tutorial/application-architecture.md#main-and-renderer-pro
 ### `new TouchBarSegmentedControl(options)` *Experimental*
 
 * `options` Objet 
-  * `segmentStyle` String (optional) - Style of the segments: 
+  * `segmentStyle` String (optionnel) - Style des segments : 
     * `automatic` - Par défaut. L’apparence du contrôle segmenté est déterminé automatiquement selon le type de fenêtre dans lequel le contrôle est affiché et la position dans la fenêtre.
     * `rounded` - Le contrôle est affiché en utilisant le style arrondi.
     * `textured-rounded` - Le contrôle est affiché en utilisant le style arrondi texturé.
@@ -16,7 +16,7 @@ Processus : [Main](../tutorial/application-architecture.md#main-and-renderer-pro
     * `capsule` - Le contrôle s’affiche selon le style capsule.
     * `small-square` - Le contrôle est affiché en utilisant le style petit carré.
     * `separated` - Les segments du contrôle sont affichés très proches entre eux, mais ne se touche pas.
-  * `mode` String (optional) - The selection mode of the control: 
+  * `mode` String (optionnel) - Le mode de sélection du contrôle : 
     * `single` - Par défaut. Un élément sélectionné à la fois, en sélectionner un va désélectionner l'élément précédemment sélectionné.
     * `multiple` - Plusieurs éléments peuvent être sélectionnés simultanément.
     * `buttons` - Transforme les segments en boutons, chaque segment peut être pressé et relâché, mais jamais être marqué comme actif.
@@ -32,7 +32,7 @@ Les propriétés suivantes sont disponibles pour les instances de `TouchBarSegme
 
 #### `touchBarSegmentedControl.segmentStyle`
 
-A `String` representing the controls current segment style. Updating this value immediately updates the control in the touch bar.
+Une `String` représentant le style du contrôle actuel. Changer cette valeur met à jour immédiatement le contrôle dans la touch bar.
 
 #### `touchBarSegmentedControl.segments`
 

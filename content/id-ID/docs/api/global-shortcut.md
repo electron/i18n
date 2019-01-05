@@ -45,6 +45,16 @@ Mendaftarkan pintasan global ` akselerator </ 0> . The <code> callback </ 0> dis
 
 <p>Bila akselerator sudah diambil oleh aplikasi lain, panggilan ini akan diam-diam gagal. Perilaku ini dimaksudkan oleh sistem operasi, karena mereka tidak ingin aplikasi berjuang untuk jalan pintas global.</p>
 
+<p>The following accelerators will not be registered successfully on macOS 10.14 Mojave unless
+the app has been authorized as a <a href="https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html">trusted accessibility client</a>:</p>
+
+<ul>
+<li>"Media Play/Pause"</li>
+<li>"Media Next Track"</li>
+<li>"Media Previous Track"</li>
+<li>"Media Stop"</li>
+</ul>
+
 <h3><code>globalShortcut.isRegistered (akselerator)`</h3> 
 
 * ` akselerator ` [ Accelerator ](accelerator.md)

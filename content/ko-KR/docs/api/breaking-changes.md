@@ -2,21 +2,21 @@
 
 Breaking changes will be documented here, and deprecation warnings added to JS code where possible, at least [one major version](../tutorial/electron-versioning.md#semver) before the change is made.
 
-# `FIXME` comments
+# `FIXME` 주석
 
-The `FIXME` string is used in code comments to denote things that should be fixed for future releases. See https://github.com/electron/electron/search?q=fixme
+코드 주석으로 `FIXME` 문자는 미래의 릴리즈에서 수정되어야 함을 표시합니다. https://github.com/electron/electron/search?q=fixme 를 참조하세요.
 
 # 중단될 예정 API (5.0)
 
 ## `new BrowserWindow({ webPreferences })`
 
-The following `webPreferences` option default values are deprecated in favor of the new defaults listed below.
+다음 `webPreferences` 옵션의 기본값은 아래 리스트의 새로운 값으로 변경됩니다.
 
-| Property           | Deprecated Default                   | New Default |
-| ------------------ | ------------------------------------ | ----------- |
-| `contextIsolation` | `false`                              | `true`      |
-| `nodeIntegration`  | `true`                               | `false`     |
-| `webviewTag`       | `nodeIntegration` if set else `true` | `false`     |
+| 속성                 | 종료되는 기본값                             | 새로운 기본값 |
+| ------------------ | ------------------------------------ | ------- |
+| `contextIsolation` | `false`                              | `true`  |
+| `nodeIntegration`  | `true`                               | `false` |
+| `webviewTag`       | `nodeIntegration` if set else `true` | `false` |
 
 ## `nativeWindowOpen`
 
@@ -24,7 +24,7 @@ Child windows opened with the `nativeWindowOpen` option will always have Node.js
 
 ## `webContents.findInPage(text[, options])`
 
-`wordStart` and `medialCapitalAsWordStart` options are removed.
+`wordStart` 와 `medialCapitalAsWordStart` 옵션이 제거되었습니다.
 
 # 중단될 예정 API (4.0)
 

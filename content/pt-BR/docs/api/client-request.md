@@ -9,20 +9,20 @@ Processo: [Main](../glossary.md#main-process)
 ### `new ClientRequest(opções)`
 
 * `opções` (Object | String) - Se `opções` for uma String, ela é interpretada como a URL da requisição. Caso seja um objeto, é esperado que ela especifique totalmente a requisição HTTP através das seguintes propriedades: 
-  * `method` String (optional) - The HTTP request method. Defaults to the GET method.
-  * `url` String (optional) - The request URL. Must be provided in the absolute form with the protocol scheme specified as http or https.
-  * `session` Object (optional) - The [`Session`](session.md) instance with which the request is associated.
-  * `partition` String (optional) - The name of the [`partition`](session.md) with which the request is associated. Defaults to the empty string. The `session` option prevails on `partition`. Thus if a `session` is explicitly specified, `partition` is ignored.
-  * `protocol` String (optional) - The protocol scheme in the form 'scheme:'. Currently supported values are 'http:' or 'https:'. Defaults to 'http:'.
-  * `host` String (optional) - The server host provided as a concatenation of the hostname and the port number 'hostname:port'.
-  * `hostname` String (optional) - The server host name.
-  * `port` Integer (optional) - The server's listening port number.
-  * `path` String (optional) - The path part of the request URL.
-  * `redirect` String (optional) - The redirect mode for this request. Should be one of `follow`, `error` or `manual`. Defaults to `follow`. When mode is `error`, any redirection will be aborted. When mode is `manual` the redirection will be deferred until [`request.followRedirect`](#requestfollowredirect) is invoked. Listen for the [`redirect`](#event-redirect) event in this mode to get more details about the redirect request.
+  * `method` String (opcional) - O método de requisição HTTP, sendo GET o método padrão.
+  * `url` String (opcional) - A URL da requisição. Precisa ser informada na forma absoluta com protocolo http ou https especificado.
+  * `session` Object (opcional) - A instância da [`Sessão`](session.md) com a qual a requisição está associada.
+  * `partition` String (opcional) - O nome da [`partição`](session.md) com a qual a requisição está associada. O padrão é uma string vazia. A opção `sessão` prevalece sobre a `partição`. Assim, se a `sessão` é explicitamente especificada, a `partição` é ignorada.
+  * `protocol` String (opcional) - O esquema do protocolo, na forma 'scheme:'. O valores atualmente suportados são 'http:' ou 'https:', sendo 'http:' o padrão.
+  * `host` String (opcional) - O servidor, definido como a concatenação do nome com a porta: 'nome:porta'.
+  * `hostname` String (opcional) - O nome do servidor.
+  * `port` Integer (opcional) - O número da porta do servidor.
+  * `path` String (opcional) - A parte do caminho da URL de requisição.
+  * `redirect` String (opcional) - O modo de redirecionamento para esta requisição. Deve ser um dos modos: `follow`, `error` ou `manual`. O padrão é `follow`. Quando o modo é `error`, qualquer redirecionamento será abortado. Quando o modo é `manual` o redirecionamento será deferido até que [`request.followRedirect`](#requestfollowredirect) seja invocado. Escute o evento [`redirect`](#event-redirect) neste modo para obter mais detalhes sobre a requisição de redirecionamento.
 
-`options` properties such as `protocol`, `host`, `hostname`, `port` and `path` strictly follow the Node.js model as described in the [URL](https://nodejs.org/api/url.html) module.
+As propriedades em `options`, como `protocol`, `host`, `hostname`, `port` e `path` seguem estritamente o modelo Node.js, como descrito no módulo [URL](https://nodejs.org/api/url.html).
 
-For instance, we could have created the same request to 'github.com' as follows:
+Por exemplo, nós poderíamos criar a mesma requisição para 'github.com' da seguinte forma:
 
 ```JavaScript
 const request = net.request({
@@ -36,11 +36,11 @@ const request = net.request({
 
 ### Eventos de instância
 
-#### Event: 'response'
+#### Evento: 'response'
 
 Retorna:
 
-* `response` IncomingMessage - An object representing the HTTP response message.
+* `response` IncomingMessage - Um objeto representando a resposta HTTP.
 
 #### Evento: 'login'
 
@@ -56,9 +56,9 @@ Retorna:
   * `username` String
   * `password` String
 
-Emitted when an authenticating proxy is asking for user credentials.
+Emitido quando um proxy de autenticação está solicitando as credenciais de usuário.
 
-The `callback` function is expected to be called back with user credentials:
+A função de `callback` é esperada para chamar de volta as credenciais do usuário:
 
 * `username` String
 * `password` String
@@ -69,7 +69,7 @@ request.on('login', (authInfo, callback) => {
 })
 ```
 
-Providing empty credentials will cancel the request and report an authentication error on the response object:
+Informar credenciais vazias irá cancelar a requisição e reportar um erro de autenticação no objeto de resposta:
 
 ```JavaScript
 request.on('response', (response) => {
@@ -83,27 +83,27 @@ request.on('login', (authInfo, callback) => {
 })
 ```
 
-#### Event: 'finish'
+#### Evento: 'finish'
 
-Emitted just after the last chunk of the `request`'s data has been written into the `request` object.
+Emitido logo após o último pedaço dos dados de `request` for escrito no objeto `request`.
 
-#### Event: 'abort'
+#### Evento: 'abort'
 
-Emitted when the `request` is aborted. The `abort` event will not be fired if the `request` is already closed.
+Emitido quando `request` é abortado. O evento `abort` não vai ser disparado se `request` já estiver fechado.
 
 #### Evento: 'error'
 
 Retorna:
 
-* `error` Error - an error object providing some information about the failure.
+* `error` Error - um objeto de erro que provê informações sobre a falha.
 
-Emitted when the `net` module fails to issue a network request. Typically when the `request` object emits an `error` event, a `close` event will subsequently follow and no response object will be provided.
+Emitido quando o módulo `net` falha ao emitir uma requisição de rede. Normalmente quando o objeto `request` emite um evento `error`, um evento `close` virá a seguir e nenhum objeto de resposta será fornecido.
 
 #### Evento: 'close'
 
-Emitted as the last event in the HTTP request-response transaction. The `close` event indicates that no more events will be emitted on either the `request` or `response` objects.
+Emitido como último evento na transação HTTP de requisição-resposta. O evento `close` indica que nenhum outro evento será emitido no objeto `request` e nem no objeto `response`.
 
-#### Event: 'redirect'
+#### Evento: 'redirect'
 
 Retorna:
 
@@ -112,7 +112,7 @@ Retorna:
 * `redirectUrl` String
 * `responseHeaders` Object
 
-Emitted when there is redirection and the mode is `manual`. Calling [`request.followRedirect`](#requestfollowredirect) will continue with the redirection.
+Emitido quando há redirecionamento e o modo é `manual`. Chamar [`request.followRedirect`](#requestfollowredirect) vai continuar com o redirecionamento.
 
 ### Propriedades da Instância
 

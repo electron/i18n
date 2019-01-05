@@ -13,7 +13,7 @@
     $ npm run check-tls
     ```
     
-    If the script returns that your configuration is using an outdated security protocol, use your system's package manager to update Python to the latest version in the 2.7.x branch. Alternatively, visit https://www.python.org/downloads/ for detailed instructions.
+    Если скрипт выдаёт сообщение, что ваша конфигурация использует устаревший протокол безопасности, используйте вашу систему управления пакетами для обновления Питона последней версией в ветке 2.7. Альтернативно, посетите страницу https://www.python.org/downloads/ для подробных инструкций.
 
 * Node.js. Существует несколько способов установить Node. Вы можете скачать исходный код с [nodejs.org](https://nodejs.org) и скомпилировать его. Это позволяет установить Node в вашу домашнюю директорию со стандартными правами пользователя. Или используйте такие репозитории как [NodeSource](https://nodesource.com/blog/nodejs-v012-iojs-and-the-nodesource-linux-repositories).
 

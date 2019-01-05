@@ -335,7 +335,7 @@ This event is guaranteed to be emitted after the `ready` event of `app` gets emi
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `webContents` [webİçerikleri](web-contents.md)
 * `moduleName` String
 
@@ -345,7 +345,7 @@ Emitted when `remote.require()` is called in the renderer process of `webContent
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `webContents` [webİçerikleri](web-contents.md)
 * `globalName` String
 
@@ -517,7 +517,7 @@ Yakın zamandaki dokümentasyon listesini temizler.
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
-* 71/5000 `protokol` String - `://` olmadan protokolünüzün adı. Uygulamanızın `electron://` bağlantılarını işlemesini isterseniz, bu yöntemi parametre olarak `electron` ile çağırın.
+* 71/5000 `protokol` String - `://` olmadan protokolünüzün adı: Uygulamanızın `electron://` bağlantılarını işlemesini isterseniz, bu yöntemi parametre olarak `electron` ile çağırın.
 * `yolu` Dize (isteğe bağlı) *Windows* - Varsayılan değer olarak `process.execPath`
 * `args` Dizi [] (isteğe bağlı) *Windows* - Boş bir diziye varsayılan
 
@@ -533,7 +533,7 @@ API dahili olarak Windows Kayıt Defteri ve LSSetDefaultHandlerForURLScheme kull
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
-* 71/5000 `protokol` String - `://` olmadan protokolünüzün adı.
+* 71/5000 `protokol` String - `://` olmadan protokolünüzün adı:
 * `path` Dizi (isteğe bağlı) *Windows* - Varsayılana çevirir `process.execPath`
 * `args` Dizi[] (isteğe bağlı) *Windows* - Boş düzeni varsayılana ayarlar
 
@@ -545,7 +545,7 @@ Bu yöntem, geçerli yürütülebilir bir iletişim kuralı (aka URI şeması) i
 
 * 71/5000 `protokol` String - `://` olmadan protokolünüzün adı:
 * `path` Dizi (isteğe bağlı) *Windows* - Varsayılana çevirir `process.execPath`
-* `args` Dizi [] (isteğe bağlı) *Windows* - Boş bir diziye varsayılan
+* `args` Dizi[] (isteğe bağlı) *Windows* - Boş düzeni varsayılana ayarlar
 
 `Boole Değeri` döndürür
 
@@ -563,7 +563,7 @@ Windows'taki `tasks` kategorisini JumpList'teki [Görevler](https://msdn.microso
 
 `tasks`, [`görevler`](structures/task.md) nesenelerinin bir sırasıdır.
 
-Aramanın başarılı olup olmadığı `Boole Değerine ` döndürür.
+`Boolean` 'ı geri getirir - Çağrı başarılı olduğunda.
 
 **Not:** Eğer Jump List'i daha da çok özelleştirmek istiyorsanız yerine `app.setJumpList(categories)` kullanın.
 
@@ -803,7 +803,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 <ul>
 <li><code>sayı` tam sayı</li> </ul> 
   
-  `Boolean` 'ı geri getirir - Çağrı başarılı olduğunda.
+  Aramanın başarılı olup olmadığı `Boole Değerine ` döndürür.
   
   Sayaç rozet sayısı `0` olarak ayarlandığında uygulama için geçerli ayarlar rozeti gizler.
   
@@ -870,7 +870,9 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
       
       * Mantıksal `enabled` [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) görüntülemeyi etkinleştirir veya devre dışı bırakır
       
-      Manuel olarak Chrome'un erişilebilirlik desteğini etkinleştirir, erişilebilirlik anahtarını uygulama ayarlarındaki kullanıcılara göstermesine izin verir. daha fazla bilgi için https://www.chromium.org/developers/design-documents/accessibility. Varsayılan: Devre dışı.
+      Manuel olarak Chrome'un erişilebilirlik desteğini etkinleştirir, erişilebilirlik anahtarını uygulama ayarlarındaki kullanıcılara göstermesine izin verir. See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. Varsayılan: Devre dışı.
+      
+      This API must be called after the `ready` event is emitted.
       
       **Note:** render erişilebilirlik ağacı uygulamanızın performansını önemli ölçüde etkileyebilir. Varsayılan olarak etkinleştirilmemelidir.<0>.
       

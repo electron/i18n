@@ -46,7 +46,7 @@ community:
     title: 언어 커뮤니티
     description: "Electron 커뮤니티는 전 세계에서 활동중이며, 영어가 모두에게는 모국어가 아닙니다. <a href='/languages'>당신의 언어로된 문서</a>를 찾거나 아래 언어 커뮤니티중 하나에 가입하십시오:"
   tools: 도구
-  boilerplates: 상용구
+  boilerplates: Boilerplates
   components: 컴포넌트
   videos: 동영상
   meetups: 모임

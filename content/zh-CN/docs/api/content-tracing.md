@@ -44,34 +44,12 @@ app.on('ready', () => {
 
 ### `contentTracing.startRecording(options, callback)`
 
-* `options` Object - 过滤器对象，包含过滤参数 
-  * `categoryFilter` String
-  * `traceOptions` String
+* `options` ([TraceCategoriesAndOptions](structures/trace-categories-and-options.md) | [TraceConfig](structures/trace-config.md))
 * `callback` Function
 
 在所有进程上开始记录
 
 一旦收到EnableRecording请求，记录立即在本地开始进行，并在子进程上异步执行。 一旦所有子进程都确认了`startRecording`请求，`callback`就会被调用。
-
-`categoryFilter` 是一个用来控制哪些类别组需要被跟踪的过滤器。 过滤器可以有一个可选的`-`前缀来排除包含一个匹配类别的类别组。 同一个列表中，不支持既有包含的类别模式又有排除的类别模式。
-
-示例
-
-* `test_MyTest*`,
-* `test_MyTest*,test_OtherStuff`,
-* `"-excluded_category1,-excluded_category2`
-
-`traceOptions` 控制哪种跟踪模式被启用，该属性值是一个逗号分隔列表。可能选项有：
-
-* `record-until-full`
-* `record-continuously`
-* `trace-to-console`
-* `enable-sampling`
-* `enable-systrace`
-
-前3个选项是跟踪记录模式，因此是相互排斥的。 如果`traceOptions`字符串中出现多个跟踪记录模式，最后一个优先。 如果指定没有跟踪记录模式，那记录模式就是`record-until-full`。
-
-在从`traceOptions`解析的选项应用于它之前，跟踪选项将首先被重置为默认选项(`record_mode` 设置为 `record-until-full`, `enable_sampling` 和 `enable_systrace` 设置为 `false`)。
 
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
@@ -81,7 +59,7 @@ app.on('ready', () => {
 
 停止所有进程记录。
 
-子进程通常缓存跟踪数据，并且很少清空和发送跟踪数据到主进程。 这有助于最小化运行时间开销，因为通过IPC发送跟踪数据可能是一个开销巨大的操作。 所以，为了结束跟踪，我们必须异步地要求所有子进程清空任何等待跟踪数据。
+子进程通常缓存跟踪数据，并且很少清空和发送跟踪数据回到主进程。 这有助于最小化运行时间开销，因为通过IPC发送跟踪数据可能是一个开销巨大的操作。 所以，为了结束跟踪，我们必须异步地要求所有子进程清空任何等待跟踪数据。
 
 一旦所有子进程确认了 `stopRecording`请求，将传递包含跟踪数据的文件作为参数调用`callback`。
 
@@ -111,7 +89,7 @@ app.on('ready', () => {
 ### `contentTracing.startMonitoring(options, callback)`
 
 * `resultFilePath` String
-* `callback` Function 
+* `callback` Function - 回调函数 
   * `resultFilePath` String
 
 获取当前监控的跟踪数据

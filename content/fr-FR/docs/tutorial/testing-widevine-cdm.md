@@ -1,6 +1,6 @@
 # Testing Widevine CDM
 
-In Electron you can use the Widevine CDM library shipped with Chrome browser.
+Dans Electron, vous pouvez utiliser le plugin Widevine CDM livré avec le navigateur Chrome.
 
 Widevine Content Decryption Modules (CDMs) are how streaming services protect content using HTML5 video to web browsers without relying on an NPAPI plugin like Flash or Silverlight. Widevine support is an alternative solution for streaming services that currently rely on Silverlight for playback of DRM-protected video content. It will allow websites to show DRM-protected video content in Firefox without the use of NPAPI plugins. The Widevine CDM runs in an open-source CDM sandbox providing better user security than NPAPI plugins.
 

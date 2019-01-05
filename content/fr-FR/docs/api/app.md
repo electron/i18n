@@ -21,7 +21,7 @@ L'objet `app` émet les événements suivants :
 
 Émis lorsque l'application a terminé son démarrage de base. Sur Windows et Linux, l'événement `will-finish-launching` est le même que l'événement `ready`. Sur macOS, cet événement représente la notification `applicationWillFinishLaunching` de `NSApplication`. Vous allez habituellement mettre en place des listeners pour les événements `open-file` et `open-url` ici, et lancer le reporteur d'incident et la mise à jour automatique.
 
-In most cases, you should do everything in the `ready` event handler.
+Dans la plupart des cas, vous devriez pouvoir tout faire dans l'évènement `ready`.
 
 ### Événement : 'ready'
 
@@ -303,7 +303,7 @@ Retourne :
 
 Émis lorsque le support de l’accessibilité du Chrome change. Cet événement se déclenche lorsque les technologies d’assistance, tels que les lecteurs d’écran sont activés ou désactivés. Voir https://www.chromium.org/developers/design-documents/accessibility pour plus de détails.
 
-### Event: 'session-created'
+### Évènement : 'session-created'
 
 Retourne :
 
@@ -319,7 +319,7 @@ app.on('session-created', (event, session) => {
 })
 ```
 
-### Event: 'second-instance'
+### Évènement : 'second-instance'
 
 Retourne :
 
@@ -327,29 +327,29 @@ Retourne :
 * `argv` String[] - un tableau d’arguments de la deuxième instance de la ligne de commande
 * `workingDirectory` String - Le répertoire de travail de la deuxième instance
 
-This event will be emitted inside the primary instance of your application when a second instance has been executed. `argv` est un tableau d’arguments de ligne de commande de la deuxième instance, et `workingDirectory` est son répertoire de travail courant. Les applications répondent habituellement à cela en faisant de leur fenêtre principale, une fenêtre centrée et non réduite au minimum.
+Cet évènement sera émis dans la première instance de votre votre application lorsqu'une seconde instance à été exécutée. `argv` est un tableau d’arguments de ligne de commande de la deuxième instance, et `workingDirectory` est son répertoire de travail courant. Les applications répondent habituellement à cela en faisant de leur fenêtre principale, une fenêtre centrée et non réduite au minimum.
 
-This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
+Cet évènement est garanti d'être émis après que l'évènement `ready` de `app` soit émis.
 
-### Event: 'remote-require'
-
-Retourne :
-
-* `event` Événement
-* `webContents` [WebContents](web-contents.md)
-* `moduleName` String
-
-Emitted when `remote.require()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
-
-### Event: 'remote-get-global'
+### Évènement : 'remote-require'
 
 Retourne :
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
+* `module` String
+
+Émis lorsque `remote.require()` est appelé dans le processus de rendu de `webContents`. Appeler `event.preventDefault()` empêchera le module d'être retourné. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
+
+### Évènement : 'remote-get-global'
+
+Retourne :
+
+* `event` Événement
+* `webContents` [WebContents](web-contents.md)
 * `globalName` String
 
-Emitted when `remote.getGlobal()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
+Émis lorsque `remote.getGlobal()` est appelé dans le processus de rendu de `webContents`. Appeler `event.preventDefault()` empêchera le module d'être retourné. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
 
 ## Méthodes
 
@@ -359,7 +359,7 @@ L'objet `app` dispose des méthodes suivantes :
 
 ### `app.quit()`
 
-Essayez de fermer toutes les fenêtres. L’événement `before-quit` sera émis d’abord. Si toutes les fenêtres sont fermées avec succès, l’événement `will-quit` sera émis et mettra fin à l’application par défaut.
+Essaye de fermer toutes les fenêtres. L’événement `before-quit` sera émis d’abord. Si toutes les fenêtres sont fermées avec succès, l’événement `will-quit` sera émis et éteindra l’application.
 
 Cette méthode garantit que tous les écouteurs d’événements de `beforeunload` et `unload` seront correctement exécutées. Il est possible qu’une fenêtre annule la fermeture en retournant `false` dans l'écouteur d’événement `beforeunload`.
 
@@ -388,10 +388,7 @@ Quand `app.relaunch` est appelé plusieurs fois, plusieurs instances vont être 
 Voici un exemple qui redémarre une nouvelle instance immédiatement en ajoutant un nouvel argument de ligne de commande à la nouvelle instance :
 
 ```javascript
-const { app } = require('electron')
-
-app.relaunch({ args: process.argv.slice(1).concat(['--relaunch']) })
-app.exit(0)
+const { app } = require('electron') app.relaunch({ args: process.argv.slice(1).concat(['--relaunch']) }) app.exit(0)
 ```
 
 ### `app.isReady()`
@@ -400,7 +397,7 @@ Retourne `Boolean` - `true` si Electron a fini de s'initialiser, `false` sinon.
 
 ### `app.whenReady()`
 
-Returns `Promise<void>` - fulfilled when Electron is initialized. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
+Returns `Promise&lt;void&gt;` - Remplie quand Electron est initialisé. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
 
 ### `app.focus()`
 
@@ -865,7 +862,9 @@ Retourne `Boolean` - `true` si le support des fonctionnalités d'accessibilité 
 
 * `enabled` Boolean - Active ou désactive le rendu de [l'arbre d'accessibilité](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)
 
-Active manuellement le support de l'accessibilité de Chrome, permettant de mettre à disposition des utilisateurs les commutateurs d'accessibilité dans les paramètres de l'application. Voir https://www.chromium.org/developers/design-documents/accessibility pour de plus amples informations. Désactivé par défaut.
+Active manuellement le support de l'accessibilité de Chrome, permettant de mettre à disposition des utilisateurs les commutateurs d'accessibilité dans les paramètres de l'application. See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. Désactivé par défaut.
+
+This API must be called after the `ready` event is emitted.
 
 **Note:** Le rendu de l'arbre d'accessibilité peut affecter de manière significative les performances de votre application. Il ne devrait pas être activé par défaut.
 

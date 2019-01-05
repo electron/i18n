@@ -44,34 +44,12 @@ app.on('ready', () => {
 
 ### `contentTracing.startRecording(options, callback)`
 
-* `options` Object 
-  * `categoryFilter` String
-  * `traceOptions` String
+* `options` ([TraceCategoriesAndOptions](structures/trace-categories-and-options.md) | [TraceConfig](structures/trace-config.md))
 * `callback` Function
 
 Начинает запись во всех процессах.
 
 Запись начинается незамедлительно локально и ассинхронно в дочерних процессах, как только они получили запрос EnableRecording. `callback` будет вызван, как только все дочерние процессы выполнили запрос `startRecording`.
-
-`categoryFilter` – фильтр, который контролирует какие группы категорий должны быть отслежены. Фильтр может иметь опциональный префикс `-`, чтобы исключить группы категорий, которые содержат соответствующую категорию. Категория не может быть и включена, и исключена одновременно.
-
-Примеры:
-
-* `test_MyTest*`,
-* `test_MyTest*`,
-* `"-excluded_category1,-excluded_category2`
-
-`traceOptions` контролирует какой тип трассировки включен. Данный параметр представляет собой список, разделенный запятыми. Возможные опции:
-
-* `record-until-full`
-* `record-continuously`
-* `trace-to-console`
-* `enable-sampling`
-* `enable-systrace`
-
-Первые 3 опции – режимы записи трассировки, и поэтому они являются взаимоисключающими. Если в строке `traceOptions` появляются более чем один режим записи трассировки, последний имеет приоритет. Если ни один из режимов записи трассировки не указан, режим записи будет `record-until-full`.
-
-Опции трассировки изначально будет установлены в значения по умолчанию (`record_mode` будет `record-until-full`, `enable_sampling` и `enable_systrace` будут `false`), после чего будут установлены значения из `traceOptions`.
 
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 

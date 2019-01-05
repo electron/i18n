@@ -47,6 +47,13 @@ app.on('will-quit', () => {
 
 アクセラレータが他のアプリケーションによってすでに使用されている場合、この呼び出しは何も通知することなく失敗します。 この動作は、アプリケーションにグローバルショートカットの取り合いをさせたくないため、オペレーティングシステムによって意図されたものです。
 
+The following accelerators will not be registered successfully on macOS 10.14 Mojave unless the app has been authorized as a [trusted accessibility client](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html):
+
+* "Media Play/Pause"
+* "Media Next Track"
+* "Media Previous Track"
+* "Media Stop"
+
 ### `globalShortcut.isRegistered(accelerator)`
 
 * `accelerator` [Accelerator](accelerator.md)

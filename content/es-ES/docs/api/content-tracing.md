@@ -44,34 +44,12 @@ Una vez que todos los procesos secundarios han confirmado la solicitud de `getCa
 
 ### `contentTracing.startRecording(options, callback)`
 
-* `opciones` Objecto 
-  * `categoryFilter` Cadena
-  * `traceOptions` Cadena
+* `options` ([TraceCategoriesAndOptions](structures/trace-categories-and-options.md) | [TraceConfig](structures/trace-config.md))
 * `callback` Función
 
 Iniciar la grabación en todos los procesos.
 
 La grabación se inicia de manera inmediata de forma local y asincrónica en los procesos secundarios tan pronto como reciben la solicitud de habilitación de grabación. Se llamará al `callback` una vez que todos los procesos secundarios hayan confirmado la solicitud `startRecording`.
-
-`categoryFilter` es un filtro para controlar qué grupos de categorías se deben rastrear. Un filtro puede tener un prefijo `-` opcional para excluir los grupos de categorías que contienen una categoría coincidente. No se admiten los patrones de categoría incluidos y excluidos en la misma lista.
-
-Ejemplos:
-
-* `test_MyTest*`,
-* `test_MyTest*,test_OtherStuff`,
-* `"-excluded_category1,-excluded_category2`
-
-`traceOptions` controla qué tipo de rastreo está habilitado, es una lista delimitada por comas. Las posibles opciones son:
-
-* `record-until-full`
-* `record-continuously`
-* `trace-to-console`
-* `enable-sampling`
-* `enable-systrace`
-
-Las primeras 3 opciones son modos de registro de rastreo y, por lo tanto, son mutuamente excluyentes. Si aparecen más de un modo de registro de rastreo en la cadena `traceOptions`, el último tiene prioridad. Si no se especifica ninguno de los modos de grabación de rastreo, el modo de grabación es `record-until-full`.
-
-La opción de rastreo se restablecerá primero a la opción predeterminada (`record_mode` establecido en `record-until-full`, `enable_sampling` y `enable_systrace` configurado a `falso`) antes de que se apliquen las opciones analizadas desde `traceOptions`.
 
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
@@ -89,7 +67,7 @@ Los datos de rastreo se escribirán en `resultFilePath` si no está vacío o en 
 
 ### `contentTracing.startMonitoring(options, callback)`
 
-* `opciones` Objecto 
+* `opciones` Object 
   * `categoryFilter` Cadena
   * `traceOptions` Cadena
 * `callback` Función

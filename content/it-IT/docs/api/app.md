@@ -456,7 +456,7 @@ Puoi richiedere i seguenti percorsi dal nome:
 </ul></li>
 </ul></li>
 <li><code>callback` Function 
-      * `error` Error
+      * `errore` Errore
       * `icona` [ImmagineNativa](native-image.md)
     
     Recupera un'icona associata al percorso.
@@ -869,7 +869,9 @@ Puoi richiedere i seguenti percorsi dal nome:
     
     * `enabled` Boolean - Abilita o disabilita il rendering dell'[albero accessibilità](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)
     
-    Abilita manualmente il supporto accessibilità di Chrome permettendo di esporre gli scambi di accessibilità ad utenti nelle impostazioni applicazione. https://www.chromium.org/developers/design-documents/accessibility for more details. Disabilitato di default.
+    Abilita manualmente il supporto accessibilità di Chrome permettendo di esporre gli scambi di accessibilità ad utenti nelle impostazioni applicazione. See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. Disabilitato di default.
+    
+    This API must be called after the `ready` event is emitted.
     
     **Nota:** L'albero accessibilità del rendering può colpire significativamente la performance della tua app. Potrebbe non essere abilitato di default.
     

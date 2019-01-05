@@ -45,34 +45,12 @@ Kapag lahat ng child processes ay nakakilla ng `getCategories` magrequest ng `ca
 
 ### `contentTracing.startRecording(options, callback)`
 
-* `mga pagpipilian` Bagay 
-  * `categoryFilter` String
-  * `traceOptions` String
+* `options` ([TraceCategoriesAndOptions](structures/trace-categories-and-options.md) | [TraceConfig](structures/trace-config.md))
 * `callback` na Function
 
 Simulan ang pagtatala ng lahat ng mga proseso. 
 
 Ang pagrerekord ay nagsisimula kaagad sa local at asynchronously sa child processes sa oras na matanggap nila ang kahilingan ng EnableRecording. Ang `callback` ay tatawagan kapag kinilala ng lahat ng child processes ang kahilingan ng`startRecording`. 
-
-`categoryFilter` ay isang filter upang makontrol kung anong grupo ng kategorya ang dapat matunton. Ang filter ay may opsiyonal `` panlapi upang ibukod ang mga grupo ng kategorya na naglalamagn ng nagtutugmang kategorya. HIndi suportado ang pagkakaroon ng kapwa kabilang at hindi kabilang kategoryang patterns sa parehong listahan.
-
-Mga Halimbawa:
-
-* `test_MyTest*`,
-* `test_MyTest*,test_OtherStuff`,
-* `"-excluded_category1,-excluded_category2`
-
-`traceOptions` nagkokontrol kung anong uri ng pagsunod ang pinagana, ito ay comma-delimited na listahan. Posibling pagpipilian ay:
-
-* `talaan hanggang puno`
-* `talaan-patuloy`
-* `trace-to-console`
-* `enable-sampling`
-* `enable-systrace`
-
-Ang unang tatlong opsyons ay bakas rekording mode at kaya eksklusibong pare-pareho. Kung mahigit isang bakas rekording mode ang lumitaw sa `traceOptions` string, ang huli ang uunahin. Pag walang bakas rekording modes ay tinukoy, recording mode ay ` record-until-full`.
-
-Ang opsyon na bakas ay marereset muna sa default opsyon(`record_mode` magtakda ng mga `record-until-full`, `enable_sampling` at `enable_systrace` nakatakda sa `false`) bago ang mga opsyon na parsed mula sa `traceOptions` ay nilalapat sa mga ito.
 
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
@@ -114,7 +92,7 @@ Kapag kinilala ng child processes ang`stopMonitoring` request the `callback` ay 
 ### `contentTracing.captureMonitoringSnapshot(resultFilePath, callback)`
 
 * `resultFilePath` String
-* `callback` Punsyon 
+* `callback` Ang Function 
   * `resultFilePath` String
 
 Kumuha ng kasalukuyang nagtatala ng traced data.
@@ -125,7 +103,7 @@ Kapag kinilala ng child processes ang `captureMonitoringSnapshot` request the `c
 
 ### `contentTracing.getTraceBufferUsage(callback)`
 
-* `callback` Function 
+* `callback` Punsyon 
   * `value` Number
   * `percentage` Number
 

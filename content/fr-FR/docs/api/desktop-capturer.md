@@ -36,7 +36,7 @@ desktopCapturer.getSources({ types: ['window', 'screen'] }, (error, sources) => 
 function handleStream (stream) {
   const video = document.querySelector('video')
   video.srcObject = stream
-  video.onloadedmetadata = (e) => video.play()
+  video. => video.play()
 }
 
 function handleError (e) {

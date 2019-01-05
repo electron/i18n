@@ -10,21 +10,21 @@
 
 ## `new BrowserWindow({ webPreferences })`
 
-The following `webPreferences` option default values are deprecated in favor of the new defaults listed below.
+不推荐使用以下 `webPreferences` 选项默认值，以支持下面列出的新默认值。
 
-| Property           | Deprecated Default                   | New Default |
-| ------------------ | ------------------------------------ | ----------- |
-| `contextIsolation` | `false`                              | `true`      |
-| `nodeIntegration`  | `true`                               | `false`     |
-| `webviewTag`       | `nodeIntegration` if set else `true` | `false`     |
+| 属性                 | 不推荐使用的默认值                            | 新的默认值   |
+| ------------------ | ------------------------------------ | ------- |
+| `contextIsolation` | `false`                              | `true`  |
+| `nodeIntegration`  | `true`                               | `false` |
+| `webviewTag`       | `nodeIntegration` if set else `true` | `false` |
 
 ## `nativeWindowOpen`
 
-Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled.
+使用 `nativeWindowOpen` 选项打开的子窗口将始终禁用 Node.js 集成。
 
 ## `webContents.findInPage(text[, options])`
 
-`wordStart` and `medialCapitalAsWordStart` options are removed.
+`wordStart` 和 `medialCapitalAsWordStart` 选项被删除。
 
 # 计划重写的 API (4.0)
 
@@ -63,7 +63,7 @@ app.getGPUInfo('basic')
 
 ## `win_delay_load_hook`
 
-When building native modules for windows, the `win_delay_load_hook` variable in the module's `binding.gyp` must be true (which is the default). If this hook is not present, then the native module will fail to load on Windows, with an error message like `Cannot find module`. See the [native module guide](/docs/tutorial/using-native-node-modules.md) for more.
+在为 Windows 构建本机模块时，将使 `win_delay_load_hook` 变量值 位于 `binding.gyp` 模块，必须为 true (这是默认值)。 如果这个钩子 不存在，那么本机模块将无法在 Windows 上加载，并出现错误 消息如 `无法找到模块`。 See the [native module guide](/docs/tutorial/using-native-node-modules.md) for more.
 
 # 重大的API更新 (3.0)
 

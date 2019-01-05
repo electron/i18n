@@ -865,7 +865,9 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         * `enabled` Boolean - Enable or disable [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) rendering
         
-        Manually enables Chrome's accessibility support, allowing to expose accessibility switch to users in application settings. https://www.chromium.org/developers/design-documents/accessibility for more details. Disabled by default.
+        Manually enables Chrome's accessibility support, allowing to expose accessibility switch to users in application settings. See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. Disabled by default.
+        
+        This API must be called after the `ready` event is emitted.
         
         **Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
         

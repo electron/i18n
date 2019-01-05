@@ -452,7 +452,7 @@ Returns `Promise<void>` - fulfilled when Electron is initialized. May be used as
     * `small` - 16x16
     * `normal` - 32x32
     * `large` - 48x48 на *Linux*, 32x32 на *Windows*, не се поддържа на *macOS*.
-* `обратно повикване` Функция 
+* `callback` Функция 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
@@ -734,7 +734,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 * `опции` Object 
   * `certificate` String - Път към файла pkcs12.
   * `password` String - Паролата на сертификата.
-* `callback` Function 
+* `callback` Функция 
   * `result` Integer - Резултата на импортирането.
 
 Импортира сертификата в pkcs12 формат в хранилището за сертификати на платформата. `callback` is called with the `result` of import operation, a value of `0` indicates success while any other value indicates failure according to Chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
@@ -865,7 +865,9 @@ app.setLoginItemSettings({
 
 * `enabled` Boolean - Включено или изключено [accessibility tree](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree) рендиране
 
-Ръчно позволява на достъпна поддръжка при Chrome, което позволява да се изложи достъпност при превключване на потребители в настройките на приложението. https://www.chromium.org/developers/design-documents/accessibility за повече подробности. Изключено по подразбиране.
+Ръчно позволява на достъпна поддръжка при Chrome, което позволява да се изложи достъпност при превключване на потребители в настройките на приложението. See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. Изключено по подразбиране.
+
+This API must be called after the `ready` event is emitted.
 
 **Забележка:** Рендирането на accessibility tree може осезаемо да повлияе на работата на вашето приложение. Не трябва да се активира по подразбиране.
 

@@ -37,7 +37,7 @@ Rückgabewert:
 
 ### Event: 'appearance-changed' *macOS*
 
-Kehrt zurück:
+Rückgabewert:
 
 * `newAppearance` String - Can be `dark` or `light`
 
@@ -274,6 +274,12 @@ Gets the macOS appearance setting that you have declared you want for your appli
 * `appearance` String | null - Can be `dark` or `light`
 
 Sets the appearance setting for your application, this should override the system default and override the value of `getEffectiveAppearance`.
+
+### `systemPreferences.isTrustedAccessibilityClient(prompt)` *macOS*
+
+* `prompt` Boolean - whether or not the user will be informed via prompt if the current process is untrusted.
+
+Returns `Boolean` - `true` if the current process is a trusted accessibility client and `false` if it is not.
 
 ### `systemPreferences.getMediaAccessStatus(mediaType)` *macOS*
 
