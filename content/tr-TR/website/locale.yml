@@ -16,7 +16,7 @@ docs:
   description: Dokümanları <a href="/docs/all">tek bir sayfada</a> görün veya <a href="/docs/faq"> SSS (Sıkça Sorulan Sorular)</a> sayfasına göz atın.
   guides: Kılavuzlar
   api_reference: API Referansı
-  api_structures: API Structures
+  api_structures: API Yapıları
   advanced: Gelişmiş
   footer:
     propose_change: Bu dökümanı geliştir
