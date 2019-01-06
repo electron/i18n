@@ -14,7 +14,7 @@ Electronでの開発は特定のやり方に固執しておらず、「一つの
 
 モダンなElectronアプリケーションを作成するための完璧なツールです。 Electron Forgeは既存の(メンテナンスされている) Electronアプリ開発用のビルドツール群を、誰でもElectronアプリ開発にすぐ着手できるようにまとめてパッケージにしたものです。
 
-ForgeにはReact、VueJS、Angularのような人気フレームワークを利用するための[ready-to-use templates](https://electronforge.io/templates)があります。 It uses the same core modules used by the greater Electron community (like [`electron-packager`](https://github.com/electron-userland/electron-packager)) –  changes made by Electron maintainers (like Slack) benefit Forge's users, too.
+ForgeにはReact、VueJS、Angularのような人気フレームワークを利用するための[ready-to-use templates](https://electronforge.io/templates)があります。 Electronコミュニティで使われているのと同様の([`electron-packager`](https://github.com/electron-userland/electron-packager)のような) コアモジュールを採用しています。更新は(Slackのような) Electronメンテナー達が行っており、Forgeユーザーにも利益をもたらしています。
 
 [electronforge.io](https://electronforge.io/)でもっと詳細が分かります。
 
