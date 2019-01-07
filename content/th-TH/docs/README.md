@@ -33,7 +33,7 @@
 * การเพิ่มฟีสเจอร์บนแอพของคุณ 
   * [การแจ้งเตือน](tutorial/notifications.md)
   * [บทความปัจจุบัน](tutorial/desktop-environment-integration.md#recent-documents)
-  * [Application Progress](tutorial/progress-bar.md)
+  * [ความคืบหน้าการแปลภาษา](tutorial/progress-bar.md)
   * [Custom Dock Menu](tutorial/macos-dock.md)
   * [Custom Windows Taskbar](tutorial/windows-taskbar.md)
   * [Custom Linux Desktop Actions](tutorial/linux-desktop-actions.md)
