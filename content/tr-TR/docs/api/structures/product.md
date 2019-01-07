@@ -7,4 +7,4 @@
 * `contentLengths` Sayı[] - İçeriğin toplam boyutu, byte cinsinden.
 * `price` Sayı - Ürünün yerel para birimi bazında maliyeti.
 * `formattedPrice` Metin - Ürünün yerel para birimi biçiminde fiyatı.
-* `downloadable` Boolean - A Boolean value that indicates whether the App Store has downloadable content for this product.
+* `downloadable` Boolean - Ürünün App Store'da indirilebilir içerik ekleri olup olmadığını gösteren bir ikili değer.
