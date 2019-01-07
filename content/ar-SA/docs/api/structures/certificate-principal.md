@@ -1,8 +1,8 @@
-# كائن المصادقة الرئيسية
+# موضوع الشهادة الرئيسية
 
-* `commonName` String - Common Name.
-* `organizations` String[] - Organization names.
+* `commonName` String - الإسم الشائع.
+* `organizations` String[] - اسماء المنظمة.
 * `organizationUnits` String[] - Organization Unit names.
 * `locality` String - Locality.
 * `state` String - State or province.
-* `country` String - Country or region.
+* `country` String - الدولة او الجهة.
