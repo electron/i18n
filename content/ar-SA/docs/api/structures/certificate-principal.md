@@ -3,6 +3,6 @@
 * `commonName` String - الإسم الشائع.
 * `organizations` String[] - اسماء المنظمة.
 * `organizationUnits` String[] - اسماء الوحدة التنظيمية.
-* `locality` String - Locality.
-* `state` String - State or province.
+* `locality` String - الموقع.
+* `state` String - الولاية أو المقاطعة.
 * `country` String - الدولة او الجهة.
