@@ -121,7 +121,7 @@
 * [Menu (القائمة)](api/menu.md)
 * [MenuItem (عنصر في القائمة)](api/menu-item.md)
 * [net](api/net.md)
-* [netLog](api/net-log.md)
+* [سجل الشبكة](api/net-log.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)
