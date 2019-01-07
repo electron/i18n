@@ -1,6 +1,6 @@
 # Point Nesnesi
 
-* `x` Number
-* `y` Numara
+* `x` Sayı
+* `y` Sayı
 
-**Note:** Both `x` and `y` must be whole integers, when providing a point object as input to an Electron API we will automatically round your `x` and `y` values to the nearest whole integer.
+**Not:** Bir point nesnesi oluştururken hem `x` hem de `y` sayıları ikisi de tamsayı olmalıdır. Eğer Electron API girdisi olarak verilen `x` ve `y` değerleri tamsayı değilse en yakın tamsayıya yuvarlanır.
