@@ -60,7 +60,7 @@
   * [Snapcraft](tutorial/snapcraft.md)
 * [Security](tutorial/security.md) 
   * [الإبلاغ عن المشكلات الأمنية](tutorial/security.md#reporting-security-issues)
-  * [Chromium Security Issues and Upgrades](tutorial/security.md#chromium-security-issues-and-upgrades)
+  * [المسائل الأمنية المتعلقة بالكروم وتحديثاته](tutorial/security.md#chromium-security-issues-and-upgrades)
   * [تحذيرات أمنية إلكترون](tutorial/security.md#electron-security-warnings)
   * [قائمة التحقق من الأمان](tutorial/security.md#checklist-security-recommendations)
 * [التحديثات](tutorial/updates.md) 
