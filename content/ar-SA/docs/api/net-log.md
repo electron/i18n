@@ -1,4 +1,4 @@
-# netLog
+# سجل الشبكة
 
 > Logging network events for a session.
 
