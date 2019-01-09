@@ -35,7 +35,6 @@ community:
     updates: "<a href='https://twitter.com/electronjs'><b>Stay up to date</b></a> by following <a href='https://twitter.com/electronjs'>@electronjs</a> on Twitter and subscribing to the <a href='/blog'>blog feed</a>."
     localized_docs: "拜訪 <a href='/languages'>語言頁</a>，<a href='/languages'><b>用你的母語閱讀文件</b></a>。"
     help: "透過加入<a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, 傳送<a href='https://discuss.atom.io/c/electron'>Discuss /a>, 或者到訪<a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>來<a href='http://atom-slack.herokuapp.com' ><b>獲取幫助和反饋</b></a>。"
-    packages: "在<a href='/search/npmPackages'>套件搜尋頁面</a>上<a href='/search/npmPackages'><b>探索實用的 npm 套件</b></a>。"
     bugs: "在<a href='https://github.com/electron/electron/issues'>electron/electron</a>儲存庫中開啟 issue 以<a href='https://github.com/electron/electron/issues'><b>回報 bug</b></a>。"
     feature_requests: "通過在<a href='https://github.com/electron/electron/issues'>electron/electron</a>代碼庫提交報告來<a href='https://github.com/electron/electron /issues'><b>提交功能申請</b></a>"
     code_of_conduct: "發送郵件到<a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>來<a href='mailto:coc@electronjs.org'><b>報告程式碼衝突</b ></a>"
