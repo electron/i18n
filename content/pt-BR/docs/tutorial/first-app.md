@@ -91,13 +91,14 @@ function createWindow () {
 app.on('ready', createWindow)
 ```
 
-A `main.js` deve conter a criação de janelas e manipular todos os eventos que seu sistema possa conter. A more complete version of the above example might open developer tools, handle the window being closed, or re-create windows on macOS if the user clicks on the app's icon in the dock.
+A `main.js` deve conter a criação de janelas e manipular todos os eventos que seu sistema possa conter. Uma versão mais completa do exemplo acima poderia abrir ferramentas de desenvolvedores, armazenar a janela que está sendo fechada ou recriar janelas no macOS caso o usuário clique no ícone do aplicativo.
 
 ```javascript
-const { app, BrowserWindow } = require('electron')
-
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
+<0>const{ app, BrowserWindow } = require('electron')</0>
+//Mantém a referência global do objeto da janela.
+//se você não fizer isso,
+// a janela será fechada automaticamente
+// quando o objeto JavaScript for coletado como lixo.
 let win
 
 function createWindow () {
@@ -111,7 +112,7 @@ function createWindow () {
   win.webContents.openDevTools()
 
   // Emitido quando a janela é fechada.
-  win.on('closed', () => {
+  win.on('closed', () =&gt; {
     // Elimina a referência do objeto da janela, geralmente você iria armazenar as janelas
     // em um array, se seu app suporta várias janelas, este é o momento
     // quando você deve excluir o elemento correspondente.
@@ -125,7 +126,7 @@ function createWindow () {
 app.on('ready', createWindow)
 
 // Finaliza quando todas as janelas estiverem fechadas.
-app.on('window-all-closed', () => {
+app.on('window-all-closed', () =&gt; {
   // No macOS é comum para aplicativos e sua barra de menu 
   // permaneçam ativo até que o usuário explicitamente encerre com Cmd + Q
   if (process.platform !== 'darwin') {
@@ -133,7 +134,7 @@ app.on('window-all-closed', () => {
   }
 })
 
-app.on('activate', () => {
+app.on('activate', () =&gt; {
   // On macOS it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
   if (win === null) {
