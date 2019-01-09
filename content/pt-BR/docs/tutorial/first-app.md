@@ -91,7 +91,7 @@ function createWindow () {
 app.on('ready', createWindow)
 ```
 
-The `main.js` should create windows and handle all the system events your application might encounter. A more complete version of the above example might open developer tools, handle the window being closed, or re-create windows on macOS if the user clicks on the app's icon in the dock.
+A `main.js` deve conter a criação de janelas e manipular todos os eventos que seu sistema possa conter. A more complete version of the above example might open developer tools, handle the window being closed, or re-create windows on macOS if the user clicks on the app's icon in the dock.
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
