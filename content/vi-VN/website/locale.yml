@@ -35,7 +35,6 @@ community:
     updates: "<a href='https://twitter.com/electronjs'> <b> Luôn cập nhật </ b> </a> bằng cách theo dõi <a href='https://twitter.com/electronjs'> @ electronjs </a> trên Twitter và đăng ký <a href='/blog'> nguồn cấp dữ liệu blog </a> ."
     localized_docs: "<a href='/languages'> <b> Đọc tài liệu bằng ngôn ngữ mẹ đẻ của bạn </ b> </a> bằng cách truy cập <a href='/languages'> trang ngôn ngữ </a> .\n"
     help: "<a href='http://atom-slack.herokuapp.com'> <b> Nhận trợ giúp và phản hồi </ b> </a> bằng cách tham gia <a href = 'http: //atom-slack.herokuapp.com '> atomio Slack </a>, đăng trên <a href='https://discuss.atom.io/c/electron'> Thảo luận </a> hoặc truy cập <a href =' https: // stackoverflow.com/questions/tagged/electron '> Stack Overflow </a>."
-    packages: "<a href='/search/npmPackages'> <b> Tìm gói npm hữu ích </ b> </a> trên <a href='/search/npmPackages'> trang tìm kiếm gói </a> ."
     bugs: "<a href='https://github.com/electron/electron/issues'> <b> Báo cáo lỗi </ b> </a> bằng cách mở các sự cố trên <a href = 'https: //github.com / electron / electron / vấn đề '> electron / electron </a> kho."
     feature_requests: "<a href='https://github.com/electron/electron/issues'> <b> Yêu cầu các tính năng </ b> </a> bằng cách mở các sự cố trên <a href = 'https: //github.com / electron / electron / vấn đề '> electron / electron </a> kho."
     code_of_conduct: "<a href='mailto:vipchiase@gmail.com'> <b> Báo cáo vi phạm Quy tắc ứng xử </ b></a> bằng cách gửi email tới <a href='mailto:vipchiase@gmail.com'> vipchiase@gmail.com  </a> ."
@@ -171,6 +170,6 @@ pages:
     title: Spectron
     description: Spectron là một bộ khung mã nguồn mở giúp viết các bộ kiểm thử tích hợp cho ứng dụng Electron của bạn một cách dễ dàng. Được xây dựng trên ChromeDriver và WebDriverIO.
   '/donors':
-    title: Nhà Tài Trợ
+    title: Nhà tài trợ
 _404:
   page_not_found: Không tìm thấy trang.
