@@ -35,7 +35,6 @@ community:
     updates: "<a href='https://twitter.com/electronjs'><b>Bądź na bieżąco, </b></a> śledząc <a href='https://twitter.com/electronjs'>@electronjs</a> na Twitterze i subskrybując <a href='/blog'>naszego bloga</a>."
     localized_docs: "<a href='/languages'><b>Czytaj dokumentację w Twoim języku</b></a> odwiedzając <a href='/languages'>stronę wyboru języka</a>."
     help: "<a href='http://atom-slack.herokuapp.com'><b>Uzyskaj pomoc i opinię</b></a> dołączając do <a href='http://atom-slack.herokuapp.com'>Slack'a atom.io</a>, publikując na <a href='https://discuss.atom.io/c/electron'>Forum Discuss</a>, lub odwiedzając <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
-    packages: "<a href='/search/npmPackages'><b>Znajdź przydatne pakiety npm</b></a> na <a href='/search/npmPackages'>stronie wyszukiwania pakietów</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Zgłaszaj błędy</b></a> otwierając problemy w repozytorium <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Zaproponuj funkcjonalności</b></a> otwierając problem w repozytorium <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
     code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Zgłoś naruszenia Kodeksu Postępowania</b></a> wysyłając e-mail na adres <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
