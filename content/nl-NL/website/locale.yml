@@ -35,7 +35,6 @@ community:
     updates: "<a href='https://twitter.com/electronjs'><b>Blijf op de hoogte</b></a> door <a href='https://twitter.com/electronjs'>@electronjs</a> te volgen op Twitter en te abonneren op de <a href='/blog'>blog feed</a>."
     localized_docs: "<a href='/languages'><b>Lees de documentatie in je eigen taal</b></a> door naar de <a href='/languages'>taal pagina</a> te gaan."
     help: "<a href='http://atom-slack.herokuapp.com'><b>Vraag hulp en feedback</b></a> door lid te worden van <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, plaats een bericht op <a href='https://discuss.atom.io/c/electron'>Discuss</a>, of door te gaan naar <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
-    packages: "<a href='/search/npmPackages'><b>Vind handige npm packages</b></a> op de <a href='/search/npmPackages'>package zoek pagina</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Rapporteer bugs</b></a> door een issue te openen op de <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Functies aanvragen</b></a> door een issue te openen op de <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
     code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Meld overtredingen van de gedragscode</b></a> door te mailen naar <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
@@ -127,7 +126,7 @@ clipboard:
   copy: Kopieer
   copy_to_clipboard: Naar klembord kopiëren
   copied: Gekopieerd
-or: of
+or: or
 pages:
   '/':
     title: Electron | Bouw cross-platform desktop apps met JavaScript, HTML, en CSS.
