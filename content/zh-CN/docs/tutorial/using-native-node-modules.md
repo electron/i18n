@@ -57,7 +57,7 @@ HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https
 
 ### 为Electron的自定义编译手动编译
 
-To compile native Node addons against a custom build of Electron that doesn't match a public release, instruct `npm` to use the version of Node you have bundled with your custom build.
+针对与公共发行版不匹配的Electron的自定义版本编译原生Node插件，npm要使用与自定义版本对应的Node版本。
 
 ```sh
 npm rebuild --nodedir=$HOME/.../path/to/electron/vendor/node
