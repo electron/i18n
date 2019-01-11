@@ -1,4 +1,4 @@
-# الكائن Product
+# المنتج Object
 
 * `productIdentifier` String - The string that identifies the product to the Apple App Store.
 * `localizedDescription` String - A description of the product.
