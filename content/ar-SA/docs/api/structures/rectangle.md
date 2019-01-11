@@ -1,4 +1,4 @@
-# كائن مستطيل (Rectangle Object)
+# Rectangle Object
 
 * `x` Number - The x coordinate of the origin of the rectangle (must be an integer).
 * `y` Number - The y coordinate of the origin of the rectangle (must be an integer).
