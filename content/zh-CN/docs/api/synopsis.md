@@ -2,7 +2,7 @@
 
 > 如何使用 Node.js 和 Electron APIs
 
-所有 [ Node. js 的内置模块 ](https://nodejs.org/api/) 都可用在 Electron 和第三方 node 模块中, 也完全支持 (包括 [ 原生模块 ](../tutorial/using-native-node-modules.md))。
+Node. js 的所有 [ 内置模块 ](https://nodejs.org/api/) 都在Electron中可用， 第三方 node 模块中也完全支持 (包括 [ 原生模块 ](../tutorial/using-native-node-modules.md))。
 
 Electron 还为开发原生桌面应用程序提供了一些额外的内置模块。 某些模块仅在主进程中可用, 有些仅在渲染进程 (web 页) 中可用, 而有些在这两个进程中都可以使用。
 
