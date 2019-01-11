@@ -12,9 +12,9 @@ Unity DEでは、ランチャーでプログレスバーの指定を可能にす
 
 これら3つのケースは全て同じAPI - `BrowserWindows` のインスタンスに存在する `setProgressBar()` 関数によって変換されます。 プログレスを示すためにこれを `0` ～ `1`の数値で呼びます。 もしあなたが時間のかかるタスクを持っていて、それが完了に対して現在63%であるならば、あなたは `setProgressBar(0.63)` を呼ぶでしょう。
 
-Generally speaking, setting the parameter to a value below zero (like `-1`) will remove the progress bar while setting it to a value higher than one (like `2`) will switch the progress bar to intermediate mode.
+一般的に、パラメータを0より小さい値 ( `-1` など) に設定するとプログレスバーが削除され、1より大きい値 ( `2` など) に設定するとプログレスバーは中間モードへと切り替わります。
 
-See the [API documentation for more options and modes](../api/browser-window.md#winsetprogressbarprogress).
+[より多くのオプションやモードについてのAPI ドキュメント](../api/browser-window.md#winsetprogressbarprogress) を参照してください。
 
 ```javascript
 const { BrowserWindow } = require('electron')
