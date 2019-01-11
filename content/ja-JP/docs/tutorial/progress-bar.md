@@ -1,6 +1,6 @@
 # タスクバーで示すプログレスバー (Windows, macOS, Unity)
 
-On Windows a taskbar button can be used to display a progress bar. This enables a window to provide progress information to the user without the user having to switch to the window itself.
+Windowsではタスクバーのボタンにプログレスバーを表示できます。 This enables a window to provide progress information to the user without the user having to switch to the window itself.
 
 On macOS the progress bar will be displayed as a part of the dock icon.
 
