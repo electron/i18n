@@ -1,8 +1,8 @@
 # タスクバーで示すプログレスバー (Windows, macOS, Unity)
 
-Windowsではタスクバーのボタンにプログレスバーを表示できます。 This enables a window to provide progress information to the user without the user having to switch to the window itself.
+Windowsでは、タスクバーのボタンにプログレスバーを表示できます。 これによって、ユーザーがウィンドウの切り替え操作をすることなく、ユーザーに進捗情報を提供することが可能となります。
 
-On macOS the progress bar will be displayed as a part of the dock icon.
+Mac OSでは、プログレスバーはドックアイコンの一部に表示されます。
 
 The Unity DE also has a similar feature that allows you to specify the progress bar in the launcher.
 
