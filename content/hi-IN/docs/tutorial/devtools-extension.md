@@ -1,10 +1,10 @@
 # डेवटूल्स एक्सटेंशन
 
-Electron supports the [Chrome DevTools Extension](https://developer.chrome.com/extensions/devtools), which can be used to extend the ability of devtools for debugging popular web frameworks.
+इलेक्ट्रॉन [क्रोम डेवटूल्स एक्सटेंशन](https://developer.chrome.com/extensions/devtools) समर्थन करता है, यह लोकप्रिय वेब रूपरेखा डिबगिंग के लिए डेवटूल्स की क्षमता का विस्तार करने के लिए उपयोग किया जाता है।
 
-## How to load a DevTools Extension
+## डेवटूल्स एक्सटेंशन कैसे लोड करें
 
-This document outlines the process for manually loading an extension. You may also try [electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer), a third-party tool that downloads extensions directly from the Chrome WebStore.
+यह दस्तावेज़ मैन्युअल रूप से किसी एक्सटेंशन को लोड करने की प्रक्रिया को रेखांकित करता है You may also try [electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer), a third-party tool that downloads extensions directly from the Chrome WebStore.
 
 To load an extension in Electron, you need to download it in Chrome browser, locate its filesystem path, and then load it by calling the `BrowserWindow.addDevToolsExtension(extension)` API.
 
