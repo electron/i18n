@@ -1,6 +1,6 @@
 # ShortcutDetails Object
 
-* `target` String - The target to launch from this shortcut.
+* `الهدف` String - الهدف من إطلاق هذا الاختصار.
 * `cwd` String (optional) - The working directory. Default is empty.
 * `args` String (optional) - The arguments to be applied to `target` when launching from this shortcut. Default is empty.
 * `description` String (optional) - The description of the shortcut. Default is empty.
