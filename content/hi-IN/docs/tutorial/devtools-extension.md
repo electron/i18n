@@ -19,16 +19,16 @@
         * `~/.config/google-chrome-beta/Default/Extensions/`
         * `~/.config/google-chrome-canary/Default/Extensions/`
         * `~/.config/chromium/Default/Extensions/`
-    * on macOS it is `~/Library/Application Support/Google/Chrome/Default/Extensions`.
-4. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like: `~/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.15.0_0`
+    * macOS पर यह है `~/Library/Application Support/Google/Chrome/Default/Extensions`
+4. एक्सटेंशन का स्थान पास करें `BrowserWindow.addDevToolsExtension` API, रिएक्टर डेवलपर टूल्स के लिए, यह कुछ इस तरह है: `~/Library/ApplicationSupport/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.15.0_0`
 
-**Note:** The `BrowserWindow.addDevToolsExtension` API cannot be called before the ready event of the app module is emitted.
+**ध्यान दें** इस `BrowserWindow.addDevToolsExtension` एपीआई को पहले नहीं बुलाया जा सकता है ऐप मॉड्यूल का तैयार ईवेंट उत्सर्जित होता है।
 
-The name of the extension is returned by `BrowserWindow.addDevToolsExtension`, and you can pass the name of the extension to the `BrowserWindow.removeDevToolsExtension` API to unload it.
+एक्सटेंशन का नाम इसके द्वारा लौटाया गया है `BrowserWindow.addDevToolsExtension`, आप एक्सटेंशन के नाम को पास कर सकते हैं `BrowserWindow.addDevToolsExtension` एपीआई इसे उतारने के लिए।
 
-## Supported DevTools Extensions
+## समर्थित डेवटूल्स एक्सटेंशन
 
-Electron only supports a limited set of `chrome.*` APIs, so some extensions using unsupported `chrome.*` APIs for chrome extension features may not work. Following Devtools Extensions are tested and guaranteed to work in Electron:
+इलेक्ट्रॉन केवल सीमित सेट का `chrome.*` एपीआई समर्थन करता है, ओ कुछ एक्सटेंशन असमर्थित `chrome.*` एपीआई काम नहीं कर सकते हैं। डेवटूल्स एक्सटेंशन्स का परीक्षण और इलेक्ट्रॉन में काम करने की गारंटी के बाद:
 
 * [Ember Inspector](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
 * [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
@@ -40,8 +40,8 @@ Electron only supports a limited set of `chrome.*` APIs, so some extensions usin
 * [Redux DevTools Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 * [MobX Developer Tools](https://chrome.google.com/webstore/detail/mobx-developer-tools/pfgnfdagidkfgccljigdamigbcnndkod)
 
-### What should I do if a DevTools Extension is not working?
+### यदि एक डेवटूल्स एक्सटेंशन काम नहीं कर रहा है तो मुझे क्या करना चाहिए?
 
-First please make sure the extension is still being maintained, some extensions can not even work for recent versions of Chrome browser, and we are not able to do anything for them.
+हले कृपया सुनिश्चित करें कि एक्सटेंशन अभी भी बनाए रखा जा रहा है, कुछ एक्सटेंशन Chrome ब्राउज़र के हाल के संस्करणों के लिए भी काम नहीं कर सकता, और हम करने में सक्षम नहीं हैं उनके लिए कुछ भी करो।
 
-Then file a bug at Electron's issues list, and describe which part of the extension is not working as expected.
+फिर इलेक्ट्रॉन के मुद्दों की सूची में एक बग दर्ज करें, और किस भाग का वर्णन करें विस्तार अपेक्षित रूप से काम नहीं कर रहा है।
