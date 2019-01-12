@@ -1,4 +1,4 @@
 # rv
 
-* `date` Date
+* `date`दिनांक
 * `id` String
