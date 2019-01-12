@@ -1,7 +1,7 @@
 # ShortcutDetails Object
 
 * `الهدف` String - الهدف من إطلاق هذا الاختصار.
-* `cwd` String (optional) - The working directory. Default is empty.
+* `cwd`String (اختياري) - دليل العمل. الافتراضي فارغ.
 * `args` String (optional) - The arguments to be applied to `target` when launching from this shortcut. Default is empty.
 * `description` String (optional) - The description of the shortcut. Default is empty.
 * `icon` String (optional) - The path to the icon, can be a DLL or EXE. `icon` and `iconIndex` have to be set together. Default is empty, which uses the target's icon.
