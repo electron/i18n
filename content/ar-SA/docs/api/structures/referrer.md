@@ -1,4 +1,4 @@
 # المراجع Object
 
 * `رابط`String - رابط HTTP الراجع الى المرجع.
-* `policy` String - Can be `default`, `unsafe-url`, `no-referrer-when-downgrade`, `no-referrer`, `origin`, `strict-origin-when-cross-origin`, `same-origin` or `strict-origin`. See the [Referrer-Policy spec](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy) for more details on the meaning of these values.
+* `السياسة العامة` String - يمكن أن يكون`الافتراضي`،`رابط -غير آمن` ،`لا يوجد-مرجع-عند-إنخفاضه`، `لا يوجد-مرجع`، `الأصل`، ` الأصل-المتشدد-عندما-يعبر-الأصل`، `نفس-الأصل` أو ` الأصل-المتشدد`. إطلع على[محددات سياسة-المرجع](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy)لمزيد من التفاصيل حول معنى هذه القيم.
