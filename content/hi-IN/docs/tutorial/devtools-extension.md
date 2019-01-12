@@ -4,17 +4,17 @@
 
 ## डेवटूल्स एक्सटेंशन कैसे लोड करें
 
-यह दस्तावेज़ मैन्युअल रूप से किसी एक्सटेंशन को लोड करने की प्रक्रिया को रेखांकित करता है You may also try [electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer), a third-party tool that downloads extensions directly from the Chrome WebStore.
+यह दस्तावेज़ मैन्युअल रूप से किसी एक्सटेंशन को लोड करने की प्रक्रिया को रेखांकित करता है आप भी आजमा सकते हैं [ इलेक्ट्रॉन डेवटूल्स-संस्थापक ](https://github.com/GPMDP/electron-devtools-installer), तृतीय-पक्ष उपकरण जो सीधे Chrome वेबस्टोर से एक्सटेंशन डाउनलोड करता है |
 
-To load an extension in Electron, you need to download it in Chrome browser, locate its filesystem path, and then load it by calling the `BrowserWindow.addDevToolsExtension(extension)` API.
+इलेक्ट्रॉन में एक्सटेंशन लोड करने के लिए, आपको इसे क्रोम ब्राउज़र में डाउनलोड करना होगा, इसके फ़ाइल सिस्टम पथ का पता लगाएं, और फिर इसे कॉल करके लोड करें `BrowserWindow.addDevToolsExtension (विस्तार)` एपीआई।
 
-Using the [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) as example:
+उदाहरण के रूप में [रिएक्टर डेवलपर उपकरण ](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) का उपयोग करना:
 
-1. Install it in Chrome browser.
-2. Navigate to `chrome://extensions`, and find its extension ID, which is a hash string like `fmkadmapgofadopljbjfkapdkoienihi`.
-3. Find out filesystem location used by Chrome for storing extensions: 
-    * on Windows it is `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
-    * on Linux it could be: 
+1. इसे क्रोम ब्राउजर में इंस्टॉल करें।
+2. पर जाए `chrome://extensions`, और उसकी एक्सटेंशन आईडी खोजें, जो एक हैश है तार की तरह `fmkadmapgofadopljbjfkapdkoienihi` |
+3. एक्सटेंशन संग्रहीत करने के लिए Chrome द्वारा उपयोग की जाने वाली फ़ाइल सिस्टम स्थिति का पता लगाएं: 
+    * विंडोज पर यह है `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
+    * लिनक्स पर यह हो सकता है: 
         * `~/.config/google-chrome/Default/Extensions/`
         * `~/.config/google-chrome-beta/Default/Extensions/`
         * `~/.config/google-chrome-canary/Default/Extensions/`
