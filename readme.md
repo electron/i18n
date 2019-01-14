@@ -18,8 +18,8 @@ The following languages are currently being translated, but we can
 [easily add more]((https://github.com/electron/i18n/issues/new?title=new%20language%20request)):
 
 <!-- start language-table -->
-- [Español (Spanish)](https://crowdin.com/project/electron/es-ES)
 - [中文 (Chinese Simplified)](https://crowdin.com/project/electron/zh-CN)
+- [Español (Spanish)](https://crowdin.com/project/electron/es-ES)
 - [日本語 (Japanese)](https://crowdin.com/project/electron/ja)
 - [Türkçe (Turkish)](https://crowdin.com/project/electron/tr)
 - [Filipino](https://crowdin.com/project/electron/fil)

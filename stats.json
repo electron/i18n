@@ -3,14 +3,14 @@
     "name": "Arabic",
     "code": "ar",
     "phrases": "9952",
-    "translated": "1008",
+    "translated": "1046",
     "approved": "0",
     "words": "92079",
-    "words_translated": "6531",
+    "words_translated": "6978",
     "words_approved": "0",
     "translated_progress": 7,
     "approved_progress": 0,
-    "qa_issues": 378
+    "qa_issues": 386
   },
   {
     "name": "Bulgarian",
@@ -29,12 +29,12 @@
     "name": "Chinese Simplified",
     "code": "zh-CN",
     "phrases": "9952",
-    "translated": "8658",
+    "translated": "8663",
     "approved": "26",
     "words": "92079",
-    "words_translated": "75451",
+    "words_translated": "75514",
     "words_approved": "138",
-    "translated_progress": 81,
+    "translated_progress": 82,
     "approved_progress": 0,
     "qa_issues": 243
   },
@@ -107,14 +107,14 @@
     "name": "German",
     "code": "de",
     "phrases": "9952",
-    "translated": "2877",
+    "translated": "2879",
     "approved": "35",
     "words": "92079",
-    "words_translated": "17941",
+    "words_translated": "17994",
     "words_approved": "66",
     "translated_progress": 19,
     "approved_progress": 0,
-    "qa_issues": 1097
+    "qa_issues": 1099
   },
   {
     "name": "Hebrew",
