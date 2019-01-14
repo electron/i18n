@@ -1097,8 +1097,8 @@ The `buttons` is an array of `Button` objects:
 * `مكّن` - الزر نشط ومتاح للمستخدم.
 * `معطل` - الزر معطل. هو موجود ، ولكن لديه حالة تصويرية تشير إلى أنه لن يستجيب لإجراءات المستخدم.
 * `رفض عند النقر` - عند النقر فوق الزر ، يتم إغلاق نافذة الصور المصغرة فورا.
-* `nobackground` - Do not draw a button border, use only the image.
-* `hidden` - The button is not shown to the user.
+* `لا توجد خلفية ` - لا ترسم حدود الزر ، استخدم الصورة فقط.
+* `مخفي` - لا يظهر الزر للمستخدم.
 * `noninteractive` - The button is enabled but not interactive; no pressed button state is drawn. This value is intended for instances where the button is used in a notification.
 
 #### `win.setThumbnailClip(region)` *Windows*
