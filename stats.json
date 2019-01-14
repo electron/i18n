@@ -3,14 +3,14 @@
     "name": "Arabic",
     "code": "ar",
     "phrases": "9952",
-    "translated": "1046",
+    "translated": "1054",
     "approved": "0",
     "words": "92079",
-    "words_translated": "6978",
+    "words_translated": "7109",
     "words_approved": "0",
     "translated_progress": 7,
     "approved_progress": 0,
-    "qa_issues": 386
+    "qa_issues": 390
   },
   {
     "name": "Bulgarian",
@@ -94,14 +94,14 @@
     "name": "French",
     "code": "fr",
     "phrases": "9952",
-    "translated": "7184",
+    "translated": "7207",
     "approved": "39",
     "words": "92079",
-    "words_translated": "53931",
+    "words_translated": "54152",
     "words_approved": "142",
     "translated_progress": 58,
     "approved_progress": 0,
-    "qa_issues": 2081
+    "qa_issues": 2090
   },
   {
     "name": "German",
