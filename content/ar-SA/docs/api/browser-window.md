@@ -1090,7 +1090,7 @@ The `buttons` is an array of `Button` objects:
   * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
   * <; 0>;<;/0>; Function
   * `أداة` String (اختياري) - نص أداة الزر.
-  * `flags` String[] (optional) - Control specific states and behaviors of the button. By default, it is `['enabled']`.
+  * `أعلام` String[] (اختياري) ء السيطرة على حالات وسلوكيات محددة للزر. افتراضيا ، هو `['enabled']`.
 
 The `flags` is an array that can include following `String`s:
 
