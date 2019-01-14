@@ -24,7 +24,7 @@ Les variables d'environnement suivantes sont destinés principalement à l'exéc
 
 ### `NODE_OPTIONS`
 
-Electron includes support for a subset of Node's [`NODE_OPTIONS`](https://nodejs.org/api/cli.html#cli_node_options_options). The majority are supported with the exception of those which conflict with Chromium's use of BoringSSL.
+Electron inclut le support pour un sous-ensemble des [`NODE_OPTIONS`](https://nodejs.org/api/cli.html#cli_node_options_options) de Node. La majorité sont supportés à l'exception de celles qui rentrent en conflit avec l'utilisation de BoringSSL dans Chronium.
 
 Exemple :
 
@@ -32,7 +32,7 @@ Exemple :
 export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
 ```
 
-Unsupported options are:
+Les options non supportées sont :
 
 ```sh
 --use-bundled-ca
@@ -42,7 +42,7 @@ Unsupported options are:
 --use-openssl-ca
 ```
 
-`NODE_OPTIONS` are explicitly disallowed in packaged apps.
+Les `NODE_OPTIONS` sont strictement interdites dans les applications compilées.
 
 ### `GOOGLE_API_KEY`
 
@@ -74,9 +74,9 @@ N'utilise pas la bar de menu global sur Linux.
 
 ### `ELECTRON_TRASH` *Linux*
 
-Set the trash implementation on Linux. Default is `gio`.
+Met en place l'implémentation de la corbeille dans Linux. Vaut par défaut `gio`.
 
-Options:
+Options :
 
 * `gvfs-trash`
 * `trash-cli`
