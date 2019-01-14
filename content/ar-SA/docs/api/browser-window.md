@@ -1099,7 +1099,7 @@ The `buttons` is an array of `Button` objects:
 * `رفض عند النقر` - عند النقر فوق الزر ، يتم إغلاق نافذة الصور المصغرة فورا.
 * `لا توجد خلفية ` - لا ترسم حدود الزر ، استخدم الصورة فقط.
 * `مخفي` - لا يظهر الزر للمستخدم.
-* `noninteractive` - The button is enabled but not interactive; no pressed button state is drawn. This value is intended for instances where the button is used in a notification.
+* `غير تفاعلي` - الزر ممكّن ولكنه غير تفاعلي ؛ حالة عدم ضغط الزر مرسومة. هذه القيمة مخصصة للحالات التي يستخدم فيها الزر للإخطار.
 
 #### `win.setThumbnailClip(region)` *Windows*
 
