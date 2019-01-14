@@ -72,7 +72,7 @@ Sur Windows, seulement `releaseName` est disponible.
 
 Cet événement est émis après qu'un utilisateur appelle `quitAndInstall()`.
 
-When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
+Quand cette API est appelée, l'événement `before-quit` n'est pas émis avant que toutes les fenêtres soient fermées. Ainsi vous devriez écouter cet évènement si vous voulez effectuer des actions avant que les fenêtres soient fermées et qu'un processus est entrain d'être arrêté, est écouter aussi `before-quit`.
 
 ## Méthodes
 
