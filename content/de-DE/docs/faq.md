@@ -47,7 +47,7 @@ console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 
 ## Das Fenster/Icon meiner App verschwindet nach ein paar Minuten.
 
-Dies geschieht, wenn die Variable, die verwendet wird, um das Fenster/Fach zu speichern, nur Unsinn aufnimmt.
+Dies geschieht, wenn die Variable, die verwendet wird, um das Fenster/Taskleistensymbol zu speichern, zur Garbage Collection freigegeben wird.
 
 Wenn dieses Problem auftritt, könnten die folgenden Artikel hilfreich sein:
 
