@@ -4,7 +4,7 @@
 
 Processus : [Principal](../glossary.md#main-process)
 
-**See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
+**Voir aussi : [Un guide détaillé à propos de l’implémentation des mises à jour dans votre application](../tutorial/updates.md).**
 
 ## Avertissement sur les plateformes
 
