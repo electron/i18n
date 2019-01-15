@@ -175,7 +175,7 @@ pages:
   '/donors':
     title: Спонсоры
 landing:
-  get_started: Начать работу
+  get_started: Get started
   fiddle:
     lead_desc: The easiest way to get started with Electron
     create_app: Create your app
