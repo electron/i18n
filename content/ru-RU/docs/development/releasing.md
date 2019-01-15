@@ -293,7 +293,7 @@ git checkout vX.Y.Z
 gn gen out/Release --args="import(\"//electron/build/args/release.gn\") $GN_EXTRA_ARGS"
 
 # To compile for specific arch, instead set
-gn gen out/Release-<TARGET_ARCH> --args='import(\"//electron/build/args/release.gn\") target_cpu = "[arm|x64|ia32]"'
+gn gen out/Release-&lt;TARGET_ARCH&gt; --args='import(\"//electron/build/args/release.gn\") target_cpu = "[arm|x64|ia32]"'
 
 # Build by running ninja with the electron target
 ninja -C out/Release electron
