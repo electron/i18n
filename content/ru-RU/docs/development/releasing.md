@@ -180,7 +180,7 @@ This release is published to [npm](https://www.npmjs.com/package/electron)
 under the `beta` tag and can be installed via `npm install electron@beta`.
 ```
 
-## Edit the release draft
+## Major version change
 
 1. Visit [the releases page](https://github.com/electron/electron/releases) and you'll see a new draft release with placeholder release notes.
 2. Edit the release and add release notes.
@@ -214,7 +214,7 @@ The Electron account's credentials are kept by GitHub in a password manager. You
 ```sh
 $ npm login
 Username: electron-nightly
-Password: <This can be found under NPM Electron Nightly on LastPass>
+Password: &lt;This can be found under NPM Electron Nightly on LastPass&gt;
 Email: (this IS public) electron@github.com
 ```
 
@@ -235,7 +235,7 @@ $ npm dist-tag ls electron
 If for some reason `npm run publish-to-npm` fails, you can tag the release manually:
 
 ```sh
-$ npm dist-tag add electron@<version> <tag>
+$ npm dist-tag add electron@&lt;version&gt; &lt;tag&gt;
 ```
 
 e.g.:
