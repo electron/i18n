@@ -171,11 +171,11 @@ pages:
     description: Spectron является фреймворком с открытым исходным кодом для легкого написания тестов интеграции для вашего приложения Electron. Построен на базе ChromeDriver и WebDriverIO.
   '/fiddle':
     title: Electron Fiddle
-    description: The easiest way to get started with Electron
+    description: Самый лёгкий способ начать работу с Electron
   '/donors':
     title: Спонсоры
 landing:
-  get_started: Get started
+  get_started: Начать работу
   fiddle:
     lead_desc: The easiest way to get started with Electron
     create_app: Create your app
