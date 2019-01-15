@@ -20,7 +20,17 @@ Electron 支援 [Chrome DevTools 擴展功能](https://developer.chrome.com/exte
         * `~/.config/google-chrome-canary/Default/Extensions/`
         * `~/.config/chromium/Default/Extensions/`
     * macOS 中是 `~/Library/Application Support/Google/Chrome/Default/Extensions`。
-4. 將擴充功能的路徑傳給 `BrowserWindow.addDevToolsExtension` API，以 React Developer Tools 為例，大概會是: `~/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.15.0_0`
+
+4. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like:
+    
+    ```javascript
+    const path = require('path')
+    const os = require('os')
+    
+    BrowserWindow.addDevToolsExtension(
+      path.join(os.homedir(), '/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.15.0_0')
+    )
+    ```
 
 **注意:** `BrowserWindow.addDevToolsExtension` API 無法在應用程式模組的 ready 事件發生前叫用。
 
