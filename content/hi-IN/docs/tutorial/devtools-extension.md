@@ -20,7 +20,17 @@
         * `~/.config/google-chrome-canary/Default/Extensions/`
         * `~/.config/chromium/Default/Extensions/`
     * macOS पर यह है `~/Library/Application Support/Google/Chrome/Default/Extensions`
-4. एक्सटेंशन का स्थान पास करें `BrowserWindow.addDevToolsExtension` API, रिएक्टर डेवलपर टूल्स के लिए, यह कुछ इस तरह है: `~/Library/ApplicationSupport/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.15.0_0`
+
+4. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like:
+    
+    ```javascript
+    const path = require('path')
+    const os = require('os')
+    
+    BrowserWindow.addDevToolsExtension(
+      path.join(os.homedir(), '/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.15.0_0')
+    )
+    ```
 
 **ध्यान दें** इस `BrowserWindow.addDevToolsExtension` एपीआई को पहले नहीं बुलाया जा सकता है ऐप मॉड्यूल का तैयार ईवेंट उत्सर्जित होता है।
 
