@@ -209,7 +209,7 @@ session
 
 *Recommendation is Electron's default*
 
-You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) disables crucial security features.
+You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`&lt;webview&gt;`](../api/webview-tag.md)) disables crucial security features.
 
 Do not disable `webSecurity` in production applications.
 
@@ -278,7 +278,7 @@ session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
 
 ### CSP Meta Tag
 
-CSP's preferred delivery mechanism is an HTTP header, however it is not possible to use this method when loading a resource using the `file://` protocol. It can be useful in some cases, such as using the `file://` protocol, to set a policy on a page directly in the markup using a `<meta>` tag:
+CSP's preferred delivery mechanism is an HTTP header, however it is not possible to use this method when loading a resource using the `file://` protocol. It can be useful in some cases, such as using the `file://` protocol, to set a policy on a page directly in the markup using a `&lt;meta&gt;` tag:
 
 ```html
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'">
