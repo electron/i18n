@@ -1,4 +1,4 @@
-# CertificatePrincipal वस्तु
+# प्रधान प्रमाण वस्तु
 
 * ` commonName ` String-सामांय नाम.
 * ` organizations` String []-संगठन नाम.
