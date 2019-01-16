@@ -8,7 +8,7 @@ Windows 版 Electron のビルドについては、以下のガイドライン�
 * Visual Studio 2017 15.7.2 以上 - [VS 2017 Community Edition 無料ダウンロード](https://www.visualstudio.com/vs/)
 * [Python 2.7.10 以上](http://www.python.org/download/releases/2.7/) 
   * 以下にリンクされている `depot_tools` の設定手順とは異なり、ローカルにインストールされた Python を少なくとも 2.7.10 (TLS 1.2 サポート) で使用する必要があります。 これをするには、**PATH** 内で、ローカルにインストールされた Python が `depot_tools`のフォルダより前に来るように指定してください。 現在、`depot_tools` にはまだ Python 2.7.6 が付属しているため、`gclient` コマンドが失敗します (https://crbug.com/868864 を参照)。
-  * [Python for Windows (pywin32) Extensions](https://pypi.org/project/pywin32/#files) is also needed in order to run the build process.
+  * [Python for Windows (pywin32) Extensions](https://pypi.org/project/pywin32/#files) もビルドプロセスを実行するために必要です。
 * [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
 * 完全なディストリビューションを作成する予定がある場合は、Windows SDK 10.0.15063.468 の Windows 用デバッグツールを使用してください。 `symstore.exe` が `.pdb` ファイルからシンボルストアを作成するために使用します。 
