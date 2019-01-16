@@ -4,13 +4,13 @@
 
 正如同 NW.js，Electron 亦能透過 JavaScript 與 HTML 開發桌面應用程式，並與 Node 整合提供底層系統的存取能力。
 
-But there are also fundamental differences between the two projects that make Electron a completely separate product from NW.js:
+儘管如此，Electron 與 NW.js 在原生技術上完全不同。
 
 **1. 應用程式入口點**
 
-In NW.js the main entry point of an application is a web page or a JS script. You specify a html or js file in the `package.json` and it is opened in a browser window as the application's main window (in case of an html entrypoint) or the script is executed.
+在 NW.js 中，應用程式的主要進入點為網頁或 Javascript。 以瀏覽器開啟在 `package.json` 內預設的 html 或 Javasceript 檔 ，作為應用程式的主視窗 (若預設為 html 檔) 或直接執行 Javascript。
 
-In Electron, the entry point is a JavaScript script. Instead of providing a URL directly, you manually create a browser window and load an HTML file using the API. You also need to listen to window events to decide when to quit the application.
+然而 Electron 則直接以 Javascript 作為程式進入點。 Instead of providing a URL directly, you manually create a browser window and load an HTML file using the API. You also need to listen to window events to decide when to quit the application.
 
 Electron works more like the Node.js runtime. Electron's APIs are lower level so you can use it for browser testing in place of [PhantomJS](http://phantomjs.org/).
 
