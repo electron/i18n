@@ -1,6 +1,6 @@
 # Electron 與 NW.js (原名 node-webkit) 的技術差異
 
-**注: Electron 以前叫做 Atom Shell。**
+**註: Electron 以前叫做 Atom Shell。**
 
 正如同 NW.js，Electron 亦能透過 JavaScript 與 HTML 開發桌面應用程式，並與 Node 整合提供底層系統的存取能力。
 
@@ -10,9 +10,9 @@
 
 在 NW.js 中，應用程式的主要進入點為網頁或 Javascript。 以瀏覽器開啟在 `package.json` 內預設的 html 或 Javasceript 檔 ，作為應用程式的主視窗 (若預設為 html 檔) 或直接執行 Javascript。
 
-然而 Electron 則直接以 Javascript 作為程式進入點。 Instead of providing a URL directly, you manually create a browser window and load an HTML file using the API. You also need to listen to window events to decide when to quit the application.
+然而 Electron 則直接以 Javascript 作為程式進入點。 用以取代 URL，使您能直接建立一個客製化的瀏覽器視窗，並載入 Electron API 的 HTML 檔。 您亦能透過監聽事件 window events 來決定關閉應用程式的時機。
 
-Electron works more like the Node.js runtime. Electron's APIs are lower level so you can use it for browser testing in place of [PhantomJS](http://phantomjs.org/).
+Electron 的運作方式更像 Node.js。Electron 所提供的 API 能夠直接控制底層系統的功能，您甚至能用它來代替[ PhantomJS ](http://phantomjs.org/)進行瀏覽器測試。
 
 **2. 建置系統**
 
