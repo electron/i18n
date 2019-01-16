@@ -2,7 +2,7 @@
 
 **注: Electron 以前叫做 Atom Shell。**
 
-Like NW.js, Electron provides a platform to write desktop applications with JavaScript and HTML and has Node integration to grant access to the low level system from web pages.
+正如同 NW.js，Electron 亦能透過 JavaScript 與 HTML 開發桌面應用程式，並與 Node 整合提供底層系統的存取能力。
 
 But there are also fundamental differences between the two projects that make Electron a completely separate product from NW.js:
 
