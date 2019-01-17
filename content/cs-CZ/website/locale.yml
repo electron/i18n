@@ -52,7 +52,20 @@ community:
   awesome_notice: Tento seznam je generován z repozitáře <a href="https://github.com/sindresorhus/awesome-electron">Awesome Electron od @sindresorhus</a>. <br>Něco chybí? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Pošlete pull request</a>.
   meetup_notice: Chcete-li přidat setkání, upravte <code>data/meetups.json</code> a <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">pošlete pull request</a>.
 releases:
-  title: Electron Releases
+  show_releases: "Show Releases:"
+  show_only_releases_from: "Show Only Releases From:"
+  all_versions: All Versions
+  stable_releases: Stable Releases
+  stable_desc: Regular, supported releases
+  beta_releases: Beta Releases
+  beta_desc: Test your app with upcoming changes
+  nightly_releases: Nightly Releases
+  nightly_desc: Experiment with the latest features
+  next: Next
+  next_page: Next Page
+  previous: Previous
+  previous_page: Previous Page
+  page: Page
   all_releases: All Releases
   back_to_index: Back to index
 electron_is_easy:
