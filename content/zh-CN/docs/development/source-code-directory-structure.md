@@ -46,7 +46,7 @@ Electron
 
 ## `/chromium_src`
 
-`/chromium_src` 中的文件更多地是 Chromium 的片段而不是内容层面的部分。 例如要实现 Papper API, 我们需要一些类似官方 Chrome 一样的联接操作。 我们可能已经构建了相应的源文件作为 [libcc](../glossary.md#libchromiumcontent) 的一部分，但是多数时候我们不需要所有的特性 (一些用于专用和分析的东西)， 所以我们采用其部分代码。 这很容易作为补丁打进 libcc，虽然此时写入 libcc 的补丁很小，但 chromium_src 的变化往往很大。 另外请注意，这些补丁不像我们维护的其他 libcc 补丁，绝对不能推到上游。
+`/chromium_src` 中的文件更多地是 Chromium 的片段而不是内容层面的部分。 例如要实现 Papper API, 我们需要一些类似官方 Chrome 一样的联接操作。 我们可能已经构建了相应的源文件作为 [libcc](../glossary.md#libchromiumcontent) 的一部分，但是多数时候我们不需要所有的特性 (一些用于专用和分析的东西)， 所以我们采用其部分代码。 这些可能很容易在 libcc 中已经存在补丁，但在编写目标 libcc 时维护的补丁非常小，而 chromium_src 的变化往往很大。 另外请注意，这些补丁不像我们维护的其他 libcc 补丁，绝对不能推到上游。
 
 ## 其它目录的结构
 
