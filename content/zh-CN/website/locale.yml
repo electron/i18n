@@ -52,7 +52,20 @@ community:
   awesome_notice: 此列表是从 <a href="https://github.com/sindresorhus/awesome-electron"> @sindresorhus 的 Awesome Electron </a> 仓库生成的。<br> 缺少了什么？<a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md"> 请发Pull Request </a>。
   meetup_notice: 若要添加线下交流会，请编辑 <code>data/meetups.json</code> 和 <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json"> 发pull request </a>。
 releases:
-  title: Electron 发行版
+  show_releases: "Show Releases:"
+  show_only_releases_from: "Show Only Releases From:"
+  all_versions: All Versions
+  stable_releases: Stable Releases
+  stable_desc: Regular, supported releases
+  beta_releases: Beta Releases
+  beta_desc: Test your app with upcoming changes
+  nightly_releases: Nightly Releases
+  nightly_desc: Experiment with the latest features
+  next: Next
+  next_page: Next Page
+  previous: Previous
+  previous_page: Previous Page
+  page: Page
   all_releases: 全部发行版
   back_to_index: 返回索引
 electron_is_easy:
