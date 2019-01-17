@@ -38,8 +38,8 @@ Electron
 |   |   └── api/ - Javascript API 实现.
 |   └── renderer/ - Javascript 渲染器进程初始化代码.
 |       └── api/ - Javascript API 实现.
-├── native_mate/ - A fork of Chromium's gin library that makes it easier to marshal
-|                  types between C++ and JavaScript.
+├── native_mate/ - 复制了 Chromium 的 gin 库, 使得更加便捷
+|                  地在 C++ 类型和 JavaScript 类型之间转换.
 ├── spec/ - 自动化测试.
 └── BUILD.gn - Electron 的构建规则.
 ```
