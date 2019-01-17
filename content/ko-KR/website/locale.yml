@@ -52,7 +52,20 @@ community:
   awesome_notice: 이 목록은 <a href="https://github.com/sindresorhus/awesome-electron"> @sindresorhus의 멋진 Electron</a> 저장소에서 생성되었습니다. <br>뭔가 누락되었나요? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md"> Pull Request를 만드세요.</a>
   meetup_notice: 모임을 추가하려면 <code>data/meetups.json</code>를 수정하고 <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">pull request를 만드세요</a>.
 releases:
-  title: Electron 릴리즈
+  show_releases: "Show Releases:"
+  show_only_releases_from: "Show Only Releases From:"
+  all_versions: All Versions
+  stable_releases: Stable Releases
+  stable_desc: Regular, supported releases
+  beta_releases: Beta Releases
+  beta_desc: Test your app with upcoming changes
+  nightly_releases: Nightly Releases
+  nightly_desc: Experiment with the latest features
+  next: Next
+  next_page: Next Page
+  previous: Previous
+  previous_page: Previous Page
+  page: Page
   all_releases: 모든 릴리즈들
   back_to_index: 목차로 돌아가기
 electron_is_easy:
