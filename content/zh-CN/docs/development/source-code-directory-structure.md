@@ -46,17 +46,17 @@ Electron
 
 ## `/chromium_src`
 
-`/chromium_src` 中的文件更多地是Chromium的片段而不是内容层面的部分。 For example to implement Pepper API, we need some wiring similar to what official Chrome does. We could have built the relevant sources as a part of [libcc](../glossary.md#libchromiumcontent) but most often we don't require all the features (some tend to be proprietary, analytics stuff) so we took parts of the code. These could have easily been patches in libcc, but at the time when these were written the goal of libcc was to maintain very minimal patches and chromium_src changes tend to be big ones. Also, note that these patches can never be upstreamed unlike other libcc patches we maintain now.
+`/chromium_src` 中的文件更多地是 Chromium 的片段而不是内容层面的部分。 例如要实现 Papper API, 我们需要一些类似官方 Chrome 一样的联接操作。 我们可能已经构建了相应的源文件作为 [libcc](../glossary.md#libchromiumcontent) 的一部分，但是多数时候我们不需要所有的特性 (一些用于专用和分析的东西)， 所以我们采用其部分代码。 These could have easily been patches in libcc, but at the time when these were written the goal of libcc was to maintain very minimal patches and chromium_src changes tend to be big ones. Also, note that these patches can never be upstreamed unlike other libcc patches we maintain now.
 
 ## 其它目录的结构
 
 * **script** - 用于诸如构建、打包、测试等开发用途的脚本等.
-* **tools** - Helper scripts used by GN files, unlike `script`, scripts put here should never be invoked by users directly.
+* **tools** - 在 gyp 文件中用到的工具脚本，但与 `script` 目录不同，该目录中的脚本不应该被用户直接调用.
 * **vendor** - 第三方依赖项的源代码，为了防止人们将它与 Chromium 源码中的同名目录相混淆，在这里我们不使用 `third_party` 作为目录名.
 * **node_modules** - 在构建中用到的第三方 node 模块.
 * **out** - `ninja` 的临时输出目录.
 * **dist** - 由脚本 `script/create-dist.py` 创建的临时发布目录.
-* **external_binaries** - Downloaded binaries of third-party frameworks which do not support building with `gn`.
+* **external_binaries** - 下载了不支持用 `gn` 构建的第三方框架的二进制文件.
 
 ## 让 Git 子模块保持最新
 
