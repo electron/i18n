@@ -52,7 +52,20 @@ community:
   awesome_notice: Deze lijst is gegenereerd van <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repository.<br> Mist er iets? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Maak een pull request</a>.
   meetup_notice: Om een bijeenkomst toe te voegen, bewerk <code>data/meetups.json</code> en <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">maak een pull request</a>.
 releases:
-  title: Electron Releases
+  show_releases: "Show Releases:"
+  show_only_releases_from: "Show Only Releases From:"
+  all_versions: All Versions
+  stable_releases: Stable Releases
+  stable_desc: Regular, supported releases
+  beta_releases: Beta Releases
+  beta_desc: Test your app with upcoming changes
+  nightly_releases: Nightly Releases
+  nightly_desc: Experiment with the latest features
+  next: Next
+  next_page: Next Page
+  previous: Previous
+  previous_page: Previous Page
+  page: Page
   all_releases: All Releases
   back_to_index: Back to index
 electron_is_easy:
