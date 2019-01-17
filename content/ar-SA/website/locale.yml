@@ -52,7 +52,20 @@ community:
   awesome_notice: هذه قائمة تم تكوينها من <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repository. <br> شيء مفقود؟ <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">تقديم طلب سحب للمستودع</a>.
   meetup_notice: لإضافة اجتماع ، عدِّل<code>data/meetups.json</code> و <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">تقديم طلب سحب</a>.
 releases:
-  title: إصدارات إلكترون
+  show_releases: "Show Releases:"
+  show_only_releases_from: "Show Only Releases From:"
+  all_versions: All Versions
+  stable_releases: Stable Releases
+  stable_desc: Regular, supported releases
+  beta_releases: Beta Releases
+  beta_desc: Test your app with upcoming changes
+  nightly_releases: Nightly Releases
+  nightly_desc: Experiment with the latest features
+  next: Next
+  next_page: Next Page
+  previous: Previous
+  previous_page: Previous Page
+  page: Page
   all_releases: كل الاصدارات
   back_to_index: العودة إلى الرئيسية
 electron_is_easy:
