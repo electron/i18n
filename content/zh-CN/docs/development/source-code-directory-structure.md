@@ -41,7 +41,7 @@ Electron
 ├── native_mate/ - A fork of Chromium's gin library that makes it easier to marshal
 |                  types between C++ and JavaScript.
 ├── spec/ - 自动化测试.
-└── BUILD.gn - Building rules of Electron.
+└── BUILD.gn - Electron 的构建规则.
 ```
 
 ## `/chromium_src`
