@@ -52,7 +52,20 @@ community:
   awesome_notice: Această listă este generată de la depozitarul <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a>.<br>Lipsește ceva? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Fă un pull request</a>.
   meetup_notice: Pentru a adăuga un meetup, editează <code>data/meetups.json</code> și <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">fă un pull request</a>.
 releases:
-  title: Lansări Electron
+  show_releases: "Show Releases:"
+  show_only_releases_from: "Show Only Releases From:"
+  all_versions: All Versions
+  stable_releases: Stable Releases
+  stable_desc: Regular, supported releases
+  beta_releases: Beta Releases
+  beta_desc: Test your app with upcoming changes
+  nightly_releases: Nightly Releases
+  nightly_desc: Experiment with the latest features
+  next: Next
+  next_page: Next Page
+  previous: Previous
+  previous_page: Previous Page
+  page: Page
   all_releases: Toate lansările
   back_to_index: Înapoi la index
 electron_is_easy:
