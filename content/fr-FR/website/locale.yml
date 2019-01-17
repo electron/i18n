@@ -52,7 +52,20 @@ community:
   awesome_notice: Cette liste est générée depuis le repository <a href="https://github.com/sindresorhus/awesome-electron">Awesome Electron de @sindresorhus</a>. <br> Quelque chose manque ? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Faites une pull request</a>.
   meetup_notice: Pour ajouter une réunion, éditez <code>data/meetups.json</code> et <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">faites une pull request</a>.
 releases:
-  title: Versions d'Electron
+  show_releases: "Show Releases:"
+  show_only_releases_from: "Show Only Releases From:"
+  all_versions: All Versions
+  stable_releases: Stable Releases
+  stable_desc: Regular, supported releases
+  beta_releases: Beta Releases
+  beta_desc: Test your app with upcoming changes
+  nightly_releases: Nightly Releases
+  nightly_desc: Experiment with the latest features
+  next: Next
+  next_page: Next Page
+  previous: Previous
+  previous_page: Previous Page
+  page: Page
   all_releases: Toutes les versions
   back_to_index: Retour à l'accueil
 electron_is_easy:
