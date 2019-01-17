@@ -52,7 +52,20 @@ community:
   awesome_notice: Этот список генерируется из репозитория <a href="https://github.com/sindresorhus/awesome-electron">Awesome Electron от @sindresorhus</a>. <br> Что-то пропустили? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Сделайте pull request</a>.
   meetup_notice: Чтобы добавить встречу, отредактируйте <code>data/meetups.json</code> и <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">сделайте pull request</a>.
 releases:
-  title: Релизы Electron
+  show_releases: "Show Releases:"
+  show_only_releases_from: "Show Only Releases From:"
+  all_versions: All Versions
+  stable_releases: Stable Releases
+  stable_desc: Regular, supported releases
+  beta_releases: Beta Releases
+  beta_desc: Test your app with upcoming changes
+  nightly_releases: Nightly Releases
+  nightly_desc: Experiment with the latest features
+  next: Next
+  next_page: Next Page
+  previous: Previous
+  previous_page: Previous Page
+  page: Page
   all_releases: Все релизы
   back_to_index: Вернуться к содержанию
 electron_is_easy:
@@ -177,7 +190,7 @@ pages:
 landing:
   get_started: Начать работу
   fiddle:
-    lead_desc: The easiest way to get started with Electron
+    lead_desc: Самый лёгкий способ начать работу с Electron
     create_app: Создание собственного приложения
     description: Electron Fiddle позволяет создавать и пробовать небольшие эксперименты с Electron. По открытию, вас приветсвуют шаблоном ускорённого запуска - вы можете изменить несколько установок, выбрать желаемую версию Electron и поиграть с разными вариантами. После, сохраните ваш Fiddle как GitHub Gist или в локальную папку. При опубликовании в GitHub, ваш Fiddle доступен любому и всё, что нужно сделать чтобы попробовать ваш Fiddle это ввести его в адресную строку браузера.
     explore: Explore Electron
