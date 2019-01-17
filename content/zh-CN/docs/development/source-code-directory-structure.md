@@ -22,14 +22,14 @@ Electron
 |   |   └── resources/ - 图标，平台相关的文件等.
 |   ├── renderer/ - 运行在渲染进程中的代码.
 |   |   └── api/ - 渲染进程 API 的实现.
-|   └── common/ - Code that used by both the main and renderer processes,
-|       |         including some utility functions and code to integrate node's
-|       |         message loop into Chromium's message loop.
-|       └── api/ - The implementation of common APIs, and foundations of
-|                  Electron's built-in modules.
+|   └── common/ - 同时被主进程和渲染进程用到的代码,
+|       |         包括了一些用来将 node 的消息循环整合到 Chromium 的
+|       |         消息循环中时用到的工具函数和代码.
+|       └── api/ - 同时被主进程和渲染进程使用到的 API 的实现,
+|                  并且是 Electron 内置模块的基础.
 ├── chromium_src/ - 从 Chromium 项目中拷贝来的代码. 参见下文。
-├── default_app/ - The default page to show when Electron is started without
-|                  providing an app.
+├── default_app/ - 在没有提供应用程序的情况下
+|                  启动 Electron 的默认页面.
 ├── docs/ - 文档.
 ├── lib/ - JavaScript 源代码.
 |   ├── browser/ - Javascript 主进程初始化代码.
