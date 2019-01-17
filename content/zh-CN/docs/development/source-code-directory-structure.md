@@ -10,9 +10,8 @@ Electron 的源代码主要依据 Chromium 的拆分约定被拆成了许多部�
 Electron
 ├── atom/ - C++ 源代码.
 |   ├── app/ - 系统入口代码.
-|   ├── browser/ - The frontend including the main window, UI, and all of the
-|   |   |          main process things. This talks to the renderer to manage web
-|   |   |          pages.
+|   ├── browser/ - 包含了主窗口、UI 和所有主进程相关的东西.
+|   |   |          它会告诉渲染进程如何管理页面.
 |   |   ├── ui/ - 不同平台上 UI 部分的实现.
 |   |   |   ├── cocoa/ - Cocoa 部分的源代码.
 |   |   |   ├── win/ - Windows GUI 部分的源代码.
