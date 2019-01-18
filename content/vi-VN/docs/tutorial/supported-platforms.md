@@ -1,1 +1,1 @@
-Moved to <support.md>
+Đã chuyển sang <support.md>
