@@ -54,7 +54,7 @@ $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 
 ## --proxy-server=`address:port`
 
-Использует указанный proxy сервер, который перезаписывает системные настройки. Этот параметр влияет только на запросы HTTP протокола, включая HTTPS и WebSocket. Примечательно также, что не все proxy серверы поддерживают HTTPS и WebSocket протоколы. The proxy URL does not support username and password authentication [per Chromium issue](https://bugs.chromium.org/p/chromium/issues/detail?id=615947).
+Использовать указанный прокси-сервер, переопределив системные настройки. Этот параметр влияет только на протокол HTTP, включая HTTPS и WebSocket запросы. Примечательно также, что не все proxy серверы поддерживают запросы HTTPS и WebSocket. В URL для прокси не поддерживается указание имени пользователя и пароля для аутентификации, [из-за проблемы в Chromium](https://bugs.chromium.org/p/chromium/issues/detail?id=615947).
 
 ## --proxy-bypass-list=`hosts`
 
