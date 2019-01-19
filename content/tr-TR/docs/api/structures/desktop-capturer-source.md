@@ -1,4 +1,4 @@
-# MasaüstüYakalayiciKaynak Nesnesi
+# MasaüstüYakalayiciKaynagi Nesnesi
 
 * `id` String - [`navigator.webkitGetUserMedia`] Çağrıldığında bir `chromeMediaSourceId` kısıtlama olarak kullanılabilen bir pencere ya da ekran tanımlayıcısı. Tanımlayıcının formatı `window:XX` ya da `screen:XX` olduğunda `XX` rastgele bir sayı olmalıdır. 
 * `name` String - Bir pencere kaynağının ismi pencere başlığı ile uyuşurken, ekran kaynağı ya `Entire Screen` ya da `Screen <index>` olarak isimlendirilecektir.
