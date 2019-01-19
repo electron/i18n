@@ -32,8 +32,8 @@ community:
   description: Zdroje pro spojení se s lidmi pracujících na Electronu.
   channels:
     get_started: "<a href='/docs/tutorial/first-app'><b>Začněte</b></a> stavět aplikaci přečtením si <a href='/docs/tutorial/first-app'>rychlého průvodce začátečníka</a>."
-    updates: "<a href='https://twitter.com/electronjs'><b>Stay up to date</b></a> by following <a href='https://twitter.com/electronjs'>@electronjs</a> on Twitter and subscribing to the <a href='/blog'>blog feed</a>."
-    localized_docs: "<a href='/languages'><b>Read docs in your native language</b></a> by visiting the <a href='/languages'>languages page</a>."
+    updates: "<a href='https://twitter.com/electronjs'><b>Zůstaň v obraze</b></a> a sleduj <a href='https://twitter.com/electronjs'>@electronjs</a> na Twitteru a odebírej náš <a href='/blog'>blog</a>."
+    localized_docs: "<a href='/languages'><b>Přečti si dokumentaci ve svém jazyce</b></a> navštívením <a href='/languages'>stránky pro volbu jazyka</a>."
     help: "<a href='http://atom-slack.herokuapp.com'><b>Get help and feedback</b></a> by joining the <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Report bugs</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Request features</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
@@ -54,18 +54,18 @@ community:
 releases:
   show_releases: "Show Releases:"
   show_only_releases_from: "Show Only Releases From:"
-  all_versions: All Versions
-  stable_releases: Stable Releases
-  stable_desc: Regular, supported releases
-  beta_releases: Beta Releases
-  beta_desc: Test your app with upcoming changes
+  all_versions: Všechny verze
+  stable_releases: Stabilní verze
+  stable_desc: Standardní podporované verze
+  beta_releases: Beta verze
+  beta_desc: Otestujte svou aplikaci s přicházejícími změnami
   nightly_releases: Nightly Releases
-  nightly_desc: Experiment with the latest features
-  next: Next
-  next_page: Next Page
-  previous: Previous
-  previous_page: Previous Page
-  page: Page
+  nightly_desc: Experimentujte s nejnovějšími vychytávkami
+  next: Další
+  next_page: Další stránka
+  previous: Předchozí
+  previous_page: Předchozí stránka
+  page: Stránka
   all_releases: All Releases
   back_to_index: Back to index
 electron_is_easy:
@@ -122,12 +122,12 @@ apps:
   edit_this_app: Upravte tuto aplikaci.
   search_app: Filter apps by name, description, etc…
   categories: Categories
-  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
+  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Vytvoř Pull Request</a> pro přidání své aplikace.'
   website: Webová stránka
-  repository: Repository
-  category: Category
-  downloads: Downloads
-  keywords: Keywords
+  repository: Repozitář
+  category: Kategorie
+  downloads: Ke stažení
+  keywords: Klíčová slova
   license: License
   latest_release: Latest Release
 blog:
