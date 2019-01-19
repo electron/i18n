@@ -149,7 +149,7 @@ pages:
     description: Aplikace běžicí na Electronu
   '/docs':
     title: Dokumentace
-    description: Guides and API reference documentation for the latest Electron release
+    description: Uživatelská příručka a dokumentace API rozhraní pro poslední vydanou verzi
   '/docs/all':
     title: Všechna dokumentace Electronu!
     description: Electron příručky a API dokumentace na jedné, snadno prohledávatelné stránce.
@@ -191,8 +191,8 @@ landing:
   get_started: Začínáme
   fiddle:
     lead_desc: The easiest way to get started with Electron
-    create_app: Create your app
-    description: Electron Fiddle lets you create and play with small Electron experiments. It greets you with a quick-start template after opening – change a few things, choose the version of Electron you want to run it with, and play around. Then, save your Fiddle either as a GitHub Gist or to a local folder. Once pushed to GitHub, anyone can quickly try your Fiddle out by just entering it in the address bar.
+    create_app: Vytvořte svou aplikaci
+    description: Electron Fiddle vytvářejte svoje vlastní malé experimenty v Electronu. Seznamte se z našimi úvodními příklady pro rychlý start Vaši práce - změňte si pár věci, vyberte tu správnou verzi Electronu se kterou to chcete všechno rozjet, prostě si hrajte. Potom si uložte svůj výsledek do Vašich GitHub Gist nebo to lokální složky. Jakmile jednou pushnete na GitHub muže si z Vašim Fiddlem pohrát každý jen zadaním adresy v prohlížeči.
     explore: Explore Electron
     explore_desc: "Try Electron without installing any dependencies: Fiddle includes everything you'll need to explore the platform. It also includes examples for every API available in Electron, so if you want to quickly see what a BrowserView is or how the desktopCapturer works, Fiddle has got you covered."
     code_with_types: Code with Types
