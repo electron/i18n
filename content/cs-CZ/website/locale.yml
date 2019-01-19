@@ -66,7 +66,7 @@ releases:
   previous: Předchozí
   previous_page: Předchozí stránka
   page: Stránka
-  all_releases: All Releases
+  all_releases: Všechny verze
   back_to_index: Back to index
 electron_is_easy:
   title: Je to snazší, než si myslíte
@@ -105,7 +105,7 @@ quick_start:
   dive_deeper: Nebo se ponořte hlouběji a přečtěte si <a href='/docs'>dokumentaci</a>.
 need_help:
   title: Potřebujete pomoc?
-  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum or our <a href='http://atom-slack.herokuapp.com/'>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
+  description: Otázky můžete pokládat na našem <a href='https://discuss.atom.io/c/electron'>fóru</a> nebo na <a href='http://atom-slack.herokuapp.com/'>Slacku</a>. Sledujte nás <a href="https://twitter.com/electronjs">@electronjs</a> na Twitteru, aby vám neuniklo žádné důležité zprávy. Chcete něco méně veřejného? Napište email na <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
 headings:
   languages: Jazyky
 taglines:
@@ -120,8 +120,8 @@ apps:
   submit_your_own: pošlete vaši
   something_missing: Něco chybí?
   edit_this_app: Upravte tuto aplikaci.
-  search_app: Filter apps by name, description, etc…
-  categories: Categories
+  search_app: Filtrujte aplikace podle jména, popisu, atd…
+  categories: Kategorie
   add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Vytvoř Pull Request</a> pro přidání své aplikace.'
   website: Webová stránka
   repository: Repozitář
@@ -129,7 +129,7 @@ apps:
   downloads: Ke stažení
   keywords: Klíčová slova
   license: License
-  latest_release: Latest Release
+  latest_release: Poslední verze
 blog:
   title: Electron Blog
   description: Všechny nejnovější zprávy z týmu Electron a komunity.
@@ -155,13 +155,13 @@ pages:
     description: Electron příručky a API dokumentace na jedné, snadno prohledávatelné stránce.
   '/docs/api':
     title: API
-    description: API reference documentation for the latest Electron release
+    description: API dokumentace pro poslední verzi Electronu
   '/docs/development':
     title: Vývoj
     description: Vývoj v Electronu
   '/docs/tutorial':
     title: Tutoriál
-    description: Guides and tutorials for the latest Electron release
+    description: Návody a příklady pro poslední verzi Electronu
   '/blog':
     title: Electron Blog
     description: Všechny nejnovější zprávy z týmu Electron a komunity.
@@ -178,7 +178,7 @@ pages:
     title: Userland
   '/devtron':
     title: Devtron
-    description: Devtron is an open source tool to help you inspect, monitor, and debug your Electron app. Built on top of the amazing Chrome Developer Tools.
+    description: Devtron je open source nástroj, který Vám pomůže sledovat a krokovat vaši Electron aplikaci. Je založen na úžasných nástrojích pro vývojáře z Chrome.
   '/spectron':
     title: Spectron
     description: Spectron je open source framework pro snadné psaní integračních testů pro vaší Electron aplikaci. Spectron je postaven na ChromeDriver a WebDriverIO.
