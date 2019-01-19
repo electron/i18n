@@ -14,6 +14,6 @@
 Ek bildirim düğmelerinin macOS'ta çalışabilmesi için uygulamanızın aşağıdaki kriterler sağlaması gerekmektedir.
 
 * İmzalı uygulama
-* App has it's `NSUserNotificationAlertStyle` set to `alert` in the `Info.plist`.
+* Uygulamanın `Info.plist` içinde `alert` olarak ayarlanmış `NSUserNotificationAlertStyle` değeri var.
 
-If either of these requirements are not met the button won't appear.
+Bu gereksinimlerden herhangi biri karşılanmazsa düğme görünmez.
