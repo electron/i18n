@@ -134,7 +134,7 @@ blog:
   title: Electron Blog
   description: Všechny nejnovější zprávy z týmu Electron a komunity.
   feedback: Máte něco k tomuto příspěvku? Jděte na Twitter <a href="https://twitter.com/electronjs">@electronjs</a>.
-  help: Need help or found a bug? <a href="/contact">Contact us</a>.
+  help: Potřebujete pomoct nebo jste našli chybu? <a href="/contact">Kontaktujte nás</a>.
 clipboard:
   copy: Kopírovat
   copy_to_clipboard: Kopírovat do schránky
