@@ -32,8 +32,8 @@ community:
   description: Electron üzerinde çalışan insanlarla bağlantı kurmak için kaynaklar.
   channels:
     get_started: "<a href='/docs/tutorial/first-app'><b>Başlarken</b></a>Hızlı başlangıç rehberini okuyarak<a href='/docs/tutorial/first-app'>ilk uygulamanızı geliştirin</a>."
-    updates: "<a href='https://twitter.com/electronjs'><b>Stay up to date</b></a> by following <a href='https://twitter.com/electronjs'>@electronjs</a> on Twitter and subscribing to the <a href='/blog'>blog feed</a>."
-    localized_docs: "<a href='/languages'><b>Read docs in your native language</b></a> by visiting the <a href='/languages'>languages page</a>."
+    updates: "Twitter'da <a href='https://twitter.com/electronjs'> @electronjs </a> adresini takip ederek <b> Güncel kalın </b> ve <a href='/blog'> blog yayınına </a> abone olun."
+    localized_docs: "<a href='/languages'> Dil sayfasını </a> ziyaret ederek <a href='/languages'> <b> Dokümanları kendi ana dilinizde okuyun </b> </a>."
     help: "<a href='http://atom-slack.herokuapp.com'><b>Get help and feedback</b></a> by joining the <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Report bugs</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Request features</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
