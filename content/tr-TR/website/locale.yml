@@ -124,11 +124,11 @@ apps:
   categories: Categories
   add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
   website: Website
-  repository: Repository
-  category: Category
-  downloads: Downloads
-  keywords: Keywords
-  license: License
+  repository: Veri Havuzu
+  category: Kategori
+  downloads: İndirilenler
+  keywords: Anahtar Kelimeler
+  license: Lisans
   latest_release: Latest Release
 blog:
   title: Electron Bloğu
