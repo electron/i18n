@@ -61,13 +61,13 @@ releases:
   beta_desc: Test your app with upcoming changes
   nightly_releases: Nightly Releases
   nightly_desc: Experiment with the latest features
-  next: Next
-  next_page: Next Page
-  previous: Previous
-  previous_page: Previous Page
-  page: Page
-  all_releases: All Releases
-  back_to_index: Back to index
+  next: Sonraki
+  next_page: Sonraki Sayfa
+  previous: Önceki
+  previous_page: Önceki Sayfa
+  page: Sayfa
+  all_releases: Tüm Sürümler
+  back_to_index: Dizine geri dön
 electron_is_easy:
   title: Düşündüğünden daha kolay
   description: Eğer bir website oluşturabiliyorsanız, masaüstü uygulama da oluşturabilirsiniz. Electron, JavaScript, HTML ve CSS gibi web teknolojileriyle birlikte yaratıcı, yerli uygulamalar oluşturmak için bir sistemdir. Uygulamanızın özüne odaklanabilmeniz için, zor kısımların üstesinden gelir.
@@ -121,15 +121,15 @@ apps:
   something_missing: Bir şey mi eksik?
   edit_this_app: Bu uygulamayı düzenle.
   search_app: Filter apps by name, description, etc…
-  categories: Categories
+  categories: Kategoriler
   add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
-  website: Website
+  website: Web sitesi
   repository: Veri Havuzu
   category: Kategori
   downloads: İndirilenler
   keywords: Anahtar Kelimeler
   license: Lisans
-  latest_release: Latest Release
+  latest_release: En son sürüm
 blog:
   title: Electron Bloğu
   description: Electron takım ve topluluğundan en sonki haberler.
@@ -191,7 +191,7 @@ landing:
   get_started: Başlarken
   fiddle:
     lead_desc: The easiest way to get started with Electron
-    create_app: Create your app
+    create_app: Uygulamanı oluştur
     description: Electron Fiddle lets you create and play with small Electron experiments. It greets you with a quick-start template after opening – change a few things, choose the version of Electron you want to run it with, and play around. Then, save your Fiddle either as a GitHub Gist or to a local folder. Once pushed to GitHub, anyone can quickly try your Fiddle out by just entering it in the address bar.
     explore: Explore Electron
     explore_desc: "Try Electron without installing any dependencies: Fiddle includes everything you'll need to explore the platform. It also includes examples for every API available in Electron, so if you want to quickly see what a BrowserView is or how the desktopCapturer works, Fiddle has got you covered."
