@@ -16,11 +16,11 @@ Il processo principale crea pagine web mediante la creazione di istanze di `Brow
 
 Il processo principale gestisce tutte le pagine web e il corrispondente processo di rendering. Ogni processo di rendering è isolato e può occuparsi solo delle pagine web in esecuzione in esso-
 
-Nelle pagine web, chiamare le API dell'interfaccia grafica nativa non è consentito perché la gestione delle risorse nelle pagine web è molto pericolosa and it is easy to leak resources. Se si desidera eseguire operazioni di GUI in una pagina web, il processo di rendering della pagina web deve comunicare con il processo principale per richiedere che il processo principale esegua tali operazioni.
+Nelle pagine web, chiamare le API dell'interfaccia grafica nativa non è consentito perché la gestione delle risorse di sistema nelle pagine web è molto pericolosa ed è facile perdere risorse. Se si desidera eseguire operazioni di GUI in una pagina web, il processo di rendering della pagina web deve comunicare con il processo principale per richiedere che il processo principale esegua tali operazioni.
 
 > #### Aside: Communication Between Processes
 > 
-> In Electron, we have several ways to communicate between the main process and renderer processes, such as [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
+> In Electron ci sono diversi modi per comunicare tra il processo principale e quelli di rendering, come i moduli [`ipcRenderer`](../api/ipc-renderer.md) e [`ipcMain`](../api/ipc-main.md) per inviare messaggi, e il modulo [remote](../api/remote.md) per una comunicazione tipo RPC. C'è inoltre un elemento delle FAQ su [come condividere dati tra pagine web](../faq.md#how-to-share-data-between-web-pages).
 
 ## Using Electron APIs
 
