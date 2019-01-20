@@ -54,13 +54,13 @@ community:
 releases:
   show_releases: "Show Releases:"
   show_only_releases_from: "Show Only Releases From:"
-  all_versions: All Versions
-  stable_releases: Stable Releases
-  stable_desc: Regular, supported releases
-  beta_releases: Beta Releases
-  beta_desc: Test your app with upcoming changes
-  nightly_releases: Nightly Releases
-  nightly_desc: Experiment with the latest features
+  all_versions: Tüm Sürümler
+  stable_releases: Kararlı Sürümler
+  stable_desc: Düzenli, desteklenen sürümler
+  beta_releases: Beta Sürümler
+  beta_desc: Uygulamanızı yaklaşan değişikliklerle test edin
+  nightly_releases: Gece sürümleri
+  nightly_desc: En yeni özelliklerle deneme yapın
   next: Sonraki
   next_page: Sonraki Sayfa
   previous: Önceki
@@ -120,9 +120,9 @@ apps:
   submit_your_own: kendininkini gönder
   something_missing: Bir şey mi eksik?
   edit_this_app: Bu uygulamayı düzenle.
-  search_app: Filter apps by name, description, etc…
+  search_app: Uygulamaları ada, açıklamaya vb. Göre filtreleyin…
   categories: Kategoriler
-  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
+  add_app_link: 'Uygulamanızı eklemek için <a href="https://github.com/electron/electron-apps#readme"> Çekme İsteği Yapın </a>.'
   website: Web sitesi
   repository: Veri Havuzu
   category: Kategori
