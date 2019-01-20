@@ -55,14 +55,14 @@
     "name": "Czech",
     "code": "cs",
     "phrases": "9980",
-    "translated": "1169",
+    "translated": "1203",
     "approved": "0",
     "words": "92398",
-    "words_translated": "3024",
+    "words_translated": "3325",
     "words_approved": "0",
     "translated_progress": 3,
     "approved_progress": 0,
-    "qa_issues": 248
+    "qa_issues": 256
   },
   {
     "name": "Dutch",
@@ -302,27 +302,27 @@
     "name": "Turkish",
     "code": "tr",
     "phrases": "9980",
-    "translated": "7877",
+    "translated": "7902",
     "approved": "2",
     "words": "92398",
-    "words_translated": "64787",
+    "words_translated": "64951",
     "words_approved": "2",
     "translated_progress": 70,
     "approved_progress": 0,
-    "qa_issues": 3662
+    "qa_issues": 3666
   },
   {
     "name": "Ukrainian",
     "code": "uk",
     "phrases": "9980",
-    "translated": "4003",
+    "translated": "4004",
     "approved": "153",
     "words": "92398",
-    "words_translated": "24397",
+    "words_translated": "24431",
     "words_approved": "711",
     "translated_progress": 26,
     "approved_progress": 0,
-    "qa_issues": 1609
+    "qa_issues": 1610
   },
   {
     "name": "Vietnamese",
