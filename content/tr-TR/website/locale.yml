@@ -133,8 +133,8 @@ apps:
 blog:
   title: Electron Bloğu
   description: Electron takım ve topluluğundan en sonki haberler.
-  feedback: Have feedback on this post? Let <a href="https://twitter.com/electronjs">@electronjs</a> know on Twitter.
-  help: Need help or found a bug? <a href="/contact">Contact us</a>.
+  feedback: Bu yayına geri bildiriminiz mi var? Twitter'da <a href="https://twitter.com/electronjs"> @electronjs </a> adresini bilgilendirin.
+  help: Yardıma mı ihtiyacınız var ya da bir hata mı buldunuz? <a href="/contact"> Bize ulaşın </a>.
 clipboard:
   copy: Copy
   copy_to_clipboard: Panoya Kopyala
@@ -184,22 +184,22 @@ pages:
     description: Spectron, Electron uygulamanıza, kolaylıkla test entegrasyonu yazılmasını sağlayan, açık kaynak kodlu kütüphanedir. ChromeDriver ve WebDriverIO ya geliştirilmiştir.
   '/fiddle':
     title: Electron Fiddle
-    description: The easiest way to get started with Electron
+    description: Electron ile başlamanın en kolay yolu
   '/donors':
     title: Bağışçılar
 landing:
   get_started: Başlarken
   fiddle:
-    lead_desc: The easiest way to get started with Electron
+    lead_desc: Electron ile başlamanın en kolay yolu
     create_app: Uygulamanı oluştur
     description: Electron Fiddle lets you create and play with small Electron experiments. It greets you with a quick-start template after opening – change a few things, choose the version of Electron you want to run it with, and play around. Then, save your Fiddle either as a GitHub Gist or to a local folder. Once pushed to GitHub, anyone can quickly try your Fiddle out by just entering it in the address bar.
-    explore: Explore Electron
+    explore: Electron'u Keşfet
     explore_desc: "Try Electron without installing any dependencies: Fiddle includes everything you'll need to explore the platform. It also includes examples for every API available in Electron, so if you want to quickly see what a BrowserView is or how the desktopCapturer works, Fiddle has got you covered."
-    code_with_types: Code with Types
-    code_with_types_desc: Fiddle includes Microsoft's excellent Monaco Editor, the same editor powering Visual Studio Code. It also installs the type definitions for the currently selected version of Electron automatically, ensuring that you always have all Electron APIs only a few keystrokes away.
-    compile_and_package: Compile and Package
-    compile_and_package_desc: Fiddle can automatically turn your experiment into binaries you can share with your friends, coworkers, or grandparents. It does so thanks to <a href="https://electronforge.io/">electron-forge</a>, allowing you to package your fiddle as an app for Windows, macOS, or Linux.
-    easy_start: Start with Fiddle, Continue Wherever
-    easy_start_desc: Fiddle is not an IDE – it is however an excellent starting point. Once your fiddle has grown up, export it as a project with or without <a href="https://electronforge.io/">electron-forge</a>. Then, use your favorite editor and take on the world!
+    code_with_types: Kod Tipleri
+    code_with_types_desc: Fiddle, Microsoft'un mükemmel Monaco Editör'ü, Visual Studio Code'u destekleyen aynı editörü içerir. Ayrıca, seçili olan Electron sürümü için tür tanımlarını otomatik olarak yükler ve tüm Electron API'lerine her zaman yalnızca birkaç tuşa basılmasını sağlar.
+    compile_and_package: Derle ve Paketle
+    compile_and_package_desc: Fiddle, denemenizi arkadaşlarınız, iş arkadaşlarınız veya büyükanne ve büyükbabalarınızla paylaşabileceğiniz ikili dosyalara otomatik olarak dönüştürebilir. Fiddle'ınızı Windows, macOS veya Linux için bir uygulama olarak paketlemenize izin veren <a href="https://electronforge.io/"> electron forge </a> sayesinde bunu yapar.
+    easy_start: Fiddle ile Başlayın, Her Yere Devam Edin
+    easy_start_desc: Fiddle IDE değil - mükemmel bir başlangıç noktasıdır. Fiddle'ınız büyüdükten sonra, projeyi <a href="https://electronforge.io/"> electron forge </a> içeren veya içermeyen bir proje olarak dışa aktarın. Ardından favori editörünüzü kullanın ve dünyaya katılın!
 _404:
   page_not_found: Sayfa bulunamadı.
