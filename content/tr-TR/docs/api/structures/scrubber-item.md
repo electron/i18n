@@ -1,4 +1,4 @@
-# TemizleyiciMadde Nesnesi
+# Temizleyici Öğe Nesnesi
 
-* `label` String (optional) - The text to appear in this item.
+* `label` String (isteğe bağlı) - Bu öğede görünecek metin.
 * `icon` NativeImage (optional) - The image to appear in this item.
