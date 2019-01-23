@@ -10,21 +10,21 @@
 
 ## `new BrowserWindow({ webPreferences })`
 
-The following `webPreferences` option default values are deprecated in favor of the new defaults listed below.
+以下の `webPreferences` オプションの初期値は、以下の記載された新しい初期値のために非推奨になっています。
 
-| Property           | Deprecated Default                   | New Default |
-| ------------------ | ------------------------------------ | ----------- |
-| `contextIsolation` | `false`                              | `true`      |
-| `nodeIntegration`  | `true`                               | `false`     |
-| `webviewTag`       | `nodeIntegration` if set else `true` | `false`     |
+| 属性                 | 非推奨の初期値                           | 新しい初期値  |
+| ------------------ | --------------------------------- | ------- |
+| `contextIsolation` | `false`                           | `true`  |
+| `nodeIntegration`  | `true`                            | `false` |
+| `webviewTag`       | `nodeIntegration` を設定しなければ `true` | `false` |
 
 ## `nativeWindowOpen`
 
-Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled.
+`nativeWindowOpen` オプションで開かれる子ウインドウは Node.js integration が無効化されます。
 
 ## `webContents.findInPage(text[, options])`
 
-`wordStart` and `medialCapitalAsWordStart` options are removed.
+`wordStart` と `medialCapitalAsWordStart` オプションは削除されます。
 
 # 予定されている破壊的なAPIの変更 (4.0)
 
@@ -57,7 +57,7 @@ app.releaseSingleInstanceLock()
 
 ```js
 app.getGPUInfo('complete')
-// Now behaves the same with `basic` on macOS
+// macOS 上では `basic` と同様に振る舞う
 app.getGPUInfo('basic')
 ```
 
