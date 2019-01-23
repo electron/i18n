@@ -701,9 +701,9 @@ console.log(win.getBounds())
 
 #### `win.getNormalBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md) - Contains the window bounds of the normal state
+Returns [`Rectangle`](structures/rectangle.md) - 通常状態におけるウィンドウ境界を含む領域。
 
-**Note:** whatever the current state of the window : maximized, minimized or in fullscreen, this function always returns the position and size of the window in normal state. In normal state, getBounds and getNormalBounds returns the same [`Rectangle`](structures/rectangle.md).
+**注意:** ウインドウの現在の状態: 最大化、最小化、または全画面表示に関係なく、この関数は常に通常状態のウインドウの位置とサイズを返します。 通常状態においては、getBounds と getNormalBounds は同じ [`Rectangle`](structures/rectangle.md) を返します。
 
 #### `win.setEnabled(enable)`
 
@@ -1009,9 +1009,9 @@ win.loadURL('http://localhost:8000/post', {
 
 * `filePath` String
 * `options` Object (任意) 
-  * `query` Object (optional) - Passed to `url.format()`.
-  * `search` String (optional) - Passed to `url.format()`.
-  * `hash` String (optional) - Passed to `url.format()`.
+  * `query` Object (任意) - `url.format()` に渡されます。
+  * `search` String (任意) - `url.format()` に渡されます。
+  * `hash` String (任意) - `url.format()` に渡されます。
 
 `webContents.loadFile` と同じで、`filePath` はアプリケーションのルートからの相対パスで指す HTML でなければいけません。詳細は `webContents` ドキュメントを参照してください。
 
