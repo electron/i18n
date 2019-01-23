@@ -33,13 +33,13 @@ console.log(systemPreferences.isDarkMode())
 * `event` Event
 * `invertedColorScheme` Boolean - ハイコントラストテーマなどの反転した配色が使用されている場合は `true`、そうでない場合は `false`。
 
-### Event: 'appearance-changed' *macOS*
+### イベント: 'appearance-changed' *macOS*
 
 戻り値:
 
-* `newAppearance` String - Can be `dark` or `light`
+* `newAppearance` String - `dark` か `light`。
 
-**NOTE:** This event is only emitted after you have called `startAppLevelAppearanceTrackingOS`
+**注意:** このイベントはあなたが `startAppLevelAppearanceTrackingOS` を呼び出した後にのみ発生します。
 
 ## メソッド
 
@@ -255,9 +255,9 @@ const alpha = color.substr(6, 2) // "dd"
 
 ### `systemPreferences.getEffectiveAppearance()` *macOS*
 
-Returns `String` - Can be `dark`, `light` or `unknown`.
+戻り値 `String` - `dark`、`light` か `unknown` になります。
 
-Gets the macOS appearance setting that is currently applied to your application, maps to [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
+[NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc) に割り当てられている、現在アプリケーションに適用されている macOS の外観設定を取得します。
 
 Please note that until Electron is built targeting the 10.14 SDK, your application's `effectiveAppearance` will default to 'light' and won't inherit the OS preference. In the interim in order for your application to inherit the OS preference you must set the `NSRequiresAquaSystemAppearance` key in your apps `Info.plist` to `false`. If you are using `electron-packager` or `electron-forge` just set the `enableDarwinDarkMode` packager option to `true`. See the [Electron Packager API](https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) for more details.
 
