@@ -63,7 +63,7 @@ app.getGPUInfo('basic')
 
 ## `win_delay_load_hook`
 
-When building native modules for windows, the `win_delay_load_hook` variable in the module's `binding.gyp` must be true (which is the default). If this hook is not present, then the native module will fail to load on Windows, with an error message like `Cannot find module`. See the [native module guide](/docs/tutorial/using-native-node-modules.md) for more.
+Windows でネイティブモジュールをビルドするとき、モジュールの `binding.gyp` 内の `win_delay_load_hook` 変数は true (これが初期値) にならなければいけません。 このフックが存在しない場合ネイティブモジュールは Windows 上でロードできず、`モジュールが見つかりません` のようなエラーメッセージが表示されます。 より詳しくは [ネイティブモジュールガイド](/docs/tutorial/using-native-node-modules.md) を参照してください。
 
 # 破壊的な API の変更 (3.0)
 
@@ -72,36 +72,36 @@ When building native modules for windows, the `win_delay_load_hook` variable in 
 ## `app`
 
 ```js
-// Deprecated
+// 非推奨
 app.getAppMemoryInfo()
-// Replace with
+// こちらに置換
 app.getAppMetrics()
 
-// Deprecated
+// 非推奨
 const metrics = app.getAppMetrics()
-const { memory } = metrics[0] // Deprecated property
+const { memory } = metrics[0] // 非推奨なプロパティ
 ```
 
 ## `BrowserWindow`
 
 ```js
-// Deprecated
+// 非推奨
 let optionsA = { webPreferences: { blinkFeatures: '' } }
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// こちらに置換
 let optionsB = { webPreferences: { enableBlinkFeatures: '' } }
 let windowB = new BrowserWindow(optionsB)
 
-// Deprecated
+// 非推奨
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
-    // do something
+    // なにかする
   }
 })
-// Replace with
+// こちらに置換
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
-    // do something
+    // なにかする
   }
 })
 ```
@@ -162,7 +162,7 @@ nativeImage.createFromBuffer(buffer, {
 ## `プロセス`
 
 ```js
-// Deprecated
+// 非推奨
 const info = process.getProcessMemoryInfo()
 ```
 
