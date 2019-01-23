@@ -196,7 +196,7 @@ if (process.platform === 'darwin') {
     ]
   })
 
-  // Edit menu
+  // 編集メニュー
   template[1].submenu.push(
     { type: 'separator' },
     {
@@ -208,7 +208,7 @@ if (process.platform === 'darwin') {
     }
   )
 
-  // Window menu
+  // ウインドウメニュー
   template[3].submenu = [
     { role: 'close' },
     { role: 'minimize' },
