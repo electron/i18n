@@ -76,3 +76,7 @@ node.js has some [extremely long pathnames](https://github.com/electron/node/tre
 ```sh
 $ git config --system core.longpaths true
 ```
+
+### hata: bildirilmemiş tanımlayıcı kullanımı 'DefaultDelegateCheckMode'
+
+Bu, Windows için Debugging Araçları Windows Sürücü Seti ile birlikte yüklendiğinde derleme sırasında gerçekleşebilir. Windows Sürücü Seti'ni kaldırın ve yukarıda açıklanan adımlarla Hata Ayıklama Araçları'nı yükleyin.
