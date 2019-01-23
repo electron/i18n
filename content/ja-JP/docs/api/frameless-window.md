@@ -40,7 +40,7 @@ win.show()
 
 #### `customButtonsOnHover`
 
-Uses custom drawn close, and miniaturize buttons that display when hovering in the top left of the window. The fullscreen button is not available due to restrictions of frameless windows as they interface with Apple's MacOS window masks. これらのボタンは標準のウインドウツールバーボタンで発生するマウスイベントの問題を防止します。 This option is only applicable for frameless windows.
+ウインドウの左上にカーソルを合わせたときに表示されるカスタム描画の閉じる、最小化ボタンを使用します。 フルスクリーンボタンは、フレームレスウインドウの制約のために利用できません。Apple の MacOS ウインドウマスクと被るからです。 これらのボタンは標準のウインドウツールバーボタンで発生するマウスイベントの問題を防止します。 このオプションは、フレームレスウインドウにのみ適用されます。
 
 ```javascript
 const { BrowserWindow } = require('electron')
