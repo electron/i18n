@@ -4,7 +4,7 @@
 
 プロセス: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-In the renderer process context it depends on the [`remote`](remote.md) module on Linux, it is therefore not available when this module is disabled.
+レンダラプロセスのコンテキストでは Linux 上の [`remote`](remote.md) モジュールに依存しています。したがって、このモジュールが無効になっていると利用できません。
 
 以下の例では、クリップボードに文字列を書き込む方法を示します。
 
