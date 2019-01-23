@@ -317,26 +317,26 @@ Webページが (まだ表示されていないが) レンダリングされ、�
 戻り値:
 
 * `event` Event
-* `newBounds` [`Rectangle`](structures/rectangle.md) - Size the window is being resized to.
+* `newBounds` [`Rectangle`](structures/rectangle.md) - ウインドウがリサイズされようとしているサイズ。
 
-Emitted before the window is resized. Calling `event.preventDefault()` will prevent the window from being resized.
+ウィンドウのサイズが変更される前に発生します。`event.preventDefault()` を呼ぶとウインドウのリサイズを阻害します。
 
-Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
+これはウインドウが手動でリサイズされているときにだけ発生することに注意してください。ウインドウを `setBounds` / `setSize` でリサイズしてもこのイベントは発生しません。
 
 #### イベント: 'resize'
 
-Emitted after the window has been resized.
+ウインドウがリサイズされた後に発生します。
 
-#### Event: 'will-move' *Windows*
+#### イベント: 'will-move' *Windows*
 
 戻り値:
 
 * `event` Event
-* `newBounds` [`Rectangle`](structures/rectangle.md) - Location the window is being moved to.
+* `newBounds` [`Rectangle`](structures/rectangle.md) - ウインドウが移動されようとしている位置。
 
-Emitted before the window is moved. Calling `event.preventDefault()` will prevent the window from being moved.
+ウィンドウの位置が変更される前に発生します。`event.preventDefault()` を呼ぶとウインドウの移動を阻害します。
 
-Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
+これはウインドウが手動でリサイズされているときにだけ発生することに注意してください。ウインドウを `setBounds` / `setSize` でリサイズしてもこのイベントは発生しません。
 
 #### イベント: 'move'
 
@@ -364,14 +364,14 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 ウインドウがHTML APIによってフルスクリーン状態を抜けるときに発生します。
 
-#### Event: 'always-on-top-changed' *macOS*
+#### イベント: 'always-on-top-changed' *macOS*
 
 戻り値:
 
 * `event` Event
 * `isAlwaysOnTop` Boolean
 
-Emitted when the window is set or unset to show always on top of other windows.
+ウインドウが常に他のウインドウの手前に表示されるように設定またはそれが解除されたときに発生します。
 
 #### イベント: 'app-command' *Windows*
 
@@ -636,7 +636,7 @@ Mac OS X Lion (10.7) より前のバージョンで見られる簡易フルス�
 
 #### `win.isNormal()`
 
-Returns `Boolean` - Whether the window is in normal state (not maximized, not minimized, not in fullscreen mode).
+Returns `Boolean` - ウィンドウが通常の状態 (最大化されていない、最小化されていない、フルスクリーンモードではない) かどうか。
 
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
@@ -651,9 +651,9 @@ HDビデオプレーヤーと関連したコントロールを持つ通常のウ
 
 #### `win.setBackgroundColor(backgroundColor)`
 
-* `backgroundColor` String - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported if `transparent` is `true`). 省略値は `#FFF` (白) です。
+* `backgroundColor` String - `#66CD00` や `#FFF` や `#80FFFFFF` (`transparent` を `true` にすればアルファ値をサポートします) のような16進数の値でのウインドウの背景色。 省略値は `#FFF` (白) です。
 
-Sets the background color of the window. See [Setting `backgroundColor`](#setting-backgroundcolor).
+ウインドウの背景色を設定します。[`backgroundColor` の設定](#setting-backgroundcolor) を参照してください。
 
 #### `win.previewFile(path[, displayName])` *macOS*
 
@@ -671,14 +671,14 @@ Sets the background color of the window. See [Setting `backgroundColor`](#settin
 * `bounds` [Rectangle](structures/rectangle.md) 
 * `animate` Boolean (optional) *macOS*
 
-Resizes and moves the window to the supplied bounds. Any properties that are not supplied will default to their current values.
+ウインドウをリサイズして指定された領域に移動します。指定されていないプロパティはデフォルトで現在の値になります。
 
 ```javascript
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
- // set all bounds properties
+ // bounds のプロパティをすべて指定
 win.setBounds({ x: 440, y: 225, width: 800, height: 600 })
- // set a single bounds property
+ // bounds のプロパティをひとつ指定
 win.setBounds({ width: 200 })
  // { x: 440, y: 225, width: 200, height: 600 }
 console.log(win.getBounds())
