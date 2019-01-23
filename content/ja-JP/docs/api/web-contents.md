@@ -622,9 +622,9 @@ webContents.loadURL('https://github.com', options)
 
 * `filePath` String
 * `options` Object (任意) 
-  * `query` Object (optional) - Passed to `url.format()`.
-  * `search` String (optional) - Passed to `url.format()`.
-  * `hash` String (optional) - Passed to `url.format()`.
+  * `query` Object (任意) - `url.format()` に渡されます。
+  * `search` String (任意) - `url.format()` に渡されます。
+  * `hash` String (任意) - `url.format()` に渡されます。
 
 指定されたファイルをウインドウにロードします。`filePath` は、アプリケーションのルートを基準にした HTML ファイルへのパスにする必要があります。 たとえば以下のようなアプリの構造において、
 
