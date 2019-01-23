@@ -16,10 +16,10 @@ win.loadURL('https://github.com')
 
 **注:** 逆 (メインプロセスからレンダラープロセスにアクセスする) の場合は、 [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback) が使用できます。
 
-**Note:** The remote module can be disabled for security reasons in the following contexts:
+**注意:** セキュリティ上の理由からリモートモジュールを無効にするには以下のようにしてできます。
 
-* [`BrowserWindow`](browser-window.md) - by setting the `enableRemoteModule` option to `false`.
-* [`<webview>`](webview-tag.md) - by setting the `enableremotemodule` attribute to `false`.
+* [`BrowserWindow`](browser-window.md) - `enableRemoteModule` オプションを `false` にセットする。
+* [`<webview>`](webview-tag.md) - `enableremotemodule` 属性を `false` にセットする。
 
 ## リモートオブジェクト
 
