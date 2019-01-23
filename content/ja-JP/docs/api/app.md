@@ -767,7 +767,7 @@ if (!gotTheLock) {
 
 `infoType` が `complete` に等しい場合、Promise は [Chromium の GPUInfo オブジェクト](https://chromium.googlesource.com/chromium/src.git/+/69.0.3497.106/gpu/config/gpu_info.cc) 内におけるすべてのGPU情報を含んだ `Object` で解決されます。 これには `chrome://gpu` ページ上で表示されるバージョンとドライバ情報が含まれます。
 
-`infoType` が `basic` に等しい場合、Promise は `complete` でのGPU情報より少ない属性を含んだ `Object` で解決されます。 Here's an example of basic response:
+`infoType` が `basic` に等しい場合、Promise は `complete` でのGPU情報より少ない属性を含んだ `Object` で解決されます。 basic の応答の例はこちらです。
 
 ```js
 { auxAttributes:
@@ -792,7 +792,7 @@ machineModelName: 'MacBookPro',
 machineModelVersion: '11.5' }
 ```
 
-Using `basic` should be preferred if only basic information like `vendorId` or `driverId` is needed.
+`vendorId` や `driverId` のような基本的な情報だけ必要であれば、`basic` を用いることが好ましいです。
 
 ### `app.setBadgeCount(count)` *Linux* *macOS*
 
@@ -865,15 +865,15 @@ app.setLoginItemSettings({
 
 * `enabled` Boolean - [アクセシビリティツリー](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)レンダリングを有効もしくは無効にします。
 
-手動でChromeのユーザ補助機能を有効にすると、アプリケーションの設定でユーザにアクセシビリティスイッチを出すことができます。 See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. 既定では無効です。
+手動でChromeのユーザ補助機能を有効にすると、アプリケーションの設定でユーザにアクセシビリティスイッチを出すことができます。 詳細については [Chromium のアクセシビリティドキュメント](https://www.chromium.org/developers/design-documents/accessibility) を参照してください。 既定では無効です。
 
-This API must be called after the `ready` event is emitted.
+この API は `ready` イベントが発生した後で呼ばなければいけません。
 
 **注:** アクセシビリティツリーをレンダリングすると、アプリのパフォーマンスに顕著な影響を与える可能性があります。既定で有効にすべきではありません。
 
 ### `app.showAboutPanel()` *macOS*
 
-Show the about panel with the values defined in the app's `.plist` file or with the options set via `app.setAboutPanelOptions(options)`.
+アプリの `.plist` ファイルで定義されている値、または `app.setAboutPanelOptions(options)` で設定されているオプションを使用して、「〜について」パネルを表示します。
 
 ### `app.setAboutPanelOptions(options)` *macOS*
 
@@ -899,7 +899,7 @@ const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedReso
 stopAccessingSecurityScopedResource()
 ```
 
-セキュリティスコープ付きリソースへのアクセスを開始します。 With this method Electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. このシステムの動作の詳細は、[Apple のドキュメント](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) を参照してください。
+セキュリティスコープ付きリソースへのアクセスを開始します。 このメソッドでは、Mac App Store 用にパッケージ化された Electron アプリケーションが、ユーザーが選択したファイルにアクセスするためにサンドボックスの外部にアクセスすることがあります。 このシステムの動作の詳細は、[Apple のドキュメント](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) を参照してください。
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
@@ -920,7 +920,7 @@ Chromiumのコマンドラインに引数を追加します。引数は正しく
 
 ### `app.enableSandbox()` *Experimental* *macOS* *Windows*
 
-Enables full sandbox mode on the app.
+アプリで完全サンドボックスモードを有効にします。
 
 このメソッドはアプリが ready になる前だけでしか呼び出すことができません。
 
