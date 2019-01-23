@@ -599,52 +599,52 @@ const { app } = require('electron')
 app.setJumpList([
   {
     type: 'custom',
-    name: 'Recent Projects',
+    name: '最近開いたプロジェクト',
     items: [
       { type: 'file', path: 'C:\\Projects\\project1.proj' },
       { type: 'file', path: 'C:\\Projects\\project2.proj' }
     ]
   },
-  { // has a name so `type` is assumed to be "custom"
-    name: 'Tools',
+  { // name があるので `type` は "custom" になります
+    name: 'ツール',
     items: [
       {
         type: 'task',
-        title: 'Tool A',
+        title: 'ツールA',
         program: process.execPath,
         args: '--run-tool-a',
         icon: process.execPath,
         iconIndex: 0,
-        description: 'Runs Tool A'
+        description: 'ツールAを実行する'
       },
       {
         type: 'task',
-        title: 'Tool B',
+        title: 'ツールB',
         program: process.execPath,
         args: '--run-tool-b',
         icon: process.execPath,
         iconIndex: 0,
-        description: 'Runs Tool B'
+        description: 'ツールBを実行する'
       }
     ]
   },
   { type: 'frequent' },
-  { // has no name and no type so `type` is assumed to be "tasks"
+  { // name がないので `type`は "tasks" になります
     items: [
       {
         type: 'task',
-        title: 'New Project',
+        title: '新規プロジェクト',
         program: process.execPath,
         args: '--new-project',
-        description: 'Create a new project.'
+        description: '新しいプロジェクトを作成する。'
       },
       { type: 'separator' },
       {
         type: 'task',
-        title: 'Recover Project',
+        title: 'プロジェクトの復元',
         program: process.execPath,
         args: '--recover-project',
-        description: 'Recover Project'
+        description: 'プロジェクト路を復元する'
       }
     ]
   }
@@ -737,7 +737,7 @@ if (!gotTheLock) {
 * `callback` Function 
   * `result` Integer - インポート結果。
 
-プラットフォームの証明書ストアにPACS#12形式で証明書をインポートします。 `callback` is called with the `result` of import operation, a value of `0` indicates success while any other value indicates failure according to Chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+プラットフォームの証明書ストアにPACS#12形式で証明書をインポートします。 インポート操作の `result` で `callback` が呼び出されます。`0` という値は成功を意味しますが、その他の値はChromium の [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) の通り、失敗を意味します。
 
 ### `app.disableHardwareAcceleration()`
 
@@ -761,11 +761,11 @@ if (!gotTheLock) {
 
 ### `app.getGPUInfo(infoType)`
 
-* `infoType` String - Values can be either `basic` for basic info or `complete` for complete info.
+* `infoType` String - 基本的な情報のための `basic` か完全な情報のための `complete` のどちらかにできます。
 
-Returns `Promise`
+戻り値 `Promise`
 
-For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src.git/+/69.0.3497.106/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
+`infoType` が `complete` に等しい場合、Promise は [Chromium の GPUInfo オブジェクト](https://chromium.googlesource.com/chromium/src.git/+/69.0.3497.106/gpu/config/gpu_info.cc) 内におけるすべてのGPU情報を含んだ `Object` で解決されます。 これには `chrome://gpu` ページ上で表示されるバージョンとドライバ情報が含まれます。
 
 For `infoType` equal to `basic`: Promise is fulfilled with `Object` containing fewer attributes than when requested with `complete`. Here's an example of basic response:
 
