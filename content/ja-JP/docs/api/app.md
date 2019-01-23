@@ -331,7 +331,7 @@ app.on('session-created', (event, session) => {
 
 このイベントは `app` の `ready` イベントが発生した後で実行されることが保証されます。
 
-### Event: 'remote-require'
+### イベント: 'remote-require'
 
 戻り値:
 
@@ -339,9 +339,9 @@ app.on('session-created', (event, session) => {
 * `webContents` [WebContents](web-contents.md)
 * `モジュール名` String
 
-Emitted when `remote.require()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+`webContents` のレンダラープロセス内で `remote.require()` が呼ばれたときに発生します。 `event.preventDefault()` を呼ぶとモジュールの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
 
-### Event: 'remote-get-global'
+### イベント: 'remote-get-global'
 
 戻り値:
 
@@ -349,7 +349,7 @@ Emitted when `remote.require()` is called in the renderer process of `webContent
 * `webContents` [WebContents](web-contents.md)
 * `globalName` String
 
-Emitted when `remote.getGlobal()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
+`webContents` のレンダラープロセス内で `remote.getGlobal()` が呼ばれたときに発生します。 `event.preventDefault()` を呼ぶとグローバルの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
 
 ## メソッド
 
@@ -400,7 +400,7 @@ app.exit(0)
 
 ### `app.whenReady()`
 
-Returns `Promise<void>` - fulfilled when Electron is initialized. `app.isReady()` を確認してアプリの準備がまだできていないときに `ready` イベントに登録するための、便利な代替手段として使用できます。
+Returns `Promise<void>` - Electron が初期化されるときに実行される Promise。 `app.isReady()` を確認してアプリの準備がまだできていないときに `ready` イベントに登録するための、便利な代替手段として使用できます。
 
 ### `app.focus()`
 
