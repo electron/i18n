@@ -254,7 +254,7 @@ win.webContents.session.setCertificateVerifyProc((request, callback) => {
     * `permissionGranted` Boolean - 権限の許可か拒否.
   * `details` Object - 一部のプロパティは、特定の権限タイプでのみ使用できます。 
     * `externalURL` String - `openExternal` リクエストの URL。
-    * `mediaTypes` String[] - The types of media access being requested, elements can be `video` or `audio`
+    * `mediaTypes` String[] - 要求されたメディアアクセスの型で、要素は `video` か `audio` になります。
 
 `session` の、権限の要求に応答するために使用できるハンドラを設定します。 `callback(true)` を呼ぶと権限が許可され `callback(false)` を呼ぶと拒否されます。 ハンドラをクリアするには、`setPermissionRequestHandler(null)` を呼びます。
 
@@ -272,20 +272,20 @@ session.fromPartition('some-partition').setPermissionRequestHandler((webContents
 #### `ses.setPermissionCheckHandler(handler)`
 
 * `handler` Function<boolean> | null 
-  * `webContents` [WebContents](web-contents.md) - WebContents checking the permission.
-  * `permission` String - Enum of 'media'.
-  * `requestingOrigin` String - The origin URL of the permission check
+  * `webContents` [WebContents](web-contents.md) - 権限を確認する WebContents。
+  * `permission` String - 'media' の列挙。
+  * `requestingOrigin` String - 権限チェックのオリジン URL
   * `details` Object - 一部のプロパティは、特定の権限タイプでのみ使用できます。 
-    * `securityOrigin` String - The security orign of the `media` check.
-    * `mediaType` String - The type of media access being requested, can be `video`, `audio` or `unknown`
+    * ` securityOrigin ` String - `media` チェックのセキュリティオリジン。
+    * `mediaType` String - 要求されたメディアアクセスの型で、`video`、`audio` か `unknown` になります。
 
-Sets the handler which can be used to respond to permission checks for the `session`. Returning `true` will allow the permission and `false` will reject it. To clear the handler, call `setPermissionCheckHandler(null)`.
+`session` の、権限のチェックに応答するために使用できるハンドラを設定します。 `true`を返すと権限を許可し、`false` を返すとそれを拒否します。 ハンドラをクリアするには、` setPermissionCheckHandler(null)` を呼びます。
 
 ```javascript
 const { session } = require('electron')
 session.fromPartition('some-partition').setPermissionCheckHandler((webContents, permission) => {
   if (webContents.getURL() === 'some-host' && permission === 'notifications') {
-    return false // denied
+    return false // 拒否
   }
 
   return true
@@ -399,7 +399,7 @@ app.on('ready', function () {
 
 #### `ses.netLog`
 
-A [NetLog](net-log.md) object for this session.
+このセッションの [NetLog](net-log.md) オブジェクト。
 
 ```javascript
 const { app, session } = require('electron')
@@ -407,7 +407,7 @@ const { app, session } = require('electron')
 app.on('ready', function () {
   const netLog = session.fromPartition('some-partition').netLog
   netLog.startLogging('/path/to/net-log')
-  // After some network events
+  // いくつかのネットワークイベントのあと
   netLog.stopLogging(path => {
     console.log('Net-logs written to', path)
   })
