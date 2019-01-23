@@ -16,7 +16,7 @@ win.show()
 
 ### macOSでの他の方法
 
-There's an alternative way to specify a chromeless window. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. `titleBarStyle` オプションを指定すると、そのようにすることができます。
+枠のないウインドウを指定する他の方法があります。 タイトルバーとウインドウコントロールの両方が無効になる `frame` を `false` に設定する方法の代わりに、タイトルバーを非表示にし、コンテンツをフルウインドウサイズに拡大しつつ、標準のウインドウアクションのためにウインドウコントロール ("信号ボタン") を保持し続けることもできます。 `titleBarStyle` オプションを指定すると、そのようにすることができます。
 
 #### `hidden`
 
