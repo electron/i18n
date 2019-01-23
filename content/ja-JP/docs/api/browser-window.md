@@ -1105,7 +1105,7 @@ WindowsとLinuxでは常に `true` を返します。
 
 * `region` [Rectangle](structures/rectangle.md) - ウインドウの領域
 
-タスクバーのウインドウの上でホバリングするときに表示されるサムネイルイメージとして表示するウインドウの領域を設定します。 You can reset the thumbnail to be the entire window by specifying an empty region: `{ x: 0, y: 0, width: 0, height: 0 }`.
+タスクバーのウインドウの上でホバリングするときに表示されるサムネイルイメージとして表示するウインドウの領域を設定します。 空の領域: `{ x: 0, y: 0, width: 0, height: 0 }` を指定することで、サムネイルをウインドウ全体にリセットすることができます。
 
 #### `win.setThumbnailToolTip(toolTip)` *Windows*
 
@@ -1140,9 +1140,9 @@ WindowsとLinuxでは常に `true` を返します。
 
 * `visible` Boolean
 
-Sets whether the window traffic light buttons should be visible.
+ウインドウの信号ボタンを表示するかどうかを設定します。
 
-This cannot be called when `titleBarStyle` is set to `customButtonsOnHover`.
+これは `titleBarStyle` を `customButtonsOnHover` に設定したときは呼び出せません。
 
 #### `win.setAutoHideMenuBar(hide)`
 
@@ -1170,7 +1170,7 @@ This cannot be called when `titleBarStyle` is set to `customButtonsOnHover`.
 
 * `visible` Boolean
 * `options` Object (任意) 
-  * `visibleOnFullScreen` Boolean (optional) *macOS* - Sets whether the window should be visible above fullscreen windows
+  * `visibleOnFullScreen` Boolean (任意) *macOS* - ウインドウをフルスクリーンウィンドウの上で表示するかどうかを設定します。
 
 ウインドウをすべてのワークスペースで表示させるかどうかを設定します。
 
