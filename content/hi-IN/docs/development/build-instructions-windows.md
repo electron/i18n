@@ -1,8 +1,8 @@
 # बिल्ड निर्देश (विंडोज)
 
-Follow the guidelines below for building Electron on Windows.
+नीचे दिये गये निर्देशों का पालन करे, इलेक्ट्रॉन को विंडोज पे चलाने के लिये ।
 
-## Prerequisites
+## पूर्व अपेक्षाएं
 
 * Windows 10 / Server 2012 R2 or higher
 * Visual Studio 2017 15.7.2 or higher - [download VS 2017 Community Edition for free](https://www.visualstudio.com/vs/)
