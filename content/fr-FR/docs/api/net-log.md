@@ -1,6 +1,6 @@
 # netLog
 
-> Logging network events for a session.
+> Log d'évènements de réseau lors d'une session.
 
 Processus : [Main](../glossary.md#main-process)
 
