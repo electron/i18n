@@ -82,4 +82,4 @@
 
 ### `event.senderId`
 
-Returns the `webContents.id` that sent the message, you can call `event.sender.sendTo(event.senderId, ...)` to reply to the message, see [ipcRenderer.sendTo](#ipcrenderersendtowindowid-channel--arg1-arg2-) for more information. This only applies to messages sent from a different renderer. Messages sent directly from the main process set `event.senderId` to `0`.
+メッセージを送った `webContents.id` を返します。`event.sender.sendTo(event.senderId, ...)` を呼ぶことで、メッセージに返信できます。より詳しくは [webContents.sendTo](#ipcrenderersendtowindowid-channel--arg1-arg2-) を参照して下さい。 これは異なるレンダラーからのメッセージ送信にのみ適用します。 メインプロセスから直接メッセージ送信するには `event.senderId` を `0` にしてください。
