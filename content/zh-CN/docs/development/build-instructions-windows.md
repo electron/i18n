@@ -8,7 +8,7 @@
 * Visual Studio 2017 15.7.2 或更高 - [免费下载 VS 2017 社区版](https://www.visualstudio.com/vs/)
 * [Python 2.7.10 或更高](http://www.python.org/download/releases/2.7/) 
   * 与下面链接的`depot_tools`安装说明相反，你需要用你本地安装的至少2.7.10版本的Python(长期支持版本 1.2) 要做到这些，确保在**PATH**中，你本地安装的Python在`depot_tools`文件夹之前 现在，`depot_tools`依然附带Python 2.7.6,这将导致`gclient`命令失败(参照 https://crbug.com/868864)。
-  * 在文件夹中运行构建过程也需要[ython for Windows (pywin32) 扩展](https://pypi.org/project/pywin32/#files)。
+  * [Python for Windows (pywin32) Extensions](https://pypi.org/project/pywin32/#files) is also needed in order to run the build process.
 * [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
 * 如果您计划使用Windows SDK 10.0.15063.468的Windows调试工具 创建一个完整的发行版 `symstore.exe` 用来创建符号 保存于 `.pdb` 文件。 
@@ -76,3 +76,7 @@ node.js has some [extremely long pathnames](https://github.com/electron/node/tre
 ```sh
 $ git config --system core.longpaths true
 ```
+
+### error: use of undeclared identifier 'DefaultDelegateCheckMode'
+
+This can happen during build, when Debugging Tools for Windows has been installed with Windows Driver Kit. Uninstall Windows Driver Kit and install Debugging Tools with steps described above.
