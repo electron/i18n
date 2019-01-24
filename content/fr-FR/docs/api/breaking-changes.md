@@ -325,6 +325,6 @@ webview.setVisualZoomLevelLimits(1, 2)
 
 Chaque version d'Electron contient deux versions ARM identiques avec des noms légèrement différents, comme `electron-v1.7.3-linux-arm.zip` et `electron-v1.7.3-linux-armv7l.zip`. Celui avec le préfixe `v7l` a été ajouté pour clarifier aux utilisateurs quelle version ARM elle supporte, et supprimer les ambiguïtés des prochains paquets armv6l et arm64 qui pourraient être produites.
 
-Le fichier *sans le préfixe* est toujours publié afin d'éviter de casser les installations qui pourraient l'utiliser. Starting at 2.0, the un-prefixed file will no longer be published.
+Le fichier *sans le préfixe* est toujours publié afin d'éviter de casser les installations qui pourraient l'utiliser. À partir de la 2.0, le fichier sans préfixe ne sera plus publié.
 
-For details, see [6986](https://github.com/electron/electron/pull/6986) and [7189](https://github.com/electron/electron/pull/7189).
+Pour plus de détails, voir [6986](https://github.com/electron/electron/pull/6986) et [7189](https://github.com/electron/electron/pull/7189).
