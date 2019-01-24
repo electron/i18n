@@ -347,8 +347,7 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
-const mainWindow = new BrowserWindow()
+Baik const mainWindow = BrowserWindow() baru
 ```
 
 ## 10) Jangan Gunakan ` allowpopups </ code></h2>
@@ -455,7 +454,7 @@ app.on('web-contents-created', (event, contents) => {
     // to open this event's url in the default browser.
     event.preventDefault()
 
-    shell.openExternal(navigationUrl)
+    shell.openExternalSync(navigationUrl)
   })
 })
 ```
