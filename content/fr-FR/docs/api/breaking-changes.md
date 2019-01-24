@@ -28,7 +28,7 @@ Les options `wordStart` et `medialCapitalAsWordStart` sont supprimées.
 
 # Changements majeurs prévus de l'API (4.0)
 
-The following list includes the breaking API changes planned for Electron 4.0.
+La liste suivante contient les changements cassants prévus pour Electron 4.0.
 
 ## `app.makeSingleInstance`
 
@@ -63,7 +63,7 @@ app.getGPUInfo('basic')
 
 ## `win_delay_load_hook`
 
-When building native modules for windows, the `win_delay_load_hook` variable in the module's `binding.gyp` must be true (which is the default). If this hook is not present, then the native module will fail to load on Windows, with an error message like `Cannot find module`. See the [native module guide](/docs/tutorial/using-native-node-modules.md) for more.
+Quand vous compilez des modules natifs sous Windows, la variable `win_delay_load_hook` dans le fichier `binding.gyp` doit être mise à vrai (qui l'est par défaut). If this hook is not present, then the native module will fail to load on Windows, with an error message like `Cannot find module`. See the [native module guide](/docs/tutorial/using-native-node-modules.md) for more.
 
 # Breaking API Changes (3.0)
 
