@@ -4,7 +4,7 @@
 
 Processus : [Principal](../glossary.md#main-process)
 
-**See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
+**Voir aussi : [Un guide détaillé à propos de l’implémentation des mises à jour dans votre application](../tutorial/updates.md).**
 
 ## Avertissement sur les plateformes
 
@@ -66,13 +66,13 @@ Retourne :
 
 Sur Windows, seulement `releaseName` est disponible.
 
-**Note:** It is not strictly necessary to handle this event. A successfully downloaded update will still be applied the next time the application starts.
+**Note: ** Il n'est pas forcément nécessaire de gérer cet évènement. Une mise à jour téléchargée avec succès sera quand même appliquée la prochaine fois que l'application démarre.
 
-### Event: 'before-quit-for-update'
+### Événement : 'before-quit-for-update'
 
-This event is emitted after a user calls `quitAndInstall()`.
+Cet événement est émis après qu'un utilisateur appelle `quitAndInstall()`.
 
-When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
+Quand cette API est appelée, l'événement `before-quit` n'est pas émis avant que toutes les fenêtres soient fermées. Ainsi vous devriez écouter cet évènement si vous voulez effectuer des actions avant que les fenêtres soient fermées et qu'un processus est entrain d'être arrêté, est écouter aussi `before-quit`.
 
 ## Méthodes
 
@@ -101,4 +101,4 @@ Redémarre l'application et installe la mise à jour après qu'elle soit téléc
 
 Derrière l'appel de `autoUpdater.quitAndInstall()` fermera toutes les applications windows en premier, appellera automatiquement `app.quit()` après que toutes les fenêtres aient été fermées.
 
-**Note:** It is not strictly necessary to call this function to apply an update, as a successfully downloaded update will always be applied the next time the application starts.
+**Note: ** Il n'est pas forcément nécessaire de gérer cet évènement. Une mise à jour téléchargée avec succès sera quand même appliquée la prochaine fois que l'application démarre.
