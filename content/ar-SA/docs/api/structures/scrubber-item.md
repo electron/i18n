@@ -1,4 +1,4 @@
 # ScrubberItem Object
 
-* `label` String (optional) - The text to appear in this item.
-* `icon` NativeImage (optional) - The image to appear in this item.
+* `علامة مميزة`String (اختياري) - النص الذي يظهر في هذا البند.
+* `أيقونة`NativeImage (اختياري) - الصورة التي تظهر في هذا البند.
