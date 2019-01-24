@@ -63,11 +63,11 @@ app.getGPUInfo('basic')
 
 ## `win_delay_load_hook`
 
-Quand vous compilez des modules natifs sous Windows, la variable `win_delay_load_hook` dans le fichier `binding.gyp` doit être mise à vrai (qui l'est par défaut). If this hook is not present, then the native module will fail to load on Windows, with an error message like `Cannot find module`. See the [native module guide](/docs/tutorial/using-native-node-modules.md) for more.
+Quand vous compilez des modules natifs sous Windows, la variable `win_delay_load_hook` dans le fichier `binding.gyp` doit être mise à vrai (qui l'est par défaut). Si cet accroche n'est pas présente, l'exécution du module natif échouera sur Windows, avec un message d'erreur comme `Cannot find module`. Voir le [Guide des modules natifs](/docs/tutorial/using-native-node-modules.md) pour plus d'informations.
 
-# Breaking API Changes (3.0)
+# Changements majeurs prévus de l'API (3.0)
 
-The following list includes the breaking API changes in Electron 3.0.
+La liste suivante inclut les changements majeurs pour Electron 3.0.
 
 ## `app`
 
@@ -85,20 +85,20 @@ const { memory } = metrics[0] // Deprecated property
 ## `BrowserWindow`
 
 ```js
-// Deprecated
+// Déprécié
 let optionsA = { webPreferences: { blinkFeatures: '' } }
 let windowA = new BrowserWindow(optionsA)
 // Replace with
 let optionsB = { webPreferences: { enableBlinkFeatures: '' } }
 let windowB = new BrowserWindow(optionsB)
 
-// Deprecated
+// Déprécié
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
     // do something
   }
 })
-// Replace with
+// Remplacé par
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
     // do something
@@ -161,7 +161,7 @@ nativeImage.createFromBuffer(buffer, {
 ## `processus (process)`
 
 ```js
-// Deprecated
+// Déprécié
 const info = process.getProcessMemoryInfo()
 ```
 
@@ -204,14 +204,14 @@ tray.setHighlightMode('off')
 ## `webContents`
 
 ```js
-// Deprecated
+// Déprécié
 webContents.openDevTools({ detach: true })
-// Replace with
+// Replacé par
 webContents.openDevTools({ mode: 'detach' })
 
-// Removed
+// Supprimé
 webContents.setSize(options)
-// There is no replacement for this API
+// Il n'y a pas de remplacement prévu
 ```
 
 ## `webFrame`
@@ -231,15 +231,15 @@ protocol.registerStandardSchemes(['app'], { secure: true })
 ## `<webview>`
 
 ```js
-// Removed
+// Supprimé
 webview.setAttribute('disableguestresize', '')
 // There is no replacement for this API
 
-// Removed
+// Supprimé
 webview.setAttribute('guestinstance', instanceId)
 // There is no replacement for this API
 
-// Keyboard listeners no longer work on webview tag
+// Les écouteurs d'événements ne marchent plus sur les tags webview
 webview.onkeydown = () => { /* handler */ }
 webview.onkeyup = () => { /* handler */ }
 ```
