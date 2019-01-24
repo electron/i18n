@@ -22,7 +22,7 @@ Current executable set to './out/Debug/Electron.app' (x86_64).
 
 LLDB est un outil puissant et supporte plusieurs stratégies d'inspection de code. Pour cette introduction basique, assumons que vous exécutez une commande JavaScript qui ne se comporte pas correctement - donc vous aimeriez voir l'equivalent de cette commande en C++.
 
-Relevant code files can be found in `./atom/`.
+Les codes intéressants peuvent être trouvés dans `./atom/`.
 
 Supposons que vous souhaitez déboguer `app.setName()`, qui est définie dans `browser.cc` comme `Browser::SetName()`. Définissez le point d’arrêt à l’aide de la commande de `breakpoint`, en spécifiant le fichier et la ligne à couper :
 
