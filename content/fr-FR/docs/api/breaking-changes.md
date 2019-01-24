@@ -1,10 +1,10 @@
-# API Contract
+# Contrat d'API
 
-Breaking changes will be documented here, and deprecation warnings added to JS code where possible, at least [one major version](../tutorial/electron-versioning.md#semver) before the change is made.
+Les changements cassants seront documentés ici, et des avertissements de dépréciations ajoutés au code JS quand possible, au moins [une version majeur](../tutorial/electron-versioning.md#semver) avant que le changement soit fait.
 
 # commentaires `FIXME`
 
-The `FIXME` string is used in code comments to denote things that should be fixed for future releases. See https://github.com/electron/electron/search?q=fixme
+La string `FIXME` est utilisée en commentaires codes afin de noter les choses qui devraient être fixées dans les prochaines versions. Voir <https://github.com/electron/electron/search?q=fixme>
 
 # Changements majeurs prévus de l'API (5.0)
 
