@@ -1,6 +1,6 @@
 # 分发应用
 
-为了使用 Electron 部署你的应用程序，你需要下载 Electron 的 [prebuilt binaries](https://github.com/electron/electron/releases)。 接下来，你存放应用程序的文件夹需要叫做 `app` 并且需要放在 Electron 的 资源文件夹下，如下面的示例所示。 请注意，在下面的示例中，Electron的预制二进制文件的位置用`electron/`表示。
+为了使用 Electron 部署你的应用程序，你需要下载 Electron 的 [prebuilt binaries](https://github.com/electron/electron/releases)。 接下来，你存放应用程序的文件夹需要叫做 `app` 并且需要放在 Electron 的 资源文件夹Resources下，如下面的示例所示。 请注意，在下面的示例中，Electron的预制二进制文件的位置用`electron/`表示。
 
 在 macOS 中:
 
