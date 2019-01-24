@@ -206,7 +206,7 @@ tray.setHighlightMode('off')
 ```js
 // Déprécié
 webContents.openDevTools({ detach: true })
-// Replacé par
+// Remplacé par
 webContents.openDevTools({ mode: 'detach' })
 
 // Supprimé
@@ -244,7 +244,7 @@ webview.onkeydown = () => { /* handler */ }
 webview.onkeyup = () => { /* handler */ }
 ```
 
-## Node Headers URL
+## Entêtes URL Node
 
 Il s’agit de l’URL spécifiée comme `disturl` dans un fichier `.npmrc` ou le flag `--dist-url` en ligne de commande lors de la compilation des modules natifs de Node.
 
@@ -252,9 +252,9 @@ Déprécié : https://atom.io/download/atom-shell
 
 Remplacé par : https://atom.io/download/electron
 
-# Breaking API Changes (2.0)
+# Changements majeurs prévus de l'API (2.0)
 
-The following list includes the breaking API changes made in Electron 2.0.
+La liste suivant inclut les changements majeurs faits dans Electron 2.0.
 
 ## `BrowserWindow`
 
@@ -270,23 +270,23 @@ let windowB = new BrowserWindow(optionsB)
 ## `menu`
 
 ```js
-// Removed
+// Supprimé
 menu.popup(browserWindow, 100, 200, 2)
-// Replaced with
+// Remplacé par
 menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```
 
 ## `nativeImage`
 
 ```js
-// Removed
+// Supprimé
 nativeImage.toPng()
-// Replaced with
+// Remplacé par
 nativeImage.toPNG()
 
-// Removed
+// Supprimé
 nativeImage.toJpeg()
-// Replaced with
+// Remplacé par
 nativeImage.toJPEG()
 ```
 
@@ -297,33 +297,33 @@ nativeImage.toJPEG()
 ## `webContents`
 
 ```js
-// Removed
+// Supprimé
 webContents.setZoomLevelLimits(1, 2)
-// Replaced with
+// Remplacé par
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## `webFrame`
 
 ```js
-// Removed
+// Supprimé
 webFrame.setZoomLevelLimits(1, 2)
-// Replaced with
+// Remplacé par
 webFrame.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## `<webview>`
 
 ```js
-// Removed
+// Supprimé
 webview.setZoomLevelLimits(1, 2)
-// Replaced with
+// Remplacé par
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## Versions ARM dupliquées
 
-Each Electron release includes two identical ARM builds with slightly different filenames, like `electron-v1.7.3-linux-arm.zip` and `electron-v1.7.3-linux-armv7l.zip`. The asset with the `v7l` prefix was added to clarify to users which ARM version it supports, and to disambiguate it from future armv6l and arm64 assets that may be produced.
+Chaque version d'Electron contient deux versions ARM identiques avec des noms légèrement différents, comme `electron-v1.7.3-linux-arm.zip` et `electron-v1.7.3-linux-armv7l.zip`. Celui avec le préfixe `v7l` a été ajouté pour clarifier aux utilisateurs quelle version ARM elle supporte, et supprimer les ambiguïtés des prochains paquets armv6l et arm64 qui pourraient être produites.
 
 The file *without the prefix* is still being published to avoid breaking any setups that may be consuming it. Starting at 2.0, the un-prefixed file will no longer be published.
 
