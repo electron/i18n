@@ -670,7 +670,7 @@ Calling this function with a value of `0` will remove any previously set aspect 
 * `bounds` [Rectangle](structures/rectangle.md)
 * `animate` Boolean (可选) *macOS*
 
-Resizes and moves the window to the supplied bounds. Any properties that are not supplied will default to their current values.
+重新调整窗口大小并将其移动到提供的 bounds。当一些属性值没有被提供时，将不被更改。
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -702,7 +702,7 @@ console.log(win.getBounds())
 
 Returns [`Rectangle`](structures/rectangle.md) - Contains the window bounds of the normal state
 
-**Note:** whatever the current state of the window : maximized, minimized or in fullscreen, this function always returns the position and size of the window in normal state. In normal state, getBounds and getNormalBounds returns the same [`Rectangle`](structures/rectangle.md).
+**注意：**无论当前的窗口状态为：最大化、最小化或者全屏，这个方法都将得到窗口在正常显示状态下的位置信息以及大小信息。 在正常状态下，getBounds 与 getNormalBounds 得到的边界信息 [`Rectangle`](structures/rectangle.md) 是一致的。
 
 #### `win.setEnabled(enable)`
 
