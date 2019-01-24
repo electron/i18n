@@ -59,7 +59,7 @@ Transformar esse aplicativo em Node para Electron é bastante simples - nós vam
 
 ## Instalando o Electron
 
-Nesse ponto, você vai precisará instalar o `electron`. A maneira recomendada de fazer isso é instalá-lo como uma dependência de desenvolvimento em seu aplicativo, que permite você trabalhe em múltiplos aplicativos com diferentes versões do Electron. Para fazer isso, execute o seguinte comando no diretório do seu aplicativo:
+Nesse ponto, você precisará instalar o `electron`. A maneira recomendada de fazer isso é instalá-lo como uma dependência de desenvolvimento em seu aplicativo, que permite você trabalhe em múltiplos aplicativos com diferentes versões do Electron. Para fazer isso, execute o seguinte comando no diretório do seu aplicativo:
 
 ```sh
 npm install --save-dev electron
