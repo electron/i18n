@@ -15,43 +15,43 @@ Le module `inAppPurchase` émet les événements suivants :
 Retourne :
 
 * `event` Event
-* `transactions` Transaction[] - Array of [`Transaction`](structures/transaction.md) objects.
+* `transactions` Transaction[] - Tableau d'objets [`Transaction`](structures/transaction.md).
 
 ## Méthodes
 
-The `inAppPurchase` module has the following methods:
+Le module `inAppPurchase` possède les méthodes suivantes :
 
 ### `inAppPurchase.purchaseProduct(productID, quantity, callback)`
 
-* `productID` String - The identifiers of the product to purchase. (The identifier of `com.example.app.product1` is `product1`).
-* `quantity` Integer (optional) - The number of items the user wants to purchase.
-* `callback` Function (optional) - The callback called when the payment is added to the PaymentQueue. 
-    * `isProductValid` Boolean - Determine if the product is valid and added to the payment queue.
+* `productID` String - Les identifiants du produit à acheter. (L'identifiant de `com.example.app.product1` est `product1`).
+* `quantity` Integer (optionnel) - Le nombre d'items que l'utilisateur veut acheter.
+* `callback` Function (optionnel) - La fonction de retour appellée lorsque le paiement est ajouté au `PaymentQueue`. 
+    * `isProductValid` Boolean - Détermine si le produit est valide et ajouté à la file de paiements.
 
-You should listen for the `transactions-updated` event as soon as possible and certainly before you call `purchaseProduct`.
+Tu devrais écouter l'événement `transactions-updated` dès que possible et surement avant d'appeler `purchaseProduct`.
 
 ### `inAppPurchase.getProducts(productIDs, callback)`
 
-* `productIDs` String[] - The identifiers of the products to get.
-* `callback` Function - The callback called with the products or an empty array if the products don't exist. 
-    * `products` Product[] - Array of [`Product`](structures/product.md) objects
+* `productIDs` String[] - Les identifiants des produits à recevoir.
+* `callback` Function - La fonction de retour appelée avec le produit ou un tableau vide si le produit n'existe pas. 
+    * `products` Product[] - Tableau d'objets [`Product`](structures/product.md)
 
-Retrieves the product descriptions.
+Retourne les descriptions des produits.
 
 ### `inAppPurchase.canMakePayments()`
 
-Returns `Boolean`, whether a user can make a payment.
+Retourne un `Boolean`, qui dit si l'utilisateur peut faire un paiement.
 
 ### `inAppPurchase.getReceiptURL()`
 
-Returns `String`, the path to the receipt.
+Retourne une `String`, l'URL du reçu.
 
 ### `inAppPurchase.finishAllTransactions()`
 
-Completes all pending transactions.
+Termine toutes les transactions en cours.
 
 ### `inAppPurchase.finishTransactionByDate(date)`
 
-* `date` String - The ISO formatted date of the transaction to finish.
+* `date` String - La date sous format ISO de la fin de la transaction.
 
-Completes the pending transactions corresponding to the date.
+Termine les transactions correspondantes à la date.
