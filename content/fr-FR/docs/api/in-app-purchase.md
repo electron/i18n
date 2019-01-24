@@ -28,7 +28,7 @@ Le module `inAppPurchase` possède les méthodes suivantes :
 * `callback` Function (optionnel) - La fonction de retour appellée lorsque le paiement est ajouté au `PaymentQueue`. 
     * `isProductValid` Boolean - Détermine si le produit est valide et ajouté à la file de paiements.
 
-You should listen for the `transactions-updated` event as soon as possible and certainly before you call `purchaseProduct`.
+Tu devrais écouter l'événement `transactions-updated` dès que possible et surement avant d'appeler `purchaseProduct`.
 
 ### `inAppPurchase.getProducts(productIDs, callback)`
 
