@@ -54,7 +54,7 @@ $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 
 ## --proxy-server=`address:port`
 
-システム設定よりも優先して、指定したプロキシサーバーを使用します。 このスイッチは、HTTPSとWebSocketリクエストを含むHTTPプロトコルでのリクエストにしか影響しません。 また、すべてのプロキシサーバーがHTTPSとWebSocketリクエストに対応している訳ではないことにも注意してください。 The proxy URL does not support username and password authentication [per Chromium issue](https://bugs.chromium.org/p/chromium/issues/detail?id=615947).
+システム設定よりも優先して、指定したプロキシサーバーを使用します。 このスイッチは、HTTPSとWebSocketリクエストを含むHTTPプロトコルでのリクエストにしか影響しません。 また、すべてのプロキシサーバーがHTTPSとWebSocketリクエストに対応している訳ではないことにも注意してください。 プロキシ URL は [各 Chromium issue](https://bugs.chromium.org/p/chromium/issues/detail?id=615947) でのユーザー名とパスワードによる認証をサポートしていません。
 
 ## --proxy-bypass-list=`hosts`
 
