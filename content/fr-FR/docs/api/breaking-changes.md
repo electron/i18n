@@ -10,21 +10,21 @@ La string `FIXME` est utilisée en commentaires codes afin de noter les choses q
 
 ## `new BrowserWindow({ webPreferences })`
 
-The following `webPreferences` option default values are deprecated in favor of the new defaults listed below.
+Les options suivantes de `webPreferences` seront dépréciées en faveur de nouvelles valeurs par défaut listées ci-dessous.
 
-| Property           | Deprecated Default                   | New Default |
-| ------------------ | ------------------------------------ | ----------- |
-| `contextIsolation` | `false`                              | `true`      |
-| `nodeIntegration`  | `true`                               | `false`     |
-| `webviewTag`       | `nodeIntegration` if set else `true` | `false`     |
+| Propriétés         | Valeur par défaut dépréciée           | Nouvelle valeur par défaut |
+| ------------------ | ------------------------------------- | -------------------------- |
+| `contextIsolation` | `false`                               | `true`                     |
+| `nodeIntegration`  | `true`                                | `false`                    |
+| `webviewTag`       | `nodeIntegration` si mis sinon `true` | `false`                    |
 
 ## `nativeWindowOpen`
 
-Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled.
+La fenêtre enfant ouverte avec l'option `nativeWindowOpen` aura toujours l'intégration de Node.js désactivée.
 
 ## `webContents.findInPage(text[, options])`
 
-`wordStart` and `medialCapitalAsWordStart` options are removed.
+Les options `wordStart` et `medialCapitalAsWordStart` sont supprimées.
 
 # Changements majeurs prévus de l'API (4.0)
 
