@@ -477,7 +477,7 @@ app.on('web-contents-created', (event, contents) => {
     // to open this event's url in the default browser.
     event.preventDefault()
 
-    shell.openExternal(navigationUrl)
+    shell.openExternalSync(navigationUrl)
   })
 })
 ```
