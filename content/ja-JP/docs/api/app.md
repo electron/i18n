@@ -331,7 +331,7 @@ app.on('session-created', (event, session) => {
 
 このイベントは `app` の `ready` イベントが発生した後で実行されることが保証されます。
 
-### Event: 'remote-require'
+### イベント: 'remote-require'
 
 戻り値:
 
@@ -339,9 +339,9 @@ app.on('session-created', (event, session) => {
 * `webContents` [WebContents](web-contents.md)
 * `モジュール名` String
 
-Emitted when `remote.require()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+`webContents` のレンダラープロセス内で `remote.require()` が呼ばれたときに発生します。 `event.preventDefault()` を呼ぶとモジュールの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
 
-### Event: 'remote-get-global'
+### イベント: 'remote-get-global'
 
 戻り値:
 
@@ -349,7 +349,7 @@ Emitted when `remote.require()` is called in the renderer process of `webContent
 * `webContents` [WebContents](web-contents.md)
 * `globalName` String
 
-Emitted when `remote.getGlobal()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
+`webContents` のレンダラープロセス内で `remote.getGlobal()` が呼ばれたときに発生します。 `event.preventDefault()` を呼ぶとグローバルの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
 
 ## メソッド
 
@@ -400,7 +400,7 @@ app.exit(0)
 
 ### `app.whenReady()`
 
-Returns `Promise<void>` - fulfilled when Electron is initialized. `app.isReady()` を確認してアプリの準備がまだできていないときに `ready` イベントに登録するための、便利な代替手段として使用できます。
+Returns `Promise<void>` - Electron が初期化されるときに実行される Promise。 `app.isReady()` を確認してアプリの準備がまだできていないときに `ready` イベントに登録するための、便利な代替手段として使用できます。
 
 ### `app.focus()`
 
@@ -599,52 +599,52 @@ const { app } = require('electron')
 app.setJumpList([
   {
     type: 'custom',
-    name: 'Recent Projects',
+    name: '最近開いたプロジェクト',
     items: [
       { type: 'file', path: 'C:\\Projects\\project1.proj' },
       { type: 'file', path: 'C:\\Projects\\project2.proj' }
     ]
   },
-  { // has a name so `type` is assumed to be "custom"
-    name: 'Tools',
+  { // name があるので `type` は "custom" になります
+    name: 'ツール',
     items: [
       {
         type: 'task',
-        title: 'Tool A',
+        title: 'ツールA',
         program: process.execPath,
         args: '--run-tool-a',
         icon: process.execPath,
         iconIndex: 0,
-        description: 'Runs Tool A'
+        description: 'ツールAを実行する'
       },
       {
         type: 'task',
-        title: 'Tool B',
+        title: 'ツールB',
         program: process.execPath,
         args: '--run-tool-b',
         icon: process.execPath,
         iconIndex: 0,
-        description: 'Runs Tool B'
+        description: 'ツールBを実行する'
       }
     ]
   },
   { type: 'frequent' },
-  { // has no name and no type so `type` is assumed to be "tasks"
+  { // name がないので `type`は "tasks" になります
     items: [
       {
         type: 'task',
-        title: 'New Project',
+        title: '新規プロジェクト',
         program: process.execPath,
         args: '--new-project',
-        description: 'Create a new project.'
+        description: '新しいプロジェクトを作成する。'
       },
       { type: 'separator' },
       {
         type: 'task',
-        title: 'Recover Project',
+        title: 'プロジェクトの復元',
         program: process.execPath,
         args: '--recover-project',
-        description: 'Recover Project'
+        description: 'プロジェクト路を復元する'
       }
     ]
   }
@@ -737,7 +737,7 @@ if (!gotTheLock) {
 * `callback` Function 
   * `result` Integer - インポート結果。
 
-プラットフォームの証明書ストアにPACS#12形式で証明書をインポートします。 `callback` is called with the `result` of import operation, a value of `0` indicates success while any other value indicates failure according to Chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+プラットフォームの証明書ストアにPACS#12形式で証明書をインポートします。 インポート操作の `result` で `callback` が呼び出されます。`0` という値は成功を意味しますが、その他の値はChromium の [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) の通り、失敗を意味します。
 
 ### `app.disableHardwareAcceleration()`
 
@@ -761,13 +761,13 @@ if (!gotTheLock) {
 
 ### `app.getGPUInfo(infoType)`
 
-* `infoType` String - Values can be either `basic` for basic info or `complete` for complete info.
+* `infoType` String - 基本的な情報のための `basic` か完全な情報のための `complete` のどちらかにできます。
 
-Returns `Promise`
+戻り値 `Promise`
 
-For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src.git/+/69.0.3497.106/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
+`infoType` が `complete` に等しい場合、Promise は [Chromium の GPUInfo オブジェクト](https://chromium.googlesource.com/chromium/src.git/+/69.0.3497.106/gpu/config/gpu_info.cc) 内におけるすべてのGPU情報を含んだ `Object` で解決されます。 これには `chrome://gpu` ページ上で表示されるバージョンとドライバ情報が含まれます。
 
-For `infoType` equal to `basic`: Promise is fulfilled with `Object` containing fewer attributes than when requested with `complete`. Here's an example of basic response:
+`infoType` が `basic` に等しい場合、Promise は `complete` でのGPU情報より少ない属性を含んだ `Object` で解決されます。 basic の応答の例はこちらです。
 
 ```js
 { auxAttributes:
@@ -792,7 +792,7 @@ machineModelName: 'MacBookPro',
 machineModelVersion: '11.5' }
 ```
 
-Using `basic` should be preferred if only basic information like `vendorId` or `driverId` is needed.
+`vendorId` や `driverId` のような基本的な情報だけ必要であれば、`basic` を用いることが好ましいです。
 
 ### `app.setBadgeCount(count)` *Linux* *macOS*
 
@@ -865,15 +865,15 @@ app.setLoginItemSettings({
 
 * `enabled` Boolean - [アクセシビリティツリー](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)レンダリングを有効もしくは無効にします。
 
-手動でChromeのユーザ補助機能を有効にすると、アプリケーションの設定でユーザにアクセシビリティスイッチを出すことができます。 See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. 既定では無効です。
+手動でChromeのユーザ補助機能を有効にすると、アプリケーションの設定でユーザにアクセシビリティスイッチを出すことができます。 詳細については [Chromium のアクセシビリティドキュメント](https://www.chromium.org/developers/design-documents/accessibility) を参照してください。 既定では無効です。
 
-This API must be called after the `ready` event is emitted.
+この API は `ready` イベントが発生した後で呼ばなければいけません。
 
 **注:** アクセシビリティツリーをレンダリングすると、アプリのパフォーマンスに顕著な影響を与える可能性があります。既定で有効にすべきではありません。
 
 ### `app.showAboutPanel()` *macOS*
 
-Show the about panel with the values defined in the app's `.plist` file or with the options set via `app.setAboutPanelOptions(options)`.
+アプリの `.plist` ファイルで定義されている値、または `app.setAboutPanelOptions(options)` で設定されているオプションを使用して、「〜について」パネルを表示します。
 
 ### `app.setAboutPanelOptions(options)` *macOS*
 
@@ -899,7 +899,7 @@ const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedReso
 stopAccessingSecurityScopedResource()
 ```
 
-セキュリティスコープ付きリソースへのアクセスを開始します。 With this method Electron applications that are packaged for the Mac App Store may reach outside their sandbox to access files chosen by the user. このシステムの動作の詳細は、[Apple のドキュメント](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) を参照してください。
+セキュリティスコープ付きリソースへのアクセスを開始します。 このメソッドでは、Mac App Store 用にパッケージ化された Electron アプリケーションが、ユーザーが選択したファイルにアクセスするためにサンドボックスの外部にアクセスすることがあります。 このシステムの動作の詳細は、[Apple のドキュメント](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) を参照してください。
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
@@ -920,7 +920,7 @@ Chromiumのコマンドラインに引数を追加します。引数は正しく
 
 ### `app.enableSandbox()` *Experimental* *macOS* *Windows*
 
-Enables full sandbox mode on the app.
+アプリで完全サンドボックスモードを有効にします。
 
 このメソッドはアプリが ready になる前だけでしか呼び出すことができません。
 
