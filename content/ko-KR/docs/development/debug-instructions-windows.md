@@ -1,6 +1,6 @@
 # Windows에서 Electron 디버깅하기
 
-만약 작성한 Javascript 애플리케이션이 아닌 Electron 자체의 크래시나 문제를 경험하고 있다면, 네이티브/C++ 디버깅에 익숙하지 않은 개발자는 디버깅이 약간 까다로울 수 있습니다. However, using Visual Studio, GitHub's hosted Electron Symbol Server, and the Electron source code, you can enable step-through debugging with breakpoints inside Electron's source code.
+만약 작성한 Javascript 애플리케이션이 아닌 Electron 자체의 크래시나 문제를 경험하고 있다면, 네이티브/C++ 디버깅에 익숙하지 않은 개발자는 디버깅이 약간 까다로울 수 있습니다. 그렇지만, Visual Studio, Github에서 호스트된 Electron Symbol Server, 그리고 Electron 소스코드를 사용한다면, Electron 소스코드 내부에 breakpoints를 추가하여 step-through debugging을 사용할 수 있습니다.
 
 **See also**: There's a wealth of information on debugging Chromium, much of which also applies to Electron, on the Chromium developers site: [Debugging Chromium on Windows](https://www.chromium.org/developers/how-tos/debugging-on-windows).
 
