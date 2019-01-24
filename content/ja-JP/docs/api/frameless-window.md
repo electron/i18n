@@ -16,7 +16,7 @@ win.show()
 
 ### macOSでの他の方法
 
-There's an alternative way to specify a chromeless window. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. `titleBarStyle` オプションを指定すると、そのようにすることができます。
+枠のないウインドウを指定する他の方法があります。 タイトルバーとウインドウコントロールの両方が無効になる `frame` を `false` に設定する方法の代わりに、タイトルバーを非表示にし、コンテンツをフルウインドウサイズに拡大しつつ、標準のウインドウアクションのためにウインドウコントロール ("信号ボタン") を保持し続けることもできます。 `titleBarStyle` オプションを指定すると、そのようにすることができます。
 
 #### `hidden`
 
@@ -40,7 +40,7 @@ win.show()
 
 #### `customButtonsOnHover`
 
-Uses custom drawn close, and miniaturize buttons that display when hovering in the top left of the window. The fullscreen button is not available due to restrictions of frameless windows as they interface with Apple's MacOS window masks. These custom buttons prevent issues with mouse events that occur with the standard window toolbar buttons. This option is only applicable for frameless windows.
+ウインドウの左上にカーソルを合わせたときに表示されるカスタム描画の閉じる、最小化ボタンを使用します。 フルスクリーンボタンは、フレームレスウインドウの制約のために利用できません。Apple の MacOS ウインドウマスクと被るからです。 これらのボタンは標準のウインドウツールバーボタンで発生するマウスイベントの問題を防止します。 このオプションは、フレームレスウインドウにのみ適用されます。
 
 ```javascript
 const { BrowserWindow } = require('electron')
