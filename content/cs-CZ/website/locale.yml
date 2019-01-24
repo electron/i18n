@@ -1,4 +1,4 @@
-tagline: Tvořte multiplatformní desktopové aplikace pomocí jazyku Javascript, HTML a CSS
+tagline: Tvořte multiplatformní desktopové aplikace pomocí JavaScriptu, HTML a CSS
 nav:
   apps: Aplikace
   blog: Blog
@@ -25,6 +25,7 @@ docs:
     view_all_docs: Veškerá dokumentace na jedné stránce
 languages:
   choose_language: Zvolte jazykovou mutaci
+  view_more_details: View More Language Details
   translation_progress: Stav překladů
   current: aktuální výběr
 community:
@@ -32,10 +33,9 @@ community:
   description: Zdroje pro spojení se s lidmi pracujících na Electronu.
   channels:
     get_started: "<a href='/docs/tutorial/first-app'><b>Začněte</b></a> stavět aplikaci přečtením si <a href='/docs/tutorial/first-app'>rychlého průvodce začátečníka</a>."
-    updates: "<a href='https://twitter.com/electronjs'><b>Stay up to date</b></a> by following <a href='https://twitter.com/electronjs'>@electronjs</a> on Twitter and subscribing to the <a href='/blog'>blog feed</a>."
-    localized_docs: "<a href='/languages'><b>Read docs in your native language</b></a> by visiting the <a href='/languages'>languages page</a>."
+    updates: "<a href='https://twitter.com/electronjs'><b>Zůstaň v obraze</b></a> a sleduj <a href='https://twitter.com/electronjs'>@electronjs</a> na Twitteru a odebírej náš <a href='/blog'>blog</a>."
+    localized_docs: "<a href='/languages'><b>Přečti si dokumentaci ve svém jazyce</b></a> navštívením <a href='/languages'>stránky pro volbu jazyka</a>."
     help: "<a href='http://atom-slack.herokuapp.com'><b>Get help and feedback</b></a> by joining the <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
-    packages: "<a href='/search/npmPackages'><b>Find useful npm packages</b></a> on the <a href='/search/npmPackages'>package search page</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Report bugs</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Request features</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
     code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Report Code of Conduct violations</b></a> by emailing <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
@@ -53,8 +53,21 @@ community:
   awesome_notice: Tento seznam je generován z repozitáře <a href="https://github.com/sindresorhus/awesome-electron">Awesome Electron od @sindresorhus</a>. <br>Něco chybí? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Pošlete pull request</a>.
   meetup_notice: Chcete-li přidat setkání, upravte <code>data/meetups.json</code> a <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">pošlete pull request</a>.
 releases:
-  title: Electron Releases
-  all_releases: All Releases
+  show_releases: "Show Releases:"
+  show_only_releases_from: "Show Only Releases From:"
+  all_versions: Všechny verze
+  stable_releases: Stabilní verze
+  stable_desc: Standardní podporované verze
+  beta_releases: Beta verze
+  beta_desc: Otestujte svou aplikaci s přicházejícími změnami
+  nightly_releases: Nightly Releases
+  nightly_desc: Experimentujte s nejnovějšími vychytávkami
+  next: Další
+  next_page: Další stránka
+  previous: Předchozí
+  previous_page: Předchozí stránka
+  page: Stránka
+  all_releases: Všechny verze
   back_to_index: Back to index
 electron_is_easy:
   title: Je to snazší, než si myslíte
@@ -93,7 +106,7 @@ quick_start:
   dive_deeper: Nebo se ponořte hlouběji a přečtěte si <a href='/docs'>dokumentaci</a>.
 need_help:
   title: Potřebujete pomoc?
-  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum or our <a href='http://atom-slack.herokuapp.com/'>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
+  description: Otázky můžete pokládat na našem <a href='https://discuss.atom.io/c/electron'>fóru</a> nebo na <a href='http://atom-slack.herokuapp.com/'>Slacku</a>. Sledujte nás <a href="https://twitter.com/electronjs">@electronjs</a> na Twitteru, aby vám neuniklo žádné důležité zprávy. Chcete něco méně veřejného? Napište email na <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
 headings:
   languages: Jazyky
 taglines:
@@ -108,21 +121,21 @@ apps:
   submit_your_own: pošlete vaši
   something_missing: Něco chybí?
   edit_this_app: Upravte tuto aplikaci.
-  search_app: Filter apps by name, description, etc…
-  categories: Categories
-  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
+  search_app: Filtrujte aplikace podle jména, popisu, atd…
+  categories: Kategorie
+  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Vytvoř Pull Request</a> pro přidání své aplikace.'
   website: Webová stránka
-  repository: Repository
-  category: Category
-  downloads: Downloads
-  keywords: Keywords
+  repository: Repozitář
+  category: Kategorie
+  downloads: Ke stažení
+  keywords: Klíčová slova
   license: License
-  latest_release: Latest Release
+  latest_release: Poslední verze
 blog:
   title: Electron Blog
   description: Všechny nejnovější zprávy z týmu Electron a komunity.
   feedback: Máte něco k tomuto příspěvku? Jděte na Twitter <a href="https://twitter.com/electronjs">@electronjs</a>.
-  help: Need help or found a bug? <a href="/contact">Contact us</a>.
+  help: Potřebujete pomoct nebo jste našli chybu? <a href="/contact">Kontaktujte nás</a>.
 clipboard:
   copy: Kopírovat
   copy_to_clipboard: Kopírovat do schránky
@@ -131,25 +144,25 @@ or: or
 pages:
   '/':
     title: Electron | Tvořte multiplatformní desktopové aplikace pomocí JavaScrtiptu, HTML a CSS.
-    description: 'Tvořte multiplatformní desktopové aplikace pomocí jazyku Javascript, HTML a CSS.'
+    description: 'Tvořte multiplatformní desktopové aplikace pomocí JavaScriptu, HTML a CSS.'
   '/apps':
     title: Electron aplikace
     description: Aplikace běžicí na Electronu
   '/docs':
     title: Dokumentace
-    description: Guides and API reference documentation for the latest Electron release
+    description: Uživatelská příručka a dokumentace API rozhraní pro poslední vydanou verzi
   '/docs/all':
     title: Všechna dokumentace Electronu!
     description: Electron příručky a API dokumentace na jedné, snadno prohledávatelné stránce.
   '/docs/api':
     title: API
-    description: API reference documentation for the latest Electron release
+    description: API dokumentace pro poslední verzi Electronu
   '/docs/development':
     title: Vývoj
     description: Vývoj v Electronu
   '/docs/tutorial':
     title: Tutoriál
-    description: Guides and tutorials for the latest Electron release
+    description: Návody a příklady pro poslední verzi Electronu
   '/blog':
     title: Electron Blog
     description: Všechny nejnovější zprávy z týmu Electron a komunity.
@@ -166,11 +179,28 @@ pages:
     title: Userland
   '/devtron':
     title: Devtron
-    description: Devtron is an open source tool to help you inspect, monitor, and debug your Electron app. Built on top of the amazing Chrome Developer Tools.
+    description: Devtron je open source nástroj, který Vám pomůže sledovat a krokovat vaši Electron aplikaci. Je založen na úžasných nástrojích pro vývojáře z Chrome.
   '/spectron':
     title: Spectron
     description: Spectron je open source framework pro snadné psaní integračních testů pro vaší Electron aplikaci. Spectron je postaven na ChromeDriver a WebDriverIO.
+  '/fiddle':
+    title: Electron Fiddle
+    description: Nejjednodušší způsob jak začít s Electronem
   '/donors':
     title: Dárci
+landing:
+  get_started: Začínáme
+  fiddle:
+    lead_desc: Nejjednodušší způsob jak začít s Electronem
+    create_app: Vytvořte svou aplikaci
+    description: Electron Fiddle vytvářejte svoje vlastní malé experimenty v Electronu. Seznamte se z našimi úvodními příklady pro rychlý start Vaši práce - změňte si pár věci, vyberte tu správnou verzi Electronu se kterou to chcete všechno rozjet, prostě si hrajte. Potom si uložte svůj výsledek do Vašich GitHub Gist nebo to lokální složky. Jakmile jednou pushnete na GitHub muže si z Vašim Fiddlem pohrát každý jen zadaním adresy v prohlížeči.
+    explore: Procházet Electron
+    explore_desc: "Try Electron without installing any dependencies: Fiddle includes everything you'll need to explore the platform. It also includes examples for every API available in Electron, so if you want to quickly see what a BrowserView is or how the desktopCapturer works, Fiddle has got you covered."
+    code_with_types: Code with Types
+    code_with_types_desc: Fiddle includes Microsoft's excellent Monaco Editor, the same editor powering Visual Studio Code. It also installs the type definitions for the currently selected version of Electron automatically, ensuring that you always have all Electron APIs only a few keystrokes away.
+    compile_and_package: Compile and Package
+    compile_and_package_desc: Fiddle can automatically turn your experiment into binaries you can share with your friends, coworkers, or grandparents. It does so thanks to <a href="https://electronforge.io/">electron-forge</a>, allowing you to package your fiddle as an app for Windows, macOS, or Linux.
+    easy_start: Start with Fiddle, Continue Wherever
+    easy_start_desc: Fiddle is not an IDE – it is however an excellent starting point. Once your fiddle has grown up, export it as a project with or without <a href="https://electronforge.io/">electron-forge</a>. Then, use your favorite editor and take on the world!
 _404:
   page_not_found: Stránka nenalezena.
