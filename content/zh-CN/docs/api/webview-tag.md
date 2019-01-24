@@ -523,7 +523,7 @@ Sends a request to get current zoom level, the `callback` will be called with `c
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
+设置最大和最小基于布局(例如非图像)的缩放级别。
 
 ### `<webview>.showDefinitionForSelection()` *macOS*
 
