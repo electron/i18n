@@ -15,15 +15,15 @@ Le module `inAppPurchase` émet les événements suivants :
 Retourne :
 
 * `event` Event
-* `transactions` Transaction[] - Array of [`Transaction`](structures/transaction.md) objects.
+* `transactions` Transaction[] - Tableau d'objets [`Transaction`](structures/transaction.md).
 
 ## Méthodes
 
-The `inAppPurchase` module has the following methods:
+Le module `inAppPurchase` possède les méthodes suivantes :
 
 ### `inAppPurchase.purchaseProduct(productID, quantity, callback)`
 
-* `productID` String - The identifiers of the product to purchase. (The identifier of `com.example.app.product1` is `product1`).
+* `productID` String - Les identifiants du produit à acheter. (L'identifiant de `com.example.app.product1` est `product1`).
 * `quantity` Integer (optional) - The number of items the user wants to purchase.
 * `callback` Function (optional) - The callback called when the payment is added to the PaymentQueue. 
     * `isProductValid` Boolean - Determine if the product is valid and added to the payment queue.
