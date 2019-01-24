@@ -59,7 +59,7 @@ Ayrıca, `template` elementlerine başka alanlar da ekleyebilirsiniz ve bunlar o
   * `positioningItem` Sayı (isteğe bağlı) *macOS* - Belirtilen koordinattaki fare imlecinin altına konumlandırılacak menü öğesinin dizini. Varsayılan değer -1'dir.
   * `callback` Function (optional) - Called when menu is closed.
 
-Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
+Bu menüyü [` BrowserWindow `](browser-window.md) 'de bir içerik menüsü olarak açar.
 
 #### `menu.closePopup([browserWindow])`
 
@@ -88,7 +88,7 @@ Belirtilen `MenuItem`'ye sahip öğeyi `id` döndürür
 
 ### Örnek Events
 
-Objects created with `new Menu` emit the following events:
+`new Menu` ile oluşturulan nesneler aşağıdaki olayları yayar:
 
 **Not:** Bazı özellikler sadece belirli işletim sistemlerinde mevcuttur ve çalıştıkları işletim sistemlerinin isimleriyle etiketlenmiştir.
 
@@ -98,7 +98,7 @@ Dönüşler:
 
 * `event` Olay
 
-Emitted when `menu.popup()` is called.
+` menu.popup () ` çağrıldığında verilir.
 
 #### Event: 'menu-will-close'
 
