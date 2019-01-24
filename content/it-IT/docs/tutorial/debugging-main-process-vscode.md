@@ -1,4 +1,4 @@
-# Debuggando il Processo Principale in CodiceVS
+# Debuggando il Processo Principale in VSCode
 
 ### 1. Apri un progetto Electron in CodiceVS.
 
