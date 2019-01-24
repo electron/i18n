@@ -1,8 +1,8 @@
 # RemovePassword Object
 
-* `type` String - `password`.
-* `origin` String (optional) - When provided, the authentication info related to the origin will only be removed otherwise the entire cache will be cleared.
-* `scheme` String (optional) - Scheme of the authentication. Can be `basic`, `digest`, `ntlm`, `negotiate`. Must be provided if removing by `origin`.
-* `realm` String (optional) - Realm of the authentication. Must be provided if removing by `origin`.
-* `username` String (optional) - Credentials of the authentication. Must be provided if removing by `origin`.
-* `password` String (optional) - Credentials of the authentication. Must be provided if removing by `origin`.
+* `type` String - `كلمة السر`.
+* `origin` String (optional) - عند توفرها، ستتم إزالة معلومات التوثيق المتعلقة بالمصدر فقط وإلا سيتم مسح ذاكرة التخزين المؤقت بأكملها.
+* `scheme` String (optional) - مخطط التوثيق. يمكن أن يكون `basic`, `digest`, `ntlm`, `negotiate`. يجب تقديمه في حالة الإزالة بواسطة `origin`.
+* `realm` String (optional) - نطاق المصادقة. يجب تقديمه في حالة الإزالة بواسطة `origin`.
+* `username` String (optional) - أوراق اعتماد المصادقة. يجب تقديمها في حالة الإزالة بواسطة `origin`.
+* `password` String (optional) - أوراق اعتماد المصادقة. يجب تقديمها في حالة الإزالة بواسطة `origin`.
