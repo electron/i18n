@@ -43,4 +43,4 @@ Une propriété `Boolean` qui indique si des logs réseau sont actuellement enre
 
 ### `netLog.currentlyLoggingPath`
 
-A `String` property that returns the path to the current log file.
+Une propriété `String` qui renvoie le chemin vers le log actuel.
