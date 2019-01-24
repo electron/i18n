@@ -24,9 +24,9 @@ Le module `inAppPurchase` possède les méthodes suivantes :
 ### `inAppPurchase.purchaseProduct(productID, quantity, callback)`
 
 * `productID` String - Les identifiants du produit à acheter. (L'identifiant de `com.example.app.product1` est `product1`).
-* `quantity` Integer (optional) - The number of items the user wants to purchase.
-* `callback` Function (optional) - The callback called when the payment is added to the PaymentQueue. 
-    * `isProductValid` Boolean - Determine if the product is valid and added to the payment queue.
+* `quantity` Integer (optionnel) - Le nombre d'items que l'utilisateur veut acheter.
+* `callback` Function (optionnel) - La fonction de retour appellée lorsque le paiement est ajouté au `PaymentQueue`. 
+    * `isProductValid` Boolean - Détermine si le produit est valide et ajouté à la file de paiements.
 
 You should listen for the `transactions-updated` event as soon as possible and certainly before you call `purchaseProduct`.
 
