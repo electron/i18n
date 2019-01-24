@@ -32,26 +32,26 @@ Tu devrais écouter l'événement `transactions-updated` dès que possible et su
 
 ### `inAppPurchase.getProducts(productIDs, callback)`
 
-* `productIDs` String[] - The identifiers of the products to get.
-* `callback` Function - The callback called with the products or an empty array if the products don't exist. 
-    * `products` Product[] - Array of [`Product`](structures/product.md) objects
+* `productIDs` String[] - Les identifiants des produits à recevoir.
+* `callback` Function - La fonction de retour appelée avec le produit ou un tableau vide si le produit n'existe pas. 
+    * `products` Product[] - Tableau d'objets [`Product`](structures/product.md)
 
-Retrieves the product descriptions.
+Retourne les descriptions des produits.
 
 ### `inAppPurchase.canMakePayments()`
 
-Returns `Boolean`, whether a user can make a payment.
+Retourne un `Boolean`, qui dit si l'utilisateur peut faire un paiement.
 
 ### `inAppPurchase.getReceiptURL()`
 
-Returns `String`, the path to the receipt.
+Retourne une `String`, l'URL du reçu.
 
 ### `inAppPurchase.finishAllTransactions()`
 
-Completes all pending transactions.
+Termine toutes les transactions en cours.
 
 ### `inAppPurchase.finishTransactionByDate(date)`
 
-* `date` String - The ISO formatted date of the transaction to finish.
+* `date` String - La date sous format ISO de la fin de la transaction.
 
-Completes the pending transactions corresponding to the date.
+Termine les transactions correspondantes à la date.
