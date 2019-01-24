@@ -1,10 +1,10 @@
-# Testing Widevine CDM
+# Widevine CDM’inin Test Edilmesi
 
-In Electron you can use the Widevine CDM library shipped with Chrome browser.
+Electron'da, Chrome tarayıcıyla birlikte gelen Widevine CDM kütüphanesini kullanabilirsiniz.
 
-Widevine Content Decryption Modules (CDMs) are how streaming services protect content using HTML5 video to web browsers without relying on an NPAPI plugin like Flash or Silverlight. Widevine support is an alternative solution for streaming services that currently rely on Silverlight for playback of DRM-protected video content. It will allow websites to show DRM-protected video content in Firefox without the use of NPAPI plugins. The Widevine CDM runs in an open-source CDM sandbox providing better user security than NPAPI plugins.
+Yaygın İçerik Şifresini Çözme Modülleri (CDM'ler), akış hizmetlerinin Flash veya Silverlight gibi bir NPAPI eklentisine güvenmeden HTML5 video kullanarak web tarayıcılarına içeriği korumasını sağlar. Widevine support is an alternative solution for streaming services that currently rely on Silverlight for playback of DRM-protected video content. NPAPI eklentileri kullanmadan web sitelerinin DRM korumalı video içeriğini Firefox'ta göstermesine izin verecek. The Widevine CDM runs in an open-source CDM sandbox providing better user security than NPAPI plugins.
 
-#### Note on VMP
+#### VMP ile ilgili not
 
 As of [`Electron v1.8.0 (Chrome v59)`](https://electronjs.org/releases#1.8.1), the below steps are may only be some of the necessary steps to enable Widevine; any app on or after that version intending to use the Widevine CDM may need to be signed using a license obtained from [Widevine](https://www.widevine.com/) itself.
 
@@ -22,17 +22,17 @@ To enable video playback with this new restriction, [castLabs](https://castlabs.
 
 Open `chrome://components/` in Chrome browser, find `Widevine Content Decryption Module` and make sure it is up to date, then you can find the library files from the application directory.
 
-### On Windows
+### Windows'ta
 
 The library file `widevinecdm.dll` will be under `Program Files(x86)/Google/Chrome/Application/CHROME_VERSION/WidevineCdm/_platform_specific/win_(x86|x64)/` directory.
 
-### On MacOS
+### MacOS'ta
 
 The library file `libwidevinecdm.dylib` will be under `/Applications/Google Chrome.app/Contents/Versions/CHROME_VERSION/Google Chrome Framework.framework/Versions/A/Libraries/WidevineCdm/_platform_specific/mac_(x86|x64)/` directory.
 
 **Note:** Make sure that chrome version used by Electron is greater than or equal to the `min_chrome_version` value of Chrome's widevine cdm component. The value can be found in `manifest.json` under `WidevineCdm` directory.
 
-## Using the library
+## Kütüphaneyi kullanmak
 
 After getting the library files, you should pass the path to the file with `--widevine-cdm-path` command line switch, and the library's version with `--widevine-cdm-version` switch. The command line switches have to be passed before the `ready` event of `app` module gets emitted.
 
