@@ -4,8 +4,8 @@
 
 - 将libcc升级到新的Chromium版本
 - 使Electron兼容新的libcc
-- 如有必要，请更新Electron的相关依赖（如奔溃报告，NodeJS等）
-- 穿件libcc和Electron的内部编译本
+- 如有必要，请更新Electron的相关依赖（如崩溃报告，NodeJS等）
+- 创建libcc和Electron的内部编译本
 - 如有需要，请更新Electron文档
 
 ## 将`libcc`升级到新的Chromium版本
@@ -84,9 +84,9 @@ When a Debug build of Electron succeeds, run the tests: `$ npm run test` Fix the
 
 按照上述所有步骤在所有支持的平台上修复 Electron 代码。
 
-## 更新奔溃报告（Crashpad）
+## 更新崩溃报告（Crashpad）
 
-If there are any compilation errors related to the Crashpad, it probably means you need to update the fork to a newer revision. See [Upgrading Crashpad](upgrading-crashpad.md) for instructions on how to do that.
+如果有任何与Crashpad相关的编译错误，则可能意味着您需要将fork更新为更新的版本。 查阅 [更新崩溃报告](upgrading-crashpad.md) 了解相关步骤。
 
 ## 更新NodeJS
 
