@@ -25,6 +25,7 @@ docs:
     view_all_docs: 한 페이지에 모든 문서 보기
 languages:
   choose_language: 언어를 선택하세요
+  view_more_details: View More Language Details
   translation_progress: 번역 진행률
   current: 현재 설정
 community:
@@ -35,7 +36,6 @@ community:
     updates: "트위터에서 <a href='https://twitter.com/electronjs'>@electronjs</a>를 팔로우하고 <a href='/blog'>블로그 피드</a>를 구독해서 <a href='https://twitter.com/electronjs'><b>최근 소식을 확인하세요</b></a>."
     localized_docs: "<a href='/languages'>언어 페이지</a> 설정을 통해 <a href='/languages'><b>모국어로 번역된 문서를 읽어보세요</b></a>."
     help: "<a href='http://atom-slack.herokuapp.com'>atomio Slack</a> 참여, <a href='https://discuss.atom.io/c/electron'>Discuss</a>에 글을 올리는 것, 또는 <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>를 방문하는 것으로 <a href='http://atom-slack.herokuapp.com'><b>도움을 얻거나 의견을 들어</b></a>보세요."
-    packages: "<a href='/search/npmPackages'>패키지 검색 페이지</a>에서 <a href='/search/npmPackages'><b>유용한 npm 패키지를 찾아</b></a>보세요."
     bugs: "깃허브의 <a href='https://github.com/electron/electron/issues'>electron/electron</a> 저장소 내 이슈 등록으로 <a href='https://github.com/electron/electron/issues'><b>버그를 알려</b></a>주세요."
     feature_requests: "깃허브의 <a href='https://github.com/electron/electron/issues'>electron/electron</a> 저장소 내 이슈 등록으로 <a href='https://github.com/electron/electron/issues'><b>기능을 요청</b></a>해보세요."
     code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>행위규범 위반 신고</b></a>는 <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a> 계정으로 해주세요."
@@ -53,7 +53,20 @@ community:
   awesome_notice: 이 목록은 <a href="https://github.com/sindresorhus/awesome-electron"> @sindresorhus의 멋진 Electron</a> 저장소에서 생성되었습니다. <br>뭔가 누락되었나요? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md"> Pull Request를 만드세요.</a>
   meetup_notice: 모임을 추가하려면 <code>data/meetups.json</code>를 수정하고 <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">pull request를 만드세요</a>.
 releases:
-  title: Electron 릴리즈
+  show_releases: "Show Releases:"
+  show_only_releases_from: "Show Only Releases From:"
+  all_versions: All Versions
+  stable_releases: Stable Releases
+  stable_desc: Regular, supported releases
+  beta_releases: Beta Releases
+  beta_desc: Test your app with upcoming changes
+  nightly_releases: Nightly Releases
+  nightly_desc: Experiment with the latest features
+  next: Next
+  next_page: Next Page
+  previous: Previous
+  previous_page: Previous Page
+  page: Page
   all_releases: 모든 릴리즈들
   back_to_index: 목차로 돌아가기
 electron_is_easy:
@@ -170,7 +183,24 @@ pages:
   '/spectron':
     title: Spectron
     description: Spectron은 Electron 앱에 대한 통합 테스트 코드를 쉽게 작성할 수 있는 오픈 소스 프레임워크이며, ChromeDriver와 WebDriverIO를 기반으로 합니다.
+  '/fiddle':
+    title: Electron Fiddle
+    description: The easiest way to get started with Electron
   '/donors':
     title: 후원자
+landing:
+  get_started: 시작하기
+  fiddle:
+    lead_desc: The easiest way to get started with Electron
+    create_app: Create your app
+    description: Electron Fiddle lets you create and play with small Electron experiments. It greets you with a quick-start template after opening – change a few things, choose the version of Electron you want to run it with, and play around. Then, save your Fiddle either as a GitHub Gist or to a local folder. Once pushed to GitHub, anyone can quickly try your Fiddle out by just entering it in the address bar.
+    explore: Explore Electron
+    explore_desc: "Try Electron without installing any dependencies: Fiddle includes everything you'll need to explore the platform. It also includes examples for every API available in Electron, so if you want to quickly see what a BrowserView is or how the desktopCapturer works, Fiddle has got you covered."
+    code_with_types: Code with Types
+    code_with_types_desc: Fiddle includes Microsoft's excellent Monaco Editor, the same editor powering Visual Studio Code. It also installs the type definitions for the currently selected version of Electron automatically, ensuring that you always have all Electron APIs only a few keystrokes away.
+    compile_and_package: Compile and Package
+    compile_and_package_desc: Fiddle can automatically turn your experiment into binaries you can share with your friends, coworkers, or grandparents. It does so thanks to <a href="https://electronforge.io/">electron-forge</a>, allowing you to package your fiddle as an app for Windows, macOS, or Linux.
+    easy_start: Start with Fiddle, Continue Wherever
+    easy_start_desc: Fiddle is not an IDE – it is however an excellent starting point. Once your fiddle has grown up, export it as a project with or without <a href="https://electronforge.io/">electron-forge</a>. Then, use your favorite editor and take on the world!
 _404:
   page_not_found: 페이지를 찾을 수 없습니다.
