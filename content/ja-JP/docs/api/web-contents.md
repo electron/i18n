@@ -580,23 +580,23 @@ win.loadURL('http://github.com')
 
 関連付けられたウィンドウがコンソールメッセージをロギングしたときに発行されます。 *オフスクリーンレンダリング* が有効になっているウィンドウでは発行されません。
 
-#### Event: 'remote-require'
+#### イベント: 'remote-require'
 
 戻り値:
 
 * `event` Event
 * `モジュール名` String
 
-Emitted when `remote.require()` is called in the renderer process. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+Emitted when `remote.require()` is called in the renderer process. `event.preventDefault()` を呼ぶとモジュールの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
 
-#### Event: 'remote-get-global'
+#### イベント: 'remote-get-global'
 
 戻り値:
 
 * `event` Event
 * `globalName` String
 
-Emitted when `remote.getGlobal()` is called in the renderer process. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
+Emitted when `remote.getGlobal()` is called in the renderer process. `event.preventDefault()` を呼ぶとグローバルの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
 
 ### インスタンスメソッド
 
@@ -622,9 +622,9 @@ webContents.loadURL('https://github.com', options)
 
 * `filePath` String
 * `options` Object (任意) 
-  * `query` Object (optional) - Passed to `url.format()`.
-  * `search` String (optional) - Passed to `url.format()`.
-  * `hash` String (optional) - Passed to `url.format()`.
+  * `query` Object (任意) - `url.format()` に渡されます。
+  * `search` String (任意) - `url.format()` に渡されます。
+  * `hash` String (任意) - `url.format()` に渡されます。
 
 指定されたファイルをウインドウにロードします。`filePath` は、アプリケーションのルートを基準にした HTML ファイルへのパスにする必要があります。 たとえば以下のようなアプリの構造において、
 
