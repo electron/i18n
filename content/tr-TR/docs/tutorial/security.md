@@ -22,7 +22,7 @@ Uzak bir hedeften kod alıp yerel olarak çalıştırdığınızda bir güvenlik
 
 > :warning: Node.js entegrasyonu açıkken hiçbir durumda uzaktan kod yüklemeyin ve çalıştırmayın. Bunun yerine, Node.js kodunu çalıştırmak için sadece yerel dosyaları (uygulamanızla birlikte gelen) kullanın. To display remote content, use the [`<webview>`](../api/webview-tag.md) tag and make sure to disable the `nodeIntegration`.
 
-## Electron Security Warnings
+## Electron Güvenlik Uyarıları
 
 From Electron 2.0 on, developers will see warnings and recommendations printed to the developer console. They only show up when the binary's name is Electron, indicating that a developer is currently looking at the console.
 
@@ -476,7 +476,7 @@ app.on('web-contents-created', (event, contents) => {
     // to open this event's url in the default browser.
     event.preventDefault()
 
-    shell.openExternal(navigationUrl)
+    shell.openExternalSync(navigationUrl)
   })
 })
 ```
