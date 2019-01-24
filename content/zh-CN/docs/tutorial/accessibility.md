@@ -6,7 +6,7 @@
 
 Electron 应用中有关辅助功能的开发和网站是相似的，因为两者最终使用的都是HTML. 然而, 对于Electron应用, 你不能使用在线的辅助功能审查者, 因为你的应用没有一个URL可以提供给审查者.
 
-然而这些新功能将这些审查工具带到您的Electron应用中。您可以选择使用 Spectron 将审核添加到您的测试中, 或者在 DevTools 中使用 Devtron。 Read on for a summary of the tools.
+然而这些新功能将这些审查工具带到您的Electron应用中。您可以选择使用 Spectron 将审核添加到您的测试中, 或者在 DevTools 中使用 Devtron。 详见各工具的文档.
 
 ## Spectron
 
@@ -30,7 +30,7 @@ app.client.auditAccessibility().then(function (audit) {
 
 这两种工具都使用了Google 为 Chrome 所构建的 [ 辅助功能开发工具 ](https://github.com/GoogleChrome/accessibility-developer-tools) 库。 您可以在 [ repository's wiki ](https://github.com/GoogleChrome/accessibility-developer-tools/wiki/Audit-Rules) 上了解到更加详细的辅助功能审核规则。
 
-If you know of other great accessibility tools for Electron, add them to the accessibility documentation with a pull request.
+如果你知道其他适用于Electron的辅助功能开发工具, 请通过pull request添加到本文档中.
 
 ## 启用辅助功能
 
