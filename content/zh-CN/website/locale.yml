@@ -25,7 +25,7 @@ docs:
     view_all_docs: 在一页查看所有文档
 languages:
   choose_language: 请选择语言
-  view_more_details: View More Language Details
+  view_more_details: 查看更多语言详情
   translation_progress: 翻译进度
   current: 当前所选
 community:
@@ -53,10 +53,10 @@ community:
   awesome_notice: 此列表是从 <a href="https://github.com/sindresorhus/awesome-electron"> @sindresorhus 的 Awesome Electron </a> 仓库生成的。<br> 缺少了什么？<a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md"> 请发Pull Request </a>。
   meetup_notice: 若要添加线下交流会，请编辑 <code>data/meetups.json</code> 和 <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json"> 发pull request </a>。
 releases:
-  show_releases: "Show Releases:"
+  show_releases: "显示版本："
   show_only_releases_from: "Show Only Releases From:"
-  all_versions: All Versions
-  stable_releases: Stable Releases
+  all_versions: 所有版本
+  stable_releases: 稳定版本
   stable_desc: Regular, supported releases
   beta_releases: Beta Releases
   beta_desc: Test your app with upcoming changes
