@@ -25,7 +25,7 @@ docs:
     view_all_docs: Tek bir sayfada tüm dökümanlar
 languages:
   choose_language: Site dilinizi seçin
-  view_more_details: Daha fazla dil detaylarını görüntüle
+  view_more_details: Daha Fazla Dil Ayrıntısını Görüntüle
   translation_progress: Çeviri Süreci
   current: mevcut seçim
 community:
