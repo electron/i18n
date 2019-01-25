@@ -766,7 +766,7 @@ console.log(currentURL)
 * `callback` Function (任意) - スクリプトが実行されたあとに呼ばれる。 
   * `result` Any
 
-Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+戻り値 `Promise<any>` - 実行されたコードの結果で resolve する Promise。コードの結果が reject な Promise である場合は reject な Promise。
 
 ページ内の `code` を評価します。
 
@@ -799,7 +799,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 
 #### `contents.isCurrentlyAudible()`
 
-Returns `Boolean` - Whether audio is currently playing.
+戻り値 `Boolean` - 音声が現在再生中かどうか。
 
 #### `contents.setZoomFactor(factor)`
 
@@ -834,7 +834,7 @@ Returns `Boolean` - Whether audio is currently playing.
 
 ピンチによる拡大レベルの最大値と最小値を設定します。
 
-> **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
+> **注意**: Electron ではデフォルトで視覚ズームは無効化されています。再び有効にする場合は以下を呼び出します。
 > 
 > ```js
 contents.setVisualZoomLevelLimits(1, 3)
@@ -915,8 +915,8 @@ contents.setVisualZoomLevelLimits(1, 3)
   * `forward` Boolean (任意) - 前方または後方を検索するかどうか。省略値は `true`。
   * `findNext` Boolean (任意) - 操作が最初のリクエストなのか、辿っているのかどうか。省略値は `false`。
   * `matchCase` Boolean (任意) - 大文字と小文字を区別する検索かどうか。省略値は `false`。
-  * `wordStart` Boolean (optional) (Deprecated) - Whether to look only at the start of words. defaults to `false`.
-  * `medialCapitalAsWordStart` Boolean (optional) (Deprecated) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. 他のいくつかの単語内一致を受け入れる。省略値は `false`。
+  * `wordStart` Boolean (任意) (非推奨) - 単語の始めだけを見るかどうか。省略値は `false`。
+  * `medialCapitalAsWordStart` Boolean (任意) (非推奨) - `wordStart` と組み合わせたとき、マッチの途中が大文字で始まり、小文字や記号が続く場合に、それを受け入れるかどうか。 他のいくつかの単語内一致を受け入れる。省略値は `false`。
 
 戻り値 `Integer` - リクエストに使われたリクエスト ID。
 
@@ -1345,13 +1345,13 @@ WebRTC IP ハンドリングポリシーを設定すると、WebRTC を介して
 
 #### `contents.getProcessId()`
 
-Returns `Integer` - The Chromium internal `pid` of the associated renderer. フレーム特有のナビゲーションイベント (`did-frame-navigate` など) で渡される `frameProcessId` と比較できます。
+戻り値 `Integer` - 関連するレンダラーの Chromium 内部の `pid`。 フレーム特有のナビゲーションイベント (`did-frame-navigate` など) で渡される `frameProcessId` と比較できます。
 
 #### `contents.takeHeapSnapshot(filePath)`
 
 * `filePath` String - 出力ファイルのパス
 
-Returns `Promise<void>` - Indicates whether the snapshot has been created successfully.
+戻り値 `Promise<void>` - スナップショットの作成が成功したかどうかを示します。
 
 V8ヒープを取得して、`filePath`にそれを保存します。
 
@@ -1359,7 +1359,7 @@ V8ヒープを取得して、`filePath`にそれを保存します。
 
 * `allowed` Boolean
 
-Controls whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
+ページがバックグラウンドになったときにこの WebContents がアニメーションとタイマーを抑制するかどうかを制御します。 これは Page Visibility API にも影響します。
 
 ### インスタンスプロパティ
 
