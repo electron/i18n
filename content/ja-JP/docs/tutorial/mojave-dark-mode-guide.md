@@ -1,12 +1,12 @@
 # Mojave Dark Mode
 
-In macOS 10.14 Mojave, Apple introduced a new [system-wide dark mode](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/) for all macOS computers. By default Electron apps do not automatically adjust their UI and native interfaces to the dark mode setting when it's enabled. This is primarily due to Apple's own guidelines saying you **shouldn't** use the dark mode native interfaces if your app's own interfaces don't support dark mode themselves.
+macOS 10.14 Mojave にて、Apple は新しい [システム全体のダークモード](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/dark-mode/) を全ての macOS コンピュータに導入しました。 デフォルトの Electron アプリケーションは、それが有効になっているときでも UI とネイティブインターフェイスを自動的にダークモード設定に調整しません。 これは主に、あなた自身のアプリがダークモードをサポートしていない場合には、ダークモードネイティブインターフェースを使用**すべきではない**という Apple 自身のガイドラインによるものです。
 
-If your app does have a dark mode, you can make your Electron app follow the system-wide dark mode setting.
+アプリにダークモードが設定されている場合は、Electron アプリにシステム全体のダークモード設定を適用させることができます。
 
-## Automatically updating the native interfaces
+## ネイティブインターフェースを自動的に更新する
 
-"Native Interfaces" include the file picker, window border, dialogs, context menus and more; basically anything where the UI comes from macOS and not your app. In order to make these interfaces update to dark mode automatically, you need to set the `NSRequiresAquaSystemAppearance` key in your app's `Info.plist` file to `false`. 例
+"ネイティブインターフェース" にはファイルピッカー、ウインドウの縁、ダイアログ、右クリックメニュー、などの、あなたのアプリではない macOS 由来の基本的な UI が含まれます。 これらのインターフェースを自動的にダークモードに更新するには、アプリの `Info.plist` ファイルの `NSRequiresAquaSystemAppearance` キーを `false` に設定する必要があります。 例
 
 ```xml
 <plist>
