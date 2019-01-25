@@ -358,7 +358,7 @@ Initiates a download of the resource at `url` without navigating.
 
 ### `<webview>.isCurrentlyAudible()`
 
-Returns `Boolean` - Whether audio is currently playing.
+戻り値 `Boolean` - 音声が現在再生中かどうか。
 
 ### `<webview>.undo()`
 
