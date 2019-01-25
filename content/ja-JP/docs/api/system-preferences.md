@@ -265,27 +265,27 @@ Electron が 10.14 SDK をターゲットにして構築されるまでは、ア
 
 戻り値 `String` | `null` - `dark`、`light` か `unknown` になります。
 
-Gets the macOS appearance setting that you have declared you want for your application, maps to [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc). You can use the `setAppLevelAppearance` API to set this value.
+[NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc) に割り当てられている、アプリケーションに必要であることを宣言した macOS の外観設定を取得します。 この値を設定するには `setAppLevelAppearance` API が使用できます。
 
 ### `systemPreferences.setAppLevelAppearance(appearance)` *macOS*
 
-* `appearance` String | null - Can be `dark` or `light`
+* `appearance` String | null - `dark` か `light` にできます
 
-Sets the appearance setting for your application, this should override the system default and override the value of `getEffectiveAppearance`.
+アプリケーションの外観設定を設定します。これはシステムデフォルトを上書きし、`getEffectiveAppearance` の値を上書きします。
 
 ### `systemPreferences.isTrustedAccessibilityClient(prompt)` *macOS*
 
-* `prompt` Boolean - whether or not the user will be informed via prompt if the current process is untrusted.
+* `prompt` Boolean - 現在のプロセスが信頼できない場合にユーザにプロンプトで通知するかどうか。
 
-Returns `Boolean` - `true` if the current process is a trusted accessibility client and `false` if it is not.
+戻り値 `Boolean` -現在のプロセスが信頼されたアクセシビリティクライアントである場合 `true` で、そうでない場合は `false` です。
 
 ### `systemPreferences.getMediaAccessStatus(mediaType)` *macOS*
 
-* `mediaType` String - `microphone` or `camera`.
+* `mediaType` String - `microphone` か `camera`。
 
-Returns `String` - Can be `not-determined`, `granted`, `denied`, `restricted` or `unknown`.
+戻り値 `String` - `not-determined`、`granted`、`denied`、`restricted` か `unknown` になります。
 
-This user consent was not required until macOS 10.14 Mojave, so this method will always return `granted` if your system is running 10.13 High Sierra or lower.
+このユーザーの同意は macOS 10.14 Mojave まで必要ではなかったので、システムを 10.13 High Sierra 以下で実行している場合このメソッドは常に `granted` を返します。
 
 ### `systemPreferences.askForMediaAccess(mediaType)` *macOS*
 
