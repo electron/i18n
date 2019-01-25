@@ -260,9 +260,9 @@ Content-Security-Policy: '*'
 Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 ```
 
-### CSP HTTP Header
+### CSP HTTP ヘッダ
 
-Electron respects the [`Content-Security-Policy` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) which can be set using Electron's [`webRequest.onHeadersReceived`](../api/web-request.md#webrequestonheadersreceivedfilter-listener) handler:
+Electron は [`Content-Security-Policy` HTTP ヘッダ](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) とそれぞれの [`webRequest.onHeadersReceived`](../api/web-request.md#webrequestonheadersreceivedfilter-listener) タグを尊重します。
 
 ```javascript
 const { session } = require('electron')
@@ -277,9 +277,9 @@ session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
 })
 ```
 
-### CSP Meta Tag
+### CSP メタタグ
 
-CSP's preferred delivery mechanism is an HTTP header, however it is not possible to use this method when loading a resource using the `file://` protocol. It can be useful in some cases, such as using the `file://` protocol, to set a policy on a page directly in the markup using a `<meta>` tag:
+CSP の推奨伝達メカニズムは HTTP ヘッダですが、`file://` プロトコルを使用してリソースをロードするときにこのメソッドを使用することはできません。 `file://` プロトコルを使用する場合など、`<meta>` タグを使用してマークアップのページに直接ポリシーを設定すると便利な場合があります。
 
 ```html
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'">
@@ -291,13 +291,13 @@ CSP's preferred delivery mechanism is an HTTP header, however it is not possible
 
 *Electron のデフォルトを推奨しています*
 
-By default, Electron will not allow websites loaded over `HTTPS` to load and execute scripts, CSS, or plugins from insecure sources (`HTTP`). `allowRunningInsecureContent` プロパティを `true` にすることで、その保護を無効にします。
+デフォルトでは、Electron は `HTTPS` 上でロードされたウェブサイト上でのみ、安全でないソース (`HTTP`) からスクリプト、CSS、またはプラグインを読み込んで実行できるようにします。 `allowRunningInsecureContent` プロパティを `true` にすることで、その保護を無効にします。
 
 `HTTPS` 経由でウェブサイトの初期 HTML を読み込んで、`HTTP` 経由で後続のリソースを読み込もうとすることを "混合コンテンツ" といいます。
 
 ### なぜ？
 
-Loading content over `HTTPS` assures the authenticity and integrity of the loaded resources while encrypting the traffic itself. より詳しくは、[セキュアなコンテンツのみを表示する](#1-only-load-secure-content) を参照して下さい。
+`HTTPS` を介してコンテンツをロードすると、トラフィック自体を暗号化しながら、ロードされたリソースの信憑性と完全性が保証されます。 より詳しくは、[セキュアなコンテンツのみを表示する](#1-only-load-secure-content) を参照して下さい。
 
 ### どうすればいいの？
 
@@ -319,7 +319,7 @@ const mainWindow = new BrowserWindow({})
 
 *Electron のデフォルトを推奨しています*
 
-Advanced users of Electron can enable experimental Chromium features using the `experimentalFeatures` property.
+Electron の上級ユーザは、`experimentalFeatures` のプロパティを使用して Chromium の実験的な機能を有効にすることができます。
 
 ### なぜ？
 
@@ -343,11 +343,11 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## 9) Do Not Use `enableBlinkFeatures`
+## 9) `enableBlinkFeatures` を使用しない
 
 *Electron のデフォルトを推奨しています*
 
-Blink は、Chromium のバックグラウンドにあるレンダリングエンジンの名前です。 As with `experimentalFeatures`, the `enableBlinkFeatures` property allows developers to enable features that have been disabled by default.
+Blink は、Chromium のバックグラウンドにあるレンダリングエンジンの名前です。 `experimentalFeatures` と同様に、`enableBlinkFeatures` プロパティを使用すると、デフォルトで無効になっている機能を有効にすることができます。
 
 ### なぜ？
 
@@ -373,7 +373,7 @@ const mainWindow = new BrowserWindow()
 
 *Electron のデフォルトを推奨しています*
 
-If you are using [`<webview>`](../api/webview-tag.md), you might need the pages and scripts loaded in your `<webview>` tag to open new windows. `allowpopups` 属性は、`window.open()` メソッドを使用して新しい [`BrowserWindows`](../api/browser-window.md) を作成することができるようにします。 `<webview>` tags are otherwise not allowed to create new windows.
+[`<webview>`](../api/webview-tag.md) を使用している場合、新しいウィンドウを開くには `<webview>` タグにページとスクリプトをロードする必要があります。 `allowpopups` 属性は、`window.open()` メソッドを使用して新しい [`BrowserWindows`](../api/browser-window.md) を作成することができるようにします。 そうでなければ、`<webview>` は新しいウインドウを作成できません。
 
 ### なぜ？
 
@@ -393,17 +393,17 @@ If you are using [`<webview>`](../api/webview-tag.md), you might need the pages 
 
 Node.js integration が有効になっていないレンダラープロセスで作成された WebView は、integration 自体を有効にすることはできません。 しかし、WebView は常に独自の `webPreferences` を使用して、独立したレンダラープロセスを作成します。
 
-It is a good idea to control the creation of new [`<webview>`](../api/webview-tag.md) tags from the main process and to verify that their webPreferences do not disable security features.
+メインプロセスから新しい [`<webview>`](../api/webview-tag.md) タグの作成を制御し、webPreferences でセキュリティ機能を無効にしていないことを確認することを推奨します。
 
 ### なぜ？
 
-Since `<webview>` live in the DOM, they can be created by a script running on your website even if Node.js integration is otherwise disabled.
+`<webview>` は DOM 内に存在するので、Node.js integration が無効になっていても、WebView はウェブサイトで実行されているスクリプトによって作成できます。
 
-Electron では、開発者はレンダラープロセスを制御するさまざまなセキュリティ機能を無効にすることができます。 In most cases, developers do not need to disable any of those features - and you should therefore not allow different configurations for newly created [`<webview>`](../api/webview-tag.md) tags.
+Electron では、開発者はレンダラープロセスを制御するさまざまなセキュリティ機能を無効にすることができます。 ほとんどの場合、開発者はこれらの機能を無効にする必要はありません。したがって、新しく作成した [`<webview>`](../api/webview-tag.md) タグを使用します。
 
 ### どうすればいいの？
 
-Before a [`<webview>`](../api/webview-tag.md) tag is attached, Electron will fire the `will-attach-webview` event on the hosting `webContents`. Use the event to prevent the creation of `webViews` with possibly insecure options.
+[`<webview>`](../api/webview-tag.md) タグが適用される前に、Electron は `will-attach-webview` イベントを `webContents` ホスト上で発火します。 安全性の低いオプションを使用して `webViews` を作成しないようにするには、このイベントを使用します。
 
 ```js
 app.on('web-contents-created', (event, contents) => {
@@ -425,15 +425,15 @@ app.on('web-contents-created', (event, contents) => {
 
 繰り返しになりますが、このチェックリストはリスクを最小化するものであり、リスクを無くすものではありません。ただ単にWebサイトを表示するという目的であれば、Electronアプリケーションよりもブラウザを利用した方がよりセキュアでしょう。
 
-## 12) Disable or limit navigation
+## 12) ナビゲーションを無効化か制限
 
-If your app has no need to navigate or only needs to navigate to known pages, it is a good idea to limit navigation outright to that known scope, disallowing any other kinds of navigation.
+アプリにナビゲートする必要がない場合、または既知のページにナビゲートするだけの場合は、ナビゲーションをその既知の範囲に完全に制限し、他の種類のナビゲーションを禁止することをお勧めします。
 
 ### なぜ？
 
-Navigation is a common attack vector. If an attacker can convince your app to navigate away from its current page, they can possibly force your app to open web sites on the Internet. Even if your `webContents` are configured to be more secure (like having `nodeIntegration` disabled or `contextIsolation` enabled), getting your app to open a random web site will make the work of exploiting your app a lot easier.
+ナビゲーションは一般的な攻撃方法です。 攻撃者が現在のページから移動するようにアプリを制御することができると、インターネット上の Web サイトを開くことをアプリに強制する可能性があります。 `webContents` がより安全に設定されている (`nodeIntegration` を無効にする、`contextIsolation` を有効にするなど) 場合でも、アプリにデタラメな Web サイトを開かせる アプリを悪用する方がはるかに簡単になります。
 
-A common attack pattern is that the attacker convinces your app's users to interact with the app in such a way that it navigates to one of the attacker's pages. This is usually done via links, plugins, or other user-generated content.
+一般的な攻撃パターンは、攻撃者が、アプリでそのユーザに攻撃者のいずれかのページに移動するような方法で操作することを強いることです。 これは通常、リンク、プラグイン、またはその他のユーザー生成コンテンツを介して行われます。
 
 ### どうすればいいの？
 
