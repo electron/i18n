@@ -123,7 +123,7 @@ child.once('ready-to-show', () => {
   * `height` Integer(可选) - 窗口的高度，单位为像素。默认为`600`.
   * `x` Integer (可选) (如果 y 存在时**必填**) - 窗口相对于屏幕左侧的偏移位置. 默认居中.
   * `y` Integer (可选) (如果 x 存在时**必填**) - 窗口相对于屏幕顶部的偏移位置. 默认居中.
-  * `useContentSize` Boolean (可选) - `width` 和 `height` 将使用 web 页面的尺寸, 这意味着实际窗口的尺寸应该包括窗口框架的大小，稍微会大一点。 默认值为 `false`.
+  * `useContentSize` Boolean (可选) - `width` 和 `height` 将设置为 web 页面的尺寸(译注: 不包含边框), 这意味着窗口的实际尺寸将包括窗口边框的大小，稍微会大一点。 默认值为 `false`.
   * `center` Boolean (可选) - 窗口在屏幕居中.
   * `minWidth` Integer (可选) - 窗口的最小宽度, 默认值为 `0`.
   * `minHeight` Integer (可选) - 窗口的最小高度. 默认值为 `0`.
