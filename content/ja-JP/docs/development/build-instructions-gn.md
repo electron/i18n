@@ -200,6 +200,6 @@ HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Lanmanworkstation\Parameter
 
 git キャッシュを使用している間に `gclient sync` が割り込まれた場合、キャッシュがロックされたままになります。 このロックを除去するには、`gclient sync` に `--break_repo_locks` 引数を渡します。
 
-### I'm being asked for a username/password for chromium-internal.googlesource.com
+### chromium-internal.googlesource.com のユーザー名/パスワードを聞かれる
 
 If you see a prompt for `Username for 'https://chrome-internal.googlesource.com':` when running `gclient sync` on Windows, it's probably because the `DEPOT_TOOLS_WIN_TOOLCHAIN` environment variable is not set to 0. Open `Control Panel` → `System and Security` → `System` → `Advanced system settings` and add a system variable `DEPOT_TOOLS_WIN_TOOLCHAIN` with value `0`. これはローカルにインストールされているバージョンの Visual Studio を使用するように `depot_tools` に知らせます (デフォルトで `depot_tools` は Google 社員のみがアクセスできる Google 内部のバージョンをダウンロードしようとします) 。
