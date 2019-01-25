@@ -57,16 +57,16 @@ releases:
   show_only_releases_from: "Show Only Releases From:"
   all_versions: 所有版本
   stable_releases: 稳定版本
-  stable_desc: Regular, supported releases
-  beta_releases: Beta Releases
-  beta_desc: Test your app with upcoming changes
+  stable_desc: 定期支持的版本
+  beta_releases: Beta 版本
+  beta_desc: 用即将发生的更改测试应用
   nightly_releases: Nightly Releases
-  nightly_desc: Experiment with the latest features
-  next: Next
-  next_page: Next Page
-  previous: Previous
-  previous_page: Previous Page
-  page: Page
+  nightly_desc: 试用最新功能
+  next: 下一个
+  next_page: 下一页
+  previous: 上一个
+  previous_page: 上一页
+  page: 页
   all_releases: 全部发行版
   back_to_index: 返回索引
 electron_is_easy:
