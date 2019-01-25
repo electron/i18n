@@ -463,19 +463,19 @@ app.on('web-contents-created', (event, contents) => {
 
 ナビゲーションと同様、新しい `webContents` の作成は一般的な攻撃手段です。 攻撃者はそのままではページを開こうとしても開くことができないために、新しいウィンドウ、フレーム、その他のレンダラープロセスをより多くの権限で作成するようにアプリに強制しようとします。
 
-あなたが作成する必要があると知っているものに加えてウィンドウを作成する必要がない場合は、作成を無効にするとノーコストで少しの追加のセキュリティが手に入ります。 This is commonly the case for apps that open one `BrowserWindow` and do not need to open an arbitrary number of additional windows at runtime.
+あなたが作成する必要があると知っているものに加えてウィンドウを作成する必要がない場合は、作成を無効にするとノーコストで少しの追加のセキュリティが手に入ります。 これは1つの `BrowserWindow` を開き、実行時に任意の数の追加ウィンドウを開く必要がないアプリケーションで普遍的なケースです。
 
 ### どうすればいいの？
 
-[`webContents`](../api/web-contents.md) will emit the [`new-window`](../api/web-contents.md#event-new-window) event before creating new windows. That event will be passed, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you use the event to scrutinize the creation of windows, limiting it to only what you need.
+[`webContents`](../api/web-contents.md) は、新しいウィンドウを作成する前に [`new-window`](../api/web-contents.md#event-new-window) イベントを発行します。 そのイベントは、他のパラメータの中でも、ウィンドウが開くことを要求された `url` とそれを作成するために使用されたオプションを渡されます。 このイベントを使用してウィンドウの作成を詳細に調べ、必要なものだけに限定することを推奨します。
 
 ```js
 const { shell } = require('electron')
 
 app.on('web-contents-created', (event, contents) => {
   contents.on('new-window', (event, navigationUrl) => {
-    // In this example, we'll ask the operating system
-    // to open this event's url in the default browser.
+    // この例では、既定のブラウザでこのイベントのURLを開くように
+    // オペレーティングシステムに依頼します。
     event.preventDefault()
 
     shell.openExternalSync(navigationUrl)
