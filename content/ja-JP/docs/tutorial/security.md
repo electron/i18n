@@ -12,7 +12,7 @@ Electron の脆弱性を報告する正しい方法については [SECURITY.md]
 
 ## Chromium のセキュリティ問題とアップグレード
 
-Electron は新しいバージョンの Chromium を出来るだけ早くサポートするように努力をしてはいますが、アップグレードは数十、時には数百のファイルの編集を含む大変な作業であることをご理解ください。 Given the resources and contributions available today, Electron will often not be on the very latest version of Chromium, lagging behind by several weeks or a few months.
+Electron は新しいバージョンの Chromium を出来るだけ早くサポートするように努力をしてはいますが、アップグレードは数十、時には数百のファイルの編集を含む大変な作業であることをご理解ください。 今日ではたくさんのリソースと貢献を受けていますが、Electron は Chromium 最新版に追いついてないこともあり、数週間もしくは数ヶ月遅れることがあります。
 
 現在の Chromium コンポーネントの更新システムは、利用可能なリソースと、フレームワークの上に構築された大部分のアプリケーションのニーズとの間で、適切なバランスを取っていると思います。 私たちは、Electron 上で構築する人々からの特定の使用状況について、もっと具体的に知りたいと思っています。 この件に関する Pull request とコントリビューションをいつでも歓迎します。
 
@@ -20,7 +20,7 @@ Electron は新しいバージョンの Chromium を出来るだけ早くサポ�
 
 リモートからコードを受け取ってローカルで実行するときは、常にセキュリティの問題が存在します。 例として、リモートのウェブサイトが [`BrowserWindow`](../api/browser-window.md) 内に表示されていると考えてください。 攻撃者が何らかの形でコンテンツを変更した場合 (ソースを直接攻撃する、アプリと実際の宛先の間に居座るなど) 、ユーザーのマシン上でネイティブコードを実行することができます。
 
-> :警告: Node integration が有効な環境で、リモートコードの読み込みと実行を行ってはいけません。 代わりに、Node.js コードの実行にはローカルファイル (アプリケーションと一緒にパッケージ化されているもの) だけを使用してください。 To display remote content, use the [`<webview>`](../api/webview-tag.md) tag and make sure to disable the `nodeIntegration`.
+> :警告: Node integration が有効な環境で、リモートコードの読み込みと実行を行ってはいけません。 代わりに、Node.js コードの実行にはローカルファイル (アプリケーションと一緒にパッケージ化されているもの) だけを使用してください。 リモートコンテンツを表示するには、[`<webview>`](../api/webview-tag.md) タグを使用して、`nodeIntegration` を無効にしてください。
 
 ## Electron のセキュリティ警告
 
@@ -40,11 +40,11 @@ Electron 2.0 からでは、開発者は、開発者コンソールに出力さ�
 6. [`Content-Security-Policy` を定義](#6-define-a-content-security-policy)して、スクリプトの読み込み元を制限する (例: `script-src 'self'`)
 7. [`allowRunningInsecureContent` を `true` にしない](#7-do-not-set-allowrunninginsecurecontent-to-true)
 8. [実験的な機能を有効にしない](#8-do-not-enable-experimental-features)
-9. [Do not use `enableBlinkFeatures`](#9-do-not-use-enableblinkfeatures)
-10. [`<webview>`: Do not use `allowpopups`](#10-do-not-use-allowpopups)
-11. [`<webview>`: Verify options and params](#11-verify-webview-options-before-creation)
-12. [Disable or limit navigation](#12-disable-or-limit-navigation)
-13. [Disable or limit creation of new windows](#13-disable-or-limit-creation-of-new-windows)
+9. [`enableBlinkFeatures` を使用しない](#9-do-not-use-enableblinkfeatures)
+10. [`<webview>`: `allowpopups` を使用しない](#10-do-not-use-allowpopups)
+11. [`<webview>`: オプションとパラメータを検証する](#11-verify-webview-options-before-creation)
+12. [ナビゲーションを無効化か制限](#12-disable-or-limit-navigation)
+13. [新規ウインドウの作成を無効化か制限](#13-disable-or-limit-creation-of-new-windows)
 
 ## 1) セキュアなコンテンツのみを読み込む
 
@@ -78,7 +78,7 @@ browserWindow.loadURL('https://my-website.com')
 
 ## 2) リモートコンテンツで、Node.js integration を無効にする
 
-It is paramount that you disable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) that loads remote content. リモートコンテンツに与える権限を制限することで、攻撃者がウェブサイトで JavaScript を実行できるようになった場合に、ユーザを傷つけることを劇的に難しくする目的があります。
+リモートコンテンツをロードするレンダラー ([`BrowserWindow`](../api/browser-window.md)、[`BrowserView`](../api/browser-view.md)、[`<webview>`](../api/webview-tag.md)) で Node.js integration を無効にすることが重要です。 リモートコンテンツに与える権限を制限することで、攻撃者がウェブサイトで JavaScript を実行できるようになった場合に、ユーザを傷つけることを劇的に難しくする目的があります。
 
 その後、特定のホストに対して追加の権限を与えることができます。 例えば、 "https://my-website.com/" を指す BrowserWindow を開いている場合、あなたはそのウェブサイトに必要な力を正確に与えることができますが、それ以上の力は与えられません。
 
@@ -210,7 +210,7 @@ session
 
 *Electron のデフォルトを推奨しています*
 
-You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) disables crucial security features.
+レンダラープロセス ([`BrowserWindow`](../api/browser-window.md)、[`BrowserView`](../api/browser-view.md)、[`<webview>`](../api/webview-tag.md)) 上の `webSecurity` プロパティを無効にすることは、 重要なセキュリティ機能を無効にするということです。
 
 製品としてのアプリケーションで `webSecurity` を無効にしないでください。
 
@@ -248,7 +248,7 @@ Content Security Policy (CSP) は、クロスサイトスクリプティング�
 
 ### なぜ？
 
-CSP を使用すると、コンテンツを提供するサーバーが、指定されたウェブページに Electron がロードできるリソースを、制限および制御できます。 `https://your-page.com` は、`https://evil.attacker.com` からのスクリプトは許可せず、定義したオリジンのスクリプトを読み込むことを許可して実行する必要があります。 Defining a CSP is an easy way to improve your application's security.
+CSP を使用すると、コンテンツを提供するサーバーが、指定されたウェブページに Electron がロードできるリソースを、制限および制御できます。 `https://your-page.com` は、`https://evil.attacker.com` からのスクリプトは許可せず、定義したオリジンのスクリプトを読み込むことを許可して実行する必要があります。 CSP を定義することは、アプリケーションのセキュリティを向上させる簡単な方法です。
 
 以下の CSP は、Electron が現在のウェブサイトと `apis.mydomain.com` からスクリプトを実行できるようにします。
 
