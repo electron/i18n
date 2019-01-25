@@ -437,9 +437,9 @@ app.on('web-contents-created', (event, contents) => {
 
 ### どうすればいいの？
 
-If your app has no need for navigation, you can call `event.preventDefault()` in a [`will-navigate`](../api/web-contents.md#event-will-navigate) handler. If you know which pages your app might navigate to, check the URL in the event handler and only let navigation occur if it matches the URLs you're expecting.
+アプリにナビゲーションが不要な場合は、[`will-navigate`](../api/web-contents.md#event-will-navigate) ハンドラ内 `event.preventDefault()` を呼び出すことができます。 アプリがどのページに移動するかがわかっている場合は、イベントハンドラで URL を確認し、予期している URL と一致する場合にのみナビゲーションを許可します。
 
-We recommend that you use Node's parser for URLs. Simple string comparisons can sometimes be fooled - a `startsWith('https://google.com')` test would let `https://google.com.attacker.com` through.
+URL には Node のパーサーを使用することを推奨します。 単純な文字列比較は時々だまされる可能性があります - `startsWith('https://google.com')` テストは `https://google.com.attacker.com` を通過させます 。
 
 ```js
 const URL = require('url').URL
@@ -455,9 +455,9 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-## 13) Disable or limit creation of new windows
+## 13) 新規ウインドウの作成を無効化か制限
 
-If you have a known set of windows, it's a good idea to limit the creation of additional windows in your app.
+既知の一連のウインドウがある場合は、アプリ内での追加ウインドウの作成を制限することをお勧めします。
 
 ### なぜ？
 
