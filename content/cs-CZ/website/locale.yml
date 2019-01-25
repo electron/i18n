@@ -25,7 +25,7 @@ docs:
     view_all_docs: Veškerá dokumentace na jedné stránce
 languages:
   choose_language: Zvolte jazykovou mutaci
-  view_more_details: View More Language Details
+  view_more_details: Zobrazit další podrobnosti o jazyku
   translation_progress: Stav překladů
   current: aktuální výběr
 community:
