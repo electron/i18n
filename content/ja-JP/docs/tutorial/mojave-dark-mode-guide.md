@@ -19,13 +19,13 @@ macOS 10.14 Mojave にて、Apple は新しい [システム全体のダーク�
 </plist>
 ```
 
-If you are using [`electron-packager` >= 12.2.0](https://github.com/electron-userland/electron-packager) or [`electron-forge` >= 6](https://github.com/electron-userland/electron-forge) you can set the [`darwinDarkModeSupport`](https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) option when packaging and this key will be set for you.
+[`electron-packager` >= 12.2.0](https://github.com/electron-userland/electron-packager) か [`electron-forge` >= 6](https://github.com/electron-userland/electron-forge) を使用している場合、[`darwinDarkModeSupport`](https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) オプションを設定してパッケージするときにセットされるようにできます。
 
-If you are using [`electron-builder` >= 20.37.0](https://github.com/electron-userland/electron-builder) you can set the [`darkModeSupport`](https://www.electron.build/configuration/mac.html) option.
+[`electron-builder` >= 20.37.0](https://github.com/electron-userland/electron-builder) を使用している場合、[`darkModeSupport`](https://www.electron.build/configuration/mac.html) オプションを設定できます。
 
-## Automatically updating your own interfaces
+## 自作のインターフェースを自動的に更新する
 
-If your app has its own dark mode you should toggle it on and off in sync with the system's dark mode setting. You can do this by listening for the theme changed event on Electron's `systemPreferences` module. 例
+アプリに独自のダークモードがある場合は、システムのダークモード設定と同期してオンとオフを切り替える必要があります。 これを行うには Electron の `systemPreferences` モジュールでテーマ変更イベントを監視します。 例
 
 ```js
 const { systemPreferences } = require('electron')
