@@ -1,4 +1,4 @@
-# TraceConfig Object
+# TraceConfig 对象
 
 * `included_categories` String[] (optional)
 * `excluded_categories` String[] (optional)
