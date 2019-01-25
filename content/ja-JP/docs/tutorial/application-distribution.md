@@ -89,7 +89,7 @@ MyApp.app/Contents
 
 ## ソースから Electron をリビルドして名称変更する
 
-ソースからプロダクト名を変更してビルドすることで、Electron を名称変更することも可能です。 To do this you need to set the build argument corresponding to the product name (`electron_product_name = "YourProductName"`) in the `args.gn` file and rebuild.
+ソースからプロダクト名を変更してビルドすることで、Electron を名称変更することも可能です。 これを行うには、製品名に対応するビルド引数 (`electron_product_name = "YourProductName" `) を `args.gn` ファイルに設定して再ビルドする必要があります。
 
 ### カスタム Electron フォークを作成する
 
@@ -112,9 +112,9 @@ Electron のカスタムフォークを作成することは、"製品レベル"
 3. 以下の環境変数を設定します。
 
 * `ELECTRON_GITHUB_TOKEN` - GitHub 上でリリースを作成できるトークン
-* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload Node.js headers as well as symbols
-* `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will do CI-type checks, appropriate to run for every pull request.
-* `CI` - Set to `true` or else it will fail
+* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - シンボルと同じように Node.js ヘッダをアップロードする場所
+* `ELECTRON_RELEASE` - `true` に設定すると、アップロード部分が実行され、未設定のままになり、`surf-build` はあらゆるプルリクエストに対して実行するのに適した CI タイプのチェックを行います。
+* `CI` - `true` に設定しないと失敗します。
 * `GITHUB_TOKEN` - `ELECTRON_GITHUB_TOKEN` と同じに設定します
 * `SURF_TEMP` - パスが長すぎる問題を防ぐために、Windowsでは `C:\Temp` に設定してください
 * `TARGET_ARCH` - `ia32` か `x64` に設定します。
