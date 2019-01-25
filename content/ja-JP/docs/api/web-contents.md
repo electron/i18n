@@ -157,7 +157,7 @@ myBrowserWindow.webContents.on('new-window', (event, url) => {
 
 フレーム (メインを含む) がナビゲーションを始めているときに発生します。ページ内ナビゲーションの場合、`isInplace` は `true` になります。
 
-#### Event: 'will-redirect'
+#### イベント: 'will-redirect'
 
 戻り値:
 
@@ -168,13 +168,13 @@ myBrowserWindow.webContents.on('new-window', (event, url) => {
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emitted as a server side redirect occurs during navigation. For example a 302 redirect.
+ナビゲーション中にサーバーサイドリダイレクトが発生すると発行されます。例として 302 リダイレクトがあります。
 
-This event will be emitted after `did-start-navigation` and always before the `did-redirect-navigation` event for the same navigation.
+このイベントは常に、同一ナビゲーションで `did-start-navigation` の後かつ `did-redirect-navigation` イベントの前に発行されます。
 
-Calling `event.preventDefault()` will prevent the navigation (not just the redirect).
+`event.preventDefault()` を呼ぶとナビゲーション (リダイレクトではない) が阻害されます。
 
-#### Event: 'did-redirect-navigation'
+#### イベント: 'did-redirect-navigation'
 
 戻り値:
 
@@ -185,9 +185,9 @@ Calling `event.preventDefault()` will prevent the navigation (not just the redir
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
-Emitted after a server side redirect occurs during navigation. For example a 302 redirect.
+ナビゲーション中にサーバーサイドリダイレクトが発生した後に発行されます。例として 302 リダイレクトがあります。
 
-This event can not be prevented, if you want to prevent redirects you should checkout out the `will-redirect` event above.
+このイベントを阻害することはできません。リダイレクトを防ぎたい場合は、上記の `will-redirect` イベントを確認してください。
 
 #### イベント: 'did-navigate'
 
@@ -587,7 +587,7 @@ win.loadURL('http://github.com')
 * `event` Event
 * `モジュール名` String
 
-Emitted when `remote.require()` is called in the renderer process. `event.preventDefault()` を呼ぶとモジュールの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
+レンダラープロセス内で `remote.require()` が呼ばれたときに発行されます。 `event.preventDefault()` を呼ぶとモジュールの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
 
 #### イベント: 'remote-get-global'
 
@@ -596,7 +596,7 @@ Emitted when `remote.require()` is called in the renderer process. `event.preven
 * `event` Event
 * `globalName` String
 
-Emitted when `remote.getGlobal()` is called in the renderer process. `event.preventDefault()` を呼ぶとグローバルの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
+レンダラープロセス内で `remote.getGlobal()` が呼ばれたときに発行されます。 `event.preventDefault()` を呼ぶとグローバルの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
 
 ### インスタンスメソッド
 
