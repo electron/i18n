@@ -461,9 +461,9 @@ app.on('web-contents-created', (event, contents) => {
 
 ### なぜ？
 
-Much like navigation, the creation of new `webContents` is a common attack vector. Attackers attempt to convince your app to create new windows, frames, or other renderer processes with more privileges than they had before; or with pages opened that they couldn't open before.
+ナビゲーションと同様、新しい `webContents` の作成は一般的な攻撃手段です。 攻撃者はそのままではページを開こうとしても開くことができないために、新しいウィンドウ、フレーム、その他のレンダラープロセスをより多くの権限で作成するようにアプリに強制しようとします。
 
-If you have no need to create windows in addition to the ones you know you'll need to create, disabling the creation buys you a little bit of extra security at no cost. This is commonly the case for apps that open one `BrowserWindow` and do not need to open an arbitrary number of additional windows at runtime.
+あなたが作成する必要があると知っているものに加えてウィンドウを作成する必要がない場合は、作成を無効にするとノーコストで少しの追加のセキュリティが手に入ります。 This is commonly the case for apps that open one `BrowserWindow` and do not need to open an arbitrary number of additional windows at runtime.
 
 ### どうすればいいの？
 
