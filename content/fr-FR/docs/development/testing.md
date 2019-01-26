@@ -2,7 +2,7 @@
 
 Notre essayons de garder une couverture de code élevée pour Electron. Nous demandons à ce que toutes les demandes de "pull" passent tout les tests existants, mais ajoutent aussi des tests couvrant les changements de codes et les nouveaux scénarios. Cela nous assure ainsi que nous intégrons le plus de code possible tout en étant sûr que Electron soit livré avec le moins de bugs possible.
 
-Ce dépôt utilise des règles de qualité de code pour JavaScript et C++ ainsi que des tests unitaires et d'intégrations. To learn more about Electron's coding style, please see the [coding-style](coding-style.md) document.
+Ce dépôt utilise des règles de qualité de code pour JavaScript et C++ ainsi que des tests unitaires et d'intégrations. Pour en apprendre plus sur le style de code d'Electron, référez-vous au document [style de code](coding-style.md).
 
 ## Linting
 
