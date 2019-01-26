@@ -1,4 +1,4 @@
-# Windows Taskbar
+# Windows 작업 표시줄
 
 Electron에는 Windows 작업 표시 줄에 앱의 아이콘을 구성하는 API가 있습니다. [`JumpList`의 생성](#jumplist), [맞춤 미리보기 이미지 및 툴바-custom thumbnails and toolbars](#thumbnail-toolbars) [아이콘 오버레이-icon overlays](#icon-overlays-in-taskbar), 그리고 소위 ["플래시 프레임"효과-Flash Frame](#flash-frame) 을 지원하고, 그외 Electron는 앱의 Dock 아이콘을 사용하여 아래와 같은 교차 플랫폼 기능도 구현도 사용합니다. [최근 문서-recent documents](./recent-documents.md)와 [진행 상황-application progress](./progress-bar.md).
 
@@ -87,7 +87,7 @@ const win = new BrowserWindow()
 win.setThumbarButtons([])
 ```
 
-## Icon Overlays in Taskbar
+## 작업 표시줄에서 아이콘 오버레이
 
 Windows에선 작업 표시줄 버튼에 애플리케이션의 상태를 표시하는 작은 오버레이를 사용할 수 있습니다. MSDN에서 인용하자면(영문):
 

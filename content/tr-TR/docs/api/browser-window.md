@@ -6,9 +6,9 @@
 
 ```javascript
 // Ana süreçte.
-const { BrowserWindow } = ('electron') gerektirir
+const { BrowserWindow } = require('electron')
 
-// Ya da oluşturucu işleminden `kumanda` kullanın.
+// Ya da oluşturucu işleminden `remote` kullanın.
 // const { BrowserWindow } = require('electron').remote
 
 let win = new BrowserWindow({ width: 800, height: 600 })
@@ -16,10 +16,10 @@ win.on('closed', () => {
   win = null
 })
 
-// Load a remote URL
+// Bir URL yükleyin
 win.loadURL('https://github.com')
 
-// Or load a local HTML file
+// Ya da yerel bir HTML dosyası yükleyin
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 

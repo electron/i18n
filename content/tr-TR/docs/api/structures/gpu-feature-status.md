@@ -12,7 +12,7 @@
 * `video_encode` Dize - Video kodlama.
 * `video_encode` Dize - Video kodlama.
 * `webgl` Dize - WebGL.
-* `webgl2` String - WebGL2.
+* `webgl2` Dize - WebGL2.
 
 Olası değerler:
 

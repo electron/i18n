@@ -10,7 +10,7 @@
   * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[]
   * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md) | null) (任意)
 
-Creates a new touch bar with the specified items. Use `BrowserWindow.setTouchBar` to add the `TouchBar` to a window.
+指定したアイテムの新しい Touch Bar を作成します。 `BrowserWindow.setTouchBar` でウインドウに `TouchBar` を追加することができます。
 
 **注釈:** TouchBar API は現在実験的な機能で、将来の Electron リリースでは変更されたり削除されたりする可能性があります。
 
@@ -35,20 +35,20 @@ const { TouchBarLabel, TouchBarButton, TouchBarSpacer } = TouchBar
 
 let spinning = false
 
-// Reel labels
+// リールのラベル
 const reel1 = new TouchBarLabel()
 const reel2 = new TouchBarLabel()
 const reel3 = new TouchBarLabel()
 
-// Spin result label
+// 回した結果のラベル
 const result = new TouchBarLabel()
 
-// Spin button
+// Spin ボタン
 const spin = new TouchBarButton({
   label: '🎰 Spin',
   backgroundColor: '#7851A9',
   click: () => {
-    // Ignore clicks if already spinning
+    // すでに回っている場合はクリックを無視
     if (spinning) {
       return
     }
@@ -57,7 +57,7 @@ const spin = new TouchBarButton({
     result.label = ''
 
     let timeout = 10
-    const spinLength = 4 * 1000 // 4 seconds
+    const spinLength = 4 * 1000 // 4 秒
     const startTime = Date.now()
 
     const spinReels = () => {
@@ -66,7 +66,7 @@ const spin = new TouchBarButton({
       if ((Date.now() - startTime) >= spinLength) {
         finishSpin()
       } else {
-        // Slow down a bit on each spin
+        // それぞれの回転を少しずつ遅くする
         timeout *= 1.1
         setTimeout(spinReels, timeout)
       }
@@ -90,15 +90,15 @@ const updateReels = () => {
 const finishSpin = () => {
   const uniqueValues = new Set([reel1.label, reel2.label, reel3.label]).size
   if (uniqueValues === 1) {
-    // All 3 values are the same
+    // 3つの値全てが同じ
     result.label = '💰 Jackpot!'
     result.textColor = '#FDFF00'
   } else if (uniqueValues === 2) {
-    // 2 values are the same
+    // 2つの値が同じ
     result.label = '😍 Winner!'
     result.textColor = '#FDFF00'
   } else {
-    // No values are the same
+    // どの値も同じではない
     result.label = '🙁 Spin Again'
     result.textColor = null
   }

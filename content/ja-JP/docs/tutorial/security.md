@@ -12,7 +12,7 @@ Electron の脆弱性を報告する正しい方法については [SECURITY.md]
 
 ## Chromium のセキュリティ問題とアップグレード
 
-Electron は新しいバージョンの Chromium を出来るだけ早くサポートするように努力をしてはいますが、アップグレードは数十、時には数百のファイルの編集を含む大変な作業であることをご理解ください。 Given the resources and contributions available today, Electron will often not be on the very latest version of Chromium, lagging behind by several weeks or a few months.
+Electron は新しいバージョンの Chromium を出来るだけ早くサポートするように努力をしてはいますが、アップグレードは数十、時には数百のファイルの編集を含む大変な作業であることをご理解ください。 今日ではたくさんのリソースと貢献を受けていますが、Electron は Chromium 最新版に追いついてないこともあり、数週間もしくは数ヶ月遅れることがあります。
 
 現在の Chromium コンポーネントの更新システムは、利用可能なリソースと、フレームワークの上に構築された大部分のアプリケーションのニーズとの間で、適切なバランスを取っていると思います。 私たちは、Electron 上で構築する人々からの特定の使用状況について、もっと具体的に知りたいと思っています。 この件に関する Pull request とコントリビューションをいつでも歓迎します。
 
@@ -20,7 +20,7 @@ Electron は新しいバージョンの Chromium を出来るだけ早くサポ�
 
 リモートからコードを受け取ってローカルで実行するときは、常にセキュリティの問題が存在します。 例として、リモートのウェブサイトが [`BrowserWindow`](../api/browser-window.md) 内に表示されていると考えてください。 攻撃者が何らかの形でコンテンツを変更した場合 (ソースを直接攻撃する、アプリと実際の宛先の間に居座るなど) 、ユーザーのマシン上でネイティブコードを実行することができます。
 
-> :警告: Node integration が有効な環境で、リモートコードの読み込みと実行を行ってはいけません。 代わりに、Node.js コードの実行にはローカルファイル (アプリケーションと一緒にパッケージ化されているもの) だけを使用してください。 To display remote content, use the [`<webview>`](../api/webview-tag.md) tag and make sure to disable the `nodeIntegration`.
+> :警告: Node integration が有効な環境で、リモートコードの読み込みと実行を行ってはいけません。 代わりに、Node.js コードの実行にはローカルファイル (アプリケーションと一緒にパッケージ化されているもの) だけを使用してください。 リモートコンテンツを表示するには、[`<webview>`](../api/webview-tag.md) タグを使用して、`nodeIntegration` を無効にしてください。
 
 ## Electron のセキュリティ警告
 
@@ -40,11 +40,11 @@ Electron 2.0 からでは、開発者は、開発者コンソールに出力さ�
 6. [`Content-Security-Policy` を定義](#6-define-a-content-security-policy)して、スクリプトの読み込み元を制限する (例: `script-src 'self'`)
 7. [`allowRunningInsecureContent` を `true` にしない](#7-do-not-set-allowrunninginsecurecontent-to-true)
 8. [実験的な機能を有効にしない](#8-do-not-enable-experimental-features)
-9. [Do not use `enableBlinkFeatures`](#9-do-not-use-enableblinkfeatures)
-10. [`<webview>`: Do not use `allowpopups`](#10-do-not-use-allowpopups)
-11. [`<webview>`: Verify options and params](#11-verify-webview-options-before-creation)
-12. [Disable or limit navigation](#12-disable-or-limit-navigation)
-13. [Disable or limit creation of new windows](#13-disable-or-limit-creation-of-new-windows)
+9. [`enableBlinkFeatures` を使用しない](#9-do-not-use-enableblinkfeatures)
+10. [`<webview>`: `allowpopups` を使用しない](#10-do-not-use-allowpopups)
+11. [`<webview>`: オプションとパラメータを検証する](#11-verify-webview-options-before-creation)
+12. [ナビゲーションを無効化か制限](#12-disable-or-limit-navigation)
+13. [新規ウインドウの作成を無効化か制限](#13-disable-or-limit-creation-of-new-windows)
 
 ## 1) セキュアなコンテンツのみを読み込む
 
@@ -78,7 +78,7 @@ browserWindow.loadURL('https://my-website.com')
 
 ## 2) リモートコンテンツで、Node.js integration を無効にする
 
-It is paramount that you disable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) that loads remote content. リモートコンテンツに与える権限を制限することで、攻撃者がウェブサイトで JavaScript を実行できるようになった場合に、ユーザを傷つけることを劇的に難しくする目的があります。
+リモートコンテンツをロードするレンダラー ([`BrowserWindow`](../api/browser-window.md)、[`BrowserView`](../api/browser-view.md)、[`<webview>`](../api/webview-tag.md)) で Node.js integration を無効にすることが重要です。 リモートコンテンツに与える権限を制限することで、攻撃者がウェブサイトで JavaScript を実行できるようになった場合に、ユーザを傷つけることを劇的に難しくする目的があります。
 
 その後、特定のホストに対して追加の権限を与えることができます。 例えば、 "https://my-website.com/" を指す BrowserWindow を開いている場合、あなたはそのウェブサイトに必要な力を正確に与えることができますが、それ以上の力は与えられません。
 
@@ -210,7 +210,7 @@ session
 
 *Electron のデフォルトを推奨しています*
 
-You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) disables crucial security features.
+レンダラープロセス ([`BrowserWindow`](../api/browser-window.md)、[`BrowserView`](../api/browser-view.md)、[`<webview>`](../api/webview-tag.md)) 上の `webSecurity` プロパティを無効にすることは、 重要なセキュリティ機能を無効にするということです。
 
 製品としてのアプリケーションで `webSecurity` を無効にしないでください。
 
@@ -248,7 +248,7 @@ Content Security Policy (CSP) は、クロスサイトスクリプティング�
 
 ### なぜ？
 
-CSP を使用すると、コンテンツを提供するサーバーが、指定されたウェブページに Electron がロードできるリソースを、制限および制御できます。 `https://your-page.com` は、`https://evil.attacker.com` からのスクリプトは許可せず、定義したオリジンのスクリプトを読み込むことを許可して実行する必要があります。 Defining a CSP is an easy way to improve your application's security.
+CSP を使用すると、コンテンツを提供するサーバーが、指定されたウェブページに Electron がロードできるリソースを、制限および制御できます。 `https://your-page.com` は、`https://evil.attacker.com` からのスクリプトは許可せず、定義したオリジンのスクリプトを読み込むことを許可して実行する必要があります。 CSP を定義することは、アプリケーションのセキュリティを向上させる簡単な方法です。
 
 以下の CSP は、Electron が現在のウェブサイトと `apis.mydomain.com` からスクリプトを実行できるようにします。
 
@@ -260,9 +260,9 @@ Content-Security-Policy: '*'
 Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 ```
 
-### CSP HTTP Header
+### CSP HTTP ヘッダ
 
-Electron respects the [`Content-Security-Policy` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) which can be set using Electron's [`webRequest.onHeadersReceived`](../api/web-request.md#webrequestonheadersreceivedfilter-listener) handler:
+Electron は [`Content-Security-Policy` HTTP ヘッダ](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) とそれぞれの [`webRequest.onHeadersReceived`](../api/web-request.md#webrequestonheadersreceivedfilter-listener) タグを尊重します。
 
 ```javascript
 const { session } = require('electron')
@@ -277,9 +277,9 @@ session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
 })
 ```
 
-### CSP Meta Tag
+### CSP メタタグ
 
-CSP's preferred delivery mechanism is an HTTP header, however it is not possible to use this method when loading a resource using the `file://` protocol. It can be useful in some cases, such as using the `file://` protocol, to set a policy on a page directly in the markup using a `<meta>` tag:
+CSP の推奨伝達メカニズムは HTTP ヘッダですが、`file://` プロトコルを使用してリソースをロードするときにこのメソッドを使用することはできません。 `file://` プロトコルを使用する場合など、`<meta>` タグを使用してマークアップのページに直接ポリシーを設定すると便利な場合があります。
 
 ```html
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'">
@@ -291,13 +291,13 @@ CSP's preferred delivery mechanism is an HTTP header, however it is not possible
 
 *Electron のデフォルトを推奨しています*
 
-By default, Electron will not allow websites loaded over `HTTPS` to load and execute scripts, CSS, or plugins from insecure sources (`HTTP`). `allowRunningInsecureContent` プロパティを `true` にすることで、その保護を無効にします。
+デフォルトでは、Electron は `HTTPS` 上でロードされたウェブサイト上でのみ、安全でないソース (`HTTP`) からスクリプト、CSS、またはプラグインを読み込んで実行できるようにします。 `allowRunningInsecureContent` プロパティを `true` にすることで、その保護を無効にします。
 
 `HTTPS` 経由でウェブサイトの初期 HTML を読み込んで、`HTTP` 経由で後続のリソースを読み込もうとすることを "混合コンテンツ" といいます。
 
 ### なぜ？
 
-Loading content over `HTTPS` assures the authenticity and integrity of the loaded resources while encrypting the traffic itself. より詳しくは、[セキュアなコンテンツのみを表示する](#1-only-load-secure-content) を参照して下さい。
+`HTTPS` を介してコンテンツをロードすると、トラフィック自体を暗号化しながら、ロードされたリソースの信憑性と完全性が保証されます。 より詳しくは、[セキュアなコンテンツのみを表示する](#1-only-load-secure-content) を参照して下さい。
 
 ### どうすればいいの？
 
@@ -319,7 +319,7 @@ const mainWindow = new BrowserWindow({})
 
 *Electron のデフォルトを推奨しています*
 
-Advanced users of Electron can enable experimental Chromium features using the `experimentalFeatures` property.
+Electron の上級ユーザは、`experimentalFeatures` のプロパティを使用して Chromium の実験的な機能を有効にすることができます。
 
 ### なぜ？
 
@@ -343,11 +343,11 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## 9) Do Not Use `enableBlinkFeatures`
+## 9) `enableBlinkFeatures` を使用しない
 
 *Electron のデフォルトを推奨しています*
 
-Blink は、Chromium のバックグラウンドにあるレンダリングエンジンの名前です。 As with `experimentalFeatures`, the `enableBlinkFeatures` property allows developers to enable features that have been disabled by default.
+Blink は、Chromium のバックグラウンドにあるレンダリングエンジンの名前です。 `experimentalFeatures` と同様に、`enableBlinkFeatures` プロパティを使用すると、デフォルトで無効になっている機能を有効にすることができます。
 
 ### なぜ？
 
@@ -373,7 +373,7 @@ const mainWindow = new BrowserWindow()
 
 *Electron のデフォルトを推奨しています*
 
-If you are using [`<webview>`](../api/webview-tag.md), you might need the pages and scripts loaded in your `<webview>` tag to open new windows. `allowpopups` 属性は、`window.open()` メソッドを使用して新しい [`BrowserWindows`](../api/browser-window.md) を作成することができるようにします。 `<webview>` tags are otherwise not allowed to create new windows.
+[`<webview>`](../api/webview-tag.md) を使用している場合、新しいウィンドウを開くには `<webview>` タグにページとスクリプトをロードする必要があります。 `allowpopups` 属性は、`window.open()` メソッドを使用して新しい [`BrowserWindows`](../api/browser-window.md) を作成することができるようにします。 そうでなければ、`<webview>` は新しいウインドウを作成できません。
 
 ### なぜ？
 
@@ -393,17 +393,17 @@ If you are using [`<webview>`](../api/webview-tag.md), you might need the pages 
 
 Node.js integration が有効になっていないレンダラープロセスで作成された WebView は、integration 自体を有効にすることはできません。 しかし、WebView は常に独自の `webPreferences` を使用して、独立したレンダラープロセスを作成します。
 
-It is a good idea to control the creation of new [`<webview>`](../api/webview-tag.md) tags from the main process and to verify that their webPreferences do not disable security features.
+メインプロセスから新しい [`<webview>`](../api/webview-tag.md) タグの作成を制御し、webPreferences でセキュリティ機能を無効にしていないことを確認することを推奨します。
 
 ### なぜ？
 
-Since `<webview>` live in the DOM, they can be created by a script running on your website even if Node.js integration is otherwise disabled.
+`<webview>` は DOM 内に存在するので、Node.js integration が無効になっていても、WebView はウェブサイトで実行されているスクリプトによって作成できます。
 
-Electron では、開発者はレンダラープロセスを制御するさまざまなセキュリティ機能を無効にすることができます。 In most cases, developers do not need to disable any of those features - and you should therefore not allow different configurations for newly created [`<webview>`](../api/webview-tag.md) tags.
+Electron では、開発者はレンダラープロセスを制御するさまざまなセキュリティ機能を無効にすることができます。 ほとんどの場合、開発者はこれらの機能を無効にする必要はありません。したがって、新しく作成した [`<webview>`](../api/webview-tag.md) タグを使用します。
 
 ### どうすればいいの？
 
-Before a [`<webview>`](../api/webview-tag.md) tag is attached, Electron will fire the `will-attach-webview` event on the hosting `webContents`. Use the event to prevent the creation of `webViews` with possibly insecure options.
+[`<webview>`](../api/webview-tag.md) タグが適用される前に、Electron は `will-attach-webview` イベントを `webContents` ホスト上で発火します。 安全性の低いオプションを使用して `webViews` を作成しないようにするには、このイベントを使用します。
 
 ```js
 app.on('web-contents-created', (event, contents) => {
@@ -425,21 +425,21 @@ app.on('web-contents-created', (event, contents) => {
 
 繰り返しになりますが、このチェックリストはリスクを最小化するものであり、リスクを無くすものではありません。ただ単にWebサイトを表示するという目的であれば、Electronアプリケーションよりもブラウザを利用した方がよりセキュアでしょう。
 
-## 12) Disable or limit navigation
+## 12) ナビゲーションを無効化か制限
 
-If your app has no need to navigate or only needs to navigate to known pages, it is a good idea to limit navigation outright to that known scope, disallowing any other kinds of navigation.
+アプリにナビゲートする必要がない場合、または既知のページにナビゲートするだけの場合は、ナビゲーションをその既知の範囲に完全に制限し、他の種類のナビゲーションを禁止することをお勧めします。
 
 ### なぜ？
 
-Navigation is a common attack vector. If an attacker can convince your app to navigate away from its current page, they can possibly force your app to open web sites on the Internet. Even if your `webContents` are configured to be more secure (like having `nodeIntegration` disabled or `contextIsolation` enabled), getting your app to open a random web site will make the work of exploiting your app a lot easier.
+ナビゲーションは一般的な攻撃方法です。 攻撃者が現在のページから移動するようにアプリを制御することができると、インターネット上の Web サイトを開くことをアプリに強制する可能性があります。 `webContents` がより安全に設定されている (`nodeIntegration` を無効にする、`contextIsolation` を有効にするなど) 場合でも、アプリにデタラメな Web サイトを開かせる アプリを悪用する方がはるかに簡単になります。
 
-A common attack pattern is that the attacker convinces your app's users to interact with the app in such a way that it navigates to one of the attacker's pages. This is usually done via links, plugins, or other user-generated content.
+一般的な攻撃パターンは、攻撃者が、アプリでそのユーザに攻撃者のいずれかのページに移動するような方法で操作することを強いることです。 これは通常、リンク、プラグイン、またはその他のユーザー生成コンテンツを介して行われます。
 
 ### どうすればいいの？
 
-If your app has no need for navigation, you can call `event.preventDefault()` in a [`will-navigate`](../api/web-contents.md#event-will-navigate) handler. If you know which pages your app might navigate to, check the URL in the event handler and only let navigation occur if it matches the URLs you're expecting.
+アプリにナビゲーションが不要な場合は、[`will-navigate`](../api/web-contents.md#event-will-navigate) ハンドラ内 `event.preventDefault()` を呼び出すことができます。 アプリがどのページに移動するかがわかっている場合は、イベントハンドラで URL を確認し、予期している URL と一致する場合にのみナビゲーションを許可します。
 
-We recommend that you use Node's parser for URLs. Simple string comparisons can sometimes be fooled - a `startsWith('https://google.com')` test would let `https://google.com.attacker.com` through.
+URL には Node のパーサーを使用することを推奨します。 単純な文字列比較は時々だまされる可能性があります - `startsWith('https://google.com')` テストは `https://google.com.attacker.com` を通過させます 。
 
 ```js
 const URL = require('url').URL
@@ -455,30 +455,30 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-## 13) Disable or limit creation of new windows
+## 13) 新規ウインドウの作成を無効化か制限
 
-If you have a known set of windows, it's a good idea to limit the creation of additional windows in your app.
+既知の一連のウインドウがある場合は、アプリ内での追加ウインドウの作成を制限することをお勧めします。
 
 ### なぜ？
 
-Much like navigation, the creation of new `webContents` is a common attack vector. Attackers attempt to convince your app to create new windows, frames, or other renderer processes with more privileges than they had before; or with pages opened that they couldn't open before.
+ナビゲーションと同様、新しい `webContents` の作成は一般的な攻撃手段です。 攻撃者はそのままではページを開こうとしても開くことができないために、新しいウィンドウ、フレーム、その他のレンダラープロセスをより多くの権限で作成するようにアプリに強制しようとします。
 
-If you have no need to create windows in addition to the ones you know you'll need to create, disabling the creation buys you a little bit of extra security at no cost. This is commonly the case for apps that open one `BrowserWindow` and do not need to open an arbitrary number of additional windows at runtime.
+あなたが作成する必要があると知っているものに加えてウィンドウを作成する必要がない場合は、作成を無効にするとノーコストで少しの追加のセキュリティが手に入ります。 これは1つの `BrowserWindow` を開き、実行時に任意の数の追加ウィンドウを開く必要がないアプリケーションで普遍的なケースです。
 
 ### どうすればいいの？
 
-[`webContents`](../api/web-contents.md) will emit the [`new-window`](../api/web-contents.md#event-new-window) event before creating new windows. That event will be passed, amongst other parameters, the `url` the window was requested to open and the options used to create it. We recommend that you use the event to scrutinize the creation of windows, limiting it to only what you need.
+[`webContents`](../api/web-contents.md) は、新しいウィンドウを作成する前に [`new-window`](../api/web-contents.md#event-new-window) イベントを発行します。 そのイベントは、他のパラメータの中でも、ウィンドウが開くことを要求された `url` とそれを作成するために使用されたオプションを渡されます。 このイベントを使用してウィンドウの作成を詳細に調べ、必要なものだけに限定することを推奨します。
 
 ```js
 const { shell } = require('electron')
 
 app.on('web-contents-created', (event, contents) => {
   contents.on('new-window', (event, navigationUrl) => {
-    // In this example, we'll ask the operating system
-    // to open this event's url in the default browser.
+    // この例では、既定のブラウザでこのイベントのURLを開くように
+    // オペレーティングシステムに依頼します。
     event.preventDefault()
 
-    shell.openExternal(navigationUrl)
+    shell.openExternalSync(navigationUrl)
   })
 })
 ```

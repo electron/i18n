@@ -4,7 +4,7 @@
 
 プロセス: [Renderer](../glossary.md#renderer-process)
 
-`webFrame` export of the Electron module is an instance of the `WebFrame` class representing the top frame of the current `BrowserWindow`. サブフレームは特定のプロパティとメソッド (`webFrame.firstChild` など) によって取得されます。
+`webFrame` は現在の `BrowserWindow` のトップフレームで表示されている `WebFrame` クラスのインスタンスをエクスポートする Electron のモジュールです。 サブフレームは特定のプロパティとメソッド (`webFrame.firstChild` など) によって取得されます。
 
 現在のページを 200% にズームするサンプルです。
 
@@ -45,7 +45,7 @@ webFrame.setZoomFactor(2)
 
 ピンチによる拡大レベルの最大値と最小値を設定します。
 
-> **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
+> **注意**: Electron ではデフォルトで視覚ズームは無効化されています。再び有効にする場合は以下を呼び出します。
 > 
 > ```js
 webFrame.setVisualZoomLevelLimits(1, 3)
@@ -119,7 +119,7 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 * `callback` Function (任意) - スクリプトが実行されたあとに呼ばれる。 
   * `result` Any
 
-Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+戻り値 `Promise<any>` - 実行されたコードの結果で resolve する Promise。コードの結果が reject な Promise である場合は reject な Promise。
 
 ページ内の `code` を評価します。
 
@@ -127,31 +127,31 @@ Returns `Promise<any>` - A promise that resolves with the result of the executed
 
 ### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
+* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 任意の整数を指定できます。
 * `scripts` [WebSource[]](structures/web-source.md)
 * `userGesture` Boolean (任意) - 省略値は `false`。
 * `callback` Function (任意) - スクリプトが実行されたあとに呼ばれる。 
   * `result` Any
 
-Work like `executeJavaScript` but evaluates `scripts` in an isolated context.
+`executeJavaScript` のように動きますが、 `scripts` はイソレートコンテキスト内で評価します。
 
 ### `webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)`
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
+* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 任意の整数を指定できます。
 * `csp` String
 
 イソレートコンテキストのコンテンツセキュリティポリシーを設定します。
 
 ### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)`
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
+* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 任意の整数を指定できます。
 * `name` String
 
 イソレートコンテキストの名前を設定します。開発者向けツール内で活用できます。
 
 ### `webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)`
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
+* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 任意の整数を指定できます。
 * `securityOrigin` String
 
 イソレートコンテキストのセキュリティオリジンを設定します。

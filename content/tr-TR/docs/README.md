@@ -64,8 +64,8 @@ Sıklıkla sorulan sorular vardır. Bir sorun oluşturmadan önce bakınız:
   * [Electron Güvenlik Uyarıları](tutorial/security.md#electron-security-warnings)
   * [Güvenlik Kontrol Listesi](tutorial/security.md#checklist-security-recommendations)
 * [Güncellemeler](tutorial/updates.md) 
-  * [Deploying an Update Server](tutorial/updates.md#deploying-an-update-server)
-  * [App modülünde güncelleştirmeleri gerçekleştirmek](tutorial/updates.md#implementing-updates-in-your-app)
+  * [Güncelleme Sunucusunu Dağıtma](tutorial/updates.md#deploying-an-update-server)
+  * [Uygulama içerisinde güncellemeleri yapmak](tutorial/updates.md#implementing-updates-in-your-app)
   * [Güncellemeleri Uygulama](tutorial/updates.md#applying-updates)
 
 ## Detaylı Öğreticiler

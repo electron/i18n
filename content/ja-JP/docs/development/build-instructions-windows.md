@@ -13,7 +13,7 @@ Windows 版 Electron のビルドについては、以下のガイドライン�
 * [Git](http://git-scm.com)
 * 完全なディストリビューションを作成する予定がある場合は、Windows SDK 10.0.15063.468 の Windows 用デバッグツールを使用してください。 `symstore.exe` が `.pdb` ファイルからシンボルストアを作成するために使用します。 
   * 異なるバージョンのSDKを並行してインストールできます。 SDK をインストールするには、Visual Studio Installer を開いて `変更` → `個別のコンポーネント` を選択し、スクロールしてインストールする適切な Windows SDK を選択します。 他に、[Windows SDK とエミュレータのアーカイブ](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive) を見て、SDK のスタンドアロン版をそれぞれダウンロードすることでもできます。
-  * The SDK Debugging Tools must also be installed. If the Windows 10 SDK was installed via the Visual Studio installer, then they can be installed by going to: `Control Panel` → `Programs` → `Programs and Features` → Select the "Windows Software Development Kit" → `Change` → `Change` → Check "Debugging Tools For Windows" → `Change`. Or, you can download the standalone SDK installer and use it to install the Debugging Tools.
+  * SDK デバッグツールもインストールする必要があります。 Windows 10 SDK が Visual Studio インストーラーを介してインストールされた場合は、次のようにしてインストールできます。 `コントロールパネル` → `プログラム` → `プログラムと機能` → "Windows Software Development Kit" を選択 → `変更` → `変更` → "Debugging Tools For Windows" にチェック → `変更`。 または、スタンドアロンの SDK インストーラをダウンロードして、それを使ってデバッグツールをインストールすることができます。
 
 現在 Windows インストールを持っていない場合、[dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) に Electron をビルドするために使用できる Windows のバージョンがあります。
 
@@ -76,3 +76,7 @@ node.jsに[長すぎるパス名](https://github.com/electron/node/tree/electron
 ```sh
 $ git config --system core.longpaths true
 ```
+
+### error: use of undeclared identifier 'DefaultDelegateCheckMode'
+
+これは、Windows 用のデバッグツールが Windows Driver Kit とともにインストールされている場合においてビルド中に発生する可能性があります。Windows Driver Kit をアンインストールし、上記の手順で Debugging Tools をインストールします。

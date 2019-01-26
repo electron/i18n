@@ -55,7 +55,7 @@ webFrame.setVisualZoomLevelLimits(1, 3)
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
+设置最大和最小基于布局(例如非图像)的缩放级别。
 
 ### `webFrame.setSpellCheckProvider(language, autoCorrectWord, provider)`
 

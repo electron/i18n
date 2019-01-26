@@ -33,13 +33,13 @@ console.log(systemPreferences.isDarkMode())
 * `event` Event
 * `invertedColorScheme` Boolean - ハイコントラストテーマなどの反転した配色が使用されている場合は `true`、そうでない場合は `false`。
 
-### Event: 'appearance-changed' *macOS*
+### イベント: 'appearance-changed' *macOS*
 
 戻り値:
 
-* `newAppearance` String - Can be `dark` or `light`
+* `newAppearance` String - `dark` か `light`。
 
-**NOTE:** This event is only emitted after you have called `startAppLevelAppearanceTrackingOS`
+**注意:** このイベントはあなたが `startAppLevelAppearanceTrackingOS` を呼び出した後にのみ発生します。
 
 ## メソッド
 
@@ -255,44 +255,44 @@ const alpha = color.substr(6, 2) // "dd"
 
 ### `systemPreferences.getEffectiveAppearance()` *macOS*
 
-Returns `String` - Can be `dark`, `light` or `unknown`.
+戻り値 `String` - `dark`、`light` か `unknown` になります。
 
-Gets the macOS appearance setting that is currently applied to your application, maps to [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
+[NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc) に割り当てられている、現在アプリケーションに適用されている macOS の外観設定を取得します。
 
-Please note that until Electron is built targeting the 10.14 SDK, your application's `effectiveAppearance` will default to 'light' and won't inherit the OS preference. In the interim in order for your application to inherit the OS preference you must set the `NSRequiresAquaSystemAppearance` key in your apps `Info.plist` to `false`. If you are using `electron-packager` or `electron-forge` just set the `enableDarwinDarkMode` packager option to `true`. See the [Electron Packager API](https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) for more details.
+Electron が 10.14 SDK をターゲットにして構築されるまでは、アプリケーションの `effectiveAppearance`はデフォルトで 'light' になり、OS の設定は継承されません。 暫定的に、アプリケーションがOSの設定を継承するためには、アプリケーションの `Info.plist`の `NSRequiresAquaSystemAppearance` キーを `false` に設定する必要があります。 `electron-packager` または `electron-forge` を使用している場合は、`enableDarwinDarkMode` パッケージャーオプションを `true` に設定するだけです。 詳細については [Electron パッケージャー API](https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) を参照してください
 
 ### `systemPreferences.getAppLevelAppearance()` *macOS*
 
-Returns `String` | `null` - Can be `dark`, `light` or `unknown`.
+戻り値 `String` | `null` - `dark`、`light` か `unknown` になります。
 
-Gets the macOS appearance setting that you have declared you want for your application, maps to [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc). You can use the `setAppLevelAppearance` API to set this value.
+[NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc) に割り当てられている、アプリケーションに必要であることを宣言した macOS の外観設定を取得します。 この値を設定するには `setAppLevelAppearance` API が使用できます。
 
 ### `systemPreferences.setAppLevelAppearance(appearance)` *macOS*
 
-* `appearance` String | null - Can be `dark` or `light`
+* `appearance` String | null - `dark` か `light` にできます
 
-Sets the appearance setting for your application, this should override the system default and override the value of `getEffectiveAppearance`.
+アプリケーションの外観設定を設定します。これはシステムデフォルトを上書きし、`getEffectiveAppearance` の値を上書きします。
 
 ### `systemPreferences.isTrustedAccessibilityClient(prompt)` *macOS*
 
-* `prompt` Boolean - whether or not the user will be informed via prompt if the current process is untrusted.
+* `prompt` Boolean - 現在のプロセスが信頼できない場合にユーザにプロンプトで通知するかどうか。
 
-Returns `Boolean` - `true` if the current process is a trusted accessibility client and `false` if it is not.
+戻り値 `Boolean` -現在のプロセスが信頼されたアクセシビリティクライアントである場合 `true` で、そうでない場合は `false` です。
 
 ### `systemPreferences.getMediaAccessStatus(mediaType)` *macOS*
 
-* `mediaType` String - `microphone` or `camera`.
+* `mediaType` String - `microphone` か `camera`。
 
-Returns `String` - Can be `not-determined`, `granted`, `denied`, `restricted` or `unknown`.
+戻り値 `String` - `not-determined`、`granted`、`denied`、`restricted` か `unknown` になります。
 
-This user consent was not required until macOS 10.14 Mojave, so this method will always return `granted` if your system is running 10.13 High Sierra or lower.
+このユーザーの同意は macOS 10.14 Mojave まで必要ではなかったので、システムを 10.13 High Sierra 以下で実行している場合このメソッドは常に `granted` を返します。
 
 ### `systemPreferences.askForMediaAccess(mediaType)` *macOS*
 
-* `mediaType` String - the type of media being requested; can be `microphone`, `camera`.
+* `mediaType` String - 要求されるメディアのタイプで、`microphone`、`camera` にできます。
 
-Returns `Promise<Boolean>` - A promise that resolves with `true` if consent was granted and `false` if it was denied. If an invalid `mediaType` is passed, the promise will be rejected. If an access request was denied and later is changed through the System Preferences pane, a restart of the app will be required for the new permissions to take effect. If access has already been requested and denied, it *must* be changed through the preference pane; an alert will not pop up and the promise will resolve with the existing access status.
+戻り値 `Promise<Boolean>` - 許可された場合は `true` で、拒否された場合は `false` で解決する Promise。 無効な `mediaType` を渡した場合、Promise は reject されます。 アクセス要求が拒否されて後でシステム環境設定パネルを通して変更した場合、新しい権限の効果を得るためにアプリの再起動が必要です。 すでにアクセスを要求して拒否された場合、設定パネルを通して変更*しなければなりません*。警告はポップアップせずに Promise は現在のアクセス状態で解決します。
 
-**Important:** In order to properly leverage this API, you [must set](https://developer.apple.com/documentation/avfoundation/cameras_and_media_capture/requesting_authorization_for_media_capture_on_macos?language=objc) the `NSMicrophoneUsageDescription` and `NSCameraUsageDescription` strings in your app's `Info.plist` file. The values for these keys will be used to populate the permission dialogs so that the user will be properly informed as to the purpose of the permission request. See [Electron Application Distribution](https://electronjs.org/docs/tutorial/application-distribution#macos) for more information about how to set these in the context of Electron.
+**重要:** この API を正しく活用するには、アプリの `Info.plist` ファイルに `NSMicrophoneUsageDescription` と `NSCameraUsageDescription` の文字列を[設定する必要があります](https://developer.apple.com/documentation/avfoundation/cameras_and_media_capture/requesting_authorization_for_media_capture_on_macos?language=objc)。 これらのキーの値は許可ダイアログに使用され、許可要求の目的についてユーザーに適切に通知されます。 Electron のコンテキスト内でどのようにこれらを設定するのかについての更なる情報は、[Electron アプリケーション頒布](https://electronjs.org/docs/tutorial/application-distribution#macos) を参照してください。
 
-This user consent was not required until macOS 10.14 Mojave, so this method will always return `true` if your system is running 10.13 High Sierra or lower.
+このユーザーの同意は macOS 10.14 Mojave まで必要ではなかったので、システムを 10.13 High Sierra 以下で実行している場合このメソッドは常に `true` を返します。

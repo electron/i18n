@@ -1,8 +1,8 @@
 # Rahmenlose Fenster
 
-> Öffne ein Fenster ohne Werkzeug/Symbolleiste, Rändern oder anderem grafischen Schnickschnack.
+> Öffne ein Fenster ohne Werkzeug/Symbolleiste, Ränder oder anderen grafischen Schnickschnack.
 
-Ein rahmenloses Fenster ist ein Fenster ohne den üblichen [Bestandteilen](https://developer.mozilla.org/en-US/docs/Glossary/Chrome), wie Symbol/Werkzeugleiste, Tabs, Menüleiste usw. Ein rahmenloses Fenster besteht lediglich aus der Internetseite selbst. Die folgenden Optionen stehen in der Klasse [`BrowserWindow`](browser-window.md) zur Verfügung.
+Ein rahmenloses Fenster ist ein Fenster ohne die üblichen [Bestandteile](https://developer.mozilla.org/en-US/docs/Glossary/Chrome), wie Symbolleisten, die nicht Teil der Webseite sind. Die folgenden Optionen stehen in der Klasse [`BrowserWindow`](browser-window.md) zur Verfügung.
 
 ## Erstelle ein rahmenloses Fenster
 
@@ -16,7 +16,7 @@ win.show()
 
 ### Alternativen auf macOS
 
-There's an alternative way to specify a chromeless window. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. Das kannst du erreichen indem du folgende `titleBarStyle`-Optionen verwendest:
+Es gibt eine Alternative, um ein rahmenloses Fenster zu erhalten. Statt `frame` auf `false` zu setzen, welches sowohl die Titelleiste als auch die Schaltflächen entfernt, möchtest Du möglicherweise nur die Titelleiste entfernen, aber die Standard-Schaltflächen ("Amplelichter") behalten. Das kannst du erreichen indem du folgende `titleBarStyle`-Optionen verwendest:
 
 #### `hidden`
 

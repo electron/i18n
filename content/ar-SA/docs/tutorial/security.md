@@ -10,7 +10,7 @@ With that in mind, be aware that displaying arbitrary content from untrusted sou
 
 For information on how to properly disclose an Electron vulnerability, see [SECURITY.md](https://github.com/electron/electron/tree/master/SECURITY.md)
 
-## Chromium Security Issues and Upgrades
+## المسائل الأمنية المتعلقة بالكروم وتحديثاته
 
 While Electron strives to support new versions of Chromium as soon as possible, developers should be aware that upgrading is a serious undertaking - involving hand-editing dozens or even hundreds of files. Given the resources and contributions available today, Electron will often not be on the very latest version of Chromium, lagging behind by several weeks or a few months.
 
@@ -477,7 +477,7 @@ app.on('web-contents-created', (event, contents) => {
     // to open this event's url in the default browser.
     event.preventDefault()
 
-    shell.openExternal(navigationUrl)
+    shell.openExternalSync(navigationUrl)
   })
 })
 ```

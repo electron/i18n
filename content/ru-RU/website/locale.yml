@@ -25,6 +25,7 @@ docs:
     view_all_docs: Вся документация на одной странице
 languages:
   choose_language: Выберите язык сайта
+  view_more_details: View More Language Details
   translation_progress: Прогресс перевода
   current: текущий выбор
 community:
@@ -35,7 +36,6 @@ community:
     updates: "<a href='https://twitter.com/electronjs'><b>Будьте в курсе</b></a>, отслеживая <a href='https://twitter.com/electronjs'>@electronjs</a> на Twitter и подписавшись на <a href='/blog'>блог</a>."
     localized_docs: "<a href='/languages'><b>Читайте документацию на родном языке</b></a> посетив <a href='/languages'>языковую страницу</a>."
     help: "<a href='http://atom-slack.herokuapp.com'><b>Помогите нам, оставив отзыв</b></a> присоединившись к <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, размещая на <a href='https://discuss.atom.io/c/electron'>Discuss</a>, или посетив <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
-    packages: "<a href='/search/npmPackages'><b>Находите полезные npm пакеты</b></a> на <a href='/search/npmPackages'>странице поиска пакетов</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Сообщайте об ошибках,</b></a> открывая вопросы в <a href='https://github.com/electron/electron/issues'>electron/electron</a> репозитории."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Предлагайте идеи,</b></a> открывая вопросы в репозитории <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
     code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Сообщите о нарушении правил поведения</b></a>, написав нам на почту <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
@@ -53,7 +53,20 @@ community:
   awesome_notice: Этот список генерируется из репозитория <a href="https://github.com/sindresorhus/awesome-electron">Awesome Electron от @sindresorhus</a>. <br> Что-то пропустили? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Сделайте pull request</a>.
   meetup_notice: Чтобы добавить встречу, отредактируйте <code>data/meetups.json</code> и <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">сделайте pull request</a>.
 releases:
-  title: Релизы Electron
+  show_releases: "Show Releases:"
+  show_only_releases_from: "Show Only Releases From:"
+  all_versions: All Versions
+  stable_releases: Stable Releases
+  stable_desc: Regular, supported releases
+  beta_releases: Beta Releases
+  beta_desc: Test your app with upcoming changes
+  nightly_releases: Nightly Releases
+  nightly_desc: Experiment with the latest features
+  next: Next
+  next_page: Next Page
+  previous: Previous
+  previous_page: Previous Page
+  page: Page
   all_releases: Все релизы
   back_to_index: Вернуться к содержанию
 electron_is_easy:
@@ -170,7 +183,24 @@ pages:
   '/spectron':
     title: Spectron
     description: Spectron является фреймворком с открытым исходным кодом для легкого написания тестов интеграции для вашего приложения Electron. Построен на базе ChromeDriver и WebDriverIO.
+  '/fiddle':
+    title: Electron Fiddle
+    description: Самый лёгкий способ начать работу с Electron
   '/donors':
     title: Спонсоры
+landing:
+  get_started: Начать работу
+  fiddle:
+    lead_desc: Самый лёгкий способ начать работу с Electron
+    create_app: Создание собственного приложения
+    description: Electron Fiddle позволяет создавать и пробовать небольшие эксперименты с Electron. По открытию, вас приветсвуют шаблоном ускорённого запуска - вы можете изменить несколько установок, выбрать желаемую версию Electron и поиграть с разными вариантами. После, сохраните ваш Fiddle как GitHub Gist или в локальную папку. При опубликовании в GitHub, ваш Fiddle доступен любому и всё, что нужно сделать чтобы попробовать ваш Fiddle это ввести его в адресную строку браузера.
+    explore: Explore Electron
+    explore_desc: "Try Electron without installing any dependencies: Fiddle includes everything you'll need to explore the platform. It also includes examples for every API available in Electron, so if you want to quickly see what a BrowserView is or how the desktopCapturer works, Fiddle has got you covered."
+    code_with_types: Code with Types
+    code_with_types_desc: Fiddle includes Microsoft's excellent Monaco Editor, the same editor powering Visual Studio Code. It also installs the type definitions for the currently selected version of Electron automatically, ensuring that you always have all Electron APIs only a few keystrokes away.
+    compile_and_package: Compile and Package
+    compile_and_package_desc: Fiddle can automatically turn your experiment into binaries you can share with your friends, coworkers, or grandparents. It does so thanks to <a href="https://electronforge.io/">electron-forge</a>, allowing you to package your fiddle as an app for Windows, macOS, or Linux.
+    easy_start: Start with Fiddle, Continue Wherever
+    easy_start_desc: Fiddle is not an IDE – it is however an excellent starting point. Once your fiddle has grown up, export it as a project with or without <a href="https://electronforge.io/">electron-forge</a>. Then, use your favorite editor and take on the world!
 _404:
   page_not_found: Страница не найдена.

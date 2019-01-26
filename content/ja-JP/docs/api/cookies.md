@@ -21,8 +21,8 @@ session.defaultSession.cookies.get({ url: 'http://www.github.com' }, (error, coo
   console.log(error, cookies)
 })
 
-// Set a cookie with the given cookie data;
-// may overwrite equivalent cookies if they exist.
+// 指定したクッキーのデータでクッキーを設定します。
+// 同一のクッキーが存在する場合、上書きする可能性があります。
 const cookie = { url: 'http://www.github.com', name: 'dummy_name', value: 'dummy' }
 session.defaultSession.cookies.set(cookie, (error) => {
   if (error) console.error(error)

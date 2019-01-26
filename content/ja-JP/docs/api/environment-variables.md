@@ -24,7 +24,7 @@ Windowsコンソールの例:
 
 ### `NODE_OPTIONS`
 
-Electron includes support for a subset of Node's [`NODE_OPTIONS`](https://nodejs.org/api/cli.html#cli_node_options_options). The majority are supported with the exception of those which conflict with Chromium's use of BoringSSL.
+Electron は Node の [`NODE_OPTIONS`](https://nodejs.org/api/cli.html#cli_node_options_options) の一部をサポートに含んでいます。 Chromium の BoringSSL の使用と衝突するものを除き、大多数はサポートされています。
 
 サンプル:
 
@@ -32,7 +32,7 @@ Electron includes support for a subset of Node's [`NODE_OPTIONS`](https://nodejs
 export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
 ```
 
-Unsupported options are:
+以下はサポートされていないオプションです。
 
 ```sh
 --use-bundled-ca
@@ -42,7 +42,7 @@ Unsupported options are:
 --use-openssl-ca
 ```
 
-`NODE_OPTIONS` are explicitly disallowed in packaged apps.
+`NODE_OPTIONS` はパッケージされたアプリ内では明示的に許可されません。
 
 ### `GOOGLE_API_KEY`
 

@@ -1,6 +1,6 @@
-# Notification
+# Notificações
 
-> Create OS desktop notifications
+> 產生作業系統桌面通知。
 
 Processo: [Main](../glossary.md#main-process)
 
@@ -10,7 +10,7 @@ If you want to show Notifications from a renderer process you should use the [HT
 
 ## Class: Notification
 
-> Create OS desktop notifications
+> 產生作業系統桌面通知。
 
 Processo: [Main](../glossary.md#main-process)
 

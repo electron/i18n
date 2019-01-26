@@ -1,6 +1,6 @@
 # automatischerUpdater
 
-> Aktivieren Sie Apps, um sich automatisch zu aktualisieren.
+> Ermöglichen Sie es Apps, sich automatisch zu aktualisieren.
 
 Prozess: [Haupt](../glossary.md#main-process)
 
@@ -14,7 +14,7 @@ In addition, there are some subtle differences on each platform:
 
 ### macOS
 
-macOS , die ` AutoUpdater </ 0> Modul wird auf gebaut <a href="https://github.com/Squirrel/Squirrel.Mac"> Squirrel.Mac </ 1> , Sie keine spezifische Softwareinstallation erforderlich bedeutet es funktioniert. Für serverseitige Anforderungen können Sie <a href="https://github.com/Squirrel/Squirrel.Mac#server-support"> Serverunterstützung </ 0> lesen . Beachten Sie, dass <a href="https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35"> App-Transportsicherheit </ 0> (ATS) für alle Anforderungen gilt, die im Rahmen des Aktualisierungsprozesses vorgenommen werden. Apps, die ATS deaktivieren müssen, können den Schlüssel <code> NSAllowsArbitraryLoads </ 0> zu ihrer App hinzufügen
+Unter MacOS basiert das `autoUpdater` Modul auf [ Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac), was bedeutet daß keine spezifische Konfiguration vonnöten ist. Für serverseitige Anforderungen können Sie [Serverunterstützung](https://github.com/Squirrel/Squirrel.Mac#server-support) lesen. Beachten Sie, dass  App-Transportsicherheit </ 0> (ATS) für alle Anforderungen gilt, die im Rahmen des Aktualisierungsprozesses vorgenommen werden. Apps, die ATS deaktivieren müssen, können den Schlüssel ` NSAllowsArbitraryLoads </ 0> zu ihrer App hinzufügen
  .</p>
 
 <p><strong> Hinweis: </ 0> Ihre Anwendung muss für automatische Updates auf macOS signiert sein . Dies ist eine Voraussetzung von <code> Squirrel.Mac </ 1> .</p>
@@ -82,7 +82,7 @@ downloaded update will still be applied the next time the application starts.</p
 
 <h3>Event: 'before-quit-for-update'</h3>
 
-<p>This event is emitted after a user calls <code>quitAndInstall()`.
+<p>This event is emitted after a user calls <code>quitAndInstall()`.</p> 
 
 When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
 

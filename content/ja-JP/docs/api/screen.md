@@ -6,7 +6,7 @@
 
 `app` モジュールの `ready` イベントが発生するまでは、このモジュールを require、または使用できません。
 
-In the renderer process context it depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
+レンダラプロセスのコンテキストでは [`remote`](remote.md) モジュールに依存しています。したがって、このモジュールが無効になっていると利用できません。
 
 `screen` は [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter) です。
 

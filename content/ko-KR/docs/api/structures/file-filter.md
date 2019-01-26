@@ -1,4 +1,4 @@
-# FileFilter 개체
+# FileFilter 객체
 
 * `name` String
 * `extensions` String[]

@@ -10,21 +10,21 @@
 
 ## `new BrowserWindow({ webPreferences })`
 
-The following `webPreferences` option default values are deprecated in favor of the new defaults listed below.
+以下の `webPreferences` オプションの初期値は、以下の記載された新しい初期値のために非推奨になっています。
 
-| Property           | Deprecated Default                   | New Default |
-| ------------------ | ------------------------------------ | ----------- |
-| `contextIsolation` | `false`                              | `true`      |
-| `nodeIntegration`  | `true`                               | `false`     |
-| `webviewTag`       | `nodeIntegration` if set else `true` | `false`     |
+| 属性                 | 非推奨の初期値                           | 新しい初期値  |
+| ------------------ | --------------------------------- | ------- |
+| `contextIsolation` | `false`                           | `true`  |
+| `nodeIntegration`  | `true`                            | `false` |
+| `webviewTag`       | `nodeIntegration` を設定しなければ `true` | `false` |
 
 ## `nativeWindowOpen`
 
-Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled.
+`nativeWindowOpen` オプションで開かれる子ウインドウは Node.js integration が無効化されます。
 
 ## `webContents.findInPage(text[, options])`
 
-`wordStart` and `medialCapitalAsWordStart` options are removed.
+`wordStart` と `medialCapitalAsWordStart` オプションは削除されます。
 
 # 予定されている破壊的なAPIの変更 (4.0)
 
@@ -57,13 +57,13 @@ app.releaseSingleInstanceLock()
 
 ```js
 app.getGPUInfo('complete')
-// Now behaves the same with `basic` on macOS
+// macOS 上では `basic` と同様に振る舞う
 app.getGPUInfo('basic')
 ```
 
 ## `win_delay_load_hook`
 
-When building native modules for windows, the `win_delay_load_hook` variable in the module's `binding.gyp` must be true (which is the default). If this hook is not present, then the native module will fail to load on Windows, with an error message like `Cannot find module`. See the [native module guide](/docs/tutorial/using-native-node-modules.md) for more.
+Windows でネイティブモジュールをビルドするとき、モジュールの `binding.gyp` 内の `win_delay_load_hook` 変数は true (これが初期値) にならなければいけません。 このフックが存在しない場合ネイティブモジュールは Windows 上でロードできず、`モジュールが見つかりません` のようなエラーメッセージが表示されます。 より詳しくは [ネイティブモジュールガイド](/docs/tutorial/using-native-node-modules.md) を参照してください。
 
 # 破壊的な API の変更 (3.0)
 
@@ -72,36 +72,36 @@ When building native modules for windows, the `win_delay_load_hook` variable in 
 ## `app`
 
 ```js
-// Deprecated
+// 非推奨
 app.getAppMemoryInfo()
-// Replace with
+// こちらに置換
 app.getAppMetrics()
 
-// Deprecated
+// 非推奨
 const metrics = app.getAppMetrics()
-const { memory } = metrics[0] // Deprecated property
+const { memory } = metrics[0] // 非推奨なプロパティ
 ```
 
 ## `BrowserWindow`
 
 ```js
-// Deprecated
+// 非推奨
 let optionsA = { webPreferences: { blinkFeatures: '' } }
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// こちらに置換
 let optionsB = { webPreferences: { enableBlinkFeatures: '' } }
 let windowB = new BrowserWindow(optionsB)
 
-// Deprecated
+// 非推奨
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play_pause') {
-    // do something
+    // なにかする
   }
 })
-// Replace with
+// こちらに置換
 window.on('app-command', (e, cmd) => {
   if (cmd === 'media-play-pause') {
-    // do something
+    // なにかする
   }
 })
 ```
@@ -162,7 +162,7 @@ nativeImage.createFromBuffer(buffer, {
 ## `プロセス`
 
 ```js
-// Deprecated
+// 非推奨
 const info = process.getProcessMemoryInfo()
 ```
 

@@ -1,20 +1,20 @@
 # タスクバーで示すプログレスバー (Windows, macOS, Unity)
 
-On Windows a taskbar button can be used to display a progress bar. This enables a window to provide progress information to the user without the user having to switch to the window itself.
+Windowsでは、タスクバーのボタンにプログレスバーを表示できます。 これによって、ユーザーがウィンドウの切り替え操作をすることなく、ユーザーに進捗情報を提供することが可能となります。
 
-On macOS the progress bar will be displayed as a part of the dock icon.
+Mac OSでは、プログレスバーはドックアイコンの一部に表示されます。
 
-The Unity DE also has a similar feature that allows you to specify the progress bar in the launcher.
+Unity DEでは、ランチャーでプログレスバーの指定を可能にするための同様の機能もあります。
 
 **タスクバーのボタンにプログレスバーを表示する**
 
-![Taskbar Progress Bar](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
+![タスクバーのプログレスバー](https://cloud.githubusercontent.com/assets/639601/5081682/16691fda-6f0e-11e4-9676-49b6418f1264.png)
 
-All three cases are covered by the same API - the `setProgressBar()` method available on instances of `BrowserWindows`. Call it with a number between `0` and `1` to indicate your progress. If you have a long-running task that's currently at 63% towards completion, you'd call it with `setProgressBar(0.63)`.
+これら3つのケースは全て同じAPI - `BrowserWindows` のインスタンスに存在する `setProgressBar()` 関数によって変換されます。 プログレスを示すためにこれを `0` ～ `1`の数値で呼びます。 もしあなたが時間のかかるタスクを持っていて、それが完了に対して現在63%であるならば、あなたは `setProgressBar(0.63)` を呼ぶでしょう。
 
-Generally speaking, setting the parameter to a value below zero (like `-1`) will remove the progress bar while setting it to a value higher than one (like `2`) will switch the progress bar to intermediate mode.
+一般的に、パラメータを0より小さい値 ( `-1` など) に設定するとプログレスバーが削除され、1より大きい値 ( `2` など) に設定するとプログレスバーは中間モードへと切り替わります。
 
-See the [API documentation for more options and modes](../api/browser-window.md#winsetprogressbarprogress).
+[より多くのオプションやモードについてのAPI ドキュメント](../api/browser-window.md#winsetprogressbarprogress) を参照してください。
 
 ```javascript
 const { BrowserWindow } = require('electron')

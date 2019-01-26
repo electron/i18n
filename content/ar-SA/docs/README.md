@@ -60,7 +60,7 @@
   * [Snapcraft](tutorial/snapcraft.md)
 * [Security](tutorial/security.md) 
   * [الإبلاغ عن المشكلات الأمنية](tutorial/security.md#reporting-security-issues)
-  * [Chromium Security Issues and Upgrades](tutorial/security.md#chromium-security-issues-and-upgrades)
+  * [المسائل الأمنية المتعلقة بالكروم وتحديثاته](tutorial/security.md#chromium-security-issues-and-upgrades)
   * [تحذيرات أمنية إلكترون](tutorial/security.md#electron-security-warnings)
   * [قائمة التحقق من الأمان](tutorial/security.md#checklist-security-recommendations)
 * [التحديثات](tutorial/updates.md) 
@@ -82,11 +82,11 @@
   * [إصدارات بيتا وإصلاحات الأخطاء](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
 * [بالتفاصيل: رمز مصدر تطبيق Packaging مع asar](tutorial/application-packaging.md) 
   * [توليد ملفات asar](tutorial/application-packaging.md#generating-asar-archives)
-  * [Using asar Archives](tutorial/application-packaging.md#using-asar-archives)
+  * [استخدام أرشيفات asar](tutorial/application-packaging.md#using-asar-archives)
   * [القيود](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [Adding Unpacked Files to asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [In Detail: Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [In Detail: Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
+  * [إضافة ملفات غير مخزنة إلى أرشيفات asar](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
+* [بالتفصيل: اختبار Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [بالتفصيل: استخدام ملحق فلاش Pepper](tutorial/using-pepper-flash-plugin.md)
 * [Offscreen Rendering](tutorial/offscreen-rendering.md)
 
 * * *
@@ -99,7 +99,7 @@
 * [Process Object](api/process.md)
 * [Supported Chrome Command Line Switches](api/chrome-command-line-switches.md)
 * [Environment Variables](api/environment-variables.md)
-* [Breaking API Changes](api/breaking-changes.md)
+* [كسر تغييرات API](api/breaking-changes.md)
 
 ### عناصر DOM مخصصة:
 
@@ -121,7 +121,7 @@
 * [Menu (القائمة)](api/menu.md)
 * [MenuItem (عنصر في القائمة)](api/menu-item.md)
 * [net](api/net.md)
-* [netLog](api/net-log.md)
+* [سجل الشبكة](api/net-log.md)
 * [powerMonitor](api/power-monitor.md)
 * [powerSaveBlocker](api/power-save-blocker.md)
 * [protocol](api/protocol.md)

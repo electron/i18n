@@ -1,4 +1,4 @@
 # RemoveClientCertificate Object
 
-* `type` String - `clientCertificate`.
-* `origin` String - Origin of the server whose associated client certificate must be removed from the cache.
+* `أكتب`String - `شهادة العميل`.
+* `أصل` String - يجب إزالة أصل الخادم المرتبط بشهادة العميل من ذاكرة التخزين المؤقت.

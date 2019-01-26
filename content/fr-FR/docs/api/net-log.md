@@ -1,6 +1,6 @@
 # netLog
 
-> Logging network events for a session.
+> Log d'évènements de réseau lors d'une session.
 
 Processus : [Main](../glossary.md#main-process)
 
@@ -9,38 +9,38 @@ const { netLog } = require('electron')
 
 app.on('ready', function () {
   netLog.startLogging('/path/to/net-log')
-  // After some network events
+  // Après quelques évènements réseau
   netLog.stopLogging(path => {
-    console.log('Net-logs written to', path)
+    console.log('Net-logs écrits dans', path)
   })
 })
 ```
 
-See [`--log-net-log`](chrome-command-line-switches.md#--log-net-logpath) to log network events throughout the app's lifecycle.
+Voir [`--log-net-log`](chrome-command-line-switches.md#--log-net-logpath) pour log les évènement réseau à travers le cycle de vie de l'application.
 
-**Note:** All methods unless specified can only be used after the `ready` event of the `app` module gets emitted.
+**Note :** Toutes les méthodes si non spécifiées ne peuvent être utilisées qu'après que l'évènement `ready` de l' `app` ne soit émis.
 
 ## Méthodes
 
 ### `netLog.startLogging(path)`
 
-* `path` String - File path to record network logs.
+* `path` String - Chemin du fichier où sera enregistré le log.
 
-Starts recording network events to `path`.
+Commence d'enregistrer les évènements de réseau dans `path` .
 
 ### `netLog.stopLogging([callback])`
 
 * `callback` Function (facultatif) 
-  * `path` String - File path to which network logs were recorded.
+  * `path` String - Chemin vers lequel le log a été enregistré.
 
-Stops recording network events. If not called, net logging will automatically end when app quits.
+Arrête d'enregistrer les évènements réseau. Si elle n'est pas appelée, elle sera automatiquement arrêtée quand l'application s'arrêtera.
 
 ## Propriétés
 
 ### `netLog.currentlyLogging`
 
-A `Boolean` property that indicates whether network logs are recorded.
+Une propriété `Boolean` qui indique si des logs réseau sont actuellement enregistrés.
 
 ### `netLog.currentlyLoggingPath`
 
-A `String` property that returns the path to the current log file.
+Une propriété `String` qui renvoie le chemin vers le log actuel.

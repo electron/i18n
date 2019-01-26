@@ -1,6 +1,6 @@
 # netLog
 
-> Logging network events for a session.
+> セッションのネットワークイベントをロギングします。
 
 プロセス: [Main](../glossary.md#main-process)
 
@@ -9,7 +9,7 @@ const { netLog } = require('electron')
 
 app.on('ready', function () {
   netLog.startLogging('/path/to/net-log')
-  // After some network events
+  // いくつかのネットワークイベントのあと
   netLog.stopLogging(path => {
     console.log('Net-logs written to', path)
   })

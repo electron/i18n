@@ -6,7 +6,7 @@ Isso não significa que o Electron é uma ligação de Javascript a bibliotecas 
 
 **Nota**: Este exemplo também está disponível em um repositório você pode [baixa-lo e executa-lo imediatamente](#trying-this-example).
 
-O desenvolvimento pode ser preocupante, porém, uma aplicação Electron é essencialmente uma aplicação Node.js. O pronto de entrada é o `package.json`, semelhante ao módulos do Node.js. Uma aplicação Electron simples terá a estrutura abaixo:
+O desenvolvimento pode ser preocupante, porém, uma aplicação Electron é essencialmente uma aplicação Node.js. O ponto de entrada é o `package.json`, semelhante ao módulos do Node.js. Uma aplicação Electron simples terá a estrutura abaixo:
 
 ```text
 seu-app/
@@ -59,7 +59,7 @@ Transformar esse aplicativo em Node para Electron é bastante simples - nós vam
 
 ## Instalando o Electron
 
-Nesse ponto, você vai precisará instalar o `electron`. A maneira recomendada de fazer isso é instalá-lo como uma dependência de desenvolvimento em seu aplicativo, que permite você trabalhe em múltiplos aplicativos com diferentes versões do Electron. Para fazer isso, execute o seguinte comando no diretório do seu aplicativo:
+Nesse ponto, você precisará instalar o `electron`. A maneira recomendada de fazer isso é instalá-lo como uma dependência de desenvolvimento em seu aplicativo, que permite você trabalhe em múltiplos aplicativos com diferentes versões do Electron. Para fazer isso, execute o seguinte comando no diretório do seu aplicativo:
 
 ```sh
 npm install --save-dev electron
@@ -91,13 +91,14 @@ function createWindow () {
 app.on('ready', createWindow)
 ```
 
-The `main.js` should create windows and handle all the system events your application might encounter. A more complete version of the above example might open developer tools, handle the window being closed, or re-create windows on macOS if the user clicks on the app's icon in the dock.
+A `main.js` deve conter a criação de janelas e manipular todos os eventos que seu sistema possa conter. Uma versão mais completa do exemplo acima poderia abrir ferramentas de desenvolvedores, armazenar a janela que está sendo fechada ou recriar janelas no macOS caso o usuário clique no ícone do aplicativo.
 
 ```javascript
-const { app, BrowserWindow } = require('electron')
-
-// Keep a global reference of the window object, if you don't, the window will
-// be closed automatically when the JavaScript object is garbage collected.
+<0>const{ app, BrowserWindow } = require('electron')</0>
+//Mantém a referência global do objeto da janela.
+//se você não fizer isso,
+// a janela será fechada automaticamente
+// quando o objeto JavaScript for coletado como lixo.
 let win
 
 function createWindow () {
@@ -111,7 +112,7 @@ function createWindow () {
   win.webContents.openDevTools()
 
   // Emitido quando a janela é fechada.
-  win.on('closed', () => {
+  win.on('closed', () =&gt; {
     // Elimina a referência do objeto da janela, geralmente você iria armazenar as janelas
     // em um array, se seu app suporta várias janelas, este é o momento
     // quando você deve excluir o elemento correspondente.
@@ -125,7 +126,7 @@ function createWindow () {
 app.on('ready', createWindow)
 
 // Finaliza quando todas as janelas estiverem fechadas.
-app.on('window-all-closed', () => {
+app.on('window-all-closed', () =&gt; {
   // No macOS é comum para aplicativos e sua barra de menu 
   // permaneçam ativo até que o usuário explicitamente encerre com Cmd + Q
   if (process.platform !== 'darwin') {
@@ -133,7 +134,7 @@ app.on('window-all-closed', () => {
   }
 })
 
-app.on('activate', () => {
+app.on('activate', () =&gt; {
   // On macOS it's common to re-create a window in the app when the
   // dock icon is clicked and there are no other windows open.
   if (win === null) {

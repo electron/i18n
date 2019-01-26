@@ -27,7 +27,7 @@ Désactive les protocoles HTTP/2 et SPDY/3.1.
 
 ## --lang
 
-Set a custom locale.
+Permet de mettre une langue personnalisée.
 
 ## --inspect=`port` et --inspect-brk=`port`
 
@@ -53,7 +53,7 @@ Voir la [documentation de Node](https://nodejs.org/api/cli.html) ou exécutez `n
 
 ## --proxy-server=`address:port`
 
-Utilise le serveur proxy spécifié, qui remplace le paramètre système. Cet indicateur n'affecte que les requêtes avec le protocole HTTP, y compris les requêtes HTTPS et WebSocket. Il est également intéressant de noter que tous les serveurs proxy ne supportent pas les requêtes HTTPS et WebSocket. The proxy URL does not support username and password authentication [per Chromium issue](https://bugs.chromium.org/p/chromium/issues/detail?id=615947).
+Utilise le serveur proxy spécifié, qui remplace le paramètre système. Cet indicateur n'affecte que les requêtes avec le protocole HTTP, y compris les requêtes HTTPS et WebSocket. Il est également intéressant de noter que tous les serveurs proxy ne supportent pas les requêtes HTTPS et WebSocket. L'url du proxy ne supporte pas l'authentification par nom d'utilisateur et mot de passe [selon un bug Chronium](https://bugs.chromium.org/p/chromium/issues/detail?id=615947).
 
 ## --proxy-bypass-list=`hosts`
 
@@ -147,6 +147,6 @@ Ce commutateur ne fonctionne que si `--enable-logging` est également fourni.
 
 Permet que les niveaux maximum par module de V-logging puisse dépasser la valeur donnée par `--v`. Par exemple `my_module=2,foo*=3` changera le niveau de logging pour tout le code source des fichiers `my_module.*` à 2 et `foo*.*` à 3.
 
-Any pattern containing a forward or backward slash will be tested against the whole pathname and not only the module. Par exemple `*/foo/bar/*=2` changera le niveau de log pour tout le code source des fichiers du dossier `foo/bar`.
+Tout pattern contenant un slash ou un anti-slash sera testé pour tout le chemin et pas seulement le module. Par exemple `*/foo/bar/*=2` changera le niveau de log pour tout le code source des fichiers du dossier `foo/bar`.
 
 Ce commutateur ne fonctionne que si `--enable-logging` est également fourni.

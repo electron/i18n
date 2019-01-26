@@ -1,5 +1,5 @@
-# كائن ستريمبروتوكولريسبونسي
+# StreamProtocolResponse Object
 
-* `statusCode` Number - The HTTP response code.
-* `headers` Object - An object containing the response headers.
-* `data` ReadableStream - A Node.js readable stream representing the response body.
+* `statusCode` Number - رمز الاستجابة HTTP.
+* ` ترويسات` Object - الموضوع يحتوي على ترويسات الاستجابة.
+* ` بيانات` ReadableStream - Node.js مسار مقروء يمثل إستجابة الجسم.

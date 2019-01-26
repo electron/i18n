@@ -1,8 +1,8 @@
-# Updating Applications
+# به‌روز رسانی برنامه‌ها
 
 There are several ways to update an Electron application. The easiest and officially supported one is taking advantage of the built-in [Squirrel](https://github.com/Squirrel) framework and Electron's [autoUpdater](../api/auto-updater.md) module.
 
-## Using `update.electronjs.org`
+## با استفاده از `update.electronjs.org`
 
 GitHub's Electron team maintains [update.electronjs.org](https://github.com/electron/update.electronjs.org), a free and open-source webservice that Electron apps can use to self-update. The service is designed for Electron apps that meet the following criteria:
 
@@ -13,7 +13,7 @@ GitHub's Electron team maintains [update.electronjs.org](https://github.com/elec
 
 The easiest way to use this service is by installing [update-electron-app](https://github.com/electron/update-electron-app), a Node.js module preconfigured for use with update.electronjs.org.
 
-Install the module:
+نصب ماژول:
 
 ```sh
 npm install update-electron-app
@@ -84,7 +84,7 @@ autoUpdater.on('update-downloaded', (event, releaseNotes, releaseName) => {
     buttons: ['Restart', 'Later'],
     title: 'Application Update',
     message: process.platform === 'win32' ? releaseNotes : releaseName,
-    detail: 'A new version has been downloaded. Restart the application to apply the updates.'
+    detail: 'A new version has been downloaded. برای اعمال به‌روز رسانی، برنامه را مجددا راه اندازی کنید.'
   }
 
   dialog.showMessageBox(dialogOpts, (response) => {

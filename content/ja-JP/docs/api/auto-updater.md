@@ -66,7 +66,7 @@ Squirrel.Macとは違って、Windowsでは、S3やその他の静的ファイ�
 
 Windowsでは `releaseName` のみ利用可能です。
 
-**Note:** It is not strictly necessary to handle this event. A successfully downloaded update will still be applied the next time the application starts.
+**注意:** 必ずこのイベントを処理する必要はありません。ダウンロードに成功したアップデートは、次回のアプリケーション起動時にも適用されます。
 
 ### イベント: 'before-quit-for-update'
 
@@ -101,4 +101,4 @@ Windowsでは `releaseName` のみ利用可能です。
 
 `autoUpdater.quitAndInstall()` を呼ぶと、この中では最初にすべてのアプリケーションウィンドウを閉じ、すべてのウィンドウが閉じられた後に自動的に `app.quit()` を呼び出します。
 
-**Note:** It is not strictly necessary to call this function to apply an update, as a successfully downloaded update will always be applied the next time the application starts.
+**注意:** アップデートを適用するために必ずこの関数を呼ぶ必要はなく、ダウンロードに成功したアップデートは次回のアプリケーション起動時に必ず適用されます。

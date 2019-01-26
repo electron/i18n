@@ -20,7 +20,17 @@ Electron支持[Chrome DevTools 扩展程序](https://developer.chrome.com/extens
         * `~/.config/google-chrome-canary/Default/Extensions/`
         * `~/.config/chromium/Default/Extensions/`
     * 在 macOS下为`~/Library/Application Support/Google/Chrome/Default/Extensions`。
-4. 将扩展程序的路径传给API：`BrowserWindow.addDevToolsExtension`，对于React Developer Tools 来说 应该为`~/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.15.0_0`
+
+4. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like:
+    
+    ```javascript
+    const path = require('path')
+    const os = require('os')
+    
+    BrowserWindow.addDevToolsExtension(
+      path.join(os.homedir(), '/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.15.0_0')
+    )
+    ```
 
 **注意：**只有在app模块的ready事件触发之后，才可以调用`BrowserWindow.addDevToolsExtension` API
 

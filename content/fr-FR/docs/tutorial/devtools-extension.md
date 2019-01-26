@@ -20,7 +20,17 @@ En utilisant [React Developer Tools](https://chrome.google.com/webstore/detail/r
         * `~/.config/google-chrome-canary/Default/Extensions/`
         * `~/.config/chromium/Default/Extensions/`
     * sur macOS c’est `~/Library/Application Support/Google/Chrome/Default/Extensions`.
-4. Indiquez l'emplacement de l'extension à l'API `BrowserWindow.addDevToolsExtension`, pour l'extension React Developer Tools, c'est quelque chose comme : `~/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.15.0_0`
+
+4. Spécifier l'endroit de l'extension à l'API `BrowserWindow.addDevToolsExtension`, pour le [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi), ce qui donne quelque-chose comme :
+    
+    ```javascript
+    const path = require('path')
+    const os = require('os')
+    
+    BrowserWindow.addDevToolsExtension(
+      path.join(os.homedir(), '/Library/Application Support/Google/Chrome/Default/Extensions/fmkadmapgofadopljbjfkapdkoienihi/0.15.0_0')
+    )
+    ```
 
 **Remarque :** L'API `BrowserWindow.addDevToolsExtension` ne peut pas être appelée avant que l’événement ready du module app est émis.
 

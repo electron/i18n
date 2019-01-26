@@ -10,8 +10,8 @@ Vous devrez peut-être vous familiariser avec l'[architecture multi-processus de
 Electron
 ├── atom/ - Code Source C++.
 |   ├── app/ - Code d'entrée du système.
-|   ├── browser/ - The frontend including the main window, UI, and all of the
-|   |   |          main process things. This talks to the renderer to manage web
+|   ├── browser/ - Le frontend incluent la fenêtre principale, l'UI et toutes les 
+|   |   |          choses du processus principal. This talks to the renderer to manage web
 |   |   |          pages.
 |   |   ├── ui/ - Implementation de l'UI pour différentes plateformes.
 |   |   |   ├── cocoa/ - Code Source spécifique à Cocoa.

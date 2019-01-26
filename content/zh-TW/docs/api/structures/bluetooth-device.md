@@ -1,4 +1,4 @@
 # BluetoothDevice 物件
 
 * `deviceName` String
-* `deviceId` String
+* `deviceId` String 設備Id

@@ -96,7 +96,7 @@ Electron の `webview` タグは [Chromium の `webview`](https://developer.chro
 <webview src="http://www.google.com/" enableremotemodule="false"></webview>
 ```
 
-When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. The remote module is avaiable by default.
+この属性が `false` の場合、`webview` 内のゲストページは [`remote`](remote.md) モジュールにアクセスできません。 remote モジュールはデフォルトで利用可能です。
 
 ### `plugins`
 
@@ -218,7 +218,7 @@ webview.addEventListener('dom-ready', () => {
 
 * `url` String
 
-Initiates a download of the resource at `url` without navigating.
+ナビゲーションなしで `url` のリソースのダウンロードを初期化します。
 
 ### `<webview>.getURL()`
 
@@ -358,7 +358,7 @@ Initiates a download of the resource at `url` without navigating.
 
 ### `<webview>.isCurrentlyAudible()`
 
-Returns `Boolean` - Whether audio is currently playing.
+戻り値 `Boolean` - 音声が現在再生中かどうか。
 
 ### `<webview>.undo()`
 
@@ -533,7 +533,7 @@ Returns `Boolean` - Whether audio is currently playing.
 
 戻り値 [`WebContents`](web-contents.md) - この `webview` に関連付けられた webContents。
 
-It depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
+これは [`remote`](remote.md) モジュールに依存しています。したがって、このモジュールが無効になっていると利用できません。
 
 ## DOM イベント
 

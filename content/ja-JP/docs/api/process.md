@@ -72,7 +72,7 @@ process.once('loaded', () => {
 
 ### `process.sandboxed`
 
-A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
+`Boolean`。レンダラープロセスがサンドボックス化されている場合、このプロパティは `true` です。それ以外の場合は `undefined` です。
 
 ### `process.throwDeprecation`
 
