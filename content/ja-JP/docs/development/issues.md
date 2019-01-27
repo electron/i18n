@@ -64,13 +64,13 @@ If you provide a URL, please list the commands required to clone/setup/run your 
 
 Electron にバグが見つかったと思われる場合は、できる限りこのフォームを埋めてください。
 
-The two most important pieces of information needed to evaluate the report are a description of the bug and a simple test case to recreate it. It easier to fix a bug if it can be reproduced.
+レポートを評価するために必要な、2つの最も重要な情報は、バグの説明とそれを再現するための簡単なテストケースです。 再現できる場合は、バグを修正することがより簡単になります。
 
-See [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve).
+[簡潔、完璧、検証可能な例の作り方](https://stackoverflow.com/help/mcve) を参照してください。
 
 ## バグレポートのトリアージュ
 
-It's common for open issues to involve discussion. Some contributors may have differing opinions, including whether the behavior is a bug or feature. This discussion is part of the process and should be kept focused, helpful, and professional.
+未解決の Issue には議論が伴うのが一般的です。 コントリビュータらは、その振る舞いがバグか機能かなどで意見が異なるでしょう。 This discussion is part of the process and should be kept focused, helpful, and professional.
 
 Terse responses that provide neither additional context nor supporting detail are not helpful or professional. To many, such responses are annoying and unfriendly.
 
