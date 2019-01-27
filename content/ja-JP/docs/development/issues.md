@@ -18,11 +18,11 @@
 
 ## 一般的なヘルプ
 
-["Finding Support"](../tutorial/support.md#finding-support) has a list of resources for getting programming help, reporting security issues, contributing, and more. Please use the issue tracker for bugs only!
+["Finding Support"](../tutorial/support.md#finding-support) にはプログラミングヘルプ、セキュリティ Issue の報告、貢献などのリソースのリストがあります。 Issue トラッカーはバグにのみ使用してください！
 
 ## バグレポートの送信
 
-When opening a new issue in the `electron/electron` issue tracker, users will be presented with a template that should be filled in.
+`electron/electron` Issue トラッカー内で新しい Issue を開くとき、ユーザには記入するべきテンプレートが表示されます。
 
 ```markdown
 <!--
@@ -62,7 +62,7 @@ If you provide a URL, please list the commands required to clone/setup/run your 
 -->
 ```
 
-If you believe that you have found a bug in Electron, please fill out this form to the best of your ability.
+Electron にバグが見つかったと思われる場合は、できる限りこのフォームを埋めてください。
 
 The two most important pieces of information needed to evaluate the report are a description of the bug and a simple test case to recreate it. It easier to fix a bug if it can be reproduced.
 
