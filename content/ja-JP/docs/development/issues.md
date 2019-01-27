@@ -74,8 +74,8 @@ Electron にバグが見つかったと思われる場合は、できる限り�
 
 補足の文脈も裏付けとなる詳細も示さない簡潔な回答は、役に立たず専門的ではありません。 多くの人にとって、そのようなレスポンスは面倒で不親切です。
 
-コントリビュータは、問題を共同で解決し互いに進歩するのを手助けすることが奨励されます。 If encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. By doing so, we can often reach the correct outcome faster.
+コントリビュータは、問題を共同で解決し互いに進歩するのを手助けすることが奨励されます。 無効、または誤った情報が含まれていると思われる Issue に遭遇した場合は、その *理由* をあなたが間違っている可能性も考えて説明してください。 そうすることで、大抵の場合正しい結論に早く到達することができます。
 
 ## バグレポートの解決
 
-Most issues are resolved by opening a pull request. The process for opening and reviewing a pull request is similar to that of opening and triaging issues, but carries with it a necessary review and approval workflow that ensures that the proposed changes meet the minimal quality and functional guidelines of the Electron project.
+ほとんどの Issue はプルリクエストを開くことで解決されます。 プルリクエストを開いてレビューするプロセスは、問題をオープンして優先順位付けするプロセスと似ています。しかし、提案された変更が Electron プロジェクトの最低限の品質と機能のガイドラインを満たすことを確実にするために必要な、レビューと承認のワークフローを伴います。
