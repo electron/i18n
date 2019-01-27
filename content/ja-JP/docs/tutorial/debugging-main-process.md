@@ -16,7 +16,7 @@ electron --inspect=5858 your/app
 
 ### `--inspect-brk=[port]`
 
-Like `--inspect` but pauses execution on the first line of JavaScript.
+`--inspect` と同様ですが、最初の行でスクリプトを中断します。
 
 ## 外部デバッガ
 
