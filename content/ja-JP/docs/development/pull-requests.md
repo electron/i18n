@@ -105,9 +105,9 @@ $ git commit
 
 #### 破壊的変更
 
-オプションの本体またはフッターのセクションの先頭に `BREAKING CHANGE:` のテキストがあるコミットは、API に破壊的な (セマンティックバージョン管理におけるメジャーと相関する) 変更をもたらします。 A breaking change can be part of commits of any type. e.g., a `fix:`, `feat:` & `chore:` types would all be valid, in addition to any other type.
+オプションの本体またはフッターのセクションの先頭に `BREAKING CHANGE:` のテキストがあるコミットは、API に破壊的な (セマンティックバージョン管理におけるメジャーと相関する) 変更をもたらします。 破壊的な変更はあらゆるタイプのコミットの一部になりえます。 例として、`fix:`、`feat:`、`chore:` やその他のタイプも加えてすべて当てはまります。
 
-See [conventionalcommits.org](https://conventionalcommits.org) for more details.
+詳細については、[conventionalcommits.org](https://conventionalcommits.org) を参照してください。
 
 ### ステップ6: リベース
 
