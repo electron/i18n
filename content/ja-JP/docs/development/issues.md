@@ -70,11 +70,11 @@ Electron にバグが見つかったと思われる場合は、できる限り�
 
 ## バグレポートのトリアージュ
 
-未解決の Issue には議論が伴うのが一般的です。 コントリビュータらは、その振る舞いがバグか機能かなどで意見が異なるでしょう。 This discussion is part of the process and should be kept focused, helpful, and professional.
+未解決の Issue には議論が伴うのが一般的です。 コントリビュータらは、その振る舞いがバグか機能かなどで意見が異なるでしょう。 この議論はプロセスの一部であり、集中し、有用で、専門的になるべきです。
 
-Terse responses that provide neither additional context nor supporting detail are not helpful or professional. To many, such responses are annoying and unfriendly.
+補足の文脈も裏付けとなる詳細も示さない簡潔な回答は、役に立たず専門的ではありません。 多くの人にとって、そのようなレスポンスは面倒で不親切です。
 
-Contributors are encouraged to solve issues collaboratively and help one another make progress. If encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. By doing so, we can often reach the correct outcome faster.
+コントリビュータは、問題を共同で解決し互いに進歩するのを手助けすることが奨励されます。 If encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. By doing so, we can often reach the correct outcome faster.
 
 ## バグレポートの解決
 
