@@ -2,12 +2,14 @@
 
 > Tentukan pintasan keyboard.
 
-Accelerators are Strings that can contain multiple modifiers and a single key code, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
+Accelerators adalah Strings yang dapat berisi banyak pengubah dan kode kunci, dikombinasikan dengan karakter ` + </ 0> , dan digunakan untuk menentukan cara pintas keyboard di seluruh aplikasi Anda.12eo</p>
 
-Contoh:
+<p>Contoh:</p>
 
-* `Command Or Control + A`
-* `Command Or Control + Shift + Z`
+<ul>
+<li><code>Command Or Control + A`</li> 
+
+* `Command Or Control + Shift + Z`</ul> 
 
 Jalan pintas terdaftar dengan modul ` globalShortcut </ 0> dengan menggunakan metode <a href="global-shortcut.md#globalshortcutregisteraccelerator-callback"><code> register </ 1> 
 , misalnya</p>
