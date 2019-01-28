@@ -63,7 +63,7 @@
     "wordcount": "node script/wordcount.js > wordcount.md"
   },
   "electronLatestStableTag": "v4.0.2",
-  "electronMasterBranchCommit": "d105dcc0d35cb0519a6dbb3e5803c46c46ea4707",
+  "electronMasterBranchCommit": "138ba53511321e1f0e76f504736f15633575dea5",
   "engines": {
     "node": ">=10"
   }

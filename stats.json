@@ -3,14 +3,14 @@
     "name": "Arabic",
     "code": "ar",
     "phrases": "9991",
-    "translated": "1056",
+    "translated": "1057",
     "approved": "0",
     "words": "92560",
-    "words_translated": "7116",
+    "words_translated": "7128",
     "words_approved": "0",
     "translated_progress": 7,
     "approved_progress": 0,
-    "qa_issues": 391
+    "qa_issues": 392
   },
   {
     "name": "Bulgarian",
@@ -29,10 +29,10 @@
     "name": "Chinese Simplified",
     "code": "zh-CN",
     "phrases": "9991",
-    "translated": "8704",
+    "translated": "8710",
     "approved": "26",
     "words": "92560",
-    "words_translated": "75905",
+    "words_translated": "75959",
     "words_approved": "138",
     "translated_progress": 82,
     "approved_progress": 0,
@@ -146,14 +146,14 @@
     "name": "Indonesian",
     "code": "id",
     "phrases": "9991",
-    "translated": "7845",
+    "translated": "7849",
     "approved": "6",
     "words": "92560",
-    "words_translated": "64384",
+    "words_translated": "64418",
     "words_approved": "62",
     "translated_progress": 69,
     "approved_progress": 0,
-    "qa_issues": 4227
+    "qa_issues": 4230
   },
   {
     "name": "Italian",
@@ -172,14 +172,14 @@
     "name": "Japanese",
     "code": "ja",
     "phrases": "9991",
-    "translated": "9164",
+    "translated": "9196",
     "approved": "291",
     "words": "92560",
-    "words_translated": "80766",
+    "words_translated": "81319",
     "words_approved": "1620",
     "translated_progress": 87,
     "approved_progress": 1,
-    "qa_issues": 288
+    "qa_issues": 289
   },
   {
     "name": "Korean",
