@@ -29,7 +29,7 @@ app.on('will-quit', () => {
   // 注销快捷键
   globalShortcut.unregister('CommandOrControl+X')
 
-  // 清空所有快捷键
+  // 注销所有快捷键
   globalShortcut.unregisterAll()
 })
 ```
@@ -43,9 +43,9 @@ app.on('will-quit', () => {
 * `accelerator` [Accelerator](accelerator.md)
 * `callback` Function
 
-注册 ` accelerator ` 的全局快捷键。当用户按下已注册的快捷键时, 将调用 ` callback `函数。
+注册指定的 ` accelerator ` 为全局快捷键。当用户按下该注册的快捷键时, 将调用 ` callback `回调函数。
 
-如果该快捷键已经被其他应用程序使用, 回调函数将不会被触发。 该特性由操作系统定义，因为操作系统不希望多个程序的全局快捷键互相冲突。
+如果指定的快捷键已经被其他应用程序注册掉, 调用会默默失败。 该特性由操作系统定义，因为操作系统不希望多个程序的全局快捷键互相冲突。
 
 The following accelerators will not be registered successfully on macOS 10.14 Mojave unless the app has been authorized as a [trusted accessibility client](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html):
 
