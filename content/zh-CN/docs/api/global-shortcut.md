@@ -47,7 +47,7 @@ app.on('will-quit', () => {
 
 如果指定的快捷键已经被其他应用程序注册掉, 调用会默默失败。 该特性由操作系统定义，因为操作系统不希望多个程序的全局快捷键互相冲突。
 
-The following accelerators will not be registered successfully on macOS 10.14 Mojave unless the app has been authorized as a [trusted accessibility client](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html):
+在 macOS 10.14 Mojave 下面，如果 app 没有被授权为[可信任使用的客户端](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html)，那么下列快捷键会注册失败：
 
 * "Media Play/Pause"
 * "Media Next Track"
@@ -58,9 +58,9 @@ The following accelerators will not be registered successfully on macOS 10.14 Mo
 
 * `accelerator` [Accelerator](accelerator.md)
 
-Returns `Boolean` - 表示 `accelerator` 全局快捷键是否注册成功
+返回 `Boolean` - 表示 `accelerator` 全局快捷键是否注册成功
 
-当快捷键已经被其他应用程序注册时, 此调用将返回 ` false `。 该特性由操作系统定义，因为操作系统不希望多个程序的全局快捷键互相冲突。
+当快捷键已经被其他应用程序注册时, 此调用依然将返回 ` false `。 该特性由操作系统定义，因为操作系统不希望多个程序的全局快捷键互相冲突。
 
 ### `globalShortcut.unregister(accelerator)`
 
@@ -70,4 +70,4 @@ Returns `Boolean` - 表示 `accelerator` 全局快捷键是否注册成功
 
 ### `globalShortcut.unregisterAll()`
 
-注销所有的全局快捷键（清空该应用程序的全局快捷键）。
+注销所有的全局快捷键（清空该应用程序的所有全局快捷键）。
