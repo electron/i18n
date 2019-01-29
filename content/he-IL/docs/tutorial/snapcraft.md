@@ -10,13 +10,13 @@ Together with the broader Linux community, Canonical aims to fix many of the com
 
 1) בעזרת [`electron-forge`](https://github.com/electron-userland/electron-forge) או [`electron-builder`](https://github.com/electron-userland/electron-builder), שניהם כלים שכוללים תמיכה ב־`snap` באופן מובנה. זאת הדרך הקלה ביותר. 2) בעזרת `electron-installer-snap`, שלוקח את הפלט של `electron-packager`. 3) באמצעות חבילת `.deb` קיימת.
 
-In all cases, you will need to have the `snapcraft` tool installed. We recommend building on Ubuntu 16.04 (or the current LTS).
+בכל המקרים, אמור להיות מותקן אצלך במחשב הכלי `snapcraft`. אנו ממליצים לבנות על גבי אובונטו 16.04 (או הגרסה הנוכחית עם תמיכה לטווח ארוך - LTS).
 
 ```sh
 snap install snapcraft --classic
 ```
 
-While it *is possible* to install `snapcraft` on macOS using Homebrew, it is not able to build `snap` packages and is focused on managing packages in the store.
+על אף ש*ניתן* להתקין את `snapcraft` על macOS בעזרת Homebrew, אין שם אפשרות לבנות חבילות `snap` ועיקר ההתמקדות שם היא על ניהול חבילות בחנות.
 
 ## בעזרת `electron-installer-snap`
 
