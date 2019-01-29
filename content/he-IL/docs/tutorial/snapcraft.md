@@ -4,7 +4,7 @@
 
 ## רקע ודרישות
 
-Together with the broader Linux community, Canonical aims to fix many of the common software installation problems with the [`snapcraft`](https://snapcraft.io/) project. Snaps are containerized software packages that include required dependencies, auto-update, and work on all major Linux distributions without system modification.
+בשיתוף עם קהילת הלינוקס הרחבה, מנסה Canonical לתקן כמה שיותר מהבעיות הנפוצות בהתקנת תכניות באמצעות מיזם [`snapcraft`](https://snapcraft.io/). חבילות Snap הן מארזים קטנים של תכניות שכוללים תלויות נדרשות, עדכונים אוטומטיים ויכולים לרוץ על מגוון הפצות לינוקס ללא עריכת שינויים במערכת.
 
 ישנן שלוש דרכים ליצירת קובץ `‎.snap`:
 
@@ -28,7 +28,7 @@ npm install --save-dev electron-installer-snap
 
 ### שלב 1: אריזת יישומון ה־Electron שלך
 
-עליך לארוז את היישום שלך בעזרת [electron-packager](https://github.com/electron-userland/electron-packager) (או כל כלי דומה). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
+עליך לארוז את היישום שלך בעזרת [electron-packager](https://github.com/electron-userland/electron-packager) (או כל כלי דומה). מוטב להסיר מ־`node_modules` רכיבים שאינם נחוצים לתוצר הסופי מאחר שכל מודול שאינו נחוץ יגדיל את נפח היישום שלך.
 
 הפלט אמור להיראות פחות או יותר כך:
 
@@ -52,13 +52,13 @@ npm install --save-dev electron-installer-snap
 
 ### שלב 2: הרצת `electron-installer-snap`
 
-From a terminal that has `snapcraft` in its `PATH`, run `electron-installer-snap` with the only required parameter `--src`, which is the location of your packaged Electron application created in the first step.
+ממסוף שכולל את `snapcraft` ב־`PATH` שלו, יש להריץ את `electron-installer-snap` עם המשתנה היחידי שנדרש `‎--src`, שהוא המיקום של יישום ה־Electron הארוז שלך שנוצר בשלב הראשון.
 
 ```sh
 npx electron-installer-snap --src=out/myappname-linux-x64
 ```
 
-If you have an existing build pipeline, you can use `electron-installer-snap` programmatically. For more information, see the [Snapcraft API docs](https://docs.snapcraft.io/build-snaps/syntax).
+אם יש לך תהליך בנייה מסודר קיים, באפשרותך להשתמש ב־`electron-installer-snap` באופן תכנותי. למידע נוסף, מוטב לעיין ב[תיעוד ה־API של Snapcraft](https://docs.snapcraft.io/build-snaps/syntax).
 
 ```js
 const snap = require('electron-installer-snap')
@@ -69,15 +69,15 @@ snap(options)
 
 ## שימוש בחבילת דביאן קיימת
 
-ל־Snapcraft יש את היכולת לקחת קובץ `.deb` קיים ולהפוך אותו לקובץ `.snap`. The creation of a snap is configured using a `snapcraft.yaml` file that describes the sources, dependencies, description, and other core building blocks.
+ל־Snapcraft יש את היכולת לקחת קובץ `.deb` קיים ולהפוך אותו לקובץ `.snap`. יצירת ה־snap מוגדרת באמצעות קובץ `snapcraft.yaml` שמתאר את המקורות, התלויות, התיאור ואבני ליבה נוספות לבניית התוצר.
 
 ### שלב 1: יצירת חבילת דביאן
 
-If you do not already have a `.deb` package, using `electron-installer-snap` might be an easier path to create snap packages. However, multiple solutions for creating Debian packages exist, including [`electron-forge`](https://github.com/electron-userland/electron-forge), [`electron-builder`](https://github.com/electron-userland/electron-builder) or [`electron-installer-debian`](https://github.com/unindented/electron-installer-debian).
+אם עדיין אין לך חבילת `‎.deb`, יתכן שהשימוש ב־`electron-installer-snap` יקל עליך ביצירת חבילות snap. עם זאת, קיימים מגוון פתרונות ליצירת חבילות דביאן, לרבות [`electron-forge`](https://github.com/electron-userland/electron-forge),‏ [`electron-builder`](https://github.com/electron-userland/electron-builder) או [`electron-installer-debian`](https://github.com/unindented/electron-installer-debian).
 
 ### שלב 2: יצירת snapcraft.yaml
 
-For more information on the available configuration options, see the [documentation on the snapcraft syntax](https://docs.snapcraft.io/build-snaps/syntax). Let's look at an example:
+למידע נוסף על אפשרויות התצורה השונות, ניתן לעיין ב[תיעוד התחביר של snapcraft](https://docs.snapcraft.io/build-snaps/syntax). להלן דוגמה:
 
 ```yaml
 name: myApp
@@ -124,7 +124,7 @@ apps:
       TMPDIR: $XDG_RUNTIME_DIR
 ```
 
-As you can see, the `snapcraft.yaml` instructs the system to launch a file called `electron-launch`. In this example, it passes information on to the app's binary:
+כפי שניתן לראות, הקובץ `snapcraft.yaml` מנחה את המערכת להפעיל קובץ שנקרא `electron-launch`. בדוגמה הבאה הוא מעביר הלאה מידע אל הקובץ הבינרי של היישום:
 
 ```sh
 #!/bin/sh
@@ -132,7 +132,7 @@ As you can see, the `snapcraft.yaml` instructs the system to launch a file calle
 exec "$@" --executed-from="$(pwd)" --pid=$$ > /dev/null 2>&1 &
 ```
 
-Alternatively, if you're building your `snap` with `strict` confinement, you can use the `desktop-launch` command:
+לחלופין, אם בחירתך היא לבנות את ה־`snap` שלך בתצורת `strict`, ניתן להשתמש בפקודה `desktop-launch`:
 
 ```yaml
 apps:
