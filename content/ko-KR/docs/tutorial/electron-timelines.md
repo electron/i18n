@@ -1,8 +1,8 @@
-## 5.0.0 Release Schedule
+## 5.0.0 릴리즈 일정
 
-Take a look at 5.0.0 Timeline [blog post](https://electronjs.org/blog/electron-5-0-timeline) for info about publicizing our release dates.
+릴리즈 일정에 대한 자세한 사항은 5.0.0 타임라인 [블로그 포스트](https://electronjs.org/blog/electron-5-0-timeline)를 참조하세요.
 
-#### Notes:
+#### 참고:
 
 - These dates are our goals but there may be reasons for adjusting the stable deadline, such as security bugs.
 - These are our scheduled beta releases, however we often release more betas than scheduled.
