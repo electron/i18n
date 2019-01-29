@@ -62,22 +62,21 @@ Bir istek gerçekleşmek üzereyken `listener` `listener(details, callback)` ile
 
 * `filter` Obje (opsiyonel) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Fonksiyon
+* `listener` Function 
+  * `details` Nesne 
+    * `id` tamsayı
+    * `url` Dize
+    * `method` String
+    * `webContentsId` Integer (optional)
+    * `resourceType` Dize
+    * `timestamp` Double
+    * `requestHeaders` Object
+  * `geri aramak` Function 
+    * `response` Nesne 
+      * `cancel` Boolean (isteğe bağlı)
+      * `requestHeaders` Object (isteğe bağlı) - Sağlandığında istek bu başlıklarla birlikte yapılacaktır.
 
 Bir HTTP isteği gönderilmeden önce, istek başlıkları mevcut olduğunda `listener` `listener(details, callback)` ile birlikte çağırılacak. Bu, bir sunucuya TCP bağlantısı yapıldığında ortaya çıkabilir ancak öncesinde herhangi bir http verisi gönderilmiştir.
-
-* `details` Obje 
-  * `id` tamsayı
-  * `url` Dize
-  * `method` Dizi
-  * `webContentsId` Integer (optional)
-  * `resourceType` Dize
-  * `timestamp` Double
-  * `requestHeaders` Object
-* `geri aramak` Fonksiyon 
-  * `response` Nesne 
-    * `cancel` Boolean (isteğe bağlı)
-    * `requestHeaders` Object (isteğe bağlı) - Sağlandığında istek bu başlıklarla birlikte yapılacaktır.
 
 `callback` bir `response` nesnesi ile birlikte çağırılacak.
 
@@ -85,7 +84,7 @@ Bir HTTP isteği gönderilmeden önce, istek başlıkları mevcut olduğunda `li
 
 * `filter` Obje (opsiyonel) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
+* `listener` Fonksiyon 
   * `details` Nesne 
     * `id` tamsayı
     * `url` Dize
@@ -101,25 +100,24 @@ Sunucuya gönderilecek bir istekten hemen önce `listener` `listener(details)` i
 
 * `filter` Obje (opsiyonel) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Fonksiyon
+* `listener` Function 
+  * `details` Nesne 
+    * `id` tamsayı
+    * `url` Dize
+    * `method` Dizi
+    * `webContentsId` Integer (optional)
+    * `resourceType` Dize
+    * `timestamp` Double
+    * `statusLine` String
+    * `statusCode` Tamsayı
+    * `responseHeaders` Object
+  * `geri aramak` Function 
+    * `response` Nesne 
+      * `cancel` Boolean
+      * `responseHeaders` Object (isteğe bağlı) - Sağlandığında, sunucu bu başlıklara cevap verecektir.
+      * `statusLine` String (optional) - `responseHeaders`'ı geçersiz kılarak başlık durumunu değiştirmeye çalıştığımızda değerler sağlanmalıdır aksi taktirde orjinal yanıt başlığının durumu kullanılır.
 
 İsteklerin HTTP cevap başlıkları alındığında `listener` `listener(details, callback)` ile birlikte çağırılacak.
-
-* `details` Nesne 
-  * `id` tamsayı
-  * `url` Dize
-  * `method` Dizi
-  * `webContentsId` Integer (optional)
-  * `resourceType` Dize
-  * `timestamp` Double
-  * `statusLine` String
-  * `statusCode` Tamsayı
-  * `responseHeaders` Object
-* `geri aramak` Function 
-  * `cevap` Nesne 
-    * `cancel` Boolean
-    * `responseHeaders` Object (isteğe bağlı) - Sağlandığında, sunucu bu başlıklara cevap verecektir.
-    * `statusLine` String (optional) - `responseHeaders`'ı geçersiz kılarak başlık durumunu değiştirmeye çalıştığımızda değerler sağlanmalıdır aksi taktirde orjinal yanıt başlığının durumu kullanılır.
 
 `callback` bir `response` nesnesi ile birlikte çağırılacak.
 
