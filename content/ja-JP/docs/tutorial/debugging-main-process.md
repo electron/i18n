@@ -16,11 +16,11 @@ electron --inspect=5858 your/app
 
 ### `--inspect-brk=[port]`
 
-Like `--inspect` but pauses execution on the first line of JavaScript.
+`--inspect` と同様ですが、最初の行でスクリプトを中断します。
 
 ## 外部デバッガ
 
 V8 inspector protocol をサポートするデバッガーを使用する必要があります。
 
-- Connect Chrome by visiting `chrome://inspect` and selecting to inspect the launched Electron app present there.
+- `chrome://inspect` を開いて Chrome に接続しそこから起動された Electron アプリを検査することを選択します。
 - [VS Code におけるメインプロセスのデバッグ](debugging-main-process-vscode.md)
