@@ -32,9 +32,9 @@
 
 * `action` String
 
-Sends the `action` to the first responder of application. This is used for emulating default macOS menu behaviors. Usually you would use the [`role`](menu-item.md#roles) property of a [`MenuItem`](menu-item.md).
+`action`을 어플리케이션의 첫번째 리스폰더(responder) 로 송신합니다. macOS 메뉴의 기본 동작을 에뮬레이트하기 위해 사용됩니다. 일반적으로는 [`MenuItem`](menu-item.md)의 [`role`](menu-item.md#roles)프로퍼티를 사용합니다.
 
-See the [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7) for more information on macOS' native actions.
+macOS의 네이티브 액션에 대한 더 많은 정보는 [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7)에서 볼 수 있습니다.
 
 #### `Menu.buildFromTemplate(template)`
 
