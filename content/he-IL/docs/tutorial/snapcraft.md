@@ -1,14 +1,14 @@
-# Snapcraft Guide (Ubuntu Software Center & More)
+# מדריך לשימוש ב־Snapcraft (מרכז התכנה של אובונטו ועוד)
 
-This guide provides information on how to package your Electron application for any Snapcraft environment, including the Ubuntu Software Center.
+מדריך זה מספק מידע בנוגע לאריזת יישומי ה־Electron שלך עבור כל סביבת Snapcraft שהיא, לרבות מרכז התכנה של אובונטו.
 
-## Background and Requirements
+## רקע ודרישות
 
 Together with the broader Linux community, Canonical aims to fix many of the common software installation problems with the [`snapcraft`](https://snapcraft.io/) project. Snaps are containerized software packages that include required dependencies, auto-update, and work on all major Linux distributions without system modification.
 
-There are three ways to create a `.snap` file:
+ישנן שלוש דרכים ליצירת קובץ `‎.snap`:
 
-1) Using [`electron-forge`](https://github.com/electron-userland/electron-forge) or [`electron-builder`](https://github.com/electron-userland/electron-builder), both tools that come with `snap` support out of the box. This is the easiest option. 2) Using `electron-installer-snap`, which takes `electron-packager`'s output. 3) Using an already created `.deb` package.
+1) בעזרת [`electron-forge`](https://github.com/electron-userland/electron-forge) או [`electron-builder`](https://github.com/electron-userland/electron-builder), שניהם כלים שכוללים תמיכה ב־`snap` באופן מובנה. זאת הדרך הקלה ביותר. 2) בעזרת `electron-installer-snap`, שלוקח את הפלט של `electron-packager`. 3) באמצעות חבילת `.deb` קיימת.
 
 In all cases, you will need to have the `snapcraft` tool installed. We recommend building on Ubuntu 16.04 (or the current LTS).
 
@@ -18,19 +18,19 @@ snap install snapcraft --classic
 
 While it *is possible* to install `snapcraft` on macOS using Homebrew, it is not able to build `snap` packages and is focused on managing packages in the store.
 
-## Using `electron-installer-snap`
+## בעזרת `electron-installer-snap`
 
-The module works like [`electron-winstaller`](https://github.com/electron/windows-installer) and similar modules in that its scope is limited to building snap packages. You can install it with:
+המודול עובד כמו [`electron-winstaller`](https://github.com/electron/windows-installer) ומודולים דומים בכך שהטווח שלהם מוגבל לבניית חבילות snap. ניתן להתקין אותו באופן הבא:
 
 ```sh
 npm install --save-dev electron-installer-snap
 ```
 
-### Step 1: Package Your Electron Application
+### שלב 1: אריזת יישומון ה־Electron שלך
 
-Package the application using [electron-packager](https://github.com/electron-userland/electron-packager) (or a similar tool). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
+עליך לארוז את היישום שלך בעזרת [electron-packager](https://github.com/electron-userland/electron-packager) (או כל כלי דומה). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
 
-The output should look roughly like this:
+הפלט אמור להיראות פחות או יותר כך:
 
 ```text
 .
@@ -50,7 +50,7 @@ The output should look roughly like this:
         └── version
 ```
 
-### Step 2: Running `electron-installer-snap`
+### שלב 2: הרצת `electron-installer-snap`
 
 From a terminal that has `snapcraft` in its `PATH`, run `electron-installer-snap` with the only required parameter `--src`, which is the location of your packaged Electron application created in the first step.
 
@@ -67,15 +67,15 @@ snap(options)
   .then(snapPath => console.log(`Created snap at ${snapPath}!`))
 ```
 
-## Using an Existing Debian Package
+## שימוש בחבילת דביאן קיימת
 
-Snapcraft is capable of taking an existing `.deb` file and turning it into a `.snap` file. The creation of a snap is configured using a `snapcraft.yaml` file that describes the sources, dependencies, description, and other core building blocks.
+ל־Snapcraft יש את היכולת לקחת קובץ `.deb` קיים ולהפוך אותו לקובץ `.snap`. The creation of a snap is configured using a `snapcraft.yaml` file that describes the sources, dependencies, description, and other core building blocks.
 
-### Step 1: Create a Debian Package
+### שלב 1: יצירת חבילת דביאן
 
 If you do not already have a `.deb` package, using `electron-installer-snap` might be an easier path to create snap packages. However, multiple solutions for creating Debian packages exist, including [`electron-forge`](https://github.com/electron-userland/electron-forge), [`electron-builder`](https://github.com/electron-userland/electron-builder) or [`electron-installer-debian`](https://github.com/unindented/electron-installer-debian).
 
-### Step 2: Create a snapcraft.yaml
+### שלב 2: יצירת snapcraft.yaml
 
 For more information on the available configuration options, see the [documentation on the snapcraft syntax](https://docs.snapcraft.io/build-snaps/syntax). Let's look at an example:
 
