@@ -62,22 +62,21 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 * `filter` Object (任意) 
   * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
-* `listener` Function
+* `listener` Function 
+  * `details` Object 
+    * `id` Integer
+    * `url` String
+    * `method` String
+    * `webContentsId` Integer (任意)
+    * `resourceType` String
+    * `timestamp` Double
+    * `requestHeaders` Object
+  * `callback` Function 
+    * `response` Object 
+      * `cancel` Boolean (任意)
+      * `requestHeaders` Object (任意) - 指定すると、これらのヘッダでリクエストが作成されます。
 
 リクエストヘッダが利用可能になると、HTTP リクエストを送信する前に `listener` が `listener(details, callback)` で呼び出されます。 これは、サーバーに TCP 接続が行われた後、HTTP データが送信される前に発生する可能性があります。
-
-* `details` Object 
-  * `id` Integer
-  * `url` String
-  * `method` String
-  * `webContentsId` Integer (任意)
-  * `resourceType` String
-  * `timestamp` Double
-  * `requestHeaders` Object
-* `callback` Function 
-  * `response` Object 
-    * `cancel` Boolean (任意)
-    * `requestHeaders` Object (任意) - 指定すると、これらのヘッダでリクエストが作成されます。
 
 `callback` は、`response` オブジェクトで呼ぶ必要があります。
 
@@ -101,25 +100,24 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 * `filter` Object (任意) 
   * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
-* `listener` Function
+* `listener` Function 
+  * `details` Object 
+    * `id` Integer
+    * `url` String
+    * `method` String
+    * `webContentsId` Integer (任意)
+    * `resourceType` String
+    * `timestamp` Double
+    * `statusLine` String
+    * `statusCode` Integer
+    * `responseHeaders` Object
+  * `callback` Function 
+    * `response` Object 
+      * `cancel` Boolean
+      * `responseHeaders` Object (任意) - 指定すると、サーバはこれらのヘッダでレスポンスしたものとみなされます。
+      * `statusLine` String (任意) - ヘッダのステータスを変更するために `responseHeaders` をオーバーライドする場合に指定する必要があります。そうしないと、元の応答ヘッダのステータスが使用されます。
 
 `listener` は、HTTP リクエストのレスポンスヘッダを受信したときに `listener(details, callback)` で呼ばれます。
-
-* `details` Object 
-  * `id` Integer
-  * `url` String
-  * `method` String
-  * `webContentsId` Integer (任意)
-  * `resourceType` String
-  * `timestamp` Double
-  * `statusLine` String
-  * `statusCode` Integer
-  * `responseHeaders` Object
-* `callback` Function 
-  * `response` Object 
-    * `cancel` Boolean
-    * `responseHeaders` Object (任意) - 指定すると、サーバはこれらのヘッダでレスポンスしたものとみなされます。
-    * `statusLine` String (任意) - ヘッダのステータスを変更するために `responseHeaders` をオーバーライドする場合に指定する必要があります。そうしないと、元の応答ヘッダのステータスが使用されます。
 
 `callback` は、`response` オブジェクトで呼ぶ必要があります。
 
