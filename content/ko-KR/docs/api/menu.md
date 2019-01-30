@@ -128,7 +128,7 @@ menu의 항목을 저장하고 있는 `MenuItem[]` 배열.
 
 ### 메인 프로세스
 
-An example of creating the application menu in the main process with the simple template API:
+간단한 템플릿 API를 사용하여, 메인 프로세스에서 어플리케이션 메뉴를 작성하는 예제:
 
 ```javascript
 const { app, Menu } = require('electron')
@@ -227,7 +227,7 @@ XPath: /pre/code
 
 ### 렌더 프로세스
 
-Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
+아래는 [`remote`](remote.md) 모듈을 사용하여 웹 페이지(렌더 프로세스) 에서 동적으로 메뉴를 작성하는 예제입니다. 이 메뉴는 사용자가 페이지를 우클릭했을 때 보여집니다.
 
 ```html
 <!-- index.html -->
@@ -247,13 +247,13 @@ window.addEventListener('contextmenu', (e) => {
 </script>
 ```
 
-## Notes on macOS Application Menu
+## macOS 어플리케이션 메뉴에 대하여
 
-macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
+macOS는 Window나 Linux와는 완전히 다른 어플리케이션 메뉴 스타일을 가지고 있습니다. 여기서는 여러분이 만든 앱의 메뉴가, 보다 네이티브처럼 보이게 하기 위한 주의사항을 다루고 있습니다.
 
 ### 표준 메뉴
 
-On macOS there are many system-defined standard menus, like the `Services` and `Windows` menus. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
+macOS에는 `Services`와 `Windows` 메뉴처럼, 여러가지 시스템 정의 표준 메뉴(system-defined standard menus) 가 존재합니다. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
 
 * `window`
 * `help`
