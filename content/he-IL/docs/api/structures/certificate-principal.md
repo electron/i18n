@@ -1,8 +1,8 @@
-# CertificatePrincipal Object
+# הרכיב CertificatePrincipal
 
-* `commonName` String - שם נפוץ.
-* `organizations` String[] - שמות ארגונים.
-* `organizationUnits` String[] - Organization Unit names.
-* `locality` String - מקומיות.
-* `state` String - מדינה או מחוז.
-* `country` String - מדינה או אזור.
+* `commonName` מחרוזת - שם נפוץ.
+* `organizations` מחרוזת String[]‎ - שמות ארגונים.
+* `organizationUnits` מחרוזת String[]‎ - שמות המחלקות הארגוניות.
+* `locality` מחרוזת - מקומיות.
+* `state` מחרוזת - מדינה או מחוז.
+* `country` מחרוזת - מדינה או אזור.
