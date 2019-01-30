@@ -253,7 +253,7 @@ macOS는 Window나 Linux와는 완전히 다른 어플리케이션 메뉴 스타
 
 ### 표준 메뉴
 
-macOS에는 `Services`와 `Windows` 메뉴처럼, 여러가지 시스템 정의 표준 메뉴(system-defined standard menus) 가 존재합니다. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
+macOS에는 `Services`와 `Windows` 메뉴처럼, 다양한 시스템 정의 표준 메뉴(system-defined standard menus) 가 존재합니다. 당신이 만든 메뉴가 일반적인 메뉴처럼 보이게 하기 위해서는, 메뉴의 `role`을 다음의 가이드 중 하나로 설정해야합니다. Electron은 설정을 인식하여, 표준 메뉴로 만들게 됩니다.
 
 * `window`
 * `help`
@@ -261,19 +261,19 @@ macOS에는 `Services`와 `Windows` 메뉴처럼, 여러가지 시스템 정의 
 
 ### 표준 메뉴 아이템의 액션
 
-macOS는 `About xxx`, `Hide xxx`, `Hide Others`와 같은 몇 가지 메뉴 아이템에 대한 표준 액션을 제공하고 있습니다. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
+macOS는 `About xxx`, `Hide xxx`, `Hide Others`와 같은 몇 가지 메뉴 아이템에 대한 표준 액션을 제공하고 있습니다. 메뉴 아이템의 동작을 표준 동작으로 설정하기 위해서는, 메뉴 아이템의 `role` 속성(attribute) 을 설정해야합니다.
 
 ### 메인 메뉴의 이름
 
-macOS에서 어플리케이션 메뉴의 첫번째 아이템의 레이블은 당신이 설정한 레이블과 관계 없이 항상 앱 이름으로 설정됩니다. To change it, modify your app bundle's `Info.plist` file. See [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) for more information.
+macOS에서 어플리케이션 메뉴의 첫번째 아이템의 레이블은 당신이 설정한 레이블과 관계 없이 항상 앱 이름으로 설정됩니다. 첫번째 아이템의 레이블을 변경하기 위해서는, 앱 번들의 `Info.plist` 파일을 수정해야 합니다. 더 자세한 정보는 [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html)를 참조하세요.
 
 ## 특정 브라우저 윈도우를 위한 설정 메뉴 (*Linux* *Windows*)
 
-The [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) of browser windows can set the menu of certain browser windows.
+브라우저 윈도우의 [`setMenu` 메서드](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows)는 특정 브라우저 윈도우의 메뉴를 설정할 수 있습니다.
 
-## Menu Item Position
+## 메뉴 아이템의 위치
 
-You can make use of `before`, `after`, `beforeGroupContaining`, `afterGroupContaining` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
+`Menu.buildFromTemplate`을 사용하여 메뉴를 작성할 때 아이템을 위치를 배치하기 위해, `before`, `after`, `beforeGroupContaining`, `afterGroupContaining`, `id`를 사용할 수 있습니다.
 
 * `before` - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
 * `after` - Inserts this item after the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
