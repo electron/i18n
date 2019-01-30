@@ -275,10 +275,10 @@ macOS에서 어플리케이션 메뉴의 첫번째 아이템의 레이블은 당
 
 `Menu.buildFromTemplate`을 사용하여 메뉴를 작성할 때 아이템을 위치를 배치하기 위해, `before`, `after`, `beforeGroupContaining`, `afterGroupContaining`, `id`를 사용할 수 있습니다.
 
-* `before` - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
-* `after` - Inserts this item after the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
-* `beforeGroupContaining` - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
-* `afterGroupContaining` - Provides a means for a single context menu to declare the placement of their containing group after the containing group of the item with the specified label.
+* `before` - 이 아이템을 특정한 라벨과 함께, 지정한 아이템의 앞에 삽입합니다. 지정한 아이템이 존재하지 않을 경우, 아이템은 메뉴의 마지막에 추가됩니다. 이는 지정한 메뉴 아이템과 같은 "그룹"에 위치되어야 한다는 것을 의미합니다.
+* `after` - 이 아이템을 특정한 라벨과 함께, 지정한 아이템의 뒤에 삽입합니다. 지정한 아이템이 존재하지 않을 경우, 아이템은 메뉴의 마지막에 추가됩니다. 이는 지정한 메뉴 아이템과 같은 "그룹"에 위치되어야 한다는 것을 의미합니다.
+* `beforeGroupContaining` - 지정된 라벨의 아이템이 속한 그룹의 앞에, 그룹의 위치가 싱글 컨텍스트 메뉴로 선언된다는 의미를 제공합니다.
+* `afterGroupContaining` - 지정된 라벨의 아이템이 속한 그룹의 뒤에, 그룹의 위치가 싱글 컨텍스트 메뉴로 선언된다는 의미를 제공합니다.
 
 By default, items will be inserted in the order they exist in the template unless one of the specified positioning keywords is used.
 
