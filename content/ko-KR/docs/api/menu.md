@@ -88,43 +88,43 @@ macOS의 네이티브 액션에 대한 더 많은 정보는 [macOS Cocoa Event H
 
 ### 인스턴스 이벤트
 
-Objects created with `new Menu` emit the following events:
+`new Menu`로 작성된 오브젝트에서는 다음의 이벤트가 발생합니다.
 
-**Note:** Some events are only available on specific operating systems and are labeled as such.
+**참고:** 몇몇 이벤트는 표기된 특정 운영체제에서만 사용할 수 있습니다.
 
-#### Event: 'menu-will-show'
-
-반환:
-
-* `event` Event
-
-Emitted when `menu.popup()` is called.
-
-#### Event: 'menu-will-close'
+#### 이벤트: 'menu-will-show'
 
 반환:
 
 * `event` Event
 
-Emitted when a popup is closed either manually or with `menu.closePopup()`.
+`menu.popup()`이 호출될 때 발생합니다.
+
+#### 이벤트: 'menu-will-close'
+
+반환:
+
+* `event` Event
+
+팝업창을 닫거나, `menu.closePopup()`을 호출했을 때 발생합니다.
 
 ### Instance Properties (인스턴스 속성)
 
-`menu` objects also have the following properties:
+`menu` 오브젝트는 다음과 같은 속성(property) 도 갖습니다:
 
 #### `menu.items`
 
-A `MenuItem[]` array containing the menu's items.
+menu의 항목을 저장하고 있는 `MenuItem[]` 배열.
 
-Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
+각각의 `Menu`는 여러개의 [`MenuItem`](menu-item.md)을 가지며, `MenuItem`은 서브메뉴를 가질 수 있습니다.
 
 ### 인스턴스 이벤트
 
-Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
+`new Menu`로 작성된 오브젝트 혹은 `Menu.buildFromTemplate`이 반환한 오브젝트는 다음의 이벤트를 발생시킵니다:
 
 ## 예시
 
-The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
+`Menu` 클래스는 메인 프로세스에서만 사용 가능하지만, [`remote`](remote.md) 모듈을 통해 렌더 프로세스에서도 사용할 수 있습니다.
 
 ### 메인 프로세스
 
@@ -220,6 +220,9 @@ if (process.platform === 'darwin') {
 
 const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
+ 
+Text
+XPath: /pre/code
 ```
 
 ### 렌더 프로세스
