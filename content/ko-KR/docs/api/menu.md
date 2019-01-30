@@ -280,7 +280,7 @@ macOS에서 어플리케이션 메뉴의 첫번째 아이템의 레이블은 당
 * `beforeGroupContaining` - 지정된 라벨의 아이템이 속한 그룹의 앞에, 그룹의 위치가 싱글 컨텍스트 메뉴로 선언된다는 의미를 제공합니다.
 * `afterGroupContaining` - 지정된 라벨의 아이템이 속한 그룹의 뒤에, 그룹의 위치가 싱글 컨텍스트 메뉴로 선언된다는 의미를 제공합니다.
 
-By default, items will be inserted in the order they exist in the template unless one of the specified positioning keywords is used.
+기본적으로 위치 지정 키워드가 하나도 사용되지 않았을 경우, 템플릿에 저장되어있는 순서대로 삽입됩니다.
 
 ### 예시
 
