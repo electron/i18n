@@ -42,9 +42,9 @@ macOS의 네이티브 액션에 대한 더 많은 정보는 [macOS Cocoa Event H
 
 `Menu`를 반환합니다.
 
-Generally, the `template` is an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
+일반적으로, `template`은 [MenuItem](menu-item.md)을 구축하기 위한 `options`의 배열입니다. 사용법은 위의 내용을 참고해주세요.
 
-You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
+`template`의 요소에 다른 필드를 추가하는 것도 가능하며, 추가된 구축된 메뉴 아이템의 프로퍼티가 됩니다.
 
 ### 인스턴스 메서드
 
@@ -56,10 +56,10 @@ You can also attach other fields to the element of the `template` and they will 
   * `window` [BrowserWindow](browser-window.md) (선택) - 기본 값은 포커스된 윈도우입니다.
   * `x` Number (선택) - 기본 값은 현재 마우스 커서의 위치입니다. `y`가 정의되어있다면 반드시 정의되어야 합니다.
   * `y` Number (선택) - 기본 값은 현재 마우스 커서의 위치입니다. `x`가 정의되어있다면 반드시 정의되어야 합니다.
-  * `positioningItem` Number (optional) *macOS* - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
+  * `positioningItem` Number (옵션) *macOS* - 마우스 커서의 위치에 배치한 메뉴 아이템의 인덱스. 기본값은 -1입니다.
   * `callback` Function (선택) - 메뉴가 닫혔을 때 불립니다.
 
-Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
+이 메뉴는 [`BrowserWindow`](browser-window.md)에서 컨텍스트 메뉴로 팝업됩니다.
 
 #### `menu.closePopup([browserWindow])`
 
