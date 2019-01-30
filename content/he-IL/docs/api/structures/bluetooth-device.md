@@ -1,4 +1,4 @@
-# בלותות'
+# הרכיב BluetoothDevice
 
-* ערך - שם המכשיר
-* ערך - מכשיר Id
+* `deviceName` מחרוזת
+* `deviceId` מחרוזת
