@@ -1,4 +1,4 @@
 # הרכיב CPUUsage
 
-* `percentCPUUsage` Number - Percentage of CPU used since the last call to getCPUUsage. First call returns 0.
-* `idleWakeupsPerSecond` Number - The number of average idle cpu wakeups per second since the last call to getCPUUsage. First call returns 0. Will always return 0 on Windows.
+* `percentCPUUsage` מספר - אחוז ניצול המעבד מאז הקריאה האחרונה getCPUUsage. הקריאה הראשונה מחזירה 0.
+* `idleWakeupsPerSecond` מספר - מספר ההתעוררויות של המעבד ממצב המתנה בשנייה מאז הקריאה האחרונה ל־getCPUUsage. הקריאה הראשונה מחזירה 0. תמיד מחזירה 0 בסביבת Windows.
