@@ -1,4 +1,4 @@
 # הרכיב BluetoothDevice
 
-* `deviceName` מחרוזת
+* `deviceName`‏ String
 * `deviceId` מחרוזת
