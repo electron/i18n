@@ -20,7 +20,7 @@ electron/resources/app
 └── index.html
 ```
 
-Sonra `Electron.app` (veya Windows üzerinde `electron.exe`, Linux üzerinde `elektron`) çalıştırın ve Electron uygulamanız olarak çalışacaktır. Böylece, `electron` dizini, son kullanıcılara sunmak için dağıtımınız olur.
+Sonra `Electron.app` (veya Windows üzerinde `electron.exe`, Linux üzerinde `electron`) çalıştırın ve Electron uygulamanız olarak çalışacaktır. Böylece, `electron` dizini, son kullanıcılara sunmak için dağıtımınız olur.
 
 ## Uygulamanızı Bir Dosyaya Paketleme
 
@@ -77,7 +77,7 @@ MyApp.app/Contents
 
 ### Linux
 
-`elektron` yürütülebilir dosyasını istediğiniz herhangi bir adla yeniden adlandırabilirsiniz.
+`electron` yürütülebilir dosyasını istediğiniz herhangi bir adla yeniden adlandırabilirsiniz.
 
 ## Paketleme araçları
 
@@ -87,15 +87,15 @@ Uygulamanızı manuel olarak paketlemenin yanı sıra, üçüncü parti aracıla
 * [electron-builder](https://github.com/electron-userland/electron-builder)
 * [electron-packager](https://github.com/electron-userland/electron-packager)
 
-## Elekctron'u Kaynaktan Yeniden Yapılandırma
+## Electron'u Kaynaktan Yeniden Yapılandırma
 
 It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to set the build argument corresponding to the product name (`electron_product_name = "YourProductName"`) in the `args.gn` file and rebuild.
 
 ### Özel bir Electron Çatısı Oluşturma
 
-Elektron'un özel bir çatalı yaratmak kesinlikle sizin yapmanız gereken bir şey değildir "Üretim Seviyesi" uygulamaları için bile, uygulamanızı oluşturmak için yapmanız gerekir. "Markalaştırma" işlemini bu adımlar olmadan,`electron-paketleyici` yada` electron-sahteciliği` gibi araçları kullanarak yapmanıza izin veriri.
+Electron'un özel bir çatalı yaratmak kesinlikle sizin yapmanız gereken bir şey değildir "Üretim Seviyesi" uygulamaları için bile, uygulamanızı oluşturmak için yapmanız gerekir. "Markalaştırma" işlemini bu adımlar olmadan,`electron-paketleyici` yada` electron-sahteciliği` gibi araçları kullanarak yapmanıza izin veriri.
 
-Doğrudan Elektron'a yamaladığınız özel C ++ kodunuz olduğunda, ya yukarı doğru akışlanamayan ya da resmi sürümden reddedilen Elektron'u çatallamanız gerekir. Electron'un koruyucuları olarak, senaryonuzu çalışır hale getirmek çok isterim değişikliklerinizi elde etmek için mümkün olduğunca zor Electron'un resmi versiyonuna girerseniz, sizin için daha kolay olur. Yardımınız için teşekkür ederiz.
+Doğrudan Electron'a yamaladığınız özel C ++ kodunuz olduğunda, ya yukarı doğru akışlanamayan ya da resmi sürümden reddedilen Electron'u çatallamanız gerekir. Electron'un koruyucuları olarak, senaryonuzu çalışır hale getirmek çok isterim değişikliklerinizi elde etmek için mümkün olduğunca zor Electron'un resmi versiyonuna girerseniz, sizin için daha kolay olur. Yardımınız için teşekkür ederiz.
 
 #### Sörf-derleme ile özel bir sürüm oluşturma
 
