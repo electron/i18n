@@ -48,7 +48,7 @@ npm install --save-dev electron@latest
 | Node.js 重大版本更新      | Node.js 次要版本更新       | Node.js patch 版本更新 |
 | Chromium 版本更新       |                      | 修复相关的 chromium 补丁  |
 
-Note that most Chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
+请注意，大多数 Chromium 更新将被视为突破性更新。 可以从新版被向后移植的修复可能会被挑选出来作为补丁修复现有版本。
 
 # 稳定分支
 
@@ -110,9 +110,9 @@ Specifically, the above means:
 
 ![](../images/versioning-sketch-7.png)
 
-# Missing Features: Alphas
+# 缺失的特性: alpha版本
 
-我们的战略有几个权衡, 现在我们觉得是适当的。 最重要的是, 新的功能在掌握可能需要一段时间才能达到稳定的释放。 如果你想立即尝试一个新的功能, 你将不得不建立自己的Electron 。
+我们的战略有几次权衡，我们现在认为这是适当的。 最重要的是, 新的主分支特性可能需要一段时间才能作为稳定版发布。 如果你想立即尝试一个新的特性, 你必须自己编译Electron 。
 
 作为未来的考虑, 我们可以介绍以下一种或两种情况:
 
