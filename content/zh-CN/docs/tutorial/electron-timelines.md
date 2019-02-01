@@ -1,6 +1,6 @@
-## 5.0.0 Release Schedule
+## 5.0.0 版本发布日程
 
-Take a look at 5.0.0 Timeline [blog post](https://electronjs.org/blog/electron-5-0-timeline) for info about publicizing our release dates.
+查看 5.0.0 版本时间线的 [博客文章](https://electronjs.org/blog/electron-5-0-timeline) 以了解我们有关发布日期的信息。
 
 #### 注意：
 
