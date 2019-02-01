@@ -12,11 +12,11 @@
 
 不推荐使用以下 `webPreferences` 选项默认值，以支持下面列出的新默认值。
 
-| 属性                 | 不推荐使用的默认值                            | 新的默认值   |
-| ------------------ | ------------------------------------ | ------- |
-| `contextIsolation` | `false`                              | `true`  |
-| `nodeIntegration`  | `true`                               | `false` |
-| `webviewTag`       | `nodeIntegration` if set else `true` | `false` |
+| 属性                 | 不推荐使用的默认值                       | 新的默认值   |
+| ------------------ | ------------------------------- | ------- |
+| `contextIsolation` | `false`                         | `true`  |
+| `nodeIntegration`  | `true`                          | `false` |
+| `webviewTag`       | `nodeIntegration` 未设置过则是 `true` | `false` |
 
 ## `nativeWindowOpen`
 
@@ -33,13 +33,13 @@
 ## `app.makeSingleInstance`
 
 ```js
-// Deprecated
+// 废弃
 app.makeSingleInstance(function (argv, cwd) {
 
 })
-// Replace with
+// 替换为
 app.requestSingleInstanceLock()
-app.on('second-instance', function (event, argv, cwd) {
+app.on('second-instance', function (argv, cwd) {
 
 })
 ```
@@ -57,13 +57,13 @@ app.releaseSingleInstanceLock()
 
 ```js
 app.getGPUInfo('complete')
-// Now behaves the same with `basic` on macOS
+// 现在的行为将与macOS下的`basic`设置一样
 app.getGPUInfo('basic')
 ```
 
 ## `win_delay_load_hook`
 
-在为 Windows 构建本机模块时，将使 `win_delay_load_hook` 变量值 位于 `binding.gyp` 模块，必须为 true (这是默认值)。 如果这个钩子 不存在，那么本机模块将无法在 Windows 上加载，并出现错误 消息如 `无法找到模块`。 See the [native module guide](/docs/tutorial/using-native-node-modules.md) for more.
+在为 Windows 构建本机模块时，将使 `win_delay_load_hook` 变量值 位于 `binding.gyp` 模块，必须为 true (这是默认值)。 如果这个钩子 不存在，那么本机模块将无法在 Windows 上加载，并出现错误 消息如 `无法找到模块`。 查看 [原生模块指南](/docs/tutorial/using-native-node-modules.md) 以获取更多信息.
 
 # 重大的API更新 (3.0)
 
@@ -72,14 +72,14 @@ app.getGPUInfo('basic')
 ## `app`
 
 ```js
-// Deprecated
+// 弃用
 app.getAppMemoryInfo()
-// Replace with
+// 替换为
 app.getAppMetrics()
 
-// Deprecated
+// 弃用
 const metrics = app.getAppMetrics()
-const { memory } = metrics[0] // Deprecated property
+const { memory } = metrics[0] // 弃用的属性
 ```
 
 ## `BrowserWindow`
