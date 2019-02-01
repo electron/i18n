@@ -136,11 +136,11 @@ GitHub不支持旧线路，但是其他分组可以自行获取所有权和返�
 
 - 我们允许合并提交，只要合并提交的消息符合上述消息格式。
 
-- It is acceptable for some commits in a pull request to not include a semantic prefix, as long as the pull request title contains a meaningful encompassing semantic message.
+- 只要pull request里包含有意义的总结性的版本语义消息，即使它其中的某些提交消息不包含版本语义前缀也是可以接受的
 
-# Versioned `master`
+# 打了版本的 `主分支`
 
 - The `master` branch will always contain the next major version `X.0.0-nightly.DATE` in its `package.json`
 - Release 分支永远不会合并回 master 分支
 - 发布分支 *在* 其`package.json ` 中包含正确的版本
-- As soon as a release branch is cut for a major, master must be bumped to the next major. I.e. `master` is always versioned as the next theoretical release branch
+- 只要一个 release 分支被切出来用于发布 major 版本, 主分支就必须跳到下一个 major 版本. 也就是说`master` 总会被视作下一个理论上要发布的版本的分支。
