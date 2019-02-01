@@ -82,7 +82,7 @@ GitHub不支持旧线路，但是其他分组可以自行获取所有权和返�
 3. If a particular beta release is *generally regarded* as stable, it will be re-released as a stable build, changing only the version information. e.g. `2.0.0`. After the first stable, all changes must be backwards-compatible bug or security fixes.
 4. If future bug fixes or security patches need to be made once a release is stable, they are applied and the *patch* version is incremented e.g. `2.0.1`.
 
-Specifically, the above means:
+特别地，上述步骤意味着：
 
 1. Admitting non-breaking-API changes early in the beta cycle is okay, even if those changes have the potential to cause moderate side-affects
 2. Admitting feature-flagged changes, that do not otherwise alter existing code paths, at most points in the beta cycle is okay. Users can explicitly enable those flags in their apps.
@@ -130,11 +130,11 @@ Specifically, the above means:
 
 我们力求在更新和发布过程的各个层面提高清晰度。 从 ` 2.0.0 ` 开始, 我们将要求遵循 [ 常规提交 ](https://conventionalcommits.org/) 规范的拉请求, 可以概括如下:
 
-- Commits that would result in a semver **major** bump must start their body with `BREAKING CHANGE:`.
-- 提交会导致 semver **minor** 必须以 `feat:` 开头。
-- 提交会导致 semver ** patch ** 必须以 ` fix:` 开头。
+- 会导致 semver **major** 版本改变的提交必须以`BREAKING CHANGE:`开头。
+- 会导致 semver **minor** 版本改变的提交必须以 `feat:` 开头。
+- 会导致 semver ** patch ** 版本改变的提交必须以 ` fix:` 开头。
 
-- 我们允许压缩提交，只要压缩的消息符合上述消息格式。
+- 我们允许合并提交，只要合并提交的消息符合上述消息格式。
 
 - It is acceptable for some commits in a pull request to not include a semantic prefix, as long as the pull request title contains a meaningful encompassing semantic message.
 
