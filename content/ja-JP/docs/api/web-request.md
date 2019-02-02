@@ -26,7 +26,7 @@ const filter = {
 
 session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback) => {
   details.requestHeaders['User-Agent'] = 'MyAgent'
-  callback({ cancel: false, requestHeaders: details.requestHeaders })
+  callback({ requestHeaders: details.requestHeaders })
 })
 ```
 
@@ -113,7 +113,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `responseHeaders` Object
   * `callback` Function 
     * `response` Object 
-      * `cancel` Boolean
+      * `cancel` Boolean (任意)
       * `responseHeaders` Object (任意) - 指定すると、サーバはこれらのヘッダでレスポンスしたものとみなされます。
       * `statusLine` String (任意) - ヘッダのステータスを変更するために `responseHeaders` をオーバーライドする場合に指定する必要があります。そうしないと、元の応答ヘッダのステータスが使用されます。
 
@@ -171,6 +171,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `method` String
     * `webContentsId` Integer (任意)
     * `resourceType` String
+    * `referrer` String
     * `timestamp` Double
     * `responseHeaders` Object
     * `fromCache` Boolean
