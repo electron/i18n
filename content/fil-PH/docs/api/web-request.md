@@ -26,7 +26,7 @@ const filter = {
 
 session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback) => {
   details.requestHeaders['User-Agent'] = 'MyAgent'
-  callback({ cancel: false, requestHeaders: details.requestHeaders })
+  callback({ requestHeaders: details.requestHeaders })
 })
 ```
 
@@ -62,7 +62,7 @@ The `callback` has to be called with an `response` object.
 
 * `salain` Bagay (opsyonal) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Punsyon 
+* `listener` Function 
   * `ang mga detalye` Bagay 
     * `id` Integer
     * `url` Tali
@@ -90,7 +90,7 @@ The `callback` has to be called with an `response` object.
     * `url` Tali
     * `method` na String
     * `webContentsId` Integer (optional)
-    * `resourceType` String
+    * `resourceType` Tali
     * `timestamp` Double
     * `requestHeaders` Object
 
@@ -111,9 +111,9 @@ The `listener` will be called with `listener(details)` just before a request is 
     * `statusLine` String
     * `statusCode` Integer
     * `responseHeaders` Object
-  * `callback` Punsyon 
+  * `callback` Function 
     * `response` Bagay 
-      * `cancel` Boolean
+      * `cancel` Boolean (optional)
       * `responseHeaders` Object (optional) - When provided, the server is assumed to have responded with these headers.
       * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
 
@@ -123,7 +123,7 @@ The `callback` has to be called with an `response` object.
 
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
-* `salain` Na Bagay (opsyonal) 
+* `salain` Bagay (opsyonal) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Punsyon 
   * `ang mga detalye` Bagay 
@@ -171,6 +171,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
     * `method` na String
     * `webContentsId` Integer (optional)
     * `resourceType` Tali
+    * `referer` String
     * `timestamp` Double
     * `responseHeaders` Object
     * `fromCache` Boolean
@@ -183,7 +184,7 @@ The `listener` will be called with `listener(details)` when a request is complet
 
 * `salain` Bagay (opsyonal) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
+* `listener` function 
   * `ang mga detalye` Bagay 
     * `id` Integer
     * `url` Tali
