@@ -194,7 +194,7 @@ landing:
   fiddle:
     lead_desc: 最简单的 Electron 入门方式。
     create_app: 创建您的应用程序
-    description: Electron Fiddle lets you create and play with small Electron experiments. It greets you with a quick-start template after opening – change a few things, choose the version of Electron you want to run it with, and play around. Then, save your Fiddle either as a GitHub Gist or to a local folder. Once pushed to GitHub, anyone can quickly try your Fiddle out by just entering it in the address bar.
+    description: Electron Fiddle 让您可以创建和进行小型 Electron 实验。它会在打开后用一个快速启动模板迎接你 - 更改一些东西，选择你想要用以运行它的 Electron 版本，随意玩耍。然后，将您的 Fiddle 保存为一个 GitHub Gist 或保存到一个本地文件夹。一旦将其推送到 GitHub ，任何人都可以通过仅仅在地址栏中输入它来快速尝试您的 Fiddle 。
     explore: 探索 Electron
     explore_desc: "尝试使用 Electron 而不安装任何依赖项：Fiddle 包含了您探索 Electron 平台所需的一切。它还包括了 Electron 中可用的每个 API 的示例，因此，如果您想快速查看 BrowserView 是什么或者 desktopCapturer 是如何工作的， Fiddle 都已帮您搞定。"
     code_with_types: 用类型编码
