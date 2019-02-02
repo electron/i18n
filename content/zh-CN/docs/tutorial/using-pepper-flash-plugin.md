@@ -4,7 +4,7 @@ Electron 现在支持 Pepper Flash 插件。要在 Electron 里面使用 Pepper 
 
 ## 保留一份 Flash 插件的副本
 
-On macOS and Linux, the details of the Pepper Flash plugin can be found by navigating to `chrome://flash` in the Chrome browser. 插件的路径和版本会对 Election 对其的支持有帮助。 你也可以把插件 复制到另一个路径以保留一份副本。
+在 macOS 和 Linux 上，您可以通过在 Chrome 浏览器的 `chrome://flash` 页面上找到 Pepper Flash 插件的信息。 插件的路径和版本会对 Election 对其的支持有帮助。 你也可以把插件 复制到另一个路径以保留一份副本。
 
 ## 添加插件在 Electron 里的开关
 
