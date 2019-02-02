@@ -26,7 +26,7 @@ const filter = {
 
 session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback) => {
   details.requestHeaders['User-Agent'] = 'MyAgent'
-  callback({ cancel: false, requestHeaders: details.requestHeaders })
+  callback({ requestHeaders: details.requestHeaders })
 })
 ```
 
@@ -88,7 +88,7 @@ Bir HTTP isteği gönderilmeden önce, istek başlıkları mevcut olduğunda `li
   * `details` Nesne 
     * `id` tamsayı
     * `url` Dize
-    * `method` Dizi
+    * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` Dize
     * `timestamp` Double
@@ -113,7 +113,7 @@ Sunucuya gönderilecek bir istekten hemen önce `listener` `listener(details)` i
     * `responseHeaders` Object
   * `geri aramak` Function 
     * `response` Nesne 
-      * `cancel` Boolean
+      * `cancel` Boolean (isteğe bağlı)
       * `responseHeaders` Object (isteğe bağlı) - Sağlandığında, sunucu bu başlıklara cevap verecektir.
       * `statusLine` String (optional) - `responseHeaders`'ı geçersiz kılarak başlık durumunu değiştirmeye çalıştığımızda değerler sağlanmalıdır aksi taktirde orjinal yanıt başlığının durumu kullanılır.
 
@@ -148,7 +148,7 @@ Cevap parçasının ilk byte'ı alındığında `listener` `listener(details)` i
   * `details` Nesne 
     * `id` tamsayı
     * `url` Dize
-    * `method` Dizi
+    * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` Dize
     * `timestamp` Double
@@ -171,6 +171,7 @@ Sunucu ile başlatılan bir yönlendirme gerçekleşmek üzereyken `listener` `l
     * `method` Dizi
     * `webContentsId` Integer (optional)
     * `resourceType` Dize
+    * `referrer` Dize
     * `timestamp` Double
     * `responseHeaders` Object
     * `fromCache` Boolean
