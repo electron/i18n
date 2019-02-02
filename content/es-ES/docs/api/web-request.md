@@ -26,7 +26,7 @@ const filter = {
 
 session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback) => {
   details.requestHeaders['User-Agent'] = 'MyAgent'
-  callback({ cancel: false, requestHeaders: details.requestHeaders })
+  callback({ requestHeaders: details.requestHeaders })
 })
 ```
 
@@ -113,7 +113,7 @@ El`oyente` Será llamado con `listener(details)` justo antes que una solicitud v
     * `headers de respuesta` objeto
   * `callback` Function 
     * `respuesta` Object 
-      * `cancelar` Booleano
+      * `cancelar` Booleano (opcional)
       * `Encabezados de respuesta` Objecto (opcional) - Cuando se provean, el servidor se asume que será respondido con estos encabezados.
       * `Linea de estatus` Cadena (opcional) - Se proveerá al reemplazar el `encabezado de respuesta` para cambiar el estatus del encabezado, de otra manera el estatus original del encabezado de respuesta será usado.
 
@@ -171,6 +171,7 @@ El `oyente` Será cancelado con `listener(details)` cuando la redirección del s
     * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
+    * `referrer` Cadena
     * `fecha y hora` Doble
     * `headers de respuesta` objeto
     * `Desde cache` Booleano
