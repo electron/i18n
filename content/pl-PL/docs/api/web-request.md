@@ -26,7 +26,7 @@ const filter = {
 
 session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback) => {
   details.requestHeaders['User-Agent'] = 'MyAgent'
-  callback({ cancel: false, requestHeaders: details.requestHeaders })
+  callback({ requestHeaders: details.requestHeaders })
 })
 ```
 
@@ -63,7 +63,7 @@ The `callback` has to be called with an `response` object.
 * `filter` Obiekt (opcjonalne) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Funkcja 
-  * `detale` Object 
+  * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
@@ -85,7 +85,7 @@ The `callback` has to be called with an `response` object.
 * `filter` Obiekt (opcjonalne) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Funkcja 
-  * `details` Obiekt 
+  * `detale` Obiekt 
     * `id` Integer
     * `url` String
     * `method` String
@@ -113,7 +113,7 @@ The `listener` will be called with `listener(details)` just before a request is 
     * `responseHeaders` Object
   * `callback` Funkcja 
     * `response` Object 
-      * `cancel` Boolean
+      * `cancel` Boolean (optional)
       * `responseHeaders` Object (optional) - When provided, the server is assumed to have responded with these headers.
       * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
 
@@ -126,7 +126,7 @@ The `callback` has to be called with an `response` object.
 * `filter` Obiekt (opcjonalne) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Funkcja 
-  * `detale` Object 
+  * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
@@ -171,6 +171,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
     * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
+    * `referrer` String
     * `timestamp` Double
     * `responseHeaders` Object
     * `fromCache` Boolean
