@@ -25,7 +25,7 @@ const filter = {
 
 session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback) => {
   details.requestHeaders['User-Agent'] = 'MyAgent'
-  callback({ cancel: false, requestHeaders: details.requestHeaders })
+  callback({ requestHeaders: details.requestHeaders })
 })
 ```
 
@@ -68,7 +68,7 @@ Metode berikut tersedia pada contoh `WebRequest`:
       * `url` String
       * `method` String
       * `webContentsId` Integer (optional)
-      * `TipeSumberdaya` String
+      * `Jenissumberdaya` Tali
       * `timestamp` Duakali
       * `permintaanHeaders` Objek
     * `callback` Fungsi 
@@ -90,7 +90,7 @@ Metode berikut tersedia pada contoh `WebRequest`:
       * `url` String
       * `method` String
       * `webContentsId` Integer (optional)
-      * `TipeSumberdaya` String
+      * `Jenissumberdaya` Tali
       * `timestamp` Duakali
       * `permintaanHeaders` Objek
   
@@ -113,7 +113,7 @@ Metode berikut tersedia pada contoh `WebRequest`:
       * `responseHeaders` Objek
     * `callback` Fungsi 
       * `respon` Obyek 
-        * `batalkan` Boolean
+        * `batalkan` Boolean (opsional)
         * `responHeader` Objek (opsional) - Bila disediakan, server diasumsikan telah merespon dengan headers ini.
         * `statusGaris` String (opsional) - Harus diberikan saat mengesampingkan `responHeaders` untuk mengubah status header jika tidak ada respon asli status header akan digunakan.
   
@@ -131,7 +131,7 @@ Metode berikut tersedia pada contoh `WebRequest`:
       * `url` String
       * `method` String
       * `webContentsId` Integer (optional)
-      * `Jenissumberdaya` Tali
+      * `TipeSumberdaya` String
       * `timestamp` Duakali
       * `responseHeaders` Objek
       * ` dariCache` Boolean - Menunjukkan apakah respon diambil dari disk cache.
@@ -170,7 +170,8 @@ Metode berikut tersedia pada contoh `WebRequest`:
       * ` url </ 0> String</li>
 <li><code>method` String
       * `webContentsId` Integer (optional)
-      * `Jenissumberdaya` Tali
+      * `TipeSumberdaya` String
+      * `pengarah` String
       * `timestamp` Duakali
       * `responseHeaders` Objek
       * `dariCache` Boolean
