@@ -26,7 +26,7 @@ const filter = {
 
 session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback) => {
   details.requestHeaders['User-Agent'] = 'MyAgent'
-  callback({ cancel: false, requestHeaders: details.requestHeaders })
+  callback({ requestHeaders: details.requestHeaders })
 })
 ```
 
@@ -111,9 +111,9 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `statusLine` String
     * `statusCode` Integer
     * `responseHeaders` Object
-  * `callback` Function 
+  * `callback` Function - 回调函数 
     * `response` Object 
-      * `cancel` Boolean
+      * `cancel` Boolean (可选)
       * ` responseHeaders ` Object (可选) - 当提供时，将使用这些报头处理返回。
       * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
 
@@ -171,6 +171,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `method` String
     * `webContentsId` Integer (可选)
     * `resourceType` String
+    * `referrer` String
     * `timestamp` Double
     * `responseHeaders` Object
     * `fromCache` Boolean
