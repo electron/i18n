@@ -55,13 +55,13 @@ community:
   meetup_notice: 若要添加线下交流会，请编辑 <code>data/meetups.json</code> 和 <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json"> 发pull request </a>。
 releases:
   show_releases: "显示版本："
-  show_only_releases_from: "Show Only Releases From:"
+  show_only_releases_from: "仅显示指定来源的版本："
   all_versions: 所有版本
   stable_releases: 稳定版本
   stable_desc: 定期支持的版本
   beta_releases: Beta 版本
   beta_desc: 用即将发生的更改测试应用
-  nightly_releases: Nightly Releases
+  nightly_releases: Nightly 版本
   nightly_desc: 试用最新功能
   next: 下一个
   next_page: 下一页
