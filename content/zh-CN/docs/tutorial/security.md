@@ -369,7 +369,7 @@ const mainWindow = new BrowserWindow()
 
 *Electron的默认值即是建议值。*
 
-如果您正在使用 [`<webview>`](../api/webview-tag.md) ，您可能需要页面和脚本加载进您的 `<webview>` 标签以打开新窗口。 开启`allowpopups`属性将使得[`BrowserWindows`](../api/browser-window.md)可以通过`window.open()`方法创建。 `<webview>` tags are otherwise not allowed to create new windows.
+如果您正在使用 [`<webview>`](../api/webview-tag.md) ，您可能需要页面和脚本加载进您的 `<webview>` 标签以打开新窗口。 开启`allowpopups`属性将使得[`BrowserWindows`](../api/browser-window.md)可以通过`window.open()`方法创建。 否则， `<webview>` 标签内不允许创建新窗口。
 
 ### 为什么？
 
@@ -399,7 +399,7 @@ Electron 可以让开发者关闭各种控制渲染进程的安全特性。 In m
 
 ### 怎么做？
 
-Before a [`<webview>`](../api/webview-tag.md) tag is attached, Electron will fire the `will-attach-webview` event on the hosting `webContents`. Use the event to prevent the creation of `webViews` with possibly insecure options.
+Before a [`<webview>`](../api/webview-tag.md) tag is attached, Electron will fire the `will-attach-webview` event on the hosting `webContents`. 利用这个事件来阻止可能含有不安全选项的 `webViews` 创建。
 
 ```js
 app.on('web-contents-created', (event, contents) => {
@@ -451,7 +451,7 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-## 13) Disable or limit creation of new windows
+## 13) 禁用或限制新窗口的创建
 
 If you have a known set of windows, it's a good idea to limit the creation of additional windows in your app.
 
