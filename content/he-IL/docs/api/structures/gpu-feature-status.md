@@ -1,6 +1,6 @@
-# GPUFeatureStatus Object
+# הרכיב GPUFeatureStatus
 
-* `2d_canvas` String - Canvas.
+* `2d_canvas`‏ String - משטח ציור.
 * `flash_3d` String - Flash.
 * `flash_stage3d` String - Flash Stage3D.
 * `flash_stage3d_baseline` String - Flash Stage3D Baseline profile.
@@ -14,7 +14,7 @@
 * `webgl` String - WebGL.
 * `webgl2` String - WebGL2.
 
-Possible values:
+ערכים אפשריים:
 
 * `disabled_software` - Software only. Hardware acceleration disabled (yellow)
 * `disabled_off` - Disabled (red)
