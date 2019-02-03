@@ -1,4 +1,4 @@
-# CrashReport Object
+# הרכיב CrashReport
 
-* `date` Date
+* `date`‏ Date
 * `id` String
