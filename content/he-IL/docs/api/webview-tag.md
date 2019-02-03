@@ -765,7 +765,7 @@ Fired when the gpu process is crashed.
 
 Returns:
 
-* `name` String
+* `name`‏ String
 * `version` String
 
 Fired when a plugin process is crashed.
