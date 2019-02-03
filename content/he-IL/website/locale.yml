@@ -17,7 +17,7 @@ docs:
   description: צפא בכל <a href="/docs/all"> התיעוד בדף אחד</a> או חפש <href="/docs/faq"> בשאלות נפוצות </a>.
   guides: מדריכים
   api_reference: הפניה לממשק
-  api_structures: API Structures
+  api_structures: מבני API
   advanced: הגדרות מתקדמות
   footer:
     propose_change: שפר מסמך זה
@@ -26,7 +26,7 @@ docs:
     view_all_docs: כל המסמכים בעמוד אחד
 languages:
   choose_language: בחרו בשפת התצוגה שלכם
-  view_more_details: View More Language Details
+  view_more_details: הצגת פרטים נוספים על השפה
   translation_progress: התקדמות התרגום
   current: בחירה נוכחית
 community:
@@ -54,12 +54,12 @@ community:
   awesome_notice: רשימה זו נוצרה מתוך <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repository. <br>חסר משהו? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">בצע pull request</a>.
   meetup_notice: להוספת מפגש, ערוך את code> data/meetups.json< </code>href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">ובצע pull request</a>.
 releases:
-  show_releases: "Show Releases:"
+  show_releases: "הצגת מהדורות:"
   show_only_releases_from: "Show Only Releases From:"
-  all_versions: All Versions
-  stable_releases: Stable Releases
-  stable_desc: Regular, supported releases
-  beta_releases: Beta Releases
+  all_versions: כל הגרסאות
+  stable_releases: מהדורות יציבות
+  stable_desc: רגילות, עם תמיכה
+  beta_releases: מהדורות לבדיקה
   beta_desc: Test your app with upcoming changes
   nightly_releases: Nightly Releases
   nightly_desc: Experiment with the latest features
