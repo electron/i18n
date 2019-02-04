@@ -107,7 +107,7 @@ To make the whole window draggable, you can add `-webkit-app-region: drag` as `b
 </body>
 ```
 
-And note that if you have made the whole window draggable, you must also mark buttons as non-draggable, otherwise it would be impossible for users to click on them:
+창의 모든 부분을 드래그할 수 있게 만들고싶다면, 버튼을 드래그할 수 없게 하여서 유저들이 그것을 클릭할 수 있게 하세요. 아래의 Css를 적용하면 버튼을 드래그할 수 없게 됩니다.
 
 ```css
 button {
