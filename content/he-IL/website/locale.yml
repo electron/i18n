@@ -55,7 +55,7 @@ community:
   meetup_notice: להוספת מפגש, ערוך את code> data/meetups.json< </code>href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">ובצע pull request</a>.
 releases:
   show_releases: "הצגת מהדורות:"
-  show_only_releases_from: "Show Only Releases From:"
+  show_only_releases_from: "הצגת מהדורות מהערוץ הזה בלבד:"
   all_versions: כל הגרסאות
   stable_releases: מהדורות יציבות
   stable_desc: רגילות, עם תמיכה
@@ -194,14 +194,14 @@ landing:
   fiddle:
     lead_desc: הדרך הקלה ביותר להתחיל לפתח עם Electron
     create_app: יצירת יישום משלך
-    description: Electron Fiddle lets you create and play with small Electron experiments. It greets you with a quick-start template after opening – change a few things, choose the version of Electron you want to run it with, and play around. Then, save your Fiddle either as a GitHub Gist or to a local folder. Once pushed to GitHub, anyone can quickly try your Fiddle out by just entering it in the address bar.
-    explore: Explore Electron
-    explore_desc: "Try Electron without installing any dependencies: Fiddle includes everything you'll need to explore the platform. It also includes examples for every API available in Electron, so if you want to quickly see what a BrowserView is or how the desktopCapturer works, Fiddle has got you covered."
+    description: Electron Fiddle מאפשר לך ליצור ולשחק עם ניסויים קטנים ב־Electron. הוא מברך אותך בתבנית לכניסה מהירה לעניינים לאחר הפתיחה – באפשרותך לשנות מה שמעניין אותך, לבחור את גרסת ה־Electron שעליה ברצונך להריץ את הקוד ולאחר מכן לשחק אתו. בהמשך, באפשרותך לשמור את ה־Fiddle או ב־Gist ב־GitHub או לתיקייה מקומית. לאחר הדחיפה ל־GitHub, יוכלו כולם להתנסות ב־Fiddle שלך ישירות על ידי הקלדת כתובתו בשורת הכתובות.
+    explore: התנסות ב־Electron
+    explore_desc: "באפשרותך להתנסות ב־Electron בלי להתקין תלויות נוספות: ב־Fiddle נכללות דוגמות לכל API שזמין ב־Electron, כך שאם מעניין אותך להציץ בקלילות ולהבין מה עושים עם BrowserView או איך desktopCapturer עובד, ל־Fiddle יש מענה עבורך."
     code_with_types: פיתוח עם טיפוסים
-    code_with_types_desc: Fiddle includes Microsoft's excellent Monaco Editor, the same editor powering Visual Studio Code. It also installs the type definitions for the currently selected version of Electron automatically, ensuring that you always have all Electron APIs only a few keystrokes away.
+    code_with_types_desc: ב־Fiddle נכלל העורך Monaco הנפלא מבית Microsoft, אותו העורך שעליו מבוסס Visual Studio Code. הוא גם מתקין את הגדרות עבור הגרסה הנבחרת של Electron אוטומטית, כדי לוודא שכל ה־API של Electron נגיש לך בהינף יד.
     compile_and_package: הידור ואריזה
-    compile_and_package_desc: Fiddle can automatically turn your experiment into binaries you can share with your friends, coworkers, or grandparents. It does so thanks to <a href="https://electronforge.io/">electron-forge</a>, allowing you to package your fiddle as an app for Windows, macOS, or Linux.
+    compile_and_package_desc: ל־Fiddle יש אפשרות להפוך את הניסוי שלך לקבצים בינריים כדי לאפשר לך לשתף אותם עם חבריך, שותפיך לעבודה או סביך. כל הטוב הזה מתאפשר בזכות <a href="https://electronforge.io/">electron-forge</a>, שמאפשר לך לארוז את ה־fiddle שלך לצורת יישום עבור Windows,‏ macOS או לינוקס.
     easy_start: אפשר להתחיל עם Fiddle ולהמשיך בכל מקום אחר
-    easy_start_desc: Fiddle is not an IDE – it is however an excellent starting point. Once your fiddle has grown up, export it as a project with or without <a href="https://electronforge.io/">electron-forge</a>. Then, use your favorite editor and take on the world!
+    easy_start_desc: Fiddle זו אינה סביבת פיתוח – עם זאת, זאת סביבה מעולה למתחילים. לאחר שה־fiddle שלך צמח לו לאטו, ניתן לייצא אותו כמיזם עם או ללא <a href="https://electronforge.io/">electron-forge</a>. בהמשך, יתאפשר לך להשתמש בעורך המועדף עליך ולהשתלט על העולם!
 _404:
   page_not_found: הדף לא נמצא.
