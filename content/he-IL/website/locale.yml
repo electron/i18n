@@ -60,15 +60,15 @@ releases:
   stable_releases: מהדורות יציבות
   stable_desc: רגילות, עם תמיכה
   beta_releases: מהדורות לבדיקה
-  beta_desc: Test your app with upcoming changes
-  nightly_releases: Nightly Releases
-  nightly_desc: Experiment with the latest features
-  next: Next
-  next_page: Next Page
-  previous: Previous
-  previous_page: Previous Page
-  page: Page
-  all_releases: All Releases
+  beta_desc: בדיקת היישום שלך מול השינויים שעתידים לבוא
+  nightly_releases: מהדורות ליליות
+  nightly_desc: התנסות בתכונות העדכניות ביותר
+  next: הבא
+  next_page: העמוד הבא
+  previous: הקודם
+  previous_page: העמוד הקודם
+  page: עמוד
+  all_releases: כל המהדורות
   back_to_index: חזרה לעמוד הראשי
 electron_is_easy:
   title: זה קל יותר משאתה חושב
@@ -124,18 +124,18 @@ apps:
   edit_this_app: ערוך את היישום הזה.
   search_app: סנן יישומים לפי שם, תיאור, ועוד…
   categories: קטגוריות
-  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
+  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">יש להגיש בקשת דחיפה (Pull Request)</a> כדי להוסיף את היישום שלך.'
   website: אתר
-  repository: Repository
-  category: Category
+  repository: מאגר
+  category: קטגוריה
   downloads: הורדות
   keywords: מילות מפתח
   license: רשיון
-  latest_release: Latest Release
+  latest_release: מהדורה עדכנית
 blog:
   title: בלוג Electron
   description: כל החדשות האחרונות מקהילת Electron.
-  feedback: Have feedback on this post? Let <a href="https://twitter.com/electronjs">@electronjs</a> know on Twitter.
+  feedback: יש לך משוב על הרשומה הזאת? אפשר לדווח ל־<a href="https://twitter.com/electronjs">‎@electronjs</a> בטוויטר.
   help: צריכים עזרה או שמצאתם באג? <a href="/contact">צרו עמנו קשר!</a>.
 clipboard:
   copy: העתק
@@ -186,22 +186,22 @@ pages:
     description: Spectron היא framework קוד פתוח עבור כתיבת בדיקות אינטגרציה בקלות ליישום Electron שלך. מובנה על גבי ChromeDriver ו- WebDriverIO.
   '/fiddle':
     title: Electron Fiddle
-    description: The easiest way to get started with Electron
+    description: הדרך הקלה ביותר להתחיל לפתח עם Electron
   '/donors':
     title: תורמים
 landing:
   get_started: צא לדרך
   fiddle:
-    lead_desc: The easiest way to get started with Electron
-    create_app: Create your app
+    lead_desc: הדרך הקלה ביותר להתחיל לפתח עם Electron
+    create_app: יצירת יישום משלך
     description: Electron Fiddle lets you create and play with small Electron experiments. It greets you with a quick-start template after opening – change a few things, choose the version of Electron you want to run it with, and play around. Then, save your Fiddle either as a GitHub Gist or to a local folder. Once pushed to GitHub, anyone can quickly try your Fiddle out by just entering it in the address bar.
     explore: Explore Electron
     explore_desc: "Try Electron without installing any dependencies: Fiddle includes everything you'll need to explore the platform. It also includes examples for every API available in Electron, so if you want to quickly see what a BrowserView is or how the desktopCapturer works, Fiddle has got you covered."
-    code_with_types: Code with Types
+    code_with_types: פיתוח עם טיפוסים
     code_with_types_desc: Fiddle includes Microsoft's excellent Monaco Editor, the same editor powering Visual Studio Code. It also installs the type definitions for the currently selected version of Electron automatically, ensuring that you always have all Electron APIs only a few keystrokes away.
-    compile_and_package: Compile and Package
+    compile_and_package: הידור ואריזה
     compile_and_package_desc: Fiddle can automatically turn your experiment into binaries you can share with your friends, coworkers, or grandparents. It does so thanks to <a href="https://electronforge.io/">electron-forge</a>, allowing you to package your fiddle as an app for Windows, macOS, or Linux.
-    easy_start: Start with Fiddle, Continue Wherever
+    easy_start: אפשר להתחיל עם Fiddle ולהמשיך בכל מקום אחר
     easy_start_desc: Fiddle is not an IDE – it is however an excellent starting point. Once your fiddle has grown up, export it as a project with or without <a href="https://electronforge.io/">electron-forge</a>. Then, use your favorite editor and take on the world!
 _404:
   page_not_found: הדף לא נמצא.
