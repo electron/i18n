@@ -58,15 +58,15 @@
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows Store](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
-* [Security](tutorial/security.md) 
+* [אבטחה](tutorial/security.md) 
   * [Reporting Security Issues](tutorial/security.md#reporting-security-issues)
   * [Chromium Security Issues and Upgrades](tutorial/security.md#chromium-security-issues-and-upgrades)
   * [Electron Security Warnings](tutorial/security.md#electron-security-warnings)
   * [Security Checklist](tutorial/security.md#checklist-security-recommendations)
 * [עדכונים](tutorial/updates.md) 
   * [הטמעת שרת עדכונים](tutorial/updates.md#deploying-an-update-server)
-  * [Implementing Updates in Your App](tutorial/updates.md#implementing-updates-in-your-app)
-  * [Applying Updates](tutorial/updates.md#applying-updates)
+  * [הטמעת עדכונים ביישום שלך](tutorial/updates.md#implementing-updates-in-your-app)
+  * [החלת עדכונים](tutorial/updates.md#applying-updates)
 
 ## מדריכים מפורטים
 
