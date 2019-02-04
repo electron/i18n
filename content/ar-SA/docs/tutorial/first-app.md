@@ -84,9 +84,9 @@ const electron = require('electron')
   
   function createWindow () {
     // إنشاء نافذة طولها 800 وعرضها 600.
-      win = new BrowserWindow({ width: 800, height: 600 })
-  
-    // تحميل واستدعاء الملف index.html
+  let win = new BrowserWindow({ width: 800, height: 600 })
+
+  // and load the index.html of the app.
   win.loadFile('index.html')
 }
 
