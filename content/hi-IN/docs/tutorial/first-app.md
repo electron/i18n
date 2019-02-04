@@ -82,9 +82,9 @@ const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
   // Create the browser window.
-  win = new BrowserWindow({ width: 800, height: 600 })
+  let win = new BrowserWindow({ width: 800, height: 600 })
 
-  // और एप्प का इंडेक्स.एचटीएमएल लोड कीजिये |
+  // and load the index.html of the app.
   win.loadFile('index.html')
 }
 
