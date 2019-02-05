@@ -119,11 +119,11 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
 ### `new BrowserWindow([options])`
 
 * `options` Object (facultatif) 
-  * `width` Integer (optionel) - Largeur de la fenêtre en pixels. La valeur par défaut est `800`.
-  * `height` Integer (optionel) - La hauteur de la fenêtre en pixels. La valeur par défaut est `600`.
-  * `x` Integer (optionel) (**requis** si y est utilisé) - Décalage à gauche de la fenêtre jusqu'a l'écran. Par défaut, la fenêtre est centrée.
-  * `y` Integer (optionel) (**requis** si x est utilisé) - Décalage en haut de la fenêtre jusqu'a l'écran. Par défaut la fenêtre est centrée.
-  * `useContentSize` Boolean (optionel) - La largeur et la hauteur (`width` et `height`) seront utilisées pour définir la taille de la page Web, ce qui signifie que la taille de la fenêtre réelle inclura la taille du cadre de celle-ci. La fenêtre complète sera donc légèrement plus grande que la taille de son contenu. Par défaut la valeur est `false`.
+  * `width` Integer (falcutatif) - Largeur de la fenêtre en pixels. La valeur par défaut est `800`.
+  * `height` Integer (falcutatif) - La hauteur de la fenêtre en pixels. La valeur par défaut est `600`.
+  * `x` Integer (falcutatif) (**requis** si y est utilisé) - Décalage à gauche de la fenêtre jusqu'a l'écran. Par défaut, la fenêtre est centrée.
+  * `y` Integer (falcutatif) (**requis** si x est utilisé) - Décalage en haut de la fenêtre jusqu'a l'écran. Par défaut la fenêtre est centrée.
+  * `useContentSize` Boolean (falcutatif) - La largeur et la hauteur (`width` et `height`) seront utilisées pour définir la taille de la page Web, ce qui signifie que la taille de la fenêtre réelle inclura la taille du cadre de celle-ci. La fenêtre complète sera donc légèrement plus grande que la taille de son contenu. Par défaut la valeur est `false`.
   * `center` Boolean (facultatif) - afficher la fenêtre dans le centre de l’écran.
   * `minWidth` Integer (facultatif) - Largeur minimum de la fenêtre en pixels. La valeur par défaut est `0`.
   * `minHeight` Integer (facultatif) - Hauteur minimale de la fenêtre en pixels. La valeur par défaut est `0`.
