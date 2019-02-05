@@ -148,10 +148,10 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
   * `parent` BrowserWindow (falcutatif) - Spécifier la fenêtre parent. La valeur par défaut est `null`.
   * `modal` Boolean (optional) - Whether this is a modal window. This only works when the window is a child window. Default is `false`.
   * `acceptFirstMouse` Boolean (falcutatif) - Si la vue accepte un seul événement de souris qui active simultanément la fenêtre. La valeur par défaut est `false`.
-  * `disableAutoHideCursor` Boolean (optional) - Whether to hide cursor when typing. Default is `false`.
-  * `autoHideMenuBar` Boolean (optional) - Auto hide the menu bar unless the `Alt` key is pressed. Default is `false`.
-  * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Default is `false`.
-  * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported if `transparent` is set to `true`). Default is `#FFF` (white).
+  * `disableAutoHideCursor` Boolean (falcutatif) - Si vous voulez cacher le curiseur lors de la saisie. La valeur par défaut est `false`.
+  * `autoHideMenuBar` Boolean (falcutatif) - Masquer automatiquement la barre de menu ) moins que la touche `Alt` soit enfoncée. La valeur par défaut est `false`.
+  * `enableLargerThanScreen` Boolean (falcutatif) - Active la fenêtre pour être redimensionnée plus grand que l'écran. La valeur par défaut est `false`.
+  * `backgroundColor` String (falcutatif) - Couleur de fond de la fenêtre. Ce doit être une valeur hexadécimale comme `#66CD00` ou `#FFF` ou `#80FFFFFF` (l'opacité est supporté si `transparent` est défini à `true`). La valeur par défaut est `#FFF` (white).
   * `hasShadow` Boolean (optional) - Whether window should have a shadow. This is only implemented on macOS. Default is `true`.
   * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
   * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Default is `false`.
@@ -650,7 +650,7 @@ Calling this function with a value of `0` will remove any previously set aspect 
 
 #### `win.setBackgroundColor(backgroundColor)`
 
-* `backgroundColor` String - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported if `transparent` is `true`). Default is `#FFF` (white).
+* `backgroundColor` String - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported if `transparent` is `true`). La valeur par défaut est `#FFF` (white).
 
 Sets the background color of the window. See [Setting `backgroundColor`](#setting-backgroundcolor).
 
