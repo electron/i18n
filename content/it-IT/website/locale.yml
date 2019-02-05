@@ -119,7 +119,7 @@ apps:
   title: Applicazioni costruite con Electron
   description: Con Electron è facile creare un'applicazione desktop per la tua azienda o il tuo prodotto. Inizialmente sviluppato per l'editor di <a href='https://atom.io' target='_blank'>Atom di GitHub</a>, Electron è stato utilizzato per creare applicazioni da aziende quali Microsoft, Facebook, Slack e Docker.
   view_more: Vedi altre applicazioni
-  submit_your_own: inviare la tua applicazione
+  submit_your_own: inviaci la tua applicazione
   something_missing: Manca qualcosa?
   edit_this_app: Modifica questa app.
   search_app: Filtra app per nome, descrizione, ecc…
