@@ -84,7 +84,7 @@ function createWindow () {
   // 创建浏览器窗口
   let win = new BrowserWindow({ width: 800, height: 600 })
 
-  // and load the index.html of the app.
+  // 然后加载 app 的 index.html.
   win.loadFile('index.html')
 }
 
