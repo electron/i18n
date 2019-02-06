@@ -1,6 +1,6 @@
-## Class: Cookies
+## کلاس: Cookies
 
-> Query and modify a session's cookies.
+> ثبت و درخواست یک کوکی از سشن.
 
 فرآیند: [اصلی](../glossary.md#main-process)
 
