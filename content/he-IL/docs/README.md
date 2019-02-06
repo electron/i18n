@@ -75,7 +75,7 @@
 * [בפירוט מוגבר: התקנת Electron](tutorial/installation.md) 
   * [מתווכים](tutorial/installation.md#proxies)
   * [Custom Mirrors and Caches](tutorial/installation.md#custom-mirrors-and-caches)
-  * [Troubleshooting](tutorial/installation.md#troubleshooting)
+  * [פתרון בעיות](tutorial/installation.md#troubleshooting)
 * [In Detail: Electron's Versioning Scheme](tutorial/electron-versioning.md) 
   * [semver](tutorial/electron-versioning.md#semver)
   * [Stabilization Branches](tutorial/electron-versioning.md#stabilization-branches)
