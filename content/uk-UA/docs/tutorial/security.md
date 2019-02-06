@@ -198,7 +198,8 @@ session
       callback(true)
     }
 
-    if (!url.startsWith('https://my-website.com')) {
+    // Verify URL
+    if (!url.startsWith('https://my-website.com/')) {
       // Denies the permissions request
       return callback(false)
     }
