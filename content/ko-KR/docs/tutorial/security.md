@@ -195,12 +195,13 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
         const url = webContents.getURL()
     
         if (permission === 'notifications') {
-          // 권한 요청 승인
+          // Approves the permissions request
           callback(true)
         }
     
-        if (!url.startsWith('https://my-website.com')) {
-          // 권한 요청 거부
+        // Verify URL
+        if (!url.startsWith('https://my-website.com/')) {
+          // Denies the permissions request
           return callback(false)
         }
       })
