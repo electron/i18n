@@ -191,12 +191,13 @@ session
     const url = webContents.getURL()
 
     if (permission === 'notifications') {
-      // 通过许可请求
+      // Approves the permissions request
       callback(true)
     }
 
-    if (!url.startsWith('https://my-website.com')) {
-      // 拒绝许可请求
+    // Verify URL
+    if (!url.startsWith('https://my-website.com/')) {
+      // Denies the permissions request
       return callback(false)
     }
   })
