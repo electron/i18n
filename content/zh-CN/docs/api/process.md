@@ -145,7 +145,7 @@ Returns an object with V8 heap statistics. Note that all statistics are reported
 
 返回 ` Object `:
 
-* `residentSet` Integer *Linux* and *Windows* - The amount of memory currently pinned to actual physical RAM in Kilobytes.
+* `residentSet`Integer*Linux*和*Windows* - 当前置顶的以 KB 为单位的物理内存数量。
 * `private` Integer - The amount of memory not shared by other processes, such as JS heap or HTML content in Kilobytes.
 * `shared` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself in Kilobytes.
 
