@@ -67,13 +67,13 @@ Chromium を互換性パッチで動作するように更新するよりも互�
 
 ## Electron の `DEPS` ファイルをアップデートする
 
-Update the `DEPS` file in the root of [electron/electron](https://github.com/electron/electron) to point to the git hash of the updated Node.
+更新された Node の git ハッシュを指すように、[electron/electron](https://github.com/electron/electron) のルートにある `DEPS` ファイルを更新します。
 
 ## 注釈
 
-- Node maintains its own fork of V8 
-  - They backport a small amount of things as needed
-  - Documentation in Node about how [they work with V8](https://nodejs.org/api/v8.html)
+- Node は自身の V8 のフォークを管理します 
+  - 必要なだけの少量を後方移植します
+  - Node での [V8 の動作](https://nodejs.org/api/v8.html) についてのドキュメント
 - We update code such that we only use one copy of V8 across all of Electron 
   - E.g Electron, Chromium, and Node.js
 - We don’t track upstream closely due to logistics: 
