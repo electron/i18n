@@ -9,14 +9,14 @@ Electron リリースを作成してアップロードするには、Electron S3
 リリーススクリプトが必要とする環境変数は、以下の `*_TOKEN` です。
 
 - * `ELECTRON_GITHUB_TOKEN`: これは https://github.com/settings/tokens/new?scopes=repo の通りに作成します。
-- `APPVEYOR_TOKEN`: Create a token from https://windows-ci.electronjs.org/api-token If you don't have an account, ask a team member to add you.
-- `CIRCLE_TOKEN`: Create a token from "Personal API Tokens" at https://circleci.com/account/api
-- `VSTS_TOKEN`: Create a Personal Access Token at https://github.visualstudio.com/_usersSettings/tokens or https://github.visualstudio.com/_details/security/tokens with the scope of `Build (read and execute)`.
+- `APPVEYOR_TOKEN`: https://windows-ci.electronjs.org/api-token からトークンを作成します。 アカウントを持っていない場合は、チームメンバーにあなたの追加を依頼してください。
+- `CIRCLE_TOKEN`: https://circleci.com/account/api の "Personal API Tokens" からトークンを作ります。
+- `VSTS_TOKEN`: https://github.visualstudio.com/_usersSettings/tokens や https://github.visualstudio.com/_details/security/tokens で、`Build (read and execute)` のスコープで Personal Access Token を作成します。
 - `ELECTRON_S3_BUCKET`:
 - `ELECTRON_S3_ACCESS_KEY`:
-- `ELECTRON_S3_SECRET_KEY`: If you don't have these, ask a team member to help you.
+- `ELECTRON_S3_SECRET_KEY`: これらがない場合は、チームメンバーに質問してください。
 
-Once you've generated these tokens, put them in a `.env` file in the root directory of the project. This file is gitignored, and will be loaded into the environment by the release scripts.
+これらのトークンを生成したら、プロジェクトのルートディレクトリにある `.env` ファイルに入れます。 このファイルは gitignore されてあり、リリーススクリプトによって環境にロードされます。
 
 ## リリースするブランチを決定する
 
@@ -77,11 +77,11 @@ $ ./script/bump-version.py --bump minor --dry-run
 
 `prepare-release` スクリプトは、API 呼び出しを介してビルドをトリガーします。 ビルドの進行状況をモニターするには、以下のページを参照してください。
 
-- [electron-release-mas-x64](https://github.visualstudio.com/electron/_build/index?context=allDefinitions&path=%5C&definitionId=19&_a=completed) for MAS builds.
-- [electron-release-osx-x64](https://github.visualstudio.com/electron/_build/index?context=allDefinitions&path=%5C&definitionId=18&_a=completed) for OSX builds.
-- [circleci.com/gh/electron/electron](https://circleci.com/gh/electron) for Linux builds.
-- [windows-ci.electronjs.org/project/AppVeyor/electron-39ng6](https://windows-ci.electronjs.org/project/AppVeyor/electron-39ng6) for Windows 32-bit builds.
-- [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) for Windows 64-bit builds.
+- [electron-release-mas-x64](https://github.visualstudio.com/electron/_build/index?context=allDefinitions&path=%5C&definitionId=19&_a=completed) は MAS ビルド向けです。
+- [electron-release-osx-x64](https://github.visualstudio.com/electron/_build/index?context=allDefinitions&path=%5C&definitionId=18&_a=completed) は OSX ビルド向けです。
+- [circleci.com/gh/electron/electron](https://circleci.com/gh/electron) は Linux ビルド向けです。
+- [windows-ci.electronjs.org/project/AppVeyor/electron-39ng6](https://windows-ci.electronjs.org/project/AppVeyor/electron-39ng6) Windows 32-bit ビルド向けです。
+- [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) は Windows 64-bit ビルド向けです。
 
 ## リリースノートをコンパイルする
 
@@ -186,7 +186,7 @@ under the `beta` tag and can be installed via `npm install electron@beta`.
 2. リリースを編集し、リリースノートを追加します。
 3. Save draft (ドラフトを保存)をクリックします。 **'Publish release' はクリックしないでください！**
 4. 続行する前に全ビルドがパスするのを待ちます。
-5. In the branch, verify that the release's files have been created:
+5. そのブランチで、リリースのファイルが作成されていることを確認します。
 
 ```sh
 $ npm run release -- --validateRelease
