@@ -6,7 +6,7 @@ Chromium と Node.js はどちらも V8 に依存しており、Electron には 
 
 Node のアップグレードは Chromium のアップグレードよりもはるかに簡単なので、最初に Chromium をアップグレードし、次に Chromium に含まれるバージョンに最も近い V8 のバージョンを持つ上流の Node リリースを選択すると、競合は少なくなります。
 
-Electron has its own [Node fork](https://github.com/electron/node) with modifications for the V8 build details mentioned above and for exposing API needed by Electron. Once an upstream Node release is chosen, it's placed in a branch in Electron's Node fork and any Electron Node patches are applied there.
+Electron には、上記の V8 ビルドの詳細と Electron が必要とする API を公開するための修正を加えた、独自の [Node フォーク](https://github.com/electron/node) があります。 Once an upstream Node release is chosen, it's placed in a branch in Electron's Node fork and any Electron Node patches are applied there.
 
 Another factor is that the Node project patches its version of V8. As mentioned above, Electron builds everything with a single copy of V8, so Node's V8 patches must be ported to that copy.
 
