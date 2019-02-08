@@ -13,30 +13,30 @@ Electron
 |   ├── browser/ - メインウィンドウ、UI と
 |   |   |          メインプロセスの全てを含むフロントエンド。 これはレンダラーと連絡して Web ページを
 |   |   |          管理します。
-|   |   ├── ui/ - 別々のプラットフォームのためのUIスタッフの実装。
-|   |   |   ├── cocoa/ - Cocoa に関連したソースコード
+|   |   ├── ui/ - 異なるプラットフォーム間での UI のローレベルの実装。
+|   |   |   ├── cocoa/ - Cocoa に関連したソースコード。
 |   |   |   ├── win/ - Windows のGUIに関連したソースコード。
-|   |   |   └── x/ - X11 に関連したソースコード
-|   |   ├── api/ - メインプロセス APIの実装。
+|   |   |   └── x/ - X11 に関連したソースコード。
+|   |   ├── api/ - メインプロセス API の実装。
 |   |   ├── net/ - ネットワークに関連したコード。
-|   |   ├── mac/ - Mac specific Objective-C source code.
-|   |   └── resources/ - Icons, platform-dependent files, etc.
-|   ├── renderer/ - Code that runs in renderer process.
-|   |   └── api/ - The implementation of renderer process APIs.
-|   └── common/ - Code that used by both the main and renderer processes,
-|       |         including some utility functions and code to integrate node's
-|       |         message loop into Chromium's message loop.
-|       └── api/ - The implementation of common APIs, and foundations of
-|                  Electron's built-in modules.
+|   |   ├── mac/ - Mac に関連した Objective-C のソースコード。
+|   |   └── resources/ - アイコン、プラットフォームに依存したファイル、等。
+|   ├── renderer/ - レンダラープロセスで実行されるコード。
+|   |   └── api/ - レンダラープロセス API の実装。
+|   └── common/ - Node のメッセージループを Chromium のメッセージループに
+|       |         統合するためのユーティリティ関数やコードなど、
+|       |         メインプロセスとレンダラープロセスの両方で使用されるコード。
+|       └── api/ - 共通の API の実装と、
+|                  Electron の組み込みモジュールの基礎。
 ├── chromium_src/ - Chromium からコピーされたコード。 以下をご覧ください
-├── default_app/ - The default page to show when Electron is started without
-|                  providing an app.
+├── default_app/ - app を提供せずに Electron を起動したときに
+|                  表示されるデフォルトページ。
 ├── docs/ - ドキュメント
-├── lib/ - JavaScript で書かれたコード
-|   ├── browser/ - Javascript main process initialization code.
-|   |   └── api/ - Javascript API implementation.
-|   ├── common/ - JavaScript used by both the main and renderer processes
-|   |   └── api/ - Javascript API implementation.
+├── lib/ - JavaScript のソースコード。
+|   ├── browser/ - Javascript メインプロセス初期化コード。
+|   |   └── api/ - Javascript API 実装。
+|   ├── common/ - メインとレンダラープロセスの両方から使用される JavaScript
+|   |   └── api/ - Javascript API 実装。
 |   └── renderer/ - Javascript renderer process initialization code.
 |       └── api/ - Javascript API implementation.
 ├── native_mate/ - A fork of Chromium's gin library that makes it easier to marshal
