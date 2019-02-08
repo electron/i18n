@@ -24,28 +24,28 @@ Electron のすべての依存関係が同じ V8 のコピーを構築して使�
 ## Electron の Node [フォーク](https://github.com/electron/node) のアップデート
 
 1. `electron/node` 上の `master` のリリースタグが `nodejs/node` よりも新しいことを確認します
-2. Create a branch in https://github.com/electron/node: `electron-node-vX.X.X` where the base that you're branching from is the tag for the desired update 
-  - `vX.X.X` Must use a version of Node compatible with our current version of Chromium
-3. Re-apply our commits from the previous version of Node we were using (`vY.Y.Y`) to `v.X.X.X` 
-  - Check release tag and select the range of commits we need to re-apply
-  - Cherry-pick commit range: 
-    1. Checkout both `vY.Y.Y` & `v.X.X.X`
+2. https://github.com/electron/node で以下のようにブランチを作成します。 `electron-node-vX.X.X` とし、分岐元のベースが目的のアップデートのタグであるようにします。 
+  - `vX.X.X` は現在の Chromium のバージョンと互換性のある Node のバージョンを使用しなければなりません
+3. 使用していた以前のバージョンのNode (`vY.Y.Y`) から `v.X.X.X へコミットを再適用します。` 
+  - リリースタグを確認して、再適用する必要があるコミットの範囲を選択します
+  - Cherry-pick コミットの範囲は以下の通りです。 
+    1. `vY.Y.Y` と `v.X.X.X` 両方をチェックアウトします
     2. `git cherry-pick FIRST_COMMIT_HASH..LAST_COMMIT_HASH`
-  - Resolve merge conflicts in each file encountered, then: 
+  - それぞれのファイルでマージコンフリクトを解決します。それから、 
     1. `git add <conflict-file>`
     2. `git cherry-pick --continue`
-    3. Repeat until finished
+    3. 終わるまで繰り返します
 
-## Updating [V8](https://github.com/electron/node/src/V8) Patches
+## [V8](https://github.com/electron/node/src/V8) パッチのアップデート
 
-We need to generate a patch file from each patch that Node applies to V8.
+Node が V8 に適用する各パッチからパッチファイルを生成する必要があります。
 
 ```sh
 $ cd third_party/electron_node
 $ CURRENT_NODE_VERSION=vX.Y.Z
-# Find the last commit with the message "deps: update V8 to <some version>"
-# This commit corresponds to Node resetting V8 to its pristine upstream
-# state at the stated version.
+# "deps: update V8 to <some version>" というメッセージの最後のコミットを探します
+# このコミットは、指定されたバージョンでノードが
+# V8 を元の上流の状態にリセットするものに対応します。
 $ LAST_V8_UPDATE="$(git log --grep='^deps: update V8' --format='%H' -1 deps/v8)"
 # This creates a patch file containing all changes in deps/v8 from
 # $LAST_V8_UPDATE up to the current Node version, formatted in a way that
