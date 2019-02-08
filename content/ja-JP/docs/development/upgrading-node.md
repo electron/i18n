@@ -74,10 +74,10 @@ Chromium を互換性パッチで動作するように更新するよりも互�
 - Node は自身の V8 のフォークを管理します 
   - 必要なだけの少量を後方移植します
   - Node での [V8 の動作](https://nodejs.org/api/v8.html) についてのドキュメント
-- We update code such that we only use one copy of V8 across all of Electron 
-  - E.g Electron, Chromium, and Node.js
-- We don’t track upstream closely due to logistics: 
-  - Upstream uses multiple repos and so merging into a single repo would result in lost history. So we only update when we’re planning a Node version bump in Electron.
+- Electron 全体で V8 のコピーを1つだけ使用するようにコードを更新します 
+  - 例えば Electron、Chromium や、Node.js においてです
+- 私たちは以下のロジスティクスのために上流を厳密に追跡することはしません。 
+  - 上流では複数のレポジトリを使用しているため、単一のレポジトリにマージすると履歴が失われます。そのため、Electron で Node バージョン上げを計画しているときにのみ更新します。
 - Chromium is large and time-consuming to update, so we typically choose the Node version based on which of its releases has a version of V8 that’s closest to the version in Chromium that we’re using. 
   - We sometimes have to wait for the next periodic Node release because it will sync more closely with the version of V8 in the new Chromium
   - Electron keeps all its patches in the repo because it’s simpler than maintaining different repos for patches for each upstream project. 
