@@ -218,7 +218,7 @@ Password: <これは LastPass の NPM Electron Nightly の下にあります>
 Email: (これが公式) electron@github.com
 ```
 
-Publish the release to npm. Before running this you'll need to have set `ELECTRON_NPM_OTP` as an environment variable using a code from the aforementioned 2FA authenticator app.
+リリースを npm に公開します。 これを実行する前に、前述の二要素認証アプリのコードを使用して `ELECTRON_NPM_OTP` 環境変数に設定する必要があります。
 
 ```sh
 $ npm whoami
@@ -226,19 +226,19 @@ electron-nightly
 $ npm run publish-to-npm
 ```
 
-After publishing, you can check the `latest` release:
+公開後、`latest` リリースを確認できます。
 
 ```sh
 $ npm dist-tag ls electron
 ```
 
-If for some reason `npm run publish-to-npm` fails, you can tag the release manually:
+なんらかの理由で `npm run publish-to-npm` に失敗した場合、以下のように手動でタグ付けできます。
 
 ```sh
 $ npm dist-tag add electron@<version> <tag>
 ```
 
-e.g.:
+例
 
 ```sh
 $ npm dist-tag add electron@2.0.0 latest
@@ -246,32 +246,32 @@ $ npm dist-tag add electron@2.0.0 latest
 
 # トラブルシューティング
 
-## Rerun broken builds
+## 壊れたビルドを再実行する
 
-If a release build fails for some reason, you can use `script/ci-release-build.js` to rerun a release build:
+なんらかの理由でリリースビルドに失敗した場合、`script/ci-release-build.js` を使って以下のようにリリースビルドを再実行できます。
 
-### Rerun all linux builds:
+### 全ての Linux ビルドを再実行する:
 
 ```sh
 node script/ci-release-build.js --ci=CircleCI --ghRelease TARGET_BRANCH
-(TARGET_BRANCH) is the branch you are releasing from.
+(TARGET_BRANCH) はあなたからリリースされているブランチです。
 ```
 
-### Rerun all macOS builds:
+### 全ての macOS ビルドを再実行する:
 
 ```sh
 node script/ci-release-build.js --ci=VSTS --ghRelease TARGET_BRANCH
-(TARGET_BRANCH) is the branch you are releasing from.
+(TARGET_BRANCH) はあなたからリリースされているブランチです。
 ```
 
-### Rerun all Windows builds:
+### 全ての Windows ビルドを再実行する:
 
 ```sh
 node script/ci-release-build.js --ci=AppVeyor --ghRelease TARGET_BRANCH
-(TARGET_BRANCH) is the branch you are releasing from.
+(TARGET_BRANCH) はあなたからリリースされているブランチです。
 ```
 
-Additionally you can pass a job name to the script to run an individual job, eg:
+加えて、個々のジョブを実行するためにスクリプトにジョブ名を渡すことができます。例:
 
 ```sh
 node script/ci-release-build.js --ci=AppVeyor --ghRelease --job=electron-x64 TARGET_BRANCH
