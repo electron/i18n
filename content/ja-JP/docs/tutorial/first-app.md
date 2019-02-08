@@ -82,9 +82,9 @@ const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
   // ブラウザウインドウを作成
-  win = new BrowserWindow({ width: 800, height: 600 })
+  let win = new BrowserWindow({ width: 800, height: 600 })
 
-  // アプリの index.html を読み込む
+  // and load the index.html of the app.
   win.loadFile('index.html')
 }
 

@@ -1,6 +1,6 @@
 # Ecrire votre première application Electron
 
-Electron vous permet de créer des applications de bureau avec du pure JavaScript fournissant un runtime avec des API natives riches (système d'exploitation). Vous pourriez le voir comme une variante d'un Node.js directement exécutable sur le bureau au lieu des serveurs Web.
+Electron vous permet de créer des applications de bureau avec du pur JavaScript fournissant un runtime avec des API natives riches (système d'exploitation). Vous pourriez le voir comme une variante d'une application Node.js directement exécutable sur le bureau au lieu des serveurs Web.
 
 Cela ne signifie pas qu'Electron est une liaison JavaScript à l'interface utilisateur graphique (GUI). Au lieu de cela, Electron utilise des pages Web comme interface graphique utilisateur, donc vous pouvez aussi le voir comme un navigateur Chromium minimal, contrôlé par JavaScript.
 
@@ -82,9 +82,9 @@ const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
   // Cree la fenetre du navigateur.
-  win = new BrowserWindow({ width: 800, height: 600 })
+  let win = new BrowserWindow({ width: 800, height: 600 })
 
-  // et charge le index.html de l'application.
+  // and load the index.html of the app.
   win.loadFile('index.html')
 }
 

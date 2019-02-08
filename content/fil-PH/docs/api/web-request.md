@@ -26,7 +26,7 @@ const filter = {
 
 session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback) => {
   details.requestHeaders['User-Agent'] = 'MyAgent'
-  callback({ cancel: false, requestHeaders: details.requestHeaders })
+  callback({ requestHeaders: details.requestHeaders })
 })
 ```
 
@@ -36,7 +36,7 @@ The following methods are available on instances of `WebRequest`:
 
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
-* `salain` Na Bagay (opsyonal) 
+* `salain` Bagay (opsyonal) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Punsyon 
   * `ang mga detalye` Bagay 
@@ -62,68 +62,25 @@ The `callback` has to be called with an `response` object.
 
 * `salain` Bagay (opsyonal) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function
-
-The `listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent.
-
-* `ang mga detalye` Bagay 
-  * `id` Integer
-  * `url` Tali
-  * `method` na String
-  * `webContentsId` Integer (optional)
-  * `resourceType` Tali
-  * `timestamp` Double
-  * `requestHeaders` Object
-* `callback` Punsyon 
-  * `response` Bagay 
-    * `cancel` Boolean (optional)
-    * `requestHeaders` Object (optional) - When provided, request will be made with these headers.
-
-The `callback` has to be called with an `response` object.
-
-#### `webRequest.onSendHeaders([filter, ]listener)`
-
-* `salain` Na Bagay (opsyonal) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Function 
   * `ang mga detalye` Bagay 
     * `id` Integer
     * `url` Tali
     * `method` na String
     * `webContentsId` Integer (optional)
-    * `resourceType` String
+    * `resourceType` Tali
     * `timestamp` Double
     * `requestHeaders` Object
+  * `callback` Function 
+    * `response` Bagay 
+      * `cancel` Boolean (optional)
+      * `requestHeaders` Object (optional) - When provided, request will be made with these headers.
 
-The `listener` will be called with `listener(details)` just before a request is going to be sent to the server, modifications of previous `onBeforeSendHeaders` response are visible by the time this listener is fired.
-
-#### `webRequest.onHeadersReceived([filter, ]listener)`
-
-* `salain` Na Bagay (opsyonal) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Punsyon
-
-The `listener` will be called with `listener(details, callback)` when HTTP response headers of a request have been received.
-
-* `ang mga detalye` Bagay 
-  * `id` Integer
-  * `url` Tali
-  * `method` na String
-  * `webContentsId` Integer (optional)
-  * `resourceType` Tali
-  * `timestamp` Double
-  * `statusLine` String
-  * `statusCode` Integer
-  * `responseHeaders` Object
-* `callback` Ang Function 
-  * `response` Bagay 
-    * `cancel` Boolean
-    * `responseHeaders` Object (optional) - When provided, the server is assumed to have responded with these headers.
-    * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
+The `listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent.
 
 The `callback` has to be called with an `response` object.
 
-#### `webRequest.onResponseStarted([filter, ]listener)`
+#### `webRequest.onSendHeaders([filter, ]listener)`
 
 * `salain` Na Bagay (opsyonal) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
@@ -133,7 +90,48 @@ The `callback` has to be called with an `response` object.
     * `url` Tali
     * `method` na String
     * `webContentsId` Integer (optional)
+    * `resourceType` Tali
+    * `timestamp` Double
+    * `requestHeaders` Object
+
+The `listener` will be called with `listener(details)` just before a request is going to be sent to the server, modifications of previous `onBeforeSendHeaders` response are visible by the time this listener is fired.
+
+#### `webRequest.onHeadersReceived([filter, ]listener)`
+
+* `salain` Bagay (opsyonal) 
+  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+* `listener` Function 
+  * `ang mga detalye` Bagay 
+    * `id` Integer
+    * `url` Tali
+    * `method` na String
+    * `webContentsId` Integer (optional)
     * `resourceType` String
+    * `timestamp` Double
+    * `statusLine` String
+    * `statusCode` Integer
+    * `responseHeaders` Object
+  * `callback` Function 
+    * `response` Bagay 
+      * `cancel` Boolean (optional)
+      * `responseHeaders` Object (optional) - When provided, the server is assumed to have responded with these headers.
+      * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
+
+The `listener` will be called with `listener(details, callback)` when HTTP response headers of a request have been received.
+
+The `callback` has to be called with an `response` object.
+
+#### `webRequest.onResponseStarted([filter, ]listener)`
+
+* `salain` Bagay (opsyonal) 
+  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+* `listener` Punsyon 
+  * `ang mga detalye` Bagay 
+    * `id` Integer
+    * `url` Tali
+    * `method` na String
+    * `webContentsId` Integer (optional)
+    * `resourceType` Tali
     * `timestamp` Double
     * `responseHeaders` Object
     * `fromCache` Boolean - Indicates whether the response was fetched from disk cache.
@@ -146,13 +144,13 @@ The `listener` will be called with `listener(details)` when first byte of the re
 
 * `salain` Na Bagay (opsyonal) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
+* `listener` Ang Function 
   * `ang mga detalye` Bagay 
     * `id` Integer
     * `url` Tali
     * `method` na String
     * `webContentsId` Integer (optional)
-    * `resourceType` Tali
+    * `resourceType` String
     * `timestamp` Double
     * `redirectURL` String
     * `statusCode` Integer
@@ -164,7 +162,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
 
 #### `webRequest.onCompleted([filter, ]listener)`
 
-* `salain` Bagay (opsyonal) 
+* `salain` Na Bagay (opsyonal) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` Punsyon 
   * `ang mga detalye` Bagay 
@@ -172,7 +170,8 @@ The `listener` will be called with `listener(details)` when a server initiated r
     * `url` Tali
     * `method` na String
     * `webContentsId` Integer (optional)
-    * `resourceType` String
+    * `resourceType` Tali
+    * `referer` String
     * `timestamp` Double
     * `responseHeaders` Object
     * `fromCache` Boolean
@@ -183,9 +182,9 @@ The `listener` will be called with `listener(details)` when a request is complet
 
 #### `webRequest.onErrorOccurred([filter, ]listener)`
 
-* `salain` Na Bagay (opsyonal) 
+* `salain` Bagay (opsyonal) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
+* `listener` function 
   * `ang mga detalye` Bagay 
     * `id` Integer
     * `url` Tali

@@ -1,4 +1,4 @@
-# Transaction Object
+# Transaction 오브젝트
 
 * `transactionIdentifier` String - 성공적인 거래 지불을 고유하게 식별하는 문자열입니다.
 * `transactionDate` String - App Store의 결제 큐에 추가된 거래일입니다.

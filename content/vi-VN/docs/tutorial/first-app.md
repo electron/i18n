@@ -82,9 +82,9 @@ const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
   // Create the browser window.
-  win = new BrowserWindow({ width: 800, height: 600 })
+  let win = new BrowserWindow({ width: 800, height: 600 })
 
-  // và tải trang index.html của ứng dụng lên.
+  // and load the index.html of the app.
   win.loadFile('index.html')
 }
 

@@ -25,11 +25,11 @@
   * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Other Tools and Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
-* [Application Architecture](tutorial/application-architecture.md) 
+* [ארכיטקטורת יישום](tutorial/application-architecture.md) 
   * [Main and Renderer Processes](tutorial/application-architecture.md#main-and-renderer-processes)
-  * [Using Electron's APIs](tutorial/application-architecture.md#using-electron-apis)
-  * [Using Node.js APIs](tutorial/application-architecture.md#using-nodejs-apis)
-  * [Using Native Node.js Modules](tutorial/using-native-node-modules.md)
+  * [שימוש בפעולות ה־API של Electron](tutorial/application-architecture.md#using-electron-apis)
+  * [שימוש בפעולות ה־API של Node.js](tutorial/application-architecture.md#using-nodejs-apis)
+  * [שימוש במודולים טבעיים של Node.js](tutorial/using-native-node-modules.md)
 * הוספת תכונות לאפליקציה שלך 
   * [התראות](tutorial/notifications.md)
   * [מסמכים אחרונים](tutorial/desktop-environment-integration.md#recent-documents)
@@ -51,31 +51,31 @@
   * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [DevTools Extension](tutorial/devtools-extension.md)
   * [Automated Testing with a Custom Driver](tutorial/automated-testing-with-a-custom-driver.md)
-* Packaging 
+* אריזה 
   * [Code Signing](tutorial/code-signing.md)
-* [Distribution](tutorial/application-distribution.md) 
-  * [Support](tutorial/support.md)
+* [הפצה](tutorial/application-distribution.md) 
+  * [תמיכה](tutorial/support.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows Store](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
-* [Security](tutorial/security.md) 
+* [אבטחה](tutorial/security.md) 
   * [Reporting Security Issues](tutorial/security.md#reporting-security-issues)
   * [Chromium Security Issues and Upgrades](tutorial/security.md#chromium-security-issues-and-upgrades)
   * [Electron Security Warnings](tutorial/security.md#electron-security-warnings)
   * [Security Checklist](tutorial/security.md#checklist-security-recommendations)
-* [Updates](tutorial/updates.md) 
-  * [Deploying an Update Server](tutorial/updates.md#deploying-an-update-server)
-  * [Implementing Updates in Your App](tutorial/updates.md#implementing-updates-in-your-app)
-  * [Applying Updates](tutorial/updates.md#applying-updates)
+* [עדכונים](tutorial/updates.md) 
+  * [הטמעת שרת עדכונים](tutorial/updates.md#deploying-an-update-server)
+  * [הטמעת עדכונים ביישום שלך](tutorial/updates.md#implementing-updates-in-your-app)
+  * [החלת עדכונים](tutorial/updates.md#applying-updates)
 
-## Detailed Tutorials
+## מדריכים מפורטים
 
-These individual tutorials expand on topics discussed in the guide above.
+אלו מדריכים פרטניים שנועדים לפרט על נושאים שנדונו בקווים המנחים שלהלן.
 
-* [In Detail: Installing Electron](tutorial/installation.md) 
-  * [Proxies](tutorial/installation.md#proxies)
+* [בפירוט מוגבר: התקנת Electron](tutorial/installation.md) 
+  * [מתווכים](tutorial/installation.md#proxies)
   * [Custom Mirrors and Caches](tutorial/installation.md#custom-mirrors-and-caches)
-  * [Troubleshooting](tutorial/installation.md#troubleshooting)
+  * [פתרון בעיות](tutorial/installation.md#troubleshooting)
 * [In Detail: Electron's Versioning Scheme](tutorial/electron-versioning.md) 
   * [semver](tutorial/electron-versioning.md#semver)
   * [Stabilization Branches](tutorial/electron-versioning.md#stabilization-branches)

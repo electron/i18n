@@ -1,41 +1,41 @@
 # Crashpad のアップグレード
 
-1. Get the version of crashpad that we're going to use.
+1. これから使う Crashpad のバージョンを取得してください。
     
-    - `libcc/src/third_party/crashpad/README.chromium` will have a line `Revision:` with a checksum
-    - We need to check out the corresponding branch.
-    - Clone Google's crashpad (https://chromium.googlesource.com/crashpad/crashpad)
+    - `libcc/src/third_party/crashpad/README.chromium` の `Revision:` 行にチェックサムがあります
+    - 対応するブランチをチェックアウトする必要があります。
+    - Google の Crashpad をクローンします (https://chromium.googlesource.com/crashpad/crashpad)
     - `git clone https://chromium.googlesource.com/crashpad/crashpad`
-    - Check out the branch with the revision checksum: 
+    - リビジョンチェックサムでブランチをチェックアウトしてください。 
         - `git checkout <revision checksum>`
-    - Add electron's crashpad fork as a remote
+    - Electron の Crashpad フォークをリモートとして追加します
     - `git remote add electron https://github.com/electron/crashpad`
-    - Check out a new branch for the update
+    - 更新のために新しいブランチにチェックアウトします
     - `git checkout -b electron-crashpad-vA.B.C.D`
-    - `A.B.C.D` is the Chromium version found in `libcc/VERSION` and will be something like `62.0.3202.94`
+    - `A.B.C.D` は `libcc/VERSION` にある Chromium のバージョンで、`62.0.3202.94` のようになります
 
-2. Make a checklist of the Electron patches that need to be applied with `git log --oneline`
+2. `git log --oneline` で適用する必要がある Electron パッチのチェックリストを作ります
     
-    - Or view https://github.com/electron/crashpad/commits/previous-branch-name
+    - もしくは https://github.com/electron/crashpad/commits/previous-branch-name を見てください
 
-3. For each patch:
+3. それぞれのパッチにおいて、
     
-    - In `electron-crashpad-vA.B.C.D`, cherry-pick the patch's checksum
+    - `electron-crashpad-vA.B.C.D` 内で、パッチのチェックサムで cherry-pick します
     - `git cherry-pick <checksum>`
-    - Resolve any conflicts
-    - Make sure it builds then add, commit, and push work to electron's crashpad fork
+    - コンフリクトを解決します
+    - 念のためビルドしてから、add、commit、そして Electron の Crashpad フォークに push します
     - `git push electron electron-crashpad-vA.B.C.D`
 
-4. Update Electron to build the new crashpad:
+4. 新しい Crashpad をビルドするために Electron を更新する:
     
     - `cd vendor/crashpad`
     - `git fetch`
     - `git checkout electron-crashpad-v62.0.3202.94`
-5. Regenerate Ninja files against both targets 
-    - From Electron root's root, run `script/update.py`
+5. 両方のターゲットに対して Ninja ファイルを再生成する 
+    - Electron root の最上層で、`script/update.py` を実行します。
     - `script/build.py -c D --target=crashpad_client`
     - `script/build.py -c D --target=crashpad_handler`
-    - Both should build with no errors
-6. Push changes to submodule reference 
-    - (From electron root) `git add vendor/crashpad`
+    - 両方のエラーをなくしてください
+6. submodule 参照へ変更を push する 
+    - (Electron の最上層から) `git add vendor/crashpad`
     - `git push origin upgrade-to-chromium-62`

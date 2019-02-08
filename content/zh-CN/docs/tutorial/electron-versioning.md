@@ -48,7 +48,7 @@ npm install --save-dev electron@latest
 | Node.js 重大版本更新      | Node.js 次要版本更新       | Node.js patch 版本更新 |
 | Chromium 版本更新       |                      | 修复相关的 chromium 补丁  |
 
-Note that most Chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
+请注意，大多数 Chromium 更新将被视为突破性更新。 可以从新版被向后移植的修复可能会被挑选出来作为补丁修复现有版本。
 
 # 稳定分支
 
@@ -82,7 +82,7 @@ GitHub不支持旧线路，但是其他分组可以自行获取所有权和返�
 3. If a particular beta release is *generally regarded* as stable, it will be re-released as a stable build, changing only the version information. e.g. `2.0.0`. After the first stable, all changes must be backwards-compatible bug or security fixes.
 4. If future bug fixes or security patches need to be made once a release is stable, they are applied and the *patch* version is incremented e.g. `2.0.1`.
 
-Specifically, the above means:
+特别地，上述步骤意味着：
 
 1. Admitting non-breaking-API changes early in the beta cycle is okay, even if those changes have the potential to cause moderate side-affects
 2. Admitting feature-flagged changes, that do not otherwise alter existing code paths, at most points in the beta cycle is okay. Users can explicitly enable those flags in their apps.
@@ -110,9 +110,9 @@ Specifically, the above means:
 
 ![](../images/versioning-sketch-7.png)
 
-# Missing Features: Alphas
+# 缺失的特性: alpha版本
 
-我们的战略有几个权衡, 现在我们觉得是适当的。 最重要的是, 新的功能在掌握可能需要一段时间才能达到稳定的释放。 如果你想立即尝试一个新的功能, 你将不得不建立自己的Electron 。
+我们的战略有几次权衡，我们现在认为这是适当的。 最重要的是, 新的主分支特性可能需要一段时间才能作为稳定版发布。 如果你想立即尝试一个新的特性, 你必须自己编译Electron 。
 
 作为未来的考虑, 我们可以介绍以下一种或两种情况:
 
@@ -130,17 +130,17 @@ Specifically, the above means:
 
 我们力求在更新和发布过程的各个层面提高清晰度。 从 ` 2.0.0 ` 开始, 我们将要求遵循 [ 常规提交 ](https://conventionalcommits.org/) 规范的拉请求, 可以概括如下:
 
-- Commits that would result in a semver **major** bump must start their body with `BREAKING CHANGE:`.
-- 提交会导致 semver **minor** 必须以 `feat:` 开头。
-- 提交会导致 semver ** patch ** 必须以 ` fix:` 开头。
+- 会导致 semver **major** 版本改变的提交必须以`BREAKING CHANGE:`开头。
+- 会导致 semver **minor** 版本改变的提交必须以 `feat:` 开头。
+- 会导致 semver ** patch ** 版本改变的提交必须以 ` fix:` 开头。
 
-- 我们允许压缩提交，只要压缩的消息符合上述消息格式。
+- 我们允许合并提交，只要合并提交的消息符合上述消息格式。
 
-- It is acceptable for some commits in a pull request to not include a semantic prefix, as long as the pull request title contains a meaningful encompassing semantic message.
+- 只要pull request里包含有意义的总结性的版本语义消息，即使它其中的某些提交消息不包含版本语义前缀也是可以接受的
 
-# Versioned `master`
+# 打了版本的 `主分支`
 
 - The `master` branch will always contain the next major version `X.0.0-nightly.DATE` in its `package.json`
 - Release 分支永远不会合并回 master 分支
 - 发布分支 *在* 其`package.json ` 中包含正确的版本
-- As soon as a release branch is cut for a major, master must be bumped to the next major. I.e. `master` is always versioned as the next theoretical release branch
+- 只要一个 release 分支被切出来用于发布 major 版本, 主分支就必须跳到下一个 major 版本. 也就是说`master` 总会被视作下一个理论上要发布的版本的分支。

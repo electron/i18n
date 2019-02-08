@@ -191,12 +191,13 @@ session
     const url = webContents.getURL()
 
     if (permission === 'notifications') {
-      // 通过许可请求
+      // Approves the permissions request
       callback(true)
     }
 
-    if (!url.startsWith('https://my-website.com')) {
-      // 拒绝许可请求
+    // Verify URL
+    if (!url.startsWith('https://my-website.com/')) {
+      // Denies the permissions request
       return callback(false)
     }
   })
@@ -275,7 +276,7 @@ session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
 
 ### CSP元标签
 
-CSP's preferred delivery mechanism is an HTTP header, however it is not possible to use this method when loading a resource using the `file://` protocol. It can be useful in some cases, such as using the `file://` protocol, to set a policy on a page directly in the markup using a `<meta>` tag:
+CSP的首选传递机制是HTTP报头，但是在使用`file://`协议加载资源时，不可能使用此方法。 It can be useful in some cases, such as using the `file://` protocol, to set a policy on a page directly in the markup using a `<meta>` tag:
 
 ```html
 <meta http-equiv="Content-Security-Policy" content="default-src 'none'">
@@ -369,7 +370,7 @@ const mainWindow = new BrowserWindow()
 
 *Electron的默认值即是建议值。*
 
-If you are using [`<webview>`](../api/webview-tag.md), you might need the pages and scripts loaded in your `<webview>` tag to open new windows. 开启`allowpopups`属性将使得[`BrowserWindows`](../api/browser-window.md)可以通过`window.open()`方法创建。 `<webview>` tags are otherwise not allowed to create new windows.
+如果您正在使用 [`<webview>`](../api/webview-tag.md) ，您可能需要页面和脚本加载进您的 `<webview>` 标签以打开新窗口。 开启`allowpopups`属性将使得[`BrowserWindows`](../api/browser-window.md)可以通过`window.open()`方法创建。 否则， `<webview>` 标签内不允许创建新窗口。
 
 ### 为什么？
 
@@ -399,7 +400,7 @@ Electron 可以让开发者关闭各种控制渲染进程的安全特性。 In m
 
 ### 怎么做？
 
-Before a [`<webview>`](../api/webview-tag.md) tag is attached, Electron will fire the `will-attach-webview` event on the hosting `webContents`. Use the event to prevent the creation of `webViews` with possibly insecure options.
+Before a [`<webview>`](../api/webview-tag.md) tag is attached, Electron will fire the `will-attach-webview` event on the hosting `webContents`. 利用这个事件来阻止可能含有不安全选项的 `webViews` 创建。
 
 ```js
 app.on('web-contents-created', (event, contents) => {
@@ -451,7 +452,7 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-## 13) Disable or limit creation of new windows
+## 13) 禁用或限制新窗口的创建
 
 If you have a known set of windows, it's a good idea to limit the creation of additional windows in your app.
 

@@ -22,7 +22,7 @@ myNotification.onclick = () => {
 * 在 Windows 8.1 和 Windows 8 上，带有 [ 应用程序用户模型ID（Application User Model ID）](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) 的应用程序快捷方式必须被添加到开始屏幕上。 但是请注意，它不需要被固定到开始屏幕。
 * 在 Windows 7 上, 通知通过视觉上类似于较新系统原生的一个自定义的实现来工作。
 
-Electron attempts to automate the work around the Application User Model ID. When Electron is used together with the installation and update framework Squirrel, [shortcuts will automatically be set correctly](https://github.com/electron/windows-installer/blob/master/README.md#handling-squirrel-events). Furthermore, Electron will detect that Squirrel was used and will automatically call `app.setAppUserModelId()` with the correct value. During development, you may have to call [`app.setAppUserModelId()`][[set-app-user-model-id](../api/app.md#appsetappusermodelidid-windows)] yourself.
+Electron尝试将应用程序用户模型 ID 的相关工作自动化。 Electron在和安装和更新框架 Squirrel 协同使用的时候，[快捷方式将被自动正确的配置好](https://github.com/electron/windows-installer/blob/master/README.md#handling-squirrel-events)。 更棒的是，Electron 会自动检测 Squirrel 的存在，并且使用正确的值来自动调用`app.setAppUserModelId()`。 在开发过程中，你可能需要自行调用[`app.setAppUsesrModelId()`][[set-app-user-model-id](../api/app.md#appsetappusermodelidid-windows)]。
 
 此外，在Windows 8中，通知正文的最大长度为250个字符，Windows团队建议将通知保留为200个字符。 然而，Windows 10中已经删除了这个限制，但是Windows团队要求开发人员合理使用。 尝试将大量文本发送到API(数千个字符) 可能会导致不稳定。
 

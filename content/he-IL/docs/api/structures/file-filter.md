@@ -1,4 +1,4 @@
-# FileFilter Object
+# הרכיב FileFilter
 
-* `name` String
-* `extensions` String[]
+* `name`‏ String
+* `extensions`‏ String[]‎

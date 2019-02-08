@@ -18,11 +18,11 @@
 
 ## 一般的なヘルプ
 
-["Finding Support"](../tutorial/support.md#finding-support) has a list of resources for getting programming help, reporting security issues, contributing, and more. Please use the issue tracker for bugs only!
+["Finding Support"](../tutorial/support.md#finding-support) にはプログラミングヘルプ、セキュリティ Issue の報告、貢献などのリソースのリストがあります。 Issue トラッカーはバグにのみ使用してください！
 
 ## バグレポートの送信
 
-When opening a new issue in the `electron/electron` issue tracker, users will be presented with a template that should be filled in.
+`electron/electron` Issue トラッカー内で新しい Issue を開くとき、ユーザには記入するべきテンプレートが表示されます。
 
 ```markdown
 <!--
@@ -62,20 +62,20 @@ If you provide a URL, please list the commands required to clone/setup/run your 
 -->
 ```
 
-If you believe that you have found a bug in Electron, please fill out this form to the best of your ability.
+Electron にバグが見つかったと思われる場合は、できる限りこのフォームを埋めてください。
 
-The two most important pieces of information needed to evaluate the report are a description of the bug and a simple test case to recreate it. It easier to fix a bug if it can be reproduced.
+レポートを評価するために必要な、2つの最も重要な情報は、バグの説明とそれを再現するための簡単なテストケースです。 再現できる場合は、バグを修正することがより簡単になります。
 
-See [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve).
+[簡潔、完璧、検証可能な例の作り方](https://stackoverflow.com/help/mcve) を参照してください。
 
 ## バグレポートのトリアージュ
 
-It's common for open issues to involve discussion. Some contributors may have differing opinions, including whether the behavior is a bug or feature. This discussion is part of the process and should be kept focused, helpful, and professional.
+未解決の Issue には議論が伴うのが一般的です。 コントリビュータらは、その振る舞いがバグか機能かなどで意見が異なるでしょう。 この議論はプロセスの一部であり、集中し、有用で、専門的になるべきです。
 
-Terse responses that provide neither additional context nor supporting detail are not helpful or professional. To many, such responses are annoying and unfriendly.
+補足の文脈も裏付けとなる詳細も示さない簡潔な回答は、役に立たず専門的ではありません。 多くの人にとって、そのようなレスポンスは面倒で不親切です。
 
-Contributors are encouraged to solve issues collaboratively and help one another make progress. If encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. By doing so, we can often reach the correct outcome faster.
+コントリビュータは、問題を共同で解決し互いに進歩するのを手助けすることが奨励されます。 無効、または誤った情報が含まれていると思われる Issue に遭遇した場合は、その *理由* をあなたが間違っている可能性も考えて説明してください。 そうすることで、大抵の場合正しい結論に早く到達することができます。
 
 ## バグレポートの解決
 
-Most issues are resolved by opening a pull request. The process for opening and reviewing a pull request is similar to that of opening and triaging issues, but carries with it a necessary review and approval workflow that ensures that the proposed changes meet the minimal quality and functional guidelines of the Electron project.
+ほとんどの Issue はプルリクエストを開くことで解決されます。 プルリクエストを開いてレビューするプロセスは、問題をオープンして優先順位付けするプロセスと似ています。しかし、提案された変更が Electron プロジェクトの最低限の品質と機能のガイドラインを満たすことを確実にするために必要な、レビューと承認のワークフローを伴います。

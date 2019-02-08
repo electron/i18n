@@ -183,21 +183,22 @@ Sa pamamagitan ng default, ang Electron ay awtomatikong nagpahintulot sa lahat n
 ### Paano?
 
 ```js
-const { sesyon } = kailangan('electron')
+const { session } = require('electron')
 
-sesyon
+session
   .fromPartition('some-partition')
-  .setPermissionRequestHandler((webContents, permiso, callback) => {
+  .setPermissionRequestHandler((webContents, permission, callback) => {
     const url = webContents.getURL()
 
-    kung ang (permiso === 'notifications') {
-      // Apbruhan ang kahilingan ng permiso
-      mag-callback(true)
+    if (permission === 'notifications') {
+      // Approves the permissions request
+      callback(true)
     }
 
-    kung ang (!url.startsWith('https://my-website.com')) {
-      // Tanggihan ang kahilingan ng permiso
-      bumalik sa pag-callback(mali)
+    // Verify URL
+    if (!url.startsWith('https://my-website.com/')) {
+      // Denies the permissions request
+      return callback(false)
     }
   })
 ```

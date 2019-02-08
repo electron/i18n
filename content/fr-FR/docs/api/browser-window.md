@@ -119,11 +119,11 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
 ### `new BrowserWindow([options])`
 
 * `options` Object (facultatif) 
-  * `width` Integer (optionel) - Largeur de la fenêtre en pixels. La valeur par défaut est `800`.
-  * `height` Integer (optionel) - La hauteur de la fenêtre en pixels. La valeur par défaut est `600`.
-  * `x` Integer (optionel) (**requis** si y est utilisé) - Décalage à gauche de la fenêtre jusqu'a l'écran. Par défaut, la fenêtre est centrée.
-  * `y` Integer (optionel) (**requis** si x est utilisé) - Décalage en haut de la fenêtre jusqu'a l'écran. Par défaut la fenêtre est centrée.
-  * `useContentSize` Boolean (optionel) - La largeur et la hauteur (`width` et `height`) seront utilisées pour définir la taille de la page Web, ce qui signifie que la taille de la fenêtre réelle inclura la taille du cadre de celle-ci. La fenêtre complète sera donc légèrement plus grande que la taille de son contenu. Par défaut la valeur est `false`.
+  * `width` Integer (falcutatif) - Largeur de la fenêtre en pixels. La valeur par défaut est `800`.
+  * `height` Integer (falcutatif) - La hauteur de la fenêtre en pixels. La valeur par défaut est `600`.
+  * `x` Integer (falcutatif) (**requis** si y est utilisé) - Décalage à gauche de la fenêtre jusqu'a l'écran. Par défaut, la fenêtre est centrée.
+  * `y` Integer (falcutatif) (**requis** si x est utilisé) - Décalage en haut de la fenêtre jusqu'a l'écran. Par défaut la fenêtre est centrée.
+  * `useContentSize` Boolean (falcutatif) - La largeur et la hauteur (`width` et `height`) seront utilisées pour définir la taille de la page Web, ce qui signifie que la taille de la fenêtre réelle inclura la taille du cadre de celle-ci. La fenêtre complète sera donc légèrement plus grande que la taille de son contenu. Par défaut la valeur est `false`.
   * `center` Boolean (facultatif) - afficher la fenêtre dans le centre de l’écran.
   * `minWidth` Integer (facultatif) - Largeur minimum de la fenêtre en pixels. La valeur par défaut est `0`.
   * `minHeight` Integer (facultatif) - Hauteur minimale de la fenêtre en pixels. La valeur par défaut est `0`.
@@ -141,17 +141,17 @@ Cela crée une nouvelle `BrowserWindow` avec les propriétés natives définies 
   * `simpleFullscreen` Boolean (facultatif) - Utiliser le mode pre-Lion fullscreen sur macOS. La valeur par défaut est `false`.
   * `skipTaskbar` Boolean (facultatif) - Afficher ou masquer la fenêtre dans la barre des tâches. La valeur par défaut est `vrai`.
   * `kiosk` Boolean (facultatif) - Le mode kiosk. La valeur par défaut est `faux`.
-  * `title` String (optional) - Default window title. Default is `"Electron"`.
-  * `icon` ([NativeImage](native-image.md) | String) (optional) - The window icon. Sur Windows, il est recommandé d'utiliser le format`ICO` pour un rendu optimal. Si non défini, l'icone de l’exécutable sera utilisé.
+  * `title` String (facultatif) - Le titre de la fenêtre par défaut. La valeur par défaut est `"Electron"`.
+  * `icon` ([NativeImage](native-image.md) | String) (falcutatif) - L'icône de la fenêtre. Sur Windows, il est recommandé d'utiliser le format `ICO` pour un rendu optimal. Si non défini, l'icone de l’exécutable sera utilisé.
   * `show` Boolean (facultatif) -Détermine si la fenêtre doit s'afficher ou non à la création. La valeur par défaut est `true`.
-  * `frame` Boolean (optional) - Specify `false` to create a [Frameless Window](frameless-window.md). Default is `true`.
-  * `parent` BrowserWindow (optional) - Specify parent window. Default is `null`.
+  * `frame` Boolean (falcutatif) - Spécifier `false` pour créer une [fenêtre sans bordure](frameless-window.md). La valeur par défaut est `true`.
+  * `parent` BrowserWindow (falcutatif) - Spécifier la fenêtre parent. La valeur par défaut est `null`.
   * `modal` Boolean (optional) - Whether this is a modal window. This only works when the window is a child window. Default is `false`.
-  * `acceptFirstMouse` Boolean (optional) - Whether the web view accepts a single mouse-down event that simultaneously activates the window. Default is `false`.
-  * `disableAutoHideCursor` Boolean (optional) - Whether to hide cursor when typing. Default is `false`.
-  * `autoHideMenuBar` Boolean (optional) - Auto hide the menu bar unless the `Alt` key is pressed. Default is `false`.
-  * `enableLargerThanScreen` Boolean (optional) - Enable the window to be resized larger than screen. Default is `false`.
-  * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported if `transparent` is set to `true`). Default is `#FFF` (white).
+  * `acceptFirstMouse` Boolean (falcutatif) - Si la vue accepte un seul événement de souris qui active simultanément la fenêtre. La valeur par défaut est `false`.
+  * `disableAutoHideCursor` Boolean (falcutatif) - Si vous voulez cacher le curiseur lors de la saisie. La valeur par défaut est `false`.
+  * `autoHideMenuBar` Boolean (falcutatif) - Masquer automatiquement la barre de menu ) moins que la touche `Alt` soit enfoncée. La valeur par défaut est `false`.
+  * `enableLargerThanScreen` Boolean (falcutatif) - Active la fenêtre pour être redimensionnée plus grand que l'écran. La valeur par défaut est `false`.
+  * `backgroundColor` String (falcutatif) - Couleur de fond de la fenêtre. Ce doit être une valeur hexadécimale comme `#66CD00` ou `#FFF` ou `#80FFFFFF` (l'opacité est supporté si `transparent` est défini à `true`). La valeur par défaut est `#FFF` (white).
   * `hasShadow` Boolean (optional) - Whether window should have a shadow. This is only implemented on macOS. Default is `true`.
   * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
   * `darkTheme` Boolean (optional) - Forces using dark theme for the window, only works on some GTK+3 desktop environments. Default is `false`.
@@ -650,7 +650,7 @@ Calling this function with a value of `0` will remove any previously set aspect 
 
 #### `win.setBackgroundColor(backgroundColor)`
 
-* `backgroundColor` String - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported if `transparent` is `true`). Default is `#FFF` (white).
+* `backgroundColor` String - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported if `transparent` is `true`). La valeur par défaut est `#FFF` (white).
 
 Sets the background color of the window. See [Setting `backgroundColor`](#setting-backgroundcolor).
 

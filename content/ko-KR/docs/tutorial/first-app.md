@@ -82,9 +82,9 @@ const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
   // 브라우저 창을 생성합니다.
-  win = new BrowserWindow({ width: 800, height: 600 })
+  let win = new BrowserWindow({ width: 800, height: 600 })
 
-  // 앱의 index.html 파일을 로드합니다.
+  // and load the index.html of the app.
   win.loadFile('index.html')
 }
 

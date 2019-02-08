@@ -1,13 +1,13 @@
-# PrinterInfo Object
+# הרכיב PrinterInfo
 
-* `name` String
-* `description` String
-* `status` Number
-* `isDefault` Boolean
+* `name`‏ String
+* `description`‏ String
+* `status`‏ Number
+* `isDefault`‏ Boolean
 
-## Example
+## דוגמה
 
-Below is an example of some of the additional options that may be set which may be different on each platform.
+להלן דוגמה של חלק מהאפשרויות הנוספות שעשויות להיות מוגדרות אחרת בין המערכות.
 
 ```javascript
 {

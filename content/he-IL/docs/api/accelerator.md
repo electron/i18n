@@ -4,7 +4,7 @@
 
 Accelerators are Strings that can contain multiple modifiers and a single key code, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
 
-Examples:
+דוגמאות:
 
 * `CommandOrControl+A`
 * `CommandOrControl+Shift+Z`
@@ -28,7 +28,7 @@ On Linux and Windows, the `Command` key does not have any effect so use `Command
 
 Use `Alt` instead of `Option`. The `Option` key only exists on macOS, whereas the `Alt` key is available on all platforms.
 
-The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on macOS.
+מקש ה־`Super` ממופה למקש ה־`Windows` בסביבות Windows ולינוקס ו־`Cmd` ב־macOS.
 
 ## Available modifiers
 
@@ -41,12 +41,12 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 * `Shift`
 * `Super`
 
-## Available key codes
+## קודים זמינים של מקשים
 
-* `0` to `9`
-* `A` to `Z`
-* `F1` to `F24`
-* Punctuations like `~`, `!`, `@`, `#`, `$`, etc.
+* `0` עד `9`
+* `A` עד `Z`
+* `F1` עד `F24`
+* סימני פיסוק כגון `~`, `!`, `@`, `#`, `$` וכו׳.
 * `Plus`
 * `Space`
 * `Tab`
@@ -55,8 +55,8 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 * `Insert`
 * `Return` (or `Enter` as alias)
 * `Up`, `Down`, `Left` and `Right`
-* `Home` and `End`
-* `PageUp` and `PageDown`
+* `Home` ו־`End`
+* `PageUp` ו־`PageDown`
 * `Escape` (or `Esc` for short)
 * `VolumeUp`, `VolumeDown` and `VolumeMute`
 * `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` and `MediaPlayPause`

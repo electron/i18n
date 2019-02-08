@@ -1,18 +1,18 @@
-# Build Instructions
+# Instruções de Compilação
 
-Follow the guidelines below for building Electron.
+Siga as instruções abaixo para compilar o Electron.
 
-## Platform prerequisites
+## Pré-requisitos da plataforma
 
-Check the build prerequisites for your platform before proceeding
+Verifique os pré-requisitos de compilação para sua plataforma antes de prosseguir
 
 - [macOS](build-instructions-macos.md#prerequisites)
 - [Linux](build-instructions-linux.md#prerequisites)
 - [Windows](build-instructions-windows.md#prerequisites)
 
-## GN prerequisites
+## Pré-requisitos GN
 
-You'll need to install [`depot_tools`](http://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up), the toolset used for fetching Chromium and its dependencies.
+Você precisará instalar [`depot_tools`](http://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up), o toolset usado para obter Chromium e suas dependências.
 
 Also, on Windows, you'll need to set the environment variable `DEPOT_TOOLS_WIN_TOOLCHAIN=0`. To do so, open `Control Panel` → `System and
 Security` → `System` → `Advanced system settings` and add a system variable `DEPOT_TOOLS_WIN_TOOLCHAIN` with value `0`. This tells `depot_tools` to use your locally installed version of Visual Studio (by default, `depot_tools` will try to download a Google-internal version that only Googlers have access to).

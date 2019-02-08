@@ -52,7 +52,7 @@ Ang `Menu` na bagay ay may sumusunod na mga pamamaraan ng instance:
 
 #### `menu.popup(options)`
 
-* `mga opsyon` Bagay (opsyonal) 
+* `mga opsyon` Na Bagay (opsyonal) 
   * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
   * `x` na numero (opsyonal) - Ang default ay ang kasalukuyang posisyon ng cursor ng mouse. Dapat ideklara kung ang `y` ay naideklara na.
   * `y` na numero (opsyonal) - ang default ay ang kasalukuyang posisyon ng cursor ng mouse. Dapat ideklara kung `x` ay naideklara na.
@@ -233,7 +233,7 @@ const { remote } = require('electron')
 const { Menu, MenuItem } = remote
 
 const menu = new Menu()
-menu.append(new MenuItem({ label: 'MenuItem1', click() { console.log('item 1 clicked') } })))
+menu.append(new MenuItem({ label: 'MenuItem1', click() { console.log('item 1 clicked') } }))
 menu.append(new MenuItem({ type: 'separator' }))
 menu.append(new MenuItem({ label: 'MenuItem2', type: 'checkbox', checked: true }))
 

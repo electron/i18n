@@ -1,10 +1,10 @@
-# globalShortcut
+# 系统快捷键
 
-> 当应用程序没有键盘焦点时监听全局键盘事件。
+> 在应用程序没有键盘焦点时，监听键盘事件。
 
 线程：[主线程](../glossary.md#main-process)
 
-` globalShortcut ` 模块可以在操作系统中注册/注销全局快捷键, 以便可以为各种快捷方式自定义操作。
+` globalShortcut ` 模块可以在操作系统中注册/注销全局快捷键, 以便可以为操作定制各种快捷键。
 
 ** 注意: **快捷方式是全局的; 即使应用程序没有键盘焦点, 它也仍然在持续监听键盘事件。 在应用程序模块发出 `ready ` 事件之前, 不应使用此模块。
 
@@ -29,7 +29,7 @@ app.on('will-quit', () => {
   // 注销快捷键
   globalShortcut.unregister('CommandOrControl+X')
 
-  // 清空所有快捷键
+  // 注销所有快捷键
   globalShortcut.unregisterAll()
 })
 ```
@@ -43,11 +43,11 @@ app.on('will-quit', () => {
 * `accelerator` [Accelerator](accelerator.md)
 * `callback` Function
 
-注册 ` accelerator ` 的全局快捷键。当用户按下已注册的快捷键时, 将调用 ` callback `函数。
+注册指定的 ` accelerator ` 为全局快捷键。当用户按下该注册的快捷键时, 将调用 ` callback `回调函数。
 
-如果该快捷键已经被其他应用程序使用, 回调函数将不会被触发。 该特性由操作系统定义，因为操作系统不希望多个程序的全局快捷键互相冲突。
+如果指定的快捷键已经被其他应用程序注册掉, 调用会默默失败。 该特性由操作系统定义，因为操作系统不希望多个程序的全局快捷键互相冲突。
 
-The following accelerators will not be registered successfully on macOS 10.14 Mojave unless the app has been authorized as a [trusted accessibility client](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html):
+在 macOS 10.14 Mojave 下面，如果 app 没有被授权为[可信任使用的客户端](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html)，那么下列快捷键会注册失败：
 
 * "Media Play/Pause"
 * "Media Next Track"
@@ -58,9 +58,9 @@ The following accelerators will not be registered successfully on macOS 10.14 Mo
 
 * `accelerator` [Accelerator](accelerator.md)
 
-Returns `Boolean` - 表示 `accelerator` 全局快捷键是否注册成功
+返回 `Boolean` - 表示 `accelerator` 全局快捷键是否注册成功
 
-当快捷键已经被其他应用程序注册时, 此调用将返回 ` false `。 该特性由操作系统定义，因为操作系统不希望多个程序的全局快捷键互相冲突。
+当快捷键已经被其他应用程序注册时, 此调用依然将返回 ` false `。 该特性由操作系统定义，因为操作系统不希望多个程序的全局快捷键互相冲突。
 
 ### `globalShortcut.unregister(accelerator)`
 
@@ -70,4 +70,4 @@ Returns `Boolean` - 表示 `accelerator` 全局快捷键是否注册成功
 
 ### `globalShortcut.unregisterAll()`
 
-注销所有的全局快捷键（清空该应用程序的全局快捷键）。
+注销所有的全局快捷键（清空该应用程序的所有全局快捷键）。

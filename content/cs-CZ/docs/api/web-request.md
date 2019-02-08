@@ -26,7 +26,7 @@ const filter = {
 
 session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback) => {
   details.requestHeaders['User-Agent'] = 'MyAgent'
-  callback({ cancel: false, requestHeaders: details.requestHeaders })
+  callback({ requestHeaders: details.requestHeaders })
 })
 ```
 
@@ -62,22 +62,21 @@ The `callback` has to be called with an `response` object.
 
 * `filter` Object (optional) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function
+* `listener` Funkce 
+  * `details` Objekt 
+    * `id` Integer
+    * `url` String
+    * `method` String
+    * `webContentsId` Integer (optional)
+    * `resourceType` String
+    * `timestamp` Double
+    * `requestHeaders` Object
+  * `callback` Funkce 
+    * `response` Objekt 
+      * `cancel` Boolean (optional)
+      * `requestHeaders` Object (optional) - When provided, request will be made with these headers.
 
 The `listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent.
-
-* `details` Objekt 
-  * `id` Integer
-  * `url` String
-  * `method` String
-  * `webContentsId` Integer (optional)
-  * `resourceType` String
-  * `timestamp` Double
-  * `requestHeaders` Object
-* `callback` Funkce 
-  * `response` Objekt 
-    * `cancel` Boolean (optional)
-    * `requestHeaders` Object (optional) - When provided, request will be made with these headers.
 
 The `callback` has to be called with an `response` object.
 
@@ -101,25 +100,24 @@ The `listener` will be called with `listener(details)` just before a request is 
 
 * `filter` Object (optional) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function
+* `listener` Funkce 
+  * `details` Objekt 
+    * `id` Integer
+    * `url` String
+    * `method` String
+    * `webContentsId` Integer (optional)
+    * `resourceType` String
+    * `timestamp` Double
+    * `statusLine` String
+    * `statusCode` Integer
+    * `responseHeaders` Object
+  * `callback` Funkce 
+    * `response` Objekt 
+      * `cancel` Boolean (optional)
+      * `responseHeaders` Object (optional) - When provided, the server is assumed to have responded with these headers.
+      * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
 
 The `listener` will be called with `listener(details, callback)` when HTTP response headers of a request have been received.
-
-* `details` Objekt 
-  * `id` Integer
-  * `url` String
-  * `method` String
-  * `webContentsId` Integer (optional)
-  * `resourceType` String
-  * `timestamp` Double
-  * `statusLine` String
-  * `statusCode` Integer
-  * `responseHeaders` Object
-* `callback` Funkce 
-  * `response` Objekt 
-    * `cancel` Boolean
-    * `responseHeaders` Object (optional) - When provided, the server is assumed to have responded with these headers.
-    * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
 
 The `callback` has to be called with an `response` object.
 
@@ -173,6 +171,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
     * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
+    * `referrer` String
     * `timestamp` Double
     * `responseHeaders` Object
     * `fromCache` Boolean

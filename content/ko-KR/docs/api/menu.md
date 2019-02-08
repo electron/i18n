@@ -32,9 +32,9 @@
 
 * `action` String
 
-Sends the `action` to the first responder of application. This is used for emulating default macOS menu behaviors. Usually you would use the [`role`](menu-item.md#roles) property of a [`MenuItem`](menu-item.md).
+`action`을 어플리케이션의 첫번째 리스폰더(responder) 로 송신합니다. macOS 메뉴의 기본 동작을 에뮬레이트하기 위해 사용됩니다. 일반적으로는 [`MenuItem`](menu-item.md)의 [`role`](menu-item.md#roles)프로퍼티를 사용합니다.
 
-See the [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7) for more information on macOS' native actions.
+macOS의 네이티브 액션에 대한 더 많은 정보는 [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7)에서 볼 수 있습니다.
 
 #### `Menu.buildFromTemplate(template)`
 
@@ -42,9 +42,9 @@ See the [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/m
 
 `Menu`를 반환합니다.
 
-Generally, the `template` is an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
+일반적으로, `template`은 [MenuItem](menu-item.md)을 구축하기 위한 `options`의 배열입니다. 사용법은 위의 내용을 참고해주세요.
 
-You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
+`template`의 요소에 다른 필드를 추가하는 것도 가능하며, 추가된 구축된 메뉴 아이템의 프로퍼티가 됩니다.
 
 ### 인스턴스 메서드
 
@@ -56,10 +56,10 @@ You can also attach other fields to the element of the `template` and they will 
   * `window` [BrowserWindow](browser-window.md) (선택) - 기본 값은 포커스된 윈도우입니다.
   * `x` Number (선택) - 기본 값은 현재 마우스 커서의 위치입니다. `y`가 정의되어있다면 반드시 정의되어야 합니다.
   * `y` Number (선택) - 기본 값은 현재 마우스 커서의 위치입니다. `x`가 정의되어있다면 반드시 정의되어야 합니다.
-  * `positioningItem` Number (optional) *macOS* - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
+  * `positioningItem` Number (옵션) *macOS* - 마우스 커서의 위치에 배치한 메뉴 아이템의 인덱스. 기본값은 -1입니다.
   * `callback` Function (선택) - 메뉴가 닫혔을 때 불립니다.
 
-Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
+이 메뉴는 [`BrowserWindow`](browser-window.md)에서 컨텍스트 메뉴로 팝업됩니다.
 
 #### `menu.closePopup([browserWindow])`
 
@@ -88,47 +88,47 @@ Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
 
 ### 인스턴스 이벤트
 
-Objects created with `new Menu` emit the following events:
+`new Menu`로 작성된 오브젝트에서는 다음의 이벤트가 발생합니다.
 
-**Note:** Some events are only available on specific operating systems and are labeled as such.
+**참고:** 몇몇 이벤트는 표기된 특정 운영체제에서만 사용할 수 있습니다.
 
-#### Event: 'menu-will-show'
-
-반환:
-
-* `event` Event
-
-Emitted when `menu.popup()` is called.
-
-#### Event: 'menu-will-close'
+#### 이벤트: 'menu-will-show'
 
 반환:
 
 * `event` Event
 
-Emitted when a popup is closed either manually or with `menu.closePopup()`.
+`menu.popup()`이 호출될 때 발생합니다.
+
+#### 이벤트: 'menu-will-close'
+
+반환:
+
+* `event` Event
+
+팝업창을 닫거나, `menu.closePopup()`을 호출했을 때 발생합니다.
 
 ### Instance Properties (인스턴스 속성)
 
-`menu` objects also have the following properties:
+`menu` 오브젝트는 다음과 같은 속성(property) 도 갖습니다:
 
 #### `menu.items`
 
-A `MenuItem[]` array containing the menu's items.
+menu의 항목을 저장하고 있는 `MenuItem[]` 배열.
 
-Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
+각각의 `Menu`는 여러개의 [`MenuItem`](menu-item.md)을 가지며, `MenuItem`은 서브메뉴를 가질 수 있습니다.
 
 ### 인스턴스 이벤트
 
-Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
+`new Menu`로 작성된 오브젝트 혹은 `Menu.buildFromTemplate`이 반환한 오브젝트는 다음의 이벤트를 발생시킵니다:
 
 ## 예시
 
-The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
+`Menu` 클래스는 메인 프로세스에서만 사용 가능하지만, [`remote`](remote.md) 모듈을 통해 렌더 프로세스에서도 사용할 수 있습니다.
 
 ### 메인 프로세스
 
-An example of creating the application menu in the main process with the simple template API:
+간단한 템플릿 API를 사용하여, 메인 프로세스에서 어플리케이션 메뉴를 작성하는 예제:
 
 ```javascript
 const { app, Menu } = require('electron')
@@ -220,11 +220,14 @@ if (process.platform === 'darwin') {
 
 const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
+ 
+Text
+XPath: /pre/code
 ```
 
 ### 렌더 프로세스
 
-Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
+아래는 [`remote`](remote.md) 모듈을 사용하여 웹 페이지(렌더 프로세스) 에서 동적으로 메뉴를 작성하는 예제입니다. 이 메뉴는 사용자가 페이지를 우클릭했을 때 보여집니다.
 
 ```html
 <!-- index.html -->
@@ -233,7 +236,7 @@ const { remote } = require('electron')
 const { Menu, MenuItem } = remote
 
 const menu = new Menu()
-menu.append(new MenuItem({ label: 'MenuItem1', click() { console.log('item 1 clicked') } })))
+menu.append(new MenuItem({ label: 'MenuItem1', click() { console.log('item 1 clicked') } }))
 menu.append(new MenuItem({ type: 'separator' }))
 menu.append(new MenuItem({ label: 'MenuItem2', type: 'checkbox', checked: true }))
 
@@ -244,13 +247,13 @@ window.addEventListener('contextmenu', (e) => {
 </script>
 ```
 
-## Notes on macOS Application Menu
+## macOS 어플리케이션 메뉴에 대하여
 
-macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
+macOS는 Window나 Linux와는 완전히 다른 어플리케이션 메뉴 스타일을 가지고 있습니다. 여기서는 여러분이 만든 앱의 메뉴가, 보다 네이티브처럼 보이게 하기 위한 주의사항을 다루고 있습니다.
 
 ### 표준 메뉴
 
-On macOS there are many system-defined standard menus, like the `Services` and `Windows` menus. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
+macOS에는 `Services`와 `Windows` 메뉴처럼, 다양한 시스템 정의 표준 메뉴(system-defined standard menus) 가 존재합니다. 당신이 만든 메뉴가 일반적인 메뉴처럼 보이게 하기 위해서는, 메뉴의 `role`을 다음의 가이드 중 하나로 설정해야합니다. Electron은 설정을 인식하여, 표준 메뉴로 만들게 됩니다.
 
 * `window`
 * `help`
@@ -258,26 +261,26 @@ On macOS there are many system-defined standard menus, like the `Services` and `
 
 ### 표준 메뉴 아이템의 액션
 
-macOS는 `About xxx`, `Hide xxx`, `Hide Others`와 같은 몇 가지 메뉴 아이템에 대한 표준 액션을 제공하고 있습니다. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
+macOS는 `About xxx`, `Hide xxx`, `Hide Others`와 같은 몇 가지 메뉴 아이템에 대한 표준 액션을 제공하고 있습니다. 메뉴 아이템의 동작을 표준 동작으로 설정하기 위해서는, 메뉴 아이템의 `role` 속성(attribute) 을 설정해야합니다.
 
 ### 메인 메뉴의 이름
 
-macOS에서 어플리케이션 메뉴의 첫번째 아이템의 레이블은 당신이 설정한 레이블과 관계 없이 항상 앱 이름으로 설정됩니다. To change it, modify your app bundle's `Info.plist` file. See [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) for more information.
+macOS에서 어플리케이션 메뉴의 첫번째 아이템의 레이블은 당신이 설정한 레이블과 관계 없이 항상 앱 이름으로 설정됩니다. 첫번째 아이템의 레이블을 변경하기 위해서는, 앱 번들의 `Info.plist` 파일을 수정해야 합니다. 더 자세한 정보는 [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html)를 참조하세요.
 
 ## 특정 브라우저 윈도우를 위한 설정 메뉴 (*Linux* *Windows*)
 
-The [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) of browser windows can set the menu of certain browser windows.
+브라우저 윈도우의 [`setMenu` 메서드](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows)는 특정 브라우저 윈도우의 메뉴를 설정할 수 있습니다.
 
-## Menu Item Position
+## 메뉴 아이템의 위치
 
-You can make use of `before`, `after`, `beforeGroupContaining`, `afterGroupContaining` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
+`Menu.buildFromTemplate`을 사용하여 메뉴를 작성할 때 아이템을 위치를 배치하기 위해, `before`, `after`, `beforeGroupContaining`, `afterGroupContaining`, `id`를 사용할 수 있습니다.
 
-* `before` - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
-* `after` - Inserts this item after the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
-* `beforeGroupContaining` - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
-* `afterGroupContaining` - Provides a means for a single context menu to declare the placement of their containing group after the containing group of the item with the specified label.
+* `before` - 이 아이템을 특정한 라벨과 함께, 지정한 아이템의 앞에 삽입합니다. 지정한 아이템이 존재하지 않을 경우, 아이템은 메뉴의 마지막에 추가됩니다. 이는 지정한 메뉴 아이템과 같은 "그룹"에 위치되어야 한다는 것을 의미합니다.
+* `after` - 이 아이템을 특정한 라벨과 함께, 지정한 아이템의 뒤에 삽입합니다. 지정한 아이템이 존재하지 않을 경우, 아이템은 메뉴의 마지막에 추가됩니다. 이는 지정한 메뉴 아이템과 같은 "그룹"에 위치되어야 한다는 것을 의미합니다.
+* `beforeGroupContaining` - 지정된 라벨의 아이템이 속한 그룹의 앞에, 그룹의 위치가 싱글 컨텍스트 메뉴로 선언된다는 의미를 제공합니다.
+* `afterGroupContaining` - 지정된 라벨의 아이템이 속한 그룹의 뒤에, 그룹의 위치가 싱글 컨텍스트 메뉴로 선언된다는 의미를 제공합니다.
 
-By default, items will be inserted in the order they exist in the template unless one of the specified positioning keywords is used.
+기본적으로 위치 지정 키워드가 하나도 사용되지 않았을 경우, 템플릿에 저장되어있는 순서대로 삽입됩니다.
 
 ### 예시
 

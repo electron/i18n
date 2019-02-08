@@ -82,9 +82,9 @@ const { app, BrowserWindow } = require('electron')
 
 function createWindow () {   
   // 创建浏览器窗口
-  win = new BrowserWindow({ width: 800, height: 600 })
+  let win = new BrowserWindow({ width: 800, height: 600 })
 
-  // 然后加载应用的 index.html。
+  // 然后加载 app 的 index.html.
   win.loadFile('index.html')
 }
 
@@ -171,7 +171,7 @@ app.on('activate', () => {
 
 复制并运行这个库 [`electron/electron-quick-start`](https://github.com/electron/electron-quick-start)。
 
-**Note**: Running this requires [Git](https://git-scm.com) and [npm](https://www.npmjs.com/).
+**注意**：本例需要 [Git](https://git-scm.com) 和 [npm](https://www.npmjs.com/) 来运行。
 
 ```sh
 # 克隆这仓库

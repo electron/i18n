@@ -4,7 +4,7 @@
 
 프로세스: [메인](../glossary.md#main-process), [렌더러](../glossary.md#renderer-process)
 
-In the renderer process context it depends on the [`remote`](remote.md) module on Linux, it is therefore not available when this module is disabled.
+렌더 프로세스의 컨텍스트에서는 Linux의 [`remote`](remote.md) 모듈에 의존합니다. 그러므로, 이 모듈이 비활성화되었을 때는 사용할 수 없습니다.
 
 다음 예시는 클립보드에 문자열을 쓰는 방법을 보여줍니다:
 

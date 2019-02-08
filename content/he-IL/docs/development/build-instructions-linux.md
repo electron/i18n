@@ -76,7 +76,7 @@ $ gn gen out/Debug --args='import(...) target_cpu="arm"'
 
 See [Build Instructions: GN](build-instructions-gn.md)
 
-## Troubleshooting
+## פתרון בעיות
 
 ### Error While Loading Shared Libraries: libtinfo.so.5
 

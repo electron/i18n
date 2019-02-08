@@ -8,6 +8,7 @@ nav:
   docs: 文档
   donors: 捐赠者
   languages: 语言
+  license: 许可
   releases: 版本发布
   search: 搜索
   userland: 用户生态
@@ -54,13 +55,13 @@ community:
   meetup_notice: 若要添加线下交流会，请编辑 <code>data/meetups.json</code> 和 <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json"> 发pull request </a>。
 releases:
   show_releases: "显示版本："
-  show_only_releases_from: "Show Only Releases From:"
+  show_only_releases_from: "仅显示指定来源的版本："
   all_versions: 所有版本
   stable_releases: 稳定版本
   stable_desc: 定期支持的版本
   beta_releases: Beta 版本
   beta_desc: 用即将发生的更改测试应用
-  nightly_releases: Nightly Releases
+  nightly_releases: Nightly 版本
   nightly_desc: 试用最新功能
   next: 下一个
   next_page: 下一页
@@ -193,14 +194,14 @@ landing:
   fiddle:
     lead_desc: 最简单的 Electron 入门方式。
     create_app: 创建您的应用程序
-    description: Electron Fiddle lets you create and play with small Electron experiments. It greets you with a quick-start template after opening – change a few things, choose the version of Electron you want to run it with, and play around. Then, save your Fiddle either as a GitHub Gist or to a local folder. Once pushed to GitHub, anyone can quickly try your Fiddle out by just entering it in the address bar.
+    description: Electron Fiddle 让您可以创建和进行小型 Electron 实验。它会在打开后用一个快速启动模板迎接你 - 更改一些东西，选择你想要用以运行它的 Electron 版本，随意玩耍。然后，将您的 Fiddle 保存为一个 GitHub Gist 或保存到一个本地文件夹。一旦将其推送到 GitHub ，任何人都可以通过仅仅在地址栏中输入它来快速尝试您的 Fiddle 。
     explore: 探索 Electron
-    explore_desc: "Try Electron without installing any dependencies: Fiddle includes everything you'll need to explore the platform. It also includes examples for every API available in Electron, so if you want to quickly see what a BrowserView is or how the desktopCapturer works, Fiddle has got you covered."
-    code_with_types: Code with Types
-    code_with_types_desc: Fiddle includes Microsoft's excellent Monaco Editor, the same editor powering Visual Studio Code. It also installs the type definitions for the currently selected version of Electron automatically, ensuring that you always have all Electron APIs only a few keystrokes away.
+    explore_desc: "尝试使用 Electron 而不安装任何依赖项：Fiddle 包含了您探索 Electron 平台所需的一切。它还包括了 Electron 中可用的每个 API 的示例，因此，如果您想快速查看 BrowserView 是什么或者 desktopCapturer 是如何工作的， Fiddle 都已帮您搞定。"
+    code_with_types: 用类型编码
+    code_with_types_desc: Fiddle 包含了与 Visual Studio Code 同样的来自微软的杰出的 Monaco 编辑器。它还会自动为当前选定的 Electron 版本安装类型定义，确保您只需几次击键即可获得所有的 Electron API 。
     compile_and_package: 编译、打包。
-    compile_and_package_desc: Fiddle can automatically turn your experiment into binaries you can share with your friends, coworkers, or grandparents. It does so thanks to <a href="https://electronforge.io/">electron-forge</a>, allowing you to package your fiddle as an app for Windows, macOS, or Linux.
+    compile_and_package_desc: Fiddle 可以自动将您的实验变成您可以与朋友、同事或祖父母分享的二进制文件。这要归功于 <a href="https://electronforge.io/"> electron-forge </a>，它允许您将您的 Fiddle 打包成一个适用于 Windows 、 macOS 或 Linux 的应用程序。
     easy_start: 从 Fiddle 开始，在任何地方继续。
-    easy_start_desc: Fiddle is not an IDE – it is however an excellent starting point. Once your fiddle has grown up, export it as a project with or without <a href="https://electronforge.io/">electron-forge</a>. Then, use your favorite editor and take on the world!
+    easy_start_desc: Fiddle 不是一个 IDE - 但它是一个很好的起点。一旦您的 Fiddle 长大，利用或不利用 <a href="https://electronforge.io/"> electron-forge </a> 将其导出为一个项目。然后，使用您最喜欢的编辑器，走向世界！
 _404:
   page_not_found: 页面找不到了。

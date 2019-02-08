@@ -52,7 +52,7 @@ $ git checkout -b my-branch -t upstream/master
 
 ### ステップ4: コーディング
 
-Most pull requests opened against the `electron/electron` repository include changes to either the C/C++ code in the `atom/` folder, the JavaScript code in the `lib/` folder, the documentation in `docs/api/` or tests in the `spec/` folder.
+`electron/electron` リポジトリに対して開かれたほとんどのプルリクエストには、`atom/` フォルダの C/C++ コード、`lib/` フォルダの JavaScript コード、`docs/api/` のドキュメント、`spec/` フォルダのテストの変更が含まれます。
 
 コードの変更時に `npm run lint` を実行して、プロジェクトのコードスタイルに従うようにしてください。
 
@@ -105,9 +105,9 @@ $ git commit
 
 #### 破壊的変更
 
-A commit that has the text `BREAKING CHANGE:` at the beginning of its optional body or footer section introduces a breaking API change (correlating with Major in semantic versioning). A breaking change can be part of commits of any type. e.g., a `fix:`, `feat:` & `chore:` types would all be valid, in addition to any other type.
+オプションの本体またはフッターのセクションの先頭に `BREAKING CHANGE:` のテキストがあるコミットは、API に破壊的な (セマンティックバージョン管理におけるメジャーと相関する) 変更をもたらします。 破壊的な変更はあらゆるタイプのコミットの一部になりえます。 例として、`fix:`、`feat:`、`chore:` やその他のタイプも加えてすべて当てはまります。
 
-See [conventionalcommits.org](https://conventionalcommits.org) for more details.
+詳細については、[conventionalcommits.org](https://conventionalcommits.org) を参照してください。
 
 ### ステップ6: リベース
 

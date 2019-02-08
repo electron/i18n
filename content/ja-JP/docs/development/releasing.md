@@ -6,17 +6,17 @@
 
 Electron リリースを作成してアップロードするには、Electron S3 認証が必要です。 より詳しくはチームメンバーにお問い合わせください。
 
-There are a handful of `*_TOKEN` environment variables needed by the release scripts:
+リリーススクリプトが必要とする環境変数は、以下の `*_TOKEN` です。
 
-- `ELECTRON_GITHUB_TOKEN`: Create this by visiting https://github.com/settings/tokens/new?scopes=repo
-- `APPVEYOR_TOKEN`: Create a token from https://windows-ci.electronjs.org/api-token If you don't have an account, ask a team member to add you.
-- `CIRCLE_TOKEN`: Create a token from "Personal API Tokens" at https://circleci.com/account/api
-- `VSTS_TOKEN`: Create a Personal Access Token at https://github.visualstudio.com/_usersSettings/tokens or https://github.visualstudio.com/_details/security/tokens with the scope of `Build (read and execute)`.
+- * `ELECTRON_GITHUB_TOKEN`: これは https://github.com/settings/tokens/new?scopes=repo の通りに作成します。
+- `APPVEYOR_TOKEN`: https://windows-ci.electronjs.org/api-token からトークンを作成します。 アカウントを持っていない場合は、チームメンバーにあなたの追加を依頼してください。
+- `CIRCLE_TOKEN`: https://circleci.com/account/api の "Personal API Tokens" からトークンを作ります。
+- `VSTS_TOKEN`: https://github.visualstudio.com/_usersSettings/tokens や https://github.visualstudio.com/_details/security/tokens で、`Build (read and execute)` のスコープで Personal Access Token を作成します。
 - `ELECTRON_S3_BUCKET`:
 - `ELECTRON_S3_ACCESS_KEY`:
-- `ELECTRON_S3_SECRET_KEY`: If you don't have these, ask a team member to help you.
+- `ELECTRON_S3_SECRET_KEY`: これらがない場合は、チームメンバーに質問してください。
 
-Once you've generated these tokens, put them in a `.env` file in the root directory of the project. This file is gitignored, and will be loaded into the environment by the release scripts.
+これらのトークンを生成したら、プロジェクトのルートディレクトリにある `.env` ファイルに入れます。 このファイルは gitignore されてあり、リリーススクリプトによって環境にロードされます。
 
 ## リリースするブランチを決定する
 
@@ -77,11 +77,11 @@ $ ./script/bump-version.py --bump minor --dry-run
 
 `prepare-release` スクリプトは、API 呼び出しを介してビルドをトリガーします。 ビルドの進行状況をモニターするには、以下のページを参照してください。
 
-- [electron-release-mas-x64](https://github.visualstudio.com/electron/_build/index?context=allDefinitions&path=%5C&definitionId=19&_a=completed) for MAS builds.
-- [electron-release-osx-x64](https://github.visualstudio.com/electron/_build/index?context=allDefinitions&path=%5C&definitionId=18&_a=completed) for OSX builds.
-- [circleci.com/gh/electron/electron](https://circleci.com/gh/electron) for Linux builds.
-- [windows-ci.electronjs.org/project/AppVeyor/electron-39ng6](https://windows-ci.electronjs.org/project/AppVeyor/electron-39ng6) for Windows 32-bit builds.
-- [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) for Windows 64-bit builds.
+- [electron-release-mas-x64](https://github.visualstudio.com/electron/_build/index?context=allDefinitions&path=%5C&definitionId=19&_a=completed) は MAS ビルド向けです。
+- [electron-release-osx-x64](https://github.visualstudio.com/electron/_build/index?context=allDefinitions&path=%5C&definitionId=18&_a=completed) は OSX ビルド向けです。
+- [circleci.com/gh/electron/electron](https://circleci.com/gh/electron) は Linux ビルド向けです。
+- [windows-ci.electronjs.org/project/AppVeyor/electron-39ng6](https://windows-ci.electronjs.org/project/AppVeyor/electron-39ng6) Windows 32-bit ビルド向けです。
+- [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) は Windows 64-bit ビルド向けです。
 
 ## リリースノートをコンパイルする
 
@@ -186,13 +186,13 @@ under the `beta` tag and can be installed via `npm install electron@beta`.
 2. リリースを編集し、リリースノートを追加します。
 3. Save draft (ドラフトを保存)をクリックします。 **'Publish release' はクリックしないでください！**
 4. 続行する前に全ビルドがパスするのを待ちます。
-5. In the branch, verify that the release's files have been created:
+5. そのブランチで、リリースのファイルが作成されていることを確認します。
 
 ```sh
 $ npm run release -- --validateRelease
 ```
 
-Note, if you need to run `--validateRelease` more than once to check the assets, run it as above the first time, then `node ./script/release.js --validateRelease` for subsequent calls so that you don't have to rebuild each time you want to check the assets.
+アセットをチェックするために `--validateRelease` を複数回実行する必要がある場合は、アセットをチェックするたびに再構築する必要がないように、まず上記を同様に実行し、その後の呼び出しでは `node ./script/release.js --validateRelease` を実行します。
 
 ## リリースを公開する
 
@@ -209,16 +209,16 @@ Removing old .npmrc (default)
 Activating .npmrc "electron"
 ```
 
-The Electron account's credentials are kept by GitHub in a password manager. You'll also need to have access to an 2FA authenticator app with the appropriate OTP generator code to log in.
+Electron アカウントの認証情報は GitHub によってパスワードマネージャに保持されます。 ログインするには、適切なワンタイムパスワードジェネレータコードを使用して二要素認証アプリにアクセスする必要もあります。
 
 ```sh
 $ npm login
 Username: electron-nightly
-Password: <This can be found under NPM Electron Nightly on LastPass>
-Email: (this IS public) electron@github.com
+Password: <これは LastPass の NPM Electron Nightly の下にあります>
+Email: (これが公式) electron@github.com
 ```
 
-Publish the release to npm. Before running this you'll need to have set `ELECTRON_NPM_OTP` as an environment variable using a code from the aforementioned 2FA authenticator app.
+リリースを npm に公開します。 これを実行する前に、前述の二要素認証アプリのコードを使用して `ELECTRON_NPM_OTP` 環境変数に設定する必要があります。
 
 ```sh
 $ npm whoami
@@ -226,19 +226,19 @@ electron-nightly
 $ npm run publish-to-npm
 ```
 
-After publishing, you can check the `latest` release:
+公開後、`latest` リリースを確認できます。
 
 ```sh
 $ npm dist-tag ls electron
 ```
 
-If for some reason `npm run publish-to-npm` fails, you can tag the release manually:
+なんらかの理由で `npm run publish-to-npm` に失敗した場合、以下のように手動でタグ付けできます。
 
 ```sh
 $ npm dist-tag add electron@<version> <tag>
 ```
 
-e.g.:
+例
 
 ```sh
 $ npm dist-tag add electron@2.0.0 latest
@@ -246,32 +246,32 @@ $ npm dist-tag add electron@2.0.0 latest
 
 # トラブルシューティング
 
-## Rerun broken builds
+## 壊れたビルドを再実行する
 
-If a release build fails for some reason, you can use `script/ci-release-build.js` to rerun a release build:
+なんらかの理由でリリースビルドに失敗した場合、`script/ci-release-build.js` を使って以下のようにリリースビルドを再実行できます。
 
-### Rerun all linux builds:
+### 全ての Linux ビルドを再実行する:
 
 ```sh
 node script/ci-release-build.js --ci=CircleCI --ghRelease TARGET_BRANCH
-(TARGET_BRANCH) is the branch you are releasing from.
+(TARGET_BRANCH) はあなたからリリースされているブランチです。
 ```
 
-### Rerun all macOS builds:
+### 全ての macOS ビルドを再実行する:
 
 ```sh
 node script/ci-release-build.js --ci=VSTS --ghRelease TARGET_BRANCH
-(TARGET_BRANCH) is the branch you are releasing from.
+(TARGET_BRANCH) はあなたからリリースされているブランチです。
 ```
 
-### Rerun all Windows builds:
+### 全ての Windows ビルドを再実行する:
 
 ```sh
 node script/ci-release-build.js --ci=AppVeyor --ghRelease TARGET_BRANCH
-(TARGET_BRANCH) is the branch you are releasing from.
+(TARGET_BRANCH) はあなたからリリースされているブランチです。
 ```
 
-Additionally you can pass a job name to the script to run an individual job, eg:
+加えて、個々のジョブを実行するためにスクリプトにジョブ名を渡すことができます。例:
 
 ```sh
 node script/ci-release-build.js --ci=AppVeyor --ghRelease --job=electron-x64 TARGET_BRANCH
@@ -289,21 +289,21 @@ CI マシンが壊れてリリースが破損した場合、既に公開され�
 # 再アップロードするバージョンをチェックアウトします
 git checkout vX.Y.Z
 
-# Create release build
+# リリースビルドを作成します
 gn gen out/Release --args="import(\"//electron/build/args/release.gn\") $GN_EXTRA_ARGS"
 
-# To compile for specific arch, instead set
+# コンパイルするためにアーキテクチャを指定します。置き換えてください
 gn gen out/Release-<TARGET_ARCH> --args='import(\"//electron/build/args/release.gn\") target_cpu = "[arm|x64|ia32]"'
 
-# Build by running ninja with the electron target
+# electron ターゲットで ninja を実行しビルドします
 ninja -C out/Release electron
 ninja -C out/Release electron:dist_zip
 
-# Explicitly allow overwriting a published release.
+# 公開されたリリースを上書きすることを明示的に許可します。
 ./script/upload.py --overwrite
 ```
 
-Allowable values for [target_cpu](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values) and [target_os](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values).
+利用可能な値は [target_cpu](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values) と [target_os](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values) にあります。
 
 すべてのディストリビューションを再アップロードした後、チェックサムファイルをアップロードするために再度公開します。
 

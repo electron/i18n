@@ -13,6 +13,7 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 * `crash()`
 * `hang()`
 * `getHeapStatistics()`
+* `getProcessMemoryInfo()`
 * `getSystemMemoryInfo()`
 * `getCPUUsage()`
 * `getIOCounters()`
@@ -139,6 +140,18 @@ Indicates the creation time of the application. The time is represented as numbe
 * `doesZapGarbage` Boolean
 
 Returns an object with V8 heap statistics. Note that all statistics are reported in Kilobytes.
+
+### `process.getProcessMemoryInfo()`
+
+回傳 `Object`:
+
+* `residentSet` Integer *Linux* and *Windows* - The amount of memory currently pinned to actual physical RAM in Kilobytes.
+* `private` Integer - The amount of memory not shared by other processes, such as JS heap or HTML content in Kilobytes.
+* `shared` Integer - The amount of memory shared between processes, typically memory consumed by the Electron code itself in Kilobytes.
+
+Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes. This api should be called after app ready.
+
+Chromium does not provide `residentSet` value for macOS. This is because macOS performs in-memory compression of pages that haven't been recently used. As a result the resident set size value is not what one would expect. `private` memory is more representative of the actual pre-compression memory usage of the process on macOS.
 
 ### `process.getSystemMemoryInfo()`
 

@@ -26,7 +26,7 @@ const filter = {
 
 session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback) => {
   details.requestHeaders['User-Agent'] = 'MyAgent'
-  callback({ cancel: false, requestHeaders: details.requestHeaders })
+  callback({ requestHeaders: details.requestHeaders })
 })
 ```
 
@@ -62,22 +62,21 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 * `filter` Object (可选) 
   * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。
-* `listener` Function
+* `listener` Function - 回调函数 
+  * `details` Object 
+    * `id` Integer
+    * `url` String
+    * `method` String
+    * `webContentsId` Integer (可选)
+    * `resourceType` String
+    * `timestamp` Double
+    * `requestHeaders` Object
+  * `callback` Function - 回调函数 
+    * `response` Object 
+      * `cancel` Boolean (可选)
+      * `requestHeaders` Object (可选) - 当提供时，将使用这些报头进行请求。
 
 一旦请求头可用，在发送 HTTP 请求之前，`listener` 将以 `listener(details, callback)` 的形式被调用。 这可能发生在对服务器进行 TCP 连接之后，但在发送任何HTTP数据之前。
-
-* `details` Object 
-  * `id` Integer
-  * `url` String
-  * `method` String
-  * `webContentsId` Integer (可选)
-  * `resourceType` String
-  * `timestamp` Double
-  * `requestHeaders` Object
-* `callback` Function - 回调函数 
-  * `response` Object 
-    * `cancel` Boolean (可选)
-    * `requestHeaders` Object (可选) - 当提供时，将使用这些报头进行请求。
 
 必须使用 `response` 对象调用` callback `。
 
@@ -101,25 +100,24 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 * `filter` Object (可选) 
   * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。
-* `listener` Function
+* `listener` Function - 回调函数 
+  * `details` Object 
+    * `id` Integer
+    * `url` String
+    * `method` String
+    * `webContentsId` Integer (可选)
+    * `resourceType` String
+    * `timestamp` Double
+    * `statusLine` String
+    * `statusCode` Integer
+    * `responseHeaders` Object
+  * `callback` Function - 回调函数 
+    * `response` Object 
+      * `cancel` Boolean (可选)
+      * ` responseHeaders ` Object (可选) - 当提供时，将使用这些报头处理返回。
+      * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
 
 当HTTP请求接收到报头后，会通过调用 `listener(details, callback)`方法来触发`listener`。
-
-* `details` Object 
-  * `id` Integer
-  * `url` String
-  * `method` String
-  * `webContentsId` Integer (可选)
-  * `resourceType` String
-  * `timestamp` Double
-  * `statusLine` String
-  * `statusCode` Integer
-  * `responseHeaders` Object
-* `callback` Function - 回调函数 
-  * `response` Object 
-    * `cancel` Boolean
-    * ` responseHeaders ` Object (可选) - 当提供时，将使用这些报头处理返回。
-    * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
 
 必须使用 `response` 对象调用` callback `。
 
@@ -173,6 +171,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `method` String
     * `webContentsId` Integer (可选)
     * `resourceType` String
+    * `referrer` String
     * `timestamp` Double
     * `responseHeaders` Object
     * `fromCache` Boolean

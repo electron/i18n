@@ -13,6 +13,7 @@ Electron の `process` オブジェクトは、[Node.js `process` object](https:
 * `crash()`
 * `hang()`
 * `getHeapStatistics()`
+* `getProcessMemoryInfo()`
 * `getSystemMemoryInfo()`
 * `getCPUUsage()`
 * `getIOCounters()`
@@ -139,6 +140,18 @@ Electron のバージョン文字列を表す `String`。
 * `doesZapGarbage` Boolean
 
 V8 ヒープ統計のオブジェクトを返します。統計はすべてキロバイト単位で報告されることに注意してください。
+
+### `process.getProcessMemoryInfo()`
+
+戻り値 `Object`:
+
+* `residentSet` Integer *Linux* と *Windows* - 現在、実際の物理 RAM に確保されているキロバイト単位のメモリ量。
+* `private` Integer - JS ヒープや HTML コンテンツなど、他のプロセスと共有されないキロバイト単位のメモリ量。
+* `shared` Integer - プロセス間で共有されるメモリ量で、通常、 Electron のコード自体が使っているキロバイト単位のメモリ量。
+
+現在のプロセスに関するメモリ使用統計を返すオブジェクトを返します。すべての統計情報はキロバイト単位で報告されることに注意してください。この API は app の ready の後に呼び出さなければなりません。
+
+Chromium は macOS には `residentSet` の値を提供しません。 これは直近の使用されていないページを macOS がメモリ内で圧縮するためです。 結果として、residentSet の値は期待されるものではありません。 `private` メモリは、macOS でのプロセスの実際の圧縮前のメモリ使用量をよりよく表しています。
 
 ### `process.getSystemMemoryInfo()`
 
