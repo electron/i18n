@@ -78,9 +78,9 @@ Chromium を互換性パッチで動作するように更新するよりも互�
   - 例えば Electron、Chromium や、Node.js においてです
 - 私たちは以下のロジスティクスのために上流を厳密に追跡することはしません。 
   - 上流では複数のレポジトリを使用しているため、単一のレポジトリにマージすると履歴が失われます。そのため、Electron で Node バージョン上げを計画しているときにのみ更新します。
-- Chromium is large and time-consuming to update, so we typically choose the Node version based on which of its releases has a version of V8 that’s closest to the version in Chromium that we’re using. 
-  - We sometimes have to wait for the next periodic Node release because it will sync more closely with the version of V8 in the new Chromium
-  - Electron keeps all its patches in the repo because it’s simpler than maintaining different repos for patches for each upstream project. 
-    - Crashpad, Node.js, Chromium, Skia etc. patches are all kept in the same place
-  - Building Node: 
-    - We maintain our own GN build files for Node.js to make it easier to ensure that eevrything is built with the same compiler flags. This means that every time we upgrade Node.js we have to do a modest amount of work to synchronize the GN files with the upstream GYP files.
+- Chromium は更新に大きく時間がかかるため、通常、使用している Chromium のバージョンに最も近いバージョンの V8 がどのリリースに基づいた Node バージョンを選択します。 
+  - 新しい Chromium の V8 のバージョンとより密接に同期するため、次の定期的な Node のリリースを待つ必要がある場合もあります。
+  - Electron は、上流のプロジェクトごとにパッチのレポジトリを別々に管理するよりも簡単なので、すべてのパッチをレポジトリに保存しています。 
+    - Crashpad、Node.js、Chromium、Skia などのパッチはすべて同じ場所に保管されています
+  - Node のビルドについて 
+    - Node.js 用に独自の GN ビルドファイルを管理して、すべてが同じコンパイラフラグで確実にビルドされるようにします。 これは、Node.js をアップグレードするたびに、GN ファイルを上流の GYP ファイルと同期させるためにほんの少し作業をしなければならないことを意味します。
