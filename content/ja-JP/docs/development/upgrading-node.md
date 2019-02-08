@@ -16,14 +16,14 @@ Electron のすべての依存関係が同じ V8 のコピーを構築して使�
 
 要するに、主要な手段は以下になります。
 
-1. Electron の Node フォークを希望のバージョンにアップデートする
-2. Backport Node's V8 patches to our copy of V8
-3. Update the GN build files, porting changes from node's GYP files
-4. Update Electron's DEPS to use new version of Node
+1. Electron の Node フォークを希望のバージョンにアップデートします
+2. Node の V8 パッチを私たちの V8 のコピーに後方移植します
+3. Node の GYP ファイルでの変更を移植するため、GN ビルドファイルを更新します
+4. 新しいバージョンの Node を使用するように Electron の DEPS を更新します
 
-## Updating Electron's Node [fork](https://github.com/electron/node)
+## Electron の Node [フォーク](https://github.com/electron/node) のアップデート
 
-1. Ensure that `master` on `electron/node` has updated release tags from `nodejs/node`
+1. `electron/node` 上の `master` のリリースタグが `nodejs/node` よりも新しいことを確認します
 2. Create a branch in https://github.com/electron/node: `electron-node-vX.X.X` where the base that you're branching from is the tag for the desired update 
   - `vX.X.X` Must use a version of Node compatible with our current version of Chromium
 3. Re-apply our commits from the previous version of Node we were using (`vY.Y.Y`) to `v.X.X.X` 
