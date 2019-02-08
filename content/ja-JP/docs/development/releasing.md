@@ -192,7 +192,7 @@ under the `beta` tag and can be installed via `npm install electron@beta`.
 $ npm run release -- --validateRelease
 ```
 
-Note, if you need to run `--validateRelease` more than once to check the assets, run it as above the first time, then `node ./script/release.js --validateRelease` for subsequent calls so that you don't have to rebuild each time you want to check the assets.
+アセットをチェックするために `--validateRelease` を複数回実行する必要がある場合は、アセットをチェックするたびに再構築する必要がないように、まず上記を同様に実行し、その後の呼び出しでは `node ./script/release.js --validateRelease` を実行します。
 
 ## リリースを公開する
 
@@ -209,13 +209,13 @@ Removing old .npmrc (default)
 Activating .npmrc "electron"
 ```
 
-The Electron account's credentials are kept by GitHub in a password manager. You'll also need to have access to an 2FA authenticator app with the appropriate OTP generator code to log in.
+Electron アカウントの認証情報は GitHub によってパスワードマネージャに保持されます。 ログインするには、適切なワンタイムパスワードジェネレータコードを使用して二要素認証アプリにアクセスする必要もあります。
 
 ```sh
 $ npm login
 Username: electron-nightly
-Password: <This can be found under NPM Electron Nightly on LastPass>
-Email: (this IS public) electron@github.com
+Password: <これは LastPass の NPM Electron Nightly の下にあります>
+Email: (これが公式) electron@github.com
 ```
 
 Publish the release to npm. Before running this you'll need to have set `ELECTRON_NPM_OTP` as an environment variable using a code from the aforementioned 2FA authenticator app.
