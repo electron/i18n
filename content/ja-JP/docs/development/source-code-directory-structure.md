@@ -1,17 +1,17 @@
 # ソースコードのディレクトリ構造
 
-The source code of Electron is separated into a few parts, mostly following Chromium on the separation conventions.
+Electron のソースコードは、いくつかの部分に分けられています。ほとんどの場合、分離規約上 Chromium に従っています。
 
-You may need to become familiar with [Chromium's multi-process architecture](https://dev.chromium.org/developers/design-documents/multi-process-architecture) to understand the source code better.
+ソースコードをよりよく理解するためには、[Chromium のマルチプロセスアーキテクチャ](https://dev.chromium.org/developers/design-documents/multi-process-architecture) に慣れる必要があるかもしれません。
 
 ## ソースコードの構造
 
 ```diff
 Electron
-├── atom/ - C++ で書かれたコード
-|   ├── app/ - システムエントリーコード
-|   ├── browser/ - メインウィンドウを含むフロントエンド、UIと
-|   |   |          メインプロセスの全て。 これは、レンダーと会話してWEBページを
+├── atom/ - C++ のソースコード。
+|   ├── app/ - システムのエントリコード。
+|   ├── browser/ - メインウィンドウ、UI と
+|   |   |          メインプロセスの全てを含むフロントエンド。 これはレンダラーと連絡して Web ページを
 |   |   |          管理します。
 |   |   ├── ui/ - 別々のプラットフォームのためのUIスタッフの実装。
 |   |   |   ├── cocoa/ - Cocoa に関連したソースコード
