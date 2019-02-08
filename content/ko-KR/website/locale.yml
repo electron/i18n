@@ -131,7 +131,7 @@ apps:
   downloads: 다운로드
   keywords: 키워드
   license: 라이선스
-  latest_release: Latest Release
+  latest_release: 최근 릴리즈
 blog:
   title: Electron 블로그
   description: 모든 최신 소식들은 Electron 팀과 커뮤니티에서 가져옵니다.
