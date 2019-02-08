@@ -1,20 +1,20 @@
 # Crashpad のアップグレード
 
-1. Get the version of crashpad that we're going to use.
+1. これから使う Crashpad のバージョンを取得してください。
     
-    - `libcc/src/third_party/crashpad/README.chromium` will have a line `Revision:` with a checksum
-    - We need to check out the corresponding branch.
-    - Clone Google's crashpad (https://chromium.googlesource.com/crashpad/crashpad)
+    - `libcc/src/third_party/crashpad/README.chromium` の `Revision:` 行にチェックサムがあります
+    - 対応するブランチをチェックアウトする必要があります。
+    - Google の Crashpad をクローンします (https://chromium.googlesource.com/crashpad/crashpad)
     - `git clone https://chromium.googlesource.com/crashpad/crashpad`
-    - Check out the branch with the revision checksum: 
+    - リビジョンチェックサムでブランチをチェックアウトしてください。 
         - `git checkout <revision checksum>`
-    - Add electron's crashpad fork as a remote
+    - Electron の Crashpad フォークをリモートとして追加します
     - `git remote add electron https://github.com/electron/crashpad`
-    - Check out a new branch for the update
+    - 更新のために新しいブランチにチェックアウトします
     - `git checkout -b electron-crashpad-vA.B.C.D`
-    - `A.B.C.D` is the Chromium version found in `libcc/VERSION` and will be something like `62.0.3202.94`
+    - `A.B.C.D` は `libcc/VERSION` にある Chromium のバージョンで、`62.0.3202.94` のようになります
 
-2. Make a checklist of the Electron patches that need to be applied with `git log --oneline`
+2. `git log --oneline` で適用する必要がある Electron パッチのチェックリストを作ります
     
     - Or view https://github.com/electron/crashpad/commits/previous-branch-name
 
