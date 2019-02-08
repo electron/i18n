@@ -37,17 +37,17 @@ Electron
 |   |   └── api/ - Javascript API 実装。
 |   ├── common/ - メインとレンダラープロセスの両方から使用される JavaScript
 |   |   └── api/ - Javascript API 実装。
-|   └── renderer/ - Javascript renderer process initialization code.
-|       └── api/ - Javascript API implementation.
-├── native_mate/ - A fork of Chromium's gin library that makes it easier to marshal
-|                  types between C++ and JavaScript.
-├── spec/ - 自動テスト
-└── BUILD.gn - Electronのビルドルール.
+|   └── renderer/ - Javascript レンダラープロセス初期化コード。
+|       └── api/ - Javascript API 実装。
+├── native_mate/ - Chromium の gin ライブラリのフォークで、
+|                  C++ と JavaScript の間で型を簡単にマーシャリングできます。
+├── spec/ - 自動テスト。
+└── BUILD.gn - Electronのビルドルール。
 ```
 
 ## `/chromium_src`
 
-The files in `/chromium_src` tend to be pieces of Chromium that aren't part of the content layer. For example to implement Pepper API, we need some wiring similar to what official Chrome does. We could have built the relevant sources as a part of [libcc](../glossary.md#libchromiumcontent) but most often we don't require all the features (some tend to be proprietary, analytics stuff) so we took parts of the code. These could have easily been patches in libcc, but at the time when these were written the goal of libcc was to maintain very minimal patches and chromium_src changes tend to be big ones. Also, note that these patches can never be upstreamed unlike other libcc patches we maintain now.
+`/chromium_src` 内のファイルは、そのコンテンツレイヤーの一部ではなく Chromium の断片である傾向があります。 例えば Pepper APIを実装するには、公式の Chrome が行うものと同様の配置が必要です。 関連するソースを [libcc](../glossary.md#libchromiumcontent) の一部として作成することもできますが、ほとんどの場合、すべての機能を必要とするわけではありません (いくつかはプロプライエタリな、分析的なものになる傾向があります)。そのため私たちはコードの一部を取得しました。 These could have easily been patches in libcc, but at the time when these were written the goal of libcc was to maintain very minimal patches and chromium_src changes tend to be big ones. Also, note that these patches can never be upstreamed unlike other libcc patches we maintain now.
 
 ## その他のディレクトリの構造
 
