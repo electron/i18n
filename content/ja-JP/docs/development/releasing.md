@@ -6,9 +6,9 @@
 
 Electron リリースを作成してアップロードするには、Electron S3 認証が必要です。 より詳しくはチームメンバーにお問い合わせください。
 
-There are a handful of `*_TOKEN` environment variables needed by the release scripts:
+リリーススクリプトが必要とする環境変数は、以下の `*_TOKEN` です。
 
-- `ELECTRON_GITHUB_TOKEN`: Create this by visiting https://github.com/settings/tokens/new?scopes=repo
+- * `ELECTRON_GITHUB_TOKEN`: これは https://github.com/settings/tokens/new?scopes=repo の通りに作成します。
 - `APPVEYOR_TOKEN`: Create a token from https://windows-ci.electronjs.org/api-token If you don't have an account, ask a team member to add you.
 - `CIRCLE_TOKEN`: Create a token from "Personal API Tokens" at https://circleci.com/account/api
 - `VSTS_TOKEN`: Create a Personal Access Token at https://github.visualstudio.com/_usersSettings/tokens or https://github.visualstudio.com/_details/security/tokens with the scope of `Build (read and execute)`.
