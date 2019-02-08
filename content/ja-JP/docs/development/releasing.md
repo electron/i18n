@@ -289,21 +289,21 @@ CI マシンが壊れてリリースが破損した場合、既に公開され�
 # 再アップロードするバージョンをチェックアウトします
 git checkout vX.Y.Z
 
-# Create release build
+# リリースビルドを作成します
 gn gen out/Release --args="import(\"//electron/build/args/release.gn\") $GN_EXTRA_ARGS"
 
-# To compile for specific arch, instead set
+# コンパイルするためにアーキテクチャを指定します。置き換えてください
 gn gen out/Release-<TARGET_ARCH> --args='import(\"//electron/build/args/release.gn\") target_cpu = "[arm|x64|ia32]"'
 
-# Build by running ninja with the electron target
+# electron ターゲットで ninja を実行しビルドします
 ninja -C out/Release electron
 ninja -C out/Release electron:dist_zip
 
-# Explicitly allow overwriting a published release.
+# 公開されたリリースを上書きすることを明示的に許可します。
 ./script/upload.py --overwrite
 ```
 
-Allowable values for [target_cpu](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values) and [target_os](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values).
+利用可能な値は [target_cpu](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values) と [target_os](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values) にあります。
 
 すべてのディストリビューションを再アップロードした後、チェックサムファイルをアップロードするために再度公開します。
 
