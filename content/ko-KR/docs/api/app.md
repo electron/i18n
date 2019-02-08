@@ -1002,4 +1002,4 @@ Dock 아이콘을 표시합니다.
 
 ### `app.isPackaged`
 
-A `Boolean` property that returns `true` if the app is packaged, `false` otherwise. For many apps, this property can be used to distinguish development and production environments.
+앱이 패키지되었을 경우에는 `true`를, 그렇지 않을 경우에는 `false`을 반환하는 `Boolean` 속성입니다. For many apps, this property can be used to distinguish development and production environments.
