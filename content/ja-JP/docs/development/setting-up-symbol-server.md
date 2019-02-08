@@ -24,9 +24,9 @@ SRV*c:\code\symbols\*https://msdl.microsoft.com/download/symbols;SRV*c:\code\sym
 
 <img src='https://mdn.mozillademos.org/files/733/symbol-server-vc8express-menu.jpg' /> <img src='https://mdn.mozillademos.org/files/2497/2005_options.gif' />
 
-## Troubleshooting: Symbols will not load
+## トラブルシューティング: シンボルが読み込めない
 
-Type the following commands in Windbg to print why symbols are not loading:
+Windbg で次のコマンドを入力して、シンボルが読み込まれない理由を表示します。
 
 ```powershell
 > !sym noisy
