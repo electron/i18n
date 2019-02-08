@@ -47,11 +47,11 @@ $ CURRENT_NODE_VERSION=vX.Y.Z
 # このコミットは、指定されたバージョンでノードが
 # V8 を元の上流の状態にリセットするものに対応します。
 $ LAST_V8_UPDATE="$(git log --grep='^deps: update V8' --format='%H' -1 deps/v8)"
-# This creates a patch file containing all changes in deps/v8 from
-# $LAST_V8_UPDATE up to the current Node version, formatted in a way that
-# it will apply cleanly to the V8 repository (i.e. with `deps/v8`
-# stripped off the path and excluding the v8/gypfiles directory, which
-# isn't present in V8.
+# これにより、$LAST_V8_UPDATE から現在の Node バージョンまでの
+# deps/v8 のすべての変更を含むパッチファイルが作成され、
+# V8 リポジトリ (すなわち `deps/v8`) にきれいに適用されるよう整形されます
+# パスを削除し、V8には存在しない
+# v8/gypfiles ディレクトリを除外します。
 $ git format-patch \
     --relative=deps/v8 \
     $LAST_V8_UPDATE..$CURRENT_NODE_VERSION \
@@ -61,11 +61,11 @@ $ git format-patch \
     > ../../electron/common/patches/v8/node_v8_patches.patch
 ```
 
-This list of patches will probably include one that claims to make the V8 API backwards-compatible with a previous version of V8. Unfortunately, those patches almost always change the V8 API in a way that is incompatible with Chromium.
+このパッチのリストには、おそらく V8 API を以前のバージョンの V8 と後方互換性を持たせるとしているものが含まれています。 残念ながら、これらのパッチはほとんどの場合 Chromiumと互換性のない方法で V8 API を変更します。
 
-It's usually easier to update Node to work without the compatibility patch than to update Chromium to work with the compatibility patch, so it's recommended to revert the compatibility patch and fix any errors that arise when compiling Node.
+Chromium を互換性パッチで動作するように更新するよりも互換性パッチなしで動作するように Node を更新する方が通常は簡単です。したがって、互換性パッチを元に戻して Node のコンパイル時に発生するエラーを修正することを推奨します。
 
-## Update Electron's `DEPS` file
+## Electron の `DEPS` ファイルをアップデートする
 
 Update the `DEPS` file in the root of [electron/electron](https://github.com/electron/electron) to point to the git hash of the updated Node.
 
