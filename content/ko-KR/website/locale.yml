@@ -17,7 +17,7 @@ docs:
   description: 모든 문서 <a href="/docs/all">한 페이지에서</a> 보기 및 <a href="/docs/faq"> FAQ</a> 문서를 확인하기
   guides: 안내서
   api_reference: API 참조
-  api_structures: API Structures
+  api_structures: API 구조
   advanced: 상급(advanced) 주제
   footer:
     propose_change: 문서 개선 작업 참여
@@ -56,18 +56,18 @@ community:
 releases:
   show_releases: "Show Releases:"
   show_only_releases_from: "Show Only Releases From:"
-  all_versions: All Versions
-  stable_releases: Stable Releases
-  stable_desc: Regular, supported releases
-  beta_releases: Beta Releases
-  beta_desc: Test your app with upcoming changes
-  nightly_releases: Nightly Releases
-  nightly_desc: Experiment with the latest features
-  next: Next
-  next_page: Next Page
-  previous: Previous
-  previous_page: Previous Page
-  page: Page
+  all_versions: 모든 버전
+  stable_releases: 안정 릴리즈
+  stable_desc: 정규, 지원 릴리즈
+  beta_releases: 베타 릴리즈
+  beta_desc: 곧 나올 변경사항을 당신의 앱에서 테스트해보세요.
+  nightly_releases: Nightly 릴리즈
+  nightly_desc: 최신 기능을 체험해 보세요
+  next: 다음
+  next_page: 다음 페이지
+  previous: 이전
+  previous_page: 이전 페이지
+  page: 페이지
   all_releases: 모든 릴리즈들
   back_to_index: 목차로 돌아가기
 electron_is_easy:
