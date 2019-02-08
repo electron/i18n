@@ -32,10 +32,10 @@
     - `git fetch`
     - `git checkout electron-crashpad-v62.0.3202.94`
 5. 両方のターゲットに対して Ninja ファイルを再生成する 
-    - From Electron root's root, run `script/update.py`
+    - Electron root の最上層で、`script/update.py` を実行します。
     - `script/build.py -c D --target=crashpad_client`
     - `script/build.py -c D --target=crashpad_handler`
-    - Both should build with no errors
-6. Push changes to submodule reference 
-    - (From electron root) `git add vendor/crashpad`
+    - 両方のエラーをなくしてください
+6. submodule 参照へ変更を push する 
+    - (Electron の最上層から) `git add vendor/crashpad`
     - `git push origin upgrade-to-chromium-62`
