@@ -16,22 +16,22 @@
 
 2. `git log --oneline` で適用する必要がある Electron パッチのチェックリストを作ります
     
-    - Or view https://github.com/electron/crashpad/commits/previous-branch-name
+    - もしくは https://github.com/electron/crashpad/commits/previous-branch-name を見てください
 
-3. For each patch:
+3. それぞれのパッチにおいて、
     
-    - In `electron-crashpad-vA.B.C.D`, cherry-pick the patch's checksum
+    - `electron-crashpad-vA.B.C.D` 内で、パッチのチェックサムで cherry-pick します
     - `git cherry-pick <checksum>`
-    - Resolve any conflicts
-    - Make sure it builds then add, commit, and push work to electron's crashpad fork
+    - コンフリクトを解決します
+    - 念のためビルドしてから、add、commit、そして Electron の Crashpad フォークに push します
     - `git push electron electron-crashpad-vA.B.C.D`
 
-4. Update Electron to build the new crashpad:
+4. 新しい Crashpad をビルドするために Electron を更新する:
     
     - `cd vendor/crashpad`
     - `git fetch`
     - `git checkout electron-crashpad-v62.0.3202.94`
-5. Regenerate Ninja files against both targets 
+5. 両方のターゲットに対して Ninja ファイルを再生成する 
     - From Electron root's root, run `script/update.py`
     - `script/build.py -c D --target=crashpad_client`
     - `script/build.py -c D --target=crashpad_handler`
