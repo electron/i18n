@@ -47,12 +47,12 @@ Electron
 
 ## `/chromium_src`
 
-`/chromium_src` 内のファイルは、そのコンテンツレイヤーの一部ではなく Chromium の断片である傾向があります。 例えば Pepper APIを実装するには、公式の Chrome が行うものと同様の配置が必要です。 関連するソースを [libcc](../glossary.md#libchromiumcontent) の一部として作成することもできますが、ほとんどの場合、すべての機能を必要とするわけではありません (いくつかはプロプライエタリな、分析的なものになる傾向があります)。そのため私たちはコードの一部を取得しました。 These could have easily been patches in libcc, but at the time when these were written the goal of libcc was to maintain very minimal patches and chromium_src changes tend to be big ones. Also, note that these patches can never be upstreamed unlike other libcc patches we maintain now.
+`/chromium_src` 内のファイルは、そのコンテンツレイヤーの一部ではなく Chromium の断片である傾向があります。 例えば Pepper APIを実装するには、公式の Chrome が行うものと同様の配置が必要です。 関連するソースを [libcc](../glossary.md#libchromiumcontent) の一部として作成することもできますが、ほとんどの場合、すべての機能を必要とするわけではありません (いくつかはプロプライエタリな、分析的なものになる傾向があります)。そのため私たちはコードの一部を取得しました。 これらは libcc のパッチにできるかもしれませんが、libcc の目的は非常に最小限のパッチを維持することであり、これらが書かれた時点で chromium_src の変更は大きなものになる傾向があります。 更に、これらのパッチは現在保守している他の libcc パッチとは異なり、決してアップストリームになることはありません。
 
 ## その他のディレクトリの構造
 
-* **script** - Scripts used for development purpose like building, packaging, testing, etc.
-* **tools** - Helper scripts used by GN files, unlike `script`, scripts put here should never be invoked by users directly.
+* **script** - ビルド、パッケージ、テストなどの開発目的に使用されるスクリプト。
+* **tools** - GN ファイルで使用されるヘルパースクリプト。`script` とは異なり、ここに配置されたスクリプトはユーザーが直接呼び出すことはできません。
 * **vendor** - 第三者の依存関係のソースコード。Chromiumのソースコードツリーと同じディレクトリがあると混乱しかねないため、`third_party`の名前を使用しません。
 * **node_modules** - ビルドに使用する第三者のnodeモジュール。
 * **out** - `ninja`の一時的な出力用ディレクトリ。
