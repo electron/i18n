@@ -42,14 +42,14 @@
     "name": "Chinese Traditional",
     "code": "zh-TW",
     "phrases": "10017",
-    "translated": "4614",
+    "translated": "4636",
     "approved": "46",
     "words": "92907",
-    "words_translated": "23293",
+    "words_translated": "23374",
     "words_approved": "115",
     "translated_progress": 25,
     "approved_progress": 0,
-    "qa_issues": 58
+    "qa_issues": 59
   },
   {
     "name": "Czech",
@@ -211,14 +211,14 @@
     "name": "Polish",
     "code": "pl",
     "phrases": "10017",
-    "translated": "4104",
+    "translated": "4109",
     "approved": "823",
     "words": "92907",
-    "words_translated": "20185",
+    "words_translated": "20222",
     "words_approved": "5937",
     "translated_progress": 21,
     "approved_progress": 6,
-    "qa_issues": 902
+    "qa_issues": 904
   },
   {
     "name": "Portuguese, Brazilian",
