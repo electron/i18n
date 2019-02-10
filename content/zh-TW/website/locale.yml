@@ -56,7 +56,7 @@ community:
 releases:
   show_releases: "Show Releases:"
   show_only_releases_from: "Show Only Releases From:"
-  all_versions: All Versions
+  all_versions: 所有版本
   stable_releases: Stable Releases
   stable_desc: Regular, supported releases
   beta_releases: Beta Releases
@@ -193,7 +193,7 @@ landing:
   get_started: 開始使用
   fiddle:
     lead_desc: The easiest way to get started with Electron
-    create_app: Create your app
+    create_app: 建立您的應用程式
     description: Electron Fiddle lets you create and play with small Electron experiments. It greets you with a quick-start template after opening – change a few things, choose the version of Electron you want to run it with, and play around. Then, save your Fiddle either as a GitHub Gist or to a local folder. Once pushed to GitHub, anyone can quickly try your Fiddle out by just entering it in the address bar.
     explore: Explore Electron
     explore_desc: "Try Electron without installing any dependencies: Fiddle includes everything you'll need to explore the platform. It also includes examples for every API available in Electron, so if you want to quickly see what a BrowserView is or how the desktopCapturer works, Fiddle has got you covered."
