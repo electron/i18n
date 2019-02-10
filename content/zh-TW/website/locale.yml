@@ -33,7 +33,7 @@ community:
   title: Electron 社群
   description: 與其他 Electron 開發人員交流互動的相關資源。
   channels:
-    get_started: "<a href='/docs/tutorial/first-app'><b>開始使用</b></a> Electron 建立 <a href='/docs/tutorial/first-app'>Quick Start 導引</a> 應用程式。"
+    get_started: "<a href='/docs/tutorial/first-app'><b>開始使用</b></a> Electron 建立 <a href='/docs/tutorial/first-app'>Quick Start 快速入門導引</a> 應用程式。"
     updates: "追蹤 Twitter 上的 <a href='https://twitter.com/electronjs'>@electronjs</a> 並訂閱 <a href='/blog'>Blog 摘要</a>以便<a href='https://twitter.com/electronjs'><b>了解最新消息</b></a>。"
     localized_docs: "拜訪 <a href='/languages'>語言頁</a>，<a href='/languages'><b>用你的母語閱讀文件</b></a>。"
     help: "加入<a href='http://atom-slack.herokuapp.com'>atomio Slack</a>，在 <a href='https://discuss.atom.io/c/electron'>Discuss</a> 貼文或是拜訪 <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a> 可以<a href='http://atom-slack.herokuapp.com' ><b>得到幫忙與回饋</b></a>。"
@@ -58,16 +58,16 @@ releases:
   show_only_releases_from: "只顯示指定版號的版本:"
   all_versions: 所有版本
   stable_releases: 穩定版本
-  stable_desc: Regular, supported releases
+  stable_desc: 一般且受支援的版本
   beta_releases: Beta 版本
   beta_desc: 用即將到來的異動測試您的應用程式
   nightly_releases: 每日建置版
   nightly_desc: 體驗最新的功能
-  next: Next
+  next: 下一頁
   next_page: 下一頁
-  previous: Previous
+  previous: 上一頁
   previous_page: 上一頁
-  page: Page
+  page: 頁
   all_releases: 所有發行版本
   back_to_index: 回到索引
 electron_is_easy:
