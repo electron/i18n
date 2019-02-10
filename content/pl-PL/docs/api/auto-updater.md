@@ -76,7 +76,7 @@ When this API is called, the `before-quit` event is not emitted before all windo
 
 ## Metody
 
-The `autoUpdater` object has the following methods:
+Objekt `autoUpdater` ma następujące metody:
 
 ### `autoUpdater.setFeedURL(options)`
 
@@ -85,7 +85,7 @@ The `autoUpdater` object has the following methods:
   * `headers` Object (optional) *macOS* - HTTP request headers.
   * `serverType` String (optional) *macOS* - Either `json` or `default`, see the [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README for more information.
 
-Sets the `url` and initialize the auto updater.
+Ustawia `url` i inicjalizuje auto-updater.
 
 ### `autoUpdater.getFeedURL()`
 
