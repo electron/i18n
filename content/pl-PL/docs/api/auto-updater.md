@@ -38,7 +38,7 @@ Zwraca:
 
 * `error` Error
 
-Emitted when there is an error while updating.
+Emitowane kiedy podczas aktualizacji wystąpi błąd.
 
 ### Zdarzenie: 'checking-for-update'
 
@@ -50,7 +50,7 @@ Emitted when there is an available update. The update is downloaded automaticall
 
 ### Zdarzenie: 'update-not-available'
 
-Emitted when there is no available update.
+Emitowane kiedy nie ma dostępnej aktualizacji.
 
 ### Zdarzenie: 'update-downloaded'
 
@@ -62,7 +62,7 @@ Zwraca:
 * `releaseDate` Date
 * `updateURL` String
 
-Emitted when an update has been downloaded.
+Emitowane kiedy aktualizacja zostaje pobrana.
 
 On Windows only `releaseName` is available.
 
