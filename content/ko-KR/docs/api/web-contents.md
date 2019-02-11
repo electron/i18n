@@ -360,7 +360,7 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 * `callback` 함수 
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list.
 
-Emitted when a client certificate is requested.
+클라이언트의 인증서가 요구될 때 발생합니다.
 
 The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
