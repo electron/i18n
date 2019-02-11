@@ -1,4 +1,4 @@
-## 类：TouchBarButton
+## 类: TouchBarButton
 
 > 为mac os应用在touch bar中创建一个按钮组件
 
