@@ -39,9 +39,9 @@ Registering a scheme as standard, will allow relative and absolute resources to 
 For example when you load following page with custom protocol without registering it as standard scheme, the image will not be loaded because non-standard schemes can not recognize relative URLs:
 
 ```html
-&lt;body&gt;
-  &lt;img src='test.png'&gt;
-&lt;/body&gt;
+<body>
+  <img src='test.png'>
+</body>
 ```
 
 Registering a scheme as standard will allow access to files through the [FileSystem API](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem). Otherwise the renderer will throw a security error for the scheme.
