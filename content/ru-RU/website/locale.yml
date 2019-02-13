@@ -54,20 +54,20 @@ community:
   awesome_notice: Этот список генерируется из репозитория <a href="https://github.com/sindresorhus/awesome-electron">Awesome Electron от @sindresorhus</a>. <br> Что-то пропустили? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Сделайте pull request</a>.
   meetup_notice: Чтобы добавить встречу, отредактируйте <code>data/meetups.json</code> и <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">сделайте pull request</a>.
 releases:
-  show_releases: "Show Releases:"
-  show_only_releases_from: "Show Only Releases From:"
-  all_versions: All Versions
-  stable_releases: Stable Releases
-  stable_desc: Regular, supported releases
-  beta_releases: Beta Releases
-  beta_desc: Test your app with upcoming changes
-  nightly_releases: Nightly Releases
+  show_releases: "Выбор релизов:"
+  show_only_releases_from: "Отображать релизы от:"
+  all_versions: Все версии
+  stable_releases: Стабильные релизы
+  stable_desc: Регулярные релизы с поддержкой
+  beta_releases: Бета-релизы
+  beta_desc: Проверьте ваше приложение с учетом будущих изменений
+  nightly_releases: Ночные релизы
   nightly_desc: Experiment with the latest features
-  next: Next
-  next_page: Next Page
-  previous: Previous
-  previous_page: Previous Page
-  page: Page
+  next: Далее
+  next_page: Следующая страница
+  previous: Назад
+  previous_page: Прошлая страница
+  page: Страница
   all_releases: Все релизы
   back_to_index: Вернуться к содержанию
 electron_is_easy:
