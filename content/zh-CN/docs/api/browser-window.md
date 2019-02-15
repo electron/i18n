@@ -1169,7 +1169,7 @@ win.loadURL('http://localhost:8000/post', {
 
 * `visible` Boolean
 * `options` Object (可选) 
-  * `visibleOnFullScreen` Boolean (optional) *macOS* - Sets whether the window should be visible above fullscreen windows
+  * `visibleOnFullScreen` Boolean (可选) *macOS* - 设置是否窗口可以在全屏窗口之上显示。
 
 设置窗口是否在所有工作空间上可见
 
@@ -1185,7 +1185,7 @@ win.loadURL('http://localhost:8000/post', {
 
 * `ignore` Boolean
 * `options` Object (可选) 
-  * `forward` Boolean (optional) *macOS* *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. 仅当` ignore </ 0>为 true 时才被使用。 如果 <code>ignore` 为 false, 转发始终是禁用的，不管这个值是什么。
+  * `forward` Boolean (可选) *macOS* *Windows* - 如果为 true, 传递鼠标移动消息给 Chromium，鼠标相关事件将可用，如 `mouseleave`。 仅当` ignore </ 0>为 true 时才被使用。 如果 <code>ignore` 为 false, 转发始终是禁用的，不管这个值是什么。
 
 忽略窗口内的所有鼠标事件
 
