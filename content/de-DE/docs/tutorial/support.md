@@ -1,6 +1,6 @@
 # Electron Support
 
-## Finding Support
+## Hilfe finden
 
 If you have a security concern, please see the [security document](../../SECURITY.md).
 
@@ -55,6 +55,6 @@ The prebuilt `ia32` (`i686`) and `x64` (`amd64`) binaries of Electron are built 
 
 Ob die vorkompilierten Dateien auf einer Distribution laufen, hängt davon ab, ob die Distribution die Bibliotheken enthält, die auf der Build-Plattform verwendet wurden. Deshalb ist nur für Ubuntu 12.04 garantiert, dass es funktioniert, aber die folgenden Plattformen wurden ebenfalls bestätigt, kompatibel mit den vorkompilierten Dateien zu sein:
 
-* Ubuntu 12.04 and newer
+* Ubuntu 12.04 und neuer
 * Fedora 21
 * Debian 8
