@@ -1,4 +1,4 @@
-# Deine erste Electron Anwendung
+# Deine erste Electron App
 
 Electron ermöglicht Ihnen Desktop-Applikationen mittels reinem JavaScript zu erstellen. Es wird eine Laufzeitumgebung mit umfangreichen nativen (auf Betriebssystemebene) APIs bereitgestellt. Sie können sich Electron als eine Variante der Node.js-Runtime vorstellen, die sich auf Desktop-Apps anstatt auf Webserver fokussiert.
 
@@ -84,7 +84,7 @@ function createWindow () {
   // Erstelle das Browser-Fenster.
   let win = new BrowserWindow({ width: 800, height: 600 })
 
-  // and load the index.html of the app.
+  // und lade die index.html der App.
   win.loadFile('index.html')
 }
 
