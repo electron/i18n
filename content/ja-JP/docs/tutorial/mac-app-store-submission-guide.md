@@ -1,8 +1,8 @@
-# Mac App Storeへの公開ガイド
+# Mac App Store への公開ガイド
 
 v0.34.0から、ElectronはMac App Store (MAS) にパッケージ化したアプリを登録することができます。このガイドでは、MASビルド用の制限とアプリを登録する方法についての情報を提供します。
 
-**Note:** Submitting an app to Mac App Store requires enrolling in the [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), which costs money.
+**注意:** Mac App Store にアプリを登録するには、[Apple Developer Program](https://developer.apple.com/support/compare-memberships/) に登録する必要があります。これには費用がかかります。
 
 ## アプリを登録する方法
 
@@ -20,7 +20,7 @@ Mac App Store にアプリを提出するには、Appleからまず証明書を�
 
 準備作業を終えた後は、[アプリケーションの配布](application-distribution.md)に従って、アプリをパッケージ化して、アプリの署名に進みます。
 
-First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which has your Team ID as its value:
+まず、アプリの `Info.plist` に、チーム ID を値として持つ `ElectronTeamID` キーを以下のように追加する必要があります。
 
 ```xml
 <plist version="1.0">
@@ -32,7 +32,7 @@ First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which 
 </plist>
 ```
 
-Then, you need to prepare three entitlements files.
+それから、3つの資格ファイルを準備する必要があります。
 
 `child.plist`:
 
@@ -77,23 +77,23 @@ Then, you need to prepare three entitlements files.
 </plist>
 ```
 
-`TEAM_ID`をあなたのチーム IDに入れ替えて、`your.bundle.id` をアプリのバンドル ID に置き換えてください。
+`TEAM_ID` をあなたのチーム ID に置き換えて、`your.bundle.id` をアプリのバンドル ID に置き換えてください。
 
 そして、次のスクリプトでアプリを署名します。
 
 ```sh
 #!/bin/bash
 
-# Name of your app.
+# アプリの名前。
 APP="YourApp"
-# The path of your app to sign.
+# 署名するアプリのパス。
 APP_PATH="/path/to/YourApp.app"
-# The path to the location you want to put the signed package.
+# 署名付きパッケージを配置する場所へのパス。
 RESULT_PATH="~/Desktop/$APP.pkg"
-# The name of certificates you requested.
+# リクエストした証明書の名前
 APP_KEY="3rd Party Mac Developer Application: Company Name (APPIDENTITY)"
 INSTALLER_KEY="3rd Party Mac Developer Installer: Company Name (APPIDENTITY)"
-# The path of your plist files.
+# plist ファイルのパス。
 CHILD_PLIST="/path/to/child.plist"
 PARENT_PLIST="/path/to/parent.plist"
 LOGINHELPER_PLIST="/path/to/loginhelper.plist"
@@ -114,13 +114,13 @@ codesign -s "$APP_KEY" -f --entitlements "$PARENT_PLIST" "$APP_PATH"
 productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RESULT_PATH"
 ```
 
-macOSでのアプリのサンドボックス化を行うことが初めてなら、Appleの[Enabling App Sandbox](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html)を通読し、基本的な考え方を確認してから、権利ファイル(entitlement file) にアプリに必要なパーミッションキーを追加します。
+macOS でのアプリのサンドボックス化を行うことが初めてなら、Apple の [Enabling App Sandbox](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html) を通読し、基本的な考え方を確認してから、権利ファイル (entitlement file) へアプリに必要なパーミッションキーを追加します。
 
-署名を手動で行う代わりに、[electron-osx-sign](https://github.com/electron-userland/electron-osx-sign)モジュールを使用することも出来ます。
+署名を手動で行う代わりに、[electron-osx-sign](https://github.com/electron-userland/electron-osx-sign) モジュールを使用することも出来ます。
 
 #### ネイティブ モジュールに署名
 
-Native modules used in your app also need to be signed. If using electron-osx-sign, be sure to include the path to the built binaries in the argument list:
+アプリで使用されているネイティブモジュールも署名する必要があります。electron-osx-sign を使用している場合は、必ず引数リストに構築済みバイナリへのパスを含めてください。
 
 ```sh
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
