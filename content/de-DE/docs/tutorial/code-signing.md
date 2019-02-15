@@ -14,7 +14,7 @@ While it is possible to distribute unsigned apps, it is not recommended. For exa
 
 If you are building an Electron app that you intend to package and distribute, it should be code signed. The Mac and Windows app stores do not allow unsigned apps.
 
-# Signing macOS builds
+# Signierung von macOS builds
 
 Before signing macOS builds, you must do the following:
 
