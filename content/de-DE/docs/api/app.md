@@ -213,9 +213,9 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         * `error` String - Der error code
         * `certificate` [Certificate](structures/certificate.md)
         * `callback` Funktion 
-          * `isTrusted` Boolean - Whether to consider the certificate as trusted
+          * `isTrusted` Boolean - Gibt an ob das Zertifikat als vertrauenswürdig angesehen werden soll
         
-        Emitted when failed to verify the `certificate` for `url`, to trust the certificate you should prevent the default behavior with `event.preventDefault()` and call `callback(true)`.
+        Emittiert wenn die Verifizierung des `certificate` für die `url` fehlschlägt, um dem Zertifikat dennoch zu vertrauen müssen die das normale Verhalten abschalten mit `event.preventDefault()` und `callback(true)` aufrufen.
         
         ```javascript
         const { app } = require('electron')
@@ -235,14 +235,14 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         Rückgabewert:
         
-        * ` Ereignis </ 0>  Ereignis</li>
-<li><code>webContents` [WebContents](web-contents.md)
+        * `event` Event
+        * `webContents` [WebContents](web-contents.md)
         * `url` URL
         * `certificateList` [Certificate[]](structures/certificate.md)
         * `callback` Funktion 
           * `certificate` [Certificate](structures/certificate.md) (optional)
         
-        Emitted when a client certificate is requested.
+        Emittiert wenn ein Client Zertifikat angefordert wird.
         
         The `url` corresponds to the navigation entry requesting the client certificate and `callback` can be called with an entry filtered from the list. Using `event.preventDefault()` prevents the application from using the first certificate from the store.
         
@@ -259,8 +259,8 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         Rückgabewert:
         
-        * ` Ereignis </ 0>  Ereignis</li>
-<li><code>webContents` [WebContents](web-contents.md)
+        * `event` Event
+        * `webContents` [WebContents](web-contents.md)
         * `request` Object 
           * `method` String
           * `url` URL
