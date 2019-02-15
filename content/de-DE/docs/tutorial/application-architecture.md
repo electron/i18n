@@ -71,15 +71,15 @@ console.log(root)
 
 Wie Du dir bestimmt Vorstellen kannst, ist dies ein wichtiger Aspekt im Bezug auf Sicherheit, wann auch immer du Remote Inhalte lädst. Weitere Informationen und Anleitung zum Thema, laden von Remote Inhalten findest Du in unserer [Security Dokumentation](./security.md).
 
-2) Du kannst Node.js Module in deiner App verwenden. Pick your favorite npm module. npm offers currently the world's biggest repository of open-source code – the ability to use well-maintained and tested code that used to be reserved for server applications is one of the key features of Electron.
+2) Du kannst Node.js Module in deiner App verwenden. Pick dir einfach dein lieblings npm Modul. npm bietet zur Zeit das Welt größte Repository mit Open-Source-Code an. Die Möglichkeit gut gepflegten und getesteten Code zu verwenden, der bisher nur für Server Anwendungen zur Verfügung stand, ist eine der wichtigsten Eigenschaften von Electron.
 
-As an example, to use the official AWS SDK in your application, you'd first install it as a dependency:
+Um zum Beispiel die offizielle AWS SDK in Deiner Anwendung zu verwenden, installierst du diese zuerst einmal als Dependency:
 
 ```sh
 npm install --save aws-sdk
 ```
 
-Then, in your Electron app, require and use the module as if you were building a Node.js application:
+Dann, in deiner Electron App bindest du das Modul ein per require, genauso wie du es ein einer Node.js App tun würdest:
 
 ```javascript
 // A ready-to-use S3 Client
