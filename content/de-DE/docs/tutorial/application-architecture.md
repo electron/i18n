@@ -35,25 +35,25 @@ Allen Electron-APIs ist ein Prozesstyp zugeordnet. Viele von ihnen können nur a
 Ein Fenster in Electron wird z.B. mit dem `BrowserWindow`-Klasse erzeugt. Sie ist nur im Main-Prozess verfügbar.
 
 ```javascript
-// Dies funktioniert im Hauptprozess, wird aber
+// Dies funktioniert im Main-Prozess, wird aber
 // in einem Renderer-Prozess `undefined` sein:
 const { BrowserWindow } = require('electron')
 
 const win = new BrowserWindow()
 ```
 
-Since communication between the processes is possible, a renderer process can call upon the main process to perform tasks. Electron comes with a module called `remote` that exposes APIs usually only available on the main process. In order to create a `BrowserWindow` from a renderer process, we'd use the remote as a middle-man:
+Dadurch dass Kommunikation zwischen Prozessen möglich ist, kann ein Render-Prozess den Main-Prozess auffordern einen Task auszuführen. In Electron gibt es ein Modul genannt `remote` welches APIs bereitstellt welche gewöhnlich nur dem Main-Prozess zur Verfügung stehen. Um ein `BrowserWindow` aus einem Render-Prozess heraus zu erstellen, verwenden wir <0>remote</0> als Mittelsmann:
 
 ```javascript
-// This will work in a renderer process, but be `undefined` in the
-// main process:
+// Dies funtioniert in Render-Prozess, gibt aber `undefined` 
+// im Main-Prozess zurück:
 const { remote } = require('electron')
 const { BrowserWindow } = remote
 
 const win = new BrowserWindow()
 ```
 
-## Node.js APIs benutzen
+## Node.js APIs verwenden
 
 Electron exposes full access to Node.js both in the main and the renderer process. This has two important implications:
 
