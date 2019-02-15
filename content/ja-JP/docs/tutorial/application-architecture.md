@@ -20,7 +20,7 @@ Electron はウェブページを表示するために Chromium を使用して�
 
 > #### 余談: プロセス間通信
 > 
-> In Electron, we have several ways to communicate between the main process and renderer processes, such as [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. また、[ウェブページ間でデータを共有する方法](../faq.md#how-to-share-data-between-web-pages) についての FAQ エントリもあります。
+> Electronでは、メインプロセスとレンダラープロセスの間でやり取りする方法がいくつかあります。メッセージ送信用の [`ipcRenderer`](../api/ipc-renderer.md) および [`ipcMain`](../api/ipc-main.md) モジュールや、RPC スタイルでの通信用の [remote](../api/remote.md) モジュールなどがあります。 また、[ウェブページ間でデータを共有する方法](../faq.md#how-to-share-data-between-web-pages) についての FAQ エントリもあります。
 
 ## Electron API を使用する
 
@@ -30,7 +30,7 @@ Electron は、メインプロセスとレンダラープロセスの両方で�
 const electron = require('electron')
 ```
 
-すべての Electron API にはプロセスタイプが割り当てられています。 それらの多くはメインプロセスからのみ使用することができ、レンダラープロセスからのものや、両方からのものなどがあります。 The documentation for each individual API will state which process it can be used from.
+すべての Electron API にはプロセスタイプが割り当てられています。 それらの多くはメインプロセスからのみ使用することができ、レンダラープロセスからのものや、両方からのものなどがあります。 個々それぞれの API のドキュメントには、それらがどのプロセスで使用できるかが記載されています。
 
 たとえば、Electronのウィンドウは `BrowserWindow` クラスを使用して作成されます。 これはメインプロセスでのみ利用可能です。
 
@@ -79,7 +79,7 @@ console.log(root)
 npm install --save aws-sdk
 ```
 
-Then, in your Electron app, require and use the module as if you were building a Node.js application:
+そして、Electron アプリで Node.js アプリケーションを構築しているように、モジュールを require して使用します。
 
 ```javascript
 // S3 クライアントの準備
@@ -88,4 +88,4 @@ const S3 = require('aws-sdk/clients/s3')
 
 重要な注意点が1つあります。ネイティブな Node.js モジュール (ネイティブコードのコンパイルが必要なモジュール) は、Electron と一緒に使用するためにコンパイルする必要があります。
 
-Node.js モジュールの大部分はネイティブでは *ありません*。 ~650.000のモジュールのうち400個だけがネイティブです。 However, if you do need native modules, please consult [this guide on how to recompile them for Electron](./using-native-node-modules.md).
+Node.js モジュールの大部分はネイティブでは *ありません*。 ~650.000のモジュールのうち400個だけがネイティブです。 しかし、どうしてもネイティブモジュールが必要な場合は、[Electron を再コンパイルする方法についてのこのガイド](./using-native-node-modules.md) を参照してください。
