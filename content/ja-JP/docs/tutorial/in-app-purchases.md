@@ -25,7 +25,7 @@ Electron での開発で App 内課金をテストするには、`node_modules/e
 
 ## コード例
 
-以下は、Electron でアプリ内課金を使用する方法を示した例です。 You'll have to replace the product ids by the identifiers of the products created with iTunes Connect (the identifier of `com.example.app.product1` is `product1`). Note that you have to listen to the `transactions-updated` event as soon as possible in your app.
+以下は、Electron でアプリ内課金を使用する方法を示した例です。 製品 ID を iTunes Connect で作成された製品の識別子で置き換える必要があります (`com.example.app.product1` の識別子は `product1` です)。 Note that you have to listen to the `transactions-updated` event as soon as possible in your app.
 
 ```javascript
 const { inAppPurchase } = require('electron').remote
