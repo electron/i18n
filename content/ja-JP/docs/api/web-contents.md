@@ -598,6 +598,40 @@ win.loadURL('http://github.com')
 
 レンダラープロセス内で `remote.getGlobal()` が呼ばれたときに発行されます。 `event.preventDefault()` を呼ぶとグローバルの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
 
+#### Event: 'remote-get-builtin'
+
+戻り値:
+
+* `event` Event
+* `モジュール名` String
+
+レンダラープロセス内で `remote.getBuiltin()` が呼ばれたときに発行されます。 `event.preventDefault()` を呼ぶとモジュールの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
+
+#### Event: 'remote-get-current-window'
+
+戻り値:
+
+* `event` Event
+
+レンダラープロセス内で `remote.getCurrentWindow()` が呼ばれたときに発行されます。 Calling `event.preventDefault()` will prevent the object from being returned. `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
+
+#### Event: 'remote-get-current-web-contents'
+
+戻り値:
+
+* `event` Event
+
+レンダラープロセス内で `remote.getCurrentWebContents()` が呼ばれたときに発行されます。 Calling `event.preventDefault()` will prevent the object from being returned. `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
+
+#### Event: 'remote-get-guest-web-contents'
+
+戻り値:
+
+* `event` Event
+* `guestWebContents` [WebContents](web-contents.md)
+
+Emitted when `<webview>.getWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
+
 ### インスタンスメソッド
 
 #### `contents.loadURL(url[, options])`
@@ -1190,7 +1224,7 @@ app.on('ready', () => {
 #### `contents.enableDeviceEmulation(parameters)`
 
 * `parameters` Object 
-  * `screenPosition` String - エミュレートする画面のタイプの指定 (省略値: `desktop、`): 
+  * `screenPosition` String - エミュレートする画面のタイプの指定 (省略値: `desktop`): 
     * `desktop` - デスクトップ画面タイプ.
     * `mobile` - モバイル画面タイプ.
   * `screenSize` [Size](structures/size.md) - エミュレートされる画面サイズの設定 (screenPosition == mobile).
@@ -1360,6 +1394,10 @@ V8ヒープを取得して、`filePath`にそれを保存します。
 * `allowed` Boolean
 
 ページがバックグラウンドになったときにこの WebContents がアニメーションとタイマーを抑制するかどうかを制御します。 これは Page Visibility API にも影響します。
+
+#### `contents.getType()`
+
+Returns `String` - the type of the webContent. Can be `backgroundPage`, `window`, `browserView`, `remote`, `webview` or `offscreen`.
 
 ### インスタンスプロパティ
 
