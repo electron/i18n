@@ -91,7 +91,7 @@ function createWindow () {
 app.on('ready', createWindow)
 ```
 
-Die `main.js` sollte Fenster erzeugen und alle System-Events behandeln, die in Deiner App auftreten könnten. Eine ausführlichere Version des obigen Beispiels kann Entwicklertools öffnen, das Fenster, das geschlossen wird, behandeln oder Fenster unter MacOS neu erstellen, wenn der Benutzer auf das Symbol der Anwendung im Dock klickt.
+Die `main.js` sollte Fenster erzeugen und alle System-Events behandeln, die in Deiner App auftreten könnten. Eine ausführlichere Version des obigen Beispiels könnte die Developer Tools öffnen, das schließen eines Fenster handeln oder Fenster unter MacOS wieder herstellen, wenn der Benutzer auf das App Icon im Dock klickt.
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
