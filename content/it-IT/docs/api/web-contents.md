@@ -176,7 +176,7 @@ Calling `event.preventDefault()` will prevent the navigation (not just the redir
 
 #### Event: 'did-redirect-navigation'
 
-Restituiti:
+Restituisce:
 
 * `event` Event
 * `url` Stringa
@@ -598,6 +598,40 @@ Restituisce:
 
 Emitted when `remote.getGlobal()` is called in the renderer process. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
 
+#### Event: 'remote-get-builtin'
+
+Restituisce:
+
+* `event` Event
+* `moduleName` String
+
+Emitted when `remote.getBuiltin()` is called in the renderer process. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+
+#### Event: 'remote-get-current-window'
+
+Restituisce:
+
+* `event` Event
+
+Emitted when `remote.getCurrentWindow()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+
+#### Event: 'remote-get-current-web-contents'
+
+Restituisce:
+
+* `event` Event
+
+Emitted when `remote.getCurrentWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+
+#### Event: 'remote-get-guest-web-contents'
+
+Restituisce:
+
+* `event` Event
+* `guestWebContents` [WebContents](web-contents.md)
+
+Emitted when `<webview>.getWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+
 ### Metodi Istanza
 
 #### `contents.loadURL(url[, opzioni])`
@@ -898,7 +932,7 @@ Executes the editing command `replace` in web page.
 
 #### `contents.replaceMisspelling(text)`
 
-* `testo` Stringa
+* `text` String
 
 Executes the editing command `replaceMisspelling` in web page.
 
@@ -1360,6 +1394,10 @@ Takes a V8 heap snapshot and saves it to `filePath`.
 * `allowed` Boolean
 
 Controls whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
+
+#### `contents.getType()`
+
+Returns `String` - the type of the webContent. Can be `backgroundPage`, `window`, `browserView`, `remote`, `webview` or `offscreen`.
 
 ### Proprietà Istanza
 
