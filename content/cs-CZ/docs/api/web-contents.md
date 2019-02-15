@@ -598,6 +598,40 @@ Vrací:
 
 Emitted when `remote.getGlobal()` is called in the renderer process. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
 
+#### Event: 'remote-get-builtin'
+
+Vrací:
+
+* `event` Event
+* `moduleName` String
+
+Emitted when `remote.getBuiltin()` is called in the renderer process. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+
+#### Event: 'remote-get-current-window'
+
+Vrací:
+
+* `event` Event
+
+Emitted when `remote.getCurrentWindow()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+
+#### Event: 'remote-get-current-web-contents'
+
+Vrací:
+
+* `event` Event
+
+Emitted when `remote.getCurrentWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+
+#### Event: 'remote-get-guest-web-contents'
+
+Vrací:
+
+* `event` Event
+* `guestWebContents` [WebContents](web-contents.md)
+
+Emitted when `<webview>.getWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+
 ### Instance Methods
 
 #### `contents.loadURL(url[, options])`
@@ -1271,7 +1305,7 @@ Sets the `item` as dragging item for current drag-drop operation, `file` is the 
   * `HTMLOnly` - Save only the HTML of the page.
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
-* `callback` Funkce - `(error) => {}`. 
+* `callback` Function - `(error) => {}`. 
   * `error` Error
 
 Returns `Boolean` - true if the process of saving page has been initiated successfully.
@@ -1360,6 +1394,10 @@ Takes a V8 heap snapshot and saves it to `filePath`.
 * `allowed` Boolean
 
 Controls whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
+
+#### `contents.getType()`
+
+Returns `String` - the type of the webContent. Can be `backgroundPage`, `window`, `browserView`, `remote`, `webview` or `offscreen`.
 
 ### Instance Properties
 
