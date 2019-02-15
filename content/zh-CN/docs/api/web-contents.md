@@ -598,12 +598,46 @@ Emitted when `remote.require()` is called in the renderer process. 调用 `event
 
 Emitted when `remote.getGlobal()` is called in the renderer process. 调用 `event.preventDefault()` 将阻止全局返回。 可以通过设置 `event.returnValue` 返回自定义值。
 
+#### Event: 'remote-get-builtin'
+
+返回:
+
+* `event` Event
+* `moduleName` String
+
+Emitted when `remote.getBuiltin()` is called in the renderer process. 调用 `event.preventDefault()` 将阻止模块返回。 可以通过设置 `event.returnValue` 返回自定义值。
+
+#### Event: 'remote-get-current-window'
+
+返回:
+
+* `event` Event
+
+Emitted when `remote.getCurrentWindow()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. 可以通过设置 `event.returnValue` 返回自定义值。
+
+#### Event: 'remote-get-current-web-contents'
+
+返回:
+
+* `event` Event
+
+Emitted when `remote.getCurrentWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. 可以通过设置 `event.returnValue` 返回自定义值。
+
+#### Event: 'remote-get-guest-web-contents'
+
+返回:
+
+* `event` Event
+* `guestWebContents` [WebContents](web-contents.md)
+
+Emitted when `<webview>.getWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. 可以通过设置 `event.returnValue` 返回自定义值。
+
 ### 实例方法
 
 #### `contents.loadURL(url[, options])`
 
 * `url` String
-* `options` Object (可选) 
+* `参数` Object (可选) 
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
   * `userAgent` String (可选) - 发起请求的 userAgent.
   * `extraHeaders` String (optional) - Extra headers separated by "\n".
@@ -621,7 +655,7 @@ webContents.loadURL('https://github.com', options)
 #### `contents.loadFile(filePath[, options])`
 
 * `filePath` String
-* `options` Object (可选) 
+* `参数` Object (可选) 
   * `query` Object (optional) - Passed to `url.format()`.
   * `search` String (optional) - Passed to `url.format()`.
   * `hash` String (optional) - Passed to `url.format()`.
@@ -636,7 +670,7 @@ Loads the given file in the window, `filePath` should be a path to an HTML file 
 |   - index.html
 ```
 
-需要运行以下代码：
+Would require code like this
 
 ```js
 win.loadFile('src/index.html')
@@ -650,7 +684,7 @@ Initiates a download of the resource at `url` without navigating. The `will-down
 
 #### `contents.getURL()`
 
-Returns `String` - 当前页面的URL.
+Returns `String` - The URL of the current web page.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -663,23 +697,23 @@ console.log(currentURL)
 
 #### `contents.getTitle()`
 
-返回 `String` - 当前页面的标题.
+Returns `String` - The title of the current web page.
 
 #### `contents.isDestroyed()`
 
-返回 `Boolean` -判断页面是否被销毁
+Returns `Boolean` - Whether the web page is destroyed.
 
 #### `contents.focus()`
 
-页面聚焦
+Focuses the web page.
 
 #### `contents.isFocused()`
 
-返回 `Boolean` - 判断页面是否聚焦
+Returns `Boolean` - Whether the web page is focused.
 
 #### `contents.isLoading()`
 
-返回 `Boolean` - 判断页面是否正在加载资源
+Returns `Boolean` - Whether web page is still loading resources.
 
 #### `contents.isLoadingMainFrame()`
 
@@ -695,19 +729,19 @@ Stops any pending navigation.
 
 #### `contents.reload()`
 
-刷新当前页面
+Reloads the current web page.
 
 #### `contents.reloadIgnoringCache()`
 
-忽略缓存强制刷新页面
+Reloads current page and ignores cache.
 
 #### `contents.canGoBack()`
 
-返回`Boolean`，是否可以返回到上一个页面
+Returns `Boolean` - Whether the browser can go back to previous web page.
 
 #### `contents.canGoForward()`
 
-返回`Boolean` ，是否可以进入下一个页面
+Returns `Boolean` - Whether the browser can go forward to next web page.
 
 #### `contents.canGoToOffset(offset)`
 
@@ -717,15 +751,15 @@ Returns `Boolean` - Whether the web page can go to `offset`.
 
 #### `contents.clearHistory()`
 
-清除定位历史。
+Clears the navigation history.
 
 #### `contents.goBack()`
 
-使浏览器回退到上一个页面。
+Makes the browser go back a web page.
 
 #### `contents.goForward()`
 
-使浏览器前进到下一个页面。
+Makes the browser go forward a web page.
 
 #### `contents.goToIndex(index)`
 
@@ -747,17 +781,17 @@ Returns `Boolean` - Whether the renderer process has crashed.
 
 * `userAgent` String
 
-重写该页面的user agent
+Overrides the user agent for this web page.
 
 #### `contents.getUserAgent()`
 
-返回 `String` - 当前页面的user agent.
+Returns `String` - The user agent for this web page.
 
 #### `contents.insertCSS(css)`
 
 * `css` String
 
-为当前页面注入样式
+Injects CSS into the current web page.
 
 #### `contents.executeJavaScript(code[, userGesture, callback])`
 
@@ -781,7 +815,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *实验功能*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
 
 * `ignore` Boolean
 
@@ -791,11 +825,11 @@ Ignore application menu shortcuts while this web contents is focused.
 
 * `muted` Boolean
 
-使当前页面音频静音
+Mute the audio on the current web page.
 
 #### `contents.isAudioMuted()`
 
-返回 `Boolean` -判断页面是否被静音
+Returns `Boolean` - Whether this page has been muted.
 
 #### `contents.isCurrentlyAudible()`
 
@@ -822,7 +856,7 @@ Sends a request to get current zoom factor, the `callback` will be called with `
 
 #### `contents.getZoomLevel(callback)`
 
-* `callback` Function 
+* `callback` Function - 回调函数 
   * `zoomLevel` Number
 
 Sends a request to get current zoom level, the `callback` will be called with `callback(zoomLevel)`.
@@ -849,19 +883,19 @@ contents.setVisualZoomLevelLimits(1, 3)
 
 #### `contents.undo()`
 
-在页面中执行`undo`编辑命令。
+Executes the editing command `undo` in web page.
 
 #### `contents.redo()`
 
-在页面中执行` redo `编辑命令。
+Executes the editing command `redo` in web page.
 
 #### `contents.cut()`
 
-在页面中执行` cut `编辑命令。
+Executes the editing command `cut` in web page.
 
 #### `contents.copy()`
 
-在页面中执行` copy `编辑命令。
+Executes the editing command `copy` in web page.
 
 #### `contents.copyImageAt(x, y)`
 
@@ -872,35 +906,35 @@ Copy the image at the given position to the clipboard.
 
 #### `contents.paste()`
 
-在页面中执行` paste `编辑命令。
+Executes the editing command `paste` in web page.
 
 #### `contents.pasteAndMatchStyle()`
 
-在页面中执行` pasteAndMatchStyle `编辑命令。
+Executes the editing command `pasteAndMatchStyle` in web page.
 
 #### `contents.delete()`
 
-在页面中执行` delete `编辑命令。
+Executes the editing command `delete` in web page.
 
 #### `contents.selectAll()`
 
-在页面中执行` selectAll `编辑命令。
+Executes the editing command `selectAll` in web page.
 
 #### `contents.unselect()`
 
-在页面中执行` unselect `编辑命令。
+Executes the editing command `unselect` in web page.
 
 #### `contents.replace(text)`
 
 * `text` String
 
-在页面中执行` replace `编辑命令。
+Executes the editing command `replace` in web page.
 
 #### `contents.replaceMisspelling(text)`
 
 * `text` String
 
-在页面中执行` replaceMisspelling `编辑命令。
+Executes the editing command `replaceMisspelling` in web page.
 
 #### `contents.insertText(text)`
 
@@ -911,7 +945,7 @@ Copy the image at the given position to the clipboard.
 #### `contents.findInPage(text[, options])`
 
 * `text` String - 要搜索的内容，必须非空。
-* `options` Object (可选) 
+* `参数` Object (可选) 
   * `forward` Boolean (可选) -向前或向后搜索，默认为 `true`。
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -951,27 +985,27 @@ Captures a snapshot of the page within `rect`. Upon completion `callback` will b
 
 #### `contents.hasServiceWorker(callback)`
 
-* `callback` Function 
+* `callback` Function - 回调函数 
   * `hasWorker` Boolean
 
 Checks if any ServiceWorker is registered and returns a boolean as response to `callback`.
 
 #### `contents.unregisterServiceWorker(callback)`
 
-* `callback` Function 
+* `callback` Function - 回调函数 
   * `success` Boolean
 
 Unregisters any ServiceWorker if present and returns a boolean as response to `callback` when the JS promise is fulfilled or false when the JS promise is rejected.
 
 #### `contents.getPrinters()`
 
-获取系统打印机列表
+Get the system printer list.
 
-返回 [`PrinterInfo[]`](structures/printer-info.md).
+Returns [`PrinterInfo[]`](structures/printer-info.md).
 
 #### `contents.print([options], [callback])`
 
-* `options` Object (可选) 
+* `参数` Object (可选) 
   * `silent` Boolean (可选) - 不询问用户打印信息，默认为 `false`。
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
@@ -986,7 +1020,7 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
 
 #### `contents.printToPDF(options, callback)`
 
-* `options` Object 
+* `options` Object - 过滤器对象，包含过滤参数 
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
@@ -1115,7 +1149,7 @@ app.once('ready', () => {
 
 #### `contents.openDevTools([options])`
 
-* `options` Object (可选) 
+* `参数` Object (可选) 
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
 
 Opens the devtools.
@@ -1124,26 +1158,26 @@ When `contents` is a `<webview>` tag, the `mode` would be `detach` by default, e
 
 #### `contents.closeDevTools()`
 
-关闭开发者工具。
+Closes the devtools.
 
 #### `contents.isDevToolsOpened()`
 
-返回`Boolean` - 开发者工具是否处于开启状态。
+Returns `Boolean` - Whether the devtools is opened.
 
 #### `contents.isDevToolsFocused()`
 
-返回`Boolean` - 开发者工具是否处于当前执行状态。
+Returns `Boolean` - Whether the devtools view is focused .
 
 #### `contents.toggleDevTools()`
 
-切换开发工具
+Toggles the developer tools.
 
 #### `contents.inspectElement(x, y)`
 
 * `x` Integer
 * `y` Integer
 
-开始检查位于(`x`, `y`) 的元素。
+Starts inspecting element at position (`x`, `y`).
 
 #### `contents.inspectServiceWorker()`
 
@@ -1189,7 +1223,7 @@ app.on('ready', () => {
 
 #### `contents.enableDeviceEmulation(parameters)`
 
-* `parameters` Object 
+* `parameters` Object - 过滤器对象，包含过滤参数 
   * `screenPosition` String - Specify the screen type to emulate (default: `desktop`): 
     * `desktop` - Desktop screen type.
     * `mobile` - Mobile screen type.
@@ -1199,15 +1233,15 @@ app.on('ready', () => {
   * `viewSize` [Size](structures/size.md) - Set the emulated view size (empty means no override)
   * `scale` Float - Scale of emulated view inside available space (not in fit to view mode) (default: `1`).
 
-允许设备模拟给定参数。
+Enable device emulation with the given parameters.
 
 #### `contents.disableDeviceEmulation()`
 
-禁止`webContents.enableDeviceEmulation`允许的模拟设备
+Disable device emulation enabled by `webContents.enableDeviceEmulation`.
 
 #### `contents.sendInputEvent(event)`
 
-* `event` Object 
+* `event` Object - 过滤器对象，包含过滤参数 
   * `type` String (**required**) - The type of the event, can be `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel`, `mouseMove`, `keyDown`, `keyUp` or `char`.
   * `modifiers` String[] - An array of modifiers of the event, can include `shift`, `control`, `alt`, `meta`, `isKeypad`, `isAutoRepeat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsLock`, `numLock`, `left`, `right`.
 
@@ -1228,7 +1262,7 @@ For mouse events, the `event` object also have following properties:
 * `movementY` Integer
 * `clickCount` Integer
 
-`mouseWheel`事件的`event`对象还有下列属性：
+For the `mouseWheel` event, the `event` object also have following properties:
 
 * `deltaX` Integer
 * `deltaY` Integer
@@ -1241,7 +1275,7 @@ For mouse events, the `event` object also have following properties:
 
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
-* ` onlyDirty ` Boolean (可选) - 默认值为 ` false `.
+* `onlyDirty` Boolean (optional) - Defaults to `false`.
 * `callback` Function - 回调函数 
   * `image` [NativeImage](native-image.md)
   * `dirtyRect` [Rectangle](structures/rectangle.md)
@@ -1258,7 +1292,7 @@ End subscribing for frame presentation events.
 
 #### `contents.startDrag(item)`
 
-* `item` Object 
+* `item` Object - 过滤器对象，包含过滤参数 
   * `file` String or `files` Array - The path(s) to the file(s) being dragged.
   * `icon` [NativeImage](native-image.md) - The image must be non-empty on macOS.
 
@@ -1271,7 +1305,7 @@ Sets the `item` as dragging item for current drag-drop operation, `file` is the 
   * `HTMLOnly` - Save only the HTML of the page.
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
-* `callback` Function - 回调函数 - `(error) => {}`. 
+* `callback` Function - `(error) => {}`. 
   * `error` Error
 
 Returns `Boolean` - true if the process of saving page has been initiated successfully.
@@ -1361,11 +1395,15 @@ Takes a V8 heap snapshot and saves it to `filePath`.
 
 Controls whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
 
+#### `contents.getType()`
+
+Returns `String` - the type of the webContent. Can be `backgroundPage`, `window`, `browserView`, `remote`, `webview` or `offscreen`.
+
 ### 实例属性
 
 #### `contents.id`
 
-`Integer`类型，代表WebContents的唯一标识（unique ID）。
+A `Integer` representing the unique ID of this WebContents.
 
 #### `contents.session`
 
@@ -1383,4 +1421,4 @@ A `WebContents` of DevTools for this `WebContents`.
 
 #### `contents.debugger`
 
-WebContents的 [Debugger](debugger.md)实例。
+A [Debugger](debugger.md) instance for this webContents.
