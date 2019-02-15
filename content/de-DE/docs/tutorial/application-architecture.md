@@ -86,6 +86,6 @@ Dann, in deiner Electron App bindest du das Modul ein per require, genauso wie d
 const S3 = require('aws-sdk/clients/s3')
 ```
 
-There is one important caveat: Native Node.js modules (that is, modules that require compilation of native code before they can be used) will need to be compiled to be used with Electron.
+Es gibt eine wichtig Einschränkung: Native Node.js Module welche compiliert werden müssen bevor sie verwendet werden können, müssen compiliert werden bevor sie in Electron verwendet werden können.
 
-The vast majority of Node.js modules are *not* native. Only 400 out of the ~650.000 modules are native. However, if you do need native modules, please consult [this guide on how to recompile them for Electron](./using-native-node-modules.md).
+Die große Mehrheit der Node.js Module sind *nicht* nativ. Nur 400 aus ca. 650,000 Modulen sind Nativ. However, if you do need native modules, please consult [this guide on how to recompile them for Electron](./using-native-node-modules.md).
