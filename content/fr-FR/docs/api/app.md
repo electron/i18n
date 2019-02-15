@@ -351,6 +351,44 @@ Retourne :
 
 Émis lorsque `remote.getGlobal()` est appelé dans le processus de rendu de `webContents`. Appeler `event.preventDefault()` empêchera le module d'être retourné. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
 
+### Event: 'remote-get-builtin'
+
+Retourne :
+
+* `event` Événement
+* `webContents` [WebContents](web-contents.md)
+* `module` String
+
+Émis lorsque `remote.getBuiltin()` est appelé dans le processus de rendu de `webContents`. Appeler `event.preventDefault()` empêchera le module d'être retourné. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
+
+### Event: 'remote-get-current-window'
+
+Retourne :
+
+* `event` Événement
+* `webContents` [WebContents](web-contents.md)
+
+Émis lorsque `remote.getCurrentWindow()` est appelé dans le processus de rendu de `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
+
+### Event: 'remote-get-current-web-contents'
+
+Retourne :
+
+* `event` Événement
+* `webContents` [WebContents](web-contents.md)
+
+Émis lorsque `remote.getCurrentWebContents()` est appelé dans le processus de rendu de `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
+
+### Event: 'remote-get-guest-web-contents'
+
+Retourne :
+
+* `event` Événement
+* `webContents` [WebContents](web-contents.md)
+* `guestWebContents` [WebContents](web-contents.md)
+
+Emitted when `<webview>.getWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
+
 ## Méthodes
 
 L'objet `app` dispose des méthodes suivantes :
@@ -359,7 +397,7 @@ L'objet `app` dispose des méthodes suivantes :
 
 ### `app.quit()`
 
-Essaye de fermer toutes les fenêtres. L’événement `before-quit` sera émis d’abord. Si toutes les fenêtres sont fermées avec succès, l’événement `will-quit` sera émis et éteindra l’application.
+Essayez de fermer toutes les fenêtres. L’événement `before-quit` sera émis d’abord. Si toutes les fenêtres sont fermées avec succès, l’événement `will-quit` sera émis et mettra fin à l’application par défaut.
 
 Cette méthode garantit que tous les écouteurs d’événements de `beforeunload` et `unload` seront correctement exécutées. Il est possible qu’une fenêtre annule la fermeture en retournant `false` dans l'écouteur d’événement `beforeunload`.
 
