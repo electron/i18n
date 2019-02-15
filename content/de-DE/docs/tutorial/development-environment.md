@@ -10,7 +10,7 @@ Installiere zuerste eine aktuelle Version von Node.js. Wir empfehlen Dir entwede
 
 Wenn der Download fertig ist, führe den Installer aus und folge dem Installationswizard.
 
-Wenn abgeschlossen, dann überprüfe dass alles funktioniert wie gewünscht. Find the macOS `Terminal` application in your `/Applications/Utilities` folder (or by searching for the word `Terminal` in Spotlight). Open up `Terminal` or another command line client of your choice and confirm that both `node` and `npm` are available:
+Wenn abgeschlossen, dann überprüfe dass alles funktioniert wie gewünscht. Die macOS `Terminal` App findest du in `/Programme/Dienstprogramme` oder mit einer Suche nach dem Wort `Terminal` in Spotlight. Öffne das `Terminal` oder ein anderen Command Line Client deiner wahl und überprüfe das beide, `node` und `npm` verfügbar sind:
 
 ```sh
 # Dieses command gibt die Node.js Version aus
@@ -20,7 +20,7 @@ node -v
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+Wenn beide commands eine Versionsnummer ausgeben, dann bist du bereit! Bevor du anfängst solltest du dir noch einen [code editor](#a-good-editor) installieren der sich für JavaScript Entwicklung eignet.
 
 ## Einrichtung auf Windows
 
@@ -40,7 +40,7 @@ node -v
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+Wenn beide commands eine Versionsnummer ausgeben, dann bist du bereit! Bevor du anfängst solltest du dir noch einen [code editor](#a-good-editor) installieren der sich für JavaScript Entwicklung eignet.
 
 ## Einrichtung auf Linux
 
