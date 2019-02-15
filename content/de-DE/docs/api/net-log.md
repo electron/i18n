@@ -9,7 +9,7 @@ const { netLog } = require('electron')
 
 app.on('ready', function () {
   netLog.startLogging('/path/to/net-log')
-  // After some network events
+  // Nach einigen Netzwerk Events
   netLog.stopLogging(path => {
     console.log('Net-logs written to', path)
   })
