@@ -11,7 +11,7 @@
   * [Schritt 6: Rebase](#step-6-rebase)
   * [Schritt 7: Teste](#step-7-test)
   * [Schritt 8: Push](#step-8-push)
-  * [Step 9: Opening the Pull Request](#step-9-opening-the-pull-request)
+  * [Schritt 9: Erstelle einen Pull Request](#step-9-opening-the-pull-request)
   * [Step 10: Discuss and Update](#step-10-discuss-and-update) 
     * [Approval and Request Changes Workflow](#approval-and-request-changes-workflow)
   * [Step 11: Landing](#step-11-landing)
@@ -21,7 +21,7 @@
 
 ### Schritt 1: Fork
 
-Fork the project [on GitHub](https://github.com/electron/electron) and clone your fork locally.
+Forke das Projekt [auf GitHub](https://github.com/electron/electron) und clone deinen fork lokal.
 
 ```sh
 $ git clone git@github.com:username/electron.git
@@ -32,13 +32,13 @@ $ git fetch upstream
 
 ### Schritt 2: Build
 
-Build steps and dependencies differ slightly depending on your operating system. See these detailed guides on building Electron locally:
+Build Schritte und Abhängigkeiten unterscheiden sich leicht, abhängig von Deinem Betriebssystem. Lies hier für eine detaillierte Anleitung zum lokalen bauen von Electron Apps:
 
-* [Building on MacOS](https://electronjs.org/docs/development/build-instructions-macos)
-* [Building on Linux](https://electronjs.org/docs/development/build-instructions-linux)
-* [Building on Windows](https://electronjs.org/docs/development/build-instructions-windows)
+* [Bauen auf MacOS](https://electronjs.org/docs/development/build-instructions-macos)
+* [Bauen auf Linux](https://electronjs.org/docs/development/build-instructions-linux)
+* [Bauen auf Windows](https://electronjs.org/docs/development/build-instructions-windows)
 
-Once you've built the project locally, you're ready to start making changes!
+Nach dem lokalen bauen des Projekts bist du startklar zum machen von Änderungen!
 
 ### Schritt 3: Branch
 
@@ -140,7 +140,7 @@ $ npm run test -match=menu
 
 The above would only run spec modules matching `menu`, which is useful for anyone who's working on tests that would otherwise be at the very end of the testing cycle.
 
-### Step 8: Push
+### Schritt 8: Push
 
 Once your commits are ready to go -- with passing tests and linting -- begin the process of opening a pull request by pushing your working branch to your fork on GitHub.
 
@@ -148,7 +148,7 @@ Once your commits are ready to go -- with passing tests and linting -- begin the
 $ git push origin my-branch
 ```
 
-### Step 9: Opening the Pull Request
+### Schritt 9: Erstelle einen Pull Request
 
 From within GitHub, opening a new pull request will present you with a template that should be filled out:
 
