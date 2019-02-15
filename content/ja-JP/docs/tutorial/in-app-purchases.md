@@ -1,8 +1,8 @@
-# In-App Purchase (macOS)
+# App内課金 (macOS)
 
-## Preparing
+## 下準備
 
-### Paid Applications Agreement
+### 有料アプリケーション契約
 
 If you haven't already, you’ll need to sign the Paid Applications Agreement and set up your banking and tax information in iTunes Connect.
 
