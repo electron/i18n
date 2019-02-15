@@ -598,6 +598,40 @@ Retourne :
 
 Emitted when `remote.getGlobal()` is called in the renderer process. Appeler `event.preventDefault()` empêchera le module d'être retourné. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
 
+#### Event: 'remote-get-builtin'
+
+Retourne :
+
+* `event` Événement
+* `module` String
+
+Emitted when `remote.getBuiltin()` is called in the renderer process. Appeler `event.preventDefault()` empêchera le module d'être retourné. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
+
+#### Event: 'remote-get-current-window'
+
+Retourne :
+
+* `event` Événement
+
+Emitted when `remote.getCurrentWindow()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
+
+#### Event: 'remote-get-current-web-contents'
+
+Retourne :
+
+* `event` Événement
+
+Emitted when `remote.getCurrentWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
+
+#### Event: 'remote-get-guest-web-contents'
+
+Retourne :
+
+* `event` Événement
+* `guestWebContents` [WebContents](web-contents.md)
+
+Emitted when `<webview>.getWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
+
 ### Méthodes d’instance
 
 #### `contents.loadURL(url[, options])`
@@ -606,7 +640,7 @@ Emitted when `remote.getGlobal()` is called in the renderer process. Appeler `ev
 * `options` Object (facultatif) 
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
   * `userAgent` String (optionnel) - Un agent utilisateur d'où provient la requête.
-  * `extraHeaders` String (optionnel) - Headers supplémentaires séparés par "\n".
+  * `extraHeaders` String (optional) - Extra headers separated by "\n".
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
   * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
 
@@ -650,7 +684,7 @@ Initiates a download of the resource at `url` without navigating. The `will-down
 
 #### `contents.getURL()`
 
-Retourne `String` - l'URL de la page web courante.
+Returns `String` - The URL of the current web page.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -663,23 +697,23 @@ console.log(currentURL)
 
 #### `contents.getTitle()`
 
-Retourne `String` - le titre de la page web courante.
+Returns `String` - The title of the current web page.
 
 #### `contents.isDestroyed()`
 
-Retourne `Boolean` - si la page web est détruite.
+Returns `Boolean` - Whether the web page is destroyed.
 
 #### `contents.focus()`
 
-Met au premier plan la page web.
+Focuses the web page.
 
 #### `contents.isFocused()`
 
-Retourne `Boolean` - si la page web est au premier plan.
+Returns `Boolean` - Whether the web page is focused.
 
 #### `contents.isLoading()`
 
-Retourne `Boolean` - Si la page web est toujours en train de charger des ressources.
+Returns `Boolean` - Whether web page is still loading resources.
 
 #### `contents.isLoadingMainFrame()`
 
@@ -687,7 +721,7 @@ Retourne `Boolean` - Si la frame principale (et pas seulement un iframe ou frame
 
 #### `contents.isWaitingForResponse()`
 
-Retourne `Boolean` - Si la page web est en attente d'une première réponse de la principale ressource de la page.
+Returns `Boolean` - Whether the web page is waiting for a first-response from the main resource of the page.
 
 #### `contents.stop()`
 
@@ -695,11 +729,11 @@ Arrête toute navigation en attente.
 
 #### `contents.reload()`
 
-Recharge la page web courante.
+Reloads the current web page.
 
 #### `contents.reloadIgnoringCache()`
 
-Recharge la page courante et ignore le cache.
+Reloads current page and ignores cache.
 
 #### `contents.canGoBack()`
 
@@ -757,7 +791,7 @@ Returns `String` - The user agent for this web page.
 
 * `css` String
 
-Injecte du CSS dans la page web actuelle.
+Injects CSS into the current web page.
 
 #### `contents.executeJavaScript(code[, userGesture, callback])`
 
@@ -965,7 +999,7 @@ Unregisters any ServiceWorker if present and returns a boolean as response to `c
 
 #### `contents.getPrinters()`
 
-Récupère la liste des imprimantes système.
+Get the system printer list.
 
 Returns [`PrinterInfo[]`](structures/printer-info.md).
 
@@ -1118,25 +1152,25 @@ app.once('ready', () => {
 * `options` Object (facultatif) 
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
 
-Ouvre les devtools.
+Opens the devtools.
 
 When `contents` is a `<webview>` tag, the `mode` would be `detach` by default, explicitly passing an empty `mode` can force using last used dock state.
 
 #### `contents.closeDevTools()`
 
-Ferme les devtools.
+Closes the devtools.
 
 #### `contents.isDevToolsOpened()`
 
-Retourne `Boolean` - Si les devtools sont ouvert.
+Returns `Boolean` - Whether the devtools is opened.
 
 #### `contents.isDevToolsFocused()`
 
-Retourne `Boolean` - Si les devtools ont le focus.
+Returns `Boolean` - Whether the devtools view is focused .
 
 #### `contents.toggleDevTools()`
 
-Active/désactive les outils développeur.
+Toggles the developer tools.
 
 #### `contents.inspectElement(x, y)`
 
@@ -1219,8 +1253,8 @@ For keyboard events, the `event` object also have following properties:
 
 For mouse events, the `event` object also have following properties:
 
-* `x` Integer (**requis**)
-* `y` Integer (**requis**)
+* `x` Integer (**required**)
+* `y` Integer (**required**)
 * `button` String - The button pressed, can be `left`, `middle`, `right`.
 * `globalX` Integer
 * `globalY` Integer
@@ -1360,6 +1394,10 @@ Takes a V8 heap snapshot and saves it to `filePath`.
 * `allowed` Boolean
 
 Controls whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
+
+#### `contents.getType()`
+
+Returns `String` - the type of the webContent. Can be `backgroundPage`, `window`, `browserView`, `remote`, `webview` or `offscreen`.
 
 ### Propriétés d'instance
 
