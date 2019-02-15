@@ -656,9 +656,9 @@ webContents.loadURL('https://github.com', options)
 
 * `filePath` String
 * `options` Object (可选) 
-  * `query` Object (optional) - Passed to `url.format()`.
-  * `search` String (optional) - Passed to `url.format()`.
-  * `hash` String (optional) - Passed to `url.format()`.
+  * `query` Object (可选) - 传递给 `url.format()`.
+  * `search` String (可选) - 传递给 `url.format()`.
+  * `hash` String (可选) - 传递给 `url.format()`.
 
 Loads the given file in the window, `filePath` should be a path to an HTML file relative to the root of your application. For instance an app structure like this:
 
