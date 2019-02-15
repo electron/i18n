@@ -646,11 +646,11 @@ win.loadURL('https://github.com')
 
 想象一个使用高清视频播放器和相关控件的普通窗口。 假假如左边缘有15px, 右边缘有25px, 在播放器下面有50px. 为了保持16:9 的长宽比 (标准的HD长宽比为1920x1080)， 我们可以调用这个api传入参数16/9 和[ 40,50 ]. 第二个参数不管网页中的额外的宽度和高度在什么位置, 只要它们存在就行. Sum any extra width and height areas you have within the overall content view.
 
-Calling this function with a value of `0` will remove any previously set aspect ratios.
+使用 `0` 调用此函数，将会移除先前设置的宽高比。
 
 #### `win.setBackgroundColor(backgroundColor)`
 
-* `backgroundColor` String - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported if `transparent` is `true`). 默认值为 `#FFF`（白色）。
+* `backgroundColor` String - 十六进制的窗口背景色，如 `#66CD00`、`#FFF`和`#80FFFFFF`。 (如果`transparent`是`true`的话，也支持alpha 通道。) 默认值为 `#FFF`（白色）。
 
 设置窗体的背景颜色。详见 [Setting `backgroundColor`](#setting-backgroundcolor)。
 
@@ -675,9 +675,9 @@ Calling this function with a value of `0` will remove any previously set aspect 
 ```javascript
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
- // set all bounds properties
+ // 设置所有的 bounds 属性
 win.setBounds({ x: 440, y: 225, width: 800, height: 600 })
- // set a single bounds property
+ // // 设置单个的 bounds 属性
 win.setBounds({ width: 200 })
  // { x: 440, y: 225, width: 200, height: 600 }
 console.log(win.getBounds())
@@ -700,7 +700,7 @@ console.log(win.getBounds())
 
 #### `win.getNormalBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md) - Contains the window bounds of the normal state
+返回 [`Rectangle`](structures/rectangle.md) - 包含正常状态下的窗口大小。
 
 **注意：**无论当前的窗口状态为：最大化、最小化或者全屏，这个方法都将得到窗口在正常显示状态下的位置信息以及大小信息。 在正常状态下，getBounds 与 getNormalBounds 得到的边界信息 [`Rectangle`](structures/rectangle.md) 是一致的。
 
