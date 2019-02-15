@@ -351,6 +351,44 @@ Dönüşler:
 
 Emitted when `remote.getGlobal()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
 
+### Event: 'remote-get-builtin'
+
+Dönüşler:
+
+* `event` Olay
+* `webContents` [webİçerikleri](web-contents.md)
+* `moduleName` String
+
+Emitted when `remote.getBuiltin()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+
+### Event: 'remote-get-current-window'
+
+Dönüşler:
+
+* `event` Olay
+* `webContents` [webİçerikleri](web-contents.md)
+
+Emitted when `remote.getCurrentWindow()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+
+### Event: 'remote-get-current-web-contents'
+
+Dönüşler:
+
+* `event` Olay
+* `webContents` [webİçerikleri](web-contents.md)
+
+Emitted when `remote.getCurrentWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+
+### Event: 'remote-get-guest-web-contents'
+
+Dönüşler:
+
+* `event` Olay
+* `webContents` [webİçerikleri](web-contents.md)
+* `guestWebContents` [WebContents](web-contents.md)
+
+Emitted when `<webview>.getWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+
 ## Metodlar
 
 `app` nesnesi aşağıdaki metodlara sahiptir:
@@ -518,8 +556,8 @@ Yakın zamandaki dokümentasyon listesini temizler.
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
 * 71/5000 `protokol` String - `://` olmadan protokolünüzün adı: Uygulamanızın `electron://` bağlantılarını işlemesini isterseniz, bu yöntemi parametre olarak `electron` ile çağırın.
-* `yolu` Dize (isteğe bağlı) *Windows* - Varsayılan değer olarak `process.execPath`
-* `args` Dizi [] (isteğe bağlı) *Windows* - Boş bir diziye varsayılan
+* `path` Dizi (isteğe bağlı) *Windows* - Varsayılana çevirir `process.execPath`
+* `args` Dizi[] (isteğe bağlı) *Windows* - Boş düzeni varsayılana ayarlar
 
 `Boolean` 'ı geri getirir - Çağrı başarılı olduğunda.
 
@@ -803,7 +841,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 <ul>
 <li><code>sayı` tam sayı</li> </ul> 
   
-  Aramanın başarılı olup olmadığı `Boole Değerine ` döndürür.
+  `Boolean` 'ı geri getirir - Çağrı başarılı olduğunda.
   
   Sayaç rozet sayısı `0` olarak ayarlandığında uygulama için geçerli ayarlar rozeti gizler.
   
