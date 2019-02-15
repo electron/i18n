@@ -403,7 +403,7 @@ This method guarantees that all `beforeunload` and `unload` event handlers are c
 
 ### `app.exit([exitCode])`
 
-* `exitCode` Integer (optional)
+* `exitCode` Integer (選用)
 
 Exits immediately with `exitCode`. `exitCode` defaults to 0.
 
@@ -411,9 +411,9 @@ All windows will be closed immediately without asking user and the `before-quit`
 
 ### `app.relaunch([options])`
 
-* `options` 物件 (選用) 
+* `options` Object (選用) 
   * `args` String[] (optional)
-  * `execPath` String (optional)
+  * `execPath` String (選用)
 
 Relaunches the app when current instance exits.
 
@@ -446,7 +446,7 @@ On Linux, focuses on the first visible window. On macOS, makes the application t
 
 ### `app.hide()` *macOS*
 
-Hides all application windows without minimizing them.
+將所有應用程式視窗隱藏但沒有將視窗縮到最小。
 
 ### `app.show()` *macOS*
 
@@ -462,7 +462,7 @@ Returns `String` - The current application directory.
 
 Returns `String` - A path to a special directory or file associated with `name`. On failure an `Error` is thrown.
 
-You can request the following paths by the name:
+您可以通過名稱請求以下路徑：
 
 * `home` User's home directory.
 * `appData` Per-user application data directory, which by default points to: 
@@ -485,11 +485,11 @@ You can request the following paths by the name:
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `options` 物件 (選用) 
+* `options` Object (選用) 
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
-    * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
+    * `large` - *Linux* 上是 48x48, *Windows* 上是 32x32，不支援 *macOS*。
 * `callback` Function 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
@@ -528,7 +528,7 @@ Usually the `name` field of `package.json` is a short lowercased name, according
 
 * `name` String
 
-Overrides the current application's name.
+重寫當前應用程式的名稱。
 
 ### `app.getLocale()`
 
@@ -548,15 +548,15 @@ Adds `path` to the recent documents list.
 
 This list is managed by the OS. On Windows you can visit the list from the task bar, and on macOS you can visit it from dock menu.
 
-### `app.clearRecentDocuments()` *macOS* *Windows*
+### `app.addRecentDocument(path)` *macOS* *Windows*
 
-Clears the recent documents list.
+清除最近使用的文件清單。
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
 * `protocol` String - The name of your protocol, without `://`. If you want your app to handle `electron://` links, call this method with `electron` as the parameter.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `path` String (選用) *Windows* - 預設值為 `process.execPath`
+* `args` String[] (選用) *Windows* - 預設值為空陣列
 
 Returns `Boolean` - Whether the call succeeded.
 
@@ -571,8 +571,8 @@ The API uses the Windows Registry and LSSetDefaultHandlerForURLScheme internally
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
 * `protocol` String - The name of your protocol, without `://`.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `path` String (選用) *Windows* - 預設值為 `process.execPath`
+* `args` String[] (選用) *Windows* - 預設值為空陣列
 
 Returns `Boolean` - Whether the call succeeded.
 
@@ -581,8 +581,8 @@ This method checks if the current executable as the default handler for a protoc
 ### `app.isDefaultProtocolClient(protocol[, path, args])`
 
 * `protocol` String - The name of your protocol, without `://`.
-* `path` String (optional) *Windows* - Defaults to `process.execPath`
-* `args` String[] (optional) *Windows* - Defaults to an empty array
+* `path` String (選用) *Windows* - 預設值為 `process.execPath`
+* `args` String[] (選用) *Windows* - 預設值為空陣列
 
 Returns `Boolean`
 
@@ -854,7 +854,7 @@ Returns `Boolean` - Whether the current desktop environment is Unity launcher.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `options` 物件 (選用) 
+* `options` Object (選用) 
   * `path` String (optional) *Windows* - The executable path to compare against. Defaults to `process.execPath`.
   * `args` String[] (optional) *Windows* - The command-line arguments to compare against. Defaults to an empty array.
 
@@ -956,13 +956,13 @@ Append an argument to Chromium's command line. The argument will be quoted corre
 
 **Note:** This will not affect `process.argv`.
 
-### `app.enableSandbox()` *Experimental* *macOS* *Windows*
+### `app.enableSandbox()` *試驗中* *macOS* *Windows*
 
 Enables full sandbox mode on the app.
 
 This method can only be called before app is ready.
 
-### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
+### `app.enableMixedSandbox()` *試驗中* *macOS* *Windows*
 
 Enables mixed sandbox mode on the app.
 
