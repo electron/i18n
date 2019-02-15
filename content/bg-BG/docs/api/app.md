@@ -351,6 +351,44 @@ Emitted when `remote.require()` is called in the renderer process of `webContent
 
 Emitted when `remote.getGlobal()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
 
+### Event: 'remote-get-builtin'
+
+Връща:
+
+* `event` Събитие
+* `webContents` [WebContents](web-contents.md)
+* `moduleName` String
+
+Emitted when `remote.getBuiltin()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+
+### Event: 'remote-get-current-window'
+
+Връща:
+
+* `event` Събитие
+* `webContents` [WebContents](web-contents.md)
+
+Emitted when `remote.getCurrentWindow()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+
+### Event: 'remote-get-current-web-contents'
+
+Връща:
+
+* `event` Събитие
+* `webContents` [WebContents](web-contents.md)
+
+Emitted when `remote.getCurrentWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+
+### Event: 'remote-get-guest-web-contents'
+
+Връща:
+
+* `event` Събитие
+* `webContents` [WebContents](web-contents.md)
+* `guestWebContents` [WebContents](web-contents.md)
+
+Emitted when `<webview>.getWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+
 ## Методи
 
 Обектът `app` има следните методи:
@@ -452,7 +490,7 @@ Returns `Promise<void>` - fulfilled when Electron is initialized. May be used as
     * `small` - 16x16
     * `normal` - 32x32
     * `large` - 48x48 на *Linux*, 32x32 на *Windows*, не се поддържа на *macOS*.
-* `callback` Функция 
+* `обратно повикване` Функция 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
 
@@ -734,7 +772,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 * `опции` Object 
   * `certificate` String - Път към файла pkcs12.
   * `password` String - Паролата на сертификата.
-* `callback` Функция 
+* `обратно повикване` Функция 
   * `result` Integer - Резултата на импортирането.
 
 Импортира сертификата в pkcs12 формат в хранилището за сертификати на платформата. `callback` is called with the `result` of import operation, a value of `0` indicates success while any other value indicates failure according to Chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
