@@ -1,25 +1,25 @@
 # Pull Requests
 
-* [Setting up your local environment](#setting-up-your-local-environment) 
-  * [Step 1: Fork](#step-1-fork)
-  * [Step 2: Build](#step-2-build)
-  * [Step 3: Branch](#step-3-branch)
-* [Making Changes](#making-changes) 
-  * [Step 4: Code](#step-4-code)
-  * [Step 5: Commit](#step-5-commit) 
-    * [Commit message guidelines](#commit-message-guidelines)
-  * [Step 6: Rebase](#step-6-rebase)
-  * [Step 7: Test](#step-7-test)
-  * [Step 8: Push](#step-8-push)
+* [Einrichtung deiner Lokalen Entwicklungsumgebung](#setting-up-your-local-environment) 
+  * [Schritt 1: Fork](#step-1-fork)
+  * [Schritt 2: Build](#step-2-build)
+  * [Schritt 3: Branch](#step-3-branch)
+* [Mache die Änderungen](#making-changes) 
+  * [Schritt 4: Code](#step-4-code)
+  * [Schritt 5: Commit](#step-5-commit) 
+    * [Schritt 5: Commit](#commit-message-guidelines)
+  * [Schritt 6: Rebase](#step-6-rebase)
+  * [Schritt 7: Teste](#step-7-test)
+  * [Schritt 8: Push](#step-8-push)
   * [Step 9: Opening the Pull Request](#step-9-opening-the-pull-request)
   * [Step 10: Discuss and Update](#step-10-discuss-and-update) 
     * [Approval and Request Changes Workflow](#approval-and-request-changes-workflow)
   * [Step 11: Landing](#step-11-landing)
   * [Continuous Integration Testing](#continuous-integration-testing)
 
-## Setting up your local environment
+## Einrichtung deiner Lokalen Entwicklungsumgebung
 
-### Step 1: Fork
+### Schritt 1: Fork
 
 Fork the project [on GitHub](https://github.com/electron/electron) and clone your fork locally.
 
@@ -30,7 +30,7 @@ $ git remote add upstream https://github.com/electron/electron.git
 $ git fetch upstream
 ```
 
-### Step 2: Build
+### Schritt 2: Build
 
 Build steps and dependencies differ slightly depending on your operating system. See these detailed guides on building Electron locally:
 
@@ -40,7 +40,7 @@ Build steps and dependencies differ slightly depending on your operating system.
 
 Once you've built the project locally, you're ready to start making changes!
 
-### Step 3: Branch
+### Schritt 3: Branch
 
 To keep your development environment organized, create local branches to hold your work. These should be branched directly off of the `master` branch.
 
@@ -48,9 +48,9 @@ To keep your development environment organized, create local branches to hold yo
 $ git checkout -b my-branch -t upstream/master
 ```
 
-## Making Changes
+## Mache die Änderungen
 
-### Step 4: Code
+### Schritt 4: Code
 
 Most pull requests opened against the `electron/electron` repository include changes to either the C/C++ code in the `atom/` folder, the JavaScript code in the `lib/` folder, the documentation in `docs/api/` or tests in the `spec/` folder.
 
@@ -109,7 +109,7 @@ A commit that has the text `BREAKING CHANGE:` at the beginning of its optional b
 
 See [conventionalcommits.org](https://conventionalcommits.org) for more details.
 
-### Step 6: Rebase
+### Schritt 6: Rebase
 
 Once you have committed your changes, it is a good idea to use `git rebase` (not `git merge`) to synchronize your work with the main repository.
 
@@ -120,7 +120,7 @@ $ git rebase upstream/master
 
 This ensures that your working branch has the latest changes from `electron/electron` master.
 
-### Step 7: Test
+### Schritt 7: Teste
 
 Bug fixes and features should always come with tests. A [testing guide](https://electronjs.org/docs/development/testing) has been provided to make the process easier. Looking at other tests to see how they should be structured can also help.
 
