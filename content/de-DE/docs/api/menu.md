@@ -53,25 +53,25 @@ Das `menu` Objekt hat die folgenden Instanz Methoden:
 #### `menu.popup(options)`
 
 * `options` Objekt (optional) 
-  * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
-  * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
-  * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
-  * `positioningItem` Number (optional) *macOS* - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
-  * `callback` Function (optional) - Called when menu is closed.
+  * `window` [BrowserWindow](browser-window.md) (optional) - Default ist das fokussierte Fenster.
+  * `x` Number (optional) - Default ist die aktuelle Mauscursor Position. Muss angegeben werden wenn `y` angegeben wurde.
+  * `y` Number (optional) - Default ist die aktuelle Mauscursor Position. Muss angegeben werden wenn `x` angegeben wurde.
+  * `positioningItem` Number (optional) *macOS* - Der Index des Menüpunktes welcher unter dem Mauscursor positioniert werden soll an spezifizierten Koordinaten. Default ist -1.
+  * `callback` Funktion (optional) - Wird aufgerufen wenn das Menü geschlossen wird.
 
 Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
 
 #### `menu.closePopup([browserWindow])`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
+* `browserWindow` [BrowserWindow](browser-window.md) (optional) - Default ist das fokussierte Fenster.
 
-Closes the context menu in the `browserWindow`.
+Schließt das Kontext-Menü im `browserWindow`.
 
 #### `menu.append(menuItem)`
 
 * `menuItem` [MenuItem](menu-item.md)
 
-Appends the `menuItem` to the menu.
+Fügt dem Menü das `menuItem` hinzu.
 
 #### `menu.getMenuItemById(id)`
 
@@ -84,7 +84,7 @@ Returns `MenuItem` the item with the specified `id`
 * `pos` Integer
 * `menuItem` [MenuItem](menu-item.md)
 
-Inserts the `menuItem` to the `pos` position of the menu.
+Füre das `menuItem` an der `pos` Position im Menü ein.
 
 ### Instanz Events
 
