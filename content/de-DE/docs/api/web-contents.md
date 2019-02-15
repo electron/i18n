@@ -43,7 +43,7 @@ Returns `WebContents` - A WebContents instance with the given ID.
 
 > Render and control the contents of a BrowserWindow instance.
 
-Prozess: [Haupt](../glossary.md#main-process)
+Prozess: [Main](../glossary.md#main-process)
 
 ### Instanz Events
 
@@ -55,8 +55,8 @@ Emitted when the navigation is done, i.e. the spinner of the tab has stopped spi
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>errorCode` Integer
+* `event` Event
+* `errorCode` Integer
 * `errorDescription` String
 * `validatedURL` String
 * `isMainFrame` Boolean
