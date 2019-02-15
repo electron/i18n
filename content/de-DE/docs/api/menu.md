@@ -106,7 +106,7 @@ Rückgabewert:
 
 * `event` Event
 
-Emitted when a popup is closed either manually or with `menu.closePopup()`.
+Emitiert wenn ein Popup manuell oder mit `menu.closePopup()` geschlossen wird.
 
 ### Instanz Eigenschaften
 
@@ -244,7 +244,7 @@ window.addEventListener('contextmenu', (e) => {
 </script>
 ```
 
-## Notes on macOS Application Menu
+## Hinweise zu Application Menüs in macOS
 
 macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
 
@@ -305,12 +305,12 @@ Template:
 
 ```javascript
 [
-  { id: '1', label: 'one' },
+  { id: '1', label: 'Eins' },
   { type: 'separator' },
-  { id: '3', label: 'three', beforeGroupContaining: ['1'] },
-  { id: '4', label: 'four', afterGroupContaining: ['2'] },
+  { id: '3', label: 'Drei', beforeGroupContaining: ['1'] },
+  { id: '4', label: 'Vier', afterGroupContaining: ['2'] },
   { type: 'separator' },
-  { id: '2', label: 'two' }
+  { id: '2', label: 'Zwei' }
 ]
 ```
 
@@ -329,9 +329,9 @@ Template:
 
 ```javascript
 [
-  { id: '1', label: 'one', after: ['3'] },
-  { id: '2', label: 'two', before: ['1'] },
-  { id: '3', label: 'three' }
+  { id: '1', label: 'Eins', after: ['3'] },
+  { id: '2', label: 'Zwei', before: ['1'] },
+  { id: '3', label: 'Drei' }
 ]
 ```
 
