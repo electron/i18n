@@ -2,17 +2,17 @@
 
 Bevor wir in die APIs von Electron eintauchen können, müssen wir die beiden in Electron verfügbare Prozess-Arten besprechen. Sie sind grundlegend verschieden und es ist wichtig sie zu verstehen.
 
-## Haupt- und Renderprozesse
+## Main und Render Prozesse
 
-Der Prozess, der das `main`-Skript der `package.json`-Datei ausführt, wird in Electron als **Hauptprozess** bezeichnet. Das im Hauptprozess laufende Skript kann durch das Erstellen von Webseiten eine grafische Oberfläche generieren. Eine Electron-App hat immer nur einen Hauptprozess.
+Der Prozess, der das `main`-Skript der `package.json`-Datei ausführt, wird in Electron als **Main Prozess** bezeichnet. Das im Main Prozess laufende Skript kann durch das Erstellen von Webseiten eine grafische Oberfläche generieren. Eine Electron-App hat immer einen Main Prozess, aber niemals mehrere.
 
 Dadurch, dass Electron für die Darstellung der Webseiten Chromium nutzt, wird auch Chromium's Multi-Prozess-Architektur verwendet. Jede Webseite in Electron läuft in ihrem eigenen Prozess, welcher **Renderer-Prozess** genannt wird.
 
 In regulären Browsern laufen Webseiten normalerweise in einer isolierten Umgebung und haben daher keinen Zugriff auf native Ressourcen. Als Nutzer von Electron haben Sie die Option Node.js-APIs in den Webseiten zu nutzen. Damit werden Interaktionen auf Betriebssystemebene möglich.
 
-### Unterschiede zwischen Hauptprozess und Renderer-Prozess
+### Unterschiede zwischen Main Prozess und Renderer Prozess
 
-Der Hauptprozess erschafft Webseiten durch die Verwendung von Instanzen der Klasse `BrowserWindow`. Jede dieser `BrowserWindow`-Instanzen lässt die Webseite in ihrem eigenen Renderer-Prozess laufen. Wird eine Instanz von `BrowserWindow` zerstört, so wird auch der zugehörige Renderer-Prozess beendet.
+Der Main Prozess erschafft Webseiten durch die Verwendung von Instanzen der Klasse `BrowserWindow`. Jede dieser `BrowserWindow`-Instanzen lässt die Webseite in ihrem eigenen Renderer-Prozess laufen. Wird eine Instanz von `BrowserWindow` zerstört, so wird auch der zugehörige Renderer-Prozess beendet.
 
 Der Hauptprozess verwaltet alle Webseiten und deren Renderer-Prozesse. Jeder Renderer-Prozess ist isoliert und kümmert sich nur um die Webseite die darin läuft.
 
