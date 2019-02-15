@@ -354,6 +354,44 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         Emitted when `remote.getGlobal()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
         
+        ### Event: 'remote-get-builtin'
+        
+        Rückgabewert:
+        
+        * ` Ereignis </ 0>  Ereignis</li>
+<li><code>webContents` [WebContents](web-contents.md)
+        * `moduleName` String
+        
+        Emitted when `remote.getBuiltin()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+        
+        ### Event: 'remote-get-current-window'
+        
+        Rückgabewert:
+        
+        * ` Ereignis </ 0>  Ereignis</li>
+<li><code>webContents` [WebContents](web-contents.md)
+        
+        Emitted when `remote.getCurrentWindow()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+        
+        ### Event: 'remote-get-current-web-contents'
+        
+        Rückgabewert:
+        
+        * ` Ereignis </ 0>  Ereignis</li>
+<li><code>webContents` [WebContents](web-contents.md)
+        
+        Emitted when `remote.getCurrentWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+        
+        ### Event: 'remote-get-guest-web-contents'
+        
+        Rückgabewert:
+        
+        * ` Ereignis </ 0>  Ereignis</li>
+<li><code>webContents` [WebContents](web-contents.md)
+        * `guestWebContents` [WebContents](web-contents.md)
+        
+        Emitted when `<webview>.getWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+        
         ## Methoden
         
         Das `app` Objekt enthält die folgenden Methoden:
@@ -732,7 +770,7 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         ### `app.importCertificate(options, callback)` *LINUX*
         
-        * `optionen` Object 
+        * `options` Object 
           * `certificate` String - Path for the pkcs12 file.
           * `password` String - Passphrase for the certificate.
         * `callback` Funktion 
