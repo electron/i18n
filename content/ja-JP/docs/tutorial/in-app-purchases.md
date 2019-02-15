@@ -4,17 +4,17 @@
 
 ### 有料アプリケーション契約
 
-If you haven't already, you’ll need to sign the Paid Applications Agreement and set up your banking and tax information in iTunes Connect.
+まだしていないのであれば、iTunes Connect 内で有料アプリケーション契約に署名し、銀行口座情報と納税フォームをセットアップする必要があります。
 
-[iTunes Connect Developer Help: Agreements, tax, and banking overview](https://help.apple.com/itunes-connect/developer/#/devb6df5ee51)
+[iTunes Connect デベロッパーヘルプ: 契約／税金／口座情報の概要](https://help.apple.com/itunes-connect/developer/#/devb6df5ee51)
 
-### Create Your In-App Purchases
+### App 内課金の作成
 
-Then, you'll need to configure your in-app purchases in iTunes Connect, and include details such as name, pricing, and description that highlights the features and functionality of your in-app purchase.
+次に、iTunes Connect でアプリ内購入を設定し、名前、価格、説明、アプリ内購入の特徴と機能の説明などの詳細を含める必要があります。
 
-[iTunes Connect Developer Help: Create an in-app purchase](https://help.apple.com/itunes-connect/developer/#/devae49fb316)
+[iTunes Connect デベロッパーヘルプ: App 内課金の作成](https://help.apple.com/itunes-connect/developer/#/devae49fb316)
 
-### Change the CFBundleIdentifier
+### CFBundleIdentifier を変更
 
 To test In-App Purchase in development with Electron you'll have to change the `CFBundleIdentifier` in `node_modules/electron/dist/Electron.app/Contents/Info.plist`. You have to replace `com.github.electron` by the bundle identifier of the application you created with iTunes Connect.
 
