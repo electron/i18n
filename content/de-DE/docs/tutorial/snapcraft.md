@@ -82,10 +82,8 @@ For more information on the available configuration options, see the [documentat
 ```yaml
 name: myApp
 version: '2.0.0'
-summary: A little description for the app.
-description: |
- You know what? This app is amazing! It does all the things
- for you. Some say it keeps you young, maybe even happy.
+summary: Eine kurze Beschreibung der App.
+weist du was? Diese App ist unglaublich! Sie tut all diese Dinge für dich. Manch einer behauptet, sie hält dich jung oder macht dich sogar glücklich.
 
 grade: stable
 confinement: classic
