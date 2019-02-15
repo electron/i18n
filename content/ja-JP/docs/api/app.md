@@ -351,6 +351,44 @@ app.on('session-created', (event, session) => {
 
 `webContents` のレンダラープロセス内で `remote.getGlobal()` が呼ばれたときに発生します。 `event.preventDefault()` を呼ぶとグローバルの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
 
+### Event: 'remote-get-builtin'
+
+戻り値:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+* `モジュール名` String
+
+`webContents` のレンダラープロセス内で `remote.getBuiltin()` が呼ばれたときに発生します。 `event.preventDefault()` を呼ぶとモジュールの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
+
+### Event: 'remote-get-current-window'
+
+戻り値:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+
+`webContents` のレンダラープロセス内で `remote.getCurrentWindow()` が呼ばれたときに発生します。 Calling `event.preventDefault()` will prevent the object from being returned. `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
+
+### Event: 'remote-get-current-web-contents'
+
+戻り値:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+
+`webContents` のレンダラープロセス内で `remote.getCurrentWebContents()` が呼ばれたときに発生します。 Calling `event.preventDefault()` will prevent the object from being returned. `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
+
+### Event: 'remote-get-guest-web-contents'
+
+戻り値:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+* `guestWebContents` [WebContents](web-contents.md)
+
+Emitted when `<webview>.getWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
+
 ## メソッド
 
 `app` オブジェクトには以下のメソッドがあります。
