@@ -217,29 +217,29 @@ webContents.setSize(options)
 ## `webFrame`
 
 ```js
-// Deprecated
+// Veraltet
 webFrame.registerURLSchemeAsSecure('app')
-// Replace with
+// Ersetze mit
 protocol.registerStandardSchemes(['app'], { secure: true })
 
-// Deprecated
+// Veraltet
 webFrame.registerURLSchemeAsPrivileged('app', { secure: true })
-// Replace with
+// Ersetze mit
 protocol.registerStandardSchemes(['app'], { secure: true })
 ```
 
 ## `<webview>`
 
 ```js
-// Removed
+// Entfernt
 webview.setAttribute('disableguestresize', '')
-// There is no replacement for this API
+// Für diese API gibt es keinen Ersatz
 
-// Removed
+// Entfernt
 webview.setAttribute('guestinstance', instanceId)
-// There is no replacement for this API
+// Für diese API gibt es keinen Ersatz
 
-// Keyboard listeners no longer work on webview tag
+// Keyboard listener funktionieren nicht länger für webview tag
 webview.onkeydown = () => { /* handler */ }
 webview.onkeyup = () => { /* handler */ }
 ```
@@ -259,34 +259,34 @@ The following list includes the breaking API changes made in Electron 2.0.
 ## `Browserfenster`
 
 ```js
-// Deprecated
+// Veraltet
 let optionsA = { titleBarStyle: 'hidden-inset' }
 let windowA = new BrowserWindow(optionsA)
-// Replace with
+// Ersetze mit
 let optionsB = { titleBarStyle: 'hiddenInset' }
 let windowB = new BrowserWindow(optionsB)
 ```
 
-## `menü`
+## `menu`
 
 ```js
-// Removed
+// Entfernt
 menu.popup(browserWindow, 100, 200, 2)
-// Replaced with
+// Ersetze mit
 menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```
 
 ## `nativeImage`
 
 ```js
-// Removed
+// Entfernt
 nativeImage.toPng()
-// Replaced with
+// Ersetze mit
 nativeImage.toPNG()
 
-// Removed
+// Entfernt
 nativeImage.toJpeg()
-// Replaced with
+// Ersetze mit
 nativeImage.toJPEG()
 ```
 
@@ -297,27 +297,27 @@ nativeImage.toJPEG()
 ## `webContents`
 
 ```js
-// Removed
+// Entfernt
 webContents.setZoomLevelLimits(1, 2)
-// Replaced with
+// Ersetze mit
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## `webFrame`
 
 ```js
-// Removed
+// Entfernt
 webFrame.setZoomLevelLimits(1, 2)
-// Replaced with
+// Ersetze mit
 webFrame.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## `<webview>`
 
 ```js
-// Removed
+// Entfernt
 webview.setZoomLevelLimits(1, 2)
-// Replaced with
+// Ersetze mit
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
