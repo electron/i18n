@@ -1,8 +1,8 @@
-# Developer Environment
+# Entwicklerumgebung
 
-Electron development is essentially Node.js development. To turn your operating system into an environment capable of building desktop apps with Electron, you will merely need Node.js, npm, a code editor of your choice, and a rudimentary understanding of your operating system's command line client.
+Electron Entwicklung ist weitestgehend gleich zu Node.js Entwicklung. Um in deinem Betriebssystem eine Umgebung einzurichten, die dazu geeignet ist Desktop Apps mit Electron zu entwickeln, brauchst du eigentlich nur Node.js, npm, einen Code Editor deiner Wahl und ein Grundwissen wie Du den Command Line Client deines Betriebssystems verwendest.
 
-## Einrichtung auf macOSX
+## Einrichtung auf macOS
 
 > Electron supports macOS 10.10 (Yosemite) and up. Apple does not allow running macOS in virtual machines unless the host computer is already an Apple computer, so if you find yourself in need of a Mac, consider using a cloud service that rents access to Macs (like [MacInCloud](https://www.macincloud.com/) or [xcloud](https://xcloud.me)).
 
@@ -62,6 +62,6 @@ Wenn beide commands eine Versionsnummer ausgeben, dann bist du bereit! Bevor du 
 
 ## Ein guter Editor
 
-We might suggest two free popular editors built in Electron: GitHub's [Atom](https://atom.io/) and Microsoft's [Visual Studio Code](https://code.visualstudio.com/). Both of them have excellent JavaScript support.
+Wir würden dir zwei freie und beliebte Editoren vorschlagen die beide mit Electron gebaut wurden: GitHub's [Atom](https://atom.io/) und Microsoft's [Visual Studio Code](https://code.visualstudio.com/). Beide haben exzellenten JavaScript Support.
 
 If you are one of the many developers with a strong preference, know that virtually all code editors and IDEs these days support JavaScript.
