@@ -1,6 +1,6 @@
 # dialog
 
-> Display native system dialogs for opening and saving files, alerting, etc.
+> Für das Anzeigen von nativen Systemdialogen beim öffnen und speichern von Dateien, Warnungen, etc.
 
 Prozess: [Haupt](../glossary.md#main-process)
 
@@ -20,7 +20,7 @@ console.log(dialog)
 
 ## Methoden
 
-The `dialog` module has the following methods:
+Das `dialog` module hat die folgenden Methoden:
 
 ### `dialog.showOpenDialog([browserWindow, ]options[, callback])`
 
@@ -28,7 +28,7 @@ The `dialog` module has the following methods:
 * `options` Object 
   * `title` String (optional)
   * `defaultPath` String (optional)
-  * `buttonLabel` String (optional) - Custom label for the confirmation button, when left empty the default label will be used.
+  * `buttonLabel` String (optional) - Custom label für den Bestätigen-Button. Wenn leer gelassen, dann wird das default label verwendet.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
   * `properties` String[] (optional) - Contains which features the dialog should use. The following values are supported: 
     * `openFile` - Allow files to be selected.
@@ -74,7 +74,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 * `options` Object 
   * `title` String (optional)
   * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
-  * `buttonLabel` String (optional) - Custom label for the confirmation button, when left empty the default label will be used.
+  * `buttonLabel` String (optional) - Custom label für den Bestätigen-Button. Wenn leer gelassen, dann wird das default label verwendet.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
   * `message` String (optional) *macOS* - Message to display above text fields.
   * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
