@@ -1014,11 +1014,11 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         ### `app.dock.hide()` *macOS*
         
-        Hides the dock icon.
+        Versteckt das dock icon.
         
         ### `app.dock.show()` *macOS*
         
-        Shows the dock icon.
+        Zeigt das dock icon an.
         
         ### `app.dock.isVisible()` *macOS*
         
