@@ -25,19 +25,19 @@ Electron での開発で App 内課金をテストするには、`node_modules/e
 
 ## コード例
 
-以下は、Electron でアプリ内課金を使用する方法を示した例です。 製品 ID を iTunes Connect で作成された製品の識別子で置き換える必要があります (`com.example.app.product1` の識別子は `product1` です)。 Note that you have to listen to the `transactions-updated` event as soon as possible in your app.
+以下は、Electron でアプリ内課金を使用する方法を示した例です。 製品 ID を iTunes Connect で作成された製品の識別子で置き換える必要があります (`com.example.app.product1` の識別子は `product1` です)。 アプリ内で `transactions-updated` イベントをできる限り早くリッスンする必要があることに注意してください。
 
 ```javascript
 const { inAppPurchase } = require('electron').remote
 const PRODUCT_IDS = ['id1', 'id2']
 
-// Listen for transactions as soon as possible.
+// できる限り早くトランザクションをリッスンします。
 inAppPurchase.on('transactions-updated', (event, transactions) => {
   if (!Array.isArray(transactions)) {
     return
   }
 
-  // Check each transaction.
+  // それぞれのトランザクションを確認します。
   transactions.forEach(function (transaction) {
     var payment = transaction.payment
 
@@ -49,18 +49,18 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
 
         console.log(`${payment.productIdentifier} purchased.`)
 
-        // Get the receipt url.
+        // 領収書の URL を取得します。
         let receiptURL = inAppPurchase.getReceiptURL()
 
         console.log(`Receipt URL: ${receiptURL}`)
 
-        // Submit the receipt file to the server and check if it is valid.
-        // @see https://developer.apple.com/library/content/releasenotes/General/ValidateAppStoreReceipt/Chapters/ValidateRemotely.html
+        // 領収書ファイルをサーバーに送信して、それが有効かどうかを確認します。
+        // こちらを参照 https://developer.apple.com/library/content/releasenotes/General/ValidateAppStoreReceipt/Chapters/ValidateRemotely.html
         // ...
-        // If the receipt is valid, the product is purchased
+        // 領収書が有効であれば、プロダクトは購入されます
         // ...
 
-        // Finish the transaction.
+        // トランザクションを終了します。
         inAppPurchase.finishTransactionByDate(transaction.transactionDate)
 
         break
@@ -68,7 +68,7 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
 
         console.log(`Failed to purchase ${payment.productIdentifier}.`)
 
-        // Finish the transaction.
+        // トランザクションを終了します。
         inAppPurchase.finishTransactionByDate(transaction.transactionDate)
 
         break
@@ -88,30 +88,30 @@ inAppPurchase.on('transactions-updated', (event, transactions) => {
   })
 })
 
-// Check if the user is allowed to make in-app purchase.
+// ユーザに App 内課金が許可されているかどうか確認します。
 if (!inAppPurchase.canMakePayments()) {
   console.log('The user is not allowed to make in-app purchase.')
 }
 
-// Retrieve and display the product descriptions.
+// 製品の説明を取得して表示します。
 inAppPurchase.getProducts(PRODUCT_IDS, (products) => {
-  // Check the parameters.
+  // 引数を確認します。
   if (!Array.isArray(products) || products.length <= 0) {
     console.log('Unable to retrieve the product informations.')
     return
   }
 
-  // Display the name and price of each product.
+  // 各プロダクトの名前と価格を表示します。
   products.forEach((product) => {
     console.log(`The price of ${product.localizedTitle} is ${product.formattedPrice}.`)
   })
 
-  // Ask the user which product he/she wants to purchase.
+  // どの製品を購入したいかをユーザーに尋ねます。
   // ...
   let selectedProduct = products[0]
   let selectedQuantity = 1
 
-  // Purchase the selected product.
+  // 選択されたプロダクトを購入します。
   inAppPurchase.purchaseProduct(selectedProduct.productIdentifier, selectedQuantity, (isProductValid) => {
     if (!isProductValid) {
       console.log('The product is not valid.')
