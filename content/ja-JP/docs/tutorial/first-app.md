@@ -84,7 +84,7 @@ function createWindow () {
   // ブラウザウインドウを作成
   let win = new BrowserWindow({ width: 800, height: 600 })
 
-  // and load the index.html of the app.
+  // そしてアプリの index.html を読み込む
   win.loadFile('index.html')
 }
 
