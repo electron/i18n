@@ -59,19 +59,19 @@ Any resources not included with your application should be loaded using a secure
 ### How?
 
 ```js
-// Bad
+// Schlecht
 browserWindow.loadURL('http://my-website.com')
 
-// Good
+// Gut
 browserWindow.loadURL('https://my-website.com')
 ```
 
 ```html
-<!-- Bad -->
+<!-- Schlecht -->
 <script crossorigin src="http://cdn.com/react.js"></script>
 <link rel="stylesheet" href="http://cdn.com/style.css">
 
-<!-- Good -->
+<!-- Gut -->
 <script crossorigin src="https://cdn.com/react.js"></script>
 <link rel="stylesheet" href="https://cdn.com/style.css">
 ```
@@ -89,13 +89,13 @@ A cross-site-scripting (XSS) attack is more dangerous if an attacker can jump ou
 ### How?
 
 ```js
-// Bad
+// Schlecht
 const mainWindow = new BrowserWindow()
 mainWindow.loadURL('https://my-website.com')
 ```
 
 ```js
-// Good
+// Gut
 const mainWindow = new BrowserWindow({
   webPreferences: {
     nodeIntegration: false,
@@ -107,10 +107,10 @@ mainWindow.loadURL('https://my-website.com')
 ```
 
 ```html
-<!-- Bad -->
+<!-- Schlecht -->
 <webview nodeIntegration src="page.html"></webview>
 
-<!-- Good -->
+<!-- Gut -->
 <webview src="page.html"></webview>
 ```
 
@@ -221,7 +221,7 @@ Disabling `webSecurity` will disable the same-origin policy and set `allowRunnin
 ### How?
 
 ```js
-// Bad
+// Schlecht
 const mainWindow = new BrowserWindow({
   webPreferences: {
     webSecurity: false
@@ -230,15 +230,15 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// Gut
 const mainWindow = new BrowserWindow()
 ```
 
 ```html
-<!-- Bad -->
+<!-- Schlecht -->
 <webview disablewebsecurity src="page.html"></webview>
 
-<!-- Good -->
+<!-- Gut -->
 <webview src="page.html"></webview>
 ```
 
@@ -253,10 +253,10 @@ CSP allows the server serving content to restrict and control the resources Elec
 The following CSP will allow Electron to execute scripts from the current website and from `apis.mydomain.com`.
 
 ```txt
-// Bad
+// Schlecht
 Content-Security-Policy: '*'
 
-// Good
+// Gut
 Content-Security-Policy: script-src 'self' https://apis.mydomain.com
 ```
 
@@ -287,7 +287,7 @@ CSP's preferred delivery mechanism is an HTTP header, however it is not possible
 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
-## 7) Do Not Set `allowRunningInsecureContent` to `true`
+## 7) Setze `allowRunningInsecureContent` nicht auf `true`
 
 *Recommendation is Electron's default*
 
@@ -302,7 +302,7 @@ Loading content over `HTTPS` assures the authenticity and integrity of the loade
 ### How?
 
 ```js
-// Bad
+// Schlecht
 const mainWindow = new BrowserWindow({
   webPreferences: {
     allowRunningInsecureContent: true
@@ -311,7 +311,7 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// Gut
 const mainWindow = new BrowserWindow({})
 ```
 
@@ -339,7 +339,7 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// Gut
 const mainWindow = new BrowserWindow({})
 ```
 
@@ -365,7 +365,7 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// Gut
 const mainWindow = new BrowserWindow()
 ```
 
