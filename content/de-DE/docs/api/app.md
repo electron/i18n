@@ -292,8 +292,8 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         Rückgabewert:
         
-        * ` Ereignis </ 0>  Ereignis</li>
-<li><code>killed` Boolean
+        * `event` Event
+        * `killed` Boolean
         
         Emitted when the gpu process crashes or is killed.
         
@@ -301,8 +301,8 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         Rückgabewert:
         
-        * ` Ereignis </ 0>  Ereignis</li>
-<li><code>accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
+        * `event` Event
+        * `accessibilitySupportEnabled` Boolean - `true` when Chrome's accessibility support is enabled, `false` otherwise.
         
         Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
         
@@ -326,8 +326,8 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         Rückgabewert:
         
-        * ` Ereignis </ 0>  Ereignis</li>
-<li><code>argv` String[] - An array of the second instance's command line arguments
+        * `event` Event
+        * `argv` String[] - An array of the second instance's command line arguments
         * `workingDirectory` String - The second instance's working directory
         
         This event will be emitted inside the primary instance of your application when a second instance has been executed. `argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Usually applications respond to this by making their primary window focused and non-minimized.
@@ -338,8 +338,8 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         Rückgabewert:
         
-        * ` Ereignis </ 0>  Ereignis</li>
-<li><code>webContents` [WebContents](web-contents.md)
+        * `event` Event
+        * `webContents` [WebContents](web-contents.md)
         * `moduleName` String
         
         Emitted when `remote.require()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
@@ -348,8 +348,8 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         Rückgabewert:
         
-        * ` Ereignis </ 0>  Ereignis</li>
-<li><code>webContents` [WebContents](web-contents.md)
+        * `event` Event
+        * `webContents` [WebContents](web-contents.md)
         * `globalName` String
         
         Emitted when `remote.getGlobal()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
@@ -386,8 +386,8 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         Rückgabewert:
         
-        * ` Ereignis </ 0>  Ereignis</li>
-<li><code>webContents` [WebContents](web-contents.md)
+        * `event` Event
+        * `webContents` [WebContents](web-contents.md)
         * `guestWebContents` [WebContents](web-contents.md)
         
         Emitted when `<webview>.getWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
@@ -467,11 +467,11 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         You can request the following paths by the name:
         
-        * `home` User's home directory.
+        * `home` Des Benutzers Home Verzeichnis.
         * `appData` Per-user application data directory, which by default points to: 
-          * `%APPDATA%` on Windows
-          * `$XDG_CONFIG_HOME` or `~/.config` on Linux
-          * `~/Library/Application Support` on macOS
+          * `%APPDATA%` in Windows
+          * `$XDG_CONFIG_HOME` oder `~/.config` in Linux
+          * `~/Library/Application Support` in macOS
         * `userData` The directory for storing your app's configuration files, which by default it is the `appData` directory appended with your app's name.
         * `temp` Temporary directory.
         * `exe` The current executable file.
@@ -491,7 +491,7 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
           * `size` String 
             * `small` - 16x16
             * `normal` - 32x32
-            * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
+            * `large` - 48x48 in *Linux*, 32x32 in *Windows*, wird in *macOS* nicht unterstützt.
         * `callback` Funktion 
           * ` Fehler </ 0> Fehler</li>
 <li><code>icon` [NativeImage](native-image.md)
@@ -596,7 +596,7 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         ### `app.setUserTasks(tasks)` *Windows*
         
-        * `tasks` [Task[]](structures/task.md) - Array of `Task` objects
+        * `tasks` [Task[]](structures/task.md) - Array mit `Task` Objekten
         
         Adds `tasks` to the [Tasks](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) category of the JumpList on Windows.
         
@@ -614,7 +614,7 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         * `removedItems` [JumpListItem[]](structures/jump-list-item.md) - Array of `JumpListItem` objects that correspond to items that the user has explicitly removed from custom categories in the Jump List. These items must not be re-added to the Jump List in the **next** call to `app.setJumpList()`, Windows will not display any custom category that contains any of the removed items.
         ### `app.setJumpList(categories)` *Windows*
         
-        * `categories` [JumpListCategory[]](structures/jump-list-category.md) or `null` - Array of `JumpListCategory` objects.
+        * `categories` [JumpListCategory[]](structures/jump-list-category.md) oder `null` - Array mit `JumpListCategory` Objekten.
         
         Sets or removes a custom Jump List for the application, and returns one of the following strings:
         
@@ -916,9 +916,9 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         ### `app.setAboutPanelOptions(options)` *macOS*
         
         * `options` Object 
-          * `applicationName` String (optional) - The app's name.
-          * `applicationVersion` String (optional) - The app's version.
-          * `copyright` String (optional) - Copyright information.
+          * `applicationName` String (optional) - Der Name der App.
+          * `applicationVersion` String (optional) - Die Version der App.
+          * `copyright` String (optional) - Copyright Information.
           * `credits` String (optional) - Credit information.
           * `version` String (optional) - The app's build version number.
         
