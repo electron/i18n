@@ -1,4 +1,4 @@
-# Transaction Object
+# Transaction Objekt
 
 * `transactionIdentifier` String - A string that uniquely identifies a successful payment transaction.
 * `transactionDate` String - The date the transaction was added to the App Store’s payment queue.
