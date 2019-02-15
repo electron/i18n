@@ -20,19 +20,19 @@ Auf Webseiten ist das Aufrufen von APIs, die auf native GUI-Elemente zugreifen, 
 
 > #### Anmerkung: Kommunikation zwischen Prozessen
 > 
-> In Electron, we have several ways to communicate between the main process and renderer processes, such as [`ipcRenderer`](../api/ipc-renderer.md) and [`ipcMain`](../api/ipc-main.md) modules for sending messages, and the [remote](../api/remote.md) module for RPC style communication. Passend dazu gibt es in den FAQ einen Eintrag zum [Teilen von Daten zwischen Webseiten](../faq.md#how-to-share-data-between-web-pages).
+> In Electron stehen uns verschiedene Wege der Kommunikation zwischen Main- und Render Prozess zur Verfügung, wie z.B. das [`ipcRenderer`](../api/ipc-renderer.md) und das [`ipcMain`](../api/ipc-main.md) Module für das versenden von Nachrichten und das [remote](../api/remote.md) module für RPC Kommunikation. Passend dazu gibt es in den FAQ einen Eintrag zum [Teilen von Daten zwischen Webseiten](../faq.md#how-to-share-data-between-web-pages).
 
 ## Benutzung der Electron's APIs
 
-Electron bietet eine Reihe von APIs an, die die Entwicklung einer Desktop-Anwendung sowohl im Hauptprozess als auch im Renderer-Prozess unterstützen. In beiden Prozessen greifen Sie auf die APIs von Electron zu, indem Sie das enthaltene Modul einbinden:
+Electron bietet eine Reihe von APIs an, die die Entwicklung einer Desktop-Anwendung sowohl im Main-Prozess als auch im Renderer-Prozess unterstützen. In beiden Prozessen greifen Sie auf die APIs von Electron zu, indem Sie das enthaltene Modul per require einbinden:
 
 ```javascript
 const electron = require('electron')
 ```
 
-Allen Electron-APIs ist ein Prozesstyp zugeordnet. Viele von ihnen können nur aus dem Hauptprozess verwendet werden, einige nur aus einem Renderer-Prozess, andere aus beiden. Die Dokumentation jeder einzelnen API gibt an, von welchem Prozess sie verwendet werden kann.
+Allen Electron-APIs ist ein Prozesstyp zugeordnet. Viele von ihnen können nur aus dem Main-Prozess verwendet werden, einige nur aus einem Renderer-Prozess, andere aus beiden. Die Dokumentation jeder einzelnen API gibt an, von welchem Prozess sie verwendet werden kann.
 
-Ein Fenster in Electron wird z. B. mit dem `BrowserWindow`-Klasse erzeugt. Sie ist nur im Hauptprozess verfügbar.
+Ein Fenster in Electron wird z.B. mit dem `BrowserWindow`-Klasse erzeugt. Sie ist nur im Main-Prozess verfügbar.
 
 ```javascript
 // Dies funktioniert im Hauptprozess, wird aber
