@@ -126,9 +126,9 @@ macOS でのアプリのサンドボックス化を行うことが初めてな�
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-また、ネイティブモジュールは中間ファイルを生成しているかもしれませんが、それらは含まれるべきではありません (それらもまた署名される必要があるので)。 If you use [electron-packager](https://github.com/electron-userland/electron-packager) before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versions 8.1.0 and later ignore those files by default.
+また、ネイティブモジュールは中間ファイルを生成しているかもしれませんが、それらは含まれるべきではありません (それらもまた署名される必要があるので)。 バージョン 8.1.0 より前の [electron-packager](https://github.com/electron-userland/electron-packager) を使用している場合は、ビルド手順に `--ignore=.+\.o$` を追加してこれらのファイルを無視してください。 バージョン 8.1.0 以降ではこれらのファイルはデフォルトで無視されます。
 
-### Appをアップロードする。
+### App をアップロード
 
 アプリに署名後、iTunes ConnectにアップロードするためにApplication Loaderを使用できます。アップロードする前に[レコードを作成していること](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html)を確認してください。
 
@@ -151,13 +151,13 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 
 サンドボックスが使用されるため、アプリがアクセスできるリソースは厳密に制限されています。詳細は、 [App Sandboxing](https://developer.apple.com/app-sandboxing/) を参照してください。
 
-### Additional Entitlements
+### 追加のエンタイトルメント
 
-Depending on which Electron APIs your app uses, you may need to add additional entitlements to your `parent.plist` file to be able to use these APIs from your app's Mac App Store build.
+アプリで使用する Electron API に応じて、アプリの Mac App Store ビルドからこれらの API を使用できるようにするために、追加のエンタイトルメントを `parent.plist` ファイルに追加する必要があります。
 
-#### Network Access
+#### ネットワークアクセス
 
-Enable outgoing network connections to allow your app to connect to a server:
+アプリがサーバーに接続できるように、以下のように発信ネットワーク接続を有効にします。
 
 ```xml
 <key>com.apple.security.network.client</key>
