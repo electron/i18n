@@ -55,9 +55,9 @@ const win = new BrowserWindow()
 
 ## Node.js APIs verwenden
 
-Electron exposes full access to Node.js both in the main and the renderer process. This has two important implications:
+Electron erlaubt vollen Zugriff auf Node.js, sowohl im Main- als auch im Render-Prozess. Dies hat zwei wichtige Auswirkungen:
 
-1) All APIs available in Node.js are available in Electron. Calling the following code from an Electron app works:
+1) Alle APIs welche Node.js zur Verfügung stehen, stehen auch Electron zur Verfügung. Der folgende Code funktioniert in einer Electron App:
 
 ```javascript
 const fs = require('fs')
