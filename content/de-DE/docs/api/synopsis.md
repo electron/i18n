@@ -8,7 +8,7 @@ Electron also provides some extra built-in modules for developing native desktop
 
 The basic rule is: if a module is [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) or low-level system related, then it should be only available in the main process. You need to be familiar with the concept of [main process vs. renderer process](../tutorial/application-architecture.md#main-and-renderer-processes) scripts to be able to use those modules.
 
-The main process script is like a normal Node.js script:
+Das Main-Prozess Script ist wie ein normales Node.js Script:
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
@@ -51,7 +51,7 @@ app.on('ready', () => {
 })
 ```
 
-If you need the entire `electron` module, you can require it and then using destructuring to access the individual modules from `electron`.
+Wenn du das gesamte `electron` Module brauchst, dann kannst du dieses per require einbinden und auf einzelne `electron` Module per destructuring zugreifen.
 
 ```javascript
 const electron = require('electron')
@@ -65,7 +65,7 @@ app.on('ready', () => {
 })
 ```
 
-This is equivalent to the following code:
+Dies ist equivalent zum folgenden Code:
 
 ```javascript
 const electron = require('electron')
