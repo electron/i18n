@@ -640,7 +640,7 @@ Emitted when `<webview>.getWebContents()` is called in the renderer process. Cal
 * `options` Object (facultatif) 
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
   * `userAgent` String (optionnel) - Un agent utilisateur d'où provient la requête.
-  * `extraHeaders` String (optional) - Extra headers separated by "\n".
+  * `extraHeaders` String (optionnel) - Headers supplémentaires séparés par "\n".
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
   * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
 
@@ -684,7 +684,7 @@ Initiates a download of the resource at `url` without navigating. The `will-down
 
 #### `contents.getURL()`
 
-Returns `String` - The URL of the current web page.
+Retourne `String` - l'URL de la page web courante.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -697,23 +697,23 @@ console.log(currentURL)
 
 #### `contents.getTitle()`
 
-Returns `String` - The title of the current web page.
+Retourne `String` - le titre de la page web courante.
 
 #### `contents.isDestroyed()`
 
-Returns `Boolean` - Whether the web page is destroyed.
+Retourne `Boolean` - si la page web est détruite.
 
 #### `contents.focus()`
 
-Focuses the web page.
+Met au premier plan la page web.
 
 #### `contents.isFocused()`
 
-Returns `Boolean` - Whether the web page is focused.
+Retourne `Boolean` - si la page web est au premier plan.
 
 #### `contents.isLoading()`
 
-Returns `Boolean` - Whether web page is still loading resources.
+Retourne `Boolean` - Si la page web est toujours en train de charger des ressources.
 
 #### `contents.isLoadingMainFrame()`
 
@@ -721,7 +721,7 @@ Retourne `Boolean` - Si la frame principale (et pas seulement un iframe ou frame
 
 #### `contents.isWaitingForResponse()`
 
-Returns `Boolean` - Whether the web page is waiting for a first-response from the main resource of the page.
+Retourne `Boolean` - Si la page web est en attente d'une première réponse de la principale ressource de la page.
 
 #### `contents.stop()`
 
@@ -729,11 +729,11 @@ Arrête toute navigation en attente.
 
 #### `contents.reload()`
 
-Reloads the current web page.
+Recharge la page web courante.
 
 #### `contents.reloadIgnoringCache()`
 
-Reloads current page and ignores cache.
+Recharge la page courante et ignore le cache.
 
 #### `contents.canGoBack()`
 
@@ -791,7 +791,7 @@ Returns `String` - The user agent for this web page.
 
 * `css` String
 
-Injects CSS into the current web page.
+Injecte du CSS dans la page web actuelle.
 
 #### `contents.executeJavaScript(code[, userGesture, callback])`
 
@@ -999,7 +999,7 @@ Unregisters any ServiceWorker if present and returns a boolean as response to `c
 
 #### `contents.getPrinters()`
 
-Get the system printer list.
+Récupère la liste des imprimantes système.
 
 Returns [`PrinterInfo[]`](structures/printer-info.md).
 
@@ -1152,25 +1152,25 @@ app.once('ready', () => {
 * `options` Object (facultatif) 
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
 
-Opens the devtools.
+Ouvre les devtools.
 
 When `contents` is a `<webview>` tag, the `mode` would be `detach` by default, explicitly passing an empty `mode` can force using last used dock state.
 
 #### `contents.closeDevTools()`
 
-Closes the devtools.
+Ferme les devtools.
 
 #### `contents.isDevToolsOpened()`
 
-Returns `Boolean` - Whether the devtools is opened.
+Retourne `Boolean` - Si les devtools sont ouvert.
 
 #### `contents.isDevToolsFocused()`
 
-Returns `Boolean` - Whether the devtools view is focused .
+Retourne `Boolean` - Si les devtools ont le focus.
 
 #### `contents.toggleDevTools()`
 
-Toggles the developer tools.
+Active/désactive les outils développeur.
 
 #### `contents.inspectElement(x, y)`
 
@@ -1253,8 +1253,8 @@ For keyboard events, the `event` object also have following properties:
 
 For mouse events, the `event` object also have following properties:
 
-* `x` Integer (**required**)
-* `y` Integer (**required**)
+* `x` Integer (**requis**)
+* `y` Integer (**requis**)
 * `button` String - The button pressed, can be `left`, `middle`, `right`.
 * `globalX` Integer
 * `globalY` Integer
