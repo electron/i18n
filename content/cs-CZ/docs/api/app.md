@@ -351,6 +351,44 @@ Vrací:
 
 Emitted when `remote.getGlobal()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
 
+### Event: 'remote-get-builtin'
+
+Vrací:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+* `moduleName` String
+
+Emitted when `remote.getBuiltin()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+
+### Event: 'remote-get-current-window'
+
+Vrací:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+
+Emitted when `remote.getCurrentWindow()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+
+### Event: 'remote-get-current-web-contents'
+
+Vrací:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+
+Emitted when `remote.getCurrentWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+
+### Event: 'remote-get-guest-web-contents'
+
+Vrací:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+* `guestWebContents` [WebContents](web-contents.md)
+
+Emitted when `<webview>.getWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+
 ## Metody
 
 The `app` object has the following methods:
@@ -840,7 +878,7 @@ Returns `Object`:
 
 Set the app's login item settings.
 
-To work with Electron's `autoUpdater` on Windows, which uses [Squirrel](https://github.com/Squirrel/Squirrel.Windows), you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. For example:
+To work with Electron's `autoUpdater` on Windows, which uses [Squirrel](https://github.com/Squirrel/Squirrel.Windows), you'll want to set the launch path to Update.exe, and pass arguments that specify your application name. Například:
 
 ```javascript
 const appFolder = path.dirname(process.execPath)
