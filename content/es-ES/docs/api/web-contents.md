@@ -148,7 +148,7 @@ Llamando `event.preventDefault()` evitará la navegación.
 
 Devuelve:
 
-* `evento` Evento
+* `event` Event
 * `url` String
 * `isInPlace` Boolean
 * `isMainFrame` Boolean
@@ -210,7 +210,7 @@ Devuelve:
 * `url` String
 * `httpResponseCode` Integer - -1 for non HTTP navigations
 * `httpStatusText` String - empty for non HTTP navigations,
-* `EsElFramePrincipal` Boolean
+* `isMainFrame` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -598,6 +598,40 @@ Devuelve:
 
 Emitted when `remote.getGlobal()` is called in the renderer process. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
 
+#### Event: 'remote-get-builtin'
+
+Devuelve:
+
+* `event` Event
+* `moduleName` String
+
+Emitted when `remote.getBuiltin()` is called in the renderer process. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+
+#### Event: 'remote-get-current-window'
+
+Devuelve:
+
+* `event` Event
+
+Emitted when `remote.getCurrentWindow()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+
+#### Event: 'remote-get-current-web-contents'
+
+Devuelve:
+
+* `event` Event
+
+Emitted when `remote.getCurrentWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+
+#### Event: 'remote-get-guest-web-contents'
+
+Devuelve:
+
+* `event` Event
+* `guestWebContents` [WebContents](web-contents.md)
+
+Emitted when `<webview>.getWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+
 ### Métodos de Instancia
 
 #### `contents.loadURL(url[, options])`
@@ -605,8 +639,8 @@ Emitted when `remote.getGlobal()` is called in the renderer process. Calling `ev
 * `url` String
 * `opciones` Objecto (opcional) 
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
-  * `userAgent` Cadena (opcional) - Un agente de usuario originando el pedido.
-  * `extraHeaders` Cadena (opcional) - Encabezados extras separados por "\n".
+  * `userAgent` String (opcional) - Un agente de usuario originando la solicitud.
+  * `extraHeaders` String (opcional) - Encabezados extras separadas por "\n".
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
   * `baseURLForDataURL` String (opcional) - Url base (con separadores de ruta arrastrables) para archivos que se cargan por el url de datos. Esto es necesario únicamente si el `url` especificado es un url de datos y necesita cargar otros archivos.
 
@@ -768,7 +802,7 @@ Inserta CSS en la página web actual.
 
 Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
 
-Evalúa el `code` en la página.
+Evalúa el `código` en la página.
 
 En la ventana del navegador, algunas API HTML como `requestFullScreen` solo pueden invocarse con un gesto del usuario. Establecer `userGesture` a `true` eliminará esta limitación.
 
@@ -866,7 +900,7 @@ Ejecuta el comando de edición `copy` en la página web.
 #### `contents.copyImageAt(x, y)`
 
 * `x` Integer
-* `y` Íntegro
+* `y` Integer
 
 Copia la imagen en la posición determinada al portapapeles.
 
@@ -971,10 +1005,10 @@ Devuelve [`PrinterInfo[]`](structures/printer-info.md).
 
 #### `contents.print([options], [callback])`
 
-* `opciones` Object (opcional) 
+* `opciones` Objecto (opcional) 
   * `silent` Boolean (opcional) - No le pide al usuario configurar la impresora. Por defecto es `false`.
   * `printBackground` Boolean (opcional) - También imprime el color de fondo y la imagen de la página web. Por defecto es `false`.
-  * `deviceName` Cadena (opcional) - Establece el nombre del dispositivo de impresión a usar. Por defecto es `"`.
+  * `deviceName` String (opcional) - Configura el nombre de la impresora que se va a usar. Por defecto es `''`.
 * `callback` Función (opcional) 
   * `success` Boolean - Indicates success of the print call.
 
@@ -988,7 +1022,7 @@ Utilizar el estilo CCS `page-break-before: always;` para imprimir a la fuerza un
 
 * `opciones` Object 
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un objeto que contenga `height` y `width` en micron.
+  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Puede ser `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o un contenedor de objeto `height` y `width` en micrones.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
@@ -1141,7 +1175,7 @@ Alterna las herramientas de desarrollador.
 #### `contents.inspectElement(x, y)`
 
 * `x` Integer
-* `y` Íntegro
+* `y` Integer
 
 Empieza a inspeccionar elementos en la posición (`x`, `y`).
 
@@ -1360,6 +1394,10 @@ Takes a V8 heap snapshot and saves it to `filePath`.
 * `allowed` Boolean
 
 Controls whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
+
+#### `contents.getType()`
+
+Returns `String` - the type of the webContent. Can be `backgroundPage`, `window`, `browserView`, `remote`, `webview` or `offscreen`.
 
 ### Propiedades de Instancia
 
