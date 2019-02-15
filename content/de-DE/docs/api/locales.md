@@ -1,4 +1,4 @@
-# Locales
+# Lokalisierungen
 
 > Locale values returned by `app.getLocale()`.
 
@@ -100,7 +100,7 @@ Elektron verwendet Chrom `l10n_util` Bibliothek, um das Gebietsschema zu ermitte
 | pt         | Portugiesisch             |
 | pt-BR      | Portugiesisch (Brasilien) |
 | pt-PT      | Portugiesisch (Portugal)  |
-| qu         | Quechua                   |
+| pu         | Quechua                   |
 | rm         | Rätoromanisch             |
 | ro         | Rumänisch                 |
 | ru         | Russisch                  |
