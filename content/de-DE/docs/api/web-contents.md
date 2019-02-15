@@ -363,7 +363,7 @@ the <code>window.location` object is changed or a user clicks a link in the page
     * `callback` Funktion 
       * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list.
     
-    Emitted when a client certificate is requested.
+    Emittiert wenn ein Client Zertifikat angefordert wird.
     
     The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
     
