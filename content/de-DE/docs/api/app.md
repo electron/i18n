@@ -112,7 +112,7 @@ Durch einen Aufruf von <code>event.preventDefault()` wird die standardmäßige A
       Rückgabewert:
       
       * ` Ereignis </ 0>  Ereignis</li>
-<li><code>type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+<li><code>type` String - ein string zum identifizieren einer Aktivität. Maped auf [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
       * `userInfo` Object - Enthält den app-spezifischen Zustand, der von einer Aktivität auf einem anderen Gerät gespeichert wurde.
       
       Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device wants to be resumed. You should call `event.preventDefault()` if you want to handle this event.
@@ -124,7 +124,7 @@ Durch einen Aufruf von <code>event.preventDefault()` wird die standardmäßige A
       Rückgabewert:
       
       * ` Ereignis </ 0>  Ereignis</li>
-<li><code>type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+<li><code>type` String - ein string zum identifizieren einer Aktivität. Maped auf [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
       
       Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) before an activity from a different device wants to be resumed. You should call `event.preventDefault()` if you want to handle this event.
       
@@ -133,7 +133,7 @@ Durch einen Aufruf von <code>event.preventDefault()` wird die standardmäßige A
       Rückgabewert:
       
       * ` Ereignis </ 0>  Ereignis</li>
-<li><code>type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+<li><code>type` String - ein string zum identifizieren einer Aktivität. Maped auf [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
       * `error` String - A string with the error's localized description.
       
       Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) when an activity from a different device fails to be resumed.
@@ -143,7 +143,7 @@ Durch einen Aufruf von <code>event.preventDefault()` wird die standardmäßige A
       Rückgabewert:
       
       * ` Ereignis </ 0>  Ereignis</li>
-<li><code>type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+<li><code>type` String - ein string zum identifizieren einer Aktivität. Maped auf [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
       * `userInfo` Object - Contains app-specific state stored by the activity.
       
       Emitted during [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) after an activity from this device was successfully resumed on another one.
@@ -153,7 +153,7 @@ Durch einen Aufruf von <code>event.preventDefault()` wird die standardmäßige A
       Rückgabewert:
       
       * ` Ereignis </ 0>  Ereignis</li>
-<li><code>type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+<li><code>type` String - ein string zum identifizieren einer Aktivität. Maped auf [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
       * `userInfo` Object - Contains app-specific state stored by the activity.
       
       Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise the operation will fail and `continue-activity-error` will be called.
@@ -183,7 +183,7 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         * ` Ereignis </ 0>  Ereignis</li>
 <li><code>window` [BrowserWindow](browser-window.md)
         
-        Emitted when a [browserWindow](browser-window.md) gets focused.
+        Emittiert wenn ein [browserWindow](browser-window.md) in den Fokus kommt.
         
         ### Event: 'browser-window-created'
         
@@ -192,25 +192,25 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         * ` Ereignis </ 0>  Ereignis</li>
 <li><code>window` [BrowserWindow](browser-window.md)
         
-        Emitted when a new [browserWindow](browser-window.md) is created.
+        Emittiert wenn ein neues [browserWindow](browser-window.md) erstellt wird.
         
         ### Event: 'web-contents-created'
         
         Rückgabewert:
         
-        * ` Ereignis </ 0>  Ereignis</li>
-<li><code>webContents` [WebContents](web-contents.md)
+        * `event` Event
+        * `webContents` [WebContents](web-contents.md)
         
-        Emitted when a new [webContents](web-contents.md) is created.
+        Emittiert wen ein neues [webContents](web-contents.md) erstellt wird.
         
         ### Event: 'certificate-error'
         
         Rückgabewert:
         
-        * ` Ereignis </ 0>  Ereignis</li>
-<li><code>webContents` [WebContents](web-contents.md)
-        * ` URL </ 0>  Zeichenfolge</li>
-<li><code>error` String - The error code
+        * `event` Event
+        * `webContents` [WebContents](web-contents.md)
+        * `url` String
+        * `error` String - Der error code
         * `certificate` [Certificate](structures/certificate.md)
         * `callback` Funktion 
           * `isTrusted` Boolean - Whether to consider the certificate as trusted
@@ -739,7 +739,7 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
         
-        * `type` String - Uniquely identifies the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+        * `type` String - Uniquely identifies the activity. Maped auf [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
         * `userInfo` Object - App-specific state to store for use by another device.
         * `webpageURL` String (optional) - The webpage to load in a browser if no suitable app is installed on the resuming device. The scheme must be `http` or `https`.
         
@@ -751,13 +751,13 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         ### `app.invalidateCurrentActivity()` *macOS*
         
-        * `type` String - Uniquely identifies the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+        * `type` String - Uniquely identifies the activity. Maped auf [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
         
         Invalidates the current [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) user activity.
         
         ### `app.updateCurrentActivity(type, userInfo)` *macOS*
         
-        * `type` String - Uniquely identifies the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+        * `type` String - Uniquely identifies the activity. Maped auf [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
         * `userInfo` Object - App-specific state to store for use by another device.
         
         Updates the current activity if its type matches `type`, merging the entries from `userInfo` into its current `userInfo` dictionary.
