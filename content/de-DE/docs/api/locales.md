@@ -1,6 +1,6 @@
 # Lokalisierungen
 
-> Locale values returned by `app.getLocale()`.
+> Lokalisierte Werte zurückgegeben durch `app.getLocale()`.
 
 Elektron verwendet Chrom `l10n_util` Bibliothek, um das Gebietsschema zu ermitteln. Mögliche Werte sind unten aufgeführt:
 
