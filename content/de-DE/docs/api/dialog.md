@@ -30,12 +30,12 @@ Das `dialog` module hat die folgenden Methoden:
   * `defaultPath` String (optional)
   * `buttonLabel` String (optional) - Custom label für den Bestätigen-Button. Wenn leer gelassen, dann wird das default label verwendet.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
-  * `properties` String[] (optional) - Contains which features the dialog should use. The following values are supported: 
-    * `openFile` - Allow files to be selected.
-    * `openDirectory` - Allow directories to be selected.
-    * `multiSelections` - Allow multiple paths to be selected.
-    * `showHiddenFiles` - Show hidden files in dialog.
-    * `createDirectory` *macOS* - Allow creating new directories from dialog.
+  * `properties` String[] (optional) - Enthält welche Features der Dialog verwenden soll. Die folgenden Werte sind erlaubt: 
+    * `openFile` - Erlaubt die Auswahl von Dateien.
+    * `openDirectory` - Erlaubt die Auswahl von Verzeichnissen.
+    * `multiSelections` - Erlaubt die Auswahl mehrerer Pfade.
+    * `showHiddenFiles` - Zeige versteckte Dateien im Dialog.
+    * `createDirectory` *macOS* - Erlaube das Erstellen neuer Verzeichnisse im Dialog.
     * `promptToCreate` *Windows* - Prompt for creation if the file path entered in the dialog does not exist. This does not actually create the file at the path but allows non-existent paths to be returned that should be created by the application.
     * `noResolveAliases` *macOS* - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
     * `treatPackageAsDirectory` *macOS* - Treat packages, such as `.app` folders, as a directory instead of a file.
