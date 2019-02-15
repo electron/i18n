@@ -598,7 +598,7 @@ win.loadURL('http://github.com')
 
 レンダラープロセス内で `remote.getGlobal()` が呼ばれたときに発行されます。 `event.preventDefault()` を呼ぶとグローバルの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
 
-#### Event: 'remote-get-builtin'
+#### イベント: 'remote-get-builtin'
 
 戻り値:
 
@@ -607,30 +607,30 @@ win.loadURL('http://github.com')
 
 レンダラープロセス内で `remote.getBuiltin()` が呼ばれたときに発行されます。 `event.preventDefault()` を呼ぶとモジュールの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
 
-#### Event: 'remote-get-current-window'
+#### イベント: 'remote-get-current-window'
 
 戻り値:
 
 * `event` Event
 
-レンダラープロセス内で `remote.getCurrentWindow()` が呼ばれたときに発行されます。 Calling `event.preventDefault()` will prevent the object from being returned. `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
+レンダラープロセス内で `remote.getCurrentWindow()` が呼ばれたときに発行されます。 `event.preventDefault()` を呼ぶとオブジェクトの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
 
-#### Event: 'remote-get-current-web-contents'
+#### イベント: 'remote-get-current-web-contents'
 
 戻り値:
 
 * `event` Event
 
-レンダラープロセス内で `remote.getCurrentWebContents()` が呼ばれたときに発行されます。 Calling `event.preventDefault()` will prevent the object from being returned. `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
+レンダラープロセス内で `remote.getCurrentWebContents()` が呼ばれたときに発行されます。 `event.preventDefault()` を呼ぶとオブジェクトの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
 
-#### Event: 'remote-get-guest-web-contents'
+#### イベント: 'remote-get-guest-web-contents'
 
 戻り値:
 
 * `event` Event
 * `guestWebContents` [WebContents](web-contents.md)
 
-Emitted when `<webview>.getWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
+レンダラープロセス内で `<webview>.getWebContents()` が呼ばれたときに発生します。 `event.preventDefault()` を呼ぶとオブジェクトの返却が阻害されます。 `event.returnValue` にセットすることでカスタムな値を返すことが出来ます。
 
 ### インスタンスメソッド
 
@@ -1397,7 +1397,7 @@ V8ヒープを取得して、`filePath`にそれを保存します。
 
 #### `contents.getType()`
 
-Returns `String` - the type of the webContent. Can be `backgroundPage`, `window`, `browserView`, `remote`, `webview` or `offscreen`.
+Returns `String` - webContents の型。 `backgroundPage`、`window`、`browserView`、`remote`、`webview` か `offscreen` になります。
 
 ### インスタンスプロパティ
 
