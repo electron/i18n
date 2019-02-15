@@ -46,13 +46,13 @@ Generally, the `template` is an array of `options` for constructing a [MenuItem]
 
 You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
 
-### Beispiel Methoden
+### Instanz Methoden
 
-The `menu` object has the following instance methods:
+Das `menu` Objekt hat die folgenden Instanz Methoden:
 
 #### `menu.popup(options)`
 
-* `optionen` Objekt (optional) 
+* `options` Objekt (optional) 
   * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
   * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
   * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
