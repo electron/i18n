@@ -2,7 +2,7 @@
 
 > Use main process modules from the renderer process.
 
-Process: [Renderer](../glossary.md#renderer-process)
+Prozess: [Renderer](../glossary.md#renderer-process)
 
 The `remote` module provides a simple way to do inter-process communication (IPC) between the renderer process (web page) and the main process.
 
@@ -39,7 +39,7 @@ If the remote object is leaked in the renderer process (e.g. stored in a map but
 
 Primary value types like strings and numbers, however, are sent by copy.
 
-## Passing callbacks to the main process
+## Übergeben von Callbacks an den Main-Prozess
 
 Code in the main process can accept callbacks from the renderer - for instance the `remote` module - but you should be extremely careful when using this feature.
 
@@ -97,7 +97,7 @@ console.log(app)
 
 ## Methoden
 
-The `remote` module has the following methods:
+Das `remote` Modul hat folgende Methoden:
 
 ### `remote.require(module)`
 
@@ -105,7 +105,7 @@ The `remote` module has the following methods:
 
 Returns `any` - The object returned by `require(module)` in the main process. Modules specified by their relative path will resolve relative to the entrypoint of the main process.
 
-e.g.
+z.B.
 
 ```sh
 project/
