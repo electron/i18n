@@ -1010,7 +1010,7 @@ win.loadURL('http://localhost:8000/post', {
 * `options` Object (可选) 
   * `query` Object (可选) - 传递给 `url.format()`.
   * `search` String (可选) - 传递给 `url.format()`.
-  * `hash` String (optional) - Passed to `url.format()`.
+  * `hash` String (可选) - 传递给 `url.format()`.
 
 类似于`webContents.loadFile`，`filePath`是一个HTML页相对的应用根目录的相对路径。更多信息，可参阅`webContents`文档。
 
@@ -1040,7 +1040,7 @@ win.loadURL('http://localhost:8000/post', {
 
 #### `win.setOverlayIcon(overlay, description)` *Windows*
 
-* `overlay` [NativeImage](native-image.md) | null - the icon to display on the bottom right corner of the taskbar icon. If this parameter is `null`, the overlay is cleared
+* `overlay` [NativeImage](native-image.md) | null - 右下角任务栏的显示图标。 如果此参数是 `null`，覆盖层层会被清除。
 * `description` String -提供给屏幕阅读器的描述文字
 
 在当前任务栏图标上设置一个 16 x 16 像素的图标, 通常用于传达某种应用程序状态或被动地通知用户。
@@ -1104,7 +1104,7 @@ win.loadURL('http://localhost:8000/post', {
 
 * `region` [Rectangle](structures/rectangle.md) 窗口的区域
 
-将窗口的区域设置为在任务栏中悬停在窗口上方时显示的缩略图图像。 You can reset the thumbnail to be the entire window by specifying an empty region: `{ x: 0, y: 0, width: 0, height: 0 }`.
+将窗口的区域设置为在任务栏中悬停在窗口上方时显示的缩略图图像。 通过指定空区域：`{ x: 0, y: 0, width: 0, height: 0 }`，可以重置整个窗口的缩略图。
 
 #### `win.setThumbnailToolTip(toolTip)` *Windows*
 
@@ -1139,9 +1139,9 @@ win.loadURL('http://localhost:8000/post', {
 
 * `visible` Boolean
 
-Sets whether the window traffic light buttons should be visible.
+设置是否窗口交通灯需要显示。
 
-This cannot be called when `titleBarStyle` is set to `customButtonsOnHover`.
+当`titleBarStyle` 是 `customButtonsOnHover`的时候，不可调用。
 
 #### `win.setAutoHideMenuBar(hide)`
 
