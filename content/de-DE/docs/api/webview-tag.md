@@ -516,7 +516,7 @@ Loads the `url` in the webview, the `url` must contain the protocol prefix, e.g.
   * `minimumLevel` Number
   * `maximumLevel` Number
   
-  Sets the maximum and minimum pinch-to-zoom level.
+  Setzt das Maximum und Minimum pinch-to-zoom Level.
   
   ### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
   
