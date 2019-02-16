@@ -800,9 +800,9 @@ Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - L'état des fon
 
 Retourne `Promise`
 
-For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src.git/+/69.0.3497.106/gpu/config/gpu_info.cc). Cela inclut les informations de version et driver montrées sur la page `chrome://gpu`.
+Si `infoType` vaut `complete` : La Promise est remplie avec `Object` contenant toutes les informations sur le GPU, comme pour [l'objet GPUInfo de Chromium](https://chromium.googlesource.com/chromium/src.git/+/69.0.3497.106/gpu/config/gpu_info.cc). Cela inclut les informations de version et driver montrées sur la page `chrome://gpu`.
 
-For `infoType` equal to `basic`: Promise is fulfilled with `Object` containing fewer attributes than when requested with `complete`. Here's an example of basic response:
+Si `infoType` vaut `basic` : La Promise est remplie avec `Object` contenant moins d'attributs que si l'on utilise `complete`. Voilà un exemple de réponse basique :
 
 ```js
 { auxAttributes:
@@ -827,7 +827,7 @@ machineModelName: 'MacBookPro',
 machineModelVersion: '11.5' }
 ```
 
-Using `basic` should be preferred if only basic information like `vendorId` or `driverId` is needed.
+`basic` devrait être priorisé si vous n'avez besoin que d'informations basiques telles que `vendorId` ou `driverId`.
 
 ### `app.setBadgeCount(count)` *Linux* *macOS*
 
@@ -839,7 +839,7 @@ Définit le badge du compteur pour l'application courante. Régler le compte à 
 
 Sous macOS, il apparaît sur l'icône du dock. Sous Linux, il ne fonctionne que pour le launcher Unity.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+**Note :** le launcher Unity requiert la présence d'un fichier `.desktop` pour fonctionner, pour de plus amples informations, lisez le document [Intégration de l'environnement de bureau](../tutorial/desktop-environment-integration.md#unity-launcher).
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
@@ -869,7 +869,7 @@ Retourne `Object`:
 
 * `settings` Objet 
   * `openAtLogin` Boolean (facultatif) - `true` pour ouvrir l'application à l'ouverture de session, `false` pour retirer l'application de la liste des programmes démarrés à l'ouverture de session. `false` par défaut.
-  * `openAsHidden` Boolean (facultatif) *macOS* - `true` pour ouvrir l’application comme cachée. `false` par défaut. The user can edit this setting from the System Preferences so `app.getLoginItemSettings().wasOpenedAsHidden` should be checked when the app is opened to know the current value. Ce paramètre n'est pas disponible sur les [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+  * `openAsHidden` Boolean (facultatif) *macOS* - `true` pour ouvrir l’application comme cachée. `false` par défaut. L'utilisateur peut éditer ce paramètre depuis les Préférences Système, alors `app.getLoginItemSettings().wasOpenedAsHidden` va être vérifié lorsque l'app sera ouverte pour connaître la valeur actuelle. Ce paramètre n'est pas disponible sur les [MAS builds](../tutorial/mac-app-store-submission-guide.md).
   * `path` String (optional) *Windows* - L'exécutable à lancer à l'ouverture de session. `process.execPath` par défaut.
   * `args` String[] (facultatif) *Windows* - Les arguments de la ligne de commandes à passer à l'exécutable. Un tableau vide par défaut. Veillez à protéger les chemins par des guillemets.
 
@@ -900,15 +900,15 @@ Retourne `Boolean` - `true` si le support des fonctionnalités d'accessibilité 
 
 * `enabled` Boolean - Active ou désactive le rendu de [l'arbre d'accessibilité](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)
 
-Active manuellement le support de l'accessibilité de Chrome, permettant de mettre à disposition des utilisateurs les commutateurs d'accessibilité dans les paramètres de l'application. See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. Désactivé par défaut.
+Active manuellement le support de l'accessibilité de Chrome, permettant de mettre à disposition des utilisateurs les commutateurs d'accessibilité dans les paramètres de l'application. Consultez les [documents d'accessibilité de Chromium](https://www.chromium.org/developers/design-documents/accessibility) pour plus de détails. Désactivé par défaut.
 
-This API must be called after the `ready` event is emitted.
+Cette API doit être appelée après l'émission de l'événement `ready` .
 
 **Note:** Le rendu de l'arbre d'accessibilité peut affecter de manière significative les performances de votre application. Il ne devrait pas être activé par défaut.
 
 ### `app.showAboutPanel()` *macOS*
 
-Show the about panel with the values defined in the app's `.plist` file or with the options set via `app.setAboutPanelOptions(options)`.
+Montre le panneau "A propos de" avec les valeurs définies dans le fichier `.plist` de l'appli ou via les options définies par `app.setAboutPanelOptions(options)`.
 
 ### `app.setAboutPanelOptions(options)` *macOS*
 
@@ -923,12 +923,12 @@ Configure les options de la fenêtre À propos de. Cela surchargera les valeurs 
 
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS*
 
-* `bookmarkData` String - The base64 encoded security scoped bookmark data returned by the `dialog.showOpenDialog` or `dialog.showSaveDialog` methods.
+* `bookmarkData` String - Les données de marque-page encodées en base64 renvoyées par les méthodes `dialog.showOpenDialog` où `dialog.showSaveDialog`.
 
-Returns `Function` - This function **must** be called once you have finished accessing the security scoped file. If you do not remember to stop accessing the bookmark, [kernel resources will be leaked](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) and your app will lose its ability to reach outside the sandbox completely, until your app is restarted.
+Retourne `Fonction` - Cette fonction **doit** être appelée une fois que vous avez fini d'accéder au fichier de sécurité utilisé. If you do not remember to stop accessing the bookmark, [kernel resources will be leaked](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) and your app will lose its ability to reach outside the sandbox completely, until your app is restarted.
 
 ```js
-// Start accessing the file.
+// Commence à accéder au fichier.
 const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
 // You can now access the file outside of the sandbox 
 stopAccessingSecurityScopedResource()
@@ -949,19 +949,19 @@ Append a switch (with optional `value`) to Chromium's command line.
 
 * `value` String - L'argument à ajouter à la ligne de commande
 
-Append an argument to Chromium's command line. The argument will be quoted correctly.
+Ajoute un argument à la ligne de commande Chromium. La syntaxe de l'argument aura les bons guillemets.
 
 **Note:** Ceci n'affecte pas `process.argv`.
 
 ### `app.enableSandbox()` *Experimental* *macOS* *Windows*
 
-Enables full sandbox mode on the app.
+Active le mode "full sandbox" dans l'application.
 
 Cette méthode peut seulement être appelée avant que app soit prêt.
 
 ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
 
-Enables mixed sandbox mode on the app.
+Active le mode "mixed sandbox" dans l'application.
 
 Cette méthode peut seulement être appelée avant que app soit prêt.
 
