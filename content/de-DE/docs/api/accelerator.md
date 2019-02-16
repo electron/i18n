@@ -9,7 +9,7 @@ Beispiele:
 * `CommandOrControl+A`
 * `CommandOrControl+Shift+Z`
 
-Tastenkürzel werden registriert mit dem [`globalShortcut`](global-shortcut.md) Modul durch die [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) Methode.
+Tastenkürzel werden registriert mit dem [`globalShortcut`](global-shortcut.md) Modul durch die [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) Methode, z.B.
 
 ```javascript
 const { app, globalShortcut } = require('electron')
@@ -22,19 +22,19 @@ app.on('ready', () => {
 })
 ```
 
-## Plattformdiversitäten
+## Hinweis zu Betriebssystemen
 
 Unter Linux und Windows hat die `Command` Taste keinen Effekt, weshalb `CommandOrControl` benutzt werden sollte. Es repräsentiert `Command` unter macOS und `Control` unter Linux und Windows um Tastenkürzel zu definieren.
 
-Benutze `Alt` statt `Option`. `Option` existiert nur unter macOS, wohingegen `Alt` auf allen Plattformen verfügbar ist.
+Benutze `Alt` statt `Option`. `Option` existiert nur unter macOS, wohingegen `Alt` in allen Betriebssystemen verfügbar ist.
 
-`Super` ist auf die `Windows` Taste unter Windowsx und Linux gemappt. Unter macOS is es auf `Cmd` gemappt.
+`Super` wird unter Windows und Linux auf die`Windows`-Taste und unter macOS auf die `Cmd` gemappt.
 
 ## Verfügbare Modifikatoren
 
-* `Command` (or `Cmd` for short)
-* `Control` (or `Ctrl` for short)
-* `CommandOrControl` (or `CmdOrCtrl` for short)
+* `Command` (oder kurz `Cmd`)
+* `Control` (oder kurz `Ctrl`)
+* `CommandOrControl` (oder kurz `CmdOrCtrl`)
 * `Alt`
 * `Option`
 * `AltGr`
