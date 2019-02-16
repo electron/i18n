@@ -1051,7 +1051,7 @@ By default, an empty `options` will be regarded as:
 
 Use `page-break-before: always;` CSS style to force to print to a new page.
 
-An example of `webContents.printToPDF`:
+Ein Beispiel für `webContents.printToPDF`:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -1132,7 +1132,7 @@ An example of showing devtools in a `<webview>` tag:
 </html>
 ```
 
-An example of showing devtools in a `BrowserWindow`:
+Ein Beispiel zum zeigen der DevTools in einem `BrowserWindow`:
 
 ```js
 const { app, BrowserWindow } = require('electron')
@@ -1160,7 +1160,7 @@ When `contents` is a `<webview>` tag, the `mode` would be `detach` by default, e
 
 #### `contents.closeDevTools()`
 
-Closes the devtools.
+Schließt die DevTools.
 
 #### `contents.isDevToolsOpened()`
 
@@ -1302,7 +1302,7 @@ Sets the `item` as dragging item for current drag-drop operation, `file` is the 
 
 #### `contents.savePage(fullPath, saveType, callback)`
 
-* `fullPath` String - The full file path.
+* `fullPath` String - Der volle Dateipfad.
 * `saveType` String - Specify the save type. 
   * `HTMLOnly` - Save only the HTML of the page.
   * `HTMLComplete` - Save complete-html page.
