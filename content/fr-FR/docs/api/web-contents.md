@@ -598,7 +598,7 @@ Retourne :
 
 Emitted when `remote.getGlobal()` is called in the renderer process. Appeler `event.preventDefault()` empêchera le module d'être retourné. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
 
-#### Event: 'remote-get-builtin'
+#### Événement : 'remote-get-builtin'
 
 Retourne :
 
@@ -607,30 +607,30 @@ Retourne :
 
 Emitted when `remote.getBuiltin()` is called in the renderer process. Appeler `event.preventDefault()` empêchera le module d'être retourné. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
 
-#### Event: 'remote-get-current-window'
+#### Événement : 'remote-get-current-window'
 
 Retourne :
 
 * `event` Événement
 
-Emitted when `remote.getCurrentWindow()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
+Emitted when `remote.getCurrentWindow()` is called in the renderer process. Appeler `event.preventDefault()` empêchera l'objet d'être renvoyé. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
 
-#### Event: 'remote-get-current-web-contents'
+#### Événement : 'remote-get-current-web-contents'
 
 Retourne :
 
 * `event` Événement
 
-Emitted when `remote.getCurrentWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
+Emitted when `remote.getCurrentWebContents()` is called in the renderer process. Appeler `event.preventDefault()` empêchera l'objet d'être renvoyé. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
 
-#### Event: 'remote-get-guest-web-contents'
+#### Événement : 'remote-get-guest-web-contents'
 
 Retourne :
 
 * `event` Événement
 * `guestWebContents` [WebContents](web-contents.md)
 
-Emitted when `<webview>.getWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
+Emitted when `<webview>.getWebContents()` is called in the renderer process. Appeler `event.preventDefault()` empêchera l'objet d'être renvoyé. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
 
 ### Méthodes d’instance
 
