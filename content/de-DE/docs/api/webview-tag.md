@@ -596,7 +596,7 @@ Loads the `url` in the webview, the `url` must contain the protocol prefix, e.g.
   
   Rückgabewert:
   
-  * `favicons` String[] - Array of URLs.
+  * `favicons` String[] - Array mit URLs.
   
   Fired when page receives favicon urls.
   
