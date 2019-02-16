@@ -309,7 +309,7 @@ Rückgabewert:
 
 * `session` [Session](session.md)
 
-Emitted when Electron has created a new `session`.
+Emittiert wenn Electron eine neue `Session` erstellt.
 
 ```javascript
 const { app } = require('electron')
@@ -339,7 +339,7 @@ Rückgabewert:
 * `webContents` [WebContents](web-contents.md)
 * `moduleName` String
 
-Emitted when `remote.require()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+Emitted when `remote.require()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
 
 ### Event: 'remote-get-global'
 
@@ -349,35 +349,35 @@ Rückgabewert:
 * `webContents` [WebContents](web-contents.md)
 * `globalName` String
 
-Emitted when `remote.getGlobal()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
+Emitted when `remote.getGlobal()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
 
 ### Event: 'remote-get-builtin'
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>webContents` [WebContents](web-contents.md)
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
 * `moduleName` String
 
-Emitted when `remote.getBuiltin()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+Emitted when `remote.getBuiltin()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
 
 ### Event: 'remote-get-current-window'
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>webContents` [WebContents](web-contents.md)
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
 
-Emitted when `remote.getCurrentWindow()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+Emitted when `remote.getCurrentWindow()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
 
 ### Event: 'remote-get-current-web-contents'
 
 Rückgabewert:
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>webContents` [WebContents](web-contents.md)
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
 
-Emitted when `remote.getCurrentWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+Emitted when `remote.getCurrentWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
 
 ### Event: 'remote-get-guest-web-contents'
 
@@ -387,7 +387,7 @@ Rückgabewert:
 * `webContents` [WebContents](web-contents.md)
 * `guestWebContents` [WebContents](web-contents.md)
 
-Emitted when `<webview>.getWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+Emitted when `<webview>.getWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Ein eigener Wert kann zurückgegeben werden durch Setzen von `event.returnValue`.
 
 ## Methoden
 
@@ -470,15 +470,15 @@ You can request the following paths by the name:
   * `$XDG_CONFIG_HOME` oder `~/.config` in Linux
   * `~/Library/Application Support` in macOS
 * `userData` The directory for storing your app's configuration files, which by default it is the `appData` directory appended with your app's name.
-* `temp` Temporary directory.
-* `exe` The current executable file.
-* `module` The `libchromiumcontent` library.
-* `desktop` The current user's Desktop directory.
+* `temp` Temporäres Verzeichnis.
+* `exe` Die aktuell ausführbare Datei.
+* `module` Die `libchromiumcontent` Bibliothek.
+* `desktop` Das Desktop Verzeichnis des aktuellen Benuters.
 * `documents` Directory for a user's "My Documents".
-* `downloads` Directory for a user's downloads.
-* `music` Directory for a user's music.
-* `pictures` Directory for a user's pictures.
-* `videos` Directory for a user's videos.
+* `downloads` "Downloads" Verzeichnis des aktuellen Benutzers.
+* `music` Musik Verzeichnis des aktuellen Benutzers.
+* `pictures` Bilder Verzeichnis des aktuellen Benutzers.
+* `videos` Filme Verzeichnis des aktuellen Benutzers.
 * `logs` Directory for your app's log folder.
 * `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
 
