@@ -780,7 +780,7 @@ are clicked or when the DOM <code>hashchange` event is triggered.</p>
         
         ### Event: 'media-started-playing'
         
-        Emitted when media starts playing.
+        Emittiert wenn ein Media Element anfängt zu spielen.
         
         ### Event: 'media-paused'
         
@@ -809,11 +809,11 @@ are clicked or when the DOM <code>hashchange` event is triggered.</p>
 
 <h3>Event: 'devtools-opened'</h3>
 
-<p>Emitted when DevTools is opened.</p>
+<p>Emittiert wenn die DevTools geöffnet wurden.</p>
 
 <h3>Event: 'devtools-closed'</h3>
 
-<p>Emitted when DevTools is closed.</p>
+<p>Emittiert wenn die DevTools geschlossen wurden.</p>
 
 <h3>Event: 'devtools-focused'</h3>
 
