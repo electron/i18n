@@ -14,7 +14,7 @@ The `filter` object has a `urls` property which is an Array of URL patterns that
 
 For certain events the `listener` is passed with a `callback`, which should be called with a `response` object when `listener` has done its work.
 
-An example of adding `User-Agent` header for requests:
+Ein Beispiel zum hinzufügen von `User-Agent` Headern für Requests:
 
 ```javascript
 const { session } = require('electron')
@@ -54,9 +54,9 @@ Die folgenden Methoden sind verfügbar in Instanzen von `WebRequest`:
 
 The `listener` will be called with `listener(details, callback)` when a request is about to occur.
 
-The `uploadData` is an array of `UploadData` objects.
+`uploadData` ist ein Array mit `UploadData` Objekten.
 
-The `callback` has to be called with an `response` object.
+Der `callback` muss aufgerufen werden mit einem `response` Objekt.
 
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
@@ -78,7 +78,7 @@ The `callback` has to be called with an `response` object.
 
 The `listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent.
 
-The `callback` has to be called with an `response` object.
+Der `callback` muss aufgerufen werden mit einem `response` Objekt.
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
@@ -119,7 +119,7 @@ The `listener` will be called with `listener(details)` just before a request is 
 
 The `listener` will be called with `listener(details, callback)` when HTTP response headers of a request have been received.
 
-The `callback` has to be called with an `response` object.
+Der `callback` muss aufgerufen werden mit einem `response` Objekt.
 
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
@@ -154,7 +154,7 @@ The `listener` will be called with `listener(details)` when first byte of the re
     * `timestamp` Double
     * `redirectURL` String
     * `statusCode` Integer
-    * `ip` String (optional) - The server IP address that the request was actually sent to.
+    * `ip` String (optional) - Die Server IP Adresse an den der Request ursprünglich gesendet wurde.
     * `fromCache` Boolean
     * `responseHeaders` Object
 
