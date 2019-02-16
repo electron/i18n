@@ -26,11 +26,11 @@ Changes the zoom factor to the specified factor. Zoom factor is zoom percent div
 
 ### `webFrame.getZoomFactor()`
 
-Returns `Number` - The current zoom factor.
+Gibt eine `Number` zurück - Der aktuelle Zoom Faktor.
 
 ### `webFrame.setZoomLevel(level)`
 
-* `level` Number - Zoom level.
+* `level` Number - Zoom Level.
 
 Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
 
@@ -45,7 +45,7 @@ Returns `Number` - The current zoom level.
 
 Sets the maximum and minimum pinch-to-zoom level.
 
-> **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
+> **Hinweis**: Visueller Zoom ist disabled by default in Electron. Um ihn wieder zu aktualisieren rufe auf:
 > 
 > ```js
 webFrame.setVisualZoomLevelLimits(1, 3)
@@ -62,7 +62,7 @@ Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
 
 * `language` String
 * `autoCorrectWord` Boolean
-* `provider` Object 
+* `provider` Objekt 
   * `spellCheck` Function - Returns `Boolean`. 
     * `text` String
 
@@ -110,11 +110,11 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 
 * `text` String
 
-Inserts `text` to the focused element.
+Füge `text` in das fokusierte Element ein.
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
-* `code` Zeichenkette
+* `code` String
 * `userGesture` Boolean (optional) - Default is `false`.
 * `callback` Function (optional) - Called after script has been executed. 
   * `result` Any
