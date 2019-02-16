@@ -444,7 +444,7 @@ Rückgabewert:
 * `size` [Size](structures/size.md) (optional) - Die Größe des`Bildes`.
 * `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot.
 
-Emittiert wenn der Cursor Typ sich ändert. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing` or `custom`.
+Emittiert wenn der Cursor Typ sich ändert. Der `type` Parameter kann folgenden Werte haben `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing` or `custom`.
 
 If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a [`NativeImage`](native-image.md), and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
 
@@ -672,7 +672,7 @@ Loads the given file in the window, `filePath` should be a path to an HTML file 
 |   - index.html
 ```
 
-Would require code like this
+Würde Code wie diesen benötigen
 
 ```js
 win.loadFile('src/index.html')
@@ -686,7 +686,7 @@ Initiates a download of the resource at `url` without navigating. The `will-down
 
 #### `contents.getURL()`
 
-Returns `String` - The URL of the current web page.
+Gibt einen `String` zurück - Die URL der aktuellen web page.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -731,11 +731,11 @@ Stops any pending navigation.
 
 #### `contents.reload()`
 
-Reloads the current web page.
+Lädt die aktuelle web page neu.
 
 #### `contents.reloadIgnoringCache()`
 
-Reloads current page and ignores cache.
+Lädt die aktuelle web page neu und ignoriert dabei die Caches.
 
 #### `contents.canGoBack()`
 
@@ -839,7 +839,7 @@ Returns `Boolean` - Whether audio is currently playing.
 
 #### `contents.setZoomFactor(factor)`
 
-* `factor` Number - Zoom factor.
+* `factor` Number - Zoom Faktor.
 
 Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
 
