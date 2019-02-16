@@ -331,7 +331,7 @@ Cet évènement sera émis dans la première instance de votre votre application
 
 Cet évènement est garanti d'être émis après que l'évènement `ready` de `app` soit émis.
 
-### Évènement : 'remote-require'
+### Événement : 'remote-require'
 
 Retourne :
 
@@ -351,7 +351,7 @@ Retourne :
 
 Émis lorsque `remote.getGlobal()` est appelé dans le processus de rendu de `webContents`. Appeler `event.preventDefault()` empêchera le module d'être retourné. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
 
-### Event: 'remote-get-builtin'
+### Événement : 'remote-get-builtin'
 
 Retourne :
 
@@ -361,25 +361,25 @@ Retourne :
 
 Émis lorsque `remote.getBuiltin()` est appelé dans le processus de rendu de `webContents`. Appeler `event.preventDefault()` empêchera le module d'être retourné. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
 
-### Event: 'remote-get-current-window'
+### Événement : 'remote-get-current-window'
 
 Retourne :
 
 * `event` Événement
 * `webContents` [WebContents](web-contents.md)
 
-Émis lorsque `remote.getCurrentWindow()` est appelé dans le processus de rendu de `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
+Émis lorsque `remote.getCurrentWindow()` est appelé dans le processus de rendu de `webContents`. Appeler `event.preventDefault()` empêchera l'objet d'être renvoyé. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
 
-### Event: 'remote-get-current-web-contents'
+### Événement : 'remote-get-current-web-contents'
 
 Retourne :
 
 * `event` Événement
 * `webContents` [WebContents](web-contents.md)
 
-Émis lorsque `remote.getCurrentWebContents()` est appelé dans le processus de rendu de `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
+Émis lorsque `remote.getCurrentWebContents()` est appelé dans le processus de rendu de `webContents`. Appeler `event.preventDefault()` empêchera l'objet d'être renvoyé. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
 
-### Event: 'remote-get-guest-web-contents'
+### Événement : 'remote-get-guest-web-contents'
 
 Retourne :
 
@@ -387,7 +387,7 @@ Retourne :
 * `webContents` [WebContents](web-contents.md)
 * `guestWebContents` [WebContents](web-contents.md)
 
-Emitted when `<webview>.getWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
+Émis lorsque `<webview>.getWebContents()` est appelé dans le processus de rendu de `webContents`. Appeler `event.preventDefault()` empêchera l'objet d'être renvoyé. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
 
 ## Méthodes
 
@@ -435,7 +435,7 @@ Retourne `Boolean` - `true` si Electron a fini de s'initialiser, `false` sinon.
 
 ### `app.whenReady()`
 
-Returns `Promise&lt;void&gt;` - Remplie quand Electron est initialisé. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
+Returns `Promise&lt;void&gt;` - Remplie quand Electron est initialisé. Peut astucieusement remplacer la vérification de `app.isReady()` et l'abonnement à l'événement `ready` si l'application n'est pas encore prête.
 
 ### `app.focus()`
 
@@ -686,13 +686,13 @@ app.setJumpList([
 ])
 ```
 
-### `app.requestSingleInstanceLock()`
+### `app.request SingleInstanceLock()`
 
 Retourne `Boolean`
 
 Cette méthode fait de votre application une Application à Instance Unique : au lieu d'autoriser plusieurs instances parallèles de votre application, cela permet de s'assurer qu'une seule est active, et les autres instances envoient un signal à celle-ci puis se terminent.
 
-The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock you can assume that another instance of your application is already running with the lock and exit immediately.
+La valeur renvoyée par cette méthode indique si cette instance de votre application a obtenu le verrou ou non. Si elle n'a pas réussi à obtenir le verrou, une autre instance de votre application doit déjà l'utiliser ; il serait préférable de sortir immédiatement.
 
 I.e. This method returns `true` if your process is the primary instance of your application and your app should continue loading. It returns `false` if your process should immediately quit as it has sent its parameters to another instance that has already acquired the lock.
 
