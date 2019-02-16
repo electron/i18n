@@ -48,7 +48,7 @@ Benutze `Alt` statt `Option`. `Option` existiert nur unter macOS, wohingegen `Al
 * `F1` bis `F24`
 * Sonderzeichen wie `~`, `!`, `@`, `#`, `$`, etc.
 * `Plus`
-* `Space`
+* `Space (Leerzeichen)`
 * `Tab`
 * `Backspace`
 * `Delete`
