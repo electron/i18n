@@ -36,14 +36,14 @@ Changes the zoom level to the specified level. The original size is 0 and each i
 
 ### `webFrame.getZoomLevel()`
 
-Returns `Number` - The current zoom level.
+Returns `Number` - Das aktuelle Zoom Level.
 
 ### `webFrame.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Sets the maximum and minimum pinch-to-zoom level.
+Setzt das Maximum und Minimum pinch-to-zoom Level.
 
 > **Hinweis**: Visueller Zoom ist disabled by default in Electron. Um ihn wieder zu aktualisieren rufe auf:
 > 
@@ -174,7 +174,7 @@ const { webFrame } = require('electron')
 console.log(webFrame.getResourceUsage())
 ```
 
-This will generate:
+Dies generiert:
 
 ```javascript
 {
@@ -198,7 +198,7 @@ Note that blindly calling this method probably makes Electron slower since it wi
 
 ### `webFrame.getFrameForSelector(selector)`
 
-* `selector` String - CSS selector for a frame element.
+* `selector` String - CSS selector für ein frame Element.
 
 Returns `WebFrame` - The frame element in `webFrame's` document selected by `selector`, `null` would be returned if `selector` does not select a frame or if the frame is not in the current renderer process.
 
