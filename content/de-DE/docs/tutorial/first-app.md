@@ -15,13 +15,13 @@ your-app/
 └── index.html
 ```
 
-Erstelle ein neues leeres Verzeichnis für deine Electron Anwendung. Öffne die Kommandozeile und führe `npm init` in diesem Verzeichnis aus.
+Erstelle ein neues leeres Verzeichnis für deine Electron-Anwendung. Öffne die Kommandozeile und führe `npm init` in diesem Verzeichnis aus.
 
 ```sh
 npm init
 ```
 
-npm wird dich schrittweise durch die Erstellung einer `package.json` Datei führen. Das Skript, welches im `main` Feld angegeben wird, ist das Start Skript deiner Anwendung, welches den Hauptprozess startet. Ein Beispiel für Ihre `package.json` könnte wie folgt aussehen:
+npm wird dich schrittweise durch die Erstellung einer `package.json`-Datei führen. Das Skript, welches im `main`-Feld angegeben wird, ist das Startskript deiner Anwendung, welches den Hauptprozess startet. Ein Beispiel für Ihre `package.json` könnte wie folgt aussehen:
 
 ```json
 {
@@ -31,7 +31,7 @@ npm wird dich schrittweise durch die Erstellung einer `package.json` Datei führ
 }
 ```
 
-**Bemerkung**: Wenn das `main`-Feld in der `package.json`-Datei nicht angegeben ist, wird Electron (so wie Node.js) versuchen eine `index.js`-Datei zu laden. Wenn es sich um eine einfache Node-Anwendung handelt, würden Sie ein `start`-Skript hinzufügen, das `node` anweist, das aktuelle Paket auszuführen:
+**Bemerkung**: Wenn das `main`-Feld in der `package.json`-Datei nicht angegeben ist, wird Electron (so wie Node.js) versuchen, eine `index.js`-Datei zu laden. Wenn es sich um eine einfache Node-Anwendung handelt, würden Sie ein `start`-Skript hinzufügen, das `node` anweist, das aktuelle Paket auszuführen:
 
 ```json
 {
@@ -44,7 +44,7 @@ npm wird dich schrittweise durch die Erstellung einer `package.json` Datei führ
 }
 ```
 
-Diese Node-Anwendung in eine Electron-Anwendung umzuwandeln ist ganz einfach - wir ersetzen lediglich die `node`-Laufzeit durch die `electron`-Laufzeit.
+Diese Node-Anwendung in eine Electron-Anwendung umzuwandeln, ist ganz einfach - wir ersetzen lediglich die `node`-Laufzeit durch die `electron`-Laufzeit.
 
 ```json
 {
@@ -65,7 +65,7 @@ An dieser Stelle müssen Sie das `electron` installieren. Der empfohlene Weg die
 npm install --save-dev electron
 ```
 
-Es gibt noch andere Möglichkeiten um Electron zu installieren. Bitte lesen Sie die [Installationsanleitung](installation.md), um mehr über die Verwendung mit Proxies, Mirrors und benutzerdefinierten Caches zu erfahren.
+Es gibt noch andere Möglichkeiten, um Electron zu installieren. Bitte lesen Sie die [Installationsanleitung](installation.md), um mehr über die Verwendung mit Proxies, Mirrors und benutzerdefinierten Caches zu erfahren.
 
 ## Electron-Entwicklung auf einen Blick
 
@@ -75,7 +75,7 @@ Electron Anwendungen werden in JavaScript entwickelt, es werden die gleichen Pri
 const electron = require('electron')
 ```
 
-Das Modul `electron` stellt Funktionen in Namespaces zur Verfügung. Beispielsweise wird der Lebenszyklus der Anwendung über `electron.app` verwaltet, Fenster können mit der Klasse `electron.BrowserWindow` erstellt werden. Eine einfache `main.js` Datei könnte warten, bis die Anwendung fertig ist und anschließend ein Fenster öffnen:
+Das Modul `electron` stellt Funktionen in Namespaces zur Verfügung. Beispielsweise wird der Lebenszyklus der Anwendung über `electron.app` verwaltet, Fenster können mit der Klasse `electron.BrowserWindow` erstellt werden. Eine einfache `main.js`-Datei könnte warten, bis die Anwendung fertig ist und anschließend ein Fenster öffnen:
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
@@ -128,8 +128,8 @@ app.on('ready', createWindow)
 
 // Verlassen, wenn alle Fenster geschlossen sind.
 app.on('window-all-closed', () => {
-  // Unter macOS ist es üblich für Apps und ihre Menu Bar
-  // aktiv zu bleiben bis der Nutzer explizit mit Cmd + Q die App beendet.
+  // Unter macOS ist es üblich, für Apps und ihre Menu Bar
+  // aktiv zu bleiben, bis der Nutzer explizit mit Cmd + Q die App beendet.
   if (process.platform !== 'darwin') {
     app.quit()
   }
@@ -148,7 +148,7 @@ app.on('activate', () => {
 // auf mehrere Dateien aufteilen und diese hier einbinden.
 ```
 
-Zu guter Letzt die `index.html`-Webseite, die Sie anzeigen lassen möchten:
+Zu guter Letzt, die `index.html`-Webseite, die Sie anzeigen lassen möchten:
 
 ```html
 <!DOCTYPE html>
