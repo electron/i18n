@@ -4,7 +4,7 @@
 
 Prozess: [Haupt](../glossary.md#main-process)
 
-`webContents` ist ein [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). It is responsible for rendering and controlling a web page and is a property of the [`BrowserWindow`](browser-window.md) object. An example of accessing the `webContents` object:
+`webContents` ist ein [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). Ist zuständig für das rendering und die Steuerung einer web page und ist eine Property des [`BrowserWindow`](browser-window.md) Objekts. Ein Beispiel für die Verwendung des `webContents` Objekts:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -18,7 +18,7 @@ console.log(contents)
 
 ## Methoden
 
-These methods can be accessed from the `webContents` module:
+Diese diese Methoden des `webContents` Modul hast du zugriff:
 
 ```javascript
 const { webContents } = require('electron')
@@ -27,7 +27,7 @@ console.log(webContents)
 
 ### `webContents.getAllWebContents()`
 
-Returns `WebContents[]` - An array of all `WebContents` instances. This will contain web contents for all windows, webviews, opened devtools, and devtools extension background pages.
+Gibt `WebContents[]` zurück - Ein array aller `WebContents` Instanzen. This will contain web contents for all windows, webviews, opened devtools, and devtools extension background pages.
 
 ### `webContents.getFocusedWebContents()`
 
@@ -41,7 +41,7 @@ Returns `WebContents` - A WebContents instance with the given ID.
 
 ## Class: WebContents
 
-> Render and control the contents of a BrowserWindow instance.
+> Rendert und steuert den Inhalt einer BrowserWindow Instanze.
 
 Prozess: [Main](../glossary.md#main-process)
 
