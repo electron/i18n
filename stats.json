@@ -94,27 +94,27 @@
     "name": "French",
     "code": "fr",
     "phrases": "10076",
-    "translated": "7404",
+    "translated": "7409",
     "approved": "39",
     "words": "93200",
-    "words_translated": "55984",
+    "words_translated": "56061",
     "words_approved": "142",
     "translated_progress": 60,
     "approved_progress": 0,
-    "qa_issues": 2150
+    "qa_issues": 2153
   },
   {
     "name": "German",
     "code": "de",
     "phrases": "10076",
-    "translated": "4469",
+    "translated": "4521",
     "approved": "35",
     "words": "93200",
-    "words_translated": "26198",
+    "words_translated": "26641",
     "words_approved": "66",
     "translated_progress": 28,
     "approved_progress": 0,
-    "qa_issues": 1665
+    "qa_issues": 1668
   },
   {
     "name": "Hebrew",
