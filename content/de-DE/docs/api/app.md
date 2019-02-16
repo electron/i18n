@@ -771,7 +771,7 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         ### `app.importCertificate(options, callback)` *LINUX*
         
         * `options` Object 
-          * `certificate` String - Path for the pkcs12 file.
+          * `certificate` String - Pfad zur pkcs12 Datei.
           * `password` String - Passphrase for the certificate.
         * `callback` Funktion 
           * `result` Integer - Result of import.
@@ -780,15 +780,15 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         ### `app.disableHardwareAcceleration()`
         
-        Disables hardware acceleration for current app.
+        Schaltet die Hardware Beschleunigung für die aktuelle App ab.
         
-        This method can only be called before app is ready.
+        Diese Methode kann nur vor dem Start der App aufgerufen werden.
         
         ### `app.disableDomainBlockingFor3DAPIs()`
         
         By default, Chromium disables 3D APIs (e.g. WebGL) until restart on a per domain basis if the GPU processes crashes too frequently. This function disables that behaviour.
         
-        This method can only be called before app is ready.
+        Diese Methode kann nur vor dem Start der App aufgerufen werden.
         
         ### `app.getAppMetrics()`
         
@@ -863,7 +863,7 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         Gibt das `Object` zurück:
         
-        * `openAtLogin` Boolean - `true` if the app is set to open at login.
+        * `openAtLogin` Boolean - `true` wenn die App definiert wurde, sich bei Login zu öffnen.
         * `openAsHidden` Boolean *macOS* - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
         * `wasOpenedAtLogin` Boolean *macOS* - `true` if the app was opened at login automatically. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
         * `wasOpenedAsHidden` Boolean *macOS* - `true` if the app was opened as a hidden login item. This indicates that the app should not open any windows at startup. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
@@ -960,13 +960,13 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         Enables full sandbox mode on the app.
         
-        This method can only be called before app is ready.
+        Diese Methode kann nur vor dem Start der App aufgerufen werden.
         
         ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
         
         Enables mixed sandbox mode on the app.
         
-        This method can only be called before app is ready.
+        Diese Methode kann nur vor dem Start der App aufgerufen werden.
         
         ### `app.isInApplicationsFolder()` *macOS*
         
@@ -1034,7 +1034,7 @@ tab button is only visible if the current <code>BrowserWindow` has a `tabbingIde
         
         * `image` ([NativeImage](native-image.md) | String)
         
-        Sets the `image` associated with this dock icon.
+        Setzt das `image` welches als Dock Icon verwendet werden soll.
         
         ## Eigenschaften
         
