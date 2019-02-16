@@ -479,12 +479,12 @@ You can request the following paths by the name:
 * `music` Musik Verzeichnis des aktuellen Benutzers.
 * `pictures` Bilder Verzeichnis des aktuellen Benutzers.
 * `videos` Filme Verzeichnis des aktuellen Benutzers.
-* `logs` Directory for your app's log folder.
+* `logs` Verzeichnis für die Logfiles deiner App.
 * `pepperFlashSystemPlugin` Full path to the system version of the Pepper Flash plugin.
 
 ### `app.getFileIcon(path[, options], callback)`
 
-* `path` Zeichenfolge
+* `path` String
 * `options` Objekt (optional) 
   * `size` String 
     * `small` - 16x16
@@ -496,12 +496,12 @@ You can request the following paths by the name:
 
 Fetches a path's associated icon.
 
-On *Windows*, there a 2 kinds of icons:
+In *Windows* gibt es zwei arten von Icons:
 
-* Icons associated with certain file extensions, like `.mp3`, `.png`, etc.
-* Icons inside the file itself, like `.exe`, `.dll`, `.ico`.
+* Icons welche den verschiedenen Dateiendungen zugeordnet sind, wie `.mp3`, `.png`, usw.
+* Icons welche in der Datei selbst stecken, wie `.exe`, `.dll`, `.ico`.
 
-On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+In *Linux* und *macOS* werden die Icons über den mime type der Dateien den Anwendungen zugeordnet.
 
 ### `app.setPath(name, path)`
 
@@ -542,7 +542,7 @@ To set the locale, you'll want to use a command line switch at app startup, whic
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
-* `path` Zeichenfolge
+* `path` String
 
 Adds `path` to the recent documents list.
 
@@ -550,7 +550,7 @@ This list is managed by the OS. On Windows you can visit the list from the task 
 
 ### `app.clearRecentDocuments()` *macOS* *Windows*
 
-Clears the recent documents list.
+Leere die zuletzt verwendete Dokumenten Liste.
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
@@ -617,7 +617,7 @@ Gibt das `Object` zurück:
 
 Sets or removes a custom Jump List for the application, and returns one of the following strings:
 
-* `ok` - Nothing went wrong.
+* `ok` - Nichts ist schief gelaufen.
 * `error` - One or more errors occurred, enable runtime logging to figure out the likely cause.
 * `invalidSeparatorError` - An attempt was made to add a separator to a custom category in the Jump List. Separators are only allowed in the standard `Tasks` category.
 * `fileTypeRegistrationError` - An attempt was made to add a file link to the Jump List for a file type the app isn't registered to handle.
