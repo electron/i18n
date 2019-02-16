@@ -1,10 +1,10 @@
 # webContents
 
-> Render and control web pages.
+> Rendert und steuert web pages.
 
 Prozess: [Haupt](../glossary.md#main-process)
 
-`webContents` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). It is responsible for rendering and controlling a web page and is a property of the [`BrowserWindow`](browser-window.md) object. An example of accessing the `webContents` object:
+`webContents` ist ein [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter). It is responsible for rendering and controlling a web page and is a property of the [`BrowserWindow`](browser-window.md) object. An example of accessing the `webContents` object:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -1225,7 +1225,7 @@ app.on('ready', () => {
 
 #### `contents.enableDeviceEmulation(parameters)`
 
-* `parameters` Object 
+* `parameters` Objekt 
   * `screenPosition` String - Specify the screen type to emulate (default: `desktop`): 
     * `desktop` - Desktop screen type.
     * `mobile` - Mobile screen type.
@@ -1243,7 +1243,7 @@ Disable device emulation enabled by `webContents.enableDeviceEmulation`.
 
 #### `contents.sendInputEvent(event)`
 
-* `event` Object 
+* `event` Objekt 
   * `type` String (**required**) - The type of the event, can be `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel`, `mouseMove`, `keyDown`, `keyUp` or `char`.
   * `modifiers` String[] - An array of modifiers of the event, can include `shift`, `control`, `alt`, `meta`, `isKeypad`, `isAutoRepeat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsLock`, `numLock`, `left`, `right`.
 
@@ -1308,120 +1308,119 @@ Sets the `item` as dragging item for current drag-drop operation, `file` is the 
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
 * `callback` Funktion - `(error) => {}`. 
-  * ` Fehler </ 0> Fehler</li>
-</ul></li>
-</ul>
+  * `error` Error
 
-<p>Returns <code>Boolean` - true if the process of saving page has been initiated successfully.</p> 
-    ```javascript
-    const { BrowserWindow } = require('electron')
-    let win = new BrowserWindow()
-    
-    win.loadURL('https://github.com')
-    
-    win.webContents.on('did-finish-load', () => {
-      win.webContents.savePage('/tmp/test.html', 'HTMLComplete', (error) => {
-        if (!error) console.log('Save page successfully')
-      })
-    })
-    ```
-    
-    #### `contents.showDefinitionForSelection()` *macOS*
-    
-    Shows pop-up dictionary that searches the selected word on the page.
-    
-    #### `contents.isOffscreen()`
-    
-    Returns `Boolean` - Indicates whether *offscreen rendering* is enabled.
-    
-    #### `contents.startPainting()`
-    
-    If *offscreen rendering* is enabled and not painting, start painting.
-    
-    #### `contents.stopPainting()`
-    
-    If *offscreen rendering* is enabled and painting, stop painting.
-    
-    #### `contents.isPainting()`
-    
-    Returns `Boolean` - If *offscreen rendering* is enabled returns whether it is currently painting.
-    
-    #### `contents.setFrameRate(fps)`
-    
-    * `fps` Integer
-    
-    If *offscreen rendering* is enabled sets the frame rate to the specified number. Only values between 1 and 60 are accepted.
-    
-    #### `contents.getFrameRate()`
-    
-    Returns `Integer` - If *offscreen rendering* is enabled returns the current frame rate.
-    
-    #### `contents.invalidate()`
-    
-    Schedules a full repaint of the window this web contents is in.
-    
-    If *offscreen rendering* is enabled invalidates the frame and generates a new one through the `'paint'` event.
-    
-    #### `contents.getWebRTCIPHandlingPolicy()`
-    
-    Returns `String` - Returns the WebRTC IP Handling Policy.
-    
-    #### `contents.setWebRTCIPHandlingPolicy(policy)`
-    
-    * `policy` String - Specify the WebRTC IP Handling Policy. 
-      * `default` - Exposes user's public and local IPs. This is the default behavior. When this policy is used, WebRTC has the right to enumerate all interfaces and bind them to discover public interfaces.
-      * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. When this policy is used, WebRTC should only use the default route used by http. This doesn't expose any local addresses.
-      * `default_public_and_private_interfaces` - Exposes user's public and local IPs. When this policy is used, WebRTC should only use the default route used by http. This also exposes the associated default private address. Default route is the route chosen by the OS on a multi-homed endpoint.
-      * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
-    
-    Setting the WebRTC IP handling policy allows you to control which IPs are exposed via WebRTC. See [BrowserLeaks](https://browserleaks.com/webrtc) for more details.
-    
-    #### `contents.getOSProcessId()`
-    
-    Returns `Integer` - The operating system `pid` of the associated renderer process.
-    
-    #### `contents.getProcessId()`
-    
-    Returns `Integer` - The Chromium internal `pid` of the associated renderer. Can be compared to the `frameProcessId` passed by frame specific navigation events (e.g. `did-frame-navigate`)
-    
-    #### `contents.takeHeapSnapshot(filePath)`
-    
-    * `filePath` String - Path to the output file.
-    
-    Returns `Promise<void>` - Indicates whether the snapshot has been created successfully.
-    
-    Takes a V8 heap snapshot and saves it to `filePath`.
-    
-    #### `contents.setBackgroundThrottling(allowed)`
-    
-    * `allowed` Boolean
-    
-    Controls whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
-    
-    #### `contents.getType()`
-    
-    Returns `String` - the type of the webContent. Can be `backgroundPage`, `window`, `browserView`, `remote`, `webview` or `offscreen`.
-    
-    ### Instanz Eigenschaften
-    
-    #### `contents.id`
-    
-    A `Integer` representing the unique ID of this WebContents.
-    
-    #### `contents.session`
-    
-    A [`Session`](session.md) used by this webContents.
-    
-    #### `contents.hostWebContents`
-    
-    A [`WebContents`](web-contents.md) instance that might own this `WebContents`.
-    
-    #### `contents.devToolsWebContents`
-    
-    A `WebContents` of DevTools for this `WebContents`.
-    
-    **Note:** Users should never store this object because it may become `null` when the DevTools has been closed.
-    
-    #### `contents.debugger`
-    
-    A [Debugger](debugger.md) instance for this webContents.
+Returns `Boolean` - true if the process of saving page has been initiated successfully.
+
+```javascript
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow()
+
+win.loadURL('https://github.com')
+
+win.webContents.on('did-finish-load', () => {
+  win.webContents.savePage('/tmp/test.html', 'HTMLComplete', (error) => {
+    if (!error) console.log('Save page successfully')
+  })
+})
+```
+
+#### `contents.showDefinitionForSelection()` *macOS*
+
+Shows pop-up dictionary that searches the selected word on the page.
+
+#### `contents.isOffscreen()`
+
+Returns `Boolean` - Indicates whether *offscreen rendering* is enabled.
+
+#### `contents.startPainting()`
+
+If *offscreen rendering* is enabled and not painting, start painting.
+
+#### `contents.stopPainting()`
+
+If *offscreen rendering* is enabled and painting, stop painting.
+
+#### `contents.isPainting()`
+
+Returns `Boolean` - If *offscreen rendering* is enabled returns whether it is currently painting.
+
+#### `contents.setFrameRate(fps)`
+
+* `fps` Integer
+
+If *offscreen rendering* is enabled sets the frame rate to the specified number. Only values between 1 and 60 are accepted.
+
+#### `contents.getFrameRate()`
+
+Returns `Integer` - If *offscreen rendering* is enabled returns the current frame rate.
+
+#### `contents.invalidate()`
+
+Schedules a full repaint of the window this web contents is in.
+
+If *offscreen rendering* is enabled invalidates the frame and generates a new one through the `'paint'` event.
+
+#### `contents.getWebRTCIPHandlingPolicy()`
+
+Returns `String` - Returns the WebRTC IP Handling Policy.
+
+#### `contents.setWebRTCIPHandlingPolicy(policy)`
+
+* `policy` String - Specify the WebRTC IP Handling Policy. 
+  * `default` - Exposes user's public and local IPs. This is the default behavior. When this policy is used, WebRTC has the right to enumerate all interfaces and bind them to discover public interfaces.
+  * `default_public_interface_only` - Exposes user's public IP, but does not expose user's local IP. When this policy is used, WebRTC should only use the default route used by http. This doesn't expose any local addresses.
+  * `default_public_and_private_interfaces` - Exposes user's public and local IPs. When this policy is used, WebRTC should only use the default route used by http. This also exposes the associated default private address. Default route is the route chosen by the OS on a multi-homed endpoint.
+  * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
+
+Setting the WebRTC IP handling policy allows you to control which IPs are exposed via WebRTC. See [BrowserLeaks](https://browserleaks.com/webrtc) for more details.
+
+#### `contents.getOSProcessId()`
+
+Returns `Integer` - The operating system `pid` of the associated renderer process.
+
+#### `contents.getProcessId()`
+
+Returns `Integer` - The Chromium internal `pid` of the associated renderer. Can be compared to the `frameProcessId` passed by frame specific navigation events (e.g. `did-frame-navigate`)
+
+#### `contents.takeHeapSnapshot(filePath)`
+
+* `filePath` String - Path to the output file.
+
+Returns `Promise<void>` - Indicates whether the snapshot has been created successfully.
+
+Takes a V8 heap snapshot and saves it to `filePath`.
+
+#### `contents.setBackgroundThrottling(allowed)`
+
+* `allowed` Boolean
+
+Controls whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
+
+#### `contents.getType()`
+
+Returns `String` - the type of the webContent. Can be `backgroundPage`, `window`, `browserView`, `remote`, `webview` or `offscreen`.
+
+### Instanz Eigenschaften
+
+#### `contents.id`
+
+A `Integer` representing the unique ID of this WebContents.
+
+#### `contents.session`
+
+A [`Session`](session.md) used by this webContents.
+
+#### `contents.hostWebContents`
+
+A [`WebContents`](web-contents.md) instance that might own this `WebContents`.
+
+#### `contents.devToolsWebContents`
+
+A `WebContents` of DevTools for this `WebContents`.
+
+**Note:** Users should never store this object because it may become `null` when the DevTools has been closed.
+
+#### `contents.debugger`
+
+A [Debugger](debugger.md) instance for this webContents.
