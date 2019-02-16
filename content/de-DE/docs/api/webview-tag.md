@@ -412,7 +412,7 @@ Loads the `url` in the webview, the `url` must contain the protocol prefix, e.g.
   
   * `text` String
   
-  Inserts `text` to the focused element.
+  Füge `text` in das fokusierte Element ein.
   
   ### `<webview>.findInPage(text[, options])`
   
@@ -487,13 +487,13 @@ Loads the `url` in the webview, the `url` must contain the protocol prefix, e.g.
   
   ### `<webview>.setZoomFactor(factor)`
   
-  * `factor` Number - Zoom factor.
+  * `factor` Number - Zoom faktor.
   
   Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
   
   ### `<webview>.setZoomLevel(level)`
   
-  * `level` Number - Zoom level.
+  * `level` Number - Zoom Level.
   
   Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively. The formula for this is `scale := 1.2 ^ level`.
   
