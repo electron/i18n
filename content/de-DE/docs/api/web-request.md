@@ -19,7 +19,7 @@ An example of adding `User-Agent` header for requests:
 ```javascript
 const { session } = require('electron')
 
-// Modify the user agent for all requests to the following urls.
+// Modifiziert den user agent für alle requests zu den folgenden Urls.
 const filter = {
   urls: ['https://*.github.com/*', '*://electron.github.io']
 }
@@ -32,23 +32,23 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 ### Beispiel Methoden
 
-The following methods are available on instances of `WebRequest`:
+Die folgenden Methoden sind verfügbar in Instanzen von `WebRequest`:
 
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
 * `filter` Objekt (optional) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Array mit URL Patterns welche requests herausfiltern die nicht dem URL Pattern entsprechen.
 * `listener` Funktion 
-  * `details` Object 
+  * `details` Objekt 
     * `id` Integer
-    * ` URL </ 0>  Zeichenfolge</li>
-<li><code>method` String
+    * `url` String
+    * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Funktion 
-    * `response` Object 
+    * `response` Objekt 
       * `cancel` Boolean (optional)
       * `redirectURL` String (optional) - The original request is prevented from being sent or completed and is instead redirected to the given URL.
 
@@ -61,18 +61,18 @@ The `callback` has to be called with an `response` object.
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
 * `filter` Objekt (optional) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Array mit URL Patterns welche requests herausfiltern die nicht dem URL Pattern entsprechen.
 * `listener` Funktion 
   * `details` Object 
     * `id` Integer
-    * ` URL </ 0>  Zeichenfolge</li>
-<li><code>method` String
+    * `url` String
+    * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `timestamp` Double
     * `requestHeaders` Object
   * `callback` Funktion 
-    * `response` Object 
+    * `response` Objekt 
       * `cancel` Boolean (optional)
       * `requestHeaders` Object (optional) - When provided, request will be made with these headers.
 
@@ -83,12 +83,12 @@ The `callback` has to be called with an `response` object.
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
 * `filter` Objekt (optional) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Array mit URL Patterns welche requests herausfiltern die nicht dem URL Pattern entsprechen.
 * `listener` Funktion 
   * `details` Object 
     * `id` Integer
-    * ` URL </ 0>  Zeichenfolge</li>
-<li><code>method` String
+    * `url` String
+    * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `timestamp` Double
@@ -99,12 +99,12 @@ The `listener` will be called with `listener(details)` just before a request is 
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
 * `filter` Objekt (optional) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Array mit URL Patterns welche requests herausfiltern die nicht dem URL Pattern entsprechen.
 * `listener` Funktion 
   * `details` Object 
     * `id` Integer
-    * ` URL </ 0>  Zeichenfolge</li>
-<li><code>method` String
+    * `url` String
+    * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `timestamp` Double
@@ -124,12 +124,12 @@ The `callback` has to be called with an `response` object.
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
 * `filter` Objekt (optional) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Array mit URL Patterns welche requests herausfiltern die nicht dem URL Pattern entsprechen.
 * `listener` Funktion 
   * `details` Object 
     * `id` Integer
-    * ` URL </ 0>  Zeichenfolge</li>
-<li><code>method` String
+    * `url` String
+    * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `timestamp` Double
@@ -143,12 +143,12 @@ The `listener` will be called with `listener(details)` when first byte of the re
 #### `webRequest.onBeforeRedirect([filter, ]listener)`
 
 * `filter` Objekt (optional) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Array mit URL Patterns welche requests herausfiltern die nicht dem URL Pattern entsprechen.
 * `listener` Funktion 
   * `details` Object 
     * `id` Integer
-    * ` URL </ 0>  Zeichenfolge</li>
-<li><code>method` String
+    * `url` String
+    * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `timestamp` Double
@@ -163,12 +163,12 @@ The `listener` will be called with `listener(details)` when a server initiated r
 #### `webRequest.onCompleted([filter, ]listener)`
 
 * `filter` Objekt (optional) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Array mit URL Patterns welche requests herausfiltern die nicht dem URL Pattern entsprechen.
 * `listener` Funktion 
   * `details` Object 
     * `id` Integer
-    * ` URL </ 0>  Zeichenfolge</li>
-<li><code>method` String
+    * `url` String
+    * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `referrer` String
@@ -183,12 +183,12 @@ The `listener` will be called with `listener(details)` when a request is complet
 #### `webRequest.onErrorOccurred([filter, ]listener)`
 
 * `filter` Objekt (optional) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `urls` String[] - Array mit URL Patterns welche requests herausfiltern die nicht dem URL Pattern entsprechen.
 * `listener` Funktion 
   * `details` Object 
     * `id` Integer
-    * ` URL </ 0>  Zeichenfolge</li>
-<li><code>method` String
+    * `url` String
+    * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `timestamp` Double
