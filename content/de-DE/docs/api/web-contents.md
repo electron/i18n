@@ -49,7 +49,7 @@ Prozess: [Main](../glossary.md#main-process)
 
 #### Event: 'did-finish-load'
 
-Emitted when the navigation is done, i.e. the spinner of the tab has stopped spinning, and the `onload` event was dispatched.
+Emittiert wenn die Navigation abgeschlossen ist, daher, wenn der Spinner des Tab fertig ist und das `onload` Event gesendet wurde.
 
 #### Event: 'did-fail-load'
 
@@ -300,7 +300,7 @@ Rückgabewert:
 
 * `event` Event
 * `input` Object - Input properties. 
-  * `type` String - Either `keyUp` or `keyDown`.
+  * `type` String - Entweder `keyUp` oder `keyDown`.
   * `key` String - Equivalent zu [KeyboardEvent.key](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
   * `code` String - Equivalent zu [KeyboardEvent.code](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
   * `isAutoRepeat` Boolean - Equivalent zu [KeyboardEvent.repeat](https://developer.mozilla.org/en-US/docs/Web/API/KeyboardEvent).
@@ -327,11 +327,11 @@ win.webContents.on('before-input-event', (event, input) => {
 
 #### Event: 'devtools-opened'
 
-Emitted when DevTools is opened.
+Emittiert wenn die DevTools geöffnet wurden.
 
 #### Event: 'devtools-closed'
 
-Emitted when DevTools is closed.
+Emittiert wenn die DevTools geschlossen wurden.
 
 #### Event: 'devtools-focused'
 
@@ -405,7 +405,7 @@ Emitted when a result is available for [`webContents.findInPage`] request.
 
 #### Event: 'media-started-playing'
 
-Emitted when media starts playing.
+Emittiert wenn ein Media Element anfängt zu spielen.
 
 #### Event: 'media-paused'
 
@@ -441,10 +441,10 @@ Rückgabewert:
 * `type` String
 * `image` [NativeImage](native-image.md) (optional)
 * `scale` Float (optional) - scaling factor for the custom cursor.
-* `size` [Size](structures/size.md) (optional) - the size of the `image`.
+* `size` [Size](structures/size.md) (optional) - Die Größe des`Bildes`.
 * `hotspot` [Point](structures/point.md) (optional) - coordinates of the custom cursor's hotspot.
 
-Emitted when the cursor's type changes. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing` or `custom`.
+Emittiert wenn der Cursor Typ sich ändert. The `type` parameter can be `default`, `crosshair`, `pointer`, `text`, `wait`, `help`, `e-resize`, `n-resize`, `ne-resize`, `nw-resize`, `s-resize`, `se-resize`, `sw-resize`, `w-resize`, `ns-resize`, `ew-resize`, `nesw-resize`, `nwse-resize`, `col-resize`, `row-resize`, `m-panning`, `e-panning`, `n-panning`, `ne-panning`, `nw-panning`, `s-panning`, `se-panning`, `sw-panning`, `w-panning`, `move`, `vertical-text`, `cell`, `context-menu`, `alias`, `progress`, `nodrop`, `copy`, `none`, `not-allowed`, `zoom-in`, `zoom-out`, `grab`, `grabbing` or `custom`.
 
 If the `type` parameter is `custom`, the `image` parameter will hold the custom cursor image in a [`NativeImage`](native-image.md), and `scale`, `size` and `hotspot` will hold additional information about the custom cursor.
 
