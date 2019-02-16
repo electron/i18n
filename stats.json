@@ -62,7 +62,7 @@
     "words_approved": "0",
     "translated_progress": 3,
     "approved_progress": 0,
-    "qa_issues": 257
+    "qa_issues": 256
   },
   {
     "name": "Dutch",
@@ -94,27 +94,27 @@
     "name": "French",
     "code": "fr",
     "phrases": "10076",
-    "translated": "7373",
+    "translated": "7404",
     "approved": "39",
     "words": "93200",
-    "words_translated": "55589",
+    "words_translated": "55984",
     "words_approved": "142",
-    "translated_progress": 59,
+    "translated_progress": 60,
     "approved_progress": 0,
-    "qa_issues": 2143
+    "qa_issues": 2150
   },
   {
     "name": "German",
     "code": "de",
     "phrases": "10076",
-    "translated": "3479",
+    "translated": "4469",
     "approved": "35",
     "words": "93200",
-    "words_translated": "21197",
+    "words_translated": "26198",
     "words_approved": "66",
-    "translated_progress": 22,
+    "translated_progress": 28,
     "approved_progress": 0,
-    "qa_issues": 1338
+    "qa_issues": 1665
   },
   {
     "name": "Hebrew",
