@@ -2,11 +2,11 @@
 
 > Customize the rendering of the current web page.
 
-Process: [Renderer](../glossary.md#renderer-process)
+Prozess: [Renderer](../glossary.md#renderer-process)
 
 `webFrame` export of the Electron module is an instance of the `WebFrame` class representing the top frame of the current `BrowserWindow`. Sub-frames can be retrieved by certain properties and methods (e.g. `webFrame.firstChild`).
 
-An example of zooming current page to 200%.
+Ein Beispiel zum zoomen der aktuellen Page auf 200%.
 
 ```javascript
 const { webFrame } = require('electron')
@@ -16,11 +16,11 @@ webFrame.setZoomFactor(2)
 
 ## Methoden
 
-The `WebFrame` class has the following instance methods:
+Die `WebFrame` class hat die folgenden Methoden:
 
 ### `webFrame.setZoomFactor(factor)`
 
-* `factor` Number - Zoom factor.
+* `factor` Number - Zoom faktor.
 
 Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
 
