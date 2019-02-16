@@ -694,7 +694,7 @@ Cette méthode fait de votre application une Application à Instance Unique : au
 
 La valeur renvoyée par cette méthode indique si cette instance de votre application a obtenu le verrou ou non. Si elle n'a pas réussi à obtenir le verrou, une autre instance de votre application doit déjà l'utiliser ; il serait préférable de sortir immédiatement.
 
-I.e. This method returns `true` if your process is the primary instance of your application and your app should continue loading. It returns `false` if your process should immediately quit as it has sent its parameters to another instance that has already acquired the lock.
+Par exemple : cette méthode renvoie `true` si votre process est l'instance principale de votre application, et votre application doit continuer de charger. Elle renvoie `false` si votre process devrait quitter immédiatement, puisqu'il a envoyé ses paramètres à une instance qui possède déjà le verrou.
 
 Sur macOS, dans Finder, le système impose automatiquement l'unicité de l'instance de votre application lorsqu'un utilisateur tente d'en ouvrir une deuxième, et les événements `open-file` et `open-url` sont ainsi émis. Cependant, quand l'utilisateur démarre votre application en ligne de commandes, le mécanisme d'unicité d'instance est contourné et vous devez alors utiliser cette méthode pour l'imposer.
 
@@ -710,14 +710,14 @@ if (!gotTheLock) {
   app.quit()
 } else {
   app.on('second-instance', (event, commandLine, workingDirectory) => {
-    // Someone tried to run a second instance, we should focus our window.
+    // Quelqu'un a tenté d'exécuter une seconde instance. Nous devrions focus la fenêtre.
     if (myWindow) {
       if (myWindow.isMinimized()) myWindow.restore()
       myWindow.focus()
     }
   })
 
-  // Create myWindow, load the rest of the app, etc...
+  // Créer myWindow, charger le reste de l'app, etc...
   app.on('ready', () => {
   })
 }
@@ -727,7 +727,7 @@ if (!gotTheLock) {
 
 Retourne `Boolean`
 
-This method returns whether or not this instance of your app is currently holding the single instance lock. You can request the lock with `app.requestSingleInstanceLock()` and release with `app.releaseSingleInstanceLock()`
+Cette méthode retourne un booléen indiquant si cette instance de votre application détient actuellement le verrou d'instance unique. Vous pouvez demander le verrou avec `app.requestSingleInstanceLock()` et le débloquer avec `app.releaseSingleInstanceLock()`
 
 ### `app.releaseSingleInstanceLock()`
 
