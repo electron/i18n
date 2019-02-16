@@ -942,7 +942,7 @@ Executes the editing command `replaceMisspelling` in web page.
 
 * `text` String
 
-Inserts `text` to the focused element.
+Füge `text` in das fokusierte Element ein.
 
 #### `contents.findInPage(text[, options])`
 
