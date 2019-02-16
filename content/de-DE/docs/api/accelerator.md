@@ -1,13 +1,13 @@
-# Tastenkürzel
+# Accelerator
 
 > Definiere Tastenkürzel
 
-Accelerators are Strings that can contain multiple modifiers and a single key code, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
+Acceleratoren sind String die mehrere Modifikatoren und einzelne Key Codes enthalten können. Diese werden mit einem `+` Zeichen verknüpft und werden dazu verwendet, Tastenkürzel für deine App zu definieren.
 
 Beispiele:
 
-* `[Cmd+A] oder [Ctrl+A]`
-* `[Cmd+Shift+Z] oder [Ctrl+Shift+Z]`
+* `CommandOrControl+A`
+* `CommandOrControl+Shift+Z`
 
 Tastenkürzel werden registriert mit dem [`globalShortcut`](global-shortcut.md) Modul durch die [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) Methode.
 
