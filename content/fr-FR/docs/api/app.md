@@ -975,7 +975,7 @@ Renvoie un `Boolean` - Indiquant si le déplacement a fonctionné ou non. Veuill
 
 Aucun dialogue de confirmation n'est présenté par défaut. Si vous souhaitez laisser à l'utilisateur la possibilité de confirmer cette opération, vous pouvez utiliser l'API [`dialog`](dialog.md).
 
-**NOTE:** Cette méthode renvoie des erreurs si quelque chose d'autre qu'une erreur utilisateur fait échouer le déplacement. Par exemple, si l'utilisateur annule le dialogue d'autorisation, cette méthode renvoie false. Si nous échouons à effectuer la copie, alors cette méthode renverra une erreur. The message in the error should be informative and tell you exactly what went wrong
+**NOTE:** Cette méthode renvoie des erreurs si quelque chose d'autre qu'une erreur utilisateur fait échouer le déplacement. Par exemple, si l'utilisateur annule le dialogue d'autorisation, cette méthode renvoie false. Si nous échouons à effectuer la copie, alors cette méthode renverra une erreur. Le message contenu dans l'erreur devrait être suffisamment informatif pour que vous puissiez déterminer précisément quel est le problème
 
 ### `app.dock.bounce([type])` *macOS*
 
