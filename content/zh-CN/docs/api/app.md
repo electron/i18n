@@ -713,14 +713,14 @@ if (!gotTheLock) {
   app.quit()
 } else {
   app.on('second-instance', (event, commandLine, workingDirectory) => {
-    // Someone tried to run a second instance, we should focus our window.
+    // 当运行第二个实例时,将会聚焦到myWindow这个窗口
     if (myWindow) {
       if (myWindow.isMinimized()) myWindow.restore()
       myWindow.focus()
     }
   })
 
-  // Create myWindow, load the rest of the app, etc...
+  // 创建 myWindow, 加载应用的其余部分, etc...
   app.on('ready', () => {
   })
 }
@@ -904,9 +904,9 @@ https://www.chromium.org/developers/design-documents/accessibility</p>
 
 * `enable` 逻辑值 - 启用或禁用[访问权限树](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)视图。
 
-手动启用 Chrome 的辅助功能的支持, 允许在应用程序中设置是否开启辅助功能。 See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. 默认为禁用
+手动启用 Chrome 的辅助功能的支持, 允许在应用程序中设置是否开启辅助功能。 在[Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility)查看更多的细节 默认为禁用
 
-This API must be called after the `ready` event is emitted.
+此 API 必须在 `ready` 事件触发后调用
 
 **注意:** 渲染进程树会明显的影响应用的性能。默认情况下不应该启用。
 
