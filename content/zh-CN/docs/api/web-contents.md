@@ -598,7 +598,7 @@ Emitted when `remote.require()` is called in the renderer process. 调用 `event
 
 Emitted when `remote.getGlobal()` is called in the renderer process. 调用 `event.preventDefault()` 将阻止全局返回。 可以通过设置 `event.returnValue` 返回自定义值。
 
-#### Event: 'remote-get-builtin'
+#### 事件: 'remote-get-builtin'
 
 返回:
 
@@ -607,30 +607,30 @@ Emitted when `remote.getGlobal()` is called in the renderer process. 调用 `eve
 
 Emitted when `remote.getBuiltin()` is called in the renderer process. 调用 `event.preventDefault()` 将阻止模块返回。 可以通过设置 `event.returnValue` 返回自定义值。
 
-#### Event: 'remote-get-current-window'
+#### 事件: 'remote-get-current-window'
 
 返回:
 
 * `event` Event
 
-Emitted when `remote.getCurrentWindow()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. 可以通过设置 `event.returnValue` 返回自定义值。
+Emitted when `remote.getCurrentWindow()` is called in the renderer process. 调用 `event.preventDefault()` 将阻止对象返回 可以通过设置 `event.returnValue` 返回自定义值。
 
-#### Event: 'remote-get-current-web-contents'
+#### 事件: 'remote-get-current-web-contents'
 
 返回:
 
 * `event` Event
 
-Emitted when `remote.getCurrentWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. 可以通过设置 `event.returnValue` 返回自定义值。
+Emitted when `remote.getCurrentWebContents()` is called in the renderer process. 调用 `event.preventDefault()` 将阻止对象返回 可以通过设置 `event.returnValue` 返回自定义值。
 
-#### Event: 'remote-get-guest-web-contents'
+#### 事件: 'remote-get-guest-web-contents'
 
 返回:
 
 * `event` Event
 * `guestWebContents` [WebContents](web-contents.md)
 
-Emitted when `<webview>.getWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. 可以通过设置 `event.returnValue` 返回自定义值。
+Emitted when `<webview>.getWebContents()` is called in the renderer process. 调用 `event.preventDefault()` 将阻止对象返回 可以通过设置 `event.returnValue` 返回自定义值。
 
 ### 实例方法
 
