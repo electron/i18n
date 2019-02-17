@@ -351,7 +351,7 @@ app.on('session-created', (event, session) => {
 
 在 `webContents` 的渲染器进程中调用 `remote.getGlobal()` 时发出。 调用 `event.preventDefault()` 将阻止全局返回。 可以通过设置 `event.returnValue` 返回自定义值。
 
-### Event: 'remote-get-builtin'
+### 事件: 'remote-get-builtin'
 
 返回:
 
@@ -361,25 +361,25 @@ app.on('session-created', (event, session) => {
 
 在 `webContents` 的渲染器进程中调用 `remote.getBuiltin()` 时发出。 调用 `event.preventDefault()` 将阻止模块返回。 可以通过设置 `event.returnValue` 返回自定义值。
 
-### Event: 'remote-get-current-window'
+### 事件: 'remote-get-current-window'
 
 返回:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-在 `webContents` 的渲染器进程中调用 `remote.getCurrentWindow()` 时发出。 Calling `event.preventDefault()` will prevent the object from being returned. 可以通过设置 `event.returnValue` 返回自定义值。
+在 `webContents` 的渲染器进程中调用 `remote.getCurrentWindow()` 时发出。 调用 `event.preventDefault()` 将阻止对象返回 可以通过设置 `event.returnValue` 返回自定义值。
 
-### Event: 'remote-get-current-web-contents'
+### 事件: 'remote-get-current-web-contents'
 
 返回:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-在 `webContents` 的渲染器进程中调用 `remote.getCurrentWebContents()` 时发出。 Calling `event.preventDefault()` will prevent the object from being returned. 可以通过设置 `event.returnValue` 返回自定义值。
+在 `webContents` 的渲染器进程中调用 `remote.getCurrentWebContents()` 时发出。 调用 `event.preventDefault()` 将阻止对象返回 可以通过设置 `event.returnValue` 返回自定义值。
 
-### Event: 'remote-get-guest-web-contents'
+### 事件: 'remote-get-guest-web-contents'
 
 返回:
 
@@ -387,7 +387,7 @@ app.on('session-created', (event, session) => {
 * `webContents` [WebContents](web-contents.md)
 * `guestWebContents` [WebContents](web-contents.md)
 
-Emitted when `<webview>.getWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. 可以通过设置 `event.returnValue` 返回自定义值。
+在`webContents`的渲染进程中调用`getWebContents`时触发 调用 `event.preventDefault()` 将阻止对象返回 可以通过设置 `event.returnValue` 返回自定义值。
 
 ## 方法
 
@@ -643,7 +643,7 @@ app.setJumpList([
       { type: 'file', path: 'C:\\Projects\\project2.proj' }
     ]
   },
-  { // has a name so `type` is assumed to be "custom"
+  { // 已经有一个名字所以 `type` 被认为是 "custom"
     name: 'Tools',
     items: [
       {
@@ -667,7 +667,7 @@ app.setJumpList([
     ]
   },
   { type: 'frequent' },
-  { // has no name and no type so `type` is assumed to be "tasks"
+  { //这里没有设置名字 所以 `type` 被认为是 "tasks"
     items: [
       {
         type: 'task',
