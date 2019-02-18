@@ -101,24 +101,24 @@ git のブランチ動作の仕組み、npm のタグ付けの仕組み、開発
 
 以下は絵に描いたライフサイクルの例です。
 
-- 最新の一連の機能を含む新しいリリースブランチが作成されます。`2.0-beta 1` として公開されます。 ![](../images/versioning-sketch-3.png)
-- A bug fix comes into master that can be backported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
-- The beta is considered *generally stable* and it is published again as a non-beta under `2.0.0`. ![](../images/versioning-sketch-5.png)
-- Later, a zero-day exploit is revealed and a fix is applied to master. We backport the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
+- 最新の一連の機能を含む新しいリリースブランチが作成されます。`2.0-beta.1` として公開されます。 ![](../images/versioning-sketch-3.png)
+- リリースブランチにバックポートできるバグ修正が master に入ってきました。 パッチが適用され、新しいベータ版が `2.0-beta.2` として公開されます。 ![](../images/versioning-sketch-4.png)
+- このベータ版は *一般的に安定している* と見なされています。そして `2.0.0` の下に非ベータ版として再度公開されます。 ![](../images/versioning-sketch-5.png)
+- その後、ゼロデイ攻撃が明らかになり、修正が master に適用されます。 この修正を `2-0-x` 系列にバックポートし、`2.0.1` をリリースします。 ![](../images/versioning-sketch-6.png)
 
-A few examples of how various semver ranges will pick up new releases:
+以下は、さまざまな semver 範囲の新しいリリースの拾い方のいくつかの例です。
 
 ![](../images/versioning-sketch-7.png)
 
 # Missing Features: Alphas
 
-Our strategy has a few tradeoffs, which for now we feel are appropriate. Most importantly that new features in master may take a while before reaching a stable release line. If you want to try a new feature immediately, you will have to build Electron yourself.
+私たちの戦略にはいくつかのトレードオフがありますが、今のところそれは適切だと感じています。 最も重要なことは、master の新機能が安定したリリースラインに到達するまでにはしばらく時間がかかることです。 すぐに新しい機能を試したい場合は、自分で Electron をビルドする必要があります。
 
-As a future consideration, we may introduce one or both of the following:
+今後の検討事項として、以下のうちの一方または両方を紹介する可能性があります。
 
-- alpha releases that have looser stability constraints to betas; for example it would be allowable to admit new features while a stability channel is in *alpha*
+- ベータ版に対する安定性の制約が緩いアルファリリース。 例えば、安定チャネルが *alpha* の間に新しい特徴を認めることが許容される。
 
-# Feature Flags
+# 機能フラグ
 
 Feature flags are a common practice in Chromium, and are well-established in the web-development ecosystem. In the context of Electron, a feature flag or **soft branch** must have the following properties:
 
