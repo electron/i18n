@@ -130,15 +130,15 @@ git のブランチ動作の仕組み、npm のタグ付けの仕組み、開発
 
 私達は更新およびリリースプロセスのすべてのレベルで明快さを増すよう努めます。 `2.0.0` 以降、プルリクエストは [従来のコミット](https://conventionalcommits.org/) の仕様に準拠する必要があります。これは以下のようにまとめることができます。
 
-- **major** バージョン上げをするコミットは `BREAKING CHANGE:` で始まる必要があります。
-- Commits that would result in a semver **minor** bump must start with `feat:`.
-- Commits that would result in a semver **patch** bump must start with `fix:`.
+- **major** バージョン上げをするコミットは `BREAKING CHANGE:` の本文で始まる必要があります。
+- **minor** バージョン上げをするコミットは `feat:` で始まる必要があります。
+- **patch** バージョン上げをするコミットは `fix:` で始まる必要があります。
 
-- We allow squashing of commits, provided that the squashed message adheres the the above message format.
+- squash されたメッセージも上記のメッセージフォーマットを遵守するという条件で、我々はコミットの squash を許します。
 
-- It is acceptable for some commits in a pull request to not include a semantic prefix, as long as the pull request title contains a meaningful encompassing semantic message.
+- プルリクエストのタイトルが意味のある包括的なセマンティックメッセージを含むのであれば、プルリクエストにおけるいくつかのコミットがセマンティックプレフィックスを含まないことは許容できます。
 
-# Versioned `master`
+# バージョン付けされた `master`
 
 - The `master` branch will always contain the next major version `X.0.0-nightly.DATE` in its `package.json`
 - Release branches are never merged back to master
