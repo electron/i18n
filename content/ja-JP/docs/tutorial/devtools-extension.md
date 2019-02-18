@@ -1,8 +1,8 @@
-# DevTools エクステンション
+# DevTools 拡張
 
-Electronは、Webフレームワークをデバッグするために使われているdevtoolsの、機能を拡張することができる[Chrome DevTools Extension](https://developer.chrome.com/extensions/devtools)をサポートしています。
+Electron は、Web フレームワークをデバッグするために使われている Devtools の機能を拡張することができる、[Chrome DevTools Extension](https://developer.chrome.com/extensions/devtools) をサポートしています。
 
-## DevTools エクステンションの読み込み方
+## DevTools 拡張の読み込み方
 
 This document outlines the process for manually loading an extension. You may also try [electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer), a third-party tool that downloads extensions directly from the Chrome WebStore.
 
