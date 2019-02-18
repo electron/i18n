@@ -120,17 +120,17 @@ git のブランチ動作の仕組み、npm のタグ付けの仕組み、開発
 
 # 機能フラグ
 
-Feature flags are a common practice in Chromium, and are well-established in the web-development ecosystem. In the context of Electron, a feature flag or **soft branch** must have the following properties:
+機能フラグは Chromium で一般的な方法であり、Web 開発エコシステムではよく確立されています。 Electron のコンテキストでは、機能フラグまたは **ソフトブランチ** には次のプロパティが必要です。
 
-- it is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
-- it completely segments new and old code paths; refactoring old code to support a new feature *violates* the feature-flag contract
-- feature flags are eventually removed after the feature is released
+- 実行時またはビルド時に有効/無効になるもの。リクエストスコープ付き機能フラグの概念はサポートしていない
+- 新旧のコードパスを完全に断片化するもの。 新しい機能をサポートするために古いコードをリファクタリングすると機能フラグ規約に *違反する*
+- 機能のリリース後、機能フラグは最終的に削除される
 
-# Semantic Commits
+# セマンティックなコミット
 
-We seek to increase clarity at all levels of the update and releases process. Starting with `2.0.0` we will require pull requests adhere to the [Conventional Commits](https://conventionalcommits.org/) spec, which can be summarized as follows:
+私達は更新およびリリースプロセスのすべてのレベルで明快さを増すよう努めます。 `2.0.0` 以降、プルリクエストは [従来のコミット](https://conventionalcommits.org/) の仕様に準拠する必要があります。これは以下のようにまとめることができます。
 
-- Commits that would result in a semver **major** bump must start their body with `BREAKING CHANGE:`.
+- **major** バージョン上げをするコミットは `BREAKING CHANGE:` で始まる必要があります。
 - Commits that would result in a semver **minor** bump must start with `feat:`.
 - Commits that would result in a semver **patch** bump must start with `fix:`.
 
