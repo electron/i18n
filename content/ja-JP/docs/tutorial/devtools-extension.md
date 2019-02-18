@@ -4,24 +4,24 @@ Electron は、Web フレームワークをデバッグするために使われ�
 
 ## DevTools 拡張の読み込み方
 
-This document outlines the process for manually loading an extension. You may also try [electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer), a third-party tool that downloads extensions directly from the Chrome WebStore.
+このドキュメントは手動で拡張機能を読み込むためのプロセスを概説します。 Chrome ウェブストアから直接拡張機能をダウンロードするサードパーティ製のツール、[electron-devtools-installer](https://github.com/GPMDP/electron-devtools-installer) を試すこともできます。
 
-To load an extension in Electron, you need to download it in Chrome browser, locate its filesystem path, and then load it by calling the `BrowserWindow.addDevToolsExtension(extension)` API.
+Electron に拡張をロードするには、Chrome ブラウザでそれをダウンロードし、そのファイルシステムパスを見つけてから、`BrowserWindow.addDevToolsExtension(extension)` API を呼び出してそれを読み込む必要があります。
 
-Using the [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) as example:
+以下は [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi) を使用する例です。
 
-1. Install it in Chrome browser.
-2. Navigate to `chrome://extensions`, and find its extension ID, which is a hash string like `fmkadmapgofadopljbjfkapdkoienihi`.
-3. Find out filesystem location used by Chrome for storing extensions: 
-    * on Windows it is `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
-    * on Linux it could be: 
+1. それを Chrome ブラウザでインストールします。
+2. `chrome://extensions` に移動し、`fmkadmapgofadopljbjfkapdkoienihi` のようなハッシュ文字列であるそれの拡張 ID を探します。
+3. 拡張機能を保存するために Chrome が使用するファイルシステムの場所を調べます。 
+    * Windows では `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions` です。
+    * Linux では以下のいずれかになります。 
         * `~/.config/google-chrome/Default/Extensions/`
         * `~/.config/google-chrome-beta/Default/Extensions/`
         * `~/.config/google-chrome-canary/Default/Extensions/`
         * `~/.config/chromium/Default/Extensions/`
-    * on macOS it is `~/Library/Application Support/Google/Chrome/Default/Extensions`.
+    * macOS では `~/Library/Application Support/Google/Chrome/Default/Extensions` になります。
 
-4. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like:
+4. 拡張の場所を `BrowserWindow.addDevToolsExtension` API に渡します。React Developer Tools の場合は、以下のようになります。
     
     ```javascript
     const path = require('path')
@@ -32,11 +32,11 @@ Using the [React Developer Tools](https://chrome.google.com/webstore/detail/reac
     )
     ```
 
-**Note:** The `BrowserWindow.addDevToolsExtension` API cannot be called before the ready event of the app module is emitted.
+**注:** `BrowserWindow.addDevToolsExtension` API は app モジュールの ready イベントが発生する前には呼び出すことはできません。
 
-The name of the extension is returned by `BrowserWindow.addDevToolsExtension`, and you can pass the name of the extension to the `BrowserWindow.removeDevToolsExtension` API to unload it.
+拡張機能の名前は `BrowserWindow.addDevToolsExtension` によって返され、拡張機能の名前を `BrowserWindow.removeDevToolsExtension` API に渡すことでアンロードすることができます。
 
-## Supported DevTools Extensions
+## サポートされている DevTools 拡張
 
 Electron only supports a limited set of `chrome.*` APIs, so some extensions using unsupported `chrome.*` APIs for chrome extension features may not work. Following Devtools Extensions are tested and guaranteed to work in Electron:
 
