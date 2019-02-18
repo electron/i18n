@@ -31,7 +31,7 @@ Electron バージョン *< 2.0* は、[semver](http://semver.org) 仕様に準�
 1. semver の厳格な使用
 2. semver 準拠の `-beta` タグの導入
 3. [conventional commit messages](https://conventionalcommits.org/) の導入
-4. Well-defined stabilization branches
+4. しっかり定義された安定ブランチ
 5. `master` ブランチにはバージョンがなく、安定ブランチのみがバージョン情報を含みます。
 
 git のブランチ動作の仕組み、npm のタグ付けの仕組み、開発者が期待するべきこと、変更をバックポートする方法について詳しく説明します。
@@ -48,7 +48,7 @@ git のブランチ動作の仕組み、npm のタグ付けの仕組み、開発
 | Node.js のメジャーバージョン更新    | Node.js のマイナーバージョン更新      | Node.js のパッチバージョン更新 |
 | Chromium のバージョン更新       |                           | Chromium パッチの修正関連   |
 
-Note that most Chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
+ほとんどの Chromium の更新は互換性を破るとみなされることに注意してください。 バックポート可能な修正は、パッチとして cherry-pick される可能性が高いです。
 
 # 安定ブランチ
 
@@ -58,7 +58,7 @@ Note that most Chromium updates will be considered breaking. Fixes that can be b
 
 安定ブランチは、常に **major** または **minor** のバージョンラインのいずれかであり、次のテンプレート `$MAJOR-$MINOR-x` に対して `2-0-x` のように命名されます。
 
-We allow for multiple stabilization branches to exist simultaneously, and intend to support at least two in parallel at all times, backporting security fixes as necessary. ![](../images/versioning-sketch-2.png)
+複数の安定化ブランチを同時に存在させることができます。また、必要に応じてセキュリティ修正を後方移植しながら、少なくとも2つのサポートを常に並行してサポートする予定です。 ![](../images/versioning-sketch-2.png)
 
 Older lines will not be supported by GitHub, but other groups can take ownership and backport stability and security fixes on their own. We discourage this, but recognize that it makes life easier for many app developers.
 
