@@ -1,3 +1,3 @@
-# Electron App Feedback Program
+# Electron アプリフィードバックプログラム
 
-Electron is working on building a streamlined release process and having faster releases. To help with that, we have the App Feedback Program for large-scale Electron apps to test our beta releases and report app-specific issues to the Electron team. We use this program to help us prioritize work and get applications upgraded to the next stable release as soon as possible. There are a few requirements we expect from participants, such as attending short, online weekly check-ins. If you are interested or have questions, please send us a message at info@electronjs.org.
+Electron は、合理化されたリリースプロセスの構築とより速いリリースの実現に取り組んでいます。 その手助けとして、私達はベータリリースをテストして Electron チームにアプリ特有の問題を報告するための、大規模な Electron アプリのためのアプリフィードバックプログラムがあります。 このプログラムは、作業の優先順位付けや、できるだけ早く次の安定版へのアプリケーションのアップグレードを行う手助けのために使用されます。 There are a few requirements we expect from participants, such as attending short, online weekly check-ins. If you are interested or have questions, please send us a message at info@electronjs.org.
