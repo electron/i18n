@@ -108,7 +108,7 @@ win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 
 Windows では、タスクバーボタンをハイライトしてユーザの注意を引くことができます。 これは macOS で Dock アイコンがバウンスするのに似ています。 以下は MSDN リファレンスドキュメントの引用です。
 
-> Typically, a window is flashed to inform the user that the window requires attention but that it does not currently have the keyboard focus.
+> 通常、ウィンドウは注意が必要でも現在キーボードフォーカスがないことをユーザーに知らせるために点滅します。
 
 To flash the BrowserWindow taskbar button, you can use the [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) API:
 
