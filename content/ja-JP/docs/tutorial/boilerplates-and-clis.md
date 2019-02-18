@@ -28,8 +28,8 @@ ForgeにはReact、VueJS、Angularのような人気フレームワークを利�
 
 ## electron-react-boilerplate
 
-ツールを使わずにしっかりした定型文のみを作成する場合、CT Lin の [`electron-react-boilerplate`](https://github.com/chentsulin/electron-react-boilerplate) は一見の価値があるかもしれません。 これはコミュニティで非常に人気があり、`electron-builder` は内部で使用しています。
+ツールを使わずにしっかりしたボイラープレートのみを作成する場合、CT Lin の [`electron-react-boilerplate`](https://github.com/chentsulin/electron-react-boilerplate) は一見の価値があるかもしれません。 これはコミュニティで非常に人気があり、`electron-builder` は内部で使用しています。
 
 ## その他のツール、ボイラープレート
 
-["Awesome Electron" リスト](https://github.com/sindresorhus/awesome-electron#boilerplates)はより多くのツールやボイラープレートを紹介しています。 If you find the length of the list intimidating, don't forget that adding tools as you go along is a valid approach, too.
+["Awesome Electron" リスト](https://github.com/sindresorhus/awesome-electron#boilerplates) ではより多くのツールやボイラープレートを紹介しています。 リストの長さのあまり探すことに足がすくんでしまう場合は、ツールを追加することも有効な方法であることを忘れないでください。
