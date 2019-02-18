@@ -69,11 +69,11 @@ git のブランチ動作の仕組み、npm のタグ付けの仕組み、開発
 - `~2.0.0` を使用すると、`2.0.0` リリースに対する安定性またはセキュリティ関連の修正のみを認めます。
 - `^2.0.0` を使用すると、セキュリティとバグ修正だけでなく、破壊的でない *かなり安定した* 機能も認めます。
 
-What’s important about the second point is that apps using `^` should still be able to expect a reasonable level of stability. To accomplish this, semver allows for a *pre-release identifier* to indicate a particular version is not yet *safe* or *stable*.
+2つ目の点に関して重要なことは、`^` を使用しているアプリはまだ妥当なレベルの安定性を期待できることです。 これを達成するために、semver の *プレリリース識別子* を特定のバージョンがまだ *安全* でも *安定* でもないことを示すことを可能にします。
 
-Whatever you choose, you will periodically have to bump the version in your `package.json` as breaking changes are a fact of Chromium life.
+どれを選択しても、破壊的な変更は Chromium が寿命である事実であるため、定期的に `package.json` 内のバージョンを更新する必要があります。
 
-The process is as follows:
+プロセスは以下の通りです。
 
 1. All new major and minor releases lines begin with a beta series indicated by semver prerelease tags of `beta.N`, 例 `2.0.0-beta.1`. After the first beta, subsequent beta releases must meet all of the following conditions: 
     1. The change is backwards API-compatible (deprecations are allowed)
