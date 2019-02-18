@@ -60,14 +60,14 @@ git のブランチ動作の仕組み、npm のタグ付けの仕組み、開発
 
 複数の安定化ブランチを同時に存在させることができます。また、必要に応じてセキュリティ修正を後方移植しながら、少なくとも2つのサポートを常に並行してサポートする予定です。 ![](../images/versioning-sketch-2.png)
 
-Older lines will not be supported by GitHub, but other groups can take ownership and backport stability and security fixes on their own. We discourage this, but recognize that it makes life easier for many app developers.
+それより古いものは GitHub ではサポートされませんが、他のグループは所有権を持って、自分自身で安定性とセキュリティの修正をバックポートできます。 これはお勧めできませんが、多くのアプリ開発者にとってライフが楽になると認識しています。
 
 # ベータリリースとバグ修正
 
-Developers want to know which releases are *safe* to use. Even seemingly innocent features can introduce regressions in complex applications. At the same time, locking to a fixed version is dangerous because you’re ignoring security patches and bug fixes that may have come out since your version. Our goal is to allow the following standard semver ranges in `package.json` :
+開発者はどのリリースが *安全* に使用できるかを知りたいものです。 一見無害な機能でさえ、複雑なアプリケーションに後退をもたらすことがあります。 同時に、あなたのバージョンから出るセキュリティパッチとバグ修正の可能性を無視しているので、固定バージョンへのロックは危険です。 私たちの目標は、`package.json` で以下のように標準的な semver 範囲を許可することです。
 
-- Use `~2.0.0` to admit only stability or security related fixes to your `2.0.0` release.
-- Use `^2.0.0` to admit non-breaking *reasonably stable* feature work as well as security and bug fixes.
+- `~2.0.0` を使用すると、`2.0.0` リリースに対する安定性またはセキュリティ関連の修正のみを認めます。
+- `^2.0.0` を使用すると、セキュリティとバグ修正だけでなく、破壊的でない *かなり安定した* 機能も認めます。
 
 What’s important about the second point is that apps using `^` should still be able to expect a reasonable level of stability. To accomplish this, semver allows for a *pre-release identifier* to indicate a particular version is not yet *safe* or *stable*.
 
