@@ -1,3 +1,3 @@
 # Electron アプリフィードバックプログラム
 
-Electron は、合理化されたリリースプロセスの構築とより速いリリースの実現に取り組んでいます。 その手助けとして、私達はベータリリースをテストして Electron チームにアプリ特有の問題を報告するための、大規模な Electron アプリのためのアプリフィードバックプログラムがあります。 このプログラムは、作業の優先順位付けや、できるだけ早く次の安定版へのアプリケーションのアップグレードを行う手助けのために使用されます。 There are a few requirements we expect from participants, such as attending short, online weekly check-ins. If you are interested or have questions, please send us a message at info@electronjs.org.
+Electron は、合理化されたリリースプロセスの構築とより速いリリースの実現に取り組んでいます。 その手助けとして、私達はベータリリースをテストして Electron チームにアプリ特有の問題を報告するための、大規模な Electron アプリのためのアプリフィードバックプログラムがあります。 このプログラムは、作業の優先順位付けや、できるだけ早く次の安定版へのアプリケーションのアップグレードを行う手助けのために使用されます。 参加者には、期待されるいくつかの要件として、短めのオンラインの毎週のチェックインに参加するなどがあります。 興味や質問があれば、info@electronjs.org にメッセージを送ってください。
