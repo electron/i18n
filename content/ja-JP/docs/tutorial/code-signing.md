@@ -36,19 +36,19 @@ macOS ビルドに署名する前に、以下のことをしなければなり�
 Windows ビルドに署名する前に、以下のことをしなければなりません。
 
 1. Windows Authenticode コード署名証明書を入手する
-2. Install Visual Studio 2015/2017 (to get the signing utility)
+2. Visual Studio 2015/2017 をインストールする (署名ユーティリティを入手するため)
 
-You can get a code signing certificate from a lot of resellers, popular ones include:
+多くの代理店からコード署名証明書を入手することができます。
 
 - [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
 - [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)
 - [GoDaddy](https://au.godaddy.com/web-security/code-signing-certificate)
-- Amongst others, please shop around to find one that suits your needs, Google is your friend :)
+- とりわけ、あなたのニーズに合ったものを見つけるために探してみてください。Googleは友達 :)
 
 パッケージアプリケーションに署名するためのツールは以下のようにたくさんあります。
 
-- [`electron-winstaller`] will generate an installer for windows and sign it for you
-- [`electron-forge`] can sign installers it generates through the Squirrel.Windows or MSI targets.
+- [`electron-winstaller`] は Windows 用インストーラを生成し、それに署名します。
+- [`electron-forge`] は Squirrel.Windows または MSI ターゲットを通してそれが生成するインストーラに署名することができます。
 - [`electron-builder`] can sign some of its windows targets
 
 ## Windows Store
