@@ -195,13 +195,13 @@ session
     const url = webContents.getURL()
 
     if (permission === 'notifications') {
-      // Approves the permissions request
+      // 権限リクエストを承認する
       callback(true)
     }
 
-    // Verify URL
+    // URL を認証する
     if (!url.startsWith('https://my-website.com/')) {
-      // Denies the permissions request
+      // 権限リクエストを拒否する
       return callback(false)
     }
   })
