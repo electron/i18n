@@ -1,8 +1,8 @@
-# Recent Documents (Windows & macOS)
+# 最近使った書類 (Windows & macOS)
 
-Windows and macOS provide access to a list of recent documents opened by the application via JumpList or dock menu, respectively.
+Windows と macOS は、それぞれジャンプリストまたは Dock メニューを介して、アプリケーションによって開かれた最近の書類のリストへのアクセスを提供します。
 
-**ジャンプ リスト:**
+**ジャンプリスト:**
 
 ![JumpList Recent Files](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
@@ -10,7 +10,7 @@ Windows and macOS provide access to a list of recent documents opened by the app
 
 ![macOS Dock Menu](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
 
-To add a file to recent documents, you can use the [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API:
+最近の使った書類にファイルを追加するには、[app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API を使用します。
 
 ```javascript
 const { app } = require('electron')
