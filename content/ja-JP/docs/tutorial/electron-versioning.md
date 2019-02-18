@@ -140,7 +140,7 @@ git のブランチ動作の仕組み、npm のタグ付けの仕組み、開発
 
 # バージョン付けされた `master`
 
-- The `master` branch will always contain the next major version `X.0.0-nightly.DATE` in its `package.json`
-- Release branches are never merged back to master
-- Release branches *do* contain the correct version in their `package.json`
-- As soon as a release branch is cut for a major, master must be bumped to the next major. I.e. `master` is always versioned as the next theoretical release branch
+- `master` ブランチは、常に `package.json` に次のメジャーバージョンの `X.0.0-nightly.DATE` を含みます。
+- リリースブランチが master にマージし戻されることはありません。
+- リリースブランチは `package.json` 内に正しいバージョンを含んで *います*
+- リリースブランチがメジャーのためにカットされるとすぐに、master は次のメジャーにバージョン上げされる必要があります。 すなわち、`master` は常に理論上次のリリースブランチとしてバージョン管理されます
