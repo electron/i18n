@@ -1,14 +1,14 @@
 # macOS の BrowserWindow が表すファイル
 
-On macOS a window can set its represented file, so the file's icon can show in the title bar and when users Command-Click or Control-Click on the title a path popup will show.
+macOS では、ウインドウが表すファイルを設定できます。ファイルのアイコンはタイトルバーに表示され、ユーザがタイトルを Command クリックまたは Control クリックするとパスのポップアップが表示されます。
 
-You can also set the edited state of a window so that the file icon can indicate whether the document in this window has been modified.
+ファイルアイコンがこのウインドウ内のドキュメントが変更されたかどうかを示すことができるように、ウインドウの編集状態を設定することもできます。
 
-**Represented file popup menu:**
+**ウインドウが表すファイルのポップアップメニュー:**
 
-![Represented File](https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png)
+![ウインドウが表すファイル](https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png)
 
-To set the represented file of window, you can use the [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-macos) and [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-macos) APIs:
+ウインドウが表すファイルを設定するには、[BrowserWindow.setReprepresentFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-macos) および [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-macos) API を使用できます。
 
 ```javascript
 const { BrowserWindow } = require('electron')
