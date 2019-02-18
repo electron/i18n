@@ -6,43 +6,43 @@ Electron の開発は基本的に Node.js 開発です。 オペレーティン�
 
 > Electron は macOS 10.10 (Yosemite) 以降をサポートしています。 ホストコンピュータがすでに Apple コンピュータでないときだけ、Apple は仮想マシンでの macOS の実行を許可していません。そのため、Mac が必要な場合は、Mac へのアクセスをレンタルする ([MacInCloud](https://www.macincloud.com/) や [xcloud](https://xcloud.me) のような) クラウドサービスの使用を検討してください。
 
-まず、最新バージョンの Node.js をインストールします。 利用可能な最新の `LTS` もしくは `Current` バージョンのいずれかをインストールすることをお勧めします。 [Node.js のダウンロード ページ](https://nodejs.org/en/download/)にアクセスし `macOS Installer` を選択します。 While Homebrew is an offered option, but we recommend against it - many tools will be incompatible with the way Homebrew installs Node.js.
+まず、最新バージョンの Node.js をインストールします。 利用可能な最新の `LTS` もしくは `Current` バージョンのいずれかをインストールすることをお勧めします。 [Node.js のダウンロードページ](https://nodejs.org/en/download/)にアクセスし `macOS Installer` を選択します。 Homebrew は一つの提供された選択肢ですが、私たちはそれを推奨します。Homebrew で Node.js をインストールすることに対して、他の多くのツールでは互換性がないでしょう。
 
-Once downloaded, execute the installer and let the installation wizard guide you through the installation.
+ダウンロードが完了したら、インストーラを実行してインストールウィザードに従ってインストールを進めます。
 
-インストールを完了したら、すべて正常に動作することを確認します。 Find the macOS `Terminal` application in your `/Applications/Utilities` folder (or by searching for the word `Terminal` in Spotlight). Open up `Terminal` or another command line client of your choice and confirm that both `node` and `npm` are available:
+インストールを完了したら、すべて正常に動作することを確認します。 `/アプリケーション/ユーティリティ` フォルダ (または Spotlight で `ターミナル` という単語を検索して) で macOS `ターミナル` アプリケーションを検索します。 `ターミナル` か別のお好みのコマンドラインクライアントを起動して、`node` と `npm` が利用できることを以下のように確認します。
 
 ```sh
-# このコマンドで Node.js のバージョンが印刷される必要があります
+# このコマンドで Node.js のバージョンが出力されなければいけません
 node -v
 
-# このコマンドで npm のバージョンが印刷される必要があります
+# このコマンドで npm のバージョンが出力されなければいけません
 npm -v
 ```
 
-両方のコマンドがバージョン番号を印刷すれば、準備完了です! 始める前に、JavaScript 開発に適した [コード エディタ](#a-good-editor) をインストールするといいでしょう。
+両方のコマンドがバージョン番号を出力すれば、準備完了です! 始める前に、JavaScript 開発に適した [コードエディタ](#a-good-editor) をインストールするとよいでしょう。
 
-## Windows をセットアップ
+## Windows のセットアップ
 
 > Electron は Windows 7 とそれ以降のバージョンをサポートし、それ以前の Windows で Electron アプリケーションを開発しようとしても動作しません。 Microsoft は開発者のための無料の [Windows 10 仮想マシン イメージ](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) を提供しています。
 
-まず、最新バージョンの Node.js をインストールします。 利用可能な最新の `LTS` もしくは `Current` バージョンのいずれかをインストールすることをお勧めします。 [Node.js のダウンロード ページ](https://nodejs.org/en/download/)にアクセスし `Windows Installer` を選択します。 Once downloaded, execute the installer and let the installation wizard guide you through the installation.
+まず、最新バージョンの Node.js をインストールします。 利用可能な最新の `LTS` もしくは `Current` バージョンのいずれかをインストールすることをお勧めします。 [Node.js のダウンロードページ](https://nodejs.org/en/download/)にアクセスし `Windows Installer` を選択します。 ダウンロードが完了したら、インストーラを実行してインストールウィザードに従ってインストールを進めます。
 
 インストール構成の場面では、`Node.js runtime`、`npm package manager`、`Add to PATH` オプションを選択してください。
 
-インストールを完了したら、すべて正常に動作することを確認します。 Find the Windows PowerShell by opening the Start Menu and typing `PowerShell`. `PowerShell` か別のお好みのコマンドライン クライアントを起動して、`node` と `npm` が利用できることを確認します:
+インストールを完了したら、すべて正常に動作することを確認します。 スタートメニューを開き、`PowerShell` を入力して Windows PowerShell を検索します。 `PowerShell` か別のお好みのコマンドラインクライアントを起動して、`node` と `npm` が利用できることを以下のように確認します。
 
 ```powershell
-# このコマンドで Node.js のバージョンが印刷される必要があります
+# このコマンドで Node.js のバージョンが出力されなければいけません
 node -v
 
-# このコマンドで npm のバージョンが印刷される必要があります
+# このコマンドで npm のバージョンが出力されなければいけません
 npm -v
 ```
 
-両方のコマンドがバージョン番号を印刷すれば、準備完了です! 始める前に、JavaScript 開発に適した [コード エディタ](#a-good-editor) をインストールするといいでしょう。
+両方のコマンドがバージョン番号を出力すれば、準備完了です! 始める前に、JavaScript 開発に適した [コードエディタ](#a-good-editor) をインストールするとよいでしょう。
 
-## Linux をセットアップ
+## Linux のセットアップ
 
 > 一般的に Electron は Ubuntu 12.04、Fedora 21、Debian 8 とそれ以降をサポートします。
 
