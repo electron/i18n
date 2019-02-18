@@ -12,7 +12,7 @@ Windows では、ユーザがタスクバーのアプリのアイコンを右ク
 
 **Internet Explorer のタスク:**
 
-![IE](http://i.msdn.microsoft.com/dynimg/IC420539.png)
+![Internet Explorer](http://i.msdn.microsoft.com/dynimg/IC420539.png)
 
 実際のメニューである macOS のドックメニューとは異なり、Windows のユーザータスクはアプリケーションショートカットのように機能し、ユーザーがタスクをクリックするとプログラムが指定された引数で実行されます。
 
@@ -53,7 +53,7 @@ MSDN から、以下の図解を引用します。
 
 **Windows Media Player のサムネイルツールバー:**
 
-![プレイヤー](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
+![Windows Media Player](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
 アプリケーションでサムネイルツールバーを設定するには、[BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows) が使用できます。
 
@@ -94,7 +94,7 @@ Windowsでは、タスクバーボタンは小さなオーバーレイを使用�
 
 **タスクバーボタン上のオーバーレイ:**
 
-![Overlay on taskbar button](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
+![タスクバーボタン上のオーバーレイ](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
 ウインドウのオーバーレイアイコンを設定するには、[BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) API を使用できます。
 
@@ -110,7 +110,7 @@ Windows では、タスクバーボタンをハイライトしてユーザの注
 
 > 通常、ウィンドウは注意が必要でも現在キーボードフォーカスがないことをユーザーに知らせるために点滅します。
 
-To flash the BrowserWindow taskbar button, you can use the [BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) API:
+BrowserWindow タスクバーボタンを点滅するには、[BrowserWindow.flashFrame](../api/browser-window.md#winflashframeflag) API を使用できます。
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -119,4 +119,4 @@ win.once('focus', () => win.flashFrame(false))
 win.flashFrame(true)
 ```
 
-Don't forget to call the `flashFrame` method with `false` to turn off the flash. In the above example, it is called when the window comes into focus, but you might use a timeout or some other event to disable it.
+`flashFrame` メソッドを `false` で呼び出して点滅を切ることを忘れないでください。 上記の例では、ウィンドウがフォーカスされたときに呼び出されますが、タイムアウトなどのイベントを使用して無効にすることができます。
