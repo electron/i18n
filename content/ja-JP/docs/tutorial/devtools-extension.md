@@ -38,7 +38,7 @@ Electron に拡張をロードするには、Chrome ブラウザでそれをダ�
 
 ## サポートされている DevTools 拡張
 
-Electron only supports a limited set of `chrome.*` APIs, so some extensions using unsupported `chrome.*` APIs for chrome extension features may not work. Following Devtools Extensions are tested and guaranteed to work in Electron:
+Electron は限られた `chrome.*` API しかサポートしていないため、Chrome 拡張機能のうちサポートされていない `chrome.*` API を使用している拡張は機能しないかもしれません。 以下の Devtools 拡張は Electron で動作することがテストされ保証されています。
 
 * [Ember Inspector](https://chrome.google.com/webstore/detail/ember-inspector/bmdblncegkenkacieihfhpjfppoconhi)
 * [React Developer Tools](https://chrome.google.com/webstore/detail/react-developer-tools/fmkadmapgofadopljbjfkapdkoienihi)
@@ -50,8 +50,8 @@ Electron only supports a limited set of `chrome.*` APIs, so some extensions usin
 * [Redux DevTools Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 * [MobX Developer Tools](https://chrome.google.com/webstore/detail/mobx-developer-tools/pfgnfdagidkfgccljigdamigbcnndkod)
 
-### What should I do if a DevTools Extension is not working?
+### DevTools 拡張が機能していない場合はどうすればいいですか?
 
-First please make sure the extension is still being maintained, some extensions can not even work for recent versions of Chrome browser, and we are not able to do anything for them.
+まずは拡張機能がまだメンテナンスされていることを確認してください。最近のバージョンの Chrome ブラウザでも機能しない拡張機能もあります。それらの機能は実行できません。
 
-Then file a bug at Electron's issues list, and describe which part of the extension is not working as expected.
+それから、Electron の issue リストにバグを報告し、拡張のどの部分が期待通りに動作していないかを説明してください。
