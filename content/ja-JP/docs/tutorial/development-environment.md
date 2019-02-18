@@ -44,24 +44,24 @@ npm -v
 
 ## Linux のセットアップ
 
-> 一般的に Electron は Ubuntu 12.04、Fedora 21、Debian 8 とそれ以降をサポートします。
+> 一般的に、Electron は Ubuntu 12.04、Fedora 21、Debian 8 以降をサポートしています。
 
-まず、最新バージョンの Node.js をインストールします。 あなたの Linux ディストリビューション次第で、インストール手順が異なる場合があります。 `apt` や `pacman` のようなパッケージ マネージャーを使用し通常通りにソフトウェアをインストールすると想定して、公式の [Linux 上の Node.js インストール ガイダンス](https://nodejs.org/en/download/package-manager/) を利用します。
+まず、最新バージョンの Node.js をインストールします。 あなたの Linux ディストリビューション次第で、インストール手順が異なる場合があります。 `apt`または `pacman` のようなパッケージマネージャを使用してソフトウェアを普通にインストールすることを想定している、Linux へのインストールに関する公式の [Node.js ガイダンス](https://nodejs.org/en/download/package-manager/) を利用してください。
 
-Linux を実行しているので、コマンドライン クライアントの操作方法はすでにご存知でしょう。 お好みのクライアントを起動して `node` と `npm` がグローバルに利用できることを確認します:
+Linux を実行しているので、コマンドラインクライアントの操作方法はすでにご存知でしょう。 お好みのクライアントを起動して `node` と `npm` がグローバルに利用できることを以下のように確認します。
 
 ```sh
-# このコマンドで Node.js のバージョンが印刷される必要があります
+# このコマンドで Node.js のバージョンが出力されなければいけません
 node -v
 
-# このコマンドで npm のバージョンが印刷される必要があります
+# このコマンドで npm のバージョンが出力されなければいけません
 npm -v
 ```
 
-両方のコマンドがバージョン番号を印刷すれば、準備完了です! 始める前に、JavaScript 開発に適した [コード エディタ](#a-good-editor) をインストールするといいでしょう。
+両方のコマンドがバージョン番号を出力すれば、準備完了です! 始める前に、JavaScript 開発に適した [コードエディタ](#a-good-editor) をインストールするといいでしょう。
 
-## 好ましいエディタ
+## 優良なエディタ
 
 私たちは Electron で構築された 2 つの無料の人気エディタをお勧めするでしょう。 GitHub の [Atom](https://atom.io/) と Microsoft の [Visual Studio Code](https://code.visualstudio.com/) です。 どちらも優れた JavaScript サポートを備えています。
 
-If you are one of the many developers with a strong preference, know that virtually all code editors and IDEs these days support JavaScript.
+あなたが多くの多趣味な開発者の一人なら、今日ではほとんどすべてのコードエディタと IDE が JavaScript をサポートしていることは知っているでしょう。
