@@ -6,17 +6,17 @@ Electron には Windows のタスクバー中のアプリアイコンを設定�
 
 Windows では、ユーザがタスクバーのアプリのアイコンを右クリックしたときに表示されるカスタムコンテキストメニューを定義できます。 このコンテキストメニューは `ジャンプ リスト` と呼ばれます。 以下の MSDN からの引用のとおり、ジャンプリストの `タスク` カテゴリでカスタムアクションを指定します。
 
-> アプリケーションは、プログラムの機能と、ユーザがそれらを使用することが期待されるべきことの両方に基づいてタスクを定義します。 タスクを実行するためにアプリケーションを実行する必要がないという点で、タスクはコンテキストフリーである必要があります。 それらは、電子メールのメッセージを作成したり、メールプログラムでカレンダーを開いたり、ワープロで新しい文書を作成したり、特定のモードでアプリケーションを起動したりするなど、通常のユーザーがアプリケーションで実行する統計的に最も一般的なアクション、またはそのサブコマンドの1つでもあります。 アプリケーションは、標準ユーザが必要としない高度な機能や、登録などの1回限りの操作でメニューを乱雑にするべきではありません。 Do not use tasks for promotional items such as upgrades or special offers.
+> アプリケーションは、プログラムの機能と、ユーザがそれらを使用することが期待されるべきことの両方に基づいてタスクを定義します。 タスクを実行するためにアプリケーションを実行する必要がないという点で、タスクはコンテキストフリーである必要があります。 それらは、電子メールのメッセージを作成したり、メールプログラムでカレンダーを開いたり、ワープロで新しい文書を作成したり、特定のモードでアプリケーションを起動したりするなど、通常のユーザーがアプリケーションで実行する統計的に最も一般的なアクション、またはそのサブコマンドの1つでもあります。 アプリケーションは、標準ユーザが必要としない高度な機能や、登録などの1回限りの操作でメニューを乱雑にするべきではありません。 アップグレードや特別オファーなどのプロモーションの道具にタスクを使用しないでください。
 > 
-> It is strongly recommended that the task list be static. It should remain the same regardless of the state or status of the application. While it is possible to vary the list dynamically, you should consider that this could confuse the user who does not expect that portion of the destination list to change.
+> タスクリストは静的にすることを強く推奨します。 これはアプリケーションの状態や状態に関係なく、同じままにするべきです。 リストを動的に変更することは可能ですが、宛先リストのその部分が変更されることを期待していないユーザを混乱させる可能性があることを考慮する必要があります。
 
-**Tasks of Internet Explorer:**
+**Internet Explorer のタスク:**
 
 ![IE](http://i.msdn.microsoft.com/dynimg/IC420539.png)
 
-Unlike the dock menu in macOS which is a real menu, user tasks in Windows work like application shortcuts such that when user clicks a task, a program will be executed with specified arguments.
+実際のメニューである macOS のドックメニューとは異なり、Windows のユーザータスクはアプリケーションショートカットのように機能し、ユーザーがタスクをクリックするとプログラムが指定された引数で実行されます。
 
-To set user tasks for your application, you can use [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows) API:
+アプリケーションにユーザタスクを設定するには、以下のように [app.setUserTasks](../api/app.md#appsetusertaskstasks-windows) API を使用します。
 
 ```javascript
 const { app } = require('electron')
@@ -32,30 +32,30 @@ app.setUserTasks([
 ])
 ```
 
-To clean your tasks list, call `app.setUserTasks` with an empty array:
+タスクリストをきれいにするには、以下のように `app.setUserTasks` を空の配列で呼び出してください。
 
 ```javascript
 const { app } = require('electron')
 app.setUserTasks([])
 ```
 
-The user tasks will still show even after your application closes, so the icon and program path specified for a task should exist until your application is uninstalled.
+ユーザのタスクはアプリケーションを閉じた後も表示されるので、タスクに指定されたアイコンとプログラムパスはアプリケーションがアンインストールされるまで存在するはずです。
 
-## Thumbnail Toolbars
+## サムネイルツールバー
 
-On Windows you can add a thumbnail toolbar with specified buttons in a taskbar layout of an application window. It provides users a way to access to a particular window's command without restoring or activating the window.
+Windows では、アプリケーションウィンドウのタスクバーレイアウトに、指定されたボタンを含むサムネイルツールバーを追加できます。 ウィンドウを復元したりアクティブにしたりすることなく、特定のウィンドウのコマンドにアクセスする方法をユーザーに提供します。
 
-From MSDN, it's illustrated:
+MSDN から、以下の図解を引用します。
 
-> This toolbar is the familiar standard toolbar common control. It has a maximum of seven buttons. Each button's ID, image, tooltip, and state are defined in a structure, which is then passed to the taskbar. The application can show, enable, disable, or hide buttons from the thumbnail toolbar as required by its current state.
+> このツールバーは、おなじみの標準ツールバー共通コントロールです。 最大で7つのボタンを持てます。 各ボタンのID、画像、ツールチップ、および状態は構造体で定義され、その構造体はタスクバーに渡されます。 アプリケーションは、現在の状態に応じてサムネイルツールバーからボタンを表示、有効化、無効化、または非表示にさせることができます。
 > 
-> For example, Windows Media Player might offer standard media transport controls such as play, pause, mute, and stop.
+> たとえば、Windows Media Player では、再生、一時停止、ミュート、停止などの標準のメディア送りコントロールを提供できます。
 
-**Thumbnail toolbar of Windows Media Player:**
+**Windows Media Player のサムネイルツールバー:**
 
 ![プレイヤー](https://i-msdn.sec.s-msft.com/dynimg/IC420540.png)
 
-You can use [BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows) to set thumbnail toolbar in your application:
+アプリケーションでサムネイルツールバーを設定するには、[BrowserWindow.setThumbarButtons](../api/browser-window.md#winsetthumbarbuttonsbuttons-windows) が使用できます。
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -77,7 +77,7 @@ win.setThumbarButtons([
 ])
 ```
 
-To clean thumbnail toolbar buttons, just call `BrowserWindow.setThumbarButtons` with an empty array:
+サムネイルツールバーをきれいにするには、以下のように `app.setUserTasks` を空の配列で呼び出してください。
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -86,17 +86,17 @@ const win = new BrowserWindow()
 win.setThumbarButtons([])
 ```
 
-## Icon Overlays in Taskbar
+## タスクバー内のアイコンオーバーレイ
 
-On Windows a taskbar button can use a small overlay to display application status, as quoted from MSDN:
+Windowsでは、タスクバーボタンは小さなオーバーレイを使用してアプリケーションのステータスを表示できます。 以下は MSDN からの引用です。
 
-> Icon overlays serve as a contextual notification of status, and are intended to negate the need for a separate notification area status icon to communicate that information to the user. For instance, the new mail status in Microsoft Outlook, currently shown in the notification area, can now be indicated through an overlay on the taskbar button. Again, you must decide during your development cycle which method is best for your application. Overlay icons are intended to supply important, long-standing status or notifications such as network status, messenger status, or new mail. The user should not be presented with constantly changing overlays or animations.
+> アイコンオーバーレイは状況のコンテキスト通知として機能し、その情報をユーザーに伝達するための別の通知領域ステータスアイコンの必要性を否定することを目的としています。 たとえば、現在通知領域に表示されている Microsoft Outlook の新着メールステータスは、タスクバーボタンの上にオーバーレイ表示されるようになりました。 繰り返しますが、開発サイクルの中でどの方法があなたのアプリケーションに最適であるかを決める必要があります。 オーバーレイアイコンは、ネットワークステータス、メッセンジャーステータス、新着メールなど、重要な長期にわたるステータスや通知を提供することを目的としています。 ユーザには、絶えず変化するオーバーレイやアニメーションを表示してはいけません。
 
-**Overlay on taskbar button:**
+**タスクバーボタン上のオーバーレイ:**
 
 ![Overlay on taskbar button](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
-To set the overlay icon for a window, you can use the [BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) API:
+ウインドウのオーバーレイアイコンを設定するには、[BrowserWindow.setOverlayIcon](../api/browser-window.md#winsetoverlayiconoverlay-description-windows) API を使用できます。
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -104,9 +104,9 @@ let win = new BrowserWindow()
 win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 ```
 
-## Flash Frame
+## 枠の点滅
 
-On Windows you can highlight the taskbar button to get the user's attention. This is similar to bouncing the dock icon on macOS. From the MSDN reference documentation:
+Windows では、タスクバーボタンをハイライトしてユーザの注意を引くことができます。 これは macOS で Dock アイコンがバウンスするのに似ています。 以下は MSDN リファレンスドキュメントの引用です。
 
 > Typically, a window is flashed to inform the user that the window requires attention but that it does not currently have the keyboard focus.
 
