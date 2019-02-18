@@ -8,7 +8,7 @@ Windows では、コード署名証明書に信頼レベルが割り当てられ
 
 未署名のアプリを配布することは可能ですが、非推奨です。 例えば、以下は未署名のアプリを起動しようとしたときに macOS ユーザに表示されるものです。
 
-![unsigned app warning on macOS](https://user-images.githubusercontent.com/2289/39488937-bdc854ba-4d38-11e8-88f8-7b3c125baefc.png)
+![macOS 上の未署名アプリの警告](https://user-images.githubusercontent.com/2289/39488937-bdc854ba-4d38-11e8-88f8-7b3c125baefc.png)
 
 > アプリは、開発元が未確認のため開けません
 
@@ -49,8 +49,8 @@ Windows ビルドに署名する前に、以下のことをしなければなり
 
 - [`electron-winstaller`] は Windows 用インストーラを生成し、それに署名します。
 - [`electron-forge`] は Squirrel.Windows または MSI ターゲットを通してそれが生成するインストーラに署名することができます。
-- [`electron-builder`] can sign some of its windows targets
+- [`electron-builder`] ではその Windows ターゲットのいくつかに署名することができます
 
 ## Windows Store
 
-See the [Windows Store Guide](windows-store-guide.md).
+[Windows Store Guide](windows-store-guide.md) を参照してください。
