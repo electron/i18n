@@ -4,11 +4,11 @@ Windows と macOS は、それぞれジャンプリストまたは Dock メニ�
 
 **ジャンプリスト:**
 
-![JumpList Recent Files](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
+![ジャンプリストの最近使った書類](https://cloud.githubusercontent.com/assets/2289/23446924/11a27b98-fdfc-11e6-8485-cc3b1e86b80a.png)
 
 **アプリケーションの Dock メニュー:**
 
-![macOS Dock Menu](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
+![macOS の Dock メニュー](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
 
 最近の使った書類にファイルを追加するには、[app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows) API を使用します。
 
@@ -17,19 +17,19 @@ const { app } = require('electron')
 app.addRecentDocument('/Users/USERNAME/Desktop/work.type')
 ```
 
-And you can use [app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) API to empty the recent documents list:
+また、[app.clearRecentDocuments](../api/app.md#appclearrecentdocuments-macos-windows) API を使用して最近使った書類リストを空にすることもできます。
 
 ```javascript
 const { app } = require('electron')
 app.clearRecentDocuments()
 ```
 
-## Windows Notes
+## Windows での注意
 
-In order to be able to use this feature on Windows, your application has to be registered as a handler of the file type of the document, otherwise the file won't appear in JumpList even after you have added it. You can find everything on registering your application in [Application Registration](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx).
+Windows でこの機能を使用できるようにするには、アプリケーションをそのドキュメントファイル種別のハンドラとして登録する必要があります。でないと、ファイルを追加してもファイルがジャンプリストに表示されません。 アプリケーションの登録に関するすべてのことは、[アプリケーションの登録](https://msdn.microsoft.com/en-us/library/cc144104(VS.85).aspx) にあります。
 
-When a user clicks a file from the JumpList, a new instance of your application will be started with the path of the file added as a command line argument.
+ユーザーがジャンプリストからファイルをクリックすると、アプリケーションの新しいインスタンスが、ファイルのパスがコマンドライン引数として追加されて起動されます。
 
-## macOS Notes
+## macOS での注意
 
-When a file is requested from the recent documents menu, the `open-file` event of `app` module will be emitted for it.
+最近使った書類メニューからファイルが要求されると、それに対して `app` モジュールの `open-file` イベントが発生します。
