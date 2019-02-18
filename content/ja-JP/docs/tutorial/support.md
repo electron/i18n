@@ -27,9 +27,9 @@ Electronにコントリビュートしたい場合は、[コントリビュー�
 
 最新の3リリースブランチがElectronチームによってサポートされています。 例えば、最新リリースの2.0.xの場合、2-0-xシリーズと、2つ前のリリースシリーズである1-7-xと1-8-xも同様にはサポートされています。
 
-When a release branch reaches the end of its support cycle, the series will be deprecated in NPM and a final end-of-support release will be made. This release will add a warning to inform that an unsupported version of Electron is in use.
+リリースブランチがサポートサイクルの終わりに達すると、npm では非推奨となり、最後のサポート終了リリースが行われる予定です。 このリリースでは、サポートされていないバージョンの Electron が使用されていることを知らせるための警告が追加されます。
 
-These steps are to help app developers learn when a branch they're using becomes unsupported, but without being excessively intrusive to end users.
+これらの手順は、使用しているブランチがサポートされなくなったときにアプリ開発者が学習できるようにするためのものですが、エンドユーザが過度に煩わされることはありません。
 
 If an application has exceptional circumstances and needs to stay on an unsupported series of Electron, developers can silence the end-of-support warning by omitting the final release from the app's `package.json` `devDependencies`. For example, since the 1-6-x series ended with an end-of-support 1.6.18 release, developers could choose to stay in the 1-6-x series without warnings with `devDependency` of `"electron": 1.6.0 - 1.6.17`.
 
