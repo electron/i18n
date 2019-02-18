@@ -79,16 +79,16 @@ git のブランチ動作の仕組み、npm のタグ付けの仕組み、開発
     1. 変更は API に後方互換性がある (非推奨は構いません)
     2. 安定版のスケジュールを守るリスクが低くなければならない。
 2. リリースがベータ版になった後に許可された変更を加える必要がある場合は、それらが適用され、例として `2.0.0-beta.2` のようにプレリリースタグが増分されます。
-3. 特定のベータリリースが *一般的に安定している* と見なされている場合、バージョン情報のみを変更して、安定したビルドとして再リリースされます。 e.g. `2.0.0`. After the first stable, all changes must be backwards-compatible bug or security fixes.
-4. If future bug fixes or security patches need to be made once a release is stable, they are applied and the *patch* version is incremented e.g. `2.0.1`.
+3. 特定のベータリリースが *一般的に安定している* と見なされている場合、バージョン情報のみを変更して、安定したビルドとして再リリースされます。 例として、`2.0.0` のようになります。 最初の安定版以降は、すべての変更は後方互換性のあるバグまたはセキュリティ修正でなければなりません。
+4. リリースが安定した後に将来のバグ修正やセキュリティパッチを作成する必要がある場合は、それらを適用して、例として `2.0.1` のように、*patch* のバージョンを増やします。
 
-Specifically, the above means:
+具体的に言うと、以下が上記の意味です。
 
-1. Admitting non-breaking-API changes early in the beta cycle is okay, even if those changes have the potential to cause moderate side-affects
-2. Admitting feature-flagged changes, that do not otherwise alter existing code paths, at most points in the beta cycle is okay. Users can explicitly enable those flags in their apps.
+1. たとえそれらの変更が中程度の副作用を引き起こす可能性があるとしても、ベータサイクルの早い段階で非破壊的な API の変更を承認することは問題ありません。
+2. ベータサイクルのほとんどの時点で、既存のコードパスを変更しない、機能フラグの変更を認めることは問題ありません。 ユーザーは自分のアプリでこれらのフラグを明示的に有効にできます。
 3. Admitting features of any sort very late in the beta cycle is 
 
-For each major and minor bump, you should expect to see something like the following:
+メジャーとマイナーのバージョン上げのそれぞれにおいて、以下のようなものが見えるはずです。
 
 ```text
 2.0.0-beta.1
@@ -99,9 +99,9 @@ For each major and minor bump, you should expect to see something like the follo
 2.0.2
 ```
 
-An example lifecycle in pictures:
+以下は絵に描いたライフサイクルの例です。
 
-- A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
+- 最新の一連の機能を含む新しいリリースブランチが作成されます。`2.0-beta 1` として公開されます。 ![](../images/versioning-sketch-3.png)
 - A bug fix comes into master that can be backported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
 - The beta is considered *generally stable* and it is published again as a non-beta under `2.0.0`. ![](../images/versioning-sketch-5.png)
 - Later, a zero-day exploit is revealed and a fix is applied to master. We backport the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
