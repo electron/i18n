@@ -22,34 +22,34 @@ appProcess.on('message', (msg) => {
 appProcess.send({ my: 'message' })
 ```
 
-From within the Electron app, you can listen for messages and send replies using the nodejs [process](https://nodejs.org/api/process.html) API:
+Electron アプリケーション内からは、nodejs [process](https://nodejs.org/api/process.html) API を使用して、メッセージをリッスンして返信を送信できます。
 
 ```js
-// listen for IPC messages from the test suite
+// テストスイートからの IPC メッセージをリッスンする
 process.on('message', (msg) => {
   // ...
 })
 
-// send an IPC message to the test suite
+// テストスイートへ IPC メッセージを送る
 process.send({ my: 'message' })
 ```
 
-We can now communicate from the test suite to the Electron app using the `appProcess` object.
+これで、`appProcess` オブジェクトを使用してテストスイートから Electron アプリケーションに通信できます。
 
-For convenience, you may want to wrap `appProcess` in a driver object that provides more high-level functions. Here is an example of how you can do this:
+利便性のために、より高度な機能を提供するドライバオブジェクトで `appProcess` をラップすることをお勧めします。 以下は、これをどのようにするかの例です。
 
 ```js
 class TestDriver {
   constructor ({ path, args, env }) {
     this.rpcCalls = []
 
-    // start child process
-    env.APP_TEST_DRIVER = 1 // let the app know it should listen for messages
+    // 子プロセスを開始
+    env.APP_TEST_DRIVER = 1 // メッセージをリッスンする必要があることをアプリに知らせる
     this.process = childProcess.spawn(path, args, { stdio: ['inherit', 'inherit', 'inherit', 'ipc'], env })
 
-    // handle rpc responses
+    // rpc レスポンスをハンドル
     this.process.on('message', (message) => {
-      // pop the handler
+      // ハンドラを消去
       var rpcCall = this.rpcCalls[message.msgId]
       if (!rpcCall) return
       this.rpcCalls[message.msgId] = null
@@ -58,7 +58,7 @@ class TestDriver {
       else rpcCall.resolve(message.resolve)
     })
 
-    // wait for ready
+    // 準備できるまで待つ
     this.isReady = this.rpc('isReady').catch((err) => {
       console.error('Application failed to start', err)
       this.stop()
@@ -66,10 +66,10 @@ class TestDriver {
     })
   }
 
-  // simple RPC call
-  // to use: driver.rpc('method', 1, 2, 3).then(...)
+  // ↓を使うための簡単な RPC 呼び出し
+  // driver.rpc('method', 1, 2, 3).then(...)
   async rpc (cmd, ...args) {
-    // send rpc request
+    // rpc リクエストを送る
     var msgId = this.rpcCalls.length
     this.process.send({ msgId, cmd, args })
     return new Promise((resolve, reject) => this.rpcCalls.push({ resolve, reject }))
@@ -81,7 +81,7 @@ class TestDriver {
 }
 ```
 
-In the app, you'd need to write a simple handler for the RPC calls:
+このアプリでは、RPC 呼び出しのために簡単なハンドラを作成する必要があります。
 
 ```js
 if (process.env.APP_TEST_DRIVER) {
@@ -106,10 +106,10 @@ async function onMessage ({ msgId, cmd, args }) {
 
 const METHODS = {
   isReady () {
-    // do any setup needed
+    // 必要であれば何かセットアップする
     return true
   }
-  // define your RPC-able methods here
+  // RPC 可能なメソッドをここに定義する
 }
 ```
 
