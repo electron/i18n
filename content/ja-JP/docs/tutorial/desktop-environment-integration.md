@@ -20,10 +20,10 @@
 
 [Unity ランチャードキュメント](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher) を参照してください。
 
-## Represented File for macOS Window
+## macOS のウインドウが表すファイル
 
-See the [Represented File documentation](represented-file.md).
+[ウインドウが表すファイルのドキュメント](represented-file.md) を参照してください。
 
-## Dragging files out of the window
+## ウインドウ外へファイルをドラッグ
 
-See the [Native File Drag & Drop documentation](native-file-drag-drop.md).
+[ネイティブのファイルドラッグ & ドロップのドキュメント](native-file-drag-drop.md) を参照してください。
