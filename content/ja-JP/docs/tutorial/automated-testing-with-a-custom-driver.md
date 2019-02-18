@@ -113,7 +113,7 @@ const METHODS = {
 }
 ```
 
-Then, in your test suite, you can use your test-driver as follows:
+すると、テストスイート内では、以下のようにテストドライバを使用できます。
 
 ```js
 var test = require('ava')
