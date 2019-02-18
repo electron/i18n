@@ -75,11 +75,11 @@ git のブランチ動作の仕組み、npm のタグ付けの仕組み、開発
 
 プロセスは以下の通りです。
 
-1. All new major and minor releases lines begin with a beta series indicated by semver prerelease tags of `beta.N`, 例 `2.0.0-beta.1`. After the first beta, subsequent beta releases must meet all of the following conditions: 
-    1. The change is backwards API-compatible (deprecations are allowed)
-    2. The risk to meeting our stability timeline must be low.
-2. If allowed changes need to be made once a release is beta, they are applied and the prerelease tag is incremented, e.g. `2.0.0-beta.2`.
-3. If a particular beta release is *generally regarded* as stable, it will be re-released as a stable build, changing only the version information. e.g. `2.0.0`. After the first stable, all changes must be backwards-compatible bug or security fixes.
+1. すべての新しいメジャーリリースとマイナーリリースのものは、次のように、semver プレリリースタグで示されるベータ系列で始まります。 `beta.N`, 例 `2.0.0-beta.1`。最初のベータ版の後、その後のベータ版リリースは以下のすべての条件を満たす必要があります。 
+    1. 変更は API に後方互換性がある (非推奨は構いません)
+    2. 安定版のスケジュールを守るリスクが低くなければならない。
+2. リリースがベータ版になった後に許可された変更を加える必要がある場合は、それらが適用され、例として `2.0.0-beta.2` のようにプレリリースタグが増分されます。
+3. 特定のベータリリースが *一般的に安定している* と見なされている場合、バージョン情報のみを変更して、安定したビルドとして再リリースされます。 e.g. `2.0.0`. After the first stable, all changes must be backwards-compatible bug or security fixes.
 4. If future bug fixes or security patches need to be made once a release is stable, they are applied and the *patch* version is incremented e.g. `2.0.1`.
 
 Specifically, the above means:
