@@ -1,10 +1,10 @@
 # Windows のタスクバー
 
-Electron には Windows のタスクバー中のアプリアイコンを設定するための API があります。 Supported are the [creation of a `JumpList`](#jumplist), [custom thumbnails and toolbars](#thumbnail-toolbars), [icon overlays](#icon-overlays-in-taskbar), and the so-called ["Flash Frame" effect](#flash-frame), but Electron also uses the app's dock icon to implement cross-platform features like [recent documents](./recent-documents.md) and [application progress](./progress-bar.md).
+Electron には Windows のタスクバー中のアプリアイコンを設定するための API があります。 [`ジャンプリスト` の作成](#jumplist)、[カスタムサムネイルとツールバー](#thumbnail-toolbars)、[アイコンオーバーレイ](#icon-overlays-in-taskbar) と、いわゆる ["枠点滅" エフェクト](#flash-frame) をサポートしていますが、Electron はアプリのドックアイコンを [最近使った書類](./recent-documents.md) や [アプリケーションの進捗](./progress-bar.md) のようなクロスプラットフォーム機能の実装にも使用しています。
 
 ## ジャンプ リスト
 
-Windows allows apps to define a custom context menu that shows up when users right-click the app's icon in the task bar. That context menu is called `JumpList`. You specify custom actions in the `Tasks` category of JumpList, as quoted from MSDN:
+Windows では、ユーザがタスクバーのアプリのアイコンを右クリックしたときに表示されるカスタムコンテキストメニューを定義できます。 このコンテキストメニューは `ジャンプ リスト` と呼ばれます。 以下の MSDN からの引用のとおり、ジャンプリストの `タスク` カテゴリでカスタムアクションを指定します。
 
 > Applications define tasks based on both the program's features and the key things a user is expected to do with them. Tasks should be context-free, in that the application does not need to be running for them to work. They should also be the statistically most common actions that a normal user would perform in an application, such as compose an email message or open the calendar in a mail program, create a new document in a word processor, launch an application in a certain mode, or launch one of its subcommands. An application should not clutter the menu with advanced features that standard users won't need or one-time actions such as registration. Do not use tasks for promotional items such as upgrades or special offers.
 > 
