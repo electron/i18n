@@ -29,14 +29,14 @@
     "name": "Chinese Simplified",
     "code": "zh-CN",
     "phrases": "10076",
-    "translated": "8838",
+    "translated": "8866",
     "approved": "26",
     "words": "93200",
-    "words_translated": "77209",
+    "words_translated": "77490",
     "words_approved": "138",
-    "translated_progress": 82,
+    "translated_progress": 83,
     "approved_progress": 0,
-    "qa_issues": 250
+    "qa_issues": 251
   },
   {
     "name": "Chinese Traditional",
@@ -120,14 +120,14 @@
     "name": "Hebrew",
     "code": "he",
     "phrases": "10076",
-    "translated": "375",
+    "translated": "381",
     "approved": "0",
     "words": "93200",
-    "words_translated": "2636",
+    "words_translated": "2716",
     "words_approved": "0",
     "translated_progress": 2,
     "approved_progress": 0,
-    "qa_issues": 107
+    "qa_issues": 108
   },
   {
     "name": "Hindi",
