@@ -4,9 +4,9 @@ Electron の開発は基本的に Node.js 開発です。 オペレーティン�
 
 ## macOS のセットアップ
 
-> Electron supports macOS 10.10 (Yosemite) and up. Apple does not allow running macOS in virtual machines unless the host computer is already an Apple computer, so if you find yourself in need of a Mac, consider using a cloud service that rents access to Macs (like [MacInCloud](https://www.macincloud.com/) or [xcloud](https://xcloud.me)).
+> Electron は macOS 10.10 (Yosemite) 以降をサポートしています。 ホストコンピュータがすでに Apple コンピュータでないときだけ、Apple は仮想マシンでの macOS の実行を許可していません。そのため、Mac が必要な場合は、Mac へのアクセスをレンタルする ([MacInCloud](https://www.macincloud.com/) や [xcloud](https://xcloud.me) のような) クラウドサービスの使用を検討してください。
 
-まず、最新バージョンの Node.js をインストールします。 利用可能な最新の `LTS` もしくは `Current` バージョンのいずれかをインストールすることをお勧めします。 Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `macOS Installer`. While Homebrew is an offered option, but we recommend against it - many tools will be incompatible with the way Homebrew installs Node.js.
+まず、最新バージョンの Node.js をインストールします。 利用可能な最新の `LTS` もしくは `Current` バージョンのいずれかをインストールすることをお勧めします。 [Node.js のダウンロード ページ](https://nodejs.org/en/download/)にアクセスし `macOS Installer` を選択します。 While Homebrew is an offered option, but we recommend against it - many tools will be incompatible with the way Homebrew installs Node.js.
 
 Once downloaded, execute the installer and let the installation wizard guide you through the installation.
 
