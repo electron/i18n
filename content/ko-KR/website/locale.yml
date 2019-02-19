@@ -13,6 +13,9 @@ nav:
   search: 검색
   userland: 사용자 공간
 keyboard_modal:
+  title: 키보드 단축기
+  key: Key
+  action: Action
   focus_search: Focus the search bar
   focus_and_clear: Focus the search bar and cleans it
   scroll_down: Select the next search result
