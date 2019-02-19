@@ -12,6 +12,13 @@ nav:
   releases: Релизы
   search: Поиск
   userland: Пользовательское пространство
+keyboard_modal:
+  focus_search: Focus the search bar
+  focus_and_clear: Focus the search bar and cleans it
+  scroll_down: Select the next search result
+  scroll_up: Select the previous search result
+  open: Open the selected search result
+  open_new_tab: Open the selected search result in a new tab
 docs:
   title: Документация Electron
   description: Просмотрите всю <a href="/docs/all">документацию на одной странице</a> или посетите <a href="/docs/faq">ЧаВо</a>.
@@ -186,7 +193,7 @@ pages:
     description: Spectron является фреймворком с открытым исходным кодом для легкого написания тестов интеграции для вашего приложения Electron. Построен на базе ChromeDriver и WebDriverIO.
   '/fiddle':
     title: Electron Fiddle
-    description: Самый лёгкий способ начать работу с Electron
+    description: The easiest way to get started with Electron
   '/donors':
     title: Спонсоры
 landing:
