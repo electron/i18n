@@ -12,6 +12,16 @@ nav:
   releases: Các phiên bản phát hành
   search: Tìm kiếm
   userland: Không gian người dùng
+keyboard_modal:
+  title: Các phím tắt
+  key: Key
+  action: Action
+  focus_search: Focus the search bar
+  focus_and_clear: Focus the search bar and cleans it
+  scroll_down: Select the next search result
+  scroll_up: Select the previous search result
+  open: Open the selected search result
+  open_new_tab: Open the selected search result in a new tab
 docs:
   title: Tài liệu Electron
   description: Xem tất cả <a href="/docs/all"> tài liệu trên một trang </a> hoặc xem <a href="/docs/faq"> Câu hỏi thường gặp </a> .
