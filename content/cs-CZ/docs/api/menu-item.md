@@ -1,10 +1,10 @@
 ## Class: MenuItem
 
-> Add items to native application menus and context menus.
+> Přidává položky menu do nativního menu aplikace a kontextového menu.
 
 Proces: [Main](../glossary.md#main-process)
 
-See [`Menu`](menu.md) for examples.
+Podívejte se na [`Menu`](menu.md) v příkladech.
 
 ### `new MenuItem(options)`
 
