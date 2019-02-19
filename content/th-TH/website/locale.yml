@@ -12,6 +12,16 @@ nav:
   releases: การเผยแพร่
   search: ค้นหา
   userland: Userland
+keyboard_modal:
+  title: ปุ่มลัดแป้นพิมพ์
+  key: Key
+  action: Action
+  focus_search: Focus the search bar
+  focus_and_clear: Focus the search bar and cleans it
+  scroll_down: Select the next search result
+  scroll_up: Select the previous search result
+  open: Open the selected search result
+  open_new_tab: Open the selected search result in a new tab
 docs:
   title: เอกสารประกอบของ อิเล็กตรอน
   description: ดูเพิ่มเติมใน<a href="/docs/all">เอกสารทั้งหมด</a> หรือ <a href="/docs/faq"></a> FAQ
