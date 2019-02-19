@@ -12,6 +12,13 @@ nav:
   releases: نسخه‌ها
   search: جستجو
   userland: فضای کاربری
+keyboard_modal:
+  focus_search: Focus the search bar
+  focus_and_clear: Focus the search bar and cleans it
+  scroll_down: Select the next search result
+  scroll_up: Select the previous search result
+  open: Open the selected search result
+  open_new_tab: Open the selected search result in a new tab
 docs:
   title: مستندات الکترون
   description: تمام مستندات را در <a href="/docs/all">این صفحه</a> مشاهده کنید و یا <a href="/docs/faq">سوالات متداول</a> را بررسی کنید.
