@@ -26,7 +26,7 @@ docs:
     view_all_docs: Todos los documentos en una página
 languages:
   choose_language: Elija el idioma del sitio
-  view_more_details: View More Language Details
+  view_more_details: Ver más detalles del idioma
   translation_progress: Progreso de la traducción
   current: selección actual
 community:
