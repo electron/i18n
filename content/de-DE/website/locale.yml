@@ -15,7 +15,7 @@ nav:
 keyboard_modal:
   title: Tastenkürzel
   key: Key
-  action: Action
+  action: Aktion
   focus_search: Focus the search bar
   focus_and_clear: Focus the search bar and cleans it
   scroll_down: Select the next search result
