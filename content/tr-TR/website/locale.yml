@@ -12,6 +12,16 @@ nav:
   releases: Sürümler
   search: Ara
   userland: Kullanıcı alanı
+keyboard_modal:
+  title: Klavye Kısayolları
+  key: Key
+  action: Action
+  focus_search: Focus the search bar
+  focus_and_clear: Focus the search bar and cleans it
+  scroll_down: Select the next search result
+  scroll_up: Select the previous search result
+  open: Open the selected search result
+  open_new_tab: Open the selected search result in a new tab
 docs:
   title: Electron Dokümanları
   description: Dokümanları <a href="/docs/all">tek bir sayfada</a> görün veya <a href="/docs/faq"> SSS (Sıkça Sorulan Sorular)</a> sayfasına göz atın.
