@@ -12,7 +12,7 @@
 * `video_encode` Stringa - Codifica Video.
 * `vpx_decode` Stringa - Decodifica Video VPx.
 * `webgl` Stringa - WebGL.
-* `webgl2` String - WebGL2.
+* `webgl2` Stringa - WebGL2.
 
 Possibili valori:
 
