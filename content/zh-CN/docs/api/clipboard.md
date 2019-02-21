@@ -2,7 +2,7 @@
 
 > 在系统剪贴板上执行复制和粘贴操作。
 
-参见： [process](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) process
+进程： [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 In the renderer process context it depends on the [`remote`](remote.md) module on Linux, it is therefore not available when this module is disabled.
 
