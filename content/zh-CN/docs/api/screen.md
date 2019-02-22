@@ -6,7 +6,7 @@
 
 在 ` app ` 模块发出 ` ready ` 事件之前, 您不能引用或者使用此模块。
 
-In the renderer process context it depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
+在渲染进程中传值取决于[`remote`](remote.md)模块，因此在这个模块禁用时无法使用
 
 `screen` 是一个 [EventEmitter](https://nodejs.org/api/events.html#events_class_eventemitter).
 
