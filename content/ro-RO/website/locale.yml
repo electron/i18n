@@ -36,7 +36,7 @@ docs:
     view_all_docs: Toate documentele pe o pagină
 languages:
   choose_language: Alege limba ta pentru sait
-  view_more_details: View More Language Details
+  view_more_details: Vezi mai multe detalii despre limbă
   translation_progress: Progres traducere
   current: selecție curentă
 community:
@@ -64,20 +64,20 @@ community:
   awesome_notice: Această listă este generată de la depozitarul <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a>.<br>Lipsește ceva? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Fă un pull request</a>.
   meetup_notice: Pentru a adăuga un meetup, editează <code>data/meetups.json</code> și <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">fă un pull request</a>.
 releases:
-  show_releases: "Show Releases:"
-  show_only_releases_from: "Show Only Releases From:"
-  all_versions: All Versions
-  stable_releases: Stable Releases
+  show_releases: "Arată lansări:"
+  show_only_releases_from: "Arată doar lansări de la:"
+  all_versions: Toate versiunile
+  stable_releases: Lansări stabile
   stable_desc: Regular, supported releases
-  beta_releases: Beta Releases
+  beta_releases: Lansări beta
   beta_desc: Test your app with upcoming changes
   nightly_releases: Nightly Releases
   nightly_desc: Experiment with the latest features
-  next: Next
-  next_page: Next Page
-  previous: Previous
-  previous_page: Previous Page
-  page: Page
+  next: Înainte
+  next_page: Pagina următoare
+  previous: Înapoi
+  previous_page: Pagina anterioară
+  page: Pagină
   all_releases: Toate lansările
   back_to_index: Înapoi la index
 electron_is_easy:
@@ -203,9 +203,9 @@ landing:
   get_started: Începe
   fiddle:
     lead_desc: The easiest way to get started with Electron
-    create_app: Create your app
+    create_app: Creează propria aplicație
     description: Electron Fiddle lets you create and play with small Electron experiments. It greets you with a quick-start template after opening – change a few things, choose the version of Electron you want to run it with, and play around. Then, save your Fiddle either as a GitHub Gist or to a local folder. Once pushed to GitHub, anyone can quickly try your Fiddle out by just entering it in the address bar.
-    explore: Explore Electron
+    explore: Explorează Electron
     explore_desc: "Try Electron without installing any dependencies: Fiddle includes everything you'll need to explore the platform. It also includes examples for every API available in Electron, so if you want to quickly see what a BrowserView is or how the desktopCapturer works, Fiddle has got you covered."
     code_with_types: Code with Types
     code_with_types_desc: Fiddle includes Microsoft's excellent Monaco Editor, the same editor powering Visual Studio Code. It also installs the type definitions for the currently selected version of Electron automatically, ensuring that you always have all Electron APIs only a few keystrokes away.
