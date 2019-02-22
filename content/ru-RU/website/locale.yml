@@ -14,8 +14,8 @@ nav:
   userland: Пользовательское пространство
 keyboard_modal:
   title: Горячие клавиши
-  key: Key
-  action: Action
+  key: Клавиша
+  action: Действие
   focus_search: Focus the search bar
   focus_and_clear: Focus the search bar and cleans it
   scroll_down: Select the next search result
