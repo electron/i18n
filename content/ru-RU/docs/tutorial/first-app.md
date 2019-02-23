@@ -84,7 +84,7 @@ function createWindow () {
   // Создаем окно браузера.
   let win = new BrowserWindow({ width: 800, height: 600 })
 
-  // and load the index.html of the app.
+  // и загружаем index.html нашего приложения.
   win.loadFile('index.html')
 }
 
@@ -101,13 +101,13 @@ const { app, BrowserWindow } = require('electron')
 let win
 
 function createWindow () {
-  // Создаёт окно браузера.
+  // Создаём окно браузера.
   win = new BrowserWindow({ width: 800, height: 600 })
 
-  // и загрузит index.html приложение.
+  // и загружаем index.html приложения.
   win.loadFile('index.html')
 
-  // Открыть средства разработчика.
+  // Отображаем средства разработчика.
   win.webContents.openDevTools()
 
   // Вызывается, когда окно будет закрыто.
