@@ -156,9 +156,9 @@ app.on('activate', () => {
   </head>
   <body>
     <h1>Привет мир!</h1>
-    Мы используем Node <script> document.write (process.versions.node)</script>,
-    Chrome <script>document.write (process.versions.chrome)</script>,
-    и Electron<script>document.write (process.versions.electron)</script>.
+    Мы используем Node <script> document.write(process.versions.node)</script>,
+    Chrome <script>document.write(process.versions.chrome)</script>,
+    и Electron<script>document.write(process.versions.electron)</script>.
   </body>
 </html>
 ```
@@ -176,7 +176,7 @@ app.on('activate', () => {
 ```sh
 # Клонируем репозиторий
 $ git clone https://github.com/electron/electron-quick-start
-# Переходим в папку с приложением
+# Переходим в папку репозитория
 $ cd electron-quick-start
 # Устанавливаем зависимости
 $ npm install
