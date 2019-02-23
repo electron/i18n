@@ -17,7 +17,7 @@ console.log(systemPreferences.isDarkMode())
 
 Возвращает:
 
-* `event` Event
+* Событие типа `event`
 * `newColor` Строка - новый цвет RGBA, назначенный пользователем в качестве акцентного цвета.
 
 ### Событие: 'color-changed' *Windows*
