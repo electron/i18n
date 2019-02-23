@@ -45,11 +45,11 @@ app.on('ready', () => {
 
 ### Event: 'lock-screen' *macOS* *Windows*
 
-Emitted when the system is about to lock the screen.
+当系统即将锁定屏幕时触发。
 
 ### Event: 'unlock-screen' *macOS* *Windows*
 
-Emitted as soon as the systems screen is unlocked.
+当系统屏幕解锁，立即触发。
 
 ## 方法
 
@@ -61,11 +61,11 @@ Emitted as soon as the systems screen is unlocked.
 * `callback` Function 
   * `idleState` String - Can be `active`, `idle`, `locked` or `unknown`
 
-Calculate the system idle state. `idleThreshold` is the amount of time (in seconds) before considered idle. `callback` will be called synchronously on some systems and with an `idleState` argument that describes the system's state. `locked` is available on supported systems only.
+计算系统空闲状态。 `idleThreshold` is the amount of time (in seconds) before considered idle. `回调函数` 将在一些系统上同步 ，并与 `idleState` 参数相同，描述系统的状态。 `锁定` 是 仅可用于支持的系统。
 
 #### `powerMonitor.querySystemIdleTime(callback)`
 
 * `callback` Function - 回调函数 
-  * `idleTime` Integer - Idle time in seconds
+  * `idleTime` Integer - 空闲秒数
 
-Calculate system idle time in seconds.
+计算系统空闲时间以秒为单位。
