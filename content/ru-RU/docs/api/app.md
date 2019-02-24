@@ -21,7 +21,7 @@ app.on('window-all-closed', () => {
 
 Происходит когда приложение заканчивает основной запуск. На Windows и Linux событие `will-finish-launching` подобно событию `ready`; на macOS это событие представляет собой уведомление `applicationWillFinishLaunching` объекта `NSApplication`. Обычно настраивают слушателей для `open-file` и `open-url` событий, и запускают репортер сбоев и автообновления.
 
-In most cases, you should do everything in the `ready` event handler.
+В большинстве случаев вы должны выполнять всё в обработчике событий `ready`.
 
 ### Событие: 'ready'
 
@@ -1028,7 +1028,7 @@ Enables full sandbox mode on the app.
 
 * `menu` [Menu](menu.md)
 
-Sets the application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
+Устанавливает [Dock меню](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/) приложения.
 
 ### `app.dock.setIcon(image)` *macOS*
 
