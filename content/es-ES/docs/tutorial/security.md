@@ -16,7 +16,7 @@ Mientras Electron se esfuerza para apoyar nuevas versiones de Chromium lo más p
 
 Sentimos que el sistema actual de actualización de el componente Chromium alcanza un balance apropiado entre los recursos que tenemos disponibles y las necesidades de la mayoría de las aplicaciones construidas por encima de el framework. Estamos definitivamente interesados en escuchar más sobre casos específicos de gente que construye cosas encima de Electron. Solicitudes de extracción y contribuciones apoyando este esfuerzo son siempre bienvenidas.
 
-## Security Is Everyone's Responsibility
+## Seguridad es la responsabilidad de Todos
 
 It is important to remember that the security of your Electron application is the result of the overall security of the framework foundation (*Chromium*, *Node.js*), Electron itself, all NPM dependencies and your code. As such, it is your responsibility to follow a few important best practices:
 
@@ -52,10 +52,10 @@ You should at least follow these steps to improve the security of your applicati
 8. [No active ajustes experimentales](#8-do-not-enable-experimental-features)
 9. [Do not use `enableBlinkFeatures`](#9-do-not-use-enableblinkfeatures)
 10. [`<webview>`: Do not use `allowpopups`](#10-do-not-use-allowpopups)
-11. [`<webview>`: Verify options and params](#11-verify-webview-options-before-creation)
-12. [Disable or limit navigation](#12-disable-or-limit-navigation)
-13. [Disable or limit creation of new windows](#13-disable-or-limit-creation-of-new-windows)
-14. [Do not use `openExternal` with untrusted content](#14-do-not-use-openexternal-with-untrusted-content)
+11. [`<webview>`: Verificar opciones y parámetros](#11-verify-webview-options-before-creation)
+12. [Deshabilitar o limitar navegación](#12-disable-or-limit-navigation)
+13. [Deshabilitar o limitar la generación de nuevas ventanas](#13-disable-or-limit-creation-of-new-windows)
+14. [No utilice `openExternal` con contenido no confiable](#14-do-not-use-openexternal-with-untrusted-content)
 
 To automate the detection of misconfigurations and insecure patterns, it is possible to use [electronegativity](https://github.com/doyensec/electronegativity). For additional details on potential weaknesses and implementation bugs when developing applications using Electron, please refer to this [guide for developers and auditors](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)
 
@@ -104,7 +104,7 @@ Un ataque cross-site-scripting (XSS) es más peligroso si un atacante puede alta
 ```js
 // Bad
 const mainWindow = new BrowserWindow()
-mainWindow.loadURL('https://example.com')
+mainWindow.loadURL('https://ejemplo.com')
 ```
 
 ```js
@@ -121,10 +121,10 @@ mainWindow.loadURL('https://example.com')
 ```
 
 ```html
-<!-- Bad -->
+<!-- Malo -->
 <webview nodeIntegration src="page.html"></webview>
 
-<!-- Good -->
+<!-- Bueno -->
 <webview src="page.html"></webview>
 ```
 
@@ -293,7 +293,7 @@ session.defaultSession.webRequest.onHeadersReceived((details, callback) => {
 })
 ```
 
-### CSP Meta Tag
+### CSP Meta Etiqueta
 
 CSP's preferred delivery mechanism is an HTTP header, however it is not possible to use this method when loading a resource using the `file://` protocol. It can be useful in some cases, such as using the `file://` protocol, to set a policy on a page directly in the markup using a `<meta>` tag:
 
