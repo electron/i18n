@@ -45,7 +45,7 @@ console.log(dialog)
   * `filePaths` String[] - 사용자가 선택한 파일 경로들
   * `bookmarks` String[] *macOS* *mas* - `filePaths` 배열과 매칭되는 base64로 변환된 security scoped bookmark 데이터. 이 값을 얻기 위해서는 `securityScopedBookmarks`를 반드시 설정해야 합니다.
 
-사용자가 선택한 파일 경로를 `String[]` 형태로 반환합니다. 만약 callback을 제공하였다면 `undefined`를 반환합니다.
+Returns `String[] | undefined`, an array of file paths chosen by the user, if the callback is provided it returns `undefined`.
 
 `browserWindow` 인수는 대화 상자가 부모 창에 연결되어 모달 대화상자로써 표시될 수 있도록 해줍니다.
 
@@ -84,7 +84,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
   * `filename` String
   * `bookmark` String *macOS* *mas* - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present.
 
-Returns `String`, the path of the file chosen by the user, if a callback is provided it returns `undefined`.
+Returns `String | undefined`, the path of the file chosen by the user, if a callback is provided or the dialog is cancelled it returns `undefined`.
 
 `browserWindow` 인수는 대화 상자가 부모 창에 연결되어 모달 대화상자로써 표시될 수 있도록 해줍니다.
 
