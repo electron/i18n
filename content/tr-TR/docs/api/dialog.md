@@ -45,9 +45,9 @@ console.log(dialog)
   * `filePaths` Dize[] - Kullanıcı tarafından seçilen bir dosya yolu dizisi
   * `bookmarks` String[] *macOS* *mas* - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` must be enabled for this to be populated.
 
-İade`dizge[]`, kullanıcı tarafından seçilen dosya yolları dizisi, eğer geri arama sağlanırsa, ` tanımsız </ 0> iade eder.</p>
+Returns `String[] | undefined`, an array of file paths chosen by the user, if the callback is provided it returns `undefined`.
 
-<p><code>browserWindow` argümanı, iletişim kutusunun kendisini bir üst pencereye eklemesine izin verir ve onu kalıcı hale getirir.
+`browserWindow` argümanı, iletişim kutusunun kendisini bir üst pencereye eklemesine izin verir ve onu kalıcı hale getirir.
 
 ` filtreleri </ 0>, görüntülenebilecek dosya türleri dizisini belirtir veya Kullanıcıyı belirli bir özelliğe sınırlamak istediğinizde seçili. Örneğin:</p>
 
@@ -85,9 +85,9 @@ console.log(dialog)
   * `dosya adı` dize
   * `bookmark` String *macOS* *mas* - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present.
 
-Iade`dize`kullanıcı tarafından seçilen dosyanın yolu, bir geri arama sağlanırsa, ` tanımsız</ 0> değerini iade eder.</p>
+Returns `String | undefined`, the path of the file chosen by the user, if a callback is provided or the dialog is cancelled it returns `undefined`.
 
-<p><code>browserWindow` argüman, iletişim kutusunun kendisini bir üst pencereye iliştirmesine izin verir ve onu modal hale getirir.
+`browserWindow` argüman, iletişim kutusunun kendisini bir üst pencereye iliştirmesine izin verir ve onu modal hale getirir.
 
 ` filtreleri </ 0>, görüntülenebilen dosya türleri dizisini belirtir, bir örnek için <code> dialog.showOpenDialog </ 0> konusuna bakın.</p>
 
