@@ -16,11 +16,21 @@ Electron은 가능한 한 빨리 새로운 버전의 Chromium을 지원하기 �
 
 우리의 현재 크로니움 컴포넌트 업그레이드 시스템이 우리가 사용할 수 있는 자원과 프레임 워크 위에 구축 된 대부분의 애플리케이션의 요구 사이에서 적절한 균형을 유지한다는 인상을 받고 있습니다. 우리는 Electron을 기반으로 무엇인가를 개발중인 사람들의 특별한 use case에 관해 더 듣고싶습니다. 이 노력을 지지하는 Pull 요청과 기여는 언제나 환영합니다.
 
-## 위의 경고를 무시하면
+## Security Is Everyone's Responsibility
 
-원격 대상에서 코드를 수신하여 로컬에서 실행할 때는 항상 보안 문제가 존재합니다. 예를 들어, 원격 웹사이트가 [`BrowserWindow`](../api/browser-window.md)내부에 표시되는 경우를 고려합니다. 만약 공격자가 어떻게 든 콘텐츠를 변경하면(소스를 직접 공격하거나 앱과 실제 목적지 사이에 앉든), 사용자의 컴퓨터에서 native code를 실행할 수 있습니다.
+It is important to remember that the security of your Electron application is the result of the overall security of the framework foundation (*Chromium*, *Node.js*), Electron itself, all NPM dependencies and your code. As such, it is your responsibility to follow a few important best practices:
 
-> :warning: 어떤 상황에서도 Node.js 통합을 사용하는 원격 코드를 로드하고 실행하지 않아야 합니다. 대신, Node.js 코드를 실행하기 위해 로컬 파일 (애플리케이션과 함께 패키지된) 만 사용하십시오. 원격 컨텐츠를 표시할려면 [`<webview>`](../api/webview-tag.md)태그를 사용하고 `nodeIntegration`을 비활성화 하십시오.
+* **Keep your application up-to-date with the latest Electron framework release.** When releasing your product, you’re also shipping a bundle composed of Electron, Chromium shared library and Node.js. Vulnerabilities affecting these components may impact the security of your application. By updating Electron to the latest version, you ensure that critical vulnerabilities (such as *nodeIntegration bypasses*) are already patched and cannot be exploited in your application.
+
+* **Evaluate your dependencies.** While NPM provides half a million reusable packages, it is your responsibility to choose trusted 3rd-party libraries. If you use outdated libraries affected by known vulnerabilities or rely on poorly maintained code, your application security could be in jeopardy.
+
+* **Adopt secure coding practices.** The first line of defense for your application is your own code. Common web vulnerabilities, such as Cross-Site Scripting (XSS), have a higher security impact on Electron applications hence it is highly recommended to adopt secure software development best practices and perform security testing.
+
+## Isolation For Untrusted Content
+
+A security issue exists whenever you receive code from an untrusted source (e.g. a remote server) and execute it locally. As an example, consider a remote website being displayed inside a default [`BrowserWindow`](../api/browser-window.md). If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
+
+> :warning: 어떤 상황에서도 Node.js 통합을 사용하는 원격 코드를 로드하고 실행하지 않아야 합니다. 대신, Node.js 코드를 실행하기 위해 로컬 파일 (애플리케이션과 함께 패키지된) 만 사용하십시오. To display remote content, use the [`<webview>`](../api/webview-tag.md) tag or [`BrowserView`](../api/browser-view.md), make sure to disable the `nodeIntegration` and enable `contextIsolation`.
 
 ## Electron 보안 경고
 
@@ -30,7 +40,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
 
 ## 확인 목록: 보안 권장 사항
 
-이것은 완벽한 보호책이 아니지만, 최소한 이 단계들을 따라서 여러분의 애플리케이션 보안을 향상해야 합니다.
+You should at least follow these steps to improve the security of your application:
 
 1. [안전한 콘텐츠만 로드하세요.](#1-only-load-secure-content)
 2. [원격 콘텐츠를 표시하는 모든 렌더러에서 Node.js 통합을 비활성화 합니다.](#2-disable-nodejs-integration-for-remote-content)
@@ -39,13 +49,16 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
 5. [`webSecurity`를 비활성화 하지 마세요.](#5-do-not-disable-websecurity)
 6. 콘텐츠 보안 정책(`Content-Security-Policy`)을 정의<0>하고 제한적 규칙을 사용합니다(i.e. `script-src 'self'`).</li> 
     
-    - [`allowRunningInsecureContent`을 `true`로 설정하지 마세요.](#7-do-not-set-allowrunninginsecurecontent-to-true)
-    - [실험적인 기능들을 활성화 하지 마세요.](#8-do-not-enable-experimental-features)
-    - [`enableBlinkFeatures`을 사용하지 마세요.](#9-do-not-use-enableblinkfeatures)
-    - [`<webview>`: `allowpopups`을 사용하지 마세요.](#10-do-not-use-allowpopups)
-    - [`<webview>`: 옵션 및 매개변수 확인](#11-verify-webview-options-before-creation)
-    - [Disable or limit navigation](#12-disable-or-limit-navigation)
-    - [새로운 창 생성을 제한하거나 비활성화하세요.](#13-disable-or-limit-creation-of-new-windows)</ol> 
+    * [`allowRunningInsecureContent`을 `true`로 설정하지 마세요.](#7-do-not-set-allowrunninginsecurecontent-to-true)
+    * [실험적인 기능들을 활성화 하지 마세요.](#8-do-not-enable-experimental-features)
+    * [`enableBlinkFeatures`을 사용하지 마세요.](#9-do-not-use-enableblinkfeatures)
+    * [`<webview>`: `allowpopups`을 사용하지 마세요.](#10-do-not-use-allowpopups)
+    * [`<webview>`: 옵션 및 매개변수 확인](#11-verify-webview-options-before-creation)
+    * [Disable or limit navigation](#12-disable-or-limit-navigation)
+    * [새로운 창 생성을 제한하거나 비활성화하세요.](#13-disable-or-limit-creation-of-new-windows)
+    * [Do not use `openExternal` with untrusted content](#14-do-not-use-openexternal-with-untrusted-content)</ol> 
+    
+    To automate the detection of misconfigurations and insecure patterns, it is possible to use [electronegativity](https://github.com/doyensec/electronegativity). For additional details on potential weaknesses and implementation bugs when developing applications using Electron, please refer to this [guide for developers and auditors](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)
     
     ## 1) 안전한 콘텐츠만 로드하세요.
     
@@ -61,27 +74,27 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     
     ```js
     // 나쁜 예
-    browserWindow.loadURL('http://my-website.com')
+    browserWindow.loadURL('http://example.com')
     
     // 좋은 예
-    browserWindow.loadURL('https://my-website.com')
+    browserWindow.loadURL('https://example.com')
     ```
     
     ```html
     <!-- 나쁜 예 -->
-    <script crossorigin src="http://cdn.com/react.js"></script>
-    <link rel="stylesheet" href="http://cdn.com/style.css">
+    <script crossorigin src="http://example.com/react.js"></script>
+    <link rel="stylesheet" href="http://example.com/style.css">
     
     <!-- 좋은 예 -->
-    <script crossorigin src="https://cdn.com/react.js"></script>
-    <link rel="stylesheet" href="https://cdn.com/style.css">
+    <script crossorigin src="https://example.com/react.js"></script>
+    <link rel="stylesheet" href="https://example.com/style.css">
     ```
     
     ## 2) 원격 콘텐츠에 대한 Node.js 통합 비활성화
     
     원격 컨텐츠를 로드하는 모든 렌더러([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), 또는 [`<webview>`](../api/webview-tag.md))에서 Node.js 통합을 비활성화 하는 것이 가장 중요합니다. 목적은, 원격 콘텐츠에 부여하는 권한을 제한하여, 공격자가 웹 사이트에서 JavaScript를 실행할 수 있는 사용자를 해치는 것이 훨씬 더 어려워 지도록 합니다.
     
-    그 후, 특별한 호스트를 위해 추가적인 권한을 부여할 수 있습니다. 예를 들면, 만약 `https://my-website.com/ '을 가르키는 BrowserWindow를 여는 경우, 해당 웹 사이트에 필요한 정확한 권한을 줄 수 있지만, 그 이상은 필요 없습니다.
+    그 후, 특별한 호스트를 위해 추가적인 권한을 부여할 수 있습니다. 예를 들면, 만약 `https://example.com/ '을 가르키는 BrowserWindow를 여는 경우, 해당 웹 사이트에 필요한 정확한 권한을 줄 수 있지만, 그 이상은 필요 없습니다.
     
     ### 왜냐구요?
     
@@ -92,19 +105,20 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     ```js
     // 나쁜 예
     const mainWindow = new BrowserWindow()
-    mainWindow.loadURL('https://my-website.com')
+    mainWindow.loadURL('https://example.com')
     ```
     
     ```js
-    // 좋은 예
+    // Good
     const mainWindow = new BrowserWindow({
       webPreferences: {
         nodeIntegration: false,
+        nodeIntegrationInWorker: false,
         preload: './preload.js'
       }
     })
     
-    mainWindow.loadURL('https://my-website.com')
+    mainWindow.loadURL('https://example.com')
     ```
     
     ```html
@@ -134,11 +148,13 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     
     Electron은 크로니움의 [Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment)와 같은 기술을 사용하여 이러한 동작을 가능하게 합니다.
     
+    Even when you use `nodeIntegration: false` to enforce strong isolation and prevent the use of Node primitives, `contextIsolation` must also be used.
+    
     ### 왜냐구요?
     
     컨텍스트 격리를 사용하면 렌더러에서 실행중인 각 스크립트가 Electron API 또는 preload script의 스크립트들과 충돌없이 JavaScript 환경을 변경할 수 있습니다.
     
-    실험적인 Electron 기능인, 컨텍스트 격리는 추가적인 보안 계층을 추가합니다. Electron API 및 preload scripts를 위한 새로운 JavaScript 세계을 만듭니다.
+    While still an experimental Electron feature, context isolation adds an additional layer of security. It creates a new JavaScript world for Electron APIs and preload scripts, which mitigates so-called "Prototype Pollution" attacks.
     
     동시에, preload scripts는 `document` 및 `window` 개체에 접근할 수 있습니다. 다시 말해서, 매우 작은 투자에 비해 적절한 결과를 얻고 있다고 볼 수 있습니다.
     
@@ -200,7 +216,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
         }
     
         // Verify URL
-        if (!url.startsWith('https://my-website.com/')) {
+        if (!url.startsWith('https://example.com/')) {
           // Denies the permissions request
           return callback(false)
         }
@@ -249,16 +265,16 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     
     ### 왜냐구요?
     
-    CSP는 서버가 콘텐츠를 제한적이고 웹페이지의 리소스를 제어하는 것을 허용하도록 합니다, 또한 Electron은 주어진 그 페이지를 로드 할 수 있습니다. `https://evil.attacker.com`에서는 실행되지 않아야 하고, `https://your-page.com`에서는 정의한 스크립트가 로드 되게 해야 합니다. Defining a CSP is an easy way to improve your application's security.
+    CSP는 서버가 콘텐츠를 제한적이고 웹페이지의 리소스를 제어하는 것을 허용하도록 합니다, 또한 Electron은 주어진 그 페이지를 로드 할 수 있습니다. `https://evil.attacker.com`에서는 실행되지 않아야 하고, `https://example.com`에서는 정의한 스크립트가 로드 되게 해야 합니다. Defining a CSP is an easy way to improve your application's security.
     
-    다음 CSP는 Electron이 현재 웹사이트와 `apis.mydomain.com`에서만 스크립트를 실행하게 허용합니다.
+    다음 CSP는 Electron이 현재 웹사이트와 `apis.example.com`에서만 스크립트를 실행하게 허용합니다.
     
     ```txt
     // 나쁜 예
     Content-Security-Policy: '*'
     
     // 좋은 예
-    Content-Security-Policy: script-src 'self' https://apis.mydomain.com
+    Content-Security-Policy: script-src 'self' https://apis.example.com
     ```
     
     ### CSP HTTP Header
@@ -417,7 +433,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
         webPreferences.nodeIntegration = false
     
         // Verify URL being loaded
-        if (!params.src.startsWith('https://yourapp.com/')) {
+        if (!params.src.startsWith('https://example.com/')) {
           event.preventDefault()
         }
       })
@@ -440,7 +456,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
     
     If your app has no need for navigation, you can call `event.preventDefault()` in a [`will-navigate`](../api/web-contents.md#event-will-navigate) handler. If you know which pages your app might navigate to, check the URL in the event handler and only let navigation occur if it matches the URLs you're expecting.
     
-    We recommend that you use Node's parser for URLs. Simple string comparisons can sometimes be fooled - a `startsWith('https://google.com')` test would let `https://google.com.attacker.com` through.
+    We recommend that you use Node's parser for URLs. Simple string comparisons can sometimes be fooled - a `startsWith('https://example.com')` test would let `https://example.com.attacker.com` through.
     
     ```js
     const URL = require('url').URL
@@ -449,7 +465,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
       contents.on('will-navigate', (event, navigationUrl) => {
         const parsedUrl = new URL(navigationUrl)
     
-        if (parsedUrl.origin !== 'https://my-own-server.com') {
+        if (parsedUrl.origin !== 'https://example.com') {
           event.preventDefault()
         }
       })
@@ -482,4 +498,26 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
         shell.openExternalSync(navigationUrl)
       })
     })
+    ```
+    
+    ## 14) Do not use `openExternal` with untrusted content
+    
+    Shell's [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) allows opening a given protocol URI with the desktop's native utilities. On macOS, for instance, this function is similar to the `open` terminal command utility and will open the specific application based on the URI and filetype association.
+    
+    ### 왜냐구요?
+    
+    Improper use of [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) can be leveraged to compromise the user's host. When openExternal is used with untrusted content, it can be leveraged to execute arbitrary commands.
+    
+    ### 어떻게 하나요?
+    
+    ```js
+    //  Bad
+    const { shell } = require('electron')
+    shell.openExternal(USER_CONTROLLED_DATA_HERE)
+    ```
+    
+    ```js
+    //  Good
+    const { shell } = require('electron')
+    shell.openExternal('https://example.com/index.html')
     ```
