@@ -12,11 +12,11 @@ See the [Notifications documentation](notifications.md).
 
 See [Recent Documents documentation](recent-documents.md).
 
-## Progress Bar
+## Barra de progreso
 
 See the [Progress Bar documentation](progress-bar.md).
 
-## Unity Launcher
+## Lanzador Unity
 
 See the [Unity Launcher documentation](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
 
