@@ -2,7 +2,7 @@
 
 > 控制你的应用程序的事件生命周期。
 
-线程：[主线程](../glossary.md#main-process)
+进程：[主进程](../glossary.md#main-process)
 
 下面的这个例子将会展示如何在最后一个窗口被关闭时退出应用：
 
