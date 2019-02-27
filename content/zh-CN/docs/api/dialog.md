@@ -45,7 +45,7 @@ console.log(dialog)
   * ` filePaths ` String[] - 用户选择的文件路径的数组
   * `bookmarks` String[] *macOS* *mas* - 一个 `filePaths` 数组符合 base64 编码的安全作用域的书签数据。 `securityScopedBookmarks` 必须启用才能捕获数据。
 
-返回 `String[]` 用户选择的文件路径数组，如果用户定义了callback ，则返回`undefined`。
+Returns `String[] | undefined`, an array of file paths chosen by the user, if the callback is provided it returns `undefined`.
 
 ` browserWindow ` 参数允许该对话框将自身附加到父窗口, 作为父窗口的模态框。
 
@@ -84,7 +84,7 @@ console.log(dialog)
   * `filename` String
   * `bookmark` String *macOS* *mas* - 包含了安全作用域的书签数据 Base64 编码的字符串来保存文件。 `securityScopedBookmarks` 必须启用才有效。
 
-返回 `String[]` 用户选择的文件路径数组，如果用户定义了callback ，则返回`undefined`。
+Returns `String | undefined`, the path of the file chosen by the user, if a callback is provided or the dialog is cancelled it returns `undefined`.
 
 ` browserWindow ` 参数允许该对话框将自身附加到父窗口, 作为父窗口的模态框。
 
