@@ -45,7 +45,7 @@ Le module `dialog` dispose des méthodes suivantes :
   * `filePaths` String[] - Un tableau de chemins d'accès choisi par l'utilisateur
   * `bookmarks` String[] *macOS* *mas* - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` must be enabled for this to be populated.
 
-Retourne `String[]`, un tableau de chemins d'accès choisi par l'utilisateur, si le callback est fourni, cela retourne `undefined`.
+Returns `String[] | undefined`, an array of file paths chosen by the user, if the callback is provided it returns `undefined`.
 
 L'argument `browserWindow` permet à la boîte de dialogue de s'attacher elle-même à la fenêtre parent, la rendant modale.
 
@@ -84,7 +84,7 @@ Si un `callback` est passé, l'appel de l'API sera asynchrone et le résultat se
   * `filename` String
   * `bookmark` String *macOS* *mas* - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present.
 
-Retourne `String`, le chemin d'accès du fichier choisi par l'utilisateur, si le callback est fourni, cela retourne `undefined`.
+Returns `String | undefined`, the path of the file chosen by the user, if a callback is provided or the dialog is cancelled it returns `undefined`.
 
 L'argument `browserWindow` permet à la boîte de dialogue de s'attacher elle-même à la fenêtre parent, la rendant modale.
 
