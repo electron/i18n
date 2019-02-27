@@ -31,17 +31,17 @@ Electron
 ├── chromium_src/ - Source code copied from Chromium. Vea abajo.
 ├── default_app/ - The default page to show when Electron is started without
 |                  providing an app.
-├── docs/ - Documentations.
-├── lib/ - JavaScript source code.
+├── docs/ - Documentaciones.
+├── lib/ - Código fuente JavaScript.
 |   ├── browser/ - Javascript main process initialization code.
 |   |   └── api/ - Javascript API implementation.
 |   ├── common/ - JavaScript used by both the main and renderer processes
 |   |   └── api/ - Javascript API implementation.
 |   └── renderer/ - Javascript renderer process initialization code.
-|       └── api/ - Javascript API implementation.
+|       └── api/ - Implementación API Javascript.
 ├── native_mate/ - A fork of Chromium's gin library that makes it easier to marshal
 |                  types between C++ and JavaScript.
-├── spec/ - Automatic tests.
+├── spec/ - Pruebas automáticas.
 └── BUILD.gn - Building rules of Electron.
 ```
 
