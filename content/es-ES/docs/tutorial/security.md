@@ -16,11 +16,21 @@ Mientras Electron se esfuerza para apoyar nuevas versiones de Chromium lo más p
 
 Sentimos que el sistema actual de actualización de el componente Chromium alcanza un balance apropiado entre los recursos que tenemos disponibles y las necesidades de la mayoría de las aplicaciones construidas por encima de el framework. Estamos definitivamente interesados en escuchar más sobre casos específicos de gente que construye cosas encima de Electron. Solicitudes de extracción y contribuciones apoyando este esfuerzo son siempre bienvenidas.
 
-## Ignorando Consejos
+## Security Is Everyone's Responsibility
 
-Un problema de seguridad existe sin importar si recibes un código de un lugar remoto y lo ejecutas localmente. Como un ejemplo, considera una página web remota siendo mostrada dentro de un [`BrowserWindow`](../api/browser-window.md). Si un atacante, de alguna manera, logra cambiar dicho contenido (atacando la fuente directamente o estableciéndose entre tu aplicación y el destino actual), ellos serán capaces de ejecutar el código nativo en la máquina de usuario.
+It is important to remember that the security of your Electron application is the result of the overall security of the framework foundation (*Chromium*, *Node.js*), Electron itself, all NPM dependencies and your code. As such, it is your responsibility to follow a few important best practices:
 
-> :warning: Debajo de ninguna circunstancia deberías cargar y ejecutar el código remoto con la integración Node.js activada. En vez de eso, usa solo archivos locales (empaquetado juntos con tu aplicación) para ejecutar el código Node.js. To display remote content, use the [`<webview>`](../api/webview-tag.md) tag and make sure to disable the `nodeIntegration`.
+* **Keep your application up-to-date with the latest Electron framework release.** When releasing your product, you’re also shipping a bundle composed of Electron, Chromium shared library and Node.js. Vulnerabilities affecting these components may impact the security of your application. By updating Electron to the latest version, you ensure that critical vulnerabilities (such as *nodeIntegration bypasses*) are already patched and cannot be exploited in your application.
+
+* **Evaluate your dependencies.** While NPM provides half a million reusable packages, it is your responsibility to choose trusted 3rd-party libraries. If you use outdated libraries affected by known vulnerabilities or rely on poorly maintained code, your application security could be in jeopardy.
+
+* **Adopt secure coding practices.** The first line of defense for your application is your own code. Common web vulnerabilities, such as Cross-Site Scripting (XSS), have a higher security impact on Electron applications hence it is highly recommended to adopt secure software development best practices and perform security testing.
+
+## Isolation For Untrusted Content
+
+A security issue exists whenever you receive code from an untrusted source (e.g. a remote server) and execute it locally. As an example, consider a remote website being displayed inside a default [`BrowserWindow`](../api/browser-window.md). If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
+
+> :warning: Debajo de ninguna circunstancia deberías cargar y ejecutar el código remoto con la integración Node.js activada. En vez de eso, usa solo archivos locales (empaquetado juntos con tu aplicación) para ejecutar el código Node.js. To display remote content, use the [`<webview>`](../api/webview-tag.md) tag or [`BrowserView`](../api/browser-view.md), make sure to disable the `nodeIntegration` and enable `contextIsolation`.
 
 ## Advertencias de seguridad de Electron
 
@@ -30,7 +40,7 @@ You can force-enable or force-disable these warnings by setting `ELECTRON_ENABLE
 
 ## Lista: Recomendaciones de Seguridad
 
-This is not bulletproof, but at the least, you should follow these steps to improve the security of your application.
+You should at least follow these steps to improve the security of your application:
 
 1. [Solo carga contenido seguro](#1-only-load-secure-content)
 2. [Desactiva la integración Node.js en todas las renderizadores que muestran el contenido remoto](#2-disable-nodejs-integration-for-remote-content)
@@ -45,6 +55,9 @@ This is not bulletproof, but at the least, you should follow these steps to impr
 11. [`<webview>`: Verify options and params](#11-verify-webview-options-before-creation)
 12. [Disable or limit navigation](#12-disable-or-limit-navigation)
 13. [Disable or limit creation of new windows](#13-disable-or-limit-creation-of-new-windows)
+14. [Do not use `openExternal` with untrusted content](#14-do-not-use-openexternal-with-untrusted-content)
+
+To automate the detection of misconfigurations and insecure patterns, it is possible to use [electronegativity](https://github.com/doyensec/electronegativity). For additional details on potential weaknesses and implementation bugs when developing applications using Electron, please refer to this [guide for developers and auditors](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)
 
 ## 1) Only Load Secure Content
 
@@ -60,27 +73,27 @@ Cualquier recurso no incluido con tu aplicación debería ser cargado usando un 
 
 ```js
 // Bad
-browserWindow.loadURL('http://my-website.com')
+browserWindow.loadURL('http://example.com')
 
 // Good
-browserWindow.loadURL('https://my-website.com')
+browserWindow.loadURL('https://example.com')
 ```
 
 ```html
 <!-- Bad -->
-<script crossorigin src="http://cdn.com/react.js"></script>
-<link rel="stylesheet" href="http://cdn.com/style.css">
+<script crossorigin src="http://example.com/react.js"></script>
+<link rel="stylesheet" href="http://example.com/style.css">
 
 <!-- Good -->
-<script crossorigin src="https://cdn.com/react.js"></script>
-<link rel="stylesheet" href="https://cdn.com/style.css">
+<script crossorigin src="https://example.com/react.js"></script>
+<link rel="stylesheet" href="https://example.com/style.css">
 ```
 
 ## 2) Disable Node.js Integration for Remote Content
 
 It is paramount that you disable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) that loads remote content. La meta es limitar los poderes que concedes al contenido remoto, aunque lo hace dramáticamente más difícil para un atacante lastimar a tus usuarios, ellos deberían ganar la habilidad de ejecutar JavaScript en tu página web.
 
-Luego de esto, puedes conceder permisos adicionales para anfitriones específicos. Por ejemplo, si estás abriendo un BrowserWindow direccionado a `https://my-website.com/", puedes darle a esa página web las habilidades exactas que necesita, pero no más.
+Luego de esto, puedes conceder permisos adicionales para anfitriones específicos. Por ejemplo, si estás abriendo un BrowserWindow direccionado a `https://example.com/", puedes darle a esa página web las habilidades exactas que necesita, pero no más.
 
 ### ¿Por què?
 
@@ -91,7 +104,7 @@ Un ataque cross-site-scripting (XSS) es más peligroso si un atacante puede alta
 ```js
 // Bad
 const mainWindow = new BrowserWindow()
-mainWindow.loadURL('https://my-website.com')
+mainWindow.loadURL('https://example.com')
 ```
 
 ```js
@@ -99,11 +112,12 @@ mainWindow.loadURL('https://my-website.com')
 const mainWindow = new BrowserWindow({
   webPreferences: {
     nodeIntegration: false,
+    nodeIntegrationInWorker: false,
     preload: './preload.js'
   }
 })
 
-mainWindow.loadURL('https://my-website.com')
+mainWindow.loadURL('https://example.com')
 ```
 
 ```html
@@ -133,11 +147,13 @@ Aislamiento de contexto es un ajuste de Electron que permite a los desarrollador
 
 Electron usa la misma tecnología que los [Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment) de Chromium para activar este comportamiento.
 
+Even when you use `nodeIntegration: false` to enforce strong isolation and prevent the use of Node primitives, `contextIsolation` must also be used.
+
 ### ¿Por què?
 
 El aislamiento de contenido permite que cada guión se ejecute en el renderizado para hacer cambios a su ambiente JavaScript sin preocuparse acerca de conflictos con los guiones en el API Electron en el guión pre cargado.
 
-Aunque todavía sea un ajuste experimental de Electron, los aislamientos de contenido añaden una capa adicional de seguridad. Crea un nuevo mundo de JavaScript para APIs de Electron y guiones pre cargados.
+While still an experimental Electron feature, context isolation adds an additional layer of security. It creates a new JavaScript world for Electron APIs and preload scripts, which mitigates so-called "Prototype Pollution" attacks.
 
 Al mismo tiempo, los guiones pre cargados todavía tienen acceso al `documento` y a los objetos de `window`. En otras palabras, estás teniendo un retorno decente en una pequeña inversión.
 
@@ -199,7 +215,7 @@ session
     }
 
     // Verify URL
-    if (!url.startsWith('https://my-website.com/')) {
+    if (!url.startsWith('https://example.com/')) {
       // Denies the permissions request
       return callback(false)
     }
@@ -248,16 +264,16 @@ Un Contenido de Política de Seguridad (CSP) es una capa adicional de protecció
 
 ### ¿Por què?
 
-CSP permite que el servidor dando contenido pueda restringir y controlar los recursos que Electron puede cargar para esa página web dada. `https://your-page.com` debería estar permitido para guiones de pre carga de los orígenes que definiste mientras que los guiones de `https://evil.attacker.com` no debería tener permitido ejecutarse. Defining a CSP is an easy way to improve your application's security.
+CSP permite que el servidor dando contenido pueda restringir y controlar los recursos que Electron puede cargar para esa página web dada. `https://example.com` debería estar permitido para guiones de pre carga de los orígenes que definiste mientras que los guiones de `https://evil.attacker.com` no debería tener permitido ejecutarse. Defining a CSP is an easy way to improve your application's security.
 
-El siguiente CSP permitirá que Electron ejecute guiones desde la página web actual y desde `apis.mydomain.com`.
+El siguiente CSP permitirá que Electron ejecute guiones desde la página web actual y desde `apis.example.com`.
 
 ```txt
 // Bad
 Content-Security-Policy: '*'
 
 // Good
-Content-Security-Policy: script-src 'self' https://apis.mydomain.com
+Content-Security-Policy: script-src 'self' https://apis.example.com
 ```
 
 ### CSP HTTP Header
@@ -416,7 +432,7 @@ app.on('web-contents-created', (event, contents) => {
     webPreferences.nodeIntegration = false
 
     // Verify URL being loaded
-    if (!params.src.startsWith('https://yourapp.com/')) {
+    if (!params.src.startsWith('https://example.com/')) {
       event.preventDefault()
     }
   })
@@ -439,7 +455,7 @@ A common attack pattern is that the attacker convinces your app's users to inter
 
 If your app has no need for navigation, you can call `event.preventDefault()` in a [`will-navigate`](../api/web-contents.md#event-will-navigate) handler. If you know which pages your app might navigate to, check the URL in the event handler and only let navigation occur if it matches the URLs you're expecting.
 
-We recommend that you use Node's parser for URLs. Simple string comparisons can sometimes be fooled - a `startsWith('https://google.com')` test would let `https://google.com.attacker.com` through.
+We recommend that you use Node's parser for URLs. Simple string comparisons can sometimes be fooled - a `startsWith('https://example.com')` test would let `https://example.com.attacker.com` through.
 
 ```js
 const URL = require('url').URL
@@ -448,7 +464,7 @@ app.on('web-contents-created', (event, contents) => {
   contents.on('will-navigate', (event, navigationUrl) => {
     const parsedUrl = new URL(navigationUrl)
 
-    if (parsedUrl.origin !== 'https://my-own-server.com') {
+    if (parsedUrl.origin !== 'https://example.com') {
       event.preventDefault()
     }
   })
@@ -481,4 +497,26 @@ app.on('web-contents-created', (event, contents) => {
     shell.openExternalSync(navigationUrl)
   })
 })
+```
+
+## 14) Do not use `openExternal` with untrusted content
+
+Shell's [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) allows opening a given protocol URI with the desktop's native utilities. On macOS, for instance, this function is similar to the `open` terminal command utility and will open the specific application based on the URI and filetype association.
+
+### ¿Por què?
+
+Improper use of [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) can be leveraged to compromise the user's host. When openExternal is used with untrusted content, it can be leveraged to execute arbitrary commands.
+
+### ¿Còmo?
+
+```js
+//  Bad
+const { shell } = require('electron')
+shell.openExternal(USER_CONTROLLED_DATA_HERE)
+```
+
+```js
+//  Good
+const { shell } = require('electron')
+shell.openExternal('https://example.com/index.html')
 ```
