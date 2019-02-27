@@ -1,4 +1,4 @@
-# MemoryInfo Object
+# Objeto MemoryInfo
 
 * `pid` Integer - Processo id of proccesso.
 * `workingSetSize` Integer - A quantidade de memória atualmente fixado a RAM físico real.
