@@ -238,7 +238,7 @@ If for some reason `npm run publish-to-npm` fails, you can tag the release manua
 $ npm dist-tag add electron@<version> <tag>
 ```
 
-e.g.:
+p.e.:
 
 ```sh
 $ npm dist-tag add electron@2.0.0 latest
@@ -250,25 +250,25 @@ $ npm dist-tag add electron@2.0.0 latest
 
 If a release build fails for some reason, you can use `script/ci-release-build.js` to rerun a release build:
 
-### Rerun all linux builds:
+### Vuelva a ejecutar todas las versiones linux:
 
 ```sh
 node script/ci-release-build.js --ci=CircleCI --ghRelease TARGET_BRANCH
-(TARGET_BRANCH) is the branch you are releasing from.
+(TARGET_BRANCH) es la rama desde la que estás liberando.
 ```
 
-### Rerun all macOS builds:
+### Vuelva a ejecutar todas las versiones macos:
 
 ```sh
 node script/ci-release-build.js --ci=VSTS --ghRelease TARGET_BRANCH
-(TARGET_BRANCH) is the branch you are releasing from.
+(TARGET_BRANCH) es la rama desde la que estás liberando.
 ```
 
-### Rerun all Windows builds:
+### Vuelva a ejecutar todas las versiones Windows:
 
 ```sh
 node script/ci-release-build.js --ci=AppVeyor --ghRelease TARGET_BRANCH
-(TARGET_BRANCH) is the branch you are releasing from.
+(TARGET_BRANCH) es la rama desde la que estás liberando.
 ```
 
 Additionally you can pass a job name to the script to run an individual job, eg:
