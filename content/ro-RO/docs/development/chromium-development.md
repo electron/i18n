@@ -2,7 +2,6 @@
 
 > O colecție de resurse pentru a învăța despre Chromium și pentru a urmări dezvoltarea acestuia
 
-- [chromiumdev](https://chromiumdev-slack.herokuapp.com) pe Slack
 - [@ChromiumDev](https://twitter.com/ChromiumDev) pe Twitter
 - [@googlechrome](https://twitter.com/googlechrome) pe Twitter
 - [Blog](https://blog.chromium.org)
