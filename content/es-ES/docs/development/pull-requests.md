@@ -79,9 +79,9 @@ Examples of commit messages with semantic prefixes:
 
 * `fix: don't overwrite prevent_default if default wasn't prevented`
 * `feat: add app.isPackaged() method`
-* `docs: app.isDefaultProtocolClient is now available on Linux`
+* `docs: app.isDefaultProtocolClient está disponible en Linux`
 
-Common prefixes:
+Prefijos usuales:
 
     - fix: A bug fix
     - feat: A new feature
