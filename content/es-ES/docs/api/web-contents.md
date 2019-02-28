@@ -144,7 +144,7 @@ Tampoco es emitido para las navegaciones en la página, como hacerle click a lin
 
 Llamando `event.preventDefault()` evitará la navegación.
 
-#### Event: 'did-start-navigation'
+#### Evento: 'did-start-navigation'
 
 Devuelve:
 
@@ -607,7 +607,7 @@ Devuelve:
 
 Emitted when `remote.getBuiltin()` is called in the renderer process. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
 
-#### Event: 'remote-get-current-window'
+#### Evento: 'remote-get-current-window'
 
 Devuelve:
 
@@ -623,7 +623,7 @@ Devuelve:
 
 Emitted when `remote.getCurrentWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
-#### Event: 'remote-get-guest-web-contents'
+#### Evento: 'remote-get-guest-web-contents'
 
 Devuelve:
 
