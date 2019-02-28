@@ -36,7 +36,7 @@ docs:
     view_all_docs: 在一页查看所有文档
 languages:
   choose_language: 请选择语言
-  view_more_details: 查看更多语言详情
+  view_more_details: 查看更多语言
   translation_progress: 翻译进度
   current: 当前所选
 community:
@@ -151,7 +151,7 @@ clipboard:
   copy: Copy
   copy_to_clipboard: 复制到剪贴板
   copied: 已复制
-or: or
+or: 或
 pages:
   '/':
     title: Electron | 使用 JavaScript, HTML 和 CSS 构建跨平台的桌面应用。
