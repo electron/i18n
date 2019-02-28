@@ -2,7 +2,6 @@
 
 > Chromium の学習や Chromium の開発状況を追跡する際に参考になるリソース集です
 
-- Slack: [chromiumdev](https://chromiumdev-slack.herokuapp.com) 
 - Twitter: [@ChromiumDev](https://twitter.com/ChromiumDev)
 - Twitter: [@googlechrome](https://twitter.com/googlechrome)
 - [ブログ](https://blog.chromium.org)
