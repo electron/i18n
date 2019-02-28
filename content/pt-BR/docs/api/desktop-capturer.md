@@ -70,12 +70,12 @@ O módulo `desktopCapturer` tem os seguintes métodos:
 ### `desktopCapturer.getSources(options, callback)`
 
 * `opções` Object 
-  * `types` String[] - An array of Strings that lists the types of desktop sources to be captured, available types are `screen` and `window`.
-  * `thumbnailSize` [Size](structures/size.md) (optional) - The size that the media source thumbnail should be scaled to. Default is `150` x `150`.
+  * `types` String[] - Um array de Strings que lista os tipos de área de trabalho a serem capturadas, tipos disponíveis são `screen` e `window`.
+  * `thumbnailSize` [Tamanho](structures/size.md) (opcional) - O tamanho que a miniatura da fonte de mídia deve ser dimensionada. O padrão é `150` x `150`.
 * `callback` Function 
   * `error` Error
   * `sources` [DesktopCapturerSource[]](structures/desktop-capturer-source.md)
 
-Starts gathering information about all available desktop media sources, and calls `callback(error, sources)` when finished.
+Inicia a coleta de informações sobre todas as fontes de mídia de desktop disponíveis, e chamadas à `callback(error, sources)` quando concluído.
 
-`sources` is an array of [`DesktopCapturerSource`](structures/desktop-capturer-source.md) objects, each `DesktopCapturerSource` represents a screen or an individual window that can be captured.
+`sources` é um array de objetos [`DesktopCapturerSource`](structures/desktop-capturer-source.md), cada `DesktopCapturerSource` representa uma tela ou uma janela individual que pode ser capturada.
