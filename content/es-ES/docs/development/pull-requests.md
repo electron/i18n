@@ -154,7 +154,7 @@ Desde dentro de GitHub, abrir una nueva pull request te presentará con una plan
 
 ```markdown
 <!--
-Thank you for your pull request. Please provide a description above and review
+Gracias por su pedido de integración. Please provide a description above and review
 the requirements below.
 
 Bug fixes and new features should include tests and possibly benchmarks.
