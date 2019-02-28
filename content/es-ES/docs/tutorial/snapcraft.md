@@ -18,7 +18,7 @@ snap install snapcraft --classic
 
 While it *is possible* to install `snapcraft` on macOS using Homebrew, it is not able to build `snap` packages and is focused on managing packages in the store.
 
-## Using `electron-installer-snap`
+## Usando `electron-installer-snap`
 
 The module works like [`electron-winstaller`](https://github.com/electron/windows-installer) and similar modules in that its scope is limited to building snap packages. Puede instalarlo con:
 
@@ -84,8 +84,8 @@ name: myApp
 version: '2.0.0'
 summary: Una pequeña descripción de su aplicación.
 description: |
- ¿Sábes qué? ¡Esta aplicación es asombrosa! It does all the things
- for you. Some say it keeps you young, maybe even happy.
+ ¿Sábes qué? ¡Esta aplicación es asombrosa! Hace todas las cosas
+ por vos. Some say it keeps you young, maybe even happy.
 
 grade: stable
 confinement: classic
@@ -137,8 +137,8 @@ Alternatively, if you're building your `snap` with `strict` confinement, you can
 ```yaml
 apps:
   myApp:
-    # Correct the TMPDIR path for Chromium Framework/Electron to ensure
-    # libappindicator has readable resources.
+    # Corrija la ruta de TMPDIR para que Chromium Framework/Electron se asegure que 
+    # libappindicator puede leer los recursos.
     command: env TMPDIR=$XDG_RUNTIME_DIR PATH=/usr/local/bin:${PATH} ${SNAP}/bin/desktop-launch $SNAP/myApp/desktop
     desktop: usr/share/applications/desktop.desktop
 ```
