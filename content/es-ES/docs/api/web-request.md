@@ -43,7 +43,7 @@ Lo siguientes métodos están disponibles en instancias de `WebRequest`:
     * `id` Íntegro
     * `url` Cadena
     * `method` String
-    * `webContentsId` Integer (optional)
+    * `webContentsId` Entero (opcional)
     * `resourceType` String
     * `fecha y hora` Doble
     * `uploadData` [UploadData[]](structures/upload-data.md)
@@ -67,7 +67,7 @@ La `retrollamada` tiene que ser llamada con un objeto `respuesta`.
     * `id` Íntegro
     * `url` String
     * `method` String
-    * `webContentsId` Integer (optional)
+    * `webContentsId` Entero (opcional)
     * `resourceType` String
     * `fecha y hora` Doble
     * `Encabezado de solicitud` Objecto
@@ -89,7 +89,7 @@ La `retrollamada` tiene que ser llamada con un objeto `respuesta`.
     * `id` Íntegro
     * `url` String
     * `method` String
-    * `webContentsId` Integer (optional)
+    * `webContentsId` Entero (opcional)
     * `resourceType` String
     * `fecha y hora` Doble
     * `Encabezado de solicitud` Objecto
@@ -105,7 +105,7 @@ El`oyente` Será llamado con `listener(details)` justo antes que una solicitud v
     * `id` Íntegro
     * `url` String
     * `method` String
-    * `webContentsId` Integer (optional)
+    * `webContentsId` Entero (opcional)
     * `resourceType` String
     * `fecha y hora` Doble
     * `linea de estatus` Cadena
@@ -130,7 +130,7 @@ La `retrollamada` tiene que ser llamada con un objeto `respuesta`.
     * `id` Íntegro
     * `url` String
     * `method` String
-    * `webContentsId` Integer (optional)
+    * `webContentsId` Entero (opcional)
     * `resourceType` String
     * `fecha y hora` Doble
     * `headers de respuesta` objeto
@@ -149,7 +149,7 @@ El `oyente` será cancelado con `listener(details)` cuando se reciba el primer b
     * `id` Íntegro
     * `url` String
     * `method` String
-    * `webContentsId` Integer (optional)
+    * `webContentsId` Entero (opcional)
     * `resourceType` String
     * `fecha y hora` Doble
     * `redirectURL` String
@@ -169,7 +169,7 @@ El `oyente` Será cancelado con `listener(details)` cuando la redirección del s
     * `id` Íntegro
     * `url` String
     * `method` String
-    * `webContentsId` Integer (optional)
+    * `webContentsId` Entero (opcional)
     * `resourceType` String
     * `referrer` Cadena
     * `fecha y hora` Doble
@@ -189,7 +189,7 @@ The `listener` will be called with `listener(details)` when a request is complet
     * `id` Íntegro
     * `url` String
     * `method` String
-    * `webContentsId` Integer (optional)
+    * `webContentsId` Entero (opcional)
     * `resourceType` String
     * `fecha y hora` Doble
     * `Desde cache` Booleano
