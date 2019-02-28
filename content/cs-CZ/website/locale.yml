@@ -8,14 +8,14 @@ nav:
   docs: Dokumentace
   donors: Dárci
   languages: Jazyky
-  license: License
+  license: Licence
   releases: Vydání
   search: Hledat
   userland: Userland
 keyboard_modal:
   title: Klávesové zkratky
-  key: Key
-  action: Action
+  key: Klíč
+  action: Akce
   focus_search: Focus the search bar
   focus_and_clear: Focus the search bar and cleans it
   scroll_down: Select the next search result
@@ -140,7 +140,7 @@ apps:
   category: Kategorie
   downloads: Ke stažení
   keywords: Klíčová slova
-  license: License
+  license: Licence
   latest_release: Poslední verze
 blog:
   title: Electron Blog
