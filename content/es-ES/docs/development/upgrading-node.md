@@ -25,7 +25,7 @@ En resumidas cuentas, los principales pasos son:
 
 1. Asegúrate que el `maestro` en `electron/nodo` ha actualizado las etiquetas de liberación de `nodejs/nodo`
 2. Crea una ramificación en https://github.com/electron/node: `electron-node-vX.X.X` la base en la que está ramificando es la etiqueta para la actualización deseada 
-  - `vX.X.X` Must use a version of Node compatible with our current version of Chromium
+  - `vX.X.X` Debe usar una versión de Node compatible con nuestra actual versión de Chromium
 3. Re-apply our commits from the previous version of Node we were using (`vY.Y.Y`) to `v.X.X.X` 
   - Revise la etiqueta de liberación y selecciona el rango de encomendares que necesitamos para volver a aplicar
   - Escoger el rango de encomendares: 
@@ -65,7 +65,7 @@ This list of patches will probably include one that claims to make the V8 API ba
 
 It's usually easier to update Node to work without the compatibility patch than to update Chromium to work with the compatibility patch, so it's recommended to revert the compatibility patch and fix any errors that arise when compiling Node.
 
-## Update Electron's `DEPS` file
+## Actualiza el archivo `DEPS` de Electron
 
 Update the `DEPS` file in the root of [electron/electron](https://github.com/electron/electron) to point to the git hash of the updated Node.
 
@@ -75,7 +75,7 @@ Update the `DEPS` file in the root of [electron/electron](https://github.com/ele
   - Ellos le hacen backport a una pequeña cantidad de cosas, cuanto sean necesitadas
   - Documentation in Node about how [they work with V8](https://nodejs.org/api/v8.html)
 - We update code such that we only use one copy of V8 across all of Electron 
-  - E.g Electron, Chromium, and Node.js
+  - P.ej.: Electron, Chromium y Node.js
 - No rastreamos el stream ascendente debido a logística: 
   - Upstream uses multiple repos and so merging into a single repo would result in lost history. So we only update when we’re planning a Node version bump in Electron.
 - Chromium is large and time-consuming to update, so we typically choose the Node version based on which of its releases has a version of V8 that’s closest to the version in Chromium that we’re using. 
