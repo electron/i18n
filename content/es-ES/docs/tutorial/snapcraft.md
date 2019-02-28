@@ -50,7 +50,7 @@ La salida debería verse más o menos de esta forma:
         └── version
 ```
 
-### Step 2: Running `electron-installer-snap`
+### Paso 2: Ejecutando `electron-installer-snap`
 
 From a terminal that has `snapcraft` in its `PATH`, run `electron-installer-snap` with the only required parameter `--src`, which is the location of your packaged Electron application created in the first step.
 
