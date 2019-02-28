@@ -166,7 +166,7 @@ Devuelve un objeto que contiene las estadísticas de la memoria usada por el sis
 
 ### `process.takeHeapSnapshot(filePath)`
 
-* `filePath` String - Path to the output file.
+* `filePath` String - Ruta al archivo de salida.
 
 Returns `Boolean` - Indicates whether the snapshot has been created successfully.
 
