@@ -1,13 +1,13 @@
 # desktopCapturer
 
-> Access information about media sources that can be used to capture audio and video from the desktop using the [`navigator.mediaDevices.getUserMedia`] API.
+> Acesse informações sobre fontes de mídia que podem ser usadas para capturar áudio e vídeo da área de trabalho usando a API [`navigator.mediaDevices.getUserMedia`].
 
-Processo: [Renderizador](../glossary.md#renderer-process)
+Processo: [Renderer](../glossary.md#renderer-process)
 
-The following example shows how to capture video from a desktop window whose title is `Electron`:
+O exemplo a seguir mostra como capturar vídeo de uma janela desktop com o título `Electron`:
 
 ```javascript
-// In the renderer process.
+// No processo renderer.
 const { desktopCapturer } = require('electron')
 
 desktopCapturer.getSources({ types: ['window', 'screen'] }, (error, sources) => {
@@ -44,9 +44,9 @@ function handleError (e) {
 }
 ```
 
-To capture video from a source provided by `desktopCapturer` the constraints passed to [`navigator.mediaDevices.getUserMedia`] must include `chromeMediaSource: 'desktop'`, and `audio: false`.
+Para capturar vídeo de uma fonte fornecida por `desktopCapturer` as restrições passado para [`navigator.mediaDevices.getUserMedia`] devem incluir `chromeMediaSource: 'desktop'`, e `áudio: false`.
 
-To capture both audio and video from the entire desktop the constraints passed to [`navigator.mediaDevices.getUserMedia`] must include `chromeMediaSource: 'desktop'`, for both `audio` and `video`, but should not include a `chromeMediaSourceId` constraint.
+Para capturar áudio e vídeo de toda a área de trabalho, as restrições passadas para [`navigator.mediaDevices.getUserMedia`] devem incluir `chromeMediaSource: 'desktop'`, para ambos `áudio` e `vídeo`, mas não devem incluir uma restrição para `chromeMediaSourceId`.
 
 ```javascript
 const constraints = {
@@ -65,7 +65,7 @@ const constraints = {
 
 ## Métodos
 
-The `desktopCapturer` module has the following methods:
+O módulo `desktopCapturer` tem os seguintes métodos:
 
 ### `desktopCapturer.getSources(options, callback)`
 
