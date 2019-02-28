@@ -9,7 +9,7 @@ Necesitará familiarizarse con la [arquitectura multiprocesos de Chromium](https
 ```diff
 Electron
 ├── atom/ - código fuente C++.
-|   ├── app/ - System entry code.
+|   ├── app/ - Código de entrada al sistema.
 |   ├── browser/ - The frontend including the main window, UI, and all of the
 |   |   |          main process things. This talks to the renderer to manage web
 |   |   |          pages.
