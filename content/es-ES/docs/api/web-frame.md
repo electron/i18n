@@ -143,14 +143,14 @@ Set the content security policy of the isolated world.
 
 ### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)`
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Puede proporcionar aquí cualquier entero.
 * `name` String
 
 Set the name of the isolated world. Useful in devtools.
 
 ### `webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)`
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Puede aquí suministrar cualquier entero.
 * `securityOrigin` String
 
 Set the security origin of the isolated world.
