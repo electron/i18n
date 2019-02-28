@@ -142,7 +142,7 @@ $ ./out/Debug/electron.exe
 $ ./out/Debug/electron
 ```
 
-### Cross-compiling
+### Compilación cruzada
 
 To compile for a platform that isn't the same as the one you're building on, set the `target_cpu` and `target_os` GN arguments. For example, to compile an x86 target from an x64 host, specify `target_cpu = "x86"` in `gn args`.
 
@@ -160,7 +160,7 @@ To run the tests, you'll first need to build the test modules against the same v
 
 ```sh
 $ ninja -C out/Debug third_party/electron_node:headers
-# Install the test modules with the generated headers
+# Instalar los módulos de prueba con los encabezados generados
 $ (cd electron/spec && npm i --nodedir=../../out/Debug/gen/node_headers)
 ```
 
