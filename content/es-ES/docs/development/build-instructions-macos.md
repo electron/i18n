@@ -33,6 +33,6 @@ Si simplemente estás desarrollando Electron y no planeas redistribuir tu compil
 
 Official Electron builds are built with [Xcode 8.3.3](http://adcdownload.apple.com/Developer_Tools/Xcode_8.3.3/Xcode_8.3.3.xip), and the MacOS 10.12 SDK. Building with a newer SDK works too, but the releases currently use the 10.12 SDK.
 
-## Building Electron
+## Construyendo Electron
 
 Ver [Build Instructions: GN](build-instructions-gn.md).
