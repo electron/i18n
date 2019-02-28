@@ -598,7 +598,7 @@ Devuelve:
 
 Emitted when `remote.getGlobal()` is called in the renderer process. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
 
-#### Event: 'remote-get-builtin'
+#### Evento: 'remote-get-builtin'
 
 Devuelve:
 
@@ -615,7 +615,7 @@ Devuelve:
 
 Emitted when `remote.getCurrentWindow()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
-#### Event: 'remote-get-current-web-contents'
+#### Evento: 'remote-get-current-web-contents'
 
 Devuelve:
 
@@ -1383,7 +1383,7 @@ Returns `Integer` - The Chromium internal `pid` of the associated renderer. Can 
 
 #### `contents.takeHeapSnapshot(filePath)`
 
-* `filePath` String - Path to the output file.
+* `filePath` String - Ruta al archivo de salida.
 
 Returns `Promise<void>` - Indicates whether the snapshot has been created successfully.
 
