@@ -103,7 +103,7 @@ Other things to keep in mind when writing a commit message:
 2. Mantén la segunda linea vacía.
 3. Ajuste todas las otras linea en 72 columnas.
 
-#### Breaking Changes
+#### Cambios de última hora
 
 A commit that has the text `BREAKING CHANGE:` at the beginning of its optional body or footer section introduces a breaking API change (correlating with Major in semantic versioning). A breaking change can be part of commits of any type. e.g., a `fix:`, `feat:` & `chore:` types would all be valid, in addition to any other type.
 
@@ -159,7 +159,7 @@ the requirements below.
 
 Bug fixes and new features should include tests and possibly benchmarks.
 
-Contributors guide: https://github.com/electron/electron/blob/master/CONTRIBUTING.md
+Guía de colaboradores: https://github.com/electron/electron/blob/master/CONTRIBUTING.md
 -->
 ```
 
