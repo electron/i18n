@@ -55,10 +55,10 @@
     "name": "Czech",
     "code": "cs",
     "phrases": "10109",
-    "translated": "1226",
+    "translated": "1230",
     "approved": "0",
     "words": "93623",
-    "words_translated": "3365",
+    "words_translated": "3369",
     "words_approved": "0",
     "translated_progress": 3,
     "approved_progress": 0,
@@ -68,14 +68,14 @@
     "name": "Dutch",
     "code": "nl",
     "phrases": "10109",
-    "translated": "2705",
+    "translated": "2706",
     "approved": "4",
     "words": "93623",
-    "words_translated": "9160",
+    "words_translated": "9192",
     "words_approved": "61",
     "translated_progress": 9,
     "approved_progress": 0,
-    "qa_issues": 760
+    "qa_issues": 761
   },
   {
     "name": "Filipino",
@@ -224,14 +224,14 @@
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "10109",
-    "translated": "4435",
+    "translated": "4445",
     "approved": "364",
     "words": "93623",
-    "words_translated": "31208",
+    "words_translated": "31385",
     "words_approved": "2604",
     "translated_progress": 33,
     "approved_progress": 2,
-    "qa_issues": 1270
+    "qa_issues": 1275
   },
   {
     "name": "Romanian",
@@ -263,14 +263,14 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "10109",
-    "translated": "8783",
+    "translated": "8931",
     "approved": "257",
     "words": "93623",
-    "words_translated": "75198",
+    "words_translated": "76353",
     "words_approved": "2118",
-    "translated_progress": 80,
+    "translated_progress": 81,
     "approved_progress": 2,
-    "qa_issues": 3374
+    "qa_issues": 3441
   },
   {
     "name": "Tagalog",
