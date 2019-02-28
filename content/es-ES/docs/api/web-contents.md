@@ -166,7 +166,7 @@ Devuelve:
 * `isInPlace` Boolean
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
-* `frameRoutingId` Integer
+* `frameRoutingId` Entero
 
 Emitted as a server side redirect occurs during navigation. For example a 302 redirect.
 
@@ -174,7 +174,7 @@ This event will be emitted after `did-start-navigation` and always before the `d
 
 Calling `event.preventDefault()` will prevent the navigation (not just the redirect).
 
-#### Event: 'did-redirect-navigation'
+#### Evento: 'did-redirect-navigation'
 
 Devuelve:
 
@@ -202,7 +202,7 @@ Emitted when a main frame navigation is done.
 
 Este evento no es emitido para navegaciones dentro de la página, como hacerle click a links o actualizando `window.location.hash`. Usa el evento `did-navigate-in-page` para este propósito.
 
-#### Event: 'did-frame-navigate'
+#### Evento: 'did-frame-navigate'
 
 Devuelve:
 
@@ -580,7 +580,7 @@ Devuelve:
 
 Emitido cuando la ventana asociada registra un mensaje de consola. No se emite para ventanas con *Renderización fuera de pantalla* activado.
 
-#### Event: 'remote-require'
+#### Evento: 'remote-require'
 
 Devuelve:
 
@@ -589,7 +589,7 @@ Devuelve:
 
 Emitted when `remote.require()` is called in the renderer process. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
 
-#### Event: 'remote-get-global'
+#### Evento: 'remote-get-global'
 
 Devuelve:
 
