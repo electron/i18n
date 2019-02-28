@@ -80,11 +80,11 @@ browserWindow.loadURL('https://example.com')
 ```
 
 ```html
-<!-- Bad -->
+<!-- Malo -->
 <script crossorigin src="http://example.com/react.js"></script>
 <link rel="stylesheet" href="http://example.com/style.css">
 
-<!-- Good -->
+<!-- Bueno -->
 <script crossorigin src="https://example.com/react.js"></script>
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
@@ -222,7 +222,7 @@ session
   })
 ```
 
-## 5) Do Not Disable WebSecurity
+## 5) No deshabilitar WebSecurity
 
 *La recomendación por defecto es Electrón*
 
