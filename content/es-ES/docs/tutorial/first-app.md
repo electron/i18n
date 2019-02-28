@@ -84,7 +84,7 @@ function createWindow () {
   // Crea la ventana del navegador.
   let win = new BrowserWindow({ width: 800, height: 600 })
 
-  // and load the index.html of the app.
+  // y cargue el index.html de su aplicación.
   win.loadFile('index.html')
 }
 
