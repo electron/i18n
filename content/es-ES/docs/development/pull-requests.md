@@ -78,7 +78,7 @@ Before a pull request can be merged, it **must** have a pull request title with 
 Examples of commit messages with semantic prefixes:
 
 * `fix: don't overwrite prevent_default if default wasn't prevented`
-* `feat: add app.isPackaged() method`
+* `función: agregar método app.isPackaged()`
 * `docs: app.isDefaultProtocolClient está disponible en Linux`
 
 Prefijos usuales:
