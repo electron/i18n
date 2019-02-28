@@ -246,7 +246,7 @@ $ npm dist-tag add electron@2.0.0 latest
 
 # Problemas
 
-## Rerun broken builds
+## Reiniciar compilaciones rotas
 
 If a release build fails for some reason, you can use `script/ci-release-build.js` to rerun a release build:
 
