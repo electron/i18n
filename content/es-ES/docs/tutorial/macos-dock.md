@@ -6,7 +6,7 @@ La base de acoplamiento personalizada se utiliza habitualmente para añadir acce
 
 **Menú Dock de Terminal.app:**
 
-![Dock Menu](https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png)
+![Menu Dock](https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png)
 
 Para configurar su menú de base personalizada, puede utilizar la API `app.dock.setMenu`, que sólo está disponible en macOS:
 
