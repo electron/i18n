@@ -25,7 +25,7 @@ If you plan on building Electron more than once, adding a git cache will speed u
 ```sh
 $ export GIT_CACHE_PATH="${HOME}/.git_cache"
 $ mkdir -p "${GIT_CACHE_PATH}"
-# This will use about 16G.
+# Esto usará alrededor de 16G.
 ```
 
 > **NOTE**: the git cache will set the `origin` of the `src/electron` repository to point to the local cache, instead of the upstream git repository. This is undesirable when running `git push`—you probably want to push to github, not your local cache. To fix this, from the `src/electron` directory, run:
