@@ -20,7 +20,7 @@ While it *is possible* to install `snapcraft` on macOS using Homebrew, it is not
 
 ## Using `electron-installer-snap`
 
-The module works like [`electron-winstaller`](https://github.com/electron/windows-installer) and similar modules in that its scope is limited to building snap packages. You can install it with:
+The module works like [`electron-winstaller`](https://github.com/electron/windows-installer) and similar modules in that its scope is limited to building snap packages. Puede instalarlo con:
 
 ```sh
 npm install --save-dev electron-installer-snap
@@ -82,9 +82,9 @@ For more information on the available configuration options, see the [documentat
 ```yaml
 name: myApp
 version: '2.0.0'
-summary: A little description for the app.
+summary: Una pequeña descripción de su aplicación.
 description: |
- You know what? This app is amazing! It does all the things
+ ¿Sábes qué? ¡Esta aplicación es asombrosa! It does all the things
  for you. Some say it keeps you young, maybe even happy.
 
 grade: stable
