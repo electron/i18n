@@ -36,7 +36,7 @@ You should listen for the `transactions-updated` event as soon as possible and c
 * `callback` Function - The callback called with the products or an empty array if the products don't exist. 
     * `products` Product[] - Array of [`Product`](structures/product.md) objects
 
-Retrieves the product descriptions.
+Recupera las descripciones del producto.
 
 ### `inAppPurchase.canMakePayments()`
 
