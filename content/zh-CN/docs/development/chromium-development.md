@@ -2,7 +2,6 @@
 
 > 学习 和跟踪 Chromium 开发的资源集合
 
-- [chromiumdev](https://chromiumdev-slack.herokuapp.com) on Slack
 - [@ChromiumDev](https://twitter.com/ChromiumDev) on Twitter
 - [@googlechrome](https://twitter.com/googlechrome) on Twitter
 - [博客](https://blog.chromium.org)
