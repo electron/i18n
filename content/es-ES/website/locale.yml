@@ -17,10 +17,10 @@ keyboard_modal:
   key: Clave
   action: Acción
   focus_search: Enfocar en la barra de búsqueda
-  focus_and_clear: Focus the search bar and cleans it
-  scroll_down: Select the next search result
-  scroll_up: Select the previous search result
-  open: Open the selected search result
+  focus_and_clear: Enfoca la barra de búsqueda y la limpia
+  scroll_down: Selecciona el siguiente resultado de la búsqueda
+  scroll_up: Selecciona el resultado anterior de la búsqueda
+  open: Abre el resultado seleccionado de la búsqueda
   open_new_tab: Open the selected search result in a new tab
 docs:
   title: Documentación de Electron
@@ -206,7 +206,7 @@ landing:
     create_app: Cree su aplicación
     description: Electron Fiddle lets you create and play with small Electron experiments. It greets you with a quick-start template after opening – change a few things, choose the version of Electron you want to run it with, and play around. Then, save your Fiddle either as a GitHub Gist or to a local folder. Once pushed to GitHub, anyone can quickly try your Fiddle out by just entering it in the address bar.
     explore: Explore Electron
-    explore_desc: "Try Electron without installing any dependencies: Fiddle includes everything you'll need to explore the platform. It also includes examples for every API available in Electron, so if you want to quickly see what a BrowserView is or how the desktopCapturer works, Fiddle has got you covered."
+    explore_desc: "Prueba Electron sin instalar ninguna dependencia: Fiddle incluye todo lo que necesitas para explorar la plataforma. También incluye ejemplos para cada API disponible en Electron, para que puedas ver rápidamente lo que es un BrowserView o como funciona un desktopCapturer, Fiddle lo tiene cubierto."
     code_with_types: Code with Types
     code_with_types_desc: Fiddle includes Microsoft's excellent Monaco Editor, the same editor powering Visual Studio Code. It also installs the type definitions for the currently selected version of Electron automatically, ensuring that you always have all Electron APIs only a few keystrokes away.
     compile_and_package: Compile y empaquete
