@@ -47,11 +47,11 @@ community:
     updates: "<a href='https://twitter.com/electronjs'><b>Mantente al día</b></a> siguiendo a <a href='https://twitter.com/electronjs'>@electronjs</a> en Twitter y suscribiendote a nuestro <a href='/blog'>blog</a>."
     localized_docs: "<a href='/languages'><b>Lee la documentación en tu idioma</b></a> visitando la <a href='/languages'>página de idiomas</a>."
     help: "<a href='http://atom-slack.herokuapp.com'><b>Brinda ayuda y retroalimentación</b></a> uniendote al <a href='http://atom-slack.herokuapp.com'>Slack de Atom.io</a>, publicando en <a href='https://discuss.atom.io/c/electron'>Discuss</a>, o visitando <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
-    bugs: "<a href='https://github.com/electron/electron/issues'><b>Reporta errores</b></a> abriendo un problema (issue) en el repositorio de <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
-    feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Reporta características</b></a> abriendo un asunto (issue) en el repositorio de <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
+    bugs: "<a href='https://github.com/electron/electron/issues'><b>Reporta errores</b></a> abriendo un issue en el repositorio de <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
+    feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Solicita características</b></a> abriendo un issue en el repositorio de <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
     code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Reporta violaciones al Código de Conducta</b></a> enviando un correo electrónico a <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
     security: "<a href='mailto:security@electronjs.org'><b>Revela problemas de seguridad</b></a> enviando un correo electrónico a <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
-    donations: "<a href='donors'><b>Dona</b></a> en nuestra <a href='/donors'>página de donaciones</a>."
+    donations: "<a href='donors'><b>Dona</b></a> en nuestra <a href='/donors'>página de OpenCollective</a>."
     other: "Para cualquier otro tipo de consultas, envía un correo electrónico a <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
   language_communities:
     title: Comunidades de idiomas
@@ -61,7 +61,7 @@ community:
   components: Componentes
   videos: Vídeos
   meetups: MeetUps
-  awesome_notice: Esta lista es generada por el increíble repositorio de<a href="https://github.com/sindresorhus/awesome-electron">Electron por @sindresorhus</a>.<br>¿Falta algo?<a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Haz una petición</a>.
+  awesome_notice: Esta lista es generada desde el repositorio<a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a>.<br>¿Falta algo?<a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Haz una solicitud de cambios</a>.
   meetup_notice: Para añadir un MeetUp, edite <code>data/meetups.json</code> y <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">realize una pull request </a>.
 releases:
   show_releases: "Show Releases:"
@@ -102,7 +102,7 @@ benefits:
   windows_installers: Instaladores de Windows
 get_started:
   title: Empezar
-  description: Para comenzar con Electron, revisa los recursos de abajo. Aprende como ajustar tu aplicación web con ELectron, acceder a todas las APIs, y generar instaladores.
+  description: Para empezar con Electron, revisa los recursos a continuación. Aprende a envolver tu aplicación web con Electron, accede a todas las API y genera instaladores.
 explore:
   title: Explorar las APIs de Electron
   description: "La <a href='https://github.com/electron/electron-api-demos'>aplicación de demostración de Electron API</a> muestra de forma interactiva las características más importantes de la API de Electron. Vea qué es posible hacer con Electron con código de muestra y consejos útiles para construir su aplicación."
