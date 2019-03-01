@@ -16,7 +16,7 @@ keyboard_modal:
   title: Atajos del teclado
   key: Clave
   action: Acción
-  focus_search: Enfocar en la barra de búsqueda
+  focus_search: Enfoca en la barra de búsqueda
   focus_and_clear: Enfoca la barra de búsqueda y la limpia
   scroll_down: Selecciona el siguiente resultado de la búsqueda
   scroll_up: Selecciona el resultado anterior de la búsqueda
