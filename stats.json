@@ -133,14 +133,14 @@
     "name": "Hindi",
     "code": "hi",
     "phrases": "10108",
-    "translated": "1422",
+    "translated": "1423",
     "approved": "6",
     "words": "93620",
-    "words_translated": "13827",
+    "words_translated": "13832",
     "words_approved": "28",
     "translated_progress": 14,
     "approved_progress": 0,
-    "qa_issues": 1324
+    "qa_issues": 1325
   },
   {
     "name": "Indonesian",
@@ -263,14 +263,14 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "10108",
-    "translated": "9122",
+    "translated": "9127",
     "approved": "257",
     "words": "93620",
-    "words_translated": "77367",
+    "words_translated": "77435",
     "words_approved": "2118",
     "translated_progress": 82,
     "approved_progress": 2,
-    "qa_issues": 3553
+    "qa_issues": 3554
   },
   {
     "name": "Tagalog",
