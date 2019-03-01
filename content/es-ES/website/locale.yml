@@ -24,10 +24,10 @@ keyboard_modal:
   open_new_tab: Open the selected search result in a new tab
 docs:
   title: Documentación de Electron
-  description: Ver todos los <a href="/docs/all"> documentos en una sola página</a> o consulte la <a href="/docs/faq"> FAQ</a>.
+  description: Ver todos los <a href="/docs/all">documentos en una sola página</a> o consultar las <a href="/docs/faq">preguntas frecuentes</a>.
   guides: Guías
   api_reference: Referencia de la API
-  api_structures: Estructura de API
+  api_structures: Estructuras del API
   advanced: Avanzado
   footer:
     propose_change: Mejora este documento
@@ -35,7 +35,7 @@ docs:
     translate: Traducir este documento
     view_all_docs: Todos los documentos en una página
 languages:
-  choose_language: Elija el idioma del sitio
+  choose_language: Elige el idioma del sitio
   view_more_details: Ver más detalles del idioma
   translation_progress: Progreso de la traducción
   current: selección actual
@@ -43,10 +43,10 @@ community:
   title: Comunidad Electron
   description: Recursos para conectarse con personas que trabajan en Electron.
   channels:
-    get_started: "<a href='/docs/tutorial/first-app'><b>Empieza a</b></a> crear una app leyendo el <a href='/docs/tutorial/first-app'>quick-start guide</a>."
+    get_started: "<a href='/docs/tutorial/first-app'><b>Empieza</b></a> a crear una aplicación leyendo la <a href='/docs/tutorial/first-app'>guía de inicio rápido</a>."
     updates: "<a href='https://twitter.com/electronjs'><b>Mantente al día</b></a> siguiendo a <a href='https://twitter.com/electronjs'>@electronjs</a> en Twitter y suscribiendote a nuestro <a href='/blog'>blog</a>."
-    localized_docs: "<a href='/languages'><b>Lee la documentación en tu lenguaje nativo</b></a> visitando la <a href='/languages'>pagina de idiomas</a>."
-    help: "<a href='http://atom-slack.herokuapp.com'><b>Brinda ayuda y retroalimentación</b></a> uniendote al <a href='http://atom-slack.herokuapp.com'>Slack de atomio </a>, publicando en <a href='https://discuss.atom.io/c/electron'>Discusión</a>, o visitando <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    localized_docs: "<a href='/languages'><b>Lee la documentación en tu idioma</b></a> visitando la <a href='/languages'>página de idiomas</a>."
+    help: "<a href='http://atom-slack.herokuapp.com'><b>Brinda ayuda y retroalimentación</b></a> uniendote al <a href='http://atom-slack.herokuapp.com'>Slack de Atom.io</a>, publicando en <a href='https://discuss.atom.io/c/electron'>Discuss</a>, o visitando <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Reporta errores</b></a> abriendo un problema (issue) en el repositorio de <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Reporta características</b></a> abriendo un asunto (issue) en el repositorio de <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
     code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Reporta violaciones al Código de Conducta</b></a> enviando un correo electrónico a <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
