@@ -1,10 +1,10 @@
 # 构建系统概览
 
-Electron uses [GN](https://gn.googlesource.com/gn) for project generation and [ninja](https://ninja-build.org/) for building. Project configurations can be found in the `.gn` and `.gni` files.
+Electron 使用 [GN](https://gn.googlesource.com/gn) 生成项目，并用 [Ninja](https://ninja-build.org/) 完成构建。 项目配置位于 `.gn` 和 `.gni` 文件中。
 
-## GN Files
+## GN 文件
 
-The following `gn` files contain the main rules for building Electron:
+构建 Electron 的主要配置信息位于下列 `gn` 文件中：
 
 * `BUILD.gn` defines how Electron itself is built and includes the default configurations for linking with Chromium.
 * `build/args/{debug,release,all}.gn` contain the default build arguments for building Electron.
