@@ -1,9 +1,9 @@
 # Chromium 开发
 
-> 学习 和跟踪 Chromium 开发的资源集合
+> 学习以及了解 Chromium 开发进展的相关资源
 
-- [@ChromiumDev](https://twitter.com/ChromiumDev) on Twitter
-- [@googlechrome](https://twitter.com/googlechrome) on Twitter
+- Twitter 账户 [@ChromiumDev](https://twitter.com/ChromiumDev)
+- Twitter 账户 [@googlechrome](https://twitter.com/googlechrome)
 - [博客](https://blog.chromium.org)
 - [代码搜索](https://cs.chromium.org/)
 - [源代码](https://cs.chromium.org/chromium/src/)
