@@ -6,14 +6,14 @@ Electron 使用 [GN](https://gn.googlesource.com/gn) 生成项目，并用 [Ninj
 
 构建 Electron 的主要配置信息位于下列 `gn` 文件中：
 
-* `BUILD.gn` defines how Electron itself is built and includes the default configurations for linking with Chromium.
-* `build/args/{debug,release,all}.gn` contain the default build arguments for building Electron.
+* `BUILD.gn` 指明了如何构建 Electron，还包括与 Chromium 链接的默认配置。
+* `build/args/{debug,release,all}.gn` 包含 Electron 的默认构建参数。
 
-## 构建组件
+## 分块构建
 
-在 Chromium 还是一个相当大的项目的时候，最后链接阶段会花了好几分钟，这让开发变得很困难。 为了解决这个困难，Chromium 引入了 "component build" ，这让每个创建的组建都是分隔开的共享库，让链接更快，但是这浪费了文件大小和性能。
+由于 Chromium 项目及其庞大，最终的链接阶段往往需要数分钟，加大了开发难度。 为此，Chromium 采用了“分块构建”方式，将每个模块作为单独的共享库构建，虽然影响了文件大小和性能，但加快了链接速度，
 
-Electron inherits this build option from Chromium. In `Debug` builds, the binary will be linked to a shared library version of Chromium's components to achieve fast linking time; for `Release` builds, the binary will be linked to the static library versions, so we can have the best possible binary size and performance.
+Electron 也继承了 Chromium 这一构建方式。 In `Debug` builds, the binary will be linked to a shared library version of Chromium's components to achieve fast linking time; for `Release` builds, the binary will be linked to the static library versions, so we can have the best possible binary size and performance.
 
 ## 测试
 
