@@ -11,13 +11,13 @@ Electron 使用 [GN](https://gn.googlesource.com/gn) 生成项目，并用 [Ninj
 
 ## 分块构建
 
-由于 Chromium 项目及其庞大，最终的链接阶段往往需要数分钟，加大了开发难度。 为此，Chromium 采用了“分块构建”方式，将每个模块作为单独的共享库构建，虽然影响了文件大小和性能，但加快了链接速度，
+由于 Chromium 项目及其庞大，最终的链接阶段往往需要数分钟，加大了开发难度。 为此，Chromium 采用了“分块构建”方式，将每个模块作为单独的动态库构建，虽然影响了文件大小和性能，但加快了链接速度，
 
-Electron 也继承了 Chromium 这一构建方式。 In `Debug` builds, the binary will be linked to a shared library version of Chromium's components to achieve fast linking time; for `Release` builds, the binary will be linked to the static library versions, so we can have the best possible binary size and performance.
+Electron 也继承了 Chromium 这一构建方式。 在 `Debug` 模式下构建时，程序将与 Chromium 的动态库链接，以加快链接速度；而 `Release` 模式下程序则会与静态库链接，以优化程序大小和性能。
 
 ## 测试
 
-**NB** *this section is out of date and contains information that is no longer relevant to the GN-built electron.*
+**注意：***此内容已经过时，部分信息对于使用 GN 构建的 Electron 已不再适用。</p> 
 
 使用以下方式测试你的修改符合项目编码风格：
 
