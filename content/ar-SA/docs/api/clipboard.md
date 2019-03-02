@@ -1,50 +1,48 @@
-# الحافظة
+# لوحة القُصاصات
 
-> Perform copy and paste operations on the system clipboard.
+> قم بإجراء عمليات النسخ واللصق على حافظة النظام .
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+العملية :  الرئيسية </ 0> ،  العارض </ 1></p> 
 
-In the renderer process context it depends on the [`remote`](remote.md) module on Linux, it is therefore not available when this module is disabled.
+في سياق معالج العرض يعتمد ذلك على الوحدة النمطية ` البعيدة </ 0> على لينكس ، ولذلك لا يكون متاحًا عند تعطيل هذه الوحدة.</p>
 
-The following example shows how to write a string to the clipboard:
+<p>يوضح المثال التالي كيفية كتابة على  سلسلة من الحافظة :</p>
 
-```javascript
-const { clipboard } = require('electron')
+<pre><code class="javascript">const { clipboard } = require('electron')
 clipboard.writeText('Example String')
-```
+`</pre> 
 
-On X Window systems, there is also a selection clipboard. To manipulate it you need to pass `selection` to each method:
+على الأنظمة النافذة X، وهناك أيضا ل اختيار الحافظة . للتلاعب بها ، يجب تمرير ` اختيار </ 0> لكل طريقة:</p>
 
-```javascript
-const { clipboard } = require('electron')
+<pre><code class="javascript">const { clipboard } = require('electron')
 clipboard.writeText('Example String', 'selection')
 console.log(clipboard.readText('selection'))
-```
+`</pre> 
 
 ## Methods
 
-The `clipboard` module has the following methods:
+و ` الحافظة </ 0> وحدة لديها الطرق التالية:</p>
 
-**Note:** Experimental APIs are marked as such and could be removed in future.
+<p><strong>Note:</strong> Experimental APIs are marked as such and could be removed in future.</p>
 
-### `clipboard.readText([type])`
+<h3><code>clipboard.readText ( [نوع] )`</h3> 
 
 * `type` String (optional)
 
-Returns `String` - The content in the clipboard as plain text.
+إرجاع ` String </ 0> - المحتوى الموجود في الحافظة كنص عادي.</p>
 
-### `clipboard.writeText(text[, type])`
+<h3><code>clipboard.writeText(text[, type])`</h3> 
 
 * `text` String
 * `type` String (optional)
 
-Writes the `text` into the clipboard as plain text.
+يكتب النص ` </ 0> في الحافظة كنص عادي.</p>
 
-### `clipboard.readHTML([type])`
+<h3><code>clipboard.readHTML ([نوع])`</h3> 
 
 * `type` String (optional)
 
-Returns `String` - The content in the clipboard as markup.
+<<> سلسلة </ 0> - المحتوى الموجود في الحافظة كنص عادي.
 
 ### `clipboard.writeHTML(markup[, type])`
 
