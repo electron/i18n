@@ -3,14 +3,14 @@
     "name": "Arabic",
     "code": "ar",
     "phrases": "10108",
-    "translated": "1060",
+    "translated": "1106",
     "approved": "0",
     "words": "93620",
-    "words_translated": "7119",
+    "words_translated": "7331",
     "words_approved": "0",
     "translated_progress": 7,
     "approved_progress": 0,
-    "qa_issues": 395
+    "qa_issues": 408
   },
   {
     "name": "Bulgarian",
@@ -29,14 +29,14 @@
     "name": "Chinese Simplified",
     "code": "zh-CN",
     "phrases": "10108",
-    "translated": "8885",
+    "translated": "8895",
     "approved": "25",
     "words": "93620",
-    "words_translated": "77494",
+    "words_translated": "77642",
     "words_approved": "137",
     "translated_progress": 82,
     "approved_progress": 0,
-    "qa_issues": 252
+    "qa_issues": 255
   },
   {
     "name": "Chinese Traditional",
@@ -270,7 +270,7 @@
     "words_approved": "2118",
     "translated_progress": 82,
     "approved_progress": 2,
-    "qa_issues": 3554
+    "qa_issues": 3551
   },
   {
     "name": "Tagalog",
