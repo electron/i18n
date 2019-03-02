@@ -4,9 +4,9 @@
 
 ## 基本要求
 
-* Windows 10 / Server 2012 R2 或更高
-* Visual Studio 2017 15.7.2 或更高 - [免费下载 VS 2017 社区版](https://www.visualstudio.com/vs/)
-* [Python 2.7.10 或更高](http://www.python.org/download/releases/2.7/) 
+* Windows 10 / Server 2012 R2 或更高版本
+* Visual Studio 2017 15.7.2 或更高版本 - [免费下载 VS 2017 社区版](https://www.visualstudio.com/vs/)
+* [Python 2.7.10 或更高版本](http://www.python.org/download/releases/2.7/) 
   * 与下面链接的`depot_tools`安装说明相反，你需要用你本地安装的至少2.7.10版本的Python(长期支持版本 1.2) 要做到这些，确保在**PATH**中，你本地安装的Python在`depot_tools`文件夹之前 现在，`depot_tools`依然附带Python 2.7.6,这将导致`gclient`命令失败(参照 https://crbug.com/868864)。
   * [Python for Windows (pywin32) Extensions](https://pypi.org/project/pywin32/#files) is also needed in order to run the build process.
 * [Node.js](https://nodejs.org/download/)
