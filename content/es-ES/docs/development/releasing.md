@@ -14,7 +14,7 @@ Hay un puñado de variables de entorno `*_TOKEN` que necesitan los scripts de la
 - `VSTS_TOKEN`: Cree un Token de Acceso Personal en https://github.visualstudio.com/_usersSettings/tokens o https://github.visualstudio.com/_details/security/tokens con el alcance de `Build (leer y ejecutar)`.
 - `ELECTRON_S3_BUCKET`:
 - `ELECTRON_S3_ACCESS_KEY`:
-- `ELECTRON_S3_SECRET_KEY`: If you don't have these, ask a team member to help you.
+- `ELECTRON_S3_SECRET_KEY`: Si no posees uno, pídelo a un miembro del equipo que te ayude.
 
 Once you've generated these tokens, put them in a `.env` file in the root directory of the project. This file is gitignored, and will be loaded into the environment by the release scripts.
 
