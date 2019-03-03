@@ -4,11 +4,11 @@
 
 Proceso: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-El objeto en `proceso` de Electron está comprendido entre [Node.js `proceso` objecto](https://nodejs.org/api/process.html). Este agrega los siguientes eventos, propiedades y métodos:
+El objeto `process` de Electron es heredado del [objeto `process` de Node.js](https://nodejs.org/api/process.html). Este agrega los siguientes eventos, propiedades y métodos:
 
 ## Sandbox
 
-In sandboxed renderers the `process` object contains only a subset of the APIs:
+En el procesor renderer en sandbox el objeto `process` sólo contiene un subconjunto de las APIs:
 
 * `crash()`
 * `hang()`
@@ -33,11 +33,11 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 
 ## Eventos
 
-### Evento: "cargado"
+### Evento: 'loaded'
 
-Emitido cuando Electron ha cargado su script de inicialización y está empezando a carga la página web o el script principal.
+Emitido cuando Electron ha cargado su script de inicialización interno y está empezando a carga la página web o el script principal.
 
-Puede ser utilizado por el script de precarga para agregar los símbolos globales eliminados del nodo de nuevo a el alcance cuando la integración de nodos está desactivada:
+Puede ser utilizado por el script de precarga para agregar los símbolos globales eliminados de Node de nuevo al scope global cuando la integración de Node está desactivada:
 
 ```javascript
 // preload.js
@@ -51,11 +51,11 @@ process.once('loaded', () => {
 
 ## Propiedades
 
-### `aplicación.proceso.pordefecto`
+### `process.defaultApp`
 
-Un `Booleano`. Cuando la aplicación empieza siendo pasada como un parámetro a la aplicación por defecto, esta propiedad es `verdad` en el proceso principal, de otra manera está `indefinidad`.
+Un `Boolean`. Cuando la aplicación empieza siendo pasada como un parámetro a la aplicación por defecto, esta propiedad es `true` en el proceso principal, en el caso contrario es `undefined`.
 
-### `procesos.mas`
+### `process.mas`
 
 Un `Booleano`. Para el edificio de la Mac App Store, esta propiedad es `verdad`, para otros edificios está `indefinidad`.
 
