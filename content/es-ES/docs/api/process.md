@@ -57,29 +57,29 @@ Un `Boolean`. Cuando la aplicación empieza siendo pasada como un parámetro a l
 
 ### `process.mas`
 
-Un `Booleano`. Para el edificio de la Mac App Store, esta propiedad es `verdad`, para otros edificios está `indefinidad`.
+Un `Boolean`. Para apps hechas para la Mac App Store, esta propiedad es `true`, para otras apps es `undefined`.
 
 ### `proceso.noAsar`
 
-Un `Booleano` que controla el apoyo ASAR dentro de tu aplicación. Ajustando este a `verdad` se deshabilitará el apoyo por parte de archivos `asar` en modulos integrados del nodo.
+Un `Boolean` que controla el soporte de ASAR dentro de tu aplicación. Modificando esta propiedad a `true` se deshabilitará el soporte para archivos de tipo `asar` en los módulos integrados de Node.
 
-### `proceso.noDepreación`
+### `process.noDeprecation`
 
-Un `Boolean` que controla si las advertencias de desaprobación se imprimen o no a `stderr`. Establecer esto en `true` silenciará las advertencias de obsolescencia. Esta propiedad es usada en lugar de la linea de comando `--no-degradación`.
+Un `Boolean` que controla si las advertencias de deprecación se imprimen o no a `stderr`. Modificar esta propiedad a `true` silenciará las advertencias de depreciación. Esta propiedad es usada en lugar de la linea de comando `--no-deprecation`.
 
-### `proceso.Rutaderecursos`
+### `process.resourcesPath`
 
-Una `cadena` que representa la ruta de acceso al directorio de recursos.
+Un `string` que representa la ruta de acceso al directorio de recursos.
 
 ### `process.sandboxed`
 
-A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
+Un `Boolean`. Cuando el proceso de renderer se ejecuta en modo sandbox esta propiedad es `true`, de lo contrario es `undefined`.
 
-### `proceso.desechoDegradación`
+### `process.throwDeprecation`
 
-Un `Booleano` que controla si las advertencias de degradación son consideradas como excepción. Ajustando este como `verdad` se producirán errores por degradación. Esta propiedad es usada en vez de la linea de comando `--throw-deprecation`.
+Un `Boolean` que controla si las advertencias de depreciación serán lanzadas como excepciones. Modificar esta propiedad a `true` lanzará errores para las depreciaciones. Esta propiedad es usada en vez de la linea de comando `--throw-deprecation`.
 
-### `proceso.ubicarDegradación`
+### `process.traceDeprecation`
 
 Un `Booleano` que controla si las degradaciones son enviadas a `stderr` incluyen su proceso de ubicación. Ajustando este como `true` se enviarán ubicaciones de pila por degradaciones. Esta propiedad es en vez de la linea de comando `--trace-deprecation`.
 
