@@ -151,7 +151,7 @@ For a `minor` release, e.g. `1.8.0`, use this format:
 
 ### Linux
 
-* Changed a Linux thing. #123
+* Cambió un elemento Linux. #123
 
 ### macOS
 
