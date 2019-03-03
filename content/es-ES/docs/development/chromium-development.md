@@ -7,7 +7,7 @@
 - [Blog](https://blog.chromium.org)
 - [Búsqueda de Código](https://cs.chromium.org/)
 - [Código Fuente](https://cs.chromium.org/chromium/src/)
-- [Calendario de Desarrollo e Información de Lanzamiento](https://www.chromium.org/developers/calendar)
-- [Grupos de Discusión](http://www.chromium.org/developers/discussion-groups)
+- [Calendario de desarrollo e Información de lanzamiento](https://www.chromium.org/developers/calendar)
+- [Grupos de discusión](http://www.chromium.org/developers/discussion-groups)
 
 Ver también [Desarrollo V8](v8-development.md)
