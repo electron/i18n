@@ -224,14 +224,14 @@
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "10108",
-    "translated": "4444",
+    "translated": "4452",
     "approved": "364",
     "words": "93620",
-    "words_translated": "31382",
+    "words_translated": "31458",
     "words_approved": "2604",
     "translated_progress": 33,
     "approved_progress": 2,
-    "qa_issues": 1274
+    "qa_issues": 1275
   },
   {
     "name": "Romanian",
@@ -263,14 +263,14 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "10108",
-    "translated": "9127",
+    "translated": "9138",
     "approved": "257",
     "words": "93620",
-    "words_translated": "77435",
+    "words_translated": "77547",
     "words_approved": "2118",
     "translated_progress": 82,
     "approved_progress": 2,
-    "qa_issues": 3551
+    "qa_issues": 3553
   },
   {
     "name": "Tagalog",
@@ -328,13 +328,13 @@
     "name": "Vietnamese",
     "code": "vi",
     "phrases": "10108",
-    "translated": "1977",
+    "translated": "1979",
     "approved": "52",
     "words": "93620",
-    "words_translated": "9296",
+    "words_translated": "9336",
     "words_approved": "169",
     "translated_progress": 9,
     "approved_progress": 0,
-    "qa_issues": 538
+    "qa_issues": 539
   }
 ]
