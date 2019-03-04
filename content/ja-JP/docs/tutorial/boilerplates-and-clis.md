@@ -20,16 +20,16 @@ ForgeにはReact、VueJS、Angularのような人気フレームワークを利�
 
 ## electron-builder
 
-A "complete solution to package and build a ready-for-distribution Electron app" that focuses on an integrated experience. [`electron-builder`](https://github.com/electron-userland/electron-builder) adds one single dependency focused on simplicity and manages all further requirements internally.
+この「頒布準備の整った Electron アプリをパッケージ化して構築するための完璧なソリューション」は、総合的な経験に焦点を当てたものです。 [`electron-builder`](https://github.com/electron-userland/electron-builder) は、単純さに重点を置いた単一の依存関係を1つ追加し、他の要件は内部で管理します。
 
-`electron-builder` replaces features and modules used by the Electron maintainers (such as the auto-updater) with custom ones. They are generally tighter integrated but will have less in common with popular Electron apps like Atom, Visual Studio Code, or Slack.
+`electron-builder` は、Electron メンテナー (自動更新プログラムなど) が使用する機能やモジュールをカスタムのものに置き換えます。 これらは一般的に緊密に統合されていますが、Atom、Visual Studio Code や、Slack のような人気のある Electron アプリケーションとの共通点は少なくなります。
 
-You can find more information and documentation in [the repository](https://github.com/electron-userland/electron-builder).
+より詳しい情報やドキュメントは [レポジトリ](https://github.com/electron-userland/electron-builder) にあります。
 
 ## electron-react-boilerplate
 
-If you don't want any tools but only a solid boilerplate to build from, CT Lin's [`electron-react-boilerplate`](https://github.com/chentsulin/electron-react-boilerplate) might be worth a look. It's quite popular in the community and uses `electron-builder` internally.
+ツールを使わずにしっかりしたボイラープレートのみを作成する場合、CT Lin の [`electron-react-boilerplate`](https://github.com/chentsulin/electron-react-boilerplate) は一見の価値があるかもしれません。 これはコミュニティで非常に人気があり、`electron-builder` は内部で使用しています。
 
 ## その他のツール、ボイラープレート
 
-["Awesome Electron" リスト](https://github.com/sindresorhus/awesome-electron#boilerplates)はより多くのツールやボイラープレートを紹介しています。 If you find the length of the list intimidating, don't forget that adding tools as you go along is a valid approach, too.
+["Awesome Electron" リスト](https://github.com/sindresorhus/awesome-electron#boilerplates) ではより多くのツールやボイラープレートを紹介しています。 リストの長さのあまり探すことに足がすくんでしまう場合は、ツールを追加することも有効な方法であることを忘れないでください。

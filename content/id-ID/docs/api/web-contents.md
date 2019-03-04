@@ -153,8 +153,8 @@ Memanggil `peristiwa.mencegah Default()` akan mencegah navigasi.
 Pengembalian:
 
 * `acara` Acara
-* ` url </ 0> String</li>
-<li><code>isInPlace` Boolean
+* `url` String
+* `isInPlace` Boolean
 * `adalah Bingkai Utama` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
@@ -227,8 +227,8 @@ Acara ini tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor
 Pengembalian:
 
 * `acara` Acara
-* ` url </ 0> String</li>
-<li><code>adalah Bingkai Utama` Boolean
+* `url` String
+* `adalah Bingkai Utama` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -327,8 +327,8 @@ Pengembalian:
   Pengembalian:
   
   * `event</ 0> Acara</li>
-<li><code> url </ 0> String</li>
-<li><code>error` String - Kode kesalahan.
+<li><code>url` String
+  * `error` String - Kode kesalahan.
   * `sertifikat` [Sertifikat](structures/certificate.md)
   * `callback` Fungsi 
     * `Terpercaya` Boolean -Menunjukkan apakah sertifikat bisa dianggap terpercaya.
@@ -413,17 +413,15 @@ Pengembalian:
   Pengembalian:
   
   * `acara` Acara
-  * ` url </ 0> String</li>
-</ul>
-
-<p>Emitted saat mouse bergerak di atas sebuah link atau keyboard memindahkan fokus ke sebuah link.</p>
-
-<h4>Event: 'kursor-berubah'</h4>
-
-<p>Pengembalian:</p>
-
-<ul>
-<li><code>acara` Acara
+  * `url` String
+  
+  Emitted saat mouse bergerak di atas sebuah link atau keyboard memindahkan fokus ke sebuah link.
+  
+  #### Event: 'kursor-berubah'
+  
+  Pengembalian:
+  
+  * `acara` Acara
   * `jenis` String
   * ` gambar </ 0>  <a href="native-image.md"> NativeImage </ 1> (opsional)</li>
 <li><code>skala` Mengambang (opsional) - skala faktor untuk kursor kustom.
@@ -563,7 +561,7 @@ Pengembalian:
   
   * `acara` Acara
   * `level` Integer
-  * `message` String
+  * `pesan` String
   * `line` Integer
   * `sourceId` String
   
@@ -586,6 +584,40 @@ Pengembalian:
   * `globalName` String
   
   Emitted when `remote.getGlobal()` is called in the renderer process. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
+  
+  #### Event: 'remote-get-builtin'
+  
+  Pengembalian:
+  
+  * `acara` Acara
+  * `moduleName` String
+  
+  Emitted when `remote.getBuiltin()` is called in the renderer process. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+  
+  #### Event: 'remote-get-current-window'
+  
+  Pengembalian:
+  
+  * `acara` Acara
+  
+  Emitted when `remote.getCurrentWindow()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+  
+  #### Event: 'remote-get-current-web-contents'
+  
+  Pengembalian:
+  
+  * `acara` Acara
+  
+  Emitted when `remote.getCurrentWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+  
+  #### Event: 'remote-get-guest-web-contents'
+  
+  Pengembalian:
+  
+  * `acara` Acara
+  * `guestWebContents` [WebContents](web-contents.md)
+  
+  Emitted when `<webview>.getWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
   
   ### Metode Instance
   
@@ -745,7 +777,7 @@ Pengembalian:
   
   #### `contents.executeJavaScript(kode[, userGesture, callback])`
   
-  * `code` String
+  * `id` String
   * `userGesture` Boolean (opsional) - Default adalah `false`.
   * `callback` Fungsi (opsional) - Dipanggil setelah script telah dieksekusi. 
     * `hasil` Ada
@@ -1304,6 +1336,10 @@ Pengembalian:
             * `allowed` Boolean
             
             Controls whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
+            
+            #### `contents.getType()`
+            
+            Returns `String` - the type of the webContent. Can be `backgroundPage`, `window`, `browserView`, `remote`, `webview` or `offscreen`.
             
             ### Contoh properti
             

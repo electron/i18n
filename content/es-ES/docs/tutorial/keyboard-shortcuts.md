@@ -17,7 +17,7 @@ menu.append(new MenuItem({
 }))
 ```
 
-You can configure different key combinations based on the user's operating system.
+Puede configurar diferentes combinaciones de teclas basadas en el sistema operativo del usuario.
 
 ```js
 {

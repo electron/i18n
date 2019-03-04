@@ -2,7 +2,7 @@
 
 Все три операционные системы предоставляют возможность для приложения отправлять уведомления пользователю. Electron позволяет разработчикам удобно отправлять уведомления с помощью [HTML5 Notification API](https://notifications.spec.whatwg.org/), используя встроенный API уведомлений текущей операционной системы для отображения его.
 
-**Примечание:** Поскольку это HTML5 API, то он доступен только в процессе рендеринга. If you want to show Notifications in the main process please check out the [Notification](../api/notification.md) module.
+**Примечание:** Поскольку это HTML5 API, то он доступен только в процессе рендеринга. Если вы хотите отправлять уведомления из основного процесса, пожалуйста используйте модуль [Notification](../api/notification.md).
 
 ```javascript
 let myNotification = new Notification('Title', {

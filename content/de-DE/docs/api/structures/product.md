@@ -1,4 +1,4 @@
-# Product Object
+# Product Objekt
 
 * `productIdentifier` String - Ein Bezeichner, der das Produkt für Apple App Store identifiziert.
 * `localizedDescription` String - Produktbeschreibung.

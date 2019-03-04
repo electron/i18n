@@ -351,6 +351,44 @@ Devuelve:
 
 Emitted when `remote.getGlobal()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
 
+### Event: 'remote-get-builtin'
+
+Devuelve:
+
+* `event` Event
+* `Contenidosweb` [Contenidosweb](web-contents.md)
+* `moduleName` String
+
+Emitted when `remote.getBuiltin()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+
+### Event: 'remote-get-current-window'
+
+Devuelve:
+
+* `event` Event
+* `Contenidosweb` [Contenidosweb](web-contents.md)
+
+Emitted when `remote.getCurrentWindow()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+
+### Event: 'remote-get-current-web-contents'
+
+Devuelve:
+
+* `event` Event
+* `Contenidosweb` [Contenidosweb](web-contents.md)
+
+Emitted when `remote.getCurrentWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+
+### Event: 'remote-get-guest-web-contents'
+
+Devuelve:
+
+* `event` Event
+* `Contenidosweb` [Contenidosweb](web-contents.md)
+* `guestWebContents` [WebContents](web-contents.md)
+
+Emitted when `<webview>.getWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+
 ## Métodos
 
 El objeto `app` tiene los siguientes métodos:
@@ -568,7 +606,7 @@ Regresa `Boolean` - Siempre que el llamado fue exitoso.
 
 ### `app.getJumpListSettings()` *Windows*
 
-Devuelve `Objecto`:
+Devuelve `Objeto`:
 
 * `minItems` Entero - El número mínimo de elementos que será mostrado en la lista (Para una descripción detallada de este valor vea el [documento MSDN](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378398(v=vs.85).aspx)).
 * `remover elementos` [JumpListItem[]](structures/jump-list-item.md) - Arreglo de los objetos `JumpListItem` a elementos que el usuario ha removido explícitamente de la categoría personalizada en la Jump list. Estos elementos no deben ser añadidos nuevamente a la jump list en el **próximo** llamado a `app.setJumpList()`, Windows no mostrará ninguna categoría personalizada que contenga alguno de los elementos removidos.
@@ -764,7 +802,7 @@ Devuelve [`GPUFeatureStatus`](structures/gpu-feature-status.md) - el estado de l
 
 * `infoType` String - Values can be either `basic` for basic info or `complete` for complete info.
 
-Returns `Promise`
+Devuelve `Promise`
 
 For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src.git/+/69.0.3497.106/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
 
@@ -929,7 +967,7 @@ Este método solo puede ser llamado despues de iniciada la aplicación.
 
 Permite modo sandbox mezclado en la aplicación.
 
-Este método solo puede ser llamado después de iniciada la aplicación.
+Este método solo puede ser llamado despues de iniciada la aplicación.
 
 ### `app.isInApplicationsFolder()` *macOS*
 

@@ -2,7 +2,6 @@
 
 > Ang pagtitipon ng mga mapagkukunan para sa pag-aaral tungkol sa Chromium at pagsunod para sa pag-unlad nito
 
-- [chromiumdev](https://chromiumdev-slack.herokuapp.com)sa Slack
 - [@ChromiumDev](https://twitter.com/ChromiumDev)sa Twitter
 - [@googlechrome](https://twitter.com/googlechrome) sa Twitter
 - [Blog](https://blog.chromium.org)

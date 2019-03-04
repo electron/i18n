@@ -7,11 +7,11 @@
 * macOS >= 10.11.6
 * [Xcode](https://developer.apple.com/technologies/tools/) >= 8.2.1
 * [node.js](https://nodejs.org) (external)
-* Python 2.7 with support for TLS 1.2
+* TLS 1.2을 지원하는 Python 2.7
 
 ## Python
 
-Please also ensure that your system and Python version support at least TLS 1.2. This depends on both your version of macOS and Python. For a quick test, run:
+시스템과 Python 버전이 TLS 1.2를 지원하는지 확인하십시오. 이것은 macOS와 Python 버전에 따라 다릅니다. 빠른 테스트를 위해 다음을 실행하십시오.
 
 ```sh
 $ npm run check-tls

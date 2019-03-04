@@ -12,6 +12,16 @@ nav:
   releases: Versioni
   search: Cerca
   userland: Userland
+keyboard_modal:
+  title: Scorciatoie da tastiera
+  key: Key
+  action: Action
+  focus_search: Focus the search bar
+  focus_and_clear: Focus the search bar and cleans it
+  scroll_down: Select the next search result
+  scroll_up: Select the previous search result
+  open: Open the selected search result
+  open_new_tab: Open the selected search result in a new tab
 docs:
   title: Documentazione di Electron
   description: Vedi tutti i <a href="/docs/all">documenti in un'unica pagina</a> o controlla le <a href="/docs/faq">FAQ</a>.

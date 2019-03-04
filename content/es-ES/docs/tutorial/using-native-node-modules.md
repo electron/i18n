@@ -84,7 +84,7 @@ procedure could not be found`, it may mean that the module you're trying to use 
      "my_addon.obj" "win_delay_load_hook.obj"
 ```
 
-In particular, it's important that:
+En particular, es importante que:
 
 - you link against `node.lib` from *Electron* and not Node. If you link against the wrong `node.lib` you will get load-time errors when you require the module in Electron.
 - you include the flag `/DELAYLOAD:node.exe`. If the `node.exe` link is not delayed, then the delay-load hook won't get a chance to fire and the node symbols won't be correctly resolved.

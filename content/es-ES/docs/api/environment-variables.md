@@ -32,7 +32,7 @@ Ejemplo:
 export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
 ```
 
-Unsupported options are:
+Las opciones no respaldadas son:
 
 ```sh
 --use-bundled-ca
@@ -42,7 +42,7 @@ Unsupported options are:
 --use-openssl-ca
 ```
 
-`NODE_OPTIONS` are explicitly disallowed in packaged apps.
+`NODE_OPTIONS` están explícitamente deshabilitadas en las aplicaciones empaquetadas.
 
 ### `GOOGLE_API_KEY`
 
@@ -74,7 +74,7 @@ No utilizar la barra de menú global en Linux.
 
 ### `ELECTRON_TRASH` *Linux*
 
-Set the trash implementation on Linux. Default is `gio`.
+Establecer la implementación trash en Linux. Por defecto es `gio`.
 
 Options:
 

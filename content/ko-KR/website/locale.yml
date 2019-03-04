@@ -12,6 +12,16 @@ nav:
   releases: 출시
   search: 검색
   userland: 사용자 공간
+keyboard_modal:
+  title: 키보드 단축기
+  key: Key
+  action: Action
+  focus_search: Focus the search bar
+  focus_and_clear: Focus the search bar and cleans it
+  scroll_down: Select the next search result
+  scroll_up: Select the previous search result
+  open: Open the selected search result
+  open_new_tab: Open the selected search result in a new tab
 docs:
   title: Electron 문서
   description: 모든 문서 <a href="/docs/all">한 페이지에서</a> 보기 및 <a href="/docs/faq"> FAQ</a> 문서를 확인하기

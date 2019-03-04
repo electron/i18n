@@ -90,7 +90,7 @@ if (process.env.APP_TEST_DRIVER) {
 
 async function onMessage ({ msgId, cmd, args }) {
   var method = METHODS[cmd]
-  if (!method) method = () => new Error('Invalid method: ' + cmd)
+  if (!method) method = () => new Error('Método inválido: ' + cmd)
   try {
     var resolve = await method(...args)
     process.send({ msgId, resolve })

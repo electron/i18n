@@ -8,10 +8,20 @@ nav:
   docs: Dokumentace
   donors: Dárci
   languages: Jazyky
-  license: License
+  license: Licence
   releases: Vydání
   search: Hledat
   userland: Userland
+keyboard_modal:
+  title: Klávesové zkratky
+  key: Klíč
+  action: Akce
+  focus_search: Focus the search bar
+  focus_and_clear: Focus the search bar and cleans it
+  scroll_down: Select the next search result
+  scroll_up: Select the previous search result
+  open: Open the selected search result
+  open_new_tab: Open the selected search result in a new tab
 docs:
   title: Dokumentace Electronu
   description: Koukněte na všechny <a href="/docs/all"> dokumenty na jedné stránce</a> nebo se podívejte na <a href="/docs/faq" title="často kladené dotazy"> FAQ</a>.
@@ -130,7 +140,7 @@ apps:
   category: Kategorie
   downloads: Ke stažení
   keywords: Klíčová slova
-  license: License
+  license: Licence
   latest_release: Poslední verze
 blog:
   title: Electron Blog

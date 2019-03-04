@@ -82,7 +82,7 @@ El proceso es el siguiente:
 3. If a particular beta release is *generally regarded* as stable, it will be re-released as a stable build, changing only the version information. p.e. `2.0.0`. After the first stable, all changes must be backwards-compatible bug or security fixes.
 4. If future bug fixes or security patches need to be made once a release is stable, they are applied and the *patch* version is incremented e.g. `2.0.1`.
 
-Specifically, the above means:
+Específicamente, lo anterior significa:
 
 1. Admitting non-breaking-API changes early in the beta cycle is okay, even if those changes have the potential to cause moderate side-affects
 2. Admitting feature-flagged changes, that do not otherwise alter existing code paths, at most points in the beta cycle is okay. Users can explicitly enable those flags in their apps.
@@ -110,7 +110,7 @@ Algunos ejemplos de como varios rangos semver recogerán nuevo lanzamientos:
 
 ![](../images/versioning-sketch-7.png)
 
-# Missing Features: Alphas
+# Funciones faltantes: Alfas
 
 Nuestra estrategia tiene algunas compensaciones, que por ahora sentimos que son apropiadas. Más importante que las nuevas características en la maestra pueden tomar un tiempo antes de alcanzar una linea de lanzamiento estable. Si quiere tratar nuevas características inmediatamente, tendrá que construir Electron usted mismo.
 

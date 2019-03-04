@@ -27,11 +27,11 @@ Electronにコントリビュートしたい場合は、[コントリビュー�
 
 最新の3リリースブランチがElectronチームによってサポートされています。 例えば、最新リリースの2.0.xの場合、2-0-xシリーズと、2つ前のリリースシリーズである1-7-xと1-8-xも同様にはサポートされています。
 
-When a release branch reaches the end of its support cycle, the series will be deprecated in NPM and a final end-of-support release will be made. This release will add a warning to inform that an unsupported version of Electron is in use.
+リリースブランチがサポートサイクルの終わりに達すると、npm では非推奨となり、最後のサポート終了リリースが行われる予定です。 このリリースでは、サポートされていないバージョンの Electron が使用されていることを知らせるための警告が追加されます。
 
-These steps are to help app developers learn when a branch they're using becomes unsupported, but without being excessively intrusive to end users.
+これらの手順は、使用しているブランチがサポートされなくなったときにアプリ開発者が学習できるようにするためのものですが、エンドユーザが過度に煩わされることはありません。
 
-If an application has exceptional circumstances and needs to stay on an unsupported series of Electron, developers can silence the end-of-support warning by omitting the final release from the app's `package.json` `devDependencies`. For example, since the 1-6-x series ended with an end-of-support 1.6.18 release, developers could choose to stay in the 1-6-x series without warnings with `devDependency` of `"electron": 1.6.0 - 1.6.17`.
+アプリケーションに例外的な状況があり、サポートされていない一連の Electron を使用し続ける必要がある場合、開発者はアプリケーションの `package.json` 内の `devDependencies` から最終リリースを省略することでサポート終了の警告を黙らせることができます。 たとえば、1-6-x シリーズは 1.6.18 リリースでサポートを終了したため、開発者は`devDependency` を `"electron": 1.6.0 - 1.6.17` とすることで警告なしで 1-6-x シリーズを使用することを選択できます。
 
 ## サポートされているプラットフォーム
 
@@ -39,19 +39,19 @@ Electronは以下のプラットフォームをサポートしています。
 
 ### macOS
 
-Only 64bit binaries are provided for macOS, and the minimum macOS version supported is macOS 10.10 (Yosemite).
+macOS 向けには 64bit バイナリのみが提供されます。対応する macOS のバージョンは macOS 10.10 (Yosemite) 以降です。
 
 ### Windows
 
 Windows 7以降に対応しています。Vista以前のOSはサポートされておらず、動作もしません。
 
-Windows向けには`ia32` (`x86`) と`x64` (`amd64`) バイナリの両方が提供されています。 Running Electron apps on Windows for ARM devices is possible by using the ia32 binary.
+Windows向けには`ia32` (`x86`) と`x64` (`amd64`) バイナリの両方が提供されています。 ARM デバイス用の Windows 上で Electron アプリケーションを実行することは、ia32 バイナリを使用することによって可能です。
 
 ### Linux
 
-The prebuilt `ia32` (`i686`) and `x64` (`amd64`) binaries of Electron are built on Ubuntu 12.04, the `armv7l` binary is built against ARM v7 with hard-float ABI and NEON for Debian Wheezy.
+`ia32` (`i686`) と `x64` (`amd64`) のビルド済みバイナリは、Ubuntu 12.04上でビルドされ、 `armv7l` バイナリは、Debian Wheezy用のhard-float ABIとNEONのARM v7を対象にビルドしています。
 
-[Until the release of Electron 2.0](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md#duplicate-arm-assets), Electron will also continue to release the `armv7l` binary with a simple `arm` suffix. Both binaries are identical.
+[Electron 2.0 がリリースされるまで](https://github.com/electron/electron/blob/master/docs/api/breaking-changes.md#duplicate-arm-assets)、Electron は `armv7l` バイナリを単純に `arm` という接尾辞を付けてリリースし続けます。 双方のバイナリは同一です。
 
 Electronがどのディストリビューションで動作するかどうかは、ビルドプラットフォームでリンクされたライブラリが存在するかによりますので、Ubuntu 12.04 のみを動作保証していますが、次のプラットフォームについてもビルド済みのElectronバイナリを実行できるか検証しています：
 

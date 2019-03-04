@@ -394,7 +394,7 @@ Dönüşler:
 * `event` Event
 * `sonuç` Nesne 
   * `requestId` Tamsayı
-  * `activeMatchOrdinal` Integer - Etkin olan eşleşmenin konumu.
+  * `activeMatchOrdinal` Tamsayı - Etkin eşleşmenin konumu.
   * `matches` Tamsayı - Numaraların eşleştirilmesi.
   * `selectionArea` Obje - Eşleşme bölgesinin koordinatları.
   * `finalUpdate` Boolean
@@ -572,7 +572,7 @@ Emitted when a `<webview>` has been attached to this web contents.
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `level` Integer
 * `message` String
 * `line` Integer
@@ -584,7 +584,7 @@ Emitted when the associated window logs a console message. Will not be emitted f
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `moduleName` String
 
 Emitted when `remote.require()` is called in the renderer process. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
@@ -597,6 +597,40 @@ Dönüşler:
 * `globalName` String
 
 Emitted when `remote.getGlobal()` is called in the renderer process. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
+
+#### Event: 'remote-get-builtin'
+
+Dönüşler:
+
+* `event` Olay
+* `moduleName` String
+
+Emitted when `remote.getBuiltin()` is called in the renderer process. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+
+#### Event: 'remote-get-current-window'
+
+Dönüşler:
+
+* `event` Olay
+
+Emitted when `remote.getCurrentWindow()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+
+#### Event: 'remote-get-current-web-contents'
+
+Dönüşler:
+
+* `event` Olay
+
+Emitted when `remote.getCurrentWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+
+#### Event: 'remote-get-guest-web-contents'
+
+Dönüşler:
+
+* `event` Olay
+* `guestWebContents` [WebContents](web-contents.md)
+
+Emitted when `<webview>.getWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
 ### Örnek Metodlar
 
@@ -691,7 +725,7 @@ Web sayfasına odaklanır.
 
 #### `contents.stop()`
 
-Bekleyen gezinmeyi durdurur.
+Bekleyen gezinmeleri durdurur.
 
 #### `contents.reload()`
 
@@ -898,7 +932,7 @@ Verilen pozisyondaki görüntüyü panoya kopyalar.
 
 #### `contents.replaceMisspelling(text)`
 
-* `text` Dizi
+* `text` String
 
 `replaceMisspelling` düzenleme komutunu web sayfasında çalıştırır.
 
@@ -916,7 +950,7 @@ Odaklanmış öğeye `metin` ekler.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
   * `wordStart` Boolean (optional) (Deprecated) - Whether to look only at the start of words. defaults to `false`.
-  * `medialCapitalAsWordStart` Boolean (optional) (Deprecated) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Diğer çeşitli alt kelime (intra-word) eşleşmelerini kabul eder, varsayılan olarak `false`'tur.
+  * `medialCapitalAsWordStart` Boolean (optional) (Deprecated) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Diğer birtakım kelime-içi eşleşmeyi kabul eder, `false` varsayılan olur.
 
 `Integer` döndürür - İstek için kullanılan istek kimliği.
 
@@ -943,7 +977,7 @@ console.log(requestId)
 
 #### `contents.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (isteğe bağlı) - Sayfadaki alınacak bölge.
+* `rect` [Rectangle](structures/rectangle.md) (isteğe bağlı) - Sayfanın yakalanılmak istenen alanı.
 * `geri aramak` Function 
   * `image` [NativeImage](native-image.md)
 
@@ -1140,8 +1174,8 @@ Geliştirme araçlarına geçiş yapar.
 
 #### `contents.inspectElement(x, y)`
 
-* `x` Tamsayı
-* `y` Tamsayı
+* `x` Integer
+* `x` Integer
 
 (`x`,`y`) pozisyonundaki ögeyi incelemeye başlar.
 
@@ -1360,6 +1394,10 @@ Takes a V8 heap snapshot and saves it to `filePath`.
 * `allowed` Boolean
 
 Controls whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
+
+#### `contents.getType()`
+
+Returns `String` - the type of the webContent. Can be `backgroundPage`, `window`, `browserView`, `remote`, `webview` or `offscreen`.
 
 ### Örnek Özellikleri
 

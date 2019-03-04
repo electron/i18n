@@ -2,7 +2,6 @@
 
 > Uma coleção de recursos para a aprendizagem sobre o Chromium e controle de seu desenvolvimento
 
-- [chromiumdev](https://chromiumdev-slack.herokuapp.com) no Slack
 - [@ChromiumDev](https://twitter.com/ChromiumDev) no Twitter
 - [@googlechrome](https://twitter.com/googlechrome) no Twitter
 - [Blog](https://blog.chromium.org)

@@ -1,6 +1,6 @@
 ## Class: Cookies
 
-> Abfragen und modifizieren von sessions's cookies.
+> Abfragen und modifizieren von Session Cookies.
 
 Prozess: [Haupt](../glossary.md#main-process)
 
@@ -21,8 +21,8 @@ session.defaultSession.cookies.get({ url: 'http://www.github.com' }, (error, coo
   console.log(error, cookies)
 })
 
-// Set a cookie with the given cookie data;
-// may overwrite equivalent cookies if they exist.
+// Setzt ein Cookie mit den übergebenen Cookie Daten;
+// überschreibt gleichnamige Cookies gegebenenfalls.
 const cookie = { url: 'http://www.github.com', name: 'dummy_name', value: 'dummy' }
 session.defaultSession.cookies.set(cookie, (error) => {
   if (error) console.error(error)

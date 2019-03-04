@@ -1,8 +1,8 @@
-# Mac App Storeへの公開ガイド
+# Mac App Store への公開ガイド
 
 v0.34.0から、ElectronはMac App Store (MAS) にパッケージ化したアプリを登録することができます。このガイドでは、MASビルド用の制限とアプリを登録する方法についての情報を提供します。
 
-**Note:** Submitting an app to Mac App Store requires enrolling in the [Apple Developer Program](https://developer.apple.com/support/compare-memberships/), which costs money.
+**注意:** Mac App Store にアプリを登録するには、[Apple Developer Program](https://developer.apple.com/support/compare-memberships/) に登録する必要があります。これには費用がかかります。
 
 ## アプリを登録する方法
 
@@ -20,7 +20,7 @@ Mac App Store にアプリを提出するには、Appleからまず証明書を�
 
 準備作業を終えた後は、[アプリケーションの配布](application-distribution.md)に従って、アプリをパッケージ化して、アプリの署名に進みます。
 
-First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which has your Team ID as its value:
+まず、アプリの `Info.plist` に、チーム ID を値として持つ `ElectronTeamID` キーを以下のように追加する必要があります。
 
 ```xml
 <plist version="1.0">
@@ -32,7 +32,7 @@ First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which 
 </plist>
 ```
 
-Then, you need to prepare three entitlements files.
+それから、3つの資格ファイルを準備する必要があります。
 
 `child.plist`:
 
@@ -77,23 +77,23 @@ Then, you need to prepare three entitlements files.
 </plist>
 ```
 
-`TEAM_ID`をあなたのチーム IDに入れ替えて、`your.bundle.id` をアプリのバンドル ID に置き換えてください。
+`TEAM_ID` をあなたのチーム ID に置き換えて、`your.bundle.id` をアプリのバンドル ID に置き換えてください。
 
 そして、次のスクリプトでアプリを署名します。
 
 ```sh
 #!/bin/bash
 
-# Name of your app.
+# アプリの名前。
 APP="YourApp"
-# The path of your app to sign.
+# 署名するアプリのパス。
 APP_PATH="/path/to/YourApp.app"
-# The path to the location you want to put the signed package.
+# 署名付きパッケージを配置する場所へのパス。
 RESULT_PATH="~/Desktop/$APP.pkg"
-# The name of certificates you requested.
+# リクエストした証明書の名前
 APP_KEY="3rd Party Mac Developer Application: Company Name (APPIDENTITY)"
 INSTALLER_KEY="3rd Party Mac Developer Installer: Company Name (APPIDENTITY)"
-# The path of your plist files.
+# plist ファイルのパス。
 CHILD_PLIST="/path/to/child.plist"
 PARENT_PLIST="/path/to/parent.plist"
 LOGINHELPER_PLIST="/path/to/loginhelper.plist"
@@ -114,21 +114,21 @@ codesign -s "$APP_KEY" -f --entitlements "$PARENT_PLIST" "$APP_PATH"
 productbuild --component "$APP_PATH" /Applications --sign "$INSTALLER_KEY" "$RESULT_PATH"
 ```
 
-macOSでのアプリのサンドボックス化を行うことが初めてなら、Appleの[Enabling App Sandbox](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html)を通読し、基本的な考え方を確認してから、権利ファイル(entitlement file) にアプリに必要なパーミッションキーを追加します。
+macOS でのアプリのサンドボックス化を行うことが初めてなら、Apple の [Enabling App Sandbox](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html) を通読し、基本的な考え方を確認してから、権利ファイル (entitlement file) へアプリに必要なパーミッションキーを追加します。
 
-署名を手動で行う代わりに、[electron-osx-sign](https://github.com/electron-userland/electron-osx-sign)モジュールを使用することも出来ます。
+署名を手動で行う代わりに、[electron-osx-sign](https://github.com/electron-userland/electron-osx-sign) モジュールを使用することも出来ます。
 
 #### ネイティブ モジュールに署名
 
-Native modules used in your app also need to be signed. If using electron-osx-sign, be sure to include the path to the built binaries in the argument list:
+アプリで使用されているネイティブモジュールも署名する必要があります。electron-osx-sign を使用している場合は、必ず引数リストに構築済みバイナリへのパスを含めてください。
 
 ```sh
 electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/nativemodule/build/release/nativemodule
 ```
 
-Also note that native modules may have intermediate files produced which should not be included (as they would also need to be signed). If you use [electron-packager](https://github.com/electron-userland/electron-packager) before version 8.1.0, add `--ignore=.+\.o$` to your build step to ignore these files. Versions 8.1.0 and later ignore those files by default.
+また、ネイティブモジュールは中間ファイルを生成しているかもしれませんが、それらは含まれるべきではありません (それらもまた署名される必要があるので)。 バージョン 8.1.0 より前の [electron-packager](https://github.com/electron-userland/electron-packager) を使用している場合は、ビルド手順に `--ignore=.+\.o$` を追加してこれらのファイルを無視してください。 バージョン 8.1.0 以降ではこれらのファイルはデフォルトで無視されます。
 
-### Appをアップロードする。
+### App をアップロード
 
 アプリに署名後、iTunes ConnectにアップロードするためにApplication Loaderを使用できます。アップロードする前に[レコードを作成していること](https://developer.apple.com/library/ios/documentation/LanguagesUtilities/Conceptual/iTunesConnect_Guide/Chapters/CreatingiTunesConnectRecord.html)を確認してください。
 
@@ -151,27 +151,27 @@ Also note that native modules may have intermediate files produced which should 
 
 サンドボックスが使用されるため、アプリがアクセスできるリソースは厳密に制限されています。詳細は、 [App Sandboxing](https://developer.apple.com/app-sandboxing/) を参照してください。
 
-### Additional Entitlements
+### 追加のエンタイトルメント
 
-Depending on which Electron APIs your app uses, you may need to add additional entitlements to your `parent.plist` file to be able to use these APIs from your app's Mac App Store build.
+アプリで使用する Electron API に応じて、アプリの Mac App Store ビルドからこれらの API を使用できるようにするために、追加のエンタイトルメントを `parent.plist` ファイルに追加する必要があります。
 
-#### Network Access
+#### ネットワークアクセス
 
-Enable outgoing network connections to allow your app to connect to a server:
+アプリがサーバーに接続できるように、以下のように発信ネットワーク接続を有効にします。
 
 ```xml
 <key>com.apple.security.network.client</key>
 <true/>
 ```
 
-Enable incoming network connections to allow your app to open a network listening socket:
+アプリがネットワーク待機ソケットを開くことを許可するために、以下のように着信ネットワーク接続を有効にします。
 
 ```xml
 <key>com.apple.security.network.server</key>
 <true/>
 ```
 
-See the [Enabling Network Access documentation](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW9) for more details.
+詳細は、[ネットワークアクセスを有効にするドキュメント](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW9) を参照してください。
 
 #### dialog.showOpenDialog
 
@@ -180,7 +180,7 @@ See the [Enabling Network Access documentation](https://developer.apple.com/libr
 <true/>
 ```
 
-See the [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) for more details.
+詳細は、[ユーザが選択したファイルのアクセスを有効にするドキュメント](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) を参照してください。
 
 #### dialog.showSaveDialog
 
@@ -189,7 +189,7 @@ See the [Enabling User-Selected File Access documentation](https://developer.app
 <true/>
 ```
 
-See the [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) for more details.
+詳細は、[ユーザが選択したファイルのアクセスを有効にするドキュメント](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) を参照してください。
 
 ## Electronが使用する暗号化アルゴリズム
 
@@ -221,4 +221,4 @@ Electron は次の暗号アルゴリズムを使用しています:
 * RC5 - http://people.csail.mit.edu/rivest/Rivest-rc5rev.pdf
 * RIPEMD - [ISO/IEC 10118-3](https://webstore.ansi.org/RecordDetail.aspx?sku=ISO%2FIEC%2010118-3:2004)
 
-ERNの同意を取得するには、[How to legally submit an app to Apple's App Store when it uses encryption (or how to obtain an ERN)](https://carouselapps.com/2015/12/15/legally-submit-app-apples-app-store-uses-encryption-obtain-ern/)を参照してください。
+ERN の同意を取得するには、[How to legally submit an app to Apple's App Store when it uses encryption (or how to obtain an ERN)](https://carouselapps.com/2015/12/15/legally-submit-app-apples-app-store-uses-encryption-obtain-ern/) を参照してください。

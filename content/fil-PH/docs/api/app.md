@@ -351,6 +351,44 @@ Ibinabalik ang:
 
 Emitted when `remote.getGlobal()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
 
+### Event: 'remote-get-builtin'
+
+Ibinabalik ang:
+
+* `kaganapan` Kaganapan
+* `webContents` [WebContents](web-contents.md)
+* `moduleName` String
+
+Emitted when `remote.getBuiltin()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+
+### Event: 'remote-get-current-window'
+
+Ibinabalik ang:
+
+* `kaganapan` Kaganapan
+* `webContents` [WebContents](web-contents.md)
+
+Emitted when `remote.getCurrentWindow()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+
+### Event: 'remote-get-current-web-contents'
+
+Ibinabalik ang:
+
+* `kaganapan` Kaganapan
+* `webContents` [WebContents](web-contents.md)
+
+Emitted when `remote.getCurrentWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+
+### Event: 'remote-get-guest-web-contents'
+
+Ibinabalik ang:
+
+* `kaganapan` Kaganapan
+* `webContents` [WebContents](web-contents.md)
+* `guestWebContents` [WebContents](web-contents.md)
+
+Emitted when `<webview>.getWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+
 ## Mga Paraan
 
 Ang `app` na object ay maroong mga sumusunod na mga method:
@@ -447,7 +485,7 @@ Maaari mong hilingin ang mga sumusunod na landas sa pamamagitan ng pangalan:
 ### `app.getFileIcon(path[, options], callback)`
 
 * `path` String
-* `mga opsyon` Bagay (opsyonal) 
+* `options` Na Bagay (opsyonal) 
   * `sukat` String 
     * `small` - 16x16
     * `normal` - 32x32
@@ -731,7 +769,7 @@ Ay binabago ang [Application User Model ID](https://msdn.microsoft.com/en-us/lib
 
 ### `app.importCertificate(options, callback)` *LINUX*
 
-* `mga opsyon` Bagay 
+* `options` Bagay 
   * `certificate` String - Ang landas para sa mga file ng pkcs12.
   * `password` String - Ang passphrase para sa mga sertipiko.
 * `callback` Function 
@@ -816,7 +854,7 @@ Nagbabalik ang `Boolean` - Kung ang kasalukuyang kapaligiran ay tagalunsad ng Un
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
-* `mga opsyon` Na Bagay (opsyonal) 
+* `options` Na Bagay (opsyonal) 
   * `path` String (opsyonal) *Windows* - Ang maipapatupad na landas na ihahambing laban sa. Mga default sa `process.execPath`.
   * `args` String[] (opsyonal) *Windows* - Ang mga argumento ng command-line na ihahambing laban sa. Mga default sa isang hanay na walang laman.
 
@@ -873,7 +911,7 @@ This API must be called after the `ready` event is emitted.
 
 **Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
 
-### `app.showAboutPanel()` *macOS*
+### `app.showAboutPanel()` *macOS* 
 
 Show the about panel with the values defined in the app's `.plist` file or with the options set via `app.setAboutPanelOptions(options)`.
 

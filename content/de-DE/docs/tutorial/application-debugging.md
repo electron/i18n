@@ -1,10 +1,10 @@
-# Application Debugging
+# Anwendungs Debugging
 
-Whenever your Electron application is not behaving the way you wanted it to, an array of debugging tools might help you find coding errors, performance bottlenecks, or optimization opportunities.
+Wann auch immer deine Electron App sich nicht so verhält wie gewünscht, dann stehen dir eine Vielzahl von Debugging-Tools zur Verfügung um Fehler im Code, einen Flaschenhals für die Pervormance oder Möglichkeiten zur Optimierung zu finden.
 
 ## Renderer-Prozess
 
-The most comprehensive tool to debug individual renderer processes is the Chromium Developer Toolset. It is available for all renderer processes, including instances of `BrowserWindow`, `BrowserView`, and `WebView`. You can open them programmatically by calling the `openDevTools()` API on the `webContents` of the instance:
+Das umfassendste Tool zum Debuggen individueller Render-Pozesse ist das Chromium Developer Toolset. Das Toolset steht zur Verfügung in allen Render-Prozessen, inklusive Instanzen von `BrowserWindow`, `BrowserView` und `WebView`. Du kannst diese programmatisch öffnen durch Aufruf der `openDevTools()` API auf `webContents` der Instanz:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -13,10 +13,10 @@ let win = new BrowserWindow()
 win.webContents.openDevTools()
 ```
 
-Google offers [excellent documentation for their developer tools](https://developer.chrome.com/devtools). We recommend that you make yourself familiar with them - they are usually one of the most powerful utilities in any Electron Developer's tool belt.
+Google bietet [ausgezeichnete Dokumentation für ihre Entwickler-Tools](https://developer.chrome.com/devtools). Wir empfehlen Ihnen, sich mit ihnen vertraut zu machen - sie sind in der Regel ein der leistungsstärksten Werkzeuge in jedem Werkzeuggurt von Electron Developer.
 
-## Hauptprozess
+## Main-Prozess
 
-Debugging the main process is a bit trickier, since you cannot open developer tools for them. The Chromium Developer Tools can [be used to debug Electron's main process](https://nodejs.org/en/docs/inspector/) thanks to a closer collaboration between Google / Chrome and Node.js, but you might encounter oddities like `require` not being present in the console.
+Debugging des Main-Prozess ist etwas schwieriger, denn du kannst die Developer Tools hier nicht öffnen. Die Chromium Developer Tools können verwendet werden um [Electrons Main-Prozess zu Debuggen](https://nodejs.org/en/docs/inspector/) dank einer engen Zusammenarbeit zwischen Google / Chrome und Node.js. Du wirst aber vielleicht auch auf Eigenartiges stoßen, so ist `require` zum Beispiel nicht verfügbar in der Console.
 
-For more information, see the [Debugging the Main Process documentation](./debugging-main-process.md).
+Für weitere Informationen, ließ einfach die [Debugging des Main-Prozess](./debugging-main-process.md) Dokumentation.

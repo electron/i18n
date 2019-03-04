@@ -54,7 +54,7 @@ The `role` property can have following values:
 * `close` - Close current window.
 * `quit` - Quit the application.
 * `reload` - Reload the current window.
-* The main process handles it by listening for `channel` with <1>ipcMain</1> module, and replies by setting <0>event.returnValue</0>.
+* `forceReload` - Reload the current window ignoring the cache.
 * `toggleDevTools` - Toggle developer tools in the current window.
 * `toggleFullScreen` - Toggle full screen mode on the current window.
 * `resetZoom` - Reset the focused page's zoom level to the original size.

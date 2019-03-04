@@ -65,9 +65,7 @@ Under the page title must be a one-line description starting with `>`.
 Using `session` as example:
 
 ```markdown
-# session
-
-> Manage browser sessions, cookies, cache, proxy settings, etc.
+ブラウザーセッション、クッキー、キャッシュ、プロキシの設定などを管理します。
 ```
 
 ### モジュールメソッドとイベント

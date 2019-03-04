@@ -173,10 +173,10 @@ child.once('ready-to-show', () => {
     * `nodeIntegrationInWorker` Boolean (可选) - 是否在Web工作器中启用了Node集成. 默认值为 `false`. 更多内容参见 [多线程](../tutorial/multithreading.md).
     * `preload` String (可选) -在页面运行其他脚本之前预先加载指定的脚本 无论页面是否集成Node, 此脚本都可以访问所有Node API 脚本路径为文件的绝对路径。 当 node integration 关闭时, 预加载的脚本将从全局范围重新引入node的全局引用标志 [参考示例](process.md#event-loaded).
     * `sandbox` Boolean (可选)-如果设置该参数, 沙箱的渲染器将与窗口关联, 使它与Chromium OS-level 的沙箱兼容, 并禁用 Node. js 引擎。 它与 `nodeIntegration` 的选项不同，且预加载脚本的 API 也有限制. [更多详情](sandbox-option.md). **注意:**改选项目前是为实验性质，可能会在 Electron 未来的版本中移除。
-    * `EnableMemoteModule` Boolean（可选）- 是否启用 [`Remote`](remote.md) 模块。 默认值为 `true`。
+    * `enableRemoteModule` Boolean（可选）- 是否启用 [`Remote`](remote.md) 模块。 默认值为 `true`。
     * `session` [Session](session.md#class-session) (可选) - 设置页面的 session 而不是直接忽略 Session 对象, 也可用 `partition` 选项来代替，它接受一个 partition 字符串. 同时设置了`session` 和 `partition`时, `session` 的优先级更高. 默认使用默认的 session.
     * `partition` String (optional) - 通过 session 的 partition 字符串来设置界面session. 如果 `partition` 以 `persist:`开头, 该页面将使用持续的 session，并在所有页面生效，且使用同一个`partition`. 如果没有 `persist:` 前缀, 页面将使用 in-memory session. 通过分配相同的 ` partition `, 多个页可以共享同一会话。 默认使用默认的 session.
-    * `affinity` String (可选) - 当指定，具有相同`affinity` 的 web页面将在相同的渲染进程运行。 需要注意的是，由于渲染过程中会有代码重用，如 `webPreferences`的`preload`, `sandbox` 和 `nodeIntegration`等选项会在不同页面之间共用，即使你已经在不同页面中为同一选项设置过不同的值，它们仍会被共用。 因此，建议为`affinity`相同的页面，使用相同的 `webPreferences` *This property is experimental*
+    * `affinity` String (可选) - 当指定，具有相同`affinity` 的 web页面将在相同的渲染进程运行。 需要注意的是，由于渲染过程中会有代码重用，如 `webPreferences`的`preload`, `sandbox` 和 `nodeIntegration`等选项会在不同页面之间共用，即使你已经在不同页面中为同一选项设置过不同的值，它们仍会被共用。 因此，建议为`affinity`相同的页面，使用相同的 `webPreferences` *这一选项当前是实验性的*
     * `zoomFactor` Number (可选) - 页面的默认缩放系数, `3.0` 表示 `300%`. 默认值为 `1.0`.
     * `javascript` Boolean (可选) - 是否启用 JavaScript 支持. 默认值为 `true`.
     * `webSecurity` Boolean (可选) - 当设置为 `false`, 它将禁用同源策略 (通常用来测试网站), 如果此选项不是由开发者设置的，还会把 `allowRunningInsecureContent`设置为 `true`. 默认值为 `true`。
@@ -188,7 +188,7 @@ child.once('ready-to-show', () => {
     * `plugins` Boolean (可选) - 是否支持插件. 默认值为 `false`.
     * `experimentalFeatures` Boolean (optional) - 启用 Chromium 的实验功能. 默认值为 `false`.
     * `scrollBounce` Boolean (可选) - 在 macOS 启用弹力动画 (橡皮筋) 效果. 默认值为 `false`.
-    * `enableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to enable. 在 [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70)文件中查看被支持的所有特性.
+    * `enableBlinkFeatures`String(可选) - 以`逗号`分隔的需要启用的特性列表，譬如`CSSVariables,KeyboardEventKey` 在 [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70)文件中查看被支持的所有特性.
     * `disableBlinkFeatures` String (可选) - 以 `,`分隔的禁用特性列表, 如 `CSSVariables,KeyboardEventKey`. 在[RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) 文件中查看被支持的所有特性.
     * `defaultFontFamily` Object (可选) - 设置 font-family 的默认字体. 
       * `standard` String (可选) - 默认值为 `Times New Roman`.
@@ -206,9 +206,9 @@ child.once('ready-to-show', () => {
     * `contextIsolation` Boolean (可选) - 是否在独立 JavaScript 环境中运行 Electron API和指定的`preload` 脚本. 默认值为 `false`. `preload`脚本的运行环境仍然可以访问`document` 和 `window`全局变量，但它将使用自己内置的函数 (如`Array`, `Object`, `JSON`等)，并且将被加载的页面与对全局环境所做的任何更改隔离开来. Electron API 仅在 `preload` 脚本中有效，而不是加载的页面。 在加载可能不受信任的远程内容时, 应使用此选项, 以确保加载的内容不能篡改 ` preload ` 脚本和使用的 Electron APIs。 此选项使用 [ Chrome Content Scripts ](https://developer.chrome.com/extensions/content_scripts#execution-environment) 使用的相同技术。 通过在控制台选项卡顶部的组合框中选择 "Electron Isolated Context" 条目, 可以在开发工具中访问此上下文。
     * `nativeWindowOpen` Boolean (可选) - 是否使用原生的`window.open()`. 如果设置为 `true`, 那么子窗口的 `webPreferences`将永远与父窗口的相同, 不论什么参数被传至`window.open()`. 默认值为 `false`. **注意:** 这一选项当前是实验性的.
     * `webviewTag` Boolean (可选) - 是否启用 [`<webview>` tag](webview-tag.md)标签. 默认为 ` nodeIntegration ` 选项的值。 ** 注意: **为 `< webview>` 配置的 ` preload ` 脚本在执行时将启用节点集成, 因此应确保远程或不受信任的内容无法创建恶意的 ` preload ` 脚本 。 可以使用 [ webContents ](web-contents.md) 上的 ` will-attach-webview ` 事件对 ` preload ` 脚本进行剥离, 并验证或更改 `<webview>` 的初始设置。
-    * `additionalArguments` String[] (可选) - 一系列将会被附加至此app的渲染进程的`process.argv`的字符串. 对于将少量数据向下传至渲染进程的预加载脚本而言是十分实用的.
-    * `safeDialogs` Boolean (optional) - Whether to enable browser style consecutive dialog protection. Default is `false`.
-    * `safeDialogsMessage` String (optional) - The message to display when consecutive dialog protection is triggered. If not defined the default message would be used, note that currently the default message is in English and not localized.
+    * `additionalArguments` String\[] (可选) - 一系列将会被附加至此app的渲染进程的`process.argv`的字符串. 对于将少量数据向下传至渲染进程的预加载脚本而言是十分实用的.
+    * `safeDialogs` Boolean (可选) - 是否启用浏览器样式的持续对话框保护。 缺省为`false`。
+    * `safeDialogsMessage` String (可选) - 当持续对话框保护被触发时显示的消息。 如果没有定义，那么将使用缺省的消息。注意：当前缺省消息是英文，并没有本地化。
     * `navigateOnDragDrop` Boolean (可选) - 将文件或链接拖放到页面上时是否触发页面跳转. 默认为`false`.
 
 当使用 ` minWidth `/` maxWidth `/` minHeight `/` maxHeight ` 设置最小或最大窗口大小时, 它只限制用户。 它不会阻止您将不符合大小限制的值传递给 ` setBounds `/` setSize ` 或 ` BrowserWindow ` 的构造函数。
@@ -316,7 +316,7 @@ window.onbeforeunload = (e) => {
 返回:
 
 * `event` Event
-* `newBounds` [`Rectangle`](structures/rectangle.md) - Size the window is being resized to.
+* `newBounds` [`Rectangle`](structures/rectangle.md) - 将要调整到的窗口尺寸。
 
 在调整窗口大小之前发出。调用` event.preventDefault() `会阻止窗口大小被调整。
 
@@ -331,7 +331,7 @@ window.onbeforeunload = (e) => {
 返回:
 
 * `event` Event
-* `newBounds` [`Rectangle`](structures/rectangle.md) - Location the window is being moved to.
+* `newBounds` [`Rectangle`](structures/rectangle.md) - 将要移动的新的窗口位置。
 
 在移动窗口之前发出。调用` event.preventDefault() `会阻止窗口被移动。
 
@@ -644,13 +644,13 @@ win.loadURL('https://github.com')
 
 这将使窗口保持长宽比。 额外的大小允许开发人员有空间 (以像素为单位), 不包括在纵横比计算中。 此 API 已经考虑了窗口大小和内容大小之间的差异。
 
-想象一个使用高清视频播放器和相关控件的普通窗口。 假假如左边缘有15px, 右边缘有25px, 在播放器下面有50px. 为了保持16:9 的长宽比 (标准的HD长宽比为1920x1080)， 我们可以调用这个api传入参数16/9 和[ 40,50 ]. 第二个参数不管网页中的额外的宽度和高度在什么位置, 只要它们存在就行. Sum any extra width and height areas you have within the overall content view.
+想象一个使用高清视频播放器和相关控件的普通窗口。 假假如左边缘有15px, 右边缘有25px, 在播放器下面有50px. 为了保持16:9 的长宽比 (标准的HD长宽比为1920x1080)， 我们可以调用这个api传入参数16/9 和[ 40,50 ]. 第二个参数不管网页中的额外的宽度和高度在什么位置, 只要它们存在就行. 在全部内部窗口中，加上任何额外的宽度和高度 。
 
-Calling this function with a value of `0` will remove any previously set aspect ratios.
+使用 `0` 调用此函数，将会移除先前设置的宽高比。
 
 #### `win.setBackgroundColor(backgroundColor)`
 
-* `backgroundColor` String - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported if `transparent` is `true`). 默认值为 `#FFF`（白色）。
+* `backgroundColor` String - 十六进制的窗口背景色，如 `#66CD00`、`#FFF`和`#80FFFFFF`。 (如果`transparent`是`true`的话，也支持alpha 通道。) 默认值为 `#FFF`（白色）。
 
 设置窗体的背景颜色。详见 [Setting `backgroundColor`](#setting-backgroundcolor)。
 
@@ -675,9 +675,9 @@ Calling this function with a value of `0` will remove any previously set aspect 
 ```javascript
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
- // set all bounds properties
+ // 设置所有的 bounds 属性
 win.setBounds({ x: 440, y: 225, width: 800, height: 600 })
- // set a single bounds property
+ // // 设置单个的 bounds 属性
 win.setBounds({ width: 200 })
  // { x: 440, y: 225, width: 200, height: 600 }
 console.log(win.getBounds())
@@ -700,7 +700,7 @@ console.log(win.getBounds())
 
 #### `win.getNormalBounds()`
 
-Returns [`Rectangle`](structures/rectangle.md) - Contains the window bounds of the normal state
+返回 [`Rectangle`](structures/rectangle.md) - 包含正常状态下的窗口大小。
 
 **注意：**无论当前的窗口状态为：最大化、最小化或者全屏，这个方法都将得到窗口在正常显示状态下的位置信息以及大小信息。 在正常状态下，getBounds 与 getNormalBounds 得到的边界信息 [`Rectangle`](structures/rectangle.md) 是一致的。
 
@@ -970,10 +970,10 @@ Windows上句柄类型为 `HWND`，macOS 上为 `NSView*`，Linux 上为`Window`
 
 * `url` String
 * `options` Object (可选) 
-  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
+  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (可选) - 一个 HTTP Referrer url。
   * `userAgent` String (可选) - 发起请求的 userAgent.
   * `extraHeaders` String (可选) - 用 "\n" 分割的额外标题
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (可选)
   * `baseURLForDataURL` String (可选) - 要加载的数据文件的根 url(带有路径分隔符). 只有当指定的 `url`是一个数据 url 并需要加载其他文件时，才需要这样做。
 
 与 `webContents.loadURL(url[, options])` 相同.
@@ -1008,9 +1008,9 @@ win.loadURL('http://localhost:8000/post', {
 
 * `filePath` String
 * `options` Object (可选) 
-  * `query` Object (optional) - Passed to `url.format()`.
-  * `search` String (optional) - Passed to `url.format()`.
-  * `hash` String (optional) - Passed to `url.format()`.
+  * `query` Object (可选) - 传递给 `url.format()`.
+  * `search` String (可选) - 传递给 `url.format()`.
+  * `hash` String (可选) - 传递给 `url.format()`.
 
 类似于`webContents.loadFile`，`filePath`是一个HTML页相对的应用根目录的相对路径。更多信息，可参阅`webContents`文档。
 
@@ -1040,7 +1040,7 @@ win.loadURL('http://localhost:8000/post', {
 
 #### `win.setOverlayIcon(overlay, description)` *Windows*
 
-* `overlay` [NativeImage](native-image.md) | null - the icon to display on the bottom right corner of the taskbar icon. If this parameter is `null`, the overlay is cleared
+* `overlay` [NativeImage](native-image.md) | null - 右下角任务栏的显示图标。 如果此参数是 `null`，覆盖层层会被清除。
 * `description` String -提供给屏幕阅读器的描述文字
 
 在当前任务栏图标上设置一个 16 x 16 像素的图标, 通常用于传达某种应用程序状态或被动地通知用户。
@@ -1104,7 +1104,7 @@ win.loadURL('http://localhost:8000/post', {
 
 * `region` [Rectangle](structures/rectangle.md) 窗口的区域
 
-将窗口的区域设置为在任务栏中悬停在窗口上方时显示的缩略图图像。 You can reset the thumbnail to be the entire window by specifying an empty region: `{ x: 0, y: 0, width: 0, height: 0 }`.
+将窗口的区域设置为在任务栏中悬停在窗口上方时显示的缩略图图像。 通过指定空区域：`{ x: 0, y: 0, width: 0, height: 0 }`，可以重置整个窗口的缩略图。
 
 #### `win.setThumbnailToolTip(toolTip)` *Windows*
 
@@ -1139,9 +1139,9 @@ win.loadURL('http://localhost:8000/post', {
 
 * `visible` Boolean
 
-Sets whether the window traffic light buttons should be visible.
+设置是否窗口交通灯需要显示。
 
-This cannot be called when `titleBarStyle` is set to `customButtonsOnHover`.
+当`titleBarStyle` 是 `customButtonsOnHover`的时候，不可调用。
 
 #### `win.setAutoHideMenuBar(hide)`
 
@@ -1169,7 +1169,7 @@ This cannot be called when `titleBarStyle` is set to `customButtonsOnHover`.
 
 * `visible` Boolean
 * `options` Object (可选) 
-  * `visibleOnFullScreen` Boolean (optional) *macOS* - Sets whether the window should be visible above fullscreen windows
+  * `visibleOnFullScreen` Boolean (可选) *macOS* - 设置是否窗口可以在全屏窗口之上显示。
 
 设置窗口是否在所有工作空间上可见
 
@@ -1185,7 +1185,7 @@ This cannot be called when `titleBarStyle` is set to `customButtonsOnHover`.
 
 * `ignore` Boolean
 * `options` Object (可选) 
-  * `forward` Boolean (optional) *macOS* *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. 仅当` ignore </ 0>为 true 时才被使用。 如果 <code>ignore` 为 false, 转发始终是禁用的，不管这个值是什么。
+  * `forward` Boolean (可选) *macOS* *Windows* - 如果为 true, 传递鼠标移动消息给 Chromium，鼠标相关事件将可用，如 `mouseleave`。 仅当` ignore </ 0>为 true 时才被使用。 如果 <code>ignore` 为 false, 转发始终是禁用的，不管这个值是什么。
 
 忽略窗口内的所有鼠标事件
 

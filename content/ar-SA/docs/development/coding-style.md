@@ -1,4 +1,4 @@
-# Coding Style
+# أسلوب التعليمات البرمجية
 
 These are the style guidelines for coding in Electron.
 

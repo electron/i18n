@@ -20,7 +20,7 @@ The `nodeIntegrationInWorker` can be used independent of `nodeIntegration`, but 
 
 All built-in modules of Node.js are supported in Web Workers, and `asar` archives can still be read with Node.js APIs. However none of Electron's built-in modules can be used in a multi-threaded environment.
 
-## Native Node.js modules
+## Native Node.js Module
 
 Any native Node.js module can be loaded directly in Web Workers, but it is strongly recommended not to do so. Most existing native modules have been written assuming single-threaded environment, using them in Web Workers will lead to crashes and memory corruptions.
 

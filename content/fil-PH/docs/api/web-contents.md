@@ -164,7 +164,7 @@ Ibinabalik ang:
 * `kaganapan` kaganapan
 * `url` Tali
 * `isInPlace` Boolean
-* `isMainFrame` Boolean
+* `ay pangunahing kuwadro` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -181,7 +181,7 @@ Ibinabalik ang:
 * `kaganapan` Kaganapan
 * `url` Tali
 * `isInPlace` Boolean
-* `isMainFrame` Boolean
+* `ay pangunahing kuwadro` Boolean
 * `frameProcessId` Integer
 * `frameRoutingId` Integer
 
@@ -357,7 +357,7 @@ Ibinabalik ang:
 * `kaganapan` kaganapan
 * `url` Ang URL
 * `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Punsyon 
+* `callback` Function 
   * `sertipiko` [Sertipiko](structures/certificate.md) - Dapat ay isang sertipiko mula sa ibinigay na listahan.
 
 Lalabas kapag ang sertipiko ng kliyente ay hiniling.
@@ -379,7 +379,7 @@ Ibinabalik ang:
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Punsyon 
+* `callback` Function 
   * `username` String
   * `password` String
 
@@ -598,17 +598,51 @@ Ibinabalik ang:
 
 Emitted when `remote.getGlobal()` is called in the renderer process. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
 
+#### Event: 'remote-get-builtin'
+
+Ibinabalik ang:
+
+* `kaganapan` Kaganapan
+* `moduleName` String
+
+Emitted when `remote.getBuiltin()` is called in the renderer process. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+
+#### Event: 'remote-get-current-window'
+
+Ibinabalik ang:
+
+* `kaganapan` Kaganapan
+
+Emitted when `remote.getCurrentWindow()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+
+#### Event: 'remote-get-current-web-contents'
+
+Ibinabalik ang:
+
+* `kaganapan` Kaganapan
+
+Emitted when `remote.getCurrentWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+
+#### Event: 'remote-get-guest-web-contents'
+
+Ibinabalik ang:
+
+* `kaganapan` Kaganapan
+* `guestWebContents` [WebContents](web-contents.md)
+
+Emitted when `<webview>.getWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+
 ### Instance Methods
 
 #### `contents.loadURL(url[, mga pagpipilian])`
 
 * `url` Tali
-* `mga opsyon` Bagay (opsyonal) 
+* `options` Na Bagay (opsyonal) 
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
   * `userAgent` Pisi (opsyonal) - Isang ahenteg gumagamit na nagmumula sa kahilingan.
-  * `extraHeaders` String(opsyonal) - Sobrang ulunan ay pinaghihiwalay sa "\n".
+  * `extraHeaders` Pisi (opsyonal) - Mga dagdag na header na pinaghihiwalay ng "\n".
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
-  * `baseURLForDataURL` String(opsyonal) - Basi nag url (may tagapahiwalay sa landas ng separator) para sa mga dokumento na kakargahin sa pamamagitan ng datos ng url. Ito ay kinakailangan lamang kung ang tinutukoy na `url` ay isang url ng data at kailangang mag-load ng iba pang mga file.
+  * `baseURLForDataURL` Pisi (opsyonal) - Base url (na may trailing path separator) para sa mga dokumento na mai-load ng url ng data. Ito ay kinakailangan lamang kung ang tinutukoy na `url` ay isang url ng data at kailangang mag-load ng iba pang mga file.
 
 Naglo-load ang `url` sa bintana. Ang `url` ay dapat naglalaman ng prefix ng protocol, hal. ang `http://` o `file://`. Kung ang load ay dapat mag-bypass http cache pagkatapos gamitin ang `pragma` header upang makamit ito.
 
@@ -621,7 +655,7 @@ webContents.loadURL('https://github.com', options)
 #### `contents.loadFile(filePath[, options])`
 
 * `filePath` String
-* `mga opsyon` Na Bagay (opsyonal) 
+* `options` Na Bagay (opsyonal) 
   * `query` Object (optional) - Passed to `url.format()`.
   * `search` String (optional) - Passed to `url.format()`.
   * `hash` String (optional) - Passed to `url.format()`.
@@ -691,7 +725,7 @@ Ibinabalik `Boolean` - Kung naghihintay ang pahina ng web para sa unang tugon mu
 
 #### `mga nilalaman.ihinto()`
 
-Nagtitigil ng anumang nakabingbing na nabigasyon.
+Hinihinto ang anumang nakabinbing nabigasyon.
 
 #### `mga nilalaman.reload()`
 
@@ -823,7 +857,7 @@ Binabago ang antas ng pag-zoom para sa tinitiyak na antas. Ang orihinal na laki 
 
 #### `mga nilalaman.getZoomLevel (callback)`
 
-* `callback` Punsyon 
+* `callback` Function 
   * `zoomLevel` Numero
 
 Tinatapos ang isang kahilingan upang makakuha ng kasalukuyang antas sa pag-zoom,`callback`ay tinatawag na `callback(zoomLevel)`.
@@ -912,7 +946,7 @@ Pagsingit `text` para sa nakapukos na elemento.
 #### `mga nilalaman.findInPage (teksto [, mga pagpipilian])`
 
 * `teksto` String - Ang nilalaman na hahanapin, ay hindi dapat walang laman.
-* `mga opsyon` Bagay (opsyonal) 
+* `options` Na Bagay (opsyonal) 
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -959,7 +993,7 @@ Sinusuri kung ang anumang ServiceWorker ay nakarehistro at nagbabalik ng isang b
 
 #### `contents.unregisterServiceWorker(callback)`
 
-* `callback` Punsyon 
+* `callback` Function 
   * `tagumpay` Boolean
 
 Unregister ang anumang ServiceWorker kung kasalukuyan at nagbabalik ng isang boolean bilang tugon sa `callback` kapag ang pangako ng JS ay natupad o hindi totoo kapag ang pangako ng JS ay tinanggihan.
@@ -972,7 +1006,7 @@ Ibinabalik [`PrinterInfo[]`](structures/printer-info.md).
 
 #### `mga nilalaman.print([options], [callback])`
 
-* `opsyon` Na Bagay (opsyonal) 
+* `options` Na Bagay (opsyonal) 
   * `silent` Boolean (opsyonal) - Huwag itanong sa user sa mga setting sa pagpapaimprinta. Ang naka-default ay `false`.
   * `printBackground` Boolean (opsyonal) - Iniimprinta rin ang kulay ng background at ang mukha ng web page. Ang naka-default ay `false`.
   * `deviceName` String (opsyonal) - Itakda ang pangalan ng gagamiting printer na gagamitin. Ang naka-default ay `"`.
@@ -987,7 +1021,7 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
 
 #### `contents.printToPDF(options, callback)`
 
-* `mga opsyon` Bagay 
+* `options` Bagay 
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Pwedeng `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o ang Objek na mayroong `height` at `width` na naka-micron.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
@@ -1361,6 +1395,10 @@ Takes a V8 heap snapshot and saves it to `filePath`.
 * `allowed` Boolean
 
 Controls whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
+
+#### `contents.getType()`
+
+Returns `String` - the type of the webContent. Can be `backgroundPage`, `window`, `browserView`, `remote`, `webview` or `offscreen`.
 
 ### Katangian ng pagkakataon
 

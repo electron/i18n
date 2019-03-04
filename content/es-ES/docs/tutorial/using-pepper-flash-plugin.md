@@ -49,7 +49,7 @@ app.on('ready', () => {
 
 You can also try loading the system wide Pepper Flash plugin instead of shipping the plugins yourself, its path can be received by calling `app.getPath('pepperFlashSystemPlugin')`.
 
-## Enable Flash Plugin in a `<webview>` Tag
+## Habilite el complemento Flash en una `<webview>` etiqueta
 
 Add `plugins` attribute to `<webview>` tag.
 

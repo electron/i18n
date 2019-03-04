@@ -25,7 +25,7 @@ If you plan on building Electron more than once, adding a git cache will speed u
 ```sh
 $ export GIT_CACHE_PATH="${HOME}/.git_cache"
 $ mkdir -p "${GIT_CACHE_PATH}"
-# This will use about 16G.
+# Esto usará alrededor de 16G.
 ```
 
 > **NOTE**: the git cache will set the `origin` of the `src/electron` repository to point to the local cache, instead of the upstream git repository. This is undesirable when running `git push`—you probably want to push to github, not your local cache. To fix this, from the `src/electron` directory, run:
@@ -43,7 +43,7 @@ export SCCACHE_BUCKET="electronjs-sccache"
 export SCCACHE_TWO_TIER=true
 ```
 
-## Getting the code
+## Obteniendo el código
 
 ```sh
 $ mkdir electron-gn && cd electron-gn
@@ -52,7 +52,7 @@ $ gclient config \
     --unmanaged \
     https://github.com/electron/electron
 $ gclient sync --with_branch_heads --with_tags
-# This will take a while, go get a coffee.
+# Esto va a tomar unos momentos, tómate un café.
 ```
 
 > Instead of `https://github.com/electron/electron`, you can use your own fork here (something like `https://github.com/<username>/electron`).
@@ -142,7 +142,7 @@ $ ./out/Debug/electron.exe
 $ ./out/Debug/electron
 ```
 
-### Cross-compiling
+### Compilación cruzada
 
 To compile for a platform that isn't the same as the one you're building on, set the `target_cpu` and `target_os` GN arguments. For example, to compile an x86 target from an x64 host, specify `target_cpu = "x86"` in `gn args`.
 
@@ -160,7 +160,7 @@ To run the tests, you'll first need to build the test modules against the same v
 
 ```sh
 $ ninja -C out/Debug third_party/electron_node:headers
-# Install the test modules with the generated headers
+# Instalar los módulos de prueba con los encabezados generados
 $ (cd electron/spec && npm i --nodedir=../../out/Debug/gen/node_headers)
 ```
 

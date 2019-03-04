@@ -21,7 +21,7 @@ app.on('window-all-closed', () => {
 
 Происходит когда приложение заканчивает основной запуск. На Windows и Linux событие `will-finish-launching` подобно событию `ready`; на macOS это событие представляет собой уведомление `applicationWillFinishLaunching` объекта `NSApplication`. Обычно настраивают слушателей для `open-file` и `open-url` событий, и запускают репортер сбоев и автообновления.
 
-In most cases, you should do everything in the `ready` event handler.
+В большинстве случаев вы должны выполнять всё в обработчике событий `ready`.
 
 ### Событие: 'ready'
 
@@ -350,6 +350,44 @@ Emitted when `remote.require()` is called in the renderer process of `webContent
 * `globalName` String
 
 Emitted when `remote.getGlobal()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
+
+### Event: 'remote-get-builtin'
+
+Возвращает:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+* `moduleName` String
+
+Emitted when `remote.getBuiltin()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+
+### Event: 'remote-get-current-window'
+
+Возвращает:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+
+Emitted when `remote.getCurrentWindow()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+
+### Event: 'remote-get-current-web-contents'
+
+Возвращает:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+
+Emitted when `remote.getCurrentWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+
+### Event: 'remote-get-guest-web-contents'
+
+Возвращает:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+* `guestWebContents` [WebContents](web-contents.md)
+
+Emitted when `<webview>.getWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
 ## Методы
 
@@ -990,7 +1028,7 @@ Enables full sandbox mode on the app.
 
 * `menu` [Menu](menu.md)
 
-Sets the application's [dock menu](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/).
+Устанавливает [Dock меню](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/) приложения.
 
 ### `app.dock.setIcon(image)` *macOS*
 

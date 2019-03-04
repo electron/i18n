@@ -41,9 +41,9 @@ Thanks for opening an issue! A few things to keep in mind:
 
 <!-- What do you think should happen? -->
 
-### Actual behavior
+### Actual comportamiento
 
-<!-- What actually happens? -->
+<!-- ¿Qué está ocurriendo? -->
 
 ### How to reproduce
 

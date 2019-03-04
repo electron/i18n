@@ -31,7 +31,7 @@ Electron バージョン *< 2.0* は、[semver](http://semver.org) 仕様に準�
 1. semver の厳格な使用
 2. semver 準拠の `-beta` タグの導入
 3. [conventional commit messages](https://conventionalcommits.org/) の導入
-4. Well-defined stabilization branches
+4. しっかり定義された安定ブランチ
 5. `master` ブランチにはバージョンがなく、安定ブランチのみがバージョン情報を含みます。
 
 git のブランチ動作の仕組み、npm のタグ付けの仕組み、開発者が期待するべきこと、変更をバックポートする方法について詳しく説明します。
@@ -48,7 +48,7 @@ git のブランチ動作の仕組み、npm のタグ付けの仕組み、開発
 | Node.js のメジャーバージョン更新    | Node.js のマイナーバージョン更新      | Node.js のパッチバージョン更新 |
 | Chromium のバージョン更新       |                           | Chromium パッチの修正関連   |
 
-Note that most Chromium updates will be considered breaking. Fixes that can be backported will likely be cherry-picked as patches.
+ほとんどの Chromium の更新は互換性を破るとみなされることに注意してください。 バックポート可能な修正は、パッチとして cherry-pick される可能性が高いです。
 
 # 安定ブランチ
 
@@ -58,37 +58,37 @@ Note that most Chromium updates will be considered breaking. Fixes that can be b
 
 安定ブランチは、常に **major** または **minor** のバージョンラインのいずれかであり、次のテンプレート `$MAJOR-$MINOR-x` に対して `2-0-x` のように命名されます。
 
-We allow for multiple stabilization branches to exist simultaneously, and intend to support at least two in parallel at all times, backporting security fixes as necessary. ![](../images/versioning-sketch-2.png)
+複数の安定化ブランチを同時に存在させることができます。また、必要に応じてセキュリティ修正を後方移植しながら、少なくとも2つのサポートを常に並行してサポートする予定です。 ![](../images/versioning-sketch-2.png)
 
-Older lines will not be supported by GitHub, but other groups can take ownership and backport stability and security fixes on their own. We discourage this, but recognize that it makes life easier for many app developers.
+それより古いものは GitHub ではサポートされませんが、他のグループは所有権を持って、自分自身で安定性とセキュリティの修正をバックポートできます。 これはお勧めできませんが、多くのアプリ開発者にとってライフが楽になると認識しています。
 
 # ベータリリースとバグ修正
 
-Developers want to know which releases are *safe* to use. Even seemingly innocent features can introduce regressions in complex applications. At the same time, locking to a fixed version is dangerous because you’re ignoring security patches and bug fixes that may have come out since your version. Our goal is to allow the following standard semver ranges in `package.json` :
+開発者はどのリリースが *安全* に使用できるかを知りたいものです。 一見無害な機能でさえ、複雑なアプリケーションに後退をもたらすことがあります。 同時に、あなたのバージョンから出るセキュリティパッチとバグ修正の可能性を無視しているので、固定バージョンへのロックは危険です。 私たちの目標は、`package.json` で以下のように標準的な semver 範囲を許可することです。
 
-- Use `~2.0.0` to admit only stability or security related fixes to your `2.0.0` release.
-- Use `^2.0.0` to admit non-breaking *reasonably stable* feature work as well as security and bug fixes.
+- `~2.0.0` を使用すると、`2.0.0` リリースに対する安定性またはセキュリティ関連の修正のみを認めます。
+- `^2.0.0` を使用すると、セキュリティとバグ修正だけでなく、破壊的でない *かなり安定した* 機能も認めます。
 
-What’s important about the second point is that apps using `^` should still be able to expect a reasonable level of stability. To accomplish this, semver allows for a *pre-release identifier* to indicate a particular version is not yet *safe* or *stable*.
+2つ目の点に関して重要なことは、`^` を使用しているアプリはまだ妥当なレベルの安定性を期待できることです。 これを達成するために、semver の *プレリリース識別子* を特定のバージョンがまだ *安全* でも *安定* でもないことを示すことを可能にします。
 
-Whatever you choose, you will periodically have to bump the version in your `package.json` as breaking changes are a fact of Chromium life.
+どれを選択しても、破壊的な変更は Chromium が寿命である事実であるため、定期的に `package.json` 内のバージョンを更新する必要があります。
 
-The process is as follows:
+プロセスは以下の通りです。
 
-1. All new major and minor releases lines begin with a beta series indicated by semver prerelease tags of `beta.N`, 例 `2.0.0-beta.1`. After the first beta, subsequent beta releases must meet all of the following conditions: 
-    1. The change is backwards API-compatible (deprecations are allowed)
-    2. The risk to meeting our stability timeline must be low.
-2. If allowed changes need to be made once a release is beta, they are applied and the prerelease tag is incremented, e.g. `2.0.0-beta.2`.
-3. If a particular beta release is *generally regarded* as stable, it will be re-released as a stable build, changing only the version information. e.g. `2.0.0`. After the first stable, all changes must be backwards-compatible bug or security fixes.
-4. If future bug fixes or security patches need to be made once a release is stable, they are applied and the *patch* version is incremented e.g. `2.0.1`.
+1. すべての新しいメジャーリリースとマイナーリリースのものは、次のように、semver プレリリースタグで示されるベータ系列で始まります。 `beta.N`, 例 `2.0.0-beta.1`。最初のベータ版の後、その後のベータ版リリースは以下のすべての条件を満たす必要があります。 
+    1. 変更は API に後方互換性がある (非推奨は構いません)
+    2. 安定版のスケジュールを守るリスクが低くなければならない。
+2. リリースがベータ版になった後に許可された変更を加える必要がある場合は、それらが適用され、例として `2.0.0-beta.2` のようにプレリリースタグが増分されます。
+3. 特定のベータリリースが *一般的に安定している* と見なされている場合、バージョン情報のみを変更して、安定したビルドとして再リリースされます。 例として、`2.0.0` のようになります。 最初の安定版以降は、すべての変更は後方互換性のあるバグまたはセキュリティ修正でなければなりません。
+4. リリースが安定した後に将来のバグ修正やセキュリティパッチを作成する必要がある場合は、それらを適用して、例として `2.0.1` のように、*patch* のバージョンを増やします。
 
-Specifically, the above means:
+具体的に言うと、以下が上記の意味です。
 
-1. Admitting non-breaking-API changes early in the beta cycle is okay, even if those changes have the potential to cause moderate side-affects
-2. Admitting feature-flagged changes, that do not otherwise alter existing code paths, at most points in the beta cycle is okay. Users can explicitly enable those flags in their apps.
+1. たとえそれらの変更が中程度の副作用を引き起こす可能性があるとしても、ベータサイクルの早い段階で非破壊的な API の変更を承認することは問題ありません。
+2. ベータサイクルのほとんどの時点で、既存のコードパスを変更しない、機能フラグの変更を認めることは問題ありません。 ユーザーは自分のアプリでこれらのフラグを明示的に有効にできます。
 3. Admitting features of any sort very late in the beta cycle is 
 
-For each major and minor bump, you should expect to see something like the following:
+メジャーとマイナーのバージョン上げのそれぞれにおいて、以下のようなものが見えるはずです。
 
 ```text
 2.0.0-beta.1
@@ -99,48 +99,48 @@ For each major and minor bump, you should expect to see something like the follo
 2.0.2
 ```
 
-An example lifecycle in pictures:
+以下は絵に描いたライフサイクルの例です。
 
-- A new release branch is created that includes the latest set of features. It is published as `2.0.0-beta.1`. ![](../images/versioning-sketch-3.png)
-- A bug fix comes into master that can be backported to the release branch. The patch is applied, and a new beta is published as `2.0.0-beta.2`. ![](../images/versioning-sketch-4.png)
-- The beta is considered *generally stable* and it is published again as a non-beta under `2.0.0`. ![](../images/versioning-sketch-5.png)
-- Later, a zero-day exploit is revealed and a fix is applied to master. We backport the fix to the `2-0-x` line and release `2.0.1`. ![](../images/versioning-sketch-6.png)
+- 最新の一連の機能を含む新しいリリースブランチが作成されます。`2.0-beta.1` として公開されます。 ![](../images/versioning-sketch-3.png)
+- リリースブランチにバックポートできるバグ修正が master に入ってきました。 パッチが適用され、新しいベータ版が `2.0-beta.2` として公開されます。 ![](../images/versioning-sketch-4.png)
+- このベータ版は *一般的に安定している* と見なされています。そして `2.0.0` の下に非ベータ版として再度公開されます。 ![](../images/versioning-sketch-5.png)
+- その後、ゼロデイ攻撃が明らかになり、修正が master に適用されます。 この修正を `2-0-x` 系列にバックポートし、`2.0.1` をリリースします。 ![](../images/versioning-sketch-6.png)
 
-A few examples of how various semver ranges will pick up new releases:
+以下は、さまざまな semver 範囲の新しいリリースの拾い方のいくつかの例です。
 
 ![](../images/versioning-sketch-7.png)
 
 # Missing Features: Alphas
 
-Our strategy has a few tradeoffs, which for now we feel are appropriate. Most importantly that new features in master may take a while before reaching a stable release line. If you want to try a new feature immediately, you will have to build Electron yourself.
+私たちの戦略にはいくつかのトレードオフがありますが、今のところそれは適切だと感じています。 最も重要なことは、master の新機能が安定したリリースラインに到達するまでにはしばらく時間がかかることです。 すぐに新しい機能を試したい場合は、自分で Electron をビルドする必要があります。
 
-As a future consideration, we may introduce one or both of the following:
+今後の検討事項として、以下のうちの一方または両方を紹介する可能性があります。
 
-- alpha releases that have looser stability constraints to betas; for example it would be allowable to admit new features while a stability channel is in *alpha*
+- ベータ版に対する安定性の制約が緩いアルファリリース。 例えば、安定チャネルが *alpha* の間に新しい特徴を認めることが許容される。
 
-# Feature Flags
+# 機能フラグ
 
-Feature flags are a common practice in Chromium, and are well-established in the web-development ecosystem. In the context of Electron, a feature flag or **soft branch** must have the following properties:
+機能フラグは Chromium で一般的な方法であり、Web 開発エコシステムではよく確立されています。 Electron のコンテキストでは、機能フラグまたは **ソフトブランチ** には次のプロパティが必要です。
 
-- it is enabled/disabled either at runtime, or build-time; we do not support the concept of a request-scoped feature flag
-- it completely segments new and old code paths; refactoring old code to support a new feature *violates* the feature-flag contract
-- feature flags are eventually removed after the feature is released
+- 実行時またはビルド時に有効/無効になるもの。リクエストスコープ付き機能フラグの概念はサポートしていない
+- 新旧のコードパスを完全に断片化するもの。 新しい機能をサポートするために古いコードをリファクタリングすると機能フラグ規約に *違反する*
+- 機能のリリース後、機能フラグは最終的に削除される
 
-# Semantic Commits
+# セマンティックなコミット
 
-We seek to increase clarity at all levels of the update and releases process. Starting with `2.0.0` we will require pull requests adhere to the [Conventional Commits](https://conventionalcommits.org/) spec, which can be summarized as follows:
+私達は更新およびリリースプロセスのすべてのレベルで明快さを増すよう努めます。 `2.0.0` 以降、プルリクエストは [従来のコミット](https://conventionalcommits.org/) の仕様に準拠する必要があります。これは以下のようにまとめることができます。
 
-- Commits that would result in a semver **major** bump must start their body with `BREAKING CHANGE:`.
-- Commits that would result in a semver **minor** bump must start with `feat:`.
-- Commits that would result in a semver **patch** bump must start with `fix:`.
+- **major** バージョン上げをするコミットは `BREAKING CHANGE:` の本文で始まる必要があります。
+- **minor** バージョン上げをするコミットは `feat:` で始まる必要があります。
+- **patch** バージョン上げをするコミットは `fix:` で始まる必要があります。
 
-- We allow squashing of commits, provided that the squashed message adheres the the above message format.
+- squash されたメッセージも上記のメッセージフォーマットを遵守するという条件で、我々はコミットの squash を許します。
 
-- It is acceptable for some commits in a pull request to not include a semantic prefix, as long as the pull request title contains a meaningful encompassing semantic message.
+- プルリクエストのタイトルが意味のある包括的なセマンティックメッセージを含むのであれば、プルリクエストにおけるいくつかのコミットがセマンティックプレフィックスを含まないことは許容できます。
 
-# Versioned `master`
+# バージョン付けされた `master`
 
-- The `master` branch will always contain the next major version `X.0.0-nightly.DATE` in its `package.json`
-- Release branches are never merged back to master
-- Release branches *do* contain the correct version in their `package.json`
-- As soon as a release branch is cut for a major, master must be bumped to the next major. I.e. `master` is always versioned as the next theoretical release branch
+- `master` ブランチは、常に `package.json` に次のメジャーバージョンの `X.0.0-nightly.DATE` を含みます。
+- リリースブランチが master にマージし戻されることはありません。
+- リリースブランチは `package.json` 内に正しいバージョンを含んで *います*
+- リリースブランチがメジャーのためにカットされるとすぐに、master は次のメジャーにバージョン上げされる必要があります。 すなわち、`master` は常に理論上次のリリースブランチとしてバージョン管理されます

@@ -9,7 +9,7 @@ const { netLog } = require('electron')
 
 app.on('ready', function () {
   netLog.startLogging('/path/to/net-log')
-  // After some network events
+  // Nach einigen Netzwerk Events
   netLog.stopLogging(path => {
     console.log('Net-logs written to', path)
   })
@@ -24,23 +24,23 @@ See [`--log-net-log`](chrome-command-line-switches.md#--log-net-logpath) to log 
 
 ### `netLog.startLogging(path)`
 
-* `path` String - File path to record network logs.
+* `path` String - Dateipfad zu den Netzwerk Logfiles.
 
-Starts recording network events to `path`.
+Beginnt die Aufzeichnung von Netzwerk Events in `path`.
 
 ### `netLog.stopLogging([callback])`
 
 * `callback` Function (optional) 
-  * `path` String - File path to which network logs were recorded.
+  * `path` String - Pfad zur Datei in welche die Netzwerk Events geschrieben wurden.
 
-Stops recording network events. If not called, net logging will automatically end when app quits.
+Beendet die Aufzeichnung der Netzwerk Events. Wenn nicht aufgerufen, dann beendet net die Aufzeichnung automatisch wenn die App beendet wird.
 
 ## Eigenschaften
 
 ### `netLog.currentlyLogging`
 
-A `Boolean` property that indicates whether network logs are recorded.
+Eine `Boolean` Eigenschaft die anzeigt ob Netzwerk Logs aufgezeichnet werden.
 
 ### `netLog.currentlyLoggingPath`
 
-A `String` property that returns the path to the current log file.
+Eine `String` Eigenschaft welche den Pfad zur aktuellen Log Datei zurückgibt.

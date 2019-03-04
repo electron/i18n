@@ -6,7 +6,7 @@ La base de acoplamiento personalizada se utiliza habitualmente para añadir acce
 
 **Menú Dock de Terminal.app:**
 
-![Dock Menu](https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png)
+![Menu Dock](https://cloud.githubusercontent.com/assets/639601/5069962/6032658a-6e9c-11e4-9953-aa84006bdfff.png)
 
 Para configurar su menú de base personalizada, puede utilizar la API `app.dock.setMenu`, que sólo está disponible en macOS:
 
@@ -15,16 +15,16 @@ const { app, Menu } = require('electron')
 
 const dockMenu = Menu.buildFromTemplate([
   {
-    label: 'New Window',
+    label: 'Nueva ventana',
     click () { console.log('New Window') }
   }, {
-    label: 'New Window with Settings',
+    label: 'Nueva ventana con Configuración',
     submenu: [
-      { label: 'Basic' },
+      { label: 'Básico' },
       { label: 'Pro' }
     ]
   },
-  { label: 'New Command...' }
+  { label: 'Nuevo comando...' }
 ])
 
 app.dock.setMenu(dockMenu)

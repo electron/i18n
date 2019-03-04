@@ -412,7 +412,7 @@ Loads the `url` in the webview, the `url` must contain the protocol prefix, e.g.
   
   * `text` String
   
-  Inserts `text` to the focused element.
+  Füge `text` in das fokusierte Element ein.
   
   ### `<webview>.findInPage(text[, options])`
   
@@ -487,13 +487,13 @@ Loads the `url` in the webview, the `url` must contain the protocol prefix, e.g.
   
   ### `<webview>.setZoomFactor(factor)`
   
-  * `factor` Number - Zoom factor.
+  * `factor` Number - Zoom faktor.
   
   Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
   
   ### `<webview>.setZoomLevel(level)`
   
-  * `level` Number - Zoom level.
+  * `level` Number - Zoom Level.
   
   Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively. The formula for this is `scale := 1.2 ^ level`.
   
@@ -516,7 +516,7 @@ Loads the `url` in the webview, the `url` must contain the protocol prefix, e.g.
   * `minimumLevel` Number
   * `maximumLevel` Number
   
-  Sets the maximum and minimum pinch-to-zoom level.
+  Setzt das Maximum und Minimum pinch-to-zoom Level.
   
   ### `<webview>.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
   
@@ -596,7 +596,7 @@ Loads the `url` in the webview, the `url` must contain the protocol prefix, e.g.
   
   Rückgabewert:
   
-  * `favicons` String[] - Array of URLs.
+  * `favicons` String[] - Array mit URLs.
   
   Fired when page receives favicon urls.
   
@@ -780,7 +780,7 @@ are clicked or when the DOM <code>hashchange` event is triggered.</p>
         
         ### Event: 'media-started-playing'
         
-        Emitted when media starts playing.
+        Emittiert wenn ein Media Element anfängt zu spielen.
         
         ### Event: 'media-paused'
         
@@ -809,11 +809,11 @@ are clicked or when the DOM <code>hashchange` event is triggered.</p>
 
 <h3>Event: 'devtools-opened'</h3>
 
-<p>Emitted when DevTools is opened.</p>
+<p>Emittiert wenn die DevTools geöffnet wurden.</p>
 
 <h3>Event: 'devtools-closed'</h3>
 
-<p>Emitted when DevTools is closed.</p>
+<p>Emittiert wenn die DevTools geschlossen wurden.</p>
 
 <h3>Event: 'devtools-focused'</h3>
 

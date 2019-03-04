@@ -16,7 +16,7 @@ let win = new BrowserWindow({ icon: '/Users/somebody/images/window.png' })
 console.log(appIcon, win)
 ```
 
-Or read the image from the clipboard which returns a `NativeImage`:
+Oder lies das Bild aus dem Clipboard welches ein `NativeImage` zurückgibt:
 
 ```javascript
 const { clipboard, Tray } = require('electron')
@@ -25,18 +25,18 @@ const appIcon = new Tray(image)
 console.log(appIcon)
 ```
 
-## Supported Formats
+## Unterstütze Formate
 
 Currently `PNG` and `JPEG` image formats are supported. `PNG` is recommended because of its support for transparency and lossless compression.
 
 On Windows, you can also load `ICO` icons from file paths. For best visual quality it is recommended to include at least the following sizes in the:
 
-* Small icon 
+* Kleines Icon 
  * 16x16 (100% DPI scale)
  * 20x20 (125% DPI scale)
  * 24x24 (150% DPI scale)
  * 32x32 (200% DPI scale)
-* Large icon 
+* Großes Icon 
  * 32x32 (100% DPI scale)
  * 40x40 (125% DPI scale)
  * 48x48 (150% DPI scale)
@@ -45,7 +45,7 @@ On Windows, you can also load `ICO` icons from file paths. For best visual quali
 
 Check the *Size requirements* section in [this article](https://msdn.microsoft.com/en-us/library/windows/desktop/dn742485(v=vs.85).aspx).
 
-## High Resolution Image
+## Hochauflösende Bilder
 
 On platforms that have high-DPI support such as Apple Retina displays, you can append `@2x` after image's base filename to mark it as a high resolution image.
 
@@ -66,7 +66,7 @@ let appIcon = new Tray('/Users/somebody/images/icon.png')
 console.log(appIcon)
 ```
 
-Following suffixes for DPI are also supported:
+Folgende Suffixe für DPI werden auch unterstützt:
 
 * `@1x`
 * `@1.25x`
@@ -80,7 +80,7 @@ Following suffixes for DPI are also supported:
 * `@4x`
 * `@5x`
 
-## Template Image
+## Template Bild
 
 Template images consist of black and an alpha channel. Template images are not intended to be used as standalone images and are usually mixed with other content to create the desired final appearance.
 
@@ -105,7 +105,7 @@ Creates an empty `NativeImage` instance.
 
 ### `nativeImage.createFromPath(path)`
 
-* `path` Zeichenfolge
+* `path` String
 
 Returns `NativeImage`
 
@@ -170,7 +170,7 @@ Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_bu
 
 #### `image.toJPEG(quality)`
 
-* `quality` Integer (**required**) - Between 0 - 100.
+* `quality` Integer (**required**) - Zwischen 0 - 100.
 
 Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `JPEG` encoded data.
 

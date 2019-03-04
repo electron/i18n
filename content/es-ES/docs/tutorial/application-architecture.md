@@ -64,8 +64,8 @@ const fs = require('fs')
 
 const root = fs.readdirSync('/')
 
-// This will print all files at the root-level of the disk,
-// either '/' or 'C:\'.
+// Esto colocará todos los archivos en la raíz de su disco,
+// sea '/' o 'C:\'.
 console.log(root)
 ```
 

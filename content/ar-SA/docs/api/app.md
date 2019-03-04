@@ -351,6 +351,44 @@ Returns:
 
 Emitted when `remote.getGlobal()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
 
+### Event: 'remote-get-builtin'
+
+Returns:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+* `moduleName` String
+
+Emitted when `remote.getBuiltin()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+
+### Event: 'remote-get-current-window'
+
+Returns:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+
+Emitted when `remote.getCurrentWindow()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+
+### Event: 'remote-get-current-web-contents'
+
+Returns:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+
+Emitted when `remote.getCurrentWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+
+### Event: 'remote-get-guest-web-contents'
+
+Returns:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+* `guestWebContents` [WebContents](web-contents.md)
+
+Emitted when `<webview>.getWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+
 ## Methods
 
 The `app` object has the following methods:
@@ -420,7 +458,7 @@ Returns `String` - The current application directory.
 
 ### `app.getPath(name)`
 
-* `name` سلسلة نصية
+* `الإسم`String
 
 Returns `String` - A path to a special directory or file associated with `name`. On failure an `Error` is thrown.
 
@@ -467,7 +505,7 @@ On *Linux* and *macOS*, icons depend on the application associated with file mim
 
 ### `app.setPath(name, path)`
 
-* `name` سلسلة نصية
+* `الإسم`String
 * `path` String
 
 Overrides the `path` to a special directory or file associated with `name`. If the path specifies a directory that does not exist, the directory will be created by this method. On failure an `Error` is thrown.
@@ -488,7 +526,7 @@ Usually the `name` field of `package.json` is a short lowercased name, according
 
 ### `app.setName(name)`
 
-* `name` سلسلة نصية
+* `الإسم`String
 
 Overrides the current application's name.
 

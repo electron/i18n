@@ -52,7 +52,7 @@ La propiedad `role` puede tener los siguientes valores:
 * `delete`
 * `minimize` - Minimizar la venta actual.
 * `close` - Cerrar la ventana actual.
-* `quit` - Quit the application.
+* `quit` - Salir de la aplicación.
 * `reload` - Recargar la ventana actual.
 * `forceReload` - Recargar la ventana actual ignorando la caché.
 * `toggleDevTools` - Alternar herramientas de desarrollador en la ventana actual.

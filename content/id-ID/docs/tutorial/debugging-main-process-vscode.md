@@ -8,7 +8,23 @@ $ git clone git@github.com:electron / $ elektron-cepat-start.git kode elektron-c
 
 ### 2. Tambahkan file ` .vscode / launch.json </ 0> dengan konfigurasi berikut:</h3>
 
-<pre><code class="json">{"versi": "0.2.0", "konfigurasi": [{"nama": "Debug utama proses", "jenis": "node", "permintaan": "peluncuran", "cwd": "${workspaceRoot}", "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron", "windows": {"runtimeExec utable":"${workspaceRoot}/node_modules/.bin/electron.cmd"},"args": [". "]     }   ] }
+<pre><code class="json">{
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "Debug Main Process",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceRoot}",
+      "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron",
+      "windows": {
+        "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron.cmd"
+      },
+      "args" : ["."],
+      "outputCapture": "std"
+    }
+  ]
+}
 `</pre> 
 
 ### 3. Debugging

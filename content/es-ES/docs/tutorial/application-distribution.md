@@ -114,7 +114,7 @@ Creando un fork personalizado de Electron seguramente no es algo que tendrá que
 * Establezca las siguientes variables de entorno:</ol> 
 
 * `ELECTRON_GITHUB_TOKEN` - Un token que puede crear versiones en GitHub
-* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - the place where you'll upload Node.js headers as well as symbols
+* `ELECTRON_S3_ACCESS_KEY`, `ELECTRON_S3_BUCKET`, `ELECTRON_S3_SECRET_KEY` - el lugar donde pondrá las cabeceras Node.js headers tanto como los símbolos
 * `ELECTRON_RELEASE` - Set to `true` and the upload part will run, leave unset and `surf-build` will do CI-type checks, appropriate to run for every pull request.
 * `CI` - Configurar a `true` o algo distinto hará que falle
 * `GITHUB_TOKEN` - configurarlo como `ELECTRON_GITHUB_TOKEN`

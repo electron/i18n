@@ -16,7 +16,7 @@ win.show()
 
 ### macOS 上的其他方案
 
-There's an alternative way to specify a chromeless window. Instead of setting `frame` to `false` which disables both the titlebar and window controls, you may want to have the title bar hidden and your content extend to the full window size, yet still preserve the window controls ("traffic lights") for standard window actions. 您可以通过指定 ` titleBarStyle ` 选项来完成此操作：
+要实现无边框窗口还有其他的方案。 将`frame`设置为`false`会将标题栏和窗口控制按钮全部隐藏，但实际上，你可能希望隐藏标题栏并将内容区域全屏的同时，依旧保留窗口控制按钮("红绿灯")来进行标准窗口操作。 你可以通过指定 ` titleBarStyle ` 选项来完成此操作：
 
 #### `hidden`
 
@@ -40,7 +40,7 @@ win.show()
 
 #### `customButtonsOnHover`
 
-Uses custom drawn close, and miniaturize buttons that display when hovering in the top left of the window. The fullscreen button is not available due to restrictions of frameless windows as they interface with Apple's MacOS window masks. 这些自定义的按钮能防止, 与发生于标准的窗口工具栏按钮处的鼠标事件相关的问题. This option is only applicable for frameless windows.
+使用自定义的关闭、缩小和全屏按钮，这些按钮会在划过窗口的左上角时显示。 The fullscreen button is not available due to restrictions of frameless windows as they interface with Apple's MacOS window masks. 这些自定义的按钮能防止, 与发生于标准的窗口工具栏按钮处的鼠标事件相关的问题. This option is only applicable for frameless windows.
 
 ```javascript
 const { BrowserWindow } = require('electron')

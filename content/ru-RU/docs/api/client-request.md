@@ -101,7 +101,7 @@ Emitted when the `net` module fails to issue a network request. Typically when t
 
 #### Событие: 'close'
 
-Set a custom locale. The `close` event indicates that no more events will be emitted on either the `request` or `response` objects.
+Emitted as the last event in the HTTP request-response transaction. The `close` event indicates that no more events will be emitted on either the `request` or `response` objects.
 
 #### Событие: 'redirect'
 

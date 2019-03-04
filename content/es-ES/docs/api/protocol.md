@@ -15,7 +15,7 @@ app.on('ready', () => {
     const url = request.url.substr(7)
     callback({ path: path.normalize(`${__dirname}/${url}`) })
   }, (error) => {
-    if (error) console.error('Failed to register protocol')
+    if (error) console.error('Falló al registrar protocolo')
   })
 })
 ```
@@ -203,7 +203,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
     data: createStream('<h5>Response</h5>')
   })
 }, (error) => {
-  if (error) console.error('Failed to register protocol')
+  if (error) console.error('Falló al registrar protocolo')
 })
 ```
 

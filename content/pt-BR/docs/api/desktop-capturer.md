@@ -1,13 +1,13 @@
 # desktopCapturer
 
-> Access information about media sources that can be used to capture audio and video from the desktop using the [`navigator.mediaDevices.getUserMedia`] API.
+> Acesse informações sobre fontes de mídia que podem ser usadas para capturar áudio e vídeo da área de trabalho usando a API [`navigator.mediaDevices.getUserMedia`].
 
-Processo: [Renderizador](../glossary.md#renderer-process)
+Processo: [Renderer](../glossary.md#renderer-process)
 
-The following example shows how to capture video from a desktop window whose title is `Electron`:
+O exemplo a seguir mostra como capturar vídeo de uma janela desktop com o título `Electron`:
 
 ```javascript
-// In the renderer process.
+// No processo renderer.
 const { desktopCapturer } = require('electron')
 
 desktopCapturer.getSources({ types: ['window', 'screen'] }, (error, sources) => {
@@ -44,9 +44,9 @@ function handleError (e) {
 }
 ```
 
-To capture video from a source provided by `desktopCapturer` the constraints passed to [`navigator.mediaDevices.getUserMedia`] must include `chromeMediaSource: 'desktop'`, and `audio: false`.
+Para capturar vídeo de uma fonte fornecida por `desktopCapturer` as restrições passado para [`navigator.mediaDevices.getUserMedia`] devem incluir `chromeMediaSource: 'desktop'`, e `áudio: false`.
 
-To capture both audio and video from the entire desktop the constraints passed to [`navigator.mediaDevices.getUserMedia`] must include `chromeMediaSource: 'desktop'`, for both `audio` and `video`, but should not include a `chromeMediaSourceId` constraint.
+Para capturar áudio e vídeo de toda a área de trabalho, as restrições passadas para [`navigator.mediaDevices.getUserMedia`] devem incluir `chromeMediaSource: 'desktop'`, para ambos `áudio` e `vídeo`, mas não devem incluir uma restrição para `chromeMediaSourceId`.
 
 ```javascript
 const constraints = {
@@ -65,17 +65,17 @@ const constraints = {
 
 ## Métodos
 
-The `desktopCapturer` module has the following methods:
+O módulo `desktopCapturer` tem os seguintes métodos:
 
 ### `desktopCapturer.getSources(options, callback)`
 
 * `opções` Object 
-  * `types` String[] - An array of Strings that lists the types of desktop sources to be captured, available types are `screen` and `window`.
-  * `thumbnailSize` [Size](structures/size.md) (optional) - The size that the media source thumbnail should be scaled to. Default is `150` x `150`.
+  * `types` String[] - Um array de Strings que lista os tipos de área de trabalho a serem capturadas, tipos disponíveis são `screen` e `window`.
+  * `thumbnailSize` [Tamanho](structures/size.md) (opcional) - O tamanho que a miniatura da fonte de mídia deve ser dimensionada. O padrão é `150` x `150`.
 * `callback` Function 
   * `error` Error
   * `sources` [DesktopCapturerSource[]](structures/desktop-capturer-source.md)
 
-Starts gathering information about all available desktop media sources, and calls `callback(error, sources)` when finished.
+Inicia a coleta de informações sobre todas as fontes de mídia de desktop disponíveis, e chamadas à `callback(error, sources)` quando concluído.
 
-`sources` is an array of [`DesktopCapturerSource`](structures/desktop-capturer-source.md) objects, each `DesktopCapturerSource` represents a screen or an individual window that can be captured.
+`sources` é um array de objetos [`DesktopCapturerSource`](structures/desktop-capturer-source.md), cada `DesktopCapturerSource` representa uma tela ou uma janela individual que pode ser capturada.

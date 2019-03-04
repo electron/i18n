@@ -1,6 +1,6 @@
 # Build Instructions
 
-Follow the guidelines below for building Electron.
+请遵循以下指南来构建Electron。
 
 ## 平台要求
 

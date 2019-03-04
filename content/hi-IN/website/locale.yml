@@ -12,6 +12,16 @@ nav:
   releases: रिलीज़स
   search: खोजें
   userland: यूजरलैंड
+keyboard_modal:
+  title: कीबोर्ड शोर्टकट्स
+  key: Key
+  action: Action
+  focus_search: Focus the search bar
+  focus_and_clear: Focus the search bar and cleans it
+  scroll_down: Select the next search result
+  scroll_up: Select the previous search result
+  open: Open the selected search result
+  open_new_tab: Open the selected search result in a new tab
 docs:
   title: इलेक्ट्रान दस्तावेज़ीकरण
   description: <a href="/docs/all">एक ही पेज पर सभी दस्तावेज़</a> देखें या फ़िर <a href="/docs/faq">अक्सर पूछे जाने वाले सवाल (FAQ)</a> पढ़ें |

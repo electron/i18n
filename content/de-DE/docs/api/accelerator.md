@@ -1,15 +1,15 @@
-# Tastenkürzel
+# Accelerator
 
 > Definiere Tastenkürzel
 
-Accelerators are Strings that can contain multiple modifiers and a single key code, combined by the `+` character, and are used to define keyboard shortcuts throughout your application.
+Acceleratoren sind String die mehrere Modifikatoren und einzelne Key Codes enthalten können. Diese werden mit einem `+` Zeichen verknüpft und werden dazu verwendet, Tastenkürzel für deine App zu definieren.
 
 Beispiele:
 
-* `[Cmd+A] oder [Ctrl+A]`
-* `[Cmd+Shift+Z] oder [Ctrl+Shift+Z]`
+* `CommandOrControl+A`
+* `CommandOrControl+Shift+Z`
 
-Tastenkürzel werden registriert mit dem [`globalShortcut`](global-shortcut.md) Modul durch die [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) Methode.
+Tastenkürzel werden registriert mit dem [`globalShortcut`](global-shortcut.md) Modul durch die [`register`](global-shortcut.md#globalshortcutregisteraccelerator-callback) Methode, z.B.
 
 ```javascript
 const { app, globalShortcut } = require('electron')
@@ -22,19 +22,19 @@ app.on('ready', () => {
 })
 ```
 
-## Plattformdiversitäten
+## Hinweis zu Betriebssystemen
 
 Unter Linux und Windows hat die `Command` Taste keinen Effekt, weshalb `CommandOrControl` benutzt werden sollte. Es repräsentiert `Command` unter macOS und `Control` unter Linux und Windows um Tastenkürzel zu definieren.
 
-Benutze `Alt` statt `Option`. `Option` existiert nur unter macOS, wohingegen `Alt` auf allen Plattformen verfügbar ist.
+Benutze `Alt` statt `Option`. `Option` existiert nur unter macOS, wohingegen `Alt` in allen Betriebssystemen verfügbar ist.
 
-`Super` ist auf die `Windows` Taste unter Windowsx und Linux gemappt. Unter macOS is es auf `Cmd` gemappt.
+`Super` wird unter Windows und Linux auf die`Windows`-Taste und unter macOS auf die `Cmd` gemappt.
 
 ## Verfügbare Modifikatoren
 
-* `Command` (or `Cmd` for short)
-* `Control` (or `Ctrl` for short)
-* `CommandOrControl` (or `CmdOrCtrl` for short)
+* `Command` (oder kurz `Cmd`)
+* `Control` (oder kurz `Ctrl`)
+* `CommandOrControl` (oder kurz `CmdOrCtrl`)
 * `Alt`
 * `Option`
 * `AltGr`
@@ -48,7 +48,7 @@ Benutze `Alt` statt `Option`. `Option` existiert nur unter macOS, wohingegen `Al
 * `F1` bis `F24`
 * Sonderzeichen wie `~`, `!`, `@`, `#`, `$`, etc.
 * `Plus`
-* `Space`
+* `Space (Leerzeichen)`
 * `Tab`
 * `Backspace`
 * `Delete`

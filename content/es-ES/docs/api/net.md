@@ -29,7 +29,7 @@ app.on('ready', () => {
       console.log(`BODY: ${chunk}`)
     })
     response.on('end', () => {
-      console.log('No more data in response.')
+      console.log('Sin datos en la respuesta.')
     })
   })
   request.end()

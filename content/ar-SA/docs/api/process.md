@@ -2,7 +2,7 @@
 
 > Extensions to process object.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+العملية :  الرئيسية </ 0> ،  العارض </ 1></p> 
 
 Electron's `process` object is extended from the [Node.js `process` object](https://nodejs.org/api/process.html). It adds the following events, properties, and methods:
 

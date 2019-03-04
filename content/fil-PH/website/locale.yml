@@ -12,6 +12,16 @@ nav:
   releases: Paglalabas
   search: Hanapin
   userland: Userland
+keyboard_modal:
+  title: Mga shortcut ng keyboard
+  key: Key
+  action: Action
+  focus_search: Focus the search bar
+  focus_and_clear: Focus the search bar and cleans it
+  scroll_down: Select the next search result
+  scroll_up: Select the previous search result
+  open: Open the selected search result
+  open_new_tab: Open the selected search result in a new tab
 docs:
   title: Dokumentasyon ng Electron
   description: Tingnan ang lahat ng <a href="/docs/all">na mga docs sa isang pahina</a> o tingnan ang  <a href="/docs/faq">FAQ</a>.

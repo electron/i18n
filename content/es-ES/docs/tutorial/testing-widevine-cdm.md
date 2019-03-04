@@ -4,11 +4,11 @@ En Electron usted puede usar la librería de Widevine CDM conectado con el naveg
 
 Widevine Content Decryption Modules (CDMs) are how streaming services protect content using HTML5 video to web browsers without relying on an NPAPI plugin like Flash or Silverlight. Widevine support is an alternative solution for streaming services that currently rely on Silverlight for playback of DRM-protected video content. It will allow websites to show DRM-protected video content in Firefox without the use of NPAPI plugins. The Widevine CDM runs in an open-source CDM sandbox providing better user security than NPAPI plugins.
 
-#### Note on VMP
+#### Nota sobre VMP
 
 As of [`Electron v1.8.0 (Chrome v59)`](https://electronjs.org/releases#1.8.1), the below steps are may only be some of the necessary steps to enable Widevine; any app on or after that version intending to use the Widevine CDM may need to be signed using a license obtained from [Widevine](https://www.widevine.com/) itself.
 
-Per [Widevine](https://www.widevine.com/):
+Por [Widevine](https://www.widevine.com/):
 
 > Chrome 59 (and later) includes support for Verified Media Path (VMP). VMP provides a method to verify the authenticity of a device platform. For browser deployments, this will provide an additional signal to determine if a browser-based implementation is reliable and secure.
 > 

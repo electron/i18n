@@ -2,7 +2,7 @@
 
 > Manage files and URLs using their default applications.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+العملية :  الرئيسية </ 0> ،  العارض </ 1></p> 
 
 The `shell` module provides functions related to desktop integration.
 

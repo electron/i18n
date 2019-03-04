@@ -1,14 +1,14 @@
 # process
 
-> Extensiones al objeto process.
+> Extensiones para el objeto process.
 
 Proceso: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-El objeto en `proceso` de Electron está comprendido entre [Node.js `proceso` objecto](https://nodejs.org/api/process.html). Este agrega los siguientes eventos, propiedades y métodos:
+El objeto `process` de Electron es heredado del [objeto `process` de Node.js](https://nodejs.org/api/process.html). Este agrega los siguientes eventos, propiedades y métodos:
 
 ## Sandbox
 
-In sandboxed renderers the `process` object contains only a subset of the APIs:
+En el procesor renderer en sandbox el objeto `process` sólo contiene un subconjunto de las APIs:
 
 * `crash()`
 * `hang()`
@@ -33,11 +33,11 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 
 ## Eventos
 
-### Evento: "cargado"
+### Evento: 'loaded'
 
-Emitido cuando Electron ha cargado su script de inicialización y está empezando a carga la página web o el script principal.
+Emitido cuando Electron ha cargado su script de inicialización interno y está empezando a carga la página web o el script principal.
 
-Puede ser utilizado por el script de precarga para agregar los símbolos globales eliminados del nodo de nuevo a el alcance cuando la integración de nodos está desactivada:
+Puede ser utilizado por el script de precarga para agregar los símbolos globales eliminados de Node de nuevo al scope global cuando la integración de Node está desactivada:
 
 ```javascript
 // preload.js
@@ -51,35 +51,35 @@ process.once('loaded', () => {
 
 ## Propiedades
 
-### `aplicación.proceso.pordefecto`
+### `process.defaultApp`
 
-Un `Booleano`. Cuando la aplicación empieza siendo pasada como un parámetro a la aplicación por defecto, esta propiedad es `verdad` en el proceso principal, de otra manera está `indefinidad`.
+Un `Boolean`. Cuando la aplicación empieza siendo pasada como un parámetro a la aplicación por defecto, esta propiedad es `true` en el proceso principal, en el caso contrario es `undefined`.
 
-### `procesos.mas`
+### `process.mas`
 
-Un `Booleano`. Para el edificio de la Mac App Store, esta propiedad es `verdad`, para otros edificios está `indefinidad`.
+Un `Boolean`. Para apps hechas para la Mac App Store, esta propiedad es `true`, para otras apps es `undefined`.
 
 ### `proceso.noAsar`
 
-Un `Booleano` que controla el apoyo ASAR dentro de tu aplicación. Ajustando este a `verdad` se deshabilitará el apoyo por parte de archivos `asar` en modulos integrados del nodo.
+Un `Boolean` que controla el soporte de ASAR dentro de tu aplicación. Modificando esta propiedad a `true` se deshabilitará el soporte para archivos de tipo `asar` en los módulos integrados de Node.
 
-### `proceso.noDepreación`
+### `process.noDeprecation`
 
-Un `Boolean` que controla si las advertencias de desaprobación se imprimen o no a `stderr`. Establecer esto en `true` silenciará las advertencias de obsolescencia. Esta propiedad es usada en lugar de la linea de comando `--no-degradación`.
+Un `Boolean` que controla si las advertencias de deprecación se imprimen o no a `stderr`. Modificar esta propiedad a `true` silenciará las advertencias de depreciación. Esta propiedad es usada en lugar de la linea de comando `--no-deprecation`.
 
-### `proceso.Rutaderecursos`
+### `process.resourcesPath`
 
-Una `cadena` que representa la ruta de acceso al directorio de recursos.
+Un `string` que representa la ruta de acceso al directorio de recursos.
 
 ### `process.sandboxed`
 
-A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
+Un `Boolean`. Cuando el proceso de renderer se ejecuta en modo sandbox esta propiedad es `true`, de lo contrario es `undefined`.
 
-### `proceso.desechoDegradación`
+### `process.throwDeprecation`
 
-Un `Booleano` que controla si las advertencias de degradación son consideradas como excepción. Ajustando este como `verdad` se producirán errores por degradación. Esta propiedad es usada en vez de la linea de comando `--throw-deprecation`.
+Un `Boolean` que controla si las advertencias de depreciación serán lanzadas como excepciones. Modificar esta propiedad a `true` lanzará errores para las depreciaciones. Esta propiedad es usada en vez de la linea de comando `--throw-deprecation`.
 
-### `proceso.ubicarDegradación`
+### `process.traceDeprecation`
 
 Un `Booleano` que controla si las degradaciones son enviadas a `stderr` incluyen su proceso de ubicación. Ajustando este como `true` se enviarán ubicaciones de pila por degradaciones. Esta propiedad es en vez de la linea de comando `--trace-deprecation`.
 
@@ -166,7 +166,7 @@ Devuelve un objeto que contiene las estadísticas de la memoria usada por el sis
 
 ### `process.takeHeapSnapshot(filePath)`
 
-* `filePath` String - Path to the output file.
+* `filePath` String - Ruta al archivo de salida.
 
 Returns `Boolean` - Indicates whether the snapshot has been created successfully.
 

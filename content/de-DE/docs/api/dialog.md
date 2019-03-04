@@ -1,6 +1,6 @@
 # dialog
 
-> Display native system dialogs for opening and saving files, alerting, etc.
+> Für das Anzeigen von nativen Systemdialogen beim öffnen und speichern von Dateien, Warnungen, etc.
 
 Prozess: [Haupt](../glossary.md#main-process)
 
@@ -20,7 +20,7 @@ console.log(dialog)
 
 ## Methoden
 
-The `dialog` module has the following methods:
+Das `dialog` module hat die folgenden Methoden:
 
 ### `dialog.showOpenDialog([browserWindow, ]options[, callback])`
 
@@ -28,14 +28,14 @@ The `dialog` module has the following methods:
 * `options` Object 
   * `title` String (optional)
   * `defaultPath` String (optional)
-  * `buttonLabel` String (optional) - Custom label for the confirmation button, when left empty the default label will be used.
+  * `buttonLabel` String (optional) - Custom label für den Bestätigen-Button. Wenn leer gelassen, dann wird das default label verwendet.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
-  * `properties` String[] (optional) - Contains which features the dialog should use. The following values are supported: 
-    * `openFile` - Allow files to be selected.
-    * `openDirectory` - Allow directories to be selected.
-    * `multiSelections` - Allow multiple paths to be selected.
-    * `showHiddenFiles` - Show hidden files in dialog.
-    * `createDirectory` *macOS* - Allow creating new directories from dialog.
+  * `properties` String[] (optional) - Enthält welche Features der Dialog verwenden soll. Die folgenden Werte sind erlaubt: 
+    * `openFile` - Erlaubt die Auswahl von Dateien.
+    * `openDirectory` - Erlaubt die Auswahl von Verzeichnissen.
+    * `multiSelections` - Erlaubt die Auswahl mehrerer Pfade.
+    * `showHiddenFiles` - Zeige versteckte Dateien im Dialog.
+    * `createDirectory` *macOS* - Erlaube das Erstellen neuer Verzeichnisse im Dialog.
     * `promptToCreate` *Windows* - Prompt for creation if the file path entered in the dialog does not exist. This does not actually create the file at the path but allows non-existent paths to be returned that should be created by the application.
     * `noResolveAliases` *macOS* - Disable the automatic alias (symlink) path resolution. Selected aliases will now return the alias path instead of their target path.
     * `treatPackageAsDirectory` *macOS* - Treat packages, such as `.app` folders, as a directory instead of a file.
@@ -45,7 +45,7 @@ The `dialog` module has the following methods:
   * `filePaths` String[] - An array of file paths chosen by the user
   * `bookmarks` String[] *macOS* *mas* - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` must be enabled for this to be populated.
 
-Returns `String[]`, an array of file paths chosen by the user, if the callback is provided it returns `undefined`.
+Returns `String[] | undefined`, an array of file paths chosen by the user, if the callback is provided it returns `undefined`.
 
 The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
 
@@ -74,7 +74,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
 * `options` Object 
   * `title` String (optional)
   * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
-  * `buttonLabel` String (optional) - Custom label for the confirmation button, when left empty the default label will be used.
+  * `buttonLabel` String (optional) - Custom label für den Bestätigen-Button. Wenn leer gelassen, dann wird das default label verwendet.
   * `filters` [FileFilter[]](structures/file-filter.md) (optional)
   * `message` String (optional) *macOS* - Message to display above text fields.
   * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
@@ -84,7 +84,7 @@ If a `callback` is passed, the API call will be asynchronous and the result will
   * `filename` String
   * `bookmark` String *macOS* *mas* - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present.
 
-Returns `String`, the path of the file chosen by the user, if a callback is provided it returns `undefined`.
+Returns `String | undefined`, the path of the file chosen by the user, if a callback is provided or the dialog is cancelled it returns `undefined`.
 
 The `browserWindow` argument allows the dialog to attach itself to a parent window, making it modal.
 

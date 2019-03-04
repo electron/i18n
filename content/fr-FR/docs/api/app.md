@@ -331,7 +331,7 @@ Cet évènement sera émis dans la première instance de votre votre application
 
 Cet évènement est garanti d'être émis après que l'évènement `ready` de `app` soit émis.
 
-### Évènement : 'remote-require'
+### Événement : 'remote-require'
 
 Retourne :
 
@@ -351,6 +351,44 @@ Retourne :
 
 Émis lorsque `remote.getGlobal()` est appelé dans le processus de rendu de `webContents`. Appeler `event.preventDefault()` empêchera le module d'être retourné. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
 
+### Événement : 'remote-get-builtin'
+
+Retourne :
+
+* `event` Événement
+* `webContents` [WebContents](web-contents.md)
+* `module` String
+
+Émis lorsque `remote.getBuiltin()` est appelé dans le processus de rendu de `webContents`. Appeler `event.preventDefault()` empêchera le module d'être retourné. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
+
+### Événement : 'remote-get-current-window'
+
+Retourne :
+
+* `event` Événement
+* `webContents` [WebContents](web-contents.md)
+
+Émis lorsque `remote.getCurrentWindow()` est appelé dans le processus de rendu de `webContents`. Appeler `event.preventDefault()` empêchera l'objet d'être renvoyé. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
+
+### Événement : 'remote-get-current-web-contents'
+
+Retourne :
+
+* `event` Événement
+* `webContents` [WebContents](web-contents.md)
+
+Émis lorsque `remote.getCurrentWebContents()` est appelé dans le processus de rendu de `webContents`. Appeler `event.preventDefault()` empêchera l'objet d'être renvoyé. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
+
+### Événement : 'remote-get-guest-web-contents'
+
+Retourne :
+
+* `event` Événement
+* `webContents` [WebContents](web-contents.md)
+* `guestWebContents` [WebContents](web-contents.md)
+
+Émis lorsque `<webview>.getWebContents()` est appelé dans le processus de rendu de `webContents`. Appeler `event.preventDefault()` empêchera l'objet d'être renvoyé. Des valeurs personnalisées peuvent être retournées en définissant `event.returnValue`.
+
 ## Méthodes
 
 L'objet `app` dispose des méthodes suivantes :
@@ -359,7 +397,7 @@ L'objet `app` dispose des méthodes suivantes :
 
 ### `app.quit()`
 
-Essaye de fermer toutes les fenêtres. L’événement `before-quit` sera émis d’abord. Si toutes les fenêtres sont fermées avec succès, l’événement `will-quit` sera émis et éteindra l’application.
+Essayez de fermer toutes les fenêtres. L’événement `before-quit` sera émis d’abord. Si toutes les fenêtres sont fermées avec succès, l’événement `will-quit` sera émis et mettra fin à l’application par défaut.
 
 Cette méthode garantit que tous les écouteurs d’événements de `beforeunload` et `unload` seront correctement exécutées. Il est possible qu’une fenêtre annule la fermeture en retournant `false` dans l'écouteur d’événement `beforeunload`.
 
@@ -397,7 +435,7 @@ Retourne `Boolean` - `true` si Electron a fini de s'initialiser, `false` sinon.
 
 ### `app.whenReady()`
 
-Returns `Promise&lt;void&gt;` - Remplie quand Electron est initialisé. May be used as a convenient alternative to checking `app.isReady()` and subscribing to the `ready` event if the app is not ready yet.
+Returns `Promise&lt;void&gt;` - Remplie quand Electron est initialisé. Peut astucieusement remplacer la vérification de `app.isReady()` et l'abonnement à l'événement `ready` si l'application n'est pas encore prête.
 
 ### `app.focus()`
 
@@ -648,15 +686,15 @@ app.setJumpList([
 ])
 ```
 
-### `app.requestSingleInstanceLock()`
+### `app.request SingleInstanceLock()`
 
 Retourne `Boolean`
 
 Cette méthode fait de votre application une Application à Instance Unique : au lieu d'autoriser plusieurs instances parallèles de votre application, cela permet de s'assurer qu'une seule est active, et les autres instances envoient un signal à celle-ci puis se terminent.
 
-The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock you can assume that another instance of your application is already running with the lock and exit immediately.
+La valeur renvoyée par cette méthode indique si cette instance de votre application a obtenu le verrou ou non. Si elle n'a pas réussi à obtenir le verrou, une autre instance de votre application doit déjà l'utiliser ; il serait préférable de sortir immédiatement.
 
-I.e. This method returns `true` if your process is the primary instance of your application and your app should continue loading. It returns `false` if your process should immediately quit as it has sent its parameters to another instance that has already acquired the lock.
+Par exemple : cette méthode renvoie `true` si votre process est l'instance principale de votre application, et votre application doit continuer de charger. Elle renvoie `false` si votre process devrait quitter immédiatement, puisqu'il a envoyé ses paramètres à une instance qui possède déjà le verrou.
 
 Sur macOS, dans Finder, le système impose automatiquement l'unicité de l'instance de votre application lorsqu'un utilisateur tente d'en ouvrir une deuxième, et les événements `open-file` et `open-url` sont ainsi émis. Cependant, quand l'utilisateur démarre votre application en ligne de commandes, le mécanisme d'unicité d'instance est contourné et vous devez alors utiliser cette méthode pour l'imposer.
 
@@ -672,14 +710,14 @@ if (!gotTheLock) {
   app.quit()
 } else {
   app.on('second-instance', (event, commandLine, workingDirectory) => {
-    // Someone tried to run a second instance, we should focus our window.
+    // Quelqu'un a tenté d'exécuter une seconde instance. Nous devrions focus la fenêtre.
     if (myWindow) {
       if (myWindow.isMinimized()) myWindow.restore()
       myWindow.focus()
     }
   })
 
-  // Create myWindow, load the rest of the app, etc...
+  // Créer myWindow, charger le reste de l'app, etc...
   app.on('ready', () => {
   })
 }
@@ -689,11 +727,11 @@ if (!gotTheLock) {
 
 Retourne `Boolean`
 
-This method returns whether or not this instance of your app is currently holding the single instance lock. You can request the lock with `app.requestSingleInstanceLock()` and release with `app.releaseSingleInstanceLock()`
+Cette méthode retourne un booléen indiquant si cette instance de votre application détient actuellement le verrou d'instance unique. Vous pouvez demander le verrou avec `app.requestSingleInstanceLock()` et le débloquer avec `app.releaseSingleInstanceLock()`
 
 ### `app.releaseSingleInstanceLock()`
 
-Releases all locks that were created by `requestSingleInstanceLock`. This will allow multiple instances of the application to once again run side by side.
+Libère tous les verrous qui ont été créés par `requestSingleInstanceLock`. Cela permettra à plusieurs instances de l'application de s'exécuter en même temps.
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
@@ -734,7 +772,7 @@ Change le [Application User Model ID](https://msdn.microsoft.com/en-us/library/w
 * `callback` Function 
   * `result` Integer - Résultat de l'importation.
 
-Importe le certificat au format pkcs12 dans l'entrepôt de certificats de la plateforme. `callback` is called with the `result` of import operation, a value of `0` indicates success while any other value indicates failure according to Chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Importe le certificat au format pkcs12 dans l'entrepôt de certificats de la plateforme. `callback` est appelé avec le retour `result` de l'opération d'import, une valeur `0` indique un succès alors que toute autre valeur signale un problème, telle que décrite par la [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) de Chromium.
 
 ### `app.disableHardwareAcceleration()`
 
@@ -758,13 +796,13 @@ Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - L'état des fon
 
 ### `app.getGPUInfo(infoType)`
 
-* `infoType` String - Values can be either `basic` for basic info or `complete` for complete info.
+* `infoType` String - Peut prendre la valeur `basic` pour des infos basiques ou `complete` pour avoir toutes les informations.
 
-Returns `Promise`
+Retourne `Promise`
 
-For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src.git/+/69.0.3497.106/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
+Si `infoType` vaut `complete` : La Promise est remplie avec `Object` contenant toutes les informations sur le GPU, comme pour [l'objet GPUInfo de Chromium](https://chromium.googlesource.com/chromium/src.git/+/69.0.3497.106/gpu/config/gpu_info.cc). Cela inclut les informations de version et driver montrées sur la page `chrome://gpu`.
 
-For `infoType` equal to `basic`: Promise is fulfilled with `Object` containing fewer attributes than when requested with `complete`. Here's an example of basic response:
+Si `infoType` vaut `basic` : La Promise est remplie avec `Object` contenant moins d'attributs que si l'on utilise `complete`. Voilà un exemple de réponse basique :
 
 ```js
 { auxAttributes:
@@ -789,7 +827,7 @@ machineModelName: 'MacBookPro',
 machineModelVersion: '11.5' }
 ```
 
-Using `basic` should be preferred if only basic information like `vendorId` or `driverId` is needed.
+`basic` devrait être priorisé si vous n'avez besoin que d'informations basiques telles que `vendorId` ou `driverId`.
 
 ### `app.setBadgeCount(count)` *Linux* *macOS*
 
@@ -801,7 +839,7 @@ Définit le badge du compteur pour l'application courante. Régler le compte à 
 
 Sous macOS, il apparaît sur l'icône du dock. Sous Linux, il ne fonctionne que pour le launcher Unity.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+**Note :** le launcher Unity requiert la présence d'un fichier `.desktop` pour fonctionner, pour de plus amples informations, lisez le document [Intégration de l'environnement de bureau](../tutorial/desktop-environment-integration.md#unity-launcher).
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
@@ -831,7 +869,7 @@ Retourne `Object`:
 
 * `settings` Objet 
   * `openAtLogin` Boolean (facultatif) - `true` pour ouvrir l'application à l'ouverture de session, `false` pour retirer l'application de la liste des programmes démarrés à l'ouverture de session. `false` par défaut.
-  * `openAsHidden` Boolean (facultatif) *macOS* - `true` pour ouvrir l’application comme cachée. `false` par défaut. The user can edit this setting from the System Preferences so `app.getLoginItemSettings().wasOpenedAsHidden` should be checked when the app is opened to know the current value. Ce paramètre n'est pas disponible sur les [MAS builds](../tutorial/mac-app-store-submission-guide.md).
+  * `openAsHidden` Boolean (facultatif) *macOS* - `true` pour ouvrir l’application comme cachée. `false` par défaut. L'utilisateur peut éditer ce paramètre depuis les Préférences Système, alors `app.getLoginItemSettings().wasOpenedAsHidden` va être vérifié lorsque l'app sera ouverte pour connaître la valeur actuelle. Ce paramètre n'est pas disponible sur les [MAS builds](../tutorial/mac-app-store-submission-guide.md).
   * `path` String (optional) *Windows* - L'exécutable à lancer à l'ouverture de session. `process.execPath` par défaut.
   * `args` String[] (facultatif) *Windows* - Les arguments de la ligne de commandes à passer à l'exécutable. Un tableau vide par défaut. Veillez à protéger les chemins par des guillemets.
 
@@ -862,15 +900,15 @@ Retourne `Boolean` - `true` si le support des fonctionnalités d'accessibilité 
 
 * `enabled` Boolean - Active ou désactive le rendu de [l'arbre d'accessibilité](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)
 
-Active manuellement le support de l'accessibilité de Chrome, permettant de mettre à disposition des utilisateurs les commutateurs d'accessibilité dans les paramètres de l'application. See [Chromium's accessibility docs](https://www.chromium.org/developers/design-documents/accessibility) for more details. Désactivé par défaut.
+Active manuellement le support de l'accessibilité de Chrome, permettant de mettre à disposition des utilisateurs les commutateurs d'accessibilité dans les paramètres de l'application. Consultez les [documents d'accessibilité de Chromium](https://www.chromium.org/developers/design-documents/accessibility) pour plus de détails. Désactivé par défaut.
 
-This API must be called after the `ready` event is emitted.
+Cette API doit être appelée après l'émission de l'événement `ready` .
 
 **Note:** Le rendu de l'arbre d'accessibilité peut affecter de manière significative les performances de votre application. Il ne devrait pas être activé par défaut.
 
 ### `app.showAboutPanel()` *macOS*
 
-Show the about panel with the values defined in the app's `.plist` file or with the options set via `app.setAboutPanelOptions(options)`.
+Montre le panneau "A propos de" avec les valeurs définies dans le fichier `.plist` de l'appli ou via les options définies par `app.setAboutPanelOptions(options)`.
 
 ### `app.setAboutPanelOptions(options)` *macOS*
 
@@ -885,12 +923,12 @@ Configure les options de la fenêtre À propos de. Cela surchargera les valeurs 
 
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS*
 
-* `bookmarkData` String - The base64 encoded security scoped bookmark data returned by the `dialog.showOpenDialog` or `dialog.showSaveDialog` methods.
+* `bookmarkData` String - Les données de marque-page encodées en base64 renvoyées par les méthodes `dialog.showOpenDialog` où `dialog.showSaveDialog`.
 
-Returns `Function` - This function **must** be called once you have finished accessing the security scoped file. If you do not remember to stop accessing the bookmark, [kernel resources will be leaked](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) and your app will lose its ability to reach outside the sandbox completely, until your app is restarted.
+Retourne `Fonction` - Cette fonction **doit** être appelée une fois que vous avez fini d'accéder au fichier de sécurité utilisé. If you do not remember to stop accessing the bookmark, [kernel resources will be leaked](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) and your app will lose its ability to reach outside the sandbox completely, until your app is restarted.
 
 ```js
-// Start accessing the file.
+// Commence à accéder au fichier.
 const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
 // You can now access the file outside of the sandbox 
 stopAccessingSecurityScopedResource()
@@ -911,33 +949,33 @@ Append a switch (with optional `value`) to Chromium's command line.
 
 * `value` String - L'argument à ajouter à la ligne de commande
 
-Append an argument to Chromium's command line. The argument will be quoted correctly.
+Ajoute un argument à la ligne de commande Chromium. La syntaxe de l'argument aura les bons guillemets.
 
 **Note:** Ceci n'affecte pas `process.argv`.
 
 ### `app.enableSandbox()` *Experimental* *macOS* *Windows*
 
-Enables full sandbox mode on the app.
+Active le mode "full sandbox" dans l'application.
 
 Cette méthode peut seulement être appelée avant que app soit prêt.
 
 ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
 
-Enables mixed sandbox mode on the app.
+Active le mode "mixed sandbox" dans l'application.
 
 Cette méthode peut seulement être appelée avant que app soit prêt.
 
 ### `app.isInApplicationsFolder()` *macOS*
 
-Returns `Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`
+Renvoie un `Boolean` - Vérifie si l'application est actuellement exécutée depuis le dossier Application du système. A utiliser avec `app.moveToApplicationsFolder()`
 
 ### `app.moveToApplicationsFolder()` *macOS*
 
-Returns `Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.
+Renvoie un `Boolean` - Indiquant si le déplacement a fonctionné ou non. Veuillez noter que si le déplacement fonctionne, votre application redémarrera.
 
-No confirmation dialog will be presented by default, if you wish to allow the user to confirm the operation you may do so using the [`dialog`](dialog.md) API.
+Aucun dialogue de confirmation n'est présenté par défaut. Si vous souhaitez laisser à l'utilisateur la possibilité de confirmer cette opération, vous pouvez utiliser l'API [`dialog`](dialog.md).
 
-**NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog this method returns false. If we fail to perform the copy then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
+**NOTE:** Cette méthode renvoie des erreurs si quelque chose d'autre qu'une erreur utilisateur fait échouer le déplacement. Par exemple, si l'utilisateur annule le dialogue d'autorisation, cette méthode renvoie false. Si nous échouons à effectuer la copie, alors cette méthode renverra une erreur. Le message contenu dans l'erreur devrait être suffisamment informatif pour que vous puissiez déterminer précisément quel est le problème
 
 ### `app.dock.bounce([type])` *macOS*
 

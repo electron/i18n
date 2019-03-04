@@ -4,7 +4,7 @@ El desarrollo Electron es esencialmente un desarrollo Node.js. Para convertir su
 
 ## Configurar macOS
 
-> Electron supports macOS 10.10 (Yosemite) and up. Apple no permite la ejecución de macOS en máquinas virtuales a menos que la máquina anfitrión sea un ordenador Apple, así que si necesita un Mac, considere el uso de un servicio de alquiler de acceso a Macs (como [MacInCloud](https://www.macincloud.com/) o [xcloud](https://xcloud.me)).
+> Electron es compatible con macOS 10.10 (Yosemite) y posteriores. Apple no permite la ejecución de macOS en máquinas virtuales a menos que la máquina anfitrión sea un ordenador Apple, así que si necesita un Mac, considere el uso de un servicio de alquiler de acceso a Macs (como [MacInCloud](https://www.macincloud.com/) o [xcloud](https://xcloud.me)).
 
 Lo primero, instale una versión reciente de Node.js. Recomendamos que instale bien la `LTS` más actual, bien la `Current` versión disponible. Visite [ la página de descargas de Node.js](https://nodejs.org/en/download/) y seleccione el `instalador para macOS`. Aunque Homebrew es una opción, no la recomendamos - muchas herramientas son incompatibles con la manera en la que Homebrew instala Node.js.
 
@@ -60,8 +60,8 @@ npm -v
 
 If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
 
-## A Good Editor
+## Un buen editor
 
-We might suggest two free popular editors built in Electron: GitHub's [Atom](https://atom.io/) and Microsoft's [Visual Studio Code](https://code.visualstudio.com/). Both of them have excellent JavaScript support.
+We might suggest two free popular editors built in Electron: GitHub's [Atom](https://atom.io/) and Microsoft's [Visual Studio Code](https://code.visualstudio.com/). Ambos poseen un excelente soporte de Javascript.
 
 If you are one of the many developers with a strong preference, know that virtually all code editors and IDEs these days support JavaScript.

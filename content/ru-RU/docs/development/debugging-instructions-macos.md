@@ -28,7 +28,7 @@ Let's assume that you want to debug `app.setName()`, which is defined in `browse
 
 ```sh
 (lldb) breakpoint set --file browser.cc --line 117
-Breakpoint 1: where = Electron Framework`atom::Browser::SetName(std::__1::basic_string&lt;char, std::__1::char_traits&lt;char&gt;, std::__1::allocator&lt;char&gt; > const&) + 20 at browser.cc:118, address = 0x000000000015fdb4
+Breakpoint 1: where = Electron Framework`atom::Browser::SetName(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) + 20 at browser.cc:118, address = 0x000000000015fdb4
 ```
 
 Then, start Electron:

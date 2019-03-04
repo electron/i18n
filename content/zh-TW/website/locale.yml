@@ -12,6 +12,16 @@ nav:
   releases: 版本發佈
   search: 搜尋
   userland: 使用者園地
+keyboard_modal:
+  title: 鍵盤快速鍵
+  key: Key
+  action: Action
+  focus_search: Focus the search bar
+  focus_and_clear: Focus the search bar and cleans it
+  scroll_down: Select the next search result
+  scroll_up: Select the previous search result
+  open: Open the selected search result
+  open_new_tab: Open the selected search result in a new tab
 docs:
   title: Electron 文件
   description: 也可以一次<a href="/docs/all">單頁顯示所有文件</a>，或到<a href="/docs/faq">常見問題集</a>看看。
@@ -26,20 +36,20 @@ docs:
     view_all_docs: 單頁顯示所有文件
 languages:
   choose_language: 選擇網站語言
-  view_more_details: View More Language Details
+  view_more_details: 查看更多語言細節
   translation_progress: 翻譯進度
   current: 目前選的
 community:
   title: Electron 社群
   description: 與其他 Electron 開發人員交流互動的相關資源。
   channels:
-    get_started: "<a href='/docs/tutorial/first-app'><b>Get started</b></a> building an app by reading the <a href='/docs/tutorial/first-app'>quick-start guide</a>."
-    updates: "<a href='https://twitter.com/electronjs'><b>Stay up to date</b></a> by following <a href='https://twitter.com/electronjs'>@electronjs</a> on Twitter and subscribing to the <a href='/blog'>blog feed</a>."
+    get_started: "<a href='/docs/tutorial/first-app'><b>開始使用</b></a> Electron 建立 <a href='/docs/tutorial/first-app'>Quick Start 快速入門導引</a> 應用程式。"
+    updates: "追蹤 Twitter 上的 <a href='https://twitter.com/electronjs'>@electronjs</a> 並訂閱 <a href='/blog'>Blog 摘要</a>以便<a href='https://twitter.com/electronjs'><b>了解最新消息</b></a>。"
     localized_docs: "拜訪 <a href='/languages'>語言頁</a>，<a href='/languages'><b>用你的母語閱讀文件</b></a>。"
-    help: "透過加入<a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, 傳送<a href='https://discuss.atom.io/c/electron'>Discuss /a>, 或者到訪<a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>來<a href='http://atom-slack.herokuapp.com' ><b>獲取幫助和反饋</b></a>。"
+    help: "加入<a href='http://atom-slack.herokuapp.com'>atomio Slack</a>，在 <a href='https://discuss.atom.io/c/electron'>Discuss</a> 貼文或是拜訪 <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a> 可以<a href='http://atom-slack.herokuapp.com' ><b>得到幫忙與回饋</b></a>。"
     bugs: "在<a href='https://github.com/electron/electron/issues'>electron/electron</a>儲存庫中開啟 issue 以<a href='https://github.com/electron/electron/issues'><b>回報 bug</b></a>。"
-    feature_requests: "通過在<a href='https://github.com/electron/electron/issues'>electron/electron</a>代碼庫提交報告來<a href='https://github.com/electron/electron /issues'><b>提交功能申請</b></a>"
-    code_of_conduct: "發送郵件到<a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>來<a href='mailto:coc@electronjs.org'><b>報告程式碼衝突</b ></a>"
+    feature_requests: "在<a href='https://github.com/electron/electron/issues'>electron/electron</a>儲存庫中開啟 issue 來<a href='https://github.com/electron/electron/issues'><b>請求新增功能</b></a>。"
+    code_of_conduct: "寄電子郵件到 <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a> 可以回報<a href='mailto:coc@electronjs.org'><b>違反行為準則的行為</b></a>。"
     security: "寄電子郵件到 <a href='mailto:security@electronjs.org'>security@electronjs.org</a> <a href='mailto:security@electronjs.org'><b>揭露資安問題</b></a>。"
     donations: "透過 <a href='/donors'>OpenCollective</a> <a href='donors'><b>贊助我們</b></a>。"
     other: "其他問題請寄信至 <a href='mailto:info@electronjs.org'>info@electronjs.org</a>。"
@@ -54,20 +64,20 @@ community:
   awesome_notice: 這份清單是由 <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus 的 Awesome Electron</a> 儲存庫自動產生的。<br> 發現少了什麼嗎? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">發個 Pull Request</a> 吧。
   meetup_notice: 如果要增加聚會，改好 <code>data/meetups.json</code> 後<a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">發個 Pull Request</a>。
 releases:
-  show_releases: "Show Releases:"
-  show_only_releases_from: "Show Only Releases From:"
-  all_versions: All Versions
-  stable_releases: Stable Releases
-  stable_desc: Regular, supported releases
-  beta_releases: Beta Releases
-  beta_desc: Test your app with upcoming changes
-  nightly_releases: Nightly Releases
-  nightly_desc: Experiment with the latest features
-  next: Next
-  next_page: Next Page
-  previous: Previous
-  previous_page: Previous Page
-  page: Page
+  show_releases: "顯示發行版本:"
+  show_only_releases_from: "只顯示指定版號的版本:"
+  all_versions: 所有版本
+  stable_releases: 穩定版本
+  stable_desc: 一般且受支援的版本
+  beta_releases: Beta 版本
+  beta_desc: 用即將到來的異動測試您的應用程式
+  nightly_releases: 每日建置版
+  nightly_desc: 體驗最新的功能
+  next: 下一頁
+  next_page: 下一頁
+  previous: 上一頁
+  previous_page: 上一頁
+  page: 頁
   all_releases: 所有發行版本
   back_to_index: 回到索引
 electron_is_easy:
@@ -122,9 +132,9 @@ apps:
   submit_your_own: 提交您自己的
   something_missing: 少了什麼嗎?
   edit_this_app: 編輯這個應用程式。
-  search_app: Filter apps by name, description, etc…
+  search_app: 依名稱、描述…篩選應用程式
   categories: 類別
-  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
+  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">建立 Pull Request</a> 加入您的應用程式。'
   website: 網站
   repository: 儲存庫
   category: 類別
@@ -186,20 +196,20 @@ pages:
     description: Spectron 是能讓你輕鬆寫出 Electron 整合測試案例的開放原始碼框架。架構在 ChromeDriver 及 WebDriverIO 之上。
   '/fiddle':
     title: Electron Fiddle
-    description: The easiest way to get started with Electron
+    description: 開始使用 Electron 的最簡單途徑
   '/donors':
     title: 贊助者
 landing:
   get_started: 開始使用
   fiddle:
-    lead_desc: The easiest way to get started with Electron
-    create_app: Create your app
+    lead_desc: 開始使用 Electron 的最簡單途徑
+    create_app: 建立您的應用程式
     description: Electron Fiddle lets you create and play with small Electron experiments. It greets you with a quick-start template after opening – change a few things, choose the version of Electron you want to run it with, and play around. Then, save your Fiddle either as a GitHub Gist or to a local folder. Once pushed to GitHub, anyone can quickly try your Fiddle out by just entering it in the address bar.
-    explore: Explore Electron
+    explore: 探索 Electron
     explore_desc: "Try Electron without installing any dependencies: Fiddle includes everything you'll need to explore the platform. It also includes examples for every API available in Electron, so if you want to quickly see what a BrowserView is or how the desktopCapturer works, Fiddle has got you covered."
     code_with_types: Code with Types
     code_with_types_desc: Fiddle includes Microsoft's excellent Monaco Editor, the same editor powering Visual Studio Code. It also installs the type definitions for the currently selected version of Electron automatically, ensuring that you always have all Electron APIs only a few keystrokes away.
-    compile_and_package: Compile and Package
+    compile_and_package: 編譯與打包
     compile_and_package_desc: Fiddle can automatically turn your experiment into binaries you can share with your friends, coworkers, or grandparents. It does so thanks to <a href="https://electronforge.io/">electron-forge</a>, allowing you to package your fiddle as an app for Windows, macOS, or Linux.
     easy_start: Start with Fiddle, Continue Wherever
     easy_start_desc: Fiddle is not an IDE – it is however an excellent starting point. Once your fiddle has grown up, export it as a project with or without <a href="https://electronforge.io/">electron-forge</a>. Then, use your favorite editor and take on the world!

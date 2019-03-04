@@ -16,11 +16,21 @@ Web开发人员通常享有浏览器强大的网络安全特性，而自己的�
 
 我们认为，我们当前的更新 Chromium 组件的系统在我们可用的资源和构建在框架之上的大多数应用程序的需求之间取得了适当的平衡。 我们绝对有兴趣听听更多关于在 Electron 上构建事物的人的具体用例。 非常欢迎提出请求并且捐助支持我们的努力。
 
-## 除了以上建议
+## Security Is Everyone's Responsibility
 
-每当您从远程目标收到代码并在本地执行它时，就会存在安全问题。 例如在[`BrowserWindow`](../api/browser-window.md)中显示一个远程网站. 如果攻击者有办法改变网站的内容(可能是直接攻击来源，也可能是作为你的应用和真实服务器的中间人)，他们就可以在用户的机器上执行原生代码。
+It is important to remember that the security of your Electron application is the result of the overall security of the framework foundation (*Chromium*, *Node.js*), Electron itself, all NPM dependencies and your code. As such, it is your responsibility to follow a few important best practices:
 
-> :warning:无论如何，在启用Node.js集成的情况下，你都不该加载并执行远程代码。 相反，只使用本地文件（和您的应用打包在一起）来执行Node.js代码 要显示远程内容，请使用 [`<webview>`](../api/webview-tag.md) 标签并确保禁用了 `nodeIntegration `。
+* **Keep your application up-to-date with the latest Electron framework release.** When releasing your product, you’re also shipping a bundle composed of Electron, Chromium shared library and Node.js. Vulnerabilities affecting these components may impact the security of your application. By updating Electron to the latest version, you ensure that critical vulnerabilities (such as *nodeIntegration bypasses*) are already patched and cannot be exploited in your application.
+
+* **Evaluate your dependencies.** While NPM provides half a million reusable packages, it is your responsibility to choose trusted 3rd-party libraries. If you use outdated libraries affected by known vulnerabilities or rely on poorly maintained code, your application security could be in jeopardy.
+
+* **Adopt secure coding practices.** The first line of defense for your application is your own code. Common web vulnerabilities, such as Cross-Site Scripting (XSS), have a higher security impact on Electron applications hence it is highly recommended to adopt secure software development best practices and perform security testing.
+
+## Isolation For Untrusted Content
+
+A security issue exists whenever you receive code from an untrusted source (e.g. a remote server) and execute it locally. As an example, consider a remote website being displayed inside a default [`BrowserWindow`](../api/browser-window.md). If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
+
+> :warning:无论如何，在启用Node.js集成的情况下，你都不该加载并执行远程代码。 相反，只使用本地文件（和您的应用打包在一起）来执行Node.js代码 To display remote content, use the [`<webview>`](../api/webview-tag.md) tag or [`BrowserView`](../api/browser-view.md), make sure to disable the `nodeIntegration` and enable `contextIsolation`.
 
 ## Electron 安全警告
 
@@ -30,7 +40,7 @@ Web开发人员通常享有浏览器强大的网络安全特性，而自己的�
 
 ## 清单：安全建议
 
-这并不能完美的防御黑客的攻击，但至少，你应该遵循以下步骤来提升项目的安全性
+You should at least follow these steps to improve the security of your application:
 
 1. [只加载安全的内容](#1-only-load-secure-content)
 2. [禁止在所有渲染器中使用Node.js集成显示远程内容](#2-disable-nodejs-integration-for-remote-content)
@@ -45,6 +55,9 @@ Web开发人员通常享有浏览器强大的网络安全特性，而自己的�
 11. [`<webview>`：验证选项与参数](#11-verify-webview-options-before-creation)
 12. [禁用或限制网页跳转](#12-disable-or-limit-navigation)
 13. [禁用或限制新窗口创建](#13-disable-or-limit-creation-of-new-windows)
+14. [Do not use `openExternal` with untrusted content](#14-do-not-use-openexternal-with-untrusted-content)
+
+To automate the detection of misconfigurations and insecure patterns, it is possible to use [electronegativity](https://github.com/doyensec/electronegativity). For additional details on potential weaknesses and implementation bugs when developing applications using Electron, please refer to this [guide for developers and auditors](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)
 
 ## 1) 仅加载安全内容
 
@@ -60,26 +73,26 @@ Web开发人员通常享有浏览器强大的网络安全特性，而自己的�
 
 ```js
 // 不推荐
-browserWindow.loadURL ('http://my-website.com')
+browserWindow.loadURL ('http://example.com')
 // 推荐 
-browserWindow.loadURL ('https://my-website.com')
+browserWindow.loadURL ('https://example.com')
 ```
 
 ```html
 <!-- 不推荐 -->
-<script crossorigin src="http://cdn.com/react.js"></script>
-<link rel="stylesheet" href="http://cdn.com/style.css">
+<script crossorigin src="http://example.com/react.js"></script>
+<link rel="stylesheet" href="http://example.com/style.css">
 
 <!-- 推荐 -->
-<script crossorigin src="https://cdn.com/react.js"></script>
-<link rel="stylesheet" href="https://cdn.com/style.css">
+<script crossorigin src="https://example.com/react.js"></script>
+<link rel="stylesheet" href="https://example.com/style.css">
 ```
 
 ## 2) 禁止Node.js集成远程内容
 
 加载远程内容时，不论是使用[`BrowserWindow`](../api/browser-window.md)，[`BrowserView`](../api/browser-view.md) 还是 [`<webview>`](../api/webview-tag.md)，首要任务都是禁用 Node.js 集成。 其目的是限制您授予远程内容的权限, 从而使攻击者在您的网站上执行 JavaScript 时更难伤害您的用户。
 
-在此之后，你可以为指定的主机授予附加权限。 举例来说，如果你正在打开一个指向 "https://my-website.com/" 的 BrowserWindow，你可以给它正好所需的权限，无需再多。
+在此之后，你可以为指定的主机授予附加权限。 举例来说，如果你正在打开一个指向 "https://example.com/" 的 BrowserWindow，你可以给它正好所需的权限，无需再多。
 
 ### 为什么？
 
@@ -90,19 +103,20 @@ browserWindow.loadURL ('https://my-website.com')
 ```js
 // 不推荐
 const mainWindow = new BrowserWindow()
-mainWindow.loadURL('https://my-website.com')
+mainWindow.loadURL('https://example.com')
 ```
 
 ```js
-// 推荐
+// Good
 const mainWindow = new BrowserWindow({
   webPreferences: {
     nodeIntegration: false,
+    nodeIntegrationInWorker: false,
     preload: './preload.js'
   }
 })
 
-mainWindow.loadURL('https://my-website.com')
+mainWindow.loadURL('https://example.com')
 ```
 
 ```html
@@ -132,11 +146,13 @@ window.readConfig = function () {
 
 Electron使用了和Chromium相同的[Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment)技术来开启这个行为。
 
+Even when you use `nodeIntegration: false` to enforce strong isolation and prevent the use of Node primitives, `contextIsolation` must also be used.
+
 ### 为什么？
 
 上下文隔离使得每个运行在渲染器上的脚本无需担心改变JavaScript环境变量而与ElectronAPI或预加载脚本发生冲突。
 
-做为一个仍为实验性质的Electron特性，内容隔离为安全性多加了一层保障。它为Electron API和预加载脚本创造了一个崭新的JavaScript世界。
+While still an experimental Electron feature, context isolation adds an additional layer of security. It creates a new JavaScript world for Electron APIs and preload scripts, which mitigates so-called "Prototype Pollution" attacks.
 
 同时，预加载脚本依然能访问`document`和`window`对象。换个角度，就像你以很小的投入却得到双倍回报一样。
 
@@ -196,7 +212,7 @@ session
     }
 
     // Verify URL
-    if (!url.startsWith('https://my-website.com/')) {
+    if (!url.startsWith('https://example.com/')) {
       // Denies the permissions request
       return callback(false)
     }
@@ -245,16 +261,16 @@ const mainWindow = new BrowserWindow()
 
 ### 为什么？
 
-CSP允许Electron通过服务端内容对指定页面的资源加载进行约束与控制。 如果你定义`https://your-page.com`这个源，所属这个源的脚本都允许被加载，反之`https://evil.attacker.com`不会被允许加载运行。 对于提升你的应用安全性，设置CSP是个很方便的办法。
+CSP允许Electron通过服务端内容对指定页面的资源加载进行约束与控制。 如果你定义`https://example.com`这个源，所属这个源的脚本都允许被加载，反之`https://evil.attacker.com`不会被允许加载运行。 对于提升你的应用安全性，设置CSP是个很方便的办法。
 
-下面的CSP设置使得Electron只能执行自身站点和来自`apis.mydomain.com`的脚本。
+下面的CSP设置使得Electron只能执行自身站点和来自`apis.example.com`的脚本。
 
 ```txt
 // 不推荐
 Content-Security-Policy: '*'
 
 // 推荐
-Content-Security-Policy: script-src 'self' https://apis.mydomain.com
+Content-Security-Policy: script-src 'self' https://apis.example.com
 ```
 
 ### CSP HTTP头
@@ -413,7 +429,7 @@ app.on('web-contents-created', (event, contents) => {
     webPreferences.nodeIntegration = false
 
     // Verify URL being loaded
-    if (!params.src.startsWith('https://yourapp.com/')) {
+    if (!params.src.startsWith('https://example.com/')) {
       event.preventDefault()
     }
   })
@@ -436,7 +452,7 @@ A common attack pattern is that the attacker convinces your app's users to inter
 
 If your app has no need for navigation, you can call `event.preventDefault()` in a [`will-navigate`](../api/web-contents.md#event-will-navigate) handler. If you know which pages your app might navigate to, check the URL in the event handler and only let navigation occur if it matches the URLs you're expecting.
 
-We recommend that you use Node's parser for URLs. Simple string comparisons can sometimes be fooled - a `startsWith('https://google.com')` test would let `https://google.com.attacker.com` through.
+We recommend that you use Node's parser for URLs. Simple string comparisons can sometimes be fooled - a `startsWith('https://example.com')` test would let `https://example.com.attacker.com` through.
 
 ```js
 const URL = require('url').URL
@@ -445,7 +461,7 @@ app.on('web-contents-created', (event, contents) => {
   contents.on('will-navigate', (event, navigationUrl) => {
     const parsedUrl = new URL(navigationUrl)
 
-    if (parsedUrl.origin !== 'https://my-own-server.com') {
+    if (parsedUrl.origin !== 'https://example.com') {
       event.preventDefault()
     }
   })
@@ -478,4 +494,26 @@ app.on('web-contents-created', (event, contents) => {
     shell.openExternalSync(navigationUrl)
   })
 })
+```
+
+## 14) Do not use `openExternal` with untrusted content
+
+Shell's [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) allows opening a given protocol URI with the desktop's native utilities. On macOS, for instance, this function is similar to the `open` terminal command utility and will open the specific application based on the URI and filetype association.
+
+### 为什么？
+
+Improper use of [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) can be leveraged to compromise the user's host. When openExternal is used with untrusted content, it can be leveraged to execute arbitrary commands.
+
+### 怎么做？
+
+```js
+//  Bad
+const { shell } = require('electron')
+shell.openExternal(USER_CONTROLLED_DATA_HERE)
+```
+
+```js
+//  Good
+const { shell } = require('electron')
+shell.openExternal('https://example.com/index.html')
 ```

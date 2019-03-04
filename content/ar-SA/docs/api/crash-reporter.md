@@ -2,7 +2,7 @@
 
 > Submit crash reports to a remote server.
 
-Process: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+العملية :  الرئيسية </ 0> ،  العارض </ 1></p> 
 
 The following is an example of automatically submitting a crash report to a remote server:
 

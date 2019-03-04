@@ -14,7 +14,7 @@ Hay un puñado de variables de entorno `*_TOKEN` que necesitan los scripts de la
 - `VSTS_TOKEN`: Cree un Token de Acceso Personal en https://github.visualstudio.com/_usersSettings/tokens o https://github.visualstudio.com/_details/security/tokens con el alcance de `Build (leer y ejecutar)`.
 - `ELECTRON_S3_BUCKET`:
 - `ELECTRON_S3_ACCESS_KEY`:
-- `ELECTRON_S3_SECRET_KEY`: If you don't have these, ask a team member to help you.
+- `ELECTRON_S3_SECRET_KEY`: Si no posees uno, pídelo a un miembro del equipo que te ayude.
 
 Once you've generated these tokens, put them in a `.env` file in the root directory of the project. This file is gitignored, and will be loaded into the environment by the release scripts.
 
@@ -77,7 +77,7 @@ $ ./script/bump-version.py --bump minor --dry-run
 
 El script `prepare-release` se disparará en la estructura mediante llamados API. Para monitorear el proceso de estructuración, vea las siguientes páginas:
 
-- [electron-release-mas-x64](https://github.visualstudio.com/electron/_build/index?context=allDefinitions&path=%5C&definitionId=19&_a=completed) for MAS builds.
+- [electron-release-mas-x64](https://github.visualstudio.com/electron/_build/index?context=allDefinitions&path=%5C&definitionId=19&_a=completed) para versiones MAS.
 - [electron-release-osx-x64](https://github.visualstudio.com/electron/_build/index?context=allDefinitions&path=%5C&definitionId=18&_a=completed) for OSX builds.
 - [circleci.com/gh/electron/electron](https://circleci.com/gh/electron) for Linux builds.
 - [windows-ci.electronjs.org/project/AppVeyor/electron-39ng6](https://windows-ci.electronjs.org/project/AppVeyor/electron-39ng6) for Windows 32-bit builds.
@@ -151,7 +151,7 @@ For a `minor` release, e.g. `1.8.0`, use this format:
 
 ### Linux
 
-* Changed a Linux thing. #123
+* Cambió un elemento Linux. #123
 
 ### macOS
 
@@ -238,7 +238,7 @@ If for some reason `npm run publish-to-npm` fails, you can tag the release manua
 $ npm dist-tag add electron@<version> <tag>
 ```
 
-e.g.:
+p.e.:
 
 ```sh
 $ npm dist-tag add electron@2.0.0 latest
@@ -246,29 +246,29 @@ $ npm dist-tag add electron@2.0.0 latest
 
 # Problemas
 
-## Rerun broken builds
+## Reiniciar compilaciones rotas
 
 If a release build fails for some reason, you can use `script/ci-release-build.js` to rerun a release build:
 
-### Rerun all linux builds:
+### Vuelva a ejecutar todas las versiones linux:
 
 ```sh
 node script/ci-release-build.js --ci=CircleCI --ghRelease TARGET_BRANCH
-(TARGET_BRANCH) is the branch you are releasing from.
+(TARGET_BRANCH) es la rama desde la que estás liberando.
 ```
 
-### Rerun all macOS builds:
+### Vuelva a ejecutar todas las versiones macos:
 
 ```sh
 node script/ci-release-build.js --ci=VSTS --ghRelease TARGET_BRANCH
-(TARGET_BRANCH) is the branch you are releasing from.
+(TARGET_BRANCH) es la rama desde la que estás liberando.
 ```
 
-### Rerun all Windows builds:
+### Vuelva a ejecutar todas las versiones Windows:
 
 ```sh
 node script/ci-release-build.js --ci=AppVeyor --ghRelease TARGET_BRANCH
-(TARGET_BRANCH) is the branch you are releasing from.
+(TARGET_BRANCH) es la rama desde la que estás liberando.
 ```
 
 Additionally you can pass a job name to the script to run an individual job, eg:

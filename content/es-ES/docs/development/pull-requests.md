@@ -78,10 +78,10 @@ Before a pull request can be merged, it **must** have a pull request title with 
 Examples of commit messages with semantic prefixes:
 
 * `fix: don't overwrite prevent_default if default wasn't prevented`
-* `feat: add app.isPackaged() method`
-* `docs: app.isDefaultProtocolClient is now available on Linux`
+* `función: agregar método app.isPackaged()`
+* `docs: app.isDefaultProtocolClient está disponible en Linux`
 
-Common prefixes:
+Prefijos usuales:
 
     - fix: A bug fix
     - feat: A new feature
@@ -103,7 +103,7 @@ Other things to keep in mind when writing a commit message:
 2. Mantén la segunda linea vacía.
 3. Ajuste todas las otras linea en 72 columnas.
 
-#### Breaking Changes
+#### Cambios de última hora
 
 A commit that has the text `BREAKING CHANGE:` at the beginning of its optional body or footer section introduces a breaking API change (correlating with Major in semantic versioning). A breaking change can be part of commits of any type. e.g., a `fix:`, `feat:` & `chore:` types would all be valid, in addition to any other type.
 
@@ -154,12 +154,12 @@ Desde dentro de GitHub, abrir una nueva pull request te presentará con una plan
 
 ```markdown
 <!--
-Thank you for your pull request. Please provide a description above and review
+Gracias por su pedido de integración. Please provide a description above and review
 the requirements below.
 
 Bug fixes and new features should include tests and possibly benchmarks.
 
-Contributors guide: https://github.com/electron/electron/blob/master/CONTRIBUTING.md
+Guía de colaboradores: https://github.com/electron/electron/blob/master/CONTRIBUTING.md
 -->
 ```
 

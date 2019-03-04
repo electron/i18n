@@ -317,8 +317,8 @@ Rückgabewert:
   
   Rückgabewert:
   
-  * ` Ereignis </ 0>  Ereignis</li>
-<li><code>newBounds` [`Rectangle`](structures/rectangle.md) - Size the window is being resized to.
+  * `event` Event
+  * `newBounds` [`Rectangle`](structures/rectangle.md) - Size the window is being resized to.
   
   Emitted before the window is resized. Calling `event.preventDefault()` will prevent the window from being resized.
   
@@ -332,8 +332,8 @@ Rückgabewert:
   
   Rückgabewert:
   
-  * ` Ereignis </ 0>  Ereignis</li>
-<li><code>newBounds` [`Rectangle`](structures/rectangle.md) - Location the window is being moved to.
+  * `event` Event
+  * `newBounds` [`Rectangle`](structures/rectangle.md) - Location the window is being moved to.
   
   Emitted before the window is moved. Calling `event.preventDefault()` will prevent the window from being moved.
   
@@ -369,8 +369,8 @@ Rückgabewert:
   
   Rückgabewert:
   
-  * ` Ereignis </ 0>  Ereignis</li>
-<li><code>isAlwaysOnTop` Boolean
+  * `event` Event
+  * `isAlwaysOnTop` Boolean
   
   Emitted when the window is set or unset to show always on top of other windows.
   
@@ -378,8 +378,8 @@ Rückgabewert:
   
   Rückgabewert:
   
-  * ` Ereignis </ 0>  Ereignis</li>
-<li><code>command` String
+  * `event` Event
+  * `command` String
   
   Emitted when an [App Command](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx) is invoked. These are typically related to keyboard media keys or browser commands, as well as the "Back" button built into some mice on Windows.
   
@@ -412,8 +412,8 @@ Rückgabewert:
   
   Rückgabewert:
   
-  * ` Ereignis </ 0>  Ereignis</li>
-<li><code>direction` String
+  * `event` Event
+  * `direction` String
   
   Ausgegeben bei 3-Finger Swipe. Mögliche Richtungen sind `up`, `right`, `down`, `left`.
   
@@ -461,7 +461,7 @@ Rückgabewert:
   
   #### `BrowserWindow.addExtension(path)`
   
-  * `path` Zeichenfolge
+  * `path` String
   
   Adds Chrome extension located at `path`, and returns extension's name.
   
@@ -485,7 +485,7 @@ Rückgabewert:
   
   #### `BrowserWindow.addDevToolsExtension(path)`
   
-  * `path` Zeichenfolge
+  * `path` String
   
   Adds DevTools extension located at `path`, and returns extension's name.
   

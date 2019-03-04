@@ -8,7 +8,7 @@ Windows and macOS provide access to a list of recent documents opened by the app
 
 **Menú de Aplicaciones:**
 
-![macOS Dock Menu](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
+![Menu macOS Dock](https://cloud.githubusercontent.com/assets/639601/5069610/2aa80758-6e97-11e4-8cfb-c1a414a10774.png)
 
 Para añadir archivos a documento a recientes, puede usar el API [app.addRecentDocument](../api/app.md#appaddrecentdocumentpath-macos-windows):
 

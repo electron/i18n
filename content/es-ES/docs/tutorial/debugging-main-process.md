@@ -11,7 +11,7 @@ Use uno de los siguientes interruptores de línea de comando para habilitar la d
 Electron escuchará los mensajes de protocolo del inspector V8 en el `port` especificado, un depurador externo deberá conectarse en este puerto. El `port` por defecto será el `5858`.
 
 ```shell
-electron --inspect=5858 your/app
+electron --inspect=5858 su/app
 ```
 
 ### `--inspect-brk=[port]`

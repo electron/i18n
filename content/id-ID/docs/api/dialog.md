@@ -44,7 +44,7 @@ The ` dialog </ 0> modul memiliki metode berikut:</p>
   * `filePaths` String[] - Kumpulan jalur file yang dipilih oleh pengguna
   * `bookmarks` String[] *macOS* *mas* - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` must be enabled for this to be populated.
 
-Mengembalikan `String[]`, sebuah array path file yang dipilih oleh pengguna, jika callback diberikan, ia akan kembali `undefined`.
+Returns `String[] | undefined`, an array of file paths chosen by the user, if the callback is provided it returns `undefined`.
 
 Argumen `browserWindow` memungkinkan dialog untuk menempel pada jendela induk, membuatnya menjadi modal.
 
@@ -83,7 +83,7 @@ Jika `callback` dilewati, panggilan API akan menjadi asinkron dan hasilnya akan 
   * `filename` String
   * `bookmark` String *macOS* *mas* - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present.
 
-Mengembalikan `String`, path dari file yang dipilih oleh pengguna, jika sebuah callback diberikan maka `tidak terdefinisi`.
+Returns `String | undefined`, the path of the file chosen by the user, if a callback is provided or the dialog is cancelled it returns `undefined`.
 
 Argumen `browserWindow` memungkinkan dialog untuk menempel pada jendela induk, membuatnya menjadi modal.
 

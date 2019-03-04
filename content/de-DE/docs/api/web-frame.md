@@ -2,11 +2,11 @@
 
 > Customize the rendering of the current web page.
 
-Process: [Renderer](../glossary.md#renderer-process)
+Prozess: [Renderer](../glossary.md#renderer-process)
 
 `webFrame` export of the Electron module is an instance of the `WebFrame` class representing the top frame of the current `BrowserWindow`. Sub-frames can be retrieved by certain properties and methods (e.g. `webFrame.firstChild`).
 
-An example of zooming current page to 200%.
+Ein Beispiel zum zoomen der aktuellen Page auf 200%.
 
 ```javascript
 const { webFrame } = require('electron')
@@ -16,36 +16,36 @@ webFrame.setZoomFactor(2)
 
 ## Methoden
 
-The `WebFrame` class has the following instance methods:
+Die `WebFrame` class hat die folgenden Methoden:
 
 ### `webFrame.setZoomFactor(factor)`
 
-* `factor` Number - Zoom factor.
+* `factor` Number - Zoom faktor.
 
 Changes the zoom factor to the specified factor. Zoom factor is zoom percent divided by 100, so 300% = 3.0.
 
 ### `webFrame.getZoomFactor()`
 
-Returns `Number` - The current zoom factor.
+Gibt eine `Number` zurück - Der aktuelle Zoom Faktor.
 
 ### `webFrame.setZoomLevel(level)`
 
-* `level` Number - Zoom level.
+* `level` Number - Zoom Level.
 
 Changes the zoom level to the specified level. The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively.
 
 ### `webFrame.getZoomLevel()`
 
-Returns `Number` - The current zoom level.
+Returns `Number` - Das aktuelle Zoom Level.
 
 ### `webFrame.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
 * `minimumLevel` Number
 * `maximumLevel` Number
 
-Sets the maximum and minimum pinch-to-zoom level.
+Setzt das Maximum und Minimum pinch-to-zoom Level.
 
-> **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
+> **Hinweis**: Visueller Zoom ist disabled by default in Electron. Um ihn wieder zu aktualisieren rufe auf:
 > 
 > ```js
 webFrame.setVisualZoomLevelLimits(1, 3)
@@ -62,7 +62,7 @@ Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
 
 * `language` String
 * `autoCorrectWord` Boolean
-* `provider` Object 
+* `provider` Objekt 
   * `spellCheck` Function - Returns `Boolean`. 
     * `text` String
 
@@ -110,11 +110,11 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 
 * `text` String
 
-Inserts `text` to the focused element.
+Füge `text` in das fokusierte Element ein.
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
-* `code` Zeichenkette
+* `code` String
 * `userGesture` Boolean (optional) - Default is `false`.
 * `callback` Function (optional) - Called after script has been executed. 
   * `result` Any
@@ -174,7 +174,7 @@ const { webFrame } = require('electron')
 console.log(webFrame.getResourceUsage())
 ```
 
-This will generate:
+Dies generiert:
 
 ```javascript
 {
@@ -198,7 +198,7 @@ Note that blindly calling this method probably makes Electron slower since it wi
 
 ### `webFrame.getFrameForSelector(selector)`
 
-* `selector` String - CSS selector for a frame element.
+* `selector` String - CSS selector für ein frame Element.
 
 Returns `WebFrame` - The frame element in `webFrame's` document selected by `selector`, `null` would be returned if `selector` does not select a frame or if the frame is not in the current renderer process.
 

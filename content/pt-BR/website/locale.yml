@@ -12,6 +12,16 @@ nav:
   releases: Versões
   search: Buscar
   userland: Userland
+keyboard_modal:
+  title: Atalhos do Teclado
+  key: Key
+  action: Ação
+  focus_search: Foco na caixa de pesquisa
+  focus_and_clear: Foque na barra de pesquisa e apague o texto
+  scroll_down: Selecione o próximo resultado da pesquisa
+  scroll_up: Selecione o resultado da pesquisa anterior
+  open: Abra o resultado da pesquisa selecionada
+  open_new_tab: Abra o resultado da pesquisa selecionada em uma nova aba
 docs:
   title: Documentação do Electron
   description: Veja toda a <a href="/docs/all">documentação em uma só página</a> ou verifique as <a href="/docs/faq">perguntas frequente</a>.
@@ -198,7 +208,7 @@ landing:
     explore: Explore Electron
     explore_desc: "Try Electron without installing any dependencies: Fiddle includes everything you'll need to explore the platform. It also includes examples for every API available in Electron, so if you want to quickly see what a BrowserView is or how the desktopCapturer works, Fiddle has got you covered."
     code_with_types: Código com Tipos
-    code_with_types_desc: Fiddle includes Microsoft's excellent Monaco Editor, the same editor powering Visual Studio Code. It also installs the type definitions for the currently selected version of Electron automatically, ensuring that you always have all Electron APIs only a few keystrokes away.
+    code_with_types_desc: Fiddle inclui o excelente Monaco Editor da Microsoft o mesmo editor que é usado no Visual Studio Code. Ele também instala as definições de tipo para a versão atualmente selecionada do Electron automaticamente, garantindo que você sempre tem todas as APIs Electron apenas alguns keystrokes.
     compile_and_package: Compilação e Empacotamento
     compile_and_package_desc: Fiddle pode automaticamente transformar seu experimento em binários para você compartilhar com seus amigos, colegas de trabalho e parentes. Isso é feito graças ao <a href="https://electronforge.io/">electron-forge</a>, permitindo que você empacote seu Fiddle como um app para Windows, macOS ou Linux.
     easy_start: Comece com Fiddle e Continue Onde Quiser

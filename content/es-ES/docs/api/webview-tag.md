@@ -1,10 +1,10 @@
 # `<webview>` Etiqueta
 
-## Warning
+## Advertencia
 
 Electron's `webview` tag is based on [Chromium's `webview`](https://developer.chrome.com/apps/tags/webview), which is undergoing dramatic architectural changes. This impacts the stability of `webviews`, including rendering, navigation, and event routing. We currently recommend to not use the `webview` tag and to consider alternatives, like `iframe`, Electron's `BrowserView`, or an architecture that avoids embedded content altogether.
 
-## Overview
+## Descripción general
 
 > Mostrar contenido externo de la web en un cuadro aislado y procesado.
 
@@ -45,7 +45,7 @@ Si tú quieres controlar el contenido de invitado de cualquier manera, puedes es
 </script>
 ```
 
-## Internal implementation
+## Implementación interna
 
 Under the hood `webview` is implemented with [Out-of-Process iframes (OOPIFs)](https://www.chromium.org/developers/design-documents/oop-iframes). The `webview` tag is essentially a custom element using shadow DOM to wrap an `iframe` element inside it.
 

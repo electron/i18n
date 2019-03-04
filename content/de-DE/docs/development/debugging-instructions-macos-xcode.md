@@ -1,4 +1,4 @@
-## Debugging with XCode
+## Debugging mit XCode
 
 ### Generate xcode project for debugging sources (cannot build code from xcode)
 

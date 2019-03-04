@@ -16,13 +16,23 @@ Sementara elektron berusaha untuk mendukung versi baru dari kromium sesegera mun
 
 Kami merasa bahwa sistem kami saat memperbarui Chromium komponen menyerang keseimbangan yang tepat antara sumber daya yang kita miliki dan kebutuhan mayoritas aplikasi yang dibangun di atas kerangka. Kami benar-benar tertarik untuk mendengar lebih lanjut tentang kasus-kasus penggunaan tertentu dari orang-orang yang membangun hal-hal di atas elektron. Permintaan tarik dan kontribusi yang mendukung upaya ini yang selalu sangat welcome.
 
-## Mengabaikan di atas saran
+## Security Is Everyone's Responsibility
 
-Masalah keamanan ada setiap kali Anda menerima kode dari remote tujuan dan menjalankannya secara lokal. Sebagai contoh, mempertimbangkan sebuah situs terpencil yang ditampilkan di dalam [`BrowserWindow`](../api/browser-window.md). Jika penyerang entah bagaimana berhasil mengubah konten kata (baik dengan menyerang sumber langsung, atau dengan duduk di antara aplikasi dan tujuan yang sebenarnya), mereka akan dapat mengeksekusi kode asli pada mesin pengguna.
+It is important to remember that the security of your Electron application is the result of the overall security of the framework foundation (*Chromium*, *Node.js*), Electron itself, all NPM dependencies and your code. As such, it is your responsibility to follow a few important best practices:
 
-> : peringatan: Dalam situasi yang harus Anda memuat dan mengeksekusi kode jauh dengan Node integrasi diaktifkan. Sebaliknya, gunakan hanya lokal file (dikemas bersama-sama dengan aplikasi Anda) untuk mengeksekusi Node kode. To display remote content, use the [`<webview>`](../api/webview-tag.md) tag and make sure to disable the `nodeIntegration`.
+* **Keep your application up-to-date with the latest Electron framework release.** When releasing your product, you’re also shipping a bundle composed of Electron, Chromium shared library and Node.js. Vulnerabilities affecting these components may impact the security of your application. By updating Electron to the latest version, you ensure that critical vulnerabilities (such as *nodeIntegration bypasses*) are already patched and cannot be exploited in your application.
 
-## Peringatan Keamanan Elektron
+* **Evaluate your dependencies.** While NPM provides half a million reusable packages, it is your responsibility to choose trusted 3rd-party libraries. If you use outdated libraries affected by known vulnerabilities or rely on poorly maintained code, your application security could be in jeopardy.
+
+* **Adopt secure coding practices.** The first line of defense for your application is your own code. Common web vulnerabilities, such as Cross-Site Scripting (XSS), have a higher security impact on Electron applications hence it is highly recommended to adopt secure software development best practices and perform security testing.
+
+## Isolation For Untrusted Content
+
+A security issue exists whenever you receive code from an untrusted source (e.g. a remote server) and execute it locally. As an example, consider a remote website being displayed inside a default [`BrowserWindow`](../api/browser-window.md). If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
+
+> : peringatan: Dalam situasi yang harus Anda memuat dan mengeksekusi kode jauh dengan Node integrasi diaktifkan. Sebaliknya, gunakan hanya lokal file (dikemas bersama-sama dengan aplikasi Anda) untuk mengeksekusi Node kode. To display remote content, use the [`<webview>`](../api/webview-tag.md) tag or [`BrowserView`](../api/browser-view.md), make sure to disable the `nodeIntegration` and enable `contextIsolation`.
+
+## Peringatan Keamanan Elektronika
 
 Dari Electron 2.0, pengembang akan melihat peringatan dan rekomendasi yang dicetak ke konsol pengembang. They only show up when the binary's name is Electron, indicating that a developer is currently looking at the console.
 
@@ -31,8 +41,7 @@ objek <code> process.env </ code> atau <code>> </ code>.</p>
 
 <h2>Daftar Periksa: Rekomendasi keamanan</h2>
 
-<p>Ini bukan antipeluru, tapi paling tidak, Anda harus mengikuti langkah-langkah ini
-tingkatkan keamanan aplikasi Anda.</p>
+<p>You should at least follow these steps to improve the security of your application:</p>
 
 <ol>
 <li><a href="#1-only-load-secure-content">Hanya memuat konten aman</a></li>
@@ -41,14 +50,17 @@ tingkatkan keamanan aplikasi Anda.</p>
 <li><a href="#4-handle-session-permission-requests-from-remote-content">Gunakan <code>ses.setPermissionRequestHandler ()</ 0> di semua sesi yang memuat konten jauh</a></li>
 <li><a href="#5-do-not-disable-websecurity">Jangan menonaktifkan <code>Keamanan web`</a></li> 
 
-- [Define a `Content-Security-Policy`](#6-define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
-- [Tidak ditetapkan `mengizinkan menjalankan konten yang tidak aman` `yang benar`](#7-do-not-set-allowrunninginsecurecontent-to-true)
-- [Tidak mengaktifkan fitur eksperimental](#8-do-not-enable-experimental-features)
-- [Do not use `enableBlinkFeatures`](#9-do-not-use-enableblinkfeatures)
-- [`<webview>`: Do not use `allowpopups`](#10-do-not-use-allowpopups)
-- [`<webview>`: Verify options and params](#11-verify-webview-options-before-creation)
-- [Disable or limit navigation](#12-disable-or-limit-navigation)
-- [Disable or limit creation of new windows](#13-disable-or-limit-creation-of-new-windows)</ol> 
+* [Define a `Content-Security-Policy`](#6-define-a-content-security-policy) and use restrictive rules (i.e. `script-src 'self'`)
+* [Tidak ditetapkan `mengizinkan menjalankan konten yang tidak aman` `yang benar`](#7-do-not-set-allowrunninginsecurecontent-to-true)
+* [Tidak mengaktifkan fitur eksperimental](#8-do-not-enable-experimental-features)
+* [Do not use `enableBlinkFeatures`](#9-do-not-use-enableblinkfeatures)
+* [`<webview>`: Do not use `allowpopups`](#10-do-not-use-allowpopups)
+* [`<webview>`: Verify options and params](#11-verify-webview-options-before-creation)
+* [Disable or limit navigation](#12-disable-or-limit-navigation)
+* [Disable or limit creation of new windows](#13-disable-or-limit-creation-of-new-windows)
+* [Do not use `openExternal` with untrusted content](#14-do-not-use-openexternal-with-untrusted-content)</ol> 
+
+To automate the detection of misconfigurations and insecure patterns, it is possible to use [electronegativity](https://github.com/doyensec/electronegativity). For additional details on potential weaknesses and implementation bugs when developing applications using Electron, please refer to this [guide for developers and auditors](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)
 
 ## 1) Hanya memuat konten aman
 
@@ -63,18 +75,18 @@ Setiap sumber daya yang tidak disertakan dengan aplikasi anda harus dimuat denga
 ### Bagaimana?
 
 ```js
-Buruk browserWindow.loadURL ('http://my-website.com') / / baik browserWindow.loadURL ('https://my-website.com')
+Buruk browserWindow.loadURL ('http://example.com') / / baik browserWindow.loadURL ('https://example.com')
 ```
 
 ```html
-<!--buruk--> <script crossorigin src="http://cdn.com/react.js"></script> <link rel="stylesheet" href="http://cdn.com/style.css"><!--baik--> <script crossorigin src="https://cdn.com/react.js"></script> <link rel="stylesheet" href="https://cdn.com/style.css">
+<!--buruk--> <script crossorigin src="http://example.com/react.js"></script> <link rel="stylesheet" href="http://example.com/style.css"><!--baik--> <script crossorigin src="https://example.com/react.js"></script> <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
 ## 2) Nonaktifkan Integrasi Node.js untuk Konten Jarak Jauh
 
 It is paramount that you disable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) that loads remote content. Tujuannya adalah untuk membatasi kekuatan yang anda berikan untuk konten terpencil, sehingga membuatnya jauh lebih sulit bagi penyerang membahayakan pengguna harus memperoleh kemampuan mereka untuk menjalankan JavaScript pada situs web anda.
 
-Setelah ini, anda dapat memberikan izin tambahan untuk host tertentu. Misalnya, jika anda membuka BrowserWindow menunjuk pada`https://my-website.com/", anda dapat memberikan situs web yang tepat dengan kemampuan yang dibutuhkan, tapi tidak lebih.
+Setelah ini, anda dapat memberikan izin tambahan untuk host tertentu. Misalnya, jika anda membuka BrowserWindow menunjuk pada`https://example.com/", anda dapat memberikan situs web yang tepat dengan kemampuan yang dibutuhkan, tapi tidak lebih.
 
 ### Mengapa?
 
@@ -85,19 +97,20 @@ Cross-site scripting (XSS) serangan yang lebih berbahaya jika seorang penyerang 
 ```js
 // Buruk
 const mainWindow = baru BrowserWindow()
-mainWindow.loadURL('https://my-website.com')
+mainWindow.loadURL('https://example.com')
 ```
 
 ```js
-// Bagus
-const mainWindow = baru BrowserWindow({
+// Good
+const mainWindow = new BrowserWindow({
   webPreferences: {
     nodeIntegration: false,
+    nodeIntegrationInWorker: false,
     preload: './preload.js'
   }
 })
 
-mainWindow.loadURL('https://my-website.com')
+mainWindow.loadURL('https://example.com')
 ```
 
 ```html
@@ -123,11 +136,13 @@ Konteks isolasi adalah fitur Electron yang memungkinkan pengembang untuk menjala
 
 Elektron menggunakan sama teknologi seperti Chromium [Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment) untuk mengaktifkan perilaku ini.
 
+Even when you use `nodeIntegration: false` to enforce strong isolation and prevent the use of Node primitives, `contextIsolation` must also be used.
+
 ### Mengapa?
 
 Konteks isolasi memungkinkan setiap script yang berjalan di penyaji untuk membuat perubahan lingkungan JavaScript tanpa khawatir tentang yang bertentangan dengan script API Electron atau script preload.
 
-Sementara masih eksperimental fitur Elektron, konteks isolasi menambahkan lapisan kemanan tambahan. Ini menciptakan dunia JavaScript baru untuk API Electron dan script preload.
+While still an experimental Electron feature, context isolation adds an additional layer of security. It creates a new JavaScript world for Electron APIs and preload scripts, which mitigates so-called "Prototype Pollution" attacks.
 
 Pada waktu yang sama, script preload masih memiliki akses ke `dokumen` dan `jendela` objek. Dengan kata lain, anda mendapatkan pengembalian yang layak atas kemungkinan investasi yang sangat kecil.
 
@@ -189,7 +204,7 @@ session
     }
 
     // Verify URL
-    if (!url.startsWith('https://my-website.com/')) {
+    if (!url.startsWith('https://example.com/')) {
       // Denies the permissions request
       return callback(false)
     }
@@ -198,7 +213,7 @@ session
 
 ## 5) Jangan Nonaktifkan Keamanan Web
 
-*Rekomendasi adalah elektron 's default*
+*Recommendation is Electron's default*
 
 You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) disables crucial security features.
 
@@ -231,16 +246,16 @@ Kebijakan kemanan konten (CSP) adalah lapisan perlindungan tambahan terhadap ser
 
 ### Mengapa?
 
-CSP memungkinkan server yang menyajikan konten untuk membatasi dan mengontrol sumber daya Electron dapat dimuat untuk halaman web yang diberikan. `https://your-page.com` should be allowed to load scripts from the origins you defined while scripts from `https://evil.attacker.com` should not be allowed to run. Defining a CSP is an easy way to improve your application's security.
+CSP memungkinkan server yang menyajikan konten untuk membatasi dan mengontrol sumber daya Electron dapat dimuat untuk halaman web yang diberikan. `https://example.com` should be allowed to load scripts from the origins you defined while scripts from `https://evil.attacker.com` should not be allowed to run. Defining a CSP is an easy way to improve your application's security.
 
-CSP berikut akan memungkinkan Electron untuk mengeksekusi script dari situs web saat ini dan dari `apis.mydomain.com`.
+CSP berikut akan memungkinkan Electron untuk mengeksekusi script dari situs web saat ini dan dari `apis.example.com`.
 
 ```txt
 // Bad
 Content-Security-Policy: '*'
 
 // Good
-Content-Security-Policy: script-src 'self' https://apis.mydomain.com
+Content-Security-Policy: script-src 'self' https://apis.example.com
 ```
 
 ### CSP HTTP Header
@@ -328,7 +343,7 @@ const mainWindow = new BrowserWindow({})
 
 ## 9) Do Not Use `enableBlinkFeatures`
 
-*Recommendation is Electron's default*
+*Rekomendasi adalah elektron 's default*
 
 Blink is the name of the rendering engine behind Chromium. As with `experimentalFeatures`, the `enableBlinkFeatures` property allows developers to enable features that have been disabled by default.
 
@@ -353,7 +368,7 @@ Baik const mainWindow = BrowserWindow() baru
 
 ## 10) Jangan Gunakan ` allowpopups </ code></h2>
 
-<p><em>Rekomendasi adalah elektron 's default</em></p>
+<p><em>Recommendation is Electron's default</em></p>
 
 <p>If you are using <a href="../api/webview-tag.md"><code><webview>`</a>, you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`](../api/browser-window.md) using the `window.open()` method. `<webview>` tags are otherwise not allowed to create new windows.</p> 
 
@@ -384,23 +399,24 @@ Elektron memungkinkan pengembang untuk menonaktifkan berbagai fitur keamanan kon
 Before a [`<webview>`](../api/webview-tag.md) tag is attached, Electron will fire the `will-attach-webview` event on the hosting `webContents`. Use the event to prevent the creation of `webViews` with possibly insecure options.
 
 ```js
-app.on ( 'web-isi-dibuat', ( acara , isi) = & gt; {
-   contents.on ( 'akan melampirkan tampilan web', ( acara , webPreferences, params) = & gt; {
-     // Strip pergi script preload jika tidak digunakan atau memverifikasi lokasi mereka adalah sah
-     webPreferences.preload delete
-     hapus webPreferences.preloadURL
+app.on('web-contents-created', (event, contents) => {
+  contents.on('will-attach-webview', (event, webPreferences, params) => {
+    // Strip away preload scripts if unused or verify their location is legitimate
+    delete webPreferences.preload
+    delete webPreferences.preloadURL
 
-     // Disable simpul integrasi
-     webPreferences.nodeIntegration = false
+    // Disable Node.js integration
+    webPreferences.nodeIntegration = false
 
-     // Verifikasi URL yang dimuat
-     if (! params.src.startsWith ( 'https://yourapp.com/ ')) {
- event .preventDefault ()
- }
- })})            
+    // Verify URL being loaded
+    if (!params.src.startsWith('https://example.com/')) {
+      event.preventDefault()
+    }
+  })
+})
 ```
 
-Sekali lagi, daftar ini hanya meminimalkan risiko, tidak menghapusnya. Jika tujuan Anda adalah untuk menampilkan sebuah situs web, browser akan menjadi lebih aman pilihan.
+Sekali lagi, daftar ini hanya meminimalkan risiko, tidak menghapusnya. Jika tujuan Anda adalah untuk menampilkan sebuah situs web, browser akan menjadi lebih aman pilihan .
 
 ## 12) Disable or limit navigation
 
@@ -416,7 +432,7 @@ A common attack pattern is that the attacker convinces your app's users to inter
 
 If your app has no need for navigation, you can call `event.preventDefault()` in a [`will-navigate`](../api/web-contents.md#event-will-navigate) handler. If you know which pages your app might navigate to, check the URL in the event handler and only let navigation occur if it matches the URLs you're expecting.
 
-We recommend that you use Node's parser for URLs. Simple string comparisons can sometimes be fooled - a `startsWith('https://google.com')` test would let `https://google.com.attacker.com` through.
+We recommend that you use Node's parser for URLs. Simple string comparisons can sometimes be fooled - a `startsWith('https://example.com')` test would let `https://example.com.attacker.com` through.
 
 ```js
 const URL = require('url').URL
@@ -425,7 +441,7 @@ app.on('web-contents-created', (event, contents) => {
   contents.on('will-navigate', (event, navigationUrl) => {
     const parsedUrl = new URL(navigationUrl)
 
-    if (parsedUrl.origin !== 'https://my-own-server.com') {
+    if (parsedUrl.origin !== 'https://example.com') {
       event.preventDefault()
     }
   })
@@ -458,4 +474,26 @@ app.on('web-contents-created', (event, contents) => {
     shell.openExternalSync(navigationUrl)
   })
 })
+```
+
+## 14) Do not use `openExternal` with untrusted content
+
+Shell's [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) allows opening a given protocol URI with the desktop's native utilities. On macOS, for instance, this function is similar to the `open` terminal command utility and will open the specific application based on the URI and filetype association.
+
+### Mengapa?
+
+Improper use of [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) can be leveraged to compromise the user's host. When openExternal is used with untrusted content, it can be leveraged to execute arbitrary commands.
+
+### Bagaimana?
+
+```js
+//  Bad
+const { shell } = require('electron')
+shell.openExternal(USER_CONTROLLED_DATA_HERE)
+```
+
+```js
+//  Good
+const { shell } = require('electron')
+shell.openExternal('https://example.com/index.html')
 ```

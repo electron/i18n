@@ -2,7 +2,7 @@
 
 If you experience crashes or issues in Electron that you believe are not caused by your JavaScript application, but instead by Electron itself, debugging can be a little bit tricky, especially for developers not used to native/C++ debugging. However, using lldb, and the Electron source code, you can enable step-through debugging with breakpoints inside Electron's source code. You can also use [XCode for debugging](debugging-instructions-macos-xcode.md) if you prefer a graphical interface.
 
-## Requirements
+## Anforderungen
 
 * **A debug build of Electron**: The easiest way is usually building it yourself, using the tools and prerequisites listed in the [build instructions for macOS](build-instructions-macos.md). While you can attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
 
@@ -18,11 +18,11 @@ $ lldb ./out/Debug/Electron.app
 Current executable set to './out/Debug/Electron.app' (x86_64).
 ```
 
-### Setting Breakpoints
+### Breakpoints setzen
 
 LLDB is a powerful tool and supports multiple strategies for code inspection. For this basic introduction, let's assume that you're calling a command from JavaScript that isn't behaving correctly - so you'd like to break on that command's C++ counterpart inside the Electron source.
 
-Relevant code files can be found in `./atom/`.
+Die wichtigen Code Files findest du in `./atom/`.
 
 Let's assume that you want to debug `app.setName()`, which is defined in `browser.cc` as `Browser::SetName()`. Set the breakpoint using the `breakpoint` command, specifying file and line to break on:
 
@@ -31,7 +31,7 @@ Let's assume that you want to debug `app.setName()`, which is defined in `browse
 Breakpoint 1: where = Electron Framework`atom::Browser::SetName(std::__1::basic_string<char, std::__1::char_traits<char>, std::__1::allocator<char> > const&) + 20 at browser.cc:118, address = 0x000000000015fdb4
 ```
 
-Then, start Electron:
+Dann starte Electron:
 
 ```sh
 (lldb) run
@@ -83,7 +83,7 @@ Process 25244 stopped
 
 To finish debugging at this point, run `process continue`. You can also continue until a certain line is hit in this thread (`thread until 100`). This command will run the thread in the current frame till it reaches line 100 in this frame or stops if it leaves the current frame.
 
-Now, if you open up Electron's developer tools and call `setName`, you will once again hit the breakpoint.
+Jetzt wenn du Electrons DevTools öffnest und `setName` aufrufst triffst du wieder den Breakpoint.
 
 ### Further Reading
 

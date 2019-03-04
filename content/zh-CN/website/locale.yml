@@ -12,6 +12,16 @@ nav:
   releases: 版本发布
   search: 搜索
   userland: 用户生态
+keyboard_modal:
+  title: 键盘快捷键
+  key: 按键
+  action: 作用
+  focus_search: 前往搜索栏
+  focus_and_clear: 前往并清空搜索栏
+  scroll_down: 选择下一条搜索结果
+  scroll_up: 选择上一条搜索结果
+  open: 打开选定的搜索结果
+  open_new_tab: 在新标签页打开选定的搜索结果
 docs:
   title: Electron 文档
   description: 在一页内查看所有的 <a href="/docs/all"> 文档 </a> 或查看 <a href="/docs/faq"> 常见问题 </a>。
@@ -26,7 +36,7 @@ docs:
     view_all_docs: 在一页查看所有文档
 languages:
   choose_language: 请选择语言
-  view_more_details: 查看更多语言详情
+  view_more_details: 查看更多语言
   translation_progress: 翻译进度
   current: 当前所选
 community:
@@ -141,7 +151,7 @@ clipboard:
   copy: Copy
   copy_to_clipboard: 复制到剪贴板
   copied: 已复制
-or: or
+or: 或
 pages:
   '/':
     title: Electron | 使用 JavaScript, HTML 和 CSS 构建跨平台的桌面应用。

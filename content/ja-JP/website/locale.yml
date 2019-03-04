@@ -12,6 +12,16 @@ nav:
   releases: リリース
   search: 検索
   userland: ユーザーランド
+keyboard_modal:
+  title: キーボード ショート カット
+  key: キー
+  action: Action
+  focus_search: Focus the search bar
+  focus_and_clear: Focus the search bar and cleans it
+  scroll_down: Select the next search result
+  scroll_up: Select the previous search result
+  open: Open the selected search result
+  open_new_tab: Open the selected search result in a new tab
 docs:
   title: Electron ドキュメント
   description: 全ドキュメントを <a href="/docs/all">まとめて表示する</a>ことも可能です。また、<a href="/docs/faq">よくある質問</a> もご用意しております。

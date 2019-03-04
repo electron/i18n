@@ -16,11 +16,21 @@
 
 我們認為現在的 Chromium 元件升級機制，已經在有限資源及多數桌面應用程式需求之間取得平衡。 我們真的很想聽到大家又把 Electron 應用在什麼特別的地方。 隨時歡迎各位提出 Pull Request 或是其他貢獻。
 
-## 先不管上面那些建議
+## Security Is Everyone's Responsibility
 
-由遠端取得程式碼並在本機執行就會有安全議題。 假設在 [`BrowserWindow`](../api/browser-window.md) 中顯示一個遠端網站， 如果攻擊者有辦法改變網站內容 (可能是直接攻擊來源，或是藏在你的應用程式與伺服器中間)，他們就有機會在使用者的機器上執行原生程式。
+It is important to remember that the security of your Electron application is the result of the overall security of the framework foundation (*Chromium*, *Node.js*), Electron itself, all NPM dependencies and your code. As such, it is your responsibility to follow a few important best practices:
 
-> :warning: 無論如何，你都不該在啟用 Node.js 整合的情況下，由遠端載入並執行程式碼。 如果需要執行 Node.js 程式碼，請只用本機檔案 (跟你的應用程式打包在一起的那些)。 To display remote content, use the [`<webview>`](../api/webview-tag.md) tag and make sure to disable the `nodeIntegration`.
+* **Keep your application up-to-date with the latest Electron framework release.** When releasing your product, you’re also shipping a bundle composed of Electron, Chromium shared library and Node.js. Vulnerabilities affecting these components may impact the security of your application. By updating Electron to the latest version, you ensure that critical vulnerabilities (such as *nodeIntegration bypasses*) are already patched and cannot be exploited in your application.
+
+* **Evaluate your dependencies.** While NPM provides half a million reusable packages, it is your responsibility to choose trusted 3rd-party libraries. If you use outdated libraries affected by known vulnerabilities or rely on poorly maintained code, your application security could be in jeopardy.
+
+* **Adopt secure coding practices.** The first line of defense for your application is your own code. Common web vulnerabilities, such as Cross-Site Scripting (XSS), have a higher security impact on Electron applications hence it is highly recommended to adopt secure software development best practices and perform security testing.
+
+## Isolation For Untrusted Content
+
+A security issue exists whenever you receive code from an untrusted source (e.g. a remote server) and execute it locally. As an example, consider a remote website being displayed inside a default [`BrowserWindow`](../api/browser-window.md). If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
+
+> :warning: 無論如何，你都不該在啟用 Node.js 整合的情況下，由遠端載入並執行程式碼。 如果需要執行 Node.js 程式碼，請只用本機檔案 (跟你的應用程式打包在一起的那些)。 To display remote content, use the [`<webview>`](../api/webview-tag.md) tag or [`BrowserView`](../api/browser-view.md), make sure to disable the `nodeIntegration` and enable `contextIsolation`.
 
 ## Electron 安全性警告
 
@@ -30,7 +40,7 @@
 
 ## 檢查清單: 安全性建議事項
 
-不是說這樣就能金槍不入，但至少你應該依照下列步驟來提升你應用程式的安全性。
+You should at least follow these steps to improve the security of your application:
 
 1. [只載入安全的內容](#1-only-load-secure-content)
 2. [Disable the Node.js integration in all renderers that display remote content](#2-disable-nodejs-integration-for-remote-content)
@@ -45,6 +55,9 @@
 11. [`<webview>`: Verify options and params](#11-verify-webview-options-before-creation)
 12. [Disable or limit navigation](#12-disable-or-limit-navigation)
 13. [Disable or limit creation of new windows](#13-disable-or-limit-creation-of-new-windows)
+14. [Do not use `openExternal` with untrusted content](#14-do-not-use-openexternal-with-untrusted-content)
+
+To automate the detection of misconfigurations and insecure patterns, it is possible to use [electronegativity](https://github.com/doyensec/electronegativity). For additional details on potential weaknesses and implementation bugs when developing applications using Electron, please refer to this [guide for developers and auditors](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)
 
 ## 1) 只載入安全的內容
 
@@ -60,27 +73,27 @@
 
 ```js
 // 錯誤示範
-browserWindow.loadURL('http://my-website.com')
+browserWindow.loadURL('http://example.com')
 
 // 正確寫法
-browserWindow.loadURL('https://my-website.com')
+browserWindow.loadURL('https://example.com')
 ```
 
 ```html
 <!-- 錯誤示範 -->
-<script crossorigin src="http://cdn.com/react.js"></script>
-<link rel="stylesheet" href="http://cdn.com/style.css">
+<script crossorigin src="http://example.com/react.js"></script>
+<link rel="stylesheet" href="http://example.com/style.css">
 
 <!-- 正確寫法 -->
-<script crossorigin src="https://cdn.com/react.js"></script>
-<link rel="stylesheet" href="https://cdn.com/style.css">
+<script crossorigin src="https://example.com/react.js"></script>
+<link rel="stylesheet" href="https://example.com/style.css">
 ```
 
 ## 2) 針對遠端內容停用 Node.js 整合功能
 
 It is paramount that you disable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) that loads remote content. 目的是在限縮遠端內容能做的事，就算攻擊者能在你的網站中執行 JavaScript，也很難真正傷害到使用者。
 
-你可以再針對特定的網址提供額外權限。 例如，如果你開了一個指到 `https://my-website.com/" 的 BrowserWindow，可以額外指定該網頁需要有的最小權限，千萬不要多給用不到的權限。
+你可以再針對特定的網址提供額外權限。 例如，如果你開了一個指到 `https://example.com/" 的 BrowserWindow，可以額外指定該網頁需要有的最小權限，千萬不要多給用不到的權限。
 
 ### 為什麼?
 
@@ -91,19 +104,20 @@ It is paramount that you disable Node.js integration in any renderer ([`BrowserW
 ```js
 // 錯誤示範
 const mainWindow = new BrowserWindow()
-mainWindow.loadURL('https://my-website.com')
+mainWindow.loadURL('https://example.com')
 ```
 
 ```js
-// 正確用法
+// Good
 const mainWindow = new BrowserWindow({
   webPreferences: {
     nodeIntegration: false,
+    nodeIntegrationInWorker: false,
     preload: './preload.js'
   }
 })
 
-mainWindow.loadURL('https://my-website.com')
+mainWindow.loadURL('https://example.com')
 ```
 
 ```html
@@ -133,11 +147,13 @@ window.readConfig = function () {
 
 Electron uses the same technology as Chromium's [Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment) to enable this behavior.
 
+Even when you use `nodeIntegration: false` to enforce strong isolation and prevent the use of Node primitives, `contextIsolation` must also be used.
+
 ### 為什麼?
 
 Context isolation allows each the scripts on running in the renderer to make changes to its JavaScript environment without worrying about conflicting with the scripts in the Electron API or the preload script.
 
-While still an experimental Electron feature, context isolation adds an additional layer of security. It creates a new JavaScript world for Electron APIs and preload scripts.
+While still an experimental Electron feature, context isolation adds an additional layer of security. It creates a new JavaScript world for Electron APIs and preload scripts, which mitigates so-called "Prototype Pollution" attacks.
 
 At the same time, preload scripts still have access to the `document` and `window` objects. In other words, you're getting a decent return on a likely very small investment.
 
@@ -197,7 +213,7 @@ session
     }
 
     // Verify URL
-    if (!url.startsWith('https://my-website.com/')) {
+    if (!url.startsWith('https://example.com/')) {
       // Denies the permissions request
       return callback(false)
     }
@@ -246,16 +262,16 @@ const mainWindow = new BrowserWindow()
 
 ### 為什麼?
 
-CSP allows the server serving content to restrict and control the resources Electron can load for that given web page. `https://your-page.com` should be allowed to load scripts from the origins you defined while scripts from `https://evil.attacker.com` should not be allowed to run. Defining a CSP is an easy way to improve your application's security.
+CSP allows the server serving content to restrict and control the resources Electron can load for that given web page. `https://example.com` should be allowed to load scripts from the origins you defined while scripts from `https://evil.attacker.com` should not be allowed to run. Defining a CSP is an easy way to improve your application's security.
 
-下面這組 CSP 允許 Electron 由目前的網站及 `apis.mydomain.com` 執行腳本。
+下面這組 CSP 允許 Electron 由目前的網站及 `apis.example.com` 執行腳本。
 
 ```txt
 // 錯誤示範
 Content-Security-Policy: '*'
 
 // 正確寫法
-Content-Security-Policy: script-src 'self' https://apis.mydomain.com
+Content-Security-Policy: script-src 'self' https://apis.example.com
 ```
 
 ### CSP HTTP Header
@@ -414,14 +430,14 @@ app.on('web-contents-created', (event, contents) => {
     webPreferences.nodeIntegration = false
 
     // 驗證將要載入的 URL
-    if (!params.src.startsWith('https://yourapp.com/')) {
+    if (!params.src.startsWith('https://example.com/')) {
       event.preventDefault()
     }
   })
 })
 ```
 
-再次強調，這份清單只能幫你降低風險，並沒辦法完全將風險排除。如果你的目標只是要顯示網站，那麼瀏覽器會是比較安全的選項。
+再次強調，這份清單只能幫你降低風險，並沒辦法完全將風險排除。如果你的目的只是要顯示網站，那麼瀏覽器會是比較安全的選項。
 
 ## 12) Disable or limit navigation
 
@@ -437,7 +453,7 @@ A common attack pattern is that the attacker convinces your app's users to inter
 
 If your app has no need for navigation, you can call `event.preventDefault()` in a [`will-navigate`](../api/web-contents.md#event-will-navigate) handler. If you know which pages your app might navigate to, check the URL in the event handler and only let navigation occur if it matches the URLs you're expecting.
 
-We recommend that you use Node's parser for URLs. Simple string comparisons can sometimes be fooled - a `startsWith('https://google.com')` test would let `https://google.com.attacker.com` through.
+We recommend that you use Node's parser for URLs. Simple string comparisons can sometimes be fooled - a `startsWith('https://example.com')` test would let `https://example.com.attacker.com` through.
 
 ```js
 const URL = require('url').URL
@@ -446,7 +462,7 @@ app.on('web-contents-created', (event, contents) => {
   contents.on('will-navigate', (event, navigationUrl) => {
     const parsedUrl = new URL(navigationUrl)
 
-    if (parsedUrl.origin !== 'https://my-own-server.com') {
+    if (parsedUrl.origin !== 'https://example.com') {
       event.preventDefault()
     }
   })
@@ -479,4 +495,26 @@ app.on('web-contents-created', (event, contents) => {
     shell.openExternalSync(navigationUrl)
   })
 })
+```
+
+## 14) Do not use `openExternal` with untrusted content
+
+Shell's [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) allows opening a given protocol URI with the desktop's native utilities. On macOS, for instance, this function is similar to the `open` terminal command utility and will open the specific application based on the URI and filetype association.
+
+### 為什麼?
+
+Improper use of [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) can be leveraged to compromise the user's host. When openExternal is used with untrusted content, it can be leveraged to execute arbitrary commands.
+
+### 怎麼做?
+
+```js
+//  Bad
+const { shell } = require('electron')
+shell.openExternal(USER_CONTROLLED_DATA_HERE)
+```
+
+```js
+//  Good
+const { shell } = require('electron')
+shell.openExternal('https://example.com/index.html')
 ```

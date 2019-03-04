@@ -2,7 +2,6 @@
 
 > Збірка ресурсів про Chromium та його розробку
 
-- [chromiumdev](https://chromiumdev-slack.herokuapp.com) в Slack
 - [@ChromiumDev](https://twitter.com/ChromiumDev) в Twitter
 - [@googlechrome](https://twitter.com/googlechrome) в Twitter
 - [Блог](https://blog.chromium.org)

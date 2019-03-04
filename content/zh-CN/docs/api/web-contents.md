@@ -343,7 +343,7 @@ win.webContents.on('before-input-event', (event, input) => {
 * `url` String
 * `error` String - 错误码.
 * `certificate` [证书](structures/certificate.md)
-* `callback` Function 
+* `callback` Function - 回调函数 
   * `isTrusted` Boolean - 用于显示证书是否可信。
 
 `证书`的`链接`验证失败时，触发该事件。
@@ -357,7 +357,7 @@ win.webContents.on('before-input-event', (event, input) => {
 * `event` Event
 * `url` URL
 * `certificateList` [证书[]](structures/certificate.md)
-* `callback` Function 
+* `callback` Function - 回调函数 
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list.
 
 当一个客户证书被请求的时候发出。
@@ -598,6 +598,40 @@ Emitted when `remote.require()` is called in the renderer process. 调用 `event
 
 Emitted when `remote.getGlobal()` is called in the renderer process. 调用 `event.preventDefault()` 将阻止全局返回。 可以通过设置 `event.returnValue` 返回自定义值。
 
+#### 事件: 'remote-get-builtin'
+
+返回:
+
+* `event` Event
+* `moduleName` String
+
+Emitted when `remote.getBuiltin()` is called in the renderer process. 调用 `event.preventDefault()` 将阻止模块返回。 可以通过设置 `event.returnValue` 返回自定义值。
+
+#### 事件: 'remote-get-current-window'
+
+返回:
+
+* `event` Event
+
+Emitted when `remote.getCurrentWindow()` is called in the renderer process. 调用 `event.preventDefault()` 将阻止对象返回 可以通过设置 `event.returnValue` 返回自定义值。
+
+#### 事件: 'remote-get-current-web-contents'
+
+返回:
+
+* `event` Event
+
+Emitted when `remote.getCurrentWebContents()` is called in the renderer process. 调用 `event.preventDefault()` 将阻止对象返回 可以通过设置 `event.returnValue` 返回自定义值。
+
+#### 事件: 'remote-get-guest-web-contents'
+
+返回:
+
+* `event` Event
+* `guestWebContents` [WebContents](web-contents.md)
+
+Emitted when `<webview>.getWebContents()` is called in the renderer process. 调用 `event.preventDefault()` 将阻止对象返回 可以通过设置 `event.returnValue` 返回自定义值。
+
 ### 实例方法
 
 #### `contents.loadURL(url[, options])`
@@ -622,9 +656,9 @@ webContents.loadURL('https://github.com', options)
 
 * `filePath` String
 * `options` Object (可选) 
-  * `query` Object (optional) - Passed to `url.format()`.
-  * `search` String (optional) - Passed to `url.format()`.
-  * `hash` String (optional) - Passed to `url.format()`.
+  * `query` Object (可选) - 传递给 `url.format()`.
+  * `search` String (可选) - 传递给 `url.format()`.
+  * `hash` String (可选) - 传递给 `url.format()`.
 
 Loads the given file in the window, `filePath` should be a path to an HTML file relative to the root of your application. For instance an app structure like this:
 
@@ -717,7 +751,7 @@ Returns `Boolean` - Whether the web page can go to `offset`.
 
 #### `contents.clearHistory()`
 
-清除定位历史。
+Clears the navigation history.
 
 #### `contents.goBack()`
 
@@ -822,7 +856,7 @@ Sends a request to get current zoom factor, the `callback` will be called with `
 
 #### `contents.getZoomLevel(callback)`
 
-* `callback` Function 
+* `callback` Function - 回调函数 
   * `zoomLevel` Number
 
 Sends a request to get current zoom level, the `callback` will be called with `callback(zoomLevel)`.
@@ -951,14 +985,14 @@ Captures a snapshot of the page within `rect`. Upon completion `callback` will b
 
 #### `contents.hasServiceWorker(callback)`
 
-* `callback` Function 
+* `callback` Function - 回调函数 
   * `hasWorker` Boolean
 
 Checks if any ServiceWorker is registered and returns a boolean as response to `callback`.
 
 #### `contents.unregisterServiceWorker(callback)`
 
-* `callback` Function 
+* `callback` Function - 回调函数 
   * `success` Boolean
 
 Unregisters any ServiceWorker if present and returns a boolean as response to `callback` when the JS promise is fulfilled or false when the JS promise is rejected.
@@ -1360,6 +1394,10 @@ Takes a V8 heap snapshot and saves it to `filePath`.
 * `allowed` Boolean
 
 Controls whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
+
+#### `contents.getType()`
+
+Returns `String` - the type of the webContent. Can be `backgroundPage`, `window`, `browserView`, `remote`, `webview` or `offscreen`.
 
 ### 实例属性
 

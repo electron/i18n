@@ -10,14 +10,14 @@ Para mostrar los problemas de estilo detectados por `cpplint` y `eslint`, puede 
 * Place requires in the following order: 
   * Built in Node Modules (such as `path`)
   * Built in Electron Modules (such as `ipc`, `app`)
-  * Local Modules (using relative paths)
+  * Módulos locales (usando rutas relativas)
 * Place class properties in the following order: 
   * Class methods and properties (methods starting with a `@`)
   * Instancia métodos y propiedades
-* Avoid platform-dependent code: 
+* Evitar código dependiente de la plataforma: 
   * Use `path.join()` to concatenate filenames.
   * Use `os.tmpdir()` rather than `/tmp` when you need to reference the temporary directory.
-* Using a plain `regresar` when returning explicitly at the end of a function. 
+* Usando uno plano `regresar` when returning explicitly at the end of a function. 
   * No `return null`, `return undefined`, `null` o `undefined`
 
 ## C++ y Python

@@ -45,7 +45,7 @@ El módulo `dialogo` tiene los siguientes métodos:
   * `filePaths` Cadena[] - Un arreglo del camino de archivos elegido por el usuario
   * `bookmarks` String[] *macOS* *mas* - Un array conteniendo las ` rutas de archivo ` codificados en strings en base64 que contiene datos de marcadores de seguridad. `securityScopedBookmarks` debe estar activado para ser poblado.
 
-Devuelve `String[]`, un arreglo del camino de archivos elegido por el usuario, si la llamada de vuelta es proveída, devuelve `undefined`.
+Returns `String[] | undefined`, an array of file paths chosen by the user, if the callback is provided it returns `undefined`.
 
 El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana parental, haciéndola una modalidad.
 
@@ -84,7 +84,7 @@ Si un `callback` es pasado, la llamada API será asincrónica y el resultado ser
   * `filename` String
   * `bookmark` String *macOS* *mas* - string Base64 codificado que contiene la información del marcador para el fichero grabado. `securityScopedBookmarks` deben estar activados para estar presentes.
 
-Devuelve `String`, el camino de archivos elegidos por el usuario, si la llamada de vuelta es dada, se devuelve `undefined`.
+Returns `String | undefined`, the path of the file chosen by the user, if a callback is provided or the dialog is cancelled it returns `undefined`.
 
 El argumento de `browserWindow` permite el diálogo a adjuntarse a una ventana parental, haciéndola una modalidad.
 

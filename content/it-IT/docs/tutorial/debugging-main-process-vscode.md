@@ -11,18 +11,19 @@ $ codice electron-avvio-veloce
 
 ```json
 {
-  "versione": "0.2.0",
-  "configurationi": [
+  "version": "0.2.0",
+  "configurations": [
     {
-      "nome": "Debug Processo Principale",
-      "tipo": "nodo",
-      "richiesta": "lancio",
-      "cwd": "${Radicespaziolavoro)",
-      "tempoesecuzioneEseguibile": "${workspaceRoot}/nodo_moduli/.bin/electron",
-      "finestre": {
-        "tempoesecuzioneEseguibile": "${Radicespaziolavoro}/nodo_modules/.bin/electron.cmd"
+      "name": "Debug Main Process",
+      "type": "node",
+      "request": "launch",
+      "cwd": "${workspaceRoot}",
+      "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron",
+      "windows": {
+        "runtimeExecutable": "${workspaceRoot}/node_modules/.bin/electron.cmd"
       },
-      "argomenti" : ["."]
+      "args" : ["."],
+      "outputCapture": "std"
     }
   ]
 }

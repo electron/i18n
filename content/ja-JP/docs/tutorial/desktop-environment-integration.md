@@ -6,24 +6,24 @@
 
 ## 通知
 
-See the [Notifications documentation](notifications.md).
+[通知ドキュメント](notifications.md) を参照してください。
 
-## 最近使用したドキュメント
+## 最近使った書類
 
-See [Recent Documents documentation](recent-documents.md).
+[最近使った書類ドキュメント](recent-documents.md) を参照してください。
 
-## Progress Bar
+## プログレスバー
 
-See the [Progress Bar documentation](progress-bar.md).
+[プログレスバードキュメント](progress-bar.md) を参照してください。
 
-## Unity Launcher
+## Unity ランチャー
 
-See the [Unity Launcher documentation](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher).
+[Unity ランチャードキュメント](https://help.ubuntu.com/community/UnityLaunchersAndDesktopFiles#Adding_shortcuts_to_a_launcher) を参照してください。
 
-## Represented File for macOS Window
+## macOS のウインドウが表すファイル
 
-See the [Represented File documentation](represented-file.md).
+[ウインドウが表すファイルのドキュメント](represented-file.md) を参照してください。
 
-## Dragging files out of the window
+## ウインドウ外へファイルをドラッグ
 
-See the [Native File Drag & Drop documentation](native-file-drag-drop.md).
+[ネイティブのファイルドラッグ & ドロップのドキュメント](native-file-drag-drop.md) を参照してください。

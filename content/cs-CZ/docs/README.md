@@ -130,7 +130,7 @@ These individual tutorials expand on topics discussed in the guide above.
 * [Tray](api/tray.md)
 * [webContents](api/web-contents.md)
 
-### Moduly pro renderovací proces (webová stránka):
+### Moduly pro proces Renderer (Web Page):
 
 * [desktopCapturer](api/desktop-capturer.md)
 * [ipcRenderer](api/ipc-renderer.md)

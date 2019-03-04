@@ -50,7 +50,7 @@ Acronym for Apple's Mac App Store. For details on submitting your app to the MAS
 
 ### Mojo
 
-An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.
+vgcxsfd.
 
 See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 

@@ -176,7 +176,7 @@ Calling `event.preventDefault()` will prevent the navigation (not just the redir
 
 #### Event: 'did-redirect-navigation'
 
-반환:
+Returns:
 
 * `event` Event
 * `url` String
@@ -204,7 +204,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 #### Event: 'did-frame-navigate'
 
-반환:
+Returns:
 
 * `event` Event
 * `url` String
@@ -352,7 +352,7 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 
 #### 이벤트: 'select-client-certificate'
 
-반환:
+Returns:
 
 * `event` Event
 * `url` URL
@@ -360,13 +360,13 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 * `callback` 함수 
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list.
 
-Emitted when a client certificate is requested.
+클라이언트의 인증서가 요구될 때 발생합니다.
 
 The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
 #### 이벤트: 'login'
 
-반환:
+Returns:
 
 * `event` Event
 * `request` Object 
@@ -389,7 +389,7 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 
 #### Event: 'found-in-page'
 
-반환:
+Returns:
 
 * `event` Event
 * `result` Object 
@@ -490,7 +490,7 @@ Emitted when there is a new context menu that needs to be handled.
 
 #### Event: 'select-bluetooth-device'
 
-반환:
+Returns:
 
 * `event` Event
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
@@ -547,7 +547,7 @@ Emitted when the devtools window instructs the webContents to reload
 
 #### Event: 'will-attach-webview'
 
-반환:
+Returns:
 
 * `event` Event
 * `webPreferences` Object - The web preferences that will be used by the guest page. This object can be modified to adjust the preferences for the guest page.
@@ -570,7 +570,7 @@ Emitted when a `<webview>` has been attached to this web contents.
 
 #### Event: 'console-message'
 
-반환:
+Returns:
 
 * `event` Event
 * `level` Integer
@@ -591,12 +591,46 @@ Emitted when `remote.require()` is called in the renderer process. Calling `even
 
 #### Event: 'remote-get-global'
 
-반환:
+Returns:
 
 * `event` Event
 * `globalName` String
 
 Emitted when `remote.getGlobal()` is called in the renderer process. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
+
+#### Event: 'remote-get-builtin'
+
+Returns:
+
+* `event` Event
+* `moduleName` String
+
+Emitted when `remote.getBuiltin()` is called in the renderer process. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+
+#### Event: 'remote-get-current-window'
+
+Returns:
+
+* `event` Event
+
+Emitted when `remote.getCurrentWindow()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+
+#### Event: 'remote-get-current-web-contents'
+
+Returns:
+
+* `event` Event
+
+Emitted when `remote.getCurrentWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+
+#### Event: 'remote-get-guest-web-contents'
+
+Returns:
+
+* `event` Event
+* `guestWebContents` [WebContents](web-contents.md)
+
+Emitted when `<webview>.getWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
 ### 인스턴스 메서드
 
@@ -1360,6 +1394,10 @@ Takes a V8 heap snapshot and saves it to `filePath`.
 * `allowed` Boolean
 
 Controls whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
+
+#### `contents.getType()`
+
+Returns `String` - the type of the webContent. Can be `backgroundPage`, `window`, `browserView`, `remote`, `webview` or `offscreen`.
 
 ### Instance Properties (인스턴스 속성)
 

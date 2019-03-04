@@ -363,6 +363,44 @@ event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan 
     
     Emitted when `remote.getGlobal()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
     
+    ### Event: 'remote-get-builtin'
+    
+    Pengembalian:
+    
+    * `acara` Acara
+    * `webContents` [WebContents](web-contents.md)
+    * `moduleName` String
+    
+    Emitted when `remote.getBuiltin()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+    
+    ### Event: 'remote-get-current-window'
+    
+    Pengembalian:
+    
+    * `acara` Acara
+    * `webContents` [WebContents](web-contents.md)
+    
+    Emitted when `remote.getCurrentWindow()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+    
+    ### Event: 'remote-get-current-web-contents'
+    
+    Pengembalian:
+    
+    * `acara` Acara
+    * `webContents` [WebContents](web-contents.md)
+    
+    Emitted when `remote.getCurrentWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+    
+    ### Event: 'remote-get-guest-web-contents'
+    
+    Pengembalian:
+    
+    * `acara` Acara
+    * `webContents` [WebContents](web-contents.md)
+    * `guestWebContents` [WebContents](web-contents.md)
+    
+    Emitted when `<webview>.getWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+    
     ## Metode
     
     The `aplikasi` objek memiliki metode berikut:
@@ -878,9 +916,10 @@ properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> 
             
             **Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
             
-            ### `app.showAboutPanel()` *macOS*
-            
-            Show the about panel with the values defined in the app's `.plist` file or with the options set via `app.setAboutPanelOptions(options)`.
+            ### ` app.showAboutPanel () </ 0>  <em> macos </ 1></h3>
+
+<p>Show the about panel with the values defined in the app's
+<code>.plist` file or with the options set via `app.setAboutPanelOptions(options)`.</p> 
             
             ### `app.setAboutPanelOptions(opsi)` *macOS*
             
@@ -941,9 +980,9 @@ properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> 
 
 <p>Returns <code>Boolean` - Whether the application is currently running from the systems Application folder. Use in combination with `app.moveToApplicationsFolder()`</p> 
             
-            ### `app.moveToApplicationsFolder()` *macOS*
-            
-            Returns `Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.
+            ### ` app.moveToApplicationsFolder () </ 0>  <em> macos </ 1></h3>
+
+<p>Returns <code>Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.</p> 
             
             No confirmation dialog will be presented by default, if you wish to allow the user to confirm the operation you may do so using the [`dialog`](dialog.md) API.
             
