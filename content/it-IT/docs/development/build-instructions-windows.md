@@ -81,6 +81,6 @@ $ git config --system core.longpaths true
 
 This can happen during build, when Debugging Tools for Windows has been installed with Windows Driver Kit. Uninstall Windows Driver Kit and install Debugging Tools with steps described above.
 
-### ImportError: No module named win32file
+### Errore di importazione: nessun modulo denominato win32file
 
-Make sure you have installed `pywin32` with `pip install pywin32`.
+Assicurati di aver installato `pywin32` con `pip install pywin32`.
