@@ -80,3 +80,7 @@ $ git config --system core.longpaths true
 ### error: use of undeclared identifier 'DefaultDelegateCheckMode'
 
 これは、Windows 用のデバッグツールが Windows Driver Kit とともにインストールされている場合においてビルド中に発生する可能性があります。Windows Driver Kit をアンインストールし、上記の手順で Debugging Tools をインストールします。
+
+### ImportError: No module named win32file
+
+Make sure you have installed `pywin32` with `pip install pywin32`.
