@@ -1,6 +1,6 @@
 # Об'єкт UploadFile
 
-* `type` String - `file`.
+* No codes.
 * `filePath` String - Шлях до файлу для завантаження.
 * `offset` Integer - За замовчуванням `0`.
 * `length` Integer - Кількість байт прочитаних з `offset`. За замовчуванням `0`.
