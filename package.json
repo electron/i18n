@@ -30,7 +30,7 @@
     "js-yaml": "^3.8.4",
     "locale-code": "^2.0.1",
     "lodash": "^4.17.4",
-    "make-dir": "^1.0.0",
+    "make-dir": "^2.1.0",
     "make-promises-safe": "^4.0.0",
     "match-words": "^1.0.0",
     "mocha": "^5.0.5",
