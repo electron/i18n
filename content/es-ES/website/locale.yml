@@ -64,7 +64,7 @@ community:
   awesome_notice: Esta lista es generada desde el repositorio<a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a>.<br>¿Falta algo?<a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Haz una solicitud de cambios</a>.
   meetup_notice: Para añadir un MeetUp, edite <code>data/meetups.json</code> y <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">realize una pull request </a>.
 releases:
-  show_releases: "Show Releases:"
+  show_releases: "Mostrar Versiones:"
   show_only_releases_from: "Show Only Releases From:"
   all_versions: Todas las versiones
   stable_releases: Versiones estables
@@ -212,6 +212,6 @@ landing:
     compile_and_package: Compile y empaquete
     compile_and_package_desc: Fiddle can automatically turn your experiment into binaries you can share with your friends, coworkers, or grandparents. It does so thanks to <a href="https://electronforge.io/">electron-forge</a>, allowing you to package your fiddle as an app for Windows, macOS, or Linux.
     easy_start: Start with Fiddle, Continue Wherever
-    easy_start_desc: Fiddle is not an IDE – it is however an excellent starting point. Once your fiddle has grown up, export it as a project with or without <a href="https://electronforge.io/">electron-forge</a>. Then, use your favorite editor and take on the world!
+    easy_start_desc: Fiddle no es un IDE – sin embargo es un punto de partida excelente. Una vez que tu fiddle haya crecido, puedes exportarlo como un proyecto con o sin <a href="https://electronforge.io/">electron-forge</a>. Una vez lo hayas exportado, ¡Usa tu editor favorito y toma en el mundo!
 _404:
   page_not_found: Página no encontrada.
