@@ -80,3 +80,7 @@ $ git config --system core.longpaths true
 ### hata: bildirilmemiş tanımlayıcı kullanımı 'DefaultDelegateCheckMode'
 
 Bu, Windows için Debugging Araçları Windows Sürücü Seti ile birlikte yüklendiğinde derleme sırasında gerçekleşebilir. Windows Sürücü Seti'ni kaldırın ve yukarıda açıklanan adımlarla Hata Ayıklama Araçları'nı yükleyin.
+
+### ImportError: No module named win32file
+
+Make sure you have installed `pywin32` with `pip install pywin32`.
