@@ -8,10 +8,10 @@
 * Visual Studio 2017 15.7.2 или выше - [скачать VS Community Edition бесплатно](https://www.visualstudio.com/vs/)
 * [Python 2.7.10 или выше](http://www.python.org/download/releases/2.7/) 
   * Contrary to the `depot_tools` setup instructions linked below, you will need to use your locally installed Python with at least version 2.7.10 (with support for TLS 1.2). To do so, make sure that in **PATH**, your locally installed Python comes before the `depot_tools` folder. Right now `depot_tools` still comes with Python 2.7.6, which will cause the `gclient` command to fail (see https://crbug.com/868864).
-  * [Python for Windows (pywin32) Extensions](https://pypi.org/project/pywin32/#files) is also needed in order to run the build process.
+  * [Дополнения Python для Windows (pywin32)](https://pypi.org/project/pywin32/#files) также нужны для запуска процесса сборки.
 * [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
-* Debugging Tools for Windows of Windows SDK 10.0.15063.468 if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` files. 
+* Инструменты отладки для Windows из Windows SDK 10.0.15063.468, если вы планируете создавать полный дистрибутив, учитывая что `symstore.exe` используется для создания хранилища символов из `.pdb` файлов. 
   * Different versions of the SDK can be installed side by side. To install the SDK, open Visual Studio Installer, select `Change` → `Individual Components`, scroll down and select the appropriate Windows SDK to install. Another option would be to look at the [Windows SDK and emulator archive](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive) and download the standalone version of the SDK respectively.
   * The SDK Debugging Tools must also be installed. If the Windows 10 SDK was installed via the Visual Studio installer, then they can be installed by going to: `Control Panel` → `Programs` → `Programs and Features` → Select the "Windows Software Development Kit" → `Change` → `Change` → Check "Debugging Tools For Windows" → `Change`. Or, you can download the standalone SDK installer and use it to install the Debugging Tools.
 
@@ -37,7 +37,7 @@ $ gn gen out/Release-x86 --args="import(\"//electron/build/args/release.gn\") ta
 
 ## Проект Visual Studio
 
-To generate a Visual Studio project, you can pass the `--ide=vs2017` parameter to `gn gen`:
+Для генерации проекта в Visual Studio, вы можете передать параметр `--ide=vs2017` в `gn gen`:
 
 ```powershell
 $ gn gen out/Debug --ide=vs2017
