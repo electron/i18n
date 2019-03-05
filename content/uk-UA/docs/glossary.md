@@ -1,24 +1,24 @@
-# Словник
+# Glossary
 
-Ця сторінка визначає термінологію, що широко використовується в розробці Electron.
+This page defines some terminology that is commonly used in Electron development.
 
 ### ASAR
 
-ASAR це Atom Shell Archive Format. Архів [asar](https://github.com/electron/asar) це простий `tar` формат, що збирає файли в єдиний. Electron може працювати з файлами архіву без його розпаковування.
+ASAR це Atom Shell Archive Format. An [asar](https://github.com/electron/asar) archive is a simple `tar`-like format that concatenates files into a single file. Electron може працювати з файлами архіву без його розпаковування.
 
 ASAR був створений для збільшення продуктивності на Windows...
 
 ### CRT
 
-Бібліотека C Run-time (CRT) є частиною стандартної бібліотеки C++, яка включає стандартну бібліотеку ISO C99. Бібліотеки Visual C++, які реалізують CRT підтримку нативної розробки коду, нативний змішаний та керований код, а також чистий керований код для розробки .NET.
+The C Run-time Library (CRT) is the part of the C++ Standard Library that incorporates the ISO C99 standard library. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
 
 ### DMG
 
-Apple Disk Image (DMG) — це пакетний формат, який використовується в macOS. DMG файли зазвичай використовуються для поширення програми «установника». [electron-builder](https://github.com/electron-userland/electron-builder) підтримує `dmg` формат як ціль побудови/компіляції.
+Apple Disk Image (DMG) — це пакетний формат, який використовується в macOS. DMG files are commonly used for distributing application "installers". [electron-builder](https://github.com/electron-userland/electron-builder) supports `dmg` as a build target.
 
 ### IME
 
-Input Method Editor. Це програма, яка дозволяє користувачам вводити букви та символи, які відсутні на клавіатурі. Наприклад, користувачі з Латинською клавіатурою можуть вводити Китайські, Японські, Корейські або Індійські символи.
+Input Method Editor. A program that allows users to enter characters and symbols not found on their keyboard. For example, this allows users of Latin keyboards to input Chinese, Japanese, Korean and Indic characters.
 
 ### IDL
 
