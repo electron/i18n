@@ -2,7 +2,7 @@
 
 [ChromeDriver - クローム向けのWebDriver](https://sites.google.com/a/chromium.org/chromedriver/):
 
-> WebDriverは、ブラウザを横断的なテストの自動化を実現するためのオープンソースツールです。 It provides capabilities for navigating to web pages, user input, JavaScript execution, and more. ChromeDriver is a standalone server which implements WebDriver's wire protocol for Chromium. It is being developed by members of the Chromium and WebDriver teams.
+> WebDriverは、ブラウザを横断的なテストの自動化を実現するためのオープンソースツールです。 このドライバはウェブページの遷移、インプット項目への入力、JavaScriptの実行などの機能を提供します。 ChromeDriverはChromium向けWebDriverのワイヤープロトコルを実装した、スタンドアローンサーバです。 このドライバは、ChromiumとWebDriverチームによって開発されています。
 
 ## Setting up Spectron
 
