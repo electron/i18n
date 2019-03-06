@@ -73,10 +73,10 @@ console.log(dialog)
 * `browserWindow` [BrowserWindow](browser-window.md) (опционально)
 * `options` Object 
   * `title` String (опционально)
-  * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
+  * `defaultPath` String (опционально) - Абсолютный путь к директории, файлу или имя файла для использования по умолчанию.
   * `buttonLabel` String(опционально) - Альтернативный текст для кнопки подтверждения. Если оставить пустым будет использован стандартный текст.
   * `filters` [FileFilter[]](structures/file-filter.md) (опционально)
-  * `message` String (optional) *macOS* - Message to display above text fields.
+  * `message` String (опционально) *macOS* - Сообщение, которое будет показано поверх полей ввода.
   * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
   * `showsTagField` Boolean (optional) *macOS* - Show the tags input box, defaults to `true`.
   * `securityScopedBookmarks` Boolean (optional) *masOS* *mas* - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. If this option is enabled and the file doesn't already exist a blank file will be created at the chosen path.
