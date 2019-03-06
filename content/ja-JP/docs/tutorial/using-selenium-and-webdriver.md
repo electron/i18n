@@ -114,13 +114,13 @@ Only local connections are allowed.
 
 Remember the port number `9515`, which will be used later
 
-### 2. Install WebdriverIO
+### WebdriverIOのインストール
 
 ```sh
 $ npm install webdriverio
 ```
 
-### 3. Connect to chrome driver
+### 3. chrome driverへの接続
 
 ```javascript
 const webdriverio = require('webdriverio')
