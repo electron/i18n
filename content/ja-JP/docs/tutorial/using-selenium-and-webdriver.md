@@ -4,9 +4,9 @@
 
 > WebDriverは、ブラウザを横断的なテストの自動化を実現するためのオープンソースツールです。 このドライバはウェブページの遷移、インプット項目への入力、JavaScriptの実行などの機能を提供します。 ChromeDriverはChromium向けWebDriverのワイヤープロトコルを実装した、スタンドアローンサーバです。 このドライバは、ChromiumとWebDriverチームによって開発されています。
 
-## Setting up Spectron
+## Spectronを設定する
 
-[Spectron](https://electronjs.org/spectron) is the officially supported ChromeDriver testing framework for Electron. It is built on top of [WebdriverIO](http://webdriver.io/) and has helpers to access Electron APIs in your tests and bundles ChromeDriver.
+[Spectron](https://electronjs.org/spectron)はオフィシャルにサポートされているElectron向けChromeDriverテストフレームワークです。 これは[WebdriverIO](http://webdriver.io/)上に構築されており、テストプログラム内でElectron APIにアクセスする為のヘルパーとChromeDriverを内包しています。
 
 ```sh
 $ npm install --save-dev spectron
@@ -60,7 +60,7 @@ Only local connections are allowed.
 
 Remember the port number `9515`, which will be used later
 
-### 2. Install WebDriverJS
+### 2. WebDriverJSのインストール
 
 ```sh
 $ npm install selenium-webdriver
