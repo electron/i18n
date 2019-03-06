@@ -46,9 +46,9 @@
   * [Devtron](tutorial/accessibility.md#devtron)
   * [تمكين امكانيات الوصول](tutorial/accessibility.md#enabling-accessibility)
 * [اختبار وتصحيح](tutorial/application-debugging.md) 
-  * [تصحيح ال Main Process](tutorial/debugging-main-process.md)
-  * [Using Selenium and WebDriver](tutorial/using-selenium-and-webdriver.md)
-  * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
+  * [تصحيح عملية الرئيسية](tutorial/debugging-main-process.md)
+  * [استخدام السيلينيوم و WebDriver](tutorial/using-selenium-and-webdriver.md)
+  * [اختبار على أنظمة CI بدون رأس (ترافيس ، جنكينز)](tutorial/testing-on-headless-ci.md)
   * [DevTools Extension](tutorial/devtools-extension.md)
   * [الاختبار الآلي مع برنامج تشغيل مخصص](tutorial/automated-testing-with-a-custom-driver.md)
 * Packaging 
