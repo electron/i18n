@@ -45,7 +45,7 @@ console.log(dialog)
   * `filePaths` String[] - Массив файлов, которые выбрал пользователь
   * `bookmarks` String[] *macOS* *mas* - Base64 - шифрованный массив, который соответствует массиву `filePaths`, который содержит защищенные закладки. `securityScopedBookmarks` должны быть активированы, чтобы массив был создан.
 
-Returns `String[] | undefined`, an array of file paths chosen by the user, if the callback is provided it returns `undefined`.
+Возвращает `String[] | undefined`, массив путей к файлам, выбранных пользователем, или `undefined` если передан коллбэк.
 
 Аргумент `browserWindow` позволяет диалогу прикреплять себя к родительскому окну, что делает его модальным.
 
