@@ -77,9 +77,9 @@ console.log(dialog)
   * `buttonLabel` String(опционально) - Альтернативный текст для кнопки подтверждения. Если оставить пустым будет использован стандартный текст.
   * `filters` [FileFilter[]](structures/file-filter.md) (опционально)
   * `message` String (опционально) *macOS* - Сообщение, которое будет показано поверх полей ввода.
-  * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
-  * `showsTagField` Boolean (optional) *macOS* - Show the tags input box, defaults to `true`.
-  * `securityScopedBookmarks` Boolean (optional) *masOS* *mas* - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. If this option is enabled and the file doesn't already exist a blank file will be created at the chosen path.
+  * `nameFieldLabel` String (опционально) *macOS* - Специальная метка для текста, отображаемая перед текстовым полем с именем файла.
+  * `showsTagField` Boolean (опционально) *macOS* - Показать поле ввода тегов, по умолчанию `true`.
+  * `securityScopedBookmarks` Boolean (опционально) *masOS* *mas* - Создает [защищенную закладу](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) когда создается пакет для Mac App Store. Если эта опция включена и такого файла не существует, то пустой файл будет создан по выбранному пути.
 * `callback` Function (опционально) 
   * `filename` String
   * `bookmark` String *macOS* *mas* - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present.
