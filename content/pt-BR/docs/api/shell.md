@@ -43,34 +43,34 @@ Abre o arquivo fornecido na maneira padrão da área de trabalho.
 * `callback` Function (opcional) *macOS* - If specified will perform the open asynchronously. 
   * `error` Error
 
-Returns `Boolean` - Whether an application was available to open the URL. If callback is specified, always returns true.
+Retorna `Boolean` - Se um aplicativo estava disponível para abrir o URL. Se o retorno de chamada for especificado, sempre retornará true.
 
-Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
+Abra o URL do protocolo externo fornecido na maneira padrão da área de trabalho. (Por exemplo, mailto: URLs no agente de email padrão do usuário).
 
 ### `shell.moveItemToTrash(fullPath)`
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully moved to the trash.
+Retorna `Boolean` - Se o item foi movido com sucesso para o lixo.
 
 Move o arquivo fornecido para o lixo e retorna um boolean para o operação.
 
 ### `shell.beep()`
 
-Toca o sinal sonoro.
+Toca um sinal sonoro.
 
 ### `shell.writeShortcutLink(shortcutPath[, operation], options)` *Windows*
 
 * `shortcutPath` String
-* `operation` String (optional) - Default is `create`, can be one of following: 
+* `operation` String (optional) -Por padrão é   `create`, pode ser um dos seguintes: 
   * `create` - Cria um novo atalho, sobrescrevendo se necessário.
   * `update` - Atualiza propriedades especificadas apenas em um atalho existente.
   * `replace` - Sobrescreve um atalho existente, falha se o atalho não existir.
 * `options` [ShortcutDetails](structures/shortcut-details.md)
 
-Returns `Boolean` - Whether the shortcut was created successfully.
+Retorna `Boolean` - Se o atalho foi criado com sucesso.
 
-Creates or updates a shortcut link at `shortcutPath`.
+Cria ou atualiza um link de atalho em `shortcutPath`.
 
 ### `shell.readShortcutLink(shortcutPath)` *Windows*
 
@@ -78,6 +78,6 @@ Creates or updates a shortcut link at `shortcutPath`.
 
 Retorna [`ShortcutDetails`](structures/shortcut-details.md)
 
-Resolves the shortcut link at `shortcutPath`.
+Resolve o link de atalho em `shortcutPath`.
 
 Uma exceção será lançada quando qualquer erro acontecer.
