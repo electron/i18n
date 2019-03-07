@@ -54,10 +54,10 @@ console.log(dialog)
 ```javascript
 {
   filters: [
-    { name: 'Images', extensions: ['jpg', 'png', 'gif'] },
-    { name: 'Movies', extensions: ['mkv', 'avi', 'mp4'] },
-    { name: 'Custom File Type', extensions: ['as'] },
-    { name: 'All Files', extensions: ['*'] }
+    { name: 'Изображения', extensions: ['jpg', 'png', 'gif'] },
+    { name: 'Видео', extensions: ['mkv', 'avi', 'mp4'] },
+    { name: 'Свой тип файлов', extensions: ['as'] },
+    { name: 'Все файлы', extensions: ['*'] }
   ]
 }
 ```
