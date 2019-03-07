@@ -15,9 +15,9 @@ nav:
 keyboard_modal:
   title: Cara pintas keyboard
   key: Tombol
-  action: Action
-  focus_search: Focus the search bar
-  focus_and_clear: Focus the search bar and cleans it
+  action: Aksi
+  focus_search: Fokus pada kotak pencarian
+  focus_and_clear: Fokus pada kotak pencarian dan mengosongkannya
   scroll_down: Select the next search result
   scroll_up: Select the previous search result
   open: Open the selected search result
