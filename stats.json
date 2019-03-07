@@ -250,14 +250,14 @@
     "name": "Russian",
     "code": "ru",
     "phrases": "10110",
-    "translated": "5491",
+    "translated": "5492",
     "approved": "1022",
     "words": "93635",
-    "words_translated": "40133",
+    "words_translated": "40156",
     "words_approved": "7888",
     "translated_progress": 42,
     "approved_progress": 8,
-    "qa_issues": 1645
+    "qa_issues": 1646
   },
   {
     "name": "Spanish",
