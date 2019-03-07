@@ -8,13 +8,13 @@ nav:
   docs: Dokumentasi
   donors: Penyumbang
   languages: Bahasa
-  license: License
+  license: Lisensi
   releases: Rilis
   search: pencarian
   userland: Userland
 keyboard_modal:
   title: Cara pintas keyboard
-  key: Key
+  key: Tombol
   action: Action
   focus_search: Focus the search bar
   focus_and_clear: Focus the search bar and cleans it
