@@ -122,7 +122,7 @@ Using the `Session` and `Cookies` classes as an example:
 
 ### Instance Methods
 
-#### `ses.getCacheSize(callback)`
+#### `ses.getCacheSize()`
 
 ### Instance Properties
 
