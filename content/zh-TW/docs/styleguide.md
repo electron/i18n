@@ -106,31 +106,31 @@ Electron 說明文件撰寫指導方針。
 ```markdown
 # session
 
-## 方法
+## Methods
 
 ### session.fromPartition(partition)
 
-## 屬性
+## Properties
 
 ### session.defaultSession
 
 ## Class: Session
 
-### 物件事件
+### Instance Events
 
-#### 事件: 'will-download'
+#### Event: 'will-download'
 
-### 物件方法
+### Instance Methods
 
-#### `ses.getCacheSize(callback)`
+#### `ses.getCacheSize()`
 
-### 物件屬性
+### Instance Properties
 
 #### `ses.cookies`
 
 ## Class: Cookies
 
-### 物件方法
+### Instance Methods
 
 #### `cookies.get(filter, callback)`
 ```
