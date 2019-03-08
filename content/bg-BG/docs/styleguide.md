@@ -84,21 +84,33 @@
 ```markdown
 # session
 
-## Методи
+## Methods
 
 ### session.fromPartition(partition)
 
-## Свойства
+## Properties
 
 ### session.defaultSession
 
-## Клас: Session
+## Class: Session
 
-### Инстантни събития
+### Instance Events
 
-#### Събитие: 'will-download'
+#### Event: 'will-download'
 
-### Инстантни методи
+### Instance Methods
+
+#### `ses.getCacheSize()`
+
+### Instance Properties
+
+#### `ses.cookies`
+
+## Class: Cookies
+
+### Instance Methods
+
+#### `cookies.get(filter, callback)`
 ```
 
 ### Методи
