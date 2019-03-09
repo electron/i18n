@@ -83,4 +83,4 @@ $ git config --system core.longpaths true
 
 ### ImportError: No module named win32file
 
-Make sure you have installed `pywin32` with `pip install pywin32`.
+`pywin32`がインストールされているか確認してください。これは次のコマンドでインストールします。:`pip install pywin32`.
