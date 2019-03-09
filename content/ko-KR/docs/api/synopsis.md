@@ -1,10 +1,10 @@
 # 개요
 
-> How to use Node.js and Electron APIs.
+> Node.js 와 Electron API 사용법
 
-All of [Node.js's built-in modules](https://nodejs.org/api/) are available in Electron and third-party node modules also fully supported as well (including the [native modules](../tutorial/using-native-node-modules.md)).
+모든 [Node.js의 built-in 모듈](https://nodejs.org/api/)은 Electron에서 가능하고 써드파티 node 모듈 또한 모두 지원합니다. ([native 모듈](../tutorial/using-native-node-modules.md) 포함)
 
-Electron also provides some extra built-in modules for developing native desktop applications. Some modules are only available in the main process, some are only available in the renderer process (web page), and some can be used in both processes.
+Electron은 또한 네이티브 데스트탑 어플리케이션 개발을 위해 추가적인 몇개의 built-in 모듈을 제공합니다. 일부 모듈은 main 프로세스에서만 가능하며, 일부 모듈은 renderer process(웹페이지)에서만 가능합니다. 그리고 일부 모듈은 두 프로세스 모두에서 가능합니다.
 
 The basic rule is: if a module is [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) or low-level system related, then it should be only available in the main process. You need to be familiar with the concept of [main process vs. renderer process](../tutorial/application-architecture.md#main-and-renderer-processes) scripts to be able to use those modules.
 
