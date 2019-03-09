@@ -84,7 +84,7 @@ $ gclient sync -f
 ```sh
 $ cd src
 $ export CHROMIUM_BUILDTOOLS_PATH=`pwd`/buildtools
-# this next line is needed only if building with sccache
+# この次の行は、sccacheでビルドする場合のみ必要
 $ export GN_EXTRA_ARGS="${GN_EXTRA_ARGS} cc_wrapper=\"${PWD}/electron/external_binaries/sccache\""
 $ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_ARGS"
 ```
@@ -144,13 +144,13 @@ $ ./out/Debug/electron
 
 ### パッケージ化
 
-On linux, first strip the debugging and symbol information:
+Linuxの場合、デバッグ情報やシンボル情報を削除します。
 
 ```sh
 electron/script/strip-binaries.py -d out/Release
 ```
 
-To package the electron build as a distributable zip file:
+配布可能なzipファイルとしてこのエレクトロンビルドをパッケージするには、次のようにする。
 
 ```sh
 ninja -C out/Release electron:electron_dist_zip
