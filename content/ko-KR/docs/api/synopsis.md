@@ -6,9 +6,9 @@
 
 Electron은 또한 네이티브 데스트탑 어플리케이션 개발을 위해 추가적인 몇개의 built-in 모듈을 제공합니다. 일부 모듈은 main 프로세스에서만 가능하며, 일부 모듈은 renderer process(웹페이지)에서만 가능합니다. 그리고 일부 모듈은 두 프로세스 모두에서 가능합니다.
 
-The basic rule is: if a module is [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface) or low-level system related, then it should be only available in the main process. You need to be familiar with the concept of [main process vs. renderer process](../tutorial/application-architecture.md#main-and-renderer-processes) scripts to be able to use those modules.
+기본 규칙 다음과 같습니다: 모듈이 [GUI](https://en.wikipedia.org/wiki/Graphical_user_interface)이나 low-level 시스템과 관련되었으면 메인 프로세스에서만 가능합니다. You need to be familiar with the concept of [main process vs. renderer process](../tutorial/application-architecture.md#main-and-renderer-processes) scripts to be able to use those modules.
 
-The main process script is like a normal Node.js script:
+main 프로세스 스크립트는 일반적인 Node.js 스크립트와 같습니다:
 
 ```javascript
 const { app, BrowserWindow } = require('electron')
@@ -20,7 +20,7 @@ app.on('ready', () => {
 })
 ```
 
-The renderer process is no different than a normal web page, except for the extra ability to use node modules:
+renderer 프로세스는 node 모듈을 사용할 수 있다 점을 제외하면 일반적인 웹페이지과 다르지 않습니다:
 
 ```html
 <!DOCTYPE html>
@@ -34,7 +34,7 @@ The renderer process is no different than a normal web page, except for the extr
 </html>
 ```
 
-To run your app, read [Run your app](../tutorial/first-app.md#running-your-app).
+앱을 실행해보고자 한다면 [Run your app](../tutorial/first-app.md#running-your-app)을 읽어주세요.
 
 ## Destructuring assignment
 
