@@ -142,6 +142,20 @@ $ ./out/Debug/electron.exe
 $ ./out/Debug/electron
 ```
 
+### パッケージ化
+
+On linux, first strip the debugging and symbol information:
+
+```sh
+electron/script/strip-binaries.py -d out/Release
+```
+
+To package the electron build as a distributable zip file:
+
+```sh
+ninja -C out/Release electron:electron_dist_zip
+```
+
 ### クロスコンパイル
 
 構築しているプラットフォームと同じでないプラットフォーム用にコンパイルするには、`target_cpu` 及び `target_os` GN 引数を設定します。 例えば、x64 ホストから x86 ターゲットをコンパイルするには、`gn args` で `target_cpu = "x86"` と指定します。
