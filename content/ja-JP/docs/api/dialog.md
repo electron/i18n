@@ -45,7 +45,7 @@ console.log(dialog)
   * `filePaths` String[] - ユーザーによって選択されたファイルパスの配列
   * `bookmarks` String[] *macOS* *mas* - セキュリティスコープ付きブックマークを含む base64 エンコードされた `filePaths` 配列にマッチする配列。 データを取り込むために `securityScopedBookmarks` を有効にする必要があります。
 
-Returns `String[] | undefined`, an array of file paths chosen by the user, if the callback is provided it returns `undefined`.
+戻り値 `String[] | undefined` - ユーザが選択したファイルパスの配列。callback が指定されている場合は `undefined` を返します。
 
 `browserWindow` の引数で、ダイアログは親ウインドウにアタッチされ、モーダル表示になります。
 
@@ -84,7 +84,7 @@ Returns `String[] | undefined`, an array of file paths chosen by the user, if th
   * `filename` String
   * `bookmark` String *macOS* *mas* - 保存されたファイルのセキュリティスコープのブックマークデータを含む Base64 エンコードされた文字列。 出力するために `securityScopedBookmarks` を有効にする必要があります。
 
-Returns `String | undefined`, the path of the file chosen by the user, if a callback is provided or the dialog is cancelled it returns `undefined`.
+戻り値 `String | undefined` - ユーザが選択したファイルパス。callback が指定されている場合またはdialogがキャンセルされた場合は `undefined` を返します。
 
 `browserWindow` の引数で、ダイアログは親ウインドウにアタッチされ、モーダル表示になります。
 
