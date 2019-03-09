@@ -142,6 +142,20 @@ $ ./out/Debug/electron.exe
 $ ./out/Debug/electron
 ```
 
+### Embalaje
+
+On linux, first strip the debugging and symbol information:
+
+```sh
+electron/script/strip-binaries.py -d out/Release
+```
+
+To package the electron build as a distributable zip file:
+
+```sh
+ninja -C out/Release electron:electron_dist_zip
+```
+
 ### Compilación cruzada
 
 To compile for a platform that isn't the same as the one you're building on, set the `target_cpu` and `target_os` GN arguments. For example, to compile an x86 target from an x64 host, specify `target_cpu = "x86"` in `gn args`.
@@ -164,7 +178,7 @@ $ ninja -C out/Debug third_party/electron_node:headers
 $ (cd electron/spec && npm i --nodedir=../../out/Debug/gen/node_headers)
 ```
 
-Luego, ejecuta Electron con `electron/spec` como parametro:
+Luego, ejecuta Electron con `electron/spec` como el argumento:
 
 ```sh
 # En Mac:
