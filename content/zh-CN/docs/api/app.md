@@ -602,7 +602,7 @@ API 在内部使用 Windows 注册表和 LSSetDefaultHandlerForURLScheme。
 
 返回 ` Boolean `-是否成功调用。
 
-** 注意: **如果您想自定义跳转列表, 请使用 ` aapp.setJumpList(categories) ` 来代替。
+** 注意: **如果您想自定义跳转列表, 请使用 ` app.setJumpList(categories) ` 来代替。
 
 ### `app.getJumpListSettings()` *Windows*
 
