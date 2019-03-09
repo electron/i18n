@@ -52,7 +52,7 @@ Electron은 아주 제한적인 `chrome.*` API만을 지원하므로 확장 기�
 * [Redux DevTools Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 * [MobX Developer Tools](https://chrome.google.com/webstore/detail/mobx-developer-tools/pfgnfdagidkfgccljigdamigbcnndkod)
 
-### 개발자 도구가 작동하지 않을 때 어떻게 해야 하나요?
+### 개발자 도구 확장 기능이 작동하지 않을 때 어떻게 해야 하나요?
 
 먼저 해당 확장 기능이 확실히 계속 유지되고 있는지를 확인하세요. 몇몇 확장 기능들은 최신 버전의 Chrome 브라우저에서도 작동하지 않습니다. 그리고 이러한 확장 기능에 대해선 Electron 개발팀에 해줄 수 있는 것이 아무것도 없습니다.
 
