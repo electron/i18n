@@ -6,7 +6,7 @@ Follow the guidelines below for building Electron.
 
 Check the build prerequisites for your platform before proceeding
 
-- [macOS](build-instructions-macos.md#prerequisites)
+- [نظام macOS](build-instructions-macos.md#prerequisites)
 - [Linux](build-instructions-linux.md#prerequisites)
 - [Windows](build-instructions-windows.md#prerequisites)
 
@@ -141,6 +141,20 @@ $ ./out/Debug/Electron.app/Contents/MacOS/Electron
 $ ./out/Debug/electron.exe
 # or, on Linux
 $ ./out/Debug/electron
+```
+
+### Packaging
+
+On linux, first strip the debugging and symbol information:
+
+```sh
+electron/script/strip-binaries.py -d out/Release
+```
+
+To package the electron build as a distributable zip file:
+
+```sh
+ninja -C out/Release electron:electron_dist_zip
 ```
 
 ### Cross-compiling
