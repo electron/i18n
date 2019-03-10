@@ -16,18 +16,18 @@ keyboard_modal:
   title: キーボード ショート カット
   key: キー
   action: Action
-  focus_search: Focus the search bar
-  focus_and_clear: Focus the search bar and cleans it
-  scroll_down: Select the next search result
-  scroll_up: Select the previous search result
-  open: Open the selected search result
-  open_new_tab: Open the selected search result in a new tab
+  focus_search: 検索バーにフォーカス
+  focus_and_clear: 検索バーにフォーカスし、削除する
+  scroll_down: 次の検索結果を選択
+  scroll_up: 前の検索結果を選択
+  open: 選択した検索結果を開く
+  open_new_tab: 選択した検索結果を新しいタブで開く
 docs:
   title: Electron ドキュメント
   description: 全ドキュメントを <a href="/docs/all">まとめて表示する</a>ことも可能です。また、<a href="/docs/faq">よくある質問</a> もご用意しております。
   guides: ガイド
   api_reference: API リファレンス
-  api_structures: API Structures
+  api_structures: API構造
   advanced: 発展的なドキュメント
   footer:
     propose_change: このドキュメントを改善する
@@ -64,20 +64,20 @@ community:
   awesome_notice: このリストは <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus による Awesome Electron リポジトリ </a> から生成されています。<br>もし不足しているものがあれば、<a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">プルリクエストにてお知らせください</a>。
   meetup_notice: ミートアップイベントの情報をこのページに追加するには、 <code>data/meetups.json</code> を編集した上で <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">プルリクエストを送信</a>してください。
 releases:
-  show_releases: "Show Releases:"
+  show_releases: "リリー スの表示:"
   show_only_releases_from: "Show Only Releases From:"
-  all_versions: All Versions
-  stable_releases: Stable Releases
+  all_versions: 全てのバージョン
+  stable_releases: 安定版
   stable_desc: Regular, supported releases
-  beta_releases: Beta Releases
+  beta_releases: ベータリリース
   beta_desc: Test your app with upcoming changes
-  nightly_releases: Nightly Releases
+  nightly_releases: Nightly リリース
   nightly_desc: Experiment with the latest features
-  next: Next
-  next_page: Next Page
-  previous: Previous
-  previous_page: Previous Page
-  page: Page
+  next: 次
+  next_page: 次のページ
+  previous: 前
+  previous_page: 前のページ
+  page: ページ
   all_releases: 全リリース
   back_to_index: インデックスに戻る
 electron_is_easy:
