@@ -75,7 +75,7 @@ git 브랜치 동작 방법, npm 태깅 동작 방식, 개발자가 보고 싶�
 
 프로세스는 다음과 같습니다:
 
-1. All new major and minor releases lines begin with a beta series indicated by semver prerelease tags of `beta.N`, e.g. `2.0.0-beta.1`. After the first beta, subsequent beta releases must meet all of the following conditions: 
+1. 모든 새 메이저와 마이너 릴리즈 라인은 베타 시리즈를 암시하는 프리릴리즈 태그 앞에둡니다. 바로 `beta.N`입니다. 예를 들면 다음 처럼요. `2.0.0-beta.1`. After the first beta, subsequent beta releases must meet all of the following conditions: 
     1. The change is backwards API-compatible (deprecations are allowed)
     2. The risk to meeting our stability timeline must be low.
 2. If allowed changes need to be made once a release is beta, they are applied and the prerelease tag is incremented, e.g. `2.0.0-beta.2`.
