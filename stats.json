@@ -263,14 +263,14 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "10115",
-    "translated": "9142",
+    "translated": "9155",
     "approved": "257",
     "words": "93666",
-    "words_translated": "77603",
+    "words_translated": "77770",
     "words_approved": "2118",
-    "translated_progress": 82,
+    "translated_progress": 83,
     "approved_progress": 2,
-    "qa_issues": 3553
+    "qa_issues": 3557
   },
   {
     "name": "Tagalog",
