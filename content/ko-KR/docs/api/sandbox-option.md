@@ -81,7 +81,7 @@ and preload.js:
 const fs = require('fs')
 const { ipcRenderer } = require('electron')
 
-// read a configuration file using the `fs` module
+// `fs` 모듈을 사용하여 구성 파일 읽기
 const buf = fs.readFileSync('allowed-popup-urls.json')
 const allowedUrls = JSON.parse(buf.toString('utf8'))
 
@@ -98,7 +98,7 @@ function customWindowOpen (url, ...args) {
 window.open = customWindowOpen
 ```
 
-Important things to notice in the preload script:
+스크립트를 프리로드 하기 전 알아야 할 주의 사항:
 
 - Even though the sandboxed renderer doesn't have Node.js running, it still has access to a limited node-like environment: `Buffer`, `process`, `setImmediate` and `require` are available.
 - The preload script can indirectly access all APIs from the main process through the `remote` and `ipcRenderer` modules. This is how `fs` (used above) and other modules are implemented: They are proxies to remote counterparts in the main process.
@@ -132,7 +132,7 @@ More may be added as needed to expose more Electron APIs in the sandbox, but any
 
 ## Status
 
-Please use the `sandbox` option with care, as it is still an experimental feature. We are still not aware of the security implications of exposing some Electron renderer APIs to the preload script, but here are some things to consider before rendering untrusted content:
+아직 실험적인 기능이니, `sandbox` 옵션을 주의하며 사용해 주세요. We are still not aware of the security implications of exposing some Electron renderer APIs to the preload script, but here are some things to consider before rendering untrusted content:
 
 - A preload script can accidentally leak privileged APIs to untrusted code.
 - Some bug in V8 engine may allow malicious code to access the renderer preload APIs, effectively granting full access to the system through the `remote` module.
