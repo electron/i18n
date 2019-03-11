@@ -14,8 +14,8 @@ nav:
   userland: 사용자 공간
 keyboard_modal:
   title: 키보드 단축기
-  key: Key
-  action: Action
+  key: 키
+  action: 동작
   focus_search: 검색 창 포커싱
   focus_and_clear: 검색 창을 포커싱하고 내용 비우기
   scroll_down: 다음 검색 결과 선택
@@ -64,15 +64,15 @@ community:
   awesome_notice: 이 목록은 <a href="https://github.com/sindresorhus/awesome-electron"> @sindresorhus의 멋진 Electron</a> 저장소에서 생성되었습니다. <br>뭔가 누락되었나요? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md"> Pull Request를 만드세요.</a>
   meetup_notice: 모임을 추가하려면 <code>data/meetups.json</code>를 수정하고 <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">pull request를 만드세요</a>.
 releases:
-  show_releases: "릴리즈 보기:"
-  show_only_releases_from: "해당 릴리즈만 보기:"
+  show_releases: "출시 버전 보기:"
+  show_only_releases_from: "해당 출시 버전만 보기:"
   all_versions: 모든 버전
   stable_releases: 안정 릴리즈
   stable_desc: 정규, 지원 릴리즈
   beta_releases: 베타 릴리즈
   beta_desc: 곧 나올 변경사항을 당신의 앱에서 테스트해보세요.
   nightly_releases: Nightly 릴리즈
-  nightly_desc: 최신 기능을 체험해 보세요
+  nightly_desc: 최신 기능을 체험해 보세요.
   next: 다음
   next_page: 다음 페이지
   previous: 이전
