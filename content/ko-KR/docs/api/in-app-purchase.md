@@ -1,6 +1,6 @@
 # inAppPurchase
 
-> In-app purchases on Mac App Store.
+> Mac App Store의 인앱 결제입니다.
 
 프로세스:[Main](../glossary.md#main-process)
 
@@ -8,18 +8,18 @@
 
 The `inAppPurchase` module emits the following events:
 
-### Event: 'transactions-updated'
+### 이벤트: 'transactions-updated'
 
 Emitted when one or more transactions have been updated.
 
-Returns:
+반환:
 
 * `event` Event
-* `transactions` Transaction[] - Array of [`Transaction`](structures/transaction.md) objects.
+* `transactions` Transaction[] - [`Transaction`](structures/transaction.md) 객체의 Array.
 
 ## 메소드
 
-The `inAppPurchase` module has the following methods:
+`inAppPurchase` 모듈은 다음 메서드를 가지고 있습니다:
 
 ### `inAppPurchase.purchaseProduct(productID, quantity, callback)`
 
