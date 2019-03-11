@@ -16,12 +16,12 @@ keyboard_modal:
   title: 키보드 단축기
   key: Key
   action: Action
-  focus_search: Focus the search bar
-  focus_and_clear: Focus the search bar and cleans it
-  scroll_down: Select the next search result
-  scroll_up: Select the previous search result
-  open: Open the selected search result
-  open_new_tab: Open the selected search result in a new tab
+  focus_search: 검색 창 포커싱
+  focus_and_clear: 검색 창을 포커싱하고 내용 비우기
+  scroll_down: 다음 검색 결과 선택
+  scroll_up: 이전 검색 결과 선택
+  open: 선택된 검색 결과 열기
+  open_new_tab: 새 탭에서 선택된 검색 결과 열기
 docs:
   title: Electron 문서
   description: 모든 문서 <a href="/docs/all">한 페이지에서</a> 보기 및 <a href="/docs/faq"> FAQ</a> 문서를 확인하기
@@ -196,17 +196,17 @@ pages:
     description: Spectron은 Electron 앱에 대한 통합 테스트 코드를 쉽게 작성할 수 있는 오픈 소스 프레임워크이며, ChromeDriver와 WebDriverIO를 기반으로 합니다.
   '/fiddle':
     title: Electron Fiddle
-    description: The easiest way to get started with Electron
+    description: Electron을 시작하기에 가장 쉬운 방법
   '/donors':
     title: 후원자
 landing:
   get_started: 시작하기
   fiddle:
-    lead_desc: The easiest way to get started with Electron
-    create_app: Create your app
+    lead_desc: Electron을 시작하기에 가장 쉬운 방법
+    create_app: 자기만의 앱을 만드세요
     description: Electron Fiddle lets you create and play with small Electron experiments. It greets you with a quick-start template after opening – change a few things, choose the version of Electron you want to run it with, and play around. Then, save your Fiddle either as a GitHub Gist or to a local folder. Once pushed to GitHub, anyone can quickly try your Fiddle out by just entering it in the address bar.
     explore: Electron 탐색하기
-    explore_desc: "Try Electron without installing any dependencies: Fiddle includes everything you'll need to explore the platform. It also includes examples for every API available in Electron, so if you want to quickly see what a BrowserView is or how the desktopCapturer works, Fiddle has got you covered."
+    explore_desc: "Electron을 어느 의존성 모듈을 설치하지 않고 체험해 보세요: Fiddle은 플랫폼을 탐색하기에 필요한 모든 것을 담고 있습니다. 또한, 모든 API의 예제도 포함하기 때문에, BrowserView가 무엇인지, desktopCapturer가 어떻게 돌아가는지 알고 싶을 때, Fiddle이 도와 드립니다."
     code_with_types: Code with Types
     code_with_types_desc: Fiddle은 Visual Studio Code를 구동시켜주는 Microsoft의 훌륭한 Monaco 에디터도 포함합니다. 또한, 현재 선택된 Electron 버전의 종류 정의를 자동으로 설치하여, 몇 번의 키 입력으로 모든 Electron API를 찾아볼 수 있습니다.
     compile_and_package: 컴파일 및 패키징
