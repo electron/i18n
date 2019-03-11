@@ -205,12 +205,12 @@ landing:
     lead_desc: The easiest way to get started with Electron
     create_app: Create your app
     description: Electron Fiddle lets you create and play with small Electron experiments. It greets you with a quick-start template after opening – change a few things, choose the version of Electron you want to run it with, and play around. Then, save your Fiddle either as a GitHub Gist or to a local folder. Once pushed to GitHub, anyone can quickly try your Fiddle out by just entering it in the address bar.
-    explore: Explore Electron
+    explore: Electron 탐색하기
     explore_desc: "Try Electron without installing any dependencies: Fiddle includes everything you'll need to explore the platform. It also includes examples for every API available in Electron, so if you want to quickly see what a BrowserView is or how the desktopCapturer works, Fiddle has got you covered."
     code_with_types: Code with Types
-    code_with_types_desc: Fiddle includes Microsoft's excellent Monaco Editor, the same editor powering Visual Studio Code. It also installs the type definitions for the currently selected version of Electron automatically, ensuring that you always have all Electron APIs only a few keystrokes away.
-    compile_and_package: Compile and Package
-    compile_and_package_desc: Fiddle can automatically turn your experiment into binaries you can share with your friends, coworkers, or grandparents. It does so thanks to <a href="https://electronforge.io/">electron-forge</a>, allowing you to package your fiddle as an app for Windows, macOS, or Linux.
+    code_with_types_desc: Fiddle은 Visual Studio Code를 구동시켜주는 Microsoft의 훌륭한 Monaco 에디터도 포함합니다. 또한, 현재 선택된 Electron 버전의 종류 정의를 자동으로 설치하여, 몇 번의 키 입력으로 모든 Electron API를 찾아볼 수 있습니다.
+    compile_and_package: 컴파일 및 패키징
+    compile_and_package_desc: Fiddle은 여러분의 실험을 바이너리로 자동으로 바꿔주어 친구, 동업자 혹은 조부모님과도 공유할 수 있습니다. <a href="https://electronforge.io/">electron-forge</a>의 덕을 받아 fiddle을 Windows, macOS, Linux용 앱으로 패키지화할 수도 있습니다.
     easy_start: Fiddle로 시작하고, 어디서든 계속하세요
     easy_start_desc: Fiddle은 IDE가 아닙니다. – 하지만 좋은 시작점인 건 확실합니다. fiddle이 커지면, <a href="https://electronforge.io/">electron-forge</a>를 쓰거나 쓰지 않고 추출할 수 있습니다. 그리고, 마음에 드시는 에디터를 사용하여 세계 정복을 노려볼 수 있지요.
 _404:
