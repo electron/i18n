@@ -1,6 +1,6 @@
 # Electron 버전 관리
 
-> Electron 버전 관리 정책과 구현에 대해 자세히 설명하고 있습니다.
+> Electron 버전 관리 정책과 구현 방식에 대해 자세히 설명하고 있습니다.
 
 Electron 2.0.0 버전부터는 [semver](#semver) 규칙에 따라 버전을 관리하고 있습니다. 아래의 명령어는 Electron 최신 안정(stable) 버전을 설치할 것입니다:
 
