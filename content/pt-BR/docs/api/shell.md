@@ -4,7 +4,7 @@
 
 Processo: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-O módulo `shell` fornece funções relacionadas à integração com a área de trabalho.
+O módulo `shell` fornece funções relacionadas à integração com o computador.
 
 Um exemplo de como abrir uma URL no navegador padrão do usuário:
 
