@@ -64,8 +64,8 @@ community:
   awesome_notice: 이 목록은 <a href="https://github.com/sindresorhus/awesome-electron"> @sindresorhus의 멋진 Electron</a> 저장소에서 생성되었습니다. <br>뭔가 누락되었나요? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md"> Pull Request를 만드세요.</a>
   meetup_notice: 모임을 추가하려면 <code>data/meetups.json</code>를 수정하고 <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">pull request를 만드세요</a>.
 releases:
-  show_releases: "Show Releases:"
-  show_only_releases_from: "Show Only Releases From:"
+  show_releases: "릴리즈 보기:"
+  show_only_releases_from: "해당 릴리즈만 보기:"
   all_versions: 모든 버전
   stable_releases: 안정 릴리즈
   stable_desc: 정규, 지원 릴리즈
@@ -132,9 +132,9 @@ apps:
   submit_your_own: 의견을 제출하세요
   something_missing: 뭔가 누락되었나요?
   edit_this_app: 이 앱을 수정하세요.
-  search_app: Filter apps by name, description, etc…
+  search_app: 앱을 이름, 설명 등으로 필터링하기…
   categories: 카테고리들
-  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
+  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Pull Request를 만들어</a> 여러분의 앱을 추가해 보세요.'
   website: 웹사이트
   repository: 리포지토리
   category: 카테고리
@@ -145,8 +145,8 @@ apps:
 blog:
   title: Electron 블로그
   description: 모든 최신 소식들은 Electron 팀과 커뮤니티에서 가져옵니다.
-  feedback: Have feedback on this post? Let <a href="https://twitter.com/electronjs">@electronjs</a> know on Twitter.
-  help: Need help or found a bug? <a href="/contact">Contact us</a>.
+  feedback: 이 글에 의견이 있나요? 트위터의 <a href="https://twitter.com/electronjs">@electronjs</a>로 알려주세요.
+  help: 도움이 필요하시거나 버그를 발견하셨나요? <a href="/contact">저희에게 알려주세요</a>.
 clipboard:
   copy: 복사
   copy_to_clipboard: 클립보드에 복사하기
@@ -207,8 +207,8 @@ landing:
     description: Electron Fiddle은 작은 Electron 실험 도구로 만들며 놀 수 있게 해줍니다. 연 후에 여러분을 반겨주는 빠른 시작 템플릿에서 몇 가지를 바꾸고, Electron의 버전을 고르고 실행하고 놀아보세요. 그다음엔, 여러분의 Fiddle을 Github Gist나 로컬 폴더에 저장할 수 있습니다. 한 번 Github에 올리면 누구나 여러분의 Fiddle을 주소창에 입력하는 것으로 체험해 볼 수 있습니다.
     explore: Electron 탐색하기
     explore_desc: "Electron을 어느 의존성 모듈을 설치하지 않고 체험해 보세요: Fiddle은 플랫폼을 탐색하기에 필요한 모든 것을 담고 있습니다. 또한, 모든 API의 예제도 포함하기 때문에, BrowserView가 무엇인지, desktopCapturer가 어떻게 돌아가는지 알고 싶을 때, Fiddle이 도와 드립니다."
-    code_with_types: Code with Types
-    code_with_types_desc: Fiddle은 Visual Studio Code를 구동시켜주는 Microsoft의 훌륭한 Monaco 에디터도 포함합니다. 또한, 현재 선택된 Electron 버전의 종류 정의를 자동으로 설치하여, 몇 번의 키 입력으로 모든 Electron API를 찾아볼 수 있습니다.
+    code_with_types: 자료형과 함께하는 코딩
+    code_with_types_desc: Fiddle은 Visual Studio Code를 구동시켜주는 Microsoft의 훌륭한 Monaco 에디터도 포함합니다. 또한, 현재 선택된 Electron 버전의 자료형 정의를 자동으로 설치하여, 몇 번의 키 입력으로 모든 Electron API를 찾아볼 수 있습니다.
     compile_and_package: 컴파일 및 패키징
     compile_and_package_desc: Fiddle은 여러분의 실험을 바이너리로 자동으로 바꿔주어 친구, 동업자 혹은 조부모님과도 공유할 수 있습니다. <a href="https://electronforge.io/">electron-forge</a>의 덕을 받아 fiddle을 Windows, macOS, Linux용 앱으로 패키지화할 수도 있습니다.
     easy_start: Fiddle로 시작하고, 어디서든 계속하기
