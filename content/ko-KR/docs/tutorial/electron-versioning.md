@@ -130,7 +130,7 @@ Specifically, the above means:
 
 저희는 업데이트와 출시 과정의 모든 단계에서 명확성이 향상되길 원합니다. `2.0.0` 버전을 기점으로, 모든 pull request는 [관례적인 커밋](https://conventionalcommits.org/) 스펙에 따라 작성되어야 하며, 커밋 스펙을 요약하면 다음과 같습니다:
 
-- semver **메이저** 버전 증가로 이어지는 커밋의 본문은 `BREAKING CHANGE:` 로 시작해야 합니다.
+- semver **메이저** 버전 증가로 이어지는 커밋은 `BREAKING CHANGE:` 로 시작해야 합니다.
 - semver **마이너** 버전 증가로 이어지는 커밋은 `feat:` 로 시작해야 합니다.
 - semver **패치** 버전 증가로 이어지는 커밋은 `fix:`로 시작해야 합니다.
 
