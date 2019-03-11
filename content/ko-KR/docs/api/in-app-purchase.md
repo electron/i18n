@@ -28,13 +28,13 @@
 * `callback` Function (선택적) - PaymentQueue에 결제가 추가되었을 때 수행할 콜백. 
     * `isProductValid` Boolean - 제품이 올바른지와 결제 큐에 추가되었는지에 대한 Boolean.
 
-You should listen for the `transactions-updated` event as soon as possible and certainly before you call `purchaseProduct`.
+반드시 `purchaseProduct`를 수행하기 전에 최대한 빨리 `transactions-updated` 이벤트를 등록해야 합니다.
 
 ### `inAppPurchase.getProducts(productIDs, callback)`
 
-* `productIDs` String[] - The identifiers of the products to get.
-* `callback` Function - The callback called with the products or an empty array if the products don't exist. 
-    * `products` Product[] - Array of [`Product`](structures/product.md) objects
+* `productIDs` String[] - 받을 제품의 식별자.
+* `callback` Function - 제품과 함께 호출된 콜백, 혹은 존재하지 않을 땐 빈 Array. 
+    * `products` Product[] - [`Product`](structures/product.md) 객체의 Array.
 
 제품 정보를 받아옵니다.
 
@@ -48,10 +48,10 @@ You should listen for the `transactions-updated` event as soon as possible and c
 
 ### `inAppPurchase.finishAllTransactions()`
 
-모든 대기중인 트랜잭션을 완료합니다.
+모든 보류중인 트랜잭션을 완료합니다.
 
 ### `inAppPurchase.finishTransactionByDate(date)`
 
-* `date` String - The ISO formatted date of the transaction to finish.
+* `date` String - ISO 포맷의 트랜잭션을 끝낼 날짜.
 
-Completes the pending transactions corresponding to the date.
+날짜에 맞는 보류중인 트랜잭션을 완료합니다.
