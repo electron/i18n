@@ -110,7 +110,7 @@ Specifically, the above means:
 
 ![](../images/versioning-sketch-7.png)
 
-# Missing Features: Alphas
+# 누락된 기능: 알파
 
 우리의 전략은 몇 가지 단점(tradeoff)이 있지만, 현재 시점에서는 이 전략이 적절하다고 생각합니다. 가장 큰 단점은 master 브랜치의 새로운 기능이 안정 버전 출시 라인에 반영되기 전까지 상당한 시간이 걸릴 수도 있다는 점입니다. 새로운 기능을 즉시 사용하고 싶다면 Electron을 직접 빌드해야 할 것입니다.
 
