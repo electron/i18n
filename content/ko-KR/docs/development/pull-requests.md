@@ -34,15 +34,15 @@ $ git fetch upstream
 
 운영 체제에 따라 빌드 단계나 의존성이 약간씩 차이가 있습니다. Electron을 로컬에서 빌드하는 방법을 다룬 아래 가이드 문서를 참고하세요:
 
-* [Building on MacOS](https://electronjs.org/docs/development/build-instructions-macos)
-* [Building on Linux](https://electronjs.org/docs/development/build-instructions-linux)
-* [Building on Windows](https://electronjs.org/docs/development/build-instructions-windows)
+* [MacOS에서 빌드하기](https://electronjs.org/docs/development/build-instructions-macos)
+* [리눅스에서 빌드하기](https://electronjs.org/docs/development/build-instructions-linux)
+* [Windows에서 빌드하기](https://electronjs.org/docs/development/build-instructions-windows)
 
-Once you've built the project locally, you're ready to start making changes!
+로컬에서 프로젝트를 빌드했다면 변경 작업을 시작할 준비는 마쳤다고 보시면 됩니다.
 
 ### 3 단계: 브랜치
 
-To keep your development environment organized, create local branches to hold your work. These should be branched directly off of the `master` branch.
+구성한 개발 환경을 보존하기 위해, 작업 내용을 저장할 로컬 브랜치를 생성합니다. 이 브랜치들은 `master` 브랜치를 기반으로 생성해야 합니다.
 
 ```sh
 $ git checkout -b my-branch -t upstream/master
