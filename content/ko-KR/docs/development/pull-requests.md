@@ -99,11 +99,11 @@ Pull request는 merge하기 전에 시맨틱 접두사와 pull request 제목의
 
 1. 첫 번째 라인 작성 규칙: 
   * 변경 사항에 대한 간단한 설명 (50자 내외, 72자 이내로 작성할 것)
-  * be entirely in lowercase with the exception of proper nouns, acronyms, and the words that refer to code, like function/variable names
-2. Keep the second line blank.
-3. Wrap all other lines at 72 columns.
+  * 고유 명사, 두문자어, 함수나 변수 이름과 같은 코드와 관련된 단어를 제외하고는 소문자로 작성할 것
+2. 두 번째 라인은 공백으로 남겨둘 것
+3. 72 줄 이내로 작성할 것
 
-#### Breaking Changes
+#### 중대한 변화
 
 A commit that has the text `BREAKING CHANGE:` at the beginning of its optional body or footer section introduces a breaking API change (correlating with Major in semantic versioning). A breaking change can be part of commits of any type. e.g., a `fix:`, `feat:` & `chore:` types would all be valid, in addition to any other type.
 
