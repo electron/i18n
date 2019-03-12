@@ -36,13 +36,13 @@ const request = net.request({
 
 ### 인스턴스 이벤트
 
-#### 이벤트: 'response'
+#### Event: 'response'
 
 반환:
 
 * `response` IncomingMessage - HTTP 응답 메시지를 나타내는 객체입니다.
 
-#### 이벤트: 'login'
+#### Event: 'login'
 
 반환:
 
@@ -83,7 +83,7 @@ request.on('login', (authInfo, callback) => {
 })
 ```
 
-#### 이벤트: 'finish'
+#### Event: 'finish'
 
 Emitted just after the last chunk of the `request`'s data has been written into the `request` object.
 
