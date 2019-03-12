@@ -185,27 +185,27 @@
     "name": "Korean",
     "code": "ko",
     "phrases": "10115",
-    "translated": "4648",
+    "translated": "4726",
     "approved": "361",
     "words": "93666",
-    "words_translated": "39198",
+    "words_translated": "39819",
     "words_approved": "3355",
-    "translated_progress": 41,
+    "translated_progress": 42,
     "approved_progress": 3,
-    "qa_issues": 2074
+    "qa_issues": 2122
   },
   {
     "name": "Persian",
     "code": "fa",
     "phrases": "10115",
-    "translated": "996",
+    "translated": "1024",
     "approved": "29",
     "words": "93666",
-    "words_translated": "4232",
+    "words_translated": "4387",
     "words_approved": "53",
     "translated_progress": 4,
     "approved_progress": 0,
-    "qa_issues": 39
+    "qa_issues": 40
   },
   {
     "name": "Polish",
