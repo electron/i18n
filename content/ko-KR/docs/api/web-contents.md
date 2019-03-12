@@ -615,7 +615,7 @@ Returns:
 
 Emitted when `remote.getCurrentWindow()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
-#### 이벤트: 'remote-get-current-web-contents'
+#### Event: 'remote-get-current-web-contents'
 
 Returns:
 
@@ -623,7 +623,7 @@ Returns:
 
 Emitted when `remote.getCurrentWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
-#### 이벤트: 'remote-get-guest-web-contents'
+#### Event: 'remote-get-guest-web-contents'
 
 Returns:
 
