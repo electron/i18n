@@ -71,7 +71,7 @@ $ git commit
 
 #### 커밋 메시지 가이드라인
 
-A good commit message should describe what changed and why. The Electron project uses [semantic commit messages](https://conventionalcommits.org/) to streamline the release process.
+변경 사항과 그 이유를 담고 있어야 좋은 커밋 메시지라고 할 수 있습니다. Electron 프로젝트는 릴리스 과정을 능률적으로 처리하기 위해 [시맨틱 커밋 메시지](https://conventionalcommits.org/) 를 사용합니다.
 
 Before a pull request can be merged, it **must** have a pull request title with a semantic prefix.
 
