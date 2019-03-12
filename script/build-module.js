@@ -7,7 +7,7 @@ const walk = require('walk-sync')
 const path = require('path')
 const fs = require('fs')
 const cleanDeep = require('clean-deep')
-const hubdown = require('hubdown')
+const electronMarkdown = require('electron-markdown')
 const locales = require('../lib/locales')
 const hrefType = require('href-type')
 const URL = require('url')
@@ -89,8 +89,8 @@ async function parseFile (file) {
 
   file.sections = await Promise.all(
     splitMd(await fixMdLinks(markdown)).map(async (section) => {
-      const parsed = await hubdown(section.body)
-      const $ = cheerio.load(parsed.content || '')
+      const parsed = await electronMarkdown(section.body)
+      const $ = cheerio.load(parsed || '')
       file.title = file.title ||
                   $('h1').first().text().trim() ||
                   $('h2').first().text().replace('Class: ', '')
