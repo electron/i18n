@@ -71,13 +71,13 @@ releases:
   stable_desc: نسخه های معمولی پشتیبانی شده
   beta_releases: نسخه های بتا
   beta_desc: برنامه های خود را با تغییرات آینده تست کنید
-  nightly_releases: Nightly Releases
-  nightly_desc: Experiment with the latest features
-  next: Next
-  next_page: Next Page
-  previous: Previous
-  previous_page: Previous Page
-  page: Page
+  nightly_releases: نسخه شبانه
+  nightly_desc: با آخرین قابلیت ها آزمایش کنید
+  next: بعدی
+  next_page: صفحه بعدی
+  previous: قبلی
+  previous_page: صفحه قبلی
+  page: صفحه
   all_releases: تمامی رهانش‌ها
   back_to_index: بازگشت به فهرست
 electron_is_easy:
@@ -203,9 +203,9 @@ landing:
   get_started: شروع کنید
   fiddle:
     lead_desc: The easiest way to get started with Electron
-    create_app: Create your app
+    create_app: برنامه خود را بسازید
     description: Electron Fiddle lets you create and play with small Electron experiments. It greets you with a quick-start template after opening – change a few things, choose the version of Electron you want to run it with, and play around. Then, save your Fiddle either as a GitHub Gist or to a local folder. Once pushed to GitHub, anyone can quickly try your Fiddle out by just entering it in the address bar.
-    explore: Explore Electron
+    explore: گشتن الکترون
     explore_desc: "Try Electron without installing any dependencies: Fiddle includes everything you'll need to explore the platform. It also includes examples for every API available in Electron, so if you want to quickly see what a BrowserView is or how the desktopCapturer works, Fiddle has got you covered."
     code_with_types: Code with Types
     code_with_types_desc: Fiddle includes Microsoft's excellent Monaco Editor, the same editor powering Visual Studio Code. It also installs the type definitions for the currently selected version of Electron automatically, ensuring that you always have all Electron APIs only a few keystrokes away.
