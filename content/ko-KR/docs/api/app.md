@@ -85,7 +85,7 @@ Returns:
 
 윈도우에서, `process.argv`를 통해서 열기를 시도하는 파일의 경로를 얻어올 수 있습니다. (단, 메인 프로세스에서만 가능합니다.)
 
-### 이벤트: 'open-url' *macOS*
+### Event: 'open-url' *macOS*
 
 반환:
 
@@ -303,7 +303,7 @@ Returns:
 
 Emitted when Chrome's accessibility support changes. This event fires when assistive technologies, such as screen readers, are enabled or disabled. See https://www.chromium.org/developers/design-documents/accessibility for more details.
 
-### 이벤트: 'session-created'
+### Event: 'session-created'
 
 반환:
 
@@ -370,7 +370,7 @@ Returns:
 
 Emitted when `remote.getCurrentWindow()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
-### 이벤트: 'remote-get-current-web-contents'
+### Event: 'remote-get-current-web-contents'
 
 Returns:
 
@@ -379,7 +379,7 @@ Returns:
 
 Emitted when `remote.getCurrentWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
-### 이벤트: 'remote-get-guest-web-contents'
+### Event: 'remote-get-guest-web-contents'
 
 Returns:
 
