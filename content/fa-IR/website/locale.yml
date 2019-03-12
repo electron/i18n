@@ -14,10 +14,10 @@ nav:
   userland: فضای کاربری
 keyboard_modal:
   title: میانبرهای صفحه کلید
-  key: Key
-  action: Action
-  focus_search: Focus the search bar
-  focus_and_clear: Focus the search bar and cleans it
+  key: کلید
+  action: اقدام
+  focus_search: فوکوس روی نوار جستجو
+  focus_and_clear: خالی کردن و فوکوس روی نوار جستجو
   scroll_down: انتخاب نتیجه بعدی جستجو
   scroll_up: انتخاب نتیجه قبلی جستجو
   open: باز کردن ایتم انتخاب شده جستجو
@@ -43,9 +43,9 @@ community:
   title: پرسش و پاسخ الکترون
   description: منابعی برای ارتباط با کسانی که روی الکترون کار می‌کنند.
   channels:
-    get_started: "<a href='/docs/tutorial/first-app'><b>Get started</b></a> building an app by reading the <a href='/docs/tutorial/first-app'>quick-start guide</a>."
-    updates: "<a href='https://twitter.com/electronjs'><b>Stay up to date</b></a> by following <a href='https://twitter.com/electronjs'>@electronjs</a> on Twitter and subscribing to the <a href='/blog'>blog feed</a>."
-    localized_docs: "<a href='/languages'><b>Read docs in your native language</b></a> by visiting the <a href='/languages'>languages page</a>."
+    get_started: "<a href='/docs/tutorial/first-app'><b>شروع کنید</b></a> با خواندن <a href='/docs/tutorial/first-app'>راهنمای شروع</a> یک برنامه بسازید."
+    updates: "<a href='https://twitter.com/electronjs'>با دنبال کردن</a><a href='https://twitter.com/electronjs'>@electronjs</a> در توییتر و عضوت در <a href='/blog'>بلاگ</a> <b>همیشه بروز باشید</b>."
+    localized_docs: "<a href='/languages'><b>مستندات را با زبان اصلی </b></a> در <a href='/languages'>صفحه زبان ها</a>بخوانید."
     help: "<a href='http://atom-slack.herokuapp.com'><b>Get help and feedback</b></a> by joining the <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Report bugs</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Request features</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
@@ -64,13 +64,13 @@ community:
   awesome_notice: This list is generated from <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus's Awesome Electron</a> repository. <br> Something missing? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Make a pull request</a>.
   meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">make a pull request</a>.
 releases:
-  show_releases: "Show Releases:"
-  show_only_releases_from: "Show Only Releases From:"
-  all_versions: All Versions
-  stable_releases: Stable Releases
-  stable_desc: Regular, supported releases
-  beta_releases: Beta Releases
-  beta_desc: Test your app with upcoming changes
+  show_releases: "نمایش نسخه ها:"
+  show_only_releases_from: "نمایش نسخه های ارائه شده از:"
+  all_versions: تمامی نسخه ها
+  stable_releases: نسخه پایدار
+  stable_desc: نسخه های معمولی پشتیبانی شده
+  beta_releases: نسخه های بتا
+  beta_desc: برنامه های خود را با تغییرات آینده تست کنید
   nightly_releases: Nightly Releases
   nightly_desc: Experiment with the latest features
   next: Next
