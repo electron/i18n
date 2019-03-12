@@ -18,10 +18,10 @@ keyboard_modal:
   action: Action
   focus_search: Focus the search bar
   focus_and_clear: Focus the search bar and cleans it
-  scroll_down: Select the next search result
-  scroll_up: Select the previous search result
-  open: Open the selected search result
-  open_new_tab: Open the selected search result in a new tab
+  scroll_down: انتخاب نتیجه بعدی جستجو
+  scroll_up: انتخاب نتیجه قبلی جستجو
+  open: باز کردن ایتم انتخاب شده جستجو
+  open_new_tab: باز کردن ایتم انتخاب شده جستجو در زبانه جدید
 docs:
   title: مستندات الکترون
   description: تمام مستندات را در <a href="/docs/all">این صفحه</a> مشاهده کنید و یا <a href="/docs/faq">سوالات متداول</a> را بررسی کنید.
@@ -36,7 +36,7 @@ docs:
     view_all_docs: تمام مستندات در یک صفحه
 languages:
   choose_language: زبان سایت را انتخاب کنید
-  view_more_details: View More Language Details
+  view_more_details: دیدن جزئیات بیشتر زبان
   translation_progress: پیشرفت ترجمه
   current: انتخاب کنونی
 community:
