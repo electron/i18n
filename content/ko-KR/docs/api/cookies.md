@@ -33,7 +33,7 @@ session.defaultSession.cookies.set(cookie, (error) => {
 
 아래의 이벤트들은 `Cookies` 인스턴스를 통해 사용할 수 있다.
 
-#### 이벤트: 'changed'
+#### Event: 'changed'
 
 * `event` Event
 * `cookie` [Cookie](structures/cookie.md) - 변경된 cookie 값
