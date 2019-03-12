@@ -73,32 +73,32 @@ $ git commit
 
 변경 사항과 그 이유를 담고 있어야 좋은 커밋 메시지라고 할 수 있습니다. Electron 프로젝트는 릴리스 과정을 능률적으로 처리하기 위해 [시맨틱 커밋 메시지](https://conventionalcommits.org/) 를 사용합니다.
 
-Before a pull request can be merged, it **must** have a pull request title with a semantic prefix.
+Pull request는 merge하기 전에 시맨틱 접두사와 pull request 제목의 형태로 **구성해야 한다**.
 
-Examples of commit messages with semantic prefixes:
+시멘틱 접두사를 함께 사용한 커밋 메시지 예시:
 
 * `fix: don't overwrite prevent_default if default wasn't prevented`
 * `feat: add app.isPackaged() method`
 * `docs: app.isDefaultProtocolClient is now available on Linux`
 
-Common prefixes:
+자주 사용하는 접두사:
 
-    - fix: A bug fix
-    - feat: A new feature
-    - docs: Documentation changes
-    - test: Adding missing tests or correcting existing tests
-    - build: Changes that affect the build system
-    - ci: Changes to our CI configuration files and scripts
-    - perf: A code change that improves performance
-    - refactor: A code change that neither fixes a bug nor adds a feature
-    - style: Changes that do not affect the meaning of the code (linting)
-    - vendor: Bumping a dependency like libchromiumcontent or node
+    - fix: 버그 수정
+    - feat: 새로운 기능
+    - docs: 문서 변경
+    - test: 누락된 테스트 추가 또는 기존 테스트 수정
+    - build: 빌드 시스템에 영향을 주는 변경 사항
+    - ci: CI 설정 파일과 스크립트 관련 변경 사항
+    - perf: 성능 향상과 관련된 코드 변경
+    - refactor: 버그 수정이나 기능 추가 이외의 코드 변경
+    - style: 코드에 직접 영향을 주지 않는 변경 사항 (linting 같은)
+    - vendor: libchromiumcontent 또는 node 같은 의존성 버전 증가
     
 
-Other things to keep in mind when writing a commit message:
+그 밖의 커밋 메시지 작성 시 주의 사항은 다음과 같습니다:
 
-1. The first line should: 
-  * contain a short description of the change (preferably 50 characters or less, and no more than 72 characters)
+1. 첫 번째 라인 작성 규칙: 
+  * 변경 사항에 대한 간단한 설명 (50자 내외, 72자 이내로 작성할 것)
   * be entirely in lowercase with the exception of proper nouns, acronyms, and the words that refer to code, like function/variable names
 2. Keep the second line blank.
 3. Wrap all other lines at 72 columns.
