@@ -56,18 +56,18 @@ $ git checkout -b my-branch -t upstream/master
 
 프로젝트 코드 스타일 통일을 위해 코드를 변경할 때마다 `npm run lint`를 실행해주시길 바랍니다.
 
-See [coding style](https://electronjs.org/docs/development/coding-style) for more information about best practice when modifying code in different parts of the project.
+[코딩 스타일](https://electronjs.org/docs/development/coding-style) 문서의 모범 사례를 확인하여 프로젝트 안의 다양한 프로그래밍 언어 코드를 수정할 때 적용해 보시길 바랍니다.
 
 ### 5 단계: 커밋
 
-It is recommended to keep your changes grouped logically within individual commits. Many contributors find it easier to review changes that are split across multiple commits. There is no limit to the number of commits in a pull request.
+개별 커밋 안에 논리적으로 그룹화해서 변경 사항을 유지하시길 권장합니다. 변경 사항이 여러 개의 커밋으로 구분되어 있으면, 리뷰할 곳을 쉽게 찾을 수 있습니다. Pull request 안의 커밋은 횟수 제한이 없습니다.
 
 ```sh
 $ git add my/changed/files
 $ git commit
 ```
 
-Note that multiple commits often get squashed when they are landed.
+최종적으로 변경 사항이 코드에 반영될 때 여러 개의 커밋은 squash 하는 경우가 많습니다.
 
 #### 커밋 메시지 가이드라인
 
