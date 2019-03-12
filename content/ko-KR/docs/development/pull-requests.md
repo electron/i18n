@@ -1,9 +1,9 @@
-# 풀 리퀘스트
+# Pull Requests
 
-* [Setting up your local environment](#setting-up-your-local-environment) 
-  * [Step 1: Fork](#step-1-fork)
-  * [Step 2: Build](#step-2-build)
-  * [Step 3: Branch](#step-3-branch)
+* [로컬 환경 설정](#setting-up-your-local-environment) 
+  * [1 단계: Fork](#step-1-fork)
+  * [2 단계: 빌드](#step-2-build)
+  * [3 단계: 브랜치](#step-3-branch)
 * [Making Changes](#making-changes) 
   * [Step 4: Code](#step-4-code)
   * [Step 5: Commit](#step-5-commit) 
