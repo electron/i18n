@@ -4,7 +4,7 @@
 
 프로세스:[메인](../glossary.md#main-process), [렌더러](../glossary.md#renderer-process)
 
-The `shell` module provides functions related to desktop integration.
+` shell` 모듈은 데스크톱 통합과 연관된 함수를 제공합니다.
 
 사용자의 기본 브라우저를 이용하여 URL을 여는 예시입니다 :
 
