@@ -8,7 +8,7 @@
 
 `inAppPurchase` 모듈은 다음 이벤트를 발생시킵니다:
 
-### 이벤트: 'transactions-updated'
+### Event: 'transactions-updated'
 
 하나 이상의 트랜잭션이 업데이트됐을 때 발생합니다.
 
