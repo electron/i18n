@@ -52,9 +52,9 @@ $ git checkout -b my-branch -t upstream/master
 
 ### 4 단계: 코드
 
-Most pull requests opened against the `electron/electron` repository include changes to either the C/C++ code in the `atom/` folder, the JavaScript code in the `lib/` folder, the documentation in `docs/api/` or tests in the `spec/` folder.
+`electron/electron` 저장소에 생성된 pull requests 내용에는 `atom/` 폴더의 C/C++ 코드 변경 사항이 포함되기도 하고, `lib/` 폴더의 JavaScript 코드 변경 사항이 포함될 때도 있으며, `docs/api/` 폴더의 문서 내용에 대한 변경 사항, `spec/` 폴더의 테스트 관련 변경 사항이 포함될 때도 있습니다.
 
-Please be sure to run `npm run lint` from time to time on any code changes to ensure that they follow the project's code style.
+프로젝트 코드 스타일 통일을 위해 코드를 변경할 때마다 `npm run lint`를 실행해주시길 바랍니다.
 
 See [coding style](https://electronjs.org/docs/development/coding-style) for more information about best practice when modifying code in different parts of the project.
 
