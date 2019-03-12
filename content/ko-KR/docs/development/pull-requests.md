@@ -14,14 +14,14 @@
   * [9 단계: Pull Request 생성하기](#step-9-opening-the-pull-request)
   * [10 단계: 토론 및 업데이트](#step-10-discuss-and-update) 
     * [승인 및 변경 요청 작업 흐름](#approval-and-request-changes-workflow)
-  * [Step 11: Landing](#step-11-landing)
-  * [Continuous Integration Testing](#continuous-integration-testing)
+  * [11 단계: 랜딩](#step-11-landing)
+  * [지속적인 통합 테스팅](#continuous-integration-testing)
 
-## Setting up your local environment
+## 로컬 환경 설정
 
-### Step 1: Fork
+### 1 단계: Fork
 
-Fork the project [on GitHub](https://github.com/electron/electron) and clone your fork locally.
+Fork the project [GitHub](https://github.com/electron/electron) 에서 프로젝트를 fork하고 로컬에 clone 합니다.
 
 ```sh
 $ git clone git@github.com:username/electron.git
@@ -30,9 +30,9 @@ $ git remote add upstream https://github.com/electron/electron.git
 $ git fetch upstream
 ```
 
-### Step 2: Build
+### 2 단계: 빌드
 
-Build steps and dependencies differ slightly depending on your operating system. See these detailed guides on building Electron locally:
+운영 체제에 따라 빌드 단계나 의존성이 약간씩 차이가 있습니다. Electron을 로컬에서 빌드하는 방법을 다룬 아래 가이드 문서를 참고하세요:
 
 * [Building on MacOS](https://electronjs.org/docs/development/build-instructions-macos)
 * [Building on Linux](https://electronjs.org/docs/development/build-instructions-linux)
@@ -40,7 +40,7 @@ Build steps and dependencies differ slightly depending on your operating system.
 
 Once you've built the project locally, you're ready to start making changes!
 
-### Step 3: Branch
+### 3 단계: 브랜치
 
 To keep your development environment organized, create local branches to hold your work. These should be branched directly off of the `master` branch.
 
@@ -48,9 +48,9 @@ To keep your development environment organized, create local branches to hold yo
 $ git checkout -b my-branch -t upstream/master
 ```
 
-## Making Changes
+## 변경 작업 순서
 
-### Step 4: Code
+### 4 단계: 코드
 
 Most pull requests opened against the `electron/electron` repository include changes to either the C/C++ code in the `atom/` folder, the JavaScript code in the `lib/` folder, the documentation in `docs/api/` or tests in the `spec/` folder.
 
@@ -58,7 +58,7 @@ Please be sure to run `npm run lint` from time to time on any code changes to en
 
 See [coding style](https://electronjs.org/docs/development/coding-style) for more information about best practice when modifying code in different parts of the project.
 
-### Step 5: Commit
+### 5 단계: 커밋
 
 It is recommended to keep your changes grouped logically within individual commits. Many contributors find it easier to review changes that are split across multiple commits. There is no limit to the number of commits in a pull request.
 
@@ -69,7 +69,7 @@ $ git commit
 
 Note that multiple commits often get squashed when they are landed.
 
-#### Commit message guidelines
+#### 커밋 메시지 가이드라인
 
 A good commit message should describe what changed and why. The Electron project uses [semantic commit messages](https://conventionalcommits.org/) to streamline the release process.
 
@@ -109,7 +109,7 @@ A commit that has the text `BREAKING CHANGE:` at the beginning of its optional b
 
 See [conventionalcommits.org](https://conventionalcommits.org) for more details.
 
-### Step 6: Rebase
+### 6 단계: Rebase
 
 Once you have committed your changes, it is a good idea to use `git rebase` (not `git merge`) to synchronize your work with the main repository.
 
@@ -120,7 +120,7 @@ $ git rebase upstream/master
 
 This ensures that your working branch has the latest changes from `electron/electron` master.
 
-### Step 7: Test
+### 7 단계: 테스트
 
 Bug fixes and features should always come with tests. A [testing guide](https://electronjs.org/docs/development/testing) has been provided to make the process easier. Looking at other tests to see how they should be structured can also help.
 
@@ -140,7 +140,7 @@ $ npm run test -match=menu
 
 The above would only run spec modules matching `menu`, which is useful for anyone who's working on tests that would otherwise be at the very end of the testing cycle.
 
-### Step 8: Push
+### 8 단계: Push
 
 Once your commits are ready to go -- with passing tests and linting -- begin the process of opening a pull request by pushing your working branch to your fork on GitHub.
 
@@ -148,7 +148,7 @@ Once your commits are ready to go -- with passing tests and linting -- begin the
 $ git push origin my-branch
 ```
 
-### Step 9: Opening the Pull Request
+### 9 단계: Pull Request 생성하기
 
 From within GitHub, opening a new pull request will present you with a template that should be filled out:
 
@@ -163,7 +163,7 @@ Contributors guide: https://github.com/electron/electron/blob/master/CONTRIBUTIN
 -->
 ```
 
-### Step 10: Discuss and update
+### 10 단계: 토론 및 업데이트
 
 You will probably get feedback or requests for changes to your pull request. This is a big part of the submission process so don't be discouraged! Some contributors may sign off on the pull request right away. Others may have detailed comments or feedback. This is a necessary part of the process in order to evaluate whether the changes are correct and necessary.
 
@@ -179,19 +179,19 @@ There are a number of more advanced mechanisms for managing commits using `git r
 
 Feel free to post a comment in the pull request to ping reviewers if you are awaiting an answer on something. If you encounter words or acronyms that seem unfamiliar, refer to this [glossary](https://sites.google.com/a/chromium.org/dev/glossary).
 
-#### Approval and Request Changes Workflow
+#### 승인 및 변경 요청 작업 흐름
 
 All pull requests require approval from a [Code Owner](https://github.com/orgs/electron/teams/code-owners) of the area you modified in order to land. Whenever a maintainer reviews a pull request they may request changes. These may be small, such as fixing a typo, or may involve substantive changes. Such requests are intended to be helpful, but at times may come across as abrupt or unhelpful, especially if they do not include concrete suggestions on *how* to change them.
 
 Try not to be discouraged. If you feel that a review is unfair, say so or seek the input of another project contributor. Often such comments are the result of a reviewer having taken insufficient time to review and are not ill-intended. Such difficulties can often be resolved with a bit of patience. That said, reviewers should be expected to provide helpful feeback.
 
-### Step 11: Landing
+### 11 단계: 랜딩
 
 In order to land, a pull request needs to be reviewed and approved by at least one Electron Code Owner and pass CI. After that, if there are no objections from other contributors, the pull request can be merged.
 
 Congratulations and thanks for your contribution!
 
-### Continuous Integration Testing
+### 지속적인 통합 테스팅
 
 Every pull request is tested on the Continuous Integration (CI) system to confirm that it works on Electron's supported platforms.
 
