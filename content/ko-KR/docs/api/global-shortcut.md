@@ -1,12 +1,12 @@
 # globalShortcut
 
-> Detect keyboard events when the application does not have keyboard focus.
+> 애플리케이션이 키보드 포커스를 받고 있지 않고 있을 때 키보드 이벤트를 감지합니다.
 
 프로세스:[Main](../glossary.md#main-process)
 
 The `globalShortcut` module can register/unregister a global keyboard shortcut with the operating system so that you can customize the operations for various shortcuts.
 
-**Note:** The shortcut is global; it will work even if the app does not have the keyboard focus. You should not use this module until the `ready` event of the app module is emitted.
+**주의:** 단축키는 전역입니다; 앱이 키보드 포커스를 받고 있지 않을 때도 작동합니다. 앱 모듈의 `ready` 이벤트가 발생하기 전에 이 모듈을 사용하면 안 됩니다.
 
 ```javascript
 const { app, globalShortcut } = require('electron')
@@ -36,7 +36,7 @@ app.on('will-quit', () => {
 
 ## 메서드
 
-The `globalShortcut` module has the following methods:
+`globalShortcut` 모듈은 다음 매서드를 가지고 있습니다:
 
 ### `globalShortcut.register(accelerator, callback)`
 
@@ -47,12 +47,12 @@ The `globalShortcut` module has the following methods:
 
 When the accelerator is already taken by other applications, this call will silently fail. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
 
-The following accelerators will not be registered successfully on macOS 10.14 Mojave unless the app has been authorized as a [trusted accessibility client](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html):
+다음 accelerators는 macOS 10.14 Mojave에서 [신뢰 된 손쉬운 사용 클라이언트](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html)로 등록되어 있지 않으면 성공적으로 등록되지 않습니다.
 
-* "Media Play/Pause"
-* "Media Next Track"
-* "Media Previous Track"
-* "Media Stop"
+* "미디어 재생/일시 정지"
+* "미디어 다음 트랙"
+* "미디어 이전 트랙"
+* "미디어 일시 정지"
 
 ### `globalShortcut.isRegistered(accelerator)`
 
