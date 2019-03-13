@@ -132,7 +132,7 @@ $ npm run test
 
 linter가 어떠한 이슈도 보고하지 않았고, 모든 테스트도 통과되었는지 확인하세요. Please do not submit patches that fail either check.
 
-If you are updating tests and want to run a single spec to check it:
+테스트를 수정한 후 단일 spec 에 대한 테스트 결과를 확인하고 싶은 경우 아래의 명령을 사용할 수 있습니다:
 
 ```sh
 $ npm run test -match=menu
@@ -150,7 +150,7 @@ $ git push origin my-branch
 
 ### 9 단계: Pull Request 생성하기
 
-From within GitHub, opening a new pull request will present you with a template that should be filled out:
+GitHub에서 새로운 pull request를 생성하면 작성 방법이 서술된 템플릿이 나타날 것입니다.
 
 ```markdown
 <!--
@@ -165,7 +165,7 @@ Contributors guide: https://github.com/electron/electron/blob/master/CONTRIBUTIN
 
 ### 10 단계: 토론 및 업데이트
 
-You will probably get feedback or requests for changes to your pull request. This is a big part of the submission process so don't be discouraged! Some contributors may sign off on the pull request right away. Others may have detailed comments or feedback. This is a necessary part of the process in order to evaluate whether the changes are correct and necessary.
+제출한 pull request에 대해 피드백을 받거나 내용 수정을 요청받을 수도 있습니다. This is a big part of the submission process so don't be discouraged! Some contributors may sign off on the pull request right away. Others may have detailed comments or feedback. This is a necessary part of the process in order to evaluate whether the changes are correct and necessary.
 
 To make changes to an existing pull request, make the changes to your local branch, add a new commit with those changes, and push those to your fork. GitHub will automatically update the pull request.
 
