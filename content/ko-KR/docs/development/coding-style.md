@@ -7,18 +7,18 @@
 ## 일반적인 코드
 
 * 마지막 줄을 띄우기
-* Place requires in the following order: 
-  * Built in Node Modules (such as `path`)
-  * Built in Electron Modules (such as `ipc`, `app`)
-  * Local Modules (using relative paths)
-* Place class properties in the following order: 
+* require를 다음 순서에 따라 배치하기: 
+  * 내장 Node 모듈 (`path` 같은 모듈들)
+  * 내장 Electron 모듈 (`ipc`, `app` 같은 모듈들)
+  * 로컬 모듈 (상대 경로 사용)
+* class 속성을 다음 순서에 따라 배치하기: 
   * Class methods and properties (methods starting with a `@`)
   * Instance methods and properties
-* Avoid platform-dependent code: 
+* 특정 플랫폼에 의존적인 코드 작성을 피하세요: 
   * `path.join()`을 사용하여 파일 경로를 연결하세요.
-  * Use `os.tmpdir()` rather than `/tmp` when you need to reference the temporary directory.
+  * 임시 디렉터리를 사용할 때는 `/tmp` 대신 `os.tmpdir()`을 사용하세요.
 * Using a plain `return` when returning explicitly at the end of a function. 
-  * Not `return null`, `return undefined`, `null` or `undefined`
+  * `return null`, `return undefined`, `null` 혹은 `undefined`는 허용되지 않습니다.
 
 ## C++과 Python
 
@@ -30,7 +30,7 @@ C++ 코드는 많은 Chromium의 추상화와 타입을 사용합니다. 따라�
 
 ## 문서
 
-* Write [remark](https://github.com/remarkjs/remark) markdown style.
+* [remark](https://github.com/remarkjs/remark) 마크다운 스타일을 사용하여 작성하기.
 
 `npm run lint-docs`를 실행하여 문서 형식이 제대로 작성되어 있는지를 검사할 수 있습니다.
 
