@@ -20,12 +20,12 @@ renderer와 main 프로세스간의 메시지 발송과 처리 예:
 // main 프로세스안에서
 const { ipcMain } = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
-  console.log(arg) // prints "ping"
+  console.log(arg) // "ping" 출력
   event.sender.send('asynchronous-reply', 'pong')
 })
 
 ipcMain.on('synchronous-message', (event, arg) => {
-  console.log(arg) // prints "ping"
+  console.log(arg) // "ping" 출력
   event.returnValue = 'pong'
 })
 ```
