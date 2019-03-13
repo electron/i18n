@@ -45,7 +45,7 @@ app.on('will-quit', () => {
 
 ` accelerator`의 전역 단축키를 등록합니다. `callback`은 등록된 단축키가 사용자에 의해서 눌러졌을 때 호출합니다.
 
-When the accelerator is already taken by other applications, this call will silently fail. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+accelerator가 다른 애플리케이션이 이미 등록하고 있으면, 이 호출은 조용히 실패할 것입니다. 이 동작은 애플리케이션끼리의 전역 키보드 단축키의 충돌을 막기 위해 운영 체제가 관리합니다.
 
 다음 accelerators는 macOS 10.14 Mojave에서 [신뢰 된 손쉬운 사용 클라이언트](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html)로 등록되어 있지 않으면 성공적으로 등록되지 않습니다.
 
