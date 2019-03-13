@@ -94,25 +94,24 @@ if (!inAppPurchase.canMakePayments()) {
 }
 
 // 製品の説明を取得して表示します。
-inAppPurchase.getProducts(PRODUCT_IDS, (products) => {
-  // 引数を確認します。
+inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
+  // Check the parameters.
   if (!Array.isArray(products) || products.length <= 0) {
     console.log('Unable to retrieve the product informations.')
     return
   }
 
   // 各プロダクトの名前と価格を表示します。
-  products.forEach((product) => {
+  products.forEach(product => {
     console.log(`The price of ${product.localizedTitle} is ${product.formattedPrice}.`)
   })
 
-  // どの製品を購入したいかをユーザーに尋ねます。
-  // ...
+  // Ask the user which product he/she wants to purchase.
   let selectedProduct = products[0]
   let selectedQuantity = 1
 
   // 選択されたプロダクトを購入します。
-  inAppPurchase.purchaseProduct(selectedProduct.productIdentifier, selectedQuantity, (isProductValid) => {
+  inAppPurchase.purchaseProduct(selectedProduct.productIdentifier, selectedQuantity).then(isProductValid => {
     if (!isProductValid) {
       console.log('The product is not valid.')
       return
