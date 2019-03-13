@@ -111,26 +111,26 @@ Pull request는 merge하기 전에 시맨틱 접두사와 pull request 제목의
 
 ### 6 단계: Rebase
 
-Once you have committed your changes, it is a good idea to use `git rebase` (not `git merge`) to synchronize your work with the main repository.
+변경 사항에 대한 커밋을 완료했다면 메인 저장소를 기준으로 변경 사항을 동기화하기 위해 `git rebase` (`git merge` 가 아님) 를 수행하는 것이 좋습니다.
 
 ```sh
 $ git fetch upstream
 $ git rebase upstream/master
 ```
 
-This ensures that your working branch has the latest changes from `electron/electron` master.
+이 명령은 `electron/electron` maste에서 가장 최근에 발생한 변경 사항을 여러분의 작업 브랜치에 반영할 수 있게 도와줄 것입니다.
 
 ### 7 단계: 테스트
 
-Bug fixes and features should always come with tests. A [testing guide](https://electronjs.org/docs/development/testing) has been provided to make the process easier. Looking at other tests to see how they should be structured can also help.
+버그 수정 및 새로운 기능과 관련된 커밋은 항상 테스트를 동반해야 합니다. 테스트 진행을 돕기 위해 [테스팅 가이드 문서](https://electronjs.org/docs/development/testing) 를 제공하고 있습니다. 다른 테스트가 어떤 구조로 작성되었는지 참고하시면 많은 도움이 될 것입니다.
 
-Before submitting your changes in a pull request, always run the full test suite. To run the tests:
+Pull request로 변경 사항을 제출하기 전에, 항상 전체 테스트를 수행하시길 바랍니다. 테스트를 실행하는 명령어는 다음과 같습니다:
 
 ```sh
 $ npm run test
 ```
 
-Make sure the linter does not report any issues and that all tests pass. Please do not submit patches that fail either check.
+linter가 어떠한 이슈도 보고하지 않았고, 모든 테스트도 통과되었는지 확인하세요. Please do not submit patches that fail either check.
 
 If you are updating tests and want to run a single spec to check it:
 
