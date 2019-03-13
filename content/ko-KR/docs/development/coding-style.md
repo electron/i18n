@@ -15,7 +15,7 @@
   * Class methods and properties (methods starting with a `@`)
   * Instance methods and properties
 * Avoid platform-dependent code: 
-  * Use `path.join()` to concatenate filenames.
+  * `path.join()`을 사용하여 파일 경로를 연결하세요.
   * Use `os.tmpdir()` rather than `/tmp` when you need to reference the temporary directory.
 * Using a plain `return` when returning explicitly at the end of a function. 
   * Not `return null`, `return undefined`, `null` or `undefined`
@@ -32,7 +32,7 @@ C++ 코드는 많은 Chromium의 추상화와 타입을 사용합니다. 따라�
 
 * Write [remark](https://github.com/remarkjs/remark) markdown style.
 
-You can run `npm run lint-docs` to ensure that your documentation changes are formatted correctly.
+`npm run lint-docs`를 실행하여 문서 형식이 제대로 작성되어 있는지를 검사할 수 있습니다.
 
 ## 자바스크립트
 
@@ -48,8 +48,8 @@ You can run `npm run lint-docs` to ensure that your documentation changes are fo
 
 Electron API는 Node.js와 비슷한 명명법을 사용합니다:
 
-* When the module itself is a class like `BrowserWindow`, use `PascalCase`.
-* 모듈이 `globalShortcut` 같은 API의 집합체일 경우, `camelCase`로 작성해 주세요.
+* 모듈 자체가 `BrowserWindow`같은 class일 경우, `PascalCase`로 작성합니다.
+* 모듈이 `globalShortcut` 같은 API의 집합체일 경우, `camelCase`로 작성합니다.
 * API가 객체의 속성일 경우, 그리고 `win.webContents`와 같이 충분히 복잡하고 분리된 부분일 경우, `mixedCase`를 사용합니다.
 * 다른 모듈이 아닌 API를 구현할 땐, `<webview><webview> Tag` 또는 `Process Object`와 같이 단순하고 자연스러운 제목을 사용합니다
 
