@@ -105,7 +105,7 @@ Pull request는 merge하기 전에 시맨틱 접두사와 pull request 제목의
 
 #### 중대한 변화
 
-A commit that has the text `BREAKING CHANGE:` at the beginning of its optional body or footer section introduces a breaking API change (correlating with Major in semantic versioning). A breaking change can be part of commits of any type. e.g., a `fix:`, `feat:` & `chore:` types would all be valid, in addition to any other type.
+커밋 메시지 본문이나 footer 섹션이 `BREAKING CHANGE:` 으로 시작하면 API에 중대한 변화(시멘틱 버전 관리에서 메이저 버전 증가에 해당함) 가 있다는 것을 의미합니다. A breaking change can be part of commits of any type. e.g., a `fix:`, `feat:` & `chore:` types would all be valid, in addition to any other type.
 
 See [conventionalcommits.org](https://conventionalcommits.org) for more details.
 
