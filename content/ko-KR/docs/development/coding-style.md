@@ -6,7 +6,7 @@
 
 ## 일반적인 코드
 
-* End files with a newline.
+* 마지막 줄을 띄우기
 * Place requires in the following order: 
   * Built in Node Modules (such as `path`)
   * Built in Electron Modules (such as `ipc`, `app`)
@@ -49,7 +49,7 @@ You can run `npm run lint-docs` to ensure that your documentation changes are fo
 Electron API는 Node.js와 비슷한 명명법을 사용합니다:
 
 * When the module itself is a class like `BrowserWindow`, use `PascalCase`.
-* When the module is a set of APIs, like `globalShortcut`, use `camelCase`.
+* 모듈이 `globalShortcut` 같은 API의 집합체일 경우, `camelCase`로 작성해 주세요.
 * API가 객체의 속성일 경우, 그리고 `win.webContents`와 같이 충분히 복잡하고 분리된 부분일 경우, `mixedCase`를 사용합니다.
 * 다른 모듈이 아닌 API를 구현할 땐, `<webview><webview> Tag` 또는 `Process Object`와 같이 단순하고 자연스러운 제목을 사용합니다
 
