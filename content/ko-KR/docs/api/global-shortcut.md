@@ -14,22 +14,22 @@ const { app, globalShortcut } = require('electron')
 app.on('ready', () => {
   // 'CommandOrControl+X' 단축키 리스너 등록
   const ret = globalShortcut.register('CommandOrControl+X', () => {
-    console.log('CommandOrControl+X is pressed')
+    console.log('CommandOrControl+X 눌러짐.')
   })
 
   if (!ret) {
-    console.log('registration failed')
+    console.log('등록 실패')
   }
 
-  // Check whether a shortcut is registered.
+  // 단축키가 등록되었는지 확인합니다.
   console.log(globalShortcut.isRegistered('CommandOrControl+X'))
 })
 
 app.on('will-quit', () => {
-  // Unregister a shortcut.
+  // 단축키를 등록 해제합니다.
   globalShortcut.unregister('CommandOrControl+X')
 
-  // Unregister all shortcuts.
+  // 모든 단축키를 등록 해제합니다.
   globalShortcut.unregisterAll()
 })
 ```
@@ -43,7 +43,7 @@ The `globalShortcut` module has the following methods:
 * `accelerator` [Accelerator](accelerator.md)
 * `callback` Function
 
-Registers a global shortcut of `accelerator`. The `callback` is called when the registered shortcut is pressed by the user.
+` accelerator`의 전역 단축키를 등록합니다. `callback`은 등록된 단축키가 사용자에 의해서 눌러졌을 때 호출합니다.
 
 When the accelerator is already taken by other applications, this call will silently fail. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
 
@@ -58,7 +58,7 @@ The following accelerators will not be registered successfully on macOS 10.14 Mo
 
 * `accelerator` [Accelerator](accelerator.md)
 
-Returns `Boolean` - Whether this application has registered `accelerator`.
+`Boolean`을 반환합니다. - 애플리케이션이 `accelerator`를 등록했는지에 대한 여부입니다.
 
 When the accelerator is already taken by other applications, this call will still return `false`. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
 
@@ -66,8 +66,8 @@ When the accelerator is already taken by other applications, this call will stil
 
 * `accelerator` [Accelerator](accelerator.md)
 
-Unregisters the global shortcut of `accelerator`.
+` accelerator`의 전역 단축키를 등록 해제합니다.
 
 ### `globalShortcut.unregisterAll()`
 
-Unregisters all of the global shortcuts.
+모든 전역 단축키를 등록 해제합니다.
