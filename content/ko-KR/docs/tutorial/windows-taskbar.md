@@ -93,7 +93,7 @@ Windows에선 작업 표시줄 버튼에 애플리케이션의 상태를 표시�
 
 > 아이콘 오버레이는 상태에 대한 상황 별 알림으로 사용되며 사용자에게 해당 정보를 전달하기 위해 별도의 알림 영역 상태 아이콘이 필요하지 않습니다. 예를 들어 현재 알림 영역에 표시된 Microsoft Outlook의 새 메일 상태를 이제 작업 표시 줄 단추에 오버레이를 통해 표시 할 수 있습니다. 다시 말하지만, 개발 사이클 중에 애플리케이션에 가장 적합한 방법을 결정해야합니다. 오버레이 아이콘은 네트워크 상태, 메신저 상태 또는 새 메일과 같은 중요하고 오래된 상태 또는 알림을 제공하기위한 것입니다. 사용자에게 끊임없이 변화하는 오버레이 또는 애니메이션이 제공되어서는 안됩니다.
 
-**Overlay on taskbar button:**
+**작업 표시줄 버튼 위의 오버레이:**
 
 ![작업 표시줄 버튼 위의 오버레이](https://i-msdn.sec.s-msft.com/dynimg/IC420441.png)
 
@@ -105,9 +105,9 @@ let win = new BrowserWindow()
 win.setOverlayIcon('path/to/overlay.png', 'Description for overlay')
 ```
 
-## Flash Frame
+## 깜빡이는 창
 
-Windows에서는 작업 표시 줄 단추를 강조 표시하여 사용자의 시선을 끌 수 있습니다. 이는 macOS에서 dock 아이콘 바운싱과 유사합니다. From the MSDN reference documentation:
+Windows에서는 작업 표시 줄 단추를 강조 표시하여 사용자의 시선을 끌 수 있습니다. 이는 macOS에서 dock 아이콘 바운싱과 유사합니다. MSDN 문헌 참조에 의하면:
 
 > 일반적으로 사용자에게 주의가 필요하지만 현재 키보드 포커스가 없음을 알리기 위해 깜박입니다.
 
