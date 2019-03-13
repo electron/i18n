@@ -840,9 +840,9 @@ machineModelVersion: '11.5' }
 
 현재 앱의 배지의 수를 설정합니다. `0`으로 설정하여 배지를 숨길 수 있습니다.
 
-On macOS it shows on the dock icon. On Linux it only works for Unity launcher,
+macOS 에서는 Dock 아이콘 위에 표시되고, Linux 에서는 Unity 런처를 사용할 때만 표시됩니다.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+**주의:** Unity 런처는 `.desktop` 존속 파일이 필요합니다, 자세한 정보는 [데스크탑 환경 통합](../tutorial/desktop-environment-integration.md#unity-launcher)을 참조하세요.
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
