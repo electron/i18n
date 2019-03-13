@@ -105,9 +105,9 @@ Pull request는 merge하기 전에 시맨틱 접두사와 pull request 제목의
 
 #### 중대한 변화
 
-커밋 메시지 본문이나 footer 섹션이 `BREAKING CHANGE:` 으로 시작하면 API에 중대한 변화(시멘틱 버전 관리에서 메이저 버전 증가에 해당함) 가 있다는 것을 의미합니다. A breaking change can be part of commits of any type. e.g., a `fix:`, `feat:` & `chore:` types would all be valid, in addition to any other type.
+커밋 메시지 본문이나 footer 섹션이 `BREAKING CHANGE:` 으로 시작하면 API에 중대한 변화(시멘틱 버전 관리에서 메이저 버전 증가에 해당함) 가 있다는 것을 의미합니다. 모든 형태의 커밋은 중대한 변화를 포함할 수 있습니다. 예를 들면, `fix:`, `feat:`, `chore:` 를 포함한 모든 형태의 커밋이 중대한 변화를 포함할 수 있습니다.
 
-See [conventionalcommits.org](https://conventionalcommits.org) for more details.
+더 자세한 내용은 [conventionalcommits.org](https://conventionalcommits.org) 를 참고하시길 바랍니다.
 
 ### 6 단계: Rebase
 
