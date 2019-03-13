@@ -799,9 +799,9 @@ Returns [`GPUFeatureStatus`](structures/gpu-feature-status.md) - The Graphics Fe
 
 ### `app.getGPUInfo(infoType)`
 
-* `infoType` String - Values can be either `basic` for basic info or `complete` for complete info.
+* `infoType` String - 값은 `basic`을 사용하여 기본적인 정보, ` complete`로 완성형 정보를 사용할 수 있습니다.
 
-Returns `Promise`
+`Promise`를 반환합니다.
 
 For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src.git/+/69.0.3497.106/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
 
@@ -830,15 +830,15 @@ machineModelName: 'MacBookPro',
 machineModelVersion: '11.5' }
 ```
 
-Using `basic` should be preferred if only basic information like `vendorId` or `driverId` is needed.
+`basic` 값은 `vendorId` 나 `driverId` 와 같은 기본적인 정보가 필요할 때 만 사용하세요.
 
 ### `app.setBadgeCount(count)` *Linux* *macOS*
 
 * `count` Integer
 
-Returns `Boolean` - Whether the call succeeded.
+`Boolean` 반환 - 호출이 성공했는지에 대한 여부입니다.
 
-Sets the counter badge for current app. Setting the count to `0` will hide the badge.
+현재 앱의 배지의 수를 설정합니다. `0`으로 설정하여 배지를 숨길 수 있습니다.
 
 On macOS it shows on the dock icon. On Linux it only works for Unity launcher,
 
