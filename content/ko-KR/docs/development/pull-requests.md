@@ -193,8 +193,8 @@ Pull request가 반영되려면 리뷰를 거쳐야 하며, 한 명 이상의 El
 
 ### 지속적인 통합 테스팅
 
-Every pull request is tested on the Continuous Integration (CI) system to confirm that it works on Electron's supported platforms.
+Electron에서 지원하는 모든 플랫폼에서 동작하는 것을 확인하기 위해 모든 pull request는 지속적인 통합 (CI) 시스템에서 테스트됩니다.
 
-Ideally, the pull request will pass ("be green") on all of CI's platforms. This means that all tests pass and there are no linting errors. However, it is not uncommon for the CI infrastructure itself to fail on specific platforms or for so-called "flaky" tests to fail ("be red"). Each CI failure must be manually inspected to determine the cause.
+Pull request가 모든 CI 플랫폼에서 통과("그린 표시") 하는 것이 가장 이상적일 것입니다. 이것은 모든 테스트를 통과했으며 linting 오류도 없다는 것을 의미합니다. 하지만, CI 인프라 자체에서 특정 플랫폼의 테스트가 실패하거나 "flaky" 테스트는 실패("레드 표시") 하는 경우가 자주 발생합니다. 각 CI의 실패 원인을 파악하려면 수동으로 점검해야 합니다.
 
-CI starts automatically when you open a pull request, but only [Releasers](https://github.com/orgs/electron/teams/releasers/members) can restart a CI run. If you believe CI is giving a false negative, ask a Releaser to restart the tests.
+Pull request가 생성되면 CI는 자동으로 시작되며, [Releasers](https://github.com/orgs/electron/teams/releasers/members)만이 CI 실행을 재시작할 수 있습니다. CI의 결과가 잘못되었다고 판단된다면 Releaser에게 테스트 재시작을 요청하시길 바랍니다.
