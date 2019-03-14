@@ -73,7 +73,7 @@ $ git commit
 
 변경 사항과 그 이유를 담고 있어야 좋은 커밋 메시지라고 할 수 있습니다. Electron 프로젝트는 릴리스 과정을 능률적으로 처리하기 위해 [시맨틱 커밋 메시지](https://conventionalcommits.org/) 를 사용합니다.
 
-Pull request는 merge하기 전에 시맨틱 접두사와 pull request 제목의 형태로 **구성해야 한다**.
+Pull request는 merge하기 전에 시맨틱 접두사와 pull request 제목의 형태로 **구성해야 합니다**.
 
 시멘틱 접두사를 함께 사용한 커밋 메시지 예시:
 
