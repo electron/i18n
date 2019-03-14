@@ -86,9 +86,9 @@ require('electron').remote.getCurrentWindow().on('close', () => {
 
 Чтобы избежать этой проблемы, убедитесь, что вы очищаете любые ссылки на колбэки рендерера, переданные в основной процесс. Это включает в себя очистку обработчиков событий или вам необходимо обеспечить явное снятие колбэков в основном процессе при завершении рендер-процесса.
 
-## Accessing built-in modules in the main process
+## Доступ к встроенным модулям в основном процессе
 
-The built-in modules in the main process are added as getters in the `remote` module, so you can use them directly like the `electron` module.
+Встроенные модули в основном процессе добавляются как геттеры модуле `remote`, так что вы можете использовать их непосредственно, как модуль `electron`.
 
 ```javascript
 const app = require('electron').remote.app
@@ -97,15 +97,15 @@ console.log(app)
 
 ## Методы
 
-The `remote` module has the following methods:
+Модуль `remote` имеет следующие методы:
 
 ### `remote.require(module)`
 
 * `module` String
 
-Returns `any` - The object returned by `require(module)` in the main process. Modules specified by their relative path will resolve relative to the entrypoint of the main process.
+Возвращает `any` - Объект, возвращаемый `require(module)` в основном процессе. Модули, указанные по их относительному пути, будут определены относительно точки входа основного процесса.
 
-e.g.
+например
 
 ```sh
 project/
@@ -124,7 +124,7 @@ app.on('ready', () => { /* ... */ })
 ```
 
 ```js
-// some relative module: main/foo.js
+// некий относительный модуль: main/foo.js
 module.exports = 'bar'
 ```
 
@@ -135,9 +135,9 @@ const foo = require('electron').remote.require('./foo') // bar
 
 ### `remote.getCurrentWindow()`
 
-Returns [`BrowserWindow`](browser-window.md) - The window to which this web page belongs.
+Возвращает [`BrowserWindow`](browser-window.md) - Окно, которому принадлежит эта страница.
 
-**Note:** Do not use `removeAllListeners` on [`BrowserWindow`](browser-window.md). Use of this can remove all [`blur`](https://developer.mozilla.org/en-US/docs/Web/Events/blur) listeners, disable click events on touch bar buttons, and other unintended consequences.
+**Примечание:** Не используйте `removeAllListeners` с [`BrowserWindow`](browser-window.md). Use of this can remove all [`blur`](https://developer.mozilla.org/en-US/docs/Web/Events/blur) listeners, disable click events on touch bar buttons, and other unintended consequences.
 
 ### `remote.getCurrentWebContents()`
 
