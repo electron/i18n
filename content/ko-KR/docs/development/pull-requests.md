@@ -183,7 +183,7 @@ $ git push origin my-branch
 
 변경 사항이 발생한 영역의 [코드 소유자(Code Owner)](https://github.com/orgs/electron/teams/code-owners)가 pull request를 승인해야 변경 사항이 최종적으로 반영됩니다. 관리자가 pull request를 리뷰할 때 수정을 요청하는 경우도 있습니다. 사소한 오탈자 수정 요청일 때도 있고 상당히 많은 변화를 요구하는 경우도 있습니다. 이러한 요청은 도움을 주는데 그 목적이 있습니다. 하지만 때로는 퉁명스러운 태도로 요청하는 경우도 있고, *어떻게* 변경해야하는지 구체적으로 제안하지 않는 경우 수정 요청이 전혀 도움이 되지 않을 때도 있습니다.
 
-이런 경우가 발생하더라도 의욕을 잃지 않길 바랍니다. If you feel that a review is unfair, say so or seek the input of another project contributor. Often such comments are the result of a reviewer having taken insufficient time to review and are not ill-intended. Such difficulties can often be resolved with a bit of patience. That said, reviewers should be expected to provide helpful feeback.
+이런 경우가 발생하더라도 의욕을 잃지 않길 바랍니다. 리뷰 결과가 부당하다고 생각하신다면, 리뷰가 부당하다는 의견을 밝히시거나 다른 공헌자의 의견을 들어보시길 바랍니다. Often such comments are the result of a reviewer having taken insufficient time to review and are not ill-intended. Such difficulties can often be resolved with a bit of patience. That said, reviewers should be expected to provide helpful feeback.
 
 ### 11 단계: 랜딩
 
