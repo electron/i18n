@@ -175,7 +175,7 @@ $ git commit
 $ git push origin my-branch
 ```
 
-There are a number of more advanced mechanisms for managing commits using `git rebase` that can be used, but are beyond the scope of this guide.
+`git rebase`를 사용해 커밋을 관리하는 고급 메커니즘이 몇 가지 있지만 해당 내용은 이 문서의 범위를 벗어난 주제인 것 같습니다.
 
 Feel free to post a comment in the pull request to ping reviewers if you are awaiting an answer on something. If you encounter words or acronyms that seem unfamiliar, refer to this [glossary](https://sites.google.com/a/chromium.org/dev/glossary).
 
