@@ -331,7 +331,7 @@ Este evento será emitido dentro da instância principal do seu aplicativo quand
 
 Esse evento é garantido que será emitido após o evento `ready` do objeto `app` ser emitido.
 
-### Evento 'remote-require'
+### Evento: 'remote-require'
 
 Retorna:
 
@@ -341,7 +341,7 @@ Retorna:
 
 Este evento será emitido quando `remote.require()` é chamado no processo de renderização do `webContents`. Evocando `event.preventDefault()` irá previnir o módulo de ser retornado. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
 
-### Evento 'remote-get-global'
+### Evento: 'remote-get-global'
 
 Retorna:
 
@@ -349,9 +349,9 @@ Retorna:
 * `webContents` [WebContents](web-contents.md)
 * `globalName` String
 
-Este evento será emitido quando `remote.getGlobal()` é chamado no processo de renderização do `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
+Este evento será emitido quando `remote.getGlobal()` é chamado no processo de renderização do `webContents`. Evocando `event.preventDefault()` irá previnir o global ser retornado. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
 
-### Event: 'remote-get-builtin'
+### Evento: 'remote-get-builtin'
 
 Retorna:
 
