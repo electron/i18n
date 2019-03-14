@@ -455,7 +455,7 @@ Returns `BrowserWindow | null` - The window that owns the given `browserView`. I
 
 * `id` Integer
 
-Returns `BrowserWindow` - The window with the given `id`.
+Retourne `BrowserWindow` - La fenêtre avec l'`id` donné.
 
 #### `BrowserWindow.addExtension(path)`
 
@@ -471,7 +471,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 * `name` String
 
-Remove a Chrome extension by name.
+Supprime une extension Chrome avec le nom donné.
 
 **Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
 
@@ -581,15 +581,15 @@ Masque la fenêtre.
 
 #### `win.isVisible()`
 
-Returns `Boolean` - Whether the window is visible to the user.
+Retourne `Boolean` - Si la fenêtre est visible pour l'utilisateur ou non.
 
 #### `win.isModal()`
 
-Returns `Boolean` - Whether current window is a modal window.
+Retourne `Boolean` - Si la fenêtre actuelle est une fenêtre modale ou non.
 
 #### `win.maximize()`
 
-Maximizes the window. This will also show (but not focus) the window if it isn't being displayed already.
+Maximise la taille de la fenêtre. Cela affichera également (mais pas au premier-plan) la fenêtre si elle n’est pas déjà affichée.
 
 #### `win.unmaximize()`
 
@@ -597,11 +597,11 @@ Réduit la fenêtre à sa taille initiale.
 
 #### `win.isMaximized()`
 
-Returns `Boolean` - Whether the window is maximized.
+Retourne `Boolean` - Si la taille de la fenêtre est maximisée ou non.
 
 #### `win.minimize()`
 
-Minimizes the window. On some platforms the minimized window will be shown in the Dock.
+Minimise la fenêtre. Sur certaines plateformes la fenêtre réduite sera affichée dans le Dock.
 
 #### `win.restore()`
 
@@ -609,7 +609,7 @@ Restaure la fenêtre depuis l'état réduit à son état précédent.
 
 #### `win.isMinimized()`
 
-Returns `Boolean` - Whether the window is minimized.
+Retourne `Boolean` - Si la taille de la fenêtre est minimisée ou non.
 
 #### `win.setFullScreen(flag)`
 
@@ -619,23 +619,23 @@ Définit si la fenêtre doit être en mode plein écran.
 
 #### `win.isFullScreen()`
 
-Returns `Boolean` - Whether the window is in fullscreen mode.
+Retourne `Boolean` - Si la fenêtre est en plein écran ou non.
 
 #### `win.setSimpleFullScreen(flag)` *macOS*
 
 * `flag` Boolean
 
-Enters or leaves simple fullscreen mode.
+Entre ou sort du mode plein-écran simple.
 
-Simple fullscreen mode emulates the native fullscreen behavior found in versions of Mac OS X prior to Lion (10.7).
+Le mode plein-écran simple émule le comportement en plein-écran natif trouvé sur les versions de Mac OS X antérieures à Lion (10.7).
 
 #### `win.isSimpleFullScreen()` *macOS*
 
-Returns `Boolean` - Whether the window is in simple (pre-Lion) fullscreen mode.
+Retourne `Boolean` - Si la fenêtre est en mode plein-écran simple (pré-Lion) ou non.
 
 #### `win.isNormal()`
 
-Returns `Boolean` - Whether the window is in normal state (not maximized, not minimized, not in fullscreen mode).
+Retourne `Boolean` - Si la fenêtre est dans son état normal (ni maximisée, ni minimisée, ni en plein écran).
 
 #### `win.setAspectRatio(aspectRatio[, extraSize])` *macOS*
 
@@ -708,7 +708,7 @@ Returns [`Rectangle`](structures/rectangle.md) - Contains the window bounds of t
 
 * `enable` Boolean
 
-Disable or enable the window.
+Active ou désactive la fenêtre.
 
 #### `win.setSize(width, height[, animate])`
 
@@ -720,7 +720,7 @@ Resizes the window to `width` and `height`. If `width` or `height` are below any
 
 #### `win.getSize()`
 
-Returns `Integer[]` - Contains the window's width and height.
+Retourne `Integer[]` - Contient la largeur et la hauteur de la fenêtre.
 
 #### `win.setContentSize(width, height[, animate])`
 
@@ -806,7 +806,7 @@ On Linux always returns `true`.
 
 * `fullscreenable` Boolean
 
-Sets whether the maximize/zoom window button toggles fullscreen mode or maximizes the window.
+Définit si le bouton agrandir/zoom de la fenêtre active/désactive le mode plein écran ou maximise la fenêtre.
 
 #### `win.isFullScreenable()`
 
@@ -834,11 +834,11 @@ Sets whether the window should show always on top of other windows. After settin
 
 #### `win.isAlwaysOnTop()`
 
-Returns `Boolean` - Whether the window is always on top of other windows.
+Retourne `Boolean` - Si la fenêtre est toujours au-dessus des autres fenêtres ou non.
 
 #### `win.moveTop()` *macOS* *Windows*
 
-Moves window to top(z-order) regardless of focus
+Déplace la fenêtre sur le dessus (dans l'ordre z) peu importe qu'elle ait le focus ou non
 
 #### `win.center()`
 
@@ -850,23 +850,23 @@ Déplace la fenêtre vers le centre de l’écran.
 * `y` Integer
 * `animate` Boolean (facultatif) *macOS*
 
-Moves window to `x` and `y`.
+Déplace la fenêtre à la position `x` et `y`.
 
 #### `win.getPosition()`
 
-Returns `Integer[]` - Contains the window's current position.
+Retourne `Integer[]` - Contient la position actuelle de la fenêtre.
 
 #### `win.setTitle(title)`
 
 * `title` String
 
-Changes the title of native window to `title`.
+Remplace le titre de la fenêtre native par `title`.
 
 #### `win.getTitle()`
 
-Returns `String` - The title of the native window.
+Retourne `String` - le titre de la fenêtre native.
 
-**Note:** The title of web page can be different from the title of the native window.
+**Remarque** : Le titre de la page web peut être différent du titre de la fenêtre native.
 
 #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
 
@@ -975,7 +975,7 @@ Same as `webContents.capturePage([rect, ]callback)`.
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
   * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
 
-Same as `webContents.loadURL(url[, options])`.
+Identique à `webContents.loadURL(url[, options])`.
 
 The `url` can be a remote address (e.g. `http://`) or a path to a local HTML file using the `file://` protocol.
 
@@ -1132,7 +1132,7 @@ Same as `webContents.showDefinitionForSelection()`.
 
 * `icon` [NativeImage](native-image.md)
 
-Changes window icon.
+Change l'icône de la fenêtre.
 
 #### `win.setWindowButtonVisibility(visible)` *macOS*
 
@@ -1172,13 +1172,13 @@ Returns `Boolean` - Whether the menu bar is visible.
 
 Sets whether the window should be visible on all workspaces.
 
-**Note:** This API does nothing on Windows.
+**Remarque :** Cette API ne fonctionne pas sous Windows.
 
 #### `win.isVisibleOnAllWorkspaces()`
 
 Returns `Boolean` - Whether the window is visible on all workspaces.
 
-**Note:** This API always returns false on Windows.
+**Remarque **: Cette API retourne toujours false sur Windows.
 
 #### `win.setIgnoreMouseEvents(ignore[, options])`
 
