@@ -23,9 +23,9 @@ win.loadURL('https://github.com')
 
 ## Remote Objects
 
-Каждый объект (включая функции) возвращаемый модулем `remote` представляет собой объект в основном процессе (мы называем это удаленным объектом или удаленной функцией). When you invoke methods of a remote object, call a remote function, or create a new object with the remote constructor (function), you are actually sending synchronous inter-process messages.
+Каждый объект (включая функции) возвращаемый модулем `remote` представляет собой объект в основном процессе (мы называем это удаленным объектом или удаленной функцией). Когда вы вызываете метод удаленного объекта, удаленную функцию или создаете новый объект удаленным конструктором (функцией), на самом деле вы посылаете синхронное межпроцессное сообщение.
 
-In the example above, both [`BrowserWindow`](browser-window.md) and `win` were remote objects and `new BrowserWindow` didn't create a `BrowserWindow` object in the renderer process. Instead, it created a `BrowserWindow` object in the main process and returned the corresponding remote object in the renderer process, namely the `win` object.
+В примере выше и [`BrowserWindow`](browser-window.md) и `win` являются удаленными объектами и `new BrowserWindow` на самом деле не создает объект `BrowserWindow` в рендер-процессе. Вместо этого создается объект `BrowserWindow` в основном процессе и возвращается соответствующий удаленный объект `win` в рендер-процесс.
 
 **Примечание:** Доступны только [перечислимые свойства](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties), которые присутствуют при первом обращении к удаленному объекту, через дистанционное управление.
 
