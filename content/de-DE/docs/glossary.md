@@ -52,7 +52,7 @@ Abkürzung für Apples Mac App Store. Für Infromationen zum Einreichen deiner A
 
 An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.
 
-See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
+Siehe https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
 ### systemeigene Module
 
