@@ -4,9 +4,9 @@
 
 Процесс: [Renderer](../glossary.md#renderer-process)
 
-`Удаленный` модуль обеспечивает простой способ для межпроцессное взаимодействие (IPC) между процессом визуализации (веб-страницы) и основного процесса.
+Модуль `remote` обеспечивает простой способ для межпроцессного взаимодействия (IPC) между процессом рендеринга (веб-страницы) и основного процесса.
 
-In Electron, GUI-related modules (such as `dialog`, `menu` etc.) are only available in the main process, not in the renderer process. In order to use them from the renderer process, the `ipc` module is necessary to send inter-process messages to the main process. With the `remote` module, you can invoke methods of the main process object without explicitly sending inter-process messages, similar to Java's [RMI](https://en.wikipedia.org/wiki/Java_remote_method_invocation). An example of creating a browser window from a renderer process:
+В Electron GUI-ориентированные модули (такие, как `dialog`, `menu` и т. д.) доступны только в основном процессе, но не в процессе рендеринга. In order to use them from the renderer process, the `ipc` module is necessary to send inter-process messages to the main process. With the `remote` module, you can invoke methods of the main process object without explicitly sending inter-process messages, similar to Java's [RMI](https://en.wikipedia.org/wiki/Java_remote_method_invocation). An example of creating a browser window from a renderer process:
 
 ```javascript
 const { BrowserWindow } = require('electron').remote
