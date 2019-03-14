@@ -10,13 +10,13 @@ Aber es gibt fundamentale Unterschiede zwischen Electron und NW.js:
 
 In NW.js ist der Haupteinstiegspunkt einer Anwendung eine Webseite oder ein JS-Skript. Man muss eine html oder js Datei in der `package.json` angeben und es wird als Hauptfenster der Anwendung (im Falle eines html Dokumentes als einstiegs Punkt) in einem Browserfenster geöffnet oder das Skript wird ausgeführt.
 
-In Electron, the entry point is a JavaScript script. Instead of providing a URL directly, you manually create a browser window and load an HTML file using the API. You also need to listen to window events to decide when to quit the application.
+In Electron ist der Einstiegspunkt JavaScript. Instead of providing a URL directly, you manually create a browser window and load an HTML file using the API. You also need to listen to window events to decide when to quit the application.
 
 Electron works more like the Node.js runtime. Electron's APIs are lower level so you can use it for browser testing in place of [PhantomJS](http://phantomjs.org/).
 
 **2. Build System**
 
-In order to avoid the complexity of building all of Chromium, Electron uses [`libchromiumcontent`](https://github.com/electron/libchromiumcontent) to access Chromium's Content API. `libchromiumcontent` is a single shared library that includes the Chromium Content module and all of its dependencies. Users don't need a powerful machine to build Electron.
+In order to avoid the complexity of building all of Chromium, Electron uses [`libchromiumcontent`](https://github.com/electron/libchromiumcontent) to access Chromium's Content API. `libchromiumcontent` is a single shared library that includes the Chromium Content module and all of its dependencies. Benutzer benötigen keine leistungsstarke Maschine, um Electron zu bauen.
 
 **3. Node Integration**
 
