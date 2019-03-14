@@ -16,11 +16,11 @@ Dans tous les cas, vous aurez besoin d'avoir l'outil `snapcraft` installé. Nous
 snap install snapcraft --classic
 ```
 
-While it *is possible* to install `snapcraft` on macOS using Homebrew, it is not able to build `snap` packages and is focused on managing packages in the store.
+Bien qu'il soit *possible* d'installer `snapcraft` sur macOS avec Homebrew, il n'est pas possible de builds des packages `snap`. Il se concentre sur la gestion des packages dans le magasin.
 
-## Using `electron-installer-snap`
+## Utilisation de `electron-installer-snap`
 
-The module works like [`electron-winstaller`](https://github.com/electron/windows-installer) and similar modules in that its scope is limited to building snap packages. You can install it with:
+The module works like [`electron-winstaller`](https://github.com/electron/windows-installer) and similar modules in that its scope is limited to building snap packages. Vous pouvez installer avec :
 
 ```sh
 npm install --save-dev electron-installer-snap
@@ -58,7 +58,7 @@ From a terminal that has `snapcraft` in its `PATH`, run `electron-installer-snap
 npx electron-installer-snap --src=out/myappname-linux-x64
 ```
 
-If you have an existing build pipeline, you can use `electron-installer-snap` programmatically. For more information, see the [Snapcraft API docs](https://docs.snapcraft.io/build-snaps/syntax).
+If you have an existing build pipeline, you can use `electron-installer-snap` programmatically. Pour plus d'informations, voir [la doc Snapcraft API](https://docs.snapcraft.io/build-snaps/syntax).
 
 ```js
 const snap = require('electron-installer-snap')
