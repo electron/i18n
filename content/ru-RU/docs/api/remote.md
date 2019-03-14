@@ -137,20 +137,20 @@ const foo = require('electron').remote.require('./foo') // bar
 
 Возвращает [`BrowserWindow`](browser-window.md) - Окно, которому принадлежит эта страница.
 
-**Примечание:** Не используйте `removeAllListeners` с [`BrowserWindow`](browser-window.md). Use of this can remove all [`blur`](https://developer.mozilla.org/en-US/docs/Web/Events/blur) listeners, disable click events on touch bar buttons, and other unintended consequences.
+**Примечание:** Не используйте `removeAllListeners` с [`BrowserWindow`](browser-window.md). Это может удалить все слушатели [`blur`](https://developer.mozilla.org/en-US/docs/Web/Events/blur), выключить события нажатия на кнопках сенсорных панелей и вызвать другие непредвиденные последствия.
 
 ### `remote.getCurrentWebContents()`
 
-Returns [`WebContents`](web-contents.md) - The web contents of this web page.
+Возвращает [`WebContents`](web-contents.md) - Веб-содержимое этой веб-страницы.
 
 ### `remote.getGlobal(name)`
 
 * `name` String
 
-Returns `any` - The global variable of `name` (e.g. `global[name]`) in the main process.
+Возвращает `any` - глобальную переменную с именем `name` (например `global[name]`) в основном процессе.
 
 ## Свойства
 
 ### `remote.process`
 
-The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
+Объект `process` в основном процессе. Это то же самое, что и `remote.getGlobal('process')` но кэшируется.
