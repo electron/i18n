@@ -130,7 +130,7 @@ Pull request로 변경 사항을 제출하기 전에, 항상 전체 테스트를
 $ npm run test
 ```
 
-linter가 어떠한 이슈도 보고하지 않았고, 모든 테스트도 통과되었는지 확인하세요. Please do not submit patches that fail either check.
+linter가 어떠한 이슈도 보고하지 않았고, 모든 테스트도 통과되었는지 확인하세요. 테스트에 실패한 패치는 제출하지 마시길 바랍니다.
 
 테스트를 수정한 후 단일 spec 에 대한 테스트 결과를 확인하고 싶은 경우 아래의 명령을 사용할 수 있습니다:
 
@@ -138,7 +138,7 @@ linter가 어떠한 이슈도 보고하지 않았고, 모든 테스트도 통과
 $ npm run test -match=menu
 ```
 
-The above would only run spec modules matching `menu`, which is useful for anyone who's working on tests that would otherwise be at the very end of the testing cycle.
+위의 명령어는 `menu`에 해당하는 spec 모듈만 실행하기 때문에, 테스팅 사이클이 거의 끝나가는 시점에서 특정 모듈을 테스트하고 싶을 때 유용합니다.
 
 ### 8 단계: Push
 
