@@ -74,7 +74,7 @@ Using `session` as example:
 
 For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
 
-Using `autoUpdater` as an example:
+Verwende `AutoUpdater` als Beispiel:
 
 ```markdown
 # autoUpdater
@@ -211,4 +211,4 @@ The title can be `###` or `####`-levels depending on whether it is a property of
 
 ## Übersetzungen der Dokumentationen
 
-See [electron/i18n](https://github.com/electron/i18n#readme)
+Siehe [Elektron/i18n](https://github.com/electron/i18n#readme)
