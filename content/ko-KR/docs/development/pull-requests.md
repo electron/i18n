@@ -165,7 +165,7 @@ Contributors guide: https://github.com/electron/electron/blob/master/CONTRIBUTIN
 
 ### 10 단계: 토론 및 업데이트
 
-제출한 pull request에 대해 피드백을 받거나 내용 수정을 요청받을 수도 있습니다. 이러한 수정 요청이나 피드백은 pull request 처리 과정에서 중요한 부분이므로 거부감을 느끼지 않으셨으면 합니다! Some contributors may sign off on the pull request right away. Others may have detailed comments or feedback. This is a necessary part of the process in order to evaluate whether the changes are correct and necessary.
+제출한 pull request에 대해 피드백을 받거나 내용 수정을 요청받을 수도 있습니다. 이러한 수정 요청이나 피드백은 pull request 처리 과정에서 중요한 부분이므로 거부감을 느끼지 않으셨으면 합니다! pull request이 제출되면 바로 승인하는 공헌자도 있습니다. 어떤 사람들은 자세한 댓글 또는 피드백을 남기기도 합니다. This is a necessary part of the process in order to evaluate whether the changes are correct and necessary.
 
 To make changes to an existing pull request, make the changes to your local branch, add a new commit with those changes, and push those to your fork. GitHub will automatically update the pull request.
 
@@ -189,7 +189,7 @@ Try not to be discouraged. If you feel that a review is unfair, say so or seek t
 
 In order to land, a pull request needs to be reviewed and approved by at least one Electron Code Owner and pass CI. After that, if there are no objections from other contributors, the pull request can be merged.
 
-Congratulations and thanks for your contribution!
+축하합니다 그리고 공헌해주셔서 감사합니다!
 
 ### 지속적인 통합 테스팅
 
