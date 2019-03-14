@@ -6,7 +6,7 @@
 
 Модуль `remote` обеспечивает простой способ для межпроцессного взаимодействия (IPC) между процессом рендеринга (веб-страницы) и основного процесса.
 
-В Electron GUI-ориентированные модули (такие, как `dialog`, `menu` и т. д.) доступны только в основном процессе, но не в процессе рендеринга. In order to use them from the renderer process, the `ipc` module is necessary to send inter-process messages to the main process. With the `remote` module, you can invoke methods of the main process object without explicitly sending inter-process messages, similar to Java's [RMI](https://en.wikipedia.org/wiki/Java_remote_method_invocation). An example of creating a browser window from a renderer process:
+В Electron GUI-ориентированные модули (такие, как `dialog`, `menu` и т. д.) доступны только в основном процессе, но не в процессе рендеринга. Для того, чтобы использовать их в рендер-процессе, необходим модуль `ipc`, чтобы посылать межпроцессные сообщения в основной процесс. С модулем `remote` вы можете вызывать методы объекта основного процесса без явной отправки межпроцессных сообщений, это похоже на Java [RMI](https://en.wikipedia.org/wiki/Java_remote_method_invocation). Пример создания окна браузера из рендер-процесса:
 
 ```javascript
 const { BrowserWindow } = require('electron').remote
@@ -14,9 +14,9 @@ let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
-**Note:** For the reverse (access the renderer process from the main process), you can use [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback).
+**Примечание:** Для обратной связи (доступа к рендер-процессу из основного процесса), вы можете использовать [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback).
 
-**Note:** The remote module can be disabled for security reasons in the following contexts:
+**Примечание:** Модуль remote можно отключить по соображениям безопасности в следующих контекстах:
 
 * [`BrowserWindow`](browser-window.md) - by setting the `enableRemoteModule` option to `false`.
 * [`<webview>`](webview-tag.md) - by setting the `enableremotemodule` attribute to `false`.
