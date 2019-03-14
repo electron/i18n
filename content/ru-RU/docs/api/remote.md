@@ -72,7 +72,7 @@ console.log(withRendererCb, withLocalCb)
 
 Во вторых, колбэки, передаваемые в основной процесс будут сохраняться до сборки мусора основным процессом.
 
-For example, the following code seems innocent at first glance. It installs a callback for the `close` event on a remote object:
+К примеру, следующий код на первый взгляд кажется невинным. Он устанавливает колбэк для события `close` на удаленном объекте:
 
 ```javascript
 require('electron').remote.getCurrentWindow().on('close', () => {
@@ -80,7 +80,7 @@ require('electron').remote.getCurrentWindow().on('close', () => {
 })
 ```
 
-But remember the callback is referenced by the main process until you explicitly uninstall it. If you do not, each time you reload your window the callback will be installed again, leaking one callback for each restart.
+Но помните, что колбэк ссылается на основной процесс до тех пор, пока вы его не удалите. If you do not, each time you reload your window the callback will be installed again, leaking one callback for each restart.
 
 To make things worse, since the context of previously installed callbacks has been released, exceptions will be raised in the main process when the `close` event is emitted.
 
