@@ -43,7 +43,7 @@ Electron следит за тем, что пока удаленный объек
 
 Код основного процесса может принимать колбэки рендер-процесса (например, модуль `remote`), но вы должны использовать эту особенность в предельной осторожностью.
 
-Во первых, во избежание взаимных блокировок, колбэки, передаваемые в основной процесс, вызываются асинхронно. Вы не должны ожидать в основном процессе, чтобы получить возвращаемые значения переданных колбэков.
+Во первых, во избежание взаимных блокировок, колбэки, передаваемые в основной процесс, вызываются асинхронно. Вы не должны ожидать, что основной процесс получит возвращаемые значения переданных колбэков.
 
 Например, вы не можете использовать функцию из рендер-процесса в `Array.map`, вызываемой в основном процессе:
 
@@ -68,9 +68,9 @@ console.log(withRendererCb, withLocalCb)
 // [undefined, undefined, undefined], [2, 3, 4]
 ```
 
-As you can see, the renderer callback's synchronous return value was not as expected, and didn't match the return value of an identical callback that lives in the main process.
+Как вы можете видеть, результат синхронно вызываемого колбэка рендрера отличается от ожидаемого и не совпадает с результатом аналогичного колбэка, находящегося в основном процессе.
 
-Second, the callbacks passed to the main process will persist until the main process garbage-collects them.
+Во вторых, колбэки, передаваемые в основной процесс будут сохраняться до сборки мусора основным процессом.
 
 For example, the following code seems innocent at first glance. It installs a callback for the `close` event on a remote object:
 
