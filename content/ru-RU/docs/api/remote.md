@@ -29,13 +29,13 @@ win.loadURL('https://github.com')
 
 **Примечание:** Доступны только [перечислимые свойства](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties), которые присутствуют при первом обращении к удаленному объекту, через дистанционное управление.
 
-**Note:** Arrays and Buffers are copied over IPC when accessed via the `remote` module. Modifying them in the renderer process does not modify them in the main process and vice versa.
+**Примечание:** Массивы и Buffers при доступе к ним через модуль `remote` копируются через IPC. Изменения, которые в них вносит рендер-процесс не отображаются в основном процессе и наоборот.
 
 ## Lifetime of Remote Objects
 
-Electron makes sure that as long as the remote object in the renderer process lives (in other words, has not been garbage collected), the corresponding object in the main process will not be released. When the remote object has been garbage collected, the corresponding object in the main process will be dereferenced.
+Electron следит за тем, что пока удаленный объект в рендер-процессе жив (другими словами, не будет удален сборщиком мусора) соответствующий объект в основном процессе не будет освобожден. Когда удаленный объект будет утилизирован сборщиком мусора, соответствующий объект в основном процессе также будет освобожден для сборщика.
 
-If the remote object is leaked in the renderer process (e.g. stored in a map but never freed), the corresponding object in the main process will also be leaked, so you should be very careful not to leak remote objects.
+Если удаленный объект допускает утечки (например, сохранен в map и никогда не освобождается), то соответствующий объект в основном процессе также будет утекать, поэтому вы должны быть очень осторожны, чтобы не вызывать утечек в удаленных объектах.
 
 Primary value types like strings and numbers, however, are sent by copy.
 
