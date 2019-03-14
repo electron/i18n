@@ -331,7 +331,7 @@ Este evento será emitido dentro da instância principal do seu aplicativo quand
 
 Esse evento é garantido que será emitido após o evento `ready` do objeto `app` ser emitido.
 
-### Event: 'remote-require'
+### Evento 'remote-require'
 
 Retorna:
 
@@ -339,9 +339,9 @@ Retorna:
 * `webContents` [WebContents](web-contents.md)
 * `moduleName` String
 
-O evento emitido quando `remote.require()` é chamado no processo de renderização do `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+Este evento será emitido quando `remote.require()` é chamado no processo de renderização do `webContents`. Evocando `event.preventDefault()` irá previnir o módulo de ser retornado. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
 
-### Event: 'remote-get-global'
+### Evento 'remote-get-global'
 
 Retorna:
 
@@ -349,7 +349,7 @@ Retorna:
 * `webContents` [WebContents](web-contents.md)
 * `globalName` String
 
-Emitted when `remote.getGlobal()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
+Este evento será emitido quando `remote.getGlobal()` é chamado no processo de renderização do `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
 
 ### Event: 'remote-get-builtin'
 
@@ -359,7 +359,7 @@ Retorna:
 * `webContents` [WebContents](web-contents.md)
 * `moduleName` String
 
-Emitted when `remote.getBuiltin()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+Emitted when `remote.getBuiltin()` is called in the renderer process of `webContents`. Evocando `event.preventDefault()` irá previnir o módulo de ser retornado. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
 
 ### Event: 'remote-get-current-window'
 
@@ -368,7 +368,7 @@ Retorna:
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Emitted when `remote.getCurrentWindow()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+Emitted when `remote.getCurrentWindow()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
 
 ### Event: 'remote-get-current-web-contents'
 
@@ -377,7 +377,7 @@ Retorna:
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Emitted when `remote.getCurrentWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+Emitted when `remote.getCurrentWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
 
 ### Event: 'remote-get-guest-web-contents'
 
@@ -387,7 +387,7 @@ Retorna:
 * `webContents` [WebContents](web-contents.md)
 * `guestWebContents` [WebContents](web-contents.md)
 
-Emitted when `<webview>.getWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+Emitted when `<webview>.getWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
 
 ## Métodos
 
