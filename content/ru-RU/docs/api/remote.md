@@ -37,15 +37,15 @@ Electron следит за тем, что пока удаленный объек
 
 Если удаленный объект допускает утечки (например, сохранен в map и никогда не освобождается), то соответствующий объект в основном процессе также будет утекать, поэтому вы должны быть очень осторожны, чтобы не вызывать утечек в удаленных объектах.
 
-Primary value types like strings and numbers, however, are sent by copy.
+Однако основные типы данных, такие как число и строки, отправляются копией.
 
-## Passing callbacks to the main process
+## Передача колбэков в основной процесс
 
-Code in the main process can accept callbacks from the renderer - for instance the `remote` module - but you should be extremely careful when using this feature.
+Код основного процесса может принимать колбэки рендер-процесса (например, модуль `remote`), но вы должны использовать эту особенность в предельной осторожностью.
 
-First, in order to avoid deadlocks, the callbacks passed to the main process are called asynchronously. You should not expect the main process to get the return value of the passed callbacks.
+Во первых, во избежание взаимных блокировок, колбэки, передаваемые в основной процесс, вызываются асинхронно. Вы не должны ожидать в основном процессе, чтобы получить возвращаемые значения переданных колбэков.
 
-For instance you can't use a function from the renderer process in an `Array.map` called in the main process:
+Например, вы не можете использовать функцию из рендер-процесса в `Array.map`, вызываемой в основном процессе:
 
 ```javascript
 // main process mapNumbers.js
