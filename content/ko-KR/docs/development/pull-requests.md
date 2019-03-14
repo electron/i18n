@@ -142,7 +142,7 @@ $ npm run test -match=menu
 
 ### 8 단계: Push
 
-Once your commits are ready to go -- with passing tests and linting -- begin the process of opening a pull request by pushing your working branch to your fork on GitHub.
+커밋에 대한 테스트, linting 과정에서 아무런 문제가 발생하지 않았다면, 이제 GitHub의 fork 저장소에 작업한 브랜치를 push해서 pull request를 생성할 차례입니다.
 
 ```sh
 $ git push origin my-branch
@@ -165,9 +165,9 @@ Contributors guide: https://github.com/electron/electron/blob/master/CONTRIBUTIN
 
 ### 10 단계: 토론 및 업데이트
 
-제출한 pull request에 대해 피드백을 받거나 내용 수정을 요청받을 수도 있습니다. 이러한 수정 요청이나 피드백은 pull request 처리 과정에서 중요한 부분이므로 거부감을 느끼지 않으셨으면 합니다! pull request이 제출되면 바로 승인하는 공헌자도 있습니다. 어떤 사람들은 자세한 댓글 또는 피드백을 남기기도 합니다. This is a necessary part of the process in order to evaluate whether the changes are correct and necessary.
+제출한 pull request에 대해 피드백을 받거나 내용 수정을 요청받을 수도 있습니다. 이러한 수정 요청이나 피드백은 pull request 처리 과정에서 중요한 부분이므로 거부감을 느끼지 않으셨으면 합니다! pull request이 제출되면 바로 승인하는 공헌자도 있습니다. 어떤 사람들은 자세한 댓글이나 피드백을 남기기도 합니다. 이러한 참여는 변경 사항의 정확성과 필요성을 평가하기 위해 꼭 필요한 절차입니다.
 
-To make changes to an existing pull request, make the changes to your local branch, add a new commit with those changes, and push those to your fork. GitHub will automatically update the pull request.
+기존 pull request를 변경하고 싶다면, 로컬 브랜치에서 수정한 후 새로운 커밋을 추가하고 fork 저장소로 해당 커밋을 push 하면 됩니다. GitHub는 자동으로 pull request를 업데이트할 것입니다.
 
 ```sh
 $ git add my/changed/files
