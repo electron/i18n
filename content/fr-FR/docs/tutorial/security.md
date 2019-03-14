@@ -12,13 +12,13 @@ Pour plus d’informations sur la façon de communiquer correctement une vulnér
 
 ## Problèmes de sécurité et mises à jour de Chromium
 
-Alors qu'Electron s’efforce de soutenir les nouvelles versions de Chromium dès que possible, les développeurs doivent être conscients que la mise à niveau est une entreprise sérieuse - impliquant la modification manuelle des dizaines ou même des centaines de fichiers. Given the resources and contributions available today, Electron will often not be on the very latest version of Chromium, lagging behind by several weeks or a few months.
+Alors qu'Electron s’efforce de soutenir les nouvelles versions de Chromium dès que possible, les développeurs doivent être conscients que la mise à niveau est une entreprise sérieuse - impliquant la modification manuelle des dizaines ou même des centaines de fichiers. Étant donné les ressources et les contributions disponibles aujourd'hui, Electron ne sera souvent pas sur la toute dernière version de Chromium, à la traîne de quelques semaines ou mois.
 
 Nous estimons que notre système actuel de mise à jour de Chromium présente un équilibre approprié entre les ressources disponibles et les besoins de la majorité des applications développées sur le framework. Nous sommes intéressés à en savoir plus sur les cas d'utilisation spécifiques des personnes qui développent avec Electron. Les Pull requests et les contributions qui appuient ces efforts sont toujours les bienvenues.
 
-## Security Is Everyone's Responsibility
+## La sécurité est la responsabilité de tous
 
-It is important to remember that the security of your Electron application is the result of the overall security of the framework foundation (*Chromium*, *Node.js*), Electron itself, all NPM dependencies and your code. As such, it is your responsibility to follow a few important best practices:
+Il est important de se rappeler que la sécurité de votre application Electron dépend de la sécurité globalement de la fondation du framework (*Chromium*, *Node.js*), Electron lui-même, toutes les dépendances NPM et votre code. Ainsi, il est de votre responsabilité de suivre quelques pratiques essentielles de test :
 
 * **Keep your application up-to-date with the latest Electron framework release.** When releasing your product, you’re also shipping a bundle composed of Electron, Chromium shared library and Node.js. Vulnerabilities affecting these components may impact the security of your application. By updating Electron to the latest version, you ensure that critical vulnerabilities (such as *nodeIntegration bypasses*) are already patched and cannot be exploited in your application.
 
@@ -193,7 +193,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 You may have seen permission requests while using Chrome: They pop up whenever the website attempts to use a feature that the user has to manually approve ( like notifications).
 
-The API is based on the [Chromium permissions API](https://developer.chrome.com/extensions/permissions) and implements the same types of permissions.
+L'API se base sur [l'API de permissions Chromium](https://developer.chrome.com/extensions/permissions) et implémente le même type de permissions.
 
 ### Pourquoi ?
 
@@ -276,7 +276,7 @@ Content-Security-Policy: '*'
 Content-Security-Policy: script-src 'self' https://apis.example.com
 ```
 
-### CSP HTTP Header
+### Entête CSP HTTP
 
 Electron respects the [`Content-Security-Policy` HTTP header](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy) which can be set using Electron's [`webRequest.onHeadersReceived`](../api/web-request.md#webrequestonheadersreceivedfilter-listener) handler:
 
@@ -359,7 +359,7 @@ const mainWindow = new BrowserWindow({
 const mainWindow = new BrowserWindow({})
 ```
 
-## 9) Do Not Use `enableBlinkFeatures`
+## 9) N'utilisez pas `enableBlinkFeatures`
 
 *Cette recommandation est appliquée par défaut sur Electron*
 
