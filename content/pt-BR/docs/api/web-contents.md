@@ -580,7 +580,7 @@ Retorna:
 
 Emitted when the associated window logs a console message. Will not be emitted for windows with *offscreen rendering* enabled.
 
-#### Evento 'remote-require'
+#### Evento: 'remote-require'
 
 Retorna:
 
@@ -589,16 +589,16 @@ Retorna:
 
 Emitted when `remote.require()` is called in the renderer process. Evocando `event.preventDefault()` irá previnir o módulo de ser retornado. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
 
-#### Evento 'remote-get-global'
+#### Evento: 'remote-get-global'
 
 Retorna:
 
 * `event` Event
 * `globalName` String
 
-Emitted when `remote.getGlobal()` is called in the renderer process. Calling `event.preventDefault()` will prevent the global from being returned. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
+Emitted when `remote.getGlobal()` is called in the renderer process. Evocando `event.preventDefault()` irá previnir o global ser retornado. Valores personalizados podem ser retornados pela configuração `event.returnValue`.
 
-#### Event: 'remote-get-builtin'
+#### Evento: 'remote-get-builtin'
 
 Retorna:
 
