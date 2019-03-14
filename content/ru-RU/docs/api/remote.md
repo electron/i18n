@@ -80,11 +80,11 @@ require('electron').remote.getCurrentWindow().on('close', () => {
 })
 ```
 
-Но помните, что колбэк ссылается на основной процесс до тех пор, пока вы его не удалите. If you do not, each time you reload your window the callback will be installed again, leaking one callback for each restart.
+Но помните, что колбэк ссылается на основной процесс до тех пор, пока вы его не удалите. Если вы этого не сделаете, то при каждой перезагрузке окна колбэк будет установлен снова, вызывая утечку одного колбэка при каждом рестарте.
 
-To make things worse, since the context of previously installed callbacks has been released, exceptions will be raised in the main process when the `close` event is emitted.
+Что еще хуже, так как контекст предыдущих колбэков будет удален, при каждом вызове `close` в основном процессе будут возникать ошибки.
 
-To avoid this problem, ensure you clean up any references to renderer callbacks passed to the main process. This involves cleaning up event handlers, or ensuring the main process is explicitly told to dereference callbacks that came from a renderer process that is exiting.
+Чтобы избежать этой проблемы, убедитесь, что вы очищаете любые ссылки на колбэки рендерера, переданные в основной процесс. Это включает в себя очистку обработчиков событий или вам необходимо обеспечить явное снятие колбэков в основном процессе при завершении рендер-процесса.
 
 ## Accessing built-in modules in the main process
 
