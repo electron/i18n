@@ -183,11 +183,11 @@ $ git push origin my-branch
 
 변경 사항이 발생한 영역의 [코드 소유자(Code Owner)](https://github.com/orgs/electron/teams/code-owners)가 pull request를 승인해야 변경 사항이 최종적으로 반영됩니다. 관리자가 pull request를 리뷰할 때 수정을 요청하는 경우도 있습니다. 사소한 오탈자 수정 요청일 때도 있고 상당히 많은 변화를 요구하는 경우도 있습니다. 이러한 요청은 도움을 주는데 그 목적이 있습니다. 하지만 때로는 퉁명스러운 태도로 요청하는 경우도 있고, *어떻게* 변경해야하는지 구체적으로 제안하지 않는 경우 수정 요청이 전혀 도움이 되지 않을 때도 있습니다.
 
-이런 경우가 발생하더라도 의욕을 잃지 않길 바랍니다. 리뷰 결과가 부당하다고 생각하신다면, 리뷰가 부당하다는 의견을 밝히시거나 다른 공헌자의 의견을 들어보시길 바랍니다. Often such comments are the result of a reviewer having taken insufficient time to review and are not ill-intended. Such difficulties can often be resolved with a bit of patience. That said, reviewers should be expected to provide helpful feeback.
+이런 경우가 발생하더라도 의욕을 잃지 않길 바랍니다. 리뷰 결과가 부당하다고 생각하신다면, 리뷰가 부당하다는 의견을 밝히시거나 다른 공헌자의 의견을 들어보시길 바랍니다. 이런 상황은 악의적인 의도에서 비롯된 것이 아니라 리뷰어가 충분한 시간을 가지고 리뷰하지 않았을 때 주로 발생합니다. 시간이 종종 이 문제를 해결해 줄 수 있습니다. 조금만 인내심을 가지고 기다려주시길 바랍니다. 그렇다 하더라도, 리뷰어는 도움이 되는 피드백을 제공하려고 항상 노력해야 합니다.
 
 ### 11 단계: 랜딩
 
-In order to land, a pull request needs to be reviewed and approved by at least one Electron Code Owner and pass CI. After that, if there are no objections from other contributors, the pull request can be merged.
+Pull request가 반영되려면 리뷰를 거쳐야 하며, 한 명 이상의 Electron 코드 소유자에게 승인을 받고 CI도 통과해야 합니다. 이후, 다른 공헌자들이 반대하지 않는다면 pull request는 merge 될 수 있습니다.
 
 축하합니다 그리고 공헌해주셔서 감사합니다!
 
