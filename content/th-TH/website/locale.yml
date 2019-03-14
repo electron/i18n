@@ -18,16 +18,16 @@ keyboard_modal:
   action: Action
   focus_search: Focus the search bar
   focus_and_clear: Focus the search bar and cleans it
-  scroll_down: Select the next search result
-  scroll_up: Select the previous search result
-  open: Open the selected search result
-  open_new_tab: Open the selected search result in a new tab
+  scroll_down: เลือกผลการค้นหาถัดไป
+  scroll_up: เลือกผลการค้นหาก่อนหน้า
+  open: เปิดผลการค้นหาที่เลือก
+  open_new_tab: เปิดผลการค้นหาที่เลือกในหน้าต่างใหม่
 docs:
   title: เอกสารประกอบของ อิเล็กตรอน
   description: ดูเพิ่มเติมใน<a href="/docs/all">เอกสารทั้งหมด</a> หรือ <a href="/docs/faq"></a> FAQ
   guides: คู่มือ
   api_reference: API อ้างอิง
-  api_structures: API Structures
+  api_structures: โครงสร้าง API
   advanced: ขั้นสูง
   footer:
     propose_change: ปรับปรุงเอกสารนี้
