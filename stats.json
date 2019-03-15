@@ -29,14 +29,14 @@
     "name": "Chinese Simplified",
     "code": "zh-CN",
     "phrases": "10114",
-    "translated": "8896",
+    "translated": "8918",
     "approved": "25",
     "words": "93668",
-    "words_translated": "77637",
+    "words_translated": "77992",
     "words_approved": "137",
-    "translated_progress": 82,
+    "translated_progress": 83,
     "approved_progress": 0,
-    "qa_issues": 255
+    "qa_issues": 256
   },
   {
     "name": "Chinese Traditional",
@@ -114,7 +114,7 @@
     "words_approved": "65",
     "translated_progress": 28,
     "approved_progress": 0,
-    "qa_issues": 1679
+    "qa_issues": 1678
   },
   {
     "name": "Hebrew",
@@ -192,7 +192,7 @@
     "words_approved": "3355",
     "translated_progress": 43,
     "approved_progress": 3,
-    "qa_issues": 2186
+    "qa_issues": 2185
   },
   {
     "name": "Persian",
