@@ -32,7 +32,7 @@ Electron 包括对 Node 的 [`NODE_OPTIONS`](https://nodejs.org/api/cli.html#cli
 export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
 ```
 
-Unsupported options are:
+不支持的选项是：
 
 ```sh
 --use-bundled-ca
@@ -42,7 +42,7 @@ Unsupported options are:
 --use-openssl-ca
 ```
 
-`NODE_OPTIONS` are explicitly disallowed in packaged apps.
+在打包的应用程序中显式禁止使用 `NODE_OPTIONS` 。
 
 ### `GOOGLE_API_KEY`
 
