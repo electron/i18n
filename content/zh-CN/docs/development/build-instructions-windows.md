@@ -27,7 +27,7 @@
 
 ## 32 位构建
 
-To build for the 32bit target, you need to pass `target_cpu = "x86"` as a GN arg. You can build the 32bit target alongside the 64bit target by using a different output directory for GN, e.g. `out/Release-x86`, with different arguments.
+To build for the 32bit target, you need to pass `target_cpu = "x86"` as a GN arg. 可以使用不同的 GN 输出目录（例如， `out/Release-x86`） 和不同的参数，在 64 位目标旁边构建 32 位目标。
 
 ```powershell
 $ gn gen out/Release-x86 --args="import(\"//electron/build/args/release.gn\") target_cpu=\"x86\""
@@ -37,7 +37,7 @@ $ gn gen out/Release-x86 --args="import(\"//electron/build/args/release.gn\") ta
 
 ## Visual Studio 项目
 
-To generate a Visual Studio project, you can pass the `--ide=vs2017` parameter to `gn gen`:
+要生成 Visual Studio 项目，可以传递 `--ide=vs2017` 参数 给 `gn gen`：
 
 ```powershell
 $ gn gen out/Debug --ide=vs2017
@@ -69,7 +69,7 @@ $ mkdir ~\AppData\Roaming\npm
 
 如果你使用 Git Bash 来构建，或许会遇到这个错误，可以使用 PowerShell 或 VS2015 Command Prompt 来代替.
 
-### cannot create directory at '...': Filename too long
+### 无法在“…”处创建目录：文件名太长
 
 node.js has some [extremely long pathnames](https://github.com/electron/node/tree/electron/deps/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/node_modules/is-arrayish), and by default git on windows doesn't handle long pathnames correctly (even though windows supports them). This should fix it:
 
