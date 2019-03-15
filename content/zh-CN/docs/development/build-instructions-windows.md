@@ -71,16 +71,16 @@ $ mkdir ~\AppData\Roaming\npm
 
 ### 无法在“…”处创建目录：文件名太长
 
-node.js has some [extremely long pathnames](https://github.com/electron/node/tree/electron/deps/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/node_modules/is-arrayish), and by default git on windows doesn't handle long pathnames correctly (even though windows supports them). This should fix it:
+node.js 有一些 [极长的路径名](https://github.com/electron/node/tree/electron/deps/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/node_modules/is-arrayish)，默认情况下，windows 上的 git 不能正确处理长路径名（即使 windows 支持它们）。 这应该可以修复它：
 
 ```sh
 $ git config --system core.longpaths true
 ```
 
-### error: use of undeclared identifier 'DefaultDelegateCheckMode'
+### 错误：使用未声明的标识符“DefaultDelegateCheckMode”
 
-This can happen during build, when Debugging Tools for Windows has been installed with Windows Driver Kit. Uninstall Windows Driver Kit and install Debugging Tools with steps described above.
+在使用 Windows 驱动程序工具包安装 Windows 调试工具时，可能会在构建期间发生这种情况。卸载 Windows 驱动程序工具包并使用上述步骤安装调试工具。
 
-### ImportError: No module named win32file
+### 导入错误：没有名为 win32file 的模块
 
-Make sure you have installed `pywin32` with `pip install pywin32`.
+确保已使用 `pip install pywin32` 安装了 `pywin32`。
