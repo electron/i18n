@@ -36,7 +36,7 @@
     "words_approved": "137",
     "translated_progress": 83,
     "approved_progress": 0,
-    "qa_issues": 256
+    "qa_issues": 255
   },
   {
     "name": "Chinese Traditional",
@@ -107,14 +107,14 @@
     "name": "German",
     "code": "de",
     "phrases": "10114",
-    "translated": "4551",
+    "translated": "4553",
     "approved": "34",
     "words": "93668",
-    "words_translated": "26742",
+    "words_translated": "26748",
     "words_approved": "65",
     "translated_progress": 28,
     "approved_progress": 0,
-    "qa_issues": 1678
+    "qa_issues": 1679
   },
   {
     "name": "Hebrew",
@@ -211,10 +211,10 @@
     "name": "Polish",
     "code": "pl",
     "phrases": "10114",
-    "translated": "4129",
+    "translated": "4130",
     "approved": "822",
     "words": "93668",
-    "words_translated": "20172",
+    "words_translated": "20179",
     "words_approved": "5911",
     "translated_progress": 21,
     "approved_progress": 6,
@@ -224,14 +224,14 @@
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "10114",
-    "translated": "4485",
-    "approved": "364",
+    "translated": "4509",
+    "approved": "366",
     "words": "93668",
-    "words_translated": "31656",
-    "words_approved": "2604",
-    "translated_progress": 33,
+    "words_translated": "31971",
+    "words_approved": "2624",
+    "translated_progress": 34,
     "approved_progress": 2,
-    "qa_issues": 1282
+    "qa_issues": 1295
   },
   {
     "name": "Romanian",
