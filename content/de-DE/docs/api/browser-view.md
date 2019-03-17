@@ -1,6 +1,6 @@
-## Class: BrowserView
+## Klasse: BrowserView
 
-> Create and control views.
+> Erstelle und kontrolliere Ansichten.
 
 Prozess: [Haupt](../glossary.md#main-process)
 
