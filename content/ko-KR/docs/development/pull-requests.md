@@ -118,7 +118,7 @@ $ git fetch upstream
 $ git rebase upstream/master
 ```
 
-이 명령은 `electron/electron` maste에서 가장 최근에 발생한 변경 사항을 여러분의 작업 브랜치에 반영할 수 있게 도와줄 것입니다.
+이 명령은 `electron/electron` master에서 가장 최근에 발생한 변경 사항을 여러분의 작업 브랜치에 반영할 수 있게 도와줄 것입니다.
 
 ### 7 단계: 테스트
 
