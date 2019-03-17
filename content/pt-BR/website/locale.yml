@@ -14,7 +14,7 @@ nav:
   userland: Userland
 keyboard_modal:
   title: Atalhos do Teclado
-  key: Key
+  key: Tecla
   action: Ação
   focus_search: Foco na caixa de pesquisa
   focus_and_clear: Foque na barra de pesquisa e apague o texto
