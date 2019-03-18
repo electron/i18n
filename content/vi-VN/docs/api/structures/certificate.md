@@ -1,7 +1,7 @@
-# Certificate Object
+# Đối tượng chứng chỉ
 
-* `data` String - dữ liệu PEM encoded
-* `issuer` [CertificatePrincipal](certificate-principal.md) - Issuer principal
+* `data` String - Dữ liệu được mã hóa PEM
+* `Tổ chức phát hành`[CertificatePrincipal](certificate-principal.md) - Hiệu trưởng phát hành
 * `issuerName` String - Issuer's Common Name
 * `issuerCert` Certificate - Issuer certificate (if not self-signed)
 * `subject` [CertificatePrincipal](certificate-principal.md) - Subject principal
