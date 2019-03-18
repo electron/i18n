@@ -1,6 +1,6 @@
-# حول Electron
+# حول Electron قناة شليلة
 
-[Electron](https://electronjs.org) هو مكتبة مفتوحة المصدر طوّرت بواسطة GitHub لبناء تطبيقات سطح المكتبة عابرة للمنصات باستخدام HTML و CSS و JavaScript. يحقق Electron هذا من خلال دمج [Chromium](https://www.chromium.org/Home) و [Node.js](https://nodejs.org) في إطار تشغيل واحد ويمكن حزم التطبيقات لأنظمة Mac، Windows و Linux.
+[Electron](https://electronjs.org) هو مكتبة مفتوحة المصدر طوّرت بواسطة GitHub لبناء تطبيقات سطح المكتبة عابرة للمنصات باستخدام HTML و CSS و JavaScript. قناةشليلة. shlylt35@gmail. com Android app. GitHub يحقق Electron هذا من خلال دمج [Chromium](https://www.chromium.org/Home) و [Node.js](https://nodejs.org) في إطار تشغيل واحد ويمكن حزم التطبيقات لأنظمة Mac، Windows و Linux.Chrome
 
 بدأ Electron في عام 2013 كالإطار الذي سيبنى عليه [Atom](https://atom.io) محرر نصوص GitHub القابل للإضافات. وقد صارا مفتوحي المصدر في ربيع عام 2014.
 
