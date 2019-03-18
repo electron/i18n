@@ -10,7 +10,7 @@
     "words_approved": "0",
     "translated_progress": 7,
     "approved_progress": 0,
-    "qa_issues": 414
+    "qa_issues": 416
   },
   {
     "name": "Bulgarian",
@@ -94,14 +94,14 @@
     "name": "French",
     "code": "fr",
     "phrases": "10114",
-    "translated": "7493",
+    "translated": "7501",
     "approved": "39",
     "words": "93668",
-    "words_translated": "57014",
+    "words_translated": "57153",
     "words_approved": "142",
-    "translated_progress": 60,
+    "translated_progress": 61,
     "approved_progress": 0,
-    "qa_issues": 2171
+    "qa_issues": 2177
   },
   {
     "name": "German",
@@ -257,7 +257,7 @@
     "words_approved": "7874",
     "translated_progress": 43,
     "approved_progress": 8,
-    "qa_issues": 1676
+    "qa_issues": 1677
   },
   {
     "name": "Spanish",
@@ -296,7 +296,7 @@
     "words_approved": "61",
     "translated_progress": 2,
     "approved_progress": 0,
-    "qa_issues": 115
+    "qa_issues": 117
   },
   {
     "name": "Turkish",
@@ -328,13 +328,13 @@
     "name": "Vietnamese",
     "code": "vi",
     "phrases": "10114",
-    "translated": "1980",
+    "translated": "1981",
     "approved": "52",
     "words": "93668",
-    "words_translated": "9352",
+    "words_translated": "9356",
     "words_approved": "169",
     "translated_progress": 9,
     "approved_progress": 0,
-    "qa_issues": 540
+    "qa_issues": 541
   }
 ]
