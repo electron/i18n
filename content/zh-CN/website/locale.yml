@@ -261,8 +261,8 @@ governance:
     title: 职责
     listdescription: "每个工作组都有下列主要职责："
     list:
-      - They shall decide for themselves, and publicly post, their rules, e.g. how decisions are made, when meetings are held, and who may attend.
-      - 'They shall <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Terms-and-Selection">select</a> a chair to <a href=''https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Responsibilities''>represent</a> the group.'
+      - 自行商议并公开其章程，如表决方式、会议时间、与会资格等。
+      - '<a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Terms-and-Selection">选举</a>一名主管来<a href=''https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Responsibilities''>代表</a>整个工作组。'
       - They shall keep meeting notes, including agenda items, discussion points, and outcomes for everyone to review.
       - 'They shall be collaborative and work <a href="https://github.com/electron/governance/tree/master/charter/README.md#Core-Values">in good faith</a> with other Working Groups.'
     see_charter: See <a href="https://github.com/electron/governance/tree/master/charter/README.md">charter</a> for more information.
