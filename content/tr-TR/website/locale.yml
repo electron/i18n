@@ -12,7 +12,7 @@ nav:
   releases: Sürümler
   search: Ara
   userland: Kullanıcı alanı
-  governance: Governance
+  governance: Yönetim
 keyboard_modal:
   title: Klavye Kısayolları
   key: Key
@@ -199,8 +199,8 @@ pages:
     title: Electron Fiddle
     description: Electron ile başlamanın en kolay yolu
   '/governance':
-    title: Electron Governance
-    description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
+    title: Electron Yönetimi
+    description: Electron yönetim sistemi, Electron ekosisteminin farklı yönlerini denetleyen Çalışma Gruplarından ve aralarındaki çatışmaları çözmek için çalışan bir İdari çalışma grubundan oluşur.
   '/donors':
     title: Bağışçılar
 landing:
@@ -218,20 +218,20 @@ landing:
     easy_start: Fiddle ile Başlayın, Her Yere Devam Edin
     easy_start_desc: Fiddle IDE değil - mükemmel bir başlangıç noktasıdır. Fiddle'ınız büyüdükten sonra, projeyi <a href="https://electronforge.io/"> electron forge </a> içeren veya içermeyen bir proje olarak dışa aktarın. Ardından favori editörünüzü kullanın ve dünyaya katılın!
 governance:
-  title: Electron Governance
-  description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
-  wgs: Working Groups
+  title: Electron Yönetimi
+  description: Electron yönetim sistemi, Electron ekosisteminin farklı yönlerini denetleyen Çalışma Gruplarından ve aralarındaki çatışmaları çözmek için çalışan bir İdari çalışma grubundan oluşur.
+  wgs: Çalışma Grupları
   docstools:
-    title: Docs & Tools
-    description: Oversees externally-focused tooling (e.g. Fiddle, Forge), Electron documentation across the website and <code>electron/*</code> repositories, and the maintainer’s group outreach to 3rd party modules.
+    title: Belgeler ve Araçlar
+    description: Dışarıya odaklanmış takımları (örneğin, Fiddle, Forge), web sitesindeki Electron dokümantasyonunu ve <code> electron / * </code> depolarını ve bakımcının 3. parti modüllerine erişimini yönetir.
   outreach:
-    title: Outreach
-    description: Grows the Electron community
+    title: Sosyal Yardım
+    description: Electron Topluluğunu Büyüt
   releases:
     title: Sürümler
-    description: Oversees all release branches, and tooling to support releases.
+    description: Tüm serbest bırakma dallarını ve serbest bırakmayı destekleyecek araçları denetler.
   upgrades:
-    title: Upgrades
+    title: Yükseltmeler
     description: Oversees upgrades of upstream dependencies; specifically Chromium and Node.
   website:
     title: Web sitesi
