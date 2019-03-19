@@ -398,10 +398,10 @@ Si usted no necesita ventanas emergentes, le conviene no permitir la creación d
 ### ¿Còmo?
 
 ```html
-<!-- Bad -->
+<!-- Malo -->
 <webview allowpopups src="page.html"></webview>
 
-<!-- Good -->
+<!-- Bueno -->
 <webview src="page.html"></webview>
 ```
 
