@@ -232,30 +232,30 @@ governance:
     description: Tüm serbest bırakma dallarını ve serbest bırakmayı destekleyecek araçları denetler.
   upgrades:
     title: Yükseltmeler
-    description: Oversees upgrades of upstream dependencies; specifically Chromium and Node.
+    description: Yukarı havza bağımlılıklarının yükseltmelerini denetler; özellikle Chromium ve Node.
   website:
     title: Web sitesi
-    description: Oversees the technical implementation, design, and style of the Electron website and associated tooling.
+    description: Electron web sitesinin teknik uygulamasını, tasarımını ve stilini ve ilgili takımları denetler.
   cmsf:
-    title: Community & Safety
-    description: Oversees removal/bans from community.
+    title: Topluluk ve Güvenlik
+    description: Topluluktan çıkarılmasını / yasaklanmasını denetler.
   security:
     title: Güvenlik
-    description: Proactively ensures the Security of Electron as a project, responds to incoming incidents, and oversees rollout of fixes.
+    description: Bir proje olarak Elektron Güvenliğini proaktif olarak sağlar, gelen olaylara cevap verir ve düzeltmelerin başlatılmasını denetler.
   admins:
-    title: Administrative
-    description: The Administrative Working Group oversees the entire governance and project.
+    title: İdari
+    description: İdari Çalışma Grubu tüm yönetim ve projeyi denetler.
   global:
-    overview: Overview
-    associated_repos: Associated Repositories
-    notes: Meeting Notes
+    overview: Genel Bakış
+    associated_repos: İlişkili Depolar
+    notes: Toplantı Notları
   definitions:
-    title: Definitions
+    title: Tanımlar
     list:
-      - A <i>maintainer</i> is anyone who plays an active role in governance.
-      - A <i>collaborator</i> is active in the community, but not in governance.
-      - A <i>participant</i> is anyone who is a maintainer or collaborator.
-      - A <i>working group</i> is a group of maintainers that is formed to take responsibility for certain aspects of the Electron project. Normally these groups will meet regularly but in some cases will only meet as required to fulfill their responsibilities.
+      - Bir <i> koruyucu </i>, yönetimde aktif bir rol oynayan herkesdir.
+      - Bir <i> ortak çalışan </i> toplulukta etkin ancak yönetişimde aktif değil.
+      - Bir <i> katılımcı </i>, koruyucu veya ortak çalışan olan herhangi bir kişidir.
+      - Bir <i> çalışma grubu </i>, Electron projesinin belirli yönleriyle ilgili sorumluluk almak üzere oluşturulmuş bir grup bakım uzmanıdır. Normalde bu gruplar düzenli olarak toplanır, ancak bazı durumlarda sadece sorumluluklarını yerine getirmek için gereken şekilde toplanır.
       - 'A <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership">chair</a> leads a working group.'
   responsibilities:
     title: Responsibilities
