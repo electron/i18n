@@ -200,7 +200,7 @@ pages:
     description: 最简单的 Electron 入门方式。
   '/governance':
     title: Electron 治理
-    description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
+    description: Electron 的治理体系是由分管 Electron 生态各部分的工作组和一支负责解决分歧的协调工作组构成的。
   '/donors':
     title: 捐赠者
 landing:
@@ -219,7 +219,7 @@ landing:
     easy_start_desc: Fiddle 不是一个 IDE - 但它是一个很好的起点。一旦您的 Fiddle 长大，利用或不利用 <a href="https://electronforge.io/"> electron-forge </a> 将其导出为一个项目。然后，使用您最喜欢的编辑器，走向世界！
 governance:
   title: Electron 治理
-  description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
+  description: Electron 的治理体系是由分管 Electron 生态各部分的工作组和一支负责解决分歧的协调工作组构成的。
   wgs: 工作组
   docstools:
     title: 文档与工具
@@ -265,9 +265,9 @@ governance:
       - '<a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Terms-and-Selection">选举</a>一名主管来<a href=''https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Responsibilities''>代表</a>整个工作组。'
       - 留存会议纪要，包括议程、讨论要点和结果，供所有人审议。
       - '与其他工作组<a href="https://github.com/electron/governance/tree/master/charter/README.md#Core-Values">精诚合作</a>。'
-    see_charter: See <a href="https://github.com/electron/governance/tree/master/charter/README.md">charter</a> for more information.
-  code_of_conduct: The Electron organization and all repos therein adhere to the following <a href="https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md">Code of Conduct.</a>
-  license: Electron is licensed with the <a href="https://github.com/electron/electron/blob/master/LICENSE">MIT License</a>.
+    see_charter: 更多信息详见<a href="https://github.com/electron/governance/tree/master/charter/README.md">总则</a>。
+  code_of_conduct: Electron 团队及其所有代码仓库均遵循此<a href="https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md">行为准则</a>。
+  license: Electron 采用 <a href="https://github.com/electron/electron/blob/master/LICENSE">MIT 许可协议</a>。
   repository: Check out the <a href="https://github.com/electron/governance">Governance Repository</a> to find more information about the governance structure.
 _404:
   page_not_found: 页面找不到了。
