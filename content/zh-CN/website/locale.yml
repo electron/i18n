@@ -250,7 +250,7 @@ governance:
     associated_repos: Associated Repositories
     notes: Meeting Notes
   definitions:
-    title: Definitions
+    title: 定义
     list:
       - A <i>maintainer</i> is anyone who plays an active role in governance.
       - A <i>collaborator</i> is active in the community, but not in governance.
@@ -258,8 +258,8 @@ governance:
       - A <i>working group</i> is a group of maintainers that is formed to take responsibility for certain aspects of the Electron project. Normally these groups will meet regularly but in some cases will only meet as required to fulfill their responsibilities.
       - 'A <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership">chair</a> leads a working group.'
   responsibilities:
-    title: Responsibilities
-    listdescription: "All Working Groups have these core responsibilities:"
+    title: 职责
+    listdescription: "每个工作组都有下列主要职责："
     list:
       - They shall decide for themselves, and publicly post, their rules, e.g. how decisions are made, when meetings are held, and who may attend.
       - 'They shall <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Terms-and-Selection">select</a> a chair to <a href=''https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Responsibilities''>represent</a> the group.'
