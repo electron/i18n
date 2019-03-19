@@ -12,7 +12,7 @@ nav:
   releases: 版本发布
   search: 搜索
   userland: 用户生态
-  governance: Governance
+  governance: 治理
 keyboard_modal:
   title: 键盘快捷键
   key: 按键
@@ -199,7 +199,7 @@ pages:
     title: Electron Fiddle
     description: 最简单的 Electron 入门方式。
   '/governance':
-    title: Electron Governance
+    title: Electron 治理
     description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
   '/donors':
     title: 捐赠者
@@ -218,11 +218,11 @@ landing:
     easy_start: 从 Fiddle 开始，在任何地方继续。
     easy_start_desc: Fiddle 不是一个 IDE - 但它是一个很好的起点。一旦您的 Fiddle 长大，利用或不利用 <a href="https://electronforge.io/"> electron-forge </a> 将其导出为一个项目。然后，使用您最喜欢的编辑器，走向世界！
 governance:
-  title: Electron Governance
+  title: Electron 治理
   description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
-  wgs: Working Groups
+  wgs: 工作组
   docstools:
-    title: Docs & Tools
+    title: 文档与工具
     description: Oversees externally-focused tooling (e.g. Fiddle, Forge), Electron documentation across the website and <code>electron/*</code> repositories, and the maintainer’s group outreach to 3rd party modules.
   outreach:
     title: Outreach
