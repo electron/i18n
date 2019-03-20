@@ -1,13 +1,13 @@
 # 빌드 방법
 
-Follow the guidelines below for building Electron.
+아래 명시된 가이드라인에 따라 Electron을 빌드하시길 바랍니다.
 
-## Platform prerequisites
+## 플랫폼 별 기본 요건
 
 더 진행하기 전에 플랫폼에 따른 요구 사양을 미리 확인하십시오.
 
 - [macOS](build-instructions-macos.md#prerequisites)
-- [Linux](build-instructions-linux.md#prerequisites)
+- [리눅스](build-instructions-linux.md#prerequisites)
 - [Windows](build-instructions-windows.md#prerequisites)
 
 ## GN prerequisites
