@@ -126,7 +126,7 @@ For a `minor` release, e.g. `1.8.0`, use this format:
 
 ### Linux
 
-* Changed a Linux thing. #123
+* Cambió un elemento Linux. #123
 
 ### macOS
 
@@ -238,7 +238,7 @@ If for some reason `npm run publish-to-npm` fails, you can tag the release manua
 $ npm dist-tag add electron@<version> <tag>
 ```
 
-p.e.:
+por ejemplo.:
 
 ```sh
 $ npm dist-tag add electron@2.0.0 latest
