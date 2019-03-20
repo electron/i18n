@@ -53,7 +53,7 @@ You should at least follow these steps to improve the security of your applicati
 9. [Do not use `enableBlinkFeatures`](#9-do-not-use-enableblinkfeatures)
 10. [`<webview>`: Do not use `allowpopups`](#10-do-not-use-allowpopups)
 11. [`<webview>`: Verificar opciones y parámetros](#11-verify-webview-options-before-creation)
-12. [Deshabilitar o limitar navegación](#12-disable-or-limit-navigation)
+12. [Deshabilitar o limitar la navegación](#12-disable-or-limit-navigation)
 13. [Deshabilitar o limitar la generación de nuevas ventanas](#13-disable-or-limit-creation-of-new-windows)
 14. [No utilice `openExternal` con contenido no confiable](#14-do-not-use-openexternal-with-untrusted-content)
 
@@ -251,10 +251,10 @@ const mainWindow = new BrowserWindow()
 ```
 
 ```html
-<!-- Bad -->
+<!-- Malo -->
 <webview disablewebsecurity src="page.html"></webview>
 
-<!-- Good -->
+<!-- Bueno -->
 <webview src="page.html"></webview>
 ```
 
