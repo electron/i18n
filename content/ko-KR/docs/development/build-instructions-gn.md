@@ -1,4 +1,4 @@
-# Build Instructions
+# 빌드 방법
 
 Follow the guidelines below for building Electron.
 
