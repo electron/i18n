@@ -4,7 +4,7 @@ Hay muchas manera de actualizar la aplicación Electron. La manera más fácil y
 
 ## Usando `update.electronjs.org`
 
-El equipo de Electron de GitHub mantiene [update.electronjs.org](https://github.com/electron/update.electronjs.org), un servicio web gratuito y de código abierto que las aplicaciones de Electrón pueden usar para auto-actualizarse. El servicio está diseñado para aplicaciones de Electrón que cumplen con los siguientes requisitos:
+El equipo de Electron de GitHub mantiene [update.electronjs.org](https://github.com/electron/update.electronjs.org), un servicio web gratuito y de código abierto que las aplicaciones de Electrón pueden usar para auto-actualizarse. The service is designed for Electron apps that meet the following criteria:
 
 - Aplicaciones que se ejecuten en macOS o Windows
 - La Aplicación tiene un repositorio público en GitHub
@@ -25,9 +25,9 @@ Invoque el actualizador de archivos de los principales procesos de su aplicacion
 require('update-electron-app')()
 ```
 
-Por defecto, este módulo buscara actualizaciones al iniciar la aplicacion luego de cada 10 minutos. Cuando se encuentra una actualización, esta se descargará automáticamente en segundo plano. Cuando se completa la descarga, se muestra un cuadro de diálogo que le permite al usuario reiniciar su aplicación.
+By default, this module will check for updates at app startup, then every ten minutes. Cuando se encuentra una actualización, esta se descargará automáticamente en segundo plano. When the download completes, a dialog is displayed allowing the user to restart the app.
 
-Si usted necesita personalizar su configuración, usted puede [usar la opción de `update-electron-app`](https://github.com/electron/update-electron-app) o [usar el servicio de actualización directo](https://github.com/electron/update.electronjs.org).
+If you need to customize your configuration, you can [pass options to `update-electron-app`](https://github.com/electron/update-electron-app) or [use the update service directly](https://github.com/electron/update.electronjs.org).
 
 ## Usando `electron-builder`
 
@@ -35,7 +35,7 @@ Si su aplicación fue empaquetada con [`electron-builder`](https://github.com/el
 
 ## Implementar un servidor de actualización
 
-Si está desarrollando una aplicación privada de Electrón, o si no está publicando lanzamientos a los lanzamientos de GitHub, tiene que considerar que es necesario que ejecute su propio servidor de actualizaciones.
+If you're developing a private Electron application, or if you're not publishing releases to GitHub Releases, it may be necessary to run your own update server.
 
 Dependiendo de sus necesidades, puede escoger una de esta:
 
