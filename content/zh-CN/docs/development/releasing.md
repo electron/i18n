@@ -16,7 +16,7 @@ There are a handful of `*_TOKEN` environment variables needed by the release scr
 - `ELECTRON_S3_ACCESS_KEY`:
 - `ELECTRON_S3_SECRET_KEY`: If you don't have these, ask a team member to help you.
 
-一旦你生成了这些令牌，把它们放到工程根目录的`.env`文件中，这个文件是git忽略的，将会被分发的脚本加载到环境中
+Once you've generated these tokens, put them in a `.env` file in the root directory of the project. This file is gitignored, and will be loaded into the environment by the release scripts.
 
 ## 决定从哪个版本发布
 
