@@ -238,7 +238,7 @@ If for some reason `npm run publish-to-npm` fails, you can tag the release manua
 $ npm dist-tag add electron@<version> <tag>
 ```
 
-e.g.:
+halimbawa.:
 
 ```sh
 $ npm dist-tag add electron@2.0.0 latest
@@ -305,7 +305,7 @@ ninja -C out/Release electron:dist_zip
 
 Allowable values for [target_cpu](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values) and [target_os](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values).
 
-Matapos muling pag-upload ang lahat distribusyon, ilathala muli upang mag-upload ang checksum:
+Matapos ng muling pag-upload ng lahat ng mga distribusyon, ilathala muli upang ma-upload ang checksum na file:
 
 ```sh
 npm paganahin ang release
