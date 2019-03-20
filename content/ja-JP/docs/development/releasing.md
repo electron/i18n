@@ -16,7 +16,7 @@ Electron リリースを作成してアップロードするには、Electron S3
 - `ELECTRON_S3_ACCESS_KEY`:
 - `ELECTRON_S3_SECRET_KEY`: これらがない場合は、チームメンバーに質問してください。
 
-これらのトークンを生成したら、プロジェクトのルートディレクトリにある `.env` ファイルに入れます。 このファイルは gitignore されてあり、リリーススクリプトによって環境にロードされます。
+Once you've generated these tokens, put them in a `.env` file in the root directory of the project. This file is gitignored, and will be loaded into the environment by the release scripts.
 
 ## リリースするブランチを決定する
 
@@ -81,7 +81,7 @@ $ ./script/bump-version.py --bump minor --dry-run
 - [electron-release-osx-x64](https://github.visualstudio.com/electron/_build/index?context=allDefinitions&path=%5C&definitionId=18&_a=completed) は OSX ビルド向けです。
 - [circleci.com/gh/electron/electron](https://circleci.com/gh/electron) は Linux ビルド向けです。
 - [windows-ci.electronjs.org/project/AppVeyor/electron-39ng6](https://windows-ci.electronjs.org/project/AppVeyor/electron-39ng6) Windows 32-bit ビルド向けです。
-- [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) は Windows 64-bit ビルド向けです。
+- [windows-ci.electronjs.org/project/AppVeyor/electron](https://windows-ci.electronjs.org/project/AppVeyor/electron) Windows 64-bit ビルド向けです。
 
 ## リリースノートをコンパイルする
 
