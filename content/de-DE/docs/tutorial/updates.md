@@ -4,7 +4,7 @@ Electron-Apps können auf verschiedenste Weise aktualisiert werden. Die einfachs
 
 ## Benutzt `update.electronjs.org`
 
-GitHub's Electron Team verwaltet [update.electronjs.org](https://github.com/electron/update.electronjs.org), Ein kostenloser open-source Web Dienst, welchen Electron Apps für automatische updates benutzen können. Der Service ist für Electron Apps entworfen wurden, die die folgenden Kriterien erfüllen:
+GitHub's Electron Team verwaltet [update.electronjs.org](https://github.com/electron/update.electronjs.org), Ein kostenloser open-source Web Dienst, welchen Electron Apps für automatische updates benutzen können. The service is designed for Electron apps that meet the following criteria:
 
 - App läuft unter Mac OS oder Windows
 - App hat ein öffentliches GitHub Repository
