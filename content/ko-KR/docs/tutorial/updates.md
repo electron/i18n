@@ -4,7 +4,7 @@ Electron 애플리케이션을 업데이트 하는 방법은 여러 가지가 �
 
 ## `update.electronjs.org` 사용
 
-GitHub의 Electron 팀은 Electron apps가 자체 업데이트에 사용할 수있는 무료 오픈 소스 웹 서비스 인 [update.electronjs.org](https://github.com/electron/update.electronjs.org)를 관리합니다. 이 서비스는 다음 기준을 충족하는 Electron App 용으로 설계되었습니다.
+GitHub의 Electron 팀은 Electron apps가 자체 업데이트에 사용할 수있는 무료 오픈 소스 웹 서비스 인 [update.electronjs.org](https://github.com/electron/update.electronjs.org)를 관리합니다. The service is designed for Electron apps that meet the following criteria:
 
 - MacOS 또는 Windows에서 실행되는 앱
 - App 이 public GitHub 저장소를 가지고 있음
@@ -25,9 +25,9 @@ npm install update-electron-app
 require('update-electron-app')()
 ```
 
-기본적으로이 모듈은 앱 시작시와 10분마다 업데이트를 확인합니다. 업데이트가 발견되면 자동으로 백그라운드에서 다운로드됩니다. 다운로드가 완료되면 대화 상자가 표시되어 사용자가 앱을 다시 시작할 수 있습니다.
+By default, this module will check for updates at app startup, then every ten minutes. 업데이트가 발견되면 자동으로 백그라운드에서 다운로드됩니다. When the download completes, a dialog is displayed allowing the user to restart the app.
 
-커스트마이징이 필요한 경우[`update-electron-app`에 옵션을 전달](https://github.com/electron/update-electron-app)하거나 [업데이트 서비스를 직접 사용 ](https://github.com/electron/update.electronjs.org) 할 수 있습니다.
+If you need to customize your configuration, you can [pass options to `update-electron-app`](https://github.com/electron/update-electron-app) or [use the update service directly](https://github.com/electron/update.electronjs.org).
 
 ## `electron-builder` 사용
 
@@ -35,7 +35,7 @@ require('update-electron-app')()
 
 ## 서버에 업데이트 배포
 
-비공개 Electron 어플리케이션을 개발 중이거나 GitHub 릴리즈에 릴리즈를 게시하지 않는 경우 자체 업데이트 서버를 운영하는것이 필요합니다.
+If you're developing a private Electron application, or if you're not publishing releases to GitHub Releases, it may be necessary to run your own update server.
 
 필요에 따라 다음 중 하나를 선택할 수 있습니다:
 
