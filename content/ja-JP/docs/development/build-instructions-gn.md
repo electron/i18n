@@ -69,7 +69,7 @@ $ git branch --set-upstream-to=origin/master
 $ cd -
 ```
 
-:memo: `gclient` は、Chromium や Node.js のような依存の解決のために `src/electron` フォルダ内の `DEPS` と呼ばれるファイルを確認します。 `gclient sync -f` を実行することで Electron のビルドに必要な依存関係をすべて取得します。
+:memo: `gclient` works by checking a file called `DEPS` inside the `src/electron` folder for dependencies (like Chromium or Node.js). `gclient sync -f` を実行することで Electron のビルドに必要な依存関係をすべて取得します。
 
 なので、プルするには、以下のコマンドを実行するとよいでしょう。
 
