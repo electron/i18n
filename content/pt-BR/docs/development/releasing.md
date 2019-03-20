@@ -238,7 +238,7 @@ If for some reason `npm run publish-to-npm` fails, you can tag the release manua
 $ npm dist-tag add electron@<version> <tag>
 ```
 
-e.g.:
+ex.:
 
 ```sh
 $ npm dist-tag add electron@2.0.0 latest
