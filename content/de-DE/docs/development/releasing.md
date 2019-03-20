@@ -1,4 +1,4 @@
-# Releasing
+# Veröffentlichen
 
 This document describes the process for releasing a new version of Electron.
 
@@ -238,7 +238,7 @@ If for some reason `npm run publish-to-npm` fails, you can tag the release manua
 $ npm dist-tag add electron@<version> <tag>
 ```
 
-e.g.:
+z.B.:
 
 ```sh
 $ npm dist-tag add electron@2.0.0 latest
