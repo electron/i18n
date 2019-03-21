@@ -3,6 +3,7 @@ nav:
   apps: יישומים
   blog: בלוג
   code_of_conduct: הקוד האתי
+  security: אבטחה
   community: קהילה
   contact: צור קשר
   docs: תיעוד
@@ -107,6 +108,8 @@ get_started:
 explore:
   title: חקור את הממשקים של Electron
   description: "<a href='https://github.com/electron/electron-api-demos'> אפליקציית ההדגמה של ממשק Electron </a> מדגימה באופן אינטרקטיבי את התכונות החשובות ביותר של ממשקי Electron. צפה מה אפשר לעשות עם Electron בדוגמאות קוד וטיפים שימושים."
+  fiddle_title: Try more powerful experiments with Electron Fiddle
+  see_more_info: See more info
 download_from_github: הורדה מ-GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">כל ההפצות</a> ב-GitHub
 quick_start:
