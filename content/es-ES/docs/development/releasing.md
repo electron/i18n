@@ -16,7 +16,7 @@ Hay un puñado de variables de entorno `*_TOKEN` que necesitan los scripts de la
 - `ELECTRON_S3_ACCESS_KEY`:
 - `ELECTRON_S3_SECRET_KEY`: Si no posees uno, pídelo a un miembro del equipo que te ayude.
 
-Once you've generated these tokens, put them in a `.env` file in the root directory of the project. This file is gitignored, and will be loaded into the environment by the release scripts.
+Una vez que generó estos tokens, póngalos en un archivo `.env` en la raíz del directorio de su proyecto. Este archivo es gitignored, y se cargará dentro de las secuencias de comando.
 
 ## Determinar cual rama publicar primero
 
