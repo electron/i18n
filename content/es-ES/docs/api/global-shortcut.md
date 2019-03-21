@@ -52,7 +52,7 @@ The following accelerators will not be registered successfully on macOS 10.14 Mo
 * "Media Play/Pause"
 * "Media Next Track"
 * "Media Previous Track"
-* "Media Stop"
+* "Detener medio"
 
 ### `globalShortcut.isRegistered(accelerator)`
 
