@@ -3,6 +3,7 @@ nav:
   apps: Ứng dụng
   blog: Blog
   code_of_conduct: Quy tắc ứng xử
+  security: Bảo mật
   community: Cộng đồng
   contact: Liên hệ
   docs: Tài liệu
@@ -107,6 +108,8 @@ get_started:
 explore:
   title: Khám phá các API điện tử
   description: "Các <a href='https://github.com/electron/electron-api-demos'> Electron API Demo ứng dụng </a> tương tác thể hiện các tính năng quan trọng nhất của API Electron. Xem những gì có thể với Electron với mã mẫu và các mẹo hữu ích để tạo ứng dụng của bạn"
+  fiddle_title: Try more powerful experiments with Electron Fiddle
+  see_more_info: See more info
 download_from_github: Tải xuống từ GitHub
 view_all_releases_on_github: <a href="r://github.com/electron/electron-api-demos/releases">Xem tất cả phiên bản phát thành</a> trên Github
 quick_start:
