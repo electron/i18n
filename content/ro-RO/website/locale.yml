@@ -49,10 +49,10 @@ community:
     updates: "<a href='https://twitter.com/electronjs'><b>Rămâi la curent</b></a> urmărind <a href='https://twitter.com/electronjs'>@electronjs</a> pe Twitter și abonându-te la <a href='/blog'>fluxul blogului</a>."
     localized_docs: "<a href='/languages'><b>Citește documentele în limba ta maternă</b></a> vizitând <a href='/languages'>pagina limbilor</a>."
     help: "<a href='http://atom-slack.herokuapp.com'><b>Obține ajutor și feedback</b></a> intrând în <a href='http://atom-slack.herokuapp.com'>atomio pe Slack</a>, postând pe <a href='https://discuss.atom.io/c/electron'>Discuss</a> sau vizitând <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    security: "<a href='mailto:security@electronjs.org'><b>Report security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Raportează erori</b></a> deschizând probleme în depozitarul <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Solicită funcționalități</b></a> deschizând probleme în depozitarul <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
     code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Raportează încălcarea codului de conduită</b></a> trimițând un email la <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
-    security: "<a href='mailto:security@electronjs.org'><b>Dezvăluie probleme de securitate</b></a> trimițând un email la <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     donations: "<a href='donors'><b>Donează</b></a> în pagina noastră <a href='/donors'>OpenCollective</a>."
     other: "Pentru toate celelalte întrebări, trimite un email la <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
   language_communities:
