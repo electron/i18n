@@ -89,7 +89,7 @@ $ export GN_EXTRA_ARGS="${GN_EXTRA_ARGS} cc_wrapper=\"${PWD}/electron/external_b
 $ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_ARGS"
 ```
 
-Or on Windows (without the optional argument):
+O en Windows (sin el argumento opcional):
 
 ```sh
 $ cd src
@@ -97,7 +97,7 @@ $ set CHROMIUM_BUILDTOOLS_PATH=%cd%\buildtools
 $ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\")"
 ```
 
-This will generate a build directory `out/Debug` under `src/` with debug build configuration. You can replace `Debug` with another name, but it should be a subdirectory of `out`. Also you shouldn't have to run `gn gen` again—if you want to change the build arguments, you can run `gn args out/Debug` to bring up an editor.
+Esto generará un directorio de construcción `out/Debug` bajo `src/` con configuración de depuración. You can replace `Debug` with another name, but it should be a subdirectory of `out`. Also you shouldn't have to run `gn gen` again—if you want to change the build arguments, you can run `gn args out/Debug` to bring up an editor.
 
 To see the list of available build configuration options, run `gn args
 out/Debug --list`.
@@ -116,7 +116,7 @@ $ gn gen out/Release --args="import(\"//electron/build/args/release.gn\") $GN_EX
 
 **To build, run `ninja` with the `electron` target:** Nota Bene: This will also take a while and probably heat up your lap.
 
-For the debug configuration:
+Para la configuración de depuración:
 
 ```sh
 $ ninja -C out/Debug electron
