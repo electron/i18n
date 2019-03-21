@@ -3,6 +3,7 @@ nav:
   apps: एप्प्स
   blog: ब्लॉग
   code_of_conduct: आचार संहिता
+  security: सुरक्षा
   community: समुदाय
   contact: संपर्क
   docs: दस्तावेज़
@@ -107,6 +108,8 @@ get_started:
 explore:
   title: इलेक्ट्रॉन ऐपीआइस का अंवेषण करें
   description: "<a href='https://github.com/electron/electron-api-demos'>इलेक्ट्रॉन ऐपीआई डेमोस एप्प</a> बड़े ही बखूबी तरीके से इलेक्ट्रॉन ऐपीआई की सबसे महत्वपूर्ण विशेषताओं को पर्दर्शित करता है | अपनी खुद की एप्प बनाने के लिए सैंपल कोड और मददगार सुझावों का इस्तेमाल करें और जानें कि इलेक्ट्रॉन के साथ क्या-क्या संभव है |"
+  fiddle_title: Try more powerful experiments with Electron Fiddle
+  see_more_info: See more info
 download_from_github: गिटहब से डाउनलोड करें
 view_all_releases_on_github: गिटहब पर<a href="https://github.com/electron/electron-api-demos/releases">सभी रिलीजी देखें</a>
 quick_start:
