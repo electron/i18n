@@ -3,6 +3,7 @@ nav:
   apps: 앱
   blog: 블로그
   code_of_conduct: 행동 규칙
+  security: 보안
   community: 커뮤니티
   contact: 연락처
   docs: 문서
@@ -107,6 +108,8 @@ get_started:
 explore:
   title: Electron API를 탐색하세요
   description: "<a href='https://github.com/electron/electron-api-demos'>Electron API 데모 앱</a>은 대화식으로 Electron API의 가장 중요한 부분을 설명합니다. 샘플 코드와 유용한 팁으로 앱을 제작하는 데에 무엇이 가능할지 알아보세요."
+  fiddle_title: Try more powerful experiments with Electron Fiddle
+  see_more_info: See more info
 download_from_github: GitHub에서 다운로드
 view_all_releases_on_github: GitHub에서 <a href="https://github.com/electron/electron-api-demos/releases">모든 릴리즈를 확인해보세요</a>
 quick_start:
