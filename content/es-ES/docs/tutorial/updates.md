@@ -25,7 +25,7 @@ Invoque el actualizador de archivos de los principales procesos de su aplicacion
 require('update-electron-app')()
 ```
 
-By default, this module will check for updates at app startup, then every ten minutes. Cuando se encuentra una actualización, esta se descargará automáticamente en segundo plano. When the download completes, a dialog is displayed allowing the user to restart the app.
+By default, this module will check for updates at app startup, then every ten minutes. Cuando se encuentra una actualización, esta se descargará automáticamente en segundo plano. Cuando se completa la descarga, se muestra un cuadro de diálogo que le permite al usuario reiniciar su aplicación.
 
 Si necesita personalizar su configuración, puede [usar la opción de `update-electron-app`](https://github.com/electron/update-electron-app) o [usar el servicio de actualización directo](https://github.com/electron/update.electronjs.org).
 
