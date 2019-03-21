@@ -3,6 +3,7 @@ nav:
   apps: 應用程式
   blog: 部落格
   code_of_conduct: 行為準則
+  security: 安全性
   community: 社群
   contact: 聯絡
   docs: 文件
@@ -107,6 +108,8 @@ get_started:
 explore:
   title: 探索 Electron API
   description: "<a href='https://github.com/electron/electron-api-demos'>Electron API 示範應用程式</a>以互動的方式展示 Electron API 中最重要的功能。經由範例程式碼及提示說明，看看 Electron 有什麼能耐幫你打造應用程式。"
+  fiddle_title: Try more powerful experiments with Electron Fiddle
+  see_more_info: See more info
 download_from_github: 從 GitHub 下載
 view_all_releases_on_github: 查看 GitHub 上的<a href="https://github.com/electron/electron-api-demos/releases">所有發行版本</a>
 quick_start:
