@@ -95,7 +95,7 @@ if (!inAppPurchase.canMakePayments()) {
 
 // 製品の説明を取得して表示します。
 inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
-  // Check the parameters.
+  // 引数を確認します。
   if (!Array.isArray(products) || products.length <= 0) {
     console.log('Unable to retrieve the product informations.')
     return
@@ -106,7 +106,7 @@ inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
     console.log(`The price of ${product.localizedTitle} is ${product.formattedPrice}.`)
   })
 
-  // Ask the user which product he/she wants to purchase.
+  // どの製品を購入したいかをユーザーに尋ねます。
   let selectedProduct = products[0]
   let selectedQuantity = 1
 
