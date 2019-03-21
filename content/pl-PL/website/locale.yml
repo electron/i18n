@@ -3,6 +3,7 @@ nav:
   apps: Aplikacje
   blog: Blog
   code_of_conduct: Kodeks postępowania
+  security: Bezpieczeństwo
   community: Społeczność
   contact: Kontakt
   docs: Dokumentacja
@@ -107,6 +108,8 @@ get_started:
 explore:
   title: Przeglądaj API Electrona
   description: "<a href='https://github.com/electron/electron-api-demos'>Przykłady użycia API</a> w sposób interaktywny pokazują najważniejsze funkcje Electron'a. Zapoznaj się z przykładowym kodem i przydatnymi poradami dotyczącymi tworzenia aplikacji."
+  fiddle_title: Try more powerful experiments with Electron Fiddle
+  see_more_info: See more info
 download_from_github: Pobierz z GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Zobacz wszystkie wydania</a> na GitHub
 quick_start:
