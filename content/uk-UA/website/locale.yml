@@ -3,6 +3,7 @@ nav:
   apps: Застосунки
   blog: Блог
   code_of_conduct: Норми поведінки
+  security: Безпека
   community: Спільнота
   contact: Контакти
   docs: Документація
@@ -107,6 +108,8 @@ get_started:
 explore:
   title: Дослідіть API Electron
   description: "<a href='https://github.com/electron/electron-api-demos'>Electron API Демо застосунок</a> інтерактивно демонструє найважливіші можливості Electron API. Подивіться можливості Electron з прикладами коду та корисними підказками для створення вашого додатку."
+  fiddle_title: Try more powerful experiments with Electron Fiddle
+  see_more_info: See more info
 download_from_github: Завантажити з GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Переглянути всі релізи</a> на GitHub
 quick_start:
