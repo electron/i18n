@@ -3,6 +3,7 @@ nav:
   apps: Aplicații
   blog: Blog
   code_of_conduct: Cod de conduită
+  security: Securitate
   community: Comunitate
   contact: Contact
   docs: Documente
@@ -107,6 +108,8 @@ get_started:
 explore:
   title: Explorează API-urile Electron
   description: "<a href='https://github.com/electron/electron-api-demos'>Aplicația demouri API Electron</a> demonstrează în mod interactiv cele mai importante caracteristici ale API-ului Electron. Vezi ce este posibil cu Electron cu un cod exemplu și sfaturi utile pentru construirea aplicației tale."
+  fiddle_title: Try more powerful experiments with Electron Fiddle
+  see_more_info: See more info
 download_from_github: Descarcă de pe GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Vezi toate lansările</a> pe GitHub
 quick_start:
