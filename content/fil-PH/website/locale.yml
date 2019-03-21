@@ -3,6 +3,7 @@ nav:
   apps: Mga App
   blog: Blog
   code_of_conduct: Code ng Conduct
+  security: Seguridad
   community: Komonidad
   contact: Contact
   docs: Docs
@@ -107,6 +108,8 @@ get_started:
 explore:
   title: Galurin ang mga API ng Electron
   description: "Ang <a href='https://github.com/electron/electron-api-demos'>Mga Demo ng Electron API na app</a>interactive na ipapakita ang pinaka importante na mga tampok sa API na Electron. Tingnan ano ang posible sa Electron na may sampol code at makakatulog na mga tip para sa pagbuo ng iyong app."
+  fiddle_title: Try more powerful experiments with Electron Fiddle
+  see_more_info: See more info
 download_from_github: I-download mula sa GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Tingnan lahat ng releases</a>sa GitHub
 quick_start:
