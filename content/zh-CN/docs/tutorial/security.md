@@ -16,7 +16,7 @@ Web开发人员通常享有浏览器强大的网络安全特性，而自己的�
 
 我们认为，我们当前的更新 Chromium 组件的系统在我们可用的资源和构建在框架之上的大多数应用程序的需求之间取得了适当的平衡。 我们绝对有兴趣听听更多关于在 Electron 上构建事物的人的具体用例。 非常欢迎提出请求并且捐助支持我们的努力。
 
-## Security Is Everyone's Responsibility
+## 安全是所有人的共同责任
 
 It is important to remember that the security of your Electron application is the result of the overall security of the framework foundation (*Chromium*, *Node.js*), Electron itself, all NPM dependencies and your code. As such, it is your responsibility to follow a few important best practices:
 
@@ -40,7 +40,7 @@ A security issue exists whenever you receive code from an untrusted source (e.g.
 
 ## 清单：安全建议
 
-You should at least follow these steps to improve the security of your application:
+为加强程序安全性，你至少应当遵循下列规则：
 
 1. [只加载安全的内容](#1-only-load-secure-content)
 2. [禁止在所有渲染器中使用Node.js集成显示远程内容](#2-disable-nodejs-integration-for-remote-content)
@@ -55,7 +55,7 @@ You should at least follow these steps to improve the security of your applicati
 11. [`<webview>`：验证选项与参数](#11-verify-webview-options-before-creation)
 12. [禁用或限制网页跳转](#12-disable-or-limit-navigation)
 13. [禁用或限制新窗口创建](#13-disable-or-limit-creation-of-new-windows)
-14. [Do not use `openExternal` with untrusted content](#14-do-not-use-openexternal-with-untrusted-content)
+14. [不要对不可信的内容使用 `openExternal`](#14-do-not-use-openexternal-with-untrusted-content)
 
 To automate the detection of misconfigurations and insecure patterns, it is possible to use [electronegativity](https://github.com/doyensec/electronegativity). For additional details on potential weaknesses and implementation bugs when developing applications using Electron, please refer to this [guide for developers and auditors](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)
 
