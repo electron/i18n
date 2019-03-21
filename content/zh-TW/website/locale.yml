@@ -49,10 +49,10 @@ community:
     updates: "追蹤 Twitter 上的 <a href='https://twitter.com/electronjs'>@electronjs</a> 並訂閱 <a href='/blog'>Blog 摘要</a>以便<a href='https://twitter.com/electronjs'><b>了解最新消息</b></a>。"
     localized_docs: "拜訪 <a href='/languages'>語言頁</a>，<a href='/languages'><b>用你的母語閱讀文件</b></a>。"
     help: "加入<a href='http://atom-slack.herokuapp.com'>atomio Slack</a>，在 <a href='https://discuss.atom.io/c/electron'>Discuss</a> 貼文或是拜訪 <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a> 可以<a href='http://atom-slack.herokuapp.com' ><b>得到幫忙與回饋</b></a>。"
+    security: "<a href='mailto:security@electronjs.org'><b>Report security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     bugs: "在<a href='https://github.com/electron/electron/issues'>electron/electron</a>儲存庫中開啟 issue 以<a href='https://github.com/electron/electron/issues'><b>回報 bug</b></a>。"
     feature_requests: "在<a href='https://github.com/electron/electron/issues'>electron/electron</a>儲存庫中開啟 issue 來<a href='https://github.com/electron/electron/issues'><b>請求新增功能</b></a>。"
     code_of_conduct: "寄電子郵件到 <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a> 可以回報<a href='mailto:coc@electronjs.org'><b>違反行為準則的行為</b></a>。"
-    security: "寄電子郵件到 <a href='mailto:security@electronjs.org'>security@electronjs.org</a> <a href='mailto:security@electronjs.org'><b>揭露資安問題</b></a>。"
     donations: "透過 <a href='/donors'>OpenCollective</a> <a href='donors'><b>贊助我們</b></a>。"
     other: "其他問題請寄信至 <a href='mailto:info@electronjs.org'>info@electronjs.org</a>。"
   language_communities:
