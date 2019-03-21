@@ -72,10 +72,10 @@ Cualquier recurso no incluido con tu aplicación debería ser cargado usando un 
 ### ¿Cómo?
 
 ```js
-// Bad
+// Malo
 browserWindow.loadURL('http://example.com')
 
-// Good
+// Bueno
 browserWindow.loadURL('https://example.com')
 ```
 
@@ -246,7 +246,7 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// Bueno
 const mainWindow = new BrowserWindow()
 ```
 
@@ -318,7 +318,7 @@ Loading content over `HTTPS` assures the authenticity and integrity of the loade
 ### ¿Còmo?
 
 ```js
-// Bad
+// Malo
 const mainWindow = new BrowserWindow({
   webPreferences: {
     allowRunningInsecureContent: true
@@ -327,7 +327,7 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// Bueno
 const mainWindow = new BrowserWindow({})
 ```
 
@@ -355,7 +355,7 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// Bueno
 const mainWindow = new BrowserWindow({})
 ```
 
@@ -381,7 +381,7 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// Bueno
 const mainWindow = new BrowserWindow()
 ```
 
