@@ -3,6 +3,7 @@ nav:
   apps: التطبيقات
   blog: المدونة
   code_of_conduct: قواعد السلوك
+  security: Security
   community: المجتمع
   contact: تواصل
   docs: التوثيقات
@@ -107,6 +108,8 @@ get_started:
 explore:
   title: استكشف واجهة إلكترون البرمجية API
   description: "<a href='https://github.com/electron/electron-api-demos'>تطبيق المعاينات للواجهة البرمجة API لإكترون </a>\nيوضح بشكل تفاعلي أهم ميزات واجهة برمجة التطبيقات الإلكترونية. شاهد ما هو ممكن باستخدام Electron مع نموذج التعليمات البرمجية والنصائح المفيدة لإنشاء تطبيقك."
+  fiddle_title: Try more powerful experiments with Electron Fiddle
+  see_more_info: See more info
 download_from_github: تحميل من GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases"> عرض جميع الإصدارات</a> على GitHub
 quick_start:
