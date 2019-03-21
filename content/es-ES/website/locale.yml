@@ -23,7 +23,7 @@ keyboard_modal:
   scroll_down: Selecciona el siguiente resultado de la búsqueda
   scroll_up: Selecciona el resultado anterior de la búsqueda
   open: Abre el resultado seleccionado de la búsqueda
-  open_new_tab: Open the selected search result in a new tab
+  open_new_tab: Abrir el resultado obtenido en una nueva pestaña
 docs:
   title: Documentación de Electron
   description: Ver todos los <a href="/docs/all">documentos en una sola página</a> o consultar las <a href="/docs/faq">preguntas frecuentes</a>.
@@ -67,7 +67,7 @@ community:
   meetup_notice: Para añadir un MeetUp, edite <code>data/meetups.json</code> y <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">realize una pull request </a>.
 releases:
   show_releases: "Mostrar Versiones:"
-  show_only_releases_from: "Show Only Releases From:"
+  show_only_releases_from: "Mostrar únicamente las versiones de:"
   all_versions: Todas las versiones
   stable_releases: Versiones estables
   stable_desc: Versiones regulares y soportadas
@@ -108,8 +108,8 @@ get_started:
 explore:
   title: Explorar las APIs de Electron
   description: "La <a href='https://github.com/electron/electron-api-demos'>aplicación de demostración de Electron API</a> muestra de forma interactiva las características más importantes de la API de Electron. Vea qué es posible hacer con Electron con código de muestra y consejos útiles para construir su aplicación."
-  fiddle_title: Try more powerful experiments with Electron Fiddle
-  see_more_info: See more info
+  fiddle_title: Prueba experimentos más poderosos con Electrón Fiddle
+  see_more_info: Ver más información
 download_from_github: Descargar desde GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Ver todas las versiones</a> en GitHub
 quick_start:
@@ -211,14 +211,14 @@ landing:
   fiddle:
     lead_desc: La forma más fácil para empezar con Electron
     create_app: Cree su aplicación
-    description: Electron Fiddle lets you create and play with small Electron experiments. It greets you with a quick-start template after opening – change a few things, choose the version of Electron you want to run it with, and play around. Then, save your Fiddle either as a GitHub Gist or to a local folder. Once pushed to GitHub, anyone can quickly try your Fiddle out by just entering it in the address bar.
+    description: Electron Fiddle te permite crear y jugar con pequeños experimentos de Electron. Te da la bienvenida con una plantilla de inicio rápido después de abrirla cambian algunas cosas, elige la version de Electron que deseas ejecutar y juega. Luego de eso guarda tu Fiddle como un GitHub Gist o en una carpeta local. Una vez subido a GitHub, cualquiera puede probar inmediatamente tu Fiddle ingresandolo en la barra de direcciones.
     explore: Explore Electron
     explore_desc: "Prueba Electron sin instalar ninguna dependencia: Fiddle incluye todo lo que necesitas para explorar la plataforma. También incluye ejemplos para cada API disponible en Electron, para que puedas ver rápidamente lo que es un BrowserView o como funciona un desktopCapturer, Fiddle lo tiene cubierto."
-    code_with_types: Code with Types
-    code_with_types_desc: Fiddle includes Microsoft's excellent Monaco Editor, the same editor powering Visual Studio Code. It also installs the type definitions for the currently selected version of Electron automatically, ensuring that you always have all Electron APIs only a few keystrokes away.
+    code_with_types: Código con Tipos
+    code_with_types_desc: Fiddle incluye el excelente Editor Mónaco de Microsoft, el mismo editor que impulsa Visual Studio Code. También instala automáticamente las definiciones de tipo para la versión seleccionada de Electron, asegurando que siempre tenga todas las API de Electron unas pocas pulsaciones de distancia.
     compile_and_package: Compile y empaquete
-    compile_and_package_desc: Fiddle can automatically turn your experiment into binaries you can share with your friends, coworkers, or grandparents. It does so thanks to <a href="https://electronforge.io/">electron-forge</a>, allowing you to package your fiddle as an app for Windows, macOS, or Linux.
-    easy_start: Start with Fiddle, Continue Wherever
+    compile_and_package_desc: Fiddle puede convertir automáticamente tu experimento en binarios que puedes compartir con tus amigos, compañeros de trabajo o abuelos. Lo hace gracias a <a href="https://electronforge.io/"> electron-forge </a>, permitiendote empacar tu fiddle como una aplicación para Windows, macOS o Linux.
+    easy_start: Comienza con Fiddle, continua donde quieras
     easy_start_desc: Fiddle no es un IDE – sin embargo es un punto de partida excelente. Una vez que tu fiddle haya crecido, puedes exportarlo como un proyecto con o sin <a href="https://electronforge.io/">electron-forge</a>. Una vez lo hayas exportado, ¡Usa tu editor favorito y toma en el mundo!
 governance:
   title: Gobernanza Electron
