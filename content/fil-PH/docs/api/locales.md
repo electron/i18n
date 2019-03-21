@@ -6,7 +6,7 @@ Ang Electron ay ginagamit ang `l1On_util` library ng Chromium para makuha ang lo
 
 | Code ng Lengguwahe | Pangalan ng Lengguwahe     |
 | ------------------ | -------------------------- |
-| ang af             | Ay Afrikaans               |
+| 2473ang af         | Ay Afrikaans               |
 | ang am             | Ay Amharic                 |
 | ang ar             | Ay Arabic                  |
 | ang az             | Ay Azerbaijani             |
@@ -16,7 +16,7 @@ Ang Electron ay ginagamit ang `l1On_util` library ng Chromium para makuha ang lo
 | ang bn             | Ay Bengali                 |
 | ang br             | Ay Breton                  |
 | ang bs             | Ay Bosnian                 |
-| 6965ang ca         | Ay Catalan                 |
+| ang ca             | Ay Catalan                 |
 | ang co             | Ay Corsican                |
 | ang cs             | Ay Czech                   |
 | ang cy             | Ay Welsh                   |
@@ -107,7 +107,7 @@ Ang Electron ay ginagamit ang `l1On_util` library ng Chromium para makuha ang lo
 | ang sd             | Ay Sindhi                  |
 | ang sh             | Ay Serbo-Croatian          |
 | ang si             | Ay Sinhalese               |
-| 4858ang sk         | Ay Slovak                  |
+| 4865ang sk         | Ay Slovak                  |
 | ang sl             | Ay Slovenian               |
 | ang sn             | Ay Shona                   |
 | ang so             | Ay Somali                  |
