@@ -132,7 +132,7 @@ Esto construirá todo lo que anteriormente era 'libcromiumcontent' (es decir, ` 
 
 Para acelerar las compilaciones posteriores, puedes usar [ sccache ](https://github.com/mozilla/sccache). Add the GN arg `cc_wrapper = "sccache"` by running `gn args out/Debug` to bring up an editor and adding a line to the end of the file.
 
-The built executable will be under `./out/Debug`:
+El ejecutable compilado estará en `./out/Default`:
 
 ```sh
 $ ./out/Debug/Electron.app/Contents/MacOS/Electron
@@ -150,7 +150,7 @@ On linux, first strip the debugging and symbol information:
 electron/script/strip-binaries.py -d out/Release
 ```
 
-To package the electron build as a distributable zip file:
+Para empaquetar la aplicación compilada electron como un archivo zip distribuible:
 
 ```sh
 ninja -C out/Release electron:electron_dist_zip
