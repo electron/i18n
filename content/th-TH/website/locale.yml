@@ -3,6 +3,7 @@ nav:
   apps: แอป
   blog: บล็อก
   code_of_conduct: จรรยาบรรณ
+  security: ความปลอดภัย
   community: ชุมชน
   contact: ติดต่อ
   docs: เอกสาร
@@ -107,6 +108,8 @@ get_started:
 explore:
   title: สำรวจ API ของ Electron
   description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
+  fiddle_title: Try more powerful experiments with Electron Fiddle
+  see_more_info: See more info
 download_from_github: ดาวน์โหลดจาก GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">แสดงทุกรุ่น</a>บน GitHub
 quick_start:
