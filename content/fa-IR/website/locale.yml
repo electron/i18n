@@ -3,6 +3,7 @@ nav:
   apps: برنامه‌ها
   blog: وبلاگ
   code_of_conduct: منشور اخلاقی
+  security: امنیت
   community: جامعه
   contact: تماس با ما
   docs: مستندات
@@ -107,6 +108,8 @@ get_started:
 explore:
   title: API های الکترون را کاوش کنید
   description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
+  fiddle_title: Try more powerful experiments with Electron Fiddle
+  see_more_info: See more info
 download_from_github: دانلود از گیت‌هاب
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">مشاهده تمام نسخه‌ها</a> در گیت‌هاب
 quick_start:
