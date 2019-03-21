@@ -3,6 +3,7 @@ nav:
   apps: Aplikasi
   blog: Blog
   code_of_conduct: Kode etik
+  security: Keamanan
   community: Komunitas
   contact: Kontak
   docs: Dokumentasi
@@ -107,6 +108,8 @@ get_started:
 explore:
   title: Jelajahi API Elektron
   description: "<a href='https://github.com/electron/electron-api-demos'> app elektron API demo</a> interaktif menunjukkan fitur yang paling penting dari API elektron. Melihat apa yang mungkin dengan elektron dengan sampel kode dan tips untuk membangun aplikasi Anda."
+  fiddle_title: Try more powerful experiments with Electron Fiddle
+  see_more_info: See more info
 download_from_github: Unduh dari GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases"> Lihat semua rilis</a> di GitHub
 quick_start:
