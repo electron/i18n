@@ -16,7 +16,7 @@ Electron リリースを作成してアップロードするには、Electron S3
 - `ELECTRON_S3_ACCESS_KEY`:
 - `ELECTRON_S3_SECRET_KEY`: これらがない場合は、チームメンバーに質問してください。
 
-Once you've generated these tokens, put them in a `.env` file in the root directory of the project. This file is gitignored, and will be loaded into the environment by the release scripts.
+これらのトークンを生成したら、プロジェクトのルートディレクトリにある `.env` ファイルに入れます。 このファイルは gitignore で指定されており、リリーススクリプトによって環境にロードされます。
 
 ## リリースするブランチを決定する
 
