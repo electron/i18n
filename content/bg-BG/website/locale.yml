@@ -3,6 +3,7 @@ nav:
   apps: Приложения
   blog: Блог
   code_of_conduct: Кодекс за поведение
+  security: Сигурност
   community: Общество
   contact: Контакти
   docs: Документация
@@ -107,6 +108,8 @@ get_started:
 explore:
   title: Проучете API-ят на Електрон
   description: "<a href='https://github.com/electron/electron-api-demos'> Демонстративните приложения с Електрон API</a> интерактивно показват най-важните характеристики на Електрон API. Вижте какво е възможно с Електрон с примерен код и полезни съвети за изграждане на вашето приложение."
+  fiddle_title: Try more powerful experiments with Electron Fiddle
+  see_more_info: See more info
 download_from_github: Изтегляне от GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Вижте всички издания</a> в GitHub
 quick_start:
