@@ -3,14 +3,14 @@
     "name": "Arabic",
     "code": "ar",
     "phrases": "10158",
-    "translated": "1128",
+    "translated": "1130",
     "approved": "0",
     "words": "94081",
-    "words_translated": "7540",
+    "words_translated": "7550",
     "words_approved": "0",
     "translated_progress": 8,
     "approved_progress": 0,
-    "qa_issues": 422
+    "qa_issues": 423
   },
   {
     "name": "Bulgarian",
@@ -224,14 +224,14 @@
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "10158",
-    "translated": "4514",
+    "translated": "4516",
     "approved": "366",
     "words": "94081",
-    "words_translated": "31968",
+    "words_translated": "31981",
     "words_approved": "2624",
     "translated_progress": 33,
     "approved_progress": 2,
-    "qa_issues": 1294
+    "qa_issues": 1296
   },
   {
     "name": "Romanian",
@@ -263,10 +263,10 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "10158",
-    "translated": "9248",
+    "translated": "9249",
     "approved": "257",
     "words": "94081",
-    "words_translated": "78981",
+    "words_translated": "78997",
     "words_approved": "2118",
     "translated_progress": 83,
     "approved_progress": 2,
