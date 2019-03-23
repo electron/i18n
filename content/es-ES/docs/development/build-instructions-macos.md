@@ -17,7 +17,7 @@ Please also ensure that your system and Python version support at least TLS 1.2.
 $ npm run check-tls
 ```
 
-If the script returns that your configuration is using an outdated security protocol, you can either update macOS to High Sierra or install a new version of Python 2.7.x. To upgrade Python, use [Homebrew](https://brew.sh/):
+Si el script devuelve que su configuración está usando un protocolo de seguridad obsoleto, puede actualizar macOS a High Sierra o instalar una nueva versión de Python 2.7.x. Para actualizar Python use [Homebrew](https://brew.sh/):
 
 ```sh
 $ brew install python@2 && brew link python@2 --force
@@ -31,7 +31,7 @@ Si está utilizando Python descargado por Homebrew, también debe instalar los s
 
 Si simplemente estás desarrollando Electron y no planeas redistribuir tu compilación personalizada de Electron, puede omitir esta sección.
 
-Las "builds" oficiales de Electron están compiladas con [Xcode 8.3.3](http://adcdownload.apple.com/Developer_Tools/Xcode_8.3.3/Xcode_8.3.3.xip), y el SDK de MacOS 10.12. Building with a newer SDK works too, but the releases currently use the 10.12 SDK.
+Las "builds" oficiales de Electron están compiladas con [Xcode 8.3.3](http://adcdownload.apple.com/Developer_Tools/Xcode_8.3.3/Xcode_8.3.3.xip), y el SDK de MacOS 10.12. Construir con un SDK más nuevo también funciona, pero las versiones actualmente usan el SDK 10.12.
 
 ## Construyendo Electron
 
