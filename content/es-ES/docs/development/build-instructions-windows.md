@@ -7,8 +7,8 @@ Siga las indicaciones a continuación para compilar Electron en Windows.
 * Windows 10 / Server 2012 R2 o superior
 * Visual Studio 2017 15.7.2 o posterior - [descargue de manera gratuita de VS 2017 Community Edition](https://www.visualstudio.com/vs/)
 * [Python 2.7.10 o posterior](http://www.python.org/download/releases/2.7/) 
-  * Contrariamente a las instrucciones de configuración de `depot_tools` enlazadas a continuación, necesitará usar su Python instalado localmente con al menos la versión 2.7.10 (con soporte para TLS 1.2). Para hacerlo, asegúrese de que en **PATH**, su Python instalado localmente viene antes de la carpeta `depot_tools`. Ahora mismo `depot_tools` todavía viene con Python 2.7.6, lo que causará que el comando `gclient` falle (ver https://crbug.com/868864).
-  * También se necesita la [extensión de Python para Windows (pywin32)](https://pypi.org/project/pywin32/#files) para ejecutar el proceso de construcción.
+  * Contrariamente a las instrucciones de configuración de `depot_tools` enlazadas a continuación, necesitará usar su Python instalado localmente con, al menos, la versión 2.7.10 (con soporte para TLS 1.2). Para hacerlo, asegúrese de que en **PATH**, su Python instalado localmente viene antes de la carpeta `depot_tools`. Ahora mismo `depot_tools` todavía viene con Python 2.7.6, lo que causará que el comando `gclient` falle (ver https://crbug.com/868864).
+  * También se necesita la [extensión de Python para Windows (pywin32)](https://pypi.org/project/pywin32/#files) para ejecutar el proceso de compilación.
 * [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
 * Herramientas de depuración para Windows de Windows SDK 10.0.15063.468 si planea crear una distribución completa, pues `symstore.exe` se usa para crear un depósito de símbolo a partir de `.pdb` archivos. 
