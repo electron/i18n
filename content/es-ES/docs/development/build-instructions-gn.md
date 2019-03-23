@@ -196,7 +196,7 @@ $ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec \
   --ci --enable-logging -g 'BrowserWindow module'
 ```
 
-## Sharing the git cache between multiple machines
+## Compartir la caché git entre varias máquinas
 
 Es posible compartir este directorio con otras máquinas exportándolo como SMB share en Linux, pero solo un proceso/máquina puede usar la memoria caché a la vez. Los bloqueos creados por el script git-cache intentarán evitar esto, pero puede que no funcione perfectamente en una red.
 
