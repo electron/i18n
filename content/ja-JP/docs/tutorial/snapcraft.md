@@ -8,19 +8,19 @@
 
 `.snap` ファイルを作成する方法は3つあります。:
 
-1) [`electron-forge`](https://github.com/electron-userland/electron-forge) または [`electron-builder`](https://github.com/electron-userland/electron-builder)を使用する。両方のツールは `snap`ですぐに使用できます。 これは最も簡単な選択肢です。 2) Using `electron-installer-snap`, which takes `electron-packager`'s output. 3) Using an already created `.deb` package.
+1) [`electron-forge`](https://github.com/electron-userland/electron-forge) または [`electron-builder`](https://github.com/electron-userland/electron-builder)の使用、両方のツールは `snap`ですぐに使用できます。 これは最も簡単な選択肢です。 2) `electron-installer-snap`の使用、これは`electron-packager`のアウトプットを使用します。 3) 作成した`.deb`パッケージの使用
 
-In all cases, you will need to have the `snapcraft` tool installed. We recommend building on Ubuntu 16.04 (or the current LTS).
+いずれの方法であっても、あなたは`snapcraft` ツールをインストールしていなければなりません。また私達は、Ubuntu 16.04 (または現在のLTS) でのビルドを推奨します。
 
 ```sh
 snap install snapcraft --classic
 ```
 
-While it *is possible* to install `snapcraft` on macOS using Homebrew, it is not able to build `snap` packages and is focused on managing packages in the store.
+一方でmacOS上ではHomebrewを使用することで*一応* 、`snapcraft`をインストールすることはできます。しかし、これは`snap` パッケージをビルドできます。このツールは、ストアでのパッケージの管理用です。
 
-## Using `electron-installer-snap`
+## `electron-installer-snap`の使用
 
-The module works like [`electron-winstaller`](https://github.com/electron/windows-installer) and similar modules in that its scope is limited to building snap packages. You can install it with:
+The module works like [`electron-winstaller`](https://github.com/electron/windows-installer) and similar modules in that its scope is limited to building snap packages. 次のようにインストールできます:
 
 ```sh
 npm install --save-dev electron-installer-snap
@@ -28,7 +28,7 @@ npm install --save-dev electron-installer-snap
 
 ### ステップ1: Electronアプリケーションのパッケージ化
 
-Package the application using [electron-packager](https://github.com/electron-userland/electron-packager) (or a similar tool). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
+[electron-packager](https://github.com/electron-userland/electron-packager)(または似たようなツール) を使ってパッケージ化します。 アプリケーションサイズが大きくなるので、実際には必要ないモジュールを`node_modules`から確実に削除します。
 
 出力はおおよそ以下のようになります:
 
@@ -50,7 +50,7 @@ Package the application using [electron-packager](https://github.com/electron-us
         └── version
 ```
 
-### Step 2: Running `electron-installer-snap`
+### ステップ2: `electron-installer-snap`の実行
 
 From a terminal that has `snapcraft` in its `PATH`, run `electron-installer-snap` with the only required parameter `--src`, which is the location of your packaged Electron application created in the first step.
 
@@ -67,7 +67,7 @@ snap(options)
   .then(snapPath => console.log(`Created snap at ${snapPath}!`))
 ```
 
-## Using an Existing Debian Package
+## 既存のデビアンパッケージの使用
 
 Snapcraft is capable of taking an existing `.deb` file and turning it into a `.snap` file. The creation of a snap is configured using a `snapcraft.yaml` file that describes the sources, dependencies, description, and other core building blocks.
 
