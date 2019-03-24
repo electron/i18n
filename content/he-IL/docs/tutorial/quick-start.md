@@ -4,7 +4,7 @@
 
 מסמך ה"התחלה המהירה" הישן שהיה כאן בעבר התחלק לשני מסמכים:
 
-* To check out how a simple Electron app is built, see [Writing Your First Electron App](./first-app.md)
-* To check out the process architecture, see [Main and Renderer Processes](./application-architecture.md#main-and-renderer-processes).
+* כדי לראות איך בונים אפליקציית אלקטרון פשוטה, ראה [בניית אפליקציית אלקטרון הראשונה שלך](./first-app.md)
+* כדי לבדוק את ארכיטקטורת התהליך, ראה [תהליך ראשי וRenderer](./application-architecture.md#main-and-renderer-processes).
 
-To learn more about Electron, check out the [official guides](../).
+כדי ללמוד עוד על אלקטרון, בדוק את [המדריך הרשמי](../).
