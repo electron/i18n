@@ -71,11 +71,11 @@ snap(options)
 
 Snapcraft is capable of taking an existing `.deb` file and turning it into a `.snap` file. The creation of a snap is configured using a `snapcraft.yaml` file that describes the sources, dependencies, description, and other core building blocks.
 
-### Step 1: Create a Debian Package
+### ステップ1: デビアンパッケージの作成
 
 If you do not already have a `.deb` package, using `electron-installer-snap` might be an easier path to create snap packages. However, multiple solutions for creating Debian packages exist, including [`electron-forge`](https://github.com/electron-userland/electron-forge), [`electron-builder`](https://github.com/electron-userland/electron-builder) or [`electron-installer-debian`](https://github.com/unindented/electron-installer-debian).
 
-### Step 2: Create a snapcraft.yaml
+### ステップ2: snapcraft.yamlファイルの作成
 
 For more information on the available configuration options, see the [documentation on the snapcraft syntax](https://docs.snapcraft.io/build-snaps/syntax). Let's look at an example:
 
@@ -84,8 +84,7 @@ name: myApp
 version: '2.0.0'
 summary: A little description for the app.
 description: |
- You know what? This app is amazing! It does all the things
- for you. Some say it keeps you young, maybe even happy.
+ あなたは知っていますか？ このアプリはすごい。 あなたのために色々してくれます。 ある者はこれで若さが保てるといい、また幸せに慣れると言っています。
 
 grade: stable
 confinement: classic
