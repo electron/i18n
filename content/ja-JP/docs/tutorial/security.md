@@ -502,7 +502,7 @@ app.on('web-contents-created', (event, contents) => {
 
 ## 14) 信用されないコンテンツで `openExternal` を使用しない
 
-Shell's [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) allows opening a given protocol URI with the desktop's native utilities. On macOS, for instance, this function is similar to the `open` terminal command utility and will open the specific application based on the URI and filetype association.
+Shellの [`openExternal`](../api/shell.md#shellopenexternalurl-options-callback) はデスクトップのネィティブユーティリティの指定した protocol URI で開けるようにします。 例えば、macOSの`open` ターミナルコマンドユーティリティに似た機能で、URIとそのファイルタイプの関連に基づいた特定のアプリケーションで開きます。
 
 ### なぜ？
 
