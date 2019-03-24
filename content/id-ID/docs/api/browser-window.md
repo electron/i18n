@@ -1,11 +1,11 @@
 # BrowserWindow
 
-> Buat dan kendalikan jendela peramban.
+> Create and control browser windows.
 
 Proses: [Main](../glossary.md#main-process)
 
 ```javascript
-// Pada proses utama.
+// Dalam proses utamanya.
 const { BrowserWindow } = require('electron')
 
 // Atau gunakan `remote` dari proses perender.
