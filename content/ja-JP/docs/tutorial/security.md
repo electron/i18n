@@ -22,9 +22,9 @@ Electron は新しいバージョンの Chromium を出来るだけ早くサポ�
 
 * **あなたのアプリケーションは最新リリースの Electron フレームワークを使う。** あなたはプロダクトをリリースしたとき、Electron、 Chromium 共有ライブラリ、Node.js を組み込んでリリースしています。 これらのコンポーネントに影響する脆弱性は、あなたのアプリケーションのセキュリティに影響する可能性があります。 Electronを最新バージョンにアップデートすることで、あなたはクリティカルな脆弱性(例えば *nodeIntegration bypasses*) にパッチを当てた状態にして、あなたのアプリケーションで発現しないようにできます。
 
-* **Evaluate your dependencies.** While NPM provides half a million reusable packages, it is your responsibility to choose trusted 3rd-party libraries. If you use outdated libraries affected by known vulnerabilities or rely on poorly maintained code, your application security could be in jeopardy.
+* **あなたのアプリの依存関係の評価する。** NPM は 50万もの再利用できるパッケージを提供しています。一方、あなたは信頼するサードパーティのライブラリを選択する責任があります。 あなたが既知の脆弱性の影響を受けるライブラリを利用する場合や、あまりメンテナンスされていないコードに頼る場合、あなたのアプリケーションのセキュリティは低下し危険な状態になります。
 
-* **Adopt secure coding practices.** The first line of defense for your application is your own code. Common web vulnerabilities, such as Cross-Site Scripting (XSS), have a higher security impact on Electron applications hence it is highly recommended to adopt secure software development best practices and perform security testing.
+* **セキュアコーディングプラクティスの採用。** あなたのアプリケーションの防衛の第一歩はあなたのコードです。 クロスサイトスクリプティング(XSS) のような共通WEB脆弱性は、Electronアプリケーション上でセキュリティの影響度が高くなります。そのため、セキュアなソフトウェア開発のベストプラクティスの採用やセキュリティテストの実施が強く求められます。
 
 ## 信用されないコンテンツの隔離
 
