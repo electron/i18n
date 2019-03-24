@@ -1,14 +1,14 @@
 # Snapcraft ガイド (Ubuntu Software Center & 他)
 
-This guide provides information on how to package your Electron application for any Snapcraft environment, including the Ubuntu Software Center.
+このガイドは、Ubuntu Software Centerを含む、Snapcraft環境向けにあなたのElectronアプリケーションをパッケージする方法を提供します。
 
 ## 背景と必要条件
 
-Together with the broader Linux community, Canonical aims to fix many of the common software installation problems with the [`snapcraft`](https://snapcraft.io/) project. Snaps are containerized software packages that include required dependencies, auto-update, and work on all major Linux distributions without system modification.
+幅広いLinux コミュニティと共に、Canonicalは共通したソフトウェアインストールの問題を解決するために、[`snapcraft`](https://snapcraft.io/)プロジェクトを開始しました。 Snaps は、依存関係と自動アップデートに必要なソフトウェアパッケージを含めたパッケージであり、システムを修正することなく多くのメジャーなLinuxディストリビューションで動作します。
 
-There are three ways to create a `.snap` file:
+`.snap` ファイルを作成する方法は3つあります。:
 
-1) Using [`electron-forge`](https://github.com/electron-userland/electron-forge) or [`electron-builder`](https://github.com/electron-userland/electron-builder), both tools that come with `snap` support out of the box. This is the easiest option. 2) Using `electron-installer-snap`, which takes `electron-packager`'s output. 3) Using an already created `.deb` package.
+1) [`electron-forge`](https://github.com/electron-userland/electron-forge) または [`electron-builder`](https://github.com/electron-userland/electron-builder)を使用する。両方のツールは `snap`ですぐに使用できます。 これは最も簡単な選択肢です。 2) Using `electron-installer-snap`, which takes `electron-packager`'s output. 3) Using an already created `.deb` package.
 
 In all cases, you will need to have the `snapcraft` tool installed. We recommend building on Ubuntu 16.04 (or the current LTS).
 
