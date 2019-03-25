@@ -12,9 +12,9 @@
 
 ## GN 기본 요건
 
-[`depot_tools`](http://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up)를 설치해야합니다. <0>depot_tools</0>는 Chromium과 필요 요구사양을 가져오는데 사용하는 도구모음입니다.
+Chromium과 Chromium 관련 의존성을 가져오는데 사용되는 툴셋인 [`depot_tools`](http://commondatastorage.googleapis.com/chrome-infra-docs/flat/depot_tools/docs/html/depot_tools_tutorial.html#_setting_up)를 설치해야 합니다.
 
-윈도우 환경에서는 `DEPOT_TOOLS_WIN_TOOLCHAIN=0` 환경 변수를 지정해주어야 합니다. `제어판`→`시스템과 보안`→`시스템`→`고급 시스템 설정`으로 이동합니다. 환경 변수... 버튼을 클릭하고 `DEPOT_TOOLS_WIN_TOOLCHAIN` 환경 변수를 `0` 값으로 설정합니다. 이렇게 하면 `depot_tools`가 로컬에 설정된 버전의 비주얼 스튜디오를 사용하게 됩니다. (기본값으로 `depot_tools`는 구글 내부에서 사용하는 비주얼 스튜디오 버전을 다운로드를 시도합니다.)
+또한, Windows에서는 환경 변수 `DEPOT_TOOLS_WIN_TOOLCHAIN=0`으로 설정해야 합니다. `제어판`→`시스템과 보안`→`시스템`→`고급 시스템 설정`으로 이동합니다. 환경 변수... 버튼을 클릭하고 `DEPOT_TOOLS_WIN_TOOLCHAIN` 환경 변수를 `0` 값으로 설정합니다. 이렇게 하면 `depot_tools`가 로컬에 설정된 버전의 비주얼 스튜디오를 사용하게 됩니다. (기본값으로 `depot_tools`는 구글 내부에서 사용하는 비주얼 스튜디오 버전을 다운로드를 시도합니다.)
 
 ## 캐시된 빌드 (선택 사항)
 
