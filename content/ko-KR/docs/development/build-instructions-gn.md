@@ -36,14 +36,14 @@ $ git remote set-url origin https://github.com/electron/electron
 
 ### sccache
 
-Chromium 및 Electron을 빌드하기 위해 수 천개의 파일이 컴파일됩니다. [sccache](https://github.com/mozilla/sccache)를 통해 Electron CI의 빌드 결과를 재사용하면 대기 시간을 줄일 수 있습니다. 이를 위해, 2 개의 환경 변수 설정과 추가적인 절차(하단에 명시됨) 가 필요합니다.
+Chromium 및 Electron을 빌드하기 위해 수 천개의 파일이 컴파일됩니다. [sccache](https://github.com/mozilla/sccache)를 통해 Electron CI의 빌드 결과를 재사용하면 대기 시간을 줄일 수 있습니다. 이를 위해, 2 개의 환경 변수 설정과 추가적인 절차(하단에 명시됨)가 필요합니다.
 
 ```sh
 export SCCACHE_BUCKET="electronjs-sccache"
 export SCCACHE_TWO_TIER=true
 ```
 
-## Getting the code
+## 코드 받기
 
 ```sh
 $ mkdir electron-gn && cd electron-gn
@@ -52,12 +52,12 @@ $ gclient config \
     --unmanaged \
     https://github.com/electron/electron
 $ gclient sync --with_branch_heads --with_tags
-# This will take a while, go get a coffee.
+# 이 작업은 시간이 약간 소요될 수 있습니다.
 ```
 
-> Instead of `https://github.com/electron/electron`, you can use your own fork here (something like `https://github.com/<username>/electron`).
+> `https://github.com/electron/electron` 대신, 자신이 소유한 fork저장소를 사용할 수도 있습니다. (저장소 url은 아래와 같은 형태일 것입니다. `https://github.com/<username>/electron`).
 
-#### A note on pulling/pushing
+#### pulling/pushing 관련 참고 사항
 
 If you intend to `git pull` or `git push` from the official `electron` repository in the future, you now need to update the respective folder's origin URLs.
 
