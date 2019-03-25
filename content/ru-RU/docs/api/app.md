@@ -329,9 +329,9 @@ app.on('session-created', (event, session) => {
 
 Это событие произойдет в основном экземпляре приложения, когда второй экземпляр будет выполнен. `argv` является массивом аргументов командной строки второго экземпляра приложения, а `workingDirectory` является его текущим рабочим каталогом. Обычно приложения реагируют на это, делая их основное окно сфокусированным и не свернутым.
 
-This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
+Это событие происходит после события `ready` в `app`.
 
-### Event: 'remote-require'
+### Событие: 'remote-require'
 
 Возвращает:
 
@@ -339,9 +339,9 @@ This event is guaranteed to be emitted after the `ready` event of `app` gets emi
 * `webContents` [WebContents](web-contents.md)
 * `moduleName` String
 
-Emitted when `remote.require()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+Происходит когда функция `remote.require()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат модуля. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
-### Event: 'remote-get-global'
+### Событие: 'remote-get-global'
 
 Возвращает:
 
@@ -349,9 +349,9 @@ Emitted when `remote.require()` is called in the renderer process of `webContent
 * `webContents` [WebContents](web-contents.md)
 * `globalName` String
 
-Emitted when `remote.getGlobal()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
+Происходит когда функция `remote.getGlobal()` вызвана в процессе рендеринга `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
-### Event: 'remote-get-builtin'
+### Событие: 'remote-get-builtin'
 
 Возвращает:
 
@@ -359,25 +359,25 @@ Emitted when `remote.getGlobal()` is called in the renderer process of `webConte
 * `webContents` [WebContents](web-contents.md)
 * `moduleName` String
 
-Emitted when `remote.getBuiltin()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+Происходит когда функция `remote.getBuiltin()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат модуля. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
-### Event: 'remote-get-current-window'
-
-Возвращает:
-
-* `event` Event
-* `webContents` [WebContents](web-contents.md)
-
-Emitted when `remote.getCurrentWindow()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
-
-### Event: 'remote-get-current-web-contents'
+### Событие: 'remote-get-current-window'
 
 Возвращает:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Emitted when `remote.getCurrentWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+Происходит когда функция `remote.getCurrentWindow()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
+
+### Событие: 'remote-get-current-web-contents'
+
+Возвращает:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+
+Emitted when `remote.getCurrentWebContents()` is called in the renderer process of `webContents`. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
 ### Event: 'remote-get-guest-web-contents'
 
@@ -387,7 +387,7 @@ Emitted when `remote.getCurrentWebContents()` is called in the renderer process 
 * `webContents` [WebContents](web-contents.md)
 * `guestWebContents` [WebContents](web-contents.md)
 
-Emitted when `<webview>.getWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+Emitted when `<webview>.getWebContents()` is called in the renderer process of `webContents`. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
 ## Методы
 
