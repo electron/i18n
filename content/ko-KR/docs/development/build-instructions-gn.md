@@ -102,27 +102,27 @@ $ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\")"
 이용 가능한 빌드 설정 옵션 목록을 보려면, `gn args
 out/Debug --list` 명령어를 실행하세요.
 
-**Electron의 Debug (즉 "component" 또는 "shared") 빌드 설정을 생성하려면:**
+**Electron의 Debug ("component" 또는 "shared" 라고 부르기도 함) 빌드 설정을 생성하려면:**
 
 ```sh
 $ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_ARGS"
 ```
 
-**Electron의 배포("non-component" 또는 "static") 빌드 설정을 생성하려면 이 명령어를 실행하십시오:**
+**Electron의 Release ("non-component" 또는 "static" 이라고 부르기도 함) 빌드 설정을 생성하려면:**
 
 ```sh
 $ gn gen out/Release --args="import(\"//electron/build/args/release.gn\") $GN_EXTRA_ARGS"
 ```
 
-**To build, run `ninja` with the `electron` target:** Nota Bene: This will also take a while and probably heat up your lap.
+**빌드하고 `electron` 타켓과 함께 `ninja`를 실행하려면:** 주의하세요: 이 작업은 시간이 좀 걸릴 수 있습니다.
 
-For the debug configuration:
+debug 설정:
 
 ```sh
 $ ninja -C out/Debug electron
 ```
 
-For the release configuration:
+release 설정:
 
 ```sh
 $ ninja -C out/Release electron
