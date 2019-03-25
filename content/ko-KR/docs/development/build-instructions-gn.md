@@ -20,7 +20,7 @@ Chromium과 Chromium 관련 의존성을 가져오는데 사용되는 툴셋인 
 
 ### GIT\_CACHE\_PATH
 
-If you plan on building Electron more than once, adding a git cache will speed up subsequent calls to `gclient`. To do this, set a `GIT_CACHE_PATH` environment variable:
+Electron을 여러 번 빌드할 예정이라면, git cache를 추가하여 잇따라 발생하는 `gclient` 호출 속도를 높일 수 있습니다. git cache를 추가하려면 `GIT_CACHE_PATH` 환경 변수를 설정하세요:
 
 ```sh
 $ export GIT_CACHE_PATH="${HOME}/.git_cache"
@@ -28,7 +28,7 @@ $ mkdir -p "${GIT_CACHE_PATH}"
 # This will use about 16G.
 ```
 
-> **NOTE**: the git cache will set the `origin` of the `src/electron` repository to point to the local cache, instead of the upstream git repository. This is undesirable when running `git push`—you probably want to push to github, not your local cache. To fix this, from the `src/electron` directory, run:
+> **주의**: git cache는 로컬 캐시를 지정하기 위해 upstream git 저장소 대신 `src/electron` 저장소를 `origin`으로 설정할 것입니다. 이같은 설정을 유지하면 `git push`를 실행할 때 원하는 결과를 얻지 못하게 될 것입니다—여러분은 로컬 캐시가 아닌 github로 push하고 싶을 것입니다. 이러한 문제를 해결하려면, `src/electron` 디렉토리에서 아래 명령어를 실행하세요:
 
 ```sh
 $ git remote set-url origin https://github.com/electron/electron
@@ -36,7 +36,7 @@ $ git remote set-url origin https://github.com/electron/electron
 
 ### sccache
 
-Thousands of files must be compiled to build Chromium and Electron. You can avoid much of the wait by reusing Electron CI's build output via [sccache](https://github.com/mozilla/sccache). This requires some optional steps (listed below) and these two environment variables:
+Chromium 및 Electron을 빌드하기 위해 수 천개의 파일이 컴파일됩니다. [sccache](https://github.com/mozilla/sccache)를 통해 Electron CI의 빌드 결과를 재사용하면 대기 시간을 줄일 수 있습니다. This requires some optional steps (listed below) and these two environment variables:
 
 ```sh
 export SCCACHE_BUCKET="electronjs-sccache"
