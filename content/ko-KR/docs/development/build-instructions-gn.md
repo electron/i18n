@@ -59,7 +59,7 @@ $ gclient sync --with_branch_heads --with_tags
 
 #### pulling/pushing 관련 참고 사항
 
-If you intend to `git pull` or `git push` from the official `electron` repository in the future, you now need to update the respective folder's origin URLs.
+향후 공식 `electron` 저장소에 대해 `git pull` 또는 `git push`를 할 계획이라면 각 폴더의 origin URL을 업데이트해야 합니다.
 
 ```sh
 $ cd src/electron
@@ -69,9 +69,9 @@ $ git branch --set-upstream-to=origin/master
 $ cd -
 ```
 
-:memo: `gclient` works by checking a file called `DEPS` inside the `src/electron` folder for dependencies (like Chromium or Node.js). Running `gclient sync -f` ensures that all dependencies required to build Electron match that file.
+:memo: `gclient` 는 의존성 (Chromium 이나 Node.js 같은)을 확인하기 위해 `src/electron` 폴더 안에 있는 `DEPS`라는 파일을 확인합니다. `gclient sync -f`는 Electron 빌드를 위해 필요한 모든 의존성이 DEPS 파일과 일치하는지 확인하는 명령어입니다.
 
-So, in order to pull, you'd run the following commands:
+따라서, pull을 하려면 다음 명령어를 입력하세요:
 
 ```sh
 $ cd src/electron
