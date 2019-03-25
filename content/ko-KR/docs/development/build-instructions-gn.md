@@ -97,12 +97,12 @@ $ set CHROMIUM_BUILDTOOLS_PATH=%cd%\buildtools
 $ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\")"
 ```
 
-This will generate a build directory `out/Debug` under `src/` with debug build configuration. You can replace `Debug` with another name, but it should be a subdirectory of `out`. Also you shouldn't have to run `gn gen` again—if you want to change the build arguments, you can run `gn args out/Debug` to bring up an editor.
+위의 명령어를 실행하면 `src/` 아래에 디버그 빌드 설정을 가진 `out/Debug`라는 빌드 디렉토리가 생성될 것입니다. `Debug`라는 이름은 다른 이름으로 변경할 수 있습니다. 단, `out`의 서브 디렉토리여야만 합니다. 또한 `gn gen`을 다시 실행할 수 없습니다—빌드 인자를 변경하고 싶다면, 에디터를 불러오기 위해 `gn args out/Debug` 명령을 실행할 수 있습니다.
 
-To see the list of available build configuration options, run `gn args
-out/Debug --list`.
+이용 가능한 빌드 설정 옵션 목록을 보려면, `gn args
+out/Debug --list` 명령어를 실행하세요.
 
-**Electron의 디버그("component" 또는 "shared") 빌드 설정을 생성하려면 이 명령어를 실행하십시오:**
+**Electron의 Debug (즉 "component" 또는 "shared") 빌드 설정을 생성하려면:**
 
 ```sh
 $ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_ARGS"
