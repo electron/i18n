@@ -36,7 +36,7 @@ $ git remote set-url origin https://github.com/electron/electron
 
 ### sccache
 
-Chromium 및 Electron을 빌드하기 위해 수 천개의 파일이 컴파일됩니다. [sccache](https://github.com/mozilla/sccache)를 통해 Electron CI의 빌드 결과를 재사용하면 대기 시간을 줄일 수 있습니다. This requires some optional steps (listed below) and these two environment variables:
+Chromium 및 Electron을 빌드하기 위해 수 천개의 파일이 컴파일됩니다. [sccache](https://github.com/mozilla/sccache)를 통해 Electron CI의 빌드 결과를 재사용하면 대기 시간을 줄일 수 있습니다. 이를 위해, 2 개의 환경 변수 설정과 추가적인 절차(하단에 명시됨) 가 필요합니다.
 
 ```sh
 export SCCACHE_BUCKET="electronjs-sccache"
