@@ -171,7 +171,7 @@ app.on('window-all-closed', () => {
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Возникает, когда [browserWindow](browser-window.md) получает размытие.
+Происходит, когда [browserWindow](browser-window.md) теряет фокус.
 
 ### Событие: 'browser-window-focus'
 
@@ -180,7 +180,7 @@ app.on('window-all-closed', () => {
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Возникает, когда [browserWindow](browser-window.md) получает фокус.
+Происходит, когда [browserWindow](browser-window.md) получает фокус.
 
 ### Событие: 'browser-window-created'
 
@@ -241,7 +241,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 
 Возникает при запросе сертификата клиента.
 
-`url` соответствует записи навигации, запрашивающей сертификат клиента и `callback` можно вызвать с записью, отфильтрованной из списка. `event.preventDefault()` предотвращает приложению использование первого сертификата из хранилища.
+`url` соответствует записи навигации, запрашивающей сертификат клиента и `callback` можно вызвать с записью, отфильтрованной из списка. `event.preventDefault()` предотвращает использование первого сертификата из хранилища.
 
 ```javascript
 const { app } = require('electron')
@@ -272,9 +272,9 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
   * `username` String
   * `password` String
 
-Возникает `webContents`, когда делается базовый auth.
+Происходит, когда `webContents` выполняет базовую аутетификацию.
 
-Поведением по умолчанию является отмена всех идентификаций, чтобы переопределить это вы должны предотвратить поведение по умолчанию с `event.preventDefault()` и вызвать `callback(username, password)` с учётными данными.
+Поведением по умолчанию является отмена всех аутентификаций, чтобы переопределить это вы должны предотвратить поведение по умолчанию с `event.preventDefault()` и вызвать `callback(username, password)` с учётными данными.
 
 ```javascript
 const { app } = require('electron')
@@ -303,13 +303,13 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 
 Возникает при изменении Chrome поддержки специальных возможностей. Это событие срабатывает, когда вспомогательные технологии, такие как устройства чтения с экрана, включены или отключены. Смотрите https://www.chromium.org/developers/design-documents/accessibility для подробностей.
 
-### Event: 'session-created'
+### Событие: 'session-created'
 
 Возвращает:
 
 * `session` [Session](session.md)
 
-Emitted when Electron has created a new `session`.
+Происходит после создания новой сессии `session`.
 
 ```javascript
 const { app } = require('electron')
@@ -319,7 +319,7 @@ app.on('session-created', (event, session) => {
 })
 ```
 
-### Event: 'second-instance'
+### Событие: 'second-instance'
 
 Возвращает:
 
@@ -327,7 +327,7 @@ app.on('session-created', (event, session) => {
 * `argv` String [] - массив аргументов командной строки вторичных экземпляров
 * `workingDirectory` String - рабочий каталог вторичных экземпляров
 
-This event will be emitted inside the primary instance of your application when a second instance has been executed. `argv` является массивом аргументов командной строки вторичных экземпляров, а `workingDirectory` является его текущим рабочим каталогом. Обычно приложения реагируют на это, делая их основное окно сфокусированным и не свернутым.
+Это событие произойдет в основном экземпляре приложения, когда второй экземпляр будет выполнен. `argv` является массивом аргументов командной строки второго экземпляра приложения, а `workingDirectory` является его текущим рабочим каталогом. Обычно приложения реагируют на это, делая их основное окно сфокусированным и не свернутым.
 
 This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
 
