@@ -1,6 +1,6 @@
 # DesktopCapturerSource Object
 
 * `id` String - De id van een venster of scherm die gebruikt kan worden als `chromeMediaSourceId`-beperking bij het aanroepen van [`navigator.webkitGetUserMedia`]. Het formaat van de id zal zijn `window:XX` of `screen:XX`, waar `XX` een willekeurig gegenereerd getal is.
-* `name` String - Een schermbron zal ofwel `Entire Screen` worden genoemd of `Scherm <index>`, terwijl de naam van een vensterbron overeenkomt met de titel van het venster.
+* `name` String - Een schermbron zal ofwel `Entire Screen` worden genoemd of `Screen <index>`, terwijl de naam van een vensterbron overeenkomt met de titel van het venster.
 * `thumbnail` [NativeImage](../native-image.md) - A thumbnail image. **Note:** There is no guarantee that the size of the thumbnail is the same as the `thumbnailSize` specified in the `options` passed to `desktopCapturer.getSources`. The actual size depends on the scale of the screen or window.
 * `display_id` String - A unique identifier that will correspond to the `id` of the matching [Display](display.md) returned by the [Screen API](../screen.md). On some platforms, this is equivalent to the `XX` portion of the `id` field above and on others it will differ. It will be an empty string if not available.
