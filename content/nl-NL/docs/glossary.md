@@ -50,13 +50,13 @@ Acroniem voor Apple's Mac App Store. Voor details over het verzenden van je app 
 
 ### Mojo
 
-vgcxsfd.
+Een IPC-systeem voor communiceren intra- of inter-proces, en dat is belangrijk omdat Chrome erop gebrand is om zijn werk te kunnen splitsen in afzonderlijke processen of niet, afhankelijk van geheugendruk, enz.
 
-See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
+Zie https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
-### native modules
+### inheemse modules
 
-Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used as if they were an ordinary Node.js module. They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
+Inheemse modules (ook [addons genoemd](https://nodejs.org/api/addons.html) in Node.js) zijn modules geschreven in C of C++ die kunnen worden geladen in Node.js of Electron met behulp van de require() functie, en gebruikt alsof ze een gewone Node.js module zijn. Ze worden voornamelijk gebruikt om een interface te bieden tussen JavaScript dat draait in Node.js en C/C++ bibliotheken.
 
 Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
 
