@@ -64,11 +64,11 @@ Zie ook [Gebruik Inheemse Node Modules](tutorial/using-native-node-modules.md).
 
 ### NSIS
 
-Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
+Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. Het wordt vrijgegeven onder een combinatie van gratis softwarelicenties, en is een wijdverbreid alternatief voor commerciële propriëtaire producten zoals InstallShield. [elektron-builder](https://github.com/electron-userland/electron-builder) ondersteunt NSIS als een build-doel.
 
 ### OSR
 
-OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
+OSR (Off-screen rendering) kan worden gebruikt voor het laden van een zware pagina in de achtergrond en daarna weergeven (het zal veel sneller zijn). Het stelt je in staat om een pagina te renderen zonder het op het scherm te tonen.
 
 ### process
 
