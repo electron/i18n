@@ -58,9 +58,9 @@ Zie https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
 Inheemse modules (ook [addons genoemd](https://nodejs.org/api/addons.html) in Node.js) zijn modules geschreven in C of C++ die kunnen worden geladen in Node.js of Electron met behulp van de require() functie, en gebruikt alsof ze een gewone Node.js module zijn. Ze worden voornamelijk gebruikt om een interface te bieden tussen JavaScript dat draait in Node.js en C/C++ bibliotheken.
 
-Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
+Inheemse Node-modules worden ondersteund door Electron, maar aangezien Electron zeer waarschijnlijk een andere V8-versie zal gebruiken van de Node binary geïnstalleerd in je systeem, moet je handmatig de locatie van de headers van Electron specificeren wanneer je inheemse modules bouwt.
 
-See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
+Zie ook [Gebruik Inheemse Node Modules](tutorial/using-native-node-modules.md).
 
 ### NSIS
 
