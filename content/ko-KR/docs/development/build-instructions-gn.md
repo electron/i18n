@@ -25,7 +25,7 @@ Electron을 여러 번 빌드할 예정이라면, git cache를 추가하여 잇�
 ```sh
 $ export GIT_CACHE_PATH="${HOME}/.git_cache"
 $ mkdir -p "${GIT_CACHE_PATH}"
-# This will use about 16G.
+# 약 16G의 저장공간을 사용할 것입니다.
 ```
 
 > **주의**: git cache는 로컬 캐시를 지정하기 위해 upstream git 저장소 대신 `src/electron` 저장소를 `origin`으로 설정할 것입니다. 이같은 설정을 유지하면 `git push`를 실행할 때 원하는 결과를 얻지 못하게 될 것입니다—여러분은 로컬 캐시가 아닌 github로 push하고 싶을 것입니다. 이러한 문제를 해결하려면, `src/electron` 디렉토리에서 아래 명령어를 실행하세요:
@@ -97,7 +97,7 @@ $ set CHROMIUM_BUILDTOOLS_PATH=%cd%\buildtools
 $ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\")"
 ```
 
-위의 명령어를 실행하면 `src/` 아래에 디버그 빌드 설정을 가진 `out/Debug`라는 빌드 디렉토리가 생성될 것입니다. `Debug`라는 이름은 다른 이름으로 변경할 수 있습니다. 단, `out`의 서브 디렉토리여야만 합니다. 또한 `gn gen`을 다시 실행할 수 없습니다—빌드 인자를 변경하고 싶다면, 에디터를 불러오기 위해 `gn args out/Debug` 명령을 실행할 수 있습니다.
+위의 명령어를 실행하면 `src/` 아래에 debug 빌드 설정을 가진 `out/Debug`라는 빌드 디렉토리가 생성될 것입니다. `Debug`라는 이름은 다른 이름으로 변경할 수 있습니다. 단, `out`의 서브 디렉토리여야만 합니다. 또한 `gn gen`을 다시 실행할 수 없습니다—빌드 인자를 변경하고 싶다면, 에디터를 불러오기 위해 `gn args out/Debug` 명령을 실행할 수 있습니다.
 
 이용 가능한 빌드 설정 옵션 목록을 보려면, `gn args
 out/Debug --list` 명령어를 실행하세요.
