@@ -34,11 +34,11 @@ Een gedeelde bibliotheek die de [Chromium Content module](https://www.chromium.o
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
-### hoofdproces
+### hoofd-process
 
-Het hoofdproces, meestal een bestand genaamd `main.js`, is het invoerpunt voor elke Electron-app. Het bepaalt het leven van de app, van openen tot sluiten. Het beheert ook oorspronkelijke elementen zoals het menu, menubalk, dock, tray, etc. Het hoofdproces is verantwoordelijk voor het maken van elk nieuw render-proces in de app. De volledige Node API is ingebouwd.
+Het hoofd-process, meestal een bestand genaamd `main.js`, is het invoerpunt voor elke Electron-app. Het bepaalt het leven van de app, van openen tot sluiten. Het beheert ook oorspronkelijke elementen zoals het menu, menubalk, dock, tray, etc. Het hoofd-process is verantwoordelijk voor het maken van elk nieuw render-proces in de app. De volledige Node API is ingebouwd.
 
-Het hoofdprocesbestand van elke app is gespecificeerd in de `main` eigenschap in `package.json`. Dit is hoe `Electron` weet welk bestand het uit moet voeren tijdens het opstarten.
+Het hoofd-process-bestand van elke app is gespecificeerd in de `main` eigenschap in `package.json`. Dit is hoe `Electron` weet welk bestand het uit moet voeren tijdens het opstarten.
 
 In Chromium wordt dit proces aangeduid als het "browserproces". Het is hernoemd in Electron om verwarring te voorkomen met render-processen.
 
@@ -74,25 +74,25 @@ OSR (Off-screen rendering) kan worden gebruikt voor het laden van een zware pagi
 
 Een process is een instantie van een computerprogramma dat wordt uitgevoerd. Electron-apps die gebruik maken van de [hoofd](#main-process) en een van de vele [render-](#renderer-process)process zijn eigenlijk meerdere programma's tegelijk aan het draaien.
 
-In Node.js and Electron, each running process has a `process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
+In Node.js en Electron heeft elk lopend process een `process` object. Dit object is een globaal object dat informatie verstrekt en controle heeft over het huidige process. Als globaal object is het altijd beschikbaar voor applicaties zonder require() te gebruiken.
 
-See also: [main process](#main-process), [renderer process](#renderer-process)
+Zie ook: [hoofdproces](#main-process), [render-proces](#renderer-process)
 
-### renderer process
+### render-proces
 
-The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
+Het render-proces is een browservenster in je app. In tegenstelling tot het hoofdproces kunnen er meerdere zijn en elk wordt uitgevoerd in een apart proces. Ze kunnen ook verborgen zijn.
 
-In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
+In normale browsers worden webpagina's meestal in een sandbox-omgeving uitgevoerd en hebben ze geen toegang tot inheemse bronnen. Electron-gebruikers hebben echter de macht om Node.js API's te gebruiken in webpagina's die interacties tussen lagere niveaus van het besturingssysteem mogelijk maken.
 
-See also: [process](#process), [main process](#main-process)
+Zie ook: [proces](#process), [hoofdproces](#main-process)
 
 ### Squirrel
 
-Squirrel is an open-source framework that enables Electron apps to update automatically as new versions are released. See the [autoUpdater](api/auto-updater.md) API for info about getting started with Squirrel.
+Squirrel is een open-source framework dat Electron-apps in staat stelt om automatisch te updaten wanneer nieuwe versies worden vrijgegeven. Zie de [autoUpdater](api/auto-updater.md) API voor info over aan de slag gaan met Squirrel.
 
 ### userland
 
-This term originated in the Unix community, where "userland" or "userspace" referred to programs that run outside of the operating system kernel. More recently, the term has been popularized in the Node and npm community to distinguish between the features available in "Node core" versus packages published to the npm registry by the much larger "user" community.
+Deze term is ontstaan in de Unix-community, waar "userland" of "userspace" verwees naar programma's die buiten de besturingssysteem-kernel draaien. Meer recentelijk is de term populair geworden in de Node- en npm-community om onderscheid te maken tussen de functies die beschikbaar zijn in "Node core" en de pakketten die door de veel grotere "gebruikers"-community in het npm-register worden gepubliceerd.
 
 Like Node, Electron is focused on having a small set of APIs that provide all the necessary primitives for developing multi-platform desktop applications. This design philosophy allows Electron to remain a flexible tool without being overly prescriptive about how it should be used. Userland enables users to create and share tools that provide additional functionality on top of what is available in "core".
 
