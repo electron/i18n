@@ -120,14 +120,14 @@
     "name": "Hebrew",
     "code": "he",
     "phrases": "10158",
-    "translated": "388",
+    "translated": "397",
     "approved": "0",
     "words": "94081",
-    "words_translated": "2713",
+    "words_translated": "2851",
     "words_approved": "0",
-    "translated_progress": 2,
+    "translated_progress": 3,
     "approved_progress": 0,
-    "qa_issues": 108
+    "qa_issues": 110
   },
   {
     "name": "Hindi",
@@ -146,14 +146,14 @@
     "name": "Indonesian",
     "code": "id",
     "phrases": "10158",
-    "translated": "7873",
+    "translated": "7874",
     "approved": "5",
     "words": "94081",
-    "words_translated": "64176",
+    "words_translated": "64183",
     "words_approved": "61",
     "translated_progress": 68,
     "approved_progress": 0,
-    "qa_issues": 4228
+    "qa_issues": 4227
   },
   {
     "name": "Italian",
@@ -172,27 +172,27 @@
     "name": "Japanese",
     "code": "ja",
     "phrases": "10158",
-    "translated": "9858",
+    "translated": "9924",
     "approved": "290",
     "words": "94081",
-    "words_translated": "89567",
+    "words_translated": "90531",
     "words_approved": "1619",
-    "translated_progress": 95,
+    "translated_progress": 96,
     "approved_progress": 1,
-    "qa_issues": 310
+    "qa_issues": 313
   },
   {
     "name": "Korean",
     "code": "ko",
     "phrases": "10158",
-    "translated": "4847",
+    "translated": "4884",
     "approved": "483",
     "words": "94081",
-    "words_translated": "41087",
+    "words_translated": "41568",
     "words_approved": "4683",
-    "translated_progress": 43,
+    "translated_progress": 44,
     "approved_progress": 4,
-    "qa_issues": 2120
+    "qa_issues": 2137
   },
   {
     "name": "Persian",
@@ -250,27 +250,27 @@
     "name": "Russian",
     "code": "ru",
     "phrases": "10158",
-    "translated": "5582",
+    "translated": "5581",
     "approved": "1021",
     "words": "94081",
-    "words_translated": "41294",
+    "words_translated": "41035",
     "words_approved": "7858",
     "translated_progress": 43,
     "approved_progress": 8,
-    "qa_issues": 1679
+    "qa_issues": 1678
   },
   {
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "10158",
-    "translated": "9249",
+    "translated": "9261",
     "approved": "257",
     "words": "94081",
-    "words_translated": "78997",
+    "words_translated": "79182",
     "words_approved": "2118",
-    "translated_progress": 83,
+    "translated_progress": 84,
     "approved_progress": 2,
-    "qa_issues": 3596
+    "qa_issues": 3602
   },
   {
     "name": "Tagalog",
