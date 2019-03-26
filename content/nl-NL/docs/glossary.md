@@ -38,15 +38,15 @@ Een gedeelde bibliotheek die de [Chromium Content module](https://www.chromium.o
 
 Het hoofdproces, meestal een bestand genaamd `main.js`, is het invoerpunt voor elke Electron-app. Het bepaalt het leven van de app, van openen tot sluiten. Het beheert ook oorspronkelijke elementen zoals het menu, menubalk, dock, tray, etc. Het hoofdproces is verantwoordelijk voor het maken van elk nieuw render-proces in de app. De volledige Node API is ingebouwd.
 
-Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
+Het hoofdprocesbestand van elke app is gespecificeerd in de `main` eigenschap in `package.json`. Dit is hoe `Electron` weet welk bestand het uit moet voeren tijdens het opstarten.
 
-In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
+In Chromium wordt dit proces aangeduid als het "browserproces". Het is hernoemd in Electron om verwarring te voorkomen met render-processen.
 
-See also: [process](#process), [renderer process](#renderer-process)
+Zie ook: [proces](#process), [render-proces](#renderer-process)
 
 ### MAS
 
-Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
+Acroniem voor Apple's Mac App Store. Voor details over het verzenden van je app naar de MAS, zie de [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
 
 ### Mojo
 
