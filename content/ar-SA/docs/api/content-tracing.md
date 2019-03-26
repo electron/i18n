@@ -1,6 +1,6 @@
 # تتبع المحتوى
 
-> Collect tracing data from Chromium's content module for finding performance bottlenecks and slow operations.
+> https://github. com/marketplace/pull-reminders.
 
 العملية: [Main](../glossary.md#main-process)
 
