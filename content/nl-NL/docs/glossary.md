@@ -34,11 +34,11 @@ Een gedeelde bibliotheek die de [Chromium Content module](https://www.chromium.o
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
-### hoofd-process
+### hoofd-proces
 
-Het hoofd-process, meestal een bestand genaamd `main.js`, is het invoerpunt voor elke Electron-app. Het bepaalt het leven van de app, van openen tot sluiten. Het beheert ook oorspronkelijke elementen zoals het menu, menubalk, dock, tray, etc. Het hoofd-process is verantwoordelijk voor het maken van elk nieuw render-proces in de app. De volledige Node API is ingebouwd.
+Het hoofd-proces, meestal een bestand genaamd `main.js`, is het invoerpunt voor elke Electron-app. Het bepaalt het leven van de app, van openen tot sluiten. Het beheert ook oorspronkelijke elementen zoals het menu, menubalk, dock, tray, etc. Het hoofd-proces is verantwoordelijk voor het maken van elk nieuw render-proces in de app. De volledige Node API is ingebouwd.
 
-Het hoofd-process-bestand van elke app is gespecificeerd in de `main` eigenschap in `package.json`. Dit is hoe `Electron` weet welk bestand het uit moet voeren tijdens het opstarten.
+Het hoofd-proces-bestand van elke app is gespecificeerd in de `main` eigenschap in `package.json`. Dit is hoe `Electron` weet welk bestand het uit moet voeren tijdens het opstarten.
 
 In Chromium wordt dit proces aangeduid als het "browserproces". Het is hernoemd in Electron om verwarring te voorkomen met render-processen.
 
@@ -70,11 +70,11 @@ Nullsoft Scriptable Install System is a script-driven Installer authoring tool f
 
 OSR (Off-screen rendering) kan worden gebruikt voor het laden van een zware pagina in de achtergrond en daarna weergeven (het zal veel sneller zijn). Het stelt je in staat om een pagina te renderen zonder het op het scherm te tonen.
 
-### process
+### proces
 
-Een process is een instantie van een computerprogramma dat wordt uitgevoerd. Electron-apps die gebruik maken van de [hoofd](#main-process) en een van de vele [render-](#renderer-process)process zijn eigenlijk meerdere programma's tegelijk aan het draaien.
+Een proces is een instantie van een computerprogramma dat wordt uitgevoerd. Electron-apps die gebruik maken van de [hoofd](#main-process) en een van de vele [render-](#renderer-process)processen zijn eigenlijk meerdere programma's tegelijk aan het draaien.
 
-In Node.js en Electron heeft elk lopend process een `process` object. Dit object is een globaal object dat informatie verstrekt en controle heeft over het huidige process. Als globaal object is het altijd beschikbaar voor applicaties zonder require() te gebruiken.
+In Node.js en Electron heeft elk lopend proces een `process` object. Dit object is een globaal object dat informatie verstrekt en controle heeft over het huidige proces. Als globaal object is het altijd beschikbaar voor applicaties zonder require() te gebruiken.
 
 Zie ook: [hoofdproces](#main-process), [render-proces](#renderer-process)
 
@@ -94,7 +94,7 @@ Squirrel is een open-source framework dat Electron-apps in staat stelt om automa
 
 Deze term is ontstaan in de Unix-community, waar "userland" of "userspace" verwees naar programma's die buiten de besturingssysteem-kernel draaien. Meer recentelijk is de term populair geworden in de Node- en npm-community om onderscheid te maken tussen de functies die beschikbaar zijn in "Node core" en de pakketten die door de veel grotere "gebruikers"-community in het npm-register worden gepubliceerd.
 
-Like Node, Electron is focused on having a small set of APIs that provide all the necessary primitives for developing multi-platform desktop applications. This design philosophy allows Electron to remain a flexible tool without being overly prescriptive about how it should be used. Userland enables users to create and share tools that provide additional functionality on top of what is available in "core".
+Net als Node is Electron gericht op een kleine set API's die voorzien in alle noodzakelijke primitives voor het ontwikkelen van multi-platform desktop-applicaties. Deze ontwerpfilosofie maakt het mogelijk dat Electron een flexibele tool blijft zonder te dwingend te zijn over hoe het gebruikt moet worden. Userland stelt gebruikers in staat om tools te maken en te delen die extra functionaliteit bieden bovenop wat beschikbaar is in "core".
 
 ### V8
 
@@ -102,7 +102,7 @@ V8 is Google's open source JavaScript engine. Het is geschreven in C++ en wordt 
 
 Electron bouwt V8 as onderdeel van Chromium en verwijst vervolgens Node naar die V8 wanneer hij wordt gebouwt.
 
-V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
+V8's versienummers komen altijd overeen met die van Google Chrome. Chrome 59 bevat V8 5.9, Chrome 58 bevat V8 5.8, enz.
 
 - [developers.google.com/v8](https://developers.google.com/v8)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
@@ -110,4 +110,4 @@ V8's version numbers always correspond to those of Google Chrome. Chrome 59 incl
 
 ### webview
 
-`webview` tags are used to embed 'guest' content (such as external web pages) in your Electron app. They are similar to `iframe`s, but differ in that each webview runs in a separate process. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content.
+`webview` tags worden gebruikt om 'gast'-inhoud (zoals externe webpagina's) in je Electron-app in te voegen. Ze zijn vergelijkbaar met `iframe`s, maar verschillen in het feit dat elke webview een apart proces draait. Het heeft niet dezelfde rechten als je webpagina en alle interacties tussen je app en ingesloten inhoud zullen asynchroon zijn. Dit houdt je app veilig van de ingesloten inhoud.
