@@ -4,7 +4,7 @@
 
 Процесс: [Main](../glossary.md#main-process)
 
-**See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
+**См. также: [Подробное руководство о том, как внедрять обновления в вашем приложении](../tutorial/updates.md).**
 
 ## Платформа заметок
 
