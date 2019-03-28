@@ -113,7 +113,7 @@ const mainWindow = new BrowserWindow({
   webPreferences: {
     nodeIntegration: false,
     nodeIntegrationInWorker: false,
-    preload: './preload.js'
+    preload: path.join(app.getAppPath(), 'preload.js')
   }
 })
 
@@ -159,11 +159,11 @@ Aynı zamanda, önyükleme komut dosyaları hala ` belgesine </ 0> erişebilir v
 
 <h3>Nasıl?</h3>
 
-<pre><code class="js">// Ana süreç
+<pre><code class="js">// Main process
 const mainWindow = new BrowserWindow({
   webPreferences: {
     contextIsolation: true,
-    preload: 'preload.js'
+    preload: path.join(app.getAppPath(), 'preload.js')
   }
 })
 `</pre> 
