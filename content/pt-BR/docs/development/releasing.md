@@ -16,7 +16,7 @@ There are a handful of `*_TOKEN` environment variables needed by the release scr
 - `ELECTRON_S3_ACCESS_KEY`:
 - `ELECTRON_S3_SECRET_KEY`: If you don't have these, ask a team member to help you.
 
-Once you've generated these tokens, put them in a `.env` file in the root directory of the project. This file is gitignored, and will be loaded into the environment by the release scripts.
+Uma vez que você gerou estes tokens, coloque-os em um arquivo `.env` no diretório raiz do projeto. Este arquivo é ignorado pelo git e será carregado no ambiente pelos scripts de lançamento.
 
 ## Determine which branch to release from
 
