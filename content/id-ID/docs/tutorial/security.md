@@ -106,7 +106,7 @@ const mainWindow = new BrowserWindow({
   webPreferences: {
     nodeIntegration: false,
     nodeIntegrationInWorker: false,
-    preload: './preload.js'
+    preload: path.join(app.getAppPath(), 'preload.js')
   }
 })
 
@@ -149,11 +149,11 @@ Pada waktu yang sama, script preload masih memiliki akses ke `dokumen` dan `jend
 ### Bagaimana?
 
 ```js
-// Main proses
-const mainWindow = baru BrowserWindow({
-  webPreferensi: {
-    kontextIsolation: benar,
-    pramuat: 'pramuat.js'
+// Main process
+const mainWindow = new BrowserWindow({
+  webPreferences: {
+    contextIsolation: true,
+    preload: path.join(app.getAppPath(), 'preload.js')
   }
 })
 ```
