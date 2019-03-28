@@ -25,7 +25,7 @@ keyboard_modal:
   open: Open the selected search result
   open_new_tab: Open the selected search result in a new tab
 docs:
-  title: Документация за Electron
+  title: Electron Documentation
   description: Вижте всички <a href="/docs/all"> документи на една страница</a> или проверете на <a href="/docs/faq"> често задавани въпроси</a>.
   guides: Ръководства
   api_reference: Функционална документация
@@ -43,7 +43,7 @@ languages:
   current: текущата селекция
 community:
   title: Обществото на Electron
-  description: Ресурси за свързване с хора, работещи в Electron.
+  description: Resources for connecting with people working on Electron.
   channels:
     get_started: "<a href='/docs/tutorial/first-app'><b>Get started</b></a> building an app by reading the <a href='/docs/tutorial/first-app'>quick-start guide</a>."
     updates: "<a href='https://twitter.com/electronjs'><b>Stay up to date</b></a> by following <a href='https://twitter.com/electronjs'>@electronjs</a> on Twitter and subscribing to the <a href='/blog'>blog feed</a>."
