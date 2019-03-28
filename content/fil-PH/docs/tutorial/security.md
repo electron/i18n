@@ -113,7 +113,7 @@ const mainWindow = new BrowserWindow({
   webPreferences: {
     nodeIntegration: false,
     nodeIntegrationInWorker: false,
-    preload: './preload.js'
+    preload: path.join(app.getAppPath(), 'preload.js')
   }
 })
 
@@ -159,11 +159,11 @@ Sa parehong oras, ang preload na mga manuskrito ay mayroon pa ring akses sa `dok
 ### Paano?
 
 ```js
-// Pangunahing proseso
+// Main process
 const mainWindow = new BrowserWindow({
   webPreferences: {
     contextIsolation: true,
-    preload: 'preload.js'
+    preload: path.join(app.getAppPath(), 'preload.js')
   }
 })
 ```
