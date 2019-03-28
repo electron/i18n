@@ -33,11 +33,11 @@
 * إضافة ميزات إلى تطبيقك 
   * [الإشعارات](tutorial/notifications.md)
   * [المستندات الأخيرة](tutorial/desktop-environment-integration.md#recent-documents)
-  * [تقدُّم التطبيق](tutorial/progress-bar.md)
+  * [سير الترجمة](tutorial/progress-bar.md)
   * [خصص شريط المهام](tutorial/macos-dock.md)
   * [خصص شريط مهام الويندوز](tutorial/windows-taskbar.md)
   * [خصص إجراءات سطح المكتب المخصص لـ Linux](tutorial/linux-desktop-actions.md)
-  * [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
+  * [میانبرهای صفحه کلید](tutorial/keyboard-shortcuts.md)
   * [إكتشاف المتصل/ غير المتصل](tutorial/online-offline-events.md)
   * [يمثل ملف ل macOS BrowserWindows](tutorial/represented-file.md)
   * [سحب الملفات الأصلية & Drop](tutorial/native-file-drag-drop.md)
