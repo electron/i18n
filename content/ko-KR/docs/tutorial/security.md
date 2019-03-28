@@ -114,7 +114,7 @@ You should at least follow these steps to improve the security of your applicati
       webPreferences: {
         nodeIntegration: false,
         nodeIntegrationInWorker: false,
-        preload: './preload.js'
+        preload: path.join(app.getAppPath(), 'preload.js')
       }
     })
     
@@ -161,11 +161,11 @@ You should at least follow these steps to improve the security of your applicati
     ### 어떻게 하나요?
     
     ```js
-    // 주 프로세스
+    // Main process
     const mainWindow = new BrowserWindow({
       webPreferences: {
         contextIsolation: true,
-        preload: 'preload.js'
+        preload: path.join(app.getAppPath(), 'preload.js')
       }
     })
     ```
