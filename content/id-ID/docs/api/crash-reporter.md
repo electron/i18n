@@ -79,9 +79,9 @@ Jika Anda ingin mengaktifkan laporan kerusakan, menginisialisasi <code> crashpad
 
 Mengembalikan ` kecelakaan Report </ 0> :</p>
 
-<p>Mengembalikan tanggal dan ID dari laporan kerusakan terakhir Jika tidak ada laporan kerusakan yang dikirim atau reporter kecelakaan belum dimulai, <code> null </ 0> dikembalikan.</p>
+<p>Returns the date and ID of the last crash report. Only crash reports that have been uploaded will be returned; even if a crash report is present on disk it will not be returned until it is uploaded. In the case that there are no uploaded reports, <code>null` is returned.</p> 
 
-<h3><code>kecelakaan reporter.dapatkan unggahan repoter ()`</h3> 
+### `kecelakaan reporter.dapatkan unggahan repoter ()`
 
 Mengembalikan ` kecelakaan Report [] </ 0> :</p>
 
