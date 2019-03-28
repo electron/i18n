@@ -73,7 +73,7 @@ spawn(process.execPath, args, {
 
 Devuelve [`CrashReport`](structures/crash-report.md):
 
-Devuelve la fecha y el ID del último informe de fallos. Devuelve `null` si ningún informe de fallos ha sido enviado o si el informador de fallos no ha sido iniciado.
+Returns the date and ID of the last crash report. Only crash reports that have been uploaded will be returned; even if a crash report is present on disk it will not be returned until it is uploaded. In the case that there are no uploaded reports, `null` is returned.
 
 ### `crashReporter.getUploadedReports()`
 
@@ -116,7 +116,7 @@ Muestra todos los parámetros que se enviarán al informador de fallos.
 
 El informador de fallos enviará la siguiente información al `submitURL` como un `multipart/form-data` `POST`:
 
-* `ver` Cadena- La versión de Electron.
+* `ver` String - La versión de Electron.
 * `platform` String - por ejemplo, "win32".
 * `process_type` String - por ejemplo, "renderer".
 * `guid` String - por ejemplo, "5e1286fc-da97-479e-918b-6bfb0c3d1c72".
