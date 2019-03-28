@@ -1,4 +1,4 @@
-# dialog
+# דיאלוג
 
 > Display native system dialogs for opening and saving files, alerting, etc.
 
