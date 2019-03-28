@@ -224,14 +224,14 @@
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "10158",
-    "translated": "4527",
+    "translated": "4531",
     "approved": "366",
     "words": "94085",
-    "words_translated": "32176",
+    "words_translated": "32256",
     "words_approved": "2624",
     "translated_progress": 34,
     "approved_progress": 2,
-    "qa_issues": 1300
+    "qa_issues": 1302
   },
   {
     "name": "Romanian",
@@ -289,14 +289,14 @@
     "name": "Thai",
     "code": "th",
     "phrases": "10158",
-    "translated": "372",
+    "translated": "374",
     "approved": "4",
     "words": "94085",
-    "words_translated": "1991",
+    "words_translated": "1997",
     "words_approved": "61",
     "translated_progress": 2,
     "approved_progress": 0,
-    "qa_issues": 123
+    "qa_issues": 125
   },
   {
     "name": "Turkish",
