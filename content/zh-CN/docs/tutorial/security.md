@@ -112,7 +112,7 @@ const mainWindow = new BrowserWindow({
   webPreferences: {
     nodeIntegration: false,
     nodeIntegrationInWorker: false,
-    preload: './preload.js'
+    preload: path.join(app.getAppPath(), 'preload.js')
   }
 })
 
@@ -159,11 +159,11 @@ While still an experimental Electron feature, context isolation adds an addition
 ### 怎么做？
 
 ```js
-// 主进程
+// Main process
 const mainWindow = new BrowserWindow({
   webPreferences: {
     contextIsolation: true,
-    preload: 'preload.js'
+    preload: path.join(app.getAppPath(), 'preload.js')
   }
 })
 ```
