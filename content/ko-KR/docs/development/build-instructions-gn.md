@@ -170,35 +170,35 @@ GN 문서에서 사용 가능한 [`target_os`](https://gn.googlesource.com/gn/+/
 
 ## 테스트
 
-To run the tests, you'll first need to build the test modules against the same version of Node.js that was built as part of the build process. To generate build headers for the modules to compile against, run the following under `src/` directory.
+테스트를 실행하려면 우선 빌드 과정에서 빌드된 Node.js 버전과 같은 버전을 기준으로 테스트 모듈을 빌드해야합니다. 컴파일하려는 모듈을 위한 빌드 헤더를 생성하려면 `src/` 디렉토리 안에서 다음 명령어를 실행하세요.
 
 ```sh
 $ ninja -C out/Debug third_party/electron_node:headers
-# Install the test modules with the generated headers
+# 생성된 헤더를 이용해 테스트 모듈을 설치하세요
 $ (cd electron/spec && npm i --nodedir=../../out/Debug/gen/node_headers)
 ```
 
-Then, run Electron with `electron/spec` as the argument:
+그리고 `electron/spec` 인자와 함께 Electron을 실행하세요.
 
 ```sh
-# on Mac:
+# Mac:
 $ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec
-# on Windows:
+# Windows:
 $ ./out/Debug/electron.exe electron/spec
-# on Linux:
+# 리눅스:
 $ ./out/Debug/electron electron/spec
 ```
 
-If you're debugging something, it can be helpful to pass some extra flags to the Electron binary:
+Electron 바이너리에 추가 플래그를 넘겨주면 디버깅하는데 도움이 될 것입니다:
 
 ```sh
 $ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec \
   --ci --enable-logging -g 'BrowserWindow module'
 ```
 
-## Sharing the git cache between multiple machines
+## 다른 컴퓨터와 git cache 공유하기
 
-It is possible to share the gclient git cache with other machines by exporting it as SMB share on linux, but only one process/machine can be using the cache at a time. The locks created by git-cache script will try to prevent this, but it may not work perfectly in a network.
+리눅스에서는 SMB 공유를 이용한 내보내기를 통해 gclient git cache를 다른 컴퓨터와 공유할 수 있습니다. 하지만 한 번에 한 프로세스/컴퓨터에서만 캐시를 사용할 수 있습니다. git-cache 스크립트에 의해 생성된 locks이 이러한 상황을 막기 위해 노력하겠지만, 네트워크 환경에서는 완벽하게 동작하지는 않을 수 있습니다.
 
 On Windows, SMBv2 has a directory cache that will cause problems with the git cache script, so it is necessary to disable it by setting the registry key
 
