@@ -113,7 +113,7 @@ const mainWindow = new BrowserWindow({
   webPreferences: {
     nodeIntegration: false,
     nodeIntegrationInWorker: false,
-    preload: './preload.js'
+    preload: path.join(app.getAppPath(), 'preload.js')
   }
 })
 
@@ -164,7 +164,7 @@ At the same time, preload scripts still have access to the `document` and `windo
 const mainWindow = new BrowserWindow({
   webPreferences: {
     contextIsolation: true,
-    preload: 'preload.js'
+    preload: path.join(app.getAppPath(), 'preload.js')
   }
 })
 ```
