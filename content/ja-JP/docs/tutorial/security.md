@@ -108,7 +108,7 @@ mainWindow.loadURL('https://example.com')
 ```
 
 ```js
-// Good
+// OK
 const mainWindow = new BrowserWindow({
   webPreferences: {
     nodeIntegration: false,
@@ -160,7 +160,7 @@ Electron は Chromium の [コンテンツスクリプト](https://developer.chr
 ### どうすればいいの？
 
 ```js
-// Main process
+// メインプロセス
 const mainWindow = new BrowserWindow({
   webPreferences: {
     contextIsolation: true,
