@@ -46,7 +46,7 @@
   * [Devtron](tutorial/accessibility.md#devtron)
   * [Разрешаване на достъпността](tutorial/accessibility.md#enabling-accessibility)
 * [Testing and Debugging](tutorial/application-debugging.md) 
-  * [Намиране на грешки в главния процес](tutorial/debugging-main-process.md)
+  * [Отстраняване на грешк](tutorial/debugging-main-process.md)
   * [Работа със Selenium и Web Driver](tutorial/using-selenium-and-webdriver.md)
   * [Тестване и употреба на Системи за непрекъсната интеграция (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [Разширения за работа с инструменти за писане на програмен код](tutorial/devtools-extension.md)
