@@ -18,19 +18,18 @@ Para qualquer problema, existem fundamentalmente três maneiras que alguém pode
 
 ## Perguntas Sobre de Ajuda Geral
 
-["Finding Support"](../tutorial/support.md#finding-support) has a list of resources for getting programming help, reporting security issues, contributing, and more. Please use the issue tracker for bugs only!
+["Encontrando Suporte"](../tutorial/support.md#finding-support) tem uma lista com informações para obter ajuda de programação, reportar problemas de segurança, contribuir e mais. Por favor, utilize o rastreador de problemas apenas para bugs!
 
 ## Enviando um Relatório de Erro
 
-When opening a new issue in the `electron/electron` issue tracker, users will be presented with a template that should be filled in.
+Quanto forem abrir um novo problema no rastreador de problemas do `electron/electron`, será apresentado aos usuários um modelo que deve ser preenchido.
 
 ```markdown
 <!--
-Thanks for opening an issue! A few things to keep in mind:
+Obrigado por abrir um problema! Algumas coisas para levar em consideração:
 
-- The issue tracker is only for bugs and feature requests.
-- Before reporting a bug, please try reproducing your issue against
-  the latest version of Electron.
+- O rastreador de problemas é apenas para bugs e requisição de novas funcionalidades.
+- Antes de reportar um bug, por favor, tente reproduzir o problema com a versão mais recente do Electron.
 - If you need general advice, join our Slack: http://atom-slack.herokuapp.com
 -->
 
