@@ -486,7 +486,7 @@ You can request the following paths by the name:
 
 * `path` String
 * `options` Object (optional) 
-  * `size` String 
+  * `size` نصوص 
     * `small` - 16x16
     * `normal` - 32x32
     * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
