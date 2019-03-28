@@ -108,8 +108,8 @@ get_started:
 explore:
   title: Explore as APIs do Electron
   description: "O <a href='https://github.com/electron/electron-api-demos'>app de demos da API Electron</a> demonstra de forma interativa os recursos mais importantes da API do Electron. Veja o que é possível fazer com o Electron em exemplos de código e dicas úteis para a construção de seu aplicativo."
-  fiddle_title: Try more powerful experiments with Electron Fiddle
-  see_more_info: See more info
+  fiddle_title: Obtenha experiências mais poderosas com Electron Fiddle
+  see_more_info: Ver mais informações
 download_from_github: Baixar no GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Ver todas as versões</a> no GitHub
 quick_start:
