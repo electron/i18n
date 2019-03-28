@@ -113,7 +113,7 @@ const mainWindow = new BrowserWindow({
   webPreferences: {
     nodeIntegration: false,
     nodeIntegrationInWorker: false,
-    preload: './preload.js'
+    preload: path.join(app.getAppPath(), 'preload.js')
   }
 })
 
@@ -164,7 +164,7 @@ Al mismo tiempo, los guiones pre cargados todavía tienen acceso al `documento` 
 const mainWindow = new BrowserWindow({
   webPreferences: {
     contextIsolation: true,
-    preload: 'preload.js'
+    preload: path.join(app.getAppPath(), 'preload.js')
   }
 })
 ```
