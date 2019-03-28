@@ -1,6 +1,6 @@
-# dialog
+# diyalog
 
-> Dosyaları açma ve kaydetme, uyarı yapma, vb. için yerel sistem diyaloglarını görüntüle.
+> Dosyaları açma ve kaydetme, uyarı verme, vb için yerel sistem diyaloglarını görüntüleme.
 
 İşlem: [Ana](../glossary.md#main-process)
 
