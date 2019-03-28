@@ -158,13 +158,13 @@ ninja -C out/Release electron:electron_dist_zip
 
 ### 크로스-컴파일
 
-To compile for a platform that isn't the same as the one you're building on, set the `target_cpu` and `target_os` GN arguments. For example, to compile an x86 target from an x64 host, specify `target_cpu = "x86"` in `gn args`.
+현재 빌드 작업을 하고 있는 플랫폼 환경과 동일하지 않은 플랫폼을 대상으로 컴파일하려면, `target_cpu` 및 `target_os` 를 GN 인자에서 설정하세요 예를 들어, x64 시스템 환경에서 x86을 대상으로 컴파일하는 경우, `gn args`에서 `target_cpu = "x86"`으로 설정하세요.
 
 ```sh
 $ gn gen out/Debug-x86 --args='... target_cpu = "x86"'
 ```
 
-Not all combinations of source and target CPU/OS are supported by Chromium. Only cross-compiling Windows 32-bit from Windows 64-bit and Linux 32-bit from Linux 64-bit have been tested in Electron. If you test other combinations and find them to work, please update this document :)
+Chromium에서 모든 종류의 소스 및 타겟 CPU/OS 조합을 지원하지는 않습니다. Electron에서는 Windows 64-비트에서 Windows 32-비트, 리눅스 64-비트에서 리북스 32-비트에 대한 크로스-컴파일만 테스트되었습니다. 다른 조합을 테스트해보시고 잘 동작한다면, 이 문서를 업데이트 해주시길 바랍니다.
 
 See the GN reference for allowable values of [`target_os`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values) and [`target_cpu`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values)
 
