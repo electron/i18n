@@ -114,7 +114,7 @@
 * [BrowserView](api/browser-view.md)
 * [BrowserWindow](api/browser-window.md)
 * [contentTracing](api/content-tracing.md)
-* [dialog](api/dialog.md)
+* [דיאלוג](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
 * [inAppPurchase](api/in-app-purchase.md)
 * [ipcMain](api/ipc-main.md)
