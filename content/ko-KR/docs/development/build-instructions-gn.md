@@ -200,20 +200,20 @@ $ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec \
 
 리눅스에서는 SMB 공유를 이용한 내보내기를 통해 gclient git cache를 다른 컴퓨터와 공유할 수 있습니다. 하지만 한 번에 한 프로세스/컴퓨터에서만 캐시를 사용할 수 있습니다. git-cache 스크립트에 의해 생성된 locks이 이러한 상황을 막기 위해 노력하겠지만, 네트워크 환경에서는 완벽하게 동작하지는 않을 수 있습니다.
 
-On Windows, SMBv2 has a directory cache that will cause problems with the git cache script, so it is necessary to disable it by setting the registry key
+Windows에서는 SMBv2 는 캐시 디렉토리를 가지고 있는데 git cache 스크립트와 문제를 일으킬 수 있습니다. 따라서, 아래의 레지스터 키를
 
 ```sh
 HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Lanmanworkstation\Parameters\DirectoryCacheLifetime
 ```
 
-to 0. More information: https://stackoverflow.com/a/9935126
+0으로 설정해 비활성화시켜야 합니다. 추가 정보는 이곳에서 확인하세요: https://stackoverflow.com/a/9935126
 
 ## 문제 해결
 
-### Stale locks in the git cache
+### git cache 안의 오래된 locks
 
-If `gclient sync` is interrupted while using the git cache, it will leave the cache locked. To remove the lock, pass the `--break_repo_locks` argument to `gclient sync`.
+git cache 이용 과정 중에 `gclient sync`가 중단되면, 캐시는 잠긴 상태(locked) 로 남을 것입니다. lock을 제거하려면, `--break_repo_locks` 인자를 `gclient sync`에 전달하시길 바랍니다.
 
-### I'm being asked for a username/password for chromium-internal.googlesource.com
+### chromium-internal.googlesource.com에 대한 사용자이름/비밀번호를 물어보는 경우
 
-If you see a prompt for `Username for 'https://chrome-internal.googlesource.com':` when running `gclient sync` on Windows, it's probably because the `DEPOT_TOOLS_WIN_TOOLCHAIN` environment variable is not set to 0. Open `Control Panel` → `System and Security` → `System` → `Advanced system settings` and add a system variable `DEPOT_TOOLS_WIN_TOOLCHAIN` with value `0`. 이렇게 하면 `depot_tools`가 로컬에 설정된 버전의 비주얼 스튜디오를 사용하게 됩니다. (기본값으로 `depot_tools`는 구글 내부에서 사용하는 비주얼 스튜디오 버전을 다운로드를 시도합니다.)
+Windows에서 `gclient sync`를 실행했을 때 `'https://chrome-internal.googlesource.com':에 대한 사용자 이름` 을 요청하는 창이 나타났다면, `DEPOT_TOOLS_WIN_TOOLCHAIN` 환경 변수를 0으로 설정하지 않았기 때문일 것입니다. `제어판`→`시스템과 보안`→`시스템`→`고급 시스템 설정`을 열고, 그 값이 `0` 인 시스템 변수 `DEPOT_TOOLS_WIN_TOOLCHAIN`을 추가합니다. 이것은 로컬에 설치된 Visual Studio 버전을 사용하라고 `depot_tools`에게 알려주는 설정입니다. (이같은 설정이 없다면, `depot_tools`는 구글 직원들만 이용할 수 있는 구글 내부 Visual Studio 버전을 다운로드할 것입니다).
