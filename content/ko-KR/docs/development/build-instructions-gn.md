@@ -166,7 +166,7 @@ $ gn gen out/Debug-x86 --args='... target_cpu = "x86"'
 
 Chromium에서 모든 종류의 소스 및 타겟 CPU/OS 조합을 지원하지는 않습니다. Electron에서는 Windows 64-비트에서 Windows 32-비트, 리눅스 64-비트에서 리북스 32-비트에 대한 크로스-컴파일만 테스트되었습니다. 다른 조합을 테스트해보시고 잘 동작한다면, 이 문서를 업데이트 해주시길 바랍니다.
 
-See the GN reference for allowable values of [`target_os`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values) and [`target_cpu`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values)
+GN 문서에서 사용 가능한 [`target_os`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_os_the-desired-operating-system-for-the-build-possible-values) 및 [`target_cpu`](https://gn.googlesource.com/gn/+/master/docs/reference.md#built_in-predefined-variables-target_cpu_the-desired-cpu-architecture-for-the-build-possible-values) 값을 확인하실 수 있습니다.
 
 ## 테스트
 
