@@ -73,7 +73,7 @@ spawn(process.execPath, args, {
 
 Returns [`CrashReport`](structures/crash-report.md):
 
-Returns the date and ID of the last crash report. Only crash reports that have been uploaded will be returned; even if a crash report is present on disk it will not be returned until it is uploaded. In the case that there are no uploaded reports, `null` is returned.
+Retorna a data e ID do último relatório de falha. Apenas relatórios de falha que foram enviados serão retornados; mesmo que um relatório de falha esteja presente no disco, ele não será retornado até que seja enviado. No caso de não existirem relatórios enviados, `null` é retornado.
 
 ### `crashReporter.getUploadedReports()`
 
