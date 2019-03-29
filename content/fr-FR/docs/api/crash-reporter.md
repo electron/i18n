@@ -73,7 +73,7 @@ spawn(process.execPath, args, {
 
 Retourne [`CrashReport`](structures/crash-report.md) :
 
-Renvoi la date et l'identifiant du dernier crash. Seuls les rapports de plantages qui ont étés téléchargés seront renvoyés ; même si un rapport de plantages est présent sur le disque, il ne sera pas renvoyé avant qu'il soit téléchargé. In the case that there are no uploaded reports, `null` is returned.
+Renvoi la date et l'identifiant du dernier crash. Seuls les rapports de plantages qui ont étés téléchargés seront renvoyés ; même si un rapport de plantages est présent sur le disque, il ne sera pas renvoyé avant qu'il soit téléchargé. Dans le cas où il n'y a pas de rapports téléchargés, `null` est retourné.
 
 ### `crashReporter.getUploadedReports()`
 
