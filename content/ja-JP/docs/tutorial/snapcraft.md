@@ -52,13 +52,13 @@ npm install --save-dev electron-installer-snap
 
 ### ステップ2: `electron-installer-snap`の実行
 
-From a terminal that has `snapcraft` in its `PATH`, run `electron-installer-snap` with the only required parameter `--src`, which is the location of your packaged Electron application created in the first step.
+`snapcraft` が環境変数 `PATH` に含まれている状態で、ターミナルから `electron-installer-snap`を実行します。その際に、`--src`パラメーターで、この第一ステップで作成するElectronアプリケーションの場所を指定します。
 
 ```sh
 npx electron-installer-snap --src=out/myappname-linux-x64
 ```
 
-If you have an existing build pipeline, you can use `electron-installer-snap` programmatically. For more information, see the [Snapcraft API docs](https://docs.snapcraft.io/build-snaps/syntax).
+もし既存のビルドパイプラインがある場合は、 `electron-installer-snap`をプログラムとして利用できます。 詳しい情報については、[Snapcraft API docs](https://docs.snapcraft.io/build-snaps/syntax)を参照してください。
 
 ```js
 const snap = require('electron-installer-snap')
@@ -69,7 +69,7 @@ snap(options)
 
 ## 既存のデビアンパッケージの使用
 
-Snapcraft is capable of taking an existing `.deb` file and turning it into a `.snap` file. The creation of a snap is configured using a `snapcraft.yaml` file that describes the sources, dependencies, description, and other core building blocks.
+Snapcraft は既存の`.deb`ファイルをもとに、`.snap` ファイルに変換できます。 この場合`snapcraft.yaml`を利用してsnapを作成します。このファイルは、ソース、依存関係、説明、コアのビルドブロックを記述します。
 
 ### ステップ1: デビアンパッケージの作成
 
