@@ -20,7 +20,7 @@ snap install snapcraft --classic
 
 ## `electron-installer-snap`の使用
 
-The module works like [`electron-winstaller`](https://github.com/electron/windows-installer) and similar modules in that its scope is limited to building snap packages. 次のようにインストールできます:
+このモジュールは、[`electron-winstaller`](https://github.com/electron/windows-installer)のように動作します。またそのスコープ内の類似のモジュールは、snapパッケージのビルドに制限されます。 次のようにインストールできます:
 
 ```sh
 npm install --save-dev electron-installer-snap
