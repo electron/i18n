@@ -6,12 +6,12 @@ Chromiumベースであるため、 Electronは機能するためにディスプ
 
 最初に、[Xvfb](https://en.wikipedia.org/wiki/Xvfb)をインストールします。 これは仮想フレームバッファでありX11ディスプレイサーバープロトコルを実装しています。- またこれは全てのグラフィック操作をメモリ上で画面に表示することなく実行するので、これはまさに私たちの求めていたものです。
 
-それから、仮想 xvfbスクリーンを作成し、DISPLAY 環境変数でそれを指定します。 ElectronのChromium は自動的に`$DISPLAY`を探しますので、あなたのアプリケーションにこれ以上の設定は不要になります。 This step can be automated with Paul Betts's [xvfb-maybe](https://github.com/paulcbetts/xvfb-maybe): Prepend your test commands with `xvfb-maybe` and the little tool will automatically configure xvfb, if required by the current system. Windows や macOSでは何もしません。
+それから、仮想 xvfbスクリーンを作成し、DISPLAY 環境変数でそれを指定します。 ElectronのChromium は自動的に`$DISPLAY`を探しますので、あなたのアプリケーションにこれ以上の設定は不要になります。 このステップは、Paul Betts氏の[xvfb-maybe](https://github.com/paulcbetts/xvfb-maybe)が自動的に行えます。: あなたのテストコマンドに`xvfb-maybe`を加えて、この小さなツールは必要であれば自動的にxvfbを設定します。 Windows や macOSでは何もしません。
 
 ```sh
-## On Windows or macOS, this invokes electron-mocha
-## On Linux, if we are in a headless environment, this will be equivalent
-## to xvfb-run electron-mocha ./test/*.js
+## Windows や macOS はelectron-mochaを起動します。
+## Linuxで ヘッドレス環境の場合、これは
+## xvfb-run electron-mocha ./test/*.js と同じです。
 xvfb-maybe electron-mocha ./test/*.js
 ```
 
