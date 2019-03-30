@@ -4,16 +4,16 @@ Electronアプリケーションを更新する方法がいくつかあります
 
 ## `update.electronjs.org`の使用
 
-GitHubのElectron チームは [update.electronjs.org](https://github.com/electron/update.electronjs.org)をメンテナンスしており、これはElectronを自己更新するための、オープンソースのWEBサービスです。 The service is designed for Electron apps that meet the following criteria:
+GitHubのElectron チームは [update.electronjs.org](https://github.com/electron/update.electronjs.org)をメンテナンスしており、これはElectronを自己更新するための、オープンソースのWEBサービスです。 このサービスは次の条件を満すElectronアプリ用に設計されています。
 
-- App runs on macOS or Windows
-- App has a public GitHub repository
-- Builds are published to GitHub Releases
-- Builds are code-signed
+- macOSまたはWindowsで動作するアプリである。
+- アプリはGitHubのパブリックなリポジトリである。
+- ビルド成果物は、GitHub Releases で提供する。
+- ビルド成果物はコード署名されています。
 
 The easiest way to use this service is by installing [update-electron-app](https://github.com/electron/update-electron-app), a Node.js module preconfigured for use with update.electronjs.org.
 
-Install the module:
+モジュールのインストール
 
 ```sh
 npm install update-electron-app
