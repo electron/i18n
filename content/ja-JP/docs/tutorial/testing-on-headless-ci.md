@@ -6,7 +6,7 @@ Chromiumベースであるため、 Electronは機能するためにディスプ
 
 最初に、[Xvfb](https://en.wikipedia.org/wiki/Xvfb)をインストールします。 これは仮想フレームバッファでありX11ディスプレイサーバープロトコルを実装しています。- またこれは全てのグラフィック操作をメモリ上で画面に表示することなく実行するので、これはまさに私たちの求めていたものです。
 
-Then, create a virtual xvfb screen and export an environment variable called DISPLAY that points to it. Chromium in Electron will automatically look for `$DISPLAY`, so no further configuration of your app is required. This step can be automated with Paul Betts's [xvfb-maybe](https://github.com/paulcbetts/xvfb-maybe): Prepend your test commands with `xvfb-maybe` and the little tool will automatically configure xvfb, if required by the current system. On Windows or macOS, it will do nothing.
+それから、仮想 xvfbスクリーンを作成し、DISPLAY 環境変数でそれを指定します。 Chromium in Electron will automatically look for `$DISPLAY`, so no further configuration of your app is required. This step can be automated with Paul Betts's [xvfb-maybe](https://github.com/paulcbetts/xvfb-maybe): Prepend your test commands with `xvfb-maybe` and the little tool will automatically configure xvfb, if required by the current system. Windows や macOSでは何もしません。
 
 ```sh
 ## On Windows or macOS, this invokes electron-mocha
