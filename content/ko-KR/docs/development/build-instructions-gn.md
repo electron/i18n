@@ -130,7 +130,7 @@ $ ninja -C out/Release electron
 
 이 명령어는 이전에 'libchromiumcontent' (`chromium` 디렉토리의 `content/` 디렉토리와 WebKit 및 V8을 포함한 관련 의존성) 였던 모든 것을 빌드하는 것이기 때문에 상당한 시간이 걸릴 것입니다.
 
-반복된 빌드 작업 속도를 향상시키기 위해 [sccache](https://github.com/mozilla/sccache)를 사용할 수 있습니다. `gn args out/Debug` 명령어을 통해 에디터가 파일을 열면 제일 마지막 부분에 `cc_wrapper = "sccache"`를 입력해서 GN 인자를 추가할 수 있습니다.
+반복된 빌드 작업 속도를 향상시키기 위해 [sccache](https://github.com/mozilla/sccache)를 사용할 수 있습니다. `gn args out/Debug` 명령어를 통해 에디터가 파일을 열면 제일 마지막 부분에 `cc_wrapper = "sccache"`를 입력해서 GN 인자를 추가할 수 있습니다.
 
 실행 가능한 빌드 결과는 `./out/Debug` 디렉토리 안에 존재할 것입니다.
 
