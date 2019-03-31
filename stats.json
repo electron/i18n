@@ -16,10 +16,10 @@
     "name": "Bulgarian",
     "code": "bg",
     "phrases": "10160",
-    "translated": "2515",
+    "translated": "2516",
     "approved": "3",
     "words": "94107",
-    "words_translated": "13965",
+    "words_translated": "13968",
     "words_approved": "6",
     "translated_progress": 14,
     "approved_progress": 0,
@@ -75,7 +75,7 @@
     "words_approved": "60",
     "translated_progress": 10,
     "approved_progress": 0,
-    "qa_issues": 808
+    "qa_issues": 809
   },
   {
     "name": "Filipino",
@@ -172,14 +172,14 @@
     "name": "Japanese",
     "code": "ja",
     "phrases": "10160",
-    "translated": "9932",
+    "translated": "9955",
     "approved": "290",
     "words": "94107",
-    "words_translated": "90539",
+    "words_translated": "90879",
     "words_approved": "1619",
     "translated_progress": 96,
     "approved_progress": 1,
-    "qa_issues": 315
+    "qa_issues": 316
   },
   {
     "name": "Korean",
@@ -309,7 +309,7 @@
     "words_approved": "1",
     "translated_progress": 69,
     "approved_progress": 0,
-    "qa_issues": 3680
+    "qa_issues": 3681
   },
   {
     "name": "Ukrainian",
