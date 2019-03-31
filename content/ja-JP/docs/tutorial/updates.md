@@ -11,7 +11,7 @@ GitHubのElectron チームは [update.electronjs.org](https://github.com/electr
 - ビルド成果物は、GitHub Releases で提供する。
 - ビルド成果物はコード署名されています。
 
-The easiest way to use this service is by installing [update-electron-app](https://github.com/electron/update-electron-app), a Node.js module preconfigured for use with update.electronjs.org.
+このサービスを使う最も簡単な方法は[update-electron-app](https://github.com/electron/update-electron-app)をインストールすることで、update.electronjs.orgをつかって、事前調整されたNode.js モジュールを使う方法です。
 
 モジュールのインストール
 
@@ -19,7 +19,7 @@ The easiest way to use this service is by installing [update-electron-app](https
 npm install update-electron-app
 ```
 
-Invoke the updater from your app's main process file:
+あなたのmain processファイルからこのupdaterを起動します。
 
 ```js
 require('update-electron-app')()
