@@ -1,4 +1,4 @@
-# Technical Differences Between Electron and NW.js (formerly node-webkit)
+# Технические различия между Electron и NW.js (прежний node-webkit)
 
 **Note: Electron was previously named Atom Shell.**
 
