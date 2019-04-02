@@ -1,5 +1,17 @@
 # Distribution de l'Application
 
+To distribute your app with Electron, you need to package and rebrand it. The easiest way to do this is to use one of the following third party packaging tools:
+
+* [electron-forge](https://github.com/electron-userland/electron-forge)
+* [electron-builder](https://github.com/electron-userland/electron-builder)
+* [electron-packager](https://github.com/electron-userland/electron-packager)
+
+These tools will take care of all the steps you need to take to end up with a distributable Electron applications, such as packaging your application, rebranding the executable, setting the right icons and optionally creating installers.
+
+## Manual distribution
+
+You can also choose to manually get your app ready for distribution. The steps needed to do this are outlined below.
+
 Pour distribuer votre application avec Electron, vous devez télécharger les [binaires précompilés](https://github.com/electron/electron/releases) d'Electron. Ensuite, le dossier qui contient votre application devrait être nommé `app` et placé dans le répertoire de ressources d'Electron, comme illustré dans les exemples suivants. Notez que l’emplacement des binaires précompilés d'Electron est indiquée par `electron/` dans les exemples ci-dessous.
 
 Sur macOS :
@@ -79,21 +91,13 @@ MyApp.app/Contents
 
 Vous pouvez renommer l'exécutable `electron` par ce que vous voulez.
 
-## Outils d’empaquetage
-
-Au lieu d'empaqueter votre application manuellement, vous pouvez également choisir d'utiliser des outils d'empaquetage pour faire le boulot automatiquement :
-
-* [electron-forge](https://github.com/electron-userland/electron-forge)
-* [electron-builder](https://github.com/electron-userland/electron-builder)
-* [electron-packager](https://github.com/electron-userland/electron-packager)
-
 ## Renommer en recompilant Electron à partir du code source
 
 Il est aussi possible de renommer Electron par le nom du produit et le compiler depuis le code source. Pour faire cela, vous devez définir les arguments de compilation correspondant au nom du produit (`electron_product_name = "LeNomDeVotreProduit"`) dans le fichier `args.gn` et recompiler.
 
 ### Créer un fork personnalisé d'Electron
 
-Créer un fork personnalisé d'Electron n'est certainement quelque chose que vous devez faire pour compiler votre application, même pour les applications au "Niveau de Production". Utiliser un outil tel que `electron-packager` ou `electron-builder` va vous permettre de "Rebaptiser" Electron sans avoir à faire ces étapes.
+Créer un fork personnalisé d'Electron n'est certainement pas quelque chose que vous devriez faire pour compiler votre application, même pour les applications en "production". Utiliser un outil tel que `electron-packager` ou `electron-builder` va vous permettre de "Rebaptiser" Electron sans avoir à faire ces étapes.
 
 Vous aurez besoin de forker Electron quand vous avez du code C++ à intégrer directement dans Electron, qui ne peux pas être upstreamed ou qui a été rejeté de la version officiel. En tant que mainteneurs d'Electron, nous sommes beaucoup à vouloir voir votre travail fonctionner, alors essayez du mieux que vous pouvez pour voir vos modifications dans la version officiel d'Electron. Cela sera plus simple pour vous et nous apprécierons votre aide.
 
