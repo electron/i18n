@@ -1,5 +1,17 @@
 # Distribusi Aplikasi
 
+To distribute your app with Electron, you need to package and rebrand it. The easiest way to do this is to use one of the following third party packaging tools:
+
+* [elektron-penempa](https://github.com/electron-userland/electron-forge)
+* [electron-builder](https://github.com/electron-userland/electron-builder)
+* [electron-packager](https://github.com/electron-userland/electron-packager)
+
+These tools will take care of all the steps you need to take to end up with a distributable Electron applications, such as packaging your application, rebranding the executable, setting the right icons and optionally creating installers.
+
+## Manual distribution
+
+You can also choose to manually get your app ready for distribution. The steps needed to do this are outlined below.
+
 Untuk mendistribusikan aplikasi Anda dengan electron, Anda perlu mengunduh electron[prebuilt binari](https://github.com/electron/electron/releases). Selanjutnya, folder yang berisi aplikasi anda harus diberi nama `app` dan ditempatkan di direktori sumber daya electron seperti yang ditampilkan dalam contoh berikut. Perhatikan bahwa lokasi binari prebuilt elektron yang ditunjukan dengan `electron /` dalam contoh berikut.
 
 Pada macOS:
@@ -78,14 +90,6 @@ MyApp.app/Contents
 ### Linux
 
 Anda dapat mengubah executable `electron` ke nama apapun yang anda suka.
-
-## Alat Pengemas
-
-Selain Kemasan aplikasi anda secara manual, Anda juga dapat memilih untuk menggunakan alat pengemas pihak ketiga untuk melakukan pekerjaan untuk anda:
-
-* [electron-forge](https://github.com/electron-userland/electron-forge)
-* [electron-builder](https://github.com/electron-userland/electron-builder)
-* [electron-packager](https://github.com/electron-userland/electron-packager)
 
 ## Rebranding dengan membangun kembali elektron dari sumber
 
