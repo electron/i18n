@@ -37,7 +37,7 @@ If an application has exceptional circumstances and needs to stay on an unsuppor
 
 Following platforms are supported by Electron:
 
-### macOS
+### نظام macOS
 
 Only 64bit binaries are provided for macOS, and the minimum macOS version supported is macOS 10.10 (Yosemite).
 
