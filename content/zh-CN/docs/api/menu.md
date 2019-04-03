@@ -42,7 +42,7 @@ menu类有以下静态方法：
 
 返回 ` Menu `
 
-Generally, the `template` is an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
+一般来说 `template`是一个`options`类型的数组，用于构建一个 [MenuItem](menu-item.md)。使用情况可以在上文提及。
 
 还可以将其他字段附加到 ` template ` 的元素中, 它们将成为构造的菜单项的属性。
 
