@@ -5,7 +5,7 @@ Ikuti panduan di bawah ini untuk membangun Elektron di Linux.
 ## Prasyarat
 
 * macOS > = 10.11.6
-* [@googlechrome](https://developer.apple.com/technologies/tools/) pada Twitter
+* [Xcode](https://developer.apple.com/technologies/tools/) >= 9.0.0
 * [node.js](https://nodejs.org) untuk Linux)
 * Python 2.7 dengan dukungan untuk TLS 1.2
 
@@ -31,7 +31,7 @@ If you are using Python as provided by Homebrew, you also need to install the fo
 
 If you're developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
 
-Official Electron builds are built with [Xcode 8.3.3](http://adcdownload.apple.com/Developer_Tools/Xcode_8.3.3/Xcode_8.3.3.xip), and the MacOS 10.12 SDK. Building with a newer SDK works too, but the releases currently use the 10.12 SDK.
+Official Electron builds are built with [Xcode 9.4.1](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip), and the MacOS 10.13 SDK. Building with a newer SDK works too, but the releases currently use the 10.13 SDK.
 
 ## Building Electron
 
