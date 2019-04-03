@@ -1,4 +1,4 @@
-# Безрамочное окно
+# Безрамное окно
 
 > Откройте окно без панелей инструментов, границ или другого графического «chrome».
 
@@ -99,7 +99,7 @@ This makes the web page click-through when over `el`, and returns to normal outs
 
 ## Регион переноса (drag-and-drop)
 
-По-умолчанию, безрамное окно невозможно перетаскивать. Apps need to specify `-webkit-app-region: drag` in CSS to tell Electron which regions are draggable (like the OS's standard titlebar), and apps can also use `-webkit-app-region: no-drag` to exclude the non-draggable area from the draggable region. Note that only rectangular shapes are currently supported.
+По-умолчанию, безрамное окно невозможно перетаскивать. В коде приложения необходимо указать в стилях CSS `-webkit-app-region: drag`, чтобы за выделенную область было возможно переносить окно (как за заголовок стандартного окна), также можно использовать `-webkit-app-region: no-drag` для исключения непереносимой области внутри переносимой. Обратите внимание, что в настоящий момент поддерживается прямоугольная форма области.
 
 Note: `-webkit-app-region: drag` is known to have problems while the developer tools are open. See this [GitHub issue](https://github.com/electron/electron/issues/3647) for more information including a workaround.
 
