@@ -22,7 +22,7 @@
   * `enabled` Boolean (可选) - 如果为 false，该菜单项将会置灰且不可点击。
   * ` visible `Boolean (可选)-如果为 false, 该菜单项将完全隐藏。
   * ` checked `Boolean (可选)-只应为 ` checkbox ` 或 ` radio ` 类型菜单项指定。
-  * registerAccelerator Boolean (可选) - 如果为 false, accelerator 不会被系统注册, 但仍然会被显示. 默认住为 true。
+  * `registerAccelerator` Boolean (可选) - 如果为 false, accelerator 不会被系统注册, 但仍然会被显示. 默认值为 true。
   * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. If the value is not a [`Menu`](menu.md) then it will be automatically converted to one using `Menu.buildFromTemplate`.
   * ` id `String (可选)-在单个菜单中是唯一的。如果定义, 则可以通过它来引用该项。
   * `before` String[] (optional) - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
@@ -106,7 +106,7 @@ Every menu item must have either a `role`, `label`, or in the case of a separato
 
 ` checkbox ` 菜单项将在选中时切换 ` checked ` 的开关属性。
 
-`单选菜单项` 将返回单击时`checked`属性, 并将关闭同一菜单中所有相邻项的属性。
+`radio` (单选) 菜单项被点击时会打开 `checked` 属性，同时，关闭同菜单下其它项的<0>checked</0> 属性。
 
 你可以为其他行为添加`click`函数。
 
