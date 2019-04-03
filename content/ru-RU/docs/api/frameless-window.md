@@ -50,7 +50,9 @@ win.show()
 
 ## Прозрачное окно
 
-By setting the `transparent` option to `true`, you can also make the frameless window transparent:
+Установите параметр `transparent` в значение `true`.  
+Примечание: вы можете сделать это только для безрамного окна.  
+Пример:
 
 ```javascript
 const { BrowserWindow } = require('electron')
