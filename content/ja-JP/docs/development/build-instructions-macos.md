@@ -5,7 +5,7 @@ macOS 版 Electron のビルドについては、以下のガイドラインに�
 ## 必要な環境
 
 * macOS 10.11.6 以上
-* [Xcode](https://developer.apple.com/technologies/tools/) 8.2.1 以上
+* [Xcode](https://developer.apple.com/technologies/tools/) 9.0.0 以上
 * [Node.js](https://nodejs.org) (外部)
 * TLS 1.2 に対応した Python 2.7
 
@@ -31,7 +31,7 @@ Homebrew で提供される Python を使用している場合、以下の Pytho
 
 Electron を開発していて独自の Electron ビルドを再配布する予定がない場合は、このセクションを飛ばして構いません。
 
-公式の Electron ビルドは、[Xcode 8.3.3](http://adcdownload.apple.com/Developer_Tools/Xcode_8.3.3/Xcode_8.3.3.xip) と MacOS 10.12 SDK でビルドされています。 より新しい SDK でビルドして同様に動いても、現在のリリースは 10.12 SDK を使用します。
+Official Electron builds are built with [Xcode 9.4.1](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip), and the MacOS 10.13 SDK. より新しい SDK でビルドして同様に動いても、現在のリリースは 10.13 SDK を使用します。
 
 ## Electron のビルド
 
