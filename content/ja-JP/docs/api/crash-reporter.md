@@ -73,7 +73,7 @@ spawn(process.execPath, args, {
 
 戻り値 [`CrashReport`](structures/crash-report.md):
 
-Returns the date and ID of the last crash report. Only crash reports that have been uploaded will be returned; even if a crash report is present on disk it will not be returned until it is uploaded. In the case that there are no uploaded reports, `null` is returned.
+ひとつ前のクラッシュレポートのIDとその日付を返します。 アップロードされたクラッシュレポートだけを返します。例え、クラッシュレポートがディスク上に存在したとしてもそれはアップロードされるまで返しません。 アップロードされたレポートがない場合これは、`null` を返します。
 
 ### `crashReporter.getUploadedReports()`
 
