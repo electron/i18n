@@ -5,7 +5,7 @@
 ## 基本要求
 
 * macOS >= 10.11.6
-* [Xcode](https://developer.apple.com/technologies/tools/) >= 8.2.1
+* [Xcode](https://developer.apple.com/technologies/tools/) >= 9.0.0
 * [node.js](https://nodejs.org) (外部)
 * 包含TLS 1.2支持的Python2.7
 
@@ -31,8 +31,8 @@ $ brew install python@2 && brew link python@2 --force
 
 如果你已经在开发Electron项目，而且没有重新分发Electron构建文件的计划，那你可以忽略下面内容。
 
-官方的 Electron 是被 [Xcode 8.3.3](http://adcdownload.apple.com/Developer_Tools/Xcode_8.3.3/Xcode_8.3.3.xip)，和 MacOS 10.12 构建的 使用新的SDK构建也可以，但是当前的发布版用的是 10.12 SDK
+Official Electron builds are built with [Xcode 9.4.1](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip), and the MacOS 10.13 SDK. 使用新的SDK构建也可以，但是当前的发布版用的是 10.13 SDK
 
 ## 构建Electron
 
-参照[Build Instructions: GN](build-instructions-gn.md)
+参照[Build Instructions: GN](build-instructions-gn.md).
