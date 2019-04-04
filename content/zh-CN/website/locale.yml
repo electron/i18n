@@ -109,7 +109,7 @@ explore:
   title: 探索 Electron 的 API
   description: "<a href='https://github.com/electron/electron-api-demos'>Electron API 示例程序</a>采用交互式界面展示了 Electron API 最关键的功能。通过代码样例和提示发掘 Electron 的无限可能，踏上你的开发之旅。"
   fiddle_title: 借助 Electron Fiddle 深入探索
-  see_more_info: See more info
+  see_more_info: 详细了解
 download_from_github: 从 GitHub 下载
 view_all_releases_on_github: 在 GitHub 上 <a href="https://github.com/electron/electron-api-demos/releases"> 查看所有版本</a>
 quick_start:
@@ -118,7 +118,7 @@ quick_start:
   clone: 克隆示例项目的仓库
   go_into_repo: 进入这个仓库
   install_deps: 安装依赖并运行
-  dive_deeper: 或潜得更深，并阅读 <a href='/docs'> 文档</a>。
+  dive_deeper: 或开始钻研<a href='/docs'>文档</a>。
 need_help:
   title: 需要帮助？
   description: 欢迎到 <a href='https://discuss.atom.io/c/electron'>Discuss</a> 论坛或我们的 <a href='http://atom-slack.herokuapp.com/'>Slack</a>频道上提问。关注Twitter <a href="https://twitter.com/electronjs">@electronjs</a> 以接收重要的公告。想要联系我们？可以发送电子邮件到 <a href="mailto:info@electronjs.org">electron@github.com</a>。
@@ -211,7 +211,7 @@ landing:
   fiddle:
     lead_desc: 最简单的 Electron 入门方式。
     create_app: 创建您的应用程序
-    description: Electron Fiddle 让您可以创建和进行小型 Electron 实验。它会在打开后用一个快速启动模板迎接你 - 更改一些东西，选择你想要用以运行它的 Electron 版本，随意玩耍。然后，将您的 Fiddle 保存为一个 GitHub Gist 或保存到一个本地文件夹。一旦将其推送到 GitHub ，任何人都可以通过仅仅在地址栏中输入它来快速尝试您的 Fiddle 。
+    description: 你可以使用 Electron Fiddle 创建并运行小段 Electron 程序，从一个简单的模板开始，随心所欲地挥洒你的创意，选择一个 Electron 版本欣赏运行效果。最后，你可以将其下载保存，或推送 GitHub Gist 上，所有人都可以输入网址运行你的 Fiddle。
     explore: 探索 Electron
     explore_desc: "尝试使用 Electron 而不安装任何依赖项：Fiddle 包含了您探索 Electron 平台所需的一切。它还包括了 Electron 中可用的每个 API 的示例，因此，如果您想快速查看 BrowserView 是什么或者 desktopCapturer 是如何工作的， Fiddle 都已帮您搞定。"
     code_with_types: 用类型编码
