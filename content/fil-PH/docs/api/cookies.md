@@ -72,7 +72,7 @@ Sends a request to get all cookies matching `filter`, `callback` will be called 
   * `url` String - Ang url ay maiuugnay sa cookie.
   * `name` String (opsyunal) - Ang pangalan ng cookie. Walang laman ito pagdefault kung itinanggal.
   * `value` String (opsyunal) - Ang halaga ng isang cookie. Walang laman ito pagdefault kung itinanggal.
-  * `domanin` String (opsyunal) - Ang domain ng isang cookie. Walang laman ito pagdefault kung itinanggal.
+  * `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains. Empty by default if omitted.
   * `path<0> String (opsyunal) - Ang daan ng isang cookie. Walang laman ito pagdefault kung itinanggal.</li>
 <li><code>secure` Boolean (opsyunal) - Kung ang isang cookie ay dapat markado na Secure. Pagdefaults to mali.
   * `httpOnly` Boolean (opsyunal) - Kung ang isang cookie ay dapat na markado nang HTTP lang. Pagdefault ito false.
@@ -92,6 +92,6 @@ Tanggalin ang mga cookies na nagtugma sa `url` at `name`, `callback` ay tinatawa
 
 #### `cookies.flushStore(callback)`
 
-* `baliktawag` ginagawa
+* `callback` na Function
 
 Nasusulat ang anumang di-nakasulat na cookies datos para sa disk.
