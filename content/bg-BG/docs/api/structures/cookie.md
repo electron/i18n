@@ -2,8 +2,8 @@
 
 * `name` String - Име на бисквитката.
 * `value` String - Стойността на бисквитката.
-* `domain` String (по избор) - Обхвата на бисквитката.
-* `hostOnly` Boolean (по избор) - Показва дали бисквитката може да се използва само от приемника (host-only).
+* `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains.
+* `hostOnly` Boolean (optional) - Whether the cookie is a host-only cookie; this will only be `true` if no domain was passed.
 * `path` String (по избор) - Пътя на бисквитката.
 * `secure` Boolean (по избор) - Показва дали бисквитката е маркирана на сигурна.
 * `httpOnly` Boolean (по избор) - Показва дали бисквитката е маркирана само за HTTP употреба.
