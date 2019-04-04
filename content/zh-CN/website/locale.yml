@@ -107,8 +107,8 @@ get_started:
   description: 初识 Electron，可参考下列资料，了解如何使用 Electron 封装你的前端代码，调用丰富的 API，以及生成安装程序。
 explore:
   title: 探索 Electron 的 API
-  description: "<a href='https://github.com/electron/electron-api-demos'> Electron API 演示应用程序 </a> 交互演示了 Electron API 的最重要特性。看看有什么可能与 Electron 与示例代码和有用的提示，为您的应用程序的建设。"
-  fiddle_title: Try more powerful experiments with Electron Fiddle
+  description: "<a href='https://github.com/electron/electron-api-demos'>Electron API 示例程序</a>采用交互式界面展示了 Electron API 最关键的功能。通过代码样例和提示发掘 Electron 的无限可能，踏上你的开发之旅。"
+  fiddle_title: 借助 Electron Fiddle 深入探索
   see_more_info: See more info
 download_from_github: 从 GitHub 下载
 view_all_releases_on_github: 在 GitHub 上 <a href="https://github.com/electron/electron-api-demos/releases"> 查看所有版本</a>
