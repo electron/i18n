@@ -72,7 +72,7 @@ Sends a request to get all cookies matching `filter`, `callback` will be called 
   * `url` String - A url que será associada ao cookie.
   * `name` String (opcional) - O nome do cookie. Vazio por padrão caso omitido.
   * `value` String (opcional) - O valor do cookie. Vazio por padrão caso omitido.
-  * `domain` String (opcional) - O domínio do cookie. Vazio por padrão caso omitido.
+  * `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains. Empty by default if omitted.
   * `path` String (opcional) - O caminho do cookie. Vazio por padrão caso omitido.
   * `secure` Boolean (opcional) - Indica se o cookie deve ser marcado como seguro. Padrão é falso.
   * `httpOnly` Boolean (opcional) - Indica se o cookie deve ser marcado como apenas HTTP. Padrão é falso.
