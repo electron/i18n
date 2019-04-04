@@ -72,7 +72,7 @@ Envoie une demande pour obtenir tous les cookies correspondants à `filter`, `ca
   * `url` String - L'url à associer au cookie.
   * `name` String (facultatif) - Le nom du cookie. Vide par défaut si omis.
   * `value` String (facultatif) - Le contenu du cookie. Vide par défaut si omis.
-  * `domain` String (facultatif) - Le domaine du cookie. Vide par défaut si omis.
+  * `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains. Empty by default if omitted.
   * `path` String (facultatif) - Le chemin d'accès du cookie. Vide par défaut si omis.
   * `secure` Boolean (facultatif) - Si le cookie doit être marqué comme sécurisé. False par défaut.
   * `httpOnly` Boolean (facultatif) - Si le cookie doit être marqué comme HTTP uniquement. False par défaut.
