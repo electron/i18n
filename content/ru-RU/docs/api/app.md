@@ -377,9 +377,9 @@ app.on('session-created', (event, session) => {
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Emitted when `remote.getCurrentWebContents()` is called in the renderer process of `webContents`. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
+Происходит когда функция `remote.getCurrentWebContents()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
-### Event: 'remote-get-guest-web-contents'
+### Событие: 'remote-get-current-web-contents'
 
 Возвращает:
 
@@ -387,7 +387,7 @@ Emitted when `remote.getCurrentWebContents()` is called in the renderer process 
 * `webContents` [WebContents](web-contents.md)
 * `guestWebContents` [WebContents](web-contents.md)
 
-Emitted when `<webview>.getWebContents()` is called in the renderer process of `webContents`. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
+Происходит когда функция `remote.getWebContents()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
 ## Методы
 
