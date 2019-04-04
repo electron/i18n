@@ -94,9 +94,9 @@ open_source:
   description: Electron 是一个由 GitHub 及众多贡献者组成的活跃社区共同维护的开源项目。
 cross_platform:
   title: 跨平台
-  description: Electron 兼容 Mac, Windows 和 Linux， 它构建的应用可在这三个操作系统上面运行。
+  description: Electron 兼容 Mac、Windows 和 Linux，可以构建出三个平台的应用程序。
 benefits:
-  hard_parts_made_easy: 困难的部分变得更便捷
+  hard_parts_made_easy: 化繁为简
   automatic_updates: 自动更新
   native_menus_and_notifications: 原生的菜单和通知
   crash_reporting: 崩溃报告
@@ -104,7 +104,7 @@ benefits:
   windows_installers: Windows 安装程序
 get_started:
   title: 入门
-  description: 若要开始使用 Electron，请查阅下面的参考资料，了解如何使用 Electron 包装您的 web 应用程序，访问所有的 API，以及生成的安装程序。
+  description: 初识 Electron，可参考下列资料，了解如何使用 Electron 封装你的前端代码，调用丰富的 API，以及生成安装程序。
 explore:
   title: 探索 Electron 的 API
   description: "<a href='https://github.com/electron/electron-api-demos'> Electron API 演示应用程序 </a> 交互演示了 Electron API 的最重要特性。看看有什么可能与 Electron 与示例代码和有用的提示，为您的应用程序的建设。"
