@@ -72,7 +72,7 @@ Sends a request to get all cookies matching `filter`, `callback` will be called 
   * `url` Katar - Çerezin ilişkilendirileceği url.
   * `name` Katar (opsiyonel) - Çerezin ismi. Değer girilmezse boş atanır.
   * `name` Katar (opsiyonel) - Çerezin ismi. Değer girilmezse boş atanır.
-  * `name` Katar (opsiyonel) - Çerezin ismi. Değer girilmezse boş atanır.
+  * `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains. Empty by default if omitted.
   * `path` Katar (opsiyonel) - Çerezin geçerli olduğu dizin. Değer girilmezse boş atanır.
   * `secure` Katar (opsiyonel) - Çerez güvenli olarak işaretlensin mi? Varsayılan değeri False.
   * `httpOnly` Boolean (opsiyonel) - Çerez httpOnly olarak işaretlensin mi? Varsayılan değeri False.
