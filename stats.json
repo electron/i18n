@@ -29,10 +29,10 @@
     "name": "Chinese Simplified",
     "code": "zh-CN",
     "phrases": "10162",
-    "translated": "8936",
+    "translated": "8938",
     "approved": "25",
     "words": "94173",
-    "words_translated": "78062",
+    "words_translated": "78072",
     "words_approved": "137",
     "translated_progress": 82,
     "approved_progress": 0,
@@ -120,14 +120,14 @@
     "name": "Hebrew",
     "code": "he",
     "phrases": "10162",
-    "translated": "399",
+    "translated": "410",
     "approved": "0",
     "words": "94173",
-    "words_translated": "2853",
+    "words_translated": "2934",
     "words_approved": "0",
     "translated_progress": 3,
     "approved_progress": 0,
-    "qa_issues": 110
+    "qa_issues": 115
   },
   {
     "name": "Hindi",
@@ -185,14 +185,14 @@
     "name": "Korean",
     "code": "ko",
     "phrases": "10162",
-    "translated": "4918",
+    "translated": "4919",
     "approved": "484",
     "words": "94173",
-    "words_translated": "42050",
+    "words_translated": "42053",
     "words_approved": "4710",
     "translated_progress": 44,
     "approved_progress": 5,
-    "qa_issues": 2162
+    "qa_issues": 2163
   },
   {
     "name": "Persian",
@@ -224,14 +224,14 @@
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "10162",
-    "translated": "4564",
+    "translated": "4566",
     "approved": "364",
     "words": "94173",
-    "words_translated": "32744",
+    "words_translated": "32772",
     "words_approved": "2622",
     "translated_progress": 34,
     "approved_progress": 2,
-    "qa_issues": 1305
+    "qa_issues": 1306
   },
   {
     "name": "Romanian",
@@ -250,14 +250,14 @@
     "name": "Russian",
     "code": "ru",
     "phrases": "10162",
-    "translated": "5588",
+    "translated": "5592",
     "approved": "1021",
     "words": "94173",
-    "words_translated": "41160",
+    "words_translated": "41188",
     "words_approved": "7858",
     "translated_progress": 43,
     "approved_progress": 8,
-    "qa_issues": 1681
+    "qa_issues": 1683
   },
   {
     "name": "Spanish",
