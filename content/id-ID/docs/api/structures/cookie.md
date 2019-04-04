@@ -2,8 +2,8 @@
 
 * `namz` String - Nama cookie.
 * `nilai` String - Nilai cookie.
-* `domain` String (tidak wajib diisi) - Domain cookie.
-* `hanyaPenerima` Boolean (tidak wajib diisi) - Kalau cookie adalah sebuah cookie hanya-penerima.
+* `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains.
+* `hostOnly` Boolean (optional) - Whether the cookie is a host-only cookie; this will only be `true` if no domain was passed.
 * `jejak` String (tidak wajib diisi) - Jejak dari sebuah cookie.
 * `aman` Boolean (tidak wajib diisi) - Kalau cookie ditandai sebagai aman.
 * `hanyaHttp` Boolean (tidak wajib diisi) - Kalau cookie ditandai hanya sebagai HTTP.
