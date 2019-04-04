@@ -2,8 +2,8 @@
 
 * `name` String - cookie 的名称。
 * `value` String - cookie 的值。
-* `domain` String (可选) - cookie 的域名。
-* `hostOnly` Boolean (可选) - cookie 的类型是否为 host-only。
+* `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains.
+* `hostOnly` Boolean (optional) - Whether the cookie is a host-only cookie; this will only be `true` if no domain was passed.
 * `path` String (可选) - cookie 的路径。
 * `secure` Boolean (可选) - cookie 是否标记为安全。
 * `httpOnly` Boolean (可选) - cookie 是否只标记为 HTTP。
