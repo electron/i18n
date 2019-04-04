@@ -72,7 +72,7 @@ Envía una solicitud para obtener todas las cookies que coinciden con `filter`, 
   * `url` Cadena - La url para asociarla con la cookie.
   * `name` Cadena (opcional) - El nombre de la cookie. Por defecto estará vacío si se omite.
   * `value` Cadena (opcional) - El valor de la cookie. Por defecto estará vacío si se omite.
-  * `domain` Cadena (opcional) - El dominio de la cookie. Por defecto estará vacío si se omite.
+  * `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains. Empty by default if omitted.
   * `path` Cadena (opcional) - La ruta de la cookie. Por defecto estará vacío si se omite.
   * `secure` Booleano (opcional) - Si la cookie debe ser marcada como Secure. Por defecto es false.
   * `httpOnly` Booleano (opcional) - Si la cookie debe ser marcada como HTTP solamente. Por defecto es false.
