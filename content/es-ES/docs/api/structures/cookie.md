@@ -2,8 +2,8 @@
 
 * `name` String - Nombre del cookie.
 * `value` String - El valor del cookie.
-* `domain` String (opcional) - El dominio del cookie.
-* `hostOnly` Boolean (opcional) - Si la cookie es una cookie host-only.
+* `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains.
+* `hostOnly` Boolean (optional) - Whether the cookie is a host-only cookie; this will only be `true` if no domain was passed.
 * `path` String (opcional) - La ruta de la cookie.
 * `secure` Boolean (opcional) - Si la cookie esta marcada como segura.
 * `httpOnly` Boolean (opcional) - Si la cookie esta marcada como solo HTTP.
