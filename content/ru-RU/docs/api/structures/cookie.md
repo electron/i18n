@@ -2,8 +2,8 @@
 
 * `name` String - название cookie.
 * `value` String - значение cookie.
-* `domain` String (опиционально) - домен cookie.
-* `hostOnly` Boolean (опиционально) - является ли cookie только host-only.
+* `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains.
+* `hostOnly` Boolean (optional) - Whether the cookie is a host-only cookie; this will only be `true` if no domain was passed.
 * `path` String (опиционально) - путь к cookie.
 * `secure` Boolean (опиционально) - помечена ли cookie как безопасная.
 * `httpOnly` Boolean (опиционально) - помечена ли cookie как http-only.
