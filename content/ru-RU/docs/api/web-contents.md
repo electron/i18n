@@ -623,7 +623,7 @@ Emitted when `remote.getCurrentWindow()` is called in the renderer process. Вы
 
 Emitted when `remote.getCurrentWebContents()` is called in the renderer process. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
-#### Event: 'remote-get-guest-web-contents'
+#### Событие: 'remote-get-current-web-contents'
 
 Возвращает:
 
