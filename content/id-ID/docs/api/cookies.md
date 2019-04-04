@@ -70,7 +70,7 @@ Peristiwa berikut tersedia pada contoh ` Cookies </ 0> :</p>
       * `url`String - Url untuk mengaitkan cookie dengan.
       * `nama` String (opsional) - Nama cookie. Kosongkan secara default jika dihilangkan.
       * `value ` String (opsional) - Nilai cookie. Kosongkan secara default jika dihilangkan.
-      * `domain`String (opsional) - Domain cookie. Kosongkan secara default jika dihilangkan.
+      * `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains. Empty by default if omitted.
       * ` path </ 0> String (opsional) - Jalur cookie. Kosongkan secara default jika dihilangkan.</li>
 <li><code> aman </ 0>  Boolean (opsional) - Apakah cookie harus ditandai sebagai Secure. Default ke false</li>
 <li><code> httpOnly </ 0>  Boolean (opsional) - Apakah kuki tersebut hanya ditandai sebagai HTTP saja. Default ke false</li>
