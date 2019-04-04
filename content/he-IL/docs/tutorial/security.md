@@ -108,7 +108,7 @@ mainWindow.loadURL('https://example.com')
 ```
 
 ```js
-// Good
+// טוב
 const mainWindow = new BrowserWindow({
   webPreferences: {
     nodeIntegration: false,
@@ -160,7 +160,7 @@ At the same time, preload scripts still have access to the `document` and `windo
 ### How?
 
 ```js
-// Main process
+// תהליך ראשי
 const mainWindow = new BrowserWindow({
   webPreferences: {
     contextIsolation: true,
