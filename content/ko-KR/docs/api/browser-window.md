@@ -95,7 +95,7 @@ child.once('ready-to-show', () => {
 * 모든 플랫폼에서, 표시 상태는 윈도우가 숨김처리, 최소화되거나 그렇지 않은 경우를 나타낸다.
 * 추가적으로 macOS에서는, 윈도우의 occlusion 상태도 나타냅니다. 윈도우가 다른 윈도우에 의해 occluded (예: fully covered)됐을 시, 표시 상태는 `hidden`이 됩니다. 다른 플랫폼에서는 윈도우가 최소화 혹은 `win.hide()`에 의해 명시적으로 숨김처리 됐을 때만, 숨김 상태가 `hidden`이 됩니다.
 * `BrowserWindow`가 `show:false` 옵션과 함께 생성된 경우 실제로는 숨김처리됐음에도 불구하고, 표시 상태는 `visible`이 됩니다.
-* If `backgroundThrottling` is disabled, the visibility state will remain `visible` even if the window is minimized, occluded, or hidden.
+* `backgroundThrottling`이 비활성화 상태이면, 윈도우가 최소화, occluded, 혹은 숨김처리 되더라도 표시 상태는 `visible`인 상태로 남아있습니다.
 
 It is recommended that you pause expensive operations when the visibility state is `hidden` in order to minimize power consumption.
 
