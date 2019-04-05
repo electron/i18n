@@ -47,7 +47,7 @@ win.once('ready-to-show', () => {
 
 ### `backgroundColor` 설정
 
-For a complex app, the `ready-to-show` event could be emitted too late, making the app feel slow. In this case, it is recommended to show the window immediately, and use a `backgroundColor` close to your app's background:
+복잡한 app에서는 `ready-to-show` 이벤트가 너무 늦게 발생해서, 앱이 느린 것처럼 보일 수 있다. 이런 경우, 윈도우를 즉시 보여주고 `backgroundColor`를 background에서 종료(close)하도록 사용하는 방식이 권장된다.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -61,7 +61,7 @@ win.loadURL('https://github.com')
 
 ## Parent and child windows
 
-By using `parent` option, you can create child windows:
+`parent` 옵션을 사용하여, 자식 윈도우(child windows)를 생성할 수 있다:
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -72,11 +72,11 @@ child.show()
 top.show()
 ```
 
-The `child` window will always show on top of the `top` window.
+`자식` 윈도우는 항상 `top` 윈도우의 위에 표시된다.
 
 ### Modal windows
 
-A modal window is a child window that disables parent window, to create a modal window, you have to set both `parent` and `modal` options:
+modal 윈도우는 비활성화 가능한 부모 윈도우의 자식 윈도우이다. modal 윈도우를 생성하기 위해서는, `parent`와 `modal`옵션을 모두 사용해야 한다. :
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -90,9 +90,9 @@ child.once('ready-to-show', () => {
 
 ### Page visibility
 
-The [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API) works as follows:
+[Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API)의 동작방식은 다음과 같다. :
 
-* On all platforms, the visibility state tracks whether the window is hidden/minimized or not.
+* 모든 플랫폼에서, 표시 상태는 윈도우가 숨김처리, 최소화되거나 반대의 상태를 추적한다.
 * Additionally, on macOS, the visibility state also tracks the window occlusion state. If the window is occluded (i.e. fully covered) by another window, the visibility state will be `hidden`. On other platforms, the visibility state will be `hidden` only when the window is minimized or explicitly hidden with `win.hide()`.
 * If a `BrowserWindow` is created with `show: false`, the initial visibility state will be `visible` despite the window actually being hidden.
 * If `backgroundThrottling` is disabled, the visibility state will remain `visible` even if the window is minimized, occluded, or hidden.
