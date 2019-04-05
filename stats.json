@@ -68,14 +68,14 @@
     "name": "Dutch",
     "code": "nl",
     "phrases": "10162",
-    "translated": "2786",
+    "translated": "2787",
     "approved": "3",
     "words": "94213",
-    "words_translated": "10204",
+    "words_translated": "10211",
     "words_approved": "60",
     "translated_progress": 10,
     "approved_progress": 0,
-    "qa_issues": 808
+    "qa_issues": 809
   },
   {
     "name": "Filipino",
@@ -185,27 +185,27 @@
     "name": "Korean",
     "code": "ko",
     "phrases": "10162",
-    "translated": "4919",
+    "translated": "4972",
     "approved": "484",
     "words": "94213",
-    "words_translated": "42039",
+    "words_translated": "42728",
     "words_approved": "4710",
-    "translated_progress": 44,
+    "translated_progress": 45,
     "approved_progress": 4,
-    "qa_issues": 2162
+    "qa_issues": 2205
   },
   {
     "name": "Persian",
     "code": "fa",
     "phrases": "10162",
-    "translated": "1026",
+    "translated": "1046",
     "approved": "29",
     "words": "94213",
-    "words_translated": "4373",
+    "words_translated": "4543",
     "words_approved": "53",
     "translated_progress": 4,
     "approved_progress": 0,
-    "qa_issues": 39
+    "qa_issues": 42
   },
   {
     "name": "Polish",
@@ -224,14 +224,14 @@
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "10162",
-    "translated": "4563",
+    "translated": "4566",
     "approved": "364",
     "words": "94213",
-    "words_translated": "32741",
+    "words_translated": "32812",
     "words_approved": "2622",
     "translated_progress": 34,
     "approved_progress": 2,
-    "qa_issues": 1305
+    "qa_issues": 1306
   },
   {
     "name": "Romanian",
