@@ -92,9 +92,9 @@ child.once('ready-to-show', () => {
 
 [Page Visibility API](https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API)의 동작방식은 다음과 같다. :
 
-* 모든 플랫폼에서, 표시 상태는 윈도우가 숨김처리, 최소화되거나 반대의 상태를 추적한다.
-* Additionally, on macOS, the visibility state also tracks the window occlusion state. If the window is occluded (i.e. fully covered) by another window, the visibility state will be `hidden`. On other platforms, the visibility state will be `hidden` only when the window is minimized or explicitly hidden with `win.hide()`.
-* If a `BrowserWindow` is created with `show: false`, the initial visibility state will be `visible` despite the window actually being hidden.
+* 모든 플랫폼에서, 표시 상태는 윈도우가 숨김처리, 최소화되거나 그렇지 않은 경우를 나타낸다.
+* 추가적으로 macOS에서는, 윈도우의 occlusion 상태도 나타냅니다. 윈도우가 다른 윈도우에 의해 occluded (예: fully covered)됐을 시, 표시 상태는 `hidden`이 됩니다. 다른 플랫폼에서는 윈도우가 최소화 혹은 `win.hide()`에 의해 명시적으로 숨김처리 됐을 때만, 숨김 상태가 `hidden`이 됩니다.
+* `BrowserWindow`가 `show:false` 옵션과 함께 생성된 경우 실제로는 숨김처리됐음에도 불구하고, 표시 상태는 `visible`이 됩니다.
 * If `backgroundThrottling` is disabled, the visibility state will remain `visible` even if the window is minimized, occluded, or hidden.
 
 It is recommended that you pause expensive operations when the visibility state is `hidden` in order to minimize power consumption.
