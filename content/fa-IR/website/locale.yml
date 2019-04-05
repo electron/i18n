@@ -264,7 +264,7 @@ governance:
     title: وظایف شغلی
     listdescription: "All Working Groups have these core responsibilities:"
     list:
-      - They shall decide for themselves, and publicly post, their rules, e.g. how decisions are made, when meetings are held, and who may attend.
+      - 'از آنها انتظار می رود که ،خودشان برای خودشان تصمیم بگیرند،و قوانین مد نظرشان را ارسال کنند،برای مثال اینکه : تصمیمات چگونه گرفته شوند،یا جلسه ها چه زمانی برگزار شوند و اینکه چه کسانی شرکت کنند.'
       - 'They shall <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Terms-and-Selection">select</a> a chair to <a href=''https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Responsibilities''>represent</a> the group.'
       - They shall keep meeting notes, including agenda items, discussion points, and outcomes for everyone to review.
       - 'They shall be collaborative and work <a href="https://github.com/electron/governance/tree/master/charter/README.md#Core-Values">in good faith</a> with other Working Groups.'
