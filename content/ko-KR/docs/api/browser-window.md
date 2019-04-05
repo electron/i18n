@@ -43,7 +43,7 @@ win.once('ready-to-show', () => {
 })
 ```
 
-This event is usually emitted after the `did-finish-load` event, but for pages with many remote resources, it may be emitted before the `did-finish-load` event.
+이 이벤트는 보통 `did-finish-load` 이벤트 뒤에 발생하지만, remote resources가 많은 페이지에서는 `did-finish-load` 이벤트 전에 발생할 수 있다.
 
 ### `backgroundColor` 설정
 
@@ -57,7 +57,7 @@ win.loadURL('https://github.com')
 
 ```
 
-Note that even for apps that use `ready-to-show` event, it is still recommended to set `backgroundColor` to make app feel more native.
+앱이 `ready-to-show`이벤트를 사용하고 있더라도, 여전히 app이 native에 가깝게 보이도록 하기 위해서 `backgroundColor`을 설정하기를 권장한다.
 
 ## Parent and child windows
 
