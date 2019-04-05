@@ -97,14 +97,14 @@ child.once('ready-to-show', () => {
 * `BrowserWindow`가 `show:false` 옵션과 함께 생성된 경우 실제로는 숨김처리됐음에도 불구하고, 표시 상태는 `visible`이 됩니다.
 * `backgroundThrottling`이 비활성화 상태이면, 윈도우가 최소화, occluded, 혹은 숨김처리 되더라도 표시 상태는 `visible`인 상태로 남아있습니다.
 
-It is recommended that you pause expensive operations when the visibility state is `hidden` in order to minimize power consumption.
+소비 전력을 최소화하기 위해서 표시 상태가`hidden`상태일 때, 비용이 큰 동작은 멈추는 게 권장된다.
 
 ### 플랫폼별 참고 사항
 
-* On macOS modal windows will be displayed as sheets attached to the parent window.
-* On macOS the child windows will keep the relative position to parent window when parent window moves, while on Windows and Linux child windows will not move.
-* On Windows it is not supported to change parent window dynamically.
-* On Linux the type of modal windows will be changed to `dialog`.
+* MacOS의 modal 윈도우는 부모 윈도우에 붙은 시트처럼 표시된다.
+* MacOS에서 부모 윈도우가 움직일 때, 자식 윈도우는 부모 윈도우의 상대적 위치를 유지한다. 반면 Windows와 Linux에서 자식 윈도우는 움직이지 않는다.
+* Windows에서는 부모 윈도우를 동적으로 변경할 수 없다.
+* Linux에서는 modal 윈도우의 type이 `dialog`로 변경된다.
 * On Linux many desktop environments do not support hiding a modal window.
 
 ## Class: BrowserWindow
