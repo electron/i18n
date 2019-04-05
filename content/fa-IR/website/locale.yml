@@ -6,14 +6,14 @@ nav:
   security: امنیت
   community: جامعه
   contact: تماس با ما
-  docs: مستندات
-  donors: یاری‌گران مالی
+  docs: مقالات
+  donors: حامیان مالی
   languages: زبان‌ ها
   license: پروانه
   releases: نسخه‌ها
   search: جستجو
   userland: فضای کاربری
-  governance: بهبود و توسعه 
+  governance: مدیریت
 keyboard_modal:
   title: میانبرهای صفحه کلید
   key: کلید
@@ -21,7 +21,7 @@ keyboard_modal:
   focus_search: فوکوس روی نوار جستجو
   focus_and_clear: خالی کردن و فوکوس روی نوار جستجو
   scroll_down: انتخاب نتیجه بعدی جستجو
-  scroll_up: انتخاب نتیجه قبلی جستجو
+  scroll_up: ' نتیجه قبلی جستجو'
   open: باز کردن ایتم انتخاب شده جستجو
   open_new_tab: باز کردن ایتم انتخاب شده جستجو در زبانه جدید
 docs:
@@ -109,7 +109,7 @@ explore:
   title: API های الکترون را کاوش کنید
   description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
   fiddle_title: Try more powerful experiments with Electron Fiddle
-  see_more_info: See more info
+  see_more_info: اطلاعات بیشتر
 download_from_github: دانلود از گیت‌هاب
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">مشاهده تمام نسخه‌ها</a> در گیت‌هاب
 quick_start:
@@ -262,7 +262,7 @@ governance:
       - 'A <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership">chair</a> leads a working group.'
   responsibilities:
     title: وظایف شغلی
-    listdescription: "All Working Groups have these core responsibilities:"
+    listdescription: "همه ی گروه های کاری این وظایف اصلی را بر عهده دارند:"
     list:
       - 'از آنها انتظار می رود که ،خودشان برای خودشان تصمیم بگیرند،و قوانین مد نظرشان را ارسال کنند،برای مثال اینکه : تصمیمات چگونه گرفته شوند،یا جلسه ها چه زمانی برگزار شوند و اینکه چه کسانی شرکت کنند.'
       - 'They shall <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Terms-and-Selection">select</a> a chair to <a href=''https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Responsibilities''>represent</a> the group.'
