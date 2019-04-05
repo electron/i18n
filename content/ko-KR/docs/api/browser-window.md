@@ -134,7 +134,7 @@ child.once('ready-to-show', () => {
   * `movable` Boolean (선택) - 윈도우를 움직일 수 있는지 여부를 지정한다. Linux에는 아직 구현되어있지 않다. 기본값은 `true`이다.
   * `minimizable` Boolean (선택) - 윈도우를 최소화할 수 있는지 여부를 지정한다. Linux에는 아직 구현되어있지 않다. 기본값은 `true`이다.
   * `maximizable` Boolean (선택) - 윈도우를 최대화할 수 있는지 여부를 지정한다. Linux에는 아직 구현되어있지 않다. 기본값은 `true`이다.
-  * `closable` Boolean (optional) - Whether window is closable. This is not implemented on Linux. Default is `true`.
+  * `closable` Boolean (선택) - 윈도우를 닫을 수 있는지 여부를 지정한다. Linux에는 아직 구현되어있지 않다. 기본값은 `true`이다.
   * `focusable` Boolean (optional) - Whether the window can be focused. Default is `true`. On Windows setting `focusable: false` also implies setting `skipTaskbar: true`. On Linux setting `focusable: false` makes the window stop interacting with wm, so the window will always stay on top in all workspaces.
   * `alwaysOnTop` Boolean (optional) - Whether the window should always stay on top of other windows. Default is `false`.
   * `fullscreen` Boolean (optional) - Whether the window should show in fullscreen. When explicitly set to `false` the fullscreen button will be hidden or disabled on macOS. 기본값은 `false`이다.
