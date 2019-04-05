@@ -105,7 +105,7 @@ child.once('ready-to-show', () => {
 * MacOS에서 부모 윈도우가 움직일 때, 자식 윈도우는 부모 윈도우의 상대적 위치를 유지한다. 반면 Windows와 Linux에서 자식 윈도우는 움직이지 않는다.
 * Windows에서는 부모 윈도우를 동적으로 변경할 수 없다.
 * Linux에서는 modal 윈도우의 type이 `dialog`로 변경된다.
-* On Linux many desktop environments do not support hiding a modal window.
+* 많은 Linux 데스크톱 환경에서, modal 윈도우의 숨김처리가 지원되지 않는다.
 
 ## Class: BrowserWindow
 
@@ -113,17 +113,17 @@ child.once('ready-to-show', () => {
 
 프로세스:[Main](../glossary.md#main-process)
 
-`BrowserWindow` is an [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
+`BrowserWindow`는 [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter)이다.
 
-It creates a new `BrowserWindow` with native properties as set by the `options`.
+`BrowserWindow`는 `options`로 설정된 네이티브 속성과 함께, 새로운 <0>BrowserWindow</0>를 생성한다.
 
 ### `new BrowserWindow([options])`
 
 * `options` Object (선택) 
-  * `width` Integer (optional) - Window's width in pixels. Default is `800`.
-  * `height` Integer (optional) - Window's height in pixels. Default is `600`.
-  * `x` Integer (optional) (**required** if y is used) - Window's left offset from screen. Default is to center the window.
-  * `y` Integer (optional) (**required** if x is used) - Window's top offset from screen. Default is to center the window.
+  * `width` Integer (선택) - 윈도우의 넓이이며, 단위는 픽셀이다. 기본값은 `800`이다.
+  * `height` Integer (선택) - 윈도우의 높이이며, 단위는 픽셀이다. 기본값은 `600`이다.
+  * `x` Integer (선택) (y를 사용한다면 **반드시 선언되어야**한다.) - 화면상에서 표시되는 윈도우의 좌측 시작지점이다. 기본값은 윈도우의 중앙지점이다.
+  * `y` Integer (선택) (x를 사용한다면 **반드시 선언되어야**한다.) - 화면상에서 표시되는 윈도우의 상단 시작지점이다. 기본값은 윈도우의 중앙지점이다.
   * `useContentSize` Boolean (optional) - The `width` and `height` would be used as web page's size, which means the actual window's size will include window frame's size and be slightly larger. Default is `false`.
   * `center` Boolean (optional) - Show window in the center of the screen.
   * `minWidth` Integer (optional) - Window's minimum width. Default is `0`.
