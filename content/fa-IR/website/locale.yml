@@ -211,7 +211,7 @@ landing:
   fiddle:
     lead_desc: ساده ترین راه برای شروع کار با الکترون
     create_app: برنامه خود را بسازید
-    description: Electron Fiddle lets you create and play with small Electron experiments. It greets you with a quick-start template after opening – change a few things, choose the version of Electron you want to run it with, and play around. Then, save your Fiddle either as a GitHub Gist or to a local folder. Once pushed to GitHub, anyone can quickly try your Fiddle out by just entering it in the address bar.
+    description: الکترون فیدل این امکان را به شما می دهد که  آزمایش های کوچکی را انجام بدهید و آن ها بررسی و سبک و سنگین کنید.پس از باز کردن فیدل، او با قالبی ساده و روان به شما خوشامد می گوید-بعضی تنظیمات را تغییر دهید،مثلا ورژن الکترونی که می خواهید با آن کار کنید را،و برنامه را کشف کنید!بعد پروژه ی فیدل خود را یا به در "گیت هاب گیست" بارگذاری کنید یا اینکه آن را در  یک فولدر ذخیره کنید.وقتی که پروژه ی خود را در گیت هاب آرشیو کردید،همه می توانند پروژه شما را بررسی کنند. 
     explore: گشتن الکترون
     explore_desc: "Try Electron without installing any dependencies: Fiddle includes everything you'll need to explore the platform. It also includes examples for every API available in Electron, so if you want to quickly see what a BrowserView is or how the desktopCapturer works, Fiddle has got you covered."
     code_with_types: Code with Types
@@ -234,7 +234,7 @@ governance:
     title: نسخه‌ها
     description: Oversees all release branches, and tooling to support releases.
   upgrades:
-    title: Upgrades
+    title: به روز رسانی می کند
     description: Oversees upgrades of upstream dependencies; specifically Chromium and Node.
   website:
     title: تارنما
@@ -246,10 +246,10 @@ governance:
     title: امنیت
     description: Proactively ensures the Security of Electron as a project, responds to incoming incidents, and oversees rollout of fixes.
   admins:
-    title: Administrative
-    description: The Administrative Working Group oversees the entire governance and project.
+    title: مدیریتی
+    description: گروه مدیریتی تمام مسائل مربوط به مدیریت و پروژه زیر نظر می گیرند.
   global:
-    overview: Overview
+    overview: نمای کلی
     associated_repos: Associated Repositories
     notes: Meeting Notes
   definitions:
