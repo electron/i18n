@@ -124,20 +124,20 @@ child.once('ready-to-show', () => {
   * `height` Integer (선택) - 윈도우의 높이이며, 단위는 픽셀이다. 기본값은 `600`이다.
   * `x` Integer (선택) (y를 사용한다면 **반드시 선언되어야**한다.) - 화면상에서 표시되는 윈도우의 좌측 시작지점이다. 기본값은 윈도우의 중앙지점이다.
   * `y` Integer (선택) (x를 사용한다면 **반드시 선언되어야**한다.) - 화면상에서 표시되는 윈도우의 상단 시작지점이다. 기본값은 윈도우의 중앙지점이다.
-  * `useContentSize` Boolean (optional) - The `width` and `height` would be used as web page's size, which means the actual window's size will include window frame's size and be slightly larger. Default is `false`.
-  * `center` Boolean (optional) - Show window in the center of the screen.
-  * `minWidth` Integer (optional) - Window's minimum width. Default is `0`.
-  * `minHeight` Integer (optional) - Window's minimum height. Default is `0`.
-  * `maxWidth` Integer (optional) - Window's maximum width. Default is no limit.
-  * `maxHeight` Integer (optional) - Window's maximum height. Default is no limit.
-  * `resizable` Boolean (optional) - Whether window is resizable. Default is `true`.
-  * `movable` Boolean (optional) - Whether window is movable. This is not implemented on Linux. Default is `true`.
-  * `minimizable` Boolean (optional) - Whether window is minimizable. This is not implemented on Linux. Default is `true`.
-  * `maximizable` Boolean (optional) - Whether window is maximizable. This is not implemented on Linux. Default is `true`.
+  * `useContentSize` Boolean (선택) - 실제 윈도우의 크기는 윈도우 프레임의 크기를 포함해서 살짝 크기 때문에, `width`와 `height`를 웹 페이지의 크기로 사용하고자 할 때 사용한다. 기본값은 `false`이다.
+  * `center` Boolean (선택) - 윈도우를 화면의 중심에 표시한다.
+  * `minWidth` Integer (선택) - 윈도우의 최소 넓이를 지정한다. 기본값은 `0`이다.
+  * `minHeight` Integer (선택) - 윈도우의 최소 높이를 지정한다. 기본값은 `0`이다.
+  * `maxWidth` Integer (선택) - 윈도우의 최대 넓이를 지정한다. 기본값은 제한 없음이다.
+  * `maxHeight` Integer (선택) - 윈도우의 최대 높이. 기본값은 제한 없음이다.
+  * `resizable` Boolean (선택) - 윈도우의 크기를 변경할 수 있는지 여부를 지정한다. 기본값은 `true`이다.
+  * `movable` Boolean (선택) - 윈도우를 움직일 수 있는지 여부를 지정한다. Linux에는 아직 구현되어있지 않다. 기본값은 `true`이다.
+  * `minimizable` Boolean (선택) - 윈도우를 최소화할 수 있는지 여부를 지정한다. Linux에는 아직 구현되어있지 않다. 기본값은 `true`이다.
+  * `maximizable` Boolean (선택) - 윈도우를 최대화할 수 있는지 여부를 지정한다. Linux에는 아직 구현되어있지 않다. 기본값은 `true`이다.
   * `closable` Boolean (optional) - Whether window is closable. This is not implemented on Linux. Default is `true`.
   * `focusable` Boolean (optional) - Whether the window can be focused. Default is `true`. On Windows setting `focusable: false` also implies setting `skipTaskbar: true`. On Linux setting `focusable: false` makes the window stop interacting with wm, so the window will always stay on top in all workspaces.
   * `alwaysOnTop` Boolean (optional) - Whether the window should always stay on top of other windows. Default is `false`.
-  * `fullscreen` Boolean (optional) - Whether the window should show in fullscreen. When explicitly set to `false` the fullscreen button will be hidden or disabled on macOS. Default is `false`.
+  * `fullscreen` Boolean (optional) - Whether the window should show in fullscreen. When explicitly set to `false` the fullscreen button will be hidden or disabled on macOS. 기본값은 `false`이다.
   * `fullscreenable` Boolean (optional) - Whether the window can be put into fullscreen mode. On macOS, also whether the maximize/zoom button should toggle full screen mode or maximize window. Default is `true`.
   * `simpleFullscreen` Boolean (optional) - Use pre-Lion fullscreen on macOS. Default is `false`.
   * `skipTaskbar` Boolean (optional) - Whether to show the window in taskbar. Default is `false`.
@@ -166,12 +166,12 @@ child.once('ready-to-show', () => {
   * `fullscreenWindowTitle` Boolean (optional) - Shows the title in the title bar in full screen mode on macOS for all `titleBarStyle` options. Default is `false`.
   * `thickFrame` Boolean (optional) - Use `WS_THICKFRAME` style for frameless windows on Windows, which adds standard window frame. Setting it to `false` will remove window shadow and window animations. Default is `true`.
   * `vibrancy` String (optional) - Add a type of vibrancy effect to the window, only on macOS. Can be `appearance-based`, `light`, `dark`, `titlebar`, `selection`, `menu`, `popover`, `sidebar`, `medium-light` or `ultra-dark`. Please note that using `frame: false` in combination with a vibrancy value requires that you use a non-default `titleBarStyle` as well.
-  * `zoomToPageWidth` Boolean (optional) - Controls the behavior on macOS when option-clicking the green stoplight button on the toolbar or by clicking the Window > Zoom menu item. If `true`, the window will grow to the preferred width of the web page when zoomed, `false` will cause it to zoom to the width of the screen. This will also affect the behavior when calling `maximize()` directly. Default is `false`.
+  * `zoomToPageWidth` Boolean (optional) - Controls the behavior on macOS when option-clicking the green stoplight button on the toolbar or by clicking the Window > Zoom menu item. If `true`, the window will grow to the preferred width of the web page when zoomed, `false` will cause it to zoom to the width of the screen. This will also affect the behavior when calling `maximize()` directly. 기본값은 `false`이다.
   * `tabbingIdentifier` String (optional) - Tab group name, allows opening the window as a native tab on macOS 10.12+. Windows with the same tabbing identifier will be grouped together. This also adds a native new tab button to your window's tab bar and allows your `app` and window to receive the `new-window-for-tab` event.
   * `webPreferences` Object (선택) - 웹 페이지 기능의 설정입니다. 
     * `devTools` Boolean (optional) - Whether to enable DevTools. If it is set to `false`, can not use `BrowserWindow.webContents.openDevTools()` to open DevTools. Default is `true`.
     * `nodeIntegration` Boolean (optional) - Whether node integration is enabled. Default is `true`.
-    * `nodeIntegrationInWorker` Boolean (optional) - Whether node integration is enabled in web workers. Default is `false`. More about this can be found in [Multithreading](../tutorial/multithreading.md).
+    * `nodeIntegrationInWorker` Boolean (optional) - Whether node integration is enabled in web workers. 기본값은 `false`이다. More about this can be found in [Multithreading](../tutorial/multithreading.md).
     * `preload` String (optional) - Specifies a script that will be loaded before other scripts run in the page. This script will always have access to node APIs no matter whether node integration is turned on or off. The value should be the absolute file path to the script. When node integration is turned off, the preload script can reintroduce Node global symbols back to the global scope. See example [here](process.md#event-loaded).
     * `sandbox` Boolean (optional) - If set, this will sandbox the renderer associated with the window, making it compatible with the Chromium OS-level sandbox and disabling the Node.js engine. This is not the same as the `nodeIntegration` option and the APIs available to the preload script are more limited. Read more about the option [here](sandbox-option.md). **Note:** This option is currently experimental and may change or be removed in future Electron releases.
     * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. Default is `true`.
