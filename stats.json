@@ -225,13 +225,13 @@
     "code": "pt-BR",
     "phrases": "10162",
     "translated": "4566",
-    "approved": "364",
+    "approved": "365",
     "words": "94213",
     "words_translated": "32812",
-    "words_approved": "2622",
+    "words_approved": "2635",
     "translated_progress": 34,
     "approved_progress": 2,
-    "qa_issues": 1306
+    "qa_issues": 1305
   },
   {
     "name": "Romanian",
@@ -309,7 +309,7 @@
     "words_approved": "1",
     "translated_progress": 69,
     "approved_progress": 0,
-    "qa_issues": 3676
+    "qa_issues": 3674
   },
   {
     "name": "Ukrainian",
