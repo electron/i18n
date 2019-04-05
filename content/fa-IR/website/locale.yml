@@ -45,11 +45,11 @@ community:
   title: پرسش و پاسخ الکترون
   description: منابعی برای ارتباط با کسانی که روی الکترون کار می‌کنند.
   channels:
-    get_started: "<a href='/docs/tutorial/first-app'><b>شروع کنید</b></a> با خواندن <a href='/docs/tutorial/first-app'>راهنمای شروع</a> یک برنامه بسازید."
-    updates: "<a href='https://twitter.com/electronjs'>با دنبال کردن</a><a href='https://twitter.com/electronjs'>@electronjs</a> در توییتر و عضوت در <a href='/blog'>بلاگ</a> <b>همیشه بروز باشید</b>."
+    get_started: "<a href='/docs/tutorial/first-app'><b>شروع کار با الکترون</b></a> با خواندن <a href='/docs/tutorial/first-app'>ساختن یک برنامه با خواندن</a> راهنمای شروع کار با الکترون."
+    updates: "<a href='https://twitter.com/electronjs'>با دنبال کردن</a><a href='https://twitter.com/electronjs'>@electronjs</a> در توییتر و عضویت در <a href='/blog'>بلاگ</a> <b> به روز باشید</b>."
     localized_docs: "<a href='/languages'><b>مستندات را با زبان اصلی </b></a> در <a href='/languages'>صفحه زبان ها</a>بخوانید."
     help: "<a href='http://atom-slack.herokuapp.com'><b>Get help and feedback</b></a> by joining the <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
-    security: "<a href='mailto:security@electronjs.org'><b>Report security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
+    security: "<a href='mailto:security@electronjs.org'>گزارش مسائل امنیتی<b>با ایمیل کردن به</b></a><a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Report bugs</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Request features</b></a> by opening issues on the <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
     code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Report Code of Conduct violations</b></a> by emailing <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
@@ -136,7 +136,7 @@ apps:
   submit_your_own: برنامه خودتان را ارسال کنید
   something_missing: چیزی فراموش شده است؟
   edit_this_app: ویرایش این برنامه.
-  search_app: Filter apps by name, description, etc…
+  search_app: فیلتر کردن برنامه ها بر اساس نام،توضیح کوتاه و…
   categories: دسته‌‎بندی‎ها
   add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
   website: تارنما
@@ -225,11 +225,11 @@ governance:
   description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
   wgs: Working Groups
   docstools:
-    title: Docs & Tools
+    title: مقالات و ابزار ها
     description: Oversees externally-focused tooling (e.g. Fiddle, Forge), Electron documentation across the website and <code>electron/*</code> repositories, and the maintainer’s group outreach to 3rd party modules.
   outreach:
     title: Outreach
-    description: Grows the Electron community
+    description: باعث پیشرفت جمعیت الکترون می شود
   releases:
     title: نسخه‌ها
     description: Oversees all release branches, and tooling to support releases.
@@ -250,10 +250,10 @@ governance:
     description: گروه مدیریتی تمام مسائل مربوط به مدیریت و پروژه زیر نظر می گیرند.
   global:
     overview: نمای کلی
-    associated_repos: Associated Repositories
+    associated_repos: منابع/اطلاعات مربوطه
     notes: Meeting Notes
   definitions:
-    title: Definitions
+    title: تعاریف
     list:
       - A <i>maintainer</i> is anyone who plays an active role in governance.
       - A <i>collaborator</i> is active in the community, but not in governance.
@@ -261,7 +261,7 @@ governance:
       - A <i>working group</i> is a group of maintainers that is formed to take responsibility for certain aspects of the Electron project. Normally these groups will meet regularly but in some cases will only meet as required to fulfill their responsibilities.
       - 'A <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership">chair</a> leads a working group.'
   responsibilities:
-    title: Responsibilities
+    title: وظایف شغلی
     listdescription: "All Working Groups have these core responsibilities:"
     list:
       - They shall decide for themselves, and publicly post, their rules, e.g. how decisions are made, when meetings are held, and who may attend.
