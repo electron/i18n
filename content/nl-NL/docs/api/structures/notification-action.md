@@ -5,15 +5,15 @@
 
 ## Platform- / Actie-ondersteuning
 
-| Type actie | Platform-ondersteuning | Gebruik van `tekst`              | Standaard `tekst`                                                                           | Limitaties                                                                                                                                                                                                                                                                |
-| ---------- | ---------------------- | -------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `button`   | macOS                  | Used as the label for the button | "Show" (or a localized string by system default if first of such `button`, otherwise empty) | Only the first one is used. If multiple are provided, those beyond the first will be listed as additional actions (displayed when mouse active over the action button). Any such action also is incompatible with `hasReply` and will be ignored if `hasReply` is `true`. |
+| Type actie | Platform-ondersteuning | Gebruik van `tekst`             | Standaard `tekst`                                                                           | Limitaties                                                                                                                                                                                                                                                                            |
+| ---------- | ---------------------- | ------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `button`   | macOS                  | Gebruikt als label voor de knop | "Show" (or a localized string by system default if first of such `button`, otherwise empty) | Alleen de eerste wordt gebruikt. Als er meerdere worden opgegeven, worden de volgende weergegeven als extra acties (weergegeven wanneer muis actief is op de actieknop). Een dergelijke actie is ook niet compatibel met `hasReply` en zal genegeerd worden als `hasReply` is `true`. |
 
-### Button support on macOS
+### Knop-ondersteuning op macOS
 
-In order for extra notification buttons to work on macOS your app must meet the following criteria.
+Om extra notificatieknoppen te kunnen gebruiken op macOS moet je app voldoen aan de volgende criteria.
 
-* App is signed
-* App has it's `NSUserNotificationAlertStyle` set to `alert` in the `Info.plist`.
+* App is ondertekend
+* App heeft `NSUserNotificatieAlertStyle` ingesteld op `alert` in de `Info.plist`.
 
-If either of these requirements are not met the button won't appear.
+Als aan een van deze vereisten niet wordt voldaan, zal de knop niet verschijnen.
