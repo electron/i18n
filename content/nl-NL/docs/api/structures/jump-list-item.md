@@ -3,8 +3,8 @@
 * `type` String (optioneel) - Een van de volgende: 
   * `taak` - Een taak zal een app starten met specifieke argumenten.
   * `separator` - Kan worden gebruikt om items te scheiden in de standaard `Tasks` categorie.
-  * `file` - A file link will open a file using the app that created the Jump List, for this to work the app must be registered as a handler for the file type (though it doesn't have to be the default handler).
-* `path` String (optional) - Path of the file to open, should only be set if `type` is `file`.
+  * `file` - Een bestandslink opent een bestand met behulp van de app die de Jump List heeft gemaakt, om dit te laten werken moet de app geregistreerd worden als een handler voor het bestandstype (hoewel het niet de standaard handler hoeft te zijn).
+* `path` String (optioneel) - Pad van het te openen bestand moet alleen worden ingesteld als `type` is `bestand`.
 * `program` String (optional) - Path of the program to execute, usually you should specify `process.execPath` which opens the current program. Should only be set if `type` is `task`.
 * `args` String (optional) - The command line arguments when `program` is executed. Should only be set if `type` is `task`.
 * `title` String (optional) - The text to be displayed for the item in the Jump List. Should only be set if `type` is `task`.
