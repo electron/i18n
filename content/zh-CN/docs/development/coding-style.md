@@ -7,17 +7,17 @@
 ## 通用代码
 
 * 用换行符结束文件。
-* Place requires in the following order: 
+* 按照如下顺序排列 node 模块的 require 代码 
   * 内置Node模块（如 `path`）
   * 内置Electron模块（如 `ipc`、`app`）
   * 本地模块（使用相对路径）
-* Place class properties in the following order: 
+* 按照如下顺序排列类的属性 
   * Class methods and properties (methods starting with a `@`)
   * Instance methods and properties
 * 避免与平台相关的代码： 
-  * Use `path.join()` to concatenate filenames.
+  * 使用 `path.join()` 来组织文件路径。
   * 请使用`os.tmpdir()`而不是`/tmp`来引用临时目录。
-* Using a plain `返回` when returning explicitly at the end of a function. 
+* 使用 `return` 来明确的结束一个函数 
   * 不是`return null`，`return undefined`，`null`或`undefined`
 
 ## C + + 和 Python
@@ -32,7 +32,7 @@ C++ 代码使用了大量 Chromium 的抽象和类型，因此建议您熟悉它
 
 * 使用[remark](https://github.com/remarkjs/remark) Markdown样式.
 
-You can run `npm run lint-docs` to ensure that your documentation changes are formatted correctly.
+你可以运行 `npm run lint-docs` 来保证你修改的文档格式正确。
 
 ## JavaScript
 
