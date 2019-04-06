@@ -27,7 +27,7 @@
 
 ## 32 位构建
 
-To build for the 32bit target, you need to pass `target_cpu = "x86"` as a GN arg. 可以使用不同的 GN 输出目录（例如， `out/Release-x86`） 和不同的参数，在 64 位目标旁边构建 32 位目标。
+为了构建 32bit 版本，您需要通过 `target_cpu = “x86"` 作为 GN 参数。 可以使用不同的 GN 输出目录（例如， `out/Release-x86`） 和不同的参数，在 64 位目标旁边构建 32 位目标。
 
 ```powershell
 $ gn gen out/Release-x86 --args="import(\"//electron/build/args/release.gn\") target_cpu=\"x86\""
