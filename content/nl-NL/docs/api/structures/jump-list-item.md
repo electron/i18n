@@ -5,8 +5,8 @@
   * `separator` - Kan worden gebruikt om items te scheiden in de standaard `Tasks` categorie.
   * `file` - Een bestandslink opent een bestand met behulp van de app die de Jump List heeft gemaakt, om dit te laten werken moet de app geregistreerd worden als een handler voor het bestandstype (hoewel het niet de standaard handler hoeft te zijn).
 * `path` String (optioneel) - Pad van het te openen bestand moet alleen worden ingesteld als `type` is `bestand`.
-* `program` String (optional) - Path of the program to execute, usually you should specify `process.execPath` which opens the current program. Should only be set if `type` is `task`.
-* `args` String (optional) - The command line arguments when `program` is executed. Should only be set if `type` is `task`.
+* `programma` String (optioneel) - Pad van het uit te voeren programma, meestal moet je `process.execPath` specificeren, die het huidige programma opent. Moet alleen ingesteld zijn als `type` is `task`.
+* `args` String (optioneel) - De argumenten van de command line wanneer `program` wordt uitgevoerd. Moet alleen worden ingesteld als `type` is `task`.
 * `title` String (optional) - The text to be displayed for the item in the Jump List. Should only be set if `type` is `task`.
 * `description` String (optional) - Description of the task (displayed in a tooltip). Should only be set if `type` is `task`.
 * `iconPath` String (optional) - The absolute path to an icon to be displayed in a Jump List, which can be an arbitrary resource file that contains an icon (e.g. `.ico`, `.exe`, `.dll`). You can usually specify `process.execPath` to show the program icon.
