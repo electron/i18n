@@ -119,7 +119,7 @@ If you're only setting a custom titlebar as draggable, you also need to make all
 
 ## Sélection de texte
 
-In a frameless window the dragging behaviour may conflict with selecting text. For example, when you drag the titlebar you may accidentally select the text on the titlebar. To prevent this, you need to disable text selection within a draggable area like this:
+Dans une fenêtre sans bords, le glisser-déposer peut être en conflit avec la sélection de texte. For example, when you drag the titlebar you may accidentally select the text on the titlebar. To prevent this, you need to disable text selection within a draggable area like this:
 
 ```css
 .titlebar {
