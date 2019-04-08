@@ -6,17 +6,17 @@ Electron development is essentially Node.js development. To turn your operating 
 
 > Electron supports macOS 10.10 (Yosemite) and up. Обычно компания Apple не позволяет запускать macOS на виртуальных машинах если ваш компьютер не является компьютером Apple. Если вам необходим Mac вы можете найти инструкции в сети как запустить MacOS в виртуальной машине или использовать облачные сервисы, которые позволяют получить доступ к компьютерам на MacOS (например [MacInCloud](https://www.macincloud.com/) или [xcloud](https://xcloud.me)).
 
-First, install a recent version of Node.js. Мы рекомендуем устанавливать последнюю `LTS` или `текущую` доступную версию. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `macOS Installer`. While Homebrew is an offered option, but we recommend against it - many tools will be incompatible with the way Homebrew installs Node.js.
+Первым делом нужно установить последнюю версию Node.js. Мы рекомендуем устанавливать последнюю `LTS` или `текущую` доступную версию. Посетите [страницу загрузки Node.js](https://nodejs.org/en/download/) и выберите `macOS установщик`. While Homebrew is an offered option, but we recommend against it - many tools will be incompatible with the way Homebrew installs Node.js.
 
 Once downloaded, execute the installer and let the installation wizard guide you through the installation.
 
 Once installed, confirm that everything works as expected. Find the macOS `Terminal` application in your `/Applications/Utilities` folder (or by searching for the word `Terminal` in Spotlight). Open up `Terminal` or another command line client of your choice and confirm that both `node` and `npm` are available:
 
 ```sh
-# This command should print the version of Node.js
+# Эта команда должны вывести текущую версию Node.js
 node -v
 
-# This command should print the version of npm
+# Эта команда должны вывести текущую версию npm
 npm -v
 ```
 
@@ -26,17 +26,17 @@ If both commands printed a version number, you are all set! Before you get start
 
 > Electron supports Windows 7 and later versions – attempting to develop Electron applications on earlier versions of Windows will not work. Microsoft provides free [virtual machine images with Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) for developers.
 
-First, install a recent version of Node.js. Мы рекомендуем устанавливать последнюю `LTS` или `текущую` доступную версию. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `Windows Installer`. Once downloaded, execute the installer and let the installation wizard guide you through the installation.
+Первым делом нужно установить последнюю версию Node.js. Мы рекомендуем устанавливать последнюю `LTS` или `текущую` доступную версию. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `Windows Installer`. Once downloaded, execute the installer and let the installation wizard guide you through the installation.
 
 On the screen that allows you to configure the installation, make sure to select the `Node.js runtime`, `npm package manager`, and `Add to PATH` options.
 
 Once installed, confirm that everything works as expected. Find the Windows PowerShell by opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
 
 ```powershell
-# This command should print the version of Node.js
+# Эта команда должны вывести текущую версию Node.js
 node -v
 
-# This command should print the version of npm
+# Эта команда должны вывести текущую версию npm
 npm -v
 ```
 
@@ -46,15 +46,15 @@ If both commands printed a version number, you are all set! Before you get start
 
 > Generally speaking, Electron supports Ubuntu 12.04, Fedora 21, Debian 8 and later.
 
-First, install a recent version of Node.js. Depending on your Linux distribution, the installation steps might differ. Assuming that you normally install software using a package manager like `apt` or `pacman`, use the official [Node.js guidance on installing on Linux](https://nodejs.org/en/download/package-manager/).
+Первым делом нужно установить последнюю версию Node.js. Depending on your Linux distribution, the installation steps might differ. Assuming that you normally install software using a package manager like `apt` or `pacman`, use the official [Node.js guidance on installing on Linux](https://nodejs.org/en/download/package-manager/).
 
 You're running Linux, so you likely already know how to operate a command line client. Open up your favorite client and confirm that both `node` and `npm` are available globally:
 
 ```sh
-# This command should print the version of Node.js
+# Эта команда должны вывести текущую версию Node.js
 node -v
 
-# This command should print the version of npm
+# Эта команда должны вывести текущую версию npm
 npm -v
 ```
 
