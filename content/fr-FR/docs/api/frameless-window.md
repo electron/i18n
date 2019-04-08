@@ -119,7 +119,7 @@ If you're only setting a custom titlebar as draggable, you also need to make all
 
 ## Sélection de texte
 
-Dans une fenêtre sans bords, le glisser-déposer peut être en conflit avec la sélection de texte. Par exemple, lorsque vous faites glisser la fenêtre depuis la barre de titre, vous pouvez accidentellement sélectionner son texte. To prevent this, you need to disable text selection within a draggable area like this:
+Dans une fenêtre sans bords, le glisser-déposer peut être en conflit avec la sélection de texte. Par exemple, lorsque vous faites glisser la fenêtre depuis la barre de titre, vous pouvez accidentellement sélectionner son texte. Afin d'éviter cela, vous devez désactiver la sélection de texte dans une zone déplaçable. Comme ceci :
 
 ```css
 .titlebar {
