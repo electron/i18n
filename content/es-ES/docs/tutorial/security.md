@@ -525,7 +525,7 @@ shell.openExternal('https://example.com/index.html')
 
 ## 15) Deshabilitar el módulo `remote`
 
-El módulo `remoto` suministra una manera al proceso de renderizado a acceder a las APIs que normalmente solo están disponibles en el proceso principal. Using it, a renderer can invoke methods of a main process object without explicitly sending inter-process messages. If your desktop application does not run untrusted content, this can be a useful way to have your renderer processes access and work with modules that are only available to the main process, such as GUI-related modules (dialogs, menus, etc.).
+El módulo `remoto` suministra una manera al proceso de renderizado a acceder a las APIs que normalmente solo están disponibles en el proceso principal. Using it, a renderer can invoke methods of a main process object without explicitly sending inter-process messages. Si su aplicación de escritorio no ejecuta contenido no confiable, esta puede ser una manera valedera para que los procesos de renderizado accedan y trabajen con los módulos que solo están disponibles en el proceso principal, tales como aquellos módulos vinculados con la interface de usuario (sea cuadro de diálogos, menús, etc.).
 
 However, if your app can run untrusted content and even if you [sandbox](../api/sandbox-option.md) your renderer processes accordingly, the `remote` module makes it easy for malicious code to escape the sandbox and have access to system resources via the higher privileges of the main process. Por lo tanto, debería deshabilitarse en tales circunstancias.
 
@@ -554,16 +554,16 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```html
-<!-- Bad if the renderer can run untrusted content  -->
+<!-- Malo si el renderizado no puede ejecutar contenido no confiable  -->
 <webview src="page.html"></webview>
 
-<!-- Good -->
+<!-- Bueno -->
 <webview enableremotemodule="false" src="page.html"></webview>
 ```
 
-## 16) Filter the `remote` module
+## 16) Filtrar el módulo `remote`
 
-If you cannot disable the `remote` module, you should filter the globals, Node, and Electron modules (so-called built-ins) accessible via `remote` that your application does not require. This can be done by blocking certain modules entirely and by replacing others with proxies that expose only the functionality that your app needs.
+Si no puede deshabilitar el módulo `remote`, debería filtrar los globales, Node, y los módulos Electron (también llamados built-ins) accesibles vía `remote` que su aplicación no los requiere. Esto puede ser llevado a cabo bloqueando ciertos módulos de manera total y reemplazándolos por otros sea con proxies que exponen solamente la funcionalidad que su aplicación necesita.
 
 ### ¿Por què?
 
