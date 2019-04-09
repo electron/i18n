@@ -1,12 +1,12 @@
 # Distribución de la Aplicación
 
-To distribute your app with Electron, you need to package and rebrand it. The easiest way to do this is to use one of the following third party packaging tools:
+Para distribuir su aplicación con Electron, necesita empaquetarla y darle una identidad. La manera más fáciul de llevarlo a cabo es usar alguna de las siguientes herramientas de empaquetado:
 
 * [electron-forge](https://github.com/electron-userland/electron-forge)
 * [Electron-builder](https://github.com/electron-userland/electron-builder)
 * [Empaquetador de Electron](https://github.com/electron-userland/electron-packager)
 
-These tools will take care of all the steps you need to take to end up with a distributable Electron applications, such as packaging your application, rebranding the executable, setting the right icons and optionally creating installers.
+Estas herramientas tendrán en consideración todos los pasos que se necesitan para finalizar con una aplicación Electron lista para ser distribuida, a saber: empaquetado de su aplicación, identificar el ejecutable, configurar los íconos apropiados y opcionalmente crear los instaladores.
 
 ## Distribución manual
 
@@ -93,7 +93,7 @@ Puede cambiar el nombre del archivo ejecutable `electrón` a cualquier nombre qu
 
 ## Cambio de marca mediante la reconstrucción de la fuente de Electron
 
-It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to set the build argument corresponding to the product name (`electron_product_name = "YourProductName"`) in the `args.gn` file and rebuild.
+También es posible reidentificar Electron simplemente cambiando el nombre del producto y volver a compilarlo desde el código fuente. Para hacerlo, necesita que el argumento de compilación set corresponda con el nombre del producto (`electron_product_name = "YourProductName"`) en el archivo `args.gn` y recompilarlo.
 
 ### Crear un fork de Electron personalizado
 
