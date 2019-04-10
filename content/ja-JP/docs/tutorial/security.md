@@ -56,8 +56,8 @@ Electron 2.0 からでは、開発者は、開発者コンソールに出力さ�
 12. [ナビゲーションを無効化か制限](#12-disable-or-limit-navigation)
 13. [新規ウインドウの作成を無効化か制限](#13-disable-or-limit-creation-of-new-windows)
 14. [信用されないコンテンツで `openExternal` を使用しない](#14-do-not-use-openexternal-with-untrusted-content)
-15. [Disable the `remote` module](#15-disable-the-remote-module)
-16. [Filter the `remote` module](#16-filter-the-remote-module)
+15. [`remote` モジュールの無効化](#15-disable-the-remote-module)
+16. [`remote` モジュールをフィルタ](#16-filter-the-remote-module)
 
 設定ミスやセキュアでないパターンを自動的に検出するには、[electronegativity](https://github.com/doyensec/electronegativity)が使用できます。 Electronを使用したアプリケーション開発時の潜在的な脆弱性やバグの埋め込みについてのより詳しい情報は、[開発者承認者向けガイドguide for developers and auditors](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)を参照してください。
 
@@ -524,7 +524,7 @@ const { shell } = require('electron')
 shell.openExternal('https://example.com/index.html')
 ```
 
-## 15) Disable the `remote` module
+## 15) `remote` モジュールの無効化
 
 The `remote` module provides a way for the renderer processes to access APIs normally only available in the main process. Using it, a renderer can invoke methods of a main process object without explicitly sending inter-process messages. If your desktop application does not run untrusted content, this can be a useful way to have your renderer processes access and work with modules that are only available to the main process, such as GUI-related modules (dialogs, menus, etc.).
 
