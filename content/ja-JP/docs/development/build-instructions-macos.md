@@ -31,7 +31,7 @@ Homebrew で提供される Python を使用している場合、以下の Pytho
 
 Electron を開発していて独自の Electron ビルドを再配布する予定がない場合は、このセクションを飛ばして構いません。
 
-Official Electron builds are built with [Xcode 9.4.1](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip), and the MacOS 10.13 SDK. より新しい SDK でビルドして同様に動いても、現在のリリースは 10.13 SDK を使用します。
+公式の Electron ビルドは、[Xcode 9.4.1](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip) と MacOS 10.13 SDK でビルドされています。 より新しい SDK でビルドして同様に動いても、現在のリリースは 10.13 SDK を使用します。
 
 ## Electron のビルド
 
