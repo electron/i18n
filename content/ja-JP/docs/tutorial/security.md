@@ -528,11 +528,11 @@ shell.openExternal('https://example.com/index.html')
 
 `remote`モジュールは、レンダラープロセスに、通常メインプロセスでのみ利用可能な APIへのアクセスを提供します。 これを使用すると、明示的にプロセス間メッセージを送信することなく、メインプロセスオブジェクトのメソッドを起動できます。 もしあなたのデスクトップアプリケーションが信頼できないコンテンツを実行していない場合、このモジュールはあなたのレンダラープロセスにアクセス方法を提供し、メインプロセスでのみ利用可能な、例えばGUIに関連したモジュール(dialogs, menu 等) と動作できます。
 
-However, if your app can run untrusted content and even if you [sandbox](../api/sandbox-option.md) your renderer processes accordingly, the `remote` module makes it easy for malicious code to escape the sandbox and have access to system resources via the higher privileges of the main process. Therefore, it should be disabled in such circumstances.
+しかし、一方で、あなたのアプリケーションが信頼できないコンテンツを実行する場合、例えあなたのレンダラープロセスを[sandbox](../api/sandbox-option.md)化していたとしても、`remote`モジュールは悪意のあるコードにそのサンドボックスを抜けだす方法を提供し、メインプロセスの、より高い権限を通じてシステムリソースへアクセス可能にしてしまいます。 そのため、そのような状況ではこのモジュールは無効化しておくべきです。
 
 ### なぜ？
 
-`remote` uses an internal IPC channel to communicate with the main process. "Prototype pollution" attacks can grant malicious code access to the internal IPC channel, which can then be used to escape the sandbox by mimicking `remote` IPC messages and getting access to main process modules running with higher privileges.
+`remote` は内部の IPC チャンネルを使用して、メインプロセスと通信します。 "Prototype pollution" attacks can grant malicious code access to the internal IPC channel, which can then be used to escape the sandbox by mimicking `remote` IPC messages and getting access to main process modules running with higher privileges.
 
 Additionally, it's possible for preload scripts to accidentally leak modules to a sandboxed renderer. Leaking `remote` arms malicious code with a multitude of main process modules with which to perform an attack.
 
@@ -541,12 +541,12 @@ Disabling the `remote` module eliminates these attack vectors. Enabling context 
 ### どうすればいいの？
 
 ```js
-// Bad if the renderer can run untrusted content
+// レンダラーが信頼できないコンテンツを実行する場合、危険
 const mainWindow = new BrowserWindow({})
 ```
 
 ```js
-// Good
+// 安全
 const mainWindow = new BrowserWindow({
   webPreferences: {
     enableRemoteModule: false
@@ -555,10 +555,10 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```html
-<!-- Bad if the renderer can run untrusted content  -->
+<!-- レンダラーが信頼できないコンテンツを実行する場合、危険  -->
 <webview src="page.html"></webview>
 
-<!-- Good -->
+<!-- 安全 -->
 <webview enableremotemodule="false" src="page.html"></webview>
 ```
 
