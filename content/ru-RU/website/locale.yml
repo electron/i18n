@@ -219,58 +219,58 @@ landing:
     compile_and_package: Компилируйте и упаковывайте
     compile_and_package_desc: Fiddle может автоматически превратить ваш эксперимент в бинарные файлы, которые вы можете поделиться с друзьями, коллегами или бабушками с дедушками. Это благодаря <a href="https://electronforge.io/">electron-forge</a>, позволяя вам посылать ваш fiddle в приложение для Windows, macOS или Linux.
     easy_start: Начните с Fiddle, продолжите где угодно
-    easy_start_desc: Fiddle is not an IDE – it is however an excellent starting point. Once your fiddle has grown up, export it as a project with or without <a href="https://electronforge.io/">electron-forge</a>. Then, use your favorite editor and take on the world!
+    easy_start_desc: Fiddle - это не IDE - это отличная отправная точка. Как только ваш Fiddle подрастет, экспортируйте его как проект с <a href="https://electronforge.io/">electron-forge</a> или без него. Затем, используйте свой любимый редактор и покоряйте мир!
 governance:
   title: Electron Governance
   description: Система управления электроном состоит из рабочих групп, которые осуществляют контроль за различными аспектами экосистем Electron, и административной рабочей группы, которая отвечает за урегулирование конфликтов между ними.
-  wgs: Working Groups
+  wgs: Рабочие группы
   docstools:
-    title: Docs & Tools
+    title: Документы и инструменты
     description: Oversees externally-focused tooling (e.g. Fiddle, Forge), Electron documentation across the website and <code>electron/*</code> repositories, and the maintainer’s group outreach to 3rd party modules.
   outreach:
-    title: Outreach
+    title: Охват
     description: Grows the Electron community
   releases:
     title: Релизы
-    description: Oversees all release branches, and tooling to support releases.
+    description: Обзор всех ветвей выпуска и подборка для поддержки релизов.
   upgrades:
-    title: Upgrades
-    description: Oversees upgrades of upstream dependencies; specifically Chromium and Node.
+    title: Улучшения
+    description: Обзор обновлений исходящих зависимостей; в частности Chromium и Node.
   website:
     title: Веб-сайт
-    description: Oversees the technical implementation, design, and style of the Electron website and associated tooling.
+    description: Обзор технического внедрения, дизайна и стиля веб-сайта Electron и связанного с ним инструментария.
   cmsf:
-    title: Community & Safety
+    title: Сообщество и безопасность
     description: Oversees removal/bans from community.
   security:
     title: Безопасность
-    description: Proactively ensures the Security of Electron as a project, responds to incoming incidents, and oversees rollout of fixes.
+    description: Проактивно обеспечивает безопасность Electron как проект, отвечает входящим инцидентам и контролирует запуск исправлений.
   admins:
-    title: Administrative
-    description: The Administrative Working Group oversees the entire governance and project.
+    title: Администрирование
+    description: Административная рабочая группа осуществляет надзор за всем процессом управления и проектом.
   global:
-    overview: Overview
-    associated_repos: Associated Repositories
-    notes: Meeting Notes
+    overview: Обзор
+    associated_repos: Связанные репозитории
+    notes: Заметки к встрече
   definitions:
-    title: Definitions
+    title: Определения
     list:
       - A <i>maintainer</i> is anyone who plays an active role in governance.
-      - A <i>collaborator</i> is active in the community, but not in governance.
+      - <i>соавтор</i> активно работает в сообществе, но не в управлении.
       - A <i>participant</i> is anyone who is a maintainer or collaborator.
-      - A <i>working group</i> is a group of maintainers that is formed to take responsibility for certain aspects of the Electron project. Normally these groups will meet regularly but in some cases will only meet as required to fulfill their responsibilities.
+      - <i>Рабочая группа</i> является группой сопровождающих, которая формируются для того, чтобы взять на себя ответственность за определенные аспекты проекта Electron. Обычно эти группы будут регулярно встречаться, но в некоторых случаях будут отвечать только по мере необходимости выполнения своих обязанностей.
       - 'A <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership">chair</a> leads a working group.'
   responsibilities:
-    title: Responsibilities
-    listdescription: "All Working Groups have these core responsibilities:"
+    title: Ответственность
+    listdescription: "Все рабочие группы несут эти основные обязанности:"
     list:
-      - They shall decide for themselves, and publicly post, their rules, e.g. how decisions are made, when meetings are held, and who may attend.
+      - Они решают сами себя и публично размещают свои правила, например, как принимаются решения, когда проводятся заседания и которые могут присутствовать.
       - 'They shall <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Terms-and-Selection">select</a> a chair to <a href=''https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Responsibilities''>represent</a> the group.'
       - They shall keep meeting notes, including agenda items, discussion points, and outcomes for everyone to review.
-      - 'They shall be collaborative and work <a href="https://github.com/electron/governance/tree/master/charter/README.md#Core-Values">in good faith</a> with other Working Groups.'
+      - 'Они должны сотрудничать и работать <a href="https://github.com/electron/governance/tree/master/charter/README.md#Core-Values">добросовестно</a> с другими рабочими группами.'
     see_charter: See <a href="https://github.com/electron/governance/tree/master/charter/README.md">charter</a> for more information.
-  code_of_conduct: The Electron organization and all repos therein adhere to the following <a href="https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md">Code of Conduct.</a>
-  license: Electron is licensed with the <a href="https://github.com/electron/electron/blob/master/LICENSE">MIT License</a>.
-  repository: Check out the <a href="https://github.com/electron/governance">Governance Repository</a> to find more information about the governance structure.
+  code_of_conduct: Организация Electron и все репозитории в ней придерживаются следующего <a href="https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md">Кодекса поведения.</a>
+  license: Electron лицензирован с помощью лицензии <a href="https://github.com/electron/electron/blob/master/LICENSE">MIT</a>.
+  repository: Посмотрите на <a href="https://github.com/electron/governance">репозиторий управления</a>, чтобы найти больше информации о структуре управления.
 _404:
   page_not_found: Страница не найдена.
