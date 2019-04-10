@@ -72,7 +72,7 @@ session.defaultSession.cookies.set(cookie, (error) => {
   * `url` String - クッキーに関連付けられるURL。
   * `name` String (任意) - クッキーの名前。省略した場合、既定では空です。
   * `value` String (任意) - クッキーの値。省略した場合、既定では空です。
-  * `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains. Empty by default if omitted.
+  * `domain` String (任意) - Cookie のドメインです。これはサブドメインでも有効になるように最初のドットで正規化されます。省略した場合、デフォルトは空です。
   * `path` String (任意) - クッキーのパス。省略した場合、既定では空です。
   * `secure` Boolean (任意) - クッキーにSecure属性がついているかどうか。省略値は、falseです。
   * `httpOnly` Boolean (任意) - クッキーにHttpOnly属性がついているかどうか。省略値は、falseです。
