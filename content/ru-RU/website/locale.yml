@@ -215,7 +215,7 @@ landing:
     explore: Исследуйте Electron
     explore_desc: "Попробуйте Electron без установки зависимостей - Fiddle включает всё, что вам нужно для изучения платформы. Он также включает в себя примеры для каждого доступного API в Electron, так что если вы хотите посмотреть, что из себя представляет BrowserView и как работает desktopCapturer, Fiddle готов прийти к вам на помощь."
     code_with_types: Программируйте с типами
-    code_with_types_desc: Fiddle includes Microsoft's excellent Monaco Editor, the same editor powering Visual Studio Code. It also installs the type definitions for the currently selected version of Electron automatically, ensuring that you always have all Electron APIs only a few keystrokes away.
+    code_with_types_desc: Fiddle включает превосходный редактор Монако, один и тот же редактор, поддерживающий Visual Studio Code. Он также устанавливает определения типа для выбранной версии Electron автоматически, гарантируя, что у вас всегда есть все API Electron всего за несколько нажатий клавиш.
     compile_and_package: Компилируйте и упаковывайте
     compile_and_package_desc: Fiddle can automatically turn your experiment into binaries you can share with your friends, coworkers, or grandparents. It does so thanks to <a href="https://electronforge.io/">electron-forge</a>, allowing you to package your fiddle as an app for Windows, macOS, or Linux.
     easy_start: Начните с Fiddle, продолжите где угодно
