@@ -536,7 +536,7 @@ shell.openExternal('https://example.com/index.html')
 
 Additionally, it's possible for preload scripts to accidentally leak modules to a sandboxed renderer. Leaking `remote` arms malicious code with a multitude of main process modules with which to perform an attack.
 
-Disabling the `remote` module eliminates these attack vectors. Enabling context isolation also prevents the "prototype pollution" attacks from succeeding.
+`remote` モジュールの無効化によってこれらの攻撃手法は無効化できます。コンテキストの隔離の有効化もまた、これに続くプロトタイプ汚染攻撃を防ぎます。
 
 ### どうすればいいの？
 
