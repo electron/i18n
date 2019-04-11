@@ -29,10 +29,10 @@
     "name": "Chinese Simplified",
     "code": "zh-CN",
     "phrases": "10191",
-    "translated": "8950",
+    "translated": "8953",
     "approved": "25",
     "words": "94760",
-    "words_translated": "78142",
+    "words_translated": "78194",
     "words_approved": "137",
     "translated_progress": 82,
     "approved_progress": 0,
@@ -75,7 +75,7 @@
     "words_approved": "60",
     "translated_progress": 11,
     "approved_progress": 0,
-    "qa_issues": 842
+    "qa_issues": 841
   },
   {
     "name": "Filipino",
@@ -94,14 +94,14 @@
     "name": "French",
     "code": "fr",
     "phrases": "10191",
-    "translated": "7504",
+    "translated": "7527",
     "approved": "39",
     "words": "94760",
-    "words_translated": "57071",
+    "words_translated": "57154",
     "words_approved": "142",
     "translated_progress": 60,
     "approved_progress": 0,
-    "qa_issues": 2175
+    "qa_issues": 2173
   },
   {
     "name": "German",
@@ -172,14 +172,14 @@
     "name": "Japanese",
     "code": "ja",
     "phrases": "10191",
-    "translated": "9965",
+    "translated": "9983",
     "approved": "290",
     "words": "94760",
-    "words_translated": "91000",
+    "words_translated": "91353",
     "words_approved": "1619",
     "translated_progress": 96,
     "approved_progress": 1,
-    "qa_issues": 315
+    "qa_issues": 316
   },
   {
     "name": "Korean",
@@ -250,27 +250,27 @@
     "name": "Russian",
     "code": "ru",
     "phrases": "10191",
-    "translated": "5595",
+    "translated": "5640",
     "approved": "1019",
     "words": "94760",
-    "words_translated": "41177",
+    "words_translated": "41743",
     "words_approved": "7840",
-    "translated_progress": 43,
+    "translated_progress": 44,
     "approved_progress": 8,
-    "qa_issues": 1683
+    "qa_issues": 1694
   },
   {
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "10191",
-    "translated": "9259",
+    "translated": "9278",
     "approved": "255",
     "words": "94760",
-    "words_translated": "79116",
+    "words_translated": "79438",
     "words_approved": "2100",
     "translated_progress": 83,
     "approved_progress": 2,
-    "qa_issues": 3608
+    "qa_issues": 3623
   },
   {
     "name": "Tagalog",
