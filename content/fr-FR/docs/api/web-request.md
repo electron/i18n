@@ -49,7 +49,7 @@ Les méthodes suivants sont disponibles pour les instances de `WebRequest` :
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `response` Objet 
-      * `cancel` Boolean (facultatif)
+      * `cancel` Boolean)
       * `redirectURL` String (optional) - The original request is prevented from being sent or completed and is instead redirected to the given URL.
 
 The `listener` will be called with `listener(details, callback)` when a request is about to occur.
