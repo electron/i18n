@@ -84,11 +84,11 @@ The `callback` has to be called with an `response` object.
 
 * `filter` 物件 (選用) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
-  * `details` Object 
-    * `id` Integer
-    * `url` String
-    * `method` String
+* `聆聽者` 函式 
+  * `Details` 目的 
+    * `y` Integer
+    * `value` String
+    * `title` [string]
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `timestamp` Double
