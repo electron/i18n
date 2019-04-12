@@ -56,16 +56,16 @@ Bir istek gerçekleşmek üzereyken `listener` `listener(details, callback)` ile
 
 `uploadData`, `UploadData` nesnelerinin bir dizisidir.
 
-`callback` bir `response` nesnesi ile birlikte çağırılacak.
+`callback` bir </code>`response` nesnesi ile birlikte çağırılacak.
 
-#### `webRequest.onBeforeSendHeaders([filter, ]listener)`
+#### `webRequest.onSendHeaders([filter, ]listener)`
 
-* `filter` Obje (opsiyonel) 
+* `Filtre` Obje (opsiyonel) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
+* `listener` Fonksyion 
   * `details` Nesne 
-    * `id` tamsayı
-    * `url` Dize
+    * `kOD` Sayı
+    * `path` {string}
     * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` Dize
