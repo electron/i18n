@@ -90,7 +90,7 @@ La `retrollamada` tiene que ser llamada con un objeto `respuesta`.
     * `url` String
     * `method` String
     * `webContentsId` Entero (opcional)
-    * `resourceType` String
+    * `sourceId` Cadena
     * `fecha y hora` Doble
     * `Encabezado de solicitud` Objecto
 
