@@ -40,7 +40,7 @@ The following methods are available on instances of `WebRequest`:
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
 * `listener` دالة 
   * `التفاصيل` الكائنات 
-    * `id` Integer
+    * </code>
     * `url` String
     * `method` String
     * `webContentsId` Integer (optional)
