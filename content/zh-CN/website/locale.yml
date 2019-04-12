@@ -229,22 +229,22 @@ governance:
     description: Oversees externally-focused tooling (e.g. Fiddle, Forge), Electron documentation across the website and <code>electron/*</code> repositories, and the maintainer’s group outreach to 3rd party modules.
   outreach:
     title: Outreach
-    description: Grows the Electron community
+    description: 壮大 Electron 社区
   releases:
     title: 版本发布
     description: Oversees all release branches, and tooling to support releases.
   upgrades:
-    title: Upgrades
+    title: 升级
     description: Oversees upgrades of upstream dependencies; specifically Chromium and Node.
   website:
     title: 网站
     description: Oversees the technical implementation, design, and style of the Electron website and associated tooling.
   cmsf:
-    title: Community & Safety
+    title: 社区与安全
     description: Oversees removal/bans from community.
   security:
     title: 安全
-    description: Proactively ensures the Security of Electron as a project, responds to incoming incidents, and oversees rollout of fixes.
+    description: 积极主动确保 Electron 作为一个项目的安全性，响应发生的事件，并监督协助修复的推出。
   admins:
     title: Administrative
     description: The Administrative Working Group oversees the entire governance and project.
@@ -259,7 +259,7 @@ governance:
       - A <i>collaborator</i> is active in the community, but not in governance.
       - A <i>participant</i> is anyone who is a maintainer or collaborator.
       - A <i>working group</i> is a group of maintainers that is formed to take responsibility for certain aspects of the Electron project. Normally these groups will meet regularly but in some cases will only meet as required to fulfill their responsibilities.
-      - 'A <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership">chair</a> leads a working group.'
+      - '一个<a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership">主席</a>领导一个工作组。'
   responsibilities:
     title: 职责
     listdescription: "每个工作组都有下列主要职责："
