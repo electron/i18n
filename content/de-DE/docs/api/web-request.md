@@ -27,7 +27,7 @@ const filter = {
 session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback) => {
   details.requestHeaders['User-Agent'] = 'MyAgent'
   callback({ requestHeaders: details.requestHeaders })
-})
+}){ requestHeaders: details.requestHeaders }
 ```
 
 ### Beispiel Methoden
