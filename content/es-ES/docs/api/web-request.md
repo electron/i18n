@@ -56,7 +56,7 @@ El `oyente` será llamado con `listener(details, callback)` cuando una solicitud
 
 `uploadData` es un arreglo de objetos `uploadData`.
 
-La `retrollamada` tiene que ser llamada con un objeto `respuesta`.
+The `callback` has to be called with an `response` object.
 
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
