@@ -34,7 +34,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 The following methods are available on instances of `WebRequest`:
 
-#### `webRequest.onBeforeRequest([filter, ]listener)`
+#### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
 * `filter` Object (選用) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
