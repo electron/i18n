@@ -46,8 +46,8 @@ The following methods are available on instances of `WebRequest`:
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `timestamp` Double
-    * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+    * `uploadData` [UploadData[]](structures/upload-data.md)</code>
+  * `Ответный вызов сервера` Procedures 
     * `response` Object 
       * `cancel` Boolean (optional)
       * `redirectURL` String (optional) - The original request is prevented from being sent or completed and is instead redirected to the given URL.
