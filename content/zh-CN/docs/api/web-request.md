@@ -6,7 +6,7 @@
 
 使用 ` Session ` 的 ` WebRequest ` 属性访问 ` WebRequest ` 类的实例。
 
-` WebRequest ` 的方法接受可选的 `filter ` 和 ` listener `。 当 API 的事件发生时, 将使用 ` listener(details) ` 来调用 ` listener`。 ` 详细details ` 对象描述了该请求。
+` WebRequest ` 的方法接受可选的 `filter ` 和 ` listener `。 当 API 的事件发生时, 将使用 ` listener(details) ` 来调用 ` listener`。 `详细信息`对象描述了请求。
 
 ⚠️ 仅最后一个附加的 `listener` 将被使用。对 `listener` 传递 `null` 将会取消监听该事件。
 
