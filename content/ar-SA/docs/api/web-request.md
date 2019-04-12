@@ -38,8 +38,8 @@ The following methods are available on instances of `WebRequest`:
 
 * `filter` Object (optional) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
-  * `details` Object 
+* `listener` دالة 
+  * `التفاصيل` الكائنات 
     * `id` Integer
     * `url` String
     * `method` String
