@@ -52,9 +52,9 @@ Lo siguientes métodos están disponibles en instancias de `WebRequest`:
       * `cancelar` Booleano (opcional)
       * `Redireccionar URL` Cadena (opcional) - La solicitud original está prevenida de ser enviada o completada y en vez de eso es redireccionada a una URL dada.
 
-El `oyente` será llamado con `listener(details, callback)` cuando una solicitud está a punto de ocurrir.
+El `oyente` Será cancelado con `listener(details)` cuando la redirección del servidor esté por ocurrir.
 
-`uploadData` es un arreglo de objetos `uploadData`.
+Los `buttons` es un arreglo de objetos `Button`.
 
 The `callback` has to be called with an `response` object.
 
