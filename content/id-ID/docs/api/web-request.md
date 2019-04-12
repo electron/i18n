@@ -4,9 +4,9 @@
 
 Proses: [Main](../glossary.md#main-process)
 
-Contoh kelas `WebRequest` diakses dengan menggunakan `webRequest` properti dari `Sesi`.
+Contoh dari ` Cookie </ 0> kelas diakses dengan menggunakan <code> cookie </ 0> properti dari <code> Sesi </ 0> .</p>
 
-Metode `WebRequest` menerima opsional `filter` dan seorang `pendengar`. Seorang `pendengar` akan dipanggil dengan `pendengar(rincian)` saat API sudah terjadi. Sebuah `rincian` objek menjelaskan permintaan.
+<p>Metode <code>WebRequest` menerima opsional `filter` dan seorang `pendengar`. Seorang `pendengar` akan dipanggil dengan `pendengar(rincian)` saat API sudah terjadi. Sebuah `rincian` objek menjelaskan permintaan.
 
 ⚠️ Only the last attached `listener` will be used. Passing `null` as `listener` will unsubscribe from the event.
 
