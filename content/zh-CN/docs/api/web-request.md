@@ -32,12 +32,12 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 ### 实例方法
 
-以下方法可用于 ` WebRequest ` 的实例:
+以下事件会在` Session `实例触发。
 
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
 * `filter` Object (可选) 
-  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。
+  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
 * `listener` Function - 回调函数 
   * `details` Object 
     * `id` Integer
