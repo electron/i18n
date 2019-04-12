@@ -82,7 +82,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
-* `filter` Object (可选) 
+* `过滤` Object (可选) 
   * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。
 * `listener` Function - 回调函数 
   * `details` Object 
