@@ -66,13 +66,13 @@ Metode berikut tersedia pada contoh `WebRequest`:
     * `rincian` Obyek 
       * `identitas` Integer
       * `url` String
-      * `method` String
-      * `webContentsId` Integer (optional)
+      * ` path </ 0>  String</li>
+<li><code>exitCode` Integer (opsional)
       * `Jenissumberdaya` Tali
       * `timestamp` Duakali
-      * `permintaanHeaders` Objek
-    * `callback` Fungsi 
-      * `respon` Obyek 
+      * `responseHeaders` Objek
+    * `callback` Lokasi: 
+      * `Tanggapan` Benda 
         * `batalkan` Boolean (opsional)
         * `permintaanHeader` Objek (opsional) - Bila tersedia, permintaan akan dibuat dengan headers ini.
   
