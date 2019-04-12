@@ -41,10 +41,10 @@ The following methods are available on instances of `WebRequest`:
 * `listener` Punsyon 
   * `ang mga detalye` Bagay 
     * `id` Integer
-    * `url` Tali
-    * `method` na String
-    * `webContentsId` Integer (optional)
-    * `resourceType` String
+    * `key` String
+    * `path` na String
+    * `exitCode` Integer (opsyonal)
+    * `referrer` na String
     * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Punsyon 
@@ -67,7 +67,7 @@ The `callback` has to be called with an `response` object.
     * `id` Integer
     * `url` Tali
     * `method` na String
-    * `webContentsId` Integer (optional)
+    * `exitCode` Integer (opsyonal)
     * `resourceType` Tali
     * `timestamp` Double
     * `requestHeaders` Object
@@ -89,7 +89,7 @@ The `callback` has to be called with an `response` object.
     * `id` Integer
     * `url` Tali
     * `method` na String
-    * `webContentsId` Integer (optional)
+    * `exitCode` Integer (opsyonal)
     * `resourceType` Tali
     * `timestamp` Double
     * `requestHeaders` Object
@@ -105,7 +105,7 @@ The `listener` will be called with `listener(details)` just before a request is 
     * `id` Integer
     * `url` Tali
     * `method` na String
-    * `webContentsId` Integer (optional)
+    * `exitCode` Integer (opsyonal)
     * `resourceType` String
     * `timestamp` Double
     * `statusLine` String
@@ -130,7 +130,7 @@ The `callback` has to be called with an `response` object.
     * `id` Integer
     * `url` Tali
     * `method` na String
-    * `webContentsId` Integer (optional)
+    * `exitCode` Integer (opsyonal)
     * `resourceType` Tali
     * `timestamp` Double
     * `responseHeaders` Object
@@ -149,7 +149,7 @@ The `listener` will be called with `listener(details)` when first byte of the re
     * `id` Integer
     * `url` Tali
     * `method` na String
-    * `webContentsId` Integer (optional)
+    * `exitCode` Integer (opsyonal)
     * `resourceType` String
     * `timestamp` Double
     * `redirectURL` String
@@ -169,7 +169,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
     * `id` Integer
     * `url` Tali
     * `method` na String
-    * `webContentsId` Integer (optional)
+    * `exitCode` Integer (opsyonal)
     * `resourceType` Tali
     * `referer` String
     * `timestamp` Double
@@ -189,7 +189,7 @@ The `listener` will be called with `listener(details)` when a request is complet
     * `id` Integer
     * `url` Tali
     * `method` na String
-    * `webContentsId` Integer (optional)
+    * `exitCode` Integer (opsyonal)
     * `resourceType` String
     * `timestamp` Double
     * `fromCache` Boolean
