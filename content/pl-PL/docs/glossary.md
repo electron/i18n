@@ -16,7 +16,7 @@ Biblioteka C Run-time (CRT) jest częścią standardowej biblioteki C++, która 
 
 Obraz dysku, używany przez macOS. Pliki DMG są powszechnie używane do dystrybucji "instalatorów" aplikacji. [electron-builder](https://github.com/electron-userland/electron-builder) wspiera `dmg` jako docelowy format kompilacji.
 
-### Edytor IME
+### IME
 
 Edytor metod wprowadzania. Program, który umożliwia użytkownikom wprowadzanie znaków i symboli, których nie można odnaleźć na klawiaturze. Na przykład pozwala to na wprowadzanie znaków chińskich, japońskich, koreańskich i hinduskich.
 
@@ -34,7 +34,7 @@ Wspólna biblioteka zawierająca [moduł zawartości Chromium](https://www.chrom
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
-### główny proces
+### main process
 
 Proces główny, zazwyczaj plik nazwany `main.js`, jest punktem wejścia do każdej aplikacji Electron'u. Kontroluje życie aplikacji, od otwarcia do zamknięcia. To również zarządza natywnymi elementami takimi jak Menu, Pasek Menu, Dock, Tray, itd. Główny proces odpowiada za tworzenie każdego nowego procesu renderowania w aplikacji. Pełny Node API jest wbudowany.
 
@@ -54,7 +54,7 @@ System IPC do komunikowania się wewnątrz- lub między-procesami, jest to ważn
 
 Zobacz https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
-### natywne moduły
+### native modules
 
 Natywne moduły (nazywane również [dodatkami](https://nodejs.org/api/addons.html) w Node.js) są modułami napisanymi w C lub C++, które mogą być załadowane do Node.js lub Electrona za pomocą funkcji require() i używane tak, jakby były zwyczajnymi modułami Node.js. Używane są głównie w celu zapewnienia interfejsu między uruchomionym w Node.js JavaScript s bibliotekami C/C++.
 
@@ -70,7 +70,7 @@ Nullsoft Scriptable Install System to skryptowe narzędzie autoryzacji instalacj
 
 OSR (Off-screen rendering) może być używane do ładowania dużych stron w tle i wyświetlaniu ich po tym (będzie to znacznie szybsze). Pozwala to na renderowanie stron bez pokazywania ich na ekranie.
 
-### przetwórz
+### process
 
 Proces jest instancją programu komputerowego, który jest wykonywany. Electron aplikacje, która używają procesu [main](#main-process) i jednego lub wielu procesów [renderer](#renderer-process) to w rzeczywistości kilka programów uruchomionych jednocześnie.
 
@@ -78,7 +78,7 @@ W Node.js i Electron, każdy z uruchomionych procesów ma obiekt `process`. Ten 
 
 Zobacz też: [główny proces](#main-process), [proces renderowania](#renderer-process)
 
-### proces renderowania
+### renderer process
 
 Proces renderowania jest oknem przeglądarki w Twojej aplikacji. W przeciwieństwie do procesu głównego, tych procesów może być wiele i każdy z nich jest uruchomiony w osobnym procesie. Mogą one również zostać schowane.
 
@@ -90,7 +90,7 @@ Zobacz także: [proces](#process), [główny proces](#main-process)
 
 Squirrel to framework open source, który umożliwia aplikacjom Electron automatyczną aktualizację do nowszych wersji. Zobacz [autoUpdater](api/auto-updater.md) API w celu uzyskania informacji o obsłudze platformy Squirrel.
 
-### strefa użytkownika
+### userland
 
 Ten termin pochodzi ze społeczności Unix, gdzie "userland" lub "userspace" określały programy działające poza jądrem systemu operacyjnego. Ostatnio termin ten został spopularyzowany wśród społeczności Node i npm dla rozróżnienia pomiędzy funkcjami dostępnymi w "Node core" oraz paczkach opublikowanych w rejestrze npm przez znacznie większą społeczność "user" (użytkowników).
 
