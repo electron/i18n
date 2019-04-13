@@ -29,7 +29,7 @@ docs:
   description: Zobacz całą <a href="/docs/all">dokumentację na jednej stronie</a> lub sprawdź <a href="/docs/faq">FAQ</a>.
   guides: Poradniki
   api_reference: Dokumentacja API
-  api_structures: API Structures
+  api_structures: Struktury API
   advanced: Zaawansowane
   footer:
     propose_change: Ulepsz tę dokumentację
@@ -49,12 +49,12 @@ community:
     updates: "<a href='https://twitter.com/electronjs'><b>Bądź na bieżąco, </b></a> śledząc <a href='https://twitter.com/electronjs'>@electronjs</a> na Twitterze i subskrybując <a href='/blog'>naszego bloga</a>."
     localized_docs: "<a href='/languages'><b>Czytaj dokumentację w Twoim języku</b></a> odwiedzając <a href='/languages'>stronę wyboru języka</a>."
     help: "<a href='http://atom-slack.herokuapp.com'><b>Uzyskaj pomoc i opinię</b></a> dołączając do <a href='http://atom-slack.herokuapp.com'>Slack'a atom.io</a>, publikując na <a href='https://discuss.atom.io/c/electron'>Forum Discuss</a>, lub odwiedzając <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
-    security: "<a href='mailto:security@electronjs.org'><b>Report security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
+    security: "<a href='mailto:security@electronjs.org'><b>Zgłoś błędy związane z bezpieczeństwem</b></a> pisząc na adres <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Zgłaszaj błędy</b></a> otwierając problemy w repozytorium <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Zaproponuj funkcjonalności</b></a> otwierając problem w repozytorium <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
-    code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Zgłoś naruszenia Kodeksu Postępowania</b></a> wysyłając e-mail na adres <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
+    code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Zgłoś naruszenia Kodeksu Postępowania</b></a> pisząc na <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
     donations: "<a href='donors'><b>Przekaż darowiznę</b></a> na naszym profilu <a href='/donors'>OpenCollective</a>."
-    other: "W przypadku wszelkich innych pytań, wyślij e-mail na adres <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
+    other: "W przypadku wszelkich innych pytań, napisz na adres <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
   language_communities:
     title: Społeczności językowe
     description: "Społeczność Electron'a obejmuje cały świat, a nie każdy zna język angielski. Znajdź <a href='/languages'> dokumentację w swoim języku </a> lub dołącz do jednej z poniższych społeczności językowych:"
@@ -66,22 +66,22 @@ community:
   awesome_notice: Ta lista została wygenerowana z repozytorium <a href="https://github.com/sindresorhus/awesome-electron">Awesome Electron</a><br> autorstwa Sindre Sorhus. Czegoś brakuje? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">Zaproponuj zmiany</a>.
   meetup_notice: Aby dodać spotkanie, edytuj plik <code>data/meetups.json</code> i <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">zaproponuj zmiany</a>.
 releases:
-  show_releases: "Show Releases:"
-  show_only_releases_from: "Show Only Releases From:"
-  all_versions: All Versions
-  stable_releases: Stable Releases
-  stable_desc: Regular, supported releases
-  beta_releases: Beta Releases
-  beta_desc: Test your app with upcoming changes
-  nightly_releases: Nightly Releases
-  nightly_desc: Experiment with the latest features
-  next: Next
-  next_page: Next Page
-  previous: Previous
-  previous_page: Previous Page
-  page: Page
-  all_releases: All Releases
-  back_to_index: Back to index
+  show_releases: "Pokaż Wydania:"
+  show_only_releases_from: "Pokaż Tylko Wydania Od:"
+  all_versions: Wszystkie Wersje
+  stable_releases: Stabilne Wydanie
+  stable_desc: Regularne, wspierane wydania
+  beta_releases: Wydania Beta
+  beta_desc: Przetestuj swoją aplikację na nadchodzące zmiany
+  nightly_releases: Wydania Nightly
+  nightly_desc: Wypróbuj najnowsze funkcje
+  next: Następna
+  next_page: Następna Strona
+  previous: Poprzednia
+  previous_page: Poprzednia Strona
+  page: Strona
+  all_releases: Wszystkie Wydania
+  back_to_index: Wróć do indeksu
 electron_is_easy:
   title: To łatwiejsze, niż myślisz
   description: Jeśli potrafisz stworzyć stronę internetową, potrafisz też napisać aplikację desktopową. Electron to framework, służący tworzeniu natywnych aplikacji, z użyciem technologii takich jak JavaScript, HTML, czy CSS. Electron zadba o trudniejsze tematy, tak, abyś ty mógł skupić się na najważniejszych elementach swojej aplikacji.
@@ -108,8 +108,8 @@ get_started:
 explore:
   title: Przeglądaj API Electrona
   description: "<a href='https://github.com/electron/electron-api-demos'>Przykłady użycia API</a> w sposób interaktywny pokazują najważniejsze funkcje Electron'a. Zapoznaj się z przykładowym kodem i przydatnymi poradami dotyczącymi tworzenia aplikacji."
-  fiddle_title: Try more powerful experiments with Electron Fiddle
-  see_more_info: See more info
+  fiddle_title: Wypróbuj więcej eksperymentów z Electron Fiddle
+  see_more_info: Zobacz więcej informacji
 download_from_github: Pobierz z GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Zobacz wszystkie wydania</a> na GitHub
 quick_start:
