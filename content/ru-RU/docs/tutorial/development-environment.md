@@ -4,7 +4,7 @@ Electron development is essentially Node.js development. To turn your operating 
 
 ## Настройка macOS
 
-> Electron supports macOS 10.10 (Yosemite) and up. Обычно компания Apple не позволяет запускать macOS на виртуальных машинах если ваш компьютер не является компьютером Apple. Если вам необходим Mac вы можете найти инструкции в сети как запустить MacOS в виртуальной машине или использовать облачные сервисы, которые позволяют получить доступ к компьютерам на MacOS (например [MacInCloud](https://www.macincloud.com/) или [xcloud](https://xcloud.me)).
+> Electon поддерживает Mac Os 10.10 (Yosemite) и выше. Обычно компания Apple не позволяет запускать macOS на виртуальных машинах если ваш компьютер не является компьютером Apple. Если вам необходим Mac вы можете найти инструкции в сети как запустить MacOS в виртуальной машине или использовать облачные сервисы, которые позволяют получить доступ к компьютерам на MacOS (например [MacInCloud](https://www.macincloud.com/) или [xcloud](https://xcloud.me)).
 
 Первым делом нужно установить последнюю версию Node.js. Мы рекомендуем устанавливать последнюю `LTS` или `текущую` доступную версию. Посетите [страницу загрузки Node.js](https://nodejs.org/en/download/) и выберите `macOS установщик`. While Homebrew is an offered option, but we recommend against it - many tools will be incompatible with the way Homebrew installs Node.js.
 
