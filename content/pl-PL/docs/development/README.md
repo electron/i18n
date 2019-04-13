@@ -1,4 +1,4 @@
-# Praca z Electron
+# Praca z Electronem
 
 Te poradniki zostały stworzone dla ludzi współtworzących projekt Electron. Poradniki przy tworzeniu aplikacji, możesz znaleźć w [/docs/README.md](../README.md#guides-and-tutorials)
 
