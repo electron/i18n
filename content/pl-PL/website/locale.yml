@@ -136,21 +136,21 @@ apps:
   submit_your_own: dodaj własną aplikację
   something_missing: Czegoś brakuje?
   edit_this_app: Edytuj tę aplikację.
-  search_app: Filter apps by name, description, etc…
-  categories: Categories
-  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
-  website: Website
-  repository: Repository
-  category: Category
-  downloads: Downloads
-  keywords: Keywords
-  license: License
-  latest_release: Latest Release
+  search_app: Filtruj aplikacje na podstawie nazwy, opisu itd…
+  categories: Kategorie
+  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Utwórz Pull Request</a> aby dodać swoją aplikację.'
+  website: Strona
+  repository: Repozytorium
+  category: Kategoria
+  downloads: Pliki do pobrania
+  keywords: Słowa kluczowe
+  license: Licencja
+  latest_release: Najnowsze Wydanie
 blog:
   title: Blog Electrona
   description: Najnowsze wiadomości od zespołu Electrona oraz społeczności.
-  feedback: Have feedback on this post? Let <a href="https://twitter.com/electronjs">@electronjs</a> know on Twitter.
-  help: Need help or found a bug? <a href="/contact">Contact us</a>.
+  feedback: Chciałbyś podzielić się swoją opinią na temat tego posta? Tweetnij <a href="https://twitter.com/electronjs">@electronjs</a>.
+  help: Potrzebujesz pomocy lub znalazłeś/znalazłaś błąd? <a href="/contact">Skontaktuj się z nami</a>.
 clipboard:
   copy: Kopiuj
   copy_to_clipboard: Kopiuj do Schowka
@@ -200,16 +200,16 @@ pages:
     description: Spectron to otwartoźródłowy framework do łatwiejszego pisania testów integracyjnych dla twojej aplikacji stworzonej z Electron. Twórz na szczycie ChromeDriver i WebDriverIO.
   '/fiddle':
     title: Electron Fiddle
-    description: The easiest way to get started with Electron
+    description: Najprostszy sposób aby rozpocząć swoją przygodę z Electronem
   '/governance':
-    title: Electron Governance
-    description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
+    title: Zarządzanie Electrona
+    description: System zarządzania Electrona złożony jest z różnych grup, które zajmują się innymi aspektami ekosystemu oraz z grupy administracyjnej, która ma za zadanie rozwiązywać konflikty między poszczególnymi grupami.
   '/donors':
     title: Darczyńcy
 landing:
   get_started: Pierwsze kroki
   fiddle:
-    lead_desc: The easiest way to get started with Electron
+    lead_desc: Najprostszy sposób aby rozpocząć swoją przygodę z Electronem
     create_app: Create your app
     description: Electron Fiddle lets you create and play with small Electron experiments. It greets you with a quick-start template after opening – change a few things, choose the version of Electron you want to run it with, and play around. Then, save your Fiddle either as a GitHub Gist or to a local folder. Once pushed to GitHub, anyone can quickly try your Fiddle out by just entering it in the address bar.
     explore: Explore Electron
@@ -221,8 +221,8 @@ landing:
     easy_start: Start with Fiddle, Continue Wherever
     easy_start_desc: Fiddle is not an IDE – it is however an excellent starting point. Once your fiddle has grown up, export it as a project with or without <a href="https://electronforge.io/">electron-forge</a>. Then, use your favorite editor and take on the world!
 governance:
-  title: Electron Governance
-  description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
+  title: Zarządzanie Electrona
+  description: System zarządzania Electrona złożony jest z różnych grup, które zajmują się innymi aspektami ekosystemu oraz z grupy administracyjnej, która ma za zadanie rozwiązywać konflikty między poszczególnymi grupami.
   wgs: Working Groups
   docstools:
     title: Docs & Tools
@@ -237,7 +237,7 @@ governance:
     title: Upgrades
     description: Oversees upgrades of upstream dependencies; specifically Chromium and Node.
   website:
-    title: Website
+    title: Strona
     description: Oversees the technical implementation, design, and style of the Electron website and associated tooling.
   cmsf:
     title: Community & Safety
