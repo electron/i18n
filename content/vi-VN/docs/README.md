@@ -1,6 +1,6 @@
-# Official Guides
+# Chinese Travelers
 
-Hãy chắc chắn rằng bạn đang sử dụng các tài liệu phù hợp với phiên bản Electron của bạn. Các đánh số của phiên bản là một phần của URL. Nếu bạn không thấy, thì bạn đang sử dụng tài liệu của một nhánh, tài liệu này có thể chứa các thay đổi trong các API mà nó có thể không tương thích với phiên bản Electron hiện tại mà bạn đang sử dụng. Để xem các tài liệu của phiên bản cũ hơn, bạn có thể [duyệt theo thẻ](https://github.com/electron/electron/tree/v1.4.0) trên GitHub mở trình đơn thả xuống "Swich branches/tags" và chọn từ khóa phù hợp với phiên bản của bạn.
+Hãy chắc chắn rằng bạn đang sử dụng các tài liệu phù hợp với phiên bản Electron của bạn. Các đánh số của phiên bản là một phần của URL. If it's not, you are probably using the documentation of a development branch which may contain API changes that are not compatible with your Electron version. Để xem các tài liệu của phiên bản cũ hơn, bạn có thể [duyệt theo thẻ](https://github.com/electron/electron/tree/v1.4.0) trên GitHub mở trình đơn thả xuống "Swich branches/tags" và chọn từ khóa phù hợp với phiên bản của bạn.
 
 ## FAQ (câu hỏi thường gặp)
 
