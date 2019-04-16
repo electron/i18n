@@ -59,7 +59,9 @@ Luego, necesita preparar 3 archivos con los derechos.
     <key>com.apple.security.app-sandbox</key>
     <true/>
     <key>com.apple.security.application-groups</key>
-    <string>TEAM_ID.your.bundle.id</string>
+    <array>
+      <string>TEAM_ID.your.bundle.id</string>
+    </array>
   </dict>
 </plist>
 ```
@@ -193,7 +195,7 @@ Vea la [documentación sobre la habilitación del acceso del usuario a archivos 
 
 ## Algoritmos criptográficos utilizados por Electron
 
-Dependiendo del país y región en el que se encuentre, la Mac App Store puede requerir la documentación de los algoritmo criptográficos en su aplicación, e incluso pedirle que presente una copia de la aprobación registro de encriptación de EEUU (ERN).
+Depending on the countries in which you are releasing your app, you may be required to provide information on the cryptographic algorithms used in your software. See the [encryption export compliance docs](https://help.apple.com/app-store-connect/#/devc3f64248f) for more information.
 
 Electron usa los siguientes algoritmos criptográficos:
 
@@ -220,5 +222,3 @@ Electron usa los siguientes algoritmos criptográficos:
 * RC4 - [RFC 4345](https://tools.ietf.org/html/rfc4345)
 * RC5 - http://people.csail.mit.edu/rivest/Rivest-rc5rev.pdf
 * RIPEMD - [ISO/IEC 10118-3](https://webstore.ansi.org/RecordDetail.aspx?sku=ISO%2FIEC%2010118-3:2004)
-
-Sobre como obtener la aprobación ERN, puede referenciar el artículo: [How to legally submit an app to Apple’s App Store when it uses encryption (or how to obtain an ERN)](https://carouselapps.com/2015/12/15/legally-submit-app-apples-app-store-uses-encryption-obtain-ern/).
