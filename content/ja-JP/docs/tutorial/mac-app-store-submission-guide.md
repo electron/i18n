@@ -59,7 +59,9 @@ Mac App Store にアプリを提出するには、Appleからまず証明書を�
     <key>com.apple.security.app-sandbox</key>
     <true/>
     <key>com.apple.security.application-groups</key>
-    <string>TEAM_ID.your.bundle.id</string>
+    <array>
+      <string>TEAM_ID.your.bundle.id</string>
+    </array>
   </dict>
 </plist>
 ```
@@ -193,7 +195,7 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 
 ## Electronが使用する暗号化アルゴリズム
 
-あなたが住んでいる国や地域に依存して、Mac App Store がアプリで使用する暗号化アルゴリズムを文章化することを要求することがあり、暗号登録番号（U.S. Encryption Registration (ERN)）の同意のコピーの提出を求められることもあります。
+Depending on the countries in which you are releasing your app, you may be required to provide information on the cryptographic algorithms used in your software. See the [encryption export compliance docs](https://help.apple.com/app-store-connect/#/devc3f64248f) for more information.
 
 Electron は次の暗号アルゴリズムを使用しています:
 
@@ -220,5 +222,3 @@ Electron は次の暗号アルゴリズムを使用しています:
 * RC4 - [RFC 4345](https://tools.ietf.org/html/rfc4345)
 * RC5 - http://people.csail.mit.edu/rivest/Rivest-rc5rev.pdf
 * RIPEMD - [ISO/IEC 10118-3](https://webstore.ansi.org/RecordDetail.aspx?sku=ISO%2FIEC%2010118-3:2004)
-
-ERN の同意を取得するには、[How to legally submit an app to Apple's App Store when it uses encryption (or how to obtain an ERN)](https://carouselapps.com/2015/12/15/legally-submit-app-apples-app-store-uses-encryption-obtain-ern/) を参照してください。
