@@ -59,7 +59,9 @@ Tapos, dapat mong ihanda ang tatlong mga file na may karapatan.
     <key>com.apple.security.app-sandbox</key>
     <true/>
     <key>com.apple.security.application-groups</key>
-    <string>TEAM_ID.your.bundle.id</string>
+    <array>
+      <string>TEAM_ID.your.bundle.id</string>
+    </array>
   </dict>
 </plist>
 ```
@@ -193,7 +195,7 @@ Tingnan ang [Enabling User-Selected File Access documentation](https://developer
 
 ## Mga Cryptographic Algorithm na Ginamit ng Electron
 
-Depende sa bansa at rehiyon kung saan ka matatagpuan, maaaring kailanganin ng Mac App Store ang pagdodokumento ng mga cryptographic algorithm na ginamit sa iyong app, at posibleng hilingin kang magsumite ng kopya ng pag-apruba ng U.S. Encryption Registration (ERN).
+Depending on the countries in which you are releasing your app, you may be required to provide information on the cryptographic algorithms used in your software. See the [encryption export compliance docs](https://help.apple.com/app-store-connect/#/devc3f64248f) for more information.
 
 Ang Electron ay gumagamit ng mga sumusunod na cryptographic algorithm:
 
@@ -220,5 +222,3 @@ Ang Electron ay gumagamit ng mga sumusunod na cryptographic algorithm:
 * RC4 - [RFC 4345](https://tools.ietf.org/html/rfc4345)
 * RC5 - http://people.csail.mit.edu/rivest/Rivest-rc5rev.pdf
 * RIPEMD - [ISO/IEC 10118-3](https://webstore.ansi.org/RecordDetail.aspx?sku=ISO%2FIEC%2010118-3:2004)
-
-Sa kung paano makakuha ng ERN na pag-apruba, maaari mong batayan ang artikulong: [Paano legal na isumite ang isang app sa Apple’s App Store kapag gumagamit ito ng encryption (o paano makakuha ng isang ERN)](https://carouselapps.com/2015/12/15/legally-submit-app-apples-app-store-uses-encryption-obtain-ern/).
