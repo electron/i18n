@@ -195,7 +195,7 @@ See the [Enabling User-Selected File Access documentation](https://developer.app
 
 ## Cryptographic Algorithms Used by Electron
 
-Depending on the countries in which you are releasing your app, you may be required to provide information on the cryptographic algorithms used in your software. See the [encryption export compliance docs](https://help.apple.com/app-store-connect/#/devc3f64248f) for more information.
+Dependendo dos países em que você esteja liberando seu aplicativo, você pode ser obrigado a fornecer informações sobre os algoritmos criptográficos usados em seu software. Veja a [documentação de conformidade com a criptografia](https://help.apple.com/app-store-connect/#/devc3f64248f) para mais informações.
 
 Electron uses following cryptographic algorithms:
 
