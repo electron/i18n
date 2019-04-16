@@ -231,7 +231,7 @@ Unregisters the custom protocol of `scheme`.
 ### `protocol.isProtocolHandled(scheme, callback)`
 
 * `scheme` String
-* `callback` Function 
+* `callback` Functie 
   * `error` Error
 
 The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
