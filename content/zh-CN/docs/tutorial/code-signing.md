@@ -35,10 +35,10 @@ If you are building an Electron app that you intend to package and distribute, i
 
 在签署Windows应用程序前，你需要完成以下事项：
 
-1. 获取Windows Authenticode的代码签名证书
+1. Get a Windows Authenticode code signing certificate (requires an annual fee)
 2. 安装Visual Studio 2015/2017(来获取签名功能)
 
-你可以通过许多分销商来获取代码签名证书，比较常见的有：
+You can get a code signing certificate from a lot of resellers. Prices vary, so it may be worth your time to shop around. Popular resellers include:
 
 - [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
 - [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)
