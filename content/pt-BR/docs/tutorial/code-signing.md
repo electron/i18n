@@ -35,10 +35,10 @@ For more info, see the [Mac App Store Submission Guide](mac-app-store-submission
 
 Before signing Windows builds, you must do the following:
 
-1. Get a Windows Authenticode code signing certificate (requires an annual fee)
+1. Obtenha um certificado de assinatura de código do Windows Authenticode (requer uma taxa anual)
 2. Install Visual Studio 2015/2017 (to get the signing utility)
 
-You can get a code signing certificate from a lot of resellers. Prices vary, so it may be worth your time to shop around. Popular resellers include:
+Você pode obter um certificado de assinatura de um grande número de revendedores. Os preços variam, então vale a pena pesquisar. Revendedores populares incluem:
 
 - [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
 - [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)
