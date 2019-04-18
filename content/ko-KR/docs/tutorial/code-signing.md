@@ -1,4 +1,4 @@
-# Code Signing
+# 코드 사이닝
 
 Code signing is a security technology that you use to certify that an app was created by you.
 
@@ -35,10 +35,10 @@ MacO에서 빌드를 서명 하기 전에 다음을 수행 해야 합니다.
 
 Windows 에서 빌드를 서명 하기 전에 다음을 수행 해야 합니다.
 
-1. Windows Authenticode 코드 서명 인증서 얻기
+1. Get a Windows Authenticode code signing certificate (requires an annual fee)
 2. Visual Studio 2015/2017 설치 (서명 유틸리티를 얻으려면)
 
-많은 리셀러로부터 코드 서명 인증서를 얻을 수 있으며 인기있는 인증서는 다음과 같습니다.
+You can get a code signing certificate from a lot of resellers. Prices vary, so it may be worth your time to shop around. Popular resellers include:
 
 - [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
 - [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)
