@@ -271,7 +271,7 @@ Gets the macOS appearance setting that you have declared you want for your appli
 
 * `appearance` String | null - 可以是 `dark` 或 `light`
 
-Sets the appearance setting for your application, this should override the system default and override the value of `getEffectiveAppearance`.
+设定您的应用程序的外观设置，这应该覆盖系统默认值以及覆盖 `getEffectiveAppearance` 的值。
 
 ### `systemPreferences.isTrustedAccessibilityClient(prompt)` *macOS*
 
