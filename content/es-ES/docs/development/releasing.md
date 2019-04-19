@@ -120,9 +120,9 @@ For a `minor` release, e.g. `1.8.0`, use this format:
 
 - Upgraded from Node `oldVersion` to `newVersion`. #123
 
-## API Changes
+## Cambios en la API
 
-* Changed a thing. #123
+* Cambió una cosa. #123
 
 ### Linux
 
