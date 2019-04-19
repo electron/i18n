@@ -79,7 +79,7 @@ console.log(systemPreferences.isDarkMode())
   * `event` String
   * `userInfo` Object
 
-Returns `Number` - The ID of this subscription
+返回 `Number` - 该订阅的 ID
 
 订阅macOS的原生通知，当通信的 `event</ 0>发生时，将调用 <code>callback(event, userInfo)` 。 ` userInfo `是一个Object，它包含随通知一起发送的用户信息字典。
 
@@ -259,17 +259,17 @@ const alpha = color.substr(6, 2) // "dd"
 
 获取当前应用到你的程序上的 macOS 设置项，会映射到 [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
 
-需要注意的是，在 构建针对Electron 10.14 SDK 之前的版本时，你的程序的`effectiveAppearance`默认为 "light" 并且不会继承系统的设置。 In the interim in order for your application to inherit the OS preference you must set the `NSRequiresAquaSystemAppearance` key in your apps `Info.plist` to `false`. If you are using `electron-packager` or `electron-forge` just set the `enableDarwinDarkMode` packager option to `true`. See the [Electron Packager API](https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) for more details.
+需要注意的是，在 构建针对Electron 10.14 SDK 之前的版本时，你的程序的`effectiveAppearance`默认为 "light" 并且不会继承系统的设置。 In the interim in order for your application to inherit the OS preference you must set the `NSRequiresAquaSystemAppearance` key in your apps `Info.plist` to `false`. If you are using `electron-packager` or `electron-forge` just set the `enableDarwinDarkMode` packager option to `true`. 查看 [Electron Packager API](https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) 以获得更多细节。
 
 ### `systemPreferences.getAppLevelAppearance()` *macOS*
 
-Returns `String` | `null` - Can be `dark`, `light` or `unknown`.
+返回 `String` | `null` - 其值可能为 `dark`、`light` 或 `unknown`。
 
-Gets the macOS appearance setting that you have declared you want for your application, maps to [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc). You can use the `setAppLevelAppearance` API to set this value.
+Gets the macOS appearance setting that you have declared you want for your application, maps to [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc). 您可以使用 `setAppLevelAppearance` API 来设置此值。
 
 ### `systemPreferences.setAppLevelAppearance(appearance)` *macOS*
 
-* `appearance` String | null - Can be `dark` or `light`
+* `appearance` String | null - 可以是 `dark` 或 `light`
 
 Sets the appearance setting for your application, this should override the system default and override the value of `getEffectiveAppearance`.
 
