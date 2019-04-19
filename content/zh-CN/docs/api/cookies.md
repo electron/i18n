@@ -72,7 +72,7 @@ session.defaultSession.cookies.set(cookie, (error) => {
   * ` url `String - 与 cookie 关联的 url。
   * ` name `String (可选) - cookie 名称。如果省略, 则默认为空。
   * ` value `String (可选) - cookie 值。如果省略, 则默认为空。
-  * `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains. Empty by default if omitted.
+  * `domain` String (可选) - cookie所在域名，通常使用点号开头，以使其对子域名可用。未指定时默认为空。
   * ` path `String (可选) - cookie 的路径。如果省略, 则默认为空。
   * ` secure `Boolean (可选) - 是否将 cookie 标记为Secure。默认为 false。
   * ` httpOnly `Boolean (可选) - 是否只将 cookie 标记为 只允许HTTP 访问。默认为 false。
