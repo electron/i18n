@@ -1,8 +1,8 @@
-# Cookie Object
+# Cookie 对象
 
 * `name` String - cookie 的名称。
 * `value` String - cookie 的值。
-* `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains.
+* `domain` String (可选) - cookie所在域名，通常使用 点号开头，以使其对子域名可用。
 * `hostOnly` Boolean (optional) - Whether the cookie is a host-only cookie; this will only be `true` if no domain was passed.
 * `path` String (可选) - cookie 的路径。
 * `secure` Boolean (可选) - cookie 是否标记为安全。
