@@ -33,13 +33,13 @@ console.log(systemPreferences.isDarkMode())
 * `event` Event
 * `invertedColorScheme` Boolean - 如果正在使用诸如高对比度主题的色彩方案，则为`true`， 否则为 `false`.
 
-### Event: 'appearance-changed' *macOS*
+### 事件: 'appearance-changed' *macOS*
 
 返回:
 
-* `newAppearance` String - Can be `dark` or `light`
+* `newAppearance` String - 可以为 `dark` 或 `light`
 
-**NOTE:** This event is only emitted after you have called `startAppLevelAppearanceTrackingOS`
+**注意:** 此事件仅在调用了`startAppLevelAppearanceTrackingOS`后触发
 
 ## 方法
 
