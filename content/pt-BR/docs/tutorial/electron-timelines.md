@@ -7,7 +7,7 @@ Take a look at 5.0.0 Timeline [blog post](https://electronjs.org/blog/electron-5
 - These dates are our goals but there may be reasons for adjusting the stable deadline, such as security bugs.
 - These are our scheduled beta releases, however we often release more betas than scheduled.
 
-| Date/Week Of     | Release      | Comments                                                                  |
+| Date/Week Of     | Lançamento   | Comentários                                                               |
 | ---------------- | ------------ | ------------------------------------------------------------------------- |
 | Tue, 2019-Jan-22 | 5.0.0-beta.1 | 🔥                                                                         |
 | Tue, 2019-Jan-29 | 5.0.0-beta.x |                                                                           |
@@ -33,7 +33,7 @@ Take a look at 5.0.0 Timeline [blog post](https://electronjs.org/blog/electron-5
 - These dates are our goals but there may be reasons for adjusting the stable deadline, such as security bugs.
 - These are our scheduled beta releases, however we often release more betas than scheduled.
 
-| Date/Week Of     | Release      | Comments                       |
+| Date/Week Of     | Lançamento   | Comentários                    |
 | ---------------- | ------------ | ------------------------------ |
 | Thu, 2019-Apr-25 | 6.0.0-beta.1 | 🔥                              |
 | Tue, 2019-Apr-30 | 6.0.0-beta.x |                                |
