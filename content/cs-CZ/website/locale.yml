@@ -225,7 +225,7 @@ governance:
   description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
   wgs: Working Groups
   docstools:
-    title: Docs & Tools
+    title: Dokumenty a nástroje
     description: Oversees externally-focused tooling (e.g. Fiddle, Forge), Electron documentation across the website and <code>electron/*</code> repositories, and the maintainer’s group outreach to 3rd party modules.
   outreach:
     title: Outreach
@@ -234,22 +234,22 @@ governance:
     title: Vydání
     description: Oversees all release branches, and tooling to support releases.
   upgrades:
-    title: Upgrades
+    title: Vylepšení
     description: Oversees upgrades of upstream dependencies; specifically Chromium and Node.
   website:
     title: Webová stránka
     description: Oversees the technical implementation, design, and style of the Electron website and associated tooling.
   cmsf:
-    title: Community & Safety
+    title: Komunita a bezpečnost
     description: Oversees removal/bans from community.
   security:
     title: Bezpečnost
     description: Proactively ensures the Security of Electron as a project, responds to incoming incidents, and oversees rollout of fixes.
   admins:
-    title: Administrative
+    title: Administrativní
     description: The Administrative Working Group oversees the entire governance and project.
   global:
-    overview: Overview
+    overview: Přehled
     associated_repos: Associated Repositories
     notes: Meeting Notes
   definitions:
@@ -261,7 +261,7 @@ governance:
       - A <i>working group</i> is a group of maintainers that is formed to take responsibility for certain aspects of the Electron project. Normally these groups will meet regularly but in some cases will only meet as required to fulfill their responsibilities.
       - 'A <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership">chair</a> leads a working group.'
   responsibilities:
-    title: Responsibilities
+    title: Zodpovědnost
     listdescription: "All Working Groups have these core responsibilities:"
     list:
       - They shall decide for themselves, and publicly post, their rules, e.g. how decisions are made, when meetings are held, and who may attend.
