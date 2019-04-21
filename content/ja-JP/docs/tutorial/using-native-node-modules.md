@@ -37,14 +37,14 @@ HOME=~/.electron-gyp npm install
 ```sh
 npm install --save-dev electron-rebuild
 
-# Every time you run "npm install", run this:
+# "npm install" を実行するごとに、これを実行します
 ./node_modules/.bin/electron-rebuild
 
-# On Windows if you have trouble, try:
+# Windows でトラブルがあれば、これを試してください
 .\node_modules\.bin\electron-rebuild.cmd
 ```
 
-### Electron用にマニュアルリビルド
+### Electron の手動ビルド
 
 もしあなたがネイティブモジュールの開発者でElectronでの動作を検証したいのであれば、Electron用にモジュールを手動で再構築したいことと思います。 `node-gyp`を使用することで、モジュールをElectron用にビルドできます。
 
@@ -55,9 +55,9 @@ HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https
 
 `HOME=~/.electron-gyp`は開発用のヘッダーを探す場所によって変わります。 `--target=1.2.3`はElectronのバージョンです。 `--dist-url=...`では、ヘッダーのダウンロードのためのURLを指定します。 `--arch=x64`は、モジュールを64bitシステム用にビルドすることを意味しています。
 
-### Manually building for a custom build of Electron
+### Electron のカスタムビルドを手動ビルド
 
-To compile native Node addons against a custom build of Electron that doesn't match a public release, instruct `npm` to use the version of Node you have bundled with your custom build.
+公開されているリリースと一致しない Electron のカスタムビルドに対してネイティブの Node アドオンをコンパイルするには、カスタムビルドにバンドルされている Node のバージョンを使用するように `npm` に指示します。
 
 ```sh
 npm rebuild --nodedir=$HOME/.../path/to/electron/vendor/node
@@ -67,8 +67,8 @@ npm rebuild --nodedir=$HOME/.../path/to/electron/vendor/node
 
 もしネイティブモジュールがインストールされているがうまく動いていないことが分かった場合は、下記のことを確認してみてください：
 
-- The architecture of the module has to match Electron's architecture (ia32 or x64).
-- `win_delay_load_hook` is not set to `false` in the module's `binding.gyp`.
+- モジュールのアーキテクチャがElectronのアーキテクチャと一致する (ia32 または x64)。
+- モジュールの `binding.gyp` 内の `win_delay_load_hook` が `false` にセットされていない。
 - Electron のアップグレード語は、モジュールの再ビルドが必要になります。
 - 何かおかしいと思ったら、まず`electron-rebuild`を走らせてみてください。
 
