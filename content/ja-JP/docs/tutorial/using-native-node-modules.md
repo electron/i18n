@@ -76,8 +76,7 @@ npm rebuild --nodedir=$HOME/.../path/to/electron/vendor/node
 
 Windows のデフォルトでは、node-gyp は `node.dll` に対してネイティブモジュールをリンクします。 しかし Electron 4.x 以降では、ネイティブモジュールで必要とされるシンボルは `electron.exe` によってエクスポートされ、Electron 4.x に `node.dll` はありません。Windows にネイティブモジュールをロードするため、node-gyp はネイティブモジュールがロードされたときにトリガーされる [delay-load フック](https://msdn.microsoft.com/en-us/library/z9h1h6ty.aspx) をインストールします。これは、ライブラリの検索パス (何も表示されません) で `node.dll` を検索する代わりに、ロード可能な実行可能ファイルを使用するように `node.dll` 参照をリダイレクトします。 そのため、Electron 4.x 以降でネイティブモジュールをロードするには `'win_delay_load_hook': 'true'` が必要です。
 
-If you get an error like `Module did not self-register`, or `The specified
-procedure could not be found`, it may mean that the module you're trying to use did not correctly include the delay-load hook. If the module is built with node-gyp, ensure that the `win_delay_load_hook` variable is set to `true` in the `binding.gyp` file, and isn't getting overridden anywhere. If the module is built with another system, you'll need to ensure that you build with a delay-load hook installed in the main `.node` file. Your `link.exe` invocation should look like this:
+`モジュールが自己登録されなかった` や `指定されたプロシージャが見つかりませんでした` のようなエラーが得られた場合は、使用しようとしているモジュールが見つからないことを意味しているかもしれません。delay-load フックを正しくインクルードしてください。 モジュールが node-gyp でビルドされている場合、`binding.gyp` ファイルで `win_delay_load_hook` 変数が `true` に設定されておらず、どこかで上書きされていないことを確認します。 モジュールが別のシステムでビルドされている場合は、メインの `.node` ファイルにインストールされている delay-load フックを使用してビルドする必要があります。 Your `link.exe` invocation should look like this:
 
 ```text
  link.exe /OUT:"foo.node" "...\node.lib" delayimp.lib /DELAYLOAD:node.exe /DLL
