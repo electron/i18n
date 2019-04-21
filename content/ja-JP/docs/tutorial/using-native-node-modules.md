@@ -76,18 +76,18 @@ npm rebuild --nodedir=$HOME/.../path/to/electron/vendor/node
 
 Windows のデフォルトでは、node-gyp は `node.dll` に対してネイティブモジュールをリンクします。 しかし Electron 4.x 以降では、ネイティブモジュールで必要とされるシンボルは `electron.exe` によってエクスポートされ、Electron 4.x に `node.dll` はありません。Windows にネイティブモジュールをロードするため、node-gyp はネイティブモジュールがロードされたときにトリガーされる [delay-load フック](https://msdn.microsoft.com/en-us/library/z9h1h6ty.aspx) をインストールします。これは、ライブラリの検索パス (何も表示されません) で `node.dll` を検索する代わりに、ロード可能な実行可能ファイルを使用するように `node.dll` 参照をリダイレクトします。 そのため、Electron 4.x 以降でネイティブモジュールをロードするには `'win_delay_load_hook': 'true'` が必要です。
 
-`モジュールが自己登録されなかった` や `指定されたプロシージャが見つかりませんでした` のようなエラーが得られた場合は、使用しようとしているモジュールが見つからないことを意味しているかもしれません。delay-load フックを正しくインクルードしてください。 モジュールが node-gyp でビルドされている場合、`binding.gyp` ファイルで `win_delay_load_hook` 変数が `true` に設定されておらず、どこかで上書きされていないことを確認します。 モジュールが別のシステムでビルドされている場合は、メインの `.node` ファイルにインストールされている delay-load フックを使用してビルドする必要があります。 Your `link.exe` invocation should look like this:
+`モジュールが自己登録されなかった` や `指定されたプロシージャが見つかりませんでした` のようなエラーが得られた場合は、使用しようとしているモジュールが見つからないことを意味しているかもしれません。delay-load フックを正しくインクルードしてください。 モジュールが node-gyp でビルドされている場合、`binding.gyp` ファイルで `win_delay_load_hook` 変数が `true` に設定されておらず、どこかで上書きされていないことを確認します。 モジュールが別のシステムでビルドされている場合は、メインの `.node` ファイルにインストールされている delay-load フックを使用してビルドする必要があります。 `link.exe` の呼び出しは以下ようにしなければなりません。
 
 ```text
  link.exe /OUT:"foo.node" "...\node.lib" delayimp.lib /DELAYLOAD:node.exe /DLL
      "my_addon.obj" "win_delay_load_hook.obj"
 ```
 
-In particular, it's important that:
+特に、次のことが重要です。
 
-- you link against `node.lib` from *Electron* and not Node. If you link against the wrong `node.lib` you will get load-time errors when you require the module in Electron.
-- you include the flag `/DELAYLOAD:node.exe`. If the `node.exe` link is not delayed, then the delay-load hook won't get a chance to fire and the node symbols won't be correctly resolved.
-- `win_delay_load_hook.obj` is linked directly into the final DLL. If the hook is set up in a dependent DLL, it won't fire at the right time.
+- Node ではなく *Electron* の `node.lib` に対してリンクします。 間違った `node.lib` に対してリンクすると、Electron のモジュールが必要になったときにロード時エラーが発生します。
+- `/DELAYLOAD:node.exe` フラグをインクルードします。 `node.exe` のリンクが遅延されていない場合、delay-load フックが起動する機会がなく、Node のシンボルは正しく解決されません。
+- `win_delay_load_hook.obj` は、最後の DLL に直接リンクされます。フックが依存 DLL に設定されていると、適切なタイミングで起動されません。
 
 See [node-gyp](https://github.com/nodejs/node-gyp/blob/e2401e1395bef1d3c8acec268b42dc5fb71c4a38/src/win_delay_load_hook.cc) for an example delay-load hook if you're implementing your own.
 
