@@ -568,9 +568,9 @@ const mainWindow = new BrowserWindow({
 
 ### なぜ？
 
-Due to the system access privileges of the main process, functionality provided by the main process modules may be dangerous in the hands of malicious code running in a compromised renderer process. By limiting the set of accessible modules to the minimum that your app needs and filtering out the others, you reduce the toolset that malicious code can use to attack the system.
+メインプロセスのシステムアクセス特権のために、メインプロセスモジュールによって提供される機能は、レンダラプロセスで実行される悪意のあるコードの手に渡る危険があるかもしれません。 アクセス可能なモジュールのセットをアプリケーションが必要とする最小限のものに制限し、他のものを除外することで、悪意のあるコードがシステムの攻撃に使用できるツール群を減らすことができます。
 
-Note that the safest option is to [fully disable the remote module](#15-disable-the-remote-module). If you choose to filter access rather than completely disable the module, you must be very careful to ensure that no escalation of privilege is possible through the modules you allow past the filter.
+最も安全な選択は [remote モジュールの無効化](#15-disable-the-remote-module) であることに注意してください。 モジュールを完全に無効にするのではなくアクセスをフィルタすることを選択した場合、フィルタを通過することを許可したモジュールを介して特権の昇格が不可能になるように、細心の注意を払う必要があります。
 
 ### どうすればいいの？
 
