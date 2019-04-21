@@ -195,7 +195,7 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 
 ## Electronが使用する暗号化アルゴリズム
 
-Depending on the countries in which you are releasing your app, you may be required to provide information on the cryptographic algorithms used in your software. See the [encryption export compliance docs](https://help.apple.com/app-store-connect/#/devc3f64248f) for more information.
+アプリをリリースする国によっては、ソフトウェアで使用されている暗号化アルゴリズムに関する情報を提供する必要があります。 より詳しくは、[暗号化対象:輸出コンプライアンス書類](https://help.apple.com/app-store-connect/#/devc3f64248f) を参照してください。
 
 Electron は次の暗号アルゴリズムを使用しています:
 
