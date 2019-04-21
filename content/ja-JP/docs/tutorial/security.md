@@ -532,9 +532,9 @@ shell.openExternal('https://example.com/index.html')
 
 ### なぜ？
 
-`remote` は内部の IPC チャンネルを使用して、メインプロセスと通信します。 "Prototype pollution" attacks can grant malicious code access to the internal IPC channel, which can then be used to escape the sandbox by mimicking `remote` IPC messages and getting access to main process modules running with higher privileges.
+`remote` は内部の IPC チャンネルを使用して、メインプロセスと通信します。 「プロトタイプ汚染」攻撃は、内部 IPC チャンネルへの悪意のあるコードアクセスを許可する可能性があります。サンドボックスを回避して、`remote` IPC メッセージに擬態してより高い特権で実行されているメインプロセスモジュールにアクセスすることができます。
 
-Additionally, it's possible for preload scripts to accidentally leak modules to a sandboxed renderer. Leaking `remote` arms malicious code with a multitude of main process modules with which to perform an attack.
+さらに、プリロードスクリプトが誤ってサンドボックス化されたレンダラーにモジュールをリークさせる可能性があります。 `remote` をリークすると、攻撃を実行するため、多数の主要なプロセスモジュールに悪意のあるコードが仕掛けられます。
 
 `remote` モジュールの無効化によってこれらの攻撃手法は無効化できます。コンテキストの隔離の有効化もまた、これに続くプロトタイプ汚染攻撃を防ぎます。
 
@@ -562,9 +562,9 @@ const mainWindow = new BrowserWindow({
 <webview enableremotemodule="false" src="page.html"></webview>
 ```
 
-## 16) Filter the `remote` module
+## 16) `remote` モジュールをフィルタ
 
-If you cannot disable the `remote` module, you should filter the globals, Node, and Electron modules (so-called built-ins) accessible via `remote` that your application does not require. This can be done by blocking certain modules entirely and by replacing others with proxies that expose only the functionality that your app needs.
+`remote` モジュールを無効にすることができない場合は、アプリケーションで必要のない `remote` を介してアクセス可能なもの、グローバル変数、Node、Electron モジュール (いわゆる組み込み) をフィルタリングする必要があります。 これは、特定のモジュールを完全にブロックし、他のモジュールをそのうちのアプリが必要とする機能だけを公開するプロキシで置き換えることで実現できます。
 
 ### なぜ？
 
