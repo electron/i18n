@@ -65,16 +65,16 @@ npm rebuild --nodedir=$HOME/.../path/to/electron/vendor/node
 
 ## トラブルシューティング
 
-もしネイティブモジュールがインストールされているがうまく動いていないことが分かった場合は、下記のことを確認してみてください：
+もしネイティブモジュールがインストールされているがうまく動いていないことが分かった場合は、下記のことを確認してみてください。
 
 - モジュールのアーキテクチャがElectronのアーキテクチャと一致する (ia32 または x64)。
 - モジュールの `binding.gyp` 内の `win_delay_load_hook` が `false` にセットされていない。
-- Electron のアップグレード語は、モジュールの再ビルドが必要になります。
-- 何かおかしいと思ったら、まず`electron-rebuild`を走らせてみてください。
+- Electron のアップグレード語は、モジュールの再ビルドが必要。
+- 何かおかしいと思ったら、まず `electron-rebuild` を走らせてみてください。
 
-### A note about `win_delay_load_hook`
+### `win_delay_load_hook` についての注釈
 
-On Windows, by default, node-gyp links native modules against `node.dll`. However, in Electron 4.x and higher, the symbols needed by native modules are exported by `electron.exe`, and there is no `node.dll` in Electron 4.x. In order to load native modules on Windows, node-gyp installs a [delay-load hook](https://msdn.microsoft.com/en-us/library/z9h1h6ty.aspx) that triggers when the native module is loaded, and redirects the `node.dll` reference to use the loading executable instead of looking for `node.dll` in the library search path (which would turn up nothing). As such, on Electron 4.x and higher, `'win_delay_load_hook': 'true'` is required to load native modules.
+Windows のデフォルトでは、node-gyp は `node.dll` に対してネイティブモジュールをリンクします。 しかし Electron 4.x 以降では、ネイティブモジュールで必要とされるシンボルは `electron.exe` によってエクスポートされ、Electron 4.x に `node.dll` はありません。Windows にネイティブモジュールをロードするため、node-gyp はネイティブモジュールがロードされたときにトリガーされる [delay-load フック](https://msdn.microsoft.com/en-us/library/z9h1h6ty.aspx) をインストールします。これは、ライブラリの検索パス (何も表示されません) で `node.dll` を検索する代わりに、ロード可能な実行可能ファイルを使用するように `node.dll` 参照をリダイレクトします。 そのため、Electron 4.x 以降でネイティブモジュールをロードするには `'win_delay_load_hook': 'true'` が必要です。
 
 If you get an error like `Module did not self-register`, or `The specified
 procedure could not be found`, it may mean that the module you're trying to use did not correctly include the delay-load hook. If the module is built with node-gyp, ensure that the `win_delay_load_hook` variable is set to `true` in the `binding.gyp` file, and isn't getting overridden anywhere. If the module is built with another system, you'll need to ensure that you build with a delay-load hook installed in the main `.node` file. Your `link.exe` invocation should look like this:
