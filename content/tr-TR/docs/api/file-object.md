@@ -1,4 +1,4 @@
-# `File` Nesne
+# `File` Object
 
 > HTML5 `File` API kullanarak dosya sistemi içerisindeki dosyalarla çalışın.
 
