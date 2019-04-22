@@ -1,11 +1,13 @@
-## 5.0.0 Yayınlama Planı
+# Electron Release Timelines
 
-Take a look at 5.0.0 Timeline [blog post](https://electronjs.org/blog/electron-5-0-timeline) for info about publicizing our release dates.
-
-#### Notlar:
+### Notlar:
 
 - Hedeflediğimiz kararlı teslim tarihleri güvenlik hataları gibi sebeplerden dolayı değişebilir.
 - Bunlar planlanmış beta sürümlerimizdir, ancak çoğu kez planlanmış beta sürümlerinden daha fazlasını yayınlıyoruz.
+
+## 5.0.0 Yayınlama Planı
+
+Take a look at 5.0.0 Timeline [blog post](https://electronjs.org/blog/electron-5-0-timeline) for info about publicizing our release dates.
 
 | Date/Week Of     | Release      | Comments                                                                  |
 | ---------------- | ------------ | ------------------------------------------------------------------------- |
@@ -27,11 +29,6 @@ Take a look at 5.0.0 Timeline [blog post](https://electronjs.org/blog/electron-5
 *Includes: Chromium M73 and Node v12.0*
 
 ## 6.0.0 Yayınlama Planı
-
-#### Notlar:
-
-- Hedeflediğimiz kararlı teslim tarihleri güvenlik hataları gibi sebeplerden dolayı değişebilir.
-- Bunlar planlanmış beta sürümlerimizdir, ancak çoğu kez planlanmış beta sürümlerinden daha fazlasını yayınlıyoruz.
 
 | Date/Week Of     | Release      | Comments                       |
 | ---------------- | ------------ | ------------------------------ |
