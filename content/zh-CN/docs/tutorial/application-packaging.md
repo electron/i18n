@@ -141,10 +141,10 @@ Node 中有一些可以执行程序的 API，如 `child_process.exec`，`child_p
 
 如上所述，一些节点APIs将在 调用时解压文件。除了性能问题之外，各种抗病毒扫描器可能会因此行为触发 。
 
-作为一个工作区，您可以使用 `--pack` 选项保持各种文件不被压缩。 在下一个例子中，原生Node.js 模块的共享库将不会被包装：
+有一个解决方法，您可以使用 `--unpack` 选项保持各种文件不被压缩。 在下面这个例子中，原生 Node.js 模块的共享库将不会被打包：
 
 ```sh
 $ asar pack app app.asar --unpack *.node
 ```
 
-运行命令后，您将注意到 `app.asar.unpacked` 文件夹， 与`app.asar`文件一起创建。 它包含被拆解的文件 ，应该与 `app.asar`存档一起发布。
+运行命令后，您将会看到 `app.asar.unpacked` 文件夹与 `app.asar` 文件一起被创建了。 没有被打包的文件和 `app.asar` 会一起存档发布。
