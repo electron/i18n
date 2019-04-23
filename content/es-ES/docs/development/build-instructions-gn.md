@@ -47,12 +47,9 @@ export SCCACHE_TWO_TIER=true
 
 ```sh
 $ mkdir electron-gn && cd electron-gn
-$ gclient config \
-    --name "src/electron" \
-    --unmanaged \
-    https://github.com/electron/electron
+$ gclient config --name "src/electron" --unmanaged https://github.com/electron/electron
 $ gclient sync --with_branch_heads --with_tags
-# Esto va a tomar unos momentos, tómate un café.
+# This will take a while, go get a coffee.
 ```
 
 > Instead of `https://github.com/electron/electron`, you can use your own fork here (something like `https://github.com/<username>/electron`).
