@@ -1,4 +1,4 @@
-# Electron Release Timelines
+# Linha do tempo das versões do Electron
 
 ### Notas:
 
