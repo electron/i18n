@@ -12,21 +12,17 @@ DOM 文件接口为原生文件提供了抽象, 以便让用户使用 HTML5 文�
 </div>
 
 <script>
-  document.addEventListener('drop', function (e) {
+  document.addEventListener('drop', (e) => {
     e.preventDefault();
     e.stopPropagation();
 
-    for (let f of e.dataTransfer.files) {
+    for (const f of e.dataTransfer.files) {
       console.log('File(s) you dragged here: ', f.path)
     }
   });
-  document.addEventListener('dragover', function (e) {
+  document.addEventListener('dragover', (e) => {
     e.preventDefault();
     e.stopPropagation();
   });
 </script>
- 
-Context | Edit Context
-Text
-Xpath: /pre/code
 ```
