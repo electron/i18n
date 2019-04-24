@@ -88,7 +88,7 @@ const constraints = {
 
 ### `desktopCapturer.getSources(options)`
 
-* `参数` Object - 过滤器对象，包含过滤参数 
+* `options` Object - 过滤器对象，包含过滤参数 
   * ` types `String[]-列出要捕获的桌面源类型的字符串数组, 可用类型为 ` screen ` 和 ` window `。
   * ` thumbnailSize `[ Size ](structures/size.md)(可选)-媒体源缩略图应缩放到的大小。默认值为 ` 150 ` x ` 150 `。
   * `fetchWindowIcons` Boolean (optional) - Set to true to enable fetching window icons. The default value is false. When false the appIcon property of the sources return null. Same if a source has the type screen.
