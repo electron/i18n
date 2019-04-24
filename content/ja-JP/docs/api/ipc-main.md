@@ -20,12 +20,12 @@
 // メインプロセス
 const { ipcMain } = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
-  console.log(arg) // prints "ping"
+  console.log(arg)  // "ping"を表示
   event.reply('asynchronous-reply', 'pong')
 })
 
 ipcMain.on('synchronous-message', (event, arg) => {
-  console.log(arg) // prints "ping"
+  console.log(arg)  // "ping"を表示
   event.returnValue = 'pong'
 })
 ```
@@ -82,11 +82,11 @@ An `Integer` representing the ID of the renderer frame that sent this message.
 
 ### `event.returnValue`
 
-Set this to the value to be returned in a synchronous message.
+同期メッセージでの戻り値をこれにセットします。
 
 ### `event.sender`
 
-Returns the `webContents` that sent the message, you can call `event.sender.send` to reply to the asynchronous message, see [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for more information.
+メッセージを送った `webContents` を返します。`event.sender.send` を呼ぶことで、非同期メッセージに返信できます。より詳しくは [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) を参照して下さい。
 
 ### `event.reply`
 
