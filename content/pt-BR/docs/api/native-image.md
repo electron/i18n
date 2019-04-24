@@ -166,45 +166,45 @@ Processo: [Main](../glossary.md#main-process), [Renderer](../glossary.md#rendere
 
 ### Métodos de Instância
 
-The following methods are available on instances of the `NativeImage` class:
+Os seguintes métodos estão disponíveis nas instâncias da classe `NativeImage`:
 
 #### `image.toPNG([options])`
 
 * `options` Object (opcional) * `scaleFactor` Double (opcional) - Padrão sendo 1.0.
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `PNG` encoded data.
+Retorna `Buffer` - Um [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) que contém os dados codificados de `PNG` da imagem.
 
 #### `image.toJPEG(quality)`
 
 * `quality` Integer (**Necessário**) - Entre 0 - 100.
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `JPEG` encoded data.
+Retorna `Buffer` - Um [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) que contém os dados codificados de `JPG` da imagem.
 
 #### `image.toBitmap([options])`
 
 * `options` Object (opcional) * `scaleFactor` Double (opcional) - Padrão sendo 1.0.
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains a copy of the image's raw bitmap pixel data.
+Retorna `Buffer` - Um [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) que contém uma copia dos dados de bitmap crus (sem alterações) da imagem.
 
 #### `image.toDataURL([options])`
 
 * `options` Object (opcional) * `scaleFactor` Double (opcional) - Padrão sendo 1.0.
 
-Returns `String` - The data URL of the image.
+Retorna `String` - Os dados de URL da imagem.
 
 #### `image.getBitmap([options])`
 
 * `options` Object (opcional) * `scaleFactor` Double (opcional) - Padrão sendo 1.0.
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's raw bitmap pixel data.
+Retorna `Buffer` - Um [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) que contém os dados de bitmap crus (sem alterações) da imagem.
 
-The difference between `getBitmap()` and `toBitmap()` is, `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick, otherwise the data might be changed or destroyed.
+A diferença entre `getBitmap()` e `toBitmap()` é que, `getBitmap()` não copia os dados de bitmap, portanto você tem que usar o buffer retornado imediatamente no instante do loop do evento, senão os dados podem mudar ou serem destruídos.
 
 #### `image.getNativeHandle()` no *macOS*
 
 Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that stores C pointer to underlying native handle of the image. On macOS, a pointer to `NSImage` instance would be returned.
 
-Notice that the returned pointer is a weak pointer to the underlying native image instead of a copy, so you *must* ensure that the associated `nativeImage` instance is kept around.
+Perceba que o ponteiro retornado é um ponteiro fraco para a imagem nativa subjacente invés de uma cópia, então você *deve* se certificar de que a instância `nativeImage` esteja próxima.
 
 #### `image.isEmpty()`
 
@@ -212,38 +212,38 @@ Returns `Boolean` - Whether the image is empty.
 
 #### `image.getSize()`
 
-Returns [`Size`](structures/size.md)
+Retorna [`Size`](structures/size.md)
 
 #### `image.setTemplateImage(option)`
 
 * `option` Boolean
 
-Marks the image as a template image.
+Marca a imagem como uma imagem padrão.
 
 #### `image.isTemplateImage()`
 
-Returns `Boolean` - Whether the image is a template image.
+Retorna `Boolean` - sendo a imagem uma imagem padrão ou não.
 
 #### `image.crop(rect)`
 
 * `rect` [Rectangle](structures/rectangle.md) - A área da imagem a ser cortada.
 
-Returns `NativeImage` - The cropped image.
+Retorna `NativeImage` - A imagem cortada.
 
 #### `image.resize(options)`
 
 * `options` Object * `width` Integer (opcional) - O padrão para a largura da imagem. * `height` Integer (optional) - Defaults to the image's height. * `quality` String (optional) - The desired quality of the resize image. Possíveis valores são `good`, `better` ou `best`. O padrão é `best`. Esses valores apresentam a qualidade/velocidade de troca desejada. Eles são traduzidos dentro de um método de algorítimo específico que depende da capacidade (CPU, GPU) da plataforma base. É possível para todos os três métodos serem mapeados para o mesmo algorítimo em uma determinada plataforma.
 
-Returns `NativeImage` - The resized image.
+Retorna `NativeImage` - A imagem redimensionada.
 
-If only the `height` or the `width` are specified then the current aspect ratio will be preserved in the resized image.
+Se apenas o `height` ou o `width` forem definidos então a atual proporção de tela da imagem será preservada na imagem redimensionada.
 
 #### `image.getAspectRatio()`
 
-Returns `Float` - The image's aspect ratio.
+Retorna `Float` - A proporção de tela da imagem.
 
 #### `image.addRepresentation(options)`
 
 * `options` Object * `scaleFactor` Double - O fator de escala a ser adicionado à representação da imagem. * `width` Integer (optional) - Padrão sendo 0. Necessário se um buffer de bitmap é definido como `buffer`. * `height` Integer (opcional) - Padrão sendo 0. Necessário se um buffer de bitmap é definido como `buffer`. * `buffer` Buffer (opcional) - O buffer contendo os dados crus (sem alteração) da imagem. * `dataURL` String (opcional) - O URL dos dados contendo tanto um PNG codificado em base 64 ou uma imagem JPEG.
 
-Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
+Adiciona uma imagem de representação para um específico fator de escala. Esse pode ser usado para adicionar explicitamente representações de fatores de escala diferentes para uma imagem. Isso pode ser chamado em imagens vazias.
