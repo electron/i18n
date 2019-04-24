@@ -31,30 +31,38 @@ console.log(systemPreferences.isDarkMode())
 戻り値:
 
 * `event` Event
-* `invertedColorScheme` Boolean - ハイコントラストテーマなどの反転した配色が使用されている場合は `true`、そうでない場合は `false`。
+* `invertedColorScheme` Boolean - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is being used, `false` otherwise.
 
-### イベント: 'appearance-changed' *macOS*
+### Event: 'high-contrast-color-scheme-changed' *Windows*
 
 戻り値:
 
-* `newAppearance` String - `dark` か `light`。
+* `event` Event
+* `highContrastColorScheme` Boolean - `true` if a high contrast theme is being used, `false` otherwise.
 
-**注意:** このイベントはあなたが `startAppLevelAppearanceTrackingOS` を呼び出した後にのみ発生します。
+### Event: 'appearance-changed' *macOS*
+
+戻り値:
+
+* `newAppearance` String - Can be `dark` or `light`
+
+**NOTE:** This event is only emitted after you have called `startAppLevelAppearanceTrackingOS`
 
 ## メソッド
 
 ### `systemPreferences.isDarkMode()` *macOS*
 
-戻り値 `Boolean` - システムがダークモードかどうか。
+Returns `Boolean` - Whether the system is in Dark Mode.
 
 ### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` *macOS*
 
-戻り値 `Boolean` - ページ間をスワイプの設定がオンかどうか。
+Returns `Boolean` - Whether the Swipe between pages setting is on.
 
-### `systemPreferences.postNotification(event, userInfo)` *macOS*
+### `systemPreferences.postNotification(event, userInfo[, deliverImmediately])` *macOS*
 
 * `event` String
 * `userInfo` Object
+* `deliverImmediately` Boolean (optional) - `true` to post notifications immediately even when the subscribing app is inactive.
 
 `event` を macOS のネイティブの通知として送信します。 `userInfo` は、通知とともに送信されるユーザ情報辞書を含むオブジェクトです。
 
@@ -79,13 +87,13 @@ console.log(systemPreferences.isDarkMode())
   * `event` String
   * `userInfo` Object
 
-戻り値 `Number` - この登録のID。
+Returns `Number` - The ID of this subscription
 
-対応する `event` が発生したときに、macOS のネイティブ通知を監視し、`callback` が `callback(event, userInfo)` で呼ばれます。 `userInfo` は、通知とともに送信されるユーザ情報辞書を含むオブジェクトです。
+Subscribes to native notifications of macOS, `callback` will be called with `callback(event, userInfo)` when the corresponding `event` happens. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
-`event` の登録を解除するために使用できる、監視者の `id` が返されます。
+The `id` of the subscriber is returned, which can be used to unsubscribe the `event`.
 
-このAPIの下で、`NSDistributedNotificationCenter` に登録します。`event` の値の例は以下になります。
+Under the hood this API subscribes to `NSDistributedNotificationCenter`, example values of `event` are:
 
 * `AppleInterfaceThemeChangedNotification`
 * `AppleAquaColorVariantChanged`
@@ -99,9 +107,9 @@ console.log(systemPreferences.isDarkMode())
   * `event` String
   * `userInfo` Object
 
-戻り値 `Number` - この登録のID。
+Returns `Number` - The ID of this subscription
 
-`subscribeNotification` と同じですが、ローカルデフォルトでは `NSNotificationCenter` を使用します。これは、`NSUserDefaultsDidChangeNotification` などのイベントに必要です。
+Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults. This is necessary for events such as `NSUserDefaultsDidChangeNotification`.
 
 ### `systemPreferences.subscribeWorkspaceNotification(event, callback)` *macOS*
 
@@ -110,40 +118,40 @@ console.log(systemPreferences.isDarkMode())
   * `event` String
   * `userInfo` Object
 
-`subscribeNotification` と同じですが、`NSWorkspace.sharedWorkspace.notificationCenter` を使用します。 これは `NSWorkspaceDidActivateApplicationNotification` といったイベントに必要です。
+Same as `subscribeNotification`, but uses `NSWorkspace.sharedWorkspace.notificationCenter`. This is necessary for events such as `NSWorkspaceDidActivateApplicationNotification`.
 
 ### `systemPreferences.unsubscribeNotification(id)` *macOS*
 
 * `id` Integer
 
-`id` の監視者を削除します。
+Removes the subscriber with `id`.
 
 ### `systemPreferences.unsubscribeLocalNotification(id)` *macOS*
 
 * `id` Integer
 
-`unsubscribeNotification` と同じですが、`NSNotificationCenter` から監視者を削除します。
+Same as `unsubscribeNotification`, but removes the subscriber from `NSNotificationCenter`.
 
 ### `systemPreferences.unsubscribeWorkspaceNotification(id)` *macOS*
 
 * `id` Integer
 
-`unsubscribeNotification` と同じですが、`NSWorkspace.sharedWorkspace.notificationCenter` から監視者を削除します。
+Same as `unsubscribeNotification`, but removes the subscriber from `NSWorkspace.sharedWorkspace.notificationCenter`.
 
 ### `systemPreferences.registerDefaults(defaults)` *macOS*
 
-* `defaults` Object - ユーザデフォルト (`key: value`) の辞書配列 
+* `defaults` Object - a dictionary of (`key: value`) user defaults 
 
-アプリケーションの `NSUserDefaults` へ指定したデフォルトを追加します。
+Add the specified defaults to your application's `NSUserDefaults`.
 
 ### `systemPreferences.getUserDefault(key, type)` *macOS*
 
 * `key` String
-* `type` String - `string`、`boolean`、`integer`、`float`、`double`、`url`、`array` または `dictionary` にできます。
+* `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
 
-戻り値 `any` - `NSUserDefaults` 内の `key` の値。
+Returns `any` - The value of `key` in `NSUserDefaults`.
 
-いくつかの一般的な `key` と `value` は以下です。
+Some popular `key` and `type`s are:
 
 * `AppleInterfaceStyle`: `string`
 * `AppleAquaColorVariant`: `integer`
@@ -156,14 +164,14 @@ console.log(systemPreferences.isDarkMode())
 ### `systemPreferences.setUserDefault(key, type, value)` *macOS*
 
 * `key` String
-* `type` String - [`getUserDefault`](#systempreferencesgetuserdefaultkey-type-macos) を参照してください。
+* `type` String - See [`getUserDefault`](#systempreferencesgetuserdefaultkey-type-macos).
 * `value` String
 
-`NSUserDefaults` 内の `key` の値を設定します。
+Set the value of `key` in `NSUserDefaults`.
 
-`type` は `value` の実際の型と一致する必要があります。そうでない場合は例外がスローされます。
+Note that `type` should match actual type of `value`. An exception is thrown if they don't.
 
-いくつかの一般的な `key` と `value` は以下です。
+Some popular `key` and `type`s are:
 
 * `ApplePressAndHoldEnabled`: `boolean`
 
@@ -171,13 +179,13 @@ console.log(systemPreferences.isDarkMode())
 
 * `key` String
 
-`NSUserDefaults` の `key` を削除します。 これは、以前に `setUserDefault`で設定された `key` のデフォルトまたはグローバル値を復元するために使用できます。
+Removes the `key` in `NSUserDefaults`. This can be used to restore the default or global value of a `key` previously set with `setUserDefault`.
 
 ### `systemPreferences.isAeroGlassEnabled()` *Windows*
 
-戻り値 `Boolean` - [DWM Composition](https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx) (Aero Glass) が有効な場合は `true`、それ以外は `false`。
+Returns `Boolean` - `true` if [DWM composition](https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx) (Aero Glass) is enabled, and `false` otherwise.
 
-透明なウィンドウを作成するかどうかを決定するためにこのメソッドを使用する例です (透明なウィンドウは、DWM Composition が無効のときは正しく動作しません)。
+An example of using it to determine if you should create a transparent window or not (transparent windows won't work correctly when DWM composition is disabled):
 
 ```javascript
 const { BrowserWindow, systemPreferences } = require('electron')
@@ -201,9 +209,9 @@ if (browserOptions.transparent) {
 }
 ```
 
-### `systemPreferences.getAccentColor()` *Windows*
+### `systemPreferences.getAccentColor()` *Windows* *macOS*
 
-戻り値 `String` - RGBA の16進数形式で、ユーザの現在のシステム全体のアクセント色の設定を表します。
+Returns `String` - The users current system wide accent color preference in RGBA hexadecimal form.
 
 ```js
 const color = systemPreferences.getAccentColor() // `"aabbccdd"`
@@ -213,86 +221,142 @@ const blue = color.substr(4, 2) // "cc"
 const alpha = color.substr(6, 2) // "dd"
 ```
 
-### `systemPreferences.getColor(color)` *Windows*
+This API is only available on macOS 10.14 Mojave or newer.
 
-* `color` String - 以下の値の一つ。 
-  * `3d-dark-shadow` - 3D 表示要素の暗い影の色。
-  * `3d-face` - 3D 表示要素とダイアログボックスの背景の表面の色。
-  * `3d-highlight` - 3D 表示要素のハイライト色。
-  * `3d-light` - 3D 表示要素の光源色。
-  * `3d-shadow` - 3D 表示要素の影の色。
-  * `active-border` - アクティブなウインドウの縁の色。
-  * `active-caption` - アクティブなウインドウのタイトルバー色。グラデーション効果が有効な場合は、その左側の色になります。
-  * `active-caption-gradient` - アクティブなウィンドウのタイトルバーのグラデーション色における右側の色。
-  * `app-workspace` - マルチドキュメントインターフェース (MDI) アプリケーションの背景色。
-  * `button-text` - 押しボタンのテキスト色。
-  * `caption-text` - キャプション、サイズボックス、スクロールバー、矢印ボックス内のテキスト色。
-  * `desktop` - デスクトップ背景色。
-  * `disabled-text` - グレーの (無効化された) テキスト色。
-  * `highlight` - コントロール内で選択されたアイテム色。
-  * `highlight-text` - コントロール内で選択されたアイテムのテキスト色。
-  * `hotlight` - ハイパーリンクかホットトラックされたアイテムの色。
-  * `inactive-border` - 非アクティブなウインドウの縁の色。
-  * `inactive-caption` - 非アクティブなウインドウのキャプション色。グラデーション効果が有効な場合は、その左側の色になります。
-  * `inactive-caption-gradient` - 非アクティブなウィンドウのタイトルバーのグラデーション色における右側の色。
-  * `inactive-caption-text` - 非アクティブなキャプション内のテキストの色。
-  * `info-background` - ツールチップコントロールの背景色。
-  * `info-text` - ツールチップコントロールのテキスト色。
-  * `menu` - メニューの背景色。
-  * `menu-highlight` - メニューがフラットメニューとして表示されたときにメニュー項目をハイライト表示するために使用される色。
-  * `menubar` - メニューがフラットメニューとして表示されたときのメニューの背景色。
-  * `menu-text` - メニューのテキスト色。
-  * `scrollbar` - スクロールバーのグレーの領域の色。
-  * `window` - ウインドウの背景色。
-  * `window-frame` - ウインドウフレームの色。
-  * `window-text` - ウインドウ内のテキスト色。
+### `systemPreferences.getColor(color)` *Windows* *macOS*
 
-戻り値 `String` - RGB の16進数形式 (`#ABCDEF`) のシステム色の設定。 詳細については、[Windows のドキュメント](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) を参照してください。
+* `color` String - One of the following values: 
+  * On **Windows**: 
+    * `3d-dark-shadow` - Dark shadow for three-dimensional display elements.
+    * `3d-face` - Face color for three-dimensional display elements and for dialog box backgrounds.
+    * `3d-highlight` - Highlight color for three-dimensional display elements.
+    * `3d-light` - Light color for three-dimensional display elements.
+    * `3d-shadow` - Shadow color for three-dimensional display elements.
+    * `active-border` - Active window border.
+    * `active-caption` - Active window title bar. Specifies the left side color in the color gradient of an active window's title bar if the gradient effect is enabled.
+    * `active-caption-gradient` - Right side color in the color gradient of an active window's title bar.
+    * `app-workspace` - Background color of multiple document interface (MDI) applications.
+    * `button-text` - Text on push buttons.
+    * `caption-text` - Text in caption, size box, and scroll bar arrow box.
+    * `desktop` - Desktop background color.
+    * `disabled-text` - Grayed (disabled) text.
+    * `highlight` - Item(s) selected in a control.
+    * `highlight-text` - Text of item(s) selected in a control.
+    * `hotlight` - Color for a hyperlink or hot-tracked item.
+    * `inactive-border` - Inactive window border.
+    * `inactive-caption` - Inactive window caption. Specifies the left side color in the color gradient of an inactive window's title bar if the gradient effect is enabled.
+    * `inactive-caption-gradient` - Right side color in the color gradient of an inactive window's title bar.
+    * `inactive-caption-text` - Color of text in an inactive caption.
+    * `info-background` - Background color for tooltip controls.
+    * `info-text` - Text color for tooltip controls.
+    * `menu` - Menu background.
+    * `menu-highlight` - The color used to highlight menu items when the menu appears as a flat menu.
+    * `menubar` - The background color for the menu bar when menus appear as flat menus.
+    * `menu-text` - Text in menus.
+    * `scrollbar` - Scroll bar gray area.
+    * `window` - Window background.
+    * `window-frame` - Window frame.
+    * `window-text` - Text in windows.
+  * On **macOS** 
+    * `alternate-selected-control-text` - The text on a selected surface in a list or table.
+    * `control-background` - The background of a large interface element, such as a browser or table.
+    * `control` - The surface of a control.
+    * `control-text` -The text of a control that isn’t disabled.
+    * `disabled-control-text` - The text of a control that’s disabled.
+    * `find-highlight` - The color of a find indicator.
+    * `grid` - The gridlines of an interface element such as a table.
+    * `header-text` - The text of a header cell in a table.
+    * `highlight` - The virtual light source onscreen.
+    * `keyboard-focus-indicator` - The ring that appears around the currently focused control when using the keyboard for interface navigation.
+    * `label` - The text of a label containing primary content.
+    * `link` - A link to other content.
+    * `placeholder-text` - A placeholder string in a control or text view.
+    * `quaternary-label` - The text of a label of lesser importance than a tertiary label such as watermark text.
+    * `scrubber-textured-background` - The background of a scrubber in the Touch Bar.
+    * `secondary-label` - The text of a label of lesser importance than a normal label such as a label used to represent a subheading or additional information.
+    * `selected-content-background` - The background for selected content in a key window or view.
+    * `selected-control` - The surface of a selected control.
+    * `selected-control-text` - The text of a selected control.
+    * `selected-menu-item` - The text of a selected menu.
+    * `selected-text-background` - The background of selected text.
+    * `selected-text` - Selected text.
+    * `separator` - A separator between different sections of content.
+    * `shadow` - The virtual shadow cast by a raised object onscreen.
+    * `tertiary-label` - The text of a label of lesser importance than a secondary label such as a label used to represent disabled text.
+    * `text-background` - Text background.
+    * `text` - The text in a document.
+    * `under-page-background` - The background behind a document's content.
+    * `unemphasized-selected-content-background` - The selected content in a non-key window or view.
+    * `unemphasized-selected-text-background` - A background for selected text in a non-key window or view.
+    * `unemphasized-selected-text` - Selected text in a non-key window or view.
+    * `window-background` - The background of a window.
+    * `window-frame-text` - The text in the window's titlebar area. 
+
+Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) and the [MacOS docs](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors) for more details.
+
+### `systemPreferences.getSystemColor(color)` *macOS*
+
+* `color` String - One of the following values: 
+  * `blue`
+  * `brown`
+  * `gray`
+  * `green`
+  * `orange`
+  * `pink`
+  * `purple`
+  * `red`
+  * `yellow`
+
+Returns one of several standard system colors that automatically adapt to vibrancy and changes in accessibility settings like 'Increase contrast' and 'Reduce transparency'. See [Apple Documentation](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#system-colors) for more details.
 
 ### `systemPreferences.isInvertedColorScheme()` *Windows*
 
-戻り値 `Boolean` - ハイコントラストテーマなどの反転したカラースキームがアクティブな場合は `true`、そうでない場合は `false` です。
+Returns `Boolean` - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is active, `false` otherwise.
+
+### `systemPreferences.isHighContrastColorScheme()` *Windows*
+
+Returns `Boolean` - `true` if a high contrast theme is active, `false` otherwise.
 
 ### `systemPreferences.getEffectiveAppearance()` *macOS*
 
-戻り値 `String` - `dark`、`light` か `unknown` になります。
+Returns `String` - Can be `dark`, `light` or `unknown`.
 
-[NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc) に割り当てられている、現在アプリケーションに適用されている macOS の外観設定を取得します。
+Gets the macOS appearance setting that is currently applied to your application, maps to [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
 
-Electron が 10.14 SDK をターゲットにして構築されるまでは、アプリケーションの `effectiveAppearance`はデフォルトで 'light' になり、OS の設定は継承されません。 暫定的に、アプリケーションがOSの設定を継承するためには、アプリケーションの `Info.plist`の `NSRequiresAquaSystemAppearance` キーを `false` に設定する必要があります。 `electron-packager` または `electron-forge` を使用している場合は、`enableDarwinDarkMode` パッケージャーオプションを `true` に設定するだけです。 詳細については [Electron パッケージャー API](https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) を参照してください
+Please note that until Electron is built targeting the 10.14 SDK, your application's `effectiveAppearance` will default to 'light' and won't inherit the OS preference. In the interim in order for your application to inherit the OS preference you must set the `NSRequiresAquaSystemAppearance` key in your apps `Info.plist` to `false`. If you are using `electron-packager` or `electron-forge` just set the `enableDarwinDarkMode` packager option to `true`. See the [Electron Packager API](https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) for more details.
 
 ### `systemPreferences.getAppLevelAppearance()` *macOS*
 
-戻り値 `String` | `null` - `dark`、`light` か `unknown` になります。
+Returns `String` | `null` - Can be `dark`, `light` or `unknown`.
 
-[NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc) に割り当てられている、アプリケーションに必要であることを宣言した macOS の外観設定を取得します。 この値を設定するには `setAppLevelAppearance` API が使用できます。
+Gets the macOS appearance setting that you have declared you want for your application, maps to [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc). You can use the `setAppLevelAppearance` API to set this value.
 
 ### `systemPreferences.setAppLevelAppearance(appearance)` *macOS*
 
-* `appearance` String | null - `dark` か `light` にできます
+* `appearance` String | null - Can be `dark` or `light`
 
-アプリケーションの外観設定を設定します。これはシステムデフォルトを上書きし、`getEffectiveAppearance` の値を上書きします。
+Sets the appearance setting for your application, this should override the system default and override the value of `getEffectiveAppearance`.
 
 ### `systemPreferences.isTrustedAccessibilityClient(prompt)` *macOS*
 
-* `prompt` Boolean - 現在のプロセスが信頼できない場合にユーザにプロンプトで通知するかどうか。
+* `prompt` Boolean - whether or not the user will be informed via prompt if the current process is untrusted.
 
-戻り値 `Boolean` -現在のプロセスが信頼されたアクセシビリティクライアントである場合 `true` で、そうでない場合は `false` です。
+Returns `Boolean` - `true` if the current process is a trusted accessibility client and `false` if it is not.
 
 ### `systemPreferences.getMediaAccessStatus(mediaType)` *macOS*
 
-* `mediaType` String - `microphone` か `camera`。
+* `mediaType` String - `microphone` or `camera`.
 
-戻り値 `String` - `not-determined`、`granted`、`denied`、`restricted` か `unknown` になります。
+Returns `String` - Can be `not-determined`, `granted`, `denied`, `restricted` or `unknown`.
 
-このユーザーの同意は macOS 10.14 Mojave まで必要ではなかったので、システムを 10.13 High Sierra 以下で実行している場合このメソッドは常に `granted` を返します。
+This user consent was not required until macOS 10.14 Mojave, so this method will always return `granted` if your system is running 10.13 High Sierra or lower.
 
 ### `systemPreferences.askForMediaAccess(mediaType)` *macOS*
 
-* `mediaType` String - 要求されるメディアのタイプで、`microphone`、`camera` にできます。
+* `mediaType` String - the type of media being requested; can be `microphone`, `camera`.
 
-戻り値 `Promise<Boolean>` - 許可された場合は `true` で、拒否された場合は `false` で解決する Promise。 無効な `mediaType` を渡した場合、Promise は reject されます。 アクセス要求が拒否されて後でシステム環境設定パネルを通して変更した場合、新しい権限の効果を得るためにアプリの再起動が必要です。 すでにアクセスを要求して拒否された場合、設定パネルを通して変更*しなければなりません*。警告はポップアップせずに Promise は現在のアクセス状態で解決します。
+Returns `Promise<Boolean>` - A promise that resolves with `true` if consent was granted and `false` if it was denied. If an invalid `mediaType` is passed, the promise will be rejected. If an access request was denied and later is changed through the System Preferences pane, a restart of the app will be required for the new permissions to take effect. If access has already been requested and denied, it *must* be changed through the preference pane; an alert will not pop up and the promise will resolve with the existing access status.
 
-**重要:** この API を正しく活用するには、アプリの `Info.plist` ファイルに `NSMicrophoneUsageDescription` と `NSCameraUsageDescription` の文字列を[設定する必要があります](https://developer.apple.com/documentation/avfoundation/cameras_and_media_capture/requesting_authorization_for_media_capture_on_macos?language=objc)。 これらのキーの値は許可ダイアログに使用され、許可要求の目的についてユーザーに適切に通知されます。 Electron のコンテキスト内でどのようにこれらを設定するのかについての更なる情報は、[Electron アプリケーション頒布](https://electronjs.org/docs/tutorial/application-distribution#macos) を参照してください。
+**Important:** In order to properly leverage this API, you [must set](https://developer.apple.com/documentation/avfoundation/cameras_and_media_capture/requesting_authorization_for_media_capture_on_macos?language=objc) the `NSMicrophoneUsageDescription` and `NSCameraUsageDescription` strings in your app's `Info.plist` file. The values for these keys will be used to populate the permission dialogs so that the user will be properly informed as to the purpose of the permission request. See [Electron Application Distribution](https://electronjs.org/docs/tutorial/application-distribution#macos) for more information about how to set these in the context of Electron.
 
-このユーザーの同意は macOS 10.14 Mojave まで必要ではなかったので、システムを 10.13 High Sierra 以下で実行している場合このメソッドは常に `true` を返します。
+This user consent was not required until macOS 10.14 Mojave, so this method will always return `true` if your system is running 10.13 High Sierra or lower.
