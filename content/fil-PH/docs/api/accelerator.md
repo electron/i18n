@@ -50,6 +50,8 @@ Ang key ng `Super` ay naka-balangkas sa key ng `Windows` sa Windows at Linux at 
 * `Plus`
 * `Space`
 * `Tab`
+* `Capslock`
+* `Numlock`
 * `Backspace`
 * `Delete`
 * `Insert`
@@ -61,3 +63,10 @@ Ang key ng `Super` ay naka-balangkas sa key ng `Windows` sa Windows at Linux at 
 * `VolumeUp`, `VolumeDown` at `VolumeMute`
 * `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` at `MediaPlayPause`
 * `PrintScreen`
+* NumPad Keys 
+  * `num0` - `num9`
+  * `numdec` - decimal key
+  * `numadd` - numpad `+` key
+  * `numsub` - numpad `-` key
+  * `nummult` - numpad `*` key
+  * `numdiv` - numpad `÷` key
