@@ -4,7 +4,7 @@
 
 进程：[主进程](../glossary.md#main-process)
 
-Chrome Developer Tools has a [special binding](https://chromedevtools.github.io/devtools-protocol/) available at JavaScript runtime that allows interacting with pages and instrumenting them.
+Chrome Developer Tools 在 JavaScript 运行时提供了一个 [ special binding ](https://chromedevtools.github.io/devtools-protocol/), 允许与页面进行交互和检测。
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -73,14 +73,14 @@ Returns `Promise<any>` - A promise that resolves with the response defined by th
 #### Event: 'detach'
 
 * `event` Event
-* `reason` String - Reason for detaching debugger.
+* `reason` String - 分离调试器的原因
 
-Emitted when debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
+在调试会话终止时发出。当关闭 ` webContents ` 或 ` the attached  webContents ` 调用 devtools 时, 都会发生这种情况。
 
 #### Event: 'message'
 
 * `event` Event
-* `method` String - Method name.
-* `params` Object - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
+* `method` String - 方法名.
+* `params` Object - 由远程调试协议中的 parameters 属性定义的事件参数。
 
-Emitted whenever debugging target issues instrumentation event.
+当调试目标问题时发送
