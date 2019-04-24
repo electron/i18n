@@ -4,7 +4,7 @@
 
 Processo: [Main](../glossary.md#main-process)
 
-Chrome Developer Tools has a [special binding](https://chromedevtools.github.io/devtools-protocol/) available at JavaScript runtime that allows interacting with pages and instrumenting them.
+Chrome Developer Tools ha un [legame speciale](https://chromedevtools.github.io/devtools-protocol/) disponibile nel runtime JavaScript che permette di interagire con le pagine e strumentarle.
 
 ```javascript
 const { BrowserWindow } = require('electron')
