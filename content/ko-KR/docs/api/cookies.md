@@ -85,9 +85,9 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
   * `session` Boolean (optional) - session 혹은 영구 cookies를 필터를 함.
 * `callback` 함수 
   * `error` Error
-  * `cookies` [Cookie[]](structures/cookie.md) - an array of cookie objects.
+  * `cookies` [Cookie[]](structures/cookie.md) - cookie 오브젝트 배열.
 
-Sends a request to get all cookies matching `filter`, `callback` will be called with `callback(error, cookies)` on complete.
+`filter`, `callback`이 매칭되는 모든 cookies를 얻기 위한 요청이 완료되면, `callback(error, cookies)`이 호출된다.
 
 **[Deprecated Soon](promisification.md)**
 
