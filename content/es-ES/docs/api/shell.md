@@ -34,18 +34,27 @@ Devuelve `Boolean` - Si el elemento se abrió o no con éxito.
 
 Abre el archivo determinado en el escritorio por defecto.
 
-### `shell.openExternal(url[, options, callback])`
+### `shell.openExternalSync(url[, options])`
 
-* `url` String - Max 2081 characters on windows, or the function returns false.
+* `url` String - Max 2081 characters on Windows, or the function returns false.
 * `opciones` Object (opcional) 
   * `activate` Boolean (optional) - `true` to bring the opened application to the foreground. The default is `true`. *macOS*
   * `workingDirectory` String (optional) - The working directory. *Windows*
-* `callback` Function (opcional) *macOS* Si se especifica se abrirá de forma asincrónica. 
-  * `error` Error
 
-Devuelve `Boolean` - Si una aplicación estaba disponible para abrir el URL. Si el callback se especifica, siempre devuelve true.
+Returns `Boolean` - Whether an application was available to open the URL.
 
-Abre el URL determinado de protocolo externo en el escritorio de forma predeterminada. (Por ejemplo, mailto: URLs en el agente de correo predeterminado del usuario).
+Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
+
+### `shell.openExternal(url[, options])`
+
+* `url` String - Max 2081 characters on windows.
+* `opciones` Objecto (opcional) 
+  * `activate` Boolean (optional) - `true` to bring the opened application to the foreground. The default is `true`. *macOS*
+  * `workingDirectory` String (optional) - The working directory. *Windows*
+
+Returns `Promise<void>`
+
+Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
 
 ### `shell.moveItemToTrash(fullPath)`
 
