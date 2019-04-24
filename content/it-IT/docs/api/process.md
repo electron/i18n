@@ -151,7 +151,7 @@ Returns an object with V8 heap statistics. Note that all statistics are reported
 
 ### `process.getProcessMemoryInfo()`
 
-Restituisci `Oggetto`:
+Ritorna `Object`:
 
 * `residentSet` Integer *Linux* and *Windows* - The amount of memory currently pinned to actual physical RAM in Kilobytes.
 * `private` Integer - The amount of memory not shared by other processes, such as JS heap or HTML content in Kilobytes.
@@ -163,7 +163,7 @@ Chromium does not provide `residentSet` value for macOS. This is because macOS p
 
 ### `process.getSystemMemoryInfo()`
 
-Restituisci `Oggetto`:
+Ritorna `Object`:
 
 * `total` Integer - The total amount of physical memory in Kilobytes available to the system.
 * `free` Integer - The total amount of memory not being used by applications or disk cache.
