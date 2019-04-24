@@ -12,7 +12,7 @@ Il est également possible d'envoyer des messages depuis le processus main pour 
 
 * Lors de l'envoi d'un message, le nom de l'événement est `channel`.
 * Pour répondre à un message synchrone, vous devez définir `event.returnValue`.
-* Pour envoyer un message asynchrone à l'expéditeur, vous pouvez utiliser `event.sender.send(...)`.
+* To send an asynchronous message back to the sender, you can use `event.reply(...)`. This helper method will automatically handle messages coming from frames that aren't the main frame (e.g. iframes) whereas `event.sender.send(...)` will always send to the main frame.
 
 Un exemple d'envoi et de gestion des messages entre le processus main et renderer :
 
@@ -20,12 +20,12 @@ Un exemple d'envoi et de gestion des messages entre le processus main et rendere
 // Dans le processus principal .
 const { ipcMain } = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
-  console.log(arg) // affiche "ping"
-  event.sender.send('asynchronous-reply', 'pong')
+  console.log(arg) // prints "ping"
+  event.reply('asynchronous-reply', 'pong')
 })
 
 ipcMain.on('synchronous-message', (event, arg) => {
-  console.log(arg) // affiche "ping"
+  console.log(arg) // prints "ping"
   event.returnValue = 'pong'
 })
 ```
@@ -76,10 +76,18 @@ Supprime tous les écouteurs du `channel` spécifié.
 
 L'objet `event` passé au `callback` dispose des méthodes suivantes :
 
+### `event.frameId`
+
+An `Integer` representing the ID of the renderer frame that sent this message.
+
 ### `event.returnValue`
 
-Définir ceci à la valeur à renvoyer pour un message synchrone.
+Set this to the value to be returned in a synchronous message.
 
 ### `event.sender`
 
-Retourne le `webContents` qui a envoyé le message, vous pouvez appeler `event.sender.send` pour répondre au message asynchrone. Voir [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) pour plus d'information.
+Returns the `webContents` that sent the message, you can call `event.sender.send` to reply to the asynchronous message, see [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for more information.
+
+### `event.reply`
+
+A function that will send an IPC message to the renderer frane that sent the original message that you are currently handling. You should use this method to "reply" to the sent message in order to guaruntee the reply will go to the correct process and frame.
