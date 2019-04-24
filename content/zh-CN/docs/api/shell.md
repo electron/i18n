@@ -2,7 +2,7 @@
 
 > 使用默认应用程序管理文件和 url。
 
-参见： [process](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) process
+进程： [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 ` shell ` 模块提供与桌面集成相关的功能。
 
@@ -48,7 +48,7 @@ Open the given external protocol URL in the desktop's default manner. (For examp
 ### `shell.openExternal(url[, options])`
 
 * `url` String - Max 2081 characters on windows.
-* `参数` Object (可选) 
+* `options` Object (可选) 
   * `activate` Boolean (optional) - `true` to bring the opened application to the foreground. The default is `true`. *macOS*
   * `workingDirectory` String (optional) - The working directory. *Windows*
 
@@ -60,33 +60,33 @@ Open the given external protocol URL in the desktop's default manner. (For examp
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully moved to the trash.
+返回 `Boolean` - 该对象是否成功移至垃圾箱。
 
-Move the given file to trash and returns a boolean status for the operation.
+将给定的文件移动到垃圾箱，并返回操作的布尔状态。
 
 ### `shell.beep()`
 
-Play the beep sound.
+播放哔哔的声音.
 
 ### `shell.writeShortcutLink(shortcutPath[, operation], options)` *Windows*
 
 * `shortcutPath` String
-* `operation` String (optional) - Default is `create`, can be one of following: 
-  * `create` - Creates a new shortcut, overwriting if necessary.
-  * `update` - Updates specified properties only on an existing shortcut.
-  * `replace` - Overwrites an existing shortcut, fails if the shortcut doesn't exist.
+* `operation` String (optional) - 默认值为 `create`可为下列之一： 
+  * `create` - 创建一个新的快捷方式, 如有必要可以覆盖。
+  * `update` - 仅更新现有快捷方式上的指定属性。
+  * `replace` - 覆盖现有快捷方式, 如果快捷方式不存在将会失败。
 * `options` [ShortcutDetails](structures/shortcut-details.md)
 
-Returns `Boolean` - Whether the shortcut was created successfully.
+返回 `Boolean` - 快捷方式是否被成功创建。
 
-Creates or updates a shortcut link at `shortcutPath`.
+在`shortcutPath`位置创建或更新一个快捷连接
 
 ### `shell.readShortcutLink(shortcutPath)` *Windows*
 
 * `shortcutPath` String
 
-Returns [`ShortcutDetails`](structures/shortcut-details.md)
+返回 [`ShortcutDetails`](structures/shortcut-details.md)
 
-Resolves the shortcut link at `shortcutPath`.
+解析`shortcutPath`中的快捷链接。
 
-An exception will be thrown when any error happens.
+发生任何错误时将引发异常。
