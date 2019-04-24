@@ -66,10 +66,10 @@ By default web storage apis (localStorage, sessionStorage, webSQL, indexedDB, co
   * `request` Object 
     * `url` String
     * `referrer` String
-    * `method` String
+    * `title` [string]
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `filePath` String (optional)
+    * `filePath` String (選用)
 * `completion` Function (選用) 
   * `error` Error
 
@@ -84,14 +84,14 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
 ### `protocol.registerBufferProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
-  * `request` Object 
+* `handler` 函式 
+  * `request` 目的 
     * `url` String
     * `referrer` String
-    * `method` String
+    * `title` [string]
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (optional)
+    * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (選用)
 * `completion` Function (選用) 
   * `error` Error
 
@@ -118,7 +118,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
   * `request` Object 
     * `url` String
     * `referrer` String
-    * `method` String
+    * `title` [string]
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `data` String (選用)
@@ -137,14 +137,14 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
     * `url` String
     * `headers` Object
     * `referrer` String
-    * `method` String
+    * `title` [string]
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `redirectRequest` Object 
       * `url` String
-      * `method` String
+      * `title` [string]
       * `session` Object (選用)
-      * `uploadData` 物件 (選用) 
+      * `uploadData` Object (選用) 
         * `contentType` String - 內容的 MIME 類型。
         * `data` String - 要傳送的內容。
 * `completion` Function (選用) 
@@ -166,7 +166,7 @@ For POST requests the `uploadData` object must be provided.
     * `url` String
     * `headers` Object
     * `referrer` String
-    * `method` String
+    * `title` [string]
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (選用)
@@ -247,7 +247,7 @@ Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether the
   * `request` Object 
     * `url` String
     * `referrer` String
-    * `method` String
+    * `title` [string]
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `filePath` String
@@ -263,7 +263,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
   * `request` Object 
     * `url` String
     * `referrer` String
-    * `method` String
+    * `title` [string]
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `data` String (選用)
@@ -279,7 +279,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
   * `request` Object 
     * `url` String
     * `referrer` String
-    * `method` String
+    * `title` [string]
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `buffer` Buffer (選用)
@@ -296,12 +296,12 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `url` String
     * `headers` Object
     * `referrer` String
-    * `method` String
+    * `title` [string]
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `redirectRequest` Object 
       * `url` String
-      * `method` String
+      * `title` [string]
       * `session` Object (選用)
       * `uploadData` Object (選用) 
         * `contentType` String - 內容的 MIME 類型。
@@ -319,7 +319,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `url` String
     * `headers` Object
     * `referrer` String
-    * `method` String
+    * `title` [string]
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (選用)
