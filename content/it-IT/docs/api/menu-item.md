@@ -13,7 +13,7 @@ Vedi [`Menu`](menu.md) per degli esempi.
     * `menuItem` MenuItem
     * `browserWindow` [BrowserWindow](browser-window.md)
     * `event` Event
-  * `role` String (optional) - Define the action of the menu item, when specified the `click` property will be ignored. See [roles](#roles).
+  * `role` String (optional) - Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteandmatchstyle`, `delete`, `selectall`, `reload`, `forcereload`, `toggledevtools`, `resetzoom`, `zoomin`, `zoomout`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideothers`, `unhide`, `quit`, `startspeaking`, `stopspeaking`, `close`, `minimize`, `zoom` or `front` - Define the action of the menu item, when specified the `click` property will be ignored. See [roles](#roles).
   * `type` String (optional) - Can be `normal`, `separator`, `submenu`, `checkbox` or `radio`.
   * `label` String (optional)
   * `sublabel` String (optional)
@@ -60,29 +60,32 @@ La proprietà `role` può avere i seguenti valori:
 * `resetZoom` - Ripristina lo zoom al valore originario.
 * `zoomIn` - Aumenta lo zoom la pagina del 10%.
 * `zoomOut` - Riduce lo zoom della pagina del 10%.
-* `editMenu` - L'intero menu di default "Modifica" (Annulla, Copia, etc.).
-* `windowMenu` - L'intero menu di default "Finestra" (Riduci, Chiudi, etc.).
+* `fileMenu` - Whole default "File" menu (Close / Quit)
+* `editMenu` - Whole default "Edit" menu (Undo, Copy, etc.).
+* `viewMenu` - Whole default "View" menu (Reload, Toggle Developer Tools, etc.)
+* `windowMenu` - Whole default "Window" menu (Minimize, Zoom, etc.).
 
 I seguenti valori sono disponibili per *macOS*:
 
-* `about` - Mappa l'azione `orderFrontStandardAboutPanel`.
-* `hide` - Mappa l'azione `hide`.
-* `hideOthers` - Mappa l'azione `hideOtherApplications`.
-* `unhide` - Mappa l'azione `unhideAllApplications`.
-* `startSpeaking` - Mappa l'azione `startSpeaking`.
-* `stopSpeaking` - Mappa l'azione `stopSpeaking`.
-* `front` - Mappa l'azione `arrangeInFront`.
-* `zoom` - Mappa l'azione `performZoom`.
-* `toggleTabBar` - Mappa l'azione `toggleTabBar`.
-* `selectNextTab` - Mappa l'azione `selectNextTab`.
-* `selectPreviousTab` - Mappa l'azione `selectPreviousTab`.
-* `mergeAllWindows` - Mappa l'azione `mergeAllWindows`.
-* `moveTabToNewWindow` - Mappa l'azione `moveTabToNewWindow`.
-* `window` - Il sottomenu è un menu "Window".
-* `help` - Il sottomenu è un menu "Help".
-* `services` - Il sottomenu è un menu "Services".
-* `recentDocuments` - Il sottomenu è un menu "Open Recent".
-* `clearRecentDocuments` - Mappa l'azione `clearRecentDocuments`.
+* `appMenu` - Whole default "App" menu (About, Services, etc.)
+* `about` - Map to the `orderFrontStandardAboutPanel` action.
+* `hide` - Map to the `hide` action.
+* `hideOthers` - Map to the `hideOtherApplications` action.
+* `unhide` - Map to the `unhideAllApplications` action.
+* `startSpeaking` - Map to the `startSpeaking` action.
+* `stopSpeaking` - Map to the `stopSpeaking` action.
+* `front` - Map to the `arrangeInFront` action.
+* `zoom` - Map to the `performZoom` action.
+* `toggleTabBar` - Map to the `toggleTabBar` action.
+* `selectNextTab` - Map to the `selectNextTab` action.
+* `selectPreviousTab` - Map to the `selectPreviousTab` action.
+* `mergeAllWindows` - Map to the `mergeAllWindows` action.
+* `moveTabToNewWindow` - Map to the `moveTabToNewWindow` action.
+* `window` - The submenu is a "Window" menu.
+* `help` - The submenu is a "Help" menu.
+* `services` - The submenu is a "Services" menu.
+* `recentDocuments` - The submenu is an "Open Recent" menu.
+* `clearRecentDocuments` - Map to the `clearRecentDocuments` action.
 
 When specifying a `role` on macOS, `label` and `accelerator` are the only options that will affect the menu item. All other options will be ignored. Lowercase `role`, e.g. `toggledevtools`, is still supported.
 
