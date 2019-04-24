@@ -50,7 +50,7 @@ You can also attach other fields to the element of the `template` and they will 
 
 ### Instanz Methoden
 
-The `menu` object has the following instance methods:
+Das `menu` Objekt hat die folgenden Instanz Methoden:
 
 #### `menu.popup(options)`
 
@@ -67,13 +67,13 @@ Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional) - Default ist das fokussierte Fenster.
 
-Closes the context menu in the `browserWindow`.
+Schließt das Kontext-Menü im `browserWindow`.
 
 #### `menu.append(menuItem)`
 
 * `menuItem` [MenuItem](menu-item.md)
 
-Appends the `menuItem` to the menu.
+Fügt dem Menü das `menuItem` hinzu.
 
 #### `menu.getMenuItemById(id)`
 
@@ -86,11 +86,11 @@ Returns `MenuItem` the item with the specified `id`
 * `pos` Integer
 * `menuItem` [MenuItem](menu-item.md)
 
-Inserts the `menuItem` to the `pos` position of the menu.
+Füre das `menuItem` an der `pos` Position im Menü ein.
 
 ### Instanz Events
 
-Objects created with `new Menu` emit the following events:
+Objekte welche mit `new Menu` erzeugt wurden emitieren folgende Events:
 
 **Hinweis:** Manche Methoden sind nur auf spezifischen Betriebssystemen verfügbar und sind dementsprechend gekennzeichnet.
 
@@ -108,7 +108,7 @@ Rückgabewert:
 
 * `event` Event
 
-Emitted when a popup is closed either manually or with `menu.closePopup()`.
+Emitiert wenn ein Popup manuell oder mit `menu.closePopup()` geschlossen wird.
 
 ### Instanz Eigenschaften
 
@@ -303,7 +303,7 @@ Template:
 ]
 ```
 
-Menu:
+Menü:
 
 ```sh
 <br />- 1
@@ -325,7 +325,7 @@ Template:
 ]
 ```
 
-Menu:
+Menü:
 
 ```sh
 <br />- 3
@@ -346,7 +346,7 @@ Template:
 ]
 ```
 
-Menu:
+Menü:
 
 ```sh
 <br />- ---
