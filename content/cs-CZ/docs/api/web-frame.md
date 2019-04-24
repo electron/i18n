@@ -62,7 +62,7 @@ Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
 
 * `language` String
 * `provider` Objekt 
-  * `spellCheck` Function. 
+  * `spellCheck` Funkce. 
     * `words` String[]
     * `callback` Funkce 
       * `misspeltWords` String[]
