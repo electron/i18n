@@ -2,7 +2,7 @@
 
 > Manage files and URLs using their default applications.
 
-العملية :  الرئيسية </ 0> ،  العارض </ 1></p> 
+العملية:  الرئيسية </ 0> ،  العارض </ 1></p> 
 
 The `shell` module provides functions related to desktop integration.
 
