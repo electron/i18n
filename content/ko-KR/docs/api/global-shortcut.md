@@ -45,11 +45,11 @@ app.on('will-quit', () => {
 
 Returns `Boolean` - Whether or not the shortcut was registered successfully.
 
-Registers a global shortcut of `accelerator`. The `callback` is called when the registered shortcut is pressed by the user.
+` accelerator`의 전역 단축키를 등록합니다. `callback`은 등록된 단축키가 사용자에 의해서 눌러졌을 때 호출합니다.
 
-When the accelerator is already taken by other applications, this call will silently fail. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+accelerator가 다른 애플리케이션에 의해 이미 등록되어 있으면, 이 호출은 조용히 실패할 것입니다. 이 동작은 애플리케이션끼리의 전역 키보드 단축키 충돌을 막기 위해 운영 체제가 관리합니다.
 
-The following accelerators will not be registered successfully on macOS 10.14 Mojave unless the app has been authorized as a [trusted accessibility client](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html):
+다음 accelerators는 macOS 10.14 Mojave에서 [신뢰 된 손쉬운 사용 클라이언트](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html)로 등록되어 있지 않으면 성공적으로 등록되지 않습니다.
 
 * "미디어 재생/일시 정지"
 * "미디어 다음 트랙"
@@ -63,9 +63,9 @@ The following accelerators will not be registered successfully on macOS 10.14 Mo
 
 Registers a global shortcut of all `accelerator` items in `accelerators`. The `callback` is called when any of the registered shortcuts are pressed by the user.
 
-When a given accelerator is already taken by other applications, this call will silently fail. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+When a given accelerator is already taken by other applications, this call will silently fail. 이 동작은 애플리케이션끼리의 전역 키보드 단축키 충돌을 막기 위해 운영 체제가 관리합니다.
 
-The following accelerators will not be registered successfully on macOS 10.14 Mojave unless the app has been authorized as a [trusted accessibility client](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html):
+다음 accelerators는 macOS 10.14 Mojave에서 [신뢰 된 손쉬운 사용 클라이언트](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html)로 등록되어 있지 않으면 성공적으로 등록되지 않습니다.
 
 * "미디어 재생/일시 정지"
 * "미디어 다음 트랙"
@@ -76,16 +76,16 @@ The following accelerators will not be registered successfully on macOS 10.14 Mo
 
 * `accelerator` [Accelerator](accelerator.md)
 
-Returns `Boolean` - Whether this application has registered `accelerator`.
+`Boolean`을 반환합니다. - 애플리케이션이 `accelerator`를 등록했는지에 대한 여부입니다.
 
-When the accelerator is already taken by other applications, this call will still return `false`. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+accelerator가 다른 애플리케이션에 의해 이미 등록되어 있으면, 이 호출은 `false`를 반환합니다. 이 동작은 애플리케이션끼리의 전역 키보드 단축키 충돌을 막기 위해 운영 체제가 관리합니다.
 
 ### `globalShortcut.unregister(accelerator)`
 
 * `accelerator` [Accelerator](accelerator.md)
 
-Unregisters the global shortcut of `accelerator`.
+` accelerator`의 전역 단축키를 등록 해제합니다.
 
 ### `globalShortcut.unregisterAll()`
 
-Unregisters all of the global shortcuts.
+모든 전역 단축키를 등록 해제합니다.
