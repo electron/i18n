@@ -61,14 +61,14 @@ By default web storage apis (localStorage, sessionStorage, webSQL, indexedDB, co
 
 ### `protocol.registerFileProtocol(scheme, handler[, completion])`
 
-* `scheme` String
-* `handler` Function 
+* `схема` Низ
+* `handler` Функция 
   * `request` Object 
     * `url` String
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `обратно повикване` Функция 
     * `filePath` String (optional)
 * `completion` Function (optional) 
   * `error` Error
@@ -227,7 +227,7 @@ Unregisters the custom protocol of `scheme`.
 ### `protocol.isProtocolHandled(scheme, callback)`
 
 * `схема` Низ
-* `callback` Function 
+* `обратно повикване` Функция 
   * `handled` Boolean
 
 The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
@@ -298,7 +298,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Функция 
+  * `обратно повикване` Функция 
     * `redirectRequest` Object 
       * `url` String
       * `method` String
@@ -321,7 +321,7 @@ Intercepts `scheme` protocol and uses `handler` as the protocol's new handler wh
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `обратно повикване` Function 
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
 * `completion` Function (optional) 
   * `error` Error
