@@ -14,7 +14,7 @@ the module (for instance, using `npm rebuild` or `npm install`).
 
 There are several different ways to install native modules:
 
-### Installing modules and rebuilding for Electron
+### 모듈을 설치하고 Electron용으로 다시 빌드하기
 
 You can install modules like other Node projects, and then rebuild the modules for Electron with the [`electron-rebuild`](https://github.com/electron/electron-rebuild) package. This module can automatically determine the version of Electron and handle the manual steps of downloading headers and rebuilding native modules for your app.
 
@@ -32,32 +32,32 @@ npm install --save-dev electron-rebuild
 
 For more information on usage and integration with other tools, consult the project's README.
 
-### Using `npm`
+### `npm` 사용하기
 
-By setting a few environment variables, you can use `npm` to install modules directly.
+몇 가지 환경 변수를 설정하여, `npm`을 이용하여 모듈을 바로 설치할 수 있습니다.
 
 For example, to install all dependencies for Electron:
 
 ```sh
-# Electron's version.
+# Electron의 버전
 export npm_config_target=1.2.3
 # The architecture of Electron, see https://electronjs.org/docs/tutorial/support#supported-platforms
 # for supported architectures.
 export npm_config_arch=x64
 export npm_config_target_arch=x64
-# Download headers for Electron.
+# Electron의 헤더 다운 받기
 export npm_config_disturl=https://atom.io/download/electron
-# Tell node-pre-gyp that we are building for Electron.
+# node-pre-gyp에게 Electron을 빌드하고 있다는 것을 알려줍니다.
 export npm_config_runtime=electron
-# Tell node-pre-gyp to build module from source code.
+# node-pre-gyp에 소스 코드로부터 모듈을 빌드하라고 알려줍니다.
 export npm_config_build_from_source=true
-# Install all dependencies, and store cache to ~/.electron-gyp.
+# 모든 종속성을 설치하고 ~/.electron-gyp에 캐시 저장하기
 HOME=~/.electron-gyp npm install
 ```
 
 ### 수동으로 빌드하기
 
-If you are a developer developing a native module and want to test it against Electron, you might want to rebuild the module for Electron manually. You can use `node-gyp` directly to build for Electron:
+만약 네이티브 모듈을 개발하는 개발자이며 Electron에서 시험해 보고 싶을 때, 수동으로 Electron을 위한 모듈을 다시 빌드 하고 싶을 수도 있습니다. 직접 `node-gyp`를 사용하여 Electron을 빌드 할 수 있습니다:
 
 ```sh
 cd /path-to-module/
@@ -81,10 +81,10 @@ npm rebuild --nodedir=/path/to/electron/vendor/node
 
 If you installed a native module and found it was not working, you need to check the following things:
 
-- When in doubt, run `electron-rebuild` first.
+- 의심스러운 경우 `electron-rebuild`를 먼저 실행하십시오.
 - Make sure the native module is compatible with the target platform and architecture for your Electron app.
 - Make sure `win_delay_load_hook` is not set to `false` in the module's `binding.gyp`.
-- After you upgrade Electron, you usually need to rebuild the modules.
+- Electron를 업그레이드 한 후에는 일반적으로 모듈을 다시 빌드해야합니다.
 
 ### A note about `win_delay_load_hook`
 
