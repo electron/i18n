@@ -38,13 +38,14 @@ Die folgenden Methoden sind verfügbar in Instanzen von `WebRequest`:
 
 * `filter` Objekt (optional) 
   * `urls` String[] - Array mit URL Patterns welche requests herausfiltern die nicht dem URL Pattern entsprechen.
-* `listener` Funktion 
+* `listener` Function | null 
   * `details` Objekt 
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
+    * `referrer` String
     * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Funktion 
@@ -62,13 +63,14 @@ Der `callback` muss aufgerufen werden mit einem `response` Objekt.
 
 * `filter` Objekt (optional) 
   * `urls` String[] - Array mit URL Patterns welche requests herausfiltern die nicht dem URL Pattern entsprechen.
-* `listener` Funktion 
+* `listener` Function | null 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
+    * `referrer` String
     * `timestamp` Double
     * `requestHeaders` Object
   * `callback` Funktion 
@@ -84,13 +86,14 @@ Der `callback` muss aufgerufen werden mit einem `response` Objekt.
 
 * `filter` Objekt (optional) 
   * `urls` String[] - Array mit URL Patterns welche requests herausfiltern die nicht dem URL Pattern entsprechen.
-* `listener` Funktion 
+* `listener` Function | null 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
+    * `referrer` String
     * `timestamp` Double
     * `requestHeaders` Object
 
@@ -100,13 +103,14 @@ The `listener` will be called with `listener(details)` just before a request is 
 
 * `filter` Objekt (optional) 
   * `urls` String[] - Array mit URL Patterns welche requests herausfiltern die nicht dem URL Pattern entsprechen.
-* `listener` Funktion 
+* `listener` Function | null 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
+    * `referrer` String
     * `timestamp` Double
     * `statusLine` String
     * `statusCode` Integer
@@ -125,13 +129,14 @@ Der `callback` muss aufgerufen werden mit einem `response` Objekt.
 
 * `filter` Objekt (optional) 
   * `urls` String[] - Array mit URL Patterns welche requests herausfiltern die nicht dem URL Pattern entsprechen.
-* `listener` Funktion 
+* `listener` Function | null 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
+    * `referrer` String
     * `timestamp` Double
     * `responseHeaders` Object
     * `fromCache` Boolean - Indicates whether the response was fetched from disk cache.
@@ -144,17 +149,18 @@ The `listener` will be called with `listener(details)` when first byte of the re
 
 * `filter` Objekt (optional) 
   * `urls` String[] - Array mit URL Patterns welche requests herausfiltern die nicht dem URL Pattern entsprechen.
-* `listener` Funktion 
+* `listener` Function | null 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
+    * `referrer` String
     * `timestamp` Double
     * `redirectURL` String
     * `statusCode` Integer
-    * `ip` String (optional) - Die Server IP Adresse an den der Request ursprünglich gesendet wurde.
+    * `ip` String (optional) - The server IP address that the request was actually sent to.
     * `fromCache` Boolean
     * `responseHeaders` Object
 
@@ -164,7 +170,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
 
 * `filter` Objekt (optional) 
   * `urls` String[] - Array mit URL Patterns welche requests herausfiltern die nicht dem URL Pattern entsprechen.
-* `listener` Funktion 
+* `listener` Function | null 
   * `details` Object 
     * `id` Integer
     * `url` String
@@ -184,13 +190,14 @@ The `listener` will be called with `listener(details)` when a request is complet
 
 * `filter` Objekt (optional) 
   * `urls` String[] - Array mit URL Patterns welche requests herausfiltern die nicht dem URL Pattern entsprechen.
-* `listener` Funktion 
+* `listener` Function | null 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
+    * `referrer` String
     * `timestamp` Double
     * `fromCache` Boolean
     * `error` String - The error description.
