@@ -4,7 +4,7 @@
 
 Proses: [Main](../glossary.md#main-process)
 
-Chrome Developer Tools has a [special binding](https://chromedevtools.github.io/devtools-protocol/) available at JavaScript runtime that allows interacting with pages and instrumenting them.
+Alat Pengembang Chrome memiliki  pengikatan khusus </ 0> yang tersedia pada runtime JavaScript yang memungkinkan berinteraksi dengan halaman dan menginstruksikannya.</p> 
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -70,19 +70,24 @@ win.webContents.debugger.sendCommand('Network.enable')
 <p>Returns <code>Promise<any>` - A promise that resolves with the response defined by the 'returns' attribute of the command description in the remote debugging protocol or is rejected indicating the failure of the command.</p> 
         Kirim perintah yang diberikan ke target debugging.
         
-        ### Perihal contoh
+        ### Instance Events
         
-        #### Event: 'detach'
+        #### Acara : 'melepaskan'
         
         * `event</ 0> Acara</li>
-<li><code>reason` String - Reason for detaching debugger.
-        
-        Emitted when debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
-        
-        #### Event: 'message'
-        
-        * `event` Sinyal
-        * `method` String - Method name.
-        * `params` Object - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
-        
-        Emitted whenever debugging target issues instrumentation event.
+<li><code> alasan </ 0>  String - Alasan untuk memisahkan debugger.</li>
+</ul>
+
+<p>Emitted saat sesi debugging dihentikan. Hal ini terjadi ketika
+ <code>isi web</ 0> ditutup atau devtools dipanggil untuk < web > konten < 0> yang dilampirkan </ 0> .</p>
+
+<h4>Acara : 'pesan'</h4>
+
+<ul>
+<li><code>acara` Acara
+        *  metode </ 0> String - nama metode.</li>
+<li><code> params </ 0> Objek - Parameter acara ditentukan oleh  atribut 'parameter'
+ dalam protokol debugging jarak jauh.</li>
+</ul>
+
+<p>Emitted kapanpun terjadi debugging sasaran soal acara instrumentasi .</p>
