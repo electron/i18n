@@ -54,25 +54,25 @@ process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
 
 ```
 
-For instructions on how to acquire a Google API key, visit [this page](https://developers.google.com/maps/documentation/javascript/get-api-key). By default, a newly generated Google API key may not be allowed to make geocoding requests. To enable geocoding requests, visit [this page](https://developers.google.com/maps/documentation/geocoding/get-api-key).
+For instructions on how to acquire a Google API key, visit [this page](https://developers.google.com/maps/documentation/javascript/get-api-key). Bilang default, maaaring hindi pinapayagan ang isang bagong nabuong Google API key para gumawa ng mga kahilingan sa geocoding. Upang paganahin ang mga kahilingan sa geocoding, bisitahin ang  ang pahinang ito </ 0>.</p> 
 
 ### `ELECTRON_NO_ASAR
 `
 
-Disables ASAR support. This variable is only supported in forked child processes and spawned child processes that set `ELECTRON_RUN_AS_NODE`.
+Hindi pinapagana ang suporta ng ASAR. Ang variable na ito ay suportado lamang sa mga proseso sa forked child at spawned child proseso na nagtatakda ng ` ELECTRON_RUN_AS_NODE </ 0>. </p>
 
-### `ELECTRON_RUN_AS_NODE
-`
+<h3><code>ELECTRON_RUN_AS_NODE
+`</h3> 
 
-Starts the process as a normal Node.js process.
+Nagsisimula ang proseso bilang isang normal na proseso ng Node.js.
 
 ### `ELECTRON_NO_ATTACH_CONSOLE` *Windows* 
 
-Don't attach to the current console session.
+Huwag ilakip sa kasalukuyang session ng console.
 
 ### `ELECTRON_FORCE_WINDOW_MENU_BAR` *Linux* 
 
-Don't use the global menu bar on Linux.
+Huwag gamitin ang global menu bar sa Linux.
 
 ### `ELECTRON_TRASH` *Linux*
 
@@ -87,34 +87,35 @@ Options:
 
 ## Development Variables 
 
-The following environment variables are intended primarily for development and debugging purposes.
+Ang mga sumusunod na variable ng kapaligiran ay inilaan lalo na para sa pag-unlad at mga layunin ng pag-debug.
 
 ### `ELECTRON_ENABLE_LOGGING
 `
 
-Prints Chrome's internal logging to the console.
+Ini-print ang Chrome's internal logging sa console.
 
 ### `ELECTRON_LOG_ASAR_READS
 `
 
-When Electron reads from an ASAR file, log the read offset and file path to the system `tmpdir`. The resulting file can be provided to the ASAR module to optimize file ordering.
+Kapag bumabasa ang Electron mula sa isang file ng ASAR, mag-log sa read offset at file path sa ang system ` tmpdir </ 0>. Ang resultang file ay maaaring ibigay sa module ng ASAR
+upang i-optimize ang pag-order ng file.</p>
 
-### `ELECTRON_ENABLE_STACK_DUMPING
-`
+<h3><code>ELECTRON_ENABLE_STACK_DUMPING
+`</h3> 
 
-Prints the stack trace to the console when Electron crashes.
+Ini-print ang stack trace sa console kapag nag-crash ang Electron.
 
-This environment variable will not work if the `crashReporter` is started.
+Ang variable ng kapaligiran na ito ay hindi gagana kung ang ` crashReporter </ 0> ay nagsimula.</p>
 
-### `ELECTRON_DEFAULT_ERROR_MODE` *Windows* 
+<h3><code>ELECTRON_DEFAULT_ERROR_MODE` *Windows* </h3> 
 
-Shows the Windows's crash dialog when Electron crashes.
+Ipinapakita ang dialog ng pag-crash ng Windows kapag nag-crash ang Electron.
 
-This environment variable will not work if the `crashReporter` is started.
+Ang variable ng kapaligiran na ito ay hindi gagana kung ang ` crashReporter </ 0> ay nagsimula.</p>
 
-### `ELECTRON_OVERRIDE_DIST_PATH`
+<h3><code>ELECTRON_OVERRIDE_DIST_PATH`</h3> 
 
-When running from the `electron` package, this variable tells the `electron` command to use the specified build of Electron instead of the one downloaded by `npm install`. Usage:
+When running from the `electron` package, this variable tells the `electron` command to use the specified build of Electron instead of the one downloaded by `npm install`. Paggamit:
 
 ```sh
 export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Debug
