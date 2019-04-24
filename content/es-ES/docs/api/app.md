@@ -43,9 +43,9 @@ Devuelve:
 
 * `event` Event
 
-Emitido antes de que la aplicación empiece a cerrar las ventanas. Llamando a `event.preventDefault()` evitará el comportamiento por defecto, que es cerrar la aplicación.
+Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
 
-**Nota:** Si el cierre de la aplicación fue iniciada por `autoUpdater.quitAndInstall()` entonces `before-quit` es emitido *después de* emitir el evento`close` en todas las ventanas y cerrarlas.
+**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()`, then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
 
 **Nota:** En Windows, este evento no será emitido si la aplicación se cierra debido a un apagado/reinicio del sistema o el cierre de sesión de un usuario.
 
@@ -154,7 +154,7 @@ Devuelve:
 * `type` String - Una cadena identificando la actividad. Se asigna a [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object: contiene el estado específico de la aplicación almacenado por la actividad.
 
-Emitido cuando [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) va a ser reanudado en otro artefacto. Si necesita actualizar el estado que se transferirá, debe llamar a `event.preventDefault ()` inmediatamente, crear un nuevo diccionario `userInfo` y llamar a `app.updateCurrentActiviy()` de manera oportuna. De otra forma, la operación fallará y se llamará a `continue-activity-error`.
+Emitido cuando [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) va a ser reanudado en otro artefacto. Si necesita actualizar el estado que se transferirá, debe llamar a `event.preventDefault ()` inmediatamente, crear un nuevo diccionario `userInfo` y llamar a `app.updateCurrentActiviy()` de manera oportuna. Otherwise, the operation will fail and `continue-activity-error` will be called.
 
 ### Evento: 'new-window-for-tab' *macOS*
 
@@ -274,7 +274,7 @@ Devuelve:
 
 Emitido cuando `webContents` quiere hacer una autenticación básica.
 
-El comportamiento por defecto es cancelar todas las autenticaciones, para anular esto usted debería prevenir el comportamiento por defecto con `event.preventDefault()` y llamar `callback (username, password) ` con las credenciales.
+The default behavior is to cancel all authentications. To override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
 
 ```javascript
 const { app } = require('electron')
@@ -331,6 +331,17 @@ Este evento será emitido dentro de la instancia principal de la aplicación cua
 
 Este evento garantiza que se ejecute después del evento `ready` de `app` para ser emitido.
 
+**Note:** Extra command line arguments might be added by Chromium, such as `--original-process-start-time`.
+
+### Event: 'desktop-capturer-get-sources'
+
+Devuelve:
+
+* `event` Event
+* `Contenidosweb` [Contenidosweb](web-contents.md)
+
+Emitted when `desktopCapturer.getSources()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will make it return empty sources.
+
 ### Event: 'remote-require'
 
 Devuelve:
@@ -351,7 +362,7 @@ Devuelve:
 
 Emitted when `remote.getGlobal()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
 
-### Event: 'remote-get-builtin'
+### Evento: 'remote-get-builtin'
 
 Devuelve:
 
@@ -361,7 +372,7 @@ Devuelve:
 
 Emitted when `remote.getBuiltin()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
 
-### Event: 'remote-get-current-window'
+### Evento: 'remote-get-current-window'
 
 Devuelve:
 
@@ -370,7 +381,7 @@ Devuelve:
 
 Emitted when `remote.getCurrentWindow()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
-### Event: 'remote-get-current-web-contents'
+### Evento: 'remote-get-current-web-contents'
 
 Devuelve:
 
@@ -379,7 +390,7 @@ Devuelve:
 
 Emitted when `remote.getCurrentWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
-### Event: 'remote-get-guest-web-contents'
+### Evento: 'remote-get-guest-web-contents'
 
 Devuelve:
 
@@ -407,7 +418,7 @@ Este método garantiza que todos los eventos de `beforeunload` y `unload` serán
 
 Sale inmediatamente con `exitCode`. `exitCode` por defecto es 0.
 
-Tods las ventanas se cerrarán inmediatamente sin preguntar al usuarios y los eventos `before-quit` y `will-quit` no se correrán.
+All windows will be closed immediately without asking the user, and the `before-quit` and `will-quit` events will not be emitted.
 
 ### `app.relaunch([options])`
 
@@ -417,7 +428,7 @@ Tods las ventanas se cerrarán inmediatamente sin preguntar al usuarios y los ev
 
 Reinicia la aplicación cuando la instancia se cierra.
 
-Por defecto la nueva instancia usará el mismo directorio de trabajo y los argumentos de la linea de comandos con la instancia actual. Cuando `args` es especificada, el `args` se convertirá en un argumento de la linea de comandos. Cuando `execPath` es especificado, el`execPath` Será ejecutado en el relanzador en vez de la aplicación en curso.
+By default, the new instance will use the same working directory and command line arguments with current instance. Cuando `args` es especificada, el `args` se convertirá en un argumento de la linea de comandos. Cuando `execPath` es especificado, el`execPath` Será ejecutado en el relanzador en vez de la aplicación en curso.
 
 Note que este método no cierta la aplicación cuando esta es ejecutada, tiene que llamar `app.quit` o `app.exit` después de llamar `app.relaunch` para hacer que la aplicación se reinicie.
 
@@ -460,7 +471,7 @@ Devuelve `String` - al directorio de la aplicación actual.
 
 * `name` String
 
-Devuelve `cadena` - Una ruta a un directorio especial o a un archivo asociado con un `nombre`. Cuando hay una falla se lanza un `Error`.
+Returns `String` - A path to a special directory or file associated with `name`. On failure, an `Error` is thrown.
 
 Usted puede pedir las siguientes direcciones por nombre:
 
@@ -501,7 +512,29 @@ En *Windows*, Hay dos tipos de íconos:
 * Íconos asociados con cierta extensión de un archivo, como `.mp3`, `.png`, etc.
 * Íconos dentro del archivo mismo, como `.exe`, `.dll`, `.ico`.
 
-En *Linux* y *macOS*, los íconos dependen de la aplicación asociada al tipo de archivo.
+On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+
+**[Deprecated Soon](promisification.md)**
+
+### `app.getFileIcon(path[, options])`
+
+* `path` String
+* `opciones` Objecto (opcional) 
+  * `size` String 
+    * `pequeño` - 16x16
+    * `normal` - 32x32
+    * `grande` - 48x48 en *Linux*, 32x32 en *Windows*, no compatible en *macOS*.
+
+Returns `Promise<NativeImage>` - fulfilled with the app's icon, which is a [NativeImage](native-image.md).
+
+Busca un ícono asociado a la ruta.
+
+En *Windows*, Hay dos tipos de íconos:
+
+* Íconos asociados con cierta extensión de un archivo, como `.mp3`, `.png`, etc.
+* Íconos dentro del archivo mismo, como `.exe`, `.dll`, `.ico`.
+
+On *Linux* and *macOS*, icons depend on the application associated with file mime type.
 
 ### `app.setPath(name, path)`
 
@@ -538,7 +571,13 @@ Para establecer la localización, necesitas usar un cambio de línea de comandos
 
 **Nota:** Al distribuir su aplicación empaquetada, también tiene que enviar las carpetas `locales`.
 
-**Nota:** En Windows tiene que llamarlo antes de que el evento `listo` sea emitido.
+**Note:** On Windows, you have to call it after the `ready` events gets emitted.
+
+### `app.getLocaleCountryCode()`
+
+Returns `string` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. The value is taken from native OS APIs.
+
+**Note:** When unable to detect locale country code, it returns empty string.
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
@@ -546,7 +585,7 @@ Para establecer la localización, necesitas usar un cambio de línea de comandos
 
 Añade la `ruta` a la lista de documentos recientes.
 
-Esta lista es administrada por el sistema operativo. En Windows puede visitar la lista desde la barra de tareas, y en macOS puede acceder a ella desde el menú dock.
+This list is managed by the OS. On Windows, you can visit the list from the task bar, and on macOS, you can visit it from dock menu.
 
 ### `app.clearRecentDocuments()` *macOS* *Windows*
 
@@ -562,7 +601,7 @@ Regresa `Boolean` - Siempre que el llamado fue exitoso.
 
 Este método configura el ejecutable actual como por defecto a utilizar por un protocolo (esquema aka URI). Esto le permite integrar la profundidad de la aplicación dentro del sistema operativo. Una vez registrado, todos los enlaces con `your-protocol://` serán abiertos con el ejecutable. El enlace completo, incluyendo el protocolo, será enviado a su aplicación como un parámetro.
 
-En Windows, puede proveer una opción de ruta opcional, la ruta a su ejecutable, y args, un arreglo de argumento para ser pasados a su ejecutable cuando este se lance.
+On Windows, you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
 
 **Nota:** En macOS, solo puede registrar protocolos que han sido añadidos a la `info.plist` de su aplicación, que no puede ser modificada mientras la aplicación esté corriendo. Usted también puede modificar el archivo con un editor de texto o script durante su creación. Vea la [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) para mas información.
 
@@ -695,11 +734,11 @@ Devuelve `Boolean`
 
 Este método hace de tu aplicación una de segunda instancia - además de permitir que tu aplicación se ejecuta de muchas instancias, esto asegurará que solo una instancia única de tu aplicación se esté ejecutando, y otras señales de instancias a esta instancia y sale.
 
-El valor devuelto de este método indica si esta instancia de su aplicación obtuvo con éxito el bloqueo. Si no pudo obtener el bloqueo se puede asumir que ya se está ejecutando otra instancia de la aplicación con el bloqueo y salir inmediatamente.
+El valor devuelto de este método indica si esta instancia de su aplicación obtuvo con éxito el bloqueo. If it failed to obtain the lock, you can assume that another instance of your application is already running with the lock and exit immediately.
 
 Este método retorna `true` si el proceso es de primera instancia en su aplicación y esta debe continuar la carga. Retorna `false` si su proceso deja inmediatamente de enviar parámetros a otra instancia que ya haya adquirido el bloqueo con anterioridad.
 
-En macOS, el sistema fuerza instancias únicas automáticamente cuando los usuarios intentan abrir una segunda instancia de tu aplicación en Finder, y los eventos `open-file` y `open-url` serán emitidos por eso. Como sea, cuando los usuarios inicien tu aplicación en línea de comando, los mecanismos de instancia única del sistema serán puenteados y tendrás que usar este método para asegurar la única instancia.
+On macOS, the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the `open-file` and `open-url` events will be emitted for that. However when users start your app in command line, the system's single instance mechanism will be bypassed, and you have to use this method to ensure single instance.
 
 Un ejemplo de activar la ventana de la instancia primaria cuando una de segunda instancia se inicia:
 
@@ -841,7 +880,7 @@ Regresa `Boolean` - Siempre que el llamado fue exitoso.
 
 Establece el distintivo en contra para la aplicación actual. Establecer la cuenta a `0` esconderá el distintivo.
 
-En macOS se mostrará en el icono del muelle. En Linux solo funciona para los ejecutadores de Unity
+On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
 
 **Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
 
@@ -859,7 +898,7 @@ Devuelve `Boolean` - Aunque el ambiente del escritorio actual sea un ejecutador 
   * `path` Cadena (opcional) *Windows* - El camino ejecutable para comparar en contra. Por defecto a `process.execPath`.
   * `args` Cadena[] (opcional) *Windows* - La línea de argumentos de comando para comparar e contra. Por defecto, a un arreglo vacío.
 
-Si tú has dado las opciones `path` y `args` a `app.setLoginItemSettings` entonces tú necesitas pasar los mismos argumentos aquí para `openAtLogin` para que se establezca correctamente.
+If you provided `path` and `args` options to `app.setLoginItemSettings`, then you need to pass the same arguments here for `openAtLogin` to be set correctly.
 
 Devuelve `Objeto`:
 
@@ -910,20 +949,22 @@ This API must be called after the `ready` event is emitted.
 
 **Nota:** Renderizar el árbol de accesibilidad puede afectar significativamente al rendimiento de su aplicación. No debería estar activado por defecto.
 
-### `app.showAboutPanel()` *macOS*
+### `app.showAboutPanel` *macOS* *Linux*
 
-Show the about panel with the values defined in the app's `.plist` file or with the options set via `app.setAboutPanelOptions(options)`.
+Show the app's about panel options. These options can be overridden with `app.setAboutPanelOptions(options)`.
 
-### `app.setAboutPanelOptions(options)` *macOS*
+### `app.setAboutPanelOptions(options)` *macOS* *Linux*
 
 * `opciones` Object 
   * `applicationName` Cadena (opcional) - El nombre de la aplicación.
   * `applicationVersion` Cadena (opcional) - La versión de la aplicación.
   * `copyright` Cadena (opcional) - La información de Copyright.
-  * `credits` Cadena (opcional) - Información de crédito.
-  * `version` Cadena (opcional) - Este número de versión de construcción de la aplicación.
+  * `version` String (optional) - The app's build version number. *macOS*
+  * `credits` String (optional) - Credit information. *macOS*
+  * `website` String (optional) - The app's website. *Linux*
+  * `iconPath` String (optional) - Path to the app's icon. *Linux*
 
-Establece el panel de opciones. Esto anulará los valores definidos en el archivo `.plist` de la aplicación. Ver el [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) para más detalles.
+Establece el panel de opciones. This will override the values defined in the app's `.plist` file on MacOS. Ver el [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) para más detalles. On Linux, values must be set in order to be shown; there are no defaults.
 
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
 
@@ -957,15 +998,23 @@ Adjuntar un argumento a la línea de comando de Chromium. El argumento será cit
 
 **Nota:** Esto no afectará a `process.argv`.
 
+### `app.commandLine.hasSwitch(switch)`
+
+* `switch` Cadena - Un cambio en la línea de comando
+
+Returns `Boolean` - Whether the command-line switch is present.
+
+### `app.commandLine.getSwitchValue(switch)`
+
+* `switch` Cadena - Un cambio en la línea de comando
+
+Returns `String` - The command-line switch value.
+
+**Note:** When the switch is not present, it returns empty string.
+
 ### `app.enableSandbox()` *Experimental* *macOS* *Windows*
 
 Habilita el modo sandbox completo en la aplicación.
-
-Este método solo puede ser llamado despues de iniciada la aplicación.
-
-### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
-
-Permite modo sandbox mezclado en la aplicación.
 
 Este método solo puede ser llamado despues de iniciada la aplicación.
 
@@ -975,11 +1024,11 @@ Devuelve `Boolean` - Si la aplicación se está operando actualmente desde la ca
 
 ### `app.moveToApplicationsFolder()` *macOS*
 
-Devuelve `Boolean` - Si el cambio de carpeta fue exitoso. Tenga en cuenta que si el cambio de carpeta fue exitoso su aplicación dejará de funcionar y se relanzará.
+Returns `Boolean` - Whether the move was successful. Please note that if the move is successful, your application will quit and relaunch.
 
-Por defecto no se presentará un díalogo de confirmación, si prefiere que el usuario confirme la operación debe hacerlo usando la API [`dialog`](dialog.md).
+No confirmation dialog will be presented by default. If you wish to allow the user to confirm the operation, you may do so using the [`dialog`](dialog.md) API.
 
-**Nota:** Este método emite errores si algo que no sea el usuario provoca un error en el movimiento. Por consiguiente, si el usuario cancela el diálogo de autorización, este método devuelve falso. Si se produce un fallo al realizar la copia, este método emite un error. El mensaje de error debería ser descriptivo y advertir exactamente que ha fallado
+**Nota:** Este método emite errores si algo que no sea el usuario provoca un error en el movimiento. For instance if the user cancels the authorization dialog, this method returns false. If we fail to perform the copy, then this method will throw an error. El mensaje de error debería ser descriptivo y advertir exactamente que ha fallado
 
 ### `app.dock.bounce([type])` *macOS*
 
