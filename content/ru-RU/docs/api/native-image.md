@@ -166,7 +166,7 @@ where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](htt
 
 ### Методы экземпляра
 
-The following methods are available on instances of the `NativeImage` class:
+Для экземпляров класса `NativeImage` доступны следующие методы:
 
 #### `image.toPNG([options])`
 
@@ -212,7 +212,7 @@ Returns `Boolean` - Whether the image is empty.
 
 #### `image.getSize()`
 
-Returns [`Size`](structures/size.md)
+Возвращает [`Size`](structures/size.md)
 
 #### `image.setTemplateImage(option)`
 
@@ -228,7 +228,7 @@ Returns `Boolean` - Whether the image is a template image.
 
 * `rect` [Rectangle](structures/rectangle.md) - область изображения до которой нужно обрезать.
 
-Returns `NativeImage` - The cropped image.
+Возвращает `NativeImage` - обрезанное изображение.
 
 #### `image.resize(options)`
 
@@ -240,7 +240,7 @@ If only the `height` or the `width` are specified then the current aspect ratio 
 
 #### `image.getAspectRatio()`
 
-Returns `Float` - The image's aspect ratio.
+Возвращает `Float` - пропорции изображения.
 
 #### `image.addRepresentation(options)`
 
