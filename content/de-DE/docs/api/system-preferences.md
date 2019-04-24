@@ -9,7 +9,7 @@ const { systemPreferences } = require('electron')
 console.log(systemPreferences.isDarkMode())
 ```
 
-## Ereignisse
+## Events
 
 The `systemPreferences` object emits the following events:
 
@@ -46,7 +46,7 @@ Rückgabewert:
 
 Rückgabewert:
 
-* `newAppearance` String - Can be `dark` or `light`
+* `newAppearance` String - Kann `dark` oder `light` sein
 
 **NOTE:** This event is only emitted after you have called `startAppLevelAppearanceTrackingOS`
 
