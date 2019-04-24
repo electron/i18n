@@ -64,7 +64,7 @@ Nagtatakda ng pinakamataas at pinakamababa na antas batay sa layout (i.e hindi v
 * `provider` Bagay 
   * `spellCheck` Function. 
     * `words` String[]
-    * `callback` Punsyon 
+    * `callback` Function 
       * `misspeltWords` String[]
 
 Sets a provider for spell checking in input fields and text areas.
@@ -97,7 +97,7 @@ Pagsingit `text` para sa nakapukos na elemento.
 
 * `code` String
 * `userGesture` Boolean (opsyonal) - Default ay `huwad`.
-* `callback` Function (opsyonal) - Tinawagan pagkatapos na maisakatuparan ang iskrip. 
+* `pagbalik tawag` Gumagana (opsyonal) - Tinawag pagkatapos ang iskrip ay ginawa. 
   * `result` Any
 
 Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
@@ -149,7 +149,7 @@ Set the security origin, content security policy and name of the isolated world.
 
 ### `webFrame.getResourceUsage()`
 
-Returns `Object`:
+Nagbabalik ng mga `bagay`:
 
 * `images` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `scripts` [MemoryUsageDetails](structures/memory-usage-details.md)
