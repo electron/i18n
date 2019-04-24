@@ -38,9 +38,17 @@ app.on('ready', () => {
 * `geri aramak` Function 
   * `categories` Dizi[]
 
-Kategori gruplarının bir kümesini edinin. Yeni kod yollarına ulaşıldığında kategori grupları değiiştirilebilir.
+Get a set of category groups. The category groups can change as new code paths are reached.
 
-Bütün alt süreçler, `getCategories` isteğini onayladıktan sonra, `callback` kategori grupları dizisi ile çağırılır.
+Once all child processes have acknowledged the `getCategories` request the `callback` is invoked with an array of category groups.
+
+**[Deprecated Soon](promisification.md)**
+
+### `contentTracing.getCategories()`
+
+Returns `Promise<String[]>` - resolves with an array of category groups once all child processes have acknowledged the `getCategories` request
+
+Get a set of category groups. The category groups can change as new code paths are reached.
 
 ### `contentTracing.startRecording(options, callback)`
 
@@ -51,10 +59,22 @@ Tüm işlemler kaydetmeye başlayın.
 
 Kayıt işlemi, EnableRecording isteği alındığı gibi yerel ve asenkron olarak alt süreçlerde başlar. Bütün alt süreçler `startRecording` isteğini onayladıktan sonra `callback` çağırılır.
 
+**[Deprecated Soon](promisification.md)**
+
+### `contentTracing.startRecording(options)`
+
+* `options` ([TraceCategoriesAndOptions](structures/trace-categories-and-options.md) | [TraceConfig](structures/trace-config.md))
+
+Returns `Promise<void>` - resolved once all child processes have acknowledged the `startRecording` request.
+
+Tüm işlemler kaydetmeye başlayın.
+
+Kayıt işlemi, EnableRecording isteği alındığı gibi yerel ve asenkron olarak alt süreçlerde başlar.
+
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
 * `resultFilePath` Dizi
-* `geri aramak` Fonksiyon 
+* `geri aramak` Function 
   * `resultFilePath` Dizi
 
 Kayıt işlemini tüm süreçlerde durdurur.
@@ -65,38 +85,19 @@ Bütün alt süreçler, `stopRecording` isteğini onayladıktan sonra, `callback
 
 Eğer izleme verileri boş değilse veya geçici dosyaya gönderilirse `resultFilePath` içerisine yazılır. Eğer gerçek dosya yolu `null` değil ise `callback`'e geçirilir.
 
-### `contentTracing.startMonitoring(options, callback)`
+**[Deprecated Soon](promisification.md)**
 
-* `seçenekler` Nesne 
-  * `categoryFilter` Dizi
-  * `traceOptions` Dizi
-* `callback` Function
-
-Tüm süreçlerin izlenmesini başlat.
-
-İzleme işlemi, `startMonitoring` isteği alındığı gibi yerel ve asenkron olarak alt süreçlerde başlar.
-
-Tüm alt süreçler `startMonitoring` isteğini onayladıktan sonra `callback` çağırılacaktır.
-
-### `contentTracing.stopMonitoring(callback)`
-
-* `callback` Fonksiyon
-
-Tüm işlemlerin izlemesini durdurun.
-
-Tüm alt süreçler `stopMonitoring` isteğini onayladıktan sonra `callback` çağırılır.
-
-### `contentTracing.captureMonitoringSnapshot(resultFilePath, callback)`
+### `contentTracing.stopRecording(resultFilePath)`
 
 * `resultFilePath` Dizi
-* `geri aramak` Function 
-  * `resultFilePath` Dizi
 
-Geçerli izleme verilerini alın.
+Returns `Promise<String>` - resolves with a file that contains the traced data once all child processes have acknowledged the `stopRecording` request
 
-Alt süreçler tipik olarak izleme verilerini önbelleğe alır ve nadiren temizlerler ve izleme verisini ana sürece gönderirler. İzleme verilerini IPC üzerinden göndermek pahalı bir işlem olabilir ve gereksiz çalışma zamanı yükünün izlenmesini önlemek istiyoruz. Dolayısıyla, izlemeyi sonlandırmak için, asenkron olarak bütün alt süreçlerden bekleyen tüm izleme verilerini silmek için isteyin.
+Kayıt işlemini tüm süreçlerde durdurur.
 
-Bütün alt süreçler, `captureMonitoringSnapshot` isteğini onayladıktan sonra, `callback`, izlenen verileri içeren bir dosyayla çağrılır.
+Alt süreçler tipik olarak izleme verilerini önbelleğe alır ve nadiren temizlerler ve izleme verisini ana sürece gönderirler. Bu çalışma zamanı yükünü en aza indirmeye yardımcı olur. İzleme verilerini IPC üzerinden gönderdikten sonra izlemenin pahalı bir işlemi olabilir. Dolayısıyla, izlemeyi sonlandırmak için, asenkron olarak bütün alt süreçlerden bekleyen tüm izleme verilerini silmek için isteyin.
+
+Trace data will be written into `resultFilePath` if it is not empty or into a temporary file.
 
 ### `contentTracing.getTraceBufferUsage(callback)`
 
