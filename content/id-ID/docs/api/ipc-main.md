@@ -84,14 +84,16 @@ Modul ` ipcMain </ 0> memiliki metode berikut untuk mendengarkan acara:</p>
             
             An `Integer` representing the ID of the renderer frame that sent this message.
             
-            ### `event.returnValue`
+            ### `acara.kembali di nilai`
             
-            Set this to the value to be returned in a synchronous message.
+            Atur ini ke nilai yang akan dikembalikan dalam pesan sinkron.
             
-            ### `event.sender`
+            ### `acara.pengirim`
             
-            Returns the `webContents` that sent the message, you can call `event.sender.send` to reply to the asynchronous message, see [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for more information.
-            
-            ### `event.reply`
+            Mengembalikan `isi web </ 0> yang mengirim pesan, Anda dapat memanggil
+ <code> acara.pengirim.kirim </ 0> untuk membalas pesan asinkron, lihat
+ <a href="web-contents.md#contentssendchannel-arg1-arg2-"> isis web.kirim</ 1> untuk lebih informasi.</p>
+
+<h3><code>event.reply`</h3> 
             
             A function that will send an IPC message to the renderer frane that sent the original message that you are currently handling. You should use this method to "reply" to the sent message in order to guaruntee the reply will go to the correct process and frame.
