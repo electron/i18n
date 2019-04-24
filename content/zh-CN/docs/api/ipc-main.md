@@ -12,7 +12,7 @@ It is also possible to send messages from the main process to the renderer proce
 
 * 发送消息时，事件名称为`channel `。
 * 回复同步信息时，需要设置`event.returnValue`。
-* 将异步消息发送回发件人，需要使用`event.sender.send(...)`。
+* To send an asynchronous message back to the sender, you can use `event.reply(...)`. This helper method will automatically handle messages coming from frames that aren't the main frame (e.g. iframes) whereas `event.sender.send(...)` will always send to the main frame.
 
 下面是在渲染和主进程之间发送和处理消息的一个例子：
 
@@ -21,7 +21,7 @@ It is also possible to send messages from the main process to the renderer proce
 const { ipcMain } = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
   console.log(arg) // prints "ping"
-  event.sender.send('asynchronous-reply', 'pong')
+  event.reply('asynchronous-reply', 'pong')
 })
 
 ipcMain.on('synchronous-message', (event, arg) => {
@@ -76,10 +76,18 @@ IpcMain模块有以下方法来侦听事件：
 
 传递给 callback 的 event 对象有如下方法:
 
+### `event.frameId`
+
+An `Integer` representing the ID of the renderer frame that sent this message.
+
 ### `event.returnValue`
 
-将此设置为在一个同步消息中返回的值.
+Set this to the value to be returned in a synchronous message.
 
 ### `event.sender`
 
 Returns the `webContents` that sent the message, you can call `event.sender.send` to reply to the asynchronous message, see [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for more information.
+
+### `event.reply`
+
+A function that will send an IPC message to the renderer frane that sent the original message that you are currently handling. You should use this method to "reply" to the sent message in order to guaruntee the reply will go to the correct process and frame.
