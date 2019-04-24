@@ -18,9 +18,11 @@ Die `Menu`-Klasse hat die folgenden statischen Methoden:
 
 Sets `menu` as the application menu on macOS. On Windows and Linux, the `menu` will be set as each window's top menu.
 
-Passing `null` will remove the menu bar on Windows and Linux but has no effect on macOS.
+Also on Windows and Linux, you can use a `&` in the top-level item name to indicate which letter should get a generated accelerator. For example, using `&File` for the file menu would result in a generated `Alt-F` accelerator that opens the associated menu. The indicated character in the button label gets an underline. The `&` character is not displayed on the button label.
 
-**Note:** This API has to be called after the `ready` event of `app` module.
+Passing `null` will suppress the default menu. On Windows and Linux, this has the additional effect of removing the menu bar from the window.
+
+**Note:** The default menu will be created automatically if the app does not set one. It contains standard items such as `File`, `Edit`, `View`, `Window` and `Help`.
 
 #### `Menu.getApplicationMenu()`
 
@@ -38,7 +40,7 @@ See the [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/m
 
 #### `Menu.buildFromTemplate(template)`
 
-* `template` MenuItemConstructorOptions[]
+* `template` (MenuItemConstructorOptions | MenuItem)[]
 
 Returns `Menu`
 
@@ -48,7 +50,7 @@ You can also attach other fields to the element of the `template` and they will 
 
 ### Instanz Methoden
 
-Das `menu` Objekt hat die folgenden Instanz Methoden:
+The `menu` object has the following instance methods:
 
 #### `menu.popup(options)`
 
@@ -65,13 +67,13 @@ Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional) - Default ist das fokussierte Fenster.
 
-Schließt das Kontext-Menü im `browserWindow`.
+Closes the context menu in the `browserWindow`.
 
 #### `menu.append(menuItem)`
 
 * `menuItem` [MenuItem](menu-item.md)
 
-Fügt dem Menü das `menuItem` hinzu.
+Appends the `menuItem` to the menu.
 
 #### `menu.getMenuItemById(id)`
 
@@ -84,11 +86,11 @@ Returns `MenuItem` the item with the specified `id`
 * `pos` Integer
 * `menuItem` [MenuItem](menu-item.md)
 
-Füre das `menuItem` an der `pos` Position im Menü ein.
+Inserts the `menuItem` to the `pos` position of the menu.
 
 ### Instanz Events
 
-Objekte welche mit `new Menu` erzeugt wurden emitieren folgende Events:
+Objects created with `new Menu` emit the following events:
 
 **Hinweis:** Manche Methoden sind nur auf spezifischen Betriebssystemen verfügbar und sind dementsprechend gekennzeichnet.
 
@@ -106,7 +108,7 @@ Rückgabewert:
 
 * `event` Event
 
-Emitiert wenn ein Popup manuell oder mit `menu.closePopup()` geschlossen wird.
+Emitted when a popup is closed either manually or with `menu.closePopup()`.
 
 ### Instanz Eigenschaften
 
@@ -134,6 +136,29 @@ An example of creating the application menu in the main process with the simple 
 const { app, Menu } = require('electron')
 
 const template = [
+  // { role: 'appMenu' }
+  ...(process.platform === 'darwin' ? [{
+    label: app.getName(),
+    submenu: [
+      { role: 'about' },
+      { type: 'separator' },
+      { role: 'services' },
+      { type: 'separator' },
+      { role: 'hide' },
+      { role: 'hideothers' },
+      { role: 'unhide' },
+      { type: 'separator' },
+      { role: 'quit' }
+    ]
+  }] : []),
+  // { role: 'fileMenu' }
+  {
+    label: 'File',
+    submenu: [
+      isMac ? { role: 'close' } : { role: 'quit' }
+    ]
+  },
+  // { role: 'editMenu' }
   {
     label: 'Edit',
     submenu: [
@@ -143,11 +168,26 @@ const template = [
       { role: 'cut' },
       { role: 'copy' },
       { role: 'paste' },
-      { role: 'pasteandmatchstyle' },
-      { role: 'delete' },
-      { role: 'selectall' }
+      ...(isMac ? [
+        { role: 'pasteAndMatchStyle' },
+        { role: 'delete' },
+        { role: 'selectAll' },
+        { type: 'separator' },
+        {
+          label: 'Speech',
+          submenu: [
+            { role: 'startspeaking' },
+            { role: 'stopspeaking' }
+          ]
+        }
+      ] : [
+        { role: 'delete' },
+        { type: 'separator' },
+        { role: 'selectAll' }
+      ])
     ]
   },
+  // { role: 'viewMenu' }
   {
     label: 'View',
     submenu: [
@@ -162,11 +202,20 @@ const template = [
       { role: 'togglefullscreen' }
     ]
   },
+  // { role: 'windowMenu' }
   {
-    role: 'window',
+    label: 'Window',
     submenu: [
       { role: 'minimize' },
-      { role: 'close' }
+      { role: 'zoom' },
+      ...(isMac ? [
+        { type: 'separator' },
+        { role: 'front' },
+        { type: 'separator' },
+        { role: 'window' }
+      ] : [
+        { role: 'close' }
+      ])
     ]
   },
   {
@@ -174,49 +223,11 @@ const template = [
     submenu: [
       {
         label: 'Learn More',
-        click () { require('electron').shell.openExternal('https://electronjs.org') }
+        click () { require('electron').shell.openExternalSync('https://electronjs.org') }
       }
     ]
   }
 ]
-
-if (process.platform === 'darwin') {
-  template.unshift({
-    label: app.getName(),
-    submenu: [
-      { role: 'about' },
-      { type: 'separator' },
-      { role: 'services' },
-      { type: 'separator' },
-      { role: 'hide' },
-      { role: 'hideothers' },
-      { role: 'unhide' },
-      { type: 'separator' },
-      { role: 'quit' }
-    ]
-  })
-
-  // Edit menu
-  template[1].submenu.push(
-    { type: 'separator' },
-    {
-      label: 'Speech',
-      submenu: [
-        { role: 'startspeaking' },
-        { role: 'stopspeaking' }
-      ]
-    }
-  )
-
-  // Window menu
-  template[3].submenu = [
-    { role: 'close' },
-    { role: 'minimize' },
-    { role: 'zoom' },
-    { type: 'separator' },
-    { role: 'front' }
-  ]
-}
 
 const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
@@ -292,7 +303,7 @@ Template:
 ]
 ```
 
-Menü:
+Menu:
 
 ```sh
 <br />- 1
@@ -314,7 +325,7 @@ Template:
 ]
 ```
 
-Menü:
+Menu:
 
 ```sh
 <br />- 3
@@ -335,7 +346,7 @@ Template:
 ]
 ```
 
-Menü:
+Menu:
 
 ```sh
 <br />- ---
