@@ -225,7 +225,7 @@ This API is only available on macOS 10.14 Mojave or newer.
 
 ### `systemPreferences.getColor(color)` *Windows* *macOS*
 
-* `color` String - One of the following values: 
+* `kolor` String - One of the following values: 
   * On **Windows**: 
     * `3d-dark-shadow` - Dark shadow for three-dimensional display elements.
     * `3d-face` - Face color for three-dimensional display elements and for dialog box backgrounds.
@@ -296,7 +296,7 @@ Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`).
 
 ### `systemPreferences.getSystemColor(color)` *macOS*
 
-* `color` String - One of the following values: 
+* `kolor` String - One of the following values: 
   * `blue`
   * `brown`
   * `gray`
