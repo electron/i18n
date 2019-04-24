@@ -48,7 +48,7 @@ Open the given external protocol URL in the desktop's default manner. (For examp
 ### `shell.openExternal(url[, options])`
 
 * `url` String - Max 2081 characters on windows.
-* `options` 物件 (選用) 
+* `options` Object (選用) 
   * `activate` Boolean (optional) - `true` to bring the opened application to the foreground. The default is `true`. *macOS*
   * `workingDirectory` String (optional) - The working directory. *Windows*
 
@@ -71,7 +71,7 @@ Play the beep sound.
 ### `shell.writeShortcutLink(shortcutPath[, operation], options)` *Windows*
 
 * `shortcutPath` String
-* `operation` String (optional) - Default is `create`, can be one of following: 
+* `operation` String (選用) - 預設值為 `create`, can be one of following: 
   * `create` - Creates a new shortcut, overwriting if necessary.
   * `update` - Updates specified properties only on an existing shortcut.
   * `replace` - Overwrites an existing shortcut, fails if the shortcut doesn't exist.
@@ -85,7 +85,7 @@ Creates or updates a shortcut link at `shortcutPath`.
 
 * `shortcutPath` String
 
-Returns [`ShortcutDetails`](structures/shortcut-details.md)
+回傳 [`ShortcutDetails`](structures/shortcut-details.md)
 
 Resolves the shortcut link at `shortcutPath`.
 
