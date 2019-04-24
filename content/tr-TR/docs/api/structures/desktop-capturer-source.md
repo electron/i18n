@@ -4,3 +4,4 @@
 * `name` String - Bir pencere kaynağının ismi pencere başlığı ile uyuşurken, ekran kaynağı ya `Entire Screen` ya da `Screen <index>` olarak isimlendirilecektir.
 * `thumbnail` [NativeImage](../native-image.md) - Küçük resim. **Note:** `desktopCapturer.getSources` 'e geçirilen `options` içinde belirtilen `thumbnailSize` ile küçük resmin boyutunun aynı olduğu garanti değildir. Gerçek boyut ekranın ya da pencerenin ölçeğine bağlıdır.
 * `display_id` String - `id` değerine karşılık gelecek benzersiz bir tanımlayıcı ile eşleşen [Display](display.md) [Screen API](../screen.md) tarafından döndürülür. Bazı platformlarda, bu yukarıda `id` alanının `XX` kısmına eşdeğerdir ve diğerlerinde farklı olacaktır. Mevcut değilse boş bir dize olacaktır.
+* `appIcon` [NativeImage](../native-image.md) - An icon image of the application that owns the window or null if the source has a type screen. The size of the icon is not known in advance and depends on what the the application provides.
