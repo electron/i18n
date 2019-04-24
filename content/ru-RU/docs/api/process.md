@@ -61,15 +61,15 @@ A `Boolean`, `true` when the current renderer context is the "main" renderer fra
 
 ### `process.mas`
 
-A `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
+`Boolean`. Для Mac App Store сборки это свойство `true`, для остальных сборок `undefined`.
 
 ### `process.noAsar`
 
-A `Boolean` that controls ASAR support inside your application. Setting this to `true` will disable the support for `asar` archives in Node's built-in modules.
+`Boolean`. Контролирует поддержку ASAR внутри вашего приложения. Установка данного параметра в `true` отключит поддержку `asar` архивов в Node's built-in модулях.
 
 ### `process.noDeprecation`
 
-A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`. Setting this to `true` will silence deprecation warnings. This property is used instead of the `--no-deprecation` command line flag.
+`Boolean`. Контролирует будут ли неодобряющие предупреждения выводиться в `stderr`. Установка в `true` заглушит неодобряющие предупреждения. Это свойство используется вместо флага командной строки `--no-deprecation`.
 
 ### `process.enablePromiseAPIs`
 
@@ -77,11 +77,11 @@ A `Boolean` that controls whether or not deprecation warnings are printed to `st
 
 ### `process.resourcesPath`
 
-A `String` representing the path to the resources directory.
+`String`. Представляет из себя путь до каталога с ресурсами.
 
 ### `process.sandboxed`
 
-A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
+`Boolean`. Когда renderer process добавлен в sandbox это свойство принимает значение `true`, иначе `undefined`.
 
 ### `process.throwDeprecation`
 
