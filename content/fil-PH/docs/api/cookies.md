@@ -74,7 +74,7 @@ Returns `Promise<Cookie[]>` - A promise which resolves an array of cookie object
 
 Sends a request to get all cookies matching `filter`, and resolves a promise with the response.
 
-#### `cookies.get(filter, callback)`
+#### `cookies.get(filter,callback)`
 
 * `salain` Bagay 
   * `url` String (opsyunal) - Nakuhang cookies na may kaugnayan sa `url`. Ang walang laman ay nagpapahiwatig na pagkuha ng mga cookies ng buong url.
@@ -85,7 +85,7 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
   * `session` Booelan (opsyunal) - Efilter ang sesyon o ang nagpapatuloy na cookies.
 * `callback` Punsyon 
   * `error` Error
-  * `cookies` [Cookie[]](structures/cookie.md) - an array of cookie objects.
+  * `cookies` [Cookie](structures/cookie.md) - ang isang array ng mga bagay ng cookie.
 
 Sends a request to get all cookies matching `filter`, `callback` will be called with `callback(error, cookies)` on complete.
 
@@ -94,41 +94,41 @@ Sends a request to get all cookies matching `filter`, `callback` will be called 
 #### `cookies.set(details)`
 
 * `ang mga detalye` Bagay 
-  * `url` String - The url to associate the cookie with.
-  * `name` String (optional) - The name of the cookie. Empty by default if omitted.
-  * `value` String (optional) - The value of the cookie. Empty by default if omitted.
+  * `url` String - Ang url ay maiuugnay sa cookie.
+  * `name` String (opsyunal) - Ang pangalan ng cookie. Walang laman ito pagdefault kung itinanggal.
+  * `value` String (opsyunal) - Ang halaga ng isang cookie. Walang laman ito pagdefault kung itinanggal.
   * `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains. Empty by default if omitted.
-  * `path` String (optional) - The path of the cookie. Empty by default if omitted.
-  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
-  * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
-  * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
+  * `path<0> String (opsyunal) - Ang daan ng isang cookie. Walang laman ito pagdefault kung itinanggal.</li>
+<li><code>secure` Boolean (opsyunal) - Kung ang isang cookie ay dapat markado na Secure. Pagdefaults to mali.
+  * `httpOnly` Boolean (opsyunal) - Kung ang isang cookie ay dapat na markado nang HTTP lang. Pagdefault ito false.
+  * `expirationDate` Double (opsyunal) - Ang expiration na petsa ng isang cookie ng bilang ng segundo dahil sa UNIX epoch. Kung ito ay tatanggalin ang cookie ay magiging isang sesyon cookie at hindi na ito mananatili sa pagitan ng mga sesyon.
 
 Returns `Promise<void>` - A promise which resolves when the cookie has been set
 
 Sets a cookie with `details`.
 
-#### `cookies.set(details,callback)`
+#### `cookies.set(detalye, baliktawag)`
 
 * `ang mga detalye` Bagay 
-  * `url` String - The url to associate the cookie with.
-  * `name` String (optional) - The name of the cookie. Empty by default if omitted.
-  * `value` String (optional) - The value of the cookie. Empty by default if omitted.
-  * `domain` String (optional) - The domain of the cookie. Empty by default if omitted.
-  * `path` String (optional) - The path of the cookie. Empty by default if omitted.
-  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
-  * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
-  * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
-* `callback` Punsyon 
+  * `url` String - Ang url ay maiuugnay sa cookie.
+  * `name` String (opsyunal) - Ang pangalan ng cookie. Walang laman ito pagdefault kung itinanggal.
+  * `value` String (opsyunal) - Ang halaga ng isang cookie. Walang laman ito pagdefault kung itinanggal.
+  * `domanin` String (opsyunal) - Ang domain ng isang cookie. Walang laman ito pagdefault kung itinanggal.
+  * `path<0> String (opsyunal) - Ang daan ng isang cookie. Walang laman ito pagdefault kung itinanggal.</li>
+<li><code>secure` Boolean (opsyunal) - Kung ang isang cookie ay dapat markado na Secure. Pagdefaults to mali.
+  * `httpOnly` Boolean (opsyunal) - Kung ang isang cookie ay dapat na markado nang HTTP lang. Pagdefault ito false.
+  * `expirationDate` Double (opsyunal) - Ang expiration na petsa ng isang cookie ng bilang ng segundo dahil sa UNIX epoch. Kung ito ay tatanggalin ang cookie ay magiging isang sesyon cookie at hindi na ito mananatili sa pagitan ng mga sesyon.
+* `callback` function 
   * `error` Error
 
-Sets a cookie with `details`, `callback` will be called with `callback(error)` on complete.
+Eset ang cookie sa mga`details`, `callback` ay pwedeng itawag na may `callback(error)` na kumpleto.
 
 **[Deprecated Soon](promisification.md)**
 
 #### `cookies.remove(url, name)`
 
-* `url` String - The URL associated with the cookie.
-* `name` String - The name of cookie to remove.
+* `url` String - Ang isang URL na maiugnay sa may cookie.
+* `name` String - Ang pangalan ng isang cookie na natanggal.
 
 Returns `Promise<void>` - A promise which resolves when the cookie has been removed
 
@@ -136,11 +136,11 @@ Removes the cookies matching `url` and `name`
 
 #### `cookies.remove(url, pangalan, baliktawag)`
 
-* `url` String - The URL associated with the cookie.
-* `name` String - The name of cookie to remove.
+* `url` String - Ang isang URL na maiugnay sa may cookie.
+* `name` String - Ang pangalan ng isang cookie na natanggal.
 * `callback` na Function
 
-Removes the cookies matching `url` and `name`, `callback` will called with `callback()` on complete.
+Tanggalin ang mga cookies na nagtugma sa `url` at `name`, `callback` ay tinatawag na may `callback()` kung kumpleto.
 
 **[Deprecated Soon](promisification.md)**
 
@@ -148,12 +148,12 @@ Removes the cookies matching `url` and `name`, `callback` will called with `call
 
 Returns `Promise<void>` - A promise which resolves when the cookie store has been flushed
 
-Writes any unwritten cookies data to disk.
+Nasusulat ang anumang di-nakasulat na cookies datos para sa disk.
 
 #### `cookies.flushStore(callback)`
 
 * `callback` na Function
 
-Writes any unwritten cookies data to disk.
+Nasusulat ang anumang di-nakasulat na cookies datos para sa disk.
 
 **[Deprecated Soon](promisification.md)**
