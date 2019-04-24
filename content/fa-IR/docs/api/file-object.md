@@ -1,4 +1,4 @@
-# `File` Object
+# `فایل` شیء
 
 > Use the HTML5 `File` API to work natively with files on the filesystem.
 
