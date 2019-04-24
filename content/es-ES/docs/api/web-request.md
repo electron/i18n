@@ -45,7 +45,7 @@ Lo siguientes métodos están disponibles en instancias de `WebRequest`:
     * `method` String
     * `webContentsId` Entero (opcional)
     * `resourceType` String
-    * `referencia` String
+    * `referrer` Cadena
     * `fecha y hora` Doble
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
@@ -70,9 +70,9 @@ The `callback` has to be called with an `response` object.
     * `method` String
     * `webContentsId` Entero (opcional)
     * `resourceType` String
-    * `referencia` String
+    * `referrer` Cadena
     * `fecha y hora` Doble
-    * `requestHeaders` Object
+    * `Encabezado de solicitud` Objecto
   * `callback` Function 
     * `respuesta` Object 
       * `cancelar` Booleano (opcional)
@@ -93,9 +93,9 @@ La `retrollamada` tiene que ser llamada con un objeto `respuesta`.
     * `method` String
     * `webContentsId` Entero (opcional)
     * `sourceId` Cadena
-    * `referencia` String
+    * `referrer` Cadena
     * `fecha y hora` Doble
-    * `requestHeaders` Object
+    * `Encabezado de solicitud` Objecto
 
 El`oyente` Será llamado con `listener(details)` justo antes que una solicitud vaya a ser enviada al servidor, modificaciones de previas respuestas `onBeforeSendHeaders` son visibles en el momento que este oyente esté en funcionamiento.
 
@@ -110,7 +110,7 @@ El`oyente` Será llamado con `listener(details)` justo antes que una solicitud v
     * `method` String
     * `webContentsId` Entero (opcional)
     * `resourceType` String
-    * `referencia` String
+    * `referrer` Cadena
     * `fecha y hora` Doble
     * `linea de estatus` Cadena
     * `Estatus de código` entero
@@ -136,10 +136,10 @@ La `retrollamada` tiene que ser llamada con un objeto `respuesta`.
     * `method` String
     * `webContentsId` Entero (opcional)
     * `resourceType` String
-    * `referencia` String
+    * `referrer` Cadena
     * `fecha y hora` Doble
     * `headers de respuesta` objeto
-    * `fromCache` Boolean - Indicates whether the response was fetched from disk cache.
+    * `Desde Cache` Booleano - Indica cuando al respuesta fue obtenida desde la memoria caché.
     * `Estatus de código` entero
     * `linea de estatus` Cadena
 
@@ -156,11 +156,11 @@ El `oyente` será cancelado con `listener(details)` cuando se reciba el primer b
     * `method` String
     * `webContentsId` Entero (opcional)
     * `resourceType` String
-    * `referencia` String
+    * `referrer` Cadena
     * `fecha y hora` Doble
     * `redirectURL` String
     * `Estatus de código` entero
-    * `ip` String (optional) - The server IP address that the request was actually sent to.
+    * `ip` Cadena (opcional) - La dirección IP del servidor al cual fue enviada en realidad la solicitud.
     * `Desde cache` Booleano
     * `headers de respuesta` objeto
 
@@ -197,9 +197,9 @@ The `listener` will be called with `listener(details)` when a request is complet
     * `method` String
     * `webContentsId` Entero (opcional)
     * `resourceType` String
-    * `referencia` String
+    * `referrer` Cadena
     * `fecha y hora` Doble
     * `Desde cache` Booleano
-    * `error` String - The error description.
+    * `error` Cadena - la descripción del error.
 
 El `oyente` será cancelado con `listener(details)` cuando ocurra un error.
