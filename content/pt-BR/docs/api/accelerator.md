@@ -50,6 +50,8 @@ A tecla `Super` é mapeada para a tecla `Windows` no Windows e no Linux e para a
 * `Plus (+)`
 * `Space (Espaço)`
 * `Tab`
+* `Capslock`
+* `Numlock`
 * `Backspace`
 * `Delete`
 * `Insert`
@@ -61,3 +63,10 @@ A tecla `Super` é mapeada para a tecla `Windows` no Windows e no Linux e para a
 * `VolumeUp`, `VolumeDown` e `VolumeMute`
 * `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` e `MediaPlayPause`
 * `PrintScreen`
+* NumPad Keys 
+  * `num0` - `num9`
+  * `numdec` - decimal key
+  * `numadd` - numpad `+` key
+  * `numsub` - numpad `-` key
+  * `nummult` - numpad `*` key
+  * `numdiv` - numpad `÷` key
