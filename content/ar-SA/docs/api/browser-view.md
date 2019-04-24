@@ -42,7 +42,7 @@ Returns `BrowserView | null` - The BrowserView that owns the given `webContents`
 
 #### `BrowserView.fromId(id)`
 
-* `id` Integer
+* </code>
 
 Returns `BrowserView` - The view with the given `id`.
 
@@ -72,7 +72,7 @@ Returns `Boolean` - Whether the view is destroyed.
 
 #### `view.setAutoResize(options)` *Experimental*
 
-* `options` Object 
+* `options` الكائنات 
   * `width` Boolean - If `true`, the view's width will grow and shrink together with the window. `false` by default.
   * `height` Boolean - If `true`, the view's height will grow and shrink together with the window. `false` by default.
 
