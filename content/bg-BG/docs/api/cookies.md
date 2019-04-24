@@ -118,7 +118,7 @@ Sets a cookie with `details`.
   * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
   * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
-* `callback` Function 
+* `обратно повикване` Функция 
   * `error` Error
 
 Sets a cookie with `details`, `callback` will be called with `callback(error)` on complete.
