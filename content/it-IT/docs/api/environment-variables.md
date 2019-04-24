@@ -46,37 +46,35 @@ Unsupported options are:
 
 ### `GOOGLE_API_KEY`
 
-Electron include delle chiavi API hardcoded per fare richieste al webservice di geolocalizzazione di Google. Poichè questa chiave API key è inclusa in ogni versione di Electron, spesso si eccedono i limiti di quota. Per risolvere questo problema, puoi fornire la tua chiave Google API nell'ambiente. Metti la seguenti riga di codice nel tuo file per il processo principale, prima di aprire qualsiasi finestra browser che farà richieste di geocodifica:
+You can provide an API key for making requests to Google's geocoding webservice. To do this, place the following code in your main process file, before opening any browser windows that will make geocoding requests:
 
 ```javascript
 process.env.GOOGLE_API_KEY = 'LA_TUA_CHIAVE_QUI'
 ```
 
-Per le istruzione su come ottenere una chiave Google API, visita [questa pagina](https://www.chromium.org/developers/how-tos/api-keys).
-
-Di default, una nuova chiave Google API è generata ma potrebbe non esserle concesso l'esecuzione di richieste di geocodifica. Per abilitare le richieste di geocodifica, visita [questa pagina](https://console.developers.google.com/apis/api/geolocation/overview).
+For instructions on how to acquire a Google API key, visit [this page](https://developers.google.com/maps/documentation/javascript/get-api-key). By default, a newly generated Google API key may not be allowed to make geocoding requests. To enable geocoding requests, visit [this page](https://developers.google.com/maps/documentation/geocoding/get-api-key).
 
 ### `ELECTRON_NO_ASAR`
 
-Disabilita il supporto ASAR. Questa variabile è supportata solo in processi figli e relativi processi generati che hanno impostato `ELECTRON_RUN_AS_NODE`.
+Disables ASAR support. This variable is only supported in forked child processes and spawned child processes that set `ELECTRON_RUN_AS_NODE`.
 
 ### `ELECTRON_RUN_AS_NODE`
 
-Esegue il processo come un normale processo Node.js.
+Starts the process as a normal Node.js process.
 
 ### `ELECTRON_NO_ATTACH_CONSOLE` *Windows*
 
-Non collega l'attuale sessione console.
+Don't attach to the current console session.
 
 ### `ELECTRON_FORCE_WINDOW_MENU_BAR` *Linux*
 
-Non usa la barra del menu globale su Linux.
+Don't use the global menu bar on Linux.
 
 ### `ELECTRON_TRASH` *Linux*
 
 Set the trash implementation on Linux. Default is `gio`.
 
-Opzioni:
+Options:
 
 * `gvfs-trash`
 * `trash-cli`
@@ -85,31 +83,31 @@ Opzioni:
 
 ## Variabili di sviluppo
 
-Le seguenti variabili d'ambiente sono principalmente destinate per scopi di sviluppo e debugging.
+The following environment variables are intended primarily for development and debugging purposes.
 
 ### `ELECTRON_ENABLE_LOGGING`
 
-Stampa il logging interno di Chrome nella console.
+Prints Chrome's internal logging to the console.
 
 ### `ELECTRON_LOG_ASAR_READS`
 
-Quando Electron legge da un file ASAR, registra la posizione letta e il percorso del file nella `tmpdir` di sistema. Il file risultate può essere fornito al modulo ASAR per ottimizzare l'ordinamento del file.
+When Electron reads from an ASAR file, log the read offset and file path to the system `tmpdir`. The resulting file can be provided to the ASAR module to optimize file ordering.
 
 ### `ELECTRON_ENABLE_STACK_DUMPING`
 
-Stampa lo stack trace nella console quando Electron crasha.
+Prints the stack trace to the console when Electron crashes.
 
-Questa variabile d'ambiente non funzionerà se il `crashReporter` è avviato.
+This environment variable will not work if the `crashReporter` is started.
 
 ### `ELECTRON_DEFAULT_ERROR_MODE` *Windows*
 
-Mostra la finestra di crash di Windows quando Electron crasha.
+Shows the Windows's crash dialog when Electron crashes.
 
-Questa variabile d'ambiente non funzionerà se il `crashReporter` è avviato.
+This environment variable will not work if the `crashReporter` is started.
 
 ### `ELECTRON_OVERRIDE_DIST_PATH`
 
-Durante l'esecuzione dal pacchetto `electron`, questa variabile indica al comando `electron` di usare la build Electron specificata invece di quella scaricata tramite `npm install`. Uso:
+When running from the `electron` package, this variable tells the `electron` command to use the specified build of Electron instead of the one downloaded by `npm install`. Usage:
 
 ```sh
 export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Debug
