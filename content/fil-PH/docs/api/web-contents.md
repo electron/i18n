@@ -1014,7 +1014,7 @@ console.log(requestId)
 
 #### `mga nilalaman.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
+* `rect` [Rectangle](structures/rectangle.md) (opsyonal) - Para ma-makuha ang bounds
 * `callback` Punsyon 
   * `image` [NativeImage](native-image.md)
 
