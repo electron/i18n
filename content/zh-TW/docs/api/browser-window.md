@@ -172,7 +172,7 @@ It creates a new `BrowserWindow` with native properties as set by the `options`.
     * `nodeIntegrationInWorker` Boolean (optional) - Whether node integration is enabled in web workers. Default is `false`. 更多相關資料可以[多執行緒](../tutorial/multithreading.md)中找到。
     * `nodeIntegrationInSubFrames` Boolean (optional) - Experimental option for enabling NodeJS support in sub-frames such as iframes. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not.
     * `preload` String (optional) - Specifies a script that will be loaded before other scripts run in the page. This script will always have access to node APIs no matter whether node integration is turned on or off. The value should be the absolute file path to the script. When node integration is turned off, the preload script can reintroduce Node global symbols back to the global scope. See example [here](process.md#event-loaded).
-    * `sandbox` Boolean (optional) - If set, this will sandbox the renderer associated with the window, making it compatible with the Chromium OS-level sandbox and disabling the Node.js engine. This is not the same as the `nodeIntegration` option and the APIs available to the preload script are more limited. Read more about the option [here](sandbox-option.md). **Note:** This option is currently experimental and may change or be removed in future Electron releases.
+    * `sandbox` Boolean (optional) - If set, this will sandbox the renderer associated with the window, making it compatible with the Chromium OS-level sandbox and disabling the Node.js engine. This is not the same as the `nodeIntegration` option and the APIs available to the preload script are more limited. Read more about the option [here](sandbox-option.md). **注意:** 這個選項目前還在實驗中，將來的 Electron 裡可能還會變動或是被直接移除。
     * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. Default is `true`.
     * `session` [Session](session.md#class-session) (optional) - Sets the session used by the page. Instead of passing the Session object directly, you can also choose to use the `partition` option instead, which accepts a partition string. When both `session` and `partition` are provided, `session` will be preferred. Default is the default session.
     * `partition` String (optional) - Sets the session used by the page according to the session's partition string. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. If there is no `persist:` prefix, the page will use an in-memory session. By assigning the same `partition`, multiple pages can share the same session. Default is the default session.
@@ -191,16 +191,16 @@ It creates a new `BrowserWindow` with native properties as set by the `options`.
     * `enableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to enable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) file.
     * `disableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to disable. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) file.
     * `defaultFontFamily` Object (optional) - Sets the default font for the font-family. 
-      * `standard` String (optional) - Defaults to `Times New Roman`.
-      * `serif` String (optional) - Defaults to `Times New Roman`.
-      * `sansSerif` String (optional) - Defaults to `Arial`.
-      * `monospace` String (optional) - Defaults to `Courier New`.
-      * `cursive` String (optional) - Defaults to `Script`.
-      * `fantasy` String (optional) - Defaults to `Impact`.
-    * `defaultFontSize` Integer (optional) - Defaults to `16`.
-    * `defaultMonospaceFontSize` Integer (optional) - Defaults to `13`.
-    * `minimumFontSize` Integer (optional) - Defaults to `0`.
-    * `defaultEncoding` String (optional) - Defaults to `ISO-8859-1`.
+      * `standard` String (選用) - 預設值為 `Times New Roman`。
+      * `serif` String (選用) - 預設值為 `Times New Roman`。
+      * `sansSerif` String (選用) - 預設值為 `Arial`。
+      * `monospace` String (選用) - 預設值為 `Courier New`。
+      * `cursive` String (選用) - 預設值為 `Script`。
+      * `fantasy` String (選用) - 預設值為 `Impact`。
+    * `defaultFontSize` Integer (選用) - 預設值為 `16`。
+    * `defaultMonospaceFontSize` Integer (選用) - 預設值為 `13`。
+    * `minimumFontSize` Integer (選用) - 預設值為 `0`。
+    * `defaultEncoding` String (選用) - 預設值為 `ISO-8859-1`。
     * `backgroundThrottling` Boolean (optional) - Whether to throttle animations and timers when the page becomes background. This also affects the [Page Visibility API](#page-visibility). Defaults to `true`.
     * `offscreen` Boolean (optional) - Whether to enable offscreen rendering for the browser window. Defaults to `false`. See the [offscreen rendering tutorial](../tutorial/offscreen-rendering.md) for more details.
     * `contextIsolation` Boolean (optional) - Whether to run Electron APIs and the specified `preload` script in a separate JavaScript context. Defaults to `false`. The context that the `preload` script runs in will still have full access to the `document` and `window` globals but it will use its own set of JavaScript builtins (`Array`, `Object`, `JSON`, etc.) and will be isolated from any changes made to the global environment by the loaded page. The Electron API will only be available in the `preload` script and not the loaded page. This option should be used when loading potentially untrusted remote content to ensure the loaded content cannot tamper with the `preload` script and any Electron APIs being used. This option uses the same technique used by [Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment). You can access this context in the dev tools by selecting the 'Electron Isolated Context' entry in the combo box at the top of the Console tab.
@@ -470,7 +470,7 @@ Adds Chrome extension located at `path`, and returns extension's name.
 
 The method will also not return if the extension's manifest is missing or incomplete.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 這個 API 不能在 `app` 模組的 `ready` 事件發出之前使用。
 
 #### `BrowserWindow.removeExtension(name)`
 
@@ -478,13 +478,13 @@ The method will also not return if the extension's manifest is missing or incomp
 
 Remove a Chrome extension by name.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 這個 API 不能在 `app` 模組的 `ready` 事件發出之前使用。
 
 #### `BrowserWindow.getExtensions()`
 
 Returns `Object` - The keys are the extension names and each value is an Object containing `name` and `version` properties.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 這個 API 不能在 `app` 模組的 `ready` 事件發出之前使用。
 
 #### `BrowserWindow.addDevToolsExtension(path)`
 
@@ -496,7 +496,7 @@ The extension will be remembered so you only need to call this API once, this AP
 
 The method will also not return if the extension's manifest is missing or incomplete.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 這個 API 不能在 `app` 模組的 `ready` 事件發出之前使用。
 
 #### `BrowserWindow.removeDevToolsExtension(name)`
 
@@ -504,7 +504,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 Remove a DevTools extension by name.
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 這個 API 不能在 `app` 模組的 `ready` 事件發出之前使用。
 
 #### `BrowserWindow.getDevToolsExtensions()`
 
@@ -519,7 +519,7 @@ let installed = BrowserWindow.getDevToolsExtensions().hasOwnProperty('devtron')
 console.log(installed)
 ```
 
-**Note:** This API cannot be called before the `ready` event of the `app` module is emitted.
+**注意:** 這個 API 不能在 `app` 模組的 `ready` 事件發出之前使用。
 
 ### 物件屬性
 
@@ -879,7 +879,7 @@ Returns `String` - The title of the native window.
 #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
 
 * `offsetY` Float
-* `offsetX` Float (optional)
+* `offsetX` Float (選用)
 
 Changes the attachment point for sheets on macOS. By default, sheets are attached just below the window frame, but you may want to display them beneath a HTML-rendered toolbar. For example:
 
@@ -987,7 +987,7 @@ Captures a snapshot of the page within `rect`. Omitting `rect` will capture the 
 #### `win.loadURL(url[, options])`
 
 * `url` String
-* `options` 物件 (選用) 
+* `options` Object (選用) 
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n"
@@ -1053,7 +1053,7 @@ Remove the window's menu bar.
 #### `win.setProgressBar(progress[, options])`
 
 * `progress` Double
-* `options` 物件 (選用) 
+* `options` Object (選用) 
   * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error` or `paused`.
 
 Sets progress value in progress bar. Valid range is [0, 1.0].
@@ -1153,7 +1153,7 @@ Sets the properties for the window's taskbar button.
 
 #### `win.showDefinitionForSelection()` *macOS*
 
-Same as `webContents.showDefinitionForSelection()`.
+跟 `webContents.showDefinitionForSelection()` 一樣。
 
 #### `win.setIcon(icon)` *Windows* *Linux*
 
@@ -1194,7 +1194,7 @@ Returns `Boolean` - Whether the menu bar is visible.
 #### `win.setVisibleOnAllWorkspaces(visible[, options])`
 
 * `visible` Boolean
-* `options` 物件 (選用) 
+* `options` Object (選用) 
   * `visibleOnFullScreen` Boolean (optional) *macOS* - Sets whether the window should be visible above fullscreen windows
 
 Sets whether the window should be visible on all workspaces.
@@ -1210,7 +1210,7 @@ Returns `Boolean` - Whether the window is visible on all workspaces.
 #### `win.setIgnoreMouseEvents(ignore[, options])`
 
 * `ignore` Boolean
-* `options` 物件 (選用) 
+* `options` Object (選用) 
   * `forward` Boolean (optional) *macOS* *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Only used when `ignore` is true. If `ignore` is false, forwarding is always disabled regardless of this value.
 
 Makes the window ignore all mouse events.
@@ -1283,7 +1283,7 @@ Adds a window as a tab on this window, after the tab for the window instance.
 
 Adds a vibrancy effect to the browser window. Passing `null` or an empty string will remove the vibrancy effect on the window.
 
-#### `win.setTouchBar(touchBar)` *macOS* *Experimental*
+#### `win.setTouchBar(touchBar)` *macOS* *試驗中*
 
 * `touchBar` TouchBar
 
@@ -1291,7 +1291,7 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 **注意:** TouchBar API 目前還在實驗中，將來的 Electron 裡可能還會變動或是被直接移除。
 
-#### `win.setBrowserView(browserView)` *Experimental*
+#### `win.setBrowserView(browserView)` *試驗中*
 
 * `browserView` [BrowserView](browser-view.md). Attach browserView to win. If there is some other browserViews was attached they will be removed from this window.
 
@@ -1299,13 +1299,13 @@ Sets the touchBar layout for the current window. Specifying `null` or `undefined
 
 Returns `BrowserView | null` - an BrowserView what is attached. Returns `null` if none is attached. Throw error if multiple BrowserViews is attached.
 
-#### `win.addBrowserView(browserView)` *Experimental*
+#### `win.addBrowserView(browserView)` *試驗中*
 
 * `browserView` [BrowserView](browser-view.md)
 
 Replacement API for setBrowserView supporting work with multi browser views.
 
-#### `win.removeBrowserView(browserView)` *Experimental*
+#### `win.removeBrowserView(browserView)` *試驗中*
 
 * `browserView` [BrowserView](browser-view.md)
 
@@ -1313,4 +1313,4 @@ Replacement API for setBrowserView supporting work with multi browser views.
 
 Returns array of `BrowserView` what was an attached with addBrowserView or setBrowserView.
 
-**Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.
+**注意:** BrowserView API 目前還在實驗中，將來的 Electron 裡可能還會變動或是被直接移除。
