@@ -26,9 +26,9 @@ Passing `null` will suppress the default menu. On Windows and Linux, this has th
 
 #### `Menu.getApplicationMenu()`
 
-Returns `Menu | null` - The application menu, if set, or `null`, if not set.
+Hasil returns `Menu | null` - menu aplikasi, jika di set, atau `null`, jika tidak di set.
 
-**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) can still be dynamically modified.
+**Catatan:** Contoh `Menu` kembali tidak mendukung dinamis penambahan atau penghapusan item menu.  Instance properti </ 0> masih dapat dimodifikasi secara dinamis.</p> 
 
 #### ` Menu.kirim aksi pertama ke Responder (tindakan) </ 0> <em> macos </ 1></h4>
 
@@ -36,15 +36,16 @@ Returns `Menu | null` - The application menu, if set, or `null`, if not set.
 <li><code> aksi </ 0>  Tali</li>
 </ul>
 
-<p>Sends the <code>action` to the first responder of application. This is used for emulating default macOS menu behaviors. Usually you would use the [`role`](menu-item.md#roles) property of a [`MenuItem`](menu-item.md).</p> 
+<p>Mengirimkan <code> action </ 0> ke responder pertama dari aplikasi. Ini digunakan untuk meniru perilaku menu macos default. Usually you would use the
+<a href="menu-item.md#roles"><code>role`</a> property of a [`MenuItem`](menu-item.md).</p> 
 
-See the [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7) for more information on macOS' native actions.
+Lihat  MacOS Kakao Acara Penanganan Panduan </ 0> untuk informasi lebih lanjut tentang MacOS tindakan asli '.</p> 
 
 #### `Menu.membangun dari Template (template)`
 
 * `template` (MenuItemConstructorOptions | MenuItem)[]
 
-Returns `Menu`
+Mengembalikan `menu`
 
 Generally, the `template` is an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
 
@@ -69,7 +70,7 @@ Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
 
-Closes the context menu in the `browserWindow`.
+Menutup menu konteks di `browserWindow`.
 
 #### `menu.append(menuItem) menuItem`
 
@@ -88,7 +89,7 @@ Returns `MenuItem` the item with the specified `id`
 * `pos` Integer
 * `menuItem` [MenuItem](menu-item.md)
 
-Inserts the `menuItem` to the `pos` position of the menu.
+Sisipkan `menuItem` ke posisi `pos` pada menu.
 
 ### Perihal contoh
 
@@ -98,7 +99,7 @@ Objects created with `new Menu` emit the following events:
 
 #### Event: 'menu-will-show'
 
-Mengembalikan:
+Pengembalian:
 
 * `acara` Acara
 
@@ -106,7 +107,7 @@ Emitted when `menu.popup()` is called.
 
 #### Event: 'menu-will-close'
 
-Mengembalikan:
+Pengembalian:
 
 * `acara` Acara
 
@@ -114,13 +115,13 @@ Emitted when a popup is closed either manually or with `menu.closePopup()`.
 
 ### Contoh properti
 
-`menu` objects also have the following properties:
+`menu` objek juga memiliki properti berikut:
 
 #### `menu.items`
 
 A `MenuItem[]` array containing the menu's items.
 
-Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
+Setiap `Menu` terdiri dari beberapa [`MenuItem`](menu-item.md)s dan masing-masing `MenuItem` bisa punya submenu.
 
 ### Contoh peristiwa
 
@@ -128,11 +129,11 @@ Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the
 
 ## Contoh
 
-The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
+Kelas `Utama` hanya tersedia dalam proses utama, namun Anda juga dapat menggunakannya dalam proses render melalui modul[`remote`](remote.md).
 
 ### Proses utama
 
-An example of creating the application menu in the main process with the simple template API:
+Contoh pembuatan menu aplikasi pada proses utama dengan API template sederhana:
 
 ```javascript
 const { app, Menu } = require('electron')
@@ -237,7 +238,7 @@ Menu.setApplicationMenu(menu)
 
 ### Proses renderer
 
-Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
+Dibawah ini adalah contoh membuat menu di halaman web secara dinamis (render proses) dengan menggunakan modul [`remote`](remote.md), dan menunjukkan kapan pengguna menggunakan klik kanan pada halaman:
 
 ```html
 <!-- index.html -->
@@ -259,27 +260,32 @@ window.addEventListener('contextmenu', (e) => {
 
 ## Catatan pada Menu Aplikasi MacOS
 
-macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
+macos memiliki gaya menu aplikasi yang sama sekali berbeda dari Windows dan Linux. Berikut adalah beberapa catatan tentang cara membuat menu aplikasi Anda lebih mirip dengan asli.
 
 ### Menu Standar
 
-On macOS there are many system-defined standard menus, like the `Services` and `Windows` menus. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
+Di macos terdapat banyak menu standar yang ditentukan oleh sistem, seperti menu ` Services </ 0> dan
+ <code> Windows </ 0>. Untuk membuat menu Anda menu standar, Anda harus mengatur menu Anda
+ <code> peran </ 0> ke salah satu dari berikut dan elektron akan mengenali mereka dan membuat mereka menjadi menu standar:</p>
 
-* `jendela`
+<ul>
+<li><code>jendela`</li> 
+
 * `bantuan`
-* `layanan`
+* `layanan`</ul> 
 
 ### Tindakan Item Menu Standar
 
-macOS has provided standard actions for some menu items, like `About xxx`, `Hide xxx`, and `Hide Others`. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
+macos telah memberikan tindakan standar untuk beberapa item menu, seperti ` Tentang xxx </ 0> ,
+ <code> Sembunyikan xxx </ 0> , dan <code> Sembunyikan Lainnya </ 0> . Untuk mengatur tindakan item menu ke tindakan standar, Anda harus mengatur atribut <code> role </ 0> dari item menu.</p>
 
-### Nama Menu Utama
+<h3>Nama Menu Utama</h3>
 
-On macOS the label of the application menu's first item is always your app's name, no matter what label you set. To change it, modify your app bundle's `Info.plist` file. See [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) for more information.
+<p>Pada macos label item pertama menu aplikasi selalu nama aplikasi Anda, tidak peduli label apa yang Anda tetapkan. Untuk mengubahnya, modifikasi berkas <code> Info.plist < file > aplikasi Anda. Lihat <a href="https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html">Mengaktifkan dokumentasi Akses Jaringan</a> untuk lebih jelasnya.</p>
 
-## Setting Menu untuk Jendela Peramban Tertentu (* Linux * * Windows *)
+<h2>Setting Menu untuk Jendela Peramban Tertentu (<em> Linux </em> <em> Windows </em>)</h2>
 
-The [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) of browser windows can set the menu of certain browser windows.
+<p>Metode <a href="https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows"><code> setMenu`metode </a> pencarian windows dapat mengatur menu tertentu Pencarian windows.
 
 ## Posisi Item Menu
 
