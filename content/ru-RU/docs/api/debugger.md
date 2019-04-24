@@ -4,7 +4,7 @@
 
 Process: [Main](../glossary.md#main-process)
 
-Инструменты разработчика Chrome имеют [специальную привязку](https://developer.chrome.com/devtools/docs/debugger-protocol) доступную во время выполнения JavaScript, что позволяет взаимодействовать со страницами и управлять ими.
+Инструменты разработчика Chrome имеют [специальную привязку](https://chromedevtools.github.io/devtools-protocol/) доступную во время выполнения JavaScript, что позволяет взаимодействовать со страницами и управлять ими.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -49,11 +49,22 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 #### `debugger.sendCommand(method[, commandParams, callback])`
 
-* `method` String - имя метода должно быть одним из методов, определенным удаленным протоколом отладки.
+* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
 * `commandParams` Object (опционально) - JSON объект с параметрами запроса.
 * `callback` Function (опционально) - ответ 
   * `error` Object - сообщение об ошибке, указывающее на сбой команды.
   * `result` Any - возвращает ответ, определяемый атрибутом 'returns' описание команды в протоколе удаленной отладки.
+
+Отправьте заданную команду на цель отладки.
+
+**[Deprecated Soon](promisification.md)**
+
+#### `debugger.sendCommand(method[, commandParams])`
+
+* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
+* `commandParams` Object (опционально) - JSON объект с параметрами запроса.
+
+Returns `Promise<any>` - A promise that resolves with the response defined by the 'returns' attribute of the command description in the remote debugging protocol or is rejected indicating the failure of the command.
 
 Отправьте заданную команду на цель отладки.
 
