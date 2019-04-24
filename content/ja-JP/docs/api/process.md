@@ -12,6 +12,7 @@ Electron の `process` オブジェクトは、[Node.js `process` object](https:
 
 * `crash()`
 * `hang()`
+* `getCreationTime()`
 * `getHeapStatistics()`
 * `getProcessMemoryInfo()`
 * `getSystemMemoryInfo()`
@@ -23,7 +24,6 @@ Electron の `process` オブジェクトは、[Node.js `process` object](https:
 * `pid`
 * `arch`
 * `platform`
-* `resourcesPath`
 * `sandboxed`
 * `type`
 * `version`
@@ -55,75 +55,83 @@ process.once('loaded', () => {
 
 `Boolean`。デフォルトアプリに、引数として渡されてアプリが起動されると、このプロパティはメインプロセス内で `true` になります。それ以外では `undefined` です。
 
+### `process.isMainFrame`
+
+A `Boolean`, `true` when the current renderer context is the "main" renderer frame. If you want the ID of the current frame you should use `webFrame.routingId`.
+
 ### `process.mas`
 
-`Boolean`。Mac App Store ビルドの場合、このプロパティは `true`、他のビルドでは `undefined` です。
+A `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
 
 ### `process.noAsar`
 
-アプリケーション内の ASAR サポートを制御する `Boolean`。これを `true` に設定すると、Node の組み込みモジュールの `asar` アーカイブのサポートが無効になります。
+A `Boolean` that controls ASAR support inside your application. Setting this to `true` will disable the support for `asar` archives in Node's built-in modules.
 
 ### `process.noDeprecation`
 
-非推奨の警告が `stderr` へ出力されるかどうかを制御する `Boolean`。 これを `true` に設定すると非推奨の警告が無効になります。 `--no-deprecation` コマンドラインフラグの代わりにこのプロパティを使用します。
+A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`. Setting this to `true` will silence deprecation warnings. This property is used instead of the `--no-deprecation` command line flag.
+
+### `process.enablePromiseAPIs`
+
+A `Boolean` that controls whether or not deprecation warnings are printed to `stderr` when formerly callback-based APIs converted to Promises are invoked using callbacks. Setting this to `true` will enable deprecation warnings.
 
 ### `process.resourcesPath`
 
-リソースディレクトリのパスを表す `String`。
+A `String` representing the path to the resources directory.
 
 ### `process.sandboxed`
 
-`Boolean`。レンダラープロセスがサンドボックス化されている場合、このプロパティは `true` です。それ以外の場合は `undefined` です。
+A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
 
 ### `process.throwDeprecation`
 
-非推奨の警告が例外としてスローされるかどうかを制御する `Boolean`。 これを `true` に設定すると非推奨のエラーがスローされます。 `--throw-deprecation` コマンドラインフラグの代わりにこのプロパティを使用します。
+A `Boolean` that controls whether or not deprecation warnings will be thrown as exceptions. Setting this to `true` will throw errors for deprecations. This property is used instead of the `--throw-deprecation` command line flag.
 
 ### `process.traceDeprecation`
 
-`stderr` に出力される非推奨にスタックトレースを含めるかどうかを制御する `Boolean`。 これを `true` に設定すると非推奨のスタックトレースが出力されます。 `--trace-deprecation` コマンドラインフラグの代わりにこのプロパティを使用します。
+A `Boolean` that controls whether or not deprecations printed to `stderr` include their stack trace. Setting this to `true` will print stack traces for deprecations. This property is instead of the `--trace-deprecation` command line flag.
 
 ### `process.traceProcessWarnings`
 
-`stderr` に出力されるプロセスの警告にスタックトレースを含めるかどうかを制御する `Boolean`。 これを `true` に設定するとプロセスの (非推奨を含む) 警告のスタックトレースが出力されます。 `--trace-warnings` コマンドラインフラグの代わりにこのプロパティを使用します。
+A `Boolean` that controls whether or not process warnings printed to `stderr` include their stack trace. Setting this to `true` will print stack traces for process warnings (including deprecations). This property is instead of the `--trace-warnings` command line flag.
 
 ### `process.type`
 
-現在のプロセスのタイプを表す `String`。`"browser"` (即ちメインプロセス) または ` "renderer"` になります。
+A `String` representing the current process's type, can be `"browser"` (i.e. main process), `"renderer"`, or `"worker"` (i.e. web worker).
 
 ### `process.versions.chrome`
 
-Chrome のバージョン文字列を表す `String`。
+A `String` representing Chrome's version string.
 
 ### `process.versions.electron`
 
-Electron のバージョン文字列を表す `String`。
+A `String` representing Electron's version string.
 
 ### `process.windowsStore`
 
-`Boolean`。アプリが Windows Store アプリ (appx) として実行されている場合、このプロパティは `true` です。それ以外の場合は `undefined` です。
+A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
 
 ## メソッド
 
-`process` オブジェクトには以下のメソッドがあります。
+The `process` object has the following methods:
 
 ### `process.crash()`
 
-現在のプロセスのメインスレッドでクラッシュを発生させます。
+Causes the main thread of the current process crash.
 
 ### `process.getCreationTime()`
 
-`Number | null`を返します。 - 発生からのミリ秒数、もし情報がない場合は`null`を返します。
+Returns `Number | null` - The number of milliseconds since epoch, or `null` if the information is unavailable
 
-アプリケーションの作成時を示します。 発生からのミリ秒数を表します。プロセス作成時間が有効でない場合はnullを返します。
+Indicates the creation time of the application. The time is represented as number of milliseconds since epoch. It returns null if it is unable to get the process creation time.
 
 ### `process.getCPUUsage()`
 
-戻り値 [`CPUUsage`](structures/cpu-usage.md)
+Returns [`CPUUsage`](structures/cpu-usage.md)
 
 ### `process.getIOCounters()` *Windows* *Linux*
 
-戻り値 [`IOCounters`](structures/io-counters.md)
+Returns [`IOCounters`](structures/io-counters.md)
 
 ### `process.getHeapStatistics()`
 
@@ -139,7 +147,7 @@ Electron のバージョン文字列を表す `String`。
 * `peakMallocedMemory` Integer
 * `doesZapGarbage` Boolean
 
-V8 ヒープ統計のオブジェクトを返します。統計はすべてキロバイト単位で報告されることに注意してください。
+Returns an object with V8 heap statistics. Note that all statistics are reported in Kilobytes.
 
 ### `process.getProcessMemoryInfo()`
 
@@ -149,9 +157,9 @@ V8 ヒープ統計のオブジェクトを返します。統計はすべてキ�
 * `private` Integer - JS ヒープや HTML コンテンツなど、他のプロセスと共有されないキロバイト単位のメモリ量。
 * `shared` Integer - プロセス間で共有されるメモリ量で、通常、 Electron のコード自体が使っているキロバイト単位のメモリ量。
 
-現在のプロセスに関するメモリ使用統計を返すオブジェクトを返します。すべての統計情報はキロバイト単位で報告されることに注意してください。この API は app の ready の後に呼び出さなければなりません。
+Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes. This api should be called after app ready.
 
-Chromium は macOS には `residentSet` の値を提供しません。 これは直近の使用されていないページを macOS がメモリ内で圧縮するためです。 結果として、residentSet の値は期待されるものではありません。 `private` メモリは、macOS でのプロセスの実際の圧縮前のメモリ使用量をよりよく表しています。
+Chromium does not provide `residentSet` value for macOS. This is because macOS performs in-memory compression of pages that haven't been recently used. As a result the resident set size value is not what one would expect. `private` memory is more representative of the actual pre-compression memory usage of the process on macOS.
 
 ### `process.getSystemMemoryInfo()`
 
@@ -162,22 +170,22 @@ Chromium は macOS には `residentSet` の値を提供しません。 これは
 * `swapTotal` Integer *Windows* *Linux* - システムが使用できるスワップメモリの合計量 (キロバイト)。
 * `swapFree` Integer *Windows* *Linux* - システムが使用できるスワップメモリの空き容量 (キロバイト)。
 
-システム全体に関するメモリ使用統計を返すオブジェクトを返します。すべての統計情報はキロバイト単位で報告されることに注意してください。
+Returns an object giving memory usage statistics about the entire system. Note that all statistics are reported in Kilobytes.
 
 ### `process.takeHeapSnapshot(filePath)`
 
 * `filePath` String - 出力ファイルのパス
 
-戻り値 `Boolean` - スナップショットの作成が成功したかどうかを示します。
+Returns `Boolean` - Indicates whether the snapshot has been created successfully.
 
 V8ヒープを取得して、`filePath`にそれを保存します。
 
 ### `process.hang()`
 
-現在のプロセスのメインスレッドでハングを発生させます。
+Causes the main thread of the current process hang.
 
 ### `process.setFdLimit(maxDescriptors)` *macOS* *Linux*
 
 * `maxDescriptors` Integer
 
-ファイルディスクリプタのソフトリミットを、`maxDescriptors` または OS のハードリミットの、いずれか低い方に設定します。
+Sets the file descriptor soft limit to `maxDescriptors` or the OS hard limit, whichever is lower for the current process.
