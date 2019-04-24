@@ -92,17 +92,17 @@ Returns `SaveDialogOptions` - Returns the object previously set by `downloadItem
 
 #### `downloadItem.pause()`
 
-Pauses the download.
+Pansamantalang paghinto ng "download".
 
 #### `downloadItem.isPaused()`
 
-Returns `Boolean` - Whether the download is paused.
+Pagbabalik sa `Boolean` - Kahit pa ang "download" ay pansamantalang nakahinto.
 
 #### `downloadItem.resume()`
 
-Resumes the download that has been paused.
+Pagbabalik sa pagproseso ng "download" na pansamantalang inihinto.
 
-**Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. Otherwise `resume()` will dismiss previously received bytes and restart the download from the beginning.
+**Paalala:** Para mapagana ang mga "download" na muling prinoseso, ang "server" kung saan pinoproseso ang "download" ay dapat suportahan ng mga saklaw na kahilingan at magbigay pareho ang mga halaga ng "header" na `Last-Modified` at `ETag`. Kung hindi man, ang `resume()` ay ihihinto ang pagtanggap ng nakaraang "bytes" at muling uumpisahan ang "download".
 
 #### `downloadItem.canResume()`
 
@@ -110,58 +110,58 @@ Returns `Boolean` - Whether the download can resume.
 
 #### `downloadItem.cancel()`
 
-Cancels the download operation.
+Paghinto ng operasyon ng "download".
 
 #### `downloadItem.getURL()`
 
-Returns `String` - The origin url where the item is downloaded from.
+Pagbabalik ng `String` - Ang orihinal na "url" kung saan galing ang "downloaded item".
 
 #### `downloadItem.getMimeType()`
 
-Returns `String` - The files mime type.
+Pagbabalik ng `String` - Ang uri ng payl na nanggagaya.
 
 #### `downloadItem.hasUserGesture()`
 
-Returns `Boolean` - Whether the download has user gesture.
+Pagbabalik ng `Boolean` - Kapag ang "download" ay may kilos ng gumagamit.
 
 #### `downloadItem.getFilename()`
 
-Returns `String` - The file name of the download item.
+Pagbabalik ng `String` - Ang pangalan ng payl ng "download item".
 
-**Note:** The file name is not always the same as the actual one saved in local disk. If user changes the file name in a prompted download saving dialog, the actual name of saved file will be different.
+**Paalala:** Ang pangalan ng payl ay hindi parating pareho sa isang aktwal na pinanatili sa lokal na "disc". Kung ang gumagamit ay nagsagawa ng pagbabago sa pangalan ng payl sa pinoproseso na "download" na nananatili sa "dialog", ang aktwal na pangalan sa payl ay magbabago din.
 
 #### `downloadItem.getTotalBytes()`
 
-Returns `Integer` - The total size in bytes of the download item.
+Pagbabalik ng `Integer` - Ang kabuuang sukat ng "bytes" ng "download item".
 
-If the size is unknown, it returns 0.
+Kung hindi alam ang sukat, ito ay magbabalik sa 0.
 
 #### `downloadItem.getReceivedBytes()`
 
-Returns `Integer` - The received bytes of the download item.
+Pagbabalik ng `Integer` - Ang "bytes" na natanggap sa download item.
 
 #### `downloadItem.getContentDisposition()`
 
-Returns `String` - The Content-Disposition field from the response header.
+Pagbabalik ng `String` - Ang Content-Disposition galing sa tugon ng "header".
 
 #### `downloadItem.getState()`
 
 Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
 
-**Note:** The following methods are useful specifically to resume a `cancelled` item when session is restarted.
+**Note:** Ang mga sumusunod na paraan ay kapaki-pakinabang lalo na para paganahing muli ang aytem na `cancelled` kapag ang sesyon ay muling inumpisahan.
 
 #### `downloadItem.getURLChain()`
 
-Returns `String[]` - The complete url chain of the item including any redirects.
+Pagbabalik ng `String[]` - Ang kumpletong "url" ng aytem kasama ang kahit anong mga muling dinirekta.
 
 #### `downloadItem.getLastModifiedTime()`
 
-Returns `String` - Last-Modified header value.
+Pagbabalik ng `String` - Ang halaga ng Last-Modified header.
 
 #### `downloadItem.getETag()`
 
-Returns `String` - ETag header value.
+Pagbabalik ng `String` - Ang halaga ng "ETag header".
 
 #### `downloadItem.getStartTime()`
 
-Returns `Double` - Number of seconds since the UNIX epoch when the download was started.
+Pagbabalik ng `Double` - Bilang ng mga segundo simula ang "UNIX epoch" kapag ang "download" ay nag-umpisa.
