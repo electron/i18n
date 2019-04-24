@@ -20,7 +20,7 @@ app.on('ready', () => {
 })
 ```
 
-**Note:** All methods unless specified can only be used after the `ready` event of the `app` module gets emitted.
+**Note :** Toutes les méthodes si non spécifiées ne peuvent être utilisées qu'après que l'évènement `ready` de l' `app` ne soit émis.
 
 ## Méthodes
 
@@ -69,7 +69,7 @@ By default web storage apis (localStorage, sessionStorage, webSQL, indexedDB, co
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `filePath` String (optional)
+    * `filePath` String (facultatif)
 * `completion` Function (facultatif) 
   * `error` Error
 
@@ -91,7 +91,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
-    * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (optional)
+    * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (facultatif)
 * `completion` Function (facultatif) 
   * `error` Error
 
