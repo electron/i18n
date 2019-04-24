@@ -18,37 +18,39 @@ Ang klaseng `menu` ay mayroong mga sumusunod na mga istatikong pamamaraan:
 
 Nagtatakda ng `menu` bilang aplikasyon ng menu sa macOS. Sa Windows at Linux, ang `menu` ay itatakda sa ibabaw ng menu ng bawat window.
 
-Ang pagpasa ng `null` ay magtatanggal ng menu bar sa Windows at sa Linux ngunit walang epekto sa macOS.
+Also on Windows and Linux, you can use a `&` in the top-level item name to indicate which letter should get a generated accelerator. For example, using `&File` for the file menu would result in a generated `Alt-F` accelerator that opens the associated menu. The indicated character in the button label gets an underline. The `&` character is not displayed on the button label.
 
-**Tandaan:** Ang API na ito ay dapat tawagin pagkatapos ng `ready`na event ng `app` na modyul.
+Passing `null` will suppress the default menu. On Windows and Linux, this has the additional effect of removing the menu bar from the window.
+
+**Note:** The default menu will be created automatically if the app does not set one. It contains standard items such as `File`, `Edit`, `View`, `Window` and `Help`.
 
 #### `Menu.getApplicationMenu()`
 
-Ibinabalik ang `Menu | null` - Ang menu ng aplikasyon, kapag naitakda, o `null` kapag hindi naitakda.
+Returns `Menu | null` - The application menu, if set, or `null`, if not set.
 
-**Tandaan:** Ang ibinalik na instance ng `Menu` ay hindi suportado ang dinamikong pagdadagdag o pagtatanggal ng mga aytem ng menu. [Ang mga instance na katangian ](#instance-properties) ay maaring baguhin sa dinamikong paraan.
+**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) can still be dynamically modified.
 
 #### `Menu.sendActionToFirstResponder(action)` *macOS*
 
 * `action` na String
 
-Ipinapadala ang `aksyon` sa unang tagaresponde ng aplikasyon. Ito ay ginagamit para sa paggaya sa default na mga paggalaw ng macOS na menu. Usually you would use the [`role`](menu-item.md#roles) property of a [`MenuItem`](menu-item.md).
+Sends the `action` to the first responder of application. This is used for emulating default macOS menu behaviors. Usually you would use the [`role`](menu-item.md#roles) property of a [`MenuItem`](menu-item.md).
 
-Tingnan ang [Gabay sa Paghahawak ng Kaganapang macOS Cocoa](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7) para sa karagdagang impormasyon sa mga natibong aksyon ng macOS.
+See the [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7) for more information on macOS' native actions.
 
 #### `Menu.buildFromTemplate(template)`
 
-* `template` na [MenuItemConstructorOptions]
+* `template` (MenuItemConstructorOptions | MenuItem)[]
 
-Ibinabalik ang `Menu`
+Returns `Menu`
 
 Generally, the `template` is an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
 
-Mailalakip mo rin ang iba pang mga patlang sa mga elemento ng mga `template` at sila ay magiging mga katangian ng mga naggawang mga aytem ng menu.
+You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
 
 ### Mga Pamamaraan ng Instance
 
-Ang `Menu` na bagay ay may sumusunod na mga pamamaraan ng instance:
+The `menu` object has the following instance methods:
 
 #### `menu.popup(options)`
 
@@ -65,36 +67,36 @@ Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
 
-Isinasara ang konteksto ng menu sa `browserWindow`.
+Closes the context menu in the `browserWindow`.
 
 #### `menu.append(menuItem)`
 
 * `menuItem` [MenuItem](menu-item.md)
 
-Idinagdag ang `menuItem` sa menu.
+Appends the `menuItem` to the menu.
 
 #### `menu.getMenuItemById(id)`
 
 * `id` na String
 
-Ibinabalik ang `MenuItem` ang aytem na may tiyak na `id`
+Returns `MenuItem` the item with the specified `id`
 
 #### `menu.insert(pos, menuItem)`
 
 * `pos` na Integer
 * `menuItem` [MenuItem](menu-item.md)
 
-Ipinapasok ang `menuItem` sa posisyon ng`pos` ng menu.
+Inserts the `menuItem` to the `pos` position of the menu.
 
 ### Halimbawa ng Mga Kaganapan
 
 Objects created with `new Menu` emit the following events:
 
-**Tandaan:** Ang ilang mga kaganapan ay magagamit lamang sa partikular na mga operating system at na may label na.
+**Note:** Ang ilang mga event ay magagamit lamang sapartikular na mga operating system at ay tinatakan tulad nito.
 
 #### Event: 'menu-will-show'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `kaganapan` Kaganapan
 
@@ -102,7 +104,7 @@ Emitted when `menu.popup()` is called.
 
 #### Event: 'menu-will-close'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `kaganapan` Kaganapan
 
@@ -110,13 +112,13 @@ Emitted when a popup is closed either manually or with `menu.closePopup()`.
 
 ### Mga Katangian ng Instance
 
-Ang mga bagay sa `menu` ay mayroon ding mga sumusunod na katangian:
+`menu` objects also have the following properties:
 
 #### `menu.items`
 
-Ang hanay ng `MenuItem[]` na naglalaman ng mag aytem ng menu.
+A `MenuItem[]` array containing the menu's items.
 
-Bawat `Menu` ay binubuo ng maramihang [`MenuItem`](menu-item.md) at bawat `MenuItem` ay mayroong isang submenu.
+Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
 
 ### Halimbawa ng mga Event
 
@@ -124,16 +126,39 @@ Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the
 
 ## Mga Halimbawa
 
-Ang klase ng `Menu` ay magagamit lamang sa pangunahing proseso, ngunit maaari mo rin itong magamit sa prosesong tagabigay sa pamamagitan ng modyul ng [`remote`](remote.md).
+The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
 
 ### Pangunahing proseso
 
-Isang halimbawa ng paglikha ng aplikasyon ng menu sa pangunahing proseso ay sa simpleng template ng API:
+An example of creating the application menu in the main process with the simple template API:
 
 ```javascript
 const { app, Menu } = require('electron')
 
 const template = [
+  // { role: 'appMenu' }
+  ...(process.platform === 'darwin' ? [{
+    label: app.getName(),
+    submenu: [
+      { role: 'about' },
+      { type: 'separator' },
+      { role: 'services' },
+      { type: 'separator' },
+      { role: 'hide' },
+      { role: 'hideothers' },
+      { role: 'unhide' },
+      { type: 'separator' },
+      { role: 'quit' }
+    ]
+  }] : []),
+  // { role: 'fileMenu' }
+  {
+    label: 'File',
+    submenu: [
+      isMac ? { role: 'close' } : { role: 'quit' }
+    ]
+  },
+  // { role: 'editMenu' }
   {
     label: 'Edit',
     submenu: [
@@ -143,11 +168,26 @@ const template = [
       { role: 'cut' },
       { role: 'copy' },
       { role: 'paste' },
-      { role: 'pasteandmatchstyle' },
-      { role: 'delete' },
-      { role: 'selectall' }
+      ...(isMac ? [
+        { role: 'pasteAndMatchStyle' },
+        { role: 'delete' },
+        { role: 'selectAll' },
+        { type: 'separator' },
+        {
+          label: 'Speech',
+          submenu: [
+            { role: 'startspeaking' },
+            { role: 'stopspeaking' }
+          ]
+        }
+      ] : [
+        { role: 'delete' },
+        { type: 'separator' },
+        { role: 'selectAll' }
+      ])
     ]
   },
+  // { role: 'viewMenu' }
   {
     label: 'View',
     submenu: [
@@ -162,11 +202,20 @@ const template = [
       { role: 'togglefullscreen' }
     ]
   },
+  // { role: 'windowMenu' }
   {
-    role: 'window',
+    label: 'Window',
     submenu: [
       { role: 'minimize' },
-      { role: 'close' }
+      { role: 'zoom' },
+      ...(isMac ? [
+        { type: 'separator' },
+        { role: 'front' },
+        { type: 'separator' },
+        { role: 'window' }
+      ] : [
+        { role: 'close' }
+      ])
     ]
   },
   {
@@ -174,49 +223,11 @@ const template = [
     submenu: [
       {
         label: 'Learn More',
-        click () { require('electron').shell.openExternal('https://electronjs.org') }
+        click () { require('electron').shell.openExternalSync('https://electronjs.org') }
       }
     ]
   }
 ]
-
-if (process.platform === 'darwin') {
-  template.unshift({
-    label: app.getName(),
-    submenu: [
-      { role: 'about' },
-      { type: 'separator' },
-      { role: 'services' },
-      { type: 'separator' },
-      { role: 'hide' },
-      { role: 'hideothers' },
-      { role: 'unhide' },
-      { type: 'separator' },
-      { role: 'quit' }
-    ]
-  })
-
-  // Edit menu
-  template[1].submenu.push(
-    { type: 'separator' },
-    {
-      label: 'Speech',
-      submenu: [
-        { role: 'startspeaking' },
-        { role: 'stopspeaking' }
-      ]
-    }
-  )
-
-  // Window menu
-  template[3].submenu = [
-    { role: 'close' },
-    { role: 'minimize' },
-    { role: 'zoom' },
-    { type: 'separator' },
-    { role: 'front' }
-  ]
-}
 
 const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
@@ -224,7 +235,7 @@ Menu.setApplicationMenu(menu)
 
 ### Prosesong Render
 
-Ang nasa ibaba ay isang halimbawa ng paglikha ng isang dinamikong menu sa isang pahina ng web (prosesong tagabigay) sa pamamagitan ng paggamit ng modyul ng [`remote`](remote.md), at ipinapakita ito kapag ang user ay nira-right click ang pahina:
+Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
 
 ```html
 <!-- index.html -->
@@ -246,11 +257,11 @@ window.addEventListener('contextmenu', (e) => {
 
 ## Ang mga tala sa Menu ng Aplikasyon ng macOS
 
-ang macOS ay may kompletong naiibang istilo ng aplikasyon ng menu mula saWindows at Linux. Narito ang ilang mga tala kung paanong ang menu ng iyong app ay maging mas natural.
+macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
 
 ### Mga Istandard na Menu
 
-Sa macOS ay maraming tukoy na sistema ng standard na menu, tulad ng `Services` at mga menu ng `Window`. Para gawin ang iyong menu na standard na menu, dapat mong i-set ang iyong menu sa `role` sa isa sa mga sumusunod at ang Electron ay makikilala sila at gagawin silang mga standard na menu:
+On macOS there are many system-defined standard menus, like the `Services` and `Windows` menus. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
 
 * `ang window`
 * `tulong`
@@ -258,15 +269,15 @@ Sa macOS ay maraming tukoy na sistema ng standard na menu, tulad ng `Services` a
 
 ### Mga Aytem na Aksyon ng Istandard na Menu
 
-ang macOS ay nagbigay ng standard na mga aksyon para sa ilang mga item ng menu, katulad ng `About xxx`, `Hide xxx`, at ` Hide Others`. Para itakda ang aksyon ng isang item ng menu sa isang standard na aksyon, dapat mong itakda ang katangian ng `role` ng item ng menu.
+macOS has provided standard actions for some menu items, like `About xxx`, `Hide xxx`, and `Hide Others`. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
 
 ### Pangalan ng Pangunahing Menu
 
-Sa macOS ang tatak ng unang item ng aplikasyon ng menu ay laging ang pangalan ng iyong app, hindi mahalaga kung anong tatak ang iyong itakda. Para baguhin ito, baguhin ang bungkos ng file ng iyong app sa `info.plist`. Tingnan ang [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) para sa karagdagang impormasyon.
+On macOS the label of the application menu's first item is always your app's name, no matter what label you set. To change it, modify your app bundle's `Info.plist` file. See [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) for more information.
 
 ## Pagtatakda ang Menu para sa Tiyak na Browser Window ng (*Linux* *Windows*)
 
-Ang [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) ng browser windows ay kayang itakda ang menu ng tiyak na browser windows.
+The [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) of browser windows can set the menu of certain browser windows.
 
 ## Posisyon ng Item ng Menu
 
@@ -281,7 +292,7 @@ By default, items will be inserted in the order they exist in the template unles
 
 ### Halimbawa
 
-Ang Template:
+Template:
 
 ```javascript
 [
@@ -292,7 +303,7 @@ Ang Template:
 ]
 ```
 
-Ang Menu:
+Menu:
 
 ```sh
 <br />- 1
@@ -301,7 +312,7 @@ Ang Menu:
 - 4
 ```
 
-Ang Template:
+Template:
 
 ```javascript
 [
@@ -314,7 +325,7 @@ Ang Template:
 ]
 ```
 
-Ang Menu:
+Menu:
 
 ```sh
 <br />- 3
@@ -325,7 +336,7 @@ Ang Menu:
 - 2
 ```
 
-Ang Template:
+Template:
 
 ```javascript
 [
@@ -335,7 +346,7 @@ Ang Template:
 ]
 ```
 
-Ang Menu:
+Menu:
 
 ```sh
 <br />- ---
