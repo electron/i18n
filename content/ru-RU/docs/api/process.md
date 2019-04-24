@@ -12,6 +12,7 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 
 * `crash()`
 * `hang()`
+* `getCreationTime()`
 * `getHeapStatistics()`
 * `getProcessMemoryInfo()`
 * `getSystemMemoryInfo()`
@@ -23,7 +24,6 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 * `pid`
 * `arch`
 * `platform`
-* `resourcesPath`
 * `sandboxed`
 * `тип`
 * `version`
@@ -55,25 +55,33 @@ process.once('loaded', () => {
 
 `Boolean`. Когда app запущено, будучи переданным в качестве параметра в default app, это свойство принимает значение `true` в main process, иначе `undefined`.
 
+### `process.isMainFrame`
+
+A `Boolean`, `true` when the current renderer context is the "main" renderer frame. If you want the ID of the current frame you should use `webFrame.routingId`.
+
 ### `process.mas`
 
-`Boolean`. Для Mac App Store сборки это свойство `true`, для остальных сборок `undefined`.
+A `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
 
 ### `process.noAsar`
 
-`Boolean`. Контролирует поддержку ASAR внутри вашего приложения. Установка данного параметра в `true` отключит поддержку `asar` архивов в Node's built-in модулях.
+A `Boolean` that controls ASAR support inside your application. Setting this to `true` will disable the support for `asar` archives in Node's built-in modules.
 
 ### `process.noDeprecation`
 
-`Boolean`. Контролирует будут ли неодобряющие предупреждения выводиться в `stderr`. Установка в `true` заглушит неодобряющие предупреждения. Это свойство используется вместо флага командной строки `--no-deprecation`.
+A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`. Setting this to `true` will silence deprecation warnings. This property is used instead of the `--no-deprecation` command line flag.
+
+### `process.enablePromiseAPIs`
+
+A `Boolean` that controls whether or not deprecation warnings are printed to `stderr` when formerly callback-based APIs converted to Promises are invoked using callbacks. Setting this to `true` will enable deprecation warnings.
 
 ### `process.resourcesPath`
 
-`String`. Представляет из себя путь до каталога с ресурсами.
+A `String` representing the path to the resources directory.
 
 ### `process.sandboxed`
 
-`Boolean`. Когда renderer process добавлен в sandbox это свойство принимает значение `true`, иначе `undefined`.
+A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
 
 ### `process.throwDeprecation`
 
@@ -89,7 +97,7 @@ A `Boolean` that controls whether or not process warnings printed to `stderr` in
 
 ### `process.type`
 
-A `String` representing the current process's type, can be `"browser"` (i.e. main process) or `"renderer"`.
+A `String` representing the current process's type, can be `"browser"` (i.e. main process), `"renderer"`, or `"worker"` (i.e. web worker).
 
 ### `process.versions.chrome`
 
