@@ -12,7 +12,7 @@ Também é possível enviar mensagens do processo principal para o processo de r
 
 * Ao enviar uma mensagem, o nome do evento é o `channel`.
 * Para responder a uma mensagem síncrona, você precisa de configurar `event.returnValue`.
-* Para enviar uma mensagem assíncrona de volta para o remetente, você pode usar `event.sender.send(...)`.
+* To send an asynchronous message back to the sender, you can use `event.reply(...)`. This helper method will automatically handle messages coming from frames that aren't the main frame (e.g. iframes) whereas `event.sender.send(...)` will always send to the main frame.
 
 Um exemplo de enviar e manipular mensagens entre os processos de renderização e principais:
 
@@ -21,7 +21,7 @@ Um exemplo de enviar e manipular mensagens entre os processos de renderização 
 const { ipcMain } = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
   console.log(arg) // prints "ping"
-  event.sender.send('asynchronous-reply', 'pong')
+  event.reply('asynchronous-reply', 'pong')
 })
 
 ipcMain.on('synchronous-message', (event, arg) => {
@@ -76,10 +76,18 @@ Removes listeners of the specified `channel`.
 
 The `event` object passed to the `callback` has the following methods:
 
+### `event.frameId`
+
+An `Integer` representing the ID of the renderer frame that sent this message.
+
 ### `event.returnValue`
 
-Defina isto como o valor a ser retornado em uma mensagem síncrona.
+Set this to the value to be returned in a synchronous message.
 
 ### `event.sender`
 
 Returns the `webContents` that sent the message, you can call `event.sender.send` to reply to the asynchronous message, see [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for more information.
+
+### `event.reply`
+
+A function that will send an IPC message to the renderer frane that sent the original message that you are currently handling. You should use this method to "reply" to the sent message in order to guaruntee the reply will go to the correct process and frame.
