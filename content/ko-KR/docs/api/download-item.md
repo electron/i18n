@@ -80,9 +80,19 @@ The API is only available in session's `will-download` callback function. If use
 
 Returns `String` - The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.
 
+#### `downloadItem.setSaveDialogOptions(options)`
+
+* `options` SaveDialogOptions - Set the save file dialog options. This object has the same properties as the `options` parameter of [`dialog.showSaveDialog()`](dialog.md).
+
+This API allows the user to set custom options for the save dialog that opens for the download item by default. The API is only available in session's `will-download` callback function.
+
+#### `downloadItem.getSaveDialogOptions()`
+
+Returns `SaveDialogOptions` - Returns the object previously set by `downloadItem.setSaveDialogOptions(options)`.
+
 #### `downloadItem.pause()`
 
-다운로드를 일시 정지합니다.
+Pauses the download.
 
 #### `downloadItem.isPaused()`
 
@@ -90,7 +100,7 @@ Returns `Boolean` - Whether the download is paused.
 
 #### `downloadItem.resume()`
 
-일시 정지된 다운로드를 다시 재개합니다.
+Resumes the download that has been paused.
 
 **Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. Otherwise `resume()` will dismiss previously received bytes and restart the download from the beginning.
 
@@ -100,7 +110,7 @@ Returns `Boolean` - Whether the download can resume.
 
 #### `downloadItem.cancel()`
 
-다운로드를 취소합니다.
+Cancels the download operation.
 
 #### `downloadItem.getURL()`
 
@@ -124,7 +134,7 @@ Returns `String` - The file name of the download item.
 
 Returns `Integer` - The total size in bytes of the download item.
 
-만약 크기를 알 수 없으면 0을 반환합니다.
+If the size is unknown, it returns 0.
 
 #### `downloadItem.getReceivedBytes()`
 
