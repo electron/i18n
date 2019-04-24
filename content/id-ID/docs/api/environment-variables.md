@@ -45,31 +45,29 @@ Unsupported options are:
 
 ### `GOOGLE_API_kunci`
 
-Elektron mencakup kunci API hardcoded untuk mengajukan permintaan ke layanan web geokode Google. Karena kunci API ini disertakan dalam setiap versi Elektron , ini seringkali melebihi kuota pemakaiannya. Untuk mengatasi masalah ini, Anda dapat menyediakan kunci Google API Anda sendiri di lingkungan. Tempatkan kode berikut di file proses utama Anda, sebelum membuka jendela browser yang akan membuat permintaan geocoding:
+You can provide an API key for making requests to Google's geocoding webservice. To do this, place the following code in your main process file, before opening any browser windows that will make geocoding requests:
 
 ```javascript
 proses.env.GOOGLE_API_kunci = 'kamu_kunci_di sini'
 ```
 
-Untuk petunjuk tentang cara mendapatkan kunci Google API , kunjungi  halaman ini </ 0> .</p> 
-
-Secara default, kunci Google API yang baru dibuat mungkin tidak diizinkan untuk membuat permintaan geocoding. Untuk mengaktifkan permintaan geocoding, kunjungi  halaman ini </ 0> .</p> 
+For instructions on how to acquire a Google API key, visit [this page](https://developers.google.com/maps/documentation/javascript/get-api-key). By default, a newly generated Google API key may not be allowed to make geocoding requests. To enable geocoding requests, visit [this page](https://developers.google.com/maps/documentation/geocoding/get-api-key).
 
 ### `ELEKTRON_tidak_ASAR`
 
-Nonaktifkan dukungan ASAR . Variabel ini hanya didukung pada proses anak bercabang dan melahirkan proses anak yang menetapkan ` ELECTRON_menjalankan_sebagai_NODE </ 0> .</p>
+Disables ASAR support. This variable is only supported in forked child processes and spawned child processes that set `ELECTRON_RUN_AS_NODE`.
 
-<h3><code>ELECTRON_menjalankan_sebagai_NODE`</h3> 
+### `ELECTRON_menjalankan_sebagai_NODE`
 
-Mulai proses sebagai proses Node.js normal.
+Starts the process as a normal Node.js process.
 
 ### ` ELECTRON_tidak_melapirkan_menghibur </ 0>  <em> jendela</ 1></h3>
 
-<p>Jangan lampirkan sesi konsol saat ini.</p>
+<p>Don't attach to the current console session.</p>
 
 <h3><code> ELECTRON_memaksa_jendela_MENU_BAR </ 0>  <em> Linux </ 1></h3>
 
-<p>Jangan gunakan menu bar global di Linux.</p>
+<p>Don't use the global menu bar on Linux.</p>
 
 <h3><code>ELECTRON_TRASH` *Linux*
 
@@ -84,31 +82,31 @@ Options:
 
 ## Variabel Pembangunan
 
-Variabel lingkungan berikut ditujukan terutama untuk keperluan pengembangan dan debugging.
+The following environment variables are intended primarily for development and debugging purposes.
 
 ### `ELECTRON_memungkinkan_LOGGING`
 
-Mencetak log internal Chrome ke konsol.
+Prints Chrome's internal logging to the console.
 
 ### `ELECTRON_LOG_ASAR_READS`
 
-Ketika Elektron membaca dari file ASAR , log membaca mengimbangi dan jalankan file ke sistem ` tmpdir </ 0> . File yang dihasilkan dapat diberikan ke modul ASAR untuk mengoptimalkan pemesanan file.</p>
+When Electron reads from an ASAR file, log the read offset and file path to the system `tmpdir`. The resulting file can be provided to the ASAR module to optimize file ordering.
 
-<h3><code>ELECTRON_memungkinkan_tumpuka _DUMPING`</h3> 
+### `ELECTRON_memungkinkan_tumpuka _DUMPING`
 
-Mencetak tumpukan jejak ke konsol saat Electron crash.
+Prints the stack trace to the console when Electron crashes.
 
-Variabel lingkungan ini tidak akan bekerja jika ` crashReporter </ 0> dimulai.</p>
+This environment variable will not work if the `crashReporter` is started.
 
-<h3><code> ELECTRON_DEFAULT_kesalahan_mode </ 0>  <em> jendela </ 1></h3>
+### ` ELECTRON_DEFAULT_kesalahan_mode </ 0>  <em> jendela </ 1></h3>
 
-<p>Menunjukkan dialog crash Windows saat Electron crash.</p>
+<p>Shows the Windows's crash dialog when Electron crashes.</p>
 
-<p>Variabel lingkungan ini tidak akan bekerja jika <code> crashReporter </ 0> dimulai.</p>
+<p>This environment variable will not work if the <code>crashReporter` is started.</p> 
 
-<h3><code>ELECTRON_OVERRIDE_DIST_PATH`</h3> 
+### `ELECTRON_OVERRIDE_DIST_PATH`
 
-When running from the `electron` package, this variable tells the `electron` command to use the specified build of Electron instead of the one downloaded by `npm install`. Pemakaian:
+When running from the `electron` package, this variable tells the `electron` command to use the specified build of Electron instead of the one downloaded by `npm install`. Usage:
 
 ```sh
 export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Debug
