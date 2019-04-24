@@ -119,7 +119,7 @@ Sets a cookie with `details`.
   * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
   * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
 * `callback` Function 
-  * `error` Error
+  * `errore` Errore
 
 Sets a cookie with `details`, `callback` will be called with `callback(error)` on complete.
 
@@ -140,7 +140,7 @@ Removes the cookies matching `url` and `name`
 * `name` String - The name of cookie to remove.
 * `callback` Funzione
 
-Removes the cookies matching `url` and `name`, `callback` will called with `callback()` on complete.
+Rimuove i cookie con uno specifico `url` e `name`, a operazione finita chiama `callback` tramite `callback()`.
 
 **[Deprecated Soon](promisification.md)**
 
