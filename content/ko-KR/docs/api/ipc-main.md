@@ -20,12 +20,12 @@ renderer와 main 프로세스간의 메시지 발송과 처리 예:
 // main 프로세스안에서
 const { ipcMain } = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
-  console.log(arg) // prints "ping"
+  console.log(arg) // "ping" 출력
   event.reply('asynchronous-reply', 'pong')
 })
 
 ipcMain.on('synchronous-message', (event, arg) => {
-  console.log(arg) // prints "ping"
+  console.log(arg) // "ping" 출력
   event.returnValue = 'pong'
 })
 ```
@@ -82,11 +82,11 @@ An `Integer` representing the ID of the renderer frame that sent this message.
 
 ### `event.returnValue`
 
-Set this to the value to be returned in a synchronous message.
+동기 메시지에 반환 되는 값을 설정합니다.
 
 ### `event.sender`
 
-Returns the `webContents` that sent the message, you can call `event.sender.send` to reply to the asynchronous message, see [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for more information.
+메시지를 보낸 `webContents`를 반환합니다. 비동기 메시지에 응답하기 위해 `event.sender.send`를 호출할 수 있습니다. 자세한 내용은 [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) 를 참조하세요.
 
 ### `event.reply`
 
