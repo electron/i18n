@@ -4,7 +4,7 @@
 
 Proses: [Main](../glossary.md#main-process)
 
-Alat Pengembang Chrome memiliki  pengikatan khusus </ 0> yang tersedia pada runtime JavaScript yang memungkinkan berinteraksi dengan halaman dan menginstruksikannya.</p> 
+Chrome Developer Tools has a [special binding](https://chromedevtools.github.io/devtools-protocol/) available at JavaScript runtime that allows interacting with pages and instrumenting them.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -49,9 +49,8 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 <h4><code>debugger.kirim perintah (metode [, perintah Params, panggil kembali])`</h4> 
   
-  * ` method </ 0>  String - Nama metode, harus menjadi salah satu metode yang didefinisikan oleh
-  protokol debugging jarak jauh.</li>
-<li><code> perintah Params </ 0> Objek (opsional) - Objek JSON dengan parameter permintaan.</li>
+  * `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
+  * ` perintah Params </ 0> Objek (opsional) - Objek JSON dengan parameter permintaan.</li>
 <li><code>callback` Fungsi (opsional) - Respon 
     * ` kesalahan</ 0> Objek - Pesan kesalahan yang menunjukkan kegagalan perintah.</li>
 <li><code> mengulang </ 0> Setiap - Respon yang didefinisikan oleh atribut 'kembali' dari
@@ -61,25 +60,29 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 <p>Kirim perintah yang diberikan ke target debugging.</p>
 
-<h3>Perihal contoh</h3>
+<p><strong><a href="promisification.md">Deprecated Soon</a></strong></p>
 
-<h4>Acara : 'melepaskan'</h4>
-
-<ul>
-<li><code>peristiwa` Peristiwa
-    *  alasan </ 0>  String - Alasan untuk memisahkan debugger.</li>
+<h4><code>debugger.sendCommand(method[, commandParams])`</h4> 
+      * `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
+      * ` perintah Params </ 0> Objek (opsional) - Objek JSON dengan parameter permintaan.</li>
 </ul>
 
-<p>Emitted saat sesi debugging dihentikan. Hal ini terjadi ketika
- <code>isi web</ 0> ditutup atau devtools dipanggil untuk < web > konten < 0> yang dilampirkan </ 0> .</p>
-
-<h4>Acara : 'pesan'</h4>
-
-<ul>
-<li><code>event</ 0> Acara</li>
-<li><code> metode </ 0> String - nama metode.</li>
-<li><code> params </ 0> Objek - Parameter acara ditentukan oleh  atribut 'parameter'
- dalam protokol debugging jarak jauh.</li>
-</ul>
-
-<p>Emitted kapanpun terjadi debugging sasaran soal acara instrumentasi .</p>
+<p>Returns <code>Promise<any>` - A promise that resolves with the response defined by the 'returns' attribute of the command description in the remote debugging protocol or is rejected indicating the failure of the command.</p> 
+        Kirim perintah yang diberikan ke target debugging.
+        
+        ### Perihal contoh
+        
+        #### Event: 'detach'
+        
+        * `event</ 0> Acara</li>
+<li><code>reason` String - Reason for detaching debugger.
+        
+        Emitted when debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
+        
+        #### Event: 'message'
+        
+        * `event` Sinyal
+        * `method` String - Method name.
+        * `params` Object - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
+        
+        Emitted whenever debugging target issues instrumentation event.
