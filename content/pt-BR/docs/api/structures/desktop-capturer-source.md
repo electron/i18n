@@ -4,3 +4,4 @@
 * `name` String - Uma janela será nomeada ou `Entire Screen` ou `Screen<index>`, onde o nome de uma janela será de acordo com o título da janela.
 * `thumbnail` [NativeImage](../native-image.md) - Uma imagem em miniatura. **Notas:** Não há garantias de que o tamanho da miniatura é o mesmo de `thumbnailSize` especificado nas `options` passados por `desktopCapturer.getSources`. O tamanho real depende da escala da tela ou da janela.
 * `display_id` String - Um identificador único que corresponderá ao `id` do [display](display.md) retornado pela [Screen API](../screen.md). Em algumas plataformas, isso é equivalente a `xx` porção do campo do `id` acima, e em outras será diferente. Será uma string vazia se não estiver disponível.
+* `appIcon` [NativeImage](../native-image.md) - An icon image of the application that owns the window or null if the source has a type screen. The size of the icon is not known in advance and depends on what the the application provides.
