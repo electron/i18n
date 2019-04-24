@@ -45,9 +45,9 @@ O módulo `globalShortcut` tem os seguintes métodos:
 
 Returns `Boolean` - Whether or not the shortcut was registered successfully.
 
-Registers a global shortcut of `accelerator`. The `callback` is called when the registered shortcut is pressed by the user.
+Registra um atalho global de `accelerator`. O ` callback` é chamado quando o atalho registrado é pressionado pelo utilizador.
 
-When the accelerator is already taken by other applications, this call will silently fail. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+Quando o acelerador já está sendo utilizado por outras aplicações, esta chamada falhará silenciosamente. Este comportamento é pretendido pelos sistemas operacionais, uma vez que eles não querem que os aplicativos lutem por atalhos globais.
 
 The following accelerators will not be registered successfully on macOS 10.14 Mojave unless the app has been authorized as a [trusted accessibility client](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html):
 
@@ -63,7 +63,7 @@ The following accelerators will not be registered successfully on macOS 10.14 Mo
 
 Registers a global shortcut of all `accelerator` items in `accelerators`. The `callback` is called when any of the registered shortcuts are pressed by the user.
 
-When a given accelerator is already taken by other applications, this call will silently fail. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+When a given accelerator is already taken by other applications, this call will silently fail. Este comportamento é pretendido pelos sistemas operacionais, uma vez que eles não querem que os aplicativos lutem por atalhos globais.
 
 The following accelerators will not be registered successfully on macOS 10.14 Mojave unless the app has been authorized as a [trusted accessibility client](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html):
 
@@ -76,16 +76,16 @@ The following accelerators will not be registered successfully on macOS 10.14 Mo
 
 * `accelerator` [Accelerator](accelerator.md)
 
-Returns `Boolean` - Whether this application has registered `accelerator`.
+Retorna `Boolean` - Se esta aplicação registrou o `accelerator`.
 
-When the accelerator is already taken by other applications, this call will still return `false`. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+Quando o acelerador já está sendo utilizado por outras aplicações, esta ainda retorna `false`. Este comportamento é pretendido pelos sistemas operacionais, uma vez que eles não querem que os aplicativos lutem por atalhos globais.
 
 ### `globalShortcut.unregister(accelerator)`
 
 * `accelerator` [Accelerator](accelerator.md)
 
-Unregisters the global shortcut of `accelerator`.
+Não registra o atalho global de `accelerator`.
 
 ### `globalShortcut.unregisterAll()`
 
-Unregisters all of the global shortcuts.
+Não registra todos os atalhos globais.
