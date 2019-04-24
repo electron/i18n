@@ -35,7 +35,7 @@ The `contentTracing` module has the following methods:
 
 ### `contentTracing.getCategories(callback)`
 
-* `callback` Function 
+* `callback` دالة 
   * `categories` String[]
 
 Get a set of category groups. The category groups can change as new code paths are reached.
@@ -74,7 +74,7 @@ Recording begins immediately locally and asynchronously on child processes as so
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
 * `resultFilePath` String
-* `callback` Function 
+* `callback` دالة 
   * `resultFilePath` String
 
 Stop recording on all processes.
@@ -101,7 +101,7 @@ Trace data will be written into `resultFilePath` if it is not empty or into a te
 
 ### `contentTracing.getTraceBufferUsage(callback)`
 
-* `callback` Function 
+* `callback` دالة 
   * `value` Number
   * `percentage` Number
 
