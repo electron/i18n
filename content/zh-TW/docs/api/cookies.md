@@ -83,7 +83,7 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
   * `path` String (optional) - Retrieves cookies whose path matches `path`.
   * `secure` Boolean (optional) - Filters cookies by their Secure property.
   * `session` Boolean (optional) - Filters out session or persistent cookies.
-* `callback` Function 
+* `callback` 函式 
   * `error` Error
   * `cookies` [Cookie[]](structures/cookie.md) - an array of cookie objects.
 
