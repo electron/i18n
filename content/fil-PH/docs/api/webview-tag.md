@@ -474,7 +474,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
 
 ### `<webview>.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
+* `rect` [Rectangle](structures/rectangle.md) (opsyonal) - Para ma-makuha ang bounds
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
