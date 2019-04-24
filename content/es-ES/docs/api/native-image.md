@@ -166,84 +166,84 @@ Proceso: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer
 
 ### Métodos de Instancia
 
-The following methods are available on instances of the `NativeImage` class:
+Los siguientes métodos están disponibles para las distancias de la clase `NativeImage`:
 
 #### `image.toPNG([options])`
 
 * `options` Objeto (opcional) * `scaleFactor` Doble (opcional) - Por defecto es 1.0.
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `PNG` encoded data.
+Devuelve `Buffer` - Un [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) que contiene la información codificada de la imagen `PNG`.
 
 #### `image.toJPEG(quality)`
 
 * `quality` Entero (**required**) - Entre 0 - 100.
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `JPEG` encoded data.
+Devuelve `Buffer` - Un [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)que contiene la información codificada de la imagen `JPEG`.
 
 #### `image.toBitmap([options])`
 
 * `options` Objeto (opcional) * `scaleFactor` Doble (opcional) - Por defecto es 1.0.
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains a copy of the image's raw bitmap pixel data.
+Devuelve `Buffer` - Un [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) que contiene una copia de la información sin procesar de pixeles del mapa de bits de la imagen.
 
 #### `image.toDataURL([options])`
 
 * `options` Objeto (opcional) * `scaleFactor` Doble (opcional) - Por defecto es 1.0.
 
-Returns `String` - The data URL of the image.
+Devuelve `String` - El URL de información de la imagen.
 
 #### `image.getBitmap([options])`
 
 * `options` Objeto (opcional) * `scaleFactor` Doble (opcional) - Por defecto es 1.0.
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's raw bitmap pixel data.
+Devuelve `Buffer` - Un [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) que contiene la información sin procesar de pixeles del mapa de bits de la imagen.
 
-The difference between `getBitmap()` and `toBitmap()` is, `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick, otherwise the data might be changed or destroyed.
+La diferencia entre `getBitmap()` y `toBitmap()` es que `getBitmap()` no copia la informacion del mapa de bits, así que hay que utilizar el Buffer devuelto inmediatamente en el tic del bucle del evento actual, de lo contrario la información puede ser cambiada o destruida.
 
 #### `image.getNativeHandle()` *macOS*
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that stores C pointer to underlying native handle of the image. On macOS, a pointer to `NSImage` instance would be returned.
+Devuelve `Buffer` - Un [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) que almacena el puntero C en el controlador nativo subyacente de la imagen. En macOS, se devolverá un puntero a la instancia `NSImage`.
 
-Notice that the returned pointer is a weak pointer to the underlying native image instead of a copy, so you *must* ensure that the associated `nativeImage` instance is kept around.
+Observe que el puntero devuelto es un puntero debil a la imagen nativa subyacente en lugar de una copia. Por lo tanto, *debe * asegurarse que la instancia asociada `nativeImage` se encuentre cerca.
 
 #### `image.isEmpty()`
 
-Returns `Boolean` - Whether the image is empty.
+Devuelve `Boolean` - Si la imagen está vacía.
 
 #### `image.getSize()`
 
-Returns [`Size`](structures/size.md)
+Devuelve [`Size`](structures/size.md)
 
 #### `image.setTemplateImage(option)`
 
 * `option` Booleano
 
-Marks the image as a template image.
+Marca la imagen como una imagen de plantilla.
 
 #### `image.isTemplateImage()`
 
-Returns `Boolean` - Whether the image is a template image.
+Devuelve `Boolean` - Si la imagen es una imagen de plantilla.
 
 #### `image.crop(rect)`
 
 * `rect` [Rectangle](structures/rectangle.md) - El área de la imagen para ser recortada.
 
-Returns `NativeImage` - The cropped image.
+Devuelve `NativeImage` - La imagen recortada.
 
 #### `image.resize(options)`
 
 * `options` Objeto * `width` Entero (opcional) - Por defecto es el ancho de la imagen. * `height` Entero (opcional) - El valor predeterminado es la altura de la imagen. * `quality` String (opcional) - La calidad deseada para el cambio de tamaño de imagen. Los valores posibles son `good`, `better` or `best`. Por defecto es `best`. Estos valores expresan una compensación de calidad/velocidad deseada. Son traducidas dentro de un método de algoritmo específico que depende de las capacidades (CPU, GPU) de la plataforma subyacente. Es posible asignar los tres métodos con el mismo algoritmo en una plataforma determinada.
 
-Returns `NativeImage` - The resized image.
+Devuelve `NativeImage` - La imagen redimensionada.
 
-If only the `height` or the `width` are specified then the current aspect ratio will be preserved in the resized image.
+Si solo la `height` o la `width` son especificadas, entonces la relación de aspecto actual se conservará en la imagen redimensionada.
 
 #### `image.getAspectRatio()`
 
-Returns `Float` - The image's aspect ratio.
+Devuelve `Float` - La relación de aspecto de la imagen.
 
 #### `image.addRepresentation(options)`
 
 * `options` Objeto * `scaleFactor` Doble - El factor de escala para agregar la representación de la imagen. * `width` Entero (opcional) - Por defecto es 0. Es necesario si un búfer de mapa de bits se especifica como `buffer`. * `height` Entero (opcional) - Por defecto es 0. Es necesario si un búfer de mapa de bits se especifica como `buffer`. `buffer` Buffer (opcional) - El búfer que contiene los datos sin procesar de la imagen. `dataURL` Cadena (opcional) - El URL de información que contiene ya sea una imagen JPEG o PNG codificada en base64.
 
-Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
+Añade una representación de imagen para un factor de escala específico. Esto puede utilizarse para agregar explícitamente distintas representaciones de factor de escala a una imagen. Este puede ser llamado en imágenes vacías.
