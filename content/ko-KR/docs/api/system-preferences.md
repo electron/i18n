@@ -42,7 +42,7 @@ Returns:
 
 ### Event: 'appearance-changed' *macOS*
 
-반환:
+Returns:
 
 * `newAppearance` String - Can be `dark` or `light`
 
