@@ -4,7 +4,7 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-Chromeの開発者ツールは、ページと相互にやり取りをしたり、ページを調整したりすることのできるJavaScriptランタイムに[特別なバインディング](https://developer.chrome.com/devtools/docs/debugger-protocol)を持っています。
+Chrome Developer Tools has a [special binding](https://chromedevtools.github.io/devtools-protocol/) available at JavaScript runtime that allows interacting with pages and instrumenting them.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -49,7 +49,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 #### `debugger.sendCommand(method[, commandParams, callback])`
 
-* `method` String - メソッド名。リモートデバッグプロトコルで定義されているメソッドの1つである必要があります。
+* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
 * `commandParams` Object (任意) - リクエストパラメータのJSONオブジェクト。
 * `callback` Function (任意) - レスポンス 
   * `error` Object - コマンドに失敗したことを示すエラーメッセージ。
@@ -57,19 +57,30 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 指定したコマンドをデバッグ対象に送信します。
 
+**[Deprecated Soon](promisification.md)**
+
+#### `debugger.sendCommand(method[, commandParams])`
+
+* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
+* `commandParams` Object (任意) - リクエストパラメータのJSONオブジェクト。
+
+Returns `Promise<any>` - A promise that resolves with the response defined by the 'returns' attribute of the command description in the remote debugging protocol or is rejected indicating the failure of the command.
+
+指定したコマンドをデバッグ対象に送信します。
+
 ### インスタンスイベント
 
-#### イベント: 'detach'
+#### Event: 'detach'
 
 * `event` Event
-* `reason` String - デバッガーがデタッチする理由。
+* `reason` String - Reason for detaching debugger.
 
-デバッグセッションが終了するときに発生します。これは、`webContents` がクローズされるか、アタッチしていた `webContents` に対して開発者ツールが呼び出されるときに発生します。
+Emitted when debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
 
-#### イベント: 'message'
+#### Event: 'message'
 
 * `event` Event
-* `method` String - メソッド名。
-* `params` Object - リモートデバッグプロトコルの 'parameters' 属性で定義されたイベントパラメータ。
+* `method` String - Method name.
+* `params` Object - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
 
-デバッグ対象で計測イベントが生じる毎に発生します。
+Emitted whenever debugging target issues instrumentation event.
