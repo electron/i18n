@@ -73,7 +73,7 @@ The `callback` has to be called with an `response` object.
     * `referrer` String
     * `timestamp` Double
     * `requestHeaders` Object
-  * `callback` Function 
+  * `callback` Functie 
     * `response` Object 
       * `cancel` Boolean (optional)
       * `requestHeaders` Object (optional) - When provided, request will be made with these headers.
@@ -115,7 +115,7 @@ The `listener` will be called with `listener(details)` just before a request is 
     * `statusLine` String
     * `statusCode` Integer
     * `responseHeaders` Object
-  * `callback` Function 
+  * `callback` Functie 
     * `response` Object 
       * `cancel` Boolean (optional)
       * `responseHeaders` Object (optional) - When provided, the server is assumed to have responded with these headers.
