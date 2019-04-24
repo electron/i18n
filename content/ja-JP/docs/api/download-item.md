@@ -92,76 +92,76 @@ Returns `SaveDialogOptions` - Returns the object previously set by `downloadItem
 
 #### `downloadItem.pause()`
 
-Pauses the download.
+ダウンロードを一時停止します。
 
 #### `downloadItem.isPaused()`
 
-Returns `Boolean` - Whether the download is paused.
+戻り値 `Boolean` - ダウンロードが一時停止しているかどうか。
 
 #### `downloadItem.resume()`
 
-Resumes the download that has been paused.
+一時停止されたダウンロードを再開します。
 
-**Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. Otherwise `resume()` will dismiss previously received bytes and restart the download from the beginning.
+**注:** 再開可能なダウンロードを有効にするには、ダウンロードしているサーバーがRangeリクエストをサポートしており、`Last-Modified` と `ETag` の両方のヘッダーの値を提供していなければなりません。 そうでなければ、`resume()` は、前回受信したバイト数を無視して、最初からダウンロードを再開します。
 
 #### `downloadItem.canResume()`
 
-Returns `Boolean` - Whether the download can resume.
+戻り値 `Boolean` - ダウンロードを再開できるかどうか。
 
 #### `downloadItem.cancel()`
 
-Cancels the download operation.
+ダウンロード操作をキャンセルします。
 
 #### `downloadItem.getURL()`
 
-Returns `String` - The origin url where the item is downloaded from.
+戻り値 `String` - アイテムがダウンロードされた元のURL。
 
 #### `downloadItem.getMimeType()`
 
-Returns `String` - The files mime type.
+戻り値 `String` - ファイルのMIMEタイプ。
 
 #### `downloadItem.hasUserGesture()`
 
-Returns `Boolean` - Whether the download has user gesture.
+戻り値 `Boolean` - ダウンロードにユーザージェスチャがあるかどうか。
 
 #### `downloadItem.getFilename()`
 
-Returns `String` - The file name of the download item.
+戻り値 `String` - ダウンロードアイテムのファイル名。
 
-**Note:** The file name is not always the same as the actual one saved in local disk. If user changes the file name in a prompted download saving dialog, the actual name of saved file will be different.
+**注:** ファイル名は常にローカルディスクに保存したものと同じではありません。 ユーザーが表示されたダウンロード保存ダイアログでファイル名を変更した場合、保存されたファイルの実際の名前は異なります。
 
 #### `downloadItem.getTotalBytes()`
 
-Returns `Integer` - The total size in bytes of the download item.
+戻り値 `Integer` - ダウンロードアイテムのバイト単位での合計サイズ。
 
-If the size is unknown, it returns 0.
+サイズが不明な場合、0を返します。
 
 #### `downloadItem.getReceivedBytes()`
 
-Returns `Integer` - The received bytes of the download item.
+戻り値 `Integer` - ダウンロードアイテムの受信したバイト数。
 
 #### `downloadItem.getContentDisposition()`
 
-Returns `String` - The Content-Disposition field from the response header.
+戻り値 `String` - レスポンスヘッダーのContent-Dispositionフィールド。
 
 #### `downloadItem.getState()`
 
-Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
+戻り値 `String` - 現在の状態。`progressing`、`completed`、`cancelled` または `interrupted` のいずれかです。
 
-**Note:** The following methods are useful specifically to resume a `cancelled` item when session is restarted.
+**注:** 以下のメソッドは、セッションが再開されたときに `cancelled` アイテムを再開するのに特に有用です。
 
 #### `downloadItem.getURLChain()`
 
-Returns `String[]` - The complete url chain of the item including any redirects.
+戻り値 `String[]` - すべてのリダイレクトを含むアイテムの完全なURLチェーン。
 
 #### `downloadItem.getLastModifiedTime()`
 
-Returns `String` - Last-Modified header value.
+戻り値 `String` - Last-Modifiedのヘッダーの値。
 
 #### `downloadItem.getETag()`
 
-Returns `String` - ETag header value.
+戻り値 `String` - ETagのヘッダーの値。
 
 #### `downloadItem.getStartTime()`
 
-Returns `Double` - Number of seconds since the UNIX epoch when the download was started.
+戻り値 `Double` - ダウンロードが開始されたUNIXエポックからの秒数。
