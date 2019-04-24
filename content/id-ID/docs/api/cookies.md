@@ -9,18 +9,30 @@ Contoh dari ` Cookie </ 0> kelas diakses dengan menggunakan <code> cookie </ 0> 
 <p>Sebagai contoh:</p>
 
 <pre><code class="javascript">const { session } = require ('electron') // Query semua cookies.
-session.defaultSession.cookies.get ({}, (error, cookies) = & gt; {
-   console.log (error, cookies)}) // Query semua cookies yang terkait dengan url tertentu.
-session.defaultSession.cookies.get({ url: 'http://www.github.com' }, (error, cookies) => {
-  console.log(error, cookies)
-})
+session.defaultSession.cookies.get({})
+  .then((cookies) => {
+    console.log(cookies)
+  }).catch((error) => {
+    console.log(error)
+  })
+
+// Query all cookies associated with a specific url.
+session.defaultSession.cookies.get({ url: 'http://www.github.com' })
+  .then((cookies) => {
+    console.log(cookies)
+  }).catch((error) => {
+    console.log(error)
+  })
 
 // Set a cookie with the given cookie data;
 // may overwrite equivalent cookies if they exist.
 const cookie = { url: 'http://www.github.com', name: 'dummy_name', value: 'dummy' }
-session.defaultSession.cookies.set(cookie, (error) => {
-  if (error) console.error(error)
-})
+session.defaultSession.cookies.set(cookie)
+  .then(() => {
+    // success
+  }, (error) => {
+    console.error(error)
+  })
 `</pre> 
 
 ### Contoh peristiwa
@@ -49,8 +61,23 @@ Peristiwa berikut tersedia pada contoh ` Cookies </ 0> :</p>
 
 <p>Metode berikut tersedia pada contoh <code> Cookies </ 0> :</p>
 
-<h4><code>cookies.get(filter, panggilan kembali)`</h4> 
+<h4><code>cookies.get(filter)`</h4> 
     * `filter` Obyek 
+      * ` url </ 0>  String (opsional) - Mengambil cookie yang dikaitkan dengan
+ <code> url </ 0> . Empty berarti mengambil cookies dari semua url.</li>
+<li><code> nama </ 0>  String (opsional) - Menyaring kuki berdasarkan nama.</li>
+<li><code>domain` String (optional) - Retrieves cookies whose domains match or are subdomains of `domains`.
+      * ` path </ 0>  String (opsional) - Mengambil cookie yang jalurnya cocok dengan <code> path </ 0> .</li>
+<li><code>aman`Boolean (opsional) - Filter cookie oleh properti Aman mereka.
+      * `aman` Boolean (opsional) - Filter cookie oleh properti Aman mereka.
+    
+    Returns `Promise<Cookie[]>` - A promise which resolves an array of cookie objects.
+    
+    Sends a request to get all cookies matching `filter`, and resolves a promise with the response.
+    
+    #### `cookies.get(filter, panggilan kembali)`
+    
+    * `filter` Objek 
       * ` url </ 0>  String (opsional) - Mengambil cookie yang dikaitkan dengan
  <code> url </ 0> . Empty berarti mengambil cookies dari semua url.</li>
 <li><code> nama </ 0>  String (opsional) - Menyaring kuki berdasarkan nama.</li>
@@ -60,38 +87,75 @@ Peristiwa berikut tersedia pada contoh ` Cookies </ 0> :</p>
       * `aman` Boolean (opsional) - Filter cookie oleh properti Aman mereka.
     * `callback` Fungsi 
       * Kesalahan `kesalahan`
-      * `cookies `[Cookie [] ](structures/cookie.md) - sebuah array dari objek cookie.
+      * `cookies` [Cookie[]](structures/cookie.md) - an array of cookie objects.
     
     Sends a request to get all cookies matching `filter`, `callback` will be called with `callback(error, cookies)` on complete.
     
+    **[Deprecated Soon](promisification.md)**
+    
+    #### `cookies.set(details)`
+    
+    * `rincian` Sasaran 
+      * `url` String - The url to associate the cookie with.
+      * `name` String (optional) - The name of the cookie. Empty by default if omitted.
+      * `value` String (optional) - The value of the cookie. Empty by default if omitted.
+      * `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains. Empty by default if omitted.
+      * `path` String (optional) - The path of the cookie. Empty by default if omitted.
+      * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
+      * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
+      * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
+    
+    Returns `Promise<void>` - A promise which resolves when the cookie has been set
+    
+    Sets a cookie with `details`.
+    
     #### `cookies.set(details, panggilan kembali)`
     
-    * `rincian` Objek 
-      * `url`String - Url untuk mengaitkan cookie dengan.
-      * `nama` String (opsional) - Nama cookie. Kosongkan secara default jika dihilangkan.
-      * `value ` String (opsional) - Nilai cookie. Kosongkan secara default jika dihilangkan.
-      * `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains. Empty by default if omitted.
-      * ` path </ 0> String (opsional) - Jalur cookie. Kosongkan secara default jika dihilangkan.</li>
-<li><code> aman </ 0>  Boolean (opsional) - Apakah cookie harus ditandai sebagai Secure. Default ke false</li>
-<li><code> httpOnly </ 0>  Boolean (opsional) - Apakah kuki tersebut hanya ditandai sebagai HTTP saja. Default ke false</li>
-<li><code> kadaluarsaDate </ 0>  Double (opsional) - Tanggal kadaluarsa cookie sebagai jumlah detik sejak zaman UNIX. Jika dihilangkan maka cookie menjadi cookie sesi dan tidak akan disimpan di antara sesi.</li>
-</ul></li>
-<li><code>callback` Fungsi 
-        * Kesalahan `kesalahan`
-      
-      Menetapkan cookie dengan ` detail </ 0> , <code> callback </ 0> akan dipanggil dengan <code> callback (error) </ 0> secara 
-lengkap.</p>
-
-<h4><code>cookies.remove (url, nama, callback)`</h4> 
-      
-      * `url`String - URL yang terkait dengan cookie.
-      * `nama` String - Nama cookie untuk dihapus.
-      * `callback ` Fungsi
-      
-      Menghapus cookie yang cocok dengan `url` dan `nama`, `callback` akan dipanggil dengan `callback()` selesai.
-      
-      #### `cookies.flushStore(callback)`
-      
-      * `callback ` Fungsi
-      
-      Tulis data cookie yang tidak tertulis ke disk.
+    * `rincian` Sasaran 
+      * `url` String - The url to associate the cookie with.
+      * `name` String (optional) - The name of the cookie. Empty by default if omitted.
+      * `value` String (optional) - The value of the cookie. Empty by default if omitted.
+      * `domain` String (optional) - The domain of the cookie. Empty by default if omitted.
+      * `path` String (optional) - The path of the cookie. Empty by default if omitted.
+      * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
+      * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
+      * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
+    * `callback` Fungsi 
+      * Kesalahan `kesalahan`
+    
+    Sets a cookie with `details`, `callback` will be called with `callback(error)` on complete.
+    
+    **[Deprecated Soon](promisification.md)**
+    
+    #### `cookies.remove(url, name)`
+    
+    * `url` String - The URL associated with the cookie.
+    * `name` String - The name of cookie to remove.
+    
+    Returns `Promise<void>` - A promise which resolves when the cookie has been removed
+    
+    Removes the cookies matching `url` and `name`
+    
+    #### `cookies.remove (url, nama, callback)`
+    
+    * `url` String - The URL associated with the cookie.
+    * `name` String - The name of cookie to remove.
+    * `callback ` Fungsi
+    
+    Removes the cookies matching `url` and `name`, `callback` will called with `callback()` on complete.
+    
+    **[Deprecated Soon](promisification.md)**
+    
+    #### `cookies.flushStore()`
+    
+    Returns `Promise<void>` - A promise which resolves when the cookie store has been flushed
+    
+    Writes any unwritten cookies data to disk.
+    
+    #### `cookies.flushStore(callback)`
+    
+    * `callback ` Fungsi
+    
+    Writes any unwritten cookies data to disk.
+    
+    **[Deprecated Soon](promisification.md)**
