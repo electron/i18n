@@ -6,7 +6,7 @@ Process: [Main](../glossary.md#main-process)
 
 A `BrowserView` can be used to embed additional web content into a [`BrowserWindow`](browser-window.md). It is like a child window, except that it is positioned relative to its owning window. It is meant to be an alternative to the `webview` tag.
 
-## Example
+## דוגמה
 
 ```javascript
 // In the main process.
@@ -17,11 +17,7 @@ win.on('closed', () => {
   win = null
 })
 
-let view = new BrowserView({
-  webPreferences: {
-    nodeIntegration: false
-  }
-})
+let view = new BrowserView()
 win.setBrowserView(view)
 view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electronjs.org')
@@ -82,7 +78,7 @@ Returns `Boolean` - Whether the view is destroyed.
 
 #### `view.setBounds(bounds)` *Experimental*
 
-* `bounds` [Rectangle](structures/rectangle.md)
+* `bounds` ‏[Rectangle (מרובע)](structures/rectangle.md)
 
 Resizes and moves the view to the supplied bounds relative to the window.
 
