@@ -12,21 +12,30 @@ Como por exemplo:
 const { session } = require('electron')
 
 // Query all cookies.
-session.defaultSession.cookies.get({}, (error, cookies) => {
-  console.log(error, cookies)
-})
+session.defaultSession.cookies.get({})
+  .then((cookies) => {
+    console.log(cookies)
+  }).catch((error) => {
+    console.log(error)
+  })
 
 // Query all cookies associated with a specific url.
-session.defaultSession.cookies.get({ url: 'http://www.github.com' }, (error, cookies) => {
-  console.log(error, cookies)
-})
+session.defaultSession.cookies.get({ url: 'http://www.github.com' })
+  .then((cookies) => {
+    console.log(cookies)
+  }).catch((error) => {
+    console.log(error)
+  })
 
 // Set a cookie with the given cookie data;
 // may overwrite equivalent cookies if they exist.
 const cookie = { url: 'http://www.github.com', name: 'dummy_name', value: 'dummy' }
-session.defaultSession.cookies.set(cookie, (error) => {
-  if (error) console.error(error)
-})
+session.defaultSession.cookies.set(cookie)
+  .then(() => {
+    // success
+  }, (error) => {
+    console.error(error)
+  })
 ```
 
 ### Eventos de instância
@@ -51,6 +60,20 @@ Emitido quando um cookie é modificado devido à adição, edição, remoção o
 
 Os metódos a seguir estão disponíveis em instâncias `de Cookies`:
 
+#### `cookies.get(filter)`
+
+* `filter` Object 
+  * `url` String (opcional) - Recupera cookies associados com a `url`. Sendo vazia recupera cookies de todas as urls.
+  * `name` String (opcional) - Filtra cookies por nome.
+  * `domain` String (opcional) - Recupera cookies nos quais os domínios sejam iguais ou subdomínios de `domain`.
+  * `path` String (opcional) - Recupera cookies nos quais o caminho seja igual a `path`.
+  * `secure` Boolean (opcional) - Filtra cookies pela propriedade Secure.
+  * `session` Boolean (optional) - Filters out session or persistent cookies.
+
+Returns `Promise<Cookie[]>` - A promise which resolves an array of cookie objects.
+
+Sends a request to get all cookies matching `filter`, and resolves a promise with the response.
+
 #### `cookies.get(filter, callback)`
 
 * `filter` Object 
@@ -66,7 +89,9 @@ Os metódos a seguir estão disponíveis em instâncias `de Cookies`:
 
 Sends a request to get all cookies matching `filter`, `callback` will be called with `callback(error, cookies)` on complete.
 
-#### `cookies.set(details, callback)`
+**[Deprecated Soon](promisification.md)**
+
+#### `cookies.set(details)`
 
 * `detalhes` Object 
   * `url` String - A url que será associada ao cookie.
@@ -77,10 +102,37 @@ Sends a request to get all cookies matching `filter`, `callback` will be called 
   * `secure` Boolean (opcional) - Indica se o cookie deve ser marcado como seguro. Padrão é falso.
   * `httpOnly` Boolean (opcional) - Indica se o cookie deve ser marcado como apenas HTTP. Padrão é falso.
   * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
+
+Returns `Promise<void>` - A promise which resolves when the cookie has been set
+
+Sets a cookie with `details`.
+
+#### `cookies.set(details, callback)`
+
+* `detalhes` Object 
+  * `url` String - A url que será associada ao cookie.
+  * `name` String (opcional) - O nome do cookie. Vazio por padrão caso omitido.
+  * `value` String (opcional) - O valor do cookie. Vazio por padrão caso omitido.
+  * `domain` String (opcional) - O domínio do cookie. Vazio por padrão caso omitido.
+  * `path` String (opcional) - O caminho do cookie. Vazio por padrão caso omitido.
+  * `secure` Boolean (opcional) - Indica se o cookie deve ser marcado como seguro. Padrão é falso.
+  * `httpOnly` Boolean (opcional) - Indica se o cookie deve ser marcado como apenas HTTP. Padrão é falso.
+  * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
 * `callback` Function 
   * `error` Error
 
 Sets a cookie with `details`, `callback` will be called with `callback(error)` on complete.
+
+**[Deprecated Soon](promisification.md)**
+
+#### `cookies.remove(url, name)`
+
+* `url` String - A URL associada com o cookie.
+* `name` String - O nome do cookie a ser removido.
+
+Returns `Promise<void>` - A promise which resolves when the cookie has been removed
+
+Removes the cookies matching `url` and `name`
 
 #### `cookies.remove(url, name, callback)`
 
@@ -90,8 +142,18 @@ Sets a cookie with `details`, `callback` will be called with `callback(error)` o
 
 Removes the cookies matching `url` and `name`, `callback` will called with `callback()` on complete.
 
+**[Deprecated Soon](promisification.md)**
+
+#### `cookies.flushStore()`
+
+Returns `Promise<void>` - A promise which resolves when the cookie store has been flushed
+
+Escreve qualquer cookie que não tenha sido escrito no disco.
+
 #### `cookies.flushStore(callback)`
 
 * `callback` Function
 
 Escreve qualquer cookie que não tenha sido escrito no disco.
+
+**[Deprecated Soon](promisification.md)**
