@@ -42,7 +42,7 @@ See the [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/m
 
 * `template` (MenuItemConstructorOptions | MenuItem)[]
 
-Returns `Menu`
+Zwraca `Menu`
 
 Generally, the `template` is an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
 
@@ -292,7 +292,7 @@ By default, items will be inserted in the order they exist in the template unles
 
 ### Przykłady
 
-Template:
+Szablon:
 
 ```javascript
 [
@@ -312,7 +312,7 @@ Menu:
 - 4
 ```
 
-Template:
+Szablon:
 
 ```javascript
 [
@@ -336,7 +336,7 @@ Menu:
 - 2
 ```
 
-Template:
+Szablon:
 
 ```javascript
 [
