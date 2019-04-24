@@ -70,17 +70,17 @@ Send given command to the debugging target.
 
 ### 物件事件
 
-#### Event: 'detach'
+#### 事件: 'detach'
 
 * `event` Event
 * `reason` String - Reason for detaching debugger.
 
 Emitted when debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
 
-#### Event: 'message'
+#### 事件: 'message'
 
 * `event` Event
-* `method` String - Method name.
+* `method` String - 方法名稱。
 * `params` Object - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
 
 Emitted whenever debugging target issues instrumentation event.
