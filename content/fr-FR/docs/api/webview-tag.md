@@ -12,7 +12,7 @@ By default the `webview` tag is disabled in Electron >= 5. You need to enable th
 
 > Display external web content in an isolated frame and process.
 
-Processus : [Rendu](../glossary.md#renderer-process)
+Processus : [Renderer](../glossary.md#renderer-process)
 
 Use the `webview` tag to embed 'guest' content (such as web pages) in your Electron app. The guest content is contained within the `webview` container. An embedded page within your app controls how the guest content is laid out and rendered.
 
@@ -58,13 +58,13 @@ So the behavior of `webview` is very similar to a cross-domain `iframe`, as exam
 * You can not add keyboard, mouse, and scroll event listeners to `webview`.
 * All reactions between the embedder frame and `webview` are asynchronous.
 
-## CSS Styling Notes
+## Note de style CSS
 
 Please note that the `webview` tag's style uses `display:flex;` internally to ensure the child `iframe` element fills the full height and width of its `webview` container when used with traditional and flexbox layouts. Please do not overwrite the default `display:flex;` CSS property, unless specifying `display:inline-flex;` for inline layout.
 
-## Tag Attributes
+## Attribut de balise
 
-The `webview` tag has the following attributes:
+La balise `webview` possède les attributs suivants :
 
 ### `src`
 
@@ -201,7 +201,7 @@ A list of strings which specifies the blink features to be disabled separated by
 
 ## Méthodes
 
-The `webview` tag has the following methods:
+La balise `webview` possède les méthodes suivantes :
 
 **Note:** The webview element must be loaded before using the methods.
 
@@ -551,11 +551,11 @@ Returns [`WebContents`](web-contents.md) - The web contents associated with this
 
 It depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
 
-## DOM events
+## Événements DOM
 
 The following DOM events are available to the `webview` tag:
 
-### Event: 'load-commit'
+### Événement : 'load-commit'
 
 Retourne :
 
@@ -640,7 +640,7 @@ The following example code forwards all log messages to the embedder's console w
 ```javascript
 const webview = document.querySelector('webview')
 webview.addEventListener('console-message', (e) => {
-  console.log('Guest page logged a message:', e.message)
+  console.log('La page invité a envoyé un message :', e.message)
 })
 ```
 
@@ -712,7 +712,7 @@ Retourne :
 
 * `url` String
 
-Emitted when a navigation is done.
+Émis lorsqu'une navigation est faite.
 
 Cet événement n'est également pas émis pour les navigations à l'intérieur de la page, comme cliquer sur les liens d'ancrage ou la mise à jour de `window.location.hash`. Utilisez l'événement `did-navigate-in-page` pour cet usage.
 
@@ -723,7 +723,7 @@ Retourne :
 * `isMainFrame` Boolean
 * `url` String
 
-Emitted when an in-page navigation happened.
+Émis lorsqu'une navigation dans la page s'est produite.
 
 En cas de navigation dans la page, l'URL de la page change mais ne provoque pas de navigation à l'extérieur de la page. Par exemple, lorsque vous cliquez sur un lien d'ancrage ou lorsque l'événement DOM `hashchange` est déclenché.
 
@@ -762,7 +762,7 @@ webview.send('ping')
 ```
 
 ```javascript
-// In guest page.
+// Dans la page invité.
 const { ipcRenderer } = require('electron')
 ipcRenderer.on('ping', () => {
   ipcRenderer.sendToHost('pong')
@@ -773,9 +773,9 @@ ipcRenderer.on('ping', () => {
 
 Fired when the renderer process is crashed.
 
-### Event: 'gpu-crashed'
+### Événement : 'gpu-crashed'
 
-Fired when the gpu process is crashed.
+Déclenché lorsque le processus du gpu crash.
 
 ### Événement : 'plugin-crashed'
 
@@ -784,11 +784,11 @@ Retourne :
 * `name` String
 * `version` String
 
-Fired when a plugin process is crashed.
+Déclenché lorsqu’un processus de plugin crash.
 
 ### Événement : 'destroyed'
 
-Fired when the WebContents is destroyed.
+Déclenché lorsque le WebContents est détruit.
 
 ### Événement : 'media-started-playing'
 
@@ -804,7 +804,7 @@ Retourne :
 
 * `themeColor` String
 
-Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
+Émis lorsque le thème couleur de la page est changé. Il s’agit généralement de l'ajout d'une balise meta :
 
 ```html
 <meta name='theme-color' content='#ff0000'>
