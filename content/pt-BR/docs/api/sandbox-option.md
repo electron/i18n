@@ -70,7 +70,7 @@ app.on('ready', () => {
 })
 ```
 
-and preload.js:
+e preload.js:
 
 ```js
 // This file is loaded whenever a javascript context is created. It runs in a
