@@ -18,15 +18,17 @@ A classe `menu` tem os seguintes métodos estáticos:
 
 Define `menu` como o menu de aplicativo no macOS. No Windows e no Linux, o `menu` será definido como menu superior de cada janela.
 
-Passando `null` removerá a barra de menus no Windows e Linux, mas não tem efeito no macOS.
+Also on Windows and Linux, you can use a `&` in the top-level item name to indicate which letter should get a generated accelerator. For example, using `&File` for the file menu would result in a generated `Alt-F` accelerator that opens the associated menu. The indicated character in the button label gets an underline. The `&` character is not displayed on the button label.
 
-**Nota:** Esta API tem que ser chamada após o evento `ready` do módulo do `app`.
+Passing `null` will suppress the default menu. On Windows and Linux, this has the additional effect of removing the menu bar from the window.
+
+**Note:** The default menu will be created automatically if the app does not set one. It contains standard items such as `File`, `Edit`, `View`, `Window` and `Help`.
 
 #### `Menu.getApplicationMenu()`
 
-Retorna `Menu | null` - O menu do aplicativo, se definido, ou `null`, se não fora definido.
+Returns `Menu | null` - The application menu, if set, or `null`, if not set.
 
-**Nota:** A instancia `Menu` retornada não suporta adição dinâmica ou remoção de itens de menu. [Instance properties](#instance-properties) ainda podem ser modificadas dinamicamente.
+**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) can still be dynamically modified.
 
 #### `Menu.sendActionToFirstResponder(action)` *macOS*
 
@@ -38,17 +40,17 @@ See the [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/m
 
 #### `Menu.buildFromTemplate(template)`
 
-* `template` MenuItemConstructorOptions[]
+* `template` (MenuItemConstructorOptions | MenuItem)[]
 
 Returns `Menu`
 
 Generally, the `template` is an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
 
-Você também pode anexar outros campos ao elemento do `template` e eles se tornarão propriedades dos itens de menu construídos.
+You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
 
 ### Métodos de Instância
 
-O objeto `menu` possui os seguintes métodos de instância:
+The `menu` object has the following instance methods:
 
 #### `menu.popup(options)`
 
@@ -65,13 +67,13 @@ Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
 
-Fecha o menu de contexto em `browserWindow`.
+Closes the context menu in the `browserWindow`.
 
 #### `menu.append(menuItem)`
 
 * `menuItem` [MenuItem](menu-item.md)
 
-Acrescenta o `menuItem` ao menu.
+Appends the `menuItem` to the menu.
 
 #### `menu.getMenuItemById(id)`
 
@@ -84,7 +86,7 @@ Returns `MenuItem` the item with the specified `id`
 * `pos` Integer
 * `menuItem` [MenuItem](menu-item.md)
 
-Insere o `menuItem` na posição `pos` do menu.
+Inserts the `menuItem` to the `pos` position of the menu.
 
 ### Eventos de instância
 
@@ -110,13 +112,13 @@ Emitted when a popup is closed either manually or with `menu.closePopup()`.
 
 ### Propriedades de Instância
 
-Objetos `menu` também possuem as seguintes propriedades:
+`menu` objects also have the following properties:
 
 #### `menu.items`
 
-Um array `MenuItem[]` contendo os itens do menu.
+A `MenuItem[]` array containing the menu's items.
 
-Cada `Menu` consiste de múltiplos [`MenuItem`](menu-item.md)s e cada `MenuItem` pode ter um submenu.
+Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
 
 ### Eventos de instância
 
@@ -124,16 +126,39 @@ Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the
 
 ## Exemplos
 
-A classe `Menu` só está disponível no processo principal, mas você também pode usá-lo no processo de renderização através do módulo [`remoto`](remote.md).
+The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
 
 ### Processo principal
 
-Um exemplo de criar o menu do aplicativo no processo principal com a API do modelo simples:
+An example of creating the application menu in the main process with the simple template API:
 
 ```javascript
 const { app, Menu } = require('electron')
 
 const template = [
+  // { role: 'appMenu' }
+  ...(process.platform === 'darwin' ? [{
+    label: app.getName(),
+    submenu: [
+      { role: 'about' },
+      { type: 'separator' },
+      { role: 'services' },
+      { type: 'separator' },
+      { role: 'hide' },
+      { role: 'hideothers' },
+      { role: 'unhide' },
+      { type: 'separator' },
+      { role: 'quit' }
+    ]
+  }] : []),
+  // { role: 'fileMenu' }
+  {
+    label: 'File',
+    submenu: [
+      isMac ? { role: 'close' } : { role: 'quit' }
+    ]
+  },
+  // { role: 'editMenu' }
   {
     label: 'Edit',
     submenu: [
@@ -143,11 +168,26 @@ const template = [
       { role: 'cut' },
       { role: 'copy' },
       { role: 'paste' },
-      { role: 'pasteandmatchstyle' },
-      { role: 'delete' },
-      { role: 'selectall' }
+      ...(isMac ? [
+        { role: 'pasteAndMatchStyle' },
+        { role: 'delete' },
+        { role: 'selectAll' },
+        { type: 'separator' },
+        {
+          label: 'Speech',
+          submenu: [
+            { role: 'startspeaking' },
+            { role: 'stopspeaking' }
+          ]
+        }
+      ] : [
+        { role: 'delete' },
+        { type: 'separator' },
+        { role: 'selectAll' }
+      ])
     ]
   },
+  // { role: 'viewMenu' }
   {
     label: 'View',
     submenu: [
@@ -162,11 +202,20 @@ const template = [
       { role: 'togglefullscreen' }
     ]
   },
+  // { role: 'windowMenu' }
   {
-    role: 'window',
+    label: 'Window',
     submenu: [
       { role: 'minimize' },
-      { role: 'close' }
+      { role: 'zoom' },
+      ...(isMac ? [
+        { type: 'separator' },
+        { role: 'front' },
+        { type: 'separator' },
+        { role: 'window' }
+      ] : [
+        { role: 'close' }
+      ])
     ]
   },
   {
@@ -174,49 +223,11 @@ const template = [
     submenu: [
       {
         label: 'Learn More',
-        click () { require('electron').shell.openExternal('https://electronjs.org') }
+        click () { require('electron').shell.openExternalSync('https://electronjs.org') }
       }
     ]
   }
 ]
-
-if (process.platform === 'darwin') {
-  template.unshift({
-    label: app.getName(),
-    submenu: [
-      { role: 'about' },
-      { type: 'separator' },
-      { role: 'services' },
-      { type: 'separator' },
-      { role: 'hide' },
-      { role: 'hideothers' },
-      { role: 'unhide' },
-      { type: 'separator' },
-      { role: 'quit' }
-    ]
-  })
-
-  // Edit menu
-  template[1].submenu.push(
-    { type: 'separator' },
-    {
-      label: 'Speech',
-      submenu: [
-        { role: 'startspeaking' },
-        { role: 'stopspeaking' }
-      ]
-    }
-  )
-
-  // Window menu
-  template[3].submenu = [
-    { role: 'close' },
-    { role: 'minimize' },
-    { role: 'zoom' },
-    { type: 'separator' },
-    { role: 'front' }
-  ]
-}
 
 const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
@@ -224,7 +235,7 @@ Menu.setApplicationMenu(menu)
 
 ### Processo de renderização
 
-Abaixo está um exemplo de criação dinâmica de um menu em uma página da web (processo de renderização) usando o módulo [`remoto`](remote.md), e o mostra quando o usuário clica com o botão direito na página:
+Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
 
 ```html
 <!-- index.html -->
@@ -258,7 +269,7 @@ On macOS there are many system-defined standard menus, like the `Services` and `
 
 ### Ações padronizadas para Item de Menu
 
-O macOS fornece ações padronizadas para alguns itens de menu, como `About xxx`, `Hide xxx`, and `Hide Others`. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
+macOS has provided standard actions for some menu items, like `About xxx`, `Hide xxx`, and `Hide Others`. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
 
 ### Nome do Menu Principal
 
@@ -281,7 +292,7 @@ By default, items will be inserted in the order they exist in the template unles
 
 ### Exemplos
 
-Modelo:
+Template:
 
 ```javascript
 [
@@ -301,7 +312,7 @@ Menu:
 - 4
 ```
 
-Modelo:
+Template:
 
 ```javascript
 [
@@ -325,7 +336,7 @@ Menu:
 - 2
 ```
 
-Modelo:
+Template:
 
 ```javascript
 [
