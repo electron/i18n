@@ -55,9 +55,9 @@ Get a set of category groups. The category groups can change as new code paths a
 * `options` ([TraceCategoriesAndOptions](structures/trace-categories-and-options.md) | [TraceConfig](structures/trace-config.md))
 * `callback` Function
 
-Start recording on all processes.
+在所有进程上开始记录
 
-Recording begins immediately locally and asynchronously on child processes as soon as they receive the EnableRecording request. The `callback` will be called once all child processes have acknowledged the `startRecording` request.
+一旦收到EnableRecording请求，记录立即在本地开始进行，并在子进程上异步执行。 一旦所有子进程都确认了`startRecording`请求，`callback`就会被调用。
 
 **[Deprecated Soon](promisification.md)**
 
@@ -67,23 +67,23 @@ Recording begins immediately locally and asynchronously on child processes as so
 
 Returns `Promise<void>` - resolved once all child processes have acknowledged the `startRecording` request.
 
-Start recording on all processes.
+在所有进程上开始记录
 
-Recording begins immediately locally and asynchronously on child processes as soon as they receive the EnableRecording request.
+一旦收到EnableRecording请求，记录立即在本地开始进行，并在子进程上异步执行。
 
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
 * `resultFilePath` String
-* `callback` Function - 回调函数 
+* `callback` Function 
   * `resultFilePath` String
 
-Stop recording on all processes.
+停止所有进程记录。
 
-Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This helps to minimize the runtime overhead of tracing since sending trace data over IPC can be an expensive operation. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
+子进程通常缓存跟踪数据，并且很少清空和发送跟踪数据回到主进程。 这有助于最小化运行时间开销，因为通过IPC发送跟踪数据可能是一个开销巨大的操作。 所以，为了结束跟踪，我们必须异步地要求所有子进程清空任何等待跟踪数据。
 
-Once all child processes have acknowledged the `stopRecording` request, `callback` will be called with a file that contains the traced data.
+一旦所有子进程确认了 `stopRecording`请求，将传递包含跟踪数据的文件作为参数调用`callback`。
 
-Trace data will be written into `resultFilePath` if it is not empty or into a temporary file. The actual file path will be passed to `callback` if it's not `null`.
+如果`resultFilePath`不为空，则跟踪数据会被写入该路径，否则就被写入一个临时文件。实际的文件路径如果不为`null`的话就被传递给`callback`函数了。
 
 **[Deprecated Soon](promisification.md)**
 
@@ -93,16 +93,16 @@ Trace data will be written into `resultFilePath` if it is not empty or into a te
 
 Returns `Promise<String>` - resolves with a file that contains the traced data once all child processes have acknowledged the `stopRecording` request
 
-Stop recording on all processes.
+停止所有进程记录。
 
-Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This helps to minimize the runtime overhead of tracing since sending trace data over IPC can be an expensive operation. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
+子进程通常缓存跟踪数据，并且很少清空和发送跟踪数据回到主进程。 这有助于最小化运行时间开销，因为通过IPC发送跟踪数据可能是一个开销巨大的操作。 所以，为了结束跟踪，我们必须异步地要求所有子进程清空任何等待跟踪数据。
 
 Trace data will be written into `resultFilePath` if it is not empty or into a temporary file.
 
 ### `contentTracing.startMonitoring(options, callback)`
 
-* `callback` Function - 回调函数 
+* `callback` Function 
   * `value` Number
   * `percentage` Number
 
-Get the maximum usage across processes of trace buffer as a percentage of the full state. When the TraceBufferUsage value is determined the `callback` is called.
+获取跟踪缓冲区进程的最大使用率，以百分比表示完整状态。当 TraceBufferUsage 值被确定后, 将调用 ` callback`。
