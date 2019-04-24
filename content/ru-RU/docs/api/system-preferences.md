@@ -52,7 +52,7 @@ console.log(systemPreferences.isDarkMode())
 
 ### `systemPreferences.isDarkMode()` *macOS*
 
-Returns `Boolean` - Whether the system is in Dark Mode.
+Возвращает `Boolean` - если система в Ночном режиме.
 
 ### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` *macOS*
 
@@ -149,9 +149,9 @@ Add the specified defaults to your application's `NSUserDefaults`.
 * `key` String
 * `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
 
-Returns `any` - The value of `key` in `NSUserDefaults`.
+Возвращает `any` - Значение `key` в `NSUserDefaults`.
 
-Some popular `key` and `type`s are:
+Самые популярные `key` и `type`:
 
 * `AppleInterfaceStyle`: `string`
 * `AppleAquaColorVariant`: `integer`
@@ -167,11 +167,11 @@ Some popular `key` and `type`s are:
 * `type` String - See [`getUserDefault`](#systempreferencesgetuserdefaultkey-type-macos).
 * `value` String
 
-Set the value of `key` in `NSUserDefaults`.
+Устанавливает значение `key` в `NSUserDefaults`.
 
 Note that `type` should match actual type of `value`. An exception is thrown if they don't.
 
-Some popular `key` and `type`s are:
+Самые популярные `key` и `type`:
 
 * `ApplePressAndHoldEnabled`: `boolean`
 
