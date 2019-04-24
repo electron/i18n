@@ -14,19 +14,19 @@ By default the `webview` tag is disabled in Electron >= 5. You need to enable th
 
 プロセス: [Renderer](../glossary.md#renderer-process)
 
-Use the `webview` tag to embed 'guest' content (such as web pages) in your Electron app. The guest content is contained within the `webview` container. An embedded page within your app controls how the guest content is laid out and rendered.
+`webview`タグを使用して、Electron アプリに 'ゲスト' コンテンツ (ウェブページなど) を埋め込むことができます。ゲストコンテンツは `webview` コンテナに含まれています。 アプリ内の埋め込みページは、ゲストコンテンツのレイアウトとレンダリングの方法を制御します。
 
-Unlike an `iframe`, the `webview` runs in a separate process than your app. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content. **Note:** Most methods called on the webview from the host page require a synchronous call to the main process.
+`iframe` とは異なり、`webview` はアプリとは別のプロセスで実行されます。 それはウェブページと同じ権限を持っておらず、アプリと組み込みコンテンツの間のすべてのやりとりは非同期になります。 これにより、埋め込みコンテンツからアプリが保護されます。 **注釈:** ホストページから webview 上で呼び出されるほとんどのメソッドは、メインプロセスへの同期呼び出しを必要とします。
 
-## 例
+## サンプル
 
-To embed a web page in your app, add the `webview` tag to your app's embedder page (this is the app page that will display the guest content). In its simplest form, the `webview` tag includes the `src` of the web page and css styles that control the appearance of the `webview` container:
+アプリにウェブページを埋め込むには、アプリの埋め込みページ (これはゲストコンテンツを表示するアプリページ) へ `webview` タグを追加します。 最もシンプルな形式では、`webview` タグには、ウェブページの `src` と、`webview` コンテナの見た目を制御する CSS スタイルが含まれます。
 
 ```html
 <webview id="foo" src="https://www.github.com/" style="display:inline-flex; width:640px; height:480px"></webview>
 ```
 
-If you want to control the guest content in any way, you can write JavaScript that listens for `webview` events and responds to those events using the `webview` methods. Here's sample code with two event listeners: one that listens for the web page to start loading, the other for the web page to stop loading, and displays a "loading..." message during the load time:
+ゲストコンテンツを制御したい場合は、`webview` のイベントを傍受し、`webview` のメソッドを使用してそれらのイベントに応答する JavaScript を記述することでできます。 ここでは、2つのイベントリスナーを持つサンプルコードを示します。1つはウェブページのロード開始を、もう1つはウェブページのロード停止を傍受し、ロード時に "ロード中..." というメッセージを表示します。
 
 ```html
 <script>
@@ -48,23 +48,23 @@ If you want to control the guest content in any way, you can write JavaScript th
 </script>
 ```
 
-## Internal implementation
+## 内部実装
 
-Under the hood `webview` is implemented with [Out-of-Process iframes (OOPIFs)](https://www.chromium.org/developers/design-documents/oop-iframes). The `webview` tag is essentially a custom element using shadow DOM to wrap an `iframe` element inside it.
+内部では `webview` は [Out-of-Process iframe (OOPIF) ](https://www.chromium.org/developers/design-documents/oop-iframes) で実装されています。 `webview` タグは本質的には、見えない DOM を用いてその内側に `iframe` 要素をラップしたカスタム要素です。
 
-So the behavior of `webview` is very similar to a cross-domain `iframe`, as examples:
+なので `webview` の動作はクロスドメイン `iframe` ととても似ています。例として、
 
 * `webview`をクリックしたとき、ページフォーカスが埋め込みフレームから `webview` に移動します。
 * You can not add keyboard, mouse, and scroll event listeners to `webview`.
 * 埋め込みフレームと `webview` 間のすべての反応は非同期です。
 
-## CSS Styling Notes
+## CSS スタイルの注意事項
 
-Please note that the `webview` tag's style uses `display:flex;` internally to ensure the child `iframe` element fills the full height and width of its `webview` container when used with traditional and flexbox layouts. Please do not overwrite the default `display:flex;` CSS property, unless specifying `display:inline-flex;` for inline layout.
+`webview` タグのスタイルでは、`webview` コンテナでの子の `iframe` 要素の高さと幅を完全に埋めるのに内部的に `display:flex;` を使用しているので、古典的かつフレックスボックスなレイアウトを使用するときは注意して下さい。 `display:inline-flex;` をインラインレイアウトに指定しない限り、デフォルトの`display:flex;` CSS プロパティを上書きしないでください。
 
-## Tag Attributes
+## タグの属性
 
-The `webview` tag has the following attributes:
+`webview` タグには以下の属性があります。
 
 ### `src`
 
@@ -72,11 +72,11 @@ The `webview` tag has the following attributes:
 <webview src="https://www.github.com/"></webview>
 ```
 
-Returns the visible URL. Writing to this attribute initiates top-level navigation.
+見える URL を返します。 この属性に書き込むと、トップレベルのナビゲーションが開始されます。
 
-Assigning `src` its own value will reload the current page.
+`src` に独自の値を代入すると、現在のページがリロードされます。
 
-The `src` attribute can also accept data URLs, such as `data:text/plain,Hello, world!`.
+`src` 属性は、`data:text/plain,Hello, world!` などのデータ URL を受け取ることもできます。
 
 ### `autosize`
 
@@ -84,7 +84,7 @@ The `src` attribute can also accept data URLs, such as `data:text/plain,Hello, w
 <webview src="https://www.github.com/" autosize minwidth="576" minheight="432"></webview>
 ```
 
-When this attribute is present the `webview` container will automatically resize within the bounds specified by the attributes `minwidth`, `minheight`, `maxwidth`, and `maxheight`. These constraints do not impact the `webview` unless `autosize` is enabled. When `autosize` is enabled, the `webview` container size cannot be less than the minimum values or greater than the maximum.
+この属性が存在すると、`webview` コンテナは `minwidth`、`minheight`、`maxwidth`、`maxheight` 属性によって指定された境界内で自動的にリサイズされます。 `autosize` が有効になっていない限り、これらの制約は `webview` に影響しません。 `atutosize` が有効になっている場合、`webview` コンテナのサイズは最小値よりも小さくすることも、最大値より大きくすることもできません。
 
 ### `nodeintegration`
 
@@ -92,7 +92,7 @@ When this attribute is present the `webview` container will automatically resize
 <webview src="http://www.google.com/" nodeintegration></webview>
 ```
 
-When this attribute is present the guest page in `webview` will have node integration and can use node APIs like `require` and `process` to access low level system resources. Node integration is disabled by default in the guest page.
+この属性が存在する場合、`webview` のゲストページは Node Integration を持ち、低レベルのシステムリソースにアクセスするのに、`require` や `process` のような Node API が使用できます。 デフォルトでは、ゲストページ内の Node Integration は無効化されています。
 
 ### `nodeintegrationinsubframes`
 
@@ -108,7 +108,7 @@ Experimental option for enabling NodeJS support in sub-frames such as iframes in
 <webview src="http://www.google.com/" enableremotemodule="false"></webview>
 ```
 
-When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. The remote module is avaiable by default.
+この属性が `false` の場合、`webview` 内のゲストページは [`remote`](remote.md) モジュールにアクセスできません。 remote モジュールはデフォルトで利用可能です。
 
 ### `plugins`
 
@@ -116,7 +116,7 @@ When this attribute is `false` the guest page in `webview` will not have access 
 <webview src="https://www.github.com/" plugins></webview>
 ```
 
-When this attribute is present the guest page in `webview` will be able to use browser plugins. Plugins are disabled by default.
+この属性が存在する場合、`webview` 内のゲストページはブラウザのプラグインを使用することができます。プラグインはデフォルトでは無効です。
 
 ### `preload`
 
@@ -124,11 +124,11 @@ When this attribute is present the guest page in `webview` will be able to use b
 <webview src="https://www.github.com/" preload="./test.js"></webview>
 ```
 
-Specifies a script that will be loaded before other scripts run in the guest page. The protocol of script's URL must be either `file:` or `asar:`, because it will be loaded by `require` in guest page under the hood.
+ゲストのページで他のスクリプトを実行する前に読み込まれるスクリプトを指定します。 スクリプトの URL のプロトコルは、`file:` または `asar:` のいずれかでなければなりません。これは、ゲストページ内で `require` によってロードされるためです。
 
-When the guest page doesn't have node integration this script will still have access to all Node APIs, but global objects injected by Node will be deleted after this script has finished executing.
+ゲストページに Node Integration がない場合、このスクリプトはすべての Node APIにアクセスできますが、Node によって挿入されたグローバルオブジェクトはこのスクリプトの実行が終了した後に削除されます。
 
-**Note:** This option will be appear as `preloadURL` (not `preload`) in the `webPreferences` specified to the `will-attach-webview` event.
+**注釈:** このオプションは、`will-attach-webview` イベントに指定された `webPreferences` に `preloadURL` (`preload` ではない) として表示されます。
 
 ### `httpreferrer`
 
@@ -136,7 +136,7 @@ When the guest page doesn't have node integration this script will still have ac
 <webview src="https://www.github.com/" httpreferrer="http://cheng.guru"></webview>
 ```
 
-Sets the referrer URL for the guest page.
+ゲストページの参照先 URL を設定します。
 
 ### `useragent`
 
@@ -144,7 +144,7 @@ Sets the referrer URL for the guest page.
 <webview src="https://www.github.com/" useragent="Mozilla/5.0 (Windows NT 6.1; WOW64; Trident/7.0; AS; rv:11.0) like Gecko"></webview>
 ```
 
-Sets the user agent for the guest page before the page is navigated to. Once the page is loaded, use the `setUserAgent` method to change the user agent.
+ページがナビゲートされる前にゲストページ用のユーザーエージェントを設定します。 一度ページがロードされた場合は、`setUserAgent` メソッドを使用してユーザーエージェントを変更します。
 
 ### `disablewebsecurity`
 
@@ -152,7 +152,7 @@ Sets the user agent for the guest page before the page is navigated to. Once the
 <webview src="https://www.github.com/" disablewebsecurity></webview>
 ```
 
-When this attribute is present the guest page will have web security disabled. Web security is enabled by default.
+この属性が存在すると、ゲストページでウェブセキュリティが無効になります。ウェブセキュリティはデフォルトで有効になっています。
 
 ### `partition`
 
@@ -161,9 +161,9 @@ When this attribute is present the guest page will have web security disabled. W
 <webview src="https://electronjs.org" partition="electron"></webview>
 ```
 
-Sets the session used by the page. If `partition` starts with `persist:`, the page will use a persistent session available to all pages in the app with the same `partition`. if there is no `persist:` prefix, the page will use an in-memory session. 同じ `partition` を割り当てることによって、複数のページが同じセッションを共有できます。 If the `partition` is unset then default session of the app will be used.
+ページで使用されるセッションを設定します。 `partition` が `persist:` 始まりの場合、ページはアプリの全ページで利用可能な永続的なセッションを同じ `partition` で使用します。 `persist:` プレフィックスがない場合、ページは、インメモリセッションを使用します。 同じ `partition` を割り当てることによって、複数のページが同じセッションを共有できます。 `partition` が設定されていない場合は、アプリのデフォルトのセッションが使用されます。
 
-This value can only be modified before the first navigation, since the session of an active renderer process cannot change. Subsequent attempts to modify the value will fail with a DOM exception.
+アクティブなレンダラープロセスのセッションは変更できないため、この値は最初のナビゲーションの前にのみ変更できます。 その後の値の変更は、DOM 例外によって失敗します。
 
 ### `allowpopups`
 
@@ -171,7 +171,7 @@ This value can only be modified before the first navigation, since the session o
 <webview src="https://www.github.com/" allowpopups></webview>
 ```
 
-When this attribute is present the guest page will be allowed to open new windows. Popups are disabled by default.
+この属性が存在すると、ゲストページは新しいウィンドウを開くことが許可されます。 ポップアップはデフォルトで無効になっています。
 
 ### `webpreferences`
 
@@ -179,9 +179,9 @@ When this attribute is present the guest page will be allowed to open new window
 <webview src="https://github.com" webpreferences="allowRunningInsecureContent, javascript=no"></webview>
 ```
 
-A list of strings which specifies the web preferences to be set on the webview, separated by `,`. The full list of supported preference strings can be found in [BrowserWindow](browser-window.md#new-browserwindowoptions).
+webview で設定するウェブ環境設定を指定する `,` 区切りの文字列リスト。 サポートされている設定の文字列の完全なリストは、[BrowserWindow](browser-window.md#new-browserwindowoptions) にあります。
 
-The string follows the same format as the features string in `window.open`. A name by itself is given a `true` boolean value. A preference can be set to another value by including an `=`, followed by the value. Special values `yes` and `1` are interpreted as `true`, while `no` and `0` are interpreted as `false`.
+この文字列は、`window.open` の features 文字列と同じ形式に従います。 名前自体には `true` のブール値が与えられます。 設定は、`=` とそれに続く値を含めることによって別の値に設定できます。 特殊な値として、`yes` と `1` は `true` として解釈され、`no` と `0` は `false` として解釈されます。
 
 ### `enableblinkfeatures`
 
@@ -189,7 +189,7 @@ The string follows the same format as the features string in `window.open`. A na
 <webview src="https://www.github.com/" enableblinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-A list of strings which specifies the blink features to be enabled separated by `,`. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) file.
+有効にする Blink 機能を指定する `,` 区切りの文字列リスト。 サポートされている機能の文字列の完全なリストは、[RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) ファイルにあります。
 
 ### `disableblinkfeatures`
 
@@ -197,15 +197,15 @@ A list of strings which specifies the blink features to be enabled separated by 
 <webview src="https://www.github.com/" disableblinkfeatures="PreciseMemoryInfo, CSSVariables"></webview>
 ```
 
-A list of strings which specifies the blink features to be disabled separated by `,`. The full list of supported feature strings can be found in the [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) file.
+無効にする Blink 機能を指定する `,` 区切りの文字列リスト。 サポートされている機能の文字列の完全なリストは、[RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70) ファイルにあります。
 
 ## メソッド
 
-The `webview` tag has the following methods:
+`webview` タグには以下のメソッドがあります。
 
-**Note:** The webview element must be loaded before using the methods.
+**注釈:** メソッドを使用する前に webview 要素をロードする必要があります。
 
-**例**
+**サンプル**
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -224,25 +224,25 @@ webview.addEventListener('dom-ready', () => {
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (任意)
   * `baseURLForDataURL` String (任意) - データURLによってロードされたファイルの (最後のパス区切り文字を含む) ベースURL。 これは指定された `url` がデータURLで、他のファイルをロードする必要がある場合のみ必要です。
 
-Loads the `url` in the webview, the `url` must contain the protocol prefix, e.g. the `http://` or `file://`.
+`url` を webview にロードします。`url` には、`http://` または `file://` のような、プロトコルのプレフィックスを含みます。
 
 ### `<webview>.downloadURL(url)`
 
 * `url` String
 
-Initiates a download of the resource at `url` without navigating.
+ナビゲーションなしで `url` のリソースのダウンロードを初期化します。
 
 ### `<webview>.getURL()`
 
-Returns `String` - The URL of guest page.
+戻り値 `String` - ゲストページの URL。
 
 ### `<webview>.getTitle()`
 
-Returns `String` - The title of guest page.
+戻り値 `String` - ゲストページのタイトル。
 
 ### `<webview>.isLoading()`
 
-Returns `Boolean` - Whether guest page is still loading resources.
+戻り値 `Boolean` - ゲストページがまだリソースを読み込んでいるかどうか。
 
 ### `<webview>.isLoadingMainFrame()`
 
@@ -250,7 +250,7 @@ Returns `Boolean` - Whether guest page is still loading resources.
 
 ### `<webview>.isWaitingForResponse()`
 
-Returns `Boolean` - Whether the guest page is waiting for a first-response for the main resource of the page.
+戻り値 `Boolean` - ゲストページが、ページのメインリソースからの最初の応答を待機しているかどうか。
 
 ### `<webview>.stop()`
 
@@ -258,25 +258,25 @@ Returns `Boolean` - Whether the guest page is waiting for a first-response for t
 
 ### `<webview>.reload()`
 
-Reloads the guest page.
+ゲストページを再読み込みします。
 
 ### `<webview>.reloadIgnoringCache()`
 
-Reloads the guest page and ignores cache.
+ゲストページを、キャッシュを無視して再読み込みします。
 
 ### `<webview>.canGoBack()`
 
-Returns `Boolean` - Whether the guest page can go back.
+戻り値 `Boolean` - ゲストページが前に戻れるかどうか。
 
 ### `<webview>.canGoForward()`
 
-Returns `Boolean` - Whether the guest page can go forward.
+戻り値 `Boolean` - ゲストページが次に進めるかどうか。
 
 ### `<webview>.canGoToOffset(offset)`
 
 * `offset` Integer
 
-Returns `Boolean` - Whether the guest page can go to `offset`.
+戻り値 `Boolean` - `offset` 番目のゲストページへ行けるかどうか。
 
 ### `<webview>.clearHistory()`
 
@@ -284,17 +284,17 @@ Returns `Boolean` - Whether the guest page can go to `offset`.
 
 ### `<webview>.goBack()`
 
-Makes the guest page go back.
+ゲストページを前に戻します。
 
 ### `<webview>.goForward()`
 
-Makes the guest page go forward.
+ゲストページを次に進めます。
 
 ### `<webview>.goToIndex(index)`
 
 * `index` Integer
 
-Navigates to the specified absolute index.
+指定した絶対インデックスへナビゲーションします。
 
 ### `<webview>.goToOffset(offset)`
 
@@ -310,17 +310,17 @@ Navigates to the specified absolute index.
 
 * `userAgent` String
 
-Overrides the user agent for the guest page.
+ゲストページページのユーザエージェントをオーバーライドします。
 
 ### `<webview>.getUserAgent()`
 
-Returns `String` - The user agent for guest page.
+戻り値 `String` - ゲストページのユーザエージェント。
 
 ### `<webview>.insertCSS(css)`
 
 * `css` String
 
-Injects CSS into the guest page.
+ゲストページへ CSS を注入します。
 
 ### `<webview>.executeJavaScript(code[, userGesture, callback])`
 
@@ -329,44 +329,44 @@ Injects CSS into the guest page.
 * `callback` Function (任意) - スクリプトが実行されたあとに呼ばれる。 
   * `result` Any
 
-ページ内の `code` を評価します。 If `userGesture` is set, it will create the user gesture context in the page. HTML APIs like `requestFullScreen`, which require user action, can take advantage of this option for automation.
+ページ内の `code` を評価します。 `userGesture` が設定されている場合、ページのユーザジェスチャコンテキストが作成されます。 `requestFullScreen` のようなユーザの操作を必要とする HTML API は、このオプションを自動化に利用できます。
 
 ### `<webview>.openDevTools()`
 
-Opens a DevTools window for guest page.
+ゲストページの開発者向けツールウインドウを開きます。
 
 ### `<webview>.closeDevTools()`
 
-Closes the DevTools window of guest page.
+ゲストページの開発者向けツールウインドウを閉じます。
 
 ### `<webview>.isDevToolsOpened()`
 
-Returns `Boolean` - Whether guest page has a DevTools window attached.
+戻り値 `Boolean` - ゲストページに開発者向けツールウインドウが適用されているかどうか。
 
 ### `<webview>.isDevToolsFocused()`
 
-Returns `Boolean` - Whether DevTools window of guest page is focused.
+戻り値 `Boolean` - ゲストページの開発者向けツールウインドウがフォーカスされているかどうか。
 
 ### `<webview>.inspectElement(x, y)`
 
 * `x` Integer
 * `y` Integer
 
-Starts inspecting element at position (`x`, `y`) of guest page.
+ゲストページの (`x`, `y`) の位置の要素の検査を開始します。
 
 ### `<webview>.inspectServiceWorker()`
 
-Opens the DevTools for the service worker context present in the guest page.
+ゲストページに表示されているサービスワーカコンテキストの開発者向けツールを開きます。
 
 ### `<webview>.setAudioMuted(muted)`
 
 * `muted` Boolean
 
-Set guest page muted.
+ゲストページをミュートに設定します。
 
 ### `<webview>.isAudioMuted()`
 
-Returns `Boolean` - Whether guest page has been muted.
+戻り値 `Boolean` - ゲストページがミュートされているかどうか。
 
 ### `<webview>.isCurrentlyAudible()`
 
@@ -374,51 +374,51 @@ Returns `Boolean` - Whether guest page has been muted.
 
 ### `<webview>.undo()`
 
-Executes editing command `undo` in page.
+ページの `undo` 編集コマンドを実行します。
 
 ### `<webview>.redo()`
 
-Executes editing command `redo` in page.
+ページの `redo` 編集コマンドを実行します。
 
 ### `<webview>.cut()`
 
-Executes editing command `cut` in page.
+ページの `cut` 編集コマンドを実行します。
 
 ### `<webview>.copy()`
 
-Executes editing command `copy` in page.
+ページの `copy` 編集コマンドを実行します。
 
 ### `<webview>.paste()`
 
-Executes editing command `paste` in page.
+ページの `paste` 編集コマンドを実行します。
 
 ### `<webview>.pasteAndMatchStyle()`
 
-Executes editing command `pasteAndMatchStyle` in page.
+ページの `pasteAndMatchStyle` 編集コマンドを実行します。
 
 ### `<webview>.delete()`
 
-Executes editing command `delete` in page.
+ページの `delete` 編集コマンドを実行します。
 
 ### `<webview>.selectAll()`
 
-Executes editing command `selectAll` in page.
+ページの `selectAll` 編集コマンドを実行します。
 
 ### `<webview>.unselect()`
 
-Executes editing command `unselect` in page.
+ページの `unselect` 編集コマンドを実行します。
 
 ### `<webview>.replace(text)`
 
 * `text` String
 
-Executes editing command `replace` in page.
+ページの `replace` 編集コマンドを実行します。
 
 ### `<webview>.replaceMisspelling(text)`
 
 * `text` String
 
-Executes editing command `replaceMisspelling` in page.
+ページの `replaceMisspelling` 編集コマンドを実行します。
 
 ### `<webview>.insertText(text)`
 
@@ -438,7 +438,7 @@ Executes editing command `replaceMisspelling` in page.
 
 戻り値 `Integer` - リクエストに使われたリクエスト ID。
 
-ウェブページ内の `text` のすべてのマッチを探すリクエストを開始します。 The result of the request can be obtained by subscribing to [`found-in-page`](webview-tag.md#event-found-in-page) event.
+ウェブページ内の `text` のすべてのマッチを探すリクエストを開始します。 リクエストの結果は [`found-in-page`](webview-tag.md#event-found-in-page) イベントを読むことで取得できます。
 
 ### `<webview>.stopFindInPage(action)`
 
@@ -447,7 +447,7 @@ Executes editing command `replaceMisspelling` in page.
   * `keepSelection` - その選択を通常の選択に変換する。
   * `activateSelection` - 選択ノードをフォーカスして、クリックする。
 
-Stops any `findInPage` request for the `webview` with the provided `action`.
+指定された `action` で、`webview` の `findInPage` リクエストを停止します。
 
 ### `<webview>.print([options])`
 
@@ -456,7 +456,7 @@ Stops any `findInPage` request for the `webview` with the provided `action`.
   * `printBackground` Boolean (任意) - ウェブページの背景色と画像も印刷するかどうか。省略値は `false`。
   * `deviceName` String (任意) - 使用するプリンタデバイスの名前。省略値は `''`。
 
-Prints `webview`'s web page. Same as `webContents.print([options])`.
+`webview` のウェブページを印刷します。`webContents.print([options])` と同じです。
 
 ### `<webview>.printToPDF(options, callback)`
 
@@ -470,7 +470,7 @@ Prints `webview`'s web page. Same as `webContents.print([options])`.
   * `error` Error
   * `data` Buffer
 
-Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, callback)`.
+`webview` のウェブページを PDF として印刷します。`webContents.printToPDF(options, callback)` と同じです。
 
 ### `<webview>.capturePage([rect, ]callback)`
 
@@ -495,9 +495,9 @@ Captures a snapshot of the page within `rect`. Omitting `rect` will capture the 
 * `channel` String
 * `...args` any[]
 
-`channel` を介してレンダラープロセスに非同期メッセージを送信します。任意の引数を送ることもできます。 The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
+`channel` を介してレンダラープロセスに非同期メッセージを送信します。任意の引数を送ることもできます。 レンダラープロセスは [`ipcRenderer`](ipc-renderer.md) モジュールで `channel` イベントをリッスンしてメッセージを処理できます。
 
-See [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for examples.
+サンプルについては [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) を参照して下さい。
 
 ### `<webview>.sendInputEvent(event)`
 
@@ -505,7 +505,7 @@ See [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for examp
 
 入力 `event` をページに送ります。
 
-See [webContents.sendInputEvent](web-contents.md#contentssendinputeventevent) for detailed description of `event` object.
+`event` オブジェクトの詳細については、[webContents.sendInputEvent](web-contents.md#contentssendinputeventevent) を参照してください。
 
 ### `<webview>.setZoomFactor(factor)`
 
@@ -547,26 +547,26 @@ Returns `Number` - the current zoom level.
 
 ### `<webview>.getWebContents()`
 
-Returns [`WebContents`](web-contents.md) - The web contents associated with this `webview`.
+戻り値 [`WebContents`](web-contents.md) - この `webview` に関連付けられた webContents。
 
-It depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
+これは [`remote`](remote.md) モジュールに依存しています。したがって、このモジュールが無効になっていると利用できません。
 
-## DOM events
+## DOM イベント
 
-The following DOM events are available to the `webview` tag:
+`webview` タグでは、以下の DOM イベントを使用できます。
 
-### Event: 'load-commit'
+### イベント: 'load-commit'
 
 戻り値:
 
 * `url` String
 * `isMainFrame` Boolean
 
-Fired when a load has committed. This includes navigation within the current document as well as subframe document-level loads, but does not include asynchronous resource loads.
+ロードがコミットされたときに発生します。これには、現在のドキュメント内のナビゲーションとサブフレームのドキュメントレベルの読み込みが含まれますが、非同期のリソース読み込みは含まれません。
 
 ### イベント: 'did-finish-load'
 
-Fired when the navigation is done, i.e. the spinner of the tab will stop spinning, and the `onload` event is dispatched.
+ナビゲーションが終了した時、すなわち、タブのくるくるが止まったときや、`onload` イベントが送られた後に、発行されます。
 
 ### イベント: 'did-fail-load'
 
@@ -577,7 +577,7 @@ Fired when the navigation is done, i.e. the spinner of the tab will stop spinnin
 * `validatedURL` String
 * `isMainFrame` Boolean
 
-This event is like `did-finish-load`, but fired when the load failed or was cancelled, e.g. `window.stop()` is invoked.
+このイベントは `did-finish-load` のようですが、ロードが失敗した、キャンセルされた、`window.stop()` が呼び出されたなどで発生します。
 
 ### イベント: 'did-frame-finish-load'
 
@@ -585,19 +585,19 @@ This event is like `did-finish-load`, but fired when the load failed or was canc
 
 * `isMainFrame` Boolean
 
-Fired when a frame has done navigation.
+フレームのナビゲーションが終了したときに発行されます。
 
 ### イベント: 'did-start-loading'
 
-Corresponds to the points in time when the spinner of the tab starts spinning.
+タブのくるくるが始まるタイミングに対応しています。
 
 ### イベント: 'did-stop-loading'
 
-Corresponds to the points in time when the spinner of the tab stops spinning.
+タブのくるくるが止まるタイミングに対応しています。
 
 ### イベント: 'dom-ready'
 
-Fired when document in the given frame is loaded.
+指定のフレームの document が読み込まれたときに発行されます。
 
 ### イベント: 'page-title-updated'
 
@@ -606,7 +606,7 @@ Fired when document in the given frame is loaded.
 * `title` String
 * `explicitSet` Boolean
 
-Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
+ナビゲーション中にページタイトルが設定されたときに発生します。 `explicitSet` は、タイトルがファイル URL から合成されている場合に false になります。
 
 ### イベント: 'page-favicon-updated'
 
@@ -614,15 +614,15 @@ Fired when page title is set during navigation. `explicitSet` is false when titl
 
 * `favicons` String[] - URLの配列。
 
-Fired when page receives favicon urls.
+ページがファビコンの URL を受け取ると発行されます。
 
 ### イベント: 'enter-html-full-screen'
 
-Fired when page enters fullscreen triggered by HTML API.
+HTML API にトリガーされてページがフルスクリーンになるときに発生します。
 
 ### イベント: 'leave-html-full-screen'
 
-Fired when page leaves fullscreen triggered by HTML API.
+HTML API にトリガーされてページがフルスクリーンから抜けるときに発生します。
 
 ### Event: 'console-message'
 
@@ -633,14 +633,14 @@ Fired when page leaves fullscreen triggered by HTML API.
 * `line` Integer
 * `sourceId` String
 
-Fired when the guest window logs a console message.
+ゲストウィンドウがコンソールメッセージをロギングすると発行されます。
 
-The following example code forwards all log messages to the embedder's console without regard for log level or other properties.
+以下のサンプルコードは、ログレベルやその他のプロパティに関係なく、すべてのログメッセージを埋め込みのコンソールに転送します。
 
 ```javascript
 const webview = document.querySelector('webview')
 webview.addEventListener('console-message', (e) => {
-  console.log('Guest page logged a message:', e.message)
+  console.log('ゲストページのメッセージログ:', e.message)
 })
 ```
 
@@ -655,7 +655,7 @@ webview.addEventListener('console-message', (e) => {
   * `selectionArea` Object - 最初のマッチ領域の座標。
   * `finalUpdate` Boolean
 
-Fired when a result is available for [`webview.findInPage`](#webviewfindinpagetext-options) request.
+[`webview.findInPage`](#webviewfindinpagetext-options) リクエストの結果が有効なときに発行されます。
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -674,11 +674,11 @@ console.log(requestId)
 * `url` String
 * `frameName` String
 * `disposition` String - `default`、`foreground-tab`、`background-tab`、`new-window`、`save-to-disk`、`other` にできる。
-* `options` Object - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
+* `options` Object - 新しい [`BrowserWindow`](browser-window.md) を作成するのに使われるオプション。
 
-Fired when the guest page attempts to open a new browser window.
+ゲストページが新しいブラウザウィンドウを開くときに発生します。
 
-The following example code opens the new url in system's default browser.
+以下のサンプルコードは、システムのデフォルトブラウザで新しい URL を開きます。
 
 ```javascript
 const { shell } = require('electron')
@@ -700,11 +700,11 @@ webview.addEventListener('new-window', (e) => {
 
 ユーザまたはページがナビゲーションを開始したいときに発行されます。 `window.location` オブジェクトが変更されるか、ユーザがページ内のリンクをクリックしたときに発生します。
 
-This event will not emit when the navigation is started programmatically with APIs like `<webview>.loadURL` and `<webview>.back`.
+このイベントは、 `<webview>.loadURL` や `<webview>.back` のような、API によってプログラム上から開始されるナビゲーションのときには発行されません。
 
-It is also not emitted during in-page navigation, such as clicking anchor links or updating the `window.location.hash`. Use `did-navigate-in-page` event for this purpose.
+アンカーリンクのクリックや `window.location.hash` の更新のような、ページ内ナビゲーションでも発行されません。これを意図する場合は `did-navigate-in-page` を使用して下さい。
 
-Calling `event.preventDefault()` does **NOT** have any effect.
+`event.preventDefault()` を呼んでも効果は **ありません**。
 
 ### イベント: 'did-navigate'
 
@@ -712,7 +712,7 @@ Calling `event.preventDefault()` does **NOT** have any effect.
 
 * `url` String
 
-Emitted when a navigation is done.
+ナビゲーションが完了したときに発行されます。
 
 このイベントは、アンカーリンクのクリックや `window.location.hash` の更新のような、ページ内ナビゲーションでは発行されません。これを意図する場合は `did-navigate-in-page` を使用して下さい。
 
@@ -723,15 +723,15 @@ Emitted when a navigation is done.
 * `isMainFrame` Boolean
 * `url` String
 
-Emitted when an in-page navigation happened.
+ページ内ナビゲーションが発生したときに発行されます。
 
 ページ内ナビゲーションが行われるとき、ページのURLは変更されますがページ外でのナビゲーションは発生しません。 これが発生する例は、アンカーリンクがクリックされたときや、DOM の `hashchange` イベントがトリガーされたときです。
 
 ### イベント: 'close'
 
-Fired when the guest page attempts to close itself.
+ゲストのページ自身が閉じようとしたときに発生します。
 
-The following example code navigates the `webview` to `about:blank` when the guest attempts to close itself.
+以下のサンプルコードは、ゲストが自身を閉じるときに `webview` を `about:blank` にナビゲートします。
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -747,22 +747,22 @@ webview.addEventListener('close', () => {
 * `channel` String
 * `args` Array
 
-Fired when the guest page has sent an asynchronous message to embedder page.
+ゲストページが埋め込みページに非同期メッセージを送信したときに発生します。
 
-With `sendToHost` method and `ipc-message` event you can communicate between guest page and embedder page:
+`sendToHost` メソッドと `ipc-message` イベントを使用すると、ゲストページと埋め込みページの間で通信できます。
 
 ```javascript
-// In embedder page.
+// 埋め込みページ。
 const webview = document.querySelector('webview')
 webview.addEventListener('ipc-message', (event) => {
   console.log(event.channel)
-  // Prints "pong"
+  // "pong" と出力される
 })
 webview.send('ping')
 ```
 
 ```javascript
-// In guest page.
+// ゲストページ。
 const { ipcRenderer } = require('electron')
 ipcRenderer.on('ping', () => {
   ipcRenderer.sendToHost('pong')
@@ -771,11 +771,11 @@ ipcRenderer.on('ping', () => {
 
 ### イベント: 'crashed'
 
-Fired when the renderer process is crashed.
+レンダラープロセスがクラッシュしたときに発生します。
 
-### Event: 'gpu-crashed'
+### イベント: 'gpu-crashed'
 
-Fired when the gpu process is crashed.
+GPU のプロセスがクラッシュしたときに発生します。
 
 ### イベント: 'plugin-crashed'
 
@@ -784,11 +784,11 @@ Fired when the gpu process is crashed.
 * `name` String
 * `version` String
 
-Fired when a plugin process is crashed.
+プラグインプロセスがクラッシュしたときに発行されます。
 
 ### イベント: 'destroyed'
 
-Fired when the WebContents is destroyed.
+webContents が破棄されたときに発生します。
 
 ### イベント: 'media-started-playing'
 
@@ -804,7 +804,7 @@ Fired when the WebContents is destroyed.
 
 * `themeColor` String
 
-Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
+ページのテーマカラーが変更されたときに発行されます。これはよく、このような meta タグによって発生します。
 
 ```html
 <meta name='theme-color' content='#ff0000'>
