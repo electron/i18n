@@ -59,8 +59,9 @@ Establece el nivel de zoom máximo y mínimo basado en el diseño (es decir, no 
 ### `webFrame.setSpellCheckProvider(language, provider)`
 
 * `idioma` Cadena
-* `provider` Objeto 
-  * `spellCheck` Function. 
+* `proveedor` Object 
+  * `Corrector Ortográfico
+` Function. 
     * `words` String[]
     * `callback` Function 
       * `misspeltWords` String[]
@@ -85,30 +86,30 @@ webFrame.setSpellCheckProvider('en-US', {
 })
 ```
 
-### `webFrame.insertText(text)`
+### `webFrame.insertText(texto)`
 
 * `texto` String
 
-Inserta `texto` al elemento centrado.
+Inserta `texto` en el elemento enfocado.
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
 * `codigo` String
-* `userGesture` Boolean (opcional) - Por de `false`.
-* `callback` Función (opcional) - Llamado después de que se haya ejecutado el script. 
-  * `resultado` Cualquiera
+* `userGesture` Boolean (opcional) - Predeterminado es `falso`.
+* `callback` Función (opcional) - La llamada luego del guión ha sido ejecutada. 
+  * `result` Cuaquiera
 
 Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
 
 Evalúa el `código` en la página.
 
-En la ventana del buscador, algunas APIs HTML como `requestFullScreen` solo pueden ser invocadas por un gesto del usuario. Establecer `userGesture` a `true` eliminará esta limitación.
+En la ventana del navegador, algunas API HTML como `requestFullScreen` solo pueden invocarse con un gesto del usuario. Establecer `userGesture` a `true` eliminará esta limitación.
 
 ### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
 
 * `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Aquí puede suministrar cualquier entero.
 * `scripts` [WebSource[]](structures/web-source.md)
-* `userGesture` Boolean (opcional) - Por de `false`.
+* `userGesture` Boolean (opcional) - Predeterminado es `falso`.
 * `callback` Función (opcional) - Llamado después de que se haya ejecutado el script. 
   * `resultado` Cualquiera
 
@@ -123,7 +124,7 @@ Set the content security policy of the isolated world.
 
 ### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)` *(Deprecated)*
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Aquí puede suministrar cualquier entero.
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Puede aquí suministrar cualquier entero.
 * `name` String
 
 Set the name of the isolated world. Useful in devtools.
@@ -137,8 +138,8 @@ Set the security origin of the isolated world.
 
 ### `webFrame.setIsolatedWorldInfo(worldId, info)`
 
-* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Puede proporcionar aquí cualquier entero.
-* `info` Objeto 
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. Aquí puede suministrar cualquier entero.
+* `info` Object 
   * `securityOrigin` String (optional) - Security origin for the isolated world.
   * `csp` String (optional) - Content Security Policy for the isolated world.
   * `name` String (optional) - Name for isolated world. Useful in devtools.
@@ -147,7 +148,7 @@ Set the security origin, content security policy and name of the isolated world.
 
 ### `webFrame.getResourceUsage()`
 
-Devuelve `Objecto`:
+Devuelve el `Objecto`:
 
 * `images` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `scripts` [MemoryUsageDetails](structures/memory-usage-details.md)
@@ -156,14 +157,14 @@ Devuelve `Objecto`:
 * `fonts` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `other` [MemoryUsageDetails](structures/memory-usage-details.md)
 
-Returns an object describing usage information of Blink's internal memory caches.
+Devuelve un objeto que describe la información de uso de las cachés de memoria interna de Blink.
 
 ```javascript
 const { webFrame } = require('electron')
 console.log(webFrame.getResourceUsage())
 ```
 
-This will generate:
+Esto generará:
 
 ```javascript
 {
@@ -181,9 +182,9 @@ This will generate:
 
 ### `webFrame.clearCache()`
 
-Attempts to free memory that is no longer being used (like images from a previous navigation).
+Intenta liberar memoria que ya no se usa (como las imágenes de una navegación anterior).
 
-Note that blindly calling this method probably makes Electron slower since it will have to refill these emptied caches, you should only call it if an event in your app has occurred that makes you think your page is actually using less memory (i.e. you have navigated from a super heavy page to a mostly empty one, and intend to stay there).
+Tenga en cuenta que llamar ciegamente este método probablemente haga que Electron sea más lento, ya que tendrá que volver a llenar estos cachés vacíos, solo debe llamarlo si ha ocurrido un evento en su aplicación que le haga pensar que su página está usando menos memoria (es decir, ha navegado desde una página muy pesada a una casi vacía, y tiene la intención de permanecer allí).
 
 ### `webFrame.getFrameForSelector(selector)`
 
