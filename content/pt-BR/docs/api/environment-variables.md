@@ -46,15 +46,13 @@ Unsupported options are:
 
 ### `GOOGLE_API_KEY`
 
-Electron includes a hardcoded API key for making requests to Google's geocoding webservice. Because this API key is included in every version of Electron, it often exceeds its usage quota. To work around this, you can supply your own Google API key in the environment. Place the following code in your main process file, before opening any browser windows that will make geocoding requests:
+You can provide an API key for making requests to Google's geocoding webservice. To do this, place the following code in your main process file, before opening any browser windows that will make geocoding requests:
 
 ```javascript
 process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
 ```
 
-For instructions on how to acquire a Google API key, visit [this page](https://www.chromium.org/developers/how-tos/api-keys).
-
-By default, a newly generated Google API key may not be allowed to make geocoding requests. To enable geocoding requests, visit [this page](https://console.developers.google.com/apis/api/geolocation/overview).
+For instructions on how to acquire a Google API key, visit [this page](https://developers.google.com/maps/documentation/javascript/get-api-key). By default, a newly generated Google API key may not be allowed to make geocoding requests. To enable geocoding requests, visit [this page](https://developers.google.com/maps/documentation/geocoding/get-api-key).
 
 ### `ELECTRON_NO_ASAR`
 
@@ -85,31 +83,31 @@ Options:
 
 ## Variáveis de desenvolvimento
 
-As seguintes variáveis de ambiente são destinadas principalmente para fins de depuração e desenvolvimento.
+The following environment variables are intended primarily for development and debugging purposes.
 
 ### `ELECTRON_ENABLE_LOGGING`
 
-Imprime o log interno do Chrome para o console.
+Prints Chrome's internal logging to the console.
 
 ### `ELECTRON_LOG_ASAR_READS`
 
-Quando o Electron lê de um arquivo ASAR, o offset de leitura e o caminho para o `tmpdir` do sistema será registrado. O arquivo resultante pode ser fornecido para o módulo ASAR para otimização da ordenação de arquivos.
+When Electron reads from an ASAR file, log the read offset and file path to the system `tmpdir`. The resulting file can be provided to the ASAR module to optimize file ordering.
 
 ### `ELECTRON_ENABLE_STACK_DUMPING`
 
-Imprime o rastreamento da pilha para o console quando o Electron trava.
+Prints the stack trace to the console when Electron crashes.
 
-Essa variável de ambiente não funcionará se o `crashReporter` tiver iniciado.
+This environment variable will not work if the `crashReporter` is started.
 
 ### `ELECTRON_DEFAULT_ERROR_MODE` *Windows*
 
-Mostra a caixa de diálogo de travamento do Windows quando o Electron trava.
+Shows the Windows's crash dialog when Electron crashes.
 
-Essa variável de ambiente não funcionará se o `crashReporter` tiver iniciado.
+This environment variable will not work if the `crashReporter` is started.
 
 ### `ELECTRON_OVERRIDE_DIST_PATH`
 
-When running from the `electron` package, this variable tells the `electron` command to use the specified build of Electron instead of the one downloaded by `npm install`. Usando:
+When running from the `electron` package, this variable tells the `electron` command to use the specified build of Electron instead of the one downloaded by `npm install`. Usage:
 
 ```sh
 export ELECTRON_OVERRIDE_DIST_PATH=/Users/username/projects/electron/out/Debug
