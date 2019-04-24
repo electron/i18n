@@ -75,7 +75,7 @@ The `callback` has to be called with an `response` object.
     * `requestHeaders` Object
   * `callback` Function 
     * `response` Objet 
-      * `cancel` Boolean (facultatif)
+      * `cancel` Boolean)
       * `requestHeaders` Object (optional) - When provided, request will be made with these headers.
 
 The `listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent.
@@ -117,7 +117,7 @@ The `listener` will be called with `listener(details)` just before a request is 
     * `responseHeaders` Object
   * `callback` Function 
     * `response` Objet 
-      * `cancel` Boolean (facultatif)
+      * `cancel` Boolean)
       * `responseHeaders` Object (optional) - When provided, the server is assumed to have responded with these headers.
       * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
 
@@ -200,6 +200,6 @@ The `listener` will be called with `listener(details)` when a request is complet
     * `referrer` String
     * `timestamp` Double
     * `fromCache` Boolean
-    * `error` String - The error description.
+    * `error` String - La description de l'erreur.
 
 The `listener` will be called with `listener(details)` when an error occurs.
