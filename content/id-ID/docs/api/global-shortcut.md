@@ -43,25 +43,28 @@ Modul ` globalShortcut ` memiliki metode berikut:
 
 Returns `Boolean` - Whether or not the shortcut was registered successfully.
 
-Registers a global shortcut of `accelerator`. The `callback` is called when the registered shortcut is pressed by the user.
+Mendaftarkan pintasan global ` akselerator </ 0> . The <code> callback </ 0> disebut ketika shortcut yang terdaftar ditekan oleh pengguna.</p>
 
-When the accelerator is already taken by other applications, this call will silently fail. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+<p>Bila akselerator sudah diambil oleh aplikasi lain, panggilan ini akan diam-diam gagal. Perilaku ini dimaksudkan oleh sistem operasi, karena mereka tidak ingin aplikasi berjuang untuk jalan pintas global.</p>
 
-The following accelerators will not be registered successfully on macOS 10.14 Mojave unless the app has been authorized as a [trusted accessibility client](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html):
+<p>The following accelerators will not be registered successfully on macOS 10.14 Mojave unless
+the app has been authorized as a <a href="https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html">trusted accessibility client</a>:</p>
 
-* "Media Play/Pause"
-* "Media Next Track"
-* "Media Previous Track"
-* "Media Stop"
+<ul>
+<li>"Media Play/Pause"</li>
+<li>"Media Next Track"</li>
+<li>"Media Previous Track"</li>
+<li>"Media Stop"</li>
+</ul>
 
-### `globalShortcut.registerAll(accelerators, callback)`
+<h3><code>globalShortcut.registerAll(accelerators, callback)`</h3> 
 
 * `accelerators` String[] - an array of [Accelerator](accelerator.md)s.
 * `callback ` Fungsi
 
 Registers a global shortcut of all `accelerator` items in `accelerators`. The `callback` is called when any of the registered shortcuts are pressed by the user.
 
-When a given accelerator is already taken by other applications, this call will silently fail. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+When a given accelerator is already taken by other applications, this call will silently fail. Perilaku ini dimaksudkan oleh sistem operasi, karena mereka tidak ingin aplikasi berjuang untuk jalan pintas global.
 
 The following accelerators will not be registered successfully on macOS 10.14 Mojave unless the app has been authorized as a [trusted accessibility client](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html):
 
@@ -70,20 +73,20 @@ The following accelerators will not be registered successfully on macOS 10.14 Mo
 * "Media Previous Track"
 * "Media Stop"
 
-### `globalShortcut.isRegistered(accelerator)`
+### `globalShortcut.isRegistered (akselerator)`
 
-* ` akselerator </ 0>  <a href="accelerator.md"> Akselerator </ 1></li>
-</ul>
+* ` akselerator ` [ Accelerator ](accelerator.md)
 
-<p>Returns <code>Boolean` - Whether this application has registered `accelerator`.</p> 
-    When the accelerator is already taken by other applications, this call will still return `false`. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
-    
-    ### `globalShortcut.unregister(accelerator)`
-    
-    * ` akselerator </ 0>  <a href="accelerator.md"> Akselerator </ 1></li>
-</ul>
+Mengembalikan ` Boolean </ 0> - Apakah aplikasi ini telah terdaftar <code> akselerator </ 0> .</p>
 
-<p>Unregisters the global shortcut of <code>accelerator`.</p> 
-        ### `globalShortcut.unregisterAll()`
-        
-        Unregisters all of the global shortcuts.
+<p>Bila akselerator sudah diambil oleh aplikasi lain, panggilan ini tetap akan kembali <code> salah</ 0> . Perilaku ini dimaksudkan oleh sistem operasi, karena mereka tidak ingin aplikasi berjuang untuk jalan pintas global.</p>
+
+<h3><code>globalShortcut.unregister (akselerator)`</h3> 
+
+* ` akselerator ` [ Accelerator ](accelerator.md)
+
+Unregisters jalan pintas global ` akselerator </ 0> .</p>
+
+<h3><code>globalShortcut.unregisterAll ()`</h3> 
+
+Unregisters semua jalan pintas global.
