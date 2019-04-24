@@ -34,8 +34,6 @@ In the above code the [`BrowserWindow`](browser-window.md) that was created has 
 
 Es importante notar que esta opción sola no va a habilitar la caja de arena impuesta por el OS. Para activar esta característica, el argumento de linea de comando `--enable-sandbox` debe ser pasado a Electron, que lo forzará `sandbox: true` por todas `BrowserWindow` instancias.
 
-Para habilitar la caja de arena impuesta por el OS en `BrowserWindow` o por el proceso `webview` con `sandbox:true` sin mover toda la aplicación en la caja de arena, el argumento de comando de linea `--enable-mixed-sandbox` debe ser pasado por Electron. Esta opción está actualmente soportado en macOS y Windows.
-
 ```js
 let win
 app.on('ready', () => {
