@@ -42,7 +42,7 @@ The following methods are available on instances of `WebRequest`:
   * `details` Object 
     * `id` Integer
     * `url` String
-    * `method` String
+    * `title` [string]
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `referrer` String
@@ -67,7 +67,7 @@ The `callback` has to be called with an `response` object.
   * `details` Object 
     * `id` Integer
     * `url` String
-    * `method` String
+    * `title` [string]
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `referrer` String
@@ -107,7 +107,7 @@ The `listener` will be called with `listener(details)` just before a request is 
   * `details` Object 
     * `id` Integer
     * `url` String
-    * `method` String
+    * `title` [string]
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `referrer` String
@@ -133,7 +133,7 @@ The `callback` has to be called with an `response` object.
   * `details` Object 
     * `id` Integer
     * `url` String
-    * `method` String
+    * `title` [string]
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `referrer` String
@@ -153,7 +153,7 @@ The `listener` will be called with `listener(details)` when first byte of the re
   * `details` Object 
     * `id` Integer
     * `url` String
-    * `method` String
+    * `title` [string]
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `referrer` String
@@ -174,7 +174,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
   * `details` Object 
     * `id` Integer
     * `url` String
-    * `method` String
+    * `title` [string]
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `referrer` String
@@ -194,12 +194,12 @@ The `listener` will be called with `listener(details)` when a request is complet
   * `details` Object 
     * `id` Integer
     * `url` String
-    * `method` String
+    * `title` [string]
     * `webContentsId` Integer (optional)
     * `resourceType` String
     * `referrer` String
     * `timestamp` Double
     * `fromCache` Boolean
-    * `error` String - The error description.
+    * `error` String - 錯誤說明。
 
 The `listener` will be called with `listener(details)` when an error occurs.
