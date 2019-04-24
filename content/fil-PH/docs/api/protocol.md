@@ -26,17 +26,28 @@ app.on('ready', () => {
 
 Ang `protocol` na modyul ay mayroong mga sumusunod na mga pamamaraan:
 
-### `protocol.registerStandardSchemes(schemes[, mga pagpipilian])`
+### `protocol.registerSchemesAsPrivileged(customSchemes)`
 
-* `schemes` na String[] - Ang karaniwang panukala na irerehistro bilang mga istandard na iskema.
-* `mga pagpipilian` Na Bagay (opsyonal) 
-  * `secure` na Boolean (opsyonal) - `true` upang irehistro ang iskema bilang ligtas. Ang default ay `false`.
+* `customSchemes` [CustomScheme[]](structures/custom-scheme.md)
 
-Ang isang standard na iskema ay sumasang-ayon sa kung tawagin ng RFC 3986 ay [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). Halimbawa ang `http` at ang `https` ay mga istandard na iskema, samantalang ang `file` ay hindi.
+**Note:** This method can only be used before the `ready` event of the `app` module gets emitted and can be called only once.
 
-Ang pagpaparehistro ng iskema bilang standard, ay papayagan ang may kaugnayan at tiyak na mapagkukunan na malulutas nang tama kapag isinilbi. Kung hindi man, ang panukala ay kikilos ng kagaya ng `file` na protokol, ngunit walang kakayahang lutasin ang may kaugnayang mga URL.
+Registers the `scheme` as standard, secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
 
-Halimbawa kapag ini-load mo ang mga sumusunod na pahina na may karaniwang protokol na hindi inirerehistro ito bilang standard na iskema, ang imahe ay hindi mailoload sapagkat ang hindi istandard na mga iskema ay hindi makakakilala ng may kaugnayang mga URL:
+Specify a privilege with the value of `true` to enable the capability. An example of registering a privileged scheme, with bypassing Content Security Policy:
+
+```javascript
+const { protocol } = require('electron')
+protocol.registerSchemesAsPrivileged([
+  { scheme: 'foo', privileges: { bypassCSP: true } }
+])
+```
+
+A standard scheme adheres to what RFC 3986 calls [generic URI syntax](https://tools.ietf.org/html/rfc3986#section-3). For example `http` and `https` are standard schemes, while `file` is not.
+
+Registering a scheme as standard, will allow relative and absolute resources to be resolved correctly when served. Otherwise the scheme will behave like the `file` protocol, but without the ability to resolve relative URLs.
+
+For example when you load following page with custom protocol without registering it as standard scheme, the image will not be loaded because non-standard schemes can not recognize relative URLs:
 
 ```html
 <body>
@@ -44,26 +55,33 @@ Halimbawa kapag ini-load mo ang mga sumusunod na pahina na may karaniwang protok
 </body>
 ```
 
-Ang pagrerehistro sa isang iskema bilang standard ay pinapayagan ang pagpunta sa mga file sa pamamagitan ng [FileSystemAPI](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem). Kung hindi man, ang taga-render ay magbabato ng isang pang-seguridad na pagkakamali para sa iskema.
+Registering a scheme as standard will allow access to files through the [FileSystem API](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem). Otherwise the renderer will throw a security error for the scheme.
 
-Sa default, ang mga api ng imbakan ng web (localStorage, sessionStorage, webSQL, indexedDB, cookies) ay hindi pinagana para sa hindi istandard na mga iskema. Kaya sa pangkalahatan kung gusto mong irehistro ang isang karaniwang protokol para palitan ng `http` na protokol, kailangan mo itong irehistro bilang isang istandard na iskema:
+By default web storage apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) are disabled for non standard schemes. So in general if you want to register a custom protocol to replace the `http` protocol, you have to register it as a standard scheme.
 
-```javascript
-const { app, protocol } = kailangan('electron')
+### `protocol.registerFileProtocol(scheme, handler[, completion])`
 
-protocol.registerStandardSchemes(['atom'])
-app.on('ready', () => {
-  protocol.registerHttpProtocol('atom', '...')
-})
-```
+* `scheme` na String
+* `tagahawak` Punsyon 
+  * `kahilingan` Bagay 
+    * `url` Tali
+    * `referer` String
+    * `method` na String
+    * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
+  * `callback` Punsyon 
+    * `filePath` String (optional)
+* `ang pagkumpleto` Function (opsyonal) 
+  * `error` Error
 
-**Tandaan:** Ang pamamaraan na ito ay maaari lamang gamitin bago lumabas ang ang `ready` na event ng `app` na modyul.
+Registers a protocol of `scheme` that will send the file as a response. The `handler` will be called with `handler(request, callback)` when a `request` is going to be created with `scheme`. `completion` will be called with `completion(null)` when `scheme` is successfully registered or `completion(error)` when failed.
 
-### `protocol.registerServiceWorkerSchemes(mga panukala)`
+To handle the `request`, the `callback` should be called with either the file's path or an object that has a `path` property, e.g. `callback(filePath)` or `callback({ path: filePath })`. The object may also have a `headers` property which gives a list of strings for the response headers, e.g. `callback({ path: filePath, headers: ["Content-Security-Policy: default-src 'none'"]})`.
 
-* `schemes` String[] - Ang karaniwang mga iskema na irerehistro para hawakan ang mga panserbisyong mga manggagawa.
+When `callback` is called with nothing, a number, or an object that has an `error` property, the `request` will fail with the `error` number you specified. For the available error numbers you can use, please see the [net error list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
-### `protocol.registerFileProtocol(panukala, tagahawak[,pagkumpleto])`
+By default the `scheme` is treated like `http:`, which is parsed differently than protocols that follow the "generic URI syntax" like `file:`, so you probably want to call `protocol.registerStandardSchemes` to have your scheme treated as a standard scheme.
+
+### `protocol.registerBufferProtocol(scheme, handler[, completion])`
 
 * `scheme` na String
 * `tagahawak` Function 
@@ -73,35 +91,13 @@ app.on('ready', () => {
     * `method` String
     * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
   * `callback` Punsyon 
-    * `filePath` na String (opsyonal)
+    * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (optional)
 * `ang pagkumpleto` Function (opsyonal) 
   * `error` Error
 
-Nagrerehistro ang isang protokol ng `scheme` na magpapadala sa file bilang isang tugon. Ang `handler` ay tatawagin kasama ang `handler(request, callback)` kapag ang isang `request` ay lilikhain kasama ang `scheme`. Ang `completion` ay tatawagin kasama ang `completion(null)` kapag ang `scheme` ay matagumpay na nairehistro o ang `completion(error)` kapag nabigo.
+Registers a protocol of `scheme` that will send a `Buffer` as a response.
 
-Para hawakan ang `request`, ang `callback` ay dapat tawagin na may alinman sa landas ng file o isang bagay na may katangian ng `path`, halimbawa. ang `callback(filePath)` o ang `callback({ path: filePath })`.
-
-Kapag ang `callback` ay tinawag ng walang kasama na isang numero, o isang bagay na may katangian ng `error`, ang `request` ay mabibigo kasama ang `error` na numero na iyong tinukoy. Para sa magagamit na mga maling numero na iyong gagamitin, pakiusap tingnan ang [net error list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
-
-Batay sa default ang `scheme` ay tinatrato katulad ng `http`, na sinusuri ng kakaiba sa mga protokol na sinusundan ang "generic URI syntax" katulad ng `file:`, kaya marahil gusto mong tawagin ang `protocol.registerStandardSchemes` para ang iyong iskema ay itrato bilang isang istandard na iskema.
-
-### `protocol.registerBufferProtocol(iskema, tagahawak[, pagkumpleto])`
-
-* `scheme` na String
-* `tagahawak` Punsyon 
-  * `kahilingan` Bagay 
-    * `url` Tali
-    * `referer` String
-    * `method` na String
-    * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Punsyon 
-    * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (opsyonal)
-* `pagkumpleto` Function (opsyonal) 
-  * `error` Error
-
-Nagrerehistro ng isang protokol ng `scheme` na magpapadala ng isang `Buffer` bilang isang tugon.
-
-Ang paggamit ay katulad din ng `registerFileProtocol`, maliban lang na ang `callback` ay dapat tawagin na may isang bagay ng `Buffer` o isang bagay na may mga katangian ng `data`, `mimeType`, at `charset`.
+The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `Buffer` object or an object that has the `data`, `mimeType`, and `charset` properties.
 
 Halimbawa:
 
@@ -115,7 +111,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 })
 ```
 
-### `protocol.regiterStringProtocol(panukala, tagahwak[, pagkumpleto])`
+### `protocol.registerStringProtocol(scheme, handler[, completion])`
 
 * `scheme` na String
 * `tagahawak` Punsyon 
@@ -124,26 +120,26 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
     * `referer` String
     * `method` na String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Punsyon 
     * `data` na String (opsyonal)
 * `pagkumpleto` Function (opsyonal) 
   * `error` Error
 
-Nagrerehistro ng isang protokol ng `scheme` na magpapadala ng isang `String` bilang isang tugon.
+Registers a protocol of `scheme` that will send a `String` as a response.
 
-Ang paggamit ay katulad din nang `registerFileProtocol`, maliban kung ang `callback` ay dapat tawagin na may isang bagay ng `String` o isang bagay na may mga katangian ng `data`, `mimeType`, at `charset`.
+The usage is the same with `registerFileProtocol`, except that the `callback` should be called with either a `String` or an object that has the `data`, `mimeType`, and `charset` properties.
 
-### `ang protocol.registerHttpProtocol(panukala, tagahawak[, pagkumpleto])`
+### `protocol.registerHttpProtocol(scheme, handler[, completion])`
 
 * `scheme` na String
-* `tagahawak` Ang Function 
+* `tagahawak` Punsyon 
   * `kahilingan` Bagay 
     * `url` Tali
     * `headers` Objek
     * `referer` String
     * `method` na String
-    * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Punsyon 
+    * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
+  * `callback` Function 
     * `ang redirectRequest` Bagay 
       * `url` Tali
       * `method` na String
@@ -154,7 +150,7 @@ Ang paggamit ay katulad din nang `registerFileProtocol`, maliban kung ang `callb
 * `pagkumpleto` Function (opsyonal) 
   * `error` Error
 
-Nagrerehistro ng isang protokol ng `scheme` na magpapadala ng isang HTTP na kahilingan bilang isang tugon.
+Registers a protocol of `scheme` that will send an HTTP request as a response.
 
 The usage is the same with `registerFileProtocol`, except that the `callback` should be called with a `redirectRequest` object that has the `url`, `method`, `referrer`, `uploadData` and `session` properties.
 
@@ -165,14 +161,14 @@ For POST requests the `uploadData` object must be provided.
 ### `protocol.registerStreamProtocol(scheme, handler[, completion])`
 
 * `scheme` na String
-* `tagahawak` Function 
+* `tagahawak` Ang Function 
   * `kahilingan` Bagay 
     * `url` Tali
-    * `header` Bagay
+    * `headers` Objek
     * `referer` String
     * `method` na String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
+  * `callback` Punsyon 
     * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
 * `pagkumpleto` Function (opsyonal) 
   * `error` Error
@@ -223,7 +219,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 ### `protocol.unregisterProtocol(scheme[, completion])`
 
 * `scheme` na String
-* `pagkumpleto` Function (opsyonal) 
+* `ang pagkumpleto` Function (opsyonal) 
   * `error` Error
 
 Unregisters the custom protocol of `scheme`.
@@ -231,10 +227,18 @@ Unregisters the custom protocol of `scheme`.
 ### `protocol.isProtocolHandled(scheme,callback)`
 
 * `scheme` na String
-* `callback` Function 
-  * `error` Error
+* `callback` Punsyon 
+  * `handled` Boolean
 
 The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
+
+**[Deprecated Soon](promisification.md)**
+
+### `protocol.isProtocolHandled(scheme)`
+
+* `scheme` na String
+
+Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether there is already a handler for `scheme`.
 
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
