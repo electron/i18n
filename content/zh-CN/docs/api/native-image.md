@@ -155,61 +155,67 @@ console.log(image)
 
 这意味着 `[-1, 0, 1]` 将使图像完全变白，`[-1, 1, 0]`将使图像完全变黑.
 
+In some cases, the `NSImageName` doesn't match its string representation; one example of this is `NSFolderImageName`, whose string representation would actually be `NSFolder`. Therefore, you'll need to determine the correct string representation for your image before passing it in. This can be done with the following:
+
+`echo -e '#import <Cocoa/Cocoa.h>\nint main() { NSLog(@"%@", SYSTEM_IMAGE_NAME); }' | clang -otest -x objective-c -framework Cocoa - && ./test`
+
+where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](https://developer.apple.com/documentation/appkit/nsimagename?language=objc).
+
 ## 类: NativeImage
 
 > 本机图像，如托盘、dock栏和应用图标。
 
-参见： [process](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) process
+进程： [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 ### 实例方法
 
-以下方法可用于 ` NativeImage ` 类的实例:
+The following methods are available on instances of the `NativeImage` class:
 
 #### `image.toPNG([options])`
 
 * `options` Object (可选) 
  * `scaleFactor` Double (可选) - 默认值为 1.0.
 
-返回 ` Buffer `-一个包含图像 ` PNG ` 编码数据的 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
+Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `PNG` encoded data.
 
 #### `image.toJPEG(quality)`
 
 * ` quality ` Integer (** 必需 **)-介于 0-100 之间。
 
-返回 ` Buffer `-一个包含图像 ` JPEG ` 编码数据的 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
+Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `JPEG` encoded data.
 
 #### `image.toBitmap([options])`
 
 * `options` Object (可选) 
  * `scaleFactor` Double (可选) - 默认值为 1.0.
 
-返回 ` Buffer `-一个包含图像的原始位图像素数据副本的 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
+Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains a copy of the image's raw bitmap pixel data.
 
 #### `image.toDataURL([options])`
 
 * `options` Object (可选) 
  * `scaleFactor` Double (可选) - 默认值为 1.0.
 
-返回 ` String `-图像的数据 URL。
+Returns `String` - The data URL of the image.
 
 #### `image.getBitmap([options])`
 
 * `options` Object (可选) 
  * `scaleFactor` Double (可选) - 默认值为 1.0.
 
-返回 ` Buffer `-一个包含图像原始位图像素数据的 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
+Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's raw bitmap pixel data.
 
-`getBitmap()` 和 `toBitmap() 的不同之处在于，<code>getBitmap()` 不会拷贝位图数据，所以你必须在返回 Buffer 后立刻使用它，否则数据可能会被更改或销毁
+The difference between `getBitmap()` and `toBitmap()` is, `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick, otherwise the data might be changed or destroyed.
 
 #### `image.getNativeHandle()` *macOS*
 
-返回 ` Buffer `-一个 [ Buffer ](https://nodejs.org/api/buffer.html#buffer_class_buffer), 它将 C 指针存储在图像的基础本机句柄上。 在 macOS 上, 将返回指向 ` NSImage ` 实例的指针。
+Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that stores C pointer to underlying native handle of the image. On macOS, a pointer to `NSImage` instance would be returned.
 
-请注意, 返回的指针是指向基础本机映像而不是副本的弱指针, 因此 * 必须 * 确保关联的 ` nativeImage ` 实例保留在周围。
+Notice that the returned pointer is a weak pointer to the underlying native image instead of a copy, so you *must* ensure that the associated `nativeImage` instance is kept around.
 
 #### `image.isEmpty()`
 
-返回 ` Boolean `-图像是否为空。
+Returns `Boolean` - Whether the image is empty.
 
 #### `image.getSize()`
 
@@ -219,32 +225,32 @@ Returns [`Size`](structures/size.md)
 
 * `option` Boolean
 
-将图像标记为模板图像。
+Marks the image as a template image.
 
 #### `image.isTemplateImage()`
 
-返回 ` Boolean `-图像是否为模板图像。
+Returns `Boolean` - Whether the image is a template image.
 
 #### `image.crop(rect)`
 
 * ` rect `[ Rectangle ](structures/rectangle.md)-要裁剪的图像区域.
 
-返回 ` NativeImage `-裁剪的图像。
+Returns `NativeImage` - The cropped image.
 
 #### `image.resize(options)`
 
 * ` options `Object * ` width ` Integer (可选)-默认为图像的宽度。 * `height` Integer (可选) - 默认值为图片高度. * `quality` String (optional) 所要设置的图片质量。 支持的值为`good`, `better` 或`best`. 默认值为`best`. 这些值表示期望的 质量/速度 的权衡。 它们被翻译成一种基于算法的方法，它依赖于底层平台的能力(CPU, GPU)。 这三种方法都可以在指定的平台上映射到相同的算法。
 
-返回 ` NativeImage `-裁剪的图像。
+Returns `NativeImage` - The resized image.
 
-如果只指定` height `或` width `，那么当前的长宽比将保留在缩放图像中。
+If only the `height` or the `width` are specified then the current aspect ratio will be preserved in the resized image.
 
 #### `image.getAspectRatio()`
 
-返回 `Float` - 图像的长宽比.
+Returns `Float` - The image's aspect ratio.
 
 #### `image.addRepresentation(options)`
 
 * `options` Object * `scaleFactor` Double - 要添加图像的缩放系数. * `width` Integer (可选) - 默认值为 0. 如果将位图缓冲区指定为` buffer `, 则为必填项。 * `height` Integer (可选) - 默认值为 0. 如果将位图缓冲区指定为` buffer `, 则为必填项。 * `buffer` Buffer (可选) - 包含原始图像数据的缓冲区. * `dataURL` String (可选) - data URL 可以为 base 64 编码的 PNG 或 JPEG 图像.
 
-添加特定比例的图像表示。这可以明确地用来向图像添加不同的比例表示。这可以在空图像上调用。
+Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
