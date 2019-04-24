@@ -12,6 +12,7 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 
 * `crash()`
 * `hang()`
+* `getCreationTime()`
 * `getHeapStatistics()`
 * `getProcessMemoryInfo()`
 * `getSystemMemoryInfo()`
@@ -23,7 +24,6 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 * `pid`
 * `arch`
 * `platform`
-* `resourcesPath`
 * `sandboxed`
 * `ang uri`
 * `version`
@@ -55,61 +55,69 @@ process.once('loaded', () => {
 
 Ang `Boolean`. Kung ang app ay nagsimula sa pamamagitan ng ipinapasa bilang parametro sa default app, ang katangiang ito ay `totoo` sa pangunahing proseso, kunghindiman ito ay `malabo`
 
-### `proseso.mas`
+### `process.isMainFrame`
 
-Ang `Boolean`. Para sa itinayo na Mac App Store, ang propyedad na ito ay `totoo`, para sa ibang initayo ito ay `malabo`.
+A `Boolean`, `true` when the current renderer context is the "main" renderer frame. If you want the ID of the current frame you should use `webFrame.routingId`.
 
-### `proseso.noAsar`
+### `process.mas`
 
-Ang `Boolean` na nag kontrol ng ASAR ay nagsuporta sa loob ng iyong aplikasyon. Ang pag set nito sa `totoo` ay hindi mapapagana ang suporta para `asar`arkibos sa Node's built-in modyul.
+A `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
 
-### `proseso.noDeprecation`
+### `process.noAsar`
 
-A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`. Setting this to `true` will silence deprecation warnings. Ang propeyedad na ito ai ginagamit sa halip na `--walang-deprecation` nagt-utos ng linya ng bandila.
+A `Boolean` that controls ASAR support inside your application. Setting this to `true` will disable the support for `asar` archives in Node's built-in modules.
 
-### `proseso.pinagkukunanPath`
+### `process.noDeprecation`
 
-Ang `String` nag representa ng landas patungo sa pangunahing panuto.
+A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`. Setting this to `true` will silence deprecation warnings. This property is used instead of the `--no-deprecation` command line flag.
+
+### `process.enablePromiseAPIs`
+
+A `Boolean` that controls whether or not deprecation warnings are printed to `stderr` when formerly callback-based APIs converted to Promises are invoked using callbacks. Setting this to `true` will enable deprecation warnings.
+
+### `process.resourcesPath`
+
+A `String` representing the path to the resources directory.
 
 ### `process.sandboxed`
 
 A `Boolean`. When the renderer process is sandboxed, this property is `true`, otherwise it is `undefined`.
 
-### `proseso.itaponDeprecation`
+### `process.throwDeprecation`
 
-Ang `Boolean` na kumokontrol kung o hindi ang mga babala sa deprecation ay matatapon bilang eskepsyon. Ang pagtatakda ng mga ito na `totoo` ay magtatapon ng mali para sa deprecations. Ang propeyedad na ito ay ginagamit sa halip na `--tapon-deprecation` naguutos sa bandilang linya.
+A `Boolean` that controls whether or not deprecation warnings will be thrown as exceptions. Setting this to `true` will throw errors for deprecations. This property is used instead of the `--throw-deprecation` command line flag.
 
-### `proseso.bakasDeprecation`
+### `process.traceDeprecation`
 
-Ang `Boolean` na nagkontrol kung o hindi ang deprecation ay nakalimbag sa `stderr` isinama ng isinalansan na bakas. Setting this to `true` will print stack traces for deprecations. Ang propeyedad na ito ay sa halip na ang `--bakas-deprecation` naguutos ng linyang bandila.
+A `Boolean` that controls whether or not deprecations printed to `stderr` include their stack trace. Setting this to `true` will print stack traces for deprecations. This property is instead of the `--trace-deprecation` command line flag.
 
-### `proseso.bakasProsesoBabala`
+### `process.traceProcessWarnings`
 
-Ang `Boolean` na nagkontrol kung o hindi na ang mga babalang proseso ay nakalimbag sa `stderr` isama sa isinalansan na bakas. Setting this to `true` will print stack traces for process warnings (including deprecations). This property is instead of the `--trace-warnings` command line flag.
+A `Boolean` that controls whether or not process warnings printed to `stderr` include their stack trace. Setting this to `true` will print stack traces for process warnings (including deprecations). This property is instead of the `--trace-warnings` command line flag.
 
-### `proseso.uri`
+### `process.type`
 
-Ang `String` ay nagrepresenta sa kasalukuyang prosesong uri, pwede ring `"browser"`(i.e pangunahing proses) o `"gumawa"`.
+A `String` representing the current process's type, can be `"browser"` (i.e. main process), `"renderer"`, or `"worker"` (i.e. web worker).
 
-### `proseso.bersyon.chrome`
+### `process.versions.chrome`
 
-Ang `String` nagrepresenta sa bersyon ng Chrome string.
+A `String` representing Chrome's version string.
 
-### `proseso.bersyon.electron`
+### `process.versions.electron`
 
-Ang `String` nag representang bersyon ng Electron string.
+A `String` representing Electron's version string.
 
-### `proseso.windowsStore`
+### `process.windowsStore`
 
-Ang `Boolean`. Kung ang app ay tumatakbo bilang Windows Store app (appx), ang propeyedad a `totoo`, para kung hindimna ito ay `malabo`.
+A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
 
 ## Mga Paraan
 
-Ang `proseso` na bagay ay may mga sumusunod na paraan:
+The `process` object has the following methods:
 
-### `proseso.crash()`
+### `process.crash()`
 
-Ang mga dahilan ng pangunahing thread sa kasalukuyang proseso ay lumagpak.
+Causes the main thread of the current process crash.
 
 ### `process.getCreationTime()`
 
@@ -117,13 +125,13 @@ Returns `Number | null` - The number of milliseconds since epoch, or `null` if t
 
 Indicates the creation time of the application. The time is represented as number of milliseconds since epoch. It returns null if it is unable to get the process creation time.
 
-### `proseso.getCPUUsage()`
+### `process.getCPUUsage()`
 
-Pagbabalik [` CPUUsage `](structures/cpu-usage.md)
+Returns [`CPUUsage`](structures/cpu-usage.md)
 
-### ` proseso.kuhaIOCounter()`*Windows**Linux*
+### `process.getIOCounters()` *Windows* *Linux*
 
-Pagbabalik [`IOCounters`](structures/io-counters.md)
+Returns [`IOCounters`](structures/io-counters.md)
 
 ### `process.getHeapStatistics()`
 
@@ -141,9 +149,9 @@ Nagbabalik ng mga `bagay`:
 
 Returns an object with V8 heap statistics. Note that all statistics are reported in Kilobytes.
 
-### `proseso.getProsesoMemoryaInfo()`
+### `process.getProcessMemoryInfo()`
 
-Nagbabalik ng mga `bagay`:
+Returns `Object`:
 
 * `residentSet` Integer *Linux* and *Windows* - The amount of memory currently pinned to actual physical RAM in Kilobytes.
 * `private` Integer - The amount of memory not shared by other processes, such as JS heap or HTML content in Kilobytes.
@@ -153,7 +161,7 @@ Returns an object giving memory usage statistics about the current process. Note
 
 Chromium does not provide `residentSet` value for macOS. This is because macOS performs in-memory compression of pages that haven't been recently used. As a result the resident set size value is not what one would expect. `private` memory is more representative of the actual pre-compression memory usage of the process on macOS.
 
-### `proseso.getSystemMemoryInfo()`
+### `process.getSystemMemoryInfo()`
 
 Returns `Object`:
 
@@ -162,7 +170,7 @@ Returns `Object`:
 * `swapTotal` Integer *Windows* *Linux* - The total amount of swap memory in Kilobytes available to the system.
 * `swapFree` Integer *Windows* *Linux* - The free amount of swap memory in Kilobytes available to the system.
 
-Nagbabalik ng bagay at nagbibigay ng memoryang gamit na istatistika tungkol sa buong sistema. Tandaan na ang lahat ng istatistika ay inuulat sa Kilobytes.
+Returns an object giving memory usage statistics about the entire system. Note that all statistics are reported in Kilobytes.
 
 ### `process.takeHeapSnapshot(filePath)`
 
@@ -172,12 +180,12 @@ Returns `Boolean` - Indicates whether the snapshot has been created successfully
 
 Takes a V8 heap snapshot and saves it to `filePath`.
 
-### `proseso.hang()`
+### `process.hang()`
 
-Dahilan na ang pangunahing thread sa kasalukuyang proseso sabit.
+Causes the main thread of the current process hang.
 
-### `proseso.setFdLimit(maxDescriptors)`macOS</em>*Linux*
+### `process.setFdLimit(maxDescriptors)` *macOS* *Linux*
 
 * `maxDescriptors` Integer
 
-Itakda ang file na tagapaglarawan sa mahinang limitasyon sa `maxDescriptors` o sa OS malakas na limitasyon, alinman ang mas mababa sa kasalukuyang proseso.
+Sets the file descriptor soft limit to `maxDescriptors` or the OS hard limit, whichever is lower for the current process.
