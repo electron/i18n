@@ -34,7 +34,7 @@ Returns `Boolean` - Whether the item was successfully opened.
 
 Open the given file in the desktop's default manner.
 
-### `shell.openExternalSync(url[, options])`
+### `shell.openExternalSync(url[, opzioni])`
 
 * `url` String - Max 2081 characters on Windows, or the function returns false.
 * `options` Object (opzionale) 
@@ -45,7 +45,7 @@ Returns `Boolean` - Whether an application was available to open the URL.
 
 Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
 
-### `shell.openExternal(url[, options])`
+### `shell.openExternal(url[, opzioni])`
 
 * `url` String - Max 2081 characters on windows.
 * `options` Object (opzionale) 
