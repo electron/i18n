@@ -12,7 +12,7 @@
 
 * メッセージを送信しているとき、イベント名は `channel` です。
 * 同期メッセージに返信をするには、`event.returnValue` を設定する必要があります。
-* 非同期メッセージを送信元に返信するには、`event.sender.send(...)` を使用できます。
+* To send an asynchronous message back to the sender, you can use `event.reply(...)`. This helper method will automatically handle messages coming from frames that aren't the main frame (e.g. iframes) whereas `event.sender.send(...)` will always send to the main frame.
 
 レンダラー/メインプロセス間のメッセージの送信と処理の例:
 
@@ -20,12 +20,12 @@
 // メインプロセス
 const { ipcMain } = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
-  console.log(arg)  // "ping"を表示
-  event.sender.send('asynchronous-reply', 'pong')
+  console.log(arg) // prints "ping"
+  event.reply('asynchronous-reply', 'pong')
 })
 
 ipcMain.on('synchronous-message', (event, arg) => {
-  console.log(arg)  // "ping"を表示
+  console.log(arg) // prints "ping"
   event.returnValue = 'pong'
 })
 ```
@@ -76,10 +76,18 @@ ipcRenderer.send('asynchronous-message', 'ping')
 
 `callback` に渡される `event` オブジェクトには以下のメソッドがあります。
 
+### `event.frameId`
+
+An `Integer` representing the ID of the renderer frame that sent this message.
+
 ### `event.returnValue`
 
-同期メッセージでの戻り値をこれにセットします。
+Set this to the value to be returned in a synchronous message.
 
 ### `event.sender`
 
-メッセージを送った `webContents` を返します。`event.sender.send` を呼ぶことで、非同期メッセージに返信できます。より詳しくは [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) を参照して下さい。
+Returns the `webContents` that sent the message, you can call `event.sender.send` to reply to the asynchronous message, see [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for more information.
+
+### `event.reply`
+
+A function that will send an IPC message to the renderer frane that sent the original message that you are currently handling. You should use this method to "reply" to the sent message in order to guaruntee the reply will go to the correct process and frame.
