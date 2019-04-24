@@ -55,9 +55,9 @@ Get a set of category groups. The category groups can change as new code paths a
 * `options` ([TraceCategoriesAndOptions](structures/trace-categories-and-options.md) | [TraceConfig](structures/trace-config.md))
 * `callback` Function
 
-Start recording on all processes.
+すべてのプロセスで記録を開始します。
 
-Recording begins immediately locally and asynchronously on child processes as soon as they receive the EnableRecording request. The `callback` will be called once all child processes have acknowledged the `startRecording` request.
+EnableRecordingリクエストを受信するとすぐにローカルでは即時、子プロセスでは非同期的に記録が開始されます。 一度、すべての子プロセスが `startRecording` リクエストを受諾したら、`callback` が呼び出されます。
 
 **[Deprecated Soon](promisification.md)**
 
@@ -67,9 +67,9 @@ Recording begins immediately locally and asynchronously on child processes as so
 
 Returns `Promise<void>` - resolved once all child processes have acknowledged the `startRecording` request.
 
-Start recording on all processes.
+すべてのプロセスで記録を開始します。
 
-Recording begins immediately locally and asynchronously on child processes as soon as they receive the EnableRecording request.
+EnableRecordingリクエストを受信するとすぐにローカルでは即時、子プロセスでは非同期的に記録が開始されます。
 
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
@@ -77,13 +77,13 @@ Recording begins immediately locally and asynchronously on child processes as so
 * `callback` Function 
   * `resultFilePath` String
 
-Stop recording on all processes.
+すべてのプロセスで記録を停止します。
 
-Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This helps to minimize the runtime overhead of tracing since sending trace data over IPC can be an expensive operation. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
+子プロセスは、大抵、トレースデータをキャッシュし、滅多に書き出さず、メインプロセスにトレースデータを送り返すだけです。 トレースデータをIPC越しに送信するのは高負荷な操作であるため、これはトレースのランタイムオーバーヘッドを最小化するのに役立ちます。 そのため、トレースを終了するには、すべての子プロセスに保留中のトレースデータを書き出すように非同期で指示しなければなりません。
 
-Once all child processes have acknowledged the `stopRecording` request, `callback` will be called with a file that contains the traced data.
+一度、すべての子プロセスが `startRecording` リクエストを受諾したら、トレースデータを含むファイルと一緒に `callback` が呼び出されます。
 
-Trace data will be written into `resultFilePath` if it is not empty or into a temporary file. The actual file path will be passed to `callback` if it's not `null`.
+空でない場合は `resultFilePath`、そうでない場合、一時ファイルにトレースデータは書き込まれます。実際のファイルパスは `null` でない場合、`callback` に渡されます。
 
 **[Deprecated Soon](promisification.md)**
 
@@ -93,9 +93,9 @@ Trace data will be written into `resultFilePath` if it is not empty or into a te
 
 Returns `Promise<String>` - resolves with a file that contains the traced data once all child processes have acknowledged the `stopRecording` request
 
-Stop recording on all processes.
+すべてのプロセスで記録を停止します。
 
-Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This helps to minimize the runtime overhead of tracing since sending trace data over IPC can be an expensive operation. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
+子プロセスは、大抵、トレースデータをキャッシュし、滅多に書き出さず、メインプロセスにトレースデータを送り返すだけです。 トレースデータをIPC越しに送信するのは高負荷な操作であるため、これはトレースのランタイムオーバーヘッドを最小化するのに役立ちます。 そのため、トレースを終了するには、すべての子プロセスに保留中のトレースデータを書き出すように非同期で指示しなければなりません。
 
 Trace data will be written into `resultFilePath` if it is not empty or into a temporary file.
 
@@ -105,4 +105,4 @@ Trace data will be written into `resultFilePath` if it is not empty or into a te
   * `value` Number
   * `percentage` Number
 
-Get the maximum usage across processes of trace buffer as a percentage of the full state. When the TraceBufferUsage value is determined the `callback` is called.
+完全な形式のパーセンテージとして、トレースバッファーのプロセス間の最大使用率を取得します。TraceBufferUsageの値が確定したとき、`callback` が呼び出されます。
