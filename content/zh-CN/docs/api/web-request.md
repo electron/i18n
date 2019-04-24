@@ -38,13 +38,14 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 * `filter` Object (可选) 
   * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
-* `listener` Function - 回调函数 
+* `listener` Function | null 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (可选)
     * `resourceType` String
+    * `referrer` String
     * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function - 回调函数 
@@ -62,13 +63,14 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 * `filter` Object (可选) 
   * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。
-* `listener` Function - 回调函数 
+* `listener` Function | null 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (可选)
     * `resourceType` String
+    * `referrer` String
     * `timestamp` Double
     * `requestHeaders` Object
   * `callback` Function - 回调函数 
@@ -84,13 +86,14 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 * `过滤` Object (可选) 
   * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。
-* `listener` Function - 回调函数 
+* `listener` Function | null 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (可选)
     * `resourceType` String
+    * `referrer` String
     * `timestamp` Double
     * `requestHeaders` Object
 
@@ -100,13 +103,14 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 * `filter` Object (可选) 
   * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。
-* `listener` Function - 回调函数 
+* `listener` Function | null 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (可选)
     * `resourceType` String
+    * `referrer` String
     * `timestamp` Double
     * `statusLine` String
     * `statusCode` Integer
@@ -125,16 +129,17 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 * `filter` Object (可选) 
   * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。
-* `listener` Function - 回调函数 
+* `listener` Function | null 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (可选)
     * `resourceType` String
+    * `referrer` String
     * `timestamp` Double
     * `responseHeaders` Object
-    * `fromCache` Boolean - 表明响应是取自硬盘缓存。
+    * `fromCache` Boolean - Indicates whether the response was fetched from disk cache.
     * `statusCode` Integer
     * `statusLine` String
 
@@ -144,17 +149,18 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 * `filter` Object (可选) 
   * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。
-* `listener` Function - 回调函数 
+* `listener` Function | null 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (可选)
     * `resourceType` String
+    * `referrer` String
     * `timestamp` Double
     * `redirectURL` String
     * `statusCode` Integer
-    * `ip` String (可选) - 请求实际发送到的服务器 IP 地址。
+    * `ip` String (optional) - The server IP address that the request was actually sent to.
     * `fromCache` Boolean
     * `responseHeaders` Object
 
@@ -164,7 +170,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 * `filter` Object (可选) 
   * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。
-* `listener` Function - 回调函数 
+* `listener` Function | null 
   * `details` Object 
     * `id` Integer
     * `url` String
@@ -184,15 +190,16 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 * `filter` Object (可选) 
   * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。
-* `listener` Function - 回调函数 
+* `listener` Function | null 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (可选)
     * `resourceType` String
+    * `referrer` String
     * `timestamp` Double
     * `fromCache` Boolean
-    * `error` String - 错误描述.
+    * `error` String - The error description.
 
 当发生错误时，将以 `listener(details)`的方式调用`listener`。
