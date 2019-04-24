@@ -26,31 +26,31 @@ Passing `null` will suppress the default menu. On Windows and Linux, this has th
 
 #### `Menu.getApplicationMenu()`
 
-Returns `Menu | null` - The application menu, if set, or `null`, if not set.
+戻り値 `Menu | null` - セットされていれば menu を、そうでなければ `null` を返します。
 
-**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) can still be dynamically modified.
+**注釈:** 返される `Menu` のインスタンスは、メニューアイテムの動的な追加または削除をサポートしていません。 [インスタンス プロパティ](#instance-properties) は動的に変更ができます。
 
 #### `Menu.sendActionToFirstResponder(action)` *macOS*
 
 * `action` String
 
-Sends the `action` to the first responder of application. This is used for emulating default macOS menu behaviors. Usually you would use the [`role`](menu-item.md#roles) property of a [`MenuItem`](menu-item.md).
+`action` をアプリケーションの最初のレスポンダーに送信します。 macOS メニューの既定の動作をエミュレートするために使用されます。 通常は [`MenuItem`](menu-item.md) の [`role`](menu-item.md#roles) プロパティを使用します。
 
-See the [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7) for more information on macOS' native actions.
+macOSネイティブなアクションに関しては[macOS Cocoa Event Handling Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7)を参照してください。
 
 #### `Menu.buildFromTemplate(template)`
 
 * `template` (MenuItemConstructorOptions | MenuItem)[]
 
-Returns `Menu`
+戻り値 `Menu`
 
-Generally, the `template` is an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
+一般的に、`template` は [MenuItem](menu-item.md) を構築するための `options` の配列です。使用方法は上記を参照できます。
 
 You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
 
 ### インスタンスメソッド
 
-The `menu` object has the following instance methods:
+`menu` オブジェクトには以下のメソッドがあります。
 
 #### `menu.popup(options)`
 
@@ -61,36 +61,36 @@ The `menu` object has the following instance methods:
   * `positioningItem` Number (任意) *macOS* - マウスカーソルの位置に配置するメニューアイテムのインデックス。省略値は -1。
   * `callback` Function (任意) - メニューが閉じたしたときに呼ばれます。
 
-Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
+この menu を [`BrowserWindow`](browser-window.md) 内のコンテキストメニューとしてポップアップします。
 
 #### `menu.closePopup([browserWindow])`
 
 * `browserWindow` [BrowserWindow](browser-window.md) (任意) - 省略値はフォーカスされたウインドウです。
 
-Closes the context menu in the `browserWindow`.
+`browserWindow` 内のこのコンテキストメニューを閉じます。
 
 #### `menu.append(menuItem)`
 
 * `menuItem` [MenuItem](menu-item.md)
 
-Appends the `menuItem` to the menu.
+menu に `menuItem` を追加します。
 
 #### `menu.getMenuItemById(id)`
 
 * `id` String
 
-Returns `MenuItem` the item with the specified `id`
+戻り値 `MenuItem` - 指定した `id` のアイテム。
 
 #### `menu.insert(pos, menuItem)`
 
 * `pos` Integer
 * `menuItem` [MenuItem](menu-item.md)
 
-Inserts the `menuItem` to the `pos` position of the menu.
+menu の `pos` の位置に `menuItem` を挿入します。
 
 ### インスタンスイベント
 
-Objects created with `new Menu` emit the following events:
+`new Menu` で作成されたオブジェクトでは以下のイベントが発生します。
 
 **注:** いくつかのイベントは特定のオペレーティングシステムでのみ利用可能で、そのように注記がつけられています。
 
@@ -100,7 +100,7 @@ Objects created with `new Menu` emit the following events:
 
 * `event` Event
 
-Emitted when `menu.popup()` is called.
+`menu.popup()` が呼ばれたときに発生します。
 
 #### イベント: 'menu-will-close'
 
@@ -108,29 +108,29 @@ Emitted when `menu.popup()` is called.
 
 * `event` Event
 
-Emitted when a popup is closed either manually or with `menu.closePopup()`.
+手動か `menu.closePopup()` でポップアップが閉じられたときに発生します。
 
 ### インスタンスプロパティ
 
-`menu` objects also have the following properties:
+`menu` オブジェクトには更に以下のプロパティがあります。
 
 #### `menu.items`
 
-A `MenuItem[]` array containing the menu's items.
+menu のアイテムが入った配列 `MenuItem[]`。
 
-Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
+それぞれの `Menu` は複数の [`MenuItem`](menu-item.md) で構成され、それぞれの `MenuItem` はサブメニューを持つことができます。
 
 ### インスタンスイベント
 
-Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
+`new Menu` で作成されたオブジェクトまたは `Menu.buildFromTemplate` によって返されたオブジェクトは、以下のイベントが発生します。
 
 ## サンプル
 
-The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
+`Menu` クラスはメインプロセスでのみ有効ですが、[`remote`](remote.md) オブジェクトを介してレンダラープロセス内で使うこともできます。
 
 ### メインプロセス
 
-An example of creating the application menu in the main process with the simple template API:
+シンプルなテンプレートAPIを使用して、メインプロセスでアプリケーションメニューを作成するサンプル。
 
 ```javascript
 const { app, Menu } = require('electron')
@@ -235,7 +235,7 @@ Menu.setApplicationMenu(menu)
 
 ### レンダラープロセス
 
-Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
+以下はウェブページ (レンダープロセス) で [`remote`](remote.md) オブジェクトを用いて動的にメニューを作成し、ユーザがページを右クリックしたときに表示するサンプルです。
 
 ```html
 <!-- index.html -->
@@ -257,11 +257,11 @@ window.addEventListener('contextmenu', (e) => {
 
 ## macOS アプリケーションメニューについて
 
-macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
+macOS は、Windows や Linux とは全く異なるスタイルのアプリケーションメニューです。ここにはあなたのアプリのメニューをよりネイティブにするための注意事項があります。
 
 ### 標準メニュー
 
-On macOS there are many system-defined standard menus, like the `Services` and `Windows` menus. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
+macOS には、`サービス`や`ウインドウ`のような、いくつものシステム定義な標準メニューがあります。 メニューを標準メニューにするには、メニューの `role` を次のいずれかに設定する必要があります。Electron はそれらを認識して標準メニューにします。
 
 * `window`
 * `help`
@@ -269,30 +269,30 @@ On macOS there are many system-defined standard menus, like the `Services` and `
 
 ### 標準メニューアイテムアクション
 
-macOS has provided standard actions for some menu items, like `About xxx`, `Hide xxx`, and `Hide Others`. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
+macOS はいくつかのメニューアイテムに、`About xxx` や `Hide xxx`、`Hide Others` といった標準アクションを提供しています。 メニューアイテムのアクションを標準アクションに設定するには、メニューアイテムの `role` 属性を設定する必要があります。
 
 ### メインメニュー名
 
-On macOS the label of the application menu's first item is always your app's name, no matter what label you set. To change it, modify your app bundle's `Info.plist` file. See [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) for more information.
+macOS のアプリケーションメニューの最初のアイテムのラベルは、設定した名前に関係なく、アプリ名になります。 これを変えるには、アプリのバンドルの `Info.plist` ファイルを変更します。 より詳しくは、[情報プロパティリストファイルについて](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) を参照して下さい。
 
 ## 特定のブラウザウインドウのメニューの設定 (*Linux* *Windows*)
 
-The [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) of browser windows can set the menu of certain browser windows.
+ブラウザウインドウの [`setMenu` メソッド](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) は、特定のブラウザウインドウのメニューを設定できます。
 
 ## メニューアイテムの位置
 
-You can make use of `before`, `after`, `beforeGroupContaining`, `afterGroupContaining` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
+`Menu.buildFromTemplate` でメニューを構築するとき、アイテムをどのように配置するかを制御するのに、`before`, `after`, `beforeGroupContaining`, `afterGroupContaining`, `id` が使用できます。
 
 * `before` - 指定したラベルの前にこのアイテムを挿入します。 参照された項目が存在しない場合、アイテムはメニューの最後に挿入されます。 また、与えられたメニューアイテムをそのアイテムと同じ「グループ」に配置する必要があることを意味します。
 * `after` - 指定したラベルの後にこのアイテムを挿入します。 参照された項目が存在しない場合、アイテムはメニューの最後に挿入されます。 また、与えられたメニューアイテムをそのアイテムと同じ「グループ」に配置する必要があることを意味します。
 * `beforeGroupContaining` - 単一のコンテキストメニューで、指定されたラベルのアイテムを含むグループの前に、そのグループの配置を宣言する手段を提供します。
 * ` afterGroupContaining ` - 単一のコンテキストメニューで、指定されたラベルのアイテムを含むグループの後に、そのグループの配置を宣言する手段を提供します。
 
-By default, items will be inserted in the order they exist in the template unless one of the specified positioning keywords is used.
+デフォルトでは、指定された位置指定キーワードのうち1つも使用されていない限り、アイテムはテンプレートに存在する順序で挿入されます。
 
 ### サンプル
 
-Template:
+テンプレート:
 
 ```javascript
 [
@@ -312,7 +312,7 @@ Menu:
 - 4
 ```
 
-Template:
+テンプレート:
 
 ```javascript
 [
@@ -336,7 +336,7 @@ Menu:
 - 2
 ```
 
-Template:
+テンプレート:
 
 ```javascript
 [
