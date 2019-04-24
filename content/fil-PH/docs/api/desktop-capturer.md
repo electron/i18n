@@ -88,7 +88,7 @@ Ang `sources` ay isang "array" ng [`DesktopCapturerSource`](structures/desktop-c
 
 ### `desktopCapturer.getSources(options)`
 
-* `pagpipilian` Bagay 
+* `mga pagpipilian` Bagay 
   * `types` String[] - Ang array ng "Strings" na naglilista ng iba't-ibang uri ng mga "source" ng "desktop" na kukunin, ang mga maaaring gamitin na uri ay `screen` at `window`.
   * `thumbnailSize` [Ang laki](structures/size.md) (opsyonal) - ang laki ng media sourceay thumbnail dapat sukatan. Default ay `150` x `150`.
   * `fetchWindowIcons` Boolean (optional) - Set to true to enable fetching window icons. The default value is false. When false the appIcon property of the sources return null. Same if a source has the type screen.
