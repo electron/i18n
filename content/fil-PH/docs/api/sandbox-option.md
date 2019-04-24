@@ -53,7 +53,7 @@ If you need to mix sandboxed and non-sandboxed renderers in one application, omi
 
 ## Preload
 
-An app can make customizations to sandboxed renderers using a preload script. Here's an example:
+Ang app na ito ay maaaring makapagcustomize sa sandboxed renderers gamit ang preload script. Ito ang halimbawa:
 
 ```js
 let win
@@ -68,7 +68,7 @@ win.loadURL('http://google.com')
 })
 ```
 
-and preload.js:
+at preload.js:
 
 ```js
 // Ang file na ito ay isinasakay tuwing ang isang javascript na konteksto ay nilikha. It runs in a
@@ -93,13 +93,13 @@ function customWindowOpen (url, ...args) {
 window.open = customWindowOpen
 ```
 
-Important things to notice in the preload script:
+Mahahalagang bagay na mapapansin sa preload script:
 
 - Even though the sandboxed renderer doesn't have Node.js running, it still has access to a limited node-like environment: `Buffer`, `process`, `setImmediate` and `require` are available.
 - Ang preload script ay maaaring ma-akses na hindi direkta ang lahat na APIs na mula sa pangunahing proseso sa pamamagitan ng `remote` at `ipcRenderer` na mga modyul. Ito ay kung paano ang `fs` (na ginagamit sa itaas) at ang ibang modyul ay ipinatupad: Ang mga proxy na katapat sa pangunahing proseso.
 - Ang preload script ay dapat nakapaloob sa isang iskrip, pero ito din ay posible na magkaroon ng mga kumplikado na preload na kodigo na binubuo ng maramihang mga modyul sa parang kasangkapan na browserify, na naipaliwanag sa ibaba. In fact, browserify is already used by Electron to provide a node-like environment to the preload script.
 
-To create a browserify bundle and use it as a preload script, something like the following should be used:
+Sa paglikha ng isang bungkos ng browserify at gamitin ito bilang isang preload na iskrip, ang sumusunod ay dapat gamitin:
 
 ```sh
   browserify preload/index.js \
@@ -108,9 +108,9 @@ To create a browserify bundle and use it as a preload script, something like the
     --insert-global-vars=__filename,__dirname -o preload.js
 ```
 
-The `-x` flag should be used with any required module that is already exposed in the preload scope, and tells browserify to use the enclosing `require` function for it. `--insert-global-vars` will ensure that `process`, `Buffer` and `setImmediate` are also taken from the enclosing scope(normally browserify injects code for those).
+Ang `-x` na watawat ay dapat gamitin sa anumang modyul na kasalukuyang nka-ekspos sa preload na saklaw, at nagsasabi sa browserify na gamitin ang enclosing na `require` na function nito. `--paningit-global-vars` ay tinitiyak na `proseso`, `Buffer` at `setlmmediate` ay nakukuha rin mula sa nka-enclose na saklaw(normally browserify injects code para sa mga).
 
-Currently the `require` function provided in the preload scope exposes the following modules:
+Kasalukuyan ang `require` ng function na nakapagbibigay ng preload na saklaw na inilalantad sa mga sumusunod na mga modyul:
 
 - `child_process`
 - `electron` 
@@ -127,11 +127,11 @@ More may be added as needed to expose more Electron APIs in the sandbox, but any
 
 ## Katayuan
 
-Please use the `sandbox` option with care, as it is still an experimental feature. We are still not aware of the security implications of exposing some Electron renderer APIs to the preload script, but here are some things to consider before rendering untrusted content:
+Pakiusap na gamitin ang `sandbox` na opsyun na may pangangalaga, katulad pa rin sa isang experimentong tampok nito. We are still not aware of the security implications of exposing some Electron renderer APIs to the preload script, but here are some things to consider before rendering untrusted content:
 
 - A preload script can accidentally leak privileged APIs to untrusted code.
 - Ang ilang bug sa V8 engine ay maaring payagan ang malisyusong kodigo para ma-akses ang renderer preload APIs, na epiktibong bigyan ng buong akses sa sistema sa pamamagitan ng `remote` na modyul.
 
 Since rendering untrusted content in Electron is still uncharted territory, the APIs exposed to the sandbox preload script should be considered more unstable than the rest of Electron APIs, and may have breaking changes to fix security issues.
 
-One planned enhancement that should greatly increase security is to block IPC messages from sandboxed renderers by default, allowing the main process to explicitly define a set of messages the renderer is allowed to send.
+Isang planadong paghuhusay na dapat may malaking dagdag sa seguridad ay para maharangan ang mensahe ng IPC galing sa sandboxed renderers sa pamamagitan ng default, nagpapahintulot na ang pangunahing proseso sa tahasang pagtutukoy sa isang itinakdang mensahe sa renderer ay mapayagan na maipadala.
