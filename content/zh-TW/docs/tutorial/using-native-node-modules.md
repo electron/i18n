@@ -14,7 +14,7 @@ the module (for instance, using `npm rebuild` or `npm install`).
 
 There are several different ways to install native modules:
 
-### Installing modules and rebuilding for Electron
+### 安裝模組並重新建置 Electron
 
 You can install modules like other Node projects, and then rebuild the modules for Electron with the [`electron-rebuild`](https://github.com/electron/electron-rebuild) package. This module can automatically determine the version of Electron and handle the manual steps of downloading headers and rebuilding native modules for your app.
 
@@ -32,26 +32,26 @@ npm install --save-dev electron-rebuild
 
 For more information on usage and integration with other tools, consult the project's README.
 
-### Using `npm`
+### 使用 `npm`
 
-By setting a few environment variables, you can use `npm` to install modules directly.
+設定幾個環境變數後，你就可以使用 `npm` 直接安裝模組。
 
 For example, to install all dependencies for Electron:
 
 ```sh
-# Electron's version.
+# Electron 版本。
 export npm_config_target=1.2.3
 # The architecture of Electron, see https://electronjs.org/docs/tutorial/support#supported-platforms
 # for supported architectures.
 export npm_config_arch=x64
 export npm_config_target_arch=x64
-# Download headers for Electron.
+# 下載 Electron 標頭檔。
 export npm_config_disturl=https://atom.io/download/electron
-# Tell node-pre-gyp that we are building for Electron.
+# 告訴 node-pre-gyp 我們正要跑 Electron 建置。
 export npm_config_runtime=electron
-# Tell node-pre-gyp to build module from source code.
+# 告訴 node-pre-gyp 由原始碼開始建置模組。
 export npm_config_build_from_source=true
-# Install all dependencies, and store cache to ~/.electron-gyp.
+# 安裝所有相依的套件，並儲存一份在 ~/.electron-gyp 。
 HOME=~/.electron-gyp npm install
 ```
 
