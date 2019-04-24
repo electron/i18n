@@ -18,15 +18,17 @@ Kelas ` menu </ 0> memiliki metode statis berikut:</p>
 
 Sets `menu` sebagai menu aplikasi pada macOS. Pada Windows dan Linux, `menu` akan di set sebagai menu atas tiap-tiap window.
 
-Melewati `null` akan menghapus menu bar pada Windows dan Linux tetapi tidak memiliki efek pada macOS.
+Also on Windows and Linux, you can use a `&` in the top-level item name to indicate which letter should get a generated accelerator. For example, using `&File` for the file menu would result in a generated `Alt-F` accelerator that opens the associated menu. The indicated character in the button label gets an underline. The `&` character is not displayed on the button label.
 
-**Catatan:** API ini harus dipanggil setelah event `ready` dari modul `app`.
+Passing `null` will suppress the default menu. On Windows and Linux, this has the additional effect of removing the menu bar from the window.
+
+**Note:** The default menu will be created automatically if the app does not set one. It contains standard items such as `File`, `Edit`, `View`, `Window` and `Help`.
 
 #### `Menu.getApplicationMenu()`
 
-Hasil returns `Menu | null` - menu aplikasi, jika di set, atau `null`, jika tidak di set.
+Returns `Menu | null` - The application menu, if set, or `null`, if not set.
 
-**Catatan:** Contoh `Menu` kembali tidak mendukung dinamis penambahan atau penghapusan item menu.  Instance properti </ 0> masih dapat dimodifikasi secara dinamis.</p> 
+**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) can still be dynamically modified.
 
 #### ` Menu.kirim aksi pertama ke Responder (tindakan) </ 0> <em> macos </ 1></h4>
 
@@ -34,20 +36,19 @@ Hasil returns `Menu | null` - menu aplikasi, jika di set, atau `null`, jika tida
 <li><code> aksi </ 0>  Tali</li>
 </ul>
 
-<p>Mengirimkan <code> action </ 0> ke responder pertama dari aplikasi. Ini digunakan untuk meniru perilaku menu macos default. Usually you would use the
-<a href="menu-item.md#roles"><code>role`</a> property of a [`MenuItem`](menu-item.md).</p> 
+<p>Sends the <code>action` to the first responder of application. This is used for emulating default macOS menu behaviors. Usually you would use the [`role`](menu-item.md#roles) property of a [`MenuItem`](menu-item.md).</p> 
 
-Lihat  MacOS Kakao Acara Penanganan Panduan </ 0> untuk informasi lebih lanjut tentang MacOS tindakan asli '.</p> 
+See the [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7) for more information on macOS' native actions.
 
 #### `Menu.membangun dari Template (template)`
 
-* `template` MenuItemConstructorOptions[]
+* `template` (MenuItemConstructorOptions | MenuItem)[]
 
-Mengembalikan `menu`
+Returns `Menu`
 
 Generally, the `template` is an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
 
-Anda juga bisa melampirkan bidang lain ke elemen `template` dan mereka akan menjadi properti dari item menu yang dibangun.
+You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
 
 ### Metode Contoh
 
@@ -68,7 +69,7 @@ Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
 
-Menutup menu konteks di `browserWindow`.
+Closes the context menu in the `browserWindow`.
 
 #### `menu.append(menuItem) menuItem`
 
@@ -87,7 +88,7 @@ Returns `MenuItem` the item with the specified `id`
 * `pos` Integer
 * `menuItem` [MenuItem](menu-item.md)
 
-Sisipkan `menuItem` ke posisi `pos` pada menu.
+Inserts the `menuItem` to the `pos` position of the menu.
 
 ### Perihal contoh
 
@@ -97,7 +98,7 @@ Objects created with `new Menu` emit the following events:
 
 #### Event: 'menu-will-show'
 
-Pengembalian:
+Mengembalikan:
 
 * `acara` Acara
 
@@ -105,7 +106,7 @@ Emitted when `menu.popup()` is called.
 
 #### Event: 'menu-will-close'
 
-Pengembalian:
+Mengembalikan:
 
 * `acara` Acara
 
@@ -113,13 +114,13 @@ Emitted when a popup is closed either manually or with `menu.closePopup()`.
 
 ### Contoh properti
 
-`menu` objek juga memiliki properti berikut:
+`menu` objects also have the following properties:
 
 #### `menu.items`
 
 A `MenuItem[]` array containing the menu's items.
 
-Setiap `Menu` terdiri dari beberapa [`MenuItem`](menu-item.md)s dan masing-masing `MenuItem` bisa punya submenu.
+Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
 
 ### Contoh peristiwa
 
@@ -127,16 +128,39 @@ Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the
 
 ## Contoh
 
-Kelas `Utama` hanya tersedia dalam proses utama, namun Anda juga dapat menggunakannya dalam proses render melalui modul[`remote`](remote.md).
+The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
 
 ### Proses utama
 
-Contoh pembuatan menu aplikasi pada proses utama dengan API template sederhana:
+An example of creating the application menu in the main process with the simple template API:
 
 ```javascript
 const { app, Menu } = require('electron')
 
 const template = [
+  // { role: 'appMenu' }
+  ...(process.platform === 'darwin' ? [{
+    label: app.getName(),
+    submenu: [
+      { role: 'about' },
+      { type: 'separator' },
+      { role: 'services' },
+      { type: 'separator' },
+      { role: 'hide' },
+      { role: 'hideothers' },
+      { role: 'unhide' },
+      { type: 'separator' },
+      { role: 'quit' }
+    ]
+  }] : []),
+  // { role: 'fileMenu' }
+  {
+    label: 'File',
+    submenu: [
+      isMac ? { role: 'close' } : { role: 'quit' }
+    ]
+  },
+  // { role: 'editMenu' }
   {
     label: 'Edit',
     submenu: [
@@ -146,11 +170,26 @@ const template = [
       { role: 'cut' },
       { role: 'copy' },
       { role: 'paste' },
-      { role: 'pasteandmatchstyle' },
-      { role: 'delete' },
-      { role: 'selectall' }
+      ...(isMac ? [
+        { role: 'pasteAndMatchStyle' },
+        { role: 'delete' },
+        { role: 'selectAll' },
+        { type: 'separator' },
+        {
+          label: 'Speech',
+          submenu: [
+            { role: 'startspeaking' },
+            { role: 'stopspeaking' }
+          ]
+        }
+      ] : [
+        { role: 'delete' },
+        { type: 'separator' },
+        { role: 'selectAll' }
+      ])
     ]
   },
+  // { role: 'viewMenu' }
   {
     label: 'View',
     submenu: [
@@ -165,11 +204,20 @@ const template = [
       { role: 'togglefullscreen' }
     ]
   },
+  // { role: 'windowMenu' }
   {
-    role: 'window',
+    label: 'Window',
     submenu: [
       { role: 'minimize' },
-      { role: 'close' }
+      { role: 'zoom' },
+      ...(isMac ? [
+        { type: 'separator' },
+        { role: 'front' },
+        { type: 'separator' },
+        { role: 'window' }
+      ] : [
+        { role: 'close' }
+      ])
     ]
   },
   {
@@ -177,49 +225,11 @@ const template = [
     submenu: [
       {
         label: 'Learn More',
-        click () { require('electron').shell.openExternal('https://electronjs.org') }
+        click () { require('electron').shell.openExternalSync('https://electronjs.org') }
       }
     ]
   }
 ]
-
-if (process.platform === 'darwin') {
-  template.unshift({
-    label: app.getName(),
-    submenu: [
-      { role: 'about' },
-      { type: 'separator' },
-      { role: 'services' },
-      { type: 'separator' },
-      { role: 'hide' },
-      { role: 'hideothers' },
-      { role: 'unhide' },
-      { type: 'separator' },
-      { role: 'quit' }
-    ]
-  })
-
-  // Edit menu
-  template[1].submenu.push(
-    { type: 'separator' },
-    {
-      label: 'Speech',
-      submenu: [
-        { role: 'startspeaking' },
-        { role: 'stopspeaking' }
-      ]
-    }
-  )
-
-  // Window menu
-  template[3].submenu = [
-    { role: 'close' },
-    { role: 'minimize' },
-    { role: 'zoom' },
-    { type: 'separator' },
-    { role: 'front' }
-  ]
-}
 
 const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
@@ -227,7 +237,7 @@ Menu.setApplicationMenu(menu)
 
 ### Proses renderer
 
-Dibawah ini adalah contoh membuat menu di halaman web secara dinamis (render proses) dengan menggunakan modul [`remote`](remote.md), dan menunjukkan kapan pengguna menggunakan klik kanan pada halaman:
+Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
 
 ```html
 <!-- index.html -->
@@ -249,32 +259,27 @@ window.addEventListener('contextmenu', (e) => {
 
 ## Catatan pada Menu Aplikasi MacOS
 
-macos memiliki gaya menu aplikasi yang sama sekali berbeda dari Windows dan Linux. Berikut adalah beberapa catatan tentang cara membuat menu aplikasi Anda lebih mirip dengan asli.
+macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
 
 ### Menu Standar
 
-Di macos terdapat banyak menu standar yang ditentukan oleh sistem, seperti menu ` Services </ 0> dan
- <code> Windows </ 0>. Untuk membuat menu Anda menu standar, Anda harus mengatur menu Anda
- <code> peran </ 0> ke salah satu dari berikut dan elektron akan mengenali mereka dan membuat mereka menjadi menu standar:</p>
+On macOS there are many system-defined standard menus, like the `Services` and `Windows` menus. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
 
-<ul>
-<li><code>jendela`</li> 
-
+* `jendela`
 * `bantuan`
-* `layanan`</ul> 
+* `layanan`
 
 ### Tindakan Item Menu Standar
 
-macos telah memberikan tindakan standar untuk beberapa item menu, seperti ` Tentang xxx </ 0> ,
- <code> Sembunyikan xxx </ 0> , dan <code> Sembunyikan Lainnya </ 0> . Untuk mengatur tindakan item menu ke tindakan standar, Anda harus mengatur atribut <code> role </ 0> dari item menu.</p>
+macOS has provided standard actions for some menu items, like `About xxx`, `Hide xxx`, and `Hide Others`. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
 
-<h3>Nama Menu Utama</h3>
+### Nama Menu Utama
 
-<p>Pada macos label item pertama menu aplikasi selalu nama aplikasi Anda, tidak peduli label apa yang Anda tetapkan. Untuk mengubahnya, modifikasi berkas <code> Info.plist < file > aplikasi Anda. Lihat <a href="https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html">Mengaktifkan dokumentasi Akses Jaringan</a> untuk lebih jelasnya.</p>
+On macOS the label of the application menu's first item is always your app's name, no matter what label you set. To change it, modify your app bundle's `Info.plist` file. See [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) for more information.
 
-<h2>Setting Menu untuk Jendela Peramban Tertentu (<em> Linux </em> <em> Windows </em>)</h2>
+## Setting Menu untuk Jendela Peramban Tertentu (* Linux * * Windows *)
 
-<p>Metode <a href="https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows"><code> setMenu`metode </a> pencarian windows dapat mengatur menu tertentu Pencarian windows.
+The [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) of browser windows can set the menu of certain browser windows.
 
 ## Posisi Item Menu
 
