@@ -12,15 +12,15 @@ Przykład uzyskiwania prawdziwej ścieżki z pliku przeciągniętego do aplikacj
 </div>
 
 <script>
-  document.addEventListener('drop', function (e) {
+  document.addEventListener('drop', (e) => {
     e.preventDefault();
     e.stopPropagation();
 
-    for (let f of e.dataTransfer.files) {
+    for (const f of e.dataTransfer.files) {
       console.log('File(s) you dragged here: ', f.path)
     }
   });
-  document.addEventListener('dragover', function (e) {
+  document.addEventListener('dragover', (e) => {
     e.preventDefault();
     e.stopPropagation();
   });
