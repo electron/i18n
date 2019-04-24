@@ -77,7 +77,7 @@ Appends the `menuItem` to the menu.
 
 #### `menu.getMenuItemById(id)`
 
-* `id` String
+* `id`‏ String
 
 Returns `MenuItem` the item with the specified `id`
 
@@ -124,7 +124,7 @@ Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem`
 
 Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
 
-## Examples
+## דוגמאות
 
 The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
 
@@ -290,7 +290,7 @@ You can make use of `before`, `after`, `beforeGroupContaining`, `afterGroupConta
 
 By default, items will be inserted in the order they exist in the template unless one of the specified positioning keywords is used.
 
-### Examples
+### דוגמאות
 
 Template:
 
@@ -303,7 +303,7 @@ Template:
 ]
 ```
 
-Menu:
+תפריט:
 
 ```sh
 <br />- 1
@@ -325,7 +325,7 @@ Template:
 ]
 ```
 
-Menu:
+תפריט:
 
 ```sh
 <br />- 3
@@ -346,7 +346,7 @@ Template:
 ]
 ```
 
-Menu:
+תפריט:
 
 ```sh
 <br />- ---
