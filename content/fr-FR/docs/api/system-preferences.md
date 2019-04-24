@@ -37,7 +37,7 @@ Retourne :
 
 Retourne :
 
-* `event` Événement
+* `event` Event
 * `highContrastColorScheme` Boolean - `true` if a high contrast theme is being used, `false` otherwise.
 
 ### Event: 'appearance-changed' *macOS*
@@ -52,11 +52,11 @@ Retourne :
 
 ### `systemPreferences.isDarkMode()` *macOS*
 
-Returns `Boolean` - Whether the system is in Dark Mode.
+Retourne `Boolean` - Si le système est en mode sombre.
 
 ### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` *macOS*
 
-Returns `Boolean` - Whether the Swipe between pages setting is on.
+Retourne `Boolean` - Si l'option Swipe entre les pages est activé.
 
 ### `systemPreferences.postNotification(event, userInfo[, deliverImmediately])` *macOS*
 
@@ -124,7 +124,7 @@ Same as `subscribeNotification`, but uses `NSWorkspace.sharedWorkspace.notificat
 
 * `id` Integer
 
-Removes the subscriber with `id`.
+Supprime l'abonnement avec `l'id`.
 
 ### `systemPreferences.unsubscribeLocalNotification(id)` *macOS*
 
@@ -225,22 +225,22 @@ This API is only available on macOS 10.14 Mojave or newer.
 
 ### `systemPreferences.getColor(color)` *Windows* *macOS*
 
-* `color` String - One of the following values: 
+* `color` String - Une des valeurs suivantes : 
   * On **Windows**: 
-    * `3d-dark-shadow` - Dark shadow for three-dimensional display elements.
-    * `3d-face` - Face color for three-dimensional display elements and for dialog box backgrounds.
-    * `3d-highlight` - Highlight color for three-dimensional display elements.
-    * `3d-light` - Light color for three-dimensional display elements.
-    * `3d-shadow` - Shadow color for three-dimensional display elements.
-    * `active-border` - Active window border.
-    * `active-caption` - Active window title bar. Specifies the left side color in the color gradient of an active window's title bar if the gradient effect is enabled.
-    * `active-caption-gradient` - Right side color in the color gradient of an active window's title bar.
-    * `app-workspace` - Background color of multiple document interface (MDI) applications.
-    * `button-text` - Text on push buttons.
-    * `caption-text` - Text in caption, size box, and scroll bar arrow box.
-    * `desktop` - Desktop background color.
-    * `disabled-text` - Grayed (disabled) text.
-    * `highlight` - Item(s) selected in a control.
+    * `3d-dark-shadow` - Ombre noir pour les éléments affichés en trois dimensions.
+    * `3d-face` - Couleur de la face pour les éléments affichés en trois dimensions et le fond des boîtes de dialogue.
+    * `3d-hihlight` - Couleur de surlignage pour les éléments affichés en trois dimensions.
+    * `3d-light` - Couleur de la lumière pour les éléments affichés en trois dimensions.
+    * `3d-shadow` - Couleur d'ombre pour les éléments affichés en trois dimensions.
+    * `active-border` - Bordure de la fenêtre active.
+    * `active-caption` - Barre de titre de la fenêtre active. Retourne la couleur du côté gauche du dégradé de couleur si la barre de titre de la fenêtre a l'effet de dégradé actif.
+    * `active-caption-gradient` - Couleur du côté droit du dégradé de couleur de la barre de titre de la fenêtre active.
+    * `app-workspace` - Couleur de fond d'une interface d'application de document multiple (MDI).
+    * `button-text` - Texte sur les boutons d'envoi.
+    * `caption-text` - Texte dans une légende, boîte de dimensions, boîte avec la flèche pour la barre de défilement.
+    * `desktop` - Couleur de fond du bureau.
+    * `disabled-text` - Texte grisé (désactivé).
+    * `highlight` - Élément(s) sélectionné(s) dans un groupe.
     * `highlight-text` - Text of item(s) selected in a control.
     * `hotlight` - Color for a hyperlink or hot-tracked item.
     * `inactive-border` - Inactive window border.
@@ -296,7 +296,7 @@ Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`).
 
 ### `systemPreferences.getSystemColor(color)` *macOS*
 
-* `color` String - One of the following values: 
+* `color` String - Une des valeurs suivantes : 
   * `blue`
   * `brown`
   * `gray`
