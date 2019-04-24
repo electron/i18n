@@ -18,7 +18,7 @@ Use the `webview` tag to embed 'guest' content (such as web pages) in your Elect
 
 Unlike an `iframe`, the `webview` runs in a separate process than your app. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content. **Note:** Most methods called on the webview from the host page require a synchronous call to the main process.
 
-## Example
+## 예시
 
 To embed a web page in your app, add the `webview` tag to your app's embedder page (this is the app page that will display the guest content). In its simplest form, the `webview` tag includes the `src` of the web page and css styles that control the appearance of the `webview` container:
 
@@ -205,7 +205,7 @@ The `webview` tag has the following methods:
 
 **Note:** The webview element must be loaded before using the methods.
 
-**Example**
+**예시**
 
 ```javascript
 const webview = document.querySelector('webview')
@@ -442,7 +442,7 @@ Starts a request to find all matches for the `text` in the web page. The result 
 
 ### `<webview>.stopFindInPage(action)`
 
-* `action` String - Specifies the action to take place when ending [`<webview>.findInPage`](#webviewfindinpagetext-options) request. 
+* `동작` String - Specifies the action to take place when ending [`<webview>.findInPage`](#webviewfindinpagetext-options) request. 
   * `clearSelection` - Clear the selection.
   * `keepSelection` - Translate the selection into a normal selection.
   * `activateSelection` - Focus and click the selection node.
@@ -557,7 +557,7 @@ The following DOM events are available to the `webview` tag:
 
 ### Event: 'load-commit'
 
-반환:
+Returns:
 
 * `url` String
 * `isMainFrame` Boolean
@@ -570,7 +570,7 @@ Fired when the navigation is done, i.e. the spinner of the tab will stop spinnin
 
 ### Event: 'did-fail-load'
 
-반환:
+Returns:
 
 * `errorCode` Integer
 * `errorDescription` String
@@ -581,7 +581,7 @@ This event is like `did-finish-load`, but fired when the load failed or was canc
 
 ### Event: 'did-frame-finish-load'
 
-반환:
+Returns:
 
 * `isMainFrame` Boolean
 
@@ -601,7 +601,7 @@ Fired when document in the given frame is loaded.
 
 ### Event: 'page-title-updated'
 
-반환:
+Returns:
 
 * `title` String
 * `explicitSet` Boolean
@@ -626,7 +626,7 @@ Fired when page leaves fullscreen triggered by HTML API.
 
 ### Event: 'console-message'
 
-반환:
+Returns:
 
 * `level` Integer
 * `message` String
@@ -646,7 +646,7 @@ webview.addEventListener('console-message', (e) => {
 
 ### Event: 'found-in-page'
 
-반환:
+Returns:
 
 * `result` Object 
   * `requestId` Integer
@@ -669,7 +669,7 @@ console.log(requestId)
 
 ### Event: 'new-window'
 
-반환:
+Returns:
 
 * `url` String
 * `frameName` String
@@ -694,7 +694,7 @@ webview.addEventListener('new-window', (e) => {
 
 ### Event: 'will-navigate'
 
-반환:
+Returns:
 
 * `url` String
 
@@ -708,7 +708,7 @@ Calling `event.preventDefault()` does **NOT** have any effect.
 
 ### Event: 'did-navigate'
 
-반환:
+Returns:
 
 * `url` String
 
@@ -718,7 +718,7 @@ This event is not emitted for in-page navigations, such as clicking anchor links
 
 ### Event: 'did-navigate-in-page'
 
-반환:
+Returns:
 
 * `isMainFrame` Boolean
 * `url` String
@@ -742,7 +742,7 @@ webview.addEventListener('close', () => {
 
 ### Event: 'ipc-message'
 
-반환:
+Returns:
 
 * `channel` String
 * `args` Array
@@ -779,9 +779,9 @@ Fired when the gpu process is crashed.
 
 ### Event: 'plugin-crashed'
 
-반환:
+Returns:
 
-* `name` String
+* PrinterInfo Object
 * `version` String
 
 Fired when a plugin process is crashed.
@@ -800,7 +800,7 @@ Emitted when media is paused or done playing.
 
 ### Event: 'did-change-theme-color'
 
-반환:
+Returns:
 
 * `themeColor` String
 
@@ -812,7 +812,7 @@ Emitted when a page's theme color changes. This is usually due to encountering a
 
 ### Event: 'update-target-url'
 
-반환:
+Returns:
 
 * `url` String
 
