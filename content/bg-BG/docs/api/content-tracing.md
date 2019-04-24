@@ -74,7 +74,7 @@ Recording begins immediately locally and asynchronously on child processes as so
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
 * `resultFilePath` String
-* `callback` Function 
+* `обратно повикване` Функция 
   * `resultFilePath` String
 
 Stop recording on all processes.
@@ -101,7 +101,7 @@ Trace data will be written into `resultFilePath` if it is not empty or into a te
 
 ### `contentTracing.getTraceBufferUsage(callback)`
 
-* `callback` Function 
+* `обратно повикване` Функция 
   * `value` Number
   * `percentage` Number
 
