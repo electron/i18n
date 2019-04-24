@@ -34,8 +34,6 @@ In the above code the [`BrowserWindow`](browser-window.md) that was created has 
 
 It is important to note that this option alone won't enable the OS-enforced sandbox. To enable this feature, the `--enable-sandbox` command-line argument must be passed to electron, which will force `sandbox: true` for all `BrowserWindow` instances.
 
-To enable OS-enforced sandbox on `BrowserWindow` or `webview` process with `sandbox:true` without causing entire app to be in sandbox, `--enable-mixed-sandbox` command-line argument must be passed to electron. This option is currently only supported on macOS and Windows.
-
 ```js
 let win
 app.on('ready', () => {
@@ -72,7 +70,7 @@ app.on('ready', () => {
 })
 ```
 
-et preload.js:
+and preload.js:
 
 ```js
 // This file is loaded whenever a javascript context is created. It runs in a
@@ -98,7 +96,7 @@ function customWindowOpen (url, ...args) {
 window.open = customWindowOpen
 ```
 
-Choses importantes à remarquer dans le script de préchargement :
+Important things to notice in the preload script:
 
 - Even though the sandboxed renderer doesn't have Node.js running, it still has access to a limited node-like environment: `Buffer`, `process`, `setImmediate` and `require` are available.
 - The preload script can indirectly access all APIs from the main process through the `remote` and `ipcRenderer` modules. This is how `fs` (used above) and other modules are implemented: They are proxies to remote counterparts in the main process.
