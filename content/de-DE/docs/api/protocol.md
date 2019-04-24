@@ -64,8 +64,8 @@ By default web storage apis (localStorage, sessionStorage, webSQL, indexedDB, co
 * `scheme` String
 * `handler` Funktion 
   * `request` Object 
-    * `url` String
-    * `referrer` String
+    * ` URL </ 0>  Zeichenfolge</li>
+<li><code>referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Funktion 
@@ -144,8 +144,8 @@ By default web storage apis (localStorage, sessionStorage, webSQL, indexedDB, co
                 * `uploadData` [UploadData[]](structures/upload-data.md)
               * `callback` Funktion 
                 * `redirectRequest` Object 
-                  * `url` String
-                  * `method` String
+                  * ` URL </ 0>  Zeichenfolge</li>
+<li><code>method` String
                   * `session` Object (optional)
                   * `uploadData` Objekt (optional) 
                     * `contentType` String - MIME type of the content.
