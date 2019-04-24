@@ -50,8 +50,10 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 * `<code>Plus` (加號)</code>
 * `<code>Space` (空白鍵)</code>
 * `Tab`
+* `Capslock`
+* `Numlock`
 * `<code>Backspace` (倒退)</code>
-* `Delete`
+* `Delete (刪除)`
 * `Insert (插入)`
 * `Return` (也可寫成 `Enter`)
 * `Up` (上), `Down` (下), `Left` (左) 及 `Right` (右)
@@ -61,3 +63,10 @@ The `Super` key is mapped to the `Windows` key on Windows and Linux and `Cmd` on
 * `VolumeUp`, `VolumeDown` 及 `VolumeMute`
 * `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` 及 `MediaPlayPause`
 * `PrintScreen`
+* NumPad Keys 
+  * `num0` - `num9`
+  * `numdec` - decimal key
+  * `numadd` - numpad `+` key
+  * `numsub` - numpad `-` key
+  * `nummult` - numpad `*` key
+  * `numdiv` - numpad `÷` key
