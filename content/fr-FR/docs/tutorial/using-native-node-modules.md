@@ -14,7 +14,7 @@ the module (for instance, using `npm rebuild` or `npm install`).
 
 There are several different ways to install native modules:
 
-### Installing modules and rebuilding for Electron
+### Installation et compilation de modules pour Electron
 
 You can install modules like other Node projects, and then rebuild the modules for Electron with the [`electron-rebuild`](https://github.com/electron/electron-rebuild) package. This module can automatically determine the version of Electron and handle the manual steps of downloading headers and rebuilding native modules for your app.
 
@@ -32,32 +32,32 @@ npm install --save-dev electron-rebuild
 
 For more information on usage and integration with other tools, consult the project's README.
 
-### Using `npm`
+### À l'aide de `npm`
 
-By setting a few environment variables, you can use `npm` to install modules directly.
+En définissant quelques variables d’environnement, vous pouvez utiliser `npm` pour installer des modules directement.
 
 For example, to install all dependencies for Electron:
 
 ```sh
-# Electron's version.
+# Version d'Electron.
 export npm_config_target=1.2.3
 # The architecture of Electron, see https://electronjs.org/docs/tutorial/support#supported-platforms
 # for supported architectures.
 export npm_config_arch=x64
 export npm_config_target_arch=x64
-# Download headers for Electron.
+# Télécharge les en-têtes pour Electron.
 export npm_config_disturl=https://atom.io/download/electron
-# Tell node-pre-gyp that we are building for Electron.
+# Indique à node-pre-gyp que l'on compile pour Electron.
 export npm_config_runtime=electron
-# Tell node-pre-gyp to build module from source code.
+# Indique à node-pre-gyp de compiler les modules depuis leur code source.
 export npm_config_build_from_source=true
-# Install all dependencies, and store cache to ~/.electron-gyp.
+# Installe toutes les dépendances, et met en cache à ~/.electron-gyp.
 HOME=~/.electron-gyp npm install
 ```
 
 ### Compilation manuelle pour Electron
 
-If you are a developer developing a native module and want to test it against Electron, you might want to rebuild the module for Electron manually. You can use `node-gyp` directly to build for Electron:
+Si vous êtes un développeur développant un module natif et que vous voulez le tester avec Electron, vous pouvez recompiler le module pour Electron manuellement. Vous pouvez utiliser `node-gyp` directement pour compiler pour Electron:
 
 ```sh
 cd /path-to-module/
@@ -81,10 +81,10 @@ npm rebuild --nodedir=/path/to/electron/vendor/node
 
 If you installed a native module and found it was not working, you need to check the following things:
 
-- When in doubt, run `electron-rebuild` first.
+- En cas de doute, exécutez d'abord `electron-rebuild`.
 - Make sure the native module is compatible with the target platform and architecture for your Electron app.
 - Make sure `win_delay_load_hook` is not set to `false` in the module's `binding.gyp`.
-- After you upgrade Electron, you usually need to rebuild the modules.
+- Après avoir mise à jour Electron, vous devez habituellement recompiler les modules.
 
 ### A note about `win_delay_load_hook`
 
