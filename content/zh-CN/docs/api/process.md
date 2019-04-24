@@ -2,7 +2,7 @@
 
 > 处理对象的扩展
 
-参见： [process](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) process
+进程： [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 Electron's `process` 对象继承 [Node.js `process` object](https://nodejs.org/api/process.html)。 它新增了以下事件、属性和方法
 
@@ -61,15 +61,15 @@ A `Boolean`, `true` when the current renderer context is the "main" renderer fra
 
 ### `process.mas`
 
-A `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
+` Boolean `类型，为 Mac App Store 生成, 此属性为 ` true `, 对于其他生成，则为 ` undefined `。
 
 ### `process.noAsar`
 
-A `Boolean` that controls ASAR support inside your application. Setting this to `true` will disable the support for `asar` archives in Node's built-in modules.
+` Boolean `类型, 用于控制应用程序内的 ASAR 支持。将此设置为 ` true ` 将在Node的内置模块中禁用对 ` asar ` 的支持。
 
 ### `process.noDeprecation`
 
-A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`. Setting this to `true` will silence deprecation warnings. This property is used instead of the `--no-deprecation` command line flag.
+`Boolean` 类型，用于控制弃用警告是否被打印到`stderr`。 将其设置为`true`将会禁用弃用警告。 使用此属性代替 `-no-deprecation ` 命令行标志。
 
 ### `process.enablePromiseAPIs`
 
@@ -77,7 +77,7 @@ A `Boolean` that controls whether or not deprecation warnings are printed to `st
 
 ### `process.resourcesPath`
 
-A `String` representing the path to the resources directory.
+` String ` 类型， 表示资源目录的路径。
 
 ### `process.sandboxed`
 
@@ -85,15 +85,15 @@ A `Boolean`. When the renderer process is sandboxed, this property is `true`, ot
 
 ### `process.throwDeprecation`
 
-A `Boolean` that controls whether or not deprecation warnings will be thrown as exceptions. Setting this to `true` will throw errors for deprecations. This property is used instead of the `--throw-deprecation` command line flag.
+`Boolean`类型，用于控制是否将弃用警告当做例外。 设置它为 `true` 时会抛出错误。 使用此属性代替 `--throw-deprecation ` 命令行标志。
 
 ### `process.traceDeprecation`
 
-A `Boolean` that controls whether or not deprecations printed to `stderr` include their stack trace. Setting this to `true` will print stack traces for deprecations. This property is instead of the `--trace-deprecation` command line flag.
+` Boolean `类型，用于控制打印到 ` stderr ` 的弃用中是否包含其堆栈跟踪。 将此设置为 ` true ` 将会打印对弃用的堆栈跟踪。 此属性代替 `--trace-deprecation` 命令行标志。
 
 ### `process.traceProcessWarnings`
 
-A `Boolean` that controls whether or not process warnings printed to `stderr` include their stack trace. Setting this to `true` will print stack traces for process warnings (including deprecations). This property is instead of the `--trace-warnings` command line flag.
+一个 ` Boolean `, 用于控制是否将进程的警告打印到包含堆栈跟踪的 ` stderr `中 。 将此设置为 `true` 将打印对进程警告的堆栈跟踪（包括弃用）。 此属性代替 `--trace-warnings` 命令行标志。
 
 ### `process.type`
 
@@ -101,23 +101,23 @@ A `String` representing the current process's type, can be `"browser"` (i.e. mai
 
 ### `process.versions.chrome`
 
-A `String` representing Chrome's version string.
+` string `，一个表示 Chrome 版本的字符串。
 
 ### `process.versions.electron`
 
-A `String` representing Electron's version string.
+` string `，一个表示 Electron 版本的字符串。
 
 ### `process.windowsStore`
 
-A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
+`Boolean`. 如果应用运行于 Windows 商店(appx), 改属性为`true`, 否则为 `undefined`.
 
 ## 方法
 
-The `process` object has the following methods:
+` process ` 对象具有以下方法:
 
 ### `process.crash()`
 
-Causes the main thread of the current process crash.
+导致当前进程崩溃的主线程。
 
 ### `process.getCreationTime()`
 
@@ -127,11 +127,11 @@ Indicates the creation time of the application. The time is represented as numbe
 
 ### `process.getCPUUsage()`
 
-Returns [`CPUUsage`](structures/cpu-usage.md)
+返回 [`CPUUsage`](structures/cpu-usage.md)
 
 ### `process.getIOCounters()` *Windows* *Linux*
 
-Returns [`IOCounters`](structures/io-counters.md)
+返回 [`IOCounters`](structures/io-counters.md)
 
 ### `process.getHeapStatistics()`
 
@@ -170,7 +170,7 @@ Chromium does not provide `residentSet` value for macOS. This is because macOS p
 * `swapTotal` Integer *Windows* *Linux* - 系统交换内存容量（单位：千字节）。
 * `swapFree` Integer *Windows* *Linux* - 系统可用交换内存大小（单位：千字节）。
 
-Returns an object giving memory usage statistics about the entire system. Note that all statistics are reported in Kilobytes.
+返回一个对象, 它提供有关当前进程的内存使用情况统计信息。请注意, 所有统计信息都以千字节为单位报告。
 
 ### `process.takeHeapSnapshot(filePath)`
 
@@ -182,10 +182,10 @@ Takes a V8 heap snapshot and saves it to `filePath`.
 
 ### `process.hang()`
 
-Causes the main thread of the current process hang.
+导致当前进程挂起的主线程。
 
 ### `process.setFdLimit(maxDescriptors)` *macOS* *Linux*
 
 * `maxDescriptors` Integer
 
-Sets the file descriptor soft limit to `maxDescriptors` or the OS hard limit, whichever is lower for the current process.
+将文件描述符的软限制设置为 ` maxDescriptors ` 或 OS 硬限制, 其中以当前进程较低的值为准。
