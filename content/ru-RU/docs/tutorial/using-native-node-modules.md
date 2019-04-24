@@ -32,9 +32,9 @@ npm install --save-dev electron-rebuild
 
 For more information on usage and integration with other tools, consult the project's README.
 
-### Using `npm`
+### При помощи `npm`
 
-By setting a few environment variables, you can use `npm` to install modules directly.
+Устанавливая несколько переменных среды, вы можете использовать `npm` для непосредственной установки модулей.
 
 For example, to install all dependencies for Electron:
 
