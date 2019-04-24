@@ -61,21 +61,21 @@ Properti `peran` dapat memiliki nilai-nilai berikut:
 * `zoomIn` - Zoom in the focused page by 10%.
 * `zoomOut` - Zoom out the focused page by 10%.
 * `fileMenu` - Whole default "File" menu (Close / Quit)
-* `editMenu` - Whole default "Edit" menu (Undo, Copy, etc.).
+* `editMenu` - default seluruh "Edit" menu (Undo, salin, dsb.).
 * `viewMenu` - Whole default "View" menu (Reload, Toggle Developer Tools, etc.)
 * `windowMenu` - Whole default "Window" menu (Minimize, Zoom, etc.).
 
 The following additional roles are available on *macOS*:
 
 * `appMenu` - Whole default "App" menu (About, Services, etc.)
-* `about` - Map to the `orderFrontStandardAboutPanel` action.
-* `hide` - Map to the `hide` action.
+* `tentang` - peta tindakan `orderFrontStandardAboutPanel`.
+* `menyembunyikan` - peta untuk `menyembunyikan` tindakan.
 * `hideOthers` - Map to the `hideOtherApplications` action.
-* `unhide` - Map to the `unhideAllApplications` action.
+* `unhide` - peta tindakan `unhideAllApplications`.
 * `startSpeaking` - Map to the `startSpeaking` action.
 * `stopSpeaking` - Map to the `stopSpeaking` action.
-* `front` - Map to the `arrangeInFront` action.
-* `zoom` - Map to the `performZoom` action.
+* `depan` - peta tindakan `arrangeInFront`.
+* `zoom` - peta tindakan `performZoom`.
 * `toggleTabBar` - Map to the `toggleTabBar` action.
 * `selectNextTab` - Map to the `selectNextTab` action.
 * `selectPreviousTab` - Map to the `selectPreviousTab` action.
