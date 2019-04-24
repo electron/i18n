@@ -50,6 +50,8 @@ La touche `Super` est associée à la touche `Windows` sur Windows et Linux et `
 * `Plus`
 * `Space`
 * `Tab`
+* `Capslock`
+* `Numlock`
 * `Backspace`
 * `Delete`
 * `Insert`
@@ -61,3 +63,10 @@ La touche `Super` est associée à la touche `Windows` sur Windows et Linux et `
 * `VolumeUp`, `VolumeDown` et `VolumeMute`
 * `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` et `MediaPlayPause`
 * `PrintScreen`
+* NumPad Keys 
+  * `num0` - `num9`
+  * `numdec` - decimal key
+  * `numadd` - numpad `+` key
+  * `numsub` - numpad `-` key
+  * `nummult` - numpad `*` key
+  * `numdiv` - numpad `÷` key
