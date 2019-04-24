@@ -82,7 +82,7 @@ An `Integer` representing the ID of the renderer frame that sent this message.
 
 ### `event.returnValue`
 
-Set this to the value to be returned in a synchronous message.
+Defina isto como o valor a ser retornado em uma mensagem síncrona.
 
 ### `event.sender`
 
