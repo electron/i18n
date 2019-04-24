@@ -61,11 +61,11 @@ A `Boolean`, `true` when the current renderer context is the "main" renderer fra
 
 ### `process.mas`
 
-A `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
+Um `Boolean`. Para compilação para Mac App Store, esta propriedade é `true`, para outras compilações é `undefined`.
 
 ### `process.noAsar`
 
-A `Boolean` that controls ASAR support inside your application. Setting this to `true` will disable the support for `asar` archives in Node's built-in modules.
+Um `Boolean` que controla suporte ASAR dentro de seu aplicativo. Definindo essa configuração para `true` irá desativar o suporte para arquivos de `asar` em módulos internos do Node.
 
 ### `process.noDeprecation`
 
