@@ -80,78 +80,88 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 返回 `String` - 下载项目的保存路径。这将是通过`downloadItem.setSavePath(path)`设置的路径，或从显示的保存对话框中选择的路径。
 
+#### `downloadItem.setSaveDialogOptions(options)`
+
+* `options` SaveDialogOptions - Set the save file dialog options. This object has the same properties as the `options` parameter of [`dialog.showSaveDialog()`](dialog.md).
+
+This API allows the user to set custom options for the save dialog that opens for the download item by default. The API is only available in session's `will-download` callback function.
+
+#### `downloadItem.getSaveDialogOptions()`
+
+Returns `SaveDialogOptions` - Returns the object previously set by `downloadItem.setSaveDialogOptions(options)`.
+
 #### `downloadItem.pause()`
 
-暂停下载。
+Pauses the download.
 
 #### `downloadItem.isPaused()`
 
-返回`Boolean` - 下载是否暂停。
+Returns `Boolean` - Whether the download is paused.
 
 #### `downloadItem.resume()`
 
-恢复已暂停的下载。
+Resumes the download that has been paused.
 
-**笔记：** 为了支持断点下载，必须要从支持范围内请求下载，并且提供`Last-Modified` 和 `ETag`的值。 否则，`resume()` 将关闭以前接收到的字节并从头开始重新开始下载。
+**Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. Otherwise `resume()` will dismiss previously received bytes and restart the download from the beginning.
 
 #### `downloadItem.canResume()`
 
-返回`Boolean` - 下载是否可以恢复。
+Returns `Boolean` - Whether the download can resume.
 
 #### `downloadItem.cancel()`
 
-取消下载操作。
+Cancels the download operation.
 
 #### `downloadItem.getURL()`
 
-返回`String` - 从中​​下载项目的源URL。
+Returns `String` - The origin url where the item is downloaded from.
 
 #### `downloadItem.getMimeType()`
 
-返回`String` - MIME类型的文件。
+Returns `String` - The files mime type.
 
 #### `downloadItem.hasUserGesture()`
 
-返回`Boolean` - 下载是否具有用户手势。
+Returns `Boolean` - Whether the download has user gesture.
 
 #### `downloadItem.getFilename()`
 
-返回`String` - 下载项目的文件名。
+Returns `String` - The file name of the download item.
 
-**笔记：**文件名与本地磁盘中保存的实际文件名不尽相同。 如果用户在提示的下载保存对话框中更改文件名称，保存的文件的实际名称将会不同。
+**Note:** The file name is not always the same as the actual one saved in local disk. If user changes the file name in a prompted download saving dialog, the actual name of saved file will be different.
 
 #### `downloadItem.getTotalBytes()`
 
-返回`Integer` - 下载项目的总大小（以字节为单位）。
+Returns `Integer` - The total size in bytes of the download item.
 
-如果大小未知，则返回0。
+If the size is unknown, it returns 0.
 
 #### `downloadItem.getReceivedBytes()`
 
-返回`Integer` - 下载项目的接收字节。
+Returns `Integer` - The received bytes of the download item.
 
 #### `downloadItem.getContentDisposition()`
 
-返回`String` - 响应头中的Content-Disposition字段。
+Returns `String` - The Content-Disposition field from the response header.
 
 #### `downloadItem.getState()`
 
-返回 `String` - 表示当前状态。可能是 `progressing`, `completed`, `cancelled` 或者 `interrupted`。
+Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
 
-**笔记：** 以下方法特别有助于在会话重新启动时恢复取消的项目。
+**Note:** The following methods are useful specifically to resume a `cancelled` item when session is restarted.
 
 #### `downloadItem.getURLChain()`
 
-返回String [] - 包含任何重定向的项目的完整url链。
+Returns `String[]` - The complete url chain of the item including any redirects.
 
 #### `downloadItem.getLastModifiedTime()`
 
-返回String - Last-Modified的值。
+Returns `String` - Last-Modified header value.
 
 #### `downloadItem.getETag()`
 
-返回String - ETag的值。
+Returns `String` - ETag header value.
 
 #### `downloadItem.getStartTime()`
 
-返回`Double` - 自下载开始时的UNIX纪元以来的秒数。
+Returns `Double` - Number of seconds since the UNIX epoch when the download was started.
