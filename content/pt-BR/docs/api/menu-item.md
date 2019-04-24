@@ -13,7 +13,7 @@ Veja [`Menu`](menu.md) para exemplos.
     * `menuItem` MenuItem
     * `browserWindow` [BrowserWindow](browser-window.md)
     * `event` Event
-  * `role` String (opcional) - Define a ação do click no menu, quando especificado a propriedade `click` será ignorada. Veja [roles](#roles).
+  * `role` String (optional) - Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteandmatchstyle`, `delete`, `selectall`, `reload`, `forcereload`, `toggledevtools`, `resetzoom`, `zoomin`, `zoomout`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideothers`, `unhide`, `quit`, `startspeaking`, `stopspeaking`, `close`, `minimize`, `zoom` or `front` - Define the action of the menu item, when specified the `click` property will be ignored. See [roles](#roles).
   * `type` String (opcional) - Pode ser `normal`, `separator`, `submenu`, `checkbox` ou `radio`.
   * `label` String (optional)
   * `sublabel` String (optional)
@@ -60,19 +60,22 @@ A propriedade `role` pode ter os seguintes valores:
 * `resetZoom` - Reset the focused page's zoom level to the original size.
 * `zoomIn` - Zoom in the focused page by 10%.
 * `zoomOut` - Zoom out the focused page by 10%.
-* `editMenu` - Menu "Edit" padrão inteiro (Desfazer, Copiar, etc.).
-* `windowMenu` - Menu "Window" padrão inteiro (Minimizar, Fechar, etc.).
+* `fileMenu` - Whole default "File" menu (Close / Quit)
+* `editMenu` - Whole default "Edit" menu (Undo, Copy, etc.).
+* `viewMenu` - Whole default "View" menu (Reload, Toggle Developer Tools, etc.)
+* `windowMenu` - Whole default "Window" menu (Minimize, Zoom, etc.).
 
 The following additional roles are available on *macOS*:
 
-* `about` - Mapeia para a ação `orderFrontStandardAboutPanel`.
-* `hide` - Mapeia para a ação `hide`.
+* `appMenu` - Whole default "App" menu (About, Services, etc.)
+* `about` - Map to the `orderFrontStandardAboutPanel` action.
+* `hide` - Map to the `hide` action.
 * `hideOthers` - Map to the `hideOtherApplications` action.
-* `hideothers` - Mapeia para a ação `unhideAllApplications`.
+* `unhide` - Map to the `unhideAllApplications` action.
 * `startSpeaking` - Map to the `startSpeaking` action.
 * `stopSpeaking` - Map to the `stopSpeaking` action.
-* `hide` - Mapeia para a ação `arrangeInFront`.
-* `zoom` - Mapeia para a ação `performZoom`.
+* `front` - Map to the `arrangeInFront` action.
+* `zoom` - Map to the `performZoom` action.
 * `toggleTabBar` - Map to the `toggleTabBar` action.
 * `selectNextTab` - Map to the `selectNextTab` action.
 * `selectPreviousTab` - Map to the `selectPreviousTab` action.
