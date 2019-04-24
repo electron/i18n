@@ -4,7 +4,7 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-Chrome Developer Tools has a [special binding](https://chromedevtools.github.io/devtools-protocol/) available at JavaScript runtime that allows interacting with pages and instrumenting them.
+Chromeの開発者ツールは、ページと相互にやり取りをしたり、ページを調整したりすることのできるJavaScriptランタイムに[特別なバインディング](https://chromedevtools.github.io/devtools-protocol/)を持っています。
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -70,17 +70,17 @@ Returns `Promise<any>` - A promise that resolves with the response defined by th
 
 ### インスタンスイベント
 
-#### Event: 'detach'
+#### イベント: 'detach'
 
 * `event` Event
-* `reason` String - Reason for detaching debugger.
+* `reason` String - デバッガーがデタッチする理由。
 
-Emitted when debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
+デバッグセッションが終了するときに発生します。これは、`webContents` がクローズされるか、アタッチしていた `webContents` に対して開発者ツールが呼び出されるときに発生します。
 
-#### Event: 'message'
+#### イベント: 'message'
 
 * `event` Event
-* `method` String - Method name.
-* `params` Object - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
+* `method` String - メソッド名。
+* `params` Object - リモートデバッグプロトコルの 'parameters' 属性で定義されたイベントパラメータ。
 
-Emitted whenever debugging target issues instrumentation event.
+デバッグ対象で計測イベントが生じる毎に発生します。
