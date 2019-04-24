@@ -6,6 +6,50 @@ Los cambios de ruptura se documentaran aquí y se agregaran advertencias de desa
 
 El string `FIXME` se usa en las cadenas de código para indicar que cualquier problema debería solucionarse para futuras versiones. Puede ver: https://github.com/electron/electron/search?q=fixme para mas información
 
+# Cambios planeados en la API(6.0)
+
+## `win.setMenu(null)`
+
+```js
+// Deprecated
+win.setMenu(null)
+// Replace with
+win.removeMenu()
+```
+
+## `electron.screen` in renderer process
+
+```js
+// Deprecated
+require('electron').screen
+// Replace with
+require('electron').remote.screen
+```
+
+## `require` in sandboxed renderers
+
+```js
+// Deprecated
+require('child_process')
+// Replace with
+require('electron').remote.require('child_process')
+
+// Deprecated
+require('fs')
+// Replace with
+require('electron').remote.require('fs')
+
+// Deprecated
+require('os')
+// Replace with
+require('electron').remote.require('os')
+
+// Deprecated
+require('path')
+// Replace with
+require('electron').remote.require('path')
+```
+
 # Cambios planeados en la API(5.0)
 
 ## `new BrowserWindow({ webPreferences })`
@@ -22,25 +66,42 @@ The following `webPreferences` option default values are deprecated in favor of 
 
 Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled.
 
-## `webContents.findInPage(text[, options])`
+## Privileged Schemes Registration
 
-`wordStart` and `medialCapitalAsWordStart` options are removed.
+Renderer process APIs `webFrame.setRegisterURLSchemeAsPrivileged` and `webFrame.registerURLSchemeAsBypassingCSP` as well as browser process API `protocol.registerStandardSchemes` have been removed. A new API, `protocol.registerSchemesAsPrivileged` has been added and should be used for registering custom schemes with the required privileges. Custom schemes are required to be registered before app ready.
+
+## webFrame Isolated World APIs
+
+```js
+// Deprecated
+webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
+webFrame.setIsolatedWorldHumanReadableName(worldId, name)
+webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
+// Replace with
+webFrame.setIsolatedWorldInfo(
+  worldId,
+  {
+    securityOrigin: 'some_origin',
+    name: 'human_readable_name',
+    csp: 'content_security_policy'
+  })
+```
 
 # Cambios planeados en la API(4.0)
 
-La siguiente lista incluye los cambios planeados en la API 4.0 de Electrón.
+La siguiente lista incluye cambios efectuados en la API 4.0 de Electrón.
 
 ## `app.makeSingleInstance`
 
 ```js
-// Obsoleto
-app.makeSingleInstance(function (argv, cwd) {
-
+// Deprecated
+app.makeSingleInstance((argv, cwd) => {
+  /* ... */
 })
-// Reemplazar con
+// Replace with
 app.requestSingleInstanceLock()
-app.on('second-instance', function (event, argv, cwd) {
-
+app.on('second-instance', (event, argv, cwd) => {
+  /* ... */
 })
 ```
 
@@ -177,12 +238,12 @@ screen.getPrimaryDisplay().workArea
 ## `session`
 
 ```js
-// Cambiar
-ses.setCertificateVerifyProc(function (hostname, certificate, callback) {
+// Deprecated
+ses.setCertificateVerifyProc((hostname, certificate, callback) => {
   callback(true)
 })
-// Reemplazar con
-ses.setCertificateVerifyProc(function (request, callback) {
+// Replace with
+ses.setCertificateVerifyProc((request, callback) => {
   callback(0)
 })
 ```
