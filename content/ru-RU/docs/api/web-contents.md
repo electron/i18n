@@ -675,7 +675,7 @@ Emitted when `<webview>.getWebContents()` is called in the renderer process. В�
 #### `contents.loadURL(url[, options])`
 
 * `url` String
-* `options` Object (опиционально) 
+* `options` Object (опционально) 
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n".
@@ -695,7 +695,7 @@ webContents.loadURL('https://github.com', options)
 #### `contents.loadFile(filePath[, options])`
 
 * `filePath` String
-* `options` Object (опиционально) 
+* `options` Object (опционально) 
   * `query` Object (optional) - Passed to `url.format()`.
   * `search` String (optional) - Passed to `url.format()`.
   * `hash` String (optional) - Passed to `url.format()`.
@@ -857,7 +857,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *Экспериментально*
 
 * `ignore` Логическое значение
 
@@ -981,7 +981,7 @@ Executes the editing command `replaceMisspelling` in web page.
 #### `contents.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `options` Object (опиционально) 
+* `options` Object (опционально) 
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -994,7 +994,7 @@ Starts a request to find all matches for the `text` in the web page. The result 
 
 #### `contents.stopFindInPage(action)`
 
-* `action` String - Specifies the action to take place when ending [`webContents.findInPage`] request. 
+* `действие` String - Specifies the action to take place when ending [`webContents.findInPage`] request. 
   * `clearSelection` - Clear the selection.
   * `keepSelection` - Translate the selection into a normal selection.
   * `activateSelection` - Focus and click the selection node.
@@ -1051,7 +1051,7 @@ Returns [`PrinterInfo[]`](structures/printer-info.md).
 
 #### `contents.print([options], [callback])`
 
-* `options` Object (опиционально) 
+* `options` Object (опционально) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
@@ -1195,7 +1195,7 @@ app.once('ready', () => {
 
 #### `contents.openDevTools([options])`
 
-* `options` Object (опиционально) 
+* `options` Object (опционально) 
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
   * `activate` Boolean (optional) - Whether to bring the opened devtools window to the foreground. The default is `true`.
 
@@ -1348,7 +1348,7 @@ For the `mouseWheel` event, the `event` object also have following properties:
 
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
-* `onlyDirty` Boolean (optional) - Defaults to `false`.
+* `onlyDirty` Boolean (опиционально) - по умолчанию `false`.
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
   * `dirtyRect` [Rectangle](structures/rectangle.md)
@@ -1494,4 +1494,4 @@ A `WebContents` of DevTools for this `WebContents`.
 
 #### `contents.debugger`
 
-A [Debugger](debugger.md) instance for this webContents.
+Экземпляр [Отладчика](debugger.md) для webContents.
