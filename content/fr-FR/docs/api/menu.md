@@ -26,23 +26,23 @@ Passing `null` will suppress the default menu. On Windows and Linux, this has th
 
 #### `Menu.getApplicationMenu()`
 
-Returns `Menu | null` - The application menu, if set, or `null`, if not set.
+Retourne `Menu | null` - Le menu de l’application, si défini, ou `null`, si non défini.
 
-**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) can still be dynamically modified.
+**Remarque :** L'instance du `Menu` retourné, ne supporte pas l'ajout ou la suppression dynamique d’éléments de menu. Les [propriétés de l’instance](#instance-properties) peuvent encore être modifiées dynamiquement.
 
 #### `Menu.sendActionToFirstResponder(action)` *macOS*
 
 * `action` String
 
-Sends the `action` to the first responder of application. This is used for emulating default macOS menu behaviors. Usually you would use the [`role`](menu-item.md#roles) property of a [`MenuItem`](menu-item.md).
+Envoie `action` au premier répondant de l'application. Ceci est utilisé pour émuler les comportements du menu de macOS par défaut. Usually you would use the [`role`](menu-item.md#roles) property of a [`MenuItem`](menu-item.md).
 
-See the [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7) for more information on macOS' native actions.
+Voir le [Guide de gestion des événements Cocoa de macOS](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7) pour plus d'informations sur les actions natives de macOS.
 
 #### `Menu.buildFromTemplate(template)`
 
 * `template` (MenuItemConstructorOptions | MenuItem)[]
 
-Returns `Menu`
+Retourne `Menu`
 
 Generally, the `template` is an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
 
@@ -50,7 +50,7 @@ You can also attach other fields to the element of the `template` and they will 
 
 ### Méthodes d’instance
 
-The `menu` object has the following instance methods:
+L'objet `menu` a les méthodes d'instance suivantes:
 
 #### `menu.popup(options)`
 
@@ -292,7 +292,7 @@ By default, items will be inserted in the order they exist in the template unles
 
 ### Exemples
 
-Template:
+Modèle :
 
 ```javascript
 [
@@ -303,7 +303,7 @@ Template:
 ]
 ```
 
-Menu:
+Menu :
 
 ```sh
 <br />- 1
@@ -312,7 +312,7 @@ Menu:
 - 4
 ```
 
-Template:
+Modèle :
 
 ```javascript
 [
@@ -325,7 +325,7 @@ Template:
 ]
 ```
 
-Menu:
+Menu :
 
 ```sh
 <br />- 3
@@ -336,7 +336,7 @@ Menu:
 - 2
 ```
 
-Template:
+Modèle :
 
 ```javascript
 [
@@ -346,7 +346,7 @@ Template:
 ]
 ```
 
-Menu:
+Menu :
 
 ```sh
 <br />- ---
