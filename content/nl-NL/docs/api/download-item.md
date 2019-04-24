@@ -92,7 +92,7 @@ Returns `SaveDialogOptions` - Returns the object previously set by `downloadItem
 
 #### `downloadItem.pause()`
 
-Pauses the download.
+Pauzeert de download.
 
 #### `downloadItem.isPaused()`
 
@@ -110,7 +110,7 @@ Returns `Boolean` - Whether the download can resume.
 
 #### `downloadItem.cancel()`
 
-Cancels the download operation.
+Annuleert de download.
 
 #### `downloadItem.getURL()`
 
