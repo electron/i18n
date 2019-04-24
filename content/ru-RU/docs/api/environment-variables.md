@@ -46,15 +46,13 @@ Unsupported options are:
 
 ### `GOOGLE_API_KEY`
 
-Electron включает жёстко запрограммированный (hardcoded) ключ API для запросов к веб-сервису геолокации Google. Так как этот ключ включен в каждую версию Electron, его использование часто превышает доступную квоту. Вы можете предоставить свой API ключ Google в переменной окружения, чтобы данная проблема не возникала. Вставьте следующей код в файл главного процесса, перед открытием любого окна браузера, который производит запросы геолокации:
+You can provide an API key for making requests to Google's geocoding webservice. To do this, place the following code in your main process file, before opening any browser windows that will make geocoding requests:
 
 ```javascript
 process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
 ```
 
-Инструкции по получению ключа API Google можно получить [на данной странице](https://www.chromium.org/developers/how-tos/api-keys).
-
-По умолчанию, новый сгенерированный ключ API Google не может делать запросы геолокации. Чтобы разрешить использование запросов геолокации, [посетите данную страницу](https://console.developers.google.com/apis/api/geolocation/overview).
+For instructions on how to acquire a Google API key, visit [this page](https://developers.google.com/maps/documentation/javascript/get-api-key). По умолчанию, новый сгенерированный ключ API Google не может делать запросы геолокации. Чтобы разрешить использование запросов геолокации, [посетите данную страницу](https://developers.google.com/maps/documentation/geocoding/get-api-key).
 
 ### `ELECTRON_NO_ASAR`
 
