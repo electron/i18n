@@ -50,9 +50,9 @@ Registering a scheme as standard, will allow relative and absolute resources to 
 For example when you load following page with custom protocol without registering it as standard scheme, the image will not be loaded because non-standard schemes can not recognize relative URLs:
 
 ```html
-<body>
-  <img src='test.png'>
-</body>
+&lt;body&gt;
+  &lt;img src='test.png'&gt;
+&lt;/body&gt;
 ```
 
 Registering a scheme as standard will allow access to files through the [FileSystem API](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem). Otherwise the renderer will throw a security error for the scheme.
@@ -89,7 +89,7 @@ By default the `scheme` is treated like `http:`, which is parsed differently tha
     * `url` String
     * `referrer` String
     * `method` String
-    * `uploadData` [UploadData[]](structures/upload-data.md)
+    * `uploadData` [UploadData[]](structures/upload-data.md)</code>
   * `callback` Function 
     * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (optional)
 * `completion` Function (опционально) 
@@ -144,7 +144,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
       * `url` String
       * `method` String
       * `session` Object (optional)
-      * `uploadData` Object (опиционально) 
+      * `uploadData` Object (опционально) 
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
 * `completion` Function (опционально) 
