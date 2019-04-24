@@ -4,7 +4,7 @@
 
 Processus : [Main](../glossary.md#main-process)
 
-Chrome Developer Tools has a [special binding](https://chromedevtools.github.io/devtools-protocol/) available at JavaScript runtime that allows interacting with pages and instrumenting them.
+Les outils de développement de chrome a une [liaison spéciale](https://chromedevtools.github.io/devtools-protocol/) disponible lors de l’exécution de JavaScript qui permet l’interaction avec les pages et leur instrumentation.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -70,17 +70,17 @@ Envoi une commande au débogueur.
 
 ### Événements d’instance
 
-#### Event: 'detach'
+#### Événement : 'detach'
 
 * `event` Event
-* `reason` String - Reason for detaching debugger.
+* `reason` String - Motif du retrait du débogueur.
 
-Emitted when debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
+Émis lorsque la session de débogage est terminée. Cela se produit soit lorsque le `webContents` est fermé, soit lorsque devtools est invoqué pour le `webContents` rattaché.
 
-#### Event: 'message'
+#### Événement : 'message'
 
 * `event` Événement
-* `method` String - Method name.
-* `params` Object - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
+* `method` String - Nom de la méthode.
+* `params` Object - Paramètres d'événements définis par l'attribut 'parameters' dans le protocole de débogage distant.
 
-Emitted whenever debugging target issues instrumentation event.
+Émis à chaque fois que la cible du débogueur envoie un événement d’instrumentation.
