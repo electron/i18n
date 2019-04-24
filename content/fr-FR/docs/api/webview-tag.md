@@ -4,11 +4,15 @@
 
 Electron's `webview` tag is based on [Chromium's `webview`](https://developer.chrome.com/apps/tags/webview), which is undergoing dramatic architectural changes. This impacts the stability of `webviews`, including rendering, navigation, and event routing. We currently recommend to not use the `webview` tag and to consider alternatives, like `iframe`, Electron's `BrowserView`, or an architecture that avoids embedded content altogether.
 
+## Enabling
+
+By default the `webview` tag is disabled in Electron >= 5. You need to enable the tag by setting the `webviewTag` webPreferences option when constructing your `BrowserWindow`. For more information see the [BrowserWindow constructor docs](browser-window.md).
+
 ## Overview
 
 > Display external web content in an isolated frame and process.
 
-Processus : [Renderer](../glossary.md#renderer-process)
+Processus : [Rendu](../glossary.md#renderer-process)
 
 Use the `webview` tag to embed 'guest' content (such as web pages) in your Electron app. The guest content is contained within the `webview` container. An embedded page within your app controls how the guest content is laid out and rendered.
 
@@ -51,16 +55,16 @@ Under the hood `webview` is implemented with [Out-of-Process iframes (OOPIFs)](h
 So the behavior of `webview` is very similar to a cross-domain `iframe`, as examples:
 
 * When clicking into a `webview`, the page focus will move from the embedder frame to `webview`.
-* You can not add keyboard event listeners to `webview`.
+* You can not add keyboard, mouse, and scroll event listeners to `webview`.
 * All reactions between the embedder frame and `webview` are asynchronous.
 
-## Note de style CSS
+## CSS Styling Notes
 
 Please note that the `webview` tag's style uses `display:flex;` internally to ensure the child `iframe` element fills the full height and width of its `webview` container when used with traditional and flexbox layouts. Please do not overwrite the default `display:flex;` CSS property, unless specifying `display:inline-flex;` for inline layout.
 
-## Attribut de balise
+## Tag Attributes
 
-La balise `webview` possède les attributs suivants :
+The `webview` tag has the following attributes:
 
 ### `src`
 
@@ -89,6 +93,14 @@ When this attribute is present the `webview` container will automatically resize
 ```
 
 When this attribute is present the guest page in `webview` will have node integration and can use node APIs like `require` and `process` to access low level system resources. Node integration is disabled by default in the guest page.
+
+### `nodeintegrationinsubframes`
+
+```html
+<webview src="http://www.google.com/" nodeintegrationinsubframes></webview>
+```
+
+Experimental option for enabling NodeJS support in sub-frames such as iframes inside the `webview`. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not. This option is disabled by default in the guest page.
 
 ### `enableremotemodule`
 
@@ -189,7 +201,7 @@ A list of strings which specifies the blink features to be disabled separated by
 
 ## Méthodes
 
-La balise `webview` possède les méthodes suivantes :
+The `webview` tag has the following methods:
 
 **Note:** The webview element must be loaded before using the methods.
 
@@ -462,11 +474,21 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
 
 ### `<webview>.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (optionnel) - La zone de la page dont on doit réaliser la capture.
+* `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
-Captures a snapshot of the `webview`'s page. Same as `webContents.capturePage([rect, ]callback)`.
+Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
+
+**[Deprecated Soon](promisification.md)**
+
+### `<webview>.capturePage([rect])`
+
+* `rect` [Rectangle](structures/rectangle.md) (optionnel) - La zone de la page dont on doit réaliser la capture.
+
+* Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+
+Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
 
 ### `<webview>.send(channel[, arg1][, arg2][, ...])`
 
@@ -497,19 +519,13 @@ Change le facteur de zoom par le facteur spécifié. Le facteur de zoom est le p
 
 Modifie le niveau de zoom jusqu'au niveau spécifié. La taille originale est de 0 et chaque incrément au-dessus ou en dessous représente un zoom de 20% supérieur ou inférieure jusqu'au limites de 300% et 50% de la taille originale, respectivement. The formula for this is `scale := 1.2 ^ level`.
 
-### `<webview>.getZoomFactor(callback)`
+### `<webview>.getZoomFactor()`
 
-* `callback` Function 
-  * `zoomFactor` Number
+Returns `Number` - the current zoom factor.
 
-Sends a request to get current zoom factor, the `callback` will be called with `callback(zoomFactor)`.
+### `<webview>.getZoomLevel()`
 
-### `<webview>.getZoomLevel(callback)`
-
-* `callback` Function 
-  * `zoomLevel` Number
-
-Sends a request to get current zoom level, the `callback` will be called with `callback(zoomLevel)`.
+Returns `Number` - the current zoom level.
 
 ### `<webview>.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
@@ -535,11 +551,11 @@ Returns [`WebContents`](web-contents.md) - The web contents associated with this
 
 It depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
 
-## Événements DOM
+## DOM events
 
 The following DOM events are available to the `webview` tag:
 
-### Événement : 'load-commit'
+### Event: 'load-commit'
 
 Retourne :
 
@@ -624,7 +640,7 @@ The following example code forwards all log messages to the embedder's console w
 ```javascript
 const webview = document.querySelector('webview')
 webview.addEventListener('console-message', (e) => {
-  console.log('La page invité a envoyé un message :', e.message)
+  console.log('Guest page logged a message:', e.message)
 })
 ```
 
@@ -671,7 +687,7 @@ const webview = document.querySelector('webview')
 webview.addEventListener('new-window', (e) => {
   const protocol = require('url').parse(e.url).protocol
   if (protocol === 'http:' || protocol === 'https:') {
-    shell.openExternal(e.url)
+    shell.openExternalSync(e.url)
   }
 })
 ```
@@ -696,7 +712,7 @@ Retourne :
 
 * `url` String
 
-Émis lorsqu'une navigation est faite.
+Emitted when a navigation is done.
 
 Cet événement n'est également pas émis pour les navigations à l'intérieur de la page, comme cliquer sur les liens d'ancrage ou la mise à jour de `window.location.hash`. Utilisez l'événement `did-navigate-in-page` pour cet usage.
 
@@ -707,7 +723,7 @@ Retourne :
 * `isMainFrame` Boolean
 * `url` String
 
-Émis lorsqu'une navigation dans la page s'est produite.
+Emitted when an in-page navigation happened.
 
 En cas de navigation dans la page, l'URL de la page change mais ne provoque pas de navigation à l'extérieur de la page. Par exemple, lorsque vous cliquez sur un lien d'ancrage ou lorsque l'événement DOM `hashchange` est déclenché.
 
@@ -746,7 +762,7 @@ webview.send('ping')
 ```
 
 ```javascript
-// Dans la page invité.
+// In guest page.
 const { ipcRenderer } = require('electron')
 ipcRenderer.on('ping', () => {
   ipcRenderer.sendToHost('pong')
@@ -757,9 +773,9 @@ ipcRenderer.on('ping', () => {
 
 Fired when the renderer process is crashed.
 
-### Événement : 'gpu-crashed'
+### Event: 'gpu-crashed'
 
-Déclenché lorsque le processus du gpu crash.
+Fired when the gpu process is crashed.
 
 ### Événement : 'plugin-crashed'
 
@@ -768,11 +784,11 @@ Retourne :
 * `name` String
 * `version` String
 
-Déclenché lorsqu’un processus de plugin crash.
+Fired when a plugin process is crashed.
 
 ### Événement : 'destroyed'
 
-Déclenché lorsque le WebContents est détruit.
+Fired when the WebContents is destroyed.
 
 ### Événement : 'media-started-playing'
 
@@ -788,7 +804,7 @@ Retourne :
 
 * `themeColor` String
 
-Émis lorsque le thème couleur de la page est changé. Il s’agit généralement de l'ajout d'une balise meta :
+Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
