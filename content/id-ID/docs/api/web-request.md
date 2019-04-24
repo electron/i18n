@@ -42,163 +42,164 @@ Metode berikut tersedia pada contoh `WebRequest`:
     * `identitas` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (optional)
+    * `exitCode` Integer (opsional)
     * `Jenissumberdaya` Tali
-    * `pengarah` Tali
-    * `timestamp` Duakali
-    * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Fungsi 
-    * `respon` Obyek 
-      * `batalkan` Boolean (opsional)
-      * `redirectURL` String (opsional) - Permintaan asli dicegah dikirim atau diselesaikan dan diarahkan ke URL yang diberikan.
-
-Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` saat sebuah permintaan akan segera terjadi.
-
-`UploadData` sebuah array `UploadData` objek.
-
-`panggilan kembali` harus dipanggil dengan `respon` objek.
-
-#### `webRequest.onBeforeSendHeaders([filter, ]pendengar)`
-
-* `menyaring` Objek (opsional) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `pendengar` Function | null 
-  * `rincian` Obyek 
-    * `identitas` Integer
-    * `url` String
-    * ` path </ 0>  String</li>
-<li><code>exitCode` Integer (opsional)
-    * `Jenissumberdaya` Tali
-    * `pengarah` Tali
-    * `timestamp` Duakali
-    * `requestHeaders` Object
-  * `callback` Lokasi: 
-    * `Tanggapan` Benda 
-      * `batalkan` Boolean (opsional)
-      * `permintaanHeader` Objek (opsional) - Bila tersedia, permintaan akan dibuat dengan headers ini.
-
-Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` sebelum mengirim Permintaan HTTP, setelah header permintaan tersedia. Hal ini dapat terjadi setelah a Sambungan TCP dibuat ke server, namun sebelum data http dikirim.
-
-`panggilan kembali` harus dipanggil dengan `respon` objek.
-
-#### `webRequest.onSendHeaders([filter, ]pendengar)`
-
-* `menyaring` Object (opsional) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `pendengar` Function | null 
-  * `rincian` Obyek 
-    * `identitas` Integer
-    * `url` String
-    * `method` String
-    * `webContentsId` Integer (optional)
-    * `Jenissumberdaya` Tali
-    * `pengarah` Tali
-    * `timestamp` Duakali
-    * `requestHeaders` Object
-
-`pendengar` akan dipanggil dengan `pendengar(rincian)` tepat sebelum permintaan akan dikirim ke server, modifikasi sebelumnya `onBeforeSendHeader` respon terlihat pada saat pendengar ini dipecat.
-
-#### `webRequest.onHeadersReceived([filter, ]pendengar)`
-
-* `menyaring` Objek (opsional) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `pendengar` Function | null 
-  * `rincian` Obyek 
-    * `identitas` Integer
-    * ` url </ 0> String</li>
-<li><code>method` String
-    * `webContentsId` Integer (optional)
-    * `Jenissumberdaya` Tali
-    * `pengarah` Tali
-    * `timestamp` Duakali
-    * `statusGaris` String
-    * `statusCode` Bilangan bulat
-    * `responseHeaders` Objek
-  * `callback` Fungsi 
-    * `respon` Obyek 
-      * `batalkan` Boolean (opsional)
-      * `responHeader` Objek (opsional) - Bila disediakan, server diasumsikan telah merespon dengan headers ini.
-      * `statusGaris` String (opsional) - Harus diberikan saat mengesampingkan `responHeaders` untuk mengubah status header jika tidak ada respon asli status header akan digunakan.
-
-`pendengar` akan dipanggil dengan `pendengar(rincian, callback)` ketika HTTP header tanggapan atas permintaan telah diterima.
-
-`panggilan kembali` harus dipanggil dengan `respon` objek.
-
-#### `webRequest.onResponseStarted([filter, ]listener)`
-
-* `menyaring` Objek (opsional) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `pendengar` Function | null 
-  * `rincian` Obyek 
-    * `identitas` Integer
-    * `url` String
-    * `method` String
-    * `webContentsId` Integer (optional)
-    * `TipeSumberdaya` String
-    * `pengarah` Tali
-    * `timestamp` Duakali
-    * `responseHeaders` Objek
-    * `fromCache` Boolean - Indicates whether the response was fetched from disk cache.
-    * `statusCode` Bilangan bulat
-    * `statusGaris` String
-
-Seorang `pendengar` akan dipanggil dengan `pendengar(rincian)` ketika byte pertama dari respon tubuh yang diterima. Untuk permintaan HTTP, ini berarti baris status dan header respon tersedia.
-
-#### `webRequest.onBeforeRedirect([filter, ]listener)`
-
-* `menyaring` Objek (opsional) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `pendengar` Function | null 
-  * `rincian` Obyek 
-    * `identitas` Integer
-    * `url` String
-    * `method` String
-    * `webContentsId` Integer (optional)
-    * `TipeSumberdaya` String
-    * `pengarah` Tali
-    * `timestamp` Duakali
-    * `redirectURL` String
-    * `statusCode` Bilangan bulat
-    * `ip` String (optional) - The server IP address that the request was actually sent to.
-    * `dariCache` Boolean
-    * `responseHeaders` Objek
-
-`pendengar` akan dipanggil dengan `pendengar(rincian)` saat server memulai redirect akan segera terjadi.
-
-#### `webRequest.onCompleted([filter, ]listener)`
-
-* `menyaring` Objek (opsional) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `pendengar` Function | null 
-  * `rincian` Obyek 
-    * `identitas` Integer
-    * ` url </ 0> String</li>
-<li><code>method` String
-    * `webContentsId` Integer (optional)
-    * `TipeSumberdaya` String
     * `pengarah` String
     * `timestamp` Duakali
-    * `responseHeaders` Objek
-    * `dariCache` Boolean
-    * `statusCode` Bilangan bulat
-    * `statusGaris` String
-
-Seorang `pendengar` akan dipanggil dengan `pendengar(rincian)` ketika sebuah permintaan selesai.
-
-#### `webRequest.onErrorOccurred([filter, ]listener)`
-
-* `menyaring` Objek (opsional) 
-  * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `pendengar` Function | null 
-  * `rincian` Obyek 
-    * `identitas` Integer
-    * ` url </ 0> String</li>
+    * `uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>
+</ul></li>
+<li><code>callback` Fungsi 
+      * `Tanggapan` Obyek 
+        * `batalkan` Boolean (opsional)
+        * `redirectURL` String (opsional) - Permintaan asli dicegah dikirim atau diselesaikan dan diarahkan ke URL yang diberikan.
+  
+  Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` saat sebuah permintaan akan segera terjadi.
+  
+  `UploadData` sebuah array `UploadData` objek.
+  
+  `panggilan kembali` harus dipanggil dengan `respon` objek.
+  
+  #### `webRequest.onBeforeSendHeaders([filter, ]pendengar)`
+  
+  * `menyaring` Objek (opsional) 
+    * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `pendengar` Function | null 
+    * `rincian` Obyek 
+      * `identitas` Integer
+      * `url` String
+      * ` path </ 0>  String</li>
+<li><code>exitCode` Integer (opsional)
+      * `Jenissumberdaya` Tali
+      * `pengarah` String
+      * `timestamp` Duakali
+      * `permintaanHeaders` Objek
+    * `callback` Lokasi: 
+      * `Tanggapan` Benda 
+        * `batalkan` Boolean (opsional)
+        * `permintaanHeader` Objek (opsional) - Bila tersedia, permintaan akan dibuat dengan headers ini.
+  
+  Seorang `pendengar` akan dipanggil dengan `pendengar(rincian, panggilan balik)` sebelum mengirim Permintaan HTTP, setelah header permintaan tersedia. Hal ini dapat terjadi setelah a Sambungan TCP dibuat ke server, namun sebelum data http dikirim.
+  
+  `panggilan kembali` harus dipanggil dengan `respon` objek.
+  
+  #### `webRequest.onSendHeaders([filter, ]pendengar)`
+  
+  * `menyaring` Object (opsional) 
+    * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `pendengar` Function | null 
+    * `rincian` Obyek 
+      * `identitas` Integer
+      * `url` String
+      * `method` String
+      * `exitCode` Integer (opsional)
+      * `Jenissumberdaya` Tali
+      * `pengarah` String
+      * `timestamp` Duakali
+      * `permintaanHeaders` Objek
+  
+  `pendengar` akan dipanggil dengan `pendengar(rincian)` tepat sebelum permintaan akan dikirim ke server, modifikasi sebelumnya `onBeforeSendHeader` respon terlihat pada saat pendengar ini dipecat.
+  
+  #### `webRequest.onHeadersReceived([filter, ]pendengar)`
+  
+  * `menyaring` Objek (opsional) 
+    * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `pendengar` Function | null 
+    * `rincian` Obyek 
+      * `identitas` Integer
+      * ` url </ 0> String</li>
 <li><code>method` String
-    * `webContentsId` Integer (optional)
-    * `TipeSumberdaya` String
-    * `pengarah` Tali
-    * `timestamp` Duakali
-    * `dariCache` Boolean
-    * `error` String - The error description.
-
-`pendengar` akan dipanggil dengan `pendengar(rincian)` bila terjadi kesalahan.
+      * `exitCode` Integer (opsional)
+      * `Jenissumberdaya` Tali
+      * `pengarah` String
+      * `timestamp` Duakali
+      * `statusGaris` String
+      * `statusCode` Bilangan bulat
+      * `responseHeaders` Objek
+    * `callback` Fungsi 
+      * `Tanggapan` Obyek 
+        * `batalkan` Boolean (opsional)
+        * `responHeader` Objek (opsional) - Bila disediakan, server diasumsikan telah merespon dengan headers ini.
+        * `statusGaris` String (opsional) - Harus diberikan saat mengesampingkan `responHeaders` untuk mengubah status header jika tidak ada respon asli status header akan digunakan.
+  
+  `pendengar` akan dipanggil dengan `pendengar(rincian, callback)` ketika HTTP header tanggapan atas permintaan telah diterima.
+  
+  `panggilan kembali` harus dipanggil dengan `respon` objek.
+  
+  #### `webRequest.onResponseStarted([filter, ]listener)`
+  
+  * `menyaring` Objek (opsional) 
+    * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `pendengar` Function | null 
+    * `rincian` Obyek 
+      * `identitas` Integer
+      * `url` String
+      * `method` String
+      * `exitCode` Integer (opsional)
+      * `TipeSumberdaya` String
+      * `pengarah` String
+      * `timestamp` Duakali
+      * `responseHeaders` Objek
+      * ` dariCache` Boolean - Menunjukkan apakah respon diambil dari disk cache.
+      * `statusCode` Bilangan bulat
+      * `statusGaris` String
+  
+  Seorang `pendengar` akan dipanggil dengan `pendengar(rincian)` ketika byte pertama dari respon tubuh yang diterima. Untuk permintaan HTTP, ini berarti baris status dan header respon tersedia.
+  
+  #### `webRequest.onBeforeRedirect([filter, ]listener)`
+  
+  * `menyaring` Objek (opsional) 
+    * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `pendengar` Function | null 
+    * `rincian` Obyek 
+      * `identitas` Integer
+      * `url` String
+      * `method` String
+      * `exitCode` Integer (opsional)
+      * `Jenissumberdaya` Tali
+      * `pengarah` String
+      * `timestamp` Duakali
+      * `redirectURL` String
+      * `statusCode` Bilangan bulat
+      * `ip` String (opsional) - Alamat IP server yang meminta benar-benar dikirim ke.
+      * `dariCache` Boolean
+      * `responseHeaders` Objek
+  
+  `pendengar` akan dipanggil dengan `pendengar(rincian)` saat server memulai redirect akan segera terjadi.
+  
+  #### `webRequest.onCompleted([filter, ]listener)`
+  
+  * `menyaring` Objek (opsional) 
+    * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `pendengar` Function | null 
+    * `rincian` Obyek 
+      * `identitas` Integer
+      * ` url </ 0> String</li>
+<li><code>method` String
+      * `exitCode` Integer (opsional)
+      * `TipeSumberdaya` String
+      * `pengarah` String
+      * `timestamp` Duakali
+      * `responseHeaders` Objek
+      * `dariCache` Boolean
+      * `statusCode` Bilangan bulat
+      * `statusGaris` String
+  
+  Seorang `pendengar` akan dipanggil dengan `pendengar(rincian)` ketika sebuah permintaan selesai.
+  
+  #### `webRequest.onErrorOccurred([filter, ]listener)`
+  
+  * `menyaring` Objek (opsional) 
+    * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
+  * `pendengar` Function | null 
+    * `rincian` Obyek 
+      * `identitas` Integer
+      * ` url </ 0> String</li>
+<li><code>method` String
+      * `exitCode` Integer (opsional)
+      * `TipeSumberdaya` String
+      * `pengarah` String
+      * `timestamp` Duakali
+      * `dariCache` Boolean
+      * `kesalahan` String - deskripsi kesalahan.
+  
+  `pendengar` akan dipanggil dengan `pendengar(rincian)` bila terjadi kesalahan.
