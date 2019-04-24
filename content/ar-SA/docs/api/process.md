@@ -2,7 +2,7 @@
 
 > Extensions to process object.
 
-العملية :  الرئيسية </ 0> ،  العارض </ 1></p> 
+العملية:  الرئيسية </ 0> ،  العارض </ 1></p> 
 
 Electron's `process` object is extended from the [Node.js `process` object](https://nodejs.org/api/process.html). It adds the following events, properties, and methods:
 
@@ -123,7 +123,7 @@ A `Boolean`. If the app is running as a Windows Store app (appx), this property 
 
 ## Methods
 
-The `process` object has the following methods:
+الطرق
 
 ### `process.crash()`
 
@@ -194,7 +194,7 @@ Takes a V8 heap snapshot and saves it to `filePath`.
 
 Causes the main thread of the current process hang.
 
-### `process.setFdLimit(maxDescriptors)` *macOS* *Linux*
+### ماك أوس لينكس
 
 * `maxDescriptors` Integer
 
