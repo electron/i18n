@@ -2,7 +2,7 @@
 
 [Electron](https://electronjs.org) היננה ספריה עם קוד פתוח לבניית תוכנות למחשב בפלטפורמות שונות עם קוד HTML, CSS, ו-Javascript מאת GitHub. Electron מצליחה לעשות זאת באמצעות שילוב של [Chromium](https://www.chromium.org/Home) עם [Node.js](https://nodejs.org) כתוכנה אחת והתוכנות יכולות להיארז לשימוש במחשבי Mac, חלונות ולינוקס.
 
-Electron began in 2013 as the framework on which [Atom](https://atom.io), GitHub's hackable text editor, would be built. The two were open sourced in the Spring of 2014.
+Electron נולדה ב-2013 כמסגרת שעליה [Atom](https://atom.io), עורך הקוד הפריץ של GitHub, נבנה. הקוד של שניהם הפך לפתוח באביב של 2014.
 
 It has since become a popular tool used by open source developers, startups, and established companies. [See who is building on Electron](https://electronjs.org/apps).
 
