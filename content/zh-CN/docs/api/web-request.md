@@ -62,7 +62,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
 * `filter` Object (可选) 
-  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。
+  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
 * `listener` Function | null 
   * `details` Object 
     * `id` Integer
@@ -73,7 +73,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `referrer` String
     * `timestamp` Double
     * `requestHeaders` Object
-  * `callback` Function - 回调函数 
+  * `callback` Function 
     * `response` Object 
       * `cancel` Boolean (可选)
       * `requestHeaders` Object (可选) - 当提供时，将使用这些报头进行请求。
@@ -85,7 +85,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
 * `过滤` Object (可选) 
-  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。
+  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
 * `listener` Function | null 
   * `details` Object 
     * `id` Integer
@@ -102,7 +102,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
 * `filter` Object (可选) 
-  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。
+  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
 * `listener` Function | null 
   * `details` Object 
     * `id` Integer
@@ -128,7 +128,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
 * `filter` Object (可选) 
-  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。
+  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
 * `listener` Function | null 
   * `details` Object 
     * `id` Integer
@@ -139,7 +139,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `referrer` String
     * `timestamp` Double
     * `responseHeaders` Object
-    * `fromCache` Boolean - Indicates whether the response was fetched from disk cache.
+    * `fromCache` Boolean - 表明响应是取自硬盘缓存。
     * `statusCode` Integer
     * `statusLine` String
 
@@ -148,7 +148,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 #### `webRequest.onBeforeRedirect([filter, ]listener)`
 
 * `filter` Object (可选) 
-  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。
+  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
 * `listener` Function | null 
   * `details` Object 
     * `id` Integer
@@ -160,7 +160,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `timestamp` Double
     * `redirectURL` String
     * `statusCode` Integer
-    * `ip` String (optional) - The server IP address that the request was actually sent to.
+    * `ip` String (可选) - 请求实际发送到的服务器 IP 地址。
     * `fromCache` Boolean
     * `responseHeaders` Object
 
@@ -169,7 +169,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 #### `webRequest.onCompleted([filter, ]listener)`
 
 * `filter` Object (可选) 
-  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。
+  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
 * `listener` Function | null 
   * `details` Object 
     * `id` Integer
@@ -189,7 +189,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 #### `webRequest.onErrorOccurred([filter, ]listener)`
 
 * `filter` Object (可选) 
-  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。
+  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
 * `listener` Function | null 
   * `details` Object 
     * `id` Integer
@@ -200,6 +200,6 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
     * `referrer` String
     * `timestamp` Double
     * `fromCache` Boolean
-    * `error` String - The error description.
+    * `error` String - 错误描述.
 
 当发生错误时，将以 `listener(details)`的方式调用`listener`。
