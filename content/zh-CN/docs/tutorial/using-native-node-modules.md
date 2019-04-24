@@ -14,7 +14,7 @@ the module (for instance, using `npm rebuild` or `npm install`).
 
 There are several different ways to install native modules:
 
-### Installing modules and rebuilding for Electron
+### 为 Electron 安装并重新编译模块
 
 You can install modules like other Node projects, and then rebuild the modules for Electron with the [`electron-rebuild`](https://github.com/electron/electron-rebuild) package. This module can automatically determine the version of Electron and handle the manual steps of downloading headers and rebuilding native modules for your app.
 
@@ -32,32 +32,32 @@ npm install --save-dev electron-rebuild
 
 For more information on usage and integration with other tools, consult the project's README.
 
-### Using `npm`
+### 通过 `npm` 安装
 
-By setting a few environment variables, you can use `npm` to install modules directly.
+只要设置一些系统环境变量，你就可以通过 `npm` 直接安装原生模块。
 
 For example, to install all dependencies for Electron:
 
 ```sh
-# Electron's version.
+# Electron 的版本。
 export npm_config_target=1.2.3
 # The architecture of Electron, see https://electronjs.org/docs/tutorial/support#supported-platforms
 # for supported architectures.
 export npm_config_arch=x64
 export npm_config_target_arch=x64
-# Download headers for Electron.
+# 下载 Electron 的 headers。
 export npm_config_disturl=https://atom.io/download/electron
-# Tell node-pre-gyp that we are building for Electron.
+# 告诉 node-pre-gyp 我们是在为 Electron 生成模块。
 export npm_config_runtime=electron
-# Tell node-pre-gyp to build module from source code.
+# 告诉 node-pre-gyp 从源代码构建模块。
 export npm_config_build_from_source=true
-# Install all dependencies, and store cache to ~/.electron-gyp.
+# 安装所有依赖，并缓存到 ~/.electron-gyp。
 HOME=~/.electron-gyp npm install
 ```
 
 ### 为 Electron 手动编译
 
-If you are a developer developing a native module and want to test it against Electron, you might want to rebuild the module for Electron manually. You can use `node-gyp` directly to build for Electron:
+如果你是一个原生模块的开发人员，想在 Electron 中进行测试， 你可能要手动编译 Electron 模块。 你可以 使用 `node-gyp` 直接编译：
 
 ```sh
 cd /path-to-module/
@@ -81,10 +81,10 @@ npm rebuild --nodedir=/path/to/electron/vendor/node
 
 If you installed a native module and found it was not working, you need to check the following things:
 
-- When in doubt, run `electron-rebuild` first.
+- 当有疑问时，请先执行 `electron-rebuild`。
 - Make sure the native module is compatible with the target platform and architecture for your Electron app.
 - Make sure `win_delay_load_hook` is not set to `false` in the module's `binding.gyp`.
-- After you upgrade Electron, you usually need to rebuild the modules.
+- 如果升级了 Electron，你通常需要重新编译这些模块。
 
 ### A note about `win_delay_load_hook`
 
