@@ -14,24 +14,24 @@ Proses: [Main](../glossary.md#main-process)
 <ul>
 <li>Saat mengirim pesan, nama acara adalah <code> saluran </ 0> .</li>
 <li>Untuk membalas pesan sinkron, Anda perlu mengatur <code> acara.kembali di nilai </ 0> .</li>
-<li>Untuk mengirim pesan asinkron kembali ke pengirim, Anda dapat menggunakan
- <code> acara.pengirim.kirim (...) </ 0> .</li>
-</ul>
+<li>To send an asynchronous message back to the sender, you can use
+<code>event.reply(...)`. This helper method will automatically handle messages coming from frames that aren't the main frame (e.g. iframes) whereas `event.sender.send(...)` will always send to the main frame.</li> </ul> 
 
-<p>Contoh pengiriman dan penanganan pesan antara proses render dan utama:</p>
+Contoh pengiriman dan penanganan pesan antara proses render dan utama:
 
-<pre><code class="javascript">// Dalam proses utama.
+```javascript
+// Dalam proses utama.
 const { ipcMain } = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
   console.log(arg) // prints "ping"
-  event.sender.send('asynchronous-reply', 'pong')
+  event.reply('asynchronous-reply', 'pong')
 })
 
 ipcMain.on('synchronous-message', (event, arg) => {
   console.log(arg) // prints "ping"
   event.returnValue = 'pong'
 })
-`</pre> 
+```
 
 ```javascript
 // Dalam proses renderer (halaman web).
@@ -80,12 +80,18 @@ Modul ` ipcMain </ 0> memiliki metode berikut untuk mendengarkan acara:</p>
 
 <p><code> acara </ 0> objek diteruskan ke <code> callback </ 0> memiliki metode berikut:</p>
 
-<h3><code>acara.kembali di nilai`</h3> 
+<h3><code>event.frameId`</h3> 
             
-            Atur ini ke nilai yang akan dikembalikan dalam pesan sinkron.
+            An `Integer` representing the ID of the renderer frame that sent this message.
             
-            ### `acara.pengirim`
+            ### `event.returnValue`
             
-            Mengembalikan isi web </ 0> yang mengirim pesan, Anda dapat memanggil
- <code> acara.pengirim.kirim </ 0> untuk membalas pesan asinkron, lihat
- <a href="web-contents.md#contentssendchannel-arg1-arg2-"> isis web.kirim</ 1> untuk lebih informasi.</p>
+            Set this to the value to be returned in a synchronous message.
+            
+            ### `event.sender`
+            
+            Returns the `webContents` that sent the message, you can call `event.sender.send` to reply to the asynchronous message, see [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for more information.
+            
+            ### `event.reply`
+            
+            A function that will send an IPC message to the renderer frane that sent the original message that you are currently handling. You should use this method to "reply" to the sent message in order to guaruntee the reply will go to the correct process and frame.
