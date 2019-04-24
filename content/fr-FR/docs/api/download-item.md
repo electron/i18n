@@ -80,78 +80,88 @@ Cet API est seulement disponible dans la fonction de rappel de `will-download` d
 
 Retourne `String` - Le chemin d'accès pour le téléchargement. Ce sera soit le chemin définit par `downloadItem.setSavePath(path)` ou le chemin indiqué par la boîte de dialogue de sauvegarde.
 
+#### `downloadItem.setSaveDialogOptions(options)`
+
+* `options` SaveDialogOptions - Set the save file dialog options. This object has the same properties as the `options` parameter of [`dialog.showSaveDialog()`](dialog.md).
+
+This API allows the user to set custom options for the save dialog that opens for the download item by default. The API is only available in session's `will-download` callback function.
+
+#### `downloadItem.getSaveDialogOptions()`
+
+Returns `SaveDialogOptions` - Returns the object previously set by `downloadItem.setSaveDialogOptions(options)`.
+
 #### `downloadItem.pause()`
 
-Met en pause le téléchargement.
+Pauses the download.
 
 #### `downloadItem.isPaused()`
 
-Retourne `Boolean` - Si le téléchargement est en pause.
+Returns `Boolean` - Whether the download is paused.
 
 #### `downloadItem.resume()`
 
-Reprend le téléchargement qui a été mis en pause.
+Resumes the download that has been paused.
 
-**Remarque :** Pour permettre la reprise des téléchargements, le serveur sur lequel vous téléchargez doit supporter les requêtes de plage (range requests) et doit fournir les en-têtes `Last-Modified` et `ETag`. Sinon `resume()` va rejeter les octets reçus précédemment et redémarrer le téléchargement depuis le début.
+**Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. Otherwise `resume()` will dismiss previously received bytes and restart the download from the beginning.
 
 #### `downloadItem.canResume()`
 
-Retourne `Boolean` - Si le téléchargement peut être repris.
+Returns `Boolean` - Whether the download can resume.
 
 #### `downloadItem.cancel()`
 
-Annule le téléchargement.
+Cancels the download operation.
 
 #### `downloadItem.getURL()`
 
-Retourne `String` - L'url d'origine d'où le fichier téléchargé provient.
+Returns `String` - The origin url where the item is downloaded from.
 
 #### `downloadItem.getMimeType()`
 
-Retourne `String` - Le mime type du fichier.
+Returns `String` - The files mime type.
 
 #### `downloadItem.hasUserGesture()`
 
-Retourne `Boolean` - Si le téléchargement à des gestures.
+Returns `Boolean` - Whether the download has user gesture.
 
 #### `downloadItem.getFilename()`
 
-Retourne `String` - le nom du fichier du téléchargement.
+Returns `String` - The file name of the download item.
 
-**Remarque :** Le nom du fichier n'est pas toujours le même que celui enregistré dans le disque local. Si l'utilisateur modifie le nom du fichier dans la boîte de dialogue de sauvegarde, alors le nom actuel et le nom du fichier sauvegardé seront différent.
+**Note:** The file name is not always the same as the actual one saved in local disk. If user changes the file name in a prompted download saving dialog, the actual name of saved file will be different.
 
 #### `downloadItem.getTotalBytes()`
 
-Retourne `Integer` - La taille totale en octets du téléchargement.
+Returns `Integer` - The total size in bytes of the download item.
 
-Si la taille est inconnue, retourne 0.
+If the size is unknown, it returns 0.
 
 #### `downloadItem.getReceivedBytes()`
 
-Retourne `Integer` - Le nombre d'octets reçu du téléchargement.
+Returns `Integer` - The received bytes of the download item.
 
 #### `downloadItem.getContentDisposition()`
 
-Retourne `String` - Le champ Content-Disposition venant de l'en-tête de la réponse.
+Returns `String` - The Content-Disposition field from the response header.
 
 #### `downloadItem.getState()`
 
-Retourne `String` - L'état actuel. Peut être `progressing`, `completed`, `cancelled` ou `interrupted`.
+Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
 
-**Remarque :** Les méthodes suivantes sont utiles spécifiquement pour relancer un téléchargement `cancelled` au redémarrage de la session.
+**Note:** The following methods are useful specifically to resume a `cancelled` item when session is restarted.
 
 #### `downloadItem.getURLChain()`
 
-Retourne `String[]` - La chaîne d'url complète du téléchargement, y compris les redirections.
+Returns `String[]` - The complete url chain of the item including any redirects.
 
 #### `downloadItem.getLastModifiedTime()`
 
-Retourne `String` - La valeur de l'en-tête Last-Modified.
+Returns `String` - Last-Modified header value.
 
 #### `downloadItem.getETag()`
 
-Retourne `String` - La valeur de l'en-tête ETag.
+Returns `String` - ETag header value.
 
 #### `downloadItem.getStartTime()`
 
-Retourne `Double` - Le nombre de secondes depuis l'époch UNIX lorsque le téléchargement s'est lancé.
+Returns `Double` - Number of seconds since the UNIX epoch when the download was started.
