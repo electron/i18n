@@ -6,7 +6,51 @@
 
 代码注释中添加的`FIXME`字符来表示以后的版本应该被修复的问题. 参考 https://github.com/electron/electron/search?q=fixme
 
-# 计划重写的 API (5.0)
+# Planned Breaking API Changes (6.0)
+
+## `win.setMenu(null)`
+
+```js
+// Deprecated
+win.setMenu(null)
+// Replace with
+win.removeMenu()
+```
+
+## `electron.screen` in renderer process
+
+```js
+// Deprecated
+require('electron').screen
+// Replace with
+require('electron').remote.screen
+```
+
+## `require` in sandboxed renderers
+
+```js
+// Deprecated
+require('child_process')
+// Replace with
+require('electron').remote.require('child_process')
+
+// Deprecated
+require('fs')
+// Replace with
+require('electron').remote.require('fs')
+
+// Deprecated
+require('os')
+// Replace with
+require('electron').remote.require('os')
+
+// Deprecated
+require('path')
+// Replace with
+require('electron').remote.require('path')
+```
+
+# Planned Breaking API Changes (5.0)
 
 ## `new BrowserWindow({ webPreferences })`
 
@@ -22,34 +66,51 @@
 
 使用 `nativeWindowOpen` 选项打开的子窗口将始终禁用 Node.js 集成。
 
-## `webContents.findInPage(text[, options])`
+## Privileged Schemes Registration
 
-`wordStart` 和 `medialCapitalAsWordStart` 选项被删除。
+Renderer process APIs `webFrame.setRegisterURLSchemeAsPrivileged` and `webFrame.registerURLSchemeAsBypassingCSP` as well as browser process API `protocol.registerStandardSchemes` have been removed. A new API, `protocol.registerSchemesAsPrivileged` has been added and should be used for registering custom schemes with the required privileges. Custom schemes are required to be registered before app ready.
 
-# 计划重写的 API (4.0)
+## webFrame Isolated World APIs
 
-以下列表包含了Electron4.0计划重写的API
+```js
+// Deprecated
+webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
+webFrame.setIsolatedWorldHumanReadableName(worldId, name)
+webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
+// Replace with
+webFrame.setIsolatedWorldInfo(
+  worldId,
+  {
+    securityOrigin: 'some_origin',
+    name: 'human_readable_name',
+    csp: 'content_security_policy'
+  })
+```
+
+# Planned Breaking API Changes (4.0)
+
+The following list includes the breaking API changes made in Electron 4.0.
 
 ## `app.makeSingleInstance`
 
 ```js
-// 废弃
-app.makeSingleInstance(function (argv, cwd) {
-
+// Deprecated
+app.makeSingleInstance((argv, cwd) => {
+  /* ... */
 })
-// 替换为
+// Replace with
 app.requestSingleInstanceLock()
-app.on('second-instance', function (argv, cwd) {
-
+app.on('second-instance', (event, argv, cwd) => {
+  /* ... */
 })
 ```
 
 ## `app.releaseSingleInstance`
 
 ```js
-// 废弃
+// Deprecated
 app.releaseSingleInstance()
-// 替换为
+// Replace with
 app.releaseSingleInstanceLock()
 ```
 
@@ -57,7 +118,7 @@ app.releaseSingleInstanceLock()
 
 ```js
 app.getGPUInfo('complete')
-// 现在的行为将与macOS下的`basic`设置一样
+// Now behaves the same with `basic` on macOS
 app.getGPUInfo('basic')
 ```
 
@@ -65,21 +126,21 @@ app.getGPUInfo('basic')
 
 在为 Windows 构建本机模块时，将使 `win_delay_load_hook` 变量值 位于 `binding.gyp` 模块，必须为 true (这是默认值)。 如果这个钩子 不存在，那么本机模块将无法在 Windows 上加载，并出现错误 消息如 `无法找到模块`。 查看 [原生模块指南](/docs/tutorial/using-native-node-modules.md) 以获取更多信息.
 
-# 重大的API更新 (3.0)
+# Breaking API Changes (3.0)
 
 以下包含了Electron 3.0中重大的API更新
 
 ## `app`
 
 ```js
-// 弃用
+// Deprecated
 app.getAppMemoryInfo()
-// 替换为
+// Replace with
 app.getAppMetrics()
 
-// 弃用
+// Deprecated
 const metrics = app.getAppMetrics()
-const { memory } = metrics[0] // 弃用的属性
+const { memory } = metrics[0] // Deprecated property
 ```
 
 ## `BrowserWindow`
@@ -106,40 +167,40 @@ window.on('app-command', (e, cmd) => {
 })
 ```
 
-## `clipboard`
+## `剪贴板`
 
 ```js
-// 过时的
+// Deprecated
 clipboard.readRtf()
-// 替换为
+// Replace with
 clipboard.readRTF()
 
-// 过时的
+// Deprecated
 clipboard.writeRtf()
-// 替换为
+// Replace with
 clipboard.writeRTF()
 
-// 过时的
+// Deprecated
 clipboard.readHtml()
-// 替换为
+// Replace with
 clipboard.readHTML()
 
-// 过时的
+// Deprecated
 clipboard.writeHtml()
-//替换为
+// Replace with
 clipboard.writeHTML()
 ```
 
 ## `crashReporter`
 
 ```js
-// 过时的
+// Deprecated
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
   autoSubmit: true
 })
-// 替换为
+// Replace with
 crashReporter.start({
   companyName: 'Crashly',
   submitURL: 'https://crash.server.com',
@@ -150,15 +211,15 @@ crashReporter.start({
 ## `nativeImage`
 
 ```js
-// 弃用
+// Deprecated
 nativeImage.createFromBuffer(buffer, 1.0)
-// 替换为
+// Replace with
 nativeImage.createFromBuffer(buffer, {
   scaleFactor: 1.0
 })
 ```
 
-## `process`
+## `进程`
 
 ```js
 // Deprecated
@@ -168,21 +229,21 @@ const info = process.getProcessMemoryInfo()
 ## `screen`
 
 ```js
-// 弃用
+// Deprecated
 screen.getMenuBarHeight()
-// 替换为
+// Replace with
 screen.getPrimaryDisplay().workArea
 ```
 
 ## `session`
 
 ```js
-// 过时的
-ses.setCertificateVerifyProc(function (hostname, certificate, callback) {
+// Deprecated
+ses.setCertificateVerifyProc((hostname, certificate, callback) => {
   callback(true)
 })
-// 替换为
-ses.setCertificateVerifyProc(function (request, callback) {
+// Replace with
+ses.setCertificateVerifyProc((request, callback) => {
   callback(0)
 })
 ```
@@ -190,56 +251,56 @@ ses.setCertificateVerifyProc(function (request, callback) {
 ## `Tray`
 
 ```js
-// 过时的
+// Deprecated
 tray.setHighlightMode(true)
-// 替换为
+// Replace with
 tray.setHighlightMode('on')
 
-// 过时的
+// Deprecated
 tray.setHighlightMode(false)
-// 替换为
+// Replace with
 tray.setHighlightMode('off')
 ```
 
 ## `webContents`
 
 ```js
-// 弃用
+// Deprecated
 webContents.openDevTools({ detach: true })
-// 替换为
+// Replace with
 webContents.openDevTools({ mode: 'detach' })
 
-// 移除
+// Removed
 webContents.setSize(options)
-// 没有该API的替代
+// There is no replacement for this API
 ```
 
 ## `webFrame`
 
 ```js
-// 弃用
+// Deprecated
 webFrame.registerURLSchemeAsSecure('app')
-// 替换为
+// Replace with
 protocol.registerStandardSchemes(['app'], { secure: true })
 
-// 弃用
+// Deprecated
 webFrame.registerURLSchemeAsPrivileged('app', { secure: true })
-// 替换为
+// Replace with
 protocol.registerStandardSchemes(['app'], { secure: true })
 ```
 
 ## `<webview>`
 
 ```js
-// 移除
+// Removed
 webview.setAttribute('disableguestresize', '')
-// 没有该API的替代
+// There is no replacement for this API
 
-// 移除
+// Removed
 webview.setAttribute('guestinstance', instanceId)
-// 没有该API的替代
+// There is no replacement for this API
 
-// 键盘监听器在webview标签中不再起效
+// Keyboard listeners no longer work on webview tag
 webview.onkeydown = () => { /* handler */ }
 webview.onkeyup = () => { /* handler */ }
 ```
@@ -252,17 +313,17 @@ webview.onkeyup = () => { /* handler */ }
 
 替换为: https://atom.io/download/electron
 
-# 重大的API更新 (2.0)
+# Breaking API Changes (2.0)
 
 以下包含了Electron 2.0中重大的API更新
 
 ## `BrowserWindow`
 
 ```js
-// 过时的
+// Deprecated
 let optionsA = { titleBarStyle: 'hidden-inset' }
 let windowA = new BrowserWindow(optionsA)
-//替换为
+// Replace with
 let optionsB = { titleBarStyle: 'hiddenInset' }
 let windowB = new BrowserWindow(optionsB)
 ```
@@ -270,58 +331,58 @@ let windowB = new BrowserWindow(optionsB)
 ## `menu`
 
 ```js
-// 移除
+// Removed
 menu.popup(browserWindow, 100, 200, 2)
-// 替换为
+// Replaced with
 menu.popup(browserWindow, { x: 100, y: 200, positioningItem: 2 })
 ```
 
 ## `nativeImage`
 
 ```js
-// 移除
+// Removed
 nativeImage.toPng()
-// 替换为
+// Replaced with
 nativeImage.toPNG()
 
-// 移除
+// Removed
 nativeImage.toJpeg()
-// 替换为
+// Replaced with
 nativeImage.toJPEG()
 ```
 
-## `process`
+## `进程`
 
 * ` process.versions.electron ` 和 ` process.version.chrome ` 将成为只读属性, 以便与其他 ` process.versions ` 属性由Node设置。
 
 ## `webContents`
 
 ```js
-// 移除
+// Removed
 webContents.setZoomLevelLimits(1, 2)
-// 替换为
+// Replaced with
 webContents.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## `webFrame`
 
 ```js
-// 移除
+// Removed
 webFrame.setZoomLevelLimits(1, 2)
-// 替换为
+// Replaced with
 webFrame.setVisualZoomLevelLimits(1, 2)
 ```
 
 ## `<webview>`
 
 ```js
-// 移除
+// Removed
 webview.setZoomLevelLimits(1, 2)
-// 替换为
+// Replaced with
 webview.setVisualZoomLevelLimits(1, 2)
 ```
 
-## 重复的 ARM 资源
+## Duplicate ARM Assets
 
 每个 Electron 发布版本包含两个相同的ARM版本，文件名略有不同，如`electron-v1.7.3-linux-arm.zip` 和 `electron-v1.7.3-linux-armv7l.zip` 添加包含`v7l`前缀的资源向用户明确其支持的ARM版本，并消除由未来armv6l 和 arm64 资源可能产生的歧义。
 
