@@ -43,9 +43,9 @@ app.on('window-all-closed', () => {
 
 * `event` Event
 
-Происходит перед тем как запущенное приложение закрывает окна. Вызов `event.preventDefault()` предотвращает поведение по умолчанию, которое завершает работу приложения.
+Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
 
-**Примечание:** Если выход приложения был инициирован `autoUpdater.quitAndInstall()` затем `before-quit` возникает *после* возникновения события `close` на всех окнах и закрывает их.
+**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()`, then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
 
 **Примечание:** В Windows, это событие не возникает, если приложение закрывается из-за выключения/перезагрузки системы или выхода из системы пользователя.
 
@@ -154,7 +154,7 @@ app.on('window-all-closed', () => {
 * `type` String - строка идентифицирует активность. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object - содержит специфичное для приложения состояние, сохраняющееся в хранилище по активности.
 
-Происходит во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), когда вот-вот возобновится на другом устройстве. Если вы хотите обновить состояние, которое будет передано, Вам необходимо вызвать `event.preventDefault()` немедленно, собрать новый словарь `userInfo` и вызвать `app.updateCurrentActivity()` своевременно. Иначе операция завершится ошибкой и будет вызвано `continue-activity-error`.
+Происходит во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), когда вот-вот возобновится на другом устройстве. Если вы хотите обновить состояние, которое будет передано, Вам необходимо вызвать `event.preventDefault()` немедленно, собрать новый словарь `userInfo` и вызвать `app.updateCurrentActivity()` своевременно. Otherwise, the operation will fail and `continue-activity-error` will be called.
 
 ### Событие: 'new-window-for-tab' *macOS*
 
@@ -274,7 +274,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 Происходит, когда `webContents` выполняет базовую аутетификацию.
 
-Поведением по умолчанию является отмена всех аутентификаций, чтобы переопределить это вы должны предотвратить поведение по умолчанию с `event.preventDefault()` и вызвать `callback(username, password)` с учётными данными.
+The default behavior is to cancel all authentications. To override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
 
 ```javascript
 const { app } = require('electron')
@@ -330,6 +330,17 @@ app.on('session-created', (event, session) => {
 Это событие произойдет в основном экземпляре приложения, когда второй экземпляр будет выполнен. `argv` является массивом аргументов командной строки второго экземпляра приложения, а `workingDirectory` является его текущим рабочим каталогом. Обычно приложения реагируют на это, делая их основное окно сфокусированным и не свернутым.
 
 Это событие происходит после события `ready` в `app`.
+
+**Note:** Extra command line arguments might be added by Chromium, such as `--original-process-start-time`.
+
+### Event: 'desktop-capturer-get-sources'
+
+Возвращает:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+
+Emitted when `desktopCapturer.getSources()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will make it return empty sources.
 
 ### Событие: 'remote-require'
 
@@ -407,7 +418,7 @@ app.on('session-created', (event, session) => {
 
 Выйти немедленно с `exitCode`. `exitCode` по умолчанию 0.
 
-Все окна будут закрыты сразу без запросов пользователя и `before-quit` и `will-quit` события не будут возникать.
+All windows will be closed immediately without asking the user, and the `before-quit` and `will-quit` events will not be emitted.
 
 ### `app.relaunch([options])`
 
@@ -417,7 +428,7 @@ app.on('session-created', (event, session) => {
 
 Перезапуск приложения когда существует текущий экземпляр.
 
-По умолчанию новый экземпляр будет использовать тот же рабочий каталог и аргументы командной строки с текущим экземпляром. Когда `args` указан, `args` передаются как аргументы командной строки. Когда задано значение `execPath`, `execPath` будет выполняться для перезапуска вместо текущего приложения.
+By default, the new instance will use the same working directory and command line arguments with current instance. Когда `args` указан, `args` передаются как аргументы командной строки. Когда задано значение `execPath`, `execPath` будет выполняться для перезапуска вместо текущего приложения.
 
 Обратите внимание, что этот метод не завершает приложение при выполнении, вам нужно вызвать `app.quit` или `app.exit` после вызова `app.relaunch` чтобы перезапустить приложение.
 
@@ -460,7 +471,7 @@ Returns `Promise<void>` - fulfilled when Electron is initialized. May be used as
 
 * `name` String
 
-Возвращает `String` - путь в специальный каталог или файл, связанный с `name`. В случае неудачи возникает `Error`.
+Returns `String` - A path to a special directory or file associated with `name`. On failure, an `Error` is thrown.
 
 Вы можете запросить следующие пути по их имени:
 
@@ -501,7 +512,29 @@ Returns `Promise<void>` - fulfilled when Electron is initialized. May be used as
 * Значки, связанные с определенными расширениями, как `.mp3`, `.png`, и т.д.
 * Значки внутри файла, как `.exe`, `.dll`, `.ico`.
 
-На *Linux* и *macOS* значки зависят от приложения, связанного с типом mime файла.
+On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+
+**[Deprecated Soon](promisification.md)**
+
+### `app.getFileIcon(path[, options])`
+
+* `path` String
+* `options` Object (опционально) 
+  * `size` String 
+    * `small` - 16x16
+    * `normal` - 32x32
+    * `large` - 48x48 on *Linux*, 32x32 on *Windows*, не поддерживается на *macOS*.
+
+Returns `Promise<NativeImage>` - fulfilled with the app's icon, which is a [NativeImage](native-image.md).
+
+Извлекает путь значка.
+
+На *Windows*, там 2 вида значков:
+
+* Значки, связанные с определенными расширениями, как `.mp3`, `.png`, и т.д.
+* Значки внутри файла, как `.exe`, `.dll`, `.ico`.
+
+On *Linux* and *macOS*, icons depend on the application associated with file mime type.
 
 ### `app.setPath(name, path)`
 
@@ -538,7 +571,13 @@ Returns `Promise<void>` - fulfilled when Electron is initialized. May be used as
 
 **Примечание:** При распространении упакованного приложения, нужно также добавить папку `locales`.
 
-**Примечание:** В Windows вы должны назвать его после получения события `ready`.
+**Note:** On Windows, you have to call it after the `ready` events gets emitted.
+
+### `app.getLocaleCountryCode()`
+
+Returns `string` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. The value is taken from native OS APIs.
+
+**Note:** When unable to detect locale country code, it returns empty string.
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
@@ -546,7 +585,7 @@ Returns `Promise<void>` - fulfilled when Electron is initialized. May be used as
 
 Добавляет `path` к списку последних документов.
 
-Этот список управляется операционной системой. В Windows вы можете посетить список из панели задач, и на macOS вы можете посетить его из меню dock.
+This list is managed by the OS. On Windows, you can visit the list from the task bar, and on macOS, you can visit it from dock menu.
 
 ### `app.clearRecentDocuments()` *macOS* *Windows*
 
@@ -562,7 +601,7 @@ Returns `Promise<void>` - fulfilled when Electron is initialized. May be used as
 
 Этот метод устанавливает текущий исполняемый файл в качестве обработчика по умолчанию для протокола (так называемая схема URI). Это позволяет Вам интегрировать приложение глубже в операционную систему. После регистрации, все ссылки с `ваш_протокол://` будут открываться текущим исполняемым файлом. Вся ссылка, включая протокол, будет передаваться в Ваше приложение в качестве параметра.
 
-На Windows Вы можете предоставить дополнительные параметры: path - путь до Вашего исполняемого файла и args - массив аргументов, который будет передан Вашему исполняемому файлу при его запуске.
+On Windows, you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
 
 **Примечание:** На macOS Вы можете регистрировать только те протоколы, которые были добавлены в `info.plist` Вашего приложения, которое не может быть модифицирована во время выполнения. Однако Вы можете изменить файл с помощью простого текстового редактора или скрипта во время сборки. За подробными сведениями обращайтесь к [документации компании Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115).
 
@@ -695,11 +734,11 @@ app.setJumpList([
 
 Этот метод делает ваше приложение одним экземпляром приложения, и не позволяет запускать несколько экземпляров вашего приложения, это гарантирует, что только один экземпляр вашего приложения запущен, а другие экземпляры сигнализируют об этом и завершаются.
 
-The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock you can assume that another instance of your application is already running with the lock and exit immediately.
+The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock, you can assume that another instance of your application is already running with the lock and exit immediately.
 
 I.e. This method returns `true` if your process is the primary instance of your application and your app should continue loading. It returns `false` if your process should immediately quit as it has sent its parameters to another instance that has already acquired the lock.
 
-На macOS система обеспечивает один экземпляр автоматически, когда пользователи пытаются открыть второй экземпляр приложения в Finder, для этого будут выделяться события `open-file` и `open-url`. Однако при запуске Вашего приложения в командной строке, системный механизм одного экземпляра будет обойден, и Вы должны использовать этот метод для обеспечения одного экземпляра.
+On macOS, the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the `open-file` and `open-url` events will be emitted for that. However when users start your app in command line, the system's single instance mechanism will be bypassed, and you have to use this method to ensure single instance.
 
 Пример активации окна первичного экземпляра, при запуске второго экземпляра:
 
@@ -840,7 +879,7 @@ Using `basic` should be preferred if only basic information like `vendorId` or `
 
 Задает счетчик-значок для текущего приложения. При значении счетчика `0` будет скрыть значок.
 
-В macOS показывает на значке в dock. На Linux это работает только для Unity.
+On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
 
 **Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
 
@@ -858,7 +897,7 @@ Using `basic` should be preferred if only basic information like `vendorId` or `
   * `path` String (опиционально) *Windows* - исполняемый путь для сравнения. По умолчанию `process.execPath`.
   * `args` String [] (опционально) *Windows* - аргументы командной строки для сравнения. По умолчанию пустой массив.
 
-Если вы указали `path` и `args` параметры в `app.setLoginItemSettings`, вам нужно правильно задать те же аргументы для `openAtLogin`.
+If you provided `path` and `args` options to `app.setLoginItemSettings`, then you need to pass the same arguments here for `openAtLogin` to be set correctly.
 
 Возвращает `Object`:
 
@@ -909,20 +948,22 @@ This API must be called after the `ready` event is emitted.
 
 **Примечание:** Рендеринг древа специальных возможностей может повлиять на производительность Вашего приложения. Не должно быть включенным по умолчанию.
 
-### `app.showAboutPanel()` *macOS*
+### `app.showAboutPanel` *macOS* *Linux*
 
-Show the about panel with the values defined in the app's `.plist` file or with the options set via `app.setAboutPanelOptions(options)`.
+Show the app's about panel options. These options can be overridden with `app.setAboutPanelOptions(options)`.
 
-### `app.setAboutPanelOptions(options)` *macOS*
+### `app.setAboutPanelOptions(options)` *macOS* *Linux*
 
 * `options` Object 
   * `applicationName` String (опиционально) - имя приложения.
   * `applicationVersion` String (опиционально) - версия приложения.
   * `copyright` String (опиционально) - copyright информация.
-  * `credits` String (опиционально) - сredit информация.
-  * `version` String (опиционально) - номер версии сборки приложения.
+  * `version` String (optional) - The app's build version number. *macOS*
+  * `credits` String (optional) - Credit information. *macOS*
+  * `website` String (optional) - The app's website. *Linux*
+  * `iconPath` String (optional) - Path to the app's icon. *Linux*
 
-Установите описание панели опций. Это переопределит значения, определенные в файле `.plist` приложения. Смотрите [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) для получения более подробной информации.
+Установите описание панели опций. This will override the values defined in the app's `.plist` file on MacOS. Смотрите [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) для получения более подробной информации. On Linux, values must be set in order to be shown; there are no defaults.
 
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
 
@@ -956,15 +997,23 @@ stopAccessingSecurityScopedResource()
 
 **Примечание:** Это не повлияет на `process.argv`.
 
+### `app.commandLine.hasSwitch(switch)`
+
+* `switch` String - переключатель командной строки
+
+Returns `Boolean` - Whether the command-line switch is present.
+
+### `app.commandLine.getSwitchValue(switch)`
+
+* `switch` String - переключатель командной строки
+
+Returns `String` - The command-line switch value.
+
+**Note:** When the switch is not present, it returns empty string.
+
 ### `app.enableSandbox()` *Experimental* *macOS* *Windows*
 
 Enables full sandbox mode on the app.
-
-Этот метод может быть вызван только до того, как приложение будет готово.
-
-### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
-
-Включение смешанного изолированного режима в приложении.
 
 Этот метод может быть вызван только до того, как приложение будет готово.
 
@@ -974,11 +1023,11 @@ Enables full sandbox mode on the app.
 
 ### `app.moveToApplicationsFolder()` *macOS*
 
-Возвращает `Boolean` - Было ли перемещение успешным. Обратите внимание, если перемещение была успешным, ваше приложение может завершиться или совершит перезапуск.
+Returns `Boolean` - Whether the move was successful. Please note that if the move is successful, your application will quit and relaunch.
 
-Диалог подтверждения не будет представлен по умолчанию, если Вы хотите позволить пользователю подтвердить операцию, Вы можете сделать это с помощью API [`диалогового окна`](dialog.md).
+No confirmation dialog will be presented by default. If you wish to allow the user to confirm the operation, you may do so using the [`dialog`](dialog.md) API.
 
-**Примечание:** Этот метод вызывает ошибки, если что-нибудь, кроме пользователя, приводит к сбою перемещения. Например, если пользователь отменяет диалоговое окно авторизации, этот метод возвращает false. Если нам не удастся выполнить копирование, этот метод вызовет ошибку. Сообщение об ошибке должно быть информативным и скажет Вам, что действительно пошло не так
+**Примечание:** Этот метод вызывает ошибки, если что-нибудь, кроме пользователя, приводит к сбою перемещения. For instance if the user cancels the authorization dialog, this method returns false. If we fail to perform the copy, then this method will throw an error. Сообщение об ошибке должно быть информативным и скажет Вам, что действительно пошло не так
 
 ### `app.dock.bounce([type])` *macOS*
 
