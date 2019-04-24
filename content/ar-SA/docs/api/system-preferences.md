@@ -83,7 +83,7 @@ Posts `event` as native notifications of macOS. The `userInfo` is an Object that
 ### `systemPreferences.subscribeNotification(event, callback)` *macOS*
 
 * `event` String
-* `callback` Function 
+* `callback` دالة 
   * `event` String
   * `userInfo` Object
 
@@ -103,7 +103,7 @@ Under the hood this API subscribes to `NSDistributedNotificationCenter`, example
 ### `systemPreferences.subscribeLocalNotification(event, callback)` *macOS*
 
 * `event` String
-* `callback` Function 
+* `callback` دالة 
   * `event` String
   * `userInfo` Object
 
@@ -114,7 +114,7 @@ Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defau
 ### `systemPreferences.subscribeWorkspaceNotification(event, callback)` *macOS*
 
 * `event` String
-* `callback` Function 
+* `callback` دالة 
   * `event` String
   * `userInfo` Object
 
@@ -122,19 +122,19 @@ Same as `subscribeNotification`, but uses `NSWorkspace.sharedWorkspace.notificat
 
 ### `systemPreferences.unsubscribeNotification(id)` *macOS*
 
-* `id` Integer
+* </code>
 
 Removes the subscriber with `id`.
 
 ### `systemPreferences.unsubscribeLocalNotification(id)` *macOS*
 
-* `id` Integer
+* </code>
 
 Same as `unsubscribeNotification`, but removes the subscriber from `NSNotificationCenter`.
 
 ### `systemPreferences.unsubscribeWorkspaceNotification(id)` *macOS*
 
-* `id` Integer
+* </code>
 
 Same as `unsubscribeNotification`, but removes the subscriber from `NSWorkspace.sharedWorkspace.notificationCenter`.
 
