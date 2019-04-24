@@ -38,162 +38,168 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 * `filter` Object (任意) 
   * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
-* `listener` Function 
+* `listener` Function | null 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (任意)
     * `resourceType` String
+    * `referrer` String
     * `timestamp` Double
-    * `uploadData` UploadD[ata[]](structures/upload-data.md)</li> </ul></li> 
-      
-      * `callback` 機能 
-        * `応答` Object 
-          * `cancel` Boolean (任意)
-          * `redirectURL` String (任意) - 元のリクエストは送信または終了されず、代わりに指定された URL にリダイレクトされます。</ul></li> </ul> 
-      
-      `listener` は、リクエストが発生しようとしているときに `listener(details, callback)` で呼ばれます。
-      
-      `uploadData` は、`UploadData` オブジェクトの配列です。
-      
-      `callback` は、`response` オブジェクトで呼ぶ必要があります。
-      
-      #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
-      
-      * `filter` Object (任意) 
-        * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
-      * `listener` Function 
-        * `details` Object 
-          * `id` Integer
-          * `url` String
-          * `method` String
-          * `webContentsId` Integer (任意)
-          * `resourceType` String
-          * `timestamp` Double
-          * `requestHeaders` Object
-        * `callback` Function 
-          * `response` Object 
-            * `cancel` Boolean (任意)
-            * `requestHeaders` Object (任意) - 指定すると、これらのヘッダでリクエストが作成されます。
-      
-      リクエストヘッダが利用可能になると、HTTP リクエストを送信する前に `listener` が `listener(details, callback)` で呼び出されます。 これは、サーバーに TCP 接続が行われた後、HTTP データが送信される前に発生する可能性があります。
-      
-      `callback` は、`response` オブジェクトで呼ぶ必要があります。
-      
-      #### `webRequest.onSendHeaders([filter, ]listener)`
-      
-      * `filter` Object (任意) 
-        * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
-      * `listener` Function 
-        * `details` Object 
-          * `id` Integer
-          * `url` String
-          * `method` String
-          * `webContentsId` Integer (任意)
-          * `resourceType` String
-          * `timestamp` Double
-          * `requestHeaders` Object
-      
-      `listener` は、リクエストがサーバに送信される直前に `listener(details)` で呼び出され、以前の `onBeforeSendHeaders` レスポンスの変更は、このリスナが起動される時までに表示されます。
-      
-      #### `webRequest.onHeadersReceived([filter, ]listener)`
-      
-      * `filter` Object (任意) 
-        * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
-      * `listener` Function 
-        * `details` Object 
-          * `id` Integer
-          * `url` String
-          * `method` String
-          * `webContentsId` Integer (任意)
-          * `resourceType` String
-          * `timestamp` Double
-          * `statusLine` String
-          * `statusCode` Integer
-          * `responseHeaders` Object
-        * `callback` Function 
-          * `response` Object 
-            * `cancel` Boolean (任意)
-            * `responseHeaders` Object (任意) - 指定すると、サーバはこれらのヘッダでレスポンスしたものとみなされます。
-            * `statusLine` String (任意) - ヘッダのステータスを変更するために `responseHeaders` をオーバーライドする場合に指定する必要があります。そうしないと、元の応答ヘッダのステータスが使用されます。
-      
-      `listener` は、HTTP リクエストのレスポンスヘッダを受信したときに `listener(details, callback)` で呼ばれます。
-      
-      `callback` は、`response` オブジェクトで呼ぶ必要があります。
-      
-      #### `webRequest.onResponseStarted([filter, ]listener)`
-      
-      * `filter` Object (任意) 
-        * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
-      * `listener` Function 
-        * `details` Object 
-          * `id` Integer
-          * `url` String
-          * `method` String
-          * `webContentsId` Integer (任意)
-          * `resourceType` String
-          * `timestamp` Double
-          * `responseHeaders` Object
-          * `fromCache` Boolean - レスポンスがディスクキャッシュからフェッチされたかどうかを示します。
-          * `statusCode` Integer
-          * `statusLine` String
-      
-      `listener` は、レスポンスボディの最初のバイトを受信したときに `listener(details)` で呼ばれます。 HTTP リクエストの場合、これはステータスラインとレスポンスヘッダが使用可能であることを意味します。
-      
-      #### `webRequest.onBeforeRedirect([filter, ]listener)`
-      
-      * `filter` Object (任意) 
-        * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
-      * `listener` Function 
-        * `details` Object 
-          * `id` Integer
-          * `url` String
-          * `method` String
-          * `webContentsId` Integer (任意)
-          * `resourceType` String
-          * `timestamp` Double
-          * `redirectURL` String
-          * `statusCode` Integer
-          * `ip` String (任意) - リクエストが実際に送信されたサーバーの IP アドレス。
-          * `fromCache` Boolean
-          * `responseHeaders` Object
-      
-      `listener` は、サーバーが始めたリダイレクトが発生しようとしているときに `listener(details)` で呼ばれます。
-      
-      #### `webRequest.onCompleted([filter, ]listener)`
-      
-      * `filter` Object (任意) 
-        * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
-      * `listener` Function 
-        * `details` Object 
-          * `id` Integer
-          * `url` String
-          * `method` String
-          * `webContentsId` Integer (任意)
-          * `resourceType` String
-          * `referrer` String
-          * `timestamp` Double
-          * `responseHeaders` Object
-          * `fromCache` Boolean
-          * `statusCode` Integer
-          * `statusLine` String
-      
-      `listener` は、リクエストが終了したときに `listener(details)` で呼ばれます。
-      
-      #### `webRequest.onErrorOccurred([filter, ]listener)`
-      
-      * `filter` Object (任意) 
-        * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
-      * `listener` Function 
-        * `details` Object 
-          * `id` Integer
-          * `url` String
-          * `method` String
-          * `webContentsId` Integer (任意)
-          * `resourceType` String
-          * `timestamp` Double
-          * `fromCache` Boolean
-          * `error` String - エラーの内容。
-      
-      `listener` は、エラーが発生したときに `listener(details)` で呼ばれます。
+    * `uploadData` [UploadData[]](structures/upload-data.md)
+  * `callback` 機能 
+    * `応答` Object 
+      * `cancel` Boolean (任意)
+      * `redirectURL` String (任意) - 元のリクエストは送信または終了されず、代わりに指定された URL にリダイレクトされます。
+
+`listener` は、リクエストが発生しようとしているときに `listener(details, callback)` で呼ばれます。
+
+`uploadData` は、`UploadData` オブジェクトの配列です。
+
+`callback` は、`response` オブジェクトで呼ぶ必要があります。
+
+#### `webRequest.onBeforeSendHeaders([filter, ]listener)`
+
+* `filter` Object (任意) 
+  * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
+* `listener` Function | null 
+  * `details` Object 
+    * `id` Integer
+    * `url` String
+    * `method` String
+    * `webContentsId` Integer (任意)
+    * `resourceType` String
+    * `referrer` String
+    * `timestamp` Double
+    * `requestHeaders` Object
+  * `callback` Function 
+    * `response` Object 
+      * `cancel` Boolean (任意)
+      * `requestHeaders` Object (任意) - 指定すると、これらのヘッダでリクエストが作成されます。
+
+リクエストヘッダが利用可能になると、HTTP リクエストを送信する前に `listener` が `listener(details, callback)` で呼び出されます。 これは、サーバーに TCP 接続が行われた後、HTTP データが送信される前に発生する可能性があります。
+
+`callback` は、`response` オブジェクトで呼ぶ必要があります。
+
+#### `webRequest.onSendHeaders([filter, ]listener)`
+
+* `filter` Object (任意) 
+  * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
+* `listener` Function | null 
+  * `details` Object 
+    * `id` Integer
+    * `url` String
+    * `method` String
+    * `webContentsId` Integer (任意)
+    * `resourceType` String
+    * `referrer` String
+    * `timestamp` Double
+    * `requestHeaders` Object
+
+`listener` は、リクエストがサーバに送信される直前に `listener(details)` で呼び出され、以前の `onBeforeSendHeaders` レスポンスの変更は、このリスナが起動される時までに表示されます。
+
+#### `webRequest.onHeadersReceived([filter, ]listener)`
+
+* `filter` Object (任意) 
+  * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
+* `listener` Function | null 
+  * `details` Object 
+    * `id` Integer
+    * `url` String
+    * `method` String
+    * `webContentsId` Integer (任意)
+    * `resourceType` String
+    * `referrer` String
+    * `timestamp` Double
+    * `statusLine` String
+    * `statusCode` Integer
+    * `responseHeaders` Object
+  * `callback` Function 
+    * `response` Object 
+      * `cancel` Boolean (任意)
+      * `responseHeaders` Object (任意) - 指定すると、サーバはこれらのヘッダでレスポンスしたものとみなされます。
+      * `statusLine` String (任意) - ヘッダのステータスを変更するために `responseHeaders` をオーバーライドする場合に指定する必要があります。そうしないと、元の応答ヘッダのステータスが使用されます。
+
+`listener` は、HTTP リクエストのレスポンスヘッダを受信したときに `listener(details, callback)` で呼ばれます。
+
+`callback` は、`response` オブジェクトで呼ぶ必要があります。
+
+#### `webRequest.onResponseStarted([filter, ]listener)`
+
+* `filter` Object (任意) 
+  * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
+* `listener` Function | null 
+  * `details` Object 
+    * `id` Integer
+    * `url` String
+    * `method` String
+    * `webContentsId` Integer (任意)
+    * `resourceType` String
+    * `referrer` String
+    * `timestamp` Double
+    * `responseHeaders` Object
+    * `fromCache` Boolean - Indicates whether the response was fetched from disk cache.
+    * `statusCode` Integer
+    * `statusLine` String
+
+`listener` は、レスポンスボディの最初のバイトを受信したときに `listener(details)` で呼ばれます。 HTTP リクエストの場合、これはステータスラインとレスポンスヘッダが使用可能であることを意味します。
+
+#### `webRequest.onBeforeRedirect([filter, ]listener)`
+
+* `filter` Object (任意) 
+  * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
+* `listener` Function | null 
+  * `details` Object 
+    * `id` Integer
+    * `url` String
+    * `method` String
+    * `webContentsId` Integer (任意)
+    * `resourceType` String
+    * `referrer` String
+    * `timestamp` Double
+    * `redirectURL` String
+    * `statusCode` Integer
+    * `ip` String (optional) - The server IP address that the request was actually sent to.
+    * `fromCache` Boolean
+    * `responseHeaders` Object
+
+`listener` は、サーバーが始めたリダイレクトが発生しようとしているときに `listener(details)` で呼ばれます。
+
+#### `webRequest.onCompleted([filter, ]listener)`
+
+* `filter` Object (任意) 
+  * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
+* `listener` Function | null 
+  * `details` Object 
+    * `id` Integer
+    * `url` String
+    * `method` String
+    * `webContentsId` Integer (任意)
+    * `resourceType` String
+    * `referrer` String
+    * `timestamp` Double
+    * `responseHeaders` Object
+    * `fromCache` Boolean
+    * `statusCode` Integer
+    * `statusLine` String
+
+`listener` は、リクエストが終了したときに `listener(details)` で呼ばれます。
+
+#### `webRequest.onErrorOccurred([filter, ]listener)`
+
+* `filter` Object (任意) 
+  * `urls` String[] - URL パターンと一致しないリクエストを除去するために使用される URL パターンの配列。
+* `listener` Function | null 
+  * `details` Object 
+    * `id` Integer
+    * `url` String
+    * `method` String
+    * `webContentsId` Integer (任意)
+    * `resourceType` String
+    * `referrer` String
+    * `timestamp` Double
+    * `fromCache` Boolean
+    * `error` String - The error description.
+
+`listener` は、エラーが発生したときに `listener(details)` で呼ばれます。
