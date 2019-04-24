@@ -71,7 +71,7 @@ By default web storage apis (localStorage, sessionStorage, webSQL, indexedDB, co
   * `callback` Function 
     * `filePath` String (optional)
 * `completion` Function (opzionale) 
-  * `error` Error
+  * `errore` Errore
 
 Registers a protocol of `scheme` that will send the file as a response. The `handler` will be called with `handler(request, callback)` when a `request` is going to be created with `scheme`. `completion` will be called with `completion(null)` when `scheme` is successfully registered or `completion(error)` when failed.
 
@@ -220,7 +220,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 
 * `schema` Stringa
 * `completion` Function (opzionale) 
-  * `error` Error
+  * `errore` Errore
 
 Unregisters the custom protocol of `scheme`.
 
