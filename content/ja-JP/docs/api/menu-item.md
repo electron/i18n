@@ -42,8 +42,8 @@ Roles を使用すると、メニューアイテムに定義済みの動作を�
 
 `role` プロパティは、以下の値を持つことができます。
 
-* `undo`
-* `redo`
+* `元に戻します`
+* `やり直します`
 * `cut`
 * `copy`
 * `paste`
@@ -61,31 +61,31 @@ Roles を使用すると、メニューアイテムに定義済みの動作を�
 * `zoomIn` - フォーカス中のページを 10% 拡大する。
 * `zoomOut` - フォーカス中のページを 10% 縮小する。
 * `fileMenu` - Whole default "File" menu (Close / Quit)
-* `editMenu` - Whole default "Edit" menu (Undo, Copy, etc.).
+* `editMenu` - デフォルトの"編集"メニュー全体 (元に戻す、コピー、等)。
 * `viewMenu` - Whole default "View" menu (Reload, Toggle Developer Tools, etc.)
 * `windowMenu` - Whole default "Window" menu (Minimize, Zoom, etc.).
 
 以下は *macOS* で有効な追加の role です。
 
 * `appMenu` - Whole default "App" menu (About, Services, etc.)
-* `about` - Map to the `orderFrontStandardAboutPanel` action.
-* `hide` - Map to the `hide` action.
-* `hideOthers` - Map to the `hideOtherApplications` action.
-* `unhide` - Map to the `unhideAllApplications` action.
-* `startSpeaking` - Map to the `startSpeaking` action.
-* `stopSpeaking` - Map to the `stopSpeaking` action.
-* `front` - Map to the `arrangeInFront` action.
-* `zoom` - Map to the `performZoom` action.
-* `toggleTabBar` - Map to the `toggleTabBar` action.
-* `selectNextTab` - Map to the `selectNextTab` action.
-* `selectPreviousTab` - Map to the `selectPreviousTab` action.
-* `mergeAllWindows` - Map to the `mergeAllWindows` action.
-* `moveTabToNewWindow` - Map to the `moveTabToNewWindow` action.
-* `window` - The submenu is a "Window" menu.
-* `help` - The submenu is a "Help" menu.
-* `services` - The submenu is a "Services" menu.
-* `recentDocuments` - The submenu is an "Open Recent" menu.
-* `clearRecentDocuments` - Map to the `clearRecentDocuments` action.
+* `about` - `orderFrontStandardAboutPanel` アクションに割り当てる。
+* `hide` - `hide` アクションに割り当てる。
+* `hideOthers` - `hideOtherApplications` アクションに割り当てる。
+* `unhide` - `unhideAllApplications` アクションに割り当てる。
+* `startSpeaking` - `startSpeaking` アクションに割り当てる。
+* `stopSpeaking` - `stopSpeaking` アクションに割り当てる。
+* `front` - `arrangeInFront` アクションに割り当てる。
+* `zoom` - `performZoom` アクションに割り当てる。
+* `toggleTabBar` - `toggleTabBar` アクションに割り当てる。
+* `selectNextTab` - `selectNextTab` アクションに割り当てる。
+* `selectPreviousTab` - `selectPreviousTab` アクションに割り当てる。
+* `mergeAllWindows` - `mergeAllWindows` アクションに割り当てる。
+* `moveTabToNewWindow` - `moveTabToNewWindow` アクションに割り当てる。
+* `window` - "ウインドウ"サブメニュー。
+* `help` - "ヘルプ"サブメニュー。
+* `services` - "サービス"サブメニュー。
+* `recentDocuments` - "最近使った項目を開く"サブメニュー。
+* `clearRecentDocuments` - `clearRecentDocuments` アクションに割り当てる。
 
 macOS の `role` を指定するとき、`label` と `accelerator` がメニューアイテムに影響を与える唯一のオプションです。 ほかのすべてのオプションは無視されます。 小文字の `role`、`toggledevtools` などもまだサポートしています。
 
