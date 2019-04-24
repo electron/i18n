@@ -343,7 +343,7 @@ Geeft terug:
 * `url` String
 * `error` String - The error code.
 * `certificate` [Certificate](structures/certificate.md)
-* `callback` Function 
+* `callback` Functie 
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
 
 Emitted when failed to verify the `certificate` for `url`.
@@ -357,7 +357,7 @@ Geeft terug:
 * `event` Event
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Function 
+* `callback` Functie 
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list.
 
 Emitted when a client certificate is requested.
@@ -379,7 +379,7 @@ Geeft terug:
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Function 
+* `callback` Functie 
   * `username` String
   * `password` String
 
@@ -494,7 +494,7 @@ Geeft terug:
 
 * `event` Event
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
-* `callback` Function 
+* `callback` Functie 
   * `deviceId` String
 
 Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
@@ -857,7 +857,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
   })
 ```
 
-#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimental*
+#### `contents.setIgnoreMenuShortcuts(ignore)` *Experimenteel*
 
 * `ignore` Boolean
 
@@ -1378,7 +1378,7 @@ Sets the `item` as dragging item for current drag-drop operation, `file` is the 
   * `HTMLOnly` - Save only the HTML of the page.
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
-* `callback` Function - `(error) => {}`. 
+* `callback` Functie - `(error) => {}`. 
   * `error` Error
 
 Returns `Boolean` - true if the process of saving page has been initiated successfully.
