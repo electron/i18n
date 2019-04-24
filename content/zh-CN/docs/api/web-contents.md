@@ -1013,7 +1013,7 @@ console.log(requestId)
 
 #### `contents.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
+* `rect` [Rectangle](structures/rectangle.md) (可选) - 捕获的区域
 * `callback` Function - 回调函数 
   * `image` [NativeImage](native-image.md)
 
