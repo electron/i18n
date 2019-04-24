@@ -239,9 +239,9 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 * `callback` 함수 
   * `certificate` [Certificate](structures/certificate.md) (선택)
 
-클라이언트의 인증서가 요구될 때 발생합니다.
+클라이언트의 인증서를 요청했을 때 발생합니다.
 
-The `url` corresponds to the navigation entry requesting the client certificate and `callback` can be called with an entry filtered from the list. Using `event.preventDefault()` prevents the application from using the first certificate from the store.
+`url` 은 클라이언트 인증서를 요청한 경로에 대응됩니다. 또한 `callback`은 리스트에서 필터링 된 항목으로 호출될 수 있습니다. `event.preventDefault()`를 사용하여, application이 저장되어있는 첫 번째 인증서를 사용하지 못하도록 할 수 있습니다.
 
 ```javascript
 const { app } = require('electron')
