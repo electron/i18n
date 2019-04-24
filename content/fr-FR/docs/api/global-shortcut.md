@@ -45,11 +45,11 @@ Le module `globalShortcut` dispose des méthodes suivantes :
 
 Returns `Boolean` - Whether or not the shortcut was registered successfully.
 
-Registers a global shortcut of `accelerator`. The `callback` is called when the registered shortcut is pressed by the user.
+Enregistre un raccourci global avec un `accelerator`. Le `callback` est appelé lorsque le raccourci est utilisé par l'utilisateur.
 
-When the accelerator is already taken by other applications, this call will silently fail. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+Lorsque l'accélérateur est déjà utilisé par d'autres applications, cet appel échouera silencieusement. Ce comportement est prévu par les systèmes d'exploitation, car ils ne veulent pas que les applications se battent pour des raccourcis globaux.
 
-The following accelerators will not be registered successfully on macOS 10.14 Mojave unless the app has been authorized as a [trusted accessibility client](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html):
+Les accélérateurs suivants ne seront pas enregistrés correctement sur macOS 10.14 Mojave à moins que l'application ait été autorisée en tant qu'[application client approuvée](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html) :
 
 * "Media Play/Pause"
 * "Media Piste Suivante"
@@ -63,9 +63,9 @@ The following accelerators will not be registered successfully on macOS 10.14 Mo
 
 Registers a global shortcut of all `accelerator` items in `accelerators`. The `callback` is called when any of the registered shortcuts are pressed by the user.
 
-When a given accelerator is already taken by other applications, this call will silently fail. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+When a given accelerator is already taken by other applications, this call will silently fail. Ce comportement est prévu par les systèmes d'exploitation, car ils ne veulent pas que les applications se battent pour des raccourcis globaux.
 
-The following accelerators will not be registered successfully on macOS 10.14 Mojave unless the app has been authorized as a [trusted accessibility client](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html):
+Les accélérateurs suivants ne seront pas enregistrés correctement sur macOS 10.14 Mojave à moins que l'application ait été autorisée en tant qu'[application client approuvée](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html) :
 
 * "Media Play/Pause"
 * "Media Piste Suivante"
@@ -76,16 +76,16 @@ The following accelerators will not be registered successfully on macOS 10.14 Mo
 
 * `accelerator` [Accelerator](accelerator.md)
 
-Returns `Boolean` - Whether this application has registered `accelerator`.
+Retourne un `Boolean` - Si l'application à enregistrer l'`accelerator`.
 
-When the accelerator is already taken by other applications, this call will still return `false`. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+Lorsque l'accelerator est déjà utilisé par d'autres applications, cet appel retournera toujours `false`. Ce comportement est prévu par les systèmes d'exploitation, car ils ne veulent pas que les applications se battent pour des raccourcis globaux.
 
 ### `globalShortcut.unregister(accelerator)`
 
 * `accelerator` [Accelerator](accelerator.md)
 
-Unregisters the global shortcut of `accelerator`.
+Supprime le raccourci global de l'`accelerator`.
 
 ### `globalShortcut.unregisterAll()`
 
-Unregisters all of the global shortcuts.
+Supprime tous les raccourcis globaux.
