@@ -14,7 +14,7 @@ the module (for instance, using `npm rebuild` or `npm install`).
 
 There are several different ways to install native modules:
 
-### Installing modules and rebuilding for Electron
+### Memasang modul dan membangun kembali untuk Elektron
 
 You can install modules like other Node projects, and then rebuild the modules for Electron with the [`electron-rebuild`](https://github.com/electron/electron-rebuild) package. This module can automatically determine the version of Electron and handle the manual steps of downloading headers and rebuilding native modules for your app.
 
@@ -32,32 +32,32 @@ npm install --save-dev elektron-rebuild
 
 For more information on usage and integration with other tools, consult the project's README.
 
-### Using `npm`
+### Menggunakan `npm`
 
-By setting a few environment variables, you can use `npm` to install modules directly.
+Dengan menetapkan beberapa variabel lingkungan, Anda dapat menggunakan `npm` untuk menginstal modul langsung.
 
 For example, to install all dependencies for Electron:
 
 ```sh
-# Electron's version.
+# Versi Elektron.
 export npm_config_target=1.2.3
 # The architecture of Electron, see https://electronjs.org/docs/tutorial/support#supported-platforms
 # for supported architectures.
-export npm_config_arch=x64
-export npm_config_target_arch=x64
-# Download headers for Electron.
-export npm_config_disturl=https://atom.io/download/electron
-# Tell node-pre-gyp that we are building for Electron.
-export npm_config_runtime=electron
-# Tell node-pre-gyp to build module from source code.
-export npm_config_build_from_source=true
-# Install all dependencies, and store cache to ~/.electron-gyp.
-HOME=~/.electron-gyp npm install
+ekspor npm_config_arch=x64
+ekspor npm_config_target_arch=x64
+# Download header untuk Electron.
+ekspor npm_config_disturl=https://atom.io/download/electron
+# Beritahu node-pre-gyp yang sedang kita bangun untuk Electron.
+ekspor npm_config_runtime = elektron
+# Beritahu node-pre-gyp untuk membuat modul dari kode sumber.
+ekspor npm_config_build_from_source=true
+# Instal semua dependensi, dan simpan cache ke ~/.electron-gyp.
+HOME = ~/.electron-gyp npm install
 ```
 
 ### Membangun secara manual untuk Elektron
 
-If you are a developer developing a native module and want to test it against Electron, you might want to rebuild the module for Electron manually. You can use `node-gyp` directly to build for Electron:
+Jika Anda seorang pengembang yang mengembangkan modul asli dan ingin mengujinya Elektron, Anda mungkin ingin membangun kembali modul untuk Elektron secara manual. Kamu bisa gunakan `node-gyp` langsung untuk membangun Electron:
 
 ```sh
 cd /path-to-module/
@@ -81,10 +81,10 @@ npm rebuild --nodedir=/path/to/electron/vendor/node
 
 If you installed a native module and found it was not working, you need to check the following things:
 
-- When in doubt, run `electron-rebuild` first.
+- Bila ragu, jalankan `elektron-rebuild` terlebih dahulu.
 - Make sure the native module is compatible with the target platform and architecture for your Electron app.
 - Make sure `win_delay_load_hook` is not set to `false` in the module's `binding.gyp`.
-- After you upgrade Electron, you usually need to rebuild the modules.
+- Setelah Anda mengupgrade Electron, Anda biasanya perlu membangun kembali modul.
 
 ### A note about `win_delay_load_hook`
 
