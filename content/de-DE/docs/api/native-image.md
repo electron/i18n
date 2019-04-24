@@ -164,7 +164,7 @@ where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](htt
 
 Prozess: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
-### Beispiel Methoden
+### Instanz Methoden
 
 The following methods are available on instances of the `NativeImage` class:
 
