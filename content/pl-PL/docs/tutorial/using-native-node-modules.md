@@ -14,7 +14,7 @@ the module (for instance, using `npm rebuild` or `npm install`).
 
 There are several different ways to install native modules:
 
-### Installing modules and rebuilding for Electron
+### Instalowanie modułów i odbudowa dla Electron
 
 You can install modules like other Node projects, and then rebuild the modules for Electron with the [`electron-rebuild`](https://github.com/electron/electron-rebuild) package. This module can automatically determine the version of Electron and handle the manual steps of downloading headers and rebuilding native modules for your app.
 
@@ -32,14 +32,14 @@ npm install --save-dev electron-rebuild
 
 For more information on usage and integration with other tools, consult the project's README.
 
-### Using `npm`
+### Używając `npm`
 
 By setting a few environment variables, you can use `npm` to install modules directly.
 
 For example, to install all dependencies for Electron:
 
 ```sh
-# Electron's version.
+# Wersja Electrona.
 export npm_config_target=1.2.3
 # The architecture of Electron, see https://electronjs.org/docs/tutorial/support#supported-platforms
 # for supported architectures.
