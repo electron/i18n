@@ -26,9 +26,9 @@ Passing `null` will suppress the default menu. On Windows and Linux, this has th
 
 #### `Menu.getApplicationMenu()`
 
-Returns `Menu | null` - The application menu, if set, or `null`, if not set.
+Retorna `Menu | null` - O menu do aplicativo, se definido, ou `null`, se não fora definido.
 
-**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) can still be dynamically modified.
+**Nota:** A instancia `Menu` retornada não suporta adição dinâmica ou remoção de itens de menu. [Instance properties](#instance-properties) ainda podem ser modificadas dinamicamente.
 
 #### `Menu.sendActionToFirstResponder(action)` *macOS*
 
@@ -50,7 +50,7 @@ You can also attach other fields to the element of the `template` and they will 
 
 ### Métodos de Instância
 
-The `menu` object has the following instance methods:
+O objeto `menu` possui os seguintes métodos de instância:
 
 #### `menu.popup(options)`
 
@@ -67,13 +67,13 @@ Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
 
-Closes the context menu in the `browserWindow`.
+Fecha o menu de contexto em `browserWindow`.
 
 #### `menu.append(menuItem)`
 
 * `menuItem` [MenuItem](menu-item.md)
 
-Appends the `menuItem` to the menu.
+Acrescenta o `menuItem` ao menu.
 
 #### `menu.getMenuItemById(id)`
 
@@ -86,7 +86,7 @@ Returns `MenuItem` the item with the specified `id`
 * `pos` Integer
 * `menuItem` [MenuItem](menu-item.md)
 
-Inserts the `menuItem` to the `pos` position of the menu.
+Insere o `menuItem` na posição `pos` do menu.
 
 ### Eventos de instância
 
@@ -112,13 +112,13 @@ Emitted when a popup is closed either manually or with `menu.closePopup()`.
 
 ### Propriedades de Instância
 
-`menu` objects also have the following properties:
+Objetos `menu` também possuem as seguintes propriedades:
 
 #### `menu.items`
 
-A `MenuItem[]` array containing the menu's items.
+Um array `MenuItem[]` contendo os itens do menu.
 
-Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
+Cada `Menu` consiste de múltiplos [`MenuItem`](menu-item.md)s e cada `MenuItem` pode ter um submenu.
 
 ### Eventos de instância
 
@@ -126,11 +126,11 @@ Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the
 
 ## Exemplos
 
-The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
+A classe `Menu` só está disponível no processo principal, mas você também pode usá-lo no processo de renderização através do módulo [`remoto`](remote.md).
 
 ### Processo principal
 
-An example of creating the application menu in the main process with the simple template API:
+Um exemplo de criar o menu do aplicativo no processo principal com a API do modelo simples:
 
 ```javascript
 const { app, Menu } = require('electron')
@@ -235,7 +235,7 @@ Menu.setApplicationMenu(menu)
 
 ### Processo de renderização
 
-Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
+Abaixo está um exemplo de criação dinâmica de um menu em uma página da web (processo de renderização) usando o módulo [`remoto`](remote.md), e o mostra quando o usuário clica com o botão direito na página:
 
 ```html
 <!-- index.html -->
@@ -269,7 +269,7 @@ On macOS there are many system-defined standard menus, like the `Services` and `
 
 ### Ações padronizadas para Item de Menu
 
-macOS has provided standard actions for some menu items, like `About xxx`, `Hide xxx`, and `Hide Others`. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
+O macOS fornece ações padronizadas para alguns itens de menu, como `About xxx`, `Hide xxx`, and `Hide Others`. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
 
 ### Nome do Menu Principal
 
@@ -292,7 +292,7 @@ By default, items will be inserted in the order they exist in the template unles
 
 ### Exemplos
 
-Template:
+Modelo:
 
 ```javascript
 [
@@ -312,7 +312,7 @@ Menu:
 - 4
 ```
 
-Template:
+Modelo:
 
 ```javascript
 [
@@ -336,7 +336,7 @@ Menu:
 - 2
 ```
 
-Template:
+Modelo:
 
 ```javascript
 [
