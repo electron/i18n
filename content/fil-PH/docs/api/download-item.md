@@ -80,19 +80,29 @@ Ang API ay ang natatanging posibleng gamitin sa sesyon ng `will-download` na maa
 
 Pagbabalik ng `String` - Ang "save path" ng "download item". Ito ay maaaring itinakdang lokasyon ng payl o "path", sa pamamagitan ng `downloadItem.setSavePath(path)` o ang piniling lokasyon o direktoryo ng payl galing sa ipinakitang "save dialog".
 
+#### `downloadItem.setSaveDialogOptions(options)`
+
+* `options` SaveDialogOptions - Set the save file dialog options. This object has the same properties as the `options` parameter of [`dialog.showSaveDialog()`](dialog.md).
+
+This API allows the user to set custom options for the save dialog that opens for the download item by default. The API is only available in session's `will-download` callback function.
+
+#### `downloadItem.getSaveDialogOptions()`
+
+Returns `SaveDialogOptions` - Returns the object previously set by `downloadItem.setSaveDialogOptions(options)`.
+
 #### `downloadItem.pause()`
 
-Pansamantalang paghinto ng "download".
+Pauses the download.
 
 #### `downloadItem.isPaused()`
 
-Pagbabalik sa `Boolean` - Kahit pa ang "download" ay pansamantalang nakahinto.
+Returns `Boolean` - Whether the download is paused.
 
 #### `downloadItem.resume()`
 
-Pagbabalik sa pagproseso ng "download" na pansamantalang inihinto.
+Resumes the download that has been paused.
 
-**Paalala:** Para mapagana ang mga "download" na muling prinoseso, ang "server" kung saan pinoproseso ang "download" ay dapat suportahan ng mga saklaw na kahilingan at magbigay pareho ang mga halaga ng "header" na `Last-Modified` at `ETag`. Kung hindi man, ang `resume()` ay ihihinto ang pagtanggap ng nakaraang "bytes" at muling uumpisahan ang "download".
+**Note:** To enable resumable downloads the server you are downloading from must support range requests and provide both `Last-Modified` and `ETag` header values. Otherwise `resume()` will dismiss previously received bytes and restart the download from the beginning.
 
 #### `downloadItem.canResume()`
 
@@ -100,58 +110,58 @@ Returns `Boolean` - Whether the download can resume.
 
 #### `downloadItem.cancel()`
 
-Paghinto ng operasyon ng "download".
+Cancels the download operation.
 
 #### `downloadItem.getURL()`
 
-Pagbabalik ng `String` - Ang orihinal na "url" kung saan galing ang "downloaded item".
+Returns `String` - The origin url where the item is downloaded from.
 
 #### `downloadItem.getMimeType()`
 
-Pagbabalik ng `String` - Ang uri ng payl na nanggagaya.
+Returns `String` - The files mime type.
 
 #### `downloadItem.hasUserGesture()`
 
-Pagbabalik ng `Boolean` - Kapag ang "download" ay may kilos ng gumagamit.
+Returns `Boolean` - Whether the download has user gesture.
 
 #### `downloadItem.getFilename()`
 
-Pagbabalik ng `String` - Ang pangalan ng payl ng "download item".
+Returns `String` - The file name of the download item.
 
-**Paalala:** Ang pangalan ng payl ay hindi parating pareho sa isang aktwal na pinanatili sa lokal na "disc". Kung ang gumagamit ay nagsagawa ng pagbabago sa pangalan ng payl sa pinoproseso na "download" na nananatili sa "dialog", ang aktwal na pangalan sa payl ay magbabago din.
+**Note:** The file name is not always the same as the actual one saved in local disk. If user changes the file name in a prompted download saving dialog, the actual name of saved file will be different.
 
 #### `downloadItem.getTotalBytes()`
 
-Pagbabalik ng `Integer` - Ang kabuuang sukat ng "bytes" ng "download item".
+Returns `Integer` - The total size in bytes of the download item.
 
-Kung hindi alam ang sukat, ito ay magbabalik sa 0.
+If the size is unknown, it returns 0.
 
 #### `downloadItem.getReceivedBytes()`
 
-Pagbabalik ng `Integer` - Ang "bytes" na natanggap sa download item.
+Returns `Integer` - The received bytes of the download item.
 
 #### `downloadItem.getContentDisposition()`
 
-Pagbabalik ng `String` - Ang Content-Disposition galing sa tugon ng "header".
+Returns `String` - The Content-Disposition field from the response header.
 
 #### `downloadItem.getState()`
 
 Returns `String` - The current state. Can be `progressing`, `completed`, `cancelled` or `interrupted`.
 
-**Note:** Ang mga sumusunod na paraan ay kapaki-pakinabang lalo na para paganahing muli ang aytem na `cancelled` kapag ang sesyon ay muling inumpisahan.
+**Note:** The following methods are useful specifically to resume a `cancelled` item when session is restarted.
 
 #### `downloadItem.getURLChain()`
 
-Pagbabalik ng `String[]` - Ang kumpletong "url" ng aytem kasama ang kahit anong mga muling dinirekta.
+Returns `String[]` - The complete url chain of the item including any redirects.
 
 #### `downloadItem.getLastModifiedTime()`
 
-Pagbabalik ng `String` - Ang halaga ng Last-Modified header.
+Returns `String` - Last-Modified header value.
 
 #### `downloadItem.getETag()`
 
-Pagbabalik ng `String` - Ang halaga ng "ETag header".
+Returns `String` - ETag header value.
 
 #### `downloadItem.getStartTime()`
 
-Pagbabalik ng `Double` - Bilang ng mga segundo simula ang "UNIX epoch" kapag ang "download" ay nag-umpisa.
+Returns `Double` - Number of seconds since the UNIX epoch when the download was started.
