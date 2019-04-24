@@ -60,7 +60,7 @@ Disables ASAR support. This variable is only supported in forked child processes
 
 ### `ELECTRON_RUN_AS_NODE`
 
-Starts the process as a normal Node.js process.
+일반 Node.js 프로세스에서 프로세스를 시작합니다.
 
 ### `ELECTRON_NO_ATTACH_CONSOLE` *Windows*
 
@@ -83,11 +83,11 @@ Options:
 
 ## 개발 변수
 
-The following environment variables are intended primarily for development and debugging purposes.
+다음 환경 변수들은 주로 개발이나 디버깅 목적으로 사용됩니다.
 
 ### `ELECTRON_ENABLE_LOGGING`
 
-Prints Chrome's internal logging to the console.
+Chrome 내장 로깅을 콘솔에 출력합니다.
 
 ### `ELECTRON_LOG_ASAR_READS`
 
