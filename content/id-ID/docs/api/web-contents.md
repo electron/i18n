@@ -989,8 +989,8 @@ Pengembalian:
         
         #### `contents.capturePage ([rect,] callback)`
         
-        * `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
-        * `callback` Fungsi 
+        * ` rect </ 0>  <a href="structures/rectangle.md"> Rectangle </ 1> (opsional) - Batas untuk ditangkap</li>
+<li><code>callback` Fungsi 
           * ` gambar </ 0>  <a href="native-image.md"> gambar asli </ 1></li>
 </ul></li>
 </ul>
