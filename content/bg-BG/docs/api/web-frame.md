@@ -62,9 +62,9 @@ Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
 
 * `language` String
 * `provider` Object 
-  * `spellCheck` Function. 
+  * `spellCheck` Функция. 
     * `words` String[]
-    * `callback` Function 
+    * `обратно повикване` Функция 
       * `misspeltWords` String[]
 
 Sets a provider for spell checking in input fields and text areas.
@@ -97,7 +97,7 @@ Inserts `text` to the focused element.
 
 * `code` String
 * `userGesture` Boolean (optional) - Default is `false`.
-* `callback` Function (optional) - Called after script has been executed. 
+* `обратно повикване` Function (optional) - Called after script has been executed. 
   * `result` Any
 
 Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
@@ -111,7 +111,7 @@ In the browser window some HTML APIs like `requestFullScreen` can only be invoke
 * `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
 * `scripts` [WebSource[]](structures/web-source.md)
 * `userGesture` Boolean (optional) - Default is `false`.
-* `callback` Function (optional) - Called after script has been executed. 
+* `обратно повикване` Function (optional) - Called after script has been executed. 
   * `result` Any
 
 Work like `executeJavaScript` but evaluates `scripts` in an isolated context.
@@ -126,7 +126,7 @@ Set the content security policy of the isolated world.
 ### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)` *(Deprecated)*
 
 * `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
-* `name` String
+* `name` String - Име
 
 Set the name of the isolated world. Useful in devtools.
 
@@ -195,7 +195,7 @@ Returns `WebFrame` - The frame element in `webFrame's` document selected by `sel
 
 ### `webFrame.findFrameByName(name)`
 
-* `name` String
+* `name` String - Име
 
 Returns `WebFrame` - A child of `webFrame` with the supplied `name`, `null` would be returned if there's no such frame or if the frame is not in the current renderer process.
 
