@@ -26,23 +26,23 @@ Passing `null` will suppress the default menu. On Windows and Linux, this has th
 
 #### `Menu.getApplicationMenu()`
 
-Returns `Menu | null` - The application menu, if set, or `null`, if not set.
+Возвращает `Menu | null` - меню приложения, если значение задано, в противном случае `null`.
 
-**Note:** The returned `Menu` instance doesn't support dynamic addition or removal of menu items. [Instance properties](#instance-properties) can still be dynamically modified.
+**Примечание:** Возвращенный экземпляр `Menu` не поддерживает динамическое добавление или удаление пунктов меню. [Параметры экземпляра](#instance-properties) все ещё могут быть динамически изменены.
 
 #### `Menu.sendActionToFirstResponder(action)` *macOS*
 
 * `action` String
 
-Sends the `action` to the first responder of application. This is used for emulating default macOS menu behaviors. Usually you would use the [`role`](menu-item.md#roles) property of a [`MenuItem`](menu-item.md).
+Посылает `action` первому ответчику приложения. Это используется для эмуляции поведения меню macOS. Usually you would use the [`role`](menu-item.md#roles) property of a [`MenuItem`](menu-item.md).
 
-See the [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7) for more information on macOS' native actions.
+Для дополнительной информации по нативным действиям в macOS смотрите [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7).
 
 #### `Menu.buildFromTemplate(template)`
 
 * `template` (MenuItemConstructorOptions | MenuItem)[]
 
-Returns `Menu`
+Возвращает `Menu`
 
 Generally, the `template` is an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
 
@@ -50,7 +50,7 @@ You can also attach other fields to the element of the `template` and they will 
 
 ### Методы экземпляра
 
-The `menu` object has the following instance methods:
+Объект `меню` имеет следующие методы экземпляра:
 
 #### `menu.popup(options)`
 
@@ -67,7 +67,7 @@ Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
 
 * `browserWindow` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
 
-Closes the context menu in the `browserWindow`.
+Закрывает контекстное меню в `browserWindow`.
 
 #### `menu.append(menuItem)`
 
@@ -126,7 +126,7 @@ Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the
 
 ## Примеры
 
-The `Menu` class is only available in the main process, but you can also use it in the render process via the [`remote`](remote.md) module.
+Класс `Menu` доступен только в главном процессе, но вы также можете использовать его в рендер-процессе через модуль [`remote`](remote.md).
 
 ### Главный процесс
 
@@ -292,7 +292,7 @@ By default, items will be inserted in the order they exist in the template unles
 
 ### Примеры
 
-Template:
+Шаблон:
 
 ```javascript
 [
@@ -303,7 +303,7 @@ Template:
 ]
 ```
 
-Menu:
+Меню:
 
 ```sh
 <br />- 1
@@ -312,7 +312,7 @@ Menu:
 - 4
 ```
 
-Template:
+Шаблон:
 
 ```javascript
 [
@@ -325,7 +325,7 @@ Template:
 ]
 ```
 
-Menu:
+Меню:
 
 ```sh
 <br />- 3
@@ -336,7 +336,7 @@ Menu:
 - 2
 ```
 
-Template:
+Шаблон:
 
 ```javascript
 [
@@ -346,7 +346,7 @@ Template:
 ]
 ```
 
-Menu:
+Меню:
 
 ```sh
 <br />- ---
