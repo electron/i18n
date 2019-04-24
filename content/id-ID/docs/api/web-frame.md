@@ -58,52 +58,33 @@ webFrame.setVisualZoomLevelLimits(1, 3)
 
 Menetapkan tingkat zoom maksimal dan minimal berbasis tata letak (yaitu bukan-visual).
 
-### `webBingkai.setPenyediaPeriksaEjaan(bahasa, otomatisBenarkanKata, penyedia)`
+### `webFrame.setSpellCheckProvider(language, provider)`
 
 * `bahasa` String
-* `otomatisBenarkanKata` Boolean
-* `penyedia` Obyek 
-  * `cekEjaan` Fungsi - kembali `boolean`. 
-    * `teks` String
+* `provider` Sasaran 
+  * `spellCheck` Function. 
+    * `words` String[]
+    * `callback` Fungsi 
+      * `misspeltWords` String[]
 
 Menetapkan penyedia pemeriksaan ejaan di bidang masukan dan area teks.
 
-Dengan `penyedia` harus menjadi objek yang memiliki metode `cekEjaan`yang kembali apakah kata yang dilewati benar dieja.
+The `provider` must be an object that has a `spellCheck` method that accepts an array of individual words for spellchecking. The `spellCheck` function runs asynchronously and calls the `callback` function with an array of misspelt words when complete.
 
 Contoh menggunakan [node-cekEjaan](https://github.com/atom/node-spellchecker) sebagai penyedia:
 
 ```javascript
 const { webFrame } = require('electron')
-webFrame.setSpellCheckProvider('en-US', true, {
-  spellCheck (text) {
-    return !(require('spellchecker').isMisspelled(text))
+const spellChecker = require('spellchecker')
+webFrame.setSpellCheckProvider('en-US', {
+  spellCheck (words, callback) {
+    setTimeout(() => {
+      const spellchecker = require('spellchecker')
+      const misspelled = words.filter(x => spellchecker.isMisspelled(x))
+      callback(misspelled)
+    }, 0)
   }
 })
-```
-
-### `webFrame.registerURLSchemeAsBypassingCSP(scheme)`
-
-* `skema` String
-
-Sumber daya akan dimuat dari skema `ini` terlepas dari halaman sekarang Kebijakan Keamanan Konten.
-
-### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
-
-* `skema` String
-* `pilihan` Objek (opsional) 
-  * `secure` Boolean (optional) - Default true.
-  * `bypassCSP` Boolean (optional) - Default true.
-  * `allowServiceWorkers` Boolean (optional) - Default true.
-  * `supportFetchAPI` Boolean (optional) - Default true.
-  * `corsEnabled` Boolean (optional) - Default true.
-
-Mendaftarkan `skema` sebagai aman, bypass kebijakan keamanan konten untuk sumber daya, memungkinkan mendaftarkan ServiceWorker dan mendukung pengambilan API.
-
-Tentukan pilihan dengan nilai `palsu` untuk menghilangkan itu dari pendaftaran. Contoh mendaftar skema istimewa, tanpa melewati Kebijakan Keamanan Konten:
-
-```javascript
-const { webFrame } = require('electron')
-webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 ```
 
 ### `webFrame.insertText(text)`
@@ -135,46 +116,56 @@ Di jendela browser beberapa API HTML seperti `requestFullScreen` hanya bisa dipa
 
 Work like `executeJavaScript` but evaluates `scripts` in an isolated context.
 
-### `webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)`
+### `webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)` *(Deprecated)*
 
 * `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
 * `csp` String
 
 Set the content security policy of the isolated world.
 
-### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)`
+### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)` *(Deprecated)*
 
 * `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
-* ` nama </ 0>  String</li>
+* ` nama </ 0>  Deretan</li>
 </ul>
 
 <p>Set the name of the isolated world. Useful in devtools.</p>
 
-<h3><code>webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)`</h3> 
+<h3><code>webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)` *(Deprecated)*</h3> 
   * `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
   * `securityOrigin` String
   
   Set the security origin of the isolated world.
   
+  ### `webFrame.setIsolatedWorldInfo(worldId, info)`
+  
+  * `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
+  * `info` Sasaran 
+    * `securityOrigin` String (optional) - Security origin for the isolated world.
+    * `csp` String (optional) - Content Security Policy for the isolated world.
+    * `name` String (optional) - Name for isolated world. Useful in devtools.
+  
+  Set the security origin, content security policy and name of the isolated world. Note: If the `csp` is specified, then the `securityOrigin` also has to be specified.
+  
   ### `webFrame.getResourceUsage()`
   
   Mengembalikan `Objek`:
   
-  * `gambar` [DetailPemakaianMemori](structures/memory-usage-details.md)
+  * `images` [MemoryUsageDetails](structures/memory-usage-details.md)
   * `scripts` [MemoryUsageDetails](structures/memory-usage-details.md)
-  * `cssStyleSheets` [DetailPemakaianMemori](structures/memory-usage-details.md)
-  * `xslStyleSheets` [DetailPemakaianMemori](structures/memory-usage-details.md)
-  * `Huruf` [DetailPemakaianMemori](structures/memory-usage-details.md)
-  * `lain` [DetailPemakaianMemori](structures/memory-usage-details.md)
+  * `cssStyleSheets` [MemoryUsageDetails](structures/memory-usage-details.md)
+  * `xslStyleSheets` [MemoryUsageDetails](structures/memory-usage-details.md)
+  * `fonts` [MemoryUsageDetails](structures/memory-usage-details.md)
+  * `other` [MemoryUsageDetails](structures/memory-usage-details.md)
   
-  Mengembalikan objek yang menjelaskan informasi penggunaan memori internal Blink cache.
+  Returns an object describing usage information of Blink's internal memory caches.
   
   ```javascript
   const { webFrame } = require('electron')
   console.log(webFrame.getResourceUsage())
   ```
   
-  Ini akan menghasilkan:
+  This will generate:
   
   ```javascript
   {
@@ -192,9 +183,9 @@ Set the content security policy of the isolated world.
   
   ### `webFrame.clearCache()`
   
-  Upaya untuk membebaskan memori yang tidak lagi digunakan (seperti gambar dari a navigasi sebelumnya).
+  Attempts to free memory that is no longer being used (like images from a previous navigation).
   
-  Perhatikan bahwa secara membabi buta memanggil metode ini mungkin membuat Electron lebih lambat sejak itu harus mengisi ulang cache yang dikosongkan ini, sebaiknya Anda hanya menelponnya jika sebuah acara di aplikasi Anda telah terjadi yang membuat Anda menganggap halaman Anda benar-benar menggunakan lebih sedikit memori (yaitu Anda telah menavigasi dari halaman super berat ke yang kebanyakan kosong, dan berniat untuk tinggal di sana).
+  Note that blindly calling this method probably makes Electron slower since it will have to refill these emptied caches, you should only call it if an event in your app has occurred that makes you think your page is actually using less memory (i.e. you have navigated from a super heavy page to a mostly empty one, and intend to stay there).
   
   ### `webFrame.getFrameForSelector(selector)`
   
@@ -204,7 +195,7 @@ Set the content security policy of the isolated world.
   
   ### `webFrame.findFrameByName(name)`
   
-  * ` nama </ 0>  String</li>
+  * ` nama </ 0>  Deretan</li>
 </ul>
 
 <p>Returns <code>WebFrame` - A child of `webFrame` with the supplied `name`, `null` would be returned if there's no such frame or if the frame is not in the current renderer process.</p> 
