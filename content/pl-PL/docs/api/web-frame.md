@@ -62,7 +62,7 @@ Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
 
 * `language` String
 * `provider` Object 
-  * `spellCheck` Function. 
+  * `spellCheck` Funkcja. 
     * `words` String[]
     * `callback` Funkcja 
       * `misspeltWords` String[]
@@ -165,7 +165,7 @@ const { webFrame } = require('electron')
 console.log(webFrame.getResourceUsage())
 ```
 
-This will generate:
+To wygeneruje:
 
 ```javascript
 {
