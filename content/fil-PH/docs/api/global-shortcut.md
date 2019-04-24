@@ -50,9 +50,9 @@ Ang `globalShortcut` na modyul ay may mga sumusunod na paraan:
 
 Returns `Boolean` - Whether or not the shortcut was registered successfully.
 
-Registers a global shortcut of `accelerator`. The `callback` is called when the registered shortcut is pressed by the user.
+Nag-rehistro ng global shortcut ng `aselerador`. Ang `baliktawag` ay tatawagan kung ang narehistrong shortcut ay pinindot ng tagagamit.
 
-When the accelerator is already taken by other applications, this call will silently fail. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+Kung ang aselerador ay nakuha na ng ibang apikasyon, ang tawag na ito ay tahimik na babagsak. Ang gawi na ito nilalayon sa pamamagitan ng sistemang operasyon, dahil hindi nila gusto na ang mga aplikasyon ay maglaban para sa global shortcuts.
 
 The following accelerators will not be registered successfully on macOS 10.14 Mojave unless the app has been authorized as a [trusted accessibility client](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html):
 
@@ -68,7 +68,7 @@ The following accelerators will not be registered successfully on macOS 10.14 Mo
 
 Registers a global shortcut of all `accelerator` items in `accelerators`. The `callback` is called when any of the registered shortcuts are pressed by the user.
 
-When a given accelerator is already taken by other applications, this call will silently fail. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+When a given accelerator is already taken by other applications, this call will silently fail. Ang gawi na ito nilalayon sa pamamagitan ng sistemang operasyon, dahil hindi nila gusto na ang mga aplikasyon ay maglaban para sa global shortcuts.
 
 The following accelerators will not be registered successfully on macOS 10.14 Mojave unless the app has been authorized as a [trusted accessibility client](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html):
 
@@ -77,20 +77,20 @@ The following accelerators will not be registered successfully on macOS 10.14 Mo
 * "Media Previous Track"
 * "Media Stop"
 
-### `globalShortcut.isRegistered(accelerator)`
+### `globalShortcut.Rehistrado(aselerador)`
 
 * `aselerador` [Aselerador](accelerator.md) 
 
-Returns `Boolean` - Whether this application has registered `accelerator`.
+Nagbabalik `Boolean` - Kung ang aplikasyon na ito ay may nakarehistrong `aselerador`.
 
-When the accelerator is already taken by other applications, this call will still return `false`. This behavior is intended by operating systems, since they don't want applications to fight for global shortcuts.
+Kung ang aselerador ay nakuha na ng ibang aplikasyon, ang tawag na ito ay babalik parin bilang `huwad`. Ang gawi na ito ay nilalayon sa pamamagitan ng sistemang operasyon, dahil hindi nila gustong maglaban ang mga aplikasyon para sa global shortcuts.
 
-### `globalShortcut.unregister(accelerator)`
+### `globalShortcut.hindirehistrado(aselerador)`
 
 * `aselerador` [Aselerador](accelerator.md) 
 
-Unregisters the global shortcut of `accelerator`.
+Hindi inirehistro ang global shortcut ng `aselerador`.
 
-### `globalShortcut.unregisterAll()`
+### `globalShortcut.hindirehistradoLahat()`
 
-Unregisters all of the global shortcuts.
+Hindi irehistro lahat ng global shortcuts.
