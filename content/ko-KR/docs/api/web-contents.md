@@ -360,7 +360,7 @@ Returns:
 * `callback` 함수 
   * `certificate` [Certificate](structures/certificate.md) - Must be a certificate from the given list.
 
-클라이언트의 인증서가 요구될 때 발생합니다.
+클라이언트의 인증서를 요청했을 때 발생합니다.
 
 The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
@@ -638,7 +638,7 @@ Emitted when `remote.getGlobal()` is called in the renderer process. Calling `ev
 
 #### Event: 'remote-get-builtin'
 
-반환:
+Returns:
 
 * `event` Event
 * `moduleName` String
@@ -647,7 +647,7 @@ Emitted when `remote.getBuiltin()` is called in the renderer process. Calling `e
 
 #### Event: 'remote-get-current-window'
 
-반환:
+Returns:
 
 * `event` Event
 
@@ -655,7 +655,7 @@ Emitted when `remote.getCurrentWindow()` is called in the renderer process. Call
 
 #### Event: 'remote-get-current-web-contents'
 
-반환:
+Returns:
 
 * `event` Event
 
@@ -663,7 +663,7 @@ Emitted when `remote.getCurrentWebContents()` is called in the renderer process.
 
 #### Event: 'remote-get-guest-web-contents'
 
-반환:
+Returns:
 
 * `event` Event
 * `guestWebContents` [WebContents](web-contents.md)
@@ -675,7 +675,7 @@ Emitted when `<webview>.getWebContents()` is called in the renderer process. Cal
 #### `contents.loadURL(url[, options])`
 
 * `url` String
-* `options` Object (optional) 
+* `options` Object (선택) 
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
   * `userAgent` String (optional) - A user agent originating the request.
   * `extraHeaders` String (optional) - Extra headers separated by "\n".
@@ -695,7 +695,7 @@ webContents.loadURL('https://github.com', options)
 #### `contents.loadFile(filePath[, options])`
 
 * `filePath` String
-* `options` Object (optional) 
+* `options` Object (선택) 
   * `query` Object (optional) - Passed to `url.format()`.
   * `search` String (optional) - Passed to `url.format()`.
   * `hash` String (optional) - Passed to `url.format()`.
@@ -981,7 +981,7 @@ Inserts `text` to the focused element.
 #### `contents.findInPage(text[, options])`
 
 * `text` String - Content to be searched, must not be empty.
-* `options` Object (optional) 
+* `options` Object (선택) 
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -994,7 +994,7 @@ Starts a request to find all matches for the `text` in the web page. The result 
 
 #### `contents.stopFindInPage(action)`
 
-* `action` String - Specifies the action to take place when ending [`webContents.findInPage`] request. 
+* `동작` String - Specifies the action to take place when ending [`webContents.findInPage`] request. 
   * `clearSelection` - Clear the selection.
   * `keepSelection` - Translate the selection into a normal selection.
   * `activateSelection` - Focus and click the selection node.
@@ -1051,7 +1051,7 @@ Returns [`PrinterInfo[]`](structures/printer-info.md).
 
 #### `contents.print([options], [callback])`
 
-* `options` Object (optional) 
+* `options` Object (선택) 
   * `silent` Boolean (optional) - Don't ask user for print settings. Default is `false`.
   * `printBackground` Boolean (optional) - Also prints the background color and image of the web page. Default is `false`.
   * `deviceName` String (optional) - Set the printer device name to use. Default is `''`.
@@ -1195,7 +1195,7 @@ app.once('ready', () => {
 
 #### `contents.openDevTools([options])`
 
-* `options` Object (optional) 
+* `options` Object (선택) 
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
   * `activate` Boolean (optional) - Whether to bring the opened devtools window to the foreground. The default is `true`.
 
@@ -1378,7 +1378,7 @@ Sets the `item` as dragging item for current drag-drop operation, `file` is the 
   * `HTMLOnly` - Save only the HTML of the page.
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
-* `callback` Function - `(error) => {}`. 
+* `callback` 함수 - `(error) => {}`. 
   * `error` Error
 
 Returns `Boolean` - true if the process of saving page has been initiated successfully.
