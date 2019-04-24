@@ -162,88 +162,88 @@ where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](htt
 
 > tray や Dock やアプリケーションアイコンのような画像を、ネイティブにラップします。
 
-プロセス: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
+プロセス: [メイン](../glossary.md#main-process), [レンダラー](../glossary.md#renderer-process)
 
 ### インスタンスメソッド
 
-The following methods are available on instances of the `NativeImage` class:
+`NativeImage` クラスのインスタンスには、以下のメソッドがあります。
 
 #### `image.toPNG([options])`
 
 * `options` Object (任意) * `scaleFactor` Double (任意) - 省略値は 1.0。
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `PNG` encoded data.
+戻り値 `Buffer` - `PNG` エンコードされた画像データを含む [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
 
 #### `image.toJPEG(quality)`
 
 * `quality` Integer (**必須**) - 0 ~ 100。
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `JPEG` encoded data.
+戻り値 `Buffer` - `JPEG` エンコードされた画像データを含む [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
 
 #### `image.toBitmap([options])`
 
 * `options` Object (任意) * `scaleFactor` Double (任意) - 省略値は 1.0。
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains a copy of the image's raw bitmap pixel data.
+戻り値 `Buffer` - 生のビットマップ画像のピクセルデータのコピーを含む [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
 
 #### `image.toDataURL([options])`
 
 * `options` Object (任意) * `scaleFactor` Double (任意) - 省略値は 1.0。
 
-Returns `String` - The data URL of the image.
+戻り値 `String` - 画像のデータURL。
 
 #### `image.getBitmap([options])`
 
 * `options` Object (任意) * `scaleFactor` Double (任意) - 省略値は 1.0。
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's raw bitmap pixel data.
+戻り値 `Buffer` - 生のビットマップ画像のピクセルデータを含む [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
 
-The difference between `getBitmap()` and `toBitmap()` is, `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick, otherwise the data might be changed or destroyed.
+`getBitmap()` と `toBitmap()` の違いは、`getBitmap()` はビットマップをコピーしないので、現在のイベントループティックで即座に使用しなければ、そのデータが変更または破棄される可能性があります。
 
 #### `image.getNativeHandle()` *macOS*
 
-Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that stores C pointer to underlying native handle of the image. On macOS, a pointer to `NSImage` instance would be returned.
+戻り値 `Buffer` - 画像の元になるネイティブハンドルへの C ポインタを格納する [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)。 macOS では、`NSImage` のインスタンスのポインタが返されます。
 
-Notice that the returned pointer is a weak pointer to the underlying native image instead of a copy, so you *must* ensure that the associated `nativeImage` instance is kept around.
+返されるポインタは、コピーではなく、元のネイティブな画像へのウィークポインタであることに注意して下さい。関連する `nativeImage` インスタンスが確実に*保持されなければなりません*。
 
 #### `image.isEmpty()`
 
-Returns `Boolean` - Whether the image is empty.
+戻り値 `Boolean` - 画像が空かどうか。
 
 #### `image.getSize()`
 
-Returns [`Size`](structures/size.md)
+戻り値 [`Size`](structures/size.md)
 
 #### `image.setTemplateImage(option)`
 
 * `option` Boolean
 
-Marks the image as a template image.
+画像をテンプレート画像としてマークします。
 
 #### `image.isTemplateImage()`
 
-Returns `Boolean` - Whether the image is a template image.
+戻り値 `Boolean` - 画像がテンプレート画像かどうか。
 
 #### `image.crop(rect)`
 
 * `rect` [Rectangle](structures/rectangle.md) - 画像をトリミングする領域。
 
-Returns `NativeImage` - The cropped image.
+戻り値 `NativeImage` - トリミングされた画像。
 
 #### `image.resize(options)`
 
 * `options` Object * `width` Integer (任意) - 省略値は画像の幅。 * `height` Integer (任意) - 省略値は画像の高さ。 * `quality` String (任意) - リサイズした画像の希望する画質。 値は `good`、`better`、または `best` にできる。 省略値は、`best` です。 これらの値は、必要な画質と速度のトレードオフを表現する。 これらは、基になるプラットフォームの機能 (CPU、GPU) に依存するアルゴリズム固有のメソッドに変換される。 3つのメソッドすべてを、特定のプラットフォーム上の同じアルゴリズムに割り当てることも可能です。
 
-Returns `NativeImage` - The resized image.
+戻り値 `NativeImage` - リサイズされた画像。
 
-If only the `height` or the `width` are specified then the current aspect ratio will be preserved in the resized image.
+`height` または `width` のどちらかのみが指定された場合、アスペクト比はリサイズされた画像でも保持されます。
 
 #### `image.getAspectRatio()`
 
-Returns `Float` - The image's aspect ratio.
+戻り値 `Float` - イメージのアスペクト比。
 
 #### `image.addRepresentation(options)`
 
 * `options` Object * `scaleFactor` Double - 画像を表現する際の拡大倍率。 * `width` Integer (任意) - 省略値は0。 `buffer` にビットマップバッファが指定されている場合は必要です。 * `height` Integer (任意) - 省略値は0。 `buffer` にビットマップバッファが指定されている場合は必要です。 * `buffer` Buffer (任意) - 生の画像データを含むバッファ。 * `dataURL` String (任意) - Base64 でエンコードされた PNG または JPEG 画像を含むデータURL。
 
-Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
+特定の倍率における画像表現を追加します。これは異なる倍率表現を画像に明示的に追加するために使用できます。これは空の画像でも呼び出すことができます。
