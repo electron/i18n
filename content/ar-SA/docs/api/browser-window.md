@@ -460,7 +460,7 @@ Returns `BrowserWindow | null` - The window that owns the given `browserView`. I
 
 #### `BrowserWindow.fromId(id)`
 
-* `id` Integer
+* </code>
 
 Returns `BrowserWindow` - The window with the given `id`.
 
@@ -476,7 +476,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 #### `BrowserWindow.removeExtension(name)`
 
-* `name` سلسلة نصية
+* `الإسم`String
 
 Remove a Chrome extension by name.
 
@@ -502,7 +502,7 @@ The method will also not return if the extension's manifest is missing or incomp
 
 #### `BrowserWindow.removeDevToolsExtension(name)`
 
-* `name` سلسلة نصية
+* `الإسم`String
 
 Remove a DevTools extension by name.
 
@@ -971,7 +971,7 @@ Returns `Boolean` - Whether the window's document has been edited.
 #### `win.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
-* `callback` Function 
+* `callback` دالة 
   * `image` [NativeImage](native-image.md)
 
 Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
@@ -1113,8 +1113,8 @@ The number of buttons in thumbnail toolbar should be no greater than 7 due to th
 
 The `buttons` is an array of `Button` objects:
 
-* `Button` Object 
-  * `icon` [NativeImage](native-image.md) - The icon showing in thumbnail toolbar.
+* `Button` الكائنات 
+  * `أيقونة`[الصورة الأصلية](native-image.md) - الأيقونة تظهر في الصورة المصغرة لشريط الأدوات.
   * `أنقر` Function
   * `أداة` String (اختياري) - نص أداة الزر.
   * `أعلام` String[] (اختياري) ء السيطرة على حالات وسلوكيات محددة للزر. افتراضيا ، هو `['enabled']`.
@@ -1142,7 +1142,7 @@ Sets the toolTip that is displayed when hovering over the window thumbnail in th
 
 #### `win.setAppDetails(options)` *Windows*
 
-* `options` Object 
+* `options` الكائنات 
   * `appId` String (optional) - Window's [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). It has to be set, otherwise the other options will have no effect.
   * `appIconPath` String (optional) - Window's [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
   * `appIconIndex` Integer (optional) - Index of the icon in `appIconPath`. Ignored when `appIconPath` is not set. Default is `0`.
