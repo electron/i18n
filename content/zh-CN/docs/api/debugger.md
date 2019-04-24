@@ -4,7 +4,7 @@
 
 进程：[主进程](../glossary.md#main-process)
 
-Chrome Developer Tools 在 JavaScript 运行时提供了一个 [ special binding ](https://developer.chrome.com/devtools/docs/debugger-protocol), 允许与页面进行交互和检测。
+Chrome Developer Tools has a [special binding](https://chromedevtools.github.io/devtools-protocol/) available at JavaScript runtime that allows interacting with pages and instrumenting them.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -49,11 +49,22 @@ Returns `Boolean` - 表示调试器是否成功添加到 `webContents` 。
 
 #### `debugger.sendCommand(method[, commandParams, callback])`
 
-* ` method `String - 方法名称, 应该是由远程调试协议定义的方法之一。
+* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
 * ` commandParams ` Object (可选) - 具有请求参数的 JSON 对象。
 * `callback` Function (可选) - 响应方法 
   * `error` Object - 显示命令失败的错误消息。
   * `result` Any - 由远程调试协议中的命令描述的“returns”属性定义的响应。
+
+向调试目标发送给定的命令。
+
+**[Deprecated Soon](promisification.md)**
+
+#### `debugger.sendCommand(method[, commandParams])`
+
+* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
+* ` commandParams ` Object (可选) - 具有请求参数的 JSON 对象。
+
+Returns `Promise<any>` - A promise that resolves with the response defined by the 'returns' attribute of the command description in the remote debugging protocol or is rejected indicating the failure of the command.
 
 向调试目标发送给定的命令。
 
@@ -62,14 +73,14 @@ Returns `Boolean` - 表示调试器是否成功添加到 `webContents` 。
 #### Event: 'detach'
 
 * `event` Event
-* `reason` String - 分离调试器的原因
+* `reason` String - Reason for detaching debugger.
 
-在调试会话终止时发出。当关闭 ` webContents ` 或 ` the attached  webContents ` 调用 devtools 时, 都会发生这种情况。
+Emitted when debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
 
 #### Event: 'message'
 
 * `event` Event
-* `method` String - 方法名.
-* `params` Object - 由远程调试协议中的 parameters 属性定义的事件参数。
+* `method` String - Method name.
+* `params` Object - Event parameters defined by the 'parameters' attribute in the remote debugging protocol.
 
-当调试目标问题时发送
+Emitted whenever debugging target issues instrumentation event.
