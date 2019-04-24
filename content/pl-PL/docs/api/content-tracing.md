@@ -42,6 +42,14 @@ Get a set of category groups. The category groups can change as new code paths a
 
 Once all child processes have acknowledged the `getCategories` request the `callback` is invoked with an array of category groups.
 
+**[Deprecated Soon](promisification.md)**
+
+### `contentTracing.getCategories()`
+
+Returns `Promise<String[]>` - resolves with an array of category groups once all child processes have acknowledged the `getCategories` request
+
+Get a set of category groups. The category groups can change as new code paths are reached.
+
 ### `contentTracing.startRecording(options, callback)`
 
 * `options` ([TraceCategoriesAndOptions](structures/trace-categories-and-options.md) | [TraceConfig](structures/trace-config.md))
@@ -51,10 +59,22 @@ Start recording on all processes.
 
 Recording begins immediately locally and asynchronously on child processes as soon as they receive the EnableRecording request. The `callback` will be called once all child processes have acknowledged the `startRecording` request.
 
+**[Deprecated Soon](promisification.md)**
+
+### `contentTracing.startRecording(options)`
+
+* `options` ([TraceCategoriesAndOptions](structures/trace-categories-and-options.md) | [TraceConfig](structures/trace-config.md))
+
+Returns `Promise<void>` - resolved once all child processes have acknowledged the `startRecording` request.
+
+Start recording on all processes.
+
+Recording begins immediately locally and asynchronously on child processes as soon as they receive the EnableRecording request.
+
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
 * `resultFilePath` String
-* `callback` Function 
+* `callback` Funkcja 
   * `resultFilePath` String
 
 Stop recording on all processes.
@@ -65,38 +85,19 @@ Once all child processes have acknowledged the `stopRecording` request, `callbac
 
 Trace data will be written into `resultFilePath` if it is not empty or into a temporary file. The actual file path will be passed to `callback` if it's not `null`.
 
-### `contentTracing.startMonitoring(options, callback)`
+**[Deprecated Soon](promisification.md)**
 
-* `options` Object 
-  * `categoryFilter` String
-  * `traceOptions` String
-* `callback` Function
-
-Start monitoring on all processes.
-
-Monitoring begins immediately locally and asynchronously on child processes as soon as they receive the `startMonitoring` request.
-
-Once all child processes have acknowledged the `startMonitoring` request the `callback` will be called.
-
-### `contentTracing.stopMonitoring(callback)`
-
-* `callback` Function
-
-Stop monitoring on all processes.
-
-Once all child processes have acknowledged the `stopMonitoring` request the `callback` is called.
-
-### `contentTracing.captureMonitoringSnapshot(resultFilePath, callback)`
+### `contentTracing.stopRecording(resultFilePath)`
 
 * `resultFilePath` String
-* `callback` Funkcja 
-  * `resultFilePath` String
 
-Get the current monitoring traced data.
+Returns `Promise<String>` - resolves with a file that contains the traced data once all child processes have acknowledged the `stopRecording` request
 
-Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This is because it may be an expensive operation to send the trace data over IPC and we would like to avoid unneeded runtime overhead from tracing. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
+Stop recording on all processes.
 
-Once all child processes have acknowledged the `captureMonitoringSnapshot` request the `callback` will be called with a file that contains the traced data.
+Child processes typically cache trace data and only rarely flush and send trace data back to the main process. This helps to minimize the runtime overhead of tracing since sending trace data over IPC can be an expensive operation. So, to end tracing, we must asynchronously ask all child processes to flush any pending trace data.
+
+Trace data will be written into `resultFilePath` if it is not empty or into a temporary file.
 
 ### `contentTracing.getTraceBufferUsage(callback)`
 
