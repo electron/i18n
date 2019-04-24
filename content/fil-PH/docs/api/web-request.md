@@ -47,7 +47,7 @@ The following methods are available on instances of `WebRequest`:
     * `referrer` na String
     * `referer` String
     * `timestamp` Double
-    * ang `uploadData` sa [UploadData[]](structures/upload-data.md)
+    * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Punsyon 
     * `response` Bagay 
       * `cancel` Boolean (optional)
@@ -155,7 +155,7 @@ The `listener` will be called with `listener(details)` when first byte of the re
     * `url` Tali
     * `method` na String
     * `exitCode` Integer (opsyonal)
-    * `resourceType` String
+    * `resourceType` Tali
     * `referer` String
     * `timestamp` Double
     * `redirectURL` String
