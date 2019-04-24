@@ -30,7 +30,7 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 }){ requestHeaders: details.requestHeaders }
 ```
 
-### Beispiel Methoden
+### Instanz Methoden
 
 Die folgenden Methoden sind verfügbar in Instanzen von `WebRequest`:
 
@@ -160,7 +160,7 @@ The `listener` will be called with `listener(details)` when first byte of the re
     * `timestamp` Double
     * `redirectURL` String
     * `statusCode` Integer
-    * `ip` String (optional) - The server IP address that the request was actually sent to.
+    * `ip` String (optional) - Die Server IP Adresse an den der Request ursprünglich gesendet wurde.
     * `fromCache` Boolean
     * `responseHeaders` Object
 
