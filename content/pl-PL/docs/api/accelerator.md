@@ -50,6 +50,8 @@ Klawisz `Super` jest mapowany do klawisza`Windows` w systemach Windows i Linux o
 * `Plus`
 * `Space`
 * `Tab`
+* `Capslock`
+* `Numlock`
 * `Backspace`
 * `Delete`
 * `Insert`
@@ -61,3 +63,10 @@ Klawisz `Super` jest mapowany do klawisza`Windows` w systemach Windows i Linux o
 * `VolumeUp`, `VolumeDown` i `VolumeMute`
 * `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` i `MediaPlayPause`
 * `PrintScreen`
+* NumPad Keys 
+  * `num0` - `num9`
+  * `numdec` - decimal key
+  * `numadd` - numpad `+` key
+  * `numsub` - numpad `-` key
+  * `nummult` - numpad `*` key
+  * `numdiv` - numpad `÷` key
