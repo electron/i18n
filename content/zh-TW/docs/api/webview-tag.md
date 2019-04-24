@@ -551,11 +551,11 @@ Returns [`WebContents`](web-contents.md) - The web contents associated with this
 
 It depends on the [`remote`](remote.md) module, it is therefore not available when this module is disabled.
 
-## DOM events
+## DOM 事件
 
 The following DOM events are available to the `webview` tag:
 
-### Event: 'load-commit'
+### 事件: 'load-commit'
 
 回傳:
 
@@ -640,7 +640,7 @@ The following example code forwards all log messages to the embedder's console w
 ```javascript
 const webview = document.querySelector('webview')
 webview.addEventListener('console-message', (e) => {
-  console.log('Guest page logged a message:', e.message)
+  console.log('訪客頁記了一筆訊息:', e.message)
 })
 ```
 
@@ -756,7 +756,7 @@ With `sendToHost` method and `ipc-message` event you can communicate between gue
 const webview = document.querySelector('webview')
 webview.addEventListener('ipc-message', (event) => {
   console.log(event.channel)
-  // Prints "pong"
+  // 列出 "pong"
 })
 webview.send('ping')
 ```
@@ -773,7 +773,7 @@ ipcRenderer.on('ping', () => {
 
 Fired when the renderer process is crashed.
 
-### Event: 'gpu-crashed'
+### 事件: 'gpu-crashed'
 
 Fired when the gpu process is crashed.
 
