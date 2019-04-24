@@ -31,7 +31,14 @@ Ibinabalik ang:
 Ibinabalik ang:
 
 * `event` na Pangyayari
-* `invertedColorScheme` na Boolean - `true` kapag ang isang binaliktad na pamamaraan ng pagkulay, tulad isang mataas na antas ng temang pangkontrast, ay ginagagami, `false` kapag hindi.
+* `invertedColorScheme` Boolean - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is being used, `false` otherwise.
+
+### Event: 'high-contrast-color-scheme-changed' *Windows*
+
+Pagbabalik:
+
+* `event` na Kaganapan
+* `highContrastColorScheme` Boolean - `true` if a high contrast theme is being used, `false` otherwise.
 
 ### Event: 'appearance-changed' *macOS*
 
@@ -45,16 +52,17 @@ Pagbabalik:
 
 ### `systemPreferences.isDarkMode()` *macOS*
 
-Ibinabalik ang `Boolean` - Kapag ang sistema ay naka-Dark Mode.
+Returns `Boolean` - Whether the system is in Dark Mode.
 
 ### `systemPreferences.isSwipeTrackingFromScrollEventsEnabled()` *macOS*
 
-Ibinabalik ang `Boolean` - Kung ang Swipe sa pagitan ng settiing ng mga pahina ay naka-on.
+Returns `Boolean` - Whether the Swipe between pages setting is on.
 
-### `systemPreferences.postNotification(event, userInfo)` *macOS*
+### `systemPreferences.postNotification(event, userInfo[, deliverImmediately])` *macOS*
 
 * `event` na String
 * `userInfo` na Object
+* `deliverImmediately` Boolean (optional) - `true` to post notifications immediately even when the subscribing app is inactive.
 
 Naglalathala ng isang `event` bilang natibong paalala ng macOS. Ang `userInfo` ay isang object na naglalaman ng mga diksyunaryong impormasyon ng tagagamit na ipadala kasama ang paalala.
 
@@ -75,17 +83,17 @@ Naglalathala ng isang `event` bilang natibong paalala ng macOS. Ang `userInfo` a
 ### `systemPreferences.subscribeNotification(event, callback)` *macOS*
 
 * `event` na String
-* `callback` function 
+* `callback` Punsyon 
   * `event` na String
   * `userInfo` na Object
 
 Returns `Number` - The ID of this subscription
 
-Nagsa-subscribe sa pansariling mga paalala ng macOS, ang `callback` ay tatawagin gamit ang `callback(event, userInfo)` kapag ang katumbas na `event` ay nangyayari. Ang `userInfo` ay isang Object na naglalaman ng impormasyong diksyunaryo ng tagagamit na ipinapadala kasama ang paalala.
+Subscribes to native notifications of macOS, `callback` will be called with `callback(event, userInfo)` when the corresponding `event` happens. The `userInfo` is an Object that contains the user information dictionary sent along with the notification.
 
-Ang `id` ng nagsa-subscribe ay ibinabalik, pwede itong gamitin sa pag-unsubscribe sa `event`.
+The `id` of the subscriber is returned, which can be used to unsubscribe the `event`.
 
-Sa ilalim ng hood, ang API na ito ay nagsa-subscribe sa `NSDistributedNotificationCenter`, ang mga halimbawang halaga ng `event` ay:
+Under the hood this API subscribes to `NSDistributedNotificationCenter`, example values of `event` are:
 
 * `AppleInterfaceThemeChangedNotification`
 * `AppleAquaColorVariantChanged`
@@ -95,18 +103,18 @@ Sa ilalim ng hood, ang API na ito ay nagsa-subscribe sa `NSDistributedNotificati
 ### `systemPreferences.subscribeLocalNotification(event, callback)` *macOS*
 
 * `event` na String
-* `callback` Punsyon 
+* `callback` Function 
   * `event` na String
   * `userInfo` na Object
 
 Returns `Number` - The ID of this subscription
 
-Kapareho ng `subscribeNotification`, pero gumagamit ng `NSNotificationCenter` para sa lokal na mga default. Kinakailangan ito para sa mga pangyayaring katulad ng `NSUserDefaultsDidChangeNotification`.
+Same as `subscribeNotification`, but uses `NSNotificationCenter` for local defaults. This is necessary for events such as `NSUserDefaultsDidChangeNotification`.
 
 ### `systemPreferences.subscribeWorkspaceNotification(event, callback)` *macOS*
 
 * `event` na String
-* `callback` Function 
+* `callback` Punsyon 
   * `event` na String
   * `userInfo` na Object
 
@@ -116,13 +124,13 @@ Same as `subscribeNotification`, but uses `NSWorkspace.sharedWorkspace.notificat
 
 * `id` Integer
 
-Tinatanggal ang nagsa-subscribe kasama ang `id`.
+Removes the subscriber with `id`.
 
 ### `systemPreferences.unsubscribeLocalNotification(id)` *macOS*
 
 * `id` Integer
 
-Kapareho sa `unsubscribeNotification`, pero tinatanggal ang nagsa-subscribe mula sa `NSNotificationCenter`.
+Same as `unsubscribeNotification`, but removes the subscriber from `NSNotificationCenter`.
 
 ### `systemPreferences.unsubscribeWorkspaceNotification(id)` *macOS*
 
@@ -141,9 +149,9 @@ Add the specified defaults to your application's `NSUserDefaults`.
 * `key` String
 * `type` String - Can be `string`, `boolean`, `integer`, `float`, `double`, `url`, `array` or `dictionary`.
 
-Ibinabalik ang `any` - Ang halaga ng `key` sa `NSUserDefaults`.
+Returns `any` - The value of `key` in `NSUserDefaults`.
 
-Ang ilang mga sikat na `key` at `type` ay:
+Some popular `key` and `type`s are:
 
 * `AppleInterfaceStyle`: `string`
 * `AppleAquaColorVariant`: `integer`
@@ -157,13 +165,13 @@ Ang ilang mga sikat na `key` at `type` ay:
 
 * `key` String
 * `type` String - See [`getUserDefault`](#systempreferencesgetuserdefaultkey-type-macos).
-* `value` na String
+* `value` String
 
-Itakda ang halaga ng `key` sa `NSUserDefaults`.
+Set the value of `key` in `NSUserDefaults`.
 
-Tandaan na dapat tugma ang `type` sa akwal na uri ng `value`. Ang isang nabubukod ay ibinabato kapag hindi ito tugma.
+Note that `type` should match actual type of `value`. An exception is thrown if they don't.
 
-Ang ilang mga sikat na `key` at `type` ay:
+Some popular `key` and `type`s are:
 
 * `ApplePressAndHoldEnabled`: `boolean`
 
@@ -171,13 +179,13 @@ Ang ilang mga sikat na `key` at `type` ay:
 
 * `key` String
 
-Tinatanggal ang `key` sa `NSUserDefaults`. Maaari itong gamitin sa pagbabalik ng default o pangkalahatang halaga ng isang `key` na naitakda gamit ang `setUserDefault`.
+Removes the `key` in `NSUserDefaults`. This can be used to restore the default or global value of a `key` previously set with `setUserDefault`.
 
 ### `systemPreferences.isAeroGlassEnabled()` *Windows*
 
-Ibinabalik ang `Boolean` - `true` kapag ang [DWM composition](https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx) (Aero Glass) ay pinagana, at ang `false` kapag hindi.
+Returns `Boolean` - `true` if [DWM composition](https://msdn.microsoft.com/en-us/library/windows/desktop/aa969540.aspx) (Aero Glass) is enabled, and `false` otherwise.
 
-Ang isang halimbawa ng paggamit nito sa pag-alam kung dapat bang maglikha ka ng isang transparent na window o hindi (ang mga transparent na window ay hindi gumagana nang maayos kapag ang DWM na komposisyon ay hindi pinagana):
+An example of using it to determine if you should create a transparent window or not (transparent windows won't work correctly when DWM composition is disabled):
 
 ```javascript
 const { BrowserWindow, systemPreferences } = require('electron')
@@ -201,9 +209,9 @@ if (browserOptions.transparent) {
 }
 ```
 
-### `systemPreferences.getAccentColor()` *Windows*
+### `systemPreferences.getAccentColor()` *Windows* *macOS*
 
-Ibinabalik ang `String` - Ang kasulukuyang kagustuhang accent na kulay ng mga tagagamit sa buong sistema na anyong RGBA hexadecimal.
+Returns `String` - The users current system wide accent color preference in RGBA hexadecimal form.
 
 ```js
 const color = systemPreferences.getAccentColor() // `"aabbccdd"`
@@ -213,45 +221,101 @@ const blue = color.substr(4, 2) // "cc"
 const alpha = color.substr(6, 2) // "dd"
 ```
 
-### `systemPreferences.getColor(color)` *Windows*
+This API is only available on macOS 10.14 Mojave or newer.
 
-* `color` Ang String - Isa sa sumusunod na mga halaga: 
-  * `3d-dark-shadow` - ang madilim na anino para sa mga tatlong dimensyonal na mga elementong pang-display.
-  * `3d-face` - kulay ng mukha para sa mga tatlong dimensyonal na elementong pang-display at para sa mga background ng dialog na kahon.
-  * `3d-highlight` - kulay ng highlight para sa tatlong dimensyonal na mga elementong pang-display.
-  * `3d-light` - Kulay ng ilaw para sa tatlong dimensyonal na mga elementong pang-display.
-  * `3d-shadow` - kulay ng anino para sa tatlong dimensyonal na mga elementong pang-display.
-  * `active-border` - Aktibong border ng window.
-  * `active-caption` - Aktibong title bar ng window. Nagtatakda ng kaliwang bandang kulay sa kulay na gradient ng title bar ng isang aktibong window kapag ang gradient na epekto ay pinapagana.
-  * `active-caption-gradient` - Kanang bandang kulay sa kulay na gradient ng tile bar ng isang aktibong window.
-  * `app-workspace` - Kulay ng background ng multiple document interface (MDI) na mga aplikasyon.
-  * `button-text` - Teksto sa mga push button.
-  * `caption-text` - Teksto sa kapsyon, kahong pangsukat, at scroll bar na kahong pang-arrow.
-  * `desktop` - Kulay ng background ng desktop.
-  * `disabled-text` - Nakakulay gray (hindi pinapagana) na teksto.
-  * `highlight` - Ang (mga) aytem na pinili sa isang kontrol.
-  * `highlight-text` - Teksto ng (mga) aytem na pinili sa isang kontrol.
-  * `hotlight` - Kulay para sa isang hyperlink o hot-tracked na aytem.
-  * `inactive-border` - Hindi aktibong border ng window.
-  * `inactive-caption` - Hindi aktibong kapsyon. Itinatakda ang kaliwang bandang kulay sa isang kulay na gradient ng title bar ng isang hindi aktibong window kapag pinapagana ang epektong gradient.
-  * `inactive-caption-gradient` - Kanang bandang kulay sa kulay na gradient ng title bar ng isang hindi aktibong window.
-  * `inactive-caption-text` - Kulay ng teksto sa isang hindi aktibong kapsyon.
-  * `info-background` - Kulay ng background para sa mga kontrol ng tooltip.
-  * `info-text` - Kulay ng teksto para sa mga kontrol ng tooltip.
-  * `menu` - Background ng menu.
-  * `menu-highlight` - Ang kulay na ginamit upang i-highlight ang mga aytem ng menu kung saan ang menu ay lumalabas bilang flat na menu.
-  * `menubar` - Ang kulay ng background para sa menu bar kapag ang mga menu ay lumalabas bilang mga flat na menu.
-  * `menu-text` - Teksto sa mga menu.
-  * `scrollbar` - Kulay gray na lugar sa scroll bar.
-  * `window` - Background ng Window.
-  * `window-frame` - Frame ng window.
-  * `window-text` - Teksto sa mga window.
+### `systemPreferences.getColor(color)` *Windows* *macOS*
 
-Ibinabalik ang `String` - Ang setting ng pangsistemang kulay ay nasa anyong hexadecimal ng RGB (`#ABCDEF`). Tingan ang [mga doc ng Windows](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) para sa karagdagang mga detalye.
+* `color` String - One of the following values: 
+  * On **Windows**: 
+    * `3d-dark-shadow` - Dark shadow for three-dimensional display elements.
+    * `3d-face` - Face color for three-dimensional display elements and for dialog box backgrounds.
+    * `3d-highlight` - Highlight color for three-dimensional display elements.
+    * `3d-light` - Light color for three-dimensional display elements.
+    * `3d-shadow` - Shadow color for three-dimensional display elements.
+    * `active-border` - Active window border.
+    * `active-caption` - Active window title bar. Specifies the left side color in the color gradient of an active window's title bar if the gradient effect is enabled.
+    * `active-caption-gradient` - Right side color in the color gradient of an active window's title bar.
+    * `app-workspace` - Background color of multiple document interface (MDI) applications.
+    * `button-text` - Text on push buttons.
+    * `caption-text` - Text in caption, size box, and scroll bar arrow box.
+    * `desktop` - Desktop background color.
+    * `disabled-text` - Grayed (disabled) text.
+    * `highlight` - Item(s) selected in a control.
+    * `highlight-text` - Text of item(s) selected in a control.
+    * `hotlight` - Color for a hyperlink or hot-tracked item.
+    * `inactive-border` - Inactive window border.
+    * `inactive-caption` - Inactive window caption. Specifies the left side color in the color gradient of an inactive window's title bar if the gradient effect is enabled.
+    * `inactive-caption-gradient` - Right side color in the color gradient of an inactive window's title bar.
+    * `inactive-caption-text` - Color of text in an inactive caption.
+    * `info-background` - Background color for tooltip controls.
+    * `info-text` - Text color for tooltip controls.
+    * `menu` - Menu background.
+    * `menu-highlight` - The color used to highlight menu items when the menu appears as a flat menu.
+    * `menubar` - The background color for the menu bar when menus appear as flat menus.
+    * `menu-text` - Text in menus.
+    * `scrollbar` - Scroll bar gray area.
+    * `window` - Window background.
+    * `window-frame` - Window frame.
+    * `window-text` - Text in windows.
+  * On **macOS** 
+    * `alternate-selected-control-text` - The text on a selected surface in a list or table.
+    * `control-background` - The background of a large interface element, such as a browser or table.
+    * `control` - The surface of a control.
+    * `control-text` -The text of a control that isn’t disabled.
+    * `disabled-control-text` - The text of a control that’s disabled.
+    * `find-highlight` - The color of a find indicator.
+    * `grid` - The gridlines of an interface element such as a table.
+    * `header-text` - The text of a header cell in a table.
+    * `highlight` - The virtual light source onscreen.
+    * `keyboard-focus-indicator` - The ring that appears around the currently focused control when using the keyboard for interface navigation.
+    * `label` - The text of a label containing primary content.
+    * `link` - A link to other content.
+    * `placeholder-text` - A placeholder string in a control or text view.
+    * `quaternary-label` - The text of a label of lesser importance than a tertiary label such as watermark text.
+    * `scrubber-textured-background` - The background of a scrubber in the Touch Bar.
+    * `secondary-label` - The text of a label of lesser importance than a normal label such as a label used to represent a subheading or additional information.
+    * `selected-content-background` - The background for selected content in a key window or view.
+    * `selected-control` - The surface of a selected control.
+    * `selected-control-text` - The text of a selected control.
+    * `selected-menu-item` - The text of a selected menu.
+    * `selected-text-background` - The background of selected text.
+    * `selected-text` - Selected text.
+    * `separator` - A separator between different sections of content.
+    * `shadow` - The virtual shadow cast by a raised object onscreen.
+    * `tertiary-label` - The text of a label of lesser importance than a secondary label such as a label used to represent disabled text.
+    * `text-background` - Text background.
+    * `text` - The text in a document.
+    * `under-page-background` - The background behind a document's content.
+    * `unemphasized-selected-content-background` - The selected content in a non-key window or view.
+    * `unemphasized-selected-text-background` - A background for selected text in a non-key window or view.
+    * `unemphasized-selected-text` - Selected text in a non-key window or view.
+    * `window-background` - The background of a window.
+    * `window-frame-text` - The text in the window's titlebar area. 
+
+Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) and the [MacOS docs](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors) for more details.
+
+### `systemPreferences.getSystemColor(color)` *macOS*
+
+* `color` String - One of the following values: 
+  * `blue`
+  * `brown`
+  * `gray`
+  * `green`
+  * `orange`
+  * `pink`
+  * `purple`
+  * `red`
+  * `yellow`
+
+Returns one of several standard system colors that automatically adapt to vibrancy and changes in accessibility settings like 'Increase contrast' and 'Reduce transparency'. See [Apple Documentation](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#system-colors) for more details.
 
 ### `systemPreferences.isInvertedColorScheme()` *Windows*
 
-Ibinabalik ang `Boolean` - `true` kapag ang binaliktad na pamamaraan sa pagkulay, katulad ng mataas na temang pangkontrast, ay aktibo, `false` kapag hindi.
+Returns `Boolean` - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is active, `false` otherwise.
+
+### `systemPreferences.isHighContrastColorScheme()` *Windows*
+
+Returns `Boolean` - `true` if a high contrast theme is active, `false` otherwise.
 
 ### `systemPreferences.getEffectiveAppearance()` *macOS*
 
