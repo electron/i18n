@@ -12,7 +12,7 @@ By default the `webview` tag is disabled in Electron >= 5. You need to enable th
 
 > Display external web content in an isolated frame and process.
 
-Process: [Renderer](../glossary.md#renderer-process)
+Proces: [Renderer](../glossary.md#renderer-process)
 
 Use the `webview` tag to embed 'guest' content (such as web pages) in your Electron app. The guest content is contained within the `webview` container. An embedded page within your app controls how the guest content is laid out and rendered.
 
@@ -110,7 +110,7 @@ Experimental option for enabling NodeJS support in sub-frames such as iframes in
 
 When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. The remote module is avaiable by default.
 
-### `plugins`
+### `wtyczki`
 
 ```html
 <webview src="https://www.github.com/" plugins></webview>
@@ -262,7 +262,7 @@ Reloads the guest page.
 
 ### `<webview>.reloadIgnoringCache()`
 
-Reloads the guest page and ignores cache.
+Przeładowuje stronę gościa i ignoruje cache.
 
 ### `<webview>.canGoBack()`
 
@@ -333,11 +333,11 @@ Evaluates `code` in page. If `userGesture` is set, it will create the user gestu
 
 ### `<webview>.openDevTools()`
 
-Opens a DevTools window for guest page.
+Otwiera okno DevTools dla strony gościa.
 
 ### `<webview>.closeDevTools()`
 
-Closes the DevTools window of guest page.
+Zamyka okno DevTools strony gościa.
 
 ### `<webview>.isDevToolsOpened()`
 
