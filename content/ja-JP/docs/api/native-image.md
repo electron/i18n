@@ -152,92 +152,98 @@ console.log(image)
 
 つまり、`[-1, 0, 1]` は完全に白い画像になり、`[-1, 1, 0]` は完全に黒い画像になります。
 
+In some cases, the `NSImageName` doesn't match its string representation; one example of this is `NSFolderImageName`, whose string representation would actually be `NSFolder`. Therefore, you'll need to determine the correct string representation for your image before passing it in. This can be done with the following:
+
+`echo -e '#import <Cocoa/Cocoa.h>\nint main() { NSLog(@"%@", SYSTEM_IMAGE_NAME); }' | clang -otest -x objective-c -framework Cocoa - && ./test`
+
+where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](https://developer.apple.com/documentation/appkit/nsimagename?language=objc).
+
 ## クラス: NativeImage
 
 > tray や Dock やアプリケーションアイコンのような画像を、ネイティブにラップします。
 
-プロセス: [メイン](../glossary.md#main-process), [レンダラー](../glossary.md#renderer-process)
+プロセス: [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 ### インスタンスメソッド
 
-`NativeImage` クラスのインスタンスには、以下のメソッドがあります。
+The following methods are available on instances of the `NativeImage` class:
 
 #### `image.toPNG([options])`
 
 * `options` Object (任意) * `scaleFactor` Double (任意) - 省略値は 1.0。
 
-戻り値 `Buffer` - `PNG` エンコードされた画像データを含む [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
+Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `PNG` encoded data.
 
 #### `image.toJPEG(quality)`
 
 * `quality` Integer (**必須**) - 0 ~ 100。
 
-戻り値 `Buffer` - `JPEG` エンコードされた画像データを含む [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
+Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's `JPEG` encoded data.
 
 #### `image.toBitmap([options])`
 
 * `options` Object (任意) * `scaleFactor` Double (任意) - 省略値は 1.0。
 
-戻り値 `Buffer` - 生のビットマップ画像のピクセルデータのコピーを含む [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
+Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains a copy of the image's raw bitmap pixel data.
 
 #### `image.toDataURL([options])`
 
 * `options` Object (任意) * `scaleFactor` Double (任意) - 省略値は 1.0。
 
-戻り値 `String` - 画像のデータURL。
+Returns `String` - The data URL of the image.
 
 #### `image.getBitmap([options])`
 
 * `options` Object (任意) * `scaleFactor` Double (任意) - 省略値は 1.0。
 
-戻り値 `Buffer` - 生のビットマップ画像のピクセルデータを含む [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)。
+Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that contains the image's raw bitmap pixel data.
 
-`getBitmap()` と `toBitmap()` の違いは、`getBitmap()` はビットマップをコピーしないので、現在のイベントループティックで即座に使用しなければ、そのデータが変更または破棄される可能性があります。
+The difference between `getBitmap()` and `toBitmap()` is, `getBitmap()` does not copy the bitmap data, so you have to use the returned Buffer immediately in current event loop tick, otherwise the data might be changed or destroyed.
 
 #### `image.getNativeHandle()` *macOS*
 
-戻り値 `Buffer` - 画像の元になるネイティブハンドルへの C ポインタを格納する [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer)。 macOS では、`NSImage` のインスタンスのポインタが返されます。
+Returns `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class_buffer) that stores C pointer to underlying native handle of the image. On macOS, a pointer to `NSImage` instance would be returned.
 
-返されるポインタは、コピーではなく、元のネイティブな画像へのウィークポインタであることに注意して下さい。関連する `nativeImage` インスタンスが確実に*保持されなければなりません*。
+Notice that the returned pointer is a weak pointer to the underlying native image instead of a copy, so you *must* ensure that the associated `nativeImage` instance is kept around.
 
 #### `image.isEmpty()`
 
-戻り値 `Boolean` - 画像が空かどうか。
+Returns `Boolean` - Whether the image is empty.
 
 #### `image.getSize()`
 
-戻り値 [`Size`](structures/size.md)
+Returns [`Size`](structures/size.md)
 
 #### `image.setTemplateImage(option)`
 
 * `option` Boolean
 
-画像をテンプレート画像としてマークします。
+Marks the image as a template image.
 
 #### `image.isTemplateImage()`
 
-戻り値 `Boolean` - 画像がテンプレート画像かどうか。
+Returns `Boolean` - Whether the image is a template image.
 
 #### `image.crop(rect)`
 
 * `rect` [Rectangle](structures/rectangle.md) - 画像をトリミングする領域。
 
-戻り値 `NativeImage` - トリミングされた画像。
+Returns `NativeImage` - The cropped image.
 
 #### `image.resize(options)`
 
 * `options` Object * `width` Integer (任意) - 省略値は画像の幅。 * `height` Integer (任意) - 省略値は画像の高さ。 * `quality` String (任意) - リサイズした画像の希望する画質。 値は `good`、`better`、または `best` にできる。 省略値は、`best` です。 これらの値は、必要な画質と速度のトレードオフを表現する。 これらは、基になるプラットフォームの機能 (CPU、GPU) に依存するアルゴリズム固有のメソッドに変換される。 3つのメソッドすべてを、特定のプラットフォーム上の同じアルゴリズムに割り当てることも可能です。
 
-戻り値 `NativeImage` - リサイズされた画像。
+Returns `NativeImage` - The resized image.
 
-`height` または `width` のどちらかのみが指定された場合、アスペクト比はリサイズされた画像でも保持されます。
+If only the `height` or the `width` are specified then the current aspect ratio will be preserved in the resized image.
 
 #### `image.getAspectRatio()`
 
-戻り値 `Float` - イメージのアスペクト比。
+Returns `Float` - The image's aspect ratio.
 
 #### `image.addRepresentation(options)`
 
 * `options` Object * `scaleFactor` Double - 画像を表現する際の拡大倍率。 * `width` Integer (任意) - 省略値は0。 `buffer` にビットマップバッファが指定されている場合は必要です。 * `height` Integer (任意) - 省略値は0。 `buffer` にビットマップバッファが指定されている場合は必要です。 * `buffer` Buffer (任意) - 生の画像データを含むバッファ。 * `dataURL` String (任意) - Base64 でエンコードされた PNG または JPEG 画像を含むデータURL。
 
-特定の倍率における画像表現を追加します。これは異なる倍率表現を画像に明示的に追加するために使用できます。これは空の画像でも呼び出すことができます。
+Add an image representation for a specific scale factor. This can be used to explicitly add different scale factor representations to an image. This can be called on empty images.
