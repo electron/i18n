@@ -326,7 +326,7 @@ Injects CSS into the guest page.
 
 * `code` String
 * `userGesture` Boolean (optional) - Default `false`.
-* `callback` Function (optional) - Called after script has been executed. 
+* `обратно повикване` Function (optional) - Called after script has been executed. 
   * `result` Any
 
 Evaluates `code` in page. If `userGesture` is set, it will create the user gesture context in the page. HTML APIs like `requestFullScreen`, which require user action, can take advantage of this option for automation.
@@ -781,7 +781,7 @@ Fired when the gpu process is crashed.
 
 Връща:
 
-* `name` String
+* `name` String - Име
 * `version` String
 
 Fired when a plugin process is crashed.
