@@ -89,7 +89,7 @@ The ` desktopCapturer </ 0> modul memiliki metode berikut:</p>
 <p><strong><a href="promisification.md">Deprecated Soon</a></strong></p>
 
 <h3><code>desktopCapturer.getSources(options)`</h3> 
-    * `pilihan` Sasaran 
+    * `pilihan` Obyek 
       * `jenis `String [] - Kumpulan String yang mencantumkan jenis sumber desktop yang akan ditangkap, jenis yang tersedia adalah`layar `dan`jendela </ 0>.</li>
 <li><code> thumbnail ukuran</ 0>  <a href="structures/size.md"> Ukuran </ 1> (opsional) - Ukuran gambar thumbnail sumber media harus diskalakan. Defaultnya adalah <code> 150 </ 0> x <code> 150 </ 0> .</li>
 <li><code>fetchWindowIcons` Boolean (optional) - Set to true to enable fetching window icons. The default value is false. When false the appIcon property of the sources return null. Same if a source has the type screen.
