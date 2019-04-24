@@ -82,11 +82,11 @@ An `Integer` representing the ID of the renderer frame that sent this message.
 
 ### `event.returnValue`
 
-Set this to the value to be returned in a synchronous message.
+Imposta il valore da restituire in un messaggio sincrono.
 
 ### `event.sender`
 
-Returns the `webContents` that sent the message, you can call `event.sender.send` to reply to the asynchronous message, see [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for more information.
+Restituisce il `webContents` che ha inviato il messaggio, è possibile chiamare `event.sender.send` per rispondere al messaggio asincrono, vedere [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) per ulteriori informazioni.
 
 ### `event.reply`
 
