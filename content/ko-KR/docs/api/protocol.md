@@ -144,7 +144,7 @@ The usage is the same with `registerFileProtocol`, except that the `callback` sh
       * `url` String
       * `method` String
       * `session` Object (optional)
-      * `uploadData` Object (optional) 
+      * `uploadData` Object (선택) 
         * `contentType` String - MIME type of the content.
         * `data` String - Content to be sent.
 * `completion` Function (optional) 
