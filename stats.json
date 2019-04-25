@@ -10,7 +10,7 @@
     "words_approved": "0",
     "translated_progress": 8,
     "approved_progress": 0,
-    "qa_issues": 450
+    "qa_issues": 465
   },
   {
     "name": "Bulgarian",
@@ -23,7 +23,7 @@
     "words_approved": "6",
     "translated_progress": 13,
     "approved_progress": 0,
-    "qa_issues": 696
+    "qa_issues": 705
   },
   {
     "name": "Chinese Simplified",
@@ -36,7 +36,7 @@
     "words_approved": "137",
     "translated_progress": 78,
     "approved_progress": 0,
-    "qa_issues": 250
+    "qa_issues": 268
   },
   {
     "name": "Chinese Traditional",
@@ -62,7 +62,7 @@
     "words_approved": "0",
     "translated_progress": 3,
     "approved_progress": 0,
-    "qa_issues": 254
+    "qa_issues": 255
   },
   {
     "name": "Dutch",
@@ -75,7 +75,7 @@
     "words_approved": "60",
     "translated_progress": 11,
     "approved_progress": 0,
-    "qa_issues": 794
+    "qa_issues": 844
   },
   {
     "name": "Filipino",
@@ -88,7 +88,7 @@
     "words_approved": "9803",
     "translated_progress": 63,
     "approved_progress": 10,
-    "qa_issues": 207
+    "qa_issues": 210
   },
   {
     "name": "French",
@@ -101,7 +101,7 @@
     "words_approved": "142",
     "translated_progress": 57,
     "approved_progress": 0,
-    "qa_issues": 1954
+    "qa_issues": 2163
   },
   {
     "name": "German",
@@ -114,7 +114,7 @@
     "words_approved": "65",
     "translated_progress": 27,
     "approved_progress": 0,
-    "qa_issues": 1583
+    "qa_issues": 1807
   },
   {
     "name": "Hebrew",
@@ -140,7 +140,7 @@
     "words_approved": "28",
     "translated_progress": 13,
     "approved_progress": 0,
-    "qa_issues": 1282
+    "qa_issues": 1310
   },
   {
     "name": "Indonesian",
@@ -153,7 +153,7 @@
     "words_approved": "61",
     "translated_progress": 64,
     "approved_progress": 0,
-    "qa_issues": 3782
+    "qa_issues": 4199
   },
   {
     "name": "Italian",
@@ -166,7 +166,7 @@
     "words_approved": "42",
     "translated_progress": 34,
     "approved_progress": 0,
-    "qa_issues": 1682
+    "qa_issues": 1726
   },
   {
     "name": "Japanese",
@@ -179,7 +179,7 @@
     "words_approved": "1582",
     "translated_progress": 91,
     "approved_progress": 1,
-    "qa_issues": 290
+    "qa_issues": 315
   },
   {
     "name": "Korean",
@@ -192,7 +192,7 @@
     "words_approved": "4708",
     "translated_progress": 43,
     "approved_progress": 4,
-    "qa_issues": 2181
+    "qa_issues": 2202
   },
   {
     "name": "Persian",
@@ -218,20 +218,20 @@
     "words_approved": "7225",
     "translated_progress": 20,
     "approved_progress": 7,
-    "qa_issues": 762
+    "qa_issues": 818
   },
   {
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "10633",
-    "translated": "4601",
+    "translated": "4604",
     "approved": "364",
     "words": "97910",
-    "words_translated": "32863",
+    "words_translated": "32928",
     "words_approved": "2623",
     "translated_progress": 33,
     "approved_progress": 2,
-    "qa_issues": 1279
+    "qa_issues": 1318
   },
   {
     "name": "Romanian",
@@ -257,7 +257,7 @@
     "words_approved": "7742",
     "translated_progress": 45,
     "approved_progress": 7,
-    "qa_issues": 1705
+    "qa_issues": 1842
   },
   {
     "name": "Spanish",
@@ -270,7 +270,7 @@
     "words_approved": "2023",
     "translated_progress": 79,
     "approved_progress": 2,
-    "qa_issues": 3210
+    "qa_issues": 3603
   },
   {
     "name": "Tagalog",
@@ -309,7 +309,7 @@
     "words_approved": "1",
     "translated_progress": 65,
     "approved_progress": 0,
-    "qa_issues": 3277
+    "qa_issues": 3661
   },
   {
     "name": "Ukrainian",
@@ -322,7 +322,7 @@
     "words_approved": "711",
     "translated_progress": 24,
     "approved_progress": 0,
-    "qa_issues": 1557
+    "qa_issues": 1590
   },
   {
     "name": "Vietnamese",
@@ -335,6 +335,6 @@
     "words_approved": "165",
     "translated_progress": 9,
     "approved_progress": 0,
-    "qa_issues": 520
+    "qa_issues": 537
   }
 ]
