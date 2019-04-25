@@ -49,7 +49,7 @@ community:
     updates: "<a href='https://twitter.com/electronjs'><b>Mantenha-se atualizado</b></a> seguindo o <a href='https://twitter.com/electronjs'>@electronjs</a> no Twitter e assinando o <a href='/blog'>feed do nosso blog</a>."
     localized_docs: "<a href='/languages'><b>Leia a documentação em seu idioma nativo</b></a> visitando a <a href='/languages'>página de idiomas</a>."
     help: "<a href='http://atom-slack.herokuapp.com'><b>Obtenha ajuda e feedback</b></a> juntando-se ao <a href='http://atom-slack.herokuapp.com'>Slack do Atom</a>, postando no nosso <a href='https://discuss.atom.io/c/electron'>fórum Discuss</a> ou visitando o<a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
-    security: "<a href='mailto:security@electronjs.org'><b>Report security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
+    security: "<a href='mailto:security@electronjs.org'><b>Comunique problemas de segurança</b></a> enviando um e-mail para <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Informe bugs</b></a> abrindo issues no nosso repositório <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Solicite novos recursos</b></a> abrindo issues em nosso repositório <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
     code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Relate violações do Código de Conduta</b></a> enviando um e-mail para <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
@@ -225,7 +225,7 @@ governance:
   description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
   wgs: Working Groups
   docstools:
-    title: Docs & Tools
+    title: Documentações & Ferramentas
     description: Oversees externally-focused tooling (e.g. Fiddle, Forge), Electron documentation across the website and <code>electron/*</code> repositories, and the maintainer’s group outreach to 3rd party modules.
   outreach:
     title: Outreach
@@ -240,7 +240,7 @@ governance:
     title: Website
     description: Oversees the technical implementation, design, and style of the Electron website and associated tooling.
   cmsf:
-    title: Community & Safety
+    title: Comunidade & Segurança
     description: Oversees removal/bans from community.
   security:
     title: Segurança
