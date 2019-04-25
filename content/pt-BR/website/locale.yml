@@ -249,7 +249,7 @@ governance:
     title: Administrative
     description: The Administrative Working Group oversees the entire governance and project.
   global:
-    overview: Overview
+    overview: Visão Geral
     associated_repos: Repositórios associados
     notes: Meeting Notes
   definitions:
