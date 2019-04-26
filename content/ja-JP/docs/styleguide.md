@@ -148,16 +148,16 @@ Electronのドキュメント（英語）を書くためのガイドラインで
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a method of a module or a class.
+タイトルが `###` 階層か `####` 階層かは、メソッドがモジュール内かクラス内かに依存しています。
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+モジュールでは、`objectName` がモジュールの名前です。クラスでは、クラスのインスタンスの名前にするべきで、モジュールの名前と同じではいけません。
 
-For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
+例として、`session` モジュール下の `Session` クラスのメソッドは `ses` を `objectName` として使用しなければなりません。
 
-The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
+任意の引数は、引数とその後に別の引数が続く場合に必要なコンマを囲む角括弧 `[]` で示されます。
 
 ```sh
-required[, optional]
+必須[, 任意]
 ```
 
 Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
