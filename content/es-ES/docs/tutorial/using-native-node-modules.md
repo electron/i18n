@@ -1,13 +1,11 @@
 # Uso de Módulos Nativos de Node
 
-Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed on your system, the modules you use will need to be recompiled for Electron. Otherwise, you will get the following class of error when you try to run your app:
+Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed on your system, the modules you use will need to be recompiled for Electron. De lo contrario, obtendrá la siguiente clase de error cuando intente ejecutar su aplicación:
 
 ```sh
-Error: The module '/path/to/native/module.node'
-was compiled against a different Node.js version using
-NODE_MODULE_VERSION $XYZ. This version of Node.js requires
-NODE_MODULE_VERSION $ABC. Please try re-compiling or re-installing
-the module (for instance, using `npm rebuild` or `npm install`).
+$XYZ$XYZ. Esta versión de Node.js requiere
+NODE_MODULE_VERSION $ABC. Por favor, intenta volver a compilar o reinstalar
+el módulo (por ejemplo, usando `npm rebuild` o `npm install`).
 ```
 
 ## ¿Cómo instalar módulos nativos?
