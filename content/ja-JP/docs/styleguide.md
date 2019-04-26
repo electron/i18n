@@ -160,24 +160,24 @@ Electronのドキュメント（英語）を書くためのガイドラインで
 必須[, 任意]
 ```
 
-Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
+メソッドの下は、それぞれの引数に関する詳細情報です。引数の型は次のいずれかの一般的な型によって表記されます。
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
 * [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 * [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-* Or a custom type like Electron's [`WebContent`](api/web-contents.md)
+* Electron の [`WebContent`](api/web-contents.md) のようなカスタム型
 
-If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows` or `Linux`.
+引数またはメソッドが特定のプラットフォーム固有のものである場合、そのプラットフォームはデータ型に続くスペース区切りのイタリック体リストを用いて示されます。 値は `macOS`、`Windows`、`Linux` にできます。
 
 ```markdown
-* `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
+* `animate` Boolean (任意) _macOS_ _Windows_ - ものをアニメーションします。
 ```
 
-`Array` type arguments must specify what elements the array may include in the description below.
+`Array` 型引数は、その下の説明で含められる要素を規定する必要があります。
 
-The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
+`Function` 型引数の説明は、それがどのように呼ばれるのかを明確にし、それに渡される引数の型を列挙しなければなりません。
 
 ### イベント
 
@@ -193,9 +193,9 @@ Returns:
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is an event of a module or a class.
+タイトルが `###` 階層か `####` 階層かは、イベントがモジュール内かクラス内かに依存しています。
 
-The arguments of an event follow the same rules as methods.
+イベントの引数についてはメソッドと同じルールに従います。
 
 ### プロパティ
 
@@ -207,7 +207,7 @@ The arguments of an event follow the same rules as methods.
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a property of a module or a class.
+タイトルが `###` 階層か `####` 階層かは、プロパティがモジュール内かクラス内かに依存しています。
 
 ## ドキュメントの翻訳
 
