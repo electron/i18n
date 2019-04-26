@@ -44,8 +44,8 @@ Electronのドキュメント（英語）を書くためのガイドラインで
 
 * コードブロックでは `cmd` の代わりに `sh` を使用します (構文ハイライトのため)。
 * 行は 80 列で折り返す必要があります。
-* 2レベル以上のネストリストはありません（マークダウンレンダラーのため）。
-* すべての`js`と`javascript`コードブロックは、[standard-markdown](http://npm.im/standard-markdown)。
+* 2 階層以上にネストしたリストは使用できません (Markdown レンダラーのため)。
+* すべての `js` と `javascript` コードブロックは、[standard-markdown](http://npm.im/standard-markdown) によって整形されます。
 
 ## 使用する言葉
 
@@ -54,23 +54,25 @@ Electronのドキュメント（英語）を書くためのガイドラインで
 
 ## API リファレンス
 
-The following rules only apply to the documentation of APIs.
+以下のルールは、API のドキュメントにのみ適用されます。
 
 ### ページのタイトル
 
-Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
+各ページは `require('electron')` によって返される実際のオブジェクト名をタイトルに使用しなければなりません。`BrowserWindow` や `autoUpdater` や `session` のようにします。
 
-Under the page title must be a one-line description starting with `>`.
+ページタイトルの下は、`>` で始まる一行の説明でなければなりません。
 
-Using `session` as example:
+`session` を例にすると、このようになります。
 
 ```markdown
-ブラウザーセッション、クッキー、キャッシュ、プロキシの設定などを管理します。
+# session
+
+> ブラウザーセッション、Cookie、キャッシュ、プロキシ設定などを管理します。
 ```
 
 ### モジュールメソッドとイベント
 
-For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
+モジュールはクラスではありません。そのメソッドとイベントは `## メソッド` と `## イベント` の章の下に列挙しなければなりません。
 
 `autoUpdater` を例にすると、以下のようになります。
 
