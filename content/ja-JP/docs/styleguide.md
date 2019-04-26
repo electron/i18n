@@ -96,12 +96,12 @@ Electronのドキュメント（英語）を書くためのガイドラインで
 * [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) は `### Static Methods` の章の下に列挙しなければなりません。
 * [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) は `### Instance Methods` の章の下にリストアップしなければなりません。
 * 戻り値があるすべてのメソッドを説明するときは、このように始めます。「戻り値 `[TYPE]` - 戻り値の説明」 
-  * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
-* Instance Events must be listed under an `### Instance Events` chapter.
-* Instance Properties must be listed under an `### インスタンスプロパティ` chapter. 
-  * Instance properties must start with "A [Property Type] ..."
+  * メソッドが `Object` を返す場合、その構造を記述します。コロンとそれに続く改行、そして関数の引数と同じスタイルでプロパティの順不同リストにします。
+* Instance Events は `### Instance Events` の章の下に列挙しなければなりません。
+* Instance Properties は `### Instance Properties` の章の下に列挙しなければなりません。 
+  * Instance Properties は "A [プロパティの型] ..." で始まらなければなりません。
 
-Using the `Session` and `Cookies` classes as an example:
+`Session` と `Cookies` クラスを例にすると、以下のようにします。
 
 ```markdown
 # session
