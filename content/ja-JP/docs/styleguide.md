@@ -72,7 +72,7 @@ Electronのドキュメント（英語）を書くためのガイドラインで
 
 ### モジュールメソッドとイベント
 
-モジュールはクラスではありません。そのメソッドとイベントは `## メソッド` と `## イベント` の章の下に列挙しなければなりません。
+モジュールはクラスではありません。そのメソッドとイベントは `## Methods` と `## Events` の章の下に列挙しなければなりません。
 
 `autoUpdater` を例にすると、以下のようになります。
 
@@ -90,12 +90,12 @@ Electronのドキュメント（英語）を書くためのガイドラインで
 
 ### クラス
 
-* モジュールの一部となるAPI クラスは`## Class: TheClassName` の章にリストアップしなければなりません。
-* 1ページに複数のクラスがあってもよい。
-* Constructors は`###`-レベルのタイトルでリストアップされなければなりません。
-* [静的メソッド](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static)は`### 静的メソッド`の章以下にリストアップしなければなりません。
-* [インスタンスメソッド](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods)は`### インスタンスメソッド`の章以下にリストアップしなければなりません。
-* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description" 
+* API のクラスやモジュールの一部の API クラスは `## Class: クラス名` の章の下に列挙しなければなりません。
+* 1 ページに複数のクラスがあってもかまいません。
+* Constructors は `###` 階層のタイトルで列挙されなければなりません。
+* [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) は `### Static Methods` の章の下に列挙しなければなりません。
+* [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) は `### Instance Methods` の章の下にリストアップしなければなりません。
+* 戻り値があるすべてのメソッドを説明するときは、このように始めます。「戻り値 `[TYPE]` - 戻り値の説明」 
   * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
 * Instance Events must be listed under an `### Instance Events` chapter.
 * Instance Properties must be listed under an `### インスタンスプロパティ` chapter. 
