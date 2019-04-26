@@ -50,7 +50,7 @@ Electronのドキュメント（英語）を書くためのガイドラインで
 ## 使用する言葉
 
 * Use "will" over "would" when describing outcomes.
-* Prefer "in the ___ process" over "on".
+* 「プロセス上」より「プロセス内」が望ましいです。
 
 ## API リファレンス
 
