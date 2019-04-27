@@ -39,7 +39,7 @@ app.on('ready', () => {
 
 Ana süreçteki bu olaylara da cevap vermek istediğiniz durumlar olabilmektedir. Bununla birlikte, ana süreç `navigator` nesnesine sahip değildir ve bu nedenle bu olayları doğrudan algılayamaz. Takip eden örnekte gösterildiği gibi, Electron'un süreçler arası iletişim araçları kullanılarak, olaylar ana işleme iletilebilir ve gerekirse ele alınır.
 
-*main.js*
+*turkish*
 
 ```javascript
 const { app, BrowserWindow, ipcMain } = require('electron')
@@ -48,10 +48,6 @@ let onlineStatusWindow
 app.on('ready', () => {
   onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false })
   onlineStatusWindow.loadURL(`file://${__dirname}/online-status.html`)
-})
-
-ipcMain.on('online-status-changed', (event, status) => {
-  console.log(status)
 })
 ```
 
@@ -67,10 +63,10 @@ ipcMain.on('online-status-changed', (event, status) => {
     ipcRenderer.send('online-status-changed', navigator.onLine ? 'online' : 'offline')
   }
 
-  window.addEventListener('online',  updateOnlineStatus)
-  window.addEventListener('offline',  updateOnlineStatus)
+  window.addEventListener('online',  alertOnlineStatus)
+  window.addEventListener('offline',  alertOnlineStatus)
 
-  updateOnlineStatus()
+  alertOnlineStatus()
 </script>
 </body>
 </html>
