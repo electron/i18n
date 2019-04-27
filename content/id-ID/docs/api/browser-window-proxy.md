@@ -1,19 +1,18 @@
 ## Kelas: BrowserWindowProxy
 
-> Memanipulasi jendela browser anak
+> 子ブラウザウィンドウを操作します。
 
-Proses: [Renderer](../glossary.md#renderer-process)
+Processo: [Renderizador](../glossary.md#renderer-process)
 
-Objek ` BrowserWindowProxy </ 0> dikembalikan dari <code> window.open </ 0> dan menyediakan
-fungsi terbatas dengan jendela anak.</p>
+Ang mga bagay sa `BrowserWindowProxy` ay bumabalik mula sa `window.open` at nagbibigay ng limitadong pag-andar sa maliliit na window.
 
-<h3>Metode Instance</h3>
+### Методы экземпляра
 
-<p>Objek <code> BrowserWindowProxy </ 0> memiliki metode contoh berikut:</p>
+Экземпляр объекта `BrowserWindowProxy` содержит следующие методы:
 
-<h4><code>win.blur()`</h4> 
+#### `win.blur()`
 
-Menghapus fokus dari jendela anak.
+子ウインドウからフォーカスを外します。
 
 #### `win.close()`
 
