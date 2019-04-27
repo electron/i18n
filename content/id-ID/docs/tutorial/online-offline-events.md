@@ -67,10 +67,10 @@ ipcMain.on('online-status-changed', (event, status) => {
     ipcRenderer.send('online-status-changed', navigator.onLine ? 'online' : 'offline')
   }
 
-  window.addEventListener('online',  updateOnlineStatus)
-  window.addEventListener('offline',  updateOnlineStatus)
+  window.addEventListener('online',  alertOnlineStatus)
+  window.addEventListener('offline',  alertOnlineStatus)
 
-  updateOnlineStatus()
+  alertOnlineStatus()
 </script>
 </body>
 </html>
