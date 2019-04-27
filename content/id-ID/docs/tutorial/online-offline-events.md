@@ -14,7 +14,7 @@ biarkan onlineStatusWindow
 app.on('ready', () => {
   onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false })
   onlineStatusWindow.loadURL(`file://${__dirname}/online-status.html`)
-})
+})${__dirname}
 ```
 
 *online-status.html*
