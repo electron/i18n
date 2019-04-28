@@ -20,7 +20,7 @@ node -v
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+Если после выполнения команд выше, вы увидели версию Node.js и npm, то все готово! Перед тем, как начать, было бы неплохо установить [редактор кода](#a-good-editor), подходящий для разработки на JavaScript.
 
 ## Настройка Windows
 
@@ -40,11 +40,11 @@ node -v
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+Если после выполнения команд выше, вы увидели версию Node.js и npm, то все готово! Перед тем, как начать, было бы неплохо установить [редактор кода](#a-good-editor), подходящий для разработки на JavaScript.
 
 ## Настройка Linux
 
-> Generally speaking, Electron supports Ubuntu 12.04, Fedora 21, Debian 8 and later.
+> В целом, Electron поддерживает Ubuntu 12.04, Fedora 21, Debian 8 и более поздние версии.
 
 Первым делом нужно установить последнюю версию Node.js. Depending on your Linux distribution, the installation steps might differ. Assuming that you normally install software using a package manager like `apt` or `pacman`, use the official [Node.js guidance on installing on Linux](https://nodejs.org/en/download/package-manager/).
 
@@ -58,7 +58,7 @@ node -v
 npm -v
 ```
 
-Если обе команды вывели версию, то все установленно! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+Если после выполнения команд выше, вы увидели версию Node.js и npm, то все готово! Перед тем, как начать, было бы неплохо установить [редактор кода](#a-good-editor), подходящий для разработки на JavaScript.
 
 ## Хороший редактор кода
 
