@@ -10,7 +10,7 @@
 
 После скачивания, запустите установщик, и следуйте инструкциям.
 
-Once installed, confirm that everything works as expected. Find the macOS `Terminal` application in your `/Applications/Utilities` folder (or by searching for the word `Terminal` in Spotlight). Откройте `Terminal` или другой клиент командной строки и подтвердите, что `node` и `npm` доступны:
+После установки, убедитесь в том, что все работает так, как надо. Найдите утилиту `Terminal` в папке `/Applications/Utilities` ( или ищите слово `Terminal` в Spotlight). Откройте `Terminal` или другой клиент командной строки и убедитесь в том, что `node` и `npm` установлены:
 
 ```sh
 # Эта команда должны вывести текущую версию Node.js
@@ -30,7 +30,7 @@ npm -v
 
 On the screen that allows you to configure the installation, make sure to select the `Node.js runtime`, `npm package manager`, and `Add to PATH` options.
 
-Once installed, confirm that everything works as expected. Find the Windows PowerShell by opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
+После установки, убедитесь в том, что все работает так, как надо. Найдите Windows PowerShell, открыв меню "Пуск" и набрав `PowerShell`. Откройте `PowerShell` или другой клиент командной строки и убедитесь в том, что `node` и `npm` установлены:
 
 ```powershell
 # Эта команда должны вывести текущую версию Node.js
@@ -46,9 +46,9 @@ npm -v
 
 > В целом, Electron поддерживает Ubuntu 12.04, Fedora 21, Debian 8 и более поздние версии.
 
-Первым делом нужно установить последнюю версию Node.js. Depending on your Linux distribution, the installation steps might differ. Assuming that you normally install software using a package manager like `apt` or `pacman`, use the official [Node.js guidance on installing on Linux](https://nodejs.org/en/download/package-manager/).
+Первым делом нужно установить последнюю версию Node.js. В зависимости от вашего Linux дистрибутива, процесс установки может немного отличаться. Assuming that you normally install software using a package manager like `apt` or `pacman`, use the official [Node.js guidance on installing on Linux](https://nodejs.org/en/download/package-manager/).
 
-You're running Linux, so you likely already know how to operate a command line client. Open up your favorite client and confirm that both `node` and `npm` are available globally:
+Если вы используете Linux, то вы скорее всего знаете, как работать с командной строкой. Open up your favorite client and confirm that both `node` and `npm` are available globally:
 
 ```sh
 # Эта команда должны вывести текущую версию Node.js
