@@ -8,9 +8,9 @@
 
 Первым делом нужно установить последнюю версию Node.js. Мы рекомендуем устанавливать последнюю `LTS` или `текущую` доступную версию. Посетите [страницу загрузки Node.js](https://nodejs.org/en/download/) и выберите `macOS установщик`. While Homebrew is an offered option, but we recommend against it - many tools will be incompatible with the way Homebrew installs Node.js.
 
-Once downloaded, execute the installer and let the installation wizard guide you through the installation.
+После скачивания, запустите установщик, и следуйте инструкциям.
 
-Once installed, confirm that everything works as expected. Find the macOS `Terminal` application in your `/Applications/Utilities` folder (or by searching for the word `Terminal` in Spotlight). Open up `Terminal` or another command line client of your choice and confirm that both `node` and `npm` are available:
+Once installed, confirm that everything works as expected. Find the macOS `Terminal` application in your `/Applications/Utilities` folder (or by searching for the word `Terminal` in Spotlight). Откройте `Terminal` или другой клиент командной строки и подтвердите, что `node` и `npm` доступны:
 
 ```sh
 # Эта команда должны вывести текущую версию Node.js
@@ -26,7 +26,7 @@ npm -v
 
 > Electron поддерживает Windows 7 и выше - разрабатывать Electron приложения на предыдущих версиях Windows не получиться. Microsoft бесплатно предоставляют [виртуальные машины с Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) для разработчиков.
 
-Первым делом нужно установить последнюю версию Node.js. Мы рекомендуем устанавливать последнюю `LTS` или `текущую` доступную версию. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `Windows Installer`. Once downloaded, execute the installer and let the installation wizard guide you through the installation.
+Первым делом нужно установить последнюю версию Node.js. Мы рекомендуем устанавливать последнюю `LTS` или `текущую` доступную версию. Перейдите на [страницу загрузки Node.js](https://nodejs.org/en/download/), и выберите `Windows установщик`. После скачивания, запустите установщик, и следуйте инструкциям.
 
 On the screen that allows you to configure the installation, make sure to select the `Node.js runtime`, `npm package manager`, and `Add to PATH` options.
 
