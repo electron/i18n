@@ -24,7 +24,7 @@ If both commands printed a version number, you are all set! Before you get start
 
 ## Настройка Windows
 
-> Electron supports Windows 7 and later versions – attempting to develop Electron applications on earlier versions of Windows will not work. Microsoft provides free [virtual machine images with Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) for developers.
+> Electron поддерживает Windows 7 и выше - разрабатывать Electron приложения на предыдущих версиях Windows не получиться. Microsoft бесплатно предоставляют [виртуальные машины с Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) для разработчиков.
 
 Первым делом нужно установить последнюю версию Node.js. Мы рекомендуем устанавливать последнюю `LTS` или `текущую` доступную версию. Visit [the Node.js download page](https://nodejs.org/en/download/) and select the `Windows Installer`. Once downloaded, execute the installer and let the installation wizard guide you through the installation.
 
@@ -58,10 +58,10 @@ node -v
 npm -v
 ```
 
-If both commands printed a version number, you are all set! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
+Если обе команды вывели версию, то все установленно! Before you get started, you might want to install a [code editor](#a-good-editor) suited for JavaScript development.
 
-## A Good Editor
+## Хороший редактор кода
 
 Мы предлагаем вам выбрать один из двух популярных редакторов: [Atom](https://atom.io/) и Microsoft's [Visual Studio Code](https://code.visualstudio.com/). Оба идеальны для JavaScript.
 
-If you are one of the many developers with a strong preference, know that virtually all code editors and IDEs these days support JavaScript.
+Если вы являетесь одним из многих разработчиков с "повышенными требованиями", то знайте, что в наши дни практически все редакторы кода и IDE поддерживают JavaScript.
