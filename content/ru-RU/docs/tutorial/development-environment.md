@@ -6,7 +6,7 @@
 
 > Electon поддерживает Mac Os 10.10 (Yosemite) и выше. Обычно компания Apple не позволяет запускать macOS на виртуальных машинах если ваш компьютер не является компьютером Apple. Если вам необходим Mac вы можете найти инструкции в сети как запустить MacOS в виртуальной машине или использовать облачные сервисы, которые позволяют получить доступ к компьютерам на MacOS (например [MacInCloud](https://www.macincloud.com/) или [xcloud](https://xcloud.me)).
 
-Первым делом нужно установить последнюю версию Node.js. Мы рекомендуем устанавливать последнюю `LTS` или `текущую` доступную версию. Посетите [страницу загрузки Node.js](https://nodejs.org/en/download/) и выберите `macOS установщик`. While Homebrew is an offered option, but we recommend against it - many tools will be incompatible with the way Homebrew installs Node.js.
+Первым делом нужно установить последнюю версию Node.js. Мы рекомендуем устанавливать последнюю `LTS` или `Current` доступную версию. Посетите [страницу загрузки Node.js](https://nodejs.org/en/download/) и выберите `macOS установщик`. While Homebrew is an offered option, but we recommend against it - many tools will be incompatible with the way Homebrew installs Node.js.
 
 После скачивания, запустите установщик, и следуйте инструкциям.
 
@@ -26,9 +26,9 @@ npm -v
 
 > Electron поддерживает Windows 7 и выше - разрабатывать Electron приложения на предыдущих версиях Windows не получиться. Microsoft бесплатно предоставляют [виртуальные машины с Windows 10](https://developer.microsoft.com/en-us/windows/downloads/virtual-machines) для разработчиков.
 
-Первым делом нужно установить последнюю версию Node.js. Мы рекомендуем устанавливать последнюю `LTS` или `текущую` доступную версию. Перейдите на [страницу загрузки Node.js](https://nodejs.org/en/download/), и выберите `Windows установщик`. После скачивания, запустите установщик, и следуйте инструкциям.
+Первым делом нужно установить последнюю версию Node.js. Мы рекомендуем устанавливать последнюю `LTS` или `Current` доступную версию. Перейдите на [страницу загрузки Node.js](https://nodejs.org/en/download/), и выберите `Windows установщик`. После скачивания, запустите установщик, и следуйте инструкциям.
 
-On the screen that allows you to configure the installation, make sure to select the `Node.js runtime`, `npm package manager`, and `Add to PATH` options.
+На экране, который позволяет настроить установку, убедитесь, что на опциях `Node.js runtime`, `npm package manager`, и `Add to PATH` установлен флажок.
 
 После установки, убедитесь в том, что все работает так, как надо. Найдите Windows PowerShell, открыв меню "Пуск" и набрав `PowerShell`. Откройте `PowerShell` или другой клиент командной строки и убедитесь в том, что `node` и `npm` установлены:
 
@@ -46,9 +46,9 @@ npm -v
 
 > В целом, Electron поддерживает Ubuntu 12.04, Fedora 21, Debian 8 и более поздние версии.
 
-Первым делом нужно установить последнюю версию Node.js. В зависимости от вашего Linux дистрибутива, процесс установки может немного отличаться. Assuming that you normally install software using a package manager like `apt` or `pacman`, use the official [Node.js guidance on installing on Linux](https://nodejs.org/en/download/package-manager/).
+Первым делом нужно установить последнюю версию Node.js. В зависимости от вашего Linux дистрибутива, процесс установки может немного отличаться. Если вы устанавливаете программы используя пакетные менеджеры, такие как `apt` или `pacman`, то используйте оффициальное [руководство по установке Node.js на Linux](https://nodejs.org/en/download/package-manager/).
 
-Если вы используете Linux, то вы скорее всего знаете, как работать с командной строкой. Open up your favorite client and confirm that both `node` and `npm` are available globally:
+Если вы пользователь Linux, то вы скорее всего знаете, как работать с командной строкой. Откройте ваш любимый клиент командной строки и убедитесь, что `node` and `npm` установленны глобально:
 
 ```sh
 # Эта команда должны вывести текущую версию Node.js
