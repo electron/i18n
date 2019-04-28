@@ -1,6 +1,6 @@
 # Среда разработчика
 
-Разработка на Electron, по сути, является разработкой на Node.js. To turn your operating system into an environment capable of building desktop apps with Electron, you will merely need Node.js, npm, a code editor of your choice, and a rudimentary understanding of your operating system's command line client.
+Разработка на Electron, по сути, является разработкой на Node.js. Что бы превратить вашу операционную систему в окружение для создания Electron приложений, вам необходим Node.js, npm, любой редактор кода, и базовые знания работы с командной строкой вашей системы.
 
 ## Настройка macOS
 
