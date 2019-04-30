@@ -525,7 +525,7 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
     * `normal` - 32x32
     * `large` - *Linux* の場合、48x48、*Windows*の場合、32x32、macOSの場合はサポートされていません。
 
-Returns `Promise<NativeImage>` - fulfilled with the app's icon, which is a [NativeImage](native-image.md).
+`Promise<NativeImage>`を返す - [NativeImage](native-image.md)でアプリのアイコンを埋めます。
 
 パスに関連付けられているアイコンを取得します。
 
@@ -571,13 +571,13 @@ Returns `Promise<NativeImage>` - fulfilled with the app's icon, which is a [Nati
 
 **注:** アプリをパッケージ化して配布する場合、`locales` フォルダを同梱する必要があります。
 
-**Note:** On Windows, you have to call it after the `ready` events gets emitted.
+**Note:**Windows の `準備ができて` のイベントが出力される後を呼び出すことがあります。
 
 ### `app.getLocaleCountryCode()`
 
-Returns `string` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. The value is taken from native OS APIs.
+`string`を返します。 - 2文字の[ISO 3166](https://www.iso.org/iso-3166-country-codes.html) の国コードで、ユーザーのOSのロケールを示します。この値はネィティブのOS APIから取得します。
 
-**Note:** When unable to detect locale country code, it returns empty string.
+**注意:** ロケールの国コードを取得できなかった場合、これは空文字列を返します。
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
@@ -585,7 +585,7 @@ Returns `string` - User operating system's locale two-letter [ISO 3166](https://
 
 `path` を最近使ったドキュメントのリストに追加します。
 
-This list is managed by the OS. On Windows, you can visit the list from the task bar, and on macOS, you can visit it from dock menu.
+このリストはOSによって管理されています。Windowsの場合、タスクバーからリストにアクセスすることができ、macOSの場合、ドックのメニューからリストにアクセスすることができます。
 
 ### `app.clearRecentDocuments()` *macOS* *Windows*
 
