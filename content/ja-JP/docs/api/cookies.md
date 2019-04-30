@@ -19,7 +19,7 @@ session.defaultSession.cookies.get({})
     console.log(error)
   })
 
-// Query all cookies associated with a specific url.
+// 特定のurlに関連した全てのクッキーを問い合わせ
 session.defaultSession.cookies.get({ url: 'http://www.github.com' })
   .then((cookies) => {
     console.log(cookies)
