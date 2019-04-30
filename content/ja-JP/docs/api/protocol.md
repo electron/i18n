@@ -234,7 +234,7 @@ protocol.registerSchemesAsPrivileged([
       
       `scheme` のハンドラがすでにあるかどうかを示す Boolean で `callback` が呼び出されます。
       
-      **[Deprecated Soon](promisification.md)**
+      **[非推奨予定](promisification.md)**
       
       ### `protocol.isProtocolHandled(scheme)`
       
