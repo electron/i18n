@@ -89,7 +89,7 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
 
 `filter` と一致するすべてのクッキーを取得するリクエストを送信します。完了時に `callback(error, cookies)` で `callback` が呼び出されます。
 
-**[Deprecated Soon](promisification.md)**
+**[非推奨予定](promisification.md)**
 
 #### `cookies.set(details)`
 
@@ -123,7 +123,7 @@ Sets a cookie with `details`.
 
 `details` でクッキーを設定します。完了時に `callback(error)` で `callback` が呼び出されます。
 
-**[Deprecated Soon](promisification.md)**
+**[非推奨予定](promisification.md)**
 
 #### `cookies.remove(url, name)`
 
@@ -142,7 +142,7 @@ Removes the cookies matching `url` and `name`
 
 `url` と `name` に一致するクッキーを削除します。完了時に `callback()` で `callback` が呼び出されます。
 
-**[Deprecated Soon](promisification.md)**
+**[非推奨予定](promisification.md)**
 
 #### `cookies.flushStore()`
 
@@ -156,4 +156,4 @@ Returns `Promise<void>` - A promise which resolves when the cookie store has bee
 
 未書き込みのクッキーのデータをディスクに書き込みます。
 
-**[Deprecated Soon](promisification.md)**
+**[非推奨予定](promisification.md)**
