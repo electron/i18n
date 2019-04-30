@@ -38,9 +38,9 @@ app.on('ready', () => {
 * `callback` Function 
   * `categories` String[]
 
-Get a set of category groups. The category groups can change as new code paths are reached.
+カテゴリグループのセットを取得します。新しいコードパスに到達したら、カテゴリグループは変更できます。
 
-Once all child processes have acknowledged the `getCategories` request the `callback` is invoked with an array of category groups.
+一度、すべての子プロセスが `getCategories` リクエストを受諾したら、カテゴリグループの配列で `callback` が呼び出されます。
 
 **[非推奨予定](promisification.md)**
 
@@ -48,7 +48,7 @@ Once all child processes have acknowledged the `getCategories` request the `call
 
 Returns `Promise<String[]>` - resolves with an array of category groups once all child processes have acknowledged the `getCategories` request
 
-Get a set of category groups. The category groups can change as new code paths are reached.
+カテゴリグループのセットを取得します。新しいコードパスに到達したら、カテゴリグループは変更できます。
 
 ### `contentTracing.startRecording(options, callback)`
 
