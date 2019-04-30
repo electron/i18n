@@ -42,7 +42,7 @@ Get a set of category groups. The category groups can change as new code paths a
 
 Once all child processes have acknowledged the `getCategories` request the `callback` is invoked with an array of category groups.
 
-**[Deprecated Soon](promisification.md)**
+**[非推奨予定](promisification.md)**
 
 ### `contentTracing.getCategories()`
 
@@ -59,7 +59,7 @@ Get a set of category groups. The category groups can change as new code paths a
 
 EnableRecordingリクエストを受信するとすぐにローカルでは即時、子プロセスでは非同期的に記録が開始されます。 一度、すべての子プロセスが `startRecording` リクエストを受諾したら、`callback` が呼び出されます。
 
-**[Deprecated Soon](promisification.md)**
+**[非推奨予定](promisification.md)**
 
 ### `contentTracing.startRecording(options)`
 
@@ -85,7 +85,7 @@ EnableRecordingリクエストを受信するとすぐにローカルでは即�
 
 空でない場合は `resultFilePath`、そうでない場合、一時ファイルにトレースデータは書き込まれます。実際のファイルパスは `null` でない場合、`callback` に渡されます。
 
-**[Deprecated Soon](promisification.md)**
+**[非推奨予定](promisification.md)**
 
 ### `contentTracing.stopRecording(resultFilePath)`
 
