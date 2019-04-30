@@ -11,42 +11,42 @@
 ## `win.setMenu(null)`
 
 ```js
-// Deprecated
+// 廃止予定
 win.setMenu(null)
-// Replace with
+// 置き換え
 win.removeMenu()
 ```
 
-## `electron.screen` in renderer process
+## レンダラープロセスの `electron.screen`
 
 ```js
-// Deprecated
+// 廃止予定
 require('electron').screen
-// Replace with
+// 置き換え
 require('electron').remote.screen
 ```
 
-## `require` in sandboxed renderers
+## サンドボックス化したレンダラーの `require`
 
 ```js
-// Deprecated
+// 廃止予定
 require('child_process')
-// Replace with
+// 置き換え
 require('electron').remote.require('child_process')
 
-// Deprecated
+// 廃止予定
 require('fs')
-// Replace with
+// 置き換え
 require('electron').remote.require('fs')
 
-// Deprecated
+// 廃止予定
 require('os')
-// Replace with
+// 置き換え
 require('electron').remote.require('os')
 
-// Deprecated
+// 廃止予定
 require('path')
-// Replace with
+// 置き換え
 require('electron').remote.require('path')
 ```
 
