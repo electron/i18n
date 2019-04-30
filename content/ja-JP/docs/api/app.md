@@ -43,9 +43,9 @@ Electronが初期化処理を完了したときに発生します。 macOSでは
 
 * `event` Event
 
-Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
+アプリケーションがウインドウを閉じようとする前に発生します。`event.preventDefault()` を呼び出すことで、アプリケーションが終了する既定の動作をキャンセルすることができます。
 
-**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()`, then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
+**注:** アプリケーションの終了が `autoUpdater.quitAndInstall()` によって開始された場合、全てのウインドウで `close` イベントを発生させ、それらが閉じた*後* に `before-quit` が発生します。
 
 **注釈:** Windows では、このイベントはシステムのシャットダウン/再起動やユーザーのログアウトでアプリケーションが閉じられている場合には発生しません。
 
@@ -154,7 +154,7 @@ Windowsでは、ファイルパスを取得するために、(メインプロセ
 * `type` String - アクティビティを識別する文字列。 [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) と対応しています。
 * `userInfo` Object - アクティビティによって保存されたアプリ固有の情報が含まれています。
 
-[ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) が別のデバイスでまさに継続されようとしているときに発生します。 送信される情報を更新する必要がある場合、`event.preventDefault()` をすぐに呼び出してください。そして、新しい `userInfo` ディクショナリを組み立てて、`app.updateCurrentActivity()` をタイミングよく呼び出してください。 Otherwise, the operation will fail and `continue-activity-error` will be called.
+[ハンドオフ](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) が別のデバイスでまさに継続されようとしているときに発生します。 送信される情報を更新する必要がある場合、`event.preventDefault()` をすぐに呼び出してください。そして、新しい `userInfo` ディクショナリを組み立てて、`app.updateCurrentActivity()` をタイミングよく呼び出してください。 さもなくば操作は失敗し、`continue-activity-error` が呼び出されます。
 
 ### イベント: 'new-window-for-tab' *macOS*
 
@@ -274,7 +274,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 `webContents` がBasic認証を要求すると発生します。
 
-The default behavior is to cancel all authentications. To override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
+既定の動作では、全てに認証をキャンセルします。 これを変更するには、`event.preventDefault()` で既定の動作をキャンセルして、資格情報と共に `callback(username, password)` を呼び出すようにしてください。
 
 ```javascript
 const { app } = require('electron')
@@ -331,9 +331,9 @@ app.on('session-created', (event, session) => {
 
 このイベントは `app` の `ready` イベントが発生した後で実行されることが保証されます。
 
-**Note:** Extra command line arguments might be added by Chromium, such as `--original-process-start-time`.
+**注意:** Chromiumがコマンドライン引数を追加することがあります。例えば、`--original-process-start-time`があります。
 
-### Event: 'desktop-capturer-get-sources'
+### イベント: 'desktop-capturer-get-sources'
 
 戻り値:
 
@@ -418,7 +418,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process of
 
 `exitCode` ですぐに終了します。`exitCode` の省略値は0です。
 
-All windows will be closed immediately without asking the user, and the `before-quit` and `will-quit` events will not be emitted.
+ユーザに確認することなくすべてのウインドウがすぐに閉じられ、`before-quit` および `will-quit` イベントは発生しません。
 
 ### `app.relaunch([options])`
 
@@ -428,7 +428,7 @@ All windows will be closed immediately without asking the user, and the `before-
 
 現在のインスタンスが終了したときに、アプリを再起動します。
 
-By default, the new instance will use the same working directory and command line arguments with current instance. `args` が指定された場合、`args` がコマンドライン引数として代わりに引き渡されます。 `execPath` が指定された場合、`execPath` が再起動のため現在のアプリに代わって実行されます。
+既定では新しいインスタンスは現在のインスタンスと同じ作業ディレクトリおよびコマンドライン引数を使用します。 `args` が指定された場合、`args` がコマンドライン引数として代わりに引き渡されます。 `execPath` が指定された場合、`execPath` が再起動のため現在のアプリに代わって実行されます。
 
 このメソッドは実行されているアプリを終了しないことに注意してください。アプリを再起動するには、`app.relaunch` を呼び出した後、`app.quit` または `app.exit` を呼び出さなければなりません。
 
@@ -471,7 +471,7 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
 
 * `name` String
 
-Returns `String` - A path to a special directory or file associated with `name`. On failure, an `Error` is thrown.
+戻り値 `String` - `name` に関連付けられた特別なディレクトリもしくはファイルのパス。失敗した場合、`Error` がスローされます。
 
 以下のパスを名前で要求することができます。
 
@@ -512,9 +512,9 @@ Returns `String` - A path to a special directory or file associated with `name`.
 * `.mp3`、`.png` など、特定のファイル拡張子に関連付けられたアイコン。
 * `.exe`、`.dll`、`.ico` のような、ファイル自体に含まれるアイコン。
 
-On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+*Linux* と *macOS* の場合、アイコンはファイルのMIMEタイプに関連付けられたアプリケーションによって決まります。
 
-**[Deprecated Soon](promisification.md)**
+**[非推奨予定](promisification.md)**
 
 ### `app.getFileIcon(path[, options])`
 
@@ -534,7 +534,7 @@ Returns `Promise<NativeImage>` - fulfilled with the app's icon, which is a [Nati
 * `.mp3`、`.png` など、特定のファイル拡張子に関連付けられたアイコン。
 * `.exe`、`.dll`、`.ico` のような、ファイル自体に含まれるアイコン。
 
-On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+*Linux* と *macOS* の場合、アイコンはファイルのMIMEタイプに関連付けられたアプリケーションによって決まります。
 
 ### `app.setPath(name, path)`
 
