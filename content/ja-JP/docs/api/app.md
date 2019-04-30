@@ -601,7 +601,7 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
 
 このメソッドは現在の実行可能ファイルをプロトコル (別名URIスキーム) の既定のハンドラーとして設定します。 これにより、アプリをオペレーティングシステムと密接に統合することができます。 一度登録すると、`your-protocol://` によるすべてのリンクは現在の実行可能ファイルで開かれるようになります。 プロトコルを含む全体のリンクがパラメータとしてアプリケーションに引き渡されます。
 
-On Windows, you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
+Windowsの場合、オプションのパラメータを指定することができます。path には実行可能ファイルへのパス、args には実行可能ファイルが起動する際に引き渡される引数の配列を指定してください。
 
 **注:** macOSの場合、アプリの `info.plist` に追加されているプロトコルしか登録できず、実行時に変更することもできません。 しかしながら、単純なテキストエディターもしくはスクリプトでビルド時にファイルを変更することができます。 詳細は [Apple社のドキュメント](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) を参照するようにしてください。
 
@@ -734,11 +734,11 @@ app.setJumpList([
 
 このメソッドはアプリケーションをシングルインスタンスのアプリケーションにします。複数のインスタンスでのアプリ実行を許可する代わりに、これはアプリの単一のインスタンスだけが実行されていることを保証します。そして、他のインスタンスはこのインスタンスに通知し、終了します。
 
-このメソッドの戻り値は、アプリケーションのこのインスタンスのロックが成功したかどうかを表します。 If it failed to obtain the lock, you can assume that another instance of your application is already running with the lock and exit immediately.
+このメソッドの戻り値は、アプリケーションのこのインスタンスのロックが成功したかどうかを表します。 ロック状態にできなかった場合、アプリケーションの他のインスタンスが既にロックされており、ただちに終了すると想定できます。
 
 またこのメソッドは、プロセスがアプリケーションの1つ目のインスタンスで、アプリがロード処理を続行する必要がある場合も `false` を返します。 既にロック状態にしたものとは別のインスタンスにパラメータを送信したためプロセスが直ちに終了する必要がある場合は、`false` を返します。
 
-On macOS, the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the `open-file` and `open-url` events will be emitted for that. However when users start your app in command line, the system's single instance mechanism will be bypassed, and you have to use this method to ensure single instance.
+macOSの場合、ユーザがFinderでアプリの2番目のインスタンスを開こうとしたとき、システムは自動的にシングルインスタンスになるようにし、`open-file` と `open-url` イベントが発生します。 ただし、ユーザがアプリをコマンドラインで開始する場合、シングルインスタンスを強制するシステムの仕組みが迂回されるため、シングルインスタンスであることを保証するには、このメソッドを使う必要があります。
 
 2番目のインスタンスが開始されたとき、1番目のインスタンスのウインドウをアクティブにする例:
 
@@ -879,7 +879,7 @@ machineModelVersion: '11.5' }
 
 現在のアプリのカウンターバッジを設定します。count を `0` に設定すると、バッジを非表示にします。
 
-On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
+macOSでは、ドックアイコンに表示されます。Linuxでは、Unityランチャーでしか機能しません。
 
 **注:** Unity ランチャーで機能させるには、`.desktop` ファイルが存在する必要があります。詳細は [デスクトップ環境への統合](../tutorial/desktop-environment-integration.md#unity-launcher) をお読みください。
 
@@ -897,7 +897,7 @@ On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
   * `path` String (任意) *Windows* - 比較する実行ファイルのパス。省略値は、`process.execPath` です。
   * `args` String[] (任意) *Windows* - 比較するコマンドライン引数。省略値は空の配列です。
 
-If you provided `path` and `args` options to `app.setLoginItemSettings`, then you need to pass the same arguments here for `openAtLogin` to be set correctly.
+`app.setLoginItemSettings` に `path` と `args` オプションを指定した場合、`openAtLogin` が正しく設定されるように、ここで同じ引数を引き渡す必要があります。
 
 戻り値 `Object`:
 
@@ -950,7 +950,7 @@ app.setLoginItemSettings({
 
 ### `app.showAboutPanel` *macOS* *Linux*
 
-Show the app's about panel options. These options can be overridden with `app.setAboutPanelOptions(options)`.
+アプリのパネルオプションを示します。このオプションは `app.setAboutPanelOptions(options)`で上書きできます。
 
 ### `app.setAboutPanelOptions(options)` *macOS* *Linux*
 
@@ -958,10 +958,10 @@ Show the app's about panel options. These options can be overridden with `app.se
   * `applicationName` String (任意) - アプリの名前。
   * `applicationVersion` String (任意) - アプリのバージョン。
   * `copyright` String (任意) - 著作権情報。
-  * `version` String (optional) - The app's build version number. *macOS*
-  * `credits` String (optional) - Credit information. *macOS*
-  * `website` String (optional) - The app's website. *Linux*
-  * `iconPath` String (optional) - Path to the app's icon. *Linux*
+  * `version` String (任意) - アプリのビルドバージョン番号。*macOS*
+  * `credits` String (任意) - クレジット情報.*macOS*
+  * `website` String (任意) - アプリのウェブサイト *Linux*
+  * `iconPath` String (任意) - アプリのアイコンへのパス. *Linux*
 
 Aboutパネルのオプションを設定します。 This will override the values defined in the app's `.plist` file on MacOS. 詳細については、[Apple社のドキュメント](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) を参照してください。 On Linux, values must be set in order to be shown; there are no defaults.
 
