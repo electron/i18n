@@ -963,7 +963,7 @@ app.setLoginItemSettings({
   * `website` String (任意) - アプリのウェブサイト *Linux*
   * `iconPath` String (任意) - アプリのアイコンへのパス. *Linux*
 
-Aboutパネルのオプションを設定します。 This will override the values defined in the app's `.plist` file on MacOS. 詳細については、[Apple社のドキュメント](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) を参照してください。 On Linux, values must be set in order to be shown; there are no defaults.
+Aboutパネルのオプションを設定します。 これは macOSの場合、アプリの `.plist` ファイルで定義された値を上書きします。 詳細については、[Apple社のドキュメント](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) を参照してください。 Linuxの場合、表示するために値をセットしなければなりません。デフォルトの値はありません。
 
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
 
@@ -1001,15 +1001,15 @@ Chromiumのコマンドラインに引数を追加します。引数は正しく
 
 * `switch` String - コマンドラインスイッチ
 
-Returns `Boolean` - Whether the command-line switch is present.
+戻り値 `Boolean` - コマンドラインスイッチがあるかどうか。
 
 ### `app.commandLine.getSwitchValue(switch)`
 
 * `switch` String - コマンドラインスイッチ
 
-Returns `String` - The command-line switch value.
+戻り値 `String` - コマンドラインスイッチの値
 
-**Note:** When the switch is not present, it returns empty string.
+**注意:** スイッチのない場合、これは空文字列を返す。
 
 ### `app.enableSandbox()` *Experimental* *macOS* *Windows*
 
@@ -1023,11 +1023,11 @@ Returns `String` - The command-line switch value.
 
 ### `app.moveToApplicationsFolder()` *macOS*
 
-Returns `Boolean` - Whether the move was successful. Please note that if the move is successful, your application will quit and relaunch.
+戻り値 `Boolean` - 移動が成功したかどうか。 移動が成功した場合、アプリケーションは終了し、再起動されることに注意してください。
 
-No confirmation dialog will be presented by default. If you wish to allow the user to confirm the operation, you may do so using the [`dialog`](dialog.md) API.
+既定では、確認ダイアログは表示されません。ユーザに操作の確認をさせたい場合は、[`dialog`](dialog.md) APIを使うと実現できます。
 
-**注:** このメソッドはユーザ以外が移動の失敗を引き起こした場合にもエラーをスローします。 For instance if the user cancels the authorization dialog, this method returns false. If we fail to perform the copy, then this method will throw an error. エラーのメッセージは意味の分かるものにする必要があり、何が間違っているのかを正確に知らせるようにしてください。
+**注:** このメソッドはユーザ以外が移動の失敗を引き起こした場合にもエラーをスローします。 例えば、ユーザが承認ダイアログをキャンセルした場合、このメソッドは false を返します。 コピーの実行に失敗した場合、このメソッドはエラーをスローします。 エラーのメッセージは意味の分かるものにする必要があり、何が間違っているのかを正確に知らせるようにしてください。
 
 ### `app.dock.bounce([type])` *macOS*
 
