@@ -610,7 +610,7 @@ Emitted when the renderer process sends an asynchronous message via `ipcRenderer
 
 Emitted when the renderer process sends a synchronous message via `ipcRenderer.sendSync()`.
 
-#### Event: 'desktop-capturer-get-sources'
+#### イベント: 'desktop-capturer-get-sources'
 
 戻り値:
 
@@ -1019,7 +1019,7 @@ console.log(requestId)
 
 `rect` 内のページのスナップショットをキャプチャします。 完了時に、`callback` が `callback(image)` で呼ばれます。 The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
 
-**[Deprecated Soon](promisification.md)**
+**[非推奨予定](promisification.md)**
 
 #### `contents.capturePage([rect])`
 
