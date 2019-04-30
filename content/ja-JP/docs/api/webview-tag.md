@@ -480,7 +480,7 @@ webview.addEventListener('dom-ready', () => {
 
 `rect` 内のページのスナップショットをキャプチャします。 完了時に、`callback` が `callback(image)` で呼ばれます。 The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
 
-**[Deprecated Soon](promisification.md)**
+**[非推奨予定](promisification.md)**
 
 ### `<webview>.capturePage([rect])`
 
