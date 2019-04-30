@@ -64,7 +64,7 @@ Linux と Windows の場合、`Command` キーは効果がありません。Acce
 * `MediaNextTrack` と `MediaPreviousTrack`、 `MediaStop`、 `MediaPlayPause`
 * `PrintScreen`
 * NumPad Keys 
-  * `num0` - `num9`
+  * `num0` から `num9`
   * `numdec` - decimal key
   * `numadd` - numpad `+` key
   * `numsub` - numpad `-` key
