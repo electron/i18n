@@ -1,10 +1,10 @@
 # CustomScheme Object
 
-* `scheme` String - Custom schemes to be registered with options.
+* `scheme` String - オプションで登録されるカスタムスキーム。
 * `privileges` Object (任意) 
-  * `standard` Boolean (optional) - Default false.
-  * `secure` Boolean (optional) - Default false.
-  * `bypassCSP` Boolean (optional) - Default false.
-  * `allowServiceWorkers` Boolean (optional) - Default false.
-  * `supportFetchAPI` Boolean (optional) - Default false.
-  * `corsEnabled` Boolean (optional) - Default false.
+  * `standard` Boolean (任意) - 省略値は false。
+  * `secure` Boolean (任意) - 省略値は false。
+  * `bypassCSP` Boolean (任意) - 省略値は false。
+  * `allowServiceWorkers` Boolean (任意) - 省略値は false。
+  * `supportFetchAPI` Boolean (任意) - 省略値は false。
+  * `corsEnabled` Boolean (任意) - 省略値は false。
