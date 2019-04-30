@@ -11,42 +11,42 @@
 ## `win.setMenu(null)`
 
 ```js
-// 廃止予定
+// 非推奨
 win.setMenu(null)
-// 置き換え
+// こちらに置換
 win.removeMenu()
 ```
 
 ## レンダラープロセスの `electron.screen`
 
 ```js
-// 廃止予定
+// 非推奨
 require('electron').screen
-// 置き換え
+// こちらに置換
 require('electron').remote.screen
 ```
 
 ## サンドボックス化したレンダラーの `require`
 
 ```js
-// 廃止予定
+// 非推奨
 require('child_process')
-// 置き換え
+// こちらに置換
 require('electron').remote.require('child_process')
 
-// 廃止予定
+// 非推奨
 require('fs')
-// 置き換え
+// こちらに置換
 require('electron').remote.require('fs')
 
-// 廃止予定
+// 非推奨
 require('os')
-// 置き換え
+// こちらに置換
 require('electron').remote.require('os')
 
-// 廃止予定
+// 非推奨
 require('path')
-// 置き換え
+// こちらに置換
 require('electron').remote.require('path')
 ```
 
@@ -73,11 +73,11 @@ Renderer process APIs `webFrame.setRegisterURLSchemeAsPrivileged` and `webFrame.
 ## webFrame Isolated World APIs
 
 ```js
-// Deprecated
+// 非推奨
 webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
 webFrame.setIsolatedWorldHumanReadableName(worldId, name)
 webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
-// Replace with
+// こちらに置換
 webFrame.setIsolatedWorldInfo(
   worldId,
   {
@@ -94,11 +94,11 @@ webFrame.setIsolatedWorldInfo(
 ## `app.makeSingleInstance`
 
 ```js
-// Deprecated
+// 非推奨
 app.makeSingleInstance((argv, cwd) => {
   /* ... */
 })
-// Replace with
+// こちらに置換
 app.requestSingleInstanceLock()
 app.on('second-instance', (event, argv, cwd) => {
   /* ... */
@@ -239,11 +239,11 @@ screen.getPrimaryDisplay().workArea
 ## `session`
 
 ```js
-// Deprecated
+// 非推奨
 ses.setCertificateVerifyProc((hostname, certificate, callback) => {
   callback(true)
 })
-// Replace with
+// こちらに置換
 ses.setCertificateVerifyProc((request, callback) => {
   callback(0)
 })
