@@ -84,7 +84,7 @@ const constraints = {
 
 `sources` は、[`DesktopCapturerSource`](structures/desktop-capturer-source.md) オブジェクトの配列で、各 `DesktopCapturerSource` は、キャプチャすることのできる画面または個々のウインドウを表します。
 
-**[Deprecated Soon](promisification.md)**
+**[非推奨予定](promisification.md)**
 
 ### `desktopCapturer.getSources(options)`
 
