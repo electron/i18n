@@ -23,4 +23,3 @@ These guides are intended for people working on the Electron project itself. For
 * [Mengupgrade Chromium](upgrading-chromium.md)
 * [Upgrade Crashpad](upgrading-crashpad.md)
 * [Upgrade Node](upgrading-node.md)
-* [Melepaskan](releasing.md)
