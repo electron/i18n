@@ -23,4 +23,3 @@
 * [Chromium のアップグレード](upgrading-chromium.md)
 * [Crashpad のアップグレード](upgrading-crashpad.md)
 * [Nodeのアップグレード](upgrading-node.md)
-* [リリース](releasing.md)
