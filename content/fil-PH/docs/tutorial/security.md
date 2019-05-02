@@ -43,7 +43,7 @@ You can force-enable or force-disable these warnings by setting `ELECTRON_ENABLE
 You should at least follow these steps to improve the security of your application:
 
 1. [Mag load lamang ng siguradong nilalaman](#1-only-load-secure-content)
-2. [Huwang paganahin ang Node.js na integrasyon sa lahat ng mga renderer na maipakita ang bahagyang nilalaman.](#2-disable-nodejs-integration-for-remote-content)
+2. [Huwang paganahin ang Node.js na integrasyon sa lahat ng mga renderer na maipakita ang bahagyang nilalaman.](#2-do-not-enable-nodejs-integration-for-remote-content)
 3. [Paganahin ang kontekstong pagkakabukod na ipinakita ang bahagyang nilalaman.](#3-enable-context-isolation-for-remote-content)
 4. [Gamitin ang `ses.setPermissionRequestHandler()` sa lahat ng mga sesyon na maka-load ang bahagyang nilalaman.](#4-handle-session-permission-requests-from-remote-content)
 5. [Huwang i-disable ang `webSecurity`](#5-do-not-disable-websecurity)
@@ -91,9 +91,11 @@ browserWindow.loadURL('https://example.com')
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
-## 2) Disable Node.js Integration for Remote Content
+## 2) Do not enable Node.js Integration for Remote Content
 
-It is paramount that you disable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) that loads remote content. Ang layunin ay ma-limit ang mga lakas na iginawad sa bahagyang nilalaman, kaya ginawang kapansin-pansin na mas mahirap para sa isang ataker na mapinsala ang gumagamit at magkaroon sila ng kakayahan maka-execute ng JavaScript sa iyong website.
+*This recommendation is the default behavior in Electron since 5.0.0.*
+
+It is paramount that you do not enable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) that loads remote content. Ang layunin ay ma-limit ang mga lakas na iginawad sa bahagyang nilalaman, kaya ginawang kapansin-pansin na mas mahirap para sa isang ataker na mapinsala ang gumagamit at magkaroon sila ng kakayahan maka-execute ng JavaScript sa iyong website.
 
 Pagkatapos nito, iginagawad ng karagdagang pahintulot para sa tiyak na mga host. Halimbawa, kung nagbukas ka ng BrowserWindow na tinuturo sa `https://example.com/", mabibigyan mo ang website na iyan ng eksaktong kakayahan na kailangan, pero wala na.
 
@@ -104,8 +106,14 @@ Ang isang cross-site-scripting (XSS) na atake ay mapanganib kung ang ataker ay m
 ### Paano?
 
 ```js
-// Hindi kaaya-aya
-const mainWindow = new BrowserWindow()
+// Bad
+const mainWindow = new BrowserWindow({
+  webPreferences: {
+    nodeIntegration: true,
+    nodeIntegrationInWorker: true
+  }
+})
+
 mainWindow.loadURL('https://example.com')
 ```
 
@@ -113,8 +121,6 @@ mainWindow.loadURL('https://example.com')
 // Good
 const mainWindow = new BrowserWindow({
   webPreferences: {
-    nodeIntegration: false,
-    nodeIntegrationInWorker: false,
     preload: path.join(app.getAppPath(), 'preload.js')
   }
 })
