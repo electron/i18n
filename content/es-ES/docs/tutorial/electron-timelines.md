@@ -2,10 +2,13 @@
 
 ### Notas:
 
-- Estas fechas son nuestras metas, pero puede haber razones para ajustar el plazo estable, como los fallos de seguridad.
-- Estas son nuestras versiones beta programadas, sin embargo, a menudo lanzamos más betas de las que se han programado.
+* The `-beta.1` and `stable` dates are our *concrete* release dates.
+* We strive for weekly beta releases, however we often release more betas than scheduled.
+* All dates are our goals but there may be reasons for adjusting the stable deadline, such as security bugs.
 
 ## 5.0.0 Release Schedule
+
+*Incluye: Chromium M73 y Node v12.0*
 
 Take a look at 5.0.0 Timeline [blog post](https://electronjs.org/blog/electron-5-0-timeline) for info about publicizing our release dates.
 
@@ -21,29 +24,32 @@ Take a look at 5.0.0 Timeline [blog post](https://electronjs.org/blog/electron-5
 | Mar, 2019-Marzo-12   | 5.0.0-beta.x |                                                                                  |
 | Mar, 2019-Marzo-19   | 5.0.0-beta.x |                                                                                  |
 | Tue, 2019-Marzo-26   | 5.0.0-beta.x |                                                                                  |
-| Mar, 2019-Abril-02   | 5.0.0-beta.x |                                                                                  |
-| Tue, 2019-Abril-09   | 5.0.0-beta.x |                                                                                  |
+| Mar, 2019-Enero-02   | 5.0.0-beta.x |                                                                                  |
+| Mar, 2019-Enero-09   | 5.0.0-beta.x |                                                                                  |
 | Tue, 2019-Abril-16   | ninguno      | período tranquilo - prep estable                                                 |
 | Tue, 2019-Abril-23   | 5.0.0        | ✨estable ✨                                                                       |
 
-*Incluye: Chromium M73 y Node v12.0*
-
 ## 6.0.0 Release Schedule
+
+*Incluye: Chromium M76 y Node v12.0*
 
 | Fecha/semana de    | Lanzamiento  | Comentarios                          |
 | ------------------ | ------------ | ------------------------------------ |
-| Jue, 2019-Abril-25 | 6.0.0-beta.1 | 🔥                                    |
-| Mar, 2019-Abril-30 | 6.0.0-beta.x |                                      |
-| Mar, 2019-Mayo-07  | 6.0.0-beta.x |                                      |
-| Mar, 2019-Enero-14 | 6.0.0-beta.x |                                      |
+| Mar, 2019-Enero-30 | 6.0.0-beta.1 | 🔥                                    |
+| Mar, 2019-Enero-07 | 6.0.0-beta.x |                                      |
+| Mar, 2019-Jan-14   | 6.0.0-beta.x |                                      |
 | Mar, 2019-Mayo-21  | 6.0.0-beta.x |                                      |
-| Mar, 2019-Jan-28   | 6.0.0-beta.x |                                      |
-| Tue, 2019-Junio-04 | 6.0.0-beta.x | marca a mitad de camino              |
-| Tue, 2019-Junio-11 | 6.0.0-beta.x |                                      |
+| Mar, 2019-Mayo-28  | 6.0.0-beta.x |                                      |
+| Tue, 2019-Junio-04 | 6.0.0-beta.x |                                      |
+| Tue, 2019-Junio-11 | 6.0.0-beta.x | marca a mitad de camino              |
 | Tue, 2019-Junio-18 | 6.0.0-beta.x |                                      |
 | Tue, 2019-Junio-25 | 6.0.0-beta.x |                                      |
 | Tue, 2019-Julio-02 | 6.0.0-beta.x |                                      |
-| Tue, 2019-Julio-09 | 6.0.0-beta.x | 🚧 período tranquilo - prep estable 🚧 |
-| Thu, 2019-Julio-18 | 6.0.0        | ✨ estable ✨                          |
+| Tue, 2019-Julio-09 | 6.0.0-beta.x |                                      |
+| Tue, 2019-Julio-16 | 6.0.0-beta.x |                                      |
+| Tue, 2019-Julio-23 | 6.0.0-beta.x | 🚧 período tranquilo - prep estable 🚧 |
+| Tue, 2019-Julio-30 | 6.0.0        | ✨ estable ✨                          |
 
-*Incluye: Chromium M75 y Node v12.0*
+## 7.0.0 Release Schedule
+
+TBD
