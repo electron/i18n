@@ -23,4 +23,3 @@ Ces guides sont destinés aux personnes travaillant sur le projet Electron lui-m
 * [Mettre à jour Chromium](upgrading-chromium.md)
 * [Mettre à jour Crashpad](upgrading-crashpad.md)
 * [Mettre à jour Node](upgrading-node.md)
-* [Créer une nouvelle version d'Electron](releasing.md)
