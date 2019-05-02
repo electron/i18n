@@ -82,9 +82,15 @@ const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
   // ブラウザウインドウを作成
-  let win = new BrowserWindow({ width: 800, height: 600 })
+  let win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true
+    }
+  })
 
-  // そしてアプリの index.html を読み込む
+  // and load the index.html of the app.
   win.loadFile('index.html')
 }
 
@@ -102,9 +108,15 @@ let win
 
 function createWindow () {
   // browser window を生成する
-  win = new BrowserWindow({ width: 800, height: 600 })
+  win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true
+    }
+  })
 
-  // アプリの index.html を読み込む
+  // and load the index.html of the app.
   win.loadFile('index.html')
 
   // 開発者ツールを開く
