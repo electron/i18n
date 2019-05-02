@@ -43,7 +43,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
 You should at least follow these steps to improve the security of your application:
 
 1. [안전한 콘텐츠만 로드하세요.](#1-only-load-secure-content)
-2. [원격 콘텐츠를 표시하는 모든 렌더러에서 Node.js 통합을 비활성화 합니다.](#2-disable-nodejs-integration-for-remote-content)
+2. [원격 콘텐츠를 표시하는 모든 렌더러에서 Node.js 통합을 비활성화 합니다.](#2-do-not-enable-nodejs-integration-for-remote-content)
 3. [원격 콘텐츠를 표시하는 모든 렌더러에서 컨텍스트 격리(context isolation) 를 활성화합니다.](#3-enable-context-isolation-for-remote-content)
 4. [원격 콘텐츠를 로드하는 모든 세션에서 `ses.setPermissionRequestHandler()`를 사용합니다.](#4-handle-session-permission-requests-from-remote-content)
 5. [`webSecurity`를 비활성화 하지 마세요.](#5-do-not-disable-websecurity)
@@ -92,9 +92,11 @@ You should at least follow these steps to improve the security of your applicati
     <link rel="stylesheet" href="https://example.com/style.css">
     ```
     
-    ## 2) 원격 콘텐츠에 대한 Node.js 통합 비활성화
+    ## 2) Do not enable Node.js Integration for Remote Content
     
-    원격 컨텐츠를 로드하는 모든 렌더러([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), 또는 [`<webview>`](../api/webview-tag.md))에서 Node.js 통합을 비활성화 하는 것이 가장 중요합니다. 목적은, 원격 콘텐츠에 부여하는 권한을 제한하여, 공격자가 웹 사이트에서 JavaScript를 실행할 수 있는 사용자를 해치는 것이 훨씬 더 어려워 지도록 합니다.
+    *This recommendation is the default behavior in Electron since 5.0.0.*
+    
+    It is paramount that you do not enable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) that loads remote content. 목적은, 원격 콘텐츠에 부여하는 권한을 제한하여, 공격자가 웹 사이트에서 JavaScript를 실행할 수 있는 사용자를 해치는 것이 훨씬 더 어려워 지도록 합니다.
     
     그 후, 특별한 호스트를 위해 추가적인 권한을 부여할 수 있습니다. 예를 들면, 만약 `https://example.com/ '을 가르키는 BrowserWindow를 여는 경우, 해당 웹 사이트에 필요한 정확한 권한을 줄 수 있지만, 그 이상은 필요 없습니다.
     
@@ -105,8 +107,14 @@ You should at least follow these steps to improve the security of your applicati
     ### 어떻게 하나요?
     
     ```js
-    // 나쁜 예
-    const mainWindow = new BrowserWindow()
+    // Bad
+    const mainWindow = new BrowserWindow({
+      webPreferences: {
+        nodeIntegration: true,
+        nodeIntegrationInWorker: true
+      }
+    })
+    
     mainWindow.loadURL('https://example.com')
     ```
     
@@ -114,8 +122,6 @@ You should at least follow these steps to improve the security of your applicati
     // Good
     const mainWindow = new BrowserWindow({
       webPreferences: {
-        nodeIntegration: false,
-        nodeIntegrationInWorker: false,
         preload: path.join(app.getAppPath(), 'preload.js')
       }
     })
