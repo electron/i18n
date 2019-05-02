@@ -23,4 +23,3 @@ Estes guias destinam-se a pessoas que trabalham no projeto Electron. Para guias 
 * [Atualizando o Chromium](upgrading-chromium.md)
 * [Atualizando Crashpad](upgrading-crashpad.md)
 * [Atualizando NodeJS](upgrading-node.md)
-* [Lançamento](releasing.md)
