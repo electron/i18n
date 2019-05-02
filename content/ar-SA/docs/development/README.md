@@ -23,4 +23,3 @@ These guides are intended for people working on the Electron project itself. For
 * [ترقية الكروميوم](upgrading-chromium.md)
 * [Upgrading Crashpad](upgrading-crashpad.md)
 * [Upgrading Node](upgrading-node.md)
-* [Releasing](releasing.md)
