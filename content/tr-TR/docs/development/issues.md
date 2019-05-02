@@ -1,7 +1,5 @@
 # Elektrondaki Sorunlar
 
-# Sorunlar
-
 * [Sorunlara nasıl müdahil olunur](#how-to-contribute-in-issues)
 * [Genel Yardım İsteğinde Bulunmak](#asking-for-general-help)
 * [Hata raporu gönderme](#submitting-a-bug-report)
