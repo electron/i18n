@@ -23,4 +23,3 @@ Dieses Handbuch wendet sich an Entwickler des Electron Projekts. Guides zur App-
 * [Chrominum upgraden](upgrading-chromium.md)
 * [Crashpad upgraden](upgrading-crashpad.md)
 * [Node upgraden](upgrading-node.md)
-* [Veröffentlichen](releasing.md)
