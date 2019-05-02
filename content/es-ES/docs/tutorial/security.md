@@ -43,7 +43,7 @@ You can force-enable or force-disable these warnings by setting `ELECTRON_ENABLE
 You should at least follow these steps to improve the security of your application:
 
 1. [Solo carga contenido seguro](#1-only-load-secure-content)
-2. [Desactiva la integración Node.js en todas las renderizadores que muestran el contenido remoto](#2-disable-nodejs-integration-for-remote-content)
+2. [Desactiva la integración Node.js en todas las renderizadores que muestran el contenido remoto](#2-do-not-enable-nodejs-integration-for-remote-content)
 3. [Permite el aislamiento de contexto en todos los renderizadores que muestran el contenido remoto](#3-enable-context-isolation-for-remote-content)
 4. [Usar `ses.setPermissionRequestHandler()` en todas las sesiones que cargan contenido remoto](#4-handle-session-permission-requests-from-remote-content)
 5. [No desactives `webSecurity`](#5-do-not-disable-websecurity)
@@ -56,7 +56,7 @@ You should at least follow these steps to improve the security of your applicati
 12. [Deshabilitar o limitar la navegación](#12-disable-or-limit-navigation)
 13. [Deshabilitar o limitar la generación de nuevas ventanas](#13-disable-or-limit-creation-of-new-windows)
 14. [No utilice `openExternal` con contenido no confiable](#14-do-not-use-openexternal-with-untrusted-content)
-15. [Deshabilitar el módulo `remoto`](#15-disable-the-remote-module)
+15. [Deshabilitar el módulo `remote`](#15-disable-the-remote-module)
 16. [Filtrar el módulo `remote`](#16-filter-the-remote-module)
 
 To automate the detection of misconfigurations and insecure patterns, it is possible to use [electronegativity](https://github.com/doyensec/electronegativity). For additional details on potential weaknesses and implementation bugs when developing applications using Electron, please refer to this [guide for developers and auditors](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)
@@ -91,9 +91,11 @@ browserWindow.loadURL('https://example.com')
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
-## 2) Disable Node.js Integration for Remote Content
+## 2) Do not enable Node.js Integration for Remote Content
 
-It is paramount that you disable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) that loads remote content. La meta es limitar los poderes que concedes al contenido remoto, aunque lo hace dramáticamente más difícil para un atacante lastimar a tus usuarios, ellos deberían ganar la habilidad de ejecutar JavaScript en tu página web.
+*This recommendation is the default behavior in Electron since 5.0.0.*
+
+It is paramount that you do not enable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) that loads remote content. La meta es limitar los poderes que concedes al contenido remoto, aunque lo hace dramáticamente más difícil para un atacante lastimar a tus usuarios, ellos deberían ganar la habilidad de ejecutar JavaScript en tu página web.
 
 Luego de esto, puedes conceder permisos adicionales para anfitriones específicos. Por ejemplo, si estás abriendo un BrowserWindow direccionado a `https://example.com/", puedes darle a esa página web las habilidades exactas que necesita, pero no más.
 
@@ -104,17 +106,21 @@ Un ataque cross-site-scripting (XSS) es más peligroso si un atacante puede alta
 ### ¿Còmo?
 
 ```js
-// Incorrecto
-const mainWindow = new BrowserWindow()
-mainWindow.loadURL('https://ejemplo.com')
+// Bad
+const mainWindow = new BrowserWindow({
+  webPreferences: {
+    nodeIntegration: true,
+    nodeIntegrationInWorker: true
+  }
+})
+
+mainWindow.loadURL('https://example.com')
 ```
 
 ```js
-// Correcto
+// Good
 const mainWindow = new BrowserWindow({
   webPreferences: {
-    nodeIntegration: false,
-    nodeIntegrationInWorker: false,
     preload: path.join(app.getAppPath(), 'preload.js')
   }
 })
@@ -253,10 +259,10 @@ const mainWindow = new BrowserWindow()
 ```
 
 ```html
-<!-- Malo -->
+<!-- Incorrecto -->
 <webview disablewebsecurity src="page.html"></webview>
 
-<!-- Bueno -->
+<!-- Correcto -->
 <webview src="page.html"></webview>
 ```
 
@@ -400,10 +406,10 @@ Si usted no necesita ventanas emergentes, le conviene no permitir la creación d
 ### ¿Còmo?
 
 ```html
-<!-- Malo -->
+<!-- Incorrecto -->
 <webview allowpopups src="page.html"></webview>
 
-<!-- Bueno -->
+<!-- Correcto -->
 <webview src="page.html"></webview>
 ```
 
