@@ -48,7 +48,7 @@ community:
     get_started: "<a href='/docs/tutorial/first-app'><b>Начните</b></a> создание приложения с прочтения <a href='/docs/tutorial/first-app'>инструкции по началу работы</a>."
     updates: "<a href='https://twitter.com/electronjs'><b>Будьте в курсе</b></a>, отслеживая <a href='https://twitter.com/electronjs'>@electronjs</a> на Twitter и подписавшись на <a href='/blog'>блог</a>."
     localized_docs: "<a href='/languages'><b>Читайте документацию на родном языке</b></a> посетив <a href='/languages'>языковую страницу</a>."
-    help: "<a href='http://atom-slack.herokuapp.com'><b>Помогите нам, оставив отзыв</b></a> присоединившись к <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, размещая на <a href='https://discuss.atom.io/c/electron'>Discuss</a>, или посетив <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>Get help and feedback</b></a> by joining the <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
     security: "<a href='mailto:security@electronjs.org'><b>Сообщите о проблемах безопасности</b></a> по электронной почте <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Сообщайте об ошибках,</b></a> открывая вопросы в <a href='https://github.com/electron/electron/issues'>electron/electron</a> репозитории."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Предлагайте идеи,</b></a> открывая вопросы в репозитории <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
@@ -203,7 +203,7 @@ pages:
     description: The easiest way to get started with Electron
   '/governance':
     title: Electron Governance
-    description: Система управления электроном состоит из рабочих групп, которые осуществляют контроль за различными аспектами экосистем Electron, и административной рабочей группы, которая отвечает за урегулирование конфликтов между ними.
+    description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
   '/donors':
     title: Спонсоры
 landing:
