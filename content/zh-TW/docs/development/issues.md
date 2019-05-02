@@ -1,7 +1,5 @@
 # Electron 議題管理
 
-# 議題管理
-
 * [如何對議題做出貢獻](#how-to-contribute-in-issues)
 * [尋求一般協助](#asking-for-general-help)
 * [提交 Bug 報告](#submitting-a-bug-report)
