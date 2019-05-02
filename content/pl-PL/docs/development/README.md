@@ -23,4 +23,3 @@ Te poradniki zostały stworzone dla ludzi współtworzących projekt Electron. P
 * [Aktualizowanie Chromium](upgrading-chromium.md)
 * [Aktualizowanie Crashpad](upgrading-crashpad.md)
 * [Aktualizowanie Node](upgrading-node.md)
-* [Wydawanie](releasing.md)
