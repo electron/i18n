@@ -82,9 +82,15 @@ const { app, BrowserWindow } = require('electron')
 
 function createWindow () {   
   // 创建浏览器窗口
-  let win = new BrowserWindow({ width: 800, height: 600 })
+  let win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true
+    }
+  })
 
-  // 然后加载 app 的 index.html.
+  // and load the index.html of the app.
   win.loadFile('index.html')
 }
 
@@ -102,9 +108,15 @@ let win
 
 function createWindow () {
   // 创建浏览器窗口。
-  win = new BrowserWindow({ width: 800, height: 600 })
+  win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true
+    }
+  })
 
-  // 然后加载应用的 index.html。
+  // and load the index.html of the app.
   win.loadFile('index.html')
 
   // 打开开发者工具
