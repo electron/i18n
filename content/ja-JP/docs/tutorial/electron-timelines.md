@@ -2,10 +2,13 @@
 
 ### 注釈:
 
-- これらの日付は私たちの目標ですが、セキュリティバグなど、安定版リリースの期限を調整する理由があるかもしれません。
-- これらは私たちが予定しているベータリリースですが、私たちはよく予定よりも多くのベータをリリースします。
+* The `-beta.1` and `stable` dates are our *concrete* release dates.
+* We strive for weekly beta releases, however we often release more betas than scheduled.
+* All dates are our goals but there may be reasons for adjusting the stable deadline, such as security bugs.
 
 ## 5.0.0 リリーススケジュール
+
+*Includes: Chromium M73 and Node v12.0*
 
 リリース日の公表に関する情報については、5.0.0 タイムラインの [ブログの投稿](https://electronjs.org/blog/electron-5-0-timeline) をご覧ください。
 
@@ -26,24 +29,27 @@
 | Tue, 2019-Apr-16 | none         | quiet period - stable prep                                                |
 | Tue, 2019-Apr-23 | 5.0.0        | ✨stable ✨                                                                 |
 
-*Includes: Chromium M73 and Node v12.0*
-
 ## 6.0.0 リリーススケジュール
+
+*Includes: Chromium M76 and Node v12.0*
 
 | 曜日/日付            | リリース         | コメント                           |
 | ---------------- | ------------ | ------------------------------ |
-| Thu, 2019-Apr-25 | 6.0.0-beta.1 | 🔥                              |
-| Tue, 2019-Apr-30 | 6.0.0-beta.x |                                |
+| Tue, 2019-Apr-30 | 6.0.0-beta.1 | 🔥                              |
 | Tue, 2019-May-07 | 6.0.0-beta.x |                                |
 | Tue, 2019-May-14 | 6.0.0-beta.x |                                |
 | Tue, 2019-May-21 | 6.0.0-beta.x |                                |
 | Tue, 2019-May-28 | 6.0.0-beta.x |                                |
-| Tue, 2019-Jun-04 | 6.0.0-beta.x | halfway mark                   |
-| Tue, 2019-Jun-11 | 6.0.0-beta.x |                                |
+| Tue, 2019-Jun-04 | 6.0.0-beta.x |                                |
+| Tue, 2019-Jun-11 | 6.0.0-beta.x | halfway mark                   |
 | Tue, 2019-Jun-18 | 6.0.0-beta.x |                                |
 | Tue, 2019-Jun-25 | 6.0.0-beta.x |                                |
 | Tue, 2019-Jul-02 | 6.0.0-beta.x |                                |
-| Tue, 2019-Jul-09 | 6.0.0-beta.x | 🚧 quiet period - stable prep 🚧 |
-| Thu, 2019-Jul-18 | 6.0.0        | ✨ stable ✨                     |
+| Tue, 2019-Jul-09 | 6.0.0-beta.x |                                |
+| Tue, 2019-Jul-16 | 6.0.0-beta.x |                                |
+| Tue, 2019-Jul-23 | 6.0.0-beta.x | 🚧 quiet period - stable prep 🚧 |
+| Tue, 2019-Jul-30 | 6.0.0        | ✨ stable ✨                     |
 
-*Includes: Chromium M75 and Node v12.0*
+## 7.0.0 リリーススケジュール
+
+未定
