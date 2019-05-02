@@ -43,7 +43,7 @@ Puoi abilitare o disabilitare forzatamente questi avvisi impostando `ELECTRON_EN
 You should at least follow these steps to improve the security of your application:
 
 1. [Solo contenuti caricati sicuri](#1-only-load-secure-content)
-2. [Disabilita l'integrazione Node.js in tutti i renderer che mostrano contenuti remoti](#2-disable-nodejs-integration-for-remote-content)
+2. [Disabilita l'integrazione Node.js in tutti i renderer che mostrano contenuti remoti](#2-do-not-enable-nodejs-integration-for-remote-content)
 3. [Abilita integrazione contesto in tutti i renderer che mostrano contenuti remoti](#3-enable-context-isolation-for-remote-content)
 4. [Usa `ses.impostaPermessoRichiestaProprietario()` in tutte le sessioni che caricano contenuti remoti](#4-handle-session-permission-requests-from-remote-content)
 5. [Non disabilitare `Sicurezzaweb`](#5-do-not-disable-websecurity)
@@ -91,9 +91,11 @@ browserWindow.loadURL('https://example.com')
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
-## 2) Disabilita Integrazione Node.js per Contenuti Remoti
+## 2) Do not enable Node.js Integration for Remote Content
 
-It is paramount that you disable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) that loads remote content. L'obiettivo è di limitare la forza che tu garantisci al contenuto remoto, ciò rendendo drammaticamente più difficile per un malintenzionato di danneggiare l'utente, dovrebbero guadagnare l'abilità di eseguire JavaScript sul tuo sito.
+*This recommendation is the default behavior in Electron since 5.0.0.*
+
+It is paramount that you do not enable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) that loads remote content. L'obiettivo è di limitare la forza che tu garantisci al contenuto remoto, ciò rendendo drammaticamente più difficile per un malintenzionato di danneggiare l'utente, dovrebbero guadagnare l'abilità di eseguire JavaScript sul tuo sito.
 
 Dopo ciò, puoi garantire permessi aggiuntivi per host specifici. Per esempio, se stai aprendo una FinestraBrowser puntata a 'https://example.com/, puoi dare a questo sito esattamente le abilità che necessiti, ma nient'altro.
 
@@ -105,7 +107,13 @@ A cross-site-scripting (XSS) attack is more dangerous if an attacker can jump ou
 
 ```js
 // Bad
-const mainWindow = new BrowserWindow()
+const mainWindow = new BrowserWindow({
+  webPreferences: {
+    nodeIntegration: true,
+    nodeIntegrationInWorker: true
+  }
+})
+
 mainWindow.loadURL('https://example.com')
 ```
 
@@ -113,8 +121,6 @@ mainWindow.loadURL('https://example.com')
 // Good
 const mainWindow = new BrowserWindow({
   webPreferences: {
-    nodeIntegration: false,
-    nodeIntegrationInWorker: false,
     preload: path.join(app.getAppPath(), 'preload.js')
   }
 })
