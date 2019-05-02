@@ -45,7 +45,7 @@ objek <code> process.env </ code> atau <code>> </ code>.</p>
 
 <ol>
 <li><a href="#1-only-load-secure-content">Hanya memuat konten aman</a></li>
-<li><a href="#2-disable-nodejs-integration-for-remote-content">Mengaktifkan konteks isolasi di semua penyaji yang menampilkan konten secara terpencil</a></li>
+<li><a href="#2-do-not-enable-nodejs-integration-for-remote-content">Mengaktifkan konteks isolasi di semua penyaji yang menampilkan konten secara terpencil</a></li>
 <li><a href="#3-enable-context-isolation-for-remote-content">Mengaktifkan konteks isolasi di semua penyaji yang menampilkan konten secara terpencil</a></li>
 <li><a href="#4-handle-session-permission-requests-from-remote-content">Gunakan <code>ses.setPermissionRequestHandler ()</ 0> di semua sesi yang memuat konten jauh</a></li>
 <li><a href="#5-do-not-disable-websecurity">Jangan menonaktifkan <code>Keamanan web`</a></li> 
@@ -84,9 +84,11 @@ Buruk browserWindow.loadURL ('http://example.com') / / baik browserWindow.loadUR
 <!--buruk--> <script crossorigin src="http://example.com/react.js"></script> <link rel="stylesheet" href="http://example.com/style.css"><!--baik--> <script crossorigin src="https://example.com/react.js"></script> <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
-## 2) Nonaktifkan Integrasi Node.js untuk Konten Jarak Jauh
+## 2) Do not enable Node.js Integration for Remote Content
 
-It is paramount that you disable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) that loads remote content. Tujuannya adalah untuk membatasi kekuatan yang anda berikan untuk konten terpencil, sehingga membuatnya jauh lebih sulit bagi penyerang membahayakan pengguna harus memperoleh kemampuan mereka untuk menjalankan JavaScript pada situs web anda.
+*This recommendation is the default behavior in Electron since 5.0.0.*
+
+It is paramount that you do not enable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) that loads remote content. Tujuannya adalah untuk membatasi kekuatan yang anda berikan untuk konten terpencil, sehingga membuatnya jauh lebih sulit bagi penyerang membahayakan pengguna harus memperoleh kemampuan mereka untuk menjalankan JavaScript pada situs web anda.
 
 Setelah ini, anda dapat memberikan izin tambahan untuk host tertentu. Misalnya, jika anda membuka BrowserWindow menunjuk pada`https://example.com/", anda dapat memberikan situs web yang tepat dengan kemampuan yang dibutuhkan, tapi tidak lebih.
 
@@ -97,8 +99,14 @@ Cross-site scripting (XSS) serangan yang lebih berbahaya jika seorang penyerang 
 ### Bagaimana?
 
 ```js
-// Buruk
-const mainWindow = baru BrowserWindow()
+// Bad
+const mainWindow = new BrowserWindow({
+  webPreferences: {
+    nodeIntegration: true,
+    nodeIntegrationInWorker: true
+  }
+})
+
 mainWindow.loadURL('https://example.com')
 ```
 
@@ -106,8 +114,6 @@ mainWindow.loadURL('https://example.com')
 // Good
 const mainWindow = new BrowserWindow({
   webPreferences: {
-    nodeIntegration: false,
-    nodeIntegrationInWorker: false,
     preload: path.join(app.getAppPath(), 'preload.js')
   }
 })
@@ -345,7 +351,7 @@ const mainWindow = new BrowserWindow({})
 
 ## 9) Do Not Use `enableBlinkFeatures`
 
-*Rekomendasi adalah elektron 's default*
+*Recommendation is Electron's default*
 
 Blink is the name of the rendering engine behind Chromium. As with `experimentalFeatures`, the `enableBlinkFeatures` property allows developers to enable features that have been disabled by default.
 
