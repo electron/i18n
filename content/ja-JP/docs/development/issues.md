@@ -1,7 +1,5 @@
 # Electron の Issue
 
-# 問題
-
 * [コントリビュートの仕方](#how-to-contribute-in-issues)
 * [一般的なヘルプ](#asking-for-general-help)
 * [バグレポートの送信](#submitting-a-bug-report)
