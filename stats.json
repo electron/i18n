@@ -36,7 +36,7 @@
     "words_approved": "137",
     "translated_progress": 78,
     "approved_progress": 0,
-    "qa_issues": 268
+    "qa_issues": 267
   },
   {
     "name": "Chinese Traditional",
@@ -127,7 +127,7 @@
     "words_approved": "0",
     "translated_progress": 3,
     "approved_progress": 0,
-    "qa_issues": 126
+    "qa_issues": 125
   },
   {
     "name": "Hindi",
@@ -153,7 +153,7 @@
     "words_approved": "61",
     "translated_progress": 64,
     "approved_progress": 0,
-    "qa_issues": 4199
+    "qa_issues": 4202
   },
   {
     "name": "Italian",
@@ -172,14 +172,14 @@
     "name": "Japanese",
     "code": "ja",
     "phrases": "10633",
-    "translated": "9974",
+    "translated": "10110",
     "approved": "276",
     "words": "97910",
-    "words_translated": "90046",
+    "words_translated": "91564",
     "words_approved": "1582",
-    "translated_progress": 91,
+    "translated_progress": 93,
     "approved_progress": 1,
-    "qa_issues": 315
+    "qa_issues": 314
   },
   {
     "name": "Korean",
@@ -224,10 +224,10 @@
     "name": "Portuguese, Brazilian",
     "code": "pt-BR",
     "phrases": "10633",
-    "translated": "4604",
+    "translated": "4609",
     "approved": "364",
     "words": "97910",
-    "words_translated": "32928",
+    "words_translated": "32950",
     "words_approved": "2623",
     "translated_progress": 33,
     "approved_progress": 2,
@@ -250,27 +250,27 @@
     "name": "Russian",
     "code": "ru",
     "phrases": "10633",
-    "translated": "5987",
+    "translated": "6020",
     "approved": "1003",
     "words": "97910",
-    "words_translated": "44724",
+    "words_translated": "45205",
     "words_approved": "7742",
-    "translated_progress": 45,
+    "translated_progress": 46,
     "approved_progress": 7,
-    "qa_issues": 1842
+    "qa_issues": 1862
   },
   {
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "10633",
-    "translated": "9329",
-    "approved": "250",
+    "translated": "9336",
+    "approved": "256",
     "words": "97910",
-    "words_translated": "78093",
-    "words_approved": "2023",
+    "words_translated": "78216",
+    "words_approved": "2083",
     "translated_progress": 79,
     "approved_progress": 2,
-    "qa_issues": 3603
+    "qa_issues": 3601
   },
   {
     "name": "Tagalog",
@@ -309,7 +309,7 @@
     "words_approved": "1",
     "translated_progress": 65,
     "approved_progress": 0,
-    "qa_issues": 3661
+    "qa_issues": 3662
   },
   {
     "name": "Ukrainian",
