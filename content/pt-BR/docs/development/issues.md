@@ -1,7 +1,5 @@
 # Questões com o Electron
 
-# Questões
-
 * [Como Contribuir com Problemas](#how-to-contribute-in-issues)
 * [Perguntas Sobre de Ajuda Geral](#asking-for-general-help)
 * [Enviando um Relatório de Erro](#submitting-a-bug-report)
