@@ -43,7 +43,7 @@ Electron 2.0 からでは、開発者は、開発者コンソールに出力さ�
 あなたはあなたのアプリケーションのセキュリティーを向上させるために、少なくとも次のステップを実施してください。
 
 1. [セキュアなコンテンツのみを読み込む](#1-only-load-secure-content)
-2. [リモートコンテンツを表示する全てのレンダラーで、Node.js integration を無効にする](#2-disable-nodejs-integration-for-remote-content)
+2. [リモートコンテンツを表示する全てのレンダラーで、Node.js integration を無効にする](#2-do-not-enable-nodejs-integration-for-remote-content)
 3. [リモートコンテンツを表示するすべてのレンダラーで、コンテキストイソレーションを有効にする](#3-enable-context-isolation-for-remote-content)
 4. [リモートのコンテンツを表示するすべてのセッションで `ses.setPermissionRequestHandler()` を利用する](#4-handle-session-permission-requests-from-remote-content)
 5. [`webSecurity` を無効にしない](#5-do-not-disable-websecurity)
@@ -91,9 +91,11 @@ browserWindow.loadURL('https://example.com')
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
-## 2) リモートコンテンツで、Node.js integration を無効にする
+## 2) Do not enable Node.js Integration for Remote Content
 
-リモートコンテンツをロードするレンダラー ([`BrowserWindow`](../api/browser-window.md)、[`BrowserView`](../api/browser-view.md)、[`<webview>`](../api/webview-tag.md)) で Node.js integration を無効にすることが重要です。 リモートコンテンツに与える権限を制限することで、攻撃者がウェブサイトで JavaScript を実行できるようになった場合に、ユーザを傷つけることを劇的に難しくする目的があります。
+*This recommendation is the default behavior in Electron since 5.0.0.*
+
+It is paramount that you do not enable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) that loads remote content. リモートコンテンツに与える権限を制限することで、攻撃者がウェブサイトで JavaScript を実行できるようになった場合に、ユーザを傷つけることを劇的に難しくする目的があります。
 
 その後、特定のホストに対して追加の権限を与えることができます。 例えば、 "https://example.com/" を指す BrowserWindow を開いている場合、あなたはそのウェブサイトに必要な力を正確に与えることができますが、それ以上の力は与えられません。
 
@@ -104,17 +106,21 @@ browserWindow.loadURL('https://example.com')
 ### どうすればいいの？
 
 ```js
-// NG
-const mainWindow = new BrowserWindow()
+// Bad
+const mainWindow = new BrowserWindow({
+  webPreferences: {
+    nodeIntegration: true,
+    nodeIntegrationInWorker: true
+  }
+})
+
 mainWindow.loadURL('https://example.com')
 ```
 
 ```js
-// OK
+// Good
 const mainWindow = new BrowserWindow({
   webPreferences: {
-    nodeIntegration: false,
-    nodeIntegrationInWorker: false,
     preload: path.join(app.getAppPath(), 'preload.js')
   }
 })
