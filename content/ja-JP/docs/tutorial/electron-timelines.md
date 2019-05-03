@@ -4,11 +4,11 @@
 
 * The `-beta.1` and `stable` dates are our *concrete* release dates.
 * We strive for weekly beta releases, however we often release more betas than scheduled.
-* All dates are our goals but there may be reasons for adjusting the stable deadline, such as security bugs.
+* これら全ての日付は私たちの目標ですが、セキュリティバグなど、安定版リリースの期限を調整する理由があるかもしれません。
 
 ## 5.0.0 リリーススケジュール
 
-*Includes: Chromium M73 and Node v12.0*
+*Chromium M73 と Node v12.0を含む*
 
 リリース日の公表に関する情報については、5.0.0 タイムラインの [ブログの投稿](https://electronjs.org/blog/electron-5-0-timeline) をご覧ください。
 
