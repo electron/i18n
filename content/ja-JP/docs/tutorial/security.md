@@ -498,12 +498,12 @@ app.on('web-contents-created', (event, contents) => {
 const { shell } = require('electron')
 
 app.on('web-contents-created', (event, contents) => {
-  contents.on('new-window', (event, navigationUrl) => {
-    // この例では、既定のブラウザでこのイベントのURLを開くように
-    // オペレーティングシステムに依頼します。
+  contents.on('new-window', async (event, navigationUrl) => {
+    // In this example, we'll ask the operating system
+    // to open this event's url in the default browser.
     event.preventDefault()
 
-    shell.openExternalSync(navigationUrl)
+    await shell.openExternal(navigationUrl)
   })
 })
 ```
