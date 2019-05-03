@@ -1,9 +1,9 @@
-# Developing Electron
+# พัฒนา กับ อิเล็กตรอน
 
 These guides are intended for people working on the Electron project itself. For guides on Electron app development, see [/docs/README.md](../README.md#guides-and-tutorials).
 
 * [จรรยาบรรณ](../../CODE_OF_CONDUCT.md)
-* [Contributing to Electron](../../CONTRIBUTING.md)
+* [บริจาคให้อิเล็กตรอน](../../CONTRIBUTING.md)
 * [ปัญหา](issues.md)
 * [ดึงคำขอ](pull-requests.md)
 * [เอกสารประกอบแนวทางลักษณะ](coding-style.md#documentation)
