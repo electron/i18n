@@ -91,11 +91,11 @@ browserWindow.loadURL('https://example.com')
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
-## 2) Do not enable Node.js Integration for Remote Content
+## 2) リモートコンテンツで、Node.js integration を有効にしない
 
-*This recommendation is the default behavior in Electron since 5.0.0.*
+*この推奨は、Electron 5.0.0 からデフォルトの振舞いです。*
 
-It is paramount that you do not enable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) that loads remote content. リモートコンテンツに与える権限を制限することで、攻撃者がウェブサイトで JavaScript を実行できるようになった場合に、ユーザを傷つけることを劇的に難しくする目的があります。
+リモートコンテンツをロードするレンダラー ([`BrowserWindow`](../api/browser-window.md)、[`BrowserView`](../api/browser-view.md)、[`<webview>`](../api/webview-tag.md)) で Node.js integration を有効にしないことが重要です。 リモートコンテンツに与える権限を制限することで、攻撃者がウェブサイトで JavaScript を実行できるようになった場合に、ユーザを傷つけることを劇的に難しくする目的があります。
 
 その後、特定のホストに対して追加の権限を与えることができます。 例えば、 "https://example.com/" を指す BrowserWindow を開いている場合、あなたはそのウェブサイトに必要な力を正確に与えることができますが、それ以上の力は与えられません。
 
@@ -106,7 +106,7 @@ It is paramount that you do not enable Node.js integration in any renderer ([`Br
 ### どうすればいいの？
 
 ```js
-// Bad
+// 悪い
 const mainWindow = new BrowserWindow({
   webPreferences: {
     nodeIntegration: true,
@@ -118,7 +118,7 @@ mainWindow.loadURL('https://example.com')
 ```
 
 ```js
-// Good
+// 良い
 const mainWindow = new BrowserWindow({
   webPreferences: {
     preload: path.join(app.getAppPath(), 'preload.js')
