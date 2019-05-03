@@ -95,13 +95,13 @@ browserWindow.loadURL('https://example.com')
 
 *This recommendation is the default behavior in Electron since 5.0.0.*
 
-It is paramount that you do not enable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) that loads remote content. The goal is to limit the powers you grant to remote content, thus making it dramatically more difficult for an attacker to harm your users should they gain the ability to execute JavaScript on your website.
+It is paramount that you do not enable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) that loads remote content. 目的是在限縮遠端內容能做的事，就算攻擊者能在你的網站中執行 JavaScript，也很難真正傷害到使用者。
 
-After this, you can grant additional permissions for specific hosts. For example, if you are opening a BrowserWindow pointed at `https://example.com/", you can give that website exactly the abilities it needs, but no more.
+你可以再針對特定的網址提供額外權限。 例如，如果你開了一個指到 `https://example.com/" 的 BrowserWindow，可以額外指定該網頁需要有的最小權限，千萬不要多給用不到的權限。
 
 ### 為什麼?
 
-A cross-site-scripting (XSS) attack is more dangerous if an attacker can jump out of the renderer process and execute code on the user's computer. Cross-site-scripting attacks are fairly common - and while an issue, their power is usually limited to messing with the website that they are executed on. Disabling Node.js integration helps prevent an XSS from being escalated into a so-called "Remote Code Execution" (RCE) attack.
+如果攻擊者能跳出畫面轉譯處理序，直接在使用者的電腦上執行程式碼，那麼跨網站指令碼 (Cross-Site Scripting; 縮寫 XSS) 攻擊會變得非常危險。 XSS 攻擊很常見，通常發生時其破壞力只限於亂搞被執行的網站。 停用 Node.js 整合功能，能防止 XSS 攻擊擴大成「遠端程式碼執行」(Remote Code Execution; 縮寫 RCE) 攻擊
 
 ### 怎麼做?
 
@@ -136,9 +136,9 @@ mainWindow.loadURL('https://example.com')
 <webview src="page.html"></webview>
 ```
 
-When disabling Node.js integration, you can still expose APIs to your website that do consume Node.js modules or features. Preload scripts continue to have access to `require` and other Node.js features, allowing developers to expose a custom API to remotely loaded content.
+就算停用了 Node.js 整合功能，你還是能將 Node.js 的模組或功能 API 提供給網站執行。 你可以在預載腳本中使用 `require` 及其他 Node.js 的功能，開發人員可以提供自訂 API 給遠端載入的內容使用。
 
-In the following example preload script, the later loaded website will have access to a `window.readConfig()` method, but no Node.js features.
+下列這段預載腳本範例中，後續載入的網頁可以使用 `window.readConfig()` 方法，但無法直接存取 Node.js 功能。
 
 ```js
 const { readFileSync } = require('fs')
@@ -151,7 +151,7 @@ window.readConfig = function () {
 
 ## 3) 針對遠端內容啟用內容隔離功能
 
-Context isolation is an Electron feature that allows developers to run code in preload scripts and in Electron APIs in a dedicated JavaScript context. In practice, that means that global objects like `Array.prototype.push` or `JSON.parse` cannot be modified by scripts running in the renderer process.
+內容隔離是 Electron 提供的功能，讓開發者可以在預載腳本及 Electron API 中以專用的 JavaScript 環境執行程式碼。 In practice, that means that global objects like `Array.prototype.push` or `JSON.parse` cannot be modified by scripts running in the renderer process.
 
 Electron uses the same technology as Chromium's [Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment) to enable this behavior.
 
@@ -230,11 +230,11 @@ session
 
 ## 5) 不要停用 WebSecurity
 
-*Recommendation is Electron's default*
+*建議值就是 Electron 的預設值*
 
 You may have already guessed that disabling the `webSecurity` property on a renderer process ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) disables crucial security features.
 
-Do not disable `webSecurity` in production applications.
+不要在上線的應用程式中停用 `webSecurity`。
 
 ### 為什麼?
 
@@ -266,13 +266,13 @@ const mainWindow = new BrowserWindow()
 
 ## 6) 定義內容安全性原則
 
-A Content Security Policy (CSP) is an additional layer of protection against cross-site-scripting attacks and data injection attacks. We recommend that they be enabled by any website you load inside Electron.
+內容安全性原則 (Content Security Policy; 縮寫 CSP) 是用來防止跨網站指令碼 (Cross-Site Scripting; 縮寫 XSS) 攻擊及資料注入攻擊的機制。 我們建議你在所有會由 Electron 載入的網站都啟用這個機制。
 
 ### 為什麼?
 
 CSP allows the server serving content to restrict and control the resources Electron can load for that given web page. `https://example.com` should be allowed to load scripts from the origins you defined while scripts from `https://evil.attacker.com` should not be allowed to run. Defining a CSP is an easy way to improve your application's security.
 
-The following CSP will allow Electron to execute scripts from the current website and from `apis.example.com`.
+下面這組 CSP 允許 Electron 由目前的網站及 `apis.example.com` 執行腳本。
 
 ```txt
 // 錯誤示範
@@ -311,7 +311,7 @@ CSP's preferred delivery mechanism is an HTTP header, however it is not possible
 
 ## 7) 不要將 `allowRunningInsecureContent` 設為 `true`
 
-*Recommendation is Electron's default*
+*建議值就是 Electron 的預設值*
 
 By default, Electron will not allow websites loaded over `HTTPS` to load and execute scripts, CSS, or plugins from insecure sources (`HTTP`). Setting the property `allowRunningInsecureContent` to `true` disables that protection.
 
@@ -339,7 +339,7 @@ const mainWindow = new BrowserWindow({})
 
 ## 8) Do Not Enable Experimental Features
 
-*Recommendation is Electron's default*
+*建議值就是 Electron 的預設值*
 
 Advanced users of Electron can enable experimental Chromium features using the `experimentalFeatures` property.
 
@@ -367,7 +367,7 @@ const mainWindow = new BrowserWindow({})
 
 ## 9) Do Not Use `enableBlinkFeatures`
 
-*Recommendation is Electron's default*
+*建議值就是 Electron 的預設值*
 
 Blink is the name of the rendering engine behind Chromium. As with `experimentalFeatures`, the `enableBlinkFeatures` property allows developers to enable features that have been disabled by default.
 
@@ -393,7 +393,7 @@ const mainWindow = new BrowserWindow()
 
 ## 10) 不要用 `allowpopups`
 
-*Recommendation is Electron's default*
+*建議值就是 Electron 的預設值*
 
 If you are using [`<webview>`](../api/webview-tag.md), you might need the pages and scripts loaded in your `<webview>` tag to open new windows. The `allowpopups` attribute enables them to create new [`BrowserWindows`](../api/browser-window.md) using the `window.open()` method. `<webview>` tags are otherwise not allowed to create new windows.
 
@@ -445,7 +445,7 @@ app.on('web-contents-created', (event, contents) => {
 })
 ```
 
-Again, this list merely minimizes the risk, it does not remove it. If your goal is to display a website, a browser will be a more secure option.
+再次強調，這份清單只能幫你降低風險，並沒辦法完全將風險排除。如果你的目標只是要顯示網站，那麼瀏覽器會是比較安全的選項。
 
 ## 12) Disable or limit navigation
 
