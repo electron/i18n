@@ -14,7 +14,7 @@ W normalnych przeglądarkach, strony internetowe zazwyczaj są uruchamiane w tzw
 
 Główny proces tworzy strony internetowe poprzez instancje `BrowserWindow`. Każda instancja `BrowserWindow` uruchamia stronę w swoim własnym procesie renderowania. Kiedy instancja `BrowserWindow` zostanie zniszczona, odpowiadający jej proces renderowania również zostaje zakończony.
 
-The main process manages all web pages and their corresponding renderer processes. Each renderer process is isolated and only cares about the web page running in it.
+Główny proces zarządza wszystkimi stronami oraz ich procesami renderowania. Each renderer process is isolated and only cares about the web page running in it.
 
 In web pages, calling native GUI related APIs is not allowed because managing native GUI resources in web pages is very dangerous and it is easy to leak resources. If you want to perform GUI operations in a web page, the renderer process of the web page must communicate with the main process to request that the main process perform those operations.
 
