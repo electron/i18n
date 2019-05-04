@@ -774,10 +774,6 @@ ipcRenderer.on('ping', () => {
 
 Disparado cuando el proceso de renderizado se cierra.
 
-### Evento: 'gpu-crashed'
-
-Disparado cuando el proceso gpu se cae.
-
 ### Evento: 'plugin-crashed'
 
 Devuelve:
