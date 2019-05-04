@@ -92,17 +92,17 @@ Squirrel เป็นเฟรมเวิร์กโอเพนซอร์�
 
 ### userland
 
-This term originated in the Unix community, where "userland" or "userspace" referred to programs that run outside of the operating system kernel. More recently, the term has been popularized in the Node and npm community to distinguish between the features available in "Node core" versus packages published to the npm registry by the much larger "user" community.
+คำนี้เกิดขึ้นในชุมชน Unix โดยที่ "userland" หรือ "userspace" อ้างถึงโปรแกรมที่ทำงานนอกเคอร์เนลระบบปฏิบัติการ มากกว่า เมื่อเร็ว ๆ นี้คำดังกล่าวได้รับความนิยมในโหนดและชุมชนต่อนาทีถึง แยกความแตกต่างระหว่างฟีเจอร์ที่มีใน "Node core" และแพ็คเกจ เผยแพร่ไปยังรีจิสทรี npm โดยชุมชน "ผู้ใช้" ที่ใหญ่กว่ามาก
 
-Like Node, Electron is focused on having a small set of APIs that provide all the necessary primitives for developing multi-platform desktop applications. This design philosophy allows Electron to remain a flexible tool without being overly prescriptive about how it should be used. Userland enables users to create and share tools that provide additional functionality on top of what is available in "core".
+เช่นเดียวกับโหนดอิเล็กตรอนมุ่งเน้นไปที่การมี API ขนาดเล็กที่ให้บริการ สิ่งจำเป็นเบื้องต้นสำหรับการพัฒนาแอพพลิเคชั่นเดสก์ท็อปหลายแพลตฟอร์ม ปรัชญาการออกแบบนี้ช่วยให้อิเล็กตรอนยังคงเป็นเครื่องมือที่มีความยืดหยุ่นโดยไม่ต้องถูก กำหนดมากเกินไปเกี่ยวกับวิธีการใช้งาน Userland ช่วยให้ผู้ใช้สามารถ สร้างและแบ่งปันเครื่องมือที่ให้ฟังก์ชันการทำงานเพิ่มเติมนอกเหนือจากที่เป็นอยู่ มีอยู่ใน "แกน"
 
 ### V8
 
-V8 is Google's open source JavaScript engine. It is written in C++ and is used in Google Chrome. V8 can run standalone, or can be embedded into any C++ application.
+V8 เป็นเอ็นจิ้น JavaScript แบบโอเพ่นซอร์สของ Google มันถูกเขียนใน C ++ และเป็น ใช้ใน Google Chrome V8 สามารถเรียกใช้แบบสแตนด์อโลนหรือสามารถฝังลงในแอปพลิเคชัน C ++ ใด ๆ
 
-Electron builds V8 as part of Chromium and then points Node to that V8 when building it.
+Electron builds V8 เป็นส่วนหนึ่งของ Chromium แล้วชี้ไปที่โหนด V8 เมื่อใด สร้างมัน
 
-V8's version numbers always correspond to those of Google Chrome. Chrome 59 includes V8 5.9, Chrome 58 includes V8 5.8, etc.
+หมายเลขเวอร์ชันของ V8 นั้นสอดคล้องกับของ Google Chrome เสมอ Chrome 59 รวมถึง V8 5.9, Chrome 58 รวมถึง V8 5.8, ฯลฯ
 
 - [developers.google.com/v8](https://developers.google.com/v8)
 - [nodejs.org/api/v8.html](https://nodejs.org/api/v8.html)
@@ -110,4 +110,4 @@ V8's version numbers always correspond to those of Google Chrome. Chrome 59 incl
 
 ### webview
 
-`webview` tags are used to embed 'guest' content (such as external web pages) in your Electron app. They are similar to `iframe`s, but differ in that each webview runs in a separate process. It doesn't have the same permissions as your web page and all interactions between your app and embedded content will be asynchronous. This keeps your app safe from the embedded content.
+`webview` ใช้เพื่อฝังเนื้อหา "แขก" (เช่นหน้าเว็บภายนอก) ใน แอปอิเล็กตรอนของคุณ มีความคล้ายคลึงกับ `iframe`แต่แตกต่างกันในแต่ละอัน webview ทำงานในกระบวนการแยกต่างหาก มันไม่เหมือนกัน สิทธิ์เป็นหน้าเว็บของคุณและการโต้ตอบทั้งหมดระหว่างแอปของคุณและ เนื้อหาที่ฝังตัวจะไม่ตรงกัน ทำให้แอปของคุณปลอดภัยจาก เนื้อหาที่ฝัง
