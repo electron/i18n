@@ -20,29 +20,29 @@ W aplikacji Electron wywoływanie natywnego API od GUI jest niedozwolone, poniew
 
 > #### Notatka: Komunikacja pomiędzy procesami
 > 
-> W Electronie mamy wiele możliwości komunikacji między głównym procesem a procesami renderowania, takie jak [`ipcRenderer`](../api/ipc-renderer.md) oraz moduły [`ipcMain`](../api/ipc-main.md) do wysyłania komunikatów, a również moduł [remote](../api/remote.md) do komunikacji RPC. There is also an FAQ entry on [how to share data between web pages](../faq.md#how-to-share-data-between-web-pages).
+> W Electronie mamy wiele możliwości komunikacji między głównym procesem a procesami renderowania, takie jak [`ipcRenderer`](../api/ipc-renderer.md) oraz moduły [`ipcMain`](../api/ipc-main.md) do wysyłania komunikatów, a również moduł [remote](../api/remote.md) do komunikacji RPC. Tutaj jest FAQ o tym [jak udostępniać zasoby między stronami internetowymi](../faq.md#how-to-share-data-between-web-pages).
 
-## Używanie z API Electrona
+## Używanie Electron API
 
-Electron offers a number of APIs that support the development of a desktop application in both the main process and the renderer process. In both processes, you'd access Electron's APIs by requiring its included module:
+Electron oferuje szereg interfejsów API, które wspierają development aplikacji desktopowych zarówno w procesie głównym, jak i w procesach renderowania. W każdym z procesów możesz uzyskać dostęp do Electron API poprzez dołączenie jego modułu:
 
 ```javascript
 const electron = require('electron')
 ```
 
-All Electron APIs are assigned a process type. Many of them can only be used from the main process, some of them only from a renderer process, some from both. The documentation for each individual API will state which process it can be used from.
+Wszystkie z Electron API mają przypisany typ procesu. Wiele z nich może być użyte z poziomu głownego procesu, część z nich z procesu renderowania, a niektóre mogą być wykorzystane przez oba z nich. W dokumentacji każdego z Electron API znajdziesz szczegóły dotyczące tego, z którego procesu można go użyć.
 
-A window in Electron is for instance created using the `BrowserWindow` class. It is only available in the main process.
+Okno w Electronie jest na przykład tworzone za pomocą klasy `BrowserWindow`. Jest dostępny tylko w głównym procesie.
 
 ```javascript
-// This will work in the main process, but be `undefined` in a
-// renderer process:
+// To zadziała w głównym procesie, ale będzie 
+// `undefined` w procesie renderowania:
 const { BrowserWindow } = require('electron')
 
 const win = new BrowserWindow()
 ```
 
-Since communication between the processes is possible, a renderer process can call upon the main process to perform tasks. Electron comes with a module called `remote` that exposes APIs usually only available on the main process. In order to create a `BrowserWindow` from a renderer process, we'd use the remote as a middle-man:
+Ponieważ komunikacja między procesami jest możliwa, proces renderujący może wezwać główny proces do wykonania zadań. Electron comes with a module called `remote` that exposes APIs usually only available on the main process. In order to create a `BrowserWindow` from a renderer process, we'd use the remote as a middle-man:
 
 ```javascript
 // To zadziała w procesie renderowania, ale będzie 
