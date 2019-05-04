@@ -8,15 +8,15 @@ W Electronie proces, który wykonuje skrypt `main` z pliku `package.json` nazywa
 
 Ponieważ Electron używa Chromium do wyświetlania stron internetowych, wykorzystywana jest również wielo-procesowa architektura Chromium. Każda strona internetowa w Electronie działa w swoim własnym procesie, który nazywa się **procesem renderowania**.
 
-W normalnych przeglądarkach, strony internetowe zazwyczaj są uruchamiane w tzw. sandboxie i nie posiadają dostępu do zasobów natywnych. Użytkownicy Electron mają jednak możliwość użycia interfejsów API Node.js na stronach internetowych, co pozwala na interakcje z systemem operacyjnym.
+W normalnych przeglądarkach, strony internetowe zazwyczaj są uruchamiane w tzw. sandboxie i nie posiadają dostępu do zasobów natywnych. Użytkownicy Electron mają jednak możliwość użycia interfejsów API Node.js na stronach internetowych, co pozwala na niskopoziomowe interakcje z systemem operacyjnym.
 
 ### Różnice Pomiędzy Procesem Głównym i Procesem Renderowania
 
-Główny proces renderuje strony internetowe poprzez tworzenie instancji `BrowserWindow`. Każda instancja `BrowserWindow` uruchamia stronę poprzez swój własny proces renderingu. Kiedy instancja `BrowserWindow` zostanie zniszczona, odpowiadający jej proces renderowania również zostaje zakończony.
+Główny proces renderuje strony internetowe poprzez tworzenie instancji `BrowserWindow`. Każda instancja `BrowserWindow` uruchamia stronę poprzez swój własny proces renderowania. Kiedy instancja `BrowserWindow` zostanie zniszczona, odpowiadający jej proces renderowania również zostaje zakończony.
 
 Główny proces zarządza wszystkimi stronami oraz ich procesami renderowania. Wszystkie procesy renderowania są odizolowane od siebie i zajmują się wyłącznie swoją przydzieloną stroną internetową.
 
-W aplikacji Electron wywoływanie natywnego API od GUI jest niedozwolone, ponieważ zarządzanie natywnymi zasobami GUI za pomocą witryn internetowych jest bardzo niebezpieczne i łatwo w ten sposób dopuścić do stworzenia luk bezpieczeństwa. Jeśli chcesz dopuścić do operacji na GUI z pomocą strony internetowej, proces renderowania witryny musi się komunikować z głównym procesem, aby to on go wykonał.
+W aplikacji Electron wywoływanie natywnego API od GUI jest niedozwolone, ponieważ zarządzanie natywnymi zasobami GUI za pomocą witryn internetowych jest bardzo niebezpieczne i łatwo w ten sposób dopuścić do stworzenia luk bezpieczeństwa. Jeżeli jednak chcesz dopuścić do operacji na GUI z pomocą strony internetowej, proces renderowania witryny musi się komunikować z głównym procesem, aby to on go wykonał.
 
 > #### Notatka: Komunikacja pomiędzy procesami
 > 
@@ -42,7 +42,7 @@ const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 ```
 
-Ponieważ komunikacja między procesami jest możliwa, proces renderujący może wezwać główny proces do wykonania zadań. Electron comes with a module called `remote` that exposes APIs usually only available on the main process. In order to create a `BrowserWindow` from a renderer process, we'd use the remote as a middle-man:
+Ponieważ komunikacja między procesami jest możliwa, proces renderujący może wezwać główny proces do wykonania zadań. Electron jest wyposażony w moduł `remote`, który udostępnia API zwykle dostępne tylko w głównym procesie. Aby utworzyć `BrowserWindow` z procesu renderującego, użyjemy remote jako pośrednika:
 
 ```javascript
 // To zadziała w procesie renderowania, ale będzie 
@@ -82,7 +82,7 @@ npm install --save aws-sdk
 Następnie użyj moduł tak, jakbyś tworzył zwykłą aplikację Node.js:
 
 ```javascript
-// A ready-to-use S3 Client
+// Gotowy do użycia S3 Client
 const S3 = require('aws-sdk/clients/s3')
 ```
 
