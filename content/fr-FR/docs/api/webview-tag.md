@@ -773,10 +773,6 @@ ipcRenderer.on('ping', () => {
 
 Fired when the renderer process is crashed.
 
-### Événement : 'gpu-crashed'
-
-Déclenché lorsque le processus du gpu crash.
-
 ### Événement : 'plugin-crashed'
 
 Retourne :
@@ -784,11 +780,11 @@ Retourne :
 * `name` String
 * `version` String
 
-Déclenché lorsqu’un processus de plugin crash.
+Fired when a plugin process is crashed.
 
 ### Événement : 'destroyed'
 
-Déclenché lorsque le WebContents est détruit.
+Fired when the WebContents is destroyed.
 
 ### Événement : 'media-started-playing'
 
@@ -804,7 +800,7 @@ Retourne :
 
 * `themeColor` String
 
-Émis lorsque le thème couleur de la page est changé. Il s’agit généralement de l'ajout d'une balise meta :
+Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
