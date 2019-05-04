@@ -18,8 +18,8 @@ keyboard_modal:
   title: ปุ่มลัดแป้นพิมพ์
   key: คีย์
   action: ดำเนินการ
-  focus_search: Focus the search bar
-  focus_and_clear: Focus the search bar and cleans it
+  focus_search: โฟกัส ที่ แถบค้นหา
+  focus_and_clear: โพกัส ที่แถบค้นหา เพื่อ ล้างข้อมูล
   scroll_down: เลือกผลการค้นหาถัดไป
   scroll_up: เลือกผลการค้นหาก่อนหน้า
   open: เปิดผลการค้นหาที่เลือก
@@ -38,7 +38,7 @@ docs:
     view_all_docs: เอกสารทั้งหมดในหน้าเดียว
 languages:
   choose_language: เลือกภาษาของเว็บไซต์
-  view_more_details: View More Language Details
+  view_more_details: ดูรายละเอียดภาษาเพิ่มเติม
   translation_progress: ความคืบหน้าการแปลภาษา
   current: ที่เลือกใช้ภาษาอยู่ตอนนี้
 community:
@@ -48,18 +48,18 @@ community:
     get_started: "<a href='/docs/tutorial/first-app'><b>เริ่มต้น</b></a> สร้างแอปด้วยการอ่าน <a href='/docs/tutorial/first-app'>แนวทางการใช้งานคราวๆ</a>"
     updates: "<a href='https://twitter.com/electronjs'><b>ทันข่าวอยู่เสมอ</b></a> ด้วยการกดติดตาม <a href='https://twitter.com/electronjs'>@electronjs</a> บน Twitter และสมัครสมาชิก to the <a href='/blog'>บล็อก</a>"
     localized_docs: "<a href='/languages'><b>อ่านเอกสารในภาษาของคุณ</b></a> ด้วยการเข้าชม <a href='/languages'>หน้าภาษาอื่นๆ</a>"
-    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>Get help and feedback</b></a> by joining the <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
-    security: "<a href='mailto:security@electronjs.org'><b>Report security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
+    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>ขอความช่วยเหลือและการตอบกลับ</b></a> ด้วยการเข้าร่วม <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a>, สร้างกระทู้บน <a href='https://discuss.atom.io/c/electron'>ถาม-ตอบ</a> หรือเข้าไปดูที่ <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>"
+    security: "<a href='mailto:security@electronjs.org'> <b> รายงานปัญหาด้านความปลอดภัย </b> </a> โดยส่งอีเมล <a href='mailto:security@electronjs.org'> security@electronjs.org < / a>"
     bugs: "<a href='https://github.com/electron/electron/issues'><b>รายงานปัญหา</b></a> โดยการเปิด issue มาที่ <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>ขอฟีสเจอร์เพิ่ม</b></a> โดยการเปิด issue ที่ <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
-    code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Report Code of Conduct violations</b></a> by emailing <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
+    code_of_conduct: "<a href='mailto:coc@electronjs.org'> <b> รายงานการละเมิดจรรยาบรรณ </b> </a> โดยการส่งอีเมล <a href='mailto:coc@electronjs.org'> coc @ electronjs org </a>"
     donations: "<a href='donors'><b>Donate</b></a> on our <a href='/donors'>OpenCollective page</a>."
     other: "For all other inquiries, email <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
   language_communities:
     title: Language Communities
     description: "The Electron community spans the globe, and English is not everyone's first language. Find <a href='/languages'>documentation in your language</a>, or join one of the language communities below:"
   tools: เครื่องมือ
-  boilerplates: Boilerplates
+  boilerplates: Boilerplates 
   components: ส่วนประกอบ
   videos: วีดีโอ
   meetups: พบเจอได้ที่
@@ -68,10 +68,10 @@ community:
 releases:
   show_releases: "Show Releases:"
   show_only_releases_from: "Show Only Releases From:"
-  all_versions: All Versions
-  stable_releases: Stable Releases
-  stable_desc: Regular, supported releases
-  beta_releases: Beta Releases
+  all_versions: รองรับทุกเวอร์ชั่น
+  stable_releases: เวอร์ชั่นเสถียร ปล่อย
+  stable_desc: รุ่นธรรมดาที่รองรับ
+  beta_releases: รุ่นเบต้า
   beta_desc: Test your app with upcoming changes
   nightly_releases: Nightly Releases
   nightly_desc: Experiment with the latest features
@@ -137,7 +137,7 @@ apps:
   something_missing: มีอะไรหายเหรอ?
   edit_this_app: แก้ไขแอปนี้
   search_app: Filter apps by name, description, etc…
-  categories: Categories
+  categories: ประเภท
   add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
   website: เว็บไซต์
   repository: ที่เก็บต้นฉบับ
@@ -145,7 +145,7 @@ apps:
   downloads: ดาวน์โหลด
   keywords: คีย์เวิร์ด
   license: ใบอนุญาต
-  latest_release: Latest Release
+  latest_release: รุ่นล่าสุด
 blog:
   title: บล๊อกของอิเล็กตรอน
   description: รับข่าวสารจาก ทีมงานของอิเล็กตรอน และ ชุมชน
@@ -223,18 +223,18 @@ landing:
 governance:
   title: Electron Governance
   description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
-  wgs: Working Groups
+  wgs: คณะทำงาน
   docstools:
-    title: Docs & Tools
+    title: เอกสารและเครื่องมือ
     description: Oversees externally-focused tooling (e.g. Fiddle, Forge), Electron documentation across the website and <code>electron/*</code> repositories, and the maintainer’s group outreach to 3rd party modules.
   outreach:
-    title: Outreach
+    title: "ยื่นออกไป\n"
     description: Grows the Electron community
   releases:
     title: การเผยแพร่
     description: Oversees all release branches, and tooling to support releases.
   upgrades:
-    title: Upgrades
+    title: อัพเกรด
     description: Oversees upgrades of upstream dependencies; specifically Chromium and Node.
   website:
     title: เว็บไซต์
@@ -246,12 +246,12 @@ governance:
     title: ความปลอดภัย
     description: Proactively ensures the Security of Electron as a project, responds to incoming incidents, and oversees rollout of fixes.
   admins:
-    title: Administrative
-    description: The Administrative Working Group oversees the entire governance and project.
+    title: การบริหาร
+    description: คณะทำงานด้านธุรการดูแลการกำกับดูแลและโครงการทั้งหมด
   global:
-    overview: Overview
-    associated_repos: Associated Repositories
-    notes: Meeting Notes
+    overview: ภาพรวม
+    associated_repos: แหล่งเก็บข้อมูลที่เกี่ยวข้อง
+    notes: บันทึกการประชุม
   definitions:
     title: Definitions
     list:
@@ -269,8 +269,8 @@ governance:
       - They shall keep meeting notes, including agenda items, discussion points, and outcomes for everyone to review.
       - 'They shall be collaborative and work <a href="https://github.com/electron/governance/tree/master/charter/README.md#Core-Values">in good faith</a> with other Working Groups.'
     see_charter: See <a href="https://github.com/electron/governance/tree/master/charter/README.md">charter</a> for more information.
-  code_of_conduct: The Electron organization and all repos therein adhere to the following <a href="https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md">Code of Conduct.</a>
-  license: Electron is licensed with the <a href="https://github.com/electron/electron/blob/master/LICENSE">MIT License</a>.
-  repository: Check out the <a href="https://github.com/electron/governance">Governance Repository</a> to find more information about the governance structure.
+  code_of_conduct: องค์กร Electron และ repos ทั้งหมดในนั้นเป็นไปตาม <a href="https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md"> จรรยาบรรณ </a> ต่อไปนี้
+  license: Electron ได้รับอนุญาตให้ใช้งานกับ <a href="https://github.com/electron/electron/blob/master/LICENSE"> ใบอนุญาต MIT </a>
+  repository: ลองดู <a href="https://github.com/electron/governance"> พื้นที่เก็บข้อมูลการกำกับดูแล </a> เพื่อค้นหาข้อมูลเพิ่มเติมเกี่ยวกับโครงสร้างการกำกับดูแล
 _404:
   page_not_found: ไม่พบหน้าที่ต้องการ
