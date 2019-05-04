@@ -1,4 +1,4 @@
-# inAppPurchase
+# ในการซื้อแอป
 
 > In-app purchases on Mac App Store.
 
