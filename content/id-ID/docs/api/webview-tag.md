@@ -12,7 +12,7 @@ By default the `webview` tag is disabled in Electron >= 5. You need to enable th
 
 > Menampilkan konten web eksternal dalam bingkai terisolasi dan proses.
 
-Proses:[Renderer](../glossary.md#renderer-process)
+Processo: [Renderizador](../glossary.md#renderer-process)
 
 Gunakan tag ` webview ` untuk menyematkan 'guest' content (seperti halaman web) di aplikasi Elektron Anda. Konten tamu terdapat dalam wadah ` webview `. Halaman tertanam dalam aplikasi Anda mengontrol bagaimana konten tamu ditata dan diberikan.
 
@@ -738,16 +738,16 @@ API seperti <code>webContents.loadURL` dan `webContents.back`.
         
         ### Peristiwa: 'plugin-jatuh'
         
-        Mengembalikan:
+        Pengembalian:
         
         * ` nama </ 0>  String</li>
 <li><code>Versi` String
         
-        Fired when a plugin process is crashed.
+        Dibunyikan ketika proses plugin telah jatuh.
         
         ### Event: 'menghancurkan'
         
-        Fired when the WebContents is destroyed.
+        Dipecat saat WebContents hancur.
         
         ### Event: 'media-mulai-bermain''
         
@@ -759,11 +759,11 @@ API seperti <code>webContents.loadURL` dan `webContents.back`.
         
         ### Event: 'apakah-ganti-tema-warna'
         
-        Mengembalikan:
+        Pengembalian:
         
         * `themeColor` String
         
-        Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
+        Emitted ketika warna tema halaman berubah. Hal ini biasanya karena bertemu sebuah meta tag:
         
         ```html
         <meta name='theme-color' content='#ff0000'>
@@ -771,7 +771,7 @@ API seperti <code>webContents.loadURL` dan `webContents.back`.
         
         ### Event: 'update-target-url'
         
-        Mengembalikan:
+        Pengembalian:
         
         * `url` String
         
