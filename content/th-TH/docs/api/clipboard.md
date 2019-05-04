@@ -21,7 +21,7 @@ clipboard.writeText('Example String', 'selection')
 console.log(clipboard.readText('selection'))
 ```
 
-## Methods
+## วิธีการ
 
 The `clipboard` module has the following methods:
 
