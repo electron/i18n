@@ -98,69 +98,69 @@
   * วิธีการทั้งหมดที่มีค่าส่งคืนต้องเริ่มต้นคำอธิบายด้วย "ส่งคืน `[TYPE]` - คำอธิบายการส่งคืน " 
     * หากวิธีการส่งกลับวัตถุ ` ` โครงสร้างของมันสามารถระบุได้โดยใช้ลำไส้ใหญ่ตามด้วยขึ้นบรรทัดใหม่แล้วรายการของคุณสมบัติที่ไม่เรียงลำดับในรูปแบบเดียวกับพารามิเตอร์ฟังก์ชั่น
   * เหตุการณ์อินสแตนซ์จะต้องอยู่ในรายการ ` ### เหตุการณ์อินสแตนซ์ ` บท
-  * คุณสมบัติอินสแตนซ์จะต้องอยู่ในรายการภายใต้ `### คุณสมบัติอินสแตนซ์` chapter. 
-    * Instance properties must start with "A [Property Type] ..."
+  * คุณสมบัติอินสแตนซ์จะต้องอยู่ในรายการภายใต้ `### คุณสมบัติอินสแตนซ์` บท. 
+    * คุณสมบัติอินสแตนซ์จะต้องเริ่มต้นด้วย "A [ประเภทคุณสมบัติ] ... "
   
-  Using the `Session` and `Cookies` classes as an example:
+  การใช้คลาส ` เซสชัน ` และ ` คุกกี้ ` เป็นตัวอย่าง:
   
   ```markdown
-  # session
+  # เซสชัน
   
-  ## Methods
+  ## วิธีการ
   
-  ### session.fromPartition(partition)
+  ### session.fromPartition (พาร์ติชัน)
   
-  ## Properties
+  ## คุณสมบัติ
   
   ### session.defaultSession
   
-  ## Class: Session
+  ## คลาส: เซสชัน
   
-  ### Instance Events
+  ### เหตุการณ์อินสแตนซ์
   
-  #### Event: 'will-download'
+  #### กิจกรรม: 'จะดาวน์โหลด'
   
-  ### Instance Methods
+  ### วิธีการอินสแตนซ์
   
-  #### `ses.getCacheSize()`
+  #### `ses.getCacheSize ()`
   
-  ### Instance Properties
+  ### คุณสมบัติอินสแตนซ์
   
   #### `ses.cookies`
   
-  ## Class: Cookies
+  ## คลาส: คุกกี้
   
-  ### Instance Methods
+  ### วิธีการอินสแตนซ์
   
-  #### `cookies.get(filter, callback)`
+  #### `cookies.get (ตัวกรองการโทรกลับ)`
   ```
   
-  ### Methods
+  ### วิธีการ
   
-  The methods chapter must be in the following form:
+  บทวิธีการจะต้องอยู่ในรูปแบบต่อไปนี้:
   
   ```markdown
-  ### `objectName.methodName(required[, optional]))`
+  ### `objectName.methodName (จำเป็นต้องมี [, ตัวเลือก]))`
   
-  * `required` String - A parameter description.
-  * `optional` Integer (optional) - Another parameter description.
+  * `required` String - คำอธิบายพารามิเตอร์
+  * `optional` จำนวนเต็ม (เป็นตัวเลือก) - คำอธิบายพารามิเตอร์อื่น
   
   ...
   ```
   
-  The title can be `###` or `####`-levels depending on whether it is a method of a module or a class.
+  ชื่อสามารถเป็น ` ### ` หรือ ` #### ` - ระดับขึ้นอยู่กับว่ามันเป็นวิธีการของ โมดูลหรือคลาส
   
-  For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+  สำหรับโมดูล ` objectName ` เป็นชื่อของโมดูล สำหรับคลาสนั้นจะต้องเป็น ชื่อของอินสแตนซ์ของคลาสและจะต้องไม่เหมือนกับของโมดูล ชื่อ.
   
-  For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
+  ตัวอย่างเช่นวิธีการของคลาส ` เซสชัน ` ภายใต้โมดูล ` เซสชัน ` จะต้อง ใช้ ` ses ` เป็น ` objectName `
   
-  The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
+  อาร์กิวเมนต์ตัวเลือกจะได้รับการระบุด้วยวงเล็บเหลี่ยม ` [] ` ล้อมรอบอาร์กิวเมนต์ที่เลือกได้ เช่นเดียวกับจุลภาคที่จำเป็นถ้าอาร์กิวเมนต์ตัวเลือกนี้เป็นไปตามอื่น ข้อโต้แย้ง:
   
   ```sh
-  required[, optional]
+  ต้องการ [, ตัวเลือก]
   ```
   
-  Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
+  ด้านล่างวิธีเป็นข้อมูลรายละเอียดเพิ่มเติมเกี่ยวกับแต่ละข้อโต้แย้ง ประเภท ของอาร์กิวเมนต์ได้รับการแจ้งโดยประเภททั่วไป:
   
   * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
   * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
@@ -197,9 +197,9 @@
   
   The arguments of an event follow the same rules as methods.
   
-  ### Properties
+  ### คุณสมบัติ
   
-  The properties chapter must be in following form:
+  บทคุณสมบัติต้องอยู่ในรูปแบบต่อไปนี้:
   
   ```markdown
   ### session.defaultSession
@@ -207,7 +207,7 @@
   ...
   ```
   
-  The title can be `###` or `####`-levels depending on whether it is a property of a module or a class.
+  ชื่อสามารถเป็น ` ### ` หรือ ` #### ` - ระดับขึ้นอยู่กับว่ามันเป็นวิธีการของ โมดูลหรือคลาส
   
   ## การแปลเอกสาร
   
