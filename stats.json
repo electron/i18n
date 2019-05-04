@@ -289,14 +289,14 @@
     "name": "Thai",
     "code": "th",
     "phrases": "10550",
-    "translated": "384",
+    "translated": "510",
     "approved": "4",
     "words": "97148",
-    "words_translated": "2008",
+    "words_translated": "3198",
     "words_approved": "61",
-    "translated_progress": 2,
+    "translated_progress": 3,
     "approved_progress": 0,
-    "qa_issues": 136
+    "qa_issues": 256
   },
   {
     "name": "Turkish",

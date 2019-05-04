@@ -41,8 +41,8 @@ The following languages are currently being translated, but we can
 - [فارسی (Persian)](https://crowdin.com/project/electron/fa)
 - [čeština (Czech)](https://crowdin.com/project/electron/cs)
 - [עברית (Hebrew)](https://crowdin.com/project/electron/he)
-- [limba română (Romanian)](https://crowdin.com/project/electron/ro)
 - [ไทย (Thai)](https://crowdin.com/project/electron/th)
+- [limba română (Romanian)](https://crowdin.com/project/electron/ro)
 - [Wikang Tagalog (Tagalog)](https://crowdin.com/project/electron/tl)
 <!-- end language-table -->
 
