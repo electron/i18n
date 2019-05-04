@@ -1,7 +1,7 @@
-# Cookie Object
+# การเชื่อมต่อ Cookie
 
-* `name` String - The name of the cookie.
-* `value` String - The value of the cookie.
+* ` ชื่อ ` String - ชื่อของ Cookie
+* ` ค่า ` String - ค่าของ Cookie
 * `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains.
 * `hostOnly` Boolean (optional) - Whether the cookie is a host-only cookie; this will only be `true` if no domain was passed.
 * `path` String (optional) - The path of the cookie.
