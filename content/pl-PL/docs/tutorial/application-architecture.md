@@ -14,7 +14,7 @@ W normalnych przeglądarkach, strony internetowe zazwyczaj są uruchamiane w tzw
 
 Główny proces tworzy strony internetowe poprzez instancje `BrowserWindow`. Każda instancja `BrowserWindow` uruchamia stronę w swoim własnym procesie renderowania. Kiedy instancja `BrowserWindow` zostanie zniszczona, odpowiadający jej proces renderowania również zostaje zakończony.
 
-Główny proces zarządza wszystkimi stronami oraz ich procesami renderowania. Each renderer process is isolated and only cares about the web page running in it.
+Główny proces zarządza wszystkimi stronami oraz ich procesami renderowania. Wszystkie procesy renderowania są odizolowane od siebie i zajmują się wyłącznie swoją przydzieloną stroną internetową.
 
 In web pages, calling native GUI related APIs is not allowed because managing native GUI resources in web pages is very dangerous and it is easy to leak resources. If you want to perform GUI operations in a web page, the renderer process of the web page must communicate with the main process to request that the main process perform those operations.
 
@@ -55,9 +55,9 @@ const win = new BrowserWindow()
 
 ## Używanie API Node.js
 
-Electron exposes full access to Node.js both in the main and the renderer process. This has two important implications:
+Electron dostarcza pełen dostęp do Node.js zarówno w procesie głównym, jak i podczas procesu renderowania. This has two important implications:
 
-1) All APIs available in Node.js are available in Electron. Calling the following code from an Electron app works:
+1) Całe API Node.js jest dostępne w Electronie. Calling the following code from an Electron app works:
 
 ```javascript
 const fs = require('fs')
