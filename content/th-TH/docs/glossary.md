@@ -4,45 +4,45 @@
 
 ### ASAR
 
-ASAR stands for Atom Shell Archive Format. An [asar](https://github.com/electron/asar) archive is a simple `tar`-like format that concatenates files into a single file. Electron can read arbitrary files from it without unpacking the whole file.
+ASAR หมายถึงรูปแบบ Atom Shell Archive การเก็บถาวร [ asar ](https://github.com/electron/asar) นั้นง่าย ` tar ` รูปแบบเหมือนที่เชื่อมไฟล์เข้าด้วยกันเป็นไฟล์เดียว Electron สามารถอ่านได้ ไฟล์โดยพลการจากมันโดยไม่ต้องแกะไฟล์ทั้งหมด
 
-The ASAR format was created primarily to improve performance on Windows... TODO
+รูปแบบ ASAR ถูกสร้างขึ้นเพื่อเพิ่มประสิทธิภาพการทำงานบน Windows ... TODO เป็นหลัก
 
 ### CRT
 
-C Run-time Library (CRT) เป็นส่วนหนึ่งของไลบรารี่มาตรฐาน C++ ที่รวมอยู่ใน ISO C99 standard library. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
+C Run-time Library (CRT) เป็นส่วนหนึ่งของไลบรารี่มาตรฐาน C++ ที่รวมอยู่ใน ISO C99 standard library. Visual C ++ ไลบรารี่นั้น ใช้การพัฒนารหัสสนับสนุนเนทีฟ CRT และทั้งแบบผสมดั้งเดิมและ รหัสที่ได้รับการจัดการและรหัสที่ได้รับการจัดการบริสุทธิ์สำหรับการพัฒนา. NET
 
 ### DMG
 
-An Apple Disk Image is a packaging format used by macOS. DMG files are commonly used for distributing application "installers". [electron-builder](https://github.com/electron-userland/electron-builder) supports `dmg` as a build target.
+Apple Disk Image เป็นรูปแบบบรรจุภัณฑ์ที่ใช้โดย macOS ไฟล์ DMG นั้น ที่ใช้กันทั่วไปสำหรับการกระจายแอพพลิเคชั่น "ตัวติดตั้ง" [electron-builder](https://github.com/electron-userland/electron-builder) รองรับ `dmg` เป็นเป้าหมายบิลด์
 
 ### IME
 
-Input Method Editor. A program that allows users to enter characters and symbols not found on their keyboard. For example, this allows users of Latin keyboards to input Chinese, Japanese, Korean and Indic characters.
+ตัวแก้ไขวิธีการป้อนข้อมูล โปรแกรมที่ให้ผู้ใช้ป้อนตัวอักษรและ ไม่พบสัญลักษณ์บนแป้นพิมพ์ ตัวอย่างเช่นสิ่งนี้ช่วยให้ผู้ใช้ภาษาละติน แป้นพิมพ์เพื่อป้อนอักขระภาษาจีนญี่ปุ่นเกาหลีและตัวบ่งชี้
 
 ### IDL
 
-Interface description language. Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
+ภาษาคำอธิบายส่วนต่อประสาน เขียนฟังก์ชั่นลายเซ็นและประเภทข้อมูลในรูปแบบที่สามารถใช้ในการสร้างส่วนต่อประสานใน Java, C ++, JavaScript และอื่น ๆ
 
 ### IPC
 
-IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
+IPC ย่อมาจาก Inter-Process Communication อิเล็กตรอนใช้ IPC ในการส่ง ข้อความ JSON ที่ทำให้เป็นอนุกรมระหว่างกระบวนการ [ หลัก ](#main-process) และ [ ตัวสร้างภาพ ](#renderer-process)
 
 ### libchromiumcontent
 
-A shared library that includes the [Chromium Content module](https://www.chromium.org/developers/content-module) and all its dependencies (e.g., Blink, [V8](#v8), etc.). Also referred to as "libcc".
+ห้องสมุดสาธารณะที่มี [Chromium Content module](https://www.chromium.org/developers/content-module) และทั้งหมด การอ้างอิง (e.g., Blink, [V8](#v8), etc.). เรียกอีกอย่างว่า "libcc"
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
 ### main process
 
-The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
+กระบวนการหลักโดยทั่วไปคือไฟล์ที่ชื่อ ` main.js ` เป็นจุดเริ่มต้นสำหรับทุก ๆ แอปอิเล็กตรอน มันควบคุมชีวิตของแอพตั้งแต่เปิดจนถึงปิด มันยัง จัดการองค์ประกอบพื้นฐานเช่นเมนูแถบเมนู Dock ถาด ฯลฯ กระบวนการหลักรับผิดชอบในการสร้างกระบวนการเรนเดอร์ใหม่ในแต่ละแอพ Node API แบบเต็มถูกสร้างขึ้น
 
-Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
+ไฟล์กระบวนการหลักของทุกแอประบุไว้ในคุณสมบัติ `main` property in `package.json`. นี่คือวิธีที่ `electron .` รู้ว่าต้องใช้ไฟล์ใดเมื่อเริ่มต้น
 
-In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
+ใน Chromium กระบวนการนี้เรียกว่า "กระบวนการเบราว์เซอร์" มันคือ เปลี่ยนชื่อในอิเล็กตรอนเพื่อหลีกเลี่ยงความสับสนกับกระบวนการ renderer
 
-See also: [process](#process), [renderer process](#renderer-process)
+ดูเพิ่มเติมที่: [process](#process), [renderer process](#renderer-process)
 
 ### MAS
 
