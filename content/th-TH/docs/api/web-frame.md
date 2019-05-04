@@ -14,7 +14,7 @@ const { webFrame } = require('electron')
 webFrame.setZoomFactor(2)
 ```
 
-## Methods
+## วิธีการ
 
 The `WebFrame` class has the following instance methods:
 
@@ -205,7 +205,7 @@ Returns `WebFrame` - A child of `webFrame` with the supplied `name`, `null` woul
 
 Returns `WebFrame` - that has the supplied `routingId`, `null` if not found.
 
-## Properties
+## คุณสมบัติ
 
 ### `webFrame.top`
 
