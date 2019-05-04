@@ -4,9 +4,9 @@
 
 เมื่อเรียกคำสั่ง `npm install electron` ผู้ใช้งานบางคนอาจจะพบปัญหาในการติดตั้งเป็นบางครั้ง
 
-In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or wait a bit and try installing again.
+ในเกือบทุกกรณีข้อผิดพลาดเหล่านี้เป็นผลมาจากปัญหาเครือข่ายและไม่ ปัญหาจริงกับแพ็คเกจ `electron` npm package. ข้อผิดพลาดเช่น `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, และ `ETIMEDOUT` เป็นสิ่งบ่งชี้ทั้งหมดของ ปัญหาเครือข่าย ความละเอียดที่ดีที่สุดคือลองเปลี่ยนเครือข่ายหรือ รอสักครู่แล้วลองติดตั้งอีกครั้ง
 
-You can also attempt to download Electron directly from [electron/electron/releases](https://github.com/electron/electron/releases) if installing via `npm` is failing.
+คุณยังสามารถลองดาวน์โหลด Electron ได้โดยตรงจาก [electron/electron/releases](https://github.com/electron/electron/releases) ถ้าการติดตั้งด้วย `npm` มีความผิดพลาด
 
 ## เมื่อไหร่ Electron จะอัพเกรดเป็น Chrome ตัวล่าสุด?
 
@@ -45,16 +45,16 @@ require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
 console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## My app's window/tray disappeared after a few minutes.
+## หน้าต่าง / ถาดแอปของฉันหายไปหลังจากไม่กี่นาที
 
-This happens when the variable which is used to store the window/tray gets garbage collected.
+สิ่งนี้เกิดขึ้นเมื่อตัวแปรที่ใช้จัดเก็บหน้าต่าง / ถาดได้รับ เก็บขยะ
 
-If you encounter this problem, the following articles may prove helpful:
+หากคุณพบปัญหานี้บทความต่อไปนี้อาจพิสูจน์ได้ว่ามีประโยชน์:
 
 * [การจัดาการหน่วยความจำ](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
-* [Variable Scope](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
+* [ขอบเขตตัวแปร](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
-If you want a quick fix, you can make the variables global by changing your code from this:
+หากคุณต้องการการแก้ไขอย่างรวดเร็วคุณสามารถทำให้ตัวแปรเป็นโลกโดยการเปลี่ยนของคุณ รหัสจากนี้
 
 ```javascript
 const { app, Tray } = require('electron')
@@ -75,9 +75,9 @@ app.on('ready', () => {
 })
 ```
 
-## I can not use jQuery/RequireJS/Meteor/AngularJS in Electron.
+## ฉันไม่สามารถใช้ jQuery / RequireJS / Meteor / AngularJS ใน Electron
 
-Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. This causes problems for some libraries since they want to insert the symbols with the same names.
+เนื่องจากการรวม Node.js ของอิเล็กตรอนจึงมีสัญลักษณ์พิเศษบางอย่าง แทรกลงใน DOM เช่น `module`, `exports`, `require`. สิ่งนี้ทำให้เกิดปัญหา สำหรับบางไลบรารีเนื่องจากต้องการแทรกสัญลักษณ์ด้วยชื่อเดียวกัน
 
 ในการแก้ไขปัญหานี้ คุณสามารถปิดการทำงานร่วมกันของ node ใน Electron
 
@@ -91,7 +91,7 @@ let win = new BrowserWindow({
 win.show()
 ```
 
-But if you want to keep the abilities of using Node.js and Electron APIs, you have to rename the symbols in the page before including other libraries:
+แต่ถ้าคุณต้องการรักษาความสามารถในการใช้ Node.js และ Electron API คุณล่ะ ต้องเปลี่ยนชื่อสัญลักษณ์ในหน้าก่อนที่จะรวมห้องสมุดอื่น ๆ :
 
 ```html
 <head>
@@ -107,32 +107,32 @@ delete window.module;
 
 ## `require('electron').xxx` is undefined.
 
-When using Electron's built-in module you might encounter an error like this:
+เมื่อใช้โมดูลในตัวของอิเล็กตรอนคุณอาจพบข้อผิดพลาดดังนี้:
 
 ```sh
 > require('electron').webFrame.setZoomFactor(1.0)
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-This is because you have the [npm `electron` module](https://www.npmjs.com/package/electron) installed either locally or globally, which overrides Electron's built-in module.
+นี่เป็นเพราะคุณได้ติดตั้ง [npm `electron` module](https://www.npmjs.com/package/electron) ไม่ว่าจะเป็นในประเทศหรือทั่วโลกซึ่งจะแทนที่โมดูลในตัวของอิเล็กตรอน
 
-To verify whether you are using the correct built-in module, you can print the path of the `electron` module:
+หากต้องการตรวจสอบว่าคุณกำลังใช้โมดูลในตัวที่ถูกต้องคุณสามารถพิมพ์ เส้นทางของโมดูล `electron` module:
 
 ```javascript
 console.log(require.resolve('electron'))
 ```
 
-and then check if it is in the following form:
+จากนั้นตรวจสอบว่าอยู่ในรูปแบบต่อไปนี้หรือไม่:
 
 ```sh
 "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
 ```
 
-If it is something like `node_modules/electron/index.js`, then you have to either remove the npm `electron` module, or rename it.
+หากเป็นเช่น `node_modules/electron/index.js`, คุณต้องทำ อาจลบโมดูล npm `electron` หรือเปลี่ยนชื่อ
 
 ```sh
 npm uninstall electron
 npm uninstall -g electron
 ```
 
-However if you are using the built-in module but still getting this error, it is very likely you are using the module in the wrong process. For example `electron.app` can only be used in the main process, while `electron.webFrame` is only available in renderer processes.
+อย่างไรก็ตามหากคุณกำลังใช้โมดูลในตัว แต่ยังคงได้รับข้อผิดพลาดนี้อยู่ มีโอกาสมากที่คุณกำลังใช้โมดูลในกระบวนการที่ไม่ถูกต้อง ตัวอย่างเช่น `electron.app` สามารถใช้ได้ในกระบวนการหลักเท่านั้นในขณะที่ </code> ใช้ได้เฉพาะในกระบวนการตัวแสดงภาพเท่านั้น
