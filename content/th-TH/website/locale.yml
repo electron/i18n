@@ -13,11 +13,11 @@ nav:
   releases: การเผยแพร่
   search: ค้นหา
   userland: Userland
-  governance: Governance
+  governance: การกำกับดูแลกิจการ
 keyboard_modal:
   title: ปุ่มลัดแป้นพิมพ์
-  key: Key
-  action: Action
+  key: คีย์
+  action: ดำเนินการ
   focus_search: Focus the search bar
   focus_and_clear: Focus the search bar and cleans it
   scroll_down: เลือกผลการค้นหาถัดไป
@@ -75,13 +75,13 @@ releases:
   beta_desc: Test your app with upcoming changes
   nightly_releases: Nightly Releases
   nightly_desc: Experiment with the latest features
-  next: Next
-  next_page: Next Page
-  previous: Previous
-  previous_page: Previous Page
-  page: Page
-  all_releases: All Releases
-  back_to_index: Back to index
+  next: ถัดไป
+  next_page: หน้าถัดไป
+  previous: ก่อนหน้า
+  previous_page: หน้าก่อนหน้า
+  page: หน้า
+  all_releases: ทุกรุ่น
+  back_to_index: กลับไปหน้า Index
 electron_is_easy:
   title: ง่ายกว่าที่คุณคิด
   description: ถ้าคุณสร้างเว็บไซต์ได้ คุณก็สร้างเดสท็อปแอปได้ ซึ่ง Electron คือเฟรมเวิร์คสำหรับสร้างแอปด้วยเทคโนโลยีของเว็บไซต์ เช่น JavaScript, HTML และ CSS โดยที่เราจะจัดการส่วนที่ยากให้เอง คุณก็เพียงแต่เน้นไปที่ส่วนสำคัญของแอปของคุณเท่านั้น
@@ -139,11 +139,11 @@ apps:
   search_app: Filter apps by name, description, etc…
   categories: Categories
   add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
-  website: Website
-  repository: Repository
-  category: Category
-  downloads: Downloads
-  keywords: Keywords
+  website: เว็บไซต์
+  repository: ที่เก็บต้นฉบับ
+  category: ประเภท
+  downloads: ดาวน์โหลด
+  keywords: คีย์เวิร์ด
   license: ใบอนุญาต
   latest_release: Latest Release
 blog:
@@ -237,7 +237,7 @@ governance:
     title: Upgrades
     description: Oversees upgrades of upstream dependencies; specifically Chromium and Node.
   website:
-    title: Website
+    title: เว็บไซต์
     description: Oversees the technical implementation, design, and style of the Electron website and associated tooling.
   cmsf:
     title: Community & Safety
