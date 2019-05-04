@@ -38,11 +38,11 @@
 
 ## Core Philosophy
 
-In order to keep Electron small (file size) and sustainable (the spread of dependencies and APIs) the project limits the scope of the core project.
+เพื่อให้อิเล็กตรอนมีขนาดเล็ก (ขนาดไฟล์) และยั่งยืน (การแพร่กระจายของการพึ่งพาและ API) โครงการ จำกัด ขอบเขตของโครงการหลัก
 
-For instance, Electron uses Chromium's rendering library rather than all of Chromium. This makes it easier to upgrade Chromium but also means some browser features found in Google Chrome do not exist in Electron.
+ตัวอย่างเช่น Electron ใช้ไลบรารีการแสดงผลของ Chromium มากกว่า Chromium ทั้งหมด สิ่งนี้ทำให้การอัปเกรด Chromium ง่ายขึ้น แต่ยังหมายถึงคุณลักษณะบางอย่างของเบราว์เซอร์ที่พบใน Google Chrome ไม่มีอยู่ในอิเล็กตรอน
 
-New features added to Electron should primarily be native APIs. If a feature can be its own Node.js module, it probably should be. See the [Electron tools built by the community](https://electronjs.org/community).
+คุณสมบัติใหม่ที่เพิ่มเข้ากับอิเล็กตรอนควรเป็น API ดั้งเดิม หากคุณสมบัติสามารถเป็นโมดูล Node.js ของตัวเองก็น่าจะเป็น ดู [ เครื่องมืออิเล็กตรอนที่สร้างโดยชุมชน ](https://electronjs.org/community)
 
 ## History
 
