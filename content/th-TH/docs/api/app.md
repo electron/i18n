@@ -400,7 +400,7 @@ Returns:
 
 Emitted when `<webview>.getWebContents()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
 
-## Methods
+## วิธีการ
 
 The `app` object has the following methods:
 
@@ -1085,7 +1085,7 @@ Sets the application's [dock menu](https://developer.apple.com/macos/human-inter
 
 Sets the `image` associated with this dock icon.
 
-## Properties
+## คุณสมบัติ
 
 ### `app.isPackaged`
 
