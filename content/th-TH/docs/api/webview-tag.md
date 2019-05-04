@@ -442,7 +442,7 @@ Starts a request to find all matches for the `text` in the web page. The result 
 
 ### `<webview>.stopFindInPage(action)`
 
-* `action` String - Specifies the action to take place when ending [`<webview>.findInPage`](#webviewfindinpagetext-options) request. 
+* `ดำเนินการ` String - Specifies the action to take place when ending [`<webview>.findInPage`](#webviewfindinpagetext-options) request. 
   * `clearSelection` - Clear the selection.
   * `keepSelection` - Translate the selection into a normal selection.
   * `activateSelection` - Focus and click the selection node.
@@ -772,10 +772,6 @@ ipcRenderer.on('ping', () => {
 ### Event: 'crashed'
 
 Fired when the renderer process is crashed.
-
-### Event: 'gpu-crashed'
-
-Fired when the gpu process is crashed.
 
 ### Event: 'plugin-crashed'
 
