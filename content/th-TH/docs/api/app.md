@@ -13,7 +13,7 @@ app.on('window-all-closed', () => {
 })
 ```
 
-## Events
+## อีเวนต์
 
 Events ของ `app` object:
 
