@@ -1,4 +1,4 @@
-# CustomScheme Object
+# Объект CustomScheme
 
 * `scheme` String - Custom schemes to be registered with options.
 * `privileges` Object (опционально) 
