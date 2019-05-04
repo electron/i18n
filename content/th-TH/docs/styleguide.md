@@ -167,35 +167,35 @@
   * [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
   * [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
   * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-  * Or a custom type like Electron's [`WebContent`](api/web-contents.md)
+  * หรือประเภทที่กำหนดเองเช่น [` WebContent `](api/web-contents.md) ของอิเล็กตรอน
   
-  If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows` or `Linux`.
+  หากมีข้อโต้แย้งหรือวิธีการที่ไม่ซ้ำกันในบางแพลตฟอร์มแพลตฟอร์มเหล่านั้นคือ แสดงโดยใช้รายการตัวเอียงที่คั่นด้วยเว้นวรรคตามประเภทข้อมูล ค่า สามารถเป็น ` macOS `, ` Windows ` หรือ ` Linux `
   
   ```markdown
-  * `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
+  * `animate` Boolean (เป็นทางเลือก) _macOS_ _Windows_ - สร้างภาพเคลื่อนไหว
   ```
   
-  `Array` type arguments must specify what elements the array may include in the description below.
+  ` อาร์เรย์ ` อาร์กิวเมนต์ประเภทต้องระบุองค์ประกอบที่อาเรย์อาจรวมอยู่ด้วย คำอธิบายด้านล่าง
   
-  The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
+  คำอธิบายสำหรับอาร์กิวเมนต์ประเภท ` Function ` ควรทำให้ชัดเจนว่าเป็นอย่างไร เรียกและรายการประเภทของพารามิเตอร์ที่จะถูกส่งไปยังมัน
   
   ### อีเวนต์
   
-  The events chapter must be in following form:
+  บทเหตุการณ์ต้องอยู่ในรูปแบบต่อไปนี้:
   
   ```markdown
-  ### Event: 'wake-up'
+  ### กิจกรรม: 'ปลุก'
   
-  Returns:
+  ผลตอบแทน:
   
   * `time` String
   
   ...
   ```
   
-  The title can be `###` or `####`-levels depending on whether it is an event of a module or a class.
+  ชื่อสามารถเป็น ` ### ` หรือ ` #### ` - ระดับขึ้นอยู่กับว่าเป็นเหตุการณ์ของ โมดูลหรือคลาส
   
-  The arguments of an event follow the same rules as methods.
+  อาร์กิวเมนต์ของเหตุการณ์เป็นไปตามกฎเดียวกันกับวิธีการ
   
   ### คุณสมบัติ
   
