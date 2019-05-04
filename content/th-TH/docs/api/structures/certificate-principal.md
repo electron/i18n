@@ -1,8 +1,8 @@
 # เชื่อมต่อ Certificate Principal
 
 * ` ชื่อ ` String - ชื่อ
-* `organizations` String[] - Organization names.
-* `organizationUnits` String[] - Organization Unit names.
-* `locality` String - Locality.
-* `state` String - State or province.
-* `country` String - Country or region.
+* ` องค์กร ` String[] - ชื่อองค์กร
+* ` หน่วยขององค์กร ` String[] - ชื่อหน่วยขององค์กร
+* ` ท้องถิ่น ` String - ท้องถิ่น
+* ` รัฐ` String - รัฐหรือจังหวัด
+* ` ประเทศ ` String - ประเทศหรือภูมิภาค
