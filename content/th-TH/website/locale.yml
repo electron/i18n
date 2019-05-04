@@ -216,35 +216,35 @@ landing:
     explore_desc: "ลองใช้อิเล็กตรอนโดยไม่ต้องติดตั้งการพึ่งพาใด ๆ : ซอมีทุกสิ่งที่คุณต้องการในการสำรวจแพลตฟอร์ม นอกจากนี้ยังมีตัวอย่างสำหรับทุก ๆ API ที่มีอยู่ใน Electron ดังนั้นหากคุณต้องการดูว่า BrowserView คืออะไรหรือ desktopCapturer ทำงานอย่างไรซอก็ทำให้คุณเข้าใจ"
     code_with_types: รหัสด้วยประเภท
     code_with_types_desc: Fiddle ได้รวม Monaco Editor ที่ยอดเยี่ยมของ Microsoft ซึ่งเป็นโปรแกรมแก้ไขเดียวกันกับรหัส Visual Studio นอกจากนี้ยังติดตั้งคำจำกัดความประเภทสำหรับ Electron เวอร์ชันที่เลือกไว้ในปัจจุบันโดยอัตโนมัติเพื่อให้แน่ใจว่าคุณมี Electron API ทั้งหมดเพียงไม่กี่การกดแป้น
-    compile_and_package: Compile and Package
-    compile_and_package_desc: Fiddle can automatically turn your experiment into binaries you can share with your friends, coworkers, or grandparents. It does so thanks to <a href="https://electronforge.io/">electron-forge</a>, allowing you to package your fiddle as an app for Windows, macOS, or Linux.
-    easy_start: Start with Fiddle, Continue Wherever
-    easy_start_desc: Fiddle is not an IDE – it is however an excellent starting point. Once your fiddle has grown up, export it as a project with or without <a href="https://electronforge.io/">electron-forge</a>. Then, use your favorite editor and take on the world!
+    compile_and_package: คอมไพล์ และ แพคเกจ
+    compile_and_package_desc: ซอสามารถเปลี่ยนการทดสอบของคุณให้เป็นไบนารีที่คุณสามารถแบ่งปันกับเพื่อนผู้ร่วมงานหรือปู่ย่าตายายของคุณโดยอัตโนมัติ ต้องขอบคุณ <a href="https://electronforge.io/"> อิเล็กตรอน - ฟอร์จ </a> ซึ่งช่วยให้คุณจัดทำซอของคุณเป็นแอพสำหรับ Windows, MacOS หรือ Linux
+    easy_start: เริ่มด้วย Fiddle ต่อไปทุกที่
+    easy_start_desc: ซอไม่ได้เป็น IDE - แต่มันเป็นจุดเริ่มต้นที่ยอดเยี่ยม เมื่อซอของคุณโตขึ้นให้ส่งออกเป็นโปรเจ็กต์ที่มีหรือไม่มี <a href="https://electronforge.io/"> อิเล็กตรอน - ฟอร์จ </a> จากนั้นใช้โปรแกรมแก้ไขที่คุณชื่นชอบและทำในโลกนี้!
 governance:
   title: การกำกับดูแล Electron 
   description: ระบบการกำกับดูแล Electron ประกอบด้วยคณะทำงานที่ดูแลด้านต่าง ๆ ของระบบนิเวศของอิเล็กตรอนและคณะทำงานด้านการบริหารที่ทำหน้าที่แก้ไขความขัดแย้งระหว่างกัน
   wgs: คณะทำงาน
   docstools:
     title: เอกสารและเครื่องมือ
-    description: Oversees externally-focused tooling (e.g. Fiddle, Forge), Electron documentation across the website and <code>electron/*</code> repositories, and the maintainer’s group outreach to 3rd party modules.
+    description: ดูแลเครื่องมือที่เน้นจากภายนอก (เช่นซอ, ปลอม), เอกสารอิเล็คตรอนทั่วทั้งเว็บไซต์และ <code> อิเล็กตรอน / * </code> ที่เก็บและกลุ่มของผู้ดูแลเข้าถึงโมดูลบุคคลที่สาม
   outreach:
     title: "ยื่นออกไป\n"
-    description: Grows the Electron community
+    description: เติบโตชุมชน Electron 
   releases:
     title: การเผยแพร่
-    description: Oversees all release branches, and tooling to support releases.
+    description: ดูแลทุกสาขาที่วางจำหน่ายและเครื่องมือในการสนับสนุนการเปิดตัว
   upgrades:
     title: อัพเกรด
-    description: Oversees upgrades of upstream dependencies; specifically Chromium and Node.
+    description: กำกับดูแลการอัพเกรดของการพึ่งพาต้นน้ำ; โดยเฉพาะ Chromium และ Node
   website:
     title: เว็บไซต์
-    description: Oversees the technical implementation, design, and style of the Electron website and associated tooling.
+    description: ดูแลการดำเนินงานด้านเทคนิคการออกแบบและรูปแบบของเว็บไซต์อิเล็กตรอนและเครื่องมือที่เกี่ยวข้อง
   cmsf:
     title: ชุมชนและความปลอดภัย
-    description: Oversees removal/bans from community.
+    description: ดูแลการกำจัด / การแบนจากชุมชน
   security:
     title: ความปลอดภัย
-    description: Proactively ensures the Security of Electron as a project, responds to incoming incidents, and oversees rollout of fixes.
+    description: มั่นใจในความปลอดภัยของ Electron ในเชิงรุกในโครงการตอบสนองต่อเหตุการณ์ที่เกิดขึ้นและดูแลการแก้ไขปัญหา
   admins:
     title: การบริหาร
     description: คณะทำงานด้านธุรการดูแลการกำกับดูแลและโครงการทั้งหมด
@@ -255,19 +255,19 @@ governance:
   definitions:
     title: คำนิยาม
     list:
-      - A <i>maintainer</i> is anyone who plays an active role in governance.
-      - A <i>collaborator</i> is active in the community, but not in governance.
-      - A <i>participant</i> is anyone who is a maintainer or collaborator.
-      - A <i>working group</i> is a group of maintainers that is formed to take responsibility for certain aspects of the Electron project. Normally these groups will meet regularly but in some cases will only meet as required to fulfill their responsibilities.
-      - 'A <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership">chair</a> leads a working group.'
+      - <i> ผู้ดูแล </i> คือทุกคนที่มีบทบาทอย่างแข็งขันในการกำกับดูแล
+      - <i> ผู้ทำงานร่วมกัน </i> ทำงานอยู่ในชุมชน แต่ไม่ใช่ในการกำกับดูแล
+      - <i> ผู้เข้าร่วม </i> คือทุกคนที่เป็นผู้ดูแลหรือผู้ทำงานร่วมกัน
+      - <i> คณะทำงาน </i> เป็นกลุ่มผู้ดูแลที่จัดตั้งขึ้นเพื่อรับผิดชอบในบางแง่มุมของโครงการอิเล็กตรอน โดยปกติกลุ่มเหล่านี้จะประชุมกันเป็นประจำ แต่ในบางกรณีจะตอบสนองตามความต้องการเพื่อให้บรรลุความรับผิดชอบ
+      - '<a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership"> ประธาน </a> นำพาคณะทำงาน'
   responsibilities:
-    title: Responsibilities
-    listdescription: "All Working Groups have these core responsibilities:"
+    title: ความรับผิดชอบ
+    listdescription: "คณะทำงานทั้งหมดมีความรับผิดชอบหลักเหล่านี้:"
     list:
-      - They shall decide for themselves, and publicly post, their rules, e.g. how decisions are made, when meetings are held, and who may attend.
-      - 'They shall <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Terms-and-Selection">select</a> a chair to <a href=''https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Responsibilities''>represent</a> the group.'
-      - They shall keep meeting notes, including agenda items, discussion points, and outcomes for everyone to review.
-      - 'They shall be collaborative and work <a href="https://github.com/electron/governance/tree/master/charter/README.md#Core-Values">in good faith</a> with other Working Groups.'
+      - พวกเขาจะต้องตัดสินใจด้วยตนเองและโพสต์ต่อสาธารณะกฎของตนเช่น วิธีการตัดสินใจเมื่อมีการประชุมและผู้ที่อาจเข้าร่วม
+      - 'พวกเขาจะ <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Terms-and-Selection"> เลือก </a> เก้าอี้สำหรับ <a href = ''https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Responsibilities''> ตัวแทน </a> กลุ่ม'
+      - พวกเขาจะต้องเก็บบันทึกการประชุมรวมถึงวาระการประชุมจุดอภิปรายและผลลัพธ์สำหรับทุกคนที่จะทบทวน
+      - 'พวกเขาจะทำงานร่วมกันและทำงาน <a href="https://github.com/electron/governance/tree/master/charter/README.md#Core-Values"> โดยสุจริต </a> กับคณะทำงานอื่น ๆ'
     see_charter: ดู <a href="https://github.com/electron/governance/tree/master/charter/README.md"> กฎบัตร </a> สำหรับข้อมูลเพิ่มเติม
   code_of_conduct: องค์กร Electron และ repos ทั้งหมดในนั้นเป็นไปตาม <a href="https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md"> จรรยาบรรณ </a> ต่อไปนี้
   license: Electron ได้รับอนุญาตให้ใช้งานกับ <a href="https://github.com/electron/electron/blob/master/LICENSE"> ใบอนุญาต MIT </a>
