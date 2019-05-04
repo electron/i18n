@@ -20,7 +20,7 @@ See [`--log-net-log`](chrome-command-line-switches.md#--log-net-logpath) to log 
 
 **Note:** All methods unless specified can only be used after the `ready` event of the `app` module gets emitted.
 
-## Methods
+## วิธีการ
 
 ### `netLog.startLogging(path)`
 
@@ -35,7 +35,7 @@ Starts recording network events to `path`.
 
 Stops recording network events. If not called, net logging will automatically end when app quits.
 
-## Properties
+## คุณสมบัติ
 
 ### `netLog.currentlyLogging`
 
