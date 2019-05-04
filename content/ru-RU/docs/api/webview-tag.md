@@ -773,10 +773,6 @@ ipcRenderer.on('ping', () => {
 
 Fired when the renderer process is crashed.
 
-### Event: 'gpu-crashed'
-
-Fired when the gpu process is crashed.
-
 ### Событие: 'plugin-crashed'
 
 Возвращает:
