@@ -140,7 +140,7 @@ $ ./out/Debug/electron.exe
 $ ./out/Debug/electron
 ```
 
-### Packaging
+### แพคเกจ
 
 On linux, first strip the debugging and symbol information:
 
