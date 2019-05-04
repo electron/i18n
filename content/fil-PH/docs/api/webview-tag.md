@@ -773,22 +773,18 @@ ipcRenderer.on('ping', () => {
 
 Itigil kapag ang nag-crash ang proseso na nagsumite.
 
-### Event: 'gpu-crashed'
-
-Itigil kapag ang ang proseso ng gpu ay nag-crash.
-
 ### Kaganapan: 'plugin-nag-crash'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `name` String
 * `Bersyon` Pisi
 
-Itigil kapag ang proseso na plug-in ay nagcrash.
+Fired when a plugin process is crashed.
 
 ### Kaganapan: 'nawasak'
 
-Itigil kapag ang nasira ang mga WebContent.
+Fired when the WebContents is destroyed.
 
 ### Kaganapan: 'media-started-playing'
 
@@ -796,15 +792,15 @@ Naipalalabas kapag nagsimula ng maglaro ang media.
 
 ### Kaganapan: 'media-paused'
 
-Naipalalabas kapag ang media ay naka-nakahinto o tapos na ang pag-play.
+Ilabas kapag ang medya ay nahinto o natapos na.
 
 ### Kaganapan: 'ginawa-baguhin-tema-kulay'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `themeColor` String
 
-Ilabas kung ang kulay ng tema ng page ay nabago. Ito ay kadalasang dahil sa na-icounter ang tanda na meta:
+Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
 
 ```html
 <meta name='theme-color' content='#ff0000'>
@@ -812,7 +808,7 @@ Ilabas kung ang kulay ng tema ng page ay nabago. Ito ay kadalasang dahil sa na-i
 
 ### Kaganapan: 'update-target-url'
 
-Ibinabalik ang:
+Pagbabalik:
 
 * `url` Tali
 
@@ -820,7 +816,7 @@ Inilalabas kapag gumagalaw ang mouse sa isang link o inililipat ng keyboard ang 
 
 ### Kaganapan: 'devtools-binuksan'
 
-Nilalabas kapag ang DevTools ay nabuksan.
+Ilabas kapag ang mga DevTool ay nabuksan.
 
 ### Kaganapan: 'devtools-sarado'
 
@@ -828,4 +824,4 @@ Nilalabas kapag ang DevTools ay sarado.
 
 ### Kaganapan: 'devtools-nakatuon'
 
-Nilalabas kapag ang DevTools ay nakatuon/binuksan.
+Ilabas kapag ang mga DevTool ay napukos / nabuksan.
