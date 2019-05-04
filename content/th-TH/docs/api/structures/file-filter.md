@@ -1,4 +1,4 @@
-# FileFilter Object
+# FileFilter Object เชื่อมต่อ ค้นหาไฟล์
 
-* `name` String
-* `extensions` String[]
+* `name` String ชื่อ
+* `extensions` String[] ส่วนขยาย
