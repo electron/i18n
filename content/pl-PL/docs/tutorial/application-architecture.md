@@ -12,7 +12,7 @@ W normalnych przeglądarkach, strony internetowe zazwyczaj są uruchamiane w tzw
 
 ### Różnice Pomiędzy Procesem Głównym i Procesem Renderowania
 
-The main process creates web pages by creating `BrowserWindow` instances. Each `BrowserWindow` instance runs the web page in its own renderer process. When a `BrowserWindow` instance is destroyed, the corresponding renderer process is also terminated.
+Główny proces tworzy strony internetowe poprzez instancje `BrowserWindow`. Każda instancja `BrowserWindow` uruchamia stronę w swoim własnym procesie renderowania. Kiedy instancja `BrowserWindow` zostanie zniszczona, odpowiadający jej proces renderowania również zostaje zakończony.
 
 The main process manages all web pages and their corresponding renderer processes. Each renderer process is isolated and only cares about the web page running in it.
 
