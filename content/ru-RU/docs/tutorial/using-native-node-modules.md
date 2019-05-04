@@ -1,4 +1,4 @@
-# Использование нативных модулей NodeJS
+# Использование модулей узлов
 
 Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed on your system, the modules you use will need to be recompiled for Electron. Otherwise, you will get the following class of error when you try to run your app:
 
