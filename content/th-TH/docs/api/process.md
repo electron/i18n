@@ -49,7 +49,7 @@ process.once('loaded', () => {
 })
 ```
 
-## Properties
+## คุณสมบัติ
 
 ### `process.defaultApp`
 
@@ -111,7 +111,7 @@ A `String` representing Electron's version string.
 
 A `Boolean`. If the app is running as a Windows Store app (appx), this property is `true`, for otherwise it is `undefined`.
 
-## Methods
+## วิธีการ
 
 The `process` object has the following methods:
 
