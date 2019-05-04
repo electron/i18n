@@ -76,7 +76,7 @@ Secara default penyimpanan apis web (localStorage, sessionStorage, webSQL, index
   
   Mendaftarkan protokol `skema` yang akan mengirim file sebagai tanggapan. `handler` akan disebut dengan `handler(permintaan, callback)` ketika `permintaan` akan dibuat dengan `skema`. `selesai` akan dipanggil dengan `selesai (null)` ketika `skema` berhasil didaftarkan atau `selesai(error)` ketika gagal.
   
-  Untuk menangani `permintaan`, `panggilan balik` harus dipanggil dengan jalur file atau objek yang memiliki properti `path`, misalnya `callback(filePath)` atau `callback({ path: filePath })`. The object may also have a `headers` property which gives a list of strings for the response headers, e.g. `callback({ path: filePath, headers: ["Content-Security-Policy: default-src 'none'"]})`.
+  Untuk menangani `permintaan`, `panggilan balik` harus dipanggil dengan jalur file atau objek yang memiliki properti `path`, misalnya `callback(filePath)` atau `callback({ path: filePath })`. The object may also have a `headers` property which gives a map of headers to values for the response headers, e.g. `callback({ path: filePath, headers: {"Content-Security-Policy": "default-src 'none'"]})`.
   
   Ketika `callback` dipanggil tanpa nomor, angka, atau objek yang memiliki properti `kesalahan`, `permintaan` akan gagal dengan `kesalahan` nomor yang Anda tentukan. Untuk nomor kesalahan yang tersedia, silakan lihat [daftar kesalahan bersih](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
   
