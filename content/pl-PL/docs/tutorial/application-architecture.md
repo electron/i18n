@@ -12,7 +12,7 @@ W normalnych przeglądarkach, strony internetowe zazwyczaj są uruchamiane w tzw
 
 ### Różnice Pomiędzy Procesem Głównym i Procesem Renderowania
 
-Główny proces tworzy strony internetowe poprzez instancje `BrowserWindow`. Każda instancja `BrowserWindow` uruchamia stronę w swoim własnym procesie renderowania. Kiedy instancja `BrowserWindow` zostanie zniszczona, odpowiadający jej proces renderowania również zostaje zakończony.
+Główny proces renderuje strony internetowe poprzez tworzenie instancji `BrowserWindow`. Każda instancja `BrowserWindow` uruchamia stronę poprzez swój własny proces renderingu. Kiedy instancja `BrowserWindow` zostanie zniszczona, odpowiadający jej proces renderowania również zostaje zakończony.
 
 Główny proces zarządza wszystkimi stronami oraz ich procesami renderowania. Wszystkie procesy renderowania są odizolowane od siebie i zajmują się wyłącznie swoją przydzieloną stroną internetową.
 
@@ -45,8 +45,8 @@ const win = new BrowserWindow()
 Since communication between the processes is possible, a renderer process can call upon the main process to perform tasks. Electron comes with a module called `remote` that exposes APIs usually only available on the main process. In order to create a `BrowserWindow` from a renderer process, we'd use the remote as a middle-man:
 
 ```javascript
-// This will work in a renderer process, but be `undefined` in the
-// main process:
+// To zadziała w procesie renderowania, ale będzie 
+// `undefined` w głównym procesie:
 const { remote } = require('electron')
 const { BrowserWindow } = remote
 
@@ -55,7 +55,7 @@ const win = new BrowserWindow()
 
 ## Używanie API Node.js
 
-Electron dostarcza pełen dostęp do Node.js zarówno w procesie głównym, jak i podczas procesu renderowania. This has two important implications:
+Electron dostarcza pełen dostęp do Node.js zarówno w procesie głównym, jak i podczas procesu renderowania. Ma to dwie poważne konsekwencje:
 
 1) Całe API Node.js jest dostępne w Electronie. Wywoływanie poniższego kodu z poziomu aplikacji zadziała w następujący sposób:
 
@@ -79,13 +79,13 @@ Na przykład, aby użyć oficjalne SDK AWS w Twojej aplikacji, na początek musi
 npm install --save aws-sdk
 ```
 
-Następnie, w Twojej aplikacji, powinieneś wymagać oraz użyć moduł, tak jakbyś tworzył aplikację Node.js:
+Następnie użyj moduł tak, jakbyś tworzył zwykłą aplikację Node.js:
 
 ```javascript
 // A ready-to-use S3 Client
 const S3 = require('aws-sdk/clients/s3')
 ```
 
-There is one important caveat: Native Node.js modules (that is, modules that require compilation of native code before they can be used) will need to be compiled to be used with Electron.
+Jest jedno ważne zastrzeżenie: natywne moduły Node.js muszą zostać przekompilowane, by móc je wykorzystać w Electronie.
 
-The vast majority of Node.js modules are *not* native. Only 400 out of the ~650.000 modules are native. However, if you do need native modules, please consult [this guide on how to recompile them for Electron](./using-native-node-modules.md).
+Zdecydowana większość modułów Node.js *to nie* moduły natywne. Tylko około 400 z ~650.000 modułów to moduły natywne. Jednak jeśli potrzebujesz moduły natywne, przejrzyj [ten poradnik jak zrekompilować je dla aplikacji Electron](./using-native-node-modules.md).
