@@ -1,4 +1,4 @@
-# netLog
+# เน็ตล็อค
 
 > Logging network events for a session.
 
