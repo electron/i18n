@@ -736,22 +736,18 @@ API seperti <code>webContents.loadURL` dan `webContents.back`.
         
         Dipecat saat proses renderer jatuh.
         
-        ### Event: 'jatuh'
-        
-        Dipecat saat proses gpu jatuh.
-        
         ### Peristiwa: 'plugin-jatuh'
         
-        Pengembalian:
+        Mengembalikan:
         
         * ` nama </ 0>  String</li>
 <li><code>Versi` String
         
-        Dibunyikan ketika proses plugin telah jatuh.
+        Fired when a plugin process is crashed.
         
         ### Event: 'menghancurkan'
         
-        Dipecat saat WebContents hancur.
+        Fired when the WebContents is destroyed.
         
         ### Event: 'media-mulai-bermain''
         
@@ -763,11 +759,11 @@ API seperti <code>webContents.loadURL` dan `webContents.back`.
         
         ### Event: 'apakah-ganti-tema-warna'
         
-        Pengembalian:
+        Mengembalikan:
         
         * `themeColor` String
         
-        Emitted ketika warna tema halaman berubah. Hal ini biasanya karena bertemu sebuah meta tag:
+        Emitted when a page's theme color changes. This is usually due to encountering a meta tag:
         
         ```html
         <meta name='theme-color' content='#ff0000'>
@@ -775,7 +771,7 @@ API seperti <code>webContents.loadURL` dan `webContents.back`.
         
         ### Event: 'update-target-url'
         
-        Pengembalian:
+        Mengembalikan:
         
         * `url` String
         
