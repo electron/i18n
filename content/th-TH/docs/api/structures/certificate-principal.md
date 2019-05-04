@@ -1,6 +1,6 @@
-# CertificatePrincipal Object
+# เชื่อมต่อ Certificate Principal
 
-* `commonName` String - Common Name.
+* ` ชื่อ ` String - ชื่อ
 * `organizations` String[] - Organization names.
 * `organizationUnits` String[] - Organization Unit names.
 * `locality` String - Locality.
