@@ -324,7 +324,7 @@ CSS'i misafir sayfasının içine yerleştirir.
 
 ### `<webview>.executeJavaScript(code[, userGesture, callback])`
 
-* `code` String
+* `code` Dizgi
 * `userGesture` Boolean (optional) - Default `false`.
 * `geri aramak` Function (isteğe bağlı) - Script çalıştıktan sonra çağırılır. 
   * `result` Any
@@ -772,10 +772,6 @@ ipcRenderer.on('ping', () => {
 ### Etkinlik: 'çöktü'
 
 Renderer işlemi çöktüğünde tetiklenir.
-
-### Etkinlik: 'gpu-çöktü'
-
-Gpu işlemi çöktüğünde tetiklenir.
 
 ### Event: 'plugin-crashed'
 
