@@ -1,6 +1,6 @@
-# CustomScheme Object
+# CustomScheme Object เชื่อมต่อ กำหนดสกีมา
 
-* `scheme` String - Custom schemes to be registered with options.
+* `scheme` String - แบบแผนที่กำหนดเองเพื่อลงทะเบียนพร้อมตัวเลือก
 * `privileges` Object (optional) 
   * `standard` Boolean (optional) - Default false.
   * `secure` Boolean (optional) - Default false.
