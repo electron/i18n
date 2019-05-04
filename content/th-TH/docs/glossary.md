@@ -46,49 +46,49 @@ IPC ย่อมาจาก Inter-Process Communication อิเล็กต�
 
 ### MAS
 
-Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
+ตัวย่อสำหรับ Mac App Store ของ Apple สำหรับรายละเอียดเกี่ยวกับการส่งแอพของคุณไปที่ [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
 
 ### Mojo
 
-An IPC system for communicating intra- or inter-process, and that's important because Chrome is keen on being able to split its work into separate processes or not, depending on memory pressures etc.
+ระบบ IPC สำหรับการสื่อสารภายในหรือระหว่างกระบวนการและที่สำคัญเพราะ Chrome มีความกระตือรือร้นในการแยกงานออกเป็นกระบวนการที่แยกต่างหากหรือไม่ขึ้นอยู่กับแรงกดดันของหน่วยความจำเป็นต้น
 
-See https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
+ดู https://chromium.googlesource.com/chromium/src/+/master/mojo/README.md
 
 ### native modules
 
-Native modules (also called [addons](https://nodejs.org/api/addons.html) in Node.js) are modules written in C or C++ that can be loaded into Node.js or Electron using the require() function, and used as if they were an ordinary Node.js module. They are used primarily to provide an interface between JavaScript running in Node.js and C/C++ libraries.
+โมดูลเนทิฟ (also called [addons](https://nodejs.org/api/addons.html) in Node.js) ป็นโมดูลที่เขียนใน C หรือ C ++ ที่สามารถโหลดลงใน Node.js หรือ Electron ที่ใช้ฟังก์ชั่น require () และใช้ราวกับเป็น โมดูล Node.js สามัญ พวกเขาจะใช้เป็นหลักในการให้อินเตอร์เฟซ ระหว่าง JavaScript ที่ทำงานใน Node.js และไลบรารี C / C ++
 
-Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed in your system, you have to manually specify the location of Electron’s headers when building native modules.
+โมดูล Native Node ได้รับการสนับสนุนโดย Electron แต่เนื่องจาก Electron นั้นดีมาก มีแนวโน้มที่จะใช้ V8 รุ่นอื่นจาก Node binary ที่ติดตั้งในของคุณ ระบบคุณจะต้องระบุตำแหน่งของส่วนหัวของอิเล็กตรอนด้วยตนเองเมื่อใด การสร้างโมดูลเนทิฟ
 
-See also [Using Native Node Modules](tutorial/using-native-node-modules.md).
+ดูเพิ่มเติม [Using Native Node Modules](tutorial/using-native-node-modules.md).
 
 ### NSIS
 
-Nullsoft Scriptable Install System is a script-driven Installer authoring tool for Microsoft Windows. It is released under a combination of free software licenses, and is a widely-used alternative to commercial proprietary products like InstallShield. [electron-builder](https://github.com/electron-userland/electron-builder) supports NSIS as a build target.
+ระบบการติดตั้ง Nullsoft Scriptable เป็นตัวติดตั้งสคริปต์ เครื่องมือการเขียนสำหรับ Microsoft Windows มันถูกปล่อยออกมาภายใต้การรวมกันของ ซอฟต์แวร์ลิขสิทธิ์ฟรีและเป็นทางเลือกที่ใช้กันอย่างแพร่หลายในเชิงพาณิชย์ ผลิตภัณฑ์ที่เป็นกรรมสิทธิ์เช่น InstallShield [electron-builder](https://github.com/electron-userland/electron-builder) รองรับ NSIS เป็นเป้าหมายการสร้าง
 
 ### OSR
 
-OSR (Off-screen rendering) can be used for loading heavy page in background and then displaying it after (it will be much faster). It allows you to render page without showing it on screen.
+OSR (การเรนเดอร์แบบหน้าจอ) สามารถใช้สำหรับการโหลดเพจขนาดใหญ่ใน พื้นหลังแล้วแสดงหลังจาก (มันจะเร็วขึ้นมาก) ช่วยให้คุณสามารถแสดงหน้าโดยไม่แสดงบนหน้าจอ
 
 ### process
 
-A process is an instance of a computer program that is being executed. Electron apps that make use of the [main](#main-process) and one or many [renderer](#renderer-process) process are actually running several programs simultaneously.
+กระบวนการเป็นตัวอย่างของโปรแกรมคอมพิวเตอร์ที่กำลังดำเนินการ Electron แอปที่ใช้ประโยชน์จาก [main](#main-process) และกระบวนการ [renderer](#renderer-process) อย่างน้อยหนึ่งกระบวนการคือ จริง ๆ แล้วรันหลายโปรแกรมพร้อมกัน
 
-In Node.js and Electron, each running process has a `process` object. This object is a global that provides information about, and control over, the current process. As a global, it is always available to applications without using require().
+ใน Node.js และ Electron กระบวนการที่ทำงานอยู่แต่ละกระบวนการจะมีวัตถุ ` process ` นี้ object เป็นโกลบอลที่ให้ข้อมูลเกี่ยวกับและควบคุม กระบวนการปัจจุบัน ในฐานะที่เป็นทั่วโลกมักจะมีแอปพลิเคชันที่ไม่มี ใช้ require ()
 
-See also: [main process](#main-process), [renderer process](#renderer-process)
+ดูเพิ่มเติมที่: [process](#main-process), [renderer process](#renderer-process)
 
 ### renderer process
 
-The renderer process is a browser window in your app. Unlike the main process, there can be multiple of these and each is run in a separate process. They can also be hidden.
+กระบวนการตัวแสดงผลเป็นหน้าต่างเบราว์เซอร์ในแอปของคุณ ไม่เหมือนกระบวนการหลัก อาจมีหลายรายการและแต่ละรายการจะทำงานในกระบวนการแยกต่างหาก พวกเขายังสามารถซ่อน
 
-In normal browsers, web pages usually run in a sandboxed environment and are not allowed access to native resources. Electron users, however, have the power to use Node.js APIs in web pages allowing lower level operating system interactions.
+ในเบราว์เซอร์ปกติเว็บเพจมักจะทำงานในสภาพแวดล้อมแบบ sandbox และไม่ใช่ อนุญาตให้เข้าถึงทรัพยากรดั้งเดิม อย่างไรก็ตามผู้ใช้อิเล็กตรอนมีอำนาจในการ ใช้ Node.js API ในหน้าเว็บที่ช่วยให้ระบบปฏิบัติการระดับล่าง ปฏิสัมพันธ์
 
-See also: [process](#process), [main process](#main-process)
+ดูเพิ่มเติมที่: [process](#process), [renderer process](#main-process)
 
 ### Squirrel
 
-Squirrel is an open-source framework that enables Electron apps to update automatically as new versions are released. See the [autoUpdater](api/auto-updater.md) API for info about getting started with Squirrel.
+Squirrel เป็นเฟรมเวิร์กโอเพนซอร์สที่ช่วยให้แอพอิเล็กตรอนสามารถอัปเดตได้ โดยอัตโนมัติเมื่อมีการเปิดตัวเวอร์ชั่นใหม่ ดู [ autoUpdater ](api/auto-updater.md) API สำหรับ ข้อมูลเกี่ยวกับการเริ่มต้นกับ Squirrel
 
 ### userland
 
