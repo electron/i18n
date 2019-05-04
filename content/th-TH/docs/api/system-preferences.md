@@ -48,7 +48,7 @@ Returns:
 
 **NOTE:** This event is only emitted after you have called `startAppLevelAppearanceTrackingOS`
 
-## Methods
+## วิธีการ
 
 ### `systemPreferences.isDarkMode()` *macOS*
 
