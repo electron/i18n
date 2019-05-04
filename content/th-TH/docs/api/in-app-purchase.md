@@ -17,7 +17,7 @@ Returns:
 * `event` Event
 * `transactions` Transaction[] - Array of [`Transaction`](structures/transaction.md) objects.
 
-## Methods
+## วิธีการ
 
 The `inAppPurchase` module has the following methods:
 
