@@ -126,7 +126,7 @@ Set the content security policy of the isolated world.
 ### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)` *(Deprecated)*
 
 * `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
-* `name` String
+* `name` String ชื่อ
 
 Set the name of the isolated world. Useful in devtools.
 
@@ -195,7 +195,7 @@ Returns `WebFrame` - The frame element in `webFrame's` document selected by `sel
 
 ### `webFrame.findFrameByName(name)`
 
-* `name` String
+* `name` String ชื่อ
 
 Returns `WebFrame` - A child of `webFrame` with the supplied `name`, `null` would be returned if there's no such frame or if the frame is not in the current renderer process.
 
