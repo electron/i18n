@@ -107,7 +107,7 @@ Windows のデフォルトでは、`node-gyp` は `node.dll` に対してネイ�
 
 ## `prebuild`を使用したモジュール
 
-[`prebuild`](https://github.com/prebuild/prebuild) provides a way to publish native Node modules with prebuilt binaries for multiple versions of Node and Electron.
+[`prebuild`](https://github.com/prebuild/prebuild) は、ネイティブの Node モジュールを複数の Node と Electron のバージョン向けに、ビルド済みバイナリとともに公開する方法を提供します。
 
 もしモジュールがElectronで使用するためのバイナリを提供しているなら、ビルド済みのバイナリを最大限活用できるように、`--build-from-source`と `npm_config_build_from_source`環境変数が外されていることを確認してください。
 
@@ -115,6 +115,6 @@ Windows のデフォルトでは、`node-gyp` は `node.dll` に対してネイ�
 
 [`node-pre-gyp`](https://github.com/mapbox/node-pre-gyp)は、ビルド済みのバイナリを含んだネイティブNodeモジュールを展開する方法を提供します。多くの人気のモジュールがこのツールを使用しています。
 
-Usually those modules work fine under Electron, but sometimes when Electron uses a newer version of V8 than Node and/or there are ABI changes, bad things may happen. So in general, it is recommended to always build native modules from source code. `electron-rebuild` handles this for you automatically.
+これらのモジュールの多くは Electron の環境下でも動きますが、Electron が Node よりも新しいバージョンの V8 を使用していたり ABI の変更が含まれたりするときは、よくないことが起こるかもしれません。 そのため通常であれば、ソースコードからネイティブ Node モジュールを常にビルドすることを推奨します。 `electron-rebuild` はこれを自動で制御します。
 
 `npm`でモジュールをインストールする際は、これが標準の動作です。 もしそうなっていない場合は、`--build-from-source`を`npm`に渡してやるか、`npm_config_build_from_source`環境変数を設定してください。
