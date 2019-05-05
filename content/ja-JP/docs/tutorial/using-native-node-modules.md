@@ -36,13 +36,13 @@ npm install --save-dev electron-rebuild
 
 いくつかの環境変数を設定することにより、モジュールを直接インストールするのに `npm` を使用できます。
 
-For example, to install all dependencies for Electron:
+例として、以下のように Electron 向けにすべての依存関係をインストールします。
 
 ```sh
 # Electronのバージョン
 export npm_config_target=1.2.3
-# The architecture of Electron, see https://electronjs.org/docs/tutorial/support#supported-platforms
-# for supported architectures.
+# Electron のアーキテクチャ。サポートされているアーキテクチャについては、 https://electronjs.org/docs/tutorial/support#supported-platforms
+# を参照してください。
 export npm_config_arch=x64
 export npm_config_target_arch=x64
 # Electronのヘッダファイルをダウンロード
@@ -64,14 +64,14 @@ cd /path-to-module/
 HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https://atom.io/download/electron
 ```
 
-- `HOME=~/.electron-gyp` changes where to find development headers.
-- `--target=1.2.3` is the version of Electron.
-- `--dist-url=...` specifies where to download the headers.
-- `--arch=x64` says the module is built for a 64-bit system.
+- `HOME=~/.electron-gyp` は開発用のヘッダーを探す場所によって変わります。
+- `--target=1.2.3` は Electron のバージョンです。
+- `--dist-url=...` はヘッダをダウンロードする場所を指定します。
+- `--arch=x64` はモジュールを 64bit システム向けにビルドします。
 
 ### Electron のカスタムビルドを手動ビルド
 
-To compile native Node modules against a custom build of Electron that doesn't match a public release, instruct `npm` to use the version of Node you have bundled with your custom build.
+公開されているリリースと一致しない Electron のカスタムビルドに対してネイティブの Node モジュールをコンパイルするには、カスタムビルドにバンドルされている Node のバージョンを使用するように `npm` に指示します。
 
 ```sh
 npm rebuild --nodedir=/path/to/electron/vendor/node
@@ -79,16 +79,16 @@ npm rebuild --nodedir=/path/to/electron/vendor/node
 
 ## トラブルシューティング
 
-If you installed a native module and found it was not working, you need to check the following things:
+もしネイティブモジュールがインストールされていてもうまく動いていないと気づいた場合は、下記のことを確認してみてください。
 
-- 何かおかしいと思ったら、まず`electron-rebuild`を走らせてみてください。
-- Make sure the native module is compatible with the target platform and architecture for your Electron app.
-- Make sure `win_delay_load_hook` is not set to `false` in the module's `binding.gyp`.
-- Electron のアップグレード語は、モジュールの再ビルドが必要になります。
+- 何かおかしいと思ったら、まず `electron-rebuild` を実行しましょう。
+- ネイティブモジュールが Electron アプリのターゲットプラットフォームおよびアーキテクチャと互換性があることを確認してください。
+- モジュールの `binding.gyp` 内の `win_delay_load_hook` が `false` にセットされていないことを確認してください。
+- Electron のアップグレード後は、モジュールの再ビルドが必要になります。
 
 ### `win_delay_load_hook` についての注釈
 
-On Windows, by default, `node-gyp` links native modules against `node.dll`. However, in Electron 4.x and higher, the symbols needed by native modules are exported by `electron.exe`, and there is no `node.dll`. In order to load native modules on Windows, `node-gyp` installs a [delay-load hook](https://msdn.microsoft.com/en-us/library/z9h1h6ty.aspx) that triggers when the native module is loaded, and redirects the `node.dll` reference to use the loading executable instead of looking for `node.dll` in the library search path (which would turn up nothing). そのため、Electron 4.x 以降でネイティブモジュールをロードするには `'win_delay_load_hook': 'true'` が必要です。
+Windows のデフォルトでは、`node-gyp` は `node.dll` に対してネイティブモジュールをリンクします。 しかし Electron 4.x 以降では、ネイティブモジュールで必要とされるシンボルは `electron.exe` によってエクスポートされ、`node.dll` は存在しません。 Windows にネイティブモジュールをロードするために、`node-gyp` はネイティブモジュールがロードされたときにトリガーされる [delay-load-hook](https://msdn.microsoft.com/en-us/library/z9h1h6ty.aspx) をインストールします。これはライブラリの (何も出てこない) 検索パスで `node.dll` を探す代わりに、ロード可能な実行可能ファイルを使用するように `node.dll` 参照をリダイレクトします。 そのため、Electron 4.x 以降でネイティブモジュールをロードするには `'win_delay_load_hook': 'true'` が必要です。
 
 `モジュールが自己登録されなかった` や `指定されたプロシージャが見つかりませんでした` のようなエラーが得られた場合は、使用しようとしているモジュールが見つからないことを意味しているかもしれません。遅延読み込みフックを正しくインクルードしてください。 モジュールが node-gyp でビルドされている場合、`binding.gyp` ファイルで `win_delay_load_hook` 変数が `true` に設定されておらず、どこかで上書きされていないことを確認します。 モジュールが別のシステムでビルドされている場合は、メインの `.node` ファイルにインストールされている遅延読み込みフックを使用してビルドする必要があります。 `link.exe` の呼び出しは以下ようにしなければなりません。
 
@@ -103,7 +103,7 @@ On Windows, by default, `node-gyp` links native modules against `node.dll`. Howe
 - `/DELAYLOAD:node.exe` フラグをインクルードします。 `node.exe` のリンクが遅延されていない場合、遅延読み込みフックが起動する機会がなく、Node のシンボルは正しく解決されません。
 - `win_delay_load_hook.obj` は、最後の DLL に直接リンクされます。フックが依存 DLL に設定されていると、適切なタイミングで起動されません。
 
-See [`node-gyp`](https://github.com/nodejs/node-gyp/blob/e2401e1395bef1d3c8acec268b42dc5fb71c4a38/src/win_delay_load_hook.cc) for an example delay-load hook if you're implementing your own.
+遅延ロードフックを独自で実装する例については [`node-gyp`](https://github.com/nodejs/node-gyp/blob/e2401e1395bef1d3c8acec268b42dc5fb71c4a38/src/win_delay_load_hook.cc) を参照してください。
 
 ## `prebuild`を使用したモジュール
 
