@@ -1,6 +1,6 @@
 # ネイティブのNodeモジュールを使用する
 
-ネイティブの Node モジュールは Electron によってサポートされていますが、Electron はあなたのシステムにインストールされている Node バイナリとは異なった V8 のバージョンを使用する可能性が非常に高いので、使用するモジュールは Electron 向けに再コンパイルする必要があります。 Otherwise, you will get the following class of error when you try to run your app:
+ネイティブの Node モジュールは Electron によってサポートされていますが、Electron はあなたのシステムにインストールされている Node バイナリとは異なった V8 のバージョンを使用する可能性が非常に高いので、使用するモジュールは Electron 向けに再コンパイルする必要があります。 そうしなければ、以下の類のエラーが実行しようとしたときに発生します。
 
 ```sh
 Error: The module '/path/to/native/module.node'
@@ -12,13 +12,13 @@ the module (for instance, using `npm rebuild` or `npm install`).
 
 ## ネイティブモジュールのインストール方法
 
-There are several different ways to install native modules:
+ネイティブモジュールをインストールするにはいくつかの異なる方法があります。
 
 ### モジュールをインストールしてElectronをリビルド
 
-You can install modules like other Node projects, and then rebuild the modules for Electron with the [`electron-rebuild`](https://github.com/electron/electron-rebuild) package. This module can automatically determine the version of Electron and handle the manual steps of downloading headers and rebuilding native modules for your app.
+他の Node プロジェクト同様にモジュールをインストールしてから、[`electron-rebuild`](https://github.com/electron/electron-rebuild) パッケージで Electron 向けにモジュールを再ビルドします。 このモジュールは自動で Electron のバージョンを取得でき、ヘッダのダウンロードやアプリ向けにネイティブモジュールを再ビルドする手動の手順を処理できます。
 
-For example, to install `electron-rebuild` and then rebuild modules with it via the command line:
+例として、以下のように `electron-rebuild` をインストールしてからコマンドラインを介してモジュールを再ビルドします。
 
 ```sh
 npm install --save-dev electron-rebuild
@@ -30,9 +30,9 @@ npm install --save-dev electron-rebuild
 .\node_modules\.bin\electron-rebuild.cmd
 ```
 
-For more information on usage and integration with other tools, consult the project's README.
+使い方や他のツールとのインテグレーションの詳しい情報は、プロジェクトの README を調べてください。
 
-### `npm`を使用
+### `npm` を使用
 
 いくつかの環境変数を設定することにより、モジュールを直接インストールするのに `npm` を使用できます。
 
