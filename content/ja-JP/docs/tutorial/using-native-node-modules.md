@@ -1,6 +1,6 @@
 # ネイティブのNodeモジュールを使用する
 
-Native Node modules are supported by Electron, but since Electron is very likely to use a different V8 version from the Node binary installed on your system, the modules you use will need to be recompiled for Electron. Otherwise, you will get the following class of error when you try to run your app:
+ネイティブの Node モジュールは Electron によってサポートされていますが、Electron はあなたのシステムにインストールされている Node バイナリとは異なった V8 のバージョンを使用する可能性が非常に高いので、使用するモジュールは Electron 向けに再コンパイルする必要があります。 Otherwise, you will get the following class of error when you try to run your app:
 
 ```sh
 Error: The module '/path/to/native/module.node'
