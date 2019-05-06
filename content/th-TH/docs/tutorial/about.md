@@ -44,15 +44,15 @@
 
 คุณสมบัติใหม่ที่เพิ่มเข้ากับอิเล็กตรอนควรเป็น API ดั้งเดิม หากคุณสมบัติสามารถเป็นโมดูล Node.js ของตัวเองก็น่าจะเป็น ดู [ เครื่องมืออิเล็กตรอนที่สร้างโดยชุมชน ](https://electronjs.org/community)
 
-## History
+## ประวัติ
 
-Below are milestones in Electron's history.
+ด้านล่างเป็นเหตุการณ์สำคัญในประวัติศาสตร์ของอิเล็กตรอน
 
-| :calendar:      | :tada:                                                                                                         |
-| --------------- | -------------------------------------------------------------------------------------------------------------- |
-| **April 2013**  | [Atom Shell is started](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45). |
-| **May 2014**    | [Atom Shell is open sourced](https://blog.atom.io/2014/05/06/atom-is-now-open-source.html).                    |
-| **April 2015**  | [Atom Shell is re-named Electron](https://github.com/electron/electron/pull/1389).                             |
-| **May 2016**    | [Electron releases `v1.0.0`](https://electronjs.org/blog/electron-1-0).                                        |
-| **May 2016**    | [Electron apps compatible with Mac App Store](mac-app-store-submission-guide.md).                              |
-| **August 2016** | [Windows Store support for Electron apps](windows-store-guide.md).                                             |
+| :calendar:       | :tada:                                                                                                            |
+| ---------------- | ----------------------------------------------------------------------------------------------------------------- |
+| **เมษายน 2013**  | [ Atom Shell เริ่มต้นขึ้น ](https://github.com/electron/electron/commit/6ef8875b1e93787fa9759f602e7880f28e8e6b45) |
+| **พฤษภาคม 2014** | [ Atom Shell เปิดแหล่งที่มา ](https://blog.atom.io/2014/05/06/atom-is-now-open-source.html)                       |
+| **เมษายน 2015**  | [ Atom Shell ได้รับการตั้งชื่อใหม่ว่าอิเล็กตรอน ](https://github.com/electron/electron/pull/1389)                 |
+| **พฤษภาคม 2016** | [ Electron ปล่อย `v1.0.0` ](https://electronjs.org/blog/electron-1-0)                                             |
+| **พฤษภาคม 2016** | [ แอปอิเล็กตรอนที่เข้ากันได้กับ Mac App Store ](mac-app-store-submission-guide.md)                                |
+| **สิงหาคม 2016** | [ การสนับสนุน Windows Store สำหรับแอป Electron ](windows-store-guide.md)                                          |
