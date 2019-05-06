@@ -587,7 +587,7 @@ Adds `path` to the recent documents list.
 
 This list is managed by the OS. On Windows, you can visit the list from the task bar, and on macOS, you can visit it from dock menu.
 
-### `app.addRecentDocument(path)` *macOS* *Windows*
+### `app.clearRecentDocuments()` *macOS* *Windows*
 
 清除最近使用的文件清單。
 
