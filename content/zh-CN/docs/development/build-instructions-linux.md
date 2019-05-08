@@ -23,29 +23,29 @@
 在 Ubuntu, 安装下面的库:
 
 ```sh
-sudo apt-get install build-essential clang libdbus-1-dev libgtk-3-dev \
+$ sudo apt-get install build-essential clang libdbus-1-dev libgtk-3-dev \
                        libnotify-dev libgnome-keyring-dev libgconf2-dev \
                        libasound2-dev libcap-dev libcups2-dev libxtst-dev \
                        libxss1 libnss3-dev gcc-multilib g++-multilib curl \
-                       gperf bison python-dbusmock
+                       gperf bison python-dbusmock openjdk-8-jre
 ```
 
 在 RHEL / CentOS, 安装下面的库:
 
 ```sh
-sudo yum install clang dbus-devel gtk3-devel libnotify-devel \
+$ sudo yum install clang dbus-devel gtk3-devel libnotify-devel \
                    libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
                    cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
-                   GConf2-devel nss-devel python-dbusmock
+                   GConf2-devel nss-devel python-dbusmock openjdk-8-jre
 ```
 
 在 Fedora, 安装下面的库:
 
 ```sh
-sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
+$ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
                    cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
-                   GConf2-devel nss-devel python-dbusmock
+                   GConf2-devel nss-devel python-dbusmock openjdk-8-jre
 ```
 
 其它版本通过包管理器也可能提供了相似的包来安装，例如 pacman. 或一个可以编译的源文件.
