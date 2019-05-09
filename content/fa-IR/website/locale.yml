@@ -15,7 +15,7 @@ nav:
   userland: فضای کاربری
   governance: مدیریت
 keyboard_modal:
-  title: میانبرهای صفحه کلید
+  title: میانبر های صفحه کلید
   key: کلید
   action: اقدام
   focus_search: فوکوس روی نوار جستجو
@@ -207,7 +207,7 @@ pages:
   '/donors':
     title: حامیان مالی
 landing:
-  get_started: شروع کنید
+  get_started: شروع کنید!
   fiddle:
     lead_desc: ساده ترین راه برای شروع کار با الکترون
     create_app: برنامه خود را بسازید
