@@ -138,15 +138,15 @@ npm uninstall -g electron
 
 Wenn Sie allerdings das integrierte Modul nutzen und trotzdem diesen Fehler bekommen, dann ist es sehr wahrscheinlich, dass Sie das Modul im falschen Prozess verwenden. Beispielsweise kann `electron.app` nur im Hauptprozess verwendet werden, während `electron.webFrame` nur im Renderer-Prozess verfügbar ist.
 
-## The font looks blurry, what is this and what can i do?
+## Die Schrift sieht verschwommen aus, was ist das und was kann ich tun?
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Example:
+Wenn [Subpixel-Anti-Alias](http://alienryderflex.com/sub_pixel/) deaktiviert ist, können Schriftarten auf LCD-Bildschirmen unscharf aussehen. Beispiel:
 
-![subpixel rendering example](images/code_coverage_infra_diagram.png)
+![Subpixel Rendering Beispiel](images/code_coverage_infra_diagram.png)
 
-Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (See [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) for more info).
+Subpixel Antialiasing benötigt einen nicht-transparenten Hintergrund der Ebene, die die Schrift-Glyphen enthält. (Siehe [dieses Problem](https://github.com/electron/electron/issues/6344#issuecomment-420371918) für weitere Informationen).
 
-To achieve this goal, set the background in the constructor for [BrowserWindow](api/browser-window.md):
+Um dieses Ziel zu erreichen, setzen Sie den Hintergrund im Konstruktor für [BrowserWindow](api/browser-window.md):
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -155,6 +155,6 @@ let win = new BrowserWindow({
 })
 ```
 
-The effect is visible only on (some?) LCD screens. Even if you dont see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
+Der Effekt ist nur auf (einigen?) LCD-Bildschirmen sichtbar. Auch wenn Sie keinen Unterschied sehen, einige Ihrer Benutzer können es vielleicht. Es ist am besten immer den Hintergrund auf diese Weise zu setzen, es sei denn Sie haben Gründe dies nicht zu tun.
 
-Notice that just setting the background in the CSS does not have the desired effect.
+Beachten Sie, dass nur die Einstellung des Hintergrunds in der CSS nicht den gewünschten Effekt hat.
