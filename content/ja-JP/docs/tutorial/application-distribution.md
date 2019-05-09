@@ -1,6 +1,6 @@
 # アプリケーションの配布
 
-あなたのappをElectronと共に配布する場合、それをパッケージし、そのリブランドする必要があります。その、最も簡単な方法は以下のサードパーティーのツールを使用することです。
+あなたのアプリケーションをElectronで配布する場合、それをパッケージし、そのリブランドする必要があります。その、最も簡単な方法は以下のサードパーティーのツールを使用することです。
 
 * [electron-forge](https://github.com/electron-userland/electron-forge)
 * [electron-builder](https://github.com/electron-userland/electron-builder)
