@@ -138,11 +138,11 @@ npm uninstall -g electron
 
 如果你依然遇到了这个问题，你可能需要检查一下拼写或者是否在错误的进程中调用了这个模块。 比如，`electron.app` 只能在主进程中使用, 然而 `electron.webFrame` 只能在渲染进程中使用。
 
-## The font looks blurry, what is this and what can i do?
+## 文字看起来很模糊，这是什么原因造成的？要解决这个问题我能做些什么？
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Example:
+如果 [次级像素反锯齿](http://alienryderflex.com/sub_pixel/)已停用，那么 LCD 屏幕上的字体可能会看起来模糊。例如：
 
-![subpixel rendering example](images/code_coverage_infra_diagram.png)
+![次像素渲染示例](images/code_coverage_infra_diagram.png)
 
 Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (See [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) for more info).
 
