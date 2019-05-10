@@ -6,7 +6,7 @@
 
 ## 自动更新本地接口
 
-“本地接口”包含了文件选择器，窗口边框，对话框，内容菜单以及其他；基本上就是任何使用了macOS的UI而不是你的应用UI的地方。为了让这些地方自动更新到黑暗模式，你需要在应用的`info.plist`文件中将`NSRequiresAquaSystemAppearance`键设置为`false`。 例如:
+“本地接口”包含了文件选择器，窗口边框，对话框，内容菜单以及其他；基本上就是任何使用了macOS的UI而不是你的应用UI的地方。为了让这些地方自动更新到黑暗模式，你需要在应用的`info.plist`文件中将`NSRequiresAquaSystemAppearance`键设置为`false`。 如下:
 
 ```xml
 <plist>
@@ -19,13 +19,13 @@
 </plist>
 ```
 
-If you are using [`electron-packager` >= 12.2.0](https://github.com/electron-userland/electron-packager) or [`electron-forge` >= 6](https://github.com/electron-userland/electron-forge) you can set the [`darwinDarkModeSupport`](https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) option when packaging and this key will be set for you.
+如果你正在使用 [`electron-packager` >= 12.2.0](https://github.com/electron-userland/electron-packager) 或者 [`electron-forge` >= 6](https://github.com/electron-userland/electron-forge) 那么你可以在打包的时候直接设置 [`darwinDarkModeSupport`](https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) 选项，这个选项会自动为你设置黑暗模式。
 
-If you are using [`electron-builder` >= 20.37.0](https://github.com/electron-userland/electron-builder) you can set the [`darkModeSupport`](https://www.electron.build/configuration/mac.html) option.
+如果你正在使用 [`electron-builder` >= 20.37.0](https://github.com/electron-userland/electron-builder) 那么你可以设置 [`darkModeSupport`](https://www.electron.build/configuration/mac.html) 选项。
 
-## Automatically updating your own interfaces
+## 自动更新你的接口
 
-If your app has its own dark mode you should toggle it on and off in sync with the system's dark mode setting. You can do this by listening for the theme changed event on Electron's `systemPreferences` module. 例如:
+如果你的应用本身就有黑暗模式，那么你需要跟系统同步他的开与关。 你可以通过监听 Electron 的 `systemPreferences` 模块上的主题变更事件来实现。 如下:
 
 ```js
 const { systemPreferences } = require('electron')
