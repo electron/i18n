@@ -105,7 +105,7 @@ Envía una solicitud para obtener todas las cookies que coinciden con `filter`, 
 
 Returns `Promise<void>` - A promise which resolves when the cookie has been set
 
-Sets a cookie with `details`.
+Establece una cookie con `detalles`.
 
 #### `cookies.set(details, callback)`
 
