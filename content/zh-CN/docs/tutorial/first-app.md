@@ -90,7 +90,7 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
+  // 加载index.html文件
   win.loadFile('index.html')
 }
 
@@ -116,7 +116,7 @@ function createWindow () {
     }
   })
 
-  // and load the index.html of the app.
+  // 加载index.html文件
   win.loadFile('index.html')
 
   // 打开开发者工具
