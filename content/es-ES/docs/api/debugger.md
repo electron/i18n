@@ -57,7 +57,7 @@ Desasocia el depurador de la `webContents`.
 
 Envía el comando al objetivo de la depuración.
 
-**[Deprecated Soon](promisification.md)**
+**[Próximamente desaprobado](promisification.md)**
 
 #### `debugger.sendCommand(method[, commandParams])`
 
