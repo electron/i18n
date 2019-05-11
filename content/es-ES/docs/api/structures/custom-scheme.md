@@ -1,7 +1,7 @@
 # CustomScheme Object
 
 * `scheme` String - Custom schemes to be registered with options.
-* `privileges` Objecto (opcional) 
+* `privilegios` Objecto (opcional) 
   * `standard` Boolean (optional) - Default false.
   * `secure` Boolean (optional) - Default false.
   * `bypassCSP` Boolean (optional) - Default false.
