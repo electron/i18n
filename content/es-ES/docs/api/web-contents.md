@@ -1275,7 +1275,7 @@ app.on('ready', () => {
 
 #### `contents.sendToFrame(frameId, channel[, arg1][, arg2][, ...])`
 
-* `frameId` Integer
+* `frameId` Entero
 * `channel` Cadena
 * `...args` any[]
 
