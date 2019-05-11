@@ -76,7 +76,7 @@ gn gen out/Debug --args='import(...) target_cpu="arm"'
 
 参照[Build Instructions: GN](build-instructions-gn.md)
 
-## 故障排查
+## 疑难解答
 
 ### 加载共享库时出现错误： libtinfo.so.5
 
@@ -88,7 +88,7 @@ $ sudo ln -s /usr/lib/libncurses.so.5 /usr/lib/libtinfo.so.5
 
 ## 高级提示
 
-默认的构建配置针对的是主流的桌面 Linux 发行版。若要为特定的发行版或设备构建，以下信息可能会对您有所帮助。
+Domyślne tworzenie konfiguracji jest celem dla głównej dystrybucji pulpitu Linux. Aby zbudować dla konkretnej dystrybucji lub urządzenia, następujące informacje mogą ci pomóc.
 
 ### 使用系统提供的 `clang` 替换下载的 `clang` 二进制文件
 
