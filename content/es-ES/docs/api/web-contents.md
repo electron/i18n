@@ -1024,7 +1024,7 @@ console.log(requestId)
 
 Captura una foto instantánea de la página dentro de `rect`. Al finalizar se llamará `callback` con `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
 
-**[Deprecated Soon](promisification.md)**
+**[Próximamente desaprobado](promisification.md)**
 
 #### `contents.capturePage([rect])`
 
