@@ -274,7 +274,7 @@ Devuelve:
 
 Emitido cuando `webContents` quiere hacer una autenticación básica.
 
-The default behavior is to cancel all authentications. To override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
+El comportamiento por defecto es cancelar todas las autenticaciones. To override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
 
 ```javascript
 const { app } = require('electron')
@@ -514,7 +514,7 @@ En *Windows*, Hay dos tipos de íconos:
 
 On *Linux* and *macOS*, icons depend on the application associated with file mime type.
 
-**[Deprecated Soon](promisification.md)**
+**[Próximamente desaprobado](promisification.md)**
 
 ### `app.getFileIcon(path[, options])`
 
@@ -845,7 +845,7 @@ Devuelve `Promise`
 
 For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src.git/+/69.0.3497.106/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
 
-For `infoType` equal to `basic`: Promise is fulfilled with `Object` containing fewer attributes than when requested with `complete`. Here's an example of basic response:
+For `infoType` equal to `basic`: Promise is fulfilled with `Object` containing fewer attributes than when requested with `complete`. Aquí hay un ejemplo de respuesta básica:
 
 ```js
 { auxAttributes:
