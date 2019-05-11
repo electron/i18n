@@ -226,7 +226,7 @@ This API is only available on macOS 10.14 Mojave or newer.
 ### `systemPreferences.getColor(color)` *Windows* *macOS*
 
 * `color` Cadena - Uno de los siguientes valores: 
-  * On **Windows**: 
+  * Activado **Windows**: 
     * `3d-dark-shadow` - Sombra oscura para elementos de tres dimensiones mostrados.
     * `3d-face` - Color facial para elementos de tres dimensiones mostrados y para cuadro de fondos de las caja de diálogo.
     * `3d-highlight` - Resalta color para elementos de tres dimensiones mostrados.
@@ -257,7 +257,7 @@ This API is only available on macOS 10.14 Mojave or newer.
     * `window` - Fondo de la ventana.
     * `window-frame` - Cuadro de ventana.
     * `window-text` - Texto en ventanas.
-  * On **macOS** 
+  * Activado **macOS** 
     * `alternate-selected-control-text` - The text on a selected surface in a list or table.
     * `control-background` - The background of a large interface element, such as a browser or table.
     * `control` - The surface of a control.
@@ -297,15 +297,15 @@ Devuelve `String` - El color del sistema ajustando en la forma hexadecimal de RG
 ### `systemPreferences.getSystemColor(color)` *macOS*
 
 * `color` Cadena - Uno de los siguientes valores: 
-  * `blue`
-  * `brown`
-  * `gray`
-  * `green`
-  * `orange`
-  * `pink`
-  * `purple`
-  * `red`
-  * `yellow`
+  * `azul`
+  * `marrón`
+  * `gris`
+  * `verde`
+  * `naranja`
+  * `rosa`
+  * `púrpura`
+  * `rojo`
+  * `amarillo`
 
 Returns one of several standard system colors that automatically adapt to vibrancy and changes in accessibility settings like 'Increase contrast' and 'Reduce transparency'. See [Apple Documentation](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#system-colors) for more details.
 
