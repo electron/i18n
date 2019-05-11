@@ -84,7 +84,7 @@ Inicia la recopilación de información sobre todas las fuentes de escritorio di
 
 `sources`es un arreglo de objetos [`DesktopCapturerSource`](structures/desktop-capturer-source.md). Cada`DesktopCapturerSource` representa una pantalla o una ventana individual que puede ser capturada.
 
-**[Deprecated Soon](promisification.md)**
+**[Próximamente desaprobado](promisification.md)**
 
 ### `desktopCapturer.getSources(options)`
 
