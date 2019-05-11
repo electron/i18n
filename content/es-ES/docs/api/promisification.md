@@ -1,4 +1,4 @@
-## Promisification
+## Promisificación
 
 The Electron team is currently undergoing an initiative to convert callback-based functions in Electron to return Promises. During this transition period, both the callback and Promise-based versions of these functions will work correctly, and will both be documented.
 
