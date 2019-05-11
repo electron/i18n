@@ -52,7 +52,7 @@ Open the given external protocol URL in the desktop's default manner. (For examp
   * `activate` Boolean (optional) - `true` to bring the opened application to the foreground. The default is `true`. *macOS*
   * `workingDirectory` String (optional) - The working directory. *Windows*
 
-Returns `Promise<void>`
+Devuelve `Promise<void>`
 
 Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
 
