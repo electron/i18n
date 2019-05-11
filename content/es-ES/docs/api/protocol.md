@@ -232,7 +232,7 @@ Anula el registro del protocolo predeterminado de `esquema`.
 
 El `callback` será llamado con un booleano que indique si ya existe un manejador para `scheme`.
 
-**[Deprecated Soon](promisification.md)**
+**[Próximamente desaprobado](promisification.md)**
 
 ### `protocol.isProtocolHandled(scheme)`
 
