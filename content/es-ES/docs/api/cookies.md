@@ -89,7 +89,7 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
 
 Envía una solicitud para obtener todas las cookies que coinciden con `filter`, `callback` y será llamada con `callback(error, cookies)` cuando termine.
 
-**[Deprecated Soon](promisification.md)**
+**[Próximamente desaprobado](promisification.md)**
 
 #### `cookies.set(details)`
 
@@ -123,7 +123,7 @@ Sets a cookie with `details`.
 
 Configura una cookie con `details`, `callback` y sera llamada con `callback(error)` cuando termine.
 
-**[Deprecated Soon](promisification.md)**
+**[Próximamente desaprobado](promisification.md)**
 
 #### `cookies.remove(url, name)`
 
@@ -142,7 +142,7 @@ Removes the cookies matching `url` and `name`
 
 Elimina las cookies que coinciden con `url` and `name`, `callback` y serán llamadas con `callback()` cuando termine.
 
-**[Deprecated Soon](promisification.md)**
+**[Próximamente desaprobado](promisification.md)**
 
 #### `cookies.flushStore()`
 
@@ -156,4 +156,4 @@ Escribe cualquier dato de cookies en el disco que no haya sido escrito.
 
 Escribe cualquier dato de cookies en el disco que no haya sido escrito.
 
-**[Deprecated Soon](promisification.md)**
+**[Próximamente desaprobado](promisification.md)**
