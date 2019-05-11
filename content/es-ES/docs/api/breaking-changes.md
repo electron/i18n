@@ -17,7 +17,7 @@ win.setMenu(null)
 win.removeMenu()
 ```
 
-## `electron.screen` in renderer process
+## `electron.screen` en proceso de renderizado
 
 ```js
 // Deprecated
