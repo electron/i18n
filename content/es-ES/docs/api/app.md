@@ -414,7 +414,7 @@ Este método garantiza que todos los eventos de `beforeunload` y `unload` serán
 
 ### `app.exit([exitCode])`
 
-* `exitCode` Íntegro (opcional)
+* `exitCode` Entero (opcional)
 
 Sale inmediatamente con `exitCode`. `exitCode` por defecto es 0.
 
@@ -497,7 +497,7 @@ Usted puede pedir las siguientes direcciones por nombre:
 
 * `path` String
 * `opciones` Objecto (opcional) 
-  * `size` String 
+  * `tamaño` String 
     * `pequeño` - 16x16
     * `normal` - 32x32
     * `grande` - 48x48 en *Linux*, 32x32 en *Windows*, no compatible en *macOS*.
