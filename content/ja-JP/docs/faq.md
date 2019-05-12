@@ -144,9 +144,9 @@ npm uninstall -g electron
 
 ![サブピクセルレンダリングのサンプル](images/code_coverage_infra_diagram.png)
 
-Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (See [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) for more info).
+サブピクセルアンチエイリアスは不透明なレイヤーの背景が必要で、そのレイヤーはフォントグリフを含みます。 (詳しくは [この issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) を参照してください)。
 
-To achieve this goal, set the background in the constructor for [BrowserWindow](api/browser-window.md):
+目的を達成するには、[BrowserWindow](api/browser-window.md) のコンストラクタで背景を設定します。
 
 ```javascript
 const { BrowserWindow } = require('electron')
