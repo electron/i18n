@@ -157,4 +157,4 @@ let win = new BrowserWindow({
 
 この効果は (いくつかの?) 液晶画面上でのみ見られます。あなたに違いが分からなくても、ユーザの何人かにはわかるでしょう。この背景を設定する手段は、そうしてはいけない理由がない限り、最も優れています。
 
-Notice that just setting the background in the CSS does not have the desired effect.
+CSS で背景を設定するだけでは期待する効果はないことに注意してください。
