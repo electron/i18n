@@ -77,7 +77,7 @@ Snapcraft は既存の`.deb`ファイルをもとに、`.snap` ファイルに�
 
 ### ステップ2: snapcraft.yamlファイルの作成
 
-利用可能な設定オプションの詳細については、[documentation on the snapcraft syntax](https://docs.snapcraft.io/build-snaps/syntax)を参照してください。次に例を挙げます。:
+利用可能な設定オプションの詳細については、[snapcraft 構文のドキュメント](https://docs.snapcraft.io/build-snaps/syntax) を参照してください。次に例を挙げます。
 
 ```yaml
 name: myApp
@@ -117,13 +117,13 @@ apps:
   myApp:
     command: bin/electron-launch $SNAP/usr/lib/myApp/myApp
     desktop: usr/share/applications/myApp.desktop
-    # Correct the TMPDIR path for Chromium Framework/Electron to ensure
-    # libappindicator has readable resources.
+    # TMPDIR パスを、Chromium Framework/Electron が
+    # libappindicator の読み取り可能リソースを確認するために埋めます
     environment:
       TMPDIR: $XDG_RUNTIME_DIR
 ```
 
-As you can see, the `snapcraft.yaml` instructs the system to launch a file called `electron-launch`. In this example, it passes information on to the app's binary:
+ご覧の通り、`snapcraft.yaml` は `electron-launch` と呼ばれるファイルを起動するようにシステムに伝達しています。この例では、以下のようにアプリのバイナリへ情報を渡しています。
 
 ```sh
 #!/bin/sh
@@ -131,13 +131,13 @@ As you can see, the `snapcraft.yaml` instructs the system to launch a file calle
 exec "$@" --executed-from="$(pwd)" --pid=$$ > /dev/null 2>&1 &
 ```
 
-Alternatively, if you're building your `snap` with `strict` confinement, you can use the `desktop-launch` command:
+代替として、`snap` を `strict` 禁則でビルドした場合、以下のように `desktop-launch` コマンドを使用できます。
 
 ```yaml
 apps:
   myApp:
-    # Correct the TMPDIR path for Chromium Framework/Electron to ensure
-    # libappindicator has readable resources.
+    # TMPDIR パスを、Chromium Framework/Electron が
+    # libappindicator の読み取り可能リソースを確認するために埋めます
     command: env TMPDIR=$XDG_RUNTIME_DIR PATH=/usr/local/bin:${PATH} ${SNAP}/bin/desktop-launch $SNAP/myApp/desktop
     desktop: usr/share/applications/desktop.desktop
 ```
