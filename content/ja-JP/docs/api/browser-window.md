@@ -396,7 +396,7 @@ win.on('app-command', (e, cmd) => {
 })
 ```
 
-The following app commands are explictly supported on Linux:
+Linux 上では以下のアプリコマンドが明示的にサポートされます。
 
 * `browser-backward`
 * `browser-forward`
@@ -683,10 +683,10 @@ HDビデオプレーヤーと関連したコントロールを持つ通常のウ
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
 
-// set all bounds properties
+// bounds のプロパティをすべて設定
 win.setBounds({ x: 440, y: 225, width: 800, height: 600 })
 
-// set a single bounds property
+// bounds のプロパティをひとつ設定
 win.setBounds({ width: 100 })
 
 // { x: 440, y: 225, width: 100, height: 600 }
@@ -876,7 +876,7 @@ Linuxでは常に `true` を返します。
 
 戻り値 `String` - ネイティブのウインドウのタイトル。
 
-**Note:** The title of the web page can be different from the title of the native window.
+**注:** Web ページのタイトルはネイティブのウインドウのタイトルとは異なる可能性があります。
 
 #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
 
@@ -974,7 +974,7 @@ win.setSheetOffset(toolbarRect.height)
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
-`rect` 内のページのスナップショットをキャプチャします。 完了時に、`callback` が `callback(image)` で呼ばれます。 The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
+`rect` 内のページのスナップショットをキャプチャします。 完了時に、`callback` が `callback(image)` で呼ばれます。 `image` はスナップショットのデータを格納する [NativeImage](native-image.md) のインスタンスです。 `rect` を省略すると、表示されているページ全体をキャプチャします。
 
 **[非推奨予定](promisification.md)**
 
@@ -982,9 +982,9 @@ win.setSheetOffset(toolbarRect.height)
 
 * `rect` [Rectangle](structures/rectangle.md) (任意) - キャプチャする範囲
 
-* Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+* 戻り値 `Promise<NativeImage>` - [NativeImage](native-image.md) を解決します
 
-Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
+`rect` 範囲内のページのスナップショットを撮ります。`rect` を省略すると、表示されているページ全体をキャプチャします。
 
 #### `win.loadURL(url[, options])`
 
@@ -996,9 +996,9 @@ Captures a snapshot of the page within `rect`. Omitting `rect` will capture the 
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (任意)
   * `baseURLForDataURL` String (任意) - データURLによってロードされたファイルの (最後のパス区切り文字を含む) ベースURL。 これは指定された `url` がデータURLで、他のファイルをロードする必要がある場合のみ必要です。
 
-Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
+戻り値 `Promise<void>` - ページ読み込みが完了した時 ([`did-finish-load`](web-contents.md#event-did-finish-load) を参照) に解決され、ページの読み込みに失敗した時 ([`did-fail-load`](web-contents.md#event-did-fail-load) を参照) に拒否される Promise。
 
-Same as [`webContents.loadURL(url[, options])`](web-contents.md#contentsloadurlurl-options).
+[`webContents.loadURL(url[, options])`](web-contents.md#contentsloadurlurl-options) と同じです。
 
 `url` は、リモートアドレス (例えば、`http://`) または `file://` プロトコルを使ってローカルのHTMLファイルのパスにすることができます。
 
@@ -1034,7 +1034,7 @@ win.loadURL('http://localhost:8000/post', {
   * `search` String (任意) - `url.format()` に渡されます。
   * `hash` String (任意) - `url.format()` に渡されます。
 
-Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
+戻り値 `Promise<void>` - ページ読み込みが完了した時 ([`did-finish-load`](web-contents.md#event-did-finish-load) を参照) に解決され、ページの読み込みに失敗した時 ([`did-fail-load`](web-contents.md#event-did-fail-load) を参照) に拒否される Promise。
 
 `webContents.loadFile` と同じで、`filePath` はアプリケーションのルートからの相対パスで指す HTML でなければいけません。詳細は `webContents` ドキュメントを参照してください。
 
@@ -1046,11 +1046,11 @@ Returns `Promise<void>` - the promise will resolve when the page has finished lo
 
 * `menu` Menu | null
 
-Sets the `menu` as the window's menu bar.
+`menu` をウインドウのメニューバーとして設定します。
 
 #### `win.removeMenu()` *Linux* *Windows*
 
-Remove the window's menu bar.
+ウインドウのメニューバーを消去します。
 
 #### `win.setProgressBar(progress[, options])`
 
@@ -1285,7 +1285,7 @@ macOSでは、NSWindowのsharingTypeをNSWindowSharingNoneに設定します。W
 
 ブラウザウィンドウに曇りガラス効果を追加します。`null` または空文字を渡すと、ウインドウの曇りガラス効果が削除されます。
 
-#### `win.setTouchBar(touchBar)` *macOS* *Experimental*
+#### `win.setTouchBar(touchBar)` *macOS* *実験的*
 
 * `touchBar` TouchBar
 
@@ -1293,21 +1293,21 @@ macOSでは、NSWindowのsharingTypeをNSWindowSharingNoneに設定します。W
 
 **注釈:** TouchBar API は現在実験的な機能で、将来の Electron リリースでは変更されたり削除されたりする可能性があります。
 
-#### `win.setBrowserView(browserView)` *Experimental*
+#### `win.setBrowserView(browserView)` *実験的*
 
-* `browserView` [BrowserView](browser-view.md). Attach browserView to win. If there is some other browserViews was attached they will be removed from this window.
+* `browserView` [BrowserView](browser-view.md) - browserView を win へアタッチします。他の browserView がアタッチされている場合、このウインドウから削除されます。
 
 #### `win.getBrowserView()` *実験的*
 
-Returns `BrowserView | null` - an BrowserView what is attached. Returns `null` if none is attached. Throw error if multiple BrowserViews is attached.
+戻り値 `BrowserView | null` - アタッチされた BrowserView。何もアタッチされていない場合は `null` を返します。複数の BrowserView がアタッチされている場合はエラーを投げます。
 
-#### `win.addBrowserView(browserView)` *Experimental*
+#### `win.addBrowserView(browserView)` *実験的*
 
 * `browserView` [BrowserView](browser-view.md)
 
 Replacement API for setBrowserView supporting work with multi browser views.
 
-#### `win.removeBrowserView(browserView)` *Experimental*
+#### `win.removeBrowserView(browserView)` *実験的*
 
 * `browserView` [BrowserView](browser-view.md)
 
