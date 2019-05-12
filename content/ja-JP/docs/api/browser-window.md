@@ -1305,7 +1305,7 @@ macOSでは、NSWindowのsharingTypeをNSWindowSharingNoneに設定します。W
 
 * `browserView` [BrowserView](browser-view.md)
 
-Replacement API for setBrowserView supporting work with multi browser views.
+複数の BrowserView をサポートする setBrowserView の置換 API。
 
 #### `win.removeBrowserView(browserView)` *実験的*
 
@@ -1313,6 +1313,6 @@ Replacement API for setBrowserView supporting work with multi browser views.
 
 #### `win.getBrowserViews()` *実験的*
 
-Returns array of `BrowserView` what was an attached with addBrowserView or setBrowserView.
+addBrowserView や setBrowserView でアタッチされた `BrowserView` の配列を返します。
 
 **注:** 現在のところ、BrowserView APIは実験的な機能であり、将来のElectronのリリースで変更されたり、削除されたりする可能性があります。
