@@ -138,11 +138,11 @@ npm uninstall -g electron
 
 しかし、組み込みモジュールを使用しているのに、まだこのエラーが出る場合、不適切なプロセスでモジュールを使用しようとしている可能性が高いです。 たとえば、 `electron.app`はメインプロセスでのみ利用でき、また `electron.webFrame`はレンダラプロセスでのみ利用できます。
 
-## The font looks blurry, what is this and what can i do?
+## フォントがぼやけます。これはどういうものでどうすればいいのですか?
 
-If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Example:
+[サブピクセルアンチエイリアス](http://alienryderflex.com/sub_pixel/) が無効だと、液晶画面上のフォントはぼやけて見えます。以下がその例です。
 
-![subpixel rendering example](images/code_coverage_infra_diagram.png)
+![サブピクセルレンダリングのサンプル](images/code_coverage_infra_diagram.png)
 
 Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (See [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) for more info).
 
