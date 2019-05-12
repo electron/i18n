@@ -45,7 +45,7 @@ session.defaultSession.cookies.set(cookie)
 #### イベント: 'changed'
 
 * `event` Event
-* `cookie` [Cookie](structures/cookie.md) - 変更されたクッキー.
+* `cookie` [Cookie](structures/cookie.md) - 変更された cookie。
 * `cause` String - 以下のいずれかの値となる変更の原因。 
   * `explicit` - ユーザーのアクションによってクッキーが直接変更されました。
   * `overwrite` - 上書きする挿入操作のため、クッキーが自動的に削除されました。
@@ -70,9 +70,9 @@ session.defaultSession.cookies.set(cookie)
   * `secure` Boolean (任意) - Secureプロパティでクッキーをフィルタリングします。
   * `session` Boolean (任意) - セッションまたは永続的クッキーでフィルタリングします。
 
-Returns `Promise<Cookie[]>` - A promise which resolves an array of cookie objects.
+戻り値 `Promise<Cookie[]>` - cookie オブジェクトの配列で解決される Promise。
 
-Sends a request to get all cookies matching `filter`, and resolves a promise with the response.
+`filter` に一致するすべての cookie を取得するリクエストを送り、そのレスポンスで Promise を解決します。
 
 #### `cookies.get(filter, callback)`
 
@@ -103,9 +103,9 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
   * `httpOnly` Boolean (任意) - クッキーにHttpOnly属性がついているかどうか。省略値は、falseです。
   * `expirationDate` Double (任意) - UNIX時間の秒数によるCookieの有効期限。 省略した場合、クッキーはセッションクッキーになり、セッション間では保持されなくなります。
 
-Returns `Promise<void>` - A promise which resolves when the cookie has been set
+戻り値 `Promise<void>` - cookie が設定されたときに解決される Promise。
 
-Sets a cookie with `details`.
+cookie を `details` で設定します。
 
 #### `cookies.set(details, callback)`
 
@@ -130,9 +130,9 @@ Sets a cookie with `details`.
 * `url` String - クッキーに関連付けられたURL。
 * `name` String - 削除するクッキーの名前。
 
-Returns `Promise<void>` - A promise which resolves when the cookie has been removed
+戻り値 `Promise<void>` - cookie が削除されたときに解決される Promise。
 
-Removes the cookies matching `url` and `name`
+`url` と `name` が一致する cookie を削除します。
 
 #### `cookies.remove(url, name, callback)`
 
@@ -146,7 +146,7 @@ Removes the cookies matching `url` and `name`
 
 #### `cookies.flushStore()`
 
-Returns `Promise<void>` - A promise which resolves when the cookie store has been flushed
+戻り値 `Promise<void>` - cookie ストアがフラッシュされたときに解決される Promise。
 
 未書き込みのクッキーのデータをディスクに書き込みます。
 
