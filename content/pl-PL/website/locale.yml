@@ -240,8 +240,8 @@ governance:
     title: Strona
     description: Oversees the technical implementation, design, and style of the Electron website and associated tooling.
   cmsf:
-    title: Community & Safety
-    description: Oversees removal/bans from community.
+    title: Społeczność & Bezpieczeństwo
+    description: Nadzoruje usunięciami/blokowaniem z społeczności.
   security:
     title: Bezpieczeństwo
     description: Proactively ensures the Security of Electron as a project, responds to incoming incidents, and oversees rollout of fixes.
