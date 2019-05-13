@@ -36,21 +36,21 @@ Example Use Case:
         - See Step 3 for URI & when prompted, press enter to use same storage account as destination.
         - Use default destination container name `(images)`
         - Also, when naming the copy, use a name that indicates what the new image will contain (if that has changed) and date stamp. 
-            - Ex. `libcc-20core-vs2017-15.9-2019-04-15.vhd`
+            - Ej. `libcc-20core-vs2017-15.9-2019-04-15.vhd`
     - Go into Azure and get the URI for the newly created image as described in a previous step
 
 5. Spin up a new VM using the [Create Master VM from VHD PowerShell](https://github.com/appveyor/ci/blob/master/scripts/enterprise/create_master_vm_from_vhd.ps1).
     
     - From PowerShell, execute `ps1` file with `./create_master_vm_from_vhd.ps1`
     - You will need the credential information available in the AppVeyor build cloud definition. 
-        - This includes: 
-            - Client ID
-            - Client Secret
+        - Esto incluye: 
+            - ID de Cliente
+            - Secreto del Cliente
             - Tenant ID
-            - Subscription ID
-            - Resource Group
-            - Virtual Network
-    - You will also need to specify 
+            - ID de la suscripción
+            - Grupo de Recursos
+            - Red virtual
+    - También necesitará especificar 
         - Master VM name - just a unique name to identify the temporary VM
         - Master VM size - use `Standard_F32s_v2`
         - Master VHD URI - use URI obtained @ end of previous step
@@ -66,6 +66,6 @@ Example Use Case:
 
 8. Modify the VM as required.
 
-9. Shut down the VM and then delete it in Azure.
+9. Apagar la VM y luego borrarla en Azure.
 
 10. Add the new image to the Appveyor Cloud settings or modify an existing image to point to the new VHD.
