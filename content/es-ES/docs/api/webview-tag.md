@@ -109,7 +109,7 @@ Experimental option for enabling NodeJS support in sub-frames such as iframes in
 <webview src="http://www.google.com/" enableremotemodule="false"></webview>
 ```
 
-When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. The remote module is avaiable by default.
+When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. El módulo remoto está disponible por defecto.
 
 ### `complementos`
 
@@ -231,7 +231,7 @@ Carga el `url` en el webview, el `url` debe contener el prefijo protocolo, e.g. 
 
 * `url` Cadena
 
-Initiates a download of the resource at `url` without navigating.
+Inicia una descarga del recurso en `url` sin navegar.
 
 ### `<webview>.getURL()`
 
