@@ -40,7 +40,7 @@ Consulte la [macOS Cocoa Event Handling Guide](https://developer.apple.com/libra
 
 #### `Menu.buildFromTemplate(template)`
 
-* `template` (MenuItemConstructorOptions | MenuItem)[]
+* `plantilla` (MenuItemConstructorOptions | MenuItem)[]
 
 Devuelve `Menu`
 
@@ -153,14 +153,14 @@ const template = [
   }] : []),
   // { role: 'fileMenu' }
   {
-    label: 'File',
+    label: 'Archivo',
     submenu: [
       isMac ? { role: 'close' } : { role: 'quit' }
     ]
   },
   // { role: 'editMenu' }
   {
-    label: 'Edit',
+    label: 'Editar',
     submenu: [
       { role: 'undo' },
       { role: 'redo' },
