@@ -95,7 +95,7 @@ if (!inAppPurchase.canMakePayments()) {
 
 // Recupera y muestra las descripciones de los productos.
 inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
-  // Check the parameters.
+  // Verificar los parámetros.
   if (!Array.isArray(products) || products.length <= 0) {
     console.log('Unable to retrieve the product informations.')
     return
