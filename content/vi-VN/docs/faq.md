@@ -142,7 +142,7 @@ Tuy nhiên nếu bạn đang sử dụng các module được xây dựng sẵn 
 
 If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Example:
 
-![subpixel rendering example](images/code_coverage_infra_diagram.png)
+![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
 
 Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (See [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) for more info).
 
