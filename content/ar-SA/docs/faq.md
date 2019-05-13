@@ -143,7 +143,7 @@ npm uninstall -g electron
 
 <p>If <a href="http://alienryderflex.com/sub_pixel/">sub-pixel anti-aliasing</a> is deactivated, then fonts on LCD screens can look blurry. Example:</p>
 
-<p>!<a href="images/code_coverage_infra_diagram.png">subpixel rendering example</a></p>
+<p>!<a href="images/subpixel-rendering-screenshot.gif">subpixel rendering example</a></p>
 
 <p>Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (See <a href="https://github.com/electron/electron/issues/6344#issuecomment-420371918">this issue</a> for more info).</p>
 
