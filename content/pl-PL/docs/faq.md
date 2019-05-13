@@ -142,7 +142,7 @@ Jednak jeśli pomimo użycia wbudowanego modułu wciąż występuje ten błąd, 
 
 W przypadku gdy opcja [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) jest wyłączona, czcionki na ekranach LCD mogą wyglądać na rozmazane. Na przykład:
 
-![subpixel rendering example](images/code_coverage_infra_diagram.png)
+![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
 
 Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (Zobacz [ problem ](https://github.com/electron/electron/issues/6344#issuecomment-420371918) by dowiedzieć się więcej).
 
