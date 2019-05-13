@@ -48,7 +48,7 @@ community:
     get_started: "<a href='/docs/tutorial/first-app'><b>Zacznij</b></a> tworzyć aplikację, od przeczytania <a href='/docs/tutorial/first-app'>miniprzewodnika</a>."
     updates: "<a href='https://twitter.com/electronjs'><b>Bądź na bieżąco, </b></a> śledząc <a href='https://twitter.com/electronjs'>@electronjs</a> na Twitterze i subskrybując <a href='/blog'>naszego bloga</a>."
     localized_docs: "<a href='/languages'><b>Czytaj dokumentację w Twoim języku</b></a> odwiedzając <a href='/languages'>stronę wyboru języka</a>."
-    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>Get help and feedback</b></a> by joining the <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>Uzyskaj pomoc i opinię</b></a> dołączając do <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>Slack'a atom.io</a>, publikując na <a href='https://discuss.atom.io/c/electron'>Forum Discuss</a>, lub odwiedzając <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
     security: "<a href='mailto:security@electronjs.org'><b>Zgłoś błędy związane z bezpieczeństwem</b></a> pisząc na adres <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Zgłaszaj błędy</b></a> otwierając problemy w repozytorium <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Zaproponuj funkcjonalności</b></a> otwierając problem w repozytorium <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
@@ -223,18 +223,18 @@ landing:
 governance:
   title: Zarządzanie Electrona
   description: System zarządzania Electrona złożony jest z różnych grup, które zajmują się innymi aspektami ekosystemu oraz z grupy administracyjnej, która ma za zadanie rozwiązywać konflikty między poszczególnymi grupami.
-  wgs: Working Groups
+  wgs: Grupy Robocze
   docstools:
-    title: Docs & Tools
+    title: Dokumentacja & Narzędzia
     description: Oversees externally-focused tooling (e.g. Fiddle, Forge), Electron documentation across the website and <code>electron/*</code> repositories, and the maintainer’s group outreach to 3rd party modules.
   outreach:
     title: Outreach
-    description: Grows the Electron community
+    description: Rozwijanie Społeczności Electron
   releases:
     title: Wydania
     description: Oversees all release branches, and tooling to support releases.
   upgrades:
-    title: Upgrades
+    title: Aktualizacje
     description: Oversees upgrades of upstream dependencies; specifically Chromium and Node.
   website:
     title: Strona
@@ -246,17 +246,17 @@ governance:
     title: Bezpieczeństwo
     description: Proactively ensures the Security of Electron as a project, responds to incoming incidents, and oversees rollout of fixes.
   admins:
-    title: Administrative
+    title: Administracja
     description: The Administrative Working Group oversees the entire governance and project.
   global:
-    overview: Overview
-    associated_repos: Associated Repositories
-    notes: Meeting Notes
+    overview: Przegląd
+    associated_repos: Powiązane Repozytoria
+    notes: Notatki ze spotkań
   definitions:
-    title: Definitions
+    title: Definicje
     list:
       - A <i>maintainer</i> is anyone who plays an active role in governance.
-      - A <i>collaborator</i> is active in the community, but not in governance.
+      - <i>Kolaborator</i> udziela się w community, ale nie zajmuje się zarządzaniem.
       - A <i>participant</i> is anyone who is a maintainer or collaborator.
       - A <i>working group</i> is a group of maintainers that is formed to take responsibility for certain aspects of the Electron project. Normally these groups will meet regularly but in some cases will only meet as required to fulfill their responsibilities.
       - 'A <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership">chair</a> leads a working group.'
