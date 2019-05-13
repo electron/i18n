@@ -142,7 +142,7 @@ npm uninstall -g electron
 
 [サブピクセルアンチエイリアス](http://alienryderflex.com/sub_pixel/) が無効だと、液晶画面上のフォントはぼやけて見えます。以下がその例です。
 
-![サブピクセルレンダリングのサンプル](images/code_coverage_infra_diagram.png)
+![サブピクセルレンダリングのサンプル](images/subpixel-rendering-screenshot.gif)
 
 サブピクセルアンチエイリアスは不透明なレイヤーの背景が必要で、そのレイヤーはフォントグリフを含みます。 (詳しくは [この issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) を参照してください)。
 
