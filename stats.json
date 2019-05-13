@@ -3,14 +3,14 @@
     "name": "Arabic",
     "code": "ar",
     "phrases": "10557",
-    "translated": "1275",
+    "translated": "1276",
     "approved": "0",
     "words": "97286",
-    "words_translated": "8169",
+    "words_translated": "8180",
     "words_approved": "0",
     "translated_progress": 8,
     "approved_progress": 0,
-    "qa_issues": 463
+    "qa_issues": 464
   },
   {
     "name": "Bulgarian",
@@ -172,14 +172,14 @@
     "name": "Japanese",
     "code": "ja",
     "phrases": "10557",
-    "translated": "9987",
+    "translated": "10064",
     "approved": "276",
     "words": "97286",
-    "words_translated": "90494",
+    "words_translated": "91423",
     "words_approved": "1582",
     "translated_progress": 93,
     "approved_progress": 1,
-    "qa_issues": 304
+    "qa_issues": 306
   },
   {
     "name": "Korean",
@@ -211,14 +211,14 @@
     "name": "Polish",
     "code": "pl",
     "phrases": "10557",
-    "translated": "4237",
+    "translated": "4264",
     "approved": "1105",
     "words": "97286",
-    "words_translated": "20979",
+    "words_translated": "21180",
     "words_approved": "7132",
     "translated_progress": 21,
     "approved_progress": 7,
-    "qa_issues": 831
+    "qa_issues": 838
   },
   {
     "name": "Portuguese, Brazilian",
@@ -251,26 +251,26 @@
     "code": "ru",
     "phrases": "10557",
     "translated": "6003",
-    "approved": "1000",
+    "approved": "999",
     "words": "97286",
     "words_translated": "45114",
-    "words_approved": "7679",
+    "words_approved": "7677",
     "translated_progress": 46,
     "approved_progress": 7,
-    "qa_issues": 1861
+    "qa_issues": 1863
   },
   {
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "10557",
-    "translated": "9221",
+    "translated": "9339",
     "approved": "253",
     "words": "97286",
-    "words_translated": "77267",
+    "words_translated": "77848",
     "words_approved": "2059",
-    "translated_progress": 79,
+    "translated_progress": 80,
     "approved_progress": 2,
-    "qa_issues": 3561
+    "qa_issues": 3600
   },
   {
     "name": "Tagalog",
