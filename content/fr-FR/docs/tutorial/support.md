@@ -25,7 +25,15 @@ Si vous découvrez une erreur dans une [version supportée](#supported-versions)
 
 ## Versions supportées
 
-Les trois dernières branches de version sont supportées par l'équipe Electron. Par exemple, si la dernière version est la 2.0, alors les révisions 2.0.x sont supportées, ainsi que celles numérotées 1.7.x et 1.8.x, provenant des deux précédentes versions.
+The latest three major versions are supported by the Electron team. For example, if the latest release is 5.0.x, then the 4.x.y series is supported, as are the two previous release series 3.x.y and 2.x.y.
+
+### Currently supported versions
+
+* 5.x
+* 4.x
+* 3.x
+
+### End-of-life
 
 Quand une branche de version arrive au terme de son cycle de support, les révisions associées sont rendues obsolètes dans NPM et une toute dernière révision de fin de support est mise à disposition. Cette révision signalera alors que la version d'Electron utilisée n'est plus supportée.
 
