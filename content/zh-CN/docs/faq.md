@@ -142,7 +142,7 @@ npm uninstall -g electron
 
 如果 [次级像素反锯齿](http://alienryderflex.com/sub_pixel/)已停用，那么 LCD 屏幕上的字体可能会看起来模糊。例如：
 
-![次像素渲染示例](images/code_coverage_infra_diagram.png)
+![次像素渲染示例](images/subpixel-rendering-screenshot.gif)
 
 Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (See [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) for more info).
 
