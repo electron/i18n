@@ -142,7 +142,7 @@ Wenn Sie allerdings das integrierte Modul nutzen und trotzdem diesen Fehler beko
 
 Wenn [Subpixel-Anti-Alias](http://alienryderflex.com/sub_pixel/) deaktiviert ist, können Schriftarten auf LCD-Bildschirmen unscharf aussehen. Beispiel:
 
-![Subpixel Rendering Beispiel](images/code_coverage_infra_diagram.png)
+![Subpixel Rendering Beispiel](images/subpixel-rendering-screenshot.gif)
 
 Subpixel Antialiasing benötigt einen nicht-transparenten Hintergrund der Ebene, die die Schrift-Glyphen enthält. (Siehe [dieses Problem](https://github.com/electron/electron/issues/6344#issuecomment-420371918) für weitere Informationen).
 
