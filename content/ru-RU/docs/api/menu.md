@@ -44,9 +44,9 @@
 
 Возвращает `Menu`
 
-Generally, the `template` is an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
+Обычно, `template` это массив `options` для построения [MenuItem](menu-item.md). Использование может быть указано выше.
 
-You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
+Вы также можете прикрепить другие поля к элементу `template` и они станут свойствами элементов из созданного меню.
 
 ### Методы экземпляра
 
@@ -55,9 +55,9 @@ You can also attach other fields to the element of the `template` and they will 
 #### `menu.popup(options)`
 
 * `options` Object (опционально) 
-  * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
-  * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
-  * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
+  * `windows` [BrowserWindow](browser-window.md) (опционально) - по умолчанию это сфокусированное окно.
+  * `x` Number (опционально) - по умолчанию это текущее положение курсора мыши. Должно быть объявлено, если `y` объявлено.
+  * `y` Number (опционально) - по умолчанию это текущее положение курсора мыши. Должно быть объявлено, если `x` объявлено.
   * `positioningItem` Number (optional) *macOS* - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
   * `callback` Function (optional) - Called when menu is closed.
 
