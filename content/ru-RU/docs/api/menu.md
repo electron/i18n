@@ -257,19 +257,19 @@ window.addEventListener('contextmenu', (e) => {
 
 ## Замечания о меню приложения в macOS
 
-macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
+macOS имеет совершено отличный от Windows и Linux стиль меню приложения. Здесь несколько заметок о создании меню приложения более похожим на нативный способ.
 
 ### Стандартные меню
 
-On macOS there are many system-defined standard menus, like the `Services` and `Windows` menus. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
+На macOS есть много системных стандартных меню, таких как меню `Services` и `Windows`. Чтобы сделать меню стандартным меню, Вы должны установить значение `role` у меню в одно из следующих, а Electron распознает их и сделает их стандартным меню:
 
 * `window`
 * `help`
 * `services`
 
-### Standard Menu Item Actions
+### Действия элементов стандартного меню
 
-macOS has provided standard actions for some menu items, like `About xxx`, `Hide xxx`, and `Hide Others`. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
+macOS представляет стандартные действия для некоторых элементов меню, таких как `About xxx`, `Hide xxx` и `Hide Others`. Чтобы установить действие элемента меню на стандартное действие, Вы должны установить атрибут `role` элемента меню.
 
 ### Имя главного меню
 
