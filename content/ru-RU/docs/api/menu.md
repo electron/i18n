@@ -1,8 +1,8 @@
-## Class: MenuItem
+## Class: Menu
 
-> Create native application menus and context menus.
+> Создает меню приложения и контекстное меню.
 
-Process: [Main](../glossary.md#main-process)
+Процесс: [Main](../glossary.md#main-process)
 
 ### `new Menu()`
 
