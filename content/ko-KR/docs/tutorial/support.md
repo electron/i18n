@@ -47,7 +47,7 @@ Electron이 지원하는 플랫폼은 다음과 같습니다:
 
 ### macOS
 
-Only 64bit binaries are provided for macOS, and the minimum macOS version supported is macOS 10.10 (Yosemite).
+MacOS에는 64 비트 바이너리만 제공되며, 최소 버전은 macOS 10.10입니다).
 
 ### Windows
 
