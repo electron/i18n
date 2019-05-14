@@ -18,7 +18,7 @@
 
 Задает `menu` в качестве меню приложения в macOS. В Windows и Linux `menu` будет задан как верхнее меню для каждого окна.
 
-Also on Windows and Linux, you can use a `&` in the top-level item name to indicate which letter should get a generated accelerator. For example, using `&File` for the file menu would result in a generated `Alt-F` accelerator that opens the associated menu. The indicated character in the button label gets an underline. The `&` character is not displayed on the button label.
+Также на Windows и Linux, Вы можете использовать `&` в названии подменю верхнего списка, чтобы указать, какая буква должна получить сгенерированный акселератор( Accelerator ). For example, using `&File` for the file menu would result in a generated `Alt-F` accelerator that opens the associated menu. The indicated character in the button label gets an underline. The `&` character is not displayed on the button label.
 
 Passing `null` will suppress the default menu. On Windows and Linux, this has the additional effect of removing the menu bar from the window.
 
