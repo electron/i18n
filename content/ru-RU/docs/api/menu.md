@@ -118,19 +118,19 @@
 
 Массив `MenuItem[]` содержит элементы меню.
 
-Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
+Каждое `Menu` состоит из нескольких [`MenuItem`](menu-item.md) и каждое `MenuItem` может иметь подменю.
 
 ### События экземпляра
 
-Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
+Объекты созданные с помощью `new Menu` или возвращенные из `Menu.buildFromTemplate` вызывают следующие события:
 
 ## Примеры
 
-Класс `Menu` доступен только в главном процессе, но вы также можете использовать его в рендер-процессе через модуль [`remote`](remote.md).
+Класс `Menu` доступен только в основном( main ) процессе, но Вы также можете использовать его в графическом( renderer ) процессе через модуль [`remote`](remote.md).
 
-### Главный процесс
+### Основной процесс
 
-An example of creating the application menu in the main process with the simple template API:
+Пример создания меню приложения в основном процессе с API простого шаблона:
 
 ```javascript
 const { app, Menu } = require('electron')
@@ -233,9 +233,9 @@ const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
 
-### Render process
+### Графический процесс
 
-Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
+Ниже приведен пример динамического создания меню на веб-странице (графический процесс) используя модуль [`remote`](remote.md) и показывает его, когда пользователь нажимает правую кнопку мыши на странице:
 
 ```html
 <!-- index.html -->
