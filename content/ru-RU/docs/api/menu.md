@@ -58,14 +58,14 @@
   * `windows` [BrowserWindow](browser-window.md) (опционально) - по умолчанию это сфокусированное окно.
   * `x` Number (опционально) - по умолчанию это текущее положение курсора мыши. Должно быть объявлено, если `y` объявлено.
   * `y` Number (опционально) - по умолчанию это текущее положение курсора мыши. Должно быть объявлено, если `x` объявлено.
-  * `positioningItem` Number (optional) *macOS* - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
-  * `callback` Function (optional) - Called when menu is closed.
+  * `positioningItemпункт` Number (опционально) *macOS* - индекс элемента меню, который будет размещен под курсором мыши на заданных координатах. По умолчанию -1.
+  * `callback` Функция (опционально) - вызывается, когда меню закрыто.
 
-Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
+Переключает это меню в контекстное меню в [`BrowserWindow`](browser-window.md).
 
 #### `menu.closePopup([browserWindow])`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
+* `browserWindow` [BrowserWindow](browser-window.md) (опционально) - по умолчанию это сфокусированное окно.
 
 Закрывает контекстное меню в `browserWindow`.
 
@@ -73,50 +73,50 @@ Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
 
 * `menuItem` [MenuItem](menu-item.md)
 
-Appends the `menuItem` to the menu.
+Добавляет `menuItem` в меню.
 
 #### `menu.getMenuItemById(id)`
 
 * `id` String
 
-Returns `MenuItem` the item with the specified `id`
+Возвращает элемент `MenuItem` с указанным `id`
 
 #### `menu.insert(pos, menuItem)`
 
-* `pos` Integer
+* `port` Integer
 * `menuItem` [MenuItem](menu-item.md)
 
-Inserts the `menuItem` to the `pos` position of the menu.
+Вставляет `menuItem` в меню на позицию `pos`.
 
 ### События экземпляра
 
-Objects created with `new Menu` emit the following events:
+Объекты созданные с помощью `new Menu`, имеют следующие события:
 
 **Примечание:** Некоторые методы доступны только в определенных операционных системах и помечены как таковые.
 
-#### Event: 'menu-will-show'
+#### Событие: 'menu-will-show'
 
 Возвращает:
 
 * `event` Event
 
-Emitted when `menu.popup()` is called.
+Вызывается при вызове `menu.popup()`.
 
-#### Event: 'menu-will-close'
+#### Событие: 'menu-will-close'
 
 Возвращает:
 
 * `event` Event
 
-Emitted when a popup is closed either manually or with `menu.closePopup()`.
+Вызывается, когда всплывающее окно закрывается вручную или с помощью `menu.closePopup()`.
 
 ### Свойства экземпляра
 
-`menu` objects also have the following properties:
+Объекты `menu` также имеют следующие свойства:
 
 #### `menu.items`
 
-A `MenuItem[]` array containing the menu's items.
+Массив `MenuItem[]` содержит элементы меню.
 
 Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
 
