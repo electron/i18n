@@ -13,16 +13,16 @@ nav:
   releases: 출시
   search: 검색
   userland: 사용자 공간
-  governance: Governance
+  governance: 운영 방식
 keyboard_modal:
   title: 키보드 단축기
-  key: 키
-  action: 동작
-  focus_search: 검색 창 포커싱
+  key: Key
+  action: 사용내역
+  focus_search: 검색 창 선택
   focus_and_clear: 검색 창을 포커싱하고 내용 비우기
-  scroll_down: 다음 검색 결과 선택
+  scroll_down: 이전 검색 결과 선택
   scroll_up: 이전 검색 결과 선택
-  open: 선택된 검색 결과 열기
+  open: 새 탭에서 선택된 검색 결과 열기
   open_new_tab: 새 탭에서 선택된 검색 결과 열기
 docs:
   title: Electron 문서
