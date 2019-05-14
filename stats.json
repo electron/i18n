@@ -250,14 +250,14 @@
     "name": "Russian",
     "code": "ru",
     "phrases": "10562",
-    "translated": "6003",
+    "translated": "6084",
     "approved": "999",
     "words": "97293",
-    "words_translated": "45114",
+    "words_translated": "46404",
     "words_approved": "7677",
-    "translated_progress": 46,
+    "translated_progress": 47,
     "approved_progress": 7,
-    "qa_issues": 1863
+    "qa_issues": 1898
   },
   {
     "name": "Spanish",
@@ -289,14 +289,14 @@
     "name": "Thai",
     "code": "th",
     "phrases": "10562",
-    "translated": "961",
+    "translated": "976",
     "approved": "4",
     "words": "97293",
-    "words_translated": "6588",
+    "words_translated": "6707",
     "words_approved": "61",
     "translated_progress": 6,
     "approved_progress": 0,
-    "qa_issues": 554
+    "qa_issues": 563
   },
   {
     "name": "Turkish",
