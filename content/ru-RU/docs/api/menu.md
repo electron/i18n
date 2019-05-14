@@ -283,8 +283,8 @@ macOS представляет стандартные действия для н
 
 Вы можете использовать `before`, `after`, `beforeGroupContaining`, `afterGroupContaining` и `id`, чтобы контролировать то, как элементы будут размещены, при создании меню с помощью `Menu.buildFromTemplate`.
 
-* `before` - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
-* `after` - Inserts this item after the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
+* `before` - вставляет этот элемент перед элементом с указанным названием. Если ссылаемый элемент не существует, тогда элемент будет вставлен в конец меню. Кроме того, подразумевается, что рассматриваемый элемент меню размещен в той же "группе", что и сам элемент.
+* `after` - вставляет элемент после элемента с указанным названием. Если ссылаемый элемент не существует, тогда элемент будет вставлен в конец меню. Кроме того, подразумевается, что рассматриваемый элемент меню размещен в той же "группе", что и сам элемент.
 * `beforeGroupContaining` - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
 * `afterGroupContaining` - Provides a means for a single context menu to declare the placement of their containing group after the containing group of the item with the specified label.
 
