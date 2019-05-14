@@ -22,11 +22,11 @@
 
 Передача `null` будет подавлять меню по умолчанию. На Windows и Linux, это имеет дополнительный эффект - удаление панели меню из окна.
 
-**Примечание:** Меню по умолчанию будет создано автоматически, если приложение не установит его. It contains standard items such as `File`, `Edit`, `View`, `Window` and `Help`.
+**Примечание:** Меню по умолчанию будет создано автоматически, если приложение не установит его. Он содержит стандартные элементы, такие как `Файл`, `Редактировать`, `Вид`, `Окно` и `Помощь`.
 
 #### `Menu.getApplicationMenu()`
 
-Возвращает `Menu | null` - меню приложения, если значение задано, в противном случае `null`.
+Возвращает `Menu | null` - меню приложения, если установлено, иначе `null`.
 
 **Примечание:** Возвращенный экземпляр `Menu` не поддерживает динамическое добавление или удаление пунктов меню. [Параметры экземпляра](#instance-properties) все ещё могут быть динамически изменены.
 
@@ -34,7 +34,7 @@
 
 * `action` String
 
-Посылает `action` первому ответчику приложения. Это используется для эмуляции поведения меню macOS. Usually you would use the [`role`](menu-item.md#roles) property of a [`MenuItem`](menu-item.md).
+Посылает `action` первому ответчику приложения. Это используется для эмуляции поведения меню macOS. Чаще всего вы будет использовать свойство [`role`](menu-item.md#roles) экземпляра [`MenuItem`](menu-item.md).
 
 Для дополнительной информации по нативным действиям в macOS смотрите [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7).
 
