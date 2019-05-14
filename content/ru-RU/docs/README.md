@@ -26,7 +26,7 @@
   * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
   * [Другие инструменты и макеты](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
 * [Архитектура приложения](tutorial/application-architecture.md) 
-  * [Основные( main ) и рендерер( renderer ) процессы](tutorial/application-architecture.md#main-and-renderer-processes)
+  * [Основной( Main ) и графический( Renderer ) процессы](tutorial/application-architecture.md#main-and-renderer-processes)
   * [Использование API Electron](tutorial/application-architecture.md#using-electron-apis)
   * [Использование API Node.js](tutorial/application-architecture.md#using-nodejs-apis)
   * [Использование нативных модулей Node.js](tutorial/using-native-node-modules.md)
