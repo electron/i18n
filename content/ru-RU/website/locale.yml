@@ -13,13 +13,13 @@ nav:
   releases: Релизы
   search: Поиск
   userland: Пользовательское пространство
-  governance: Governance
+  governance: Управление
 keyboard_modal:
   title: Горячие клавиши
   key: Клавиша
   action: Действие
   focus_search: Перейти в панель поиска
-  focus_and_clear: Focus the search bar and cleans it
+  focus_and_clear: Фокусирует поисковую строку и очищает ее
   scroll_down: Выберите следующий результат поиска
   scroll_up: Выберите предыдущий результат поиска
   open: Открыть выбранный результат поиска
