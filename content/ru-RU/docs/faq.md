@@ -146,7 +146,7 @@ npm uninstall -g electron
 
 Для анти-алиасинга подпикселя требуется непрозрачный фон, содержащий глифы шрифта. (См. [эту проблему](https://github.com/electron/electron/issues/6344#issuecomment-420371918) для получения дополнительной информации).
 
-To achieve this goal, set the background in the constructor for [BrowserWindow](api/browser-window.md):
+Для достижения этой цели, установите фон в конструкторе [BrowserWindow](api/browser-window.md):
 
 ```javascript
 const { BrowserWindow } = require('electron')
