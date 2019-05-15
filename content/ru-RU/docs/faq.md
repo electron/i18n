@@ -129,22 +129,22 @@ console.log(require.resolve('electron'))
 "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
 ```
 
-Если он что-то вроде `node_modules/electron/index.js`, то тогда вам придется либо удалить npm модуль `electron`, либо переименовать его.
+Если он что-то вроде `node_modules/electron/index.js`, то тогда Вам придется либо удалить npm модуль `electron`, либо переименовать его.
 
 ```sh
 npm uninstall electron
 npm uninstall -g electron
 ```
 
-Однако если вы используете встроенный модуль, но по-прежнему получаете эту ошибку, то вероятнее всего, вы используете модуль в неподходящем процессе. Например `electron.app` может быть использован только в главном процессе, в то время как `electron.webFrame` доступен только в процессах отображения(renderer).
+Однако, если Вы используете встроенный модуль, но по-прежнему получаете эту ошибку, то вероятнее всего, Вы используете модуль в неподходящем процессе. Например, `electron.app` может быть использован только в основном процессе, в то время как `electron.webFrame` доступен только в графических процессах.
 
 ## Шрифт выглядит размытым, что это и что я могу с этим сделать?
 
-Если [подпиксель анти-алиасинг](http://alienryderflex.com/sub_pixel/) отключен, то шрифты на LCD экранах могут выглядеть размытыми. Пример:
+Если [анти-алиасинг подпикселя](http://alienryderflex.com/sub_pixel/) отключен, то шрифты на LCD экранах могут выглядеть размытыми. Например:
 
-![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
+![пример прорисовки подпикселя](images/subpixel-rendering-screenshot.gif)
 
-Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (See [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) for more info).
+Для анти-алиасинга подпикселя требуется непрозрачный фон, содержащий глифы шрифта. (См. [эту проблему](https://github.com/electron/electron/issues/6344#issuecomment-420371918) для получения дополнительной информации).
 
 To achieve this goal, set the background in the constructor for [BrowserWindow](api/browser-window.md):
 
