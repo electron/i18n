@@ -229,7 +229,7 @@ governance:
     description: Oversees externally-focused tooling (e.g. Fiddle, Forge), Electron documentation across the website and <code>electron/*</code> repositories, and the maintainer’s group outreach to 3rd party modules.
   outreach:
     title: Охват
-    description: Grows the Electron community
+    description: Растет сообщество Electron
   releases:
     title: Релизы
     description: Обзор всех ветвей выпуска и подборка для поддержки релизов.
