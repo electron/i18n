@@ -23,10 +23,10 @@ keyboard_modal:
   scroll_down: Выберите следующий результат поиска
   scroll_up: Выберите предыдущий результат поиска
   open: Открыть выбранный результат поиска
-  open_new_tab: Открывает выбранную закладку в новой вкладке
+  open_new_tab: Открыть выбранные результат поиска в новой вкладке
 docs:
   title: Документация Electron
-  description: Просмотрите всю <a href="/docs/all">документацию на одной странице</a> или посетите <a href="/docs/faq">ЧаВо</a>.
+  description: Просмотрите всю <a href="/docs/all">документацию на одной странице</a> или посетите <a href="/docs/faq">FAQ</a>.
   guides: Руководства
   api_reference: Справка по API
   api_structures: Структуры API
@@ -38,7 +38,7 @@ docs:
     view_all_docs: Вся документация на одной странице
 languages:
   choose_language: Выберите язык сайта
-  view_more_details: Узнать больше о переводе
+  view_more_details: Узнать больше о языке
   translation_progress: Прогресс перевода
   current: текущий выбор
 community:
