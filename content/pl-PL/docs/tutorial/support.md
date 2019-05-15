@@ -25,7 +25,7 @@ If you've found a bug in a [supported version](#supported-versions) of Electron,
 
 ## Wspierane wersje
 
-Trzy ostatnie główne wersje są wpierane przez zespół Electron. For example, if the latest release is 5.0.x, then the 4.x.y series is supported, as are the two previous release series 3.x.y and 2.x.y.
+Trzy ostatnie główne wersje są wpierane przez zespół Electron. Na przykład, jeśli ostatnią wersją jest 5.0.x, to również seria 4.x.y ma wsparcie, tak jak dwa poprzednie wydania - 3.x.y oraz 2.x.y.
 
 ### Aktualnie wspierane wersje
 
@@ -33,7 +33,7 @@ Trzy ostatnie główne wersje są wpierane przez zespół Electron. For example,
 * 4.x
 * 3.x
 
-### End-of-life
+### EOL
 
 When a release branch reaches the end of its support cycle, the series will be deprecated in NPM and a final end-of-support release will be made. This release will add a warning to inform that an unsupported version of Electron is in use.
 
@@ -63,6 +63,6 @@ The prebuilt `ia32` (`i686`) and `x64` (`amd64`) binaries of Electron are built 
 
 Whether the prebuilt binary can run on a distribution depends on whether the distribution includes the libraries that Electron is linked to on the building platform, so only Ubuntu 12.04 is guaranteed to work, but following platforms are also verified to be able to run the prebuilt binaries of Electron:
 
-* Ubuntu 12.04 i nowszy
+* Ubuntu 12.04 i nowsze
 * Fedora 21
 * Debian 8
