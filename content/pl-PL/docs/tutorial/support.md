@@ -25,9 +25,9 @@ If you've found a bug in a [supported version](#supported-versions) of Electron,
 
 ## Wspierane wersje
 
-The latest three major versions are supported by the Electron team. For example, if the latest release is 5.0.x, then the 4.x.y series is supported, as are the two previous release series 3.x.y and 2.x.y.
+Trzy ostatnie główne wersje są wpierane przez zespół Electron. For example, if the latest release is 5.0.x, then the 4.x.y series is supported, as are the two previous release series 3.x.y and 2.x.y.
 
-### Currently supported versions
+### Aktualnie wspierane wersje
 
 * 5.x
 * 4.x
