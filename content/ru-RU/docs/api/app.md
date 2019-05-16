@@ -189,7 +189,7 @@ app.on('window-all-closed', () => {
 * `event` Event
 * `window` [BrowserWindow](browser-window.md)
 
-Возникает, когда создается новый [browserWindow](browser-window.md).
+Происходит, когда создался новый [browserWindow](browser-window.md).
 
 ### Событие: 'web-contents-created'
 
@@ -198,7 +198,7 @@ app.on('window-all-closed', () => {
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Возникает при создании нового [webContents](web-contents.md).
+Происходит, когда создался новый [webContents](web-contents.md).
 
 ### Событие: 'certificate-error'
 
@@ -209,10 +209,10 @@ app.on('window-all-closed', () => {
 * `url` String
 * `error` String - код ошибки
 * `certificate` [Certificate](structures/certificate.md)
-* `callback` Function 
-  * `isTrusted` Boolean - учитывать ли сертификат как надёжный
+* `callback` Функция 
+  * `isTrusted` Boolean - учитывать ли сертификат, как надёжный
 
-Возникает, когда не удалось проверить `certificate` для `url`, чтобы доверять сертификату, вы должны предотвратить поведение по умолчанию с `event.preventDefault()` и вызвать `callback(true)`.
+Происходит, когда не удалось проверить `certificate` для `url`, чтобы доверять сертификату, Вы должны предотвратить поведение по умолчанию с помощью `event.preventDefault()` и вызвать `callback(true)`.
 
 ```javascript
 const { app } = require('electron')
@@ -236,12 +236,12 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 * `webContents` [WebContents](web-contents.md)
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Function 
-  * `certificate` [Certificate](structures/certificate.md) (опиционально)
+* `callback` Функция 
+  * `certificate` [Certificate](structures/certificate.md) (опционально)
 
-Возникает при запросе сертификата клиента.
+Происходит, когда запрошен сертификат клиента.
 
-`url` соответствует записи навигации, запрашивающей сертификат клиента и `callback` можно вызвать с записью, отфильтрованной из списка. `event.preventDefault()` предотвращает использование первого сертификата из хранилища.
+`url` соответствует записи навигации, запрашивающей сертификат клиента, а `callback` можно вызвать с записью, отфильтрованной из списка. `event.preventDefault()` предотвращает использование первого сертификата из хранилища.
 
 ```javascript
 const { app } = require('electron')
