@@ -209,7 +209,7 @@ app.on('window-all-closed', () => {
 * `url` String
 * `error` String - код ошибки
 * `certificate` [Certificate](structures/certificate.md)
-* `callback` Функция 
+* `callback` Function 
   * `isTrusted` Boolean - учитывать ли сертификат, как надёжный
 
 Происходит, когда не удалось проверить `certificate` для `url`, чтобы доверять сертификату, Вы должны предотвратить поведение по умолчанию с помощью `event.preventDefault()` и вызвать `callback(true)`.
@@ -236,7 +236,7 @@ app.on('certificate-error', (event, webContents, url, error, certificate, callba
 * `webContents` [WebContents](web-contents.md)
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Функция 
+* `callback` Function 
   * `certificate` [Certificate](structures/certificate.md) (опционально)
 
 Происходит, когда запрошен сертификат клиента.
@@ -272,9 +272,9 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
   * `username` String
   * `password` String
 
-Происходит, когда `webContents` выполняет базовую аутетификацию.
+Происходит, когда `webContents` выполняет базовую аутентификацию.
 
-The default behavior is to cancel all authentications. To override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
+Поведение по умолчанию - отмена всех аутентификаций. To override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
 
 ```javascript
 const { app } = require('electron')
