@@ -46,7 +46,7 @@ app.on('ready', () => {
 * `0` - `9`
 * `A` - `Z`
 * `F1` - `F24`
-* Символы пунктуации, например `~`, `!`, `@`, `#`, `$`, т.д.
+* Символы пунктуации, например `~`, `!`, `@`, `#`, `$`, и т.д.
 * `Plus`
 * `Space`
 * `Tab`
@@ -63,7 +63,7 @@ app.on('ready', () => {
 * `VolumeUp`, `VolumeDown` и `VolumeMute`
 * `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` и `MediaPlayPause`
 * `PrintScreen`
-* NumPad Keys 
+* NumPad клавиши 
   * `num0` - `num9`
   * `numdec` - decimal key
   * `numadd` - numpad `+` key
