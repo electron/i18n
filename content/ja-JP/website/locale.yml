@@ -67,7 +67,7 @@ community:
   meetup_notice: ミートアップイベントの情報をこのページに追加するには、 <code>data/meetups.json</code> を編集した上で <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">プルリクエストを送信</a>してください。
 releases:
   show_releases: "リリー スの表示:"
-  show_only_releases_from: "Show Only Releases From:"
+  show_only_releases_from: "表示するリリースのバージョン"
   all_versions: 全てのバージョン
   stable_releases: 安定版
   stable_desc: Regular, supported releases
