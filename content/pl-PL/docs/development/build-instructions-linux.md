@@ -102,4 +102,4 @@ $ gn gen out/Debug --args='import("//electron/build/args/debug.gn") clang_base_p
 
 ### Używanie kompilatorów innych niż `clang`
 
-Building Electron with compilers other than `clang` is not supported.
+Nie ma wsparcia do budowania Electrona z kompilatorami innymi niż `clang`.
