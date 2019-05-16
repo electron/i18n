@@ -65,8 +65,8 @@ app.on('ready', () => {
 * `PrintScreen`
 * NumPad клавиши 
   * `num0` - `num9`
-  * `numdec` - decimal key
-  * `numadd` - numpad `+` key
-  * `numsub` - numpad `-` key
-  * `nummult` - numpad `*` key
-  * `numdiv` - numpad `÷` key
+  * `numdec` - клавиша десятичный разделитель
+  * `numadd` - клавиша `+` на numpad
+  * `numsub` - клавиша `-` на numpad
+  * `nummult` - клавиша `*` на numpad
+  * `numdiv` - клавиша `÷` на numpad
