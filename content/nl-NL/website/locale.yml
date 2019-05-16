@@ -129,9 +129,11 @@ taglines:
 help_translate: "Help met vertalen"
 footer:
   see_the_faq: Bekijk de veelgestelde vragen
+companies:
+  title: Built on Electron
+  description: Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been adopted by companies all over the world.
 apps:
-  title: Apps gebouwd op Electron
-  description: Met Electron is het maken van een desktop applicatie voor jouw bedrijf of idee simpel. Oorspronkelijk ontworpen voor GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, is Electron sinds dien ook gebruikt om applicaties te maken door bedrijven als Microsoft, Facebook, Slack, en Docker.
+  description: 'With Electron, creating a desktop application for your company or idea is easy. Check out <a href=''/apps''>some of the apps created by the community</a> or <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">add your own</a>.'
   view_more: Meer apps weergeven
   submit_your_own: dien je eigen in
   something_missing: Ontbreekt er iets?
