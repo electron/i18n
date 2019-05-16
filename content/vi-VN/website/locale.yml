@@ -129,9 +129,11 @@ taglines:
 help_translate: "Tham gia dịch"
 footer:
   see_the_faq: Xem các câu hỏi thường gặp
+companies:
+  title: Built on Electron
+  description: Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been adopted by companies all over the world.
 apps:
-  title: Các ứng dụng được xây dựng từ Electron
-  description: Với Electron, tạo ra một ứng dụng desktop cho công ty hoặc các ý tưởng của bạn thật đơn giản. Ban đầu, Electron được phát triển cho ứng dụng <a href='https://atom.io' target='_blank'>Atom (trình soạn thảo)</a> của Github, sau đó, Electron đã được sử dụng rộng rãi để tạo ra các ứng dụng của các công ty như Microsoft, Facebook, Slack và Docker.
+  description: 'With Electron, creating a desktop application for your company or idea is easy. Check out <a href=''/apps''>some of the apps created by the community</a> or <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">add your own</a>.'
   view_more: Xem thêm các ứng dụng khác
   submit_your_own: gửi lên ứng dụng của bạn
   something_missing: Một cái gì đó thiếu?
