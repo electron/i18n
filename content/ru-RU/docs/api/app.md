@@ -331,9 +331,9 @@ app.on('session-created', (event, session) => {
 
 Это событие гарантировано происходит после события `ready` в `app`.
 
-**Note:** Extra command line arguments might be added by Chromium, such as `--original-process-start-time`.
+**Примечание:** Дополнительные аргументы командной строки могут быть добавлены Chromium, такие как `--original-process-start-time`.
 
-### Event: 'desktop-capturer-get-sources'
+### Событие: 'desktop-capturer-get-sources'
 
 Возвращает:
 
