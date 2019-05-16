@@ -129,9 +129,11 @@ taglines:
 help_translate: "Ajută la traducere"
 footer:
   see_the_faq: Vezi întrebările frecvente
+companies:
+  title: Built on Electron
+  description: Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been adopted by companies all over the world.
 apps:
-  title: Aplicații create cu Electron
-  description: Cu Electron, să creezi o aplicație desktop, pentru compania sau ideea ta, este ușor. Inițial dezvoltat pentru <a href='https://atom.io' target='_blank'>editorul Atom</a> care aparține de GitHub, Electron a fost utilizat pentru a crea aplicații de către companii precum Microsoft, Facebook, Slack și Docker.
+  description: 'With Electron, creating a desktop application for your company or idea is easy. Check out <a href=''/apps''>some of the apps created by the community</a> or <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">add your own</a>.'
   view_more: Vezi mai multe aplicații
   submit_your_own: trimite-ți propria aplicație
   something_missing: Lipsește ceva?
