@@ -103,7 +103,7 @@ benefits:
   debugging_and_profiling: اشکال زدایی و پروفایل سازی
   windows_installers: نصب کننده ویندوز
 get_started:
-  title: شروع کنید
+  title: شروع کنید!
   description: برای شروع استفاده از الکترون منابع زیر را بررسی کنید. چگونگی طراحی برنامه ی تحت وب خودتان با الکترون را یاد بگیرید، به همه ی API ها دسترسی داشته باشید و فایل های اجرایی برنامه تان را بسازید.
 explore:
   title: API های الکترون را کاوش کنید
@@ -129,9 +129,11 @@ taglines:
 help_translate: "همکاری در ترجمه"
 footer:
   see_the_faq: پرسش های متداول را ببینید
+companies:
+  title: Built on Electron
+  description: Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been adopted by companies all over the world.
 apps:
-  title: برنامه‌های ساخته شده برپایه الکترون
-  description: "طراحی یک برنامه با فریم ورک الکترون، برای شرکت خودتان یا ایده ی در ذهنتان، خیلی آسان است.\nدر ابتدا این فریم ورک برای </a>ویرایشگر اتمِ<'a href='https://atom.io' target='_blank>گیت هاب، طراحی شده بود، اما تا الان شرکت هایی مانند مایکروسافت، فیسبوک، اسلک (Slack) و Docker بعضی از برنامه هایشان را با این فریم ورک نوشته اند."
+  description: 'With Electron, creating a desktop application for your company or idea is easy. Check out <a href=''/apps''>some of the apps created by the community</a> or <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">add your own</a>.'
   view_more: مشاهده برنامه‌های بیشتر
   submit_your_own: برنامه خودتان را ارسال کنید
   something_missing: چیزی فراموش شده است؟
