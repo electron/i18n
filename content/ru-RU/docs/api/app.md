@@ -340,7 +340,7 @@ app.on('session-created', (event, session) => {
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Emitted when `desktopCapturer.getSources()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will make it return empty sources.
+Происходит, когда `desktopCapturer.getSources()` вызвано в графическом процессе `webContents`. Вызов `event.preventDefault()` вернет пустые источники.
 
 ### Событие: 'remote-require'
 
@@ -350,7 +350,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process of
 * `webContents` [WebContents](web-contents.md)
 * `moduleName` String
 
-Происходит когда функция `remote.require()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат модуля. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
+Происходит, когда функция `remote.require()` вызвана в графическом процессе `webContents`. Вызов `event.preventDefault()` предотвращает возврат модуля. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
 ### Событие: 'remote-get-global'
 
@@ -360,7 +360,7 @@ Emitted when `desktopCapturer.getSources()` is called in the renderer process of
 * `webContents` [WebContents](web-contents.md)
 * `globalName` String
 
-Происходит когда функция `remote.getGlobal()` вызвана в процессе рендеринга `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
+Происходит, когда функция `remote.getGlobal()` вызвана в графическом процессе `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
 ### Событие: 'remote-get-builtin'
 
