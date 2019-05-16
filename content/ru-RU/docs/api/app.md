@@ -134,7 +134,7 @@ app.on('window-all-closed', () => {
 * `type` String - строка идентифицирует активность. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `error` String - cтрока с локализованным описанием ошибки.
 
-Происходит во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) при ошибочном возобновлении активности на различных устройствах.
+Происходит во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), при ошибочном возобновлении активности на различных устройствах.
 
 ### Событие: 'activity-was-continued' *macOS*
 
@@ -142,9 +142,9 @@ app.on('window-all-closed', () => {
 
 * `event` Event
 * `type` String - строка идентифицирует активность. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - содержит специфичное для приложения состояние, сохраненное в хранилище по активности.
+* `userInfo` Object - содержит специфичное, для приложения, состояние, сохраненное в хранилище по активности.
 
-Происходит во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) после удачного возобновления на другом устройстве.
+Происходит во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), после удачного возобновления на другом устройстве.
 
 ### Событие: 'update-activity-state' *macOS*
 
@@ -152,7 +152,7 @@ app.on('window-all-closed', () => {
 
 * `event` Event
 * `type` String - строка идентифицирует активность. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - содержит специфичное для приложения состояние, сохраняющееся в хранилище по активности.
+* `userInfo` Object - содержит специфичное, для приложения, состояние, сохраняющееся в хранилище по активности.
 
 Происходит во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), когда вот-вот возобновится на другом устройстве. Если вы хотите обновить состояние, которое будет передано, Вам необходимо вызвать `event.preventDefault()` немедленно, собрать новый словарь `userInfo` и вызвать `app.updateCurrentActivity()` своевременно. Otherwise, the operation will fail and `continue-activity-error` will be called.
 
