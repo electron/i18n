@@ -211,14 +211,14 @@
     "name": "Polish",
     "code": "pl",
     "phrases": "10562",
-    "translated": "4271",
+    "translated": "4284",
     "approved": "1105",
     "words": "97293",
-    "words_translated": "21222",
+    "words_translated": "21372",
     "words_approved": "7132",
     "translated_progress": 21,
     "approved_progress": 7,
-    "qa_issues": 839
+    "qa_issues": 846
   },
   {
     "name": "Portuguese, Brazilian",
@@ -250,14 +250,14 @@
     "name": "Russian",
     "code": "ru",
     "phrases": "10562",
-    "translated": "6188",
-    "approved": "1248",
+    "translated": "6217",
+    "approved": "1487",
     "words": "97293",
-    "words_translated": "47645",
-    "words_approved": "10110",
-    "translated_progress": 48,
-    "approved_progress": 10,
-    "qa_issues": 1853
+    "words_translated": "47907",
+    "words_approved": "11759",
+    "translated_progress": 49,
+    "approved_progress": 12,
+    "qa_issues": 1774
   },
   {
     "name": "Spanish",
