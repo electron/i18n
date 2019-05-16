@@ -360,7 +360,7 @@ app.on('session-created', (event, session) => {
 * `webContents` [WebContents](web-contents.md)
 * `globalName` String
 
-Происходит, когда функция `remote.getGlobal()` вызвана в графическом процессе `webContents`. Calling `event.preventDefault()` will prevent the global from being returned. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
+Происходит, когда функция `remote.getGlobal()` вызвана в графическом процессе `webContents`. Вызов `event.preventDefault()` предотвращает возврат глобального значения. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
 ### Событие: 'remote-get-builtin'
 
@@ -370,7 +370,7 @@ app.on('session-created', (event, session) => {
 * `webContents` [WebContents](web-contents.md)
 * `moduleName` String
 
-Происходит когда функция `remote.getBuiltin()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат модуля. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
+Происходит, когда функция `remote.getBuiltin()` вызвана в графическом процессе `webContents`. Вызов `event.preventDefault()` предотвращает возврат модуля. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
 ### Событие: 'remote-get-current-window'
 
@@ -379,7 +379,7 @@ app.on('session-created', (event, session) => {
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Происходит когда функция `remote.getCurrentWindow()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
+Происходит, когда функция `remote.getCurrentWindow()` вызвана в графическом процессе `webContents`. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
 ### Событие: 'remote-get-current-web-contents'
 
@@ -388,7 +388,7 @@ app.on('session-created', (event, session) => {
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
 
-Происходит когда функция `remote.getCurrentWebContents()` вызвана в процессе рендеринга `webContents`. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
+Происходит, когда функция `remote.getCurrentWebContents()` вызвана в графическом процессе `webContents`. Вызов `event.preventDefault()` предотвращает возврат объекта. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
 ### Событие: 'remote-get-current-web-contents'
 
