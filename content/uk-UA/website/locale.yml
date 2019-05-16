@@ -129,9 +129,11 @@ taglines:
 help_translate: "Допоможіть з перекладами"
 footer:
   see_the_faq: Перегляньте FAQ
+companies:
+  title: Built on Electron
+  description: Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been adopted by companies all over the world.
 apps:
-  title: Застосунки, побудовані на Electron
-  description: З Electron просто створити застосунок для вашої компанії чи ідеї. Розроблений спеціально для <a href='https://atom.io' target='_blank'>редактора Atom</a> GitHub'а, Electron з тих пір використовувався для створення застосунків такими компаніями як Microsoft, Facebook, Slack та Docker.
+  description: 'With Electron, creating a desktop application for your company or idea is easy. Check out <a href=''/apps''>some of the apps created by the community</a> or <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">add your own</a>.'
   view_more: Переглянути більше застосунків
   submit_your_own: надішліть власний
   something_missing: Чогось не вистачає?
