@@ -255,9 +255,9 @@ governance:
   definitions:
     title: Определения
     list:
-      - A <i>maintainer</i> is anyone who plays an active role in governance.
+      - <i>Сопровождающий</i> - любой, кто активно участвует в управление.
       - <i>соавтор</i> активно работает в сообществе, но не в управлении.
-      - A <i>participant</i> is anyone who is a maintainer or collaborator.
+      - <i>Участник</i> - любой, кто является сопровождающим или соавтором.
       - <i>Рабочая группа</i> является группой сопровождающих, которая формируются для того, чтобы взять на себя ответственность за определенные аспекты проекта Electron. Обычно эти группы будут регулярно встречаться, но в некоторых случаях будут отвечать только по мере необходимости выполнения своих обязанностей.
       - 'A <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership">chair</a> leads a working group.'
   responsibilities:
