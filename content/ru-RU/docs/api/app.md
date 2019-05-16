@@ -92,7 +92,7 @@ app.on('window-all-closed', () => {
 * `event` Event
 * `url` String
 
-Происходит, когда пользователь хочет открыть URL-адрес из приложения. Файл Вашего приложения `Info.plist` должнен определять схему URL в ключе `CFBundleURLTypes` и установить `NSPrincipalClass` в `AtomApplication`.
+Происходит, когда пользователь хочет открыть URL-адрес из приложения. Файл Вашего приложения `Info.plist` должен определять URL-схему в ключе `CFBundleURLTypes` и устанавливать `NSPrincipalClass` в значение `AtomApplication`.
 
 Вы должны вызвать `event.preventDefault()`, если хотите обработать это событие.
 
@@ -103,7 +103,7 @@ app.on('window-all-closed', () => {
 * `event` Event
 * `hasVisibleWindows` Boolean
 
-Происходит при активации приложения. Различные действия могут запускать это событие, например, запуск приложения в первый раз, попытка перезапустить приложение, когда оно уже запущено, или щелкнуть значок приложения в dock или панели задач.
+Происходит при активации приложения. Различные действия могут запускать это событие, например, запуск приложения в первый раз, попытка перезапустить приложение, когда оно уже запущено, или клик на иконку приложения на панели dock или панели задач.
 
 ### Событие: 'continue-activity' *macOS*
 
@@ -113,9 +113,9 @@ app.on('window-all-closed', () => {
 * `type` String - строка идентифицирует активность. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object - содержит специфическое для приложения состояние, сохраненное на другом устройстве.
 
-Происходит во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), когда активность с другого устройства хочет возобновиться. Если вы хотите обработать это событие следует вызвать `event.preventDefault()`.
+Происходит во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html), когда активность с другого устройства хочет возобновиться. Если Вы хотите обработать это событие, следует вызвать `event.preventDefault()`.
 
-Активность пользователя может быть продолжена только в приложении, которое имеет тот же ID команды разработчика, что и исходное приложение, и поддерживает тип активности. Поддерживаемые типы активности, указаны в `Info.plist` приложения под ключом `NSUserActivityTypes`.
+Активность пользователя может быть продолжена только в приложении, которое имеет тот же ID команды разработчика, что и активность исходного приложения, и поддерживает тип активности. Поддерживаемые типы активности, указаны в `Info.plist` приложения под ключом `NSUserActivityTypes`.
 
 ### Событие: 'will-continue-activity' *macOS*
 
@@ -124,7 +124,7 @@ app.on('window-all-closed', () => {
 * `event` Event
 * `type` String - строка идентифицирует активность. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 
-Происходит во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) до того, как активность с другого устройства хочет возобновиться. Если вы хотите обработать это событие следует вызвать `event.preventDefault()`.
+Происходит во время [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) до того, как активность с другого устройства хочет возобновиться. Если Вы хотите обработать это событие, следует вызвать `event.preventDefault()`.
 
 ### Событие: 'continue-activity' *macOS*
 
