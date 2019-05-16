@@ -130,10 +130,10 @@ help_translate: "Помочь перевести"
 footer:
   see_the_faq: Просмотреть часто задаваемые вопросы
 companies:
-  title: Built on Electron
-  description: Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been adopted by companies all over the world.
+  title: Создано на Electron
+  description: Изначально был разработан для <a href='https://atom.io' target='_blank'>редактора Atom</a>, принадлежащий компании GitHub, Electron с тех пор был принят компаниями по всему миру.
 apps:
-  description: 'With Electron, creating a desktop application for your company or idea is easy. Check out <a href=''/apps''>some of the apps created by the community</a> or <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">add your own</a>.'
+  description: 'С помощью Electron, создавать настольные приложения для Вашей компании или идеи стало проще. Проверьте <a href=''/apps''>несколько приложений, созданных сообществом</a>, или <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">добавьте свое собственное</a>.'
   view_more: Просмотреть другие приложения
   submit_your_own: опубликовать своё
   something_missing: Что-то отсутствует?
