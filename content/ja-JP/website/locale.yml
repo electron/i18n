@@ -210,13 +210,13 @@ landing:
   get_started: 始めましょう！
   fiddle:
     lead_desc: やさしい Electron のはじめかた
-    create_app: Create your app
-    description: Electron Fiddle lets you create and play with small Electron experiments. It greets you with a quick-start template after opening – change a few things, choose the version of Electron you want to run it with, and play around. Then, save your Fiddle either as a GitHub Gist or to a local folder. Once pushed to GitHub, anyone can quickly try your Fiddle out by just entering it in the address bar.
-    explore: Explore Electron
-    explore_desc: "Try Electron without installing any dependencies: Fiddle includes everything you'll need to explore the platform. It also includes examples for every API available in Electron, so if you want to quickly see what a BrowserView is or how the desktopCapturer works, Fiddle has got you covered."
-    code_with_types: Code with Types
-    code_with_types_desc: Fiddle includes Microsoft's excellent Monaco Editor, the same editor powering Visual Studio Code. It also installs the type definitions for the currently selected version of Electron automatically, ensuring that you always have all Electron APIs only a few keystrokes away.
-    compile_and_package: Compile and Package
+    create_app: あなたのアプリを作る
+    description: Electron Fiddle では、小さな Electron の実験を作成して遊ぶことができます。 開くとクイックスタートテンプレートが表示されます。いくつか変更して、実行したい Electron のバージョンを選択してから試してみましょう。すると、GitHub Gist やローカルフォルダーに Fiddle を保存できます。GitHub にプッシュされたものは、アドレスバーに入力するだけで誰でもすぐに Fiddle を試すことができます。
+    explore: Electron に触れる
+    explore_desc: "一切の依存関係をインストールせずに Electron を試しましょう。Fiddle にはプラットフォームに触れるためのすべてが含まれています。Electron で利用可能なすべての API の例も含まれているので、BrowserView とは何か、または desktopCapturer がどのように機能するのかをすぐに確認したい場合でも、Fiddle はカバーしています。"
+    code_with_types: 型付きコーディング
+    code_with_types_desc: Fiddle には、Microsoft の 優れた Monaco Editor が含まれています。これは、Visual Studio Code と同じ力を持つエディタです。 また、現在選択されているバージョンの Electron の型定義も自動的にインストールされるので、すべての Electron API を常に数回のキー操作だけで利用できます。
+    compile_and_package: コンパイルとパッケージ化
     compile_and_package_desc: Fiddle can automatically turn your experiment into binaries you can share with your friends, coworkers, or grandparents. It does so thanks to <a href="https://electronforge.io/">electron-forge</a>, allowing you to package your fiddle as an app for Windows, macOS, or Linux.
     easy_start: Start with Fiddle, Continue Wherever
     easy_start_desc: Fiddle is not an IDE – it is however an excellent starting point. Once your fiddle has grown up, export it as a project with or without <a href="https://electronforge.io/">electron-forge</a>. Then, use your favorite editor and take on the world!
