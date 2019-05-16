@@ -45,7 +45,7 @@ Na Fedorze, zainstalować należy poniższe biblioteki:
 $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
                    cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
-                   GConf2-devel nss-devel python-dbusmock openjdk-8-jre
+                   GConf2-devel nss-devel python-dbusmock
 ```
 
 Inne dystrybucje mogą oferować podobne paczki instalacji przez managery paczek takie jak pacman. Można też kompilować z kodu źródłowego.
