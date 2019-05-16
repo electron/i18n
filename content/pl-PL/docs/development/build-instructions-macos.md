@@ -23,16 +23,16 @@ If the script returns that your configuration is using an outdated security prot
 $ brew install python@2 && brew link python@2 --force
 ```
 
-If you are using Python as provided by Homebrew, you also need to install the following Python modules:
+Jeśli używasz wersji Pythona dostarczonego przez Homebrew, potrzebujesz również doinstalować następujące moduły:
 
 * [pyobjc](https://pythonhosted.org/pyobjc/install.html)
 
 ## macOS SDK
 
-If you're developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
+Jeśli rozwijasz Electron i nie planujesz rozpowszechniać niestandardowej kompilacji Electron, możesz pominąć tę sekcję.
 
-Official Electron builds are built with [Xcode 9.4.1](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip), and the MacOS 10.13 SDK. Building with a newer SDK works too, but the releases currently use the 10.13 SDK.
+Oficjalne kompilacje Electrona są zbudowane z [Xcode 9.4.1](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip) oraz z wykorzystaniem MacOS 10.13 SDK. Building with a newer SDK works too, but the releases currently use the 10.13 SDK.
 
-## Building Electron
+## Budowanie Electrona
 
 See [Instrukcje Budowania (Ogólne)](build-instructions-gn.md).
