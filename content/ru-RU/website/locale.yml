@@ -72,13 +72,13 @@ releases:
   stable_releases: Стабильные релизы
   stable_desc: Регулярные релизы с поддержкой
   beta_releases: Бета-релизы
-  beta_desc: Проверьте ваше приложение с учетом будущих изменений
+  beta_desc: Проверьте Ваше приложение с учетом будущих изменений
   nightly_releases: Ночные релизы
   nightly_desc: Экспериментируйте с последними нововведениями
   next: Далее
   next_page: Следующая страница
   previous: Назад
-  previous_page: Прошлая страница
+  previous_page: Предыдущая страница
   page: Страница
   all_releases: Все релизы
   back_to_index: Вернуться к содержанию
@@ -200,10 +200,10 @@ pages:
     description: Spectron является фреймворком с открытым исходным кодом для легкого написания тестов интеграции для вашего приложения Electron. Построен на базе ChromeDriver и WebDriverIO.
   '/fiddle':
     title: Electron Fiddle
-    description: The easiest way to get started with Electron
+    description: Самый лёгкий способ начать работу с Electron
   '/governance':
-    title: Electron Governance
-    description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
+    title: Управление Electron
+    description: Система управления Electron состоит из рабочих групп, которые осуществляют контроль за различными аспектами экосистем Electron, и административной рабочей группы, которая отвечает за урегулирование конфликтов между ними.
   '/donors':
     title: Спонсоры
 landing:
@@ -211,9 +211,9 @@ landing:
   fiddle:
     lead_desc: Самый лёгкий способ начать работу с Electron
     create_app: Создание собственного приложения
-    description: Electron Fiddle позволяет создавать и пробовать небольшие эксперименты с Electron. По открытию, вас приветсвуют шаблоном ускорённого запуска - вы можете изменить несколько установок, выбрать желаемую версию Electron и поиграть с разными вариантами. После, сохраните ваш Fiddle как GitHub Gist или в локальную папку. При опубликовании в GitHub, ваш Fiddle доступен любому и всё, что нужно сделать чтобы попробовать ваш Fiddle это ввести его в адресную строку браузера.
+    description: Electron Fiddle позволяет Вам создавать и пробовать небольшие эксперименты с Electron. По открытию, Вас приветствуют шаблоном ускоренного запуска - Вы можете изменить несколько установок, выбрать желаемую версию Electron и поиграть с разными вариантами. После, сохраните Ваш Fiddle как GitHub Gist или в локальную папку. При опубликовании в GitHub, Ваш Fiddle доступен любому и всё, что нужно сделать, чтобы попробовать Ваш Fiddle это ввести его в адресную строку браузера.
     explore: Исследуйте Electron
-    explore_desc: "Попробуйте Electron без установки зависимостей - Fiddle включает всё, что вам нужно для изучения платформы. Он также включает в себя примеры для каждого доступного API в Electron, так что если вы хотите посмотреть, что из себя представляет BrowserView и как работает desktopCapturer, Fiddle готов прийти к вам на помощь."
+    explore_desc: "Попробуйте Electron без установки зависимостей: Fiddle включает всё, что Вам нужно для изучения платформы. Он также включает в себя примеры для каждого доступного API в Electron, так что если Вы хотите посмотреть, что из себя представляет BrowserView и как работает desktopCapturer, Fiddle готов прийти к Вам на помощь."
     code_with_types: Программируйте с типами
     code_with_types_desc: Fiddle включает превосходный редактор Монако, один и тот же редактор, поддерживающий Visual Studio Code. Он также устанавливает определения типа для выбранной версии Electron автоматически, гарантируя, что у вас всегда есть все API Electron всего за несколько нажатий клавиш.
     compile_and_package: Компилируйте и упаковывайте
