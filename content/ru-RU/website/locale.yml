@@ -84,7 +84,7 @@ releases:
   back_to_index: Вернуться к содержанию
 electron_is_easy:
   title: Это проще, чем вы думаете
-  description: 'Если Вы можете сделать сайт, то Вы сможете сделать приложение. Electron это фреймворк для создания нативных приложений с веб-технологиями, такими как: JavaScript, HTML и CSS. Он заботится о трудных частях, так что вы можете сосредоточиться на главных элементах Вашего приложения.'
+  description: 'Если Вы можете сделать сайт, то Вы сможете сделать настольное приложение. Electron это фреймворк для создания нативных приложений с веб-технологиями, такими как: JavaScript, HTML и CSS. Он заботится о трудных частях, так что Вы можете сосредоточиться на главных элементах Вашего приложения.'
   video_link: Смотреть видео
 web_technologies:
   title: Веб-технологии
@@ -104,7 +104,7 @@ benefits:
   windows_installers: Установщики для Windows
 get_started:
   title: Начать работу
-  description: Для начала работы с Electron посмотрите на указанные ниже ресурсы. Узнайте как обернуть ваше веб-приложение с Electron, получить доступ ко всем API и научиться создавать установщики.
+  description: Для начала работы с Electron посмотрите на указанные ниже ресурсы. Узнайте как обернуть Ваше веб-приложение с Electron, получить доступ ко всем API и научиться создавать установщики.
 explore:
   title: Исследуйте Electron API
   description: "<a href='https://github.com/electron/electron-api-demos'>Демонстрационное приложение Electron API</a> интерактивно демонстрирует наиболее важные функции Electron API. Посмотрите на возможности Electron на примере простого кода и прочитайте полезные советы для создания Вашего приложения."
@@ -121,7 +121,7 @@ quick_start:
   dive_deeper: Или окунитесь глубже и ознакомьтесь с <a href='/docs'>документацией</a>.
 need_help:
   title: Нужна помощь?
-  description: Вы можете задать вопрос на нашем форуме в <a href='https://discuss.atom.io/c/electron'>Discuss</a> или на канале <a href='http://atom-slack.herokuapp.com/'>Slack</a>. Следите за важными объявлениями <a href="https://twitter.com/electronjs">@electronjs</a> на Twitter. Если вам нужно решить персональный вопрос, отправьте e-mail на <a href="mailto:info@electronjs.org">info@electronhjs.org</a>.
+  description: Вы можете задать вопрос на нашем форуме в <a href='https://discuss.atom.io/c/electron'>Discuss</a> или на канале <a href='http://atom-slack.herokuapp.com/'>Slack</a>. Следите за важными объявлениями <a href="https://twitter.com/electronjs">@electronjs</a> на Twitter. Если Вам нужно решить персональный вопрос, отправьте e-mail на <a href="mailto:info@electronjs.org">info@electronhjs.org</a>.
 headings:
   languages: Языки
 taglines:
@@ -150,7 +150,7 @@ blog:
   title: Блог Electron
   description: Все последние новости от команды Electron и сообщества.
   feedback: Есть мысли по поводу этой публикации? Дайте <a href="https://twitter.com/electronjs">@electronjs</a> об этом знать на Twitter.
-  help: Нужна помощь или вы нашли баг? <a href="/contact">Свяжитесь с нами</a>.
+  help: Нужна помощь или Вы нашли баг? <a href="/contact">Свяжитесь с нами</a>.
 clipboard:
   copy: Копировать
   copy_to_clipboard: Копировать в буфер обмена
@@ -194,10 +194,10 @@ pages:
     title: Пользовательское пространство
   '/devtron':
     title: Devtron
-    description: Devtron является инструментом с открытым исходным кодом, чтобы помочь вам проверять, контролировать и отлаживать ваши приложения Electron. Построен на базе удивительных инструментов разработчика Chrome.
+    description: Devtron является инструментом с открытым исходным кодом, чтобы помочь Вам проверять, контролировать и отлаживать Ваши приложения Electron. Построен на базе удивительных инструментов разработчика Chrome.
   '/spectron':
     title: Spectron
-    description: Spectron является фреймворком с открытым исходным кодом для легкого написания тестов интеграции для вашего приложения Electron. Построен на базе ChromeDriver и WebDriverIO.
+    description: Spectron является фреймворком с открытым исходным кодом для легкого написания тестов интеграции для Вашего приложения Electron. Построен на базе ChromeDriver и WebDriverIO.
   '/fiddle':
     title: Electron Fiddle
     description: Самый лёгкий способ начать работу с Electron
@@ -219,7 +219,7 @@ landing:
     compile_and_package: Компилируйте и упаковывайте
     compile_and_package_desc: Fiddle может автоматически превратить Ваш эксперимент в бинарные файлы, которыми Вы можете поделиться с друзьями, коллегами или бабушками с дедушками. Это благодаря <a href="https://electronforge.io/">electron-forge</a>, который позволяет Вам упаковать Ваш fiddle в приложение для Windows, macOS или Linux.
     easy_start: Начните с Fiddle, продолжите где угодно
-    easy_start_desc: Fiddle - это не IDE - это отличная отправная точка. Как только ваш Fiddle подрастет, экспортируйте его как проект с помощью <a href="https://electronforge.io/">electron-forge</a> или без него. Затем, используйте свой любимый редактор и покоряйте мир!
+    easy_start_desc: Fiddle - это не IDE - это отличная отправная точка. Как только Ваш Fiddle подрастет, экспортируйте его как проект с помощью <a href="https://electronforge.io/">electron-forge</a> или без него. Затем, используйте свой любимый редактор и покоряйте мир!
 governance:
   title: Управление Electron
   description: Система управления Electron состоит из рабочих групп, которые осуществляют контроль за различными аспектами экосистем Electron, и административной рабочей группы, которая отвечает за урегулирование конфликтов между ними.
@@ -229,7 +229,7 @@ governance:
     description: Курирует внешне-ориентированные инструменты (например Fiddle, Forge), документацию Electron на сайте и репозитории <code>electron/*</code>, а также группу сопроводителей сторонних модулей.
   outreach:
     title: Охват
-    description: Растет сообщество Electron
+    description: Увеличивает сообщество Electron
   releases:
     title: Релизы
     description: Курирует все ветви релизов и инструменты, которые поддерживают релизы.
