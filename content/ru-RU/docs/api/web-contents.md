@@ -639,7 +639,7 @@ Emitted when `remote.require()` is called in the renderer process. Вызов `e
 * `event` Event
 * `globalName` String
 
-Emitted when `remote.getGlobal()` is called in the renderer process. Calling `event.preventDefault()` will prevent the global from being returned. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
+Emitted when `remote.getGlobal()` is called in the renderer process. Вызов `event.preventDefault()` предотвращает возврат глобального значения. Пользовательское значение может быть возвращено, если установить его в `event.returnValue`.
 
 #### Событие: 'remote-get-builtin'
 
