@@ -129,9 +129,11 @@ taglines:
 help_translate: "번역 참여"
 footer:
   see_the_faq: 자주 묻는 질문
+companies:
+  title: Built on Electron
+  description: Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been adopted by companies all over the world.
 apps:
-  title: Electron으로 설계된 애플리케이션
-  description: Electron과 함께라면 당신의 아이디어나 회사를 위한 데스크탑 어플리케이션을 쉽게 만들 수 있습니다. 처음에 GitHub의 <a href='https://atom.io' target='_blank'>Atom 에디터</a>를 위해 만들어진 Electron는 Microsoft, Facebook, Slack, Docker와 같은 회사가 어플리케이션을 만드는데 사용되고 있습니다.
+  description: 'With Electron, creating a desktop application for your company or idea is easy. Check out <a href=''/apps''>some of the apps created by the community</a> or <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">add your own</a>.'
   view_more: 더 많은 애플리케이션 보기
   submit_your_own: 의견을 제출하세요
   something_missing: 뭔가 누락되었나요?
