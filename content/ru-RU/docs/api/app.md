@@ -274,7 +274,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 Происходит, когда `webContents` выполняет базовую аутентификацию.
 
-Поведение по умолчанию - отмена всех аутентификаций. To override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
+Поведение по умолчанию - отмена всех аутентификаций. Чтобы переопределить это, Вы должны предотвратить поведение по умолчанию с помощью `event.preventDefault()` и вызвать `callback(username, password)` с учетными данными.
 
 ```javascript
 const { app } = require('electron')
@@ -292,16 +292,16 @@ app.on('login', (event, webContents, request, authInfo, callback) => {
 * `event` Event
 * `killed` Boolean
 
-Возникает когда процесс gpu аварийно завершает работу или убит.
+Происходит, когда gpu процесс аварийно завершает работу или является убитым.
 
 ### Событие: 'accessibility-support-changed' *macOS* *Windows*
 
 Возвращает:
 
 * `event` Event
-* `accessibilitySupportEnabled` Boolean - `true` когда включена поддержка специальных возможностей от Chrome, `false` в противном случае.
+* `accessibilitySupportEnabled` Boolean - `true`, когда включена поддержка специальных возможностей от Chrome, иначе `false`.
 
-Возникает при изменении Chrome поддержки специальных возможностей. Это событие срабатывает, когда вспомогательные технологии, такие как устройства чтения с экрана, включены или отключены. Смотрите https://www.chromium.org/developers/design-documents/accessibility для подробностей.
+Происходит, когда поддержка доступности от Chrome изменяется. Это событие срабатывает, когда вспомогательные технологии, такие как устройства чтения с экрана, включены или отключены. Смотрите https://www.chromium.org/developers/design-documents/accessibility для подробностей.
 
 ### Событие: 'session-created'
 
@@ -324,12 +324,12 @@ app.on('session-created', (event, session) => {
 Возвращает:
 
 * `event` Event
-* `argv` String [] - массив аргументов командной строки вторичных экземпляров
-* `workingDirectory` String - рабочий каталог вторичных экземпляров
+* `argv` String [] - массив аргументов командной строки второго экземпляра
+* `workingDirectory` String - рабочий каталог второго экземпляра
 
-Это событие произойдет в основном экземпляре приложения, когда второй экземпляр будет выполнен. `argv` является массивом аргументов командной строки второго экземпляра приложения, а `workingDirectory` является его текущим рабочим каталогом. Обычно приложения реагируют на это, делая их основное окно сфокусированным и не свернутым.
+Это событие произойдет в основном экземпляре приложения, когда второй экземпляр будет выполнен. `argv` является массивом аргументов командной строки второго экземпляра приложения, а `workingDirectory` является его текущим рабочим каталогом. Обычно приложения реагируют на это, делая их основное окно сфокусированным и развернутым.
 
-Это событие происходит после события `ready` в `app`.
+Это событие гарантировано происходит после события `ready` в `app`.
 
 **Note:** Extra command line arguments might be added by Chromium, such as `--original-process-start-time`.
 
