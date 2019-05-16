@@ -74,7 +74,7 @@ releases:
   beta_releases: ベータリリース
   beta_desc: 変更予定をアプリでテストしましょう
   nightly_releases: Nightly リリース
-  nightly_desc: Experiment with the latest features
+  nightly_desc: 最新機能の体験
   next: 次
   next_page: 次のページ
   previous: 前
