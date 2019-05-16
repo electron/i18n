@@ -70,9 +70,9 @@ releases:
   show_only_releases_from: "表示するリリースのバージョン"
   all_versions: 全てのバージョン
   stable_releases: 安定版
-  stable_desc: Regular, supported releases
+  stable_desc: 定期かつサポートされるリリース
   beta_releases: ベータリリース
-  beta_desc: Test your app with upcoming changes
+  beta_desc: 変更予定をアプリでテストしましょう
   nightly_releases: Nightly リリース
   nightly_desc: Experiment with the latest features
   next: 次
