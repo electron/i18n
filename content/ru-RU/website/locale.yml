@@ -18,7 +18,7 @@ keyboard_modal:
   title: Горячие клавиши
   key: Клавиша
   action: Действие
-  focus_search: Перейти в панель поиска
+  focus_search: Сфокусировать панель поиска
   focus_and_clear: Фокусирует поисковую строку и очищает ее
   scroll_down: Выберите следующий результат поиска
   scroll_up: Выберите предыдущий результат поиска
@@ -259,16 +259,16 @@ governance:
       - <i>соавтор</i> активно работает в сообществе, но не в управлении.
       - <i>Участник</i> - любой, кто является сопровождающим или соавтором.
       - <i>Рабочая группа</i> является группой сопровождающих, которая формируются для того, чтобы взять на себя ответственность за определенные аспекты проекта Electron. Обычно эти группы будут регулярно встречаться, но в некоторых случаях будут отвечать только по мере необходимости выполнения своих обязанностей.
-      - 'A <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership">chair</a> leads a working group.'
+      - '<a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership">Председатель</a> возглавляет рабочую группу.'
   responsibilities:
     title: Ответственность
     listdescription: "Все рабочие группы несут эти основные обязанности:"
     list:
       - Они решают сами себя и публично размещают свои правила, например, как принимаются решения, когда проводятся заседания и которые могут присутствовать.
-      - 'They shall <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Terms-and-Selection">select</a> a chair to <a href=''https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Responsibilities''>represent</a> the group.'
-      - They shall keep meeting notes, including agenda items, discussion points, and outcomes for everyone to review.
+      - 'Они должны <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Terms-and-Selection">выбрать</a> председателя, <a href=''https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Responsibilities''>представляющий</a> группу.'
+      - Они должны вести записи совещаний, включая вопросы на повестке дня, вопросы для обсуждения и итоги, чтобы каждый мог их просмотреть.
       - 'Они должны сотрудничать и работать <a href="https://github.com/electron/governance/tree/master/charter/README.md#Core-Values">добросовестно</a> с другими рабочими группами.'
-    see_charter: See <a href="https://github.com/electron/governance/tree/master/charter/README.md">charter</a> for more information.
+    see_charter: Смотрите <a href="https://github.com/electron/governance/tree/master/charter/README.md">чартер</a> для получения дополнительной информации.
   code_of_conduct: Организация Electron и все репозитории в ней придерживаются следующего <a href="https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md">Кодекса поведения.</a>
   license: Electron лицензирован с помощью лицензии <a href="https://github.com/electron/electron/blob/master/LICENSE">MIT</a>.
   repository: Посмотрите на <a href="https://github.com/electron/governance">репозиторий управления</a>, чтобы найти больше информации о структуре управления.
