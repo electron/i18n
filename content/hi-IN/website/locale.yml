@@ -129,9 +129,11 @@ taglines:
 help_translate: "अनुवाद करने में मद्द करें"
 footer:
   see_the_faq: अक्सर पूछे जाने वाले सवाल (एफएक्यू) पढ़ें
+companies:
+  title: Built on Electron
+  description: Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been adopted by companies all over the world.
 apps:
-  title: इलेक्ट्रॉन पर निर्मित एप्प्स
-  description: इलेक्ट्रॉन के साथ, अपनी कंपनी या विचार के लिए एक डेस्कटॉप एप्प बनाना बेहद आसान है । शुरुआत में गिटहब के<a href='https://atom.io' target='_blank'>एटम संपादक</a> के लिए विकसित, इलेक्ट्रॉन माइक्रोसॉफ्ट, फेसबुक, स्लैक और डोकर जैसी कंपनियों के द्वारा इस्तेमाल में लाया जा रहा है |
+  description: 'With Electron, creating a desktop application for your company or idea is easy. Check out <a href=''/apps''>some of the apps created by the community</a> or <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">add your own</a>.'
   view_more: और अधिक एप्प्स देखें
   submit_your_own: स्वयं का सबमिट करें
   something_missing: किसी चीज़ की कमी है?
