@@ -615,7 +615,7 @@ Emitted when the renderer process sends an asynchronous message via `ipcRenderer
 
 Emitted when the renderer process sends a synchronous message via `ipcRenderer.sendSync()`.
 
-#### Event: 'desktop-capturer-get-sources'
+#### Событие: 'desktop-capturer-get-sources'
 
 Возвращает:
 
