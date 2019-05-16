@@ -129,9 +129,11 @@ taglines:
 help_translate: "幫忙翻譯"
 footer:
   see_the_faq: 看看常見問題集
+companies:
+  title: Built on Electron
+  description: Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been adopted by companies all over the world.
 apps:
-  title: 用 Electron 打造的應用程式
-  description: 有了 Electron，把你的工作或想法打造成桌用應用程式變得超容易。 最早是為 GitHub 的 <a href='https://atom.io' target='_blank'>Atom 編輯器</a>開發的，後來 Microsoft, Facebook, Slack 及 Docker 等公司也用 Electron 來開發應用程式。
+  description: 'With Electron, creating a desktop application for your company or idea is easy. Check out <a href=''/apps''>some of the apps created by the community</a> or <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">add your own</a>.'
   view_more: 瀏覽更多應用程式
   submit_your_own: 提交您自己的
   something_missing: 少了什麼嗎?
