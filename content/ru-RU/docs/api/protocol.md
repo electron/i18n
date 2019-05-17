@@ -232,7 +232,7 @@ Unregisters the custom protocol of `scheme`.
 
 The `callback` will be called with a boolean that indicates whether there is already a handler for `scheme`.
 
-**[Deprecated Soon](promisification.md)**
+**[Скоро устареет](promisification.md)**
 
 ### `protocol.isProtocolHandled(scheme)`
 
