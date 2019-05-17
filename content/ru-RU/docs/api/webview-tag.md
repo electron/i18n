@@ -480,7 +480,7 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
 
 Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
 
-**[Deprecated Soon](promisification.md)**
+**[Скоро устареет](promisification.md)**
 
 ### `<webview>.capturePage([rect])`
 
