@@ -130,7 +130,7 @@ help_translate: "帮助我们翻译"
 footer:
   see_the_faq: 查看常见问题
 companies:
-  title: Built on Electron
+  title: 使用Election构建的
   description: Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been adopted by companies all over the world.
 apps:
   description: 'With Electron, creating a desktop application for your company or idea is easy. Check out <a href=''/apps''>some of the apps created by the community</a> or <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">add your own</a>.'
