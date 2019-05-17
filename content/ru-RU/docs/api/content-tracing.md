@@ -42,7 +42,7 @@ Get a set of category groups. The category groups can change as new code paths a
 
 Once all child processes have acknowledged the `getCategories` request the `callback` is invoked with an array of category groups.
 
-**[Deprecated Soon](promisification.md)**
+**[Скоро устареет](promisification.md)**
 
 ### `contentTracing.getCategories()`
 
@@ -59,7 +59,7 @@ Get a set of category groups. The category groups can change as new code paths a
 
 Запись начинается незамедлительно локально и ассинхронно в дочерних процессах, как только они получили запрос EnableRecording. `callback` будет вызван, как только все дочерние процессы выполнили запрос `startRecording`.
 
-**[Deprecated Soon](promisification.md)**
+**[Скоро устареет](promisification.md)**
 
 ### `contentTracing.startRecording(options)`
 
@@ -85,7 +85,7 @@ Returns `Promise<void>` - resolved once all child processes have acknowledged th
 
 Данные трассировки будут записаны в `resultFilePath` если он не пуст или во временный файл. Настоящий путь будет передан в `callback`, если он не является `null`.
 
-**[Deprecated Soon](promisification.md)**
+**[Скоро устареет](promisification.md)**
 
 ### `contentTracing.stopRecording(resultFilePath)`
 
