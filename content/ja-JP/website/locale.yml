@@ -237,29 +237,29 @@ governance:
     description: すべてのリリースブランチと、リリースをサポートするツールを監督します。
   upgrades:
     title: アップグレード
-    description: Oversees upgrades of upstream dependencies; specifically Chromium and Node.
+    description: 上流の依存関係、特に Chromium と Node のアップグレードを監督します。
   website:
     title: ウェブサイト
-    description: Oversees the technical implementation, design, and style of the Electron website and associated tooling.
+    description: Electron ウェブサイトの技術的実装、デザイン、スタイルと、関連するツールを監督します。
   cmsf:
-    title: Community & Safety
-    description: Oversees removal/bans from community.
+    title: コミュニティ & 安全性
+    description: コミュニティからの削除・禁止を監督します。
   security:
     title: セキュリティ
-    description: Proactively ensures the Security of Electron as a project, responds to incoming incidents, and oversees rollout of fixes.
+    description: プロジェクトとしての Electron のセキュリティを積極的に保証し、生じるインシデントに対応し、修正のロールアウトを監督します。
   admins:
-    title: Administrative
-    description: The Administrative Working Group oversees the entire governance and project.
+    title: 管理
+    description: 管理ワーキンググループはガバナンスとプロジェクト全体を監督します。
   global:
     overview: 概要
     associated_repos: Associated Repositories
     notes: Meeting Notes
   definitions:
-    title: Definitions
+    title: 定義
     list:
-      - A <i>maintainer</i> is anyone who plays an active role in governance.
-      - A <i>collaborator</i> is active in the community, but not in governance.
-      - A <i>participant</i> is anyone who is a maintainer or collaborator.
+      - <i>メンテナ</i> は、ガバナンスにおいて積極的な役割を果たす人です。
+      - <i>コラボレータ</i> はコミュニティで活動していますが、ガバナンスでは活動していない人です。
+      - <i>パーティシパント</i> は、メンテナかコラボレータのことです。
       - A <i>working group</i> is a group of maintainers that is formed to take responsibility for certain aspects of the Electron project. Normally these groups will meet regularly but in some cases will only meet as required to fulfill their responsibilities.
       - 'A <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership">chair</a> leads a working group.'
   responsibilities:
