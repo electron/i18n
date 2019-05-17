@@ -252,8 +252,8 @@ governance:
     description: 管理ワーキンググループはガバナンスとプロジェクト全体を監督します。
   global:
     overview: 概要
-    associated_repos: Associated Repositories
-    notes: Meeting Notes
+    associated_repos: 関連レポジトリ
+    notes: 議事録
   definitions:
     title: 定義
     list:
@@ -261,18 +261,18 @@ governance:
       - <i>コラボレータ</i> はコミュニティで活動していますが、ガバナンスでは活動していない人です。
       - <i>パーティシパント</i> は、メンテナかコラボレータのことです。
       - <i>ワーキンググループ</i> は、Electron プロジェクトの特定の側面に責任を持つように形成されたメンテナのグループです。 通常、これらのグループは定期的に会合しますが、場合によっては、それぞれの責任を果たすのに必要な場合にだけ会合します。
-      - 'A <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership">chair</a> leads a working group.'
+      - '<a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership">議長</a> がワーキンググループを率います。'
   responsibilities:
     title: 責務
     listdescription: "すべてのワーキンググループはこれらの中核的な責任があります。"
     list:
       - 自身らで議決するため、規則を公開投稿しなければなりません。決議がどのように行われ、いつミーティングを開き、誰が参加するのか、というような規則です。
       - 'そのグループを <a href=''https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Responsibilities''>代表</a> する議長を <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Terms-and-Selection">選出</a> します。'
-      - They shall keep meeting notes, including agenda items, discussion points, and outcomes for everyone to review.
-      - 'They shall be collaborative and work <a href="https://github.com/electron/governance/tree/master/charter/README.md#Core-Values">in good faith</a> with other Working Groups.'
-    see_charter: See <a href="https://github.com/electron/governance/tree/master/charter/README.md">charter</a> for more information.
+      - 議題項目を含む会議メモ、話し合いの要点、全員が見直すための成果を保管します。
+      - '協力し合い、他のワーキンググループと <a href="https://github.com/electron/governance/tree/master/charter/README.md#Core-Values">誠意を持って</a> 仕事をします。'
+    see_charter: より詳しくは <a href="https://github.com/electron/governance/tree/master/charter/README.md">憲章</a> を参照してください。
   code_of_conduct: The Electron organization and all repos therein adhere to the following <a href="https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md">Code of Conduct.</a>
-  license: Electron is licensed with the <a href="https://github.com/electron/electron/blob/master/LICENSE">MIT License</a>.
-  repository: Check out the <a href="https://github.com/electron/governance">Governance Repository</a> to find more information about the governance structure.
+  license: Electron は <a href="https://github.com/electron/electron/blob/master/LICENSE">MIT License</a> でライセンスされています。
+  repository: ガバナンス構造の詳細については、<a href="https://github.com/electron/governance">Governance Repository</a> を確認してください。
 _404:
   page_not_found: ページが見つかりません。
