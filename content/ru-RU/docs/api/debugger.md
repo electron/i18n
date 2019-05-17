@@ -57,7 +57,7 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 Отправьте заданную команду на цель отладки.
 
-**[Deprecated Soon](promisification.md)**
+**[Скоро устареет](promisification.md)**
 
 #### `debugger.sendCommand(method[, commandParams])`
 
