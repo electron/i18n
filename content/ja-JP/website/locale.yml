@@ -48,7 +48,7 @@ community:
     get_started: "<a href='/docs/tutorial/first-app'><b>はじめる</b></a>: <a href='/docs/tutorial/first-app'>クイックスタートガイド</a>アプリを読みながら、はじめてのElectronアプリを開発することができます。"
     updates: "<a href='https://twitter.com/electronjs'><b>最新情報を入手</b></a>: Twitter で<a href='https://twitter.com/electronjs'>@electronjs</a> \n をフォローしたり、<a href='/blog'>ブログのフィード</a>をご購読ください。"
     localized_docs: "<a href='/languages'><b>翻訳されたドキュメント</b></a>: <a href='/languages'>言語ページ</a>からアクセスできます。"
-    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>Get help and feedback</b></a> by joining the <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>ヘルプとフィードバック</b></a> を得るには <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a> に参加したり、<a href='https://discuss.atom.io/c/electron'>Discuss</a> に投稿したり、<a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a> を訪れたりしましょう。"
     security: "<a href='mailto:security@electronjs.org'><b>セキュリティの問題を報告する</b></a>: <a href='mailto:security@electronjs.org'>security@electronjs.org</a> までメールでお知らせください。"
     bugs: "<a href='https://github.com/electron/electron/issues'><b>バグの報告</b></a>: <a href='https://github.com/electron/electron/issues'>electron/electron</a> リポジトリに Issue を作成してください。"
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>機能の要望</b></a>: GitHub の <a href='https://github.com/electron/electron/issues'>electron/electron</a> リポジトリに Issue を作成してください。"
@@ -271,7 +271,7 @@ governance:
       - 議題項目を含む会議メモ、話し合いの要点、全員が見直すための成果を保管します。
       - '協力し合い、他のワーキンググループと <a href="https://github.com/electron/governance/tree/master/charter/README.md#Core-Values">誠意を持って</a> 仕事をします。'
     see_charter: より詳しくは <a href="https://github.com/electron/governance/tree/master/charter/README.md">憲章</a> を参照してください。
-  code_of_conduct: The Electron organization and all repos therein adhere to the following <a href="https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md">Code of Conduct.</a>
+  code_of_conduct: Electron の組織とその中のすべてのリポジトリは、この <a href="https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md">行動規範</a> を遵守しています。
   license: Electron は <a href="https://github.com/electron/electron/blob/master/LICENSE">MIT License</a> でライセンスされています。
   repository: ガバナンス構造の詳細については、<a href="https://github.com/electron/governance">Governance Repository</a> を確認してください。
 _404:
