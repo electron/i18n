@@ -266,8 +266,8 @@ governance:
     title: 責務
     listdescription: "すべてのワーキンググループはこれらの中核的な責任があります。"
     list:
-      - They shall decide for themselves, and publicly post, their rules, e.g. how decisions are made, when meetings are held, and who may attend.
-      - 'They shall <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Terms-and-Selection">select</a> a chair to <a href=''https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Responsibilities''>represent</a> the group.'
+      - 自身らで議決するため、規則を公開投稿しなければなりません。決議がどのように行われ、いつミーティングを開き、誰が参加するのか、というような規則です。
+      - 'そのグループを <a href=''https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Responsibilities''>代表</a> する議長を <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Terms-and-Selection">選出</a> します。'
       - They shall keep meeting notes, including agenda items, discussion points, and outcomes for everyone to review.
       - 'They shall be collaborative and work <a href="https://github.com/electron/governance/tree/master/charter/README.md#Core-Values">in good faith</a> with other Working Groups.'
     see_charter: See <a href="https://github.com/electron/governance/tree/master/charter/README.md">charter</a> for more information.
