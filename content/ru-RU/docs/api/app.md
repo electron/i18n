@@ -512,9 +512,9 @@ app.exit(0)
 * Иконки, связанные с определенными расширениями, такими как `.mp3`, `.png`, и т.д.
 * Иконки внутри файла, таких как `.exe`, `.dll` и `.ico`.
 
-On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+На *Linux* и *macOS*, иконки зависят от приложения, ассоциируемого с mime-типом файла.
 
-**[Deprecated Soon](promisification.md)**
+**[Скоро устареет](promisification.md)**
 
 ### `app.getFileIcon(path[, options])`
 
@@ -523,18 +523,18 @@ On *Linux* and *macOS*, icons depend on the application associated with file mim
   * `size` String 
     * `small` - 16x16
     * `normal` - 32x32
-    * `large` - 48x48 on *Linux*, 32x32 on *Windows*, не поддерживается на *macOS*.
+    * `large` - 48x48 на *Linux*, 32x32 на *Windows*, не поддерживается на *macOS*.
 
-Returns `Promise<NativeImage>` - fulfilled with the app's icon, which is a [NativeImage](native-image.md).
+Возвращает `Promise<NativeImage>` - содержащий иконку приложения, которая является [NativeImage](native-image.md).
 
-Извлекает путь значка.
+Извлекает путь иконки.
 
 На *Windows*, там 2 вида значков:
 
 * Значки, связанные с определенными расширениями, как `.mp3`, `.png`, и т.д.
 * Значки внутри файла, как `.exe`, `.dll`, `.ico`.
 
-On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+На *Linux* и *macOS*, иконки зависят от приложения, ассоциируемого с mime-типом файла.
 
 ### `app.setPath(name, path)`
 
