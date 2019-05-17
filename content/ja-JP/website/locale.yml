@@ -205,7 +205,7 @@ pages:
     description: やさしい Electron のはじめかた
   '/governance':
     title: Electron のガバナンス
-    description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
+    description: Electron ガバナンスシステムは、Electron エコシステムのさまざまな側面を監督するワーキンググループと、それらの間の衝突を解決するように機能する管理ワーキンググループで構成されています。
   '/donors':
     title: 寄贈者
 landing:
@@ -224,19 +224,19 @@ landing:
     easy_start_desc: Fiddle は IDE ではありません。優れた出発点です。あなたの Fiddle が成熟したら、<a href="https://electronforge.io/">electron-forge</a> がなくてもプロジェクトとしてエクスポートできます。それから、好きなエディタを使って世界に発信しましょう。
 governance:
   title: Electron のガバナンス
-  description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
-  wgs: Working Groups
+  description: Electron ガバナンスシステムは、Electron エコシステムのさまざまな側面を監督するワーキンググループと、それらの間の衝突を解決するように機能する管理ワーキンググループで構成されています。
+  wgs: ワーキンググループ
   docstools:
-    title: Docs & Tools
-    description: Oversees externally-focused tooling (e.g. Fiddle, Forge), Electron documentation across the website and <code>electron/*</code> repositories, and the maintainer’s group outreach to 3rd party modules.
+    title: ドキュメント & ツール
+    description: 外部を重視したツール (Fiddle、Forge など)、ウェブサイト上の Electronドキュメント、<code>electron/*</code> リポジトリ、保守担当者のグループによるサードパーティのモジュールへの働きかけを監督します。
   outreach:
-    title: Outreach
-    description: Grows the Electron community
+    title: 支援
+    description: Electron コミュニティを成長させます
   releases:
     title: リリース
-    description: Oversees all release branches, and tooling to support releases.
+    description: すべてのリリースブランチと、リリースをサポートするツールを監督します。
   upgrades:
-    title: Upgrades
+    title: アップグレード
     description: Oversees upgrades of upstream dependencies; specifically Chromium and Node.
   website:
     title: ウェブサイト
