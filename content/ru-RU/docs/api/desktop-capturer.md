@@ -84,7 +84,7 @@ Starts gathering information about all available desktop media sources, and call
 
 `sources` is an array of [`DesktopCapturerSource`](structures/desktop-capturer-source.md) objects, each `DesktopCapturerSource` represents a screen or an individual window that can be captured.
 
-**[Deprecated Soon](promisification.md)**
+**[Скоро устареет](promisification.md)**
 
 ### `desktopCapturer.getSources(options)`
 
