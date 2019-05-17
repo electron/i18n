@@ -89,7 +89,7 @@ Sends a request to get all cookies matching `filter`, and resolves a promise wit
 
 Sends a request to get all cookies matching `filter`, `callback` will be called with `callback(error, cookies)` on complete.
 
-**[Deprecated Soon](promisification.md)**
+**[Скоро устареет](promisification.md)**
 
 #### `cookies.set(details)`
 
@@ -123,7 +123,7 @@ Sets a cookie with `details`.
 
 Устанавливает cookie с соответствующим `details`. По завершению вызывается `callback(error)`.
 
-**[Deprecated Soon](promisification.md)**
+**[Скоро устареет](promisification.md)**
 
 #### `cookies.remove(url, name)`
 
@@ -142,7 +142,7 @@ Removes the cookies matching `url` and `name`
 
 Удаляет cookies с соответствующими `url` и `name`, по завершению вызывается `callback()`.
 
-**[Deprecated Soon](promisification.md)**
+**[Скоро устареет](promisification.md)**
 
 #### `cookies.flushStore()`
 
@@ -156,4 +156,4 @@ Returns `Promise<void>` - A promise which resolves when the cookie store has bee
 
 Записывает непрочитанные cookies на диск.
 
-**[Deprecated Soon](promisification.md)**
+**[Скоро устареет](promisification.md)**
