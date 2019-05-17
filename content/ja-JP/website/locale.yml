@@ -260,11 +260,11 @@ governance:
       - <i>メンテナ</i> は、ガバナンスにおいて積極的な役割を果たす人です。
       - <i>コラボレータ</i> はコミュニティで活動していますが、ガバナンスでは活動していない人です。
       - <i>パーティシパント</i> は、メンテナかコラボレータのことです。
-      - A <i>working group</i> is a group of maintainers that is formed to take responsibility for certain aspects of the Electron project. Normally these groups will meet regularly but in some cases will only meet as required to fulfill their responsibilities.
+      - <i>ワーキンググループ</i> は、Electron プロジェクトの特定の側面に責任を持つように形成されたメンテナのグループです。 通常、これらのグループは定期的に会合しますが、場合によっては、それぞれの責任を果たすのに必要な場合にだけ会合します。
       - 'A <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership">chair</a> leads a working group.'
   responsibilities:
-    title: Responsibilities
-    listdescription: "All Working Groups have these core responsibilities:"
+    title: 責務
+    listdescription: "すべてのワーキンググループはこれらの中核的な責任があります。"
     list:
       - They shall decide for themselves, and publicly post, their rules, e.g. how decisions are made, when meetings are held, and who may attend.
       - 'They shall <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Terms-and-Selection">select</a> a chair to <a href=''https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Responsibilities''>represent</a> the group.'
