@@ -1,10 +1,10 @@
-# CustomScheme Object
+# Об'єкт CustomScheme
 
-* `scheme` String - Custom schemes to be registered with options.
+* `scheme` String - Налаштовувана схема для реєстрації з опціями.
 * `privileges` Object (опціонально) 
-  * `standard` Boolean (optional) - Default false.
-  * `secure` Boolean (optional) - Default false.
-  * `bypassCSP` Boolean (optional) - Default false.
-  * `allowServiceWorkers` Boolean (optional) - Default false.
-  * `supportFetchAPI` Boolean (optional) - Default false.
-  * `corsEnabled` Boolean (optional) - Default false.
+  * `standard` Boolean (опціонально) - За замовчуванням false.
+  * `secure` Boolean (опціонально) - За замовчуванням false.
+  * `bypassCSP` Boolean (опціонально) - За замовчуванням false.
+  * `allowServiceWorkers` Boolean (опціонально) - За замовчуванням false.
+  * `supportFetchAPI` Boolean (опціонально) - За замовчуванням false.
+  * `corsEnabled` Boolean (опціонально) - За замовчуванням false.
