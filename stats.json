@@ -36,7 +36,7 @@
     "words_approved": "96",
     "translated_progress": 78,
     "approved_progress": 0,
-    "qa_issues": 266
+    "qa_issues": 265
   },
   {
     "name": "Chinese Traditional",
@@ -315,14 +315,14 @@
     "name": "Ukrainian",
     "code": "uk",
     "phrases": "10563",
-    "translated": "4019",
+    "translated": "4048",
     "approved": "151",
     "words": "97309",
-    "words_translated": "23896",
+    "words_translated": "24187",
     "words_approved": "666",
     "translated_progress": 24,
     "approved_progress": 0,
-    "qa_issues": 1587
+    "qa_issues": 1610
   },
   {
     "name": "Vietnamese",
