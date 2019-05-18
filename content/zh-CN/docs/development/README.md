@@ -13,7 +13,7 @@
 * [构建系统概览](build-system-overview.md)
 * [构建步骤（macOS）](build-instructions-macos.md)
 * [构建步骤（Windows）](build-instructions-windows.md)
-* [构建步骤（Linux）](build-instructions-linux.md)
+* [构建步骤 (Linux)](build-instructions-linux.md)
 * [Chromium 开发](chromium-development.md)
 * [V8 开发](v8-development.md)
 * [测试](testing.md)
