@@ -66,13 +66,13 @@
 
 На Windows доступен только `releaseName`.
 
-**Note:** It is not strictly necessary to handle this event. A successfully downloaded update will still be applied the next time the application starts.
+**Примечание:** Не обязательно обрабатывать это событие. Успешное загруженное обновление будет применено в следующий раз, когда запустится приложение.
 
-### Event: 'before-quit-for-update'
+### Событие: 'before-quit-for-update'
 
-This event is emitted after a user calls `quitAndInstall()`.
+Это событие происходит после вызова `quitAndInstall()`.
 
-When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
+Когда это API вызывается, событие `before-quit` не будет происходить до тех пор, пока все окна не будут закрыты. В результате Вы должны прослушивать это событие, если хотите выполнить действия до закрытия окон, во время завершения процесса, а также прослушивать `before-quit`.
 
 ## Методы
 
@@ -82,22 +82,22 @@ When this API is called, the `before-quit` event is not emitted before all windo
 
 * `options` Object 
   * `url` String
-  * `headers` Object (опционально) *macOS* - заголовки запросов HTTP.
-  * `serverType` String (опционально) *macOS* - Любой `json` или `default`, смотри [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README для подробностей.
+  * `headers` Object (опционально) *macOS* - заголовки HTTP-запроса.
+  * `serverType` String (опционально) *macOS* - либо `json`, либо `default`, смотрите README [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac), для подробной информации.
 
 Задает `url` и инициализирует автоматическое обновление.
 
 ### `autoUpdater.getFeedURL()`
 
-`String` - возвращает URL текущей подписки обновления.
+Возвращает `String` - URL текущего канала обновления.
 
 ### `autoUpdater.checkForUpdates()`
 
-Запрашивает сервер на наличие обновлений. Перед использованием этого API-интерфейса, необходимо вызвать `setFeedURL`.
+Спрашивает сервер на наличие обновлений. Перед использованием этого API, необходимо вызвать `setFeedURL`.
 
 ### `autoUpdater.quitAndInstall()`
 
-Перезапускает приложение и устанавливает обновления после того как скачает. Должен вызываться только после того, как возникнет событие `update-downloaded`.
+Перезапускает приложение и устанавливает обновления после того, как скачается. Должно вызываться только после того, как произойдет событие `update-downloaded`.
 
 Внутри, вызов `autoUpdater.quitAndInstall()` сначала закроет все окна приложения, и автоматически вызовет `app.quit()`, после того, как все окна будут закрыты.
 
