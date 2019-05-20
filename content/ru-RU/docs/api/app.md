@@ -842,9 +842,9 @@ if (!gotTheLock) {
 
 Возвращает `Promise`
 
-For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src.git/+/69.0.3497.106/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
+Для `infoType` равным `complete`: Промис выполняется с `объектом`, содержащий всю информацию о GPU, как в [chromium объекте GPUInfo](https://chromium.googlesource.com/chromium/src.git/+/69.0.3497.106/gpu/config/gpu_info.cc). Это включает информацию о версии и драйвере, показанную на странице `chrome://gpu`.
 
-For `infoType` equal to `basic`: Promise is fulfilled with `Object` containing fewer attributes than when requested with `complete`. Here's an example of basic response:
+Для `infoType` равным `basic`: Промис выполняется с `объектом`, содержащий меньшее количество атрибутов, чем когда запрашивается с `complete`. Вот пример базового ответа:
 
 ```js
 { auxAttributes:
@@ -869,7 +869,7 @@ machineModelName: 'MacBookPro',
 machineModelVersion: '11.5' }
 ```
 
-Using `basic` should be preferred if only basic information like `vendorId` or `driverId` is needed.
+Использование `basics` должно быть предпочтительным, если требуется только основная информация, такая как `vendorId` или `driverId`.
 
 ### `app.setBadgeCount(count)` *Linux* *macOS*
 
@@ -877,7 +877,7 @@ Using `basic` should be preferred if only basic information like `vendorId` or `
 
 Возвращает `Boolean` - был ли вызов успешным.
 
-Задает счетчик-значок для текущего приложения. При значении счетчика `0` будет скрыть значок.
+Задает счетчик-значок для текущего приложения. Устанавливая значения счетчика равным `0`, значок будет спрятан.
 
 On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
 
