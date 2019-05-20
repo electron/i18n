@@ -609,25 +609,25 @@ API использует внутренний реестр Windows и LSSetDefau
 
 ### `app.removeAsDefaultProtocolClient(protocol[, path, args])` *macOS* *Windows*
 
-* `protocol` String - имя вашего протокола, без `://`.
-* `path` String (optional) *Windows* - по умолчанию `process.execPath`
-* `args` String[] (optional) *Windows* - по умолчанию пустой массив
+* `protocol` String - имя Вашего протокола, без `://`.
+* `path` String (опционально) *Windows* - по умолчанию `process.execPath`
+* `args` String[] (опционально) *Windows* - по умолчанию пустой массив
 
 Возвращает `Boolean` - был ли вызов успешным.
 
-Этот метод проверяет, является ли текущий исполняемый файл, как обработчик протокола по умолчанию (так называемая схема URI). Если является, то убирает приложение, как обработчик по умолчанию.
+Этот метод проверяет, является ли текущий исполняемый файл, как обработчик протокола по умолчанию (так же известного, как схема URI). Если является, то убирает приложение, как обработчик по умолчанию.
 
 ### `app.isDefaultProtocolClient(protocol[, path, args])`
 
-* `protocol` String - имя вашего протокола, без `://`.
-* `path` String (optional) *Windows* - по умолчанию `process.execPath`
-* `args` String[] (optional) *Windows* - по умолчанию пустой массив
+* `protocol` String - имя Вашего протокола, без `://`.
+* `path` String (опционально) *Windows* - по умолчанию `process.execPath`
+* `args` String[] (опционально) *Windows* - по умолчанию пустой массив
 
 Возвращает `Boolean`
 
-Этот метод проверяет, является ли текущий исполняемый файл, как обработчик протокола по умолчанию (так называемая схема URI). Если является, то возвращает true. Иначе, возвращает false.
+Этот метод проверяет, является ли текущий исполняемый файл, как обработчик протокола по умолчанию (так же известного, как схема URI). Если является, то возвращает true. Иначе, возвращает false.
 
-**Примечание:** На macOS можно использовать этот метод для проверки, если приложение было зарегистрировано в качестве обработчика протокола по умолчанию для протокола. Вы также можете проверить это, установив `~/Library/Preferences/com.apple.LaunchServices.plist` на машине macOS. За подробными сведениями обращайтесь к [документации компании Apple](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme).
+**Примечание:** На macOS можно использовать этот метод для проверки, если приложение было зарегистрировано в качестве обработчика протокола по умолчанию для протокола. Вы также можете проверить это, проверив `~/Library/Preferences/com.apple.LaunchServices.plist` на машине macOS. За подробными сведениями обращайтесь к [документации компании Apple](https://developer.apple.com/library/mac/documentation/Carbon/Reference/LaunchServicesReference/#//apple_ref/c/func/LSCopyDefaultHandlerForURLScheme).
 
 API использует внутренний реестр Windows и LSCopyDefaultHandlerForURLScheme.
 
@@ -635,9 +635,9 @@ API использует внутренний реестр Windows и LSCopyDefa
 
 * `tasks` [Task[]](structures/task.md) - массив объектов `Task`
 
-Добавляет `tasks` к категории [Tasks](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) в JumpList на Windows.
+Добавляет `tasks` к категории [Tasks](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378460(v=vs.85).aspx#tasks) в списке переходов на Windows.
 
-`tasks` массив объектов [`Task`](structures/task.md).
+`tasks` - массив объектов [`Task`](structures/task.md).
 
 Возвращает `Boolean` - был ли вызов успешным.
 
