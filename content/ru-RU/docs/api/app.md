@@ -834,13 +834,13 @@ if (!gotTheLock) {
 
 ### `app.getGPUFeatureStatus()`
 
-Возвращает [`GPUFeatureStatus`](structures/gpu-feature-status.md) - статус функции графики из `chrome://gpu/`.
+Возвращает [`GPUFeatureStatus`](structures/gpu-feature-status.md) - статус графических свойств из `chrome://gpu/`.
 
 ### `app.getGPUInfo(infoType)`
 
-* `infoType` String - Values can be either `basic` for basic info or `complete` for complete info.
+* `infoType` String - значения могут быть либо `basic`, для базовой информации, либо `complete`, для полной информации.
 
-Returns `Promise`
+Возвращает `Promise`
 
 For `infoType` equal to `complete`: Promise is fulfilled with `Object` containing all the GPU Information as in [chromium's GPUInfo object](https://chromium.googlesource.com/chromium/src.git/+/69.0.3497.106/gpu/config/gpu_info.cc). This includes the version and driver information that's shown on `chrome://gpu` page.
 
