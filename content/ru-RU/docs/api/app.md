@@ -993,7 +993,7 @@ stopAccessingSecurityScopedResource()
 
 * `value` String - аргумент для добавления в командную строку
 
-Добавляет аргумент к Chromium в командной строке. Аргумент будет указан правильно.
+Добавляет аргумент в командную строку Chromium. Аргумент будет цитироваться правильно.
 
 **Примечание:** Это не повлияет на `process.argv`.
 
@@ -1001,29 +1001,29 @@ stopAccessingSecurityScopedResource()
 
 * `switch` String - переключатель командной строки
 
-Returns `Boolean` - Whether the command-line switch is present.
+Возвращает `Boolean` - есть или нет переключатель командной строки.
 
 ### `app.commandLine.getSwitchValue(switch)`
 
 * `switch` String - переключатель командной строки
 
-Returns `String` - The command-line switch value.
+Возвращает `String` - значение переключателя командной строки.
 
-**Note:** When the switch is not present, it returns empty string.
+**Примечание:** Когда переключатель не присутствует, возвращает пустую строку.
 
 ### `app.enableSandbox()` *Experimental* *macOS* *Windows*
 
-Enables full sandbox mode on the app.
+Включает полноценный режим песочницы в приложении.
 
 Этот метод может быть вызван только до того, как приложение будет готово.
 
 ### `app.isInApplicationsFolder()` *macOS*
 
-Возвращает `Boolean` - выполняется ли приложение сейчас из systems Application папки. Используется совместно с `app.moveToApplicationsFolder()`
+Возвращает `Boolean` - выполняется ли приложение сейчас из системной папки Приложения. Используется совместно с `app.moveToApplicationsFolder()`
 
 ### `app.moveToApplicationsFolder()` *macOS*
 
-Returns `Boolean` - Whether the move was successful. Please note that if the move is successful, your application will quit and relaunch.
+Возвращает `Boolean` - было ли перемещение удачным. Пожалуйста, обратите внимание, что если перемещение было успешным, то Ваше приложение будет закрыто и перезапущено.
 
 No confirmation dialog will be presented by default. If you wish to allow the user to confirm the operation, you may do so using the [`dialog`](dialog.md) API.
 
