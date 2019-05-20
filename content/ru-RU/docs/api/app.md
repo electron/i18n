@@ -666,9 +666,9 @@ API использует внутренний реестр Windows и LSCopyDefa
 
 **Примечание:** Если объект `JumpListCategory` не имеет ни `type`, ни `name` свойства, тогда `type` считается `tasks`. Если свойство `name` установлено, но свойство `type` опущено, тогда `type` считается `custom`.
 
-**Примечание:** Пользователи могут удалять элементы из пользовательских категорий, но Windows не будет позволять возвращать удаленный элемент в пользовательскую категорию до **следующего** удачного вызова `app.setJumpList(categories)`. Любая попытка вновь добавить удаленный элемент в настраиваемую категорию раньше, чем это приведёт к созданию всей настраиваемой категории, исключается из Jump List. Список удаленных элементов можно получить с помощью `app.getJumpListSetting()`.
+**Примечание:** Пользователи могут удалять элементы из пользовательских категорий, но Windows не будет позволять возвращать удаленный элемент в пользовательскую категорию до **следующего** удачного вызова `app.setJumpList(categories)`. Любая попытка вновь добавить удаленный элемент в пользовательскую категорию перед тем, как метод выполнится, приведёт к исключению всей категории из списка переходов. Список удаленных элементов можно получить с помощью `app.getJumpListSetting()`.
 
-Вот очень простой способ, как создать настраиваемый Jump List:
+Вот очень простой способ, как создать пользовательский список переходов:
 
 ```javascript
 const { app } = require('electron')
@@ -676,52 +676,52 @@ const { app } = require('electron')
 app.setJumpList([
   {
     type: 'custom',
-    name: 'Recent Projects',
+    name: 'Недавние проекты',
     items: [
       { type: 'file', path: 'C:\\Projects\\project1.proj' },
       { type: 'file', path: 'C:\\Projects\\project2.proj' }
     ]
   },
-  { // has a name so `type` is assumed to be "custom"
+  { // Есть имя, так что под `type` подразумевается "custom"
     name: 'Tools',
     items: [
       {
         type: 'task',
-        title: 'Tool A',
+        title: 'Инструмент А',
         program: process.execPath,
         args: '--run-tool-a',
         icon: process.execPath,
         iconIndex: 0,
-        description: 'Runs Tool A'
+        description: 'Запустить инструмент A'
       },
       {
         type: 'task',
-        title: 'Tool B',
+        title: 'Инструмент Б',
         program: process.execPath,
         args: '--run-tool-b',
         icon: process.execPath,
         iconIndex: 0,
-        description: 'Runs Tool B'
+        description: 'Запустить инструмент Б'
       }
     ]
   },
   { type: 'frequent' },
-  { // has no name and no type so `type` is assumed to be "tasks"
+  { // Нет имени и типа, так что под `type` подразумевается "tasks"
     items: [
       {
         type: 'task',
-        title: 'New Project',
+        title: 'Новый проект',
         program: process.execPath,
         args: '--new-project',
-        description: 'Create a new project.'
+        description: 'Создать новый проект.'
       },
       { type: 'separator' },
       {
         type: 'task',
-        title: 'Recover Project',
+        title: 'Восстановить проект',
         program: process.execPath,
         args: '--recover-project',
-        description: 'Recover Project'
+        description: 'Восстановить проект'
       }
     ]
   }
@@ -732,7 +732,7 @@ app.setJumpList([
 
 Возвращает `Boolean`
 
-Этот метод делает ваше приложение одним экземпляром приложения, и не позволяет запускать несколько экземпляров вашего приложения, это гарантирует, что только один экземпляр вашего приложения запущен, а другие экземпляры сигнализируют об этом и завершаются.
+Этот метод делает Ваше приложение единственным экземпляром приложения, и не позволяет запускать несколько экземпляров Вашего приложения, это гарантирует, что только один экземпляр Вашего приложения запущен, а другие экземпляры сигнализируют об этом и завершаются.
 
 The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock, you can assume that another instance of your application is already running with the lock and exit immediately.
 
