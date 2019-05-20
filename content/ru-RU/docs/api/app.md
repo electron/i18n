@@ -1025,9 +1025,9 @@ stopAccessingSecurityScopedResource()
 
 Возвращает `Boolean` - было ли перемещение удачным. Пожалуйста, обратите внимание, что если перемещение было успешным, то Ваше приложение будет закрыто и перезапущено.
 
-No confirmation dialog will be presented by default. If you wish to allow the user to confirm the operation, you may do so using the [`dialog`](dialog.md) API.
+Диалог подтверждения не будет представлен по умолчанию. Если Вы хотите позволить пользователям подтверждать операцию, Вы можете сделать это, используя API [`dialog`](dialog.md).
 
-**Примечание:** Этот метод вызывает ошибки, если что-нибудь, кроме пользователя, приводит к сбою перемещения. For instance if the user cancels the authorization dialog, this method returns false. If we fail to perform the copy, then this method will throw an error. Сообщение об ошибке должно быть информативным и скажет Вам, что действительно пошло не так
+**Примечание:** Этот метод вызывает ошибки, если что-нибудь, кроме пользователя, вызывает сбой перемещения. For instance if the user cancels the authorization dialog, this method returns false. If we fail to perform the copy, then this method will throw an error. Сообщение об ошибке должно быть информативным и скажет Вам, что действительно пошло не так
 
 ### `app.dock.bounce([type])` *macOS*
 
