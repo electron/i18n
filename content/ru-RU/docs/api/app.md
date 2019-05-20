@@ -1077,7 +1077,7 @@ stopAccessingSecurityScopedResource()
 
 * `menu` [Menu](menu.md)
 
-Устанавливает [Dock меню](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/) приложения.
+Устанавливает [dock меню](https://developer.apple.com/macos/human-interface-guidelines/menus/dock-menus/) приложения.
 
 ### `app.dock.setIcon(image)` *macOS*
 
