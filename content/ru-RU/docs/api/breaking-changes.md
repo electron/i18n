@@ -1,6 +1,6 @@
-# API Контракт
+# Договор API
 
-Критические изменения будут описаны здесь, а также будут добавлены предупреждения об устаревших функциях в код JS, где это возможно, нужна, по крайней мере, [одна мажорная версия](../tutorial/electron-versioning.md#semver) перед тем, как изменения будут сделаны.
+Критические изменения будут описаны здесь, а также будут добавлены предупреждения об устаревших функциях в JS код, где это возможно, нужна, по крайней мере, [одна мажорная версия](../tutorial/electron-versioning.md#semver) перед тем, как изменения будут сделаны.
 
 # Комментарии `FIXME`
 
@@ -11,22 +11,22 @@
 ## `win.setMenu(null)`
 
 ```js
-// Deprecated
+// Устаревшее
 win.setMenu(null)
-// Replace with
+// Заменено на
 win.removeMenu()
 ```
 
-## `electron.screen` in renderer process
+## `electron.screen` в графическом процессе
 
 ```js
-// Deprecated
+// Устаревшее
 require('electron').screen
-// Replace with
+// Заменено на
 require('electron').remote.screen
 ```
 
-## `require` in sandboxed renderers
+## `require` в песочнице графических процессов
 
 ```js
 // Deprecated
