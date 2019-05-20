@@ -740,7 +740,7 @@ app.setJumpList([
 
 На macOS система автоматически обеспечивает единственный экземпляр, когда пользователи пытаются открыть второй экземпляра Вашего приложения в Finder, для этого будут происходить `open-file` и `open-url` события. Так или иначе, когда пользователи запустят Ваше приложение через командную строку, системный механизм единственного экземпляра будет обойден, и Вы должны использовать этот метод, чтобы обеспечить единственный экземпляр.
 
-Пример активации окна первичного экземпляра, при запуске второго экземпляра:
+Пример активации окна единственного экземпляра, при запуске второго экземпляра:
 
 ```javascript
 const { app } = require('electron')
@@ -752,14 +752,14 @@ if (!gotTheLock) {
   app.quit()
 } else {
   app.on('second-instance', (event, commandLine, workingDirectory) => {
-    // Someone tried to run a second instance, we should focus our window.
+    // Кто-то пытался запустить второй экземпляр, мы должны сфокусировать наше окно.
     if (myWindow) {
       if (myWindow.isMinimized()) myWindow.restore()
       myWindow.focus()
     }
   })
 
-  // Create myWindow, load the rest of the app, etc...
+  // Создать myWindow, загрузить остальную часть приложения, и т.д.
   app.on('ready', () => {
   })
 }
