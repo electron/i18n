@@ -978,16 +978,16 @@ const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedReso
 stopAccessingSecurityScopedResource()
 ```
 
-Получает доступ к защищенному ресурсу. С помощью этого метода Electron приложения, которые упакованы для Mac App Store, могут выходить на пределы их песочницы, чтобы получить файлы, выбранные пользователем. Подробное описание как работает эта система, смотри [Apple's documentation](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16).
+Получает доступ к защищенному ресурсу. С помощью этого метода Electron приложения, которые упакованы для Mac App Store, могут выходить на пределы их песочницы, чтобы получить файлы, выбранные пользователем. Подробное описание того, как работает эта система, смотрите [документацию Apple](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16).
 
 ### `app.commandLine.appendSwitch(switch[, value])`
 
 * `switch` String - переключатель командной строки
-* `value` String (опиционально) - значение для данного переключателя
+* `value` String (опционально) - значение для данного переключателя
 
-Добавьте переключатель (с опциональным значением `value`) Chromium в командной строке.
+Добавляет переключатель (с опциональным значением `value`) в командную строку Chromium.
 
-**Примечание:** Это не влияет на `process.argv` и главным образом используется разработчиками для контроля поведения некоторых низкоуровневых поведений Chromium.
+**Примечание:** Это не влияет на `process.argv` и главным образом используется разработчиками для контроля некоторых низкоуровневых поведений Chromium.
 
 ### `app.commandLine.appendArgument(value)`
 
