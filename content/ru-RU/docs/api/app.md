@@ -950,15 +950,15 @@ app.setLoginItemSettings({
 
 ### `app.showAboutPanel` *macOS* *Linux*
 
-Show the app's about panel options. These options can be overridden with `app.setAboutPanelOptions(options)`.
+Показывает параметры панели о приложении. Эти параметры могут быть переопределены с помощью `app.setAboutPanelOptions(options)`.
 
 ### `app.setAboutPanelOptions(options)` *macOS* *Linux*
 
 * `options` Object 
-  * `applicationName` String (опиционально) - имя приложения.
-  * `applicationVersion` String (опиционально) - версия приложения.
-  * `copyright` String (опиционально) - copyright информация.
-  * `version` String (optional) - The app's build version number. *macOS*
+  * `applicationName` String (опционально) - имя приложения.
+  * `applicationVersion` String (опционально) - версия приложения.
+  * `copyright` String (опционально) - информация авторских прав.
+  * `version` String (опционально) - номер версии сборки приложения. *macOS*
   * `credits` String (optional) - Credit information. *macOS*
   * `website` String (optional) - The app's website. *Linux*
   * `iconPath` String (optional) - Path to the app's icon. *Linux*
