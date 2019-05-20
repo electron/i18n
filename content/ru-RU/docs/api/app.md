@@ -1071,7 +1071,7 @@ stopAccessingSecurityScopedResource()
 
 ### `app.dock.isVisible()` *macOS*
 
-Возвращает `Boolean` - является ли значок в dock видимым. Вызов `app.dock.show ()` является асинхронным, поэтому этот метод не может вернуть true сразу после этого вызова.
+Возвращает `Boolean` - видна ли иконка в dock. Вызов `app.dock.show()` является асинхронным, поэтому этот метод не может вернуть true сразу после этого вызова.
 
 ### `app.dock.setMenu(menu)` *macOS*
 
