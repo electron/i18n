@@ -29,24 +29,24 @@ require('electron').remote.screen
 ## `require` в песочнице графических процессов
 
 ```js
-// Deprecated
+// Устаревшее
 require('child_process')
-// Replace with
+// Заменено на
 require('electron').remote.require('child_process')
 
-// Deprecated
+// Устаревшее
 require('fs')
-// Replace with
+// Заменено на
 require('electron').remote.require('fs')
 
-// Deprecated
+// Устаревшее
 require('os')
-// Replace with
+// Заменено на
 require('electron').remote.require('os')
 
-// Deprecated
+// Устаревшее
 require('path')
-// Replace with
+// Заменено на
 require('electron').remote.require('path')
 ```
 
@@ -56,19 +56,19 @@ require('electron').remote.require('path')
 
 Следующие значения по умолчанию для параметра `webPreferences` устарели в пользу новых значений по умолчанию, перечисленных ниже.
 
-| Свойство           | Устаревшее                                      | Новое   |
-| ------------------ | ----------------------------------------------- | ------- |
-| `contextIsolation` | `false`                                         | `true`  |
-| `nodeIntegration`  | `true`                                          | `false` |
-| `webviewTag`       | `nodeIntegration` если установлено иначе `true` | `false` |
+| Свойство           | Устаревшее                                        | Новое   |
+| ------------------ | ------------------------------------------------- | ------- |
+| `contextIsolation` | `false`                                           | `true`  |
+| `nodeIntegration`  | `true`                                            | `false` |
+| `webviewTag`       | `nodeIntegration`, если установлено, иначе `true` | `false` |
 
 ## `nativeWindowOpen`
 
 В дочерних окнах открытых с параметром `nativeWindowOpen` интеграция с Node.js всегда будет отключена.
 
-## Privileged Schemes Registration
+## Регистрация привилегированных схем
 
-Renderer process APIs `webFrame.setRegisterURLSchemeAsPrivileged` and `webFrame.registerURLSchemeAsBypassingCSP` as well as browser process API `protocol.registerStandardSchemes` have been removed. A new API, `protocol.registerSchemesAsPrivileged` has been added and should be used for registering custom schemes with the required privileges. Custom schemes are required to be registered before app ready.
+API графического процесса `webFrame.setRegisterURLSchemeAsPrivileged` и `webFrame.registerURLSchemeAsBypassingCSP`, а также API процесса браузера `protocol.registerStandardSchemes` были удалены. Новый API `protocol.registerSchemesAsPrivileged` был добавлен и должен использоваться для регистрации пользовательских схем с необходимыми привилегиями. Custom schemes are required to be registered before app ready.
 
 ## webFrame Isolated World APIs
 
