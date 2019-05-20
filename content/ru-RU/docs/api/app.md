@@ -773,15 +773,15 @@ if (!gotTheLock) {
 
 ### `app.releaseSingleInstanceLock()`
 
-Releases all locks that were created by `requestSingleInstanceLock`. This will allow multiple instances of the application to once again run side by side.
+Освобождает все блокировки, которые были созданы при помощи `requestSingleInstanceLock`. Это позволит нескольким экземплярам приложения снова работать бок о бок.
 
 ### `app.setUserActivity(type, userInfo[, webpageURL])` *macOS*
 
-* `type` String - уникально идентифицирует действие. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - специфичное для приложение состояние для использование других устроиств.
-* `webpageURL` String (опиционально) - веб-страница для загрузки в браузере, если нет подходящего приложения, установленного на проснувшемся устройстве. Схема должна быть `http` или `https`.
+* `type` String - уникально определяет действие. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - специфичное, для приложения, состояние для использования на других устройствах.
+* `webpageURL` String (опционально) - веб-страница для загрузки в браузере, если не установлено подходящего приложения, на проснувшемся устройстве. Схема должна быть `http` или `https`.
 
-Создает `NSUserActivity` и задает её в качестве текущей активности. Активность позже имеет право для [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) на другом устройстве.
+Создает `NSUserActivity` и задает ее в качестве текущей активности. Активность имеет право для [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) на другом устройстве после этого.
 
 ### `app.getCurrentActivityType()` *macOS*
 
@@ -789,16 +789,16 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 
 ### `app.invalidateCurrentActivity()` *macOS*
 
-* `type` String - уникально идентифицирует действие. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `type` String - уникально определяет действие. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 
 Аннулирует текущую [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) активность пользователя.
 
 ### `app.updateCurrentActivity(type, userInfo)` *macOS*
 
-* `type` String - уникально идентифицирует действие. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
-* `userInfo` Object - специфичное для приложение состояние для использование других устроиств.
+* `type` String - уникально определяет действие. Карты для [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
+* `userInfo` Object - специфичное, для приложения, состояние для использования на других устройствах.
 
-Обновляет текущую активность, если его тип совпадает `type` слияния записей из `userInfo` в его текущем словаре `userInfo`.
+Обновляет текущую активность, если ее тип соответствует `type`, объединяя записи с `userInfo` в свой текущий словарь `userInfo`.
 
 ### `app.setAppUserModelId(id)` *Windows*
 
@@ -814,7 +814,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 * `callback` Function 
   * `result` Integer - результат импорта.
 
-Импорт сертификата в формате pkcs12 из платформы хранилища сертификатов. `callback` is called with the `result` of import operation, a value of `0` indicates success while any other value indicates failure according to Chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
+Импортирует сертификат в формате pkcs12 из платформы хранилища сертификатов. `callback` вызывается с `result` - результат операции импорта, значение `0` указывает на успех, все другие значения указывают на ошибку в соответствии со списком [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h) в Chromium.
 
 ### `app.disableHardwareAcceleration()`
 
@@ -824,7 +824,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
 
 ### `app.disableDomainBlockingFor3DAPIs()`
 
-По умолчанию Chromium отключает 3D интерфейсы API (например, WebGL) до перезагрузки на основе домена, если GPU обрабатывает сбои слишком часто. Эта функция отключает поведение.
+По умолчанию Chromium отключает 3D API (например, WebGL) до тех пор, пока не перезапустится на основе домена, если процесс GPU слишком часто крашится. Эта функция отключает это поведение.
 
 Этот метод может быть вызван только до того, как приложение будет готово.
 
