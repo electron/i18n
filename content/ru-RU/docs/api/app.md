@@ -577,7 +577,7 @@ app.exit(0)
 
 Returns `string` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. The value is taken from native OS APIs.
 
-**Note:** When unable to detect locale country code, it returns empty string.
+**Примечание:** Когда невозможно определить код страны языка, возвращает пустую строку.
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
@@ -585,7 +585,7 @@ Returns `string` - User operating system's locale two-letter [ISO 3166](https://
 
 Добавляет `path` к списку последних документов.
 
-This list is managed by the OS. On Windows, you can visit the list from the task bar, and on macOS, you can visit it from dock menu.
+Этот список управляется ОС. На Windows, Вы можете увидеть список на панели задач, а на macOS, Вы можете увидеть список в меню dock.
 
 ### `app.clearRecentDocuments()` *macOS* *Windows*
 
@@ -593,13 +593,13 @@ This list is managed by the OS. On Windows, you can visit the list from the task
 
 ### `app.setAsDefaultProtocolClient(protocol[, path, args])`
 
-* `protocol` String - имя вашего протокола, без `://`. Если вы хотите, чтобы ваше приложение обрабатывала `electron://` ссылки, вызовите этот метод из `electron` в качестве параметра.
-* `path` String (optional) *Windows* - по умолчанию `process.execPath`
-* `args` String[] (optional) *Windows* - по умолчанию пустой массив
+* `protocol` String - имя Вашего протокола, без `://`. Если Вы хотите, чтобы Ваше приложение обрабатывало `electron://` ссылки, вызовите этот метод из `electron` в качестве параметра.
+* `path` String (опционально) *Windows* - по умолчанию `process.execPath`
+* `args` String[] (опционально) *Windows* - по умолчанию пустой массив
 
 Возвращает `Boolean` - был ли вызов успешным.
 
-Этот метод устанавливает текущий исполняемый файл в качестве обработчика по умолчанию для протокола (так называемая схема URI). Это позволяет Вам интегрировать приложение глубже в операционную систему. После регистрации, все ссылки с `ваш_протокол://` будут открываться текущим исполняемым файлом. Вся ссылка, включая протокол, будет передаваться в Ваше приложение в качестве параметра.
+Этот метод устанавливает текущий исполняемый файл в качестве обработчика по умолчанию для протокола (так же известного, как схема URI). Это позволяет Вам интегрировать приложение глубже в операционную систему. После регистрации, все ссылки с `ваш_протокол://` будут открываться текущим исполняемым файлом. Вся ссылка, включая протокол, будет передаваться в Ваше приложение в качестве параметра.
 
 On Windows, you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
 
