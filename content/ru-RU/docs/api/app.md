@@ -959,11 +959,11 @@ app.setLoginItemSettings({
   * `applicationVersion` String (опционально) - версия приложения.
   * `copyright` String (опционально) - информация авторских прав.
   * `version` String (опционально) - номер версии сборки приложения. *macOS*
-  * `credits` String (optional) - Credit information. *macOS*
-  * `website` String (optional) - The app's website. *Linux*
-  * `iconPath` String (optional) - Path to the app's icon. *Linux*
+  * `credits` String (опционально) - информация об авторах. *macOS*
+  * `website` String (опционально) - веб-сайт приложения. *Linux*
+  * `iconPath` String (опционально) - путь до иконки приложения. *Linux*
 
-Установите описание панели опций. This will override the values defined in the app's `.plist` file on MacOS. Смотрите [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) для получения более подробной информации. On Linux, values must be set in order to be shown; there are no defaults.
+Устанавливает опции панели о приложении. Это переопределит значения, определенные в файле приложения `.plist` на macOS. Смотрите [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) для получения более подробной информации. On Linux, values must be set in order to be shown; there are no defaults.
 
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
 
