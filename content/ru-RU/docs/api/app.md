@@ -734,7 +734,7 @@ app.setJumpList([
 
 Этот метод делает Ваше приложение единственным экземпляром приложения, и не позволяет запускать несколько экземпляров Вашего приложения, это гарантирует, что только один экземпляр Вашего приложения запущен, а другие экземпляры сигнализируют об этом и завершаются.
 
-The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock, you can assume that another instance of your application is already running with the lock and exit immediately.
+Значение, которое возвращает этот метод, указывает, успешно или нет экземпляр Вашего приложения получило блокировку. Если не удалось получить блокировку, можно предположить, что другой экземпляр Вашего приложения уже запущен с блокировкой и немедленно выходит.
 
 I.e. This method returns `true` if your process is the primary instance of your application and your app should continue loading. It returns `false` if your process should immediately quit as it has sent its parameters to another instance that has already acquired the lock.
 
