@@ -942,7 +942,7 @@ app.setLoginItemSettings({
 
 * `enabled` Boolean - включить или отключить отрисовку [древа специальных возможностей](https://developers.google.com/web/fundamentals/accessibility/semantics-builtin/the-accessibility-tree)
 
-Вручную включает поддержку специальных возможностей от Chrome, позволяя пользователям открывать специальные возможности в настройках приложения. Смотрите [документацию специальных возможностей Chromium](https://www.chromium.org/developers/design-documents/accessibility) для больших деталей. Отключено по умолчанию.
+Вручную включает поддержку специальных возможностей от Chrome, позволяя пользователям открывать специальные возможности в настройках приложения. Смотрите [документацию специальных возможностей Chromium](https://www.chromium.org/developers/design-documents/accessibility) для подробной информации. Отключено по умолчанию.
 
 Этот API должен вызываться после того, как произошло событие `ready`.
 
@@ -963,13 +963,13 @@ app.setLoginItemSettings({
   * `website` String (опционально) - веб-сайт приложения. *Linux*
   * `iconPath` String (опционально) - путь до иконки приложения. *Linux*
 
-Устанавливает опции панели о приложении. Это переопределит значения, определенные в файле приложения `.plist` на macOS. Смотрите [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) для получения более подробной информации. On Linux, values must be set in order to be shown; there are no defaults.
+Устанавливает опции панели о приложении. Это переопределит значения, определенные в файле приложения `.plist` на macOS. Смотрите [документацию Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) для подробной информации. На Linux необходимо устанавливать все значения; по умолчанию значений нет.
 
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
 
-* `bookmarkData` String - Закодированные base64 данные закладки области безопасности, возвращаемые `dialog.showOpenDialog` или `dialog.showSaveDialog`.
+* `bookmarkData` String - закодированные в формате base64 данные закладок области безопасности, возвращаемые методами `dialog.showOpenDialog` или `dialog.showSaveDialog`.
 
-Возвращает `Function`. Эта функция **должна** быть вызвана после того как вы have finished accessing the security scoped file. Если Вы забыли, запретить доступ к закладке, [возможно утечка ресурсов ядра](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) и ваше приложение потеряет свою способность выйти за пределы песочницы, пока не будет перезапущено.
+Возвращает `Function`. Эта функция **должна** быть вызвана после того, как Вам успешно удалось получить доступ к файлу области безопасности. Если Вы забыли запретить доступ к закладке, [возможно утечка ресурсов ядра](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) и Ваше приложение потеряет свою способность выйти за пределы песочницы, пока не будет перезапущено.
 
 ```js
 // Начало доступа к файлу.
