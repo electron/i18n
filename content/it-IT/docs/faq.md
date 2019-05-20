@@ -10,7 +10,7 @@ Puoi anche provare a scaricare Electron direttamente da [electron/electron/relea
 
 ## Quando verrà aggiornato Electron all'ultima versione di Chrome?
 
-The Chrome version of Electron is usually bumped within one or two weeks after a new stable Chrome version gets released. Questa stima non è garantita e dipende dalla quantità di lavoro necessario per l'aggiornamento.
+La versione di Chrome di Electron è generalmente rilasciata entro una o due settimane dopo che viene rilasciata una nuova versione stabile di Chrome. Questa stima non è garantita e dipende dalla quantità di lavoro necessario per l'aggiornamento.
 
 Viene utilizzato solo il canale Chrome stabile. Se c'è una soluzione importante nel canale beta o dev, la supporteremo.
 
@@ -24,35 +24,35 @@ Le nuove funzionalità di Node.js sono solitamente apportate dagli aggiornamenti
 
 ## Come condividere i dati tra le pagine Web?
 
-Per condividere i dati tra le pagine Web (i processi di rendering) il modo più semplice è utilizzare le API HTML5 che sono già disponibili nei browser. Good candidates are [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), and [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
+Per condividere i dati tra le pagine Web (i processi di rendering) il modo più semplice è utilizzare le API HTML5 che sono già disponibili nei browser. Buoni candidati sono [API Storage](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage)e [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
 
-Or you can use the IPC system, which is specific to Electron, to store objects in the main process as a global variable, and then to access them from the renderers through the `remote` property of `electron` module:
+Oppure puoi utilizzare il sistema IPC, che è specifico per Electron, per memorizzare gli oggetti nel processo principale come variabile globale, e poi per accedervi dai processi renderer attraverso la proprietà `remote` del modulo `elettron`:
 
 ```javascript
-// In the main process.
+// Nel processo principale.
 global.sharedObject = {
   someProperty: 'default value'
 }
 ```
 
 ```javascript
-// In page 1.
-require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
+// Nella pagina 1.
+richiede('elettronica').remote.getGlobal('sharedObject').someProperty = 'nuovo valore'
 ```
 
 ```javascript
-// In page 2.
-console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
+// Nella pagina 2.
+console.log(richiede('Electrn').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## My app's window/tray disappeared after a few minutes.
+## La finestra e icon tray della mia app scompare dopo pochi minuti.
 
-This happens when the variable which is used to store the window/tray gets garbage collected.
+Questo accade quando la variabile utilizzata per memorizzare la finestra/tray icon è deallocata dal garbage collector.
 
-If you encounter this problem, the following articles may prove helpful:
+Se riscontri questo problema, i seguenti articoli potrebbero rivelarsi utili:
 
 * [Gestione della Memoria](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
-* [Variable Scope](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
+* [Ambito Variabile](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
 If you want a quick fix, you can make the variables global by changing your code from this:
 
