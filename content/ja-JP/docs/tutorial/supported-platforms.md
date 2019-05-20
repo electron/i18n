@@ -1,1 +1,0 @@
-<support.md>に移動

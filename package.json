@@ -17,7 +17,7 @@
     "cheerio": "^1.0.0-rc.2",
     "clean-deep": "^3.0.2",
     "crowdin-glossary": "^1.2.0",
-    "del": "^3.0.0",
+    "del": "^4.0.0",
     "dotenv-safe": "^6.0.0",
     "electron-docs": "^3.0.2",
     "get-crowdin-file-ids": "^1.1.1",
@@ -30,7 +30,7 @@
     "js-yaml": "^3.8.4",
     "locale-code": "^2.0.1",
     "lodash": "^4.17.4",
-    "make-dir": "^1.0.0",
+    "make-dir": "^2.1.0",
     "make-promises-safe": "^4.0.0",
     "match-words": "^1.0.0",
     "mocha": "^5.0.5",
@@ -38,10 +38,10 @@
     "require-yaml": "^0.0.1",
     "rimraf": "^2.6.2",
     "semantic-release": "^15.5.0",
-    "simple-statistics": "^6.0.1",
+    "simple-statistics": "^7.0.2",
     "standard": "^12.0.1",
     "travis-deploy-once": "^5.0.0",
-    "walk-sync": "^0.3.2"
+    "walk-sync": "^1.1.3"
   },
   "scripts": {
     "collect": "node script/collect.js",
@@ -62,8 +62,8 @@
     "upload-crowdin-glossary": "node script/upload-crowdin-glossary.js",
     "wordcount": "node script/wordcount.js > wordcount.md"
   },
-  "electronLatestStableTag": "v4.0.6",
-  "electronMasterBranchCommit": "8dcb5662e3b1cff27f6e1dd8d156ccff4d9be57b",
+  "electronLatestStableTag": "v5.0.1",
+  "electronMasterBranchCommit": "c1cccfc0820fad29ec11b87b6f704b62716166bd",
   "engines": {
     "node": ">=10"
   }

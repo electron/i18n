@@ -64,10 +64,7 @@ export SCCACHE_TWO_TIER=true
 
 ```sh
 $ mkdir electron-gn && cd electron-gn
-$ gclient config \
-    --name "src/electron" \
-    --unmanaged \
-    https://github.com/electron/electron
+$ gclient config --name "src/electron" --unmanaged https://github.com/electron/electron
 $ gclient sync --with_branch_heads --with_tags
 # This will take a while, go get a coffee.
 ```
@@ -89,7 +86,7 @@ $ git branch --set-upstream-to=origin/master
 $ cd -
 ```
 
-:memo: `gclient` works by checking a file called `DEPS` inside the 
+:memo: `gclient` works by checking a file called `DEPS` inside the
 `src/electron` folder for dependencies (like Chromium or Node.js).
 Running `gclient sync -f` ensures that all dependencies required
 to build Electron match that file.
@@ -172,6 +169,18 @@ $ ./out/Debug/Electron.app/Contents/MacOS/Electron
 $ ./out/Debug/electron.exe
 # or, on Linux
 $ ./out/Debug/electron
+```
+
+### Packaging
+
+On linux, first strip the debugging and symbol information:
+```sh
+electron/script/strip-binaries.py -d out/Release
+```
+
+To package the electron build as a distributable zip file:
+```sh
+ninja -C out/Release electron:electron_dist_zip
 ```
 
 ### Cross-compiling
