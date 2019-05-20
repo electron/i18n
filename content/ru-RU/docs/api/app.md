@@ -485,9 +485,9 @@ app.exit(0)
 * `exe` текущий исполняемый файл.
 * `module` библиотека `libchromiumcontent`.
 * `desktop` директория рабочего стола, для текущего пользователя.
-* `documents` директория пользователя "My Documents".
-* `downloads` директория пользователя "Downloads".
-* `music` директория пользователя "Music".
+* `documents` директория пользователя Мои Документы.
+* `downloads` директория пользователя Загрузки.
+* `music` директория пользователя Музыка.
 * `pictures` директория пользователя для фотографий.
 * `videos` директория пользователя для видео.
 * `logs` директория для логов Вашего приложения.
@@ -575,7 +575,7 @@ app.exit(0)
 
 ### `app.getLocaleCountryCode()`
 
-Returns `string` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. The value is taken from native OS APIs.
+Возвращает `String` - локализация операционной системы пользователя в формате двух-символьного кода страны [ISO 3166](https://www.iso.org/iso-3166-country-codes.html). Значение взято из нативных API ОС.
 
 **Примечание:** Когда невозможно определить код страны языка, возвращает пустую строку.
 
@@ -1083,10 +1083,10 @@ stopAccessingSecurityScopedResource()
 
 * `image` ([NativeImage](native-image.md) | String)
 
-Задает `image`, связывает со значком в dock.
+Устанавливает `image`, связанную с этой иконкой в dock.
 
 ## Свойства
 
 ### `app.isPackaged`
 
-A `Boolean` property that returns `true` if the app is packaged, `false` otherwise. For many apps, this property can be used to distinguish development and production environments.
+`Boolean` свойство, которое возвращает `true`, если приложение упаковано, `false` иначе. Для многих приложений это свойство может использоваться для отличия среды разработки и производства.
