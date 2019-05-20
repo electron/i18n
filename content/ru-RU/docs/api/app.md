@@ -830,7 +830,7 @@ if (!gotTheLock) {
 
 ### `app.getAppMetrics()`
 
-Возвращает [`ProcessMetric[]`](structures/process-metric.md): массив объектов `ProcessMetric`, которые соответствует статистике использования памяти всех process, связанных с app.
+Возвращает [`ProcessMetric[]`](structures/process-metric.md): массив объектов `ProcessMetric`, которые соответствует статистике использования памяти и cpu всех процессов, связанных с приложением.
 
 ### `app.getGPUFeatureStatus()`
 
