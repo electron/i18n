@@ -879,22 +879,22 @@ machineModelVersion: '11.5' }
 
 Задает счетчик-значок для текущего приложения. Устанавливая значения счетчика равным `0`, значок будет спрятан.
 
-On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
+На macOS показывается на иконке в dock. На Linux только работает для лаунчера Unity.
 
-**Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
+**Примечание:** Лаунчер Unity требует существование файла `.desktop` для работы, для большей информации, пожалуйста, прочитайте [интеграция окружения рабочего стола](../tutorial/desktop-environment-integration.md#unity-launcher).
 
 ### `app.getBadgeCount()` *Linux* *macOS*
 
-Возвращает `Integer` - текущее значение, отображаемое в значке счётчика.
+Возвращает `Integer` - текущее значение, отображаемое в счетчике-значке.
 
 ### `app.isUnityRunning()` *Linux*
 
-Возвращает `Boolean` - является ли текущее окружение рабочего стола Unity.
+Возвращает `Boolean` - является ли текущее окружение рабочего стола лаунчером Unity.
 
 ### `app.getLoginItemSettings([options])` *macOS* *Windows*
 
 * `options` Object (опционально) 
-  * `path` String (опиционально) *Windows* - исполняемый путь для сравнения. По умолчанию `process.execPath`.
+  * `path` String (опционально) *Windows* - исполняемый путь для сравнения. По умолчанию `process.execPath`.
   * `args` String [] (опционально) *Windows* - аргументы командной строки для сравнения. По умолчанию пустой массив.
 
 If you provided `path` and `args` options to `app.setLoginItemSettings`, then you need to pass the same arguments here for `openAtLogin` to be set correctly.
