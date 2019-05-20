@@ -972,9 +972,9 @@ app.setLoginItemSettings({
 Возвращает `Function`. Эта функция **должна** быть вызвана после того, как Вам успешно удалось получить доступ к файлу области безопасности. Если Вы забыли запретить доступ к закладке, [возможно утечка ресурсов ядра](https://developer.apple.com/reference/foundation/nsurl/1417051-startaccessingsecurityscopedreso?language=objc) и Ваше приложение потеряет свою способность выйти за пределы песочницы, пока не будет перезапущено.
 
 ```js
-// Начало доступа к файлу.
+// Получение доступа к файлу.
 const stopAccessingSecurityScopedResource = app.startAccessingSecurityScopedResource(data)
-// You can now access the file outside of the sandbox 
+// Теперь у Вас есть доступ к файлу вне песочницы 
 stopAccessingSecurityScopedResource()
 ```
 
