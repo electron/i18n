@@ -1,4 +1,4 @@
-# Objeto Display
+# Objeto `Display`
 
 * `id` Number - Identificador único associado ao objeto.
 * `rotation` Number - Representa a rotação da janela em graus no sentido horário. Pode ser 0, 90, 180 e 270.
