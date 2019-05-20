@@ -1049,25 +1049,25 @@ stopAccessingSecurityScopedResource()
 
 * `filePath` String
 
-Отскакивает от "Downloads", если путь к файлу находится в папке "Downloads".
+Отскакивает от стека Загрузки, если путь к файлу находится в папке Загрузки.
 
 ### `app.dock.setBadge(text)` *macOS*
 
 * `text` String
 
-Устанавливает строку для отображения в панели dock запирающими областями.
+Устанавливает строку, которая будет отображаться в области значка dock панели.
 
 ### `app.dock.getBadge()` *macOS*
 
-Возвращает `String` - строки значка в dock.
+Возвращает `String` - строка значка в dock.
 
 ### `app.dock.hide()` *macOS*
 
-Скрыть значок в dock.
+Скрывает иконку в dock.
 
 ### `app.dock.show()` *macOS*
 
-Показать значок в dock.
+Показывает иконку в dock.
 
 ### `app.dock.isVisible()` *macOS*
 
