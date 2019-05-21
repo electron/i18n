@@ -19,7 +19,9 @@ const getPRData = async (prNumber: number) => {
   })
 }
 
-// TODO: 📝
+/**
+ * Gets the number of opened pull request by the bot or user.
+ */
 const getPRNumber = async () => {
   const prs = await github.pulls.list({
     owner: OWNER,
@@ -27,11 +29,16 @@ const getPRNumber = async () => {
   })
   const glotbot = await prs.data.filter(pr => pr.user.login === BOTNAME)
   const prNumber = glotbot[0].number
-  console.log(prNumber)
   return prNumber
 }
 
-// TODO: 📝
+/**
+ * Updates the default Crowding title with sematic title for
+ * pass all checks before merge.
+ *
+ * @param pr The number of pull request. Takes automatically
+ *           in autoMerger() function.
+ */
 const updateTitle = async (pr: number) => {
   const semanticTitle = await github.pulls.update({
     owner: OWNER,
@@ -42,31 +49,43 @@ const updateTitle = async (pr: number) => {
   return semanticTitle
 }
 
-// TODO: 📝
-// TODO: handle `false` and `null`
+/**
+ * Checks if the pull request able to merge.
+ *
+ * @param pr The number of pull request. Takes automatically
+ *           in autoMerger() function.
+ */
 const ableToMerge = async (pr: number) => {
   const pullRequest = await getPRData(pr)
   const mergeable = pullRequest.data.mergeable
-  console.log('MERGABLE: ', mergeable)
-  return mergeable
+  if (mergeable === true) {
+    return mergeable
+  } else if (mergeable === false) {
+    throw new Error('Unable to merge PR, re-check PR manually.')
+  } else {
+    // Need here handle the `null`.
+    return true
+  }
 }
 
+/**
+ * Merges pull request and deletes branch after merge completed.
+ *
+ * @param pr The number of pull request. Takes automatically
+ *           in autoMerger() function.
+ */
 const mergeAndDeleteBranch = async (pr: number) => {
-  const merge = await github.pulls.merge({
+  await github.pulls.merge({
     owner: OWNER,
     repo: REPO,
     pull_number: pr,
     merge_method: 'squash'
-  }).catch((err) => {
-    console.log(err)
   })
-  console.log(merge)
-  const deleteBranch = await github.git.deleteRef({
+  await github.git.deleteRef({
     owner: OWNER,
     repo: REPO,
     ref: "heads/new-translations"
   })
-  console.log(deleteBranch)
   return
 }
 
