@@ -9,5 +9,9 @@ action "npm run update-source-content" {
   env = {
     NODE_OPTIONS = "--max_old_space_size=4096"
   }
-  secrets = ["GITHUB_TOKEN", "CROWDIN_KEY", "NPM_TOKEN"]
+  secrets = [
+    "GITHUB_TOKEN",
+    "CROWDIN_KEY",
+    "NPM_AUTH_TOKEN",
+  ]
 }
