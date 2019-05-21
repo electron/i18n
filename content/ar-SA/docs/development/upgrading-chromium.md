@@ -1,6 +1,6 @@
-# عربي
+# ترقية الكروميوم
 
-This is an overview of the steps needed to upgrade Chromium in Electron.
+Ito ay isang pangkalahatang-ideya ng mga hakbang na kinakailangan upang maipaganda ang Chromium sa Electron.
 
 - Upgrade libcc to a new Chromium version
 - Make Electron code compatible with the new libcc
