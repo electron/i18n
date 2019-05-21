@@ -2,7 +2,7 @@ require('dotenv-safe').load()
 
 import * as Octokit from '@octokit/rest';
 
-const OWNER = 'HashimotoYT'
+const OWNER = 'electron'
 const REPO = 'i18n';
 const BOTNAME = 'glotbot'
 const SEMANTIC_TITLE = 'feat: New Crowdin translations (auto-merging 🤖)';
@@ -25,7 +25,7 @@ const getPRNumber = async () => {
     owner: OWNER,
     repo: REPO
   })
-  const glotbot = await prs.data.filter(pr => pr.user.login === 'HashimotoYT')
+  const glotbot = await prs.data.filter(pr => pr.user.login === BOTNAME)
   const prNumber = glotbot[0].number
   console.log(prNumber)
   return prNumber
