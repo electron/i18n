@@ -127,7 +127,7 @@ Clears the clipboard content.
 
 Returns `String[]` - An array of supported formats for the clipboard `type`.
 
-### `clipboard.has(format[, type])` *Experimental*
+### `clipboard.has(format[, type])` *Eksperymentalne*
 
 * `format` String
 * `type` String (opcjonalnie)
@@ -151,13 +151,13 @@ Returns `String` - Reads `format` type from the clipboard.
 
 Returns `Buffer` - Reads `format` type from the clipboard.
 
-### `clipboard.writeBuffer(format, buffer[, type])` *Experimental*
+### `clipboard.writeBuffer(format, buffer[, type])` *Eksperymentalne*
 
 * `format` String
 * `buffer` Buffer
 * `type` String (opcjonalnie)
 
-Writes the `buffer` into the clipboard as `format`.
+Zapisuje `buffer` do schowka jako `format`.
 
 ### `clipboard.write(data[, type])`
 
@@ -174,4 +174,4 @@ const { clipboard } = require('electron')
 clipboard.write({ text: 'test', html: '<b>test</b>' })
 ```
 
-Writes `data` to the clipboard.
+Zapisuje `data` do schowka.
