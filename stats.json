@@ -173,10 +173,10 @@
     "code": "ja",
     "phrases": "10563",
     "translated": "10122",
-    "approved": "275",
+    "approved": "289",
     "words": "97309",
     "words_translated": "92184",
-    "words_approved": "1541",
+    "words_approved": "1692",
     "translated_progress": 94,
     "approved_progress": 1,
     "qa_issues": 306
@@ -192,7 +192,7 @@
     "words_approved": "4694",
     "translated_progress": 43,
     "approved_progress": 4,
-    "qa_issues": 2191
+    "qa_issues": 2190
   },
   {
     "name": "Persian",
