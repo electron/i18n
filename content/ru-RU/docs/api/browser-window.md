@@ -1,14 +1,14 @@
 # BrowserWindow
 
-> Создание окон браузера и управление ими.
+> Создавайте окна браузера и управляйте ими.
 
-Процесс: [Main](../glossary.md#main-process)
+Процесс: [Основной](../glossary.md#main-process)
 
 ```javascript
 // В основном процессе.
 const { BrowserWindow } = require('electron')
 
-// Или используйте 'remote' в renderer процессе.
+// Или используйте 'remote' в графическом процессе.
 // const { BrowserWindow } = require('electron').remote
 
 let win = new BrowserWindow({ width: 800, height: 600 })
@@ -16,14 +16,14 @@ win.on('closed', () => {
   win = null
 })
 
-// Загрузка удалённого URL'а
+// Загрузить удаленный URL
 win.loadURL('https://github.com')
 
-// Или загрузка локального HTML файла
+// Или загрузить локальный HTML-файл
 win.loadURL(`file://${__dirname}/app/index.html`)
 ```
 
-## Бескаркасное окно
+## Безрамочное окно
 
 Для создания окна без хрома или прозрачного окна произвольной формы, можно использовать API [Бескаркасного окна](frameless-window.md).
 
