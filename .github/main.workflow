@@ -29,6 +29,9 @@ action "npm test" {
   uses = "actions/npm@master"
   needs = ["npm ci"]
   args = "test"
+  env = {
+    NODE_OPTIONS = "--max_old_space_size=4096"
+  }
 }
 
 workflow "Release" {
