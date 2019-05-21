@@ -43,9 +43,9 @@ Dönüşler:
 
 * `event` Event
 
-Uygulama pencerelerini kapatmaya başlamadan önce ortaya çıkar. `event.preventDefault()` öğesini çağırmak, uygulamayı sonlandıran varsayılan davranışı engelleyecektir.
+Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
 
-**Not:**Uygulama bırakma işlemi`autoUpdater.quitAndInstall()` tarafından başlatılmışsa, tüm pencerelerde `kapanış` olayını yayan</em> sonra* yayınlanır ve kapanır.</p> 
+**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()`, then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
 
 **Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
 
@@ -154,7 +154,7 @@ Dönüşler:
 * xxxx: Dize - Aktiviteyi tanımlayan bir dize. [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType) olarak eşleştirilir.
 * `userInfo` nesne-aktivite tarafından depolanan uygulamaya özgü durumu içerir.
 
-[Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) başka bir cihazda yeniden başlatılmaya çalışıldığında yayınlanır. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Aksi halde işlem başarısız olur ve `continue-activity-error` çağrılır.
+[Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) başka bir cihazda yeniden başlatılmaya çalışıldığında yayınlanır. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise, the operation will fail and `continue-activity-error` will be called.
 
 ### Etkinlik: 'new-window-for-tab' *macOS*
 
@@ -274,7 +274,7 @@ Dönüşler:
 
 `webContents` temel doğrulama yapmak istediğinde çıkarılır.
 
-Varsayılan davranış, tüm kimlik doğrulamalarını iptal etmektir; bunu geçersiz kılmak için `event.preventDefault()` ile varsayılan davranışı engellemeli ve kimlik bilgileriyle `callback(username, password)`'u çağırmalısınız.
+The default behavior is to cancel all authentications. To override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
 
 ```javascript
 const { app } = require('electron')
@@ -331,11 +331,22 @@ This event will be emitted inside the primary instance of your application when 
 
 This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
 
-### Event: 'remote-require'
+**Note:** Extra command line arguments might be added by Chromium, such as `--original-process-start-time`.
+
+### Event: 'desktop-capturer-get-sources'
 
 Dönüşler:
 
 * `event` Olay
+* `webContents` [webİçerikleri](web-contents.md)
+
+Emitted when `desktopCapturer.getSources()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will make it return empty sources.
+
+### Event: 'remote-require'
+
+Dönüşler:
+
+* `event` Event
 * `webContents` [webİçerikleri](web-contents.md)
 * `moduleName` String
 
@@ -345,7 +356,7 @@ Emitted when `remote.require()` is called in the renderer process of `webContent
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `webContents` [webİçerikleri](web-contents.md)
 * `globalName` String
 
@@ -407,7 +418,7 @@ Bu metod tüm `beforeunload` ve `unload` olayları işleyicilerinin düzgün şe
 
 Exits immediately with `exitCode`. `exitCode` defaults to 0.
 
-Tüm pencereler kullanıcıya sormadan hemen kapatılır, `before-quit` ve `will-quit` olayları yayılmaz.
+All windows will be closed immediately without asking the user, and the `before-quit` and `will-quit` events will not be emitted.
 
 ### `app.relaunch([options])`
 
@@ -417,7 +428,7 @@ Tüm pencereler kullanıcıya sormadan hemen kapatılır, `before-quit` ve `will
 
 Yürürlükteki oluşum tamamlandığında uygulamayı yeniden başlatır (relaunch).
 
-Varsayılan olarak yeni oluşum, yürürlükteki oluşumun çalışmakta olduğu aynı dizin ve komut satırı değişkenlerini kullanır. `args` belirtildiğinde, `args` komut satırı değişkenlerinin yerini alır. `execPath` belirtildiğinde, yeniden başlatma yürürlükteki uygulama yerine `execPath` için uygulanır.
+By default, the new instance will use the same working directory and command line arguments with current instance. `args` belirtildiğinde, `args` komut satırı değişkenlerinin yerini alır. `execPath` belirtildiğinde, yeniden başlatma yürürlükteki uygulama yerine `execPath` için uygulanır.
 
 Bu metodun uygulandığında uygulamadan çıkış yapmadığını unutmayın, uygulamayı yeniden başlatmak (restart) için `app.relaunch`'u çağırdıktan sonra `app.quit`'i veya `app.exit`'ı çağırmanız mecburidir.
 
@@ -460,7 +471,7 @@ Gizlenmiş olan uygulama pencerelerini gösterir. Pencerelere otomatik olarak od
 
 * `name` Dizi
 
-`String` - olarak `name` ile ilişkilendirilmiş bir dosya veya dizgine yönelmiş yol dönütünü verir. Hata durumunda bir `Error` dönütü verir.
+Returns `String` - A path to a special directory or file associated with `name`. On failure, an `Error` is thrown.
 
 Aşağıdaki yolları isimleriyle talep edebilirsiniz:
 
@@ -501,7 +512,29 @@ Bir dosya yolunun ilişkili ikonunu çeker.
 * `.mp3`, `.png` v.b. gibi belirli dosya uzantıları ile ilişkilendirilmiş ikonlar
 * `.exe`, `.dll`, `.ico` gibi, dosyanın kendi içindeki ikonlar
 
-*Linux* ve *macOS* ikonlar, dosya mıme tipiyle ilişkilendirilen uygulamaya bağlıdır.
+On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+
+**[Deprecated Soon](promisification.md)**
+
+### `app.getFileIcon(path[, options])`
+
+* dizi `yolu`
+* `seçenekler` Obje (opsiyonel) 
+  * `boyut` Dize 
+    * `küçük` - 16x16
+    * `normal` - 32x32
+    * `büyük` - *Linux'ta* 48x48, *Windows'ta*32x32, *macOS'de* desteklenmemektedir.
+
+Returns `Promise<NativeImage>` - fulfilled with the app's icon, which is a [NativeImage](native-image.md).
+
+Bir dosya yolunun ilişkili ikonunu çeker.
+
+*Windows*'ta 2 tip ikon bulunur:
+
+* `.mp3`, `.png` v.b. gibi belirli dosya uzantıları ile ilişkilendirilmiş ikonlar
+* `.exe`, `.dll`, `.ico` gibi, dosyanın kendi içindeki ikonlar
+
+On *Linux* and *macOS*, icons depend on the application associated with file mime type.
 
 ### `app.setPath(isim, yol)`
 
@@ -539,7 +572,13 @@ To set the locale, you'll want to use a command line switch at app startup, whic
 
 ** Not:** Paketli uygulamanızı dağıtırken, aynı zamanda ` yerel ayarlar` klasörü nakledilir.
 
-**Not:** Windows'ta `hazır` olaylar yayınlandıktan sonra çağırmanız gerekir.
+**Note:** On Windows, you have to call it after the `ready` events gets emitted.
+
+### `app.getLocaleCountryCode()`
+
+Returns `string` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. The value is taken from native OS APIs.
+
+**Note:** When unable to detect locale country code, it returns empty string.
 
 ### `app.addRecentDocument(yol)` *macOS* *Windows*
 
@@ -547,7 +586,7 @@ To set the locale, you'll want to use a command line switch at app startup, whic
 
 Son dokümanlar listesine `yol` ekler.
 
-Bu liste OS tarafından yönetilmektedir. Windows'ta görev çubuğundan listeyi ziyaret edebilir ve macOS'ta dock menüsünden ziyaret edebilirsiniz.
+This list is managed by the OS. On Windows, you can visit the list from the task bar, and on macOS, you can visit it from dock menu.
 
 ### `app.clearRecentDocuments()` *macOS* *Windows*
 
@@ -559,11 +598,11 @@ Yakın zamandaki dokümentasyon listesini temizler.
 * `path` Dizi (isteğe bağlı) *Windows* - Varsayılana çevirir `process.execPath`
 * `args` Dizi[] (isteğe bağlı) *Windows* - Boş düzeni varsayılana ayarlar
 
-`Boolean` 'ı geri getirir - Çağrı başarılı olduğunda.
+Aramanın başarılı olup olmadığı `Boole Değerine ` döndürür.
 
 Bu yöntem, geçerli yürütülebilir dosyayı bir protokol için varsayılan işleyici olarak ayarlar (aka URI düzeni). Uygulamanızı daha da derinleştirerek işletim sistemine entegre etmenizi sağlar. Kayıt olduktan sonra, `your-protocol://` adresine sahip tüm bağlantılar, ile açılır. Geçerli yürütülebilir. Protokol de dahil olmak üzere tüm bağlantı, uygulamanız bir parametre olarak geçilecek.
 
-Windows'ta isteğe bağlı parametrelerin yolu, çalıştırılabilir dosyanızın yolu, ve argümanlar, çalıştırılabilir dosyaya başlatıldığında iletilecek argümanlar dizisi.
+On Windows, you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
 
 **Not**: MacOS üzerinde sadece senin app `info.plist`. eklenen protokolleri kaydedebilirsiniz. Uygulamanız çalışma zamanında değiştirilemez. Bununla birlikte oluşturma süresi boyunca dosyayı basit bir metin düzenleyicisi veya komut dosyası ile değiştirin. Ayrıntılar için [Apple'ın belgelerine](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) bakın.
 
@@ -696,11 +735,11 @@ app.setJumpList([
 
 Bu yöntem uygulamanızı bir Tek Örnek Uygulaması yapar - bunun yerine uygulamanızı çalıştırmak için birden çok örneğine izin vermek, bu uygulamanızın sadece tek bir örneğinin çalışmasını sağlayacaktır, ve diğer örnekler bu örneği işaret eder ve çıkar.
 
-The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock you can assume that another instance of your application is already running with the lock and exit immediately.
+The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock, you can assume that another instance of your application is already running with the lock and exit immediately.
 
 I.e. This method returns `true` if your process is the primary instance of your application and your app should continue loading. It returns `false` if your process should immediately quit as it has sent its parameters to another instance that has already acquired the lock.
 
-macOS 'ta, kullanıcılar Finder'ın içindeki uygulamada ikinci bir aşamayı açmaya çalıştıklarında sistem otomatik olarak tek aşamaya zorlayacaktır, ve bunun için `open-file` ve `open-url` etkinlikleri çıkarılacaktır. Bununla birlikte, kullanıcılar komut satırında uygulamanıza başladığı zaman, sistemin tek örnek mekanizması atlanmış olur ve tek bir örnek sağlamak için bu yolu kullanmanız gerekmektedir.
+On macOS, the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the `open-file` and `open-url` events will be emitted for that. However when users start your app in command line, the system's single instance mechanism will be bypassed, and you have to use this method to ensure single instance.
 
 İkinci bir örnek başladığında, birincil örnek penceresi harekete geçirme örneği:
 
@@ -845,7 +884,7 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
   
   Sayaç rozet sayısı `0` olarak ayarlandığında uygulama için geçerli ayarlar rozeti gizler.
   
-  MacOS'ta rıhtım simgesinin üzerinde gösterilir. Linux'ta sadece Birlik başlatıcısı için çalışır,
+  On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
   
   **Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
   
@@ -863,9 +902,9 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
     * `yol`Dize(isteğe bağlı)*Windows* - karşılaştırmak için yürütebilir dosya yolu. Varsayılan olarak `process.execPath`.
     * `args` String [] (isteğe bağlı) *Windows<1> - karşılaştırılacak komut satırı değişkenleri karşısında. Varsayılan olarak boş bir dizi.</li> </ul></li> </ul> 
       
-      ` app.setLoginItemSettings öğesine <code> yol ve <code> args seçenekleri sağladıysanız, siz doğru olarak ayarlanması için <code> openAtLogin için aynı bağımsız değişkenleri buraya iletmeniz gerekir.</p>
-
-<p><code>Object` 'i geri getirir:
+      If you provided `path` and `args` options to `app.setLoginItemSettings`, then you need to pass the same arguments here for `openAtLogin` to be set correctly.
+      
+      `Object` 'i geri getirir:
       
       * ` openAtLogin` Boole Değeri uygulama giriş yaparken açılırsa `doğru` olur.
       * `openAsHidden` Boolean *macOS* - `true` if the app is set to open as hidden at login. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
@@ -914,20 +953,22 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
       
       **Note:** render erişilebilirlik ağacı uygulamanızın performansını önemli ölçüde etkileyebilir. Varsayılan olarak etkinleştirilmemelidir.<0>.
       
-      ### `app.showAboutPanel()` *macOS*
+      ### `app.showAboutPanel` *macOS* *Linux*
       
-      Show the about panel with the values defined in the app's `.plist` file or with the options set via `app.setAboutPanelOptions(options)`.
+      Show the app's about panel options. These options can be overridden with `app.setAboutPanelOptions(options)`.
       
-      ### `app.setAboutPanelOptions(ayarlar)` *macOS*
+      ### `app.setAboutPanelOptions(options)` *macOS* *Linux*
       
       * `seçenekler` Nesne 
         * ` applicationName` Dizi (isteğe bağlı) - Uygulamanın adı.
         * `applicationVersion` String (seçeneğe bağlı) - Uygulamanın sürümü.
         * `copyright` String (seçilebilir) - telif bilgisi.
-        * `credits` Dize (isteğe bağlı) - Kredi bilgileri.
-        * `version` Dize (İsteğe Bağlı) - Uygulamanın versiyon numarasını oluşturun.
+        * `version` String (optional) - The app's build version number. *macOS*
+        * `credits` String (optional) - Credit information. *macOS*
+        * `website` String (optional) - The app's website. *Linux*
+        * `iconPath` String (optional) - Path to the app's icon. *Linux*
       
-      Panelle ilgili seçenekleri ayarlayın. Bu uygulamanın `.plist` dosyasında belirlenen miktarları geçersiz kılacaktır. Bakınız [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) daha fazla detay için.
+      Panelle ilgili seçenekleri ayarlayın. This will override the values defined in the app's `.plist` file on MacOS. Bakınız [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) daha fazla detay için. On Linux, values must be set in order to be shown; there are no defaults.
       
       ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
       
@@ -961,15 +1002,23 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
       
       **Note:** bu etkilenmeyecek `process.argv`.
       
+      ### `app.commandLine.hasSwitch(switch)`
+      
+      * `switch` String - Bir komut satırı anahtarı
+      
+      Returns `Boolean` - Whether the command-line switch is present.
+      
+      ### `app.commandLine.getSwitchValue(switch)`
+      
+      * `switch` String - Bir komut satırı anahtarı
+      
+      Returns `String` - The command-line switch value.
+      
+      **Note:** When the switch is not present, it returns empty string.
+      
       ### `app.enableSandbox()` *Experimental* *macOS* *Windows*
       
       Enables full sandbox mode on the app.
-      
-      Bu metod sadece uygulama hazır olmadan önce çağırılabilir.
-      
-      ### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
-      
-      Uygulamada karışık kum havuzu modunu etkinleştirmektedir.
       
       Bu metod sadece uygulama hazır olmadan önce çağırılabilir.
       
@@ -979,11 +1028,11 @@ Releases all locks that were created by `requestSingleInstanceLock`. This will a
       
       ### `app.moveToApplicationsFolder()` *macOS*
       
-      Returns `Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.
+      Returns `Boolean` - Whether the move was successful. Please note that if the move is successful, your application will quit and relaunch.
       
-      Kullanıcının [`dialog`](dialog.md) API kullanarak yapmış olduğunuz işlemi onaylamasını istiyorsanız, onay kutusu varsayılan olarak gösterilmeyecektir.
+      No confirmation dialog will be presented by default. If you wish to allow the user to confirm the operation, you may do so using the [`dialog`](dialog.md) API.
       
-      **NOTE:** Bu yöntem, kullanıcı haricindeki bir şeyin başarısız olmasına neden olursa hatalar atar. Örneğin, kullanıcı yetkilendirme iletişim kutusunu iptal ederse, bu yöntem hata verir. Eğer kopyayı gerçekleştiremezsek bu yöntem bir hata verecektir. Hata mesajı bilgilendirici olmalı ve neyin yanlış gittiğini size söylemeli
+      **NOTE:** Bu yöntem, kullanıcı haricindeki bir şeyin başarısız olmasına neden olursa hatalar atar. For instance if the user cancels the authorization dialog, this method returns false. If we fail to perform the copy, then this method will throw an error. Hata mesajı bilgilendirici olmalı ve neyin yanlış gittiğini size söylemeli
       
       ### `app.dock.bounce([type])` *macOS*
       

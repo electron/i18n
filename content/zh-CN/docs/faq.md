@@ -137,3 +137,24 @@ npm uninstall -g electron
 ```
 
 如果你依然遇到了这个问题，你可能需要检查一下拼写或者是否在错误的进程中调用了这个模块。 比如，`electron.app` 只能在主进程中使用, 然而 `electron.webFrame` 只能在渲染进程中使用。
+
+## 文字看起来很模糊，这是什么原因造成的？要解决这个问题我能做些什么？
+
+如果 [次级像素反锯齿](http://alienryderflex.com/sub_pixel/)已停用，那么 LCD 屏幕上的字体可能会看起来模糊。例如：
+
+![次像素渲染示例](images/subpixel-rendering-screenshot.gif)
+
+Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (See [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) for more info).
+
+To achieve this goal, set the background in the constructor for [BrowserWindow](api/browser-window.md):
+
+```javascript
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({
+  backgroundColor: '#fff'
+})
+```
+
+The effect is visible only on (some?) LCD screens. Even if you dont see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
+
+Notice that just setting the background in the CSS does not have the desired effect.

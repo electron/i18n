@@ -50,6 +50,8 @@ app.on('ready', () => {
 * `Plus`
 * `Space`
 * `Tab`
+* `Capslock`
+* `Numlock`
 * `Backspace`
 * `Delete`
 * `Insert`
@@ -61,3 +63,10 @@ app.on('ready', () => {
 * `VolumeUp`, `VolumeDown` та `VolumeMute`
 * `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` та `MediaPlayPause`
 * `PrintScreen`
+* NumPad Keys 
+  * `num0` - `num9`
+  * `numdec` - decimal key
+  * `numadd` - numpad `+` key
+  * `numsub` - numpad `-` key
+  * `nummult` - numpad `*` key
+  * `numdiv` - numpad `÷` key

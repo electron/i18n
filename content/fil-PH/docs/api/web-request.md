@@ -38,13 +38,14 @@ The following methods are available on instances of `WebRequest`:
 
 * `salain` Bagay (opsyonal) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Punsyon 
+* `listener` Function | null 
   * `ang mga detalye` Bagay 
     * `id` Integer
-    * `url` Tali
-    * `method` na String
-    * `webContentsId` Integer (optional)
-    * `resourceType` String
+    * `key` String
+    * `path` na String
+    * `exitCode` Integer (opsyonal)
+    * `referrer` na String
+    * `referer` String
     * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Punsyon 
@@ -62,13 +63,14 @@ The `callback` has to be called with an `response` object.
 
 * `salain` Bagay (opsyonal) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
+* `listener` Function | null 
   * `ang mga detalye` Bagay 
     * `id` Integer
     * `url` Tali
     * `method` na String
-    * `webContentsId` Integer (optional)
+    * `exitCode` Integer (opsyonal)
     * `resourceType` Tali
+    * `referer` String
     * `timestamp` Double
     * `requestHeaders` Object
   * `callback` Function 
@@ -84,13 +86,14 @@ The `callback` has to be called with an `response` object.
 
 * `salain` Na Bagay (opsyonal) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Punsyon 
+* `listener` Function | null 
   * `ang mga detalye` Bagay 
     * `id` Integer
     * `url` Tali
     * `method` na String
-    * `webContentsId` Integer (optional)
+    * `exitCode` Integer (opsyonal)
     * `resourceType` Tali
+    * `referer` String
     * `timestamp` Double
     * `requestHeaders` Object
 
@@ -100,13 +103,14 @@ The `listener` will be called with `listener(details)` just before a request is 
 
 * `salain` Bagay (opsyonal) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
+* `listener` Function | null 
   * `ang mga detalye` Bagay 
     * `id` Integer
     * `url` Tali
     * `method` na String
-    * `webContentsId` Integer (optional)
+    * `exitCode` Integer (opsyonal)
     * `resourceType` String
+    * `referer` String
     * `timestamp` Double
     * `statusLine` String
     * `statusCode` Integer
@@ -125,13 +129,14 @@ The `callback` has to be called with an `response` object.
 
 * `salain` Bagay (opsyonal) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Punsyon 
+* `listener` Function | null 
   * `ang mga detalye` Bagay 
     * `id` Integer
     * `url` Tali
     * `method` na String
-    * `webContentsId` Integer (optional)
+    * `exitCode` Integer (opsyonal)
     * `resourceType` Tali
+    * `referer` String
     * `timestamp` Double
     * `responseHeaders` Object
     * `fromCache` Boolean - Indicates whether the response was fetched from disk cache.
@@ -144,13 +149,14 @@ The `listener` will be called with `listener(details)` when first byte of the re
 
 * `salain` Na Bagay (opsyonal) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Ang Function 
+* `listener` Function | null 
   * `ang mga detalye` Bagay 
     * `id` Integer
     * `url` Tali
     * `method` na String
-    * `webContentsId` Integer (optional)
-    * `resourceType` String
+    * `exitCode` Integer (opsyonal)
+    * `resourceType` Tali
+    * `referer` String
     * `timestamp` Double
     * `redirectURL` String
     * `statusCode` Integer
@@ -164,12 +170,12 @@ The `listener` will be called with `listener(details)` when a server initiated r
 
 * `salain` Na Bagay (opsyonal) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Punsyon 
+* `listener` Function | null 
   * `ang mga detalye` Bagay 
     * `id` Integer
     * `url` Tali
     * `method` na String
-    * `webContentsId` Integer (optional)
+    * `exitCode` Integer (opsyonal)
     * `resourceType` Tali
     * `referer` String
     * `timestamp` Double
@@ -184,13 +190,14 @@ The `listener` will be called with `listener(details)` when a request is complet
 
 * `salain` Bagay (opsyonal) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` function 
+* `listener` Function | null 
   * `ang mga detalye` Bagay 
     * `id` Integer
     * `url` Tali
     * `method` na String
-    * `webContentsId` Integer (optional)
+    * `exitCode` Integer (opsyonal)
     * `resourceType` String
+    * `referer` String
     * `timestamp` Double
     * `fromCache` Boolean
     * `error` String - The error description.

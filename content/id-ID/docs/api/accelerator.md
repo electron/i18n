@@ -52,6 +52,8 @@ Di Linux dan Windows , tombol ` Command </ 0> tidak berpengaruh sehingga gunakan
 <li><code>Plus`
 * `Ruang`
 * `Tab`
+* `Capslock`
+* `Numlock`
 * `Menghapus`
 * `Menghapus`
 * `Memasukkan`
@@ -63,3 +65,10 @@ Di Linux dan Windows , tombol ` Command </ 0> tidak berpengaruh sehingga gunakan
 <li><code> VolumeUp </ 0> , <code> VolumeDown </ 0> dan <code> VolumeMute </ 0></li>
 <li><code> MediaNextTrack </ 0> , <code> MediaPreviousTrack </ 0> , <code> MediaStop </ 0> dan <code> MediaPlayPause </ 0></li>
 <li><code>Layar cetak`
+* NumPad Keys 
+  * `num0` - `num9`
+  * `numdec` - decimal key
+  * `numadd` - numpad `+` key
+  * `numsub` - numpad `-` key
+  * `nummult` - numpad `*` key
+  * `numdiv` - numpad `÷` key

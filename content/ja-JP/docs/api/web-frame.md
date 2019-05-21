@@ -58,52 +58,33 @@ webFrame.setVisualZoomLevelLimits(1, 3)
 
 レイアウトベースな (つまり Visual ではない) 拡大レベルの最大値と最小値を設定します。
 
-### `webFrame.setSpellCheckProvider(language, autoCorrectWord, provider)`
+### `webFrame.setSpellCheckProvider(language, provider)`
 
 * `language` String
-* `autoCorrectWord` Boolean
 * `provider` Object 
-  * `spellCheck` Function - 戻り値 `Boolean`. 
-    * `text` String
+  * `spellCheck` Function. 
+    * `words` String[]
+    * `callback` Function 
+      * `misspeltWords` String[]
 
 入力フィールドとテキストエリアのスペルチェックのプロバイダを設定します。
 
-`provider` は、渡された単語が正しいかどうかを返すメソッド `spellCheck` を持つオブジェクトでなければいけません。
+The `provider` must be an object that has a `spellCheck` method that accepts an array of individual words for spellchecking. The `spellCheck` function runs asynchronously and calls the `callback` function with an array of misspelt words when complete.
 
 [node-spellchecker](https://github.com/atom/node-spellchecker) をプロバイダとして使用するサンプルです。
 
 ```javascript
 const { webFrame } = require('electron')
-webFrame.setSpellCheckProvider('en-US', true, {
-  spellCheck (text) {
-    return !(require('spellchecker').isMisspelled(text))
+const spellChecker = require('spellchecker')
+webFrame.setSpellCheckProvider('en-US', {
+  spellCheck (words, callback) {
+    setTimeout(() => {
+      const spellchecker = require('spellchecker')
+      const misspelled = words.filter(x => spellchecker.isMisspelled(x))
+      callback(misspelled)
+    }, 0)
   }
 })
-```
-
-### `webFrame.registerURLSchemeAsBypassingCSP(scheme)`
-
-* `scheme` String
-
-現在のページのコンテンツセキュリティポリシーに関係なく、この `scheme` からリソースが読み込まれます。
-
-### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
-
-* `scheme` String
-* `options` Object (任意) 
-  * `secure` Boolean (任意) - 省略値は true。
-  * `bypassCSP` Boolean (任意) - 省略値は true。
-  * `allowServiceWorkers` Boolean (任意) - 省略値は true。
-  * `supportFetchAPI` Boolean (任意) - 省略値は true。
-  * `corsEnabled` Boolean (任意) - 省略値は true。
-
-`scheme` をセキュアとして登録し、リソースのコンテンツセキュリティポリシーをバイパスし、ServiceWorker の登録を許可し、フェッチ API をサポートします。
-
-`false` の値を指定してオプションを指定すると、その登録が省略されます。以下は Content Security Policy をバイパスすることなく、特権スキームを登録する例です。
-
-```javascript
-const { webFrame } = require('electron')
-webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 ```
 
 ### `webFrame.insertText(text)`
@@ -135,26 +116,36 @@ webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 
 `executeJavaScript` のように動きますが、 `scripts` はイソレートコンテキスト内で評価します。
 
-### `webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)`
+### `webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)` *(Deprecated)*
 
 * `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 任意の整数を指定できます。
 * `csp` String
 
 イソレートコンテキストのコンテンツセキュリティポリシーを設定します。
 
-### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)`
+### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)` *(Deprecated)*
 
 * `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 任意の整数を指定できます。
 * `name` String
 
 イソレートコンテキストの名前を設定します。開発者向けツール内で活用できます。
 
-### `webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)`
+### `webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)` *(Deprecated)*
 
 * `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 任意の整数を指定できます。
 * `securityOrigin` String
 
 イソレートコンテキストのセキュリティオリジンを設定します。
+
+### `webFrame.setIsolatedWorldInfo(worldId, info)`
+
+* `worldId` Integer - JavaScript を実行するワールドの ID。`0` はデフォルトのワールドで、`999` は Electron の `contextIsolation` 機能で使用されるワールドです。 任意の整数を指定できます。
+* `info` Object 
+  * `securityOrigin` String (optional) - Security origin for the isolated world.
+  * `csp` String (optional) - Content Security Policy for the isolated world.
+  * `name` String (optional) - Name for isolated world. Useful in devtools.
+
+Set the security origin, content security policy and name of the isolated world. Note: If the `csp` is specified, then the `securityOrigin` also has to be specified.
 
 ### `webFrame.getResourceUsage()`
 

@@ -3,6 +3,7 @@ nav:
   apps: 应用
   blog: 博客
   code_of_conduct: 行为准则
+  security: 安全
   community: 社区
   contact: 联系我们
   docs: 文档
@@ -12,6 +13,7 @@ nav:
   releases: 版本发布
   search: 搜索
   userland: 用户生态
+  governance: 治理
 keyboard_modal:
   title: 键盘快捷键
   key: 按键
@@ -46,11 +48,11 @@ community:
     get_started: "通过阅读<a href='/docs/tutorial/first-app'>快速入门指南</a>来开始构建一个应用。"
     updates: "通过关注Twitter账号<a href='https://twitter.com/electronjs'>@electronjs</a> 和订阅<a href='/blog'>博客Feed</a>来获取最新消息。"
     localized_docs: "通过访问<a href='/languages'>语言页面</a>来阅读你<a href='/languages'><b>本地语言的文档</b></a>。"
-    help: "通过加入 <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, 发送 <a href='https://discuss.atom.io/c/electron'>Discuss</a>, 或者访问<a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>来<a href='http://atom-slack.herokuapp.com'><b>获取帮助和反馈</b></a>。"
+    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>Get help and feedback</b></a> by joining the <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    security: "发送邮件到<a href='mailto:security@electronjs.org'>security@electronjs.org</a>来<a href='mailto:security@electronjs.org'><b>报告安全问题</b></a> 。"
     bugs: "通过在 <a href='https://github.com/electron/electron/issues'>electron/electron</a> 代码仓库提交 issues 来<a href='https://github.com/electron/electron/issues'><b>报告 BUG</b></a>。"
     feature_requests: "通过在<a href='https://github.com/electron/electron/issues'>electron/electron</a> 代码仓库提交issues来<a href='https://github.com/electron/electron/issues'><b>提交功能申请</b></a>。"
     code_of_conduct: "发送邮件到<a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>来<a href='mailto:coc@electronjs.org'><b>报告代码冲突</b></a>。"
-    security: "发送邮件到<a href='mailto:security@electronjs.org'>security@electronjs.org</a>来<a href='mailto:security@electronjs.org'><b>披露安全问题</b></a> 。"
     donations: "在<a href='/donors'>OpenCollective页面</a><a href='donors'><b>赞助我们</b></a>。"
     other: "所有其他问题咨询，请发邮件到<a href='mailto:info@electronjs.org'>info@electronjs.org</a>。"
   language_communities:
@@ -92,9 +94,9 @@ open_source:
   description: Electron 是一个由 GitHub 及众多贡献者组成的活跃社区共同维护的开源项目。
 cross_platform:
   title: 跨平台
-  description: Electron 兼容 Mac, Windows 和 Linux， 它构建的应用可在这三个操作系统上面运行。
+  description: Electron 兼容 Mac、Windows 和 Linux，可以构建出三个平台的应用程序。
 benefits:
-  hard_parts_made_easy: 困难的部分变得更便捷
+  hard_parts_made_easy: 化繁为简
   automatic_updates: 自动更新
   native_menus_and_notifications: 原生的菜单和通知
   crash_reporting: 崩溃报告
@@ -102,10 +104,12 @@ benefits:
   windows_installers: Windows 安装程序
 get_started:
   title: 入门
-  description: 若要开始使用 Electron，请查阅下面的参考资料，了解如何使用 Electron 包装您的 web 应用程序，访问所有的 API，以及生成的安装程序。
+  description: 初识 Electron，可参考下列资料，了解如何使用 Electron 封装你的前端代码，调用丰富的 API，以及生成安装程序。
 explore:
   title: 探索 Electron 的 API
-  description: "<a href='https://github.com/electron/electron-api-demos'> Electron API 演示应用程序 </a> 交互演示了 Electron API 的最重要特性。看看有什么可能与 Electron 与示例代码和有用的提示，为您的应用程序的建设。"
+  description: "<a href='https://github.com/electron/electron-api-demos'>Electron API 示例程序</a>采用交互式界面展示了 Electron API 最关键的功能。通过代码样例和提示发掘 Electron 的无限可能，踏上你的开发之旅。"
+  fiddle_title: 借助 Electron Fiddle 深入探索
+  see_more_info: 详细了解
 download_from_github: 从 GitHub 下载
 view_all_releases_on_github: 在 GitHub 上 <a href="https://github.com/electron/electron-api-demos/releases"> 查看所有版本</a>
 quick_start:
@@ -114,7 +118,7 @@ quick_start:
   clone: 克隆示例项目的仓库
   go_into_repo: 进入这个仓库
   install_deps: 安装依赖并运行
-  dive_deeper: 或潜得更深，并阅读 <a href='/docs'> 文档</a>。
+  dive_deeper: 或开始钻研<a href='/docs'>文档</a>。
 need_help:
   title: 需要帮助？
   description: 欢迎到 <a href='https://discuss.atom.io/c/electron'>Discuss</a> 论坛或我们的 <a href='http://atom-slack.herokuapp.com/'>Slack</a>频道上提问。关注Twitter <a href="https://twitter.com/electronjs">@electronjs</a> 以接收重要的公告。想要联系我们？可以发送电子邮件到 <a href="mailto:info@electronjs.org">electron@github.com</a>。
@@ -125,9 +129,11 @@ taglines:
 help_translate: "帮助我们翻译"
 footer:
   see_the_faq: 查看常见问题
+companies:
+  title: 使用Election构建的
+  description: Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been adopted by companies all over the world.
 apps:
-  title: 使用 Electron 构建的应用
-  description: Electron 让你为你的公司或想法创建桌面端应用变得很简单。最初为 GitHub 的 <a href='https://atom.io' target='_blank'> Atom 编辑器</a> 开发，Electron 已被像微软、 Facebook、 Slack和Docker 这样的公司用于创建应用程序了。
+  description: 'With Electron, creating a desktop application for your company or idea is easy. Check out <a href=''/apps''>some of the apps created by the community</a> or <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">add your own</a>.'
   view_more: 查看更多应用
   submit_your_own: 提交你的应用
   something_missing: 少了点什么？
@@ -166,7 +172,7 @@ pages:
     title: 所有的 Electron 的文档
     description: 所有 Electron 的指南和 API 文档在一个单独的可搜索的页面。
   '/docs/api':
-    title: 应用开发接口（API）
+    title: API
     description: 最新的 Electron 的指南和 API 参考文档
   '/docs/development':
     title: 开发
@@ -197,6 +203,9 @@ pages:
   '/fiddle':
     title: Electron Fiddle
     description: 最简单的 Electron 入门方式。
+  '/governance':
+    title: Electron 治理
+    description: Electron 的治理体系是由分管 Electron 生态各部分的工作组和一支负责解决分歧的协调工作组构成的。
   '/donors':
     title: 捐赠者
 landing:
@@ -204,7 +213,7 @@ landing:
   fiddle:
     lead_desc: 最简单的 Electron 入门方式。
     create_app: 创建您的应用程序
-    description: Electron Fiddle 让您可以创建和进行小型 Electron 实验。它会在打开后用一个快速启动模板迎接你 - 更改一些东西，选择你想要用以运行它的 Electron 版本，随意玩耍。然后，将您的 Fiddle 保存为一个 GitHub Gist 或保存到一个本地文件夹。一旦将其推送到 GitHub ，任何人都可以通过仅仅在地址栏中输入它来快速尝试您的 Fiddle 。
+    description: 你可以使用 Electron Fiddle 创建并运行小段 Electron 程序，从一个简单的模板开始，随心所欲地挥洒你的创意，选择一个 Electron 版本欣赏运行效果。最后，你可以将其下载保存，或推送 GitHub Gist 上，所有人都可以输入网址运行你的 Fiddle。
     explore: 探索 Electron
     explore_desc: "尝试使用 Electron 而不安装任何依赖项：Fiddle 包含了您探索 Electron 平台所需的一切。它还包括了 Electron 中可用的每个 API 的示例，因此，如果您想快速查看 BrowserView 是什么或者 desktopCapturer 是如何工作的， Fiddle 都已帮您搞定。"
     code_with_types: 用类型编码
@@ -213,5 +222,57 @@ landing:
     compile_and_package_desc: Fiddle 可以自动将您的实验变成您可以与朋友、同事或祖父母分享的二进制文件。这要归功于 <a href="https://electronforge.io/"> electron-forge </a>，它允许您将您的 Fiddle 打包成一个适用于 Windows 、 macOS 或 Linux 的应用程序。
     easy_start: 从 Fiddle 开始，在任何地方继续。
     easy_start_desc: Fiddle 不是一个 IDE - 但它是一个很好的起点。一旦您的 Fiddle 长大，利用或不利用 <a href="https://electronforge.io/"> electron-forge </a> 将其导出为一个项目。然后，使用您最喜欢的编辑器，走向世界！
+governance:
+  title: Electron 治理
+  description: Electron 的治理体系是由分管 Electron 生态各部分的工作组和一支负责解决分歧的协调工作组构成的。
+  wgs: 工作组
+  docstools:
+    title: 文档与工具
+    description: Oversees externally-focused tooling (e.g. Fiddle, Forge), Electron documentation across the website and <code>electron/*</code> repositories, and the maintainer’s group outreach to 3rd party modules.
+  outreach:
+    title: Outreach
+    description: 壮大 Electron 社区
+  releases:
+    title: 版本发布
+    description: Oversees all release branches, and tooling to support releases.
+  upgrades:
+    title: 升级
+    description: Oversees upgrades of upstream dependencies; specifically Chromium and Node.
+  website:
+    title: 网站
+    description: Oversees the technical implementation, design, and style of the Electron website and associated tooling.
+  cmsf:
+    title: 社区与安全
+    description: Oversees removal/bans from community.
+  security:
+    title: 安全
+    description: 积极主动确保 Electron 作为一个项目的安全性，响应发生的事件，并监督协助修复的推出。
+  admins:
+    title: Administrative
+    description: The Administrative Working Group oversees the entire governance and project.
+  global:
+    overview: 概览
+    associated_repos: 相关代码仓库
+    notes: 会议纪要
+  definitions:
+    title: 定义
+    list:
+      - A <i>maintainer</i> is anyone who plays an active role in governance.
+      - A <i>collaborator</i> is active in the community, but not in governance.
+      - A <i>participant</i> is anyone who is a maintainer or collaborator.
+      - A <i>working group</i> is a group of maintainers that is formed to take responsibility for certain aspects of the Electron project. Normally these groups will meet regularly but in some cases will only meet as required to fulfill their responsibilities.
+      - '一个<a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership">主席</a>领导一个工作组。'
+  responsibilities:
+    title: 职责
+    listdescription: "每个工作组都有下列主要职责："
+    list:
+      - 自行商议并公开其章程，如表决方式、会议时间、与会资格等。
+      - '<a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Terms-and-Selection">选举</a>一名主管来<a href=''https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Responsibilities''>代表</a>整个工作组。'
+      - 留存会议纪要，包括议程、讨论要点和结果，供所有人审议。
+      - '与其他工作组<a href="https://github.com/electron/governance/tree/master/charter/README.md#Core-Values">精诚合作</a>。'
+    see_charter: 更多信息详见<a href="https://github.com/electron/governance/tree/master/charter/README.md">总则</a>。
+  code_of_conduct: Electron 团队及其所有代码仓库均遵循此<a href="https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md">行为准则</a>。
+  license: Electron 采用 <a href="https://github.com/electron/electron/blob/master/LICENSE">MIT 许可协议</a>。
+  repository: Check out the <a href="https://github.com/electron/governance">Governance Repository</a> to find more information about the governance structure.
 _404:
   page_not_found: 页面找不到了。

@@ -12,8 +12,8 @@
 * [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
 * 如果您计划使用Windows SDK 10.0.15063.468的Windows调试工具 创建一个完整的发行版 `symstore.exe` 用来创建符号 保存于 `.pdb` 文件。 
-  * 不同版本的SDK可以同时安装 To install the SDK, open Visual Studio Installer, select `Change` → `Individual Components`, scroll down and select the appropriate Windows SDK to install. Another option would be to look at the [Windows SDK and emulator archive](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive) and download the standalone version of the SDK respectively.
-  * The SDK Debugging Tools must also be installed. If the Windows 10 SDK was installed via the Visual Studio installer, then they can be installed by going to: `Control Panel` → `Programs` → `Programs and Features` → Select the "Windows Software Development Kit" → `Change` → `Change` → Check "Debugging Tools For Windows" → `Change`. Or, you can download the standalone SDK installer and use it to install the Debugging Tools.
+  * 不同版本的SDK可以同时安装 安装 SDK，打开 Visual Studio 安装程序，选择 `更改`→`单个组件`，向下滚动并选择适当的 要安装的 Windows SDK 组件。 另一个选择是查看 [windows SDK 和仿真器存档](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive) 并分别下载 SDK 的独立版本。
+  * 还必须安装 SDK 调试工具。 如果已安装了 Windows 10 SDK 通过 Visual Studio 安装程序，然后可以用以下方式安装它们： `控制面板`→`程序`→`程序和功能`→选择“Windows 软件开发工具包”→ `更改`→`更改`→选中“Windows 调试工具”→`更改`。 或者，您可以下载独立的 SDK 安装程序，并且使用它安装调试工具。
 
 如果您当前没有安装 Windows， [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) 上有时间限制的 Windows 版本，你可以用来构建 Electron。
 
@@ -27,7 +27,7 @@
 
 ## 32 位构建
 
-To build for the 32bit target, you need to pass `target_cpu = "x86"` as a GN arg. You can build the 32bit target alongside the 64bit target by using a different output directory for GN, e.g. `out/Release-x86`, with different arguments.
+为了构建 32bit 版本，您需要通过 `target_cpu = “x86"` 作为 GN 参数。 可以使用不同的 GN 输出目录（例如， `out/Release-x86`） 和不同的参数，在 64 位目标旁边构建 32 位目标。
 
 ```powershell
 $ gn gen out/Release-x86 --args="import(\"//electron/build/args/release.gn\") target_cpu=\"x86\""
@@ -37,7 +37,7 @@ $ gn gen out/Release-x86 --args="import(\"//electron/build/args/release.gn\") ta
 
 ## Visual Studio 项目
 
-To generate a Visual Studio project, you can pass the `--ide=vs2017` parameter to `gn gen`:
+要生成 Visual Studio 项目，可以传递 `--ide=vs2017` 参数 给 `gn gen`：
 
 ```powershell
 $ gn gen out/Debug --ide=vs2017
@@ -69,14 +69,18 @@ $ mkdir ~\AppData\Roaming\npm
 
 如果你使用 Git Bash 来构建，或许会遇到这个错误，可以使用 PowerShell 或 VS2015 Command Prompt 来代替.
 
-### cannot create directory at '...': Filename too long
+### 无法在“…”处创建目录：文件名太长
 
-node.js has some [extremely long pathnames](https://github.com/electron/node/tree/electron/deps/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/node_modules/is-arrayish), and by default git on windows doesn't handle long pathnames correctly (even though windows supports them). This should fix it:
+node.js 有一些 [极长的路径名](https://github.com/electron/node/tree/electron/deps/npm/node_modules/libnpx/node_modules/yargs/node_modules/read-pkg-up/node_modules/read-pkg/node_modules/load-json-file/node_modules/parse-json/node_modules/error-ex/node_modules/is-arrayish)，默认情况下，windows 上的 git 不能正确处理长路径名（即使 windows 支持它们）。 这应该可以修复它：
 
 ```sh
 $ git config --system core.longpaths true
 ```
 
-### error: use of undeclared identifier 'DefaultDelegateCheckMode'
+### 错误：使用未声明的标识符“DefaultDelegateCheckMode”
 
-This can happen during build, when Debugging Tools for Windows has been installed with Windows Driver Kit. Uninstall Windows Driver Kit and install Debugging Tools with steps described above.
+在使用 Windows 驱动程序工具包安装 Windows 调试工具时，可能会在构建期间发生这种情况。卸载 Windows 驱动程序工具包并使用上述步骤安装调试工具。
+
+### 导入错误：没有名为 win32file 的模块
+
+确保已使用 `pip install pywin32` 安装了 `pywin32`。

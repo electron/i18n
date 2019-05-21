@@ -1,6 +1,6 @@
 # Electron 버전 관리
 
-> Electron 버전 관리 정책과 구현에 대해 자세히 설명하고 있습니다.
+> Electron 버전 관리 정책과 구현 방식에 대해 자세히 설명하고 있습니다.
 
 Electron 2.0.0 버전부터는 [semver](#semver) 규칙에 따라 버전을 관리하고 있습니다. 아래의 명령어는 Electron 최신 안정(stable) 버전을 설치할 것입니다:
 
@@ -31,7 +31,7 @@ Electron 버전 2.0 아래에서는 [semver](http://semver.org) 스펙을 따르
 1. 엄격한 semver 규칙 사용
 2. semver 규칙을 준수하는 `-beta` 태그 도입
 3. [관례적인 커밋 메시지](https://conventionalcommits.org/) 도입
-4. 잘 정의된 안정화(stabilization) 브랜치
+4. 쉽게 이해할 수 있는 안정화 브랜치
 5. `master` 브랜치는 버전 정보가 없음; 안정화 브랜치만 버전 정보를 가지고 있음
 
 git 브랜치 동작 방법, npm 태깅 동작 방식, 개발자가 보고 싶어하는 것, 백포트 방식으로 변경하는 방법에 대해서는 아래에서 자세히 다룰 예정입니다.
@@ -48,7 +48,7 @@ git 브랜치 동작 방법, npm 태깅 동작 방식, 개발자가 보고 싶�
 | Node.js 메이저 버전 업데이트 | Node.js 마이너 버전 업데이트  | Node.js 패치 버전 업데이트 |
 | Chromium 버전 업데이트    |                      | 수정 관련 chromium 패치  |
 
-대부분의 Chromium 업데이트는 큰 변화로 인식된다는 점을 기억하세요. 백포트 가능한 수정사항은 패치로 체리-피크(cherry-pick) 할 수 있습니다.
+대부분의 Chromium 업데이트는 큰 변화로 인식된다는 점을 기억하세요. 백포트 가능한 수정사항은 체리-피크(cherry-pick) 해서 패치로 만들 수 있습니다.
 
 # 안정화 브랜치
 
@@ -75,9 +75,9 @@ git 브랜치 동작 방법, npm 태깅 동작 방식, 개발자가 보고 싶�
 
 프로세스는 다음과 같습니다:
 
-1. All new major and minor releases lines begin with a beta series indicated by semver prerelease tags of `beta.N`, e.g. `2.0.0-beta.1`. After the first beta, subsequent beta releases must meet all of the following conditions: 
-    1. The change is backwards API-compatible (deprecations are allowed)
-    2. The risk to meeting our stability timeline must be low.
+1. 모든 새 메이저와 마이너 릴리즈 라인은 베타 시리즈를 암시하는 프리릴리즈 태그 앞에둡니다. 바로 `beta.N`입니다. 예를 들면 다음 처럼요. `2.0.0-beta.1`. 처음 베타 이후엔, 이어지는 베타 릴리즈들은 다음과 같은 제약사항을 만족해야 합니다. 
+    1. 변화는 기존 API 와의 호환성을 보장해야 한다. (비활성화는 괜찮습니다.)
+    2. 우리의 안정성 타임라인(stability timeline) 을 만날 위험이 반드시 낮아야 한다.
 2. If allowed changes need to be made once a release is beta, they are applied and the prerelease tag is incremented, e.g. `2.0.0-beta.2`.
 3. If a particular beta release is *generally regarded* as stable, it will be re-released as a stable build, changing only the version information. e.g. `2.0.0`. After the first stable, all changes must be backwards-compatible bug or security fixes.
 4. If future bug fixes or security patches need to be made once a release is stable, they are applied and the *patch* version is incremented e.g. `2.0.1`.
@@ -110,13 +110,13 @@ Specifically, the above means:
 
 ![](../images/versioning-sketch-7.png)
 
-# Missing Features: Alphas
+# 누락된 기능: 알파
 
 우리의 전략은 몇 가지 단점(tradeoff)이 있지만, 현재 시점에서는 이 전략이 적절하다고 생각합니다. 가장 큰 단점은 master 브랜치의 새로운 기능이 안정 버전 출시 라인에 반영되기 전까지 상당한 시간이 걸릴 수도 있다는 점입니다. 새로운 기능을 즉시 사용하고 싶다면 Electron을 직접 빌드해야 할 것입니다.
 
-향후에는 아래의 사항들을 도입할 수도 있습니다:
+향후에는 아래의 사항을 도입할 수도 있습니다:
 
-- 알파 출시 버전은 베타 버전에 비해 안정성 요건을 약하게 적용한 것; 예를 들면, 안정성 채널은 *알파*에 유지하면서 새로운 기능을 허락할 수 있음.
+- 베타 버전에 비해 안정성 요건을 약하게 적용한 알파 출시 버전; 예를 들면, 안정성 채널은 *베타*에 유지하면서 알파 출시 버전에 새로운 기능을 허용할 수 있습니다.
 
 # 기능 플래그(Feature Flags)
 
@@ -124,23 +124,23 @@ Specifically, the above means:
 
 - 런타임 또는 빌드시 활성화/비활성화 할 수 있음; Electron에서는 요청 범위(request-scoped) 기능 플래그 개념은 지원하지 않음
 - 새로운 코드 경로와 예전 코드 경로는 완전히 분리됨; 새로운 기능을 지원하기 위해 예전 코드를 리팩토링하는 것은 기능 플래그 규칙을 *위반하는 것임*
-- feature flags are eventually removed after the feature is released
+- 기능 플래그들은 기능이 배포된 뒤에는 지워집니다.
 
 # 시맨틱 커밋
 
 저희는 업데이트와 출시 과정의 모든 단계에서 명확성이 향상되길 원합니다. `2.0.0` 버전을 기점으로, 모든 pull request는 [관례적인 커밋](https://conventionalcommits.org/) 스펙에 따라 작성되어야 하며, 커밋 스펙을 요약하면 다음과 같습니다:
 
-- Commits that would result in a semver **major** bump must start their body with `BREAKING CHANGE:`.
+- semver **메이저** 버전 증가로 이어지는 커밋의 본문은 `BREAKING CHANGE:` 로 시작해야 합니다.
 - semver **마이너** 버전 증가로 이어지는 커밋은 `feat:` 로 시작해야 합니다.
 - semver **패치** 버전 증가로 이어지는 커밋은 `fix:`로 시작해야 합니다.
 
 - 커밋 스쿼싱(sqaushing)은 허용되며, 스쿼시된 메시지는 앞에서 언급한 메시지 포맷을 따라야 합니다.
 
-- It is acceptable for some commits in a pull request to not include a semantic prefix, as long as the pull request title contains a meaningful encompassing semantic message.
+- 풀 리퀘스트의 몇몇 커밋이 시맨틱 선행자를 가지지 않는 것은 괜찮습니다. 풀 리퀘스트 타이틀이 시맨틱한 의미를 전달하기만 한다면요.
 
 # Versioned `master`
 
-- The `master` branch will always contain the next major version `X.0.0-nightly.DATE` in its `package.json`
+- `master` 브랜치는 언제나 다음 메이저 버전의 `X.0.0-nightly.DATE` 를 자신의 `package.json` 안에 가지고 있습니다.
 - 출시 브랜치는 master 브랜치로 병합되지 않습니다.
 - 출시 브랜치는 `package.json` 안에 정확한 버전을 포함*할 수* 있습니다.
-- As soon as a release branch is cut for a major, master must be bumped to the next major. I.e. `master` is always versioned as the next theoretical release branch
+- 릴리즈 브랜치가 메이저 배포를 완성하면, 마스터 브랜치는 다음 메이저 버전으로 넘어가야 합니다. 예를 들면, `master`는 언제나 예상되는 다음 릴리즈 브랜치의 버전을 씁니다.

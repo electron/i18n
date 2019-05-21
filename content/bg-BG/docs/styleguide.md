@@ -84,21 +84,33 @@
 ```markdown
 # session
 
-## Методи
+## Methods
 
 ### session.fromPartition(partition)
 
-## Свойства
+## Properties
 
 ### session.defaultSession
 
-## Клас: Session
+## Class: Session
 
-### Инстантни събития
+### Instance Events
 
-#### Събитие: 'will-download'
+#### Event: 'will-download'
 
-### Инстантни методи
+### Instance Methods
+
+#### `ses.getCacheSize()`
+
+### Instance Properties
+
+#### `ses.cookies`
+
+## Class: Cookies
+
+### Instance Methods
+
+#### `cookies.get(filter, callback)`
 ```
 
 ### Методи
@@ -133,7 +145,7 @@
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
 * Или от персонален тип като този от Електрон [`WebContent`](api/web-contents.md)
 
-Ако един аргумент или метод, който е уникален за определени платформи, то тези платформи са отбелязани с помощта на интервали с долна черта "_" след типа на данните. Values can be `macOS`, `Windows` or `Linux`.
+If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows` or `Linux`.
 
 ```markdown
 * `animate` Boolean (по избор) _macOS_ _Windows_ - Анимация за нещо.

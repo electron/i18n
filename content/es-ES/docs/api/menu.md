@@ -18,9 +18,11 @@ La clase `menú` tiene los siguientes métodos estáticos:
 
 Configura el `menu` como el menú de la aplicación en macOS. En Windows y Linux, el `menu` se configurará como menú superior de cada ventana.
 
-Pasar `null` eliminará la barra de menús en Windows y Linux pero no tiene efecto alguno en macOS.
+Also on Windows and Linux, you can use a `&` in the top-level item name to indicate which letter should get a generated accelerator. For example, using `&File` for the file menu would result in a generated `Alt-F` accelerator that opens the associated menu. The indicated character in the button label gets an underline. The `&` character is not displayed on the button label.
 
-**Nota:** Esta API no puede ser llamada antes de que el evento `ready` del módulo de `app` sea emitido.
+Passing `null` will suppress the default menu. On Windows and Linux, this has the additional effect of removing the menu bar from the window.
+
+**Note:** The default menu will be created automatically if the app does not set one. It contains standard items such as `File`, `Edit`, `View`, `Window` and `Help`.
 
 #### `Menu.getApplicationMenu()`
 
@@ -32,19 +34,19 @@ Devuelve `Menu | null` - El menú de aplicación, si se creó, o `null` en caso 
 
 * `action` String
 
-Envía la `action` al primer respondedor de la aplicación. Esto es usado para emular los comportamientos del menú macOS por defecto. Usually you would use the [`role`](menu-item.md#roles) property of a [`MenuItem`](menu-item.md).
+Envía la `action` al primer respondedor de la aplicación. Esto es usado para emular los comportamientos del menú macOS por defecto. Normalmente usarías el [`rol`](menu-item.md#roles) propiedad de un [`MenuItem`](menu-item.md).
 
 Consulte la [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7) para más información sobre las acciones nativas de macOS.
 
 #### `Menu.buildFromTemplate(template)`
 
-* `template` MenuItemConstructorOptions[]
+* `plantilla` (MenuItemConstructorOptions | MenuItem)[]
 
 Devuelve `Menu`
 
 Generalmente, el `template` es un arreglo de `options` para construir un [MenuItem](menu-item.md). El uso puede ser referenciado más arriba.
 
-Se pueden anexar otros campos al elemento de la `template` y pueden convertirse en propiedades de los elementos del menú creado.
+You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
 
 ### Métodos de Instancia
 
@@ -134,8 +136,31 @@ Ejemplo de la creación del menú de la aplicación en el proceso principal con 
 const { app, Menu } = require('electron')
 
 const template = [
+  // { role: 'appMenu' }
+  ...(process.platform === 'darwin' ? [{
+    label: app.getName(),
+    submenu: [
+      { role: 'about' },
+      { type: 'separator' },
+      { role: 'services' },
+      { type: 'separator' },
+      { role: 'hide' },
+      { role: 'hideothers' },
+      { role: 'unhide' },
+      { type: 'separator' },
+      { role: 'quit' }
+    ]
+  }] : []),
+  // { role: 'fileMenu' }
   {
-    label: 'Edit',
+    label: 'Archivo',
+    submenu: [
+      isMac ? { role: 'close' } : { role: 'quit' }
+    ]
+  },
+  // { role: 'editMenu' }
+  {
+    label: 'Editar',
     submenu: [
       { role: 'undo' },
       { role: 'redo' },
@@ -143,11 +168,26 @@ const template = [
       { role: 'cut' },
       { role: 'copy' },
       { role: 'paste' },
-      { role: 'pasteandmatchstyle' },
-      { role: 'delete' },
-      { role: 'selectall' }
+      ...(isMac ? [
+        { role: 'pasteAndMatchStyle' },
+        { role: 'delete' },
+        { role: 'selectAll' },
+        { type: 'separator' },
+        {
+          label: 'Speech',
+          submenu: [
+            { role: 'startspeaking' },
+            { role: 'stopspeaking' }
+          ]
+        }
+      ] : [
+        { role: 'delete' },
+        { type: 'separator' },
+        { role: 'selectAll' }
+      ])
     ]
   },
+  // { role: 'viewMenu' }
   {
     label: 'View',
     submenu: [
@@ -162,11 +202,20 @@ const template = [
       { role: 'togglefullscreen' }
     ]
   },
+  // { role: 'windowMenu' }
   {
-    role: 'window',
+    label: 'Window',
     submenu: [
       { role: 'minimize' },
-      { role: 'close' }
+      { role: 'zoom' },
+      ...(isMac ? [
+        { type: 'separator' },
+        { role: 'front' },
+        { type: 'separator' },
+        { role: 'window' }
+      ] : [
+        { role: 'close' }
+      ])
     ]
   },
   {
@@ -174,49 +223,11 @@ const template = [
     submenu: [
       {
         label: 'Learn More',
-        click () { require('electron').shell.openExternal('https://electronjs.org') }
+        click () { require('electron').shell.openExternalSync('https://electronjs.org') }
       }
     ]
   }
 ]
-
-if (process.platform === 'darwin') {
-  template.unshift({
-    label: app.getName(),
-    submenu: [
-      { role: 'about' },
-      { type: 'separator' },
-      { role: 'services' },
-      { type: 'separator' },
-      { role: 'hide' },
-      { role: 'hideothers' },
-      { role: 'unhide' },
-      { type: 'separator' },
-      { role: 'quit' }
-    ]
-  })
-
-  // Edit menu
-  template[1].submenu.push(
-    { type: 'separator' },
-    {
-      label: 'Speech',
-      submenu: [
-        { role: 'startspeaking' },
-        { role: 'stopspeaking' }
-      ]
-    }
-  )
-
-  // Window menu
-  template[3].submenu = [
-    { role: 'close' },
-    { role: 'minimize' },
-    { role: 'zoom' },
-    { type: 'separator' },
-    { role: 'front' }
-  ]
-}
 
 const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)

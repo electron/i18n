@@ -82,7 +82,13 @@ const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
   // Create the browser window.
-  let win = new BrowserWindow({ width: 800, height: 600 })
+  let win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true
+    }
+  })
 
   // and load the index.html of the app.
   win.loadFile('index.html')
@@ -102,9 +108,15 @@ let win
 
 function createWindow () {
   // ब्राउज़र विंडो निर्मित कीजिये |
-  win = new BrowserWindow({ width: 800, height: 600 })
+  win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true
+    }
+  })
 
-  // और एप्प का इंडेक्स.एचटीएमएल लोड कीजिये |
+  // and load the index.html of the app.
   win.loadFile('index.html')
 
   // Open the DevTools.

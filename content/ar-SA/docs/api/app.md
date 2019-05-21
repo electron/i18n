@@ -1,10 +1,10 @@
 # تطبيق
 
-> Control your application's event lifecycle.
+> تحكم في دورة حياة الأحداث في تطبيقك.
 
 العملية: [Main](../glossary.md#main-process)
 
-The following example shows how to quit the application when the last window is closed:
+يعرض المثال التالي طريقة الخروج من التطبيق عند إغلاق آخر نافذة فيه:
 
 ```javascript
 const { app } = require('electron')
@@ -15,11 +15,11 @@ app.on('window-all-closed', () => {
 
 ## أحداث
 
-The `app` object emits the following events:
+يطلق الكائن `app` الأحداث التالية:
 
-### Event: 'will-finish-launching'
+### الحدث: 'will-finish-launching'
 
-Emitted when the application has finished basic startup. On Windows and Linux, the `will-finish-launching` event is the same as the `ready` event; on macOS, this event represents the `applicationWillFinishLaunching` notification of `NSApplication`. You would usually set up listeners for the `open-file` and `open-url` events here, and start the crash reporter and auto updater.
+يُطلق هذا الحدث عند انتهاء التطبيق من عملية بدء التشغيل الأساسية. في نظامي ويندوز ولينوكس يكون الحدثان `will-finish-launching` و `ready` متماثلين، أما في نظام ماك أو إس فإنّ هذا الحدث يمثّل التنبيه `applicationWillFinishLaunching` الخاص بـ `NSApplication`. You would usually set up listeners for the `open-file` and `open-url` events here, and start the crash reporter and auto updater.
 
 In most cases, you should do everything in the `ready` event handler.
 
@@ -43,9 +43,9 @@ Returns:
 
 * `event` Event
 
-Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behaviour, which is terminating the application.
+Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
 
-**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()` then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
+**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()`, then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
 
 **Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
 
@@ -154,7 +154,7 @@ Returns:
 * `type` String - A string identifying the activity. Maps to [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object - Contains app-specific state stored by the activity.
 
-Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise the operation will fail and `continue-activity-error` will be called.
+Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise, the operation will fail and `continue-activity-error` will be called.
 
 ### Event: 'new-window-for-tab' *macOS*
 
@@ -209,7 +209,7 @@ Returns:
 * `url` String
 * `error` String - The error code
 * `certificate` [Certificate](structures/certificate.md)
-* `callback` Function 
+* `callback` دالة 
   * `isTrusted` Boolean - Whether to consider the certificate as trusted
 
 Emitted when failed to verify the `certificate` for `url`, to trust the certificate you should prevent the default behavior with `event.preventDefault()` and call `callback(true)`.
@@ -236,7 +236,7 @@ Returns:
 * `webContents` [WebContents](web-contents.md)
 * `url` URL
 * `certificateList` [Certificate[]](structures/certificate.md)
-* `callback` Function 
+* `callback` دالة 
   * `certificate` [Certificate](structures/certificate.md) (optional)
 
 Emitted when a client certificate is requested.
@@ -258,23 +258,23 @@ Returns:
 
 * `event` Event
 * `webContents` [WebContents](web-contents.md)
-* `request` Object 
+* `request` الكائنات 
   * `method` String
   * `url` URL
   * `referrer` URL
-* `authInfo` Object 
+* `authInfo` الكائنات 
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` Function 
+* `callback` دالة 
   * `username` String
   * `password` String
 
 Emitted when `webContents` wants to do basic auth.
 
-The default behavior is to cancel all authentications, to override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
+The default behavior is to cancel all authentications. To override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
 
 ```javascript
 const { app } = require('electron')
@@ -330,6 +330,17 @@ Returns:
 This event will be emitted inside the primary instance of your application when a second instance has been executed. `argv` is an Array of the second instance's command line arguments, and `workingDirectory` is its current working directory. Usually applications respond to this by making their primary window focused and non-minimized.
 
 This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
+
+**Note:** Extra command line arguments might be added by Chromium, such as `--original-process-start-time`.
+
+### Event: 'desktop-capturer-get-sources'
+
+Returns:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+
+Emitted when `desktopCapturer.getSources()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will make it return empty sources.
 
 ### Event: 'remote-require'
 
@@ -407,7 +418,7 @@ This method guarantees that all `beforeunload` and `unload` event handlers are c
 
 Exits immediately with `exitCode`. `exitCode` defaults to 0.
 
-All windows will be closed immediately without asking user and the `before-quit` and `will-quit` events will not be emitted.
+All windows will be closed immediately without asking the user, and the `before-quit` and `will-quit` events will not be emitted.
 
 ### `app.relaunch([options])`
 
@@ -417,7 +428,7 @@ All windows will be closed immediately without asking user and the `before-quit`
 
 Relaunches the app when current instance exits.
 
-By default the new instance will use the same working directory and command line arguments with current instance. When `args` is specified, the `args` will be passed as command line arguments instead. When `execPath` is specified, the `execPath` will be executed for relaunch instead of current app.
+By default, the new instance will use the same working directory and command line arguments with current instance. When `args` is specified, the `args` will be passed as command line arguments instead. When `execPath` is specified, the `execPath` will be executed for relaunch instead of current app.
 
 Note that this method does not quit the app when executed, you have to call `app.quit` or `app.exit` after calling `app.relaunch` to make the app restart.
 
@@ -460,7 +471,7 @@ Returns `String` - The current application directory.
 
 * `الإسم`String
 
-Returns `String` - A path to a special directory or file associated with `name`. On failure an `Error` is thrown.
+Returns `String` - A path to a special directory or file associated with `name`. On failure, an `Error` is thrown.
 
 You can request the following paths by the name:
 
@@ -486,13 +497,35 @@ You can request the following paths by the name:
 
 * `path` String
 * `options` Object (optional) 
-  * `size` String 
+  * `size` نصوص 
     * `small` - 16x16
     * `normal` - 32x32
     * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
-* `callback` Function 
+* `callback` دالة 
   * `error` Error
   * `icon` [NativeImage](native-image.md)
+
+Fetches a path's associated icon.
+
+On *Windows*, there a 2 kinds of icons:
+
+* Icons associated with certain file extensions, like `.mp3`, `.png`, etc.
+* Icons inside the file itself, like `.exe`, `.dll`, `.ico`.
+
+On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+
+**[Deprecated Soon](promisification.md)**
+
+### `app.getFileIcon(path[, options])`
+
+* `path` String
+* `options` Object (optional) 
+  * `size` نصوص 
+    * `small` - 16x16
+    * `normal` - 32x32
+    * `large` - 48x48 on *Linux*, 32x32 on *Windows*, unsupported on *macOS*.
+
+Returns `Promise<NativeImage>` - fulfilled with the app's icon, which is a [NativeImage](native-image.md).
 
 Fetches a path's associated icon.
 
@@ -538,7 +571,13 @@ To set the locale, you'll want to use a command line switch at app startup, whic
 
 **Note:** When distributing your packaged app, you have to also ship the `locales` folder.
 
-**Note:** On Windows you have to call it after the `ready` events gets emitted.
+**Note:** On Windows, you have to call it after the `ready` events gets emitted.
+
+### `app.getLocaleCountryCode()`
+
+Returns `string` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. The value is taken from native OS APIs.
+
+**Note:** When unable to detect locale country code, it returns empty string.
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
@@ -546,7 +585,7 @@ To set the locale, you'll want to use a command line switch at app startup, whic
 
 Adds `path` to the recent documents list.
 
-This list is managed by the OS. On Windows you can visit the list from the task bar, and on macOS you can visit it from dock menu.
+This list is managed by the OS. On Windows, you can visit the list from the task bar, and on macOS, you can visit it from dock menu.
 
 ### `app.clearRecentDocuments()` *macOS* *Windows*
 
@@ -562,7 +601,7 @@ Returns `Boolean` - Whether the call succeeded.
 
 This method sets the current executable as the default handler for a protocol (aka URI scheme). It allows you to integrate your app deeper into the operating system. Once registered, all links with `your-protocol://` will be opened with the current executable. The whole link, including protocol, will be passed to your application as a parameter.
 
-On Windows you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
+On Windows, you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
 
 **Note:** On macOS, you can only register protocols that have been added to your app's `info.plist`, which can not be modified at runtime. You can however change the file with a simple text editor or script during build time. Please refer to [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) for details.
 
@@ -695,11 +734,11 @@ Returns `Boolean`
 
 This method makes your application a Single Instance Application - instead of allowing multiple instances of your app to run, this will ensure that only a single instance of your app is running, and other instances signal this instance and exit.
 
-The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock you can assume that another instance of your application is already running with the lock and exit immediately.
+The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock, you can assume that another instance of your application is already running with the lock and exit immediately.
 
 I.e. This method returns `true` if your process is the primary instance of your application and your app should continue loading. It returns `false` if your process should immediately quit as it has sent its parameters to another instance that has already acquired the lock.
 
-On macOS the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the `open-file` and `open-url` events will be emitted for that. However when users start your app in command line the system's single instance mechanism will be bypassed and you have to use this method to ensure single instance.
+On macOS, the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the `open-file` and `open-url` events will be emitted for that. However when users start your app in command line, the system's single instance mechanism will be bypassed, and you have to use this method to ensure single instance.
 
 An example of activating the window of primary instance when a second instance starts:
 
@@ -769,10 +808,10 @@ Changes the [Application User Model ID](https://msdn.microsoft.com/en-us/library
 
 ### `app.importCertificate(options, callback)` *LINUX*
 
-* `options` Object 
+* `options` الكائنات 
   * `certificate` String - Path for the pkcs12 file.
   * `password` String - Passphrase for the certificate.
-* `callback` Function 
+* `callback` دالة 
   * `result` Integer - Result of import.
 
 Imports the certificate in pkcs12 format into the platform certificate store. `callback` is called with the `result` of import operation, a value of `0` indicates success while any other value indicates failure according to Chromium [net_error_list](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
@@ -840,7 +879,7 @@ Returns `Boolean` - Whether the call succeeded.
 
 Sets the counter badge for current app. Setting the count to `0` will hide the badge.
 
-On macOS it shows on the dock icon. On Linux it only works for Unity launcher,
+On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
 
 **Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
 
@@ -858,7 +897,7 @@ Returns `Boolean` - Whether the current desktop environment is Unity launcher.
   * `path` String (optional) *Windows* - The executable path to compare against. Defaults to `process.execPath`.
   * `args` String[] (optional) *Windows* - The command-line arguments to compare against. Defaults to an empty array.
 
-If you provided `path` and `args` options to `app.setLoginItemSettings` then you need to pass the same arguments here for `openAtLogin` to be set correctly.
+If you provided `path` and `args` options to `app.setLoginItemSettings`, then you need to pass the same arguments here for `openAtLogin` to be set correctly.
 
 Returns `Object`:
 
@@ -870,7 +909,7 @@ Returns `Object`:
 
 ### `app.setLoginItemSettings(settings)` *macOS* *Windows*
 
-* `settings` Object 
+* `settings` الكائنات 
   * `openAtLogin` Boolean (optional) - `true` to open the app at login, `false` to remove the app as a login item. Defaults to `false`.
   * `openAsHidden` Boolean (optional) *macOS* - `true` to open the app as hidden. Defaults to `false`. The user can edit this setting from the System Preferences so `app.getLoginItemSettings().wasOpenedAsHidden` should be checked when the app is opened to know the current value. This setting is not available on [MAS builds](../tutorial/mac-app-store-submission-guide.md).
   * `path` String (optional) *Windows* - The executable to launch at login. Defaults to `process.execPath`.
@@ -909,20 +948,22 @@ This API must be called after the `ready` event is emitted.
 
 **Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
 
-### `app.showAboutPanel()` *macOS*
+### `app.showAboutPanel` *macOS* *Linux*
 
-Show the about panel with the values defined in the app's `.plist` file or with the options set via `app.setAboutPanelOptions(options)`.
+Show the app's about panel options. These options can be overridden with `app.setAboutPanelOptions(options)`.
 
-### `app.setAboutPanelOptions(options)` *macOS*
+### `app.setAboutPanelOptions(options)` *macOS* *Linux*
 
-* `options` Object 
+* `options` الكائنات 
   * `applicationName` String (optional) - The app's name.
   * `applicationVersion` String (optional) - The app's version.
   * `copyright` String (optional) - Copyright information.
-  * `credits` String (optional) - Credit information.
-  * `version` String (optional) - The app's build version number.
+  * `version` String (optional) - The app's build version number. *macOS*
+  * `credits` String (optional) - Credit information. *macOS*
+  * `website` String (optional) - The app's website. *Linux*
+  * `iconPath` String (optional) - Path to the app's icon. *Linux*
 
-Set the about panel options. This will override the values defined in the app's `.plist` file. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details.
+Set the about panel options. This will override the values defined in the app's `.plist` file on MacOS. See the [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) for more details. On Linux, values must be set in order to be shown; there are no defaults.
 
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
 
@@ -956,15 +997,23 @@ Append an argument to Chromium's command line. The argument will be quoted corre
 
 **Note:** This will not affect `process.argv`.
 
+### `app.commandLine.hasSwitch(switch)`
+
+* `switch` String - A command-line switch
+
+Returns `Boolean` - Whether the command-line switch is present.
+
+### `app.commandLine.getSwitchValue(switch)`
+
+* `switch` String - A command-line switch
+
+Returns `String` - The command-line switch value.
+
+**Note:** When the switch is not present, it returns empty string.
+
 ### `app.enableSandbox()` *Experimental* *macOS* *Windows*
 
 Enables full sandbox mode on the app.
-
-This method can only be called before app is ready.
-
-### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
-
-Enables mixed sandbox mode on the app.
 
 This method can only be called before app is ready.
 
@@ -974,11 +1023,11 @@ Returns `Boolean` - Whether the application is currently running from the system
 
 ### `app.moveToApplicationsFolder()` *macOS*
 
-Returns `Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.
+Returns `Boolean` - Whether the move was successful. Please note that if the move is successful, your application will quit and relaunch.
 
-No confirmation dialog will be presented by default, if you wish to allow the user to confirm the operation you may do so using the [`dialog`](dialog.md) API.
+No confirmation dialog will be presented by default. If you wish to allow the user to confirm the operation, you may do so using the [`dialog`](dialog.md) API.
 
-**NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog this method returns false. If we fail to perform the copy then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
+**NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog, this method returns false. If we fail to perform the copy, then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
 
 ### `app.dock.bounce([type])` *macOS*
 
@@ -992,7 +1041,7 @@ Returns `Integer` an ID representing the request.
 
 ### `app.dock.cancelBounce(id)` *macOS*
 
-* `id` Integer
+* </code>
 
 Cancel the bounce of `id`.
 

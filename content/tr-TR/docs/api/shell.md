@@ -34,18 +34,27 @@ Verilen dosyayı bir dosya yöneticisinde görüntüler. Mümkünse, dosyayı se
 
 Verilen dosyayı masaüstünün varsayılan yöntemiyle açın.
 
-### `shell.openExternal(url[, options, callback])`
+### `shell.openExternalSync(url[, options])`
 
-* `url` String - Max 2081 characters on windows, or the function returns false.
+* `url` String - Max 2081 characters on Windows, or the function returns false.
 * `seçenekler` Obje (opsiyonel) 
   * `activate` Boolean (optional) - `true` to bring the opened application to the foreground. The default is `true`. *macOS*
   * `workingDirectory` String (optional) - The working directory. *Windows*
-* `geri aramak` Fonksiyon (isteğe bağlı) *macOS* - If specified will perform the open asynchronously. 
-  * `error` Error
 
-`Boolean` döner - uygulamanın URL açmaya uygun olup olmaması. Eğer geri çağırma belirtildiyse her zaman true döner.
+Returns `Boolean` - Whether an application was available to open the URL.
 
-Verilen harici protokol URL'sini masaüstünde varsayılan şekilde açın. (Örneğin, mailto: kullanıcının varsayılan posta aracısındaki URL'leri).
+Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
+
+### `shell.openExternal(url[, options])`
+
+* `url` String - Max 2081 characters on windows.
+* `seçenekler` Hedef (isteğe bağlı) 
+  * `activate` Boolean (optional) - `true` to bring the opened application to the foreground. The default is `true`. *macOS*
+  * `workingDirectory` String (optional) - The working directory. *Windows*
+
+Returns `Promise<void>`
+
+Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
 
 ### `shell.moveItemToTrash(fullPath)`
 

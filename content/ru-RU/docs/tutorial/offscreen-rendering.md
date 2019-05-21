@@ -1,14 +1,14 @@
 # Закадровый рендеринг
 
-Offscreen rendering lets you obtain the content of a browser window in a bitmap, so it can be rendered anywhere, for example on a texture in a 3D scene. The offscreen rendering in Electron uses a similar approach than the [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef) project.
+Закадровый рендеринг позволяет получить содержимое окна браузера в виде Bitmap изображения, которое может быть отображено где угодно. (Например, может быть использовано в виде текстуры в 3D сцене). Закадровый рендеринг в Electron использует подход, схожий с [Chromium Embedded Framework](https://bitbucket.org/chromiumembedded/cef).
 
 Two modes of rendering can be used and only the dirty area is passed in the `'paint'` event to be more efficient. The rendering can be stopped, continued and the frame rate can be set. The specified frame rate is a top limit value, when there is nothing happening on a webpage, no frames are generated. The maximum frame rate is 60, because above that there is no benefit, only performance loss.
 
 **Note:** An offscreen window is always created as a [Frameless Window](../api/frameless-window.md).
 
-## Rendering Modes
+## Режими рендеринга
 
-### GPU accelerated
+### Аппаратное ускорение
 
 GPU accelerated rendering means that the GPU is used for composition. Because of that the frame has to be copied from the GPU which requires more performance, thus this mode is quite a bit slower than the other one. The benefit of this mode that WebGL and 3D CSS animations are supported.
 
@@ -18,7 +18,7 @@ This mode uses a software output device for rendering in the CPU, so the frame g
 
 To enable this mode GPU acceleration has to be disabled by calling the [`app.disableHardwareAcceleration()`](../api/app.md#appdisablehardwareacceleration) API.
 
-## Usage
+## Использование
 
 ```javascript
 const { app, BrowserWindow } = require('electron')

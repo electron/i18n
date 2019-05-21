@@ -31,7 +31,14 @@ Retourne :
 Retourne :
 
 * `event` Événement
-* `invertedColorScheme` Boolean - `true` si le jeu de couleurs est inversé, comme un thème de contraste élevé en cours d'utilisation, `false` autrement.
+* `invertedColorScheme` Boolean - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is being used, `false` otherwise.
+
+### Event: 'high-contrast-color-scheme-changed' *Windows*
+
+Retourne :
+
+* `event` Event
+* `highContrastColorScheme` Boolean - `true` if a high contrast theme is being used, `false` otherwise.
 
 ### Event: 'appearance-changed' *macOS*
 
@@ -51,10 +58,11 @@ Retourne `Boolean` - Si le système est en mode sombre.
 
 Retourne `Boolean` - Si l'option Swipe entre les pages est activé.
 
-### `systemPreferences.postNotification(event, userInfo)` *macOS*
+### `systemPreferences.postNotification(event, userInfo[, deliverImmediately])` *macOS*
 
 * `event` String
 * `userInfo` Object
+* `deliverImmediately` Boolean (optional) - `true` to post notifications immediately even when the subscribing app is inactive.
 
 Poste `event` en notifications natives de macOS. L'`userInfo` est un Object qui contient le dictionnaire d'informations utilisateur envoyé avec la notification.
 
@@ -201,7 +209,7 @@ if (browserOptions.transparent) {
 }
 ```
 
-### `systemPreferences.getAccentColor()` *Windows*
+### `systemPreferences.getAccentColor()` *Windows* *macOS*
 
 Returns `String` - The users current system wide accent color preference in RGBA hexadecimal form.
 
@@ -213,45 +221,101 @@ const blue = color.substr(4, 2) // "cc"
 const alpha = color.substr(6, 2) // "dd"
 ```
 
-### `systemPreferences.getColor(color)` *Windows*
+This API is only available on macOS 10.14 Mojave or newer.
+
+### `systemPreferences.getColor(color)` *Windows* *macOS*
 
 * `color` String - Une des valeurs suivantes : 
-  * `3d-dark-shadow` - Ombre noir pour les éléments affichés en trois dimensions.
-  * `3d-face` - Couleur de la face pour les éléments affichés en trois dimensions et le fond des boîtes de dialogue.
-  * `3d-hihlight` - Couleur de surlignage pour les éléments affichés en trois dimensions.
-  * `3d-light` - Couleur de la lumière pour les éléments affichés en trois dimensions.
-  * `3d-shadow` - Couleur d'ombre pour les éléments affichés en trois dimensions.
-  * `active-border` - Bordure de la fenêtre active.
-  * `active-caption` - Barre de titre de la fenêtre active. Retourne la couleur du côté gauche du dégradé de couleur si la barre de titre de la fenêtre a l'effet de dégradé actif.
-  * `active-caption-gradient` - Couleur du côté droit du dégradé de couleur de la barre de titre de la fenêtre active.
-  * `app-workspace` - Couleur de fond d'une interface d'application de document multiple (MDI).
-  * `button-text` - Texte sur les boutons d'envoi.
-  * `caption-text` - Texte dans une légende, boîte de dimensions, boîte avec la flèche pour la barre de défilement.
-  * `desktop` - Couleur de fond du bureau.
-  * `disabled-text` - Texte grisé (désactivé).
-  * `highlight` - Élément(s) sélectionné(s) dans un groupe.
-  * `highlight-text` - Text of item(s) selected in a control.
-  * `hotlight` - Color for a hyperlink or hot-tracked item.
-  * `inactive-border` - Inactive window border.
-  * `inactive-caption` - Inactive window caption. Specifies the left side color in the color gradient of an inactive window's title bar if the gradient effect is enabled.
-  * `inactive-caption-gradient` - Right side color in the color gradient of an inactive window's title bar.
-  * `inactive-caption-text` - Color of text in an inactive caption.
-  * `info-background` - Background color for tooltip controls.
-  * `info-text` - Text color for tooltip controls.
-  * `menu` - Menu background.
-  * `menu-highlight` - The color used to highlight menu items when the menu appears as a flat menu.
-  * `menubar` - The background color for the menu bar when menus appear as flat menus.
-  * `menu-text` - Text in menus.
-  * `scrollbar` - Scroll bar gray area.
-  * `window` - Window background.
-  * `window-frame` - Window frame.
-  * `window-text` - Text in windows.
+  * On **Windows**: 
+    * `3d-dark-shadow` - Ombre noir pour les éléments affichés en trois dimensions.
+    * `3d-face` - Couleur de la face pour les éléments affichés en trois dimensions et le fond des boîtes de dialogue.
+    * `3d-hihlight` - Couleur de surlignage pour les éléments affichés en trois dimensions.
+    * `3d-light` - Couleur de la lumière pour les éléments affichés en trois dimensions.
+    * `3d-shadow` - Couleur d'ombre pour les éléments affichés en trois dimensions.
+    * `active-border` - Bordure de la fenêtre active.
+    * `active-caption` - Barre de titre de la fenêtre active. Retourne la couleur du côté gauche du dégradé de couleur si la barre de titre de la fenêtre a l'effet de dégradé actif.
+    * `active-caption-gradient` - Couleur du côté droit du dégradé de couleur de la barre de titre de la fenêtre active.
+    * `app-workspace` - Couleur de fond d'une interface d'application de document multiple (MDI).
+    * `button-text` - Texte sur les boutons d'envoi.
+    * `caption-text` - Texte dans une légende, boîte de dimensions, boîte avec la flèche pour la barre de défilement.
+    * `desktop` - Couleur de fond du bureau.
+    * `disabled-text` - Texte grisé (désactivé).
+    * `highlight` - Élément(s) sélectionné(s) dans un groupe.
+    * `highlight-text` - Text of item(s) selected in a control.
+    * `hotlight` - Color for a hyperlink or hot-tracked item.
+    * `inactive-border` - Inactive window border.
+    * `inactive-caption` - Inactive window caption. Specifies the left side color in the color gradient of an inactive window's title bar if the gradient effect is enabled.
+    * `inactive-caption-gradient` - Right side color in the color gradient of an inactive window's title bar.
+    * `inactive-caption-text` - Color of text in an inactive caption.
+    * `info-background` - Background color for tooltip controls.
+    * `info-text` - Text color for tooltip controls.
+    * `menu` - Menu background.
+    * `menu-highlight` - The color used to highlight menu items when the menu appears as a flat menu.
+    * `menubar` - The background color for the menu bar when menus appear as flat menus.
+    * `menu-text` - Text in menus.
+    * `scrollbar` - Scroll bar gray area.
+    * `window` - Window background.
+    * `window-frame` - Window frame.
+    * `window-text` - Text in windows.
+  * On **macOS** 
+    * `alternate-selected-control-text` - The text on a selected surface in a list or table.
+    * `control-background` - The background of a large interface element, such as a browser or table.
+    * `control` - The surface of a control.
+    * `control-text` -The text of a control that isn’t disabled.
+    * `disabled-control-text` - The text of a control that’s disabled.
+    * `find-highlight` - The color of a find indicator.
+    * `grid` - The gridlines of an interface element such as a table.
+    * `header-text` - The text of a header cell in a table.
+    * `highlight` - The virtual light source onscreen.
+    * `keyboard-focus-indicator` - The ring that appears around the currently focused control when using the keyboard for interface navigation.
+    * `label` - The text of a label containing primary content.
+    * `link` - A link to other content.
+    * `placeholder-text` - A placeholder string in a control or text view.
+    * `quaternary-label` - The text of a label of lesser importance than a tertiary label such as watermark text.
+    * `scrubber-textured-background` - The background of a scrubber in the Touch Bar.
+    * `secondary-label` - The text of a label of lesser importance than a normal label such as a label used to represent a subheading or additional information.
+    * `selected-content-background` - The background for selected content in a key window or view.
+    * `selected-control` - The surface of a selected control.
+    * `selected-control-text` - The text of a selected control.
+    * `selected-menu-item` - The text of a selected menu.
+    * `selected-text-background` - The background of selected text.
+    * `selected-text` - Selected text.
+    * `separator` - A separator between different sections of content.
+    * `shadow` - The virtual shadow cast by a raised object onscreen.
+    * `tertiary-label` - The text of a label of lesser importance than a secondary label such as a label used to represent disabled text.
+    * `text-background` - Text background.
+    * `text` - The text in a document.
+    * `under-page-background` - The background behind a document's content.
+    * `unemphasized-selected-content-background` - The selected content in a non-key window or view.
+    * `unemphasized-selected-text-background` - A background for selected text in a non-key window or view.
+    * `unemphasized-selected-text` - Selected text in a non-key window or view.
+    * `window-background` - The background of a window.
+    * `window-frame-text` - The text in the window's titlebar area. 
 
-Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) for more details.
+Returns `String` - The system color setting in RGB hexadecimal form (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) and the [MacOS docs](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors) for more details.
+
+### `systemPreferences.getSystemColor(color)` *macOS*
+
+* `color` String - Une des valeurs suivantes : 
+  * `blue`
+  * `brown`
+  * `gray`
+  * `green`
+  * `orange`
+  * `pink`
+  * `purple`
+  * `red`
+  * `yellow`
+
+Returns one of several standard system colors that automatically adapt to vibrancy and changes in accessibility settings like 'Increase contrast' and 'Reduce transparency'. See [Apple Documentation](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#system-colors) for more details.
 
 ### `systemPreferences.isInvertedColorScheme()` *Windows*
 
-Retourne `Boolean` - `true` si le jeu de couleurs est inversé, comme un thème de contraste élevé en cours d'utilisation, `false` autrement.
+Returns `Boolean` - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is active, `false` otherwise.
+
+### `systemPreferences.isHighContrastColorScheme()` *Windows*
+
+Returns `Boolean` - `true` if a high contrast theme is active, `false` otherwise.
 
 ### `systemPreferences.getEffectiveAppearance()` *macOS*
 

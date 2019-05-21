@@ -4,7 +4,7 @@
 
 Процес: [Main](../glossary.md#main-process)
 
-Інструменти розробника Chrome мають [спеціальну прив'язку](https://developer.chrome.com/devtools/docs/debugger-protocol) доступну під час виконання JavaScript, що дозволяє взаємодіяти зі сторінками і інструментарієм.
+Інструменти розробника Chrome мають [спеціальну прив'язку](https://chromedevtools.github.io/devtools-protocol/) доступну під час виконання JavaScript, що дозволяє взаємодіяти зі сторінками і інструментарієм.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -49,11 +49,22 @@ Detaches the debugger from the `webContents`.
 
 #### `debugger.sendCommand(method[, commandParams, callback])`
 
-* `method` String - Method name, should be one of the methods defined by the remote debugging protocol.
+* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
 * `commandParams` Object (optional) - JSON object with request parameters.
 * `callback` Function (optional) - Response 
   * `error` Object - Error message indicating the failure of the command.
   * `result` Any - Response defined by the 'returns' attribute of the command description in the remote debugging protocol.
+
+Send given command to the debugging target.
+
+**[Deprecated Soon](promisification.md)**
+
+#### `debugger.sendCommand(method[, commandParams])`
+
+* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
+* `commandParams` Object (optional) - JSON object with request parameters.
+
+Returns `Promise<any>` - A promise that resolves with the response defined by the 'returns' attribute of the command description in the remote debugging protocol or is rejected indicating the failure of the command.
 
 Send given command to the debugging target.
 

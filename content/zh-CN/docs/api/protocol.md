@@ -26,11 +26,22 @@ app.on('ready', () => {
 
 `protocol` 模块具有以下方法：
 
-### `protocol.registerStandardSchemes(schemes[, options])`
+### `protocol.registerSchemesAsPrivileged(customSchemes)`
 
-* `schemes` String[] - 注册 schemes 为标准schemes。
-* `选项` Object (可选) 
-  * `secure` Boolean (可选) - `true` 注册scheme为安全scheme。 默认 `false`.
+* `customSchemes` [CustomScheme[]](structures/custom-scheme.md)
+
+**Note:** This method can only be used before the `ready` event of the `app` module gets emitted and can be called only once.
+
+Registers the `scheme` as standard, secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
+
+Specify a privilege with the value of `true` to enable the capability. An example of registering a privileged scheme, with bypassing Content Security Policy:
+
+```javascript
+const { protocol } = require('electron')
+protocol.registerSchemesAsPrivileged([
+  { scheme: 'foo', privileges: { bypassCSP: true } }
+])
+```
 
 标准scheme遵循 RFC 3986 所设定的 [URI泛型语法 ](https://tools.ietf.org/html/rfc3986#section-3)。 例如, ` http ` 和 ` https ` 是标准协议, 而 ` file ` 不是。
 
@@ -46,22 +57,7 @@ app.on('ready', () => {
 
 注册一个scheme作为标准scheme将允许其通过[FileSystem 接口](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem)访问文件。 否则, 渲染器将会因为该scheme，而抛出一个安全性错误。
 
-默认情况下web storage apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) 被禁止访问非标准schemes。 所以一般来说如果你想注册一个 自定义协议来替换`http`协议，您必须将其注册为标准scheme：
-
-```javascript
-const { app, protocol } = require('electron')
-
-protocol.registerStandardSchemes(['atom'])
-app.on('ready', () => {
-  protocol.registerHttpProtocol('atom', '...')
-})
-```
-
-** 注意: **此方法只能在 ` app ` 模块的 ` ready ` 事件被发出之前使用。
-
-### `protocol.registerServiceWorkerSchemes(schemes)`
-
-* `schemes` String[] - 将自定义 schemes注册为处理线程服务的标准schemes。
+默认情况下web storage apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) 被禁止访问非标准schemes。 So in general if you want to register a custom protocol to replace the `http` protocol, you have to register it as a standard scheme.
 
 ### `protocol.registerFileProtocol(scheme, handler[, completion])`
 
@@ -72,14 +68,14 @@ app.on('ready', () => {
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function - 回调函数 
+  * `callback` Function 
     * `filePath` String (可选)
 * `completion` Function (可选) 
   * `error` Error
 
 注册一个 `scheme` 协议, 将该文件作为响应发送 当要使用 `scheme` 创建 `request` 时, 将使用 `handler(request, callback)` 来调用 `handler` 。 `completion` 将在 `scheme` 注册成功时通过`completion(null)` 调用，失败时通过`completion(error)` 调用。
 
-要处理 `request`, 应当使用文件的路径或具有 `path` 属性的对象来调用 `callback`。例如:`callback(filePath)`或 `callback({ path: filePath })`.
+要处理 `request`, 应当使用文件的路径或具有 `path` 属性的对象来调用 `callback`。例如:`callback(filePath)`或 `callback({ path: filePath })`. The object may also have a `headers` property which gives a map of headers to values for the response headers, e.g. `callback({ path: filePath, headers: {"Content-Security-Policy": "default-src 'none'"]})`.
 
 当 `callback` 被调用后，并且没有带着数字或 `error` 属性的对象时, `request`将会失败, 并且带有你指定的 `error`错误号。 更多的错误号信息，您可以查阅[网络错误列表](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
@@ -150,7 +146,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
       * `session` Object (可选)
       * `uploadData` Object (可选) 
         * `contentType` String - 内容的MIME类型。
-        * `data` String - 发送内容。
+        * `data` String - 要发送的内容。
 * `completion` Function (可选) 
   * `error` Error
 
@@ -165,15 +161,15 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
 ### `protocol.registerStreamProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `handler` Function 
+* `handler` Function - 回调函数 
   * `request` Object 
     * `url` String
     * `headers` Object
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
-    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (可选)
+  * `callback` Function - 回调函数 
+    * ` stream `(ReadableStream |[ StreamProtocolResponse ](structures/stream-protocol-response.md)) (可选)
 * `completion` Function (可选) 
   * `error` Error
 
@@ -231,10 +227,18 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 ### `protocol.isProtocolHandled(scheme, callback)`
 
 * `scheme` String
-* `callback` Function - 回调函数 
-  * `error` Error
+* `callback` Function 
+  * `handled` Boolean
 
 `callback` 会被调用，带有布尔值，表示是否已经有`scheme` 的处理程序。
+
+**[Deprecated Soon](promisification.md)**
+
+### `protocol.isProtocolHandled(scheme)`
+
+* `scheme` String
+
+Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether there is already a handler for `scheme`.
 
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 
@@ -317,7 +321,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
     * `referrer` String
     * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function - 回调函数 
+  * `callback` Function 
     * ` stream `(ReadableStream |[ StreamProtocolResponse ](structures/stream-protocol-response.md)) (可选)
 * `completion` Function (可选) 
   * `error` Error

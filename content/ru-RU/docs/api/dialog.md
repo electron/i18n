@@ -42,10 +42,10 @@ console.log(dialog)
   * `message` String (опционально) *macOS* - Сообщение, которое будет показан над блоками ввода.
   * `securityScopedBookmarks` Boolean (опционально) *masOS* *mas* - Создает [защищенные закладки](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16), когда создается пакет для Mac App Store.
 * `callback` Function (опционально) 
-  * `filePaths` String[] - Массив файлов, которые выбрал пользователь
-  * `bookmarks` String[] *macOS* *mas* - Base64 - шифрованный массив, который соответствует массиву `filePaths`, который содержит защищенные закладки. `securityScopedBookmarks` должны быть активированы, чтобы массив был создан.
+  * `filePaths` String[] (optional) - An array of file paths chosen by the user. If the dialog is cancelled this will be `undefined`.
+  * `bookmarks` String[] (optional) *macOS* *mas* - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` должны быть активированы, чтобы массив был создан.
 
-Returns `String[] | undefined`, an array of file paths chosen by the user, if the callback is provided it returns `undefined`.
+Возвращает `String[] | undefined`, массив путей к файлам, выбранных пользователем, или `undefined` если передан коллбэк.
 
 Аргумент `browserWindow` позволяет диалогу прикреплять себя к родительскому окну, что делает его модальным.
 
@@ -54,10 +54,10 @@ Returns `String[] | undefined`, an array of file paths chosen by the user, if th
 ```javascript
 {
   filters: [
-    { name: 'Images', extensions: ['jpg', 'png', 'gif'] },
-    { name: 'Movies', extensions: ['mkv', 'avi', 'mp4'] },
-    { name: 'Custom File Type', extensions: ['as'] },
-    { name: 'All Files', extensions: ['*'] }
+    { name: 'Изображения', extensions: ['jpg', 'png', 'gif'] },
+    { name: 'Видео', extensions: ['mkv', 'avi', 'mp4'] },
+    { name: 'Свой тип файлов', extensions: ['as'] },
+    { name: 'Все файлы', extensions: ['*'] }
   ]
 }
 ```
@@ -73,16 +73,16 @@ Returns `String[] | undefined`, an array of file paths chosen by the user, if th
 * `browserWindow` [BrowserWindow](browser-window.md) (опционально)
 * `options` Object 
   * `title` String (опционально)
-  * `defaultPath` String (optional) - Absolute directory path, absolute file path, or file name to use by default.
+  * `defaultPath` String (опционально) - Абсолютный путь к директории, файлу или имя файла для использования по умолчанию.
   * `buttonLabel` String(опционально) - Альтернативный текст для кнопки подтверждения. Если оставить пустым будет использован стандартный текст.
   * `filters` [FileFilter[]](structures/file-filter.md) (опционально)
-  * `message` String (optional) *macOS* - Message to display above text fields.
-  * `nameFieldLabel` String (optional) *macOS* - Custom label for the text displayed in front of the filename text field.
-  * `showsTagField` Boolean (optional) *macOS* - Show the tags input box, defaults to `true`.
-  * `securityScopedBookmarks` Boolean (optional) *masOS* *mas* - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. If this option is enabled and the file doesn't already exist a blank file will be created at the chosen path.
+  * `message` String (опционально) *macOS* - Сообщение, которое будет показано поверх полей ввода.
+  * `nameFieldLabel` String (опционально) *macOS* - Специальная метка для текста, отображаемая перед текстовым полем с именем файла.
+  * `showsTagField` Boolean (опционально) *macOS* - Показать поле ввода тегов, по умолчанию `true`.
+  * `securityScopedBookmarks` Boolean (optional) *macOS* *mas* - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. Если эта опция включена и такого файла не существует, то пустой файл будет создан по выбранному пути.
 * `callback` Function (опционально) 
-  * `filename` String
-  * `bookmark` String *macOS* *mas* - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present.
+  * `filename` String (optional) If the dialog is cancelled this will be `undefined`.
+  * `bookmark` String (optional) *macOS* *mas* - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present.
 
 Returns `String | undefined`, the path of the file chosen by the user, if a callback is provided or the dialog is cancelled it returns `undefined`.
 
@@ -118,7 +118,7 @@ Shows a message box, it will block the process until the message box is closed. 
 
 Аргумент `browserWindow` позволяет диалогу прикреплять себя к родительскому окну, что делает его модальным.
 
-If a `callback` is passed, the dialog will not block the process. The API call will be asynchronous and the result will be passed via `callback(response)`.
+If the `callback` and `browserWindow` arguments are passed, the dialog will not block the process. The API call will be asynchronous and the result will be passed via `callback(response)`.
 
 ### `dialog.showErrorBox(title, content)`
 

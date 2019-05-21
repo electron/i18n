@@ -2,7 +2,7 @@
 
 > Extensions to process object.
 
-العملية :  الرئيسية </ 0> ،  العارض </ 1></p> 
+العملية:  الرئيسية </ 0> ،  العارض </ 1></p> 
 
 Electron's `process` object is extended from the [Node.js `process` object](https://nodejs.org/api/process.html). It adds the following events, properties, and methods:
 
@@ -12,6 +12,7 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 
 * `crash()`
 * `hang()`
+* `getCreationTime()`
 * `getHeapStatistics()`
 * `getProcessMemoryInfo()`
 * `getSystemMemoryInfo()`
@@ -23,7 +24,6 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 * `pid`
 * `arch`
 * `platform`
-* `resourcesPath`
 * `sandboxed`
 * `اكتب String (اختياري) - أحد ما يلي:
 مهمة - ستطلق المهمة تطبيقًا يحتوي على وسائط محددة.
@@ -65,6 +65,10 @@ process.once('loaded', () => {
 
 A `Boolean`. When app is started by being passed as parameter to the default app, this property is `true` in the main process, otherwise it is `undefined`.
 
+### `process.isMainFrame`
+
+A `Boolean`, `true` when the current renderer context is the "main" renderer frame. If you want the ID of the current frame you should use `webFrame.routingId`.
+
 ### `process.mas`
 
 A `Boolean`. For Mac App Store build, this property is `true`, for other builds it is `undefined`.
@@ -76,6 +80,10 @@ A `Boolean` that controls ASAR support inside your application. Setting this to 
 ### `process.noDeprecation`
 
 A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`. Setting this to `true` will silence deprecation warnings. This property is used instead of the `--no-deprecation` command line flag.
+
+### `process.enablePromiseAPIs`
+
+A `Boolean` that controls whether or not deprecation warnings are printed to `stderr` when formerly callback-based APIs converted to Promises are invoked using callbacks. Setting this to `true` will enable deprecation warnings.
 
 ### `process.resourcesPath`
 
@@ -99,7 +107,7 @@ A `Boolean` that controls whether or not process warnings printed to `stderr` in
 
 ### `process.type`
 
-A `String` representing the current process's type, can be `"browser"` (i.e. main process) or `"renderer"`.
+A `String` representing the current process's type, can be `"browser"` (i.e. main process), `"renderer"`, or `"worker"` (i.e. web worker).
 
 ### `process.versions.chrome`
 

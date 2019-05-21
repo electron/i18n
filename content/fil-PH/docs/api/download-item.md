@@ -80,6 +80,16 @@ Ang API ay ang natatanging posibleng gamitin sa sesyon ng `will-download` na maa
 
 Pagbabalik ng `String` - Ang "save path" ng "download item". Ito ay maaaring itinakdang lokasyon ng payl o "path", sa pamamagitan ng `downloadItem.setSavePath(path)` o ang piniling lokasyon o direktoryo ng payl galing sa ipinakitang "save dialog".
 
+#### `downloadItem.setSaveDialogOptions(options)`
+
+* `options` SaveDialogOptions - Set the save file dialog options. This object has the same properties as the `options` parameter of [`dialog.showSaveDialog()`](dialog.md).
+
+This API allows the user to set custom options for the save dialog that opens for the download item by default. The API is only available in session's `will-download` callback function.
+
+#### `downloadItem.getSaveDialogOptions()`
+
+Returns `SaveDialogOptions` - Returns the object previously set by `downloadItem.setSaveDialogOptions(options)`.
+
 #### `downloadItem.pause()`
 
 Pansamantalang paghinto ng "download".

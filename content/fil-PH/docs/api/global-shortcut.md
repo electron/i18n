@@ -48,9 +48,27 @@ Ang `globalShortcut` na modyul ay may mga sumusunod na paraan:
 * `aselerador` [Aselerador](accelerator.md) 
 * `callback` na Function
 
+Returns `Boolean` - Whether or not the shortcut was registered successfully.
+
 Nag-rehistro ng global shortcut ng `aselerador`. Ang `baliktawag` ay tatawagan kung ang narehistrong shortcut ay pinindot ng tagagamit.
 
 Kung ang aselerador ay nakuha na ng ibang apikasyon, ang tawag na ito ay tahimik na babagsak. Ang gawi na ito nilalayon sa pamamagitan ng sistemang operasyon, dahil hindi nila gusto na ang mga aplikasyon ay maglaban para sa global shortcuts.
+
+The following accelerators will not be registered successfully on macOS 10.14 Mojave unless the app has been authorized as a [trusted accessibility client](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html):
+
+* "Media Play/Pause"
+* "Media Next Track"
+* "Media Previous Track"
+* "Media Stop"
+
+### `globalShortcut.registerAll(accelerators, callback)`
+
+* `accelerators` String[] - an array of [Accelerator](accelerator.md)s.
+* `callback` na Function
+
+Registers a global shortcut of all `accelerator` items in `accelerators`. The `callback` is called when any of the registered shortcuts are pressed by the user.
+
+When a given accelerator is already taken by other applications, this call will silently fail. Ang gawi na ito nilalayon sa pamamagitan ng sistemang operasyon, dahil hindi nila gusto na ang mga aplikasyon ay maglaban para sa global shortcuts.
 
 The following accelerators will not be registered successfully on macOS 10.14 Mojave unless the app has been authorized as a [trusted accessibility client](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html):
 

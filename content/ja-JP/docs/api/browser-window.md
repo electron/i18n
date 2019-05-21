@@ -8,7 +8,7 @@
 // メインプロセス
 const { BrowserWindow } = require('electron')
 
-// または、レンダラープロセスから `remote` を使用してください。
+// レンダラープロセスからは `remote` を使用します。
 // const { BrowserWindow } = require('electron').remote
 
 let win = new BrowserWindow({ width: 800, height: 600 })
@@ -102,7 +102,6 @@ child.once('ready-to-show', () => {
 
 * macOSでは、モーダルウインドウは親ウインドウに付随したシートとして表示されます。
 * 親ウインドウが移動したとき、macOSでは、子ウインドウは親ウインドウに対する相対的な位置を維持しますが、WindowsとLinuxでは、子ウインドウは移動しません。
-* Windowsでは、動的に親ウインドウを変更することはサポートされていません。
 * Linuxでは、モーダルウインドウの型は、`dialog` に変更されます。
 * Linuxでは、多くのデスクトップ環境は、モーダルウインドウを非表示にすることをサポートしていません。
 
@@ -141,7 +140,7 @@ child.once('ready-to-show', () => {
   * `simpleFullscreen` Boolean (任意) - macOSでLionより前のフルスクリーンを使用します。省略値は、`false` です。
   * `skipTaskbar` Boolean (任意) - ウインドウをタスクバーに表示するかどうか。省略値は、`false` です。
   * `kiosk` Boolean (任意) - キオスクモード。省略値は、`false` です。
-  * `title` String (任意) - 既定のウインドウタイトル。省略値は、`"Electron"` です。
+  * `title` String (任意) - デフォルトのウインドウタイトル。 省略値は `"Electron"` です。 HTML タグの `<title>` が `loadURL()` でロードされた HTML ファイル内で定義されている場合、このプロパティは無視されます。
   * `icon` ([NativeImage](native-image.md) | String) (任意) - ウインドウのアイコン。 Windowsでは、最高の視覚効果を得るためには、`ICO` アイコンを使うことを推奨します。未定義のままにすることもできますが、その場合、実行可能ファイルのアイコンが使われます。
   * `show` Boolean (任意) - 生成時にウインドウを表示するかどうか。省略値は、`true` です。
   * `frame` Boolean (任意) - [Frameless Window](frameless-window.md) を生成する場合、`false` に指定します。省略値は、`true` です。
@@ -151,7 +150,7 @@ child.once('ready-to-show', () => {
   * `disableAutoHideCursor` Boolean (任意) - 入力中にカーソルを非表示にするかどうか。 省略値は、`false` です。
   * `autoHideMenuBar` Boolean (任意) - `Alt` キーが押されていない場合、メニューバーを自動的に非表示にします。省略値は、`false` です。
   * `enableLargerThanScreen` Boolean (任意) - ウインドウを画面よりも大きいサイズに変更できるようにします。省略値は、`false` です。
-  * `backgroundColor` String (任意) - `#66CD00` や `#FFF` や `#80FFFFFF` (`transparent` を `true` にセットすればアルファ値をサポートします) のような16進数の値でのウインドウの背景色。 省略値は `#FFF` (白) です。
+  * `backgroundColor` String (任意) - `#66CD00` や `#FFF` や `#80FFFFFF` (`transparent` を `true` にセットすれば #AARRGGBB 形式のアルファ値をサポートします) のような16進数の値でのウインドウの背景色。 省略値は `#FFF` (白) です。
   * `hasShadow` Boolean (任意) - ウインドウが影をもっているかどうか。これはmacOSでのみ実装されています。省略値は、`true` です。
   * `opacity` Number (任意) - ウインドウの初期透明度を0.0 (完全に透明) から 1.0 (完全に不透明) の間で設定します。これはWindowsとmacOSでのみ実装されています。
   * `darkTheme` Boolean (任意) - ウインドウに対してダークテーマを強制的に使用します。いくつかのGTK+3デスクトップ環境でしか動作しません。省略値は、`false` です。
@@ -169,8 +168,9 @@ child.once('ready-to-show', () => {
   * `tabbingIdentifier` String (任意) - タブのグループ名で、macOS 10.12以上の場合、ネイティブのタブとしてウインドウを開くことができます。 同一のタブ識別子を持つウインドウは、一緒にグループ化されます。 これはネイティブのタブボタンをウインドウのタブバーに追加し、`app` とウインドウが `new-window-for-tab` イベントを受け取ることができるようになります。
   * `webPreferences` Object (任意) - Webページの機能設定。 
     * `devTools` Boolean (任意) - デベロッパーツールを有効にするかどうか。 `false` に設定すると、`BrowserWindow.webContents.openDevTools()` を使ってデベロッパーツールを開くことはできません。 省略値は `true` です。
-    * `nodeIntegration` Boolean (任意) - Node統合を有効にするかどうか。省略値は、`true` です。
+    * `nodeIntegration` Boolean (任意) - Node Integration を有効にするかどうか。省略値は、`false` です。
     * `nodeIntegrationInWorker` Boolean (任意) - WebワーカーでNode統合を有効にするかどうか。 省略値は、`false` です。 これについての詳細は、[マルチスレッド](../tutorial/multithreading.md) を参照してください。
+    * `nodeIntegrationInSubFrames` Boolean (任意) - iframe のようなサブフレーム内で NodeJS サポートを有効にする実験的な機能です。 すべてのプリロードは iframe 毎にロードされます。メインフレーム内かそうでないか判断するには `process.isMainFrame` が使用できます。
     * `preload` String (任意) - 他のスクリプトがページで実行される前にロードされるスクリプトを指定します。 このスクリプトは、Node統合がオンまたはオフであるかに関係なく常にNode APIにアクセスできます。 値は、スクリプトへの絶対ファイルパスにする必要があります。 Node統合がオフのときでも、プレロードされたスクリプトは、Nodeのグローバルシンボルをグローバルスコープに再導入できます。 [ここ](process.md#event-loaded) の例を参照してください。
     * `sandbox` Boolean (任意) - 設定された場合、ウインドウと関連付けられているレンダラーをサンドボックス化します。これは、ChromiumのOSレベルのサンドボックスと互換性を持ち、Node.jsエンジンを無効化します。 これは `nodeIntegration` オプションと同じではなく、プレロードスクリプトで利用可能なAPIよりもさらに制限がかかります。 このオプションの詳細については、[ここ](sandbox-option.md) をお読みください。 **注:** このオプションは、現在のところ、実験的なものであり、将来のElectronのリリースで変更されたり、削除されたりする可能性があります。
     * `enableRemoteModule` Boolean (任意) - [`remote`](remote.md) モジュールを有効にするかどうか。省略値は `true`。
@@ -204,12 +204,13 @@ child.once('ready-to-show', () => {
     * `backgroundThrottling` Boolean (任意) - ページがバックグラウンドになったとき、アニメーションやタイマーを抑制するかどうか。 これは [Page Visibility API](#page-visibility) にも影響を与えます。 省略値は `true` です。
     * `offscreen` Boolean (任意) - ブラウザウィンドウでオフスクリーンレンダリングを有効にするかどうか。 省略値は、`false` です。 詳細については、[オフスクリーンレンダリングのチュートリアル](../tutorial/offscreen-rendering.md) を参照してください。
     * `contextIsolation` Boolean (任意) - Electron APIと指定された `preload` スクリプトを別々のJavaScriptコンテキストで実行するかどうか。 省略値は、`false` です。 `preload` スクリプトが実行されているコンテキストは、依然として `document` と `window` のグローバル変数にフルアクセスできますが、独自のJavaScriptの組み込みコマンドのセット (`Array`、`Object`、`JSON` など) を使用し、ロードされたページによってグローバル環境に加えられたいかなる変更からも分離されます。 Electron APIは `preload` スクリプトでのみ利用可能で、読み込まれたページでは利用できません。 このオプションは、潜在的に信頼できないリモートコンテンツをロードする際、ロードされたコンテンツが `preload` スクリプトや使用されているElectron APIを悪用することができないようにするときに使用する必要があります。 このオプションは、[Chromeのコンテンツスクリプト](https://developer.chrome.com/extensions/content_scripts#execution-environment)で使用されているのと同じ手法を使用します。 Consoleタブの一番上のコンボボックスの中にある 'Electron Isolated Context' という項目を選択することによって、開発者ツールでこのコンテキストにアクセスすることができます。
-    * `nativeWindowOpen` Boolean (任意) - ネイティブの `window.open()` を使用するかどうか。 `true` にセットすると、子ウインドウの `webPreferences` は、`window.open()` に渡した引数に関係なく常に親ウインドウと同じです。 省略値は `false` です。 **注:** 現在、このオプションは実験的なものです。
-    * `webviewTag` Boolean (任意) - [`<webview>` タグ](webview-tag.md) を有効にするかどうか。 省略値は、`nodeIntegration` オプションの値です。 **注:** `<webview>` に設定された `preload` スクリプトは、実行時にNode統合が有効になるので、潜在的に悪意のある `preload` スクリプトを含む `<webview>` タグをリモート/信頼できないコンテンツに作成させないようにする必要があります。 `preload` スクリプトを除去したり、検証したり、`<webview>` の初期設定を変更したりするために、[webContents](web-contents.md) の `will-attach-webview` イベントを使うことができます。
+    * `nativeWindowOpen` Boolean (任意) - ネイティブの `window.open()` を使用するかどうか。 省略値は、`false` です。 子ウインドウでは Node Integration が常に無効化されます。 **注:** 現在、これは実験的な機能です。
+    * `webviewTag` Boolean (任意) - [`<webview>` タグ](webview-tag.md) を有効にするかどうか。 省略値は、`false` です。 **注:** `<webview>` に設定された `preload` スクリプトは、実行時にNode統合が有効になるので、潜在的に悪意のある `preload` スクリプトを含む `<webview>` タグをリモート/信頼できないコンテンツに作成させないようにする必要があります。 `preload` スクリプトを除去したり、検証したり、`<webview>` の初期設定を変更したりするために、[webContents](web-contents.md) の `will-attach-webview` イベントを使うことができます。
     * `additionalArguments` String[] (任意) - このアプリケーションのレンダラープロセスで `process.argv` に追加される文字列のリスト。少量のデータをレンダラープロセスのプリロードスクリプトに渡すのに便利です。
     * `safeDialogs` Boolean (任意) - ブラウザ方式の連続したダイアログからの保護を有効にするかどうか。省略値は `false`。
     * `safeDialogsMessage` String (任意) - 連続したダイアログからの保護が機能したときに表示されるメッセージ。 定義されていなければデフォルトメッセージが使われますが、現在のデフォルトメッセージは英語であり、ローカライズされていないことに注意してください。
     * `navigateOnDragDrop` Boolean (任意) - ファイルやリンクをページにドラッグ&ドロップした際にナビゲーションするかどうか。省略値は `false`。
+    * `autoplayPolicy` String (任意) - ウインドウ内のコンテンツに適用される自動再生ポリシーで、`no-user-gesture-required`、`user-gesture-required`、`document-user-activation-required` にできます。 省略値は `no-user-gesture-required` です。
 
 `minWidth`/`maxWidth`/`minHeight`/`maxHeight` で最小もしくは最大のウインドウサイズを設定するのは、ユーザを束縛するだけです。 サイズ制約に関係しないサイズを `setBounds`/`setSize` や `BrowserWindow` のコンストラクタに渡すことは差し支えありません。
 
@@ -373,7 +374,7 @@ Webページが (まだ表示されていないが) レンダリングされ、�
 
 ウインドウが常に他のウインドウの手前に表示されるように設定またはそれが解除されたときに発生します。
 
-#### イベント: 'app-command' *Windows*
+#### イベント: 'app-command' *Windows* *Linux*
 
 戻り値:
 
@@ -394,6 +395,11 @@ win.on('app-command', (e, cmd) => {
   }
 })
 ```
+
+Linux 上では以下のアプリコマンドが明示的にサポートされます。
+
+* `browser-backward`
+* `browser-forward`
 
 #### イベント: 'scroll-touch-begin' *macOS*
 
@@ -676,11 +682,14 @@ HDビデオプレーヤーと関連したコントロールを持つ通常のウ
 ```javascript
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
- // bounds のプロパティをすべて指定
+
+// bounds のプロパティをすべて設定
 win.setBounds({ x: 440, y: 225, width: 800, height: 600 })
- // bounds のプロパティをひとつ指定
-win.setBounds({ width: 200 })
- // { x: 440, y: 225, width: 200, height: 600 }
+
+// bounds のプロパティをひとつ設定
+win.setBounds({ width: 100 })
+
+// { x: 440, y: 225, width: 100, height: 600 }
 console.log(win.getBounds())
 ```
 
@@ -867,7 +876,7 @@ Linuxでは常に `true` を返します。
 
 戻り値 `String` - ネイティブのウインドウのタイトル。
 
-**注:** Webページのタイトルはネイティブのウインドウのタイトルとは異なる可能性があります。
+**注:** Web ページのタイトルはネイティブのウインドウのタイトルとは異なる可能性があります。
 
 #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
 
@@ -965,7 +974,17 @@ win.setSheetOffset(toolbarRect.height)
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
-`webContents.capturePage([rect, ]callback)` と同じです。
+`rect` 内のページのスナップショットをキャプチャします。 完了時に、`callback` が `callback(image)` で呼ばれます。 `image` はスナップショットのデータを格納する [NativeImage](native-image.md) のインスタンスです。 `rect` を省略すると、表示されているページ全体をキャプチャします。
+
+**[非推奨予定](promisification.md)**
+
+#### `win.capturePage([rect])`
+
+* `rect` [Rectangle](structures/rectangle.md) (任意) - キャプチャする範囲
+
+* 戻り値 `Promise<NativeImage>` - [NativeImage](native-image.md) を解決します
+
+`rect` 範囲内のページのスナップショットを撮ります。`rect` を省略すると、表示されているページ全体をキャプチャします。
 
 #### `win.loadURL(url[, options])`
 
@@ -977,7 +996,9 @@ win.setSheetOffset(toolbarRect.height)
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (任意)
   * `baseURLForDataURL` String (任意) - データURLによってロードされたファイルの (最後のパス区切り文字を含む) ベースURL。 これは指定された `url` がデータURLで、他のファイルをロードする必要がある場合のみ必要です。
 
-`webContents.loadURL(url[, options])` と同じです。
+戻り値 `Promise<void>` - ページ読み込みが完了した時 ([`did-finish-load`](web-contents.md#event-did-finish-load) を参照) に解決され、ページの読み込みに失敗した時 ([`did-fail-load`](web-contents.md#event-did-fail-load) を参照) に拒否される Promise。
+
+[`webContents.loadURL(url[, options])`](web-contents.md#contentsloadurlurl-options) と同じです。
 
 `url` は、リモートアドレス (例えば、`http://`) または `file://` プロトコルを使ってローカルのHTMLファイルのパスにすることができます。
 
@@ -1013,6 +1034,8 @@ win.loadURL('http://localhost:8000/post', {
   * `search` String (任意) - `url.format()` に渡されます。
   * `hash` String (任意) - `url.format()` に渡されます。
 
+戻り値 `Promise<void>` - ページ読み込みが完了した時 ([`did-finish-load`](web-contents.md#event-did-finish-load) を参照) に解決され、ページの読み込みに失敗した時 ([`did-fail-load`](web-contents.md#event-did-fail-load) を参照) に拒否される Promise。
+
 `webContents.loadFile` と同じで、`filePath` はアプリケーションのルートからの相対パスで指す HTML でなければいけません。詳細は `webContents` ドキュメントを参照してください。
 
 #### `win.reload()`
@@ -1023,7 +1046,11 @@ win.loadURL('http://localhost:8000/post', {
 
 * `menu` Menu | null
 
-`menu` をウインドウのメニューバーとして設定します。`null` を設定すると、メニューバーが削除されます。
+`menu` をウインドウのメニューバーとして設定します。
+
+#### `win.removeMenu()` *Linux* *Windows*
+
+ウインドウのメニューバーを消去します。
 
 #### `win.setProgressBar(progress[, options])`
 
@@ -1094,12 +1121,12 @@ WindowsとLinuxでは常に `true` を返します。
 
 `flags` は、以下の `String` を含めることができる配列です。
 
-* `enabled` - ボタンはアクティブかつユーザが使用可能です。
-* `disabled` - ボタンは無効です。存在しますが、ユーザ操作に応答しないことを示す視覚的な状態です。
-* `dismissonclick` - ボタンをクリックすると、サムネイルウインドウはすぐに閉じます。
-* `nobackground` - ボタンの境界を描画しません。画像だけでしか使用しないでください。
-* `hidden` - ボタンはユーザに表示されません。
-* `noninteractive` - ボタンは有効ですが、反応せず、押されたボタンの状態は描画されません。この値は、通知に使われるボタンのインスタンスのために用意されてます。
+* `enabled` - そのボタンはアクティブかつユーザが使用可能です。
+* `disabled` - そのボタンは無効です。存在しますが、ユーザ操作に応答しないことを示す視覚的な状態です。
+* `dismissonclick` - そのボタンをクリックすると、サムネイルウインドウがすぐに閉じます。
+* `nobackground` - そのボタンの縁を描画しません。画像にのみ使用してください。
+* `hidden` - そのボタンはユーザに表示されません。
+* `noninteractive` - そのボタンは有効ですが、反応せず、押されたボタンの状態も描画されません。この値は、例えば通知内で使用するボタンに使用されます。
 
 #### `win.setThumbnailClip(region)` *Windows*
 
@@ -1206,7 +1233,7 @@ macOSでは、NSWindowのsharingTypeをNSWindowSharingNoneに設定します。W
 
 ウインドウにフォーカスできるかどうかを変更します。
 
-#### `win.setParentWindow(parent)` *Linux* *macOS*
+#### `win.setParentWindow(parent)`
 
 * `parent` BrowserWindow
 
@@ -1258,7 +1285,7 @@ macOSでは、NSWindowのsharingTypeをNSWindowSharingNoneに設定します。W
 
 ブラウザウィンドウに曇りガラス効果を追加します。`null` または空文字を渡すと、ウインドウの曇りガラス効果が削除されます。
 
-#### `win.setTouchBar(touchBar)` *macOS* *Experimental*
+#### `win.setTouchBar(touchBar)` *macOS* *実験的*
 
 * `touchBar` TouchBar
 
@@ -1266,12 +1293,26 @@ macOSでは、NSWindowのsharingTypeをNSWindowSharingNoneに設定します。W
 
 **注釈:** TouchBar API は現在実験的な機能で、将来の Electron リリースでは変更されたり削除されたりする可能性があります。
 
-#### `win.setBrowserView(browserView)` *Experimental*
+#### `win.setBrowserView(browserView)` *実験的*
 
-* `browserView` [BrowserView](browser-view.md)
+* `browserView` [BrowserView](browser-view.md) - browserView を win へアタッチします。他の browserView がアタッチされている場合、このウインドウから削除されます。
 
 #### `win.getBrowserView()` *実験的*
 
-戻り値 `BrowserView | null` - アタッチされたBrowserView。何もアタッチされていない場合、`null` を返します。
+戻り値 `BrowserView | null` - アタッチされた BrowserView。何もアタッチされていない場合は `null` を返します。複数の BrowserView がアタッチされている場合はエラーを投げます。
+
+#### `win.addBrowserView(browserView)` *実験的*
+
+* `browserView` [BrowserView](browser-view.md)
+
+複数の BrowserView をサポートする setBrowserView の置換 API。
+
+#### `win.removeBrowserView(browserView)` *実験的*
+
+* `browserView` [BrowserView](browser-view.md)
+
+#### `win.getBrowserViews()` *実験的*
+
+addBrowserView や setBrowserView でアタッチされた `BrowserView` の配列を返します。
 
 **注:** 現在のところ、BrowserView APIは実験的な機能であり、将来のElectronのリリースで変更されたり、削除されたりする可能性があります。

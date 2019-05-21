@@ -46,15 +46,13 @@ Les `NODE_OPTIONS` sont strictement interdites dans les applications compilées.
 
 ### `GOOGLE_API_KEY`
 
-Electron inclut une clé d'API codée en dur pour faire des requêtes au webservice de geocoding de Google. Car cette clé API est incluse dans toutes les versions d'Electron, elle dépasse souvent son quota d'utilisation. Pour contourner ce problème, vous pouvez fournir votre propre clé API Google dans l'environnement. Placez le code suivant dans votre fichier main process avant d'ouvrir une fenêtre navigateur qui va faire des requêtes geocoding :
+You can provide an API key for making requests to Google's geocoding webservice. To do this, place the following code in your main process file, before opening any browser windows that will make geocoding requests:
 
 ```javascript
 process.env.GOOGLE_API_KEY = 'VOTRE_CLE_ICI'
 ```
 
-Pour savoir comment obtenir une clé API Google, vous pouvez aller [sur cette page](https://www.chromium.org/developers/how-tos/api-keys).
-
-Par défaut, une nouvelle clé API Google générée ne peut pas faire de requêtes geocoding. Pour activer les requêtes geocoding, veuillez voir [cette page](https://console.developers.google.com/apis/api/geolocation/overview).
+For instructions on how to acquire a Google API key, visit [this page](https://developers.google.com/maps/documentation/javascript/get-api-key). Par défaut, une nouvelle clé API Google générée ne peut pas faire de requêtes geocoding. Pour activer les requêtes geocoding, veuillez voir [cette page](https://developers.google.com/maps/documentation/geocoding/get-api-key).
 
 ### `ELECTRON_NO_ASAR`
 

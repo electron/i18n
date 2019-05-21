@@ -122,7 +122,7 @@
   
   ### Instance Methods
   
-  #### `ses.getCacheSize(callback)`
+  #### `ses.getCacheSize()`
   
   ### Instance Properties
   
@@ -135,7 +135,7 @@
   #### `cookies.get(filter, callback)`
   ```
   
-  ### المنهجية
+  ### Methods
   
   The methods chapter must be in the following form:
   
@@ -162,8 +162,8 @@
   
   Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
   
-  * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
-  * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
+  * [`نصوص`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
+  * [`الرقم`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
   * [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
   * [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
   * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)

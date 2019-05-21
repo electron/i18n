@@ -120,11 +120,16 @@ Varsayılan olarak `url` için yeni bir `BrowserWindow` oluşturulacaktır.
 Calling `event.preventDefault()` will prevent Electron from automatically creating a new [`BrowserWindow`](browser-window.md). If you call `event.preventDefault()` and manually create a new [`BrowserWindow`](browser-window.md) then you must set `event.newGuest` to reference the new [`BrowserWindow`](browser-window.md) instance, failing to do so may result in unexpected behavior. Örneğin:
 
 ```javascript
-myBrowserWindow.webContents.on('new-window', (event, url) => {
+myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition, options) => {
   event.preventDefault()
-  const win = new BrowserWindow({ show: false })
+  const win = new BrowserWindow({
+    webContents: options.webContents, // use existing webContents if provided
+    show: false
+  })
   win.once('ready-to-show', () => win.show())
-  win.loadURL(url)
+  if (!options.webContents) {
+    win.loadURL(url) // existing webContents will be navigated automatically
+  }
   event.newGuest = win
 })
 ```
@@ -580,6 +585,44 @@ Dönüşler:
 
 Emitted when the associated window logs a console message. Will not be emitted for windows with *offscreen rendering* enabled.
 
+#### Event: 'preload-error'
+
+Dönüşler:
+
+* `event` Olay
+* `preloadPath` String
+* `error` Error
+
+Emitted when the preload script `preloadPath` throws an unhandled exception `error`.
+
+#### Etkinlik: 'ipc-message'
+
+Dönüşler:
+
+* `event` Olay
+* `channel` Dizesi
+* `...args` herhangi[]
+
+Emitted when the renderer process sends an asynchronous message via `ipcRenderer.send()`.
+
+#### Event: 'ipc-message-sync'
+
+Dönüşler:
+
+* `event` Olay
+* `channel` Dizesi
+* `...args` herhangi[]
+
+Emitted when the renderer process sends a synchronous message via `ipcRenderer.sendSync()`.
+
+#### Event: 'desktop-capturer-get-sources'
+
+Dönüşler:
+
+* `event` Olay
+
+Emitted when `desktopCapturer.getSources()` is called in the renderer process. Calling `event.preventDefault()` will make it return empty sources.
+
 #### Event: 'remote-require'
 
 Dönüşler:
@@ -644,6 +687,8 @@ Emitted when `<webview>.getWebContents()` is called in the renderer process. Cal
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
   * `baseURLForDataURL` Dizgi (isteğe bağlı) - Veri bağlantıları tarafından dosyaların yükleneceği (Dizin ayracına sahip) temel bağlantı. Buna, sadece belirtilen `url` bir veri bağlantısıysa ve başka dosyalar yüklemesi gerekiyorsa, gerek duyulur.
 
+Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
+
 `url`'yi pencereye yükler. `url` bir protokol önadı içermek zorundadır, Örneğin `http://` veya `file://`. Eğer yüklemenin http önbelleğini atlaması gerekiyorsa, atlatmak için `pragma` başlığını kullanın.
 
 ```javascript
@@ -659,6 +704,8 @@ webContents.loadURL('https://github.com', options)
   * `query` Object (optional) - Passed to `url.format()`.
   * `search` String (optional) - Passed to `url.format()`.
   * `hash` String (optional) - Passed to `url.format()`.
+
+Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
 Loads the given file in the window, `filePath` should be a path to an HTML file relative to the root of your application. For instance an app structure like this:
 
@@ -795,8 +842,8 @@ Yürürlükteki web sayfasına CSS ekler.
 
 #### `contents.executeJavaScript(code[, userGesture, callback])`
 
-* `code` String
-* `userGesture` Boolean (isteğe bağlı) - Varsayılan `false`'dur.
+* `code` Dizgi
+* `userGesture` Boolean (isteğe bağlı) - Varsayılan `false`'dır.
 * `geri aramak` Function (isteğe bağlı) - Script çalıştıktan sonra çağırılır. 
   * `result` Any
 
@@ -804,7 +851,7 @@ Returns `Promise<any>` - A promise that resolves with the result of the executed
 
 Sayfadaki `code`'u ölçer.
 
-Tarayıcı penceresinde, `requestFullScreen` gibi bazı HTML API'leri yalnızca kullanıcıdan gelen bir hareket ile çağrılmaktadır. `userGesture` ayarını `true` olarak ayarladığınızda bu sınırlama kaldırılır.
+Tarayıcı penceresinde `requestFullScreen` gibi bazı HTML arayüzleri (APIs) sadece kullanıcıdan gelen bir işaretle çağrılabilir. `userGesture` ayarını `true` olarak ayarladığınızda bu sınırlama kaldırılır.
 
 If the result of the executed code is a promise the callback result will be the resolved value of the promise. We recommend that you use the returned Promise to handle code that results in a Promise.
 
@@ -841,12 +888,9 @@ Returns `Boolean` - Whether audio is currently playing.
 
 Yakınlaştırma faktörünü belirtilen faktöre değiştirir. Yakınlaştırma faktörü yakınlaştırma yüzdesinin 100'e bölünmüşüdür, böylece % 300 = 3.0 olur.
 
-#### `contents.getZoomFactor(callback)`
+#### `contents.getZoomFactor()`
 
-* `geri aramak` Function 
-  * `zoomFactor` Sayı
-
-Yürürlükteki yakınlaştırma değerini almak için bir istek gönderir, `callback` , `callback(zoomFactor)` ile birlikte çağrılacaktır.
+Returns `Number` - the current zoom factor.
 
 #### `contents.setZoomLevel(level)`
 
@@ -854,12 +898,9 @@ Yürürlükteki yakınlaştırma değerini almak için bir istek gönderir, `cal
 
 Yakınlaştırma düzeyini belirtilen seviyeye değiştirir. Orijinal boyut 0'dır ve her bir artım yukarıdaki veya aşağıdaki %20 daha büyük veya daha küçük, varsayılan %300 sınırına ve %50 orijinal boyutuna sırasıyla yakınlaştırma oranını temsil eder. The formula for this is `scale := 1.2 ^ level`.
 
-#### `contents.getZoomLevel(callback)`
+#### `contents.getZoomLevel()`
 
-* `geri aramak` Function 
-  * `zoomLevel` Sayı
-
-Yürürlükteki yakınlaştırma düzeyini almak için bir istek gönderir, `callback`, `callback(zoomLevel)` ile birlikte çağrılacaktır.
+Returns `Number` - the current zoom level.
 
 #### `contents.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
@@ -949,8 +990,8 @@ Odaklanmış öğeye `metin` ekler.
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
-  * `wordStart` Boolean (optional) (Deprecated) - Whether to look only at the start of words. defaults to `false`.
-  * `medialCapitalAsWordStart` Boolean (optional) (Deprecated) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Diğer birtakım kelime-içi eşleşmeyi kabul eder, `false` varsayılan olur.
+  * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
+  * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Diğer birtakım kelime-içi eşleşmeyi kabul eder, `false` varsayılan olur.
 
 `Integer` döndürür - İstek için kullanılan istek kimliği.
 
@@ -977,11 +1018,21 @@ console.log(requestId)
 
 #### `contents.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (isteğe bağlı) - Sayfanın yakalanılmak istenen alanı.
+* `rect` [Rectangle](structures/rectangle.md) (isteğe bağlı) - üst sınırlar
 * `geri aramak` Function 
   * `image` [NativeImage](native-image.md)
 
-`rect` içerisinde kalan sayfanın anlık görüntüsünü yakalar. İşlemin tamamlanmasının ardından `callback`, `callback(İmage)` ile birlikte çağrılacaktır. `image`, anlık görüntünün verisini saklayan [NaviteImage](native-image.md)'in bir örneğidir. `rect` ifadesini çıkartmak görünebilen sayfanın tamamının yakalanmasını sağlar.
+`rect` içerisinde kalan sayfanın anlık görüntüsünü yakalar. İşlemin tamamlanmasının ardından `callback`, `callback(İmage)` ile birlikte çağrılacaktır. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
+
+**[Deprecated Soon](promisification.md)**
+
+#### `contents.capturePage([rect])`
+
+* `rect` [Rectangle](structures/rectangle.md) (isteğe bağlı) - Sayfanın yakalanılmak istenen alanı.
+
+* Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+
+Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
 
 #### `contents.hasServiceWorker(callback)`
 
@@ -1151,6 +1202,7 @@ app.once('ready', () => {
 
 * `seçenekler` Obje (opsiyonel) 
   * `mode` Dizgi - Geliştirme araçlarını belirtilen yuvalama durumuyla açar, `right`, `bottom`, `undocked`, `detach` olabilir. Varsayılan olarak son kullanılan yuvalama durumunu kullanır. `undocked` moddayken, geri yuvalama (dock back) mümkündür. `detach` modda ise mümkün değildir.
+  * `activate` Boolean (optional) - Whether to bring the opened devtools window to the foreground. The default is `true`.
 
 Geliştirme araçlarını açar.
 
@@ -1219,6 +1271,32 @@ app.on('ready', () => {
   </script>
 </body>
 </html>
+```
+
+#### `contents.sendToFrame(frameId, channel[, arg1][, arg2][, ...])`
+
+* `frameId` Integer
+* `channel` Dizesi
+* `...args` herhangi[]
+
+Send an asynchronous message to a specific frame in a renderer process via `channel`. Arguments will be serialized as JSON internally and as such no functions or prototype chains will be included.
+
+The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
+
+If you want to get the `frameId` of a given renderer context you should use the `webFrame.routingId` value. E.g.
+
+```js
+// In a renderer process
+console.log('My frameId is:', require('electron').webFrame.routingId)
+```
+
+You can also read `frameId` from all incoming IPC messages in the main process.
+
+```js
+// In the main process
+ipcMain.on('ping', (event) => {
+  console.info('Message came from frameId:', event.frameId)
+})
 ```
 
 #### `contents.enableDeviceEmulation(parameters)`

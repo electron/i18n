@@ -1,4 +1,4 @@
-# Praca z Electron
+# Praca z Electronem
 
 Te poradniki zostały stworzone dla ludzi współtworzących projekt Electron. Poradniki przy tworzeniu aplikacji, możesz znaleźć w [/docs/README.md](../README.md#guides-and-tutorials)
 
@@ -23,4 +23,3 @@ Te poradniki zostały stworzone dla ludzi współtworzących projekt Electron. P
 * [Aktualizowanie Chromium](upgrading-chromium.md)
 * [Aktualizowanie Crashpad](upgrading-crashpad.md)
 * [Aktualizowanie Node](upgrading-node.md)
-* [Wydawanie](releasing.md)

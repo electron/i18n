@@ -1,12 +1,12 @@
 # SeleniumとWebDriverを使用する
 
-From [ChromeDriver - WebDriver for Chrome](https://sites.google.com/a/chromium.org/chromedriver/):
+[ChromeDriver - クローム向けのWebDriver](https://sites.google.com/a/chromium.org/chromedriver/):
 
-> WebDriver is an open source tool for automated testing of web apps across many browsers. It provides capabilities for navigating to web pages, user input, JavaScript execution, and more. ChromeDriver is a standalone server which implements WebDriver's wire protocol for Chromium. It is being developed by members of the Chromium and WebDriver teams.
+> WebDriverは、ブラウザを横断的なテストの自動化を実現するためのオープンソースツールです。 このドライバはウェブページの遷移、インプット項目への入力、JavaScriptの実行などの機能を提供します。 ChromeDriverはChromium向けWebDriverのワイヤープロトコルを実装した、スタンドアローンサーバです。 このドライバは、ChromiumとWebDriverチームによって開発されています。
 
-## Setting up Spectron
+## Spectronを設定する
 
-[Spectron](https://electronjs.org/spectron) is the officially supported ChromeDriver testing framework for Electron. It is built on top of [WebdriverIO](http://webdriver.io/) and has helpers to access Electron APIs in your tests and bundles ChromeDriver.
+[Spectron](https://electronjs.org/spectron)はオフィシャルにサポートされているElectron向けChromeDriverテストフレームワークです。 これは[WebdriverIO](http://webdriver.io/)上に構築されており、テストプログラム内でElectron APIにアクセスする為のヘルパーとChromeDriverを内包しています。
 
 ```sh
 $ npm install --save-dev spectron
@@ -47,7 +47,7 @@ verifyWindowIsVisibleWithTitle(myApp)
 
 [WebDriverJs](https://code.google.com/p/selenium/wiki/WebDriverJs) provides a Node package for testing with web driver, we will use it as an example.
 
-### 1. Start ChromeDriver
+### 1. ChromeDriverを開始する
 
 First you need to download the `chromedriver` binary, and run it:
 
@@ -60,7 +60,7 @@ Only local connections are allowed.
 
 Remember the port number `9515`, which will be used later
 
-### 2. Install WebDriverJS
+### 2. WebDriverJSのインストール
 
 ```sh
 $ npm install selenium-webdriver
@@ -101,7 +101,7 @@ driver.quit()
 
 [WebdriverIO](http://webdriver.io/) provides a Node package for testing with web driver.
 
-### 1. Start ChromeDriver
+### 1. ChromeDriverを開始する
 
 First you need to download the `chromedriver` binary, and run it:
 
@@ -114,13 +114,13 @@ Only local connections are allowed.
 
 Remember the port number `9515`, which will be used later
 
-### 2. Install WebdriverIO
+### WebdriverIOのインストール
 
 ```sh
 $ npm install webdriverio
 ```
 
-### 3. Connect to chrome driver
+### 3. chrome driverへの接続
 
 ```javascript
 const webdriverio = require('webdriverio')

@@ -67,7 +67,17 @@ Jika pengguna tidak mengatur jalur simpan melalui API , Elektron akan menggunaka
 <h4><code>downloadItem.getSavePath ()`</h4> 
     Mengembalikan ` String </ 0> - Jalur penyimpanan item unduhan. Ini akan menjadi jalur yang ditetapkan melalui <code> downloadItem.setSavePath (jalur) </ 0> atau jalur yang dipilih dari dialog simpan yang ditunjukkan.</p>
 
-<h4><code>download Item.jedah ()`</h4> 
+<h4><code>downloadItem.setSaveDialogOptions(options)`</h4> 
+    
+    * `options` SaveDialogOptions - Set the save file dialog options. This object has the same properties as the `options` parameter of [`dialog.showSaveDialog()`](dialog.md).
+    
+    This API allows the user to set custom options for the save dialog that opens for the download item by default. The API is only available in session's `will-download` callback function.
+    
+    #### `downloadItem.getSaveDialogOptions()`
+    
+    Returns `SaveDialogOptions` - Returns the object previously set by `downloadItem.setSaveDialogOptions(options)`.
+    
+    #### `download Item.jedah ()`
     
     Jeda unduhan.
     

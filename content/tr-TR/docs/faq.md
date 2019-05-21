@@ -4,7 +4,7 @@
 
 `npm install electron` çalıştırılırken, bazı kullanıcılar bazen kurulum hatalarıyla karşılaşmaktadırlar.
 
-Hemen hemen tüm durumlarda bu hatalar, ağ sorunları ve `electron` npm paketi ile ilgili olmayan sorunlar sonucudur. `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, ve `ETIMEDOUT` gibi hatalar, ağ bağlantı problemlerinin göstergesidir. En iyi çözüm, ağ bağlantılarını değiştirmeyi denemek ya da biraz beklemek ve tekrar yüklemeyi denemektir.
+Hemen hemen tüm durumlarda bu hatalar, ağ sorunları ve `electron` npm paketi ile ilgili olmayan sorunlar sonucudur. `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, ve `ETIMEDOUT` gibi hatalar, ağ bağlantı problemlerinin göstergesidir. 가장 좋은 해결책은 네트워크를 전환하거나, 잠시 기다렸다가 다시 설치하는 것입니다.
 
 Eğer `npm` ile kurulum hataya düşüyorsa, Electron'u doğrudan [electron/electron/releases](https://github.com/electron/electron/releases)' den indirmeyi deneyebilirsiniz.
 
@@ -137,3 +137,24 @@ npm uninstall -g electron
 ```
 
 Bununla birlikte, yerleşik modülü kullanıyorsanız ancak yine de bu hatayı alıyorsanız büyük bir ihtimalle modülü yanlış süreç ile kullanıyorsunuzdur. Örneğin ` electron.app ` yalnızca ana süreçte kullanılabilirken, ` electron.webFrame ` yalnızca oluşturucu süreçlerinde kullanılabilir.
+
+## The font looks blurry, what is this and what can i do?
+
+If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Example:
+
+![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
+
+Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (See [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) for more info).
+
+To achieve this goal, set the background in the constructor for [BrowserWindow](api/browser-window.md):
+
+```javascript
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({
+  backgroundColor: '#fff'
+})
+```
+
+The effect is visible only on (some?) LCD screens. Even if you dont see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
+
+Notice that just setting the background in the CSS does not have the desired effect.

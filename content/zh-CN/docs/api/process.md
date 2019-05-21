@@ -2,7 +2,7 @@
 
 > 处理对象的扩展
 
-参见： [process](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) process
+进程： [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 Electron's `process` 对象继承 [Node.js `process` object](https://nodejs.org/api/process.html)。 它新增了以下事件、属性和方法
 
@@ -12,6 +12,7 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 
 * `crash()`
 * `hang()`
+* `getCreationTime()`
 * `getHeapStatistics()`
 * `getProcessMemoryInfo()`
 * `getSystemMemoryInfo()`
@@ -23,7 +24,6 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 * `pid`
 * `arch`
 * `platform`
-* `resourcesPath`
 * `沙盒化`
 * `type`
 * `version`
@@ -55,6 +55,10 @@ process.once('loaded', () => {
 
 `Boolean`类型， 当作为参数传递给默认应用程序启动应用时，该属性在主进程中为` true `，否则为` undefined `。
 
+### `process.isMainFrame`
+
+A `Boolean`, `true` when the current renderer context is the "main" renderer frame. If you want the ID of the current frame you should use `webFrame.routingId`.
+
 ### `process.mas`
 
 ` Boolean `类型，为 Mac App Store 生成, 此属性为 ` true `, 对于其他生成，则为 ` undefined `。
@@ -66,6 +70,10 @@ process.once('loaded', () => {
 ### `process.noDeprecation`
 
 `Boolean` 类型，用于控制弃用警告是否被打印到`stderr`。 将其设置为`true`将会禁用弃用警告。 使用此属性代替 `-no-deprecation ` 命令行标志。
+
+### `process.enablePromiseAPIs`
+
+A `Boolean` that controls whether or not deprecation warnings are printed to `stderr` when formerly callback-based APIs converted to Promises are invoked using callbacks. Setting this to `true` will enable deprecation warnings.
 
 ### `process.resourcesPath`
 
@@ -89,7 +97,7 @@ A `Boolean`. When the renderer process is sandboxed, this property is `true`, ot
 
 ### `process.type`
 
-一个表示当前进程类型的 ` String `, 可以是 ` "browser" ` (即主进程) 或 ` "renderer" `。
+A `String` representing the current process's type, can be `"browser"` (i.e. main process), `"renderer"`, or `"worker"` (i.e. web worker).
 
 ### `process.versions.chrome`
 

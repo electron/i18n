@@ -80,6 +80,16 @@ API, yalnızca oturumun `will-download` geri arama işlevinde kullanılabilir. K
 
 İndirilen öğenin kaydedilecek yolunu `String` olarak döndürür. Bu ya `downloadItem.setSavePath(path)` ile ayarlanmış yol olacak yada kaydetme diyaloğunda görünen seçilmiş yol olacak.
 
+#### `downloadItem.setSaveDialogOptions(options)`
+
+* `options` SaveDialogOptions - Set the save file dialog options. This object has the same properties as the `options` parameter of [`dialog.showSaveDialog()`](dialog.md).
+
+This API allows the user to set custom options for the save dialog that opens for the download item by default. The API is only available in session's `will-download` callback function.
+
+#### `downloadItem.getSaveDialogOptions()`
+
+Returns `SaveDialogOptions` - Returns the object previously set by `downloadItem.setSaveDialogOptions(options)`.
+
 #### `downloadItem.pause()`
 
 İndirmeyi duraklatır.

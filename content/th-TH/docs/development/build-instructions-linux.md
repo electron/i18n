@@ -27,7 +27,7 @@ $ sudo apt-get install build-essential clang libdbus-1-dev libgtk-3-dev \
                        libnotify-dev libgnome-keyring-dev libgconf2-dev \
                        libasound2-dev libcap-dev libcups2-dev libxtst-dev \
                        libxss1 libnss3-dev gcc-multilib g++-multilib curl \
-                       gperf bison python-dbusmock
+                       gperf bison python-dbusmock openjdk-8-jre
 ```
 
 On RHEL / CentOS, install the following libraries:
@@ -36,7 +36,7 @@ On RHEL / CentOS, install the following libraries:
 $ sudo yum install clang dbus-devel gtk3-devel libnotify-devel \
                    libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
                    cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
-                   GConf2-devel nss-devel python-dbusmock
+                   GConf2-devel nss-devel python-dbusmock openjdk-8-jre
 ```
 
 On Fedora, install the following libraries:
@@ -45,7 +45,7 @@ On Fedora, install the following libraries:
 $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
                    cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
-                   GConf2-devel nss-devel python-dbusmock
+                   GConf2-devel nss-devel python-dbusmock openjdk-8-jre
 ```
 
 Other distributions may offer similar packages for installation via package managers such as pacman. Or one can compile from source code.
@@ -76,7 +76,7 @@ $ gn gen out/Debug --args='import(...) target_cpu="arm"'
 
 See [Build Instructions: GN](build-instructions-gn.md)
 
-## Troubleshooting
+## วิธีแก้ปัญหาเบื้องต้น
 
 ### Error While Loading Shared Libraries: libtinfo.so.5
 

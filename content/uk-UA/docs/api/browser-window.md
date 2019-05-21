@@ -102,7 +102,6 @@ child.once('ready-to-show', () => {
 
 * На macOS модальні вікна будуть відображені як сторінки прикріплені до батьківського вікна.
 * На macOS дочірні вікна будуть зберігати відносну позицію до батьківського вікна. якщо воно рухається, тоді як на Windows та Linux дочірнє вікно не рухається.
-* На Windows не підтримується динамічна зміна батьківського вікна.
 * На Linux тип модального вікна буде змінено на `dialog`.
 * На Linux багато середовищ робочого столу не підтримують приховування модального вікна.
 
@@ -141,7 +140,7 @@ child.once('ready-to-show', () => {
   * `simpleFullscreen` Boolean (опціонально) - Використовувати повноекранний режим pre-Lion на macOS. За замовчуванням `false`.
   * `skipTaskbar` Boolean (опціонально) - Чи показувати вікно на панелі завдань. За замовчуванням `false`.
   * `kiosk` Boolean (опціонально) - Повноекранний режим браузера. За замовчуванням `false`.
-  * `title` String (опціонально) - Заголовок вікна за замовчуванням. За замовчуванням `"Electron"`.
+  * `title` String (optional) - Default window title. Default is `"Electron"`. If the HTML tag `<title>` is defined in the HTML file loaded by `loadURL()`, this property will be ignored.
   * `icon` ([NativeImage](native-image.md) | String) (опціонально) - Піктограма вікна. На Windows рекомендовано використовувати `ICO` піктограми, щоб отримати найкращі візуальні ефекти, ви також можете залишити її невизначеною, тоді використається піктограма виконуваного файлу.
   * `show` Boolean (опціонально) - Чи показувати вікно після створення. За замовчуванням `true`.
   * `frame` Boolean (опціонально) - Вкажіть `false` для створення [Вікна без Рамки](frameless-window.md). За замовчуванням `true`.
@@ -151,7 +150,7 @@ child.once('ready-to-show', () => {
   * `disableAutoHideCursor` Boolean (опціонально) - Чи ховати курсор під час вводу. За замовчуванням `false`.
   * `autoHideMenuBar` Boolean (опціонально) - Автоматично ховати панель меню, якщо кнопка `Alt` натиснута. За замовчуванням `false`.
   * `enableLargerThanScreen` Boolean (опціонально) - Дозволяти робити вікно більшим за екран. За замовчуванням `false`.
-  * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported if `transparent` is set to `true`). Default is `#FFF` (white).
+  * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha in #AARRGGBB format is supported if `transparent` is set to `true`). Default is `#FFF` (white).
   * `hasShadow` Boolean (опціонально) - Чи має вікно мати тінь. Реалізовано тільки на macOS. За замовчуванням `true`.
   * `opacity` Number (опціонально) - Встановити початкову непрозорість вікна, між 0.0 (повність прозоре) та 1.0 (повністю непрозоре). Реалізовано тільки на Windows та macOS.
   * `darkTheme` Boolean (опціонально) - Примусово використовувати темну тему для вікна, працює тільки на деяких середовищах GTK+3. За замовчуванням `false`.
@@ -169,8 +168,9 @@ child.once('ready-to-show', () => {
   * `tabbingIdentifier` String (опціонально) - Назва групи вкладок, дозволяє відкривати вікно як нативну вкладку на macOS 10.12+. Вікна з такими самими ідентифікаторами вкладок будуть згруповані разом. Це такоє додає нативну кнопку нової вкладки до панель вкладок вашого вікна та дозволяє вашому `app` та вікну отримувати подію `new-window-for-tab`.
   * `webPreferences` Object (опціонально) - Налаштування особливостей веб-сторінки. 
     * `devTools` Boolean (опціонально) - Чи вмикати DevTools. Якщо встановлено в `false`, не можна використовувати `BrowserWindow.webContents.openDevTools()` для відкриття DevTools. За замовчуванням `true`.
-    * `nodeIntegration` Boolean (опціонально) - Чи ввімкнена Node.js інтеграція. За замовчуванням `true`.
+    * `nodeIntegration` Boolean (optional) - Whether node integration is enabled. Default is `false`.
     * `nodeIntegrationInWorker` Boolean (опціонально) - Чи Node.js інтеграція увімкнена в веб-воркерах. За замовчуванням `false`. Більше інформації можна знайти в [Багатопоточності](../tutorial/multithreading.md).
+    * `nodeIntegrationInSubFrames` Boolean (optional) - Experimental option for enabling NodeJS support in sub-frames such as iframes. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not.
     * `preload` String (опціонально) - Визначає скрипт, який буде завантажено перед запуском інших скриптів на сторінці. Цей скрипт завжди буде мати доступ до Node.js API, в незалежності чи Node.js інтеграція увімкнена чи ні. Значенням має бути абсолютний шлях до скрипта. Коли Node.js інтеграція вимкнена, скрипт може представити глобальні символи Node назад в глобальне середовище. Дивись приклад [тут](process.md#event-loaded).
     * `sandbox` Boolean (опціонально) - Якщо встановлено, це запустить рендерер, який асоціюється з вікном, у тестовому режимі, роблячи його сумісним з тестуванням Chromium рівня ОС і вимикаючи движок Node.js. Це не те саме що і опція `nodeIntegration` і API, доступне для попередньої підгрузки скриптів, є більш обмеженим. Читайте більше про опцію [тут](sandbox-option.md). **Примітка:** Ця опція наразі екпериментальна і може бути змінена чи видалена в майбутніх релізах Electron.
     * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. Default is `true`.
@@ -204,12 +204,13 @@ child.once('ready-to-show', () => {
     * `backgroundThrottling` Boolean (опціонально) - Чи забороняти анімацію і таймери, коли сторінка стає фоновою. Це також впливає на [Page Visibility API](#page-visibility). За замовчуванням `true`.
     * `offscreen` Boolean (опціонально) - Чи вмикати позаекранний рендеринг вікна браузера. За замовчуванням `false`. Дивіться [інструкцію позаекранного рендерингу](../tutorial/offscreen-rendering.md) для детальнішої інформації.
     * `contextIsolation` Boolean (опціонально) - Чи запускати API Electron і визначені `preload` скрипти в окремому контексті JavaScript. За замовчуванням `false`. Контекст, в якому будуть запускатися `preload` скрипти, все ще буде мати повний доступ до глобальних `document` і `window`, але буде використовувати власні визначені JavaScript вбудовані конструкції (`Array`, `Object`, `JSON`, тощо) і буде ізольований від змін глобального середовища під час завантаження сторінки. API Electron буде доступне тільки в `preload` скрипті, аое не на завантаженій сторінці. Цю поцію слід використовувати, коли підвантажується потенційно ненадійний контент віддалений, щоб переконатися, що вміст не зможе втрутитися в `preload` скрипт і API Electron не буде використане. Ця опція використовує таку саму техніку як і [Контент Скрипти Chrome](https://developer.chrome.com/extensions/content_scripts#execution-environment). Цей контекст доступний в інтрументах розробника при виборі пункту 'Ізольований Контекст Electron' в полі зі списком вгорі вкладки Консоль.
-    * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. If set to `true`, the `webPreferences` of child window will always be the same with parent window, regardless of the parameters passed to `window.open()`. За замовчуванням `false`. **Note:** This option is currently experimental.
-    * `webviewTag` Boolean (опціонально) - Чи вмикати [`<webview>` тег](webview-tag.md). За замовчуванням відповідає значенню опції `nodeIntegration`. **Примітка:** `preload` скрипт, сконфігурований для `<webview>` буде мати ввімкнену інтеграцію з Node.js, коли він буде виконуватися, тому ви маєте впевнитися, що віддалений/ненадійний контент не може створювати `<webview>` тег з потенційно зловмисним `preload` скриптом. Ви можете використовуват подію `will-attach-webview` на [webContents](web-contents.md), щоб стерти `preload` скрипт і провалідувати чи змінити початкові налаштування `<webview>`.
+    * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. За замовчуванням `false`. Child windows will always have node integration disabled. **Note:** This option is currently experimental.
+    * `webviewTag` Boolean (опціонально) - Чи вмикати [`<webview>` тег](webview-tag.md). За замовчуванням `false`. **Примітка:** `preload` скрипт, сконфігурований для `<webview>` буде мати ввімкнену інтеграцію з Node.js, коли він буде виконуватися, тому ви маєте впевнитися, що віддалений/ненадійний контент не може створювати `<webview>` тег з потенційно зловмисним `preload` скриптом. Ви можете використовуват подію `will-attach-webview` на [webContents](web-contents.md), щоб стерти `preload` скрипт і провалідувати чи змінити початкові налаштування `<webview>`.
     * `additionalArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app. Useful for passing small bits of data down to renderer process preload scripts.
     * `safeDialogs` Boolean (optional) - Whether to enable browser style consecutive dialog protection. Default is `false`.
     * `safeDialogsMessage` String (optional) - The message to display when consecutive dialog protection is triggered. If not defined the default message would be used, note that currently the default message is in English and not localized.
     * `navigateOnDragDrop` Boolean (optional) - Whether dragging and dropping a file or link onto the page causes a navigation. Default is `false`.
+    * `autoplayPolicy` String (optional) - Autoplay policy to apply to content in the window, can be `no-user-gesture-required`, `user-gesture-required`, `document-user-activation-required`. Defaults to `no-user-gesture-required`.
 
 Коли встановлюються мінімальні та максимальні розміри вікна `minWidth`/`maxWidth`/`minHeight`/`maxHeight`, це лише обмежує користувачів. Це не перешкодить вам передати розмір, який не відповідає обмеженням в `setBounds`/`setSize` чи конструкторі `BrowserWindow`.
 
@@ -373,7 +374,7 @@ Note that this is only emitted when the window is being resized manually. Resizi
 
 Emitted when the window is set or unset to show always on top of other windows.
 
-#### Подія: 'app-command' *Windows*
+#### Event: 'app-command' *Windows* *Linux*
 
 Повертає:
 
@@ -394,6 +395,11 @@ win.on('app-command', (e, cmd) => {
   }
 })
 ```
+
+The following app commands are explictly supported on Linux:
+
+* `browser-backward`
+* `browser-forward`
 
 #### Подія: 'scroll-touch-begin' *macOS*
 
@@ -676,11 +682,14 @@ Resizes and moves the window to the supplied bounds. Any properties that are not
 ```javascript
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
- // set all bounds properties
+
+// set all bounds properties
 win.setBounds({ x: 440, y: 225, width: 800, height: 600 })
- // set a single bounds property
-win.setBounds({ width: 200 })
- // { x: 440, y: 225, width: 200, height: 600 }
+
+// set a single bounds property
+win.setBounds({ width: 100 })
+
+// { x: 440, y: 225, width: 100, height: 600 }
 console.log(win.getBounds())
 ```
 
@@ -867,7 +876,7 @@ Moves window to top(z-order) regardless of focus
 
 Повертає `String` - Заголовок нативного вікна.
 
-**Примітка:** Заголовок веб-сторінки може відрізнятися від заголовку нативного вікна.
+**Note:** The title of the web page can be different from the title of the native window.
 
 #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
 
@@ -965,7 +974,17 @@ win.setSheetOffset(toolbarRect.height)
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
-Те саме що і `webContents.capturePage([rect, ]callback)`.
+Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
+
+**[Deprecated Soon](promisification.md)**
+
+#### `win.capturePage([rect])`
+
+* `rect` [Rectangle](structures/rectangle.md) (опціонально) - Межі для захоплення
+
+* Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+
+Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
 
 #### `win.loadURL(url[, options])`
 
@@ -977,7 +996,9 @@ win.setSheetOffset(toolbarRect.height)
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (опціонально)
   * `baseURLForDataURL` String (опціонально) - Основне URL (з розділювачем шляху) для файлів, які мають бути завантажені. Це необхідно, лише якщо вказане `url` є посилання на дані і потребує завантаження інших файлів.
 
-Те саме що і `webContents.loadURL(url[, options])`.
+Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
+
+Same as [`webContents.loadURL(url[, options])`](web-contents.md#contentsloadurlurl-options).
 
 `url` може бути віддаленою адресою (наприклад, `http://`) чи шляхом до локального HTML файлу, за допомогою протоколу `file://`.
 
@@ -1013,6 +1034,8 @@ win.loadURL('http://localhost:8000/post', {
   * `search` String (optional) - Passed to `url.format()`.
   * `hash` String (optional) - Passed to `url.format()`.
 
+Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
+
 Same as `webContents.loadFile`, `filePath` should be a path to an HTML file relative to the root of your application. See the `webContents` docs for more information.
 
 #### `win.reload()`
@@ -1023,7 +1046,11 @@ Same as `webContents.loadFile`, `filePath` should be a path to an HTML file rela
 
 * `menu` Menu | null
 
-Встановлює `menu` як рядок меню вікна, встановлення його в `null` буде видалити рядок меню.
+Sets the `menu` as the window's menu bar.
+
+#### `win.removeMenu()` *Linux* *Windows*
+
+Remove the window's menu bar.
 
 #### `win.setProgressBar(progress[, options])`
 
@@ -1206,7 +1233,7 @@ Sets whether the window should be visible on all workspaces.
 
 Змінює чи вікно може мати фокус.
 
-#### `win.setParentWindow(parent)` *Linux* *macOS*
+#### `win.setParentWindow(parent)`
 
 * `parent` BrowserWindow
 
@@ -1268,10 +1295,24 @@ Sets `parent` as current window's parent window, passing `null` will turn curren
 
 #### `win.setBrowserView(browserView)` *Експериментальний*
 
-* `browserView` [BrowserView](browser-view.md)
+* `browserView` [BrowserView](browser-view.md). Attach browserView to win. If there is some other browserViews was attached they will be removed from this window.
 
 #### `win.getBrowserView()` *Експериментальний*
 
-Повертає `BrowserView | null` - прикріплений BrowserView. Повертає `null`, якщо немає прикіпленого.
+Returns `BrowserView | null` - an BrowserView what is attached. Returns `null` if none is attached. Throw error if multiple BrowserViews is attached.
+
+#### `win.addBrowserView(browserView)` *Експериментальний*
+
+* `browserView` [BrowserView](browser-view.md)
+
+Replacement API for setBrowserView supporting work with multi browser views.
+
+#### `win.removeBrowserView(browserView)` *Експериментальний*
+
+* `browserView` [BrowserView](browser-view.md)
+
+#### `win.getBrowserViews()` *Експериментальний*
+
+Returns array of `BrowserView` what was an attached with addBrowserView or setBrowserView.
 
 **Примітка:** BrowserView API наразі є експериментальним і може бути зміненим чи видаленим з майбутніх версій Electron.

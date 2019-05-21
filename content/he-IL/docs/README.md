@@ -98,27 +98,27 @@
 * [Synopsis](api/synopsis.md)
 * [Process Object](api/process.md)
 * [Supported Chrome Command Line Switches](api/chrome-command-line-switches.md)
-* [Environment Variables](api/environment-variables.md)
-* [Breaking API Changes](api/breaking-changes.md)
+* [משתני סביבה](api/environment-variables.md)
+* [שינויים השוברים את ה־API](api/breaking-changes.md)
 
-### Custom DOM Elements:
+### אלמנטי DOM מותאמים אישית:
 
-* [`File` Object](api/file-object.md)
-* [`<webview>` Tag](api/webview-tag.md)
-* [`window.open` Function](api/window-open.md)
+* [`קובץ` Object](api/file-object.md)
+* [`<webview>` תג](api/webview-tag.md)
+* [`window.open` פונקציה](api/window-open.md)
 
-### Modules for the Main Process:
+### מודלים עבור ה־Main Process:
 
 * [app](api/app.md)
 * [autoUpdater](api/auto-updater.md)
 * [BrowserView](api/browser-view.md)
 * [BrowserWindow](api/browser-window.md)
 * [contentTracing](api/content-tracing.md)
-* [dialog](api/dialog.md)
+* [דיאלוג](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
 * [inAppPurchase](api/in-app-purchase.md)
 * [ipcMain](api/ipc-main.md)
-* [Menu](api/menu.md)
+* [תפריט](api/menu.md)
 * [MenuItem](api/menu-item.md)
 * [net](api/net.md)
 * [netLog](api/net-log.md)

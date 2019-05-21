@@ -34,18 +34,27 @@ Pagbabalik sa `Boolean` - Kung ang aytem ay matagumpay na nagbukas.
 
 Buksan ang binigay na payl sa dati nitong aspeto ng "desktop".
 
-### `shell.openExternal(url[, options, callback])`
+### `shell.openExternalSync(url[, mga pagpipilian])`
 
-* `url` String - Max 2081 characters on windows, or the function returns false.
+* `url` String - Max 2081 characters on Windows, or the function returns false.
 * `mga opsyon` Bagay (opsyonal) 
   * `activate` Boolean (optional) - `true` to bring the opened application to the foreground. The default is `true`. *macOS*
   * `workingDirectory` String (optional) - The working directory. *Windows*
-* `callback` Function (opsyonal) *macOS* - If specified will perform the open asynchronously. 
-  * `error` na Kamalian
 
-Pagbabalik sa `Boolean` - Kapag ang "application" ay maaaring buksan sa "URL". Kung ang muling pagtawag ang tinukoy, parati itong babalik sa "true".
+Returns `Boolean` - Whether an application was available to open the URL.
 
-Buksan ang binigay na panlabas na sistematikong panuntunan ng "desktop" sa karaniwan o dati na nitong ayos. (Halimbawa, mailto: "URLs" sa gumagamit ng ahente na nagpapadala ng mensahe ayon sa dati na nitong ayos o tinatawag na "default").
+Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
+
+### `shell.openExternal(url[, mga pagpipilian])`
+
+* `url` String - Max 2081 characters on windows.
+* `options` Na Bagay (opsyonal) 
+  * `activate` Boolean (optional) - `true` to bring the opened application to the foreground. The default is `true`. *macOS*
+  * `workingDirectory` String (optional) - The working directory. *Windows*
+
+Returns `Promise<void>`
+
+Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
 
 ### `shell.moveItemToTrash(fullPath)`
 

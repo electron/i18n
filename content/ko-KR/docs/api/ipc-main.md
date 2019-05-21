@@ -12,7 +12,7 @@ main 프로세스에서 renderer 프로세스로 메시지를 보내는 것도 �
 
 * 메시지를 보낼 때 이벤트 이름은 `channel`입니다.
 * 동기 메시지에 회신 하려면 `event.returnValue`를 설정 해야 합니다.
-* 비동기 메시지를 다시 보낸 사람에 게 보내려면 `event.sender.send(...)`를 사용할 수 있습니다.
+* To send an asynchronous message back to the sender, you can use `event.reply(...)`. This helper method will automatically handle messages coming from frames that aren't the main frame (e.g. iframes) whereas `event.sender.send(...)` will always send to the main frame.
 
 renderer와 main 프로세스간의 메시지 발송과 처리 예:
 
@@ -20,12 +20,12 @@ renderer와 main 프로세스간의 메시지 발송과 처리 예:
 // main 프로세스안에서
 const { ipcMain } = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
-  console.log(arg) // prints "ping"
-  event.sender.send('asynchronous-reply', 'pong')
+  console.log(arg) // "ping" 출력
+  event.reply('asynchronous-reply', 'pong')
 })
 
 ipcMain.on('synchronous-message', (event, arg) => {
-  console.log(arg) // prints "ping"
+  console.log(arg) // "ping" 출력
   event.returnValue = 'pong'
 })
 ```
@@ -76,6 +76,10 @@ ipcRenderer.send('asynchronous-message', 'ping')
 
 `callback`으로 전달되는 `event`객체는 다음과 같은 메소드를 가진다:
 
+### `event.frameId`
+
+An `Integer` representing the ID of the renderer frame that sent this message.
+
 ### `event.returnValue`
 
 동기 메시지에 반환 되는 값을 설정합니다.
@@ -83,3 +87,7 @@ ipcRenderer.send('asynchronous-message', 'ping')
 ### `event.sender`
 
 메시지를 보낸 `webContents`를 반환합니다. 비동기 메시지에 응답하기 위해 `event.sender.send`를 호출할 수 있습니다. 자세한 내용은 [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) 를 참조하세요.
+
+### `event.reply`
+
+A function that will send an IPC message to the renderer frane that sent the original message that you are currently handling. You should use this method to "reply" to the sent message in order to guaruntee the reply will go to the correct process and frame.

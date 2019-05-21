@@ -1,7 +1,5 @@
 # Electron中的问题
 
-# 问题
-
 * [如何贡献一个Issue](#how-to-contribute-in-issues)
 * [请求一般的帮助](#asking-for-general-help)
 * [提交漏洞报告](#submitting-a-bug-report)

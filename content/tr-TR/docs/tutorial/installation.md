@@ -81,11 +81,23 @@ Yerel önbellek konumunu `ELECTRON_CACHE` çevre değişkenini sağlayarak deği
 ├── SHASUMS256.txt-1.8.2-beta.3
 ```
 
-## Arıza Giderme
+## Skip binary download
+
+When installing the `electron` NPM package, it automatically downloads the electron binary.
+
+This can sometimes be unnecessary, e.g. in a CI environment, when testing another component.
+
+To prevent the binary from being downloaded when you install all npm dependencies you can set the environment variable `ELECTRON_SKIP_BINARY_DOWNLOAD`. E.g.:
+
+```sh
+ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
+```
+
+## Arıza giderme
 
 `npm install electron` çalıştırılırken, bazı kullanıcılar bazen kurulum hatalarıyla karşılaşmaktadırlar.
 
-Hemen hemen tüm durumlarda bu hatalar, ağ sorunları ve `electron` npm paketi ile ilgili olmayan sorunlar sonucudur. `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, ve `ETIMEDOUT` gibi hatalar, ağ bağlantı problemlerinin göstergesidir. En iyi çözüm, ağ bağlantılarını değiştirmeyi denemek ya da biraz beklemek ve tekrar yüklemeyi denemektir.
+Hemen hemen tüm durumlarda bu hatalar, ağ sorunları ve `electron` npm paketi ile ilgili olmayan sorunlar sonucudur. `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, ve `ETIMEDOUT` gibi hatalar, ağ bağlantı problemlerinin göstergesidir. 가장 좋은 해결책은 네트워크를 전환하거나, 잠시 기다렸다가 다시 설치하는 것입니다.
 
 Eğer `npm` ile kurulum hataya düşüyorsa, Electron'u doğrudan [electron/electron/releases](https://github.com/electron/electron/releases)' den indirmeyi deneyebilirsiniz.
 
@@ -94,7 +106,7 @@ Eğer yükleme bir `EACCESS` hatası ile başarısız olursa [npm izinlerini dü
 If the above error persists, the [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) flag may need to be set to true:
 
 ```sh
-sudo npm install electron --unsafe-perm=true
+sudo npm install electron --unsafe-perm= doğru
 ```
 
 On slower networks, it may be advisable to use the `--verbose` flag in order to show download progress:

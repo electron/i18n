@@ -42,10 +42,10 @@ console.log(dialog)
   * `message` String (任意) *macOS* - 入力ボックスの上に表示するメッセージ。
   * `securityScopedBookmarks` Boolean (任意) *masOS* *mas* - Mac App Store 向けにパッケージしたときに [セキュリティスコープ付きブックマーク](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) を作成します。
 * `callback` Function (任意) 
-  * `filePaths` String[] - ユーザーによって選択されたファイルパスの配列
-  * `bookmarks` String[] *macOS* *mas* - セキュリティスコープ付きブックマークを含む base64 エンコードされた `filePaths` 配列にマッチする配列。 データを取り込むために `securityScopedBookmarks` を有効にする必要があります。
+  * `filePaths` String[] (optional) - An array of file paths chosen by the user. If the dialog is cancelled this will be `undefined`.
+  * `bookmarks` String[] (optional) *macOS* *mas* - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. データを取り込むために `securityScopedBookmarks` を有効にする必要があります。
 
-Returns `String[] | undefined`, an array of file paths chosen by the user, if the callback is provided it returns `undefined`.
+戻り値 `String[] | undefined` - ユーザが選択したファイルパスの配列。callback が指定されている場合は `undefined` を返します。
 
 `browserWindow` の引数で、ダイアログは親ウインドウにアタッチされ、モーダル表示になります。
 
@@ -79,12 +79,12 @@ Returns `String[] | undefined`, an array of file paths chosen by the user, if th
   * `message` String (任意) *macOS* - テキストフィールドの上に表示するメッセージ。
   * `nameFieldLabel` String (任意) *macOS* - ファイル名のテキストフィールドの前に表示されるテキストのカスタムラベル。
   * `showsTagField` Boolean (任意) *macOS* - タグの入力ボックスを表示します。省略値は、`true` です。
-  * `securityScopedBookmarks` Boolean (任意) *masOS* *mas* - Mac App Store 向けにパッケージしたときに [セキュリティスコープ付きブックマーク](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) を作成します。 このオプションが有効でファイルが存在しない場合は、選択したパスに空のファイルが作成されます。
+  * `securityScopedBookmarks` Boolean (optional) *macOS* *mas* - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. このオプションが有効でファイルが存在しない場合は、選択したパスに空のファイルが作成されます。
 * `callback` Function (任意) 
-  * `filename` String
-  * `bookmark` String *macOS* *mas* - 保存されたファイルのセキュリティスコープのブックマークデータを含む Base64 エンコードされた文字列。 出力するために `securityScopedBookmarks` を有効にする必要があります。
+  * `filename` String (optional) If the dialog is cancelled this will be `undefined`.
+  * `bookmark` String (optional) *macOS* *mas* - Base64 encoded string which contains the security scoped bookmark data for the saved file. 出力するために `securityScopedBookmarks` を有効にする必要があります。
 
-Returns `String | undefined`, the path of the file chosen by the user, if a callback is provided or the dialog is cancelled it returns `undefined`.
+戻り値 `String | undefined` - ユーザが選択したファイルパス。callback が指定されている場合またはdialogがキャンセルされた場合は `undefined` を返します。
 
 `browserWindow` の引数で、ダイアログは親ウインドウにアタッチされ、モーダル表示になります。
 
@@ -118,7 +118,7 @@ Returns `String | undefined`, the path of the file chosen by the user, if a call
 
 `browserWindow` の引数で、ダイアログは親ウインドウにアタッチされ、モーダル表示になります。
 
-`callback` が渡されると、ダイアログはプロセスをブロックしません。APIの呼び出しが非同期になり、`callback(response)` 経由で結果が渡されます。
+If the `callback` and `browserWindow` arguments are passed, the dialog will not block the process. The API call will be asynchronous and the result will be passed via `callback(response)`.
 
 ### `dialog.showErrorBox(title, content)`
 

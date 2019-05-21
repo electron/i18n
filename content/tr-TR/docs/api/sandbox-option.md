@@ -34,8 +34,6 @@ In the above code the [`BrowserWindow`](browser-window.md) that was created has 
 
 Bu seçeneğin tek başına OS'ın zorladığı sandbox'a izin vermeyeceğini akılda tutmak önemlidir. Bu özelliğe izin vermek için, tüm `BrowserWindow` örnekleri için `sandbox: true` 'yu zorlayan `--enable-sandbox` komuta dizisi argümanı electron'a aktarılmalıdır.
 
-`BrowserWindow`'da OS tarafından uygulanan sandbox'ı veya `sandbox:true` ile `webview` süreci etkinleştirmek için, tüm uygulamanın sanbox da olmasına neden olmadan, `--enable-mixed-sandbox` komut dizisi argümanı electron'a aktarılmalıdır. Bu seçenek şu an yalnızca macOS ve Windows'ta desteklenmektedir.
-
 ```js
 let win
 app.on('ready', () => {

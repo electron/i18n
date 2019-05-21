@@ -34,8 +34,6 @@ In the above code the [`BrowserWindow`](browser-window.md) that was created has 
 
 Ito ay mahalaga na tandaan na ang opsyun nito na nag-iisa ay hindi nkapagpapagana ng OS-enforced sandbox. Upang paganahin ang tampok na ito, ang `– mapagana-sandbox` ang linya ng utos sa argumento dapat maipasa sa elektron, na kung saan ay pipilitin `sandbox: totoo` para sa lahat ng mga kaganapan ng `BrowserWindow`.
 
-Upang paganahin ang OS-enforced sandbox sa `BrowserWindow` o `webview` na proseso na may `sandbox:tama` na walang sanhi ng buong app sa sandbox, `--enable-mixed-sandbox` utos-sa-linya ay dapat maipasa sa elektron. Ang opsyun na ito ay kasalukuyang suportado sa macOS at Windows lamang.
-
 ```js
 hayaan manalo ang app.on('ready',() => { // hindi kailangan na maipasa 'sandbox: tama 'sapagkat ' --enable-sandbox' ay gumagana.
 win = newBrowerWindow()

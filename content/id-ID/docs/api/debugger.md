@@ -49,9 +49,8 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 <h4><code>debugger.kirim perintah (metode [, perintah Params, panggil kembali])`</h4> 
   
-  * ` method </ 0>  String - Nama metode, harus menjadi salah satu metode yang didefinisikan oleh
-  protokol debugging jarak jauh.</li>
-<li><code> perintah Params </ 0> Objek (opsional) - Objek JSON dengan parameter permintaan.</li>
+  * `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
+  * ` perintah Params </ 0> Objek (opsional) - Objek JSON dengan parameter permintaan.</li>
 <li><code>callback` Fungsi (opsional) - Respon 
     * ` kesalahan</ 0> Objek - Pesan kesalahan yang menunjukkan kegagalan perintah.</li>
 <li><code> mengulang </ 0> Setiap - Respon yang didefinisikan oleh atribut 'kembali' dari
@@ -61,13 +60,22 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 <p>Kirim perintah yang diberikan ke target debugging.</p>
 
-<h3>Perihal contoh</h3>
+<p><strong><a href="promisification.md">Deprecated Soon</a></strong></p>
 
-<h4>Acara : 'melepaskan'</h4>
+<h4><code>debugger.sendCommand(method[, commandParams])`</h4> 
+      * `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
+      * ` perintah Params </ 0> Objek (opsional) - Objek JSON dengan parameter permintaan.</li>
+</ul>
 
-<ul>
-<li><code>peristiwa` Peristiwa
-    *  alasan </ 0>  String - Alasan untuk memisahkan debugger.</li>
+<p>Returns <code>Promise<any>` - A promise that resolves with the response defined by the 'returns' attribute of the command description in the remote debugging protocol or is rejected indicating the failure of the command.</p> 
+        Kirim perintah yang diberikan ke target debugging.
+        
+        ### Instance Events
+        
+        #### Acara : 'melepaskan'
+        
+        * `event</ 0> Acara</li>
+<li><code> alasan </ 0>  String - Alasan untuk memisahkan debugger.</li>
 </ul>
 
 <p>Emitted saat sesi debugging dihentikan. Hal ini terjadi ketika
@@ -76,8 +84,8 @@ win.webContents.debugger.sendCommand('Network.enable')
 <h4>Acara : 'pesan'</h4>
 
 <ul>
-<li><code>event</ 0> Acara</li>
-<li><code> metode </ 0> String - nama metode.</li>
+<li><code>acara` Acara
+        *  metode </ 0> String - nama metode.</li>
 <li><code> params </ 0> Objek - Parameter acara ditentukan oleh  atribut 'parameter'
  dalam protokol debugging jarak jauh.</li>
 </ul>

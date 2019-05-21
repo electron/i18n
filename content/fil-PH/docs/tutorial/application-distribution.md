@@ -1,5 +1,17 @@
 # Pamamahagi ng aplikasyon
 
+To distribute your app with Electron, you need to package and rebrand it. The easiest way to do this is to use one of the following third party packaging tools:
+
+* [pagpipilit ng elektron](https://github.com/electron-userland/electron-forge)
+* [pagbubuo ng elektron](https://github.com/electron-userland/electron-builder)
+* [pagpapackage ng elektron](https://github.com/electron-userland/electron-packager)
+
+These tools will take care of all the steps you need to take to end up with a distributable Electron applications, such as packaging your application, rebranding the executable, setting the right icons and optionally creating installers.
+
+## Manual distribution
+
+You can also choose to manually get your app ready for distribution. The steps needed to do this are outlined below.
+
 Upang maipamahagi ang iyong app sa Electron, kailangan mong i-download ang electron [mga binary ng prebuilt](https://github.com/electron/electron/releases). Sunod, ang foloder na naglalaman ng iyong app ay dapat nakapangalan sa `app` at iniligay sa mga pinagkukunan ng Electron Ang direktoryo ay ipinapakita sa mga sumusunod na halimbawa. Tandaan na ang mga lokasyon ng mga binary sa Electron prebuilt ay ipinapahiwatig ng `electron` sa mga halimbawa sa ibaba.
 
 Sa macOs:
@@ -78,14 +90,6 @@ MyApp.app/Contents
 ### Linux
 
 Maari mong palitan ng pangalan ang `elektron` maaring palitan sa anumang gusto mo.
-
-## Mga kagamitan sa packaging
-
-Bukod sa pagmano mano ng packaging sa iyong app, pwede ka ring pumili para gumamit ng ikatlong partido na kagamitan ng packaging para gawin ang trabaho para sayo:
-
-* [pagpipilit ng elektron](https://github.com/electron-userland/electron-forge)
-* [pagbubuo ng elektron](https://github.com/electron-userland/electron-builder)
-* [pagpapackage ng elektron](https://github.com/electron-userland/electron-packager)
 
 ## Rebranding sa pamamagitan ng pagbubuo muli ng Elekron mula sa pinagmulan
 

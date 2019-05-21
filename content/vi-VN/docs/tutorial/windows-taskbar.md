@@ -12,7 +12,7 @@ Windows allows apps to define a custom context menu that shows up when users rig
 
 **Tasks of Internet Explorer:**
 
-![IE](http://i.msdn.microsoft.com/dynimg/IC420539.png)
+![IE](https://i-msdn.sec.s-msft.com/dynimg/IC420539.png)
 
 Unlike the dock menu in macOS which is a real menu, user tasks in Windows work like application shortcuts such that when user clicks a task, a program will be executed with specified arguments.
 

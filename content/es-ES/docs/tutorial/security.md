@@ -12,29 +12,29 @@ Para información sobre cómo revelar las vulnerabilidad de Electrón dirigirse 
 
 ## Actualizaciones y problemas de seguridad Chromium
 
-Mientras Electron se esfuerza para apoyar nuevas versiones de Chromium lo más pronto posible, los desarrolladores deben estar conscientes que actualizar es una tarea muy seria - involucrando ediciones a mano a docenas o hasta cientos de archivos. Given the resources and contributions available today, Electron will often not be on the very latest version of Chromium, lagging behind by several weeks or a few months.
+Mientras Electron se esfuerza para apoyar nuevas versiones de Chromium lo más pronto posible, los desarrolladores deben estar conscientes que actualizar es una tarea muy seria - involucrando ediciones a mano a docenas o hasta cientos de archivos. Dados los recursos y contribuciones disponibles, Electron no va a estar sobre la última versión de Chromium, rezagándose por días o semanas.
 
-Sentimos que el sistema actual de actualización de el componente Chromium alcanza un balance apropiado entre los recursos que tenemos disponibles y las necesidades de la mayoría de las aplicaciones construidas por encima de el framework. Estamos definitivamente interesados en escuchar más sobre casos específicos de gente que construye cosas encima de Electron. Solicitudes de extracción y contribuciones apoyando este esfuerzo son siempre bienvenidas.
+Sentimos que el sistema actual de actualización de el componente Chromium alcanza un balance apropiado entre los recursos que tenemos disponibles y las necesidades de la mayoría de las aplicaciones construidas por encima de el framework. Estamos definitivamente interesados en escuchar más sobre casos de uso específicos de gente que construye cosas sobre de Electron. Solicitudes de extracción y contribuciones apoyando este esfuerzo son siempre bienvenidas.
 
-## Seguridad es la responsabilidad de Todos
+## La seguridad es la responsabilidad de Todos
 
-It is important to remember that the security of your Electron application is the result of the overall security of the framework foundation (*Chromium*, *Node.js*), Electron itself, all NPM dependencies and your code. As such, it is your responsibility to follow a few important best practices:
+Es importante recordar que la seguridad de tu aplicación Electron es el resultado de la seguridad general de la base de framework (*Chromium*, *Node.js*), Electron mismo, todas las dependencias NPM y tu código. Por tanto, es tu responsabilidad seguir algunas importantes mejores prácticas:
 
-* **Keep your application up-to-date with the latest Electron framework release.** When releasing your product, you’re also shipping a bundle composed of Electron, Chromium shared library and Node.js. Vulnerabilities affecting these components may impact the security of your application. By updating Electron to the latest version, you ensure that critical vulnerabilities (such as *nodeIntegration bypasses*) are already patched and cannot be exploited in your application.
+* **Mantenga su aplicación actualizada con la última versión liberada de Electron.** Cuando libere su producto, también está compartiendo un conjunto compuesto de Electron, librerías compartidas de Chromium y Node.js. Vulnerabilidades afectando a estos componentes pueden impactar en la seguridad de su aplicación. Actualizando Electron a la última versión, asegura que las vulnerabilidades críticas (tales como *nodeIntegration bypasses*) ya estén reparadas y no puedan ser explotadas en su aplicación.
 
-* **Evaluate your dependencies.** While NPM provides half a million reusable packages, it is your responsibility to choose trusted 3rd-party libraries. If you use outdated libraries affected by known vulnerabilities or rely on poorly maintained code, your application security could be in jeopardy.
+* **Evalue sus dependencias.**Mientras NPM provee más de medio millón de paquetes reusables, es su responsabilidad la elección de librerías confiables de terceros. Si utiliza librerías desactualizadas afectadas por vulnerabilidades conocidas o basado en código escasamente mantenido, la seguridad de su aplicación puede estar en peligro.
 
-* **Adopt secure coding practices.** The first line of defense for your application is your own code. Common web vulnerabilities, such as Cross-Site Scripting (XSS), have a higher security impact on Electron applications hence it is highly recommended to adopt secure software development best practices and perform security testing.
+* **Adopte prácticas de programación segura.** La primera línea de defensa de su aplicación es su propio código. Vulnerabilidades usuales, tales como Cross-Site Scripting (XSS), tienen un alto impacto en la seguridad en las aplicaciones Electron así es altamente recomendable adoptar políticas confiables de buenas prácticas en el desarrollo de software y realizar pruebas de seguridad.
 
-## Isolation For Untrusted Content
+## Aislamiento para contenido no confiable
 
-A security issue exists whenever you receive code from an untrusted source (e.g. a remote server) and execute it locally. As an example, consider a remote website being displayed inside a default [`BrowserWindow`](../api/browser-window.md). If an attacker somehow manages to change said content (either by attacking the source directly, or by sitting between your app and the actual destination), they will be able to execute native code on the user's machine.
+Un problema de seguridad existe siempre que recibes código de un lugar no confiable (e.g. un servidor remoto) y lo ejecutas localmente. Como un ejemplo, considera una página web remota siendo mostrada dentro de un default [`BrowserWindow`](../api/browser-window.md). Si un atacante de algún modo se las arregla para cambiar dicho contenido (bien sea atacando la fuente directamente, o interviniendo entre su aplicación y el destino real), será capaz de ejecutar códigos nativos en la máquina del usuario.
 
-> :warning: Debajo de ninguna circunstancia deberías cargar y ejecutar el código remoto con la integración Node.js activada. En vez de eso, usa solo archivos locales (empaquetado juntos con tu aplicación) para ejecutar el código Node.js. To display remote content, use the [`<webview>`](../api/webview-tag.md) tag or [`BrowserView`](../api/browser-view.md), make sure to disable the `nodeIntegration` and enable `contextIsolation`.
+> :warning: bajo ninguna circunstancia deberías cargar y ejecutar código remoto con la integración Node.js activada. En vez de eso, usa solo archivos locales (empaquetados juntos con tu aplicación) para ejecutar el código Node.js. To display remote content, use the [`<webview>`](../api/webview-tag.md) tag or [`BrowserView`](../api/browser-view.md), make sure to disable the `nodeIntegration` and enable `contextIsolation`.
 
 ## Advertencias de seguridad de Electron
 
-From Electron 2.0 on, developers will see warnings and recommendations printed to the developer console. They only show up when the binary's name is Electron, indicating that a developer is currently looking at the console.
+Desde Electron 2.0, los desarrolladores verán advertencias y recomendaciones impresas en la consola de desarrolladores. They only show up when the binary's name is Electron, indicating that a developer is currently looking at the console.
 
 You can force-enable or force-disable these warnings by setting `ELECTRON_ENABLE_SECURITY_WARNINGS` or `ELECTRON_DISABLE_SECURITY_WARNINGS` on either `process.env` or the `window` object.
 
@@ -43,7 +43,7 @@ You can force-enable or force-disable these warnings by setting `ELECTRON_ENABLE
 You should at least follow these steps to improve the security of your application:
 
 1. [Solo carga contenido seguro](#1-only-load-secure-content)
-2. [Desactiva la integración Node.js en todas las renderizadores que muestran el contenido remoto](#2-disable-nodejs-integration-for-remote-content)
+2. [Desactiva la integración Node.js en todas las renderizadores que muestran el contenido remoto](#2-do-not-enable-nodejs-integration-for-remote-content)
 3. [Permite el aislamiento de contexto en todos los renderizadores que muestran el contenido remoto](#3-enable-context-isolation-for-remote-content)
 4. [Usar `ses.setPermissionRequestHandler()` en todas las sesiones que cargan contenido remoto](#4-handle-session-permission-requests-from-remote-content)
 5. [No desactives `webSecurity`](#5-do-not-disable-websecurity)
@@ -53,9 +53,11 @@ You should at least follow these steps to improve the security of your applicati
 9. [Do not use `enableBlinkFeatures`](#9-do-not-use-enableblinkfeatures)
 10. [`<webview>`: Do not use `allowpopups`](#10-do-not-use-allowpopups)
 11. [`<webview>`: Verificar opciones y parámetros](#11-verify-webview-options-before-creation)
-12. [Deshabilitar o limitar navegación](#12-disable-or-limit-navigation)
+12. [Deshabilitar o limitar la navegación](#12-disable-or-limit-navigation)
 13. [Deshabilitar o limitar la generación de nuevas ventanas](#13-disable-or-limit-creation-of-new-windows)
 14. [No utilice `openExternal` con contenido no confiable](#14-do-not-use-openexternal-with-untrusted-content)
+15. [Deshabilitar el módulo `remote`](#15-disable-the-remote-module)
+16. [Filtrar el módulo `remote`](#16-filter-the-remote-module)
 
 To automate the detection of misconfigurations and insecure patterns, it is possible to use [electronegativity](https://github.com/doyensec/electronegativity). For additional details on potential weaknesses and implementation bugs when developing applications using Electron, please refer to this [guide for developers and auditors](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)
 
@@ -72,10 +74,10 @@ Cualquier recurso no incluido con tu aplicación debería ser cargado usando un 
 ### ¿Cómo?
 
 ```js
-// Bad
+// Malo
 browserWindow.loadURL('http://example.com')
 
-// Good
+// Bueno
 browserWindow.loadURL('https://example.com')
 ```
 
@@ -89,9 +91,11 @@ browserWindow.loadURL('https://example.com')
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
-## 2) Disable Node.js Integration for Remote Content
+## 2) Do not enable Node.js Integration for Remote Content
 
-It is paramount that you disable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) that loads remote content. La meta es limitar los poderes que concedes al contenido remoto, aunque lo hace dramáticamente más difícil para un atacante lastimar a tus usuarios, ellos deberían ganar la habilidad de ejecutar JavaScript en tu página web.
+*This recommendation is the default behavior in Electron since 5.0.0.*
+
+It is paramount that you do not enable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) that loads remote content. La meta es limitar los poderes que concedes al contenido remoto, aunque lo hace dramáticamente más difícil para un atacante lastimar a tus usuarios, ellos deberían ganar la habilidad de ejecutar JavaScript en tu página web.
 
 Luego de esto, puedes conceder permisos adicionales para anfitriones específicos. Por ejemplo, si estás abriendo un BrowserWindow direccionado a `https://example.com/", puedes darle a esa página web las habilidades exactas que necesita, pero no más.
 
@@ -103,17 +107,21 @@ Un ataque cross-site-scripting (XSS) es más peligroso si un atacante puede alta
 
 ```js
 // Bad
-const mainWindow = new BrowserWindow()
-mainWindow.loadURL('https://ejemplo.com')
+const mainWindow = new BrowserWindow({
+  webPreferences: {
+    nodeIntegration: true,
+    nodeIntegrationInWorker: true
+  }
+})
+
+mainWindow.loadURL('https://example.com')
 ```
 
 ```js
 // Good
 const mainWindow = new BrowserWindow({
   webPreferences: {
-    nodeIntegration: false,
-    nodeIntegrationInWorker: false,
-    preload: './preload.js'
+    preload: path.join(app.getAppPath(), 'preload.js')
   }
 })
 
@@ -121,10 +129,10 @@ mainWindow.loadURL('https://example.com')
 ```
 
 ```html
-<!-- Malo -->
+<!-- Incorrecto -->
 <webview nodeIntegration src="page.html"></webview>
 
-<!-- Bueno -->
+<!-- Correcto -->
 <webview src="page.html"></webview>
 ```
 
@@ -164,7 +172,7 @@ Al mismo tiempo, los guiones pre cargados todavía tienen acceso al `documento` 
 const mainWindow = new BrowserWindow({
   webPreferences: {
     contextIsolation: true,
-    preload: 'preload.js'
+    preload: path.join(app.getAppPath(), 'preload.js')
   }
 })
 ```
@@ -246,15 +254,15 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// Bueno
 const mainWindow = new BrowserWindow()
 ```
 
 ```html
-<!-- Bad -->
+<!-- Incorrecto -->
 <webview disablewebsecurity src="page.html"></webview>
 
-<!-- Good -->
+<!-- Correcto -->
 <webview src="page.html"></webview>
 ```
 
@@ -318,7 +326,7 @@ Loading content over `HTTPS` assures the authenticity and integrity of the loade
 ### ¿Còmo?
 
 ```js
-// Bad
+// Malo
 const mainWindow = new BrowserWindow({
   webPreferences: {
     allowRunningInsecureContent: true
@@ -327,7 +335,7 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// Bueno
 const mainWindow = new BrowserWindow({})
 ```
 
@@ -355,7 +363,7 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// Bueno
 const mainWindow = new BrowserWindow({})
 ```
 
@@ -381,7 +389,7 @@ const mainWindow = new BrowserWindow({
 ```
 
 ```js
-// Good
+// Bueno
 const mainWindow = new BrowserWindow()
 ```
 
@@ -398,10 +406,10 @@ Si usted no necesita ventanas emergentes, le conviene no permitir la creación d
 ### ¿Còmo?
 
 ```html
-<!-- Bad -->
+<!-- Incorrecto -->
 <webview allowpopups src="page.html"></webview>
 
-<!-- Good -->
+<!-- Correcto -->
 <webview src="page.html"></webview>
 ```
 
@@ -489,12 +497,12 @@ If you have no need to create windows in addition to the ones you know you'll ne
 const { shell } = require('electron')
 
 app.on('web-contents-created', (event, contents) => {
-  contents.on('new-window', (event, navigationUrl) => {
+  contents.on('new-window', async (event, navigationUrl) => {
     // In this example, we'll ask the operating system
     // to open this event's url in the default browser.
     event.preventDefault()
 
-    shell.openExternalSync(navigationUrl)
+    await shell.openExternal(navigationUrl)
   })
 })
 ```
@@ -519,4 +527,96 @@ shell.openExternal(USER_CONTROLLED_DATA_HERE)
 //  Good
 const { shell } = require('electron')
 shell.openExternal('https://example.com/index.html')
+```
+
+## 15) Deshabilitar el módulo `remote`
+
+El módulo `remoto` suministra una manera al proceso de renderizado a acceder a las APIs que normalmente solo están disponibles en el proceso principal. Using it, a renderer can invoke methods of a main process object without explicitly sending inter-process messages. Si su aplicación de escritorio no ejecuta contenido no confiable, esta puede ser una manera valedera para que los procesos de renderizado accedan y trabajen con los módulos que solo están disponibles en el proceso principal, tales como aquellos módulos vinculados con la interface de usuario (sea cuadro de diálogos, menús, etc.).
+
+However, if your app can run untrusted content and even if you [sandbox](../api/sandbox-option.md) your renderer processes accordingly, the `remote` module makes it easy for malicious code to escape the sandbox and have access to system resources via the higher privileges of the main process. Por lo tanto, debería deshabilitarse en tales circunstancias.
+
+### ¿Por què?
+
+`remote` uses an internal IPC channel to communicate with the main process. "Prototype pollution" attacks can grant malicious code access to the internal IPC channel, which can then be used to escape the sandbox by mimicking `remote` IPC messages and getting access to main process modules running with higher privileges.
+
+Additionally, it's possible for preload scripts to accidentally leak modules to a sandboxed renderer. Leaking `remote` arms malicious code with a multitude of main process modules with which to perform an attack.
+
+Disabling the `remote` module eliminates these attack vectors. Enabling context isolation also prevents the "prototype pollution" attacks from succeeding.
+
+### ¿Còmo?
+
+```js
+// Bad if the renderer can run untrusted content
+const mainWindow = new BrowserWindow({})
+```
+
+```js
+// Good
+const mainWindow = new BrowserWindow({
+  webPreferences: {
+    enableRemoteModule: false
+  }
+})
+```
+
+```html
+<!-- Malo si el renderizado no puede ejecutar contenido no confiable  -->
+<webview src="page.html"></webview>
+
+<!-- Bueno -->
+<webview enableremotemodule="false" src="page.html"></webview>
+```
+
+## 16) Filtrar el módulo `remote`
+
+Si no puede deshabilitar el módulo `remote`, debería filtrar los globales, Node, y los módulos Electron (también llamados built-ins) accesibles vía `remote` que su aplicación no los requiere. Esto puede ser llevado a cabo bloqueando ciertos módulos de manera total y reemplazándolos por otros sea con proxies que exponen solamente la funcionalidad que su aplicación necesita.
+
+### ¿Por què?
+
+Due to the system access privileges of the main process, functionality provided by the main process modules may be dangerous in the hands of malicious code running in a compromised renderer process. By limiting the set of accessible modules to the minimum that your app needs and filtering out the others, you reduce the toolset that malicious code can use to attack the system.
+
+Note that the safest option is to [fully disable the remote module](#15-disable-the-remote-module). If you choose to filter access rather than completely disable the module, you must be very careful to ensure that no escalation of privilege is possible through the modules you allow past the filter.
+
+### ¿Còmo?
+
+```js
+const readOnlyFsProxy = require(/* ... */) // exposes only file read functionality
+
+const allowedModules = new Set(['crypto'])
+const proxiedModules = new Map(['fs', readOnlyFsProxy])
+const allowedElectronModules = new Set(['shell'])
+const allowedGlobals = new Set()
+
+app.on('remote-require', (event, webContents, moduleName) => {
+  if (proxiedModules.has(moduleName)) {
+    event.returnValue = proxiedModules.get(moduleName)
+  }
+  if (!allowedModules.has(moduleName)) {
+    event.preventDefault()
+  }
+})
+
+app.on('remote-get-builtin', (event, webContents, moduleName) => {
+  if (!allowedElectronModules.has(moduleName)) {
+    event.preventDefault()
+  }
+})
+
+app.on('remote-get-global', (event, webContents, globalName) => {
+  if (!allowedGlobals.has(globalName)) {
+    event.preventDefault()
+  }
+})
+
+app.on('remote-get-current-window', (event, webContents) => {
+  event.preventDefault()
+})
+
+app.on('remote-get-current-web-contents', (event, webContents) => {
+  event.preventDefault()
+})
+
+app.on('remote-get-guest-web-contents', (event, webContents, guestWebContents) => {
+  event.preventDefault()
+})
 ```

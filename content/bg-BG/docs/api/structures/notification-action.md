@@ -1,7 +1,7 @@
 # Обект NotificationAction
 
 * `type` String - Типът действие може да бъде `button`.
-* `text` String (optional) - The label for the given action.
+* `text` String - (по избор) Етикета на даденото действие.
 
 ## Платформа / Поддръжка на действията
 

@@ -43,9 +43,27 @@ app.on('will-quit', () => {
 * `accelerator` [Accelerator](accelerator.md)
 * `callback` Function
 
+Returns `Boolean` - Whether or not the shortcut was registered successfully.
+
 注册指定的 ` accelerator ` 为全局快捷键。当用户按下该注册的快捷键时, 将调用 ` callback `回调函数。
 
 如果指定的快捷键已经被其他应用程序注册掉, 调用会默默失败。 该特性由操作系统定义，因为操作系统不希望多个程序的全局快捷键互相冲突。
+
+在 macOS 10.14 Mojave 下面，如果 app 没有被授权为[可信任使用的客户端](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html)，那么下列快捷键会注册失败：
+
+* "Media Play/Pause"
+* "Media Next Track"
+* "Media Previous Track"
+* "Media Stop"
+
+### `globalShortcut.registerAll(accelerators, callback)`
+
+* `accelerators` String[] - an array of [Accelerator](accelerator.md)s.
+* `callback` Function
+
+Registers a global shortcut of all `accelerator` items in `accelerators`. The `callback` is called when any of the registered shortcuts are pressed by the user.
+
+When a given accelerator is already taken by other applications, this call will silently fail. 该特性由操作系统定义，因为操作系统不希望多个程序的全局快捷键互相冲突。
 
 在 macOS 10.14 Mojave 下面，如果 app 没有被授权为[可信任使用的客户端](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html)，那么下列快捷键会注册失败：
 
@@ -58,9 +76,9 @@ app.on('will-quit', () => {
 
 * `accelerator` [Accelerator](accelerator.md)
 
-返回 `Boolean` - 表示 `accelerator` 全局快捷键是否注册成功
+Returns `Boolean` - 表示 `accelerator` 全局快捷键是否注册成功
 
-当快捷键已经被其他应用程序注册时, 此调用依然将返回 ` false `。 该特性由操作系统定义，因为操作系统不希望多个程序的全局快捷键互相冲突。
+当快捷键已经被其他应用程序注册时, 此调用将返回 ` false `。 该特性由操作系统定义，因为操作系统不希望多个程序的全局快捷键互相冲突。
 
 ### `globalShortcut.unregister(accelerator)`
 
@@ -70,4 +88,4 @@ app.on('will-quit', () => {
 
 ### `globalShortcut.unregisterAll()`
 
-注销所有的全局快捷键（清空该应用程序的所有全局快捷键）。
+注销所有的全局快捷键（清空该应用程序的全局快捷键）。

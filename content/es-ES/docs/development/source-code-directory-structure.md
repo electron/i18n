@@ -1,17 +1,17 @@
-# Estructura del directorio de código fuente
+# Estructura de directorios del código fuente
 
 El código fuente de Electron está separado en unas pocas partes, la mayoría siguiendo a Chromium en las convenciones de separación.
 
-Necesitará familiarizarse con la [arquitectura multiprocesos de Chromium](https://dev.chromium.org/developers/design-documents/multi-process-architecture) para entender el código fuente mejor.
+Necesitará familiarizarse con la [arquitectura multiprocesos de Chromium](https://dev.chromium.org/developers/design-documents/multi-process-architecture) para entender mejor el código fuente.
 
 ## Estructura del código fuente
 
 ```diff
 Electron
-├── atom/ - código fuente C++.
+├── atom/ - Código fuente C++.
 |   ├── app/ - Código de entrada al sistema.
-|   ├── browser/ - The frontend including the main window, UI, and all of the
-|   |   |          main process things. This talks to the renderer to manage web
+|   ├── browser/ - El frontend incluyendo la ventana principal, la interfaz de usuario y todo lo relacionado al
+|   |   |          proceso main. This talks to the renderer to manage web
 |   |   |          pages.
 |   |   ├── ui/ - Implementation of UI stuff for different platforms.
 |   |   |   ├── cocoa/ - Cocoa specific source code.

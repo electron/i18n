@@ -95,7 +95,7 @@ const app = require('electron').remote.app
 console.log(app)
 ```
 
-## Methods
+## วิธีการ
 
 The `remote` module has the following methods:
 
@@ -145,11 +145,11 @@ Returns [`WebContents`](web-contents.md) - The web contents of this web page.
 
 ### `remote.getGlobal(name)`
 
-* `name` String
+* `name` String ชื่อ
 
 Returns `any` - The global variable of `name` (e.g. `global[name]`) in the main process.
 
-## Properties
+## คุณสมบัติ
 
 ### `remote.process`
 

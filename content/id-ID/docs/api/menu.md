@@ -18,9 +18,11 @@ Kelas ` menu </ 0> memiliki metode statis berikut:</p>
 
 Sets `menu` sebagai menu aplikasi pada macOS. Pada Windows dan Linux, `menu` akan di set sebagai menu atas tiap-tiap window.
 
-Melewati `null` akan menghapus menu bar pada Windows dan Linux tetapi tidak memiliki efek pada macOS.
+Also on Windows and Linux, you can use a `&` in the top-level item name to indicate which letter should get a generated accelerator. For example, using `&File` for the file menu would result in a generated `Alt-F` accelerator that opens the associated menu. The indicated character in the button label gets an underline. The `&` character is not displayed on the button label.
 
-**Catatan:** API ini harus dipanggil setelah event `ready` dari modul `app`.
+Passing `null` will suppress the default menu. On Windows and Linux, this has the additional effect of removing the menu bar from the window.
+
+**Note:** The default menu will be created automatically if the app does not set one. It contains standard items such as `File`, `Edit`, `View`, `Window` and `Help`.
 
 #### `Menu.getApplicationMenu()`
 
@@ -41,13 +43,13 @@ Lihat  MacOS Kakao Acara Penanganan Panduan </ 0> untuk informasi lebih lanjut t
 
 #### `Menu.membangun dari Template (template)`
 
-* `template` MenuItemConstructorOptions[]
+* `template` (MenuItemConstructorOptions | MenuItem)[]
 
 Mengembalikan `menu`
 
 Generally, the `template` is an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
 
-Anda juga bisa melampirkan bidang lain ke elemen `template` dan mereka akan menjadi properti dari item menu yang dibangun.
+You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
 
 ### Metode Contoh
 
@@ -137,6 +139,29 @@ Contoh pembuatan menu aplikasi pada proses utama dengan API template sederhana:
 const { app, Menu } = require('electron')
 
 const template = [
+  // { role: 'appMenu' }
+  ...(process.platform === 'darwin' ? [{
+    label: app.getName(),
+    submenu: [
+      { role: 'about' },
+      { type: 'separator' },
+      { role: 'services' },
+      { type: 'separator' },
+      { role: 'hide' },
+      { role: 'hideothers' },
+      { role: 'unhide' },
+      { type: 'separator' },
+      { role: 'quit' }
+    ]
+  }] : []),
+  // { role: 'fileMenu' }
+  {
+    label: 'File',
+    submenu: [
+      isMac ? { role: 'close' } : { role: 'quit' }
+    ]
+  },
+  // { role: 'editMenu' }
   {
     label: 'Edit',
     submenu: [
@@ -146,11 +171,26 @@ const template = [
       { role: 'cut' },
       { role: 'copy' },
       { role: 'paste' },
-      { role: 'pasteandmatchstyle' },
-      { role: 'delete' },
-      { role: 'selectall' }
+      ...(isMac ? [
+        { role: 'pasteAndMatchStyle' },
+        { role: 'delete' },
+        { role: 'selectAll' },
+        { type: 'separator' },
+        {
+          label: 'Speech',
+          submenu: [
+            { role: 'startspeaking' },
+            { role: 'stopspeaking' }
+          ]
+        }
+      ] : [
+        { role: 'delete' },
+        { type: 'separator' },
+        { role: 'selectAll' }
+      ])
     ]
   },
+  // { role: 'viewMenu' }
   {
     label: 'View',
     submenu: [
@@ -165,11 +205,20 @@ const template = [
       { role: 'togglefullscreen' }
     ]
   },
+  // { role: 'windowMenu' }
   {
-    role: 'window',
+    label: 'Window',
     submenu: [
       { role: 'minimize' },
-      { role: 'close' }
+      { role: 'zoom' },
+      ...(isMac ? [
+        { type: 'separator' },
+        { role: 'front' },
+        { type: 'separator' },
+        { role: 'window' }
+      ] : [
+        { role: 'close' }
+      ])
     ]
   },
   {
@@ -177,49 +226,11 @@ const template = [
     submenu: [
       {
         label: 'Learn More',
-        click () { require('electron').shell.openExternal('https://electronjs.org') }
+        click () { require('electron').shell.openExternalSync('https://electronjs.org') }
       }
     ]
   }
 ]
-
-if (process.platform === 'darwin') {
-  template.unshift({
-    label: app.getName(),
-    submenu: [
-      { role: 'about' },
-      { type: 'separator' },
-      { role: 'services' },
-      { type: 'separator' },
-      { role: 'hide' },
-      { role: 'hideothers' },
-      { role: 'unhide' },
-      { type: 'separator' },
-      { role: 'quit' }
-    ]
-  })
-
-  // Edit menu
-  template[1].submenu.push(
-    { type: 'separator' },
-    {
-      label: 'Speech',
-      submenu: [
-        { role: 'startspeaking' },
-        { role: 'stopspeaking' }
-      ]
-    }
-  )
-
-  // Window menu
-  template[3].submenu = [
-    { role: 'close' },
-    { role: 'minimize' },
-    { role: 'zoom' },
-    { type: 'separator' },
-    { role: 'front' }
-  ]
-}
 
 const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)

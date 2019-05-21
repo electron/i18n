@@ -38,13 +38,14 @@ Lo siguientes métodos están disponibles en instancias de `WebRequest`:
 
 * `filter` Objecto (opcional) 
   * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
-* `listener` Function 
+* `listener` Function | null 
   * `details` Object 
     * `id` Íntegro
     * `url` Cadena
     * `method` String
     * `webContentsId` Entero (opcional)
     * `resourceType` String
+    * `referrer` Cadena
     * `fecha y hora` Doble
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
@@ -52,23 +53,24 @@ Lo siguientes métodos están disponibles en instancias de `WebRequest`:
       * `cancelar` Booleano (opcional)
       * `Redireccionar URL` Cadena (opcional) - La solicitud original está prevenida de ser enviada o completada y en vez de eso es redireccionada a una URL dada.
 
-El `oyente` será llamado con `listener(details, callback)` cuando una solicitud está a punto de ocurrir.
+El `oyente` Será cancelado con `listener(details)` cuando la redirección del servidor esté por ocurrir.
 
-`uploadData` es un arreglo de objetos `uploadData`.
+Los `buttons` es un arreglo de objetos `Button`.
 
-La `retrollamada` tiene que ser llamada con un objeto `respuesta`.
+The `callback` has to be called with an `response` object.
 
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
 * `filter` Object (opcional) 
   * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
-* `listener` Function 
+* `listener` Function | null 
   * `details` Object 
     * `id` Íntegro
     * `url` String
     * `method` String
     * `webContentsId` Entero (opcional)
     * `resourceType` String
+    * `referrer` Cadena
     * `fecha y hora` Doble
     * `Encabezado de solicitud` Objecto
   * `callback` Function 
@@ -84,13 +86,14 @@ La `retrollamada` tiene que ser llamada con un objeto `respuesta`.
 
 * `filter` Object (opcional) 
   * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
-* `listener` Function 
+* `listener` Function | null 
   * `details` Object 
     * `id` Íntegro
     * `url` String
     * `method` String
     * `webContentsId` Entero (opcional)
-    * `resourceType` String
+    * `sourceId` Cadena
+    * `referrer` Cadena
     * `fecha y hora` Doble
     * `Encabezado de solicitud` Objecto
 
@@ -100,13 +103,14 @@ El`oyente` Será llamado con `listener(details)` justo antes que una solicitud v
 
 * `filter` Objecto (opcional) 
   * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
-* `listener` Function 
+* `listener` Function | null 
   * `details` Object 
     * `id` Íntegro
     * `url` String
     * `method` String
     * `webContentsId` Entero (opcional)
     * `resourceType` String
+    * `referrer` Cadena
     * `fecha y hora` Doble
     * `linea de estatus` Cadena
     * `Estatus de código` entero
@@ -125,13 +129,14 @@ La `retrollamada` tiene que ser llamada con un objeto `respuesta`.
 
 * `filter` Object (opcional) 
   * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
-* `listener` Function 
+* `listener` Function | null 
   * `details` Object 
     * `id` Íntegro
     * `url` String
     * `method` String
     * `webContentsId` Entero (opcional)
     * `resourceType` String
+    * `referrer` Cadena
     * `fecha y hora` Doble
     * `headers de respuesta` objeto
     * `Desde Cache` Booleano - Indica cuando al respuesta fue obtenida desde la memoria caché.
@@ -144,13 +149,14 @@ El `oyente` será cancelado con `listener(details)` cuando se reciba el primer b
 
 * `filter` Objecto (opcional) 
   * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
-* `listener` Function 
+* `listener` Function | null 
   * `details` Object 
     * `id` Íntegro
     * `url` String
     * `method` String
     * `webContentsId` Entero (opcional)
     * `resourceType` String
+    * `referrer` Cadena
     * `fecha y hora` Doble
     * `redirectURL` String
     * `Estatus de código` entero
@@ -164,7 +170,7 @@ El `oyente` Será cancelado con `listener(details)` cuando la redirección del s
 
 * `filter` Objecto (opcional) 
   * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
-* `listener` Function 
+* `listener` Function | null 
   * `details` Object 
     * `id` Íntegro
     * `url` String
@@ -184,13 +190,14 @@ The `listener` will be called with `listener(details)` when a request is complet
 
 * `filter` Objecto (opcional) 
   * `urls` String[] - Array de patrones de URL que será utilizado para filtrar las consultas que no cumplen los patrones de URL.
-* `listener` Function 
+* `listener` Function | null 
   * `details` Object 
     * `id` Íntegro
     * `url` String
     * `method` String
     * `webContentsId` Entero (opcional)
     * `resourceType` String
+    * `referrer` Cadena
     * `fecha y hora` Doble
     * `Desde cache` Booleano
     * `error` Cadena - la descripción del error.

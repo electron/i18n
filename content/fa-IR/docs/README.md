@@ -44,7 +44,7 @@
 * [دسترسی](tutorial/accessibility.md) 
   * [اسپکترون](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
-  * [فعال کردن قابلیت دسترسی](tutorial/accessibility.md#enabling-accessibility)
+  * [فعال کردن قابلیت](tutorial/accessibility.md#enabling-accessibility)
 * [تست و اشکال زدایی](tutorial/application-debugging.md) 
   * [اشکال زدایی فرآیند اصلی ](tutorial/debugging-main-process.md)
   * [استفاده از Selenium و WebDriver](tutorial/using-selenium-and-webdriver.md)

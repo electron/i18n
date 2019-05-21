@@ -27,7 +27,7 @@ $ sudo apt-get install build-essential clang libdbus-1-dev libgtk-3-dev \
                        libnotify-dev libgnome-keyring-dev libgconf2-dev \
                        libasound2-dev libcap-dev libcups2-dev libxtst-dev \
                        libxss1 libnss3-dev gcc-multilib g++-multilib curl \
-                       gperf bison python-dbusmock
+                       gperf bison python-dbusmock openjdk-8-jre
 ```
 
 Na RHEL / CentOS, zainstaluj następujące biblioteki:
@@ -36,7 +36,7 @@ Na RHEL / CentOS, zainstaluj następujące biblioteki:
 $ sudo yum install clang dbus-devel gtk3-devel libnotify-devel \
                    libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
                    cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
-                   GConf2-devel nss-devel python-dbusmock
+                   GConf2-devel nss-devel python-dbusmock openjdk-8-jre
 ```
 
 Na Fedorze, zainstalować należy poniższe biblioteki:
@@ -74,7 +74,7 @@ $ gn gen out/Debug --args='import(...) target_cpu="arm"'
 
 ## Kompilowanie
 
-See [Build Instructions: GN](build-instructions-gn.md)
+See [Instrukcje Budowania (Ogólne)](build-instructions-gn.md)
 
 ## Rozwiązywanie problemów
 
@@ -102,4 +102,4 @@ $ gn gen out/Debug --args='import("//electron/build/args/debug.gn") clang_base_p
 
 ### Używanie kompilatorów innych niż `clang`
 
-Building Electron with compilers other than `clang` is not supported.
+Nie ma wsparcia do budowania Electrona z kompilatorami innymi niż `clang`.

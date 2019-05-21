@@ -80,6 +80,16 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 返回 `String` - 下载项目的保存路径。这将是通过`downloadItem.setSavePath(path)`设置的路径，或从显示的保存对话框中选择的路径。
 
+#### `downloadItem.setSaveDialogOptions(options)`
+
+* `options` SaveDialogOptions - Set the save file dialog options. This object has the same properties as the `options` parameter of [`dialog.showSaveDialog()`](dialog.md).
+
+This API allows the user to set custom options for the save dialog that opens for the download item by default. The API is only available in session's `will-download` callback function.
+
+#### `downloadItem.getSaveDialogOptions()`
+
+Returns `SaveDialogOptions` - Returns the object previously set by `downloadItem.setSaveDialogOptions(options)`.
+
 #### `downloadItem.pause()`
 
 暂停下载。

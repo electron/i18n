@@ -152,6 +152,12 @@ Ang `hslShift` ay inaaplay sa imahe na may sumusunod na mga patakaran
 
 This means that `[-1, 0, 1]` will make the image completely white and `[-1, 1, 0]` will make the image completely black.
 
+In some cases, the `NSImageName` doesn't match its string representation; one example of this is `NSFolderImageName`, whose string representation would actually be `NSFolder`. Therefore, you'll need to determine the correct string representation for your image before passing it in. This can be done with the following:
+
+`echo -e '#import <Cocoa/Cocoa.h>\nint main() { NSLog(@"%@", SYSTEM_IMAGE_NAME); }' | clang -otest -x objective-c -framework Cocoa - && ./test`
+
+where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](https://developer.apple.com/documentation/appkit/nsimagename?language=objc).
+
 ## Class: NativeImage
 
 > Bumabalot ng imahe katulad ng trey, pantala, ang aplikasyon na icon. 
@@ -194,7 +200,7 @@ Nagbabalik `Buffer` - A [Buffer](https://nodejs.org/api/buffer.html#buffer_class
 
 Ang pagkakaiba ng `getBitmap()` and `toBitmap()` ay, `getBitmap()` hindi kinukopya ang bitmap data, kaya dapat gumamit ng returned Buffer agad kasalukuyang kaganapang loop tick, kunghindi ay baka magbago o mawasak ang data.
 
-#### `image.getNativeHandle()` *macOS*
+#### `image.getNativeHandle()` *macOS* 
 
 Nagbabalik ng `image.getNativeHandle()` [macOS](https://nodejs.org/api/buffer.html#buffer_class_buffer) na nagiimbak ng C pointer na pinagbabatayan ng native handle ng imahe. Sa macOS, ang panturo sa `NSImage` na pagkakataon ay ibinabalik. 
 

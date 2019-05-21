@@ -27,13 +27,16 @@ $ sudo apt-get install build-essential clang libdbus-1-dev libgtk-3-dev \
                        libnotify-dev libgnome-keyring-dev libgconf2-dev \
                        libasound2-dev libcap-dev libcups2-dev libxtst-dev \
                        libxss1 libnss3-dev gcc-multilib g++-multilib curl \
-                       gperf bison
+                       gperf bison python-dbusmock openjdk-8-jre
 ```
 
 En RHEL / CentOS, instala las siguientes librerías:
 
 ```sh
-J
+$ sudo yum install clang dbus-devel gtk3-devel libnotify-devel \
+                   libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
+                   cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
+                   GConf2-devel nss-devel python-dbusmock openjdk-8-jre
 ```
 
 En Fedora, instala las siguientes librerías:
@@ -42,7 +45,7 @@ En Fedora, instala las siguientes librerías:
 $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
                    cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
-                   GConf2-devel nss-devel python-dbusmock
+                   GConf2-devel nss-devel python-dbusmock openjdk-8-jre
 ```
 
 Otras distribuciones pueden ofrecer paquetes similares para instalación a través de gestores de paquetes como pacman. O uno puede compilar desde el código fuente.

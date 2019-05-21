@@ -4,7 +4,7 @@
 
 Process: [Main](../glossary.md#main-process)
 
-Las herramientas para desarrolladores de Chrome tiene un [special binding](https://developer.chrome.com/devtools/docs/debugger-protocol) disponible en JavaScript runtime que permite interactuar con las páginas y equiparlas.
+Las herramientas para desarrolladores de Chrome tiene un [special binding](https://chromedevtools.github.io/devtools-protocol/) disponible en JavaScript runtime que permite interactuar con las páginas y equiparlas.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -49,7 +49,7 @@ Desasocia el depurador de la `webContents`.
 
 #### `debugger.sendCommand(method[, commandParams, callback])`
 
-* `method` Cadena - Nombre del método, debe ser uno de los métodos definidos por el protocolo de depuración remoto.
+* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
 * `commandParams` Objeto (opcional) - El objeto JSON con parámetros de la solicitud.
 * `callback` Function (opcional) - Respuesta 
   * `error` Objeto- Mensaje de error que indica el fallo del comando.
@@ -57,18 +57,29 @@ Desasocia el depurador de la `webContents`.
 
 Envía el comando al objetivo de la depuración.
 
+**[Próximamente desaprobado](promisification.md)**
+
+#### `debugger.sendCommand(method[, commandParams])`
+
+* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
+* `commandParams` Objeto (opcional) - El objeto JSON con parámetros de la solicitud.
+
+Returns `Promise<any>` - A promise that resolves with the response defined by the 'returns' attribute of the command description in the remote debugging protocol or is rejected indicating the failure of the command.
+
+Envía el comando al objetivo de la depuración.
+
 ### Eventos de Instancia
 
 #### Evento: 'detach'
 
-* `event` Event
+* `event` Evento
 * `reason` Cadena - Razón para desasociar el depurador.
 
 Aparece cuando la sesión del depurador es finalizada. Esto sucede ya sea cuando se cierra `webContents` o cuando se invoca las herramientas del desarrollador para el adjunto `webContents`.
 
 #### Evento: 'message'
 
-* `event` Evento
+* `evento` Evento
 * `method` Cadena- Nombre del método.
 * `params` Objeto - Los parámetros del evento definidos por el atributo "parameters" en el protocolo de depuración remoto.
 

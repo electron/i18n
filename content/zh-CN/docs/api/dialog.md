@@ -42,8 +42,8 @@ console.log(dialog)
   * `message` String (可选) * macOS *-显示在输入框上方的消息。
   * `securityScopedBookmarks` Boolean (可选) *masOS* *mas* - 在打包提交到Mac App Store时创建 [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16)
 * `callback` Function (可选) 
-  * ` filePaths ` String[] - 用户选择的文件路径的数组
-  * `bookmarks` String[] *macOS* *mas* - 一个 `filePaths` 数组符合 base64 编码的安全作用域的书签数据。 `securityScopedBookmarks` 必须启用才能捕获数据。
+  * `filePaths` String[] (optional) - An array of file paths chosen by the user. If the dialog is cancelled this will be `undefined`.
+  * `bookmarks` String[] (optional) *macOS* *mas* - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` 必须启用才能捕获数据。
 
 Returns `String[] | undefined`, an array of file paths chosen by the user, if the callback is provided it returns `undefined`.
 
@@ -79,10 +79,10 @@ Returns `String[] | undefined`, an array of file paths chosen by the user, if th
   * `message` String (可选) * macOS *-显示在对话框上的消息。
   * ` nameFieldLabel ` String (可选) * macOS * - 文件名输入框对应的自定义标签名。
   * ` showsTagField ` Boolean (可选) * macOS *-显示标记输入框, 默认为 ` true `。
-  * `securityScopedBookmarks` Boolean (可选) *masOS* *mas* - 在打包提交到Mac App Store时创建 [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) 当该选项被启用且文件尚不存在时，那么在选定的路径下将创建一个空文件。
+  * `securityScopedBookmarks` Boolean (optional) *macOS* *mas* - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. 当该选项被启用且文件尚不存在时，那么在选定的路径下将创建一个空文件。
 * `callback` Function (可选) 
-  * `filename` String
-  * `bookmark` String *macOS* *mas* - 包含了安全作用域的书签数据 Base64 编码的字符串来保存文件。 `securityScopedBookmarks` 必须启用才有效。
+  * `filename` String (optional) If the dialog is cancelled this will be `undefined`.
+  * `bookmark` String (optional) *macOS* *mas* - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` 必须启用才有效。
 
 Returns `String | undefined`, the path of the file chosen by the user, if a callback is provided or the dialog is cancelled it returns `undefined`.
 
@@ -118,7 +118,7 @@ Returns `String | undefined`, the path of the file chosen by the user, if a call
 
 ` browserWindow ` 参数允许该对话框将自身附加到父窗口, 作为父窗口的模态框。
 
-如果传递了 `callback`，窗口将不会阻断进程。该API 将异步调用，并将结果通过 `callback(response)` 传递
+If the `callback` and `browserWindow` arguments are passed, the dialog will not block the process. The API call will be asynchronous and the result will be passed via `callback(response)`.
 
 ### `dialog.showErrorBox(title, content)`
 

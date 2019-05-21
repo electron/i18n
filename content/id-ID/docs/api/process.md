@@ -12,6 +12,7 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 
 * `crash()`
 * `hang()`
+* `getCreationTime()`
 * `getHeapStatistics()`
 * `getProcessMemoryInfo()`
 * `getSystemMemoryInfo()`
@@ -23,7 +24,6 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 * `pid`
 * `arch`
 * `platform`
-* `resourcesPath`
 * `sandboxed`
 * `type`
 * `version`
@@ -55,6 +55,10 @@ process.once('loaded', () => {
 
 A `Boolean`. Saat aplikasi dimulai dengan diteruskan sebagai parameter ke aplikasi default, ini properti `benar` dalam proses utama, jika tidak `tidak terdefinisi`.
 
+### `process.isMainFrame`
+
+A `Boolean`, `true` when the current renderer context is the "main" renderer frame. If you want the ID of the current frame you should use `webFrame.routingId`.
+
 ### `process.mas`
 
 A `Boolean`. Untuk pembuatan Mac App Store, properti ini `benar`, untuk bangunan lainnya `tidak terdefinisi`.
@@ -66,6 +70,10 @@ A `Boolean` yang mengontrol dukungan ASAR di dalam aplikasi Anda. Setting ini ke
 ### `process.noDeprecation`
 
 A `Boolean` that controls whether or not deprecation warnings are printed to `stderr`. Setting this to `true` will silence deprecation warnings. Properti ini digunakan bukan flag baris perintah `--no-deprecation `.
+
+### `process.enablePromiseAPIs`
+
+A `Boolean` that controls whether or not deprecation warnings are printed to `stderr` when formerly callback-based APIs converted to Promises are invoked using callbacks. Setting this to `true` will enable deprecation warnings.
 
 ### `process.resourcesPath`
 
@@ -89,7 +97,7 @@ A `Boolean` yang mengontrol apakah proses peringatan atau tidak untuk mencetak `
 
 ### `process.type`
 
-A `String` mewakili tipe proses saat ini, bisa jadi ` "browser" ` (yaitu proses utama) atau `"renderer" `.
+A `String` representing the current process's type, can be `"browser"` (i.e. main process), `"renderer"`, or `"worker"` (i.e. web worker).
 
 ### `process.versions.chrome`
 

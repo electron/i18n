@@ -10,24 +10,27 @@ The following example shows how to capture video from a desktop window whose tit
 // In the renderer process.
 const { desktopCapturer } = require('electron')
 
-desktopCapturer.getSources({ types: ['window', 'screen'] }, (error, sources) => {
-  if (error) throw error
-  for (let i = 0; i < sources.length; ++i) {
-    if (sources[i].name === 'Electron') {
-      navigator.mediaDevices.getUserMedia({
-        audio: false,
-        video: {
-          mandatory: {
-            chromeMediaSource: 'desktop',
-            chromeMediaSourceId: sources[i].id,
-            minWidth: 1280,
-            maxWidth: 1280,
-            minHeight: 720,
-            maxHeight: 720
+desktopCapturer.getSources({ types: ['window', 'screen'] }).then(async sources => {
+  for (const source of sources) {
+    if (source.name === 'Electron') {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({
+          audio: false,
+          video: {
+            mandatory: {
+              chromeMediaSource: 'desktop',
+              chromeMediaSourceId: source.id,
+              minWidth: 1280,
+              maxWidth: 1280,
+              minHeight: 720,
+              maxHeight: 720
+            }
           }
-        }
-      }).then((stream) => handleStream(stream))
-        .catch((e) => handleError(e))
+        })
+        handleStream(stream)
+      } catch (e) {
+        handleError(e)
+      }
       return
     }
   }
@@ -63,7 +66,7 @@ const constraints = {
 }
 ```
 
-## Methods
+## วิธีการ
 
 The `desktopCapturer` module has the following methods:
 
@@ -72,6 +75,7 @@ The `desktopCapturer` module has the following methods:
 * `options` Object 
   * `types` String[] - An array of Strings that lists the types of desktop sources to be captured, available types are `screen` and `window`.
   * `thumbnailSize` [Size](structures/size.md) (optional) - The size that the media source thumbnail should be scaled to. Default is `150` x `150`.
+  * `fetchWindowIcons` Boolean (optional) - Set to true to enable fetching window icons. The default value is false. When false the appIcon property of the sources return null. Same if a source has the type screen.
 * `callback` Function 
   * `error` Error
   * `sources` [DesktopCapturerSource[]](structures/desktop-capturer-source.md)
@@ -79,3 +83,20 @@ The `desktopCapturer` module has the following methods:
 Starts gathering information about all available desktop media sources, and calls `callback(error, sources)` when finished.
 
 `sources` is an array of [`DesktopCapturerSource`](structures/desktop-capturer-source.md) objects, each `DesktopCapturerSource` represents a screen or an individual window that can be captured.
+
+**[Deprecated Soon](promisification.md)**
+
+### `desktopCapturer.getSources(options)`
+
+* `options` Object 
+  * `types` String[] - An array of Strings that lists the types of desktop sources to be captured, available types are `screen` and `window`.
+  * `thumbnailSize` [Size](structures/size.md) (optional) - The size that the media source thumbnail should be scaled to. Default is `150` x `150`.
+  * `fetchWindowIcons` Boolean (optional) - Set to true to enable fetching window icons. The default value is false. When false the appIcon property of the sources return null. Same if a source has the type screen.
+
+Returns `Promise<DesktopCapturerSource[]>` - Resolves with an array of [`DesktopCapturerSource`](structures/desktop-capturer-source.md) objects, each `DesktopCapturerSource` represents a screen or an individual window that can be captured.
+
+### Caveats
+
+`navigator.mediaDevices.getUserMedia` does not work on macOS for audio capture due to a fundamental limitation whereby apps that want to access the system's audio require a [signed kernel extension](https://developer.apple.com/library/archive/documentation/Security/Conceptual/System_Integrity_Protection_Guide/KernelExtensions/KernelExtensions.html). Chromium, and by extension Electron, does not provide this.
+
+It is possible to circumvent this limitation by capturing system audio with another macOS app like Soundflower and passing it through a virtual audio input device. This virtual device can then be queried with `navigator.mediaDevices.getUserMedia`.

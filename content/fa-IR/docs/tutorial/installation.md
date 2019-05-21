@@ -30,7 +30,7 @@ In addition to changing the architecture, you can also specify the platform (e.g
 npm install --platform=win32 electron
 ```
 
-## Proxies
+## پروکسی ها
 
 If you need to use an HTTP proxy you can [set these environment variables](https://github.com/request/request/tree/f0c4ec061141051988d1216c24936ad2e7d5c45d#controlling-proxy-behaviour-using-environment-variables).
 
@@ -79,6 +79,18 @@ The cache contains the version's official zip file as well as a checksum, stored
 ├── SHASUMS256.txt-1.8.2-beta.1
 ├── SHASUMS256.txt-1.8.2-beta.2
 ├── SHASUMS256.txt-1.8.2-beta.3
+```
+
+## رد کردن دانلود باینری
+
+When installing the `electron` NPM package, it automatically downloads the electron binary.
+
+This can sometimes be unnecessary, e.g. in a CI environment, when testing another component.
+
+To prevent the binary from being downloaded when you install all npm dependencies you can set the environment variable `ELECTRON_SKIP_BINARY_DOWNLOAD`. E.g.:
+
+```sh
+ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
 ```
 
 ## عیب یابی

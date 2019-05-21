@@ -1,4 +1,4 @@
-# `File` Nesne
+# `File` Object
 
 > HTML5 `File` API kullanarak dosya sistemi içerisindeki dosyalarla çalışın.
 
@@ -8,19 +8,19 @@ Uygulamaya sürüklenen bir dosyanın gerçek yolunu alma örneği:
 
 ```html
 <div id="holder">
-  Dosyanızı buraya sürükleyin.
+  Drag your file here
 </div>
 
 <script>
-  document.addEventListener('drop', function (e) {
+  document.addEventListener('drop', (e) => {
     e.preventDefault();
     e.stopPropagation();
 
-    for (let f of e.dataTransfer.files) {
-      console.log('Sürüklediğiniz dosya(lar): ', f.path)
+    for (const f of e.dataTransfer.files) {
+      console.log('File(s) you dragged here: ', f.path)
     }
   });
-  document.addEventListener('dragover', function (e) {
+  document.addEventListener('dragover', (e) => {
     e.preventDefault();
     e.stopPropagation();
   });

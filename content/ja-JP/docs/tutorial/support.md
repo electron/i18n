@@ -25,7 +25,15 @@ Electronにコントリビュートしたい場合は、[コントリビュー�
 
 ## サポートされているバージョン
 
-最新の3リリースブランチがElectronチームによってサポートされています。 例えば、最新リリースの2.0.xの場合、2-0-xシリーズと、2つ前のリリースシリーズである1-7-xと1-8-xも同様にはサポートされています。
+The latest three major versions are supported by the Electron team. For example, if the latest release is 5.0.x, then the 4.x.y series is supported, as are the two previous release series 3.x.y and 2.x.y.
+
+### Currently supported versions
+
+* 5.x
+* 4.x
+* 3.x
+
+### End-of-life
 
 リリースブランチがサポートサイクルの終わりに達すると、npm では非推奨となり、最後のサポート終了リリースが行われる予定です。 このリリースでは、サポートされていないバージョンの Electron が使用されていることを知らせるための警告が追加されます。
 

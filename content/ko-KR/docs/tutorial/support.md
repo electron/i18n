@@ -25,7 +25,15 @@ Electron에 공헌하고 싶다면, [contributing document](../../CONTRIBUTING.m
 
 ## 지원되는 버전
 
-최신 3 개의 release branches은 Electron 팀에서 지원합니다. 예를 들어, 최신 릴리스가 2.0.x 인 경우 2-0-x 시리즈가 지원되며, 두 개의 이전 릴리스 시리즈 1-7-x 및 1-8-x도 지원됩니다.
+The latest three major versions are supported by the Electron team. For example, if the latest release is 5.0.x, then the 4.x.y series is supported, as are the two previous release series 3.x.y and 2.x.y.
+
+### Currently supported versions
+
+* 5.x
+* 4.x
+* 3.x
+
+### End-of-life
 
 Release branch에서 지원주기가 끝나면, 이 시리즈는 NPM에서 더이상 사용되지 않게 설정되며, 최종 지원 배포가 만들어질 것 입니다. 이 릴리스에서는 지원되지 않는 버전의 Electron이 사용 중임을 알리는 경고가 추가됩니다.
 
@@ -39,7 +47,7 @@ Electron이 지원하는 플랫폼은 다음과 같습니다:
 
 ### macOS
 
-Only 64bit binaries are provided for macOS, and the minimum macOS version supported is macOS 10.10 (Yosemite).
+MacOS에는 64 비트 바이너리만 제공되며, 최소 버전은 macOS 10.10입니다).
 
 ### Windows
 

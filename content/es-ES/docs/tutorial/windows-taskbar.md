@@ -12,7 +12,7 @@ Windows permite a las aplicaciones definir un menú contextual personalizado que
 
 **Tareas de Internet Explorer:**
 
-![IE](http://i.msdn.microsoft.com/dynimg/IC420539.png)
+![IE](https://i-msdn.sec.s-msft.com/dynimg/IC420539.png)
 
 A diferencia del menú Dock en macOS, que es un menú real, las tareas de usuario en Windows funcionan como accesos directos a aplicaciones, de modo que cuando el usuario hace clic en una tarea, se ejecuta un programa con argumentos especificados.
 

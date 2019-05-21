@@ -9,7 +9,7 @@ A `BrowserView` can be used to embed additional web content into a [`BrowserWind
 ## Example
 
 ```javascript
-// In the main process.
+// ใน main process
 const { BrowserView, BrowserWindow } = require('electron')
 
 let win = new BrowserWindow({ width: 800, height: 600 })
@@ -17,11 +17,7 @@ win.on('closed', () => {
   win = null
 })
 
-let view = new BrowserView({
-  webPreferences: {
-    nodeIntegration: false
-  }
-})
+let view = new BrowserView()
 win.setBrowserView(view)
 view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electronjs.org')

@@ -4,7 +4,11 @@
 
 Electron's `webview` tag is based on [Chromium's `webview`](https://developer.chrome.com/apps/tags/webview), which is undergoing dramatic architectural changes. This impacts the stability of `webviews`, including rendering, navigation, and event routing. We currently recommend to not use the `webview` tag and to consider alternatives, like `iframe`, Electron's `BrowserView`, or an architecture that avoids embedded content altogether.
 
-## Overview
+## Enabling
+
+By default the `webview` tag is disabled in Electron >= 5. You need to enable the tag by setting the `webviewTag` webPreferences option when constructing your `BrowserWindow`. For more information see the [BrowserWindow constructor docs](browser-window.md).
+
+## 概览
 
 > 在一个独立的 frame 和进程里显示外部 web 内容。
 
@@ -51,7 +55,7 @@ Under the hood `webview` is implemented with [Out-of-Process iframes (OOPIFs)](h
 So the behavior of `webview` is very similar to a cross-domain `iframe`, as examples:
 
 * When clicking into a `webview`, the page focus will move from the embedder frame to `webview`.
-* You can not add keyboard event listeners to `webview`.
+* You can not add keyboard, mouse, and scroll event listeners to `webview`.
 * All reactions between the embedder frame and `webview` are asynchronous.
 
 ## CSS 样式说明
@@ -89,6 +93,14 @@ Assigning `src` its own value will reload the current page.
 ```
 
 当有此属性时, ` webview ` 中的访客页（guest page）将具有Node集成, 并且可以使用像 ` require ` 和 ` process ` 这样的node APIs 去访问低层系统资源。 Node 集成在访客页中默认是禁用的。
+
+### `nodeintegrationinsubframes`
+
+```html
+<webview src="http://www.google.com/" nodeintegrationinsubframes></webview>
+```
+
+Experimental option for enabling NodeJS support in sub-frames such as iframes inside the `webview`. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not. This option is disabled by default in the guest page.
 
 ### `enableremotemodule`
 
@@ -206,10 +218,10 @@ webview.addEventListener('dom-ready', () => {
 
 * `url` URL
 * `options` Object (可选) 
-  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
+  * `httpReferrer` (String | [Referrer](structures/referrer.md)) (可选) - 一个 HTTP Referrer url。
   * `userAgent` String (可选) - 发起请求的 userAgent.
   * `extraHeaders` String (可选) - 用 "\n" 分割的额外标题
-  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
+  * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (可选)
   * `baseURLForDataURL` String (可选) - 要加载的数据文件的根 url(带有路径分隔符). 只有当指定的 `url`是一个数据 url 并需要加载其他文件时，才需要这样做。
 
 `webview` 中加载目标 url，url 地址必须包含协议前缀，例如：`http://` 或 `file://`。
@@ -462,11 +474,21 @@ Prints `webview`'s web page as PDF, Same as `webContents.printToPDF(options, cal
 
 ### `<webview>.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
-* `callback` Function - 回调函数 
+* `rect` [Rectangle](structures/rectangle.md) (可选) - 捕获的区域
+* `callback` Function 
   * `image` [NativeImage](native-image.md)
 
-捕获 `requestFullScreen` 的页面的一个快照，类似于 `webContents.capturePage([rect, ]callback)`。
+Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
+
+**[Deprecated Soon](promisification.md)**
+
+### `<webview>.capturePage([rect])`
+
+* `rect` [Rectangle](structures/rectangle.md) (optional) - The area of the page to be captured.
+
+* Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+
+Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
 
 ### `<webview>.send(channel[, arg1][, arg2][, ...])`
 
@@ -497,19 +519,13 @@ See [webContents.sendInputEvent](web-contents.md#contentssendinputeventevent) fo
 
 更改缩放等级。 The original size is 0 and each increment above or below represents zooming 20% larger or smaller to default limits of 300% and 50% of original size, respectively. The formula for this is `scale := 1.2 ^ level`.
 
-### `<webview>.getZoomFactor(callback)`
+### `<webview>.getZoomFactor()`
 
-* `callback` Function - 回调函数 
-  * `zoomFactor` Number
+Returns `Number` - the current zoom factor.
 
-Sends a request to get current zoom factor, the `callback` will be called with `callback(zoomFactor)`.
+### `<webview>.getZoomLevel()`
 
-### `<webview>.getZoomLevel(callback)`
-
-* `callback` Function - 回调函数 
-  * `zoomLevel` Number
-
-Sends a request to get current zoom level, the `callback` will be called with `callback(zoomLevel)`.
+Returns `Number` - the current zoom level.
 
 ### `<webview>.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
@@ -671,7 +687,7 @@ const webview = document.querySelector('webview')
 webview.addEventListener('new-window', (e) => {
   const protocol = require('url').parse(e.url).protocol
   if (protocol === 'http:' || protocol === 'https:') {
-    shell.openExternal(e.url)
+    shell.openExternalSync(e.url)
   }
 })
 ```
@@ -756,10 +772,6 @@ ipcRenderer.on('ping', () => {
 ### Event: 'crashed'
 
 Fired when the renderer process is crashed.
-
-### Event: 'gpu-crashed'
-
-Fired when the gpu process is crashed.
 
 ### Event: 'plugin-crashed'
 

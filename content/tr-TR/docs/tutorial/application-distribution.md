@@ -1,5 +1,17 @@
 # Uygulama Dağıtımı
 
+To distribute your app with Electron, you need to package and rebrand it. The easiest way to do this is to use one of the following third party packaging tools:
+
+* [electron-forge](https://github.com/electron-userland/electron-forge)
+* [electron-builder](https://github.com/electron-userland/electron-builder)
+* [electron-packager](https://github.com/electron-userland/electron-packager)
+
+These tools will take care of all the steps you need to take to end up with a distributable Electron applications, such as packaging your application, rebranding the executable, setting the right icons and optionally creating installers.
+
+## Manual distribution
+
+You can also choose to manually get your app ready for distribution. The steps needed to do this are outlined below.
+
 Uygulamanızı Electron ile dağıtmak için, Electron'un [prebuiltbinaries](https://github.com/electron/electron/releases) önceden oluşturulmuş dosyalarını dosyalarını indireniz gerekir. Sonra, klasör `app` olarak adlandırılmalı ve Electron'un kaynaklarına yerleştirilmelidir aşağıdaki örneklerde gösterildiği gibi. Konumunu Electron'un önceden hazırlanmış ikili dosyaları örneklerde `electron /` ile altında gösterilir.
 
 MacOS üzerinde:
@@ -78,14 +90,6 @@ MyApp.app/Contents
 ### Linux
 
 `electron` yürütülebilir dosyasını istediğiniz herhangi bir adla yeniden adlandırabilirsiniz.
-
-## Paketleme araçları
-
-Uygulamanızı manuel olarak paketlemenin yanı sıra, üçüncü parti aracıların sizin için paketleme araçları:
-
-* [electron-forge](https://github.com/electron-userland/electron-forge)
-* [electron-builder](https://github.com/electron-userland/electron-builder)
-* [electron-packager](https://github.com/electron-userland/electron-packager)
 
 ## Electron'u Kaynaktan Yeniden Yapılandırma
 

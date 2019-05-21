@@ -23,4 +23,3 @@ Queste guide sono destinate alle persone che lavorano al progetto stesso di Elec
 * [Aggiornamento di Chromium](upgrading-chromium.md)
 * [Aggiornamento di Crashpad](upgrading-crashpad.md)
 * [Aggiornando Node](upgrading-node.md)
-* [Rilasciando](releasing.md)

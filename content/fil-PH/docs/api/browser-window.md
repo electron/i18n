@@ -102,7 +102,6 @@ Ang Inirerekomenda na i-hinto mo ang mga mahahalagang operasyon kapag ang may ka
 
 * Sa macOS na modal windows ay ipinapakita ang bilang ng mga sheet na naka-sama sa window ng magulang.
 * Sa macOS ang mga bintana ng anak ay pinapanatili ang kamag-anak na posisyon sa bintana ng magulang kapag ang window ng magulang ay gumagalaw, habang sa Windows at Linux bintana ng bata ay hindi nailipat.
-* Sa bintana hindi ito suportado upang baguhin ang panimulang bintana ng magulang.
 * Sa Linux ang tipo ng modal windows ay mababago sa `dayalogo`.
 * Ang ay Linux maraming mga kapaligiran sa desktop ang hindi suportado sa pagtatago ng modal window.
 
@@ -142,7 +141,7 @@ sa macOS. Ang default ay <code>false`.
   * `simpleFullscreen` Boolean (optional) - Gamitin ang pre-Lion fullscreen sa macOS. Ang default ay `false`.
   * `skipTaskbar` Boolean (opsyonal) - o kung gustong ipakita ang window sa taskbar. Ang default ay `false`. <0>false</0>.
   * `kiosk` Boolean (optional) - Ang kiosk mode. Ang Default ay `false`.
-  * `title` String (opsyonal) - Pamagat ng default na window, Ang default ay `"Electron"`.
+  * `title` String (optional) - Default window title. Default is `"Electron"`. If the HTML tag `<title>` is defined in the HTML file loaded by `loadURL()`, this property will be ignored.
   * `icon` ([NativeImage](native-image.md) | String) (opsyonal) - Ang icon ng window. Sa windos mismo ay nirerekomenda na gamitin ang `ICO` para makakuha ng magandang mga effects ay pwede mong gawin lagyan ito ng guhit sa ilalim nang sa ganun ito ay maeexecute at ang icon ay pwede ng magamit.
   * `show` Boolean (opsyonal) - kapag kinakailangang ipakita ang window kapag ginawa. Ang default ay `true`.
   * `frame` Boolean (opsyonal) - Tukuyin ang `false` para lumikha ng isang [Frameless Window](frameless-window.md). Ang default ay `true`.
@@ -152,7 +151,7 @@ sa macOS. Ang default ay <code>false`.
   * `disableAutoHideCursor` Boolean (opsyonal) - Kung itinago ang cursor kapag nagta-type. Ang default ay `false`.
   * `autoHideMenuBar` Boolean (opsyonal) - Awtomatikong itago ang bar ng menu maliban kung ang teklado ng `Alt` ay pinindot. Ang default ay `false`.
   * `enableLargerThanScreen` Boolean (opsyonal) - Paganahin ang window na palakihin ng mas malaki kaysa sa iskrin. Ang default ay `false`.
-  * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported if `transparent` is set to `true`). Default is `#FFF` (white).
+  * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha in #AARRGGBB format is supported if `transparent` is set to `true`). Default is `#FFF` (white).
   * `hasShadow` Boolean (opsyonal) - Kung ang window ay mayroong anino. Ito ay ipinapatupad lamang sa macOS. Ang default ay `true`.
   * `opacity` Number (opsyonal) - Itakda ang paunang opacity sa bintana, sa gitna ng 0.0 (fully transparent) and 1.0 (fully opaque). Ito ay pinatutupad lamang sa Windows at macOS.
   * `darkTheme` Boolean (opsyonal) - Puwersahang gumagamit ng madilim na theme para sa window, gumagana lamang sa ilang mga kapaligiran ng GTK+3 desktop. Ang default ay `false`.
@@ -170,13 +169,14 @@ sa macOS. Ang default ay <code>false`.
   * `tabbingIdentifier` String (opsyonal) - Pangalan ng grupo ng tab, pinapayagang buksan ang window bilang isang natural na tab sa macOS 10.12+. Ang Windows na may magkatulad na tagakilala ng tabbing ay maaaring pagsama-samahin sa isang grupo. Magdadagdag din ito ng isang natural na bagong pindutan ng tab sa tab bar ng iyong window at pinapayagan ang iyong `app` at window para tanggapin ang kaganapan ng `new-window-for-tab`.
   * `ang webPreferences` Mga bagay (opsyonal) - Ang mga pagtatakda ng mga katangian ng pahina ng web. 
     * `devTools` Boolean (opsyonal) - Kung pinagana ang mga Dev Tool. Kung ito ay itinakda sa `false`, ay hindi maaaring gamitin ang `BrowserWindow.webContents.openDevTools()` para buksan ang mga Dev Tool. Ng default ay `tama`.
-    * Ang `nodeIntegration` Boolean (opsyonal) - Kung ang pagsasama ng node ay pinagama na. Ang default ay `true`.
+    * `nodeIntegration` Boolean (optional) - Whether node integration is enabled. Default is `false`.
     * Ang `nodeIntegrationInWorker` Boolean (opsyonal) - Kung ang pagsasama ng node ay pinagana na sa mga tagagawa ng web. Ang default ay `false`. Mas maraming tungkol dito ay maaaring matagpuan sa [Multithreading](../tutorial/multithreading.md).
+    * `nodeIntegrationInSubFrames` Boolean (optional) - Experimental option for enabling NodeJS support in sub-frames such as iframes. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not.
     * `preload` String (opsyonal) - Tinutukoy ang isang iskrip na ikakarga bago ang ibang mga iskrip ay dumaan sa mga pahina. Ang iskrip na ito ay laging mayroong access sa mga API ng node hindi mahalaga kung ang pagsasama ng node ay binuksan o isinara. Ang halaga ay ang maaring magiging tungkulin ng path file sa script. Kung naka-patay ang pagsasama ng node, pweding ipakilala ulit ang preload script Ang Node global na sagisag pabalik sa global na sakop. Tignan ang halimbawa [here](process.md#event-loaded).
     * `sandbox` Boolean (opsyonal) - Kung itinakda, ito ay isa-sandbox ang tagasalin na may kaugnayan sa window, gagawin itong katugma sa antas ng sandbox ng Chromium OS at pahihintuin ang makina ng Node.js. Ito ay hindi ang katulad ng ang `nodeIntegration` opsyon at ang mga API na magagamit sa pag-preload ng script ay mas malilimitahan. Basahin ng mabuti ang hingil sa opsyon [here](sandbox-option.md). **Tandaan:** Ang kasalukuyang pagpipilian ng eksperimentong ito at pweding magbago o maging tanggalin sa hinaharap na paglabas ng electron.
     * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. Default is `true`.
     * `session` [Session](session.md#class-session) (opsyonal) - Mag-takda ng mga sesyon kung saan ginagamit ang pahina. Sa halip na direktang ipasa ang layon ng sesyon, pwedi ka rin pumili sa Ang pag-gamit ng `partition` opsyon imbes, na tumatanggap ng string ng partition. Kung kelan Ang parehong `sesyon` and `partition` ay naglalaan para sa, `sesyon` maaring maging ginusto. Ang default ay ang default na sesyon.
-    * `partition` String (opsyonal) - Itinatakda ang sesyon na ginagamit ng mga pahina ng ayon sa mga string na partisyon ng mga sesyon. Kung ang `partition` ay nagsisimula na may `persist`, ang pahina ay gagamit ng isang paulit-ulit na sesyon na magagamit sa lahat ng mga pahina sa mga app na may kaparehas na `partition`. Kung wala ang unlaping `persist`, ang pahina ay gagamit ng isang nasa memoryang sesyon. Sa pag-aatas ng kaparehong `partition`, maramihang mga pahina ang maaaring magsalo-salo sa magkaparehong sesyon. Ang default ay ang default na sesyon.
+    * `partition` String (opsyonal) - Itinatakda ang sesyon na ginagamit ng mga pahina ng ayon sa mga string na partisyon ng mga sesyon. Kung ang `partition` ay nagsisimula na may `persist`, ang pahina ay gagamit ng isang paulit-ulit na sesyon na magagamit sa lahat ng mga pahina sa mga app na may kaparehas na `partition`. Kung wala ang unlaping `persist`, ang pahina ay gagamit ng isang nasa memoryang sesyon. Sa pag-aatas ng kaparihang `partition`, maramihang pahina ang pwede maibahagi sa parehang sesyon. Ang default ay ang default na sesyon.
     * `affinity` String (optional) - When specified, web pages with the same `affinity` will run in the same renderer process. Note that due to reusing the renderer process, certain `webPreferences` options will also be shared between the web pages even when you specified different values for them, including but not limited to `preload`, `sandbox` and `nodeIntegration`. So it is suggested to use exact same `webPreferences` for web pages with the same `affinity`. *This property is experimental*
     * Ang `zoomFactor` Numero (opsyonal) - Ang default na sanhi ng zoom ng mga pahina, `3.0` ay kumakatawan sa `300%`. Ang default ay `1.0`.
     * Ang `javascript` Boolean (opsyonal) - Pinapagana ang suporta ng JavaScript. Ang default ay `true`.
@@ -203,14 +203,15 @@ sa macOS. Ang default ay <code>false`.
     * Ang `minimumFontSize` Integer (opsyonal) - Ang mga default para sa `0`.
     * Ang `defaultEncoding` String (opsyonal) - Ang mga default para sa `ISO-8859-1`.
     * `backgroundThrottling` Boolean (opsyonal) - Kapag sinakal ang mga animation at timers kapag ang pahina ay maging background. Ito ay maaring makaapekto sa [Page Visibility API](#page-visibility). Ang default sa `tama`.
-    * `offscreen` Boolean (opsyonall) - Kung papaganahin ang pag-render ng offscreen para sa browser ng window. Ang default na `mali`. Tignan ang [pagtuturo sa pag rerender ng offscreen](../tutorial/offscreen-rendering.md) para sa mas maraming paliwanag.
+    * `offscreen` Boolean (opsyonall) - Kung papaganahin ang pag-render ng offscreen para sa browser ng window. Naka-default sa `false`. Tignan ang [pagtuturo sa pag rerender ng offscreen](../tutorial/offscreen-rendering.md) para sa mas maraming paliwanag.
     * `contextIsolation` Boolean (o[syonal) - Maging ang pagpapatakbo ng Electron APis at Ang pagtukoy `preload` Ang script sa magkakahiwalay na nilalaman ng JavaScript. Ang mga default para sa `false`. Ang nilalaman na iyon ang `preload` Ang script ay mayroong kabuuang access upang tumatakbo sa `dokumento` at `window` globals subalit gagamitin nito sarili nitong hilera ng pag-tatag ng JavaScript (`Array`, `Object`, `JSON`, etc.) at pinag-hihiwalay mula sa alinmang mga pagbabagong ginawa sa pandaigdigang kapaligiran sa paraan ng pag-karga ng pahina. Ang Electron API ay maaaring maging pwedi lamang sa `preload` ang script at hindi ang ikinargang pahina. Ang opsyon na ito ay kailangan magamit kapag Ang pagkakarga ng potensyal na hindi mapag-kakatiwalaan na nilalaman ng remote upang masiguro ang nilalaman ng pag-karga ay hindi pweding galawin ang `preload` Ang script at ang alinmang Electron APIs ay kasalukuyang ginagamit. Ang opsyon sa pag-gamit ng mag-katulad na estilo ay ginagamit ng [Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment). Pwedii mong i-access ang nilalamang ito sa mga tool ng dev sa parang pagpili sa Ang ipinasok na 'Electron Isolated Context' sa kombo kaahon sa itaas ng Tab ng Console.
-    * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. If set to `true`, the `webPreferences` of child window will always be the same with parent window, regardless of the parameters passed to `window.open()`. Naka-default sa `false`. **Note:** This option is currently experimental.
-    * Ang `webviewTag` Boolean (opsyonal) - Kung pagaganahin ang [`<webview>` tag](webview-tag.md). Ang mga default sa mgahalaga ng mga opsyon ng `nodeIntegration`. **Note:** Ang iskrip ng `preload` ay isinaayos para ang `<webview>` ay may pagsasama-sama ng node na pinagana kapag ito ay naisakatuparan kaya dapat mong siguraduhin na ang malayo/hindi mapagkakatiwalaang nilalaman ay hindi makakagawa ng isang tag`<webview>` na may isang posibleng malisyosong iskrip `preload`. Maaari mong gamitin ang kaganapan ng `will-attach-webview` sa [webContents](web-contents.md) para tanggalin ang iskrip ng `preload` at patunayan o pasubalian ang inisyal na mga pagtatakda sa `<webview>`.
+    * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. Naka-default sa `false`. Child windows will always have node integration disabled. **Note:** This option is currently experimental.
+    * Ang `webviewTag` Boolean (opsyonal) - Kung pagaganahin ang [`<webview>` tag](webview-tag.md). Naka-default sa `false`. **Note:** Ang iskrip ng `preload` ay isinaayos para ang `<webview>` ay may pagsasama-sama ng node na pinagana kapag ito ay naisakatuparan kaya dapat mong siguraduhin na ang malayo/hindi mapagkakatiwalaang nilalaman ay hindi makakagawa ng isang tag`<webview>` na may isang posibleng malisyosong iskrip `preload`. Maaari mong gamitin ang kaganapan ng `will-attach-webview` sa [webContents](web-contents.md) para tanggalin ang iskrip ng `preload` at patunayan o pasubalian ang inisyal na mga pagtatakda sa `<webview>`.
     * `additionalArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app. Useful for passing small bits of data down to renderer process preload scripts.
     * `safeDialogs` Boolean (optional) - Whether to enable browser style consecutive dialog protection. Default is `false`.
     * `safeDialogsMessage` String (optional) - The message to display when consecutive dialog protection is triggered. If not defined the default message would be used, note that currently the default message is in English and not localized.
     * `navigateOnDragDrop` Boolean (optional) - Whether dragging and dropping a file or link onto the page causes a navigation. Default is `false`.
+    * `autoplayPolicy` String (optional) - Autoplay policy to apply to content in the window, can be `no-user-gesture-required`, `user-gesture-required`, `document-user-activation-required`. Defaults to `no-user-gesture-required`.
 
 Kapag nagtatakda ng minimum o maximum na laki ng window `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, pinipigilan lamang nito ang mga gumagamit. Hindi nito mapipigilan ka pagpasa ng isang sukat na hindi sumusunod sa mga hadlang sa laki `setBounds`/`setSize` o sa tagapagbuo ng `BrowserWindow`.
 
@@ -373,7 +374,7 @@ Ibinabalik ang:
 
 Emitted when the window is set or unset to show always on top of other windows.
 
-#### Kaganapan: 'app-command' * Windows *
+#### Event: 'app-command' *Windows* *Linux*
 
 Ibinabalik ang:
 
@@ -394,6 +395,11 @@ win.on('app-command', (e, cmd) => {
   }
 })
 ```
+
+The following app commands are explictly supported on Linux:
+
+* `browser-backward`
+* `browser-forward`
 
 #### Kaganapan: 'scroll-touch-begin' * macOS *
 
@@ -677,11 +683,14 @@ Resizes and moves the window to the supplied bounds. Any properties that are not
 ```javascript
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
- // set all bounds properties
+
+// set all bounds properties
 win.setBounds({ x: 440, y: 225, width: 800, height: 600 })
- // set a single bounds property
-win.setBounds({ width: 200 })
- // { x: 440, y: 225, width: 200, height: 600 }
+
+// set a single bounds property
+win.setBounds({ width: 100 })
+
+// { x: 440, y: 225, width: 100, height: 600 }
 console.log(win.getBounds())
 ```
 
@@ -868,7 +877,7 @@ Binabago ang pamagat ng katutubong window sa `title`.
 
 Bumabalik `String` - Ang pamagat ng katutubong window.
 
-**Note:** Ang pamagat ng web page ay maaaring iba mula sa pamagat ng katutubo window.
+**Note:** The title of the web page can be different from the title of the native window.
 
 #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
 
@@ -963,22 +972,34 @@ Ibinabalik ang `Boolean` - Kung saan ang mga dokumento ng window ay na-edit na.
 #### `win.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (opsyonal) - Para ma-makuha ang bounds
-* `callback` Punsyon 
+* `callback` Function 
   * `image` [NativeImage](native-image.md)
 
-Katulad nang `webContents.capturePage([rect, ]callback)`.
+Kumukuha ng isang snapshot ng pahina sa loob ng `rect`. Sa oras na makumpleto `callback` ay tatawagan `callback(imahe)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
+
+**[Deprecated Soon](promisification.md)**
+
+#### `win.capturePage([rect])`
+
+* `rect` [Rectangle](structures/rectangle.md) (opsyonal) - Para ma-makuha ang bounds
+
+* Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+
+Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
 
 #### `win.loadURL(url[, mga pagpipilian])`
 
 * `url` Tali
 * `options` Na Bagay (opsyonal) 
   * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
-  * `userAgent` String(opsyonal) - Ang ahente na gumagamit ng pinagmumulan ng kahilingan.
-  * `extraHeaders` String(opsyonal) - Sobrang ulunan ay pinaghihiwalay sa "\n"
+  * `userAgent` Pisi (opsyonal) - Isang ahenteg gumagamit na nagmumula sa kahilingan.
+  * `extraHeaders` Pisi (opsyonal) - Mga dagdag na header na pinaghihiwalay ng "\n"
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
   * `baseURLForDataURL` Pisi (opsyonal) - Base url (na may trailing path separator) para sa mga dokumento na mai-load ng url ng data. Ito ay kinakailangan lamang kung ang tinutukoy na `url` ay isang url ng data at kailangang mag-load ng iba pang mga file.
 
-Tulad ng `webContents.loadURL(url[, options])`.
+Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
+
+Same as [`webContents.loadURL(url[, options])`](web-contents.md#contentsloadurlurl-options).
 
 Ang ` url ` ay maaaring maging isang remote address (hal. ` http: // `) o isang path sa isang lokal na HTML file gamit ang protocol na ` file: // `.
 
@@ -1005,13 +1026,15 @@ win.loadURL('http://localhost:8000/post', {
 })
 ```
 
-#### `win.loadFile(filePath[, mga pagpipilian])`
+#### `win.loadFile(filePath[, options])`
 
 * `filePath` String
 * `options` Na Bagay (opsyonal) 
   * `query` Object (optional) - Passed to `url.format()`.
   * `search` String (optional) - Passed to `url.format()`.
   * `hash` String (optional) - Passed to `url.format()`.
+
+Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
 Same as `webContents.loadFile`, `filePath` should be a path to an HTML file relative to the root of your application. See the `webContents` docs for more information.
 
@@ -1023,12 +1046,16 @@ Tulad ng `webContents.reload`.
 
 * `menu` Menu | null
 
-Itinatakda ang ` menu ` bilang menu bar ng window, ang pagtatakda nito sa ` null ` ay aalisin ang menu bar.
+Sets the `menu` as the window's menu bar.
+
+#### `win.removeMenu()` *Linux* *Windows*
+
+Remove the window's menu bar.
 
 #### `win.setProgressBar(progress[, options])`
 
 * `progress` Doble
-* `mga opsyon` Na Bagay (opsyonal) 
+* `options` Na Bagay (opsyonal) 
   * `mode` String *Windows* - Mode for the progress bar. Can be `none`, `normal`, `indeterminate`, `error` or `paused`.
 
 Nagtatakda ng halaga ng pag-unlad sa progress bar. Ang wastong saklaw ay [0, 1.0].
@@ -1052,7 +1079,7 @@ Nagtatakda ng 16 x 16 na pixel na overlay papunta sa kasalukuyang icon ng taskba
 
 Nagtatakda kung ang window ay dapat magkaroon ng anino. Sa Windows at Linux ay walang ginagawa.
 
-#### `win.hasShadow()` *macOS*
+#### `win.hasShadow()` *macOS* 
 
 Ibinabalik ` Boolean` - Kung ang window ay may anino.
 
@@ -1115,7 +1142,7 @@ Itakda ang toolTip na ipinapakita habang nag-hohover higit sa window ng thumbnai
 
 #### `win.setAppDetails(options)` *Windows*
 
-* `mga opsyon` Bagay 
+* `options` Bagay 
   * `appId` String (optional) - Window's [App User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391569(v=vs.85).aspx). Ito ay dapat na itakda, kung hindi man ay ang ibang opsyon ay walang epekto.
   * `appIconPath` String (optional) - Window's [Relaunch Icon](https://msdn.microsoft.com/en-us/library/windows/desktop/dd391573(v=vs.85).aspx).
   * `appIconIndex` Integer (optional) - Ang index ng icon sa `appIconPath`. Hindi pinansin kung `appIconPath` hindi naitakda. Default ay `0`.
@@ -1169,7 +1196,7 @@ Ibinabalik ang `Boolean` - Kung saan ang menu bar ay makikita.
 #### `win.setVisibleOnAllWorkspaces(visible[, options])`
 
 * `visible` Boolean
-* `mga opsyon` Na Bagay (opsyonal) 
+* `options` Na Bagay (opsyonal) 
   * `visibleOnFullScreen` Boolean (optional) *macOS* - Sets whether the window should be visible above fullscreen windows
 
 Itakda kung ang window ay dapat na makikita sa lahat ng workspaces.
@@ -1185,7 +1212,7 @@ Ibinabalik ang `Boolean` - Kung saan ang window ay dapay na makikita sa lahat ng
 #### `win.setIgnoreMouseEvents(ignore[, options])`
 
 * `huwag pansinin` Boolean
-* `mga opsyon` Bagay (opsyonal) 
+* `options` Na Bagay (opsyonal) 
   * `forward` Boolean (optional) *macOS* *Windows* - If true, forwards mouse move messages to Chromium, enabling mouse related events such as `mouseleave`. Ginagamit lamang kung ang`ignore` ay tama. Kung ang `ignore` is mali, Pagsulong ay palaging hindi-pinagana sa anumang mga balyu.
 
 Ginagawa ang window na hindi pansinin ang lahat ng mouse na kaganapan.
@@ -1206,7 +1233,7 @@ Sa macOS itinatakda nito ang pagbabahagi ng NSWindow sa NSWindowSharingNone. Sa 
 
 Binabago kung ang window ay maaaring nakatuon.
 
-#### `win.setParentWindow(parent)` *Linux* *macOS*
+#### `win.setParentWindow(parent)`
 
 * `parent` BrowserWindow
 
@@ -1234,7 +1261,7 @@ Pinipili ang nakaraang tab kung ang pinagana ang native na mga tab at may iba pa
 
 Pinipili ang susunod na tab kung ang pinagana ang mga native na tab at mayroong iba pa mga tab sa window.
 
-#### `win.mergeAllWindows()` *macOS*
+#### `win.mergeAllWindows()` *macOS* 
 
 Pinagsama ang lahat ng mga window sa isang window na may maraming tab kapag ang mga native na tab ay gumagana at mayroong higit sa isang bukas na window.
 
@@ -1268,10 +1295,24 @@ Itakda ang layout ng touchBar para sa kasalukuyang window. Tinutukoy ang `null` 
 
 #### `win.setBrowserView(browserView)` *Experimental* 
 
-* `browserView` [BrowserView](browser-view.md)
+* `browserView` [BrowserView](browser-view.md). Attach browserView to win. If there is some other browserViews was attached they will be removed from this window.
 
 #### `win.getBrowserView()` *Experimental*
 
-Ibinabalik ang `BrowserView | null` - an attached BrowserView. Returns `null` Kung walang nakakabit.
+Returns `BrowserView | null` - an BrowserView what is attached. Returns `null` if none is attached. Throw error if multiple BrowserViews is attached.
+
+#### `win.addBrowserView(browserView)` *Experimental* 
+
+* `browserView` [BrowserView](browser-view.md)
+
+Replacement API for setBrowserView supporting work with multi browser views.
+
+#### `win.removeBrowserView(browserView)` *Experimental* 
+
+* `browserView` [BrowserView](browser-view.md)
+
+#### `win.getBrowserViews()` *Experimental*
+
+Returns array of `BrowserView` what was an attached with addBrowserView or setBrowserView.
 
 **Note:** Ang BrowserView API ay kasalukuyang eksperimental at maaaring mabago o matanggal sa hinaharap na pag-release ng Electron.

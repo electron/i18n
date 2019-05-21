@@ -23,4 +23,3 @@ These guides are intended for people working on the Electron project itself. For
 * [Nâng cấp Chromium](upgrading-chromium.md)
 * [Upgrading Crashpad](upgrading-crashpad.md)
 * [Upgrading Node](upgrading-node.md)
-* [Phát hành](releasing.md)

@@ -30,7 +30,7 @@ Lo primero, instale una versión reciente de Node.js. Recomendamos que instale b
 
 On the screen that allows you to configure the installation, make sure to select the `Node.js runtime`, `npm package manager`, and `Add to PATH` options.
 
-Once installed, confirm that everything works as expected. Find the Windows PowerShell by opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
+Una vez instalado, confirme que todo funciona como se esperaba. Find the Windows PowerShell by opening the Start Menu and typing `PowerShell`. Open up `PowerShell` or another command line client of your choice and confirm that both `node` and `npm` are available:
 
 ```powershell
 # This command should print the version of Node.js

@@ -1,10 +1,10 @@
-# Frameless Window
+# Fenêtre sans bords
 
 > Open a window without toolbars, borders, or other graphical "chrome".
 
 A frameless window is a window that has no [chrome](https://developer.mozilla.org/en-US/docs/Glossary/Chrome), the parts of the window, like toolbars, that are not a part of the web page. These are options on the [`BrowserWindow`](browser-window.md) class.
 
-## Créer un frameless window
+## Créer une fenêtre sans bords
 
 To create a frameless window, you need to set `frame` to `false` in [BrowserWindow](browser-window.md)'s `options`:
 
@@ -119,7 +119,7 @@ If you're only setting a custom titlebar as draggable, you also need to make all
 
 ## Sélection de texte
 
-In a frameless window the dragging behaviour may conflict with selecting text. For example, when you drag the titlebar you may accidentally select the text on the titlebar. To prevent this, you need to disable text selection within a draggable area like this:
+Dans une fenêtre sans bords, le glisser-déposer peut être en conflit avec la sélection de texte. Par exemple, lorsque vous faites glisser la fenêtre depuis la barre de titre, vous pouvez accidentellement sélectionner son texte. Afin d'éviter cela, vous devez désactiver la sélection de texte dans une zone déplaçable. Comme ceci :
 
 ```css
 .titlebar {

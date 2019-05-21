@@ -1,20 +1,20 @@
-# About Electron
+# אודות Electron
 
-[Electron](https://electronjs.org) is an open source library developed by GitHub for building cross-platform desktop applications with HTML, CSS, and JavaScript. Electron accomplishes this by combining [Chromium](https://www.chromium.org/Home) and [Node.js](https://nodejs.org) into a single runtime and apps can be packaged for Mac, Windows, and Linux.
+[Electron](https://electronjs.org) היננה ספריה עם קוד פתוח לבניית תוכנות למחשב בפלטפורמות שונות עם קוד HTML, CSS, ו-Javascript מאת GitHub. Electron מצליחה לעשות זאת באמצעות שילוב של [Chromium](https://www.chromium.org/Home) עם [Node.js](https://nodejs.org) כתוכנה אחת והתוכנות יכולות להיארז לשימוש במחשבי Mac, חלונות ולינוקס.
 
-Electron began in 2013 as the framework on which [Atom](https://atom.io), GitHub's hackable text editor, would be built. The two were open sourced in the Spring of 2014.
+Electron נולדה ב-2013 כמסגרת שעליה [Atom](https://atom.io), עורך הקוד הפריץ של GitHub, נבנה. הקוד של שניהם הפך לפתוח באביב של 2014.
 
-It has since become a popular tool used by open source developers, startups, and established companies. [See who is building on Electron](https://electronjs.org/apps).
+מאז זה הפך לכלי עם שימוש נפוץ בין תכנתי קוד פתוח, חברות הזנק (סטארטאפים), וחברות מבוססות. [ראה מי משתמש ב-Electron](https://electronjs.org/apps).
 
-Read on to learn more about the contributors and releases of Electron or get started building with Electron in the [Quick Start Guide](quick-start.md).
+המשיכו לקרוא כדי ללמוד עוד על התורמים לקוד ועל הוצאות לאור של Electron או שאתם יכולים להתחיל לבנות תוכנות עם Electron ב-[מדריך למתחילים](quick-start.md).
 
-## Core Team and Contributors
+## צוות הליבה ותורמים
 
-Electron is maintained by a team at GitHub as well as a group of [active contributors](https://github.com/electron/electron/graphs/contributors) from the community. Some of the contributors are individuals and some work at larger companies who are developing on Electron. We're happy to add frequent contributors to the project as maintainers. Read more about [contributing to Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
+Electron משומר על ידי צוות ב-GitHub וגם על ידי קבוצה של [תורמים פעילים](https://github.com/electron/electron/graphs/contributors) מהקהילה. חלק מהתורמים הם אנשים שעובדים בחברות גדולות שמתבססות על Electron. אנו שמחים מאוד להוסיף תכנתים שתורמים לעיתים קרובות לפרוייקט כמשמרים. קראו עוד על [איך תורמים ל-Electron](https://github.com/electron/electron/blob/master/CONTRIBUTING.md).
 
 ## הפצות
 
-[Electron releases](https://github.com/electron/electron/releases) frequently. We release when there are significant bug fixes, new APIs or are updating versions of Chromium or Node.js.
+[הפצות של Electron](https://github.com/electron/electron/releases) יוצאות לאור לעיתים קרובות. אנחנו מוציאים לאור הפצות כאשר יש תיקונים של תקלות עקרוניות, APIים חדשים נוצרים או שיש גרסאות חדשות של Chromium או Node.js.
 
 ### Updating Dependencies
 

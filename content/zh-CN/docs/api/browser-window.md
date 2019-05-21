@@ -102,7 +102,6 @@ child.once('ready-to-show', () => {
 
 * 在 macOS 上，modal 窗口将显示为附加到父窗口的工作表。
 * 在 macOS 上，子窗口将保持与父窗口的相对位置。而在 Windows 和 Linux 中，当父窗口移动时子窗口不会移动。
-* 在Windows上，不支持动态更改父窗口。
 * 在Linux上，模态窗口的类型将更改为 `dialog`.
 * 在Linux上，许多桌面环境不支持隐藏模态窗口。
 
@@ -141,7 +140,7 @@ child.once('ready-to-show', () => {
   * `simpleFullscreen` Boolean (可选) - 在 macOS 上使用 pre-Lion 全屏. 默认为`false`.
   * `skipTaskbar` Boolean (可选) - 是否在任务栏中显示窗口. 默认值为`false`.
   * `kiosk` Boolean (可选) - kiosk 模式. 默认值为 `false`.
-  * `title` String (可选) - 窗口的默认标题. 默认值为 `"Electron"`.
+  * `title` String (optional) - Default window title. Default is `"Electron"`. If the HTML tag `<title>` is defined in the HTML file loaded by `loadURL()`, this property will be ignored.
   * `icon` ([NativeImage](native-image.md) | String) (可选) - 窗口的图标. 在 Windows 上推荐使用 `ICO` 图标来获得最佳的视觉效果, 默认使用可执行文件的图标.
   * `show` Boolean (可选) - 窗口创建的时候是否显示. 默认值为`true`.
   * `frame` Boolean (可选) - 设置为 `false` 时可以创建一个[Frameless Window](frameless-window.md). 默认值为 `true`.
@@ -151,7 +150,7 @@ child.once('ready-to-show', () => {
   * `disableAutoHideCursor` Boolean (可选) - 是否在输入时隐藏鼠标. 默认值为`false`.
   * `autoHideMenuBar` Boolean (可选) - 自动隐藏菜单栏, 除非按了`Alt`键. 默认值为`false`.
   * `enableLargerThanScreen` Boolean (可选) - 是否允许改变窗口的大小时, 大于屏幕的尺寸. 默认值为`false`.
-  * `backgroundColor` String（可选）- 窗口的背景颜色为十六进制值， 例如 `#66CD00` 或 `#FFF` 或 `#80FFFFFF`（如果支持 alpha， `transparent` 设置为 `true`）。 默认值为 `#FFF`（白色）。
+  * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha in #AARRGGBB format is supported if `transparent` is set to `true`). 默认值为 `#FFF`（白色）。
   * `hasShadow` Boolean (可选) - 窗口是否有阴影. 仅在 macOS 上支持. 默认值为 `true`.
   * `opacity` Number (可选)-设置窗口初始的不透明度, 介于 0.0 (完全透明) 和 1.0 (完全不透明) 之间。仅支持 Windows 和 macOS 。
   * `darkTheme` Boolean (可选) - 强制窗口使用 dark 主题, 只在一些拥有 GTK+3 桌面环境上有效. 默认值为 `false`.
@@ -169,8 +168,9 @@ child.once('ready-to-show', () => {
   * `tabbingIdentifier` String (可选) - 选项组卡的名称，在macOS 10.12+上可使窗口在原生选项卡中打开. 具有相同标识符的窗口将被组合在一起。 这还会在窗口的标签栏中添加一个原生的新选项卡按钮, 并允许 ` app ` 和窗口接收 ` new-window-for-tab` 事件。
   * `webPreferences` Object (可选) - 网页功能的设置 
     * `devTools` Boolean (可选) - 是否开启 DevTools. 如果设置为 ` false `, 则无法使用 ` BrowserWindow.webContents.openDevTools () ` 打开 DevTools。 默认值为 `true`。
-    * `nodeIntegration` Boolean (可选) - 是否完整的支持 node. 默认值为`true`.
+    * `nodeIntegration` Boolean (optional) - Whether node integration is enabled. Default is `false`.
     * `nodeIntegrationInWorker` Boolean (可选) - 是否在Web工作器中启用了Node集成. 默认值为 `false`. 更多内容参见 [多线程](../tutorial/multithreading.md).
+    * `nodeIntegrationInSubFrames` Boolean (optional) - Experimental option for enabling NodeJS support in sub-frames such as iframes. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not.
     * `preload` String (可选) -在页面运行其他脚本之前预先加载指定的脚本 无论页面是否集成Node, 此脚本都可以访问所有Node API 脚本路径为文件的绝对路径。 当 node integration 关闭时, 预加载的脚本将从全局范围重新引入node的全局引用标志 [参考示例](process.md#event-loaded).
     * `sandbox` Boolean (可选)-如果设置该参数, 沙箱的渲染器将与窗口关联, 使它与Chromium OS-level 的沙箱兼容, 并禁用 Node. js 引擎。 它与 `nodeIntegration` 的选项不同，且预加载脚本的 API 也有限制. [更多详情](sandbox-option.md). **注意:**改选项目前是为实验性质，可能会在 Electron 未来的版本中移除。
     * `enableRemoteModule` Boolean（可选）- 是否启用 [`Remote`](remote.md) 模块。 默认值为 `true`。
@@ -204,12 +204,13 @@ child.once('ready-to-show', () => {
     * ` backgroundThrottling `Boolean (可选)-是否在页面成为背景时限制动画和计时器。 这也会影响到 [Page Visibility API](#page-visibility). 默认值为 `true`。
     * `offscreen` Boolean (optional) - 是否绘制和渲染可视区域外的窗口. 默认值为 `false`. 更多详情, 请参见 [ offscreen rendering tutorial ](../tutorial/offscreen-rendering.md)。
     * `contextIsolation` Boolean (可选) - 是否在独立 JavaScript 环境中运行 Electron API和指定的`preload` 脚本. 默认值为 `false`. `preload`脚本的运行环境仍然可以访问`document` 和 `window`全局变量，但它将使用自己内置的函数 (如`Array`, `Object`, `JSON`等)，并且将被加载的页面与对全局环境所做的任何更改隔离开来. Electron API 仅在 `preload` 脚本中有效，而不是加载的页面。 在加载可能不受信任的远程内容时, 应使用此选项, 以确保加载的内容不能篡改 ` preload ` 脚本和使用的 Electron APIs。 此选项使用 [ Chrome Content Scripts ](https://developer.chrome.com/extensions/content_scripts#execution-environment) 使用的相同技术。 通过在控制台选项卡顶部的组合框中选择 "Electron Isolated Context" 条目, 可以在开发工具中访问此上下文。
-    * `nativeWindowOpen` Boolean (可选) - 是否使用原生的`window.open()`. 如果设置为 `true`, 那么子窗口的 `webPreferences`将永远与父窗口的相同, 不论什么参数被传至`window.open()`. 默认值为 `false`. **注意:** 这一选项当前是实验性的.
-    * `webviewTag` Boolean (可选) - 是否启用 [`<webview>` tag](webview-tag.md)标签. 默认为 ` nodeIntegration ` 选项的值。 ** 注意: **为 `< webview>` 配置的 ` preload ` 脚本在执行时将启用节点集成, 因此应确保远程或不受信任的内容无法创建恶意的 ` preload ` 脚本 。 可以使用 [ webContents ](web-contents.md) 上的 ` will-attach-webview ` 事件对 ` preload ` 脚本进行剥离, 并验证或更改 `<webview>` 的初始设置。
+    * `nativeWindowOpen` Boolean (可选) - 是否使用原生的`window.open()`. 默认值为 `false`. Child windows will always have node integration disabled. **Note:** This option is currently experimental.
+    * `webviewTag` Boolean (可选) - 是否启用 [`<webview>` tag](webview-tag.md)标签. 默认值为 `false`. ** 注意: **为 `< webview>` 配置的 ` preload ` 脚本在执行时将启用节点集成, 因此应确保远程或不受信任的内容无法创建恶意的 ` preload ` 脚本 。 可以使用 [ webContents ](web-contents.md) 上的 ` will-attach-webview ` 事件对 ` preload ` 脚本进行剥离, 并验证或更改 `<webview>` 的初始设置。
     * `additionalArguments` String\[] (可选) - 一系列将会被附加至此app的渲染进程的`process.argv`的字符串. 对于将少量数据向下传至渲染进程的预加载脚本而言是十分实用的.
     * `safeDialogs` Boolean (可选) - 是否启用浏览器样式的持续对话框保护。 缺省为`false`。
     * `safeDialogsMessage` String (可选) - 当持续对话框保护被触发时显示的消息。 如果没有定义，那么将使用缺省的消息。注意：当前缺省消息是英文，并没有本地化。
     * `navigateOnDragDrop` Boolean (可选) - 将文件或链接拖放到页面上时是否触发页面跳转. 默认为`false`.
+    * `autoplayPolicy` String (optional) - Autoplay policy to apply to content in the window, can be `no-user-gesture-required`, `user-gesture-required`, `document-user-activation-required`. Defaults to `no-user-gesture-required`.
 
 当使用 ` minWidth `/` maxWidth `/` minHeight `/` maxHeight ` 设置最小或最大窗口大小时, 它只限制用户。 它不会阻止您将不符合大小限制的值传递给 ` setBounds `/` setSize ` 或 ` BrowserWindow ` 的构造函数。
 
@@ -372,7 +373,7 @@ window.onbeforeunload = (e) => {
 
 设置或取消设置窗口总是在其他窗口的顶部显示时触发。
 
-#### 事件: 'app-command' *Windows*
+#### Event: 'app-command' *Windows* *Linux*
 
 返回:
 
@@ -393,6 +394,11 @@ win.on('app-command', (e, cmd) => {
   }
 })
 ```
+
+The following app commands are explictly supported on Linux:
+
+* `browser-backward`
+* `browser-forward`
 
 #### 事件: 'scroll-touch-begin' *macOS*
 
@@ -675,11 +681,14 @@ win.loadURL('https://github.com')
 ```javascript
 const { BrowserWindow } = require('electron')
 const win = new BrowserWindow()
- // 设置所有的 bounds 属性
+
+// set all bounds properties
 win.setBounds({ x: 440, y: 225, width: 800, height: 600 })
- // // 设置单个的 bounds 属性
-win.setBounds({ width: 200 })
- // { x: 440, y: 225, width: 200, height: 600 }
+
+// set a single bounds property
+win.setBounds({ width: 100 })
+
+// { x: 440, y: 225, width: 100, height: 600 }
 console.log(win.getBounds())
 ```
 
@@ -866,7 +875,7 @@ console.log(win.getBounds())
 
 返回 ` String `-原生窗口的标题。
 
-**注意:** 网页的标题和原生窗口的标题可以不一致
+**Note:** The title of the web page can be different from the title of the native window.
 
 #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
 
@@ -961,10 +970,20 @@ Windows上句柄类型为 `HWND`，macOS 上为 `NSView*`，Linux 上为`Window`
 #### `win.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (可选) - 捕获的区域
-* `callback` Function - 回调函数 
+* `callback` Function 
   * `image` [NativeImage](native-image.md)
 
-和 `webContents.capturePage([rect, ]callback)` 相同.
+Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
+
+**[Deprecated Soon](promisification.md)**
+
+#### `win.capturePage([rect])`
+
+* `rect` [Rectangle](structures/rectangle.md) (可选) - 捕获的区域
+
+* Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+
+Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
 
 #### `win.loadURL(url[, options])`
 
@@ -976,7 +995,9 @@ Windows上句柄类型为 `HWND`，macOS 上为 `NSView*`，Linux 上为`Window`
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (可选)
   * `baseURLForDataURL` String (可选) - 要加载的数据文件的根 url(带有路径分隔符). 只有当指定的 `url`是一个数据 url 并需要加载其他文件时，才需要这样做。
 
-与 `webContents.loadURL(url[, options])` 相同.
+Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
+
+Same as [`webContents.loadURL(url[, options])`](web-contents.md#contentsloadurlurl-options).
 
 `url` 可以是远程地址 (例如 `http://`),也可以是 `file://` 协议的本地HTML文件的路径.
 
@@ -1012,6 +1033,8 @@ win.loadURL('http://localhost:8000/post', {
   * `search` String (可选) - 传递给 `url.format()`.
   * `hash` String (可选) - 传递给 `url.format()`.
 
+Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
+
 类似于`webContents.loadFile`，`filePath`是一个HTML页相对的应用根目录的相对路径。更多信息，可参阅`webContents`文档。
 
 #### `win.reload()`
@@ -1022,7 +1045,11 @@ win.loadURL('http://localhost:8000/post', {
 
 * `menu` Menu | null
 
-将 `menu` 设置为窗口的菜单栏, 如设置为 ` null ` 时将移除菜单栏。
+Sets the `menu` as the window's menu bar.
+
+#### `win.removeMenu()` *Linux* *Windows*
+
+Remove the window's menu bar.
 
 #### `win.setProgressBar(progress[, options])`
 
@@ -1205,7 +1232,7 @@ win.loadURL('http://localhost:8000/post', {
 
 设置窗口是否可聚焦
 
-#### `win.setParentWindow(parent)` *Linux* *macOS*
+#### `win.setParentWindow(parent)`
 
 * `parent` BrowserWindow
 
@@ -1267,10 +1294,24 @@ win.loadURL('http://localhost:8000/post', {
 
 #### `win.setBrowserView(browserView)` *实验*
 
-* `browserView` [BrowserView](browser-view.md)
+* `browserView` [BrowserView](browser-view.md). Attach browserView to win. If there is some other browserViews was attached they will be removed from this window.
 
 #### `win.getBrowserView()` *实验功能*
 
-返回 `BrowserView | null` - 一个附加的 BrowserView. 如果没有被附加的窗口，则返回 `null`.
+Returns `BrowserView | null` - an BrowserView what is attached. Returns `null` if none is attached. Throw error if multiple BrowserViews is attached.
+
+#### `win.addBrowserView(browserView)` *实验*
+
+* `browserView` [BrowserView](browser-view.md)
+
+Replacement API for setBrowserView supporting work with multi browser views.
+
+#### `win.removeBrowserView(browserView)` *实验*
+
+* `browserView` [BrowserView](browser-view.md)
+
+#### `win.getBrowserViews()` *实验功能*
+
+Returns array of `BrowserView` what was an attached with addBrowserView or setBrowserView.
 
 **注意:** BrowserView 的 API目前为实验性质，可能会更改或删除。

@@ -1,11 +1,11 @@
-# Developing Electron
+# พัฒนา Electron
 
-These guides are intended for people working on the Electron project itself. For guides on Electron app development, see [/docs/README.md](../README.md#guides-and-tutorials).
+คู่มือเหล่านี้มีไว้สำหรับผู้ที่ทำงานในโครงการ Electron สำหรับคำแนะนำเกี่ยวกับการพัฒนาแอพ Electron โปรดดู  /docs/README.md </ 0></p> 
 
 * [จรรยาบรรณ](../../CODE_OF_CONDUCT.md)
-* [Contributing to Electron](../../CONTRIBUTING.md)
+* [บริจาคให้อิเล็กตรอน](../../CONTRIBUTING.md)
 * [ปัญหา](issues.md)
-* [Pull Requests](pull-requests.md)
+* [ดึงคำขอ](pull-requests.md)
 * [เอกสารประกอบแนวทางลักษณะ](coding-style.md#documentation)
 * [โครงสร้างของไดเรกทอรี่ของรหัสต้นฉบับ](source-code-directory-structure.md)
 * [ลักษณะการเขียนโค้ด](coding-style.md)
@@ -17,10 +17,9 @@ These guides are intended for people working on the Electron project itself. For
 * [การพัฒนาโครเมี่ยม](chromium-development.md)
 * [การพัฒนา V8](v8-development.md)
 * [ทดสอบ](testing.md)
-* [Debugging on Windows](debug-instructions-windows.md)
-* [Debugging on macOS](debugging-instructions-macos.md)
-* [Setting Up Symbol Server in Debugger](setting-up-symbol-server.md)
-* [Upgrading Chromium](upgrading-chromium.md)
-* [Upgrading Crashpad](upgrading-crashpad.md)
-* [Upgrading Node](upgrading-node.md)
-* [Releasing](releasing.md)
+* [แก้จุดบกพร่อง บน Windows](debug-instructions-windows.md)
+* [แก้จุดบกพร่อง บน macOS](debugging-instructions-macos.md)
+* [การตั้งค่าเซิร์ฟเวอร์ในตัวดีบักเกอร์](setting-up-symbol-server.md)
+* [อัพเกรด Chromium](upgrading-chromium.md)
+* [อัพเกรด Crashpad](upgrading-crashpad.md)
+* [อัพเกรด Node](upgrading-node.md)

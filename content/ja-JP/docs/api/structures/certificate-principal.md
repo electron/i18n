@@ -1,6 +1,6 @@
 # CertificatePrincipal オブジェクト
 
-* `commonName` String - コモンネーム.
+* `commonName` String - 通称.
 * `organizations` String[] - 組織名.
 * `organizationUnits` String[] - 組織内の部署名.
 * `locality` String - 市区町村.

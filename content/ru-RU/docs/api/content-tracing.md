@@ -38,9 +38,17 @@ app.on('ready', () => {
 * `callback` Function 
   * `categories` String[]
 
-Получает множество категорий групп. Группы категорий могут быть изменены по мере достижения новых путей кода.
+Get a set of category groups. The category groups can change as new code paths are reached.
 
-Как только все дочерние процессы выполнили запрос `getCategories`, вызывается `callback` с массивом групп категорий.
+Once all child processes have acknowledged the `getCategories` request the `callback` is invoked with an array of category groups.
+
+**[Скоро устареет](promisification.md)**
+
+### `contentTracing.getCategories()`
+
+Returns `Promise<String[]>` - resolves with an array of category groups once all child processes have acknowledged the `getCategories` request
+
+Get a set of category groups. The category groups can change as new code paths are reached.
 
 ### `contentTracing.startRecording(options, callback)`
 
@@ -50,6 +58,18 @@ app.on('ready', () => {
 Начинает запись во всех процессах.
 
 Запись начинается незамедлительно локально и ассинхронно в дочерних процессах, как только они получили запрос EnableRecording. `callback` будет вызван, как только все дочерние процессы выполнили запрос `startRecording`.
+
+**[Скоро устареет](promisification.md)**
+
+### `contentTracing.startRecording(options)`
+
+* `options` ([TraceCategoriesAndOptions](structures/trace-categories-and-options.md) | [TraceConfig](structures/trace-config.md))
+
+Returns `Promise<void>` - resolved once all child processes have acknowledged the `startRecording` request.
+
+Начинает запись во всех процессах.
+
+Запись начинается незамедлительно локально и ассинхронно в дочерних процессах, как только они получили запрос EnableRecording.
 
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
@@ -65,38 +85,19 @@ app.on('ready', () => {
 
 Данные трассировки будут записаны в `resultFilePath` если он не пуст или во временный файл. Настоящий путь будет передан в `callback`, если он не является `null`.
 
-### `contentTracing.startMonitoring(options, callback)`
+**[Скоро устареет](promisification.md)**
 
-* `options` Object 
-  * `categoryFilter` String
-  * `traceOptions` String
-* `callback` Function
-
-Начинает мониторинг во всех процессах.
-
-Мониторинг начинается незамедлительно локально и ассинхронно в дочерних процессах, как только они получили запрос `startMonitoring`.
-
-`callback` будет вызван, как только все дочерние процессы выполнили запрос ` startMonitoring`.
-
-### `contentTracing.stopMonitoring(callback)`
-
-* `callback` Function
-
-Останавливает мониторинг во всех процессах.
-
-Когда все дочерние процессы выполнили запрос ` stopMonitoring `, вызывается `callback`.
-
-### `contentTracing.captureMonitoringSnapshot(resultFilePath, callback)`
+### `contentTracing.stopRecording(resultFilePath)`
 
 * `resultFilePath` String
-* `callback` Function 
-  * `resultFilePath` String
 
-Получает текущие данные мониторинга.
+Returns `Promise<String>` - resolves with a file that contains the traced data once all child processes have acknowledged the `stopRecording` request
+
+Останавливает запись во всех процессах.
 
 Дочерние процессы кэшируют данные трассировки и только изредка очищают и отправляют эти данные обратно в главный процесс. Это помогает свести к минимуму издержки трассировки, так как отправка данных трассировки через IPC может быть дорогостоящей операцией. Поэтому, чтобы окончить трассировку, необходимо ассинхронно запросить все дочерние процессы очистить оставшиеся данные трассировки.
 
-Когда все дочерние процессы выполнили запрос ` captureMonitoringSnapshot`, вызывается `callback` с именем файла, который содержит данные трассировки.
+Trace data will be written into `resultFilePath` if it is not empty or into a temporary file.
 
 ### `contentTracing.getTraceBufferUsage(callback)`
 

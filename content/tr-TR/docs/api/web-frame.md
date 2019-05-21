@@ -58,52 +58,33 @@ webFrame.setVisualZoomLevelLimits(1, 3)
 
 Maksimum ve minimum layout-tabanlı (yani görsel olmayan) yakınlaştırma düzeyini ayarlar.
 
-### `webFrame.setSpellCheckProvider(language, autoCorrectWord, provider)`
+### `webFrame.setSpellCheckProvider(language, provider)`
 
 * `language` String
-* `autoCorrectWord` Boolean
 * `provider` Nesne 
-  * `spellCheck` Function - döner `Boole değeri`. 
-    * `text` Dizi
+  * `spellCheck` Function. 
+    * `words` String[]
+    * `geri aramak` Function 
+      * `misspeltWords` String[]
 
 Giriş alanlarında ve metin alanlarında yazım denetimi için bir provider ayarlar.
 
-`Provider` kelimenin doğru yazılıp yazılmadığını döndüren, `spellCheck` metoduna sahip bir nesne olmalıdır.
+The `provider` must be an object that has a `spellCheck` method that accepts an array of individual words for spellchecking. The `spellCheck` function runs asynchronously and calls the `callback` function with an array of misspelt words when complete.
 
 Provider gibi [node-spellchecker](https://github.com/atom/node-spellchecker) kullanılarak bir örnek:
 
 ```javascript
 const { webFrame } = require('electron')
-webFrame.setSpellCheckProvider('en-US', true, {
-  spellCheck (text) {
-    return !(require('spellchecker').isMisspelled(text))
+const spellChecker = require('spellchecker')
+webFrame.setSpellCheckProvider('en-US', {
+  spellCheck (words, callback) {
+    setTimeout(() => {
+      const spellchecker = require('spellchecker')
+      const misspelled = words.filter(x => spellchecker.isMisspelled(x))
+      callback(misspelled)
+    }, 0)
   }
 })
-```
-
-### `webFrame.registerURLSchemeAsBypassingCSP(scheme)`
-
-* `scheme` Dizi
-
-Geçerli sayfanın İçerik Güvenliği Politikası ne olursa olsun kaynaklar bu `scheme`'dan yüklenecektir.
-
-### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
-
-* `scheme` Dizi
-* `seçenekler` Obje (opsiyonel) 
-  * `secure` Boolean (optional) - Default true.
-  * `bypassCSP` Boolean (optional) - Default true.
-  * `allowServiceWorkers` Boolean (optional) - Default true.
-  * `supportFetchAPI` Boolean (optional) - Default true.
-  * `corsEnabled` Boolean (optional) - Default true.
-
-`Scheme`'i güvenli olarak kaydeder, kaynaklar için içerik güvenliği ilkesini atlar, ServiceWorker'ı kaydettirmenize izin verir ve getirme API'sini destekler.
-
-Kayıttan çıkarmak için `false` değerine sahip bir seçenek belirtin. İçerik Güvenliği Politikasını atlamaksızın ayrıcalıklı bir scheme'nin kaydedilmesine bir örnek:
-
-```javascript
-const { webFrame } = require('electron')
-webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 ```
 
 ### `webFrame.insertText(text)`
@@ -114,16 +95,16 @@ Odaklanmış öğeye `metin` ekler.
 
 ### `webFrame.executeJavaScript(code[, userGesture, callback])`
 
-* `code` String
-* `userGesture` Boolean (isteğe bağlı) - Varsayılan `false`'dır.
-* `geri aramak` Function (isteğe bağlı) - Script çalıştıktan sonra çağırılır. 
+* `code` Dizi
+* `userGesture` Boolean (isteğe bağlı) - Varsayılan `false`'dur.
+* `geri aramak` Fonksiyon (isteğe bağlı) - Komut dosyası çalıştırıldıktan sonra çağrılır. 
   * `result` Any
 
 Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
 
-Sayfadaki `code`'u değerlendirir.
+Sayfadaki `code`'u ölçer.
 
-Tarayıcı penceresinde `requestFullScreen` gibi bazı HTML arayüzleri (APIs) sadece kullanıcıdan gelen bir işaretle çağrılabilir. `userGesture` ayarını `true` olarak ayarladığınızda bu sınırlama kaldırılır.
+Tarayıcı penceresinde, `requestFullScreen` gibi bazı HTML API'leri yalnızca kullanıcıdan gelen bir hareket ile çağrılmaktadır. `userGesture` ayarını `true` olarak ayarladığınızda bu sınırlama kaldırılır.
 
 ### `webFrame.executeJavaScriptInIsolatedWorld(worldId, scripts[, userGesture, callback])`
 
@@ -135,30 +116,40 @@ Tarayıcı penceresinde `requestFullScreen` gibi bazı HTML arayüzleri (APIs) s
 
 Work like `executeJavaScript` but evaluates `scripts` in an isolated context.
 
-### `webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)`
+### `webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)` *(Deprecated)*
 
 * `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
 * `csp` String
 
 Set the content security policy of the isolated world.
 
-### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)`
+### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)` *(Deprecated)*
 
 * `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
 * `name` Dizi
 
 Set the name of the isolated world. Useful in devtools.
 
-### `webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)`
+### `webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)` *(Deprecated)*
 
 * `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
 * `securityOrigin` String
 
 Set the security origin of the isolated world.
 
+### `webFrame.setIsolatedWorldInfo(worldId, info)`
+
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
+* `info` Nesne 
+  * `securityOrigin` String (optional) - Security origin for the isolated world.
+  * `csp` String (optional) - Content Security Policy for the isolated world.
+  * `name` String (optional) - Name for isolated world. Useful in devtools.
+
+Set the security origin, content security policy and name of the isolated world. Note: If the `csp` is specified, then the `securityOrigin` also has to be specified.
+
 ### `webFrame.getResourceUsage()`
 
-`Object` 'i geri getirir:
+`Object` döndürür:
 
 * `images` [MemoryUsageDetails](structures/memory-usage-details.md)
 * `scripts` [MemoryUsageDetails](structures/memory-usage-details.md)

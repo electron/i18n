@@ -1,5 +1,17 @@
 # 應用程式發佈
 
+To distribute your app with Electron, you need to package and rebrand it. The easiest way to do this is to use one of the following third party packaging tools:
+
+* [electron-forge](https://github.com/electron-userland/electron-forge)
+* [electron-builder](https://github.com/electron-userland/electron-builder)
+* [electron-packager](https://github.com/electron-userland/electron-packager)
+
+These tools will take care of all the steps you need to take to end up with a distributable Electron applications, such as packaging your application, rebranding the executable, setting the right icons and optionally creating installers.
+
+## Manual distribution
+
+You can also choose to manually get your app ready for distribution. The steps needed to do this are outlined below.
+
 要用 Electron 發佈應用程式，你要先下載 Electron [預先建置好的二進位檔](https://github.com/electron/electron/releases)。 接下來，你的應用程式應要放在 Electron 的資源目錄下，並命名為 `app`，就像以下的範例。 請注意，下列範例中以 `electron/` 表示 Electron 二進位檔存放的地方。
 
 macOS 平臺:
@@ -78,14 +90,6 @@ MyApp.app/Contents
 ### Linux
 
 你可以將 `electron` 執行檔改成任何你想要的名字。
-
-## 打包工具
-
-除了手動打包以外，你也可以考慮選用第三方打包工具來幫你完成這些事情:
-
-* [electron-forge](https://github.com/electron-userland/electron-forge)
-* [electron-builder](https://github.com/electron-userland/electron-builder)
-* [electron-packager](https://github.com/electron-userland/electron-packager)
 
 ## 由原始碼開始客製品牌
 

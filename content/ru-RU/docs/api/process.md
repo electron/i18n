@@ -12,6 +12,7 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 
 * `crash()`
 * `hang()`
+* `getCreationTime()`
 * `getHeapStatistics()`
 * `getProcessMemoryInfo()`
 * `getSystemMemoryInfo()`
@@ -23,7 +24,6 @@ In sandboxed renderers the `process` object contains only a subset of the APIs:
 * `pid`
 * `arch`
 * `platform`
-* `resourcesPath`
 * `sandboxed`
 * `тип`
 * `version`
@@ -55,6 +55,10 @@ process.once('loaded', () => {
 
 `Boolean`. Когда app запущено, будучи переданным в качестве параметра в default app, это свойство принимает значение `true` в main process, иначе `undefined`.
 
+### `process.isMainFrame`
+
+A `Boolean`, `true` when the current renderer context is the "main" renderer frame. If you want the ID of the current frame you should use `webFrame.routingId`.
+
 ### `process.mas`
 
 `Boolean`. Для Mac App Store сборки это свойство `true`, для остальных сборок `undefined`.
@@ -66,6 +70,10 @@ process.once('loaded', () => {
 ### `process.noDeprecation`
 
 `Boolean`. Контролирует будут ли неодобряющие предупреждения выводиться в `stderr`. Установка в `true` заглушит неодобряющие предупреждения. Это свойство используется вместо флага командной строки `--no-deprecation`.
+
+### `process.enablePromiseAPIs`
+
+A `Boolean` that controls whether or not deprecation warnings are printed to `stderr` when formerly callback-based APIs converted to Promises are invoked using callbacks. Setting this to `true` will enable deprecation warnings.
 
 ### `process.resourcesPath`
 
@@ -89,7 +97,7 @@ A `Boolean` that controls whether or not process warnings printed to `stderr` in
 
 ### `process.type`
 
-A `String` representing the current process's type, can be `"browser"` (i.e. main process) or `"renderer"`.
+A `String` representing the current process's type, can be `"browser"` (i.e. main process), `"renderer"`, or `"worker"` (i.e. web worker).
 
 ### `process.versions.chrome`
 

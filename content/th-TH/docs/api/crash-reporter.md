@@ -29,7 +29,7 @@ Or use a 3rd party hosted solution:
 
 Crash reports are saved locally in an application-specific temp directory folder. For a `productName` of `YourName`, crash reports will be stored in a folder named `YourName Crashes` inside the temp directory. You can customize this temp directory location for your app by calling the `app.setPath('temp', '/my/custom/temp')` API before starting the crash reporter.
 
-## Methods
+## วิธีการ
 
 The `crashReporter` module has the following methods:
 
@@ -73,7 +73,7 @@ spawn(process.execPath, args, {
 
 Returns [`CrashReport`](structures/crash-report.md):
 
-Returns the date and ID of the last crash report. If no crash reports have been sent or the crash reporter has not been started, `null` is returned.
+Returns the date and ID of the last crash report. Only crash reports that have been uploaded will be returned; even if a crash report is present on disk it will not be returned until it is uploaded. In the case that there are no uploaded reports, `null` is returned.
 
 ### `crashReporter.getUploadedReports()`
 

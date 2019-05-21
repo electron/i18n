@@ -1,7 +1,5 @@
 # Questões com o Electron
 
-# Questões
-
 * [Como Contribuir com Problemas](#how-to-contribute-in-issues)
 * [Perguntas Sobre de Ajuda Geral](#asking-for-general-help)
 * [Enviando um Relatório de Erro](#submitting-a-bug-report)
@@ -18,64 +16,63 @@ Para qualquer problema, existem fundamentalmente três maneiras que alguém pode
 
 ## Perguntas Sobre de Ajuda Geral
 
-["Finding Support"](../tutorial/support.md#finding-support) has a list of resources for getting programming help, reporting security issues, contributing, and more. Please use the issue tracker for bugs only!
+["Encontrando Suporte"](../tutorial/support.md#finding-support) tem uma lista com informações para obter ajuda de programação, reportar problemas de segurança, contribuir e mais. Por favor, utilize o rastreador de problemas apenas para bugs!
 
 ## Enviando um Relatório de Erro
 
-When opening a new issue in the `electron/electron` issue tracker, users will be presented with a template that should be filled in.
+Quanto forem abrir um novo problema no rastreador de problemas do `electron/electron`, será apresentado aos usuários um modelo que deve ser preenchido.
 
 ```markdown
 <!--
-Thanks for opening an issue! A few things to keep in mind:
+Obrigado por abrir um problema! Algumas coisas para levar em consideração:
 
-- The issue tracker is only for bugs and feature requests.
-- Before reporting a bug, please try reproducing your issue against
-  the latest version of Electron.
-- If you need general advice, join our Slack: http://atom-slack.herokuapp.com
+- O rastreador de problemas é apenas para bugs e requisição de novas funcionalidades.
+- Antes de reportar um bug, por favor, tente reproduzir o problema com a versão mais recente do Electron.
+- Se você precisa de uma ajuda em geral, entre no nosso Slack: http://atom-slack.herokuapp.com
 -->
 
-* Electron version:
-* Operating system:
+* Versão do Electron:
+* Sistema Operacional:
 
-### Expected behavior
+### Comportamento Esperado
 
-<!-- What do you think should happen? -->
+<!-- O que você acha que deveria acontecer? -->
 
-### Actual behavior
+### Comportamento Atual
 
-<!-- What actually happens? -->
+<-- O que realmente acontece? -->
 
-### How to reproduce
+### Como reproduzir
 
 <!--
 
-Your best chance of getting this bug looked at quickly is to provide a REPOSITORY that can be cloned and run.
+A sua melhor chance de ter esse bug verificado rapidamente é provendo um REPOSITÓRIO que possa ser clonado e executado.
 
-You can fork https://github.com/electron/electron-quick-start and include a link to the branch with your changes.
+Você pode fazer o fork do https://github.com/electron/electron-quick-start e incluir um link para o branch com suas alterações.
 
-If you provide a URL, please list the commands required to clone/setup/run your repo e.g.
+Se você prover uma URL, por favor liste os comandos necessários para clonar/instalar/rodar o seu repositório. Por exemplo:
 
-  $ git clone $YOUR_URL -b $BRANCH
+  $ git clone $SUA_URL -b $BRANCH
   $ npm install
   $ npm start || electron .
 
 -->
 ```
 
-If you believe that you have found a bug in Electron, please fill out this form to the best of your ability.
+Se você acredita ter encontrado um bug no Electron, por favor preencha este formulário da melhor forma que você conseguir.
 
-The two most important pieces of information needed to evaluate the report are a description of the bug and a simple test case to recreate it. It easier to fix a bug if it can be reproduced.
+As duas informações mais importantes necessárias para avaliar o relato de um bug são a descrição e um caso de teste simples para recriá-lo. É mais fácil corrigir um bug se for possível reproduzi-lo.
 
-See [How to create a Minimal, Complete, and Verifiable example](https://stackoverflow.com/help/mcve).
+Veja [Como criar um exemplo Mínimo, Completo e Verificável](https://stackoverflow.com/help/mcve).
 
 ## Fazendo Triagem de um Relatório de Erro
 
-It's common for open issues to involve discussion. Some contributors may have differing opinions, including whether the behavior is a bug or feature. This discussion is part of the process and should be kept focused, helpful, and professional.
+É comum que questões abertas envolvam discussão. Alguns contribuidores podem diferir em opiniões em relação ao comportamento ser um bug ou uma característica. Esta discussão faz parte do processo e deve ser mantida em foco, útil, e profissional.
 
-Terse responses that provide neither additional context nor supporting detail are not helpful or professional. To many, such responses are annoying and unfriendly.
+Respostas que não fornecem contexto adicional nem detalhes de suporte não são úteis ou profissionais. Para muitos, essas respostas são irritantes e nada amigáveis.
 
-Contributors are encouraged to solve issues collaboratively and help one another make progress. If encounter an issue that you feel is invalid, or which contains incorrect information, explain *why* you feel that way with additional supporting context, and be willing to be convinced that you may be wrong. By doing so, we can often reach the correct outcome faster.
+Os colaboradores são encorajados a resolver problemas colaborativamente e ajudar uns aos outros a fazer progresso. Se encontrar um problema que você sente ser inválido, ou que contém informações incorretas, explique *por que* você se sente assim, adicionando contexto adicional, e esteja disposto a ser convencido de que você pode está errado. Ao fazê-lo, podemos frequentemente chegar mais rapidamente ao resultado correto.
 
 ## Resolvendo um Relatório de Erro
 
-Most issues are resolved by opening a pull request. The process for opening and reviewing a pull request is similar to that of opening and triaging issues, but carries with it a necessary review and approval workflow that ensures that the proposed changes meet the minimal quality and functional guidelines of the Electron project.
+A maioria das questões são resolvidas abrindo um pull request. O processo para abertura e revisão de um pull request é semelhante ao de abertura e triagem de questões, mas carrega consigo um fluxo de trabalho de revisão e aprovação necessário que garante que as alterações propostas atendem às orientações de qualidade mínima e funcionais do projeto Electron.

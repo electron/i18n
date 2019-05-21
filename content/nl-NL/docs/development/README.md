@@ -23,4 +23,3 @@ Deze handleidingen zijn bedoeld voor mensen die aan het Electron project werken.
 * [Chromium updaten](upgrading-chromium.md)
 * [Crashpad updaten](upgrading-crashpad.md)
 * [Node updaten](upgrading-node.md)
-* [Releasing](releasing.md)

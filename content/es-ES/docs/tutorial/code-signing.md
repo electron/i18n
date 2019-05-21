@@ -35,10 +35,10 @@ Para mas información, mira la [ Guia de envio de la Mac App Store ](mac-app-sto
 
 Antes de Firmar Compilaciones Windows, tu debes hacer lo siguiente:
 
-1. Obtenga un certificado de firma de código de Windows Authenticode
+1. Get a Windows Authenticode code signing certificate (requires an annual fee)
 2. Instala Visual Studio 2015/2017 (para obtener la utilidad de firmado)
 
-Puede obtener un certificado de firma de código de muchos revendedores, los más populares incluyen:
+You can get a code signing certificate from a lot of resellers. Prices vary, so it may be worth your time to shop around. Popular resellers include:
 
 - [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
 - [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)

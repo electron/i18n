@@ -4,11 +4,15 @@
 
 Electron's `webview` tag is based on [Chromium's `webview`](https://developer.chrome.com/apps/tags/webview), which is undergoing dramatic architectural changes. This impacts the stability of `webviews`, including rendering, navigation, and event routing. We currently recommend to not use the `webview` tag and to consider alternatives, like `iframe`, Electron's `BrowserView`, or an architecture that avoids embedded content altogether.
 
+## Enabling
+
+By default the `webview` tag is disabled in Electron >= 5. You need to enable the tag by setting the `webviewTag` webPreferences option when constructing your `BrowserWindow`. For more information see the [BrowserWindow constructor docs](browser-window.md).
+
 ## Overview
 
 > Menampilkan konten web eksternal dalam bingkai terisolasi dan proses.
 
-Proses:[Renderer](../glossary.md#renderer-process)
+Processo: [Renderizador](../glossary.md#renderer-process)
 
 Gunakan tag ` webview ` untuk menyematkan 'guest' content (seperti halaman web) di aplikasi Elektron Anda. Konten tamu terdapat dalam wadah ` webview `. Halaman tertanam dalam aplikasi Anda mengontrol bagaimana konten tamu ditata dan diberikan.
 
@@ -35,7 +39,7 @@ Under the hood `webview` is implemented with [Out-of-Process iframes (OOPIFs)](h
 So the behavior of `webview` is very similar to a cross-domain `iframe`, as examples:
 
 * When clicking into a `webview`, the page focus will move from the embedder frame to `webview`.
-* You can not add keyboard event listeners to `webview`.
+* You can not add keyboard, mouse, and scroll event listeners to `webview`.
 * All reactions between the embedder frame and `webview` are asynchronous.
 
 ## Catatan Styling CSS
@@ -73,6 +77,14 @@ Bila atribut ini hadir, kontainer `webview` akan secara otomatis diubah ukuranny
 ```
 
 Ketika atribut ini menampilkan halaman tamu di `webview` akan memiliki integrasi simpul dan dapat menggunakan API simpul seperti` memerlukan ` dan `proses` untuk mengakses sumber daya sistem tingkat rendah. Node integrasi dinonaktifkan secara default pada semua halaman.
+
+### `nodeintegrationinsubframes`
+
+```html
+<webview src="http://www.google.com/" nodeintegrationinsubframes></webview>
+```
+
+Experimental option for enabling NodeJS support in sub-frames such as iframes inside the `webview`. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not. This option is disabled by default in the guest page.
 
 ### `enableremotemodule`
 
@@ -295,7 +307,7 @@ Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http
   
   ### `<webview>.executeJavaScript(code[, userGesture, callback])`
   
-  * `code` String
+  * `id` String
   * `userGesture` Boolean (optional) - Default `false`.
   * `callback` Fungsi (opsional) - Dipanggil setelah script telah dieksekusi. 
     * `hasil` Ada
@@ -445,17 +457,27 @@ Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http
   
   ### `<webview>.capturePage ([rect,] callback)`
   
-  * `rect` [Persegi panjang](structures/rectangle.md) (opsional) - daerah halaman untuk ditangkap.
-  * `callback` Fungsi 
+  * ` rect </ 0>  <a href="structures/rectangle.md"> Rectangle </ 1> (opsional) - Batas untuk ditangkap</li>
+<li><code>callback` Fungsi 
     * ` gambar </ 0>  <a href="native-image.md"> gambar asli </ 1></li>
 </ul></li>
 </ul>
 
-<p>Menangkap cuplikan halaman <code>webview`. Sama seperti `webContents.capturePage ([rect,] callback) `.</p> 
+<p>Menangkap sebuah snapshot dari halaman dalam <code>rect`. Setelah menyelesaikan `callback` yang akan disebut dengan `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.</p> 
+      **[Deprecated Soon](promisification.md)**
+      
+      ### `<webview>.capturePage([rect])`
+      
+      * `rect` [Persegi panjang](structures/rectangle.md) (opsional) - daerah halaman untuk ditangkap.
+      
+      * Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+      
+      Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
+      
       ### `<webview>.send (saluran [, arg1] [, arg2] [, ...])`
       
-      * `channel` String
-      * ` ... args </ 0> ada []</li>
+      * ` saluran </ 0>  String</li>
+<li><code> ... args </ 0> ada []</li>
 </ul>
 
 <p>Kirim pesan asinkron ke proses renderer melalui <code>channel`, Anda juga bisa mengirim argumen sewenang wenang. The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.</p> 
@@ -481,19 +503,13 @@ Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http
         
         Mengubah tingkat zoom ke tingkat tertentu. Ukuran aslinya adalah 0 dan masing-masing Peningkatan atas atau di bawah mewakili zoom 20% lebih besar atau lebih kecil ke default batas 300% dan 50% dari ukuran aslinya, berurutan. The formula for this is `scale := 1.2 ^ level`.
         
-        ### `<webview>.getZoomFactor(callback)`
+        ### `<webview>.getZoomFactor()`
         
-        * `callback` Fungsi 
-          * `zoomFactor` Nomor
+        Returns `Number` - the current zoom factor.
         
-        Mengirim permintaan untuk mendapatkan faktor pembesaran saat ini, `panggilan balik` akan dipanggil `callback (zoomFactor)`.
+        ### `<webview>.getZoomLevel()`
         
-        ### `<webview>.getZoomLevel(callback)`
-        
-        * `callback` Fungsi 
-          * `zoomLevel` Nomor
-        
-        Mengirimkan permintaan untuk mendapatkan tingkat pembesaran saat ini, panggilan balik ` `akan dipanggil dengan `callback(zoomLevel)`.
+        Returns `Number` - the current zoom level.
         
         ### `<webview>.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
         
@@ -571,7 +587,7 @@ Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http
         
         Pengembalian:
         
-        * ` judul</ 0>  String</li>
+        * ` judul </ 0> String</li>
 <li><code>explicitSet` Boolean
         
         Dipecat bila judul halaman diatur saat navigasi. `explicitSet` salah ketika judul disintesis dari file url.
@@ -597,7 +613,7 @@ Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http
         Pengembalian:
         
         * `level` Integer
-        * `message` String
+        * `pesan` String
         * `line` Integer
         * `sourceId` String
         
@@ -629,8 +645,8 @@ Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http
         
         Pengembalian:
         
-        * ` url </ 0> String</li>
-<li><code>nama bingkai` tali
+        * `url` String
+        * `nama bingkai` tali
         * `disposisi` String - dapat `default`, `latar depan-tab`, `latar belakang-tab`, `jendela baru`, `Simpan ke disk` dan `lainnya`.
         * `options` Object - The options which should be used for creating the new [`BrowserWindow`](browser-window.md).
         
@@ -639,132 +655,136 @@ Memuat `url` di webview, `url` harus berisi awalan protokol, misalnya file `http
         Contoh kode berikut membuka url baru di browser default sistem.
         
         ```javascript
-        const { shell } = require ('electron') const webview = document.querySelector ('webview') webview.addEventListener ('new-window', (e) = > {const protocol = require ('url'). parse (e.url) .protocol if (protocol === 'http:' || protocol === 'https:') {shell.openExternal (e.url)}})
+        const { shell } = require('electron')
+        const webview = document.querySelector('webview')
+        
+        webview.addEventListener('new-window', (e) => {
+          const protocol = require('url').parse(e.url).protocol
+          if (protocol === 'http:' || protocol === 'https:') {
+            shell.openExternalSync(e.url)
+          }
+        })
         ```
         
         ### Peristiwa: 'akan navigasi'
         
         Pengembalian:
         
-        * ` url </ 0> String</li>
-</ul>
-
-<p>dipancarkan saat pengguna atau halaman ingin memulai navigasi. Hal itu bisa terjadi ketikaObjek <code> jendela.lokasi </ 0> diubah atau pengguna mengklik link di halaman.
+        * `url` String
+        
+        dipancarkan saat pengguna atau halaman ingin memulai navigasi. Hal itu bisa terjadi ketikaObjek ` jendela.lokasi </ 0> diubah atau pengguna mengklik link di halaman.
 </p>
 
 <p>Acara ini tidak akan memancarkan saat navigasi dimulai secara pemrograman
-API seperti <code>webContents.loadURL` dan `webContents.back`.</p> 
-          Itu juga tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
-          
-          Memanggil `event.preventDefault ()` tidak **TIDAK** memiliki efek.
-          
-          ### Peristiwa: 'akan navigasi'
-          
-          Pengembalian:
-          
-          * `url` String
-          
-          Dibunyikan apabila navigasi dilakukan.
-          
-          Acara ini tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
-          
-          ### peristiwa: 'Apakah-menavigasi-di halaman'
-          
-          Pengembalian:
-          
-          * `adalah Bingkai Utama` Boolean
-          * `url` String
-          
-          Dibunyikan saat navigasi dalam halaman terjadi.
-          
-          Saat navigasi dalam halaman terjadi, perubahan URL halaman tidak menyebabkan navigasi di luar halaman. Contoh dari hal ini adalah ketika jangkar link diklik atau saat peristiwa hash `perubahan hash` dipicu.
-          
-          ### Acara : 'dekat'
-          
-          Dipecat saat halaman tamu mencoba menutup diri.
-          
-          The following example code navigates the `webview` to `about: blank` when the guest attempts to close itself.
-          
-          ```javascript
-          const webview = document.querySelector ('webview') webview.addEventListener ('close', () = > {webview.src = 'about: blank'})
-          ```
-          
-          ### Event: 'ipc-message'
-          
-          Pengembalian:
-          
-          * `channel` String
-          * `args` Array
-          
-          Fired when the guest page has sent an asynchronous message to the embedder page.
-          
-          With `sendToHost` method and `ipc-message` event you can communicate between guest page and embedder page:
-          
-          ```javascript
-          // In embedder page. const webview = document.querySelector ('webview') webview.addEventListener ('ipc-message', (event) = > {console.log (event.channel) // Prints "pong"}) webview.send ('ping ')
-          ```
-          
-          ```javascript
-          // In guest page. const { ipcRenderer } = require ('electron') ipcRenderer.on ('ping', () = > {ipcRenderer.sendToHost ('pong')})
-          ```
-          
-          ### Peristiwa: 'jatuh'
-          
-          Dipecat saat proses renderer jatuh.
-          
-          ### Event: 'jatuh'
-          
-          Dipecat saat proses gpu jatuh.
-          
-          ### Peristiwa: 'plugin-jatuh'
-          
-          Pengembalian:
-          
-          * ` nama </ 0>  String</li>
+API seperti <code>webContents.loadURL` dan `webContents.back`.
+        
+        Itu juga tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
+        
+        Memanggil `event.preventDefault ()` tidak **TIDAK** memiliki efek.
+        
+        ### Peristiwa: 'akan navigasi'
+        
+        Pengembalian:
+        
+        * `url` String
+        
+        Dibunyikan apabila navigasi dilakukan.
+        
+        Acara ini tidak dibunyikan untuk navigations di halaman, seperti mengklik anchor link atau memperbarui `window.location.hash`. Menggunakan acara `melakukan-menavigasi-di Halaman` untuk tujuan ini.
+        
+        ### peristiwa: 'Apakah-menavigasi-di halaman'
+        
+        Pengembalian:
+        
+        * `adalah Bingkai Utama` Boolean
+        * `url` String
+        
+        Dibunyikan saat navigasi dalam halaman terjadi.
+        
+        Saat navigasi dalam halaman terjadi, perubahan URL halaman tidak menyebabkan navigasi di luar halaman. Contoh dari hal ini adalah ketika jangkar link diklik atau saat peristiwa hash `perubahan hash` dipicu.
+        
+        ### Acara : 'dekat'
+        
+        Dipecat saat halaman tamu mencoba menutup diri.
+        
+        The following example code navigates the `webview` to `about: blank` when the guest attempts to close itself.
+        
+        ```javascript
+        const webview = document.querySelector ('webview') webview.addEventListener ('close', () = > {webview.src = 'about: blank'})
+        ```
+        
+        ### Event: 'ipc-message'
+        
+        Pengembalian:
+        
+        * ` saluran </ 0>  String</li>
+<li><code>args` Array
+        
+        Fired when the guest page has sent an asynchronous message to the embedder page.
+        
+        With `sendToHost` method and `ipc-message` event you can communicate between guest page and embedder page:
+        
+        ```javascript
+        // In embedder page. const webview = document.querySelector ('webview') webview.addEventListener ('ipc-message', (event) = > {console.log (event.channel) // Prints "pong"}) webview.send ('ping ')
+        ```
+        
+        ```javascript
+        // In guest page. const { ipcRenderer } = require ('electron') ipcRenderer.on ('ping', () = > {ipcRenderer.sendToHost ('pong')})
+        ```
+        
+        ### Peristiwa: 'jatuh'
+        
+        Dipecat saat proses renderer jatuh.
+        
+        ### Peristiwa: 'plugin-jatuh'
+        
+        Pengembalian:
+        
+        * ` nama </ 0>  String</li>
 <li><code>Versi` String
-          
-          Dibunyikan ketika proses plugin telah jatuh.
-          
-          ### Event: 'menghancurkan'
-          
-          Dipecat saat WebContents hancur.
-          
-          ### Event: 'media-mulai-bermain''
-          
-          Emitted saat media mulai diputar.
-          
-          ### Event: 'media-berhenti'
-          
-          Emitted saat media dijeda atau dilakukan bermain.
-          
-          ### Event: 'apakah-ganti-tema-warna'
-          
-          Pengembalian:
-          
-          * `themeColor` String
-          
-          Emitted ketika warna tema halaman berubah. Hal ini biasanya karena bertemu sebuah meta tag:
-          
-          ```html
-          <meta name='theme-color' content='#ff0000'>
-          ```
-          
-          ### Event: 'update-target-url'
-          
-          Pengembalian:
-          
-          * `url` String
-          
-          Emitted saat mouse bergerak di atas sebuah link atau keyboard memindahkan fokus ke sebuah link.
-          
-          ### Event: 'devtools-dibuka'
-          
-          Emitted saat DevTools dibuka.
-          
-          ### Event: 'devtools-ditutup'
-          
-          Emitted saat DevTools ditutup.
-          
-          ### Event: 'fokus devtools'
-          
-          Emitted saat DevTools difokuskan / dibuka.
+        
+        Dibunyikan ketika proses plugin telah jatuh.
+        
+        ### Event: 'menghancurkan'
+        
+        Dipecat saat WebContents hancur.
+        
+        ### Event: 'media-mulai-bermain''
+        
+        Emitted saat media mulai diputar.
+        
+        ### Event: 'media-berhenti'
+        
+        Emitted saat media dijeda atau dilakukan bermain.
+        
+        ### Event: 'apakah-ganti-tema-warna'
+        
+        Pengembalian:
+        
+        * `themeColor` String
+        
+        Emitted ketika warna tema halaman berubah. Hal ini biasanya karena bertemu sebuah meta tag:
+        
+        ```html
+        <meta name='theme-color' content='#ff0000'>
+        ```
+        
+        ### Event: 'update-target-url'
+        
+        Pengembalian:
+        
+        * `url` String
+        
+        Emitted saat mouse bergerak di atas sebuah link atau keyboard memindahkan fokus ke sebuah link.
+        
+        ### Event: 'devtools-dibuka'
+        
+        Emitted saat DevTools dibuka.
+        
+        ### Event: 'devtools-ditutup'
+        
+        Emitted saat DevTools ditutup.
+        
+        ### Event: 'fokus devtools'
+        
+        Emitted saat DevTools difokuskan / dibuka.

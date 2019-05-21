@@ -4,9 +4,9 @@
 
 Proses: [Main](../glossary.md#main-process)
 
-Contoh kelas `WebRequest` diakses dengan menggunakan `webRequest` properti dari `Sesi`.
+Contoh dari ` Cookie </ 0> kelas diakses dengan menggunakan <code> cookie </ 0> properti dari <code> Sesi </ 0> .</p>
 
-Metode `WebRequest` menerima opsional `filter` dan seorang `pendengar`. Seorang `pendengar` akan dipanggil dengan `pendengar(rincian)` saat API sudah terjadi. Sebuah `rincian` objek menjelaskan permintaan.
+<p>Metode <code>WebRequest` menerima opsional `filter` dan seorang `pendengar`. Seorang `pendengar` akan dipanggil dengan `pendengar(rincian)` saat API sudah terjadi. Sebuah `rincian` objek menjelaskan permintaan.
 
 ⚠️ Only the last attached `listener` will be used. Passing `null` as `listener` will unsubscribe from the event.
 
@@ -37,18 +37,19 @@ Metode berikut tersedia pada contoh `WebRequest`:
 
 * `menyaring` Objek (opsional) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `pendengar` Fungsi 
+* `pendengar` Function | null 
   * `rincian` Obyek 
     * `identitas` Integer
     * `url` String
     * `method` String
-    * `webContentsId` Integer (optional)
+    * `exitCode` Integer (opsional)
     * `Jenissumberdaya` Tali
+    * `pengarah` String
     * `timestamp` Duakali
     * `uploadData</​​0> <a href="structures/upload-data.md">UploadData[]</a></li>
 </ul></li>
 <li><code>callback` Fungsi 
-      * `respon` Obyek 
+      * `Tanggapan` Obyek 
         * `batalkan` Boolean (opsional)
         * `redirectURL` String (opsional) - Permintaan asli dicegah dikirim atau diselesaikan dan diarahkan ke URL yang diberikan.
   
@@ -62,17 +63,18 @@ Metode berikut tersedia pada contoh `WebRequest`:
   
   * `menyaring` Objek (opsional) 
     * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-  * `pendengar` Fungsi 
+  * `pendengar` Function | null 
     * `rincian` Obyek 
       * `identitas` Integer
       * `url` String
-      * `method` String
-      * `webContentsId` Integer (optional)
+      * ` path </ 0>  String</li>
+<li><code>exitCode` Integer (opsional)
       * `Jenissumberdaya` Tali
+      * `pengarah` String
       * `timestamp` Duakali
       * `permintaanHeaders` Objek
-    * `callback` Fungsi 
-      * `respon` Obyek 
+    * `callback` Lokasi: 
+      * `Tanggapan` Benda 
         * `batalkan` Boolean (opsional)
         * `permintaanHeader` Objek (opsional) - Bila tersedia, permintaan akan dibuat dengan headers ini.
   
@@ -84,13 +86,14 @@ Metode berikut tersedia pada contoh `WebRequest`:
   
   * `menyaring` Object (opsional) 
     * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-  * `pendengar` Fungsi 
+  * `pendengar` Function | null 
     * `rincian` Obyek 
       * `identitas` Integer
       * `url` String
       * `method` String
-      * `webContentsId` Integer (optional)
+      * `exitCode` Integer (opsional)
       * `Jenissumberdaya` Tali
+      * `pengarah` String
       * `timestamp` Duakali
       * `permintaanHeaders` Objek
   
@@ -100,19 +103,20 @@ Metode berikut tersedia pada contoh `WebRequest`:
   
   * `menyaring` Objek (opsional) 
     * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-  * `pendengar` Fungsi 
+  * `pendengar` Function | null 
     * `rincian` Obyek 
       * `identitas` Integer
       * ` url </ 0> String</li>
 <li><code>method` String
-      * `webContentsId` Integer (optional)
+      * `exitCode` Integer (opsional)
       * `Jenissumberdaya` Tali
+      * `pengarah` String
       * `timestamp` Duakali
       * `statusGaris` String
       * `statusCode` Bilangan bulat
       * `responseHeaders` Objek
     * `callback` Fungsi 
-      * `respon` Obyek 
+      * `Tanggapan` Obyek 
         * `batalkan` Boolean (opsional)
         * `responHeader` Objek (opsional) - Bila disediakan, server diasumsikan telah merespon dengan headers ini.
         * `statusGaris` String (opsional) - Harus diberikan saat mengesampingkan `responHeaders` untuk mengubah status header jika tidak ada respon asli status header akan digunakan.
@@ -125,13 +129,14 @@ Metode berikut tersedia pada contoh `WebRequest`:
   
   * `menyaring` Objek (opsional) 
     * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-  * `pendengar` Fungsi 
+  * `pendengar` Function | null 
     * `rincian` Obyek 
       * `identitas` Integer
       * `url` String
       * `method` String
-      * `webContentsId` Integer (optional)
+      * `exitCode` Integer (opsional)
       * `TipeSumberdaya` String
+      * `pengarah` String
       * `timestamp` Duakali
       * `responseHeaders` Objek
       * ` dariCache` Boolean - Menunjukkan apakah respon diambil dari disk cache.
@@ -144,13 +149,14 @@ Metode berikut tersedia pada contoh `WebRequest`:
   
   * `menyaring` Objek (opsional) 
     * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-  * `pendengar` Fungsi 
+  * `pendengar` Function | null 
     * `rincian` Obyek 
       * `identitas` Integer
       * `url` String
       * `method` String
-      * `webContentsId` Integer (optional)
-      * `TipeSumberdaya` String
+      * `exitCode` Integer (opsional)
+      * `Jenissumberdaya` Tali
+      * `pengarah` String
       * `timestamp` Duakali
       * `redirectURL` String
       * `statusCode` Bilangan bulat
@@ -164,12 +170,12 @@ Metode berikut tersedia pada contoh `WebRequest`:
   
   * `menyaring` Objek (opsional) 
     * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-  * `pendengar` Fungsi 
+  * `pendengar` Function | null 
     * `rincian` Obyek 
       * `identitas` Integer
       * ` url </ 0> String</li>
 <li><code>method` String
-      * `webContentsId` Integer (optional)
+      * `exitCode` Integer (opsional)
       * `TipeSumberdaya` String
       * `pengarah` String
       * `timestamp` Duakali
@@ -184,13 +190,14 @@ Metode berikut tersedia pada contoh `WebRequest`:
   
   * `menyaring` Objek (opsional) 
     * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-  * `pendengar` Fungsi 
+  * `pendengar` Function | null 
     * `rincian` Obyek 
       * `identitas` Integer
       * ` url </ 0> String</li>
 <li><code>method` String
-      * `webContentsId` Integer (optional)
+      * `exitCode` Integer (opsional)
       * `TipeSumberdaya` String
+      * `pengarah` String
       * `timestamp` Duakali
       * `dariCache` Boolean
       * `kesalahan` String - deskripsi kesalahan.

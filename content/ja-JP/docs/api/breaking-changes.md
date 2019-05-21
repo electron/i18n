@@ -6,6 +6,50 @@
 
 `FIXME` 文字列は将来のリリースで修正されるべきであることを意味するコードのコメントに用いられます。 （参照： https://github.com/electron/electron/search?q=fixme ）
 
+# 予定されている破壊的なAPIの変更 (6.0)
+
+## `win.setMenu(null)`
+
+```js
+// 非推奨
+win.setMenu(null)
+// こちらに置換
+win.removeMenu()
+```
+
+## レンダラープロセスの `electron.screen`
+
+```js
+// 非推奨
+require('electron').screen
+// こちらに置換
+require('electron').remote.screen
+```
+
+## サンドボックス化したレンダラーの `require`
+
+```js
+// 非推奨
+require('child_process')
+// こちらに置換
+require('electron').remote.require('child_process')
+
+// 非推奨
+require('fs')
+// こちらに置換
+require('electron').remote.require('fs')
+
+// 非推奨
+require('os')
+// こちらに置換
+require('electron').remote.require('os')
+
+// 非推奨
+require('path')
+// こちらに置換
+require('electron').remote.require('path')
+```
+
 # 予定されている破壊的なAPIの変更 (5.0)
 
 ## `new BrowserWindow({ webPreferences })`
@@ -22,25 +66,42 @@
 
 `nativeWindowOpen` オプションで開かれる子ウインドウは Node.js integration が無効化されます。
 
-## `webContents.findInPage(text[, options])`
+## Privileged Schemes Registration
 
-`wordStart` と `medialCapitalAsWordStart` オプションは削除されます。
+Renderer process APIs `webFrame.setRegisterURLSchemeAsPrivileged` and `webFrame.registerURLSchemeAsBypassingCSP` as well as browser process API `protocol.registerStandardSchemes` have been removed. A new API, `protocol.registerSchemesAsPrivileged` has been added and should be used for registering custom schemes with the required privileges. Custom schemes are required to be registered before app ready.
+
+## webFrame Isolated World APIs
+
+```js
+// 非推奨
+webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
+webFrame.setIsolatedWorldHumanReadableName(worldId, name)
+webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
+// こちらに置換
+webFrame.setIsolatedWorldInfo(
+  worldId,
+  {
+    securityOrigin: 'some_origin',
+    name: 'human_readable_name',
+    csp: 'content_security_policy'
+  })
+```
 
 # 予定されている破壊的なAPIの変更 (4.0)
 
-以下のリストには Electron 4.0 で予定されている破壊的な API の変更が含まれています。
+以下のリストには Electron 4.0 でなされた破壊的な API の変更が含まれています。
 
 ## `app.makeSingleInstance`
 
 ```js
 // 非推奨
-app.makeSingleInstance(function (argv, cwd) {
-
+app.makeSingleInstance((argv, cwd) => {
+  /* ... */
 })
 // こちらに置換
 app.requestSingleInstanceLock()
-app.on('second-instance', function (event, argv, cwd) {
-
+app.on('second-instance', (event, argv, cwd) => {
+  /* ... */
 })
 ```
 
@@ -179,11 +240,11 @@ screen.getPrimaryDisplay().workArea
 
 ```js
 // 非推奨
-ses.setCertificateVerifyProc(function (hostname, certificate, callback) {
+ses.setCertificateVerifyProc((hostname, certificate, callback) => {
   callback(true)
 })
 // こちらに置換
-ses.setCertificateVerifyProc(function (request, callback) {
+ses.setCertificateVerifyProc((request, callback) => {
   callback(0)
 })
 ```

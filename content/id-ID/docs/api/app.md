@@ -46,20 +46,17 @@ Emitted ketika Elektron selesai menginisialisasi. Di macos , ` launchInfo </ 0> 
 <ul>
 <li><code>event` Sinyal</li> </ul> 
 
-Emitted sebelum aplikasi mulai menutup jendela-jendelanya. Memanggil ` event.preventDefault () </ 0> akan mencegah perilaku default, yang mengakhiri aplikasi.</p>
+Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
 
-<p><strong> Catatan: </ 0> Jika aplikasi berhenti diprakarsai oleh <code> autoUpdater.quitAndInstall () </ 1> 
-lalu <code> sebelum-berhenti </ 1> dipancarkan <em> setelah </ 2> memancarkan < 1> dekat </ 1>  acara pada semua jendela dan menutup mereka.</p>
+**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()`, then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
 
-<p><strong>Note:</strong> On Windows, this event will not be emitted if the app is closed due
-to a shutdown/restart of the system or a user logout.</p>
+**Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
 
-<h3>Acara : 'akan-berhenti'</h3>
+### Acara : 'akan-berhenti'
 
-<p>Pengembalian:</p>
+Pengembalian:
 
-<ul>
-<li><code>peristiwa` Peristiwa</li> </ul> 
+* `peristiwa` Peristiwa
 
 Emitted ketika semua jendela telah ditutup dan aplikasi akan berhenti. Memanggil ` event.preventDefault () </ 0> akan mencegah perilaku default, yang mengakhiri aplikasi.</p>
 
@@ -172,7 +169,7 @@ event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan 
   * `ketik` String - String yang mengidentifikasi aktivitas. Maps ke [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
   * `userInfo` Object - Contains app-specific state stored by the activity.
   
-  Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise the operation will fail and `continue-activity-error` will be called.
+  Emitted when [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) is about to be resumed on another device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise, the operation will fail and `continue-activity-error` will be called.
   
   ### Event: 'new-window-for-tab' *macOS*
   
@@ -288,7 +285,7 @@ event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan 
     
     Emitted ketika `webContents` ingin melakukan auth dasar.
     
-    Perilaku default adalah membatalkan semua otentikasi, untuk menimpa ini Anda harus mencegah perilaku default dengan `event.preventDefault()` dan panggil `callback(nama pengguna, kata sandi)` dengan kredensial.
+    The default behavior is to cancel all authentications. To override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
     
     ```javascript
     const { app } = require('electron') app.on('login', (event, webContents, request, authInfo, callback) => {
@@ -342,6 +339,17 @@ event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan 
     This event will be emitted inside the primary instance of your application when a second instance has been executed. `argv` adalah argumen argumen baris kedua dari Array, dan `workingDirectory` adalah direktori kerja saat ini. Biasanya aplikasi merespon hal ini dengan membuat jendela utama mereka fokus dan tidak diminimalisir.
     
     This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
+    
+    **Note:** Extra command line arguments might be added by Chromium, such as `--original-process-start-time`.
+    
+    ### Event: 'desktop-capturer-get-sources'
+    
+    Pengembalian:
+    
+    * `acara` Acara
+    * `webContents` [WebContents](web-contents.md)
+    
+    Emitted when `desktopCapturer.getSources()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will make it return empty sources.
     
     ### Event: 'remote-require'
     
@@ -419,7 +427,7 @@ event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan 
     
     Exits immediately with `exitCode`. `exitCode` defaults to 0.
     
-    Semua jendela akan ditutup segera tanpa meminta pengguna dan `sebelum-berhenti` dan `akan-berhenti` tidak akan dipancarkan.
+    All windows will be closed immediately without asking the user, and the `before-quit` and `will-quit` events will not be emitted.
     
     ### `app.relaunch([options])`
     
@@ -429,7 +437,7 @@ event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan 
     
     Luncurkan ulang aplikasi saat instance saat ini keluar.
     
-    Secara default, contoh baru akan menggunakan direktori kerja dan argumen baris perintah yang sama dengan instance saat ini. Bila `args` ditentukan, `args` akan dilewatkan sebagai argumen baris perintah. Ketika `execPath` dispesifikasikan, `execPath` akan dieksekusi untuk diluncurkan kembali alih-alih aplikasi saat ini.
+    By default, the new instance will use the same working directory and command line arguments with current instance. Bila `args` ditentukan, `args` akan dilewatkan sebagai argumen baris perintah. Ketika `execPath` dispesifikasikan, `execPath` akan dieksekusi untuk diluncurkan kembali alih-alih aplikasi saat ini.
     
     Perhatikan bahwa metode ini tidak berhenti dari aplikasi saat dijalankan, Anda harus memanggil `app.quit` atau `app.exit` setelah memanggil `app.relaunch` ke buat aplikasi restart.
     
@@ -473,7 +481,7 @@ event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan 
     * ` nama </ 0>  String</li>
 </ul>
 
-<p>Mengembalikan <code>String` - Path ke direktori khusus atau file yang terkait dengan `nama`. Pada kegagalan sebuah `Error` dilempar.</p> 
+<p>Returns <code>String` - A path to a special directory or file associated with `name`. On failure, an `Error` is thrown.</p> 
       Anda dapat meminta jalur berikut dengan nama:
       
       * `home` Direktori home pengguna.
@@ -512,7 +520,29 @@ event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan 
       * Ikon terkait dengan ekstensi file tertentu, seperti `.mp3`, `.png`, dll.
       * Ikon di dalam file itu sendiri, seperti `.exe`, `.dll`, `.ico`.
       
-      Pada *Linux* dan *macOS*, ikon bergantung pada aplikasi yang terkait dengan jenis file mime.
+      On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+      
+      **[Deprecated Soon](promisification.md)**
+      
+      ### `app.getFileIcon(path[, options])`
+      
+      * ` path </ 0>  String</li>
+<li><code>pilihan` Objek (opsional) 
+        * `ukuran` Deretan 
+          * `kecil` - 16x16
+          * `normal` - 32x32
+          * `besar` - 48x48 di *Linux*, 32x32 pada *Windows*, tidak didukung di *macOS*.
+      
+      Returns `Promise<NativeImage>` - fulfilled with the app's icon, which is a [NativeImage](native-image.md).
+      
+      Mengambil ikon terkait jalur.
+      
+      Pada *Windows*, ada 2 macam ikon:
+      
+      * Ikon terkait dengan ekstensi file tertentu, seperti `.mp3`, `.png`, dll.
+      * Ikon di dalam file itu sendiri, seperti `.exe`, `.dll`, `.ico`.
+      
+      On *Linux* and *macOS*, icons depend on the application associated with file mime type.
       
       ### `app.setPath(nama, path)`
       
@@ -549,7 +579,13 @@ event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan 
           
           **Catatan:** Saat mendistribusikan aplikasi yang dikemas, Anda juga harus mengirimkan map `locales`.
           
-          **Catatan:** Pada Windows Anda harus meneleponnya setelah `ready` dipancarkan.
+          **Note:** On Windows, you have to call it after the `ready` events gets emitted.
+          
+          ### `app.getLocaleCountryCode()`
+          
+          Returns `string` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. The value is taken from native OS APIs.
+          
+          **Note:** When unable to detect locale country code, it returns empty string.
           
           ### `app.addRecentDocument(path)` *macOS* *Windows*
           
@@ -557,7 +593,7 @@ event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan 
 </ul>
 
 <p>Menambahkan <code>path` ke daftar dokumen terbaru.</p> 
-            Daftar ini dikelola oleh OS. Pada Windows Anda bisa mengunjungi daftar dari task bar, dan di macos Anda bisa mengunjunginya dari menu dock.
+            This list is managed by the OS. On Windows, you can visit the list from the task bar, and on macOS, you can visit it from dock menu.
             
             ### `app.clearRecentDocuments()` *macOS* *Windows*
             
@@ -573,7 +609,7 @@ event biasanya dipancarkan saat aplikasi sudah terbuka dan OS ingin menggunakan 
             
             Metode ini menetapkan executable saat ini sebagai pengendali default untuk sebuah protokol (alias skema URI). Ini memungkinkan Anda mengintegrasikan aplikasi Anda lebih dalam ke dalam sistem operasi. Setelah terdaftar, semua link dengan `your-protocol://` akan dibuka dengan executable saat ini. Seluruh link, termasuk protokol, akan diteruskan ke aplikasi Anda sebagai parameter.
             
-            Pada Windows Anda dapat menyediakan jalur parameter opsional, jalur ke executable Anda, dan args, serangkaian argumen yang akan dikirimkan ke executable Anda saat diluncurkan.
+            On Windows, you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
             
             **Catatan:** Pada macOS, Anda hanya dapat mendaftarkan protokol yang telah ditambahkan ke aplikasi `info.plist`, yang tidak dapat diubah saat runtime. Namun Anda dapat mengubah file dengan editor teks sederhana atau skrip selama waktu pembuatan. Silahkan lihat [dokumentasi Apple](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) untuk rincian.
             
@@ -706,11 +742,11 @@ properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> 
             
             Metode ini membuat aplikasi Anda menjadi Aplikasi Instan Tunggal - alih-alih membiarkan beberapa contoh aplikasi Anda berjalan, ini akan memastikan bahwa hanya satu contoh aplikasi Anda yang berjalan, dan contoh lainnya memberi isyarat contoh ini dan keluar.
             
-            The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock you can assume that another instance of your application is already running with the lock and exit immediately.
+            The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock, you can assume that another instance of your application is already running with the lock and exit immediately.
             
             I.e. This method returns `true` if your process is the primary instance of your application and your app should continue loading. It returns `false` if your process should immediately quit as it has sent its parameters to another instance that has already acquired the lock.
             
-            Pada macOS sistem memberlakukan instance tunggal secara otomatis saat pengguna mencoba membuka instance kedua aplikasi Anda di Finder, dan acara `open-file` dan `open-url` akan dipancarkan untuk bahwa. Namun saat pengguna memulai aplikasi Anda di jalur perintah mekanisme contoh tunggal sistem akan dilewati dan Anda harus menggunakan metode ini untuk memastikan satu contoh.
+            On macOS, the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the `open-file` and `open-url` events will be emitted for that. However when users start your app in command line, the system's single instance mechanism will be bypassed, and you have to use this method to ensure single instance.
             
             Contoh mengaktifkan jendela contoh utama saat instance kedua dimulai:
             
@@ -852,7 +888,7 @@ properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> 
             
             Menetapkan lencana penghitung untuk aplikasi saat ini. Menetapkan hitungan ke `0` akan menyembunyikan lencana.
             
-            Di macOS itu terlihat di ikon dermaga. Di Linux hanya bekerja untuk Unity launcher,
+            On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
             
             **Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
             
@@ -870,7 +906,7 @@ properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> 
               * `path` String (opsional) *Windows* - Jalur yang dapat dieksekusi untuk dibandingkan dengan. Default ke `process.execPath`.
               * `args` String[] (opsional) *Windows* - Argumen baris perintah untuk membandingkan lawan. Default ke array kosong.
             
-            Jika Anda memberikan `path` dan `args` pilihan untuk `app.setLoginItemSettings` maka Anda harus melewati argumen yang sama di sini untuk `openAtLogin` untuk diatur dengan benar.
+            If you provided `path` and `args` options to `app.setLoginItemSettings`, then you need to pass the same arguments here for `openAtLogin` to be set correctly.
             
             Mengembalikan `Objek`:
             
@@ -916,21 +952,22 @@ properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> 
             
             **Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
             
-            ### ` app.showAboutPanel () </ 0>  <em> macos </ 1></h3>
-
-<p>Show the about panel with the values defined in the app's
-<code>.plist` file or with the options set via `app.setAboutPanelOptions(options)`.</p> 
+            ### `app.showAboutPanel` *macOS* *Linux*
             
-            ### `app.setAboutPanelOptions(opsi)` *macOS*
+            Show the app's about panel options. These options can be overridden with `app.setAboutPanelOptions(options)`.
+            
+            ### `app.setAboutPanelOptions(options)` *macOS* *Linux*
             
             * `pilihan` Obyek 
               * `applicationName` String (opsional) - Nama aplikasi.
               * `applicationVersion` String (opsional) - Versi aplikasi.
               * `hak cipta` String (opsional) - Informasi hak cipta.
-              * `kredit` String (opsional) - Informasi kredit.
-              * `version` String (opsional) - Nomor versi pembuatan aplikasi.
+              * `version` String (optional) - The app's build version number. *macOS*
+              * `credits` String (optional) - Credit information. *macOS*
+              * `website` String (optional) - The app's website. *Linux*
+              * `iconPath` String (optional) - Path to the app's icon. *Linux*
             
-            Tetapkan opsi tentang panel. Ini akan menimpa nilai yang didefinisikan di file `.plist` aplikasi. Lihat [dokumentasi Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) untuk detail lebih lanjut.
+            Tetapkan opsi tentang panel. This will override the values defined in the app's `.plist` file on MacOS. Lihat [dokumentasi Apple](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) untuk detail lebih lanjut. On Linux, values must be set in order to be shown; there are no defaults.
             
             ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
             
@@ -964,15 +1001,23 @@ properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> 
             
             **Catatan:** Ini tidak akan mempengaruhi `process.argv`.
             
+            ### `app.commandLine.hasSwitch(switch)`
+            
+            * `switch` String - Sakelar baris perintah
+            
+            Returns `Boolean` - Whether the command-line switch is present.
+            
+            ### `app.commandLine.getSwitchValue(switch)`
+            
+            * `switch` String - Sakelar baris perintah
+            
+            Returns `String` - The command-line switch value.
+            
+            **Note:** When the switch is not present, it returns empty string.
+            
             ### `app.enableSandbox()` *macOS* *Windows*
             
             Enables full sandbox mode on the app.
-            
-            Metode ini hanya bisa dipanggil sebelum aplikasi sudah siap.
-            
-            ### `app.enableMixedSandbox()` *macOS* *Windows*
-            
-            Mengaktifkan mode kotak pasir campuran di aplikasi.
             
             Metode ini hanya bisa dipanggil sebelum aplikasi sudah siap.
             
@@ -982,11 +1027,11 @@ properti yang ditetapkan maka <code> tipe < / 1> diasumsikan <code> tugas </ 1> 
             
             ### ` app.moveToApplicationsFolder () </ 0>  <em> macos </ 1></h3>
 
-<p>Returns <code>Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.</p> 
+<p>Returns <code>Boolean` - Whether the move was successful. Please note that if the move is successful, your application will quit and relaunch.</p> 
             
-            No confirmation dialog will be presented by default, if you wish to allow the user to confirm the operation you may do so using the [`dialog`](dialog.md) API.
+            No confirmation dialog will be presented by default. If you wish to allow the user to confirm the operation, you may do so using the [`dialog`](dialog.md) API.
             
-            **NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog this method returns false. If we fail to perform the copy then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
+            **NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog, this method returns false. If we fail to perform the copy, then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
             
             ### `app.dock.bounce()` *macOS*
             

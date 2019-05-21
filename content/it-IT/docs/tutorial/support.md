@@ -25,7 +25,15 @@ Se hai trovato bug in una [versione supportata](#supported-versions) di Electron
 
 ## Versioni Supportate
 
-Le ultime tre branche rilasciate sono supportate dal team di Electron. Per esempio, se l'ultimo rilascio è 2.0.x, la serie 2-0-x è supportata, come le due precedenti serie di rilascio, la 1-7-x e la 1-8-x.
+The latest three major versions are supported by the Electron team. For example, if the latest release is 5.0.x, then the 4.x.y series is supported, as are the two previous release series 3.x.y and 2.x.y.
+
+### Currently supported versions
+
+* 5.x
+* 4.x
+* 3.x
+
+### End-of-life
 
 Quando una branca di rilasci raggiunge la fine del suo ciclo di supporto, la serie è deprecata in NPM e viene fatto un rilascio di fine supporto. Questo rilascio aggiunge un avviso per informare che si sta usando una versione di Electron non supportata.
 

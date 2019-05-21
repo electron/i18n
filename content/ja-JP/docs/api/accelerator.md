@@ -50,6 +50,8 @@ Linux と Windows の場合、`Command` キーは効果がありません。Acce
 * `Plus`
 * `Space`
 * `Tab`
+* `Capslock`
+* `Numlock`
 * `Backspace`
 * `Delete`
 * `Insert`
@@ -61,3 +63,10 @@ Linux と Windows の場合、`Command` キーは効果がありません。Acce
 * `VolumeUp` と `VolumeDown`、 `VolumeMute`
 * `MediaNextTrack` と `MediaPreviousTrack`、 `MediaStop`、 `MediaPlayPause`
 * `PrintScreen`
+* NumPad Keys 
+  * `num0` から `num9`
+  * `numdec` - decimal key
+  * `numadd` - numpad `+` key
+  * `numsub` - numpad `-` key
+  * `nummult` - numpad `*` key
+  * `numdiv` - numpad `÷` key

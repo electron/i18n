@@ -35,10 +35,10 @@ macOS ビルドに署名する前に、以下のことをしなければなり�
 
 Windows ビルドに署名する前に、以下のことをしなければなりません。
 
-1. Windows Authenticode コード署名証明書を入手する
+1. Get a Windows Authenticode code signing certificate (requires an annual fee)
 2. Visual Studio 2015/2017 をインストールする (署名ユーティリティを入手するため)
 
-多くの代理店からコード署名証明書を入手することができます。
+You can get a code signing certificate from a lot of resellers. Prices vary, so it may be worth your time to shop around. Popular resellers include:
 
 - [digicert](https://www.digicert.com/code-signing/microsoft-authenticode.htm)
 - [Comodo](https://www.comodo.com/landing/ssl-certificate/authenticode-signature/)

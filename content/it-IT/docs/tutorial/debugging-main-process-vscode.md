@@ -1,13 +1,13 @@
-# Debuggando il Processo Principale in VSCode
+# Debug del Processo Principale in VSCode
 
-### 1. Apri un progetto Electron in CodiceVS.
+### 1. Apri un progetto Electron in VsCode.
 
 ```sh
-$ git clone git@github.com:electron/electron-avvio-veloce.git
-$ codice electron-avvio-veloce
+$ git clone git@github.com:electron/electron-quick-start.git
+$ code electron-quick-start
 ```
 
-### 2. Aggiungi un file `.codicevs/lancia.json` con la configurazione seguente:
+### 2. Aggiungi un file `.vscode/launch.json` con la configurazione seguente:
 
 ```json
 {
@@ -31,6 +31,6 @@ $ codice electron-avvio-veloce
 
 ### 3. Debugging
 
-Imposta alcuni punti di rottura in `principale.js` e avvia il debugging in [Vista Debug](https://code.visualstudio.com/docs/editor/debugging). Dovresti poter colpire i punti di rottura.
+Imposta alcuni breakpoint in `main.js` e avvia il debugging in [Debug View](https://code.visualstudio.com/docs/editor/debugging). Dovresti poterti bloccare ad ogni breakpoint.
 
-Qui un progetto preconfigurato che puoi scaricare e debuggare direttamente in CodiceVS: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start
+Di seguito un progetto preconfigurato che puoi scaricare e debuggare direttamente in VsCode: https://github.com/octref/vscode-electron-debug/tree/master/electron-quick-start

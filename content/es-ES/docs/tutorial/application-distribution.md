@@ -1,5 +1,17 @@
 # Distribución de la Aplicación
 
+Para distribuir su aplicación con Electron, necesita empaquetarla y darle una identidad. La manera más fáciul de llevarlo a cabo es usar alguna de las siguientes herramientas de empaquetado:
+
+* [electron-forge](https://github.com/electron-userland/electron-forge)
+* [Electron-builder](https://github.com/electron-userland/electron-builder)
+* [Empaquetador de Electron](https://github.com/electron-userland/electron-packager)
+
+Estas herramientas tendrán en consideración todos los pasos que se necesitan para finalizar con una aplicación Electron lista para ser distribuida, a saber: empaquetado de su aplicación, identificar el ejecutable, configurar los íconos apropiados y opcionalmente crear los instaladores.
+
+## Distribución manual
+
+También puede elegir manualmente que su aplicación esté lista para distribución. Los pasos necesarios para llevarlo a cabo están descriptos a continuación.
+
 Para distribuir su aplicación con Electron, debe descargar los [binarios precompilados](https://github.com/electron/electron/releases) de Electron. Luego, la carpeta que contiene tu aplicación debe llamarse `app` y colocarse en el directorio de recursos de Electron como se muestra en los siguientes ejemplos. Tenga en cuenta que la ubicación de los binarios precompilados de Electron se indican con `electron/` en los ejemplos siguientes.
 
 En macOS:
@@ -79,21 +91,13 @@ MyApp.app/Contents
 
 Puede cambiar el nombre del archivo ejecutable `electrón` a cualquier nombre que desee.
 
-## Herramientas de empaquetado
-
-Además de empaquetar su aplicación manualmente, también puede elegir usar herramientas de empaquetados de terceros para hacer el trabajo por usted:
-
-* [electron-forge](https://github.com/electron-userland/electron-forge)
-* [Electron-builder](https://github.com/electron-userland/electron-builder)
-* [Empaquetador de Electron](https://github.com/electron-userland/electron-packager)
-
 ## Cambio de marca mediante la reconstrucción de la fuente de Electron
 
-It is also possible to rebrand Electron by changing the product name and building it from source. To do this you need to set the build argument corresponding to the product name (`electron_product_name = "YourProductName"`) in the `args.gn` file and rebuild.
+También es posible reidentificar Electron simplemente cambiando el nombre del producto y volver a compilarlo desde el código fuente. Para hacerlo, necesita que el argumento de compilación set corresponda con el nombre del producto (`electron_product_name = "YourProductName"`) en el archivo `args.gn` y recompilarlo.
 
 ### Crear un fork de Electron personalizado
 
-Creando un fork personalizado de Electron seguramente no es algo que tendrá que hacer para compilar su aplicación, incluso para aplicaciones de "Nivel de producción". Usar una herramienta como `electron-packager` o `electron-fragua</ > te permitirá "Remarcar" Electron sin tener que hacer estos pasos.</p>
+Creando un tenedor personalizado de Electron seguramente no es algo que tendrá que hacer para compilar su aplicación, incluso para aplicaciones de "Nivel de producción". Usar una herramienta como `electron-packager` o `electron-fragua</ > te permitirá "Remarcar" Electron sin tener que hacer estos pasos.</p>
 
 <p>Necesita horquilla Electron cuando tienes el código C++ personalizado que han parcheado directamente en electrones, que pueden ser algunos, o ha sido rechazado de la versión oficial. Como mantenedores de Electron, que muy mucho le gustaría hacer su escenario de trabajo, así que por favor trate tan duro como puedas para conseguir los cambios en la versión oficial de Electron, será mucho más fácil en usted, y apreciamos su ayuda.</p>
 

@@ -4,6 +4,10 @@
 
 Electron's `webview` tag is based on [Chromium's `webview`](https://developer.chrome.com/apps/tags/webview), which is undergoing dramatic architectural changes. This impacts the stability of `webviews`, including rendering, navigation, and event routing. We currently recommend to not use the `webview` tag and to consider alternatives, like `iframe`, Electron's `BrowserView`, or an architecture that avoids embedded content altogether.
 
+## Activando
+
+By default the `webview` tag is disabled in Electron >= 5. You need to enable the tag by setting the `webviewTag` webPreferences option when constructing your `BrowserWindow`. For more information see the [BrowserWindow constructor docs](browser-window.md).
+
 ## Descripción general
 
 > Mostrar contenido externo de la web en un cuadro aislado y procesado.
@@ -52,7 +56,7 @@ Under the hood `webview` is implemented with [Out-of-Process iframes (OOPIFs)](h
 So the behavior of `webview` is very similar to a cross-domain `iframe`, as examples:
 
 * When clicking into a `webview`, the page focus will move from the embedder frame to `webview`.
-* You can not add keyboard event listeners to `webview`.
+* You can not add keyboard, mouse, and scroll event listeners to `webview`.
 * All reactions between the embedder frame and `webview` are asynchronous.
 
 ## Notas de Estilo CCS
@@ -91,13 +95,21 @@ Cuando este atributo está presente, el contenedor `webview` se reajustará auto
 
 Cuando este atributo esté presente, la página de invitado en `webview` tendrá integración de nodo y puede usar nodos APIs como `require` y `process` para acceder a bajos niveles de recursos de sistemas. La integración de nodo está desactivada por defecto en la página de invitado.
 
+### `nodeintegrationinsubframes`
+
+```html
+<webview src="http://www.google.com/" nodeintegrationinsubframes></webview>
+```
+
+Experimental option for enabling NodeJS support in sub-frames such as iframes inside the `webview`. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not. This option is disabled by default in the guest page.
+
 ### `enableremotemodule`
 
 ```html
 <webview src="http://www.google.com/" enableremotemodule="false"></webview>
 ```
 
-When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. The remote module is avaiable by default.
+When this attribute is `false` the guest page in `webview` will not have access to the [`remote`](remote.md) module. El módulo remoto está disponible por defecto.
 
 ### `complementos`
 
@@ -219,7 +231,7 @@ Carga el `url` en el webview, el `url` debe contener el prefijo protocolo, e.g. 
 
 * `url` Cadena
 
-Initiates a download of the resource at `url` without navigating.
+Inicia una descarga del recurso en `url` sin navegar.
 
 ### `<webview>.getURL()`
 
@@ -338,7 +350,7 @@ Devuelve `Boolean` - Aunque la ventana de DevTools de la página de invitado est
 
 ### `<webview>.inspectElement(x, y)`
 
-* `x` Íntegro
+* `x` Integer
 * `y` Integer
 
 Empieza inspeccionado elementos en posición (`x`, `y`) de la página de invitado.
@@ -413,12 +425,12 @@ Ejecuta el comando de edición `replaceMisspelling` en página.
 
 * `texto` String
 
-Inserta `texto` al elemento centrado.
+Inserta `texto` en el elemento enfocado.
 
 ### `<webview>.findInPage(text[, options])`
 
 * `text` String - El contenido para ser buscado, no debe quedar en blanco.
-* `opciones` Object (opcional) 
+* `opciones` Objecto (opcional) 
   * `forward` Boolean (opcional) - Ya sea para buscar hacia adelante o hacia atrás, el valor predeterminado es `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
@@ -440,7 +452,7 @@ Detiene cualquier solicitud `findInPage` para el `webview` con la `action` dada.
 
 ### `<webview>.print([options])`
 
-* `opciones` Object (opcional) 
+* `opciones` Objecto (opcional) 
   * `silent` Boolean (opcional) - No le pide al usuario configurar la impresora. Por defecto es `false`.
   * `printBackground` Boolean (opcional) - También imprime el color de fondo y la imagen de la página web. Por defecto es `false`.
   * `deviceName` String (opcional) - Configura el nombre de la impresora que se va a usar. Por defecto es `''`.
@@ -463,11 +475,21 @@ Imprime la página web de `webview` como un PDF, al igual que `webContents.print
 
 ### `<webview>.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (opcional) - El área de la página para ser capturada.
+* `rect` [Rectangle](structures/rectangle.md) (opcional) - Los límites para capturar
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
-Captura una instantánea de la página de `webview`. Al igual que `webContents.capturePage([rect, ]callback)`.
+Captura una foto instantánea de la página dentro de `rect`. Al finalizar se llamará `callback` con `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
+
+**[Próximamente desaprobado](promisification.md)**
+
+### `<webview>.capturePage([rect])`
+
+* `rect` [Rectangle](structures/rectangle.md) (opcional) - El área de la página para ser capturada.
+
+* Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+
+Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
 
 ### `<webview>.send(channel[, arg1][, arg2][, ...])`
 
@@ -498,19 +520,13 @@ Cambia el factor de zoom al factor especificado. El factor de zoom es el porcent
 
 Cambia el nivel de zoom al nivel especificado. El tamaño original es 0 y cada incremento por encima o por debajo representa un zoom del 20% mayor o menor a los límites predeterminados de 300% y 50% del tamaño original, respectivamente. La fórmula para esto es `scale := 1.2 ^ level`.
 
-### `<webview>.getZoomFactor(callback)`
+### `<webview>.getZoomFactor()`
 
-* `callback` Function 
-  * `zoomFactor` Number
+Returns `Number` - the current zoom factor.
 
-Envía una solicitud para obtener el factor zoom actual. El `callback` será llamado con `callback(zoomFactor)`.
+### `<webview>.getZoomLevel()`
 
-### `<webview>.getZoomLevel(callback)`
-
-* `callback` Function 
-  * `zoomLevel` Number
-
-Envía una solicitud para obtener el factor zoom actual. El `callback` será llamado con `callback(zoomLevel)`.
+Returns `Number` - the current zoom level.
 
 ### `<webview>.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
@@ -560,7 +576,7 @@ Devuelve:
 * `errorCode` Entero
 * `errorDescription` String
 * `validatedURL` String
-* `EsElFramePrincipal` Boolean
+* `isMainFrame` Boolean
 
 Este evento es como `did-finish-load`,pero disparado cuando la carga falla o es cancelada, e.g. `window.stop()` es involucrada.
 
@@ -568,7 +584,7 @@ Este evento es como `did-finish-load`,pero disparado cuando la carga falla o es 
 
 Devuelve:
 
-* `EsElFramePrincipal` Boolean
+* `isMainFrame` Boolean
 
 Disparado cuando un frame ha terminado la navegación.
 
@@ -672,7 +688,7 @@ const webview = document.querySelector('webview')
 webview.addEventListener('new-window', (e) => {
   const protocol = require('url').parse(e.url).protocol
   if (protocol === 'http:' || protocol === 'https:') {
-    shell.openExternal(e.url)
+    shell.openExternalSync(e.url)
   }
 })
 ```
@@ -705,7 +721,7 @@ Este evento no es emitido para navegaciones dentro de la página, como hacerle c
 
 Devuelve:
 
-* `EsElFramePrincipal` Boolean
+* `isMainFrame` Boolean
 * `url` String
 
 Emitido cuando una navegación dentro de la página sucede.
@@ -757,10 +773,6 @@ ipcRenderer.on('ping', () => {
 ### Evento: 'crashed'
 
 Disparado cuando el proceso de renderizado se cierra.
-
-### Evento: 'gpu-crashed'
-
-Disparado cuando el proceso gpu se cae.
 
 ### Evento: 'plugin-crashed'
 

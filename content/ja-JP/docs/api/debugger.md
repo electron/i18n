@@ -4,7 +4,7 @@
 
 プロセス: [Main](../glossary.md#main-process)
 
-Chromeの開発者ツールは、ページと相互にやり取りをしたり、ページを調整したりすることのできるJavaScriptランタイムに[特別なバインディング](https://developer.chrome.com/devtools/docs/debugger-protocol)を持っています。
+Chromeの開発者ツールは、ページと相互にやり取りをしたり、ページを調整したりすることのできるJavaScriptランタイムに[特別なバインディング](https://chromedevtools.github.io/devtools-protocol/)を持っています。
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -49,11 +49,22 @@ win.webContents.debugger.sendCommand('Network.enable')
 
 #### `debugger.sendCommand(method[, commandParams, callback])`
 
-* `method` String - メソッド名。リモートデバッグプロトコルで定義されているメソッドの1つである必要があります。
+* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
 * `commandParams` Object (任意) - リクエストパラメータのJSONオブジェクト。
 * `callback` Function (任意) - レスポンス 
   * `error` Object - コマンドに失敗したことを示すエラーメッセージ。
   * `result` Any - リモートデバッグプロトコルのコマンド説明の 'returns' 属性で定義されているレスポンス。
+
+指定したコマンドをデバッグ対象に送信します。
+
+**[非推奨予定](promisification.md)**
+
+#### `debugger.sendCommand(method[, commandParams])`
+
+* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
+* `commandParams` Object (任意) - リクエストパラメータのJSONオブジェクト。
+
+Returns `Promise<any>` - A promise that resolves with the response defined by the 'returns' attribute of the command description in the remote debugging protocol or is rejected indicating the failure of the command.
 
 指定したコマンドをデバッグ対象に送信します。
 

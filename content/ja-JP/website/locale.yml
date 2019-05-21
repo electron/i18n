@@ -3,6 +3,7 @@ nav:
   apps: アプリ
   blog: ブログ
   code_of_conduct: 行動規範
+  security: セキュリティ
   community: コミュニティ
   contact: お問い合わせ
   docs: ドキュメント
@@ -12,22 +13,23 @@ nav:
   releases: リリース
   search: 検索
   userland: ユーザーランド
+  governance: ガバナンス
 keyboard_modal:
   title: キーボード ショート カット
   key: キー
-  action: Action
-  focus_search: Focus the search bar
-  focus_and_clear: Focus the search bar and cleans it
-  scroll_down: Select the next search result
-  scroll_up: Select the previous search result
-  open: Open the selected search result
-  open_new_tab: Open the selected search result in a new tab
+  action: アクション
+  focus_search: 検索バーにフォーカス
+  focus_and_clear: 検索バーにフォーカスし、削除する
+  scroll_down: 次の検索結果を選択
+  scroll_up: 前の検索結果を選択
+  open: 選択した検索結果を開く
+  open_new_tab: 選択した検索結果を新しいタブで開く
 docs:
   title: Electron ドキュメント
   description: 全ドキュメントを <a href="/docs/all">まとめて表示する</a>ことも可能です。また、<a href="/docs/faq">よくある質問</a> もご用意しております。
   guides: ガイド
   api_reference: API リファレンス
-  api_structures: API Structures
+  api_structures: API構造
   advanced: 発展的なドキュメント
   footer:
     propose_change: このドキュメントを改善する
@@ -36,7 +38,7 @@ docs:
     view_all_docs: Electronに関する全てのドキュメントを1ページで表示する
 languages:
   choose_language: 言語選択
-  view_more_details: View More Language Details
+  view_more_details: 言語の詳細をもっと表示する
   translation_progress: 翻訳状態
   current: 選択中
 community:
@@ -46,11 +48,11 @@ community:
     get_started: "<a href='/docs/tutorial/first-app'><b>はじめる</b></a>: <a href='/docs/tutorial/first-app'>クイックスタートガイド</a>アプリを読みながら、はじめてのElectronアプリを開発することができます。"
     updates: "<a href='https://twitter.com/electronjs'><b>最新情報を入手</b></a>: Twitter で<a href='https://twitter.com/electronjs'>@electronjs</a> \n をフォローしたり、<a href='/blog'>ブログのフィード</a>をご購読ください。"
     localized_docs: "<a href='/languages'><b>翻訳されたドキュメント</b></a>: <a href='/languages'>言語ページ</a>からアクセスできます。"
-    help: "<a href='http://atom-slack.herokuapp.com'><b>ヘルプとフィードバック</b></a>: <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>や<a href='https://discuss.atom.io/c/electron'>Discuss</a>、<a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>などで得ることができます。"
+    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>ヘルプとフィードバック</b></a> を得るには <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a> に参加したり、<a href='https://discuss.atom.io/c/electron'>Discuss</a> に投稿したり、<a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a> を訪れたりしましょう。"
+    security: "<a href='mailto:security@electronjs.org'><b>セキュリティの問題を報告する</b></a>: <a href='mailto:security@electronjs.org'>security@electronjs.org</a> までメールでお知らせください。"
     bugs: "<a href='https://github.com/electron/electron/issues'><b>バグの報告</b></a>: <a href='https://github.com/electron/electron/issues'>electron/electron</a> リポジトリに Issue を作成してください。"
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>機能の要望</b></a>: GitHub の <a href='https://github.com/electron/electron/issues'>electron/electron</a> リポジトリに Issue を作成してください。"
     code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>行動規範への違反を報告</b></a>: <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a> までメールでご連絡ください。"
-    security: "<a href='mailto:security@electronjs.org'><b>セキュリティの問題を報告する</b></a>: <a href='mailto:security@electronjs.org'>security@electronjs.org</a> までメールでお知らせください。"
     donations: "<a href='donors'><b>寄付</b></a>: <a href='/donors'>OpenCollective</a>ページにてご寄付をお待ちしております。"
     other: "これ以外のお問い合わせ内容については、<a href='mailto:info@electronjs.org'>info@electronjs.org</a> までメールでご連絡ください。"
   language_communities:
@@ -64,20 +66,20 @@ community:
   awesome_notice: このリストは <a href="https://github.com/sindresorhus/awesome-electron">@sindresorhus による Awesome Electron リポジトリ </a> から生成されています。<br>もし不足しているものがあれば、<a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md">プルリクエストにてお知らせください</a>。
   meetup_notice: ミートアップイベントの情報をこのページに追加するには、 <code>data/meetups.json</code> を編集した上で <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">プルリクエストを送信</a>してください。
 releases:
-  show_releases: "Show Releases:"
-  show_only_releases_from: "Show Only Releases From:"
-  all_versions: All Versions
-  stable_releases: Stable Releases
-  stable_desc: Regular, supported releases
-  beta_releases: Beta Releases
-  beta_desc: Test your app with upcoming changes
-  nightly_releases: Nightly Releases
-  nightly_desc: Experiment with the latest features
-  next: Next
-  next_page: Next Page
-  previous: Previous
-  previous_page: Previous Page
-  page: Page
+  show_releases: "リリー スの表示:"
+  show_only_releases_from: "表示するリリースのバージョン"
+  all_versions: 全てのバージョン
+  stable_releases: 安定版
+  stable_desc: 定期かつサポートされるリリース
+  beta_releases: ベータリリース
+  beta_desc: 変更予定をアプリでテストしましょう
+  nightly_releases: Nightly リリース
+  nightly_desc: 最新機能の体験
+  next: 次
+  next_page: 次のページ
+  previous: 前
+  previous_page: 前のページ
+  page: ページ
   all_releases: 全リリース
   back_to_index: インデックスに戻る
 electron_is_easy:
@@ -106,6 +108,8 @@ get_started:
 explore:
   title: ElectronのAPIに触れる
   description: "<a href='https://github.com/electron/electron-api-demos'>デモアプリケーション</a>では、Electron API の重要な機能をインタラクティブに体験できます。Electron で実現できることを Tips 付きのサンプルコードと共にご覧いただけますので、アプリ開発にお役立てください。"
+  fiddle_title: Electron Fiddle の強力な実験機能を試しましょう
+  see_more_info: 詳細
 download_from_github: GitHub からダウンロード
 view_all_releases_on_github: GitHub で<a href="https://github.com/electron/electron-api-demos/releases">すべてのリリースを見る</a>
 quick_start:
@@ -125,9 +129,11 @@ taglines:
 help_translate: "翻訳に参加する"
 footer:
   see_the_faq: よくある質問（FAQ）
+companies:
+  title: Electron で開発されたもの
+  description: Electron は元々 GitHub 社の <a href='https://atom.io' target='_blank'>Atom エディタ</a> のために開発され、世界中の企業に採用されるようになりました。
 apps:
-  title: Electronで開発されたアプリ
-  description: Electron を使えば、作業の効率化やアイデアを実現するためのデスクトップアプリを容易に開発できます。Electron は元々、GitHub 社の<a href='https://atom.io' target='_blank'>Atom エディタ</a>のために開発されたフレームワークですが、現在は Microsoft や Facebook, Slack, Docker といった有名企業によるアプリ開発でも採用されています。
+  description: 'Electron を使えば、業務効率化やアイデアを実現するためのデスクトップアプリを容易に開発できます。<a href=''/apps''>コミュニティによって作成されたアプリのいくつか</a> を確認したり、<a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">あなたのアプリを追加</a> したりしてみましょう。'
   view_more: もっとアプリを見る
   submit_your_own: あなたのアプリを送信する
   something_missing: 何か見つかりませんか？
@@ -146,7 +152,7 @@ blog:
   title: Electron ブログ
   description: Electron チームとコミュニティからの最新情報
   feedback: この記事に対してフィードバックをお持ちですか？Twitterにて<a href="https://twitter.com/electronjs">@electronjs</a>までお知らせください。
-  help: Need help or found a bug? <a href="/contact">Contact us</a>.
+  help: サポートが必要ですか、または不具合を見つけましたか？<a href="/contact">お問い合わせ</a>.
 clipboard:
   copy: コピー
   copy_to_clipboard: クリップボードにコピー
@@ -196,22 +202,77 @@ pages:
     description: Spectron は、 Electron アプリのインテグレーションテスト用コードを手軽に書くためのオープンソースフレームワークです。ChromeDriver と WebDriverIO を利用して構成されています。
   '/fiddle':
     title: Electron Fiddle
-    description: The easiest way to get started with Electron
+    description: やさしい Electron のはじめかた
+  '/governance':
+    title: Electron のガバナンス
+    description: Electron ガバナンスシステムは、Electron エコシステムのさまざまな側面を監督するワーキンググループと、それらの間の衝突を解決するように機能する管理ワーキンググループで構成されています。
   '/donors':
     title: 寄贈者
 landing:
   get_started: 始めましょう！
   fiddle:
-    lead_desc: The easiest way to get started with Electron
-    create_app: Create your app
-    description: Electron Fiddle lets you create and play with small Electron experiments. It greets you with a quick-start template after opening – change a few things, choose the version of Electron you want to run it with, and play around. Then, save your Fiddle either as a GitHub Gist or to a local folder. Once pushed to GitHub, anyone can quickly try your Fiddle out by just entering it in the address bar.
-    explore: Explore Electron
-    explore_desc: "Try Electron without installing any dependencies: Fiddle includes everything you'll need to explore the platform. It also includes examples for every API available in Electron, so if you want to quickly see what a BrowserView is or how the desktopCapturer works, Fiddle has got you covered."
-    code_with_types: Code with Types
-    code_with_types_desc: Fiddle includes Microsoft's excellent Monaco Editor, the same editor powering Visual Studio Code. It also installs the type definitions for the currently selected version of Electron automatically, ensuring that you always have all Electron APIs only a few keystrokes away.
-    compile_and_package: Compile and Package
-    compile_and_package_desc: Fiddle can automatically turn your experiment into binaries you can share with your friends, coworkers, or grandparents. It does so thanks to <a href="https://electronforge.io/">electron-forge</a>, allowing you to package your fiddle as an app for Windows, macOS, or Linux.
-    easy_start: Start with Fiddle, Continue Wherever
-    easy_start_desc: Fiddle is not an IDE – it is however an excellent starting point. Once your fiddle has grown up, export it as a project with or without <a href="https://electronforge.io/">electron-forge</a>. Then, use your favorite editor and take on the world!
+    lead_desc: やさしい Electron のはじめかた
+    create_app: あなたのアプリを作る
+    description: Electron Fiddle では、小さな Electron の実験を作成して遊ぶことができます。 開くとクイックスタートテンプレートが表示されます。いくつか変更して、実行したい Electron のバージョンを選択してから試してみましょう。すると、GitHub Gist やローカルフォルダーに Fiddle を保存できます。GitHub にプッシュされたものは、アドレスバーに入力するだけで誰でもすぐに Fiddle を試すことができます。
+    explore: Electron に触れる
+    explore_desc: "一切の依存関係をインストールせずに Electron を試しましょう。Fiddle にはプラットフォームに触れるためのすべてが含まれています。Electron で利用可能なすべての API の例も含まれているので、BrowserView とは何か、または desktopCapturer がどのように機能するのかをすぐに確認したい場合でも、Fiddle はカバーしています。"
+    code_with_types: 型付きコーディング
+    code_with_types_desc: Fiddle には、Microsoft の 優れた Monaco Editor が含まれています。これは、Visual Studio Code と同じ力を持つエディタです。 また、現在選択されているバージョンの Electron の型定義も自動的にインストールされるので、すべての Electron API を常に数回のキー操作だけで利用できます。
+    compile_and_package: コンパイルとパッケージ化
+    compile_and_package_desc: Fiddle は自動であなたの実験を友人や同僚や祖父母と共有できるバイナリに変換できます。<a href="https://electronforge.io/">electoron-forge</a> のおかげで、Windows、macOS、または Linux 向けのアプリとして Fiddle をパッケージ化可能になっています。
+    easy_start: Fiddle で始めて、続きはどこでも
+    easy_start_desc: Fiddle は IDE ではありません。優れた出発点です。あなたの Fiddle が成熟したら、<a href="https://electronforge.io/">electron-forge</a> がなくてもプロジェクトとしてエクスポートできます。それから、好きなエディタを使って世界に発信しましょう。
+governance:
+  title: Electron のガバナンス
+  description: Electron ガバナンスシステムは、Electron エコシステムのさまざまな側面を監督するワーキンググループと、それらの間の衝突を解決するように機能する管理ワーキンググループで構成されています。
+  wgs: ワーキンググループ
+  docstools:
+    title: ドキュメント & ツール
+    description: 外部を重視したツール (Fiddle、Forge など)、ウェブサイト上の Electronドキュメント、<code>electron/*</code> リポジトリ、保守担当者のグループによるサードパーティのモジュールへの働きかけを監督します。
+  outreach:
+    title: 支援
+    description: Electron コミュニティを成長させます
+  releases:
+    title: リリース
+    description: すべてのリリースブランチと、リリースをサポートするツールを監督します。
+  upgrades:
+    title: アップグレード
+    description: 上流の依存関係、特に Chromium と Node のアップグレードを監督します。
+  website:
+    title: ウェブサイト
+    description: Electron ウェブサイトの技術的実装、デザイン、スタイルと、関連するツールを監督します。
+  cmsf:
+    title: コミュニティ & 安全性
+    description: コミュニティからの削除・禁止を監督します。
+  security:
+    title: セキュリティ
+    description: プロジェクトとしての Electron のセキュリティを積極的に保証し、生じるインシデントに対応し、修正のロールアウトを監督します。
+  admins:
+    title: 管理
+    description: 管理ワーキンググループはガバナンスとプロジェクト全体を監督します。
+  global:
+    overview: 概要
+    associated_repos: 関連レポジトリ
+    notes: 議事録
+  definitions:
+    title: 定義
+    list:
+      - <i>メンテナ</i> は、ガバナンスにおいて積極的な役割を果たす人です。
+      - <i>コラボレータ</i> はコミュニティで活動していますが、ガバナンスでは活動していない人です。
+      - <i>パーティシパント</i> は、メンテナかコラボレータのことです。
+      - <i>ワーキンググループ</i> は、Electron プロジェクトの特定の側面に責任を持つように形成されたメンテナのグループです。 通常、これらのグループは定期的に会合しますが、場合によっては、それぞれの責任を果たすのに必要な場合にだけ会合します。
+      - '<a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership">議長</a> がワーキンググループを率います。'
+  responsibilities:
+    title: 責務
+    listdescription: "すべてのワーキンググループはこれらの中核的な責任があります。"
+    list:
+      - 自身らで議決するため、規則を公開投稿しなければなりません。決議がどのように行われ、いつミーティングを開き、誰が参加するのか、というような規則です。
+      - 'そのグループを <a href=''https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Responsibilities''>代表</a> する議長を <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Terms-and-Selection">選出</a> します。'
+      - 議題項目を含む会議メモ、話し合いの要点、全員が見直すための成果を保管します。
+      - '協力し合い、他のワーキンググループと <a href="https://github.com/electron/governance/tree/master/charter/README.md#Core-Values">誠意を持って</a> 仕事をします。'
+    see_charter: より詳しくは <a href="https://github.com/electron/governance/tree/master/charter/README.md">憲章</a> を参照してください。
+  code_of_conduct: Electron の組織とその中のすべてのリポジトリは、この <a href="https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md">行動規範</a> を遵守しています。
+  license: Electron は <a href="https://github.com/electron/electron/blob/master/LICENSE">MIT License</a> でライセンスされています。
+  repository: ガバナンス構造の詳細については、<a href="https://github.com/electron/governance">Governance Repository</a> を確認してください。
 _404:
   page_not_found: ページが見つかりません。

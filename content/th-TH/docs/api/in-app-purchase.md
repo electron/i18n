@@ -1,10 +1,10 @@
-# inAppPurchase
+# ในการซื้อแอป
 
 > In-app purchases on Mac App Store.
 
 Process: [Main](../glossary.md#main-process)
 
-## Events
+## อีเวนต์
 
 The `inAppPurchase` module emits the following events:
 
@@ -17,7 +17,7 @@ Returns:
 * `event` Event
 * `transactions` Transaction[] - Array of [`Transaction`](structures/transaction.md) objects.
 
-## Methods
+## วิธีการ
 
 The `inAppPurchase` module has the following methods:
 

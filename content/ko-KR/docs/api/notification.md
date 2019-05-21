@@ -44,7 +44,7 @@ It creates a new `Notification` with native properties as set by the `options`.
 
 Objects created with `new Notification` emit the following events:
 
-**Note:** Some events are only available on specific operating systems and are labeled as such.
+**참고:** 몇몇 이벤트는 표기된 특정 운영체제에서만 사용할 수 있습니다.
 
 #### Event: 'show'
 

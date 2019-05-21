@@ -31,7 +31,7 @@ npm будет вести вас на протяжении создания ба
 }
 ```
 
-**Примечание**: Если в `package.json` отсутствует поле `main`, тогда Electron сделает попытку загрузить `index.js` (так же, как и Node.js). Если это было простое Node приложение, вам нужно добавить `start` скрпт, который будет "говорить" `node` выполнить текущий пакет:
+**Примечание**: Если в `package.json` отсутствует поле `main`, тогда Electron сделает попытку загрузить `index.js` (так же, как и Node.js). Если это было простое Node приложение, вам нужно добавить `start` скрипт, который будет "говорить" `node` выполнить текущий пакет:
 
 ```json
 {
@@ -82,9 +82,15 @@ const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
   // Создаем окно браузера.
-  let win = new BrowserWindow({ width: 800, height: 600 })
+  let win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true
+    }
+  })
 
-  // и загружаем index.html нашего приложения.
+  // and load the index.html of the app.
   win.loadFile('index.html')
 }
 
@@ -102,9 +108,15 @@ let win
 
 function createWindow () {
   // Создаём окно браузера.
-  win = new BrowserWindow({ width: 800, height: 600 })
+  win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true
+    }
+  })
 
-  // и загружаем index.html приложения.
+  // and load the index.html of the app.
   win.loadFile('index.html')
 
   // Отображаем средства разработчика.

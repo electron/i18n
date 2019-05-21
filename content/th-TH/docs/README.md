@@ -1,6 +1,6 @@
 # คำแนะนำ
 
-โปรดแน่ใจว่า คุณใช้เอกสารที่ตรงกับรุ่นของอิเล็กตรอน หมายเลขเวอร์ชันควรเป็นส่วนหนึ่งของ URL ถ้าไม่ บางทีคุณกำลังใช้เอกสารในส่วนที่ยังมีการพัฒนาอยู่ซึ่งอาจจะมีการเปลี่ยนแปลง API ที่ไม่ตรงกับรุ่นของ Election ที่คุณกำลังใช้ เพื่อดูเอกสารรุ่นเก่า คุณสามารถ[เรียกดูตาม tag](https://github.com/electron/electron/tree/v1.4.0)บน GitHub โดยเลือกที่เมนู"เปลี่ยน branches/tags" และเลือก tag ที่ตรงกับรุ่นของคุณ
+Please make sure that you use the documents that match your Electron version. หมายเลยเวอร์ชั่นจะเป็นส่วนหนึ่งของ URL ถ้าไม่ บางทีคุณกำลังใช้เอกสารในส่วนที่ยังมีการพัฒนาอยู่ซึ่งอาจจะมีการเปลี่ยนแปลง API ที่ไม่ตรงกับรุ่นของ Election ที่คุณกำลังใช้ เพื่อดูเอกสารรุ่นเก่า คุณสามารถ[เรียกดูตาม tag](https://github.com/electron/electron/tree/v1.4.0)บน GitHub โดยเลือกที่เมนู"เปลี่ยน branches/tags" และเลือก tag ที่ตรงกับรุ่นของคุณ
 
 ## คำถามที่พบบ่อย
 
@@ -20,11 +20,11 @@
   * [ทำความรู้จักการพัฒนา Electron](tutorial/first-app.md#electron-development-in-a-nutshell)
   * [เริ่มต้นแอพของคุณ](tutorial/first-app.md#running-your-app)
 * [Boilerplates and CLIs](tutorial/boilerplates-and-clis.md) 
-  * [Boilerplate vs CLI](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
-  * [electron-forge](tutorial/boilerplates-and-clis.md#electron-forge)
-  * [electron-builder](tutorial/boilerplates-and-clis.md#electron-builder)
-  * [electron-react-boilerplate](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
-  * [Other Tools and Boilerplates](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
+  * [Boilerplates and CLIs](tutorial/boilerplates-and-clis.md#boilerplate-vs-cli)
+  * [electron-ลืม](tutorial/boilerplates-and-clis.md#electron-forge)
+  * [electron-สร้าง](tutorial/boilerplates-and-clis.md#electron-builder)
+  * [electron-react-สำเร็จรูป](tutorial/boilerplates-and-clis.md#electron-react-boilerplate)
+  * [เครื่องมือและแผ่นข้อมูลอื่น ๆ](tutorial/boilerplates-and-clis.md#other-tools-and-boilerplates)
 * [โครงสร้างของแอพพลิเคชั่น](tutorial/application-architecture.md) 
   * [ขั้นตอนหลักและขั้นตอนการเรนเดอร์](tutorial/application-architecture.md#main-and-renderer-processes)
   * [วิธีการใช้อินเตอร์เฟสของ Electron](tutorial/application-architecture.md#using-electron-apis)
@@ -34,27 +34,27 @@
   * [การแจ้งเตือน](tutorial/notifications.md)
   * [บทความปัจจุบัน](tutorial/desktop-environment-integration.md#recent-documents)
   * [ความคืบหน้าการแปลภาษา](tutorial/progress-bar.md)
-  * [Custom Dock Menu](tutorial/macos-dock.md)
-  * [Custom Windows Taskbar](tutorial/windows-taskbar.md)
-  * [Custom Linux Desktop Actions](tutorial/linux-desktop-actions.md)
+  * [เมนู Dock แบบกำหนดเอง](tutorial/macos-dock.md)
+  * [แถบงาน Windows แบบกำหนดเอง](tutorial/windows-taskbar.md)
+  * [การกระทำที่กำหนดเองบนเดสก์ทอป Linux](tutorial/linux-desktop-actions.md)
   * [ปุ่มลัดแป้นพิมพ์](tutorial/keyboard-shortcuts.md)
-  * [Offline/Online Detection](tutorial/online-offline-events.md)
-  * [Represented File for macOS BrowserWindows](tutorial/represented-file.md)
-  * [Native File Drag & Drop](tutorial/native-file-drag-drop.md)
-* [Accessibility](tutorial/accessibility.md) 
+  * [ออฟไลน์ / ออนไลน์ ตรวจสอบ](tutorial/online-offline-events.md)
+  * [ไฟล์ที่แสดงสำหรับ macOS Browser Windows](tutorial/represented-file.md)
+  * [เนทิฟไฟล์ ลาก&และ; วาง](tutorial/native-file-drag-drop.md)
+* [การเข้าถึง](tutorial/accessibility.md) 
   * [Spectron](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
-  * [Enabling Accessibility](tutorial/accessibility.md#enabling-accessibility)
-* [Testing and Debugging](tutorial/application-debugging.md) 
-  * [Debugging the Main Process](tutorial/debugging-main-process.md)
+  * [เปิดใช้งานการเข้าถึง](tutorial/accessibility.md#enabling-accessibility)
+* [การทดสอบและการดีบัก](tutorial/application-debugging.md) 
+  * [การดีบักกระบวนการหลัก](tutorial/debugging-main-process.md)
   * [การใช้ Selenium และ WebDriver](tutorial/using-selenium-and-webdriver.md)
   * [การทดสอบบนระบบ Headless CI (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
   * [ส่วนขยายของ DevTools](tutorial/devtools-extension.md)
-  * [Automated Testing with a Custom Driver](tutorial/automated-testing-with-a-custom-driver.md)
-* Packaging 
-  * [Code Signing](tutorial/code-signing.md)
-* [Distribution](tutorial/application-distribution.md) 
-  * [Support](tutorial/support.md)
+  * [การทดสอบอัตโนมัติด้วยไดรเวอร์ที่กำหนดเอง](tutorial/automated-testing-with-a-custom-driver.md)
+* แพคเกจ 
+  * [การเซ็นรหัส](tutorial/code-signing.md)
+* [การกระจาย](tutorial/application-distribution.md) 
+  * [สนับสนุน](tutorial/support.md)
   * [Mac App Store](tutorial/mac-app-store-submission-guide.md)
   * [Windows Store](tutorial/windows-store-guide.md)
   * [Snapcraft](tutorial/snapcraft.md)
@@ -72,21 +72,21 @@
 
 บทความสอนแต่ละบทจะขยายความจากหัวข้อคำแนะนำข้างบน
 
-* [In Detail: Installing Electron](tutorial/installation.md) 
-  * [Proxies](tutorial/installation.md#proxies)
-  * [Custom Mirrors and Caches](tutorial/installation.md#custom-mirrors-and-caches)
-  * [Troubleshooting](tutorial/installation.md#troubleshooting)
-* [In Detail: Electron's Versioning Scheme](tutorial/electron-versioning.md) 
+* [ในรายละเอียด: การติดตั้ง Electron](tutorial/installation.md) 
+  * [ผู้รับมอบฉันทะ](tutorial/installation.md#proxies)
+  * [กระจกและแคชที่กำหนดเอง](tutorial/installation.md#custom-mirrors-and-caches)
+  * [วิธีแก้ปัญหาเบื้องต้น](tutorial/installation.md#troubleshooting)
+* [รายละเอียด: โครงการการกำหนดเวอร์ชันของ Electron](tutorial/electron-versioning.md) 
   * [semver](tutorial/electron-versioning.md#semver)
-  * [Stabilization Branches](tutorial/electron-versioning.md#stabilization-branches)
-  * [Beta Releases and Bug Fixes](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
-* [In Detail: Packaging App Source Code with asar](tutorial/application-packaging.md) 
-  * [Generating asar Archives](tutorial/application-packaging.md#generating-asar-archives)
-  * [Using asar Archives](tutorial/application-packaging.md#using-asar-archives)
-  * [Limitations](tutorial/application-packaging.md#limitations-of-the-node-api)
-  * [Adding Unpacked Files to asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [In Detail: Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
-* [In Detail: Using Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
+  * [สาขาลดการสั่นไหว](tutorial/electron-versioning.md#stabilization-branches)
+  * [รุ่นเบต้าและการแก้ไขข้อบกพร่อง](tutorial/electron-versioning.md#beta-releases-and-bug-fixes)
+* [โดยละเอียด: ซอร์สโค้ดแอปของบรรจุภัณฑ์ที่มี asar](tutorial/application-packaging.md) 
+  * [การสร้างคลังเก็บอาซาร์](tutorial/application-packaging.md#generating-asar-archives)
+  * [การใช้ asar Archives](tutorial/application-packaging.md#using-asar-archives)
+  * [ข้อจำกัด](tutorial/application-packaging.md#limitations-of-the-node-api)
+  * [การเพิ่มไฟล์ที่คลายการบีบอัดไปยัง asar Archives](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
+* [ในรายละเอียด: การทดสอบ Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [ในรายละเอียด: การใช้ Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
 * [การเรนเดอร์แบบ Offscreen](tutorial/offscreen-rendering.md)
 
 * * *
@@ -99,7 +99,7 @@
 * [กระบวนการของวัตถุ](api/process.md)
 * [รองรับการสลับคำสั่งของ Chrome](api/chrome-command-line-switches.md)
 * [ตัวแปรสภาพแวดล้อม](api/environment-variables.md)
-* [Breaking API Changes](api/breaking-changes.md)
+* [ทำลายการเปลี่ยนแปลง API](api/breaking-changes.md)
 
 ### การสร้างสมาชิก DOM
 
@@ -111,19 +111,19 @@
 
 * [app](api/app.md)
 * [ตัวอัพเดทอัตโนมัติ](api/auto-updater.md)
-* [BrowserView](api/browser-view.md)
+* [มุมมองเบราว์เซอร์](api/browser-view.md)
 * [BrowserWindow](api/browser-window.md)
 * [contentTracing](api/content-tracing.md)
 * [กล่องโต้ตอบ](api/dialog.md)
 * [globalShortcut](api/global-shortcut.md)
-* [inAppPurchase](api/in-app-purchase.md)
-* [ipcMain](api/ipc-main.md)
+* [ในการซื้อแอป](api/in-app-purchase.md)
+* [ipc หลัก](api/ipc-main.md)
 * [เมนู](api/menu.md)
 * [รายการบนเมนู](api/menu-item.md)
 * [เน็ต](api/net.md)
-* [netLog](api/net-log.md)
-* [powerMonitor](api/power-monitor.md)
-* [powerSaveBlocker](api/power-save-blocker.md)
+* [เน็ตล็อค](api/net-log.md)
+* [พลังงานจอภาพ](api/power-monitor.md)
+* [ประหยัดพลังงาน Blocker](api/power-save-blocker.md)
 * [โพรโทคอล](api/protocol.md)
 * [เซสชั่น](api/session.md)
 * [systemPreferences](api/system-preferences.md)
@@ -132,10 +132,10 @@
 
 ### โมดูลสำหรับกระบวนการเรนเดอร์ (หน้าเว็บ):
 
-* [desktopCapturer](api/desktop-capturer.md)
-* [ipcRenderer](api/ipc-renderer.md)
+* [เดสก์ท็อปจับภาพ](api/desktop-capturer.md)
+* [ipc โหมดแสดงภาพ](api/ipc-renderer.md)
 * [ระยะไกล](api/remote.md)
-* [webFrame](api/web-frame.md)
+* [เว็บเฟรม](api/web-frame.md)
 
 ### โมดูลสำหรับกระบวนการทั้งสอง:
 
@@ -147,4 +147,4 @@
 
 ## การพัฒนา
 
-See <development/README.md>
+ดู <development/README.md>

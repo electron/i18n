@@ -31,11 +31,18 @@ Ibinabalik ang:
 Ibinabalik ang:
 
 * `event` na Pangyayari
-* `invertedColorScheme` na Boolean - `true` kapag ang isang binaliktad na pamamaraan ng pagkulay, tulad isang mataas na antas ng temang pangkontrast, ay ginagagami, `false` kapag hindi.
+* `invertedColorScheme` Boolean - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is being used, `false` otherwise.
+
+### Event: 'high-contrast-color-scheme-changed' *Windows*
+
+Pagbabalik:
+
+* `kaganapan` kaganapan
+* `highContrastColorScheme` Boolean - `true` if a high contrast theme is being used, `false` otherwise.
 
 ### Event: 'appearance-changed' *macOS*
 
-Pagbabalik:
+Ibinabalik ang:
 
 * `newAppearance` String - Can be `dark` or `light`
 
@@ -51,10 +58,11 @@ Ibinabalik ang `Boolean` - Kapag ang sistema ay naka-Dark Mode.
 
 Ibinabalik ang `Boolean` - Kung ang Swipe sa pagitan ng settiing ng mga pahina ay naka-on.
 
-### `systemPreferences.postNotification(event, userInfo)` *macOS*
+### `systemPreferences.postNotification(event, userInfo[, deliverImmediately])` *macOS*
 
 * `event` na String
 * `userInfo` na Object
+* `deliverImmediately` Boolean (optional) - `true` to post notifications immediately even when the subscribing app is inactive.
 
 Naglalathala ng isang `event` bilang natibong paalala ng macOS. Ang `userInfo` ay isang object na naglalaman ng mga diksyunaryong impormasyon ng tagagamit na ipadala kasama ang paalala.
 
@@ -75,7 +83,7 @@ Naglalathala ng isang `event` bilang natibong paalala ng macOS. Ang `userInfo` a
 ### `systemPreferences.subscribeNotification(event, callback)` *macOS*
 
 * `event` na String
-* `callback` function 
+* `callback` Function 
   * `event` na String
   * `userInfo` na Object
 
@@ -95,7 +103,7 @@ Sa ilalim ng hood, ang API na ito ay nagsa-subscribe sa `NSDistributedNotificati
 ### `systemPreferences.subscribeLocalNotification(event, callback)` *macOS*
 
 * `event` na String
-* `callback` Punsyon 
+* `callback` Function 
   * `event` na String
   * `userInfo` na Object
 
@@ -201,7 +209,7 @@ if (browserOptions.transparent) {
 }
 ```
 
-### `systemPreferences.getAccentColor()` *Windows*
+### `systemPreferences.getAccentColor()` *Windows* *macOS*
 
 Ibinabalik ang `String` - Ang kasulukuyang kagustuhang accent na kulay ng mga tagagamit sa buong sistema na anyong RGBA hexadecimal.
 
@@ -213,45 +221,101 @@ const blue = color.substr(4, 2) // "cc"
 const alpha = color.substr(6, 2) // "dd"
 ```
 
-### `systemPreferences.getColor(color)` *Windows*
+This API is only available on macOS 10.14 Mojave or newer.
+
+### `systemPreferences.getColor(color)` *Windows* *macOS*
 
 * `color` Ang String - Isa sa sumusunod na mga halaga: 
-  * `3d-dark-shadow` - ang madilim na anino para sa mga tatlong dimensyonal na mga elementong pang-display.
-  * `3d-face` - kulay ng mukha para sa mga tatlong dimensyonal na elementong pang-display at para sa mga background ng dialog na kahon.
-  * `3d-highlight` - kulay ng highlight para sa tatlong dimensyonal na mga elementong pang-display.
-  * `3d-light` - Kulay ng ilaw para sa tatlong dimensyonal na mga elementong pang-display.
-  * `3d-shadow` - kulay ng anino para sa tatlong dimensyonal na mga elementong pang-display.
-  * `active-border` - Aktibong border ng window.
-  * `active-caption` - Aktibong title bar ng window. Nagtatakda ng kaliwang bandang kulay sa kulay na gradient ng title bar ng isang aktibong window kapag ang gradient na epekto ay pinapagana.
-  * `active-caption-gradient` - Kanang bandang kulay sa kulay na gradient ng tile bar ng isang aktibong window.
-  * `app-workspace` - Kulay ng background ng multiple document interface (MDI) na mga aplikasyon.
-  * `button-text` - Teksto sa mga push button.
-  * `caption-text` - Teksto sa kapsyon, kahong pangsukat, at scroll bar na kahong pang-arrow.
-  * `desktop` - Kulay ng background ng desktop.
-  * `disabled-text` - Nakakulay gray (hindi pinapagana) na teksto.
-  * `highlight` - Ang (mga) aytem na pinili sa isang kontrol.
-  * `highlight-text` - Teksto ng (mga) aytem na pinili sa isang kontrol.
-  * `hotlight` - Kulay para sa isang hyperlink o hot-tracked na aytem.
-  * `inactive-border` - Hindi aktibong border ng window.
-  * `inactive-caption` - Hindi aktibong kapsyon. Itinatakda ang kaliwang bandang kulay sa isang kulay na gradient ng title bar ng isang hindi aktibong window kapag pinapagana ang epektong gradient.
-  * `inactive-caption-gradient` - Kanang bandang kulay sa kulay na gradient ng title bar ng isang hindi aktibong window.
-  * `inactive-caption-text` - Kulay ng teksto sa isang hindi aktibong kapsyon.
-  * `info-background` - Kulay ng background para sa mga kontrol ng tooltip.
-  * `info-text` - Kulay ng teksto para sa mga kontrol ng tooltip.
-  * `menu` - Background ng menu.
-  * `menu-highlight` - Ang kulay na ginamit upang i-highlight ang mga aytem ng menu kung saan ang menu ay lumalabas bilang flat na menu.
-  * `menubar` - Ang kulay ng background para sa menu bar kapag ang mga menu ay lumalabas bilang mga flat na menu.
-  * `menu-text` - Teksto sa mga menu.
-  * `scrollbar` - Kulay gray na lugar sa scroll bar.
-  * `window` - Background ng Window.
-  * `window-frame` - Frame ng window.
-  * `window-text` - Teksto sa mga window.
+  * On **Windows**: 
+    * `3d-dark-shadow` - ang madilim na anino para sa mga tatlong dimensyonal na mga elementong pang-display.
+    * `3d-face` - kulay ng mukha para sa mga tatlong dimensyonal na elementong pang-display at para sa mga background ng dialog na kahon.
+    * `3d-highlight` - kulay ng highlight para sa tatlong dimensyonal na mga elementong pang-display.
+    * `3d-light` - Kulay ng ilaw para sa tatlong dimensyonal na mga elementong pang-display.
+    * `3d-shadow` - kulay ng anino para sa tatlong dimensyonal na mga elementong pang-display.
+    * `active-border` - Aktibong border ng window.
+    * `active-caption` - Aktibong title bar ng window. Nagtatakda ng kaliwang bandang kulay sa kulay na gradient ng title bar ng isang aktibong window kapag ang gradient na epekto ay pinapagana.
+    * `active-caption-gradient` - Kanang bandang kulay sa kulay na gradient ng tile bar ng isang aktibong window.
+    * `app-workspace` - Kulay ng background ng multiple document interface (MDI) na mga aplikasyon.
+    * `button-text` - Teksto sa mga push button.
+    * `caption-text` - Teksto sa kapsyon, kahong pangsukat, at scroll bar na kahong pang-arrow.
+    * `desktop` - Kulay ng background ng desktop.
+    * `disabled-text` - Nakakulay gray (hindi pinapagana) na teksto.
+    * `highlight` - Ang (mga) aytem na pinili sa isang kontrol.
+    * `highlight-text` - Teksto ng (mga) aytem na pinili sa isang kontrol.
+    * `hotlight` - Kulay para sa isang hyperlink o hot-tracked na aytem.
+    * `inactive-border` - Hindi aktibong border ng window.
+    * `inactive-caption` - Hindi aktibong kapsyon. Itinatakda ang kaliwang bandang kulay sa isang kulay na gradient ng title bar ng isang hindi aktibong window kapag pinapagana ang epektong gradient.
+    * `inactive-caption-gradient` - Kanang bandang kulay sa kulay na gradient ng title bar ng isang hindi aktibong window.
+    * `inactive-caption-text` - Kulay ng teksto sa isang hindi aktibong kapsyon.
+    * `info-background` - Kulay ng background para sa mga kontrol ng tooltip.
+    * `info-text` - Kulay ng teksto para sa mga kontrol ng tooltip.
+    * `menu` - Background ng menu.
+    * `menu-highlight` - Ang kulay na ginamit upang i-highlight ang mga aytem ng menu kung saan ang menu ay lumalabas bilang flat na menu.
+    * `menubar` - Ang kulay ng background para sa menu bar kapag ang mga menu ay lumalabas bilang mga flat na menu.
+    * `menu-text` - Teksto sa mga menu.
+    * `scrollbar` - Kulay gray na lugar sa scroll bar.
+    * `window` - Background ng Window.
+    * `window-frame` - Frame ng window.
+    * `window-text` - Teksto sa mga window.
+  * On **macOS** 
+    * `alternate-selected-control-text` - The text on a selected surface in a list or table.
+    * `control-background` - The background of a large interface element, such as a browser or table.
+    * `control` - The surface of a control.
+    * `control-text` -The text of a control that isn’t disabled.
+    * `disabled-control-text` - The text of a control that’s disabled.
+    * `find-highlight` - The color of a find indicator.
+    * `grid` - The gridlines of an interface element such as a table.
+    * `header-text` - The text of a header cell in a table.
+    * `highlight` - The virtual light source onscreen.
+    * `keyboard-focus-indicator` - The ring that appears around the currently focused control when using the keyboard for interface navigation.
+    * `label` - The text of a label containing primary content.
+    * `link` - A link to other content.
+    * `placeholder-text` - A placeholder string in a control or text view.
+    * `quaternary-label` - The text of a label of lesser importance than a tertiary label such as watermark text.
+    * `scrubber-textured-background` - The background of a scrubber in the Touch Bar.
+    * `secondary-label` - The text of a label of lesser importance than a normal label such as a label used to represent a subheading or additional information.
+    * `selected-content-background` - The background for selected content in a key window or view.
+    * `selected-control` - The surface of a selected control.
+    * `selected-control-text` - The text of a selected control.
+    * `selected-menu-item` - The text of a selected menu.
+    * `selected-text-background` - The background of selected text.
+    * `selected-text` - Selected text.
+    * `separator` - A separator between different sections of content.
+    * `shadow` - The virtual shadow cast by a raised object onscreen.
+    * `tertiary-label` - The text of a label of lesser importance than a secondary label such as a label used to represent disabled text.
+    * `text-background` - Text background.
+    * `text` - The text in a document.
+    * `under-page-background` - The background behind a document's content.
+    * `unemphasized-selected-content-background` - The selected content in a non-key window or view.
+    * `unemphasized-selected-text-background` - A background for selected text in a non-key window or view.
+    * `unemphasized-selected-text` - Selected text in a non-key window or view.
+    * `window-background` - The background of a window.
+    * `window-frame-text` - The text in the window's titlebar area. 
 
-Ibinabalik ang `String` - Ang setting ng pangsistemang kulay ay nasa anyong hexadecimal ng RGB (`#ABCDEF`). Tingan ang [mga doc ng Windows](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) para sa karagdagang mga detalye.
+Ibinabalik ang `String` - Ang setting ng pangsistemang kulay ay nasa anyong hexadecimal ng RGB (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) and the [MacOS docs](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors) for more details.
+
+### `systemPreferences.getSystemColor(color)` *macOS*
+
+* `color` Ang String - Isa sa sumusunod na mga halaga: 
+  * `blue`
+  * `brown`
+  * `gray`
+  * `green`
+  * `orange`
+  * `pink`
+  * `purple`
+  * `red`
+  * `yellow`
+
+Returns one of several standard system colors that automatically adapt to vibrancy and changes in accessibility settings like 'Increase contrast' and 'Reduce transparency'. See [Apple Documentation](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#system-colors) for more details.
 
 ### `systemPreferences.isInvertedColorScheme()` *Windows*
 
-Ibinabalik ang `Boolean` - `true` kapag ang binaliktad na pamamaraan sa pagkulay, katulad ng mataas na temang pangkontrast, ay aktibo, `false` kapag hindi.
+Returns `Boolean` - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is active, `false` otherwise.
+
+### `systemPreferences.isHighContrastColorScheme()` *Windows*
+
+Returns `Boolean` - `true` if a high contrast theme is active, `false` otherwise.
 
 ### `systemPreferences.getEffectiveAppearance()` *macOS*
 

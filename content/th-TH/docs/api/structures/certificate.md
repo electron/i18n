@@ -1,12 +1,12 @@
-# Certificate Object
+# Certificate Object เชื่อมต่อ วัตถุรับรอง
 
-* `data` String - PEM encoded data
-* `issuer` [CertificatePrincipal](certificate-principal.md) - Issuer principal
-* `issuerName` String - Issuer's Common Name
-* `issuerCert` Certificate - Issuer certificate (if not self-signed)
-* `subject` [CertificatePrincipal](certificate-principal.md) - Subject principal
-* `subjectName` String - Subject's Common Name
-* `serialNumber` String - Hex value represented string
-* `validStart` Number - Start date of the certificate being valid in seconds
-* `validExpiry` Number - End date of the certificate being valid in seconds
-* `fingerprint` String - Fingerprint of the certificate
+* `data` String - ข้อมูลที่เข้ารหัส PEM
+* `subject` [CertificatePrincipal](certificate-principal.md) - หัวเรื่องหลัก
+* `subjectName` String - ชื่อของหัวเรื่อง
+* `issuerCert` Certificate - ใบรับรองของผู้ออกใบรับรอง (หากไม่ใช่แบบลงชื่อด้วยตนเอง)
+* `subject` [CertificatePrincipal](certificate-principal.md) - หัวเรื่องหลัก
+* `subjectName` String - ชื่อของหัวเรื่อง
+* `serialNumber` String - ค่า Hex เป็นตัวแทนสตริง
+* `validStart` Number - วันที่เริ่มต้นของใบรับรองที่ถูกต้องในไม่กี่วินาที
+* `validExpiry` Number - วันที่สิ้นสุดของใบรับรองที่ถูกต้องในไม่กี่วินาที
+* `fingerprint` String - ลายนิ้วมือของใบรับรอง

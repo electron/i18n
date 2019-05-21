@@ -122,11 +122,16 @@ Secara default baru `Jendela Peramban` akan diciptakan untuk `url`.
 Calling `event.preventDefault()` will prevent Electron from automatically creating a new [`BrowserWindow`](browser-window.md). If you call `event.preventDefault()` and manually create a new [`BrowserWindow`](browser-window.md) then you must set `event.newGuest` to reference the new [`BrowserWindow`](browser-window.md) instance, failing to do so may result in unexpected behavior. Sebagai contoh:
 
 ```javascript
-myBrowserWindow.webContents.on('new-window', (event, url) => {
+myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition, options) => {
   event.preventDefault()
-  const win = new BrowserWindow({ show: false })
+  const win = new BrowserWindow({
+    webContents: options.webContents, // use existing webContents if provided
+    show: false
+  })
   win.once('ready-to-show', () => win.show())
-  win.loadURL(url)
+  if (!options.webContents) {
+    win.loadURL(url) // existing webContents will be navigated automatically
+  }
   event.newGuest = win
 })
 ```
@@ -567,800 +572,874 @@ Pengembalian:
   
   Emitted when the associated window logs a console message. Will not be emitted for windows with *offscreen rendering* enabled.
   
-  #### Event: 'remote-require'
+  #### Event: 'preload-error'
   
   Pengembalian:
   
   * `acara` Acara
-  * `moduleName` String
+  * `preloadPath` String
+  * Kesalahan `kesalahan`
   
-  Emitted when `remote.require()` is called in the renderer process. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+  Emitted when the preload script `preloadPath` throws an unhandled exception `error`.
   
-  #### Event: 'remote-get-global'
-  
-  Pengembalian:
-  
-  * `acara` Acara
-  * `globalName` String
-  
-  Emitted when `remote.getGlobal()` is called in the renderer process. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
-  
-  #### Event: 'remote-get-builtin'
+  #### Event: 'ipc-message'
   
   Pengembalian:
   
   * `acara` Acara
-  * `moduleName` String
-  
-  Emitted when `remote.getBuiltin()` is called in the renderer process. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
-  
-  #### Event: 'remote-get-current-window'
-  
-  Pengembalian:
-  
-  * `acara` Acara
-  
-  Emitted when `remote.getCurrentWindow()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
-  
-  #### Event: 'remote-get-current-web-contents'
-  
-  Pengembalian:
-  
-  * `acara` Acara
-  
-  Emitted when `remote.getCurrentWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
-  
-  #### Event: 'remote-get-guest-web-contents'
-  
-  Pengembalian:
-  
-  * `acara` Acara
-  * `guestWebContents` [WebContents](web-contents.md)
-  
-  Emitted when `<webview>.getWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
-  
-  ### Metode Instance
-  
-  #### `contents.loadURL (url [, opsi])`
-  
-  * `url` String
-  * `pilihan` Objek (opsional) 
-    * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
-    * `userAgent` String (opsional) - agen pengguna berasal permintaan.
-    * `extraHeaders` String (opsional) - header tambahan yang dipisahkan oleh "\n".
-    * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
-    * `baseURLForDataURL` String (opsional) - url dasar (dengan trailing pemisah path) untuk file yang akan diambil oleh data url. Hal ini diperlukan hanya jika ditentukan `url` data url dan perlu memuat file lainnya.
-  
-  Beban `url` di jendela. `Url` harus mengandung prefiks protokol, misalnya `http://` atau `file://`. Jika beban harus mem-bypass http cache kemudian menggunakan `pragma` header untuk mencapainya.
-  
-  ```javascript
-  const { webContents } = require('electron')
-  const options = { extraHeaders: 'pragma: no-cache\n' }
-  webContents.loadURL('https://github.com', options)
-  ```
-  
-  #### `contents.loadFile(filePath[, options])`
-  
-  * `fullPath` String
-  * `pilihan` Objek (opsional) 
-    * `query` Object (optional) - Passed to `url.format()`.
-    * `search` String (optional) - Passed to `url.format()`.
-    * `hash` String (optional) - Passed to `url.format()`.
-  
-  Loads the given file in the window, `filePath` should be a path to an HTML file relative to the root of your application. For instance an app structure like this:
-  
-  ```sh
-  | root
-  | - package.json
-  | - src
-  |   - main.js
-  |   - index.html
-  ```
-  
-  Would require code like this
-  
-  ```js
-  win.loadFile('src/index.html')
-  ```
-  
-  #### `contents.downloadURL(url)`
-  
-  * `url` String
-  
-  Memulai download dari sumber daya di `url` tanpa menavigasi. Acara `akan-download` `sesi` akan dipicu.
-  
-  #### `contents.getURL()`
-  
-  Mengembalikan `String` - URL laman web saat ini.
-  
-  ```javascript
-  const { BrowserWindow } = require('electron') membiarkan memenangkan = baru BrowserWindow({ width: 800, height: 600 }) win.loadURL ('http://github.com') Biarkan currentURL = win.webContents.getURL() console.log(currentURL)
-  ```
-  
-  #### `contents.getTitle()`
-  
-  Mengembalikan `String` - judul halaman web sekarang.
-  
-  #### `contents.isDestroyed()`
-  
-  Kembali `Boolean` - Apakah halaman web dihancurkan.
-  
-  #### `contents.Focus()`
-  
-  Berfokus halaman web.
-  
-  #### `contents.isFocused()`
-  
-  Kembali `Boolean` - Apakah halaman web yang terfokus.
-  
-  #### `contents.isLoading()`
-  
-  Kembali `Boolean` - Apakah halaman web masih sedang loading sumber daya.
-  
-  #### `contents.isLoadingMainFrame()`
-  
-  Kembali `Boolean` - Apakah bingkai utama (dan bukan hanya iframes atau bingkai di dalamnya) masih sedang loading.
-  
-  #### `contents.isWaitingForResponse()`
-  
-  Mengembalikan `Boolean` - Apakah halaman web menunggu tanggapan pertama dari utama sumber halaman.
-  
-  #### `contents.stop()`
-  
-  Menghentikan navigasi yang tertunda.
-  
-  #### `isi.reload()`
-  
-  Muat ulang halaman web saat ini.
-  
-  #### `contents.reloadIgnoringCache()`
-  
-  Muat ulang halaman ini dan mengabaikan cache.
-  
-  #### `contents.canGoBack()`
-  
-  Mengembalikan `Boolean` - Apakah browser dapat kembali ke halaman web sebelumnya.
-  
-  #### `contents.canGoForward()`
-  
-  Mengembalikan `Boolean` - Apakah browser dapat maju ke halaman web berikutnya.
-  
-  #### `contents.canGoToOffset(offset)`
-  
-  * `offset` Integer
-  
-  Mengembalikan `Boolean` - Apakah halaman web bisa masuk ke `offset`.
-  
-  #### `contents.clearHistory()`
-  
-  Menghapus sejarah navigasi.
-  
-  #### `isi.goBack()`
-  
-  Membuat browser kembali menjadi halaman web.
-  
-  #### `isi.goForward()`
-  
-  Membuat browser maju ke depan halaman web.
-  
-  #### `contents.goToIndex(indeks)`
-  
-  * `indeks` Integer
-  
-  Menavigasi browser ke indeks halaman web absolut yang ditentukan.
-  
-  #### `contents.goToOffset (offset)`
-  
-  * `offset` Integer
-  
-  Arahkan ke offset yang ditentukan dari "entri saat ini".
-  
-  #### `contents.isCrashed()`
-  
-  Mengembalikan `Boolean` - Apakah proses renderer telah jatuh.
-  
-  #### `contents.setUserAgent (userAgent)`
-  
-  * `userAgent` String
-  
-  Mengganti agen pengguna untuk halaman web ini.
-  
-  #### `contents.getUserAgent()`
-  
-  Mengembalikan `String` - Agen pengguna untuk halaman web ini.
-  
-  #### `isi.insertCSS(css)`
-  
-  * `css` String
-  
-  Menyuntikkan CSS ke dalam halaman web saat ini.
-  
-  #### `contents.executeJavaScript(kode[, userGesture, callback])`
-  
-  * `id` String
-  * `userGesture` Boolean (opsional) - Default adalah `false`.
-  * `callback` Fungsi (opsional) - Dipanggil setelah script telah dieksekusi. 
-    * `hasil` Ada
-  
-  Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
-  
-  Evaluasi `kode` di halaman.
-  
-  Di jendela browser beberapa API HTML seperti `requestFullScreen` hanya bisa dipanggil oleh isyarat dari pengguna. Setting `userGesture` ke `true` akan dihapus keterbatasan ini.
-  
-  If the result of the executed code is a promise the callback result will be the resolved value of the promise. We recommend that you use the returned Promise to handle code that results in a Promise.
-  
-  ```js
-  isi.executeJavaScript('ambil("https://jsonplaceholder.typicode.com/users/1"). kemudian (resp => resp.json())', true)
-    .Kemudian ((hasil) => {
-      console.log (result) // Akan menjadi objek JSON dari fetch call
-    })
-  ```
-  
-  #### `contents.setIgnoreMenuShortcuts (abaikan)` *Eksperimental*
-  
-  * `mengabaikan` Boolean
-  
-  Abaikan shortcut menu aplikasi sementara konten web ini difokuskan.
-  
-  #### `contents.setAudioMuted(dibungkam)`
-  
-  * `dibungkam` Boolean
-  
-  Sesuaikan render halaman web saat ini.
-  
-  #### `isi.isAudioMuted()`
-  
-  Mengembalikan `Boolean` - Apakah halaman ini telah dibungkam.
-  
-  #### `contents.isCurrentlyAudible()`
-  
-  Returns `Boolean` - Whether audio is currently playing.
-  
-  #### `contents.setZoomFactor(faktor)`
-  
-  * `faktor` Angka - Faktor zoom.
-  
-  Mengubah faktor pembesaran ke faktor yang ditentukan. Faktor zoom adalah zoom persen dibagi dengan 100, sehingga 300% = 3,0.
-  
-  #### `contents.getZoomFactor(callback)`
-  
-  * `callback` Fungsi 
-    * `zoomFactor` Nomor
-  
-  Mengirim permintaan untuk mendapatkan faktor pembesaran saat ini, `panggilan balik` akan dipanggil `callback (zoomFactor)`.
-  
-  #### `contents.setZoomLevel(level)`
-  
-  * `level` Angka - level zoom.
-  
-  Mengubah tingkat zoom ke tingkat tertentu. Ukuran aslinya adalah 0 dan masing-masing Peningkatan atas atau di bawah mewakili zoom 20% lebih besar atau lebih kecil ke default batas 300% dan 50% dari ukuran aslinya, berurutan. The formula for this is `scale := 1.2 ^ level`.
-  
-  #### `contents.getZoomLevel(callback)`
-  
-  * `callback` Fungsi 
-    * `zoomLevel` Nomor
-  
-  Mengirimkan permintaan untuk mendapatkan tingkat pembesaran saat ini, panggilan balik ` `akan dipanggil dengan `callback(zoomLevel)`.
-  
-  #### `contents.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
-  
-  * `minimalLevel` Nomor
-  * `maksimalLevel` Nomor
-  
-  Menetapkan maksimum dan minimum tingkat mencubit-to-zoom.
-  
-  > **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
-  > 
-  > ```js
-  > contents.setVisualZoomLevelLimits(1, 3)
-  > ```
-  
-  #### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
-  
-  * `minimalLevel` Nomor
-  * `maksimalLevel` Nomor
-  
-  Menetapkan tingkat zoom maksimal dan minimal berbasis tata letak (yaitu bukan-visual).
-  
-  #### `contents.undo()`
-  
-  Jalankan perintah pengeditan `undo` di halaman web.
-  
-  #### `konten.redo()`
-  
-  Jalankan perintah pengeditan `ulangi` di halaman web.
-  
-  #### `konten.potong()`
-  
-  Jalankan perintah pengeditan `potong` di halaman web.
-  
-  #### `konten.mengkopi()`
-  
-  Jalankan perintah pengeditan `copy` di halaman web.
-  
-  #### `contents.copyImageAt(x, y)`
-  
-  * `x` Integer
-  * `y` Integer
-  
-  Salin gambar pada posisi yang diberikan ke clipboard.
-  
-  #### `contents.paste()`
-  
-  Jalankan perintah pengeditan `paste` di halaman web.
-  
-  #### `contents.pasteAndMatchStyle()`
-  
-  Jalankan perintah pengeditan `pasteAndMatchStyle` di halaman web.
-  
-  #### `konten.menghapus()`
-  
-  Jalankan perintah pengeditan `hapus` di halaman web.
-  
-  #### `konten.memilihsemua()`
-  
-  Jalankan perintah pengeditan `selectAll` di halaman web.
-  
-  #### `konten.tidakmemilih()`
-  
-  Jalankan perintah pengeditan `batalkan pilihan` di halaman web.
-  
-  #### `isi.replace(teks)`
-  
-  * `teks` String
-  
-  Jalankan perintah pengeditan `ganti` di halaman web.
-  
-  #### `contents.replaceMisspelling(teks)`
-  
-  * `teks` String
-  
-  Jalankan perintah pengeditan `replaceMisspelling` di halaman web.
-  
-  #### `konten.mencaritek()`
-  
-  * `teks` String
-  
-  Sisipan `teks` ke elemen yang terfokus.
-  
-  #### `contents.findInPage(teks[, pilihan])`
-  
-  * `text` String - Konten yang akan dicari, tidak boleh kosong.
-  * `pilihan` Objek (opsional) 
-    * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
-    * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
-    * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
-    * `wordStart` Boolean (optional) (Deprecated) - Whether to look only at the start of words. defaults to `false`.
-    * `medialCapitalAsWordStart` Boolean (optional) (Deprecated) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Menerima beberapa kecocokan intra-kata lainnya, defaultnya adalah `false`.
-  
-  Returns `Integer` - The request id used for the request.
-  
-  Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
-  
-  #### `contents.stopFindInPage(tindakan)`
-  
-  * `tindakan` String - Menentukan tindakan yang akan dilakukan saat diakhiri [`webContents.findInPage`] permintaan. 
-    * `clearSelection` - jelas pilihan.
-    * `keepSelection` - menerjemahkan pemilihan menjadi sebuah pilihan yang normal.
-    * `activateSelection` - fokus dan klik seleksi simpul.
-  
-  Berhenti setiap permintaan `findInPage` untuk `webContents` dengan disediakan `tindakan`.
-  
-  ```javascript
-  const { webContents } = require('electron') webContents.on (' ditemukan-di-halaman ', (acara, hasil) = > {jika webContents.stopFindInPage('clearSelection') (result.finalUpdate)}) const requestId = webContents.findInPage('api') console.log(requestId)
-  ```
-  
-  #### `contents.capturePage ([rect,] callback)`
-  
-  * `rect` [Persegi panjang](structures/rectangle.md) (opsional) - daerah halaman untuk ditangkap.
-  * `callback` Fungsi 
-    * ` gambar </ 0>  <a href="native-image.md"> gambar asli </ 1></li>
+  * ` saluran </ 0>  String</li>
+<li><code> ... args </ 0> ada []</li>
+</ul>
+
+<p>Emitted when the renderer process sends an asynchronous message via <code>ipcRenderer.send()`.</p> 
+    #### Event: 'ipc-message-sync'
+    
+    Pengembalian:
+    
+    * `acara` Acara
+    * ` saluran </ 0>  String</li>
+<li><code> ... args </ 0> ada []</li>
+</ul>
+
+<p>Emitted when the renderer process sends a synchronous message via <code>ipcRenderer.sendSync()`.</p> 
+      #### Event: 'desktop-capturer-get-sources'
+      
+      Pengembalian:
+      
+      * `acara` Acara
+      
+      Emitted when `desktopCapturer.getSources()` is called in the renderer process. Calling `event.preventDefault()` will make it return empty sources.
+      
+      #### Event: 'remote-require'
+      
+      Pengembalian:
+      
+      * `acara` Acara
+      * `moduleName` String
+      
+      Emitted when `remote.require()` is called in the renderer process. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+      
+      #### Event: 'remote-get-global'
+      
+      Pengembalian:
+      
+      * `acara` Acara
+      * `globalName` String
+      
+      Emitted when `remote.getGlobal()` is called in the renderer process. Calling `event.preventDefault()` will prevent the global from being returned. Custom value can be returned by setting `event.returnValue`.
+      
+      #### Event: 'remote-get-builtin'
+      
+      Pengembalian:
+      
+      * `acara` Acara
+      * `moduleName` String
+      
+      Emitted when `remote.getBuiltin()` is called in the renderer process. Calling `event.preventDefault()` will prevent the module from being returned. Custom value can be returned by setting `event.returnValue`.
+      
+      #### Event: 'remote-get-current-window'
+      
+      Pengembalian:
+      
+      * `acara` Acara
+      
+      Emitted when `remote.getCurrentWindow()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+      
+      #### Event: 'remote-get-current-web-contents'
+      
+      Pengembalian:
+      
+      * `acara` Acara
+      
+      Emitted when `remote.getCurrentWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+      
+      #### Event: 'remote-get-guest-web-contents'
+      
+      Pengembalian:
+      
+      * `acara` Acara
+      * `guestWebContents` [WebContents](web-contents.md)
+      
+      Emitted when `<webview>.getWebContents()` is called in the renderer process. Calling `event.preventDefault()` will prevent the object from being returned. Custom value can be returned by setting `event.returnValue`.
+      
+      ### Metode Instance
+      
+      #### `contents.loadURL (url [, opsi])`
+      
+      * `url` String
+      * `pilihan` Objek (opsional) 
+        * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
+        * `userAgent` String (opsional) - agen pengguna berasal permintaan.
+        * `extraHeaders` String (opsional) - header tambahan yang dipisahkan oleh "\n".
+        * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
+        * `baseURLForDataURL` String (opsional) - url dasar (dengan trailing pemisah path) untuk file yang akan diambil oleh data url. Hal ini diperlukan hanya jika ditentukan `url` data url dan perlu memuat file lainnya.
+      
+      Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
+      
+      Beban `url` di jendela. `Url` harus mengandung prefiks protokol, misalnya `http://` atau `file://`. Jika beban harus mem-bypass http cache kemudian menggunakan `pragma` header untuk mencapainya.
+      
+      ```javascript
+      const { webContents } = require('electron')
+      const options = { extraHeaders: 'pragma: no-cache\n' }
+      webContents.loadURL('https://github.com', options)
+      ```
+      
+      #### `contents.loadFile(filePath[, options])`
+      
+      * `fullPath` String
+      * `pilihan` Objek (opsional) 
+        * `query` Object (optional) - Passed to `url.format()`.
+        * `search` String (optional) - Passed to `url.format()`.
+        * `hash` String (optional) - Passed to `url.format()`.
+      
+      Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
+      
+      Loads the given file in the window, `filePath` should be a path to an HTML file relative to the root of your application. For instance an app structure like this:
+      
+      ```sh
+      | root
+      | - package.json
+      | - src
+      |   - main.js
+      |   - index.html
+      ```
+      
+      Would require code like this
+      
+      ```js
+      win.loadFile('src/index.html')
+      ```
+      
+      #### `contents.downloadURL(url)`
+      
+      * `url` String
+      
+      Memulai download dari sumber daya di `url` tanpa menavigasi. Acara `akan-download` `sesi` akan dipicu.
+      
+      #### `contents.getURL()`
+      
+      Mengembalikan `String` - URL laman web saat ini.
+      
+      ```javascript
+      const { BrowserWindow } = require('electron') membiarkan memenangkan = baru BrowserWindow({ width: 800, height: 600 }) win.loadURL ('http://github.com') Biarkan currentURL = win.webContents.getURL() console.log(currentURL)
+      ```
+      
+      #### `contents.getTitle()`
+      
+      Mengembalikan `String` - judul halaman web sekarang.
+      
+      #### `contents.isDestroyed()`
+      
+      Kembali `Boolean` - Apakah halaman web dihancurkan.
+      
+      #### `contents.Focus()`
+      
+      Berfokus halaman web.
+      
+      #### `contents.isFocused()`
+      
+      Kembali `Boolean` - Apakah halaman web yang terfokus.
+      
+      #### `contents.isLoading()`
+      
+      Kembali `Boolean` - Apakah halaman web masih sedang loading sumber daya.
+      
+      #### `contents.isLoadingMainFrame()`
+      
+      Kembali `Boolean` - Apakah bingkai utama (dan bukan hanya iframes atau bingkai di dalamnya) masih sedang loading.
+      
+      #### `contents.isWaitingForResponse()`
+      
+      Mengembalikan `Boolean` - Apakah halaman web menunggu tanggapan pertama dari utama sumber halaman.
+      
+      #### `contents.stop()`
+      
+      Menghentikan navigasi yang tertunda.
+      
+      #### `isi.reload()`
+      
+      Muat ulang halaman web saat ini.
+      
+      #### `contents.reloadIgnoringCache()`
+      
+      Muat ulang halaman ini dan mengabaikan cache.
+      
+      #### `contents.canGoBack()`
+      
+      Mengembalikan `Boolean` - Apakah browser dapat kembali ke halaman web sebelumnya.
+      
+      #### `contents.canGoForward()`
+      
+      Mengembalikan `Boolean` - Apakah browser dapat maju ke halaman web berikutnya.
+      
+      #### `contents.canGoToOffset(offset)`
+      
+      * `offset` Integer
+      
+      Mengembalikan `Boolean` - Apakah halaman web bisa masuk ke `offset`.
+      
+      #### `contents.clearHistory()`
+      
+      Menghapus sejarah navigasi.
+      
+      #### `isi.goBack()`
+      
+      Membuat browser kembali menjadi halaman web.
+      
+      #### `isi.goForward()`
+      
+      Membuat browser maju ke depan halaman web.
+      
+      #### `contents.goToIndex(indeks)`
+      
+      * `indeks` Integer
+      
+      Menavigasi browser ke indeks halaman web absolut yang ditentukan.
+      
+      #### `contents.goToOffset (offset)`
+      
+      * `offset` Integer
+      
+      Arahkan ke offset yang ditentukan dari "entri saat ini".
+      
+      #### `contents.isCrashed()`
+      
+      Mengembalikan `Boolean` - Apakah proses renderer telah jatuh.
+      
+      #### `contents.setUserAgent (userAgent)`
+      
+      * `userAgent` String
+      
+      Mengganti agen pengguna untuk halaman web ini.
+      
+      #### `contents.getUserAgent()`
+      
+      Mengembalikan `String` - Agen pengguna untuk halaman web ini.
+      
+      #### `isi.insertCSS(css)`
+      
+      * `css` String
+      
+      Menyuntikkan CSS ke dalam halaman web saat ini.
+      
+      #### `contents.executeJavaScript(kode[, userGesture, callback])`
+      
+      * `id` String
+      * `userGesture` Boolean (opsional) - Default adalah `false`.
+      * `callback` Fungsi (opsional) - Dipanggil setelah script telah dieksekusi. 
+        * `hasil` Ada
+      
+      Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
+      
+      Evaluasi `kode` di halaman.
+      
+      Di jendela browser beberapa API HTML seperti `requestFullScreen` hanya bisa dipanggil oleh isyarat dari pengguna. Setting `userGesture` ke `true` akan dihapus keterbatasan ini.
+      
+      If the result of the executed code is a promise the callback result will be the resolved value of the promise. We recommend that you use the returned Promise to handle code that results in a Promise.
+      
+      ```js
+      isi.executeJavaScript('ambil("https://jsonplaceholder.typicode.com/users/1"). kemudian (resp => resp.json())', true)
+        .Kemudian ((hasil) => {
+          console.log (result) // Akan menjadi objek JSON dari fetch call
+        })
+      ```
+      
+      #### `contents.setIgnoreMenuShortcuts (abaikan)` *Eksperimental*
+      
+      * `mengabaikan` Boolean
+      
+      Abaikan shortcut menu aplikasi sementara konten web ini difokuskan.
+      
+      #### `contents.setAudioMuted(dibungkam)`
+      
+      * `dibungkam` Boolean
+      
+      Sesuaikan render halaman web saat ini.
+      
+      #### `isi.isAudioMuted()`
+      
+      Mengembalikan `Boolean` - Apakah halaman ini telah dibungkam.
+      
+      #### `contents.isCurrentlyAudible()`
+      
+      Returns `Boolean` - Whether audio is currently playing.
+      
+      #### `contents.setZoomFactor(faktor)`
+      
+      * `faktor` Angka - Faktor zoom.
+      
+      Mengubah faktor pembesaran ke faktor yang ditentukan. Faktor zoom adalah zoom persen dibagi dengan 100, sehingga 300% = 3,0.
+      
+      #### `contents.getZoomFactor()`
+      
+      Returns `Number` - the current zoom factor.
+      
+      #### `contents.setZoomLevel(level)`
+      
+      * `level` Angka - level zoom.
+      
+      Mengubah tingkat zoom ke tingkat tertentu. Ukuran aslinya adalah 0 dan masing-masing Peningkatan atas atau di bawah mewakili zoom 20% lebih besar atau lebih kecil ke default batas 300% dan 50% dari ukuran aslinya, berurutan. The formula for this is `scale := 1.2 ^ level`.
+      
+      #### `contents.getZoomLevel()`
+      
+      Returns `Number` - the current zoom level.
+      
+      #### `contents.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
+      
+      * `minimalLevel` Nomor
+      * `maksimalLevel` Nomor
+      
+      Menetapkan maksimum dan minimum tingkat mencubit-to-zoom.
+      
+      > **NOTE**: Visual zoom is disabled by default in Electron. To re-enable it, call:
+      > 
+      > ```js
+      > contents.setVisualZoomLevelLimits(1, 3)
+      > ```
+      
+      #### `contents.setLayoutZoomLevelLimits(minimumLevel, maximumLevel)`
+      
+      * `minimalLevel` Nomor
+      * `maksimalLevel` Nomor
+      
+      Menetapkan tingkat zoom maksimal dan minimal berbasis tata letak (yaitu bukan-visual).
+      
+      #### `contents.undo()`
+      
+      Jalankan perintah pengeditan `undo` di halaman web.
+      
+      #### `konten.redo()`
+      
+      Jalankan perintah pengeditan `ulangi` di halaman web.
+      
+      #### `konten.potong()`
+      
+      Jalankan perintah pengeditan `potong` di halaman web.
+      
+      #### `konten.mengkopi()`
+      
+      Jalankan perintah pengeditan `copy` di halaman web.
+      
+      #### `contents.copyImageAt(x, y)`
+      
+      * `x` Integer
+      * `y` Integer
+      
+      Salin gambar pada posisi yang diberikan ke clipboard.
+      
+      #### `contents.paste()`
+      
+      Jalankan perintah pengeditan `paste` di halaman web.
+      
+      #### `contents.pasteAndMatchStyle()`
+      
+      Jalankan perintah pengeditan `pasteAndMatchStyle` di halaman web.
+      
+      #### `konten.menghapus()`
+      
+      Jalankan perintah pengeditan `hapus` di halaman web.
+      
+      #### `konten.memilihsemua()`
+      
+      Jalankan perintah pengeditan `selectAll` di halaman web.
+      
+      #### `konten.tidakmemilih()`
+      
+      Jalankan perintah pengeditan `batalkan pilihan` di halaman web.
+      
+      #### `isi.replace(teks)`
+      
+      * `teks` String
+      
+      Jalankan perintah pengeditan `ganti` di halaman web.
+      
+      #### `contents.replaceMisspelling(teks)`
+      
+      * `teks` String
+      
+      Jalankan perintah pengeditan `replaceMisspelling` di halaman web.
+      
+      #### `konten.mencaritek()`
+      
+      * `teks` String
+      
+      Sisipan `teks` ke elemen yang terfokus.
+      
+      #### `contents.findInPage(teks[, pilihan])`
+      
+      * `text` String - Konten yang akan dicari, tidak boleh kosong.
+      * `pilihan` Objek (opsional) 
+        * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
+        * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
+        * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
+        * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
+        * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Menerima beberapa kecocokan intra-kata lainnya, defaultnya adalah `false`.
+      
+      Returns `Integer` - The request id used for the request.
+      
+      Starts a request to find all matches for the `text` in the web page. The result of the request can be obtained by subscribing to [`found-in-page`](web-contents.md#event-found-in-page) event.
+      
+      #### `contents.stopFindInPage(tindakan)`
+      
+      * `tindakan` String - Menentukan tindakan yang akan dilakukan saat diakhiri [`webContents.findInPage`] permintaan. 
+        * `clearSelection` - jelas pilihan.
+        * `keepSelection` - menerjemahkan pemilihan menjadi sebuah pilihan yang normal.
+        * `activateSelection` - fokus dan klik seleksi simpul.
+      
+      Berhenti setiap permintaan `findInPage` untuk `webContents` dengan disediakan `tindakan`.
+      
+      ```javascript
+      const { webContents } = require('electron') webContents.on (' ditemukan-di-halaman ', (acara, hasil) = > {jika webContents.stopFindInPage('clearSelection') (result.finalUpdate)}) const requestId = webContents.findInPage('api') console.log(requestId)
+      ```
+      
+      #### `contents.capturePage ([rect,] callback)`
+      
+      * ` rect </ 0>  <a href="structures/rectangle.md"> Rectangle </ 1> (opsional) - Batas untuk ditangkap</li>
+<li><code>callback` Fungsi 
+        * ` gambar </ 0>  <a href="native-image.md"> gambar asli </ 1></li>
 </ul></li>
 </ul>
 
-<p>Menangkap sebuah snapshot dari halaman dalam <code>rect`. Setelah menyelesaikan `callback` yang akan disebut dengan `callback(image)`. `Gambar` adalah instance dari [NativeImage](native-image.md) yang menyimpan data dari snapshot. Menghilangkan `rect` akan menangkap halaman seluruh terlihat.</p> 
-      #### `isi.hasServiceWorker(callback)`
-      
-      * `callback` Fungsi 
-        * `hasWorker` Boolean
-      
-      Memeriksa apakah ada ServiceWorker yang terdaftar dan mengembalikan boolean sebagai respon terhadap `callback`.
-      
-      #### `contents.unregisterServiceWorker(callback)`
-      
-      * `callback` Fungsi 
-        * `sukses` Boolean
-      
-      Unregisters ServiceWorker jika ada dan mengembalikan boolean sebagai respon terhadap `callback` ketika janji JS terpenuhi atau salah saat janji JS ditolak.
-      
-      #### `konten.mendapatkanpercetakan()`
-      
-      Dapatkan daftar printer sistem.
-      
-      Mengembalikan [`membuatinfo[]`](structures/printer-info.md).
-      
-      #### `contents.print([options], [callback])`
-      
-      * `pilihan` Objek (opsional) 
-        * `diam` Boolean (opsional) - Jangan tanya pengguna untuk pengaturan cetak. Defaultnya adalah `false`.
-        * `printBackground` Boolean (opsional) - Juga mencetak warna latar belakang dan gambar halaman web Defaultnya adalah `false`.
-        * `deviceName` String (opsional) - Tetapkan nama perangkat printer yang akan digunakan. Defaultnya adalah `''`.
-      * `callback` Fungsi (opsional) 
-        * `success` Boolean - Indicates success of the print call.
-      
-      Mencetak halaman web jendela. Bila `diam` diatur ke `true`, Elektron akan memilih printer default sistem jika `deviceName` kosong dan pengaturan default untuk dicetak.
-      
-      Memanggil `window.print()` di halaman web sama dengan memanggil `webContents.print ({ silent: false, printBackground: false, deviceName: '' })`.
-      
-      Gunakan `halaman-break-before: always;` Gaya CSS untuk memaksa mencetak ke halaman baru.
-      
-      #### `contents.printToPDF(pilihan, callback)`
-      
-      * `pilihan` Obyek 
-        * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-        * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be`A3`,`A4`,`A5`,` Legal `,`Letter`,`Tabloid` or an Object containing `height` and `width` in microns.
-        * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
-        * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
-        * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
-      * `callback` Fungsi 
-        * Kesalahan `kesalahan`
-        * `data` nomor
-      
-      Mencetak halaman web jendela sebagai PDF dengan custom printing preview Chromium pengaturan.
-      
-      The `callback` akan dipanggil dengan `callback(error, data)` saat selesai. Itu `data` adalah `Buffer` yang berisi data PDF yang dihasilkan.
-      
-      The `landscape` will be ignored if `@page` CSS at-rule is used in the web page.
-      
-      By default, an empty `options` will be regarded as:
-      
-      ```javascript
-      {marginsType: 0, printBackground: false, printSelectionOnly: false, landscape: false}
-      ```
-      
-      Gunakan `halaman-break-before: always;` Gaya CSS untuk memaksa mencetak ke halaman baru.
-      
-      An example of `webContents.printToPDF `:
-      
-      ```javascript
-      const { BrowserWindow } = require ('electron') const fs = require ('fs') let win = new BrowserWindow ({ width: 800, height: 600 }) win.loadURL ('http://github.com') win.webContents.on ('did-finish-load', () = > {// Use default printing options win.webContents.printToPDF ({}, (error, data) = > {if (error) throw error fs.writeFile ('/ tmp / print.pdf', data, (error) = > {if (error) throw error console.log ('Write PDF successfully.')})})})
-      ```
-      
-      #### `contents.addWorkSpace (path)`
-      
-      * ` path </ 0>  String</li>
+<p>Menangkap sebuah snapshot dari halaman dalam <code>rect`. Setelah menyelesaikan `callback` yang akan disebut dengan `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.</p> 
+          **[Deprecated Soon](promisification.md)**
+          
+          #### `contents.capturePage([rect])`
+          
+          * `rect` [Persegi panjang](structures/rectangle.md) (opsional) - daerah halaman untuk ditangkap.
+          
+          * Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+          
+          Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
+          
+          #### `isi.hasServiceWorker(callback)`
+          
+          * `callback` Fungsi 
+            * `hasWorker` Boolean
+          
+          Memeriksa apakah ada ServiceWorker yang terdaftar dan mengembalikan boolean sebagai respon terhadap `callback`.
+          
+          #### `contents.unregisterServiceWorker(callback)`
+          
+          * `callback` Fungsi 
+            * `sukses` Boolean
+          
+          Unregisters ServiceWorker jika ada dan mengembalikan boolean sebagai respon terhadap `callback` ketika janji JS terpenuhi atau salah saat janji JS ditolak.
+          
+          #### `konten.mendapatkanpercetakan()`
+          
+          Dapatkan daftar printer sistem.
+          
+          Mengembalikan [`membuatinfo[]`](structures/printer-info.md).
+          
+          #### `contents.print([options], [callback])`
+          
+          * `pilihan` Objek (opsional) 
+            * `diam` Boolean (opsional) - Jangan tanya pengguna untuk pengaturan cetak. Defaultnya adalah `false`.
+            * `printBackground` Boolean (opsional) - Juga mencetak warna latar belakang dan gambar halaman web Defaultnya adalah `false`.
+            * `deviceName` String (opsional) - Tetapkan nama perangkat printer yang akan digunakan. Defaultnya adalah `''`.
+          * `callback` Fungsi (opsional) 
+            * `success` Boolean - Indicates success of the print call.
+          
+          Mencetak halaman web jendela. Bila `diam` diatur ke `true`, Elektron akan memilih printer default sistem jika `deviceName` kosong dan pengaturan default untuk dicetak.
+          
+          Memanggil `window.print()` di halaman web sama dengan memanggil `webContents.print ({ silent: false, printBackground: false, deviceName: '' })`.
+          
+          Gunakan `halaman-break-before: always;` Gaya CSS untuk memaksa mencetak ke halaman baru.
+          
+          #### `contents.printToPDF(pilihan, callback)`
+          
+          * `pilihan` Obyek 
+            * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
+            * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be`A3`,`A4`,`A5`,` Legal `,`Letter`,`Tabloid` or an Object containing `height` and `width` in microns.
+            * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
+            * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
+            * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
+          * `callback` Fungsi 
+            * Kesalahan `kesalahan`
+            * `data` nomor
+          
+          Mencetak halaman web jendela sebagai PDF dengan custom printing preview Chromium pengaturan.
+          
+          The `callback` akan dipanggil dengan `callback(error, data)` saat selesai. Itu `data` adalah `Buffer` yang berisi data PDF yang dihasilkan.
+          
+          The `landscape` will be ignored if `@page` CSS at-rule is used in the web page.
+          
+          By default, an empty `options` will be regarded as:
+          
+          ```javascript
+          {marginsType: 0, printBackground: false, printSelectionOnly: false, landscape: false}
+          ```
+          
+          Gunakan `halaman-break-before: always;` Gaya CSS untuk memaksa mencetak ke halaman baru.
+          
+          An example of `webContents.printToPDF `:
+          
+          ```javascript
+          const { BrowserWindow } = require ('electron') const fs = require ('fs') let win = new BrowserWindow ({ width: 800, height: 600 }) win.loadURL ('http://github.com') win.webContents.on ('did-finish-load', () = > {// Use default printing options win.webContents.printToPDF ({}, (error, data) = > {if (error) throw error fs.writeFile ('/ tmp / print.pdf', data, (error) = > {if (error) throw error console.log ('Write PDF successfully.')})})})
+          ```
+          
+          #### `contents.addWorkSpace (path)`
+          
+          * ` path </ 0>  String</li>
 </ul>
 
 <p>Adds the specified path to DevTools workspace. Must be used after DevTools creation:</p>
 
 <pre><code class="javascript">const { BrowserWindow } = require ('electron') let win = new BrowserWindow () win.webContents.on ('devtools-opened', () = > {win.webContents.addWorkSpace (__ dirname)})
 `</pre> 
-        #### `konten.memindahkanruankerja(jalur)`
-        
-        * ` path </ 0>  String</li>
+            #### `konten.memindahkanruankerja(jalur)`
+            
+            * ` path </ 0>  String</li>
 </ul>
 
 <p>Menghapus jalur yang ditentukan dari ruang kerja DevTools.</p>
 
 <h4><code>contents.setDevToolsWebContents(devToolsWebContents)`</h4> 
-          * `devToolsWebContents` WebContents
-          
-          Uses the `devToolsWebContents` as the target `WebContents` to show devtools.
-          
-          The `devToolsWebContents` must not have done any navigation, and it should not be used for other purposes after the call.
-          
-          By default Electron manages the devtools by creating an internal `WebContents` with native view, which developers have very limited control of. With the `setDevToolsWebContents` method, developers can use any `WebContents` to show the devtools in it, including `BrowserWindow`, `BrowserView` and `<webview>` tag.
-          
-          Note that closing the devtools does not destroy the `devToolsWebContents`, it is caller's responsibility to destroy `devToolsWebContents`.
-          
-          An example of showing devtools in a `<webview>` tag:
-          
-          ```html
-          <html>
-          <head>
-            <style type="text/css">
-          
-              * { margin: 0; }
-              #browser { height: 70%; }
-              #devtools { height: 30%; }
-            </style>
-          </head>
-          <body>
-            <webview id="browser" src="https://github.com"></webview>
-            <webview id="devtools"></webview>
-            <script>
-              const browserView = document.getElementById('browser')
-              const devtoolsView = document.getElementById('devtools')
-              browserView.addEventListener('dom-ready', () => {
-                const browser = browserView.getWebContents()
-                browser.setDevToolsWebContents(devtoolsView.getWebContents())
-                browser.openDevTools()
+              * `devToolsWebContents` WebContents
+              
+              Uses the `devToolsWebContents` as the target `WebContents` to show devtools.
+              
+              The `devToolsWebContents` must not have done any navigation, and it should not be used for other purposes after the call.
+              
+              By default Electron manages the devtools by creating an internal `WebContents` with native view, which developers have very limited control of. With the `setDevToolsWebContents` method, developers can use any `WebContents` to show the devtools in it, including `BrowserWindow`, `BrowserView` and `<webview>` tag.
+              
+              Note that closing the devtools does not destroy the `devToolsWebContents`, it is caller's responsibility to destroy `devToolsWebContents`.
+              
+              An example of showing devtools in a `<webview>` tag:
+              
+              ```html
+              <html>
+              <head>
+                <style type="text/css">
+              
+                  * { margin: 0; }
+                  #browser { height: 70%; }
+                  #devtools { height: 30%; }
+                </style>
+              </head>
+              <body>
+                <webview id="browser" src="https://github.com"></webview>
+                <webview id="devtools"></webview>
+                <script>
+                  const browserView = document.getElementById('browser')
+                  const devtoolsView = document.getElementById('devtools')
+                  browserView.addEventListener('dom-ready', () => {
+                    const browser = browserView.getWebContents()
+                    browser.setDevToolsWebContents(devtoolsView.getWebContents())
+                    browser.openDevTools()
+                  })
+                </script>
+              </body>
+              </html>
+              ```
+              
+              An example of showing devtools in a `BrowserWindow`:
+              
+              ```js
+              const { app, BrowserWindow } = require('electron')
+              
+              let win = null
+              let devtools = null
+              
+              app.once('ready', () => {
+                win = new BrowserWindow()
+                devtools = new BrowserWindow()
+                win.loadURL('https://github.com')
+                win.webContents.setDevToolsWebContents(devtools.webContents)
+                win.webContents.openDevTools({ mode: 'detach' })
               })
-            </script>
-          </body>
-          </html>
-          ```
-          
-          An example of showing devtools in a `BrowserWindow`:
-          
-          ```js
-          const { app, BrowserWindow } = require('electron')
-          
-          let win = null
-          let devtools = null
-          
-          app.once('ready', () => {
-            win = new BrowserWindow()
-            devtools = new BrowserWindow()
-            win.loadURL('https://github.com')
-            win.webContents.setDevToolsWebContents(devtools.webContents)
-            win.webContents.openDevTools({ mode: 'detach' })
-          })
-          ```
-          
-          #### `konten.membukaDevAlat([options])`
-          
-          * `pilihan` Objek (opsional) 
-            * `mode` String - Membuka devtool dengan status dermaga tertentu, bisa `kanan`, `bawah`, `undocked`, `lepas`. Default untuk terakhir digunakan dermaga negara. Pada mode `undocked`, mungkin untuk kembali ke dermaga. Di dalam `melepaskan` bukan mode itu.
-          
-          Membuka devtools.
-          
-          When `contents` is a `<webview>` tag, the `mode` would be `detach` by default, explicitly passing an empty `mode` can force using last used dock state.
-          
-          #### `konten.menutupDevAlat()`
-          
-          Menutup devtools.
-          
-          #### `konten.apakahalatDevTerbuka()`
-          
-          Mengembalikan `boolean` - apakah alatdev sudah terbuka.
-          
-          #### `konten.apakahAlatDevsudahTerfokus()`
-          
-          Mengembalikan `Boolean` - Apakah tampilan devtools terfokus.
-          
-          #### `konten.mematikanAlatDev()`
-          
-          Toggles alat pengembang.
-          
-          #### `contents.inspectElement (x, y)`
-          
-          * `x` Integer
-          * `y` Integer
-          
-          Mulai memeriksa elemen pada posisi (`x`, `y`).
-          
-          #### `konten.inspectServiceWorker()`
-          
-          Membuka alat pengembang untuk konteks pekerja layanan.
-          
-          #### `contents.send (saluran [, arg1][, arg2][, ...])`
-          
-          * ` saluran </ 0>  String</li>
+              ```
+              
+              #### `konten.membukaDevAlat([options])`
+              
+              * `pilihan` Objek (opsional) 
+                * `mode` String - Membuka devtool dengan status dermaga tertentu, bisa `kanan`, `bawah`, `undocked`, `lepas`. Default untuk terakhir digunakan dermaga negara. Pada mode `undocked`, mungkin untuk kembali ke dermaga. Di dalam `melepaskan` bukan mode itu.
+                * `activate` Boolean (optional) - Whether to bring the opened devtools window to the foreground. The default is `true`.
+              
+              Membuka devtools.
+              
+              When `contents` is a `<webview>` tag, the `mode` would be `detach` by default, explicitly passing an empty `mode` can force using last used dock state.
+              
+              #### `konten.menutupDevAlat()`
+              
+              Menutup devtools.
+              
+              #### `konten.apakahalatDevTerbuka()`
+              
+              Mengembalikan `boolean` - apakah alatdev sudah terbuka.
+              
+              #### `konten.apakahAlatDevsudahTerfokus()`
+              
+              Mengembalikan `Boolean` - Apakah tampilan devtools terfokus.
+              
+              #### `konten.mematikanAlatDev()`
+              
+              Toggles alat pengembang.
+              
+              #### `contents.inspectElement (x, y)`
+              
+              * `x` Integer
+              * `y` Integer
+              
+              Mulai memeriksa elemen pada posisi (`x`, `y`).
+              
+              #### `konten.inspectServiceWorker()`
+              
+              Membuka alat pengembang untuk konteks pekerja layanan.
+              
+              #### `contents.send (saluran [, arg1][, arg2][, ...])`
+              
+              * ` saluran </ 0>  String</li>
 <li><code> ... args </ 0> ada []</li>
 </ul>
 
 <p>Kirim pesan asinkron ke proses renderer melalui <code>channel`, Anda juga bisa mengirim argumen sewenang wenang. Argumen akan diserialkan di JSON secara internal dan karenanya tidak ada fungsi atau rantai prototipe yang akan disertakan.</p> 
-            The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
-            
-            Contoh pengiriman pesan dari proses utama ke proses renderer:
-            
-            ```javascript
-            // Pada proses utama.
-            const { app, BrowserWindow } = require('electron')
-            let win = null
-            
-            app.on('ready', () => {
-              win = new BrowserWindow({ width: 800, height: 600 })
-              win.loadURL(`file://${__dirname}/index.html`)
-              win.webContents.on('did-finish-load', () => {
-                win.webContents.send('ping', 'whoooooooh!')
-              })
-            })
-            ```
-            
-            ```html
-            <!-- index.html -->
-            <html>
-            <body>
-              <script>
-                require('electron').ipcRenderer.on('ping', (event, message) => {
-                  console.log(message) // Prints 'whoooooooh!'
+                The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
+                
+                Contoh pengiriman pesan dari proses utama ke proses renderer:
+                
+                ```javascript
+                // Pada proses utama.
+                const { app, BrowserWindow } = require('electron')
+                let win = null
+                
+                app.on('ready', () => {
+                  win = new BrowserWindow({ width: 800, height: 600 })
+                  win.loadURL(`file://${__dirname}/index.html`)
+                  win.webContents.on('did-finish-load', () => {
+                    win.webContents.send('ping', 'whoooooooh!')
+                  })
                 })
-              </script>
-            </body>
-            </html>
-            ```
-            
-            #### `contents.enableDeviceEmulation(parameter)`
-            
-            * `parameter` Obyek 
-              * `screenPosition` String - Tentukan jenis layar yang akan ditiru (default: `Desktop`): 
-                * `desktop` - Jenis layar desktop.
-                * `ponsel` - Jenis layar seluler.
-              * `screenSize` [Ukuran](structures/size.md) - Menetapkan ukuran layar yang ditiru (screenPosition == mobile).
-              * `viewPosition` [Point](structures/point.md) - Posisikan tampilan di layar (screenPosition == mobile) (default: `{ x: 0, y: 0 }`).
-              * `deviceScaleFactor` Integer - Tetapkan faktor skala perangkat (jika nol default ke faktor skala perangkat asli) (default: `0`).
-              * `viewSize` [Size](structures/size.md) - Set the emulated view size (empty means no override)
-              * `skala` Float - Skala tampilan yang ditiru di dalam ruang yang tersedia (tidak sesuai untuk melihat mode) (default: ` 1 `).
-            
-            Aktifkan emulasi perangkat dengan parameter yang diberikan.
-            
-            #### `contents.disableDeviceEmulation()`
-            
-            Disable device emulation enabled by `webContents.enableDeviceEmulation`.
-            
-            #### `contents.sendInputEvent(event)`
-            
-            * `peristiwa` Obyek 
-              * `type` String (**required**) - The type of the event, can be `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel`, `mouseMove`, `keyDown`, `keyUp` or `char`.
-              * `modifiers` String[] - An array of modifiers of the event, can include `shift`, `control`, `alt`, `meta`, `isKeypad`, `isAutoRepeat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsLock`, `numLock`, `left`, `right`.
-            
-            Mengirim masukan `event` ke halaman. **Note:** The [`BrowserWindow`](browser-window.md) containing the contents needs to be focused for `sendInputEvent()` to work.
-            
-            Untuk acara keyboard, objek `event` juga memiliki properti berikut:
-            
-            * `keyCode` String (**required**) - Karakter yang akan dikirim sebagai acara keyboard. Sebaiknya gunakan kode kunci yang valid di [Accelerator](accelerator.md).
-            
-            Untuk acara mouse, objek `event` juga memiliki properti berikut:
-            
-            * `x` Integer (**required**)
-            * `y` Integer (**required**)
-            * `button` String - The button pressed, can be `left`, `middle`, `right`.
-            * `globalX` Integer
-            * `globalY` Integer
-            * `movementX` Integer
-            * `movementY` Integer
-            * `clickCount` Integer
-            
-            Untuk event `mouseWheel`, objek `event` juga memiliki properti berikut:
-            
-            * `deltaX` Integer
-            * `deltaY` Integer
-            * `wheelTicksX` Integer
-            * `wheelTicksY` Integer
-            * `accelerationRatioX` Integer
-            * `accelerationRatioY` Integer
-            * `hasPreciseScrollingDeltas` Boolean
-            * `canScroll` Boolean
-            #### `<code>dirtyRect` [Rectangle](structures/rectangle.md)</code>
-            
-            * `onlyDirty` Boolean (opsional) - Default ke `false`.
-            * `callback` Fungsi 
-              * ` gambar </ 0>  <a href="native-image.md"> gambar asli </ 1></li>
+                ```
+                
+                ```html
+                <!-- index.html -->
+                <html>
+                <body>
+                  <script>
+                    require('electron').ipcRenderer.on('ping', (event, message) => {
+                      console.log(message) // Prints 'whoooooooh!'
+                    })
+                  </script>
+                </body>
+                </html>
+                ```
+                
+                #### `contents.sendToFrame(frameId, channel[, arg1][, arg2][, ...])`
+                
+                * `frameId` Integer
+                * ` saluran </ 0>  String</li>
+<li><code> ... args </ 0> ada []</li>
+</ul>
+
+<p>Send an asynchronous message to a specific frame in a renderer process via
+<code>channel`. Arguments will be serialized as JSON internally and as such no functions or prototype chains will be included.</p> 
+                  The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
+                  
+                  If you want to get the `frameId` of a given renderer context you should use the `webFrame.routingId` value. E.g.
+                  
+                  ```js
+                  // In a renderer process
+                  console.log('My frameId is:', require('electron').webFrame.routingId)
+                  ```
+                  
+                  You can also read `frameId` from all incoming IPC messages in the main process.
+                  
+                  ```js
+                  // In the main process
+                  ipcMain.on('ping', (event) => {
+                    console.info('Message came from frameId:', event.frameId)
+                  })
+                  ```
+                  
+                  #### `contents.enableDeviceEmulation(parameter)`
+                  
+                  * `parameter` Obyek 
+                    * `screenPosition` String - Tentukan jenis layar yang akan ditiru (default: `Desktop`): 
+                      * `desktop` - Jenis layar desktop.
+                      * `ponsel` - Jenis layar seluler.
+                    * `screenSize` [Ukuran](structures/size.md) - Menetapkan ukuran layar yang ditiru (screenPosition == mobile).
+                    * `viewPosition` [Point](structures/point.md) - Posisikan tampilan di layar (screenPosition == mobile) (default: `{ x: 0, y: 0 }`).
+                    * `deviceScaleFactor` Integer - Tetapkan faktor skala perangkat (jika nol default ke faktor skala perangkat asli) (default: `0`).
+                    * `viewSize` [Size](structures/size.md) - Set the emulated view size (empty means no override)
+                    * `skala` Float - Skala tampilan yang ditiru di dalam ruang yang tersedia (tidak sesuai untuk melihat mode) (default: ` 1 `).
+                  
+                  Aktifkan emulasi perangkat dengan parameter yang diberikan.
+                  
+                  #### `contents.disableDeviceEmulation()`
+                  
+                  Disable device emulation enabled by `webContents.enableDeviceEmulation`.
+                  
+                  #### `contents.sendInputEvent(event)`
+                  
+                  * `peristiwa` Obyek 
+                    * `type` String (**required**) - The type of the event, can be `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel`, `mouseMove`, `keyDown`, `keyUp` or `char`.
+                    * `modifiers` String[] - An array of modifiers of the event, can include `shift`, `control`, `alt`, `meta`, `isKeypad`, `isAutoRepeat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsLock`, `numLock`, `left`, `right`.
+                  
+                  Mengirim masukan `event` ke halaman. **Note:** The [`BrowserWindow`](browser-window.md) containing the contents needs to be focused for `sendInputEvent()` to work.
+                  
+                  Untuk acara keyboard, objek `event` juga memiliki properti berikut:
+                  
+                  * `keyCode` String (**required**) - Karakter yang akan dikirim sebagai acara keyboard. Sebaiknya gunakan kode kunci yang valid di [Accelerator](accelerator.md).
+                  
+                  Untuk acara mouse, objek `event` juga memiliki properti berikut:
+                  
+                  * `x` Integer (**required**)
+                  * `y` Integer (**required**)
+                  * `button` String - The button pressed, can be `left`, `middle`, `right`.
+                  * `globalX` Integer
+                  * `globalY` Integer
+                  * `movementX` Integer
+                  * `movementY` Integer
+                  * `clickCount` Integer
+                  
+                  Untuk event `mouseWheel`, objek `event` juga memiliki properti berikut:
+                  
+                  * `deltaX` Integer
+                  * `deltaY` Integer
+                  * `wheelTicksX` Integer
+                  * `wheelTicksY` Integer
+                  * `accelerationRatioX` Integer
+                  * `accelerationRatioY` Integer
+                  * `hasPreciseScrollingDeltas` Boolean
+                  * `canScroll` Boolean
+                  #### `<code>dirtyRect` [Rectangle](structures/rectangle.md)</code>
+                  
+                  * `onlyDirty` Boolean (opsional) - Default ke `false`.
+                  * `callback` Fungsi 
+                    * ` gambar </ 0>  <a href="native-image.md"> gambar asli </ 1></li>
 <li><code>dirtyRect` [Persegi panjang](structures/rectangle.md)
-            
-            Begin subscribing for presentation events and captured frames, the `callback` will be called with `callback(image, dirtyRect)` when there is a presentation event.
-            
-            The `image` is an instance of [NativeImage](native-image.md) that stores the captured frame.
-            
-            `dirtyRect` adalah objek dengan properti `x, y, width, height` yang menggambarkan bagian mana dari halaman yang dicat ulang. If `onlyDirty` is set to `true`, `image` will only contain the repainted area. `onlyDirty` defaults to `false`.
-            
-            #### `contents.endFrameSubscription()`
-            
-            Akhiri berlangganan untuk presentasi peristiwa.
-            
-            #### `contents.startDrag(item)`
-            
-            * `item` Obyek 
-              * `file` String or `files` Array - The path(s) to the file(s) being dragged.
-              * `icon` [NativeImage](native-image.md) - The image must be non-empty on macOS.
-            
-            Menetapkan item `item` sebagai item drag untuk operasi drag-drop saat ini, `file` adalah path absolut dari file yang akan diseret, dan `icon` adalah gambar ditampilkan di bawah kursor saat menyeret.
-            
-            #### `contents.savePage (fullPath, saveType, callback)`
-            
-            * `fullPath` String - Jalur file lengkap.
-            * `saveType` String - Specify the save type. 
-              * `HTMLOnly` - Simpan hanya HTML halaman.
-              * `HTMLComplete` - Simpan halaman lengkap-html.
-              * `MHTML` - Simpan halaman lengkap-html sebagai MHTML.
-            * `callback` Function - `(error) => {}`. 
-              * Kesalahan `kesalahan`
-            
-            Mengembalikan `Boolean` - benar jika proses menyimpan halaman telah dimulai dengan sukses.
-            
-            ```javascript
-            const { BrowserWindow } = require ('electron') let win = new BrowserWindow () win.loadURL ('https://github.com') win.webContents.on ('did-finish-load', () = > {win.webContents.savePage ('/ tmp / test.html', 'HTMLComplete', (error) = > {if (! error) console.log ('Selamatkan halaman berhasil')})})
-            ```
-            
-            #### `contents.showDefinitionForSelection()` *macos*
-            
-            Menampilkan kamus pop-up yang mencari kata yang dipilih pada halaman.
-            
-            #### `contents.isOffscreen()`
-            
-            Returns `Boolean` - Indicates whether *offscreen rendering* is enabled.
-            
-            #### `contents.startPainting()`
-            
-            If *offscreen rendering* is enabled and not painting, start painting.
-            
-            #### `contents.stopPainting()`
-            
-            If *offscreen rendering* is enabled and painting, stop painting.
-            
-            #### `contents.isPainting()`
-            
-            Returns `Boolean` - If *offscreen rendering* is enabled returns whether it is currently painting.
-            
-            #### `contents.setFrameRate(fps)`
-            
-            * `fps` Integer
-            
-            If *offscreen rendering* is enabled sets the frame rate to the specified number. Only values between 1 and 60 are accepted.
-            
-            #### `contents.getFrameRate()`
-            
-            Mengembalikan `Integer` - Jika *rendering offscreen* diaktifkan mengembalikan frame rate saat ini.
-            
-            #### `contents.invalidate()`
-            
-            Jadwal repaint penuh dari jendela isi web ini masuk.
-            
-            Jika *offscreen rendering* diaktifkan akan membuat frame tidak valid dan menghasilkan yang baru satu melalui acara `'paint' `.
-            
-            #### `contents.getWebRTCIPHandlingPolicy()`
-            
-            Mengembalikan `String` - Mengembalikan Kebijakan Penanganan IP WebRTC.
-            
-            #### `contents.setWebRTCIPHandlingPolicy(policy)`
-            
-            * `policy` String - Tentukan Kebijakan Penanganan IP WebRTC. 
-              * `default ` - Mengekspos IP publik dan lokal pengguna. Ini adalah defaultnya tingkah laku. Bila kebijakan ini digunakan, WebRTC berhak untuk menghitung semua antarmuka dan mengikat mereka untuk menemukan antarmuka publik.
-              * `default_public_interface_only` - Mengekspos IP publik pengguna, namun tidak paparkan IP lokal pengguna. When this policy is used, WebRTC should only use the default route used by http. Ini tidak mengekspos alamat lokal apapun.
-              * `default_public_and_private_interfaces` - Paparkan IP publik dan lokal pengguna. Saat kebijakan ini digunakan, WebRTC seharusnya hanya menggunakan rute default yang digunakan dengan http. Ini juga menunjukkan alamat pribadi default yang terkait. Default Rute adalah rute yang dipilih oleh OS pada titik akhir multi-homed.
-              * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
-            
-            Setting the WebRTC IP handling policy allows you to control which IPs are exposed via WebRTC. See [BrowserLeaks](https://browserleaks.com/webrtc) for more details.
-            
-            #### `contents.getOSProcessId()`
-            
-            Returns `Integer` - The operating system `pid` of the associated renderer process.
-            
-            #### `contents.getProcessId()`
-            
-            Returns `Integer` - The Chromium internal `pid` of the associated renderer. Can be compared to the `frameProcessId` passed by frame specific navigation events (e.g. `did-frame-navigate`)
-            
-            #### `contents.takeHeapSnapshot(filePath)`
-            
-            * `filePath` String - Path to the output file.
-            
-            Returns `Promise<void>` - Indicates whether the snapshot has been created successfully.
-            
-            Takes a V8 heap snapshot and saves it to `filePath`.
-            
-            #### `contents.setBackgroundThrottling(allowed)`
-            
-            * `allowed` Boolean
-            
-            Controls whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
-            
-            #### `contents.getType()`
-            
-            Returns `String` - the type of the webContent. Can be `backgroundPage`, `window`, `browserView`, `remote`, `webview` or `offscreen`.
-            
-            ### Contoh properti
-            
-            #### `contents.id`
-            
-            A `Integer` mewakili ID unik dari Konten Web ini.
-            
-            #### `contents.session`
-            
-            [`Sesi`](session.md) digunakan oleh webContents ini.
-            
-            #### `contents.hostWebContents`
-            
-            Sebuah instance [`WebContents`](web-contents.md) yang mungkin sendiri ini `WebContents`.
-            
-            #### `contents.devToolsWebContents`
-            
-            `WebContents` dari DevTools untuk ini `WebContents`.
-            
-            **Catatan:** Pengguna harus tidak pernah menyimpan objek ini karena hal itu mungkin menjadi `null` ketika DevTools telah ditutup.
-            
-            #### `contents.debugger`
-            
-            Contoh [Debugger](debugger.md) untuk webContents ini.
+                  
+                  Begin subscribing for presentation events and captured frames, the `callback` will be called with `callback(image, dirtyRect)` when there is a presentation event.
+                  
+                  The `image` is an instance of [NativeImage](native-image.md) that stores the captured frame.
+                  
+                  `dirtyRect` adalah objek dengan properti `x, y, width, height` yang menggambarkan bagian mana dari halaman yang dicat ulang. If `onlyDirty` is set to `true`, `image` will only contain the repainted area. `onlyDirty` defaults to `false`.
+                  
+                  #### `contents.endFrameSubscription()`
+                  
+                  Akhiri berlangganan untuk presentasi peristiwa.
+                  
+                  #### `contents.startDrag(item)`
+                  
+                  * `item` Obyek 
+                    * `file` String or `files` Array - The path(s) to the file(s) being dragged.
+                    * `icon` [NativeImage](native-image.md) - The image must be non-empty on macOS.
+                  
+                  Menetapkan item `item` sebagai item drag untuk operasi drag-drop saat ini, `file` adalah path absolut dari file yang akan diseret, dan `icon` adalah gambar ditampilkan di bawah kursor saat menyeret.
+                  
+                  #### `contents.savePage (fullPath, saveType, callback)`
+                  
+                  * `fullPath` String - Jalur file lengkap.
+                  * `saveType` String - Specify the save type. 
+                    * `HTMLOnly` - Simpan hanya HTML halaman.
+                    * `HTMLComplete` - Simpan halaman lengkap-html.
+                    * `MHTML` - Simpan halaman lengkap-html sebagai MHTML.
+                  * `callback` Function - `(error) => {}`. 
+                    * Kesalahan `kesalahan`
+                  
+                  Mengembalikan `Boolean` - benar jika proses menyimpan halaman telah dimulai dengan sukses.
+                  
+                  ```javascript
+                  const { BrowserWindow } = require ('electron') let win = new BrowserWindow () win.loadURL ('https://github.com') win.webContents.on ('did-finish-load', () = > {win.webContents.savePage ('/ tmp / test.html', 'HTMLComplete', (error) = > {if (! error) console.log ('Selamatkan halaman berhasil')})})
+                  ```
+                  
+                  #### `contents.showDefinitionForSelection()` *macos*
+                  
+                  Menampilkan kamus pop-up yang mencari kata yang dipilih pada halaman.
+                  
+                  #### `contents.isOffscreen()`
+                  
+                  Returns `Boolean` - Indicates whether *offscreen rendering* is enabled.
+                  
+                  #### `contents.startPainting()`
+                  
+                  If *offscreen rendering* is enabled and not painting, start painting.
+                  
+                  #### `contents.stopPainting()`
+                  
+                  If *offscreen rendering* is enabled and painting, stop painting.
+                  
+                  #### `contents.isPainting()`
+                  
+                  Returns `Boolean` - If *offscreen rendering* is enabled returns whether it is currently painting.
+                  
+                  #### `contents.setFrameRate(fps)`
+                  
+                  * `fps` Integer
+                  
+                  If *offscreen rendering* is enabled sets the frame rate to the specified number. Only values between 1 and 60 are accepted.
+                  
+                  #### `contents.getFrameRate()`
+                  
+                  Mengembalikan `Integer` - Jika *rendering offscreen* diaktifkan mengembalikan frame rate saat ini.
+                  
+                  #### `contents.invalidate()`
+                  
+                  Jadwal repaint penuh dari jendela isi web ini masuk.
+                  
+                  Jika *offscreen rendering* diaktifkan akan membuat frame tidak valid dan menghasilkan yang baru satu melalui acara `'paint' `.
+                  
+                  #### `contents.getWebRTCIPHandlingPolicy()`
+                  
+                  Mengembalikan `String` - Mengembalikan Kebijakan Penanganan IP WebRTC.
+                  
+                  #### `contents.setWebRTCIPHandlingPolicy(policy)`
+                  
+                  * `policy` String - Tentukan Kebijakan Penanganan IP WebRTC. 
+                    * `default ` - Mengekspos IP publik dan lokal pengguna. Ini adalah defaultnya tingkah laku. Bila kebijakan ini digunakan, WebRTC berhak untuk menghitung semua antarmuka dan mengikat mereka untuk menemukan antarmuka publik.
+                    * `default_public_interface_only` - Mengekspos IP publik pengguna, namun tidak paparkan IP lokal pengguna. When this policy is used, WebRTC should only use the default route used by http. Ini tidak mengekspos alamat lokal apapun.
+                    * `default_public_and_private_interfaces` - Paparkan IP publik dan lokal pengguna. Saat kebijakan ini digunakan, WebRTC seharusnya hanya menggunakan rute default yang digunakan dengan http. Ini juga menunjukkan alamat pribadi default yang terkait. Default Rute adalah rute yang dipilih oleh OS pada titik akhir multi-homed.
+                    * `disable_non_proxied_udp` - Does not expose public or local IPs. When this policy is used, WebRTC should only use TCP to contact peers or servers unless the proxy server supports UDP.
+                  
+                  Setting the WebRTC IP handling policy allows you to control which IPs are exposed via WebRTC. See [BrowserLeaks](https://browserleaks.com/webrtc) for more details.
+                  
+                  #### `contents.getOSProcessId()`
+                  
+                  Returns `Integer` - The operating system `pid` of the associated renderer process.
+                  
+                  #### `contents.getProcessId()`
+                  
+                  Returns `Integer` - The Chromium internal `pid` of the associated renderer. Can be compared to the `frameProcessId` passed by frame specific navigation events (e.g. `did-frame-navigate`)
+                  
+                  #### `contents.takeHeapSnapshot(filePath)`
+                  
+                  * `filePath` String - Path to the output file.
+                  
+                  Returns `Promise<void>` - Indicates whether the snapshot has been created successfully.
+                  
+                  Takes a V8 heap snapshot and saves it to `filePath`.
+                  
+                  #### `contents.setBackgroundThrottling(allowed)`
+                  
+                  * `allowed` Boolean
+                  
+                  Controls whether or not this WebContents will throttle animations and timers when the page becomes backgrounded. This also affects the Page Visibility API.
+                  
+                  #### `contents.getType()`
+                  
+                  Returns `String` - the type of the webContent. Can be `backgroundPage`, `window`, `browserView`, `remote`, `webview` or `offscreen`.
+                  
+                  ### Contoh properti
+                  
+                  #### `contents.id`
+                  
+                  A `Integer` mewakili ID unik dari Konten Web ini.
+                  
+                  #### `contents.session`
+                  
+                  [`Sesi`](session.md) digunakan oleh webContents ini.
+                  
+                  #### `contents.hostWebContents`
+                  
+                  Sebuah instance [`WebContents`](web-contents.md) yang mungkin sendiri ini `WebContents`.
+                  
+                  #### `contents.devToolsWebContents`
+                  
+                  `WebContents` dari DevTools untuk ini `WebContents`.
+                  
+                  **Catatan:** Pengguna harus tidak pernah menyimpan objek ini karena hal itu mungkin menjadi `null` ketika DevTools telah ditutup.
+                  
+                  #### `contents.debugger`
+                  
+                  Contoh [Debugger](debugger.md) untuk webContents ini.

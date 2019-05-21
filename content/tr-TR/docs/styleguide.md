@@ -122,7 +122,7 @@ Sınıfı olmayan modüller için onların yöntemleri ve olayları `##Methods` 
 
 ### Instance Methods
 
-#### `ses.getCacheSize(callback)`
+#### `ses.getCacheSize()`
 
 ### Instance Properties
 

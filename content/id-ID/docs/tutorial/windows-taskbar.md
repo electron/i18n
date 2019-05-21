@@ -12,7 +12,7 @@ Windows allows apps to define a custom context menu that shows up when users rig
 
 **Tugas dari Internet Explorer:**
 
-![IE](http://i.msdn.microsoft.com/dynimg/IC420539.png)
+![IE](https://i-msdn.sec.s-msft.com/dynimg/IC420539.png)
 
 Berbeda dengan menu dock di MacOS yang merupakan menu yang nyata, tugas-tugas pengguna di Windows bekerja seperti shortcut aplikasi tersebut bahwa ketika pengguna mengklik tugas, program akan dieksekusi dengan argumen tertentu.
 

@@ -3,7 +3,7 @@
 * `data` String - PEM gecodeerde data
 * `emittent` [Certificaat opdrachtgever](certificate-principal.md) - Emittent opdrachtgever
 * `emittentName` String - Emittent Gemeenschappelijke Naam
-* `issuerCert` Certificate - Issuer certificate (if not self-signed)
+* ` issuerCert` Certificaat - Issuer certificaat (indien niet zelf ondertekend)
 * `subject` [CertificatePrincipal](certificate-principal.md) - Subject principal
 * `subjectName` String - Subject's Common Name
 * `serialNumber` String - Hex value represented string

@@ -34,18 +34,27 @@ shell.openExternal('https://github.com')
 
 指定したファイルをデスクトップの既定の方法で開きます。
 
-### `shell.openExternal(url[, options, callback])`
+### `shell.openExternalSync(url[, options])`
 
-* `url` String - Windows では最大2081文字で、そうでないと関数は false を返します。
+* `url` String - Max 2081 characters on Windows, or the function returns false.
 * `options` Object (任意) 
   * `activate` Boolean (任意) - `true` で開いたアプリケーションを前面に表示します。省略値は `true` です。*macOS*
   * `workingDirectory` String (任意) - 作業ディレクトリ。*Windows*
-* `callback` Function (任意) *macOS* - 指定されている場合は、非同期で開く処理を実行します。 
-  * `error` Error
 
-戻り値 `Boolean` - アプリケーションが URL を開けたかどうか。callback が指定されている場合、常に true を返します。
+Returns `Boolean` - Whether an application was available to open the URL.
 
-指定された外部プロトコル URL をデスクトップの既定の方法で開きます (たとえば、ユーザのデフォルトメールエージェントの mailto: URL)。
+Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
+
+### `shell.openExternal(url[, options])`
+
+* `url` String - Max 2081 characters on windows.
+* `options` Object (任意) 
+  * `activate` Boolean (任意) - `true` で開いたアプリケーションを前面に表示します。省略値は `true` です。*macOS*
+  * `workingDirectory` String (任意) - 作業ディレクトリ。*Windows*
+
+Returns `Promise<void>`
+
+Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
 
 ### `shell.moveItemToTrash(fullPath)`
 

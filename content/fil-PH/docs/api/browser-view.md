@@ -10,19 +10,15 @@ A `BrowserView` can be used to embed additional web content into a [`BrowserWind
 
 ```javascript
 // Ang pangunahing pag-proseso.
-const { BrowserView, BrowserWindow } = kailangan('electron')
+const { BrowserView, BrowserWindow } = require('electron')
 
-hayaang manalo = bagong BrowserWindow({ width: 800, height: 600 })
+let win = new BrowserWindow({ width: 800, height: 600 })
 win.on('closed', () => {
-  manalo = null
+  win = null
 })
 
-hayaang makita = bagong BrowserView({
-  webPreferences: {
-    nodeIntegration: false
-  }
-})
-win.setBrowserView(tingnan)
+let view = new BrowserView()
+win.setBrowserView(view)
 view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electronjs.org')
 ```

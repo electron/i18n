@@ -1,4 +1,4 @@
-# เชื่อมต่อบลูธูท
+# BluetoothDevice Object เชื่อมต่อบลูธูท
 
-* `deviceName` String
-* `deviceId` String
+* `deviceName` String ชื่ออุปกรณ์
+* `deviceId` String รหัสอุปกรณ์

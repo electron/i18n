@@ -122,7 +122,7 @@
 
 ### Методи екземпляру
 
-#### `ses.getCacheSize(callback)`
+#### `ses.getCacheSize)`
 
 ### Властивості екземпляру
 

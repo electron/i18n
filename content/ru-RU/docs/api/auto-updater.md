@@ -1,32 +1,32 @@
 # autoUpdater
 
-> Включает в приложении автоматическое самообновление.
+> Позвольте приложениям автоматически обновляться.
 
-Процесс: [Main](../glossary.md#main-process)
+Процесс: [Основной](../glossary.md#main-process)
 
-**See also: [A detailed guide about how to implement updates in your application](../tutorial/updates.md).**
+**См. также: [Подробное руководство о том, как внедрять обновления в Ваше приложение](../tutorial/updates.md).**
 
 ## Платформа заметок
 
-На текущий момент, поддерживается только macOS и Windows. Не существует встроенной поддержки для автоматического обновления на Linux, поэтому рекомендуется использовать дистрибутив пакетного менеджера для обновления Вашего приложения.
+На текущий момент поддерживается только macOS и Windows. Не существует встроенной поддержки для автоматического обновления на Linux, поэтому рекомендуется использовать менеджер пакетов дистрибутива, для обновления Вашего приложения.
 
 Кроме того есть некоторые тонкие различия на каждой платформе:
 
 ### macOS
 
-На macOS `autoUpdater` модуль построен на [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac), что означает, что вам не нужно каких-либо специальных настроек, чтобы заставить его работать. Для серверной стороны вы можете прочитать требования [Server Support](https://github.com/Squirrel/Squirrel.Mac#server-support). Заметьте, что [App Transport Security](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) применяется ко всем запросам, как часть процесса обновления. Приложению, у которого требуется отключить ATS, добавьте ключ `NSAllowsArbitraryLoads` в список свойств приложения (property list).
+На macOS модуль `autoUpdater` построен на [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac), что означает, что Вам не нужно делать каких-либо специальных настроек, чтобы заставить его работать. Для серверных условий, Вы можете прочитать [Поддержку сервера](https://github.com/Squirrel/Squirrel.Mac#server-support). Заметьте, что [App Transport Security](https://developer.apple.com/library/content/documentation/General/Reference/InfoPlistKeyReference/Articles/CocoaKeys.html#//apple_ref/doc/uid/TP40009251-SW35) (ATS) применяется ко всем запросам, сделанным как часть процесса обновления. Приложению, у которого требуется отключить ATS, можно добавить ключ `NSAllowsArbitraryLoads` в список свойств приложения (plist).
 
 **Примечание:** Ваше приложение должно быть подписано для автоматического обновления на macOS. Это требование `Squirrel.Mac`.
 
 ### Windows
 
-На Windows, вам придется установить приложение на компьютер пользователя, прежде чем вы можете использовать `autoUpdater`, поэтому рекомендуется использовать пакет [electron-winstaller](https://github.com/electron/windows-installer), [electron-forge](https://github.com/electron-userland/electron-forge) или [grunt-electron-installer](https://github.com/electron/grunt-electron-installer) для создания установщика Windows.
+На Windows Вам придется установить приложение на компьютер пользователя, прежде чем Вы сможете использовать `autoUpdater`, поэтому рекомендуется использовать пакет [electron-winstaller](https://github.com/electron/windows-installer), [electron-forge](https://github.com/electron-userland/electron-forge) или [grunt-electron-installer](https://github.com/electron/grunt-electron-installer) для создания установщика Windows.
 
-При использовании [electron-winstaller](https://github.com/electron/windows-installer) или [electron-forge](https://github.com/electron-userland/electron-forge) убедитесь, что вы не пытаетесь обновить ваше приложение [при первом запуске](https://github.com/electron/windows-installer#handling-squirrel-events) (также см. [этот вопрос для получения дополнительной информации](https://github.com/electron/electron/issues/7155)). Также рекомендуется использовать [electron-squirrel-startup](https://github.com/mongodb-js/electron-squirrel-startup) для получения ярлыка рабочего стола для вашего приложения.
+При использовании [electron-winstaller](https://github.com/electron/windows-installer) или [electron-forge](https://github.com/electron-userland/electron-forge) убедитесь, что Вы не пытаетесь обновить ваше приложение [при первом запуске](https://github.com/electron/windows-installer#handling-squirrel-events) (также см. [этот вопрос для получения дополнительной информации](https://github.com/electron/electron/issues/7155)). Также рекомендуется использовать [electron-squirrel-startup](https://github.com/mongodb-js/electron-squirrel-startup), для получения ярлыка Вашего приложения на рабочем столе.
 
-Установщик сгенерирует Squirrel создаст ярлык с [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) в формате `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`, `com.squirrel.slack.Slack` и `com.squirrel.code.Code`. Вы должны использовать тот же ID для вашего приложения с `app.setAppUserModelId` API, в противном случае Windows не сможет должным образом закрепить приложение в панели задач.
+Установщик, сгенерированный с помощью Squirrel, создаст ярлык с [Application User Model ID](https://msdn.microsoft.com/en-us/library/windows/desktop/dd378459(v=vs.85).aspx) в формате `com.squirrel.PACKAGE_ID.YOUR_EXE_WITHOUT_DOT_EXE`, `com.squirrel.slack.Slack` и `com.squirrel.code.Code`. Вы должны использовать тот же ID для Вашего приложения в `app.setAppUserModelId` API, иначе Windows не сможет должным образом закрепить приложение в панели задач.
 
-В отличие от Squirrel.Mac, Windows обновления можно размещать на S3 или любом другом хостинге статических файлов. Вы можете прочитать документы [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows) для получения более подробной информации о том, как работает Squirrel.Windows.
+В отличие от Squirrel.Mac, обновления для Windows можно размещать на S3 или любом другом хостинге статических файлов. Вы можете прочитать документацию о [Squirrel.Windows](https://github.com/Squirrel/Squirrel.Windows), для получения более подробной информации о том, как работает Squirrel.Windows.
 
 ## События
 
@@ -38,19 +38,19 @@
 
 * `error` Error
 
-Возникает когда происходит ошибка при обновлении.
+Происходит, когда возникает ошибка во время обновления.
 
 ### Событие: 'checking-for-update'
 
-Возникает при проверке, если обновление началось.
+Происходит во время проверки, если обновление началось.
 
 ### Событие: 'update-available'
 
-Возникает при наличии доступных обновлений. Обновление загружается автоматически.
+Происходит, когда доступно обновление. Обновление загружается автоматически.
 
 ### Событие: 'update-not-available'
 
-Возникает, когда нет доступных обновлений.
+Происходит, когда нет доступных обновлений.
 
 ### Событие: 'update-downloaded'
 
@@ -62,17 +62,17 @@
 * `releaseDate` Date
 * `updateURL` String
 
-Возникает при загрузке обновления.
+Происходит, когда обновление было загружено.
 
 На Windows доступен только `releaseName`.
 
-**Note:** It is not strictly necessary to handle this event. A successfully downloaded update will still be applied the next time the application starts.
+**Примечание:** Не обязательно обрабатывать это событие. Успешно загруженное обновление будет применено в следующий раз, когда запустится приложение.
 
-### Event: 'before-quit-for-update'
+### Событие: 'before-quit-for-update'
 
-This event is emitted after a user calls `quitAndInstall()`.
+Это событие происходит после вызова `quitAndInstall()`.
 
-When this API is called, the `before-quit` event is not emitted before all windows are closed. As a result you should listen to this event if you wish to perform actions before the windows are closed while a process is quitting, as well as listening to `before-quit`.
+Когда это API вызывается, событие `before-quit` не будет происходить, до тех пор, пока все окна не будут закрыты. В результате Вы должны прослушивать это событие, если хотите выполнить действия до закрытия окон, во время завершения процесса, а также прослушивать `before-quit`.
 
 ## Методы
 
@@ -82,23 +82,23 @@ When this API is called, the `before-quit` event is not emitted before all windo
 
 * `options` Object 
   * `url` String
-  * `headers` Object (опционально) *macOS* - заголовки запросов HTTP.
-  * `serverType` String (опционально) *macOS* - Любой `json` или `default`, смотри [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac) README для подробностей.
+  * `headers` Object (опционально) *macOS* - заголовки HTTP-запроса.
+  * `serverType` String (опционально) *macOS* - либо `json`, либо `default`, смотрите README [Squirrel.Mac](https://github.com/Squirrel/Squirrel.Mac), для подробной информации.
 
 Задает `url` и инициализирует автоматическое обновление.
 
 ### `autoUpdater.getFeedURL()`
 
-`String` - возвращает URL текущей подписки обновления.
+Возвращает `String` - URL текущего канала обновления.
 
 ### `autoUpdater.checkForUpdates()`
 
-Запрашивает сервер на наличие обновлений. Перед использованием этого API-интерфейса, необходимо вызвать `setFeedURL`.
+Спрашивает сервер на наличие обновлений. Перед использованием этого API, необходимо вызвать `setFeedURL`.
 
 ### `autoUpdater.quitAndInstall()`
 
-Перезапускает приложение и устанавливает обновления после того как скачает. Должен вызываться только после того, как возникнет событие `update-downloaded`.
+Перезапускает приложение и устанавливает обновления после того, как скачается. Должно вызываться только после того, как произойдет событие `update-downloaded`.
 
 Внутри, вызов `autoUpdater.quitAndInstall()` сначала закроет все окна приложения, и автоматически вызовет `app.quit()`, после того, как все окна будут закрыты.
 
-**Note:** It is not strictly necessary to call this function to apply an update, as a successfully downloaded update will always be applied the next time the application starts.
+**Примечание:** Не обязательно вызывать эту функцию для применения обновления, успешно загруженное обновление всегда будет применено в следующий раз, когда запустится приложение.

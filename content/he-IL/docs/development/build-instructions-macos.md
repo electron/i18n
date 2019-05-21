@@ -5,7 +5,7 @@ Follow the guidelines below for building Electron on macOS.
 ## Prerequisites
 
 * macOS >= 10.11.6
-* [Xcode](https://developer.apple.com/technologies/tools/) >= 8.2.1
+* [Xcode](https://developer.apple.com/technologies/tools/) >= 9.0.0
 * [node.js](https://nodejs.org) (external)
 * Python 2.7 with support for TLS 1.2
 
@@ -31,7 +31,7 @@ If you are using Python as provided by Homebrew, you also need to install the fo
 
 If you're developing Electron and don't plan to redistribute your custom Electron build, you may skip this section.
 
-Official Electron builds are built with [Xcode 8.3.3](http://adcdownload.apple.com/Developer_Tools/Xcode_8.3.3/Xcode_8.3.3.xip), and the MacOS 10.12 SDK. Building with a newer SDK works too, but the releases currently use the 10.12 SDK.
+המהדורות הרשמיות של Electron נבנות באמצעות [Xcode 9.4.1](http://adcdownload.apple.com/Developer_Tools/Xcode_9.4.1/Xcode_9.4.1.xip) ו־SDK 10.13 על גבי MacOS. אפשר לבנות גם עם SDK עדכני יותר אך המהדורה הנוכחית משתמשת ב־SDK בגרסה 10.13.
 
 ## Building Electron
 

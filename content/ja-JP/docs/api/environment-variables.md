@@ -46,15 +46,13 @@ export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
 
 ### `GOOGLE_API_KEY`
 
-Electronには、GoogleのジオコーディングWebサービスへのリクエストを行うためのハードコードされたAPIキーが含まれています。 このAPIキーはすべてのバージョンのElectronに含まれているため、利用制限を超えることがよくあります。 この問題を回避するには、環境に独自のGoogle APIキーを指定することができます。 ジオコーディングリクエストを行うブラウザーウインドウを開く前に、メインプロセスファイルに以下のコードを記述します。
+You can provide an API key for making requests to Google's geocoding webservice. To do this, place the following code in your main process file, before opening any browser windows that will make geocoding requests:
 
 ```javascript
 process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
 ```
 
-Google APIキーを取得する方法については、[このページ](https://www.chromium.org/developers/how-tos/api-keys)を参照して下さい。
-
-既定では、新たに生成されたGoogle APIキーでは、ジオコーディングリクエストを行うことができないことがあります。 ジオコーディングリクエストを有効にするには、[このページ](https://console.developers.google.com/apis/api/geolocation/overview)を参照して下さい。
+For instructions on how to acquire a Google API key, visit [this page](https://developers.google.com/maps/documentation/javascript/get-api-key). 既定では、新たに生成されたGoogle APIキーでは、ジオコーディングリクエストを行うことができないことがあります。 ジオコーディングリクエストを有効にするには、[このページ](https://developers.google.com/maps/documentation/geocoding/get-api-key)を参照して下さい。
 
 ### `ELECTRON_NO_ASAR`
 

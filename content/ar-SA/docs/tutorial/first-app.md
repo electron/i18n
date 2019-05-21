@@ -84,7 +84,13 @@ const electron = require('electron')
   
   function createWindow () {
     // إنشاء نافذة طولها 800 وعرضها 600.
-  let win = new BrowserWindow({ width: 800, height: 600 })
+  let win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true
+    }
+  })
 
   // and load the index.html of the app.
   win.loadFile('index.html')
@@ -106,9 +112,15 @@ let win
 
 function createWindow () {
    // إنشاء نافذة المتصفح.
-      win = new BrowserWindow({ width: 800, height: 600 })
-  
-    // تحميل واستدعاء الملف index.html
+  win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true
+    }
+  })
+
+  // and load the index.html of the app.
   win.loadFile('index.html')
 
    // افتح DevTools.

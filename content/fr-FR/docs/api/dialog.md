@@ -42,8 +42,8 @@ Le module `dialog` dispose des méthodes suivantes :
   * `message` String (facultatif) *macOS* - Message à afficher au-dessus des zones de saisie.
   * `securityScopedBookmarks` Boolean (optional) *masOS* *mas* - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
 * `callback` Function (facultatif) 
-  * `filePaths` String[] - Un tableau de chemins d'accès choisi par l'utilisateur
-  * `bookmarks` String[] *macOS* *mas* - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` must be enabled for this to be populated.
+  * `filePaths` String[] (optional) - An array of file paths chosen by the user. If the dialog is cancelled this will be `undefined`.
+  * `bookmarks` String[] (optional) *macOS* *mas* - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` must be enabled for this to be populated.
 
 Returns `String[] | undefined`, an array of file paths chosen by the user, if the callback is provided it returns `undefined`.
 
@@ -79,10 +79,10 @@ Si un `callback` est passé, l'appel de l'API sera asynchrone et le résultat se
   * `message` String (facultatif) *macOS* - Message à afficher au-dessus des champs de texte.
   * `nameFieldLabel` String (facultatif) *macOS* - Étiquette personnalisé pour le texte affiché dans la zone de texte du nom de fichier.
   * `showsTagField` Boolean (facultatif) *macOS* - Affiche le champ de texte. `true` par défaut.
-  * `securityScopedBookmarks` Boolean (optional) *masOS* *mas* - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. If this option is enabled and the file doesn't already exist a blank file will be created at the chosen path.
+  * `securityScopedBookmarks` Boolean (optional) *macOS* *mas* - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. If this option is enabled and the file doesn't already exist a blank file will be created at the chosen path.
 * `callback` Function (facultatif) 
-  * `filename` String
-  * `bookmark` String *macOS* *mas* - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present.
+  * `filename` String (optional) If the dialog is cancelled this will be `undefined`.
+  * `bookmark` String (optional) *macOS* *mas* - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present.
 
 Returns `String | undefined`, the path of the file chosen by the user, if a callback is provided or the dialog is cancelled it returns `undefined`.
 
@@ -118,7 +118,7 @@ Shows a message box, it will block the process until the message box is closed. 
 
 L'argument `browserWindow` permet à la boîte de dialogue de s'attacher elle-même à la fenêtre parent, la rendant modale.
 
-If a `callback` is passed, the dialog will not block the process. The API call will be asynchronous and the result will be passed via `callback(response)`.
+If the `callback` and `browserWindow` arguments are passed, the dialog will not block the process. The API call will be asynchronous and the result will be passed via `callback(response)`.
 
 ### `dialog.showErrorBox(title, content)`
 

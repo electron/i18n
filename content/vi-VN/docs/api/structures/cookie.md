@@ -2,8 +2,8 @@
 
 * `name` String - Tên của cookie.
 * `value` String - Giá trị của cookie.
-* `domain` String (tùy chọn) - Tên miền của cookie.
-* `hostOnly` Boolean (optional) - Whether the cookie is a host-only cookie.
+* `domain` String (optional) - Domain của cookie; nó sẽ được chuẩn hóa bằng việc thêm dấu chấm (.) vào đằng trước để cookie cũng hợp lệ với subdomains.
+* `hostOnly` Boolean (optional) - Whether the cookie is a host-only cookie; this will only be `true` if no domain was passed.
 * `path` String (tùy chọn) - Đường dẫn của cookie.
 * `secure` Boolean (optional) - Whether the cookie is marked as secure.
 * `httpOnly` Boolean (optional) - Whether the cookie is marked as HTTP only.

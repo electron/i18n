@@ -27,7 +27,7 @@ $ sudo apt-get install build-essential clang libdbus-1-dev libgtk-3-dev \
                        libnotify-dev libgnome-keyring-dev libgconf2-dev \
                        libasound2-dev libcap-dev libcups2-dev libxtst-dev \
                        libxss1 libnss3-dev gcc-multilib g++-multilib curl \
-                       gperf bison python-dbusmock
+                       gperf bison python-dbusmock openjdk-8-jre
 ```
 
 Pada RHEL / CentOS, instal pustaka berikut ini:
@@ -36,7 +36,7 @@ Pada RHEL / CentOS, instal pustaka berikut ini:
 $ sudo yum install clang dbus-devel gtk3-devel libnotify-devel \
                    libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
                    cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
-                   GConf2-devel nss-devel python-dbusmock
+                   GConf2-devel nss-devel python-dbusmock openjdk-8-jre
 ```
 
 Di Fedora, instal pustaka berikut ini:
@@ -45,7 +45,7 @@ Di Fedora, instal pustaka berikut ini:
 $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
                    cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
-                   GConf2-devel nss-devel python-dbusmock
+                   GConf2-devel nss-devel python-dbusmock openjdk-8-jre
 ```
 
 Distribusi lainnya mungkin menawarkan paket yang serupa untuk instalasi melalui manajer paket seperti pacman. Atau seseorang bisa mengkompilasi dari source code.

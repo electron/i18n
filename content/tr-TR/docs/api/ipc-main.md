@@ -12,7 +12,7 @@ Ana işlemden yan işleme mesaj göndermek mümkündür, daha fazla bilgi için 
 
 * Bir mesaj gönderirken, etkinlik adı `channel`.
 * Eşzamanlı bir mesaja cevap vermek için, `event.returnValue`yi ayarlamak gereklidir.
-* Eşzamansız bir mesajı gönderene geri göndermek için,`event.sender.send(...)`.
+* To send an asynchronous message back to the sender, you can use `event.reply(...)`. This helper method will automatically handle messages coming from frames that aren't the main frame (e.g. iframes) whereas `event.sender.send(...)` will always send to the main frame.
 
 İşleyici ve ana işlemler arasında mesaj gönderme ve işleme ilişkin bir örneği:
 
@@ -21,7 +21,7 @@ Ana işlemden yan işleme mesaj göndermek mümkündür, daha fazla bilgi için 
 const { ipcMain } = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
   console.log(arg) // prints "ping"
-  event.sender.send('asynchronous-reply', 'pong')
+  event.reply('asynchronous-reply', 'pong')
 })
 
 ipcMain.on('synchronous-message', (event, arg) => {
@@ -76,6 +76,10 @@ Belirtilen `kanalın` dinleyicilerini kaldırır.
 
 `geri çağırma`'ya iletilen `olay` nesnesi aşağıdaki yöntemleri içerir:
 
+### `event.frameId`
+
+An `Integer` representing the ID of the renderer frame that sent this message.
+
 ### `event.returnValue`
 
 Bunu, zaman uyumlu bir mesajda iade edilecek değere ayarlayınız.
@@ -83,3 +87,7 @@ Bunu, zaman uyumlu bir mesajda iade edilecek değere ayarlayınız.
 ### `event.sender`
 
 İletiyi gönderen `webContents` değerini döndürür, eşzamansız iletiyi yanıtlamak için `event.sender.send`' i arayabilir, daha fazla bilgi için [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-)' e bakabilirsiniz.
+
+### `event.reply`
+
+A function that will send an IPC message to the renderer frane that sent the original message that you are currently handling. You should use this method to "reply" to the sent message in order to guaruntee the reply will go to the correct process and frame.

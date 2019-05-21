@@ -80,6 +80,16 @@ L'API è disponibile solo nella funzione callback `will-download` della sessione
 
 Restituisce `String` - Il percorso di salvataggio dell'elemento scaricato. Questo sarà o il percorso impostato tramite `downloadItem.setSavePath(path)` o il percorso selezionato dal save dialog mostrato.
 
+#### `downloadItem.setSaveDialogOptions(options)`
+
+* `options` SaveDialogOptions - Set the save file dialog options. This object has the same properties as the `options` parameter of [`dialog.showSaveDialog()`](dialog.md).
+
+This API allows the user to set custom options for the save dialog that opens for the download item by default. The API is only available in session's `will-download` callback function.
+
+#### `downloadItem.getSaveDialogOptions()`
+
+Returns `SaveDialogOptions` - Returns the object previously set by `downloadItem.setSaveDialogOptions(options)`.
+
 #### `downloadItem.pause()`
 
 Mette in pausa il download.

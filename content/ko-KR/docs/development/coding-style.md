@@ -6,19 +6,19 @@
 
 ## 일반적인 코드
 
-* End files with a newline.
-* Place requires in the following order: 
-  * Built in Node Modules (such as `path`)
-  * Built in Electron Modules (such as `ipc`, `app`)
-  * Local Modules (using relative paths)
-* Place class properties in the following order: 
-  * Class methods and properties (methods starting with a `@`)
-  * Instance methods and properties
-* Avoid platform-dependent code: 
-  * Use `path.join()` to concatenate filenames.
-  * Use `os.tmpdir()` rather than `/tmp` when you need to reference the temporary directory.
-* Using a plain `return` when returning explicitly at the end of a function. 
-  * Not `return null`, `return undefined`, `null` or `undefined`
+* 마지막 줄을 띄우세요.
+* require를 다음 순서에 따라 배치하세요: 
+  * 내장 Node 모듈 (`path` 같은 모듈들)
+  * 내장 Electron 모듈 (`ipc`, `app` 같은 모듈들)
+  * 로컬 모듈 (상대 경로 사용)
+* class 속성을 다음 순서에 따라 배치하세요: 
+  * Class 매서드와 속성 (`@`로 시작하는 매서드)
+  * Instance 매서드와 속성
+* 특정 플랫폼에 의존적인 코드 작성을 피하세요: 
+  * `path.join()`을 사용하여 파일 경로를 연결하세요.
+  * 임시 디렉터리를 사용할 때는 `/tmp` 대신 `os.tmpdir()`을 사용하세요.
+* 함수 끝에서 명시적으로 반환할 때 명시적으로 `return` 을 사용하세요. 
+  * `return null`, `return undefined`, `null` 혹은 `undefined`는 허용되지 않습니다.
 
 ## C++과 Python
 
@@ -30,26 +30,26 @@ C++ 코드는 많은 Chromium의 추상화와 타입을 사용합니다. 따라�
 
 ## 문서
 
-* Write [remark](https://github.com/remarkjs/remark) markdown style.
+* [remark](https://github.com/remarkjs/remark) 마크다운 스타일을 사용하여 작성하기.
 
-You can run `npm run lint-docs` to ensure that your documentation changes are formatted correctly.
+`npm run lint-docs`를 실행하여 문서 형식이 제대로 작성되어 있는지를 검사할 수 있습니다.
 
 ## 자바스크립트
 
-* [표준](https://npm.im/standard) JavaScript 코딩 스타일을 사용합니다.
+* [standard](https://npm.im/standard) JavaScript 코딩 스타일을 사용합니다.
 * 파일 이름의 공백은 `_`대신에 `-`을 사용하여야 합니다. 예를 들어 `file_name.js`를 `file-name.js`로 고쳐야 합니다. 왜냐하면 [github/atom](https://github.com/github/atom)에서 사용되는 모듈의 이름은 보통 `module-name` 형식이기 때문입니다. 이 규칙은 '`.js`' 파일에만 적용됩니다.
 * 적절한 곳에 새로운 ES6/ES2015 문법을 사용해도 됩니다. 
-  * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) 는 <0>requires</0>와 다른 상수에 사용합니다
-  * [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) 은 변수를 정의할 때 사용합니다
-  * [Arrow functions](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions) 는 `function () { }` 표현 대신에 사용합니다
-  * [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) 는 +로 문자열을 합치는 대신 사용합니다. `+`
+  * require 와 다른 상수는 [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const)를 사용합니다
+  * 변수를 정의할 때 [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let)을 사용합니다
+  * `function () { }` 표현 대신에 [화살표 함수](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/Arrow_functions)를 사용합니다
+  * +로 문자열을 합치는 대신에 [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals)를 사용합니다. `+`
 
 ## 이름 짓기
 
 Electron API는 Node.js와 비슷한 명명법을 사용합니다:
 
-* When the module itself is a class like `BrowserWindow`, use `PascalCase`.
-* When the module is a set of APIs, like `globalShortcut`, use `camelCase`.
+* 모듈 자체가 `BrowserWindow`같은 class일 경우, `PascalCase`로 작성합니다.
+* 모듈이 `globalShortcut` 같은 API의 집합체일 경우, `camelCase`로 작성합니다.
 * API가 객체의 속성일 경우, 그리고 `win.webContents`와 같이 충분히 복잡하고 분리된 부분일 경우, `mixedCase`를 사용합니다.
 * 다른 모듈이 아닌 API를 구현할 땐, `<webview><webview> Tag` 또는 `Process Object`와 같이 단순하고 자연스러운 제목을 사용합니다
 

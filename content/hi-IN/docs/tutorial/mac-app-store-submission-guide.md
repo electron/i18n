@@ -59,7 +59,9 @@ First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which 
     <key>com.apple.security.app-sandbox</key>
     <true/>
     <key>com.apple.security.application-groups</key>
-    <string>TEAM_ID.your.bundle.id</string>
+    <array>
+      <string>TEAM_ID.your.bundle.id</string>
+    </array>
   </dict>
 </plist>
 ```
@@ -193,7 +195,7 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 
 ## इलेक्ट्रॉन द्वारा इस्तेमाल क्रिप्टोग्राफ़िक अल्गोरिथ्म्स
 
-आप जहाँ रह रहे हैं उस देश और क्षेत्र पर निर्भर करते हुए, मैक एप्प स्टोर आपकी एप्प में इस्तेमाल हुए क्रिप्टोग्राफ़िक अल्गोरिथम का दस्तावेज़ीकरण मांग सकता है, और वह आपको U.S. Encryption Registration (ERN) approval की एक कॉपी जमा कराने के लिए भी कह सकता है |
+Depending on the countries in which you are releasing your app, you may be required to provide information on the cryptographic algorithms used in your software. See the [encryption export compliance docs](https://help.apple.com/app-store-connect/#/devc3f64248f) for more information.
 
 इलेक्ट्रॉन निम्नलिखित क्रिप्टोग्राफ़िक अल्गोरिथम इस्तेमाल करता है:
 
@@ -220,5 +222,3 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 * RC4 - [RFC 4345](https://tools.ietf.org/html/rfc4345)
 * RC5 - http://people.csail.mit.edu/rivest/Rivest-rc5rev.pdf
 * RIPEMD - [ISO/IEC 10118-3](https://webstore.ansi.org/RecordDetail.aspx?sku=ISO%2FIEC%2010118-3:2004)
-
-ERN अप्रूवल कैसे पायें, इस बारे में ज्यादा जानकारी इस लेख से प्राप्त की जा सकती है: [एप्पल के एप्प स्टोर में कैसे कानूनी तौर पर एप्प सबमिट करें जब वह एन्क्रिप्शन का इस्तेमाल करती हो (या ERN कैसे प्राप्त करें)](https://carouselapps.com/2015/12/15/legally-submit-app-apples-app-store-uses-encryption-obtain-ern/)

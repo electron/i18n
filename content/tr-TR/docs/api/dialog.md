@@ -1,6 +1,6 @@
-# dialog
+# diyalog
 
-> Dosyaları açma ve kaydetme, uyarı yapma, vb. için yerel sistem diyaloglarını görüntüle.
+> Dosyaları açma ve kaydetme, uyarı verme, vb için yerel sistem diyaloglarını görüntüleme.
 
 İşlem: [Ana](../glossary.md#main-process)
 
@@ -42,8 +42,8 @@ console.log(dialog)
   * `mesaj` dizi(isteğe bağlı) *macOS* -Girdi kutularının üstünde görüntülenecek ileti.
   * `securityScopedBookmarks` Boolean (optional) *masOS* *mas* - Create [security scoped bookmarks](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store.
 * `callback` Fonksiyon (isteğe bağlı) 
-  * `filePaths` Dize[] - Kullanıcı tarafından seçilen bir dosya yolu dizisi
-  * `bookmarks` String[] *macOS* *mas* - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` must be enabled for this to be populated.
+  * `filePaths` String[] (optional) - An array of file paths chosen by the user. If the dialog is cancelled this will be `undefined`.
+  * `bookmarks` String[] (optional) *macOS* *mas* - An array matching the `filePaths` array of base64 encoded strings which contains security scoped bookmark data. `securityScopedBookmarks` must be enabled for this to be populated.
 
 Returns `String[] | undefined`, an array of file paths chosen by the user, if the callback is provided it returns `undefined`.
 
@@ -80,10 +80,10 @@ Returns `String[] | undefined`, an array of file paths chosen by the user, if th
   * `mesaj` dize (isteğe bağlı) *macOS* - Metin alanlarının üstünde görüntülenecek ileti.
   * `nameFieldLabel` dize (isteğe bağlı) *macOS* - Dosya adı metin alanının önünde görüntülenen metin için özel etiket.
   * `showsTagField`Boolean (isteğe bağlı) *macOS* - Etiket giriş kutusunu göster, varsayılan olarak ` doğru </ 0> 'dır.</li>
-<li><code>securityScopedBookmarks` Boolean (optional) *masOS* *mas* - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. If this option is enabled and the file doesn't already exist a blank file will be created at the chosen path.
+<li><code>securityScopedBookmarks` Boolean (optional) *macOS* *mas* - Create a [security scoped bookmark](https://developer.apple.com/library/content/documentation/Security/Conceptual/AppSandboxDesignGuide/AppSandboxInDepth/AppSandboxInDepth.html#//apple_ref/doc/uid/TP40011183-CH3-SW16) when packaged for the Mac App Store. If this option is enabled and the file doesn't already exist a blank file will be created at the chosen path.
 * `geri aramak` Fonksiyon (isteğe bağlı) 
-  * `dosya adı` dize
-  * `bookmark` String *macOS* *mas* - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present.
+  * `filename` String (optional) If the dialog is cancelled this will be `undefined`.
+  * `bookmark` String (optional) *macOS* *mas* - Base64 encoded string which contains the security scoped bookmark data for the saved file. `securityScopedBookmarks` must be enabled for this to be present.
 
 Returns `String | undefined`, the path of the file chosen by the user, if a callback is provided or the dialog is cancelled it returns `undefined`.
 
@@ -119,7 +119,7 @@ Bir mesaj kutusu gösterir, ileti kutusu kapanıncaya kadar söz konusu işlemi 
 
 `browserWindow` argüman, iletişim kutusunun kendisini bir üst pencereye iliştirmesine izin verir ve onu modal hale getirir.
 
-Eğer bir `callback` geçilirse, Sonuç `callback(response)`üzerinden iletilecek ve API çağrısı eş zamansız olacaktır.
+If the `callback` and `browserWindow` arguments are passed, the dialog will not block the process. The API call will be asynchronous and the result will be passed via `callback(response)`.
 
 ### `diyalog.showErrorBox(başlık, içerik)`
 

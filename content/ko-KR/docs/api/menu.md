@@ -18,9 +18,11 @@
 
 `menu`를 macOS의 애플리케이션 메뉴로 설정합니다. 윈도우와 리눅스에서는, `menu`를 각 창의 상단 메뉴로 설정 합니다.
 
-인자로 `null` 을 주면 윈도우와 리눅스에서는 메뉴 모음에서 메뉴를 제거 합니다. 하지만 맥 OS 에서는 제거하지 않습니다.
+Also on Windows and Linux, you can use a `&` in the top-level item name to indicate which letter should get a generated accelerator. For example, using `&File` for the file menu would result in a generated `Alt-F` accelerator that opens the associated menu. The indicated character in the button label gets an underline. The `&` character is not displayed on the button label.
 
-**참고:**이 API는 `app` 모듈의 `ready`이벤트 이후에 호출 할 수 있습니다.
+Passing `null` will suppress the default menu. On Windows and Linux, this has the additional effect of removing the menu bar from the window.
+
+**Note:** The default menu will be created automatically if the app does not set one. It contains standard items such as `File`, `Edit`, `View`, `Window` and `Help`.
 
 #### `Menu.getApplicationMenu()`
 
@@ -38,13 +40,13 @@ macOS의 네이티브 액션에 대한 더 많은 정보는 [macOS Cocoa Event H
 
 #### `Menu.buildFromTemplate(template)`
 
-* `template` MenuItemConstructorOptions[]
+* `template` (MenuItemConstructorOptions | MenuItem)[]
 
 `Menu`를 반환합니다.
 
 일반적으로, `template`은 [MenuItem](menu-item.md)을 구축하기 위한 `options`의 배열입니다. 사용법은 위의 내용을 참고해주세요.
 
-`template`의 요소에 다른 필드를 추가하는 것도 가능하며, 추가된 구축된 메뉴 아이템의 프로퍼티가 됩니다.
+You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
 
 ### 인스턴스 메서드
 
@@ -94,7 +96,7 @@ macOS의 네이티브 액션에 대한 더 많은 정보는 [macOS Cocoa Event H
 
 #### 이벤트: 'menu-will-show'
 
-반환:
+Returns:
 
 * `event` Event
 
@@ -102,7 +104,7 @@ macOS의 네이티브 액션에 대한 더 많은 정보는 [macOS Cocoa Event H
 
 #### 이벤트: 'menu-will-close'
 
-반환:
+Returns:
 
 * `event` Event
 
@@ -134,6 +136,29 @@ menu의 항목을 저장하고 있는 `MenuItem[]` 배열.
 const { app, Menu } = require('electron')
 
 const template = [
+  // { role: 'appMenu' }
+  ...(process.platform === 'darwin' ? [{
+    label: app.getName(),
+    submenu: [
+      { role: 'about' },
+      { type: 'separator' },
+      { role: 'services' },
+      { type: 'separator' },
+      { role: 'hide' },
+      { role: 'hideothers' },
+      { role: 'unhide' },
+      { type: 'separator' },
+      { role: 'quit' }
+    ]
+  }] : []),
+  // { role: 'fileMenu' }
+  {
+    label: 'File',
+    submenu: [
+      isMac ? { role: 'close' } : { role: 'quit' }
+    ]
+  },
+  // { role: 'editMenu' }
   {
     label: 'Edit',
     submenu: [
@@ -143,11 +168,26 @@ const template = [
       { role: 'cut' },
       { role: 'copy' },
       { role: 'paste' },
-      { role: 'pasteandmatchstyle' },
-      { role: 'delete' },
-      { role: 'selectall' }
+      ...(isMac ? [
+        { role: 'pasteAndMatchStyle' },
+        { role: 'delete' },
+        { role: 'selectAll' },
+        { type: 'separator' },
+        {
+          label: 'Speech',
+          submenu: [
+            { role: 'startspeaking' },
+            { role: 'stopspeaking' }
+          ]
+        }
+      ] : [
+        { role: 'delete' },
+        { type: 'separator' },
+        { role: 'selectAll' }
+      ])
     ]
   },
+  // { role: 'viewMenu' }
   {
     label: 'View',
     submenu: [
@@ -162,11 +202,20 @@ const template = [
       { role: 'togglefullscreen' }
     ]
   },
+  // { role: 'windowMenu' }
   {
-    role: 'window',
+    label: 'Window',
     submenu: [
       { role: 'minimize' },
-      { role: 'close' }
+      { role: 'zoom' },
+      ...(isMac ? [
+        { type: 'separator' },
+        { role: 'front' },
+        { type: 'separator' },
+        { role: 'window' }
+      ] : [
+        { role: 'close' }
+      ])
     ]
   },
   {
@@ -174,55 +223,14 @@ const template = [
     submenu: [
       {
         label: 'Learn More',
-        click () { require('electron').shell.openExternal('https://electronjs.org') }
+        click () { require('electron').shell.openExternalSync('https://electronjs.org') }
       }
     ]
   }
 ]
 
-if (process.platform === 'darwin') {
-  template.unshift({
-    label: app.getName(),
-    submenu: [
-      { role: 'about' },
-      { type: 'separator' },
-      { role: 'services' },
-      { type: 'separator' },
-      { role: 'hide' },
-      { role: 'hideothers' },
-      { role: 'unhide' },
-      { type: 'separator' },
-      { role: 'quit' }
-    ]
-  })
-
-  // Edit menu
-  template[1].submenu.push(
-    { type: 'separator' },
-    {
-      label: 'Speech',
-      submenu: [
-        { role: 'startspeaking' },
-        { role: 'stopspeaking' }
-      ]
-    }
-  )
-
-  // Window menu
-  template[3].submenu = [
-    { role: 'close' },
-    { role: 'minimize' },
-    { role: 'zoom' },
-    { type: 'separator' },
-    { role: 'front' }
-  ]
-}
-
 const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
- 
-Text
-XPath: /pre/code
 ```
 
 ### 렌더 프로세스

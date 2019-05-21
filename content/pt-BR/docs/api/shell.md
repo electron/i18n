@@ -34,16 +34,25 @@ Retorna `Boolean` - Se o item foi aberto com êxito.
 
 Abre o arquivo fornecido na maneira padrão da área de trabalho.
 
-### `shell.openExternal(url[, options, callback])`
+### `shell.openExternalSync(url[, options])`
 
-* `url` String - Max 2081 characters on windows, or the function returns false.
+* `url` String - Max 2081 characters on Windows, or the function returns false.
 * `options` Objeto (opcional) 
-  * `activate` Boolean (optional) - `true` to bring the opened application to the foreground. The default is `true`. *macOS*
-  * `workingDirectory` String (optional) - The working directory. *Windows*
-* `callback` Function (opcional) *macOS* - If specified will perform the open asynchronously. 
-  * `error` Error
+  * `ative` Boolean (opcional) - `true` traz o aplicativo aberto para o primeiro plano. O padrão é `true`. *macOS*
+  * `workingDirectory` String (opcional) - O diretório de trabalho. *Windows*
 
-Returns `Boolean` - Whether an application was available to open the URL. If callback is specified, always returns true.
+Returns `Boolean` - Whether an application was available to open the URL.
+
+Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
+
+### `shell.openExternal(url[, options])`
+
+* `url` String - Max 2081 characters on windows.
+* `options` Objeto (opcional) 
+  * `ative` Boolean (opcional) - `true` traz o aplicativo aberto para o primeiro plano. O padrão é `true`. *macOS*
+  * `workingDirectory` String (opcional) - O diretório de trabalho. *Windows*
+
+Returns `Promise<void>`
 
 Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
 
@@ -51,7 +60,7 @@ Open the given external protocol URL in the desktop's default manner. (For examp
 
 * `fullPath` String
 
-Returns `Boolean` - Whether the item was successfully moved to the trash.
+Retorna `Boolean` - Se o item foi movido para lixeira com êxito.
 
 Move o arquivo fornecido para o lixo e retorna um boolean para o operação.
 

@@ -42,6 +42,14 @@ app.on('ready', () => {
 
 一度、すべての子プロセスが `getCategories` リクエストを受諾したら、カテゴリグループの配列で `callback` が呼び出されます。
 
+**[非推奨予定](promisification.md)**
+
+### `contentTracing.getCategories()`
+
+Returns `Promise<String[]>` - resolves with an array of category groups once all child processes have acknowledged the `getCategories` request
+
+カテゴリグループのセットを取得します。新しいコードパスに到達したら、カテゴリグループは変更できます。
+
 ### `contentTracing.startRecording(options, callback)`
 
 * `options` ([TraceCategoriesAndOptions](structures/trace-categories-and-options.md) | [TraceConfig](structures/trace-config.md))
@@ -50,6 +58,18 @@ app.on('ready', () => {
 すべてのプロセスで記録を開始します。
 
 EnableRecordingリクエストを受信するとすぐにローカルでは即時、子プロセスでは非同期的に記録が開始されます。 一度、すべての子プロセスが `startRecording` リクエストを受諾したら、`callback` が呼び出されます。
+
+**[非推奨予定](promisification.md)**
+
+### `contentTracing.startRecording(options)`
+
+* `options` ([TraceCategoriesAndOptions](structures/trace-categories-and-options.md) | [TraceConfig](structures/trace-config.md))
+
+Returns `Promise<void>` - resolved once all child processes have acknowledged the `startRecording` request.
+
+すべてのプロセスで記録を開始します。
+
+EnableRecordingリクエストを受信するとすぐにローカルでは即時、子プロセスでは非同期的に記録が開始されます。
 
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
@@ -65,38 +85,19 @@ EnableRecordingリクエストを受信するとすぐにローカルでは即�
 
 空でない場合は `resultFilePath`、そうでない場合、一時ファイルにトレースデータは書き込まれます。実際のファイルパスは `null` でない場合、`callback` に渡されます。
 
-### `contentTracing.startMonitoring(options, callback)`
+**[非推奨予定](promisification.md)**
 
-* `options` Object 
-  * `categoryFilter` String
-  * `traceOptions` String
-* `callback` Function
-
-すべてのプロセスで監視を開始します。
-
-`startMonitoring` リクエストを受信するとすぐにローカルでは即時、子プロセスでは非同期的に監視が開始されます。
-
-一度、すべての子プロセスが `startMonitoring` リクエストを受諾したら、`callback` が呼び出されます。
-
-### `contentTracing.stopMonitoring(callback)`
-
-* `callback` Function
-
-すべてのプロセスで監視を停止します。
-
-一度、すべての子プロセスが `stopMonitoring` リクエストを受諾したら、`callback` が呼び出されます。
-
-### `contentTracing.captureMonitoringSnapshot(resultFilePath, callback)`
+### `contentTracing.stopRecording(resultFilePath)`
 
 * `resultFilePath` String
-* `callback` Function 
-  * `resultFilePath` String
 
-現在、監視しているトレースデータを取得します。
+Returns `Promise<String>` - resolves with a file that contains the traced data once all child processes have acknowledged the `stopRecording` request
 
-子プロセスは、大抵、トレースデータをキャッシュし、滅多に書き出さず、メインプロセスにトレースデータを送り返すだけです。 これは、IPC越しにトレースデータを送信するのは高負荷な操作になりうることとトレースによる不必要なランタイムオーバーヘッドを回避したいことによります。 そのため、トレースを終了するには、すべての子プロセスに保留中のトレースデータを書き出すように非同期で指示しなければなりません。
+すべてのプロセスで記録を停止します。
 
-一度、すべての子プロセスが `captureMonitoringSnapshot` リクエストを受諾したら、トレースデータを含むファイルと一緒に `callback` が呼び出されます。
+子プロセスは、大抵、トレースデータをキャッシュし、滅多に書き出さず、メインプロセスにトレースデータを送り返すだけです。 トレースデータをIPC越しに送信するのは高負荷な操作であるため、これはトレースのランタイムオーバーヘッドを最小化するのに役立ちます。 そのため、トレースを終了するには、すべての子プロセスに保留中のトレースデータを書き出すように非同期で指示しなければなりません。
+
+Trace data will be written into `resultFilePath` if it is not empty or into a temporary file.
 
 ### `contentTracing.getTraceBufferUsage(callback)`
 

@@ -31,15 +31,22 @@ console.log(systemPreferences.isDarkMode())
 返回:
 
 * `event` Event
-* `invertedColorScheme` Boolean - 如果正在使用诸如高对比度主题的色彩方案，则为`true`， 否则为 `false`.
+* `invertedColorScheme` Boolean - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is being used, `false` otherwise.
 
-### Event: 'appearance-changed' *macOS*
+### Event: 'high-contrast-color-scheme-changed' *Windows*
 
 返回:
 
-* `newAppearance` String - Can be `dark` or `light`
+* `event` Event
+* `highContrastColorScheme` Boolean - `true` if a high contrast theme is being used, `false` otherwise.
 
-**NOTE:** This event is only emitted after you have called `startAppLevelAppearanceTrackingOS`
+### 事件: 'appearance-changed' *macOS*
+
+返回:
+
+* `newAppearance` String - 可以为 `dark` 或 `light`
+
+**注意:** 此事件仅在调用了`startAppLevelAppearanceTrackingOS`后触发
 
 ## 方法
 
@@ -51,10 +58,11 @@ console.log(systemPreferences.isDarkMode())
 
 返回值 `Boolean` - 是否在页面设置之间进行滑动。
 
-### `systemPreferences.postNotification(event, userInfo)` *macOS*
+### `systemPreferences.postNotification(event, userInfo[, deliverImmediately])` *macOS*
 
 * `event` String
 * `userInfo` Object
+* `deliverImmediately` Boolean (optional) - `true` to post notifications immediately even when the subscribing app is inactive.
 
 发送 `event` 作为macOS的原生通知。 `userInfo`是一个Object，它包含随通知一起发送的用户信息字典。
 
@@ -75,11 +83,11 @@ console.log(systemPreferences.isDarkMode())
 ### `systemPreferences.subscribeNotification(event, callback)` *macOS*
 
 * `event` String
-* `callback` Function - 回调函数 
+* `callback` Function 
   * `event` String
   * `userInfo` Object
 
-Returns `Number` - The ID of this subscription
+返回 `Number` - 此订阅的 ID
 
 订阅macOS的原生通知，当通信的 `event</ 0>发生时，将调用 <code>callback(event, userInfo)` 。 ` userInfo `是一个Object，它包含随通知一起发送的用户信息字典。
 
@@ -99,18 +107,18 @@ Returns `Number` - The ID of this subscription
   * `event` String
   * `userInfo` Object
 
-Returns `Number` - The ID of this subscription
+返回 `Number` - 此订阅的 ID
 
-与` subscribeNotification `相同，但使用` NSNotificationCenter `作为本地默认值。 这对于诸如` NSUserDefaultsDidChangeNotification `的事件是必需的.
+与` subscribeNotification `相同，但使用` NSNotificationCenter `作为本地默认值。 这对事件` NSUserDefaultsDidChangeNotification `是必需的。
 
 ### `systemPreferences.subscribeWorkspaceNotification(event, callback)` *macOS*
 
 * `event` String
-* `callback` Function - 回调函数 
+* `callback` Function 
   * `event` String
   * `userInfo` Object
 
-Same as `subscribeNotification`, but uses `NSWorkspace.sharedWorkspace.notificationCenter`. This is necessary for events such as `NSWorkspaceDidActivateApplicationNotification`.
+与 `subscribeNotification`一样, 但使用`NSWorkspace.sharedWorkspace.notificationCenter`。 这对事件 `NSWorkspaceDidActivateApplicationNotification` 是必需的。
 
 ### `systemPreferences.unsubscribeNotification(id)` *macOS*
 
@@ -128,7 +136,7 @@ Same as `subscribeNotification`, but uses `NSWorkspace.sharedWorkspace.notificat
 
 * `id` Integer
 
-Same as `unsubscribeNotification`, but removes the subscriber from `NSWorkspace.sharedWorkspace.notificationCenter`.
+与 `unsubscribeNotification` 一样，但是它从 `NSWorkspace.sharedWorkspace.notificationCenter` 中移除订阅者。
 
 ### `systemPreferences.registerDefaults(defaults)` *macOS*
 
@@ -156,7 +164,7 @@ Same as `unsubscribeNotification`, but removes the subscriber from `NSWorkspace.
 ### `systemPreferences.setUserDefault(key, type, value)` *macOS*
 
 * `key` String
-* `type` String - See [`getUserDefault`](#systempreferencesgetuserdefaultkey-type-macos).
+* `type` String - 参见 [`getUserDefault`](#systempreferencesgetuserdefaultkey-type-macos).
 * `value` String
 
 设置 `NSUserDefaults` 中 `key` 的值.
@@ -201,7 +209,7 @@ if (browserOptions.transparent) {
 }
 ```
 
-### `systemPreferences.getAccentColor()` *Windows*
+### `systemPreferences.getAccentColor()` *Windows* *macOS*
 
 返回 `String` - 用户当前系统偏好颜色，RGBA 十六进制形式.
 
@@ -213,65 +221,121 @@ const blue = color.substr(4, 2) // "cc"
 const alpha = color.substr(6, 2) // "dd"
 ```
 
-### `systemPreferences.getColor(color)` *Windows*
+This API is only available on macOS 10.14 Mojave or newer.
+
+### `systemPreferences.getColor(color)` *Windows* *macOS*
 
 * `color` String - 下列值之一: 
-  * `3d-dark-shadow` - 三维显示元素的暗阴影。
-  * `3d-face` - 面向三维显示元素和对话框背景的颜色。
-  * `3d-highlight` - 三维显示元素的高亮色.
-  * `3d-light` - 三维显示元素的亮色.
-  * `3d-shadow` - 三维显示元素的阴影颜色.
-  * `active-border` - 活动窗口边框。
-  * `active-caption` -活动窗口标题栏。 如果启用了渐变效果，则指定活动窗口标题栏的颜色渐变中的左侧颜色。
-  * `active-caption-gradient` - 活动窗口标题栏的颜色渐变中的右侧颜色。
-  * `app-workspace` - 多文档界面 (MDI) 应用程序的背景颜色。
-  * `button-text` - 按钮上的文本。
-  * `caption-text` - 标题，大小框和滚动条箭头框中的文本。
-  * `desktop` - 桌面的背景色。
-  * `disabled-text` - 灰色 (禁用的) 文字.
-  * `highlight` - 在控件中选择的项目。
-  * `highlight-text` - 在控件中选择的项目文本。
-  * `hotlight` - 超链接或热追踪项目的颜色。
-  * `inactive-border` - 非活动窗口边框。
-  * ` inactive-caption` -非活动窗口标题栏。 如果启用了渐变效果，则指定非活动窗口标题栏的颜色渐变中的左侧颜色。
-  * `inactive-caption-gradient` - 非活动窗口标题栏的颜色渐变中的右侧颜色。
-  * `inactive-caption-text` - 非活动标题中的文字颜色。
-  * `info-background` - 工具提示控件的背景颜色。
-  * `info-text` - 工具提示控件的文本颜色。
-  * `menu` - 菜单的背景色.
-  * `menu-highlight` - 当菜单显示为平面菜单时用于突出显示菜单项的颜色。
-  * `menubar` - 菜单显示为平面菜单时菜单栏的背景颜色。
-  * `menu-text` - 菜单的文字.
-  * `scrollbar` - 滚动条的灰色区域.
-  * `window` - 窗口的背景色.
-  * `window-frame` - 窗口框.
-  * `window-text` - 窗口的文字。
+  * On **Windows**: 
+    * `3d-dark-shadow` - 三维显示元素的暗阴影。
+    * `3d-face` - 面向三维显示元素和对话框背景的颜色。
+    * `3d-highlight` - 三维显示元素的高亮色.
+    * `3d-light` - 三维显示元素的亮色.
+    * `3d-shadow` - 三维显示元素的阴影颜色.
+    * `active-border` - 活动窗口边框。
+    * `active-caption` -活动窗口标题栏。 如果启用了渐变效果，则指定活动窗口标题栏的颜色渐变中的左侧颜色。
+    * `active-caption-gradient` - 活动窗口标题栏的颜色渐变中的右侧颜色。
+    * `app-workspace` - 多文档界面 (MDI) 应用程序的背景颜色。
+    * `button-text` - 按钮上的文本。
+    * `caption-text` - 标题，大小框和滚动条箭头框中的文本。
+    * `desktop` - 桌面的背景色。
+    * `disabled-text` - 灰色 (禁用的) 文字.
+    * `highlight` - 在控件中选择的项目。
+    * `highlight-text` - 在控件中选择的项目文本。
+    * `hotlight` - 超链接或热追踪项目的颜色。
+    * `inactive-border` - 非活动窗口边框。
+    * ` inactive-caption` -非活动窗口标题栏。 如果启用了渐变效果，则指定非活动窗口标题栏的颜色渐变中的左侧颜色。
+    * `inactive-caption-gradient` - 非活动窗口标题栏的颜色渐变中的右侧颜色。
+    * `inactive-caption-text` - 非活动标题中的文字颜色。
+    * `info-background` - 工具提示控件的背景颜色。
+    * `info-text` - 工具提示控件的文本颜色。
+    * `menu` - 菜单的背景色.
+    * `menu-highlight` - 当菜单显示为平面菜单时用于突出显示菜单项的颜色。
+    * `menubar` - 菜单显示为平面菜单时菜单栏的背景颜色。
+    * `menu-text` - 菜单的文字.
+    * `scrollbar` - 滚动条的灰色区域.
+    * `window` - 窗口的背景色.
+    * `window-frame` - 窗口框.
+    * `window-text` - 窗口的文字。
+  * On **macOS** 
+    * `alternate-selected-control-text` - The text on a selected surface in a list or table.
+    * `control-background` - The background of a large interface element, such as a browser or table.
+    * `control` - The surface of a control.
+    * `control-text` -The text of a control that isn’t disabled.
+    * `disabled-control-text` - The text of a control that’s disabled.
+    * `find-highlight` - The color of a find indicator.
+    * `grid` - The gridlines of an interface element such as a table.
+    * `header-text` - The text of a header cell in a table.
+    * `highlight` - The virtual light source onscreen.
+    * `keyboard-focus-indicator` - The ring that appears around the currently focused control when using the keyboard for interface navigation.
+    * `label` - The text of a label containing primary content.
+    * `link` - A link to other content.
+    * `placeholder-text` - A placeholder string in a control or text view.
+    * `quaternary-label` - The text of a label of lesser importance than a tertiary label such as watermark text.
+    * `scrubber-textured-background` - The background of a scrubber in the Touch Bar.
+    * `secondary-label` - The text of a label of lesser importance than a normal label such as a label used to represent a subheading or additional information.
+    * `selected-content-background` - The background for selected content in a key window or view.
+    * `selected-control` - The surface of a selected control.
+    * `selected-control-text` - The text of a selected control.
+    * `selected-menu-item` - The text of a selected menu.
+    * `selected-text-background` - The background of selected text.
+    * `selected-text` - Selected text.
+    * `separator` - A separator between different sections of content.
+    * `shadow` - The virtual shadow cast by a raised object onscreen.
+    * `tertiary-label` - The text of a label of lesser importance than a secondary label such as a label used to represent disabled text.
+    * `text-background` - Text background.
+    * `text` - The text in a document.
+    * `under-page-background` - The background behind a document's content.
+    * `unemphasized-selected-content-background` - The selected content in a non-key window or view.
+    * `unemphasized-selected-text-background` - A background for selected text in a non-key window or view.
+    * `unemphasized-selected-text` - Selected text in a non-key window or view.
+    * `window-background` - The background of a window.
+    * `window-frame-text` - The text in the window's titlebar area. 
 
-返回 `String` -系统颜色设置为RGB十六进制格式 (`#ABCDEF`). 更多详细信息, 请查阅 [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) 。
+返回 `String` -系统颜色设置为RGB十六进制格式 (`#ABCDEF`). See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) and the [MacOS docs](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors) for more details.
+
+### `systemPreferences.getSystemColor(color)` *macOS*
+
+* `color` String - 下列值之一: 
+  * `blue`
+  * `brown`
+  * `gray`
+  * `green`
+  * `orange`
+  * `pink`
+  * `purple`
+  * `red`
+  * `yellow`
+
+Returns one of several standard system colors that automatically adapt to vibrancy and changes in accessibility settings like 'Increase contrast' and 'Reduce transparency'. See [Apple Documentation](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#system-colors) for more details.
 
 ### `systemPreferences.isInvertedColorScheme()` *Windows*
 
-返回 `Boolean` - `true` 如果反转颜色方案（如高对比度主题）处于活动状态，否则为`false`
+Returns `Boolean` - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is active, `false` otherwise.
+
+### `systemPreferences.isHighContrastColorScheme()` *Windows*
+
+Returns `Boolean` - `true` if a high contrast theme is active, `false` otherwise.
 
 ### `systemPreferences.getEffectiveAppearance()` *macOS*
 
-Returns `String` - Can be `dark`, `light` or `unknown`.
+返回 `String` - 其值可能是 `dark`、`light` 或 `unknown`.
 
-Gets the macOS appearance setting that is currently applied to your application, maps to [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
+获取当前应用到你的程序上的 macOS 设置项，会映射到 [NSApplication.effectiveAppearance](https://developer.apple.com/documentation/appkit/nsapplication/2967171-effectiveappearance?language=objc)
 
-Please note that until Electron is built targeting the 10.14 SDK, your application's `effectiveAppearance` will default to 'light' and won't inherit the OS preference. In the interim in order for your application to inherit the OS preference you must set the `NSRequiresAquaSystemAppearance` key in your apps `Info.plist` to `false`. If you are using `electron-packager` or `electron-forge` just set the `enableDarwinDarkMode` packager option to `true`. See the [Electron Packager API](https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) for more details.
+需要注意的是，在 构建针对Electron 10.14 SDK 之前的版本时，你的程序的`effectiveAppearance`默认为 "light" 并且不会继承系统的设置。 In the interim in order for your application to inherit the OS preference you must set the `NSRequiresAquaSystemAppearance` key in your apps `Info.plist` to `false`. If you are using `electron-packager` or `electron-forge` just set the `enableDarwinDarkMode` packager option to `true`. 查看 [Electron Packager API](https://github.com/electron-userland/electron-packager/blob/master/docs/api.md#darwindarkmodesupport) 以获得更多细节。
 
 ### `systemPreferences.getAppLevelAppearance()` *macOS*
 
-Returns `String` | `null` - Can be `dark`, `light` or `unknown`.
+返回 `String` | `null` - 其值可能为 `dark`、`light` 或 `unknown`。
 
-Gets the macOS appearance setting that you have declared you want for your application, maps to [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc). You can use the `setAppLevelAppearance` API to set this value.
+Gets the macOS appearance setting that you have declared you want for your application, maps to [NSApplication.appearance](https://developer.apple.com/documentation/appkit/nsapplication/2967170-appearance?language=objc). 您可以使用 `setAppLevelAppearance` API 来设置此值。
 
 ### `systemPreferences.setAppLevelAppearance(appearance)` *macOS*
 
-* `appearance` String | null - Can be `dark` or `light`
+* `appearance` String | null - 可以是 `dark` 或 `light`
 
-Sets the appearance setting for your application, this should override the system default and override the value of `getEffectiveAppearance`.
+设定您的应用程序的外观设置，这应该覆盖系统默认值以及覆盖 `getEffectiveAppearance` 的值。
 
 ### `systemPreferences.isTrustedAccessibilityClient(prompt)` *macOS*
 

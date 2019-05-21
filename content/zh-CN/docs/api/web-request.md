@@ -6,9 +6,9 @@
 
 使用 ` Session ` 的 ` WebRequest ` 属性访问 ` WebRequest ` 类的实例。
 
-` WebRequest ` 的方法接受可选的 `filter ` 和 ` listener `。 当 API 的事件发生时, 将使用 ` listener(details) ` 来调用 ` listener`。 ` 详细details ` 对象描述了该请求。
+` WebRequest ` 的方法接受可选的 `filter ` 和 ` listener `。 当 API 的事件发生时, 将使用 ` listener(details) ` 来调用 ` listener`。 `详细信息`对象描述了请求。
 
-⚠️ Only the last attached `listener` will be used. Passing `null` as `listener` will unsubscribe from the event.
+⚠️ 仅最后一个附加的 `listener` 将被使用。对 `listener` 传递 `null` 将会取消监听该事件。
 
 ` filter ` 对象具有一个 ` url ` 属性, 它是一个 url 模式数组, 用于筛选出与 url 模式不匹配的请求。 如果省略 ` filter `, 则所有请求都将匹配。
 
@@ -32,19 +32,20 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 ### 实例方法
 
-以下方法可用于 ` WebRequest ` 的实例:
+以下事件会在` Session `实例触发。
 
 #### `webRequest.onBeforeRequest([filter, ]listener)`
 
 * `filter` Object (可选) 
-  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。
-* `listener` Function - 回调函数 
+  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
+* `listener` Function | null 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (可选)
     * `resourceType` String
+    * `referrer` String
     * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function - 回调函数 
@@ -61,17 +62,18 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 #### `webRequest.onBeforeSendHeaders([filter, ]listener)`
 
 * `filter` Object (可选) 
-  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。
-* `listener` Function - 回调函数 
+  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
+* `listener` Function | null 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (可选)
     * `resourceType` String
+    * `referrer` String
     * `timestamp` Double
     * `requestHeaders` Object
-  * `callback` Function - 回调函数 
+  * `callback` Function 
     * `response` Object 
       * `cancel` Boolean (可选)
       * `requestHeaders` Object (可选) - 当提供时，将使用这些报头进行请求。
@@ -82,15 +84,16 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 
 #### `webRequest.onSendHeaders([filter, ]listener)`
 
-* `filter` Object (可选) 
-  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。
-* `listener` Function - 回调函数 
+* `过滤` Object (可选) 
+  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
+* `listener` Function | null 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (可选)
     * `resourceType` String
+    * `referrer` String
     * `timestamp` Double
     * `requestHeaders` Object
 
@@ -99,14 +102,15 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 #### `webRequest.onHeadersReceived([filter, ]listener)`
 
 * `filter` Object (可选) 
-  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。
-* `listener` Function - 回调函数 
+  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
+* `listener` Function | null 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (可选)
     * `resourceType` String
+    * `referrer` String
     * `timestamp` Double
     * `statusLine` String
     * `statusCode` Integer
@@ -124,14 +128,15 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 #### `webRequest.onResponseStarted([filter, ]listener)`
 
 * `filter` Object (可选) 
-  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。
-* `listener` Function - 回调函数 
+  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
+* `listener` Function | null 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (可选)
     * `resourceType` String
+    * `referrer` String
     * `timestamp` Double
     * `responseHeaders` Object
     * `fromCache` Boolean - 表明响应是取自硬盘缓存。
@@ -143,14 +148,15 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 #### `webRequest.onBeforeRedirect([filter, ]listener)`
 
 * `filter` Object (可选) 
-  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。
-* `listener` Function - 回调函数 
+  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
+* `listener` Function | null 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (可选)
     * `resourceType` String
+    * `referrer` String
     * `timestamp` Double
     * `redirectURL` String
     * `statusCode` Integer
@@ -163,8 +169,8 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 #### `webRequest.onCompleted([filter, ]listener)`
 
 * `filter` Object (可选) 
-  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。
-* `listener` Function - 回调函数 
+  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
+* `listener` Function | null 
   * `details` Object 
     * `id` Integer
     * `url` String
@@ -183,14 +189,15 @@ session.defaultSession.webRequest.onBeforeSendHeaders(filter, (details, callback
 #### `webRequest.onErrorOccurred([filter, ]listener)`
 
 * `filter` Object (可选) 
-  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。
-* `listener` Function - 回调函数 
+  * `urls` String[] - URL 模式的数组，用来过滤与URL模式不匹配的请求。</code></code>
+* `listener` Function | null 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (可选)
     * `resourceType` String
+    * `referrer` String
     * `timestamp` Double
     * `fromCache` Boolean
     * `error` String - 错误描述.

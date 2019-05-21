@@ -6,6 +6,50 @@
 
 Стрічки `FIXME` використовуються в коментарях коду для маркування речей, які мають бути виправлені для майбутній релізів. Дивіться https://github.com/electron/electron/search?q=fixme
 
+# Заплановані Зміни API (6.0)
+
+## `win.setMenu(null)`
+
+```js
+// Deprecated
+win.setMenu(null)
+// Replace with
+win.removeMenu()
+```
+
+## `electron.screen` in renderer process
+
+```js
+// Deprecated
+require('electron').screen
+// Replace with
+require('electron').remote.screen
+```
+
+## `require` in sandboxed renderers
+
+```js
+// Deprecated
+require('child_process')
+// Replace with
+require('electron').remote.require('child_process')
+
+// Deprecated
+require('fs')
+// Replace with
+require('electron').remote.require('fs')
+
+// Deprecated
+require('os')
+// Replace with
+require('electron').remote.require('os')
+
+// Deprecated
+require('path')
+// Replace with
+require('electron').remote.require('path')
+```
+
 # Заплановані Зміни API (5.0)
 
 ## `new BrowserWindow({ webPreferences })`
@@ -22,25 +66,42 @@ The following `webPreferences` option default values are deprecated in favor of 
 
 Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled.
 
-## `webContents.findInPage(text[, options])`
+## Privileged Schemes Registration
 
-`wordStart` and `medialCapitalAsWordStart` options are removed.
+Renderer process APIs `webFrame.setRegisterURLSchemeAsPrivileged` and `webFrame.registerURLSchemeAsBypassingCSP` as well as browser process API `protocol.registerStandardSchemes` have been removed. A new API, `protocol.registerSchemesAsPrivileged` has been added and should be used for registering custom schemes with the required privileges. Custom schemes are required to be registered before app ready.
+
+## webFrame Isolated World APIs
+
+```js
+// Deprecated
+webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
+webFrame.setIsolatedWorldHumanReadableName(worldId, name)
+webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
+// Replace with
+webFrame.setIsolatedWorldInfo(
+  worldId,
+  {
+    securityOrigin: 'some_origin',
+    name: 'human_readable_name',
+    csp: 'content_security_policy'
+  })
+```
 
 # Заплановані Зміни API (4.0)
 
-Даний список містить заплановані API зміни для Electron 4.0.
+Даний список містить API зміни зроблені для Electron 4.0.
 
 ## `app.makeSingleInstance`
 
 ```js
 // Deprecated
-app.makeSingleInstance(function (argv, cwd) {
-
+app.makeSingleInstance((argv, cwd) => {
+  /* ... */
 })
 // Replace with
 app.requestSingleInstanceLock()
-app.on('second-instance', function (event, argv, cwd) {
-
+app.on('second-instance', (event, argv, cwd) => {
+  /* ... */
 })
 ```
 
@@ -177,12 +238,12 @@ screen.getPrimaryDisplay().workArea
 ## `session`
 
 ```js
-// Припиняється підтримка
-ses.setCertificateVerifyProc(function (hostname, certificate, callback) {
+// Deprecated
+ses.setCertificateVerifyProc((hostname, certificate, callback) => {
   callback(true)
 })
-// Замінити на
-ses.setCertificateVerifyProc(function (request, callback) {
+// Replace with
+ses.setCertificateVerifyProc((request, callback) => {
   callback(0)
 })
 ```

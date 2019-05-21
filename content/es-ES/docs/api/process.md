@@ -12,6 +12,7 @@ En el procesor renderer en sandbox el objeto `process` sólo contiene un subconj
 
 * `crash()`
 * `hang()`
+* `getCreationTime()`
 * `getHeapStatistics()`
 * `getProcessMemoryInfo()`
 * `getSystemMemoryInfo()`
@@ -23,7 +24,6 @@ En el procesor renderer en sandbox el objeto `process` sólo contiene un subconj
 * `pid`
 * `arch`
 * `platform`
-* `resourcesPath`
 * `sandboxed`
 * `type`
 * `version`
@@ -55,31 +55,39 @@ process.once('loaded', () => {
 
 Un `Boolean`. Cuando la aplicación empieza siendo pasada como un parámetro a la aplicación por defecto, esta propiedad es `true` en el proceso principal, en el caso contrario es `undefined`.
 
+### `process.isMainFrame`
+
+A `Boolean`, `true` when the current renderer context is the "main" renderer frame. If you want the ID of the current frame you should use `webFrame.routingId`.
+
 ### `process.mas`
 
-Un `Boolean`. Para apps hechas para la Mac App Store, esta propiedad es `true`, para otras apps es `undefined`.
+Un `Booleano`. Para el edificio de la Mac App Store, esta propiedad es `verdad`, para otros edificios está `indefinidad`.
 
 ### `proceso.noAsar`
 
-Un `Boolean` que controla el soporte de ASAR dentro de tu aplicación. Modificando esta propiedad a `true` se deshabilitará el soporte para archivos de tipo `asar` en los módulos integrados de Node.
+Un `Booleano` que controla el apoyo ASAR dentro de tu aplicación. Ajustando este a `verdad` se deshabilitará el apoyo por parte de archivos `asar` en modulos integrados del nodo.
 
 ### `process.noDeprecation`
 
-Un `Boolean` que controla si las advertencias de deprecación se imprimen o no a `stderr`. Modificar esta propiedad a `true` silenciará las advertencias de depreciación. Esta propiedad es usada en lugar de la linea de comando `--no-deprecation`.
+Un `Boolean` que controla si las advertencias de desaprobación se imprimen o no a `stderr`. Establecer esto en `true` silenciará las advertencias de obsolescencia. Esta propiedad es usada en lugar de la linea de comando `--no-degradación`.
+
+### `process.enablePromiseAPIs`
+
+A `Boolean` that controls whether or not deprecation warnings are printed to `stderr` when formerly callback-based APIs converted to Promises are invoked using callbacks. Setting this to `true` will enable deprecation warnings.
 
 ### `process.resourcesPath`
 
-Un `string` que representa la ruta de acceso al directorio de recursos.
+Una `cadena` que representa la ruta de acceso al directorio de recursos.
 
 ### `process.sandboxed`
 
 Un `Boolean`. Cuando el proceso de renderer se ejecuta en modo sandbox esta propiedad es `true`, de lo contrario es `undefined`.
 
-### `process.throwDeprecation`
+### `proceso.desechoDegradación`
 
-Un `Boolean` que controla si las advertencias de depreciación serán lanzadas como excepciones. Modificar esta propiedad a `true` lanzará errores para las depreciaciones. Esta propiedad es usada en vez de la linea de comando `--throw-deprecation`.
+Un `Booleano` que controla si las advertencias de degradación son consideradas como excepción. Ajustando este como `verdad` se producirán errores por degradación. Esta propiedad es usada en vez de la linea de comando `--throw-deprecation`.
 
-### `process.traceDeprecation`
+### `proceso.ubicarDegradación`
 
 Un `Booleano` que controla si las degradaciones son enviadas a `stderr` incluyen su proceso de ubicación. Ajustando este como `true` se enviarán ubicaciones de pila por degradaciones. Esta propiedad es en vez de la linea de comando `--trace-deprecation`.
 
@@ -89,7 +97,7 @@ Un `Booleano` que controla si las advertencias de procesos son enviadas a `stder
 
 ### `proceso.tipo`
 
-Una `Cadena` que representa el tipo de proceso, puede ser `"buscador"` (es decir, proceso principal) o `"renderer"`.
+A `String` representing the current process's type, can be `"browser"` (i.e. main process), `"renderer"`, or `"worker"` (i.e. web worker).
 
 ### `proceso.vesiones.chrome`
 
@@ -151,7 +159,7 @@ Devuelve `Objeto`:
 
 Returns an object giving memory usage statistics about the current process. Note that all statistics are reported in Kilobytes. This api should be called after app ready.
 
-Chromium does not provide `residentSet` value for macOS. This is because macOS performs in-memory compression of pages that haven't been recently used. As a result the resident set size value is not what one would expect. `private` memory is more representative of the actual pre-compression memory usage of the process on macOS.
+Chromium does not provide `residentSet` value for macOS. Esto es porque macOS realiza compresión en memoria de páginas que no han sido utilizadas recientemente. As a result the resident set size value is not what one would expect. `private` memory is more representative of the actual pre-compression memory usage of the process on macOS.
 
 ### `process.getSystemMemoryInfo()`
 

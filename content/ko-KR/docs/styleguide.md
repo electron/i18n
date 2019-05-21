@@ -123,7 +123,7 @@ API 참고문서에는, 이 규칙에 대한 예외가 있습니다.
 
 ### Instance Methods
 
-#### `ses.getCacheSize(callback)`
+#### `ses.getCacheSize()`
 
 ### Instance Properties
 
@@ -134,7 +134,6 @@ API 참고문서에는, 이 규칙에 대한 예외가 있습니다.
 ### Instance Methods
 
 #### `cookies.get(filter, callback)`
-
 ```
 
 ### 메소드

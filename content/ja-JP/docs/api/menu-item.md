@@ -13,7 +13,7 @@
     * `menuItem` MenuItem
     * `browserWindow` [BrowserWindow](browser-window.md)
     * `event` Event
-  * `role` String (任意) - メニューアイテムの動作を定義する。`click` プロパティを指定した場合は無視される。[roles](#roles) を参照。
+  * `role` String (optional) - Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteandmatchstyle`, `delete`, `selectall`, `reload`, `forcereload`, `toggledevtools`, `resetzoom`, `zoomin`, `zoomout`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideothers`, `unhide`, `quit`, `startspeaking`, `stopspeaking`, `close`, `minimize`, `zoom` or `front` - Define the action of the menu item, when specified the `click` property will be ignored. See [roles](#roles).
   * `type` String (任意) - `normal`、`separator`、`submenu`、`checkbox`、`radio` にできる。
   * `label` String (任意)
   * `sublabel` String (任意)
@@ -42,8 +42,8 @@ Roles を使用すると、メニューアイテムに定義済みの動作を�
 
 `role` プロパティは、以下の値を持つことができます。
 
-* `undo`
-* `redo`
+* `元に戻します`
+* `やり直します`
 * `cut`
 * `copy`
 * `paste`
@@ -60,11 +60,14 @@ Roles を使用すると、メニューアイテムに定義済みの動作を�
 * `resetZoom` - フォーカス中のページのズームレベルを元のサイズにリセットする。
 * `zoomIn` - フォーカス中のページを 10% 拡大する。
 * `zoomOut` - フォーカス中のページを 10% 縮小する。
+* `fileMenu` - Whole default "File" menu (Close / Quit)
 * `editMenu` - デフォルトの"編集"メニュー全体 (元に戻す、コピー、等)。
-* `windowMenu` - デフォルトの"ウインドウ"メニュー全体 (最小化、閉じる、等)。
+* `viewMenu` - Whole default "View" menu (Reload, Toggle Developer Tools, etc.)
+* `windowMenu` - Whole default "Window" menu (Minimize, Zoom, etc.).
 
 以下は *macOS* で有効な追加の role です。
 
+* `appMenu` - Whole default "App" menu (About, Services, etc.)
 * `about` - `orderFrontStandardAboutPanel` アクションに割り当てる。
 * `hide` - `hide` アクションに割り当てる。
 * `hideOthers` - `hideOtherApplications` アクションに割り当てる。

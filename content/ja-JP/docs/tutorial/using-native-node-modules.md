@@ -1,21 +1,48 @@
 # ネイティブのNodeモジュールを使用する
 
-Electronは、ネイティブのNodeモジュールをサポートしていますが、システム上にインストールされたNodeとは異なるV8バージョンを使用しているので、ネイティブモジュールをビルドする時、Electronのヘッダーの場所を手動で指定する必要があります。
+ネイティブの Node モジュールは Electron によってサポートされていますが、Electron はあなたのシステムにインストールされている Node バイナリとは異なった V8 のバージョンを使用する可能性が非常に高いので、使用するモジュールは Electron 向けに再コンパイルする必要があります。 そうしなければ、以下の類のエラーが実行しようとしたときに発生します。
+
+```sh
+Error: The module '/path/to/native/module.node'
+was compiled against a different Node.js version using
+NODE_MODULE_VERSION $XYZ. This version of Node.js requires
+NODE_MODULE_VERSION $ABC. Please try re-compiling or re-installing
+the module (for instance, using `npm rebuild` or `npm install`).
+```
 
 ## ネイティブモジュールのインストール方法
 
-ネイティブモジュールのインストールには3通りの方法があります。
+ネイティブモジュールをインストールするにはいくつかの異なる方法があります。
 
-### `npm`を使用
+### モジュールをインストールしてElectronをリビルド
+
+他の Node プロジェクト同様にモジュールをインストールしてから、[`electron-rebuild`](https://github.com/electron/electron-rebuild) パッケージで Electron 向けにモジュールを再ビルドします。 このモジュールは自動で Electron のバージョンを取得でき、ヘッダのダウンロードやアプリ向けにネイティブモジュールを再ビルドする手動の手順を処理できます。
+
+例として、以下のように `electron-rebuild` をインストールしてからコマンドラインを介してモジュールを再ビルドします。
+
+```sh
+npm install --save-dev electron-rebuild
+
+# "npm install" を実行するごとに、これを実行します
+./node_modules/.bin/electron-rebuild
+
+# Windows でトラブルがあれば、これを試してください
+.\node_modules\.bin\electron-rebuild.cmd
+```
+
+使い方や他のツールとのインテグレーションの詳しい情報は、プロジェクトの README を調べてください。
+
+### `npm` を使用
 
 いくつかの環境変数を設定することにより、モジュールを直接インストールするのに `npm` を使用できます。
 
-Electronにすべての依存モジュールをインストールする例
+例として、以下のように Electron 向けにすべての依存関係をインストールします。
 
 ```sh
 # Electronのバージョン
 export npm_config_target=1.2.3
-# アーキテクチャタイプ (ia32 or x64)
+# Electron のアーキテクチャ。サポートされているアーキテクチャについては、 https://electronjs.org/docs/tutorial/support#supported-platforms
+# を参照してください。
 export npm_config_arch=x64
 export npm_config_target_arch=x64
 # Electronのヘッダファイルをダウンロード
@@ -28,23 +55,7 @@ export npm_config_build_from_source=true
 HOME=~/.electron-gyp npm install
 ```
 
-### モジュールをインストールしてElectronをリビルド
-
-他のNodeプロジェクト同様にモジュールをインストールすることを選ぶこともでき、[`electron-rebuild`](https://github.com/paulcbetts/electron-rebuild)でElectron用にモジュールをリビルドすることも出来ます。 このモジュールは、Electronのバージョンを取得し、ヘッダのダウンロードとアプリ用にネイティブモジュールをビルドする手動の手順を処理できます。
-
-`electron-rebuild`をインストールして、モジュールをリビルドする手順の例です：
-
-```sh
-npm install --save-dev electron-rebuild
-
-# Every time you run "npm install", run this:
-./node_modules/.bin/electron-rebuild
-
-# On Windows if you have trouble, try:
-.\node_modules\.bin\electron-rebuild.cmd
-```
-
-### Electron用にマニュアルリビルド
+### Electron の手動ビルド
 
 もしあなたがネイティブモジュールの開発者でElectronでの動作を検証したいのであれば、Electron用にモジュールを手動で再構築したいことと思います。 `node-gyp`を使用することで、モジュールをElectron用にビルドできます。
 
@@ -53,48 +64,50 @@ cd /path-to-module/
 HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https://atom.io/download/electron
 ```
 
-`HOME=~/.electron-gyp`は開発用のヘッダーを探す場所によって変わります。 `--target=1.2.3`はElectronのバージョンです。 `--dist-url=...`では、ヘッダーのダウンロードのためのURLを指定します。 `--arch=x64`は、モジュールを64bitシステム用にビルドすることを意味しています。
+- `HOME=~/.electron-gyp` は開発用のヘッダーを探す場所によって変わります。
+- `--target=1.2.3` は Electron のバージョンです。
+- `--dist-url=...` はヘッダをダウンロードする場所を指定します。
+- `--arch=x64` はモジュールを 64bit システム向けにビルドします。
 
-### Manually building for a custom build of Electron
+### Electron のカスタムビルドを手動ビルド
 
-To compile native Node addons against a custom build of Electron that doesn't match a public release, instruct `npm` to use the version of Node you have bundled with your custom build.
+公開されているリリースと一致しない Electron のカスタムビルドに対してネイティブの Node モジュールをコンパイルするには、カスタムビルドにバンドルされている Node のバージョンを使用するように `npm` に指示します。
 
 ```sh
-npm rebuild --nodedir=$HOME/.../path/to/electron/vendor/node
+npm rebuild --nodedir=/path/to/electron/vendor/node
 ```
 
 ## トラブルシューティング
 
-もしネイティブモジュールがインストールされているがうまく動いていないことが分かった場合は、下記のことを確認してみてください：
+もしネイティブモジュールがインストールされていてもうまく動いていないと気づいた場合は、下記のことを確認してみてください。
 
-- The architecture of the module has to match Electron's architecture (ia32 or x64).
-- `win_delay_load_hook` is not set to `false` in the module's `binding.gyp`.
-- Electron のアップグレード語は、モジュールの再ビルドが必要になります。
-- 何かおかしいと思ったら、まず`electron-rebuild`を走らせてみてください。
+- 何かおかしいと思ったら、まず `electron-rebuild` を実行しましょう。
+- ネイティブモジュールが Electron アプリのターゲットプラットフォームおよびアーキテクチャと互換性があることを確認してください。
+- モジュールの `binding.gyp` 内の `win_delay_load_hook` が `false` にセットされていないことを確認してください。
+- Electron のアップグレード後は、モジュールの再ビルドが必要になります。
 
-### A note about `win_delay_load_hook`
+### `win_delay_load_hook` についての注釈
 
-On Windows, by default, node-gyp links native modules against `node.dll`. However, in Electron 4.x and higher, the symbols needed by native modules are exported by `electron.exe`, and there is no `node.dll` in Electron 4.x. In order to load native modules on Windows, node-gyp installs a [delay-load hook](https://msdn.microsoft.com/en-us/library/z9h1h6ty.aspx) that triggers when the native module is loaded, and redirects the `node.dll` reference to use the loading executable instead of looking for `node.dll` in the library search path (which would turn up nothing). As such, on Electron 4.x and higher, `'win_delay_load_hook': 'true'` is required to load native modules.
+Windows のデフォルトでは、`node-gyp` は `node.dll` に対してネイティブモジュールをリンクします。 しかし Electron 4.x 以降では、ネイティブモジュールで必要とされるシンボルは `electron.exe` によってエクスポートされ、`node.dll` は存在しません。 Windows にネイティブモジュールをロードするために、`node-gyp` はネイティブモジュールがロードされたときにトリガーされる [delay-load-hook](https://msdn.microsoft.com/en-us/library/z9h1h6ty.aspx) をインストールします。これはライブラリの (何も出てこない) 検索パスで `node.dll` を探す代わりに、ロード可能な実行可能ファイルを使用するように `node.dll` 参照をリダイレクトします。 そのため、Electron 4.x 以降でネイティブモジュールをロードするには `'win_delay_load_hook': 'true'` が必要です。
 
-If you get an error like `Module did not self-register`, or `The specified
-procedure could not be found`, it may mean that the module you're trying to use did not correctly include the delay-load hook. If the module is built with node-gyp, ensure that the `win_delay_load_hook` variable is set to `true` in the `binding.gyp` file, and isn't getting overridden anywhere. If the module is built with another system, you'll need to ensure that you build with a delay-load hook installed in the main `.node` file. Your `link.exe` invocation should look like this:
+`モジュールが自己登録されなかった` や `指定されたプロシージャが見つかりませんでした` のようなエラーが得られた場合は、使用しようとしているモジュールが見つからないことを意味しているかもしれません。遅延読み込みフックを正しくインクルードしてください。 モジュールが node-gyp でビルドされている場合、`binding.gyp` ファイルで `win_delay_load_hook` 変数が `true` に設定されておらず、どこかで上書きされていないことを確認します。 モジュールが別のシステムでビルドされている場合は、メインの `.node` ファイルにインストールされている遅延読み込みフックを使用してビルドする必要があります。 `link.exe` の呼び出しは以下ようにしなければなりません。
 
 ```text
  link.exe /OUT:"foo.node" "...\node.lib" delayimp.lib /DELAYLOAD:node.exe /DLL
      "my_addon.obj" "win_delay_load_hook.obj"
 ```
 
-In particular, it's important that:
+特に、次のことが重要です。
 
-- you link against `node.lib` from *Electron* and not Node. If you link against the wrong `node.lib` you will get load-time errors when you require the module in Electron.
-- you include the flag `/DELAYLOAD:node.exe`. If the `node.exe` link is not delayed, then the delay-load hook won't get a chance to fire and the node symbols won't be correctly resolved.
-- `win_delay_load_hook.obj` is linked directly into the final DLL. If the hook is set up in a dependent DLL, it won't fire at the right time.
+- Node ではなく *Electron* の `node.lib` に対してリンクします。 間違った `node.lib` に対してリンクすると、Electron のモジュールが必要になったときにロード時エラーが発生します。
+- `/DELAYLOAD:node.exe` フラグをインクルードします。 `node.exe` のリンクが遅延されていない場合、遅延読み込みフックが起動する機会がなく、Node のシンボルは正しく解決されません。
+- `win_delay_load_hook.obj` は、最後の DLL に直接リンクされます。フックが依存 DLL に設定されていると、適切なタイミングで起動されません。
 
-See [node-gyp](https://github.com/nodejs/node-gyp/blob/e2401e1395bef1d3c8acec268b42dc5fb71c4a38/src/win_delay_load_hook.cc) for an example delay-load hook if you're implementing your own.
+遅延ロードフックを独自で実装する例については [`node-gyp`](https://github.com/nodejs/node-gyp/blob/e2401e1395bef1d3c8acec268b42dc5fb71c4a38/src/win_delay_load_hook.cc) を参照してください。
 
 ## `prebuild`を使用したモジュール
 
-[`prebuild`](https://github.com/mafintosh/prebuild) は、ネイティブNodeモジュールをいろいろなNodeとElectronのバージョン用のビルド済みバイナリとともにパブリッシュする方法を提供します。
+[`prebuild`](https://github.com/prebuild/prebuild) は、ネイティブの Node モジュールを複数の Node と Electron のバージョン向けに、ビルド済みバイナリとともに公開する方法を提供します。
 
 もしモジュールがElectronで使用するためのバイナリを提供しているなら、ビルド済みのバイナリを最大限活用できるように、`--build-from-source`と `npm_config_build_from_source`環境変数が外されていることを確認してください。
 
@@ -102,6 +115,6 @@ See [node-gyp](https://github.com/nodejs/node-gyp/blob/e2401e1395bef1d3c8acec268
 
 [`node-pre-gyp`](https://github.com/mapbox/node-pre-gyp)は、ビルド済みのバイナリを含んだネイティブNodeモジュールを展開する方法を提供します。多くの人気のモジュールがこのツールを使用しています。
 
-これらのモジュールの多くはElectronの環境下でも動きますが、ElectronがNodeよりも新しいバージョンのV8を使用していてABI変更を含んでいるときには、うまく動作しないかもしれません。 そのため、通常であれば、ソースコードからネイティブNodeモジュールを常にビルドすることが勧められます。
+これらのモジュールの多くは Electron の環境下でも動きますが、Electron が Node よりも新しいバージョンの V8 を使用していたり ABI の変更が含まれたりするときは、よくないことが起こるかもしれません。 そのため通常であれば、ソースコードからネイティブ Node モジュールを常にビルドすることを推奨します。 `electron-rebuild` はこれを自動で制御します。
 
 `npm`でモジュールをインストールする際は、これが標準の動作です。 もしそうなっていない場合は、`--build-from-source`を`npm`に渡してやるか、`npm_config_build_from_source`環境変数を設定してください。

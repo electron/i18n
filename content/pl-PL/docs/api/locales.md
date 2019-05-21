@@ -1,20 +1,20 @@
 # Języki
 
-> Ustawienia regionalne wartości są zwracane przez `app.getLocale()`.
+> Wartości języków zwracane przez `app.getLocale()`.
 
-Electron korzysta z biblioteki Chromium `l10n_util`, aby pobrać ustawienia narodowe. Możliwe wartości są wymienione poniżej:
+Electron korzysta z biblioteki Chromium `l10n_util`, aby pobierać języki. Możliwe wartości są wymienione poniżej:
 
 | Kod języka | Nazwa języka                        |
 | ---------- | ----------------------------------- |
-| af         | Język afrikaans                     |
+| af         | Afrikaans                           |
 | am         | Amharic                             |
-| ar         | Arabski                             |
-| az         | Azerski                             |
-| be         | Białoruski                          |
-| bg         | Bułgarski                           |
+| ar         | Arabic                              |
+| az         | Azerbaijani                         |
+| be         | Belarusian                          |
+| bg         | Bulgarian                           |
 | bh         | Bihari                              |
 | bn         | Bengali                             |
-| br         | Bretoński                           |
+| br         | Breton                              |
 | bs         | Bosnian                             |
 | ca         | Catalan                             |
 | co         | Korsykański                         |
@@ -61,7 +61,7 @@ Electron korzysta z biblioteki Chromium `l10n_util`, aby pobrać ustawienia naro
 | hy         | Armeński                            |
 | ia         | Interlingua                         |
 | id         | Indonezyjski                        |
-| jest       | Islandzki                           |
+| is         | Islandzki                           |
 | it         | Włoski                              |
 | it-CH      | Włoski (Szwajcaria)                 |
 | it-IT      | Włoski (Włochy)                     |
@@ -93,7 +93,7 @@ Electron korzysta z biblioteki Chromium `l10n_util`, aby pobrać ustawienia naro
 | no         | Norweski                            |
 | oc         | Prowansalski                        |
 | om         | Oromo                               |
-| lub        | Język orija                         |
+| or         | Język orija                         |
 | pa         | Pendżabski                          |
 | pl         | Polski                              |
 | ps         | Pashto                              |

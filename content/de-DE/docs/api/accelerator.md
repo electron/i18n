@@ -50,6 +50,8 @@ Benutze `Alt` statt `Option`. `Option` existiert nur unter macOS, wohingegen `Al
 * `Plus`
 * `Space (Leerzeichen)`
 * `Tab`
+* `Capslock`
+* `Numlock`
 * `Backspace`
 * `Delete`
 * `Insert`
@@ -61,3 +63,10 @@ Benutze `Alt` statt `Option`. `Option` existiert nur unter macOS, wohingegen `Al
 * `VolumeUp`, `VolumeDown` und `VolumeMute`
 * `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` und `MediaPlayPause`
 * `PrintScreen`
+* NumPad Keys 
+  * `num0` - `num9`
+  * `numdec` - decimal key
+  * `numadd` - numpad `+` key
+  * `numsub` - numpad `-` key
+  * `nummult` - numpad `*` key
+  * `numdiv` - numpad `÷` key

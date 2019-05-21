@@ -1,8 +1,8 @@
-# CertificatePrincipal Object
+# CertificatePrincipal Object เชื่อมต่อ หนังสือรับรองหลัก
 
-* `commonName` String - Common Name.
-* `organizations` String[] - Organization names.
-* `organizationUnits` String[] - Organization Unit names.
-* `locality` String - Locality.
-* `state` String - State or province.
-* `country` String - Country or region.
+* `commonName` String - ชื่อ.
+* `organizations` String[] - ชื่อองค์กร.
+* `organizationUnits` String[] - ชื่อหน่วยขององค์กร.
+* `locality` String - ท้องถิ่น.
+* `state` String - รัฐหรือจังหวัด.
+* `country` String - ประเทศหรือภูมิภาค.
