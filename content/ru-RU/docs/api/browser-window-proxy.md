@@ -1,8 +1,8 @@
-## Class: BrowserWindowProxy
+## Класс: BrowserWindowProxy
 
-> Манипулирование дочерним окном браузера
+> Манипулируйте дочерним окном браузера
 
-Процесс: [Renderer](../glossary.md#renderer-process)
+Процесс: [Графический](../glossary.md#renderer-process)
 
 Объект `BrowserWindowProxy` возвращается из `window.open` и предоставляет ограниченное управление дочерним окном.
 
