@@ -46,7 +46,7 @@ export npm_config_target=1.2.3
 export npm_config_arch=x64 export
 npm_config_target_arch=x64
 # इलेक्ट्रॉन के लिए हेडर्स डाउनलोड करें |
-export npm_config_disturl=https://atom.io/download/electron
+export npm_config_disturl=https://electronjs.org/headers
 # नोड-प्री-जीवायपी को बतायें कि हम इलेक्ट्रॉन के लिए निर्माण कर रहे हैं |
 export npm_config_runtime=electron
 # नोड-प्री-जीवायपी को स्त्रोत कोड से मोड्यूल बनाने को कहें |
@@ -62,7 +62,7 @@ HOME=~/.electron-gyp npm install
 ```sh
 cd /path-to-module/
 HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3
---arch=x64 --dist-url=https://atom.io/download/electron
+--arch=x64 --dist-url=https://electronjs.org/headers
 ```
 
 - `HOME=~/.electron-gyp` changes where to find development headers.
