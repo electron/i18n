@@ -45,6 +45,7 @@ action "Publish via semantic-release" {
   needs = ["Release master branch only"]
   args = "run semantic-release"
   secrets = [
+    "GH_TOKEN",
     "NPM_TOKEN",
   ]
 }
