@@ -1,9 +1,9 @@
 workflow "Update source content" {
   on = "schedule(10 * * * *)"
-  resolves = ["Update source content"]
+  resolves = ["Fetch latest content"]
 }
 
-action "Update source content" {
+action "Fetch latest source content" {
   uses = "actions/npm@master"
   args = "run update-source-content"
   env = {
@@ -17,7 +17,7 @@ action "Update source content" {
 
 workflow "Test and publish" {
   on = "push"
-  resolves = ["semantic release"]
+  resolves = ["Publish via semantic-release"]
 }
 
 action "Install dependencies" {
@@ -42,7 +42,7 @@ action "Release master branch only" {
 
 action "Publish via semantic-release" {
   uses = "actions/npm@master"
-  needs = ["Release master branch"]
+  needs = ["Release master branch only"]
   args = "run semantic-release"
   secrets = [
     "NPM_TOKEN",
