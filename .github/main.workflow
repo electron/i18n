@@ -46,7 +46,7 @@ action "master branch only" {
 
 action "semantic release" {
   uses = "actions/npm@master"
-  needs = ["master branch only", "npm ci", "npm test"]
+  needs = ["master branch only", "npm test"]
   args = "run semantic-release"
   secrets = [
     "NPM_TOKEN",
