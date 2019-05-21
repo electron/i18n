@@ -1,6 +1,6 @@
 workflow "Update source content" {
   on = "schedule(10 * * * *)"
-  resolves = ["Fetch latest content"]
+  resolves = ["Fetch latest source content"]
 }
 
 action "Fetch latest source content" {
