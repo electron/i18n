@@ -46,7 +46,7 @@ export npm_config_target=1.2.3
 export npm_config_arch=x64
 export npm_config_target_arch=x64
 # 下載 Electron 標頭檔。
-export npm_config_disturl=https://atom.io/download/electron
+export npm_config_disturl=https://electronjs.org/headers
 # 告訴 node-pre-gyp 我們正要跑 Electron 建置。
 export npm_config_runtime=electron
 # 告訴 node-pre-gyp 由原始碼開始建置模組。
@@ -61,7 +61,7 @@ If you are a developer developing a native module and want to test it against El
 
 ```sh
 cd /path-to-module/
-HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https://atom.io/download/electron
+HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https://electronjs.org/headers
 ```
 
 - `HOME=~/.electron-gyp` changes where to find development headers.

@@ -46,7 +46,7 @@ export npm_config_target=1.2.3
 ekspor npm_config_arch=x64
 ekspor npm_config_target_arch=x64
 # Download header untuk Electron.
-ekspor npm_config_disturl=https://atom.io/download/electron
+ekspor npm_config_disturl=https://electronjs.org/headers
 # Beritahu node-pre-gyp yang sedang kita bangun untuk Electron.
 ekspor npm_config_runtime = elektron
 # Beritahu node-pre-gyp untuk membuat modul dari kode sumber.
@@ -61,7 +61,7 @@ Jika Anda seorang pengembang yang mengembangkan modul asli dan ingin mengujinya 
 
 ```sh
 cd /path-to-module/
-HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https://atom.io/download/electron
+HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https://electronjs.org/headers
 ```
 
 - `HOME=~/.electron-gyp` changes where to find development headers.

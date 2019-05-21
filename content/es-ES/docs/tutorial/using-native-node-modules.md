@@ -44,7 +44,7 @@ export npm_config_target=1.2.3
 exportar npm_config_arch=x64
 exportar npm_config_target_arch=x64
 # Descargar encabezados para Electron.
-exportar npm_config_disturl=https://atom.io/download/electron
+exportar npm_config_disturl=https://electronjs.org/headers
 # Informe a node-pre-gyp que estamos construyendo para Electron.
 exportar npm_config_runtime=electron
 # Informe a node-pre-gyp que construya el módulo desde el código fuente.
@@ -59,7 +59,7 @@ Si usted es un desarrollador que está desarrollando un módulo nativo y desea p
 
 ```sh
 cd /path-to-module/
-HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https://atom.io/download/electron
+HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https://electronjs.org/headers
 ```
 
 - `HOME=~/.electron-gyp` changes where to find development headers.

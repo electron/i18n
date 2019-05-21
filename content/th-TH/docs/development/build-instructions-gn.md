@@ -206,7 +206,7 @@ HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Lanmanworkstation\Parameter
 
 to 0. More information: https://stackoverflow.com/a/9935126
 
-## Troubleshooting
+## วิธีแก้ปัญหาเบื้องต้น
 
 ### Stale locks in the git cache
 

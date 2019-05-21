@@ -46,7 +46,7 @@ export npm_config_target=1.2.3
 export npm_config_arch=x64
 export npm_config_target_arch=x64
 # Electron의 헤더 다운 받기
-export npm_config_disturl=https://atom.io/download/electron
+export npm_config_disturl=https://electronjs.org/headers
 # node-pre-gyp에게 Electron을 빌드하고 있다는 것을 알려줍니다.
 export npm_config_runtime=electron
 # node-pre-gyp에 소스 코드로부터 모듈을 빌드하라고 알려줍니다.
@@ -61,7 +61,7 @@ HOME=~/.electron-gyp npm install
 
 ```sh
 cd /path-to-module/
-HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https://atom.io/download/electron
+HOME=~/.electron-gyp node-gyp rebuild --target=1.2.3 --arch=x64 --dist-url=https://electronjs.org/headers
 ```
 
 - `HOME=~/.electron-gyp` changes where to find development headers.

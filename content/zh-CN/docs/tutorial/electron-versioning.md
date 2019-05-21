@@ -80,7 +80,7 @@ GitHub不支持旧线路，但是其他分组可以自行获取所有权和返�
     2. The risk to meeting our stability timeline must be low.
 2. If allowed changes need to be made once a release is beta, they are applied and the prerelease tag is incremented, e.g. `2.0.0-beta.2`.
 3. If a particular beta release is *generally regarded* as stable, it will be re-released as a stable build, changing only the version information. e.g. `2.0.0`. After the first stable, all changes must be backwards-compatible bug or security fixes.
-4. If future bug fixes or security patches need to be made once a release is stable, they are applied and the *patch* version is incremented e.g. `2.0.1`.
+4. 如果未来错误修复或安全补丁一旦发布稳定，它们将被应用，并且 *补丁* 版本被增量 ，例如 `2.0.1`。
 
 特别地，上述步骤意味着：
 
