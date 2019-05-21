@@ -50,12 +50,12 @@ action "Publish via semantic-release" {
   ]
 }
 
-workflow "Auto-merge Crowdin PRs" {
+workflow "Auto-merge Crowdin PR" {
   on = "schedule(0 09 * * 1)"
   resolves = ["Automerge PR"]
 }
 
-action "Fetch latest source content" {
+action "Automerge PR" {
   uses = "actions/npm@master"
   args = "run automerge"
   env = {
