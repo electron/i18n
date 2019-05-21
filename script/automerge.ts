@@ -11,8 +11,16 @@ const github = new Octokit({
   auth: process.env.GITHUB_TOKEN
 })
 
+const getPRData = async (prNumber: number) => {
+  return github.pulls.get({
+    owner: OWNER,
+    repo: REPO,
+    pull_number: prNumber
+  })
+}
+
 // TODO: 📝
-const getPR = async () => {
+const getPRNumber = async () => {
   const prs = await github.pulls.list({
     owner: OWNER,
     repo: REPO
@@ -37,11 +45,7 @@ const updateTitle = async (pr: number) => {
 // TODO: 📝
 // TODO: handle `false` and `null`
 const ableToMerge = async (pr: number) => {
-  const pullRequest = await github.pulls.get({
-    owner: OWNER,
-    repo: REPO,
-    pull_number: pr,
-  })
+  const pullRequest = await getPRData(pr)
   const mergeable = pullRequest.data.mergeable
   console.log('MERGABLE: ', mergeable)
   return mergeable
@@ -67,8 +71,7 @@ const mergeAndDeleteBranch = async (pr: number) => {
 }
 
 async function autoMerger() {
-  const prNumber = await getPR()
-  console.log(prNumber)
+  const prNumber = await getPRNumber()
   await updateTitle(prNumber)
   await ableToMerge(prNumber)
   await mergeAndDeleteBranch(prNumber)
