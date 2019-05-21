@@ -12,10 +12,10 @@ const { execSync } = require('child_process')
 const github = require('@octokit/rest')()
 const englishBasepath = path.join(__dirname, '..', 'content', 'en-US')
 
-if (process.env.GH_TOKEN || process.env.GITHUB_TOKEN) {
+if (process.env.GH_TOKEN) {
   github.authenticate({
     type: 'token',
-    token: process.env.GH_TOKEN || process.env.GITHUB_TOKEN
+    token: process.env.GH_TOKEN
   })
 }
 
