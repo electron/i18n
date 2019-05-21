@@ -1,16 +1,16 @@
 #!/usr/bin/env bash
 
-# This script is run in a Heroku scheduled task.
+# This script is run in a scheduled GitHub Action.
 # It fetches latest docs from electron/electron and electron/electronjs.org
 # If there are changes, they are commited and pushed to master
 # semantic-release will pick up the change and publish to GitHub and npm.
 
-set -x            # print commands before execution
+set -v            # print commands before execution, but don't expand env vars in output
 set -o errexit    # always exit on error
 set -o pipefail   # honor exit codes when piping
 set -o nounset    # fail on unset variables
 
-git clone "https://github.com/electron/i18n" module
+git clone "https://electron-bot:$GH_TOKEN@github.com/electron/i18n" module
 cd module
 npm ci
 npm run collect
