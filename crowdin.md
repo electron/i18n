@@ -17,7 +17,7 @@ GitHub's documentation team reviewed numerous localization platforms (XTM, Smart
 
 ## Features
 
-In addition to satifying our project's unique requirements, Crowdin has some compelling features:
+In addition to satisfying our project's unique requirements, Crowdin has some compelling features:
 
 - **GitHub Integration.** Crowdin is the only provider we evaluated that can integrate with GitHub and automatically sync content in and out of repositories.
 - **Machine Translations.** Crowdin supports machine translation using APIs from Microsoft and Google. This may allow us to save human time and energy by automating the initial translation of doc sets.

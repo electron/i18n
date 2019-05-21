@@ -2,8 +2,9 @@
 
 # This script is run in a scheduled GitHub Action.
 # It fetches latest docs from electron/electron and electron/electronjs.org
-# If there are changes, they are commited and pushed to master
-# semantic-release will pick up the change and publish to GitHub and npm.
+# If there are changes, they are commited and pushed to master.
+# semantic-release will pick up the change and publish to GitHub and npm
+# via another GitHub Action.
 
 set -v            # print commands before execution, but don't expand env vars in output
 set -o errexit    # always exit on error

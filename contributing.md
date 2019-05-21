@@ -146,7 +146,7 @@ To get a sense of how content is transformed, see [crowdin.yml](crowdin.yml)
 
 ### Limited Proofreader Role
 
-There are two options to configure the proofreader role on crowdin.
+There are two options to configure the proofreader role on Crowdin.
 (You can change the role of translators in Translators tab on the project setting)
 
 ![setup_proofreader](https://user-images.githubusercontent.com/8563047/38530907-43aad2b6-3ca8-11e8-8827-a3be4229d0dd.gif)
