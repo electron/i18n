@@ -93,7 +93,7 @@ To prevent the binary from being downloaded when you install all npm dependencie
 ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
 ```
 
-## Troubleshooting
+## วิธีแก้ปัญหาเบื้องต้น
 
 เมื่อเรียกคำสั่ง `npm install electron` ผู้ใช้งานบางคนอาจจะพบปัญหาในการติดตั้งเป็นบางครั้ง
 
