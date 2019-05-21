@@ -31,4 +31,4 @@ git config user.email electron@github.com
 git config user.name electron-bot
 git add .
 git commit -am "feat: update source content"
-git push origin master --follow-tags
+git pull --rebase && git push origin master --follow-tags
