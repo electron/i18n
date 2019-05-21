@@ -13,17 +13,15 @@ Electron에 확장 기능을 로드하려면, Chrome 브라우저에서 다운�
 1. Chrome 브라우저를 설치합니다.
 2. `chrome://extensions`로 이동한 후 해시된 `fmkadmapgofadopljbjfkapdkoienihi` 같이 생긴 확장 기능의 ID를 찾습니다.
 3. Chrome에서 사용하는 확장 기능을 저장해둔 파일 시스템 경로를 찾습니다: 
-    * Windows에선 `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions<0>;</li>
-<li>Linux에선:
+    * windows에선 `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
+    * Linux에선: 
+        * `~/.config/google-chrome/Default/Extensions/`
+        * `~/.config/google-chrome-beta/Default/Extensions/`
+        * `~/.config/google-chrome-canary/Default/Extensions/`
+        * `~/.config/chromium/Default/Extensions/`
+    * macOS에선 `~/Library/Application Support/Google/Chrome/Default/Extensions.`
 
-<ul>
-<li><code>~/.config/google-chrome/Default/Extensions/`
-    * `~/.config/google-chrome-beta/Default/Extensions/`
-    * `~/.config/google-chrome-canary/Default/Extensions/`
-    * `~/.config/chromium/Default/Extensions/`
-4. macOS에선 `~/Library/Application Support/Google/Chrome/Default/Extensions.`</ul></li> 
-
-5. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like:
+4. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like:
     
     ```javascript
     const path = require('path')
