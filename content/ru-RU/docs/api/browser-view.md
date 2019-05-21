@@ -1,4 +1,4 @@
-## Class: BrowserView
+## Класс: BrowserView
 
 > Создание и Управление видами.
 
