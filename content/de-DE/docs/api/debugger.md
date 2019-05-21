@@ -4,7 +4,7 @@
 
 Prozess: [Haupt](../glossary.md#main-process)
 
-Chrome Developer Tools has a [special binding](https://developer.chrome.com/devtools/docs/debugger-protocol) available at JavaScript runtime that allows interacting with pages and instrumenting them.
+Chrome Developer Tools has a [special binding](https://chromedevtools.github.io/devtools-protocol/) available at JavaScript runtime that allows interacting with pages and instrumenting them.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -31,7 +31,7 @@ win.webContents.debugger.on('message', (event, method, params) => {
 win.webContents.debugger.sendCommand('Network.enable')
 ```
 
-### Beispiel Methoden
+### Instanz Methoden
 
 #### `debugger.attach([protocolVersion])`
 
@@ -49,7 +49,7 @@ Detaches the debugger from the `webContents`.
 
 #### `debugger.sendCommand(method[, commandParams, callback])`
 
-* `method` String - Method name, should be one of the methods defined by the remote debugging protocol.
+* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
 * `commandParams` Object (optional) - JSON object with request parameters.
 * `callback` Function (optional) - Response 
   * `error` Object - Error message indicating the failure of the command.
@@ -57,12 +57,23 @@ Detaches the debugger from the `webContents`.
 
 Send given command to the debugging target.
 
+**[Deprecated Soon](promisification.md)**
+
+#### `debugger.sendCommand(method[, commandParams])`
+
+* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
+* `commandParams` Object (optional) - JSON object with request parameters.
+
+Returns `Promise<any>` - A promise that resolves with the response defined by the 'returns' attribute of the command description in the remote debugging protocol or is rejected indicating the failure of the command.
+
+Send given command to the debugging target.
+
 ### Instanz Events
 
 #### Event: 'detach'
 
-* ` Ereignis </ 0>  Ereignis</li>
-<li><code>reason` String - Reason for detaching debugger.
+* `event` Event
+* `reason` String - Reason for detaching debugger.
 
 Emitted when debugging session is terminated. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.
 

@@ -120,11 +120,16 @@ Un nouveau `BrowserWindow` sera créé par défaut pour l'`url`.
 Calling `event.preventDefault()` will prevent Electron from automatically creating a new [`BrowserWindow`](browser-window.md). If you call `event.preventDefault()` and manually create a new [`BrowserWindow`](browser-window.md) then you must set `event.newGuest` to reference the new [`BrowserWindow`](browser-window.md) instance, failing to do so may result in unexpected behavior. Par exemple :
 
 ```javascript
-myBrowserWindow.webContents.on('new-window', (event, url) => {
+myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition, options) => {
   event.preventDefault()
-  const win = new BrowserWindow({ show: false })
+  const win = new BrowserWindow({
+    webContents: options.webContents, // use existing webContents if provided
+    show: false
+  })
   win.once('ready-to-show', () => win.show())
-  win.loadURL(url)
+  if (!options.webContents) {
+    win.loadURL(url) // existing webContents will be navigated automatically
+  }
   event.newGuest = win
 })
 ```
@@ -580,7 +585,45 @@ Retourne :
 
 Emis quand la fenêtre associée enregistre un message dans la console. Ne sera pas émis pour les fenêtres avec l'*offscreen rendering* activé.
 
-#### Évènement : 'remote-require'
+#### Event: 'preload-error'
+
+Retourne :
+
+* `event` Événement
+* `preloadPath` String
+* `error` Error
+
+Emitted when the preload script `preloadPath` throws an unhandled exception `error`.
+
+#### Événement : 'ipc-message'
+
+Retourne :
+
+* `event` Événement
+* `channel` String
+* `...args` any[]
+
+Emitted when the renderer process sends an asynchronous message via `ipcRenderer.send()`.
+
+#### Event: 'ipc-message-sync'
+
+Retourne :
+
+* `event` Événement
+* `channel` String
+* `...args` any[]
+
+Emitted when the renderer process sends a synchronous message via `ipcRenderer.sendSync()`.
+
+#### Event: 'desktop-capturer-get-sources'
+
+Retourne :
+
+* `event` Événement
+
+Emitted when `desktopCapturer.getSources()` is called in the renderer process. Calling `event.preventDefault()` will make it return empty sources.
+
+#### Événement : 'remote-require'
 
 Retourne :
 
@@ -644,6 +687,8 @@ Emitted when `<webview>.getWebContents()` is called in the renderer process. App
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
   * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
 
+Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
+
 Loads the `url` in the window. The `url` must contain the protocol prefix, e.g. the `http://` or `file://`. If the load should bypass http cache then use the `pragma` header to achieve it.
 
 ```javascript
@@ -659,6 +704,8 @@ webContents.loadURL('https://github.com', options)
   * `query` Object (optional) - Passed to `url.format()`.
   * `search` String (optional) - Passed to `url.format()`.
   * `hash` String (optional) - Passed to `url.format()`.
+
+Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
 Loads the given file in the window, `filePath` should be a path to an HTML file relative to the root of your application. For instance an app structure like this:
 
@@ -841,12 +888,9 @@ Returns `Boolean` - Whether audio is currently playing.
 
 Change le facteur de zoom par le facteur spécifié. Le facteur de zoom est le pourcentage divisé par 100, donc 300% = 3.0.
 
-#### `contents.getZoomFactor(callback)`
+#### `contents.getZoomFactor()`
 
-* `callback` Function 
-  * `zoomFactor` Number
-
-Sends a request to get current zoom factor, the `callback` will be called with `callback(zoomFactor)`.
+Returns `Number` - the current zoom factor.
 
 #### `contents.setZoomLevel(level)`
 
@@ -854,12 +898,9 @@ Sends a request to get current zoom factor, the `callback` will be called with `
 
 Modifie le niveau de zoom jusqu'au niveau spécifié. La taille originale est de 0 et chaque incrément au-dessus ou en dessous représente un zoom de 20% supérieur ou inférieure jusqu'au limites de 300% et 50% de la taille originale, respectivement. The formula for this is `scale := 1.2 ^ level`.
 
-#### `contents.getZoomLevel(callback)`
+#### `contents.getZoomLevel()`
 
-* `callback` Function 
-  * `zoomLevel` Number
-
-Sends a request to get current zoom level, the `callback` will be called with `callback(zoomLevel)`.
+Returns `Number` - the current zoom level.
 
 #### `contents.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
@@ -949,8 +990,8 @@ Insère le `text` à l'élément ciblé.
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
-  * `wordStart` Boolean (optional) (Deprecated) - Whether to look only at the start of words. defaults to `false`.
-  * `medialCapitalAsWordStart` Boolean (optional) (Deprecated) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
+  * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
+  * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Accepts several other intra-word matches, defaults to `false`.
 
 Returns `Integer` - The request id used for the request.
 
@@ -977,11 +1018,21 @@ console.log(requestId)
 
 #### `contents.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (optionnel) - La zone de la page dont on doit réaliser la capture.
+* `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
 Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
+
+**[Deprecated Soon](promisification.md)**
+
+#### `contents.capturePage([rect])`
+
+* `rect` [Rectangle](structures/rectangle.md) (optionnel) - La zone de la page dont on doit réaliser la capture.
+
+* Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+
+Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
 
 #### `contents.hasServiceWorker(callback)`
 
@@ -1151,6 +1202,7 @@ app.once('ready', () => {
 
 * `options` Object (facultatif) 
   * `mode` String - Opens the devtools with specified dock state, can be `right`, `bottom`, `undocked`, `detach`. Defaults to last used dock state. In `undocked` mode it's possible to dock back. In `detach` mode it's not.
+  * `activate` Boolean (optional) - Whether to bring the opened devtools window to the foreground. The default is `true`.
 
 Ouvre les devtools.
 
@@ -1219,6 +1271,32 @@ app.on('ready', () => {
   </script>
 </body>
 </html>
+```
+
+#### `contents.sendToFrame(frameId, channel[, arg1][, arg2][, ...])`
+
+* `frameId` Integer
+* `channel` String
+* `...args` any[]
+
+Send an asynchronous message to a specific frame in a renderer process via `channel`. Arguments will be serialized as JSON internally and as such no functions or prototype chains will be included.
+
+The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
+
+If you want to get the `frameId` of a given renderer context you should use the `webFrame.routingId` value. E.g.
+
+```js
+// In a renderer process
+console.log('My frameId is:', require('electron').webFrame.routingId)
+```
+
+You can also read `frameId` from all incoming IPC messages in the main process.
+
+```js
+// In the main process
+ipcMain.on('ping', (event) => {
+  console.info('Message came from frameId:', event.frameId)
+})
 ```
 
 #### `contents.enableDeviceEmulation(parameters)`

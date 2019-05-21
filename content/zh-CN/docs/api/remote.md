@@ -15,7 +15,7 @@ let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
-**Note:** For the reverse (access the renderer process from the main process), you can use [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback).
+** 注意: **反过来（如果需要从主进程访问渲染进程），可以使用 [ webContents. executeJavascript ](web-contents.md#contentsexecutejavascriptcode-usergesture-callback)。
 
 **Note:** The remote module can be disabled for security reasons in the following contexts:
 
@@ -34,7 +34,7 @@ win.loadURL('https://github.com')
 
 ## 远程对象的生命周期
 
-Electron 确保只要渲染进程中的远程对象存在（换句话说，没有被垃圾收集），主进程中的相应对象将不会被释放。 当远程对象被垃圾回收后，主进程中的相应对象将被解除引用。
+Electron 确保只要渲染进程中的远程对象一直存在（换句话说，没有被回收），主进程中的相应对象就不会被释放。 当远程对象被垃圾回收后，主进程中的相应对象将被解除引用。
 
 如果远程对象在渲染进程中泄露（例如存储在映射中，但从未释放），则主进程中的相应对象也将被泄漏，所以您应该非常小心，不要泄漏远程对象。
 

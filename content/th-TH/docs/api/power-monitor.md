@@ -19,7 +19,7 @@ app.on('ready', () => {
 })
 ```
 
-## Events
+## อีเวนต์
 
 The `powerMonitor` module emits the following events:
 
@@ -51,7 +51,7 @@ Emitted when the system is about to lock the screen.
 
 Emitted as soon as the systems screen is unlocked.
 
-## Methods
+## วิธีการ
 
 The `powerMonitor` module has the following methods:
 

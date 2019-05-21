@@ -1,7 +1,5 @@
 # Mga Isyu sa Electron
 
-# Mga Isyu
-
 * [Paano Makapag-ambag sa mga Isyu](#paano-makapag-ambag-sa-mga-isyu)
 * [Paghingi ng Pangkalahatang Tulong](#paghihingi-ng-pangkalahatang-tulong)
 * [Pagsusumite ng isang Ulat ukol sa Bug](#pagsusumite-ng-isang-ulat-ukol-sa-bug)

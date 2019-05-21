@@ -12,7 +12,7 @@ Ito rin ay posibleng maipada ang mga mensaheng mula sa pangunahing proseso papun
 
 * Kapag nagpadala ng mensahe, ang event name ay ang `channel`.
 * Upang tumugon sa mensahe ng synchronous, maaari mong i-set ang `event.returnValue`.
-* Magpadala ng isang nmensahe ng asynchronous pabalik sa nag padala, maaari mong gamitin ang `event.sender.send(...)`.
+* To send an asynchronous message back to the sender, you can use `event.reply(...)`. This helper method will automatically handle messages coming from frames that aren't the main frame (e.g. iframes) whereas `event.sender.send(...)` will always send to the main frame.
 
 Isang halimbawa ng pagpapadala at paghawak ng mensahe sa pagitan ng render at ng pangunahing proseso:
 
@@ -21,7 +21,7 @@ Isang halimbawa ng pagpapadala at paghawak ng mensahe sa pagitan ng render at ng
 const { ipcMain } = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
   console.log(arg) // prints "ping"
-  event.sender.send('asynchronous-reply', 'pong')
+  event.reply('asynchronous-reply', 'pong')
 })
 
 ipcMain.on('synchronous-message', (event, arg) => {
@@ -76,6 +76,10 @@ Tinatanggal ang mga tagapakinig ng tinukoy na `channel`.
 
 Ang bagay `event` na pumasa sa `callback` ay may mga sumusunod na pamamaraan:
 
+### `event.frameId`
+
+An `Integer` representing the ID of the renderer frame that sent this message.
+
 ### `event.returnValue`
 
 Itakda ang mga ito sa halaga na ibabalik sa isang mensahe ng synchronous.
@@ -83,3 +87,7 @@ Itakda ang mga ito sa halaga na ibabalik sa isang mensahe ng synchronous.
 ### `event.sender`
 
 Nagbabalik ang `webContents` na nagpadala ng mensahe, maaari mong tawagan ang `event.sender.send` upang tumugon sa mensahe ng asynchronous, tingnan ang [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) para sa karagdagang impormasyon.
+
+### `event.reply`
+
+A function that will send an IPC message to the renderer frane that sent the original message that you are currently handling. You should use this method to "reply" to the sent message in order to guaruntee the reply will go to the correct process and frame.

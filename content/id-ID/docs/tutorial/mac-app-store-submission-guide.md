@@ -43,7 +43,18 @@ Kemudian, Anda perlu menyiapkan tiga file hak.
 `parent.plist`:
 
 ```xml
-<? versi xml = "1.0" pengkodean = "UTF-8"? ><! DOCTYPE plist umum "-//Apple//DTD PLIST 1.0 / / EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd" > <plist version="1.0"><dict><key>com.apple.security.app-sandbox</key> <true/> <key>com.apple.security.application-kelompok</key> <string>TEAM_ID.your.bundle.id</string></dict></plist>
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <key>com.apple.security.app-sandbox</key>
+    <true/>
+    <key>com.apple.security.application-groups</key>
+    <array>
+      <string>TEAM_ID.your.bundle.id</string>
+    </array>
+  </dict>
+</plist>
 ```
 
 `loginhelper.plist`:
@@ -163,7 +174,7 @@ Lihat [Mengaktifkan dokumentasi Akses Berkas yang Dipilih Pengguna](https://deve
 
 ## Algoritma Kriptografi yang Digunakan oleh Elektron
 
-Tergantung pada negara dan wilayah yang Anda berada, Mac App Store mungkin memerlukan mendokumentasikan algoritma kriptografi yang digunakan dalam aplikasi Anda, dan bahkan meminta Anda untuk mengirimkan salinan persetujuan US enkripsi pendaftaran (ERN).
+Depending on the countries in which you are releasing your app, you may be required to provide information on the cryptographic algorithms used in your software. See the [encryption export compliance docs](https://help.apple.com/app-store-connect/#/devc3f64248f) for more information.
 
 Elektron menggunakan algoritma kriptografi berikut:
 
@@ -190,5 +201,3 @@ Elektron menggunakan algoritma kriptografi berikut:
 * RC4 - [RFC 4345](https://tools.ietf.org/html/rfc4345)
 * RC5 - http://people.csail.mit.edu/rivest/Rivest-rc5rev.pdf
 * RIPEMD - [ISO/IEC 10118-3](https://webstore.ansi.org/RecordDetail.aspx?sku=ISO%2FIEC%2010118-3:2004)
-
-Cara mendapatkan persetujuan ERN, Anda bisa merujuk artikelnya: [Bagaimana memasukkan aplikasi ke Apple App Store secara legal saat menggunakan enkripsi (atau cara mendapatkan ERN)](https://carouselapps.com/2015/12/15/legally-submit-app-apples-app-store-uses-encryption-obtain-ern/).

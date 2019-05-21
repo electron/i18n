@@ -137,3 +137,24 @@ npm uninstall -g electron
 ```
 
 Cependant si vous utilisez le module intégré et que vous avez toujours cette erreur, il est très probable que vous utilisiez le module dans le mauvais processus. Par exemple `electron.app` peut seulement être utilisé dans le processus principal, tandis que `electron.webFrame` n'est disponible que dans les processus de rendu.
+
+## La police semble floue, que fait-il et que puis-je faire?
+
+Si [anti-aliasing sous-pixel](http://alienryderflex.com/sub_pixel/) est désactivé, alors les polices sur les écrans LCD peuvent être floues. Exemple :
+
+![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
+
+Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (See [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) for more info).
+
+To achieve this goal, set the background in the constructor for [BrowserWindow](api/browser-window.md):
+
+```javascript
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({
+  backgroundColor: '#fff'
+})
+```
+
+The effect is visible only on (some?) LCD screens. Even if you dont see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
+
+Notice that just setting the background in the CSS does not have the desired effect.

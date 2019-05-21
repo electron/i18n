@@ -38,17 +38,18 @@ The following methods are available on instances of `WebRequest`:
 
 * `filter` Object (опционально) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
+* `listener` Function | null 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
+    * `referrer` String
     * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)
-  * `callback` Function 
-    * `response` Object 
+  * `Ответный вызов сервера` Procedures 
+    * `ответ88` Objectответ87 
       * `cancel` Boolean (optional)
       * `redirectURL` String (optional) - The original request is prevented from being sent or completed and is instead redirected to the given URL.
 
@@ -62,17 +63,18 @@ The `callback` has to be called with an `response` object.
 
 * `filter` Object (опционально) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
+* `listener` Function | null 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
+    * `referrer` String
     * `timestamp` Double
     * `requestHeaders` Object
   * `callback` Function 
-    * `response` Object 
+    * `ответ88` Object 
       * `cancel` Boolean (optional)
       * `requestHeaders` Object (optional) - When provided, request will be made with these headers.
 
@@ -84,13 +86,14 @@ The `callback` has to be called with an `response` object.
 
 * `filter` Object (необязательно) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
+* `listener` Function | null 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
+    * `referrer` String
     * `timestamp` Double
     * `requestHeaders` Object
 
@@ -100,19 +103,20 @@ The `listener` will be called with `listener(details)` just before a request is 
 
 * `filter` Object (опционально) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
+* `listener` Function | null 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
+    * `referrer` String
     * `timestamp` Double
     * `statusLine` String
     * `statusCode` Integer
     * `responseHeaders` Object
   * `callback` Function 
-    * `response` Object 
+    * `ответ88` Object 
       * `cancel` Boolean (optional)
       * `responseHeaders` Object (optional) - When provided, the server is assumed to have responded with these headers.
       * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
@@ -125,13 +129,14 @@ The `callback` has to be called with an `response` object.
 
 * `filter` Object (опционально) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
+* `listener` Function | null 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
+    * `referrer` String
     * `timestamp` Double
     * `responseHeaders` Object
     * `fromCache` Boolean - Indicates whether the response was fetched from disk cache.
@@ -144,13 +149,14 @@ The `listener` will be called with `listener(details)` when first byte of the re
 
 * `filter` Object (опционально) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
+* `listener` Function | null 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
+    * `referrer` String
     * `timestamp` Double
     * `redirectURL` String
     * `statusCode` Integer
@@ -164,7 +170,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
 
 * `filter` Object (опционально) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
+* `listener` Function | null 
   * `details` Object 
     * `id` Integer
     * `url` String
@@ -184,13 +190,14 @@ The `listener` will be called with `listener(details)` when a request is complet
 
 * `filter` Object (опционально) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
+* `listener` Function | null 
   * `details` Object 
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
+    * `referrer` String
     * `timestamp` Double
     * `fromCache` Boolean
     * `error` String - The error description.

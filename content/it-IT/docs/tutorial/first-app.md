@@ -82,7 +82,13 @@ const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
   // Create la finestra del browser
-  let win = new BrowserWindow({ width: 800, height: 600 })
+  let win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true
+    }
+  })
 
   // and load the index.html of the app.
   win.loadFile('index.html')
@@ -102,9 +108,15 @@ let win
 
 function createWindow () {
   // Creazione della finestra del browser.
-  win = new BrowserWindow({ width: 800, height: 600 })
+  win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true
+    }
+  })
 
-  // e viene caricato il file index.html della nostra app.
+  // and load the index.html of the app.
   win.loadFile('index.html')
 
   // Apre il Pannello degli Strumenti di Sviluppo.

@@ -47,12 +47,9 @@ export SCCACHE_TWO_TIER=true
 
 ```sh
 $ mkdir electron-gn && cd electron-gn
-$ gclient config \
-    --name "src/electron" \
-    --unmanaged \
-    https://github.com/electron/electron
+$ gclient config --name "src/electron" --unmanaged https://github.com/electron/electron
 $ gclient sync --with_branch_heads --with_tags
-# これは時間がかかります。コーヒーでも淹れましょう。
+# This will take a while, go get a coffee.
 ```
 
 > `https://github.com/electron/electron` の代わりに、`https://github.com/<username>/electron` のような自分のフォークを使うこともできます。
@@ -84,7 +81,7 @@ $ gclient sync -f
 ```sh
 $ cd src
 $ export CHROMIUM_BUILDTOOLS_PATH=`pwd`/buildtools
-# this next line is needed only if building with sccache
+# この次の行は、sccacheでビルドする場合のみ必要
 $ export GN_EXTRA_ARGS="${GN_EXTRA_ARGS} cc_wrapper=\"${PWD}/electron/external_binaries/sccache\""
 $ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_ARGS"
 ```
@@ -140,6 +137,20 @@ $ ./out/Debug/Electron.app/Contents/MacOS/Electron
 $ ./out/Debug/electron.exe
 # Linuxの場合
 $ ./out/Debug/electron
+```
+
+### パッケージ化
+
+Linuxの場合、デバッグ情報やシンボル情報を削除します。
+
+```sh
+electron/script/strip-binaries.py -d out/Release
+```
+
+配布可能なzipファイルとしてこのエレクトロンビルドをパッケージするには、次のようにする。
+
+```sh
+ninja -C out/Release electron:electron_dist_zip
 ```
 
 ### クロスコンパイル

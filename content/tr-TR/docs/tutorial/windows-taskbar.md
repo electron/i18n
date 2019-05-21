@@ -12,7 +12,7 @@ Windows allows apps to define a custom context menu that shows up when users rig
 
 **Internet Explorer'ın görevi:**
 
-![IE](http://i.msdn.microsoft.com/dynimg/IC420539.png)
+![IE](https://i-msdn.sec.s-msft.com/dynimg/IC420539.png)
 
 Gerçek bir menü olan macOS'taki dock menüsünün aksine, Windows'daki kullanıcı görevleri kullanıcı bir görevi tıkladığında programın uygulama kısayolları gibi belirtilen argümanlarla yürütülür.
 

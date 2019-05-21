@@ -1,7 +1,5 @@
 # Задачи в Electron
 
-# Вопросы
-
 * [Как внести вклад в задачи](#how-to-contribute-in-issues)
 * [Просьба об общей помощи](#asking-for-general-help)
 * [Отправить отчет об ошибке](#submitting-a-bug-report)

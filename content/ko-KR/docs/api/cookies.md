@@ -12,21 +12,30 @@
 const { session } = require('electron')
 
 // Query all cookies.
-session.defaultSession.cookies.get({}, (error, cookies) => {
-  console.log(error, cookies)
-})
+session.defaultSession.cookies.get({})
+  .then((cookies) => {
+    console.log(cookies)
+  }).catch((error) => {
+    console.log(error)
+  })
 
 // Query all cookies associated with a specific url.
-session.defaultSession.cookies.get({ url: 'http://www.github.com' }, (error, cookies) => {
-  console.log(error, cookies)
-})
+session.defaultSession.cookies.get({ url: 'http://www.github.com' })
+  .then((cookies) => {
+    console.log(cookies)
+  }).catch((error) => {
+    console.log(error)
+  })
 
 // Set a cookie with the given cookie data;
 // may overwrite equivalent cookies if they exist.
 const cookie = { url: 'http://www.github.com', name: 'dummy_name', value: 'dummy' }
-session.defaultSession.cookies.set(cookie, (error) => {
-  if (error) console.error(error)
-})
+session.defaultSession.cookies.set(cookie)
+  .then(() => {
+    // success
+  }, (error) => {
+    console.error(error)
+  })
 ```
 
 ### 인스턴스 이벤트
@@ -51,6 +60,20 @@ Cookie가 추가, 수정, 삭제, 만료로 인해 변경된 경우 호출된다
 
 `Cookies` 인스턴스는 다음의 메서드를 사용할 수 있다.
 
+#### `cookies.get(filter)`
+
+* `filter` Object 
+  * `url` String (optional) - cookies에서 주어진 url에 관련된 정보를 조사한다. `url`을 공백으로 준 경우 모든 url에 대해서 조사한다.
+  * `name` String (optional) - name 기반으로 필터를 함.
+  * `domain` - String (optional) - `domains`과 같거나 subdomain을 cookies에서 찾는다.
+  * `path` String (optional) - `path`와 같은 경로를 갖는 cookies에서 찾는다.
+  * `secure` Boolean (optional) - Secure 속성으로 필터를 함.
+  * `session` Boolean (optional) - session 혹은 영구 cookies를 필터를 함.
+
+Returns `Promise<Cookie[]>` - A promise which resolves an array of cookie objects.
+
+Sends a request to get all cookies matching `filter`, and resolves a promise with the response.
+
 #### `cookies.get(filter, callback)`
 
 * `filter` Object 
@@ -65,6 +88,24 @@ Cookie가 추가, 수정, 삭제, 만료로 인해 변경된 경우 호출된다
   * `cookies` [Cookie[]](structures/cookie.md) - cookie 오브젝트 배열.
 
 `filter`, `callback`이 매칭되는 모든 cookies를 얻기 위한 요청이 완료되면, `callback(error, cookies)`이 호출된다.
+
+**[Deprecated Soon](promisification.md)**
+
+#### `cookies.set(details)`
+
+* `details` Object 
+  * `url` String - The url to associate the cookie with.
+  * `name` String (optional) - The name of the cookie. Empty by default if omitted.
+  * `value` String (optional) - The value of the cookie. Empty by default if omitted.
+  * `domain` String (optional) - The domain of the cookie; this will be normalized with a preceding dot so that it's also valid for subdomains. Empty by default if omitted.
+  * `path` String (optional) - The path of the cookie. Empty by default if omitted.
+  * `secure` Boolean (optional) - Whether the cookie should be marked as Secure. Defaults to false.
+  * `httpOnly` Boolean (optional) - Whether the cookie should be marked as HTTP only. Defaults to false.
+  * `expirationDate` Double (optional) - The expiration date of the cookie as the number of seconds since the UNIX epoch. If omitted then the cookie becomes a session cookie and will not be retained between sessions.
+
+Returns `Promise<void>` - A promise which resolves when the cookie has been set
+
+Sets a cookie with `details`.
 
 #### `cookies.set(details, callback)`
 
@@ -82,6 +123,17 @@ Cookie가 추가, 수정, 삭제, 만료로 인해 변경된 경우 호출된다
 
 Sets a cookie with `details`, `callback` will be called with `callback(error)` on complete.
 
+**[Deprecated Soon](promisification.md)**
+
+#### `cookies.remove(url, name)`
+
+* `url` String - The URL associated with the cookie.
+* `name` String - The name of cookie to remove.
+
+Returns `Promise<void>` - A promise which resolves when the cookie has been removed
+
+Removes the cookies matching `url` and `name`
+
 #### `cookies.remove(url, name, callback)`
 
 * `url` String - The URL associated with the cookie.
@@ -90,8 +142,18 @@ Sets a cookie with `details`, `callback` will be called with `callback(error)` o
 
 Removes the cookies matching `url` and `name`, `callback` will called with `callback()` on complete.
 
+**[Deprecated Soon](promisification.md)**
+
+#### `cookies.flushStore()`
+
+Returns `Promise<void>` - A promise which resolves when the cookie store has been flushed
+
+Writes any unwritten cookies data to disk.
+
 #### `cookies.flushStore(callback)`
 
 * `callback` Function
 
 Writes any unwritten cookies data to disk.
+
+**[Deprecated Soon](promisification.md)**

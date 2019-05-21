@@ -48,10 +48,7 @@ export SCCACHE_TWO_TIER=true
 
 ```sh
 $ mkdir electron-gn && cd electron-gn
-$ gclient config \
-    --name "src/electron" \
-    --unmanaged \
-    https://github.com/electron/electron
+$ gclient config --name "src/electron" --unmanaged https://github.com/electron/electron
 $ gclient sync --with_branch_heads --with_tags
 # This will take a while, go get a coffee.
 ```
@@ -141,6 +138,20 @@ $ ./out/Debug/Electron.app/Contents/MacOS/Electron
 $ ./out/Debug/electron.exe
 # or, on Linux
 $ ./out/Debug/electron
+```
+
+### แพคเกจ
+
+On linux, first strip the debugging and symbol information:
+
+```sh
+electron/script/strip-binaries.py -d out/Release
+```
+
+To package the electron build as a distributable zip file:
+
+```sh
+ninja -C out/Release electron:electron_dist_zip
 ```
 
 ### Cross-compiling

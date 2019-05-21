@@ -38,9 +38,17 @@ Modul ` contentTracing ` memiliki metode berikut:
 * `callback` Fungsi 
   * `kategori ` String []
 
-Dapatkan satu kelompok kategori. Kelompok kategori dapat berubah sebagai jalur kode baru tercapai.
+Get a set of category groups. The category groups can change as new code paths are reached.
 
-Setelah semua proses anak mengakui permintaan`getCategories` `callback` dipanggil dengan sekelompok grup kategori.
+Once all child processes have acknowledged the `getCategories` request the `callback` is invoked with an array of category groups.
+
+**[Deprecated Soon](promisification.md)**
+
+### `contentTracing.getCategories()`
+
+Returns `Promise<String[]>` - resolves with an array of category groups once all child processes have acknowledged the `getCategories` request
+
+Get a set of category groups. The category groups can change as new code paths are reached.
 
 ### `contentTracing.startRecording (pilihan,callback)`
 
@@ -50,6 +58,18 @@ Setelah semua proses anak mengakui permintaan`getCategories` `callback` dipanggi
 Mulai rekaman pada semua proses.
 
 Pencatatan dimulai segera secara lokal dan asinkron pada proses anak segera setelah mereka menerima permintaan Aktifkan Rekaman. The `callback ` akan menjadi dipanggil sekali semua proses anak telah mengakui permintaan ` startRecording `.
+
+**[Deprecated Soon](promisification.md)**
+
+### `contentTracing.startRecording(options)`
+
+* `options` ([TraceCategoriesAndOptions](structures/trace-categories-and-options.md) | [TraceConfig](structures/trace-config.md))
+
+Returns `Promise<void>` - resolved once all child processes have acknowledged the `startRecording` request.
+
+Mulai rekaman pada semua proses.
+
+Pencatatan dimulai segera secara lokal dan asinkron pada proses anak segera setelah mereka menerima permintaan Aktifkan Rekaman.
 
 ### `isi Tracing.stop Recording (hasil File Path, callback)`
 
@@ -65,38 +85,19 @@ Setelah semua proses anak mengakui permintaan `stopRecording` `callback ` akan d
 
 Data jejak akan ditulis ke `resultFilePath` jika tidak kosong atau ke a file sementara Path file yang sebenarnya akan dilewatkan ke `callback` jika tidak `null`.
 
-### `isi Tracing.startMonitoring (pilihan, callback)`
+**[Deprecated Soon](promisification.md)**
 
-* `pilihan` Obyek 
-  * `kategori Filter ` String
-  * `traceOptions ` String
-* `callback ` Fungsi
-
-Mulai memonitor semua proses.
-
-Pemantauan dimulai segera secara lokal dan asinkron pada proses anak segera setelah mereka menerima permintaan ` startMonitoring `.
-
-Setelah semua proses anak telah mengakui permintaan `startMonitoring` `callback` akan dipanggil.
-
-### `isi Tracing.stop Monitoring (callback)`
-
-* `callback ` Fungsi
-
-Hentikan pemantauan pada semua proses.
-
-Setelah semua proses anak telah mengakui `stopMonitoring` meminta `callback` dipanggil.
-
-### `isi Tracing.capture Monitoring Snapshot (hasil File Path, callback)`
+### `contentTracing.stopRecording(resultFilePath)`
 
 * `resultFilePath ` String
-* `callback` Fungsi 
-  * `resultFilePath ` String
 
-Dapatkan data jejak pemantauan saat ini.
+Returns `Promise<String>` - resolves with a file that contains the traced data once all child processes have acknowledged the `stopRecording` request
 
-Proses anak biasanya menyimpan data jejak dan jarang disiram dan dikirim Jejak data kembali ke proses utama. Ini karena mungkin harganya mahal operasi untuk mengirim jejak data melalui IPC dan kami ingin menghindari yang tidak dibutuhkan runtime overhead dari penelusuran. Jadi, untuk mengakhiri penelusuran, kita harus secara asinkron bertanya semua proses anak untuk menyiram data jejak yang tertunda.
+Berhenti merekam pada semua proses.
 
-Setelah semua proses anak mengenali `captureMonitoringSnapshot` minta `callback` akan dipanggil dengan file yang berisi data yang dilacak.
+Proses anak biasanya menyimpan data jejak dan jarang disiram dan dikirim Jejak data kembali ke proses utama. Ini membantu meminimalkan overhead runtime Dari penelusuran sejak mengirim data jejak melalui IPC bisa menjadi operasi yang mahal. Begitu, Untuk mengakhiri penelusuran, kita harus secara asinkron meminta semua proses anak untuk menyiram apapun tertunda jejak data.
+
+Trace data will be written into `resultFilePath` if it is not empty or into a temporary file.
 
 ### `contentTracing.getTraceBufferUsage(callback)`
 

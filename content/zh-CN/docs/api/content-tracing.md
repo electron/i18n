@@ -38,9 +38,17 @@ app.on('ready', () => {
 * `callback` Function - 回调函数 
   * `categories` String[]
 
-获取一个类别组的集合。随着能访问的新的代码路径不一样，获取的类别组对象也会不一样。
+Get a set of category groups. The category groups can change as new code paths are reached.
 
-一旦所有子进程确认`getCategories`请求之后，传递类别组数组参数的`callback`就会被调用。
+Once all child processes have acknowledged the `getCategories` request the `callback` is invoked with an array of category groups.
+
+**[Deprecated Soon](promisification.md)**
+
+### `contentTracing.getCategories()`
+
+Returns `Promise<String[]>` - resolves with an array of category groups once all child processes have acknowledged the `getCategories` request
+
+Get a set of category groups. The category groups can change as new code paths are reached.
 
 ### `contentTracing.startRecording(options, callback)`
 
@@ -51,10 +59,22 @@ app.on('ready', () => {
 
 一旦收到EnableRecording请求，记录立即在本地开始进行，并在子进程上异步执行。 一旦所有子进程都确认了`startRecording`请求，`callback`就会被调用。
 
+**[Deprecated Soon](promisification.md)**
+
+### `contentTracing.startRecording(options)`
+
+* `options` ([TraceCategoriesAndOptions](structures/trace-categories-and-options.md) | [TraceConfig](structures/trace-config.md))
+
+Returns `Promise<void>` - resolved once all child processes have acknowledged the `startRecording` request.
+
+在所有进程上开始记录
+
+一旦收到EnableRecording请求，记录立即在本地开始进行，并在子进程上异步执行。
+
 ### `contentTracing.stopRecording(resultFilePath, callback)`
 
 * `resultFilePath` String
-* `callback` Function - 回调函数 
+* `callback` Function 
   * `resultFilePath` String
 
 停止所有进程记录。
@@ -65,42 +85,23 @@ app.on('ready', () => {
 
 如果`resultFilePath`不为空，则跟踪数据会被写入该路径，否则就被写入一个临时文件。实际的文件路径如果不为`null`的话就被传递给`callback`函数了。
 
-### `contentTracing.startMonitoring(options, callback)`
+**[Deprecated Soon](promisification.md)**
 
-* `options` Object 
-  * `categoryFilter` String
-  * `traceOptions` String
-* `callback` Function
-
-开始记录所有进程。
-
-一旦收到` startMonitoring `请求，监控立即在本地和异步的子进程上立即开始。
-
-一旦所有子进程都确认了 ` startMonitoring ` 请求, 就会调用 ` callback`。
-
-### `contentTracing.startMonitoring(options, callback)`
-
-* `callback` Function
-
-停止对所有进程的监视。
-
-一旦所有子进程都确认了 ` startMonitoring ` 请求, 就会调用 ` callback`。
-
-### `contentTracing.startMonitoring(options, callback)`
+### `contentTracing.stopRecording(resultFilePath)`
 
 * `resultFilePath` String
-* `callback` Function - 回调函数 
-  * `resultFilePath` String
 
-获取当前监控的跟踪数据
+Returns `Promise<String>` - resolves with a file that contains the traced data once all child processes have acknowledged the `stopRecording` request
 
-子进程通常缓存跟踪数据，并且很少清空和发送跟踪数据回到主进程。 通过IPC发送跟踪数据可能是一个开销巨大的操作，我们想避免跟踪时不必要的运行时开销。 因此, 为了结束跟踪, 我们必须异步请求所有子进程刷新所有挂起的跟踪数据。
+停止所有进程记录。
 
-一旦所有子进程都确认了 ` captureMonitoringSnapshot ` 请求, 就会使用包含跟踪数据的文件来调用 ` callback `。
+子进程通常缓存跟踪数据，并且很少清空和发送跟踪数据回到主进程。 这有助于最小化运行时间开销，因为通过IPC发送跟踪数据可能是一个开销巨大的操作。 所以，为了结束跟踪，我们必须异步地要求所有子进程清空任何等待跟踪数据。
+
+Trace data will be written into `resultFilePath` if it is not empty or into a temporary file.
 
 ### `contentTracing.startMonitoring(options, callback)`
 
-* `callback` Function - 回调函数 
+* `callback` Function 
   * `value` Number
   * `percentage` Number
 

@@ -59,7 +59,9 @@ Then, you need to prepare three entitlements files.
     <key>com.apple.security.app-sandbox</key>
     <true/>
     <key>com.apple.security.application-groups</key>
-    <string>TEAM_ID.your.bundle.id</string>
+    <array>
+      <string>TEAM_ID.your.bundle.id</string>
+    </array>
   </dict>
 </plist>
 ```
@@ -160,15 +162,15 @@ Depending on which Electron APIs your app uses, you may need to add additional e
 Enable outgoing network connections to allow your app to connect to a server:
 
 ```xml
-<key>com.apple.security.network.client</key>
-<true/>
+&lt;key&gt;com.apple.security.network.client&lt;/key&gt;
+&lt;true/&gt;
 ```
 
 Enable incoming network connections to allow your app to open a network listening socket:
 
 ```xml
-<key>com.apple.security.network.server</key>
-<true/>
+&lt;key&gt;com.apple.security.network.server&lt;/key&gt;
+&lt;true/&gt;
 ```
 
 See the [Enabling Network Access documentation](https://developer.apple.com/library/ios/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW9) for more details.
@@ -176,8 +178,8 @@ See the [Enabling Network Access documentation](https://developer.apple.com/libr
 #### dialog.showOpenDialog
 
 ```xml
-<key>com.apple.security.files.user-selected.read-only</key>
-<true/>
+&lt;key&gt;com.apple.security.files.user-selected.read-only&lt;/key&gt;
+&lt;true/&gt;
 ```
 
 See the [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) for more details.
@@ -185,15 +187,15 @@ See the [Enabling User-Selected File Access documentation](https://developer.app
 #### dialog.showSaveDialog
 
 ```xml
-<key>com.apple.security.files.user-selected.read-write</key>
-<true/>
+&lt;key&gt;com.apple.security.files.user-selected.read-write&lt;/key&gt;
+&lt;true/&gt;
 ```
 
 See the [Enabling User-Selected File Access documentation](https://developer.apple.com/library/mac/documentation/Miscellaneous/Reference/EntitlementKeyReference/Chapters/EnablingAppSandbox.html#//apple_ref/doc/uid/TP40011195-CH4-SW6) for more details.
 
 ## Криптографические алгоритмы, которые использует Electron
 
-Depending on the country and region you are located, Mac App Store may require documenting the cryptographic algorithms used in your app, and even ask you to submit a copy of U.S. Encryption Registration (ERN) approval.
+Depending on the countries in which you are releasing your app, you may be required to provide information on the cryptographic algorithms used in your software. See the [encryption export compliance docs](https://help.apple.com/app-store-connect/#/devc3f64248f) for more information.
 
 Electron uses following cryptographic algorithms:
 
@@ -220,5 +222,3 @@ Electron uses following cryptographic algorithms:
 * RC4 - [RFC 4345](https://tools.ietf.org/html/rfc4345)
 * RC5 - http://people.csail.mit.edu/rivest/Rivest-rc5rev.pdf
 * RIPEMD - [ISO/IEC 10118-3](https://webstore.ansi.org/RecordDetail.aspx?sku=ISO%2FIEC%2010118-3:2004)
-
-On how to get the ERN approval, you can reference the article: [How to legally submit an app to Apple’s App Store when it uses encryption (or how to obtain an ERN)](https://carouselapps.com/2015/12/15/legally-submit-app-apples-app-store-uses-encryption-obtain-ern/).

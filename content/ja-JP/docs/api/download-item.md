@@ -80,6 +80,16 @@ win.webContents.session.on('will-download', (event, item, webContents) => {
 
 戻り値 `String` - ダウンロードアイテムの保存先のパス。これは、`downloadItem.setSavePath(path)` 経由で設定されたパスか、表示された保存ダイアログで選択されたパスのいずれかです。
 
+#### `downloadItem.setSaveDialogOptions(options)`
+
+* `options` SaveDialogOptions - Set the save file dialog options. This object has the same properties as the `options` parameter of [`dialog.showSaveDialog()`](dialog.md).
+
+This API allows the user to set custom options for the save dialog that opens for the download item by default. The API is only available in session's `will-download` callback function.
+
+#### `downloadItem.getSaveDialogOptions()`
+
+Returns `SaveDialogOptions` - Returns the object previously set by `downloadItem.setSaveDialogOptions(options)`.
+
 #### `downloadItem.pause()`
 
 ダウンロードを一時停止します。

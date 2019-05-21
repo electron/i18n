@@ -14,7 +14,7 @@ biarkan onlineStatusWindow
 app.on('ready', () => {
   onlineStatusWindow = new BrowserWindow({ width: 0, height: 0, show: false })
   onlineStatusWindow.loadURL(`file://${__dirname}/online-status.html`)
-})
+})${__dirname}
 ```
 
 *online-status.html*
@@ -67,10 +67,10 @@ ipcMain.on('online-status-changed', (event, status) => {
     ipcRenderer.send('online-status-changed', navigator.onLine ? 'online' : 'offline')
   }
 
-  window.addEventListener('online',  updateOnlineStatus)
-  window.addEventListener('offline',  updateOnlineStatus)
+  window.addEventListener('online',  alertOnlineStatus)
+  window.addEventListener('offline',  alertOnlineStatus)
 
-  updateOnlineStatus()
+  alertOnlineStatus()
 </script>
 </body>
 </html>

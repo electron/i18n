@@ -66,7 +66,7 @@ The `state` can be one of following:
 * `cancelled` - The download has been cancelled.
 * `interrupted` - The download has interrupted and can not resume.
 
-### Beispiel Methoden
+### Instanz Methoden
 
 The `downloadItem` object has the following methods:
 
@@ -79,6 +79,16 @@ The API is only available in session's `will-download` callback function. If use
 #### `downloadItem.getSavePath()`
 
 Returns `String` - The save path of the download item. This will be either the path set via `downloadItem.setSavePath(path)` or the path selected from the shown save dialog.
+
+#### `downloadItem.setSaveDialogOptions(options)`
+
+* `options` SaveDialogOptions - Set the save file dialog options. This object has the same properties as the `options` parameter of [`dialog.showSaveDialog()`](dialog.md).
+
+This API allows the user to set custom options for the save dialog that opens for the download item by default. The API is only available in session's `will-download` callback function.
+
+#### `downloadItem.getSaveDialogOptions()`
+
+Returns `SaveDialogOptions` - Returns the object previously set by `downloadItem.setSaveDialogOptions(options)`.
 
 #### `downloadItem.pause()`
 

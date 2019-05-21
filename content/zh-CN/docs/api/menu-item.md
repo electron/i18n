@@ -13,7 +13,7 @@
     * `menuItem` 菜单项
     * `browserWindow` [BrowserWindow](browser-window.md)
     * `event` Event
-  * ` role ` String (可选)-内置事件, 定义菜单项的行为, 当指定 ` click ` 属性时将被忽略。请参见 [ roles ](#roles)。
+  * `role` String (optional) - Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteandmatchstyle`, `delete`, `selectall`, `reload`, `forcereload`, `toggledevtools`, `resetzoom`, `zoomin`, `zoomout`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideothers`, `unhide`, `quit`, `startspeaking`, `stopspeaking`, `close`, `minimize`, `zoom` or `front` - Define the action of the menu item, when specified the `click` property will be ignored. See [roles](#roles).
   * ` type `String (可选)-可以是 ` normal `、` separator `、` submenu `、` checkbox ` 或 ` radio `。
   * `label` String (可选)
   * `sublabel` String (可选)
@@ -22,7 +22,7 @@
   * `enabled` Boolean (可选) - 如果为 false，该菜单项将会置灰且不可点击。
   * ` visible `Boolean (可选)-如果为 false, 该菜单项将完全隐藏。
   * ` checked `Boolean (可选)-只应为 ` checkbox ` 或 ` radio ` 类型菜单项指定。
-  * registerAccelerator Boolean (可选) - 如果为 false, accelerator 不会被系统注册, 但仍然会被显示. 默认住为 true。
+  * `registerAccelerator` Boolean (可选) - 如果为 false, accelerator 不会被系统注册, 但仍然会被显示. 默认值为 true。
   * `submenu` (MenuItemConstructorOptions[] | [Menu](menu.md)) (optional) - Should be specified for `submenu` type menu items. If `submenu` is specified, the `type: 'submenu'` can be omitted. If the value is not a [`Menu`](menu.md) then it will be automatically converted to one using `Menu.buildFromTemplate`.
   * ` id `String (可选)-在单个菜单中是唯一的。如果定义, 则可以通过它来引用该项。
   * `before` String[] (optional) - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
@@ -60,11 +60,14 @@ Every menu item must have either a `role`, `label`, or in the case of a separato
 * `resetzoom` - 将主页的缩放级别重置为初始大小.
 * `zoomin` - 主页面放大 10%.
 * `zoomout` -主页面缩小 10%.
+* `fileMenu` - Whole default "File" menu (Close / Quit)
 * `editMenu`-默认的 "编辑" 菜单 (包括撤消、复制等)
-* ` windowMenu `-默认 "窗口" 菜单 (包括最小化、关闭等)
+* `viewMenu` - Whole default "View" menu (Reload, Toggle Developer Tools, etc.)
+* `windowMenu` - Whole default "Window" menu (Minimize, Zoom, etc.).
 
 以下为macOS 中提供的角色:
 
+* `appMenu` - Whole default "App" menu (About, Services, etc.)
 * ` about `-映射到 ` orderFrontStandardAboutPanel ` 操作.
 * ` hide `-映射到 ` hide ` 操作.
 * ` hideOthers `-映射到 ` hideOtherApplications ` 操作.
@@ -106,7 +109,7 @@ Every menu item must have either a `role`, `label`, or in the case of a separato
 
 ` checkbox ` 菜单项将在选中时切换 ` checked ` 的开关属性。
 
-`单选菜单项` 将返回单击时`checked`属性, 并将关闭同一菜单中所有相邻项的属性。
+`radio` (单选) 菜单项被点击时会打开 `checked` 属性，同时，关闭同菜单下其它项的<0>checked</0> 属性。
 
 你可以为其他行为添加`click`函数。
 

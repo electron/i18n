@@ -120,12 +120,17 @@ Sa pamamagitan ng default ng isang bagong `BrowserWindow` ay nilikha para sa `ur
 Calling `event.preventDefault()` will prevent Electron from automatically creating a new [`BrowserWindow`](browser-window.md). If you call `event.preventDefault()` and manually create a new [`BrowserWindow`](browser-window.md) then you must set `event.newGuest` to reference the new [`BrowserWindow`](browser-window.md) instance, failing to do so may result in unexpected behavior. Halimbawa:
 
 ```javascript
-myBrowserWindow.webContents.on('bagong-window', (event, url) => {
-  kaganapan.preventDefault()
-  const manalo = bagong BrowserWindow ({ show: false })
-  manalo.once ('ready-to-show', () = > win.show())
-  manalo.loadURL (url)
-  kaganapan.newGuest = manalo
+myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition, options) => {
+  event.preventDefault()
+  const win = new BrowserWindow({
+    webContents: options.webContents, // use existing webContents if provided
+    show: false
+  })
+  win.once('ready-to-show', () => win.show())
+  if (!options.webContents) {
+    win.loadURL(url) // existing webContents will be navigated automatically
+  }
+  event.newGuest = win
 })
 ```
 
@@ -580,6 +585,44 @@ Ibinabalik ang:
 
 Pinapalabas kapag nag-log ang nauugnay na window sa isang mensahe ng console. Hindi ipapalabas para sa mga window na may *offscreen rendering* na pinapagana.
 
+#### Event: 'preload-error'
+
+Ibinabalik ang:
+
+* `kaganapan` Kaganapan
+* `preloadPath` String
+* `error` Error
+
+Emitted when the preload script `preloadPath` throws an unhandled exception `error`.
+
+#### Event: 'ipc-message'
+
+Ibinabalik ang:
+
+* `kaganapan` Kaganapan
+* `channel` String
+* `...args` anuman[]
+
+Emitted when the renderer process sends an asynchronous message via `ipcRenderer.send()`.
+
+#### Event: 'ipc-message-sync'
+
+Ibinabalik ang:
+
+* `kaganapan` Kaganapan
+* `channel` String
+* `...args` anuman[]
+
+Emitted when the renderer process sends a synchronous message via `ipcRenderer.sendSync()`.
+
+#### Event: 'desktop-capturer-get-sources'
+
+Ibinabalik ang:
+
+* `kaganapan` Kaganapan
+
+Emitted when `desktopCapturer.getSources()` is called in the renderer process. Calling `event.preventDefault()` will make it return empty sources.
+
 #### Event: 'remote-require'
 
 Ibinabalik ang:
@@ -644,6 +687,8 @@ Emitted when `<webview>.getWebContents()` is called in the renderer process. Cal
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
   * `baseURLForDataURL` Pisi (opsyonal) - Base url (na may trailing path separator) para sa mga dokumento na mai-load ng url ng data. Ito ay kinakailangan lamang kung ang tinutukoy na `url` ay isang url ng data at kailangang mag-load ng iba pang mga file.
 
+Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
+
 Naglo-load ang `url` sa bintana. Ang `url` ay dapat naglalaman ng prefix ng protocol, hal. ang `http://` o `file://`. Kung ang load ay dapat mag-bypass http cache pagkatapos gamitin ang `pragma` header upang makamit ito.
 
 ```javascript
@@ -659,6 +704,8 @@ webContents.loadURL('https://github.com', options)
   * `query` Object (optional) - Passed to `url.format()`.
   * `search` String (optional) - Passed to `url.format()`.
   * `hash` String (optional) - Passed to `url.format()`.
+
+Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
 
 Loads the given file in the window, `filePath` should be a path to an HTML file relative to the root of your application. For instance an app structure like this:
 
@@ -842,12 +889,9 @@ Returns `Boolean` - Whether audio is currently playing.
 
 Binabago ang factor ng pag-zoom sa tinukoy na factor. Ang factor ng pag-zoom ay porsiyento ng zoom na hinati sa 100, so 300% = 3.0.
 
-#### `mga nilalaman.getZoomFactor(callback)`
+#### `contents.getZoomFactor()`
 
-* `callback` Function 
-  * `zoomFactor` Numero
-
-Nagpapadala ng kahilingan upang makakuha ng kasalukuyang factor ng pag-zoom, `callback `ay tinatawag na `callback(zoomFactor)`.
+Returns `Number` - the current zoom factor.
 
 #### `mga nilalaman.setZoomLevel(antas)`
 
@@ -855,12 +899,9 @@ Nagpapadala ng kahilingan upang makakuha ng kasalukuyang factor ng pag-zoom, `ca
 
 Binabago ang antas ng pag-zoom para sa tinitiyak na antas. Ang orihinal na laki ng 0 at bawat isa Ang pagdagdag sa pagtaas o sa pagbaba ay kumakatawan sa pag-zooming ng 20% na mas malaki o mas maliit sa default mga limitasyon ng 300% at 50% ng orihinal na laki, ayon sa pagkakabanggit. The formula for this is `scale := 1.2 ^ level`.
 
-#### `mga nilalaman.getZoomLevel (callback)`
+#### `contents.getZoomLevel()`
 
-* `callback` Function 
-  * `zoomLevel` Numero
-
-Tinatapos ang isang kahilingan upang makakuha ng kasalukuyang antas sa pag-zoom,`callback`ay tinatawag na `callback(zoomLevel)`.
+Returns `Number` - the current zoom level.
 
 #### `mga nilalaman.setVisualZoomLevelLimits(pinakamababang antas, pinakamataas na antas)`
 
@@ -950,8 +991,8 @@ Pagsingit `text` para sa nakapukos na elemento.
   * `forward` Boolean (optional) - Whether to search forward or backward, defaults to `true`.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
-  * `wordStart` Boolean (optional) (Deprecated) - Whether to look only at the start of words. defaults to `false`.
-  * `medialCapitalAsWordStart` Boolean (optional) (Deprecated) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Tinatanggap ang ilan na ibang intra-salitang magkapareha, mga defaults `false`.
+  * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
+  * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Tinatanggap ang ilan na ibang intra-salitang magkapareha, mga defaults `false`.
 
 Ibinabalik `Integer` - Ang kahilingang id na ginagamit para sa kahilingan.
 
@@ -978,11 +1019,21 @@ console.log(requestId)
 
 #### `mga nilalaman.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (opsyonal) - Ang kabuuan ng page na kukuhanin.
+* `rect` [Rectangle](structures/rectangle.md) (opsyonal) - Para ma-makuha ang bounds
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
-Kumukuha ng isang snapshot ng pahina sa loob ng `rect`. Sa oras na makumpleto `callback` ay tatawagan `callback(imahe)`. Ang `imahe` ay isang halimbawa ng [NativeImage](native-image.md) na nag-iimbak ng data ng snapshot. Umupo `rect` ay kukunin ang buong nakikitang pahina.
+Kumukuha ng isang snapshot ng pahina sa loob ng `rect`. Sa oras na makumpleto `callback` ay tatawagan `callback(imahe)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
+
+**[Deprecated Soon](promisification.md)**
+
+#### `contents.capturePage([rect])`
+
+* `rect` [Rectangle](structures/rectangle.md) (opsyonal) - Ang kabuuan ng page na kukuhanin.
+
+* Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+
+Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
 
 #### `contents.hasServiceWorker(callback)`
 
@@ -1152,6 +1203,7 @@ app.once('ready', () => {
 
 * `options` Na Bagay (opsyonal) 
   * `mode` String - Binubuksan ang mga devtools na may tinukoy na estado ng dock, ay maaaring maging `kanan`, `ibaba`, `undocked`, `detach`. Mga Default na huling ginagamit sa estado ng dock. Sa `undocked` mode posible na i-dock pabalik. Sa `detach` mode ito ay hindi.
+  * `activate` Boolean (optional) - Whether to bring the opened devtools window to the foreground. The default is `true`.
 
 Binubuksan ang mga devtools.
 
@@ -1220,6 +1272,32 @@ app.on('ready', () => {
   </script>
 </body>
 </html>
+```
+
+#### `contents.sendToFrame(frameId, channel[, arg1][, arg2][, ...])`
+
+* `frameId` Integer
+* `channel` String
+* `...args` anuman[]
+
+Send an asynchronous message to a specific frame in a renderer process via `channel`. Arguments will be serialized as JSON internally and as such no functions or prototype chains will be included.
+
+The renderer process can handle the message by listening to `channel` with the [`ipcRenderer`](ipc-renderer.md) module.
+
+If you want to get the `frameId` of a given renderer context you should use the `webFrame.routingId` value. E.g.
+
+```js
+// In a renderer process
+console.log('My frameId is:', require('electron').webFrame.routingId)
+```
+
+You can also read `frameId` from all incoming IPC messages in the main process.
+
+```js
+// In the main process
+ipcMain.on('ping', (event) => {
+  console.info('Message came from frameId:', event.frameId)
+})
 ```
 
 #### `mga nilalaman.enableDeviceEmulation(mga parameters)`

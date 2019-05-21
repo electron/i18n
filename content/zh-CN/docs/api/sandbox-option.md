@@ -34,8 +34,6 @@ app.on('ready', () => {
 
 需要注意的是，这个选项本身不会启用操作系统强制的沙箱。 要启用此功能，必须在命令行参数里加上 `--enable-sandbox` 传递给 electron, 这将会使所有的 `BrowserWindow` 实例强制使用 `sandbox: true`.
 
-如果要在 ` BrowserWindow ` 或 ` webview ` 进程中启用 ` sandbox:true ` 而不想让整个应用程序处于沙盒中, 请在命令行中使用 `--enable-mixed-sandbox ` 传递给 electron。 此选项当前仅在 macOS 和 Windows 上支持。
-
 ```js
 let win
 app.on('ready', () => {

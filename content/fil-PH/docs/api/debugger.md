@@ -4,7 +4,7 @@
 
 Proseso:[Pangunahi](../glossary.md#main-process)
 
-Ang "Chrome Developer Tools" ay may [special binding](https://developer.chrome.com/devtools/docs/debugger-protocol) na matatagpuan sa "JavaScript" na hinahayaang makipag-ugnayan sa mga pahina at paggamit sa kanila.
+Ang "Chrome Developer Tools" ay may [special binding](https://chromedevtools.github.io/devtools-protocol/) na matatagpuan sa "JavaScript" na hinahayaang makipag-ugnayan sa mga pahina at paggamit sa kanila.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -49,7 +49,7 @@ Pagtanggal ng "debugger" galing sa `webContents`.
 
 #### `debugger.sendCommand(method[, commandParams, callback])`
 
-* `method` String - Ang pangalan ng sistematikong paraan ay dapat na isa sa mga paraan na tinutukoy gamit ang "remote debugging protocol".
+* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
 * `commandParams` Object (opsyunal) - "JSON object" na may hiling na parameters.
 * `callback` Gamit (opsyunal) - Pagtugon 
   * `error` Object - Ang maling mensahe ay nagpapahiwatig ng pagkabigo ng "command".
@@ -57,18 +57,29 @@ Pagtanggal ng "debugger" galing sa `webContents`.
 
 Ipadala ang binigay na "command" sa "debugging target".
 
+**[Deprecated Soon](promisification.md)**
+
+#### `debugger.sendCommand(method[, commandParams])`
+
+* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
+* `commandParams` Object (opsyunal) - "JSON object" na may hiling na parameters.
+
+Returns `Promise<any>` - A promise that resolves with the response defined by the 'returns' attribute of the command description in the remote debugging protocol or is rejected indicating the failure of the command.
+
+Ipadala ang binigay na "command" sa "debugging target".
+
 ### Halimbawa ng mga Event
 
 #### Pangyayari: 'pagtanggal'
 
-* `event` na Pangyayari
+* `kaganapan` kaganapan
 * `reason` String - Dahilan para sa pagtanggal ng "debugger".
 
 Lumalabas kapag ang sesyon ng "debugging" ay tuluyan nang inihinto o winakasan. Ito ay nangyayari kapag ang `webContents` ay nakasara o ang "devtools" ay ginamit para sa pagdikit sa `webContents`.
 
 #### Pangyayari: 'mensahe'
 
-* `kaganapan` kaganapan
+* `kaganapan` Kaganapan
 * `method` String - Pangalan ng sistematikong paraan.
 * `params` Object - Ang "Event parameters" ay tinutukoy gamit ang katangian ng 'parameters' sa "remote" ng sistematikong panuntunan ng "debugging".
 

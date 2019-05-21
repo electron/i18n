@@ -10,7 +10,7 @@ Proceso: [Main](../tutorial/application-architecture.md#main-and-renderer-proces
   * `items` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md))[]
   * `escapeItem` ([TouchBarButton](touch-bar-button.md) | [TouchBarColorPicker](touch-bar-color-picker.md) | [TouchBarGroup](touch-bar-group.md) | [TouchBarLabel](touch-bar-label.md) | [TouchBarPopover](touch-bar-popover.md) | [TouchBarScrubber](touch-bar-scrubber.md) | [TouchBarSegmentedControl](touch-bar-segmented-control.md) | [TouchBarSlider](touch-bar-slider.md) | [TouchBarSpacer](touch-bar-spacer.md) | null) (opcional)
 
-Creates a new touch bar with the specified items. Use `BrowserWindow.setTouchBar` para agregar la `TouchBar` a una ventana.
+Crea una nueva barra táctil con los elementos especificados. Use `BrowserWindow.setTouchBar` para agregar la `TouchBar` a una ventana.
 
 **Nota:** Actualmente la API TouchBar es experimental y puede cambiar o ser eliminada en las futuras versiones de Electron.
 
@@ -105,17 +105,19 @@ const finishSpin = () => {
   spinning = false
 }
 
-const touchBar = new TouchBar([
-  spin,
-  new TouchBarSpacer({ size: 'large' }),
-  reel1,
-  new TouchBarSpacer({ size: 'small' }),
-  reel2,
-  new TouchBarSpacer({ size: 'small' }),
-  reel3,
-  new TouchBarSpacer({ size: 'large' }),
-  result
-])
+const touchBar = new TouchBar({
+  items: [
+    spin,
+    new TouchBarSpacer({ size: 'large' }),
+    reel1,
+    new TouchBarSpacer({ size: 'small' }),
+    reel2,
+    new TouchBarSpacer({ size: 'small' }),
+    reel3,
+    new TouchBarSpacer({ size: 'large' }),
+    result
+  ]
+})
 
 let window
 

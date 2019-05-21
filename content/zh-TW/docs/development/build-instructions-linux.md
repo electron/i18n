@@ -23,11 +23,11 @@ Follow the guidelines below for building Electron on Linux.
 在 Ubuntu 上，安將下列程式庫:
 
 ```sh
-sudo apt-get install build-essential clang libdbus-1-dev libgtk-3-dev \
+$ sudo apt-get install build-essential clang libdbus-1-dev libgtk-3-dev \
                        libnotify-dev libgnome-keyring-dev libgconf2-dev \
                        libasound2-dev libcap-dev libcups2-dev libxtst-dev \
                        libxss1 libnss3-dev gcc-multilib g++-multilib curl \
-                       gperf bison python-dbusmock
+                       gperf bison python-dbusmock openjdk-8-jre
 ```
 
 在 RHEL / CentOS 上，安將下列程式庫:
@@ -36,7 +36,7 @@ sudo apt-get install build-essential clang libdbus-1-dev libgtk-3-dev \
 $ sudo yum install clang dbus-devel gtk3-devel libnotify-devel \
                    libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
                    cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
-                   GConf2-devel nss-devel python-dbusmock
+                   GConf2-devel nss-devel python-dbusmock openjdk-8-jre
 ```
 
 在 Fedora 上，安將下列程式庫:
@@ -45,7 +45,7 @@ $ sudo yum install clang dbus-devel gtk3-devel libnotify-devel \
 $ sudo dnf install clang dbus-devel gtk3-devel libnotify-devel \
                    libgnome-keyring-devel xorg-x11-server-utils libcap-devel \
                    cups-devel libXtst-devel alsa-lib-devel libXrandr-devel \
-                   GConf2-devel nss-devel python-dbusmock
+                   GConf2-devel nss-devel python-dbusmock openjdk-8-jre
 ```
 
 其他分發版也可能通過包管理器提供相似的包來安裝，例如pacman，或者一個可以從源代碼編譯的文件

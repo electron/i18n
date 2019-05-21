@@ -81,13 +81,25 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 ├── SHASUMS256.txt-1.8.2-beta.3
 ```
 
+## Skip binary download
+
+When installing the `electron` NPM package, it automatically downloads the electron binary.
+
+This can sometimes be unnecessary, e.g. in a CI environment, when testing another component.
+
+To prevent the binary from being downloaded when you install all npm dependencies you can set the environment variable `ELECTRON_SKIP_BINARY_DOWNLOAD`. E.g.:
+
+```sh
+ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
+```
+
 ## Устранение проблем
 
 При выполнении команды `npm install electron`, некоторые пользователи сталкиваются с проблемами установки.
 
-В большинстве случаев, эти ошибки являются проблемами сети и не связаны с npm пакетом `electron`; Такие ошибки как `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, и`ETIMEDOUT` возникают в результате проблем с сетью. Лучшее решение - попытаться переключить сети, или немного подождать, и попытаться установить снова.
+В большинстве случаев, эти ошибки являются результатом проблем сети и не связаны с npm пакетом `electron`. Такие ошибки как `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, и`ETIMEDOUT` возникают в результате проблем с сетью. Лучшее решение - попытаться переключить сети, или немного подождать, и попытаться установить снова.
 
-Также вы можете попытаться скачать Electron непосредственно из [electron/electron/releases](https://github.com/electron/electron/releases), если установка через `npm` терпит неудачу.
+Также вы можете попытаться скачать Electron непосредственно из [релизов](https://github.com/electron/electron/releases), если установка через `npm` терпит неудачу.
 
 Если установка завершается с ошибкой `EACCESS`, нужно [поправить права npm](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
 

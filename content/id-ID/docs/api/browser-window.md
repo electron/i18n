@@ -1,11 +1,11 @@
 # BrowserWindow
 
-> Buat dan kendalikan jendela peramban.
+> Create and control browser windows.
 
 Proses: [Main](../glossary.md#main-process)
 
 ```javascript
-// Pada proses utama.
+// Dalam proses utamanya.
 const { BrowserWindow } = require('electron')
 
 // Atau gunakan `remote` dari proses perender.
@@ -97,13 +97,12 @@ Disarankan agar Anda menghentikan sementara operasi mahal saat keadaan visibilit
 
 * Di jendela macOS modal akan ditampilkan sebagai lembaran yang menempel pada jendela induk.
 * Pada macOS , jendela anak akan menjaga posisi relatif ke jendela induk saat jendela induk bergerak, sementara pada jendela anak Windows dan Linux tidak akan bergerak.
-* Pada Windows tidak didukung untuk mengubah jendela induk secara dinamis.
 * Di Linux jenis jendela modal akan diubah menjadi `dialog`.
 * Di Linux banyak lingkungan desktop tidak mendukung menyembunyikan jendela modal.
 
 ## Kelas: BrowserWindow
 
-> Buat dan kendalikan jendela peramban.
+> Create and control browser windows.
 
 Proses: [Main](../glossary.md#main-process)
 
@@ -139,7 +138,7 @@ Proses: [Main](../glossary.md#main-process)
   * `simpleFullscreen` Boolean (optional) - Use pre-Lion fullscreen on macOS. Default is `false`.
   * `skipTaskbar` Boolean (opsional) - Apakah akan menampilkan jendela di taskbar. Default adalah `false`.
   * `kios` Boolean (opsional) - Mode kios. Defaultnya adalah `false`.
-  * `title` String (opsional) - Judul jendela default. Defaultnya adalah `"Elektron"`.
+  * `title` String (optional) - Default window title. Default is `"Electron"`. If the HTML tag `<title>` is defined in the HTML file loaded by `loadURL()`, this property will be ignored.
   * `ikon` ([NativeImage](native-image.md) | String) (opsional) - Ikon jendela. Pada Windows itu disarankan untuk menggunakan ikon `ICO` untuk mendapatkan efek visual terbaik, Anda juga bisa biarkan tidak terdefinisi sehingga ikon executable akan digunakan.
   * `tampilkan` Boolean (opsional) - Apakah jendela harus ditampilkan saat dibuat. Default adalah `benar`.
   * `frame` Boolean (opsional) - Tentukan ` false ` untuk membuat a [Jendela Frameless](frameless-window.md). Defaultnya adalah `Benar`.
@@ -149,7 +148,7 @@ Proses: [Main](../glossary.md#main-process)
   * `disableAutoHideCursor` Boolean (opsional) - Apakah akan menyembunyikan kursor saat mengetik. Defaultnya adalah `palsu`.
   * `autoHideMenuBar` Boolean (opsional) - Auto menyembunyikan bilah menu kecuali `Alt` kunci ditekan Defaultnya adalah `palsu`.
   * `enableLargerThanScreen` Boolean (opsional) - Aktifkan jendela yang akan diubah ukurannya lebih besar. dari layar Defaultnya adalah `palsu`.
-  * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported if `transparent` is set to `true`). Default is `#FFF` (white).
+  * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha in #AARRGGBB format is supported if `transparent` is set to `true`). Default is `#FFF` (white).
   * `hasShadow` Boolean (opsional) - Apakah jendela seharusnya memiliki bayangan. Hanya ini diimplementasikan di macos Defaultnya adalah `benar`.
   * `opacity` Number (optional) - Set the initial opacity of the window, between 0.0 (fully transparent) and 1.0 (fully opaque). This is only implemented on Windows and macOS.
   * `Tema gelap` Boolean (opsional) - Pasukan menggunakan tema gelap untuk jendela, hanya bekerja beberapa lingkungan desktop GTK3. Defaultnya adalah `false`.
@@ -173,9 +172,10 @@ Pengenal akan dikelompokkan bersama.</li>
     * ` devTools </ 0> Boolean (opsional) - Baik untuk mengaktifkan DevTools.
 
 Konteks | Permintaan Konteks. Jika diset ke <code> false </ 0>, tidak dapat menggunakan <code> BrowserWindow.webContents.openDevTools () </ 0> untuk membuka DevTools. Defaultnya adalah <code>true`.
-    * `nodeIntegration` Boolean (opsional) - Apakah integrasi node diaktifkan Default `benar`.
+    * `nodeIntegration` Boolean (optional) - Whether node integration is enabled. Default is `false`.
     * ` nodeIntegrationInWorker` Boolean (opsional) - Apakah integrasi simpul diaktifkan pada pekerja web. Defaultnya adalah ` false </ 0> . Lebih lanjut tentang ini dapat ditemukan di <a href="../tutorial/multithreading.md">Multithreading</a>.</li>
-<li><code>preload` String (opsional) - Menentukan skrip yang akan dimuat sebelum skrip lain dijalankan di halaman. Script ini akan selalu memiliki akses ke API simpul tidak peduli apakah integrasi node dinyalakan atau dimatikan. Nilainya harus jadilah path file absolut pada script. Saat integrasi simpul dimatikan, skrip preload dapat diperkenalkan kembali Simbol global node kembali ke lingkup global. Lihat contoh [di sini](process.md#event-loaded).
+<li><code>nodeIntegrationInSubFrames` Boolean (optional) - Experimental option for enabling NodeJS support in sub-frames such as iframes. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not.
+    * `preload` String (opsional) - Menentukan skrip yang akan dimuat sebelum skrip lain dijalankan di halaman. Script ini akan selalu memiliki akses ke API simpul tidak peduli apakah integrasi node dinyalakan atau dimatikan. Nilainya harus jadilah path file absolut pada script. Saat integrasi simpul dimatikan, skrip preload dapat diperkenalkan kembali Simbol global node kembali ke lingkup global. Lihat contoh [di sini](process.md#event-loaded).
     * `kotak pasir` Boolean (opsional) - Jika disetel, ini akan menampilkan kotak pasir perender terkait dengan jendela, membuatnya kompatibel dengan Chromium Kotak pasir tingkat OS dan menonaktifkan mesin Node.js. Ini tidak sama dengan opsi `nodeIntegration` dan API tersedia untuk skrip pramuat lebih terbatas. Baca lebih lanjut tentang opsi [di sini](sandbox-option.md). **Catatan:** Pilihan ini saat ini eksperimental dan dapat berubah atau terjadi dihapus di rilis Elektron masa depan.
     * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. Default is `true`.
     * `session` [Session](session.md#class-session) (perintah) - sesuaikan sesi yang digunakan oleh halaman. Alih-alih melewati objek Sidang secara langsung, Anda juga bisa memilihnya gunakan opsi `partisi` sebagai gantinya, yang menerima string partisi. Kapan `Session` dan `partisi` disediakan, `Session` akan lebih disukai. Default adalah sesi default.
@@ -206,18 +206,21 @@ Konteks | Permintaan Konteks. Jika diset ke <code> false </ 0>, tidak dapat meng
     * `minimumFontSize` Integer (opsional) - Default ke `0`.
     * `defaultEncoding` String (opsional) - Default ke `ISO-8859-1`.
     * `backgroundThrottling` Boolean (opsional) - Apakah akan mencekik animasi dan timer? Saat halaman menjadi background. This also affects the [Page Visibility API](#page-visibility). Default ke ` true </ 0> .</li>
-<li><code> offscreen </ 0>  Boolean (opsional) - Apakah akan mengaktifkan rendering offscreen untuk jendela browser. Default ke <code> false </ 0> . Lihat
+<li><code> offscreen </ 0>  Boolean (opsional) - Apakah akan mengaktifkan rendering offscreen untuk jendela browser. Default ke <code> false </ 0>. Lihat
  tutorial rendering <a href="../tutorial/offscreen-rendering.md"> offscreen </ 0> untuk lebih jelasnya.</li>
 <li><code> contextIsolation </ 0>  Boolean (opsional) - Apakah akan menjalankan API Elektron dan skrip <code> preload </ 0> yang ditentukan dalam konteks JavaScript yang terpisah . Default ke <code> false </ 0> . Konteks script <code> preload ` berjalan masih akan memiliki akses penuh ke jendela ` document `dan` window` namun akan menggunakan set sendiri JavaScript builtins ( `Array`, `Objek`, `JSON`, dll.) Dan akan diisolasi dari perubahan yang dilakukan pada lingkungan global oleh laman yang dimuat. The Electron API hanya akan tersedia di ` preload </ 0> naskah dan bukan halaman dimuat. Opsi ini harus digunakan saat memuat konten remote yang berpotensi tidak tepercaya untuk memastikan konten yang dimuat tidak dapat merusak skrip <code> preload </ 0> dan setiap API Elektron yang digunakan.
 Opsi ini menggunakan teknik yang sama yang digunakan oleh <a href="https://developer.chrome.com/extensions/content_scripts#execution-environment"> Chrome Content Scripts </ 0> .
 Anda dapat mengakses konteks ini di alat dev dengan memilih entri ' Elektron Isolated Context' di kotak kombo di bagian atas tab Konsol.</li>
-<li><code>nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. If set to `true`, the `webPreferences` of child window will always be the same with parent window, regardless of the parameters passed to `window.open()`. Default ke ` false </ 0>. <strong>Note:</strong> This option is
-currently experimental.</li>
-<li><code> webviewTag ` Boolean (opsional) - Apakah untuk mengaktifkan[`<webview>`tag](webview-tag.md). Default untuk nilai ` nodeIntegration ` option . ** Catatan: ** ` preload ` Script dikonfigurasi untuk `<webview>` akan memiliki simpul integrasi diaktifkan ketika dieksekusi sehingga Anda harus memastikan remote / konten yang tidak dipercaya tidak mampu menciptakan `<webview>` tag dengan mungkin ` preload ` script. Anda dapat menggunakan `akan melampirkan tampilan web` acara di [webContents](web-contents.md) untuk mengupas dengan` preload` naskah dan untuk memvalidasi atau mengubah `<webview>` 's pengaturan awal.
+<li><code>nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. Default ke ` false </ 0>. Child windows will always have node
+integration disabled. <strong>Note:</strong> This option is currently
+experimental.</li>
+<li><code> webviewTag ` Boolean (opsional) - Apakah untuk mengaktifkan[`<webview>`tag](webview-tag.md). Default ke ` false </ 0>. <strong> Catatan: </strong>
+ <code> preload ` Script dikonfigurasi untuk `<webview>` akan memiliki simpul integrasi diaktifkan ketika dieksekusi sehingga Anda harus memastikan remote / konten yang tidak dipercaya tidak mampu menciptakan `<webview>` tag dengan mungkin ` preload ` script. Anda dapat menggunakan `akan melampirkan tampilan web` acara di [webContents](web-contents.md) untuk mengupas dengan` preload` naskah dan untuk memvalidasi atau mengubah `<webview>` 's pengaturan awal.
     * `additionalArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app. Useful for passing small bits of data down to renderer process preload scripts.
     * `safeDialogs` Boolean (optional) - Whether to enable browser style consecutive dialog protection. Default is `false`.
     * `safeDialogsMessage` String (optional) - The message to display when consecutive dialog protection is triggered. If not defined the default message would be used, note that currently the default message is in English and not localized.
     * `navigateOnDragDrop` Boolean (optional) - Whether dragging and dropping a file or link onto the page causes a navigation. Default is `false`.
+    * `autoplayPolicy` String (optional) - Autoplay policy to apply to content in the window, can be `no-user-gesture-required`, `user-gesture-required`, `document-user-activation-required`. Defaults to `no-user-gesture-required`.
 
 When setting minimum or maximum window size with `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, it only constrains the users. Ini tidak akan mencegah Anda melewati ukuran yang tidak mengikuti batasan ukuran pada ` setBounds `/`setSize` atau ke konstruktor `BrowserWindow`.
 
@@ -388,7 +391,7 @@ Pengembalian:
 
 Emitted when the window is set or unset to show always on top of other windows.
 
-#### Event : 'app-command' * Windows </ 0></h4> 
+#### Event: 'app-command' *Windows* *Linux*
 
 Pengembalian:
 
@@ -409,6 +412,10 @@ misal <code> APPCOMMAND_BROWSER_BACKWARD </ 0> dipancarkan sebagai <code> browse
      win.webContents.goBack ()
    }})
 `</pre> 
+  The following app commands are explictly supported on Linux:
+  
+  * `browser-backward`
+  * `browser-forward`
   #### Acara : 'gulir-sentuh-mulai' * macOS </ 0></h4> 
   
   Emitted saat scroll wheel event phase sudah dimulai.
@@ -694,11 +701,14 @@ height areas you have within the overall content view.</p>
             ```javascript
             const { BrowserWindow } = require('electron')
             const win = new BrowserWindow()
-             // set all bounds properties
+            
+            // set all bounds properties
             win.setBounds({ x: 440, y: 225, width: 800, height: 600 })
-             // set a single bounds property
-            win.setBounds({ width: 200 })
-             // { x: 440, y: 225, width: 200, height: 600 }
+            
+            // set a single bounds property
+            win.setBounds({ width: 100 })
+            
+            // { x: 440, y: 225, width: 100, height: 600 }
             console.log(win.getBounds())
             ```
             
@@ -889,7 +899,7 @@ height areas you have within the overall content view.</p>
                       
                       Mengembalikan `String` - judul jendela asli.
                       
-                      **Catatan:** Judul halaman web dapat berbeda dari judul jendela asli.
+                      **Note:** The title of the web page can be different from the title of the native window.
                       
                       #### `win.setSheetOffset (offsetY [, offsetX])` *macOS*
                       
@@ -994,18 +1004,29 @@ bar will become gray when set to <code>true`.</p>
 </ul></li>
 </ul>
 
-<p>Sama seperti <code>webContents.capturePage ([rect,]callback)`.</p> 
+<p>Menangkap sebuah snapshot dari halaman dalam <code>rect`. Setelah menyelesaikan `callback` yang akan disebut dengan `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.</p> 
+                            **[Deprecated Soon](promisification.md)**
+                            
+                            #### `win.capturePage([rect])`
+                            
+                            * ` rect </ 0>  <a href="structures/rectangle.md"> Rectangle </ 1> (opsional) - Batas untuk ditangkap</p></li>
+<li><p>Returns <code>Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+                            
+                            Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
+                            
                             #### `win.loadURL (url [, options])`
                             
-                            * ` url </ 0> String</li>
-<li><code>pilihan` Objek (opsional) 
+                            * `url` String
+                            * `pilihan` Objek (opsional) 
                               * `httpReferrer` (String | [Referrer](structures/referrer.md)) (optional) - An HTTP Referrer url.
-                              * ` userAgent </ 0>  String (opsional) - Agen pengguna yang berasal dari permintaan.</li>
-<li><code>extraHeaders` String (opsional) - header tambahan yang dipisahkan oleh "\n"
+                              * `userAgent` String (opsional) - agen pengguna berasal permintaan.
+                              * `extraHeaders` String (opsional) - header tambahan yang dipisahkan oleh "\n"
                               * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
                               * `baseURLForDataURL` String (opsional) - url dasar (dengan trailing pemisah path) untuk file yang akan diambil oleh data url. Hal ini diperlukan hanya jika ditentukan `url` data url dan perlu memuat file lainnya.
                             
-                            Sama seperti ` webContents.loadURL (url [, options]) `.
+                            Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
+                            
+                            Same as [`webContents.loadURL(url[, options])`](web-contents.md#contentsloadurlurl-options).
                             
                             `url` dapat berupa alamat jauh (misalnya `http://`) atau jalur ke lokal File HTML menggunakan protokol `file://`.
                             
@@ -1039,6 +1060,8 @@ win.loadURL(url)
                               * `search` String (optional) - Passed to `url.format()`.
                               * `hash` String (optional) - Passed to `url.format()`.
                             
+                            Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
+                            
                             Same as `webContents.loadFile`, `filePath` should be a path to an HTML file relative to the root of your application. See the `webContents` docs for more information.
                             
                             #### `win.reload ()`
@@ -1049,7 +1072,11 @@ win.loadURL(url)
                             
                             * `menu` Menu | batal
                             
-                            Menetapkan ` menu ` bar menu jendela, pengaturan untuk ` nol ` akan menghapus menu bar.
+                            Sets the `menu` as the window's menu bar.
+                            
+                            #### `win.removeMenu()` *Linux* *Windows*
+                            
+                            Remove the window's menu bar.
                             
                             #### `win.setProgressBar (kemajuan [, pilihan])`
                             
@@ -1235,7 +1262,7 @@ win.loadURL(url)
                                 
                                 Perubahan apakah jendela bisa difokuskan.
                                 
-                                #### `win.setParentWindow(parent)` *Linux* *macOS*
+                                #### `win.setParentWindow(parent)`
                                 
                                 * `orang tua` BrowserWindow
                                 
@@ -1255,11 +1282,12 @@ win.loadURL(url)
                                 
                                 Mengontrol apakah akan menyembunyikan kursor saat mengetik.
                                 
-                                #### `win.selectPreviousTab()` *macOS*
-                                
-                                Selects the previous tab when native tabs are enabled and there are other tabs in the window.
-                                
-                                #### ` win.selectNextTab () </ 0>  <em> macos </ 1></h4>
+                                #### ` win.selectPreviousTab () </ 0>  <em> macos </ 1></h4>
+
+<p>Selects the previous tab when native tabs are enabled and there are other
+tabs in the window.</p>
+
+<h4><code> win.selectNextTab () </ 0>  <em> macos </ 1></h4>
 
 <p>Selects the next tab when native tabs are enabled and there are other
 tabs in the window.</p>
@@ -1301,9 +1329,22 @@ there is only one tab in the current window.</p>
                                 
                                 #### `win.setBrowserView (browserView)` *Eksperimental*
                                 
-                                * `browserView` [BrowserView](browser-view.md)
+                                * `browserView` [BrowserView](browser-view.md). Attach browserView to win. If there is some other browserViews was attached they will be removed from this window.
                                 #### `win.getBrowserView()` *Experimental*
                                 
-                                Returns `BrowserView | null` - an attached BrowserView. Returns `null` if none is attached.
+                                Returns `BrowserView | null` - an BrowserView what is attached. Returns `null` if none is attached. Throw error if multiple BrowserViews is attached.
+                                
+                                #### `win.addBrowserView(browserView)` *Experimental*
+                                
+                                * `browserView` [BrowserView](browser-view.md)
+                                
+                                Replacement API for setBrowserView supporting work with multi browser views.
+                                
+                                #### `win.removeBrowserView(browserView)` *Experimental*
+                                
+                                * `browserView` [BrowserView](browser-view.md)
+                                #### `win.getBrowserViews()` *Experimental*
+                                
+                                Returns array of `BrowserView` what was an attached with addBrowserView or setBrowserView.
                                 
                                 **Catatan:** lihat browser API masih bersifat eksperimental dan mungkin mengubah atau dihapus elektron pada masa depan.

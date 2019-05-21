@@ -43,9 +43,9 @@ Ibinabalik ang:
 
 * `event` na Kaganapan
 
-Ilalabas bago magsimula ang aplikasyon sa pagsasara ng mga window nito. Ang pagtawag ng `event.preventDefault()` ay pipigilan ang default na aksyon, na kung saan ay ang pag-aalis ng aplikasyon.
+Emitted before the application starts closing its windows. Calling `event.preventDefault()` will prevent the default behavior, which is terminating the application.
 
-**Note:** Kung sinimulan ang paghinto sa aplikasyon ng `autoUpdater.quitAndInstall()` tapos ang `before-quit` ay lumabas *after* ilalabas ang event na `close` sa lahat ng mga window at isasarado sila.
+**Note:** If application quit was initiated by `autoUpdater.quitAndInstall()`, then `before-quit` is emitted *after* emitting `close` event on all windows and closing them.
 
 **Note:** On Windows, this event will not be emitted if the app is closed due to a shutdown/restart of the system or a user logout.
 
@@ -154,7 +154,7 @@ Ibinabalik ang:
 * `type` String - Isang string na kumikilala sa mga aktibidad. Mag-map sa [`NSUserActivity.activityType`](https://developer.apple.com/library/ios/documentation/Foundation/Reference/NSUserActivity_Class/index.html#//apple_ref/occ/instp/NSUserActivity/activityType).
 * `userInfo` Object - Naglalaman ng app-specific na estado na nakaimbak ng aktibidad.
 
-Napalabas kung [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) ay malapit na ipagpatuloy sa isa pang device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Kung hindi, ang operasyon ay mabibigo at `continue-activity-error` ay tatawagin.
+Napalabas kung [Handoff](https://developer.apple.com/library/ios/documentation/UserExperience/Conceptual/Handoff/HandoffFundamentals/HandoffFundamentals.html) ay malapit na ipagpatuloy sa isa pang device. If you need to update the state to be transferred, you should call `event.preventDefault()` immediately, construct a new `userInfo` dictionary and call `app.updateCurrentActiviy()` in a timely manner. Otherwise, the operation will fail and `continue-activity-error` will be called.
 
 ### Event: 'new-window-for-tab' *macOS*
 
@@ -274,7 +274,7 @@ Ibinabalik ang:
 
 Lalabas kapag ang `webContents` ay gustong gawin ang basic auth.
 
-Ang default na aksyon ay ang pagkansela ng lahat ng mga pagpapatunay, dapat mong pigilan ang default na aksyon gamit ang `event.preventDefault()` at tawagin ang `callback(username, password)` gamit ang mga kredensyal para ma-override ito.
+The default behavior is to cancel all authentications. To override this you should prevent the default behavior with `event.preventDefault()` and call `callback(username, password)` with the credentials.
 
 ```javascript
 const { app } = require('electron')
@@ -331,11 +331,22 @@ This event will be emitted inside the primary instance of your application when 
 
 This event is guaranteed to be emitted after the `ready` event of `app` gets emitted.
 
-### Event: 'remote-require'
+**Note:** Extra command line arguments might be added by Chromium, such as `--original-process-start-time`.
+
+### Event: 'desktop-capturer-get-sources'
 
 Ibinabalik ang:
 
 * `kaganapan`Kaganapan
+* `webContents` [WebContents](web-contents.md)
+
+Emitted when `desktopCapturer.getSources()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will make it return empty sources.
+
+### Event: 'remote-require'
+
+Ibinabalik ang:
+
+* `kaganapan` Kaganapan
 * `webContents` [WebContents](web-contents.md)
 * `moduleName` String
 
@@ -407,7 +418,7 @@ Ang method na ito ay ginagarantiya na ang lahat ng `beforeunload` at `unload` na
 
 Exits immediately with `exitCode`. `exitCode` defaults to 0.
 
-Ang lahat ng mga window ay kaagad na magsasara kahit walang pahintulot ng user at ang `before-quit` at `will-quit` na mga event ay hindi na lalabas.
+All windows will be closed immediately without asking the user, and the `before-quit` and `will-quit` events will not be emitted.
 
 ### `app.relaunch([options])`
 
@@ -417,7 +428,7 @@ Ang lahat ng mga window ay kaagad na magsasara kahit walang pahintulot ng user a
 
 Muling ilulunsad ang app kapag ang kasalukuyang kahilingan ay nawala na.
 
-Sa pamamagitan ng default ang bagong kahilingan ay gagamitin ang kaparehong direktoryo ng gawain at mga argumento ng linya ng command nang kasalukuyang kahilingan. Kapag ang `args` ay tinukoy na, ang `args` ay maaaring ipasa sa halip na ang mga argumento ng linya ng command. Kapag ang `execPath` ay tinukoy na, ang `execPath` ay gagawin para sa muling paglunsad sa halip na ang kasalukuyang app.
+By default, the new instance will use the same working directory and command line arguments with current instance. Kapag ang `args` ay tinukoy na, ang `args` ay maaaring ipasa sa halip na ang mga argumento ng linya ng command. Kapag ang `execPath` ay tinukoy na, ang `execPath` ay gagawin para sa muling paglunsad sa halip na ang kasalukuyang app.
 
 Tandaan na ang pamamaraan na ito ay hindi inaalis ang app kapag pinairal, dapat mong tawagin ang `app.quit` o ang `app.exit` matapos tawagin ang `app.relaunch` para ang app ay magsimula muli.
 
@@ -460,7 +471,7 @@ Returns`String` - Ang kasalukuyang direktoryo ng aplikasyon.
 
 * `name` String
 
-Returns `String` - Isang landas para sa isang espesyal na direktoryo o file na may kaugnayan sa `name`. Sa kabiguan ang `Error` ay ibinabato.
+Returns `String` - A path to a special directory or file associated with `name`. On failure, an `Error` is thrown.
 
 Maaari mong hilingin ang mga sumusunod na landas sa pamamagitan ng pangalan:
 
@@ -501,7 +512,29 @@ Sa *Windows*, may 2 uri ng mga icon:
 * Ang mga icon na nauugnay ng ilang mga file extension, tulad ng `.mp3`, `.png`, atbp.
 * Mga icon na nasa loob mismo ng file, tulad ng `.exe`, `.dll`, `.ico`.
 
-Sa *Linux* at *macOS*, ang mga icon ay nakadepende sa aplikasyon na may kaugnayan sa mime type na file.
+On *Linux* and *macOS*, icons depend on the application associated with file mime type.
+
+**[Deprecated Soon](promisification.md)**
+
+### `app.getFileIcon(path[, options])`
+
+* `path` String
+* `options` Na Bagay (opsyonal) 
+  * `sukat` String 
+    * `small` - 16x16
+    * `normal` - 32x32
+    * `large` - 48x48 sa *Linux*, 32x32 sa *Windows*, hindi suportado sa *macOS*.
+
+Returns `Promise<NativeImage>` - fulfilled with the app's icon, which is a [NativeImage](native-image.md).
+
+Kukunin ang kaugnay na icon ng isang landas.
+
+Sa *Windows*, may 2 uri ng mga icon:
+
+* Ang mga icon na nauugnay ng ilang mga file extension, tulad ng `.mp3`, `.png`, atbp.
+* Mga icon na nasa loob mismo ng file, tulad ng `.exe`, `.dll`, `.ico`.
+
+On *Linux* and *macOS*, icons depend on the application associated with file mime type.
 
 ### `app.setPath(name,path)`
 
@@ -538,7 +571,13 @@ To set the locale, you'll want to use a command line switch at app startup, whic
 
 **Tandaan:** Habang ipinamamahagi ang iyong naka-package na app, dapat mo ring isama ang polder ng `locales`.
 
-**Tandaan:** Sa Windows dapat mo itong tawagin pagkatapos na ang mga event ng `ready` ay mapalabas.
+**Note:** On Windows, you have to call it after the `ready` events gets emitted.
+
+### `app.getLocaleCountryCode()`
+
+Returns `string` - User operating system's locale two-letter [ISO 3166](https://www.iso.org/iso-3166-country-codes.html) country code. The value is taken from native OS APIs.
+
+**Note:** When unable to detect locale country code, it returns empty string.
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
@@ -546,7 +585,7 @@ To set the locale, you'll want to use a command line switch at app startup, whic
 
 Nagdadagdag ng `path` sa listahan ng mga bagong dokumento.
 
-Ang listahan na ito ay pinamamahalaan ng OS. Sa Windows maaari mong bisitahin ang listahan mula sa task bar, at sa macOSmaaari mong bisitahin mula sa menu ng dock.
+This list is managed by the OS. On Windows, you can visit the list from the task bar, and on macOS, you can visit it from dock menu.
 
 ### `app.clearRecentDocuments()` *macOS* *Windows*
 
@@ -562,7 +601,7 @@ Returns `Boolean` - Kung ang tawag ay nagtagumpay.
 
 Ang paraan na ito ay nagtatakda sa kasalukuyang maipapatupad bilang ang default handler para sa isang protocol (aka pamamaraan ng URI). Ito ay nagpapahintulot sa iyo na isama ang iyong app pailalim patungo sa operating system. Sakaling marehistro, ang lahat ng links na may `your-protocol://` ay mabubuksan ng kasalukuyang pagpapatupad. Ang kabuuang link, kasama ang protocol, ay makakalampas sa iyong aplikasyon bilang isang parameter.
 
-Sa mga Window maaari mong ibigay na opsyonal na landas ng mga parameter, ang landas na iyong maipapatupad, at ang mga argumento, ang kaayusan ng mga argumento na maaaring ipasa sa iyong naipapatupad kapag ito ay nailunsad.
+On Windows, you can provide optional parameters path, the path to your executable, and args, an array of arguments to be passed to your executable when it launches.
 
 **Note:** Sa macOS, maaari mo lamang irehistro ang mga protocol na naging karagdagan sa iyong mga app `info.plist`, kung saan ay hindi na mababago habang nasa oras ng paggana. Kahit papaano ay maaari mong baguhin ang file sa pamamagitan ng isang simpleng editor ng teksto o script habang nasa oras ng pagbuo. Pakiusap sumangguni sa [Apple's documentation](https://developer.apple.com/library/ios/documentation/General/Reference/InfoPlistKeyReference/Articles/CoreFoundationKeys.html#//apple_ref/doc/uid/TP40009249-102207-TPXREF115) para sa mga detalye.
 
@@ -695,11 +734,11 @@ Returns `Boolean`
 
 Sa method na ito, ang ang iyong application ay magiging isang Single Instance Application - sa halip na pinapayagan ang maraming mga instance ng iyong app na mag-run, sinisiguro nito na isang instance lang ng iyong app ang mag-rurun, at ang ibang mga instance ay sisignal sa instance na ito at mag-eexit.
 
-The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock you can assume that another instance of your application is already running with the lock and exit immediately.
+The return value of this method indicates whether or not this instance of your application successfully obtained the lock. If it failed to obtain the lock, you can assume that another instance of your application is already running with the lock and exit immediately.
 
 I.e. This method returns `true` if your process is the primary instance of your application and your app should continue loading. It returns `false` if your process should immediately quit as it has sent its parameters to another instance that has already acquired the lock.
 
-Sa macOS ang system ay awtomatikong pipilitin na mag-single instance kung ang user ay magtatangkang magbukas na ikalawang instance ng iyong app sa Finder, at ang `open-file` at `open-url` na mga event ay ibrobrodkast para doon. Gayunpaman kapag ang mga user ay binuksan ang iyong app sa linya ng command ang isahang instansyang mekanismo ng sistema ay mababalewala at kailangan mong gamitin ang pamamaraang ito para masiguro ang isahang instansya.
+On macOS, the system enforces single instance automatically when users try to open a second instance of your app in Finder, and the `open-file` and `open-url` events will be emitted for that. However when users start your app in command line, the system's single instance mechanism will be bypassed, and you have to use this method to ensure single instance.
 
 Ang isang halimbawa ng pag-aktibeyt ng window ng pangunahing instansya ay kapag nagsimula na ang ikalawang instansya:
 
@@ -840,7 +879,7 @@ Returns `Boolean` - Kung ang tawag ay nagtagumpay.
 
 Ang badge na tagabilang ay nai-set para sa kasalukuyang app. Itinatago ang badge kapag ang itinatakdang bilang ay `0`.
 
-Sa macOS ipinapakita ito sa dock icon. Sa Linux ito ay gumagalaw lamang para sa tagapaglunsad ng Unity,
+On macOS, it shows on the dock icon. On Linux, it only works for Unity launcher.
 
 **Note:** Unity launcher requires the existence of a `.desktop` file to work, for more information please read [Desktop Environment Integration](../tutorial/desktop-environment-integration.md#unity-launcher).
 
@@ -858,7 +897,7 @@ Nagbabalik ang `Boolean` - Kung ang kasalukuyang kapaligiran ay tagalunsad ng Un
   * `path` String (opsyonal) *Windows* - Ang maipapatupad na landas na ihahambing laban sa. Mga default sa `process.execPath`.
   * `args` String[] (opsyonal) *Windows* - Ang mga argumento ng command-line na ihahambing laban sa. Mga default sa isang hanay na walang laman.
 
-Kung ibinigay mo ang mga opsyon ng mga `path` at mga `args` sa `app.setLoginItemSettings` kung gayon dapat mong ipasa ang mga parehong argumento dito para mai-set ng tama ang `openAtLogin`.
+If you provided `path` and `args` options to `app.setLoginItemSettings`, then you need to pass the same arguments here for `openAtLogin` to be set correctly.
 
 Nagbabalik ng mga `bagay`:
 
@@ -911,20 +950,22 @@ This API must be called after the `ready` event is emitted.
 
 **Note:** Rendering accessibility tree can significantly affect the performance of your app. It should not be enabled by default.
 
-### `app.showAboutPanel()` *macOS* 
+### `app.showAboutPanel` *macOS* *Linux*
 
-Show the about panel with the values defined in the app's `.plist` file or with the options set via `app.setAboutPanelOptions(options)`.
+Show the app's about panel options. These options can be overridden with `app.setAboutPanelOptions(options)`.
 
-### `app.setAboutPanelOptions(options)` *macOS*
+### `app.setAboutPanelOptions(options)` *macOS* *Linux*
 
 * `options` Bagay 
   * `applicationName` String (opsyonal) - Ang pangalan ng app.
   * `applicationVersion` String (opsyonal) - Ang bersyon ng app.
   * `copyright` String (opsyonal) - Ang impormasyon ng copyright.
-  * `credits` String (opsyonal) - Ang impormasyon ng credit.
-  * `version` String (opsyonal) - Ang build version number ng app.
+  * `version` String (optional) - The app's build version number. *macOS*
+  * `credits` String (optional) - Credit information. *macOS*
+  * `website` String (optional) - The app's website. *Linux*
+  * `iconPath` String (optional) - Path to the app's icon. *Linux*
 
-I-set ang mga pagpipilian tungkol sa panel. Ipinapawang-bisa nito ang halaga ng ipinaliwanag na `.plist` na file ng app. Tingnan ang [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) para sa iba pang mga detalye.
+I-set ang mga pagpipilian tungkol sa panel. This will override the values defined in the app's `.plist` file on MacOS. Tingnan ang [Apple docs](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) para sa iba pang mga detalye. On Linux, values must be set in order to be shown; there are no defaults.
 
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
 
@@ -958,15 +999,23 @@ Ilakip ang isang argumento sa linya ng command ng Chromium Ang argumento ay iko-
 
 **Note:** Ito ay hindi makaka-apekto sa `process.argv`.
 
+### `app.commandLine.hasSwitch(switch)`
+
+* `switch` String - Ang swits ng command-line
+
+Returns `Boolean` - Whether the command-line switch is present.
+
+### `app.commandLine.getSwitchValue(switch)`
+
+* `switch` String - Ang swits ng command-line
+
+Returns `String` - The command-line switch value.
+
+**Note:** When the switch is not present, it returns empty string.
+
 ### `app.enableSandbox()` *Experimental* *macOS* *Windows*
 
 Enables full sandbox mode on the app.
-
-Ang pamamaraang ito ay maaari lamang matawag bago ang app ay handa na.
-
-### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
-
-Ang pinaghalong paraan ng sandbox sa app ay pinagana.
 
 Ang pamamaraang ito ay maaari lamang matawag bago ang app ay handa na.
 
@@ -976,11 +1025,11 @@ Returns `Boolean` - Whether the application is currently running from the system
 
 ### `app.moveToApplicationsFolder()` *macOS* 
 
-Returns `Boolean` - Whether the move was successful. Please note that if the move is successful your application will quit and relaunch.
+Returns `Boolean` - Whether the move was successful. Please note that if the move is successful, your application will quit and relaunch.
 
-No confirmation dialog will be presented by default, if you wish to allow the user to confirm the operation you may do so using the [`dialog`](dialog.md) API.
+No confirmation dialog will be presented by default. If you wish to allow the user to confirm the operation, you may do so using the [`dialog`](dialog.md) API.
 
-**NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog this method returns false. If we fail to perform the copy then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
+**NOTE:** This method throws errors if anything other than the user causes the move to fail. For instance if the user cancels the authorization dialog, this method returns false. If we fail to perform the copy, then this method will throw an error. The message in the error should be informative and tell you exactly what went wrong
 
 ### `app.dock.bounce([type])` *macOS*
 

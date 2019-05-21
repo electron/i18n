@@ -12,7 +12,7 @@ Windows 允许应用程序定义一个自定义上下文菜单，用户可以看
 
 **Internet Explorer 的 任务:**
 
-![IE](http://i.msdn.microsoft.com/dynimg/IC420539.png)
+![IE](https://i-msdn.sec.s-msft.com/dynimg/IC420539.png)
 
 不同于 macOS 的dock菜单，Windows 上的用户任务表现得更像一个快捷方式，比如当用户点击一个任务，一个程序将会被传入特定的参数并且运行。
 

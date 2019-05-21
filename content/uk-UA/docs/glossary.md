@@ -1,52 +1,52 @@
-# Словник
+# Glossary
 
-Ця сторінка визначає термінологію, що широко використовується в розробці Electron.
+This page defines some terminology that is commonly used in Electron development.
 
 ### ASAR
 
-ASAR це Atom Shell Archive Format. Архів [asar](https://github.com/electron/asar) це простий `tar` формат, що збирає файли в єдиний. Electron може працювати з файлами архіву без його розпаковування.
+ASAR це Atom Shell Archive Format. An [asar](https://github.com/electron/asar) archive is a simple `tar`-like format that concatenates files into a single file. Electron може працювати з файлами архіву без його розпаковування.
 
 ASAR був створений для збільшення продуктивності на Windows...
 
 ### CRT
 
-Бібліотека C Run-time (CRT) є частиною стандартної бібліотеки C++, яка включає стандартну бібліотеку ISO C99. Бібліотеки Visual C++, які реалізують CRT підтримку нативної розробки коду, нативний змішаний та керований код, а також чистий керований код для розробки .NET.
+The C Run-time Library (CRT) is the part of the C++ Standard Library that incorporates the ISO C99 standard library. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
 
 ### DMG
 
-Apple Disk Image (DMG) — це пакетний формат, який використовується в macOS. DMG файли зазвичай використовуються для поширення програми «установника». [electron-builder](https://github.com/electron-userland/electron-builder) підтримує `dmg` формат як ціль побудови/компіляції.
+Apple Disk Image (DMG) — це пакетний формат, який використовується в macOS. DMG files are commonly used for distributing application "installers". [electron-builder](https://github.com/electron-userland/electron-builder) supports `dmg` as a build target.
 
 ### IME
 
-Input Method Editor. Це програма, яка дозволяє користувачам вводити букви та символи, які відсутні на клавіатурі. Наприклад, користувачі з Латинською клавіатурою можуть вводити Китайські, Японські, Корейські або Індійські символи.
+Input Method Editor. A program that allows users to enter characters and symbols not found on their keyboard. For example, this allows users of Latin keyboards to input Chinese, Japanese, Korean and Indic characters.
 
 ### IDL
 
-Мова описання інтерфейсу. Описуйте сигнатури функцій і типи даних у форматі, який може використовуватись для створення інтерфейсів в Java, C++, JavaScript, тощо.
+Interface description language. Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
 
 ### IPC
 
-IPC (Inter-Process Communication) це набір засобів для комунікації або взаємодії між процесами. Electron використовує IPC для відправки серіалізованих JSON повідомлень між [main](#main-process) та [renderer](#renderer-process) процесами.
+IPC stands for Inter-Process Communication. Electron uses IPC to send serialized JSON messages between the [main](#main-process) and [renderer](#renderer-process) processes.
 
 ### libchromiumcontent
 
-Загальна бібліотека, яка включає в себе [Chromium Content module](https://www.chromium.org/developers/content-module) і всі його залежності (Наприкkад, Blink, [V8](#v8) і т.д.). Також відома як "libcc".
+A shared library that includes the [Chromium Content module](https://www.chromium.org/developers/content-module) and all its dependencies (e.g., Blink, [V8](#v8), etc.). Also referred to as "libcc".
 
 - [github.com/electron/libchromiumcontent](https://github.com/electron/libchromiumcontent)
 
-### Головний (Main) процес
+### main process
 
-Головний процес, зазвичай файл з назвою `main.js`, є точкою входу для кожної програми Electron. Він контролює життя додатку, від відкриття до закриття. Він також керує такими елементами як Меню, Панель меню, Dock, Трей, тощо. Головний процес відповідальний за кожен новий процес рендерінгу (render process) в програмі. Node API є вбудованим.
+The main process, commonly a file named `main.js`, is the entry point to every Electron app. It controls the life of the app, from open to close. It also manages native elements such as the Menu, Menu Bar, Dock, Tray, etc. The main process is responsible for creating each new renderer process in the app. The full Node API is built in.
 
-Кожен файл головного процесу застосунку визначений у `main` властивості у `package.json`. Так `electron` знає, який файл виконувати спочатку.
+Every app's main process file is specified in the `main` property in `package.json`. This is how `electron .` knows what file to execute at startup.
 
-В Chromium, цей процес також відомий як "процес браузера". Він перейменований в Electron щоб уникнути плутанини з процесом рендерингу.
+In Chromium, this process is referred to as the "browser process". It is renamed in Electron to avoid confusion with renderer processes.
 
-Дивіться також: [головний процес](#process), [процес рендерингу](#renderer-process)
+See also: [process](#process), [renderer process](#renderer-process)
 
 ### MAS
 
-Акронім для Apple's Mac App Store. Для інструкції надсилання вашого додатку в MAS, дивіться [Інструкція подання в Mac App Store](tutorial/mac-app-store-submission-guide.md).
+Acronym for Apple's Mac App Store. For details on submitting your app to the MAS, see the [Mac App Store Submission Guide](tutorial/mac-app-store-submission-guide.md).
 
 ### Mojo
 

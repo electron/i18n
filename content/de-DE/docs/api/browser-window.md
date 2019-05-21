@@ -102,7 +102,6 @@ Es wird empfohlen aufwendige Aufgaben zu pausieren wenn der Sichtbarkeitszustand
 
 * On macOS modal windows will be displayed as sheets attached to the parent window.
 * Wenn unter macOS übergeordnete Fenster bewegt werden, behalten untergeordnete Fenster ihre Position relativ zum übergeordneten Fenster bei. Unter Windows und Linux bewegen sich die untergeordneten Fenster nicht.
-* Unter Windows das übergeordnete Fenster dynamisch zu wechseln.
 * Unter Linux wird der Typ von modalen Fenstern zu `dialog` geändert.
 * Unter Linux wird das verstecken von modalen Fenstern von vielen Desktop Umgebungen nicht unterstützt.
 
@@ -141,7 +140,7 @@ Es erzeugt ein neues `BrowserWindow` mit nativen Eigenschaften die durch `option
   * `simpleFullscreen` Boolean (optional) - Gibt an ob der pre-Lion Vollbildmodus unter macOS verwendet wird. Standard ist `false`.
   * `skipTaskbar` Boolean (optional) - Gibt an ob das Fenster in der Taskbar anzeigt wird. Standard ist `false`.
   * `kiosk` Boolean (optional) - Kioskmodus. Standard ist `false`.
-  * `title` String (optional) - Fenstertitel. Standard ist `"Electron"`.
+  * `title` String (optional) - Default window title. Default is `"Electron"`. If the HTML tag `<title>` is defined in the HTML file loaded by `loadURL()`, this property will be ignored.
   * `icon` ([NativeImage](native-image.md) | String) (optional) - Das Fenstericon. Es empfiehlt sich unter Windows ein `ICO` Icon zu verwenden um die besten visuellen Effekte zu erreichen. Das Icon der Executable wird verwendet wenn dieser Wert nicht definiert wird.
   * `show` Boolean (optional) - Gibt an ob das Fenster angezeigt wird wenn es erstellt wurde. Standard ist `true`.
   * `frame` Boolean (optional) - Spezifizieren sie `false` für ein [Frameless Window](frameless-window.md). Standard ist `true`.
@@ -151,7 +150,7 @@ Es erzeugt ein neues `BrowserWindow` mit nativen Eigenschaften die durch `option
   * `disableAutoHideCursor` Boolean (optional) - Gibt an ob der Mauszeiger versteckt werden soll wenn getippt wird. Standard ist `false`.
   * `autoHideMenuBar` Boolean (optional) - Versteckt die Menüleiste wenn `Alt` Taste nicht gedrückt ist. Standard ist `false`.
   * `enableLargerThanScreen` Boolean (optional) - Erlaubt dem Fenster größer zu werden als der Bildschirm. Standard ist `false`.
-  * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha is supported if `transparent` is set to `true`). Default is `#FFF` (white).
+  * `backgroundColor` String (optional) - Window's background color as a hexadecimal value, like `#66CD00` or `#FFF` or `#80FFFFFF` (alpha in #AARRGGBB format is supported if `transparent` is set to `true`). Default is `#FFF` (white).
   * `hasShadow` Boolean (optional) - Gibt an ob das Fenster einene Schatten hat. Nur unter macOS unterstützt. Standard ist `true`.
   * `opacity` Number (optional) - Setzt die anfängliche Opazität des Fensters. Zwischen 0,0 (vollständig transparent) und 1,0 (vollständig opak). Nur unter Windows und macOS unterstützt.
   * `darkTheme` Boolean (optional) - Erzwingt ein dunkles Farbschema. Funktioniert nur mit manchen GTK+3 Desktopumgebungen. Standard ist `false`.
@@ -169,8 +168,9 @@ Es erzeugt ein neues `BrowserWindow` mit nativen Eigenschaften die durch `option
   * `tabbingIdentifier` String (optional) - Reitergruppenname, erlaubt das öffnen des Fensters als nativen Reiter unter macOS 10.12+. Fenster mit dem selben Reitergruppennamen werden gruppiert. This also adds a native new tab button to your window's tab bar and allows your `app` and window to receive the `new-window-for-tab` event.
   * `webPreferences` Object (optional) - Einstellungen der Funktionalität der Webseite. 
     * `devTools` Boolean (optional) - Gibt an ob die Entwicklerwerkzeuge aktiviert sind. Falls dies auf `false` gesetzt ist, kann `BrowserWindow.webContents.openDevTools()` nicht verwendet werden um die Entwicklerwerkzeuge zu öffnen. Standard ist `true`.
-    * `nodeIntegration` Boolean (optional) - Gibt an ob die Node Integration aktiviert ist. Standard ist `true`.
+    * `nodeIntegration` Boolean (optional) - Whether node integration is enabled. Default is `false`.
     * `nodeIntegrationsInWorker` Boolean (optional) - Gibt an ob die Node Integration in Web Workern aktiviert ist. Standard ist `false`. Mehr dazu kann in [Multithreading](../tutorial/multithreading.md) gefunden werden.
+    * `nodeIntegrationInSubFrames` Boolean (optional) - Experimental option for enabling NodeJS support in sub-frames such as iframes. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not.
     * `preload` String (optional) - Gibt ein Skript an das vor allen anderen Skripten geladen wird bevor andere Skripte der Seite ausgeführt werden. Dieses Skript hat immer Zugriff auf die Node APIs, unabhängig davon ob die Node Integration aktiviert ist oder nicht. Der Wert sollte der absolute Pfad zum Skript sein. Wenn die Node Integration ausgeschaltet ist, kann das Preload Skript globale Node Symbole in den Globalen Scope zurückbringen. Siehe [dieses Beispiel](process.md#event-loaded).
     * `sandbox` Boolean (optional) - Wenn gesetzt, wird der Renderer des Fensters in einer Sandbox ausgeführt, wodurch es kompatibel mit der Chromium Sandbox wird und die Node.js Integration deaktiviert wird. Dies ist nicht das gleiche wie `nodeIntegration`, da die APIs die dem Preload Skript zur Verfügung stehen stärker limitiert sind. Lesen sie [hier](sandbox-option.md) mehr über diese Option. **Note:** Diese option ist experimentell und kann in zukünftigen Electron Versionen geändert oder entfernt werden.
     * `enableRemoteModule` Boolean (optional) - Whether to enable the [`remote`](remote.md) module. Default is `true`.
@@ -204,12 +204,13 @@ Es erzeugt ein neues `BrowserWindow` mit nativen Eigenschaften die durch `option
     * `backgroundThrottling` Boolean (optional) - Whether to throttle animations and timers when the page becomes background. This also affects the [Page Visibility API](#page-visibility). Defaults to `true`.
     * `offscreen` Boolean (optional) - Whether to enable offscreen rendering for the browser window. Defaults to `false`. See the [offscreen rendering tutorial](../tutorial/offscreen-rendering.md) for more details.
     * `contextIsolation` Boolean (optional) - Whether to run Electron APIs and the specified `preload` script in a separate JavaScript context. Defaults to `false`. The context that the `preload` script runs in will still have full access to the `document` and `window` globals but it will use its own set of JavaScript builtins (`Array`, `Object`, `JSON`, etc.) and will be isolated from any changes made to the global environment by the loaded page. The Electron API will only be available in the `preload` script and not the loaded page. This option should be used when loading potentially untrusted remote content to ensure the loaded content cannot tamper with the `preload` script and any Electron APIs being used. This option uses the same technique used by [Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment). You can access this context in the dev tools by selecting the 'Electron Isolated Context' entry in the combo box at the top of the Console tab.
-    * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. If set to `true`, the `webPreferences` of child window will always be the same with parent window, regardless of the parameters passed to `window.open()`. Defaults to `false`. **Note:** This option is currently experimental.
-    * `webviewTag` Boolean (optional) - Whether to enable the [`<webview>` tag](webview-tag.md). Defaults to the value of the `nodeIntegration` option. **Note:** The `preload` script configured for the `<webview>` will have node integration enabled when it is executed so you should ensure remote/untrusted content is not able to create a `<webview>` tag with a possibly malicious `preload` script. You can use the `will-attach-webview` event on [webContents](web-contents.md) to strip away the `preload` script and to validate or alter the `<webview>`'s initial settings.
+    * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. Defaults to `false`. Child windows will always have node integration disabled. **Note:** This option is currently experimental.
+    * `webviewTag` Boolean (optional) - Whether to enable the [`<webview>` tag](webview-tag.md). Defaults to `false`. **Note:** The `preload` script configured for the `<webview>` will have node integration enabled when it is executed so you should ensure remote/untrusted content is not able to create a `<webview>` tag with a possibly malicious `preload` script. You can use the `will-attach-webview` event on [webContents](web-contents.md) to strip away the `preload` script and to validate or alter the `<webview>`'s initial settings.
     * `additionalArguments` String[] (optional) - A list of strings that will be appended to `process.argv` in the renderer process of this app. Useful for passing small bits of data down to renderer process preload scripts.
     * `safeDialogs` Boolean (optional) - Whether to enable browser style consecutive dialog protection. Default is `false`.
     * `safeDialogsMessage` String (optional) - The message to display when consecutive dialog protection is triggered. If not defined the default message would be used, note that currently the default message is in English and not localized.
     * `navigateOnDragDrop` Boolean (optional) - Whether dragging and dropping a file or link onto the page causes a navigation. Default is `false`.
+    * `autoplayPolicy` String (optional) - Autoplay policy to apply to content in the window, can be `no-user-gesture-required`, `user-gesture-required`, `document-user-activation-required`. Defaults to `no-user-gesture-required`.
 
 When setting minimum or maximum window size with `minWidth`/`maxWidth`/ `minHeight`/`maxHeight`, it only constrains the users. It won't prevent you from passing a size that does not follow size constraints to `setBounds`/`setSize` or to the constructor of `BrowserWindow`.
 
@@ -374,7 +375,7 @@ Rückgabewert:
   
   Emitted when the window is set or unset to show always on top of other windows.
   
-  #### Event: 'app-command' *Windows*
+  #### Event: 'app-command' *Windows* *Linux*
   
   Rückgabewert:
   
@@ -396,6 +397,10 @@ Rückgabewert:
   })
   ```
   
+  The following app commands are explictly supported on Linux:
+  
+  * `browser-backward`
+  * `browser-forward`
   #### Event: 'scroll-touch-begin' *macOS*
   
   Emitted when scroll wheel event phase has begun.
@@ -412,8 +417,8 @@ Rückgabewert:
   
   Rückgabewert:
   
-  * `event` Event
-  * `direction` String
+  * ` Ereignis </ 0>  Ereignis</li>
+<li><code>direction` String
   
   Ausgegeben bei 3-Finger Swipe. Mögliche Richtungen sind `up`, `right`, `down`, `left`.
   
@@ -539,7 +544,7 @@ Rückgabewert:
   
   A `Integer` representing the unique ID of the window.
   
-  ### Beispiel Methoden
+  ### Instanz Methoden
   
   Objects created with `new BrowserWindow` have the following instance methods:
   
@@ -677,11 +682,14 @@ Rückgabewert:
   ```javascript
   const { BrowserWindow } = require('electron')
   const win = new BrowserWindow()
-   // set all bounds properties
+  
+  // set all bounds properties
   win.setBounds({ x: 440, y: 225, width: 800, height: 600 })
-   // set a single bounds property
-  win.setBounds({ width: 200 })
-   // { x: 440, y: 225, width: 200, height: 600 }
+  
+  // set a single bounds property
+  win.setBounds({ width: 100 })
+  
+  // { x: 440, y: 225, width: 100, height: 600 }
   console.log(win.getBounds())
   ```
   
@@ -868,7 +876,7 @@ Rückgabewert:
   
   Returns `String` - The title of the native window.
   
-  **Note:** The title of web page can be different from the title of the native window.
+  **Note:** The title of the web page can be different from the title of the native window.
   
   #### `win.setSheetOffset(offsetY[, offsetX])` *macOS*
   
@@ -966,7 +974,17 @@ Rückgabewert:
   * `callback` Funktion 
     * `image` [NativeImage](native-image.md)
   
-  Same as `webContents.capturePage([rect, ]callback)`.
+  Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
+  
+  **[Deprecated Soon](promisification.md)**
+  
+  #### `win.capturePage([rect])`
+  
+  * `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
+  
+  * Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+  
+  Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
   
   #### `win.loadURL(url[, options])`
   
@@ -978,7 +996,9 @@ Rückgabewert:
     * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (optional)
     * `baseURLForDataURL` String (optional) - Base url (with trailing path separator) for files to be loaded by the data url. This is needed only if the specified `url` is a data url and needs to load other files.
   
-  Same as `webContents.loadURL(url[, options])`.
+  Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
+  
+  Same as [`webContents.loadURL(url[, options])`](web-contents.md#contentsloadurlurl-options).
   
   The `url` can be a remote address (e.g. `http://`) or a path to a local HTML file using the `file://` protocol.
   
@@ -1014,6 +1034,8 @@ Rückgabewert:
     * `search` String (optional) - Passed to `url.format()`.
     * `hash` String (optional) - Passed to `url.format()`.
   
+  Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
+  
   Same as `webContents.loadFile`, `filePath` should be a path to an HTML file relative to the root of your application. See the `webContents` docs for more information.
   
   #### `win.reload()`
@@ -1024,7 +1046,11 @@ Rückgabewert:
   
   * `menu` Menu | null
   
-  Sets the `menu` as the window's menu bar, setting it to `null` will remove the menu bar.
+  Sets the `menu` as the window's menu bar.
+  
+  #### `win.removeMenu()` *Linux* *Windows*
+  
+  Remove the window's menu bar.
   
   #### `win.setProgressBar(progress[, options])`
   
@@ -1206,7 +1232,7 @@ Rückgabewert:
   
   Changes whether the window can be focused.
   
-  #### `win.setParentWindow(parent)` *Linux* *macOS*
+  #### `win.setParentWindow(parent)`
   
   * `parent` BrowserWindow
   
@@ -1268,9 +1294,22 @@ Rückgabewert:
   
   #### `win.setBrowserView(browserView)` *Experimentell*
   
-  * `browserView` [BrowserView](browser-view.md)
+  * `browserView` [BrowserView](browser-view.md). Attach browserView to win. If there is some other browserViews was attached they will be removed from this window.
   #### `win.getBrowserView()` *Experimental*
   
-  Returns `BrowserView | null` - an attached BrowserView. Returns `null` if none is attached.
+  Returns `BrowserView | null` - an BrowserView what is attached. Returns `null` if none is attached. Throw error if multiple BrowserViews is attached.
+  
+  #### `win.addBrowserView(browserView)` *Experimentell*
+  
+  * `browserView` [BrowserView](browser-view.md)
+  
+  Replacement API for setBrowserView supporting work with multi browser views.
+  
+  #### `win.removeBrowserView(browserView)` *Experimentell*
+  
+  * `browserView` [BrowserView](browser-view.md)
+  #### `win.getBrowserViews()` *Experimental*
+  
+  Returns array of `BrowserView` what was an attached with addBrowserView or setBrowserView.
   
   **Note:** The BrowserView API is currently experimental and may change or be removed in future Electron releases.

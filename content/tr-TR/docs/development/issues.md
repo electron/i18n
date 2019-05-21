@@ -1,7 +1,5 @@
 # Elektrondaki Sorunlar
 
-# Sorunlar
-
 * [Sorunlara nasıl müdahil olunur](#how-to-contribute-in-issues)
 * [Genel Yardım İsteğinde Bulunmak](#asking-for-general-help)
 * [Hata raporu gönderme](#submitting-a-bug-report)
@@ -27,7 +25,7 @@ contributing, and more. Please use the issue tracker for bugs only!</p>
 
 <p>Sorun izleyici içinde yeni bir başlık açarken <code>electron/electron`, kullanıcılar tarafından doldurulması gereken bir şablon sunulacaktır.</p> 
     ```markdown
-    & Lt;! -
+    <!--
     Bir sorunu açtığınız için teşekkür ederiz! Akılda tutulması gereken birkaç şey: 
     
     - Sorun izleyici yalnızca hatalar ve özellik istekleri içindir.
@@ -67,7 +65,7 @@ contributing, and more. Please use the issue tracker for bugs only!</p>
     
     Raporu değerlendirmek önemli olan önemli iki şey var; hata açıklaması yapmak ve yeniden oluşturmak için basit bir test yapmak. Yeniden üretilebiliyorsa, bir hatayı düzeltmek daha kolaydır.
     
-    Bkz.  Minimum, Tam ve Doğrulanabilir örnek nasıl oluşturulur? </ 0>.</p> 
+    Bkz. [ Minimum, Tam ve Doğrulanabilir örnek nasıl oluşturulur?](https://stackoverflow.com/help/mcve).
     
     ## Bir hata raporu düzenle
     
@@ -75,7 +73,7 @@ contributing, and more. Please use the issue tracker for bugs only!</p>
     
     Ne çok kısa açıklamalar ne de çok fazla ayrıntı pek işe yaramaz ve profesyonelce olmaz. Çoğu kimseye bu tür tutumu sinir bozucu ve düşmanca bulur.
     
-    Katkıda bulunanların, konuları birlikte çalışarak çözmeleri ve birbirlerine ilerleme konusunda yardım etmeleri önerilir. Geçersiz olduğunu düşündüğünüz veya hatalı bilgi içeren bir sorunla karşılaşırsanız, ek destek bölümünde *neden<0> böyle düşündüğünüz açıklayın ve yanlış olabileceğinizi kabullenmeyi de göz önünde bulundurun. Bunu yaparak, çoğunlukla doğru sonuca daha hızlı ulaşabiliriz.</p> 
+    Katkıda bulunanların, konuları birlikte çalışarak çözmeleri ve birbirlerine ilerleme konusunda yardım etmeleri önerilir. Geçersiz olduğunu düşündüğünüz veya hatalı bilgi içeren bir sorunla karşılaşırsanız, ek destek bölümünde *neden* böyle düşündüğünüz açıklayın ve yanlış olabileceğinizi kabullenmeyi de göz önünde bulundurun. Bunu yaparak, çoğunlukla doğru sonuca daha hızlı ulaşabiliriz.
     
     ## Bir hata raporu çözümlendir
     

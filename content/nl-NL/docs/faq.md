@@ -26,7 +26,7 @@ Nieuwe functionaliteiten van Node.js worden meestal mogelijk gemaakt door V8-upg
 
 Om data te delen tussen webpagina's (de rendere processes) is het het gemakkelijkst om de HTML5 APIs te gebruiken die al beschikbaar zijn in browsers. Goede kandidaten zijn [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`LocalStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage) en [`SessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage) [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
 
-Or you can use the IPC system, which is specific to Electron, to store objects in the main process as a global variable, and then to access them from the renderers through the `remote` property of `electron` module:
+Of je kunt het IPC systeem, specifiek voor Electron, gebruiken om objecten in het hoofdproces als een globale variabele op te slaan, en deze dan te kunnen gebruiken vanuit de renderers via gebruik van de `remote` property van de `electron` module:
 
 ```javascript
 // In the main process.
@@ -137,3 +137,24 @@ npm uninstall -g electron
 ```
 
 However if you are using the built-in module but still getting this error, it is very likely you are using the module in the wrong process. For example `electron.app` can only be used in the main process, while `electron.webFrame` is only available in renderer processes.
+
+## The font looks blurry, what is this and what can i do?
+
+If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Example:
+
+![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
+
+Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (See [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) for more info).
+
+To achieve this goal, set the background in the constructor for [BrowserWindow](api/browser-window.md):
+
+```javascript
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({
+  backgroundColor: '#fff'
+})
+```
+
+The effect is visible only on (some?) LCD screens. Even if you dont see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
+
+Notice that just setting the background in the CSS does not have the desired effect.

@@ -34,8 +34,6 @@ app.on('ready', () => {
 
 このオプションだけでは OS が施行するサンドボックスが有効にならないことに注意することが重要です。 この機能を有効にするには、`--enable-sandbox` コマンドライン引数を電子に渡す必要があります。これにより、すべての `BrowserWindow` インスタンスに対して `sandbox: true` が強制されます。
 
-アプリをサンドボックス内に置かずに、`sandbox:true` で `BrowserWindow` または `webview` プロセスで OS が施行するサンドボックスを有効にするには、 `--enable-mixed-sandbox` コマンドライン引数を Electron に渡す必要があります。 このオプションは現在 macOS と Windows でのみのサポートされています。
-
 ```js
 let win
 app.on('ready', () => {

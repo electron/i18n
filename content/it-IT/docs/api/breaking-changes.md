@@ -6,6 +6,50 @@ I cambiamenti delle API assieme agli avvisi di deprecazione aggiunti al codice J
 
 La stringa `FIXME` è usata nei commenti del codice per denotare cose che dovrebbero essere sistemate per i prossimi rilasci. Vedi https://github.com/electron/electron/search?q=fixme
 
+# Cambiamenti Pianificati API (6.0)
+
+## `win.setMenu(null)`
+
+```js
+// Deprecated
+win.setMenu(null)
+// Replace with
+win.removeMenu()
+```
+
+## `electron.screen` in renderer process
+
+```js
+// Deprecated
+require('electron').screen
+// Replace with
+require('electron').remote.screen
+```
+
+## `require` in sandboxed renderers
+
+```js
+// Deprecated
+require('child_process')
+// Replace with
+require('electron').remote.require('child_process')
+
+// Deprecated
+require('fs')
+// Replace with
+require('electron').remote.require('fs')
+
+// Deprecated
+require('os')
+// Replace with
+require('electron').remote.require('os')
+
+// Deprecated
+require('path')
+// Replace with
+require('electron').remote.require('path')
+```
+
 # Cambiamenti Pianificati API (5.0)
 
 ## `new BrowserWindow({ webPreferences })`
@@ -22,25 +66,42 @@ The following `webPreferences` option default values are deprecated in favor of 
 
 Child windows opened with the `nativeWindowOpen` option will always have Node.js integration disabled.
 
-## `webContents.findInPage(text[, options])`
+## Privileged Schemes Registration
 
-`wordStart` and `medialCapitalAsWordStart` options are removed.
+Renderer process APIs `webFrame.setRegisterURLSchemeAsPrivileged` and `webFrame.registerURLSchemeAsBypassingCSP` as well as browser process API `protocol.registerStandardSchemes` have been removed. A new API, `protocol.registerSchemesAsPrivileged` has been added and should be used for registering custom schemes with the required privileges. Custom schemes are required to be registered before app ready.
+
+## webFrame Isolated World APIs
+
+```js
+// Deprecated
+webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
+webFrame.setIsolatedWorldHumanReadableName(worldId, name)
+webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
+// Replace with
+webFrame.setIsolatedWorldInfo(
+  worldId,
+  {
+    securityOrigin: 'some_origin',
+    name: 'human_readable_name',
+    csp: 'content_security_policy'
+  })
+```
 
 # Cambiamenti Pianificati API (4.0)
 
-La seguente lista include i cambiamenti delle API pianificati per Electron 4.0.
+The following list includes the breaking API changes made in Electron 4.0.
 
 ## `app.makeSingleInstance`
 
 ```js
-// Deprecato
-app.makeSingleInstance(function (argv, cwd) {
-
+// Deprecated
+app.makeSingleInstance((argv, cwd) => {
+  /* ... */
 })
-// Sostituire con
+// Replace with
 app.requestSingleInstanceLock()
-app.on('second-instance', function (event, argv, cwd) {
-
+app.on('second-instance', (event, argv, cwd) => {
+  /* ... */
 })
 ```
 
@@ -111,22 +172,22 @@ window.on('app-command', (e, cmd) => {
 ```js
 // Deprecato
 clipboard.readRtf()
-// Sostituire con
+// Rimpiazza con
 clipboard.readRTF()
 
 // Deprecato
 clipboard.writeRtf()
-// Sostituire con
+// Rimpiazza con
 clipboard.writeRTF()
 
 // Deprecato
 clipboard.readHtml()
-// Sostituire con
+// Rimpiazza con
 clipboard.readHTML()
 
 // Deprecato
 clipboard.writeHtml()
-// Sostituire con
+// Rimpiazza con
 clipboard.writeHTML()
 ```
 
@@ -147,7 +208,7 @@ crashReporter.start({
 })
 ```
 
-## `nativeImage`
+## `immagineNativa`
 
 ```js
 // Deprecato
@@ -177,12 +238,12 @@ screen.getPrimaryDisplay().workArea
 ## `sessione`
 
 ```js
-// Deprecato
-ses.setCertificateVerifyProc(function (hostname, certificate, callback) {
+// Deprecated
+ses.setCertificateVerifyProc((hostname, certificate, callback) => {
   callback(true)
 })
-// Rimpiazza con
-ses.setCertificateVerifyProc(function (request, callback) {
+// Replace with
+ses.setCertificateVerifyProc((request, callback) => {
   callback(0)
 })
 ```
@@ -201,7 +262,7 @@ tray.setHighlightMode(false)
 tray.setHighlightMode('off')
 ```
 
-## `webContents`
+## `contenutiWeb`
 
 ```js
 // Deprecato
@@ -294,7 +355,7 @@ nativeImage.toJPEG()
 
 * `process.versions.electron` e `process.version.chrome` diventeranno delle proprietà di sola lettura coerentemente con le altre proprietà `process.versions` impostate da Node.
 
-## `webContents`
+## `contenutiWeb`
 
 ```js
 // Rimosso

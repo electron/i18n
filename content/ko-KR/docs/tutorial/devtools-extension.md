@@ -13,17 +13,15 @@ Electron에 확장 기능을 로드하려면, Chrome 브라우저에서 다운�
 1. Chrome 브라우저를 설치합니다.
 2. `chrome://extensions`로 이동한 후 해시된 `fmkadmapgofadopljbjfkapdkoienihi` 같이 생긴 확장 기능의 ID를 찾습니다.
 3. Chrome에서 사용하는 확장 기능을 저장해둔 파일 시스템 경로를 찾습니다: 
-    * Windows에선 `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions<0>;</li>
-<li>Linux에선:
+    * windows에선 `%LOCALAPPDATA%\Google\Chrome\User Data\Default\Extensions`;
+    * Linux에선: 
+        * `~/.config/google-chrome/Default/Extensions/`
+        * `~/.config/google-chrome-beta/Default/Extensions/`
+        * `~/.config/google-chrome-canary/Default/Extensions/`
+        * `~/.config/chromium/Default/Extensions/`
+    * macOS에선 `~/Library/Application Support/Google/Chrome/Default/Extensions`
 
-<ul>
-<li><code>~/.config/google-chrome/Default/Extensions/`
-    * `~/.config/google-chrome-beta/Default/Extensions/`
-    * `~/.config/google-chrome-canary/Default/Extensions/`
-    * `~/.config/chromium/Default/Extensions/`
-4. macOS에선 `~/Library/Application Support/Google/Chrome/Default/Extensions.`</ul></li> 
-
-5. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like:
+4. Pass the location of the extension to `BrowserWindow.addDevToolsExtension` API, for the React Developer Tools, it is something like:
     
     ```javascript
     const path = require('path')
@@ -52,7 +50,7 @@ Electron은 아주 제한적인 `chrome.*` API만을 지원하므로 확장 기�
 * [Redux DevTools Extension](https://chrome.google.com/webstore/detail/redux-devtools/lmhkpmbekcpmknklioeibfkpmmfibljd)
 * [MobX Developer Tools](https://chrome.google.com/webstore/detail/mobx-developer-tools/pfgnfdagidkfgccljigdamigbcnndkod)
 
-### 개발자 도구가 작동하지 않을 때 어떻게 해야 하나요?
+### 개발자 도구 확장 기능이 작동하지 않을 때 어떻게 해야 하나요?
 
 먼저 해당 확장 기능이 확실히 계속 유지되고 있는지를 확인하세요. 몇몇 확장 기능들은 최신 버전의 Chrome 브라우저에서도 작동하지 않습니다. 그리고 이러한 확장 기능에 대해선 Electron 개발팀에 해줄 수 있는 것이 아무것도 없습니다.
 

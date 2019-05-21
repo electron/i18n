@@ -1,7 +1,5 @@
 # Isu Dalam Elektron
 
-# Isu
-
 * [Bagaimana cara berkonstribusi di Isu](#how-to-contribute-in-issues)
 * [Pertanyaan Umum](#asking-for-general-help)
 * [Mengirimkan Laporan Bug](#submitting-a-bug-report)

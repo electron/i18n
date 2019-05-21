@@ -1,8 +1,8 @@
-## Class: Menu
+## Класс: Menu
 
-> Создает меню приложения и контекстное меню.
+> Создайте меню приложения и контекстное меню.
 
-Process: [Main](../glossary.md#main-process)
+Процесс: [Main](../glossary.md#main-process)
 
 ### `new Menu()`
 
@@ -10,7 +10,7 @@ Process: [Main](../glossary.md#main-process)
 
 ### Статические методы
 
-Класс `menu` имеет следующие статические методы:
+Класс `Menu` имеет следующие статические методы:
 
 #### `Menu.setApplicationMenu(menu)`
 
@@ -18,13 +18,15 @@ Process: [Main](../glossary.md#main-process)
 
 Задает `menu` в качестве меню приложения в macOS. В Windows и Linux `menu` будет задан как верхнее меню для каждого окна.
 
-Передача `null` удалит строку меню на Windows и Linux, но ничего не сделает на на macOS.
+Также на Windows и Linux, Вы можете использовать `&` в названии подменю верхнего списка, чтобы указать, какая буква должна получить сгенерированный акселератор( Accelerator ). Для примера, использование `&File` для меню файла в результате сгенерирует акселератор( Accelerator ) `Alt-F`, который открывает соответствующее меню. Указанный символ в названии кнопки будет подчеркнут. Символ `&` не отображается в названии кнопки.
 
-**Примечание:** Этот метод должен вызываться только после события `ready` модуля `app`.
+Передача `null` будет подавлять меню по умолчанию. На Windows и Linux, это имеет дополнительный эффект - удаление панели меню из окна.
+
+**Примечание:** Меню по умолчанию будет создано автоматически, если приложение не установит его. Он содержит стандартные элементы, такие как `Файл`, `Редактировать`, `Вид`, `Окно` и `Помощь`.
 
 #### `Menu.getApplicationMenu()`
 
-Возвращает `Menu | null` - меню приложения, если значение задано, в противном случае `null`.
+Возвращает `Menu | null` - меню приложения, если установлено, иначе `null`.
 
 **Примечание:** Возвращенный экземпляр `Menu` не поддерживает динамическое добавление или удаление пунктов меню. [Параметры экземпляра](#instance-properties) все ещё могут быть динамически изменены.
 
@@ -32,19 +34,19 @@ Process: [Main](../glossary.md#main-process)
 
 * `action` String
 
-Посылает `action` первому ответчику приложения. Это используется для эмуляции поведения меню macOS. Usually you would use the [`role`](menu-item.md#roles) property of a [`MenuItem`](menu-item.md).
+Посылает `action` первому ответчику приложения. Это используется для эмуляции поведения меню macOS. Чаще всего вы будет использовать свойство [`role`](menu-item.md#roles) экземпляра [`MenuItem`](menu-item.md).
 
 Для дополнительной информации по нативным действиям в macOS смотрите [macOS Cocoa Event Handling Guide](https://developer.apple.com/library/mac/documentation/Cocoa/Conceptual/EventOverview/EventArchitecture/EventArchitecture.html#//apple_ref/doc/uid/10000060i-CH3-SW7).
 
 #### `Menu.buildFromTemplate(template)`
 
-* `template` MenuItemConstructorOptions[]
+* `template` (MenuItemConstructorOptions | MenuItem)[]
 
 Возвращает `Menu`
 
-Generally, the `template` is an array of `options` for constructing a [MenuItem](menu-item.md). The usage can be referenced above.
+Обычно, `template` это массив `options` для построения [MenuItem](menu-item.md). Использование может быть указано выше.
 
-You can also attach other fields to the element of the `template` and they will become properties of the constructed menu items.
+Вы также можете прикрепить другие поля к элементу `template` и они станут свойствами элементов созданного меню.
 
 ### Методы экземпляра
 
@@ -53,17 +55,17 @@ You can also attach other fields to the element of the `template` and they will 
 #### `menu.popup(options)`
 
 * `options` Object (опционально) 
-  * `window` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
-  * `x` Number (optional) - Default is the current mouse cursor position. Must be declared if `y` is declared.
-  * `y` Number (optional) - Default is the current mouse cursor position. Must be declared if `x` is declared.
-  * `positioningItem` Number (optional) *macOS* - The index of the menu item to be positioned under the mouse cursor at the specified coordinates. Default is -1.
-  * `callback` Function (optional) - Called when menu is closed.
+  * `windows` [BrowserWindow](browser-window.md) (опционально) - по умолчанию это сфокусированное окно.
+  * `x` Number (опционально) - по умолчанию это текущее положение курсора мыши. Должно быть объявлено, если `y` объявлено.
+  * `y` Number (опционально) - по умолчанию это текущее положение курсора мыши. Должно быть объявлено, если `x` объявлено.
+  * `positioningItemпункт` Number (опционально) *macOS* - индекс элемента меню, который будет размещен под курсором мыши на заданных координатах. По умолчанию -1.
+  * `callback` Функция (опционально) - вызывается, когда меню закрыто.
 
-Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
+Переключает это меню в контекстное меню в [`BrowserWindow`](browser-window.md).
 
 #### `menu.closePopup([browserWindow])`
 
-* `browserWindow` [BrowserWindow](browser-window.md) (optional) - Default is the focused window.
+* `browserWindow` [BrowserWindow](browser-window.md) (опционально) - по умолчанию это сфокусированное окно.
 
 Закрывает контекстное меню в `browserWindow`.
 
@@ -71,69 +73,92 @@ Pops up this menu as a context menu in the [`BrowserWindow`](browser-window.md).
 
 * `menuItem` [MenuItem](menu-item.md)
 
-Appends the `menuItem` to the menu.
+Добавляет `menuItem` в меню.
 
 #### `menu.getMenuItemById(id)`
 
 * `id` String
 
-Returns `MenuItem` the item with the specified `id`
+Возвращает элемент `MenuItem` с указанным `id`
 
 #### `menu.insert(pos, menuItem)`
 
-* `pos` Integer
+* `port` Integer
 * `menuItem` [MenuItem](menu-item.md)
 
-Inserts the `menuItem` to the `pos` position of the menu.
+Вставляет `menuItem` в меню на позицию `pos`.
 
 ### События экземпляра
 
-Objects created with `new Menu` emit the following events:
+Объекты созданные с помощью `new Menu`, вызывают следующие события:
 
 **Примечание:** Некоторые методы доступны только в определенных операционных системах и помечены как таковые.
 
-#### Event: 'menu-will-show'
+#### Событие: 'menu-will-show'
 
 Возвращает:
 
 * `event` Event
 
-Emitted when `menu.popup()` is called.
+Вызывается при вызове `menu.popup()`.
 
-#### Event: 'menu-will-close'
+#### Событие: 'menu-will-close'
 
 Возвращает:
 
 * `event` Event
 
-Emitted when a popup is closed either manually or with `menu.closePopup()`.
+Вызывается, когда всплывающее окно закрывается вручную или с помощью `menu.closePopup()`.
 
 ### Свойства экземпляра
 
-`menu` objects also have the following properties:
+Объекты `menu` также имеют следующие свойства:
 
 #### `menu.items`
 
-A `MenuItem[]` array containing the menu's items.
+Массив `MenuItem[]` содержит элементы меню.
 
-Each `Menu` consists of multiple [`MenuItem`](menu-item.md)s and each `MenuItem` can have a submenu.
+Каждое `Menu` состоит из нескольких [`MenuItem`](menu-item.md) и каждое `MenuItem` может иметь подменю.
 
 ### События экземпляра
 
-Objects created with `new Menu` or returned by `Menu.buildFromTemplate` emit the following events:
+Объекты созданные с помощью `new Menu` или возвращенные из `Menu.buildFromTemplate` вызывают следующие события:
 
 ## Примеры
 
-Класс `Menu` доступен только в главном процессе, но вы также можете использовать его в рендер-процессе через модуль [`remote`](remote.md).
+Класс `Menu` доступен только в основном( main ) процессе, но Вы также можете использовать его в графическом( renderer ) процессе через модуль [`remote`](remote.md).
 
-### Главный процесс
+### Основной процесс
 
-An example of creating the application menu in the main process with the simple template API:
+Пример создания меню приложения в основном процессе с API простого шаблона:
 
 ```javascript
 const { app, Menu } = require('electron')
 
 const template = [
+  // { role: 'appMenu' }
+  ...(process.platform === 'darwin' ? [{
+    label: app.getName(),
+    submenu: [
+      { role: 'about' },
+      { type: 'separator' },
+      { role: 'services' },
+      { type: 'separator' },
+      { role: 'hide' },
+      { role: 'hideothers' },
+      { role: 'unhide' },
+      { type: 'separator' },
+      { role: 'quit' }
+    ]
+  }] : []),
+  // { role: 'fileMenu' }
+  {
+    label: 'File',
+    submenu: [
+      isMac ? { role: 'close' } : { role: 'quit' }
+    ]
+  },
+  // { role: 'editMenu' }
   {
     label: 'Edit',
     submenu: [
@@ -143,11 +168,26 @@ const template = [
       { role: 'cut' },
       { role: 'copy' },
       { role: 'paste' },
-      { role: 'pasteandmatchstyle' },
-      { role: 'delete' },
-      { role: 'selectall' }
+      ...(isMac ? [
+        { role: 'pasteAndMatchStyle' },
+        { role: 'delete' },
+        { role: 'selectAll' },
+        { type: 'separator' },
+        {
+          label: 'Speech',
+          submenu: [
+            { role: 'startspeaking' },
+            { role: 'stopspeaking' }
+          ]
+        }
+      ] : [
+        { role: 'delete' },
+        { type: 'separator' },
+        { role: 'selectAll' }
+      ])
     ]
   },
+  // { role: 'viewMenu' }
   {
     label: 'View',
     submenu: [
@@ -162,11 +202,20 @@ const template = [
       { role: 'togglefullscreen' }
     ]
   },
+  // { role: 'windowMenu' }
   {
-    role: 'window',
+    label: 'Window',
     submenu: [
       { role: 'minimize' },
-      { role: 'close' }
+      { role: 'zoom' },
+      ...(isMac ? [
+        { type: 'separator' },
+        { role: 'front' },
+        { type: 'separator' },
+        { role: 'window' }
+      ] : [
+        { role: 'close' }
+      ])
     ]
   },
   {
@@ -174,57 +223,19 @@ const template = [
     submenu: [
       {
         label: 'Learn More',
-        click () { require('electron').shell.openExternal('https://electronjs.org') }
+        click () { require('electron').shell.openExternalSync('https://electronjs.org') }
       }
     ]
   }
 ]
 
-if (process.platform === 'darwin') {
-  template.unshift({
-    label: app.getName(),
-    submenu: [
-      { role: 'about' },
-      { type: 'separator' },
-      { role: 'services' },
-      { type: 'separator' },
-      { role: 'hide' },
-      { role: 'hideothers' },
-      { role: 'unhide' },
-      { type: 'separator' },
-      { role: 'quit' }
-    ]
-  })
-
-  // Edit menu
-  template[1].submenu.push(
-    { type: 'separator' },
-    {
-      label: 'Speech',
-      submenu: [
-        { role: 'startspeaking' },
-        { role: 'stopspeaking' }
-      ]
-    }
-  )
-
-  // Window menu
-  template[3].submenu = [
-    { role: 'close' },
-    { role: 'minimize' },
-    { role: 'zoom' },
-    { type: 'separator' },
-    { role: 'front' }
-  ]
-}
-
 const menu = Menu.buildFromTemplate(template)
 Menu.setApplicationMenu(menu)
 ```
 
-### Render process
+### Графический процесс
 
-Below is an example of creating a menu dynamically in a web page (render process) by using the [`remote`](remote.md) module, and showing it when the user right clicks the page:
+Ниже приведен пример динамического создания меню на веб-странице (графический процесс) используя модуль [`remote`](remote.md) и показывает его, когда пользователь нажимает правую кнопку мыши на странице:
 
 ```html
 <!-- index.html -->
@@ -246,38 +257,38 @@ window.addEventListener('contextmenu', (e) => {
 
 ## Замечания о меню приложения в macOS
 
-macOS has a completely different style of application menu from Windows and Linux. Here are some notes on making your app's menu more native-like.
+macOS имеет совершено отличный от Windows и Linux стиль меню приложения. Здесь несколько заметок о создании меню приложения более похожим на нативный способ.
 
 ### Стандартные меню
 
-On macOS there are many system-defined standard menus, like the `Services` and `Windows` menus. To make your menu a standard menu, you should set your menu's `role` to one of the following and Electron will recognize them and make them become standard menus:
+На macOS есть много системных стандартных меню, таких как меню `Services` и `Windows`. Чтобы сделать меню стандартным меню, Вы должны установить значение `role` у меню в одно из следующих, а Electron распознает их и сделает их стандартным меню:
 
 * `window`
 * `help`
 * `services`
 
-### Standard Menu Item Actions
+### Действия элементов стандартного меню
 
-macOS has provided standard actions for some menu items, like `About xxx`, `Hide xxx`, and `Hide Others`. To set the action of a menu item to a standard action, you should set the `role` attribute of the menu item.
+macOS представляет стандартные действия для некоторых элементов меню, таких как `About xxx`, `Hide xxx` и `Hide Others`. Чтобы установить действие элемента меню на стандартное действие, Вы должны установить атрибут `role` элемента меню.
 
 ### Имя главного меню
 
-On macOS the label of the application menu's first item is always your app's name, no matter what label you set. To change it, modify your app bundle's `Info.plist` file. See [About Information Property List Files](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) for more information.
+На macOS название первого элемента меню приложения - всегда название Вашего приложения, независимо от того, какое название элемента Вы установили. Чтобы изменить его, измените файл `Info.plist` Вашей сборки приложения. См. [О информации свойств списка файлов](https://developer.apple.com/library/ios/documentation/general/Reference/InfoPlistKeyReference/Articles/AboutInformationPropertyListFiles.html) для большей информации.
 
-## Setting Menu for Specific Browser Window (*Linux* *Windows*)
+## Настройка меню для конкретного окна браузера (*Linux* *Windows*)
 
-The [`setMenu` method](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) of browser windows can set the menu of certain browser windows.
+[Метод `setMenu`](https://github.com/electron/electron/blob/master/docs/api/browser-window.md#winsetmenumenu-linux-windows) окна браузера может установить меню определенных окон браузера.
 
 ## Позиция элемента меню
 
-You can make use of `before`, `after`, `beforeGroupContaining`, `afterGroupContaining` and `id` to control how the item will be placed when building a menu with `Menu.buildFromTemplate`.
+Вы можете использовать `before`, `after`, `beforeGroupContaining`, `afterGroupContaining` и `id`, чтобы контролировать то, как элементы будут размещены, при создании меню с помощью `Menu.buildFromTemplate`.
 
-* `before` - Inserts this item before the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
-* `after` - Inserts this item after the item with the specified label. If the referenced item doesn't exist the item will be inserted at the end of the menu. Also implies that the menu item in question should be placed in the same “group” as the item.
-* `beforeGroupContaining` - Provides a means for a single context menu to declare the placement of their containing group before the containing group of the item with the specified label.
-* `afterGroupContaining` - Provides a means for a single context menu to declare the placement of their containing group after the containing group of the item with the specified label.
+* `before` - вставляет этот элемент перед элементом с указанным названием. Если ссылаемый элемент не существует, тогда элемент будет вставлен в конец меню. Кроме того, подразумевается, что рассматриваемый элемент меню размещен в той же "группе", что и сам элемент.
+* `after` - вставляет элемент после элемента с указанным названием. Если ссылаемый элемент не существует, тогда элемент будет вставлен в конец меню. Кроме того, подразумевается, что рассматриваемый элемент меню размещен в той же "группе", что и сам элемент.
+* `beforeGroupContaining` - представляет средства для одного контекстного меню, чтобы объявить размещение их содержащей группы перед содержащей группы элемента с указанным названием.
+* `afterGroupContaining` - представляет средства для одного контекстного меню, чтобы объявить размещение их содержащей группы после содержащей группы элемента с указанным названием.
 
-By default, items will be inserted in the order they exist in the template unless one of the specified positioning keywords is used.
+По умолчанию, элементы будут вставлены в том порядке, в котором они существуют в шаблоне, если не используется ни один из указанных ключевых слов позиционирования.
 
 ### Примеры
 

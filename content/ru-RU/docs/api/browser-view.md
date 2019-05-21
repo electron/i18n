@@ -1,8 +1,8 @@
-## Class: BrowserView
+## Класс: BrowserView
 
-> Создание и Управление видами.
+> Создание и управление видами.
 
-Process: [Main](../glossary.md#main-process)
+Процесс: [Основной](../glossary.md#main-process)
 
 `BrowserView` может использоваться для встраивания дополнительного веб-контента в [`BrowserWindow`](browser-window.md). Это как дочернее окно, за исключением того, что оно позиционируется относительно его владельца окна. Он предназначен для того, чтобы быть альтернативой тега `webview`.
 
@@ -17,11 +17,7 @@ win.on('closed', () => {
   win = null
 })
 
-let view = new BrowserView({
-  webPreferences: {
-    nodeIntegration: false
-  }
-})
+let view = new BrowserView()
 win.setBrowserView(view)
 view.setBounds({ x: 0, y: 0, width: 300, height: 300 })
 view.webContents.loadURL('https://electronjs.org')
@@ -29,8 +25,8 @@ view.webContents.loadURL('https://electronjs.org')
 
 ### `new BrowserView([options])` *Экспериментально*
 
-* `options` Object (опиционально) 
-  * `webPreferences` Объект (опционально) - см. [BrowserWindow](browser-window.md).
+* `options` Object (опционально) 
+  * `webPreferences` Объект (опционально) - Смотрите [BrowserWindow](browser-window.md).
 
 ### Статические методы
 
@@ -48,7 +44,7 @@ view.webContents.loadURL('https://electronjs.org')
 
 * `id` Integer
 
-Возвращает `BrowserView` - вид с заданным `id`.
+Возвращает `BrowserView` - вид, с заданным `id`.
 
 ### Свойства экземпляра
 
@@ -68,7 +64,7 @@ view.webContents.loadURL('https://electronjs.org')
 
 #### `view.destroy()`
 
-Немедленное закрытие вида, события `unload` и `beforeunload` не будут происходить для веб-страницы. После того, как вы закончите с видом, вызовите эту функцию как можно скорее, чтобы освободить память и другие ресурсы.
+Немедленное закрытие вида, события `unload` и `beforeunload` не будут происходить для веб-страницы. После того, как Вы закончите с видом, вызовите эту функцию как можно скорее, чтобы освободить память и другие ресурсы.
 
 #### `view.isDestroyed()`
 
@@ -84,7 +80,7 @@ view.webContents.loadURL('https://electronjs.org')
 
 * `bounds` [Rectangle](structures/rectangle.md)
 
-Изменяет и перемещает вид в предоставленные границы относительно окна.
+Изменяет и перемещает вид в предоставленные границы, относительно окна.
 
 #### `view.setBackgroundColor(color)` *Экспериментально*
 

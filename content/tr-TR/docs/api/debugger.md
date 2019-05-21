@@ -4,7 +4,7 @@
 
 İşlem: [Ana](../glossary.md#main-process)
 
-Chrome Geliştirici Araçları'nın Javascript çalışma anında sayfalarla etkileşime geçme ve yönetmek üzerine [özel bir kütüphanesi](https://developer.chrome.com/devtools/docs/debugger-protocol) var.
+Chrome Geliştirici Araçları'nın Javascript çalışma anında sayfalarla etkileşime geçme ve yönetmek üzerine [özel bir kütüphanesi](https://chromedevtools.github.io/devtools-protocol/) var.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -49,7 +49,7 @@ Hata ayıklayıcıyı `web İçerikleri`nden ayırır.
 
 #### `debugger.sendCommand(method[, commandParams, callback])`
 
-* `method` Dizi - Yöntem Adı, uzaktan hata ayıklama protokolü tarafından belirlenen yöntemlerden biri olmalıdır.
+* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
 * `commandParams` nesne (isteğe bağlı) - İstenilen parametrelerle JSON nesnesi.
 * `geri aramak` İşlev (opsiyonel) - Yanıt 
   * `error` Nesne - Komutun Başarısız olduğunu gösteren hata mesajı.
@@ -57,11 +57,22 @@ Hata ayıklayıcıyı `web İçerikleri`nden ayırır.
 
 Verilen komutu hata ayıklama hedefine gönderin.
 
+**[Deprecated Soon](promisification.md)**
+
+#### `debugger.sendCommand(method[, commandParams])`
+
+* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
+* `commandParams` nesne (isteğe bağlı) - İstenilen parametrelerle JSON nesnesi.
+
+Returns `Promise<any>` - A promise that resolves with the response defined by the 'returns' attribute of the command description in the remote debugging protocol or is rejected indicating the failure of the command.
+
+Verilen komutu hata ayıklama hedefine gönderin.
+
 ### Örnek Events
 
 #### Etkinlik: 'ayırmak'
 
-* `event` Event
+* `event` Olay
 * `reason` String - Hata ayıklayıcıyı ayırma nedeniniz.
 
 Hata ayıklama oturumu sona erdiğinde yayan. This happens either when `webContents` is closed or devtools is invoked for the attached `webContents`.

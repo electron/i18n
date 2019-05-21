@@ -23,4 +23,3 @@
 * [Оновлення Chromium](upgrading-chromium.md)
 * [Оновлення Crashpad](upgrading-crashpad.md)
 * [Оновлення Node](upgrading-node.md)
-* [Реліз](releasing.md)

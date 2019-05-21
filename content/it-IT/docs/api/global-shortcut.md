@@ -43,9 +43,27 @@ Il modulo `globalShortcut` ha i seguenti metodi:
 * `accelerator` [Accelerator](accelerator.md)
 * `callback` Function
 
+Returns `Boolean` - Whether or not the shortcut was registered successfully.
+
 Registra la scorciatoia di `accelerator`. Il `callback` viene chiamato quando la scorciatoia registrata viene premuta dall'utente.
 
 Quando l'accelerator è già stato occupato da un'altra applicazione, fallirà silenziosamente. Questo comportamento è utilizzato dai sistemi operativi, dal momento che non vogliono che le applicazioni entrino in conflitto sulle scorciatoie globali.
+
+The following accelerators will not be registered successfully on macOS 10.14 Mojave unless the app has been authorized as a [trusted accessibility client](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html):
+
+* "Media Play/Pause"
+* "Media Next Track"
+* "Media Previous Track"
+* "Media Stop"
+
+### `globalShortcut.registerAll(accelerators, callback)`
+
+* `accelerators` String[] - an array of [Accelerator](accelerator.md)s.
+* `callback` Funzione
+
+Registers a global shortcut of all `accelerator` items in `accelerators`. The `callback` is called when any of the registered shortcuts are pressed by the user.
+
+When a given accelerator is already taken by other applications, this call will silently fail. Questo comportamento è utilizzato dai sistemi operativi, dal momento che non vogliono che le applicazioni entrino in conflitto sulle scorciatoie globali.
 
 The following accelerators will not be registered successfully on macOS 10.14 Mojave unless the app has been authorized as a [trusted accessibility client](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html):
 

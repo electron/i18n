@@ -38,18 +38,19 @@ Les méthodes suivants sont disponibles pour les instances de `WebRequest` :
 
 * `filter` Object (facultatif) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
+* `listener` Function | null 
   * `details` Objet 
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
+    * `referrer` String
     * `timestamp` Double
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `callback` Function 
     * `response` Objet 
-      * `cancel` Boolean (facultatif)
+      * `cancel` Boolean)
       * `redirectURL` String (optional) - The original request is prevented from being sent or completed and is instead redirected to the given URL.
 
 The `listener` will be called with `listener(details, callback)` when a request is about to occur.
@@ -62,18 +63,19 @@ The `callback` has to be called with an `response` object.
 
 * `filter` Object (facultatif) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
+* `listener` Function | null 
   * `details` Objet 
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
+    * `referrer` String
     * `timestamp` Double
     * `requestHeaders` Object
   * `callback` Function 
     * `response` Objet 
-      * `cancel` Boolean (facultatif)
+      * `cancel` Boolean)
       * `requestHeaders` Object (optional) - When provided, request will be made with these headers.
 
 The `listener` will be called with `listener(details, callback)` before sending an HTTP request, once the request headers are available. This may occur after a TCP connection is made to the server, but before any http data is sent.
@@ -84,13 +86,14 @@ The `callback` has to be called with an `response` object.
 
 * `filter` Object (facultatif) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
+* `listener` Function | null 
   * `details` Objet 
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
+    * `referrer` String
     * `timestamp` Double
     * `requestHeaders` Object
 
@@ -100,20 +103,21 @@ The `listener` will be called with `listener(details)` just before a request is 
 
 * `filter` Object (facultatif) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
+* `listener` Function | null 
   * `details` Objet 
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
+    * `referrer` String
     * `timestamp` Double
     * `statusLine` String
     * `statusCode` Integer
     * `responseHeaders` Object
   * `callback` Function 
     * `response` Objet 
-      * `cancel` Boolean (facultatif)
+      * `cancel` Boolean)
       * `responseHeaders` Object (optional) - When provided, the server is assumed to have responded with these headers.
       * `statusLine` String (optional) - Should be provided when overriding `responseHeaders` to change header status otherwise original response header's status will be used.
 
@@ -125,13 +129,14 @@ The `callback` has to be called with an `response` object.
 
 * `filter` Object (facultatif) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
+* `listener` Function | null 
   * `details` Objet 
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
+    * `referrer` String
     * `timestamp` Double
     * `responseHeaders` Object
     * `fromCache` Boolean - Indicates whether the response was fetched from disk cache.
@@ -144,13 +149,14 @@ The `listener` will be called with `listener(details)` when first byte of the re
 
 * `filter` Object (facultatif) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
+* `listener` Function | null 
   * `details` Objet 
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
+    * `referrer` String
     * `timestamp` Double
     * `redirectURL` String
     * `statusCode` Integer
@@ -164,7 +170,7 @@ The `listener` will be called with `listener(details)` when a server initiated r
 
 * `filter` Object (facultatif) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
+* `listener` Function | null 
   * `details` Objet 
     * `id` Integer
     * `url` String
@@ -184,13 +190,14 @@ The `listener` will be called with `listener(details)` when a request is complet
 
 * `filter` Object (facultatif) 
   * `urls` String[] - Array of URL patterns that will be used to filter out the requests that do not match the URL patterns.
-* `listener` Function 
+* `listener` Function | null 
   * `details` Objet 
     * `id` Integer
     * `url` String
     * `method` String
     * `webContentsId` Integer (optional)
     * `resourceType` String
+    * `referrer` String
     * `timestamp` Double
     * `fromCache` Boolean
     * `error` String - La description de l'erreur.

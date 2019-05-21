@@ -120,11 +120,16 @@ console.log(webContents)
 `event.preventDefault()` を呼ぶと、Electron が自動的に新しい [`BrowserWindow`](browser-window.md) を作成するのを防ぎます。 もし `event.preventDefault()` を呼び、新しい `BrowserWindow` を手動で作る場合、新しい [`BrowserWindow`](browser-window.md) インスタンスの参照を [`event.newGuest`](browser-window.md) にセットしなければ、予期しない動作になる可能性があります。 例:
 
 ```javascript
-myBrowserWindow.webContents.on('new-window', (event, url) => {
+myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition, options) => {
   event.preventDefault()
-  const win = new BrowserWindow({ show: false })
+  const win = new BrowserWindow({
+    webContents: options.webContents, // use existing webContents if provided
+    show: false
+  })
   win.once('ready-to-show', () => win.show())
-  win.loadURL(url)
+  if (!options.webContents) {
+    win.loadURL(url) // existing webContents will be navigated automatically
+  }
   event.newGuest = win
 })
 ```
@@ -580,6 +585,44 @@ win.loadURL('http://github.com')
 
 関連付けられたウィンドウがコンソールメッセージをロギングしたときに発行されます。 *オフスクリーンレンダリング* が有効になっているウィンドウでは発行されません。
 
+#### Event: 'preload-error'
+
+戻り値:
+
+* `event` Event
+* `preloadPath` String
+* `error` Error
+
+Emitted when the preload script `preloadPath` throws an unhandled exception `error`.
+
+#### イベント: 'ipc-message'
+
+戻り値:
+
+* `event` Event
+* `channel` String
+* `...args` any[]
+
+Emitted when the renderer process sends an asynchronous message via `ipcRenderer.send()`.
+
+#### Event: 'ipc-message-sync'
+
+戻り値:
+
+* `event` Event
+* `channel` String
+* `...args` any[]
+
+Emitted when the renderer process sends a synchronous message via `ipcRenderer.sendSync()`.
+
+#### イベント: 'desktop-capturer-get-sources'
+
+戻り値:
+
+* `event` Event
+
+Emitted when `desktopCapturer.getSources()` is called in the renderer process. Calling `event.preventDefault()` will make it return empty sources.
+
 #### イベント: 'remote-require'
 
 戻り値:
@@ -644,6 +687,8 @@ win.loadURL('http://github.com')
   * `postData` ([UploadRawData[]](structures/upload-raw-data.md) | [UploadFile[]](structures/upload-file.md) | [UploadBlob[]](structures/upload-blob.md)) (任意)
   * `baseURLForDataURL` String (任意) - データURLによってロードされたファイルの (最後のパス区切り文字を含む) ベースURL。 これは指定された `url` がデータURLで、他のファイルをロードする必要がある場合のみ必要です。
 
+Returns `Promise<void>` - the promise will resolve when the page has finished loading (see [`did-finish-load`](web-contents.md#event-did-finish-load)), and rejects if the page fails to load (see [`did-fail-load`](web-contents.md#event-did-fail-load)).
+
 ウインドウ内に `url` を読み込みます。 `url` は、`http://` や `file://` のようなプロトコルの接頭子を含まなければなりません。 HTTP キャッシュをバイパスする必要があるロードの場合は、`pragma` ヘッダを使用してそれを実現します。
 
 ```javascript
@@ -659,6 +704,8 @@ webContents.loadURL('https://github.com', options)
   * `query` Object (任意) - `url.format()` に渡されます。
   * `search` String (任意) - `url.format()` に渡されます。
   * `hash` String (任意) - `url.format()` に渡されます。
+
+戻り値 `Promise<void>` - ページ読み込みが完了した時 ([`did-finish-load`](web-contents.md#event-did-finish-load) を参照) に解決され、ページの読み込みに失敗した時 ([`did-fail-load`](web-contents.md#event-did-fail-load) を参照) に拒否される Promise。
 
 指定されたファイルをウインドウにロードします。`filePath` は、アプリケーションのルートを基準にした HTML ファイルへのパスにする必要があります。 たとえば以下のようなアプリの構造において、
 
@@ -841,12 +888,9 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 
 指定の倍率に拡大率を変更します。拡大率は百分率なので、300% = 3.0 です。
 
-#### `contents.getZoomFactor(callback)`
+#### `contents.getZoomFactor()`
 
-* `callback` Function 
-  * `zoomFactor` Number
-
-現在の拡大率を取得するリクエストを送ります。`callback` が `callback(zoomFactor)` で呼ばれます。
+Returns `Number` - the current zoom factor.
 
 #### `contents.setZoomLevel(level)`
 
@@ -854,12 +898,9 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 
 指定レベルに拡大レベルを変更します。 原寸は 0 で、各増減分はそれぞれ 20% ずつの拡大または縮小を表し、デフォルトで元のサイズの 300% から 50% までに制限されています。 この式は `scale := 1.2 ^ level` です。
 
-#### `contents.getZoomLevel(callback)`
+#### `contents.getZoomLevel()`
 
-* `callback` Function 
-  * `zoomLevel` Number
-
-現在の拡大レベルを取得するリクエストを送ります。`callback` が `callback(zoomLevel)` で呼ばれます。
+Returns `Number` - the current zoom level.
 
 #### `contents.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
@@ -949,8 +990,8 @@ contents.setVisualZoomLevelLimits(1, 3)
   * `forward` Boolean (任意) - 前方または後方を検索するかどうか。省略値は `true`。
   * `findNext` Boolean (任意) - 操作が最初のリクエストなのか、辿っているのかどうか。省略値は `false`。
   * `matchCase` Boolean (任意) - 大文字と小文字を区別する検索かどうか。省略値は `false`。
-  * `wordStart` Boolean (任意) (非推奨) - 単語の始めだけを見るかどうか。省略値は `false`。
-  * `medialCapitalAsWordStart` Boolean (任意) (非推奨) - `wordStart` と組み合わせたとき、マッチの途中が大文字で始まり、小文字や記号が続く場合に、それを受け入れるかどうか。 他のいくつかの単語内一致を受け入れる。省略値は `false`。
+  * `wordStart` Boolean (任意) - 単語の始めだけを見るかどうか。省略値は `false`。
+  * `medialCapitalAsWordStart` Boolean (任意) - `wordStart` と組み合わせたとき、マッチの途中が大文字で始まり、小文字や記号が続く場合に、それを受け入れるかどうか。 他のいくつかの単語内一致を受け入れる。省略値は `false`。
 
 戻り値 `Integer` - リクエストに使われたリクエスト ID。
 
@@ -977,11 +1018,21 @@ console.log(requestId)
 
 #### `contents.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (任意) - キャプチャするページ内の領域。
+* `rect` [Rectangle](structures/rectangle.md) (任意) - キャプチャする範囲
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
 `rect` 内のページのスナップショットをキャプチャします。 完了時に、`callback` が `callback(image)` で呼ばれます。 `image` はスナップショットのデータを格納する [NativeImage](native-image.md) のインスタンスです。 `rect` を省略すると、表示されているページ全体をキャプチャします。
+
+**[非推奨予定](promisification.md)**
+
+#### `contents.capturePage([rect])`
+
+* `rect` [Rectangle](structures/rectangle.md) (任意) - キャプチャするページ内の領域。
+
+* 戻り値 `Promise<NativeImage>` - [NativeImage](native-image.md) を解決します
+
+`rect` 範囲内のページのスナップショットを撮ります。`rect` を省略すると、表示されているページ全体をキャプチャします。
 
 #### `contents.hasServiceWorker(callback)`
 
@@ -1151,6 +1202,7 @@ app.once('ready', () => {
 
 * `options` Object (任意) 
   * `mode` String - 指定したドック状態で開発者向けツールを開く。`right`、`bottom`、`undocked`、`detach` にできる。 省略値は最後に使用したときのドック状態。 `undocked` モードではドックを後ろにやれる。 `detach` モードではできない。
+  * `activate` Boolean (optional) - Whether to bring the opened devtools window to the foreground. The default is `true`.
 
 開発者向けツールを開く。
 
@@ -1219,6 +1271,32 @@ app.on('ready', () => {
   </script>
 </body>
 </html>
+```
+
+#### `contents.sendToFrame(frameId, channel[, arg1][, arg2][, ...])`
+
+* `frameId` Integer
+* `channel` String
+* `...args` any[]
+
+Send an asynchronous message to a specific frame in a renderer process via `channel`. Arguments will be serialized as JSON internally and as such no functions or prototype chains will be included.
+
+レンダラープロセスは `ipcRenderer` モジュールで [`channel`](ipc-renderer.md) を聞いてメッセージを処理できます。
+
+If you want to get the `frameId` of a given renderer context you should use the `webFrame.routingId` value. E.g.
+
+```js
+// In a renderer process
+console.log('My frameId is:', require('electron').webFrame.routingId)
+```
+
+You can also read `frameId` from all incoming IPC messages in the main process.
+
+```js
+// In the main process
+ipcMain.on('ping', (event) => {
+  console.info('Message came from frameId:', event.frameId)
+})
 ```
 
 #### `contents.enableDeviceEmulation(parameters)`

@@ -51,6 +51,8 @@ La chiave `Super` è mappata alla chiave `Windows` per Windows e Linux e `Cmd` s
 * `Più`
 * `Spazio`
 * `Tab`
+* `Capslock`
+* `Numlock`
 * `Backspace`
 * `Cancella`
 * `Inserisci`
@@ -62,3 +64,10 @@ La chiave `Super` è mappata alla chiave `Windows` per Windows e Linux e `Cmd` s
 * `VolumeSu`, `VolumeGiù` e `VolumeMuto`
 * `MediaProssimaTraccia`, `MediaPrecedenteTraccia`, `MediaStop` e `MediaPlayPausa`
 * `StampaSchermo`
+* NumPad Keys 
+  * `num0` - `num9`
+  * `numdec` - decimal key
+  * `numadd` - numpad `+` key
+  * `numsub` - numpad `-` key
+  * `nummult` - numpad `*` key
+  * `numdiv` - numpad `÷` key

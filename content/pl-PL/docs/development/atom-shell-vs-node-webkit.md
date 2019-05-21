@@ -2,11 +2,11 @@
 
 **Uwaga: Electron wcześniej nazywał się Atom Shell.**
 
-Jak NW.js Electron zapewnia platformę do pisania desktopowych aplikacji w technologi JavaScript, HTML oraz ma węzeł integracji, aby udzielić dostępu do niskiego poziomu systemu od strony sieci web.
+Jak NW.js Electron zapewnia platformę do pisania desktopowych aplikacji z użyciem technologii JavaScript, HTML oraz integrację z Node, aby udzielić dostępu do niskiego poziomu systemu od strony sieci web.
 
-Ale istnieją również zasadnicze różnice między tymi dwoma projektami, które sprawiają, że elektron jest całkowicie oddzielnym produktem od NW.js:
+Ale istnieją również zasadnicze różnice między tymi dwoma projektami, które sprawiają, że Electron jest całkowicie oddzielnym produktem od NW.js:
 
-**1. wpis aplikacji**
+**1. Punkt wejściowy aplikacji**
 
 W NW.js punkt wejścia głównego aplikacji to strona sieci web lub skrypt JS. Określ plik html lub js w pliku `package.json` i jest on otwarty w oknie przeglądarki jako główne okno aplikacji (w przypadku html entrypoint) lub gdy skrypt jest wykonany.
 

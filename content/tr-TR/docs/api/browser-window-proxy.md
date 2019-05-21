@@ -20,7 +20,7 @@ Alt ekranlardan bir tanesini kapatma olayını gerçekleştirmeden zorla kapatı
 
 #### `win.eval(code)`
 
-* `code` String
+* `code` Dizgi
 
 Alt penceredeki kodu değerlendirir.
 

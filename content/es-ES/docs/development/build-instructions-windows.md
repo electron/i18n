@@ -7,13 +7,13 @@ Siga las indicaciones a continuación para compilar Electron en Windows.
 * Windows 10 / Server 2012 R2 o superior
 * Visual Studio 2017 15.7.2 o posterior - [descargue de manera gratuita de VS 2017 Community Edition](https://www.visualstudio.com/vs/)
 * [Python 2.7.10 o posterior](http://www.python.org/download/releases/2.7/) 
-  * Contrary to the `depot_tools` setup instructions linked below, you will need to use your locally installed Python with at least version 2.7.10 (with support for TLS 1.2). To do so, make sure that in **PATH**, your locally installed Python comes before the `depot_tools` folder. Right now `depot_tools` still comes with Python 2.7.6, which will cause the `gclient` command to fail (see https://crbug.com/868864).
-  * [Python for Windows (pywin32) Extensions](https://pypi.org/project/pywin32/#files) is also needed in order to run the build process.
+  * Contrariamente a las instrucciones de configuración de `depot_tools` enlazadas a continuación, necesitará usar su Python instalado localmente con, al menos, la versión 2.7.10 (con soporte para TLS 1.2). Para hacerlo, asegúrese de que en **PATH**, su Python instalado localmente viene antes de la carpeta `depot_tools`. Ahora mismo `depot_tools` todavía viene con Python 2.7.6, lo que causará que el comando `gclient` falle (ver https://crbug.com/868864).
+  * También se necesita la [extensión de Python para Windows (pywin32)](https://pypi.org/project/pywin32/#files) para ejecutar el proceso de compilación.
 * [Node.js](https://nodejs.org/download/)
 * [Git](http://git-scm.com)
-* Debugging Tools for Windows of Windows SDK 10.0.15063.468 if you plan on creating a full distribution since `symstore.exe` is used for creating a symbol store from `.pdb` archivos. 
-  * Different versions of the SDK can be installed side by side. To install the SDK, open Visual Studio Installer, select `Change` → `Individual Components`, scroll down and select the appropriate Windows SDK to install. Another option would be to look at the [Windows SDK and emulator archive](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive) and download the standalone version of the SDK respectively.
-  * The SDK Debugging Tools must also be installed. If the Windows 10 SDK was installed via the Visual Studio installer, then they can be installed by going to: `Control Panel` → `Programs` → `Programs and Features` → Select the "Windows Software Development Kit" → `Change` → `Change` → Check "Debugging Tools For Windows" → `Change`. Or, you can download the standalone SDK installer and use it to install the Debugging Tools.
+* Herramientas de depuración para Windows de Windows SDK 10.0.15063.468 si planea crear una distribución completa, pues `symstore.exe` se usa para crear un depósito de símbolo a partir de `.pdb` archivos. 
+  * Diferentes versiones del SDK se pueden instalar juntas. Para instalar el SDK, abre Visual Studio Installer, selecciona `Cambiar` → `Componentes Individuales`, desplázate hacia abajo y selecciona el SDK apropiado para Windows para instalar. Otra opción sería mirar el [Windows SDK y el archivo emulador](https://developer.microsoft.com/en-us/windows/downloads/sdk-archive) y descargar la versión independiente del SDK respectivamente.
+  * Las herramientas de depuración de SDK también deben ser instaladas.https://crowdin.com/translate/electron/13/en-es#246828 If the Windows 10 SDK was installed via the Visual Studio installer, then they can be installed by going to: `Control Panel` → `Programs` → `Programs and Features` → Select the "Windows Software Development Kit" → `Change` → `Change` → Check "Debugging Tools For Windows" → `Change`. Or, you can download the standalone SDK installer and use it to install the Debugging Tools.
 
 Si actualmente no tiene una instalación de Windows, [dev.microsoftedge.com](https://developer.microsoft.com/en-us/microsoft-edge/tools/vms/) tiene versiones temporales de Windows que usted puede usar para construir Electron.
 
@@ -80,3 +80,7 @@ $ git config --system core.longpaths true
 ### error: use of undeclared identifier 'DefaultDelegateCheckMode'
 
 This can happen during build, when Debugging Tools for Windows has been installed with Windows Driver Kit. Uninstall Windows Driver Kit and install Debugging Tools with steps described above.
+
+### Error de importación: No existe un módulo llamado win32file
+
+Asegúrese de haber instalado `pywin32` con `pip install pywin32`.

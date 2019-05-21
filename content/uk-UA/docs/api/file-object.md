@@ -8,19 +8,19 @@ The DOM's File interface provides abstraction around native files in order to le
 
 ```html
 <div id="holder">
-  Перетягніть файл сюди
+  Drag your file here
 </div>
 
 <script>
-  document.addEventListener('drop', function (e) {
+  document.addEventListener('drop', (e) => {
     e.preventDefault();
     e.stopPropagation();
 
-    for (let f of e.dataTransfer.files) {
-      console.log('Файли які Ви перетягли: ', f.path)
+    for (const f of e.dataTransfer.files) {
+      console.log('File(s) you dragged here: ', f.path)
     }
   });
-  document.addEventListener('dragover', function (e) {
+  document.addEventListener('dragover', (e) => {
     e.preventDefault();
     e.stopPropagation();
   });

@@ -1,8 +1,12 @@
 # `<webview>`タグ
 
-## Warning
+## 警告
 
 Electron の `webview` タグは [Chromium の `webview`](https://developer.chrome.com/apps/tags/webview) に基づきつつ、劇的に変更されています。 これはレンダリング、ナビゲーション、イベントルーティングを含む `webview` の安定性に影響しています。 私たちは、`webview` タグを使用せずに、`iframe` や Electron の `BrowserView` 、埋め込みコンテンツを完全に避けるアーキテクチャといった代替案を検討することを推奨しています。
+
+## 有効にする
+
+既定では `webview` タグは Electron 5 以降では無効化されています。 タグを有効にするには、`BrowserWindow` を構築するときに `webviewTag` webPreferences オプションを設定します。 詳しい情報については、[BrowserWindow コンストラクタ](browser-window.md) を参照してください。
 
 ## 概要
 
@@ -51,7 +55,7 @@ Electron の `webview` タグは [Chromium の `webview`](https://developer.chro
 なので `webview` の動作はクロスドメイン `iframe` ととても似ています。例として、
 
 * `webview`をクリックしたとき、ページフォーカスが埋め込みフレームから `webview` に移動します。
-* `webview` にキーボードイベントリスナを追加することはできません。
+* `webview` にキーボード、マウス、スクロールイベントリスナを追加することはできません。
 * 埋め込みフレームと `webview` 間のすべての反応は非同期です。
 
 ## CSS スタイルの注意事項
@@ -89,6 +93,14 @@ Electron の `webview` タグは [Chromium の `webview`](https://developer.chro
 ```
 
 この属性が存在する場合、`webview` のゲストページは Node Integration を持ち、低レベルのシステムリソースにアクセスするのに、`require` や `process` のような Node API が使用できます。 デフォルトでは、ゲストページ内の Node Integration は無効化されています。
+
+### `nodeintegrationinsubframes`
+
+```html
+<webview src="http://www.google.com/" nodeintegrationinsubframes></webview>
+```
+
+NodeJS サポートを有効にする実験的な機能です。これは `webview` 内の iframe のようなサブフレーム内でサポートされます。 すべてのプリロードは iframe 毎にロードされます。メインフレーム内かそうでないか判断するには `process.isMainFrame` が使用できます。 デフォルトではゲストページ内のこのオプションは無効化されています。
 
 ### `enableremotemodule`
 
@@ -462,11 +474,21 @@ webview.addEventListener('dom-ready', () => {
 
 ### `<webview>.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (任意) - キャプチャするページ内の領域。
+* `rect` [Rectangle](structures/rectangle.md) (任意) - キャプチャする範囲
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
-`webview` のページのスナップショットを取得します。`webContents.capturePage([rect, ]callback)` と同じです。
+`rect` 内のページのスナップショットをキャプチャします。 完了時に、`callback` が `callback(image)` で呼ばれます。 `image` はスナップショットのデータを格納する [NativeImage](native-image.md) のインスタンスです。 `rect` を省略すると、表示されているページ全体をキャプチャします。
+
+**[非推奨予定](promisification.md)**
+
+### `<webview>.capturePage([rect])`
+
+* `rect` [Rectangle](structures/rectangle.md) (任意) - キャプチャするページ内の領域。
+
+* 戻り値 `Promise<NativeImage>` - [NativeImage](native-image.md) を解決します
+
+`rect` 範囲内のページのスナップショットを撮ります。`rect` を省略すると、表示されているページ全体をキャプチャします。
 
 ### `<webview>.send(channel[, arg1][, arg2][, ...])`
 
@@ -497,19 +519,13 @@ webview.addEventListener('dom-ready', () => {
 
 指定レベルに拡大レベルを変更します。 原寸は 0 で、各増減分はそれぞれ 20% ずつの拡大または縮小を表し、デフォルトで元のサイズの 300% から 50% までに制限されています。 この式は `scale := 1.2 ^ level` です。
 
-### `<webview>.getZoomFactor(callback)`
+### `<webview>.getZoomFactor()`
 
-* `callback` Function 
-  * `zoomFactor` Number
+戻り値 `Number` - 現在の拡大率。
 
-現在の拡大率を取得するリクエストを送ります。`callback` が `callback(zoomFactor)` で呼ばれます。
+### `<webview>.getZoomLevel()`
 
-### `<webview>.getZoomLevel(callback)`
-
-* `callback` Function 
-  * `zoomLevel` Number
-
-現在の拡大レベルを取得するリクエストを送ります。`callback` が `callback(zoomLevel)` で呼ばれます。
+戻り値 `Number` - 現在の拡大レベル。
 
 ### `<webview>.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
@@ -671,7 +687,7 @@ const webview = document.querySelector('webview')
 webview.addEventListener('new-window', (e) => {
   const protocol = require('url').parse(e.url).protocol
   if (protocol === 'http:' || protocol === 'https:') {
-    shell.openExternal(e.url)
+    shell.openExternalSync(e.url)
   }
 })
 ```
@@ -756,10 +772,6 @@ ipcRenderer.on('ping', () => {
 ### イベント: 'crashed'
 
 レンダラープロセスがクラッシュしたときに発生します。
-
-### イベント: 'gpu-crashed'
-
-GPU のプロセスがクラッシュしたときに発生します。
 
 ### イベント: 'plugin-crashed'
 

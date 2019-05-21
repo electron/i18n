@@ -14,7 +14,7 @@ const { webFrame } = require('electron')
 webFrame.setZoomFactor(2)
 ```
 
-## Methods
+## วิธีการ
 
 The `WebFrame` class has the following instance methods:
 
@@ -58,52 +58,33 @@ webFrame.setVisualZoomLevelLimits(1, 3)
 
 Sets the maximum and minimum layout-based (i.e. non-visual) zoom level.
 
-### `webFrame.setSpellCheckProvider(language, autoCorrectWord, provider)`
+### `webFrame.setSpellCheckProvider(language, provider)`
 
 * `language` String
-* `autoCorrectWord` Boolean
 * `provider` Object 
-  * `spellCheck` Function - Returns `Boolean`. 
-    * `text` String
+  * `spellCheck` Function. 
+    * `words` String[]
+    * `callback` Function 
+      * `misspeltWords` String[]
 
 Sets a provider for spell checking in input fields and text areas.
 
-The `provider` must be an object that has a `spellCheck` method that returns whether the word passed is correctly spelled.
+The `provider` must be an object that has a `spellCheck` method that accepts an array of individual words for spellchecking. The `spellCheck` function runs asynchronously and calls the `callback` function with an array of misspelt words when complete.
 
 An example of using [node-spellchecker](https://github.com/atom/node-spellchecker) as provider:
 
 ```javascript
 const { webFrame } = require('electron')
-webFrame.setSpellCheckProvider('en-US', true, {
-  spellCheck (text) {
-    return !(require('spellchecker').isMisspelled(text))
+const spellChecker = require('spellchecker')
+webFrame.setSpellCheckProvider('en-US', {
+  spellCheck (words, callback) {
+    setTimeout(() => {
+      const spellchecker = require('spellchecker')
+      const misspelled = words.filter(x => spellchecker.isMisspelled(x))
+      callback(misspelled)
+    }, 0)
   }
 })
-```
-
-### `webFrame.registerURLSchemeAsBypassingCSP(scheme)`
-
-* `scheme` String
-
-Resources will be loaded from this `scheme` regardless of the current page's Content Security Policy.
-
-### `webFrame.registerURLSchemeAsPrivileged(scheme[, options])`
-
-* `scheme` String
-* `options` Object (optional) 
-  * `secure` Boolean (optional) - Default true.
-  * `bypassCSP` Boolean (optional) - Default true.
-  * `allowServiceWorkers` Boolean (optional) - Default true.
-  * `supportFetchAPI` Boolean (optional) - Default true.
-  * `corsEnabled` Boolean (optional) - Default true.
-
-Registers the `scheme` as secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
-
-Specify an option with the value of `false` to omit it from the registration. An example of registering a privileged scheme, without bypassing Content Security Policy:
-
-```javascript
-const { webFrame } = require('electron')
-webFrame.registerURLSchemeAsPrivileged('foo', { bypassCSP: false })
 ```
 
 ### `webFrame.insertText(text)`
@@ -135,26 +116,36 @@ In the browser window some HTML APIs like `requestFullScreen` can only be invoke
 
 Work like `executeJavaScript` but evaluates `scripts` in an isolated context.
 
-### `webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)`
+### `webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)` *(Deprecated)*
 
 * `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
 * `csp` String
 
 Set the content security policy of the isolated world.
 
-### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)`
+### `webFrame.setIsolatedWorldHumanReadableName(worldId, name)` *(Deprecated)*
 
 * `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
-* `name` String
+* `name` String ชื่อ
 
 Set the name of the isolated world. Useful in devtools.
 
-### `webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)`
+### `webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)` *(Deprecated)*
 
 * `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
 * `securityOrigin` String
 
 Set the security origin of the isolated world.
+
+### `webFrame.setIsolatedWorldInfo(worldId, info)`
+
+* `worldId` Integer - The ID of the world to run the javascript in, `0` is the default world, `999` is the world used by Electrons `contextIsolation` feature. You can provide any integer here.
+* `info` Object 
+  * `securityOrigin` String (optional) - Security origin for the isolated world.
+  * `csp` String (optional) - Content Security Policy for the isolated world.
+  * `name` String (optional) - Name for isolated world. Useful in devtools.
+
+Set the security origin, content security policy and name of the isolated world. Note: If the `csp` is specified, then the `securityOrigin` also has to be specified.
 
 ### `webFrame.getResourceUsage()`
 
@@ -204,7 +195,7 @@ Returns `WebFrame` - The frame element in `webFrame's` document selected by `sel
 
 ### `webFrame.findFrameByName(name)`
 
-* `name` String
+* `name` String ชื่อ
 
 Returns `WebFrame` - A child of `webFrame` with the supplied `name`, `null` would be returned if there's no such frame or if the frame is not in the current renderer process.
 
@@ -214,7 +205,7 @@ Returns `WebFrame` - A child of `webFrame` with the supplied `name`, `null` woul
 
 Returns `WebFrame` - that has the supplied `routingId`, `null` if not found.
 
-## Properties
+## คุณสมบัติ
 
 ### `webFrame.top`
 

@@ -4,9 +4,9 @@
 
 Процесс: [Renderer](../glossary.md#renderer-process)
 
-`Удаленный` модуль обеспечивает простой способ для межпроцессное взаимодействие (IPC) между процессом визуализации (веб-страницы) и основного процесса.
+Модуль `remote` обеспечивает простой способ для межпроцессного взаимодействия (IPC) между процессом рендеринга (веб-страницы) и основного процесса.
 
-In Electron, GUI-related modules (such as `dialog`, `menu` etc.) are only available in the main process, not in the renderer process. In order to use them from the renderer process, the `ipc` module is necessary to send inter-process messages to the main process. With the `remote` module, you can invoke methods of the main process object without explicitly sending inter-process messages, similar to Java's [RMI](https://en.wikipedia.org/wiki/Java_remote_method_invocation). An example of creating a browser window from a renderer process:
+В Electron GUI-ориентированные модули (такие, как `dialog`, `menu` и т. д.) доступны только в основном процессе, но не в процессе рендеринга. Для того, чтобы использовать их в рендер-процессе, необходим модуль `ipc`, чтобы посылать межпроцессные сообщения в основной процесс. С модулем `remote` вы можете вызывать методы объекта основного процесса без явной отправки межпроцессных сообщений, это похоже на Java [RMI](https://en.wikipedia.org/wiki/Java_remote_method_invocation). Пример создания окна браузера из рендер-процесса:
 
 ```javascript
 const { BrowserWindow } = require('electron').remote
@@ -14,38 +14,38 @@ let win = new BrowserWindow({ width: 800, height: 600 })
 win.loadURL('https://github.com')
 ```
 
-**Note:** For the reverse (access the renderer process from the main process), you can use [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback).
+**Примечание:** Для обратной связи (доступа к рендер-процессу из основного процесса), вы можете использовать [webContents.executeJavaScript](web-contents.md#contentsexecutejavascriptcode-usergesture-callback).
 
-**Note:** The remote module can be disabled for security reasons in the following contexts:
+**Примечание:** Модуль remote можно отключить по соображениям безопасности в следующих контекстах:
 
-* [`BrowserWindow`](browser-window.md) - by setting the `enableRemoteModule` option to `false`.
-* [`<webview>`](webview-tag.md) - by setting the `enableremotemodule` attribute to `false`.
+* [`BrowserWindow`](browser-window.md) - установкой опции `enableRemoteModule` в `false`.
+* [`<webview>`](webview-tag.md)<webview></0> - установкой атрибута `enableremotemodule` в `false`.
 
 ## Remote Objects
 
-Each object (including functions) returned by the `remote` module represents an object in the main process (we call it a remote object or remote function). When you invoke methods of a remote object, call a remote function, or create a new object with the remote constructor (function), you are actually sending synchronous inter-process messages.
+Каждый объект (включая функции) возвращаемый модулем `remote` представляет собой объект в основном процессе (мы называем это удаленным объектом или удаленной функцией). Когда вы вызываете метод удаленного объекта, удаленную функцию или создаете новый объект удаленным конструктором (функцией), на самом деле вы посылаете синхронное межпроцессное сообщение.
 
-In the example above, both [`BrowserWindow`](browser-window.md) and `win` were remote objects and `new BrowserWindow` didn't create a `BrowserWindow` object in the renderer process. Instead, it created a `BrowserWindow` object in the main process and returned the corresponding remote object in the renderer process, namely the `win` object.
+В примере выше и [`BrowserWindow`](browser-window.md) и `win` являются удаленными объектами и `new BrowserWindow` на самом деле не создает объект `BrowserWindow` в рендер-процессе. Вместо этого создается объект `BrowserWindow` в основном процессе и возвращается соответствующий удаленный объект `win` в рендер-процесс.
 
 **Примечание:** Доступны только [перечислимые свойства](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Enumerability_and_ownership_of_properties), которые присутствуют при первом обращении к удаленному объекту, через дистанционное управление.
 
-**Note:** Arrays and Buffers are copied over IPC when accessed via the `remote` module. Modifying them in the renderer process does not modify them in the main process and vice versa.
+**Примечание:** Массивы и Buffers при доступе к ним через модуль `remote` копируются через IPC. Изменения, которые в них вносит рендер-процесс не отображаются в основном процессе и наоборот.
 
 ## Lifetime of Remote Objects
 
-Electron makes sure that as long as the remote object in the renderer process lives (in other words, has not been garbage collected), the corresponding object in the main process will not be released. When the remote object has been garbage collected, the corresponding object in the main process will be dereferenced.
+Electron следит за тем, что пока удаленный объект в рендер-процессе жив (другими словами, не будет удален сборщиком мусора) соответствующий объект в основном процессе не будет освобожден. Когда удаленный объект будет утилизирован сборщиком мусора, соответствующий объект в основном процессе также будет освобожден для сборщика.
 
-If the remote object is leaked in the renderer process (e.g. stored in a map but never freed), the corresponding object in the main process will also be leaked, so you should be very careful not to leak remote objects.
+Если удаленный объект допускает утечки (например, сохранен в map и никогда не освобождается), то соответствующий объект в основном процессе также будет утекать, поэтому вы должны быть очень осторожны, чтобы не вызывать утечек в удаленных объектах.
 
-Primary value types like strings and numbers, however, are sent by copy.
+Однако основные типы данных, такие как число и строки, отправляются копией.
 
-## Passing callbacks to the main process
+## Передача колбэков в основной процесс
 
-Code in the main process can accept callbacks from the renderer - for instance the `remote` module - but you should be extremely careful when using this feature.
+Код основного процесса может принимать колбэки рендер-процесса (например, модуль `remote`), но вы должны использовать эту особенность в предельной осторожностью.
 
-First, in order to avoid deadlocks, the callbacks passed to the main process are called asynchronously. You should not expect the main process to get the return value of the passed callbacks.
+Во первых, во избежание взаимных блокировок, колбэки, передаваемые в основной процесс, вызываются асинхронно. Вы не должны ожидать, что основной процесс получит возвращаемые значения переданных колбэков.
 
-For instance you can't use a function from the renderer process in an `Array.map` called in the main process:
+Например, вы не можете использовать функцию из рендер-процесса в `Array.map`, вызываемой в основном процессе:
 
 ```javascript
 // main process mapNumbers.js
@@ -68,11 +68,11 @@ console.log(withRendererCb, withLocalCb)
 // [undefined, undefined, undefined], [2, 3, 4]
 ```
 
-As you can see, the renderer callback's synchronous return value was not as expected, and didn't match the return value of an identical callback that lives in the main process.
+Как вы можете видеть, результат синхронно вызываемого колбэка рендрера отличается от ожидаемого и не совпадает с результатом аналогичного колбэка, находящегося в основном процессе.
 
-Second, the callbacks passed to the main process will persist until the main process garbage-collects them.
+Во вторых, колбэки, передаваемые в основной процесс будут сохраняться до сборки мусора основным процессом.
 
-For example, the following code seems innocent at first glance. It installs a callback for the `close` event on a remote object:
+К примеру, следующий код на первый взгляд кажется невинным. Он устанавливает колбэк для события `close` на удаленном объекте:
 
 ```javascript
 require('electron').remote.getCurrentWindow().on('close', () => {
@@ -80,15 +80,15 @@ require('electron').remote.getCurrentWindow().on('close', () => {
 })
 ```
 
-But remember the callback is referenced by the main process until you explicitly uninstall it. If you do not, each time you reload your window the callback will be installed again, leaking one callback for each restart.
+Но помните, что колбэк ссылается на основной процесс до тех пор, пока вы его не удалите. Если вы этого не сделаете, то при каждой перезагрузке окна колбэк будет установлен снова, вызывая утечку одного колбэка при каждом рестарте.
 
-To make things worse, since the context of previously installed callbacks has been released, exceptions will be raised in the main process when the `close` event is emitted.
+Что еще хуже, так как контекст предыдущих колбэков будет удален, при каждом вызове `close` в основном процессе будут возникать ошибки.
 
-To avoid this problem, ensure you clean up any references to renderer callbacks passed to the main process. This involves cleaning up event handlers, or ensuring the main process is explicitly told to dereference callbacks that came from a renderer process that is exiting.
+Чтобы избежать этой проблемы, убедитесь, что вы очищаете любые ссылки на колбэки рендерера, переданные в основной процесс. Это включает в себя очистку обработчиков событий или вам необходимо обеспечить явное снятие колбэков в основном процессе при завершении рендер-процесса.
 
-## Accessing built-in modules in the main process
+## Доступ к встроенным модулям в основном процессе
 
-The built-in modules in the main process are added as getters in the `remote` module, so you can use them directly like the `electron` module.
+Встроенные модули в основном процессе добавляются как геттеры модуле `remote`, так что вы можете использовать их непосредственно, как модуль `electron`.
 
 ```javascript
 const app = require('electron').remote.app
@@ -97,15 +97,15 @@ console.log(app)
 
 ## Методы
 
-The `remote` module has the following methods:
+Модуль `remote` имеет следующие методы:
 
 ### `remote.require(module)`
 
 * `module` String
 
-Returns `any` - The object returned by `require(module)` in the main process. Modules specified by their relative path will resolve relative to the entrypoint of the main process.
+Возвращает `any` - Объект, возвращаемый `require(module)` в основном процессе. Модули, указанные по их относительному пути, будут определены относительно точки входа основного процесса.
 
-e.g.
+например
 
 ```sh
 project/
@@ -124,7 +124,7 @@ app.on('ready', () => { /* ... */ })
 ```
 
 ```js
-// some relative module: main/foo.js
+// некий относительный модуль: main/foo.js
 module.exports = 'bar'
 ```
 
@@ -135,22 +135,22 @@ const foo = require('electron').remote.require('./foo') // bar
 
 ### `remote.getCurrentWindow()`
 
-Returns [`BrowserWindow`](browser-window.md) - The window to which this web page belongs.
+Возвращает [`BrowserWindow`](browser-window.md) - Окно, которому принадлежит эта страница.
 
-**Note:** Do not use `removeAllListeners` on [`BrowserWindow`](browser-window.md). Use of this can remove all [`blur`](https://developer.mozilla.org/en-US/docs/Web/Events/blur) listeners, disable click events on touch bar buttons, and other unintended consequences.
+**Примечание:** Не используйте `removeAllListeners` с [`BrowserWindow`](browser-window.md). Это может удалить все слушатели [`blur`](https://developer.mozilla.org/en-US/docs/Web/Events/blur), выключить события нажатия на кнопках сенсорных панелей и вызвать другие непредвиденные последствия.
 
 ### `remote.getCurrentWebContents()`
 
-Returns [`WebContents`](web-contents.md) - The web contents of this web page.
+Возвращает [`WebContents`](web-contents.md) - Веб-содержимое этой веб-страницы.
 
 ### `remote.getGlobal(name)`
 
 * `name` String
 
-Returns `any` - The global variable of `name` (e.g. `global[name]`) in the main process.
+Возвращает `any` - глобальную переменную с именем `name` (например `global[name]`) в основном процессе.
 
 ## Свойства
 
 ### `remote.process`
 
-The `process` object in the main process. This is the same as `remote.getGlobal('process')` but is cached.
+Объект `process` в основном процессе. Это то же самое, что и `remote.getGlobal('process')` но кэшируется.

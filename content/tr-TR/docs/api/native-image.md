@@ -152,6 +152,12 @@ NSImage'den, verilen resim adıyla eşleşen yeni bir `NativeImage` örneği olu
 
 Bu, `[-1, 0, 1]` resmi tamamen beyaz yapar ve bu da `[-1, 1, 0]` görüntüyü tamamen siyah yapar.
 
+In some cases, the `NSImageName` doesn't match its string representation; one example of this is `NSFolderImageName`, whose string representation would actually be `NSFolder`. Therefore, you'll need to determine the correct string representation for your image before passing it in. This can be done with the following:
+
+`echo -e '#import <Cocoa/Cocoa.h>\nint main() { NSLog(@"%@", SYSTEM_IMAGE_NAME); }' | clang -otest -x objective-c -framework Cocoa - && ./test`
+
+where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](https://developer.apple.com/documentation/appkit/nsimagename?language=objc).
+
 ## Sınıf: NativeImage
 
 > Yerel olarak tepsi resimlerini sar, liman aplikasyon ikonları.

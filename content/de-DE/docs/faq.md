@@ -137,3 +137,24 @@ npm uninstall -g electron
 ```
 
 Wenn Sie allerdings das integrierte Modul nutzen und trotzdem diesen Fehler bekommen, dann ist es sehr wahrscheinlich, dass Sie das Modul im falschen Prozess verwenden. Beispielsweise kann `electron.app` nur im Hauptprozess verwendet werden, während `electron.webFrame` nur im Renderer-Prozess verfügbar ist.
+
+## Die Schrift sieht verschwommen aus, was ist das und was kann ich tun?
+
+Wenn [Subpixel-Anti-Alias](http://alienryderflex.com/sub_pixel/) deaktiviert ist, können Schriftarten auf LCD-Bildschirmen unscharf aussehen. Beispiel:
+
+![Subpixel Rendering Beispiel](images/subpixel-rendering-screenshot.gif)
+
+Subpixel Antialiasing benötigt einen nicht-transparenten Hintergrund der Ebene, die die Schrift-Glyphen enthält. (Siehe [dieses Problem](https://github.com/electron/electron/issues/6344#issuecomment-420371918) für weitere Informationen).
+
+Um dieses Ziel zu erreichen, setzen Sie den Hintergrund im Konstruktor für [BrowserWindow](api/browser-window.md):
+
+```javascript
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({
+  backgroundColor: '#fff'
+})
+```
+
+Der Effekt ist nur auf (einigen?) LCD-Bildschirmen sichtbar. Auch wenn Sie keinen Unterschied sehen, einige Ihrer Benutzer können es vielleicht. Es ist am besten immer den Hintergrund auf diese Weise zu setzen, es sei denn Sie haben Gründe dies nicht zu tun.
+
+Beachten Sie, dass nur die Einstellung des Hintergrunds in der CSS nicht den gewünschten Effekt hat.

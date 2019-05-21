@@ -23,4 +23,3 @@ Estas guías están pensadas para gente que trabaja en el proyecto Electron. Par
 * [Actualizando Chomium](upgrading-chromium.md)
 * [Actualización de Crashpad](upgrading-crashpad.md)
 * [Actualización de Node](upgrading-node.md)
-* [Publicar](releasing.md)

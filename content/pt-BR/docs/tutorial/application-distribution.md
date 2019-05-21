@@ -1,5 +1,17 @@
 # Distribuição de Aplicativos
 
+To distribute your app with Electron, you need to package and rebrand it. The easiest way to do this is to use one of the following third party packaging tools:
+
+* [electron-forge](https://github.com/electron-userland/electron-forge)
+* [electron-builder](https://github.com/electron-userland/electron-builder)
+* [electron-packager](https://github.com/electron-userland/electron-packager)
+
+These tools will take care of all the steps you need to take to end up with a distributable Electron applications, such as packaging your application, rebranding the executable, setting the right icons and optionally creating installers.
+
+## Distribuição manual
+
+You can also choose to manually get your app ready for distribution. The steps needed to do this are outlined below.
+
 Para distribuir seu aplicativo com Electron, você precisa baixar os [binários pré-compilados](https://github.com/electron/electron/releases) do Electron. Depois disso, a pasta contendo seu aplicativo deve ser renomeada para `app` e colocada dentro do diretório de recursos (resources) do Electron como mostrado nos seguintes exemplos. Note que a localização dos binários pré-compilados do Electron está indicada com `electron/` nos exemplos abaixo.
 
 No macOS:
@@ -78,14 +90,6 @@ MyApp.app/Contents
 ### Linux
 
 Você pode renomear o executável `electron` para qualquer nome que você quiser.
-
-## Ferramentas de empacotamento
-
-Além de empacotar seu aplicativo manualmente, você também pode escolher usar ferramentas de terceiros para empacotar o app para você:
-
-* [electron-forge](https://github.com/electron-userland/electron-forge)
-* [electron-builder](https://github.com/electron-userland/electron-builder)
-* [electron-packager](https://github.com/electron-userland/electron-packager)
 
 ## Personalizar a marca recompilando o Electron direto da fonte
 

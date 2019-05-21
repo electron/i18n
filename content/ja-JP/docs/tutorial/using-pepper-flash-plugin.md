@@ -1,6 +1,6 @@
 # Pepper Flash プラグインを使用する
 
-Electron supports the Pepper Flash plugin. To use the Pepper Flash plugin in Electron, you should manually specify the location of the Pepper Flash plugin and then enable it in your application.
+Electron は Pepper Flash プラグインをサポートしています。Electron で Pepper Flash プラグインを使用するには、Pepper Flash プラグインの場所を手動で指定してからアプリケーションで有効にする必要があります。
 
 ## Prepare a Copy of Flash Plugin
 

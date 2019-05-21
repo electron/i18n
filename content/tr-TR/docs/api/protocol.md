@@ -26,11 +26,22 @@ Not: Belirtilmedikçe tüm yöntemler yalnızca uygulama modülünün hazır dur
 
 `protokol` modülünde aşağıdaki yöntemler bulunur:
 
-### `protocol.registerStandardSchemes(schemes[, options])`
+### `protocol.registerSchemesAsPrivileged(customSchemes)`
 
-* `schemes` String[] - Standart şema olarak kaydedilecek özel şemalar.
-* `seçenekler` Obje (opsiyonel) 
-  * `güvenli` Boolean (isteğe bağlı) - `True` şemasını güvenli olarak kaydetmek için. Varsayılan `false`.
+* `customSchemes` [CustomScheme[]](structures/custom-scheme.md)
+
+**Note:** This method can only be used before the `ready` event of the `app` module gets emitted and can be called only once.
+
+Registers the `scheme` as standard, secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
+
+Specify a privilege with the value of `true` to enable the capability. An example of registering a privileged scheme, with bypassing Content Security Policy:
+
+```javascript
+const { protocol } = require('electron')
+protocol.registerSchemesAsPrivileged([
+  { scheme: 'foo', privileges: { bypassCSP: true } }
+])
+```
 
 Standart bir şema, RFC 3986'ın çağırdığı [genel URL'ye uygun sözdizimi](https://tools.ietf.org/html/rfc3986#section-3). Örneğin `http` ve `https` standart şemalardır; `dosyası` ise değildir.
 
@@ -45,31 +56,16 @@ Bir planı standart olarak kaydetmek, göreceli ve mutlak kaynakların sunulduğ
 
 Kayıt şeması [FileSystem API](https://developer.mozilla.org/en-US/docs/Web/API/LocalFileSystem) aracılığıyla dosyalara ulaşım sağlar. Aksi takdirde rendercı şema için güvenlik hatası verir.
 
-Varsayılan olarak, standart olmayan şemalar için web depolama apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) devre dışı bırakılmıştır. Yani çoğu zaman `http` protokolünün yerine özel bir protokol kaydetmek istiyorsanız standart düzeni kaydeder gibi kaydetmelisiniz:
-
-```javascript
-const { app, protocol } = require('electron')
-
-protocol.registerStandardSchemes(['atom'])
-app.on('ready', () => {
-  protocol.registerHttpProtocol('atom', '...')
-})
-```
-
-**Note:** Bu yöntem sadece `app` modülünün `ready` olayını yayımlamasından önce kullanabilir.
-
-### `protocol.registerServiceWorkerSchemes(schemes)`
-
-* `şemalar` String[] - Hizmet çalışanlarını işlemek üzere kaydedilecek özel şemalar.
+Varsayılan olarak, standart olmayan şemalar için web depolama apis (localStorage, sessionStorage, webSQL, indexedDB, cookies) devre dışı bırakılmıştır. Yani çoğu zaman `http` protokolünün yerine özel bir protokol kaydetmek istiyorsanız standart düzeni kaydeder gibi kaydetmelisiniz.
 
 ### `protocol.registerFileProtocol(scheme, handler[, completion])`
 
 * `scheme` String
-* `halledici` Function 
+* `halledici` Fonksyion 
   * `istek` Nesne 
     * `url` Dize
     * `referrer` Dize
-    * `method` String
+    * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri aramak` Function 
     * `execPath` Dizgi (isteğe bağlı)
@@ -78,7 +74,7 @@ app.on('ready', () => {
 
 Dosyayı yanıt olarak gönderecek `şema` protokolünü kaydeder. `handler`, bir `request``scheme` ile oluşturulacağı zaman `handler(request, callback)` ile çağırılacak. `completion`, `scheme` başarılı bir şekilde kaydolduğunda `completion(null)` ile veya başarısız olduğunda `completion(error)` ile çağırılacak.
 
-`request`'i işleyebilmek için `callback` ya dosyanın yoluyla ya da `path` özelliği olan bir obje ile çağırılmalıdır, örneğin `callback(filePath)` veya `callback({ path: filePath })`.
+`request`'i işleyebilmek için `callback` ya dosyanın yoluyla ya da `path` özelliği olan bir obje ile çağırılmalıdır, örneğin `callback(filePath)` veya `callback({ path: filePath })`. The object may also have a `headers` property which gives a map of headers to values for the response headers, e.g. `callback({ path: filePath, headers: {"Content-Security-Policy": "default-src 'none'"]})`.
 
 `callback` hiçbir şeyle, bir sayıyla ya da `error` özelliği olan bir nesneyle çağırıldığı zaman `request` belirttiğiniz ` error` numarası ile başarısız olacaktır. Mevcut hata numaraları için lütfen bakın [net hataların listesi](https://code.google.com/p/chromium/codesearch#chromium/src/net/base/net_error_list.h).
 
@@ -91,7 +87,7 @@ Varsayılan olarak, `scheme`, `http:` gibi işlem görür,ki bu "jenerik URI sö
   * `istek` Nesne 
     * `url` Dize
     * `referrer` Dize
-    * `method` Dizi
+    * `method` String
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri aramak` Function 
     * `buffer` (Buffer | [MimeTypedBuffer](structures/mime-typed-buffer.md)) (isteğe bağlı)
@@ -124,7 +120,7 @@ protocol.registerBufferProtocol('atom', (request, callback) => {
     * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri aramak` Function 
-    * `data` Dizge (İsteğe Bağlı)
+    * `rtf` Dizge (İsteğe Bağlı)
 * `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Error
 
@@ -134,7 +130,7 @@ Kullanımı `registerFileProtocol` ile aynıdır, ancak `callback` `String` veya
 
 ### `protocol.registerHttpProtocol(scheme, handler[, completion])`
 
-* `scheme` Dizi
+* `scheme` String
 * `halledici` Function 
   * `istek` Nesne 
     * `url` Dize
@@ -145,7 +141,7 @@ Kullanımı `registerFileProtocol` ile aynıdır, ancak `callback` `String` veya
   * `geri aramak` Function 
     * `talebi yönlendir` Nesne 
       * `url` Dize
-      * `method` String
+      * `method` Dizi
       * `session` Obje isteğe bağlı
       * `bilgiyi yükle` Obje (opsiyonel) 
         * `contentType` Dize - İçeriğin MIME türünü gösterir.
@@ -169,10 +165,10 @@ POST istekleri için `uploadData` nesnesi sağlanmalıdır.
     * `url` Dize
     * `headers` Nesne
     * `referrer` Dize
-    * `method` String
+    * `method` Dizi
     * `uploadData` [UploadData[]](structures/upload-data.md)
   * `geri aramak` Function 
-    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (optional)
+    * `stream` (ReadableStream | [StreamProtocolResponse](structures/stream-protocol-response.md)) (isteğe bağlı)
 * `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Error
 
@@ -180,7 +176,7 @@ Yanıt olarak `Readable` gönderen bir `scheme` protokolünü kaydeder.
 
 Kullanımı, diğer `register{Any}Protocol`'e benzer, ancak `callback`'nin bir `Readable` nesne veya `data`, `statusCode` ve `headers` özelliklere sahip bir nesneyle çağrılması gerekir.
 
-Örnek:
+Örneğin:
 
 ```javascript
 const { protocol } = require('electron')
@@ -221,7 +217,7 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 
 ### `protocol.unregisterProtocol(scheme[, completion])`
 
-* `scheme` String
+* `scheme` Dizi
 * `tamamlanış` Fonksiyon (isteğe bağlı) 
   * `error` Error
 
@@ -229,11 +225,19 @@ protocol.registerStreamProtocol('atom', (request, callback) => {
 
 ### `protocol.isProtocolHandled(scheme, callback)`
 
-* `scheme` Dizi
+* `scheme` String
 * `geri aramak` Function 
-  * `error` Error
+  * `handled` Boolean
 
 `callback`, `scheme` için zaten halihazırda bir işleyici olup olmadığını gösteren bir boolean ile çağrılır.
+
+**[Deprecated Soon](promisification.md)**
+
+### `protocol.isProtocolHandled(scheme)`
+
+* `scheme` Dizi
+
+Returns `Promise<Boolean>` - fulfilled with a boolean that indicates whether there is already a handler for `scheme`.
 
 ### `protocol.interceptFileProtocol(scheme, handler[, completion])`
 

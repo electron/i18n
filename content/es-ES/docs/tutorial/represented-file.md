@@ -6,7 +6,7 @@ También puede establecer el estado editado de una ventana para que el ícono de
 
 **Menú emergente de archivo representado:**
 
-![Represented File](https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png)
+![Archivo representado](https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png)
 
 Para configurar el archivo representado de la ventana, puede utilizarse las APIs [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-macos) y [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-macos) APIs:
 

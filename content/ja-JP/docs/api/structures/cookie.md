@@ -2,8 +2,8 @@
 
 * `name` String - Cookieの名前。
 * `value` String - Cookieの値。
-* `domain` String (任意) - Cookie のドメイン。
-* `hostOnly` Boolean (任意) - Cookie がホストのみの Cookie であるか。
+* `domain` String (任意) - Cookie のドメインです。これはサブドメインでも有効になるように最初のドットで正規化されます。
+* `hostOnly` Boolean (任意) - その Cookie がホスト限定 Cookie であるかどうか。これはドメインが渡されていない場合 `true` になります。
 * `path` String (optional) - Cookieのパス。
 * `secure` Boolean (任意) - Cookie に Secure フラグがついているか。
 * `httpOnly` Boolean (optional) - CookieがHTTPのみとしてマークされているかどうか。

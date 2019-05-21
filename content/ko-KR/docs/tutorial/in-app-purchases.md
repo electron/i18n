@@ -94,7 +94,7 @@ if (!inAppPurchase.canMakePayments()) {
 }
 
 // Retrieve and display the product descriptions.
-inAppPurchase.getProducts(PRODUCT_IDS, (products) => {
+inAppPurchase.getProducts(PRODUCT_IDS).then(products => {
   // Check the parameters.
   if (!Array.isArray(products) || products.length <= 0) {
     console.log('Unable to retrieve the product informations.')
@@ -102,17 +102,16 @@ inAppPurchase.getProducts(PRODUCT_IDS, (products) => {
   }
 
   // Display the name and price of each product.
-  products.forEach((product) => {
+  products.forEach(product => {
     console.log(`The price of ${product.localizedTitle} is ${product.formattedPrice}.`)
   })
 
   // Ask the user which product he/she wants to purchase.
-  // ...
   let selectedProduct = products[0]
   let selectedQuantity = 1
 
   // Purchase the selected product.
-  inAppPurchase.purchaseProduct(selectedProduct.productIdentifier, selectedQuantity, (isProductValid) => {
+  inAppPurchase.purchaseProduct(selectedProduct.productIdentifier, selectedQuantity).then(isProductValid => {
     if (!isProductValid) {
       console.log('The product is not valid.')
       return

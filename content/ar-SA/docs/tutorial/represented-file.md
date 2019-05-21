@@ -1,14 +1,14 @@
-# Represented File for macOS BrowserWindows
+# الملف الممثّل في نافذة المستعرض في نظام ماك أو إس
 
-On macOS a window can set its represented file, so the file's icon can show in the title bar and when users Command-Click or Control-Click on the title a path popup will show.
+يمكن للنافذة في نظام ماك أو إس أن تعيّن ملفّها الممثَّل represented file، وهكذا يمكن لأيقونة الملف أن تظهر في شريط العنوان وعندما النقر على العنوان بواسطة Command-Click أو Control-Click تظهر نافذة منبثقة تتضمّن مسار الملف.
 
-You can also set the edited state of a window so that the file icon can indicate whether the document in this window has been modified.
+يمكن كذلك تعيين الحالة المحرَّرة edited state للنافذة وبهذا يمكن لأيقونة الملف أن تعطي إشارة إلى أنّ الملف الموجود في هذه النافذة هو ملفّ يخضع للتعديلات.
 
-**Represented file popup menu:**
+**قائمة الملف الممثّل:**
 
-![Represented File](https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png)
+![الملف الممثّل](https://cloud.githubusercontent.com/assets/639601/5082061/670a949a-6f14-11e4-987a-9aaa04b23c1d.png)
 
-To set the represented file of window, you can use the [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-macos) and [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-macos) APIs:
+يمكن استخدام الواجهات البرمجية [BrowserWindow.setRepresentedFilename](../api/browser-window.md#winsetrepresentedfilenamefilename-macos) و [BrowserWindow.setDocumentEdited](../api/browser-window.md#winsetdocumenteditededited-macos) لإضافة الملف الممثَّل إلى النافذة:
 
 ```javascript
 const { BrowserWindow } = require('electron')

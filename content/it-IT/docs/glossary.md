@@ -4,17 +4,17 @@ Questa pagina definisce una terminologia comunemente utilizzata nello sviluppo d
 
 ### ASAR
 
-ASAR è l'acronimo di Atom Shell Archive Format. An [asar](https://github.com/electron/asar) archive is a simple `tar`-like format that concatenates files into a single file. Electron può leggere file arbitrari da esso senza decomprimere l'intero file.
+ASAR è l'acronimo di Atom Shell Archive Format. Un archivio [asar](https://github.com/electron/asar) è un formato tipo `tar` che concatena i file in un unico file. Electron può leggere file arbitrari da esso senza decomprimere l'intero file.
 
 Il formato ASAR è stato creato principalmente per migliorare le prestazioni su Windows... TODO
 
 ### CRT
 
-The C Run-time Library (CRT) is the part of the C++ Standard Library that incorporates the ISO C99 standard library. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
+La libreria C Run-time (CRT) è parte della libreria C++ Standard che incorpora la libreria standard ISO C99. Le librerie Visual C++ che implementano lo sviluppo di codice nativo CRT, e sia misto nativo che gestito, e gestito puro per lo sviluppo .NET.
 
 ### DMG
 
-An Apple Disk Image is a packaging format used by macOS. I file DMG sono comunemente usati per distribuire gli "installer" dell'applicazione. [electron-builder](https://github.com/electron-userland/electron-builder) supports `dmg` as a build target.
+Un'immagine Apple Disk è un formato di package utilizzato da macOS. I file DMG sono comunemente usati per distribuire gli "installer" dell'applicazione. [electron-builder](https://github.com/electron-userland/electron-builder) supporta `dmg` come build target.
 
 ### IME
 

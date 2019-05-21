@@ -2,7 +2,7 @@
 
 > 将崩溃日志提交给远程服务器
 
-参见： [process](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) process
+进程： [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 以下是一个自动提交崩溃日志到服务器的示例
 
@@ -73,7 +73,7 @@ spawn(process.execPath, args, {
 
 返回 [`CrashReport`](structures/crash-report.md):
 
-返回上次崩溃报告的日期和ID。如果没有崩溃报告 发送或crash reporter尚未开始，则返回`null`。
+Returns the date and ID of the last crash report. Only crash reports that have been uploaded will be returned; even if a crash report is present on disk it will not be returned until it is uploaded. In the case that there are no uploaded reports, `null` is returned.
 
 ### `crashReporter.getUploadedReports()`
 

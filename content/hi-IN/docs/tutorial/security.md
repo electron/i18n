@@ -43,7 +43,7 @@ You can force-enable or force-disable these warnings by setting `ELECTRON_ENABLE
 You should at least follow these steps to improve the security of your application:
 
 1. [Only load secure content](#1-only-load-secure-content)
-2. [Disable the Node.js integration in all renderers that display remote content](#2-disable-nodejs-integration-for-remote-content)
+2. [Disable the Node.js integration in all renderers that display remote content](#2-do-not-enable-nodejs-integration-for-remote-content)
 3. [Enable context isolation in all renderers that display remote content](#3-enable-context-isolation-for-remote-content)
 4. [दूरस्थ सामग्री लोड करने वाले सभी सत्रों में `ses.setPermissionRequestHandler()` का उपयोग करें](#4-handle-session-permission-requests-from-remote-content)
 5. [Do not disable `webSecurity`](#5-do-not-disable-websecurity)
@@ -56,6 +56,8 @@ You should at least follow these steps to improve the security of your applicati
 12. [Disable or limit navigation](#12-disable-or-limit-navigation)
 13. [Disable or limit creation of new windows](#13-disable-or-limit-creation-of-new-windows)
 14. [Do not use `openExternal` with untrusted content](#14-do-not-use-openexternal-with-untrusted-content)
+15. [Disable the `remote` module](#15-disable-the-remote-module)
+16. [Filter the `remote` module](#16-filter-the-remote-module)
 
 To automate the detection of misconfigurations and insecure patterns, it is possible to use [electronegativity](https://github.com/doyensec/electronegativity). For additional details on potential weaknesses and implementation bugs when developing applications using Electron, please refer to this [guide for developers and auditors](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)
 
@@ -89,9 +91,11 @@ browserWindow.loadURL('https://example.com')
 <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
-## 2) Disable Node.js Integration for Remote Content
+## 2) Do not enable Node.js Integration for Remote Content
 
-It is paramount that you disable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) that loads remote content. The goal is to limit the powers you grant to remote content, thus making it dramatically more difficult for an attacker to harm your users should they gain the ability to execute JavaScript on your website.
+*This recommendation is the default behavior in Electron since 5.0.0.*
+
+It is paramount that you do not enable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) that loads remote content. The goal is to limit the powers you grant to remote content, thus making it dramatically more difficult for an attacker to harm your users should they gain the ability to execute JavaScript on your website.
 
 After this, you can grant additional permissions for specific hosts. For example, if you are opening a BrowserWindow pointed at `https://example.com/", you can give that website exactly the abilities it needs, but no more.
 
@@ -103,7 +107,13 @@ A cross-site-scripting (XSS) attack is more dangerous if an attacker can jump ou
 
 ```js
 // Bad
-const mainWindow = new BrowserWindow()
+const mainWindow = new BrowserWindow({
+  webPreferences: {
+    nodeIntegration: true,
+    nodeIntegrationInWorker: true
+  }
+})
+
 mainWindow.loadURL('https://example.com')
 ```
 
@@ -111,9 +121,7 @@ mainWindow.loadURL('https://example.com')
 // Good
 const mainWindow = new BrowserWindow({
   webPreferences: {
-    nodeIntegration: false,
-    nodeIntegrationInWorker: false,
-    preload: './preload.js'
+    preload: path.join(app.getAppPath(), 'preload.js')
   }
 })
 
@@ -164,7 +172,7 @@ At the same time, preload scripts still have access to the `document` and `windo
 const mainWindow = new BrowserWindow({
   webPreferences: {
     contextIsolation: true,
-    preload: 'preload.js'
+    preload: path.join(app.getAppPath(), 'preload.js')
   }
 })
 ```
@@ -489,12 +497,12 @@ If you have no need to create windows in addition to the ones you know you'll ne
 const { shell } = require('electron')
 
 app.on('web-contents-created', (event, contents) => {
-  contents.on('new-window', (event, navigationUrl) => {
+  contents.on('new-window', async (event, navigationUrl) => {
     // In this example, we'll ask the operating system
     // to open this event's url in the default browser.
     event.preventDefault()
 
-    shell.openExternalSync(navigationUrl)
+    await shell.openExternal(navigationUrl)
   })
 })
 ```
@@ -519,4 +527,96 @@ shell.openExternal(USER_CONTROLLED_DATA_HERE)
 //  Good
 const { shell } = require('electron')
 shell.openExternal('https://example.com/index.html')
+```
+
+## 15) Disable the `remote` module
+
+The `remote` module provides a way for the renderer processes to access APIs normally only available in the main process. Using it, a renderer can invoke methods of a main process object without explicitly sending inter-process messages. If your desktop application does not run untrusted content, this can be a useful way to have your renderer processes access and work with modules that are only available to the main process, such as GUI-related modules (dialogs, menus, etc.).
+
+However, if your app can run untrusted content and even if you [sandbox](../api/sandbox-option.md) your renderer processes accordingly, the `remote` module makes it easy for malicious code to escape the sandbox and have access to system resources via the higher privileges of the main process. Therefore, it should be disabled in such circumstances.
+
+### Why?
+
+`remote` uses an internal IPC channel to communicate with the main process. "Prototype pollution" attacks can grant malicious code access to the internal IPC channel, which can then be used to escape the sandbox by mimicking `remote` IPC messages and getting access to main process modules running with higher privileges.
+
+Additionally, it's possible for preload scripts to accidentally leak modules to a sandboxed renderer. Leaking `remote` arms malicious code with a multitude of main process modules with which to perform an attack.
+
+Disabling the `remote` module eliminates these attack vectors. Enabling context isolation also prevents the "prototype pollution" attacks from succeeding.
+
+### How?
+
+```js
+// Bad if the renderer can run untrusted content
+const mainWindow = new BrowserWindow({})
+```
+
+```js
+// Good
+const mainWindow = new BrowserWindow({
+  webPreferences: {
+    enableRemoteModule: false
+  }
+})
+```
+
+```html
+<!-- Bad if the renderer can run untrusted content  -->
+<webview src="page.html"></webview>
+
+<!-- Good -->
+<webview enableremotemodule="false" src="page.html"></webview>
+```
+
+## 16) Filter the `remote` module
+
+If you cannot disable the `remote` module, you should filter the globals, Node, and Electron modules (so-called built-ins) accessible via `remote` that your application does not require. This can be done by blocking certain modules entirely and by replacing others with proxies that expose only the functionality that your app needs.
+
+### Why?
+
+Due to the system access privileges of the main process, functionality provided by the main process modules may be dangerous in the hands of malicious code running in a compromised renderer process. By limiting the set of accessible modules to the minimum that your app needs and filtering out the others, you reduce the toolset that malicious code can use to attack the system.
+
+Note that the safest option is to [fully disable the remote module](#15-disable-the-remote-module). If you choose to filter access rather than completely disable the module, you must be very careful to ensure that no escalation of privilege is possible through the modules you allow past the filter.
+
+### How?
+
+```js
+const readOnlyFsProxy = require(/* ... */) // exposes only file read functionality
+
+const allowedModules = new Set(['crypto'])
+const proxiedModules = new Map(['fs', readOnlyFsProxy])
+const allowedElectronModules = new Set(['shell'])
+const allowedGlobals = new Set()
+
+app.on('remote-require', (event, webContents, moduleName) => {
+  if (proxiedModules.has(moduleName)) {
+    event.returnValue = proxiedModules.get(moduleName)
+  }
+  if (!allowedModules.has(moduleName)) {
+    event.preventDefault()
+  }
+})
+
+app.on('remote-get-builtin', (event, webContents, moduleName) => {
+  if (!allowedElectronModules.has(moduleName)) {
+    event.preventDefault()
+  }
+})
+
+app.on('remote-get-global', (event, webContents, globalName) => {
+  if (!allowedGlobals.has(globalName)) {
+    event.preventDefault()
+  }
+})
+
+app.on('remote-get-current-window', (event, webContents) => {
+  event.preventDefault()
+})
+
+app.on('remote-get-current-web-contents', (event, webContents) => {
+  event.preventDefault()
+})
+
+app.on('remote-get-guest-web-contents', (event, webContents, guestWebContents) => {
+  event.preventDefault()
+})
 ```

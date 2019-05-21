@@ -24,7 +24,7 @@ Windows 控制台示例:
 
 ### `NODE_OPTIONS`
 
-Electron includes support for a subset of Node's [`NODE_OPTIONS`](https://nodejs.org/api/cli.html#cli_node_options_options). The majority are supported with the exception of those which conflict with Chromium's use of BoringSSL.
+Electron 包括对 Node 的 [`NODE_OPTIONS`](https://nodejs.org/api/cli.html#cli_node_options_options) 的子集的支持。 除与 Chromium 使用 BoringSSL 相抵触的情况外，大多数都得到了支持。
 
 示例:
 
@@ -32,7 +32,7 @@ Electron includes support for a subset of Node's [`NODE_OPTIONS`](https://nodejs
 export NODE_OPTIONS="--no-warnings --max-old-space-size=2048"
 ```
 
-Unsupported options are:
+不支持的选项是：
 
 ```sh
 --use-bundled-ca
@@ -42,19 +42,17 @@ Unsupported options are:
 --use-openssl-ca
 ```
 
-`NODE_OPTIONS` are explicitly disallowed in packaged apps.
+在打包的应用程序中显式禁止使用 `NODE_OPTIONS` 。
 
 ### `GOOGLE_API_KEY`
 
-Electron包含一个硬编码的 API key用于请求谷歌的地理编码服务。 由于此 API key包含在每个版本的Electron中, 因此它通常超过其使用限额。 为了应对这一情况，您可以在环境中提供自己的 Google API key。 在打开将进行地理编码请求的任何Browser窗口之前, 请在主进程文件中放置以下代码:
+You can provide an API key for making requests to Google's geocoding webservice. To do this, place the following code in your main process file, before opening any browser windows that will make geocoding requests:
 
 ```javascript
 process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
 ```
 
-有关如何获取 Google API key的说明, 请访问 [ 这里 ](https://www.chromium.org/developers/how-tos/api-keys)。
-
-默认情况下, 可能不允许新生成的 Google API key进行地理编码请求。 若要启用地理编码请求, 请访问 [ 这里 ](https://console.developers.google.com/apis/api/geolocation/overview)。
+For instructions on how to acquire a Google API key, visit [this page](https://developers.google.com/maps/documentation/javascript/get-api-key). 默认情况下, 可能不允许新生成的 Google API key进行地理编码请求。 若要启用地理编码请求, 请访问 [ 这里 ](https://developers.google.com/maps/documentation/geocoding/get-api-key)。
 
 ### `ELECTRON_NO_ASAR`
 

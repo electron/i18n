@@ -59,7 +59,9 @@ Then, you need to prepare three entitlements files.
     <key>com.apple.security.app-sandbox</key>
     <true/>
     <key>com.apple.security.application-groups</key>
-    <string>TEAM_ID.your.bundle.id</string>
+    <array>
+      <string>TEAM_ID.your.bundle.id</string>
+    </array>
   </dict>
 </plist>
 ```
@@ -193,7 +195,7 @@ See the [Enabling User-Selected File Access documentation](https://developer.app
 
 ## Electron 用到的密碼編譯演算法
 
-Depending on the country and region you are located, Mac App Store may require documenting the cryptographic algorithms used in your app, and even ask you to submit a copy of U.S. Encryption Registration (ERN) approval.
+Depending on the countries in which you are releasing your app, you may be required to provide information on the cryptographic algorithms used in your software. See the [encryption export compliance docs](https://help.apple.com/app-store-connect/#/devc3f64248f) for more information.
 
 Electron 使用到了下列密碼編譯演算法:
 
@@ -220,5 +222,3 @@ Electron 使用到了下列密碼編譯演算法:
 * RC4 - [RFC 4345](https://tools.ietf.org/html/rfc4345)
 * RC5 - http://people.csail.mit.edu/rivest/Rivest-rc5rev.pdf
 * RIPEMD - [ISO/IEC 10118-3](https://webstore.ansi.org/RecordDetail.aspx?sku=ISO%2FIEC%2010118-3:2004)
-
-On how to get the ERN approval, you can reference the article: [How to legally submit an app to Apple’s App Store when it uses encryption (or how to obtain an ERN)](https://carouselapps.com/2015/12/15/legally-submit-app-apples-app-store-uses-encryption-obtain-ern/).

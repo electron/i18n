@@ -4,7 +4,7 @@ Ci sono molti modi di aggiornare una app di Electron. La più facile ed ufficial
 
 ## Usando `aggiorna.electronjs.org`
 
-Il team di GitHub di Electron mantiene aggiorna.electronjs.org, un servizio web gratuito e libero che le app di Electron possono usare per auto aggiornarsi. Il servizio è designato per le app di Electron che incontrano i seguenti criteri:</p> 
+Il team di GitHub di Electron mantiene aggiorna.electronjs.org, un servizio web gratuito e libero che le app di Electron possono usare per auto aggiornarsi. The service is designed for Electron apps that meet the following criteria:</p> 
 
 - App eseguite su macOS o Windows
 - App con repository di GitHub pubblica
@@ -25,17 +25,17 @@ Invoca l'updater dal file di processo principale della tua app:
 richiedi('aggiorna-electron-app')()
 ```
 
-Di default, questo modulo controllerà per aggiornamenti alla startup dell'app, poi ogni dieci minuti. Quando trova un aggiornamento, questo sarà automaticamente scaricato in background. Quando il download è completo, un dialogo è mostrato per consentire all'utente di riavviare l'app.
+By default, this module will check for updates at app startup, then every ten minutes. Quando trova un aggiornamento, questo sarà automaticamente scaricato in background. When the download completes, a dialog is displayed allowing the user to restart the app.
 
-Se hai bisogno di personalizzare la tua configurazione puoi [passare opzioni a `aggiorna-electron-app`](https://github.com/electron/update-electron-app) o [usare direttamente il servizio aggiornamento](https://github.com/electron/update.electronjs.org).
+If you need to customize your configuration, you can [pass options to `update-electron-app`](https://github.com/electron/update-electron-app) or [use the update service directly](https://github.com/electron/update.electronjs.org).
 
 ## Usando `electron-costruttore`
 
 Se la tua app è impacchettata con [`electron-costruttore`](https://github.com/electron-userland/electron-builder) puoi usare il modulo [electron-updater](https://www.electron.build/auto-update), che non richiede un server e consente aggiornamenti da S3, GitHub o qualsiasi altro host di file statico. Questo meccanismo di aggiornamento incorporato di Electron è evitato, il resto di questa documentazione non si applicherà all'updater di `electron-costruttore`.
 
-## Implementare un Server Aggiornamento
+## Implementare un Server di Aggiornamento
 
-Se stai sviluppando un'app Electron privata o se non pubblichi rilasci a GitHub Rilasci, potrebbe essere necessario eseguire il tuo proprio server di aggiornamento.
+If you're developing a private Electron application, or if you're not publishing releases to GitHub Releases, it may be necessary to run your own update server.
 
 In base alle tue necessità, puoi scegliere da una di queste:
 
@@ -44,7 +44,7 @@ In base alle tue necessità, puoi scegliere da una di queste:
 - [electron-rilascio-server](https://github.com/ArekSredzki/electron-release-server) - Fornisce una dashboard per i rilasci manuali e non richiede rilasci originati su GitHub.
 - [Nucleus](https://github.com/atlassian/nucleus) - Un server di aggiornamento completo per le app Electron mantenute da Atlassian. Supporta molte app e canali; usa un archivio di file statici per minimizzare i costi del server.
 
-## Implementare Aggiornamenti nella Tua App
+## Implementando gli Aggiornamenti nella Tua App
 
 Una volta depositato il tuo server di aggiornamento, continua ad importare i moduli richiesti nel tuo codice. Il codice seguente potrevve variare per differenti server di softwarw, ma funziona come descritto usando [Hazel](https://github.com/zeit/hazel).
 

@@ -88,8 +88,35 @@ Paggamit ng mga `autoUpdater` bilang isang halimbawa:
 Gamit ang `Session`at`Cookies`classes bilang halimbawa:
 
 ```markdown
-# session # # Pamamaraan ### session.fromPartition(partisyon) # # Properties ### session.defaultSession ## Klase: Session ### Mga Pangyayari na may Halimbawa #### Kaganapan: 'will-download'
-### Mga Halimbawa ng Pamamaraan #### `ses.getCacheSize (callback)` ### Instance Properties #### `ses.cookies` ## Klase: Mga Cookies ### Mga Halimbawa ng Pamamaraan #### `cookies.get (filter, callback)`
+# session
+
+## Methods
+
+### session.fromPartition(partition)
+
+## Properties
+
+### session.defaultSession
+
+## Class: Session
+
+### Instance Events
+
+#### Event: 'will-download'
+
+### Instance Methods
+
+#### `ses.getCacheSize()`
+
+### Instance Properties
+
+#### `ses.cookies`
+
+## Class: Cookies
+
+### Instance Methods
+
+#### `cookies.get(filter, callback)`
 ```
 
 ### Mga Paraan

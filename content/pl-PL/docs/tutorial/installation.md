@@ -81,11 +81,23 @@ The cache contains the version's official zip file as well as a checksum, stored
 ├── SHASUMS256.txt-1.8.2-beta.3
 ```
 
+## Skip binary download
+
+When installing the `electron` NPM package, it automatically downloads the electron binary.
+
+This can sometimes be unnecessary, e.g. in a CI environment, when testing another component.
+
+To prevent the binary from being downloaded when you install all npm dependencies you can set the environment variable `ELECTRON_SKIP_BINARY_DOWNLOAD`. E.g.:
+
+```sh
+ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
+```
+
 ## Rozwiązywanie problemów
 
-Uruchomiając komendę `npm install electron`, niewielka część użytkowników czasami napotyka na błędy instalacji.
+Wywołując polecenie `npm install electron`, niektórzy użytkownicy napotykają okazjonalne błędy instalacji.
 
-W większości przypadków, błędy te są wynikiem problemów z połączeniem internetowym, a nie błędami pakietu `electron`. Błędy typu `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` są objawami tego typu błędów z połączeniem. Najlepszym rozwiązaniem jest próba zmiany sieci lub odczekanie chwili i ponowienie próby instalacji.
+W więkoszości przypadków, błędy są efektem problemów z połączeniem internetowym, a nie błędami pakietu `electron`. Błędy typu `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, i`ETIMEDOUT` są efeketem problemów z połączeniem internetowym. Najlepszym rozwiązaniem jest próba zmiany sieci lub odczekanie chwili i ponowienie próby instalacji.
 
 Możesz także spróbować pobrać Electrona bezpośrednio z [electron/electron/releases](https://github.com/electron/electron/releases), jeśli instalacja poprzez `npm` zawodzi.
 

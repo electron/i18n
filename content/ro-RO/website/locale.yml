@@ -3,6 +3,7 @@ nav:
   apps: Aplicații
   blog: Blog
   code_of_conduct: Cod de conduită
+  security: Securitate
   community: Comunitate
   contact: Contact
   docs: Documente
@@ -12,6 +13,7 @@ nav:
   releases: Lansări
   search: Caută
   userland: Spațiu utilizator
+  governance: Governance
 keyboard_modal:
   title: Scurtături tastatură
   key: Key
@@ -46,11 +48,11 @@ community:
     get_started: "<a href='/docs/tutorial/first-app'><b>Începe</b></a> să construiești o aplicație citind <a href='/docs/tutorial/first-app'>ghidul de inițiere rapidă</a>."
     updates: "<a href='https://twitter.com/electronjs'><b>Rămâi la curent</b></a> urmărind <a href='https://twitter.com/electronjs'>@electronjs</a> pe Twitter și abonându-te la <a href='/blog'>fluxul blogului</a>."
     localized_docs: "<a href='/languages'><b>Citește documentele în limba ta maternă</b></a> vizitând <a href='/languages'>pagina limbilor</a>."
-    help: "<a href='http://atom-slack.herokuapp.com'><b>Obține ajutor și feedback</b></a> intrând în <a href='http://atom-slack.herokuapp.com'>atomio pe Slack</a>, postând pe <a href='https://discuss.atom.io/c/electron'>Discuss</a> sau vizitând <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>Get help and feedback</b></a> by joining the <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    security: "<a href='mailto:security@electronjs.org'><b>Report security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Raportează erori</b></a> deschizând probleme în depozitarul <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Solicită funcționalități</b></a> deschizând probleme în depozitarul <a href='https://github.com/electron/electron/issues'>electron/electron</a>."
     code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Raportează încălcarea codului de conduită</b></a> trimițând un email la <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
-    security: "<a href='mailto:security@electronjs.org'><b>Dezvăluie probleme de securitate</b></a> trimițând un email la <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     donations: "<a href='donors'><b>Donează</b></a> în pagina noastră <a href='/donors'>OpenCollective</a>."
     other: "Pentru toate celelalte întrebări, trimite un email la <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
   language_communities:
@@ -106,6 +108,8 @@ get_started:
 explore:
   title: Explorează API-urile Electron
   description: "<a href='https://github.com/electron/electron-api-demos'>Aplicația demouri API Electron</a> demonstrează în mod interactiv cele mai importante caracteristici ale API-ului Electron. Vezi ce este posibil cu Electron cu un cod exemplu și sfaturi utile pentru construirea aplicației tale."
+  fiddle_title: Try more powerful experiments with Electron Fiddle
+  see_more_info: See more info
 download_from_github: Descarcă de pe GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Vezi toate lansările</a> pe GitHub
 quick_start:
@@ -125,9 +129,11 @@ taglines:
 help_translate: "Ajută la traducere"
 footer:
   see_the_faq: Vezi întrebările frecvente
+companies:
+  title: Built on Electron
+  description: Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been adopted by companies all over the world.
 apps:
-  title: Aplicații create cu Electron
-  description: Cu Electron, să creezi o aplicație desktop, pentru compania sau ideea ta, este ușor. Inițial dezvoltat pentru <a href='https://atom.io' target='_blank'>editorul Atom</a> care aparține de GitHub, Electron a fost utilizat pentru a crea aplicații de către companii precum Microsoft, Facebook, Slack și Docker.
+  description: 'With Electron, creating a desktop application for your company or idea is easy. Check out <a href=''/apps''>some of the apps created by the community</a> or <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">add your own</a>.'
   view_more: Vezi mai multe aplicații
   submit_your_own: trimite-ți propria aplicație
   something_missing: Lipsește ceva?
@@ -197,6 +203,9 @@ pages:
   '/fiddle':
     title: Electron Fiddle
     description: The easiest way to get started with Electron
+  '/governance':
+    title: Electron Governance
+    description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
   '/donors':
     title: Donatori
 landing:
@@ -213,5 +222,57 @@ landing:
     compile_and_package_desc: Fiddle can automatically turn your experiment into binaries you can share with your friends, coworkers, or grandparents. It does so thanks to <a href="https://electronforge.io/">electron-forge</a>, allowing you to package your fiddle as an app for Windows, macOS, or Linux.
     easy_start: Start with Fiddle, Continue Wherever
     easy_start_desc: Fiddle is not an IDE – it is however an excellent starting point. Once your fiddle has grown up, export it as a project with or without <a href="https://electronforge.io/">electron-forge</a>. Then, use your favorite editor and take on the world!
+governance:
+  title: Electron Governance
+  description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
+  wgs: Working Groups
+  docstools:
+    title: Docs & Tools
+    description: Oversees externally-focused tooling (e.g. Fiddle, Forge), Electron documentation across the website and <code>electron/*</code> repositories, and the maintainer’s group outreach to 3rd party modules.
+  outreach:
+    title: Outreach
+    description: Grows the Electron community
+  releases:
+    title: Lansări
+    description: Oversees all release branches, and tooling to support releases.
+  upgrades:
+    title: Upgrades
+    description: Oversees upgrades of upstream dependencies; specifically Chromium and Node.
+  website:
+    title: Sait web
+    description: Oversees the technical implementation, design, and style of the Electron website and associated tooling.
+  cmsf:
+    title: Community & Safety
+    description: Oversees removal/bans from community.
+  security:
+    title: Securitate
+    description: Proactively ensures the Security of Electron as a project, responds to incoming incidents, and oversees rollout of fixes.
+  admins:
+    title: Administrative
+    description: The Administrative Working Group oversees the entire governance and project.
+  global:
+    overview: Overview
+    associated_repos: Associated Repositories
+    notes: Meeting Notes
+  definitions:
+    title: Definitions
+    list:
+      - A <i>maintainer</i> is anyone who plays an active role in governance.
+      - A <i>collaborator</i> is active in the community, but not in governance.
+      - A <i>participant</i> is anyone who is a maintainer or collaborator.
+      - A <i>working group</i> is a group of maintainers that is formed to take responsibility for certain aspects of the Electron project. Normally these groups will meet regularly but in some cases will only meet as required to fulfill their responsibilities.
+      - 'A <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership">chair</a> leads a working group.'
+  responsibilities:
+    title: Responsibilities
+    listdescription: "All Working Groups have these core responsibilities:"
+    list:
+      - They shall decide for themselves, and publicly post, their rules, e.g. how decisions are made, when meetings are held, and who may attend.
+      - 'They shall <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Terms-and-Selection">select</a> a chair to <a href=''https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Responsibilities''>represent</a> the group.'
+      - They shall keep meeting notes, including agenda items, discussion points, and outcomes for everyone to review.
+      - 'They shall be collaborative and work <a href="https://github.com/electron/governance/tree/master/charter/README.md#Core-Values">in good faith</a> with other Working Groups.'
+    see_charter: See <a href="https://github.com/electron/governance/tree/master/charter/README.md">charter</a> for more information.
+  code_of_conduct: The Electron organization and all repos therein adhere to the following <a href="https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md">Code of Conduct.</a>
+  license: Electron is licensed with the <a href="https://github.com/electron/electron/blob/master/LICENSE">MIT License</a>.
+  repository: Check out the <a href="https://github.com/electron/governance">Governance Repository</a> to find more information about the governance structure.
 _404:
   page_not_found: Pagina nu a fost găsită.

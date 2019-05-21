@@ -59,7 +59,9 @@ First, you have to add a `ElectronTeamID` key to your app's `Info.plist`, which 
     <key>com.apple.security.app-sandbox</key>
     <true/>
     <key>com.apple.security.application-groups</key>
-    <string>TEAM_ID.your.bundle.id</string>
+    <array>
+      <string>TEAM_ID.your.bundle.id</string>
+    </array>
   </dict>
 </plist>
 ```
@@ -193,7 +195,7 @@ electron-osx-sign YourApp.app YourApp.app/Contents/Resources/app/node_modules/na
 
 ## Electron에서 사용되는 암호화 알고리즘
 
-거주중인 국가 및 지역에 따라, Mac App Store에서 앱에 사용 된 암호화 알고리즘의 문서를 요청하고, 심지어 미국 암호화 등록 (ERN) 승인 사본을 제출하도록 요청할 수도 있습니다.
+Depending on the countries in which you are releasing your app, you may be required to provide information on the cryptographic algorithms used in your software. See the [encryption export compliance docs](https://help.apple.com/app-store-connect/#/devc3f64248f) for more information.
 
 Electron이 사용하는 암호화 알고리즘은 다음과 같습니다.
 
@@ -220,5 +222,3 @@ Electron이 사용하는 암호화 알고리즘은 다음과 같습니다.
 * RC4 - [RFC 4345](https://tools.ietf.org/html/rfc4345)
 * RC5 - http://people.csail.mit.edu/rivest/Rivest-rc5rev.pdf
 * RIPEMD - [ISO/IEC 10118-3](https://webstore.ansi.org/RecordDetail.aspx?sku=ISO%2FIEC%2010118-3:2004)
-
-ERN 승인을 얻는 방법에 대해서는 다음을 참조하십시오: [How to legally submit an app to Apple’s App Store when it uses encryption (or how to obtain an ERN)](https://carouselapps.com/2015/12/15/legally-submit-app-apples-app-store-uses-encryption-obtain-ern/).

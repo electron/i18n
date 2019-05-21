@@ -46,15 +46,13 @@ Las opciones no respaldadas son:
 
 ### `GOOGLE_API_KEY`
 
-Electron incluye una clave API codificada para hacer solicitudes al webservice de geocoding de Google. Debido a que esta clave API está incluida en cada versión de Electron, frecuente mente excede su cuota de uso. Para solucionar esto, se puede suministrar una clave propia API de Google en el entorno. Coloque el siguiente código en el archivo de tu proceso principal antes de abrir cualquier ventana del navegador que harán solicitudes de geocoding:
+You can provide an API key for making requests to Google's geocoding webservice. To do this, place the following code in your main process file, before opening any browser windows that will make geocoding requests:
 
 ```javascript
 process.env.GOOGLE_API_KEY = 'TU_CLAVE_AQUI'
 ```
 
-Para obtener instrucciones sobre cómo adquirir una clave de API de Google, visita [esta página](https://www.chromium.org/developers/how-tos/api-keys).
-
-Por defecto, una clave API de Google recién generada podría no funcionar al hacer solicitudes geocoding. Para habilitar las solicitudes de geocodificación., visite [esta página](https://console.developers.google.com/apis/api/geolocation/overview).
+For instructions on how to acquire a Google API key, visit [this page](https://developers.google.com/maps/documentation/javascript/get-api-key). Por defecto, una clave API de Google recién generada podría no funcionar al hacer solicitudes geocoding. Para habilitar las solicitudes de geocodificación., visite [esta página](https://developers.google.com/maps/documentation/geocoding/get-api-key).
 
 ### `ELECTRON_NO_ASAR`
 

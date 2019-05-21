@@ -23,4 +23,3 @@ Bu rehberler Elecron projesinin kökü üzerinde çalışan kişiler içindir. E
 * [Chromium yükseltiliyor](upgrading-chromium.md)
 * [Crashpad güncelleniyor](upgrading-crashpad.md)
 * [Node Yükseltmesi](upgrading-node.md)
-* [Yayınlanma](releasing.md)

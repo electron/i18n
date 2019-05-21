@@ -81,11 +81,23 @@ ELECTRON_MIRROR="https://npm.taobao.org/mirrors/electron/"
 ├── SHASUMS256.txt-1.8.2-beta.3
 ```
 
+## Skip binary download
+
+When installing the `electron` NPM package, it automatically downloads the electron binary.
+
+This can sometimes be unnecessary, e.g. in a CI environment, when testing another component.
+
+To prevent the binary from being downloaded when you install all npm dependencies you can set the environment variable `ELECTRON_SKIP_BINARY_DOWNLOAD`. E.g.:
+
+```sh
+ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
+```
+
 ## 문제 해결
 
-`npm install electron`을 실행하면 일부 사용자는 설치 오류가 발생할 수 있습니다.
+`npm install electron`을 실행할 때, 어떤 사용자에게는 가끔 설치 오류가 발생합니다.
 
-거의 모든 경우, 이러한 오류들은 네트워크 문제의 결과이고 `electron` npm package의 문제가 아닙니다. `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET` 및 `ETIMEDOUT`과 같은 오류는 모두 네트워크 문제를 나타냅니다. 가장 좋은 해결책은 네트워크를 전환하거나, 잠시 기다렸다가 다시 설치하는 것입니다.
+대부분의 경우에는, 이 오류는 네트웍 문제로 인한 것이고 `electron` npm 패키지 자체의 오류는 아닙니다. `ELIFECYCLE`나 `EAI_AGAIN`, `ECONNRESET`, `ETIMEDOUT` 같은 오류는 이런 네트웍 문제임을 나타냅니다. 최선의 방법은 네트웍을 전환하거나 잠시 기다린 후에 다시 설치를 시도하는 것입니다.
 
 `npm`을 통한 설치가 실패 할 경우[electron/electron/releases](https://github.com/electron/electron/releases)에서 Electron을 직접 다운로드 할 수도 있습니다.
 

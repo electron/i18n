@@ -1,8 +1,8 @@
-# إلكترون - الاسئلة الشائعة
+# Electron FAQ
 
 ## لماذا أواجه مشكلة في تثبيت إلكترون؟
 
-When running `npm install electron`, some users occasionally encounter installation errors.
+Wywołując polecenie `npm install electron`, niektórzy użytkownicy napotykają okazjonalne błędy instalacji.
 
 In almost all cases, these errors are the result of network problems and not actual issues with the `electron` npm package. Errors like `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET`, and `ETIMEDOUT` are all indications of such network problems. The best resolution is to try switching networks, or wait a bit and try installing again.
 
@@ -136,5 +136,25 @@ console.log(require.resolve('electron'))
 npm uninstall -g electron
 `</pre> 
 
-ومع ذلك ، إذا كنت تستخدم الوحدة المضمنة ولكنك لا تزال تحصل على هذا الخطأ من المحتمل جدًا أنك تستخدم الوحدة في العملية الخاطئة. يمكن استخدام  electron.app </ 0> فقط في العملية الرئيسية ، بينما <>> electron.webFrame </ 0>
+ومع ذلك ، إذا كنت تستخدم الوحدة المضمنة ولكنك لا تزال تحصل على هذا الخطأ من المحتمل جدًا أنك تستخدم الوحدة في العملية الخاطئة. يمكن استخدام ` electron.app </ 0> فقط في العملية الرئيسية ، بينما <>> electron.webFrame </ 0>
 متاح فقط في renderer processes.</p>
+
+<h2>The font looks blurry, what is this and what can i do?</h2>
+
+<p>If <a href="http://alienryderflex.com/sub_pixel/">sub-pixel anti-aliasing</a> is deactivated, then fonts on LCD screens can look blurry. Example:</p>
+
+<p>!<a href="images/subpixel-rendering-screenshot.gif">subpixel rendering example</a></p>
+
+<p>Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (See <a href="https://github.com/electron/electron/issues/6344#issuecomment-420371918">this issue</a> for more info).</p>
+
+<p>To achieve this goal, set the background in the constructor for <a href="api/browser-window.md">BrowserWindow</a>:</p>
+
+<pre><code class="javascript">const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({
+  backgroundColor: '#fff'
+})
+`</pre> 
+
+The effect is visible only on (some?) LCD screens. Even if you dont see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
+
+Notice that just setting the background in the CSS does not have the desired effect.

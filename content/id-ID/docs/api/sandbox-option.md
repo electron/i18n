@@ -34,8 +34,6 @@ In the above code the [`BrowserWindow`](browser-window.md) that was created has 
 
 Penting untuk dicatat bahwa opsi ini saja sendiri tidak akan mengaktifkan sanbox yang dipaksa oleh OS. Untuk mengaktifkan fitur ini, argumen baris perintah `--enable-sandbox` harus dilewatkan ke electron, yang akan memaksa `sandbox: true` untuk semua kejadian `BrowserWindow`.
 
-Untuk mengaktifkan sandbox yang dipaksa oleh OS pada `BrowserWindow` atau `webview` yang diproses dengan `sandbox:true` tanpa menyebabkan keseluruhan aplikasi untuk berada di sandbox, `--enable-mixed-sandbox` argumen baris perintah harus dilewatkan ke electron. Opsi tersebut pada saat sekarang hanya didukung pada platform macOS dan Windows.
-
 ```js
 let win
 app.on('ready', () => {

@@ -10,24 +10,27 @@ Contoh berikut menunjukkan bagaimana menangkap video dari jendela desktop yang j
 // Dalam proses renderer.
 const { desktopCapturer } = require('electron')
 
-desktopCapturer.getSources({ types: ['window', 'screen'] }, (error, sources) => {
-  if (error) throw error
-  for (let i = 0; i < sources.length; ++i) {
-    if (sources[i].name === 'Electron') {
-      navigator.mediaDevices.getUserMedia({
-        audio: false,
-        video: {
-          mandatory: {
-            chromeMediaSource: 'desktop',
-            chromeMediaSourceId: sources[i].id,
-            minWidth: 1280,
-            maxWidth: 1280,
-            minHeight: 720,
-            maxHeight: 720
+desktopCapturer.getSources({ types: ['window', 'screen'] }).then(async sources => {
+  for (const source of sources) {
+    if (source.name === 'Electron') {
+      try {
+        const stream = await navigator.mediaDevices.getUserMedia({
+          audio: false,
+          video: {
+            mandatory: {
+              chromeMediaSource: 'desktop',
+              chromeMediaSourceId: source.id,
+              minWidth: 1280,
+              maxWidth: 1280,
+              minHeight: 720,
+              maxHeight: 720
+            }
           }
-        }
-      }).then((stream) => handleStream(stream))
-        .catch((e) => handleError(e))
+        })
+        handleStream(stream)
+      } catch (e) {
+        handleError(e)
+      }
       return
     }
   }
@@ -71,10 +74,10 @@ The ` desktopCapturer </ 0> modul memiliki metode berikut:</p>
 * `pilihan` Benda 
   * `jenis `String [] - Kumpulan String yang mencantumkan jenis sumber desktop yang akan ditangkap, jenis yang tersedia adalah`layar `dan`jendela </ 0>.</li>
 <li><code> thumbnail ukuran</ 0>  <a href="structures/size.md"> Ukuran </ 1> (opsional) - Ukuran gambar thumbnail sumber media harus diskalakan. Defaultnya adalah <code> 150 </ 0> x <code> 150 </ 0> .</li>
-</ul></li>
-<li><code>panggilkembali` Fungsi 
-    * Kesalahan `kesalahan`
-    *  sumber </ 0>  <a href="structures/desktop-capturer-source.md"> DesktopCapturerSource [] </ 1></li>
+<li><code>fetchWindowIcons` Boolean (optional) - Set to true to enable fetching window icons. The default value is false. When false the appIcon property of the sources return null. Same if a source has the type screen.
+* `panggilkembali` Fungsi 
+  * Kesalahan `kesalahan`
+  * ` sumber </ 0>  <a href="structures/desktop-capturer-source.md"> DesktopCapturerSource [] </ 1></li>
 </ul></li>
 </ul>
 
@@ -82,3 +85,19 @@ The ` desktopCapturer </ 0> modul memiliki metode berikut:</p>
 
 <p><code> sources </ 0> adalah array dari <a href="structures/desktop-capturer-source.md"><code> objek DesktopCapturerSource </ 1> 
 , masing-masing <code> DesktopCapturerSource </ 0> mewakili layar atau jendela individual yang dapat ditangkap.</p>
+
+<p><strong><a href="promisification.md">Deprecated Soon</a></strong></p>
+
+<h3><code>desktopCapturer.getSources(options)`</h3> 
+    * `pilihan` Obyek 
+      * `jenis `String [] - Kumpulan String yang mencantumkan jenis sumber desktop yang akan ditangkap, jenis yang tersedia adalah`layar `dan`jendela </ 0>.</li>
+<li><code> thumbnail ukuran</ 0>  <a href="structures/size.md"> Ukuran </ 1> (opsional) - Ukuran gambar thumbnail sumber media harus diskalakan. Defaultnya adalah <code> 150 </ 0> x <code> 150 </ 0> .</li>
+<li><code>fetchWindowIcons` Boolean (optional) - Set to true to enable fetching window icons. The default value is false. When false the appIcon property of the sources return null. Same if a source has the type screen.
+    
+    Returns `Promise<DesktopCapturerSource[]>` - Resolves with an array of [`DesktopCapturerSource`](structures/desktop-capturer-source.md) objects, each `DesktopCapturerSource` represents a screen or an individual window that can be captured.
+    
+    ### Caveats
+    
+    `navigator.mediaDevices.getUserMedia` does not work on macOS for audio capture due to a fundamental limitation whereby apps that want to access the system's audio require a [signed kernel extension](https://developer.apple.com/library/archive/documentation/Security/Conceptual/System_Integrity_Protection_Guide/KernelExtensions/KernelExtensions.html). Chromium, and by extension Electron, does not provide this.
+    
+    It is possible to circumvent this limitation by capturing system audio with another macOS app like Soundflower and passing it through a virtual audio input device. This virtual device can then be queried with `navigator.mediaDevices.getUserMedia`.

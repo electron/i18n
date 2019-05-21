@@ -10,7 +10,7 @@ Puoi anche provare a scaricare Electron direttamente da [electron/electron/relea
 
 ## Quando verrà aggiornato Electron all'ultima versione di Chrome?
 
-The Chrome version of Electron is usually bumped within one or two weeks after a new stable Chrome version gets released. Questa stima non è garantita e dipende dalla quantità di lavoro necessario per l'aggiornamento.
+La versione di Chrome di Electron è generalmente rilasciata entro una o due settimane dopo che viene rilasciata una nuova versione stabile di Chrome. Questa stima non è garantita e dipende dalla quantità di lavoro necessario per l'aggiornamento.
 
 Viene utilizzato solo il canale Chrome stabile. Se c'è una soluzione importante nel canale beta o dev, la supporteremo.
 
@@ -24,37 +24,37 @@ Le nuove funzionalità di Node.js sono solitamente apportate dagli aggiornamenti
 
 ## Come condividere i dati tra le pagine Web?
 
-Per condividere i dati tra le pagine Web (i processi di rendering) il modo più semplice è utilizzare le API HTML5 che sono già disponibili nei browser. Good candidates are [Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage), and [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
+Per condividere i dati tra le pagine Web (i processi di rendering) il modo più semplice è utilizzare le API HTML5 che sono già disponibili nei browser. Buoni candidati sono [API Storage](https://developer.mozilla.org/en-US/docs/Web/API/Storage), [`localStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/localStorage), [`sessionStorage`](https://developer.mozilla.org/en-US/docs/Web/API/Window/sessionStorage)e [IndexedDB](https://developer.mozilla.org/en-US/docs/Web/API/IndexedDB_API).
 
-Or you can use the IPC system, which is specific to Electron, to store objects in the main process as a global variable, and then to access them from the renderers through the `remote` property of `electron` module:
+Oppure puoi utilizzare il sistema IPC, che è specifico per Electron, per memorizzare gli oggetti nel processo principale come variabile globale, e poi per accedervi dai processi renderer attraverso la proprietà `remote` del modulo `elettron`:
 
 ```javascript
-// In the main process.
+// Nel processo principale.
 global.sharedObject = {
   someProperty: 'default value'
 }
 ```
 
 ```javascript
-// In page 1.
-require('electron').remote.getGlobal('sharedObject').someProperty = 'new value'
+// Nella pagina 1.
+richiede('elettronica').remote.getGlobal('sharedObject').someProperty = 'nuovo valore'
 ```
 
 ```javascript
-// In page 2.
-console.log(require('electron').remote.getGlobal('sharedObject').someProperty)
+// Nella pagina 2.
+console.log(richiede('Electrn').remote.getGlobal('sharedObject').someProperty)
 ```
 
-## My app's window/tray disappeared after a few minutes.
+## La finestra e icon tray della mia app scompare dopo pochi minuti.
 
-This happens when the variable which is used to store the window/tray gets garbage collected.
+Questo accade quando la variabile utilizzata per memorizzare la finestra/tray icon è deallocata dal garbage collector.
 
-If you encounter this problem, the following articles may prove helpful:
+Se riscontri questo problema, i seguenti articoli potrebbero rivelarsi utili:
 
 * [Gestione della Memoria](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Memory_Management)
-* [Variable Scope](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
+* [Ambito Variabile](https://msdn.microsoft.com/library/bzt2dkta(v=vs.94).aspx)
 
-If you want a quick fix, you can make the variables global by changing your code from this:
+Se vuoi una soluzione veloce, puoi rendere le variabili globali cambiando il tuo codice da questo:
 
 ```javascript
 const { app, Tray } = require('electron')
@@ -77,12 +77,12 @@ app.on('ready', () => {
 
 ## Non posso usare jQuery/RequireJS/Meteor/AngularJS in Electron.
 
-Due to the Node.js integration of Electron, there are some extra symbols inserted into the DOM like `module`, `exports`, `require`. Ciò causa problemi ad alcune librerie poiché vogliono inserire i simboli con lo stesso nome.
+A causa dell'integrazione di Node.js di Electron, ci sono alcuni simboli aggiuntivi inseriti nel DOM come `module`, `exports`, `require`. Ciò causa problemi ad alcune librerie poiché vogliono inserire i simboli con lo stesso nome.
 
-To solve this, you can turn off node integration in Electron:
+Per risolvere questo problema, puoi disattivare l'integrazione di Node in Electron:
 
 ```javascript
-// In the main process.
+// Nel processo principale.
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow({
   webPreferences: {
@@ -106,7 +106,7 @@ delete window.module;
 </head>
 ```
 
-## `require('electron').xxx` is undefined.
+## `require('elettronica').xxx` non è definito.
 
 Quando si utilizza il modulo integrato di Electron si potrebbe verificare un errore come questo:
 
@@ -115,9 +115,9 @@ Quando si utilizza il modulo integrato di Electron si potrebbe verificare un err
 Uncaught TypeError: Cannot read property 'setZoomLevel' of undefined
 ```
 
-This is because you have the [npm `electron` module](https://www.npmjs.com/package/electron) installed either locally or globally, which overrides Electron's built-in module.
+Questo accade perchè il modulo [modulo npm `electron`](https://www.npmjs.com/package/electron), istallato localmente o globalmente, sovrascrive/sostituisce il modulo integrato di Electron.
 
-To verify whether you are using the correct built-in module, you can print the path of the `electron` module:
+Per verificare se stai utilizzando il modulo integrato corretto, è possibile stampare il percorso del modulo `elettron`:
 
 ```javascript
 console.log(require.resolve('electron'))
@@ -129,11 +129,32 @@ e quindi controlla se è nel seguente formato:
 "/path/to/Electron.app/Contents/Resources/atom.asar/renderer/api/lib/exports/electron.js"
 ```
 
-If it is something like `node_modules/electron/index.js`, then you have to either remove the npm `electron` module, or rename it.
+Se è qualcosa come `node_modules/elettronica/index.js`, devi rimuovere il modulo npm `elettron` o rinominarlo.
 
 ```sh
 npm uninstall electron
 npm uninstall -g electron
 ```
 
-Tuttavia, se si sta utilizzando il modulo integrato ma si riceve ancora questo errore, è molto probabile che si stia utilizzando il modulo nel processo sbagliato. For example `electron.app` can only be used in the main process, while `electron.webFrame` is only available in renderer processes.
+Tuttavia, se si sta utilizzando il modulo integrato ma si riceve ancora questo errore, è molto probabile che si stia utilizzando il modulo nel processo sbagliato. Per esempio `elettron.app` può essere utilizzato solo nel processo principale, mentre `elettron.webFrame` è disponibile solo nei processi di rendering.
+
+## Il carattere sembra sfocato: cosa è e cosa posso fare per corregere il problema?
+
+Se [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) è disattivato, allora i font sugli schermi LCD possono sembrare sfocati. Esempio:
+
+![modello di rendering dei sottopixel](images/subpixel-rendering-screenshot.gif)
+
+L'anti-aliasing dei sottopixel richiede uno sfondo non trasparente del layer contenente i glifi del font. (Vedi [questo problema](https://github.com/electron/electron/issues/6344#issuecomment-420371918) per ulteriori informazioni).
+
+Per raggiungere questo obiettivo, imposta lo sfondo nel costruttore per [BrowserWindow](api/browser-window.md):
+
+```javascript
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({
+  backgroundColor: '#fff'
+})
+```
+
+L'effetto è visibile solo sugli schermi LCD (alcuni?). Anche se non vedi una differenza, alcuni dei tuoi utenti potrebbero. È meglio impostare sempre lo sfondo in questo modo, a meno che non hai motivi per non farlo.
+
+Nota che solo impostare lo sfondo nel CSS non ha l'effetto desiderato.

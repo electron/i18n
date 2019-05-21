@@ -1,12 +1,12 @@
 # Отладка под Windows
 
-Если вы наблюдаете аварии или проблемы в работе Electron, которые, как вы считаете, вызваны самим Electron, а не приложением на JavaScript, отладка может быть немного сложной, особенно для разработчиков ранее не занимавшихся отладкой кода на C++. However, using Visual Studio, GitHub's hosted Electron Symbol Server, and the Electron source code, you can enable step-through debugging with breakpoints inside Electron's source code.
+Если вы наблюдаете аварии или проблемы в работе Electron, которые, как вы считаете, вызваны самим Electron, а не приложением на JavaScript, отладка может быть немного сложной, особенно для разработчиков ранее не занимавшихся отладкой кода на C++. Однако, используя Visual Studio, cервера символов Electron размещенного на GitHub и исходного кода Electon, вы можете перейте к пошаговой отладке с точками остановки в исходном коде Electron.
 
-**See also**: There's a wealth of information on debugging Chromium, much of which also applies to Electron, on the Chromium developers site: [Debugging Chromium on Windows](https://www.chromium.org/developers/how-tos/debugging-on-windows).
+**См. также**: Есть много информации об отладке Chromium, большая часть из которых относится и к Electron, на сайте разработчиков Chromium: [Отладка Chromium на Windows](https://www.chromium.org/developers/how-tos/debugging-on-windows).
 
 ## Требования
 
-* **Отладочная сборка Electron**: Обычно проще всего собрать ее самостоятельно, используя инструменты и предварительные требования, перечисленные в [инструкции по сборке под Windows](build-instructions-windows.md). While you can attach to and debug Electron as you can download it directly, you will find that it is heavily optimized, making debugging substantially more difficult: The debugger will not be able to show you the content of all variables and the execution path can seem strange because of inlining, tail calls, and other compiler optimizations.
+* **Отладочная сборка Electron**: Обычно проще всего собрать ее самостоятельно, используя инструменты и предварительные требования, перечисленные в [инструкции по сборке под Windows](build-instructions-windows.md). Вы конечно можете скачать обычную сборку Electron и подключиться для отладки к ней, но вы обнаружите, что она сильно оптимизирована, и это существенно затрудняет отладку: отладчик не сможет показать вам содержимое всех переменных, так же путь выполнения может казаться странным вследствие встраивания функций (inlining), хвостовых вызовов (trail calls) и других оптимизаций, выполненных компилятором.
 
 * **Visual Studio с инструментами C++**: бесплатная общественная редакция Visual Studio, можно использовать версии VS2013 и VS2015. После установки, [настройте Visual Studio для использования сервера символов Electron на GitHub](setting-up-symbol-server.md). Это позволит Visual Studio получить лучшее представление о том, что происходит внутри Electron, что позводит представить переменные в удобочитаемом формате.
 

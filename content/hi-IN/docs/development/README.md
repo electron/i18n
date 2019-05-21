@@ -23,4 +23,3 @@ These guides are intended for people working on the Electron project itself. For
 * [क्रोमियम अपग्रेड करना](upgrading-chromium.md)
 * [Crashpad अपग्रेड करना](upgrading-crashpad.md)
 * [Node अपग्रेड करना](upgrading-node.md)
-* [Releasing](releasing.md)

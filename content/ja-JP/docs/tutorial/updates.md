@@ -1,35 +1,35 @@
 # アプリケーションを更新する
 
-There are several ways to update an Electron application. The easiest and officially supported one is taking advantage of the built-in [Squirrel](https://github.com/Squirrel) framework and Electron's [autoUpdater](../api/auto-updater.md) module.
+Electronアプリケーションを更新する方法がいくつかあります。 最も簡単で、公式にサポートされているものは、ビルトインの[Squirrel](https://github.com/Squirrel) フレームワークとElectronの [autoUpdater](../api/auto-updater.md) モジュールの利用します。
 
-## Using `update.electronjs.org`
+## `update.electronjs.org`の使用
 
-GitHub's Electron team maintains [update.electronjs.org](https://github.com/electron/update.electronjs.org), a free and open-source webservice that Electron apps can use to self-update. The service is designed for Electron apps that meet the following criteria:
+GitHubのElectron チームは [update.electronjs.org](https://github.com/electron/update.electronjs.org)をメンテナンスしており、これはElectronを自己更新するための、オープンソースのWEBサービスです。 このサービスは次の条件を満すElectronアプリ用に設計されています。
 
-- App runs on macOS or Windows
-- App has a public GitHub repository
-- Builds are published to GitHub Releases
-- Builds are code-signed
+- macOSまたはWindowsで動作するアプリである。
+- アプリはGitHubのパブリックなリポジトリである。
+- ビルド成果物は、GitHub Releases で提供する。
+- ビルド成果物はコード署名されています。
 
-The easiest way to use this service is by installing [update-electron-app](https://github.com/electron/update-electron-app), a Node.js module preconfigured for use with update.electronjs.org.
+このサービスを使う最も簡単な方法は[update-electron-app](https://github.com/electron/update-electron-app)をインストールすることで、update.electronjs.orgをつかって、事前調整されたNode.js モジュールを使う方法です。
 
-Install the module:
+モジュールのインストール
 
 ```sh
 npm install update-electron-app
 ```
 
-Invoke the updater from your app's main process file:
+あなたのmain processファイルからこのupdaterを起動します。
 
 ```js
 require('update-electron-app')()
 ```
 
-By default, this module will check for updates at app startup, then every ten minutes. When an update is found, it will automatically be downloaded in the background. When the download completes, a dialog is displayed allowing the user to restart the app.
+デフォルト設定で、このモジュールはアプリの起動時に更新をチェックします。または10分毎にチェックします。 アップデートがみつかったとき、自動的にバックグラウンドでダウンロードします。 そのダウンロードが完了したとき、ダイアログを表示してユーザーにアプリの再起動許可を取ります。
 
-If you need to customize your configuration, you can [pass options to `update-electron-app`](https://github.com/electron/update-electron-app) or [use the update service directly](https://github.com/electron/update.electronjs.org).
+設定をカスタマイズしたい場合、[`update-electron-app`にオプションを渡す](https://github.com/electron/update-electron-app)か、または[アップデートサービスを直接使用](https://github.com/electron/update.electronjs.org)ができます。
 
-## Using `electron-builder`
+## `electron-builder`の使用
 
 If your app is packaged with [`electron-builder`](https://github.com/electron-userland/electron-builder) you can use the [electron-updater](https://www.electron.build/auto-update) module, which does not require a server and allows for updates from S3, GitHub or any other static file host. This sidesteps Electron's built-in update mechanism, meaning that the rest of this documentation will not apply to `electron-builder`'s updater.
 

@@ -2,7 +2,7 @@
 
 > 使用 PNG 或 JPG 文件创建托盘、dock和应用程序图标。
 
-参见： [process](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) process
+进程： [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 在Electron中, 对所有创建 images 的 api 来说, 您可以传递文件路径或 ` NativeImage ` 实例。当传递 ` null ` 时, 将创建一个空的image 对象.
 
@@ -155,11 +155,17 @@ console.log(image)
 
 这意味着 `[-1, 0, 1]` 将使图像完全变白，`[-1, 1, 0]`将使图像完全变黑.
 
+In some cases, the `NSImageName` doesn't match its string representation; one example of this is `NSFolderImageName`, whose string representation would actually be `NSFolder`. Therefore, you'll need to determine the correct string representation for your image before passing it in. This can be done with the following:
+
+`echo -e '#import <Cocoa/Cocoa.h>\nint main() { NSLog(@"%@", SYSTEM_IMAGE_NAME); }' | clang -otest -x objective-c -framework Cocoa - && ./test`
+
+where `SYSTEM_IMAGE_NAME` should be replaced with any value from [this list](https://developer.apple.com/documentation/appkit/nsimagename?language=objc).
+
 ## 类: NativeImage
 
 > 本机图像，如托盘、dock栏和应用图标。
 
-参见： [process](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) process
+进程： [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 ### 实例方法
 

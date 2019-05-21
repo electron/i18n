@@ -3,6 +3,7 @@ nav:
   apps: 앱
   blog: 블로그
   code_of_conduct: 행동 규칙
+  security: 보안
   community: 커뮤니티
   contact: 연락처
   docs: 문서
@@ -12,16 +13,17 @@ nav:
   releases: 출시
   search: 검색
   userland: 사용자 공간
+  governance: 운영 방식
 keyboard_modal:
   title: 키보드 단축기
   key: Key
-  action: Action
-  focus_search: Focus the search bar
-  focus_and_clear: Focus the search bar and cleans it
-  scroll_down: Select the next search result
-  scroll_up: Select the previous search result
-  open: Open the selected search result
-  open_new_tab: Open the selected search result in a new tab
+  action: 사용내역
+  focus_search: 검색 창 선택
+  focus_and_clear: 검색 창을 포커싱하고 내용 비우기
+  scroll_down: 이전 검색 결과 선택
+  scroll_up: 이전 검색 결과 선택
+  open: 새 탭에서 선택된 검색 결과 열기
+  open_new_tab: 새 탭에서 선택된 검색 결과 열기
 docs:
   title: Electron 문서
   description: 모든 문서 <a href="/docs/all">한 페이지에서</a> 보기 및 <a href="/docs/faq"> FAQ</a> 문서를 확인하기
@@ -46,11 +48,11 @@ community:
     get_started: "<a href='/docs/tutorial/first-app'>빠르게 시작하기 문서</a>를 읽고 앱 만들기를 <a href='/docs/tutorial/first-app'><b>시작해 보세요</b></a>."
     updates: "트위터에서 <a href='https://twitter.com/electronjs'>@electronjs</a>를 팔로우하고 <a href='/blog'>블로그 피드</a>를 구독해서 <a href='https://twitter.com/electronjs'><b>최근 소식을 확인하세요</b></a>."
     localized_docs: "<a href='/languages'>언어 페이지</a> 설정을 통해 <a href='/languages'><b>모국어로 번역된 문서를 읽어보세요</b></a>."
-    help: "<a href='http://atom-slack.herokuapp.com'>atomio Slack</a> 참여, <a href='https://discuss.atom.io/c/electron'>Discuss</a>에 글을 올리는 것, 또는 <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>를 방문하는 것으로 <a href='http://atom-slack.herokuapp.com'><b>도움을 얻거나 의견을 들어</b></a>보세요."
+    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>Get help and feedback</b></a> by joining the <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    security: "<a href='mailto:security@electronjs.org'><b>Report security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     bugs: "깃허브의 <a href='https://github.com/electron/electron/issues'>electron/electron</a> 저장소 내 이슈 등록으로 <a href='https://github.com/electron/electron/issues'><b>버그를 알려</b></a>주세요."
     feature_requests: "깃허브의 <a href='https://github.com/electron/electron/issues'>electron/electron</a> 저장소 내 이슈 등록으로 <a href='https://github.com/electron/electron/issues'><b>기능을 요청</b></a>해보세요."
     code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>행위규범 위반 신고</b></a>는 <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a> 계정으로 해주세요."
-    security: "<a href='mailto:security@electronjs.org'><b>보안 문제 공개</b></a>는 <a href='mailto:security@electronjs.org'>security@electronjs.org</a> 계정으로 해 주세요."
     donations: "<a href='/donors'>OpenCollective 페이지</a>에서 <a href='donors'><b>기부</b></a>."
     other: "다른 문의가 있는 경우, <a href='mailto:info@electronjs.org'>info@electronjs.org</a> 메일로 보내주십시오."
   language_communities:
@@ -64,15 +66,15 @@ community:
   awesome_notice: 이 목록은 <a href="https://github.com/sindresorhus/awesome-electron"> @sindresorhus의 멋진 Electron</a> 저장소에서 생성되었습니다. <br>뭔가 누락되었나요? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md"> Pull Request를 만드세요.</a>
   meetup_notice: 모임을 추가하려면 <code>data/meetups.json</code>를 수정하고 <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">pull request를 만드세요</a>.
 releases:
-  show_releases: "Show Releases:"
-  show_only_releases_from: "Show Only Releases From:"
+  show_releases: "출시 버전 보기:"
+  show_only_releases_from: "해당 출시 버전만 보기:"
   all_versions: 모든 버전
   stable_releases: 안정 릴리즈
   stable_desc: 정규, 지원 릴리즈
   beta_releases: 베타 릴리즈
   beta_desc: 곧 나올 변경사항을 당신의 앱에서 테스트해보세요.
   nightly_releases: Nightly 릴리즈
-  nightly_desc: 최신 기능을 체험해 보세요
+  nightly_desc: 최신 기능을 체험해 보세요.
   next: 다음
   next_page: 다음 페이지
   previous: 이전
@@ -106,6 +108,8 @@ get_started:
 explore:
   title: Electron API를 탐색하세요
   description: "<a href='https://github.com/electron/electron-api-demos'>Electron API 데모 앱</a>은 대화식으로 Electron API의 가장 중요한 부분을 설명합니다. 샘플 코드와 유용한 팁으로 앱을 제작하는 데에 무엇이 가능할지 알아보세요."
+  fiddle_title: Try more powerful experiments with Electron Fiddle
+  see_more_info: See more info
 download_from_github: GitHub에서 다운로드
 view_all_releases_on_github: GitHub에서 <a href="https://github.com/electron/electron-api-demos/releases">모든 릴리즈를 확인해보세요</a>
 quick_start:
@@ -125,16 +129,18 @@ taglines:
 help_translate: "번역 참여"
 footer:
   see_the_faq: 자주 묻는 질문
+companies:
+  title: Built on Electron
+  description: Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been adopted by companies all over the world.
 apps:
-  title: Electron으로 설계된 애플리케이션
-  description: Electron과 함께라면 당신의 아이디어나 회사를 위한 데스크탑 어플리케이션을 쉽게 만들 수 있습니다. 처음에 GitHub의 <a href='https://atom.io' target='_blank'>Atom 에디터</a>를 위해 만들어진 Electron는 Microsoft, Facebook, Slack, Docker와 같은 회사가 어플리케이션을 만드는데 사용되고 있습니다.
+  description: 'With Electron, creating a desktop application for your company or idea is easy. Check out <a href=''/apps''>some of the apps created by the community</a> or <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">add your own</a>.'
   view_more: 더 많은 애플리케이션 보기
   submit_your_own: 의견을 제출하세요
   something_missing: 뭔가 누락되었나요?
   edit_this_app: 이 앱을 수정하세요.
-  search_app: Filter apps by name, description, etc…
+  search_app: 앱을 이름, 설명 등으로 필터링하기…
   categories: 카테고리들
-  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
+  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Pull Request를 만들어</a> 여러분의 앱을 추가해 보세요.'
   website: 웹사이트
   repository: 리포지토리
   category: 카테고리
@@ -145,8 +151,8 @@ apps:
 blog:
   title: Electron 블로그
   description: 모든 최신 소식들은 Electron 팀과 커뮤니티에서 가져옵니다.
-  feedback: Have feedback on this post? Let <a href="https://twitter.com/electronjs">@electronjs</a> know on Twitter.
-  help: Need help or found a bug? <a href="/contact">Contact us</a>.
+  feedback: 이 글에 의견이 있나요? 트위터의 <a href="https://twitter.com/electronjs">@electronjs</a>로 알려주세요.
+  help: 도움이 필요하시거나 버그를 발견하셨나요? <a href="/contact">저희에게 알려주세요</a>.
 clipboard:
   copy: 복사
   copy_to_clipboard: 클립보드에 복사하기
@@ -196,22 +202,77 @@ pages:
     description: Spectron은 Electron 앱에 대한 통합 테스트 코드를 쉽게 작성할 수 있는 오픈 소스 프레임워크이며, ChromeDriver와 WebDriverIO를 기반으로 합니다.
   '/fiddle':
     title: Electron Fiddle
-    description: The easiest way to get started with Electron
+    description: Electron을 시작하기에 가장 쉬운 방법
+  '/governance':
+    title: Electron Governance
+    description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
   '/donors':
     title: 후원자
 landing:
   get_started: 시작하기
   fiddle:
-    lead_desc: The easiest way to get started with Electron
-    create_app: Create your app
-    description: Electron Fiddle lets you create and play with small Electron experiments. It greets you with a quick-start template after opening – change a few things, choose the version of Electron you want to run it with, and play around. Then, save your Fiddle either as a GitHub Gist or to a local folder. Once pushed to GitHub, anyone can quickly try your Fiddle out by just entering it in the address bar.
-    explore: Explore Electron
-    explore_desc: "Try Electron without installing any dependencies: Fiddle includes everything you'll need to explore the platform. It also includes examples for every API available in Electron, so if you want to quickly see what a BrowserView is or how the desktopCapturer works, Fiddle has got you covered."
-    code_with_types: Code with Types
-    code_with_types_desc: Fiddle includes Microsoft's excellent Monaco Editor, the same editor powering Visual Studio Code. It also installs the type definitions for the currently selected version of Electron automatically, ensuring that you always have all Electron APIs only a few keystrokes away.
-    compile_and_package: Compile and Package
-    compile_and_package_desc: Fiddle can automatically turn your experiment into binaries you can share with your friends, coworkers, or grandparents. It does so thanks to <a href="https://electronforge.io/">electron-forge</a>, allowing you to package your fiddle as an app for Windows, macOS, or Linux.
-    easy_start: Start with Fiddle, Continue Wherever
-    easy_start_desc: Fiddle is not an IDE – it is however an excellent starting point. Once your fiddle has grown up, export it as a project with or without <a href="https://electronforge.io/">electron-forge</a>. Then, use your favorite editor and take on the world!
+    lead_desc: Electron을 시작하기에 가장 쉬운 방법
+    create_app: 자기만의 앱을 만드세요
+    description: Electron Fiddle은 작은 Electron 실험 도구로 만들며 놀 수 있게 해줍니다. 연 후에 여러분을 반겨주는 빠른 시작 템플릿에서 몇 가지를 바꾸고, Electron의 버전을 고르고 실행하고 놀아보세요. 그다음엔, 여러분의 Fiddle을 Github Gist나 로컬 폴더에 저장할 수 있습니다. 한 번 Github에 올리면 누구나 여러분의 Fiddle을 주소창에 입력하는 것으로 체험해 볼 수 있습니다.
+    explore: Electron 탐색하기
+    explore_desc: "Electron을 어느 의존성 모듈을 설치하지 않고 체험해 보세요: Fiddle은 플랫폼을 탐색하기에 필요한 모든 것을 담고 있습니다. 또한, 모든 API의 예제도 포함하기 때문에, BrowserView가 무엇인지, desktopCapturer가 어떻게 돌아가는지 알고 싶을 때, Fiddle이 도와 드립니다."
+    code_with_types: 자료형과 함께하는 코딩
+    code_with_types_desc: Fiddle은 Visual Studio Code를 구동시켜주는 Microsoft의 훌륭한 Monaco 에디터도 포함합니다. 또한, 현재 선택된 Electron 버전의 자료형 정의를 자동으로 설치하여, 몇 번의 키 입력으로 모든 Electron API를 찾아볼 수 있습니다.
+    compile_and_package: 컴파일 및 패키징
+    compile_and_package_desc: Fiddle은 여러분의 실험을 바이너리로 자동으로 바꿔주어 친구, 동업자 혹은 조부모님과도 공유할 수 있습니다. <a href="https://electronforge.io/">electron-forge</a>의 덕을 받아 fiddle을 Windows, macOS, Linux용 앱으로 패키지화할 수도 있습니다.
+    easy_start: Fiddle로 시작하고, 어디서든 계속하기
+    easy_start_desc: Fiddle은 IDE가 아닙니다. – 하지만 좋은 시작점인 건 확실합니다. fiddle이 커지면, <a href="https://electronforge.io/">electron-forge</a>를 쓰거나 쓰지 않고 추출할 수 있습니다. 그리고, 마음에 드시는 에디터를 사용하여 세계 정복을 노려볼 수 있지요.
+governance:
+  title: Electron Governance
+  description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
+  wgs: Working Groups
+  docstools:
+    title: 문서 & 도구
+    description: Oversees externally-focused tooling (e.g. Fiddle, Forge), Electron documentation across the website and <code>electron/*</code> repositories, and the maintainer’s group outreach to 3rd party modules.
+  outreach:
+    title: Outreach
+    description: Grows the Electron community
+  releases:
+    title: 출시
+    description: Oversees all release branches, and tooling to support releases.
+  upgrades:
+    title: 업그레이드
+    description: Oversees upgrades of upstream dependencies; specifically Chromium and Node.
+  website:
+    title: 웹사이트
+    description: Oversees the technical implementation, design, and style of the Electron website and associated tooling.
+  cmsf:
+    title: Community & Safety
+    description: Oversees removal/bans from community.
+  security:
+    title: 보안
+    description: Proactively ensures the Security of Electron as a project, responds to incoming incidents, and oversees rollout of fixes.
+  admins:
+    title: Administrative
+    description: The Administrative Working Group oversees the entire governance and project.
+  global:
+    overview: Overview
+    associated_repos: Associated Repositories
+    notes: Meeting Notes
+  definitions:
+    title: 정의
+    list:
+      - A <i>maintainer</i> is anyone who plays an active role in governance.
+      - A <i>collaborator</i> is active in the community, but not in governance.
+      - A <i>participant</i> is anyone who is a maintainer or collaborator.
+      - A <i>working group</i> is a group of maintainers that is formed to take responsibility for certain aspects of the Electron project. Normally these groups will meet regularly but in some cases will only meet as required to fulfill their responsibilities.
+      - 'A <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership">chair</a> leads a working group.'
+  responsibilities:
+    title: Responsibilities
+    listdescription: "All Working Groups have these core responsibilities:"
+    list:
+      - They shall decide for themselves, and publicly post, their rules, e.g. how decisions are made, when meetings are held, and who may attend.
+      - 'They shall <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Terms-and-Selection">select</a> a chair to <a href=''https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Responsibilities''>represent</a> the group.'
+      - They shall keep meeting notes, including agenda items, discussion points, and outcomes for everyone to review.
+      - 'They shall be collaborative and work <a href="https://github.com/electron/governance/tree/master/charter/README.md#Core-Values">in good faith</a> with other Working Groups.'
+    see_charter: See <a href="https://github.com/electron/governance/tree/master/charter/README.md">charter</a> for more information.
+  code_of_conduct: The Electron organization and all repos therein adhere to the following <a href="https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md">Code of Conduct.</a>
+  license: Electron is licensed with the <a href="https://github.com/electron/electron/blob/master/LICENSE">MIT License</a>.
+  repository: Check out the <a href="https://github.com/electron/governance">Governance Repository</a> to find more information about the governance structure.
 _404:
   page_not_found: 페이지를 찾을 수 없습니다.

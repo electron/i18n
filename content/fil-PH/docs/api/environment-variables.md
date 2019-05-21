@@ -47,16 +47,14 @@ Unsupported options are:
 ### `GOOGLE_API_KEY
 `
 
-Kasama sa elektron ang hardcoded na key ng API para sa paghiling ng mga kahilingan sa geocoding ng Google webservice. Dahil ang key na API na ito ay kasama sa bawat bersyon ng Electron, ito ay madalas na lumalampas sa quota ng paggamit nito. Upang magtrabaho sa paligid nito, maaari mong matustusan ang iyong sariling Google API key sa kapaligiran. Ilagay ang sumusunod na code sa iyong pangunahing proseso file, bago buksan ang anumang mga window ng browser na gagawa ng mga kahilingan sa geocoding:
+You can provide an API key for making requests to Google's geocoding webservice. To do this, place the following code in your main process file, before opening any browser windows that will make geocoding requests:
 
 ```javascript
 process.env.GOOGLE_API_KEY = 'YOUR_KEY_HERE'
 
 ```
 
-Para sa mga tagubilin kung paano makakuha ng isang key ng Google API, bisitahin ang  ang pahinang ito </ 0>.</p> 
-
-Bilang default, maaaring hindi pinapayagan ang isang bagong nabuong Google API key para gumawa ng mga kahilingan sa geocoding. Upang paganahin ang mga kahilingan sa geocoding, bisitahin ang  ang pahinang ito </ 0>.</p> 
+For instructions on how to acquire a Google API key, visit [this page](https://developers.google.com/maps/documentation/javascript/get-api-key). Bilang default, maaaring hindi pinapayagan ang isang bagong nabuong Google API key para gumawa ng mga kahilingan sa geocoding. Upang paganahin ang mga kahilingan sa geocoding, bisitahin ang  ang pahinang ito </ 0>.</p> 
 
 ### `ELECTRON_NO_ASAR
 `

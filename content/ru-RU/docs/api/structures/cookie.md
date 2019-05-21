@@ -2,10 +2,10 @@
 
 * `name` String - название cookie.
 * `value` String - значение cookie.
-* `domain` String (опиционально) - домен cookie.
-* `hostOnly` Boolean (опиционально) - является ли cookie только host-only.
-* `path` String (опиционально) - путь к cookie.
-* `secure` Boolean (опиционально) - помечена ли cookie как безопасная.
-* `httpOnly` Boolean (опиционально) - помечена ли cookie как http-only.
-* `session` Boolean (опиционально) - является ли session cookie или постоянным cookie с датой истечения срока действия.
-* `expirationDate` Double (опиционально) - дата истечения срока действия cookie как количество секунд эпохи UNIX. Не предоставляется для session cookie.
+* `domain` String (опционально) - домен cookie; это будет нормализовано с предыдущей точкой, чтобы он также был действителен для поддоменов.
+* `hostOnly` Boolean (опционально) - является ли cookie только для хоста; это будет только `true`, если домен не был передан.
+* `path` String (опционально) - путь к cookie.
+* `secure` Boolean (опционально) - помечена ли cookie как безопасная.
+* `httpOnly` Boolean (опционально) - помечена ли cookie как http-only.
+* `session` Boolean (опционально) - является ли cookie только для сессии или постоянной с датой истечения срока действия.
+* `expirationDate` Double (опционально) - дата истечения срока действия cookie, в виде количества секунд эпохи UNIX. Не предоставляется для сессионных cookie.

@@ -23,4 +23,3 @@ These guides are intended for people working on the Electron project itself. For
 * [Pagpapaganda ng Chromium](upgrading-chromium.md)
 * [Pag-upgrade ng Crashpad](upgrading-crashpad.md)
 * [Pag-upgrade ng node](upgrading-node.md)
-* [Paglalabas](releasing.md)

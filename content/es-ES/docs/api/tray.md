@@ -239,7 +239,7 @@ win.on('hide', () => {
 
 Sets the option to ignore double click events. Ignoring these events allows you to detect every individual click of the tray icon.
 
-This value is set to false by default.
+Este valor se establece en falso por defecto.
 
 #### `tray.getIgnoreDoubleClickEvents()` *macOS*
 

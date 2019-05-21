@@ -23,4 +23,3 @@
 * [Обновление Chromium](upgrading-chromium.md)
 * [Обновление Crashpad](upgrading-crashpad.md)
 * [Обновление Node](upgrading-node.md)
-* [Процесс выпуска](releasing.md)

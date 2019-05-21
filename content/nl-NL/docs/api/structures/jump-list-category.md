@@ -1,11 +1,11 @@
-# JumpListCategory Object
+# JumpListcategory Object
 
-* `type` String (optional) - One of the following: 
-  * `tasks` - Items in this category will be placed into the standard `Tasks` category. There can be only one such category, and it will always be displayed at the bottom of the Jump List.
-  * `frequent` - Displays a list of files frequently opened by the app, the name of the category and its items are set by Windows.
-  * `recent` - Displays a list of files recently opened by the app, the name of the category and its items are set by Windows. Items may be added to this category indirectly using `app.addRecentDocument(path)`.
-  * `custom` - Displays tasks or file links, `name` must be set by the app.
-* `name` String (optional) - Must be set if `type` is `custom`, otherwise it should be omitted.
-* `items` JumpListItem[] (optional) - Array of [`JumpListItem`](jump-list-item.md) objects if `type` is `tasks` or `custom`, otherwise it should be omitted.
+* `type` String (optioneel) - Een van de volgende: 
+  * `tasks` - Items in deze categorie zullen worden geplaatst in de standaard `Tasks` categorie. Er kan slechts één zo'n categorie zijn, en deze zal altijd worden weergegeven onderaan de Jump List.
+  * `frequent` - Toont een lijst met bestanden die vaak geopend worden door de app, de naam van de categorie en de items ervan zijn ingesteld door Windows.
+  * `recent` - Toont een lijst met bestanden die recent geopend worden door de app, de naam van de categorie en de items ervan zijn ingesteld door Windows. Items kunnen indirect worden toegevoegd aan deze categorie met behulp van `app.addRecentDocument(path)`.
+  * `custom` - Toon taken of bestandslinks, `naam` moet worden ingesteld door de app.
+* `name` String (optioneel) - Moet worden ingesteld als `type` is `custom`, anders moet het worden weggelaten.
+* `items` JumpListItem[] (optioneel) - Array van [`JumpListItem`](jump-list-item.md) objecten als `type` is `tasks` of `custom`, anders moet het worden weggelaten.
 
-**Note:** If a `JumpListCategory` object has neither the `type` nor the `name` property set then its `type` is assumed to be `tasks`. If the `name` property is set but the `type` property is omitted then the `type` is assumed to be `custom`.
+**Opmerking:** Als een `JumpListCategorie` object noch het `type` noch de `name` eigenschap heeft ingesteld, dan wordt het `type` verondersteld `tasks` te zijn. Als de `name` eigenschap is ingesteld, maar de `type` eigenschap is weggelaten, dan wordt het `type` verondersteld `custom` te zijn.

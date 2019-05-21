@@ -137,3 +137,24 @@ npm uninstall -g electron
 ```
 
 假如你使用的確定是內建模組，但還是有狀況，很有可能是因為你在錯的處理序裡使用。 例如 `electron.app` 只能在主處理序中用，而 `electron.webFrame` 只能在畫面轉譯處理序裡用。
+
+## The font looks blurry, what is this and what can i do?
+
+If [sub-pixel anti-aliasing](http://alienryderflex.com/sub_pixel/) is deactivated, then fonts on LCD screens can look blurry. Example:
+
+![subpixel rendering example](images/subpixel-rendering-screenshot.gif)
+
+Sub-pixel anti-aliasing needs a non-transparent background of the layer containing the font glyphs. (See [this issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) for more info).
+
+To achieve this goal, set the background in the constructor for [BrowserWindow](api/browser-window.md):
+
+```javascript
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({
+  backgroundColor: '#fff'
+})
+```
+
+The effect is visible only on (some?) LCD screens. Even if you dont see a difference, some of your users may. It is best to always set the background this way, unless you have reasons not to do so.
+
+Notice that just setting the background in the CSS does not have the desired effect.

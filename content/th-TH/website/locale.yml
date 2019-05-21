@@ -3,31 +3,33 @@ nav:
   apps: แอป
   blog: บล็อก
   code_of_conduct: จรรยาบรรณ
+  security: ความปลอดภัย
   community: ชุมชน
   contact: ติดต่อ
   docs: เอกสาร
   donors: ผู้บริจาค
   languages: ภาษา
-  license: License
+  license: ใบอนุญาต
   releases: การเผยแพร่
   search: ค้นหา
   userland: Userland
+  governance: การกำกับดูแลกิจการ
 keyboard_modal:
   title: ปุ่มลัดแป้นพิมพ์
-  key: Key
-  action: Action
-  focus_search: Focus the search bar
-  focus_and_clear: Focus the search bar and cleans it
-  scroll_down: Select the next search result
-  scroll_up: Select the previous search result
-  open: Open the selected search result
-  open_new_tab: Open the selected search result in a new tab
+  key: คีย์
+  action: ดำเนินการ
+  focus_search: โฟกัส ที่ แถบค้นหา
+  focus_and_clear: โพกัส ที่แถบค้นหา เพื่อ ล้างข้อมูล
+  scroll_down: เลือกผลการค้นหาถัดไป
+  scroll_up: เลือกผลการค้นหาก่อนหน้า
+  open: เปิดผลการค้นหาที่เลือก
+  open_new_tab: เปิดผลการค้นหาที่เลือกในหน้าต่างใหม่
 docs:
   title: เอกสารประกอบของ อิเล็กตรอน
   description: ดูเพิ่มเติมใน<a href="/docs/all">เอกสารทั้งหมด</a> หรือ <a href="/docs/faq"></a> FAQ
   guides: คู่มือ
   api_reference: API อ้างอิง
-  api_structures: API Structures
+  api_structures: โครงสร้าง API
   advanced: ขั้นสูง
   footer:
     propose_change: ปรับปรุงเอกสารนี้
@@ -36,7 +38,7 @@ docs:
     view_all_docs: เอกสารทั้งหมดในหน้าเดียว
 languages:
   choose_language: เลือกภาษาของเว็บไซต์
-  view_more_details: View More Language Details
+  view_more_details: ดูรายละเอียดภาษาเพิ่มเติม
   translation_progress: ความคืบหน้าการแปลภาษา
   current: ที่เลือกใช้ภาษาอยู่ตอนนี้
 community:
@@ -46,40 +48,40 @@ community:
     get_started: "<a href='/docs/tutorial/first-app'><b>เริ่มต้น</b></a> สร้างแอปด้วยการอ่าน <a href='/docs/tutorial/first-app'>แนวทางการใช้งานคราวๆ</a>"
     updates: "<a href='https://twitter.com/electronjs'><b>ทันข่าวอยู่เสมอ</b></a> ด้วยการกดติดตาม <a href='https://twitter.com/electronjs'>@electronjs</a> บน Twitter และสมัครสมาชิก to the <a href='/blog'>บล็อก</a>"
     localized_docs: "<a href='/languages'><b>อ่านเอกสารในภาษาของคุณ</b></a> ด้วยการเข้าชม <a href='/languages'>หน้าภาษาอื่นๆ</a>"
-    help: "<a href='http://atom-slack.herokuapp.com'><b>ขอความช่วยเหลือและการตอบกลับ</b></a> ด้วยการเข้าร่วม <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, สร้างกระทู้บน <a href='https://discuss.atom.io/c/electron'>ถาม-ตอบ</a> หรือเข้าไปดูที่ <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>"
+    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>ขอความช่วยเหลือและการตอบกลับ</b></a> ด้วยการเข้าร่วม <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a>, สร้างกระทู้บน <a href='https://discuss.atom.io/c/electron'>ถาม-ตอบ</a> หรือเข้าไปดูที่ <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>"
+    security: "<a href='mailto:security@electronjs.org'> <b> รายงานปัญหาด้านความปลอดภัย </b> </a> โดยส่งอีเมล <a href='mailto:security@electronjs.org'> security@electronjs.org < / a>"
     bugs: "<a href='https://github.com/electron/electron/issues'><b>รายงานปัญหา</b></a> โดยการเปิด issue มาที่ <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>ขอฟีสเจอร์เพิ่ม</b></a> โดยการเปิด issue ที่ <a href='https://github.com/electron/electron/issues'>electron/electron</a> repository."
-    code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Report Code of Conduct violations</b></a> by emailing <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
-    security: "<a href='mailto:security@electronjs.org'><b>Disclose security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
-    donations: "<a href='donors'><b>Donate</b></a> on our <a href='/donors'>OpenCollective page</a>."
-    other: "For all other inquiries, email <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
+    code_of_conduct: "<a href='mailto:coc@electronjs.org'> <b> รายงานการละเมิดจรรยาบรรณ </b> </a> โดยการส่งอีเมล <a href='mailto:coc@electronjs.org'> coc @ electronjs org </a>"
+    donations: "<a href='donors'> <b> บริจาค </b> </a> ใน <a href='/donors'> หน้า OpenCollective </a> "
+    other: "สำหรับคำถามอื่น ๆ โปรดส่งอีเมล <a href='mailto:info@electronjs.org'> info@electronjs.org </a>"
   language_communities:
-    title: Language Communities
-    description: "The Electron community spans the globe, and English is not everyone's first language. Find <a href='/languages'>documentation in your language</a>, or join one of the language communities below:"
+    title: ชุมชนภาษา
+    description: "ชุมชน Electron แผ่ขยายไปทั่วโลกและภาษาอังกฤษไม่ใช่ภาษาแรกของทุกคน ค้นหา <a href='/languages'> เอกสารในภาษาของคุณ </a> หรือเข้าร่วมหนึ่งในชุมชนภาษาด้านล่าง:"
   tools: เครื่องมือ
-  boilerplates: Boilerplates
+  boilerplates: Boilerplates 
   components: ส่วนประกอบ
   videos: วีดีโอ
   meetups: พบเจอได้ที่
   awesome_notice: รายชื่อพวกนี้ถูกสร้างจาก <a href="https://github.com/sindresorhus/awesome-electron"> @sindresorhus's Awesome Electron </a> repository <br> มีอะไรหาย? <a href="https://github.com/sindresorhus/awesome-electron/blob/master/contributing.md"> สร้าง pull request สิ</a>
-  meetup_notice: To add a meetup, edit <code>data/meetups.json</code> and <a href="https://github.com/electron/electronjs.org/tree/master/data/meetups.json">make a pull request</a>.
+  meetup_notice: หากต้องการเพิ่มการพบปะให้แก้ไข <code> data / meetups.json </code> และ <a href="https://github.com/electron/electronjelectorgjs.org/tree/master/data/meetups.json"> สร้าง คำขอดึง </a>
 releases:
-  show_releases: "Show Releases:"
-  show_only_releases_from: "Show Only Releases From:"
-  all_versions: All Versions
-  stable_releases: Stable Releases
-  stable_desc: Regular, supported releases
-  beta_releases: Beta Releases
-  beta_desc: Test your app with upcoming changes
-  nightly_releases: Nightly Releases
-  nightly_desc: Experiment with the latest features
-  next: Next
-  next_page: Next Page
-  previous: Previous
-  previous_page: Previous Page
-  page: Page
-  all_releases: All Releases
-  back_to_index: Back to index
+  show_releases: "แสดงข่าว:"
+  show_only_releases_from: "แสดงเฉพาะการเผยแพร่จาก:"
+  all_versions: รองรับทุกเวอร์ชั่น
+  stable_releases: เวอร์ชั่นเสถียร ปล่อย
+  stable_desc: รุ่นธรรมดาที่รองรับ
+  beta_releases: รุ่นเบต้า
+  beta_desc: ทดสอบแอปของคุณด้วยการเปลี่ยนแปลงที่จะเกิดขึ้น
+  nightly_releases: เผยแพร่ทุกคืน
+  nightly_desc: ทดลองใช้คุณสมบัติล่าสุด
+  next: ถัดไป
+  next_page: หน้าถัดไป
+  previous: ก่อนหน้า
+  previous_page: หน้าก่อนหน้า
+  page: หน้า
+  all_releases: ทุกรุ่น
+  back_to_index: กลับไปหน้า Index
 electron_is_easy:
   title: ง่ายกว่าที่คุณคิด
   description: ถ้าคุณสร้างเว็บไซต์ได้ คุณก็สร้างเดสท็อปแอปได้ ซึ่ง Electron คือเฟรมเวิร์คสำหรับสร้างแอปด้วยเทคโนโลยีของเว็บไซต์ เช่น JavaScript, HTML และ CSS โดยที่เราจะจัดการส่วนที่ยากให้เอง คุณก็เพียงแต่เน้นไปที่ส่วนสำคัญของแอปของคุณเท่านั้น
@@ -105,7 +107,9 @@ get_started:
   description: เริ่มต้นกับ Electron ลองดูทรัพยากรด้านล่าง เรียนรู้วิธีหุ้มเว็บแอปด้วย Electron เข้าถึง API ทั้งหมด และสร้างตัวติดตั้ง
 explore:
   title: สำรวจ API ของ Electron
-  description: "The <a href='https://github.com/electron/electron-api-demos'>Electron API Demos app</a> interactively demonstrates the most important features of the Electron API. See what's possible with Electron with sample code and helpful tips for building your app."
+  description: "แอป <a href='https://github.com/electron/electron-api-demos'> แอพ Electron API Demos </a> แสดงให้เห็นถึงคุณลักษณะที่สำคัญที่สุดของ Electron API แบบโต้ตอบ ดูสิ่งที่เป็นไปได้ด้วยอิเล็กตรอนพร้อมรหัสตัวอย่างและเคล็ดลับที่มีประโยชน์สำหรับการสร้างแอปของคุณ"
+  fiddle_title: ลองการทดลองที่ทรงพลังกว่าด้วย Electron Fiddle
+  see_more_info: ดูข้อมูลเพิ่มเติม
 download_from_github: ดาวน์โหลดจาก GitHub
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">แสดงทุกรุ่น</a>บน GitHub
 quick_start:
@@ -117,36 +121,38 @@ quick_start:
   dive_deeper: หรือลงลึกเข้าไปอีกและอ่าน<a href='/docs'>เอกสาร</a>
 need_help:
   title: ต้องการความช่วยเหลือ
-  description: Ask questions in the <a href='https://discuss.atom.io/c/electron'>Discuss</a> forum or our <a href='http://atom-slack.herokuapp.com/'>Slack</a> channel. Follow <a href="https://twitter.com/electronjs">@electronjs</a> on Twitter for important announcements. Need to privately reach out? Email <a href="mailto:info@electronjs.org">info@electronjs.org</a>.
+  description: 'ถามคำถามในฟอรัม <a href=''https://discuss.atom.io/c/electron''> อภิปราย </a> หรือ <a href = ''http: //atom-slack.herokuapp.com/'' ของเรา > ช่องหย่อน </a> ติดตาม <a href="https://twitter.com/electronjs"> @electronjs </a> บน Twitter เพื่อประกาศที่สำคัญ ต้องการเข้าถึงแบบส่วนตัวหรือไม่ อีเมล <a href="mailto:info@electronjs.org"> info@electronjs.org </a>'
 headings:
   languages: ภาษา
 taglines:
-  languages: Localized content from our awesome global developer community.
+  languages: เนื้อหาที่แปลเป็นภาษาท้องถิ่นจากชุมชนนักพัฒนาระดับโลกของเรา
 help_translate: "ช่วยแปลภาษา"
 footer:
-  see_the_faq: See the frequently asked questions
+  see_the_faq: คำถามที่พบบ่อยๆ
+companies:
+  title: Built on Electron
+  description: Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been adopted by companies all over the world.
 apps:
-  title: แอปที่สร้างขึ้นจาก Electron
-  description: Electron ช่วยให้การสร้างแอปสำหรับเดสก์ท็อปสำหรับบริษัทของคุณ หรือแนวคิดเป็นเรื่องง่าย เริ่มพัฒนาขึ้นเพื่อ <a href='https://atom.io' target='_blank'>Atom</a> จาก GitHub ซึ่ง Electronเอง ก็ได้เริ่มมีการนำมาใช้งานโดย Microsoft, Facebook, Slack และ Docker
+  description: 'With Electron, creating a desktop application for your company or idea is easy. Check out <a href=''/apps''>some of the apps created by the community</a> or <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">add your own</a>.'
   view_more: ดูแอปเพิ่ม
   submit_your_own: ส่งของคุณเอง
   something_missing: มีอะไรหายเหรอ?
   edit_this_app: แก้ไขแอปนี้
-  search_app: Filter apps by name, description, etc…
-  categories: Categories
-  add_app_link: '<a href="https://github.com/electron/electron-apps#readme">Make a Pull Request</a> to add your application.'
-  website: Website
-  repository: Repository
-  category: Category
-  downloads: Downloads
-  keywords: Keywords
-  license: License
-  latest_release: Latest Release
+  search_app: '…กรองแอพตามชื่อคำอธิบาย ฯลฯ ...'
+  categories: ประเภท
+  add_app_link: '<a href="https://github.com/electron/electron-apps#readme"> สร้างคำขอดึง </a> เพื่อเพิ่มแอปพลิเคชันของคุณ'
+  website: เว็บไซต์
+  repository: ที่เก็บต้นฉบับ
+  category: ประเภท
+  downloads: ดาวน์โหลด
+  keywords: คีย์เวิร์ด
+  license: ใบอนุญาต
+  latest_release: รุ่นล่าสุด
 blog:
   title: บล๊อกของอิเล็กตรอน
   description: รับข่าวสารจาก ทีมงานของอิเล็กตรอน และ ชุมชน
-  feedback: Have feedback on this post? Let <a href="https://twitter.com/electronjs">@electronjs</a> know on Twitter.
-  help: Need help or found a bug? <a href="/contact">Contact us</a>.
+  feedback: มีความคิดเห็นเกี่ยวกับโพสต์นี้หรือไม่? แจ้งให้ <a href="https://twitter.com/electronjs"> @electronjs </a> ทราบบน Twitter
+  help: ต้องการความช่วยเหลือหรือพบข้อบกพร่อง? <a href="/contact"> ติดต่อเรา </a>
 clipboard:
   copy: Copy
   copy_to_clipboard: คัดลอกไปยังคลิปบอร์ด
@@ -163,17 +169,17 @@ pages:
     title: เอกสารประกอบ
     description: คำแนะนำ และ API เอกสารอ้างอิง สำหรับ อิเล็กตรอน รุ่นล่าสุด
   '/docs/all':
-    title: All the Electron Docs!
-    description: All of Electron's guides and API documentation on a single, searchable page.
+    title: เอกสาร Electron ทั้งหมด!
+    description: ไกด์และเอกสาร API ของอิเล็กตรอนทั้งหมดในหน้าเดียวที่ค้นหาได้
   '/docs/api':
     title: เอพีไอ
-    description: API reference documentation for the latest Electron release
+    description: คำแนะนำ และ API เอกสารอ้างอิง สำหรับ อิเล็กตรอน รุ่นล่าสุด
   '/docs/development':
     title: การพัฒนา
     description: พัฒนา กับ อิเล็กตรอน
   '/docs/tutorial':
     title: การใช้งาน
-    description: Guides and tutorials for the latest Electron release
+    description: คำแนะนำและแบบฝึกหัดสำหรับการปล่อย Electron ล่าสุด
   '/blog':
     title: บล๊อกของอิเล็กตรอน
     description: รับข่าวสารจาก ทีมงานของอิเล็กตรอน และ ชุมชน
@@ -196,22 +202,77 @@ pages:
     description: Spectron เป็นโอเพนซอร์ซเฟรมเวิร์ก ที่ใช้งานในการเขียนทดสอบแอป อิเล็กตรอนของคุณ สร้างขึ้นโดยบน ChromeDriver และ WebDriverIO
   '/fiddle':
     title: Electron Fiddle
-    description: The easiest way to get started with Electron
+    description: วิธีที่ง่ายที่สุดในการเริ่มต้นกับ Electron
+  '/governance':
+    title: การกำกับดูแล Electron 
+    description: ระบบการกำกับดูแล Electron ประกอบด้วยคณะทำงานที่ดูแลด้านต่าง ๆ ของระบบนิเวศของอิเล็กตรอนและคณะทำงานด้านการบริหารที่ทำหน้าที่แก้ไขความขัดแย้งระหว่างกัน
   '/donors':
     title: ผู้บริจาค
 landing:
   get_started: เริ่มต้น
   fiddle:
-    lead_desc: The easiest way to get started with Electron
-    create_app: Create your app
-    description: Electron Fiddle lets you create and play with small Electron experiments. It greets you with a quick-start template after opening – change a few things, choose the version of Electron you want to run it with, and play around. Then, save your Fiddle either as a GitHub Gist or to a local folder. Once pushed to GitHub, anyone can quickly try your Fiddle out by just entering it in the address bar.
-    explore: Explore Electron
-    explore_desc: "Try Electron without installing any dependencies: Fiddle includes everything you'll need to explore the platform. It also includes examples for every API available in Electron, so if you want to quickly see what a BrowserView is or how the desktopCapturer works, Fiddle has got you covered."
-    code_with_types: Code with Types
-    code_with_types_desc: Fiddle includes Microsoft's excellent Monaco Editor, the same editor powering Visual Studio Code. It also installs the type definitions for the currently selected version of Electron automatically, ensuring that you always have all Electron APIs only a few keystrokes away.
-    compile_and_package: Compile and Package
-    compile_and_package_desc: Fiddle can automatically turn your experiment into binaries you can share with your friends, coworkers, or grandparents. It does so thanks to <a href="https://electronforge.io/">electron-forge</a>, allowing you to package your fiddle as an app for Windows, macOS, or Linux.
-    easy_start: Start with Fiddle, Continue Wherever
-    easy_start_desc: Fiddle is not an IDE – it is however an excellent starting point. Once your fiddle has grown up, export it as a project with or without <a href="https://electronforge.io/">electron-forge</a>. Then, use your favorite editor and take on the world!
+    lead_desc: วิธีที่ง่ายที่สุดในการเริ่มต้นกับ Electron
+    create_app: สร้างแอปของคุณ
+    description: Electron Fiddle ช่วยให้คุณสร้างและเล่นกับการทดลองอิเล็กตรอนขนาดเล็ก มันทักทายคุณด้วยเทมเพลตเริ่มต้นอย่างรวดเร็วหลังจากเปิด - เปลี่ยนบางสิ่งเลือกรุ่นของอิเล็กตรอนที่คุณต้องการเรียกใช้ด้วยและเล่นรอบ ๆ จากนั้นให้บันทึกซอของคุณไม่ว่าจะเป็น GitHub Gist หรือไปยังโฟลเดอร์ท้องถิ่น เมื่อผลักไปที่ GitHub ทุกคนสามารถลองเล่นซอของคุณได้อย่างรวดเร็วโดยเพียงแค่ป้อนในแถบที่อยู่
+    explore: สำรวจ Electron
+    explore_desc: "ลองใช้อิเล็กตรอนโดยไม่ต้องติดตั้งการพึ่งพาใด ๆ : ซอมีทุกสิ่งที่คุณต้องการในการสำรวจแพลตฟอร์ม นอกจากนี้ยังมีตัวอย่างสำหรับทุก ๆ API ที่มีอยู่ใน Electron ดังนั้นหากคุณต้องการดูว่า BrowserView คืออะไรหรือ desktopCapturer ทำงานอย่างไรซอก็ทำให้คุณเข้าใจ"
+    code_with_types: รหัสด้วยประเภท
+    code_with_types_desc: Fiddle ได้รวม Monaco Editor ที่ยอดเยี่ยมของ Microsoft ซึ่งเป็นโปรแกรมแก้ไขเดียวกันกับรหัส Visual Studio นอกจากนี้ยังติดตั้งคำจำกัดความประเภทสำหรับ Electron เวอร์ชันที่เลือกไว้ในปัจจุบันโดยอัตโนมัติเพื่อให้แน่ใจว่าคุณมี Electron API ทั้งหมดเพียงไม่กี่การกดแป้น
+    compile_and_package: คอมไพล์ และ แพคเกจ
+    compile_and_package_desc: ซอสามารถเปลี่ยนการทดสอบของคุณให้เป็นไบนารีที่คุณสามารถแบ่งปันกับเพื่อนผู้ร่วมงานหรือปู่ย่าตายายของคุณโดยอัตโนมัติ ต้องขอบคุณ <a href="https://electronforge.io/"> อิเล็กตรอน - ฟอร์จ </a> ซึ่งช่วยให้คุณจัดทำซอของคุณเป็นแอพสำหรับ Windows, MacOS หรือ Linux
+    easy_start: เริ่มด้วย Fiddle ต่อไปทุกที่
+    easy_start_desc: ซอไม่ได้เป็น IDE - แต่มันเป็นจุดเริ่มต้นที่ยอดเยี่ยม เมื่อซอของคุณโตขึ้นให้ส่งออกเป็นโปรเจ็กต์ที่มีหรือไม่มี <a href="https://electronforge.io/"> อิเล็กตรอน - ฟอร์จ </a> จากนั้นใช้โปรแกรมแก้ไขที่คุณชื่นชอบและทำในโลกนี้!
+governance:
+  title: การกำกับดูแล Electron 
+  description: ระบบการกำกับดูแล Electron ประกอบด้วยคณะทำงานที่ดูแลด้านต่าง ๆ ของระบบนิเวศของอิเล็กตรอนและคณะทำงานด้านการบริหารที่ทำหน้าที่แก้ไขความขัดแย้งระหว่างกัน
+  wgs: คณะทำงาน
+  docstools:
+    title: เอกสารและเครื่องมือ
+    description: ดูแลเครื่องมือที่เน้นจากภายนอก (เช่นซอ, ปลอม), เอกสารอิเล็คตรอนทั่วทั้งเว็บไซต์และ <code> อิเล็กตรอน / * </code> ที่เก็บและกลุ่มของผู้ดูแลเข้าถึงโมดูลบุคคลที่สาม
+  outreach:
+    title: "ยื่นออกไป\n"
+    description: เติบโตชุมชน Electron 
+  releases:
+    title: การเผยแพร่
+    description: ดูแลทุกสาขาที่วางจำหน่ายและเครื่องมือในการสนับสนุนการเปิดตัว
+  upgrades:
+    title: อัพเกรด
+    description: กำกับดูแลการอัพเกรดของการพึ่งพาต้นน้ำ; โดยเฉพาะ Chromium และ Node
+  website:
+    title: เว็บไซต์
+    description: ดูแลการดำเนินงานด้านเทคนิคการออกแบบและรูปแบบของเว็บไซต์อิเล็กตรอนและเครื่องมือที่เกี่ยวข้อง
+  cmsf:
+    title: ชุมชนและความปลอดภัย
+    description: ดูแลการกำจัด / การแบนจากชุมชน
+  security:
+    title: ความปลอดภัย
+    description: มั่นใจในความปลอดภัยของ Electron ในเชิงรุกในโครงการตอบสนองต่อเหตุการณ์ที่เกิดขึ้นและดูแลการแก้ไขปัญหา
+  admins:
+    title: การบริหาร
+    description: คณะทำงานด้านธุรการดูแลการกำกับดูแลและโครงการทั้งหมด
+  global:
+    overview: ภาพรวม
+    associated_repos: แหล่งเก็บข้อมูลที่เกี่ยวข้อง
+    notes: บันทึกการประชุม
+  definitions:
+    title: คำนิยาม
+    list:
+      - <i> ผู้ดูแล </i> คือทุกคนที่มีบทบาทอย่างแข็งขันในการกำกับดูแล
+      - <i> ผู้ทำงานร่วมกัน </i> ทำงานอยู่ในชุมชน แต่ไม่ใช่ในการกำกับดูแล
+      - <i> ผู้เข้าร่วม </i> คือทุกคนที่เป็นผู้ดูแลหรือผู้ทำงานร่วมกัน
+      - <i> คณะทำงาน </i> เป็นกลุ่มผู้ดูแลที่จัดตั้งขึ้นเพื่อรับผิดชอบในบางแง่มุมของโครงการอิเล็กตรอน โดยปกติกลุ่มเหล่านี้จะประชุมกันเป็นประจำ แต่ในบางกรณีจะตอบสนองตามความต้องการเพื่อให้บรรลุความรับผิดชอบ
+      - '<a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership"> ประธาน </a> นำพาคณะทำงาน'
+  responsibilities:
+    title: ความรับผิดชอบ
+    listdescription: "คณะทำงานทั้งหมดมีความรับผิดชอบหลักเหล่านี้:"
+    list:
+      - พวกเขาจะต้องตัดสินใจด้วยตนเองและโพสต์ต่อสาธารณะกฎของตนเช่น วิธีการตัดสินใจเมื่อมีการประชุมและผู้ที่อาจเข้าร่วม
+      - 'พวกเขาจะ <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Terms-and-Selection"> เลือก </a> เก้าอี้สำหรับ <a href = ''https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Responsibilities''> ตัวแทน </a> กลุ่ม'
+      - พวกเขาจะต้องเก็บบันทึกการประชุมรวมถึงวาระการประชุมจุดอภิปรายและผลลัพธ์สำหรับทุกคนที่จะทบทวน
+      - 'พวกเขาจะทำงานร่วมกันและทำงาน <a href="https://github.com/electron/governance/tree/master/charter/README.md#Core-Values"> โดยสุจริต </a> กับคณะทำงานอื่น ๆ'
+    see_charter: ดู <a href="https://github.com/electron/governance/tree/master/charter/README.md"> กฎบัตร </a> สำหรับข้อมูลเพิ่มเติม
+  code_of_conduct: องค์กร Electron และ repos ทั้งหมดในนั้นเป็นไปตาม <a href="https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md"> จรรยาบรรณ </a> ต่อไปนี้
+  license: Electron ได้รับอนุญาตให้ใช้งานกับ <a href="https://github.com/electron/electron/blob/master/LICENSE"> ใบอนุญาต MIT </a>
+  repository: ลองดู <a href="https://github.com/electron/governance"> พื้นที่เก็บข้อมูลการกำกับดูแล </a> เพื่อค้นหาข้อมูลเพิ่มเติมเกี่ยวกับโครงสร้างการกำกับดูแล
 _404:
   page_not_found: ไม่พบหน้าที่ต้องการ

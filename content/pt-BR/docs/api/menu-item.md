@@ -13,7 +13,7 @@ Veja [`Menu`](menu.md) para exemplos.
     * `menuItem` MenuItem
     * `browserWindow` [BrowserWindow](browser-window.md)
     * `event` Event
-  * `role` String (opcional) - Define a ação do click no menu, quando especificado a propriedade `click` será ignorada. Veja [roles](#roles).
+  * `role` String (optional) - Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteandmatchstyle`, `delete`, `selectall`, `reload`, `forcereload`, `toggledevtools`, `resetzoom`, `zoomin`, `zoomout`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideothers`, `unhide`, `quit`, `startspeaking`, `stopspeaking`, `close`, `minimize`, `zoom` or `front` - Define the action of the menu item, when specified the `click` property will be ignored. See [roles](#roles).
   * `type` String (opcional) - Pode ser `normal`, `separator`, `submenu`, `checkbox` ou `radio`.
   * `label` String (optional)
   * `sublabel` String (optional)
@@ -60,11 +60,14 @@ A propriedade `role` pode ter os seguintes valores:
 * `resetZoom` - Reset the focused page's zoom level to the original size.
 * `zoomIn` - Zoom in the focused page by 10%.
 * `zoomOut` - Zoom out the focused page by 10%.
+* `fileMenu` - Whole default "File" menu (Close / Quit)
 * `editMenu` - Menu "Edit" padrão inteiro (Desfazer, Copiar, etc.).
-* `windowMenu` - Menu "Window" padrão inteiro (Minimizar, Fechar, etc.).
+* `viewMenu` - Whole default "View" menu (Reload, Toggle Developer Tools, etc.)
+* `windowMenu` - Whole default "Window" menu (Minimize, Zoom, etc.).
 
 The following additional roles are available on *macOS*:
 
+* `appMenu` - Whole default "App" menu (About, Services, etc.)
 * `about` - Mapeia para a ação `orderFrontStandardAboutPanel`.
 * `hide` - Mapeia para a ação `hide`.
 * `hideOthers` - Map to the `hideOtherApplications` action.

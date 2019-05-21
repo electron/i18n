@@ -2,7 +2,7 @@
 
 > 使用默认应用程序管理文件和 url。
 
-参见： [process](../glossary.md#main-process), [renderer](../glossary.md#renderer-process) process
+进程： [Main](../glossary.md#main-process), [Renderer](../glossary.md#renderer-process)
 
 ` shell ` 模块提供与桌面集成相关的功能。
 
@@ -34,18 +34,27 @@ shell.openExternal('https://github.com')
 
 以桌面的默认方式打开给定的文件。
 
-### `shell.openExternal(url[, options, callback])`
+### `shell.openExternalSync(url[, options])`
 
-* `url` String - Max 2081 characters on windows, or the function returns false.
+* `url` String - Max 2081 characters on Windows, or the function returns false.
 * `选项` Object (可选) 
   * `activate` Boolean (optional) - `true` to bring the opened application to the foreground. The default is `true`. *macOS*
   * `workingDirectory` String (optional) - The working directory. *Windows*
-* `callback` Function (可选) *macOS* Function (可选) - 如果设定该回调函数，那么该回调函数以异步的方式执行。 
-  * `error` Error
 
-返回 `Boolean`类型 - 不管一个应用是否可以访问到URL，是否制定了回调，总是返回true
+Returns `Boolean` - Whether an application was available to open the URL.
 
-以桌面的默认方式打开给定的外部协议URL。 （例如，在用户的默认邮件代理中打开 mailto: URLs）。
+Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
+
+### `shell.openExternal(url[, options])`
+
+* `url` String - Max 2081 characters on windows.
+* `options` Object (可选) 
+  * `activate` Boolean (optional) - `true` to bring the opened application to the foreground. The default is `true`. *macOS*
+  * `workingDirectory` String (optional) - The working directory. *Windows*
+
+Returns `Promise<void>`
+
+Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
 
 ### `shell.moveItemToTrash(fullPath)`
 

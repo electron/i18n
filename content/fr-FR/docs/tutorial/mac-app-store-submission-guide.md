@@ -59,7 +59,9 @@ Ensuite, vous devez préparer les trois fichiers suivant.
     <key>com.apple.security.app-sandbox</key>
     <true/>
     <key>com.apple.security.application-groups</key>
-    <string>TEAM_ID.votre.bundle.id</string>
+    <array>
+      <string>TEAM_ID.your.bundle.id</string>
+    </array>
   </dict>
 </plist>
 ```
@@ -193,7 +195,7 @@ Voir la [documentation Activer les fichiers sélectionnés par l'utilisateur](ht
 
 ## Algorithmes de chiffrement utilisés par Electron
 
-Selon le pays et la région où vous vous situez, le Mac App Store peut exiger de documenter les algorithmes de chiffrement utilisés dans votre application, et même vous demander de fournir une copie de l'approbation de l'inscription de chiffrement US (ERN).
+Depending on the countries in which you are releasing your app, you may be required to provide information on the cryptographic algorithms used in your software. See the [encryption export compliance docs](https://help.apple.com/app-store-connect/#/devc3f64248f) for more information.
 
 Electron utilise ces algorithmes de chiffrement suivants :
 
@@ -220,5 +222,3 @@ Electron utilise ces algorithmes de chiffrement suivants :
 * RC4 - [RFC 4345](https://tools.ietf.org/html/rfc4345)
 * RC5 - http://people.csail.mit.edu/rivest/Rivest-rc5rev.pdf
 * RIPEMD - [ISO/IEC 10118-3](https://webstore.ansi.org/RecordDetail.aspx?sku=ISO%2FIEC%2010118-3:2004)
-
-Sur la façon d'obtenir l'approbation de l'ERN, vous pouvez faire référence à l'article [Comment légalement envoyer une application à l'App Store d'Apple quand elle utilise le chiffrement (ou comment obtenir une ERN)](https://carouselapps.com/2015/12/15/legally-submit-app-apples-app-store-uses-encryption-obtain-ern/).

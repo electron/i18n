@@ -6,6 +6,50 @@
 
 代码注释中添加的`FIXME`字符来表示以后的版本应该被修复的问题. 参考 https://github.com/electron/electron/search?q=fixme
 
+# 计划重写的 API (6.0)
+
+## `win.setMenu(null)`
+
+```js
+// Deprecated
+win.setMenu(null)
+// Replace with
+win.removeMenu()
+```
+
+## `electron.screen` in renderer process
+
+```js
+// Deprecated
+require('electron').screen
+// Replace with
+require('electron').remote.screen
+```
+
+## `require` in sandboxed renderers
+
+```js
+// Deprecated
+require('child_process')
+// Replace with
+require('electron').remote.require('child_process')
+
+// Deprecated
+require('fs')
+// Replace with
+require('electron').remote.require('fs')
+
+// Deprecated
+require('os')
+// Replace with
+require('electron').remote.require('os')
+
+// Deprecated
+require('path')
+// Replace with
+require('electron').remote.require('path')
+```
+
 # 计划重写的 API (5.0)
 
 ## `new BrowserWindow({ webPreferences })`
@@ -22,25 +66,42 @@
 
 使用 `nativeWindowOpen` 选项打开的子窗口将始终禁用 Node.js 集成。
 
-## `webContents.findInPage(text[, options])`
+## Privileged Schemes Registration
 
-`wordStart` 和 `medialCapitalAsWordStart` 选项被删除。
+Renderer process APIs `webFrame.setRegisterURLSchemeAsPrivileged` and `webFrame.registerURLSchemeAsBypassingCSP` as well as browser process API `protocol.registerStandardSchemes` have been removed. A new API, `protocol.registerSchemesAsPrivileged` has been added and should be used for registering custom schemes with the required privileges. Custom schemes are required to be registered before app ready.
+
+## webFrame Isolated World APIs
+
+```js
+// Deprecated
+webFrame.setIsolatedWorldContentSecurityPolicy(worldId, csp)
+webFrame.setIsolatedWorldHumanReadableName(worldId, name)
+webFrame.setIsolatedWorldSecurityOrigin(worldId, securityOrigin)
+// Replace with
+webFrame.setIsolatedWorldInfo(
+  worldId,
+  {
+    securityOrigin: 'some_origin',
+    name: 'human_readable_name',
+    csp: 'content_security_policy'
+  })
+```
 
 # 计划重写的 API (4.0)
 
-以下列表包含了Electron4.0计划重写的API
+以下包含了Electron 4.0中重大的API更新
 
 ## `app.makeSingleInstance`
 
 ```js
-// 废弃
-app.makeSingleInstance(function (argv, cwd) {
-
+// Deprecated
+app.makeSingleInstance((argv, cwd) => {
+  /* ... */
 })
-// 替换为
+// Replace with
 app.requestSingleInstanceLock()
-app.on('second-instance', function (argv, cwd) {
-
+app.on('second-instance', (event, argv, cwd) => {
+  /* ... */
 })
 ```
 
@@ -177,12 +238,12 @@ screen.getPrimaryDisplay().workArea
 ## `session`
 
 ```js
-// 过时的
-ses.setCertificateVerifyProc(function (hostname, certificate, callback) {
+// Deprecated
+ses.setCertificateVerifyProc((hostname, certificate, callback) => {
   callback(true)
 })
-// 替换为
-ses.setCertificateVerifyProc(function (request, callback) {
+// Replace with
+ses.setCertificateVerifyProc((request, callback) => {
   callback(0)
 })
 ```

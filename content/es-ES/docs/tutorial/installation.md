@@ -81,26 +81,38 @@ El caché contiene el archivo zip oficial de la versión, así como una suma de 
 ├── SHASUMS256.txt-1.8.2-beta.3
 ```
 
+## Omitir la descarga del archivo binario
+
+Cuando instale el paquete `electron` NPM, automáticamente descarga el archivo binario electron.
+
+Esto puede ser innecesario, por ejemplo en un entorno CI, cuando se prueba otro componente.
+
+Para evitar que el binario sea descargado cuando instale todas las dependencias npm, puede establecer la variable de entorno `ELECTRON_SKIP_BINARY_DOWNLOAD`. Ej.:
+
+```sh
+ELECTRON_SKIP_BINARY_DOWNLOAD=1 npm install
+```
+
 ## Problemas
 
 Cuando ejecutamos `npm install electron`, ocasionalmente algunos usuarios encuentran errores en la instalación.
 
-En casi todos los casos, estos errores son resultados de problemas en la red y no en problemas con el paquete nom de `electron`. Errores como `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET` y `ETIMEDOUT` son indicadores de dichos problemas de red. La mejor solución es tratar de cambiar las redes, o esperar un poco e instalar de nuevo.
+En casi todos los casos, estos errores son resultados de problemas en la red y no de problemas con el paquete npm de `electron`. Errores como `ELIFECYCLE`, `EAI_AGAIN`, `ECONNRESET` y `ETIMEDOUT` son indicadores de dichos problemas de red. La mejor solución es tratar de cambiar las redes, o esperar un poco e instalar de nuevo.
 
 También puede intentar descargar Electron directamente de [electron/electron/releases](https://github.com/electron/electron/releases) si la ruta de instalación `npm` está fallando.
 
 Si la instalación falla con un error `EACCESS` puede que se necesite los [fix your npm permissions](https://docs.npmjs.com/getting-started/fixing-npm-permissions).
 
-If the above error persists, the [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) flag may need to be set to true:
+Si el error de arriba persiste, puede ser que la marca [unsafe-perm](https://docs.npmjs.com/misc/config#unsafe-perm) necesite sea establecido a true:
 
 ```sh
 sudo npm install electron --unsafe-perm=true
 ```
 
-On slower networks, it may be advisable to use the `--verbose` flag in order to show download progress:
+En redes lentas, puede ser aconsejable utilizar la marca `--verbose` de manera que se muestre el progreso de la descarga:
 
 ```sh
 npm install --verbose electron
 ```
 
-If you need to force a re-download of the asset and the SHASUM file set the `force_no_cache` environment variable to `true`.
+Si necesita forzar que se vuelvan a descargar el recurso y el archivo SHASUM, fije la variable de entorno `force_no_cache` a `true`.

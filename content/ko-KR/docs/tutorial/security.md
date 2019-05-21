@@ -43,7 +43,7 @@ Electron 2.0부터, 개발자 콘솔에서 개발자는 경고와 제안을 볼 
 You should at least follow these steps to improve the security of your application:
 
 1. [안전한 콘텐츠만 로드하세요.](#1-only-load-secure-content)
-2. [원격 콘텐츠를 표시하는 모든 렌더러에서 Node.js 통합을 비활성화 합니다.](#2-disable-nodejs-integration-for-remote-content)
+2. [원격 콘텐츠를 표시하는 모든 렌더러에서 Node.js 통합을 비활성화 합니다.](#2-do-not-enable-nodejs-integration-for-remote-content)
 3. [원격 콘텐츠를 표시하는 모든 렌더러에서 컨텍스트 격리(context isolation) 를 활성화합니다.](#3-enable-context-isolation-for-remote-content)
 4. [원격 콘텐츠를 로드하는 모든 세션에서 `ses.setPermissionRequestHandler()`를 사용합니다.](#4-handle-session-permission-requests-from-remote-content)
 5. [`webSecurity`를 비활성화 하지 마세요.](#5-do-not-disable-websecurity)
@@ -56,7 +56,9 @@ You should at least follow these steps to improve the security of your applicati
     * [`<webview>`: 옵션 및 매개변수 확인](#11-verify-webview-options-before-creation)
     * [Disable or limit navigation](#12-disable-or-limit-navigation)
     * [새로운 창 생성을 제한하거나 비활성화하세요.](#13-disable-or-limit-creation-of-new-windows)
-    * [Do not use `openExternal` with untrusted content](#14-do-not-use-openexternal-with-untrusted-content)</ol> 
+    * [Do not use `openExternal` with untrusted content](#14-do-not-use-openexternal-with-untrusted-content)
+    * [Disable the `remote` module](#15-disable-the-remote-module)
+    * [Filter the `remote` module](#16-filter-the-remote-module)</ol> 
     
     To automate the detection of misconfigurations and insecure patterns, it is possible to use [electronegativity](https://github.com/doyensec/electronegativity). For additional details on potential weaknesses and implementation bugs when developing applications using Electron, please refer to this [guide for developers and auditors](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)
     
@@ -90,9 +92,11 @@ You should at least follow these steps to improve the security of your applicati
     <link rel="stylesheet" href="https://example.com/style.css">
     ```
     
-    ## 2) 원격 콘텐츠에 대한 Node.js 통합 비활성화
+    ## 2) Do not enable Node.js Integration for Remote Content
     
-    원격 컨텐츠를 로드하는 모든 렌더러([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), 또는 [`<webview>`](../api/webview-tag.md))에서 Node.js 통합을 비활성화 하는 것이 가장 중요합니다. 목적은, 원격 콘텐츠에 부여하는 권한을 제한하여, 공격자가 웹 사이트에서 JavaScript를 실행할 수 있는 사용자를 해치는 것이 훨씬 더 어려워 지도록 합니다.
+    *This recommendation is the default behavior in Electron since 5.0.0.*
+    
+    It is paramount that you do not enable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) that loads remote content. 목적은, 원격 콘텐츠에 부여하는 권한을 제한하여, 공격자가 웹 사이트에서 JavaScript를 실행할 수 있는 사용자를 해치는 것이 훨씬 더 어려워 지도록 합니다.
     
     그 후, 특별한 호스트를 위해 추가적인 권한을 부여할 수 있습니다. 예를 들면, 만약 `https://example.com/ '을 가르키는 BrowserWindow를 여는 경우, 해당 웹 사이트에 필요한 정확한 권한을 줄 수 있지만, 그 이상은 필요 없습니다.
     
@@ -103,8 +107,14 @@ You should at least follow these steps to improve the security of your applicati
     ### 어떻게 하나요?
     
     ```js
-    // 나쁜 예
-    const mainWindow = new BrowserWindow()
+    // Bad
+    const mainWindow = new BrowserWindow({
+      webPreferences: {
+        nodeIntegration: true,
+        nodeIntegrationInWorker: true
+      }
+    })
+    
     mainWindow.loadURL('https://example.com')
     ```
     
@@ -112,9 +122,7 @@ You should at least follow these steps to improve the security of your applicati
     // Good
     const mainWindow = new BrowserWindow({
       webPreferences: {
-        nodeIntegration: false,
-        nodeIntegrationInWorker: false,
-        preload: './preload.js'
+        preload: path.join(app.getAppPath(), 'preload.js')
       }
     })
     
@@ -161,11 +169,11 @@ You should at least follow these steps to improve the security of your applicati
     ### 어떻게 하나요?
     
     ```js
-    // 주 프로세스
+    // Main process
     const mainWindow = new BrowserWindow({
       webPreferences: {
         contextIsolation: true,
-        preload: 'preload.js'
+        preload: path.join(app.getAppPath(), 'preload.js')
       }
     })
     ```
@@ -490,12 +498,12 @@ You should at least follow these steps to improve the security of your applicati
     const { shell } = require('electron')
     
     app.on('web-contents-created', (event, contents) => {
-      contents.on('new-window', (event, navigationUrl) => {
+      contents.on('new-window', async (event, navigationUrl) => {
         // In this example, we'll ask the operating system
         // to open this event's url in the default browser.
         event.preventDefault()
     
-        shell.openExternalSync(navigationUrl)
+        await shell.openExternal(navigationUrl)
       })
     })
     ```
@@ -520,4 +528,96 @@ You should at least follow these steps to improve the security of your applicati
     //  Good
     const { shell } = require('electron')
     shell.openExternal('https://example.com/index.html')
+    ```
+    
+    ## 15) Disable the `remote` module
+    
+    The `remote` module provides a way for the renderer processes to access APIs normally only available in the main process. Using it, a renderer can invoke methods of a main process object without explicitly sending inter-process messages. If your desktop application does not run untrusted content, this can be a useful way to have your renderer processes access and work with modules that are only available to the main process, such as GUI-related modules (dialogs, menus, etc.).
+    
+    However, if your app can run untrusted content and even if you [sandbox](../api/sandbox-option.md) your renderer processes accordingly, the `remote` module makes it easy for malicious code to escape the sandbox and have access to system resources via the higher privileges of the main process. Therefore, it should be disabled in such circumstances.
+    
+    ### 왜냐구요?
+    
+    `remote` uses an internal IPC channel to communicate with the main process. "Prototype pollution" attacks can grant malicious code access to the internal IPC channel, which can then be used to escape the sandbox by mimicking `remote` IPC messages and getting access to main process modules running with higher privileges.
+    
+    Additionally, it's possible for preload scripts to accidentally leak modules to a sandboxed renderer. Leaking `remote` arms malicious code with a multitude of main process modules with which to perform an attack.
+    
+    Disabling the `remote` module eliminates these attack vectors. Enabling context isolation also prevents the "prototype pollution" attacks from succeeding.
+    
+    ### 어떻게 하나요?
+    
+    ```js
+    // Bad if the renderer can run untrusted content
+    const mainWindow = new BrowserWindow({})
+    ```
+    
+    ```js
+    // Good
+    const mainWindow = new BrowserWindow({
+      webPreferences: {
+        enableRemoteModule: false
+      }
+    })
+    ```
+    
+    ```html
+    <!-- Bad if the renderer can run untrusted content  -->
+    <webview src="page.html"></webview>
+    
+    <!-- Good -->
+    <webview enableremotemodule="false" src="page.html"></webview>
+    ```
+    
+    ## 16) Filter the `remote` module
+    
+    If you cannot disable the `remote` module, you should filter the globals, Node, and Electron modules (so-called built-ins) accessible via `remote` that your application does not require. This can be done by blocking certain modules entirely and by replacing others with proxies that expose only the functionality that your app needs.
+    
+    ### 왜냐구요?
+    
+    Due to the system access privileges of the main process, functionality provided by the main process modules may be dangerous in the hands of malicious code running in a compromised renderer process. By limiting the set of accessible modules to the minimum that your app needs and filtering out the others, you reduce the toolset that malicious code can use to attack the system.
+    
+    Note that the safest option is to [fully disable the remote module](#15-disable-the-remote-module). If you choose to filter access rather than completely disable the module, you must be very careful to ensure that no escalation of privilege is possible through the modules you allow past the filter.
+    
+    ### 어떻게 하나요?
+    
+    ```js
+    const readOnlyFsProxy = require(/* ... */) // exposes only file read functionality
+    
+    const allowedModules = new Set(['crypto'])
+    const proxiedModules = new Map(['fs', readOnlyFsProxy])
+    const allowedElectronModules = new Set(['shell'])
+    const allowedGlobals = new Set()
+    
+    app.on('remote-require', (event, webContents, moduleName) => {
+      if (proxiedModules.has(moduleName)) {
+        event.returnValue = proxiedModules.get(moduleName)
+      }
+      if (!allowedModules.has(moduleName)) {
+        event.preventDefault()
+      }
+    })
+    
+    app.on('remote-get-builtin', (event, webContents, moduleName) => {
+      if (!allowedElectronModules.has(moduleName)) {
+        event.preventDefault()
+      }
+    })
+    
+    app.on('remote-get-global', (event, webContents, globalName) => {
+      if (!allowedGlobals.has(globalName)) {
+        event.preventDefault()
+      }
+    })
+    
+    app.on('remote-get-current-window', (event, webContents) => {
+      event.preventDefault()
+    })
+    
+    app.on('remote-get-current-web-contents', (event, webContents) => {
+      event.preventDefault()
+    })
+    
+    app.on('remote-get-guest-web-contents', (event, webContents, guestWebContents) => {
+      event.preventDefault()
+    })
     ```

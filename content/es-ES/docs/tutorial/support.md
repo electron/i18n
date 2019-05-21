@@ -25,7 +25,15 @@ Si has encontrado un error en una [versión soportada](#supported-versions) de E
 
 ## Versiones Soportadas
 
-Las últimas tres ramas de publicación cuentan con el respaldo del equipo de Electron. Por ejemplo, si la última versión es 2.0.x, entonces la serie 2-0-x es compatible, al igual que las dos versiones anteriores de la serie 1-7-x y 1-8-x.
+The latest three major versions are supported by the Electron team. For example, if the latest release is 5.0.x, then the 4.x.y series is supported, as are the two previous release series 3.x.y and 2.x.y.
+
+### Currently supported versions
+
+* 5.x
+* 4.x
+* 3.x
+
+### End-of-life
 
 Cuando una rama de lanzamiento llega al final de su ciclo de soporte, la serie quedará obsoleta en NPM y se realizará una versión final de fin de soporte. Este lanzamiento agregará una advertencia para informar que una versión no soportada de Electron está en uso.
 

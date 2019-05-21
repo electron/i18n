@@ -12,7 +12,7 @@
 * `video_encode` String - Видео кодиране.
 * `vpx_decode` String - VPx Видео декодиране.
 * `webgl` String - WebGL.
-* `webgl2` String - WebGL2.
+* `webgl2` String - WebGL2
 
 Възможни стойности:
 

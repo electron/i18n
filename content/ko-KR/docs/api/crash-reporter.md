@@ -73,7 +73,7 @@ spawn(process.execPath, args, {
 
 [`CrashReport`](structures/crash-report.md)를 반환합니다:
 
-마지막 충돌 보고서의 날짜와 ID를 반환합니다. 충돌 보고서가 전송되지 않았거나 충돌 제보기가 시작되지 않았으면, `null`이 반환됩니다.
+Returns the date and ID of the last crash report. Only crash reports that have been uploaded will be returned; even if a crash report is present on disk it will not be returned until it is uploaded. In the case that there are no uploaded reports, `null` is returned.
 
 ### `crashReporter.getUploadedReports()`
 

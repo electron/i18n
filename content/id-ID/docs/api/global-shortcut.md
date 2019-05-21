@@ -41,6 +41,8 @@ Modul ` globalShortcut ` memiliki metode berikut:
 * ` akselerator </ 0>  <a href="accelerator.md"> Akselerator </ 1></li>
 <li><code>callback ` Fungsi
 
+Returns `Boolean` - Whether or not the shortcut was registered successfully.
+
 Mendaftarkan pintasan global ` akselerator </ 0> . The <code> callback </ 0> disebut ketika shortcut yang terdaftar ditekan oleh pengguna.</p>
 
 <p>Bila akselerator sudah diambil oleh aplikasi lain, panggilan ini akan diam-diam gagal. Perilaku ini dimaksudkan oleh sistem operasi, karena mereka tidak ingin aplikasi berjuang untuk jalan pintas global.</p>
@@ -55,7 +57,23 @@ the app has been authorized as a <a href="https://developer.apple.com/library/ar
 <li>"Media Stop"</li>
 </ul>
 
-<h3><code>globalShortcut.isRegistered (akselerator)`</h3> 
+<h3><code>globalShortcut.registerAll(accelerators, callback)`</h3> 
+
+* `accelerators` String[] - an array of [Accelerator](accelerator.md)s.
+* `callback ` Fungsi
+
+Registers a global shortcut of all `accelerator` items in `accelerators`. The `callback` is called when any of the registered shortcuts are pressed by the user.
+
+When a given accelerator is already taken by other applications, this call will silently fail. Perilaku ini dimaksudkan oleh sistem operasi, karena mereka tidak ingin aplikasi berjuang untuk jalan pintas global.
+
+The following accelerators will not be registered successfully on macOS 10.14 Mojave unless the app has been authorized as a [trusted accessibility client](https://developer.apple.com/library/archive/documentation/Accessibility/Conceptual/AccessibilityMacOSX/OSXAXTestingApps.html):
+
+* "Media Play/Pause"
+* "Media Next Track"
+* "Media Previous Track"
+* "Media Stop"
+
+### `globalShortcut.isRegistered (akselerator)`
 
 * ` akselerator ` [ Accelerator ](accelerator.md)
 

@@ -12,7 +12,7 @@ It is also possible to send messages from the main process to the renderer proce
 
 * When sending a message, the event name is the `channel`.
 * To reply to a synchronous message, you need to set `event.returnValue`.
-* To send an asynchronous message back to the sender, you can use `event.sender.send(...)`.
+* To send an asynchronous message back to the sender, you can use `event.reply(...)`. This helper method will automatically handle messages coming from frames that aren't the main frame (e.g. iframes) whereas `event.sender.send(...)` will always send to the main frame.
 
 An example of sending and handling messages between the render and main processes:
 
@@ -21,7 +21,7 @@ An example of sending and handling messages between the render and main processe
 const { ipcMain } = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
   console.log(arg) // prints "ping"
-  event.sender.send('asynchronous-reply', 'pong')
+  event.reply('asynchronous-reply', 'pong')
 })
 
 ipcMain.on('synchronous-message', (event, arg) => {
@@ -41,7 +41,7 @@ ipcRenderer.on('asynchronous-reply', (event, arg) => {
 ipcRenderer.send('asynchronous-message', 'ping')
 ```
 
-## Methods
+## วิธีการ
 
 The `ipcMain` module has the following method to listen for events:
 
@@ -76,6 +76,10 @@ Removes listeners of the specified `channel`.
 
 The `event` object passed to the `callback` has the following methods:
 
+### `event.frameId`
+
+An `Integer` representing the ID of the renderer frame that sent this message.
+
 ### `event.returnValue`
 
 Set this to the value to be returned in a synchronous message.
@@ -83,3 +87,7 @@ Set this to the value to be returned in a synchronous message.
 ### `event.sender`
 
 Returns the `webContents` that sent the message, you can call `event.sender.send` to reply to the asynchronous message, see [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) for more information.
+
+### `event.reply`
+
+A function that will send an IPC message to the renderer frane that sent the original message that you are currently handling. You should use this method to "reply" to the sent message in order to guaruntee the reply will go to the correct process and frame.

@@ -1,5 +1,17 @@
 # Распространение приложений
 
+To distribute your app with Electron, you need to package and rebrand it. The easiest way to do this is to use one of the following third party packaging tools:
+
+* [electron-forge](https://github.com/electron-userland/electron-forge)
+* [electron-builder](https://github.com/electron-userland/electron-builder)
+* [electron-packager](https://github.com/electron-userland/electron-packager)
+
+These tools will take care of all the steps you need to take to end up with a distributable Electron applications, such as packaging your application, rebranding the executable, setting the right icons and optionally creating installers.
+
+## Manual distribution
+
+You can also choose to manually get your app ready for distribution. The steps needed to do this are outlined below.
+
 Для распространения вашего приложения с Electron, вам нужно скачать [предварительно собранные двоичные файлы](https://github.com/electron/electron/releases) Electron. Далее папку, содержащую ваше приложение следует назвать `app` и поместить в каталог ресурсов Electron, как показано в следующих примерах. Обратите внимание, что расположение двоичных файлов Electron в приведенных ниже примерах обозначается как `electron/`.
 
 На macOS:
@@ -78,14 +90,6 @@ MyApp.app/Contents
 ### Linux
 
 `Electron` исполняемый файл можно переименовать на любое имя, которое вам нравится.
-
-## Упаковочные инструменты
-
-Помимо упаковки приложения вручную, вы также можете использовать инструменты сторонних производителей инструментов упаковки, которые сделают эту работу для вас:
-
-* [electron-forge](https://github.com/electron-userland/electron-forge)
-* [electron-builder](https://github.com/electron-userland/electron-builder)
-* [electron-packager](https://github.com/electron-userland/electron-packager)
 
 ## Проведите ребрендинг, пересобрав Electron из исходных кодов
 

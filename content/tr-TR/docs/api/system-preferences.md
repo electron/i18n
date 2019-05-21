@@ -31,11 +31,18 @@ Dönüşler:
 Dönüşler:
 
 * `event` Event
-* `invertedColorScheme` Boolean - Ters renk şeması yüksek kontrastlı bir tema gibi kullanılıyorsa `true`, kullanılmıyorsa değer `false` olacaktır.
+* `invertedColorScheme` Boolean - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is being used, `false` otherwise.
+
+### Event: 'high-contrast-color-scheme-changed' *Windows*
+
+Dönüşler:
+
+* `event` Olay
+* `highContrastColorScheme` Boolean - `true` if a high contrast theme is being used, `false` otherwise.
 
 ### Event: 'appearance-changed' *macOS*
 
-Dönüşler:
+Döndürür:
 
 * `newAppearance` String - Can be `dark` or `light`
 
@@ -51,10 +58,11 @@ Sistemin karanlık modda olup olmadığına dair `Boolean` döndürür.
 
 Sayfalar arasında kaydırma ayarı açık olup olmadığına dair `Boolean` döndürür.
 
-### `systemPreferences.postNotification(event, userInfo)` *macOS*
+### `systemPreferences.postNotification(event, userInfo[, deliverImmediately])` *macOS*
 
 * `event` String
 * `userInfo` Object
+* `deliverImmediately` Boolean (optional) - `true` to post notifications immediately even when the subscribing app is inactive.
 
 `event`'ı macOS'un yerel bildirimleriymiş gibi gönderir. `userInfo` bildirimle birlikte gönderilen kullanıcı bilgileri sözlüğünü içeren bir nesnedir.
 
@@ -201,7 +209,7 @@ if (browserOptions.transparent) {
 }
 ```
 
-### `systemPreferences.getAccentColor()` *Windows*
+### `systemPreferences.getAccentColor()` *Windows* *macOS*
 
 RGBA'da onaltılık formda kullanıcıların mevcut sistemindeki geniş vurgulu renk tercihini `String` olarak döndürür.
 
@@ -213,45 +221,101 @@ const blue = color.substr(4, 2) // "cc"
 const alpha = color.substr(6, 2) // "dd"
 ```
 
-### `systemPreferences.getColor(color)` *Windows*
+This API is only available on macOS 10.14 Mojave or newer.
+
+### `systemPreferences.getColor(color)` *Windows* *macOS*
 
 * `color` String - aşağıdaki değerlerden biri: 
-  * `3d-dark-shadow` - Üç boyutlu görüntüleme öğeleri için koyu renkli gölge.
-  * `3d-face` - Üç boyutlu görüntüleme öğeleri ve diyalog için yüz rengi kutu arka planları.
-  * `3d-highlight` - Üç boyutlu görüntüleme öğeleri için vurgulama rengi.
-  * `3d-light` - Üç boyutlu görüntüleme elemanları için açık renk.
-  * `3d-shadow` - Üç boyutlu görüntüleme öğeleri için gölge rengi.
-  * `active-border` - Etkin pencere kenarı.
-  * `active-caption` - Etkin pencere başlık çubuğu. Eğer gradient efekt aktifse aktif pencerenin başlık barındaki gradient rengin sol taraftaki rengini belirtir.
-  * `active-caption-gradient` - Aktif pencerenin başlık barının gradient renginin içindeki sağ taraf rengi.
-  * `app-workspace` Çoklu dosya arayürüz (MDI) uygulamlarının arkaplan rengi.
-  * `button-text` - Push butonlarındaki yazı.
-  * `caption-text` - Başlığın içindeki yazı, boyut kutusu ve kaydırma çubuğu ok kutusu.
-  * `desktop` - Masaüstü arkaplan rengi.
-  * `disabled-text` - Gri (devre dışı) metin.
-  * `highlight` - Bir kontrolde seçilen öğe(ler).
-  * `highlight-text` - Bir kontrol içindeki seçilen öğe(ler)'nin yazısı.
-  * `hotlight` - Bir hot-tracked öğe veya hyperlink için renk.
-  * `inactive-border` - Aktif olmayan pencere kenarı.
-  * `inactive-caption` - Aktif olmayan pencere başlığı. Eğer gradient efekt aktifse aktif pencerenin başlık barındaki gradient rengin sol taraftaki rengini belirtir.
-  * `inactive-caption-gradient` - Aktif olmayan pencerenin başlık barının gradient renginin içindeki sağ taraf rengi.
-  * `inactive-caption-text` - Aktif olmayan bir altyazıdaki metin rengi.
-  * `info-background` - Araç ipucu denetimleri için arka plan rengi.
-  * `info-text` - Araç ipucu denetimleri için yazı rengi.
-  * `menu` - Menü arkaplanı.
-  * `menu-highlight` - Menü öğelerini vurgulamak için kullanılan renk düz bir menü olarak görünür.
-  * `menubar` - Menüler düz olarak göründüğünde menü çubuğunun arkaplan rengi.
-  * `menu-text` - Menüdeki yazılar.
-  * `scrollbar` - Kaydırma çubuğu gri alanı.
-  * `window` - Pencere arkaplanı.
-  * `window-frame` - Pencere çerçevesi.
-  * `window-text` - Pencerelerdeki yazılar.
+  * On **Windows**: 
+    * `3d-dark-shadow` - Üç boyutlu görüntüleme öğeleri için koyu renkli gölge.
+    * `3d-face` - Üç boyutlu görüntüleme öğeleri ve diyalog için yüz rengi kutu arka planları.
+    * `3d-highlight` - Üç boyutlu görüntüleme öğeleri için vurgulama rengi.
+    * `3d-light` - Üç boyutlu görüntüleme elemanları için açık renk.
+    * `3d-shadow` - Üç boyutlu görüntüleme öğeleri için gölge rengi.
+    * `active-border` - Etkin pencere kenarı.
+    * `active-caption` - Etkin pencere başlık çubuğu. Eğer gradient efekt aktifse aktif pencerenin başlık barındaki gradient rengin sol taraftaki rengini belirtir.
+    * `active-caption-gradient` - Aktif pencerenin başlık barının gradient renginin içindeki sağ taraf rengi.
+    * `app-workspace` Çoklu dosya arayürüz (MDI) uygulamlarının arkaplan rengi.
+    * `button-text` - Push butonlarındaki yazı.
+    * `caption-text` - Başlığın içindeki yazı, boyut kutusu ve kaydırma çubuğu ok kutusu.
+    * `desktop` - Masaüstü arkaplan rengi.
+    * `disabled-text` - Gri (devre dışı) metin.
+    * `highlight` - Bir kontrolde seçilen öğe(ler).
+    * `highlight-text` - Bir kontrol içindeki seçilen öğe(ler)'nin yazısı.
+    * `hotlight` - Bir hot-tracked öğe veya hyperlink için renk.
+    * `inactive-border` - Aktif olmayan pencere kenarı.
+    * `inactive-caption` - Aktif olmayan pencere başlığı. Eğer gradient efekt aktifse aktif pencerenin başlık barındaki gradient rengin sol taraftaki rengini belirtir.
+    * `inactive-caption-gradient` - Aktif olmayan pencerenin başlık barının gradient renginin içindeki sağ taraf rengi.
+    * `inactive-caption-text` - Aktif olmayan bir altyazıdaki metin rengi.
+    * `info-background` - Araç ipucu denetimleri için arka plan rengi.
+    * `info-text` - Araç ipucu denetimleri için yazı rengi.
+    * `menu` - Menü arkaplanı.
+    * `menu-highlight` - Menü öğelerini vurgulamak için kullanılan renk düz bir menü olarak görünür.
+    * `menubar` - Menüler düz olarak göründüğünde menü çubuğunun arkaplan rengi.
+    * `menu-text` - Menüdeki yazılar.
+    * `scrollbar` - Kaydırma çubuğu gri alanı.
+    * `window` - Pencere arkaplanı.
+    * `window-frame` - Pencere çerçevesi.
+    * `window-text` - Pencerelerdeki yazılar.
+  * On **macOS** 
+    * `alternate-selected-control-text` - The text on a selected surface in a list or table.
+    * `control-background` - The background of a large interface element, such as a browser or table.
+    * `control` - The surface of a control.
+    * `control-text` -The text of a control that isn’t disabled.
+    * `disabled-control-text` - The text of a control that’s disabled.
+    * `find-highlight` - The color of a find indicator.
+    * `grid` - The gridlines of an interface element such as a table.
+    * `header-text` - The text of a header cell in a table.
+    * `highlight` - The virtual light source onscreen.
+    * `keyboard-focus-indicator` - The ring that appears around the currently focused control when using the keyboard for interface navigation.
+    * `label` - The text of a label containing primary content.
+    * `link` - A link to other content.
+    * `placeholder-text` - A placeholder string in a control or text view.
+    * `quaternary-label` - The text of a label of lesser importance than a tertiary label such as watermark text.
+    * `scrubber-textured-background` - The background of a scrubber in the Touch Bar.
+    * `secondary-label` - The text of a label of lesser importance than a normal label such as a label used to represent a subheading or additional information.
+    * `selected-content-background` - The background for selected content in a key window or view.
+    * `selected-control` - The surface of a selected control.
+    * `selected-control-text` - The text of a selected control.
+    * `selected-menu-item` - The text of a selected menu.
+    * `selected-text-background` - The background of selected text.
+    * `selected-text` - Selected text.
+    * `separator` - A separator between different sections of content.
+    * `shadow` - The virtual shadow cast by a raised object onscreen.
+    * `tertiary-label` - The text of a label of lesser importance than a secondary label such as a label used to represent disabled text.
+    * `text-background` - Text background.
+    * `text` - The text in a document.
+    * `under-page-background` - The background behind a document's content.
+    * `unemphasized-selected-content-background` - The selected content in a non-key window or view.
+    * `unemphasized-selected-text-background` - A background for selected text in a non-key window or view.
+    * `unemphasized-selected-text` - Selected text in a non-key window or view.
+    * `window-background` - The background of a window.
+    * `window-frame-text` - The text in the window's titlebar area. 
 
-RGB onaltılık form (`#ABCDEF`) içindeki sistem renk ayarlarını `String` olarak döndürür. Daha fazla bilgi için [Windows Dokümanlarına](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) bakın.
+RGB onaltılık form (`#ABCDEF`) içindeki sistem renk ayarlarını `String` olarak döndürür. See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) and the [MacOS docs](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors) for more details.
+
+### `systemPreferences.getSystemColor(color)` *macOS*
+
+* `color` String - aşağıdaki değerlerden biri: 
+  * `blue`
+  * `brown`
+  * `gray`
+  * `green`
+  * `orange`
+  * `pink`
+  * `purple`
+  * `red`
+  * `yellow`
+
+Returns one of several standard system colors that automatically adapt to vibrancy and changes in accessibility settings like 'Increase contrast' and 'Reduce transparency'. See [Apple Documentation](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#system-colors) for more details.
 
 ### `systemPreferences.isInvertedColorScheme()` *Windows*
 
-Eğer ters kontrastlı bir renk şeması yüksek kontrast tema gibi ve etkin ise `true` aksi halde `false` `Boolean` değerini döndürecektir.
+Returns `Boolean` - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is active, `false` otherwise.
+
+### `systemPreferences.isHighContrastColorScheme()` *Windows*
+
+Returns `Boolean` - `true` if a high contrast theme is active, `false` otherwise.
 
 ### `systemPreferences.getEffectiveAppearance()` *macOS*
 

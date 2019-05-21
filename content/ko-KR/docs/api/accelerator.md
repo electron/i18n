@@ -52,6 +52,8 @@ Linux와 Windows에서는 `Command`키가 없으므로 작동하지 않습니다
 * `Plus`
 * `Space`
 * `Tab`
+* `Capslock`
+* `Numlock`
 * `Backspace`
 * `Delete`
 * `Insert`
@@ -63,3 +65,10 @@ Linux와 Windows에서는 `Command`키가 없으므로 작동하지 않습니다
 * `VolumeUp`, `VolumeDown` 그리고 `VolumeMute`
 * `MediaNextTrack`, `MediaPreviousTrack`, `MediaStop` 그리고 `MediaPlayPause`
 * `PrintScreen`
+* 숫자패드 키 
+  * `num0` - `num9`
+  * `numdec` - decimal key
+  * `numadd` - 숫자패드 `+` 키
+  * `numsub` - 숫자패드 `-` 키
+  * `nummult` - 숫자패드 `*` 키
+  * `numdiv` - 숫자패드 `÷` 키

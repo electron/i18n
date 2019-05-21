@@ -42,35 +42,37 @@ Electronのドキュメント（英語）を書くためのガイドラインで
 
 ## Markdown のルール
 
-* コードブロックで`cmd`の代わりに`sh`を使用します（構文ハイライトのため）。
-* 行は80列で囲む必要があります。
-* 2レベル以上のネストリストはありません（マークダウンレンダラーのため）。
-* すべての`js`と`javascript`コードブロックは、[standard-markdown](http://npm.im/standard-markdown)。
+* コードブロックでは `cmd` の代わりに `sh` を使用します (構文ハイライトのため)。
+* 行は 80 列で折り返す必要があります。
+* 2 階層以上にネストしたリストは使用できません (Markdown レンダラーのため)。
+* すべての `js` と `javascript` コードブロックは、[standard-markdown](http://npm.im/standard-markdown) によって整形されます。
 
 ## 使用する言葉
 
-* Use "will" over "would" when describing outcomes.
-* Prefer "in the ___ process" over "on".
+* 結果を説明するときは、「なるでしょう」より「なります」を使用します。
+* 「プロセス上」より「プロセス内」が望ましいです。
 
 ## API リファレンス
 
-The following rules only apply to the documentation of APIs.
+以下のルールは、API のドキュメントにのみ適用されます。
 
 ### ページのタイトル
 
-Each page must use the actual object name returned by `require('electron')` as the title, such as `BrowserWindow`, `autoUpdater`, and `session`.
+各ページは `require('electron')` によって返される実際のオブジェクト名をタイトルに使用しなければなりません。`BrowserWindow` や `autoUpdater` や `session` のようにします。
 
-Under the page title must be a one-line description starting with `>`.
+ページタイトルの下は、`>` で始まる一行の説明でなければなりません。
 
-Using `session` as example:
+`session` を例にすると、このようになります。
 
 ```markdown
-ブラウザーセッション、クッキー、キャッシュ、プロキシの設定などを管理します。
+# session
+
+> ブラウザーセッション、Cookie、キャッシュ、プロキシ設定などを管理します。
 ```
 
 ### モジュールメソッドとイベント
 
-For modules that are not classes, their methods and events must be listed under the `## Methods` and `## Events` chapters.
+モジュールはクラスではありません。そのメソッドとイベントは `## Methods` と `## Events` の章の下に列挙しなければなりません。
 
 `autoUpdater` を例にすると、以下のようになります。
 
@@ -88,18 +90,18 @@ For modules that are not classes, their methods and events must be listed under 
 
 ### クラス
 
-* モジュールの一部となるAPI クラスは`## Class: TheClassName` の章にリストアップしなければなりません。
-* 1ページに複数のクラスがあってもよい。
-* Constructors は`###`-レベルのタイトルでリストアップされなければなりません。
-* [静的メソッド](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static)は`### 静的メソッド`の章以下にリストアップしなければなりません。
-* [インスタンスメソッド](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods)は`### インスタンスメソッド`の章以下にリストアップしなければなりません。
-* All methods that have a return value must start their description with "Returns `[TYPE]` - Return description" 
-  * If the method returns an `Object`, its structure can be specified using a colon followed by a newline then an unordered list of properties in the same style as function parameters.
-* Instance Events must be listed under an `### Instance Events` chapter.
-* Instance Properties must be listed under an `### インスタンスプロパティ` chapter. 
-  * Instance properties must start with "A [Property Type] ..."
+* API のクラスやモジュールの一部の API クラスは `## Class: クラス名` の章の下に列挙しなければなりません。
+* 1 ページに複数のクラスがあってもかまいません。
+* Constructors は `###` 階層のタイトルで列挙されなければなりません。
+* [Static Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes/static) は `### Static Methods` の章の下に列挙しなければなりません。
+* [Instance Methods](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Prototype_methods) は `### Instance Methods` の章の下にリストアップしなければなりません。
+* 戻り値があるすべてのメソッドを説明するときは、このように始めます。「戻り値 `[TYPE]` - 戻り値の説明」 
+  * メソッドが `Object` を返す場合、その構造を記述します。コロンとそれに続く改行、そして関数の引数と同じスタイルでプロパティの順不同リストにします。
+* Instance Events は `### Instance Events` の章の下に列挙しなければなりません。
+* Instance Properties は `### Instance Properties` の章の下に列挙しなければなりません。 
+  * Instance Properties は "A [プロパティの型] ..." で始まらなければなりません。
 
-Using the `Session` and `Cookies` classes as an example:
+`Session` と `Cookies` クラスを例にすると、以下のようにします。
 
 ```markdown
 # session
@@ -120,7 +122,7 @@ Using the `Session` and `Cookies` classes as an example:
 
 ### Instance Methods
 
-#### `ses.getCacheSize(callback)`
+#### `ses.getCacheSize()`
 
 ### Instance Properties
 
@@ -146,36 +148,36 @@ Using the `Session` and `Cookies` classes as an example:
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a method of a module or a class.
+タイトルが `###` 階層か `####` 階層かは、メソッドがモジュール内かクラス内かに依存しています。
 
-For modules, the `objectName` is the module's name. For classes, it must be the name of the instance of the class, and must not be the same as the module's name.
+モジュールでは、`objectName` がモジュールの名前です。クラスでは、クラスのインスタンスの名前にするべきで、モジュールの名前と同じではいけません。
 
-For example, the methods of the `Session` class under the `session` module must use `ses` as the `objectName`.
+例として、`session` モジュール下の `Session` クラスのメソッドは `ses` を `objectName` として使用しなければなりません。
 
-The optional arguments are notated by square brackets `[]` surrounding the optional argument as well as the comma required if this optional argument follows another argument:
+任意の引数は、引数とその後に別の引数が続く場合に必要なコンマを囲む角括弧 `[]` で示されます。
 
 ```sh
-required[, optional]
+必須[, 任意]
 ```
 
-Below the method is more detailed information on each of the arguments. The type of argument is notated by either the common types:
+メソッドの下は、それぞれの引数に関する詳細情報です。引数の型は次のいずれかの一般的な型によって表記されます。
 
 * [`String`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String)
 * [`Number`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Number)
 * [`Object`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object)
 * [`Array`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array)
 * [`Boolean`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Boolean)
-* Or a custom type like Electron's [`WebContent`](api/web-contents.md)
+* Electron の [`WebContent`](api/web-contents.md) のようなカスタム型
 
-If an argument or a method is unique to certain platforms, those platforms are denoted using a space-delimited italicized list following the datatype. Values can be `macOS`, `Windows` or `Linux`.
+引数またはメソッドが特定のプラットフォーム固有のものである場合、そのプラットフォームはデータ型に続くスペース区切りのイタリック体リストを用いて示されます。 値は `macOS`、`Windows`、`Linux` にできます。
 
 ```markdown
-* `animate` Boolean (optional) _macOS_ _Windows_ - Animate the thing.
+* `animate` Boolean (任意) _macOS_ _Windows_ - ものをアニメーションします。
 ```
 
-`Array` type arguments must specify what elements the array may include in the description below.
+`Array` 型引数は、その下の説明で含められる要素を規定する必要があります。
 
-The description for `Function` type arguments should make it clear how it may be called and list the types of the parameters that will be passed to it.
+`Function` 型引数の説明は、それがどのように呼ばれるのかを明確にし、それに渡される引数の型を列挙しなければなりません。
 
 ### イベント
 
@@ -191,9 +193,9 @@ Returns:
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is an event of a module or a class.
+タイトルが `###` 階層か `####` 階層かは、イベントがモジュール内かクラス内かに依存しています。
 
-The arguments of an event follow the same rules as methods.
+イベントの引数についてはメソッドと同じルールに従います。
 
 ### プロパティ
 
@@ -205,7 +207,7 @@ The arguments of an event follow the same rules as methods.
 ...
 ```
 
-The title can be `###` or `####`-levels depending on whether it is a property of a module or a class.
+タイトルが `###` 階層か `####` 階層かは、プロパティがモジュール内かクラス内かに依存しています。
 
 ## ドキュメントの翻訳
 

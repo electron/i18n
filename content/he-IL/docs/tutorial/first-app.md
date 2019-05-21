@@ -1,6 +1,6 @@
 # Writing Your First Electron App
 
-Electron enables you to create desktop applications with pure JavaScript by providing a runtime with rich native (operating system) APIs. You could see it as a variant of the Node.js runtime that is focused on desktop applications instead of web servers.
+אלקטרון מאפשרת לך ליצור אפליקציות desktop ב-JavaScript טהור על ידי שימוש בסביבת הרצה בעלת API native(מערכת ההפעלה) עשיר. אפשר לראות אותו כסוג של סביבת Node.js שמתרכזת באפליקציות desktop במקום שרתי web.
 
 This doesn't mean Electron is a JavaScript binding to graphical user interface (GUI) libraries. Instead, Electron uses web pages as its GUI, so you could also see it as a minimal Chromium browser, controlled by JavaScript.
 
@@ -82,7 +82,13 @@ const { app, BrowserWindow } = require('electron')
 
 function createWindow () {
   // Create the browser window.
-  let win = new BrowserWindow({ width: 800, height: 600 })
+  let win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true
+    }
+  })
 
   // and load the index.html of the app.
   win.loadFile('index.html')
@@ -102,7 +108,13 @@ let win
 
 function createWindow () {
   // Create the browser window.
-  win = new BrowserWindow({ width: 800, height: 600 })
+  win = new BrowserWindow({
+    width: 800,
+    height: 600,
+    webPreferences: {
+      nodeIntegration: true
+    }
+  })
 
   // and load the index.html of the app.
   win.loadFile('index.html')

@@ -12,6 +12,7 @@ Electron の `process` オブジェクトは、[Node.js `process` object](https:
 
 * `crash()`
 * `hang()`
+* `getCreationTime()`
 * `getHeapStatistics()`
 * `getProcessMemoryInfo()`
 * `getSystemMemoryInfo()`
@@ -23,7 +24,6 @@ Electron の `process` オブジェクトは、[Node.js `process` object](https:
 * `pid`
 * `arch`
 * `platform`
-* `resourcesPath`
 * `sandboxed`
 * `type`
 * `version`
@@ -55,6 +55,10 @@ process.once('loaded', () => {
 
 `Boolean`。デフォルトアプリに、引数として渡されてアプリが起動されると、このプロパティはメインプロセス内で `true` になります。それ以外では `undefined` です。
 
+### `process.isMainFrame`
+
+A `Boolean`, `true` when the current renderer context is the "main" renderer frame. If you want the ID of the current frame you should use `webFrame.routingId`.
+
 ### `process.mas`
 
 `Boolean`。Mac App Store ビルドの場合、このプロパティは `true`、他のビルドでは `undefined` です。
@@ -66,6 +70,10 @@ process.once('loaded', () => {
 ### `process.noDeprecation`
 
 非推奨の警告が `stderr` へ出力されるかどうかを制御する `Boolean`。 これを `true` に設定すると非推奨の警告が無効になります。 `--no-deprecation` コマンドラインフラグの代わりにこのプロパティを使用します。
+
+### `process.enablePromiseAPIs`
+
+A `Boolean` that controls whether or not deprecation warnings are printed to `stderr` when formerly callback-based APIs converted to Promises are invoked using callbacks. Setting this to `true` will enable deprecation warnings.
 
 ### `process.resourcesPath`
 
@@ -89,7 +97,7 @@ process.once('loaded', () => {
 
 ### `process.type`
 
-現在のプロセスのタイプを表す `String`。`"browser"` (即ちメインプロセス) または ` "renderer"` になります。
+A `String` representing the current process's type, can be `"browser"` (i.e. main process), `"renderer"`, or `"worker"` (i.e. web worker).
 
 ### `process.versions.chrome`
 

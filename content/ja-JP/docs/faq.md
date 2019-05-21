@@ -137,3 +137,24 @@ npm uninstall -g electron
 ```
 
 しかし、組み込みモジュールを使用しているのに、まだこのエラーが出る場合、不適切なプロセスでモジュールを使用しようとしている可能性が高いです。 たとえば、 `electron.app`はメインプロセスでのみ利用でき、また `electron.webFrame`はレンダラプロセスでのみ利用できます。
+
+## フォントがぼやけます。これはどういうものでどうすればいいのですか?
+
+[サブピクセルアンチエイリアス](http://alienryderflex.com/sub_pixel/) が無効だと、液晶画面上のフォントはぼやけて見えます。以下がその例です。
+
+![サブピクセルレンダリングのサンプル](images/subpixel-rendering-screenshot.gif)
+
+サブピクセルアンチエイリアスは不透明なレイヤーの背景が必要で、そのレイヤーはフォントグリフを含みます。 (詳しくは [この issue](https://github.com/electron/electron/issues/6344#issuecomment-420371918) を参照してください)。
+
+目的を達成するには、[BrowserWindow](api/browser-window.md) のコンストラクタで背景を設定します。
+
+```javascript
+const { BrowserWindow } = require('electron')
+let win = new BrowserWindow({
+  backgroundColor: '#fff'
+})
+```
+
+この効果は (いくつかの?) 液晶画面上でのみ見られます。あなたに違いが分からなくても、ユーザの何人かにはわかるでしょう。この背景を設定する手段は、そうしてはいけない理由がない限り、最も優れています。
+
+CSS で背景を設定するだけでは期待する効果はないことに注意してください。

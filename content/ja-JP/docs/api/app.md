@@ -274,7 +274,7 @@ app.on('select-client-certificate', (event, webContents, url, list, callback) =>
 
 `webContents` がBasic認証を要求すると発生します。
 
-既定の動作では、全ての認証を取り消しますが、これを変更するには、`event.preventDefault()` で既定の動作をキャンセルして、資格情報と共に `callback(username, password)` を呼び出すようにしてください。
+既定の動作では、全てに認証をキャンセルします。 これを変更するには、`event.preventDefault()` で既定の動作をキャンセルして、資格情報と共に `callback(username, password)` を呼び出すようにしてください。
 
 ```javascript
 const { app } = require('electron')
@@ -330,6 +330,17 @@ app.on('session-created', (event, session) => {
 このイベントは、2つ目のインスタンスが実行されたときにアプリケーションの1つ目のインスタンス内で発火されます。 `argv` は2番目のインスタンスのコマンドライン引数の配列で、`workingDirectory` はその現在の作業ディレクトリです。 通常、アプリケーションはこれに対して1番目のウインドウにフォーカスを当て、最小化しないように対応します。
 
 このイベントは `app` の `ready` イベントが発生した後で実行されることが保証されます。
+
+**注意:** Chromiumがコマンドライン引数を追加することがあります。例えば、`--original-process-start-time`があります。
+
+### イベント: 'desktop-capturer-get-sources'
+
+戻り値:
+
+* `event` Event
+* `webContents` [WebContents](web-contents.md)
+
+Emitted when `desktopCapturer.getSources()` is called in the renderer process of `webContents`. Calling `event.preventDefault()` will make it return empty sources.
 
 ### イベント: 'remote-require'
 
@@ -503,6 +514,28 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
 
 *Linux* と *macOS* の場合、アイコンはファイルのMIMEタイプに関連付けられたアプリケーションによって決まります。
 
+**[非推奨予定](promisification.md)**
+
+### `app.getFileIcon(path[, options])`
+
+* `path` String
+* `options` Object (任意) 
+  * `size` String 
+    * `small` - 16x16
+    * `normal` - 32x32
+    * `large` - *Linux* の場合、48x48、*Windows*の場合、32x32、macOSの場合はサポートされていません。
+
+`Promise<NativeImage>`を返す - [NativeImage](native-image.md)でアプリのアイコンを埋めます。
+
+パスに関連付けられているアイコンを取得します。
+
+*Windows* の場合、2種類のアイコンがあります。
+
+* `.mp3`、`.png` など、特定のファイル拡張子に関連付けられたアイコン。
+* `.exe`、`.dll`、`.ico` のような、ファイル自体に含まれるアイコン。
+
+*Linux* と *macOS* の場合、アイコンはファイルのMIMEタイプに関連付けられたアプリケーションによって決まります。
+
 ### `app.setPath(name, path)`
 
 * `name` String
@@ -539,6 +572,12 @@ Linuxでは、最初の可視ウインドウにフォーカスを当てます。
 **注:** アプリをパッケージ化して配布する場合、`locales` フォルダを同梱する必要があります。
 
 **Note:**Windows の `準備ができて` のイベントが出力される後を呼び出すことがあります。
+
+### `app.getLocaleCountryCode()`
+
+`string`を返します。 - 2文字の[ISO 3166](https://www.iso.org/iso-3166-country-codes.html) の国コードで、ユーザーのOSのロケールを示します。この値はネィティブのOS APIから取得します。
+
+**注意:** ロケールの国コードを取得できなかった場合、これは空文字列を返します。
 
 ### `app.addRecentDocument(path)` *macOS* *Windows*
 
@@ -909,20 +948,22 @@ app.setLoginItemSettings({
 
 **注:** アクセシビリティツリーをレンダリングすると、アプリのパフォーマンスに顕著な影響を与える可能性があります。既定で有効にすべきではありません。
 
-### `app.showAboutPanel()` *macOS*
+### `app.showAboutPanel` *macOS* *Linux*
 
-アプリの `.plist` ファイルで定義されている値、または `app.setAboutPanelOptions(options)` で設定されているオプションを使用して、「〜について」パネルを表示します。
+アプリのパネルオプションを示します。このオプションは `app.setAboutPanelOptions(options)`で上書きできます。
 
-### `app.setAboutPanelOptions(options)` *macOS*
+### `app.setAboutPanelOptions(options)` *macOS* *Linux*
 
 * `options` Object 
   * `applicationName` String (任意) - アプリの名前。
   * `applicationVersion` String (任意) - アプリのバージョン。
   * `copyright` String (任意) - 著作権情報。
-  * `credits` String (任意) - クレジット情報.
-  * `version` String (任意) - アプリのビルドバージョン番号。
+  * `version` String (任意) - アプリのビルドバージョン番号。*macOS*
+  * `credits` String (任意) - クレジット情報.*macOS*
+  * `website` String (任意) - アプリのウェブサイト *Linux*
+  * `iconPath` String (任意) - アプリのアイコンへのパス. *Linux*
 
-Aboutパネルのオプションを設定します。 これはアプリの `.plist` ファイルで定義された値を上書きします。 詳細については、[Apple社のドキュメント](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) を参照してください。
+Aboutパネルのオプションを設定します。 これは macOSの場合、アプリの `.plist` ファイルで定義された値を上書きします。 詳細については、[Apple社のドキュメント](https://developer.apple.com/reference/appkit/nsapplication/1428479-orderfrontstandardaboutpanelwith?language=objc) を参照してください。 Linuxの場合、表示するために値をセットしなければなりません。デフォルトの値はありません。
 
 ### `app.startAccessingSecurityScopedResource(bookmarkData)` *macOS (mas)*
 
@@ -956,15 +997,23 @@ Chromiumのコマンドラインに引数を追加します。引数は正しく
 
 **注:** これは`process.argv` に影響を与えません。
 
+### `app.commandLine.hasSwitch(switch)`
+
+* `switch` String - コマンドラインスイッチ
+
+戻り値 `Boolean` - コマンドラインスイッチがあるかどうか。
+
+### `app.commandLine.getSwitchValue(switch)`
+
+* `switch` String - コマンドラインスイッチ
+
+戻り値 `String` - コマンドラインスイッチの値
+
+**注意:** スイッチのない場合、これは空文字列を返す。
+
 ### `app.enableSandbox()` *Experimental* *macOS* *Windows*
 
 アプリで完全サンドボックスモードを有効にします。
-
-このメソッドはアプリが ready になる前だけでしか呼び出すことができません。
-
-### `app.enableMixedSandbox()` *Experimental* *macOS* *Windows*
-
-アプリで混在サンドボックスモードを有効にします。
 
 このメソッドはアプリが ready になる前だけでしか呼び出すことができません。
 

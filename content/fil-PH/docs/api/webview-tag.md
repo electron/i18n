@@ -4,6 +4,10 @@
 
 Electron's `webview` tag is based on [Chromium's `webview`](https://developer.chrome.com/apps/tags/webview), which is undergoing dramatic architectural changes. This impacts the stability of `webviews`, including rendering, navigation, and event routing. We currently recommend to not use the `webview` tag and to consider alternatives, like `iframe`, Electron's `BrowserView`, or an architecture that avoids embedded content altogether.
 
+## Enabling
+
+By default the `webview` tag is disabled in Electron >= 5. You need to enable the tag by setting the `webviewTag` webPreferences option when constructing your `BrowserWindow`. For more information see the [BrowserWindow constructor docs](browser-window.md).
+
 ## Overview
 
 > Ipakita ang panlabas na nilalaman ng web sa mga liblib na anyu at proseso.
@@ -51,7 +55,7 @@ Under the hood `webview` is implemented with [Out-of-Process iframes (OOPIFs)](h
 So the behavior of `webview` is very similar to a cross-domain `iframe`, as examples:
 
 * When clicking into a `webview`, the page focus will move from the embedder frame to `webview`.
-* You can not add keyboard event listeners to `webview`.
+* You can not add keyboard, mouse, and scroll event listeners to `webview`.
 * All reactions between the embedder frame and `webview` are asynchronous.
 
 ## Mga pamamaraan ng CSS notes
@@ -89,6 +93,14 @@ Habang ang katangian na ito ay naroroon sa `webview` kontayner ay magiging awtom
 ```
 
 Kapag itong katangian ay mayroon sa pahina ng panauhin sa `webview` ay magkakaroon ng integrasyon sa nod ang maaring maggamit sa node APIs tulad `require` at `process` para maka-access sa maliliit na lebel sa antas ng sistema. Integarason sa node ay hindi pinagana batay sa default ng pahina nag panauhin.
+
+### `nodeintegrationinsubframes`
+
+```html
+<webview src="http://www.google.com/" nodeintegrationinsubframes></webview>
+```
+
+Experimental option for enabling NodeJS support in sub-frames such as iframes inside the `webview`. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not. This option is disabled by default in the guest page.
 
 ### `enableremotemodule`
 
@@ -242,7 +254,7 @@ Nagbabalik `Boolean` - Kung ang pahina ng panauhin ay naghihintay ng unang-sagot
 
 ### `<webview>.stop()`
 
-Nagtitigil ng anumang nakabingbing na nabigasyon.
+Hinihinto ang anumang nakabinbing nabigasyon.
 
 ### `<webview>.reload()`
 
@@ -292,7 +304,7 @@ Ang nabigasyon sa tinutukoy na offset galing sa "kasalukuyang entri".
 
 ### `<webview>.isCrashed()`
 
-Nagbabalik `Boolean` - Kung saan ang proseso ng tagapagbigay ay nasira.
+Ibinabalik `Boolean` - Kapag ang proseso ng tagapag-render ay nawasak.
 
 ### `<webview>.setUserAgent(userAgent)`
 
@@ -448,7 +460,7 @@ Inimprinta ang web page ng `webview`. Pareho sa `webContents.print([options])`.
 
 ### `<webview>.printToPDF(options, callback)`
 
-* `mga opsyon` Bagay 
+* `options` Bagay 
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Pwedeng `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` o ang Objek na mayroong `height` at `width` na naka-micron.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
@@ -462,11 +474,21 @@ Iniimprinta ang web page ng `webview` bilang PDF, Pareho sa `webContents.printTo
 
 ### `<webview>.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (opsyonal) - Ang kabuuan ng page na kukuhanin.
+* `rect` [Rectangle](structures/rectangle.md) (opsyonal) - Para ma-makuha ang bounds
 * `callback` Function 
   * `image` [NativeImage](native-image.md)
 
-Kumukuha ng larawan sa page ng `webview`. Pareho sa `webContents.capturePage([rect, ]callback)`.
+Kumukuha ng isang snapshot ng pahina sa loob ng `rect`. Sa oras na makumpleto `callback` ay tatawagan `callback(imahe)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
+
+**[Deprecated Soon](promisification.md)**
+
+### `<webview>.capturePage([rect])`
+
+* `rect` [Rectangle](structures/rectangle.md) (opsyonal) - Ang kabuuan ng page na kukuhanin.
+
+* Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+
+Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
 
 ### `<webview>.send(channel[, arg1][, arg2][, ...])`
 
@@ -497,19 +519,13 @@ Binabago ang factor ng pag-zoom sa tinukoy na factor. Ang factor ng pag-zoom ay 
 
 Binabago ang antas ng pag-zoom para sa tinitiyak na antas. Ang orihinal na laki ng 0 at bawat isa Ang pagdagdag sa pagtaas o sa pagbaba ay kumakatawan sa pag-zooming ng 20% na mas malaki o mas maliit sa default mga limitasyon ng 300% at 50% ng orihinal na laki, ayon sa pagkakabanggit. The formula for this is `scale := 1.2 ^ level`.
 
-### `<webview>.getZoomFactor(callback)`
+### `<webview>.getZoomFactor()`
 
-* `callback` Punsyon 
-  * `zoomFactor` Numero
+Returns `Number` - the current zoom factor.
 
-Nagpapadala ng kahilingan upang makakuha ng kasalukuyang factor ng pag-zoom, `callback `ay tinatawag na `callback(zoomFactor)`.
+### `<webview>.getZoomLevel()`
 
-### `<webview>.getZoomLevel(callback)`
-
-* `callback` Function 
-  * `zoomLevel` Numero
-
-Tinatapos ang isang kahilingan upang makakuha ng kasalukuyang antas sa pag-zoom,`callback`ay tinatawag na `callback(zoomLevel)`.
+Returns `Number` - the current zoom level.
 
 ### `<webview>.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
@@ -548,7 +564,7 @@ Ibinabalik ang:
 
 Itinitigil agad kapag nacommit ang load. Sinasama nito ang nabigasyon na nasa kasalukuyang dokumento pati na ang mga load ng subframe na nasa lebel ng dokumento, pero di kasama ang mga load ng asynchronous resource.
 
-### Event: 'did-finish-load'
+### Kaganapan: 'ginawa-tapusin-dala'
 
 Itigil kapag natapos na ang nabigasyon, i.e. ang taga-ikot ng tab ay huminto sa pag-ikot, at ang event na `onload` ay na-dispatch.
 
@@ -559,7 +575,7 @@ Ibinabalik ang:
 * `pagkakamalingCode`kabuuan
 * `Paglalarawan ng pagkakamali`tali
 * `napatunayan sa Url`tali
-* `isMainFrame` Boolean
+* `ay pangunahing kuwadro` Boolean
 
 Ang event na ito ay tulad ng `did-finish-load`, pero natigil nung nag-fail ang load o nakansela, e.g. `window.stop()` ay na-invoke.
 
@@ -636,7 +652,7 @@ Ibinabalik ang:
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Posisyon ng aktibong tugma.
   * `tugma` Integer - Bilang ng Mga Tugma.
-  * `selectionArea` Objek - Mga coordinate ng unang tugmang parte.
+  * `selectionArea` Layunin - Coordinates ng unang rehiyon ng pagtutugma.
   * `finalUpdate` Boolean
 
 Itigil kung meron ng resulta sa hinihingi ng [`webview.findInPage`](#webviewfindinpagetext-options).
@@ -671,7 +687,7 @@ const webview = document.querySelector('webview')
 webview.addEventListener('new-window', (e) => {
   const protocol = require('url').parse(e.url).protocol
   if (protocol === 'http:' || protocol === 'https:') {
-    shell.openExternal(e.url)
+    shell.openExternalSync(e.url)
   }
 })
 ```
@@ -690,7 +706,7 @@ Ito ay hindi rin ilalabas habang nasa nabigasyon sa loog ng page, gaya ng pag-cl
 
 Tinatawag ang `event.preventDefault()` na may **NOT** mga epekto.
 
-### Event: 'did-navigate'
+### Kaganapan: 'ginawa-navigate'
 
 Ibinabalik ang:
 
@@ -711,7 +727,7 @@ Inilalabas kapag nangyari ang pag-navigate sa pahina.
 
 Kapag nangyayari ang pag-navigate sa pahina, ang pahina ng URL ay nagbabago ngunit hindi ito magiging dahilan ng nabigasyon sa labas ng pahina. Ang mga halimbawa ng nangyari ay kapag ang mga anchor link ay na-click o kapag ang DOM `hashchange` at ang kaganapan ay na-trigger.
 
-### Event: 'isara'
+### Event: 'close'
 
 Itigil kung ang guest page ay sinubukang isara ang sarili.
 
@@ -757,10 +773,6 @@ ipcRenderer.on('ping', () => {
 
 Itigil kapag ang nag-crash ang proseso na nagsumite.
 
-### Event: 'gpu-crashed'
-
-Itigil kapag ang ang proseso ng gpu ay nag-crash.
-
 ### Kaganapan: 'plugin-nag-crash'
 
 Ibinabalik ang:
@@ -780,7 +792,7 @@ Naipalalabas kapag nagsimula ng maglaro ang media.
 
 ### Kaganapan: 'media-paused'
 
-Ilabas kapag ang medya ay nahinto o natapos na.
+Naipalalabas kapag ang media ay naka-nakahinto o tapos na ang pag-play.
 
 ### Kaganapan: 'ginawa-baguhin-tema-kulay'
 
@@ -808,7 +820,7 @@ Nilalabas kapag ang DevTools ay nabuksan.
 
 ### Kaganapan: 'devtools-sarado'
 
-Ilabas kapag ang mga DevTool ay nasarado.
+Nilalabas kapag ang DevTools ay sarado.
 
 ### Kaganapan: 'devtools-nakatuon'
 

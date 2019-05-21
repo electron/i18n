@@ -12,7 +12,7 @@ También es posible enviar mensajes desde el proceso principal al proceso de ren
 
 * Cuando se envía un mensaje, el nombre del evento es el`channel`.
 * Para responder a un mensaje sincrónico, es necesario establecer `event.returnValue`.
-* Para enviar un mensaje asincrónico de vuelta al remitente, puede utilizar `event.sender.send(...)`.
+* To send an asynchronous message back to the sender, you can use `event.reply(...)`. This helper method will automatically handle messages coming from frames that aren't the main frame (e.g. iframes) whereas `event.sender.send(...)` will always send to the main frame.
 
 Ejemplo de envío y manejo de mensajes entre el proceso de renderizado y el principal:
 
@@ -21,7 +21,7 @@ Ejemplo de envío y manejo de mensajes entre el proceso de renderizado y el prin
 const { ipcMain } = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
   console.log(arg) // prints "ping"
-  event.sender.send('asynchronous-reply', 'pong')
+  event.reply('asynchronous-reply', 'pong')
 })
 
 ipcMain.on('synchronous-message', (event, arg) => {
@@ -76,6 +76,10 @@ Elimina los oyentes del `channel` especificado.
 
 El objeto `event` pasado a la `callback` tiene los siguientes métodos:
 
+### `event.frameId`
+
+An `Integer` representing the ID of the renderer frame that sent this message.
+
 ### `event.returnValue`
 
 Lo configura al valor que será devuelto en un mensaje sincrónico.
@@ -83,3 +87,7 @@ Lo configura al valor que será devuelto en un mensaje sincrónico.
 ### `event.sender`
 
 Devuelve el `webContents` que envió el mensaje. Puede llamar a `event.sender.send` para responder al mensaje asincrónico. Consulte [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) para obtener más información.
+
+### `event.reply`
+
+A function that will send an IPC message to the renderer frane that sent the original message that you are currently handling. You should use this method to "reply" to the sent message in order to guaruntee the reply will go to the correct process and frame.

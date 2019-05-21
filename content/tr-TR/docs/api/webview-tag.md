@@ -4,7 +4,11 @@
 
 Electron's `webview` tag is based on [Chromium's `webview`](https://developer.chrome.com/apps/tags/webview), which is undergoing dramatic architectural changes. This impacts the stability of `webviews`, including rendering, navigation, and event routing. We currently recommend to not use the `webview` tag and to consider alternatives, like `iframe`, Electron's `BrowserView`, or an architecture that avoids embedded content altogether.
 
-## Overview
+## Enabling
+
+By default the `webview` tag is disabled in Electron >= 5. You need to enable the tag by setting the `webviewTag` webPreferences option when constructing your `BrowserWindow`. For more information see the [BrowserWindow constructor docs](browser-window.md).
+
+## Genel Bakış
 
 > Harici web içeriğini yalıtılmış bir çerçeve ve işlemde görüntüleme.
 
@@ -51,7 +55,7 @@ Under the hood `webview` is implemented with [Out-of-Process iframes (OOPIFs)](h
 So the behavior of `webview` is very similar to a cross-domain `iframe`, as examples:
 
 * When clicking into a `webview`, the page focus will move from the embedder frame to `webview`.
-* You can not add keyboard event listeners to `webview`.
+* You can not add keyboard, mouse, and scroll event listeners to `webview`.
 * All reactions between the embedder frame and `webview` are asynchronous.
 
 ## CSS stil notları
@@ -89,6 +93,14 @@ Bu özellik varsa, `webview` `minwidth`, `minheight`, özellikleri tarafından b
 ```
 
 Bu özellik varsa, `webview` konuk sayfasında Node. js entegrasyona izin verir ve erişim için `require` ve `process` gibi Node. js API'lerini düşük seviyeli sistem kaynaklarına erişmek için kullanabilir. Node.js entegrasyon konuk sayfada varsayılan olarak devre dışıdır.
+
+### `nodeintegrationinsubframes`
+
+```html
+<webview src="http://www.google.com/" nodeintegrationinsubframes></webview>
+```
+
+Experimental option for enabling NodeJS support in sub-frames such as iframes inside the `webview`. All your preloads will load for every iframe, you can use `process.isMainFrame` to determine if you are in the main frame or not. This option is disabled by default in the guest page.
 
 ### `enableremotemodule`
 
@@ -149,7 +161,7 @@ Bu özellik bulunduğunda, misafir sayfasında web güvenliği devre dışı bı
 <webview src="https://electronjs.org" partition="electron"></webview>
 ```
 
-Sayfanın kullandığı oturumu ayarlar. `partition` starts with `persist:`ile başlıyorsa, sayfa, uygulamanın aynı `partition` bölümüne sahip tüm sayfalar için kalıcı bir oturum kullanacaktır. `persist:` öneki yoksa, sayfa bir bellek içi oturum kullanacaktır. Aynı `partition`, değişkenine değer atayarak birden çok sayfada aynı oturumu paylaşabilirsiniz. `partition` ayıklanırsa, uygulamanın varsayılan oturumu kullanılır.
+Sayfanın kullandığı oturumu ayarlar. `partition` starts with `persist:`ile başlıyorsa, sayfa, uygulamanın aynı `partition` bölümüne sahip tüm sayfalar için kalıcı bir oturum kullanacaktır. `persist:` öneki yoksa, sayfa bir bellek içi oturum kullanacaktır. Aynı `partition` bölümü atayarak, aynı oturumda birden çok sayfa paylaşabilir. `partition` ayıklanırsa, uygulamanın varsayılan oturumu kullanılır.
 
 Bu değer yalnızca ilk gezinmeden önce değiştirilebilir, çünkü oturum aktif bir oluşturucu sürecindeyken değiştiremezsiniz. Ardından, değeri bir DOM hatası ile başarısız olur.
 
@@ -242,7 +254,7 @@ Returns `Boolean` - Misafir sayfası, sayfanın ana kaynağından gelecek bir il
 
 ### `<webview>.dur()`
 
-Bekleyen gezinmeyi durdurur.
+Bekleyen gezinmeleri durdurur.
 
 ### `<webview>.yeniden yükle()`
 
@@ -312,9 +324,9 @@ CSS'i misafir sayfasının içine yerleştirir.
 
 ### `<webview>.executeJavaScript(code[, userGesture, callback])`
 
-* `code` String
+* `code` Dizgi
 * `userGesture` Boolean (optional) - Default `false`.
-* `geri aramak` Fonksiyon (isteğe bağlı) - Betik tamamlandıktan sonra çağrılır. 
+* `geri aramak` Function (isteğe bağlı) - Script çalıştıktan sonra çağırılır. 
   * `result` Any
 
 Sayfadaki `code`'u ölçer. `userGesture` kuruluysa, sayfada kullanıcı hareketleri bağlamını yaratır. `requestFullScreen` gibi kullanıcı hareketi gerektiren HTML API'ları, otomasyon için olan bu ayardan avantaj sağlayabilir.
@@ -422,7 +434,7 @@ Odaklanmış öğeye `metin` ekler.
   * `findNext` Boolean (optional) - Whether the operation is first request or a follow up, defaults to `false`.
   * `matchCase` Boolean (optional) - Whether search should be case-sensitive, defaults to `false`.
   * `wordStart` Boolean (optional) - Whether to look only at the start of words. defaults to `false`.
-  * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Diğer çeşitli alt kelime (intra-word) eşleşmelerini kabul eder, varsayılan olarak `false`'tur.
+  * `medialCapitalAsWordStart` Boolean (optional) - When combined with `wordStart`, accepts a match in the middle of a word if the match begins with an uppercase letter followed by a lowercase or non-letter. Diğer birtakım kelime-içi eşleşmeyi kabul eder, `false` varsayılan olur.
 
 `Integer` döndürür - İstek için kullanılan istek kimliği.
 
@@ -450,7 +462,7 @@ Web sayfasındaki `metin` ile tüm eşleşenleri bulmak için bir istek başlat�
 
 * `seçenekler` Nesne 
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
-  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. `A3`, `A4`, `A%`, `Legal`, `Letter`, `Tabloid` veya mikron formatında `height` ve `width` içeren bir nesne olabilir.
+  * `pageSize` String | Size (optional) - Specify page size of the generated PDF. `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` ya da micron olarak `height` ve `width` içeren bir nesne olabilir.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
@@ -462,18 +474,28 @@ Web sayfasındaki `metin` ile tüm eşleşenleri bulmak için bir istek başlat�
 
 ### `<webview>.capturePage([rect, ]callback)`
 
-* `rect` [Rectangle](structures/rectangle.md) (isteğe bağlı) - Sayfadaki alınacak bölge.
+* `rect` [Rectangle](structures/rectangle.md) (isteğe bağlı) - üst sınırlar
 * `geri aramak` Function 
   * `image` [NativeImage](native-image.md)
 
-`webview` sayfasının anlık görüntüsünü alır. Tıpkı `webContents.capturePage([rect, ]callback)` gibi.
+`rect` içerisinde kalan sayfanın anlık görüntüsünü yakalar. İşlemin tamamlanmasının ardından `callback`, `callback(İmage)` ile birlikte çağrılacaktır. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
+
+**[Deprecated Soon](promisification.md)**
+
+### `<webview>.capturePage([rect])`
+
+* `rect` [Rectangle](structures/rectangle.md) (isteğe bağlı) - Sayfanın yakalanılmak istenen alanı.
+
+* Returns `Promise<NativeImage>` - Resolves with a [NativeImage](native-image.md)
+
+Captures a snapshot of the page within `rect`. Omitting `rect` will capture the whole visible page.
 
 ### `<webview>.send(channel[, arg1][, arg2][, ...])`
 
 * `channel` Dizesi
 * `...args` herhangi[]
 
-İşleyiciye `channel` aracılığıyla bir asenkron mesaj yollayın, aynı zamanda rastgele argümanlar da yollayabilirsiniz. The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
+İşleyiciye ` kanal ` üzerinden eşzamansız bir ileti gönder, keyfi argümanlar da gönderebilirsiniz. The renderer process can handle the message by listening to the `channel` event with the [`ipcRenderer`](ipc-renderer.md) module.
 
 Örnekler için [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) 'i ziyaret edin.
 
@@ -497,19 +519,13 @@ Yakınlaştırma faktörünü belirtilen faktöre değiştirir. Yakınlaştırma
 
 Yakınlaştırma düzeyini belirtilen seviyeye değiştirir. Orijinal boyut 0'dır ve her bir artım yukarıdaki veya aşağıdaki %20 daha büyük veya daha küçük, varsayılan %300 sınırına ve %50 orijinal boyutuna sırasıyla yakınlaştırma oranını temsil eder. The formula for this is `scale := 1.2 ^ level`.
 
-### `<webview>.getZoomFactor(callback)`
+### `<webview>.getZoomFactor()`
 
-* `geri aramak` Function 
-  * `zoomFactor` Sayı
+Returns `Number` - the current zoom factor.
 
-Yürürlükteki yakınlaştırma değerini almak için bir istek gönderir, `callback` , `callback(zoomFactor)` ile birlikte çağrılacaktır.
+### `<webview>.getZoomLevel()`
 
-### `<webview>.getZoomLevel(callback)`
-
-* `geri aramak` Function 
-  * `zoomLevel` Sayı
-
-Yürürlükteki yakınlaştırma düzeyini almak için bir istek gönderir, `callback`, `callback(zoomLevel)` ile birlikte çağrılacaktır.
+Returns `Number` - the current zoom level.
 
 ### `<webview>.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 
@@ -634,9 +650,9 @@ Dönüşler:
 
 * `sonuç` Nesne 
   * `requestId` Tamsayı
-  * `activeMatchOrdinal` Integer - Etkin olan eşleşmenin konumu.
+  * `activeMatchOrdinal` Tamsayı - Etkin eşleşmenin konumu.
   * `matches` Tamsayı - Numaraların eşleştirilmesi.
-  * `selectionArea` Object - İlk eşleşme alanının koordinatları.
+  * `selectionArea` Obje - Eşleşme bölgesinin koordinatları.
   * `finalUpdate` Boolean
 
 Bir sonuç [`webview.findInPage`](#webviewfindinpagetext-options) isteği için geçerli hale geldiğinde tetiklenir.
@@ -671,7 +687,7 @@ const webview = document.querySelector('webview')
 webview.addEventListener('new-window', (e) => {
   const protocol = require('url').parse(e.url).protocol
   if (protocol === 'http:' || protocol === 'https:') {
-    shell.openExternal(e.url)
+    shell.openExternalSync(e.url)
   }
 })
 ```
@@ -756,10 +772,6 @@ ipcRenderer.on('ping', () => {
 ### Etkinlik: 'çöktü'
 
 Renderer işlemi çöktüğünde tetiklenir.
-
-### Etkinlik: 'gpu-çöktü'
-
-Gpu işlemi çöktüğünde tetiklenir.
 
 ### Event: 'plugin-crashed'
 

@@ -54,7 +54,7 @@ $ electron --js-flags="--harmony_proxies --harmony_collections" your-app
 
 ## --proxy-server=`address:port`
 
-使用指定的覆盖系统设置的代理服务器. 这个开关只影响HTTP协议请求, 包括HTTPS和WebSocket请求. 值得注意的是并不是所有的代理服务器都支持HTTPS和WebSocket请求. The proxy URL does not support username and password authentication [per Chromium issue](https://bugs.chromium.org/p/chromium/issues/detail?id=615947).
+使用指定的覆盖系统设置的代理服务器. 这个开关只影响HTTP协议请求, 包括HTTPS和WebSocket请求. 值得注意的是并不是所有的代理服务器都支持HTTPS和WebSocket请求. 代理 URL 不支持用户名和密码认证方式 [Chromium 的问题](https://bugs.chromium.org/p/chromium/issues/detail?id=615947)。
 
 ## --proxy-bypass-list=`hosts`
 
@@ -148,6 +148,6 @@ app.commandLine.appendSwitch('proxy-bypass-list', '<local>;*.google.com;*foo.com
 
 给定每个模块最大的V-logging等级, 覆盖`--v`设定的值. 例如, `my_module=2,foo*=3`将改变所有`my_module.*`和`foo*.*`源文件的代码的日志等级.
 
-Any pattern containing a forward or backward slash will be tested against the whole pathname and not only the module. 例如, `*/foo/bar/*=2`会改变`foo/bar`目录下源文件的所有代码的日志等级.
+任何包含正斜杠或反斜杠的模式都将针对 整个路径名进行测试，而不仅仅是模块。 例如, `*/foo/bar/*=2`会改变`foo/bar`目录下源文件的所有代码的日志等级.
 
 这个开关只有在`--enable-logging`也被传递时才起效.

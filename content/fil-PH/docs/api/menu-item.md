@@ -13,7 +13,7 @@ Tingnan ang [`Menu`](menu.md) para sa mga halimbawa.
     * `menuItem`MenuItem
     * `browserWindow` [BrowserWindow](browser-window.md)
     * `kaganapan` kaganapan
-  * `role` String (opsyonal) - tukuyin ang aksyon ng mga aytem ng menu, kapag tinukoy ang katangian `click` ay hindi na papansinin. Tingnan ang [roles](#roles).
+  * `role` String (optional) - Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteandmatchstyle`, `delete`, `selectall`, `reload`, `forcereload`, `toggledevtools`, `resetzoom`, `zoomin`, `zoomout`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideothers`, `unhide`, `quit`, `startspeaking`, `stopspeaking`, `close`, `minimize`, `zoom` or `front` - Define the action of the menu item, when specified the `click` property will be ignored. See [roles](#roles).
   * `type` String (opsyonal) - Ay maaaring `normal`, `separator`, `submenu`, `checkbox` o `radio`.
   * `label` String (optional)
   * `sublabel` String (optional)
@@ -60,11 +60,14 @@ Ang katangian ng `role` ay maaaring ang mga sumusunod na halaga:
 * `resetZoom` - Reset the focused page's zoom level to the original size.
 * `zoomIn` - Zoom in the focused page by 10%.
 * `zoomOut` - Zoom out the focused page by 10%.
+* `fileMenu` - Whole default "File" menu (Close / Quit)
 * `editMenu` - Ang kabuoang default na menu ng "Edit" (Undo, Kopya, atbp.).
-* `windowMenu` - Ang kabuoang default na menu ng "Window" (Paliitin, Isara, atbp.).
+* `viewMenu` - Whole default "View" menu (Reload, Toggle Developer Tools, etc.)
+* `windowMenu` - Whole default "Window" menu (Minimize, Zoom, etc.).
 
 The following additional roles are available on *macOS*:
 
+* `appMenu` - Whole default "App" menu (About, Services, etc.)
 * `about` - Ibalangkas sa mga aksyon ng `orderFrontStandardAboutPanel`.
 * `hide` - Ibalangkas sa mga aksyon ng `hide`.
 * `hideOthers` - Map to the `hideOtherApplications` action.

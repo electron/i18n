@@ -38,7 +38,7 @@ To detect whether or not you're allowed to send a notification, use the userland
 
 This allows you to determine ahead of time whether or not Windows will silently throw the notification away.
 
-## macOS
+## نظام macOS
 
 Notifications are straight-forward on macOS, but you should be aware of [Apple's Human Interface guidelines regarding notifications](https://developer.apple.com/macos/human-interface-guidelines/system-capabilities/notifications/).
 

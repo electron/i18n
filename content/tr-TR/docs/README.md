@@ -99,7 +99,7 @@ Bu bireysel eğitimler, yukardaki kılavuz üzerinde tartışılan konularda gen
 * [İşlem Nesnesi](api/process.md)
 * [Desteklenen Chrome Komut Satırı Anahtarları](api/chrome-command-line-switches.md)
 * [Ortam Değişkenleri](api/environment-variables.md)
-* [Breaking API Changes](api/breaking-changes.md)
+* [API değişiklikleri](api/breaking-changes.md)
 
 ### Özel DOM Elementleri:
 

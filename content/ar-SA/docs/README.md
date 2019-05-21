@@ -1,4 +1,4 @@
-# الأجهزة الرسمية
+# المرشدون الرسميون
 
 الرجاء التأكد من استخدام المستندات التي تطابق إصدار إلكترون الخاص بك. ينبغي أن يكون رقم الإصدار جزءا من عنوان الصفحة URL. اذا كان إصدار إلكترون الخاص بك لا يطابق الظاهر في رابط الصفحة، هذا يعني انك تستعرص دليل لا يتوافق مع اصدار إلكتروني لديك وهنالك احتمال بأن لا تتوافق التعليمات و API مع اصدار إلكترون الذي لديك. لاستعراض نسخة أقدم، يمكنك [تصفح الوسوم](https://github.com/electron/electron/tree/v1.4.0) في GitHub عن طريق الدخول على القائمة المنسدلة "Switch branches/tags" واختيار الوسم الذي يطابق اصدار إلكترون الذي لديك.
 
@@ -33,22 +33,22 @@
 * إضافة ميزات إلى تطبيقك 
   * [الإشعارات](tutorial/notifications.md)
   * [المستندات الأخيرة](tutorial/desktop-environment-integration.md#recent-documents)
-  * [تقدُّم التطبيق](tutorial/progress-bar.md)
+  * [سير الترجمة](tutorial/progress-bar.md)
   * [خصص شريط المهام](tutorial/macos-dock.md)
   * [خصص شريط مهام الويندوز](tutorial/windows-taskbar.md)
   * [خصص إجراءات سطح المكتب المخصص لـ Linux](tutorial/linux-desktop-actions.md)
-  * [Keyboard Shortcuts](tutorial/keyboard-shortcuts.md)
+  * [میانبرهای صفحه کلید](tutorial/keyboard-shortcuts.md)
   * [إكتشاف المتصل/ غير المتصل](tutorial/online-offline-events.md)
-  * [يمثل ملف ل macOS BrowserWindows](tutorial/represented-file.md)
-  * [سحب الملفات الأصلية & Drop](tutorial/native-file-drag-drop.md)
+  * [الملف الممثّل في نافذة المستعرض في نظام ماك أو إس](tutorial/represented-file.md)
+  * [سحب الملفات الأصلية & Drop&](tutorial/native-file-drag-drop.md)
 * [إمكانية الوصول](tutorial/accessibility.md) 
   * [سبيكترون](tutorial/accessibility.md#spectron)
   * [Devtron](tutorial/accessibility.md#devtron)
   * [تمكين امكانيات الوصول](tutorial/accessibility.md#enabling-accessibility)
 * [اختبار وتصحيح](tutorial/application-debugging.md) 
-  * [تصحيح ال Main Process](tutorial/debugging-main-process.md)
-  * [Using Selenium and WebDriver](tutorial/using-selenium-and-webdriver.md)
-  * [Testing on Headless CI Systems (Travis, Jenkins)](tutorial/testing-on-headless-ci.md)
+  * [تصحيح عملية الرئيسية](tutorial/debugging-main-process.md)
+  * [استخدام السيلينيوم و WebDriver](tutorial/using-selenium-and-webdriver.md)
+  * [اختبار على أنظمة CI بدون رأس (ترافيس ، جنكينز)](tutorial/testing-on-headless-ci.md)
   * [DevTools Extension](tutorial/devtools-extension.md)
   * [الاختبار الآلي مع برنامج تشغيل مخصص](tutorial/automated-testing-with-a-custom-driver.md)
 * Packaging 

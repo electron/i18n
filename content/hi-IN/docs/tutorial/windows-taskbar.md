@@ -12,7 +12,7 @@ Windows allows apps to define a custom context menu that shows up when users rig
 
 **इन्टरनेट एक्स्प्लोरर के टास्कस:**
 
-![IE](http://i.msdn.microsoft.com/dynimg/IC420539.png)
+![IE](https://i-msdn.sec.s-msft.com/dynimg/IC420539.png)
 
 मैकओएस की डॉक मेन्यु से भिन्न जो कि एक असल मेन्यु है, विंडोज में उपयोगकर्ता टास्कस एप्लीकेशन शोर्टकट्स की तरह काम करते हैं, जैसे जब एक उपयोगकर्ता एक टास्क को क्लिक करें, तो एक प्रोग्राम ख़ास आर्गुमेंट्स के साथ चले |
 

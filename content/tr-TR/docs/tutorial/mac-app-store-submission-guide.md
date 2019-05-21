@@ -59,7 +59,9 @@ Sonra, üç yetki dosyaları hazırlamanız gerekir.
     <key>com.apple.security.app-sandbox</key>
     <true/>
     <key>com.apple.security.application-groups</key>
-    <string>TEAM_ID.your.bundle.id</string>
+    <array>
+      <string>TEAM_ID.your.bundle.id</string>
+    </array>
   </dict>
 </plist>
 ```
@@ -193,7 +195,7 @@ Daha fazla detay için [Ağ Erişimini Etkinleştirme belgelerine](https://devel
 
 ## Electron Tarafından Kullanılan Kriptografi Algoritmaları
 
-Bulunduğunuz ülke ve bölgeye bağlı olarak, Mac App Store uygulamasında kullanılan şifreleme algoritmalarını belgelemeniz istenilebilir ve hatta ABD şifreleme kaydı (ERN) onayının bir kopyasını göndermeniz istenilebilir.
+Depending on the countries in which you are releasing your app, you may be required to provide information on the cryptographic algorithms used in your software. See the [encryption export compliance docs](https://help.apple.com/app-store-connect/#/devc3f64248f) for more information.
 
 Electron aşağıdaki şifreleme algoritmalarını kullanmaktadır:
 
@@ -220,5 +222,3 @@ Electron aşağıdaki şifreleme algoritmalarını kullanmaktadır:
 * RC4 - [RFC 4345](https://tools.ietf.org/html/rfc4345)
 * RC5 - http://people.csail.mit.edu/rivest/Rivest-rc5rev.pdf
 * RIPEMD - [ISO/IEC 10118-3](https://webstore.ansi.org/RecordDetail.aspx?sku=ISO%2FIEC%2010118-3:2004)
-
-ERN onayını nasıl alacağınız,[Şifreleme kullandığında (veya bir ERN'nin nasıl elde edileceği), yasal olarak Apple'ın App Store'a bir uygulama nasıl bildirileceği konusunda, makaleye bakabilirsiniz:](https://carouselapps.com/2015/12/15/legally-submit-app-apples-app-store-uses-encryption-obtain-ern/).

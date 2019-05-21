@@ -13,7 +13,7 @@
     * `menuItem` MenüÖğesi
     * `browserWindow` [BrowserWindow](browser-window.md)
     * `event` Olay
-  * `role` String (isteğe bağlı) - `click` özelliğinin yok sayılacağı belirtildiği zaman menu öğesinin eylemini belirtir. [roles](#roles) bkz.
+  * `role` String (optional) - Can be `undo`, `redo`, `cut`, `copy`, `paste`, `pasteandmatchstyle`, `delete`, `selectall`, `reload`, `forcereload`, `toggledevtools`, `resetzoom`, `zoomin`, `zoomout`, `togglefullscreen`, `window`, `minimize`, `close`, `help`, `about`, `services`, `hide`, `hideothers`, `unhide`, `quit`, `startspeaking`, `stopspeaking`, `close`, `minimize`, `zoom` or `front` - Define the action of the menu item, when specified the `click` property will be ignored. See [roles](#roles).
   * `type` String (isteğe bağlı) - `normal`, `separator`, `submenu`, `checkbox` veya `radio` olabilir.
   * `label` String (optional)
   * `sublabel` String (optional)
@@ -60,11 +60,14 @@ Every menu item must have either a `role`, `label`, or in the case of a separato
 * `resetZoom` - Reset the focused page's zoom level to the original size.
 * `zoomIn` - Zoom in the focused page by 10%.
 * `zoomOut` - Zoom out the focused page by 10%.
+* `fileMenu` - Whole default "File" menu (Close / Quit)
 * `editMenu` - Tüm varsayılan "Düzenle" menüsü (Geri alma, Kopyalama, vb.).
-* `windowMenu` - Tüm varsayılan "Pencere" menüsü (Simge durumuna küçült, kapat, vb.).
+* `viewMenu` - Whole default "View" menu (Reload, Toggle Developer Tools, etc.)
+* `windowMenu` - Whole default "Window" menu (Minimize, Zoom, etc.).
 
 The following additional roles are available on *macOS*:
 
+* `appMenu` - Whole default "App" menu (About, Services, etc.)
 * `about` - `orderFrontStandardAboutPanel` eylemine eşleme.
 * `hide` - `hide` eylemine eşleme.
 * `hideOthers` - Map to the `hideOtherApplications` action.

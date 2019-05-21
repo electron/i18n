@@ -45,15 +45,13 @@ Unsupported options are:
 
 ### `GOOGLE_API_kunci`
 
-Elektron mencakup kunci API hardcoded untuk mengajukan permintaan ke layanan web geokode Google. Karena kunci API ini disertakan dalam setiap versi Elektron , ini seringkali melebihi kuota pemakaiannya. Untuk mengatasi masalah ini, Anda dapat menyediakan kunci Google API Anda sendiri di lingkungan. Tempatkan kode berikut di file proses utama Anda, sebelum membuka jendela browser yang akan membuat permintaan geocoding:
+You can provide an API key for making requests to Google's geocoding webservice. To do this, place the following code in your main process file, before opening any browser windows that will make geocoding requests:
 
 ```javascript
 proses.env.GOOGLE_API_kunci = 'kamu_kunci_di sini'
 ```
 
-Untuk petunjuk tentang cara mendapatkan kunci Google API , kunjungi  halaman ini </ 0> .</p> 
-
-Secara default, kunci Google API yang baru dibuat mungkin tidak diizinkan untuk membuat permintaan geocoding. Untuk mengaktifkan permintaan geocoding, kunjungi  halaman ini </ 0> .</p> 
+For instructions on how to acquire a Google API key, visit [this page](https://developers.google.com/maps/documentation/javascript/get-api-key). Secara default, kunci Google API yang baru dibuat mungkin tidak diizinkan untuk membuat permintaan geocoding. Untuk mengaktifkan permintaan geocoding, kunjungi  halaman ini </ 0> .</p> 
 
 ### `ELEKTRON_tidak_ASAR`
 

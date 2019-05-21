@@ -12,7 +12,7 @@ Process: [Main](../glossary.md#main-process)
 
 * При отправке сообщения, событие именуется `channel`.
 * Чтобы ответить на синхронное сообщение, нужно задать `event.returnValue`.
-* Чтобы отправить ассинхронное сообщение назад отправителю, используйте `event.sender.send(...)`.
+* To send an asynchronous message back to the sender, you can use `event.reply(...)`. This helper method will automatically handle messages coming from frames that aren't the main frame (e.g. iframes) whereas `event.sender.send(...)` will always send to the main frame.
 
 Пример отправки и обработки сообщений между render и main процессами:
 
@@ -21,7 +21,7 @@ Process: [Main](../glossary.md#main-process)
 const { ipcMain } = require('electron')
 ipcMain.on('asynchronous-message', (event, arg) => {
   console.log(arg) // prints "ping"
-  event.sender.send('asynchronous-reply', 'pong')
+  event.reply('asynchronous-reply', 'pong')
 })
 
 ipcMain.on('synchronous-message', (event, arg) => {
@@ -76,6 +76,10 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
 
 Объект события (`event`) переданный, в функцию обратного вызова (`callback`) обладает следующими методами:
 
+### `event.frameId`
+
+An `Integer` representing the ID of the renderer frame that sent this message.
+
 ### `event.returnValue`
 
 Установленное значение возращается в синхронном сообщении.
@@ -83,3 +87,7 @@ Adds a one time `listener` function for the event. This `listener` is invoked on
 ### `event.sender`
 
 Возвращает `webContents` который послал сообщение. Вы можете вызвать `event.sender.send` чтобы ответить на асинхронное сообщение, [webContents.send](web-contents.md#contentssendchannel-arg1-arg2-) для дополнительной информации.
+
+### `event.reply`
+
+A function that will send an IPC message to the renderer frane that sent the original message that you are currently handling. You should use this method to "reply" to the sent message in order to guaruntee the reply will go to the correct process and frame.

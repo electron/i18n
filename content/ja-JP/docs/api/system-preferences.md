@@ -31,7 +31,14 @@ console.log(systemPreferences.isDarkMode())
 戻り値:
 
 * `event` Event
-* `invertedColorScheme` Boolean - ハイコントラストテーマなどの反転した配色が使用されている場合は `true`、そうでない場合は `false`。
+* `invertedColorScheme` Boolean - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is being used, `false` otherwise.
+
+### Event: 'high-contrast-color-scheme-changed' *Windows*
+
+戻り値：
+
+* `event` Event
+* `highContrastColorScheme` Boolean - `true` if a high contrast theme is being used, `false` otherwise.
 
 ### イベント: 'appearance-changed' *macOS*
 
@@ -51,10 +58,11 @@ console.log(systemPreferences.isDarkMode())
 
 戻り値 `Boolean` - ページ間をスワイプの設定がオンかどうか。
 
-### `systemPreferences.postNotification(event, userInfo)` *macOS*
+### `systemPreferences.postNotification(event, userInfo[, deliverImmediately])` *macOS*
 
 * `event` String
 * `userInfo` Object
+* `deliverImmediately` Boolean (optional) - `true` to post notifications immediately even when the subscribing app is inactive.
 
 `event` を macOS のネイティブの通知として送信します。 `userInfo` は、通知とともに送信されるユーザ情報辞書を含むオブジェクトです。
 
@@ -201,7 +209,7 @@ if (browserOptions.transparent) {
 }
 ```
 
-### `systemPreferences.getAccentColor()` *Windows*
+### `systemPreferences.getAccentColor()` *Windows* *macOS*
 
 戻り値 `String` - RGBA の16進数形式で、ユーザの現在のシステム全体のアクセント色の設定を表します。
 
@@ -213,45 +221,101 @@ const blue = color.substr(4, 2) // "cc"
 const alpha = color.substr(6, 2) // "dd"
 ```
 
-### `systemPreferences.getColor(color)` *Windows*
+This API is only available on macOS 10.14 Mojave or newer.
+
+### `systemPreferences.getColor(color)` *Windows* *macOS*
 
 * `color` String - 以下の値の一つ。 
-  * `3d-dark-shadow` - 3D 表示要素の暗い影の色。
-  * `3d-face` - 3D 表示要素とダイアログボックスの背景の表面の色。
-  * `3d-highlight` - 3D 表示要素のハイライト色。
-  * `3d-light` - 3D 表示要素の光源色。
-  * `3d-shadow` - 3D 表示要素の影の色。
-  * `active-border` - アクティブなウインドウの縁の色。
-  * `active-caption` - アクティブなウインドウのタイトルバー色。グラデーション効果が有効な場合は、その左側の色になります。
-  * `active-caption-gradient` - アクティブなウィンドウのタイトルバーのグラデーション色における右側の色。
-  * `app-workspace` - マルチドキュメントインターフェース (MDI) アプリケーションの背景色。
-  * `button-text` - 押しボタンのテキスト色。
-  * `caption-text` - キャプション、サイズボックス、スクロールバー、矢印ボックス内のテキスト色。
-  * `desktop` - デスクトップ背景色。
-  * `disabled-text` - グレーの (無効化された) テキスト色。
-  * `highlight` - コントロール内で選択されたアイテム色。
-  * `highlight-text` - コントロール内で選択されたアイテムのテキスト色。
-  * `hotlight` - ハイパーリンクかホットトラックされたアイテムの色。
-  * `inactive-border` - 非アクティブなウインドウの縁の色。
-  * `inactive-caption` - 非アクティブなウインドウのキャプション色。グラデーション効果が有効な場合は、その左側の色になります。
-  * `inactive-caption-gradient` - 非アクティブなウィンドウのタイトルバーのグラデーション色における右側の色。
-  * `inactive-caption-text` - 非アクティブなキャプション内のテキストの色。
-  * `info-background` - ツールチップコントロールの背景色。
-  * `info-text` - ツールチップコントロールのテキスト色。
-  * `menu` - メニューの背景色。
-  * `menu-highlight` - メニューがフラットメニューとして表示されたときにメニュー項目をハイライト表示するために使用される色。
-  * `menubar` - メニューがフラットメニューとして表示されたときのメニューの背景色。
-  * `menu-text` - メニューのテキスト色。
-  * `scrollbar` - スクロールバーのグレーの領域の色。
-  * `window` - ウインドウの背景色。
-  * `window-frame` - ウインドウフレームの色。
-  * `window-text` - ウインドウ内のテキスト色。
+  * On **Windows**: 
+    * `3d-dark-shadow` - 3D 表示要素の暗い影の色。
+    * `3d-face` - 3D 表示要素とダイアログボックスの背景の表面の色。
+    * `3d-highlight` - 3D 表示要素のハイライト色。
+    * `3d-light` - 3D 表示要素の光源色。
+    * `3d-shadow` - 3D 表示要素の影の色。
+    * `active-border` - アクティブなウインドウの縁の色。
+    * `active-caption` - アクティブなウインドウのタイトルバー色。グラデーション効果が有効な場合は、その左側の色になります。
+    * `active-caption-gradient` - アクティブなウィンドウのタイトルバーのグラデーション色における右側の色。
+    * `app-workspace` - マルチドキュメントインターフェース (MDI) アプリケーションの背景色。
+    * `button-text` - 押しボタンのテキスト色。
+    * `caption-text` - キャプション、サイズボックス、スクロールバー、矢印ボックス内のテキスト色。
+    * `desktop` - デスクトップ背景色。
+    * `disabled-text` - グレーの (無効化された) テキスト色。
+    * `highlight` - コントロール内で選択されたアイテム色。
+    * `highlight-text` - コントロール内で選択されたアイテムのテキスト色。
+    * `hotlight` - ハイパーリンクかホットトラックされたアイテムの色。
+    * `inactive-border` - 非アクティブなウインドウの縁の色。
+    * `inactive-caption` - 非アクティブなウインドウのキャプション色。グラデーション効果が有効な場合は、その左側の色になります。
+    * `inactive-caption-gradient` - 非アクティブなウィンドウのタイトルバーのグラデーション色における右側の色。
+    * `inactive-caption-text` - 非アクティブなキャプション内のテキストの色。
+    * `info-background` - ツールチップコントロールの背景色。
+    * `info-text` - ツールチップコントロールのテキスト色。
+    * `menu` - メニューの背景色。
+    * `menu-highlight` - メニューがフラットメニューとして表示されたときにメニュー項目をハイライト表示するために使用される色。
+    * `menubar` - メニューがフラットメニューとして表示されたときのメニューの背景色。
+    * `menu-text` - メニューのテキスト色。
+    * `scrollbar` - スクロールバーのグレーの領域の色。
+    * `window` - ウインドウの背景色。
+    * `window-frame` - ウインドウフレームの色。
+    * `window-text` - ウインドウ内のテキスト色。
+  * On **macOS** 
+    * `alternate-selected-control-text` - The text on a selected surface in a list or table.
+    * `control-background` - The background of a large interface element, such as a browser or table.
+    * `control` - The surface of a control.
+    * `control-text` -The text of a control that isn’t disabled.
+    * `disabled-control-text` - The text of a control that’s disabled.
+    * `find-highlight` - The color of a find indicator.
+    * `grid` - The gridlines of an interface element such as a table.
+    * `header-text` - The text of a header cell in a table.
+    * `highlight` - The virtual light source onscreen.
+    * `keyboard-focus-indicator` - The ring that appears around the currently focused control when using the keyboard for interface navigation.
+    * `label` - The text of a label containing primary content.
+    * `link` - A link to other content.
+    * `placeholder-text` - A placeholder string in a control or text view.
+    * `quaternary-label` - The text of a label of lesser importance than a tertiary label such as watermark text.
+    * `scrubber-textured-background` - The background of a scrubber in the Touch Bar.
+    * `secondary-label` - The text of a label of lesser importance than a normal label such as a label used to represent a subheading or additional information.
+    * `selected-content-background` - The background for selected content in a key window or view.
+    * `selected-control` - The surface of a selected control.
+    * `selected-control-text` - The text of a selected control.
+    * `selected-menu-item` - The text of a selected menu.
+    * `selected-text-background` - The background of selected text.
+    * `selected-text` - Selected text.
+    * `separator` - A separator between different sections of content.
+    * `shadow` - The virtual shadow cast by a raised object onscreen.
+    * `tertiary-label` - The text of a label of lesser importance than a secondary label such as a label used to represent disabled text.
+    * `text-background` - Text background.
+    * `text` - The text in a document.
+    * `under-page-background` - The background behind a document's content.
+    * `unemphasized-selected-content-background` - The selected content in a non-key window or view.
+    * `unemphasized-selected-text-background` - A background for selected text in a non-key window or view.
+    * `unemphasized-selected-text` - Selected text in a non-key window or view.
+    * `window-background` - The background of a window.
+    * `window-frame-text` - The text in the window's titlebar area. 
 
-戻り値 `String` - RGB の16進数形式 (`#ABCDEF`) のシステム色の設定。 詳細については、[Windows のドキュメント](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) を参照してください。
+戻り値 `String` - RGB の16進数形式 (`#ABCDEF`) のシステム色の設定。 See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) and the [MacOS docs](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors) for more details.
+
+### `systemPreferences.getSystemColor(color)` *macOS*
+
+* `color` String - 以下の値の一つ。 
+  * `blue`
+  * `brown`
+  * `gray`
+  * `green`
+  * `orange`
+  * `pink`
+  * `purple`
+  * `red`
+  * `yellow`
+
+Returns one of several standard system colors that automatically adapt to vibrancy and changes in accessibility settings like 'Increase contrast' and 'Reduce transparency'. See [Apple Documentation](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#system-colors) for more details.
 
 ### `systemPreferences.isInvertedColorScheme()` *Windows*
 
-戻り値 `Boolean` - ハイコントラストテーマなどの反転したカラースキームがアクティブな場合は `true`、そうでない場合は `false` です。
+Returns `Boolean` - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is active, `false` otherwise.
+
+### `systemPreferences.isHighContrastColorScheme()` *Windows*
+
+Returns `Boolean` - `true` if a high contrast theme is active, `false` otherwise.
 
 ### `systemPreferences.getEffectiveAppearance()` *macOS*
 

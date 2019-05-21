@@ -1,5 +1,17 @@
 # アプリケーションの配布
 
+あなたのアプリケーションをElectronで配布する場合、それをパッケージし、そのリブランドする必要があります。その、最も簡単な方法は以下のサードパーティーのツールを使用することです。
+
+* [electron-forge](https://github.com/electron-userland/electron-forge)
+* [electron-builder](https://github.com/electron-userland/electron-builder)
+* [electron-packager](https://github.com/electron-userland/electron-packager)
+
+これらのツールは、配布可能なあなたのElectronアプリケーションに行う必要のある全ての手順をカバーします。その手順には、あなたのアプリケーションのパッケージング、実行ファイルのリブランド、正しいアイコンの設定、インストーラーの作成(オプション)が含まれます。
+
+## マニュアル配布
+
+あなたは配布の準備のできたアプリを選ぶことができます。この実施すべきステップを以下に示します。
+
 Electron でアプリを配布する際は、Electron の [プレビルドバイナリ](https://github.com/electron/electron/releases) をダウンロードする必要があります。 次に、アプリケーションが含まれたフォルダの名前を `app` に変更し、Electron のリソースディレクトリに以下に示すように配置します。 Electron のプレビルドバイナリの場所は、以下の例では `electron/` と示されていることに注意してください。
 
 macOS:
@@ -78,14 +90,6 @@ MyApp.app/Contents
 ### Linux
 
 `electron` 実行形式の名前は好きな任意の名前に変更できます。
-
-## パッケージツール
-
-アプリのパッケージを手動で行う代わりに、サードパーティ製の自動パッケージツールを使用できます。
-
-* [electron-forge](https://github.com/electron-userland/electron-forge)
-* [electron-builder](https://github.com/electron-userland/electron-builder)
-* [electron-packager](https://github.com/electron-userland/electron-packager)
 
 ## ソースから Electron をリビルドして名称変更する
 

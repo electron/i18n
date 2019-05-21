@@ -122,7 +122,7 @@
 
 ### Instance Methods
 
-#### `ses.getCacheSize(callback)`
+#### `ses.getCacheSize()`
 
 ### Instance Properties
 

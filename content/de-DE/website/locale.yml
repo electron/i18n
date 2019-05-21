@@ -3,6 +3,7 @@ nav:
   apps: Apps
   blog: Blog
   code_of_conduct: Verhaltenskodex
+  security: Sicherheit
   community: Community
   contact: Kontakt
   docs: Dokumentation
@@ -12,6 +13,7 @@ nav:
   releases: Veröffentlichungen
   search: Suchen
   userland: Userland
+  governance: Governance
 keyboard_modal:
   title: Tastenkürzel
   key: Key
@@ -46,11 +48,11 @@ community:
     get_started: "<a href='/docs/tutorial/first-app'><b>Anfangen</b></a> eine App zu bauen mit hilfe der <a href='/docs/tutorial/first-app'>Schnellstart Anleitung</a>."
     updates: "<a href='https://twitter.com/electronjs'><b>Bleiben Sie auf dem neusten Stand</b></a>, indem Sie <a href='https://twitter.com/electronjs'>@electronjs</a> auf Twitter folgen und den <a href='/blog'>Blog-Feed</a> abonnieren."
     localized_docs: "<a href='/languages'><b>Lesen Sie die Dokumentation in Ihrer Sprache</b></a>, indem Sie die <a href='/languages'>Sprach-Seiten</a> besuchen."
-    help: "<a href='http://atom-slack.herokuapp.com'><b>Bekomme hilfe und feedback</b></a> durch beitreten des <a href='http://atom-slack.herokuapp.com'>atomio Slack</a>, Posten auf <a href='https://discuss.atom.io/c/electron'>Discuss</a> oder auf <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    help: "<a href='https://discuss.atom.io/t/join-us-on-slack/16638'><b>Get help and feedback</b></a> by joining the <a href='https://discuss.atom.io/t/join-us-on-slack/16638'>atomio Slack</a>, posting on <a href='https://discuss.atom.io/c/electron'>Discuss</a>, or visiting <a href='https://stackoverflow.com/questions/tagged/electron'>Stack Overflow</a>."
+    security: "<a href='mailto:security@electronjs.org'><b>Report security issues</b></a> by emailing <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     bugs: "<a href='https://github.com/electron/electron/issues'><b>Bugs melden</b></a> durch öffnen eines Issues im <a href='https://github.com/electron/electron/issues'>electron/electron</a> Repository."
     feature_requests: "<a href='https://github.com/electron/electron/issues'><b>Anfragen von Features</b></a> durch Öffnen eines Issues im <a href='https://github.com/electron/electron/issues'>electron/electron</a> Repository."
     code_of_conduct: "<a href='mailto:coc@electronjs.org'><b>Code of Conduct Verstöße melden</b></a> per Email an <a href='mailto:coc@electronjs.org'>coc@electronjs.org</a>."
-    security: "<a href='mailto:security@electronjs.org'><b>Melde Sicherheitsprobleme</b></a> per Email an <a href='mailto:security@electronjs.org'>security@electronjs.org</a>."
     donations: "<a href='donors'><b>Spende</b></a> auf unserer <a href='/donors'>OpenCollective Seite</a>."
     other: "Für alle anderen Anfragen wenden Sie sich bitte per Email an <a href='mailto:info@electronjs.org'>info@electronjs.org</a>."
   language_communities:
@@ -106,6 +108,8 @@ get_started:
 explore:
   title: Erkunden Sie die Electron-APIs
   description: "Die <a href='https://github.com/electron/electron-api-demos'>Electron API Demos App</a> demonstriert auf interaktive Weise die wichtigsten Bestandteile der Electron API. Sehen Sie sich mithilfe von Beispielcode an, was alles mit Electron möglich ist und erhalten Sie hilfreiche Tipps zum Entwickeln Ihrer Anwendung."
+  fiddle_title: Try more powerful experiments with Electron Fiddle
+  see_more_info: See more info
 download_from_github: Von GitHub herunterladen
 view_all_releases_on_github: <a href="https://github.com/electron/electron-api-demos/releases">Alle Versionen</a> auf GitHub anzeigen
 quick_start:
@@ -125,9 +129,11 @@ taglines:
 help_translate: "Helfen Sie bei der Übersetzung"
 footer:
   see_the_faq: Lesen Sie die häufig gestellte Fragen
+companies:
+  title: Built on Electron
+  description: Initially developed for GitHub's <a href='https://atom.io' target='_blank'>Atom editor</a>, Electron has since been adopted by companies all over the world.
 apps:
-  title: Mit Electron entwickelte Apps
-  description: Mit Electron wird Ihnen das Erstellen einer Desktopanwendung für Ihre Firma oder Idee einfach gemacht. Ursprünglich für den <a href='https://atom.io' target='_blank'>Atom-Editor</a> von GitHub entwickelt, wird Electron auch von Firmen wie Microsoft, Facebook, Slack und Docker für die Entwicklung von Applikationen verwendet.
+  description: 'With Electron, creating a desktop application for your company or idea is easy. Check out <a href=''/apps''>some of the apps created by the community</a> or <a href="https://github.com/electron/electron-apps/blob/master/contributing.md#adding-your-app">add your own</a>.'
   view_more: Mehr Apps anzeigen
   submit_your_own: eigene App einreichen
   something_missing: Fehlt etwas?
@@ -197,6 +203,9 @@ pages:
   '/fiddle':
     title: Electron Fiddle
     description: The easiest way to get started with Electron
+  '/governance':
+    title: Electron Governance
+    description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
   '/donors':
     title: Spender
 landing:
@@ -213,5 +222,57 @@ landing:
     compile_and_package_desc: Fiddle can automatically turn your experiment into binaries you can share with your friends, coworkers, or grandparents. It does so thanks to <a href="https://electronforge.io/">electron-forge</a>, allowing you to package your fiddle as an app for Windows, macOS, or Linux.
     easy_start: Start with Fiddle, Continue Wherever
     easy_start_desc: Fiddle is not an IDE – it is however an excellent starting point. Once your fiddle has grown up, export it as a project with or without <a href="https://electronforge.io/">electron-forge</a>. Then, use your favorite editor and take on the world!
+governance:
+  title: Electron Governance
+  description: The Electron governance system is comprised of Working Groups that oversee different aspects of the Electron ecosystem, and an Administrative working group that functions to resolve conflicts between them.
+  wgs: Working Groups
+  docstools:
+    title: Docs & Tools
+    description: Oversees externally-focused tooling (e.g. Fiddle, Forge), Electron documentation across the website and <code>electron/*</code> repositories, and the maintainer’s group outreach to 3rd party modules.
+  outreach:
+    title: Outreach
+    description: Grows the Electron community
+  releases:
+    title: Veröffentlichungen
+    description: Oversees all release branches, and tooling to support releases.
+  upgrades:
+    title: Upgrades
+    description: Oversees upgrades of upstream dependencies; specifically Chromium and Node.
+  website:
+    title: Website
+    description: Oversees the technical implementation, design, and style of the Electron website and associated tooling.
+  cmsf:
+    title: Community & Safety
+    description: Oversees removal/bans from community.
+  security:
+    title: Sicherheit
+    description: Proactively ensures the Security of Electron as a project, responds to incoming incidents, and oversees rollout of fixes.
+  admins:
+    title: Administrative
+    description: The Administrative Working Group oversees the entire governance and project.
+  global:
+    overview: Overview
+    associated_repos: Associated Repositories
+    notes: Meeting Notes
+  definitions:
+    title: Definitions
+    list:
+      - A <i>maintainer</i> is anyone who plays an active role in governance.
+      - A <i>collaborator</i> is active in the community, but not in governance.
+      - A <i>participant</i> is anyone who is a maintainer or collaborator.
+      - A <i>working group</i> is a group of maintainers that is formed to take responsibility for certain aspects of the Electron project. Normally these groups will meet regularly but in some cases will only meet as required to fulfill their responsibilities.
+      - 'A <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership">chair</a> leads a working group.'
+  responsibilities:
+    title: Responsibilities
+    listdescription: "All Working Groups have these core responsibilities:"
+    list:
+      - They shall decide for themselves, and publicly post, their rules, e.g. how decisions are made, when meetings are held, and who may attend.
+      - 'They shall <a href="https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Terms-and-Selection">select</a> a chair to <a href=''https://github.com/electron/governance/tree/master/charter/README.md#Leadership-Responsibilities''>represent</a> the group.'
+      - They shall keep meeting notes, including agenda items, discussion points, and outcomes for everyone to review.
+      - 'They shall be collaborative and work <a href="https://github.com/electron/governance/tree/master/charter/README.md#Core-Values">in good faith</a> with other Working Groups.'
+    see_charter: See <a href="https://github.com/electron/governance/tree/master/charter/README.md">charter</a> for more information.
+  code_of_conduct: The Electron organization and all repos therein adhere to the following <a href="https://github.com/electron/governance/blob/master/CODE_OF_CONDUCT.md">Code of Conduct.</a>
+  license: Electron is licensed with the <a href="https://github.com/electron/electron/blob/master/LICENSE">MIT License</a>.
+  repository: Check out the <a href="https://github.com/electron/governance">Governance Repository</a> to find more information about the governance structure.
 _404:
   page_not_found: Seite nicht gefunden.

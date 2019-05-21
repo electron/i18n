@@ -4,7 +4,7 @@
 
 Processus : [Main](../glossary.md#main-process)
 
-Les outils de développement de chrome a une [liaison spéciale](https://developer.chrome.com/devtools/docs/debugger-protocol) disponible lors de l’exécution de JavaScript qui permet l’interaction avec les pages et leur instrumentation.
+Les outils de développement de chrome a une [liaison spéciale](https://chromedevtools.github.io/devtools-protocol/) disponible lors de l’exécution de JavaScript qui permet l’interaction avec les pages et leur instrumentation.
 
 ```javascript
 const { BrowserWindow } = require('electron')
@@ -49,7 +49,7 @@ Détache le débogueur depuis le `webContents`.
 
 #### `debugger.sendCommand(method[, commandParams, callback])`
 
-* `method` String -Nom de la méthode, cela devrait être l'une des méthodes définies par le protocole de débogage à distance.
+* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
 * `commandParams` Object (facultatif) - Objet JSON avec les paramètres de la requête.
 * `callback` Function (facultatif) - Réponse 
   * `error` Object - Message d'erreur indiquant l'échec de la commande.
@@ -57,18 +57,29 @@ Détache le débogueur depuis le `webContents`.
 
 Envoi une commande au débogueur.
 
+**[Deprecated Soon](promisification.md)**
+
+#### `debugger.sendCommand(method[, commandParams])`
+
+* `method` String - Method name, should be one of the methods defined by the [remote debugging protocol](https://chromedevtools.github.io/devtools-protocol/).
+* `commandParams` Object (facultatif) - Objet JSON avec les paramètres de la requête.
+
+Returns `Promise<any>` - A promise that resolves with the response defined by the 'returns' attribute of the command description in the remote debugging protocol or is rejected indicating the failure of the command.
+
+Envoi une commande au débogueur.
+
 ### Événements d’instance
 
 #### Événement : 'detach'
 
-* `event` Événement
+* `event` Event
 * `reason` String - Motif du retrait du débogueur.
 
 Émis lorsque la session de débogage est terminée. Cela se produit soit lorsque le `webContents` est fermé, soit lorsque devtools est invoqué pour le `webContents` rattaché.
 
 #### Événement : 'message'
 
-* `event` Event
+* `event` Événement
 * `method` String - Nom de la méthode.
 * `params` Object - Paramètres d'événements définis par l'attribut 'parameters' dans le protocole de débogage distant.
 

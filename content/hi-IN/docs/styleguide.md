@@ -88,21 +88,35 @@
 उदहारण के रूप में `सेशन` और `कूकीज़` क्लासेज का उपयोग:
 
 ```markdown
-# सेशन 
-## मेथड्स 
-### सेशन.(पार्टीशन) पार्टीशन से 
-## गुण 
-### सेशन.डिफ़ॉल्ट सेशन 
-## क्लास:सेशन 
-### इंस्टैंस इवेंट्स 
-#### इवेंट:'डाउनलोड-करूँगा' 
-### इंस्टैंस मेथड्स 
-#### `सेस.गेट कैश साइज़(कालबैक)` 
-### इंस्टैंस गुण
-#### `सेस.कूकीज` 
-## क्लास:कूकीज 
-### इंस्टैंस मेथड्स 
-#### `कूकीज.गेट(फ़िल्टर, कालबैक)`
+# session
+
+## Methods
+
+### session.fromPartition(partition)
+
+## Properties
+
+### session.defaultSession
+
+## Class: Session
+
+### Instance Events
+
+#### Event: 'will-download'
+
+### Instance Methods
+
+#### `ses.getCacheSize()`
+
+### Instance Properties
+
+#### `ses.cookies`
+
+## Class: Cookies
+
+### Instance Methods
+
+#### `cookies.get(filter, callback)`
 ```
 
 ### मेथड्स

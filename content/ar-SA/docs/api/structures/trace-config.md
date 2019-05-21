@@ -1,4 +1,4 @@
-# TraceConfig Object
+# كائن اعدادات التتبع
 
 * `included_categories` String[] (optional)
 * `excluded_categories` String[] (optional)

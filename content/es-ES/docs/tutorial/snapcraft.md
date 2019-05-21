@@ -85,7 +85,7 @@ version: '2.0.0'
 summary: Una pequeña descripción de su aplicación.
 description: |
  ¿Sábes qué? ¡Esta aplicación es asombrosa! Hace todas las cosas
- por vos. Some say it keeps you young, maybe even happy.
+ por vos. Algunos dicen que te mantiene joven, tal vez incluso feliz.
 
 grade: stable
 confinement: classic

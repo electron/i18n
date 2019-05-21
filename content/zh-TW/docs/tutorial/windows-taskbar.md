@@ -12,7 +12,7 @@ Windows allows apps to define a custom context menu that shows up when users rig
 
 **Internet Explorer 的工作:**
 
-![IE](http://i.msdn.microsoft.com/dynimg/IC420539.png)
+![IE](https://i-msdn.sec.s-msft.com/dynimg/IC420539.png)
 
 不像 macOS 的 Dock 選單真的是選單，Windows 的使用者工作比較像是捷徑，使用者點了工作後，程式會被以指定的參數執行。
 

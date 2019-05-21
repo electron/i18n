@@ -1,4 +1,4 @@
-# הרכיב BluetoothDevice
+# בלוטות'
 
-* `deviceName`‏ String
-* `deviceId`‏ String
+* `deviceName` String
+* `deviceName` String

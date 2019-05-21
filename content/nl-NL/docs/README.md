@@ -85,7 +85,7 @@ Deze tutorials gaan dieper in op onderwerpen die in de bovenstaande gids worden 
   * [Het gebruik maken van asar archieven](tutorial/application-packaging.md#using-asar-archives)
   * [Limitaties](tutorial/application-packaging.md#limitations-of-the-node-api)
   * [Voeg uitgepakte bestanden toe aan asar archieven](tutorial/application-packaging.md#adding-unpacked-files-to-asar-archives)
-* [In Detail: Testing Widevine CDM](tutorial/testing-widevine-cdm.md)
+* [In detail: Het testen van de Widevine CDM](tutorial/testing-widevine-cdm.md)
 * [In detail: Het gebruik maken van Pepper Flash Plugin](tutorial/using-pepper-flash-plugin.md)
 * [Offscreen Rendering](tutorial/offscreen-rendering.md)
 

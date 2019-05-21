@@ -32,18 +32,27 @@ Mengembalikan `Boolean` - Apakah item berhasil dibuka.
 
 Buka file yang diberikan dengan cara default desktop.
 
-### `shell.openExternal (url [, pilihan, callback])`
+### `shell.openExternalSync(url[, options])`
 
-* `url` String - Max 2081 characters on windows, or the function returns false.
+* `url` String - Max 2081 characters on Windows, or the function returns false.
 * `options` Objek (opsional) 
   * `activate` Boolean (optional) - `true` to bring the opened application to the foreground. The default is `true`. *macOS*
   * `workingDirectory` String (optional) - The working directory. *Windows*
-* `callback` Fungsi (opsional) *macOS* - If specified will perform the open asynchronously. 
-  * Kesalahan `kesalahan`
 
-Mengembalikan `Boolean` - Apakah sebuah aplikasi tersedia untuk membuka URL. Jika callback ditentukan, selalu mengembalikan true.
+Returns `Boolean` - Whether an application was available to open the URL.
 
-Buka URL protokol eksternal yang diberikan dengan cara default desktop. (Misalnya, mailto: URL di agen email default pengguna).
+Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
+
+### `shell.openExternal(url[, options])`
+
+* `url` String - Max 2081 characters on windows.
+* `pilihan` Objek (opsional) 
+  * `activate` Boolean (optional) - `true` to bring the opened application to the foreground. The default is `true`. *macOS*
+  * `workingDirectory` String (optional) - The working directory. *Windows*
+
+Returns `Promise<void>`
+
+Open the given external protocol URL in the desktop's default manner. (For example, mailto: URLs in the user's default mail agent).
 
 ### `shell.moveItemUntukSampah(JalurPenuh)`
 

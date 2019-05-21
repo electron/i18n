@@ -12,7 +12,7 @@ Windows では、ユーザがタスクバーのアプリのアイコンを右ク
 
 **Internet Explorer のタスク:**
 
-![Internet Explorer](http://i.msdn.microsoft.com/dynimg/IC420539.png)
+![Internet Explorer](https://i-msdn.sec.s-msft.com/dynimg/IC420539.png)
 
 実際のメニューである macOS のドックメニューとは異なり、Windows のユーザータスクはアプリケーションショートカットのように機能し、ユーザーがタスクをクリックするとプログラムが指定された引数で実行されます。
 

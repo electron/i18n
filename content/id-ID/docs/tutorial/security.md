@@ -45,7 +45,7 @@ objek <code> process.env </ code> atau <code>> </ code>.</p>
 
 <ol>
 <li><a href="#1-only-load-secure-content">Hanya memuat konten aman</a></li>
-<li><a href="#2-disable-nodejs-integration-for-remote-content">Mengaktifkan konteks isolasi di semua penyaji yang menampilkan konten secara terpencil</a></li>
+<li><a href="#2-do-not-enable-nodejs-integration-for-remote-content">Mengaktifkan konteks isolasi di semua penyaji yang menampilkan konten secara terpencil</a></li>
 <li><a href="#3-enable-context-isolation-for-remote-content">Mengaktifkan konteks isolasi di semua penyaji yang menampilkan konten secara terpencil</a></li>
 <li><a href="#4-handle-session-permission-requests-from-remote-content">Gunakan <code>ses.setPermissionRequestHandler ()</ 0> di semua sesi yang memuat konten jauh</a></li>
 <li><a href="#5-do-not-disable-websecurity">Jangan menonaktifkan <code>Keamanan web`</a></li> 
@@ -58,7 +58,9 @@ objek <code> process.env </ code> atau <code>> </ code>.</p>
 * [`<webview>`: Verify options and params](#11-verify-webview-options-before-creation)
 * [Disable or limit navigation](#12-disable-or-limit-navigation)
 * [Disable or limit creation of new windows](#13-disable-or-limit-creation-of-new-windows)
-* [Do not use `openExternal` with untrusted content](#14-do-not-use-openexternal-with-untrusted-content)</ol> 
+* [Do not use `openExternal` with untrusted content](#14-do-not-use-openexternal-with-untrusted-content)
+* [Disable the `remote` module](#15-disable-the-remote-module)
+* [Filter the `remote` module](#16-filter-the-remote-module)</ol> 
 
 To automate the detection of misconfigurations and insecure patterns, it is possible to use [electronegativity](https://github.com/doyensec/electronegativity). For additional details on potential weaknesses and implementation bugs when developing applications using Electron, please refer to this [guide for developers and auditors](https://doyensec.com/resources/us-17-Carettoni-Electronegativity-A-Study-Of-Electron-Security-wp.pdf)
 
@@ -82,9 +84,11 @@ Buruk browserWindow.loadURL ('http://example.com') / / baik browserWindow.loadUR
 <!--buruk--> <script crossorigin src="http://example.com/react.js"></script> <link rel="stylesheet" href="http://example.com/style.css"><!--baik--> <script crossorigin src="https://example.com/react.js"></script> <link rel="stylesheet" href="https://example.com/style.css">
 ```
 
-## 2) Nonaktifkan Integrasi Node.js untuk Konten Jarak Jauh
+## 2) Do not enable Node.js Integration for Remote Content
 
-It is paramount that you disable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) that loads remote content. Tujuannya adalah untuk membatasi kekuatan yang anda berikan untuk konten terpencil, sehingga membuatnya jauh lebih sulit bagi penyerang membahayakan pengguna harus memperoleh kemampuan mereka untuk menjalankan JavaScript pada situs web anda.
+*This recommendation is the default behavior in Electron since 5.0.0.*
+
+It is paramount that you do not enable Node.js integration in any renderer ([`BrowserWindow`](../api/browser-window.md), [`BrowserView`](../api/browser-view.md), or [`<webview>`](../api/webview-tag.md)) that loads remote content. Tujuannya adalah untuk membatasi kekuatan yang anda berikan untuk konten terpencil, sehingga membuatnya jauh lebih sulit bagi penyerang membahayakan pengguna harus memperoleh kemampuan mereka untuk menjalankan JavaScript pada situs web anda.
 
 Setelah ini, anda dapat memberikan izin tambahan untuk host tertentu. Misalnya, jika anda membuka BrowserWindow menunjuk pada`https://example.com/", anda dapat memberikan situs web yang tepat dengan kemampuan yang dibutuhkan, tapi tidak lebih.
 
@@ -95,8 +99,14 @@ Cross-site scripting (XSS) serangan yang lebih berbahaya jika seorang penyerang 
 ### Bagaimana?
 
 ```js
-// Buruk
-const mainWindow = baru BrowserWindow()
+// Bad
+const mainWindow = new BrowserWindow({
+  webPreferences: {
+    nodeIntegration: true,
+    nodeIntegrationInWorker: true
+  }
+})
+
 mainWindow.loadURL('https://example.com')
 ```
 
@@ -104,9 +114,7 @@ mainWindow.loadURL('https://example.com')
 // Good
 const mainWindow = new BrowserWindow({
   webPreferences: {
-    nodeIntegration: false,
-    nodeIntegrationInWorker: false,
-    preload: './preload.js'
+    preload: path.join(app.getAppPath(), 'preload.js')
   }
 })
 
@@ -149,11 +157,11 @@ Pada waktu yang sama, script preload masih memiliki akses ke `dokumen` dan `jend
 ### Bagaimana?
 
 ```js
-// Main proses
-const mainWindow = baru BrowserWindow({
-  webPreferensi: {
-    kontextIsolation: benar,
-    pramuat: 'pramuat.js'
+// Main process
+const mainWindow = new BrowserWindow({
+  webPreferences: {
+    contextIsolation: true,
+    preload: path.join(app.getAppPath(), 'preload.js')
   }
 })
 ```
@@ -343,7 +351,7 @@ const mainWindow = new BrowserWindow({})
 
 ## 9) Do Not Use `enableBlinkFeatures`
 
-*Rekomendasi adalah elektron 's default*
+*Recommendation is Electron's default*
 
 Blink is the name of the rendering engine behind Chromium. As with `experimentalFeatures`, the `enableBlinkFeatures` property allows developers to enable features that have been disabled by default.
 
@@ -466,12 +474,12 @@ If you have no need to create windows in addition to the ones you know you'll ne
 const { shell } = require('electron')
 
 app.on('web-contents-created', (event, contents) => {
-  contents.on('new-window', (event, navigationUrl) => {
+  contents.on('new-window', async (event, navigationUrl) => {
     // In this example, we'll ask the operating system
     // to open this event's url in the default browser.
     event.preventDefault()
 
-    shell.openExternalSync(navigationUrl)
+    await shell.openExternal(navigationUrl)
   })
 })
 ```
@@ -496,4 +504,96 @@ shell.openExternal(USER_CONTROLLED_DATA_HERE)
 //  Good
 const { shell } = require('electron')
 shell.openExternal('https://example.com/index.html')
+```
+
+## 15) Disable the `remote` module
+
+The `remote` module provides a way for the renderer processes to access APIs normally only available in the main process. Using it, a renderer can invoke methods of a main process object without explicitly sending inter-process messages. If your desktop application does not run untrusted content, this can be a useful way to have your renderer processes access and work with modules that are only available to the main process, such as GUI-related modules (dialogs, menus, etc.).
+
+However, if your app can run untrusted content and even if you [sandbox](../api/sandbox-option.md) your renderer processes accordingly, the `remote` module makes it easy for malicious code to escape the sandbox and have access to system resources via the higher privileges of the main process. Therefore, it should be disabled in such circumstances.
+
+### Mengapa?
+
+`remote` uses an internal IPC channel to communicate with the main process. "Prototype pollution" attacks can grant malicious code access to the internal IPC channel, which can then be used to escape the sandbox by mimicking `remote` IPC messages and getting access to main process modules running with higher privileges.
+
+Additionally, it's possible for preload scripts to accidentally leak modules to a sandboxed renderer. Leaking `remote` arms malicious code with a multitude of main process modules with which to perform an attack.
+
+Disabling the `remote` module eliminates these attack vectors. Enabling context isolation also prevents the "prototype pollution" attacks from succeeding.
+
+### Bagaimana?
+
+```js
+// Bad if the renderer can run untrusted content
+const mainWindow = new BrowserWindow({})
+```
+
+```js
+// Good
+const mainWindow = new BrowserWindow({
+  webPreferences: {
+    enableRemoteModule: false
+  }
+})
+```
+
+```html
+<!-- Bad if the renderer can run untrusted content  -->
+<webview src="page.html"></webview>
+
+<!-- Good -->
+<webview enableremotemodule="false" src="page.html"></webview>
+```
+
+## 16) Filter the `remote` module
+
+If you cannot disable the `remote` module, you should filter the globals, Node, and Electron modules (so-called built-ins) accessible via `remote` that your application does not require. This can be done by blocking certain modules entirely and by replacing others with proxies that expose only the functionality that your app needs.
+
+### Mengapa?
+
+Due to the system access privileges of the main process, functionality provided by the main process modules may be dangerous in the hands of malicious code running in a compromised renderer process. By limiting the set of accessible modules to the minimum that your app needs and filtering out the others, you reduce the toolset that malicious code can use to attack the system.
+
+Note that the safest option is to [fully disable the remote module](#15-disable-the-remote-module). If you choose to filter access rather than completely disable the module, you must be very careful to ensure that no escalation of privilege is possible through the modules you allow past the filter.
+
+### Bagaimana?
+
+```js
+const readOnlyFsProxy = require(/* ... */) // exposes only file read functionality
+
+const allowedModules = new Set(['crypto'])
+const proxiedModules = new Map(['fs', readOnlyFsProxy])
+const allowedElectronModules = new Set(['shell'])
+const allowedGlobals = new Set()
+
+app.on('remote-require', (event, webContents, moduleName) => {
+  if (proxiedModules.has(moduleName)) {
+    event.returnValue = proxiedModules.get(moduleName)
+  }
+  if (!allowedModules.has(moduleName)) {
+    event.preventDefault()
+  }
+})
+
+app.on('remote-get-builtin', (event, webContents, moduleName) => {
+  if (!allowedElectronModules.has(moduleName)) {
+    event.preventDefault()
+  }
+})
+
+app.on('remote-get-global', (event, webContents, globalName) => {
+  if (!allowedGlobals.has(globalName)) {
+    event.preventDefault()
+  }
+})
+
+app.on('remote-get-current-window', (event, webContents) => {
+  event.preventDefault()
+})
+
+app.on('remote-get-current-web-contents', (event, webContents) => {
+  event.preventDefault()
+})
+
+app.on('remote-get-guest-web-contents', (event, webContents, guestWebContents) => {
+  event.preventDefault()
+})
 ```
