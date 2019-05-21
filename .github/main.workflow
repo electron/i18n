@@ -1,5 +1,5 @@
 workflow "Update source content" {
-  on = "schedule(0 * * * *)"
+  on = "schedule(10 * * * *)"
   resolves = ["npm run update-source-content"]
 }
 
