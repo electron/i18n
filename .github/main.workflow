@@ -15,8 +15,6 @@ action "npm run update-source-content" {
   ]
 }
 
-
-
 workflow "Test" {
   on = "push"
   resolves = ["npm test"]
@@ -33,8 +31,6 @@ action "npm test" {
   args = "test"
 }
 
-
-
 workflow "Release" {
   on = "push"
   resolves = ["semantic release"]
@@ -50,6 +46,6 @@ action "semantic release" {
   needs = ["master branch only", "npm ci", "npm test"]
   args = "run semantic-release"
   secrets = [
-    "NPM_AUTH_TOKEN",
+    "NPM_TOKEN",
   ]
 }
