@@ -57,14 +57,9 @@ workflow "Auto-merge Crowdin PR" {
 
 action "Automerge PR" {
   uses = "actions/npm@master"
-  needs = ["Install"]
+  needs = ["Install dependencies"]
   args = "run automerge"
   secrets = [
     "GH_TOKEN",
   ]
-}
-
-action "Install" {
-  uses = "actions/npm@master"
-  runs = "ci"
 }
