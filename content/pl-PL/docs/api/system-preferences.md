@@ -33,14 +33,14 @@ Zwraca:
 * `event` Event
 * `invertedColorScheme` Boolean - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is being used, `false` otherwise.
 
-### Event: 'high-contrast-color-scheme-changed' *Windows*
+### Zdarzenie: 'high-contrast-color-scheme-changed' *Windows*
 
 Zwraca:
 
 * `event` Event
 * `highContrastColorScheme` Boolean - `true` if a high contrast theme is being used, `false` otherwise.
 
-### Event: 'appearance-changed' *macOS*
+### Zdarzenie: 'appearance-changed' *macOS*
 
 Zwraca:
 

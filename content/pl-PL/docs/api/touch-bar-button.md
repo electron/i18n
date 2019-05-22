@@ -4,7 +4,7 @@
 
 Process: [Main](../tutorial/application-architecture.md#main-and-renderer-processes)
 
-### `new TouchBarButton(options)` *Experimental*
+### `new TouchBarButton(options)` *Eksperymentalne*
 
 * `opcje` Object 
   * `label` String (optional) - Button text.
