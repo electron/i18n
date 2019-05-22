@@ -52,13 +52,19 @@ action "Publish via semantic-release" {
 
 workflow "Auto-merge Crowdin PR" {
   resolves = ["Automerge PR"]
-  on = "schedule(0 16 * * *)"
+  on = "schedule(15 16 * * *)"
 }
 
 action "Automerge PR" {
   uses = "actions/npm@master"
+  needs = ["Install"]
   args = "run automerge"
   secrets = [
     "GH_TOKEN",
   ]
+}
+
+action "Install" {
+  uses = "actions/npm@master"
+  runs = "ci"
 }
