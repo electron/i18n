@@ -25,7 +25,8 @@ const getPRData = async (prNumber: number) => {
 const getPRNumber = async () => {
   const prs = await github.pulls.list({
     owner: OWNER,
-    repo: REPO
+    repo: REPO,
+    per_page: 100
   })
   const glotbot = await prs.data.filter(pr => pr.user.login === BOTNAME)
   const prNumber = glotbot[0].number
