@@ -111,6 +111,7 @@ const mergeAndDeleteBranch = async (pr: number) => {
     owner: OWNER,
     repo: REPO,
     pull_number: pr,
+    commit_message: '', // make commit message smaller.
     merge_method: 'squash'
   })
   await github.git.deleteRef({

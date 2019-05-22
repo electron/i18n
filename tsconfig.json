@@ -4,6 +4,10 @@
     "module": "commonjs",
     "lib": [
       "esnext"
-    ]
+    ],
+    "strict": true,
+    "strictNullChecks": true,
+    "noUnusedLocals": true,
+    "noImplicitAny": true
   }
 }
