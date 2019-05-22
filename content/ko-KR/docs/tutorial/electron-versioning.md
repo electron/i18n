@@ -84,9 +84,9 @@ git 브랜치 동작 방법, npm 태깅 동작 방식, 개발자가 보고 싶�
 
 Specifically, the above means:
 
-1. Admitting non-breaking-API changes early in the beta cycle is okay, even if those changes have the potential to cause moderate side-affects
+1. Admitting non-breaking-API changes before Week 3 in the beta cycle is okay, even if those changes have the potential to cause moderate side-affects
 2. Admitting feature-flagged changes, that do not otherwise alter existing code paths, at most points in the beta cycle is okay. Users can explicitly enable those flags in their apps.
-3. Admitting features of any sort very late in the beta cycle is 
+3. Admitting features of any sort after Week 3 in the beta cycle is 
 
 메이저, 마이너 버전이 증가하면 다음과 같은 버전 정보를 갖게 될 것입니다:
 
