@@ -84,9 +84,9 @@ GitHub不支持旧线路，但是其他分组可以自行获取所有权和返�
 
 特别地，上述步骤意味着：
 
-1. Admitting non-breaking-API changes early in the beta cycle is okay, even if those changes have the potential to cause moderate side-affects
+1. Admitting non-breaking-API changes before Week 3 in the beta cycle is okay, even if those changes have the potential to cause moderate side-affects
 2. Admitting feature-flagged changes, that do not otherwise alter existing code paths, at most points in the beta cycle is okay. Users can explicitly enable those flags in their apps.
-3. Admitting features of any sort very late in the beta cycle is 
+3. Admitting features of any sort after Week 3 in the beta cycle is 
 
 对于每个主要和次要的颠覆，你都应该像以下示例一样进行操作：
 
