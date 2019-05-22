@@ -1,5 +1,3 @@
-require('dotenv-safe').load()
-
 import * as Octokit from '@octokit/rest';
 
 const OWNER = 'electron'
