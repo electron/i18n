@@ -10,7 +10,7 @@
   "author": "zeke",
   "license": "MIT",
   "devDependencies": {
-    "@octokit/rest": "^16.0.1",
+    "@octokit/rest": "^16.26.0",
     "chai": "^4.1.2",
     "chai-date-string": "^0.1.0",
     "check-for-leaks": "^1.2.0",
@@ -41,7 +41,9 @@
     "simple-statistics": "^7.0.2",
     "standard": "^12.0.1",
     "travis-deploy-once": "^5.0.0",
-    "walk-sync": "^1.1.3"
+    "walk-sync": "^1.1.3",
+    "ts-node": "^8.1.0",
+    "typescript": "^3.4.5"
   },
   "scripts": {
     "collect": "node script/collect.js",
@@ -60,10 +62,11 @@
     "travis-deploy-once": "travis-deploy-once",
     "semantic-release": "semantic-release",
     "upload-crowdin-glossary": "node script/upload-crowdin-glossary.js",
-    "wordcount": "node script/wordcount.js > wordcount.md"
+    "wordcount": "node script/wordcount.js > wordcount.md",
+    "automerge": "ts-node ./script/automerge.ts"
   },
   "electronLatestStableTag": "v5.0.1",
-  "electronMasterBranchCommit": "75609f784cb88f66697ef5c92e83bc6a87fdf458",
+  "electronMasterBranchCommit": "e1a2cc7f366a19693c0b1f2bee6c31c6b3b11e63",
   "engines": {
     "node": ">=10"
   }
