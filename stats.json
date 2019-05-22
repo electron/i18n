@@ -4,13 +4,13 @@
     "code": "ar",
     "phrases": "10563",
     "translated": "1274",
-    "approved": "0",
+    "approved": "1",
     "words": "97309",
     "words_translated": "8135",
-    "words_approved": "0",
+    "words_approved": "2",
     "translated_progress": 8,
     "approved_progress": 0,
-    "qa_issues": 464
+    "qa_issues": 463
   },
   {
     "name": "Bulgarian",
@@ -211,14 +211,14 @@
     "name": "Polish",
     "code": "pl",
     "phrases": "10563",
-    "translated": "4281",
+    "translated": "4389",
     "approved": "1103",
     "words": "97309",
-    "words_translated": "21309",
+    "words_translated": "21623",
     "words_approved": "7087",
-    "translated_progress": 21,
+    "translated_progress": 22,
     "approved_progress": 7,
-    "qa_issues": 846
+    "qa_issues": 890
   },
   {
     "name": "Portuguese, Brazilian",
