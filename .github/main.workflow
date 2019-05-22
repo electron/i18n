@@ -50,10 +50,9 @@ action "Publish via semantic-release" {
   ]
 }
 
-
 workflow "Auto-merge Crowdin PR" {
-  on = "schedule(0 09 * * 1)"
   resolves = ["Automerge PR"]
+  on = "schedule(0 16 * * *)"
 }
 
 action "Automerge PR" {
