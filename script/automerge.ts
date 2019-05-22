@@ -33,15 +33,19 @@ const getPRData = async (prNumber: number) => {
 /**
  * Gets the number of opened pull request by the bot or user.
  */
-const getPRNumber = async () => {
+const findPRNumber = async (): Promise<{ found: boolean, number: number }> => {
   const prs = await github.pulls.list({
     owner: OWNER,
     repo: REPO,
     per_page: 100
   })
   const glotbot = await prs.data.filter(pr => pr.user.login === BOTNAME)
-  const prNumber = glotbot[0].number
-  return prNumber
+  if (glotbot.length > 0) {
+    const prNumber = glotbot[0].number
+    return { found: true, number: prNumber }
+  } else {
+    return { found: false, number: 0 }
+  }
 }
 
 /**
@@ -118,16 +122,29 @@ const mergeAndDeleteBranch = async (pr: number) => {
 }
 
 async function autoMerger() {
-  const prNumber = await getPRNumber()
+  console.log(`Searching for a ${BOTNAME} PR...`)
+  const pr = await findPRNumber()
+  if (!pr.found) {
+    console.log(`Cound not find a ${BOTNAME} PR to merge`)
+    process.exit(78) // neutral exit code
+  }
+  const prNumber = pr.number
+
+  console.log(`Updating PR ${prNumber} to have a semantic title...`)
   await updateTitle(prNumber)
+
+  console.log(`Determining mergeability of PR ${prNumber}`)
   const isMergeable = await ableToMerge(prNumber)
+
   if (isMergeable) {
     console.log(`Merging PR ${prNumber}`)
     await mergeAndDeleteBranch(prNumber)
   } else {
-    console.log(`PR ${prNumber} is not mergeable`)
-    process.exit(1)
+    throw new Error(`PR ${prNumber} is not mergeable`)
   }
 }
 
-autoMerger()
+autoMerger().catch((err: Error) => {
+    console.log(`Error: ${err}`)
+    process.exit(1)
+  })
