@@ -49,3 +49,16 @@ action "Publish via semantic-release" {
     "NPM_TOKEN",
   ]
 }
+
+workflow "Auto-merge Crowdin PR" {
+  resolves = ["Automerge PR"]
+  on = "schedule(0 16 * * *)"
+}
+
+action "Automerge PR" {
+  uses = "actions/npm@master"
+  args = "run automerge"
+  secrets = [
+    "GH_TOKEN",
+  ]
+}
