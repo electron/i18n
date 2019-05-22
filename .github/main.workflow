@@ -50,6 +50,7 @@ action "Publish via semantic-release" {
   ]
 }
 
+
 workflow "Auto-merge Crowdin PR" {
   on = "schedule(0 09 * * 1)"
   resolves = ["Automerge PR"]
@@ -58,11 +59,7 @@ workflow "Auto-merge Crowdin PR" {
 action "Automerge PR" {
   uses = "actions/npm@master"
   args = "run automerge"
-  env = {
-    NODE_OPTIONS = "--max_old_space_size=4096"
-  }
   secrets = [
-    "CROWDIN_KEY",
     "GH_TOKEN",
   ]
 }

@@ -19,7 +19,7 @@ const timer = (time: number): Promise<void> => {
 }
 
 const github = new Octokit({
-  auth: process.env.GITHUB_TOKEN
+  auth: process.env.GH_TOKEN
 })
 
 const getPRData = async (prNumber: number) => {
