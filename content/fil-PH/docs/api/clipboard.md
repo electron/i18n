@@ -16,7 +16,7 @@ Context | Request Context
 
 ```
 
-Sa X Window system, mayroon ding seleksyon clipboard. Upang manipulahin ang mga ito kailangan mo na mapasa`selection` sa bawat pamamaraan:
+On Linux, there is also a `selection` clipboard. To manipulate it you need to pass `selection` to each method:
 
 ```javascript
 const { clipboard } = require('electron')
@@ -34,7 +34,7 @@ Ang `clipboard` modyul ay ang ma sumusunod na pamamaraan:
 
 `
 
-* `type` String (opsiyonal)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Returns `String` - Ang nilalaman ng klipboard bilang textstong walang format. 
 
@@ -43,13 +43,13 @@ Returns `String` - Ang nilalaman ng klipboard bilang textstong walang format.
 `
 
 * `text` String
-* `type` String (opsiyonal)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Pagsulat ng `text` as klipboard bilang tekstong walang format.
 
 ### `clipboard.readHTML([i-type])`
 
-* `type` String (opsiyonal)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Returns `String` - Ang nilalaman ng klipboard bilang texkstong walang format. 
 
@@ -58,7 +58,7 @@ Returns `String` - Ang nilalaman ng klipboard bilang texkstong walang format.
 `
 
 * `markup` String
-* `type` String (opsiyonal)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Pagsulat ng `markup` sa klipboard. 
 
@@ -66,7 +66,7 @@ Pagsulat ng `markup` sa klipboard.
 
 `
 
-* `type` String (opsiyonal)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Nagbabalik ang [`NativeImage`](native-image.md) ang nilalaman ng larawan sa klipbord. 
 
@@ -75,7 +75,7 @@ Nagbabalik ang [`NativeImage`](native-image.md) ang nilalaman ng larawan sa klip
 `
 
 * `image` [NativeImage](native-image.md)
-* `type` String (opsiyonal)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Pagsulat `image` sa klipboard.
 
@@ -83,14 +83,14 @@ Pagsulat `image` sa klipboard.
 
 `
 
-* `type` String (opsiyonal)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Returns `String` - Ang nilalaman ng klipboard bilang RTF.
 
 ### `clipboard.writeRTF(text[, type])`
 
 * `text` String
-* `type` String (opsiyonal)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Pagsulat ng `text` sa klipboard bilang RTF.
 
@@ -107,7 +107,7 @@ Nagbabalik ng isang bagay na naglalaman `title` at `url` keys na kumakatawan sa 
 
 * `title` String
 * `url` Tali
-* `type` String (opsiyonal)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Pagsulat ng `title` and `url` sa klipbord bilang bookmark.
 
@@ -134,20 +134,20 @@ Pagsulat ng `text` sa find pasteboard bilang tekstong walang format. Ang paraan 
 
 `
 
-* `type` String (opsiyonal)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Nililimas ang mga nilalaman ng klipboard. 
 
 ### `clipboard.availableFormats([i-type]`
 
-* `type` String (opsiyonal)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Returns `String[]` - isang array ng mga supportadong pormat para sa klipboard `uri`.
 
 ### `clipboard.has(format[, type])` *Experimental*
 
 * `format` String
-* `type` String (opsiyonal)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Returns `Boolean` - maski ang clipboard ay sumusuporta sa tinukoy na`format`.
 
@@ -172,7 +172,7 @@ Returns `Buffer` - Reads `format` uri mula sa klipboard.
 
 * `format` String
 * `buffer` Buffer
-* `type` String (opsiyonal)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Pagsulat ng `buffer` sa klipboard bilang `format`.
 
@@ -186,7 +186,7 @@ Pagsulat ng `buffer` sa klipboard bilang `format`.
   * `image` [NativeImage](native-image.md) (opsiyonal)
   * `rtf` String (opsiyonal)
   * `rtf` String (opsiyonal) - Ang pamagat ng url sa `text`. 
-* `type` String (opsiyonal)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 ```javascript
 const { clipboard } = require('electron')
