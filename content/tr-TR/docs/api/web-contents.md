@@ -92,6 +92,16 @@ Dönüşler:
 
 Belirli bir çerçevedeki belge yüklendiğinde çıkar.
 
+#### Etkinlik: 'sayfa-başlığı-güncellendi'
+
+Dönüşler:
+
+* `event` Event
+* `başlık` Dizi
+* `explicitSet` Boolean
+
+Gezinme sırasında sayfa başlığı ayarlanırsa tetiklenir. Başlık dosya url'inden sentezlenmişse `explicitSet` yanlıştır.
+
 #### Olay: 'page-favicon-updated'
 
 Dönüşler:
@@ -138,7 +148,7 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `url` Dize
 
 Bir kullanıcı veya sayfa gezinme başlatmak istediğinde ortaya çıkar. `window.location` nesnesi değiştirildiğinde veya bir kullanıcı sayfadaki bir bağlantıyı tıklattığında olabilir.
@@ -153,7 +163,7 @@ Ayrıca, bağlı linkleri tıklama veya `window.location.hash` öğesini güncel
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `url` Dize
 * `isInPlace` Boolean
 * `isMainFrame` Boolean
@@ -211,7 +221,7 @@ Ayrıca, bağlı linkleri tıklama veya `window.location.hash` öğesini güncel
 
 Dönüşler:
 
-* `event` Event
+* `event` Etkinlik
 * `url` Dize
 * `httpResponseCode` Integer - -1 for non HTTP navigations
 * `httpStatusText` String - empty for non HTTP navigations,
@@ -227,7 +237,7 @@ Ayrıca, bağlı linkleri tıklama veya `window.location.hash` öğesini güncel
 
 Dönüşler:
 
-* `event` Etkinlik
+* `event` Olay
 * `url` Dize
 * `isMainFrame` Boolean
 * `frameProcessId` Integer
@@ -287,7 +297,7 @@ Yanıt vermeyen internet sayfası tekrar yanıt verdiğinde ortaya çıkmaktadı
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `name` Dizi
 * `versiyon` String
 
@@ -344,7 +354,7 @@ DevTools odaklandığında / açıldığında ortaya çıkar.
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `url` Dize
 * `error` Dizi - Hata Kodu.
 * `certificate` [sertifika](structures/certificate.md)
@@ -373,7 +383,7 @@ Kullanımı [the `select-client-certificate` olayı `app`](app.md#event-select-c
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `istek` Nesne 
   * `method` Dizi
   * `url` URL
@@ -396,7 +406,7 @@ Kullanımı [the `login` olayı `app`](app.md#event-login) ile aynıdır.
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `sonuç` Nesne 
   * `requestId` Tamsayı
   * `activeMatchOrdinal` Tamsayı - Etkin eşleşmenin konumu.
@@ -412,7 +422,7 @@ Medya oynatılmaya başladığında yayınlanır.
 
 #### Etkinlik: 'medya-duraklatıldı'
 
-Medya duraklatıldığında veya oynatma süresi bittiğinde belirir.
+Medya duraklatıldığında veya oynatıldığında yaydır.
 
 #### Olay: tema rengi değiştirildi
 
@@ -424,14 +434,14 @@ Bir sayfanın tema rengi değiştiğinde ortaya çıkar. Bu genellikle karşıla
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `color` (String | null) - Tema rengi '#rrggbb' biçiminde. Tema rengi ayarlanmadığında `null`'dir.
 
 #### Etkinlik: 'update-target-url'
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `url` Dize
 
 Fare bir bağlantı üzerinden geçtiğinde veya klavyenin bir bağlantıya odaklamasını sağladığı zaman yayımlanır.
@@ -440,7 +450,7 @@ Fare bir bağlantı üzerinden geçtiğinde veya klavyenin bir bağlantıya odak
 
 Dönüşler:
 
-* `event` Olay
+* `event` Event
 * `type` Dize
 * `image` [NativeImage](native-image.md) (isteğe bağlı)
 * `scale` Float (İsteğe Bağlı) Özel imleç için ölçekleme faktörü.
@@ -530,7 +540,7 @@ app.on('ready', () => {
 
 Dönüşler:
 
-* `event` Event
+* `event` Olay
 * `dirtyRect` [Rectangle](structures/rectangle.md)
 * `image` [NativeImage](native-image.md) - The image data of the whole frame.
 
@@ -700,7 +710,7 @@ webContents.loadURL('https://github.com', options)
 #### `contents.loadFile(filePath[, options])`
 
 * `filePath` Dizi
-* `seçenekler` Obje (opsiyonel) 
+* `opsiyonlar` Obje (opsiyonel) 
   * `query` Object (optional) - Passed to `url.format()`.
   * `search` String (optional) - Passed to `url.format()`.
   * `hash` String (optional) - Passed to `url.format()`.
@@ -843,7 +853,7 @@ Yürürlükteki web sayfasına CSS ekler.
 #### `contents.executeJavaScript(code[, userGesture, callback])`
 
 * `code` Dizgi
-* `userGesture` Boolean (isteğe bağlı) - Varsayılan `false`'dır.
+* `userGesture` Boolean (isteğe bağlı) - Varsayılan `false`'dur.
 * `geri aramak` Function (isteğe bağlı) - Script çalıştıktan sonra çağırılır. 
   * `result` Any
 
@@ -851,7 +861,7 @@ Returns `Promise<any>` - A promise that resolves with the result of the executed
 
 Sayfadaki `code`'u ölçer.
 
-Tarayıcı penceresinde `requestFullScreen` gibi bazı HTML arayüzleri (APIs) sadece kullanıcıdan gelen bir işaretle çağrılabilir. `userGesture` ayarını `true` olarak ayarladığınızda bu sınırlama kaldırılır.
+Tarayıcı penceresinde, `requestFullScreen` gibi bazı HTML API'leri yalnızca kullanıcıdan gelen bir hareket ile çağrılmaktadır. `userGesture` ayarını `true` olarak ayarladığınızda bu sınırlama kaldırılır.
 
 If the result of the executed code is a promise the callback result will be the resolved value of the promise. We recommend that you use the returned Promise to handle code that results in a Promise.
 
