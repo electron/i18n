@@ -92,6 +92,16 @@ Retorna:
 
 Emitted when the document in the given frame is loaded.
 
+#### Evento: 'page-title-updated'
+
+Retorna:
+
+* `event` Event
+* `title` String
+* `explicitSet` Boolean
+
+Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
+
 #### Event: 'page-favicon-updated'
 
 Retorna:
@@ -373,7 +383,7 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 
 Retorna:
 
-* `event` Event
+* `event` Evento
 * `request` Object 
   * `method` String
   * `url` URL
@@ -396,7 +406,7 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 
 Retorna:
 
-* `event` Evento
+* `event` Event
 * `result` Object 
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
