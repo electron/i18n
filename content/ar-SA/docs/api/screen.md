@@ -2,7 +2,7 @@
 
 > Retrieve information about screen size, displays, cursor position, etc.
 
-العملية :  الرئيسية </ 0> ،  العارض </ 1></p> 
+العملية:  الرئيسية </ 0> ،  العارض </ 1></p> 
 
 You cannot require or use this module until the `ready` event of the `app` module is emitted.
 
