@@ -96,7 +96,7 @@ Pagsulat ng `text` sa klipboard bilang RTF.
 
 ### `clipboard.readBookmark()` *macOS* *Windows*
 
-Returns `Object`:
+Nagbabalik ng mga `bagay`:
 
 * `title` String
 * `url` Tali
@@ -138,7 +138,9 @@ Pagsulat ng `text` sa find pasteboard bilang tekstong walang format. Ang paraan 
 
 Nililimas ang mga nilalaman ng klipboard. 
 
-### `clipboard.availableFormats([i-type]`
+### `clipboard.availableFormats([i-type])
+
+`
 
 * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
