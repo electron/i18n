@@ -65,8 +65,8 @@
     "wordcount": "node script/wordcount.js > wordcount.md",
     "automerge": "ts-node ./script/automerge.ts"
   },
-  "electronLatestStableTag": "v5.0.1",
-  "electronMasterBranchCommit": "72b1c018369895391ef1900d9e782b306769693c",
+  "electronLatestStableTag": "v5.0.2",
+  "electronMasterBranchCommit": "b48dd6a11cd6d9be2cb08536b71cc1378e8d7ab3",
   "engines": {
     "node": ">=10"
   }
