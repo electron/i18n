@@ -102,16 +102,16 @@ Retorna:
 
 Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
 
-#### Event: 'page-favicon-updated'
+#### Evento: 'page-title-updated'
 
 Retorna:
 
 * `event` Event
-* `favicons` String[] - Array of URLs.
+* `favicons` String[] - Array de URLs.
 
-Emitted when page receives favicon urls.
+Emitido quando a página recebe urls de favicon.
 
-#### Event: 'new-window'
+#### Evento: 'new-window'
 
 Retorna:
 
@@ -144,7 +144,7 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 })
 ```
 
-#### Event: 'will-navigate'
+#### Evento: 'will-navigate'
 
 Retorna:
 
