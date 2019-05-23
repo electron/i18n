@@ -248,17 +248,17 @@ Kemungkinan nilai dan perilaku dari ` jenis </ 0>  option yang tergantung platfo
 <ul>
 <li><code>acara` Acara
 * ` judul</ 0>  String</li>
-</ul>
+<li><code>explicitSet` Boolean</ul> 
 
-<p>Emitted ketika dokumen tersebut mengubah namanya, memanggil <code> event.preventDefault () </ 0> 
-akan mencegah perubahan dari jendela asli.</p>
+Emitted ketika dokumen tersebut mengubah namanya, memanggil ` event.preventDefault () </ 0> 
+akan mencegah perubahan dari jendela asli.
+<code>explicitSet` is false when title is synthesized from file url.
 
-<h4>Acara : 'dekat'</h4>
+#### Acara : 'dekat'
 
-<p>Pengembalian:</p>
+Pengembalian:
 
-<ul>
-<li><code>event` Acara</ul> 
+* `event` Acara
 
 Emitted saat jendela akan ditutup. Ini dipancarkan sebelum `` beforeunload </ 0> dan <code> membongkar </ 0>  acara DOM. Memanggil <code> event.preventDefault () </ 0> 
 akan membatalkan penutupan.</p>
