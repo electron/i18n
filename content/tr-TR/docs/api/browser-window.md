@@ -232,8 +232,9 @@ Dönüşler:
 
 * `event` Olay
 * `title` String
+* `explicitSet` Boolean
 
-Belge, başlığını değiştirdiğinde ifade edilir, `event.preventDefault()` kullanmak doğal windows başlığının değişmesine engel olur.
+Belge, başlığını değiştirdiğinde ifade edilir, `event.preventDefault()` kullanmak doğal windows başlığının değişmesine engel olur. `explicitSet` is false when title is synthesized from file url.
 
 #### Etkinlik: 'kapalı'
 
