@@ -92,6 +92,16 @@ Corresponds to the points in time when the spinner of the tab stopped spinning.
 
 Emitted when the document in the given frame is loaded.
 
+#### Event: 'page-title-updated'
+
+반환:
+
+* `event` Event
+* `title` String
+* `explicitSet` Boolean
+
+Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
+
 #### Event: 'page-favicon-updated'
 
 반환:
@@ -103,7 +113,7 @@ Emitted when page receives favicon urls.
 
 #### Event: 'new-window'
 
-반환:
+Returns:
 
 * `event` Event
 * `url` String
@@ -239,7 +249,7 @@ When in-page navigation happens, the page URL changes but does not cause navigat
 
 #### Event: 'will-prevent-unload'
 
-반환:
+Returns:
 
 * `event` Event
 
@@ -369,7 +379,7 @@ Returns:
 
 The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
-#### 이벤트: 'login'
+#### Event: 'login'
 
 Returns:
 
@@ -429,7 +439,7 @@ Returns:
 
 #### Event: 'update-target-url'
 
-Returns:
+반환:
 
 * `event` Event
 * `url` String
@@ -438,7 +448,7 @@ Emitted when mouse moves over a link or the keyboard moves the focus to a link.
 
 #### Event: 'cursor-changed'
 
-반환:
+Returns:
 
 * `event` Event
 * `type` String
@@ -999,7 +1009,7 @@ Starts a request to find all matches for the `text` in the web page. The result 
 
 #### `contents.stopFindInPage(action)`
 
-* `동작` String - Specifies the action to take place when ending [`webContents.findInPage`] request. 
+* `사용내역` String - Specifies the action to take place when ending [`webContents.findInPage`] request. 
   * `clearSelection` - Clear the selection.
   * `keepSelection` - Translate the selection into a normal selection.
   * `activateSelection` - Focus and click the selection node.
