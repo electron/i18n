@@ -92,6 +92,16 @@ Returns:
 
 Emitted when the document in the given frame is loaded.
 
+#### Event: 'page-title-updated'
+
+Returns:
+
+* `event` Event
+* `title` String
+* `explicitSet` Boolean
+
+Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
+
 #### Event: 'page-favicon-updated'
 
 Returns:
@@ -288,7 +298,7 @@ Emitted when the unresponsive web page becomes responsive again.
 Returns:
 
 * `event` Event
-* `الإسم`String
+* `name` سلسلة نصية
 * `version` String
 
 Emitted when a plugin process has crashed.
@@ -348,7 +358,7 @@ Returns:
 * `url` String
 * `error` String - The error code.
 * `certificate` [Certificate](structures/certificate.md)
-* `callback` دالة 
+* `callback` Function 
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
 
 Emitted when failed to verify the `certificate` for `url`.
@@ -378,13 +388,13 @@ Returns:
   * `method` String
   * `url` URL
   * `referrer` URL
-* `authInfo` الكائنات 
+* `authInfo` Object 
   * `isProxy` Boolean
   * `scheme` String
   * `host` String
   * `port` Integer
   * `realm` String
-* `callback` دالة 
+* `callback` Function 
   * `username` String
   * `password` String
 
@@ -397,7 +407,7 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 Returns:
 
 * `event` Event
-* `result` الكائنات 
+* `result` Object 
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.
   * `matches` Integer - Number of Matches.
@@ -456,7 +466,7 @@ If the `type` parameter is `custom`, the `image` parameter will hold the custom 
 Returns:
 
 * `event` Event
-* `params` الكائنات 
+* `params` Object 
   * `x` Integer - x coordinate.
   * `y` Integer - y coordinate.
   * `linkURL` String - URL of the link that encloses the node the context menu was invoked on.
@@ -499,7 +509,7 @@ Returns:
 
 * `event` Event
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
-* `callback` دالة 
+* `callback` Function 
   * `deviceId` String (هوية الجهاز)
 
 Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
@@ -1019,7 +1029,7 @@ console.log(requestId)
 #### `contents.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
-* `callback` دالة 
+* `callback` Function 
   * `image` [NativeImage](native-image.md)
 
 Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
@@ -1043,7 +1053,7 @@ Checks if any ServiceWorker is registered and returns a boolean as response to `
 
 #### `contents.unregisterServiceWorker(callback)`
 
-* `callback` دالة 
+* `callback` Function 
   * `success` Boolean
 
 Unregisters any ServiceWorker if present and returns a boolean as response to `callback` when the JS promise is fulfilled or false when the JS promise is rejected.
@@ -1071,13 +1081,13 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
 
 #### `contents.printToPDF(options, callback)`
 
-* `options` الكائنات 
+* `options` Object 
   * `marginsType` Integer (optional) - Specifies the type of margins to use. Uses 0 for default margin, 1 for no margin, and 2 for minimum margin.
   * `pageSize` String | Size (optional) - Specify page size of the generated PDF. Can be `A3`, `A4`, `A5`, `Legal`, `Letter`, `Tabloid` or an Object containing `height` and `width` in microns.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
-* `callback` دالة 
+* `callback` Function 
   * `error` Error
   * `data` Buffer
 
@@ -1319,7 +1329,7 @@ Disable device emulation enabled by `webContents.enableDeviceEmulation`.
 
 #### `contents.sendInputEvent(event)`
 
-* `event` الكائنات 
+* `event` Object 
   * `type` String (**required**) - The type of the event, can be `mouseDown`, `mouseUp`, `mouseEnter`, `mouseLeave`, `contextMenu`, `mouseWheel`, `mouseMove`, `keyDown`, `keyUp` or `char`.
   * `modifiers` String[] - An array of modifiers of the event, can include `shift`, `control`, `alt`, `meta`, `isKeypad`, `isAutoRepeat`, `leftButtonDown`, `middleButtonDown`, `rightButtonDown`, `capsLock`, `numLock`, `left`, `right`.
 
@@ -1354,7 +1364,7 @@ For the `mouseWheel` event, the `event` object also have following properties:
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
 * `onlyDirty` Boolean (optional) - Defaults to `false`.
-* `callback` دالة 
+* `callback` Function 
   * `image` [NativeImage](native-image.md)
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
@@ -1370,7 +1380,7 @@ End subscribing for frame presentation events.
 
 #### `contents.startDrag(item)`
 
-* `item` الكائنات 
+* `item` Object 
   * `file` String or `files` Array - The path(s) to the file(s) being dragged.
   * `icon` [NativeImage](native-image.md) - The image must be non-empty on macOS.
 
@@ -1383,7 +1393,7 @@ Sets the `item` as dragging item for current drag-drop operation, `file` is the 
   * `HTMLOnly` - Save only the HTML of the page.
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
-* `callback` دالة - `(error) => {}`. 
+* `callback` Function - `(error) => {}`. 
   * `error` Error
 
 Returns `Boolean` - true if the process of saving page has been initiated successfully.
