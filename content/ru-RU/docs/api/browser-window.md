@@ -107,9 +107,9 @@ child.once('ready-to-show', () = > {
 
 ## Class: BrowserWindow
 
-> Создание окон браузера и управление ими.
+> Создавайте окна браузера и управляйте ими.
 
-Process: [Main](../glossary.md#main-process)
+Process: [Основной](../glossary.md#main-process)
 
 `BrowserWindow` это [EventEmitter](https://nodejs.org/api/events.html#events_class_events_eventemitter).
 
@@ -234,8 +234,9 @@ The possible values and behaviors of the `type` option are platform dependent. P
 
 * `event` Event
 * `title` String
+* `explicitSet` Boolean
 
-Вызывается, когда документ меняет свой заголовок, вызов `event.preventDefault()` предотвратит изменение заголовка родного окна.
+Вызывается, когда документ меняет свой заголовок, вызов `event.preventDefault()` предотвратит изменение заголовка родного окна. `explicitSet` is false when title is synthesized from file url.
 
 #### Событие: 'close'
 
@@ -1116,17 +1117,17 @@ The number of buttons in thumbnail toolbar should be no greater than 7 due to th
 * `Button` Object 
   * `icon` [NativeImage](native-image.md) - значок, отображаемый на панели инструментов эскизов.
   * `click` Function
-  * `tooltip` String (опиционально) - текст всплывающей подсказки на кнопке.
-  * `flags` String[] (опиционально) - контроль определенных состояний и поведений кнопки. По умолчанию `['enabled']`.
+  * `tooltip` String (опционально) - текст всплывающей подсказки на кнопке.
+  * `flags` String[] (опционально) - контроль определенных состояний и поведений кнопки. По умолчанию `['enabled']`.
 
-`flags` — это массив, который может включать следующие `String`:
+`flags` — это массив, который может включать следующие `строки`:
 
 * `enabled` - кнопка активна и доступна пользователю.
 * `disabled` - кнопка отключена. Она присутствует, но имеет неактивное визуальное состояние и не будет реагировать на действия пользователя.
 * `dismissonclick` - когда кнопка нажата, окно миниатюры закрывается немедленно.
 * `nobackground` - не рисует границы кнопок, использует только изображение.
 * `hidden` - кнопка не отображается пользователю.
-* `noninteractive` - кнопка включена, но не интерактивна; рисуется не нажимаемое состояние кнопки. Это значение предназначено для экземпляров, где кнопка используется в уведомлении.
+* `noninteractive` - кнопка включена, но не интерактивная; рисуется не нажимаемое состояние кнопки. Это значение предназначено для экземпляров, где кнопка используется в уведомлении.
 
 #### `win.setThumbnailClip(region)` *Windows*
 
