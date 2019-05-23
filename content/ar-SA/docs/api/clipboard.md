@@ -2,7 +2,7 @@
 
 > قم بإجراء عمليات النسخ واللصق على حافظة النظام .
 
-العملية :  الرئيسية </ 0> ،  العارض </ 1></p> 
+العملية:  الرئيسية </ 0> ،  العارض </ 1></p> 
 
 في سياق معالج العرض يعتمد ذلك على الوحدة النمطية ` البعيدة </ 0> على لينكس ، ولذلك لا يكون متاحًا عند تعطيل هذه الوحدة.</p>
 
@@ -26,7 +26,7 @@ console.log(clipboard.readText('selection'))
 
 <p><strong>Note:</strong> Experimental APIs are marked as such and could be removed in future.</p>
 
-<h3><code>clipboard.readText ( [نوع] )`</h3> 
+<h3><code>clipboard.readText ([نوع])`</h3> 
 
 * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
@@ -39,7 +39,7 @@ console.log(clipboard.readText('selection'))
 
 يكتب النص ` </ 0> في الحافظة كنص عادي.</p>
 
-<h3><code>clipboard.readHTML ([نوع])`</h3> 
+<h3><code>clipboard.readHTML ( [نوع] )`</h3> 
 
 * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
@@ -52,7 +52,7 @@ console.log(clipboard.readText('selection'))
 
 Writes `markup` to the clipboard.
 
-### `clipboard.readImage([type])`
+### `clipboard.readImage ([نوع])`
 
 * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
@@ -65,7 +65,7 @@ Returns [`NativeImage`](native-image.md) - The image content in the clipboard.
 
 Writes `image` to the clipboard.
 
-### `clipboard.readRTF([type])`
+### `clipboard.readRTF ([نوع])`
 
 * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
@@ -114,13 +114,13 @@ Returns `String` - The text on the find pasteboard. This method uses synchronous
 
 Writes the `text` into the find pasteboard as plain text. This method uses synchronous IPC when called from the renderer process.
 
-### `clipboard.clear([type])`
+### `clipboard.clear ([نوع])`
 
 * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Clears the clipboard content.
 
-### `clipboard.availableFormats([type])`
+### `clipboard.availableFormats ([نوع])`
 
 * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
@@ -160,7 +160,7 @@ Writes the `buffer` into the clipboard as `format`.
 
 ### `clipboard.write(data[, type])`
 
-* `data` Object 
+* `data` الكائنات 
   * `text` String (optional)
   * `html` String (optional)
   * `image` [NativeImage](native-image.md) (optional)
