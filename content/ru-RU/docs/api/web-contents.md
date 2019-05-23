@@ -43,7 +43,7 @@ console.log(webContents)
 
 > Рендерит и управляет контент экземпляра BrowserWindow.
 
-Process: [Main](../glossary.md#main-process)
+Process: [Основной](../glossary.md#main-process)
 
 ### События экземпляра
 
@@ -91,6 +91,16 @@ Corresponds to the points in time when the spinner of the tab stopped spinning.
 * `event` Event
 
 Emitted when the document in the given frame is loaded.
+
+#### Событие: 'page-title-updated'
+
+Возвращает:
+
+* `event` Event
+* `title` String
+* `explicitSet` Boolean
+
+Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
 
 #### Событие: 'page-favicon-updated'
 
