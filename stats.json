@@ -107,14 +107,14 @@
     "name": "German",
     "code": "de",
     "phrases": "10563",
-    "translated": "4649",
+    "translated": "4650",
     "approved": "34",
     "words": "97311",
-    "words_translated": "26617",
+    "words_translated": "26619",
     "words_approved": "65",
     "translated_progress": 27,
     "approved_progress": 0,
-    "qa_issues": 1806
+    "qa_issues": 1807
   },
   {
     "name": "Hebrew",
@@ -172,10 +172,10 @@
     "name": "Japanese",
     "code": "ja",
     "phrases": "10563",
-    "translated": "10121",
+    "translated": "10123",
     "approved": "289",
     "words": "97311",
-    "words_translated": "92163",
+    "words_translated": "92203",
     "words_approved": "1692",
     "translated_progress": 94,
     "approved_progress": 1,
@@ -263,14 +263,14 @@
     "name": "Spanish",
     "code": "es-ES",
     "phrases": "10563",
-    "translated": "9337",
+    "translated": "9336",
     "approved": "252",
     "words": "97311",
-    "words_translated": "77786",
+    "words_translated": "77769",
     "words_approved": "2018",
     "translated_progress": 79,
     "approved_progress": 2,
-    "qa_issues": 3601
+    "qa_issues": 3600
   },
   {
     "name": "Tagalog",
