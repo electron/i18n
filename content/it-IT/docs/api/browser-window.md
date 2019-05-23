@@ -234,8 +234,9 @@ Restituisce:
 
 * `event` Event
 * `Titolo` Stringa
+* `explicitSet` Boolean
 
-Emesso quando il documento cambia il suo titolo, chiamando `event.preventDefault()` impedirà al titolo della finestra nativa di cambiare.
+Emesso quando il documento cambia il suo titolo, chiamando `event.preventDefault()` impedirà al titolo della finestra nativa di cambiare. `explicitSet` is false when title is synthesized from file url.
 
 #### Evento: 'close'
 
