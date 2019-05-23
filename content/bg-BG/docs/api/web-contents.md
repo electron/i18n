@@ -92,6 +92,16 @@ Corresponds to the points in time when the spinner of the tab stopped spinning.
 
 Emitted when the document in the given frame is loaded.
 
+#### Event: 'page-title-updated'
+
+Връща:
+
+* `event` Събитие
+* `title` String
+* `explicitSet` Boolean
+
+Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
+
 #### Event: 'page-favicon-updated'
 
 Връща:
@@ -288,7 +298,7 @@ Emitted when the unresponsive web page becomes responsive again.
 Връща:
 
 * `event` Събитие
-* `name` String - Име
+* `name` String
 * `version` String
 
 Emitted when a plugin process has crashed.
@@ -346,9 +356,9 @@ Emitted when DevTools is focused / opened.
 
 * `event` Събитие
 * `url` String
-* `error` String - Кодът на грешката.
+* `error` String - The error code.
 * `certificate` [Certificate](structures/certificate.md)
-* `обратно повикване` Функция 
+* `callback` Function 
   * `isTrusted` Boolean - Indicates whether the certificate can be considered trusted.
 
 Emitted when failed to verify the `certificate` for `url`.
@@ -369,7 +379,7 @@ The usage is the same with [the `certificate-error` event of `app`](app.md#event
 
 The usage is the same with [the `select-client-certificate` event of `app`](app.md#event-select-client-certificate).
 
-#### Събитие: "вход"
+#### Събитие: 'login'
 
 Връща:
 
@@ -379,12 +389,12 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
   * `url` URL
   * `referrer` URL
 * `authInfo` Object 
-  * `isProxy` Булев
-  * `схема` Низ
-  * `домакин` Низ
-  * `порт` Цяло число
-  * `царство` Низ
-* `обратно повикване` Функция 
+  * `isProxy` Boolean
+  * `scheme` String
+  * `host` String
+  * `port` Integer
+  * `realm` String
+* `callback` Function 
   * `потребителско име` Низ
   * `парола` Низ
 
@@ -499,7 +509,7 @@ Emitted when there is a new context menu that needs to be handled.
 
 * `event` Събитие
 * `devices` [BluetoothDevice[]](structures/bluetooth-device.md)
-* `обратно повикване` Функция 
+* `callback` Function 
   * `deviceId` String - Идентификационен номер на устройството
 
 Emitted when bluetooth device needs to be selected on call to `navigator.bluetooth.requestDevice`. To use `navigator.bluetooth` api `webBluetooth` should be enabled. If `event.preventDefault` is not called, first available device will be selected. `callback` should be called with `deviceId` to be selected, passing empty string to `callback` will cancel the request.
@@ -844,7 +854,7 @@ Injects CSS into the current web page.
 
 * `code` String
 * `userGesture` Boolean (optional) - Default is `false`.
-* `обратно повикване` Function (optional) - Called after script has been executed. 
+* `callback` Function (optional) - Called after script has been executed. 
   * `result` Any
 
 Returns `Promise<any>` - A promise that resolves with the result of the executed code or is rejected if the result of the code is a rejected promise.
@@ -1019,7 +1029,7 @@ console.log(requestId)
 #### `contents.capturePage([rect, ]callback)`
 
 * `rect` [Rectangle](structures/rectangle.md) (optional) - The bounds to capture
-* `обратно повикване` Функция 
+* `callback` Function 
   * `image` [NativeImage](native-image.md)
 
 Captures a snapshot of the page within `rect`. Upon completion `callback` will be called with `callback(image)`. The `image` is an instance of [NativeImage](native-image.md) that stores data of the snapshot. Omitting `rect` will capture the whole visible page.
@@ -1043,7 +1053,7 @@ Checks if any ServiceWorker is registered and returns a boolean as response to `
 
 #### `contents.unregisterServiceWorker(callback)`
 
-* `обратно повикване` Функция 
+* `callback` Function 
   * `success` Boolean
 
 Unregisters any ServiceWorker if present and returns a boolean as response to `callback` when the JS promise is fulfilled or false when the JS promise is rejected.
@@ -1077,7 +1087,7 @@ Use `page-break-before: always;` CSS style to force to print to a new page.
   * `printBackground` Boolean (optional) - Whether to print CSS backgrounds.
   * `printSelectionOnly` Boolean (optional) - Whether to print selection only.
   * `landscape` Boolean (optional) - `true` for landscape, `false` for portrait.
-* `обратно повикване` Функция 
+* `callback` Function 
   * `error` Error
   * `data` Buffer
 
@@ -1354,7 +1364,7 @@ For the `mouseWheel` event, the `event` object also have following properties:
 #### `contents.beginFrameSubscription([onlyDirty ,]callback)`
 
 * `onlyDirty` Boolean (optional) - Defaults to `false`.
-* `обратно повикване` Функция 
+* `callback` Function 
   * `image` [NativeImage](native-image.md)
   * `dirtyRect` [Rectangle](structures/rectangle.md)
 
@@ -1383,7 +1393,7 @@ Sets the `item` as dragging item for current drag-drop operation, `file` is the 
   * `HTMLOnly` - Save only the HTML of the page.
   * `HTMLComplete` - Save complete-html page.
   * `MHTML` - Save complete-html page as MHTML.
-* `обратно повикване` Функция - `(error) => {}`. 
+* `callback` Function - `(error) => {}`. 
   * `error` Error
 
 Returns `Boolean` - true if the process of saving page has been initiated successfully.
