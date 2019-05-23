@@ -12,10 +12,11 @@ Contoh berikut menunjukkan cara menulis string ke clipboard:
 const { clipboard } = require ('electron') clipboard.writeText (' String Contoh ')
 ```
 
-Pada sistem X Window, ada juga clipboard pilihan. Untuk memanipulasinya, Anda harus melewati ` pilihan </ 0> untuk setiap metode:</p>
+On Linux, there is also a `selection` clipboard. To manipulate it you need to pass `selection` to each method:
 
-<pre><code class="javascript">const { clipboard } = require ('electron') clipboard.writeText ('Example String ', 'selection') console.log (clipboard.readText ('selection'))
-`</pre> 
+```javascript
+const { clipboard } = require ('electron') clipboard.writeText ('Example String ', 'selection') console.log (clipboard.readText ('selection'))
+```
 
 ## Methods
 
@@ -25,61 +26,61 @@ The ` clipboard </ 0> modul memiliki metode berikut:</p>
 
 <h3><code>clipboard.readText ( [type] )`</h3> 
 
-* ` ketik </ 0>  String (opsional)</li>
-</ul>
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
-<p>Mengembalikan <code> String </ 0> - Konten di clipboard sebagai teks biasa.</p>
+Mengembalikan ` String </ 0> - Konten di clipboard sebagai teks biasa.</p>
 
 <h3><code>clipboard.menulis tek (teks [, tipe])`</h3> 
-  * `teks` String
-  * ` ketik </ 0>  String (opsional)</li>
-</ul>
 
-<p>Menuliskan <code> teks </ 0> ke clipboard sebagai teks biasa.</p>
+* `teks` String
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
+
+Menuliskan ` teks </ 0> ke clipboard sebagai teks biasa.</p>
 
 <h3><code>clipboard.readHTML ( [type] )`</h3> 
-    * ` ketik </ 0>  String (opsional)</li>
-</ul>
 
-<p>Mengembalikan <code> String </ 0> - Konten di clipboard sebagai markup.</p>
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
+
+Mengembalikan ` String </ 0> - Konten di clipboard sebagai markup.</p>
 
 <h3><code>clipboard.menulisHTML (markup [, tipe])`</h3> 
-      * ` markup </ 0>  String</li>
-<li><code> ketik </ 0>  String (opsional)</li>
-</ul>
 
-<p>Menulis <code> markup </ 0> ke clipboard.</p>
+* ` markup </ 0>  String</li>
+<li><code>type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
+
+Menulis ` markup </ 0> ke clipboard.</p>
 
 <h3><code>clipboard.readImage ( [type] )`</h3> 
-        * ` ketik </ 0>  String (opsional)</li>
-</ul>
 
-<p>Mengembalikan <a href="native-image.md"><code> NativeImage </ 0> - Konten gambar di clipboard.</p>
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
+
+Mengembalikan ` NativeImage </ 0> - Konten gambar di clipboard.</p>
 
 <h3><code>clipboard.writeImage (gambar [, tipe])`</h3> 
-          * ` gambar </ 0>  <a href="native-image.md"> gambar asli </ 1></li>
-<li><code> ketik </ 0>  String (opsional)</li>
-</ul>
 
-<p>Menulis <code> gambar </ 0> ke clipboard.</p>
+* ` gambar </ 0>  <a href="native-image.md"> gambar asli </ 1></li>
+<li><code>type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
+
+Menulis ` gambar </ 0> ke clipboard.</p>
 
 <h3><code>clipboard.readRTF ( [type] )`</h3> 
-            * ` ketik </ 0>  String (opsional)</li>
-</ul>
 
-<p>Mengembalikan <code> String </ 0> - Konten di clipboard sebagai RTF.</p>
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
+
+Mengembalikan ` String </ 0> - Konten di clipboard sebagai RTF.</p>
 
 <h3><code>clipboard.writeRTF (teks [, jenis])`</h3> 
-              * `teks` String
-              * ` ketik </ 0>  String (opsional)</li>
-</ul>
 
-<p>Menuliskan <code> teks </ 0> ke clipboard di RTF.</p>
+* `teks` String
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
+
+Menuliskan ` teks </ 0> ke clipboard di RTF.</p>
 
 <h3><code>clipboard.readBookmark()` *macOS* *Windows*</h3> 
-                Mengembalikan `Objek`:
-                
-                * ` judul</ 0>  String</li>
+
+Mengembalikan `Objek`:
+
+* ` judul</ 0>  String</li>
 <li><code> url </ 0> Tali</li>
 </ul>
 
@@ -90,10 +91,9 @@ The ` clipboard </ 0> modul memiliki metode berikut:</p>
 <ul>
 <li><code> judul </ 0> String</li>
 <li><code>url` Tali
-                * ` ketik </ 0>  String (opsional)</li>
-</ul>
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
-<p>Menulis <code> judul </ 0> dan <code> url </ 0> ke clipboard sebagai bookmark.</p>
+Menulis ` judul </ 0> dan <code> url </ 0> ke clipboard sebagai bookmark.</p>
 
 <p><strong> Catatan: </ 0> Sebagian besar aplikasi di Windows tidak mendukung penandaan bookmark ke dalamnya sehingga Anda dapat menggunakan <code> clipboard.write </ 1> untuk menulis teks bookmark dan fallback ke clipboard.</p>
 
@@ -102,41 +102,41 @@ The ` clipboard </ 0> modul memiliki metode berikut:</p>
   bookmark: 'Electron Homepage'
 })
 `</pre> 
-                  ### `clipboard.readFindText()` *macOS*
-                  
-                  Mengembalikan ` String </ 0> - Teks pada papan gambar yang ditemukan. Metode ini menggunakan synchronous IPC saat dipanggil dari proses renderer. Nilai cache dibaca ulang dari papan gambar anyar setiap kali aplikasi diaktifkan.</p>
+
+### `clipboard.readFindText()` *macOS*
+
+Mengembalikan ` String </ 0> - Teks pada papan gambar yang ditemukan. Metode ini menggunakan synchronous IPC saat dipanggil dari proses renderer. Nilai cache dibaca ulang dari papan gambar anyar setiap kali aplikasi diaktifkan.</p>
 
 <h3><code>clipboard.writeFindText(text)` * macos*</h3> 
-                  
-                  * `teks` String
-                  
-                  Menuliskan ` teks </ 0> ke dalam papan tulis yang ditemukan sebagai teks biasa. Metode ini menggunakan synchronous IPC saat dipanggil dari proses renderer.</p>
+
+* `teks` String
+
+Menuliskan ` teks </ 0> ke dalam papan tulis yang ditemukan sebagai teks biasa. Metode ini menggunakan synchronous IPC saat dipanggil dari proses renderer.</p>
 
 <h3><code>clipboard.clear ( [type] )`</h3> 
-                  
-                  * ` ketik </ 0>  String (opsional)</li>
-</ul>
 
-<p>Membersihkan konten clipboard.</p>
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
-<h3><code>clipboard.availableFormats ( [type] )`</h3> 
-                    * ` ketik </ 0>  String (opsional)</li>
-</ul>
+Membersihkan konten clipboard.
 
-<p>Mengembalikan <code> String [] </ 0> - Kumpulan format yang didukung untuk clipboard <code> ketik </ 0> .</p>
+### `clipboard.availableFormats ( [type] )`
+
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
+
+Mengembalikan ` String [] </ 0> - Kumpulan format yang didukung untuk clipboard <code> ketik </ 0> .</p>
 
 <h3><code> clipboard.has (format [, tipe]) </ 0>  <em> Eksperimental </ 1></h3>
 
 <ul>
 <li><code> format </ 0>  String</li>
-<li><code> ketik </ 0>  String (opsional)</li>
-</ul>
+<li><code>type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.</li> </ul> 
 
-<p>Pengembalian <code> Boolean </ 0> - Apakah clipboard mendukung ditentukan <code> Format </ 0> .</p>
+Pengembalian ` Boolean </ 0> - Apakah clipboard mendukung ditentukan <code> Format </ 0> .</p>
 
 <pre><code class="javascript">const { clipboard } = require ('electron') console.log (clipboard.has (' &lt;p&gt; selection </ 0> '))
 `</pre> 
-                      ### ` clipboard.read (format) </ 0>  <em> Eksperimental </ 1></h3>
+
+### ` clipboard.read (format) </ 0>  <em> Eksperimental </ 1></h3>
 
 <ul>
 <li><code> format </ 0>  String</li>
@@ -157,24 +157,24 @@ The ` clipboard </ 0> modul memiliki metode berikut:</p>
 <ul>
 <li><code> format </ 0>  String</li>
 <li><code>penyangga` Buffer</li> 
-                      
-                      * ` ketik </ 0>  String (opsional)</li>
-</ul>
 
-<p>Menulis <code> penyangga </ 0> ke clipboard sebagai <code> Format </ 0> .</p>
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.</ul> 
+
+Menulis ` penyangga </ 0> ke clipboard sebagai <code> Format </ 0> .</p>
 
 <h3><code>clipboard.write (data [, type])`</h3> 
-                        * `data` Obyek 
-                          * ` teks </ 0>  String (opsional)</li>
+
+* `data` Obyek 
+  * ` teks </ 0>  String (opsional)</li>
 <li><code> html </ 0>  String (opsional)</li>
 <li><code> gambar </ 0>  <a href="native-image.md"> NativeImage </ 1> (opsional)</li>
 <li><code> rtf </ 0>  String (opsional)</li>
 <li><code> bookmark </ 0>  String (opsional) - Judul url di <code> teks </ 0> .</li>
 </ul></li>
-<li><code> ketik </ 0>  String (opsional)</li>
-</ul>
-
-<pre><code class="javascript">const { clipboard } = require('electron')
-clipboard.write({ text: 'test', html: '<b>test</b>' })
-`</pre> 
-                            Menulis  data </ 0> ke clipboard.</p>
+<li><code>type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
+  ```javascript
+  const { clipboard } = require('electron')
+  clipboard.write({ text: 'test', html: '<b>test</b>' })
+  ```
+  
+  Menulis  data </ 0> ke clipboard.</p>
