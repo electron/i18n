@@ -84,7 +84,7 @@ git のブランチ動作の仕組み、npm のタグ付けの仕組み、開発
 
 具体的に言うと、以下が上記の意味です。
 
-1. Admitting non-breaking-API changes before Week 3 in the beta cycle is okay, even if those changes have the potential to cause moderate side-affects
+1. たとえそれらの変更が中程度の副作用を引き起こす可能性があるとしても、ベータサイクルの 3 週間前の段階で非破壊的な API の変更を承認することは問題ありません。
 2. ベータサイクルのほとんどの時点で、既存のコードパスを変更しない、機能フラグの変更を認めることは問題ありません。 ユーザーは自分のアプリでこれらのフラグを明示的に有効にできます。
 3. Admitting features of any sort after Week 3 in the beta cycle is 
 
