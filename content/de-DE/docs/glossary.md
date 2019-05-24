@@ -22,7 +22,7 @@ Input Method Editor. Ein Programm welches dem Benutzer die Eingabe von Buchstabe
 
 ### IDL
 
-Interface description language. Write function signatures and data types in a format that can be used to generate interfaces in Java, C++, JavaScript, etc.
+Sprache der Schnittstellenbeschreibung. Schreiben Sie Funktionssignaturen und Datentypen in einem Format, mit dem Schnittstellen in Java, C++, JavaScript usw. generiert werden können.
 
 ### IPC
 
