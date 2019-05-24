@@ -91,7 +91,7 @@ $ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_
 ```sh
 $ cd src
 $ set CHROMIUM_BUILDTOOLS_PATH=%cd%\buildtools
-$ gn gen out/Debug --args="import(\"//electron/build/args/debug\")"
+$ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\")"
 ```
 
 This will generate a build directory `out/Debug` under `src/` with debug build configuration. You can replace `Debug` with another name, but it should be a subdirectory of `out`. Also you shouldn't have to run `gn gen` again—if you want to change the build arguments, you can run `gn args out/Debug` to bring up an editor.
