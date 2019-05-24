@@ -234,8 +234,9 @@ Rückgabewert:
 
 * ` Ereignis </ 0>  Ereignis</li>
 <li><code>title` String
+* `explicitSet` Boolean
 
-Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing.
+Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing. `explicitSet` is false when title is synthesized from file url.
 
 #### Event: 'close'
 

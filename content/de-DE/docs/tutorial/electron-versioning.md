@@ -84,7 +84,7 @@ The process is as follows:
 
 Specifically, the above means:
 
-1. Admitting non-breaking-API changes before Week 3 in the beta cycle is okay, even if those changes have the potential to cause moderate side-affects
+1. Das Einfügen von Änderungen, welche keine Störungen mit sich bringen, vor der dritten Woche in dem Beta-Zyklus ist in Ordnung, auch wenn diese Änderungen das Potenzial haben moderate Nebenwirkungen zu verursachen
 2. Admitting feature-flagged changes, that do not otherwise alter existing code paths, at most points in the beta cycle is okay. Users can explicitly enable those flags in their apps.
 3. Admitting features of any sort after Week 3 in the beta cycle is 
 

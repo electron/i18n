@@ -92,16 +92,26 @@ Retorna:
 
 Emitted when the document in the given frame is loaded.
 
-#### Event: 'page-favicon-updated'
+#### Evento: 'page-title-updated'
 
 Retorna:
 
 * `event` Event
-* `favicons` String[] - Array of URLs.
+* `title` String
+* `explicitSet` Boolean
 
-Emitted when page receives favicon urls.
+Fired when page title is set during navigation. `explicitSet` is false when title is synthesized from file url.
 
-#### Event: 'new-window'
+#### Evento: 'page-title-updated'
+
+Retorna:
+
+* `event` Event
+* `favicons` String[] - Array de URLs.
+
+Emitido quando a página recebe urls de favicon.
+
+#### Evento: 'new-window'
 
 Retorna:
 
@@ -134,7 +144,7 @@ myBrowserWindow.webContents.on('new-window', (event, url, frameName, disposition
 })
 ```
 
-#### Event: 'will-navigate'
+#### Evento: 'will-navigate'
 
 Retorna:
 
@@ -373,7 +383,7 @@ The usage is the same with [the `select-client-certificate` event of `app`](app.
 
 Retorna:
 
-* `event` Event
+* `event` Evento
 * `request` Object 
   * `method` String
   * `url` URL
@@ -396,7 +406,7 @@ The usage is the same with [the `login` event of `app`](app.md#event-login).
 
 Retorna:
 
-* `event` Evento
+* `event` Event
 * `result` Object 
   * `requestId` Integer
   * `activeMatchOrdinal` Integer - Position of the active match.

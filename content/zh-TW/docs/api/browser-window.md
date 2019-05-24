@@ -234,8 +234,9 @@ Objects created with `new BrowserWindow` emit the following events:
 
 * `event` Event
 * `title` String
+* `explicitSet` Boolean
 
-Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing.
+Emitted when the document changed its title, calling `event.preventDefault()` will prevent the native window's title from changing. `explicitSet` is false when title is synthesized from file url.
 
 #### 事件: 'close'
 

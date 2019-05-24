@@ -234,8 +234,9 @@ Devuelve:
 
 * `evento` Evento
 * `title` String
+* `explicitSet` Boolen
 
-Aparece cuando el documento cambia el título. Llamar `event.preventDefault()` evitará que el título de la ventana nativa cambie.
+Aparece cuando el documento cambia el título. Llamar `event.preventDefault()` evitará que el título de la ventana nativa cambie. `explicitSet` is false when title is synthesized from file url.
 
 #### Evento: "close"
 

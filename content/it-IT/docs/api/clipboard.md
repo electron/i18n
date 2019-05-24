@@ -13,7 +13,7 @@ const { clipboard } = require('electron')
 clipboard.writeText('Stringa di esempio')
 ```
 
-Nei sistemi X Window, ci sono anche gli appunti di selezione. Per utilizzarli è necessario passare la `selezione` ad ogni metodo:
+On Linux, there is also a `selection` clipboard. To manipulate it you need to pass `selection` to each method:
 
 ```javascript
 const { clipboard } = require('electron')
@@ -29,59 +29,59 @@ Il modulo di `Appunti` ha i seguenti metodi:
 
 ### `clipboard.readText([tipo])`
 
-* `tipo` Stringa (opzionale)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Restituisce la `stringa` - il contenuto degli Appunti come testo normale.
 
 ### `clipboard.writeText(text[, tipo])`
 
 * `testo` Stringa
-* `tipo` Stringa (opzionale)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Scrive il `testo` negli Appunti come testo normale.
 
 ### `clipboard.readHTML([tipo])`
 
-* `tipo` Stringa (opzionale)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Restituisce la `stringa` - il contenuto negli Appunti come markup.
 
 ### `clipboard.writeHTML(markup[, tipo])`
 
 * `markup` Stringa
-* `tipo` Stringa (opzionale)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Scrive il `markup` negli appunti.
 
 ### `clipboard.readImage([tipo])`
 
-* `tipo` Stringa (opzionale)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Restituisce [`NativeImage`](native-image.md) - l'immagine contenuta negli appunti.
 
 ### `clipboard.writeImage(image[, tipo])`
 
 * `image` [NativeImage](native-image.md)
-* `tipo` String (optional)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Scrive la `image` negli appunti.
 
 ### `clipboard.readRTF([tipo])`
 
-* `tipo` Stringa (opzionale)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Restituisce la `stringa` - il contenuto negli Appunti come RTF.
 
 ### `clipboard.writeRTF(text[, tipo])`
 
 * `testo` Stringa
-* `tipo` Stringa (opzionale)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Scrive il `testo` negli Appunti come RTF.
 
 ### `clipboard.readBookmark()` *macOS* *Windows*
 
-Restituisci `Oggetto`:
+Ritorna `Object`:
 
 * `Titolo` Stringa
 * `url` Stringa
@@ -92,7 +92,7 @@ Restituisce un oggetto contenente `titolo` e `url` chiavi rappresentative del se
 
 * `Titolo` Stringa
 * `url` Stringa
-* `tipo` Stringa (opzionale)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Scrivere il `titolo` e `url` negli appunti come un segnaposto.
 
@@ -117,20 +117,20 @@ Writes the `text` into the find pasteboard as plain text. This method uses synch
 
 ### `clipboard.clear([tipo])`
 
-* `tipo` Stringa (opzionale)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Clears the clipboard content.
 
 ### `clipboard.availableFormats([tipo])`
 
-* `tipo` Stringa (opzionale)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Restituisce `String[]` - Un array di formati supportati per la clipboard `type`.
 
 ### `clipboard.has(format[, type])` *Experimental*
 
 * `format` Stringa
-* `tipo` Stringa (opzionale)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Restituisce `Boolean` - Vero se la clipboard supporta il formato specificato `format`, falso altrimenti.
 
@@ -155,7 +155,7 @@ Restituisce `Buffer` - Legge il tipo di `format` dalla clipboard.
 
 * `format` Stringa
 * `buffer` Buffer
-* `tipo` Stringa (opzionale)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Scrive il `buffer` nella clipboard come `format`.
 
@@ -167,7 +167,7 @@ Scrive il `buffer` nella clipboard come `format`.
   * `image` [NativeImage](native-image.md) (optional)
   * `rtf` String (optional)
   * `bookmark` String (optional) - The title of the url at `text`.
-* `tipo` Stringa (opzionale)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 ```javascript
 const { clipboard } = require('electron')

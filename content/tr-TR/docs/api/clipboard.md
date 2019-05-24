@@ -13,7 +13,7 @@ const { clipboard } = require('electron')
 clipboard.writeText('Example String')
 ```
 
-Ayrıca X Window sistemlerinde bir seçim panosu bulunur. Bunu değiştirmek için `selection`'ı her bir metoda geçirmelisiniz:
+On Linux, there is also a `selection` clipboard. To manipulate it you need to pass `selection` to each method:
 
 ```javascript
 const { clipboard } = require('electron')
@@ -29,53 +29,53 @@ Pano modülü aşağıdaki yöntemleri içerir:
 
 ### `clipboard.readText([type])`
 
-* `type` Dize (isteğe bağlı)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 `String` döndürür - Panodaki içeriği düz metin olarak.
 
 ### `clipboard.writeText(text[, type])`
 
 * `text` String
-* `type` String (isteğe bağlı)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Panoya `text`'i düz yazı olarak yazar.
 
 ### `clipboard.readHTML([type])`
 
-* `type` String (isteğe bağlı)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 `String` döndürür - Panodaki içeriği işaretlenmiş olarak.
 
 ### `clipboard.writeHTML(markup[, type])`
 
 * `markup` String
-* `type` String (isteğe bağlı)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Yazar `markup` panoya.
 
 ### `clipboard.readImage([type])`
 
-* `type` Dize (isteğe bağlı)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 [`NativeImage`](native-image.md) - Pano içindeki resim içeriği.
 
 ### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
-* `type` String (isteğe bağlı)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 `image`'i panoya yazar.
 
 ### `clipboard.readRTF([type])`
 
-* `type` Dize (isteğe bağlı)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 `Dize` - RTF olarak pano içeriği.
 
 ### `clipboard.writeRTF(text[, type])`
 
 * `text` String
-* `type` Dize (isteğe bağlı)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Panoya `text`'i RTF olarak yazar.
 
@@ -92,7 +92,7 @@ Panodaki sayfa işaretini temsil eden `title` ve `url` anahtarlarını içeren b
 
 * `title` String
 * `url` Dize
-* `type` Dize (isteğe bağlı)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 `title` ve `url`'yi panoya sayfa işaretçisi olarak yazar.
 
@@ -117,20 +117,20 @@ clipboard.write({
 
 ### `clipboard.clear([type])`
 
-* `type` Dize (isteğe bağlı)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Pano içeriğini temizler.
 
 ### `clipboard.availableFormats([type])`
 
-* `type` String (isteğe bağlı)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 `String[]` - Panodaki `type` için desteklenen formatlar dizisi.
 
 ### `clipboard.has(format[, type])` *Deneysel*
 
 * `format` String
-* `type` String (isteğe bağlı)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 `Boolean` - Panoda belirtilen `format` komutunun desteklenip desteklenmediğini gösterir.
 
@@ -155,7 +155,7 @@ console.log(clipboard.has('<p>selection</p>'))
 
 * `format` String
 * `arabellek` Arabellek
-* `type` Dize (isteğe bağlı)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 `buffer`' ı `format` olarak panoya yazar.
 
@@ -167,7 +167,7 @@ console.log(clipboard.has('<p>selection</p>'))
   * `image` [NativeImage](native-image.md) (isteğe bağlı)
   * `rtf` Dizi (İsteğe Bağlı)
   * `bookmark` Dizi (İsteğe bağlı) - `text` ' da url nin başlığı yer alır.
-* `type` String (isteğe bağlı)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 ```javascript
 const { clipboard } = require('electron')

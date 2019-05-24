@@ -13,7 +13,7 @@ const { clipboard } = require('electron')
 clipboard.writeText('Example String')
 ```
 
-X Window 시스템에선 selection 클립보드도 존재합니다. 이를 사용하려면 인수 뒤에 `selection` 문자열을 같이 지정해주어야 합니다:
+On Linux, there is also a `selection` clipboard. To manipulate it you need to pass `selection` to each method:
 
 ```javascript
 const { clipboard } = require('electron')
@@ -29,53 +29,53 @@ console.log(clipboard.readText('selection'))
 
 ### `clipboard.readText([type])`
 
-* `type` String (optional)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Returns `String` - 일반 텍스트 형식의 클립보드의 내용.
 
 ### `clipboard.writeText(text[, type])`
 
 * `text` String
-* `type` String (optional)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 클립보드에 `plain text`로 문자열을 씁니다.
 
 ### `clipboard.readHTML([type])`
 
-* `type` String (optional)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Returns `String` - 마크업 형식의 클립보드의 내용.
 
 ### `clipboard.writeHTML(markup[, type])`
 
 * `markup` String
-* `type` String (optional)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 클립보드에 `markup`으로 씁니다.
 
 ### `clipboard.readImage([type])`
 
-* `type` String (optional)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Returns [`NativeImage`](native-image.md) - NativeImage 형식의 클립보드의 내용.
 
 ### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
-* `type` String (optional)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 클립보드에 `image`를 씁니다.
 
 ### `clipboard.readRTF([type])`
 
-* `type` String (optional)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Returns `String` - RTF 형식의 클립보드 내용.
 
 ### `clipboard.writeRTF(text[, type])`
 
 * `text` String
-* `type` String (optional)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 클립보드에 `text`를 RTF 형식으로 씁니다.
 
@@ -92,7 +92,7 @@ Returns `Object`:
 
 * `title` String
 * `url` String
-* `type` String (optional)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 `title`과 `url`을 클립보드에 북마크 형식으로 씁니다.
 
@@ -117,20 +117,20 @@ Returns `String` - FindPasteboard 의 텍스트. 이 메소드는 렌더러 프�
 
 ### `clipboard.clear([type])`
 
-* `type` String (optional)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 클립보드에 저장된 모든 콘텐츠를 삭제합니다.
 
 ### `clipboard.availableFormats([type])`
 
-* `type` String (optional)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Return `String[]` - 클립보드 `type` 에 지원되는 형식의 배열.
 
 ### `clipboard.has(format[, type])` *Experimental*
 
 * `format` String
-* `type` String (optional)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Returns `Boolean` - 클립보드가 지정한 `format`을 지원하는지 여부.
 
@@ -155,7 +155,7 @@ Returns `Buffer` - 클립보드로부터 `format` 타입을 읽습니다.
 
 * `format` String
 * `buffer` Buffer
-* `type` String (optional)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 `buffer`에 있는 `format`을 클립보드에 씁니다 .
 
@@ -167,7 +167,7 @@ Returns `Buffer` - 클립보드로부터 `format` 타입을 읽습니다.
   * `image` [NativeImage](native-image.md) (optional)
   * `rtf` String (optional)
   * `bookmark` String (optional) - The title of the url at `text`.
-* `type` String (optional)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 ```javascript
 const { clipboard } = require('electron')

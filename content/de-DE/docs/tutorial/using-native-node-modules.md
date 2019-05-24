@@ -47,7 +47,7 @@ export npm_config_arch=x64
 export npm_config_target_arch=x64
 # Download headers for Electron.
 export npm_config_disturl=https://electronjs.org/headers
-# Tell node-pre-gyp that we are building for Electron.
+# Sage node-pre-gyp das wir fur Electron bauen.
 export npm_config_runtime=electron
 # Tell node-pre-gyp to build module from source code.
 export npm_config_build_from_source=true

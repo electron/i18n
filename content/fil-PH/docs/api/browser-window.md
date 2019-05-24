@@ -235,8 +235,9 @@ Ibinabalik ang:
 
 * `kaganapan` kaganapan
 * `title` String
+* `explicitSet` Boolean
 
-Napalabas kapag binago ng dokumento ang pamagat nito, na nagtawag sa `event.preventDefault()` ay maiiwasan ang pamagat ng katutubong window sa pagbabago.
+Napalabas kapag binago ng dokumento ang pamagat nito, na nagtawag sa `event.preventDefault()` ay maiiwasan ang pamagat ng katutubong window sa pagbabago. `explicitSet` is false when title is synthesized from file url.
 
 #### Event: 'isara'
 

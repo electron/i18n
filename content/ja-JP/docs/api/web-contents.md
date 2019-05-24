@@ -92,6 +92,16 @@ console.log(webContents)
 
 指定のフレームの document が読み込まれたときに発行されます。
 
+#### イベント: 'page-title-updated'
+
+戻り値:
+
+* `event` Event
+* `title` String
+* `explicitSet` Boolean
+
+ナビゲーション中にページタイトルが設定されたときに発生します。 `explicitSet` は、タイトルがファイル URL から合成されている場合に false になります。
+
 #### イベント: 'page-favicon-updated'
 
 戻り値:
@@ -700,7 +710,7 @@ webContents.loadURL('https://github.com', options)
 #### `contents.loadFile(filePath[, options])`
 
 * `filePath` String
-* `options` Object (任意) 
+* `options` Object (optional) 
   * `query` Object (任意) - `url.format()` に渡されます。
   * `search` String (任意) - `url.format()` に渡されます。
   * `hash` String (任意) - `url.format()` に渡されます。
@@ -890,7 +900,7 @@ contents.executeJavaScript('fetch("https://jsonplaceholder.typicode.com/users/1"
 
 #### `contents.getZoomFactor()`
 
-Returns `Number` - the current zoom factor.
+戻り値 `Number` - 現在の拡大率。
 
 #### `contents.setZoomLevel(level)`
 
@@ -900,7 +910,7 @@ Returns `Number` - the current zoom factor.
 
 #### `contents.getZoomLevel()`
 
-Returns `Number` - the current zoom level.
+戻り値 `Number` - 現在の拡大レベル。
 
 #### `contents.setVisualZoomLevelLimits(minimumLevel, maximumLevel)`
 

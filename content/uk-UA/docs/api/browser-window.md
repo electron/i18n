@@ -234,8 +234,9 @@ child.once('ready-to-show', () => {
 
 * `event` Event
 * `title` String
+* `explicitSet` Boolean
 
-Викликається коли документ змінює заголовок, виклик `event.preventDefault()` буде запобігати зміні нативного заголовку вікна.
+Викликається коли документ змінює заголовок, виклик `event.preventDefault()` буде запобігати зміні нативного заголовку вікна. `explicitSet` is false when title is synthesized from file url.
 
 #### Подія: 'close'
 

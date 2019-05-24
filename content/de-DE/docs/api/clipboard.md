@@ -13,7 +13,7 @@ const { clipboard } = require('electron')
 clipboard.writeText('Example String')
 ```
 
-Auf X Window Systemen existiert eine selektierende Zwischenablage. Um diese zu manipulieren, füge `selection` in jeder Methode ein:
+On Linux, there is also a `selection` clipboard. To manipulate it you need to pass `selection` to each method:
 
 ```javascript
 const { clipboard } = require('electron')
@@ -29,53 +29,53 @@ Das `clipboard` Modul besitzt die folgenden Methoden:
 
 ### `clipboard.readText([type])`
 
-* `type` String (optional)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Gibt einen `String` zurück - Der Inhalt der Zwischenablage liegt in Klartext vor.
 
 ### `clipboard.writeText(text[, type])`
 
 * `text` String
-* `type` String (optional)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Schreibt den `text` als Klartext in die Zwischenablage.
 
 ### `clipboard.readHTML([type])`
 
-* `type` String (optional)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Gibt einen `String` zurück - Der Inhalt der Zwischenablage liegt in Auszeichnungssprache (markup language) vor.
 
 ### `clipboard.writeHTML(markup[, type])`
 
 * `markup` String
-* `type` String (optional)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Schreibt `markup` in die Zwischenablage.
 
 ### `clipboard.readImage([type])`
 
-* `type` String (optional)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Gibt ein [`NativeImage`](native-image.md) zurück - Der Inhalt des Bildes liegt in der Zwischenablage vor.
 
 ### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
-* `type` String (optional)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Schreibt das `image` in die Zwischenablage.
 
 ### `clipboard.readRTF([type])`
 
-* `type` String (optional)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Gibt einen `String` zurück - Der Inhalt der Zwischenablage liegt im Rich Text Format (RTF) vor.
 
 ### `clipboard.writeRTF(text[, type])`
 
 * `text` String
-* `type` String (optional)
+* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
 
 Schreibt den `text` im Rich Text Format (RTF) in die Zwischenablage.
 
@@ -92,7 +92,7 @@ Gibt das `Object` zurück:
   
   * `title` String
   * ` URL </ 0>  Zeichenfolge</li>
-<li><code>type` String (optional)
+<li><code>type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
   
   Schreibt den `title` und die `url` als Lesezeichen in die Zwischenablage.
   
@@ -117,20 +117,20 @@ Gibt das `Object` zurück:
   
   ### `clipboard.clear([type])`
   
-  * `type` String (optional)
+  * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
   
   Löscht den Inhalt aus der Zwischenablage.
   
   ### `clipboard.availableFormats([type])`
   
-  * `type` String (optional)
+  * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
   
   Gibt ein `String[]` zurück - Ein Array mit allen von der Zwischenablage unterstützten Formattypen `type`.
   
   ### `clipboard.has(format[, type])` *Experimentell*
   
   * `format` String
-  * `type` String (optional)
+  * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
   
   Gibt einen `Boolean` zurück - Prüft, ob die Zwischenablage das angegebene `format` unterstützt.
   
@@ -155,7 +155,7 @@ Gibt das `Object` zurück:
   
   * `format` String
   * `buffer` Puffer
-  * `type` String (optional)
+  * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
   
   Schreibt den `buffer` mit dem angegebenen `format` in die Zwischenablage.
   
@@ -167,7 +167,7 @@ Gibt das `Object` zurück:
     * `image` [NativeImage](native-image.md) (optional)
     * `rtf` String (optional)
     * `bookmark` String (optional) - Der Titel von der URL bei `text`.
-  * `type` String (optional)
+  * `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
   ```javascript
   const { clipboard } = require('electron')
   clipboard.write({ text: 'test', html: '<b>test</b>' })
