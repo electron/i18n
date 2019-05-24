@@ -68,7 +68,7 @@ The `state` can be one of following:
 
 ### 인스턴스 메서드
 
-The `downloadItem` object has the following methods:
+`downloadItem` 객체에는 다음과 같은 메서드들이 있습니다:
 
 #### `downloadItem.setSavePath(path)`
 
