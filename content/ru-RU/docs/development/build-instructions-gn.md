@@ -81,17 +81,17 @@ $ gclient sync -f
 ```sh
 $ cd src
 $ export CHROMIUM_BUILDTOOLS_PATH=`pwd`/buildtools
-# this next line is needed only if building with sccache
+# эта следующая строка нужна только в случае сборки с помощью sccache
 $ export GN_EXTRA_ARGS="${GN_EXTRA_ARGS} cc_wrapper=\"${PWD}/electron/external_binaries/sccache\""
 $ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_ARGS"
 ```
 
-Or on Windows (without the optional argument):
+Или на Windows (без дополнительных аргументов):
 
 ```sh
 $ cd src
 $ set CHROMIUM_BUILDTOOLS_PATH=%cd%\buildtools
-$ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\")"
+$ gn gen out/Debug --args="import(\"//electron/build/args/debug\")"
 ```
 
 This will generate a build directory `out/Debug` under `src/` with debug build configuration. You can replace `Debug` with another name, but it should be a subdirectory of `out`. Also you shouldn't have to run `gn gen` again—if you want to change the build arguments, you can run `gn args out/Debug` to bring up an editor.
@@ -127,15 +127,15 @@ $ ninja -C out/Release electron
 
 This will build all of what was previously 'libchromiumcontent' (i.e. the `content/` directory of `chromium` and its dependencies, incl. WebKit and V8), so it will take a while.
 
-To speed up subsequent builds, you can use [sccache](https://github.com/mozilla/sccache). Add the GN arg `cc_wrapper = "sccache"` by running `gn args out/Debug` to bring up an editor and adding a line to the end of the file.
+Для ускорения последующих сборок можно использовать [sccache](https://github.com/mozilla/sccache). Add the GN arg `cc_wrapper = "sccache"` by running `gn args out/Debug` to bring up an editor and adding a line to the end of the file.
 
-The built executable will be under `./out/Debug`:
+Собранный исполняемый файл будет находиться в `./out/Debug`:
 
 ```sh
 $ ./out/Debug/Electron.app/Contents/MacOS/Electron
-# or, on Windows
+# или, на Windows
 $ ./out/Debug/electron.exe
-# or, on Linux
+# или, на Linux
 $ ./out/Debug/electron
 ```
 
@@ -178,15 +178,15 @@ $ (cd electron/spec && npm i --nodedir=../../out/Debug/gen/node_headers)
 Then, run Electron with `electron/spec` as the argument:
 
 ```sh
-# on Mac:
+# на Mac:
 $ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec
-# on Windows:
+# на Windows:
 $ ./out/Debug/electron.exe electron/spec
-# on Linux:
+# на Linux:
 $ ./out/Debug/electron electron/spec
 ```
 
-If you're debugging something, it can be helpful to pass some extra flags to the Electron binary:
+Если вы что-то отлаживаете, то вам может быть полезно передать некоторые дополнительные флаги в бинарный Electron:
 
 ```sh
 $ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec \
