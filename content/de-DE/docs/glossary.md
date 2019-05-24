@@ -10,11 +10,11 @@ Das ASAR-Format wurde primär für bessere Performence unter Windows entwickelt.
 
 ### CRT
 
-Die C Run-time Library (CRT) ist Teil der C++ Standard Library welche die ISO C66 Standard Library beinhaltet. The Visual C++ libraries that implement the CRT support native code development, and both mixed native and managed code, and pure managed code for .NET development.
+Die C Run-time Library (CRT) ist Teil der C++ Standard Library welche die ISO C66 Standard Library beinhaltet. Die Visual C++ Bibliotheken welche die CRT implementieren unterstützen native Codeentwicklung sowie gemischt nativen und verwalteten Code als auch reiner verwalteter Code für .NET-Entwicklung.
 
 ### DMG
 
-Ein Apple Disk Image ist ein Packetformat von macOS. DMG-Dateien werde oft zur Distribution von Installern verwendet. [electron-builder](https://github.com/electron-userland/electron-builder) supports `dmg` as a build target.
+Ein Apple Disk Image ist ein Packetformat von macOS. DMG-Dateien werde oft zur Distribution von Installern verwendet. [electron-builder](https://github.com/electron-userland/electron-builder) unterstützt `dmg` als Build-Ziel.
 
 ### IME
 
