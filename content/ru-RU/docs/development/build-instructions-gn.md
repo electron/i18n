@@ -52,7 +52,7 @@ $ gclient sync --with_branch_heads --with_tags
 # This will take a while, go get a coffee.
 ```
 
-> Instead of `https://github.com/electron/electron`, you can use your own fork here (something like `https://github.com/<username>/electron`).
+> Вместо `https://github.com/electron/electron`, вы можете использовать здесь свой собственный форк (что-то вроде `https://github.com/<username>/electron`).
 
 #### A note on pulling/pushing
 
@@ -81,12 +81,12 @@ $ gclient sync -f
 ```sh
 $ cd src
 $ export CHROMIUM_BUILDTOOLS_PATH=`pwd`/buildtools
-# this next line is needed only if building with sccache
+# эта следующая строка нужна только в случае сборки с помощью sccache
 $ export GN_EXTRA_ARGS="${GN_EXTRA_ARGS} cc_wrapper=\"${PWD}/electron/external_binaries/sccache\""
 $ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_ARGS"
 ```
 
-Or on Windows (without the optional argument):
+Или на Windows (без дополнительных аргументов):
 
 ```sh
 $ cd src
@@ -127,15 +127,15 @@ $ ninja -C out/Release electron
 
 This will build all of what was previously 'libchromiumcontent' (i.e. the `content/` directory of `chromium` and its dependencies, incl. WebKit and V8), so it will take a while.
 
-To speed up subsequent builds, you can use [sccache](https://github.com/mozilla/sccache). Add the GN arg `cc_wrapper = "sccache"` by running `gn args out/Debug` to bring up an editor and adding a line to the end of the file.
+Для ускорения последующих сборок можно использовать [sccache](https://github.com/mozilla/sccache). Add the GN arg `cc_wrapper = "sccache"` by running `gn args out/Debug` to bring up an editor and adding a line to the end of the file.
 
-The built executable will be under `./out/Debug`:
+Собранный исполняемый файл будет находиться в `./out/Debug`:
 
 ```sh
 $ ./out/Debug/Electron.app/Contents/MacOS/Electron
-# or, on Windows
+# или, на Windows
 $ ./out/Debug/electron.exe
-# or, on Linux
+# или, на Linux
 $ ./out/Debug/electron
 ```
 
@@ -178,15 +178,15 @@ $ (cd electron/spec && npm i --nodedir=../../out/Debug/gen/node_headers)
 Then, run Electron with `electron/spec` as the argument:
 
 ```sh
-# on Mac:
+# на Mac:
 $ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec
-# on Windows:
+# на Windows:
 $ ./out/Debug/electron.exe electron/spec
-# on Linux:
+# на Linux:
 $ ./out/Debug/electron electron/spec
 ```
 
-If you're debugging something, it can be helpful to pass some extra flags to the Electron binary:
+Если вы что-то отлаживаете, то вам может быть полезно передать некоторые дополнительные флаги в бинарный Electron:
 
 ```sh
 $ ./out/Debug/Electron.app/Contents/MacOS/Electron electron/spec \
@@ -203,7 +203,7 @@ It is possible to share the gclient git cache with other machines by exporting i
 HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Lanmanworkstation\Parameters\DirectoryCacheLifetime
 ```
 
-to 0. More information: https://stackoverflow.com/a/9935126
+to 0. Подробнее: https://stackoverflow.com/a/9935126
 
 ## Устранение проблем
 
@@ -213,4 +213,4 @@ If `gclient sync` is interrupted while using the git cache, it will leave the ca
 
 ### I'm being asked for a username/password for chromium-internal.googlesource.com
 
-If you see a prompt for `Username for 'https://chrome-internal.googlesource.com':` when running `gclient sync` on Windows, it's probably because the `DEPOT_TOOLS_WIN_TOOLCHAIN` environment variable is not set to 0. Open `Control Panel` → `System and Security` → `System` → `Advanced system settings` and add a system variable `DEPOT_TOOLS_WIN_TOOLCHAIN` with value `0`. Она говорит `depot_tools` использовать вашу локальную версию Visual Studio (по умолчанию, `depot_tools` попробует загрузить приватную Google версию к которой имеют доступ только Гугловцы).
+Если вы видите запрос для `Имя пользователя для 'https://chrome-internal.googlesource.com':` при запуске `gclient sync` на Windows, это возможно, потому что `DEPOT_TOOLS_WIN_TOOLCHAIN` переменная окружения не установлена в 0. Откройте `Панель управления` → `Система и безопасность` → `Система` → `Дополнительные параметры системы` и добавьте системную переменную `DEPOT_TOOLS_WIN_TOOLCHAIN` с значением `0`. Она говорит `depot_tools` использовать вашу локальную версию Visual Studio (по умолчанию, `depot_tools` попробует загрузить приватную Google версию к которой имеют доступ только Гугловцы).
