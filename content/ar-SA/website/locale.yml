@@ -16,8 +16,8 @@ nav:
   governance: Governance
 keyboard_modal:
   title: Keyboard Shortcuts
-  key: Key
-  action: Action
+  key: النوع
+  action: النشاط
   focus_search: Focus the search bar
   focus_and_clear: Focus the search bar and cleans it
   scroll_down: Select the next search result
