@@ -180,23 +180,23 @@ child.once('ready-to-show', () = > {
     * `zoomFactor` Number (опционально) - коэффициент масштабирования на странице, `3.0` означает `300%`. По умолчанию `1.0`.
     * `javascript` Boolean (опционально) - включает поддержку JavaScript. По умолчанию `true`.
     * `webSecurity` Boolean (опционально) - когда `false`, отключается политика same-origin (обычно используется при тестировании веб-сайтов людьми), и устанавливается `allowRunningInsecureContent` в `true`, если параметр не был установлен пользователем. По умолчанию - `true`.
-    * `allowRunningInsecureContent` Boolean (опционально) - Позволяет https страницам запускать JavaScript, CSS или плагины из http URLs. По умолчанию `false`.
-    * `images` Boolean (опционально) - Включает поддержку изображений. По умолчанию `true`.
-    * `textAreasAreResizable` Boolean (опционально) - Позволяет изменять размер у TextArea элементов. По умолчанию `true`.
-    * `webgl` Boolean (опционально) - Включает поддержку WebGL. По умолчанию `true`.
-    * `webaudio` Boolean (optional) - Включает поддержку WebAudio. По умолчанию `true`.
-    * `plugins` Boolean (опционально) - Включает поддержку плагинов. По умолчанию `false`.
-    * `experimentalFeatures` Boolean (опционально) - Включает экспериментальные возможности Chromium. По умолчанию `false`.
-    * `scrollBounce` Boolean (опционально) - Включает эффект отскока при прокрутке в macOS. По умолчанию `false`.
-    * `enableBlinkFeatures` String (optional) - A list of feature strings separated by `,`, like `CSSVariables,KeyboardEventKey` to enable. Полный список можно найти в файле [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70).
-    * `disableBlinkFeatures` String (опционально) - Список функциональных возможностей для выключения, разделяются `','`, например `CSSVariables,KeyboardEventKey`. Полный список можно найти в файле [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70).
-    * `defaultFontFamily` Object (опционально) - Устанавливает шрифт по умолчанию для семейства шрифтов. 
-      * `standard` String (опционально) - По умолчанию `Times New Roman`.
-      * `serif` String (опционально) - По умолчанию `Times New Roman`.
-      * `sansSerif` String (опционально) - По умолчанию `Arial`.
-      * `monospace` String (опционально) - По умолчанию `Courier New`.
-      * `cursive` String (optional) - Defaults to `Script`.
-      * `fantasy` String (optional) - Defaults to `Impact`.
+    * `allowRunningInsecureContent` Boolean (опционально) - позволяет https-страницам запускать JavaScript, CSS или плагины из URL с протоколом http. По умолчанию `false`.
+    * `images` Boolean (опционально) - включает поддержку изображений. По умолчанию `true`.
+    * `textAreasAreResizable` Boolean (опционально) - позволяет изменять размер у элементов TextArea. По умолчанию `true`.
+    * `webgl` Boolean (опционально) - включает поддержку WebGL. По умолчанию `true`.
+    * `webaudio` Boolean (optional) - включает поддержку WebAudio. По умолчанию `true`.
+    * `plugins` Boolean (опционально) - включает поддержку плагинов. По умолчанию `false`.
+    * `experimentalFeatures` Boolean (опционально) - включает экспериментальные возможности Chromium. По умолчанию `false`.
+    * `scrollBounce` Boolean (опционально) - включает эффект отскока при прокрутке на macOS. По умолчанию `false`.
+    * `enableBlinkFeatures` String (optional) - список возможностей, разделенных `запятой`, которые нужно включить, например `CSSVariables,KeyboardEventKey`. Полный список, поддерживаемых возможностей, можно найти в файле [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70).
+    * `disableBlinkFeatures` String (опционально) - список возможностей, разделенных `запятой`, которые нужно выключить, например `CSSVariables,KeyboardEventKey`. Полный список, поддерживаемых возможностей, можно найти в файле [RuntimeEnabledFeatures.json5](https://cs.chromium.org/chromium/src/third_party/blink/renderer/platform/runtime_enabled_features.json5?l=70).
+    * `defaultFontFamily` Object (опционально) - устанавливает шрифт по умолчанию для семейства шрифтов. 
+      * `standard` String (опционально) - по умолчанию `Times New Roman`.
+      * `serif` String (опционально) - по умолчанию `Times New Roman`.
+      * `sansSerif` String (опционально) - по умолчанию `Arial`.
+      * `monospace` String (опционально) - по умолчанию `Courier New`.
+      * `cursive` String (опционально) - по умолчанию `Script`.
+      * `fantasy` String (опционально) - по умолчанию `Impact`.
     * `defaultFontSize` Integer (optional) - Defaults to `16`.
     * `defaultMonospaceFontSize` Integer (optional) - Defaults to `13`.
     * `minimumFontSize` Integer (optional) - Defaults to `0`.
