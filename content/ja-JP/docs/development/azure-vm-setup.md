@@ -1,12 +1,12 @@
-# Updating an Appveyor Azure Image
+# Appveyor Azure イメージを更新する
 
-Electron CI on Windows uses AppVeyor, which in turn uses Azure VM images to run. Occasionally, these VM images need to be updated due to changes in Chromium requirements. In order to update you will need [PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-6) and the [Azure PowerShell module](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-1.8.0&viewFallbackFrom=azurermps-6.13.0).
+Windows 上の Electron CI は AppVeyor を使用し、AppVeyor は Azure VM イメージを実行に使用します。 場合によっては、Chromium の要件が変更されたため、これらの VM イメージを更新する必要があります。 更新するには、[PowerShell](https://docs.microsoft.com/en-us/powershell/scripting/install/installing-powershell?view=powershell-6) と [Azure PowerShell モジュール](https://docs.microsoft.com/en-us/powershell/azure/install-az-ps?view=azps-1.8.0&viewFallbackFrom=azurermps-6.13.0) が必要です。
 
-Occasionally we need to update these images owing to changes in Chromium or other miscellaneous build requirement changes.
+時折、Chromium の変更やその他のビルド要件の変更により、これらのイメージを更新する必要があります。
 
-Example Use Case:
+ユースケースの例:
 
-    * We need `VS15.9` and we have `VS15.7` installed; this would require us to update an Azure image.
+    * `VS15.9` が必要で、`VS15.7` がインストールされています。これには Azure イメージを更新する必要があります。
     
 
 1. Identify the image you wish to modify.
