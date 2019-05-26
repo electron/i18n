@@ -75,7 +75,7 @@ const constraints = {
 * `options` オブジェクト 
   * `types` String[] - キャプチャされるデスクトップソースの種別を列挙した文字列の配列。指定できる種別は、`screen` と `window` です。
   * `thumbnailSize` [Size](structures/size.md) (任意) - メディアソースのサムネイルを拡大縮小するサイズ。省略値は、`150` x `150` です。
-  * `fetchWindowIcons` Boolean (optional) - Set to true to enable fetching window icons. The default value is false. When false the appIcon property of the sources return null. Same if a source has the type screen.
+  * `fetchWindowIcons` Boolean (任意) - ウィンドウアイコンの取得を有効にするには true に設定します。 デフォルト値は false です。 false の場合、ソースの appIcon プロパティは null を返します。 ソースが screen 型の場合も同様です。
 * `callback` Function 
   * `error` Error
   * `sources` [DesktopCapturerSource[]](structures/desktop-capturer-source.md)
@@ -91,12 +91,12 @@ const constraints = {
 * `options` Object 
   * `types` String[] - キャプチャされるデスクトップソースの種別を列挙した文字列の配列。指定できる種別は、`screen` と `window` です。
   * `thumbnailSize` [Size](structures/size.md) (任意) - メディアソースのサムネイルを拡大縮小するサイズ。省略値は、`150` x `150` です。
-  * `fetchWindowIcons` Boolean (optional) - Set to true to enable fetching window icons. The default value is false. When false the appIcon property of the sources return null. Same if a source has the type screen.
+  * `fetchWindowIcons` Boolean (任意) - ウィンドウアイコンの取得を有効にするには true に設定します。 デフォルト値は false です。 false の場合、ソースの appIcon プロパティは null を返します。 ソースが screen 型の場合も同様です。
 
-Returns `Promise<DesktopCapturerSource[]>` - Resolves with an array of [`DesktopCapturerSource`](structures/desktop-capturer-source.md) objects, each `DesktopCapturerSource` represents a screen or an individual window that can be captured.
+戻り値 `Promise<DesktopCapturerSource[]>` - [`DesktopCapturerSource`](structures/desktop-capturer-source.md) オブジェクトの配列を使用して解決します。各 `DesktopCapturerSource` は、キャプチャできる画面または個々のウィンドウを表します。
 
 ### Caveats
 
-`navigator.mediaDevices.getUserMedia` does not work on macOS for audio capture due to a fundamental limitation whereby apps that want to access the system's audio require a [signed kernel extension](https://developer.apple.com/library/archive/documentation/Security/Conceptual/System_Integrity_Protection_Guide/KernelExtensions/KernelExtensions.html). Chromium, and by extension Electron, does not provide this.
+`navigator.mediaDevices.getUserMedia` はシステムのオーディオにアクセスしたいアプリが[署名付きカーネル拡張](https://developer.apple.com/library/archive/documentation/Security/Conceptual/System_Integrity_Protection_Guide/KernelExtensions/KernelExtensions.html)を必要とするという基本的な制限のため、macOS ではオーディオキャプチャが動作しません。 Chrome、ひいては Electron はこれを提供していません。
 
-It is possible to circumvent this limitation by capturing system audio with another macOS app like Soundflower and passing it through a virtual audio input device. This virtual device can then be queried with `navigator.mediaDevices.getUserMedia`.
+Soundflower のような他の macOS アプリでシステムオーディオをキャプチャし、それを仮想オーディオ入力デバイスに渡すことでこの制限を回避することが可能です。 この仮想デバイスは、 `navigator.mediaDevices.getUserMedia`.を使用して照会できます。
