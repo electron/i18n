@@ -13,7 +13,7 @@ const { clipboard } = require('electron')
 clipboard.writeText('Example String')
 ```
 
-On Linux, there is also a `selection` clipboard. To manipulate it you need to pass `selection` to each method:
+Linux では、`selection` クリップボードもあります。操作する 各メソッドには `selection` を渡す必要があります。
 
 ```javascript
 const { clipboard } = require('electron')
@@ -29,53 +29,53 @@ console.log(clipboard.readText('selection'))
 
 ### `clipboard.readText([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
+* `type` String (任意) - `selection` または `clipboard` です。`selection` は Linux でのみ利用可能です。
 
 戻り値 `String` - プレーンテキストでのクリップボード内のコンテンツ。
 
 ### `clipboard.writeText(text[, type])`
 
 * `text` String
-* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
+* `type` String (任意) - `selection` または `clipboard` です。`selection` は Linux でのみ利用可能です。
 
 プレーンテキストとしてクリップボードに `text` を書き込みます。
 
 ### `clipboard.readHTML([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
+* `type` String (任意) - `selection` または `clipboard` です。`selection` は Linux でのみ利用可能です。
 
 戻り値 `String` - マークアップでのクリップボード内のコンテンツ。
 
 ### `clipboard.writeHTML(markup[, type])`
 
 * `markup` String
-* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
+* `type` String (任意) - `selection` または `clipboard` です。`selection` は Linux でのみ利用可能です。
 
 クリップボードに `markup` を書き込みます。
 
 ### `clipboard.readImage([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
+* `type` String (任意) - `selection` または `clipboard` です。`selection` は Linux でのみ利用可能です。
 
 戻り値 [`NativeImage`](native-image.md) - クリップボード内の画像コンテンツ。
 
 ### `clipboard.writeImage(image[, type])`
 
 * `image` [NativeImage](native-image.md)
-* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
+* `type` String (任意) - `selection` または `clipboard` です。`selection` は Linux でのみ利用可能です。
 
 クリップボードに `image` を書き込みます。
 
 ### `clipboard.readRTF([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
+* `type` String (任意) - `selection` または `clipboard` です。`selection` は Linux でのみ利用可能です。
 
 戻り値 `String` - RTFでのクリップボード内のコンテンツ。
 
 ### `clipboard.writeRTF(text[, type])`
 
 * `text` String
-* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
+* `type` String (任意) - `selection` または `clipboard` です。`selection` は Linux でのみ利用可能です。
 
 RTFでクリップボードに `text` を書き込みます。
 
@@ -92,7 +92,7 @@ RTFでクリップボードに `text` を書き込みます。
 
 * `title` String
 * `url` String
-* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
+* `type` String (任意) - `selection` または `clipboard` です。`selection` は Linux でのみ利用可能です。
 
 ブックマークとしてクリップボードに `title` と `url` を書き込みます。
 
@@ -117,20 +117,20 @@ clipboard.write({
 
 ### `clipboard.clear([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
+* `type` String (任意) - `selection` または `clipboard` です。`selection` は Linux でのみ利用可能です。
 
 クリップボードの内容を消去します。
 
 ### `clipboard.availableFormats([type])`
 
-* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
+* `type` String (任意) - `selection` または `clipboard` です。`selection` は Linux でのみ利用可能です。
 
 戻り値 `String[]` - クリップボードがサポートしている形式の `type` の配列。
 
 ### `clipboard.has(format[, type])` *実験的*
 
 * `format` String
-* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
+* `type` String (任意) - `selection` または `clipboard` です。`selection` は Linux でのみ利用可能です。
 
 戻り値 `Boolean` - クリップボードが指定した `format` をサポートしているかどうか。
 
@@ -155,7 +155,7 @@ console.log(clipboard.has('<p>selection</p>'))
 
 * `format` String
 * `buffer` Buffer
-* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
+* `type` String (任意) - `selection` または `clipboard` です。`selection` は Linux でのみ利用可能です。
 
 `format` でクリップボードに `buffer` を書き込みます。
 
@@ -167,7 +167,7 @@ console.log(clipboard.has('<p>selection</p>'))
   * `image` [NativeImage](native-image.md) (任意)
   * `rtf` String (任意)
   * `bookmark` String (任意) - URLのタイトルの `text`。
-* `type` String (optional) - Can be `selection` or `clipboard`. `selection` is only available on Linux.
+* `type` String (任意) - `selection` または `clipboard` です。`selection` は Linux でのみ利用可能です。
 
 ```javascript
 const { clipboard } = require('electron')
