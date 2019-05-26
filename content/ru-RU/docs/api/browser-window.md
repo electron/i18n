@@ -197,12 +197,12 @@ child.once('ready-to-show', () = > {
       * `monospace` String (опционально) - по умолчанию `Courier New`.
       * `cursive` String (опционально) - по умолчанию `Script`.
       * `fantasy` String (опционально) - по умолчанию `Impact`.
-    * `defaultFontSize` Integer (optional) - Defaults to `16`.
-    * `defaultMonospaceFontSize` Integer (optional) - Defaults to `13`.
-    * `minimumFontSize` Integer (optional) - Defaults to `0`.
-    * `defaultEncoding` String (optional) - Defaults to `ISO-8859-1`.
-    * `backgroundThrottling` Boolean (optional) - Whether to throttle animations and timers when the page becomes background. This also affects the [Page Visibility API](#page-visibility). Defaults to `true`.
-    * `offscreen` Boolean (optional) - Whether to enable offscreen rendering for the browser window. Defaults to `false`. See the [offscreen rendering tutorial](../tutorial/offscreen-rendering.md) for more details.
+    * `defaultFontSize` Integer (опционально) - по умолчанию `16`.
+    * `defaultMonospaceFontSize` Integer (опционально) - по умолчанию `13`.
+    * `minimumFontSize` Integer (опционально) - по умолчанию `0`.
+    * `defaultEncoding` String (опционально) - по умолчанию `ISO-8859-1`.
+    * `backgroundThrottling` Boolean (опционально) - предотвратить анимации и таймеры, когда страница становится фоновой. Это также влияет на [API видимости страницы](#page-visibility). По умолчанию `true`.
+    * `offscreen` Boolean (опционально) - включает отрисовку окна браузера вне экрана. По умолчанию `false`. Смотрите [руководство отрисовки вне экрана](../tutorial/offscreen-rendering.md) для подробной информации.
     * `contextIsolation` Boolean (optional) - Whether to run Electron APIs and the specified `preload` script in a separate JavaScript context. Defaults to `false`. The context that the `preload` script runs in will still have full access to the `document` and `window` globals but it will use its own set of JavaScript builtins (`Array`, `Object`, `JSON`, etc.) and will be isolated from any changes made to the global environment by the loaded page. The Electron API will only be available in the `preload` script and not the loaded page. This option should be used when loading potentially untrusted remote content to ensure the loaded content cannot tamper with the `preload` script and any Electron APIs being used. This option uses the same technique used by [Chrome Content Scripts](https://developer.chrome.com/extensions/content_scripts#execution-environment). You can access this context in the dev tools by selecting the 'Electron Isolated Context' entry in the combo box at the top of the Console tab.
     * `nativeWindowOpen` Boolean (optional) - Whether to use native `window.open()`. Defaults to `false`. Child windows will always have node integration disabled. **Note:** This option is currently experimental.
     * `webviewTag` Boolean (optional) - Whether to enable the [`&lt;webview&gt;` tag](webview-tag.md). Defaults to `false`. **Note:** The `preload` script configured for the `&lt;webview&gt;` will have node integration enabled when it is executed so you should ensure remote/untrusted content is not able to create a `&lt;webview&gt;` tag with a possibly malicious `preload` script. You can use the `will-attach-webview` event on [webContents](web-contents.md) to strip away the `preload` script and to validate or alter the `&lt;webview&gt;`'s initial settings.
