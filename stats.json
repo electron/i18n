@@ -251,13 +251,13 @@
     "code": "ru",
     "phrases": "10571",
     "translated": "6282",
-    "approved": "2262",
+    "approved": "2315",
     "words": "97502",
     "words_translated": "48628",
-    "words_approved": "19636",
+    "words_approved": "20302",
     "translated_progress": 49,
     "approved_progress": 20,
-    "qa_issues": 1496
+    "qa_issues": 1465
   },
   {
     "name": "Spanish",
