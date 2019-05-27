@@ -49,7 +49,7 @@ export SCCACHE_TWO_TIER=true
 $ mkdir electron-gn && cd electron-gn
 $ gclient config --name "src/electron" --unmanaged https://github.com/electron/electron
 $ gclient sync --with_branch_heads --with_tags
-# This will take a while, go get a coffee.
+# Это займёт некоторое время, идите и налейте себе кофейку.
 ```
 
 > Вместо `https://github.com/electron/electron`, вы можете использовать здесь свой собственный форк (что-то вроде `https://github.com/<username>/electron`).
@@ -102,7 +102,7 @@ out/Debug --list`.
 **For generating Debug (aka "component" or "shared") build config of Electron:**
 
 ```sh
-$ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_ARGS"
+gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_ARGS"
 ```
 
 **For generating Release (aka "non-component" or "static") build config of Electron:**
@@ -111,15 +111,15 @@ $ gn gen out/Debug --args="import(\"//electron/build/args/debug.gn\") $GN_EXTRA_
 $ gn gen out/Release --args="import(\"//electron/build/args/release.gn\") $GN_EXTRA_ARGS"
 ```
 
-**To build, run `ninja` with the `electron` target:** Nota Bene: This will also take a while and probably heat up your lap.
+**Чтобы построить, запустите `ninja` с целью `electron`:** Nota Bene: Это займет некоторое время и, вероятно, нагревает ваш ноутбук.
 
-For the debug configuration:
+Для конфигурации отладки:
 
 ```sh
 $ ninja -C out/Debug electron
 ```
 
-For the release configuration:
+Для конфигурации релиза:
 
 ```sh
 $ ninja -C out/Release electron
@@ -203,7 +203,7 @@ It is possible to share the gclient git cache with other machines by exporting i
 HKEY_LOCAL_MACHINE\System\CurrentControlSet\Services\Lanmanworkstation\Parameters\DirectoryCacheLifetime
 ```
 
-to 0. Подробнее: https://stackoverflow.com/a/9935126
+на 0. Подробнее: https://stackoverflow.com/a/9935126
 
 ## Устранение проблем
 
