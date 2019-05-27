@@ -49,7 +49,7 @@ export SCCACHE_TWO_TIER=true
 $ mkdir electron-gn && cd electron-gn
 $ gclient config --name "src/electron" --unmanaged https://github.com/electron/electron
 $ gclient sync --with_branch_heads --with_tags
-# This will take a while, go get a coffee.
+# これはしばらくかかります、コーヒーを飲みに行きましょう。
 ```
 
 > `https://github.com/electron/electron` の代わりに、`https://github.com/<username>/electron` のような自分のフォークを使うこともできます。
