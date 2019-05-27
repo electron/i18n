@@ -32,9 +32,9 @@ app.on('ready', () => {
 
 **注意:** このメソッドは、`app` モジュールの `ready` イベントが発行される前にのみ使用でき、一度だけ呼び出すことができます。
 
-Registers the `scheme` as standard, secure, bypasses content security policy for resources, allows registering ServiceWorker and supports fetch API.
+`scheme` を標準の安全なものとして登録し、リソースに対するコンテンツセキュリティポリシーをバイパスし、ServiceWorker を登録し、fetch API をサポートします。
 
-Specify a privilege with the value of `true` to enable the capability. An example of registering a privileged scheme, with bypassing Content Security Policy:
+この機能を有効にするには、値を `true` で指定します。 コンテンツセキュリティポリシーを迂回して特権スキームを登録する例：
 
 ```javascript
 const { protocol } = require('electron')
