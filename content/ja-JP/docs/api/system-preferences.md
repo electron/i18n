@@ -31,14 +31,14 @@ console.log(systemPreferences.isDarkMode())
 戻り値:
 
 * `event` Event
-* `invertedColorScheme` Boolean - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is being used, `false` otherwise.
+* `invertedColorScheme` Boolean - 反転配色 (明るいテキストと暗い背景のハイコントラスト配色) が使用されている場合は `true`、それ以外の場合は `false` です。
 
-### Event: 'high-contrast-color-scheme-changed' *Windows*
+### イベント: 'high-contrast-color-scheme-changed' *Windows*
 
 戻り値：
 
 * `event` Event
-* `highContrastColorScheme` Boolean - `true` if a high contrast theme is being used, `false` otherwise.
+* `highContrastColorScheme` Boolean - ハイコントラストテーマが使用されている場合は `true`、そうでない場合は `false` です。
 
 ### イベント: 'appearance-changed' *macOS*
 
@@ -62,7 +62,7 @@ console.log(systemPreferences.isDarkMode())
 
 * `event` String
 * `userInfo` Object
-* `deliverImmediately` Boolean (optional) - `true` to post notifications immediately even when the subscribing app is inactive.
+* `deliverImmediately` Boolean (任意) - 購読中のアプリがアクティブでなくても通知をすぐに送信する場合は `true` です。
 
 `event` を macOS のネイティブの通知として送信します。 `userInfo` は、通知とともに送信されるユーザ情報辞書を含むオブジェクトです。
 
