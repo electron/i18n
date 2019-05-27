@@ -62,7 +62,7 @@ console.log(systemPreferences.isDarkMode())
 
 * `event` String
 * `userInfo` Object
-* `deliverImmediately` Boolean (任意) - 購読中のアプリがアクティブでなくても通知をすぐに送信する場合は `true` です。
+* `deliverImmediately` Boolean (任意) - サブスクライブ中のアプリがアクティブでなくても通知をすぐに送信する場合は `true` です。
 
 `event` を macOS のネイティブの通知として送信します。 `userInfo` は、通知とともに送信されるユーザ情報辞書を含むオブジェクトです。
 
@@ -221,7 +221,7 @@ const blue = color.substr(4, 2) // "cc"
 const alpha = color.substr(6, 2) // "dd"
 ```
 
-This API is only available on macOS 10.14 Mojave or newer.
+この API は macOS 10.14 Mojave 以降でのみ利用可能です。
 
 ### `systemPreferences.getColor(color)` *Windows* *macOS*
 
@@ -258,10 +258,10 @@ This API is only available on macOS 10.14 Mojave or newer.
     * `window-frame` - ウインドウフレームの色。
     * `window-text` - ウインドウ内のテキスト色。
   * On **macOS** 
-    * `alternate-selected-control-text` - The text on a selected surface in a list or table.
-    * `control-background` - The background of a large interface element, such as a browser or table.
-    * `control` - The surface of a control.
-    * `control-text` -The text of a control that isn’t disabled.
+    * `alternate-selected-control-text` - リストまたは表の選択された面のテキスト。
+    * `control-background` - ブラウザやテーブルなど、大きなインターフェイス要素の背景。
+    * `control` - コントロールの表面。
+    * `control-text` - 無効にされていないコントロールのテキスト。
     * `disabled-control-text` - The text of a control that’s disabled.
     * `find-highlight` - The color of a find indicator.
     * `grid` - The gridlines of an interface element such as a table.
@@ -292,7 +292,7 @@ This API is only available on macOS 10.14 Mojave or newer.
     * `window-background` - The background of a window.
     * `window-frame-text` - The text in the window's titlebar area. 
 
-戻り値 `String` - RGB の16進数形式 (`#ABCDEF`) のシステム色の設定。 See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) and the [MacOS docs](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors) for more details.
+戻り値 `String` - RGB の16進数形式 (`#ABCDEF`) のシステム色の設定。 詳しくは、[Windows のドキュメント](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx)と [MacOS のドキュメント](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors)をご覧ください。
 
 ### `systemPreferences.getSystemColor(color)` *macOS*
 
@@ -307,15 +307,15 @@ This API is only available on macOS 10.14 Mojave or newer.
   * `red`
   * `yellow`
 
-Returns one of several standard system colors that automatically adapt to vibrancy and changes in accessibility settings like 'Increase contrast' and 'Reduce transparency'. See [Apple Documentation](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#system-colors) for more details.
+「コントラストを上げる」や「透明度を下げる」など、鮮やかさやアクセシビリティ設定の変更に自動的に適応する標準のシステムカラーの1つを返します。 詳しくは、[Apple のドキュメント](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#system-colors)をご覧ください。
 
 ### `systemPreferences.isInvertedColorScheme()` *Windows*
 
-Returns `Boolean` - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is active, `false` otherwise.
+戻り値 `Boolean` - 反転配色 (明るいテキストと暗い背景のハイコントラスト配色) がアクティブの場合は `true`、それ以外の場合は `false` です。
 
 ### `systemPreferences.isHighContrastColorScheme()` *Windows*
 
-Returns `Boolean` - `true` if a high contrast theme is active, `false` otherwise.
+戻り値 `Boolean` - ハイコントラストテーマがアクティブの場合は `true`、それ以外の場合は `false` です。
 
 ### `systemPreferences.getEffectiveAppearance()` *macOS*
 
