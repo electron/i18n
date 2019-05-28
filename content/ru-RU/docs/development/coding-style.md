@@ -48,9 +48,9 @@
 
 Electron APIs использует ту же схему капитализации, что и Node.js:
 
-* When the module itself is a class like `BrowserWindow`, use `PascalCase`.
-* When the module is a set of APIs, like `globalShortcut`, use `camelCase`.
+* Если сам модуль является классом, напр. `BrowserWindow`, используйте `PascalCase`.
+* Если модуль является набором API, напр. `globalShortcut`, используйте `camelCase`.
 * Когда API это свойство объекта, и оно обладает достаточной сложностью для помещения в отдельную главу, как например `win.webContents`, используйте `mixedCase`.
-* For other non-module APIs, use natural titles, like `<webview> Tag` or `Process Object`.
+* Для всех других не модульных API используйте естественные названия, напр. ` Tag` или `Process Object`.
 
-When creating a new API, it is preferred to use getters and setters instead of jQuery's one-function style. For example, `.getText()` and `.setText(text)` are preferred to `.text([text])`. There is a [discussion](https://github.com/electron/electron/issues/46) on this.
+При создании новых API рекомендуется использовать getters и setters вместо одной функции для доступа в типичном для jQuery стиле. Например, `.getText()` и `.setText(text)` более предпочтительны, чем `.text([text])`. См. обсуждение этой темы [здесь](https://github.com/electron/electron/issues/46).
