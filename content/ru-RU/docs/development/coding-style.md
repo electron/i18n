@@ -10,13 +10,13 @@
 * Размещайте require в следующем порядке: 
   * Встроенные модули Node (такие как `path`)
   * Встроенные модули Electron (такие как `ipc`, `app`)
-  * Local Modules (using relative paths)
-* Place class properties in the following order: 
-  * Class methods and properties (methods starting with a `@`)
-  * Instance methods and properties
-* Avoid platform-dependent code: 
-  * Use `path.join()` to concatenate filenames.
-  * Use `os.tmpdir()` rather than `/tmp` when you need to reference the temporary directory.
+  * Локальные модули (используя относительные пути)
+* Размещайте свойства классов в следующем порядке: 
+  * Методы и свойства класса (названия методов должны начинаться с `@`)
+  * Методы и свойства объекта (экземпляра)
+* Избегайте платформенно-зависимого кода: 
+  * Используйте `path.join()` для конкатенации имен файлов.
+  * Используйте `os.tmpdir()` вместо `/tmp` когда нужно сослаться на каталог для временных файлов.
 * Using a plain `возврат` when returning explicitly at the end of a function. 
   * Not `return null`, `return undefined`, `null` or `undefined`
 
