@@ -6,10 +6,10 @@
 
 ## General Code
 
-* End files with a newline.
-* Place requires in the following order: 
-  * Built in Node Modules (such as `path`)
-  * Built in Electron Modules (such as `ipc`, `app`)
+* Завершайте все файлы переводом строки.
+* Размещайте require в следующем порядке: 
+  * Встроенные модули Node (такие как `path`)
+  * Встроенные модули Electron (такие как `ipc`, `app`)
   * Local Modules (using relative paths)
 * Place class properties in the following order: 
   * Class methods and properties (methods starting with a `@`)
