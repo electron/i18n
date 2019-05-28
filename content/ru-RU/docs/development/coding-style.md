@@ -4,7 +4,7 @@
 
 Вы пожете запустить `npm run lint` для того чтобы получить список проблемных мест по стилю кода, найденных с помощью `cpplint` и `eslint`.
 
-## General Code
+## Оформление кода
 
 * Завершайте все файлы переводом строки.
 * Размещайте require в следующем порядке: 
@@ -17,8 +17,8 @@
 * Избегайте платформенно-зависимого кода: 
   * Используйте `path.join()` для конкатенации имен файлов.
   * Используйте `os.tmpdir()` вместо `/tmp` когда нужно сослаться на каталог для временных файлов.
-* Using a plain `возврат` when returning explicitly at the end of a function. 
-  * Not `return null`, `return undefined`, `null` or `undefined`
+* Используйте просто `<0>return</0>` при явном возврате в конце функций. 
+  * Не `return null`, не `return undefined`, не `null` или `undefined`
 
 ## C++ и Python
 
@@ -30,7 +30,7 @@
 
 ## Документация
 
-* Write [remark](https://github.com/remarkjs/remark) markdown style.
+* Используйте стиль разметки [remark](https://github.com/remarkjs/remark).
 
 Вы можете выполнить команду `npm run lint-docs` чтобы убедиться, что ваши изменения документации корректно отформатированы.
 
@@ -39,10 +39,10 @@
 * Пишите в стиле [стандартном](https://npm.im/standard) для JavaScript.
 * Имена файлов должны соединяться через `-` вместо `_`, например, `file-name.js` вместо `file_name.js`, поскольку имена в [github/atom](https://github.com/github/atom) обычно пишутся в форме `module-name`. Это правило применяется только к `.js`-файлам.
 * Используйте новый синтаксис ES6/ES2015 там, где это уместно 
-  * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) for requires and other constants
+  * [`const`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/const) для requires и прочих постоянных значений
   * [`let`](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/let) для определения переменных
   * [Стрелочные функции](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Functions/Arrow_functions) вместо `function () { }`
-  * [Template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) instead of string concatenation using `+`
+  * [Используйте шаблоны литералов](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals) вместо конкатенации строк с использованием `+`
 
 ## Именование сущностей
 
