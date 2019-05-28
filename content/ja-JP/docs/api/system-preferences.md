@@ -31,14 +31,14 @@ console.log(systemPreferences.isDarkMode())
 戻り値:
 
 * `event` Event
-* `invertedColorScheme` Boolean - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is being used, `false` otherwise.
+* `invertedColorScheme` Boolean - 反転配色 (明るいテキストと暗い背景のハイコントラスト配色) が使用されている場合は `true`、それ以外の場合は `false` です。
 
-### Event: 'high-contrast-color-scheme-changed' *Windows*
+### イベント: 'high-contrast-color-scheme-changed' *Windows*
 
 戻り値：
 
 * `event` Event
-* `highContrastColorScheme` Boolean - `true` if a high contrast theme is being used, `false` otherwise.
+* `highContrastColorScheme` Boolean - ハイコントラストテーマが使用されている場合は `true`、そうでない場合は `false` です。
 
 ### イベント: 'appearance-changed' *macOS*
 
@@ -62,7 +62,7 @@ console.log(systemPreferences.isDarkMode())
 
 * `event` String
 * `userInfo` Object
-* `deliverImmediately` Boolean (optional) - `true` to post notifications immediately even when the subscribing app is inactive.
+* `deliverImmediately` Boolean (任意) - サブスクライブ中のアプリがアクティブでなくても通知をすぐに送信する場合は `true` です。
 
 `event` を macOS のネイティブの通知として送信します。 `userInfo` は、通知とともに送信されるユーザ情報辞書を含むオブジェクトです。
 
@@ -221,7 +221,7 @@ const blue = color.substr(4, 2) // "cc"
 const alpha = color.substr(6, 2) // "dd"
 ```
 
-This API is only available on macOS 10.14 Mojave or newer.
+この API は macOS 10.14 Mojave 以降でのみ利用可能です。
 
 ### `systemPreferences.getColor(color)` *Windows* *macOS*
 
@@ -258,41 +258,41 @@ This API is only available on macOS 10.14 Mojave or newer.
     * `window-frame` - ウインドウフレームの色。
     * `window-text` - ウインドウ内のテキスト色。
   * On **macOS** 
-    * `alternate-selected-control-text` - The text on a selected surface in a list or table.
-    * `control-background` - The background of a large interface element, such as a browser or table.
-    * `control` - The surface of a control.
-    * `control-text` -The text of a control that isn’t disabled.
-    * `disabled-control-text` - The text of a control that’s disabled.
-    * `find-highlight` - The color of a find indicator.
-    * `grid` - The gridlines of an interface element such as a table.
-    * `header-text` - The text of a header cell in a table.
-    * `highlight` - The virtual light source onscreen.
-    * `keyboard-focus-indicator` - The ring that appears around the currently focused control when using the keyboard for interface navigation.
-    * `label` - The text of a label containing primary content.
-    * `link` - A link to other content.
-    * `placeholder-text` - A placeholder string in a control or text view.
-    * `quaternary-label` - The text of a label of lesser importance than a tertiary label such as watermark text.
-    * `scrubber-textured-background` - The background of a scrubber in the Touch Bar.
-    * `secondary-label` - The text of a label of lesser importance than a normal label such as a label used to represent a subheading or additional information.
-    * `selected-content-background` - The background for selected content in a key window or view.
-    * `selected-control` - The surface of a selected control.
-    * `selected-control-text` - The text of a selected control.
-    * `selected-menu-item` - The text of a selected menu.
-    * `selected-text-background` - The background of selected text.
-    * `selected-text` - Selected text.
-    * `separator` - A separator between different sections of content.
-    * `shadow` - The virtual shadow cast by a raised object onscreen.
-    * `tertiary-label` - The text of a label of lesser importance than a secondary label such as a label used to represent disabled text.
-    * `text-background` - Text background.
-    * `text` - The text in a document.
-    * `under-page-background` - The background behind a document's content.
-    * `unemphasized-selected-content-background` - The selected content in a non-key window or view.
-    * `unemphasized-selected-text-background` - A background for selected text in a non-key window or view.
-    * `unemphasized-selected-text` - Selected text in a non-key window or view.
-    * `window-background` - The background of a window.
-    * `window-frame-text` - The text in the window's titlebar area. 
+    * `alternate-selected-control-text` - リストまたは表の選択された面のテキスト。
+    * `control-background` - ブラウザやテーブルなど、大きなインターフェイス要素の背景。
+    * `control` - コントロールの表面。
+    * `control-text` - 無効にされていないコントロールのテキスト。
+    * `disabled-control-text` - 無効になっているコントロールのテキスト。
+    * `find-highlight` - 検索インジケーターの色。
+    * `grid` - テーブルなどのインタフェース要素のグリッド線。
+    * `header-text` - テーブル内のヘッダーセルのテキスト。
+    * `highlight` - 画面上の仮想光源
+    * `keyboard-focus-indicator` - インタフェースナビゲーションにキーボードを使用しているときに、現在フォーカスされているコントロールの周囲に表示されるリング。
+    * `label` - 一次コンテンツを含むラベルのテキスト。
+    * `link` - 他のコンテンツへのリンク。
+    * `placeholder-text` - コントロールビューまたはテキストビューのプレースホルダ文字列。
+    * `quaternary-label` - 透かしテキストなどの3次ラベルよりも重要度の低いラベルのテキスト。
+    * `scrubber-textured-background` - タッチバーのスクラバーの背景。
+    * `secondary-label` - 小見出しや追加情報を表すために使用されるラベルなど、通常のラベルよりも重要度の低いラベルのテキスト。
+    * `selected-content-background` - キーウィンドウまたはビューで選択したコンテンツの背景。
+    * `selected-control` - 選択したコントロールの表面
+    * `selected-control-text` - 選択したコントロールのテキスト。
+    * `selected-menu-item` - 選択されたメニューのテキスト
+    * `selected-text-background` - 選択したテキストの背景
+    * `selected-text` - 選択したテキスト
+    * `separator` - コンテンツのさまざまなセクション間の区切り文字。
+    * `shadow` - 画面上の隆起したオブジェクトによって投げかけられた仮想の影。
+    * `tertiary-label` - 無効なテキストを表すために使用されるラベルなど、2次ラベルより重要度の低いラベルのテキスト。
+    * `text-background` - テキストの背景
+    * `text` - 文書内のテキスト
+    * `under-page-background` - 文書のコンテンツの背景。
+    * `unemphasized-selected-content-background` - 非キーウィンドウまたはビューで選択されているコンテンツ。
+    * `unemphasized-selected-text-background` - 非キーウィンドウまたはビューで選択されているテキストの背景。
+    * `unemphasized-selected-text` - 非キーウィンドウまたはビューで選択されているテキスト。
+    * `window-background` - ウィンドウの背景
+    * `window-frame-text` - ウィンドウのタイトルバー領域のテキスト。 
 
-戻り値 `String` - RGB の16進数形式 (`#ABCDEF`) のシステム色の設定。 See the [Windows docs](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx) and the [MacOS docs](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors) for more details.
+戻り値 `String` - RGB の16進数形式 (`#ABCDEF`) のシステム色の設定。 詳しくは、[Windows のドキュメント](https://msdn.microsoft.com/en-us/library/windows/desktop/ms724371(v=vs.85).aspx)と [MacOS のドキュメント](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#dynamic-system-colors)をご覧ください。
 
 ### `systemPreferences.getSystemColor(color)` *macOS*
 
@@ -307,15 +307,15 @@ This API is only available on macOS 10.14 Mojave or newer.
   * `red`
   * `yellow`
 
-Returns one of several standard system colors that automatically adapt to vibrancy and changes in accessibility settings like 'Increase contrast' and 'Reduce transparency'. See [Apple Documentation](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#system-colors) for more details.
+「コントラストを上げる」や「透明度を下げる」など、鮮やかさやアクセシビリティ設定の変更に自動的に適応する標準のシステムカラーの1つを返します。 詳しくは、[Apple のドキュメント](https://developer.apple.com/design/human-interface-guidelines/macos/visual-design/color#system-colors)をご覧ください。
 
 ### `systemPreferences.isInvertedColorScheme()` *Windows*
 
-Returns `Boolean` - `true` if an inverted color scheme (a high contrast color scheme with light text and dark backgrounds) is active, `false` otherwise.
+戻り値 `Boolean` - 反転配色 (明るいテキストと暗い背景のハイコントラスト配色) がアクティブの場合は `true`、それ以外の場合は `false` です。
 
 ### `systemPreferences.isHighContrastColorScheme()` *Windows*
 
-Returns `Boolean` - `true` if a high contrast theme is active, `false` otherwise.
+戻り値 `Boolean` - ハイコントラストテーマがアクティブの場合は `true`、それ以外の場合は `false` です。
 
 ### `systemPreferences.getEffectiveAppearance()` *macOS*
 
