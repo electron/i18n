@@ -328,13 +328,13 @@
     "name": "Vietnamese",
     "code": "vi",
     "phrases": "10571",
-    "translated": "1968",
+    "translated": "1995",
     "approved": "50",
     "words": "97502",
-    "words_translated": "9095",
+    "words_translated": "9315",
     "words_approved": "124",
     "translated_progress": 9,
     "approved_progress": 0,
-    "qa_issues": 535
+    "qa_issues": 548
   }
 ]
