@@ -1,4 +1,4 @@
-# Đối tượng chứng chỉ
+# Chứng chỉ đối tượng
 
 * `data` String - Dữ liệu được mã hóa PEM
 * `Tổ chức phát hành`[CertificatePrincipal](certificate-principal.md) - Hiệu trưởng phát hành
