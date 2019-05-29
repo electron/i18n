@@ -153,7 +153,7 @@
     "words_approved": "20",
     "translated_progress": 63,
     "approved_progress": 0,
-    "qa_issues": 4138
+    "qa_issues": 4137
   },
   {
     "name": "Italian",
@@ -172,12 +172,12 @@
     "name": "Japanese",
     "code": "ja",
     "phrases": "10571",
-    "translated": "10243",
+    "translated": "10248",
     "approved": "289",
     "words": "97502",
-    "words_translated": "93567",
+    "words_translated": "93615",
     "words_approved": "1692",
-    "translated_progress": 95,
+    "translated_progress": 96,
     "approved_progress": 1,
     "qa_issues": 307
   },
