@@ -57,7 +57,7 @@ process.once('loaded', () => {
 
 ### `process.isMainFrame`
 
-A `Boolean`, `true` when the current renderer context is the "main" renderer frame. If you want the ID of the current frame you should use `webFrame.routingId`.
+`Boolean` で、現在のレンダラコンテキストが「メイン」レンダラフレームである場合は `true` です。現在のフレームの ID が欲しいならば、`webFrame.routingId` を使うべきです。
 
 ### `process.mas`
 
