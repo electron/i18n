@@ -1,12 +1,12 @@
 # Veröffentlichung im Windows Store
 
-Mit Windows 10, die bewährten win32-Programmdateien bekamen einen neuen Verwandten: die Universelle Windows-Plattform. Das neue `.appx`-Format ermöglicht nicht nur neue APIs wie 'Cortana' oder 'Push Notifications', sondern, durch den Windows Store, wird das Aktualisieren und die Installation vereinfacht.
+Mit Windows 10 führte Windows neben den bewährten win32-Programmdateien etwas Neues ein: die Universelle Windows-Plattform. Das neue `.appx`-Format ermöglicht nicht nur den Zugriff auf neue APIs wie 'Cortana' oder 'Push Notifications', sondern bringt durch den Windows Store auch Vereinfachung in der Installation und Aktualisierung von Apps.
 
-Microsoft [entwickelte ein Werkzeug, dass Electron-Apps in `.appx`-Pakete](https://github.com/catalystcode/electron-windows-store) kompiliert. Somit wird Entwicklern ermöglicht, einige der Annehmlichkeiten, welche sich im neuen Enticklungs-Modul finden, zu nutzen. Diese Anleitung erklärt Ihnen, wie man es benutzt - und was die Möglichkeiten und Begrenzungen von Electron-AppX-Paketen sind.
+Microsoft entwickelte [ein Werkzeug, das Electron-Apps in `.appx`-Pakete kompiliert](https://github.com/catalystcode/electron-windows-store). Somit wird Electron-Entwicklern ermöglicht, einige der neueren Techniken, welche sich im neuen Enticklungs-Modul befinden, zu nutzen. Diese Anleitung erklärt Ihnen, wie man dieses benutzt und was die Möglichkeiten und Begrenzungen von Electron-AppX-Paketen sind.
 
 ## Hintergrund und Voraussetzungen
 
-Windows 10 "Anniversary Update" kann win32-`.exe`-Dateien ausführen, indem man sie zusammen mit einem virtualisiertem Dateisystem und einer Registry startet. Beides wird während der Kompilierung erstellt durch das Ausführen der App und des Installer in einem Windows-Container. Dies erlaubt Windows genau zu identifizieren, welche Änderungen am Betriebssystem gemacht werden während der Installation. Das Zusammenbringen der Programmdatei mit einem virtuellem Dateisystem und einer virtuellen Registry erlaubt Windows, dass Ein-Klick Installationen und Deinstallationen möglich sind.
+Windows 10 "Anniversary Update" kann win32-`.exe`-Dateien ausführen, indem man sie zusammen mit einem virtualisiertem Dateisystem und einer Registry startet. Beides wird während der Kompilierung erstellt durch das Ausführen der App und des Installer in einem Windows-Container. Dies erlaubt Windows genau zu identifizieren, welche Änderungen während der Installation am Betriebssystem gemacht werden. Das Zusammenbringen der Programmdatei mit einem virtuellem Dateisystem und einer virtuellen Registry erlaubt Windows, dass Ein-Klick Installationen und Deinstallationen möglich sind.
 
 Zusätzlich wird die exe innerhalb eines appx-Modells ausgeführt. Somit können viele der APIs genutzt werden, welche in der Universellen Windows-Plattform verfügbar sind. Um noch mehr Möglichkeiten zu bekommen, kann sich eine Electron-App im Hintergrund mit einem unsichtbaren UWP-Hintergrund-Task verbinden, welcher zusammen mit der `exe` startet. Sie wird als eine Art "Handlanger" gestartet, um Tasks im Hintergrund zu starten, damit Push Notifications empfangen werden können oder um mit anderen UWP-Anwendungen kommunizieren zu können.
 
@@ -24,7 +24,7 @@ npm install -g electron-windows-store
 
 ## Schritt 1: Die Electron Anwendung packen
 
-Packen Sie die Anwendung mittels des [Electron-Packagers](https://github.com/electron-userland/electron-packager) (oder einer vergleichbaren Anwendung). Make sure to remove `node_modules` that you don't need in your final application, since any module you don't actually need will increase your application's size.
+Packen Sie die Anwendung mittels des [Electron-Packagers](https://github.com/electron-userland/electron-packager) (oder einer vergleichbaren Anwendung). Bitte entfernen Sie, falls notwendig, den `node_modules` Ordner, da dieser in der Prdouktion nicht mehr benötigt wird. Ungenutzte Abhängigkeiten erhöhen den Speicherplatzbedarf der App unnötig.
 
 Die Ausgabe sollte etwa wie folgt aussehen:
 
@@ -54,7 +54,7 @@ Die Ausgabe sollte etwa wie folgt aussehen:
 
 ## Schritt 2: Ausführen des Electron-Windows-Store
 
-From an elevated PowerShell (run it "as Administrator"), run `electron-windows-store` with the required parameters, passing both the input and output directories, the app's name and version, and confirmation that `node_modules` should be flattened.
+Starten Sie die Windows-Powershell mit Administratorenrechen und führen Sie den Befehl `electron-windows-store` unter Angabe der restlichen benötigten Parameter aus. Hierzu gehören Applikationsordner (in dem sich der Quellcode der Applikation befindet) sowie Ausgabeordner (in dem die kompilierte App gespeichert wird), Name und Version der App und die Bestätigung, dass der node_modules Ordner gelöscht werden kann.
 
 ```powershell
 electron-windows-store `
@@ -65,9 +65,9 @@ electron-windows-store `
     --package-name myelectronapp
 ```
 
-Once executed, the tool goes to work: It accepts your Electron app as an input, flattening the `node_modules`. Then, it archives your application as `app.zip`. Using an installer and a Windows Container, the tool creates an "expanded" AppX package - including the Windows Application Manifest (`AppXManifest.xml`) as well as the virtual file system and the virtual registry inside your output folder.
+Bei Ausführung des Befehls beginnt das Tool zu arbeiten: Der angegebene Applikationsordner wird auf den node_modules Ordner untersucht und ggf. wird dieser gelöscht und die Applikation wird als `app.zip` ins ZIP-Format archiviert. Anschließend wird ein AppX-Paket, welches ein - den Angaben bei Befehlsaufruf entsprechendes - Windows Application Manifest erstellt (`AppXManifest.xml`). Außerdem erstellt es einen Windows Container mit einem Virtuellen Dateisystem und einer virtuellen Registry neben der ZIP-Datei im Ausgabeordner.
 
-Once the expanded AppX files are created, the tool uses the Windows App Packager (`MakeAppx.exe`) to create a single-file AppX package from those files on disk. Finally, the tool can be used to create a trusted certificate on your computer to sign the new AppX package. With the signed AppX package, the CLI can also automatically install the package on your machine.
+Nachdem alle erforderlichen Dateien erstellt wurden nutzt das Tool den Windows App Packager (`MakeAppx.exe`), um diese in einer einzigen AppX-Package Datei zusammenzufassen. Anschließend kann das Tool dazu benutzt werden, die App mit einem vertrauenswürdigen Zertifikat zu signieren. Außerdem kann es dazu verwendet werden, das signierte Paket auf Ihrem Computer zu installieren.
 
 ## Schritt 3: Nutzen des AppX Pakets
 
