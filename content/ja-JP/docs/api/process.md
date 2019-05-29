@@ -97,7 +97,7 @@ A `Boolean` that controls whether or not deprecation warnings are printed to `st
 
 ### `process.type`
 
-A `String` representing the current process's type, can be `"browser"` (i.e. main process), `"renderer"`, or `"worker"` (i.e. web worker).
+現在のプロセスの種類を表す `String` で、 `"browser"` (すなわちメインプロセス)、`"renderer"` または `"worker"` (すなわち web worker) の値をとります。
 
 ### `process.versions.chrome`
 
