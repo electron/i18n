@@ -1,5 +1,9 @@
 #!/usr/bin/env ts-node
 
+if (!process.env.GH_TOKEN || !process.env.CROWDIN_KEY) {
+  require('dotenv-safe').load()
+}
+
 import * as del from 'del'
 import * as fs from 'fs'
 import * as got from 'got'
@@ -27,7 +31,10 @@ interface IElectronDocsResponse {
 
 let release: IResponse
 
-main()
+main().catch((err: Error) => {
+  console.log('Something goes wrong. Error: ', err)
+  process.exit(1)
+})
 
 async function main() {
   await del(englishBasepath)
