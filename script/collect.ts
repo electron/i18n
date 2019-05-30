@@ -33,14 +33,11 @@ interface IElectronDocsResponse {
 
 let release: IResponse
 
-// main().catch((err: Error) => {
-//   console.log('Something goes wrong. Error: ', err)
-//   process.exit(1)
-// })
+main().catch((err: Error) => {
+  console.log('Something goes wrong. Error: ', err)
+  process.exit(1)
+})
 
-getSupportedBranches()
-
-// @ts-ignore
 async function main() {
   await del(englishBasepath)
   await getSupportedBranches()
@@ -53,6 +50,8 @@ async function main() {
 }
 
 async function getSupportedBranches() {
+  console.log('Fetching latest 4 supported versions')
+
   const resp = await github.repos.listBranches({
     owner: 'electron',
     repo: 'electron',
@@ -66,9 +65,8 @@ async function getSupportedBranches() {
     .sort()
     .slice(-NUM_SUPPORTED_VERSIONS)
 
-  console.log("wow see I'm can find these branches", filteredBranches)
   writeToPackageJSON('supportedVersions', filteredBranches)
-  return filteredBranches
+  return Promise.resolve()
 }
 
 async function fetchRelease () {
