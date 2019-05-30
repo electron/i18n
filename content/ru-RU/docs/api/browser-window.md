@@ -352,21 +352,21 @@ window.onbeforeunload = (e) => {
 
 #### Событие: 'enter-full-screen'
 
-Вызывается, когда окно переходит в полноэкранный режим.
+Происходит, когда окно переходит в полноэкранный режим.
 
 #### Событие: 'leave-full-screen'
 
-Вызывается, когда окно выходит из полноэкранного режима.
+Происходит, когда окно выходит из полноэкранного режима.
 
 #### Событие: 'enter-html-full-screen'
 
-Emitted when the window enters a full-screen state triggered by HTML API.
+Происходит, когда окно входит в полноэкранный режим с помощью HTML API.
 
 #### Событие: 'leave-html-full-screen'
 
-Emitted when the window leaves a full-screen state triggered by HTML API.
+Происходит, когда окно выходит из полноэкранного режима с помощью HTML API.
 
-#### Event: 'always-on-top-changed' *macOS*
+#### Событие: 'always-on-top-changed' *macOS*
 
 Возвращает:
 
