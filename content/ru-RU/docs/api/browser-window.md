@@ -308,20 +308,20 @@ window.onbeforeunload = (e) => {
 
 #### Событие: 'minimize'
 
-Вызывается, когда окно было свёрнуто.
+Происходит, когда окно было свернуто.
 
 #### Событие: 'restore'
 
-Вызывается, когда окно восстанавливается из свёрнутого состояния.
+Происходит, когда окно восстанавливается из свернутого состояния.
 
-#### Event: 'will-resize' *macOS* *Windows*
+#### Событие: 'will-resize' *macOS* *Windows*
 
 Возвращает:
 
 * `event` Event
-* `newBounds` [`Rectangle`](structures/rectangle.md) - Size the window is being resized to.
+* `newBounds` [`Rectangle`](structures/rectangle.md) - размер окна, на который будет изменено.
 
-Emitted before the window is resized. Calling `event.preventDefault()` will prevent the window from being resized.
+Происходит перед изменением размера окна. Вызов `event.preventDefault()` предотвратит изменение размера окна.
 
 Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
 
