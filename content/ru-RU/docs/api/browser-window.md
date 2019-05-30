@@ -382,33 +382,33 @@ window.onbeforeunload = (e) => {
 * `event` Event
 * `command` String
 
-Происходит, когда вызывается [команда приложения](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx). These are typically related to keyboard media keys or browser commands, as well as the "Back" button built into some mice on Windows.
+Происходит, когда вызывается [команда приложения](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx). Обычно это касается клавиатурных медиа-клавиш или команд браузера, а также кнопки "Назад", встроенной в некоторые мыши на Windows.
 
-Commands are lowercased, underscores are replaced with hyphens, and the `APPCOMMAND_` prefix is stripped off. e.g. `APPCOMMAND_BROWSER_BACKWARD` is emitted as `browser-backward`.
+Команды в нижнем регистре, подчеркивание заменено на дефисы, а префикс `APPCOMMAND_` обрезан. например `APPCOMMAND_BROWSER_BACKWARD` происходит как `browser-backward`.
 
 ```javascript
 const { BrowserWindow } = require('electron')
 let win = new BrowserWindow()
 win.on('app-command', (e, cmd) => {
-  // Возврат на предидущий экран, когда пользователь мышкой нажимает кнопку "назад"
+  // Возврат на предыдущий экран, когда пользователь мышкой нажимает кнопку "назад"
   if (cmd === 'browser-backward' && win.webContents.canGoBack()) {
     win.webContents.goBack()
   }
 })
 ```
 
-The following app commands are explictly supported on Linux:
+Следующие команды приложения явно поддерживаются на Linux:
 
 * `browser-backward`
 * `browser-forward`
 
 #### Событие: 'scroll-touch-begin' *macOS*
 
-Emitted when scroll wheel event phase has begun.
+Происходит, когда начинается этап события колеса прокрутки.
 
 #### Событие: 'scroll-touch-end' *macOS*
 
-Emitted when scroll wheel event phase has ended.
+Происходит, когда заканчивается этап события колеса прокрутки.
 
 #### Событие: 'scroll-touch-edge' *macOS*
 
