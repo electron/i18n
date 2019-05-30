@@ -323,32 +323,32 @@ window.onbeforeunload = (e) => {
 
 Происходит перед изменением размера окна. Вызов `event.preventDefault()` предотвратит изменение размера окна.
 
-Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
+Обратите внимание, что это происходит, только когда размер окна будет изменяться вручную. Изменение размера окна с помощью `setBounds`/`setSize` не вызовет это событие.
 
 #### Событие: 'resize'
 
-Emitted after the window has been resized.
+Происходит после того, как изменился размер окна.
 
-#### Event: 'will-move' *Windows*
+#### Событие: 'will-move' *Windows*
 
 Возвращает:
 
 * `event` Event
-* `newBounds` [`Rectangle`](structures/rectangle.md) - Location the window is being moved to.
+* `newBounds` [`Rectangle`](structures/rectangle.md) - расположение, куда окно будет перемещено.
 
-Emitted before the window is moved. Calling `event.preventDefault()` will prevent the window from being moved.
+Происходит перед перемещением окна. Вызов `event.preventDefault()` предотвратит перемещение окна.
 
-Note that this is only emitted when the window is being resized manually. Resizing the window with `setBounds`/`setSize` will not emit this event.
+Обратите внимание, что это происходит, только когда размер окна будет изменяться вручную. Изменение размера окна с помощью `setBounds`/`setSize` не вызовет это событие.
 
 #### Событие: 'move'
 
-Вызывается, когда окно перемещено на новое место.
+Происходит, когда окно перемещено на новое место.
 
-**Note**: On macOS this event is an alias of `moved`.
+**Примечание**: На macOS это событие является псевдонимом `moved`.
 
 #### Событие: 'moved' *macOS*
 
-Вызывается единожды, когда окно перемещается в новое положение.
+Происходит единожды, когда окно перемещается в новое положение.
 
 #### Событие: 'enter-full-screen'
 
