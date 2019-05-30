@@ -1,6 +1,6 @@
-# Glosarium
+# Glossary
 
-Halaman ini mendefinisikan beberapa terminologi yang umum digunakan dalam pengembangan Elektron .
+Halaman ini mendefinisikan beberapa terminologi yang umum digunakan dalam pengembangan Elektron.
 
 ### ASAR
 

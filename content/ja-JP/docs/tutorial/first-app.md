@@ -67,7 +67,7 @@ npm install --save-dev electron
 
 Electron をインストールする手段は他にもあります。 プロキシ、ミラー、カスタムキャッシュの使用方法については、[インストールガイド](installation.md) を参照して下さい。
 
-## 3分くらいでわかるElectronアプリ開発
+## 3分でわかるElectronアプリ開発
 
 Electron アプリは Node.js の開発にある原理や方法と同じものを使いながら JavaScript で開発されています。 Electron 内のすべてのAPIと機能は、他の Node.js モジュールと同じように必要に応じて `electron` オブジェクトを通してアクセスできます。
 
@@ -170,9 +170,9 @@ app.on('activate', () => {
   </head>
   <body>
     <h1>Hello World!</h1>
-    node <script>document.write(process.versions.node)</script>、
-    Chrome <script>document.write(process.versions.chrome)</script>、
-    Electron <script>document.write(process.versions.electron)</script>を使用しています。
+    We are using node <script>document.write(process.versions.node)</script>,
+    Chrome <script>document.write(process.versions.chrome)</script>,
+    and Electron <script>document.write(process.versions.electron)</script>.
   </body>
 </html>
 ```
