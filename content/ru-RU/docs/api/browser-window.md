@@ -404,15 +404,15 @@ win.on('app-command', (e, cmd) => {
 
 #### Событие: 'scroll-touch-begin' *macOS*
 
-Происходит, когда начинается этап события колеса прокрутки.
+Происходит, когда начинается прокрутка колеса.
 
 #### Событие: 'scroll-touch-end' *macOS*
 
-Происходит, когда заканчивается этап события колеса прокрутки.
+Происходит, когда заканчивается прокрутка колеса.
 
 #### Событие: 'scroll-touch-edge' *macOS*
 
-Emitted when scroll wheel event phase filed upon reaching the edge of element.
+Происходит, когда прокрутка колеса достигает края элемента.
 
 #### Событие: 'swipe' *macOS*
 
@@ -421,19 +421,19 @@ Emitted when scroll wheel event phase filed upon reaching the edge of element.
 * `event` Event
 * `direction` String
 
-Emitted on 3-finger swipe. Possible directions are `up`, `right`, `down`, `left`.
+Происходит при свайпе тремя пальцами. Возможные направления: `up`, `right`, `down` и `left`.
 
 #### Событие: 'sheet-begin' *macOS*
 
-Emitted when the window opens a sheet.
+Происходит, когда окно открывает лист.
 
 #### Событие: 'sheet-end' *macOS*
 
-Emitted when the window has closed a sheet.
+Происходит, когда окно закрыло лист.
 
 #### Событие: 'new-window-for-tab' *macOS*
 
-Emitted when the native new tab button is clicked.
+Происходит, когда нажимается нативная кнопка новой вкладки.
 
 ### Статические методы
 
