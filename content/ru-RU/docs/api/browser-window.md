@@ -373,16 +373,16 @@ window.onbeforeunload = (e) => {
 * `event` Event
 * `isAlwaysOnTop` Boolean
 
-Emitted when the window is set or unset to show always on top of other windows.
+Происходит, когда окно переключает режим отображения поверх всех окон.
 
-#### Event: 'app-command' *Windows* *Linux*
+#### Событие: 'app-command' *Windows* *Linux*
 
 Возвращает:
 
 * `event` Event
 * `command` String
 
-Вызывается, когда вызван [App Command](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx). These are typically related to keyboard media keys or browser commands, as well as the "Back" button built into some mice on Windows.
+Происходит, когда вызывается [команда приложения](https://msdn.microsoft.com/en-us/library/windows/desktop/ms646275(v=vs.85).aspx). These are typically related to keyboard media keys or browser commands, as well as the "Back" button built into some mice on Windows.
 
 Commands are lowercased, underscores are replaced with hyphens, and the `APPCOMMAND_` prefix is stripped off. e.g. `APPCOMMAND_BROWSER_BACKWARD` is emitted as `browser-backward`.
 
