@@ -70,5 +70,11 @@
   "electronMasterBranchCommit": "02dc1b266c22be644bb7bb0467eb541678f0892a",
   "engines": {
     "node": ">=10"
-  }
+  },
+  "majorVersions": [
+    "4-1-x",
+    "4-2-x",
+    "5-0-x",
+    "6-0-x"
+  ]
 }

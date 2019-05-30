@@ -14,6 +14,8 @@ import * as Octokit from '@octokit/rest';
 const electronDocs = require('electron-docs')
 const englishBasepath = path.join(__dirname, '..', 'content', 'en-US')
 
+const NUM_SUPPORTED_VERSIONS = 4
+
 const github = new Octokit({
   auth: process.env.GH_TOKEN ? process.env.GH_TOKEN : ''
 })
@@ -31,19 +33,42 @@ interface IElectronDocsResponse {
 
 let release: IResponse
 
-main().catch((err: Error) => {
-  console.log('Something goes wrong. Error: ', err)
-  process.exit(1)
-})
+// main().catch((err: Error) => {
+//   console.log('Something goes wrong. Error: ', err)
+//   process.exit(1)
+// })
 
+getSupportedBranches()
+
+// @ts-ignore
 async function main() {
   await del(englishBasepath)
+  await getSupportedBranches()
   await fetchRelease()
   await fetchAPIDocsFromLatestStableRelease()
   await fetchApiData()
   await getMasterBranchCommit()
   await fetchTutorialsFromMasterBranch()
   await fetchWebsiteContent()
+}
+
+async function getSupportedBranches() {
+  const resp = await github.repos.listBranches({
+    owner: 'electron',
+    repo: 'electron',
+  })
+
+  const filteredBranches = resp.data
+    .filter(branch => {
+      return branch.protected && branch.name.match(/[0-9]-[0-9]-x/)
+    })
+    .map(b => b.name)
+    .sort()
+    .slice(-NUM_SUPPORTED_VERSIONS)
+
+  console.log("wow see I'm can find these branches", filteredBranches)
+  writeToPackageJSON('supportedVersions', filteredBranches)
+  return filteredBranches
 }
 
 async function fetchRelease () {
@@ -139,7 +164,7 @@ function writeDoc (doc: IElectronDocsResponse) {
   // console.log('   ' + path.relative(englishBasepath, filename))
 }
 
-function writeToPackageJSON (key: string, value: string) {
+function writeToPackageJSON (key: string, value: string | Array<string>) {
   const pkg = require('../package.json')
   pkg[key] = value
   fs.writeFileSync(
