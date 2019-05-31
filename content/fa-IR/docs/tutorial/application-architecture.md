@@ -4,7 +4,7 @@ Before we can dive into Electron's APIs, we need to discuss the two process type
 
 ## فرآیندهای اصلی و رندرینگ
 
-در الکترون، پروسه ها با صدا کردن اسکریپت اصلی package.json اجرا می شوند. The script that runs in the main process can display a GUI by creating web pages. An Electron app always has one main process, but never more.
+در الکترون، پروسه ها با صدا کردن اسکریپت اصلی package.json اجرا می شوند. The script that runs in the main process can display a GUI by creating web pages. یک برنامه ی الکترون همواره از یک فرآیند اصلی تشکیل میشود نه بیشتر.
 
 از آنجا که الکترون برای نمایش صفحات وب از Chromium استفاده می‌کند، از معماری چند پردازشی هم بهرمند می‌شود. هر صفحه وب در الکترون پروسه خود را برای اجرا دارد، هر کدام پردازش جداگانه دارد.
 
